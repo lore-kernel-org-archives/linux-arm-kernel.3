@@ -4,80 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A495CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17940CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLh+ENzud1W7jlMwtzalp6l/ROxXZyI85Y4rCwOcmlM=; b=LhaAI+9Z/g+FvHB+8jXr5y6BG6
-	w0SHZIKyzXkMrK0FHoUS1CKT+YnH7TyAGLittaZ38D0XBT8/o3oqiZ327cvqDolrhh1xPiFWhent0
-	gw+3xL+JnNe/4PpaslbIO9tI3OvVNS6HzUCLuApEeQKBnif6u6I4T6/UeRhO5i6YWwAI6xNbupBHO
-	g3tsJwTjgOl0PR/glourlc+T1Z+F81y8Vip6eTr/5z6PcdApOB3h+vUpRKiBXvvAa0i+/c9OC/6Fm
-	A1MoPWy8HfHnTOzF6Mf41L2Fm2AjnDxbh5yd0o+RZAnZz3gd1JY5f6Xnt79GYOqrm9NJ9uWRliJR/
-	X80wz8tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGpFe92e77m4D8HWFN0+Ju+uFYYNnbJLyePdrrBrkno=; b=F3owkKz1fRC/wrl0R4qI5WRSDb
+	QL3QCCQ0Vha4qQr1gjUmxLSI2UlGU4LSfW87PgWgU5nWUU80p7DgUoEFp+bOlTuFe2lgGPiCia2O5
+	9Okpe6t3Wzl3XDKSKN5/PVKHo1Tv9ZIonTU4vX8pvDbCT7m6TIfdedJrX9ZSe00uc5Hy5WokKS5ei
+	VC2/quv7+Xe30w7BOxDc62ixmTj5i1OOmPf2lvz299bbhQaLz/RONRKw7AKU1vurVWN60F40EZ+ju
+	OatACKO/f3x5Ljmgbkv0zJQs8mmf16H0uESTkGPmLveKIbwYXaelX6M39T0ZQBSFx/DXmh3nDxsPd
+	/siMpZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcLZ-0000000BZb3-1Tt8;
-	Fri, 02 Oct 2026 12:26:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCcOb-0000000BZtP-0Weq;
+	Fri, 02 Oct 2026 12:29:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcLY-0000000BZau-0CAf
+	id 1xCcOY-0000000BZsq-2qh9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 12:26:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F32843F01;
-	Fri,  2 Oct 2026 12:26:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147F61F00893;
-	Fri,  2 Oct 2026 12:26:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790943999;
-	bh=CLh+ENzud1W7jlMwtzalp6l/ROxXZyI85Y4rCwOcmlM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j7eGrxGoMElYV4W9Lz4fI2ZW4MqRmu+5mNpqqKCzc/Dby0H12nTiNsAm0tuZic02q
-	 jpLGsjnOS0AQPYWo1JSS4pR6QnP7JKldDGLWQyG278rGB7vghxFUIUdxJ62oYuVAjo
-	 1Fc5ozTZQg91N6QyeQtboasYsYG7gPi+oRhH8eYE7dXmmf5T3vd+qMGU01fe+//6y6
-	 aIzpCSzgXlaFJWsLankN9iqkW9sRcRYLWcJNizGYfQVaP/hp2R01LuP0ZrqN4sDQfi
-	 +8UbBAP+Q/XamlwFJ2fnhXthNVpCcwgsnqZoVN2dwaBXtrqwlrkZZRYPlvKIQ2x5GB
-	 8u8p8cTo/Q0ug==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xCcLU-0000000GDNO-42kB;
-	Fri, 02 Oct 2026 12:26:37 +0000
-Date: Fri, 02 Oct 2026 13:26:36 +0100
-Message-ID: <86tsn42sqr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Kohei Enju <enju.kohei@fujitsu.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA erratum E#030003
-In-Reply-To: <20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
-References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
-	<20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: misono.tomohiro@fujitsu.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, tglx@kernel.org, radu@rendec.net, enju.kohei@fujitsu.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 02 Oct 2026 12:29:48 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6929ndK73935171
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Oct 2026 12:29:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vGpFe92e77m4D8HWFN0+Ju+uFYYNnbJLyePdrrBrkno=; b=a6GYOxqyrbft66Qu
+	nkXDlGpXuSpkhzOnmlxQc2oPmbcjG6RteGKwtYZsCIX6YtZ1HKpklhS/eTABRHVP
+	ZPwgfER9zZCZ0GfJ2vUWGsd/Z+I4D0jDTEqr8rAJmj3r3e2UZjU5WSUlMKTUcjUA
+	JiQnq0yQ7fL0dwLKByXpJYWw2ZknYH2/zoKSIaV1unQioLrjpncUI86/GS5XGw46
+	yrBjOyOB5fAb5xfP2lczdKkYR1Q0mPVh+Kt53WhQULldjclOqpFhTdp7YuE55f7a
+	FvuiDnQc1B6Naw+jqeydp7ECZrKrjVVNWvPU4kEKgZmw2LwAHZ7fI89LvDFb7mNI
+	1vwiuw==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1vxeb0tp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:29:46 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3a4a0017549so5957444a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 05:29:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790944185; x=1791548985; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vGpFe92e77m4D8HWFN0+Ju+uFYYNnbJLyePdrrBrkno=;
+        b=b23BLkVi50iTEa4UDjHMxZ6UYBu80x+v3pWtDruzmcbyfSd+VV3OQbuTznoTk2kLTo
+         1bW4jgYXwSoURVdNDpsOgE03O/AYFnTXJNZOCAG6U020koclM9rWpH99IJYMZpUg3XLb
+         pCJMnEfZlL0erwUd3gGXqLHuozdxaQIWERkvkWbcriCcPFUGPegSgj9BuLzYnIK8WT4o
+         8zVkBVpLgbIJKb+M3yCTQBQaLr8IFRsOe0h7Gh8d7gA0uc2AihFn5pP+IR2DT2RpfLC5
+         uUCF9EPVYeARTRuLTpzuuRsvTqDOAvwzKg6dF8ALMRzLwAJQb3N4pcFyqSwbOYB8FvGL
+         TStg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790944185; x=1791548985;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vGpFe92e77m4D8HWFN0+Ju+uFYYNnbJLyePdrrBrkno=;
+        b=2yjaFc1kwJVCwYfWnzu/H9CO5HlCYN6jEeZzCTLXmCsU5E5Q0Xab2gJmIhZwmCHGd8
+         SahESY60fonOo/2FMNDb0aY5Ume9lE2HPaHsYLBKOIPyimz1OUY61ElXaKNtinlVhRSK
+         sLpLHhPcGTAOsNEBuP+rS5XFE858gkh7aMTJHuHqo0+/b+cyJNgUVIEE6QBI55JVULvO
+         Va9l7LqmA8ruI4TW+73UaeX3ApRurR5xUTUdQq/YbNbEd+FOmfs/lWeW8w21JQ1oUHXx
+         98X9RfMcB/Qbxv9Q5wFipaZPx6MM1cfs+qBhYX9kAs6AUtRFE0KA6g/GAMpTN7DELSZz
+         Nzag==
+X-Forwarded-Encrypted: i=1; AKwUvBxJiB9WGAico8Qi7i3xUDJCQzF1siKkKfyrwCSuSML1uqCSD6hdaedVps4kELU9yDwSZuN5QSAMt1OavVUCBuCb@lists.infradead.org
+X-Gm-Message-State: AFq9FYIZ/+xfoAFHDryhbv2KrBEwfKxghUnjQu7z2IE9eeo8je3TaEHV
+	eT/ItO83Y3cNmyP6CjCKYVEudtGkq17uhOxvbo5qYOO499Sqs/MJLskiZV8+s+mn47YU8PM1oUK
+	FA9X7d0dBdEki0QOCRrxFXEv/urXZMu+Iz+4cSRtt5pfxeON4Ji82b0eXnYjj8VnOgdXo6IWadU
+	o59A==
+X-Gm-Gg: AYBFou0wPS/QYw2rDdclQJn5T3tt6736uQ+8ED6xkl6MZHzifOaGtA9BzuMglSbnIUw
+	AB15vVMxnKd3OsQIV4NzUoqG7aigi6NhFoxsdY3DOq2vWi6iltfraTpLy83Lfdvln6HW3bD832q
+	J9/BOs9nmVJl1D43aUHUdjFZQzDNlLxpJ3Inan5AuktmJRpWABH0sDV0CmFY5UgL/SyIWvKqhZ4
+	e2ZLCAl53Ikm8v6i4eF2TQp9qV96pR5oYssZspe7s/1gOJnRzv9TyvRIA0n+rwd2C0WQfKB7l9g
+	h2UJfBWlf4mDK3Gof+0l1bmolEVILVSGrLAaK0kwni7pKGVHHuN2teXvGgbj/WAefnKIO9X6qh0
+	1/xmQ3bL1r9RYEM5iY0/bJPxYStEP8SCqXcGjZNC8xlrXxqx1W2qttW5WVbQ8ojB9KL/Bow==
+X-Received: by 2002:a17:90b:518d:b0:3a4:c725:2870 with SMTP id 98e67ed59e1d1-3a6ce6cbcb4mr2417505a91.14.1790944185136;
+        Fri, 02 Oct 2026 05:29:45 -0700 (PDT)
+X-Received: by 2002:a17:90b:518d:b0:3a4:c725:2870 with SMTP id 98e67ed59e1d1-3a6ce6cbcb4mr2417472a91.14.1790944184563;
+        Fri, 02 Oct 2026 05:29:44 -0700 (PDT)
+Received: from [10.133.33.14] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4f478e750sm8913230a91.13.2026.10.02.05.29.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Oct 2026 05:29:44 -0700 (PDT)
+Message-ID: <0a4a28b8-0b26-41df-bd55-c809177a9909@oss.qualcomm.com>
+Date: Fri, 2 Oct 2026 20:29:34 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] cpufreq: CPPC: Resolve frequencies to performance
+ levels
+To: Christian Loehle <christian.loehle@arm.com>, rafael@kernel.org
+Cc: zhenglifeng1@huawei.com, viresh.kumar@linaro.org,
+        linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+        Mario Limonciello <mario.limonciello@amd.com>,
+        K Prateek Nayak <kprateek.nayak@amd.com>,
+        Huang Rui <ray.huang@amd.com>, Perry Yuan <perry.yuan@amd.com>,
+        "Gautham R . Shenoy"
+ <gautham.shenoy@amd.com>,
+        Vanshidhar Konda <vanshikonda@os.amperecomputing.com>,
+        Shubhang Kaushik <sh@gentwo.org>,
+        Pierre Gondois <pierre.gondois@arm.com>,
+        Beata Michalska <beata.michalska@arm.com>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Ionela Voinescu <ionela.voinescu@arm.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Lukasz Luba <lukasz.luba@arm.com>,
+        Jeremy Linton <jeremy.linton@arm.com>,
+        Peter Zijlstra
+ <peterz@infradead.org>, jonathanh@nvidia.com,
+        zhanjie9@hisilicon.com, Vincent Guittot <vincent.guittot@linaro.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>, zhongqiu.han@oss.qualcomm.com
+References: <20260929102957.2591657-1-christian.loehle@arm.com>
+ <20260929102957.2591657-3-christian.loehle@arm.com>
+Content-Language: en-US
+From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+In-Reply-To: <20260929102957.2591657-3-christian.loehle@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=fdc4WEQF c=1 sm=1 tr=0 ts=6abfa3ba cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=7CQSdrXTAAAA:8 a=g-wu5bF9rX8ehRTGOaUA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: wBOqqiKj5EY3pTHciUfeI8NpznOVOTHJ
+X-Proofpoint-ORIG-GUID: wBOqqiKj5EY3pTHciUfeI8NpznOVOTHJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDA0OSBTYWx0ZWRfX2TWJG62mXoAX
+ jhZFOE9FPZYrhQe5ZJBGXMWZHHAn/p1KHjCgvKTwRlTZ8TEPH8dIAcssruhakSBsRgsAiKgRIdB
+ gE5Y7qvph6ITl9vnjK1Nvu3H7gvGGs81siYvjyNc5bCypVx7ESyAuBM6M0qJug0DogChlPNQXNs
+ Bz3e3TR42BP9ahr7DsVzMacMbJmDsncQx5ZuozMLKD21jg2p+Mg+Hmw4+vGcRnKrAuAtvoJe72J
+ 5ttDRu0CXhHY8lJBaCTaL4FkJ3vVTgujqS6gWXE+8J9/4O/qTZVOIQVHlZxSxQMNQN7AgoCuWG4
+ +Jlt+LlZBdGBPWb48WVrWsb+z49FzlxmUJb5lFbCWt+Cv9Qmauz+ljAL3qcQHd4EBfmL4zMPVEy
+ iWL61Ck3WNKRHHi1BBhYEqlxAm5dxWl1YbCUXZtNEW/tq8dGmTeWLdq9XHGBan341EWSBsoiu12
+ 7nOxp3UckdzOsih/6Og==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDA0OSBTYWx0ZWRfX6r0v1SzTI9A6
+ A+3wKGSsYRpr38Cb5Efkmis0rI6fAmNfcYIXRWZl9sCUdplQadl/0xqL3BCieHGUCk/ozmdYPj3
+ v7/atyn34ZbHKeEMDV2yox8qDVXtPkU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-02_03,2026-10-01_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 impostorscore=0 bulkscore=0 clxscore=1015
+ priorityscore=1501 suspectscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020049
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_052946_747707_A6DF4C89 
+X-CRM114-Status: GOOD (  29.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,187 +172,420 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Oct 2026 11:26:52 +0100,
-Tomohiro Misono <misono.tomohiro@fujitsu.com> wrote:
-> 
-> From: Kohei Enju <enju.kohei@fujitsu.com>
-> 
-> On affected FUJITSU-MONAKA CPUs, an SGI generated by writing to
-> ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1 may be lost if the
-> operation races with CPU interface processing triggered by the arrival
-> of a higher-priority interrupt, an update to a pending interrupt, or a
-> transition of the PE to the Sleep state. When this occurs, the system
-> register write does not complete, causing the issuing core to hang.
->
+Hi Christian,
 
-Is the SGI lost? Or is the sender core hanging?
 
-I expect that virtualised accesses to these registers are not
-affected, since they trap, but it'd be good to document this.
-
-> Work around the erratum by writing 1 to the bit corresponding to the
-> target SGI INTID in GICR_ISPENDR0 of each target PE's GIC Redistributor,
-> instead of writing to the affected system registers.
+On 9/29/2026 6:29 PM, Christian Loehle wrote:
+> Different kHz requests can select the same CPPC performance level.
+> Implement ->resolve_freq() so governors such as schedutil can skip
+> redundant writes.
 > 
-> The affinity topology of affected systems has Aff0 == 0 for every PE,
-> with PEs distinguished by higher affinity levels. Consequently, an
-> ICC_SGI1R_EL1 write can target only one PE, so the workaround does not
-> increase the number of writes required to send an SGI to multiple PEs.
->
-> Accessing a target PE's GICR_ISPENDR0 requires its Redistributor base to
-> have been discovered. Affected platforms conform to SBBR, which requires
-> PSCI for secondary CPU boot. They therefore do not use the ACPI Parking
-> protocol, which sends an IPI before the secondary CPU has initialized
-> its Redistributor. With PSCI, a secondary CPU discovers its
-> Redistributor before becoming an IPI target.
+> Precompute the affine conversion and invert its integer rounding directly.
+> Share bounded conversions with ->target() and ->fast_switch(), choosing the
+> first performance level when several share a kHz value. Recompute limits
+> from each policy snapshot to avoid caching sysfs-shared mutable controls.
 > 
-> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+> Cap intervals at or below nominal kHz at Nominal Performance, excluding
+> boosted levels that alias it. Unchanged frequency limits then imply
+> unchanged performance limits across boost toggles.
+> 
+> After clamping to CPU limits, snap the limits to supported frequencies.
+> If none lies in the interval, collapse both limits to the highest supported
+> frequency not above its maximum, as frequency-table verification does.
+> 
+> Signed-off-by: Christian Loehle <christian.loehle@arm.com>
 > ---
->  Documentation/arch/arm64/silicon-errata.rst |  2 ++
->  drivers/irqchip/irq-gic-v3.c                | 48 +++++++++++++++++++++++++++++
->  2 files changed, 50 insertions(+)
+>   drivers/cpufreq/cppc_cpufreq.c | 257 ++++++++++++++++++++++++++++++---
+>   1 file changed, 239 insertions(+), 18 deletions(-)
 > 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 429bdf9a3d9d..13328a30df59 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -377,6 +377,8 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Fujitsu        | MONAKA          | E#030002        | FUJITSU_ERRATUM_030002      |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| Fujitsu        | MONAKA GICv3/v4 | E#030003        | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ASR            | ASR8601         | #8601001        | N/A                         |
->  +----------------+-----------------+-----------------+-----------------------------+
-> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> index 6e1fa5b247fc..e73fea8a0e27 100644
-> --- a/drivers/irqchip/irq-gic-v3.c
-> +++ b/drivers/irqchip/irq-gic-v3.c
-> @@ -80,6 +80,8 @@ static DEFINE_STATIC_KEY_FALSE(gic_nvidia_t241_erratum);
->  
->  static DEFINE_STATIC_KEY_FALSE(gic_arm64_2941627_erratum);
->  
-> +static DEFINE_STATIC_KEY_FALSE(gic_fujitsu_030003_erratum);
+> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+> index 4ea444ff889e..fa85efb9f701 100644
+> --- a/drivers/cpufreq/cppc_cpufreq.c
+> +++ b/drivers/cpufreq/cppc_cpufreq.c
+> @@ -18,8 +18,10 @@
+>   #include <linux/cpufreq.h>
+>   #include <linux/irq_work.h>
+>   #include <linux/kthread.h>
+> +#include <linux/math64.h>
+>   #include <linux/mutex.h>
+>   #include <linux/time.h>
+> +#include <linux/units.h>
+>   #include <linux/vmalloc.h>
+>   #include <uapi/linux/sched/types.h>
+>   
+> @@ -29,6 +31,24 @@
+>   
+>   static struct cpufreq_driver cppc_cpufreq_driver;
+>   
+> +struct cppc_perf_freq_map {
+> +	s64 offset;
+> +	u64 multiplier;
+> +	u32 divisor;
+> +};
 > +
->  static struct gic_chip_data gic_data __read_mostly;
->  static DEFINE_STATIC_KEY_TRUE(supports_deactivate_key);
->  
-> @@ -238,6 +240,9 @@ static DEFINE_PER_CPU(bool, has_rss);
->  #define gic_data_rdist()		(this_cpu_ptr(gic_data.rdists.rdist))
->  #define gic_data_rdist_rd_base()	(gic_data_rdist()->rd_base)
->  #define gic_data_rdist_sgi_base()	(gic_data_rdist_rd_base() + SZ_64K)
-> +#define gic_data_rdist_cpu(cpu)		(per_cpu_ptr(gic_data.rdists.rdist, cpu))
-> +#define gic_data_rdist_rd_base_cpu(cpu)	(gic_data_rdist_cpu(cpu)->rd_base)
-> +#define gic_data_rdist_sgi_base_cpu(cpu)	(gic_data_rdist_rd_base_cpu(cpu) + SZ_64K)
->  
->  /* Our default, arbitrary priority value. Linux only uses one anyway. */
->  #define DEFAULT_PMR_VALUE	0xf0
-> @@ -1373,6 +1378,13 @@ static void gic_send_sgi(u64 cluster_id, u16 tlist, unsigned int irq)
->  	gic_write_sgi1r(val);
->  }
->  
-> +static void gic_send_sgi_via_rdist(int cpu, unsigned int irq)
+> +struct cppc_cpufreq_data {
+> +	struct cppc_cpudata cpu_data;
+> +	struct cppc_perf_freq_map map;
+> +	unsigned int nominal_khz;
+> +};
+> +
+> +static struct cppc_cpufreq_data *
+> +cppc_cpufreq_data(struct cppc_cpudata *cpu_data)
 > +{
-> +	void __iomem *base = gic_data_rdist_sgi_base_cpu(cpu);
-> +
-> +	writel_relaxed(BIT(irq), base + GICR_ISPENDR0);
+> +	return container_of(cpu_data, struct cppc_cpufreq_data, cpu_data);
 > +}
 > +
+>   #ifdef CONFIG_ACPI_CPPC_CPUFREQ_FIE
+>   static enum {
+>   	FIE_UNSET = -1,
+> @@ -302,11 +322,159 @@ static inline void cppc_freq_invariance_exit(void)
+>   }
+>   #endif /* CONFIG_ACPI_CPPC_CPUFREQ_FIE */
+>   
+> +/* Precompute the affine mapping used by cppc_perf_to_khz(). */
+> +static void cppc_cpufreq_init_perf_map(struct cppc_perf_caps *caps,
+> +				       struct cppc_perf_freq_map *map)
+> +{
+> +	if (caps->lowest_freq && caps->nominal_freq) {
+> +		if (caps->lowest_freq == caps->nominal_freq) {
+> +			map->multiplier = (u64)caps->nominal_freq * KHZ_PER_MHZ;
 
-I don't think there is any need for a helper, given that there is a
-single caller.
+This duplicates the perf<->kHz conversion, but cppc_perf_to_khz() rounds
+its offset at MHz granularity before scaling to kHz while the new map
+scales first, so the two can differ by up to 999 kHz. In current patch
+func cppc_cpufreq_perf_limits() the max_freq operand still derives from
+cpuinfo.max_freq (old conversion) while data->nominal_khz uses the new
+one -- with boost off, could the max_freq <= data->nominal_khz test
+still be relied upon? If it goes false, will policy_max_perf become
+highest_perf and max_perf seems to end up above nominal_perf?
 
->  static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
->  {
->  	int cpu;
-> @@ -1386,6 +1398,22 @@ static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
->  	 */
->  	dsb(ishst);
->  
-> +	if (static_branch_unlikely(&gic_fujitsu_030003_erratum)) {
-> +		/*
-> +		 * The affinity topology of affected systems has Aff0 == 0 for
-> +		 * every PE; PEs are distinguished by higher affinity levels.
-> +		 * ICC_SGI1R_EL1 therefore targets only one PE per write, so
-> +		 * using GICR_ISPENDR0 does not increase the number of writes
-> +		 * required to send an SGI to multiple PEs.
-
-This is not about the number of writes, but the cost of individual
-writes. A sysreg access is almost free (at least it is on decent
-implementations), while an MMIO access is probably one of the worst
-offenders. Therefore implying that there is no extra overhead is
-likely to be misleading. The commit message has the same problem.
-
-In any case, I don't think you need to justify anything here, as the
-choice between costly SGIs and a dead CPU is pretty moot.
-
-> +		 */
-> +		for_each_cpu(cpu, mask)
-> +			gic_send_sgi_via_rdist(cpu, d->hwirq);
+> +			map->divisor = caps->nominal_perf;
+> +			map->offset = 0;
+> +		} else {
+> +			map->multiplier = (u64)(caps->nominal_freq -
+> +					   caps->lowest_freq) * KHZ_PER_MHZ;
+> +			map->divisor = caps->nominal_perf - caps->lowest_perf;
+> +			map->offset = (s64)caps->nominal_freq * KHZ_PER_MHZ -
+> +				div64_u64(caps->nominal_perf * map->multiplier,
+> +					  map->divisor);
+> +		}
+> +	} else {
+> +		map->multiplier = cppc_get_dmi_max_khz();
+> +		map->divisor = caps->highest_perf;
+> +		map->offset = 0;
+> +	}
+> +}
 > +
-> +		/* Force the above writes to GICR_ISPENDR0 to be executed */
-> +		dsb(st);
-
-This doesn't force things to be executed. This is about completion of
-the access, and with an nGnRE mapping, it doesn't enforce that the
-stores actually reach the RDs, only an arbitrary point in the memory
-subsystem.  The only way to guarantee this is to perform a read-back.
-
-If this is relying on some additional properties that are
-implementation specific, then this requires to be documented (for
-example, if the implementation treats nGnRE as nGnRnE).
-
-> +		return;
+> +static unsigned int
+> +cppc_cpufreq_perf_to_khz(const struct cppc_perf_freq_map *map, u32 perf)
+> +{
+> +	s64 freq = map->offset + div64_u64(perf * map->multiplier,
+> +					    map->divisor);
+> +
+> +	return freq > 0 ? freq : 0;
+> +}
+> +
+> +/*
+> + * Invert integer-kHz rounding: L finds the first level at or above the
+> + * target frequency, H the last at or below it, within the supplied bounds.
+> + */
+> +static u32 cppc_cpufreq_perf_for_freq(const struct cppc_perf_freq_map *map,
+> +				      unsigned int target_freq,
+> +				      u32 min_perf, u32 max_perf,
+> +				      unsigned int relation)
+> +{
+> +	s64 scaled_freq = (s64)target_freq - map->offset;
+> +	u64 perf;
+> +
+> +	switch (relation) {
+> +	case CPUFREQ_RELATION_L:
+> +		if (!target_freq || scaled_freq <= 0)
+> +			perf = 0;
+> +		else
+> +			perf = mul_u64_u64_div_u64_roundup(scaled_freq,
+> +							   map->divisor,
+> +							   map->multiplier);
+> +		break;
+> +
+> +	case CPUFREQ_RELATION_H:
+> +		if (scaled_freq < 0) {
+> +			perf = 0;
+> +		} else {
+> +			perf = mul_u64_u64_div_u64_roundup(scaled_freq + 1,
+> +							   map->divisor,
+> +							   map->multiplier);
+> +			perf--;
+> +		}
+> +		break;
+> +
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return min_perf;
 > +	}
 > +
->  	for_each_cpu(cpu, mask) {
->  		u64 cluster_id = MPIDR_TO_SGI_CLUSTER_ID(gic_cpu_to_affinity(cpu));
->  		u16 tlist;
-> @@ -1871,6 +1899,20 @@ static bool gic_enable_quirk_rk3399(void *data)
->  	return false;
->  }
->  
-> +#define SMCCC_SOC_ID_FUJITSU_MONAKA	0x00040003
-> +
-> +static bool gic_enable_quirk_fujitsu_030003(void *data)
-> +{
-> +	s32 soc_id = arm_smccc_get_soc_id_version();
-> +
-> +	/* Check JEP106 code for FUJITSU-MONAKA chip (0004:0003) */
-> +	if (soc_id != SMCCC_SOC_ID_FUJITSU_MONAKA)
-> +		return false;
-
-Why is this keyed on some firmware interface, while it is the CPU
-interface that is at fault? I'd expect that looking at the MIDR would
-be more reliable.
-
-> +
-> +	static_branch_enable(&gic_fujitsu_030003_erratum);
-> +	return true;
+> +	return clamp_t(u64, perf, min_perf, max_perf);
 > +}
 > +
->  static bool rd_set_non_coherent(void *data)
->  {
->  	struct gic_chip_data *d = data;
-> @@ -1951,6 +1993,12 @@ static const struct gic_quirk gic_quirks[] = {
->  		.mask	= 0xff000fff,
->  		.init	= gic_enable_quirk_rk3399,
->  	},
-> +	{
-> +		.desc	= "GICv3: Fujitsu erratum 030003",
-> +		.iidr	= 0x0403043b,
-> +		.mask	= 0xffffffff,
-> +		.init	= gic_enable_quirk_fujitsu_030003,
+> +static void cppc_cpufreq_perf_limits(struct cppc_perf_caps *caps,
+> +				     struct cppc_cpufreq_data *data,
+> +				     unsigned int min_freq,
+> +				     unsigned int max_freq,
+> +				     u32 *min_perf, u32 *max_perf)
+> +{
+> +	u32 policy_max_perf;
+> +
+> +	/* Do not include boosted levels that alias the nominal frequency. */
+> +	policy_max_perf = max_freq <= data->nominal_khz ?
+> +			  caps->nominal_perf : caps->highest_perf;
+> +	*min_perf = cppc_cpufreq_perf_for_freq(&data->map, min_freq,
+> +					       caps->lowest_perf,
+> +					       policy_max_perf,
+> +					       CPUFREQ_RELATION_L);
+> +	*max_perf = cppc_cpufreq_perf_for_freq(&data->map, max_freq,
+> +					       caps->lowest_perf,
+> +					       policy_max_perf,
+> +					       CPUFREQ_RELATION_H);
+> +}
+> +
+> +static unsigned int
+> +cppc_cpufreq_resolve_freq(struct cpufreq_policy *policy,
+> +			  unsigned int target_freq,
+> +			  unsigned int min_freq,
+> +			  unsigned int max_freq,
+> +			  unsigned int relation)
+> +{
+> +	struct cppc_cpudata *cpu_data = policy->driver_data;
+> +	struct cppc_perf_caps *caps = &cpu_data->perf_caps;
+> +	struct cppc_cpufreq_data *data = cppc_cpufreq_data(cpu_data);
+> +	const struct cppc_perf_freq_map *map = &data->map;
+> +	u32 min_perf, max_perf, perf;
+> +
+> +	cppc_cpufreq_perf_limits(caps, data, min_freq, max_freq,
+> +				 &min_perf, &max_perf);
+> +	if (WARN_ON_ONCE(min_perf > max_perf))
+> +		return cppc_cpufreq_perf_to_khz(map, max_perf);
+> +
+> +	switch (relation) {
+> +	case CPUFREQ_RELATION_L:
+> +	case CPUFREQ_RELATION_H:
+> +		perf = cppc_cpufreq_perf_for_freq(map, target_freq,
+> +						  min_perf, max_perf, relation);
+> +		break;
+> +	case CPUFREQ_RELATION_C: {
+> +		u32 lower = cppc_cpufreq_perf_for_freq(map, target_freq,
+> +							min_perf, max_perf,
+> +							CPUFREQ_RELATION_H);
+> +		u32 upper = cppc_cpufreq_perf_for_freq(map, target_freq,
+> +							min_perf, max_perf,
+> +							CPUFREQ_RELATION_L);
+> +		unsigned int lower_freq = cppc_cpufreq_perf_to_khz(map, lower);
+> +		unsigned int upper_freq = cppc_cpufreq_perf_to_khz(map, upper);
+> +
+> +		if (lower_freq >= target_freq)
+> +			perf = lower;
+> +		else if (upper_freq <= target_freq)
+> +			perf = upper;
+> +		else if (target_freq - lower_freq < upper_freq - target_freq)
+> +			perf = lower;
+> +		else
+> +			perf = upper;
+> +		break;
+> +	}
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return target_freq;
+> +	}
+> +
+> +	return cppc_cpufreq_perf_to_khz(map, perf);
+> +}
+> +
+>   static void cppc_cpufreq_get_perf_limits(struct cppc_cpudata *cpu_data,
+>   					 struct cpufreq_policy *policy,
+>   					 u32 *min_perf, u32 *max_perf)
+>   {
+>   	struct cppc_perf_caps *caps = &cpu_data->perf_caps;
+> +	struct cppc_cpufreq_data *data = cppc_cpufreq_data(cpu_data);
+>   	unsigned int min_freq, max_freq;
+>   	u32 min, max;
+>   
+> @@ -315,11 +483,11 @@ static void cppc_cpufreq_get_perf_limits(struct cppc_cpudata *cpu_data,
+>   	if (unlikely(min_freq > max_freq))
+>   		min_freq = max_freq;
+>   
+> -	min = cppc_khz_to_perf(caps, min_freq);
+> -	max = cppc_khz_to_perf(caps, max_freq);
+> +	cppc_cpufreq_perf_limits(caps, data, min_freq, max_freq,
+> +				 &min, &max);
+>   
+> -	*min_perf = clamp_t(u32, min, caps->lowest_perf, caps->highest_perf);
+> -	*max_perf = clamp_t(u32, max, caps->lowest_perf, caps->highest_perf);
+> +	*min_perf = min(min, max);
+> +	*max_perf = max;
+>   }
+>   
+>   static void cppc_cpufreq_update_perf_limits(struct cppc_cpudata *cpu_data,
+> @@ -330,6 +498,26 @@ static void cppc_cpufreq_update_perf_limits(struct cppc_cpudata *cpu_data,
+>   				     &cpu_data->perf_ctrls.max_perf);
+>   }
+>   
+> +static unsigned int
+> +cppc_cpufreq_update_perf_ctrls(struct cppc_cpudata *cpu_data,
+> +			       struct cpufreq_policy *policy,
+> +			       unsigned int target_freq)
+> +{
+> +	struct cppc_cpufreq_data *data = cppc_cpufreq_data(cpu_data);
+> +	u32 min_perf, max_perf, desired_perf;
+> +
+> +	cppc_cpufreq_get_perf_limits(cpu_data, policy, &min_perf, &max_perf);
+> +	/* Use the first level when several share the same integer-kHz value. */
+> +	desired_perf = cppc_cpufreq_perf_for_freq(&data->map, target_freq,
+> +						  min_perf, max_perf,
+> +						  CPUFREQ_RELATION_L);
+> +	cpu_data->perf_ctrls.min_perf = min_perf;
+> +	cpu_data->perf_ctrls.max_perf = max_perf;
+> +	cpu_data->perf_ctrls.desired_perf = desired_perf;
+> +
+> +	return cppc_cpufreq_perf_to_khz(&data->map, desired_perf);
+> +}
+> +
+>   static int cppc_cpufreq_set_target(struct cpufreq_policy *policy,
+>   				   unsigned int target_freq,
+>   				   unsigned int relation)
+> @@ -339,12 +527,9 @@ static int cppc_cpufreq_set_target(struct cpufreq_policy *policy,
+>   	struct cpufreq_freqs freqs;
+>   	int ret = 0;
+>   
+> -	cpu_data->perf_ctrls.desired_perf =
+> -			cppc_khz_to_perf(&cpu_data->perf_caps, target_freq);
+> -	cppc_cpufreq_update_perf_limits(cpu_data, policy);
+> -
+>   	freqs.old = policy->cur;
+> -	freqs.new = target_freq;
+> +	freqs.new = cppc_cpufreq_update_perf_ctrls(cpu_data, policy,
+> +						   target_freq);
+>   
+>   	cpufreq_freq_transition_begin(policy, &freqs);
+>   	ret = cppc_set_perf(cpu, &cpu_data->perf_ctrls);
+> @@ -361,13 +546,12 @@ static unsigned int cppc_cpufreq_fast_switch(struct cpufreq_policy *policy,
+>   					      unsigned int target_freq)
+>   {
+>   	struct cppc_cpudata *cpu_data = policy->driver_data;
+> +	unsigned int resolved_freq;
+>   	unsigned int cpu = policy->cpu;
+> -	u32 desired_perf;
+>   	int ret;
+>   
+> -	desired_perf = cppc_khz_to_perf(&cpu_data->perf_caps, target_freq);
+> -	cpu_data->perf_ctrls.desired_perf = desired_perf;
+> -	cppc_cpufreq_update_perf_limits(cpu_data, policy);
+> +	resolved_freq = cppc_cpufreq_update_perf_ctrls(cpu_data, policy,
+> +						       target_freq);
+>   
+>   	ret = cppc_set_perf(cpu, &cpu_data->perf_ctrls);
+>   	if (ret) {
+> @@ -376,12 +560,39 @@ static unsigned int cppc_cpufreq_fast_switch(struct cpufreq_policy *policy,
+>   		return 0;
+>   	}
+>   
+> -	return target_freq;
+> +	return resolved_freq;
+>   }
+>   
+>   static int cppc_verify_policy(struct cpufreq_policy_data *policy)
+>   {
+> +	struct cpufreq_policy *cur_policy;
+> +	struct cppc_cpudata *cpu_data;
+> +	struct cppc_cpufreq_data *data;
+> +	struct cppc_perf_caps *caps;
+> +	unsigned int min_freq, max_freq;
+> +	u32 min_perf, max_perf;
+> +
+>   	cpufreq_verify_within_cpu_limits(policy);
+> +
+> +	cur_policy = cpufreq_cpu_get_raw(policy->cpu);
+> +	if (WARN_ON_ONCE(!cur_policy || !cur_policy->driver_data))
+> +		return -ENODEV;
+> +
+> +	cpu_data = cur_policy->driver_data;
+> +	data = cppc_cpufreq_data(cpu_data);
+> +	caps = &cpu_data->perf_caps;
+> +	cppc_cpufreq_perf_limits(caps, data, policy->min, policy->max,
+> +				 &min_perf, &max_perf);
+> +	min_freq = cppc_cpufreq_perf_to_khz(&data->map, min_perf);
+> +	max_freq = cppc_cpufreq_perf_to_khz(&data->map, max_perf);
+> +
+> +	/* Favor the maximum if no supported frequency lies in the interval. */
+> +	if (min_perf > max_perf || min_freq > policy->max ||
+> +	    max_freq < policy->min)
+> +		min_freq = max_freq;
+> +
+> +	policy->min = min_freq;
+> +	policy->max = max_freq;
+>   	return 0;
+>   }
+>   
+> @@ -618,12 +829,14 @@ static void populate_efficiency_class(void)
+>   
+>   static struct cppc_cpudata *cppc_cpufreq_get_cpu_data(unsigned int cpu)
+>   {
+> +	struct cppc_cpufreq_data *data;
+>   	struct cppc_cpudata *cpu_data;
+>   	int ret;
+>   
+> -	cpu_data = kzalloc_obj(struct cppc_cpudata);
+> -	if (!cpu_data)
+> +	data = kzalloc_obj(struct cppc_cpufreq_data);
+> +	if (!data)
+>   		goto out;
+> +	cpu_data = &data->cpu_data;
+>   
+>   	if (!zalloc_cpumask_var(&cpu_data->shared_cpu_map, GFP_KERNEL))
+>   		goto free_cpu;
+> @@ -640,6 +853,10 @@ static struct cppc_cpudata *cppc_cpufreq_get_cpu_data(unsigned int cpu)
+>   		goto free_mask;
+>   	}
+>   
+> +	cppc_cpufreq_init_perf_map(&cpu_data->perf_caps, &data->map);
+> +	data->nominal_khz = cppc_cpufreq_perf_to_khz(&data->map,
+> +						     cpu_data->perf_caps.nominal_perf);
+> +
+>   	ret = cppc_get_perf(cpu, &cpu_data->perf_ctrls);
+>   	if (ret) {
+>   		pr_debug("Err reading CPU%d perf ctrls: ret:%d\n", cpu, ret);
+> @@ -651,7 +868,7 @@ static struct cppc_cpudata *cppc_cpufreq_get_cpu_data(unsigned int cpu)
+>   free_mask:
+>   	free_cpumask_var(cpu_data->shared_cpu_map);
+>   free_cpu:
+> -	kfree(cpu_data);
+> +	kfree(data);
+>   out:
+>   	return NULL;
+>   }
+> @@ -659,9 +876,12 @@ static struct cppc_cpudata *cppc_cpufreq_get_cpu_data(unsigned int cpu)
+>   static void cppc_cpufreq_put_cpu_data(struct cpufreq_policy *policy)
+>   {
+>   	struct cppc_cpudata *cpu_data = policy->driver_data;
+> +	struct cppc_cpufreq_data *data;
+> +
+> +	data = container_of(cpu_data, struct cppc_cpufreq_data, cpu_data);
+>   
+>   	free_cpumask_var(cpu_data->shared_cpu_map);
+> -	kfree(cpu_data);
+> +	kfree(data);
+>   	policy->driver_data = NULL;
+>   }
+>   
+> @@ -1056,6 +1276,7 @@ static struct cpufreq_driver cppc_cpufreq_driver = {
+>   	.flags = CPUFREQ_CONST_LOOPS | CPUFREQ_NEED_UPDATE_LIMITS,
+>   	.verify = cppc_verify_policy,
+>   	.target = cppc_cpufreq_set_target,
+> +	.resolve_freq = cppc_cpufreq_resolve_freq,
+>   	.get = cppc_cpufreq_get_rate,
+>   	.fast_switch = cppc_cpufreq_fast_switch,
+>   	.init = cppc_cpufreq_cpu_init,
 
-Same problem. This is looking that the distributor instead of the CPU.
-It's OK to use it as a proxy for further filtering, but the final
-decision should probably rest on the MIDR.
-
-Thanks,
-
-	M.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Thx and BRs,
+Zhongqiu Han
 
