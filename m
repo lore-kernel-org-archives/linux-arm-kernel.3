@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9080CA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CA3CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=guSS/KYjl8+8j30rtfwxuibMm84o1LTrBp5a4oJHKrY=; b=Lx5qcz/TsvRvgdWr4Rkfc3FQ9J
-	iodm22aZbuBPuxNHf4XfLkFcS6Od9+kyUsP6CYwpC3u+vSk5L724wtLRWyqXX5KIrAViJOBjZYNj4
-	B+8bplpJm3Y7nyu4fNOjB1fOAGzUMuHBzNPtxLQpb8p8+CivUBNxvFdaPJDoFrM4CY26W+pj13f4M
-	251CssoKysx0Ku5b3d4AdyR+VnEiEUNriRlJ5giLknaeVqNL7nw2IiMSgBTIvJfBOrzEHYnwbYkyS
-	JxzPr2FF4raNK5SSoVDJVfU9qCactdAFuDRwMgeNLEXNvYMBZsLAoXbRNaK6jSi81MMZ/fZQSuajR
-	pjA9oafw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9yx8ebg2bvWYOV3tWECQ37hO2lwB9L2e0febzTmH5JU=; b=wKandQAiELPMRcA0GD7No1lbHA
+	/WouURTXw7utkExsRG8QuhH56wkIdF9R0rrBcEToPeRQ/P0FKxFI5XQm8TF6MVd92ofrU/ZJd/OXy
+	PsymVtkCs/kd7EocXilukc+mQXoivHzSNZyXdYqhOgktnbA7XJrqIJHHD8qnqQyqkSJOorJ8w074G
+	ItN6I1ZA8DXdgL646GOtpqWjVVGlqYZIW9AklklGDa8Hl9NWZ4B0QYBlsGIievJ61zdNlAqUsi0/B
+	lvuGbOOMBsQSiqqyL+i9/1awAvYNum7ov24g80WwXwVNg2/A2uheiNKXdr5ASHSKtJYz8WGnf9vIZ
+	ui4OMFuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYR8-0000000Axki-1xpO;
-	Fri, 02 Oct 2026 08:16:10 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xCYSD-0000000Axt6-3q4Z;
+	Fri, 02 Oct 2026 08:17:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYR5-0000000Axju-3JBq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 08:16:09 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e79a408deso46151745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 01:16:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790928966; x=1791533766; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=guSS/KYjl8+8j30rtfwxuibMm84o1LTrBp5a4oJHKrY=;
-        b=hFKMN/2TMcHbB5dOCUOBdS85mIZbYXsPI1vZR38QF60w1RAQnAsfbecda+E3KqamxN
-         UIoLsMFLDSg/wD3cM8tol6P0BQxSU/BIuQnOZtxw34eU2ydWnz0fe8qdu1EuArlRD0HY
-         6wx0D+RmOVcp8EOKoCwGLjMVJqn+uO6dA+FXvVbE5YaWeqpu16eUAJ+YnegvV70f940E
-         EumlGjvz3aLI1/ocO9nxZ8nblfbdb3AOBGktO9yg97gUydxAeUP8ffXkvCkxz3RG22eG
-         irWTtGa3VL6XPsY4vOgd/z0pNOGML5c4w7jgnq3l2/vZN928itn1wMF2R9pJ2AdXP/dW
-         RlSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790928966; x=1791533766;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=guSS/KYjl8+8j30rtfwxuibMm84o1LTrBp5a4oJHKrY=;
-        b=VrqPx6+GP2Ges+QYqlAbuZFZCJt3rX/1Z2AllYWkjDNAVqAH0D1QMQ98Twr975aAPl
-         Bwc1cSzLyzb70dhLUdj5bQgaMhYi9SVMgXKbUwYKSu6rF9FE8rmsitcO8/1PZE8qUfCV
-         EnQ7LjkaBfgtIjucRT2p7i8BSGraYI7+VPoNUxIAujSVqPKDjQZzsrE8P7cO9nsw1DlX
-         zo4k4kDTs3XIcxwcmfbZ5ZF9gK4L+tnxT+3buZYgbzQBBjW5i0gdyZCKmbeqy5fwt9ai
-         J9J6dfCKZ1sJ3CHPAGjj/QFGV0J+PrI+OAn8M/uqSrOmBUPhyWahiDg7xPSG5R4wN5yv
-         GkmQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwReBF24GWzfQRsHd578tZO+C2c5oNt+pdnVOzJFBo0cGIys783DflL+Z5dZcOgY3p/C6RFqiTsAkEhFs3FSm5Q@lists.infradead.org
-X-Gm-Message-State: AFuF++nPX2Umf/yaYes/Zp3mFR6mj7jBMUafEshq/bsMHJwKDSR9Fhyy
-	hzV2g4+Txp4klTKTWlnRvK4mwcCKjy/OVyiQt+QbB8L4YyQNKpjLNC6IkNBzJRKQUmw=
-X-Gm-Gg: AYBFou0KHnZFuDK9d3oCmRcYlHJbvfGNIWoS+KF5v1szyJwmtgzwgaAl3Ak7iRUBSzm
-	MFNr7J+ViB9Xo1SKEjzxnOBEVFRy7WBdoCOXch5N1ZjDS2FJ8vLcXIpnRnNhm8IiQs0AaAs+ilY
-	nGYMA8SeiIa8pBKPEJzBRQjpu9tKsN+vq4TgLxUJ84EwO6t3IqBHf9S742MK8qPPtHk208OTH0F
-	VNxIUoM2h9R5py6R+69ONkj6p9cdSYIENwQuCmAg4PbyrzDFc1GQc19PxvF6CmABw2DCfEnmeqL
-	w7SzwWsl61nC2hW5+vP5dxUgTF6ng+k9jpc4yIHMZ6BAhJ7UF/0OWPwJB/tFcdFQ3EdT9fbvsTC
-	eYmae2QXjqpv8De0sKDnCX8przhsn0D1P+k7Pa5qxzenmyMoC18Xbc55OUE8ytvUD1RBV3jsSRs
-	IuOIyJEWvnWxDIqQzJOLvjHhOvDWKrLMc+dd3U1BlJ2jkXiL6tvX2ytGkvknRB/fx9sZapmVJ/S
-	FI0h/bR37h11qjDAg==
-X-Received: by 2002:a05:600c:1d15:b0:49f:e427:e88f with SMTP id 5b1f17b1804b1-4a027564ddemr35404475e9.21.1790928965827;
-        Fri, 02 Oct 2026 01:16:05 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b380fada5sm3689482f8f.24.2026.10.02.01.16.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 01:16:05 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, Arnd
- Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
- Brunet <jbrunet+clk@baylibre.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, Steam Lin <STLin2@winbond.com>,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- devicetree@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v6 08/12] clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT
-In-Reply-To: <87o6ddmmc2.fsf@bootlin.com>
-References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
- <20260930-perso-ma35d1-upstream-clk-v6-8-48937ee6c9bb@bootlin.com>
- <1j7bk13gpq.fsf@starbuckisacylon.baylibre.com>
- <87o6ddmmc2.fsf@bootlin.com>
-Date: Fri, 02 Oct 2026 10:16:04 +0200
-Message-ID: <1jy0cg1prv.fsf@starbuckisacylon.baylibre.com>
+	id 1xCYSC-0000000Axse-3Gdw;
+	Fri, 02 Oct 2026 08:17:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C41C41E45;
+	Fri,  2 Oct 2026 08:17:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E981F000FF;
+	Fri,  2 Oct 2026 08:17:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790929036;
+	bh=9yx8ebg2bvWYOV3tWECQ37hO2lwB9L2e0febzTmH5JU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nQXXNjLkwYz58zsrBOiKsev3kSoSv0Qn6uiQT1NeTnbVNcw1p5XvMUficJ1jAi+Ak
+	 IrQUl6apYNM0BZb+MwY+skimjk4Gaz+DKfu2Z7rrlWqcHeKazOZ/231skNjWs+VoHH
+	 hvldwUO3pE+zFitrOfFP0Nw36i/xpINvewLoPaNmIPApssJKO+twQoB8Do6cTfiqc5
+	 iB8xlM34AUVUaxFI7uiDOgQFd78kW0wtR2JuI/FknTclevK64ODgJXoQ+NBv/ZOiVh
+	 paTytyIjv85kIpY8OrS5F04vP35/hXTrzck/QL84DN+aQFgoAt0oSjO6j+qJxAzJrr
+	 gQoYq19TSfH3Q==
+Date: Fri, 2 Oct 2026 10:17:05 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: robh@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com,
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	saravanak@kernel.org, akpm@linux-foundation.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev
+Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
+Message-ID: <ar9ogXc12cLjziHS@kernel.org>
+References: <20260922084256.1515554-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_011607_861260_1F68145E 
-X-CRM114-Status: GOOD (  29.15  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922084256.1515554-1-chenwandun1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,151 +78,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On jeu. 01 oct. 2026 at 18:12, Miquel Raynal <miquel.raynal@bootlin.com> wr=
-ote:
+Hi Wandun,
 
-> On 01/10/2026 at 11:36:33 +02, Jerome Brunet <jbrunet@baylibre.com> wrote:
->
->> On mer. 30 sept. 2026 at 19:24, Miquel Raynal <miquel.raynal@bootlin.com=
-> wrote:
->>
->>> HXT and LXT are crystal oscillator inputs of the clock controller, they
->>> are described in the DT, so retrieve them, in order, and store them in
->>> their respective HXT/LXT hw table entries.
->>>
->>> Since old DTs reference the HXT fixed-clock without naming it and do not
->>> describe LXT at all, we assume that HXT must be present, and fallback to
->>> creating a fixed clock for LXT if it is not described (for backward
->>> compatibility purposes).
->>>
->>> The downstream gate clocks can directly use the hw clocks as parents,
->>> instead of relying on string matching.
->>>
->>> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock c=
-ontroller")
->>> Cc: stable@vger.kernel.org
->>> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
->>> ---
->>>  drivers/clk/nuvoton/clk-ma35d1.c | 43 ++++++++++++++++++++++++++++++++=
---------
->>>  1 file changed, 35 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk=
--ma35d1.c
->>> index ceebcbd8c18b..d955d79abdd2 100644
->>> --- a/drivers/clk/nuvoton/clk-ma35d1.c
->>> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
->>> @@ -4,6 +4,7 @@
->>>   * Author: Chi-Fang Li <cfli0@nuvoton.com>
->>>   */
->>>=20=20
->>> +#include <linux/clk.h>
->>>  #include <linux/clk-provider.h>
->>>  #include <linux/mfd/syscon.h>
->>>  #include <linux/module.h>
->>> @@ -191,6 +192,15 @@ static struct clk_hw *ma35d1_clk_gate(struct devic=
-e *dev, const char *name, cons
->>>  				    reg, shift, 0, &ma35d1_lock);
->>>  }
->>>=20=20
->>> +static struct clk_hw *ma35d1_clk_gate_parent(struct device *dev, const=
- char *name,
->>> +					     struct clk_hw *parent,
->>> +					     void __iomem *reg, u8 shift)
->>> +{
->>> +	return devm_clk_hw_register_gate_parent_hw(dev, name, parent,
->>> +						   CLK_SET_RATE_PARENT,
->>> +						   reg, shift, 0, &ma35d1_lock);
->>> +}
->>> +
->>>  static int ma35d1_get_pll_setting(struct device_node *clk_node, u32 *p=
-llmode)
->>>  {
->>>  	const char *of_str;
->>> @@ -215,10 +225,12 @@ static int ma35d1_clocks_probe(struct platform_de=
-vice *pdev)
->>>  {
->>>  	struct device *dev =3D &pdev->dev;
->>>  	struct device_node *clk_node =3D pdev->dev.of_node;
->>> +	struct clk_bulk_data *clks;
->>>  	void __iomem *clk_base;
->>>  	static struct clk_hw **hws;
->>>  	static struct clk_hw_onecell_data *ma35d1_hw_data;
->>>  	u32 pllmode[PLL_MAX_NUM];
->>> +	int num_clks;
->>>  	int ret;
->>>=20=20
->>>  	ma35d1_hw_data =3D devm_kzalloc(dev,
->>> @@ -240,12 +252,27 @@ static int ma35d1_clocks_probe(struct platform_de=
-vice *pdev)
->>>  		return -EINVAL;
->>>  	}
->>>=20=20
->>> -	hws[HXT] =3D ma35d1_clk_fixed("hxt", 24000000);
->>> -	hws[HXT_GATE] =3D ma35d1_clk_gate(dev, "hxt_gate", "hxt",
->>> -					clk_base + REG_CLK_PWRCTL, 0);
->>> -	hws[LXT] =3D ma35d1_clk_fixed("lxt", 32768);
->>> -	hws[LXT_GATE] =3D ma35d1_clk_gate(dev, "lxt_gate", "lxt",
->>> -					clk_base + REG_CLK_PWRCTL, 1);
->>> +	num_clks =3D devm_clk_bulk_get_all(dev, &clks);
->>> +	if (num_clks < 0)
->>> +		return num_clks;
->>> +
->>> +	if (!num_clks) {
->>> +		dev_err(dev, "missing crystal input clocks\n");
->>> +		return -ENODEV;
->>> +	}
->>> +
->>> +	hws[HXT] =3D __clk_get_hw(clks[0].clk);
->>
->> Don't open code it. use .fw_name
->
-> Ok, if I understand your suggestion, I will go for the use of
->
->     devm_clk_hw_register_fixed_rate_parent_data()
->
-> for these fixed clocks.
->
->>
->>> +
->>> +	if (num_clks > 1)
->>> +		hws[LXT] =3D __clk_get_hw(clks[1].clk);
->>> +	else
->>> +		/* Old DTs do not describe the low-speed crystal */
->>> +		hws[LXT] =3D ma35d1_clk_fixed("lxt", 32768);
->>
->> I'd give it another name so you can clearly see the difference between t=
-he
->> DT one and the manually registered one.
->>
->>> +
->>
->> Don't need to open code this either.
->> provide both .fw_name and .name - CCF will fallback to the name.
->>
->> When you want to conditionally register the fixed is up to you.
->
-> Ok, so if my understanding is correct, I should use parent data with:
-> * .fw_name being the clock-names entry
-> * .name being the name of the clock that will be created ex-nihilo
-> Am I correct? And clock-output-names in that case has no importance at
-> all (hence this strengthen my wish to get rid of it)?
+On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> On SoCs that carve out large firmware-owned reserved memory (GPU,
+> camera ISP, ...), kdump currently dumps those carveouts as part of
+> system RAM even though their contents are firmware state that is not
+> useful for kernel crash analysis.
+> 
+> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
+> them; reusable CMA regions are different because their pages are handed
+> back to the buddy allocator and may carry crash-relevant data.
+> 
+> ACPI systems already filter reserved memory out of the vmcore through
+> their existing path; only DT-based systems currently fail to filter these
+> regions, which is what this series addresses. The flag lives in memblock
+> itself rather than in a DT-only structure, so both ACPI and DT systems
+> can benefit from it (suggested by Rob, thanks).
 
-Yes
+Can you elaborate how ACPI systems filter their reserved memory?
+With your patches, the memblock flag becomes a part of DT-only
+infrastructure, so that claim that both ACPI and DT benefit from it does
+not hold, doesn't it?
+ 
+> Since the reserved memory regions are filtered out, the vmcore is
+> smaller in size and faster to produce.
+> 
+> The series is based on linux-next and is organized as follows:
+> 
+> Patches 1-3: Preparation and bugfixes: switch riscv crash_mem to memblock,
+> 	     fold the duplicated per-arch memblock walks into the weak
+>              defaults, and serialize crash header preparation against
+>              memory hotplug.
+> Patches 4-8: NODUMP infrastructure: switch crash_core to
+>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP flag,
+> 	     add a dumpable flag to struct reserved_mem, and mark
+> 	     /reserved-memory and /memreserve/ entries with MEMBLOCK_NODUMP
+> 	     flag.
+> Patch 9:     Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
+>              header.
+> 
+> v6 --> v7:
+> 1. Fix a stale MEMBLOCK_NODUMP flag issue [1]. Memory reserved and
+>    marked as NODUMP may later be freed (the initrd, for example),
+>    so the NODUMP flag must be cleared accordingly. Since the fix is
+>    part of the NODUMP infrastructure introduced by patch 5, it has
+>    been folded into that patch.
+> 
+> 2. Drop the "generic" related description in the cover letter.
+> 
+> 3. Collect the Acked-by and Reviewed-by tags received during the v6
+>    review (thanks to Baoquan, Mike, Rob and Marek). Patch 5 is the
+>    only one without a tag, as its Reviewed-by was dropped when the
+>    fix was folded in.
+> 
+> 4. Drop patch 1 of v6, which has been merged separately.
+> 
+> 
+> v5 --> v6:
+> 1. Serialize crash header preparation against memory hotplug to avoid
+>    out-of-bounds or use-after-free issues.
+> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>    avoiding a panic from too few regions before resize is permitted.
+> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+> 
+> 
+> v4 --> v5:
+> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>    DT-only struct reserved_mem [2].
+> 2. Switch the riscv vmcore elf header preparation to use memblock
+>    instead of the resource tree, aligning it with arm64 and loongarch,
+>    so riscv also can exclude reserved memory from vmcore.
+> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>    loongarch open-coded the same logic, so fold it into shared
+>     __weak defaults in crash_core.
+> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>     directly.
+> 
+> v3 --> v4:
+> 1. Rebase this series on v7.2-rc1.
+> 2. Add two cleanup patches (patch 02/03).
+> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>    NULL multiple times, suggested by Rob.
+> 
+> v2 --> v3:
+> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
+> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+> 3. Add some prepare patches.
+> 
+> v1 --> v2:
+> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>    feedback [3], v2 drop that property and exclude reserve memory
+>    by default.
+> 2. Split some prepared patches from the original patches.
+> 3. Address coding-style comments on patch 5 from Rob.
+> 
+> [1] https://sashiko.dev/#/message/20260917220750.GA4013814-robh%40kernel.org
+> [2] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
+> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+> 
+> 
+> 
+> Wandun Chen (9):
+>   riscv: build crash_mem ranges from memblock instead of resource tree
+>   crash_core: fold duplicated memblock arch hooks into the weak default
+>   crash_core: serialize crash header preparation against hotplug
+>   crash_core: replace for_each_mem_range() with for_each_mem_region()
+>   memblock: introduce MEMBLOCK_NODUMP flag
+>   of: reserved_mem: add dumpable flag to opt-in vmcore
+>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>     header
+> 
+>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
+>  arch/riscv/Kconfig                         |  2 +-
+>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>  arch/x86/kernel/crash.c                    |  2 +-
+>  drivers/of/fdt.c                           |  2 +
+>  drivers/of/of_private.h                    |  2 +
+>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
+>  include/linux/crash_core.h                 |  2 +
+>  include/linux/memblock.h                   |  9 ++++
+>  include/linux/of_reserved_mem.h            |  1 +
+>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
+>  kernel/dma/contiguous.c                    |  1 +
+>  mm/memblock.c                              | 43 +++++++++++++++++-
+>  14 files changed, 155 insertions(+), 97 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
->
-> In the fallback case, what naming makes sense? I don't know. I would
-> have preferred to just name it "hxt" (respectively "lxt") in both cases
-> because we truly don't care about the name, except it would be nicer for
-> the reader of clk_summary. Do you mind if I keep "hxt"/"lxt" for both?
-
-Picking another name is merely a suggestion. I don't have a strong opinion
-over this.
-
->
-> Thanks a lot for the hints!
-> Miqu=C3=A8l
-
---=20
-Jerome
+-- 
+Sincerely yours,
+Mike.
 
