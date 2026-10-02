@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCABCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB2ECA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ECA2Ii7AnEG4kznNqv+ar3v6vnQStjMbIFJDndf3wus=; b=TRniWEEH/MdCGf+wmBB0xznQu/
-	UhfYPRS3e2/H5zjhtFnZz2aAfkx5MXlE7q+wtdBg/kDt+mOJTtmJvMSmyqHmmJ8YGca4edJIH8kUI
-	cf8xEf9WUb/WgEPe+bQAFsCJT0P55yG4GelYPgMIgylVyKG3wId6Hsa93Ycb3PcZgxRuHViD/6Bfp
-	dieloT9kGUhx49fWCXTLzrb5wW/T3+7azmeFkkzHFfb6THWsz9myEkkJRbUbi88EAwaPyZ79wIYyi
-	26wSeWvxv/94xgvH+QCuM+9pkVznPBy3racxj+zqnGXB7HGcHuZuFvPt2UJiZq4BGEQzOjD/KWxRx
-	H8AoYOVw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=; b=ZGDvit4sZpN3AswX8xV4/AED7U
+	A1b4BDLzQVjcboIjlLpkCmAy9VR1MYtwA2dNZShdJXcQNjNb3h3a7eIkLCA3NgsJAh64SK3lyRVzc
+	WpzZnxElQRQvzLF1/wymkDpIWTEl59OGbeApIIpql/3p51ZcigSxyiYlpRuJAB7vdA6jMDOb7wISX
+	FWb90IfwJiIJB2l7O4/qNQ51y1HlLPhqJBYp4JJ3/xTsHKiqQ/lasXJsdCP4UJEmdBoxB9H/ylNjx
+	aNqdH+HTUWSBx4M5fVIN0GDWNh6OGev+tWGiuay2LcmEHr6yOFjB8M6yMdBpnDmaZVnM6wa7MjZMN
+	h5beVdEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCj6f-0000000CPdc-37B5;
-	Fri, 02 Oct 2026 19:39:45 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xCjB8-0000000CQGT-3fcZ;
+	Fri, 02 Oct 2026 19:44:23 +0000
+Received: from mail-dy2-x10.google.com ([2607:f8b0:4864:36::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCj6d-0000000CPcc-1Uz2
+	id 1xCjB5-0000000CQF3-1sE4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 19:39:44 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7d2bb404so758275e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:39:42 -0700 (PDT)
+	Fri, 02 Oct 2026 19:44:20 +0000
+Received: by mail-dy2-x10.google.com with SMTP id 5a478bee46e88-3396cec93b6so9061799eec.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:44:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790969981; x=1791574781; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ECA2Ii7AnEG4kznNqv+ar3v6vnQStjMbIFJDndf3wus=;
-        b=OKKMxIslnZm2Ckdzc+sqJEwwtX4ipP4mObKosbFly9TfVht4x/gqrMTiazd/q4POv9
-         aEw1ARPFv3KbCy5uOL0KlVgLFNuVg5jd15GM+CAt+Zxw4OG8pnav5TOqr5uImyjpDLO5
-         z84XoFqXprGNAA4JlmuKppDUZ0Tjq3mh920X5MJDbPXyBnMf9V80ciEHDmJEP8JbMQmZ
-         9YnsqCpA4RhT508sbcIwiiyAPS0TBE1W+SzcbQXMXq0Q6z+cKgwSQQt2ZQ4YBFQJsntB
-         5hkdiYem3b/l4JLaKproyJ1YXePBfecZIUbmdmUyK41x/83vI3YjgI8jV3jK8nEFBG0J
-         fioQ==
+        d=trailofbits.com; s=google; t=1790970258; x=1791575058; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=;
+        b=SXjXAumYLFaDuvW7/GZ03bYqhhiOnb3izwedX+JDiKcPDHfJZZsjNOVYDqy+OT3k6k
+         A6GChqEttYJcidOJfr5wvlsi1uMj/CJJdyz4fuwCa+22TRqf9Y5d8Ozgw6SmSAshI/h4
+         shLeRfC4+OMiy4mYwM0T6Dr6BhmhwgqYSo4HfSHfIZLPH5yypy1V1sS1qBXnCI8QEiD6
+         DogGPNzz67AQef1DWrfn3bxVXCq6jP8dPC5t4kymLMnExxlnIVcJv2xZmQcJ0i4oJtE4
+         qD3gw8TtQUTwU3NLgS/H+k7d2bS+f9TuRh8ie8EGHmvqzkTyt5nO4OPI5fIA/qd03NYt
+         8f5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790969981; x=1791574781;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ECA2Ii7AnEG4kznNqv+ar3v6vnQStjMbIFJDndf3wus=;
-        b=eZPyHE0nTJMBAXZtspY25zRmiehESXUkaVm/xsWO4dV90pglnotgceRWlgqD9yemIR
-         zpaKM5DAIvEao7UpzgIgvBmicgxmOyp/6dE902gTYxlveEHxmCdWaBQYK5uRm2i9uobi
-         F2k2kdUqjLWbYy7XUhLwokNYqdBDjADVfjh3j87wx8tdF9Fgpa+4NdLHaSzpzSibFZYV
-         KPPotdgSqjzLKOsDMkAyAVY6QwAre1as0e9mPXRUEWUz4MCH54UjzQEfkTLeqfV23BOe
-         MWUMKXjdlHyOnMVVIqRO2TVdlj/w2vOWv3hzWpQu+OlvTem1QJPlmaim3VL6lirDFBST
-         Fnzg==
-X-Forwarded-Encrypted: i=1; AKwUvBzI08t8B9dxfwHAnmko/MHdrsyTYOuD0qsxyb4g2PPCWVMdI0qhQCkPspRr3YaEybjFxJgB/wQDM2BG108XLLPH@lists.infradead.org
-X-Gm-Message-State: AFuF++lU/rCfE5sCcSOlx4uVKjY3tc4Rj9peojHQoACihgoGskA4MqHK
-	+K7BnTY5CdIhGiI1BUVq6ekTTym99Z1Oe5WQ3Ra4TFyxFkTvHwwb2pGeRPFDLGJfwWc=
-X-Gm-Gg: AYBFou10T1XuhDVfAtPmakLyJjtVTj1JcVuU6I6h/Fu3G6Cc3NYEeiQE4wCYPHo1hW8
-	hKGN7ywr16iFLXARBBB5NmILt7+S8ZbBQrfwFdVHpggseXs+BRiatT5cuHRGHFihRtlZ3+ZcfWq
-	J240B4Pvk/eRM8xZ6dfGFRq64+fEtVebQttDJbyhGOG9faZC2oSeUUUENanuQp6n6kwyuIQa1ga
-	+/ZLZ0OMlZBbuqRlNMZn2AtJI0t8niPF8Rsd8+SEeGNitZ9ro1Nbntn1cnmJT5CKSUwLQHdFZyl
-	bOjiEmT3jTZ7xa6R2TuH1TLYDr4QwvcH793Iabu8CbJ8W8aBiCPbINqSNzCww+wWR1WuFp11AC4
-	e80QO1gxzWPknatgfCVmHSGxz8MuSX6gcb6PxoXUwJU0Zog3lVRqoTLxs5xKwBEHKQs16Lq2aJ6
-	SA5acYk+JXGM+2TTvIa3oDSvsTe8sOKuv73cyeeN95CIFd5iPYs7WYVGq+kuOc+SOUx4ru9eFtY
-	QiXPdSV3GSDaoJA37U=
-X-Received: by 2002:a05:600c:354a:b0:4a0:ec5:46d9 with SMTP id 5b1f17b1804b1-4a027447475mr68982555e9.0.1790969981261;
-        Fri, 02 Oct 2026 12:39:41 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0276f92d9sm104389955e9.4.2026.10.02.12.39.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 12:39:40 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Igor Velkov <iav@iav.lv>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261002-hc4-spi-nor-v2-0-8366a4f91049@iav.lv>
-References: <20261002-hc4-spi-nor-v2-0-8366a4f91049@iav.lv>
-Subject: Re: [PATCH v2 0/2] arm64: dts: amlogic: meson-sm1-odroid-hc4: fix
- the SPI NOR
-Message-Id: <179096998039.3351815.5090635259555854831.b4-ty@b4>
-Date: Fri, 02 Oct 2026 21:39:40 +0200
+        d=1e100.net; s=20260707; t=1790970258; x=1791575058;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=;
+        b=qQw2FIsC8g7FEAZhyn/EX4MbsuG6VXE43/N8oWCeMh0s7IbUoFJwoNqVWokDf3BKq3
+         2Os2wwjS4OTNhirXOG/dOZ2zSMlgQXfaE3JZ+k/rIkH0U7f22YV4tTwGsL6qo034d2Ib
+         QHrm8sWeVmd/pB9pKC+piANjdmZaBbTvdOo2pDWiQb2q1xlIPyUT9ngdbtg0n6sq9tLJ
+         P162HjyA3aXB8zSLjJdYSjGV65z9ppLITlY/OIl7EBuIJgaXg0Bf3EGwpx1x5MtvJ9cN
+         mr2TlUt0ubUNdewlt9OjVwN1pYgARZpwv3BELetBI3bxZqBFKhlpurIz6nNE4iTkb9re
+         4MAQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzH+wivqXsanftxSoDdf6O66XamJNQcxpuHZU0i4FqS5c+8g5fJ5jV/bx1/ayRBqwf2gtCQYQsxfvlexrD5EnkF@lists.infradead.org
+X-Gm-Message-State: AFuF++nwn0/CZLriY9ChAMPYF7sKWpv1sW9qcrM5AFIFLenPA1JW6I7Z
+	iHXxPxjWxQORoXjD+DxSxMW6D/MrP11/J4LrbpdijWkFtTXfSNgh1sANi7GVBCO/yGM=
+X-Gm-Gg: AYBFou2b6RTMxzBtKzP6hQgrmryYtLtPOiSn2/lf/fArsLpCbXZ8vU0vdjs8RMqHkgc
+	4yZp5mcFdwnUPcgnB42kDH/VXqFkKe7ch/dfkocl9nPIkF1/maUPhrf7Nhqz544Ra9bWVxokqTv
+	Re4SsqkcyN9BolvAmW54n60PyR+L64yhOzKQHLpdL7aDe4Sp9An/0s0UwFK2CeQK2vI88rtY+SU
+	nxfrC4q8COFQCL+y5GqBLBPIgFiH5MOhF4RhLQh259QWXI5aPAvjt0z+SzwjFtX7azSCIakrf5+
+	aFVvt3UGl976F6oHwR9t7+RJnNmVW6jX6dXdDiv8eX9rE2Fmrj7Bc+n4HAf1eRKTDOfOPpc7vOM
+	yJhVbxzWweKzeyTstjDk/Q8NIU21ymm6pJleo09+KvbN26D3hDOEEAMRYCY/C1uHn9IG2Ox6KTz
+	n+lmSkjNUgWJ3MVPo+XVrl4GMN26x65m8OFLYFRavLLXB2hgrGibSlTCaJZI0Ij/wkEDwfmG6aI
+	jU5YPZ4+oJiyUTFu5F6hBI+H+WkzyN8txqVf1nCTYCYPSQdl/t5fuUQJK8UQqdW88iMtyk=
+X-Received: by 2002:a05:7301:4545:b0:342:94b:aa28 with SMTP id 5a478bee46e88-34f219610a0mr4295623eec.27.1790970257502;
+        Fri, 02 Oct 2026 12:44:17 -0700 (PDT)
+Received: from localhost.localdomain ([2603:8001:5f01:8bab:bcf9:6140:24a9:d1e7])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34f14fcd065sm7236803eec.19.2026.10.02.12.44.16
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 02 Oct 2026 12:44:17 -0700 (PDT)
+From: Artem Dinaburg <artem@trailofbits.com>
+To: stable@vger.kernel.org
+Cc: Artem Dinaburg <artem@trailofbits.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Simona Vetter <simona@ffwll.ch>,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH 6.1.y] drm/mediatek: Fix potential NULL dereference in mtk_crtc_destroy()
+Date: Fri,  2 Oct 2026 15:44:12 -0400
+Message-ID: <20261002194413.20810-1-artem@trailofbits.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_123943_419185_23286767 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20261002_124419_482231_DAB35E77 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +111,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Dan Carpenter <dan.carpenter@linaro.org>
 
-On Fri, 02 Oct 2026 21:36:45 +0300, Igor Velkov wrote:
-> Two fixes for the SPI NOR flash on ODROID-HC4. Patch 1 lets the flash
-> probe after a boot from SD that bypasses the SPI flash. Patch 2 lowers
-> the clock to 40 MHz, where reads stop returning corrupted data.
-> 
-> U-Boot takes this device tree from dts/upstream and gets the fixes with
-> the next sync.
-> 
-> [...]
+[ Upstream commit 4018651ba5c409034149f297d3dd3328b91561fd ]
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.4/arm64-dt)
+In mtk_crtc_create(), if the call to mbox_request_channel() fails then we
+set the "mtk_crtc->cmdq_client.chan" pointer to NULL.  In that situation,
+we do not call cmdq_pkt_create().
 
-[1/2] arm64: dts: amlogic: meson-sm1-odroid-hc4: mux the SPI NOR HOLD# and WP# pins
-      https://git.kernel.org/amlogic/c/0b825126590879812321cdab53786fcd906f7761
-[2/2] arm64: dts: amlogic: meson-sm1-odroid-hc4: run the SPI NOR at 40 MHz
-      https://git.kernel.org/amlogic/c/b44e2be772f866985cafdf90355285069ea68495
+During the cleanup, we need to check if the "mtk_crtc->cmdq_client.chan"
+is NULL first before calling cmdq_pkt_destroy().  Calling
+cmdq_pkt_destroy() is unnecessary if we didn't call cmdq_pkt_create() and
+it will result in a NULL pointer dereference.
 
-These changes has been applied on the intermediate git tree [1].
+[ Backport to 6.1.y: used the older Mediatek CRTC file and helper names. ]
 
-The v7.4/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
+Fixes: 7627122fd1c0 ("drm/mediatek: Add cmdq_handle in mtk_crtc")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Link: https://patchwork.kernel.org/project/dri-devel/patch/cc537bd6-837f-4c85-a37b-1a007e268310@stanley.mountain/
+Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Assisted-by: LLM
+Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+---
+Hi Greg, Sasha, and drm mediatek maintainers,
 
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
+I am working through the small CVE backports still missing from 6.1.y.
+This one addresses CVE-2024-53056. It skips command-packet destruction when
+channel setup failed before packet creation.
 
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
+The corresponding 6.6.y backport is already in the 6.6.y stable queue.
+The fix is already present in 6.12.y, 6.18.y, and 7.2.y, but not
+in 6.1.y.
+The target-specific adjustment is recorded in the bracketed note above.
 
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
+Could you please queue it for 6.1.y?
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+CVE: CVE-2024-53056
+Upstream: 4018651ba5c409034149f297d3dd3328b91561fd
 
+AI assistance: An LLM helped identify, adapt, and validate this backport; I
+reviewed the resulting code and validation evidence.
+
+Thanks,
+Artem Dinaburg
+
+ drivers/gpu/drm/mediatek/mtk_drm_crtc.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_crtc.c b/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
+index 59b310f7327c86..8e72b3bb51eb94 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
+@@ -161,9 +161,8 @@ static void mtk_drm_crtc_destroy(struct drm_crtc *crtc)
+ 
+ 	mtk_mutex_put(mtk_crtc->mutex);
+ #if IS_REACHABLE(CONFIG_MTK_CMDQ)
+-	mtk_drm_cmdq_pkt_destroy(&mtk_crtc->cmdq_handle);
+-
+ 	if (mtk_crtc->cmdq_client.chan) {
++		mtk_drm_cmdq_pkt_destroy(&mtk_crtc->cmdq_handle);
+ 		mbox_free_channel(mtk_crtc->cmdq_client.chan);
+ 		mtk_crtc->cmdq_client.chan = NULL;
+ 	}
 -- 
-Neil
+2.39.5
 
 
