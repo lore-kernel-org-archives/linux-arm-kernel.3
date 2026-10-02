@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9540BCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4031CCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAkNNovInc1e8xhrLeRNZpkjp1SPrmjFZDX7s+6jn1Y=; b=xFWxxcCdxA1lARPYsATCzZD4CP
-	aE+e2Pw+f2UVotE9850chau904K7xTqEWNheQA2QlbNKDF+c6b50OpgJbJZ0TZ9MA1wXaZCiGJjzj
-	YZQMSsvREYTwd4SDiOjK8vCfSBs7AF4Zh23nBqw7isMlweR0H+ntUrojHogDbxRfdaWmWSS+nBuKT
-	xFjof+TxL9UhDWkcbUDPD8vlmUF4pcCdHyE8M5rYuaRH4XxCGS4uXQAjAad6WLCcLwq0RwbYmhUxP
-	7EQuEY+l/r454RigNO0X2dnd/reli4EVKXwtJAO/fwtLIxrmffM1ZsH5YWC6r5D9fLqKkfWktZGrI
-	ZZOJZw5w==;
+	bh=Rpjh3eu54YfHpN/q6BYiqcSppbbrniN4gWH3kNAk2Xk=; b=RYpT39E/gOTgeTv4kXKouGx8dC
+	kNdsRLTeHURkNWJvC8SDaE6LY/G1UgIsqaSWCMgJbCHst1E8jWa+L21VBoQsmv9IVn9s6FMJn/S8z
+	+3PWwh8QNrEPxs4qteSEyFfw1nAVoIGXUXRJIipPzuXAtJHdTQEXzBAfLoEnq56/mUsVLAH1DOFw6
+	PkTSFIVWN+cr397WZeIqZj1kjg/a9PpRpJFfsnp5HCy3cIr/0BaqZosw8IQUiNZBcuHWMruQKhPZ3
+	x//o8yixHhuzProgueecvBcGphSvPa96rT56aLOey1T9pGjCYhB4CnghuPuyUt0S6vTtLNlrkFa2H
+	M7mmKMsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCez5-0000000Bskx-4962;
-	Fri, 02 Oct 2026 15:15:39 +0000
+	id 1xCezK-0000000BspN-0ank;
+	Fri, 02 Oct 2026 15:15:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCez3-0000000Bsk7-24lO
+	id 1xCezH-0000000BsoG-2HvR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:15:39 +0000
+	Fri, 02 Oct 2026 15:15:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F08C143D;
-	Fri,  2 Oct 2026 08:15:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D078F143D;
+	Fri,  2 Oct 2026 08:15:46 -0700 (PDT)
 Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CACE53F85F;
-	Fri,  2 Oct 2026 08:15:35 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 244353F85F;
+	Fri,  2 Oct 2026 08:15:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954136; bh=hvT7wfdq8QbGghllrNLZ5Dz9q8dq+/FpN7x2LzVn26A=;
+	t=1790954150; bh=iakz7poMJpgb4bw15P/OQM2oL+nxxLe3U5uJbeo3LrI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PVbP+SnBZHuTbLZew0Lw2S5JCWmg7Q4cyUjAZGasaoUHKYN39cDNwRnICqMT2BLzh
-	 LJtS2u3QHbPBpVWC69MzF5bvKXaWEJdNR0m/STP1rQCzJJl3yPQHvG0ycuUNJ5Ywz+
-	 /ZB+xWxnHQfUAdG0rBG+jbiHlNIIoiLzP6AY/oFs=
-Message-ID: <32c85a0b-48f3-407f-bc60-a58255806683@arm.com>
-Date: Fri, 2 Oct 2026 16:15:33 +0100
+	b=arA/J/WZ+w6g8dMXcS19DNm8BTe1LBTPxqOT6bKORmxHtiqVvudln81TTLXydbblB
+	 lu32Vhz8cct+Xq0RSjCx2WromK43ppQ0m3Qh2240HLaN0w2XL6hqrm0MGk3kSlu+Ge
+	 sqO+COS3NDCpJoP+s5pMkW4DhWwDwItpeb8LMkx8=
+Message-ID: <b0c756ac-7dec-4b9f-a9e4-16c16a890cec@arm.com>
+Date: Fri, 2 Oct 2026 16:15:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/12] arm_mpam: Use __ris_msmon_read() for saving MBWU
- state
+Subject: Re: [PATCH v2 07/12] arm_mpam: Initialize all of struct mon_read in
+ mpam_restore_mbwu_state()
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
 References: <20260917145617.2202986-1-ben.horgan@arm.com>
- <20260917145617.2202986-7-ben.horgan@arm.com>
+ <20260917145617.2202986-8-ben.horgan@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260917145617.2202986-7-ben.horgan@arm.com>
+In-Reply-To: <20260917145617.2202986-8-ben.horgan@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081537_628774_DBC28ED5 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20261002_081551_633498_7C900C78 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +76,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Ben,
 
 On 17/09/2026 15:56, Ben Horgan wrote:
-> mbwu_save_mbwu_state() reads the MBWU counters and adds that to a saved
-> correction value. However, the type of counter to read is determined by the
-> RIS rather than the class and overflow is not taken into account. Fix this
-> and mitigate against further divergence by using a locked variant of the
-> same helper used for user monitor reads, __ris_msmon_read(). Using the
-> locked variant avoids having to drop and retake the mon_sel lock. If the
-> lock was dropped, an interleaved monitor read which detects overflow would
-> cause the overflow not to be accounted for in the saved value of
-> mbwu_state->correction. The correction is no longer updated for disabled
-> counters but this has no effect as the saved values are not expected to be
-> useful for disabled counters.
+> m->err and *m->val may be read before initialization in __ris_msmon_read()
+> when called from mpam_restore_mbwu_state().
+> 
+> Initialize the whole struct mon_read in mpam_restore_mbwu_state() and fix
+> the spelling of mbwu in the name.
 
 > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 6cba3ef21cc8..62562ce2f9aa 100644
+> index 62562ce2f9aa..cdc2d9d19e19 100644
 > --- a/drivers/resctrl/mpam_devices.c
 > +++ b/drivers/resctrl/mpam_devices.c
 
-
-> @@ -1688,10 +1693,12 @@ static int mpam_save_mbwu_state(void *arg)
->  	int i;
->  	u64 val;
->  	struct mon_cfg *cfg;
-> +	struct mon_read mbwu_arg;
->  	u32 cur_flt, cur_ctl, mon_sel;
->  	struct mpam_msc_ris *ris = arg;
->  	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_msc *msc = ris->vmsc->msc;
-> +	struct mpam_class *class = ris->vmsc->comp->class;
+> @@ -1672,14 +1672,17 @@ static int mpam_restore_mbwu_state(void *_ris)
+>  			continue;
+>  		}
 >  
->  	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
->  		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-> @@ -1707,17 +1714,31 @@ static int mpam_save_mbwu_state(void *arg)
->  		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
->  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-
->  		cfg->mon = i;
->  		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
->  		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
->  		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->  		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-> +
-> +		if (!mbwu_state->enabled) {
-> +			mpam_mon_sel_unlock(msc);
-> +			continue;
-> +		}
-> +
+> -		mwbu_arg.ris = ris;
+> -		mwbu_arg.ctx = &mbwu_state->cfg;
+> -		mwbu_arg.type = mpam_msmon_choose_counter(class);
+> -		mwbu_arg.val = &val;
 > +		val = 0;
 > +		mbwu_arg = (struct mon_read) {
 > +			.ris = ris,
-> +			.ctx = cfg,
+> +			.ctx = &mbwu_state->cfg,
 > +			.type = mpam_msmon_choose_counter(class),
 > +			.val = &val,
 > +		};
-> +
+>  
+>  		mbwu_state->reset_on_next_read = true;
+>  
+> -		__ris_msmon_read_locked(&mwbu_arg);
 > +		__ris_msmon_read_locked(&mbwu_arg);
-> +
-> +		mbwu_state->reset_on_next_read = true;
-> +		if (!mbwu_arg.err)
-> +			mbwu_state->correction = val;
-
-+= val?
-
-If the same CPU is offlined twice, the correction should hold the sum of both values.
-The idea is the 'correction' is anything that has been consumed, and isn't in the hardware
-register. (e.g. due to overflow or reset)
-
-With that:
-Reviewed-by: James Morse <james.morse@arm.com>
-
-
-> +
+>  
 >  		mpam_mon_sel_unlock(msc);
 >  	}
->  
+
+
+Reviewed-by: James Morse <james.morse@arm.com>
 
 
 Thanks,
