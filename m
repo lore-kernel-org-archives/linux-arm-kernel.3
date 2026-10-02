@@ -4,110 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6B6CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A988CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4N4a9WNMcn4c5RNG0HhOqhbbIcBeca2e/1494h5sAxQ=; b=1EV8gF0oP08mjxnpLMMrR8/XOl
-	tc4thfSCxpsiMKfE00vTFFTq811tRNYnzbWt9I0RBj4WWsI48knzR6LqqHk9yQhJ0r5yHk/lVIiW6
-	j3JR3V2OWqNgunoOIwjozVIATfPkFD7GOmQOoKIg/v1ODf+H/fTFNrV/D975ZlbEEEGGgVgECM0ld
-	TQ22ZYL4DqLy0S501Rp4EP4PEDzbWWN+UiCOQt2WQpE9VA22gERT/KKe0yOxoHzUoDgeq5PtJhVVh
-	aZPz2akwcMl4jMgC3cMo5JcPa4+9IH50Cix+KgDIoGZzDO4zSIQ5S0UwJKL0wBKqdtEXf7n08mCB9
-	DthYb82g==;
+	bh=Abb/w7OCqOgoDbYsM1LhnQzjs8VHQVCJFeoLP4m09ag=; b=YSA2hI98Y0qXaPpQH59dr+vhZ3
+	twJRasJRETwD8b7vuijWB6Y32qLDZeZZyaZJ7YtOfx6O0rgXRQ4xFj9fYy9pLbDAdUQfNf1ZzIQj0
+	PQ4663Ga7CLz14gAJPBQZtP3HBp+k51lc0Ku6WAw5au77rN9ULUxFejiKGRGnttMnQuJ9za/5bVZX
+	fKNTvCtYeDI7ZYZtDfnudomp0BvT0nOON6mYBhUKmzKeRPOB/mLa6StAWAstJJHwcxzJKjKbCYQRM
+	ZCc+hJiUzU68WoBdIWY6d4uh63Bn3Qf66D/cfpoxfzd74WhwFMnJkK/0hbPRXw/6WxIeDfhu2LhtW
+	YPfPzwkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeRP-0000000Bngf-3vBQ;
-	Fri, 02 Oct 2026 14:40:51 +0000
-Received: from mail-vs2-x28.google.com ([2a00:1450:4864:3a::28])
+	id 1xCeUE-0000000Bo3A-0xRo;
+	Fri, 02 Oct 2026 14:43:46 +0000
+Received: from mail-vs2-x2a.google.com ([2a00:1450:4864:3a::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeRN-0000000Bng4-3GWS
+	id 1xCeUB-0000000Bo2Q-2BEn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 14:40:51 +0000
-Received: by mail-vs2-x28.google.com with SMTP id ada2fe7eead31-7bcadbdd8ddso2218508137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 07:40:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790952048; cv=none;
+	Fri, 02 Oct 2026 14:43:44 +0000
+Received: by mail-vs2-x2a.google.com with SMTP id ada2fe7eead31-7b314b72db8so2397901137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 07:43:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790952222; cv=none;
         d=google.com; s=arc-20260327;
-        b=JUUsHOqkgaRlXEW73zG52riGRicxkLRQI4BlvW/9DF5C0R7w8DhXK1ACxFrpBZaY+/
-         O5DVDJbMCnZ0Fe+eRxqW09cEOCxKLt0MFqaQ8oYZzx9nNKGdQmr63+F06sUUc9obm/B5
-         SeLfMtH7iSTa+dO4z45ktNcfD59foIQw86COqp/jXxhz81k1qcMrU/oyElcKgenY7Dzz
-         6X/HbskfiTTwP5Yqc3DQ/qrpCg93rIezDcbW2oIKfli/7UNdFYywMDZbtWbtbpZBIMJC
-         6OY4Cbj+w2g3ek3bkmJyFetsRNPCDxcbkTAnRnOjff+GHnvvryR1vRWsYhio0e6AcTur
-         KnfQ==
+        b=W2zfSLPptB7/kRLKdGKkdd7Lziwuq+6chUlkSUF3RRSn/9WKgEajzEw+dAqmekB1jc
+         4DrFt11jLiPchRqXh4X6li9IoZF3mAiqSM+sZGvKWo2K5QgxNHBcJ+2iHqHHT/gWFXF8
+         WHh7kSBOA/Yr2BHRX5aFoxGmUNN6DGKbYBY+q0BE+sAu2S5HROiYKRCmLok44mUFBwok
+         pBgrRXBUvtlehwpARmU/CMAdg7NWrshhqIuFbQ5szI10JcpzeWXJzeekgvFh9adFnECI
+         QfOA787QpiSNU3lZG3RuKLw9oLsj9+Qpby5VLJoXM8NQI5+xfiemtGwGbl+RHkyQi1Ta
+         7V1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=4N4a9WNMcn4c5RNG0HhOqhbbIcBeca2e/1494h5sAxQ=;
-        fh=Gb+p8cIK6ENeEv8/JIA78scyIEZxrRXNJ8+aV9oSWQI=;
-        b=byci9CnMb0jyengIl8VfVU6IatVv/E3sL+K4PHyH4teXnCiT+xIdICCWn/CfbM4saK
-         ZHXgL4fC8AAKeIEQirJV/7O5FE/1jN7yyCN96/icZtJyV3DZYQ+DdSOzBz5IAT3RkFUP
-         PcIzyPsREx9RFpnYP/WlWF5+5zgZMSj7UZ+bVLSGUBEefw5D1Aa99KNw58MJRZ6y4S7T
-         PBaaGXbXVKSyHeJrTiBwJhBlCcTw3qUcZwlIreowMK2wj8ancY1z3SveI9LXPZKMBINN
-         UWvY6r0Z73xPj+oHGopql+7dIFokWjiYFxPpEio3ZBJFVS6eZ3NxSAkTFnniPk/y8SET
-         JblQ==;
+        bh=Abb/w7OCqOgoDbYsM1LhnQzjs8VHQVCJFeoLP4m09ag=;
+        fh=f6JITNC97IOR75qL2td3R4az4kVGK2447QirsU/YoJs=;
+        b=OkMa16gfYisGpm82ozBWBoIvl1D/yxFv/7LmaBzkL+KyxXX85yDRLGbVIkACso2/0X
+         iyvzSzkHW4t7icTZFYl0DrBv7GZbwJ+mwIHQOfdAk4JuUKu3z9Cf4/HOHx1x23EpIg2z
+         IEvLZ1eyg/UWP831W4LX9sm0G8I6Q1qrJ5NChGr2IUR7EmjB5za1qlzFyjsp0sKqeWy6
+         4tCP3MczXG2grGAkWOv6hTSm9BrUrsk/kVgFiwja3AtoRn4ucU9keyavBSg+wvEVWe0a
+         qvfmkKvf/P0rwgAmgzBwcqI133tcekEDjeZHS5XzOVbHnXQl2Qr8lYWynAnh/6UpWzTv
+         cMPg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790952048; x=1791556848; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1790952222; x=1791557022; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4N4a9WNMcn4c5RNG0HhOqhbbIcBeca2e/1494h5sAxQ=;
-        b=maTplxU2ONDB+Z5qII3YvM74G4BCTs170Xbk1aknuSQllSYuOOONUz0Uk5/GYkkUMf
-         31WV9R8Vk0jwZBjfaKiGeK7hl3Eq9tAQ5V5ObkKeH/xiTWn30lqD8cw+S3x8wR2t1PBR
-         yc/3YYZITA5yUDithuPCJylRrCWrXsUszH1NleaqzZqpeUbssiAad+qFugeAk794KVGf
-         KA5vh7aUqe1NAmG/Vl0Z08HZhPux7UwzsVmAtou0OnwIL8D0Va65CNy5002VZbKumLdF
-         BcnN+QJ4OjSmBZ4C1DfAs+zTzaEe14HSZONwv6X4PfQWRqU01ZAP7q1lqNmMBw1Wt6/Q
-         i8MA==
+        bh=Abb/w7OCqOgoDbYsM1LhnQzjs8VHQVCJFeoLP4m09ag=;
+        b=i/d8MsQD5V0+uq49kOVSViwYCG4kHwDASz6vg1ob1q0Rt5Xq/MAVkDISBqYNopS3L5
+         euKMxIZXDIgJ3eGtHubD/Gm8NTYsSNzEUpxd68CjLNBRdxyobnRT1jm3O/+79gqJ8HYU
+         B088Vlh9zOz2tj884VLRgXlcNYgByIsKqyf6nZb9fdydEkuQLcB4TcR1+x7kUxTUKQYF
+         unmi7QXAtkFaRv7lF4Gj86HVIiKQKDbGKo287PdsjsuNm3ILRMUY43pf+eM4TknmRurw
+         IDtioi8+Zzp8wgXzFxd9Ip2SSH9zoGaLC+mhfKwWo6sWcCEv45lZ9A0Z3ICkzBq/ecns
+         xefw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790952048; x=1791556848;
+        d=1e100.net; s=20260707; t=1790952222; x=1791557022;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=4N4a9WNMcn4c5RNG0HhOqhbbIcBeca2e/1494h5sAxQ=;
-        b=sYBSofuwZVzdeF94iM2r60oRKuOO3dhvGLqtx3D59LOJwPR3hoCFM0H3rsFV5RNLSN
-         jnkDyn/SzHe+h4gjs/QWucKB8AgmNApAh/RNqkNV3xe6n3vrVKOlZvYc+gYlRNR1NEdt
-         2fRyUfrOheWHubEK6rOElb+kbA67W6C2VFq1lznlbmPyh6nPYrINIE4RqVUWPHh7kb8T
-         P4DDnCurm8w5oD7YPAtJQMue++5a40RC4XCixaGLRptBPxYmza2to05IPBx5HUZxyFCT
-         Gd5XsheKY/i4ejc6Y5A1rJaM80JfttiJ9Yxi7ra7+Uelzf7MeArO8+AHJAVlW9BX2YZI
-         X30Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzwKXdKXwcMGbKshujGTQp61R3Uhb/IvZlN6P15Es/PPoeF7H7kAbogiGKKAzO2dqs6J/SY/XLI/qyBNoNsq+Fg@lists.infradead.org
-X-Gm-Message-State: AFq9FYIjjtaorvN5cnj3WzSZjjkhg4ka+dCHFhQD/X54LtI3N9E0qCAw
-	dNlHSQEDKKWeP/pr+PX02p99ryGiKaCVtjfC46xzKdjnJlLtyP5L7O/LLqBDbTM/K5huU2m12kh
-	UL+8GET4Lvhwpei8jvJW8WY8FrdiUXPITcSoUstKaXw==
-X-Gm-Gg: AYBFou3VG7g9hrP4vepyCcgAgGLBP92oWLHMRhip8USUoYbD4l5E78cTmcc82OPo59n
-	+rh8mPHO06H4UxcqBKAg4mNtmvgUrM/g3kzqOmtMHK9vgW4GQtuINvCixog1Js6Q+WN8yj0jFUA
-	oOSLVF7HSBNczVpRqF8DLy0kbSb/2SiwC/waAF66s5OczE8kB8kRQKAkRd/8Uchzig3GgjSj3Ut
-	yaTotCaAQtwbTL3OLMfFpi8d6fyKPP5+vkO8CA8tiw1CJsd5p2Vk0vvfQGFxa5XIzUfB+l6tTJJ
-	dfTo+Pz8uN5HMvCqY2RpdXFbaG7FCBmk84rbd8jOrFqQ5jviHF2hbjYnHTnrainusewpz+mV2du
-	p72ytC+tzadbDYw==
-X-Received: by 2002:a05:6102:1624:b0:7a8:10eb:9775 with SMTP id
- ada2fe7eead31-7c0f1de9f8amr776221137.4.1790952048089; Fri, 02 Oct 2026
- 07:40:48 -0700 (PDT)
+        bh=Abb/w7OCqOgoDbYsM1LhnQzjs8VHQVCJFeoLP4m09ag=;
+        b=c7jppxnJ5kM7Wl/NGq49YNxzAw/WUry4ad49j+xRMUoSWfxKQpj+yvMHCdBMFFMeZU
+         AW5ApxH03m+xUO3XmtIUFlaR7OSg0yD+e8aXgaxslkk0VRjbBXVCQUMRPzQtKUHmnYVd
+         sxajJH68Zh9Gkw9P5GjKN68BUazto+qc8zi4CtqIWbPp5bw02Tp4/RWF5xfWRYDCnGKO
+         4clCGvdjM8vOOe2cqvhG9KAORHB2oS9/Z3Yg+G3loF7sM732CrhMKNil1bR6h8vKkifp
+         J10/heYsYTnNGeT7hZhgh5w+zrM+3i57vPr1n4Px3WZH0GWLLj1t289HWeZbNElG1CHX
+         uvOw==
+X-Forwarded-Encrypted: i=1; AKwUvBz5iDF/FsNxz1YPRro41ioyyaDZE01d4Qy8EcGLEVl8zoNMWeylLhYHOHOAPIki+8Qpj1+tAdbRWPwfpgEO2bMC@lists.infradead.org
+X-Gm-Message-State: AFq9FYJKg1AqdYrtLHZnzOQGoDU6HAu3pi8Rys8kN/9WxY/CIUSZ9xn0
+	x5aO0q9EUZywqnNdVRh059Tte81C4VzD7Fxvz6xbEUl2FXxab6QX1Na6gL9Z57q4o4tMlsfTpa9
+	NwwXBU9gWxQFgeXcDVtOw5ccojkVFI5ySmT2wYeTeyA==
+X-Gm-Gg: AYBFou0x9zTVSBa00Mh0TxZfuwngOOApw5EXtiBPMaWe9iMAiM1YsVzOY6jSbxQtsyY
+	TWN9zHHortVLYQVjjDmIWqxl+NK2ymSbzR/TglnxDG0tfSj6zxNC2x+Lg2rG6OqPVvv6lr2NoSX
+	wraLXRoMK6eiDb57CiyRiNK6rBAOMZmejEA5uvBxpj4GJQAcH44B9khogrZFyxMhRa63Jpa4zD2
+	93kwzMD/iB/uJ/3Iw3U7D2SeBh7QV6KOZsxg4lfKb6jRwqtOZnzARp+Kt3GB5JWTrz/zs4+wWcq
+	y9l1XhLTrmagdxzdBdzgwWT7LQGktE4ic2sXj1y6sB1KQJwxjWf+k4OY6QFUd0ccHFnS9lAPyM0
+	3Ew0nRWdGw/iHg+RluJHEgFgZ
+X-Received: by 2002:a05:6102:f9b:b0:7a1:f980:e936 with SMTP id
+ ada2fe7eead31-7c0f51a9b92mr610476137.18.1790952222091; Fri, 02 Oct 2026
+ 07:43:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260929-exynos850-acpm-node-cpufreq-v1-0-5a86c1d404b8@linaro.org>
- <20260929-exynos850-acpm-node-cpufreq-v1-2-5a86c1d404b8@linaro.org>
-In-Reply-To: <20260929-exynos850-acpm-node-cpufreq-v1-2-5a86c1d404b8@linaro.org>
+References: <20260929-exynos850-acpm-firmware-support-v3-0-473a69fc8a3d@linaro.org>
+ <20260929-exynos850-acpm-firmware-support-v3-2-473a69fc8a3d@linaro.org>
+In-Reply-To: <20260929-exynos850-acpm-firmware-support-v3-2-473a69fc8a3d@linaro.org>
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 2 Oct 2026 15:40:33 +0100
-X-Gm-Features: AclHuK8D6xaEDYaJjeS22_XFdGHe8Vl0E2LtBv0KYmeFPY7diuDQNpJU8hTUVF8
-Message-ID: <CADrjBPrTNGN7N9Q+rRO61O-mkz-j7YVV4D3tT0W=xj=KM-GT7g@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: exynos850: Add operating points for CPUs
- and enable cpufreq
+Date: Fri, 2 Oct 2026 15:43:29 +0100
+X-Gm-Features: AclHuK-HUUsrOdFljkk42xven02N-tiuZrJ__yBG6xUzcagLPJ7c3UWcflomjnQ
+Message-ID: <CADrjBPqi3RWdUy-S2Vn2-E6h0OGhrFPWEcKcarswivOdPzFTKQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] firmware: samsung: acpm: add Exynos850 support
 To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Thomas Turner <tturner@lineageos.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_074049_868089_7C084F3F 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20261002_074343_575679_91514791 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,323 +123,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sept 2026 at 04:11, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+On Tue, 29 Sept 2026 at 03:11, Alexey Klimov <alexey.klimov@linaro.org> wrote:
 >
-> Exynos850 has two clusters with four Cortex-A55 cores each. The OPPs are
-> identical for both clusters.
-> Add OPPs for both clusters and replace cpu clocks with ACPM
-> EXYNOS850_CLK_ACPM_DVFS_CPUCL{0,1} clocks.
+> The Exynos850 SoC contains an APM co-processor. Communication
+> with this hardware block is established using the ACPM protocol,
+> which handles IPC messages for clocks, power, thermal management,
+> and PMIC control.
 >
-> The maximum nominal frequency should be 2.002 Ghz but at this point the
-> following OPP is not added here:
+> Add the "samsung,exynos850-acpm-ipc" compatible string along with
+> its associated match data. This includes the specific initialisation
+> data base offset (which differs from the GS101 offset) and the
+> "exynos850-acpm-clk" device name required to properly instantiate
+> the clock provider.
 >
->         opp-2002000000 {
->                 opp-hz = /bits/ 64 <2002000000>;
->                 opp-microvolt = <1050000>;
->                 clock-latency-ns = <500000>;
->         };
->
-> due to stability issues. Testing on a fully loaded system with CPU-bound
-> tasks triggers data aborts and illegal instruction errors at 2.002 GHz
-> after 1-2 hours of such stress testing.
-> Running the same workload overnight on a CPUs fixed at previous OPP didn't
-> lead to any issues so opp-1846000000 is currentlly the highest one as it is
-> considered safe.
->
-> Higher OPPs can be re-evaluated once thermal support is implemented.
->
+> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
 
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
->  arch/arm64/boot/dts/exynos/exynos850.dtsi | 224 +++++++++++++++++++++++++++++-
->  1 file changed, 220 insertions(+), 4 deletions(-)
+>  drivers/firmware/samsung/exynos-acpm.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 >
-> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> index 91c6cee8f483..36501e5903f8 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> @@ -100,8 +100,9 @@ cpu0: cpu@0 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x0>;
->                         enable-method = "psci";
-> -                       clocks = <&cmu_cpucl0 CLK_CLUSTER0_SCLK>;
-> -                       clock-names = "cluster0_clk";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL0>;
-> +                       clock-names = "cpucl0";
-> +                       operating-points-v2 = <&cpucl0_opp_table>;
->                 };
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index 942a2e9f02f5..5a16665e941b 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -39,6 +39,7 @@
+>  #define ACPM_POLL_TIMEOUT_US           (100 * USEC_PER_MSEC)
+>  #define ACPM_TX_TIMEOUT_US             500000
 >
->                 cpu1: cpu@1 {
-> @@ -109,6 +110,8 @@ cpu1: cpu@1 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x1>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL0>;
-> +                       operating-points-v2 = <&cpucl0_opp_table>;
->                 };
+> +#define ACPM_EXYNOS850_INITDATA_BASE   0x7000
+>  #define ACPM_GS101_INITDATA_BASE       0xa000
 >
->                 cpu2: cpu@2 {
-> @@ -116,6 +119,8 @@ cpu2: cpu@2 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x2>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL0>;
-> +                       operating-points-v2 = <&cpucl0_opp_table>;
->                 };
+>  /**
+> @@ -876,6 +877,11 @@ struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev)
+>  }
+>  EXPORT_SYMBOL_GPL(devm_acpm_get_by_phandle);
 >
->                 cpu3: cpu@3 {
-> @@ -123,6 +128,8 @@ cpu3: cpu@3 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x3>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL0>;
-> +                       operating-points-v2 = <&cpucl0_opp_table>;
->                 };
->
->                 cpu4: cpu@100 {
-> @@ -130,8 +137,9 @@ cpu4: cpu@100 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x100>;
->                         enable-method = "psci";
-> -                       clocks = <&cmu_cpucl1 CLK_CLUSTER1_SCLK>;
-> -                       clock-names = "cluster1_clk";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL1>;
-> +                       clock-names = "cpucl1";
-> +                       operating-points-v2 = <&cpucl1_opp_table>;
->                 };
->
->                 cpu5: cpu@101 {
-> @@ -139,6 +147,8 @@ cpu5: cpu@101 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x101>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL1>;
-> +                       operating-points-v2 = <&cpucl1_opp_table>;
->                 };
->
->                 cpu6: cpu@102 {
-> @@ -146,6 +156,8 @@ cpu6: cpu@102 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x102>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL1>;
-> +                       operating-points-v2 = <&cpucl1_opp_table>;
->                 };
->
->                 cpu7: cpu@103 {
-> @@ -153,6 +165,210 @@ cpu7: cpu@103 {
->                         compatible = "arm,cortex-a55";
->                         reg = <0x103>;
->                         enable-method = "psci";
-> +                       clocks = <&acpm_ipc EXYNOS850_CLK_ACPM_DVFS_CPUCL1>;
-> +                       operating-points-v2 = <&cpucl1_opp_table>;
-> +               };
-> +       };
+> +static const struct acpm_match_data acpm_exynos850 = {
+> +       .initdata_base = ACPM_EXYNOS850_INITDATA_BASE,
+> +       .acpm_clk_dev_name = "exynos850-acpm-clk",
+> +};
 > +
-> +       cpucl0_opp_table: opp-table-0 {
-> +               compatible = "operating-points-v2";
-> +               opp-shared;
-> +
-> +               opp-130000000 {
-> +                       opp-hz = /bits/ 64 <130000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-182000000 {
-> +                       opp-hz = /bits/ 64 <182000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-247000000 {
-> +                       opp-hz = /bits/ 64 <247000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-351000000 {
-> +                       opp-hz = /bits/ 64 <351000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-442000000 {
-> +                       opp-hz = /bits/ 64 <442000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-546000000 {
-> +                       opp-hz = /bits/ 64 <546000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-650000000 {
-> +                       opp-hz = /bits/ 64 <650000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-806000000 {
-> +                       opp-hz = /bits/ 64 <806000000>;
-> +                       opp-microvolt = <656250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-949000000 {
-> +                       opp-hz = /bits/ 64 <949000000>;
-> +                       opp-microvolt = <681250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1053000000 {
-> +                       opp-hz = /bits/ 64 <1053000000>;
-> +                       opp-microvolt = <706250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1157000000 {
-> +                       opp-hz = /bits/ 64 <1157000000>;
-> +                       opp-microvolt = <737500>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1300000000 {
-> +                       opp-hz = /bits/ 64 <1300000000>;
-> +                       opp-microvolt = <781250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1456000000 {
-> +                       opp-hz = /bits/ 64 <1456000000>;
-> +                       opp-microvolt = <825000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1586000000 {
-> +                       opp-hz = /bits/ 64 <1586000000>;
-> +                       opp-microvolt = <875000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1742000000 {
-> +                       opp-hz = /bits/ 64 <1742000000>;
-> +                       opp-microvolt = <937500>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1846000000 {
-> +                       opp-hz = /bits/ 64 <1846000000>;
-> +                       opp-microvolt = <981250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +       };
-> +
-> +       cpucl1_opp_table: opp-table-1 {
-> +               compatible = "operating-points-v2";
-> +               opp-shared;
-> +
-> +               opp-130000000 {
-> +                       opp-hz = /bits/ 64 <130000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-182000000 {
-> +                       opp-hz = /bits/ 64 <182000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-247000000 {
-> +                       opp-hz = /bits/ 64 <247000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-351000000 {
-> +                       opp-hz = /bits/ 64 <351000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-442000000 {
-> +                       opp-hz = /bits/ 64 <442000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-546000000 {
-> +                       opp-hz = /bits/ 64 <546000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-650000000 {
-> +                       opp-hz = /bits/ 64 <650000000>;
-> +                       opp-microvolt = <625000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-806000000 {
-> +                       opp-hz = /bits/ 64 <806000000>;
-> +                       opp-microvolt = <656250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-949000000 {
-> +                       opp-hz = /bits/ 64 <949000000>;
-> +                       opp-microvolt = <681250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1053000000 {
-> +                       opp-hz = /bits/ 64 <1053000000>;
-> +                       opp-microvolt = <706250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1157000000 {
-> +                       opp-hz = /bits/ 64 <1157000000>;
-> +                       opp-microvolt = <737500>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1300000000 {
-> +                       opp-hz = /bits/ 64 <1300000000>;
-> +                       opp-microvolt = <781250>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1456000000 {
-> +                       opp-hz = /bits/ 64 <1456000000>;
-> +                       opp-microvolt = <825000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1586000000 {
-> +                       opp-hz = /bits/ 64 <1586000000>;
-> +                       opp-microvolt = <875000>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1742000000 {
-> +                       opp-hz = /bits/ 64 <1742000000>;
-> +                       opp-microvolt = <937500>;
-> +                       clock-latency-ns = <500000>;
-> +               };
-> +
-> +               opp-1846000000 {
-> +                       opp-hz = /bits/ 64 <1846000000>;
-> +                       opp-microvolt = <981250>;
-> +                       clock-latency-ns = <500000>;
->                 };
->         };
->
+>  static const struct acpm_match_data acpm_gs101 = {
+>         .initdata_base = ACPM_GS101_INITDATA_BASE,
+>         .acpm_clk_dev_name = "gs101-acpm-clk",
+> @@ -886,6 +892,10 @@ static const struct of_device_id acpm_match[] = {
+>                 .compatible = "google,gs101-acpm-ipc",
+>                 .data = &acpm_gs101,
+>         },
+> +       {
+> +               .compatible = "samsung,exynos850-acpm-ipc",
+> +               .data = &acpm_exynos850,
+> +       },
+>         {},
+>  };
+>  MODULE_DEVICE_TABLE(of, acpm_match);
 >
 > --
 > 2.51.0
