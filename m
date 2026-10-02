@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147AECA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7208CA5FD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wHPJMvxCXUL7kh2YiGSSJKGGA4Kla42O4+XtKi3QZRQ=; b=gO2f9+MPmzSVyd6A9Eol6jaH4Y
-	Q/MJSiBKNFCcQfjAyZ1+X6I4UGp8P5Ieme68oWEWzIMKFNC+2Tp5dDnAoBX3lkouctINgKGDKNmZ5
-	VjFEBu+HeGdnukB67Lau4nCXykNnSkfRVMeLjlZIuoFmUOrsD/oVHTqV1YOoGayJRPRl0mONQGp2t
-	AseKMbY68OZhDN5OH4Hv6Ehmg4hwHs+klcVYfv9QXriU67aAjEmrPdzRqrl3RzRaWsrGlmeb5C1qf
-	O80NOIFkAZZAGAxa9+RFHUnU9YpRRziMW3RPL+6lfofAS4UMmJRY2a/WnCtPo/B03REMf8LjyX3K5
-	I4BG+rBA==;
+	bh=yCkYYC6v/BreRMrWAsS/EDBBuECL2fnseS12s28lNAI=; b=zhl1D2z+dMq3CypLVZMt6RVpS1
+	/WUju2A2dvpAR7p2mrPIOudwEb/pGBIt+QJZvX+Wdz5NS8GZYvDxQ0U62A5kumyF+d4ELIThxPEZt
+	x3gJGjXrwRnkVOwHE6Y/TTuP9dNqvWa5YligjCFwZPIk5VWmI9iaWAt/T6qS99jPfMVnQ7iJRKCgD
+	k0bAemTXuokWtqMRzQYgqoY21PpJU8ZheLEANGIEHzL+/12pbbB5Q++FXMcMzln9SLNRBuYYx1Ava
+	msRYAOxEwqnRfS5MHdzGrRfmr7cqZOEq+HvHBArg0tamsY1iWf9W6w7sdMHf8gzGJ1OgD/Yc8gjFf
+	eRPMesCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXmd-0000000AqOn-2XyN;
-	Fri, 02 Oct 2026 07:34:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1xCXnF-0000000Aqmm-0J78;
+	Fri, 02 Oct 2026 07:34:57 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXma-0000000AqMV-1xYA;
-	Fri, 02 Oct 2026 07:34:17 +0000
+	id 1xCXnC-0000000Aql2-43VB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 07:34:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790926462; x=1822462462;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790926495; x=1822462495;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=wHPJMvxCXUL7kh2YiGSSJKGGA4Kla42O4+XtKi3QZRQ=;
-  b=pizWrtD+G1lt2+gV2FSlSeZ4jKWrmxaW8l6I+BXP93kvqPOkxfwxTgO2
-   FSb67D0aoM5Gp2GjP3Oj8l+FWaL/6e9r+N+3xKMFxu3RfepGIT1MtSnYQ
-   SJwArs+aqxwz5pPrKQ0HCGK70gks78opAH1EKYnX0rxUdYRCsEwl4kN2S
-   qe+FOFx/CVCVpGnw42dhuwVTz6Jq5VjsFru5hDFUC1lW1cU1w4v9HlaY1
-   xVikA/mrIGHQ3HqeslYB1L38RLvpOKwNmyt/nwN24GXQoo2GAd0N7I+7q
-   w9IIJitMohUs6VjdxyTIxaRmrL31Ao7iOzJm+qnI4puaQ4OOtiuBkyO7E
+  bh=LAqCXjWcEhA+NMDRpZZ0gzroQBLg4coCBF1VGUyHcCk=;
+  b=GZxPd0af6IhSL8v7dDPP+PVt662hWR21GCxxX4P0WIxkazec+FsRa1l/
+   /1Or+v3BowusaTiPuiXwbIOtTwmCn/ZcCWiLmdeArzwgohcqiRidA/qgS
+   OO50o3crssygSQLaRTKD34RyNcAWzT/rd/mPseBMqgtoAODy5pTe6D3KN
+   D0JGJ4flAN9c4S7ClkmxfOEB9FaSP2yNFETuI5o7vvYTrb4J/OtFrvBNq
+   KvscOcl2bjYKEOAInMujlgHU6xiL0eCVOPoMQPLpYYo+ux0nUwIiPyKPp
+   g7apRLOZ3pSqeIXy4mH8lZ51VD4IbsVRZk+N/oavbvQzwKqXfcyKj+JmL
    A==;
-X-CSE-ConnectionGUID: r7j903UGQAm9ZyzcfxLZYA==
-X-CSE-MsgGUID: Ghtw/+SVRXmIT6lYQ9URDg==
+X-CSE-ConnectionGUID: /e0xN2IiST+2VO9GMMXWIA==
+X-CSE-MsgGUID: JXTLk0BTS6Kvnqm/J9i8lg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11922"; a="101022380"
 X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="asc'?scan'208";a="64483102"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:34:21 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Fri, 2 Oct 2026 00:34:14 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 2 Oct 2026 00:34:11 -0700
-Date: Fri, 2 Oct 2026 08:32:51 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Wilken Gottwalt <wilken.gottwalt@posteo.net>
-CC: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Bjorn Andersson
-	<andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Andre Przywara <andre.przywara@arm.com>, Bastian
- Germann <bage@debian.org>, <linux-remoteproc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware
- spinlock
-Message-ID: <20261002-matted-tux-5b4059bc305a@wendy>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
- <20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
- <20260927132707.5f484946@posteo.net>
- <20260930130221.129529-1-tien.nguyenminh@embeddedlinux.blog>
- <20260930160541.040ccc0e@posteo.net>
+   d="scan'208";a="101022380"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:34:54 -0700
+X-CSE-ConnectionGUID: x+xxJ71wS42dlwxUAsn9Xw==
+X-CSE-MsgGUID: 5nLUqPeIQmuQ3TadL1+U6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="279450625"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:34:50 -0700
+Date: Fri, 2 Oct 2026 10:34:46 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] iio: adc: exynos_adc: add Exynos850 support
+Message-ID: <ar9elr1_tuFhJi1r@ashevche-desk.local>
+References: <20261001-exynos850_adc-v1-0-791b3516bb9d@linaro.org>
+ <20261001-exynos850_adc-v1-2-791b3516bb9d@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="sdponSZJtp17DGxT"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260930160541.040ccc0e@posteo.net>
+In-Reply-To: <20261001-exynos850_adc-v1-2-791b3516bb9d@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_003416_516558_E08D1731 
-X-CRM114-Status: GOOD (  31.61  )
+X-CRM114-CacheID: sfid-20261002_003455_039701_9DB4754C 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,87 +97,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---sdponSZJtp17DGxT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Oct 01, 2026 at 04:09:13AM +0100, Alexey Klimov wrote:
+> The Exynos850 ADC controller located inside the CMGP block differs from
+> other Exynos ADC controllers, mainly in its register layout.
+> Specifically, the data register sits at offset 0x08.
+> 
+> Abstract the read_value() operation in driver data exynos_adc_data to
+> support SoC-dependent data register read callbacks.
+> Add the exynos850_adc_data struct that describes Exynos850 ADC ops.
+> It also requires its own hardware initialization and exit routines.
+> Add them as well.
 
-On Wed, Sep 30, 2026 at 02:05:47PM +0000, Wilken Gottwalt wrote:
-> On Wed, 30 Sep 2026 20:02:21 +0700
-> Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog> wrote:
->=20
-> > Hi Wilken,
-> >=20
-> > > Wouldn't it make more sense to add the "allwinner,sun20i-d1-hwspinloc=
-k" line to
-> > > the driver in the sun6i_hwspinlock_ids struct, drop
-> > > "allwinner,sun6i-a31-hwspinlock" here in the D1 device tree and updat=
-e the yaml
-> > > file accordingly?
-> >=20
-> > Thanks for looking at it. Bjorn hasn't replied yet, so I looked a bit
-> > more at the naming. I'd like to keep the A31 fallback: it's the usual
-> > pattern, other blocks in this dtsi do the same (timer, I2S, LED
-> > controller), and Conor already acked the binding in 2/3. If Bjorn
-> > prefers a driver entry instead, I'm fine to change it.
->=20
-> Yeah, Conor was a bit quick to act here, such things happen often with pa=
-tchsets
-> made out of documentation/devicetrees and code. Though, the get clock and=
- resets
-> patch is fine. The driver could use some modernization.
+Split this to at least two patches:
+- add .read_value() callback and switch existing users
+- add new user
 
-I dunno, was I too quick to act? The patched looked correct to me, since
-it was using a fallback to a device that it appears to be compatible
-with. Had the series done what you're suggesting, my review feedback
-would have been to tell the Tien to add a fallback.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> > Bjorn, what do you think? Just stay with the "allwinner,sun6i-a31-hwspi=
-nlock"
-> > string or add all the possible combinations like
-> > "allwinner,sun8i-h2-plus-hwspinlock" or "allwinner,sun8i-a83t-hwspinloc=
-k".
-> > I mean, it is just a naming game and there are 10+ SoCs supporting this
-> > spinlock register file
 
-All devices compatible with the a31 should use the a31 as a fallback.
-
->=20
-> > > Oh, and I may be able to test it against the D1, I own a Sipeed Nezha.
-> >=20
-> > That would be great. You don't need FreeRTOS for it: I tested with a
-> > small Linux module that takes each lock and checks the status
-> > register. I can clean it up for the single-core D1 and send it.
->=20
-> Uhm, the Linux-only test doesn't work as a hwspinlock test, it misses the=
- entire
-> point of the primitive. A hwspinlock arbitrates between two independent a=
-gents,
-> in this case, Linux running on the C906 core and FreeRTOS running on the =
-HiFi
-> DSP, both sharing the same memory bus and other hardware. If Linux is the=
- only
-> one who ever takes the locks, it is simultaneously writer and reader of t=
-he status
-> register, so the test cannot fail even for a broken (or fake) implementat=
-ion. That
-> would basically test nothing at all, well, maybe it would be some kind of=
- bring-up
-> test, but overall quite useless.
->=20
-> greetings,
-> Wilken
-
---sdponSZJtp17DGxT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar9eIwAKCRB4tDGHoIJi
-0p10AP9/ioX41wO3u+Ep+AHx1ux3KGM/2eXkT+zQtRgHe+Ll6AEAqpqAiNT7fmis
-SGhitgPYrUVaxNjBfdVhopPHpmJeHQs=
-=nN6V
------END PGP SIGNATURE-----
-
---sdponSZJtp17DGxT--
 
