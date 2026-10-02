@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D471DCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016BDCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUoaeZWBEqi49tG6RXh95F+Nquw14LsgVd4Y+Bv0KE4=; b=saIsYt6kQcfYw1Wr7FDJha5hJ+
-	6vqDatkmAfRBmeNsBkxpaNB67d+cSFPGgqXRBJob01PqAbfCvsLoxWUH0DQm/RVo2z5Imfs5yAb/0
-	HidUEL/QRVfYoNb/Qs9nvN5BgStTit5gur0eGf200S/6VNN3jlwU5VRuOVSMwYZstD3UdQ7de9LiR
-	Mk6wvdv9Eo4Rv0eX/uiQ9pDkzMrh4YI0758Pps88/n5mIUKN+qaN5Lthmdp+SF/OQWQiaUR/oP2IW
-	qzwc03blsINongNQRvmO0C6F6KfJDdeQLzyyJBlPTGKc+KhOBFs2ERXeJfnBD2O+N6TlrFTqEZz3E
-	2VgpNKvQ==;
+	bh=KQtBKmV1C9YgjiIXLvcIFbStd7xUmxqWxSJXNgv5TuM=; b=L7vWlCSZpE2jw4G57kM7sn43VQ
+	8Hmxo20AIBLVjeHLa3Y4B5J0BIzIJcWMJy2hA0uorufyzwyU+8ZdXTPjptRLtfz29lJZnshtM5mzt
+	AFORTTGGkmK3s0TN5P0ivyzdIzSFYkKadVtXSsCxkVruhparMDBFFeGb5aFONwmZxN+JPId3VhF4V
+	EzYRVaAGwE/JWlWtUdFWbcK4zXyVSEzJYqKya2n8q4MTzqHlbjHBdt1doQBZIXQTva0EM+PiYp1va
+	LCYyNpqvabc0LKos2UmHDyM5xjLa7rHweILU/tE7RmLhnOSvA5M/HG7QDMd4CsEOzNxHkOQNylIM5
+	V17Il9wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfMh-0000000BxWe-1gi5;
-	Fri, 02 Oct 2026 15:40:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCfNC-0000000BxfR-2lOW;
+	Fri, 02 Oct 2026 15:40:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfMf-0000000BxVc-2T77
+	id 1xCfNB-0000000BxeP-0H8n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:40:02 +0000
+	Fri, 02 Oct 2026 15:40:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B556160AA3;
-	Fri,  2 Oct 2026 15:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540021F00893;
-	Fri,  2 Oct 2026 15:39:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A67C360A93;
+	Fri,  2 Oct 2026 15:40:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58AD21F000FF;
+	Fri,  2 Oct 2026 15:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790955600;
-	bh=NUoaeZWBEqi49tG6RXh95F+Nquw14LsgVd4Y+Bv0KE4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H1cCKfVYe8PTDI2SW8gRcfNHXyc9n3g8UnpjywsE/9yiJiJv5CZDjeftxarPhJxab
-	 sedfIedK3D3yNB2QVWxwVrMnKxj89l3K8Jjg/xk0Ok+Pw5mafJmITp4ykxYEQKxDlv
-	 zLiIEzDz4QQ1aZ4auMNhMyz3q1mA7K/1rUeXocjFOm0CmRo9uXj6evrFrazXg8EXl7
-	 xdYJtU0LOuyqJduEeojgZFp7Sx221s0I4x3lFySnuy66Yka+wD6egtLLt2Ml9lWkMY
-	 IMPKdJ4+LGQsGWVZwKng9I6lMcFApUGdqPImCjCsfApsYk2GAXNKCfvnuw+o1daf5c
-	 3hDb03E1v7pMg==
-Date: Fri, 2 Oct 2026 16:39:53 +0100
-From: Will Deacon <will@kernel.org>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Breno Leitao <leitao@debian.org>,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>,
-	Yuanhe Shu <xiangzao@linux.alibaba.com>,
-	Kyle McMartin <jkkm@meta.com>, Usama Arif <usama.arif@linux.dev>,
-	kernel-team@meta.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] iommu/arm-smmu-v3: Make the queue depths tunable,
- and shrink them in a kdump kernel
-Message-ID: <ar_QSdV44YzQQ6Yx@willie-the-truck>
-References: <20260925141532.1274962-1-kirill@shutemov.name>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925141532.1274962-1-kirill@shutemov.name>
+	s=k20260515; t=1790955631;
+	bh=KQtBKmV1C9YgjiIXLvcIFbStd7xUmxqWxSJXNgv5TuM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=anbTS0laiuDH50SzRWiL6aysLxMhhzzXx/rR8C8pOoYslb9VfJGkETKebTRUJRMey
+	 ls7sW1OaQEblook8tu19AVAOWbehkhDX3/vi5Ppy2vXwXvCAzJsrFGZ0L0GIk9u31a
+	 RQ42/R7+klv4pJp85W4ahFy5bAzYI7+K1Xm7m8utqNXxrHqJD+oiGqytW2/G6pvflT
+	 FhnI5a9C3sbjM5NFrdA++WnhvpyiXbDVgIF/TqDpKBxiffTh2vi80jMu4N0XrOwYz7
+	 Rlo//OVH1qnjQupD7gTnP+5b4msupwwgKrw5xIAW03va3yEbErSFWV9FM4Oy4CWMCp
+	 8us7eAXO/UkUA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCfN7-0000000GI1q-0qgJ;
+	Fri, 02 Oct 2026 15:40:29 +0000
+Date: Fri, 02 Oct 2026 16:40:28 +0100
+Message-ID: <86mrsw2jrn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
+In-Reply-To: <10563362-5964-4ef7-b5d7-fe1d67ce4adb@arm.com>
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+	<20261001210703.1597150-6-suzuki.poulose@arm.com>
+	<CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
+	<86se2o2rbs.wl-maz@kernel.org>
+	<CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+	<86pkxs2npx.wl-maz@kernel.org>
+	<10563362-5964-4ef7-b5d7-fe1d67ce4adb@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +107,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 03:15:28PM +0100, Kiryl Shutsemau wrote:
-> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+On Fri, 02 Oct 2026 16:15:07 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> The queues are sized from the IDR1 maxima and allocated at probe, costing
-> megabytes per queue per SMMU instance. A kdump capture kernel pays that out
-> of a small crashkernel reservation, for queues it barely uses and two of
-> which it switches off anyway.
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 0f4e8b71fa85d..9ba86450fe4af 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+> >   	hva_t hva, reg_end;
+> >   	int ret = 0;
+> >   -	if (kvm_vm_is_protected_pkvm(kvm)) {
+> > +	if (kvm_vm_is_protected(kvm)) {
 > 
-> Patch 1 adds a cmdq_max_n_shift module parameter, decided in a per-queue
-> helper and floored at one page. Patch 2 has a kdump kernel size all three
-> queues at one page through the same helper. The parameter does not apply
-> there.
+> We have slightly different handling for Realms. The final code for this
+> looks like :
 > 
-> Yuanhe Shu tested v6 on an arm64 server with six SMMUv3 instances, 64K
-> pages and a 512 MiB crashkernel reservation. Without the series the queues
-> took 192 MiB and the capture kernel OOMed before makedumpfile ran. With it
-> they take about 1 MiB and the vmcore is saved.
+> 	if (kvm_vm_is_protected(kvm)) {
+> 		if (new &&
+> 		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
+> 			return -EPERM;
+> 		}
+> 	}
 > 
-> Measured per instance under QEMU on -M virt,iommu=smmuv3 with the virtio
-> devices behind the SMMU, the capture kernel identified by elfcorehdr= on
-> the command line:
+> 	if (kvm_vm_is_protected_pkvm(kvm)) {
+> 		/* Cannot modify memslots once a pVM has run. */
+> 		if (pkvm_hyp_vm_is_created(kvm) &&
+> 		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+> 			return -EPERM;
+> 		}
+> 	} else if (kvm_realm_is_created(kvm)) {
+> 		/*
+> 		 * Once the Realm is created, we cannot modify any slots that
+> 		 * could be providing private memory. i.e., guest_memfd backed
+> 		 * slots.
+> 		 * TODO: Handle trusted device private memory slots
+> 		 */
+> 		if (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new))
+> 			return -EPERM;
+> 	}
 > 
->                         4K page          64K page
->       cmdq         1 MB -> 4 KB      8 MB -> 64 KB
->       evtq         1 MB -> 4 KB     16 MB -> 64 KB
 > 
-> cmdq_max_n_shift moves the command queue alone outside kdump and is
-> ignored inside it; zero gives one page. QEMU exposes no PRI queue, which
-> takes the same path. No CMD_SYNC timeout, GERROR or context fault in any
-> run. Build-tested across 4K/16K/64K, TEGRA241_CMDQV=n, CRASH_DUMP=n and
-> ARM_SMMU_V3=m, every commit warning-free.
-> 
-> v7:
->  - Flatten the depth helper as Jason suggested: floor the limit, then min
->    with the hardware maximum; callers pass their alignment cap as the
->    limit.
->  - Initialise cmdq_max_n_shift to CMDQ_MAX_SZ_SHIFT, so zero is no longer
->    the "default" sentinel; it asks for the smallest queue, one page.
->  - A kdump kernel always gets one page; cmdq_max_n_shift no longer
->    overrides it.
->  - Tags: Breno's and Jason's Reviewed-by on patch 1, Jason's Reviewed-by
->    and Yuanhe's Tested-by on patch 2.
+> Of course we could invert the checks to detect vm_is_protected_pkvm()
 
-Ah, sorry, I missed that you'd already sent a v7! As I said on v6, I don't
-have a particularly strong opinion on the naming, so given that Jason is
-happy with the logic, I'll just apply this now as-is.
+This is how I expect this stuff to be written.
 
-Cheers,
+	if (kvm_vm_is_protected(kvm) && new &&
+	    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY))
+		return -EPERM;
 
-Will
+	switch (kvm->vm_flavor) {
+	case VM_PROTECTED_PKVM:
+		/* Cannot modify memslots once a pVM has run. */
+		if (pkvm_hyp_vm_is_created(kvm) &&
+		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+			return -EPERM;
+		break;
+	case VM_CCA:
+		/*
+		 * Once the Realm is created, we cannot modify any slots that
+		 * could be providing private memory. i.e., guest_memfd backed
+		 * slots.
+		 * TODO: Handle trusted device private memory slots
+		 */
+		if (kvm_realm_is_created(kvm) &&
+		    (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new)))
+			return -EPERM;
+		break;
+	default:
+		break;
+	}
+
+We have an enumeration. Make use of it. And the whole "is_created"
+crap needs to be sorted one way or another.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
