@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0995CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA17ECA5FE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wv+98DicCIRnEF3119JyH5gfzpLGnB1aciy5iGQ8ki4=; b=1NbrVmReIpJvEWNOchRJBXXrNk
-	Ruk0q3+L7OE85Q7B+uK5eyTiCnhyaGgC6O98eW9yWhJ+BptYNuhHDRSqDta7uYO7jflwpKpTfviBk
-	vh33+EZ5sWce0bfeDuNIqu/gEzRrGmDAUTyI6+DNy2+djMo1sDDrsPC3t/2zW8pqw51MKHqa1+51+
-	Egu7h19DT2n+K/nk9DtWutPIRQt4lKAsA4POtkvxk/InpOB894c8vLMYj6xY+XBn+YlhpDTRCwIS3
-	3A0o5HBRxzE4OhLosh6VE5a0L93ZuzRmCs5pHdjqk7ONvoz45kMWa5EPXFTanLkxOjJk0h8JBxhRT
-	Us49R23w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtcin0LGddrGq1z73zXhBfHbevxSulJDQC2ODA9S4LA=; b=Q2PSXsx9DWHghIdV/q7tCIG9FP
+	ePXFEx88fmrEqnMQ4BpK5A+yYyWLd7cD4hCv3i+9SpFe2GDfe/dpfFf/3x5e7HnzalK++TNBy4Hqd
+	psI7CiGosp7JYpDKOjHW8X5sWD2Np/84vB1MKVSkMMc8u8zou7DLq6D5WwNoBrGmDz7H/uFvtr4AM
+	GMa8+xNyX+eNOL8HMe6QLNcYSJ0QCcPW8HGKHY7pLCkof4ApL1KFDBRsDV1RHL9ny6uSrYNy++/2H
+	XEkC8sLmiM6nYYmFMG4aQBbjA2jc7T8tyaGAhJtBYCWVdRRVkCl0eFhlE9oiZLTC15w/ivzusJ0o8
+	OKU2nbEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZYI-0000000B8or-3ZCj;
-	Fri, 02 Oct 2026 09:27:38 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xCZYn-0000000B8vt-0DCG;
+	Fri, 02 Oct 2026 09:28:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZYF-0000000B8no-42PB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:27:37 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e69b9e16aso76570895e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:27:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790933254; x=1791538054; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wv+98DicCIRnEF3119JyH5gfzpLGnB1aciy5iGQ8ki4=;
-        b=kaWi+t3LqfOHusmZUkkfRwXhcnaRcdwZiSM13QQCMMcYdQfPcd7M7tf0esKded5dM2
-         81LnZjL/5WtJU3tJRTG5BV8AIANWC1T8LVUuUFTNP9DG1XD/YZPc/lWRsyz+V1s0VPbW
-         8KocfocwxBjeMZdwMbEPhOzGfwtmDZ0wI1DM9duy4WdPe0rkeAYPn2BoFmt6r9HqNuk6
-         9kJeTg0LOci3v/zGWQjbEr1/g201TmkMau+08v2n1h2cyL5b/brgeE1j5N84ZAL3QTvw
-         FgCCZc1EahK7rORMqsVjmov7i4PF4DvqMVjldbAYtIR+yDUfhIMqrSvb2gaKerLsnJed
-         PUsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790933254; x=1791538054;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wv+98DicCIRnEF3119JyH5gfzpLGnB1aciy5iGQ8ki4=;
-        b=lOti+jpamK2RClsnrLSemJCWyirgL9D3uwz+VvLM89pzQjNVNpHVq38nkbQP2EhWbX
-         mWFGpindy6Zs1m9/9r61/w86GcnoIGj5rujtSSaDiK+VtS9Xy14DWxeSS5vNwq0eu6j8
-         oNq3XdJocEXsk0+q1/ctEAyBFZlbAD1UBNTh5fKxHmqmH4scev6QgK0u59JjHKl5r9Be
-         Jv3OkUTOgI3+jRPbX0g5mhDRybBYquTWeeirjtvPLE7qqIkmYGHiS3+8YuXzlLOArCoE
-         gr2b3jl/40iKcYb8FswRVv1zfZjt/u+O98lY7CWemxUIPRcozrdht/x2M1JFb7ItAyr9
-         3Y5Q==
-X-Forwarded-Encrypted: i=1; AKwUvByPkV3IiaE9R0z1SLsrPsfSerH0pEnaq+7catjPUC04vgXlDNOj65W85zuipgiF3pUJujHjBMZFX8N+03gxC9hV@lists.infradead.org
-X-Gm-Message-State: AFuF++lTWHXuuPGXA9l62yHZjBU7bw0UTrUzH8L9YPZ+LWg8gSXocF6g
-	oo5TV5ZnNoulh4Gj/0C0yvIUJe3T3fMMgRWePFqRNKMwuSkuNKQteUtC6sTgpvfUr3Y=
-X-Gm-Gg: AYBFou1DnsKZG/BYua6MuYEydHsaihqMuHHOK4DyiGlBwq/wMuSogYcddPb/lFkywjQ
-	8v6uPpNzfG4nnx7HeEBJpNicDluf1SeqzA3JgQhflEK2cQhG029MpYI8dfMf5PMDCzjc3ihbpLR
-	HdFtWRnIY77rd2SCh16epWBEw94Ne5G73mR0Hx+tEe19jjqYoqTHdiZntfXsOZ1to7/ukTVwQFe
-	MG2qBs0mpEy6mokPJSdEW6ia+uYyjA+xaqn3hEpZ3iDI73L2UqNM4CZnGaJFRoSslcatfwT3nEV
-	7qnLc/kApc938qbm3x0Sq1ILOX/DFFEShBgMjv//fg+1NZ+2ZBfOHGa9F8fm3KLc5raMNXMYLJb
-	QPxbn1fMqHVHExwfJbodUEA3P75yaKweR2J9cqXwVrJH4H6iKJiWvLSXtw30JGXLUl2EuC+IjCu
-	VzDyZ8rHUZk6RMfjAcEKDMYcr/ld/TGhxx2hfg45R5pNmeC1i8RHliQxX3tNFrKKMkNXne+y6+5
-	isZ84al6Fod/j8Jzx/nnIdp36TCkGhCdY1lZHGH
-X-Received: by 2002:a05:600c:3501:b0:49d:2562:d670 with SMTP id 5b1f17b1804b1-4a02757ab71mr39372915e9.14.1790933253544;
-        Fri, 02 Oct 2026 02:27:33 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a03ff6a82esm22443785e9.4.2026.10.02.02.27.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 02:27:32 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Chuan Liu <chuan.liu@amlogic.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
-References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
-Subject: Re: (subset) [PATCH v2 00/12] soc: amlogic: clk-measure: Add
- support for more SoCs
-Message-Id: <179093325187.2295112.1596878747647292092.b4-ty@b4>
-Date: Fri, 02 Oct 2026 11:27:31 +0200
+	id 1xCZYl-0000000B8va-2sOT;
+	Fri, 02 Oct 2026 09:28:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C3DF60A70;
+	Fri,  2 Oct 2026 09:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424F21F000FF;
+	Fri,  2 Oct 2026 09:28:03 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=JXF9aYC9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1790933279;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dtcin0LGddrGq1z73zXhBfHbevxSulJDQC2ODA9S4LA=;
+	b=JXF9aYC9WwUSK4dqsSbWZahQOF5tPs+qWfT6am7iM2kEiqJtJzCVxFzDeTv/m/a4MQVUpO
+	GLRdB7QsZbpopzZdWvYR/SsEQbyfmCcXe2exUQZ5/eF4uZWlcciUWsy7qUj8Yd99apyea/
+	uqdi3Lw+wZdB/dnq0RpegAZySOW8XXE=
+Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id 0f473697 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Fri, 2 Oct 2026 09:27:58 +0000 (UTC)
+Date: Fri, 2 Oct 2026 11:27:54 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <ar95GsA9liO5Avn1@zx2c4.com>
+References: <20260930133813.GA3142230@ax162>
+ <ar0a4b9CjL2YHCkY@zx2c4.com>
+ <ar0gTS71qxnx9AkW@zx2c4.com>
+ <20260930151337.GD3142230@ax162>
+ <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
+ <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
+ <ar4nD8aRH7wEvTMt@zx2c4.com>
+ <20261001102059.GA4176271@ax162>
+ <ar46ap4jzLWyP92C@zx2c4.com>
+ <83a874fb-db66-4dc2-8e14-68c7e28ae27c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_022736_028159_512CABF7 
-X-CRM114-Status: GOOD (  15.59  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <83a874fb-db66-4dc2-8e14-68c7e28ae27c@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,56 +108,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Sun, 20 Sep 2026 18:25:02 +0800, Chuan Liu wrote:
-> This patch series adds clk-measure support for the Amlogic A5, A4, S7,
-> S7D, S6 and A9 SoCs, listed in the order of their release.
+On Fri, Oct 02, 2026 at 11:18:51AM +0200, Christophe Leroy (CS GROUP) wrote:
 > 
-> The clock names for the clk-measure channels are kept consistent with
-> those used by the clock driver as much as possible, making it easier to
-> identify the relationship between the clk-measure channels and the
-> corresponding clocks in the clock driver.
 > 
-> [...]
+> Le 01/10/2026 à 12:48, Jason A. Donenfeld a écrit :
+> > On Thu, Oct 01, 2026 at 12:20:59PM +0200, Nathan Chancellor wrote:
+> >> control. The change that introduced -max-store-memset only did it to
+> >> "allow fine-tuning of the inlining threshold for performance analysis
+> >> and optimization". If they decide to remove it for whatever reason,
+> >> we're back to square one.
+> > 
+> > I suppose all the more reason to get -finline-stringops=memset added to
+> > clang. Then the dual-default thing you came up with below will naturally
+> > start choosing the first option when it becomes available.
+> > 
+> >> I know something like below would be uglier due to the ifdef but it
+> >> would avoid changing anything for GCC while clearing up the issue at
+> >> hand for clang in a guaranteed stable and succinct manner.
+> > 
+> > But then we're back to the byte-by-byte codegen that Christophe pointed
+> > out.
+> >   
+> >> If that is not acceptable, something like the following does appear to
+> >> work for me.
+> > 
+> > Okay, great, let's do that.
+> > 
+> > Does this commit seem okay with you? I used the diff you sent below and
+> > adjusted the commit message: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgit.zx2c4.com%2Flinux-rng%2Fcommit%2F%3Fid%3D56ff95ee85715047eb5b5220243778af657778c8&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7Cd89b4de22ff94b6be71208df1fa9839a%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639264485055490029%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Vxf8xRCdLavtw4Dmi%2B49FY1lJDWtm%2BjKv7f8BxKTGq4%3D&reserved=0
+> > 
+> 
+> The commit message says: Similarly, GCC has -finline-stringops=memset to 
+> do the same [4], should this issue ever hit future version of GCC.
+> 
+> Why default "-finline-stringops=memset" if 
+> $(cc-option,-finline-stringops=memset), have we identified cases where 
+> build fail without that or is it just for future provision ?
+> 
+> As shown in my previous email, with GCC 16 on powerpc32 we get a 
+> slightly better code without this option.
+ 
+No, that patch tested this option + actually calling builtin_memset.
+This new patch has the original code of zeroing a long at a time, but
+has the inline memset option to prevent future GCC from recognizing that
+pattern and making it outline. Codegen should be the same.
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.4/arm64-dt)
-
-[07/12] arm64: dts: amlogic: a5: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/b937611475a0ac7e272881cdacebbeee70378ff0
-[08/12] arm64: dts: amlogic: a4: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/a108ff38da17eab6b0ad9b0fe989c1be57a96d0e
-[09/12] arm64: dts: amlogic: s7: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/16bdad08362bdd71b868dd02bfd19b0df99c0e97
-[10/12] arm64: dts: amlogic: s7d: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/6eb7132c8fdbc84b659f919d22d988e57728aa66
-[11/12] arm64: dts: amlogic: s6: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/fcc9787c5835325d89522eabaae5e2ee71fc22af
-[12/12] arm64: dts: amlogic: a9: Add clk-measure controller node
-        https://git.kernel.org/amlogic/c/520766a407c236b462c59d69b3923bd30fc3b20b
-
-These changes has been applied on the intermediate git tree [1].
-
-The v7.4/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-
--- 
-Neil
-
+Jason
 
