@@ -4,139 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19FB2CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 16:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F71ECA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 16:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjcDbTs9FdX3fXZwA90xbytMzlO4CTXr03GT3vdQAU4=; b=lX+lg5IEgoIKgPlz75OpO5ljvg
-	K+xb8Ff0ZGeEc3cBTUEpeGGOu6JWGtuNxanN2RmyIzlnAMARDWGej0EghkTdLWkmPPWz5PINOdxng
-	AnpQhx5Zh7LE7v58Fs4tqNQRjHz4zV9Sfmu+XebJBV8pk0c6QiUheUos1CLJiCqe8dbv30gRA6qIl
-	rqkCNFWefOMn9kDReCTPkzoF6KCaHsfUDS8LtlG2UFKieDQXEqhMRRjdKrL/ah8WuLOvqBo3EQi/U
-	zrHRGOyxUA171I48y72uJLgxLtTzcIb7NW778U51aaiW396Agi997Pune4ob7SY+NqMN5xT/6WTxp
-	A5LaNrmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=py97cNYaBxybrUzKejoJroLpoNrWH+tTWDC6cmMrstA=; b=MFfH8gvq5eAs1g69D6YRmopsQB
+	piCLxCRXGoxCaFLXDCXriyYC5SllUx/QByauqSmB27R3c1mbp8MeVnjXL0bJca4mjyVEMcR/ZPYPn
+	m57BLcEa+EpvfJU75KDZ5rsK5cES/jMdS3oLGAVr1nuWFFgdY+QxoaBlv5x1153otbkyHYuJugseQ
+	Ab8BlKPw/gsdrW10uABZ3LgI6Eo11auTCfi9hwsDuACuWNqH+PWo9l7Lmx+iNm/5tTaKhUU5u5ihj
+	95wVvlYCsd2OrQmexjdBK1cATMb3lIe2bxIgCMshHXJTcXT2LwP0K2HHyOLb2KcSTe3mot/Z5k467
+	qV4QhBkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfvq-0000000C11y-3JnL;
-	Fri, 02 Oct 2026 16:16:22 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfvo-0000000C11K-0ZNe
+	id 1xCg0l-0000000C1R3-1ZSg;
+	Fri, 02 Oct 2026 16:21:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCg0j-0000000C1QL-0a0i
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 16:16:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YdYlsrj7LLsCXrbbC8BAgdBMV14ZNfpcqhUOSjv67FD+UUprw3KpXYrXFOpyTNiXPKE9B3hnTvVg5i+KGyRdI7vQT1IF/Tv+SbSPFkY8pYValqYPYJxmJ9XYQjfkonJJ3r736DulVB80f3BgjyJ+7qo5N7wggo8sZnB68z56jLjISPdtT257W8p70jYP/UE6rN9j+BEhtRGAmPPiOuQeJjwY8YjTFDcLKRG2on30CczVknSaf4tDJYFErcf+ySy/EJTMBLXXW9wOqbjtcovNSTu3UpmRmJ37qtPqORYc8XSO2Uvki/eCNSugO+EJyiP396fxxWSksDWk0wNYW+tK+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IjcDbTs9FdX3fXZwA90xbytMzlO4CTXr03GT3vdQAU4=;
- b=yErqQQ1WfU0Tty8iuFfy6914Dy0+Xg+ogGdWH5/uROPduzO/qYR6QskWLKbqCtWPeJAooRnzsZk8pIYe2k49TKorKFynKYPSP2m5C0IooKdiLpcii2bKXUchhoNBw7Xafi4xxbf+8XQVCK5SNABQE3sjUO6Tbd/CxCa7EvD0j/lS6rZulY5XLckbZKiZS64mcz4sYd6zW7nYRQ0YqFds4d8TDDixi5t/WOmT7rMMmkCSgDxAGuXO7s3jMo604WZLK3nQxomGL5QwIkVOh/Opb2E3Jd0BsLM4jHh69f1BYm+gMzULle4YuV0cwzJweOrWCsA00BPWavODYIgMt3MKWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IjcDbTs9FdX3fXZwA90xbytMzlO4CTXr03GT3vdQAU4=;
- b=eSwSAKPNlw5j/elcsov0kt3UAcEeQSF6LCVpvuKmb+0j5DdvRhm5laHXNmhhhSlTdeZzHRVwMuaJLWa9ctEcXS+WHdO7YgU19j8MbHlouexKhHNxX/WaYp7PVzvn0cNrsVANcBs19W5OF3D0G5Zi9vZ6bkX7eRVYPQniOe4kUorYcMRR1dUp79f1S7JqD7YUYGseYjx478JId26nBQc3GVrirOB7guOUFB2lvwPaLMlJiieDiovE2mHUKL8/sUrQb98o3G2+zrI9Q1usoHpC3ulPqUtEfl83sOEt2P6V77zfr7sAYMCKYRL7hIJWbj5cJRvj6PPL/jjARP+zB/cuHA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9244.eurprd04.prod.outlook.com (2603:10a6:20b:4e3::9)
- by AS8PR04MB8293.eurprd04.prod.outlook.com (2603:10a6:20b:3fa::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Fri, 2 Oct
- 2026 16:16:13 +0000
-Received: from AS4PR04MB9244.eurprd04.prod.outlook.com
- ([fe80::adaf:805c:51c5:9538]) by AS4PR04MB9244.eurprd04.prod.outlook.com
- ([fe80::adaf:805c:51c5:9538%6]) with mapi id 15.21.0472.015; Fri, 2 Oct 2026
- 16:16:13 +0000
-Message-ID: <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
-Date: Fri, 2 Oct 2026 19:16:11 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison OV2312 driver
-To: Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: tomi.valkeinen@ideasonboard.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, sakari.ailus@linux.intel.com, mripard@kernel.org,
- jai.luthra@linux.dev, jai.luthra@ideasonboard.com, devarsht@ti.com,
- y-abhilashchandra@ti.com, laurent.pinchart@ideasonboard.com
-References: <20260925133001.2780868-1-r-donadkar@ti.com>
- <20260925133001.2780868-7-r-donadkar@ti.com>
-Content-Language: en-US
-From: Mirela Rabulea <mirela.rabulea@nxp.com>
-In-Reply-To: <20260925133001.2780868-7-r-donadkar@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR3P281CA0183.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a4::11) To AS4PR04MB9244.eurprd04.prod.outlook.com
- (2603:10a6:20b:4e3::9)
+	Fri, 02 Oct 2026 16:21:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F72E1476;
+	Fri,  2 Oct 2026 09:21:21 -0700 (PDT)
+Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88BDF3F86F;
+	Fri,  2 Oct 2026 09:21:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790958084; bh=j1DFrVvkAJ4S9bitcuONPXMtVWgkwbXYGjzS42/w7KM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=n9floJgmfPUb5Bme9WMaDoAKs81Jr8Mw9/iuNlcX8oODjn9uETbcVSUUVrWykXrkx
+	 l5tVmrXnYlYB3DsCpB4aqtIXmz/zTplFulaO7Fid7jhK4kpz0hmFLdchxDE3PhhGr/
+	 +I+4d1l8fxq1VDpgV+eCTTO3e2vYPlLXDtGL2EeU=
+Message-ID: <922325b0-97ee-46b3-af6d-5ce0fb4076e4@arm.com>
+Date: Fri, 2 Oct 2026 17:21:21 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9244:EE_|AS8PR04MB8293:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00ce22ec-8181-4342-1e31-08df20a07aba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|19092799006|260925021911599003|260925021311599003|6133799003|260925022911599003|56012099006|10067099003|11063799006|4143699003|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: cWaPcY2pg29A9UYHKXBaTcyrWisQrixkXyeKL3bHiNaCGt2lzawpkKGfIkW2T3wzhMkKnTbS+tj4o3HOJnzyd3wqSwocrr/e3t/B016xwkJwIA0L/gd3Wwc3R9rRCouRgxX0k+vKxM7pYX6oyA8aWg8JoR5voS/xYyYE2i+EIHzsYNhbOZUNOmS1i3P6HrOsI67iGrUox81yAqnHmL4LVoByFgCvktp9Kv905qDruAyrQGCKk4mtVkloK43S8KfGHuX/ptjkY37y3kr0jprQKDs9KX6QBxM/ZV4Qi4sJYQRQbhWPaLZXVvjT+ssF/uyR3he5ZHA1XAn2Oe557nCaWbnyoIFk913cpKJx+khL+IPym5rJk9U0KRwmCIvwJzbBM+Y6SkJIXEQi7yIwUa++RBJT6YiaPeBhMarIaJP7vviA1TMOSxWcRMv2a6sfpI6ufCaFP5B8jGY9ig013u/i8hWJGn6iDIyb2TPr4vSqfWec2yZ+6a4zOt3/fKvZaVKzfpvaD0MZetLCB74hnE8YLQfu4+tvIsyVsPMvckib1cqQA3Rv74lOMc3/6hJc7h1r7j8Tb7kdGsn7OLX+CjT2BQVWvR+7I9aHNTkeL8kZbY4DtZWv0h4P0tuTJmGSPPMG8Tt5fCPO6i/8dnpZauLNbfQ8hFED2EBJbpymmIWi4Do=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9244.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(19092799006)(260925021911599003)(260925021311599003)(6133799003)(260925022911599003)(56012099006)(10067099003)(11063799006)(4143699003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RFhXaFBWbFluNWdCNzl3NmVaWFAxSDFzaG4xb3lLQlQway9SUXhrYTJhUUFr?=
- =?utf-8?B?ei9PQTZTVFhZem0vUHdvY1ZyYlFGZTl6ZCtubHRvZHo3WGFMamt2d2xNTXBX?=
- =?utf-8?B?cnlLQldaMWtYSEdONGMzOWhsbWRHUmtQODVZYnZ5TDRiWktaUk1jQzdCS0Nv?=
- =?utf-8?B?cDN6cVFyZ3Z0aXNuL2pmWFB4VDhDRmxwb056ZHQ0U1NaM0d0akY2Q2FKN1FX?=
- =?utf-8?B?VEkrZzkrYVBJeGg1SkNQSUxCSVJHUjhjU1A2OUJxTFNjZmt5UjFEQWN0dEZn?=
- =?utf-8?B?TE1EUkJnam9OY09tMERsa2Uyd1BjZDdPNWYxdVAwUkpsZmFUckE0QmlqUklC?=
- =?utf-8?B?WWdoKy9oR3dYMnBWYzBZbk92ZjZBTHJTMXJFTmc5elVYenRxRzNXMXgzUXRE?=
- =?utf-8?B?bjVIMlE0cGtMOFNmSS9HOXVaczJGVkErenNrTDUzNHlKRnpYNWJZRjRpYng4?=
- =?utf-8?B?RkNPaVo4ZUgwaXJ4T1VWLzdVWHBFcWpEd0ZLK25kWEQ4UGJ3Q2JpTVkyenNM?=
- =?utf-8?B?czBvZ3drOWNRb2dOSjlWeWtndjZQcytUcGc2SlNaMlM5bXViajMrTmJOSXhq?=
- =?utf-8?B?N1ZJTXZOWUo3dVRvM25mSGNwSHNPWko5aUxSbDF4bjkzTnFCNit5bHRka1li?=
- =?utf-8?B?Q3VMcGpYbDVQU1ZYSUJ0Um1XNTN4dlZwSU5wK3kxb2Q3NjRJK1gxeVlvalli?=
- =?utf-8?B?amhYc3lVN2E2dkk3aEt1UG9MUEZlaGtnSWcxY3VmYVc2Y3pMa2EzdCthbFhD?=
- =?utf-8?B?ZU1mSlFqS1Bib2s2TlRFRUJIc2Yrc0dwZzI2RldxNlRaV1psSkRHcnVFZW9W?=
- =?utf-8?B?RHhydHZOZjdOd3RTa2xHRlY0a3d2dlJxaGlTL0VQdy83S0NMNG9TUzY0dFZR?=
- =?utf-8?B?bTduYWltcVlVck43bVZXOUV4NHpaMnRmYmZkazZzdVZJMmk0V29Ld0dLRkVo?=
- =?utf-8?B?WGlmTXFoWlIxZXRNWFNTYVhUUHVzckZoZmE1MjlVazdmaDhHRzZrOXR1cEJP?=
- =?utf-8?B?OFJWYnV4WTV2NzBlLzFaSWtteGpuU0h1aHd5c2wvUlRrMzdBT2JrU1JzMDRw?=
- =?utf-8?B?NFZTNkF6ZGpHaFk2NEdJbVZpUHBMQ1lOTHlySkU2WGo0WFpLOTRKd255R1dL?=
- =?utf-8?B?bmlFNGFVbnJHZDNRK3VPdzd2ai9xWFo2Z3hLQ0syYThqQ2pab2J3YUdydkF1?=
- =?utf-8?B?cTExdStyS2NKdEtaajFUTnRvajAxZU00OVZCT2ZIL3FlMG1YRDkrOUFnS1ZF?=
- =?utf-8?B?ZGN6RTRZNDc3b2x0UytGdE1CQ1pQcjFCTHRIc0tmLzBEeDBpckN4M01wU2Ji?=
- =?utf-8?B?MVRibmw5WXRRN1JNMVBUZjNhV1RBWjF3ejVJU0xSL0NiNGpHdElVT083U3Jm?=
- =?utf-8?B?YTk2M0xUUGVTdVA2SG5Ka00vNGw3dkpzeUJ3ODM0alpHRTZheVJpUHdHSFVw?=
- =?utf-8?B?SjQxZmZSQzJFSmRzRXRVSHZidjM0YnFaazh6VUJ4TUZjSWVyVExhYTc2cSth?=
- =?utf-8?B?VlMzYVRFelBKVkpDZktob1o0dkhXKzIzWEl2am9WQzhCcTdHd2JseUVaLzVK?=
- =?utf-8?B?OTlSV1Zta2oxYU1TMjMvQmlqUXV5R1Jqd0k0MUZmcUFBSUZxWitJTEc0K3V5?=
- =?utf-8?B?QnVzWld2aGxHWU9FanlYeXYwaWZ2dFBPZXdJVytRS0lXVTF3MUZ2eEIyUyt5?=
- =?utf-8?B?TEJ1WjVpN1doN05VWEFZV2trMTd5azFScGd3SDFJQm5sTW8vNGhpZWRoa0Jm?=
- =?utf-8?B?SEJNWnhjcTcxZjFCMzZsSDcyNUUrL0l3VGZWSU9vZTloN21ncUJwNm9BTWlM?=
- =?utf-8?B?WXdzeVVZOG9lVlZQWUE4aEk1cUpTUnBTR0paRlVmcEJVVHl3MmtqTUdIN1FI?=
- =?utf-8?B?UkdwTi96bnhvbjNLN2NjaFZ6WkppVDFOekE4UzV0YzlZVlN1QkFKbTlPbjRE?=
- =?utf-8?B?Wm1jMk9seUlITVZRYXhpOWZiWk5RRkhEa2tjcW9XRXh2QmhZSXNYVEsvdERS?=
- =?utf-8?B?VWFRaXBERDVtQldYeDRla3lpaWYxK2FKUlQ1UWFZdzdSN1N6YWJKTnp4MjRs?=
- =?utf-8?B?Y1lSU0diSUwyWDJRUzJjRXM4V05XWTlKVDJGWUpMeEhWNExKK2c5bGNiNFJL?=
- =?utf-8?B?bEgzaHYwWTNnLy9QMDUxMTgxa1FkeTk5WjhRNjdiUFRHMXplWXY4WmViZHB1?=
- =?utf-8?B?NU1raGpBZjBKazBaNGZYWnVMTEdTY3d5MmI5MWNjK0xpLzZxSHFZY1hUMkFx?=
- =?utf-8?B?eFFXVGhCN3pXdTNEejd3aUNRd3lESW9FK29CK0JEUitLTEUvajVKVkN5MDkx?=
- =?utf-8?B?OGVEZWhPdXJiSFN2cWFvOTFwVURjV0lVMTFyMlNpNGIxLzNwNG1JZz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00ce22ec-8181-4342-1e31-08df20a07aba
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9244.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 16:16:13.7818
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t+towQu4CuRwpbBmBjOrETV0bMf0il/gL5xNGsC6aHZGeL5t59ZnUKSfqksn3bxdTWG6AB4BehrEfp7wWvkWVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8293
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/12] arm_mpam: Use __ris_msmon_read() for saving MBWU
+ state
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
+References: <20260917145617.2202986-1-ben.horgan@arm.com>
+ <20260917145617.2202986-7-ben.horgan@arm.com>
+ <32c85a0b-48f3-407f-bc60-a58255806683@arm.com>
+ <e1bb7833-c6f5-4582-9769-19a6437d07fd@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <e1bb7833-c6f5-4582-9769-19a6437d07fd@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_091620_350391_909DFF69 
-X-CRM114-Status: GOOD (  28.23  )
+X-CRM114-CacheID: sfid-20261002_092125_265970_762A0921 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,304 +75,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rishikesh, Jay, Laurent, Hans, Sakari,
+On 02/10/2026 16:22, Ben Horgan wrote:
+> Hi James,
+> 
+> On 02/10/2026 16:15, James Morse wrote:
+>> Hi Ben,
+>>
+>> On 17/09/2026 15:56, Ben Horgan wrote:
+>>> mbwu_save_mbwu_state() reads the MBWU counters and adds that to a saved
+>>> correction value. However, the type of counter to read is determined by the
+>>> RIS rather than the class and overflow is not taken into account. Fix this
+>>> and mitigate against further divergence by using a locked variant of the
+>>> same helper used for user monitor reads, __ris_msmon_read(). Using the
+>>> locked variant avoids having to drop and retake the mon_sel lock. If the
+>>> lock was dropped, an interleaved monitor read which detects overflow would
+>>> cause the overflow not to be accounted for in the saved value of
+>>> mbwu_state->correction. The correction is no longer updated for disabled
+>>> counters but this has no effect as the saved values are not expected to be
+>>> useful for disabled counters.
+>>
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>> index 6cba3ef21cc8..62562ce2f9aa 100644
+>>> --- a/drivers/resctrl/mpam_devices.c
+>>> +++ b/drivers/resctrl/mpam_devices.c
+>>
+>>
+>>> @@ -1688,10 +1693,12 @@ static int mpam_save_mbwu_state(void *arg)
+>>>  	int i;
+>>>  	u64 val;
+>>>  	struct mon_cfg *cfg;
+>>> +	struct mon_read mbwu_arg;
+>>>  	u32 cur_flt, cur_ctl, mon_sel;
+>>>  	struct mpam_msc_ris *ris = arg;
+>>>  	struct msmon_mbwu_state *mbwu_state;
+>>>  	struct mpam_msc *msc = ris->vmsc->msc;
+>>> +	struct mpam_class *class = ris->vmsc->comp->class;
+>>>  
+>>>  	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+>>>  		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+>>> @@ -1707,17 +1714,31 @@ static int mpam_save_mbwu_state(void *arg)
+>>>  		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+>>>  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>>
+>>>  		cfg->mon = i;
+>>>  		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+>>>  		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+>>>  		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+>>>  		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+>>> +
+>>> +		if (!mbwu_state->enabled) {
+>>> +			mpam_mon_sel_unlock(msc);
+>>> +			continue;
+>>> +		}
+>>> +
+>>> +		val = 0;
+>>> +		mbwu_arg = (struct mon_read) {
+>>> +			.ris = ris,
+>>> +			.ctx = cfg,
+>>> +			.type = mpam_msmon_choose_counter(class),
+>>> +			.val = &val,
+>>> +		};
+>>> +
+>>> +		__ris_msmon_read_locked(&mbwu_arg);
+>>> +
+>>> +		mbwu_state->reset_on_next_read = true;
+>>> +		if (!mbwu_arg.err)
+>>> +			mbwu_state->correction = val;
+>>
+>> += val?
+>>
+>> If the same CPU is offlined twice, the correction should hold the sum of both values.
+>> The idea is the 'correction' is anything that has been consumed, and isn't in the hardware
+>> register. (e.g. due to overflow or reset)
+> 
+> I agree with your definition of correction but isn't that taken into
+> account in __ris_msmon_read_locked().
+> 
+> Surely +=val here would lead to double counting.
 
-On 9/25/26 16:29, Rishikesh Donadkar wrote:
-> From: Jai Luthra <j-luthra@ti.com>
->
-> Omnivision OV2312 is an RGB-IR sensor, i.e. it uses a 4x4 R,G,B,Ir bayer
-> pattern to capture both visible and near-infrared light. Every alternate
-> frame, the sensor changes the exposure and IR flash strobe registers to
-> stream an -
-> A. IR-dominant frame on CSI-2 virtual channel 0
-> B. RGB-dominant frame on CSI-2 virtual channel 1
->
-> These A/B frames are routed as separate v4l2 streams, which may be
-> mapped to two separate /dev/videoX nodes by the CSI-RX DMA driver.
->
-> Both of these streams are captured at a resolution of 1600x1301, 30 fps
-> each (60fps total). The extra row (1301 vs 1300) is an embedded line
-> prepended to each frame by the sensor, containing the following register
-> values:
->    0x4813 - VC (Virtual Channel)
->    0x321A - Group ID
->    0x3920 - Strobe
->    0x3501 - Exposure HI
->    0x3502 - Exposure LO
->    0x3508 - Gain HI
->    0x3509 - Gain LO
->    0x350e - Current Exposure HI
->    0x350f - Current Exposure LO
->
-> This driver also supports a few v4l2 controls like horizontal/vertical
-> flip, multi exposure and multi gain controls.
->
-> Signed-off-by: Jai Luthra <j-luthra@ti.com>
-> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
-> ---
->   drivers/media/i2c/Kconfig  |  12 +
->   drivers/media/i2c/Makefile |   1 +
->   drivers/media/i2c/ov2312.c | 939 +++++++++++++++++++++++++++++++++++++
->   drivers/media/i2c/ov2312.h | 285 +++++++++++
->   4 files changed, 1237 insertions(+)
->   create mode 100644 drivers/media/i2c/ov2312.c
->   create mode 100644 drivers/media/i2c/ov2312.h
->
-> diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-> index 4d9946479160..8d9d8d491b2e 100644
-> --- a/drivers/media/i2c/Kconfig
-> +++ b/drivers/media/i2c/Kconfig
-> @@ -496,6 +496,18 @@ config VIDEO_OV13B10
->            This is a Video4Linux2 sensor driver for the OmniVision
->            OV13B10 camera.
-...
-> +
-> +static int ov2312_read(struct ov2312 *ov2312, u16 addr, u32 *val, size_t nbytes)
-> +{
-> +       int ret;
-> +       __le32 val_le = 0;
-> +
-> +       ret = regmap_bulk_read(ov2312->regmap, addr, &val_le, nbytes);
-I've received in the past feedback to use cci_* helpers instead of 
-regmap, see drivers/media/v4l2-core/v4l2-cci.c
-> +       if (ret < 0) {
-> +               dev_err(ov2312->dev, "%s: failed to read reg 0x%04x: %d\n",
-> +                       __func__, addr, ret);
-> +               return ret;
-> +       }
-> +
-> +       *val = le32_to_cpu(val_le);
-> +       return 0;
-> +}
-> +
-> +static int ov2312_write(struct ov2312 *ov2312, u16 addr, u32 val, size_t nbytes)
-> +{
-> +       int ret;
-> +       __le32 val_le = cpu_to_le32(val);
-> +
-> +       ret = regmap_bulk_write(ov2312->regmap, addr, &val_le, nbytes);
-> +       if (ret < 0)
-> +               dev_err(ov2312->dev, "%s: failed to write reg 0x%04x: %d\n",
-> +                       __func__, addr, ret);
-> +       return ret;
-> +}
-> +
-> +static int ov2312_write_table(struct ov2312 *ov2312,
-> +                             const struct reg_sequence *regs,
-> +                             unsigned int nr_regs)
-> +{
-> +       int ret, i;
-> +
-> +       for (i = 0; i < nr_regs; i++) {
-> +               ret = regmap_write(ov2312->regmap, regs[i].reg, regs[i].def);
-> +               if (ret < 0) {
-> +                       dev_err(ov2312->dev,
-> +                               "%s: failed to write reg[%d] 0x%04x = 0x%02x (%d)!\n",
-> +                               __func__, i, regs[i].reg, regs[i].def, ret);
-> +                       return ret;
-> +               }
-> +       }
-> +       return 0;
-> +}
-> +
->
->
->
-> + */
-> +static int ov2312_set_group_a(struct ov2312 *ov2312)
-> +{
-> +       u32 ir_exposure = ov2312->exposure_multi->p_new.p_u32[1];
-> +       u32 ir_again    = ov2312->again_multi->p_new.p_u32[1];
-> +       u32 ir_dgain    = ov2312->dgain_multi->p_new.p_u32[1];
-> +       u32 ir_strobe_start = OV2312_VTS - ir_exposure - 7;
-> +       int ret;
-> +
-> +       struct reg_sequence ov2312_groupA[] = {
-> +               {0x3208, 0x00},/* Group A (IR Dominant VC0) */
-> +               {OV2312_AEC_PK_EXPO_HI, (ir_exposure >> 8) & 0xff},
-> +               {OV2312_AEC_PK_EXPO_LO, ir_exposure & 0xff},
-> +               {OV2312_AEC_PK_AGAIN_HI, (ir_again >> 4) & 0xff},
-> +               {OV2312_AEC_PK_AGAIN_LO, (ir_again & 0x0f) << 4},
-> +               {OV2312_AEC_PK_DGAIN_HI, (ir_dgain >> 8) & 0xff},
-> +               {OV2312_AEC_PK_DGAIN_LO, ir_dgain & 0xff},
-> +               {0x3920, 0xff},/* IR Strobe duty cycle */
-> +               {0x3927, (ir_exposure >> 8) & 0xff},
-> +               {0x3928, ir_exposure & 0xff},
-> +               {0x3929, (ir_strobe_start >> 8) & 0xff},
-> +               {0x392a, ir_strobe_start & 0xff},
-> +               {0x4813, 0x01},/* VC=1. This register takes effect from next frame */
-> +               {0x3208, 0x10},
-> +               {0x320D, 0x00},/* Auto mode switch between group0 and group1 ;setting to switch */
-> +               {0x320D, 0x31},
-> +               {0x3208, 0xA0},
-> +       };
-> +
-> +       ret = regmap_register_patch(ov2312->regmap, ov2312_groupA,
-> +                                   ARRAY_SIZE(ov2312_groupA));
-> +       if (ret < 0)
-> +               dev_err(ov2312->dev,
-> +                       "%s: failed to apply Group A register patch (%d)!\n",
-> +                       __func__, ret);
-> +       return ret;
-> +}
-> +
-> +static int ov2312_set_group_b(struct ov2312 *ov2312)
-> +{
-> +       u32 rgb_exposure = ov2312->exposure_multi->p_new.p_u32[0];
-> +       u32 rgb_again    = ov2312->again_multi->p_new.p_u32[0];
-> +       u32 rgb_dgain    = ov2312->dgain_multi->p_new.p_u32[0];
-> +       int ret;
-> +
-> +       struct reg_sequence ov2312_groupB[] = {
-> +               {0x3208, 0x01},/* Group B (RGB Dominant VC1) */
-> +               {OV2312_AEC_PK_EXPO_HI, (rgb_exposure >> 8) & 0xff},
-> +               {OV2312_AEC_PK_EXPO_LO, rgb_exposure & 0xff},
-> +               {OV2312_AEC_PK_AGAIN_HI, (rgb_again >> 4) & 0xff},
-> +               {OV2312_AEC_PK_AGAIN_LO, (rgb_again & 0x0f) << 4},
-> +               {OV2312_AEC_PK_DGAIN_HI, (rgb_dgain >> 8) & 0xff},
-> +               {OV2312_AEC_PK_DGAIN_LO, rgb_dgain & 0xff},
-> +               {0x3920, 0x00},
-> +               {0x4813, 0x00},/* VC=0. This register takes effect from next frame */
-> +               {0x3208, 0x11},
-> +               {0x320D, 0x00},/* Auto mode switch between group0 and group1 ;setting to switch */
-> +               {0x320D, 0x30},
-> +               {0x3208, 0xA0},
-> +       };
-> +
-> +       ret = regmap_register_patch(ov2312->regmap, ov2312_groupB,
-> +                                   ARRAY_SIZE(ov2312_groupB));
-> +       if (ret < 0)
-> +               dev_err(ov2312->dev,
-> +                       "%s: failed to apply Group B register patch (%d)!\n",
-> +                       __func__, ret);
-> +       return ret;
-> +}
-> +
-> +static int ov2312_set_AB_mode(struct ov2312 *ov2312)
-> +{
-> +       bool ir_ready  = ov2312->exposure_multi->p_new.p_u32[1] &&
-> +                        ov2312->again_multi->p_new.p_u32[1] &&
-> +                        ov2312->dgain_multi->p_new.p_u32[1];
-> +       bool rgb_ready = ov2312->exposure_multi->p_new.p_u32[0] &&
-> +                        ov2312->again_multi->p_new.p_u32[0] &&
-> +                        ov2312->dgain_multi->p_new.p_u32[0];
-> +       int ret;
-> +
-> +       if (ir_ready) {
-> +               ret = ov2312_set_group_a(ov2312);
-> +               if (ret < 0)
-> +                       return ret;
-> +       }
-> +
-> +       if (rgb_ready) {
-> +               ret = ov2312_set_group_b(ov2312);
-> +               if (ret < 0)
-> +                       return ret;
-> +       }
-> +
-> +       /* Wait for 1 frame duration after setting AB mode registers */
-> +       if (ir_ready || rgb_ready)
-> +               msleep(33);
-> +
-> +       return 0;
-> +}
-> +
-> +static int ov2312_set_orientation(struct ov2312 *ov2312)
-> +{
-> +       bool v_flip = ov2312->v_flip->val;
-> +       bool h_flip = ov2312->h_flip->val;
-> +       u32 reg = (v_flip ? 0x4400 : 0) | (h_flip ? 0x0004 : 0);
-> +
-> +       return ov2312_write(ov2312, OV2312_TIMING_VFLIP, be16_to_cpu(reg), 2);
-> +}
-> +
-> +static int ov2312_set_ctrl(struct v4l2_ctrl *ctrl)
-> +{
-> +       struct ov2312 *ov2312 = container_of(ctrl->handler,
-> +                                            struct ov2312, ctrls);
-> +       int ret;
-> +
-> +       /*
-> +        * If the device is not powered up by the host driver do
-> +        * not apply any controls to H/W at this time. Instead
-> +        * the controls will be restored right after power-up.
-> +        */
-> +       if (pm_runtime_suspended(ov2312->dev))
-> +               return 0;
-> +
-> +       switch (ctrl->id) {
-> +       case V4L2_CID_EXPOSURE_MULTI:
-> +       case V4L2_CID_AGAIN_MULTI:
-> +       case V4L2_CID_DGAIN_MULTI:
-> +               dev_dbg(ov2312->dev, "debug: %s: %s = [%u, %u]\n", __func__,
-> +                               ctrl->name, ctrl->p_new.p_u32[0], ctrl->p_new.p_u32[1]);
-> +
-> +               ret = ov2312_set_AB_mode(ov2312);
+Yes - I missed that.
 
-So, the group hold for A/B context is set right away, when the control 
-arrives.
-
-While working with the Omnivision OX05B1S, which is also an RGB-IR 
-sensor, we run into this problem:
-
-The normal expected sequence is that the sensor will output alternating 
-frames VC0, VC1, VC0, VC1,...
-
-But  when user space tries to do automatic exposure and gain control via 
-v4l2 muti controls, if the driver applies the values immediately, if the 
-virtual channels are not switched within the proper timeframe, it is 
-possible to run into frame duplication (no more nice alternating frames 
-VC0, VC1, VC0, VC1,...but duplicate VC0,VC0 or VC1,VC1).
-The information we received from the sensor vendor is that group0 update 
-needs to be between 2 group0 launchpoints (similar for group 1). We can 
-use the status register to query the currently active context, and in 
-order to avoid frame duplication we can update each group only when its 
-context is active.
-
-This is problematic in the v4l2-api context, it implies that even while 
-streaming, a v4l2 control cannot be committed to sensor registers right 
-away.
-
-Even with workarounds in the sensor driver, to defer for later the 
-updates for the inactive context, it is still problematic: defer for how 
-long, and problems with overloaded systems, a stress test can bring us 
-in a broken VC sequence, as there is no atomic way to determine the 
-current active context + update the right group.  A broken VC sequence 
-shows up for example in libcamera as lost frames.
-
-Rishikesh, Jai,
-
-  did you notice this problem on OV2312? A way to reproduce this is to 
-stress the driver with frequent repeated set controls (for the 
-multi-controls), and observe broken VC sequence (I observed it with 
-libcamera and on the CSI analyzer).
+I'll add a comment to that effect as (to me at least) this looks like a reset of that
+correction value, which shouldn't happen while the counter is allocated.
 
 
-Laurent, Hans, Sakari,
 
-did you encounter similar situations? Any comments or proposals? The 
-concern here, to summarize, is: v4l2 control cannot be committed to 
-sensor registers right away (even when streaming) and we are also unsure 
-when the right moment to perform the register access may come.
+Thanks!
 
-
-Regards,
-
-Mirela
-
-> +               break;
-> +
-> +       case V4L2_CID_HFLIP:
-> +       case V4L2_CID_VFLIP:
-> +               ret = ov2312_set_orientation(ov2312);
-> +               break;
-> +
-> +       default:
-> +               ret = -EINVAL;
-> +       }
-> +
-> +       return ret;
-> +}
-> +
->
+James
 
