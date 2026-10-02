@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37338CA5FD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 11:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5D5CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 11:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQsB+ge38WH53pnancjKWGYXnOy7+uX3sDgWwo3cVOI=; b=Eytg4AjQbwWeXbDCY+giIWB6m6
-	4Zipgsjo6szjInm6W/f8mwkKi4jgo9Q2+APmhSlMrpq8Uk81Qn0GXK9WTiALuF8dqTW/VxAg+o+ju
-	oI0pMnyKcmayrNmmm6bumhHMfysEUgPcXP2RCxquTNsODNS+5ONgaqmI9Iw7Ujo3ineNCWIzE3vJ+
-	cq78tvf9C4Y5kuMClSh7qHwbOrIfhJJ42p9kAi77EBvtMd5wG/i17QUOi7qQYMv5QnDmEhJIeFxnC
-	XZeMK2ev7qnsdSzzZQDSgE+UKG41MnmH6aUQuN3tuDUiozh2nFcT8g1ObBl5VQCXYBQbaR0WP4rDx
-	0yjvuRcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=; b=uQhjOhbbd2+p11awYmtiP9PU/w
+	ysNj+D+OOJxakWZDNfB6EPwzxqYMxh6qbKFNqf+a4lY/X6xWKolGKgYeUI6nR8Vy4Mo3Hi1QamtWt
+	9ojjiCn81DP9wHl9l6mffYOn3TFA+qtYKjhbvQik1P6liJ8LY94hcntI92ulvI0LsiJ0MbfHg+9BG
+	W+L0Sbhz88Fat57LMreSQ5ekkQ6SFPzQWAYqbICXjrzXJGg2QDxr4fkMhqkkphC/jf3Qt2QkNyJO2
+	5NG9BJ+yR1UnDQSMNoz/+GcJ8+gJ1BxK8Vz+v7XyCuwNSqGc1I0LkFCZC+W999dXo0qnDAJkdMgaz
+	94OfyIqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCb3M-0000000BQEQ-3DxS;
-	Fri, 02 Oct 2026 11:03:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCb3J-0000000BQDX-34N3
+	id 1xCb3x-0000000BQNu-1cA1;
+	Fri, 02 Oct 2026 11:04:25 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCb3u-0000000BQLk-2DQb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 11:03:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 39B252F;
-	Fri,  2 Oct 2026 04:03:40 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0CB53F85F;
-	Fri,  2 Oct 2026 04:03:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790939023; bh=VveSnYZ4hUEZzYAVLJFm+ZlfCp0ty6xGzWYSlkf7ChU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YmhfkI/OD1wsPm44zabAN/XnWKsLo3drst6w219fnFnqdStfI9eJktiQ+vqKKoaSY
-	 oL42VlAgSxTo1LXxKgePhnKaFOxVVE7H2cQmdENnHIxOmISojXwENs6+QxLhtbKNe4
-	 XzxruEpHJUV6zbvvNBGAfCJIVBhCJmGs6P+7CS1I=
-Date: Fri, 2 Oct 2026 12:03:36 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
-	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	linux-pm@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v22 07/10] kernel: hibernate: Add an arch hook for
- preventing hiberation
-Message-ID: <ar-PiBQGye4_hQa6@arm.com>
-References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
- <20261002061507.1600269-8-suzuki.poulose@arm.com>
+	Fri, 02 Oct 2026 11:04:23 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d37b6so42496605e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 04:04:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790939061; x=1791543861; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=;
+        b=XBQwz8a4X0VkXxtvLf2Jx7gEJ1Yo0i+ELKOo2mZOYxyfHf8GPqTzCVr2z/RaoMRr33
+         x9HH6w1ghWF5MwX6uL08BVehg04UrwcKZngbh89DAeH4RrS5mGrkbcxOmHWUr3dl5byP
+         KsmeUst0xIAMm5qLvZiDqos1CcoAKA6Y2IHA/YIMYmj5Gzm3hCrhw6Iv/dzH33+9mEn3
+         gWc/UHntQfUEjZfrWhB50GB52Lyiaf8f9kpUHF4azguMU4vxNYQ+gQ0RYUu/WNzY6aAZ
+         TNFQaxRojF+ccxcLZw52CM2BqJC18YpJDKNfUFdRZ6Gxjdj+r3jE71cCp+Hry4uGVP5q
+         kfiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790939061; x=1791543861;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=;
+        b=0KCz24vU3rvPrDJZYAMF/ivd3H5cLdDpO4oTsV4e1BOrLW9Cg5WDOAQ0VwqGf8J5De
+         jwE+CxXe1jbfy06MqBdmTl2PPbuWNxxCRkWkieXT50nzzYflZ3SFncFKRQIEvnLVk42M
+         CgbUugMc8NjkD5usd3nw23yhGN3xlg7F1lQyHsDzlWMtl4dCtzVMiayjmFecmuj2pPsI
+         DErmftNFkZKX3B0OxzA5z+PnIECLKuYw4i+hoHWlQggJ11pQml/HnG+klHVljh6s3/v3
+         JPYJZirp2uTzDLMqONx3LfBZxl++bt1h9iwCEt47SMMc5uCrJcwSPa3T7ke0Sgiq3OZo
+         k71w==
+X-Forwarded-Encrypted: i=1; AKwUvBw7JLjkYUFOn2cd54d5rASfcnAxZ2Jp0JaumkQAZfZfaEczq3r1tM7lQr13TUaeRtsQzc0JlIyG0EpLVpRS3Tzy@lists.infradead.org
+X-Gm-Message-State: AFuF++n9KA6HVpKmGczb5gKVWLFhPOaNo9PLj3NRBFJMaUjPTSll3j7G
+	HsZhpMWuuTkB7KJmzk6CLhhiVyoTT43gVC3YRJC7ocUOkWzM0XQimng/AyY+FJpmhzs=
+X-Gm-Gg: AYBFou3XzWwBerfK7qdlIZ9Db7MT539JqwraK/hjkXNMK4QNUvH/gf7ijTZKZVfsqNA
+	uTMlO4IeMwpIrglTOdPw41iQxqy7A7B4tkUBEjxDFC3xzN6wEDHwPs5VS8rGHLJRuv3K6Is+lJY
+	F5Q0ufYYwmz+YhilcYFZ8pFPK4byuvjGnDelhRDWzCryG6MsG+dSm0vG/UwTqtI9DtPvzq35ALM
+	4CM3o9jkxkY+JQ+zH2DVOnCcRXuAsDzPIycuVuI/jZFEFYd2eDzRKUxf9cguGgPKlOjlneV+6s1
+	XxGg+fpruxVkTH2yzDzowmwgN0t/jbpsIGlzvy1Bd5+2C4Xc44y7djZ3KpcvbwuEbJzFWYML5wv
+	eMGfbwuN9hIyg0p+4+62AV9E0dnk7XGkVl2VT88O3PgvcsXQhqF/eM8nkEyF3COBAqNgxM5GU9D
+	E0hRdynTP8HlgeIS8E0dPY5AwoH7gOdxc00rqD4sCibFFipAOEk3hR6FHFCOnOAqH24Q6UlFCgB
+	Q==
+X-Received: by 2002:a05:600c:350a:b0:4a0:1f51:ba2d with SMTP id 5b1f17b1804b1-4a02769cf7fmr40489485e9.22.1790939060892;
+        Fri, 02 Oct 2026 04:04:20 -0700 (PDT)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280c6597sm75669465e9.9.2026.10.02.04.04.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 04:04:20 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Fri, 02 Oct 2026 12:03:53 +0100
+Subject: [PATCH v2 1/4] perf: cs-etm: Don't add global v0 HW_IDs to
+ unformatted queues
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002061507.1600269-8-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261002-james-cs-hw_id-output-failure-v2-1-7a194aa61173@linaro.org>
+References: <20261002-james-cs-hw_id-output-failure-v2-0-7a194aa61173@linaro.org>
+In-Reply-To: <20261002-james-cs-hw_id-output-failure-v2-0-7a194aa61173@linaro.org>
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_040346_079118_8318628C 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20261002_040422_600876_B2410077 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +113,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 07:15:03AM +0100, Suzuki K Poulose wrote:
-> Add a hook to allow arch code disable hibernation. On arm64, with an RMM active,
-> there could be pages that are delegated to the "Realm" security state. Any
-> access to them are fatal (e.g., hibernate save image or restoring an image to
-> a delegated page). pKVM host also has its restrictions on enabling hibernation.
-> 
-> Add a weak arch hook to let the architectures have a say.
-> 
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Cc: Len Brown <lenb@kernel.org>
-> Cc: Pavel Machek <pavel@kernel.org>
-> Cc: linux-pm@vger.kernel.org
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+In the case of mixed formatted and unformatted trace with v0 HW_IDs, or
+no HW_IDs at all resulting in the cs_etm__map_trace_ids_metadata()
+fallback, formatted queues will write their HW_IDs to unformatted
+queues. This will result in an assert because of multiple decoders on an
+unformatted queue.
 
-Nit: the subject prefix for kernel/power/ usually is
+Fix it by not inserting trace ID nodes on other unformatted queues. This
+isn't an issue for v0.1 HW_IDs because they aren't global so will only
+add to their own queue.
 
-	PM: hibernate: ....
+Fixes: 19c3e4db38c5 ("perf: cs-etm: Create decoders based on the trace ID mappings")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/util/cs-etm.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-I can fix it locally, no need to respin (and probably the wrap the long
-lines in the commit log, we tend to keep them shorter).
-
-> ---
->  include/linux/suspend.h  | 1 +
->  kernel/power/hibernate.c | 8 +++++++-
->  2 files changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/suspend.h b/include/linux/suspend.h
-> index b02876f1ae38a..a3815027773c5 100644
-> --- a/include/linux/suspend.h
-> +++ b/include/linux/suspend.h
-> @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
->  int hibernate_resume_nonboot_cpu_disable(void);
->  int arch_hibernation_header_save(void *addr, unsigned int max_size);
->  int arch_hibernation_header_restore(void *addr);
-> +bool arch_hibernation_available(void);
->  
->  #else /* CONFIG_HIBERNATION */
->  static inline void register_nosave_region(unsigned long b, unsigned long e) {}
-> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-> index d2479c69d71a4..9d9d53828542f 100644
-> --- a/kernel/power/hibernate.c
-> +++ b/kernel/power/hibernate.c
-> @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
->  	return !atomic_read(&hibernate_atomic);
->  }
->  
-> +__weak bool arch_hibernation_available(void)
-> +{
-> +	return true;
-> +}
-> +
->  bool hibernation_available(void)
->  {
->  	return nohibernate == 0 &&
->  		!security_locked_down(LOCKDOWN_HIBERNATION) &&
-> -		!secretmem_active() && !cxl_mem_active();
-> +		!secretmem_active() && !cxl_mem_active() &&
-> +		arch_hibernation_available();
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Raphael, any objection to this patch going in through the arm64 tree? It
-matches the style of other __weak functions in this file.
-
-Thanks.
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 2d1ab34f7b6b..fda6b6c02e26 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -309,27 +309,27 @@ static int cs_etm__map_trace_id_v0(struct cs_etm_auxtrace *etm, u8 trace_chan_id
+ {
+ 	struct cs_etm_queue *etmq;
+ 
+-	/*
+-	 * If the queue is unformatted then only save one mapping in the
+-	 * queue associated with that CPU so only one decoder is made.
+-	 */
+ 	etmq = cs_etm__get_queue(etm, cpu_metadata[CS_ETM_CPU]);
+ 	if (!etmq)
+ 		return -EINVAL;
+ 
++	/*
++	 * If the queue is unformatted then only save one mapping in the
++	 * queue associated with that CPU so only one decoder is made.
++	 */
+ 	if (etmq->format == UNFORMATTED)
+ 		return cs_etm__insert_trace_id_node(etmq, trace_chan_id,
+ 						    cpu_metadata);
+ 
+ 	/*
+ 	 * Otherwise, version 0 trace IDs are global so save them into every
+-	 * queue.
++	 * formatted queue.
+ 	 */
+ 	for (unsigned int i = 0; i < etm->queues.nr_queues; ++i) {
+ 		int ret;
+ 
+ 		etmq = etm->queues.queue_array[i].priv;
+-		if (!etmq)
++		if (!etmq || etmq->format == UNFORMATTED)
+ 			continue;
+ 
+ 		ret = cs_etm__insert_trace_id_node(etmq, trace_chan_id,
 
 -- 
-Catalin
+2.43.0
+
 
