@@ -4,96 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBE2CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 06:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB5ECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 06:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dStcbhY+rumd3OvNKAll20rKoWFwQ08aAwWyl88q55Y=; b=kevVZakLKdELxLPt4+zOx8Mukj
-	cEN5d83rApxygxe4Rzi4QhpwiKDW0iB4niJoni35x02SAY+tbkA/vq+KBSLJLOdR0Y+CeyKX7KDqW
-	MskUS/0xlUn4dGH94PH9K4QhXDlo7tcyNngG++6P3xw3kVH7v2aVR4cciL7m9ElAbZNLI2EEpAi9A
-	BRV+MEiJxxaaxp5Nw0wR0CQ/bSmGqEkIoctstwOy9XW6lWtaODwZ9lriVy0b49GDpGIVfJqdT+Ybb
-	6kwHmtL1ell4H9p65F6UVRbupCoKvDD9qw122UIBxdhQb3pkRKXxnh16MNfB+QthOx0w72FWIJntK
-	5Gc4Eb3Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AUVkIsWMw0dFcQIEGk+xgcjL36OGBgewX3HKO4TNcdE=; b=LimH4arBnHwYX3SDhHtSDkeBo+
+	sdsDPCsz5qh6YAzW7RET7JVy07dMR0cmg0NiUAf+qsvwo8Pe3NSP3b8akhTlyxLwSJajx2phlaFnG
+	lNxpHynSTRMGUQ3o2HN70B9wffhGIUBG5yvQg2tMSZ7yZc67zd8lbIbO3OXvMN334nkbOfucwlxQX
+	iW1GZuEQwh0e7ZgQ3JLftJGAKT9gWt7R+1mIazokZj8mQjjb4KtwRpN3HSnALOp8DFOg8CfLySOHs
+	GeBXeRjGL4F3EVBNWqo9X9/1T4fX7uX0/4HqUk9Zhn20C/LI/cycqhJMnrtsWs8zQiAQAGoJbE2Zb
+	9Hyi8xug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCWmO-0000000AiXs-2F0e;
-	Fri, 02 Oct 2026 06:30:00 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1xCWms-0000000Aijo-3Sf5;
+	Fri, 02 Oct 2026 06:30:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCWmL-0000000AiWi-3nyq
+	id 1xCWmp-0000000AihU-0xsb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 06:29:59 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-3411e0ace58so9417312eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 23:29:57 -0700 (PDT)
+	Fri, 02 Oct 2026 06:30:28 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6925jEEj1068078
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Oct 2026 06:30:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=AUVkIsWMw0dFcQIEGk+xgcjL36OGBgewX3H
+	KO4TNcdE=; b=RpNYyUWWV76/CZ45UrJvQOahkxFYX6gC6ZsqM1GgZyVLb9QSO6J
+	TlYoLePwdcO45gnQbBKw4jfbygXjdWNO4ZIkursTG17KCiqK8UbBAPNgmc9MVUcq
+	SIEB0d2CwF5JDRXH4FJ1I8en0zZ3zpiVFL2nmEpT8/VQrJfSmTSYMQHHL7fbcOey
+	P1ZbwIlVWhu4Oo6IyDdLXWz/xm0vgwFOOE7CjaGz1340BFFok5jn3Y+OxKTiJsfX
+	DWGgGqUOSjCPBMI7r3zq2zYClDlPAUCQn2dVNqdRMVAtx3k3B3u/JIef7yFL/ztO
+	UPpQ741liGrDwlfQasJmGiGPsVpmphwE88A==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1qukbmsk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 06:30:25 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-5338c59f90dso28296621cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 23:30:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790922597; x=1791527397; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dStcbhY+rumd3OvNKAll20rKoWFwQ08aAwWyl88q55Y=;
-        b=HWnNcZdtBESRTFtywOX5LkImMQt/W7zD84Q6TpUx4Xbwc7iWIbGwN7pqCBtY0VQn6X
-         ZlS5vJl7jPG+b7fEV7eyYCukpTpDYXMeC4FDdk6WBQTq9FoGLorHcT7h/w5jpe9fBmj9
-         +2ec2+bGFuN9IJleGBn/yecnjKynB2dHiDl2jOAbHli8sdxCXPruO+ogQdjq4yBlrsfH
-         9izT4BM2JOzkcSg56mbHvxhWcFkwpAkjdGRZAI7PRw/IK7j2kbZ0IujKYNk/YE/6EHzD
-         U64KWBm7WniG2OOFVyILV2uuzEuj+covcfSZIPjZl45BiU43XVz7s8P4Vx+KC/QXLSBP
-         CDEw==
+        d=oss.qualcomm.com; s=google; t=1790922625; x=1791527425; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AUVkIsWMw0dFcQIEGk+xgcjL36OGBgewX3HKO4TNcdE=;
+        b=Qr1occkw0EfWglgNBfLBwJu2SyfoA1lIVlOoI9Bc3b7bm2k8OjenGW3NENvYzY6isS
+         e61YZ7IiU/OA+JEtDOK3QOWqnFl49tIDmr8RjHWxAlqFe006Rj9M2PTxTiCBasvIKHLU
+         MhjjILX61O051T2+oyQBLGE6fb3Ks+rPOEjQJvEj7ly22FaGG3RyLOpubRSZcCigNJF+
+         RB4TClNvEYk9zI3uRDWtHOOqRuGpyNF022gkb9EjH4uDZ6hBOyQtLbG3T8LTkClw6b1c
+         HJ50V5UL7pZKHhrG1ce3J1j5A05vGej5v7F0lOWYdtK2iyGA38l7ptc+HL0s90qpeIJE
+         c8/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790922597; x=1791527397;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dStcbhY+rumd3OvNKAll20rKoWFwQ08aAwWyl88q55Y=;
-        b=NaG4dFLNROuW0Eum79SKX8n0ebD8W9qrLohE4WH6MmhtbLkZNyJ/2dAeztjlQ7UUL7
-         /hLynSnT+ddvKQqVhlErcuvqAUfKbeIKYzisEfq6SqhHzUpmCZyGKchDt9fihthfz1od
-         2N72KnNJ2VLPJyh0eLsZqzw3tG6IdhFLIyuE1Or6aid4XCszxwRurwdHjBm5pLclmRcF
-         2QIVzmb0D88huE3clrvVKpl6ImpOiFUAYGsgmxJUT8RpAZ3TCxXdKl/H0oBQoluw0Fu7
-         4N+yot/X0XaX/LqQj0IZVRK1Hfys82GJyJgaSW6eRMpj5TdiR+haVIsfDlgwAyH1hhWF
-         D8Qw==
-X-Forwarded-Encrypted: i=1; AKwUvByOTjc/BLHG8vYY+c2GD0e//C59+zoOVnp5liP1QtfWCqiern4oo1ldkJCVdmsL2wecahOFzbApB+NJaNujJZVt@lists.infradead.org
-X-Gm-Message-State: AFuF++nHVY65q9RPVeyGRBe5yXSf4PscKv7UHYJJkAR8IP6fq4VSDCaq
-	eeSqFXo/7Gp+Ll1PjAn9VXMIdL4fznEsWxLVsLI9nr74lwwJPMVgPGkg
-X-Gm-Gg: AYBFou00wAIf7ytx/7IAAGJmhuPemXZLJMDTtYfFCjNghOFZcvBxur77ZBF5rXjJ9XT
-	B1nqKkxRZ1tmBQCazbPTPuNEQqYMMkGawlVAreUSJ2sa5gUmRZaGppcPjoi1IjiYqpRn+No+B9w
-	3YV1xbo0iJ4AcBGCIWz0NhWrox+6/GwXORzh01DtS8W4E5xa1wTjjC86ezJ/1oEhiELGC4HrEbn
-	myRb9oKpPsv22fWljAeydTfHZfyVKsBzPS3/0gS9fP8sxjP0dHNqkJQ2xnE6PdY5UJ3yRI49cvx
-	csp12H1+cDXJdB5cy7X3YN51jFlnFti/UXpojtWUG+XMr6zx4tyd9tc7eNeZIwJRL/DQHqNcp8V
-	ie5ujx1kg1kvspq50mg3grYGILUXRxEm9buPtVNwk2/AQ8nTLqHMV5z2VV0BVo5xfbSqcG+NqE2
-	00So1dCl6xMPNlqr1jg/hWpvBIKOJ+jbOnuSwtXgExu0mY5jXWptdWhGm2q14Xdd5poU6L9TTYB
-	7quGAjvgRKrEUBc
-X-Received: by 2002:a05:701b:291c:b0:143:298e:45a1 with SMTP id a92af1059eb24-14f5c7e2290mr1802049c88.40.1790922596939;
-        Thu, 01 Oct 2026 23:29:56 -0700 (PDT)
-Received: from debian.prasanth ([103.183.205.240])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14f45fedd43sm6236636c88.4.2026.10.01.23.29.53
+        d=1e100.net; s=20260707; t=1790922625; x=1791527425;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AUVkIsWMw0dFcQIEGk+xgcjL36OGBgewX3HKO4TNcdE=;
+        b=ozumU0cJ6QcQ4OtLDungffhMHOSgKnd6ZQG9KeBL+vBNHWNK8plmlJr1IR2yB/bDF/
+         INFe4Y37+QwZZj6FH23HeBpIPANYzgK6tksvU6DOnoplLhWA7AB8aKscQguLPz6veKNq
+         6sLG7ja8TbbYztIW7WWnHgUfnQoFhhcmzB5BEj8mvavJZ8p0nSR93NENdGJts5H3hxOk
+         DFueLztr0IpqnAfP4jFhd7BNdZar+ClL8EcaoXnE28Qicu4UBpCxyqENJlcHfwFGDGBd
+         e02F/1awoh3z4FxSaXV2bX/qokFJ5JP2zpw+mWSFNb1UCqcbLwjsQEwPHtfDkzfd1NTF
+         CjAA==
+X-Forwarded-Encrypted: i=1; AKwUvBxBq9E+udPgRsv8D2Sb5RQaTG+AHJ6I86G8jMVUDNXQT8BcE5xuloHMwT0e9MXXkF7+EzylGXFCYcSgjiXGieMY@lists.infradead.org
+X-Gm-Message-State: AFuF++mv1RwVV7ocsY533iYAjBJRDs6yxMiMqJ1DIfaFbObARNWk7Q7s
+	pADC8uKaLa6WKxhBGd0GS1xiSFojIBpJ9ewhmKy96TreoIrIyRkRTS3G3PvcMLAuwGT9s0Z3tIr
+	Po2PMlI858pyfWD6Q1ybWS4APTfemrdNpwY+uZvi8pwPceMXxkVwD7l0lGgBxgCWg57oH5otG/I
+	jakg==
+X-Gm-Gg: AYBFou1gQJ2+VVrOEyGjyz8WVSZbHAQJrJDKweZSsE0gpLc9/nu+T/nmkubxkSJ6uTn
+	Gshlw0Zmlt1DXsDOyZuFu6hnhJD0GnKdYhjBYzQ72Q7nibJ5LJmuZQhlmFw3jET3hj1Scwjmk2H
+	57VNskQQOB3YA96EagI2bZllJs9vSjF/JrcyNBEuWFtc/a2pYDJMvUP1ANn2X0wqnOno++dFELc
+	cdXDw9AMa/WpPObqS5kCoGmRYPGEB2u15lPZY1KkQqfSbbOsSSKwSUWL5okvf9XOT3e4asi4/fY
+	qBoPOdnj7j6iPZFgqcTmSdux9F722P/FBwVD1sF0gYD+fJe0yYkd02k6DbBclpA/B6eJT+mM59H
+	FwqauB3n+Gg+i41g=
+X-Received: by 2002:a05:620a:7088:b0:93b:d88b:ee01 with SMTP id af79cd13be357-93cb5c4dd5fmr1081006385a.34.1790922619629;
+        Thu, 01 Oct 2026 23:30:19 -0700 (PDT)
+X-Received: by 2002:a05:620a:7088:b0:93b:d88b:ee01 with SMTP id af79cd13be357-93cb5c4dd5fmr1081004585a.34.1790922619171;
+        Thu, 01 Oct 2026 23:30:19 -0700 (PDT)
+Received: from quoll ([178.197.219.214])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b38104c09sm3361558f8f.32.2026.10.01.23.30.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 23:29:56 -0700 (PDT)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Cc: linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v8 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Date: Fri,  2 Oct 2026 11:59:33 +0530
-Message-ID: <20261002062933.26497-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261002062933.26497-1-prasanth.padarthi10@gmail.com>
-References: <20261002062933.26497-1-prasanth.padarthi10@gmail.com>
+        Thu, 01 Oct 2026 23:30:18 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Santosh Shilimkar <ssantosh@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] dt-bindings: arm: keystone: ti,sci: Correct reg and mboxes constraints
+Date: Fri,  2 Oct 2026 08:30:12 +0200
+Message-ID: <20261002063011.38972-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1048; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=Z1/5o4RAsawBPWmbuQWta9W6Sxz3I4lPmR4hBCTFPDQ=;
+ b=kA0DAAoBwTdm5oaLg9cByyZiAGq/T3PIMt08WCCTfCYps6hW6Q2EK0e9V2qrHFO7b3EY+d8+d
+ YkCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJqv09zAAoJEME3ZuaGi4PXYHkP/i9+
+ dnDT3YaZnTceK720Db+Z8zIZlt9zhYH+1bhxl2BGH/BoKesyPjeGX/3El0EU+8OB30eL5Z3/JZW
+ 98/1XU5cqVVCnGLl5djI+04v7dnktQ42j8H24sp9lu9bCrkb25SOIMJPhmWtXRe+15WpvzlEeEq
+ mxfcws9C42w1TqRkcdQAeV32wwfnFcgODjROS4n+/tM03mbz60Kl/YxHTr7v1NQJhO8OgmnnjI+
+ w28huJs36Pb5UqEbylYpzEIfsxKTgjPmV9iC1Iga8bCZeLJkA+IFmojL9S7IE7QQFjdPvLKaKWc
+ q1Nmgbdo90GOegRy6N9kNPQE0O4MKK0hnMo1OvsvEwSMpk2fHdGdhtw3msp3rV9hCls3E8kOkxS
+ a59z1dRw3jpmvb4EXNMv8OgP7heaF4HiOqIerT983yJN31Z//yq0A6wru6U7ULTtGsd43SICO3/
+ htsYZAY5Ow7PPjlUPG9XoUzL6MX/5w1FVRkCqcD0lZT8z/PK6HdcZkdn8liP/4y3nkHqqACm7gy
+ Fz1IfjQhRkF+yNoJ/eRwzPIvJ+FhjpeIa0xfUTBaehCC0nyzc3qS6LK6FSP2FVzFA0zEWxILynU
+ Q8OcK607OfS8Q6ulNRcve0nj+wNC6iaVM/osUB7XHH9LWIGa0LKXrDr7ZScmumJZYXcPp0lqspv cGtW1
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDAyNSBTYWx0ZWRfX9VhOqoxfOo53
+ GVJOlpvSqiDXOnG9ukkMAiwCQbdtSUJvNxsfjMeYbalZbaYZQXwfxpPFU1Vu1PFwNF8O4QACSgM
+ HHn5SZEm+C6KCLXkUnE1rQfz1bmX+Jg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDAyNSBTYWx0ZWRfX7ZzFtJML91pp
+ vrigFutiKmLYMJ/ulcetR/+kITXyxvS/SFksRVUCtIWuaAZmbOevTXPJ1r4W7n2LkHPNM09oTMU
+ KMzzlu84pVOZ/uXz3fP4W7K8Wj/7Bfwu4qAziCqbX2SgF39Dvsl/qHTvCsko70U+sv6yV93ddmR
+ BylMZeXYBJp/PKY0bRftfXkSdHFMP8GpLZ/h6D5SR2TAeh0hLTWKakvIPrZRYlw5KhAoJCXas5v
+ 44YUv2R0Gs3DIJo3+TGR5jN9i1jed1uppKmGInYXL/KV7OS4l1TngOOmfHRFtuPTUwrpzAETbE1
+ agk3Rl+b5g0gAxSOe86cmZFjyRnBkYcOaUiAtpppMOwJQ0s6ySYRxHzEDPhFyfhyhcDZaKidEX9
+ TEnITyTb/Hwcu5QMp7EiUNWvhFRmXphz32xELvoEZTdOJ48QXZvBOFzuD3r37IrDqj6CebktfBW
+ z6Kb5fIGB/G841paxFw==
+X-Proofpoint-GUID: 4ISn1ZyPwwu1NanBPbqxmfcN_ZGxKNJ2
+X-Authority-Analysis: v=2.4 cv=TdADJhQh c=1 sm=1 tr=0 ts=6abf4f81 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=e2KClx-4LWyga-VmItEA:9 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: 4ISn1ZyPwwu1NanBPbqxmfcN_ZGxKNJ2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-02_02,2026-10-01_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 suspectscore=0 malwarescore=0 adultscore=0
+ lowpriorityscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_232958_056632_4F2D332F 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20261001_233027_422918_A2310BED 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,179 +158,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device tree for the ASRock Rack B650D4U BMC, which is
-based on the ASPEED AST2600 SoC.
+minItems does not impose any limit on actual maximum number of items in
+a list, thus it needs maxItems.  maxItems on the other hand does imply
+minItems.  Add missing upper bound on 'reg' and 'mboxes'.
 
-Describe the BMC memory, SPI NOR flash layout, UART console,
-GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
-connected to an RTL8211F Ethernet PHY.
-
-Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
-
-Configure MAC0 to use the RTL8211F in RGMII-ID mode.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch> # MAC0 and MDIO nodes only
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 135 ++++++++++++++++++
- 2 files changed, 136 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+ Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 6b68671f9379..b109491d5c8f 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ampere-mtmitchell.dtb \
- 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
- 	aspeed-bmc-asrock-altrad8.dtb \
-+	aspeed-bmc-asrock-b650d4u.dtb \
- 	aspeed-bmc-asrock-e3c246d4i.dtb \
- 	aspeed-bmc-asrock-e3c256d4i.dtb \
- 	aspeed-bmc-asrock-paul-ipmi-card.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-new file mode 100644
-index 000000000000..a4e384588a54
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+
-+/ {
-+	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
-+	model = "ASRock Rack B650D4U BMC";
-+
-+	aliases {
-+		serial0 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		gfx_memory: framebuffer {
-+			compatible = "shared-dma-pool";
-+			alignment = <0x01000000>;
-+			reusable;
-+			size = <0x01000000>;
-+		};
-+	};
-+};
-+
-+&fmc {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		label = "bmc";
-+		spi-max-frequency = <50000000>;
-+		spi-rx-bus-width = <4>;
-+		m25p,fast-read;
-+
-+		status = "okay";
-+
-+#include "openbmc-flash-layout-64.dtsi"
-+	};
-+};
-+
-+&gfx {
-+	memory-region = <&gfx_memory>;
-+
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	gpio-line-names =
-+		/* A0-A7 */	"","","","","","","","",
-+		/* B0-B7 */	"","","","","","","","",
-+		/* C0-C7 */	"","","","","","","","",
-+		/* D0-D7 */	"","","","","","","","",
-+		/* E0-E7 */	"","","","","","","","",
-+		/* F0-F7 */	"","","","","","","","",
-+		/* G0-G7 */	"","","","","","","","",
-+		/* H0-H7 */	"","","","","","","","",
-+		/* I0-I7 */	"","","","","","","","",
-+		/* J0-J7 */	"","","","","","","","",
-+		/* K0-K7 */	"","","","","","","","",
-+		/* L0-L7 */	"","","","","","","","",
-+		/* M0-M7 */	"","","","","","","","",
-+		/* N0-N7 */	"","","","","","","","",
-+		/* O0-O7 */	"","","","","","","","",
-+		/* P0-P7 */	"button-reset-n","control-reset-n",
-+		"button-power-n","control-power-n",
-+		"button-nmi-n","control-nmi-n",
-+		"","",
-+		/* Q0-Q7 */	"","","","","","","","",
-+		/* R0-R7 */	"","","","","","","","",
-+		/* S0-S7 */	"","","","","","","","",
-+		/* T0-T7 */	"","","","","","","","",
-+		/* U0-U7 */	"","","","","","","","",
-+		/* V0-V7 */	"","","","","","","","",
-+		/* W0-W7 */	"","","","","","","","",
-+		/* X0-X7 */	"","","","","","","","",
-+		/* Y0-Y7 */	"","","","","","","","",
-+		/* Z0-Z7 */	"","","","","","","","";
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+
-+	eeprom@57 {
-+		compatible = "atmel,24c128";
-+		reg = <0x57>;
-+		pagesize = <16>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			eth0_macaddress: macaddress@3f80 {
-+				reg = <0x3f80 6>;
-+			};
-+		};
-+	};
-+};
-+
-+&mac0 {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&pinctrl_rgmii1_default>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+&uart5 {
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+index 25a2b42105e5..052e23966a8f 100644
+--- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
++++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+@@ -48,7 +48,7 @@ properties:
+     const: debug_messages
+ 
+   reg:
+-    minItems: 1
++    maxItems: 1
+ 
+   mbox-names:
+     description: |
+@@ -59,7 +59,7 @@ properties:
+       - const: tx
+ 
+   mboxes:
+-    minItems: 2
++    maxItems: 2
+ 
+   ti,host-id:
+     $ref: /schemas/types.yaml#/definitions/uint32
 -- 
-2.47.3
+2.53.0
 
 
