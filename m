@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F6ECA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7DBCA5FD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqhHVgP+5BEP2wedjviave4vYLoLXvJXwbeTOEQerOU=; b=nZNxPDneofiNFWUpXJo9CQnoXF
-	r64YaLpNZei0TqCFbVwfuk4irqBW7ylvo9Wf04iU9iJ9akf91SJFOqSwYfYhT3vRpKCPRhsl23GH5
-	Xb1GVHjHorHru9GrfGFvDPgorx7Nqs9atq+1dlGuv82VV0viOZcnj5IXalQ47rDjDop1xlQ/JlePa
-	OLj9IZgGqSeIfeeh2B4pcv4XpaHLcr8YfIxvWSNRY5Nx8c+NR654DzoeduUInBEmUJ5UE06BMFhPR
-	B5i3EJKnQF9FWpOSie7mLwxfK/Rnc89Ect3N+xnl7uz46yQFE+lT3PcK602fw0WmYIL4e8Bu+DecZ
-	nrUcj14g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=; b=vkLGBOiE5ebEn+wArp3g+clW77
+	GvePnDW02940+yS1mnoXgsrJkK+Js5694uBrFINNe6OYoqxIwknLKBK1fGCXQ/kAp184KLL4MnykY
+	bPLzgP5Afz6RfmtMxtbI4uspPIcqYNvUEX02eRPTB2OCnMFxVUCACVFE0F8wfojn5hUet+HaSOImI
+	meqlzKj8YCk5b3uzt8sCKqPZXeGOw4gTU3cd3wL52hzhVDqzcNkcs4cIHSrljgQb1gRxFcyyZCwmP
+	cZll9gvSfn4qBFy9pdlyipid9504uWith1IQfgu1Qy2QeNBXkZphWtBoOVTOhoU5FRWP7ka72Gcw3
+	cd0wcl3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXtg-0000000As79-2ljo;
-	Fri, 02 Oct 2026 07:41:36 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1xCXwK-0000000AsSW-0eHw;
+	Fri, 02 Oct 2026 07:44:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXtf-0000000As6S-0piG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 07:41:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790926895; x=1822462895;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=C/kv6wcM0+ohmmG/4GwabO9Kw2Wi6mMW0E4cJ8FNzUM=;
-  b=O0Aijr7T6JyIud/Ad9DCQ+/66RwaG1KTHRT4wcJZlQHrBWx3g+D0I4NC
-   UwwGqjxzkWfJVKN3CVbp+MUv+M+GBZE0+dbS907QYoiaF9BuaSJq1yRZV
-   wQpo4zLmlD64Whf6Lz0UH/Jed+bRm5Ymqe1eLyCOEHJJ/iUVjGsbjx51V
-   rdkqvUMcVQIPeqDU3xaRgzKQZ3xLgUvD3pQwgBmh2MrBwSO5awORFKAWH
-   f3F7AKMsD2CU8Oo4YWgLQtpvE3vBtyEUtPa5mKFo/LwAOeq60JRgluCXS
-   smUEKSImKT0UANKH1bLfN/tnHjAZSlBtGqyViW49UxmDhikVRfYggQybn
-   Q==;
-X-CSE-ConnectionGUID: xXXCh1gMTLSAb+uTxA1bbA==
-X-CSE-MsgGUID: bJeVpfQYQjqwUm6swyc8/A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11922"; a="90723489"
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="90723489"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:41:34 -0700
-X-CSE-ConnectionGUID: Wr8ybAupREydeJzXx1ceWw==
-X-CSE-MsgGUID: VX/xtgwiQPOs9W6Qu5jQYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="280935559"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:41:29 -0700
-Date: Fri, 2 Oct 2026 10:41:25 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 07/15] gpiolib: regmap: add
- GPIO_REGMAP_QUIRK_SET_AFTER_DIR
-Message-ID: <ar9gJRVZxExBwDyn@ashevche-desk.local>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
- <20261001-cv75-v5-v9-7-486cc289a4b8@ambarella.com>
+	id 1xCXwH-0000000AsQu-2Bwn;
+	Fri, 02 Oct 2026 07:44:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=; b=QqBA9PxjnUF2w+AZm7hj3XqbkY
+	v9RF0hgOPDct3q/JKUHxAaxMQ/DbcWuIl/SiRPFxi8n/dBvqRKgpFgyo2c/evLgd3g6uomz20LsaW
+	rKBEsvdEYHu3wUrbPa8JKYUdUBfPfha5Xv9yD9ub6cdrw7tb330+6qDtAii0MkZmnsK7q8OnVNGRa
+	/wbqiOpwNoyC8XcRGvBBmheEcVjb2+tZWa0ScCit9ZoJKvnbO5eyLXwhoe6AqW+lg18N+dZGtxkvK
+	+zIPI2T6M4gJPjRHuxwseqqdQJIOl5MO6HowKaJWhPu115OsezV/Vw6wF21FYKfneqWoXvLA+gjmQ
+	W9AtIkZQ==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCXwC-00000005gko-3J61;
+	Fri, 02 Oct 2026 07:44:15 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hlqF73646795, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1790927027; bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=;
+	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	b=jRVYFUK5YnoRmiNDeKklzZ1pdgInsSTd9LlydFTjxUV5OrE/HYOAnw2MLeTp8PncV
+	 tFvJt3/CO+lLhssxlnVZWvaL29a1KffXYQVOsG9HkLzynokJeqILy5s5YbVi7wcdya
+	 9ejE0ogtij8iq1ZBreAnB75V/B0sCnLu2/+e/+PfxJq73g2YndDyv/5lQUGGt7kJGJ
+	 hCxqHMZGe1Smk+/zWye7PrNAttAqySW04bbbLegGNAjNXSBnBqhjNWTzFmZbgg7oR9
+	 b2gwpm3FPsNRjZt1D4kjdYBVCC7EvJ67rV0RbX3ntd/QSc1O2G3NKOnf9poR6xB+9c
+	 RruxXEJatF9Pg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hlqF73646795
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 2 Oct 2026 15:43:47 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Fri, 2 Oct 2026 15:43:46 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Fri, 2 Oct 2026 15:43:31 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
+ Transport; Fri, 2 Oct 2026 15:43:31 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
+	<bmasney+clk@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>
+Subject: [PATCH v15 00/11] clk / reset: realtek: Add RTD1625 clock and reset support
+Date: Fri, 2 Oct 2026 15:43:20 +0800
+Message-ID: <20261002074331.3066919-1-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001-cv75-v5-v9-7-486cc289a4b8@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_004135_276569_7411904A 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20261002_084413_755785_9304E829 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,80 +100,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 08:40:56PM +0800, Long Zhao via B4 Relay wrote:
+Hello,
 
-> Some controllers ignore output writes while a line is still an input.
-> Add a behaviour flag so the output value is written after the direction
-> change. This is a legacy quirk. New hardware must not use it.
+This patch series adds the clock and reset controller support for Realtek's
+RTD1625 SoC platform.
 
-A nit-pick below.
-In general looks good to me.
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Because the reset controllers share the same register space with the
+clock controllers on this platform, we utilize the Auxiliary Bus framework
+to decouple them. The clock controllers act as the primary devices,
+registering the reset controllers as auxiliary devices.
 
-...
+To make it easier for maintainers to review, the series has been organized
+by subsystem:
 
-> struct gpio_regmap {
+1. Device Tree Bindings:
+   - Add bindings for the Realtek RTD1625 Clock & Reset Controllers.
 
->  	unsigned int reg_clr_base;
->  	unsigned int reg_dir_in_base;
->  	unsigned int reg_dir_out_base;
-> +	unsigned long quirks;
+2. Reset Subsystem:
+   - Introduce the basic Realtek reset infrastructure.
+   - Add the RTD1625-CRT and RTD1625-ISO platform reset drivers.
 
-I think I have told at some point that this location is not the best, I woul put it...
+3. Clock Subsystem Infrastructure:
+   - Introduce a common probe, and add support for basic clocks including
+     PLLs, gate clocks, mux clocks, and MMC-tuned PLLs.
 
->  	unsigned long *fixed_direction_mask;
->  	unsigned long *fixed_direction_output;
+4. Clock Platform Drivers:
+   - Add the clock controller drivers for RTD1625-CRT and RTD1625-ISO.
+   - These drivers provide the clock sources and instantiate the
+     corresponding auxiliary reset devices.
 
-...here, after the group of the direction related offsets and masks.
+Best regards,
+Yu-Chun Lin
+---
+Changes in v15:
+Patch 1 :
+- Add macros for RTD1625_CRT_PLL_VODMA and RTD1625_CRT_CLK_DDSA_DIV4.
 
-> -	gpio_regmap_set(chip, offset, value);
-> +	if (!(gpio->quirks & GPIO_REGMAP_QUIRK_SET_AFTER_DIR))
-> +		gpio_regmap_set(chip, offset, value);
->  
-> -	return gpio_regmap_set_direction(chip, offset, true);
-> +	ret = gpio_regmap_set_direction(chip, offset, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (gpio->quirks & GPIO_REGMAP_QUIRK_SET_AFTER_DIR)
-> +		gpio_regmap_set(chip, offset, value);
-> +
-> +	return 0;
->  }
+Patch 4:
+- Remove reset-related configurations.
+- Switch the registration order of clock and reset controllers.
 
-...
+Patch 6:
+- Improve commit message and add inline comments for the write-enable
+mechanism.
+- Add common helpers 'rtk_clk_regmap_gate_enable()' and
+'rtk_clk_regmap_gate_disable()'.
 
->  /**
->   * struct gpio_regmap_config - Description of a generic regmap gpio_chip.
->   * @parent:		The parent device
+Patch 7:
+- Simplify 'rtk_clk_regmap_mux_get_parent()' to return the result
+directly.
 
->   * @ngpio:		(Optional) Number of GPIOs
->   * @names:		(Optional) Array of names for gpios
-> + * @quirks:		(Optional) Behaviour flags, OR of GPIO_REGMAP_QUIRK_*.
->   * @reg_dat_base:	(Optional) (in) register base address
->   * @reg_set_base:	(Optional) set register base address
->   * @reg_clr_base:	(Optional) clear register base address
+Patch 9 & 10:
+- Assign parents to gate clocks.
+- Add a read-only hardware PLL 'pll_vodma' and a fixed-factor clock
+'clk_ddsa_div4'.
 
->  	int ngpio;
->  	const char *const *names;
->  
-> +	/* Regmap GPIO behaviour flags */
-> +	unsigned long quirks;
-> +
->  	unsigned int reg_dat_base;
->  	unsigned int reg_set_base;
->  	unsigned int reg_clr_base;
+v14: https://lore.kernel.org/lkml/20260901072446.2563145-1-eleanor.lin@realtek.com/
+v13: https://lore.kernel.org/lkml/20260812020009.3480538-1-eleanor.lin@realtek.com/
+v12: https://lore.kernel.org/lkml/20260804163807.1285869-1-eleanor.lin@realtek.com/
+v11: https://lore.kernel.org/lkml/20260728142806.1954638-1-eleanor.lin@realtek.com/
+v10: https://lore.kernel.org/lkml/20260713155630.3054636-1-eleanor.lin@realtek.com/
+v9: https://lore.kernel.org/lkml/20260624112940.3475605-1-eleanor.lin@realtek.com/
+v8: https://lore.kernel.org/lkml/20260610080824.255063-1-eleanor.lin@realtek.com/
+v7: https://lore.kernel.org/lkml/20260508111641.3192177-1-eleanor.lin@realtek.com/
+v6: https://lore.kernel.org/lkml/20260402073957.2742459-1-eleanor.lin@realtek.com/
+v5: https://lore.kernel.org/lkml/20260324025332.3416977-1-eleanor.lin@realtek.com/
+v4: https://lore.kernel.org/lkml/20260313081100.596224-1-eleanor.lin@realtek.com/
+v3: https://lore.kernel.org/lkml/20260122110857.12995-1-eleanor.lin@realtek.com/
+v2: https://lore.kernel.org/lkml/20260113112333.821-1-eleanor.lin@realtek.com/
+v1: https://lore.kernel.org/lkml/20251229075313.27254-1-eleanor.lin@realtek.com/
 
-I would follow the same location as it's in the above struct, id est after
+Cheng-Yu Lee (9):
+  reset: Add Realtek basic reset support
+  reset: realtek: Add RTD1625 reset controller driver
+  clk: realtek: Introduce common probe()
+  clk: realtek: Add support for phase locked loops (PLLs)
+  clk: realtek: Add support for gate clock
+  clk: realtek: Add support for mux clock
+  clk: realtek: Add support for MMC-tuned PLL clocks
+  clk: realtek: Add RTD1625-CRT clock controller driver
+  clk: realtek: Add RTD1625-ISO clock controller driver
 
-	unsigned long *fixed_direction_output;
+Yu-Chun Lin (2):
+  dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+  arm64: dts: realtek: Add clock support for RTD1625
 
-member.
-
+ .../bindings/clock/realtek,rtd1625-clk.yaml   |  58 ++
+ MAINTAINERS                                   |  10 +
+ arch/arm64/boot/dts/realtek/kent.dtsi         |  33 +
+ drivers/clk/Kconfig                           |   1 +
+ drivers/clk/Makefile                          |   1 +
+ drivers/clk/realtek/Kconfig                   |  45 +
+ drivers/clk/realtek/Makefile                  |  12 +
+ drivers/clk/realtek/clk-pll-mmc.c             | 430 +++++++++
+ drivers/clk/realtek/clk-pll.c                 | 217 +++++
+ drivers/clk/realtek/clk-pll.h                 |  60 ++
+ drivers/clk/realtek/clk-regmap-gate.c         |  64 ++
+ drivers/clk/realtek/clk-regmap-gate.h         |  65 ++
+ drivers/clk/realtek/clk-regmap-mux.c          |  38 +
+ drivers/clk/realtek/clk-regmap-mux.h          |  43 +
+ drivers/clk/realtek/clk-rtd1625-crt.c         | 822 ++++++++++++++++++
+ drivers/clk/realtek/clk-rtd1625-iso.c         | 140 +++
+ drivers/clk/realtek/clk-rtk-common.c          |  84 ++
+ drivers/clk/realtek/clk-rtk-common.h          |  37 +
+ drivers/clk/realtek/freq_table.c              |  57 ++
+ drivers/clk/realtek/freq_table.h              |  22 +
+ drivers/reset/Kconfig                         |   1 +
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/realtek/Kconfig                 |  19 +
+ drivers/reset/realtek/Makefile                |   3 +
+ drivers/reset/realtek/reset-rtd1625.c         | 262 ++++++
+ drivers/reset/realtek/reset-rtk-common.c      |  73 ++
+ drivers/reset/realtek/reset-rtk-common.h      |  29 +
+ .../dt-bindings/clock/realtek,rtd1625-clk.h   | 166 ++++
+ include/dt-bindings/reset/realtek,rtd1625.h   | 171 ++++
+ 29 files changed, 2964 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+ create mode 100644 drivers/clk/realtek/Kconfig
+ create mode 100644 drivers/clk/realtek/Makefile
+ create mode 100644 drivers/clk/realtek/clk-pll-mmc.c
+ create mode 100644 drivers/clk/realtek/clk-pll.c
+ create mode 100644 drivers/clk/realtek/clk-pll.h
+ create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
+ create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
+ create mode 100644 drivers/clk/realtek/clk-rtd1625-crt.c
+ create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
+ create mode 100644 drivers/clk/realtek/clk-rtk-common.c
+ create mode 100644 drivers/clk/realtek/clk-rtk-common.h
+ create mode 100644 drivers/clk/realtek/freq_table.c
+ create mode 100644 drivers/clk/realtek/freq_table.h
+ create mode 100644 drivers/reset/realtek/Kconfig
+ create mode 100644 drivers/reset/realtek/Makefile
+ create mode 100644 drivers/reset/realtek/reset-rtd1625.c
+ create mode 100644 drivers/reset/realtek/reset-rtk-common.c
+ create mode 100644 drivers/reset/realtek/reset-rtk-common.h
+ create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
+ create mode 100644 include/dt-bindings/reset/realtek,rtd1625.h
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
