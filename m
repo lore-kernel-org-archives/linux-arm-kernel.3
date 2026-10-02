@@ -4,124 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20983CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB305CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHADC39lqrcMaTLEqqknp7KourxGxJr5fX4nnRPuLOk=; b=QtJ1qaNs9VYl132HFvT5F6NQmn
-	RosKGRAOu5IE75u1CpAFhYtu49PY/uOx0xbLUyMYXj+J232gmKP6xsv2DNS2NFe0kb/mAXCxCnMfc
-	nu7S4KxnqOyTjVMtWH/VLuQAmI++akLaJwEIcMPyNI9ietVaNLZLrIRv6+Qs0nhe1K7n1Vtt33MMW
-	o9tDiwe3ML0/uFilylDWw7cLjfq9EZYLxxOKrqS7dA2VQS8j2Of4VZBI/FDW7VzIzKDbPBUv5F4Pb
-	jf8AJBbfPXBuzlKkXx+FxpLgCNUlSsKPtAsxfaROiYhFr8ronFgPilfKJSVzKMWM6xKN5936RtUEs
-	sdP8iv8g==;
+	bh=eHsZCEj85g2+3xPKItIT+ekixy8fLIMRbzaGW9CP2N8=; b=CT68uIfvnE+bUqaMIoKJt1Xil+
+	f9qt5zMhsLDnci9GMproBTpG8oq8zaWNngPy8Ikpo+lG18jrf197v0pwnvYJp7fZB/NFSxA/Wp/+i
+	s5GC+uwmI62OAgXWDRJa3xlskQfogC2/IUzErOKkLxI2a+GMbIVGqpmWt9CM16tTQto7lbAvj8Vm8
+	FNS9Nhq6e2Xv+vOcPEo8x0ho7hPz0DDOGBUdkeFrxyyejFL6127W/CSuHmQS4BFWIJnAoJM43wZzx
+	YE+UMNm9LARVYiyUpavywtzzKE2mWveS1r7tP07hMYqh6ZL2XbYvevmabVBbzkyPPmTk7tC83ak93
+	yM9idK1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZui-0000000BCrK-1oax;
-	Fri, 02 Oct 2026 09:50:48 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xCZvV-0000000BD2E-2Yow;
+	Fri, 02 Oct 2026 09:51:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZuf-0000000BCoY-21tj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:50:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Pc7F08hZzi7X+stykGw+CC6FOPRkQCBZ92qOT55GP3gdnKBGIbzy5yRqWkPMNeCHjIwWv+QULaib3Qhi4+RrnTYNDREOqJ0jg33eEzKAbhQl/R7Bxi5zcdAyTmcI+mIWXM9n0a0RUy6HFW+hhqkPgUxUwBGblCKSggzzhtPpPN96I3nl7RIx+3eb444G3NTVMhFJXaUck5b2/bBWHne4pTIlqWh+FF7nTFXJAPhfPkBgIalFPxsJVU9Wmw6WmSxs0/dLAcUGP17V/Jl8a6+P9/NZbK5iwYzLCgFVVb/0AHPSyjuchSutZyDXB1XJi6hz1A9hyWf3Ko225upsTYIIXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sHADC39lqrcMaTLEqqknp7KourxGxJr5fX4nnRPuLOk=;
- b=wEVbt2t3GuO5BvgygTgeOi67vXMivZRDXKDHiDWLHLnuGAFaCzjHtmCxb8GmN7ILOBkeJPgHPdx6YGZ16YBbZQrMfNDf2SBur2O7uMztjVrKeHOAvXl1FlQIT+PJgsUvi7hIgUsHRTjReoDJCJ1Fqk2Q5YkuFykgYS5Xsn4jX75NEqY5XSP94/esqHMtOVm/ZzatrIH+qr8HT7E4qnS7OlKft7jfrPhNHOLM40CLVbx70ujE1KuVBpuWZ2kopKQd3NkeM6oLHlGepml3wNOIC5t5KrMT2g+p/eeTZVII4pN88VylsON05UIe6ZG0Wvhn8EVB5KhkHNTdJ4z7qu2Mog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sHADC39lqrcMaTLEqqknp7KourxGxJr5fX4nnRPuLOk=;
- b=gN2kI3+hNUKS8SP3+nl7DYp20soRufWpU4mRCHsJYCj4QpFmxcsskqP9uosqNChEekeyzCKiArW/YulZGTvYzkfLpz+5AAZcy2b9iFnCQfiRMkH8tqW3k3UH4BSfQ0A5Ntm1vYgwE9erfj3pjY5FJuegDDEDg7Tve2Z8sKSqQDbCQCVcdgKcGR1ZErY0/opXyPkdzut8ZeojJE2NGtPdiNpanJFzBugPyYFag0L4XynqdxfyH0y0pwhK0eoAKtFz65ihbF3gIMcmsqjNVoMwyNgCLV71zP1w+xJI1hkzrYLvq8OY+if0ZvBpFod8HG9XEGYvZucYeBh2p7XGtysF7A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
- (2603:10a6:290:d3::17) by DU4PR04MB11860.eurprd04.prod.outlook.com
- (2603:10a6:10:628::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
- 2026 09:50:37 +0000
-Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
- ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
- ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0472.016; Fri, 2 Oct 2026
- 09:50:37 +0000
-Date: Fri, 2 Oct 2026 12:50:34 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: jaidevshastri@vt.edu
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] soc: fsl: dpio: publish the dpaa2_io object only after
- it is initialised
-Message-ID: <j3lhj2h24hj3fibdufbp4awdetlw224nhrdcf7zh66vbkvrbzo@y4g3guhauod3>
-References: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
-X-ClientProxiedBy: FR0P281CA0242.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:af::12) To MI9PR04MB019273.eurprd04.prod.outlook.com
- (2603:10a6:290:d3::17)
+	id 1xCZvU-0000000BD1b-1ZJm;
+	Fri, 02 Oct 2026 09:51:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6194160A6F;
+	Fri,  2 Oct 2026 09:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 544981F000FF;
+	Fri,  2 Oct 2026 09:51:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790934694;
+	bh=eHsZCEj85g2+3xPKItIT+ekixy8fLIMRbzaGW9CP2N8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ihy44reaHxuYSczcrLLd1iNBISClgjq4j2drJ0oPWGMlYTGhG5Lo8wc/6epbZdDpm
+	 yA3SYmY3A+eYAaJTWEqWLa1gZIfMB4gOPLh+3z8VcULkxUkw5S5vUKw0dk2EvRNLl9
+	 Cg8/u2H+IMYJBLm4NqWnidVdbhrMil0fxNK1VY7LLSQRqK+mQDSI+i8dJnacGW0aVU
+	 y9GgLtGmnkKB5GGBBcuZinAksPXJ5hLUCMXSFPkOlgasspdZEPwT3kwxYu9AYSLAZk
+	 7cflJ3Z0EBeCh4VGOWXmQF2GnU6VZwa0fXmYlkyTlF7r2WMkH9hwLk0Jjtgt8Gf1Oo
+	 3v1/Q00eZooCg==
+Date: Fri, 2 Oct 2026 11:51:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sander Speetjens <sander.speetjens@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com
+Subject: Re: [PATCH v9 1/3] dt-bindings: rtc: Add missing type to
+ trickle-voltage-millivolt
+Message-ID: <20261002-analytic-conscious-shellfish-251bbb@quoll>
+References: <20261001193703.734323-1-sander.speetjens@gmail.com>
+ <20261001193703.734323-2-sander.speetjens@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|DU4PR04MB11860:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2edf6d5-4dd4-483c-9774-08df206a9c86
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|376014|366016|56012099006|22082099003|18002099003|6133799003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: r1WNQrki4ItuBSpLKOIvC20DiUESYYdD8VxekLFj5NMcAq2MHyOv398rT635QhBpARwg5B0Nm+ex9PxMxlkWzRsVsI5YrWzLxr5Zm6Y9X9XgK4zSLN30EnaKtbeNTzT1+QgQSWl5vhrLAXsYK9pbXFIphRwaeEjkVREtDzLCVXntIcLjmriJAFsoSab2sm/DYal3kSQrveMic9KH+Z7WXKlfq6Ro/qvJYptZHXjEvQYgiWI6TKXpnXiyScLwTR7Ghr8BFBb3bXQBaxDe1ZwhtOmeSD2+YbGTZ8Y6SrZXcIHJK+5raIdxeCDBZnIBNgsvl1FMzANd9uMw/HQ2wKRZG2t6U4sIk/qIvcbJHuijRwuaYCnNaKFy7klKau+7kFAIKN6c9uUKtD04izbRHUfXpYG+57UsIebEmQ95I85P5U87aWbt+aFj2EPCuLuRlvp7fsiYPmNRK0bHBntIJMlIBUpn/Ns448PjSyDYS56WWjRUj1aXEZNt3JCcXLngAcs8ctp6mhmxkfLf+LIfpWGHZXHAHXu6T3bfc2DJ7wGM2DMgIvlYCc0C+VmgaubUKZzUVU40I4FjOX9pfZVkIvwjriyiDRk7OrJfjGoyt8kgxn78d4G1r10hiZ7lgNvGAvgIMzDsGhNEp6HYg5lQL2fKpiqmeXF3wTZdpafWP9tAUoI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(376014)(366016)(56012099006)(22082099003)(18002099003)(6133799003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z72xluCDOgpCiSbWe6I9oIKDLcq+14Wmfkz4IaVfBIaJAHUbb2ycR41+pON4?=
- =?us-ascii?Q?qmFhFENpApZkmMKIi+gG0VTFo1T2+89MzwvbZq2WI6aA2huEulvWTPb/C5my?=
- =?us-ascii?Q?vsbY43TPc0/GENW+7ITFdJ4Z2c5z4dnHnv65uWBNVUDeJ0DZJ+66t9jl93iT?=
- =?us-ascii?Q?o3clvSvxNq+Z8WahaOzDlLUVGHttPjHld7L4wk+jq81bLXnx0IbUkiMAg4qU?=
- =?us-ascii?Q?QxHAF0s6SAsIewacGunsGdfiHAbXQwth3lnJO8nlByaW5xCAl3sHVWH9U+AS?=
- =?us-ascii?Q?f30O40QJy2BL3RCrlnTuO0ueLTwwfl6SIpAWzBuZrnJhrWHALY9/6aa+qBfw?=
- =?us-ascii?Q?okAMgfk2cpb1PEcbkxn7FWU0YqUPbNiJyOGZabi/sOhpvLwetrcr313GjU/k?=
- =?us-ascii?Q?1diPSgl1tbefUDhDp/M0PuOw+tRP9zvcZJPIhwc2A5XKv6G9k+WN7jKwvWe3?=
- =?us-ascii?Q?hHi8l+UepcU6QC3E2mIhHCzsGkClg58kKFaSIZV+1XcP+fV4Ap1RymvFLcmD?=
- =?us-ascii?Q?ZIAdPTkrGtElfqbH0eXt5W/HBypg+tFHlrbR2Gi96Lf80HdRW8eukiP4UOHQ?=
- =?us-ascii?Q?zhz8JzGK+4cWLZtP08rljm7Knz2mIRErFRyHnhHmjqoeRLAyyT0N3YkE6aOi?=
- =?us-ascii?Q?W9dkhs8AxuaoucRP+AiMX1bemD/6pPySA5vCJUx+wJtGpcFM86BDpDVVwb9K?=
- =?us-ascii?Q?NcxHTa/Lxw8hoSlERVMP9xLCaNqfyC2f/RrXfPZywgVnvfZDWZ5920QDtJQ0?=
- =?us-ascii?Q?NLluWaxo20x/Bxg1EIWVb83V0ptSIJQWQPhZr94vyRNEpkZ+127tJglYSReU?=
- =?us-ascii?Q?4bhFIWuePe4A2IihL4sqECb0hBk+b54ozjL/77jQgHu55OdqqavXYXxJuuOn?=
- =?us-ascii?Q?HCLmE+s3IbH2uooYNmq6nRyQo6fR34Rfuj5O8lEYllF829vgpgjOCB0UAds3?=
- =?us-ascii?Q?tDBWO/DPi3oahcKc3NE0IYX1MDXukHXnSeC+kwi5piWqEl/+jeC3sY32y1IG?=
- =?us-ascii?Q?Gy+TNhygsbhcqMGC1GWfMaaGXVkcttNuUEt4Jy8DEcgzxiPgyh7BV27dkaLT?=
- =?us-ascii?Q?noyJRprA+dNT2la75o/AuvX5Y5ngeoE9VfIr4G53Uxb2D1SRxs1rC9JkdZoG?=
- =?us-ascii?Q?CLzU8thsMfNHxuyV0RUsAB5Mo9vZOMcAtBOC+kTdKIMqlaMYO9r7vhsjdUTb?=
- =?us-ascii?Q?5Yc6yrjRB83BeM2f+8uipQxyvXzVqZ0gpXll/HqMD1Z7lZi8hDvByiLN5daH?=
- =?us-ascii?Q?M30dPWZWVGuNY2O1noodAxcY9VYBWj/5quhurvco22cBaZ15Dmsnayy2D9Uw?=
- =?us-ascii?Q?BB4M8H7m+52bRwJARCsNWfaWHkfo0q40sDBZIKyGcY5ht1mt7QYX1+Ir1GsU?=
- =?us-ascii?Q?JGw1gAyKy7y2ZurdTavCscoCYezGVqF0xWbO0P4uTbuJQaEGR5rRdBkCxVsF?=
- =?us-ascii?Q?ZTG8Ca5FZIRewEVbQhqoVrl9KMe040iki/uUN4OfVGnQ9dV/QSrqK9KgnU+5?=
- =?us-ascii?Q?eMaImvubvZACKaqZNb6d4gjEqXxIY8iTyOk4c3Qt6BhWb+ngkrzC+l9sn4Pq?=
- =?us-ascii?Q?FBTcPgjruXJ49/2xvvejScmZky6Rz/yH4uSM2Q+1MMQ783Ytn1ar2+8YZUPJ?=
- =?us-ascii?Q?eyDZ2QmIbnMnCCsgS8ldH8Z3b5NbW7H8FbC0V4ZCYT3e5MVdFt80xvwjHEy2?=
- =?us-ascii?Q?WWfkzHehm0jmmA96Cbt7JNvS0ushsHSm6R192dBM5ofumTr6N+fCDT8+nFoW?=
- =?us-ascii?Q?FZeDo5sw7g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2edf6d5-4dd4-483c-9774-08df206a9c86
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 09:50:37.5233
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SHYRFRuJjuVYpjW4nM2MIw/M1ToJiOynfsex6KtbfjO7nmbiz0SKbSU4PKm95dW1dvBSESvuitKYzsSxJ0mkEg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11860
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_025045_543699_B0B8D7B1 
-X-CRM114-Status: GOOD (  17.07  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261001193703.734323-2-sander.speetjens@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,40 +73,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 08:50:07PM -0400, Jaidev Shastri via B4 Relay wrote:
-> [You don't often get email from devnull+jaidevshastri.vt.edu@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+On Thu, Oct 01, 2026 at 09:37:01PM +0200, Sander Speetjens wrote:
+> The property uses a non-standard unit suffix (-millivolt) that is not
+> recognised by the schema tools, so the type is not inferred. Add an
+> explicit uint32 reference.
 > 
-> From: Jaidev Shastri <jaidevshastri@vt.edu>
-> 
-> dpaa2_io_create() adds the new object to dpio_list and dpio_by_cpu[]
-> under dpio_list_lock, but service_select_by_cpu() reads dpio_by_cpu[]
-> without the lock on behalf of dpaa2_io_service_select() and
-> dpaa2_io_service_register().
-> 
-> obj->dev is assigned after the lock is dropped, so a reader can pick the
-> object up and pass a NULL supplier to device_link_add(), which fails
-> with -EINVAL and fails the consumer's probe. The publication is a plain
-> store, so a reader that does not take the lock is also not ordered
-> against the stores that set obj->swp, the notification list and the
-> object's spinlocks.
-> 
-> dpaa2-eth probes from the deferred probe worker and retries whenever
-> another device binds, so it runs while the remaining DPIO objects are
-> still being created on multi-core LS2 and LX2 parts.
-> 
-> Finish the object before publishing it and store dpio_by_cpu[] with
-> smp_store_release(), paired with smp_load_acquire() in
-> service_select_by_cpu(). service_select() takes the lock and is
-> unchanged.
-> 
-> Found with MBCheck, a static herd7-based memory consistency checker.
-> 
-> Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/rtc/rtc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Could you please amend the commit message so that you incorporate
-Jaidev's feedback and submit a v2?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-With that,
+Best regards,
+Krzysztof
 
-Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
