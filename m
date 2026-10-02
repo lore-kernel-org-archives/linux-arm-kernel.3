@@ -4,90 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D459DCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EB7CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7Quyuno049IgAaUUIUhNVlONgqj/j3penP1N8OGTyg=; b=tkCnisyZA/gWksiJeZ768f1b14
-	uIkWOVSGASr0AkTt8iB8OJ2jbe+4ytvFveeQoD0eSQNclCnU+B/m2iut97XR+TZeMejN6Q1Chxykz
-	KF50Nb3dYXabTdvlxN/mhDJQRyGa+DOECpw/e0dq2GOjAbnYd0l/T/jrjQevYPhHwXbMGjebXw9jE
-	Rpm947RrpPyl2Z6GG9gsEF9jKd1whjNCXyzDQc36gJlxvKZdofUpchNHaawNFP1C2xvj6rFTq4uui
-	KHDxBcI4xE7O3kLr/eGz3BjeyhaZnLc7ir28sQmKbbKcTAwZJVNDSc73B8tVCmghmzVNKS8x8zqqI
-	ecFW+/eQ==;
+	bh=plQYNgLxbF2e7nZsCy1YGDViTw7GlGDjjOk8UAdqcgQ=; b=vB86NsnsukSkOprhi0FCP2lntV
+	rqZSpaZ5aZ0i9x5tT6oHuaNCNyqWaZLkY7b6ErmE0+i8OdOf1Qby9B8xNZUHhmVETFldu3nEm7WYV
+	RigMags43kpL9/0km1bHuswLW5nsiQ6D5HHg+/JQG52kSD3P2g0TS0yyh5Shnk5HYy6j6Rb6iMypp
+	tqBijZ7K9SrhQvfa14LraI3zeoRCLKl5gb8Qcd3AEeJr/kYw+W3aeFCCJa7pR9j+l8NkGixLpZkP0
+	Dlx3KA9BRJf+N0Z/IYmfgB7pko3yhHXrAJP5OuokzGJWFyS8Om4Xf2eS2QLCYOSvKOeV5EDsIQ6ss
+	s9WmnakQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcSB-0000000BaGd-0CB0;
-	Fri, 02 Oct 2026 12:33:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xCcaL-0000000BbFl-0odK;
+	Fri, 02 Oct 2026 12:41:57 +0000
+Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcS8-0000000BaGA-07q7;
-	Fri, 02 Oct 2026 12:33:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790944407; x=1822480407;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NDgEPa0XeDvsUmZpfYIS+OBNFMqFM1UOXxuPhnqM03g=;
-  b=GqNF4z367Grc6WPc4FFqsgJLlSABT8GH1UK80aE/4DlWUYLZwtphrfn/
-   mok53HWngeIytVnRP7EKi79UFLPC6ap6wv8889N5f/0HeSYjkwDH/zB7o
-   qKP6YWOSM3W3oinwFSmYVs4H/kQX4cGlR5Z8NzwwST1r2kx08HShenwmG
-   ceiL/vYJtTgtHI+ANV6/09vWLHUSmWuqQrGX91gcgtCefhhKTzSVpY8Rr
-   0MfDjinHbuxtuZkO688SrVkpKYSMTUPDv5aGn6IJxHr/BaAXRsQkOCZ6f
-   EghjNM9j5uVgqpeXkAkSeTNzKbg7jJeZlqpdaISL+XroJx6ZR9VH1tRcA
-   Q==;
-X-CSE-ConnectionGUID: YsK1ByWlSzaT8IyPnfeHRg==
-X-CSE-MsgGUID: LEe5eKNsT6m+ajl436z7BQ==
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="asc'?scan'208";a="63552307"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Oct 2026 05:33:26 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 2 Oct 2026 05:33:25 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 2 Oct 2026 05:33:20 -0700
-Date: Fri, 2 Oct 2026 13:31:59 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-CC: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Himanshu
- Chauhan <himanshu.chauhan@oss.qualcomm.com>, Conor Dooley <conor@kernel.org>,
-	Anup Patel <anup@brainfault.org>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?=
-	<cleger@rivosinc.com>, Yunhui Cui <cuiyunhui@bytedance.com>, Atish Patra
-	<atish.patra@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
-	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Randy Dunlap
-	<rdunlap@infradead.org>, Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan
-	<shuah@kernel.org>, Yuanzhu <yuanzhu@bytedance.com>, Yicong Yang
-	<yang.yicong@picoheart.com>, Susheng Yang <yang.susheng@zte.com.cn>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v10 RESEND 7/9] perf: RISC-V: add support for SSE event
-Message-ID: <20261002-reach-cloning-f1594729dbe3@wendy>
-References: <cover.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
- <4f7828b3e30407de9df205264bb94edc767d318c.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
+	id 1xCcaJ-0000000BbFE-0umY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 12:41:56 +0000
+Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6af7e6620c4so2136185a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 05:41:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790944913; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q2ahoc7DXk2H0NeJ8//YvfhyvTM1rCsjiIuTQQK8IbM1fs0Dgy/CRVs1BLqQTv0HMA
+         dP9p2/S54WIkycryoACbN5RCm0bRpVGjA0nyNfVGGAwGfjGRBL8MiKwiiXOcSqHZsTfD
+         gNS9kVPkXixO8N0w+vDn4SKclMh7mqVhuhcwBm5NNu7QJa2rQ5JDJVhUwxBE7vZqgTie
+         0K5c4negswLh08GHTTKYUvvQ+CcyQMFQISGqSHJo0XdkVDf9lXHWOVmYILLRwEcYtweh
+         KQQ9yrUjBF2tOtPsNZRZV3DGhv48H1Dczw021Uph0iRukIMzAi/R3KfRPA9Khv9dLTy1
+         fjlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=plQYNgLxbF2e7nZsCy1YGDViTw7GlGDjjOk8UAdqcgQ=;
+        fh=IFjkNsaBv9JVCItoJ9bnvjI1p15/q/zY/bHZHkgWfDs=;
+        b=ZQA+QWDBzjmH1lMmQnRDjw1QyY8m1BJ12Xq7VMPeT23zVsRAfWCr1UXTMiUOJx4Rur
+         m56r1iGIR7oHHMSH5K1Ru2ZxZcoi5+X2YWQOd14OrugWeLASIDfNYrdeXonSVN3KlL9M
+         rBcDPtX1lVaAdCR5NVjgVsFl+YYyfJJLTWNxQsyoDgk56u7lOheTm72f2S5LadAM1Q/T
+         +4QvbqzeNKDtCtBaoM4EV5nfaRuRUZyrVuPEDaFuCBcc77UdvyBhUliJ6iY4o5tPTD7p
+         f2iglGAbJIaY7rDBX5DY0qcui5pnY4MrJ9s43de/D23JzKRBSYWNF/c/EmqorL/xMC26
+         oJ4w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790944913; x=1791549713; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=plQYNgLxbF2e7nZsCy1YGDViTw7GlGDjjOk8UAdqcgQ=;
+        b=WrzdUrPcjURCRNdXci+I5RW9D22r1vU1XW4ac/pMSiS9w2TUgo+4Ot2OuvZX9RyKL8
+         zZpFktE4FuCAztlzgOLMBT25girVZ76Rz+td9R+NADO18NWnuu0URp9dDSQkg+R5YOy5
+         PZdji4oGiRCIFpL4Jz3KHsSEHcBJ/MKo2cpthrNaqlDlasW/3zTNgej1yrS/dcIFs9os
+         T3NDbiKbs4eCtRIKzrkAyFoXX3yLrPZUhxk7k9lIzhYlFrDy9F92cPMBEqpOcNN94ZMQ
+         VqNZedyH+FQ/llbgUv8XkjzGGc4ujTsNUJ5tvt+NgBcC41nspvxsvBgmjqvS9mARe5vG
+         hicQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790944913; x=1791549713;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=plQYNgLxbF2e7nZsCy1YGDViTw7GlGDjjOk8UAdqcgQ=;
+        b=ZN0BnfIITehS3e7pUOTwP/TW8jzisfjHEXWbolC/ro+cOpD2Ljzm3QuRzxNoFFg232
+         KJWdUYY5Hn3Q5Qwi4qRQWc1Nw+02OgKUeVZLI2MtJrC4AUf7iczCRPQnNaS2gp+jK62k
+         jcwRzy63ZX9n3En66FLML91pw6DVSraPmzRDPf6sRCYJJhm1r0lrbL9LEveLQvjpzRK5
+         /+R7TkmH+EXTAfHIbnQ0Eh7H2kpUePuQ5Pvop8eWc/MlNpdOZjjcrUV4OXnjzY4Wjbz2
+         un/ziav265tXRWbRwf+Nu2zbnOJqvEzG+fU73iC9gajJ3GVXnxXlS/t2fIBSMUXevWZc
+         JIPw==
+X-Forwarded-Encrypted: i=1; AKwUvBzfFrz17oNo+Y4Ed5pOxM+BUJJx+aUJkHu7Yn9mLYJlQEirHqzQcyjziGuphAN92l/mNs+aIC5T82rQbx9QkLdc@lists.infradead.org
+X-Gm-Message-State: AFq9FYJjfKigaCbJC+baEL4WDUHAhYyAXyPGCTnV25rL6X/4kCpBc2Ki
+	NzuxxVGKugBxLDlh8GPGJtgy4tv2NIJHiKn5n6uZhr64HKoLC+hRkVk/zc/67D9zFFaHYifxTw1
+	gy2WMQC/fBf2W6jKT8qv3eIBcT+g/t9FAR5/BmLPTqA==
+X-Gm-Gg: AYBFou1lLubJK31a06ZSuO5+kCneColOpZ3ENUEMA+77/V32IAg6cpwUYqGOihwiw9R
+	k/1hFS1emNxMbMP1OMtJGR9w+YVKubbZjMO1k6ZY4GiDThz0NhVhOdaP5MPjE7ByYwFe6cEXqDp
+	UKb61y99Scv4uyUi8gddDlLlS7cFS+HqSHAAFWg36QxY5jZffzwuOs3+wPWC/pEZM374tnG9Omi
+	/l0xUWcOyb9+y8ZV+56SyhyOpV9Pu/ioV/zFWcxD2sWnJFP2Yfbm482Z2zHL5eQiQy2Qb370v0i
+	22mrWmvu1ZSnJc3A8l7Dt7zh6w941SsvchOZT5yi/of+WE8aSUACTkTgwbX2YnqQBjFoSyP9yhn
+	/w3DriPAwcCiyVg==
+X-Received: by 2002:a05:6402:5113:b0:6aa:f1d2:ddbf with SMTP id
+ 4fb4d7f45d1cf-6af9e335ebemr1728168a12.35.1790944912779; Fri, 02 Oct 2026
+ 05:41:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1CpoeXeJ7HJ+y6fs"
-Content-Disposition: inline
-In-Reply-To: <4f7828b3e30407de9df205264bb94edc767d318c.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
+References: <20260930-exynos850-cpuhotplug-v7-0-203245826333@linaro.org> <20260930-exynos850-cpuhotplug-v7-6-203245826333@linaro.org>
+In-Reply-To: <20260930-exynos850-cpuhotplug-v7-6-203245826333@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 2 Oct 2026 13:41:41 +0100
+X-Gm-Features: AclHuK_QyQlit6GQkvv90porbL6_8NAwZ9GwGxUXMwJD_qPCIZbSMtNOl5zyftM
+Message-ID: <CADrjBPrm0o5scen0vk2ZiCzGW6kdTWsciPvA9K7JW_yb+Mp8PA@mail.gmail.com>
+Subject: Re: [PATCH v7 6/6] arm64: dts: exynos850: add PMU interrupt
+ generation node
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Henrik Grimler <henrik@grimler.se>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_053328_346260_F8DD9592 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20261002_054155_301800_2B1B4AA8 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +122,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1CpoeXeJ7HJ+y6fs
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Alexey,
 
-On Mon, Sep 21, 2026 at 07:15:04PM +0800, Zhanpeng Zhang wrote:
-> From: Cl=E9ment L=E9ger <cleger@rivosinc.com>
->=20
-> Register a handler for the local PMU overflow SSE event so that RISC-V
-> perf can receive overflows even when normal S-mode interrupts are masked.
-> Reuse the existing overflow handler and pass it the interrupted pt_regs
-> rebuilt by the architecture SSE entry path.
->=20
-> Select the delivery mechanism once during PMU probe. Prefer SSE when its
-> event can be registered and enabled. If the extension or PMU event is
-> explicitly unsupported, use the ordinary PMU interrupt. Do not enable the
-> interrupt after any other SSE setup failure or when a crash kernel may
-> have inherited firmware state. Install the PMU enable and disable
-> callbacks only after SSE delivery becomes active.
->=20
-> Keep the local PMU SSE event disabled across CPU power management. On
-> entry, the generic SSE notifier masks the hart before the lower-priority
-> PMU notifier disables the event and stops the counters. On exit, the SSE
-> notifier first unmasks the hart while the event remains disabled. The PMU
-> notifier then restores counters and event userpage state before enabling
-> the event. An unmask failure stops the notifier chain and leaves the
-> counters stopped. Ordinary PMU interrupts retain their existing notifier
-> ordering.
->=20
-> An SSE overflow can arrive as soon as the event is enabled during probe.
-> Publish the counter mask before SSE setup, so an early handler can stop
-> the counter source even before perf starts admitting normal samples.
-> After a real overflow, restart only counters whose perf state is still
-> running. Honor a non-zero return from perf_event_overflow() and leave
-> throttled events stopped.
->=20
-> Guest attribution is not part of this version. Detect an interrupted guest
-> from hstatus.SPV and skip its sample while still updating the period and
-> counter state, rather than exposing guest state as a host sample.
->=20
-> The perf PMU callbacks cannot return errors. If an SSE transition or
-> interrupted-context read fails, latch the failure per CPU and stop its
-> mapped events through the normal perf state transitions. Do not reset the
-> firmware counter mapping behind perf, restart a failed event, or attempt a
-> runtime switch to IRQ delivery.
->=20
-> During cleanup, close callback admission and synchronously drain each CPU
-> before disabling and unregistering the SSE event. If firmware refuses the
-> cleanup, stop the counter source and transfer the event to the SSE core so
-> later CPU hotplug or shutdown processing can retry without using freed PMU
-> callback state.
->=20
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> Co-developed-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-> Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-> Co-developed-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+On Wed, 30 Sept 2026 at 01:13, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>
+> Add pmu_intr_gen node for Exynos850. This hw block is required
+> for different power management routines like CPU hotplug and
+> different sleep and idle states.
+> Also reference this node from main PMU node.
+>
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
->  Documentation/arch/riscv/index.rst     |   1 +
->  Documentation/arch/riscv/pmu-sse.rst   |  55 +++
->  MAINTAINERS                            |   1 +
->  drivers/firmware/riscv/riscv_sbi_sse.c |   9 +
->  drivers/perf/Kconfig                   |  11 +
->  drivers/perf/riscv_pmu.c               |  14 +-
->  drivers/perf/riscv_pmu_sbi.c           | 540 ++++++++++++++++++++-----
->  include/linux/perf/riscv_pmu.h         |  20 +-
->  include/linux/riscv_sbi_sse.h          |   6 +
->  9 files changed, 564 insertions(+), 93 deletions(-)
->  create mode 100644 Documentation/arch/riscv/pmu-sse.rst
+>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> index 8a4771899a8e..803fc127d895 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> @@ -231,6 +231,7 @@ gic: interrupt-controller@12a01000 {
+>                 pmu_system_controller: system-controller@11860000 {
+>                         compatible = "samsung,exynos850-pmu", "syscon";
+>                         reg = <0x11860000 0x10000>;
+> +                       google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
+>
+>                         poweroff: syscon-poweroff {
+>                                 compatible = "syscon-poweroff";
+> @@ -248,6 +249,11 @@ reboot: syscon-reboot {
+>                         };
+>                 };
+>
+> +               pmu_intr_gen: syscon@11870000 {
+> +                       compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
+> +                       reg = <0x11870000 0x10000>;
+> +               };
+> +
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Since you are now creating your own custom regmap in exynos-pmu you
+should drop the syscon compatible here. That should avoid syscon.c
+ever creating an MMIO regmap (with the wrong spinlock). I've copied
+some of the commit text from my commit
+a21d38b5e209c60e73f81e467cc53ad57b5d4080 below for the rationale
+behind this.
 
---1CpoeXeJ7HJ+y6fs
-Content-Type: application/pgp-signature; name="signature.asc"
+   arm64: dts: exynos: gs101: remove syscon compatible from pmu node
 
------BEGIN PGP SIGNATURE-----
+    Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
+    "syscon" compatible") it is possible to register a regmap without the
+    syscon compatible in the node.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar+kPwAKCRB4tDGHoIJi
-0nZkAQC+nQDWcheoZ/uoVpx3J1ReYYcarCsWNy5EGzoBtyzH5QEA1ZEVCP+p6hA3
-bTJLWk5wESdHUitdwSiuB/6AYgPHXwE=
-=1K1t
------END PGP SIGNATURE-----
+    As mentioned in that commit, it's not correct to claim we are compatible
+    with syscon, as a MMIO regmap created by syscon won't work. Removing the
+    syscon compatible means syscon driver won't ever create a mmio regmap.
 
---1CpoeXeJ7HJ+y6fs--
+    Note this isn't usually an issue today as exynos-pmu runs at an early
+    initcall so the custom regmap will have been registered first. However
+    changes proposed in [1] will bring -EPROBE_DEFER support to syscon allowing
+    this mechanism to be more robust, especially in highly modularized systems.
+
+    Technically this is a ABI break but no other platforms are
+    affected. Additionally (with the benefit of hindsight) a MMIO syscon has
+    never worked for PMU register writes, thus the ABI break is justified.
+
+    Link: https://lore.kernel.org/lkml/aQdHmrchkmOr34r3@stanley.mountain/ [1]
+
+Thanks,
+
+Peter
 
