@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5AECA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C42CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5ivS2IKFp+oi9e9HgqllYmPlXhiT1574w8ipYcXx5vg=; b=r8dq4eHPQsV+4EUtHAHcqzHxiZ
-	f6fBerYwJ369oYNylXyQSV0crxpYRnpW2Qy0Tfau+eqGwzugz+/y7qPpo2Ui19u6B+eaB6/lVWluU
-	1W6Mx/bB0vZQkbVWrm35MNs095GID3sNfGOOCU+Sn6sh0lgCS5XAidZDpj0rlFVal6AEks69Sicee
-	ofhJ9i0p8TUS3WKPgVTJj8PyjzuWU74DS1Kn0zFw428oAxu5BN2qRtahCm15vWqAVA9r0MJSfQnDW
-	bSWiFlhwzTZRnkck2RW6uN7qYqsej47UnnKDyit/G4N8JQJrUJRQqGM1QQlgqnrW30GdadJf4+TAJ
-	c7HyJAxw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIr2K4OlpGfdHN+45sQ3hMqApyWHZLHTipM5/eFJ0SY=; b=hC/uFDfdiRSDb27P328qgv8kiZ
+	MNkr6p7ht59RNccOGzg4vIzQiP1Gu6I1UEVhtl3L6k3RK7Jh4sB1ei3KIUFp6ogPczfDQckGpVjmW
+	2tPgMoyLNuT+doK0C99Fn6HNbmkLVeMO1TzcicpxIS2PkG9L2VUvzzKVtTq4slJTzS4xuqy+N5XQZ
+	2dM/Q6BhfhMYX1sRVIWJ/LXnR8btOmnAkCp4RLpJJcf3765i5gyL82RySFcGS0TCBUWPHdiecdjZ0
+	zJeOyLrRz/UC4jUfJ6lV2XzTHmg9+LHpvlSkr026ZDvXTjV+ZeDSKEk+AmWKSpM907ECXQ1JhpVLa
+	JnkkyS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xChEi-0000000CB9z-1hQq;
-	Fri, 02 Oct 2026 17:39:56 +0000
+	id 1xChEq-0000000CBDf-27pC;
+	Fri, 02 Oct 2026 17:40:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xChEg-0000000CB8S-0oJT
+	id 1xChEo-0000000CBCV-193c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 17:39:55 +0000
+	Fri, 02 Oct 2026 17:40:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00A021476;
-	Fri,  2 Oct 2026 10:39:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F00F1476;
+	Fri,  2 Oct 2026 10:39:58 -0700 (PDT)
 Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71B0F3F85F;
-	Fri,  2 Oct 2026 10:39:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF6D93F85F;
+	Fri,  2 Oct 2026 10:40:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790962792; bh=Thm7HB8yfR7hbpCLx3Egj1hWNG5VcXaY9qiSQ1XBCB4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=TV5uYRdYP9E9m7w2biORRih95JtlXjkLhM9LdKwel5W/8YGHlNiIEwcu+lA602iIX
-	 QZIMtf9S+49+sNQaidnmRj5bUw7WbBXsoO0Jx8nrl4lRrBBTfWY4ejPGlU1bNEcCVn
-	 6Hu6QpLGg+6zxkxegQ4kKo4uF/iV1+OUd1ZvDaeU=
+	t=1790962801; bh=xDp+EMpHKb9Oc/0Rzb52wwtXV36oTNF/CC3uPYa9E+k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OAvoCMIF+y8a8dhdIAlUhwvB8oFpS5evrT80RSlLie11NskZbtwyB2IL3MILFzPA+
+	 Qi6jhgIRchrCte0JWCU7sB3vuxwLNc4ICkjC0eMPf9YWk1Lu+jB9vH8oL+gxZX2lDc
+	 vXysDt6lvmkhPcv0VOYJQcfu7G5jGzVBqB8DsvcU=
 From: James Morse <james.morse@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -46,16 +46,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
+	Gavin Shan <gshan@redhat.com>,
 	James Morse <james.morse@arm.com>
-Subject: [GIT PULL/PATCH 00/27] MPAM driver changes for v7.4
-Date: Fri,  2 Oct 2026 18:39:13 +0100
-Message-ID: <20261002173941.292319-1-james.morse@arm.com>
+Subject: [PATCH 01/27] arm_mpam: Move MPAMF_ECR write helpers to allow reuse
+Date: Fri,  2 Oct 2026 18:39:14 +0100
+Message-ID: <20261002173941.292319-2-james.morse@arm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261002173941.292319-1-james.morse@arm.com>
+References: <20261002173941.292319-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_103954_323270_F7CED57D 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20261002_104002_356058_D9A80FF5 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,89 +73,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin, Will,
+From: Ben Horgan <ben.horgan@arm.com>
 
-These are the MPAM driver change for v7.4 to either pick or pull the signed tag.
+In preparation for calling mpam_enable_msc_ecr() from the CPU hotplug
+handlers move it higher in the file. Move mpam_disable_msc_ecr() too to
+keep them together.
 
-I don't think the drivers/acpi/arm64/mpam.c change needs an ACK from the ACPI
-folk. It only affects the MPAM driver by adding an mpam-fb-id we're expecting
-to need in the future. (that whole pattern is to be future proof for DT).
-
-Sudeep originally thought it unnecessary, but after some clarification:
-https://lore.kernel.org/linux-arm-kernel/20260924-snobbish-brainy-velociraptor-06bdd4@sudeepholla/
-
-
-Thanks,
-
-James
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Tested-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: James Morse <james.morse@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
-The following changes since commit eb0fde98fee407118bfcb10e38400494e0699201:
+ drivers/resctrl/mpam_devices.c | 38 +++++++++++++++++-----------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
 
-  arm64: mpam: Document when to set arm64.nompam (2026-10-01 17:00:43 +0100)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git tags/mpam/for-next/v7.4_v2
-
-for you to fetch changes up to cb351e3f304b260fc2f11cca5ed819fc9ac7c46d:
-
-  arm_mpam: detect and enable MPAM-Fb PCC support (2026-10-02 18:27:11 +0100)
-
-----------------------------------------------------------------
- - Fix a list of theoretical issues with the driver.
- - Add mailing list and a missing file to MAINTAINERS.
- - Add support for a firmware-backed MPAM interface.
-
-----------------------------------------------------------------
-
-Andre Przywara (13):
-  arm_mpam: let low level MSC accessors return an error
-  arm_mpam: propagate MSC access errors for hw_probe functions
-  arm_mpam: propagate MSC access errors for MBWU counters
-  arm_mpam: propagate MSC access errors for msmon helpers
-  arm_mpam: propagate MSC access errors for __ris_msmon_read()
-  arm_mpam: propagate MSC access errors for state saving function
-  arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
-  arm_mpam: propagate MSC access errors for interrupt control
-  arm_mpam: propagate MSC access errors in mpam_reset_class_locked()
-  arm_mpam: prepare mon_sel locking for MPAM-Fb
-  arm_mpam: add MPAM-Fb MSC firmware access support
-  arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
-  arm_mpam: detect and enable MPAM-Fb PCC support
-
-Ben Horgan (13):
-  arm_mpam: Move MPAMF_ECR write helpers to allow reuse
-  arm_mpam: Restore the error interrupt enable from mpam_cpu_online()
-  arm_mpam: Set mpam_feat_msmon_mbwu_31counter when there are bandwidth
-    counters
-  arm_mpam: Add missing mon_sel locking in MBWU save and restore
-  arm_mpam: Ensure MBWU counters are reset on restore
-  arm_mpam: Use __ris_msmon_read() for saving MBWU state
-  arm_mpam: Initialize all of struct mon_read in
-    mpam_restore_mbwu_state()
-  arm_mpam: resctrl: Correct check that existing class is L3
-  arm_mpam: resctrl: Make read_mon_cdp_safe() self consistent
-  arm_mpam: Don't loop forever if there is the maximum possible amount
-    of PARTIDs
-  arm_mpam: Switch to kvzmalloc_objs() for allocation of component cfg
-  arm_mpam: resctrl: Don't stop early when tearing down a class
-  MAINTAINERS: Use linux-arm-kernel list for the MPAM driver
-
-Fuad Tabba (1):
-  MAINTAINERS: Add mpam.rst to the MPAM DRIVER entry
-
- MAINTAINERS                     |    2 +
- drivers/acpi/arm64/mpam.c       |    6 +-
- drivers/resctrl/Kconfig         |    2 +
- drivers/resctrl/Makefile        |    2 +-
- drivers/resctrl/mpam_devices.c  | 1049 +++++++++++++++++++++++--------
- drivers/resctrl/mpam_fb.c       |  258 ++++++++
- drivers/resctrl/mpam_internal.h |   70 ++-
- drivers/resctrl/mpam_resctrl.c  |   13 +-
- include/linux/arm_mpam.h        |    2 +-
- 9 files changed, 1104 insertions(+), 300 deletions(-)
- create mode 100644 drivers/resctrl/mpam_fb.c
-
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index dd422c56fbb1..580d7ed38569 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1817,6 +1817,25 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
+ 	mutex_unlock(&msc->cfg_lock);
+ }
+ 
++static int mpam_enable_msc_ecr(void *_msc)
++{
++	struct mpam_msc *msc = _msc;
++
++	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
++
++	return 0;
++}
++
++/* This can run in mpam_disable(), and the interrupt handler on the same CPU */
++static int mpam_disable_msc_ecr(void *_msc)
++{
++	struct mpam_msc *msc = _msc;
++
++	__mpam_write_reg(msc, MPAMF_ECR, 0);
++
++	return 0;
++}
++
+ static void _enable_percpu_irq(void *_irq)
+ {
+ 	int *irq = _irq;
+@@ -2443,25 +2462,6 @@ static char *mpam_errcode_names[16] = {
+ 	[12 ... 15] = "Reserved"
+ };
+ 
+-static int mpam_enable_msc_ecr(void *_msc)
+-{
+-	struct mpam_msc *msc = _msc;
+-
+-	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+-
+-	return 0;
+-}
+-
+-/* This can run in mpam_disable(), and the interrupt handler on the same CPU */
+-static int mpam_disable_msc_ecr(void *_msc)
+-{
+-	struct mpam_msc *msc = _msc;
+-
+-	__mpam_write_reg(msc, MPAMF_ECR, 0);
+-
+-	return 0;
+-}
+-
+ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+ {
+ 	u64 reg;
 -- 
 2.53.0
 
