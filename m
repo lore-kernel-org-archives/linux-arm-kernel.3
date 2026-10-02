@@ -4,92 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28D0CA5FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5B2CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wUsDqDrhpmZMvn+QumvMUSjkcnQssbcKtOFdPQ7A4VQ=; b=e6Mn9ZVpyjZKmNjnKGb8RBFwk5
-	hqWR/hJqJaS5dmMKkNx1mVyxUhqp78gVfFXIB00aH7EQLoyc274ndZEvR14Cu7Z737tHkg3zE1hvP
-	hWvFKHeoUUnnPC8Xhu0q8zUwbgBFfKwO6I5ab+h9YOJKEXULUrdhHWy7E0YbPW2rSsCzIa5i+/CIh
-	xu2Ja1HCXrC3jLsBMstOcHnIrzXU8tcSJPWKjfm7DSaDP+Hz1q7hyEqgOak5s+Mr2USHCcJcZ79LW
-	O3cYbFfFS3yiblM9UrAAPNdpwzk42LQaosJ2mk1UNmD+Dm5lycVSFaWqFc230w/gFCxg6j9dqfRm9
-	acvmJTBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6zplr7QU6lV0JIsmwOjHD1EDA7HxZc99c9t5ZOt0FqI=; b=p6N/85TW3kLILkggpVUvmTs6rv
+	5R9IjABQE1sASQT0rBMQEhpvs276R7AQaZ9QgpmUn8Kmt1WRuAMTaJTsVczeJP+0G2w+i0U6kQPYU
+	ZRj4S5FVvEMU/Fc1tR/+kLisDCOo23oUNjnsw3X4NHc9/Wm31uBmsfWaU3zjYRtYDwNQ2ajLWcKRX
+	hqwx5/4ZdIBGuzZdwue34pPwtN5ECxZcpfjqey5wn0d3FEtEyxuufqkNGgek7g+IOuHA6VU26XVx6
+	HVXa8bwnIVE8nHTOsdr/u7cdsTwP0P3o63l8ZSxBVV05aQIPwbz8l6v2SBmtyMaeJRNQyk/QZb2kI
+	xaaf2myw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXaS-0000000AoLp-0JPU;
-	Fri, 02 Oct 2026 07:21:44 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1xCXhb-0000000ApBJ-13EE;
+	Fri, 02 Oct 2026 07:29:07 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXaO-0000000AoIR-1zB2
+	id 1xCXhY-0000000ApA7-2D3d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 07:21:42 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-482f635552aso5653563f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 00:21:40 -0700 (PDT)
+	Fri, 02 Oct 2026 07:29:05 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a11603310fso1835495e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 00:29:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790925699; x=1791530499; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1790926141; x=1791530941; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wUsDqDrhpmZMvn+QumvMUSjkcnQssbcKtOFdPQ7A4VQ=;
-        b=gHGR88UuPYY2/nb7RnoeA+JbMXWp+cqQdcSzAJ2qepknQjNbii5hMMpN9WWwRWrjqi
-         eIEdVqTAMDVhzH+Q1qYl74JHuL/PSdSDQ1kRpsSeSbMzPUyYFA/TVbZTKh3FVN9qF02v
-         0LKagiSm31kCch4M444ActwqZuhL788LCcWmCkcKSgvIrnlU/SyDoY6PKdL34Yj9BOlD
-         VqZ++X3u6PsoUaIrfyvKrdfMMBZqVvhz2KwXeKO+A5yc49ud4DQMdDrXQ+g9I/izGyLE
-         hR6meZLNsxLe/a2fPxbVZ8VKqubypNHLeKt97L9Y2h8GEz9Spm55f1mUaRUle5cCT0Uq
-         dPoQ==
+        bh=6zplr7QU6lV0JIsmwOjHD1EDA7HxZc99c9t5ZOt0FqI=;
+        b=FNAWsBKC+i1KoaFNvTFpdBegGclp1nq64eFLDjWRKkBgFOyFdAR1aJuhlLsfBX7iuI
+         DGR7V/lUW93sDfeD7u5LgBuoJm5DVFzK5a8GXmz0GWRlwxP0KT07+7i/C81tq1XLP2nQ
+         yRzbvnwUHkP9OIWpbWyw6r3yp9CObycOxUSKfNXAGwyPtd49caUAIdpmGRH59QH1s0F9
+         vh/hIgxI+b752UDQax/4Xz5M2T7OQgaNZGTy1Q/DkuIMEDWn0dMthAxBtGag00E4n5Uk
+         8N5VzzzMu4B1GAuMhwnqxK4fBbYzqu+QiDzGvvWn84zwT8/FUJp0ASzqc7hBteRAyuHJ
+         3Y9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790925699; x=1791530499;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wUsDqDrhpmZMvn+QumvMUSjkcnQssbcKtOFdPQ7A4VQ=;
-        b=TBo/n0SNzOjOheqPXzTA3D6SCnyB6rszJFXiO0/oDkjVI8w//CFD0xDmxAzpv7+CKu
-         IBNfRjLJLq7Vn32laZ0wBAhIm8LatjtjAjUvcPGQUNtzNLWvRn2NiB0JfU572kMhNdnT
-         ZpPR6Xmpnk2Bmt4WlmtxlRki1udh9rLYhImRImMEjw6ZgFD8pXXp3BeiaPPpzyg3Lq75
-         fV58uPJayv36/+axXEGelOnAKFS85SZ5f5plHNlDI+TpjybJXgoz6PfDzfUvnIjUqFAi
-         DKtdrQkzs72uhqPk4V17aPIujdKG3wSw6V2bSVrXB94RcSB9bo7XyaUZlb8Tp4kjQhlU
-         uIjQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwBnv8438bZdj2LZlkIjqv/ZKm6Nbegp0H1UQgO5RHiC3PH7a0kaBh0MyK48GMAApzrWu8VyLI+BCLXLxyRIX+E@lists.infradead.org
-X-Gm-Message-State: AFq9FYLJYABBEg3FL92g0+4YJGUyEKq40JaeDOTlv5cFbOUfqKEpfaca
-	pdomH7lnfLLzwBncwO2b8PWygAdGt/q7FuLz/W73pwUSsBkukk35WZQx
-X-Gm-Gg: AYBFou0g2H690csHAdCxiXKCwTNATplwHs4lP8JVvCc7qaDGpR3BgWv0PYGvP5qW/Yl
-	30XoHGSR782XN49g4Fjm7vaxj1meiiSTES89tj+lRnoRWO3w4d07SQRw+y80eEqYlCeKxWGHhrj
-	1qJOXqMfZ5ghrDwb4bC09HmeNPrZyKnmGwPoQGrIRlliBgGn0BFrbS/vrq+sqqqzSmWw+bsaSFh
-	vKmEhduT0JsqWZMxQFFyH0Et0ot9ugwdQgt5kaBP9nxi+rPmFRdZOyLQqtd3ksOHefSutFFt+EW
-	clZGZoJCchwG/9wsgOzTVmSx503zEY+diTdtwMWe2n1IFyskTEKRP/If7NNherv7/xgjoDCLaHU
-	NK0G3ljFo0jF5jz7JI+AKO7R0LsWl1Rlp3RL1oE7I42cPF6OURHZFsFwe9N3611PJHNiHCKl7CH
-	j6O8iLOq6c4Mhw5WYZRTl/nlaAEfWrTV+ZPuQJ9EZyQ+13XLo18KAn4I+zZem3Lo1AHMo=
-X-Received: by 2002:a05:6000:4717:b0:487:7fd:730 with SMTP id ffacd0b85a97d-48b1271cda5mr3160214f8f.13.1790925698787;
-        Fri, 02 Oct 2026 00:21:38 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b38104e07sm3564479f8f.31.2026.10.02.00.21.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 00:21:38 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Stanley Chu <stanley.chu@mediatek.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/3] clocksource/drivers/timer-mediatek: Request and enable the bus clock
-Date: Fri,  2 Oct 2026 09:19:28 +0200
-Message-ID: <20261002072115.169250-4-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261002072115.169250-1-l.scorcia@gmail.com>
-References: <20261002072115.169250-1-l.scorcia@gmail.com>
+        d=1e100.net; s=20260707; t=1790926141; x=1791530941;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6zplr7QU6lV0JIsmwOjHD1EDA7HxZc99c9t5ZOt0FqI=;
+        b=CwQRDTiWBnAF7zM8NbptsELtqtBF5rAITwbpARGcJHZNgbCqRqhCpJqrv7o36nWbjM
+         VypAQDC9E6llOY/sNwBXIWAla0fZv+zgidKrRhZYaR53ISJUmYWCfaaSNUQgBCPfMzOW
+         PekDarPcGQmmpX7JU/fp6DX4vxpDSttZYibO2Ofq8gTRzTSCbLr5IyFWILOpsmXMpGf6
+         dh4nx+Jy9Dza+prFIG/jRionAY6+0HEE3i8S2sKfRTmkiAgmgt4zBXSIMsF9a5f7sQnm
+         hgDwJ/jO/8VcGKzFbij4lABZ6UlwpzwQnF95LulHaT9/lDkd7+At7QCPrsz4O93zEQb1
+         MaGQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzczs9FzjSum5dB5vtHczIQIzn3LaBkg3ZDxjmb1GOWhEBnHf2jRs9JLNfycKtL8ThPOiO/D1+KIdkrY4SolWev@lists.infradead.org
+X-Gm-Message-State: AFuF++lkdeNow0RsGTKM0KGpnHuhjZf5ofYvowFa1NGbw4dAeNOu9YoM
+	bzhOgpjG1Fttl+utXXriMjxpiuEMwZB0knMh471k/ILI5umsTfWWKfyIwQshFuHxlJo=
+X-Gm-Gg: AYBFou2JD4UceNRp3U66ovExT2jTxx1qzeTXyInKz2hKhsNkMF/JArS7Y94aLBfLHDb
+	+ZU91AnGM7PliY2dHDuvL8shzGvspb3A+a3DjZZofqS3dJqTt2ra5K0KUfHQt9NhZZDVnNG7Kqu
+	n73jyoqRofcFX1a0/1iLUI0sJTG/NSBcC0Y26RP3uowSmEzx8QCQbekR698cOcQhBthEPsNFxuz
+	Dq47dq0GTa6vsWJYnh7/Z7OzTRWfbV1u8Ig0d/gK0Lz3lQgvUI7nOwwHUV3ziBPbdM+IMjoZRvD
+	zSmgpHc2HMaQ30j2PPMAaHKHitTB0XmOjkPKKh2u0ES2o4Y9inw3D11Gespa1Od7pRIANN74fZn
+	B+DRvD1qaltp+lXzA3fK3QkWQaHgjLyKo2tKDhUnSwSmi9dye4flts5S3fjTWT2b7DjM07NckFA
+	A/Q7K+HmK9vNY+w+ERsD7JjcNjvSA9lIKpBmpTaPBNFSoQENstEw/7+w49iLQxplGqISqu7ZsdG
+	pqVeeAezRtc4P+s9K6fkALKRXKLUGlKtjN1hM8bhxsAmx7mAaUMT95vFVwR7g==
+X-Received: by 2002:a05:600c:1911:b0:499:b65e:49c9 with SMTP id 5b1f17b1804b1-4a02756643dmr30178595e9.10.1790926141218;
+        Fri, 02 Oct 2026 00:29:01 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:2f62:6d3:721b:8c9e? ([2a01:e0a:106d:1080:2f62:6d3:721b:8c9e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a039505568sm42454685e9.3.2026.10.02.00.28.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Oct 2026 00:29:00 -0700 (PDT)
+Message-ID: <ebe0714e-cb96-4091-a718-97dd9c081710@linaro.org>
+Date: Fri, 2 Oct 2026 09:28:59 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
+ panel binding
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Jessica Zhang <jesszhan0024@gmail.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
+ <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Benjamin Tissoires <bentiss@kernel.org>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
+ <20260928204059.GA515872-robh@kernel.org> <artyl8fD3zzng8Uh@houat>
+ <742d5bab-51cc-49f0-825a-f299a055bb1e@linaro.org> <ar4G864IgYTvfNNy@houat>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <ar4G864IgYTvfNNy@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_002140_529514_B456C166 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20261002_002904_585508_F603C664 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +148,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek APXGPT general purpose timers may optionally depend on a bus
-clock. If this clock is not enabled the timers don't actually run. Boot
-loaders usually turn it on, but later the kernel turns it off since it's
-never requested by any driver.
+On 10/1/26 09:09, Maxime Ripard wrote:
+> On Wed, Sep 30, 2026 at 03:32:19PM +0200, Neil Armstrong wrote:
+>> On 9/29/26 10:39, Maxime Ripard wrote:
+>>> Hi,
+>>>
+>>>
+>> <snip>
+>>
+>>>
+>>> panel-mipi-dsi-spi is a generic panel that will load a firmware, and
+>>> quite similar to this one. google,android-pipe and qcom,fastrpc don't
+>>> attach to anything and will just open a tunnel to userspace, which is
+>>> somewhat equivalent but more dramatic than what this driver is doing.
+>>> simple-card or its variations will just instantiate a kernel driver from
+>>> the DT and is used pretty much everywhere.
+>>>
+>>> I reused the binding from panel-mipi-dsi-spi for this. It was reviewed
+>>> by rob, and acked by a panel maintainer, and 4 years ago, so we're way
+>>> past the "oh but we didn't know what we were doing back then" argument.
+>>>
+>>> So, let's phrase this differently: what's different about the
+>>> description than panel-mipi-dsi-spi, or any other binding already in
+>>> tree?
+>>
+>> The panel-mipi-dsi-spi still describes a class of H/W control interface,
+>> not a pure software driver implementation type.
+>>
+>> "panel-mipi-dsi-bpf" or "panel-mipi-dsi-rust" or "panel-mipi-dsi-cplusplus"
+>> would be the same problem.
+> 
+> Rob explicitly said the bpf part wasn't the problem. Also, I don't care
+> for the compatible itself, so what would be an acceptable compatible for
+> you?
+> 
+>>> If it's the BPF part, BPF is not Linux-only, and there's hardware with
+>>> direct BPF support these days, so it can be considered OS-agnostic and
+>>> not an implementation detail.
+>>
+>> If somehow panels used a standardized MIPI firmware we could define this
+>> in DT, but here we're basically inventing our own type of firmware from
+>> thin air.
+> 
+> That's not what panel-mipi-dsi-spi is.
 
-Some platforms (like mt6735) declare it as a critical clock in their
-clock definitions to keep it running, but at least on mt8167 it's not
-actually required for a successful boot.
+What you describe is how it's implemented in software
 
-If a bus clock is declared in the device tree, make sure it is enabled
-by driver probe and associated to the device.
+Neil
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
- drivers/clocksource/timer-mediatek.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index a9e7ff6908a3..842d6ee4259e 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -9,6 +9,7 @@
- 
- #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
- 
-+#include <linux/clk.h>
- #include <linux/clockchips.h>
- #include <linux/clocksource.h>
- #include <linux/interrupt.h>
-@@ -283,8 +284,9 @@ static struct timer_of to = {
- 	},
- };
- 
--static int mtk_syst_init(struct device_node *node)
-+static int mtk_syst_init(struct platform_device *pdev)
- {
-+	struct device_node *node = pdev->dev.of_node;
- 	int ret;
- 
- 	to.clkevt.features = CLOCK_EVT_FEAT_DYNIRQ | CLOCK_EVT_FEAT_ONESHOT;
-@@ -305,10 +307,14 @@ static int mtk_syst_init(struct device_node *node)
- 	return 0;
- }
- 
--static int __init mtk_gpt_init(struct device_node *node)
-+static int mtk_gpt_init(struct platform_device *pdev)
- {
-+	struct device_node *node = pdev->dev.of_node;
-+	struct clk *clk_bus;
- 	int ret;
- 
-+	clk_bus = devm_clk_get_optional_enabled(&pdev->dev, "bus");
-+
- 	to.clkevt.features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT;
- 	to.clkevt.set_state_shutdown = mtk_gpt_clkevt_shutdown;
- 	to.clkevt.set_state_periodic = mtk_gpt_clkevt_set_periodic;
-@@ -344,11 +350,10 @@ static int __init mtk_gpt_init(struct device_node *node)
- 
- static int mtk_timer_probe(struct platform_device *pdev)
- {
--	int (*timer_init)(struct device_node *node);
--	struct device_node *np = pdev->dev.of_node;
-+	int (*timer_init)(struct platform_device *pdev);
- 
- 	timer_init = of_device_get_match_data(&pdev->dev);
--	return timer_init(np);
-+	return timer_init(pdev);
- }
- 
- static const struct of_device_id mtk_timer_match_table[] = {
--- 
-2.43.0
+> 
+> Maxime
 
 
