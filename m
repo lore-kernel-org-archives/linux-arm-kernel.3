@@ -4,85 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7208CA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA8DCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCkYYC6v/BreRMrWAsS/EDBBuECL2fnseS12s28lNAI=; b=zhl1D2z+dMq3CypLVZMt6RVpS1
-	/WUju2A2dvpAR7p2mrPIOudwEb/pGBIt+QJZvX+Wdz5NS8GZYvDxQ0U62A5kumyF+d4ELIThxPEZt
-	x3gJGjXrwRnkVOwHE6Y/TTuP9dNqvWa5YligjCFwZPIk5VWmI9iaWAt/T6qS99jPfMVnQ7iJRKCgD
-	k0bAemTXuokWtqMRzQYgqoY21PpJU8ZheLEANGIEHzL+/12pbbB5Q++FXMcMzln9SLNRBuYYx1Ava
-	msRYAOxEwqnRfS5MHdzGrRfmr7cqZOEq+HvHBArg0tamsY1iWf9W6w7sdMHf8gzGJ1OgD/Yc8gjFf
-	eRPMesCA==;
+	bh=WV95wAdEBW1v5k5upi/D6jheWF0Dkl/DxQsG1HnT/70=; b=eHku2mrRoq8ti2cBCcsltIQeNy
+	z4okKPWD/r1/g8EiL5MZ6aslp9zYnsGecT4lYw0mUojHEkTxOsvTyjJuGkGeC4CYtHjSnmGd6mqKr
+	Z3ZPKLGYmqu61u6RqlHwl3i6PLmdQmqrUwYJh1JWAEckIM0sUdZmjifGjvXWZ4UleT6tJOVk9ngyW
+	EBMQZIOZpFljO0HMf1XVFdwR+Y4b7GPVAl1xLGZ9EjoG897QcdgUBblnWDO4n6yZjoBwDosBo+moF
+	ZA7xsv4lK4VlxmbihvRyYLCT697aGztxcjKXrQj2eP4wEOCrb9OORAjRFSNXXsviZWI8T9dtq3JAr
+	563JGREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXnF-0000000Aqmm-0J78;
-	Fri, 02 Oct 2026 07:34:57 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1xCXq0-0000000ArHK-1Ve7;
+	Fri, 02 Oct 2026 07:37:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXnC-0000000Aql2-43VB
+	id 1xCXpw-0000000ArFv-3NhO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 07:34:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790926495; x=1822462495;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LAqCXjWcEhA+NMDRpZZ0gzroQBLg4coCBF1VGUyHcCk=;
-  b=GZxPd0af6IhSL8v7dDPP+PVt662hWR21GCxxX4P0WIxkazec+FsRa1l/
-   /1Or+v3BowusaTiPuiXwbIOtTwmCn/ZcCWiLmdeArzwgohcqiRidA/qgS
-   OO50o3crssygSQLaRTKD34RyNcAWzT/rd/mPseBMqgtoAODy5pTe6D3KN
-   D0JGJ4flAN9c4S7ClkmxfOEB9FaSP2yNFETuI5o7vvYTrb4J/OtFrvBNq
-   KvscOcl2bjYKEOAInMujlgHU6xiL0eCVOPoMQPLpYYo+ux0nUwIiPyKPp
-   g7apRLOZ3pSqeIXy4mH8lZ51VD4IbsVRZk+N/oavbvQzwKqXfcyKj+JmL
-   A==;
-X-CSE-ConnectionGUID: /e0xN2IiST+2VO9GMMXWIA==
-X-CSE-MsgGUID: JXTLk0BTS6Kvnqm/J9i8lg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11922"; a="101022380"
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="101022380"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:34:54 -0700
-X-CSE-ConnectionGUID: x+xxJ71wS42dlwxUAsn9Xw==
-X-CSE-MsgGUID: 5nLUqPeIQmuQ3TadL1+U6Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="279450625"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 00:34:50 -0700
-Date: Fri, 2 Oct 2026 10:34:46 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] iio: adc: exynos_adc: add Exynos850 support
-Message-ID: <ar9elr1_tuFhJi1r@ashevche-desk.local>
-References: <20261001-exynos850_adc-v1-0-791b3516bb9d@linaro.org>
- <20261001-exynos850_adc-v1-2-791b3516bb9d@linaro.org>
+	Fri, 02 Oct 2026 07:37:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790926662;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WV95wAdEBW1v5k5upi/D6jheWF0Dkl/DxQsG1HnT/70=;
+	b=EWZxQ6cUE+CJ2uDDFjubjrlIYY3GLy1X3MSekZmdFl5YK8f/4AjYbqTi4QyihkvNhqF8sI
+	dhhodhftzhl+TX36Gv3/kWKRlQgDqmYo0wLHC6ncbliWu0yr/wWoLTOkmp2rRYM4qY+M4Q
+	SveOuTxdK2aI3nfi2aaXSjWMBZM0gao=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-508-CrAuNFr9OoOFwjS6YehPcA-1; Fri, 02 Oct 2026 03:37:40 -0400
+X-MC-Unique: CrAuNFr9OoOFwjS6YehPcA-1
+X-Mimecast-MFC-AGG-ID: CrAuNFr9OoOFwjS6YehPcA_1790926660
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a0761224e1so4343635e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 00:37:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790926659; x=1791531459;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WV95wAdEBW1v5k5upi/D6jheWF0Dkl/DxQsG1HnT/70=;
+        b=gUcQrrvlPTOHiahPF9gksBPeIM5xMFdiU16JOJ1dgKY7vAMLBOeBl8JSNb71RLWr++
+         Pmw3tOieRcnM4OlCcvN7Us8Pt1xBA+cLKyahG1ZNCxnt0g3AxOQJpKBEzEuGpZdrGt4/
+         iRje0xYiACzno5D83u50GYdu6fINX1wlikyWkWJBy6eokKPgT/jO6kpHnxCZkmmj07m7
+         P15hrcE3D8MzFuqrSl3uyU6g5BIV+hCCRBJsytvPv41VwUmyAP7FdVwOQClQNYFyvuht
+         zYKJbhsb5wtUZsBysu/dEeRD5289tRT13nY+nl3nnRF0m6DJ1//XLipOVZ2U6oelaWs1
+         mocQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxmt+fFyTnEHrL48wLX0C0L/ccE91B3bigsosQzMiHT2TTcqubdgZFuCsx0+GRVR8mmnfst3Cgu8s+rqYWmtmH0@lists.infradead.org
+X-Gm-Message-State: AFuF++kfqmFfxLvEa4I0e4+5tBVeDbpcNIQvQScHYFP2iuluGnh9W9NW
+	T0ZmlDdEcogBm315JbvPT9Dn30/ixs5oOX5UWVq0kJ6S/7alHkwGqGSWh0Z9/c8fFsmCAQXazgY
+	QgUgSIeVcf5NPqzfmlJl9mdjlkHtqgiOLmmflV/YI+REwYBiGRrti5TKTUK3qIdjkZ5IeMOAW+3
+	ig
+X-Gm-Gg: AYBFou1hN2BdEvH8+7OqBhu//yTyogKoXoq7tsVqGOVydr9JRFpO+1z+UXiJcjdbyqq
+	TWRao66zFAGDjjuKABKZpoMAbYjRUwxa2R2sdGslz0XGMjQ4PgWtgKR8viEZgzBlrcfs+8TjA8G
+	JsT7TbZEncwBWKGbQgjYQmsoyJYwWAEQbmSHm7KEEI/tHwGjfEJAEZS1SyYCyMRzm+XmXe+72Ud
+	LmAR0A3vOLlydU0nq6Z2JlFbH6q+mV+qeu45dm0jZv0LJTBlDtENE8tpXtjwfuE2fLbkfRPJL1h
+	JK3rJIKeiGBCcKmGNf9KV5R8RHGi6+Xzo5GFc1TTLyoKuDJP/bm/AIERowmNfC+Rk2GDA7/Pcmw
+	l4u7dE9jRN6c5GRCaSuP+U1EaYbhNxt4HQegoG59uZ24RyXYbfOG1Kfn3gL82d/HDOQ==
+X-Received: by 2002:a05:600c:4e8e:b0:49f:fe79:62f9 with SMTP id 5b1f17b1804b1-4a0276afe79mr34251235e9.25.1790926659490;
+        Fri, 02 Oct 2026 00:37:39 -0700 (PDT)
+X-Received: by 2002:a05:600c:4e8e:b0:49f:fe79:62f9 with SMTP id 5b1f17b1804b1-4a0276afe79mr34250535e9.25.1790926658971;
+        Fri, 02 Oct 2026 00:37:38 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027da120bsm63581875e9.0.2026.10.02.00.37.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 00:37:38 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Maxime Ripard
+ <mripard@kernel.org>
+Cc: Benjamin Tissoires <bentiss@kernel.org>, Jessica Zhang
+ <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+In-Reply-To: <2bd17843-4a65-49b0-9e10-7b73afb206b6@linaro.org>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
+ <arqhwHiVf00j94J7@beelink>
+ <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+ <arrAqg5n87INTHE6@beelink>
+ <674314b4-6b80-4b3a-ac15-eefd31cea607@linaro.org> <artpBMeM13Dd0lLy@houat>
+ <xlv1wls4ebjq.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+ <828c9108-2db1-45a6-9301-19159a094301@linaro.org> <ar4CRTMQGs5_nGKY@houat>
+ <2bd17843-4a65-49b0-9e10-7b73afb206b6@linaro.org>
+Date: Fri, 02 Oct 2026 09:37:37 +0200
+Message-ID: <xlv1cxtsft8e.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001-exynos850_adc-v1-2-791b3516bb9d@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: g4BXSBW9m4yDSTvcfiylzhVFUj3r4lpEjtNHXyr5HvA_1790926660
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_003455_039701_9DB4754C 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261002_003744_918122_B4A3778B 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +131,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 04:09:13AM +0100, Alexey Klimov wrote:
-> The Exynos850 ADC controller located inside the CMGP block differs from
-> other Exynos ADC controllers, mainly in its register layout.
-> Specifically, the data register sits at offset 0x08.
-> 
-> Abstract the read_value() operation in driver data exynos_adc_data to
-> support SoC-dependent data register read callbacks.
-> Add the exynos850_adc_data struct that describes Exynos850 ADC ops.
-> It also requires its own hardware initialization and exit routines.
-> Add them as well.
+Neil Armstrong <neil.armstrong@linaro.org> writes:
 
-Split this to at least two patches:
-- add .read_value() callback and switch existing users
-- add new user
+Hello Neil,
+
+> On 10/1/26 08:50, Maxime Ripard wrote:
+
+[...]
+
+>>>
+>>> I don't want to add a supplementary maintenance burden for the sake of using a cool
+>>> technology which has serious drawbacks and dependencies on user-space even if looks
+>>> really cool.
+>> 
+>> Spoiler alert: v2 won't. I've got the in-kernel loader to work and thus
+>> you can have a built-in panel driver that works without user-space
+>> intervention. So this is not a topic of discussion anymore.
+>
+> It will still have users-space dependency, meaning the BPF files will need to
+> exist in the fs when drivers probes.
+>
+
+It doesn't have to AFAIU. The BPF programs could be built into the kernel
+image, just like firmware binaries could be built-in as well.
+
+> Neil
+>
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Best regards,
 
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
