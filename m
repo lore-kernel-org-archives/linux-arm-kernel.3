@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2553FCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2F3CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5kIp6AK84MEo9GlzF/Be95zArasU2AChgod6QlX+xlg=; b=4DxU00TbCBFB9IiuxtmBrdEAfb
-	6Aif2nrcnEg14lKjqhEyUDRlNYcN/Gy0TYVzpKi7i/6L8yf8UfyMnqwsfoqEXAKwjvJpzvpEEygkS
-	UycpyzdymKBn7PIewjy0E7g5jnjsIlj+WDZmWyI6x4LkbBKWHk+aKkdZRge4qCTwlOeEC5ZnqudMG
-	TAvjsPshZ6Lo2KQrFwrZV4BouRL2Mhup1SB3FTanPOncTC1EgKJpYtymSGlSLlkmDvZxzfL2MgoGi
-	kozvOLr05FI/ZyK9KyPLZ9/wclC5e/9sQxuPTxPRCnhAw24epiHKUNfZqugGIZ7gJDz3j0lGmgU7U
-	X6OqaHxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QWwXPdPfSBWciZ519k8Kzh/yd3yfNNPJylYXUTyNxLI=; b=YWTeoIYDtlfVN0RbSS4Z0dCAmP
+	XNNsRHWcSr45Rsli6UvKOpxn3DHci+DcvsD65+a9pa/Qj6e7ztpJH8j7sCDTLzZN1+PMUKY/0Bas1
+	qsXmOdOx6YztoFUZsGHRPYBqUy097QH60zanbzlnGETW7MDa+MbTJedVB9LHkuoDk/RsK6DDFjSRp
+	p/CXLjVr1rTRWqJa7JydgyFTSj2shU2c+QVcPszVgPgE9+4kxrSOYkMLG4gzq5RrFEV8CJAaMtfef
+	rJY2Uc4uN2ZTQlHeD/51v82KrTfe3NpXt05Et3sHCOHsEn7PKgd+nnxFKLmcOUWrrao3MUVEchtNn
+	pMmeFtVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeZp-0000000BoVh-3Mn4;
-	Fri, 02 Oct 2026 14:49:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeZm-0000000BoVY-435M
+	id 1xCebh-0000000Boge-02jC;
+	Fri, 02 Oct 2026 14:51:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCebd-0000000Bog7-0w2I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 14:49:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DC3D60A8D;
-	Fri,  2 Oct 2026 14:49:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7331F000FF;
-	Fri,  2 Oct 2026 14:49:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790952569;
-	bh=5kIp6AK84MEo9GlzF/Be95zArasU2AChgod6QlX+xlg=;
-	h=From:To:Cc:Subject:Date;
-	b=Xto4jLfJvUFRd1Cfb57Dyt861cC2741yPwg1ytnac1QHmnW8OXzRVdAD6pishXAaf
-	 xfbQFtDw7fLA+G87oLwR9cHo1jjKo0iAyh75iQcFTKuclouv3DUcDEtkIkGHhgh5W6
-	 cNlvGBlOYPQCcQBhY+npkTJMYusA5Nwe+MxKxJYjdb0U2IM/y46wGHcFkV8SIEwEgT
-	 MqO6IsfyPiCcxNeRcLkNRCGunBnE6UehwY/5lD1t3X1xR2pSvXWXa8tovf58BLMtmU
-	 eGsl6+3ygGN2hr0DTs+rWWdE34sKc5dC2ZNIVtKpW9KTK6JoYZsc1MXSbnaTE/Q28n
-	 h+avyIg2yvPDA==
-From: Thorsten Blum <blum@kernel.org>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Can Peng <pengcan@kylinos.cn>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Thorsten Blum <blum@kernel.org>,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] hwrng: stm32 - use devm_platform_ioremap_resource() in stm32_rng_probe()
-Date: Fri,  2 Oct 2026 16:48:38 +0200
-Message-ID: <20261002144839.51627-3-blum@kernel.org>
-X-Mailer: git-send-email 2.55.0
+	Fri, 02 Oct 2026 14:51:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA56D497;
+	Fri,  2 Oct 2026 07:51:16 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0930F3F86F;
+	Fri,  2 Oct 2026 07:51:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790952680; bh=kKDcaBFOI0ps7qhL8AjeG9mxP4MHTajTSk/ANpKPOIY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rEXHYs1rFHGFpp+zEAWKtWRV6Fm1ec6oxZj3tIRFwIVWez6ZbMp0WRYDWGnNyXB0O
+	 s17B7C9WbonpVlkUtGk1SDJyLGctAw46E6MMb7+906QYuO+mwfRtEI5X2lDJrTyHhw
+	 eopLqbNJ648HBOpUjIXBTh82SqsR1HMYCjpOIftA=
+Date: Fri, 2 Oct 2026 15:51:16 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
+Message-ID: <ar_E5HUSTxMSRZhL@arm.com>
+References: <20260930121212.3101361-1-fuad.tabba@linux.dev>
+ <ar-xtsSOqwWK9jWQ@willie-the-truck>
+ <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+ <ar-5CnttybD-1ojM@willie-the-truck>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1003; i=blum@kernel.org; h=from:subject; bh=2Iwh1YBp293wVOzp50snGvj+P98VSbsE/9m4UEmQTXI=; b=kA0DAAoWXqtxINjMdS4ByyZiAGq/xEejLZNBJ+SYr8+Ib0WyLcbJIkc4wUBkp/z3YfDJ30Ckt 4h1BAAWCgAdFiEE4Jr4mE11fHmyNFi5XqtxINjMdS4FAmq/xEcACgkQXqtxINjMdS4NCQD/bqnL tAU6U/IwSMVUcOr1/pua2Tlaa6fBpL+OPSm505YA/jiPDnXJcEll3KolODLI3efPvXG7ALDcIcy Fb3EPxYII
-X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ar-5CnttybD-1ojM@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_075125_448194_05945D63 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The resource pointer is unused - use devm_platform_ioremap_resource()
-and remove the unnecessary local variable.
+On Fri, Oct 02, 2026 at 03:00:42PM +0100, Will Deacon wrote:
+> On Fri, Oct 02, 2026 at 02:54:47PM +0100, Fuad Tabba wrote:
+> > On Fri, Oct 02, 2026 at 02:29:26PM +0100, Will Deacon wrote:
+> > > Are you sure #8 is the correct immediate for the ccmp? My reading of the
+> > > pseudocode is that it should be #9, but this instruction has always confused
+> > > me and I hate the fact that it doesn't take another condition code mnemonic
+> > > instead of a raw immediate value.
+> > 
+> > My read is that #8 is right. From the CCMP (immediate) pseudocode in the
+> > Arm ARM (DDI 0487 M.d, C6.2.81), flags start out as the nzcv immediate
+> > and are only overwritten by the compare when the condition holds:
+> > 
+> >       var flags : bits(4) = nzcv;
+> >       ...
+> >       if ConditionHolds(condition) then
+> >           ...
+> >           (-, flags) = AddWithCarry{datasize}(operand1, NOT operand2, '1');
+> >       end;
+> >       PSTATE.[N,Z,C,V] = flags;
+> > 
+> > So when PMUVer == IMP_DEF the ne fails and NZCV = 0b1000, i.e. N=1, V=0.
+> > LT is N != V (Table C1-1), so b.lt is taken and we skip. #9 would give
+> > N=1, V=1, so we'd fall through and set the bits on an IMP_DEF PMU.
+> 
+> Aha, that table is pretty helpful, thanks.
+> 
+> I think you're right -- I missed the inversion at the end of
+> ConditionHolds().
+> 
+> I'll pick this up next week.
 
-Signed-off-by: Thorsten Blum <blum@kernel.org>
----
- drivers/char/hw_random/stm32-rng.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+I couldn't figure out the #8 either. I wonder whether it's more readable
+as (untested):
 
-diff --git a/drivers/char/hw_random/stm32-rng.c b/drivers/char/hw_random/stm32-rng.c
-index f5bfe54c01dc..8468a4a24d48 100644
---- a/drivers/char/hw_random/stm32-rng.c
-+++ b/drivers/char/hw_random/stm32-rng.c
-@@ -528,14 +528,13 @@ static int stm32_rng_probe(struct platform_device *ofdev)
- 	struct device *dev = &ofdev->dev;
- 	struct device_node *np = ofdev->dev.of_node;
- 	struct stm32_rng_private *priv;
--	struct resource *res;
- 	int ret;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
--	priv->base = devm_platform_get_and_ioremap_resource(ofdev, 0, &res);
-+	priv->base = devm_platform_ioremap_resource(ofdev, 0);
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
+	sub	x1, x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
+	cmp	x1, #(ID_AA64DFR0_EL1_PMUVer_IMP_DEF - ID_AA64DFR0_EL1_PMUVer_V3P9)
+	b.hs	.Lskip_pmuv3p9_\@	// Skip unless V3P9 <= PMUVer < IMP_DEF
+
+The first sub either gives us a large number (negative but we do the
+unsigned comparison with b.hs) or something between 0 and (15-9). The
+cmp and the 'same' part of b.hs skip the (15-9) case.
+
+-- 
+Catalin
 
