@@ -4,111 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D4DCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 10:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14B6CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 10:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aluc5VLd/GgszPlfBHVygLWYzMV/6IhocC43q7cYG8Y=; b=wQW5orWgCLy4XaP7wJK160ivjs
-	0IBAunB28u9kNMjvx6Xvq+5/cTzJln3j+7/j5GnDdOjGJuiMTwHmkcaiWeDQkLJwHV2amuwJsBKdr
-	nWaiQ4pn124ZkSmkG9lM+IGZ+ZoNMA+7CHg8MWpyB71OlGkOOEUWMuFkNPeRVKRpuFt2ngxZ8UkgP
-	EpES8mxRNH66RtGxyWU+I1atCuJhcfuHCm7LdI3gj9qdSUnbnpUl4ULGO79o2IWiyXXaEXkL2sj2t
-	hTlZgyX6Gs74KhB/PpV9tvoBRD3qnQtFCT+vrTJ0+jiNuAalFZcmAxbdoRUOluKLX9II1Imu5HddZ
-	ysRXLQkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1pRxeHboNp9h/HSv6zy+V1Mh/+A38NoSBIebFNUvHUU=; b=X3Z4cRLZ1H5iP+S4bLy+9IbS6z
+	YFbOqiOi7l+aCl2sjudPYmCRFXXvbeM6x/1seuZ2LZ+RoD3iJwj88It7yNZO5o5HeUl6EPGtauebM
+	O8ap32bcumSFw/BE+2fHs1V1sBqYZ+baVgP5wbRx7ybEFdgdalm4SKwA5WJjxbwo4rBNDw9MZ3jzq
+	Sdkz6zVbuHA5klWi5LX9Z+fjNmtj0UO2MDckU3GXb99D+NEwzj5klIbZSKkE4DIqgoWg2MsvRCThy
+	Oigy6O7OJRcrXd4s4Sq+8YEn4lxDBzJZ08Xq2YfYG1ziha3FqrxTfhpBkYzKc95SroMJXTDa9+GWA
+	nwDPi6Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCagd-0000000BLoh-3MqK;
-	Fri, 02 Oct 2026 10:40:19 +0000
-Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
+	id 1xCaIG-0000000BHN2-3E8T;
+	Fri, 02 Oct 2026 10:15:08 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCagb-0000000BLnh-0woc
+	id 1xCaID-0000000BHLs-2JUd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 10:40:18 +0000
-Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2e3f641442so215242866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 03:40:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790937615; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VCqj2BgaRnYJvBKKCROLEbP1GZ2yorqA1xY6y9Uz/dMOAFkvOXWeB62sa/Hnakwq3W
-         /ltLfTVBM47atIWzzUBO4hRdx3j3dk/V70eYzMiJjgfVUJS38Ld/8yW3Jf3UzfLY3YEu
-         83Us1q+uAQXczIl1n5RxRkc9VffjNfcL8fEDzWhbcDI2IFgk0o16vptX3KDFfHaO0wcg
-         u8JyAdT6HCVZWXvmSaTshB9NB0FjDSn7gtUY0xweuQne3aikRISIJdeUrmLQI7hKwrJH
-         0aPjFtKE7UK+AfRStqS13BTS3uW97HGZsSDcvukXNzufm1aE3c2LPIJhXyV3oMdH1mao
-         /jQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Aluc5VLd/GgszPlfBHVygLWYzMV/6IhocC43q7cYG8Y=;
-        fh=mDJrUefmIWTo81NXVny95anU7UcZqOLYl46yZmcJQlE=;
-        b=hBf5bellLA4fiDfIzZYZsYNT++sL6w7uiFfl0eme0c7sudyWeYeBvU0Xh/yqK/N7uO
-         jbOrAjGv4BFj/3D9NvwMxF+mOZsNBi+gfE8CbEY7ZRCBZn6Je9UgBeOU8pOchB3ygAsa
-         z737OFyEBwUdfnRu7Km+DkrXyGysU2u7UCnM/di5KL5mfLJnHdOeQnni6FBG0FtI4oIJ
-         0GI7UZ8ik1QkgM4fh0z74DD2af50agdEZ0kWxNKNFpvG/CMQEnhOIJCewgQVnGgosvqo
-         KeuGWzolqwHAOvehv/kj8Iry4LlqMtMgl4uXLxBbywku0PMuwxTzcvDueoNaJ6ict/qF
-         tuaA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790937615; x=1791542415; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Aluc5VLd/GgszPlfBHVygLWYzMV/6IhocC43q7cYG8Y=;
-        b=N2ZBl5LVFCcJkqjZET9JCRIhny8/QM2AM5leWrsjBhmPmZV+Y1ZIHwd44StWmomO7l
-         H+4m3pkrZIxQI7V42vrGOMNPome4hSOXFNz/Oqcw+mtTNNULoHOW9CV8bGWA5oXCiAfz
-         VOljqFCiUT6Llvup9Y5ZBeO9mhy2J+1adptLdaClwxxFNZp9wFAsS/YadiME8YuD8Gpl
-         M0eyoaa1gXKwCDlpb4OxNCaLQrGXIfnYD7lluQgGgvkcTtTXcLZk0JLdaBhTC0NjXRqw
-         ZyvTbpaHpw2VLoRx2baAtc4eXWyRw2EK4JKZ38RXSNI77fv0TixPeASnBpIVEnHZUehW
-         BZNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790937615; x=1791542415;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Aluc5VLd/GgszPlfBHVygLWYzMV/6IhocC43q7cYG8Y=;
-        b=ZHH9WnWIDP2T177sYw43eCSj5Qy5kY3RG8wTKdyAWdNNUMz52UXwiMKo3QhEMlDTMo
-         VH0m+4kJHnXLbPWVnfkBQHa7dGGfz1jbVGfANj/5L3WIwMng6OuE6vyX7xa2osr4f/r/
-         atXD8tXlxa5Bh7t5bOUoE2DcZKZri3xJn0YLQjDKvDMCPBh6aUrnOO7EHq7w1NM7BCC7
-         LDq6SwtFIeLDjW7DgiOZWkTKO9OP/5kFNfZkidEz3GwVwYz2bPOLB/b4aiRuxrMO+lc/
-         wHB67dffuiK+utyesgGfI+YeK4wSoosUDHA7Ie/Ca5ObfmqPFZPVjJhvJG3ds0F88ziM
-         Vigg==
-X-Forwarded-Encrypted: i=1; AKwUvBx2OyjSzBRMEM78+D2UjrLBVsB70hTvRLMHBAcegem1pPLwcsLy0pGO03qDG85qU18rPQD/wY63rbVa9WFj5kSm@lists.infradead.org
-X-Gm-Message-State: AFuF++kdhMxCkQH9yRQGl3FYzfDltAb+pHCWyhfr2Yrd0Gpgo/UTDf6j
-	kYT61LmgcmmYt2cXpInS/O9pOyoFyOuNZsbH8pvrYs8OQ+XFSbtt/UQDpWQEK4S0ed3ut4uAViK
-	Cg+HYSXgFIawAKgw3HGYp8pOZMoS37LE=
-X-Gm-Gg: AYBFou15hjdScKSJ6flSWaLrgCYNWOxxjF/NshENzS/B58ZVBCHoMcqmlRVOBqrHlnn
-	F5AeS0LTlFeEvXz5WuDS7KwlAA/uHkbGfBkxqufDjbDAzAIfJNlmshlYUvloEScvDwlABUAh5x/
-	0wmavLNV89av/Uw2JZCXXquhv2XVOmdD92px0AO+lXnwshpehtkXYNS1sK9WYo6+Rpn169o6I2e
-	cq2EcC1fzkHqnlIAsbcIrE/bc3Q/cHBdOl+sPDUJqcDoCauGiIEPY7Jm0lxygZgirtIYPlflsn1
-	UckltUUPr29P/GwIz5MQ1Tv5ZBUT2UK1nI6QaKfkR6A3JDV+vEHkUyonvNFYpaKUgbe6loHM
-X-Received: by 2002:a17:907:6ea4:b0:c2e:3546:516c with SMTP id
- a640c23a62f3a-c2e4b25913dmr200400366b.43.1790937614670; Fri, 02 Oct 2026
- 03:40:14 -0700 (PDT)
+	Fri, 02 Oct 2026 10:15:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uR8BStoELcALwXnNfNt/7TlAa6E1VRNAsPp1bHKfZCqSrMLZ5m7N3RV7ErlvNBvJVPvpYI/baRagvLgP1S8ai+qMmqWhcBdya7RHqeWMAyq8PkveEdyRIFNadDEZMs8uGqVU63G8VDn6zuN5fPrz9JXVkR/XIA+xShjP3iEcN94eGxK3c5hmaSnje6fxqdeYDk6AQcch00/EAFTrLhbLZoB513xAwGJhzNAj/E/ynaEm5lZhEdk97WLFjBEB9T3aM8PDi1A7pdGrZaE51QzTqchhf6vzRCVnqPi7f64owfYXvF0aiSNhIV7erpTES62fpBfSax66dy8BhJ9iHuW0Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1pRxeHboNp9h/HSv6zy+V1Mh/+A38NoSBIebFNUvHUU=;
+ b=GY9bx5rACj0Qq8pxKcWDfPZ6mroSWm1Drz8hBi5tMX/e8aax48Y7LFYb+amEnkKVe+YS9/Umt6jZ39L7H4EbKtli7HM66dRs7Try/sVHj2kBr1lUC5FGDMjrkB9yq68d3Rkv0GJw++CGcd3xxxt/AfV3JT3A6jItuj4zE8+DYN3x/LrRUif1vdo6OxN+7Bil2a+wSnJS920PSQ3PHrhb0BQHTCZ5X1hyYYhG/mAjN1s2gDd+L7g5198WQKxYcvPyjQseC1I+FXkZ+ruVScoDxsNmA74oBezB9b3Ze5w//wbNWzYLlrd4oG8fTLOPOqmyjFg7WXKH8giJAZkq72EXtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1pRxeHboNp9h/HSv6zy+V1Mh/+A38NoSBIebFNUvHUU=;
+ b=MvSsheFtL1pQvByFtmih2RYCTLUAumIXUdgrIey9Dsr/BaVdGK364bM8CxcH7vY6qNasvNRTRx2pllI79ow5esZ8brxWES0ZrNDv0YYEaokrUKklODpRapX5nEFJksDCSZgU7e1huS+1xGCLQLb6m2t86A5KBdzC+ihpW5Wi5VX15G5wuWW/11VjoeSnMgj0vNrMFVlQpoCUxhW1FCLoSr9CqzkxT+GCmctbxsELd7ogXleJVo3OuO2kKRGEggNjcljqzXkboXjmVqf/GJOfJIvqaYr0sHjXEXa82+LRO1/mb/+T3UyGRsHGC9HeoB4E1pBSZsQKt3jF1+fSPd5Z7A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by VI0PR04MB11602.eurprd04.prod.outlook.com (2603:10a6:800:2fa::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
+ 2026 10:14:58 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Fri, 2 Oct 2026
+ 10:14:56 +0000
+Date: Fri, 2 Oct 2026 18:19:22 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v4 1/4] iommu/arm-smmu-v3: Skip duplicate SIDs when
+ erasing streams from RB tree
+Message-ID: <ar+FKrasYdz28wJy@shlinux89>
+References: <20261001-smmu-shared-sid-ver3-v4-0-06b34fb2e691@nxp.com>
+ <20261001-smmu-shared-sid-ver3-v4-1-06b34fb2e691@nxp.com>
+ <ar6FNrZfN+ZXVtsk@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ar6FNrZfN+ZXVtsk@nvidia.com>
+X-ClientProxiedBy: MA5PR01CA0010.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:174::12) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-References: <20261002044050.1277356-1-thepacketgeek@gmail.com>
-In-Reply-To: <20261002044050.1277356-1-thepacketgeek@gmail.com>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Fri, 2 Oct 2026 12:40:02 +0200
-X-Gm-Features: AclHuK9AVhCdx3zsz00yoixuqBqUrOwteFjJfeQNP6U0nNJc_amJox9UNxz5jVQ
-Message-ID: <CANk7y0iNFFyHW5zfTOeX23K+gozOOKgEWWWyG7Uty9Jo+VC-Yg@mail.gmail.com>
-Subject: Re: [PATCH] bpf, arm64: Fix text_mutex critical section in bpf_arch_text_poke()
-To: Matthew Wood <thepacketgeek@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Breno Leitao <leitao@debian.org>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI0PR04MB11602:EE_
+X-MS-Office365-Filtering-Correlation-Id: 459bb30a-9be6-4da2-6ecd-08df206e015f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|23010399003|1800799024|18002099003|22082099003|4143699003|10067099003|260925021311599003|260925022911599003|260925021911599003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: iKspI3Fs+s+0bcarPtu7dN1WRgCunTLBqCCee58cneRlIrghqkNIxjymDLbFt/rmQe/p9rVZckWV1GklRq1DMvhO27pAxtu8cHFPB2Uedw01BEhvv5mB2OHtNKPxDTRYXeBQ/dlJ9s9hD9szcPvWRqlkbsQ9y6z8oF7OAVFtU+iT1HJcxb/EkRi6MFzLR4YDUSL7Y3mLftYXmzig6AROkKEF7m0dvNb7/psL0Vu2LCrCRNisFiqGxq7pFTMXv3SQFix0YITmnGHKq0LQb6G3L74SWW4CeRQIDWaccf60CaWc6uLOz22aVfC6it+7FDVYKh1wXtNrynZk7+xwC9AdDAiGqelys6ETXS0d2+5+a1LZqSnbbQUv++J0C3QRRV1px3zdRJYZ23MDQ9lmhzmWl1So6jcH9QwdPxj6FLiHkqjCFCknMFSbZzOV5hMY+R7qCTAy1ntP7i1o2WrSdzqLVUQBpFPsfJmOyDx7IY2HLBNKdYjrKxe8qxA0Aav1Xs3p03i4MsGEKlhHUw4l60sKFbubAysEwI1o/5ztUviQRL4jmxCgg4amumeBRp8SJ0+Ui+2uL1fQLqikuTpzoypMjdPA6sSB2zeges3o9GtVSH2pK07zukjVz6fNAjzOhVum5IYDHo8/z0sbWbv0xt6gKs7eS/8WAD57Ww+PMptn2ik=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(23010399003)(1800799024)(18002099003)(22082099003)(4143699003)(10067099003)(260925021311599003)(260925022911599003)(260925021911599003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/IiD44h6emVnir31QslIXeTDPTKY9J8kCxZ+3LNvwZ+CTYxJcd57D3XYL0e/?=
+ =?us-ascii?Q?I+48JDXzP7LJnD+DMnIaRESGBupU8GwWJ0KMqYhoxbXa3SpOQciIcdDZhyoI?=
+ =?us-ascii?Q?mfvX/zPVUS1xPsX1qavgytrasCY5Sxx7j3cnSJWdCm16MwHLwaMmWrQ+VyXE?=
+ =?us-ascii?Q?wVCwEX5E/KTTv5x+Pq1oLbBDZ0GDTHag2/A87rR2/70f/eTBpu+dEGphep22?=
+ =?us-ascii?Q?BqcCdcvpGZVpbd+SSzZU6MW5+Uylw3p7VtJYp9hsVFQQaTxiBydxNaswLvBx?=
+ =?us-ascii?Q?a1LieH0GzUzUJWQI0vH2ZJZlvZFUz8oBafVf6uvQq6AX9z/wY4wBLKykPPCT?=
+ =?us-ascii?Q?5Z4xsSHcHC4aPN5T/DzdY/vWU7nVmkMMUiqOXUqaVQDnhQTjEgwsSGwS+Ib8?=
+ =?us-ascii?Q?Gi9pcEUoAFU2aC5idEslOB+StgJZ/I4djl82AjE8jGRw2W6b2WyayjTk5RnG?=
+ =?us-ascii?Q?xLYd4wmseH7k7agf+Jwh4NhyJ/jfQeKS2D7OLba9cSHYl2UHBjaNAqzcdeHi?=
+ =?us-ascii?Q?avpZ4u8aLu7TUedgLeY1e/jrMLDo0l/x5UXJ8zCKzQ68Jw1idPaGNyvsJxmY?=
+ =?us-ascii?Q?IjtQsYC6jE2ejCksKmUcarfkYGU4++LN6/yzQ8jTzI9slnhpKXmB6HV6r0Hw?=
+ =?us-ascii?Q?1PLEW5ibLWP3ohaWKYVenKSEVKFS03U/lCST9cQR6pAWvl8Bhw0E2wgklFUs?=
+ =?us-ascii?Q?7WNDDg4nwp/K4vTApvS2B4auRW7UtS70OeOwBGI7xb5eC6ctRl8oobNn8qYF?=
+ =?us-ascii?Q?hYSnu1ZWEiwJPMF5DrjI+wwVI6E4WmGemxsZigT+QJWynnhQWPXjCYts4VLI?=
+ =?us-ascii?Q?mP3dbmbrLmqewqeXO/pD548ariSDR2uLQP2us3ClBjamSsISPik3Po2jlNHh?=
+ =?us-ascii?Q?eI6IKcQPqYzizl6wsol1vzMu8zDT+4VLkB1WCFS/YgNTg7GopmzTVQ0ycnUD?=
+ =?us-ascii?Q?fdXQAG2a4MZHu9HF6669yKT3jZjLFGq6mBlDMzl+qQH215VXYTFl1ymoHa6J?=
+ =?us-ascii?Q?3dRZoYMgA/uM7tDIbGwHF+WstaqLmqIPXrxria+ufLBwph7gpViETsqMmSZb?=
+ =?us-ascii?Q?SoK2HVIfi59OJhre5XX9ZonDNowzLoBCAR+CeuhP4YqXO2qZVFFZLupqh38s?=
+ =?us-ascii?Q?M7sV/rQW/0hIdYQMRsYZXxegFBty4RTThHHxlW385jdwI+IvxEkN9xDXQ9nU?=
+ =?us-ascii?Q?t7EaL/hoy55lvuHFMaEvM/VJQGA3ZtZctGyubxunGvQMFrPKk1NCdScZr0jF?=
+ =?us-ascii?Q?FDwOffu+Z8K/6Jc2248WgZUtdw05ZbDIUZBpFCtCdxrcxwuIExA+uNumYgKV?=
+ =?us-ascii?Q?+WWnkrIDemWrOJiiFyIZX1Ug3ziBBzHc9lyQHIQDQphrEIWXHRzcLgoxcxiJ?=
+ =?us-ascii?Q?aXk/WLC+I5Lt2kbCrBoh7xFr1grchLD8JLxfpVXJykdM05HxpUEC9WDDT06G?=
+ =?us-ascii?Q?PbxXs68z71H6CVBecfNfImlxvzdgJrcYXvgLkDmJcNP7ajrT5anlC3fuJHo0?=
+ =?us-ascii?Q?JxM7NTcLv/3EQC1MpyV3fQnC+JAUBEoAx6dhw0jeO4t1+ufHLQfi/l/Wsm3a?=
+ =?us-ascii?Q?2WuoSZSW0bdUu7hkONSMBhLTgnxpwP5q+WHJG/phw3T4LvanV5CCFqFUDmYF?=
+ =?us-ascii?Q?5ccJGmWsEOsiJOAhgSH6iSwQ/xOBwUIFP9PqyUEgl+0m+d/NROAPXhNSKvXX?=
+ =?us-ascii?Q?fiJw/VNH9H3hOOysDztILjWUnUe3+reBfxraP/cPySzIUJ7S5RoPnRrUqE8+?=
+ =?us-ascii?Q?L5b/1xS6ewoB5/x+5Tr/2Kff5fkfI2wlWKnQT6Ep5cE40Ln2CdaX?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 459bb30a-9be6-4da2-6ecd-08df206e015f
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 10:14:55.9709
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2HtRecFAoBDkxYC9AKU4SLcHQSM6XrSfVEEAaxLBrz+QSVkNH10IC21G0wDu2dzb+ET9GZkl9juekN8jLAbkqgD+1oCWi22dlc2evK+jPPxBY5zDtnGHr8qzFHyRVxIF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_034017_295566_3A2B2211 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20261002_031505_657372_143178AD 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,84 +143,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 2, 2026 at 5:40=E2=80=AFAM Matthew Wood <thepacketgeek@gmail.co=
-m> wrote:
+On Thu, Oct 01, 2026 at 09:07:18AM -0700, Nicolin Chen wrote:
+>On Thu, Oct 01, 2026 at 08:49:58PM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+>> Bridged PCI devices may end up with duplicated Stream IDs in
+>> master->streams[].  During insertion, rb_find_add() silently
+>> drops the duplicate node when it collides with an already-inserted
+>> entry from the same master, leaving the duplicate's rb_node in an
+>> uninitialized state.
 >
-> Widen the text_mutex critical section in bpf_arch_text_poke() to cover
-> the page permission changes made while updating a bpf prog's plt target.
-> When a long-jump trampoline is attached to or detached from a bpf prog,
-> the plt target at the end of the prog is currently updated before
-> text_mutex is taken, by temporarily making the page writable:
->
->         set_memory_rw(page);
->         WRITE_ONCE(plt->target, plt_target);
->         set_memory_ro(page);
->
-> Leaving this outside text_mutex assumes the page belongs only to the
-> prog being poked, whose pokes are already serialized by its trampoline
-> lock. Commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
-> management") broke that assumption; it switched the arm64 JIT to the bpf
-> prog pack allocator, which packs programs into small chunks of large
-> shared allocations, without updating bpf_arch_text_poke(). Since then,
-> unrelated progs (and their plts) commonly share a page. Two CPUs
-> attaching to or detaching from different target progs in the same page
-> hold different trampoline locks, so their permission changes can
-> interleave:
->
->         CPU A                           CPU B
->         set_memory_rw(page)
->                                         set_memory_rw(page)
->                                         WRITE_ONCE(plt_B->target, ...)
->                                         set_memory_ro(page)
->         WRITE_ONCE(plt_A->target, ...)  <- permission fault
->
-> This was hit on a 64K page arm64 machine:
->
->   Unable to handle kernel write to read-only memory at virtual address ff=
-ff80008f46d5f8
->   FSC =3D 0x0f: level 3 permission fault
->   pte=3D00c00200ea5a0783
->   pc : bpf_arch_text_poke+0x214/0x238
->   Call trace:
->    bpf_arch_text_poke+0x214/0x238 (P)
->    __bpf_trampoline_link_prog+0x1c8/0x470
->    bpf_trampoline_link_prog+0x64/0x90
->    bpf_tracing_prog_attach+0x318/0x4a8
->    bpf_raw_tp_link_attach+0x104/0x258
->    bpf_raw_tracepoint_open+0x6c/0x90
->    __sys_bpf+0x134c/0x3e10
->
-> Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management=
-")
-> Signed-off-by: Matthew Wood <thepacketgeek@gmail.com>
-> ---
->  arch/arm64/net/bpf_jit_comp.c | 19 ++++++++++++++-----
->  1 file changed, 14 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.=
-c
-> index 475e70653454..66fab0bfd3da 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -3338,12 +3338,20 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_po=
-ke_type old_t,
->                  */
->                 plt_target =3D (u64)&dummy_tramp;
->
-> +       /* pages of the bpf prog pack are shared between progs, so the
-> +        * set_memory_rw()/set_memory_ro() window below must be serialize=
-d
-> +        * against other pokers too.
-> +        */
-> +       mutex_lock(&text_mutex);
+>There is already a cleaner fix:
+>https://lore.kernel.org/linux-iommu/76c5f9dde30269995ef842a12a3a5e1ebaa3e6df.1790188510.git.nicolinc@nvidia.com/
 
-Thanks for finding this and fixing it.
+ok. I will drop patch 1 in v5.
 
-Reviewed-by: Puranjay Mohan <puranjay@kernel.org>
+Thanks
+Peng
 
-Alexei,
-I am not worried about the comment style, can we merge this?
-
-Thanks,
-Puranjay
+>
+>Hopefully Will can take it soon.
+>
+>Nicolin
+>
 
