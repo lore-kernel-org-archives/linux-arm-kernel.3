@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAAECA5FD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117EBCA5FC4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ri2HpUjT8qOrOMqbL2h+R1txn9sz+vfKeiacwgzeYJM=; b=LdYSsP64WwzLRi2zDoE4zAECTb
-	aIfbRSSDaBLD03q9j+A3Y+nmYEDTjdlf2WOXjW1x+mTR65GuiKjefl4FvewrQvxvkLpABX7K8B/5R
-	JIPEmNfdEfK56cAYJSytieaJzA7stD1BDSul2IwCsQSv9pqDeWsh5yIE2DYXtHlOASK4Q5+iYPFKD
-	sS9JVH3Ojpwf4QS1kPXTVpJNXUst9Ueg3JoXbebd0fmd24qju9y14b3yQ9Two9Wv2zhzMZuxeHH8Q
-	TiUdGC3ePnTAY2rPVbm+Isu27bt+E/uuukUxSzNjGN+O7qawEPCYXNwarEblktO9v+Tk0U3z2Juwn
-	lv20d7wQ==;
+	bh=1bqKiV8d6Tdm6M8/D+FPSE9x1/tJfdGG0MJ92p3xemY=; b=dkMIeFF36hJQL9Vgs7r1eytTqL
+	0talfpQvrQ3CpJtJi+7n76RwooLbYd+X7IdjV7kYXS9Hd8kQhNnPfEjS7GKtvRYask0lHUfrm0IvP
+	h9O8VhpS6FhhYmvEq6unFpIxoc16xSSXd9G3KSElNd9x0UmnLRuu8vdZQNnp8sTnzmVosgjoEgU5A
+	27LviZQzvDpTCTAU/rdSmp3LexomKfuDR0Xjjmx2Enelk2QMvqHZz4TzoM0qp1G/1O41wWHZlVKMp
+	474eQqU8HqNhCsRbZreeY0VKi5wbqhOnsoTWZ6VaNhztamkyT2ILZ4hw85VjwPHQkbRIAwD5YXjF0
+	pYRzsKCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwW-0000000Asfe-2xLX;
-	Fri, 02 Oct 2026 07:44:32 +0000
+	id 1xCXwT-0000000Asd1-30yJ;
+	Fri, 02 Oct 2026 07:44:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwL-0000000AsTE-0mva;
+	id 1xCXwK-0000000AsSV-3bab;
 	Fri, 02 Oct 2026 07:44:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ri2HpUjT8qOrOMqbL2h+R1txn9sz+vfKeiacwgzeYJM=; b=Zcvja022EfidXPvn3TX5QdQLBr
-	1Tvpw2KwzeYccwV891po077sESyPzzhYlpHWy95zhh7H4LfMLfupiiB6TSn0tgsv4lt5M6zlOZPYr
-	ITVm8jMYrYc+lrYCrW1yW3maRXuhBwgkiFDB9kNgo01L5B6N6fFneXz8uz0hUoRWZpnJMSPuTj0s+
-	hKiRu9owQs5H5jvTaoKSUucYf4dPMbBl53wNXATH5q/tEfHoKDoUdJ+McNZucPxlYdSkvY3dJGofw
-	nw26uXBIB30gr2FlpXBjpsZC8akc9A77FYvlDV08g5UDUv7p0ExPY4Ww1KiY3stChoXQoTO5QEMlF
-	ZdT8scig==;
+	bh=1bqKiV8d6Tdm6M8/D+FPSE9x1/tJfdGG0MJ92p3xemY=; b=L7Aoqg7+AmXEQbnPHVt59rnXHj
+	wAPa0Qw66Hd193O4K8qTkaXJud1qVear7Q/lxuIpnSykJVve5GJ6KpYo0m3wOJqRuoeTqHk4PWIbU
+	tJgtiX8lXNdJmSlyT3CpXoiFK9AAUt1QboPLwOd/JY3YzwbdlGDHLadPoeLqbKR4dgKaY9klZFMX2
+	issLPOkZFnL7Kfsr0wO6wNMeCL1YiRH6A/pjtBrY7pRhLfMITvIVt5qjjwczaGNg+o250oQhL5mxB
+	MxNOejwW2LhRKuCMhx92v/NfF5SgIj/S2sDx1BePTLCP6cAIiuJlzjYkC9lUPyy9cJE6wCCUAMwKH
+	FEmsUsBA==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCXwE-00000005gkv-1G8k;
-	Fri, 02 Oct 2026 07:44:20 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hnoL73646819, This message is accepted by code: ctloc85258
+	id 1xCXwE-00000005gkg-2LhO;
+	Fri, 02 Oct 2026 07:44:19 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hWIa93646500, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1790927029; bh=ri2HpUjT8qOrOMqbL2h+R1txn9sz+vfKeiacwgzeYJM=;
+	t=1790927012; bh=1bqKiV8d6Tdm6M8/D+FPSE9x1/tJfdGG0MJ92p3xemY=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=sNQYpjxzr5zOue+wvwPKIHzThVYDGZfVfbCVZ9iI7uaCkFEnA9D1uLvYIjEGDyUr1
-	 iKMd4tOpu1zWdA6qMKC44HVuZH1IPRvGjjLjHLxwclGGM2wkthyiEMlQHw1l7vs+Ne
-	 CbHrq/oTtDAtLyDP+GsMiEPoKRfNyeMxUqYDwHTkB4/C/lqRcfU0CnTOwVblAVbrrQ
-	 Vg8GnTiN+8r3IP6eVDbZ05N+k9DLpj4ovF1XRz77+ahT5zUn0fpS1PmpcNkf9TcA77
-	 0lrhbv1Xxmqoyw2xr+qGtEFp1+ai0VhcGPq/Syn36j/9otCFwLbDGMNc43LhV2VTOU
-	 pbSrjonx4Pxqw==
+	b=BdjNjErDg9CcSC+F7GkgEGT8DXxm3JTBPcYihLsmPwgZ1emIlWySJs9OkCN1+Qk/R
+	 WYLn8bkAQHsPw8kJCDtc2ySZ3Vg64HoWN5xl7d6HJBsnaon25eYYzmLbYP4hUTvHfF
+	 8nwuMyZ+HmfZiQZWTO4NmitilYyNck3h2sXc/og0eTbTjhgOhb9ns1tZKhZABfmfwe
+	 moyEHtTMj0AssAjf6mYQ+moHs2dvfs78Qf080wSdpdGw9c3P2Z1ya8hnP5jhSx1Z+v
+	 2QcvTziolHH86PPBHzY+UOQrsPl+tmx0AbE7oMQo7yUbvCOQEGZnGiWtvFL0wXdEBm
+	 x+Uly7W8KTGFg==
 Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hnoL73646819
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hWIa93646500
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 Oct 2026 15:43:49 +0800
+	Fri, 2 Oct 2026 15:43:32 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
  RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:33 +0800
+ 15.2.2562.49; Fri, 2 Oct 2026 15:43:31 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
  (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 2 Oct 2026 15:43:33 +0800
+ Transport; Fri, 2 Oct 2026 15:43:31 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
@@ -71,10 +71,11 @@ CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
 	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>, Brian Masney <bmasney@redhat.com>
-Subject: [PATCH v15 07/11] clk: realtek: Add support for mux clock
-Date: Fri, 2 Oct 2026 15:43:27 +0800
-Message-ID: <20261002074331.3066919-8-eleanor.lin@realtek.com>
+	<eleanor.lin@realtek.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v15 01/11] dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+Date: Fri, 2 Oct 2026 15:43:21 +0800
+Message-ID: <20261002074331.3066919-2-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261002074331.3066919-1-eleanor.lin@realtek.com>
 References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
@@ -82,8 +83,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084416_110677_22AB7F11 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20261002_084415_916719_679EEEFA 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,132 +99,457 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+Add DT binding schema for Realtek RTD1625 clock and reset controller
 
-Add a simple regmap-based clk_ops implementation for Realtek mux clocks.
-
-The implementation supports parent selection and rate determination through
-regmap-backed register access.
-
+Co-developed-by: Cheng-Yu Lee <cylee12@realtek.com>
 Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
 ---
 Changes in v15:
-- Simplify 'rtk_clk_regmap_mux_get_parent()' to return the result
-directly.
+- Add macros for RTD1625_CRT_PLL_VODMA and RTD1625_CRT_CLK_DDSA_DIV4.
 ---
- drivers/clk/realtek/Makefile         |  1 +
- drivers/clk/realtek/clk-regmap-mux.c | 38 ++++++++++++++++++++++++
- drivers/clk/realtek/clk-regmap-mux.h | 43 ++++++++++++++++++++++++++++
- 3 files changed, 82 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
+ .../bindings/clock/realtek,rtd1625-clk.yaml   |  58 ++++++
+ MAINTAINERS                                   |   8 +
+ .../dt-bindings/clock/realtek,rtd1625-clk.h   | 166 +++++++++++++++++
+ include/dt-bindings/reset/realtek,rtd1625.h   | 171 ++++++++++++++++++
+ 4 files changed, 403 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+ create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
+ create mode 100644 include/dt-bindings/reset/realtek,rtd1625.h
 
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 840aff067b61..217ccaf5644a 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -4,4 +4,5 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
- clk-rtk-y += clk-rtk-common.o
- clk-rtk-y += clk-pll.o
- clk-rtk-y += clk-regmap-gate.o
-+clk-rtk-y += clk-regmap-mux.o
- clk-rtk-y += freq_table.o
-diff --git a/drivers/clk/realtek/clk-regmap-mux.c b/drivers/clk/realtek/clk-regmap-mux.c
+diff --git a/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
 new file mode 100644
-index 000000000000..01017a90d0ef
+index 000000000000..1aceef31e148
 --- /dev/null
-+++ b/drivers/clk/realtek/clk-regmap-mux.c
-@@ -0,0 +1,38 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/realtek,rtd1625-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Realtek RTD1625 Clock & Reset Controller
++
++maintainers:
++  - Cheng-Yu Lee <cylee12@realtek.com>
++  - Yu-Chun Lin <eleanor.lin@realtek.com>
++
++description: |
++  The Realtek RTD1625 Clock Controller manages and distributes clock
++  signals to various controllers and implements a Reset Controller for the
++  SoC peripherals.
++
++  Clocks and resets are referenced by unique identifiers, which are defined as
++  preprocessor macros in include/dt-bindings/clock/realtek,rtd1625-clk.h and
++  include/dt-bindings/reset/realtek,rtd1625.h.
++
++properties:
++  compatible:
++    enum:
++      - realtek,rtd1625-crt-clk
++      - realtek,rtd1625-iso-clk
++      - realtek,rtd1625-iso-s-clk
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@98000000 {
++      compatible = "realtek,rtd1625-crt-clk";
++      reg = <0x98000000 0x1000>;
++      clocks = <&osc27m>;
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 6977bc6245b0..4cd437266dd5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23025,6 +23025,14 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/dsa/realtek.yaml
+ F:	drivers/net/dsa/realtek/*
+ 
++REALTEK SOC CLOCK AND RESET DRIVERS
++M:	Cheng-Yu Lee <cylee12@realtek.com>
++M:	Yu-Chun Lin <eleanor.lin@realtek.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/clock/realtek*
++F:	include/dt-bindings/clock/realtek*
++F:	include/dt-bindings/reset/realtek*
++
+ REALTEK SPI-NAND
+ M:	Chris Packham <chris.packham@alliedtelesis.co.nz>
+ S:	Maintained
+diff --git a/include/dt-bindings/clock/realtek,rtd1625-clk.h b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+new file mode 100644
+index 000000000000..9e9f28df643c
+--- /dev/null
++++ b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+@@ -0,0 +1,166 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +/*
-+ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ * Copyright (C) 2025 Realtek Semiconductor Corp.
++ */
++#ifndef __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++#define __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++
++#define RTD1625_CRT_CLK_EN_MISC           0
++#define RTD1625_CRT_CLK_EN_PCIE0          1
++#define RTD1625_CRT_CLK_EN_DIP            2
++#define RTD1625_CRT_CLK_EN_GSPI           3
++#define RTD1625_CRT_CLK_EN_ISO_MISC       5
++#define RTD1625_CRT_CLK_EN_SDS            6
++#define RTD1625_CRT_CLK_EN_HDMI           7
++#define RTD1625_CRT_CLK_EN_GPU            9
++#define RTD1625_CRT_CLK_EN_VE1            10
++#define RTD1625_CRT_CLK_EN_VE2            11
++#define RTD1625_CRT_CLK_EN_MD             18
++#define RTD1625_CRT_CLK_EN_TP             19
++#define RTD1625_CRT_CLK_EN_RCIC           20
++#define RTD1625_CRT_CLK_EN_NF             21
++#define RTD1625_CRT_CLK_EN_EMMC           22
++#define RTD1625_CRT_CLK_EN_SD             23
++#define RTD1625_CRT_CLK_EN_SDIO_IP        24
++#define RTD1625_CRT_CLK_EN_MIPI_CSI       25
++#define RTD1625_CRT_CLK_EN_EMMC_IP        26
++#define RTD1625_CRT_CLK_EN_SDIO           27
++#define RTD1625_CRT_CLK_EN_SD_IP          28
++#define RTD1625_CRT_CLK_EN_TPB            30
++#define RTD1625_CRT_CLK_EN_MISC_SC1       31
++#define RTD1625_CRT_CLK_EN_MISC_I2C_3     32
++#define RTD1625_CRT_CLK_EN_ACPU           33
++#define RTD1625_CRT_CLK_EN_JPEG           34
++#define RTD1625_CRT_CLK_EN_MISC_SC0       37
++#define RTD1625_CRT_CLK_EN_HDMIRX         45
++#define RTD1625_CRT_CLK_EN_HSE            46
++#define RTD1625_CRT_CLK_EN_FAN            49
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYS  52
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYSH 53
++#define RTD1625_CRT_CLK_EN_SATA_MAC_SYSH  54
++#define RTD1625_CRT_CLK_EN_R2RDSC         55
++#define RTD1625_CRT_CLK_EN_TPC            56
++#define RTD1625_CRT_CLK_EN_PCIE1          57
++#define RTD1625_CRT_CLK_EN_MISC_I2C_4     58
++#define RTD1625_CRT_CLK_EN_MISC_I2C_5     59
++#define RTD1625_CRT_CLK_EN_TSIO           60
++#define RTD1625_CRT_CLK_EN_VE4            61
++#define RTD1625_CRT_CLK_EN_EDP            62
++#define RTD1625_CRT_CLK_EN_TSIO_TRX       63
++#define RTD1625_CRT_CLK_EN_PCIE2          64
++#define RTD1625_CRT_CLK_EN_EARC           66
++#define RTD1625_CRT_CLK_EN_LITE           67
++#define RTD1625_CRT_CLK_EN_MIPI_DSI       68
++#define RTD1625_CRT_CLK_EN_NPUPP          69
++#define RTD1625_CRT_CLK_EN_NPU            70
++#define RTD1625_CRT_CLK_EN_AUCPU0         71
++#define RTD1625_CRT_CLK_EN_AUCPU1         72
++#define RTD1625_CRT_CLK_EN_NSRAM          73
++#define RTD1625_CRT_CLK_EN_HDMITOP        74
++#define RTD1625_CRT_CLK_EN_AUCPU_ISO_NPU  76
++#define RTD1625_CRT_CLK_EN_KEYLADDER      77
++#define RTD1625_CRT_CLK_EN_IFCP_KLM       78
++#define RTD1625_CRT_CLK_EN_IFCP           79
++#define RTD1625_CRT_CLK_EN_MDL_GENPW      80
++#define RTD1625_CRT_CLK_EN_MDL_CHIP       81
++#define RTD1625_CRT_CLK_EN_MDL_IP         82
++#define RTD1625_CRT_CLK_EN_MDLM2M         83
++#define RTD1625_CRT_CLK_EN_MDL_XTAL       84
++#define RTD1625_CRT_CLK_EN_TEST_MUX       85
++#define RTD1625_CRT_CLK_EN_DLA            86
++#define RTD1625_CRT_CLK_EN_TPCW           88
++#define RTD1625_CRT_CLK_EN_GPU_TS_SRC     89
++#define RTD1625_CRT_CLK_EN_VI             91
++#define RTD1625_CRT_CLK_EN_LVDS1          92
++#define RTD1625_CRT_CLK_EN_LVDS2          93
++#define RTD1625_CRT_CLK_EN_AUCPU          94
++#define RTD1625_CRT_CLK_EN_UR1            96
++#define RTD1625_CRT_CLK_EN_UR2            97
++#define RTD1625_CRT_CLK_EN_UR3            98
++#define RTD1625_CRT_CLK_EN_UR4            99
++#define RTD1625_CRT_CLK_EN_UR5            100
++#define RTD1625_CRT_CLK_EN_UR6            101
++#define RTD1625_CRT_CLK_EN_UR7            102
++#define RTD1625_CRT_CLK_EN_UR8            103
++#define RTD1625_CRT_CLK_EN_UR9            104
++#define RTD1625_CRT_CLK_EN_UR_TOP         105
++#define RTD1625_CRT_CLK_EN_MISC_I2C_7     110
++#define RTD1625_CRT_CLK_EN_MISC_I2C_6     111
++#define RTD1625_CRT_CLK_EN_SPI0           112
++#define RTD1625_CRT_CLK_EN_SPI1           113
++#define RTD1625_CRT_CLK_EN_SPI2           114
++#define RTD1625_CRT_CLK_EN_LSADC0         120
++#define RTD1625_CRT_CLK_EN_LSADC1         121
++#define RTD1625_CRT_CLK_EN_ISOMIS_DMA     122
++#define RTD1625_CRT_CLK_EN_DPTX           124
++#define RTD1625_CRT_CLK_EN_NPU_MIPI_CSI   125
++#define RTD1625_CRT_CLK_EN_EDPTX          126
++#define RTD1625_CRT_CLK_HIFI              128
++#define RTD1625_CRT_CLK_NPU_MIPI_CSI      129
++#define RTD1625_CRT_CLK_NPU               130
++#define RTD1625_CRT_CLK_NPU_SYSH          132
++#define RTD1625_CRT_CLK_HIFI_SCPU         133
++#define RTD1625_CRT_CLK_GPU               134
++#define RTD1625_CRT_CLK_GPU2D             135
++#define RTD1625_CRT_CLK_MIPI_DSI_PCLK     136
++#define RTD1625_CRT_CLK_VE1               137
++#define RTD1625_CRT_CLK_VE2               138
++#define RTD1625_CRT_CLK_VE4               139
++#define RTD1625_CRT_CLK_SYS               141
++#define RTD1625_CRT_CLK_SYSH              142
++#define RTD1625_CRT_PLL_SDIO_REF          145
++#define RTD1625_CRT_PLL_CR_REF            146
++#define RTD1625_CRT_PLL_EMMC_REF          147
++#define RTD1625_CRT_CLK_MIS_SC0           148
++#define RTD1625_CRT_CLK_MIS_SC1           149
++#define RTD1625_CRT_PLL_SCPU              150
++#define RTD1625_CRT_PLL_VE1               151
++#define RTD1625_CRT_PLL_DDSA              152
++#define RTD1625_CRT_PLL_PSAUDA1           153
++#define RTD1625_CRT_PLL_PSAUDA2           154
++#define RTD1625_CRT_PLL_BUS               155
++#define RTD1625_CRT_PLL_SDIO              156
++#define RTD1625_CRT_PLL_SDIO_VP0          157
++#define RTD1625_CRT_PLL_SDIO_VP1          158
++#define RTD1625_CRT_PLL_DCSB              159
++#define RTD1625_CRT_PLL_GPU               160
++#define RTD1625_CRT_PLL_NPU               161
++#define RTD1625_CRT_PLL_VE2               162
++#define RTD1625_CRT_PLL_HIFI              163
++#define RTD1625_CRT_PLL_SD                164
++#define RTD1625_CRT_PLL_SD_VP0            165
++#define RTD1625_CRT_PLL_SD_VP1            166
++#define RTD1625_CRT_PLL_EMMC              167
++#define RTD1625_CRT_PLL_EMMC_VP0          168
++#define RTD1625_CRT_PLL_EMMC_VP1          169
++#define RTD1625_CRT_PLL_ACPU              170
++#define RTD1625_CRT_CLK_DET               171
++#define RTD1625_CRT_PLL_VODMA             172
++#define RTD1625_CRT_CLK_DDSA_DIV4         173
++
++#define RTD1625_ISO_CLK_EN_USB_P4         0
++#define RTD1625_ISO_CLK_EN_USB_P3         1
++#define RTD1625_ISO_CLK_EN_MISC_CEC0      2
++#define RTD1625_ISO_CLK_EN_CBUSRX_SYS     3
++#define RTD1625_ISO_CLK_EN_CBUSTX_SYS     4
++#define RTD1625_ISO_CLK_EN_CBUS_SYS       5
++#define RTD1625_ISO_CLK_EN_CBUS_OSC       6
++#define RTD1625_ISO_CLK_EN_MISC_UR0       8
++#define RTD1625_ISO_CLK_EN_I2C0           9
++#define RTD1625_ISO_CLK_EN_I2C1           10
++#define RTD1625_ISO_CLK_EN_ETN_250M       11
++#define RTD1625_ISO_CLK_EN_ETN_SYS        12
++#define RTD1625_ISO_CLK_EN_USB_DRD        13
++#define RTD1625_ISO_CLK_EN_USB_HOST       14
++#define RTD1625_ISO_CLK_EN_USB_U3_HOST    15
++#define RTD1625_ISO_CLK_EN_USB            16
++#define RTD1625_ISO_CLK_EN_VTC            17
++#define RTD1625_ISO_CLK_EN_MISC_VFD       18
++
++#define RTD1625_ISO_S_CLK_EN_ISOM_MIS     0
++#define RTD1625_ISO_S_CLK_EN_ISOM_GPIOM   1
++#define RTD1625_ISO_S_CLK_EN_TIMER7       2
++#define RTD1625_ISO_S_CLK_EN_IRDA         3
++#define RTD1625_ISO_S_CLK_EN_UR10         4
++
++#endif /* __DT_BINDINGS_RTK_CLOCK_RTD1625_H */
+diff --git a/include/dt-bindings/reset/realtek,rtd1625.h b/include/dt-bindings/reset/realtek,rtd1625.h
+new file mode 100644
+index 000000000000..d8c82211a1bb
+--- /dev/null
++++ b/include/dt-bindings/reset/realtek,rtd1625.h
+@@ -0,0 +1,171 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2025 Realtek Semiconductor Corp.
 + */
 +
-+#include <linux/clk-provider.h>
-+#include <linux/export.h>
-+#include <linux/regmap.h>
-+#include "clk-regmap-mux.h"
++#ifndef __DT_BINDINGS_RTK_RESET_RTD1625_H
++#define __DT_BINDINGS_RTK_RESET_RTD1625_H
 +
-+static u8 rtk_clk_regmap_mux_get_parent(struct clk_hw *hw)
-+{
-+	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
-+	u32 val;
-+	int ret;
++#define RTD1625_CRT_RSTN_MISC			0
++#define RTD1625_CRT_RSTN_DIP			1
++#define RTD1625_CRT_RSTN_GSPI			2
++#define RTD1625_CRT_RSTN_SDS			3
++#define RTD1625_CRT_RSTN_SDS_REG		4
++#define RTD1625_CRT_RSTN_SDS_PHY		5
++#define RTD1625_CRT_RSTN_GPU2D			6
++#define RTD1625_CRT_RSTN_DC_PHY			7
++#define RTD1625_CRT_RSTN_DCPHY_CRT		8
++#define RTD1625_CRT_RSTN_LSADC			9
++#define RTD1625_CRT_RSTN_SE			10
++#define RTD1625_CRT_RSTN_DLA			11
++#define RTD1625_CRT_RSTN_JPEG			12
++#define RTD1625_CRT_RSTN_SD			13
++#define RTD1625_CRT_RSTN_SDIO			14
++#define RTD1625_CRT_RSTN_PCR_CNT		15
++#define RTD1625_CRT_RSTN_PCIE0_STITCH		16
++#define RTD1625_CRT_RSTN_PCIE0_PHY		17
++#define RTD1625_CRT_RSTN_PCIE0			18
++#define RTD1625_CRT_RSTN_PCIE0_CORE		19
++#define RTD1625_CRT_RSTN_PCIE0_POWER		20
++#define RTD1625_CRT_RSTN_PCIE0_NONSTICH		21
++#define RTD1625_CRT_RSTN_PCIE0_PHY_MDIO		22
++#define RTD1625_CRT_RSTN_PCIE0_SGMII_MDIO	23
++#define RTD1625_CRT_RSTN_VO2			24
++#define RTD1625_CRT_RSTN_MISC_SC0		25
++#define RTD1625_CRT_RSTN_MD			26
++#define RTD1625_CRT_RSTN_LVDS1			27
++#define RTD1625_CRT_RSTN_LVDS2			28
++#define RTD1625_CRT_RSTN_MISC_SC1		29
++#define RTD1625_CRT_RSTN_I2C_3			30
++#define RTD1625_CRT_RSTN_FAN			31
++#define RTD1625_CRT_RSTN_TVE			32
++#define RTD1625_CRT_RSTN_AIO			33
++#define RTD1625_CRT_RSTN_VO			34
++#define RTD1625_CRT_RSTN_MIPI_CSI		35
++#define RTD1625_CRT_RSTN_HDMIRX			36
++#define RTD1625_CRT_RSTN_HDMIRX_WRAP		37
++#define RTD1625_CRT_RSTN_HDMI			38
++#define RTD1625_CRT_RSTN_DISP			39
++#define RTD1625_CRT_RSTN_SATA_PHY_POW1		40
++#define RTD1625_CRT_RSTN_SATA_PHY_POW0		41
++#define RTD1625_CRT_RSTN_SATA_MDIO1		42
++#define RTD1625_CRT_RSTN_SATA_MDIO0		43
++#define RTD1625_CRT_RSTN_SATA_WRAP		44
++#define RTD1625_CRT_RSTN_SATA_MAC_P1		45
++#define RTD1625_CRT_RSTN_SATA_MAC_P0		46
++#define RTD1625_CRT_RSTN_SATA_MAC_COM		47
++#define RTD1625_CRT_RSTN_PCIE1_STITCH		48
++#define RTD1625_CRT_RSTN_PCIE1_PHY		49
++#define RTD1625_CRT_RSTN_PCIE1			50
++#define RTD1625_CRT_RSTN_PCIE1_CORE		51
++#define RTD1625_CRT_RSTN_PCIE1_POWER		52
++#define RTD1625_CRT_RSTN_PCIE1_NONSTICH		53
++#define RTD1625_CRT_RSTN_PCIE1_PHY_MDIO		54
++#define RTD1625_CRT_RSTN_HDMITOP		55
++#define RTD1625_CRT_RSTN_I2C_4			56
++#define RTD1625_CRT_RSTN_I2C_5			57
++#define RTD1625_CRT_RSTN_TSIO			58
++#define RTD1625_CRT_RSTN_VI			59
++#define RTD1625_CRT_RSTN_EDP			60
++#define RTD1625_CRT_RSTN_VE1_MMU		61
++#define RTD1625_CRT_RSTN_VE1_MMU_FUNC		62
++#define RTD1625_CRT_RSTN_HSE_MMU		63
++#define RTD1625_CRT_RSTN_HSE_MMU_FUNC		64
++#define RTD1625_CRT_RSTN_MDLM2M			65
++#define RTD1625_CRT_RSTN_ISO_GSPI		66
++#define RTD1625_CRT_RSTN_SOFT_NPU		67
++#define RTD1625_CRT_RSTN_SPI2EMMC		68
++#define RTD1625_CRT_RSTN_EARC			69
++#define RTD1625_CRT_RSTN_VE1			70
++#define RTD1625_CRT_RSTN_PCIE2_STITCH		71
++#define RTD1625_CRT_RSTN_PCIE2_PHY		72
++#define RTD1625_CRT_RSTN_PCIE2			73
++#define RTD1625_CRT_RSTN_PCIE2_CORE		74
++#define RTD1625_CRT_RSTN_PCIE2_POWER		75
++#define RTD1625_CRT_RSTN_PCIE2_NONSTICH		76
++#define RTD1625_CRT_RSTN_PCIE2_PHY_MDIO		77
++#define RTD1625_CRT_RSTN_DCPHY_UMCTL2		78
++#define RTD1625_CRT_RSTN_MIPI_DSI		79
++#define RTD1625_CRT_RSTN_HIFM			80
++#define RTD1625_CRT_RSTN_NSRAM			81
++#define RTD1625_CRT_RSTN_AUCPU0_REG		82
++#define RTD1625_CRT_RSTN_MDL_GENPW		83
++#define RTD1625_CRT_RSTN_MDL_CHIP		84
++#define RTD1625_CRT_RSTN_MDL_IP			85
++#define RTD1625_CRT_RSTN_TEST_MUX		86
++#define RTD1625_CRT_RSTN_ISO_BIST		87
++#define RTD1625_CRT_RSTN_MAIN_BIST		88
++#define RTD1625_CRT_RSTN_MAIN2_BIST		89
++#define RTD1625_CRT_RSTN_VE1_BIST		90
++#define RTD1625_CRT_RSTN_VE2_BIST		91
++#define RTD1625_CRT_RSTN_DCPHY_BIST		92
++#define RTD1625_CRT_RSTN_GPU_BIST		93
++#define RTD1625_CRT_RSTN_DISP_BIST		94
++#define RTD1625_CRT_RSTN_NPU_BIST		95
++#define RTD1625_CRT_RSTN_CAS_BIST		96
++#define RTD1625_CRT_RSTN_VE4_BIST		97
++#define RTD1625_CRT_RSTN_EMMC			98
++#define RTD1625_CRT_RSTN_GPU			99
++#define RTD1625_CRT_RSTN_VE2			100
++#define RTD1625_CRT_RSTN_UR1			101
++#define RTD1625_CRT_RSTN_UR2			102
++#define RTD1625_CRT_RSTN_UR3			103
++#define RTD1625_CRT_RSTN_UR4			104
++#define RTD1625_CRT_RSTN_UR5			105
++#define RTD1625_CRT_RSTN_UR6			106
++#define RTD1625_CRT_RSTN_UR7			107
++#define RTD1625_CRT_RSTN_UR8			108
++#define RTD1625_CRT_RSTN_UR9			109
++#define RTD1625_CRT_RSTN_UR_TOP			110
++#define RTD1625_CRT_RSTN_I2C_7			111
++#define RTD1625_CRT_RSTN_I2C_6			112
++#define RTD1625_CRT_RSTN_SPI0			113
++#define RTD1625_CRT_RSTN_SPI1			114
++#define RTD1625_CRT_RSTN_SPI2			115
++#define RTD1625_CRT_RSTN_LSADC0			116
++#define RTD1625_CRT_RSTN_LSADC1			117
++#define RTD1625_CRT_RSTN_ISOMIS_DMA		118
++#define RTD1625_CRT_RSTN_AUDIO_ADC		119
++#define RTD1625_CRT_RSTN_DPTX			120
++#define RTD1625_CRT_RSTN_AUCPU1_REG		121
++#define RTD1625_CRT_RSTN_EDPTX			122
 +
-+	ret = regmap_read(clkm->clkr.regmap, clkm->mux_ofs, &val);
-+	if (ret)
-+		return 0xff;
++/* ISO reset */
++#define RTD1625_ISO_RSTN_VFD			0
++#define RTD1625_ISO_RSTN_CEC0			1
++#define RTD1625_ISO_RSTN_CEC1			2
++#define RTD1625_ISO_RSTN_CBUSTX			3
++#define RTD1625_ISO_RSTN_CBUSRX			4
++#define RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW	5
++#define RTD1625_ISO_RSTN_UR0			6
++#define RTD1625_ISO_RSTN_GMAC			7
++#define RTD1625_ISO_RSTN_GPHY			8
++#define RTD1625_ISO_RSTN_I2C_0			9
++#define RTD1625_ISO_RSTN_I2C_1			10
++#define RTD1625_ISO_RSTN_CBUS			11
++#define RTD1625_ISO_RSTN_USB_DRD		12
++#define RTD1625_ISO_RSTN_USB_HOST		13
++#define RTD1625_ISO_RSTN_USB_PHY_0		14
++#define RTD1625_ISO_RSTN_USB_PHY_1		15
++#define RTD1625_ISO_RSTN_USB_PHY_2		16
++#define RTD1625_ISO_RSTN_USB			17
++#define RTD1625_ISO_RSTN_TYPE_C			18
++#define RTD1625_ISO_RSTN_USB_U3_HOST		19
++#define RTD1625_ISO_RSTN_USB3_PHY0_POW		20
++#define RTD1625_ISO_RSTN_USB3_P0_MDIO		21
++#define RTD1625_ISO_RSTN_USB3_PHY1_POW		22
++#define RTD1625_ISO_RSTN_USB3_P1_MDIO		23
++#define RTD1625_ISO_RSTN_VTC			24
++#define RTD1625_ISO_RSTN_USB3_PHY2_POW		25
++#define RTD1625_ISO_RSTN_USB3_P2_MDIO		26
++#define RTD1625_ISO_RSTN_USB_PHY_3		27
++#define RTD1625_ISO_RSTN_USB_PHY_4		28
 +
-+	return (val >> clkm->shift) & clkm->mask;
-+}
++/* ISO_S reset */
++#define RTD1625_ISO_S_RSTN_ISOM_MIS		0
++#define RTD1625_ISO_S_RSTN_GPIOM		1
++#define RTD1625_ISO_S_RSTN_TIMER7		2
++#define RTD1625_ISO_S_RSTN_IRDA			3
++#define RTD1625_ISO_S_RSTN_UR10			4
 +
-+static int rtk_clk_regmap_mux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
-+
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->mux_ofs,
-+				  clkm->mask << clkm->shift, (u32)index << clkm->shift);
-+}
-+
-+const struct clk_ops rtk_clk_regmap_mux_ops = {
-+	.set_parent = rtk_clk_regmap_mux_set_parent,
-+	.get_parent = rtk_clk_regmap_mux_get_parent,
-+	.determine_rate = __clk_mux_determine_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_mux_ops, "CLK_REALTEK");
-diff --git a/drivers/clk/realtek/clk-regmap-mux.h b/drivers/clk/realtek/clk-regmap-mux.h
-new file mode 100644
-index 000000000000..ad524bb86a19
---- /dev/null
-+++ b/drivers/clk/realtek/clk-regmap-mux.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#ifndef __CLK_REALTEK_CLK_REGMAP_MUX_H
-+#define __CLK_REALTEK_CLK_REGMAP_MUX_H
-+
-+#include "clk-rtk-common.h"
-+
-+struct rtk_clk_regmap_mux {
-+	struct rtk_clk_regmap clkr;
-+	unsigned int mux_ofs;
-+	unsigned int mask;
-+	unsigned int shift;
-+};
-+
-+#define __rtk_clk_regmap_mux_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
-+
-+#define __RTK_CLK_REGMAP_MUX(_name, _parents, _ops, _flags, _ofs, _sft, _mask) \
-+	struct rtk_clk_regmap_mux _name = {                                    \
-+		.clkr.hw.init =                                                \
-+			CLK_HW_INIT_PARENTS(#_name, _parents, _ops, _flags),   \
-+		.mux_ofs = _ofs,                                               \
-+		.shift = _sft,                                                 \
-+		.mask = _mask,                                                 \
-+	}
-+
-+#define RTK_CLK_REGMAP_MUX(_name, _parents, _flags, _ofs, _sft, _mask)               \
-+	__RTK_CLK_REGMAP_MUX(_name, _parents, &rtk_clk_regmap_mux_ops, _flags, _ofs, \
-+			     _sft, _mask)
-+
-+static inline struct rtk_clk_regmap_mux *to_rtk_clk_regmap_mux(struct clk_hw *hw)
-+{
-+	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
-+
-+	return container_of(clkr, struct rtk_clk_regmap_mux, clkr);
-+}
-+
-+extern const struct clk_ops rtk_clk_regmap_mux_ops;
-+
-+#endif /* __CLK_REALTEK_CLK_REGMAP_MUX_H */
++#endif /* __DT_BINDINGS_RTK_RESET_RTD1625_H */
 -- 
 2.43.0
 
