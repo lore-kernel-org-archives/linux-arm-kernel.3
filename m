@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5110ACA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F0BCA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sfnfzWmm2BDCyb+S8lJSQc0AkVFKWdTNICDV/Hi2Ki4=; b=Pi5ymj4N/F5w8FhEkjogaNTomF
-	o+zcvAJF5SMT3PIQxPJ9Lcd/Y14cSk284MSsiWoPHl+h4sXRnsHsMVp/f+PindIO9CBt6Ok6twVT+
-	fAdpPUtTIRgc3HBx0jNbVrTAXFh7VSAhawsrKooomWQKTKKrXglThn6Q8EZZN2ZZIAi/7W2sV4XYf
-	kN24id2wiPEz3I4mWb5c7+OhS/g4PeSNcv5TWuwRSTrdJdV5Ecv4dnmrJyVGT6WvXNkzXYK99ZHHV
-	kqxhpLGRE9Q1EPw0paFfaoYwiMEQLJVQBgtjSaNfHTs2MJdKYIatk3d4i2Tuv3WztA394bzYAi9Qz
-	0+H9dA/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wh9xWcUPndi1IraSPg61IdZ5HAFfOo8+nBKdXLgcsYk=; b=E05oAqMa8HziZS
+	sfaN1N/u4Ow7j/AEaAH5GHynlQ2BLet3WQpsRJ1nm/EEgG6IBgCgoFOctPc9BjJ8gjXOcE/EGqJSC
+	fQt3bJ6D7EFxH98B4mTOtcwd9Wtg99t+wL+FC9XR9TZrAwwauducpMxunyOywfzmXyIlfQ4vcQjus
+	BU5gxaAkYlyNphxT3SjUp70OzA+qswtl46EQIbaAO26M8dATgfvM6R98+IT2G3bk3yUbPVGw0G081
+	Tza3PxSRLhSJDAnqwwStPI+RinrMQSbxptPzNmC4drje17lEG4GFXTMcL4/mMqzR829CDHO5Ey6pu
+	jxyocQeQqAc1JzunxZnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZxU-0000000BDVt-1i6l;
-	Fri, 02 Oct 2026 09:53:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCZxt-0000000BDhR-35jC;
+	Fri, 02 Oct 2026 09:54:05 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZxR-0000000BDUw-0Lvd;
-	Fri, 02 Oct 2026 09:53:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78FEC405C1;
-	Fri,  2 Oct 2026 09:53:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965391F000FF;
-	Fri,  2 Oct 2026 09:53:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790934816;
-	bh=sfnfzWmm2BDCyb+S8lJSQc0AkVFKWdTNICDV/Hi2Ki4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Qjqe23iOSVU285nzC63eIKl4jZp1VpzdZd4v2d1vx4o0ao/QZ/tt8an6Lcm7L7yVd
-	 6WRbVsRVVqusz3SGbqJp7rf9W3wiIXXPS98fvKU9T4+fgwbdzLAI0/7tQ+UWzwLQRr
-	 3LvEjKU6lwZeMUT9aGyli5ZTUUUrcaw4CWw5GAcB8n1Mguwej9xl2bldBbd90BND3Z
-	 xe6ChjszAv6Pb4690hittPC1WE2mDIo6sIndUgxKGRkRns8TIAOB8/fyGKo19H4tAX
-	 L1ZkFQB3T+58T79LPVPkS7/ERyDoEmeuwRMmOy8COt0UNX4bGguA4LclPR/YjsG75R
-	 CKN9K2ZVkC7nw==
-Date: Fri, 2 Oct 2026 11:53:33 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sander Speetjens <sander.speetjens@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v9 2/3] dt-bindings: rtc: Add property for Raspberry Pi 5
- RTC
-Message-ID: <20261002-prompt-sophisticated-sawfly-bb6f04@quoll>
-References: <20261001193703.734323-1-sander.speetjens@gmail.com>
- <20261001193703.734323-3-sander.speetjens@gmail.com>
+	id 1xCZxq-0000000BDYZ-0KCE;
+	Fri, 02 Oct 2026 09:54:03 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1790934825;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=wh9xWcUPndi1IraSPg61IdZ5HAFfOo8+nBKdXLgcsYk=;
+	b=DxWKWsQ6L1TcEcByD1j6oiyQQPGrGC50fu92G26ti3WDS836Q0VK6eprzZy5Q3uDWtu4rw
+	u1xWBizUN2pwpK1IrFuRquvy7sL3BxYvipWRnnAv1K7TvGZvRV7FWO1McfSIpZYarW9GOO
+	9oPIj+VCVHABI0Xt5rl0U5nThgMnYrp2b5Mxztjo9hP1jWLfeRjkj4xaJXjA0FKuVj51Bu
+	A+90k7MkYfPJUR9B4RIq48EIkyytD5qK1RZv2Gi9EFGHsuxkviQq1r4fGIDAtE7Iuif86u
+	WbsyvgQuviSxgsqBmXcxJqGvdpfsPvqfbuS1oOYxWibNEsT2E+ZVr2vhl0ImtA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1790934825;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=wh9xWcUPndi1IraSPg61IdZ5HAFfOo8+nBKdXLgcsYk=;
+	b=u1cvQAruZhuRQPiIGv/EM6X43zOPbRL2hkwWQgQseWl0Ol0qPf80PdXDVtlJoCvQ4MOZAa
+	MZjw69RgJE/hyEBw==
+Subject: [PATCH v5 0/5] firmware: raspberrypi: Add support for the tryboot
+ mode
+Date: Fri, 02 Oct 2026 11:53:39 +0200
+Message-Id: <20261002-rpi-tryboot-v5-0-6294c131e583@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261001193703.734323-3-sander.speetjens@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACN/v2oC/23NQW7DIBCF4atErEuFBwKmq96j6sLA0ExVmQiIl
+ Sjy3WMcVanVLJ803z9XVjATFva2u7KMExVK4zL2LzvmD8P4hZzCshkI0EKD5PlIvOaLS6lyBRa
+ 8BScMGLaIY8ZI57X28Xnf5eS+0deWaBcHKjXly/pu6trdb1lvylPHBVdWuM4rr6wR7z80nmpOI
+ 51fA7JWn+CPl2LrYfFR9wGC18MA5pmXD2+E2XrZfBh6iGgwGP3Mq4e3Qm29Wj1i7/xexvjv/zz
+ PNz7g0+l8AQAA
+X-Change-ID: 20260623-rpi-tryboot-4292c92b0727
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>, 
+ Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Gregor Herburger <gregor.herburger@linutronix.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790934824; l=2259;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=ommQaz+996XWxGAdGpfsl57SPv5twf2rtNuOL2c7ogM=;
+ b=b/2QVIcc7mFLdMeZX3+sGemj49mgaowYSfkGK9YQhk178XMi43yy1CH18O8QlkrSa2sfSbAqZ
+ PtAy/WVTpIFBWge0EJhKaD9iY1K1hRdpYmjvqcTqOKw5YrjfuO2hZ1y
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_025402_281202_909DC5EB 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,26 +95,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 09:37:02PM +0200, Sander Speetjens wrote:
-> The Raspberry Pi 5 has a built-in RTC that can be battery-backed
-> via the VBAT pin. When a rechargeable coin cell is used, the
-> hardware requires a trickle-charge voltage to keep the battery
-> topped up.
-> 
-> Expose the trickle-voltage-millivolt DT property so the driver can
-> program the correct charge voltage for board specific configurations with
-> the attached battery.
+This adds support for the tryboot mode on Raspberry Pis. As there is no
+documentation other than the downstream implementation [0] the
+implementation is based on this.
 
-Commit msg could explain that you do not reference rtc.yaml due to node
-naming rule.
+Tested on Raspberry Pi 4 and Raspberry Pi 5.
 
-> 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+[0] https://github.com/raspberrypi/linux/commit/eb56da0c1925c07e8929ce4c9fe8aeafa7cb8c7b
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+Changes in v5:
+- Added patch to add reboot mode to Raspberry Pi 1-4 devicetrees.
+- Rebase onto v7.3-rc5
+- Link to v4: https://patch.msgid.link/20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de
+
+Changes in v4:
+- fix use-after-free error by moving devm_add_action_or_reset before devm_add_action_or_reset 
+- Rebase onto v7.3-rc1
+- Link to v3: https://patch.msgid.link/20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de
+
+Changes in v3:
+- fix use-after-free error by using devm_add_action_or_reset
+- ensure endianness of magic byte
+- refactor reboot mode registration into separate function
+- Link to v2: https://patch.msgid.link/20260630-rpi-tryboot-v2-0-f68d2dc6aa27@linutronix.de
+
+Changes in v2:
+- Remove unnecessary reboot_mode_unregister().
+- dt-binding: restrict to mode-{normal,tryboot} and only allow 32bit value.
+- Link to v1: https://patch.msgid.link/20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de
+
+---
+Gregor Herburger (5):
+      firmware: raspberrypi: reorder rpi_firmware_property_tag enum
+      dt-bindings: raspberrypi,bcm2835-firmware: Include 'reboot-mode.yaml'
+      firmware: raspberrypi: Add reboot mode support
+      arm64: dts: broadcom: bcm2712: Add reboot modes to firmware node
+      arm: dts: broadcom: bcm2835: Add reboot modes to firmware node
+
+ .../arm/bcm/raspberrypi,bcm2835-firmware.yaml      |  9 +++++
+ arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi        |  2 ++
+ .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  2 ++
+ drivers/firmware/Kconfig                           |  2 ++
+ drivers/firmware/raspberrypi.c                     | 40 +++++++++++++++++++---
+ include/soc/bcm2835/raspberrypi-firmware.h         | 22 ++++++------
+ 6 files changed, 62 insertions(+), 15 deletions(-)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20260623-rpi-tryboot-4292c92b0727
 
 Best regards,
-Krzysztof
+--  
+Gregor Herburger <gregor.herburger@linutronix.de>
 
 
