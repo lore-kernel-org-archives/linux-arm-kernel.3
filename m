@@ -4,191 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F12CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 01:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E105ECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 01:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pGbDLYk0weJhNHI6OkbXtbDdjgSiobmM/ifRw33zYCs=; b=dT1ZjcZyKErrVvwxKparcsdRap
-	gbxVJsccKBq7wvuX6tVFt346kDtHsIWI3jcAZ9tdfdaU7aJoCgF0kr1bnND0g2GrshDI8/6i4lKRM
-	s4iAxNrdCf2thYtGkzMvFV/dQMLOKxHS2V1reqXed7iTOaZvcO0VIYTw322Vj+ZeXglax6tqWUQhe
-	EPXB+wggv0McteNeaqGATMs3BiLXLkfnj5jntFYImBuZkTKcJwnAbiqiSBrJMeerPMd0JgyTkyvg+
-	5qDTTxa1hJANkmMrgGpGzZr8JD2rrLDVf2Lw69uOHJXtw2+c7mwjJu2jd71qN9xvxVA6vw4Z5WBf4
-	rGfgjhwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aoTpE2ADbHhF5AHqrYirj9w5G28axss/o40l2agnYxk=; b=BSwFc1cTQDRix+3GQiAkhxCqKf
+	2A4jxSwa9HI0+MG2lM8F/vA/q7NMQ8YH6lSjlctFYKGb1HEhsEz1zNSt5igd9phWp5EiTc6wLiq1b
+	NCj1CjZN2b5bSxRUilwbCz3dQlDCxyAlT/YLVzE6F0wx+WmkywkancRkfA5P+FSpFcYULJmcKfD7a
+	dMsD2Msr8OHigPgdnS4GRk15QyF5Q0ppXMnWrZHEtDJccXdRH9N1JtLJvLO0V8u0Szak0NF+LCXU+
+	yx8JugLJnIDiZqsZxFQomeZKubxVxLTjwYuCuSpSynm1rV0XdzdyJXOQcJrl0NeC6nIQYR7Zn3Y1c
+	Umr5lM5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCRev-0000000ASL8-2ZRl;
-	Fri, 02 Oct 2026 01:01:57 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xCRph-0000000ASdg-3FLT;
+	Fri, 02 Oct 2026 01:13:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCRes-0000000ASKj-3Tja
+	id 1xCRpg-0000000ASdY-0PCn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 01:01:56 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 691NFjVj2972220;
-	Thu, 1 Oct 2026 20:01:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=pGbDLYk0weJhNHI6OkbXtbDdjgSiobmM/ifRw33zY
-	Cs=; b=SRJypOYFAMZhPtti7KfaK5hf+EzC6pCqodNuEvOW82q3KpqReeOGGNuLL
-	fkCZwHgfQeoksnM9xXKXsVCfdMl4U+aSSHRi9enzZxMINt3RuQ6VQGPkOYMITbo3
-	jsWEsUfNBTP7OMQ+l9Xj+8EZYjPSu3uBWjj7cQRmd91ke2kGISEWubAKZKKrrw+V
-	eedkQ1lGhF4T4HwPrE7J2/u2yowgTSfiwh4VGIqLbtAKZnAPLTRX0g8Csf+5wlQn
-	93Cv0POvC836PoZak01Zns7sq9mEsZFP0PuqkvJ3wO6X4WZBgerqkODJ0Yex3HT1
-	2tYxH3fdyJUIPOtFZ4ItsXgcQmtlg==
-Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011063.outbound.protection.outlook.com [52.101.52.63])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h1kqynyk4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 01 Oct 2026 20:01:43 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sia3HWVe4v/lBo7+Owb5lyKCvFUk6g7uA88KaqLVf1f07NA3XIyEV9A+s73nrZgTcO5Qn/jOVGmUeaf0OlmlMny8kzKauMbBWH+bOxGunc6YfRGkNclfeP/0rlIt8Krkhm67UmDwqLwtWiAZJSBBMkGuJFgVasHhqtzUXveGqfycWjhiuOKXPzbsacPw47bAfOKBIMJWeP33+y0qTu1ELFOwHfbtyoDFzG3mmEHn+HaMbBlNpLB3giJrIRa/RmEhRutTLQcX/OKQMroaVk9g2E5w8JuFzNOfcmiwB3tNK1TdeIOquWhK5JT5ZSOSypYewbPsIILjqtzBvP4eJwuHyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pGbDLYk0weJhNHI6OkbXtbDdjgSiobmM/ifRw33zYCs=;
- b=G+CY/BbYy3E6qL1rObYw5sTPRybEDYGi1t55Wt2x2aHNyzmF1sBhXR7QBiahicREu9IpzzxI+jaYACqugxEVeqwZmBnUpAOhOdlBYtEdc0BiaUGK50OLo6tVJD3qU/hSHo5Epgpb/S/ngogvUzxxPnml0R5wVK18d1+0djRGjWHQJ1b6gnUlD7hcy1Y+gtCKVe/xcxH+X+nygPdkSfkVU06ni/fYr4ATF1fh8CJrE91P09UxTtjVzjLz3Wsc46OTq+uqe1spoIJOCRT1oQEOFEzmy2qTnnRVUaMacBTUVVOJrlnaeLoqVW1+CV3cl4qP19SxQSQ7z5r8kODxX99grQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=variscite.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pGbDLYk0weJhNHI6OkbXtbDdjgSiobmM/ifRw33zYCs=;
- b=bUHYKD8jVTBBFbcb83Dfmqcy8ZbwgPWHUCQu8zTZSRWSK/gOYPBgu/J5FDvIJvkNN6GSyWJboya4AP51X8r4zXrcyfnRsd78kA5PTKNZv3kOU4CtRupsPs8gTdzXJrIN5D11v7l1/2Q+aeiQfBotjlQKOs4xi8UY6PiwuSbCHPs=
-Received: from BN9P223CA0011.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::16)
- by PH8PR10MB6648.namprd10.prod.outlook.com (2603:10b6:510:220::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Fri, 2 Oct
- 2026 01:01:38 +0000
-Received: from BN2PEPF00004FBF.namprd04.prod.outlook.com
- (2603:10b6:408:10b:cafe::33) by BN9P223CA0011.outlook.office365.com
- (2603:10b6:408:10b::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Fri, 2
- Oct 2026 01:01:38 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN2PEPF00004FBF.mail.protection.outlook.com (10.167.243.185) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Fri, 2 Oct 2026 01:01:37 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 1 Oct
- 2026 20:00:50 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 1 Oct
- 2026 20:00:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 1 Oct 2026 20:00:50 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69210oUN2991788;
-	Thu, 1 Oct 2026 20:00:50 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling
-	<morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, Judith Mendez
-	<jm@ti.com>,
-        Daniel Schultz <d.schultz@phytec.de>, Andrew Davis <afd@ti.com>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>,
-        Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>,
-        Jai Luthra <jai.luthra@ideasonboard.com>,
-        "Devarsh Thakkar" <devarsht@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
-        Francesco Dolcini <francesco.dolcini@toradex.com>,
-        Stefano Radaelli
-	<stefano.radaelli21@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-CC: Nishanth Menon <nm@ti.com>, Vishal Mahaveer <vishalm@ti.com>,
-        Kevin Hilman
-	<khilman@baylibre.com>,
-        Sebin Francis <sebin.francis@ti.com>,
-        Kendall Willis
-	<k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
-        Hari Nagalla
-	<hnagalla@ti.com>,
-        Stefano Radaelli <stefano.r@variscite.com>
-Subject: Re: [PATCH v9 0/9] arm64: dts: ti: Split wkup R5F memory region for IO+DDR resume
-Date: Thu, 1 Oct 2026 20:00:48 -0500
-Message-ID: <179090282701.586197.11991528462742940397.b4-ty@b4>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
-References: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
-MIME-Version: 1.0
+	Fri, 02 Oct 2026 01:13:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 138C5601FA;
+	Fri,  2 Oct 2026 01:13:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B61F21F00893;
+	Fri,  2 Oct 2026 01:13:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790903582;
+	bh=aoTpE2ADbHhF5AHqrYirj9w5G28axss/o40l2agnYxk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Vtgl3YNnHEM7VrwDEspm3/7ijP1wuieewKYjMPKhJ5va5b4kHSwNKJdQLhR+HOaCd
+	 +ayuuTU9/oGLlawC92wTEd1jQrKBrcFoNgVaDmjmiE6QCCx59uWnSWRG/6iR1kl3xY
+	 sKq634XFsGH5HU0vCIwtBEs90UK88F4S+bm4F/E0l+vpshWBsOXN4O75xVl2BpFYgY
+	 mljo8Ap02RXmRqHRYAr8ndWLIwGWPtw73jiQd1DpfUXPez6DA9LGkipH6/tH5VYH6Z
+	 8H5KzfKHnbuwi1fuq54OC1JyhVphxV4QwfR9063wPSJ4s6ClcflLKEJ7f4s7Qk4VLd
+	 FzHuWGby9lSSw==
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ richardcochran@gmail.com, Jose.Abreu@synopsys.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Fri, 02 Oct 2026 01:13:01 +0000
+Message-ID: <179090358124.434549.2519589736975087239@kernel.org>
+In-Reply-To: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBF:EE_|PH8PR10MB6648:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0df93144-a4b0-4336-31b9-08df2020b61a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|376014|82310400026|7416014|10067099003|5023799004|921020|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: TRxRUlfc9w8o4//invUEMc+OSd/J6501nSaf8+gWpTAyZcSRuxn1Hqv+xidP3iCMc2exKmfzSFsy8g2Rmv0dhC9pH4HmBMWbSPQjqAaFzO3st0RI5fel6EwrS4HeTu2VgMtTNzN6shdLOXtfbdwXPnyWA7wU66A/9Gaei9ZgPIr2Hb/zW3aiAqW2hl7p/tXScpWsy9kM4y/rFxC6V7FBaYBWbVKwZX04kJaXZ7G0OY0sMmVmTNXie6cqo0e0H/N5xeEy/vVPXqrQGvChDSUyp7rCt8Ocxowy9oviEIqq660BE8t4qWXDmsh3uTy4bIeZQu9wVMeLPJZIviYRAJAto9t/cZxev1y3INDMQi1YDCoZKyf3cd0sVyHD+LHaj6fV2eap6n4GhXIwIOREGBY0nj1IADZJZbtSyAtILC+wjOwWEd3opq8CZtp65KL0htMWY+YJeCn4P2tvJY3w4FoSlaXhLfgLNTxD/2qEuDU4fn3Ca1hzfOMZfhmmtk4BeAbCfeHKsyEU5avi1bRR7HaKCOIzTRh85t3i8eOBzrw5v5kBkQzdmzDC5oetLRB66epZZ3Xq7CzQpyqtOBd5KP6GM0hDRXUlrFpoE4/FrHwNNbVGxbMbJb4FYJ7PDPoyHfjs2EUI57yibH+iQCtlaPE24FeQOnBF5eKAu1jW+bCr1k6DB/kVQTVQ6+7aD89NIJuIOEQu6uVOwYhencJxaxcvUg==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(376014)(82310400026)(7416014)(10067099003)(5023799004)(921020)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: d+zt/6xi+Uyypj8u7lqbIywbYLVhDrcd/gUpdgKKlmfldDvGEPe/1DOSKdNiHmj3kUkOnAS9900ULlFjwgtB1oTv8FNXB+uqtRWLN71+B2er9CwvmZzh68OLwtBrGuYS14sTWasS2vst9w2jWL/rml2ObCBjwhVUhtoK1Lb1oD+irb0sSVm2nWwBz6UpuQklfokiMyvozdJqFTiLjQw1VdczJg3sh+cVjHzNHOWHKpYdeob5dTqFZC9yTTZq3w4eUDnAVCq7nS+scExwAP8XDmwe/aWmbgDFT4ODIIgaGAhOCo6iRvPHsuhmsc7kBAc2XtlENxTeM7PcOM/PSpazYBeJ0dYS0lFmavi6E5r4yl92mbLdO5F/whYElG3GqgFWJnq9mAyVDp4OVAQD5mxxIDZUS3LpWZwKrcTAzJksKX/ItgbQF+X5r9gIh9IxDD1O
-X-Exchange-RoutingPolicyChecked: TNAdI9JarBV6Qvaq/WvzITg0t5OlDKNhS3F3VTbyX3UQBYogq1tL9MugeenJqjSirKPWmvKccAuIGtlwds4xFsylLEkUgHhlCYBJmIMMNonM5wfnahksQTml6GsbN2hNONpZ6zuNl6YYurNpFmYdSSsGsDYRpWeQB9OW028nDg1Lj6qG4Dnyj0LRggaPmF75Olp9WQEOwp+DSzV/cKKVIi1kxqfLM8WEIiZBXiIFRbrdLsEfY8UP8zDpx+5/RH7QAlaAf2IdI1+J7S29X47pK5JLdRl+hex0pN8ORdcr6P7+rttwGHyI6UraLL9bou2gsVxfmV9sl66enhZVH9Gnww==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 01:01:37.2126
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0df93144-a4b0-4336-31b9-08df2020b61a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBF.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB6648
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDAwMyBTYWx0ZWRfX3fjBeO1hsxUY
- Ana6XAJ0plNprT7hV7sbfZRC/miGHnuXU0w8Jwg6t+plDIncwg7ubdfA5bSOfGz1nwyMZ46lKv6
- 7qq83hEcFFBNarJjXwBhvCFOwMjVhI8=
-X-Authority-Analysis: v=2.4 cv=a6alZkSF c=1 sm=1 tr=0 ts=6abf0277 cx=c_pps
- a=/mfax+0MUk3zis5Hx41TAA==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=gO1vWkAQAl3rybz1DQOp:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
- a=8fnee6O-n0vwEk54MJ8A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDAwMyBTYWx0ZWRfXx80k0nbEspLZ
- gwiCYYQHX2UqitiRePwJUchcaMCVO7xjVFxLrR5i6FPD2Rng5rPX3/sPsqcTaw6CLub3Bcr921t
- vscXOajkUnAG1BO6qfVCAI6Hzw7JvCn5fhuPg4phnwnSp5Jbh5FJhJxDc+Ski8KcZvxn0H2cRye
- SM4n0Ttjk7HMZOjaubYWQEU069L2I0086wtMkv/M9jy9cm/uOAveb4IAP5BMef1/qjZAUVgmdRv
- dSNMNsd8JhHbMZvQERjXvq9dyPx6OpBTmuModSfIeJBz2QuaHWam9mzyuxaLNOujbAUaVuU6OgR
- rTff0ly85Zj3xVeapcs3DauM/xd5qw7F8smehstAtkQkzGZD6zi/sbXcMAfB+vfvD+4VoNmVdBs
- iESWecHYl3GcxtY1J0e4DyR1GhHOwDtapc4HRDlBt00YsULd7jbkSf01ZXjFfy5IaY4GLa+W1H4
- YQss81G5SfFHwJcWrRA==
-X-Proofpoint-ORIG-GUID: O_YW5RT0jzbhl1fzAxcvp-dLb9D5JNlg
-X-Proofpoint-GUID: O_YW5RT0jzbhl1fzAxcvp-dLb9D5JNlg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-01_05,2026-10-01_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 spamscore=0 suspectscore=0 bulkscore=0
- malwarescore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2610020003
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_180155_153868_CEA04691 
-X-CRM114-Status: GOOD (  18.69  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,64 +74,354 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus Schneider-Pargmann (TI),
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-On Fri, 18 Sep 2026 11:17:44 +0200, Markus Schneider-Pargmann (TI) wrote:
-> Split the firmware memory region in more specific parts so it is better
-> described where which information is stored. Specifically the LPM metadata
-> region is important as bootloader software like U-Boot has to know where
-> that data is to be able to read that data and resume from RAM.
-> 
-> The bindings are already applied. The remaining patches use the new
-> layout for the platforms that are capable to support IO+DDR. For IO+DDR
-> the new layout is necessary as it defines the location of the LPM
-> metadata.
-> 
-> [...]
+Critical: 0 · High: 0 · Medium: 6 · Low: 0 (1)
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-[1/9] arm64: dts: ti: k3-am62a-phycore-som: Fix wkup R5F memory region size
-      commit: 3690b591d07a2e8863eb96e2aff740da47b8de03
-[2/9] arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F memory region size
-      commit: 5dd0e5b9d5f67276ff291f30da9bf5a17a46c48e
-[3/9] arm64: dts: ti: k3-am62a7-sk: Fix wkup R5F memory region size
-      commit: 8d36eb58c06b867f29a8df2f39f7fe6718c726af
-[4/9] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F memory region size
-      commit: 70c9859fcca8dd964a588a0642aed3bd71bc1dcd
-[5/9] arm64: dts: ti: k3-am62p5-sk: Fix wkup R5F memory region size
-      commit: 93cfb76923603ccaec3720dec065a7874458e67d
-[6/9] arm64: dts: ti: var-som-am62p: Fix wkup R5F memory region size
-      commit: c9b15cd49b3fbd54f3382655b4e898921a7adb4e
-[7/9] arm64: dts: ti: k3-am62a: Split r5f memory region
-      commit: 13aea49af974352c2a6a96608bbaa3ed3030706c
-[8/9] arm64: dts: ti: k3-am62p: Split r5f memory region
-      commit: 46b7261c2bad842e8b9a25106c132bb8ae83d634
-[9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram bootphase
-      commit: 0d14dd104de66eff1500dec9e80d72c4ab82b608
+- [Medium] Every ifup and every resume now silently resets the documented
+  runtime devlink parameter `phc_coarse_adj`.
+- [Medium] The commit message says that on failure the patch will 'roll
+  back the partially applied configuration so the hardware and the…
+- [Medium] After a failed timestamp-counter init, later timestamping and
+  TAPRIO operations can still use the failed counter.
+- [Medium] The hardware rollback in stmmac_update_subsecond_increment()
+  is incomplete when stmmac_config_addend() times out (line 647).
+- [Medium] The patch opens a lost-update race between
+  stmmac_dl_ts_coarse_set() and the rtnl-protected timestamping paths.
+- [Medium] When stmmac_init_systime() fails, stmmac_init_tstamp_counter()
+  calls stmmac_restore_subsecond_increment(priv, default_addend) (line…
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Pre-existing issues:
+- [Low] The kernel-doc for stmmac_init_timestamping() says 'This function
+  also registers the ptp driver.', but the function only configures the…
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+--
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+net: stmmac: propagate PTP addend and system time programming errors
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+This patch makes stmmac_update_subsecond_increment(),
+stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
+settime64/adjfine PHC callbacks return the errors from the addend and
+system time programming hooks instead of always reporting success. On
+failure it rolls back the partially applied configuration, and it adds a
+guard against a zero sub-second increment. It also resets the persistent
+timestamping state whenever timestamping is (re)initialized.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+> settime64/adjfine callbacks instead of silently returning success. On
+> failure, roll back the partially applied configuration so the hardware
+> and the driver bookkeeping stay consistent, and report the reason
+> through the devlink extack.
+
+[Severity: Medium]
+Does this hold for both failure paths?
+
+In stmmac_update_subsecond_increment(), stmmac_config_addend() can time out.
+At that point PTP_TAR already holds the new addend and TSADDREG is still
+pending. The error label only restores the PTP_TCR flags and the sub-second
+increment. The hardware can then end up with a new-mode addend and an
+old-mode SSINC, while priv->default_addend keeps the old value.
+
+In stmmac_init_tstamp_counter(), the rollback through
+stmmac_restore_subsecond_increment() uses priv->systime_flags. By then,
+stmmac_init_timestamping() has already overwritten that field with the new
+fine-mode defaults. So the SSINC is recomputed for the new flags, but the
+old default_addend is restored. That addend can be 0 on first open or a
+coarse-mode value, and any addend applied by adjfine is lost.
+
+Both cases are covered in more detail inline below. Could the commit message
+and the "Restore previous configuration" comments be changed to match what
+the error paths actually leave behind?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index ec62fa7418f41..9741f97fa37a2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -601,31 +601,64 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
+
+[ ... ]
+
+> +	ret = stmmac_config_addend(priv, priv->ptpaddr, val);
+> +	if (ret)
+> +		goto error;
+> +
+> +	priv->sub_second_inc = sec_inc;
+> +	priv->default_addend = val;
+> +
+> +	return 0;
+> +error:
+> +	/* Restore previous configuration */
+> +	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
+> +	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
+> +					   priv->plat->clk_ptp_rate, xmac,
+> +					   NULL);
+> +	return ret;
+>  }
+
+[Severity: Medium]
+If stmmac_config_addend() times out, does the new addend stay latched?
+
+config_addend() writes PTP_TAR and sets TSADDREG before it polls:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c:config_addend() {
+    ...
+	writel(addend, ioaddr + PTP_TAR);
+	/* issue command to update the addend value */
+	value = readl(ioaddr + PTP_TCR);
+	value |= PTP_TCR_TSADDREG;
+	writel(value, ioaddr + PTP_TCR);
+    ...
+}
+
+So on -ETIMEDOUT, the TAR write and the latch request are both still
+pending.
+
+config_hw_tstamping() does a read-modify-write that clears only the
+STMMAC_HWTS_CFG_MASK bits. TSADDREG is not in that mask, so TSADDREG=1 is
+written back. PTP_TAR is never restored.
+
+Here is an example. Switch devlink phc_coarse_adj from fine to coarse on a
+125 MHz PTP clock, and val computes to 0. If TSADDREG then times out, the
+rollback puts the MAC back in fine mode (TSCFUPDT=1) with the old SSINC.
+priv->default_addend still holds the old fine value.
+
+If the pending latch completes later, the fine-mode accumulator runs with
+addend 0. The counter would stop advancing until the next adjfine.
+
+The v3 changelog says "Do not run stmmac_config_addend() in
+stmmac_update_subsecond_increment() error path", which leaves this case
+open. Is that intended?
+
+> @@ -854,35 +887,42 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
+
+[ ... ]
+
+> -static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+> -				      u32 systime_flags)
+> +static int stmmac_init_tstamp_counter(struct stmmac_priv *priv)
+>  {
+> +	u32 default_addend = priv->default_addend;
+>  	struct timespec64 now;
+> +	int ret;
+
+[ ... ]
+
+> +	ret = stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec,
+> +				  now.tv_nsec);
+> +	if (ret)
+> +		goto error;
+>  
+>  	return 0;
+> +error:
+> +	/* Restore previous configuration */
+> +	stmmac_restore_subsecond_increment(priv, default_addend);
+> +
+> +	return ret;
+>  }
+
+[Severity: Medium]
+What does this restore when stmmac_init_systime() fails?
+
+Before calling in here, stmmac_init_timestamping() has already set
+priv->systime_flags to STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT. So
+stmmac_restore_subsecond_increment() writes the same fine-mode TCR and SSIR
+values that were just programmed. The only real rollback is PTP_TAR, which
+is set to the saved default_addend.
+
+On first open that saved value is 0, because netdev priv is zeroed. In fine
+mode an addend of 0 means the accumulator never overflows, so the counter is
+frozen. On resume after coarse mode was active, the saved value is the
+coarse addend. At 125 MHz that is 0, while fine mode needs 0x80000000.
+
+stmmac_restore_subsecond_increment() also stores this value:
+
+	priv->default_addend = default_addend;
+
+Later stmmac_adjust_freq() calls then scale from a base of 0. The PHC stays
+registered on resume, so can it recover without a full re-init?
+
+There is also an ordering question in stmmac_restore_subsecond_increment():
+
+	stmmac_config_addend(priv, priv->ptpaddr, default_addend);
+	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
+
+After a TSINIT timeout, TSINIT is still set in PTP_TCR. config_addend() does
+its own read-modify-write of PTP_TCR, which keeps TSINIT=1 and adds
+TSADDREG. It then busy-waits up to another 100 ms on a clock domain that is
+probably not responding. Is that extra wait in the failure path expected?
+
+> @@ -905,8 +945,14 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
+
+[Severity: Low]
+This is a pre-existing issue, not one introduced by this patch. The
+kernel-doc above stmmac_init_timestamping() still says:
+
+ * This function also registers the ptp driver.
+
+The function does not register anything. The caller, stmmac_setup_ptp(),
+does:
+
+	if (stmmac_init_timestamping(priv) == 0)
+		stmmac_ptp_register(priv);
+
+Could that line in the comment be dropped?
+
+>  		return -EOPNOTSUPP;
+>  	}
+>  
+> -	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
+> -					       PTP_TCR_TSCFUPDT);
+> +	/* Reset hw ts configuration */
+> +	memset(&priv->tstamp_config, 0, sizeof(priv->tstamp_config));
+> +	priv->systime_flags = STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT;
+> +	priv->tsfupdt_coarse = false;
+
+[Severity: Medium]
+Does this throw away the devlink phc_coarse_adj setting on every open and
+resume?
+
+stmmac_init_timestamping() runs from stmmac_setup_ptp() on open and from
+stmmac_resume(). The phc_coarse_adj parameter is registered with only
+DEVLINK_PARAM_CMODE_RUNTIME, and the devlink core does not cache runtime
+values. stmmac_dl_ts_coarse_get() just reports the field:
+
+	ctx->val.vbool = priv->tsfupdt_coarse;
+
+So after "ip link set dev X down/up", an MTU change that reopens the device,
+or a suspend/resume, the PHC goes back to fine mode and devlink reports
+false.
+
+The other place that builds systime_flags, stmmac_hwtstamp_set(), still
+honours the setting:
+
+	priv->systime_flags = STMMAC_HWTS_ACTIVE;
+	if (!priv->tsfupdt_coarse)
+		priv->systime_flags |= PTP_TCR_TSCFUPDT;
+
+The commit message explains the reset "so a failed init does not leave TX/RX
+timestamping enabled on a counter that never started". tsfupdt_coarse is a
+clock mode chosen by the user, not a timestamp-enable flag.
+
+Before this patch the bool was kept, even though the hardware was forced to
+fine mode, which was a separate inconsistency. Would it work to keep
+tsfupdt_coarse and derive the flags from it, for example:
+
+	priv->systime_flags = STMMAC_HWTS_ACTIVE |
+			      (priv->tsfupdt_coarse ? 0 : PTP_TCR_TSCFUPDT);
+
+Documentation/networking/devlink/stmmac.rst recommends coarse mode for Grand
+Master operation. With this reset, that setup falls back to fine mode after
+any suspend/resume or link down/up.
+
+> +	priv->hwts_tx_en = 0;
+> +	priv->hwts_rx_en = 0;
+> +
+> +	ret = stmmac_init_tstamp_counter(priv);
+>  	if (ret) {
+>  		netdev_warn(priv->dev, "PTP init failed\n");
+>  		return ret;
+
+[Severity: Medium]
+The error is now returned from here, but do the callers do anything with it?
+
+On open, stmmac_setup_ptp() only skips stmmac_ptp_register(), and
+__stmmac_open() still succeeds. On resume the return value is ignored:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_resume() {
+    ...
+	stmmac_init_timestamping(priv);
+    ...
+}
+
+The PHC stays registered, stmmac_get_time() keeps returning success with the
+stopped counter's value, and the device is reattached.
+
+hwts_tx_en/hwts_rx_en are cleared before init, and nothing records that init
+failed. A later stmmac_hwtstamp_set() checks only:
+
+	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
+
+and netif_running(). It then sets hwts_rx_en/hwts_tx_en, programs PTP_TCR
+and returns success without retrying init. If resume fails, adv_ts keeps its
+earlier value.
+
+tc_taprio_configure() in stmmac_tc.c also still takes the EST base time from
+the counter without checking whether init succeeded:
+
+	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
+
+The commit message gives TAPRIO/EST as the motivation, and describes the old
+behaviour as the driver "operating as if timestamping were up". Isn't the
+resume path still doing that?
+
+[ ... ]
+
+> @@ -7711,18 +7753,26 @@ static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
+>  {
+>  	struct stmmac_devlink_priv *dl_priv = devlink_priv(dl);
+>  	struct stmmac_priv *priv = dl_priv->stmmac_priv;
+> +	u32 systime_flags = priv->systime_flags;
+> +	int ret;
+
+[ ... ]
+
+> -	stmmac_update_subsecond_increment(priv);
+> +	ret = stmmac_update_subsecond_increment(priv, systime_flags);
+> +	if (ret) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "failed to reconfigure PTP adjustment");
+> +		return ret;
+> +	}
+> +
+> +	priv->tsfupdt_coarse = ctx->val.vbool;
+> +	priv->systime_flags = systime_flags;
+
+[Severity: Medium]
+Can this snapshot-then-commit ordering lose an update made at the same time
+by stmmac_hwtstamp_set()?
+
+The devlink param set runs under devl_lock only, without rtnl.
+stmmac_hwtstamp_set() (rtnl) and stmmac_init_timestamping() (rtnl, plus
+priv->lock on resume) write the same fields and PTP_TCR, and neither takes
+devl_lock.
+
+This function now takes a snapshot of the flags and then programs PTP_TCR,
+SSIR and TAR. That includes a TSADDREG poll of up to 100 ms. Only after that
+are tsfupdt_coarse and systime_flags published. When enabling coarse mode,
+this sequence looks possible:
+
+devlink                                SIOCSHWTSTAMP
+stmmac_dl_ts_coarse_set()
+  systime_flags = priv->systime_flags
+  stmmac_update_subsecond_increment()
+    TCR coarse, coarse SSINC/addend
+                                       stmmac_hwtstamp_set()
+                                         sees tsfupdt_coarse == false
+                                         priv->systime_flags =
+                                           ACTIVE | TSCFUPDT | filters
+                                         hwts_rx_en = 1
+                                         TCR fine
+  priv->tsfupdt_coarse = true
+  priv->systime_flags = systime_flags
+    (filter bits from hwtstamp_set lost)
+
+The result is PTP_TCR in fine mode with the coarse SSINC and addend. At
+125 MHz that addend is 0, so the PHC is frozen. default_addend is also 0, so
+adjfine cannot recover it.
+
+priv->systime_flags would also no longer match hwts_rx_en, tstamp_config,
+or what stmmac_enable() passes to flex_pps_config for PEROUT.
+
+Before this patch, tsfupdt_coarse was stored first, and priv->systime_flags
+was read right before the hardware write. That order did not give this
+mismatch. Is something serializing these paths that I'm missing?
+
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4%40oss.qualcomm.com
 
