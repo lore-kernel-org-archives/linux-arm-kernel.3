@@ -4,101 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0DECA5FD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 11:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77AA2CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 11:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=; b=tr/uw93T6M51dLrqzIUm2GKZ3D
-	6p/gWUUQe8HG/XV52gHm/EjlWQoSKeMwNe4h9QcLsGr4vwPUFwQ8dMv8pKpfauFxRdUMUaTi10Bmn
-	I8twsuXd2vqMx6ybJqvUcijhUWqw9Ba7+2QhZCygOAwDWjSjqcTdkmyu2WMiCFRwvp1tcw01U/+f4
-	LleItnv+4ELQdMuV3d3ok88K/dLdh5yga2juvaUY1Npft/nw0mnvcUn3Xdz/r7Jsw6yUq/T/cNC25
-	5133kdbVMXp89T6jZHY98pYOslj8w2RDEF0qw+5RgYC2L23iSDIUuNJ2HC3Sp716EqhJUCbFZvz1u
-	vaXwxnZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:References:In-Reply-To:To:From:Subject:Cc:
+	Message-Id:Date:Content-Type:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7Z0srYiA54A8lgqs3OX3sZSJNkoKj+lK/TSgd2dh5Xs=; b=IyVasyNpnFsKhQ
+	+0w1QaCoTCL7FuPDxfs+1aTCKISLj70gsPbelSN6sxoNnQsZAlX6mz4sXV8uk49Ws5yID0MB0YRRm
+	1zogoQFz35G0NnHIt+MPavsOklGygz6nekY5Aq2ur9J5kCAwQrg6nKgz1Bxm49ZsFxE+N/OPuKWUy
+	ZoYOEdvB3W5Ck0pGsOv9bzb7UfqtQ5DIoT7AL2dbXWqWvfk6Go0PRhWDAylmG5lj2sBu2VGrXwHZM
+	WaY0jZ1CsswMKBxjK5a36+dc6pDWxl4uI0cvgsVM3/lpG1aX4uDHAQHcOxoDiwz3vWgPPmJjwG+9u
+	PqZsTNTY/DPM3dGroDOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCbEh-0000000BS5X-0h0r;
-	Fri, 02 Oct 2026 11:15:31 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xCbKw-0000000BSyH-31dj;
+	Fri, 02 Oct 2026 11:21:58 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCbEf-0000000BS51-1AY1
+	id 1xCbKt-0000000BSxt-2YYy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 11:15:30 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a00713639cso42415305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 04:15:28 -0700 (PDT)
+	Fri, 02 Oct 2026 11:21:56 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2e2bfc2540cso19928195ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 04:21:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790939727; x=1791544527; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=;
-        b=Kk16X6x6jN6vCBQSI396am111shrsVghm2ktdPGGRUOWfCGbORhCUt+Ojm5OjGfk7K
-         /Jg29KwSYdRa/a5IFmWk+/faAQ+dvOsSvIOmbpvmQcvlG3H4zl5pb//J3emCm4p3jOJq
-         OHHtppa3EpNHbdKO7ZhRAgCtyigZ40LjjY0WcFBnaeelT4Y0vwtMK24iEWjLRtLvrz6G
-         ulVMdqmUCgwBg//61puBIsW8FheYooA0YGxPU1pMm0KbIRa4rhE7ZtazKdQROM9atlrO
-         99tmao3krYlqhLY6GTOOabC7scqO2DzKdhtTvCGWo3+IBwELJrhkIMLLaRjGy4Nj6+RW
-         BcBA==
+        d=gmail.com; s=20251104; t=1790940114; x=1791544914; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7Z0srYiA54A8lgqs3OX3sZSJNkoKj+lK/TSgd2dh5Xs=;
+        b=bfiCPiYvxiTPvL/dh23vWmZ0riosJSE1VRGGYD/wRQKza5oQhaHPdYBlx+W71MWMiy
+         zhjFvariw/XiwjCm3cloGqnwSBf9rHmcMjioWdBcgjDwv0ke0VqxSJZK9WLQu4hR/iOR
+         c5kMWriO8ZXfOtRVft5ZcnkYlen+of4UaiwuGhdGRqO0eX9JGhVy8s56XM0YhU0qwkgQ
+         lCRoh5uuoWAiidipXqjozTq7ZcJ87E1wyglASVnS6HhYTXCDv+ZUS4tYFgR+rRVbtAFV
+         yohImR8jyWN47vIesi0MBE9Gkx8f7vhL4bz/obnljmTOU1alWhIuPLB48Xu/Stq+FKqZ
+         NERg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790939728; x=1791544528;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1790940114; x=1791544914;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GEiJjq6Jc7fnijCf7RLJfnGkUIPBSRhorQ+d3FhIqF8=;
-        b=XkVOtLAndtseSSHYp+TkqaaaxA0f5sGkRw31bY4VAwMJPDmQyF5ijX3vlYE2zGhkhV
-         fBK2zv4lOvxcJU2J5k0wQiwcreY5Y5sMRrSqQLTRfkRfg/agC9tghOgZYoo0HQoEDl8F
-         ORPLOUeHxbySiOZRLT2+ioa124g9Vjao76zp1mcxQ8kHl0BMC+vItiyT2mRceNTk8BfM
-         qgSyfA5VZKAk+2K//SwSi32jWGLrYG/IlT5kL0/u/EKu2LasKR9f96V5QE0YcAzI2kXp
-         352ln8HlvJeY8jR2TqHO9+5rDRH7pVMCkAJswWq5saLI+mVgcZKunr18eRB5rgeALArq
-         90hg==
-X-Forwarded-Encrypted: i=1; AKwUvBxybYJKz3dOu6ozy49XHWUi/ZFLXiL9rOd46dQggtsUGHCZVdS5Vd+jPMDXFX/4T6Dbzxe6AbEB35rNBbkUnY42@lists.infradead.org
-X-Gm-Message-State: AFuF++nAaqp5kDWQISBGPM7MioiunaHlfk5ALujOWSdTjoUSrYT7/K3q
-	iHUB+cxYYDzD79Xv97JA0RvnuazvHJVycF0LtsLZxRStdFHSe6ygrcyfIJOxe9Uyopw=
-X-Gm-Gg: AYBFou1tTFHdzCErYNOwhnIQ1G84a9+VwcCiqqeAr9i1svrHeibLxSAxHq9lqbDQtc3
-	C8tRcTbXOcoyLBLfkuczkHMzip1yxJDV8ZSJ6n1nZJh2NOvX8+dqI2d+vYzgxf6x1LrKIIoQPkJ
-	o8d4UjBLE0mmxLUhrW58FrXPE/YVrQY9RCnesfztf885hS7pT0tkZvlzM20iZTmgtfl0+VieGrS
-	xH/PaZVFJEiLMUMXTFz0/3MC6f0ocQOx13bUUpliloYado4ISqnj3GdzzOTSzOLynZ1hVeHdIPs
-	JE+JGTIGTpaJ3tDm+m2Epa45t8ciCKwsbWD/ULaOiHEIShmJpiEKVY4/rv0Dwt9I6VaBY8T/gLC
-	sDrb0qntyJJluGP/XWGLgMMHW0o17XGzt5IJAJA88YkQfL4ACHHzOgBMROy3QE7VMGBo4JV20qF
-	DITpgUWK/1ynKsFBUYqrkITJ4tGWnSTZ132LEQE7rHeIanaxSjFW6MdMu/93yuJ231299Ar1wMV
-	2ZbkukPHqmY
-X-Received: by 2002:a05:600c:4f04:b0:4a0:a34:6e7d with SMTP id 5b1f17b1804b1-4a027564c91mr48663925e9.18.1790939727443;
-        Fri, 02 Oct 2026 04:15:27 -0700 (PDT)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b38306dd4sm4752986f8f.43.2026.10.02.04.15.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 04:15:26 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Fri, 02 Oct 2026 12:15:11 +0100
-Subject: [PATCH v3 1/4] perf: cs-etm: Don't add global v0 HW_IDs to
- unformatted queues
+        bh=7Z0srYiA54A8lgqs3OX3sZSJNkoKj+lK/TSgd2dh5Xs=;
+        b=usn/cyl4aUBN7F6cJsXP1mUviopbD82mtJg3/ynyHI3Q4WFTqofQj2P33tAT0H05hg
+         eyWRgb5lAfAF1O8TTEIRttQdi5NT1GE6cUYlNkCrr0mzW2PYNa9T9p2PXY0XzSBPws8j
+         NC0O/v3Cx68SI8i4j+9qTnf18pcP0KffdklgWPxGbK0AHt/X8zMx32OLMWtZYsvDGFu/
+         msW5gF8XAxiyPiwfsKwCTdPW0V69q/oofRQphjqv6BNstSaRQacg3AqFghA4AgqWVjrR
+         viT7CslQSNh7OmuL6zYyTBRESFTA6LF4NPKVI32xeFhoDuLBFK+omBYFEHl26dmT8qRH
+         94og==
+X-Forwarded-Encrypted: i=1; AKwUvByg6TzwMQEZUdQai82+GXfKtx9xiI6XQEPHV5nLx68Slubt6F822Xs9hD5wTccVimeBxHAAVlgALJSZC7UaSKpQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYK12713634dotbCtj4L8TrLOPBuPv6+Y/Y0yVwymzOzyjbJCynG
+	VnNJhGBmgC4xN7iee8kL3UTGBqlSjuVGlrjc/clFtINESve2XzCwBPCf
+X-Gm-Gg: AYBFou3d+p6c3ttn6xtIPxJ7ffsnHMoEbYbBhQeubdSLHizWZVzvs8Eq7CgPnmsYXaE
+	4jvU3IvILlk5fl9PakVbbivjiYw8VfGzwVCvoVeBDr6yE31FalhhVRoNuHwCGbWY3wZYFh6GIaO
+	D7MvwZOxl7OwOExM7ty12IEH2tIiPcTGY9KzsX1OC4TTxR+s/kYmKi2LlINJ9ln4R8A2A5M34K5
+	xzCsQ9DPaFHIegKGnwUlyurykT1CabZsamPc9ekuBKnEnRCiWh035wLpE6tKJgTi7yB2UT2IEno
+	pSkvnBdFwYDrnIEOYarPJf+oVkfNS9mepZIiyeo5gNpIKFDhHPybTnx7CjvhTX4pZull5ourKuC
+	ONIGg/1yl7e+eVXGA6Un4/pIJ6DegjKBz1TzTv4vlfr6xhr6WDjkrAp4uAew+TGCYLeCEdFt0cx
+	yGB/8AAk7+BU+1lf4tkf+VtNDnyRPjTvoZK2vK5CO2C+Yz5v7NoKCSoW37HC014QoG40BSrMxVS
+	0M6fXZtoue80dX6e+UUgBVaK0iLiN2ejtcsJUIxi1/NNgdiFX/ILW7IUtJg834qdo05uhdyfF4V
+	jySF
+X-Received: by 2002:a17:90b:254c:b0:3a0:cd4d:5133 with SMTP id 98e67ed59e1d1-3a6ce3ba9f9mr1722036a91.2.1790940113693;
+        Fri, 02 Oct 2026 04:21:53 -0700 (PDT)
+Received: from localhost ([153.61.198.241])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a6cd59187csm3957416a91.10.2026.10.02.04.21.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Oct 2026 04:21:53 -0700 (PDT)
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 02 Oct 2026 11:21:52 +0000
+Message-Id: <DLUBA9JR5QHY.31UKYQQ9EYMDL@gmail.com>
+Cc: "Breno Leitao" <leitao@debian.org>, <bpf@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] bpf, arm64: Fix text_mutex critical section in
+ bpf_arch_text_poke()
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Matthew Wood" <thepacketgeek@gmail.com>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa"
+ <jolsa@kernel.org>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
+ Solodrai" <ihor.solodrai@linux.dev>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+In-Reply-To: <20261002044050.1277356-1-thepacketgeek@gmail.com>
+References: <20261002044050.1277356-1-thepacketgeek@gmail.com>
+X-Mailer: mkdraft (claude review draft; edit before sending)
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261002-james-cs-hw_id-output-failure-v3-1-1d8b6ef339c8@linaro.org>
-References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
-In-Reply-To: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_041529_327431_CB679B51 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20261002_042155_654365_EBA6438D 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,62 +111,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the case of mixed formatted and unformatted trace with v0 HW_IDs, or
-no HW_IDs at all resulting in the cs_etm__map_trace_ids_metadata()
-fallback, formatted queues will write their HW_IDs to unformatted
-queues. This will result in an assert because of multiple decoders on an
-unformatted queue.
+On Thu, Oct 01, 2026 at 09:40 PM Matthew Wood <thepacketgeek@gmail.com> wrote:
+> +	/* pages of the bpf prog pack are shared between progs, so the
+> +	 * set_memory_rw()/set_memory_ro() window below must be serialized
+> +	 * against other pokers too.
+> +	 */
+> +	mutex_lock(&text_mutex);
+> +
+>  	if (plt_target) {
+>  		/* non-zero plt_target indicates we're patching a bpf prog,
+>  		 * which is read only.
+>  		 */
+> -		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1))
+> -			return -EFAULT;
+> +		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1)) {
+> +			ret = -EFAULT;
+> +			goto out;
+> +		}
+>  		WRITE_ONCE(plt->target, plt_target);
+>  		set_memory_ro(PAGE_MASK & ((uintptr_t)&plt->target), 1);
 
-Fix it by not inserting trace ID nodes on other unformatted queues. This
-isn't an issue for v0.1 HW_IDs because they aren't global so will only
-add to their own queue.
+The lock hides the crash, but set_memory_rw() is the actual problem.
+The page is shared, so it makes 64K of other progs writable and
+executable at the same time.
+Use aarch64_insn_write_literal_u64(&plt->target, plt_target) instead.
+That's how ftrace_rec_set_ops() and arch_static_call_transform()
+update 64-bit literals in the text.
+It's atomic and writes via fixmap under patch_lock, just like
+aarch64_insn_patch_text_nosync() below.
+No need to change page permissions and no need to move text_mutex.
 
-Fixes: 19c3e4db38c5 ("perf: cs-etm: Create decoders based on the trace ID mappings")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/util/cs-etm.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 2d1ab34f7b6b..fda6b6c02e26 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -309,27 +309,27 @@ static int cs_etm__map_trace_id_v0(struct cs_etm_auxtrace *etm, u8 trace_chan_id
- {
- 	struct cs_etm_queue *etmq;
- 
--	/*
--	 * If the queue is unformatted then only save one mapping in the
--	 * queue associated with that CPU so only one decoder is made.
--	 */
- 	etmq = cs_etm__get_queue(etm, cpu_metadata[CS_ETM_CPU]);
- 	if (!etmq)
- 		return -EINVAL;
- 
-+	/*
-+	 * If the queue is unformatted then only save one mapping in the
-+	 * queue associated with that CPU so only one decoder is made.
-+	 */
- 	if (etmq->format == UNFORMATTED)
- 		return cs_etm__insert_trace_id_node(etmq, trace_chan_id,
- 						    cpu_metadata);
- 
- 	/*
- 	 * Otherwise, version 0 trace IDs are global so save them into every
--	 * queue.
-+	 * formatted queue.
- 	 */
- 	for (unsigned int i = 0; i < etm->queues.nr_queues; ++i) {
- 		int ret;
- 
- 		etmq = etm->queues.queue_array[i].priv;
--		if (!etmq)
-+		if (!etmq || etmq->format == UNFORMATTED)
- 			continue;
- 
- 		ret = cs_etm__insert_trace_id_node(etmq, trace_chan_id,
-
--- 
-2.43.0
-
+pw-bot: cr
 
