@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4429CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43548CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NML38o0Y7w3o3AmH2v/Roa5++3wzYjWjzcNUAaSt6tU=; b=C9AZDX6krxlGhpBT6LCKKljBXF
-	050oi3JSaw/uq2HqOAnsJ2Mv62V1YZa1lq6Dbyo3roOgBz7Hmv0anaXVtN2F6thOUNQoBiWFW8VRd
-	7ZMnG1DdQ+wn61LL4DgCxLb1SY06QDu/AiUIqznmymAoegl6J1sGPpDtxPL5/SwFcCFHvaJ+MIbhT
-	THV6RiCp3wzEwVajuOmc3s20piAZyhDAI4O++cJsxAf+92t6lr9jCUtSB36Ue4Wo+cCRNpoSPXOMC
-	jy/+nyaUnjYlvKwpU1tvrz7wgsYHlOGziGUePYnTU9l4eyR5IUoKEUqjxjAMEdNhO8JUwSBKbXDNN
-	RP/bUbuQ==;
+	bh=6gmpRROWAmgc41T2fhwhnBK3pKrYTzgeeA65AXp4T2U=; b=x7/tu3lDmFdk1z5a5AqxT6mHeX
+	/pYzfQMi0G85YtCwDlQ0Pd4yioqlB2zQJpkLRDFMULGcvWHySfUeFoKa5tfoPoJW9ccUrIUQ5LhFp
+	k3H8kEeqd2KdH8O+ERhvwmGJXeN6dBfMRMPBFA0UGhRoDnkMBc7GoNU3x1EG/gHROhh+xGy7fc3Ko
+	RhwVXnO48pzRExv0F8iwPuiGPfvMEIMVTkXS5DKRfT/F8KE3J4ksbGamzBuU1I8H2OEe/d1D8d1Cu
+	wsw760XQsDtEAQOG7HjOILRA2ffH2ewL1RPadwQqxiXupYS3XItR9pwlTCSBTRU81JcrYAXH41Mz1
+	5rOfUQeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfNl-0000000BxpI-3pSC;
-	Fri, 02 Oct 2026 15:41:09 +0000
+	id 1xCfPb-0000000By56-0nju;
+	Fri, 02 Oct 2026 15:43:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfNi-0000000BxoN-4Ax0
+	id 1xCfPX-0000000By4J-3Vjt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:41:08 +0000
+	Fri, 02 Oct 2026 15:43:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 897E4143D;
-	Fri,  2 Oct 2026 08:41:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E02B4143D;
+	Fri,  2 Oct 2026 08:42:54 -0700 (PDT)
 Received: from [10.211.55.3] (unknown [10.57.85.160])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8FC63F85F;
-	Fri,  2 Oct 2026 08:41:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E47D53F85F;
+	Fri,  2 Oct 2026 08:42:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790955664; bh=LzOEdHs0jNTCVtBz7LvfPEq7oE9zsxZCEu7ObEikq4Y=;
+	t=1790955778; bh=4PLdO4/skYl3QEeQLtcsbR5rTEL+OQYa3stqLZxDFxU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nrHYaoQ+NdR9XGroE9vHfEfblATE1CahFu8b9nhgEreZMi9tdfyQBpMXWdJt+LicQ
-	 Scbe8mbIH415x2BSWiWSIpe8xObR8ZGijvFWczH/VBXuQRPkrGuPmUmfc7IL3hNe+1
-	 GybiFKqpRkbEnI6mICAI+oOyyBfRZlkSbFuBtKcI=
-Message-ID: <5e0bc5e8-76e6-44e1-8036-9fadabd6bcb5@arm.com>
-Date: Fri, 2 Oct 2026 16:41:00 +0100
+	b=q5QWC6FuqTAj77ipxz0w2YDhA2CkWarqO7EuYuZwfyMGPGkdSWjjGSVHpAM4AhUzk
+	 yBC81GB0ZG2/zGQl/KdQSxSCUdf8ZnhvLAH6zm9KXIcjosFhPKX1fHOsDJogEAzXs/
+	 enLcKGsfZRteWhHmskLcZcGiKVT9YJoBAGZR3RaU=
+Message-ID: <81ab15fa-98db-499b-9a97-efac6afbcc74@arm.com>
+Date: Fri, 2 Oct 2026 16:42:53 +0100
 MIME-Version: 1.0
 User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v12 12/13] arm_mpam: change MPAM-Fb error IRQ to use a
- threaded IRQ handler
+Subject: Re: [PATCH v12 13/13] arm_mpam: detect and enable MPAM-Fb PCC support
 To: Andre Przywara <andre.przywara@arm.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
@@ -61,15 +60,15 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
  linux-acpi@vger.kernel.org--cc, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20261001153439.3295416-1-andre.przywara@arm.com>
- <20261001153439.3295416-13-andre.przywara@arm.com>
+ <20261001153439.3295416-14-andre.przywara@arm.com>
 Content-Language: en-US
 From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261001153439.3295416-13-andre.przywara@arm.com>
+In-Reply-To: <20261001153439.3295416-14-andre.przywara@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084107_128085_5E156882 
-X-CRM114-Status: GOOD (  37.68  )
+X-CRM114-CacheID: sfid-20261002_084259_970088_403017C9 
+X-CRM114-Status: GOOD (  35.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +86,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Andre,
 
 On 01/10/2026 16:34, Andre Przywara wrote:
-> When an MPAM MSC gets into an error condition, it can trigger an error
-> IRQ. We cannot really do much about those errors, but we at least query
-> and log the error, then disable MPAM functionality.
+> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+> registers through a firmware interface. This requires a shared memory
+> region to hold the message, and a mailbox to trigger the access.
+> For ACPI this is wrapped as a PCC channel, described using existing
+> ACPI abstractions.
 > 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
-> based MSC accesses, since they involve mailbox routines that might sleep.
-> The same is true for clearing the interrupt at the source, which requires
-> a (potentially sleeping) MSC access as well.
+> Add code to parse those PCC table descriptions associated with an MSC,
+> and store the parsed information in the MSC struct.
+> There can be multiple PCC channels, and each channel can serve multiple
+> MSCs, so we need to keep track of the channel usage, using a list and
+> a refcount.
 > 
-> Change the error IRQ handler to be a threaded interrupt, but keep the
-> handling in the hard-IRQ part for MMIO MSCs. This is needed since the
-> CPU affinity check in the MSC accessors requires a non-preemptible
-> context.
-> When the MSC is using an MPAM-Fb based access, we push the work into the
-> threaded part of the handler, where the accessors are allowed to sleep.
-> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
-> threaded IRQ here.
+> This will be used by the MPAM-Fb access wrapper code.
 > 
-> The actual IRQ handler learns how to deal with errors. We cannot really
-> handle them, but we can try our best to disable the IRQ anyway.
-> Should the level IRQ line deactivation fail on the device side, we mask
-> the IRQ on the irqchip level, to prevent an interrupt storm.
+> [1] https://developer.arm.com/documentation/den0144/latest
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
@@ -123,147 +116,269 @@ Thanks,
 Ben
 
 > ---
->  drivers/resctrl/mpam_devices.c | 77 ++++++++++++++++++++++++++++------
->  1 file changed, 65 insertions(+), 12 deletions(-)
+>  drivers/resctrl/Kconfig         |   1 +
+>  drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_fb.c       |  41 +++++++++++
+>  drivers/resctrl/mpam_internal.h |   2 +
+>  4 files changed, 161 insertions(+), 2 deletions(-)
 > 
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> index 9591d792736e5..f5ff9b1f6c48e 100644
+> --- a/drivers/resctrl/Kconfig
+> +++ b/drivers/resctrl/Kconfig
+> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
+>  	bool "MPAM driver"
+>  	depends on ARM64 && ARM64_MPAM
+>  	select ACPI_MPAM if ACPI
+> +	select PCC if ACPI
+>  	select MAILBOX
+>  	help
+>  	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
 > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 63469f3b0a90a..08b1e84e3f794 100644
+> index 08b1e84e3f794..94d6eb6d3a1b2 100644
 > --- a/drivers/resctrl/mpam_devices.c
 > +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2734,24 +2734,42 @@ static int mpam_disable_msc_ecr(void *_msc)
->  	return __mpam_write_reg(msc, MPAMF_ECR, 0);
->  }
+> @@ -20,14 +20,19 @@
+>  #include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+> +#include <linux/mailbox_client.h>
+>  #include <linux/mutex.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/printk.h>
+> +#include <linux/property.h>
+>  #include <linux/srcu.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/types.h>
+>  #include <linux/workqueue.h>
 >  
-> +/*
-> + * This will run as the threaded IRQ handler part when using MPAM-Fb, but
-> + * as the sole hard-IRQ handler for MMIO based accesses.
-> + */
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  {
->  	u64 reg;
-> +	int ret;
->  	u16 partid;
->  	u8 errcode, pmg, ris;
->  
-> -	if (WARN_ON_ONCE(!msc) ||
-> +	if (WARN_ON_ONCE(!msc))
-> +		return IRQ_NONE;
+> +#include <acpi/pcc.h>
+> +#include <acpi/acpi_io.h>
 > +
-> +	if (msc->iface == MPAM_IFACE_MMIO &&
->  	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
->  					   &msc->accessibility)))
->  		return IRQ_NONE;
+>  #include "mpam_internal.h"
 >  
-> -	mpam_msc_read_esr(msc, &reg);
-> +	ret = mpam_msc_read_esr(msc, &reg);
-> +	if (ret) {
-> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
+>  /* Values for the T241 errata workaround */
+> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
+>  
+>  struct srcu_struct mpam_srcu;
+>  
+> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
+> +static DEFINE_MUTEX(pcc_chan_list_lock);
+> +static LIST_HEAD(pcc_chan_list);
 > +
-> +		/* Try out best here ... */
-> +		goto out_disable;
-> +	}
->  
->  	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->  	if (!errcode)
->  		return IRQ_NONE;
->  
-> -	/* Clear level triggered irq */
-> +	/*
-> +	 * Clear the level triggered IRQ. If that fails, we cannot do anything
-> +	 * about it, so ignore any errors. We will disable the IRQ either on
-> +	 * the device side or on the irqchip level next anyway.
-> +	 */
->  	mpam_msc_clear_esr(msc);
->  
->  	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-> @@ -2762,16 +2780,24 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  			   msc->id, mpam_errcode_names[errcode], partid, pmg,
->  			   ris);
->  
-> -	/* Disable this interrupt. */
-> -	mpam_disable_msc_ecr(msc);
-> +out_disable:
-> +	/*
-> +	 * Disable this interrupt on the device side. If that fails, disable
-> +	 * the IRQ on the irqchip level, as we must prevent further handler
-> +	 * invocations. We only take the interrupt once anyway, as we
-> +	 * are going to free the IRQ next, in mpam_disable().
-> +	 */
-> +	ret = mpam_disable_msc_ecr(msc);
-> +	if (ret)
-> +		disable_irq_nosync(irq);
->  
-> -	/* Are we racing with the thread disabling MPAM? */
-> +	/* Check whether we are racing with the thread disabling MPAM. */
->  	if (!mpam_is_enabled())
->  		return IRQ_HANDLED;
->  
->  	/*
-> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
-> -	 * unregister the interrupt from the threaded part of the handler.
-> +	 * Schedule the teardown work. We have to defer it as we can't
-> +	 * unregister the interrupt from the threaded part of a handler.
->  	 */
->  	mpam_disable_reason = "hardware error interrupt";
->  	schedule_work(&mpam_broken_work);
-> @@ -2786,10 +2812,30 @@ static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
->  	return __mpam_irq_handler(irq, msc);
->  }
->  
-> -static irqreturn_t mpam_spi_handler(int irq, void *dev_id)
-> +/*
-> + * MMIO based MSC accesses must run in non-preemptible context, as they
-> + * might have affinity requirements to check.
-> + * MPAM-Fb based MSC accesses must NOT run in hard-IRQ context, as they
-> + * can sleep.
-> + * So split the IRQ handling up, depending on the MSC access type.
-> + */
-> +static irqreturn_t mpam_shared_hard_irq(int irq, void *dev_id)
->  {
->  	struct mpam_msc *msc = dev_id;
->  
-> +	if (msc->iface == MPAM_IFACE_MMIO)
-> +		return __mpam_irq_handler(irq, msc);
+> +static void mpam_pcc_chan_release(struct kref *ref)
+> +{
+> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
+> +						 refcount);
 > +
-> +	return IRQ_WAKE_THREAD;
+> +	pcc_mbox_free_channel(cur->pcc_chan);
+> +	list_del(&cur->pcc_chans);
+> +	mutex_destroy(&cur->pcc_chan_lock);
+> +	kfree(cur);
 > +}
 > +
-> +static irqreturn_t mpam_shared_thread_irq(int irq, void *dev_id)
+> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
+> +					       int subspace_id)
 > +{
-> +	struct mpam_msc *msc = dev_id;
+> +	struct mpam_pcc_chan *cur;
 > +
-> +	if (msc->iface == MPAM_IFACE_MMIO)
-> +		return IRQ_HANDLED;
+> +	guard(mutex)(&pcc_chan_list_lock);
 > +
->  	return __mpam_irq_handler(irq, msc);
->  }
+> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
+> +		if (cur->subspace_id == subspace_id) {
+> +			kref_get(&cur->refcount);
+> +
+> +			return cur;
+> +		}
+> +	}
+> +
+> +	cur = kzalloc_obj(*cur);
+> +	if (!cur)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	cur->pcc_cl.tx_block = true;
+> +
+> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
+> +	if (IS_ERR(cur->pcc_chan)) {
+> +		long err = PTR_ERR(cur->pcc_chan);
+> +
+> +		kfree(cur);
+> +		return ERR_PTR(err);
+> +	}
+> +
+> +	/*
+> +	 * Timeout based on the "nominal latency" in us, from the
+> +	 * PCC ACPI table. tx_tout is in ms.
+> +	 * Add some margin here to be on the safe side.
+> +	 */
+> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
+> +
+> +	mutex_init(&cur->pcc_chan_lock);
+> +
+> +	cur->subspace_id = subspace_id;
+> +	kref_init(&cur->refcount);
+> +
+> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
+> +
+> +	return cur;
+> +}
+> +
+> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
+> +{
+> +	struct mpam_pcc_chan *cur, *tmp;
+> +
+> +	if (!pcc_chan)
+> +		return 0;
+> +
+> +	guard(mutex)(&pcc_chan_list_lock);
+> +
+> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
+> +		if (cur == pcc_chan) {
+> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
+> +
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENOENT;
+> +}
+> +
+>  /*
+>   * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
+>   * can be enabled.
+> @@ -2286,6 +2372,8 @@ static void mpam_msc_destroy(struct mpam_msc *msc)
+>  		mpam_ris_destroy(ris);
 >  
-> @@ -2810,6 +2856,11 @@ static int mpam_register_irqs(void)
->  		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
->  		/* We anticipate sharing the interrupt with other MSCs */
->  		if (irq_is_percpu(irq)) {
-> +			if (msc->iface != MPAM_IFACE_MMIO) {
-> +				dev_err(&msc->pdev->dev,
-> +					"Only MMIO MSCs can use per-CPU interrupts\n");
-> +				return -EINVAL;
-> +			}
->  			err = request_percpu_irq(irq, &mpam_ppi_handler,
->  						 "mpam:msc:error",
->  						 msc->error_dev_id);
-> @@ -2821,9 +2872,11 @@ static int mpam_register_irqs(void)
->  					       &_enable_percpu_irq, &irq,
->  					       true);
->  		} else {
-> -			err = devm_request_irq(&msc->pdev->dev, irq,
-> -					       &mpam_spi_handler, IRQF_SHARED,
-> -					       "mpam:msc:error", msc);
-> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
-> +							&mpam_shared_hard_irq,
-> +							&mpam_shared_thread_irq,
-> +							IRQF_SHARED | IRQF_ONESHOT,
-> +							"mpam:msc:error", msc);
->  			if (err)
->  				return err;
+>  	list_del_rcu(&msc->all_msc_list);
+> +	synchronize_srcu(&mpam_srcu);
+> +	mpam_pcc_chan_put(msc->pcc_chan);
+>  	platform_set_drvdata(pdev, NULL);
+>  
+>  	add_to_garbage(msc);
+> @@ -2308,7 +2396,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  {
+>  	int err;
+> -	u32 tmp;
+> +	u32 pcc_subspace_id;
+>  	struct mpam_msc *msc;
+>  	struct resource *msc_res;
+>  	struct device *dev = &pdev->dev;
+> @@ -2352,7 +2440,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  	if (err)
+>  		return ERR_PTR(err);
+>  
+> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>  		msc->iface = MPAM_IFACE_MMIO;
+>  	else
+>  		msc->iface = MPAM_IFACE_PCC;
+> @@ -2373,6 +2461,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
 >  		}
+>  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>  		msc->mapped_hwpage = io;
+> +	} else if (msc->iface == MPAM_IFACE_PCC) {
+> +		u32 mpam_fb_msc_id;
+> +
+> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+> +		if (IS_ERR(msc->pcc_chan)) {
+> +			pr_err("Failed to request MSC PCC channel\n");
+> +			return ERR_CAST(msc->pcc_chan);
+> +		}
+> +
+> +		err = mpam_fb_check_shared_buffer_size(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		err = mpam_fb_check_protocol_version(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
+> +					     &mpam_fb_msc_id))
+> +			mpam_fb_msc_id = msc->id;
+> +		msc->fb_id = mpam_fb_msc_id;
+>  	} else {
+>  		return ERR_PTR(-EINVAL);
+>  	}
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> index 72f45e9582df9..54834052cbde0 100644
+> --- a/drivers/resctrl/mpam_fb.c
+> +++ b/drivers/resctrl/mpam_fb.c
+> @@ -20,10 +20,15 @@
+>  #define MPAM_FB_PROTOCOL_ID		0x1a
+>  
+>  #define MPAM_PROTOCOL_VERSION_CMD	0x0
+> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
+> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
+> +
+>  #define MPAM_MSC_READ_CMD		0x4
+>  #define MPAM_MSC_WRITE_CMD		0x5
+>  
+>  #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
+> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
+>  
+>  #define MPAM_FB_SUCCESS		 0
+>  #define MPAM_FB_ERR_NOT_SUPPORTED	-1
+> @@ -215,3 +220,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>  	return mpam_fb_send_request(msc, msc->fb_id, reg, &value,
+>  				    MPAM_MSC_WRITE_CMD);
+>  }
+> +
+> +/* We only support MPAM-Fb protocol version 1.x */
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
+> +{
+> +	u32 version;
+> +	int ret;
+> +
+> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
+> +				   MPAM_PROTOCOL_VERSION_CMD);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
+> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
+> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
+> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
+> +{
+> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
+> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
+> +
+> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
+> +		pr_err("MPAM-Fb PCC channel size too small.\n");
+> +
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 99057d6abee1e..ee7c3953a9b6c 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+>  /* MPAM-Fb Firmware-backed protocol wrappers */
+>  int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
+>  int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
+>  
+>  /*
+>   * MPAM MSCs have the following register layout. See:
 
 
