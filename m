@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9670FCA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484F1CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Wxkghw+RAWX/vV1Z0UBQHh7h9RS8Ulkr1yE8/JVcZ0=; b=qiJMxhV/OsAf318+xAkga3qPWD
-	7TUONx0Foma2NCreHFU+xCab0yey1fDl4RP1Pa7vUfUNVa4YGC/117BqR4pBRgGdSKW0EAvffY4bR
-	yPcqrDb6mSeUezMsYyablsrl2r/dOCBNN5Lzla09qCPpi3pHW/kGGr4T+NyTTGgAppkVAcZaQ1hM4
-	t4d11IihORE6T+5TvcsQ0EsteVUYV7RJ3eD6VmCnXIjgok9j2W/+5OCrZ4HNojeIbZ2wgZrk2NFT2
-	7Dtg4go+b2FPZyoqtjYF1oP79TVJ99aKWsHrqhVahY2zvaDBynFBgVQkUfawV2VFWBolUpbbLvoJS
-	GtwUtygw==;
+	bh=oiFPi2Kqx80dkvEl/4oayuyKZoKEikHs2ABs0LVDYKw=; b=ef+c3RshfBbNgP2tmYTSxHiFfb
+	fP+Qk5KrpMUW/Kr6L4Aw5utm95+6eS1tbq1tYi5TAqyQJdRIriE5jiDpgG/KZO/ukiS4uZjnrqN12
+	GJlLQ1IwVzJL32fXNIIeGW6vQWTxZHfXic9JFZt9qlREdYk5xmwgT7CoRjFVicHDP/Jp0feKM+szA
+	7TXMSQ/L3NcwlAvc9/Yn0QN9RYuCear3PWwh1+qNUbBIAhfjLYsM1nGVcGnbHj+ypseABOPtA9tit
+	jp8n1lkfGSuvS64SRpb93yNQMILfLkRXJJ47ghTY1G0/iO0IN+7coKkYI+CSnfBEy1oAPCXgBv2Nm
+	gDU9GWuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwQ-0000000AsZs-2kuF;
-	Fri, 02 Oct 2026 07:44:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCYm0-0000000B0Tx-3Vbc;
+	Fri, 02 Oct 2026 08:37:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwJ-0000000AsS8-3uGk;
-	Fri, 02 Oct 2026 07:44:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7Wxkghw+RAWX/vV1Z0UBQHh7h9RS8Ulkr1yE8/JVcZ0=; b=P0C71bEILqV/xqATwdZj2mX8xZ
-	4G4Usj1dJ/J8qLNPOAgN8ActqneCc5cPt75wznvNgX9lwWCzttHQnoQup/3daVyOxrOxg7D6hRXyz
-	PDRBsBhnHmi5SKnl/D4fQPaYYzETPG1oOY6l7WEj51A97QPEX7rxqi0U2ebV068knh5SXvSL9zn1y
-	i/t7+6hwmUF2UN09S21SdiCQe/i5LnQ5yUl5DBtrm2r+m4GF4kNFhQYBQsBPEyk8a7IjCwimqBu5+
-	cB/obFA0ICqJOiINBhx5eiA/Dra03mR2MafCYScZn3w/ic7tSpYbfSNv+i7o6/Bu5FzlIHb4EYE22
-	o7eknc/Q==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCXwE-00000005gke-1nLS;
-	Fri, 02 Oct 2026 07:44:18 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hZm553646752, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1790927015; bh=7Wxkghw+RAWX/vV1Z0UBQHh7h9RS8Ulkr1yE8/JVcZ0=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=b+gdVM3aqKzUmWt0DflvDMXP6CKak1U6mFxdPL+hUgEGLOYsryutM0zydI5QS0g1u
-	 C6+O9SP3arORNd5bEwfbkCofYCVZvElKBGxjIIMH5sdXllRHzqPwh8XKvS/Ct6Ua3a
-	 J0kXBBVSTHxN5hW08d7bgGP6IaAMi02IXqYqyk3MJUxwA0hvsC/X7dkTyCl/FPzX3E
-	 BbPwNR3GUWPM/9FWF2TexSLLView8iSoA/6OvGINJivmr3OUZOn+cFJwkFAHe9Vs3x
-	 qq+gX5Gdxu7U3Xqgzn7qcvjLguN5HEyboD/um6D/NjjqR+w2yXbuKWdaRYULPVZIxl
-	 RM93Nk6cs06PA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hZm553646752
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 Oct 2026 15:43:35 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:34 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 2 Oct 2026 15:43:34 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
-	<bmasney+clk@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>, Brian Masney <bmasney@redhat.com>
-Subject: [PATCH v15 10/11] clk: realtek: Add RTD1625-ISO clock controller driver
-Date: Fri, 2 Oct 2026 15:43:30 +0800
-Message-ID: <20261002074331.3066919-11-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261002074331.3066919-1-eleanor.lin@realtek.com>
-References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
-MIME-Version: 1.0
+	id 1xCYly-0000000B0Td-37yv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 08:37:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1CA7860A5E;
+	Fri,  2 Oct 2026 08:37:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09C71F000FF;
+	Fri,  2 Oct 2026 08:37:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790930261;
+	bh=oiFPi2Kqx80dkvEl/4oayuyKZoKEikHs2ABs0LVDYKw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=B9DOctviWFC46yM2NNuWsM7SNkc8a6QW0Oztuax4CKi1qhdy+uEsW1Vxa4WCd/pes
+	 9bg2mu/BOTRXgisfelFo+e6n53Oz26Sic7CqoUXLRb2d17FXLIjGabuBgVfOOJCsrb
+	 HhQSS0cHoF79MMr6fIOxkdn3aPHn//qGEwymCHXXb/EgQAsmON1JB8gF4hCccwUuxs
+	 TmO03WBuuN4UGVkZPxww9K/iqJ5FDjA9rCQi0ftgqjKBlfp3JdkMUckBtI5UG1SHdC
+	 Td/BJnMdekzVoxoVaeNX09tdplBMuUYPJEOlmEl9Z1aOIqwfkZlJy/Hux58PiWV/fo
+	 8ywT+2mVmn72w==
+Subject: Re: [PATCH net v6 1/5] net: stmmac: Remove VLAN perfect matching dead code
+From: netdev-bot+sashiko@kernel.org
+To: ovidiu.panait.rb@renesas.com
+Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com,
+ jun.ann.lai@intel.com, yi.fang.gan@intel.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 02 Oct 2026 08:37:40 +0000
+Message-ID: <179093026044.434549.8453700533744395096@kernel.org>
+In-Reply-To: <20260928203441.34876-2-ovidiu.panait.rb@renesas.com>
+References: <20260928203441.34876-2-ovidiu.panait.rb@renesas.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084415_983534_92D6DF95 
-X-CRM114-Status: GOOD (  20.00  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,186 +73,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Add support for the ISO (Isolation) domain clock controller on the Realtek
-RTD1625 SoC. This controller manages clocks in the always-on power domain,
-ensuring essential services remain functional even when the main system
-power is gated.
+Low priority / nit picks for your consideration:
 
-Because the reset controller shares the same register space with this ISO
-clock controller, this driver also acts as the parent device and registers
-the reset controller as an auxiliary device on the auxiliary bus.
+- [Low] This patch removes the only code that ever read
+  priv->dma_cap.vlhash inside stmmac_vlan_update().
+- [Low] The commit message's second reason for removal is wrong for
+  XLGMAC.
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
----
-Changes in v15:
-- Assign parents to gate clocks.
----
- drivers/clk/realtek/Makefile          |   1 +
- drivers/clk/realtek/clk-rtd1625-iso.c | 140 ++++++++++++++++++++++++++
- 2 files changed, 141 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
+--
 
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 52d5d1b18104..e8d9017098d3 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -9,3 +9,4 @@ clk-rtk-y += freq_table.o
- 
- clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
- obj-$(CONFIG_CLK_RTD1625) += clk-rtd1625-crt.o
-+obj-$(CONFIG_CLK_RTD1625) += clk-rtd1625-iso.o
-diff --git a/drivers/clk/realtek/clk-rtd1625-iso.c b/drivers/clk/realtek/clk-rtd1625-iso.c
-new file mode 100644
-index 000000000000..cd520c6e1259
---- /dev/null
-+++ b/drivers/clk/realtek/clk-rtd1625-iso.c
-@@ -0,0 +1,140 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#include <dt-bindings/clock/realtek,rtd1625-clk.h>
-+#include <linux/array_size.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include "clk-regmap-gate.h"
-+
-+#define RTD1625_ISO_CLK_MAX	19
-+#define RTD1625_ISO_S_CLK_MAX	5
-+
-+static RTK_CLK_REGMAP_GATE(clk_en_usb_p4, "clk_sys", 0, 0x8c, 0, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_usb_p3, "clk_sys", 0, 0x8c, 1, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_misc_cec0, "clk_en_misc", 0, 0x8c, 2, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_cbusrx_sys, "clk_sys", 0, 0x8c, 3, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_cbustx_sys, "clk_sys", 0, 0x8c, 4, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_cbus_sys, "clk_sys", 0, 0x8c, 5, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_cbus_osc, "osc27m", 0, 0x8c, 6, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_i2c0, "clk_ddsa_div4", 0, 0x8c, 9, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_i2c1, "osc27m", 0, 0x8c, 10, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_etn_250m, "clk_sys", 0, 0x8c, 11, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_etn_sys, "clk_sys", 0, 0x8c, 12, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_usb_drd, "clk_sys", 0, 0x8c, 13, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_usb_host, "clk_sys", 0, 0x8c, 14, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_usb_u3_host, "clk_sys", 0, 0x8c, 15, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_usb, "clk_sys", 0, 0x8c, 16, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_vtc, "osc27m", 0, 0x8c, 17, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_misc_vfd, "clk_en_misc", 0, 0x8c, 18, 0);
-+
-+static struct rtk_clk_regmap *rtd1625_iso_clk_regmap_list[] = {
-+	&clk_en_usb_p4.clkr,
-+	&clk_en_usb_p3.clkr,
-+	&clk_en_misc_cec0.clkr,
-+	&clk_en_cbusrx_sys.clkr,
-+	&clk_en_cbustx_sys.clkr,
-+	&clk_en_cbus_sys.clkr,
-+	&clk_en_cbus_osc.clkr,
-+	&clk_en_i2c0.clkr,
-+	&clk_en_i2c1.clkr,
-+	&clk_en_etn_250m.clkr,
-+	&clk_en_etn_sys.clkr,
-+	&clk_en_usb_drd.clkr,
-+	&clk_en_usb_host.clkr,
-+	&clk_en_usb_u3_host.clkr,
-+	&clk_en_usb.clkr,
-+	&clk_en_vtc.clkr,
-+	&clk_en_misc_vfd.clkr,
-+};
-+
-+static struct clk_hw_onecell_data rtd1625_iso_clk_data = {
-+	.num = RTD1625_ISO_CLK_MAX,
-+	.hws = {
-+		[RTD1625_ISO_CLK_EN_USB_P4]      = &__rtk_clk_regmap_gate_hw(&clk_en_usb_p4),
-+		[RTD1625_ISO_CLK_EN_USB_P3]      = &__rtk_clk_regmap_gate_hw(&clk_en_usb_p3),
-+		[RTD1625_ISO_CLK_EN_MISC_CEC0]   = &__rtk_clk_regmap_gate_hw(&clk_en_misc_cec0),
-+		[RTD1625_ISO_CLK_EN_CBUSRX_SYS]  = &__rtk_clk_regmap_gate_hw(&clk_en_cbusrx_sys),
-+		[RTD1625_ISO_CLK_EN_CBUSTX_SYS]  = &__rtk_clk_regmap_gate_hw(&clk_en_cbustx_sys),
-+		[RTD1625_ISO_CLK_EN_CBUS_SYS]    = &__rtk_clk_regmap_gate_hw(&clk_en_cbus_sys),
-+		[RTD1625_ISO_CLK_EN_CBUS_OSC]    = &__rtk_clk_regmap_gate_hw(&clk_en_cbus_osc),
-+		[RTD1625_ISO_CLK_EN_I2C0]        = &__rtk_clk_regmap_gate_hw(&clk_en_i2c0),
-+		[RTD1625_ISO_CLK_EN_I2C1]        = &__rtk_clk_regmap_gate_hw(&clk_en_i2c1),
-+		[RTD1625_ISO_CLK_EN_ETN_250M]    = &__rtk_clk_regmap_gate_hw(&clk_en_etn_250m),
-+		[RTD1625_ISO_CLK_EN_ETN_SYS]     = &__rtk_clk_regmap_gate_hw(&clk_en_etn_sys),
-+		[RTD1625_ISO_CLK_EN_USB_DRD]     = &__rtk_clk_regmap_gate_hw(&clk_en_usb_drd),
-+		[RTD1625_ISO_CLK_EN_USB_HOST]    = &__rtk_clk_regmap_gate_hw(&clk_en_usb_host),
-+		[RTD1625_ISO_CLK_EN_USB_U3_HOST] = &__rtk_clk_regmap_gate_hw(&clk_en_usb_u3_host),
-+		[RTD1625_ISO_CLK_EN_USB]         = &__rtk_clk_regmap_gate_hw(&clk_en_usb),
-+		[RTD1625_ISO_CLK_EN_VTC]         = &__rtk_clk_regmap_gate_hw(&clk_en_vtc),
-+		[RTD1625_ISO_CLK_EN_MISC_VFD]    = &__rtk_clk_regmap_gate_hw(&clk_en_misc_vfd),
-+	},
-+};
-+
-+static const struct rtk_clk_desc rtd1625_iso_desc = {
-+	.clk_data = &rtd1625_iso_clk_data,
-+	.clks     = rtd1625_iso_clk_regmap_list,
-+	.num_clks = ARRAY_SIZE(rtd1625_iso_clk_regmap_list),
-+	.aux_name = "rtd1625_iso_rst",
-+};
-+
-+static RTK_CLK_REGMAP_GATE(clk_en_irda, "osc27m", 0, 0x314, 6, 1);
-+static RTK_CLK_REGMAP_GATE(clk_en_ur10, "osc27m", 0, 0x314, 8, 1);
-+
-+static struct rtk_clk_regmap *rtd1625_iso_s_clk_regmap_list[] = {
-+	&clk_en_irda.clkr,
-+	&clk_en_ur10.clkr,
-+};
-+
-+static struct clk_hw_onecell_data rtd1625_iso_s_clk_data = {
-+	.num = RTD1625_ISO_S_CLK_MAX,
-+	.hws = {
-+		[RTD1625_ISO_S_CLK_EN_IRDA] = &__rtk_clk_regmap_gate_hw(&clk_en_irda),
-+		[RTD1625_ISO_S_CLK_EN_UR10] = &__rtk_clk_regmap_gate_hw(&clk_en_ur10),
-+	},
-+};
-+
-+static const struct rtk_clk_desc rtd1625_iso_s_desc = {
-+	.clk_data = &rtd1625_iso_s_clk_data,
-+	.clks     = rtd1625_iso_s_clk_regmap_list,
-+	.num_clks = ARRAY_SIZE(rtd1625_iso_s_clk_regmap_list),
-+	.aux_name = "rtd1625_iso_s_rst",
-+};
-+
-+static int rtd1625_iso_probe(struct platform_device *pdev)
-+{
-+	const struct rtk_clk_desc *desc;
-+
-+	desc = device_get_match_data(&pdev->dev);
-+	if (!desc)
-+		return -EINVAL;
-+
-+	return rtk_clk_probe(pdev, desc);
-+}
-+
-+static const struct of_device_id rtd1625_iso_match[] = {
-+	{ .compatible = "realtek,rtd1625-iso-clk", .data = &rtd1625_iso_desc },
-+	{ .compatible = "realtek,rtd1625-iso-s-clk", .data = &rtd1625_iso_s_desc },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, rtd1625_iso_match);
-+
-+static struct platform_driver rtd1625_iso_driver = {
-+	.probe = rtd1625_iso_probe,
-+	.driver = {
-+		.name = "rtk-rtd1625-iso-clk",
-+		.of_match_table = rtd1625_iso_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+
-+module_platform_driver(rtd1625_iso_driver);
-+
-+MODULE_DESCRIPTION("Realtek RTD1625 ISO Clock Controller Driver");
-+MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("CLK_REALTEK");
+net: stmmac: Remove VLAN perfect matching dead code
+
+This commit removes the perfect-matching fallback in stmmac_vlan_update().
+That fallback was used when the VLAN hash filter is unavailable
+(!priv->dma_cap.vlhash). The commit also drops the perfect_match argument
+from the update_vlan_hash() callbacks, together with the matching branches
+in vlan_update_hash() and dwxgmac2_update_vlan_hash().
+
+> The fallback is also duplicating the code in vlan_add_hw_rx_fltr(), which
+> is always available since stmmac_get_num_vlan() returns at least 1.
+
+[Severity: Low]
+Does this hold for XLGMAC? hwif.c maps XLGMAC cores to dwxlgmac2_vlan_ops,
+which has no add, del or restore filter callbacks:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:
+const struct stmmac_vlan_ops dwxlgmac2_vlan_ops = {
+	.update_vlan_hash = dwxgmac2_update_vlan_hash,
+	.enable_vlan = vlan_enable,
+};
+
+dwxlgmac2_setup() also never calls stmmac_get_num_vlan(). Only
+dwmac4_setup() and dwxgmac2_setup() do. mac_device_info is zero-allocated,
+so hw->num_vlan stays 0 on XLGMAC, and stmmac_vlan_rx_add_vid() skips the
+num_vlan block.
+
+On XLGMAC, the perfect_match branch removed from
+dwxgmac2_update_vlan_hash() seems to be the only non-hash VLAN filter code.
+It is not a duplicate of vlan_add_hw_rx_fltr().
+
+The removal itself still looks safe. The first reason in the commit message
+holds, since the filter features are only advertised when
+dma_cap.vlhash is set. Also, the removed "pmatch = vid" ran after the
+for_each_set_bit() loop, so it only ever programmed VID 4096.
+
+Could this paragraph be corrected? Otherwise reviewers and backporters may
+assume XLGMAC keeps a perfect-filter path.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index ec62fa7418f4..bdb856291340 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6853,29 +6853,18 @@ static u32 stmmac_vid_crc32_le(__le16 vid_le)
+>  static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
+>  {
+>  	u32 crc, hash = 0;
+> -	u16 pmatch = 0;
+> -	int count = 0;
+>  	u16 vid = 0;
+>  
+>  	for_each_set_bit(vid, priv->active_vlans, VLAN_N_VID) {
+>  		__le16 vid_le = cpu_to_le16(vid);
+>  		crc = bitrev32(~stmmac_vid_crc32_le(vid_le)) >> 28;
+>  		hash |= (1 << crc);
+> -		count++;
+> -	}
+> -
+> -	if (!priv->dma_cap.vlhash) {
+> -		if (count > 2) /* VID = 0 always passes filter */
+> -			return -EOPNOTSUPP;
+> -
+> -		pmatch = vid;
+> -		hash = 0;
+>  	}
+>  
+>  	if (!netif_running(priv->dev))
+>  		return 0;
+>  
+> -	return stmmac_update_vlan_hash(priv, priv->hw, hash, pmatch, is_double);
+> +	return stmmac_update_vlan_hash(priv, priv->hw, hash, is_double);
+>  }
+
+[Severity: Low]
+This removes the only check of priv->dma_cap.vlhash in
+stmmac_vlan_update(). Do the "(perf)" ethtool selftests still test anything
+different from the hash tests now?
+
+stmmac_test_vlanfilt_perfect() and stmmac_test_dvlanfilt_perfect() in
+stmmac_selftests.c still toggle that capability to force the perfect-match
+path:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:stmmac_test_vlanfilt_perfect() {
+    ...
+	priv->dma_cap.vlhash = 0;
+	ret = __stmmac_test_vlanfilt(priv);
+	priv->dma_cap.vlhash = prev_cap;
+    ...
+}
+
+With this patch, adding VID 0x123 makes stmmac_vlan_update() compute a
+non-zero hash and always pass it to update_vlan_hash(). As a result,
+vlan_update_hash() and dwxgmac2_update_vlan_hash() set
+VLAN_VTHM | VLAN_ETV (and XGMAC_FILTER_VTFE on XGMAC), whatever the vlhash
+toggle says.
+
+Before this patch, the fallback forced hash = 0 and cleared VTHM. That left
+only the perfect filters programmed by vlan_add_hw_rx_fltr() active.
+
+The "VLAN Filtering (perf)" and "Double VLAN Filter (perf)" entries are
+still registered in stmmac_selftests[]. They now pass on the hash filter
+alone, because the test VIDs 0x124..0x126 fall into different hash bins. On
+XLGMAC (num_vlan == 0, no add_hw_vlan_rx_fltr), they don't exercise perfect
+filtering at all.
+
+These selftests also seem to stay as they are later in the series. The
+later rename only changes the dvlanfilt names to svlanfilt.
+
+Should these two selftests be removed or reworked as part of this change?
+Otherwise ethtool -t reports PASS for perfect filtering that is no longer
+tested on its own.
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928203441.34876-1-ovidiu.panait.rb%40renesas.com
 
