@@ -4,85 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08ED7CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6BACA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUPal21B/mSeq/i2I0fVbafYDiAiPgFaWqso5GBNYgw=; b=2NHCK5H4W9rPwHPiIBzYhygWVF
-	bWstmj+Z1SjbWO43osHYwBZMVS3vd+aXQCX13vGJXVgYeb8FBYb8yI2UIlyOR2dpPEFNNvX6zF0eX
-	vF6pjQ50EwHRMLPGhaZX/STsZF/kC9RgaGOpVveFX1vEgdGUJ8NnWwvBdihsGDRGwPNknyE6DEKgT
-	MmMiRwxvYC4CC6fGt5gOpn0hXkuyOrHncfQTEZ1kQ9YPoYqELTvhzL+Ht3EPdCo4nZJA33jme7Plz
-	LCRchhY7ePULNz0SeGQXK1ZpsNMXF0sM4dPfmybWX9foq1GUQg/FyA5TIa9yZQcweAOHv1Os8Q3Xb
-	oYB37evA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sisy7zZIPgc2KpxP76gexIt4R+mmsTYOynHiu3xxYkg=; b=laTqJYN4wm8tlPuOIGC0Uh8tCz
+	0gifFE9/BJenHVg8JebivMQsRnXaX5xjHUKhbiHQwgDHz4LvkVimvCHUGDpIv0eet6DdNeSUJKZXT
+	EjvCh7CXFNOdMaiVtBpUMHuA9S23FhZ6kjZt+/z0DtgfXJOfKCNPgvxl5PtSPCwZfLFFVF8qbcPkP
+	MSnf5Qm6JVI73VjE664nWbA0CdoYtfLq450UJglBRX8GMO7U4dpSVdLJpIORjU6doO4uQv/eYHCeE
+	xvDDoM2JxoltFbEz/MtcxamqG6IlLWQE5RfPRBoVxP/5l9TXo0KfYc+oHGjCe2Dew2eGhB8kjeBG/
+	zUH+CXRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZPx-0000000B7Up-2cMO;
-	Fri, 02 Oct 2026 09:19:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCZTF-0000000B7oP-1E1s;
+	Fri, 02 Oct 2026 09:22:25 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZPw-0000000B7UD-0QU2;
-	Fri, 02 Oct 2026 09:19:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3F8760A96;
-	Fri,  2 Oct 2026 09:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854CD1F000FF;
-	Fri,  2 Oct 2026 09:18:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790932738;
-	bh=kUPal21B/mSeq/i2I0fVbafYDiAiPgFaWqso5GBNYgw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Bib7a0PM9uB/Juf5Fvu+oSR5+RsFmNc22FbQ3W8GIqtnemb+ACt71CTBw2sib4s92
-	 fFnF4433pDjiEGcg7x5zAEvURZ47Q+qrMo2IYrA95mk7vxbQjDv/9+rywF+rGaZ2P7
-	 MWKHtnnqTQ8pjgpyCRbNP4t/CulAsggec5uV/Q4dsuX2d3LyZTJU72PUMvHEvpTwms
-	 bQHF6mNjpQkROI+pb8cwG0OWRm4RbVW2IZfgTwGPNyr7ZCIRlyeoMH50oI1zzLRcfH
-	 fUDv5QFMQ3ZAiDD1vUKWIdfRDKrY3rzo4o2Sj1ojPFTeN/KT1OBRSYQl++2ya2NmOw
-	 blTAYWLPs3B3Q==
-Message-ID: <83a874fb-db66-4dc2-8e14-68c7e28ae27c@kernel.org>
-Date: Fri, 2 Oct 2026 11:18:51 +0200
+	id 1xCZTB-0000000B7n9-2vtl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 09:22:23 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a01ff8c098so11134965e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:22:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790932939; x=1791537739; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sisy7zZIPgc2KpxP76gexIt4R+mmsTYOynHiu3xxYkg=;
+        b=nx6pwCEQhZAFtHQqwz0UD6wgibNhs98HBCeqthST0p+Vy1hXDM7HhMe4HU6UggSPxq
+         aULs0NLVHdvWjIqM4qVpbrSpnUu6R5sbO/3LD6aw6KGnuPqhdFS/oEVNgXeg4cbYar4q
+         zzxrHMZ/8q4+3siHUsW2wBlyQUKPOpw1WTU6z0dRLTa0N/wkzmIOYH/EwUIu0jZS1ZXf
+         IdeWbUngQBsSTpaML+R1LJ1RdWe2snoRUSiZs1m/xrIZ5B/qBLOMjWTnlbljvUCoBVOJ
+         jH4PJ0o882fNRyphtBJ36IUkw460c38fGdXyU4grhM3tQ7RWAHQXycVEbda6bvEdn2+H
+         ljCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790932939; x=1791537739;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sisy7zZIPgc2KpxP76gexIt4R+mmsTYOynHiu3xxYkg=;
+        b=eVDJg/PswT7AV21GzJPFqUSNr7YsI03rarm/7rvdHU6sfzOXdrVYkKG7JK1+QJcM1b
+         1/Z2qClnxLnr3PX5t1hexbcZkUExsweldcKPZCtXJQSPRdRWKLTAXBPUXKuYxaWlDVjs
+         vMB55wWn5kZZafSDJ3xWgus11RZ5edDFqL6EQqkj4I1+3Iav2vq1Q40q5D3q37YT6JG0
+         mcIgZJzTpYLjVvOss5gZr+nfrPtmxnf/Ios0Q+tnGOMW1LxCCAsJwoDbUO5MfjKsc04l
+         JyQZbrE9aJrioVu+TzkppcPHA6SytB3igb2Om2P7bHGq0BcKS4LSbup6qXEY81XdTBi1
+         H6+g==
+X-Forwarded-Encrypted: i=1; AKwUvBzxdLux/WBH4/vzjqAFz+BBFExNdLx9drgYbcy4fRuRN+gw64l7M+/DRoPfhCLllI4lz0ZGSddn+uxY+PqldeN9@lists.infradead.org
+X-Gm-Message-State: AFuF++nTtycvfmmHOqJvwv9IoleFfPo/PjKtecHewXbgTKRypHrypicA
+	6PoytK4ydKO6RZTUObvVNHhpzf7ngt07tL568Lvs/dAy7nFRjSykwLX1+tZtfhnO22g=
+X-Gm-Gg: AYBFou0J/8SozfuAoyQWWXU+JbkSuWUwFl490AxwLQkIa3RrXwJfLwI4C4Z1yaD8U3v
+	6kzBo95kZtCB3tK/ZSuGt9+KQfph2BfiSvxrezSGSo44JoPwLz9YdMip3Z//OyiD/lmEtUb/3QB
+	JZHfDTmLSISTcqx8H7Xh9yxXwGYav+k0v8v0rnsJM9SNy0o6hA7apk+SLnP0xR+Zqiw3bxG/12+
+	PFHqLlstyX4cMM2GQnEgtV1g3XsgIQ5VGikgzhYyATWOOP0eRaLrbHxjMHHs69Tzx85Qu0GSxRS
+	0E/owhUJFAok3qiVdeo6Ws3WCRS9w5P5lOAa7tnSsnr1h5nZA555UVxgEgkFWiqanWEtyabgu6V
+	Pwj9Dy2oHOVKCH30tqRhPSaQZy/ZdCnBTlLgwNeYv53AIn+5xMp4GvjQ9w1YDougugFF0rJR7Ag
+	HNqVhp83elAIHb/lSQzm+VwfTD15tBbJ8tdZJLjqOEoBuvOgwUYMq0SYyKe8kroTRAZlW5dlIPn
+	0+fQUfuDmGP/XgQn/XviefSB3qave4NsPpQFV03/bG/FvHaGT8Y/uOcUxtwevo=
+X-Received: by 2002:a05:600c:3152:b0:4a0:2500:2cd0 with SMTP id 5b1f17b1804b1-4a0275977eamr36418335e9.18.1790932939327;
+        Fri, 02 Oct 2026 02:22:19 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:2f62:6d3:721b:8c9e? ([2a01:e0a:106d:1080:2f62:6d3:721b:8c9e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280d924asm71505645e9.14.2026.10.02.02.22.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Oct 2026 02:22:18 -0700 (PDT)
+Message-ID: <97e7014e-69a1-4ac8-8278-9e3795b05553@linaro.org>
+Date: Fri, 2 Oct 2026 11:22:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Theodore Ts'o <tytso@mit.edu>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- llvm@lists.linux.dev
-References: <are6s5e6On3hpD3M@zx2c4.com>
- <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
- <20260930133813.GA3142230@ax162> <ar0a4b9CjL2YHCkY@zx2c4.com>
- <ar0gTS71qxnx9AkW@zx2c4.com> <20260930151337.GD3142230@ax162>
- <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
- <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
- <ar4nD8aRH7wEvTMt@zx2c4.com> <20261001102059.GA4176271@ax162>
- <ar46ap4jzLWyP92C@zx2c4.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <ar46ap4jzLWyP92C@zx2c4.com>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 2/2] arm64: dts: amlogic: meson-sm1-odroid-hc4: run the
+ SPI NOR at 40 MHz
+To: iav@iav.lv, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260930-hc4-spi-nor-v1-0-9a3351e2984e@iav.lv>
+ <20260930-hc4-spi-nor-v1-2-9a3351e2984e@iav.lv>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260930-hc4-spi-nor-v1-2-9a3351e2984e@iav.lv>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_022221_776224_B4633E1C 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +132,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 01/10/2026 à 12:48, Jason A. Donenfeld a écrit :
-> On Thu, Oct 01, 2026 at 12:20:59PM +0200, Nathan Chancellor wrote:
->> control. The change that introduced -max-store-memset only did it to
->> "allow fine-tuning of the inlining threshold for performance analysis
->> and optimization". If they decide to remove it for whatever reason,
->> we're back to square one.
+On 9/30/26 18:52, Igor Velkov via B4 Relay wrote:
+> From: Igor Velkov <iav@iav.lv>
 > 
-> I suppose all the more reason to get -finline-stringops=memset added to
-> clang. Then the dual-default thing you came up with below will naturally
-> start choosing the first option when it becomes available.
+> At 104 MHz, reads return corrupted data: bit 0 of the first byte of a
+> transfer flips from 0 to 1 part of the time. The same byte read as the
+> second byte of a transfer was correct in all 100 reads. One 4 KiB block
+> read 200 times came back wrong 157 times. Writes are unaffected.
 > 
->> I know something like below would be uglier due to the ifdef but it
->> would avoid changing anything for GCC while clearing up the issue at
->> hand for clang in a guaranteed stable and succinct manner.
+> flashcp verifies while it writes, so a bootloader update erases blocks
+> it should skip and can abort halfway, with the flash half written.
 > 
-> But then we're back to the byte-by-byte codegen that Christophe pointed
-> out.
+> The Hardkernel vendor device tree for this board uses 40 MHz. At 40 MHz
+> the same tests pass: 200 block reads with no mismatch, and 14 flashcp
+> runs with no block erased.
+> 
+> Tested on ODROID-HC4 with an XT25F128B.
+> 
+> Fixes: 7178f340e929 ("arm64: dts: meson-sm1-odroid-hc4: add spifc node to ODROID-HC4")
+> Assisted-by: LLM
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+> ---
+>   arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> index 5ce76a1bfe02..8f09f2b74bdd 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> @@ -144,7 +144,7 @@ flash@0 {
+>   		#size-cells = <1>;
+>   		compatible = "jedec,spi-nor";
+>   		reg = <0>;
+> -		spi-max-frequency = <104000000>;
+> +		spi-max-frequency = <40000000>;
+>   	};
+>   };
 >   
->> If that is not acceptable, something like the following does appear to
->> work for me.
-> 
-> Okay, great, let's do that.
-> 
-> Does this commit seem okay with you? I used the diff you sent below and
-> adjusted the commit message: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgit.zx2c4.com%2Flinux-rng%2Fcommit%2F%3Fid%3D56ff95ee85715047eb5b5220243778af657778c8&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7Cd89b4de22ff94b6be71208df1fa9839a%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639264485055490029%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Vxf8xRCdLavtw4Dmi%2B49FY1lJDWtm%2BjKv7f8BxKTGq4%3D&reserved=0
 > 
 
-The commit message says: Similarly, GCC has -finline-stringops=memset to 
-do the same [4], should this issue ever hit future version of GCC.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Why default "-finline-stringops=memset" if 
-$(cc-option,-finline-stringops=memset), have we identified cases where 
-build fail without that or is it just for future provision ?
-
-As shown in my previous email, with GCC 16 on powerpc32 we get a 
-slightly better code without this option.
-
----
-diff --git a/init/Kconfig b/init/Kconfig
-index 8583d9f06c52..98d8d7fa64c5 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -173,6 +173,11 @@ config CC_HAS_ALLOC_TOKEN
-  config CC_HAS_MULTIDIMENSIONAL_NONSTRING
-  	def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) 
-= { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
-
-+config CC_OPT_INLINE_MEMSET
-+	string
-+	default "-finline-stringops=memset" if 
-$(cc-option,-finline-stringops=memset)
-+	default "-mllvm -max-store-memset=4294967295" if $(cc-option,-mllvm 
--max-store-memset=4294967295)
-+
-  config LD_CAN_USE_KEEP_IN_OVERLAY
-  	# ld.lld prior to 21.0.0 did not support KEEP within an overlay 
-description
-  	# https://github.com/llvm/llvm-project/pull/130661
-
+Thanks,
+Neil
 
