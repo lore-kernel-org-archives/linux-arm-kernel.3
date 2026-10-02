@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745A4CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3FFCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/5XOnfiZIWhHaazfIksBYAhb1bM+JDK1FK2T/8kf0k=; b=iiB3sGBCRf0CHzIQRrPwaeFPc8
-	IC0Zeb/Crzqqp0/HsSyISwrLi0Qun3BqQDCaaESgxXhU7j2gQCu3ZNsM7GXeKDVkEnPisuQ0o1VYD
-	XQ5nCcDhlCYnn6c5bnq1ktGRc5XZSvBbbvKYF5ypdQyyvhk29EGT4SemiayKKg8eKB6N3yrMb4Xo8
-	45LRSfyxUCvVGCVWoN6aS/9pEnJWL4j/+rmc0KW7BdsaNq+sY/Suxh3UJkJ0+zzY4LmlLLYIOBPk6
-	009U30Z7FBOgKD738ojDdQrmvOd4RtgWRP8qpO0izwfOjKdqnVYqUXCjymZ2PokyvB7aKsJM/4UfJ
-	fvYFb3VA==;
+	bh=5SdFF897J19vB9gXlitk0PJAT4sCzBncom/C0yG9+Zg=; b=fqO4tYrb2QNEgU0By4zJTFTXIx
+	/deFETyaCpG6wStAmVBBxXcZLCpAKJbRiF1W0nqPNdaSlO+MfMHEKXep+Mm4AZ+S/jZapjxsVB6fA
+	J0dJv16h5VbBfPPl/WNF/EDizmFgrGYDCDF7NvrRKkkj79JLoyl/o+XorQCtAVzGSeQtRO6+OyRjg
+	pHHlCEtme5onkSdVdUbSN5WnV/BVXtCzB1+afDQiOgismyanqxuV7J2jUxvIHH5Kk28N4MlZD2Ovw
+	ot3AwXE4Ufyy2NogxWh+owHLfzCL68WnAWXr/AuC02ft5fQasdHUnnXlUw9XO0OvGZznbYRpVLR5v
+	VNvASd4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZHz-0000000B56b-2BA3;
-	Fri, 02 Oct 2026 09:10:47 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1xCZI6-0000000B5CO-1avO;
+	Fri, 02 Oct 2026 09:10:54 +0000
+Received: from mail-pj2-x2b.google.com ([2607:f8b0:4864:39::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZHw-0000000B51b-0LfG
+	id 1xCZI1-0000000B56z-3Glw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:10:46 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2dd77300825so40066635ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:10:43 -0700 (PDT)
+	Fri, 02 Oct 2026 09:10:53 +0000
+Received: by mail-pj2-x2b.google.com with SMTP id d9443c01a7336-2e2c7eb3b8cso18761095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:10:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790932243; x=1791537043; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2/5XOnfiZIWhHaazfIksBYAhb1bM+JDK1FK2T/8kf0k=;
-        b=s7J9SZaZ5MmmVXB/wYywlKOIzX1LcfOYay+G1cSIKOaU4jM+9wZKR5dMUZEnqa2iWn
-         aYQYfhUxfqufcTrGsWAH5i3YaMb/k5b9e5/bzA7ZvAeTV3vmWZUDNFb/qYOrl+FLKakq
-         PdDQHfUY69AVO6r6C57C7Ppwrvr5crGJ36VsZRbn4U4Y527g2sUAhkMvrVgD7lQBkmgl
-         L1xwrsfQMBf/hrHYjAKUGm0wfdCgagwBLanelV/HOKKX6a68QxaxB3DbuaQ8U4teg3tX
-         4WgeWzRIlCKTbGk5wCToO5UKmfXTHR7plGR5tAXe/r0n9kOVu9t4rVsitAVQz1ub/47D
-         gFqg==
+        d=gmail.com; s=20251104; t=1790932249; x=1791537049; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5SdFF897J19vB9gXlitk0PJAT4sCzBncom/C0yG9+Zg=;
+        b=qSWV55ChLa4bgnU7uvfn/xDKW7QBCBxnHvH36RL5iRnzhmcgpRH+sFPY+FXiMn0BKx
+         PvJQuYKRYhXavSPA7cHHMUgzU50eaw97Fo3cdX7fQY2oBR/fnNkRTvs6H8fOn/RSIGU5
+         vXTE+3SzV02rC8jaVQx2v36KtB+y7KZyn5GxMtB3tSZFdRhQ1xaOqbyLkEGLkskt+ArC
+         R0QCuWdtkxjUUQ9bcEwZKmu4wR7DNCXBo9hSh0fEOXKvr0prIhhho3ItEaNvNYG/mZZy
+         +EbG+tw8g9lEcL8GamfkXx9ZSUJQBqjFb1ECServYPX+fMAQpps8JXavqbBPUaQZU8bc
+         2tCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790932243; x=1791537043;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2/5XOnfiZIWhHaazfIksBYAhb1bM+JDK1FK2T/8kf0k=;
-        b=j0XF6f16Bx8k4s4y/IhhnEkz3JDHGciLdIHuvyvNACIfQLtNoRgeL5p4ta15hbo+2l
-         DoV64GZxrL19ZarqrasOLcmchh14NuVgfOL90SL5YMMhLYH541r/KbVAQdOn63Wu2fIY
-         la4KurI8lBkJoc6mx3CuPgA8a9YHkcJIpEoIPgWnnZxunfjRRnLA1lvMWrg9RrFmCSZ/
-         l/XLlzKXrm6EtVQ5H4wvvcBejDIBxeyNZfkYzq8E7HdyLaF/YDQtnS7Q7PYBARO1P9q9
-         n0jZIi5TmB3CC6hBXjlVP2+UPWfEWfjX9w2wZ7cL1PUQ3b8D9XYRzrs5RcNAEsSxm4vw
-         8wGw==
-X-Forwarded-Encrypted: i=1; AKwUvBwDC2V6PSs1HtGZ4lT/1p1liUzecJ5oaBmhyaim1VJoDofqqQP8mYAQ1WC5fi7GLmfnpkzJXnitNiO3d2fZ0G+2@lists.infradead.org
-X-Gm-Message-State: AFuF++lqNQkYiAigPNCA1+namt+3WJLtZwvTJXLRPM/YgWz98DNASvfN
-	csMJOMk0B+jbPmnpCcyDsZXMms1mjhqeDg7p3m3hCu5F68Ulc8fALwuv
-X-Gm-Gg: AYBFou2WAJWJblJwPxRYqSzUsI9kYRVNl3CwhTx16BkYO8tcE/OLFQemvLTFCjxMHoN
-	Du7nqOgnbGch1HUr0QGqevMTfAp0/4v8gIVkIGU9nLJALoFxB27azY9leGO6XvFaLpHTbi/ZlC0
-	rwzDYF8KFWI5XQXH2u57E32H/yQZXlZYx5zi44SefC43n8B3ZE7aFkvW8trDOCy3f/GX8WLcrNH
-	kGdgQ0wK5Rmb9BVyhsS9TZuckemlF0oaDnc9y+6yq94UQ2+G8ImvlBddxjJNNnj82Fb3wtn3NWt
-	3js5WaoLDUtj/WPqi4gW0R/Y449qcij0ygLaxvLfaB0rfIW85RLxe3HX/FHWOZxG++zLF1WRqjo
-	g6VGuxyJLdm7UFlwgR49TOmUzlxFPmBw39g3S2I8Pfu37RBwYmR0Sthu86mdrZ7gLtXD1LH7FGf
-	UAZwZq4EtJHb1s1Ma8hZxw+t1RrGU1/zmhTgv6Ea9LMC5/FZOn73MUQMH6SL4U6g5qnGT33fMxF
-	lRVKWUhfjyOcgagYu3MQg==
-X-Received: by 2002:a17:902:ebcd:b0:2d7:107c:917b with SMTP id d9443c01a7336-2e498517c3cmr18629185ad.0.1790932243081;
-        Fri, 02 Oct 2026 02:10:43 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790932249; x=1791537049;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5SdFF897J19vB9gXlitk0PJAT4sCzBncom/C0yG9+Zg=;
+        b=q30PpVCRX9CIKz8yLVSQ8DrojqmE2o1FMUL2Xbd20jr0jHL/dHCbee4UFXvxewf893
+         6/ZbJKZ3eLUoQBoQMawUGbxXWFbnXNZy6dm2O8tcsf7gr3CkSvIgtBXnLUYAIDz/FzM5
+         FX3HRmd+W1oa5Jux+hxpTrEWF7KIHpHe2I+nt3VTlSHrw25bN1COdnF1RivVP3b8tC3H
+         EVkBgWTF9lTqYv4MhJeQuVMk1FwKP1Gcdv8OQuTYiIkAqkZj7h8MZ5omk1yerEQulQwT
+         qrdqIexONqea8qiLrY+8F17ny+e4VQJAGXOOD7RESyD6mQmegN7qvUi2T48e0jYVemL8
+         vm0w==
+X-Forwarded-Encrypted: i=1; AKwUvBxz/E/6M9deaiDqa8h1OzYd88KhHdaxVM+2I67mIP9r1p6GEqsE7r6kJqW+wrPYNQY2fAmQKT/E8uwoahTRHz1M@lists.infradead.org
+X-Gm-Message-State: AFq9FYKO8L+bV0i5tV2JlxWLg7FAvbI7uzMGWzJeoCi3WqD2S8iKwy88
+	1nCA8BaEsky22Xs5dFklnkrE14ejIniKobSVEOm+1V/L+wzbMq7jE0rH
+X-Gm-Gg: AYBFou01EXssmO/w+nfR3F4kzYRVpOWqIG4Czq1lfuVBT+jhIXvqy0pxhr7XPlkdRCB
+	yQ+nv1NXqHyG1fsjKvufXzyx70O2zfhtPFoqhrVy6EeMhHA7yyAu40q8cYB70zi4ufLbBZodC/7
+	E59YQIA8hzjo7uJUNHiclTXJmxXTz/j5v6B8A8WwaLVGX2sc0oq87oBpVZv1T9UAEgW0oZuNEv4
+	PHPSJ3w+2NnPiC51BrRFZOndP4lzgzTQNUN3D9wwamyHGgqmLUf7hhr607c8El7xbltDAz+/IHC
+	/on79TWxnlu2hgl5UKV6p/4S/myTpgrlBoFKSRyamXFsNCrokn/rq6gCuVR26+snuwtvKJ3aMLj
+	Oybf3ZvDrOALfUuNPjxDIhkoNk/ruVcbYaGbJIUrBluxYlyUm1QV5kzskPn4xVeZhYZYcbYgrr4
+	zQa43hh2Pp94QLV/7LQPLnKTC5gUgnoPtUa7lEH997HF//kVS+Wt8pwtoSHojGE9tLjvU5SmQz3
+	FI95LoJEyveUpIt2xK5mw==
+X-Received: by 2002:a17:903:b87:b0:2e2:f379:82b9 with SMTP id d9443c01a7336-2e49b821f87mr17258575ad.61.1790932248559;
+        Fri, 02 Oct 2026 02:10:48 -0700 (PDT)
 Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f6ab2b9sm5480555ad.36.2026.10.02.02.10.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f6ab2b9sm5480555ad.36.2026.10.02.02.10.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 02:10:42 -0700 (PDT)
+        Fri, 02 Oct 2026 02:10:48 -0700 (PDT)
 From: Wen Jiang <jiangwenxiaomi@gmail.com>
 X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
 To: akpm@linux-foundation.org,
@@ -94,17 +95,18 @@ Cc: Xueyuan.chen21@gmail.com,
 	npiggin@gmail.com,
 	rppt@kernel.org,
 	ryan.roberts@arm.com
-Subject: [PATCH v10 08/10] mm/vmalloc: extract vm_shift() to consolidate mapping shift selection
-Date: Fri,  2 Oct 2026 17:09:45 +0800
-Message-Id: <20261002090947.869220-9-jiangwen6@xiaomi.com>
+Subject: [PATCH v10 09/10] mm/vmalloc: map contiguous pages in batches for vmap() if possible
+Date: Fri,  2 Oct 2026 17:09:46 +0800
+Message-Id: <20261002090947.869220-10-jiangwen6@xiaomi.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261002090947.869220-1-jiangwen6@xiaomi.com>
 References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_021044_324320_A85A30C2 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20261002_021052_515504_EDFFE261 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,53 +121,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the vmalloc mapping shift selection from
-__vmalloc_node_range_noprof() into vm_shift(), preparing for reuse by the
-vmap batching path.
+From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 
-No functional change.
+In many cases, the pages passed to vmap() may include high-order
+pages. For example, the systemheap often allocates pages in descending
+order: order 8, then 4, then 0. Currently, vmap() iterates over every
+page individually—even pages inside a high-order block are handled
+one by one.
 
-Suggested-by: Dev Jain <dev.jain@arm.com>
+This patch detects physically contiguous pages (regardless of whether
+they are compound or non-compound) by scanning with
+num_pages_contiguous(), and maps them as a single contiguous block
+whenever possible. The mapping order is determined by taking the
+minimum of the contiguous page count and the pfn alignment, allowing
+graceful degradation when pfn alignment is less than the contiguous
+range.
+
+Pages with the same page_shift are coalesced and mapped via
+vmap_pages_range_noflush_walk() to avoid page table rewalk.
+
+As users typically allocate memory in descending orders (e.g.
+8 → 4 → 0), once an order-0 page is encountered, we stop scanning
+for contiguous pages since subsequent pages are likely order-0 as well.
+
+Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+Co-developed-by: Dev Jain <dev.jain@arm.com>
+Signed-off-by: Dev Jain <dev.jain@arm.com>
 Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
 Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 Tested-by: Leo Yan <leo.yan@arm.com>
 Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 ---
- mm/vmalloc.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ mm/vmalloc.c | 82 ++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 80 insertions(+), 2 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 99bd22c086bf8..aae6141aaebf5 100644
+index aae6141aaebf5..4acd1ec27604b 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -3568,6 +3568,14 @@ void vunmap(const void *addr)
+@@ -3576,6 +3576,85 @@ static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
+ 	return arch_vmap_pte_supported_shift(size);
  }
- EXPORT_SYMBOL(vunmap);
  
-+static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
++static inline int get_vmap_mapping_order(struct page **pages,
++		pgprot_t prot, unsigned int nr_pages)
 +{
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
-+		return PMD_SHIFT;
++	unsigned long pfn;
++	unsigned int nr_contig;
++	int order;
 +
-+	return arch_vmap_pte_supported_shift(size);
++	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
++		return 0;
++
++	/* Limit nr_pages by pfn alignment */
++	pfn = page_to_pfn(*pages);
++	if (pfn > 0)
++		nr_pages = min_t(size_t, nr_pages, 1UL << __ffs(pfn));
++
++	nr_contig = num_pages_contiguous(pages, nr_pages);
++	if (nr_contig < 2)
++		return 0;
++
++	order = ilog2(nr_contig);
++
++	if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
++		return 0;
++
++	return order;
++}
++
++static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
++		pgprot_t prot, struct page **pages)
++{
++	const unsigned int nr_pages = (end - addr) >> PAGE_SHIFT;
++	unsigned int prev_shift = 0, batch_idx = 0;
++	unsigned long batch_start = addr, batch_end = addr;
++	int err;
++
++	err = kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
++					     PAGE_SHIFT, GFP_KERNEL);
++
++	if (err)
++		goto out;
++
++	for (unsigned int i = 0; i < nr_pages; ) {
++		unsigned int shift = PAGE_SHIFT +
++			get_vmap_mapping_order(pages + i, prot, nr_pages - i);
++
++		if (!i)
++			prev_shift = shift;
++
++		if (shift != prev_shift) {
++			err = vmap_pages_range_noflush_walk(batch_start, batch_end,
++					prot, pages + batch_idx, prev_shift);
++			if (err)
++				goto out;
++			prev_shift = shift;
++			batch_start = batch_end;
++			batch_idx = i;
++		}
++
++		/*
++		 * Once we fail to batch pages, we expect to fail batching
++		 * for all remaining pages, so just give up.
++		 */
++		if (shift == PAGE_SHIFT)
++			break;
++
++		batch_end += 1UL << shift;
++		i += 1U << (shift - PAGE_SHIFT);
++	}
++
++	/* Remaining */
++	if (batch_start < end)
++		err = vmap_pages_range_noflush_walk(batch_start, end, prot,
++				pages + batch_idx, prev_shift);
++
++out:
++	flush_cache_vmap(addr, end);
++	return err;
 +}
 +
  /**
   * vmap - map an array of pages into virtually contiguous space
   * @pages: array of page pointers
-@@ -4079,11 +4087,7 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
- 		 * supporting them.
- 		 */
+@@ -3619,8 +3698,7 @@ void *vmap(struct page **pages, unsigned int count,
+ 		return NULL;
  
--		if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
--			shift = PMD_SHIFT;
--		else
--			shift = arch_vmap_pte_supported_shift(size);
--
-+		shift = vm_shift(prot, size);
- 		align = max(original_align, 1UL << shift);
+ 	addr = (unsigned long)area->addr;
+-	if (vmap_pages_range(addr, addr + size, pgprot_nx(prot),
+-				pages, PAGE_SHIFT) < 0) {
++	if (vmap_pages_range_batched(addr, addr + size, pgprot_nx(prot), pages) < 0) {
+ 		vunmap(area->addr);
+ 		return NULL;
  	}
- 
 -- 
 2.34.1
 
