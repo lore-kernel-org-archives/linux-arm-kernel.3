@@ -4,56 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517FBCA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B282CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTDa3VZgufpxHWeAIL3ps4sfzg+LvOXD0IBSbeBButA=; b=zhX1Rq6N+FvExTl1VefRFR3UUQ
-	ykNIf7MZTizmN+goc65RWPE8Z44FSLcBUDEMqusS9hHlve8JprP6xuNnNRiSiTOYnZ+OtyoDg4d3W
-	vNDsWXNf2+Fg0dQ4VdK+YZoXI5IFG222ZUJ5DJYhzTAWGCFDKdRceF0noIh3g2vK5+mU4OV7E5vpF
-	w2dL+coHU40hDLfrq29rZzTeLls1lfS5lkmRi/3zoj00cjVtN1YD61174bUFrJoqVX+WJzYzbI493
-	msAc80NjA6TLCB/26AUvLuk1wMkfVtAUBFKsTYb+9wmGhiS1OuwHqH1M+2WVS0aupIrwrqajjCvS5
-	r9CmHXSg==;
+	bh=TDtD1RuEvO0usfXj2x7thtiRxuzLJn150R30ry9M7hc=; b=NoeKHQ3LU5CIOd8c0/cwvGM1MQ
+	9rIrhL2RJv3IJic4/E6U1gkEnwbRQXOQlmPQlnpaHSY/WNBncziFj4/SDw0BxVJUg3IFmyWxGsbNA
+	31dzG68QncYXHpoLN/RqDQR3lAKhWi8U8x2stnucLqHg5XfWWXtT5rsf4YFDjSlbWqGLJTiIVTJJL
+	i+eE9c3KWDmsrSlhtr/falIStjhr2PyGxRlQHfrQ9vCyLC7+kX8NOcFQf7X8NEZijvmCRgQtfMmU0
+	+pxQ5nW6/g+Jwvt46v77MQbvAEUIOBjV4dfOyMkBgtO3VOBi7fddkNVaI048QmXsnFfTJjJCxc6HQ
+	rVAHKDjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXyu-0000000Ath5-3qnn;
-	Fri, 02 Oct 2026 07:47:00 +0000
-Received: from mail-10697.protonmail.ch ([79.135.106.97])
+	id 1xCY0N-0000000AttP-0toz;
+	Fri, 02 Oct 2026 07:48:31 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXyt-0000000Atgc-0S8d;
-	Fri, 02 Oct 2026 07:47:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1790927213; x=1791186413;
-	bh=qTDa3VZgufpxHWeAIL3ps4sfzg+LvOXD0IBSbeBButA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=SZ/8ti/Jf4b/70LHUAQdetm4h1O1euGXY9EVUpheoGFFuQ6An6JJv2QhRjbogbg1y
-	 Po06uyXtE+dsIoFMPD3boe/BRmsSQsdWA4OHbR83wLPUUxJzskedhkuEO5hiD+PizT
-	 8Mq7VMfOgKqkXJNgaUtyQILHpBBGav9B9NpXdYXIIhTu3q7ST+wIllcwk2NMjEBuc8
-	 Gudwft2hRdV9fobAlkrLaddkhmj+EoEjUriC7cx3ZuAlxVJacS7abF4ZvYqgB8c7Jv
-	 /Ol4sALJny40SHR3xoB1nf3BUUC8OmtQ+DEv1xo953IK4oQW7xJQ4MSFKL1itOAu0b
-	 qR8jq772Ek7LA==
-Date: Fri, 02 Oct 2026 07:46:48 +0000
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: linux-mediatek@lists.infradead.org, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanley Chu <stanley.chu@mediatek.com>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/3] Convert MediaTek GPT timers to OF probing
-Message-ID: <HCFYDcAPoXmpcQH8fPYz0vXbaTszyO9pT8KAPrqWLyez8RYykEaWAYaB5twS38J-Dn7rMc2BEB-zVHaDn7I4aLyekOzQLCRVIUdaCQiTaxg=@protonmail.com>
-In-Reply-To: <20261002072115.169250-1-l.scorcia@gmail.com>
-References: <20261002072115.169250-1-l.scorcia@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: c44013cceecdc63de2df44b47e44f3ce4e5109c9
+	id 1xCY0K-0000000AtsZ-2ERS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 07:48:29 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id 2C98D240107
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Oct 2026 09:48:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
+	s=1984.8680eb; t=1790927302;
+	bh=TDtD1RuEvO0usfXj2x7thtiRxuzLJn150R30ry9M7hc=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=LkNO0LWfhS3/tZymvtKqSFt3Ttbdc5qZUXCH9BnuTQpxYKANnCe4R1xRX4+WwJy9p
+	 JoeE5JOd8wQyqL6MMHzy4o6IUlMkqVM4Iw3LdSKBD0IJLRNTcwxJhtT97Pzj/RdEvS
+	 +E6TmAQkQsPu7KMRWnNkjWmTuaOEDBJTilM+JxqufApE85NDMe8LhlRuV5y5DZLgrE
+	 6F7eBVg+gq9o6m+y+KPPzeYbvPss83zO4dR0Ms5kcewTaiRbH3AV05F1/PD9BLEQYL
+	 RESPuZWCkTBFw3hIUHLY/hw/55HVyDARYIUmztqgXjKAgPLhfCqQv1P28h8aC6x130
+	 vHSqQHE03j6zA==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hx19Y3Xh3z6twQ;
+	Fri,  2 Oct 2026 09:48:17 +0200 (CEST)
+Date: Fri, 02 Oct 2026 07:48:21 +0000
+From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Bjorn Andersson
+ <andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Andre Przywara <andre.przywara@arm.com>, Bastian
+ Germann <bage@debian.org>, <linux-remoteproc@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware
+ spinlock
+Message-ID: <20261002094816.64349979@posteo.net>
+In-Reply-To: <20261002-matted-tux-5b4059bc305a@wendy>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+	<20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
+	<20260927132707.5f484946@posteo.net>
+	<20260930130221.129529-1-tien.nguyenminh@embeddedlinux.blog>
+	<20260930160541.040ccc0e@posteo.net>
+	<20261002-matted-tux-5b4059bc305a@wendy>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_004659_316992_38FE93CE 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20261002_004828_904405_C5E75875 
+X-CRM114-Status: GOOD (  38.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,79 +89,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 2 Oct 2026 08:32:51 +0100
+Conor Dooley <conor.dooley@microchip.com> wrote:
 
-On Friday, October 2nd, 2026 at 10:21 AM, Luca Leonardo Scorcia <l.scorcia@=
-gmail.com> wrote:
+> On Wed, Sep 30, 2026 at 02:05:47PM +0000, Wilken Gottwalt wrote:
+> > On Wed, 30 Sep 2026 20:02:21 +0700
+> > Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog> wrote:
+> > 
+> > > Hi Wilken,
+> > > 
+> > > > Wouldn't it make more sense to add the "allwinner,sun20i-d1-hwspinlock" line to
+> > > > the driver in the sun6i_hwspinlock_ids struct, drop
+> > > > "allwinner,sun6i-a31-hwspinlock" here in the D1 device tree and update the yaml
+> > > > file accordingly?
+> > > 
+> > > Thanks for looking at it. Bjorn hasn't replied yet, so I looked a bit
+> > > more at the naming. I'd like to keep the A31 fallback: it's the usual
+> > > pattern, other blocks in this dtsi do the same (timer, I2S, LED
+> > > controller), and Conor already acked the binding in 2/3. If Bjorn
+> > > prefers a driver entry instead, I'm fine to change it.
+> > 
+> > Yeah, Conor was a bit quick to act here, such things happen often with patchsets
+> > made out of documentation/devicetrees and code. Though, the get clock and resets
+> > patch is fine. The driver could use some modernization.
+> 
+> I dunno, was I too quick to act? The patched looked correct to me, since
+> it was using a fallback to a device that it appears to be compatible
+> with. Had the series done what you're suggesting, my review feedback
+> would have been to tell the Tien to add a fallback.
 
-> While chasing a kernel freeze on the Lenovo Tab E7 TB-7104F (mt8167), I
-> stumbled on the MediaTek GPT timer driver. This driver is currently early
-> loaded via TIMER_OF_DECLARE. I noticed that on mt8167 (and I guess mt8516
-> too), this driver actually fails to probe because its device tree
-> declaration depends on two HW clocks, CLK_TOP_CLK26M_D2 (13 MHz) and
-> CLK_TOP_APXGPT (bus clock). However the driver providing those clocks is
-> loaded later in the boot process, leading TIMER_OF_DECLARE to fail with
-> -EDEFER.
->=20
-> Patch #2 converts this driver to OF probe, fixing this initial issue.
->=20
-> I noticed that other devices avoid this by connecting the timer to
-> fixed clocks instead of referring to an actual clock. This approach
-> may work on mt8167 too, but I think referring to the actual clock is
-> cleaner.
->=20
-> Once the driver probed successfully I noticed that even if it was enabled
-> by the boot loader, the kernel would quickly turn off its bus clock as
-> the driver wasn't actually requesting it.
->=20
-> Patch #3 enables it and attaches it to the timer device. I wondered how
-> other platforms made it actually work, and noticed that mt6735 declares i=
-t
-> as a critical clock. This approach might work for mt8167 too, but same
-> reasoning as before applies.
+I'm just not sure how to actually do it right, because so many SoCs include that
+feature. That is why I asked how you would do it having more insight as a
+subsystem maintainer. It just looks incomplete to me. In the past I actually
+verified it working with H2, H2+ and H3, none of them being
+"allwinner,sun6i-a31-hwspinlock".
 
-Most mt67xx and their 81xx siblings are feeding arch timer from cpuxgpt tim=
-ers.
-These are usually turned on by the firmware at EL3, so in general you can
-disable both apxgpt and syst in the devicetree (unless 8167 feeds arch time=
-r
-from the gpt6 like 65xx...)
-
->=20
-> After those fixes the driver probes and works correctly, but I would
-> occasionally notice a crash at boot inside the timer interrupt handler.
-> It turned out to be a side effect of the bootloader enabling the GPT
-> timer at boot: an interrupt may arrive and be handled while the driver is
-> not completely initialized.
->=20
-> Patch #1 fixes it by requesting the IRQ but keeping it disabled and
-> enabling it after the clock source initialization completes. I sorted thi=
-s
-> patch before the others because it's actually independent of the latter
-> two and may fix (rare) random crashes on other devices.
->=20
-> Please note that all the changes apply both to GPT timers and the SYST
-> timers, but I have no device to test the SYST ones.
->=20
-> The series was tested on the Sony PlayStation Classic Mini (mt8167).
->=20
-> Re: patch #1, credits for issue discovery and suggested fix go to
-> matemiller992 on postmarketOS forums. I am submitting it upstream with
-> permission. Not adding Reported-by or Suggested-by tags because it was
-> requested not to share real name.
->=20
-> Unfortunately, this series did not fix the tablet randomly freezing durin=
-g
-> boot. Any idea on how to better troubleshoot this is more than welcome!
-
-Have you tried to add {clk,regulator,pd}_ignore_unused? If that doesn't hel=
-p,
-try turning off cpufreq. On mt6595 I had to mark CPU regulator as always-on
-(although it should be safe to disable) to avoid system freeze at the boot.
-Otherwise start adding status =3D "disabled" to the devicetree nodes until =
-it
-properly boots.
-
-Best regards,
-Roman
+> > > Bjorn, what do you think? Just stay with the "allwinner,sun6i-a31-hwspinlock"
+> > > string or add all the possible combinations like
+> > > "allwinner,sun8i-h2-plus-hwspinlock" or "allwinner,sun8i-a83t-hwspinlock".
+> > > I mean, it is just a naming game and there are 10+ SoCs supporting this
+> > > spinlock register file
+> 
+> All devices compatible with the a31 should use the a31 as a fallback.
+> 
+> > 
+> > > > Oh, and I may be able to test it against the D1, I own a Sipeed Nezha.
+> > > 
+> > > That would be great. You don't need FreeRTOS for it: I tested with a
+> > > small Linux module that takes each lock and checks the status
+> > > register. I can clean it up for the single-core D1 and send it.
+> > 
+> > Uhm, the Linux-only test doesn't work as a hwspinlock test, it misses the entire
+> > point of the primitive. A hwspinlock arbitrates between two independent agents,
+> > in this case, Linux running on the C906 core and FreeRTOS running on the HiFi
+> > DSP, both sharing the same memory bus and other hardware. If Linux is the only
+> > one who ever takes the locks, it is simultaneously writer and reader of the status
+> > register, so the test cannot fail even for a broken (or fake) implementation. That
+> > would basically test nothing at all, well, maybe it would be some kind of bring-up
+> > test, but overall quite useless.
 
