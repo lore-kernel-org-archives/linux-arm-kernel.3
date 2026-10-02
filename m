@@ -4,150 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7DECA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B582CCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9dtWKSgwnERTDvwF1fgPSvxdCHJ4/jCE3adaCVowAg=; b=JCoxNsDAEpFSUjWXK4vPu0fb2u
-	kVo6gL7/lvT2bBDaseUtqhMdNfOCXxMuS677PBSwznO4i2bdgjq5UZ+30MtUytEWXMy+YRCL9QEzo
-	0AgIdXje2NLJn6KVyus0LQDZIuHtD5Zks0Gx1LL4IHfHGiXkUfVZfswtxaM1+Qiu4gsg7B6VcEkdA
-	Auc/tYsNdEGdNciC2okvioImpOfHFLUOCWr8IG4DfnV6DU6f/POXREoRLJnoJ46f5RY7uoL6uqUBi
-	AtTtBeSLOyPPSPwk9L2YjdmfThUm7NkAj2pjiI65z0EzEzNCNDmTze4007tBDx0bxaWg15VPsShJy
-	dRcju9bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oB6uuf7VoohKopZrnyhzVCpQJkf8UgNj4/ls4gHl8RU=; b=aXvlxZoNBhGXxbrFmbiZIhscEm
+	0iaKu4LxJHMm2rnzCSLYxekXQ0RzNmqcFx39ij+njFXY3rbjlCWQVnp35DroCMgmcCWHhQgGlzPiI
+	ncDbxzt37ikIHAgeQ4ryT0qHsYF7Bw+VuKzGEac26kQdc3HyGoMkC4x1rSzG5olV/1Okw8XiLdrmp
+	oUePPsE5k+KxPk3JEMcatV+GYTYJWHWPi8n2188i3uIR4cT9Gcow8t7phK17Kv8Rx0vcRmng05e0b
+	i/a01kmOLYS/Qvm0Ag4TMRmV3Sul7RJNIVJ/dxyaEx2rhoTfwmRnAE8jrzljlwnAMjX2VVlOveK5t
+	12+sta9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdbn-0000000BhP1-2i8z;
-	Fri, 02 Oct 2026 13:47:31 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xCdjg-0000000Bhvf-0mBc;
+	Fri, 02 Oct 2026 13:55:40 +0000
+Received: from out-74.mta0.migadu.com ([2001:41d0:1004:224b::4a] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdbl-0000000BhOJ-1BZm
+	id 1xCdjd-0000000Bhtv-416M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 13:47:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mU3tm1tyYVxrCPtpyawm2DbzxQ4gjXE7d8/9gbORsbTGBpwCotsTrgD/oKhRJI0d45gM5Ma+KXL8WyJLyGRjjsDIPIdrlRpITm9ksMEBkZexwkzD4af1a2nHoJMhJStmDmJ1J0lG9j+DQXMdW4n2b+HW4e/YStj035TwwqW1PbF3h3FPe4F4mDa3PhCjBj/vvHIrxxVJNJmuu0WIB2fN/CUr1ei5QY0QWlclGKjF6+jcuHTKfLaVFHKFUYY2TH7NxaQgSRKa3qpJb1CFYrA/iP/aT3VAPsGBlE0e7qSqfpsaB0ebgL8ZThewElHOjUAa3kwWI57Hw8pEfhGKEbKNJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qvv5uR9wQI8hrwSg7KrIDW/gBWyHMhZT3fjc+6e7l2E=;
- b=OgU87U4aLzohV9HCT8nY/wGB2Qwr5OP3FFROAD7JZ42O4Cd+AYuGmsWFzI7PlWTIEveIPC2ZTBzfRqhlJNu+RISu0Zjh0x4gAND8jJDd/ggOQqw4/S7obhCc3Ii+yQevhCtWAXhXmQ+hKxuyl4JUoJjcMVDalT9/BgTclpfxp1Kn6C8yPU9/2RZw+C79CwbRQhxqRWrq8HXBAV5+cN3YGqRtvSmOt/FtPXqg52wtj1ssS4gdpBHD11rzEV8cDPZVneLGBRmugyt1kmfZU9Gtyuj+5Mk1hMRnH+8mLsndoSB5NO6Cr3qxrduWJyfpz1SG8JtX3ikkanEgLigwrStcnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qvv5uR9wQI8hrwSg7KrIDW/gBWyHMhZT3fjc+6e7l2E=;
- b=a6ATuoz/zcNQ80BFhv9U5GBS4l702DBtzWm69gJ9fHQnJndPcrxuZk3TtUqaQi8JEcu4VdsM+3vYIWp2iM5Q9vyMRXiHTUtyJazA8iVWAwQ+9kwSGx2xfOo8CWomtoVAHUOPnRH9GIWPF0hIbZVNcWt6ZrdR2/sdncXwCWxzplXpk9qVT4WcsoROcETac61qGlFLZFNiOrgJENAH9cu2EN6hanKLjWjmmxrgZNyefW1xDrJqaEFPOgYXb+2b+Ied8EYGIg+wAapfjcg0AcjeSfSPdpJ6B7eaJ8AISMAtvTH+au5r15yK7smYHvZbproUcUd/iuhjwTNBQ1P4jON3YA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8597.eurprd04.prod.outlook.com (2603:10a6:10:2d8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
- 2026 13:47:23 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0472.016; Fri, 2 Oct 2026
- 13:47:22 +0000
-Date: Fri, 2 Oct 2026 08:47:10 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <ar-13p3a7ENGfMOF@SMW015318>
-References: <aqjzvxI4ecoFvRLT@ashevche-desk.local>
- <aqlpoBJJXfZgsMxT@parshuram>
- <aqlwRkNcs_UqKjWs@parshuram>
- <aql6u3T0nnSVr-FC@SMW015318>
- <aqws8pN2rfS9-dCC@parshuram>
- <aqz1-OzFobOROuBw@nsa>
- <aq18_TMNs4EJzgZO@parshuram>
- <arDtEB0na9DxDWAS@nsa>
- <arFXc0LqEpgWSS6m@SMW015318>
- <ar-Il2qP_Qms3Qw1@nsa>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ar-Il2qP_Qms3Qw1@nsa>
-X-ClientProxiedBy: PH7P221CA0080.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::34) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 02 Oct 2026 13:55:39 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=NxRWmaItSzHiNP+iJ+lnvfwn/WnhlxFvjpyIKAD7kDc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790949333; v=1; x=1791554133;
+ b=XrvsKZpUREzL3059CrG1C69DmXU3HpXU17F+E7xWdOKQIL4YYY4eR9lkiG7+M4Mf3IFwka3w
+ 9HHJnhOUJLQEXA+92KnLoFZsEy+yIY4ltVPEn9ZoYfje0ezQZgumqSHsal6sb5x78lEV3O7L2sJ
+ U6IsiV/3r7pGwzzkzql7/4NE=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7879b3caaaa66776;
+	Fri, 02 Oct 2026 13:55:25 +0000
+X-Mizu-Trace-ID: 7879b3caaaa66776
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5ba4065fa07so8300e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 06:55:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwjDKgHcO6WYDLew6ewdaIvnMBq4rIFZ5///nJx0mt4NpzZmtIR301puBboa4RmD/691jqPgSv6DpNXHJSF65pZ@lists.infradead.org
+X-Gm-Message-State: AFq9FYKTBPLayz7AWJc550rDQDkXbeTKr9dt8tGWNLGZcmS1Nj+L7gOq
+	x7QKTg7R7lQcGWzY7RnXWP3cysh10v9BB1kRKBg3kWncRRmArPYOAQ4ZJ//xDLAf1GJixx9Tu5F
+	xdslowdjt+uZm8p9S2rFMOqhcQU2Kj9u2SINYJmly
+X-Received: by 2002:a05:6512:124e:b0:5b4:74e2:4171 with SMTP id
+ 2adb3069b0e04-5bb7c95878amr126055e87.4.1790949323822; Fri, 02 Oct 2026
+ 06:55:23 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8597:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44b938fb-cede-407f-749f-08df208baf18
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: VaUFosvvyyCSoij5pZn5FAz8c81rDJ1zxzSiyyrmhKEr0BxIhSsCLSX2Hyoo6XVCkDHcLaIH5mL7J3DqIaKvBPGaKch642wTZbZPh1qQBQ1RwEvnmFq5ezKiamcbH4MioqENYSvNr2DL+xQoXjqxwLaPevKj1hN/hJj0GgQMKsMUc8oEEYOyWVhSw4lv9EXzedxI3E4A0Om8g9H1BTnZV310+lnG1QqkLk2ITjVcLjrNlgRcDrwKgG0Ms5o4t2o5dpYAkr8g1uUJFPYqDcTw+aAwH7ASpsBz+oDBqOZpGwNDl7doAYV+tzhUH7RrllN6qJbz4z/r8kkx6Pr6SlMOvsm3ZGNoYkW4NpunjU+M6xp9w7/W/0f0HNooeYqO4d10O9FJWoPFm8Rfsf56j1Lz0yUbi4AhgZnXlCmMD+DMLPuahuyLtE1Xm9VnylkfTeXCmIrdMf5UC7FAY6q5Jmwg0W33nrhmUXz/wDr08m2N6LH+aVfQfPCSUkvSjsLq3rFrXBvE7vz1Yqn7yqWCw8LIgrlYR2SHqCAIh+MEpMJo/TrljE4aGJ1mcb4pNimAsdTena6qkjXWIWAzHJBK7LU70JrtFxfkSlaxEhatyqZ8TlOweMDqUZyCOuz5s6bwkMojPLQR+Qdel5QJu9KMFHOR4Vxq6JLa7pxaA/pYEMQtgbI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?XV/3gCP3ERW//7THfs934M0LVBrNKQ62ZmlCdlvDcMVUAm1Y7b6XSYRcR7?=
- =?iso-8859-1?Q?zUwbIqluZ94gP2ywNSHB6184pkL2twAYKm/K0jVHOgqj9ms5H6tFPz9LO0?=
- =?iso-8859-1?Q?e6axFE4ZwYGqPajNpsJuTqnHohF+1hebywRpcBayKcfDWYAXvhL5pjWgYF?=
- =?iso-8859-1?Q?VHPPKAUTSNfZ72WgPu2SdgcGkjH3hVLo5JhJd/6b7ZFg9t+dF+uGTTDwo8?=
- =?iso-8859-1?Q?wUiCkemU/pY4x9dj3XkIdlNlUCrNEMD64QZUhb1GdvZS0enzUmckC7vxmL?=
- =?iso-8859-1?Q?iMw+8aJy/Q9NmP6Yltz3y5HkUWZ3cJOGxfDqns5i6Hzth9bX74Bdm69CgK?=
- =?iso-8859-1?Q?BSFdlr1ICR/lTfdI/Em75rCLFocAs27F88jshr+68wczYDw+aGR2XBiELy?=
- =?iso-8859-1?Q?A+o4N1hH3j8hwPgWaCcfAGPqpKfAOGw75wJq2ocQ7tlNiZ0LN7wcPAfzxS?=
- =?iso-8859-1?Q?XhgSFZ0DjJGr+yIoBQ2UY5vnqgzFoileOYPewrot25fwW9XEIczvzuxuYm?=
- =?iso-8859-1?Q?DGia13Ojpkn0QmR/3yrineNlR9aGs67dyxDnF/6PV0K2PZjMSHWdQTIutL?=
- =?iso-8859-1?Q?9sbdFqkqqnbDhIvXmLAbGwIwaZI0iMYO/SqR/yZ5DmOqXwW4dkk9XOXFp0?=
- =?iso-8859-1?Q?2d/hG20sA73XYW6dH5DbxzAAMGRaOU6FDVsi/zv8rapn0D4DwbXTOMNds8?=
- =?iso-8859-1?Q?J/PznehieCZqDB7ZUDX/cjFVVtMC5OdYjTMjunJ1OS0cRdKFVlc069nXOw?=
- =?iso-8859-1?Q?dTIqSt9xIbsctRor6JtV98AylsOhFFnGmsxbO/nayWjjzYOBHx5mjO1arZ?=
- =?iso-8859-1?Q?j7CqhyzTNjyHd6PmP3OyyIzrTfOkyOpVmYZtTBrWhdn7Lo0KoUXZxLuhfd?=
- =?iso-8859-1?Q?b4RyJsm6uJr87FjulCH951PB63XvpGEKuxgcdDKbPXVvNlzb2yDDDl+pMr?=
- =?iso-8859-1?Q?rzAgX7VPzyWrJRmZYYu1UWRxBiqyraCRXYd4vbHdFfh7Bt35k+wtDWIpsW?=
- =?iso-8859-1?Q?KMjwA85faGGhZzIPMMtkrZiBPgJfmEylhGaIPGzt888hJP8Z4zjelUhdoj?=
- =?iso-8859-1?Q?l/bN+b4tJ3l5aadH3XC24tCQ5oJsp8ujQy2HR+C6jhUwSuh3Q4DuIha29F?=
- =?iso-8859-1?Q?QFrJ0K4y2p8tUZRQx/hIZ7EQcfhkTkOz4XHbK4ksjCXB9mrL3OKnHV1LOw?=
- =?iso-8859-1?Q?aQN+VMyi1F8pVWA0e5E4EWZMj46H3W/JKTEcRX1iifoE2DhNTuqPVvt2RC?=
- =?iso-8859-1?Q?FSZ1uBqMzHQPbPlrZNcUyeptaa/rJA1QGqyB8NPM4k8w5/yVdQZFc8/lL3?=
- =?iso-8859-1?Q?Ts5OVvzz3KhFonAkEoTdu60hje/1plLkF8sZRWaDlSo12Q8DpC+uz7u3ST?=
- =?iso-8859-1?Q?GCaqebNroTe4yFWGxSmH2ZG3iEVv3Ai26JI7Gs4W0MiS+ZGTAOO3yCUoEP?=
- =?iso-8859-1?Q?pFeyb/RbmQIkJjyrhdsSBpZeDNW5CSIarjOIUoUUZ52xf2IMkiyw7yfrn3?=
- =?iso-8859-1?Q?i1pZ+6Uad0T3CAeFzJQxRPCENkC42eSZnYlK61fdjquJZxpAV865aqcz9A?=
- =?iso-8859-1?Q?aBdolTVpAxGUHrUblnp9a5aBpsqQtwAnQ5fr3J867K6zLZdXG+RcY1RzMk?=
- =?iso-8859-1?Q?aI4S0oL7dddsfYyVRjN7G3BP6oDATNuKnfLFDdsr+MezB4GW7rlDSKlUrx?=
- =?iso-8859-1?Q?PyinxOo6bVHGzqplgpGz1pTqNuE2KlL0aT6imyymuc9UcSNtvO+5tr7M8R?=
- =?iso-8859-1?Q?1P/oHgC2mW8u2eja4Q4cOKCwBZKAwzj0apB29rO24X29SbM59HnwxPs0uL?=
- =?iso-8859-1?Q?+S75NZYLCiJZN/i4hMBTIe0nsr8jS/9fvwyPkN8OoFz7MEgGKQLD?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44b938fb-cede-407f-749f-08df208baf18
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 13:47:22.3111
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dMOb+gu7wK9wgI52DhrE5ehPBp+NwAZUgqBjsf/PEBmzHihmjEKwHFpIbeCgtnr9FS8PgF/KCqfPwxlxpBMhsoQ2hsWaT2zPTKYv4KQk/rvnmr6T10nxqBsrN5ngku3b
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8597
+References: <20260930121212.3101361-1-fuad.tabba@linux.dev> <ar-xtsSOqwWK9jWQ@willie-the-truck>
+In-Reply-To: <ar-xtsSOqwWK9jWQ@willie-the-truck>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 2 Oct 2026 14:54:47 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+X-Gm-Features: AclHuK8F5q6n8ZekSRW4HmigvutSZ6LtavhLlT8nBy_1uvzPoiEI4YC6OWepcRo
+Message-ID: <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, "Rob Herring (Arm)" <robh@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_064729_325234_F8DBC247 
-X-CRM114-Status: GOOD (  46.42  )
+X-CRM114-CacheID: sfid-20261002_065538_138537_425BFF4C 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,122 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 11:43:17AM +0100, Nuno Sá wrote:
-> On Mon, Sep 21, 2026 at 11:12:35AM -0500, Frank Li wrote:
-> > On Mon, Sep 21, 2026 at 09:53:49AM +0100, Nuno Sá wrote:
-> > > On Fri, Sep 18, 2026 at 11:33:41PM +0530, Vinod Koul wrote:
-> > > > On 18-09-26, 09:39, Nuno Sá wrote:
-> > > > > On Thu, Sep 17, 2026 at 11:39:54PM +0530, Vinod Koul wrote:
-> > > > > > On 15-09-26, 12:04, Frank Li wrote:
-> > > > > > > On Tue, Sep 15, 2026 at 09:50:22PM +0530, Vinod Koul wrote:
-> > > > > > > > On 15-09-26, 21:22, Vinod Koul wrote:
-> > > > > >
-> > > > > > > > > > Traditional naming would be
-> > > > > > > > > > dma/engine/provider.h
-> > > > > > > > > > dma/engine/consumer.h
-> > > > > > > > >
-> > > > > > > > > consumer and provider and good names.. I would retain the full dmaengine
-> > > > > > > > > everywhere please. dma causes confusion already!
-> > > > > > > >
-> > > > > > > > Thinking about it again, drivers/dma/dmaengine.h should be the provider
-> > > > > > >
-> > > > > > > There some dmaengine code outside drivers/dma directory, like
-> > > > > > > drivers/crypto/ccp/ccp-dmaengine.c
-> > > > > >
-> > > > > > They chose to be outside, their choice... They need to be updated as
-> > > > > > well to point to ../../dma/dmaengine.h :-)
-> > > > >
-> > > > > I tend to agree with Andy but anyways. I feel this is going a bit out of
-> > > > > scope now. So what we have now in the series is:
-> > > > >
-> > > > >
-> > > > > - include/linux/dmaengine.h (without enum dma_slave_buswidth)
-> > > > > - include/linux/dma/types.h (with enum dma_slave_buswidth and new
-> > > > >   dma_buswidth_t type) - A future one would be dma_cap_mask_t and we could
-> > > > >   drop bitmap.h from dmaengine.h
-> > > > > - include/linux/dma/widthmask.h - The new bitmap based API for bus_width
-> > > > >
-> > > > > I kind like the separation (and the whole point was to avoid bitmap.h in
-> > > > > the main dmaengine.h API) but tbh I'm not sure if a consumer driver
-> > > > > will ever use dma/widthmask.h without needing the consumer API. But
-> > > > > to sum things up, what do you suggest for vÛE?
-> > > > >
-> > > > > * include/linux/dmaengine.h as the consumer API and includes the new
-> > > > > the widthmask API
-> > > > > * provider/private goes to drivers/dma/dmaengine.h and just includes
-> > > > > include/linux/dmaengine.h as the starting point?
-> > > > >
-> > > > > Let me know how do you want things for v5
-> > > >
-> > > > Yes lets talk about dma_slave_buswidth, it is client type. This is
-> > > > configured by users to set the width of peripheral.
-> > > > So this needs to be in the include/linux/dmaengine.h
-> > > >
-> > >
-> > > Agreed! But providers also need to set the allowed bus mask. And I'm
-> > > just not sure they need to include/consume all of the consumer API.
-> > > Also, it's common to allow the provider API to be widely used throughout
-> > > the kernel (but I agree that could be even harder to get done - if we
-> > > want to make some stuff really private - but I guess that could be done
-> > > in a second step or more incrementally). We do also have some subfolders
-> > > in `drivers/dma` which means we'll need the odd "../dmaengine.h" relative
-> > > include which I do not love tbh (on top of the crypto stuff).
-> > >
-> > > I really think something like the below would be more appropriate (if we
-> > > just want the provider/consumer API without further splitting like the
-> > > types.h and widthmak.h in this version):
-> > >
-> > > include/linux/dmaengine.h - provider API (as of today)
-> > > include/linux/dmaengine-consumer.h
-> > >
-> > > But anyways, if you or Frank do not object in the next few days, I'll
-> > > take the above approach suggested by Vinod:
-> > >
-> > > drivers/dma/dmaengine.h - provider
-> > > include/linux/dmaengine.h - consumer
-> >
-> > It think it is fine.
->
-> Hi Frank,
->
-> So I was aboutto start on this again and I just realized
-> drivers/dma/dmaengine.h already exists today so nothing to do on this
-> series.
+On Fri, Oct 02, 2026 at 02:29:26PM +0100, Will Deacon wrote:
+> Are you sure #8 is the correct immediate for the ccmp? My reading of the
+> pseudocode is that it should be #9, but this instruction has always confused
+> me and I hate the fact that it doesn't take another condition code mnemonic
+> instead of a raw immediate value.
 
-I just find it and start some cleanup/move work.
+My read is that #8 is right. From the CCMP (immediate) pseudocode in the
+Arm ARM (DDI 0487 M.d, C6.2.81), flags start out as the nzcv immediate
+and are only overwritten by the compare when the condition holds:
 
-> I mean I could remove the consumer include on the dmaengine
-> drivers that I'm touching but not really on scope and super important
-> IMO. So, for the consumer side, should I just go to the first approach
-> where all the bus_width API goes into include/linux/dmaengine.h or
-> should I keep:
->
-> include/linux/engine/types.h
-> include/linux/engine/widthmask.h
->
-> And have a better separation on the consumer side? Or maybe changing
-> s/engine/consumer/ on the above paths?
+      var flags : bits(4) = nzcv;
+      ...
+      if ConditionHolds(condition) then
+          ...
+          (-, flags) = AddWithCarry{datasize}(operand1, NOT operand2, '1');
+      end;
+      PSTATE.[N,Z,C,V] = flags;
 
-I go through v3 thread, Andy just said split to new type.h, but not have
-provided reason.
+So when PMUVer == IMP_DEF the ne fails and NZCV = 0b1000, i.e. N=1, V=0.
+LT is N != V (Table C1-1), so b.lt is taken and we skip. #9 would give
+N=1, V=1, so we'd fall through and set the bits on an IMP_DEF PMU.
 
-I am planning move provide API and data structure to driver/dma/dmaengine.h
+Agreed on the raw immediate, it's horrible.
 
-include/linux/dmaengine.h will keep consume only defination and API.
-
-why still need types.h?
-
-Frank
-
->
-> - Nuno Sá
->
-> >
-> > Frank
-> >
-> > >
-> > > - Nuno Sá
-> > >
-> > > > --
-> > > > ~Vinod
+Cheers,
+/fuad
 
