@@ -4,138 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B8ECA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F43ACA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtusxkcwYuaOiThkZo32xth6vfJtdesZfR+wxZipLek=; b=QEFRfLDBY6fS6Oq+VsU9zNHx1I
-	eEw+ySk0eBk3LVYh1cRkQNf/hlDPUvbrGA8yjWnZ3Se4I8bKZvuu+FXsMXbZdBuZM6BgRQf/wA8NY
-	O0P6vujEZWA2OFi43k3rBxszq3ATfRY8ElrbpsWZcgKZ1FqxOVx1Cae/C22C7Ak1JwwbluvN7abdJ
-	4KvB0geLd9eNNy1mIVkkg2H/fkkXEEz5LfWlnEMQ0pCj7DBd/5dOFE7Q9b5ZxipgWhE31ANL0GBIr
-	lMZxxkKStvWmqD3y03/+1HROWbS+gl6+6sPdrLNTaqN/Fdef2rUiOyaOA2Temkq6lnHSDs8RfD1+6
-	w3VCgXFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=faI1FDtHomsXYzyaQZ27N21cNGJajbtf8XrEl4uhr/s=; b=GxckGEdlRHGKYf+PFivtRGnEvc
+	Gv1CXBtMw1/1rWfoywJFRZcPovjBBOJoUhq9tb8dd1y6yhcEeo7NSsTNteCYnztR2+9//xNx2l8A+
+	4GP3o1hBtbRSv7q8cdBgJVOkPyVEqOLHizf1oCcSIalC5c58WaUUiih4v3/kBFl3yPWQBl+mHrvdH
+	sKppLGqMcmUtAW0njjHd2GPOx+o86Vuypy01mwkFgNfnfZok0HVJ8k0jknWmPIlmtz1DP39/0lM5w
+	oCiT8pXZrXvPSXlUXAmmE3zPsjQMmeui6ohihMgtatN+FEEL6NeNruQHGhquX5VW7r2OkeJ20t8X4
+	BzMCNGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXrY-0000000ArZw-2itH;
-	Fri, 02 Oct 2026 07:39:24 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xCXs0-0000000AriG-0val;
+	Fri, 02 Oct 2026 07:39:52 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXrW-0000000ArYf-0dHM
+	id 1xCXrx-0000000ArgR-1i21
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 07:39:23 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48b01c41135so1779531f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 00:39:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790926760; x=1791531560; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HtusxkcwYuaOiThkZo32xth6vfJtdesZfR+wxZipLek=;
-        b=WPdzPGaxxIaLY487HcY9btbixg9jbxDVP8qwTxeMSTDFq2gDpN0Y3hV+Ca82TNyaEX
-         3G2S0JvaoxHkUzlN2swmRElPtaKRQXrGTCiXvTz3kbM3uqjPcVLaJvIifqlev3kkfqrl
-         zHUnkwdq0XsMazbbFthe4zpf4B/g5VWYYcCyTo++h+i8AMBYlmDrki59RKQRAjuLRfV/
-         uS9VfzRHzHmSp/AN5kn60T4UyMM+nglRBBVuVGo1oHPitBpou4RmZU+xQclh1cSQZ8O0
-         8tgYbex/7s7YDeI/FHLHYsmCUZEqgAlRhAqOdVih9RuV6ToLipaOcTxSynmfjqIYws5a
-         tEtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790926760; x=1791531560;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HtusxkcwYuaOiThkZo32xth6vfJtdesZfR+wxZipLek=;
-        b=mnlLklLWPnpKYvBY6S3fkOF48APTvTeYrb6D1dRLe7o6VCKiSQyTgwgqyBZdC+jBZc
-         aiQpkDH2Tb2QQSqPElUx5dv5yjmHT4a5xmhzQK4XtwuuWlahsFdh86IHAxmA7UxpjQEt
-         2wZaq0NyoQhizfAi1pAc6TBXnpxThnJqSKuQ35VrB4o046lKEMxvOX6lSTWyUDN34jry
-         fjHNM7eyKilgjcoZ1Ad25J1wOldfb3qWyR2C3nsgYsAOKRpjOFG34XiOK2MqGlvXiZRd
-         kCOP+py7Ji58nPuzajkWL3gUYaTBW8zmMOfGgKdFCm6bM+te7HQgcnfEIFdafz81ah90
-         V0og==
-X-Forwarded-Encrypted: i=1; AKwUvBw98LVgxiqcQvu7g1ymYcS9wOEeCt8B8w6oHaW1gv2MvorgKls2awAGQjQI7PSnc5L9CK9E7Ol6blEil8PSbbsJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYIw9LBthbzomkR3hJVjVdJH+RNx4NZQRDkNxc4+ZViajE2bhghY
-	4X7qdxO8EG06uAnBiAjR9Jzan1XE/Spf7iM2mFdn7M0sFu+mfh038yG07a/dyIQg4WI=
-X-Gm-Gg: AYBFou27meLcEVCElNimDVaU2Yh8ieE9xnM4y5/BUaLcgH8TRAec968VWSYhuTfMrI+
-	8Wew2OAhdNrsj8RLpljHs9lfchiaJtvq6ezYERMP/NIuD4L2AuJrUpwXDGyElxGiTDetscXFHH9
-	3XxKiyYidQMyIu/26+aEKilHAWTh/3Kpv6E0LnjzQ2cZv1Fy14Ib6TKmuXVvF0AZSs0Tu3AI5DN
-	lAjf/Qkb8fmUl1SulBvfXbJ5wnIBo4S7zp5rgFOLYOYRVoaj8Sa1G9oKmbdIfFvvE66dOSt3EqJ
-	Ibnh3Ee5WY9yCubnSGvl3QDytFlJFYy0KIHNdE7476jqc9Zoauyi0TAgCfzw5YtL0V1ygwNvZbV
-	kkhdIVaAtXxYWocWtiH2uKQwXbjQDuTzPhlMzYVvzWKhpepCv1UYQWTiHUbHIohT27IW/0kzjJj
-	tnQ4ppX9Bj9oOcWIVgp3Yd2HiLmfyCWJ0wnzHruhn0ZyIZ/5xDfAdKXH08e6+LmIL8JVw7Ol3Ja
-	ZCKjdFydXDrliFHW5HnIKMPs1cUP93dM02XUR5Ulf+x6E0G6Bg=
-X-Received: by 2002:a5d:5010:0:b0:48a:ffcc:5b50 with SMTP id ffacd0b85a97d-48b12744206mr2302441f8f.40.1790926759988;
-        Fri, 02 Oct 2026 00:39:19 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:2f62:6d3:721b:8c9e? ([2a01:e0a:106d:1080:2f62:6d3:721b:8c9e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b38105239sm5444144f8f.33.2026.10.02.00.39.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Oct 2026 00:39:19 -0700 (PDT)
-Message-ID: <02ec6d43-f803-491c-a793-410ae80ac987@linaro.org>
-Date: Fri, 2 Oct 2026 09:39:17 +0200
+	Fri, 02 Oct 2026 07:39:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=arRz+0rWPEOGCg51nxjyo9hLZkSRrcHLGyQ2WHme7GgJjrjvBvmY2wqfx0AhZhJ4WjpKHZLAmqdLQ6DCtk2AO8afIqD/DTEMKS/JDE+wWhU2i7/S4euYcbe0PL4y73pIyM2hnCltqHDaA8vBvIgMlICtqP5kwLMsq02YkCE800EK+kgPYfwxfPodh15cz4wRhqtSirim24UC1mpv86j2GgXUSQonYSBOigXnCAtuRBfxLbzgKRA77t+QJY8r27I4JtSJ2wsMJfxH36PZq75f8Q0gocDT6PSoaZxBHUprBYNhU6TbY5cg3URfH295bojTL5qrcC7FPHX0WMYq9rsYXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=faI1FDtHomsXYzyaQZ27N21cNGJajbtf8XrEl4uhr/s=;
+ b=NnBIw32aIGvGtbOfLtbPwQsSRE5pxZsWxexxyHiUppWrb7HYsyQzNS4qOJaFikUpCwfJuUVI2ap9GcypmttdH+U0G+r7vd5sFGsD9rBr4vOyTqzT8J1jPD+t/GfCFMdNfixwRl4PXuFalTmZWQe0YUF8/vlpP8onF8u3R2TaB+Ng1MPyme4q9yCMPRVsDIlIdj8XYOUyRv0/McV9rNvTU5oiBrwqsnKLDQQD4UVdXJiaiu8ChECqs8crTVxemNLTvxJMbwR4PkWy7kUyE8lWieNRUL8jLxqI7cImWvfDvP1s52tgJTVGyhK3FgVPE5KnhSk8AnkmefgoFWWsHqNBNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=faI1FDtHomsXYzyaQZ27N21cNGJajbtf8XrEl4uhr/s=;
+ b=TYy1U58CEs7/gIC+Va7IAmwyhj0LPZYYRROp0/dsfwQ2hetXGZxPkEz6I3PK13ss4RJIyWwLkDeFTH9l29T8Nrobned00EG+GbTaeC0HxnlGUSIk5Se+nYLIG8BeHM5eHLJSpE31fG8Q1B1byyab9JIzZHKJmgN3m91UCU9XMnd7lad6u4gQmPDmW01ZGXwOUHmamNDy2y5w8dWkMrRQ12PgU/9YthMSuvqd2ayicLRH89u9IqdN/UWFkfqdsQXGQi46Mx8gxAf7enJRlQK3HVrlF8yqzyiaNgnWGQnhI+3tfiBXbHvkJmU60LpGGXrojk7dVXK70K7nvM7ki0CVdw==
+Received: from OS6P279CA0069.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:3f::8) by
+ MRWPR10MB9810.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:501:83::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.16; Fri, 2 Oct 2026 07:39:43 +0000
+Received: from CPH1EPF0000051E.eurprd04.prod.outlook.com
+ (2603:10a6:e10:3f:cafe::26) by OS6P279CA0069.outlook.office365.com
+ (2603:10a6:e10:3f::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Fri, 2
+ Oct 2026 07:39:43 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ CPH1EPF0000051E.mail.protection.outlook.com (10.167.241.233) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Fri, 2 Oct 2026 07:39:42 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 2 Oct
+ 2026 09:45:37 +0200
+Received: from [10.48.86.103] (10.48.86.103) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 2 Oct
+ 2026 09:39:41 +0200
+Message-ID: <480b20a8-dd25-4d07-813d-99284823a0fb@foss.st.com>
+Date: Fri, 2 Oct 2026 09:39:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Benjamin Tissoires <bentiss@kernel.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
- <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org> <arqhwHiVf00j94J7@beelink>
- <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org> <artlIYhgbskRJXDQ@houat>
- <27bc999f-ef3a-450d-a4ea-57ac45508705@linaro.org> <ar4C329Cm5hzB3kH@houat>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <ar4C329Cm5hzB3kH@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] hwrng: stm32 - reuse clock rate in
+ stm32_rng_clock_freq_restrain()
+To: Thorsten Blum <blum@kernel.org>, Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>, Can Peng <pengcan@kylinos.cn>
+CC: <linux-crypto@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261001211612.38124-2-blum@kernel.org>
+Content-Language: en-US
+From: Maxime MERE <maxime.mere@foss.st.com>
+In-Reply-To: <20261001211612.38124-2-blum@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.103]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CPH1EPF0000051E:EE_|MRWPR10MB9810:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15e4f93d-9fa0-4ca1-7321-08df205852c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|36860700016|376014|1800799024|82310400026|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: FxNu0hFtTf1/kH1qfh+5pWeh8ZPp6Rx5JbPbI8gdpYEZRUdxOaRNf/R3tr9Z78l3aYrpWg4X1rSCi7gZHY+azup8gSETiJtOW7WCJxY0z4lLy0xb6XZWAMScfcemHhmbeik2nmdSRNOvgEbUD5gTRmpwO1zIPmkkC/RKh7U/gBKt4Znusez1o9n6ek9KiuCYG4/vUXejgHmkRRC7v01VUVyLa2hDBnQbnIfVTNEnOZ4dfdPSIHGobvVHpyV2/ZRzqQWX0aeKeeDK6MGdFFVXS4rxYiC99YGCV7q5FhzGdfneb9TxBhdXhhq6UYYR+QYduW+iO8VBOvDNczH13W+gvai3dbkwzyYuhgbDLY+T+YpLk2XJCOso8xFYDcexDCA9QuQvBkWIGrz989aZaLP9dBIg4yUE3tsCjISFGZ1FiWCWQcwPOT4tPnyKFLqq1T0rrB6TANIdgAGH6MOfKatvtdR+4jF+W6YDRjoU7opoJFVf/W09SnuVM3O1BNwx79ArrO2t0UcaUtwIBB8hswEpcA4AHE9tBBy8+sHSwrhA0RUb2fwAVsRwMJ5MeWY+y9ya2Ma3ryX8+lOXAKhKviQABkMgGAEdtmpGrVap1GI+bC81z5Hj9KAUDkqrsHsX5DJlXoUU33ik3HKGlTtnhgKJtOxJAHm9BsM4G9AhXZohu7epzCu4Iq0sNFAmUA2pSIMFrLdJZKlv9BNV7CkPRzPngw==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(36860700016)(376014)(1800799024)(82310400026)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: J47n/Tfki9tvEVfzJDPbvyuU9vT88kLyl78btdQJFJ8z2TogOsYM30muegdPF2It2fsZPySMLjNJDPysg4N+5aeCoSQmdVBqiYmyMhCFsXKhpiKCNMPgj7MfPebEt2XQU1nHfdJFp1WKBWGuY5JJP1hSZtKOjY96NgPtKtgZMe57DrCHrqfvP8/CxYgiYk/p0QforBL/WT8lhgWbzaPlN0AV/OA3nqH6xd946nhc+43gHmlveRoBeMfZBhbKOf5LJWij5CP4gB/vdrcr8eKbd5uTvJ2K1cWZwWNoO6Lb3fuSnGevv9plfNi9WeNqzLXnVGIdQW6pXP+2Q0c6t1TchapUA60DkoN1qyxcl0FQKezSfyZJJWO/6jFBhE1yU1zb4judmXXSSxwtE7RJQxyYu6Sl2ViATUlNP4NrXT3WMulgg6ZN99wkG1op5iHGXWNv
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 07:39:42.7174
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15e4f93d-9fa0-4ca1-7321-08df205852c9
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF0000051E.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR10MB9810
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_003922_247721_322CABE5 
-X-CRM114-Status: GOOD (  46.52  )
+X-CRM114-CacheID: sfid-20261002_003949_787094_92A1D7E9 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,170 +127,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/1/26 09:01, Maxime Ripard wrote:
-> On Wed, Sep 30, 2026 at 03:49:12PM +0200, Neil Armstrong wrote:
->> On 9/29/26 09:27, Maxime Ripard wrote:
->>> On Mon, Sep 28, 2026 at 09:20:12PM +0200, Neil Armstrong wrote:
->>>> On 9/28/26 19:24, Benjamin Tissoires wrote:
->>>>> On Sep 28 2026, Neil Armstrong wrote:
->>>>>> Hi,
->>>>>>
->>>>>> On 9/28/26 18:22, Maxime Ripard wrote:
->>>>>>> Hi,
->>>>>>>
->>>>>>> Panels in general, and MIPI-DSI panels in particular, are pretty
->>>>>>> difficult to support and require pretty much a panel driver for each
->>>>>>> panel produced. Most of them are pretty simple, and require an opaque
->>>>>>> initialization sequence that is usually poorly documented.
->>>>>>>
->>>>>>> This creates a tension between OEMs and distros because OEMs will
->>>>>>> typically get a new panel to react to a sourcing issue during
->>>>>>> production, and thus need some swift turnaround between getting their
->>>>>>> new panel and it being operational in the OS. Distributions on the other
->>>>>>> hand can take years to ship a kernel with that new panel driver.
->>>>>>>
->>>>>>> To solve this, I followed the example of HID-BPF and wrote a panel
->>>>>>> driver that will rely on BPF programs to perform the panel
->>>>>>> initialization. That way, we can ship the programs separately from the
->>>>>>> kernel, and with a different lifecycle. If this driver is accepted, the
->>>>>>> plan is to have a userspace component started by udev to identify and
->>>>>>> load the right BPF program for the panels found on the device.
->>>>>>
->>>>>> This is kind of late for serious applications except if we manage to
->>>>>> solve the bootloader to Linux display engine transition.
->>>>>>
->>>>>>>
->>>>>>> This driver is fully functional and works with both 5" and 7" Touch
->>>>>>> Display 2 panels for the RaspberryPi. However, it breaks away from the
->>>>>>> typical panel driver in multiple ways:
->>>>>>>
->>>>>>> - BPF programs can only be loaded by userspace. This leaves us with two
->>>>>>>       choices:
->>>>>>>
->>>>>>>       * We prevent the driver from loading until the script itself is
->>>>>>>         loaded. This has the side effect of preventing any other output to
->>>>>>>         be used until the initramfs is ran at the earliest, and possibly
->>>>>>>         ever if the loader isn't installed for example.
->>>>>>
->>>>>> This adds a dependency on user-space behavior and if somehow the
->>>>>> initramfs doesn't load for a reason we won't have a way to display
->>>>>> an error.
->>>>>>
->>>>>>>
->>>>>>>       * Or we probe the driver all the time, but only report it as connected
->>>>>>>         once a program has been registered. This is somewhat unconventional,
->>>>>>>         but allows the other outputs to be functional, *and* allows the user
->>>>>>>         to force the output if their panel doesn't require any
->>>>>>>         initialization or during debugging. I chose this solution.
->>>>>>
->>>>>> Both options are not really great...
->>>>>>
->>>>>>>
->>>>>>> - It's not a panel driver, but a bridge one, which is also pretty
->>>>>>>       unconventional. This is required because panel drivers don't have
->>>>>>>       access to a detect callback that is required for the above, but I also
->>>>>>>       think that the recent work from Luca blurs the line from panels and
->>>>>>>       bridges and we'll end up going that road anyway.
->>>>>>
->>>>>> On this point, DDIC _are_ bridges, but in the current panel API we blur the line between
->>>>>> the panel and the DDIC. So being a bridge is fine, but in a general way we lack
->>>>>> a proper way to describe the display/panel/monitor independently of the DDIC.
->>>>>>
->>>>>> At first glance it's a nice driver, but moving the timings into a blob moves something
->>>>>> into possible proprietary binaries with possible closed licence and distribution
->>>>>> restriction so it's a downgrade for the same of bringing up a panel faster.
->>>>>
->>>>> Quick answer on this, because I had the very same questions regarding
->>>>> HID-BPF:
->>>>> - in BPF, you can require (and by default it does) that only GPL
->>>>> 	compatible BPF programs are loaded, closing the argument of "closed
->>>>> 	licence and distribution restriction"
->>>>> - also, a BPF program can be disassembled much easier than a binary
->>>>> 	blob, and I remember Alexei showing me an example where you get almost
->>>>> 	the source code from the BPF object in just one pass.
->>>>
->>>> Right, it "solve" one of my question, but doesn't really solve the issue
->>>> of vendors providing "GPL" bpf programs with source available "somewhere".
->>>
->>> Would you be ok if I was to make a tool to decompile a BPF program into its
->>> source file equivalent?
->>
->> Not really, I don't see the point TBH.
-> 
-> Cool, another moving goalpost then.
-> 
->>>> Another big issue is the API, I don't want to keep the current API as-is,
->>>> we plan to support more advanced panel features and use try to use the
->>>> atomic states to support rate switching for example, and I'm not confident
->>>> it's a good idea since there's no "simple" and "forever valid" API
->>>> to initialize panels...
->>>
->>> So, a couple of things here. First, I really don't think we should
->>> extend the panel API, like at all. But let's discuss that at Plumbers, I
->>> don't think it's very relevant to this discussion anyway.
->>
->> It is, and I'll expose why we need to get out of this deprecated API
->> as soon as possible, we are seriously keeping the ability to provide
->> support for advanced panel features which are implemented in vendor
->> kernels.
-> 
-> I guess I'm not the one working on out-of-tree panel drivers then. But
-> yeah, I don't dispute that statement.
-> 
->> The API was ok when DSI was added and we didn't have generalized atomic
->> modesetting, why would you not want panels to embrace atomic ?
->>
->> I don't understand, please elaborate.
-> 
-> Again, you're putting words in my mouth. I never said I don't want
-> panels to embrace atomic. I said we shouldn't extend the panel API, I
-> told you twice what I meant exactly by that:
-> 
-> https://lore.kernel.org/ksummit/20260604-grinning-determined-falcon-0e8b01@houat/
-> 
->> I acknowledge it might sound a bit like "let's burn the whole thing to
->> the ground", but what you just described sounds an awful lot like what
->> the bridge API already does.
->>
->> Let's acknowledge that drm_bridge isn't just about bridge anymore, make
->> panels bridges, and we're done.
-> 
-> https://lore.kernel.org/dri-devel/20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org/
-> 
->> It's not a panel driver, but a bridge one, which is also pretty
->> unconventional. This is required because panel drivers don't have
->> access to a detect callback that is required for the above, but I also
->> think that the recent work from Luca blurs the line from panels and
->> bridges and we'll end up going that road anyway.
-> 
-> So, yeah, my point is we already have an atomic API to support panels:
-> it's the bridge one. If your plan is to make the panel API an equivalent
-> to the bridge API, then it just makes no sense when all consumers are
-> handling bridges anyway. Just write a bridge driver for your panel IC,
-> and you're done. It works today, and you don't have to extend anything.
-> And you can embrace your atomic panel.
+acked-by: Maxime Méré <maxime.mere@foss.st.com>
 
-I have no precise plan yet, but my idea is close. Since we basically program
-the DDICs in panel drivers, which are bridges, just move them as bridges with
-perhaps a set of panel DDIC helpers to reduce the burden to write a full
-bridge driver and then declare the actual physical panel as connected to
-the final bridge connector.
-
-Having a proper "panel" described would be the key to the move, but the more
-I dig the more it needs to be a generalized solution across DRM.
-I had some feedback about how this would solve issues people struggle have
-with advanced monitors arrangements and advanced features like Tiled Display, etc...
-
-But yeah let's meet in Prague a discuss about this, I'll be pleasure to you
-again in person, it has been a while !
-
-Neil
-
+On 10/1/26 23:16, Thorsten Blum wrote:
+> Reuse clock_rate and avoid calling clk_get_rate() again. Remove the
+> extra space before the colon while at it.
 > 
-> Maxime
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
+> ---
+>   drivers/char/hw_random/stm32-rng.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/char/hw_random/stm32-rng.c b/drivers/char/hw_random/stm32-rng.c
+> index d3fc910f674a..319944d92b82 100644
+> --- a/drivers/char/hw_random/stm32-rng.c
+> +++ b/drivers/char/hw_random/stm32-rng.c
+> @@ -277,7 +277,7 @@ static uint stm32_rng_clock_freq_restrain(struct hwrng *rng)
+>   	while ((clock_rate >> clock_div) > priv->data->max_clock_rate)
+>   		clock_div++;
+>   
+> -	pr_debug("RNG clk rate : %lu\n", clk_get_rate(priv->clk_bulk[0].clk) >> clock_div);
+> +	pr_debug("RNG clk rate: %lu\n", clock_rate >> clock_div);
+>   
+>   	return clock_div;
+>   }
+> 
 
 
