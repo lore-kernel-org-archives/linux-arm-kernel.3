@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D23CA5FE0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3616DCA5FD9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BjN0OCuIf+BRdCjvbUlNLExAIBz7E3bTqo3QP/EbX0=; b=phtcWWembttXOTSRAE22Crvb61
-	hFhaiMPNwPn21rNs9/Q4V58fXaTQ9JTJrhOnELwaS06P+0VUPUxUyew37LWVdrPYIEYMNcjOZU0RK
-	UdOba1kRFvvMoFj58jxIQYlBQ4rEmCuhxjPjQ1WcmnJjEdnqmA/0GebluFWixoq42KyKgxGreIe1c
-	N5jeX9dxEnqEFCg7TOoBoWj4o0dh1aUjPij5yv/0RPabx24a59vph9thVfyhpabHIeOeBHQNkpAdE
-	zPu4jd0XGDrpQgzyiaCNn3HTC1wR+E5AsY3gUnc3kE7Vn6rMIqY8Py1c3CpZ9JZGjE8QVvBu/4Cjf
-	ou3ZAJwg==;
+	bh=/bjJuVdlO1Nwdwt/JwclPfDOlhy65SBr4h+jou97nng=; b=trjqB7HFsWr5eekuvmXGeINZ9n
+	6YV+drLAaSk2Ne2eWIPZ+4xiZ7mxbvkjSNA3N7jWiYly3uBjkw8s2jBTVvWZuIad94VltiHFhHcso
+	xLa/brIc/DBZJ+Xueedn/SwALeJzT7q56NM398QhG/VHuH/LPX4vBx1SMdnjEMT+QepPegwuofaY3
+	I6e1Y6UdMSQ/4OgvA3R1PnOV/NRAw0Wl9hMF+7EfhMc1YGFM3S4ufgbOktaqFeW7P2myeKFMUjbr7
+	33jRjDC41YnOGZYxkZhW7frmhs8BBKpGAMxPwrbpUfZJOYP6ch6eWg802BOCLUmjM2af6JDz8V0M2
+	kvSH+eLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXm7-0000000Apyf-0Qfw;
-	Fri, 02 Oct 2026 07:33:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXm5-0000000Apx9-2dRx
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xCXm5-0000000ApxX-3Ytp;
 	Fri, 02 Oct 2026 07:33:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCXm4-0000000ApvX-1hYL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 07:33:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 579E9400AF;
-	Fri,  2 Oct 2026 07:33:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC00D1F00893;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C1B560A70;
 	Fri,  2 Oct 2026 07:33:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 039041F0089A;
+	Fri,  2 Oct 2026 07:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790926425;
-	bh=3BjN0OCuIf+BRdCjvbUlNLExAIBz7E3bTqo3QP/EbX0=;
+	s=k20260515; t=1790926423;
+	bh=/bjJuVdlO1Nwdwt/JwclPfDOlhy65SBr4h+jou97nng=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dHV+jEL2AGkhsdC0MeRmNrwoK24E+0fqrGB0s04HDzSWovLqkc+18VMyWgNXhU6u+
-	 i5u1S5rvHLpC8llheftHaNut6r17EkVFROFnNFXyyzyX7HFBf3xq4olULtaFkeN+76
-	 ojngKR2nFoZcnodwSSCsKIXobvp75JoYCYAM2YA93T+NEB6EBQYmXFXb6CO+OjDUQn
-	 75Bedi45rcb0xI6HG7vDiuGMhbaWU59dz0vb79UajINmEmfuI+1Y58sgP5z9e3nNuP
-	 ZEnczKrwoqc8DlnVzghkNAbC4bbvGlf8aZAngfgpcoJAaiGIkiI/W/Sr31nXKB6ICF
-	 6mzGsv7JaNmxg==
-Subject: Re: [PATCH net-next v9 14/15] misc: lan966x-pci: dts: extend cpu reg
- to cover PCIE DBI space
+	b=nT4s4qzApJjjSLt/9PsPLpcfKxXgFYVH4IVUvcJt7tk62cpB+5EPA/y5trsGCWnc5
+	 9hrFJfXKmxDqA9j6ygpJhoQ5IyNX5xo5hH6u0CmkvXR4C6m4k9s9LIhHPUKDksiEU+
+	 rJY3q0mDNlqLmgwagbO1gNu/V2o40bAzmdQRZ0rbmxKGlEURvTj2BDEs1RlNdvUHqt
+	 Mk4yTWnhVBEEtUE9tMqM/wgjiF+NDq68kS0pmD42VnqIcjKBzQEtTVyGFBwaAYBoOC
+	 YhzGBIHNECseY+El0qu9rqLvJwBadaVhNenELWZ7B6oE5r5WBPbNxeTTgAyWw2zl6g
+	 j2jrGnzZ3Ej4w==
+Subject: Re: [PATCH net-next v9 13/15] net: lan966x: add PCIe FDMA XDP support
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -55,11 +54,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  richardcochran@gmail.com, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Date: Fri, 02 Oct 2026 07:33:43 +0000
-Message-ID: <179092642350.434549.17324722648905629320@kernel.org>
-In-Reply-To: <20260928-lan966x-pci-fdma-v9-14-a17caf60f89a@microchip.com>
-References: <20260928-lan966x-pci-fdma-v9-14-a17caf60f89a@microchip.com>
-X-sashiko-severity: Low
+Date: Fri, 02 Oct 2026 07:33:41 +0000
+Message-ID: <179092642155.434549.4173203120024624969@kernel.org>
+In-Reply-To: <20260928-lan966x-pci-fdma-v9-13-a17caf60f89a@microchip.com>
+References: <20260928-lan966x-pci-fdma-v9-13-a17caf60f89a@microchip.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -77,64 +76,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] At this commit, the switch@e0000000 node in
-  drivers/misc/lan966x_pci.dtso gets an 8MB "cpu" reg for the PCIe…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] This patch removes the PCIe rejection from lan966x_xdp_setup()
+  (drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c), so a bond can…
+- [Low] In lan966x_xdp_pci_run(), xdp_init_buff() is called with frame_sz
+  = fdma->db_size, and hard_start is the slot start (virt_addr -…
 
 --
 
-misc: lan966x-pci: dts: extend cpu reg to cover PCIE DBI space
+net: lan966x: add PCIe FDMA XDP support
 
-This commit grows the "cpu" reg region of the switch@e0000000 node in the
-lan966x PCI overlay from 1MB to 8MB. The FDMA engine programs its ATU
-outbound windows through registers at offset 0x400000 and above, and the
-larger mapping covers the PCIe DBI and iATU space that holds them.
+This commit adds XDP support to the lan966x PCIe FDMA path. The IFH and
+FCS are stripped before the program runs, and XDP_TX is done by copying
+the frame into a TX slot behind a newly built IFH. lan966x_xdp_setup()
+no longer rejects PCIe and skips the page_pool reload on that path.
 
-> diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-> index 7b196b0a0eb65..7bb726550cafd 100644
-> --- a/drivers/misc/lan966x_pci.dtso
-> +++ b/drivers/misc/lan966x_pci.dtso
-> @@ -135,7 +135,7 @@ lan966x_phy1: ethernet-lan966x_phy@2 {
+> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> index 758554c951c52..949994874ed96 100644
+> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+
+[ ... ]
+
+> @@ -139,7 +140,123 @@ static bool lan966x_fdma_pci_rx_size_fits(struct fdma *fdma, u32 blockl)
+>  	       blockl <= fdma->db_size - XDP_PACKET_HEADROOM;
+>  }
 >  
->  				switch: switch@e0000000 {
->  					compatible = "microchip,lan966x-switch";
-> -					reg = <0xe0000000 0x0100000>,
-> +					reg = <0xe0000000 0x0800000>,
->  					      <0xe2000000 0x0800000>;
->  					reg-names = "cpu", "gcb";
+
+[ ... ]
+
+> +static int lan966x_xdp_pci_run(struct lan966x_port *port, void *data,
+> +			       u32 data_len, void **xdp_data, u32 *xdp_len)
+> +{
+
+[ ... ]
+
+> +	xdp_init_buff(&xdp, fdma->db_size, &port->xdp_rxq);
+> +
+> +	/* hard_start is set to slot start (virt_addr is XDP_PACKET_HEADROOM
+> +	 * into the slot). Headroom includes the IFH; BPF may grow into it
+> +	 * via adjust_head. IFH is rebuilt on XDP_TX and unread on XDP_PASS.
+> +	 */
+> +	xdp_prepare_buff(&xdp,
+> +			 data - XDP_PACKET_HEADROOM,
+> +			 XDP_PACKET_HEADROOM + IFH_LEN_BYTES,
+> +			 data_len,
+> +			 false);
 
 [Severity: Low]
-This isn't a bug, but is the larger mapping used at this point in the
-series?
+Can data_end end up past xdp_data_hard_end() here?
 
-At this commit the same node still has only two interrupts:
+frame_sz is the full db_size and hard_start is the start of the slot, so
+the XDP core computes the data limit as:
 
-    interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
-                 <9 IRQ_TYPE_LEVEL_HIGH>;
-    interrupt-names = "xtr", "ana";
+include/net/xdp.h:xdp_data_hard_end()
+    ((xdp)->data_hard_start + (xdp)->frame_sz -
+     SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
 
-lan966x_probe() enables FDMA only when the named "fdma" interrupt exists:
+The upper bound in lan966x_fdma_pci_rx_size_fits(), shown in the context
+above, only reserves the headroom:
 
-    lan966x->fdma_irq = platform_get_irq_byname(pdev, "fdma");
+    blockl <= fdma->db_size - XDP_PACKET_HEADROOM;
 
-Without it, lan966x->fdma stays false and lan966x_fdma_pci_init() returns
-before the ATU is programmed:
+lan966x_fdma_pci_rx_check_frame() sets data to slot + XDP_PACKET_HEADROOM
++ IFH_LEN_BYTES and data_len to blockl - IFH_LEN_BYTES - ETH_FCS_LEN. At
+the largest accepted blockl, data_end is then slot + db_size -
+ETH_FCS_LEN, roughly 316 bytes past xdp_data_hard_end().
 
-    if (!lan966x->fdma)
-        return 0;
+For such a buffer, bpf_xdp_adjust_tail() returns -EINVAL for any offset,
+shrinks included, because it checks this first:
 
-So nothing touches the extra DBI/iATU space until the next patch in the
-series, "misc: lan966x-pci: dts: add fdma interrupt to overlay". That
-patch adds <14 IRQ_TYPE_LEVEL_HIGH> as "fdma" between "xtr" and "ana",
-which matches the binding order.
+    if (unlikely(data_end > data_hard_end))
+        return -EINVAL;
 
-The in-between state is not a regression, because the driver keeps using
-register-based extraction. This is only about how the series is split.
+Reaching this needs a blockl that eats into the shinfo reserve, for
+example a malformed BLOCKL. It could also be an oversized frame truncated
+to DATAL while lan966x_port_change_mtu() has raised MAXLEN but
+fdma_resize() has not yet reallocated the rings.
+
+Memory safety is not affected, since data_end stays inside the slot the
+driver owns.
+
+Should lan966x_fdma_pci_rx_size_fits() also reserve
+SKB_DATA_ALIGN(sizeof(struct skb_shared_info)) so it matches the frame_sz
+given to xdp_init_buff()?
+
+> +
+> +	act = bpf_prog_run_xdp(xdp_prog, &xdp);
+> +
+> +	*xdp_data = xdp.data;
+> +	*xdp_len = xdp.data_end - xdp.data;
+> +
+> +	switch (act) {
+> +	case XDP_PASS:
+> +		return FDMA_PASS;
+> +	case XDP_TX:
+> +		return lan966x_fdma_pci_xmit_xdpf(port, *xdp_data, *xdp_len) ?
+> +		       FDMA_DROP : FDMA_TX;
+> +	default:
+> +		bpf_warn_invalid_xdp_action(port->dev, xdp_prog, act);
+> +		fallthrough;
+> +	case XDP_ABORTED:
+> +		trace_xdp_exception(port->dev, xdp_prog, act);
+> +		fallthrough;
+> +	case XDP_DROP:
+> +		return FDMA_DROP;
+> +	}
+> +}
+
+[Severity: Medium]
+Now that lan966x_xdp_setup() no longer rejects PCIe, can a bond attach a
+program to lan966x PCIe ports and then have its XDP_TX frames silently
+dropped here?
+
+The ports share lan966x_port_netdev_ops, which provides both .ndo_bpf and
+.ndo_xdp_xmit. That is all bond_xdp_set() checks, so it accepts these
+ports. It then pushes the program down:
+
+bond_xdp_set()
+    dev_xdp_propagate()
+        lan966x_xdp_setup()    <- now succeeds on PCIe
+
+bond_xdp_set() also calls
+static_branch_inc(&bpf_master_redirect_enabled_key). After that,
+bpf_prog_run_xdp() rewrites XDP_TX on a bond slave:
+
+    if (act == XDP_TX && netif_is_bond_slave(xdp->rxq->dev))
+        act = xdp_master_redirect(xdp);
+
+In round-robin, XOR and 802.3ad modes, xdp_master_redirect() returns
+XDP_REDIRECT whenever the bond picks a transmit slave other than the
+receiving port. That action falls into the default case above:
+
+bpf_warn_invalid_xdp_action() -> trace_xdp_exception() -> FDMA_DROP
+
+A bond program that only returns XDP_TX attaches without error, but a
+hash- or round-robin-dependent share of its packets is dropped. With two
+slaves in round-robin, that is about half. Before this patch the attach
+failed with -EOPNOTSUPP.
+
+Should the PCIe path handle XDP_REDIRECT, or keep refusing the attach
+when the port is a bond slave?
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928-lan966x-pci-fdma-v9-0-a17caf60f89a%40microchip.com
