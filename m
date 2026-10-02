@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC72CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2133FCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/358z+L8xwq5gaDWLEGO2eUqDsDG4ejHxxtTfmFfFSs=; b=s7anoU4hhEvY7uRELK6nV7BsQQ
-	I0ciwCZrNwGIUQanEpHO7Sv1hDGiFQFF8ToUBt13hTJoHm/ZNzVSb5ZRhdsnvFQJAvoe/C6MT/U85
-	2PT90TrdUY8qiraTcQjTzEaHXgwYItiCJ/mCugjC/fAS+gElN0Fp3qq+0YGcA0eH1JcFne4WAqLdO
-	sAHq65S4xb+R5VnBswHxZTcDS7SYKar/oeHHpS1eJz1t4U3qmOPcM5xiSvgr+mX0k2GCGkfXcivdx
-	iVhg7dMoal9foQuAwADvcjGUlcPEnR15cxk8a4ooyo9BLD4RVuGLJlv9RDQmUsfqQgJVwUDBsn2DT
-	IgddvqrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aVf/lW0mxR5mXdPtanEkjzxn8Fb60gYR+l6Vjdu9n/c=; b=1QXGYqqEE1cGFcQBQqzL1sp6qq
+	HvMOb3GM/ybwUNj6IsPTMwdIsKFWBMv1pD2A/gRN+ouPpM7COAR+U8zD95XvbjdBLj0fKu/FIvxWu
+	aRETLVmGypdxXcGxEXmCUaCPNmlO5PR1IiNXtLg2T9Y/dT21fmDmzrUf6s1dP6iwd3Wipz4VYIdI3
+	yeSR2tmiuiyzeM4JT9Z80uMBWShxUa38YM3+6aJXTxXiW//Ov/rewFv933DKEOxD5MbjYLnDiu7Q8
+	+tYkuophPt6uJJmM/ic9C4wiq3BPFhUgJIRe9xFvlwcB5UTAlAvDZeEIcGD1FZFyTT0LB6yBJWbD/
+	OYM5WE7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCd2C-0000000BdoH-3dg8;
-	Fri, 02 Oct 2026 13:10:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCd27-0000000Bdnq-3gRn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 13:10:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52DC2497;
-	Fri,  2 Oct 2026 06:10:32 -0700 (PDT)
-Received: from [10.57.8.170] (unknown [10.57.8.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A46133F85F;
-	Fri,  2 Oct 2026 06:10:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790946635; bh=O9qAXfSNd9NNc6BfSIg0k7Umhi4nsbNeqt5uiHuVnJo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TvUKc/n0sjb4WDRQ07F+4BkYbOxgyiB2mxnuB8rQI06A3qAbwMiFuyCHfXf+hGr8M
-	 n6H+4gjuzlBeOlfDwc06mQ7avohuIYjKggc9aVN3ReSU9UWVISWu/JuGK+DUZEar3R
-	 00IYnRRT9wyCBGFAXQ9z+t6CLv8X0M2rcvfOqBYI=
-Message-ID: <bda01f30-acd1-4b79-9e15-75e839c198b9@arm.com>
-Date: Fri, 2 Oct 2026 14:10:29 +0100
+	id 1xCd4D-0000000Be5F-3t1H;
+	Fri, 02 Oct 2026 13:12:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCd4D-0000000Be51-1bk2;
+	Fri, 02 Oct 2026 13:12:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A3FB416D0;
+	Fri,  2 Oct 2026 13:12:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146F21F000FF;
+	Fri,  2 Oct 2026 13:12:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790946769;
+	bh=aVf/lW0mxR5mXdPtanEkjzxn8Fb60gYR+l6Vjdu9n/c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ieMGCLHoWcdWZqqVFKPKXIS0eM9hbG1CO7Dc+7PdoebGcn+t/bHl9TBQM31iVvvKH
+	 sr6l9ON1qqrsQ4QD+q2zh6ZpqbK87lcUGEFjUxQpx8SShovUWaE4a8z7ueb6+gmknD
+	 NPlt8vSsqGncCUfFU0sJanXwSEXDF4kuuKDFCNUgsJVblssmLNEtYVCPgKZYvhvaQF
+	 E10xzk2JFaujiQhB9qemiQ70mRCz6twd561Pw5dPervZAYe73/tha+Z07Ie07NlG/n
+	 XYTcGsdeCSMiqcmGA4xMLtT6e6E0QRnGha7Rvbwp9K2B3v4WIWn3B57UNJOeuf8r7I
+	 Yvn+lZ6wx0gaQ==
+Date: Fri, 2 Oct 2026 14:12:35 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Barry Song <baohua@kernel.org>, Hongru Zhang <zhanghongru06@gmail.com>, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	surenb@google.com, david@kernel.org, liam@infradead.org, mhocko@suse.com, 
+	rppt@kernel.org, shakeel.butt@linux.dev, vbabka@kernel.org, zhaonanzhe@xiaomi.com, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
+	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com, gerald.schaefer@linux.ibm.com, 
+	hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com, 
+	svens@linux.ibm.com, linux-s390@vger.kernel.org, dave.hansen@linux.intel.com, 
+	luto@kernel.org, peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
+	Hongru Zhang <zhanghongru@xiaomi.com>
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Message-ID: <ar-o1TrOMGrrcxLX@gremlin>
+References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
+ <arFYRAa-i7CIwmHL@gremlin>
+ <arF-E3Nsw9ZliH0t@casper.infradead.org>
+ <arI_w2wTfA00Mgy9@gremlin>
+ <armexcXDiG8ryZd6@casper.infradead.org>
+ <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
+ <ar7MsOb6IJLt4eLo@casper.infradead.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
-Content-Language: en-GB
-To: Fuad Tabba <tabba@google.com>, Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
- gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
- alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
- lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com,
- jonathan.cameron@oss.qualcomm.com
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
- <20261001210703.1597150-6-suzuki.poulose@arm.com>
- <CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
- <86se2o2rbs.wl-maz@kernel.org>
- <CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_061039_961764_5D53E2D5 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ar7MsOb6IJLt4eLo@casper.infradead.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +86,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/10/2026 14:05, Fuad Tabba wrote:
-> Hi Marc,
-> 
-> On Fri, 02 Oct 2026 13:57:11 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
->> Just to make sure. Is that what you had in mind?
-> 
-> A diff is worth a thousand words :) Yes, that's it. With that, every
-> remaining hyp user of vcpu_is_protected() only runs with pKVM, so the
-> kern_hyp_va() case in the macro can go too.
+On Thu, Oct 01, 2026 at 10:12:16PM +0100, Matthew Wilcox wrote:
+> So what I didn't realise is that fork() waits for page faults to finish.
+> I don't think that's necessary, so we can just stop doing that (whitespace
+> damaged):
+>
+> diff --git a/mm/mmap.c b/mm/mmap.c
+> index 4bf26b0f1e6e..e79555247d3a 100644
+> --- a/mm/mmap.c
+> +++ b/mm/mmap.c
+> @@ -1739,9 +1739,6 @@ __latent_entropy int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm)
+>         for_each_vma(vmi, mpnt) {
+>                 struct file *file;
+>
+> -               retval = vma_start_write_killable(mpnt);
+> -               if (retval < 0)
+> -                       goto loop_out;
+>                 if (vma_test(mpnt, VMA_DONTCOPY_BIT)) {
+>                         retval = vma_iter_clear_gfp(&vmi, mpnt->vm_start,
+>                                                     mpnt->vm_end, GFP_KERNEL);
+>
+> I think this is safe.  I've booted a kernel with this change, and
 
-Ack ! That does make things simpler. Marc beat me to it.
+I'm afraid it's not safe :)
 
-Cheers
-Suzuki
+We already actually did this (by mistake I think?) before. See commit
+fb49c455323f ("fork: lock VMAs of the parent process when forking") - we shipped
+that in 6.4.0 -> 6.4.2 and it corrupted memory all over the place.
 
-> 
-> Cheers,
-> /fuad
+Reports + a consistent reproducer:
 
+https://bugzilla.kernel.org/show_bug.cgi?id=217624
+https://lore.kernel.org/all/dbdef34c-3a07-5951-e1ae-e9c6e3cdf51b@kernel.org/
+https://lore.kernel.org/all/b198d649-f4bf-b971-31d0-e8433ec2a34c@applied-asynchrony.com/
+
+Also we have asserts for this lock in copy_page_range() and
+copy_hugetlb_page_range() which will now fail (and possibly more further down
+the stack?)
+
+> My argument for why it's safe is that a thread which takes a page
+> fault during fork() might have taken the page fault either before or
+> after fork().  The faults will definitely happen in the parent process.
+> They may or may not have happened in the child process, which can't
+> possibly care whether or not they've happened.
+
+The problem isn't the child it's the parent - copy_page_range() _modifies_ the
+_parent_'s page tables in-place, on assumption that nothing else can access
+them (for CoW).
+
+And actually nowadays things are _even_ worse, you could also have concurrent
+page faults, MADV_DONTNEED, MADV_FREE, MADV_GUARD_INSTALL/REMOVE, UFFDIO_COPY +
+UFFDIO_MOVE (yikes) all of which might introduce new issues + would have to be
+audited too.
+
+So - it turns out a lot of stuff implicitly assumes VMA write lock now:
+
+1. CoW - deferred TLB flush race
+
+(The issue above)
+
+https://lore.kernel.org/all/20230705171213.2843068-2-surenb@google.com/
+
+This happens because __copy_present_ptes() does wrprotect_ptes() on the parent
+without a TLB flush (that's deferred until the end of the fork).
+
+But unfortunately without a VMA write lock something can then replace the page
+table entry in the meantime and you can end up with data loss as a result.
+
+Same issue exists with hugetlb wp too. And god only knows with uffd wp :)
+
+2. THP - can destroy parent THP mappings
+
+copy_pmd_range() does:
+
+	if (pmd_is_huge(*src_pmd)) { copy_huge_pmd(); ... }
+	if (pmd_none_or_clear_bad(src_pmd))
+		continue;
+
+Without the write lock, a concurrent fault can install a huge PMD via
+do_huge_pmd_anonymous_page() or filemap_map_pmd()/do_set_pmd().
+
+The issue is that pmd_bad() fires for leaf PMD (ugh) on at least x86 and arm64,
+meaning that'll clear the page table entry.
+
+I think Hugh left a comment alluding to this before:
+
+	 * copy_pmd_range()'s prior pmd_none_or_clear_bad(src_pmd), and the
+	 * error handling here, assume that exclusive mmap_lock on dst and src
+	 * protects anon from unexpected THP transitions; ...
+
+It's like the mess around pmd_trans_unstable() :(
+
+3. copy_pte_range() skips the required pmd_same() recheck assuming write lock
+
+It uses pte_offset_map_rw_nolock() with a dummy pmdval and:
+
+	 * We already hold the exclusive mmap_lock, the copy_pte_range() and
+	 * retract_page_tables() are using vma->anon_vma to be exclusive, so
+	 * the PTE page is stable, and there is no need to get pmdval and do
+	 * pmd_same() check.
+
+(Probably needs updating for VMA write lock...)
+
+4. The asserts
+
+Mentioned above!
+
+I suspect there's more as well.
+
+Some of it could be changed, but it'd all be at the cost of behaving very
+strangely (no VMA lock but mmap write lock) while manipulating things.
+
+And I am not really happy with changing page table entries in the parent VMA
+(for CoW) without a VMA write lock held.
+
+I also wonder whether it would achieve all that much really - the issue is with
+holding the VMA lock across I/O, anything else that tries to grab a write lock
+is going to end up being the new thing that's blocked (mprotect, munmap, mremap,
+mlock etc.)
+
+I think doing something like this would need a very significant redesign and I'm
+not convinced it's one that really achieves what we want given all the other
+cases that'd get blocked by the VMA lock being held still.
+
+--
+Cheers, Lorenzo
 
