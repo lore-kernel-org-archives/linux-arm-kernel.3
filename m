@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95B1CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A91CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6UaIwsAAFjadbrYplzkotURcQ5SnRdPh7/z/V55WSoI=; b=ykIjJ3iW42CAbp8exU1esoJrtb
-	J/ShsRprxwDqt4xtB+s+IX6E8rsXeK9U/TE7yTuaQy1jGgkJkH/X5cnxKV3QCQjapndYpu1wBzATF
-	NTDfec8svI4c5YcmxFBps/lGhEEWpkGVfZM1fu7c2HKVB+8Kngcrnqia6A5pCDurV9l8hPQHjV+Wb
-	diM/cHDGhZJImuD3MKrNdLL/JR1S6KbFhzvJYpO1BWQDpu6cwN2Ch5ZMx4meJ8RxZ01lCFutHTQXJ
-	b4ebm64ODF739iCQDqdURmymo1tErPn3khgUsw0/FjHQofCYJQNe8kkMPoMULfKW4cqUVMgUHukwn
-	lipuTOvw==;
+	bh=pFiozDtXbElFjY52A4C+mnOyigQ9AyYGm8ni+YdlmxI=; b=BRQfSs5GyARqkZh136xgYR1z+n
+	w/XQnr+HBTtwPf6eZHkJgjoGCEAEmxlPoszp9u0rsSUaG2e0mD1hx+SRvUgL1fo0GvMGKtFfUIpH7
+	xrRs486HAticmYcZM1u/Y6LuJZCVySVH0tCRwqNQ3J5TtM12Tcv1ZAgPPYrUYH/5q0OR3FoRp9xBc
+	GSxl/Xhz7uJAms+zi+aI14UdV8clTFbJQGFC5g9NKcl14G3a45HpuIPqTXACUfEEF2sfaAUgUzmTt
+	SC/AOm8dzxCkn2Qjutlr4IfQmfxquVDcm0gBEmLiKqreZyioGeGWgah/VDMjQ9uG8pfwgN29hLxgX
+	MI4mxG7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCgy8-0000000C90E-1AI1;
-	Fri, 02 Oct 2026 17:22:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCgy5-0000000C8zc-20su
+	id 1xChWC-0000000CEH1-05MW;
+	Fri, 02 Oct 2026 17:58:00 +0000
+Received: from mail-dy1-x1345.google.com ([2607:f8b0:4864:20::1345])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xChW8-0000000CEEz-3Bz5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 17:22:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14B262F;
-	Fri,  2 Oct 2026 10:22:41 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 16DF23F85F;
-	Fri,  2 Oct 2026 10:22:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790961764; bh=r1bFA/wmy6Ap4hGtjh0xolrIUAwgjGIPa6hz30QI12A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZiW3um5Ng6FQCYYSC2M090W3ZquSMnCMTaaO3cxrjvV9LpXa29iUPU7Vkhv5eyEbX
-	 dIbjyZnL+E+1WMXfIYibOTOGvY6W89eKA4IP998ebbZea1oa48cIEpq++5pZ+5Itik
-	 nbdmFyyGITvGX4oQRXBuKqUIxPZG46+CTbCl4T7o=
-Date: Fri, 2 Oct 2026 18:22:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] perf: cs-etm: Respect --no-itrace option
-Message-ID: <20261002172242.GH1208404@e132581.arm.com>
-References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
- <20261002-james-cs-hw_id-output-failure-v3-4-1d8b6ef339c8@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002-james-cs-hw_id-output-failure-v3-4-1d8b6ef339c8@linaro.org>
+	Fri, 02 Oct 2026 17:57:58 +0000
+Received: by mail-dy1-x1345.google.com with SMTP id 5a478bee46e88-34ef0362d95so2012789eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 10:57:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790963875; x=1791568675; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pFiozDtXbElFjY52A4C+mnOyigQ9AyYGm8ni+YdlmxI=;
+        b=Jzo2Cjos1mD2WvG8u2m2DKbR4qepaHtU3qhN97Td+VsNLh0LdSDzkjq/3Qo0bBvnOz
+         aB/od4hVSFicolqbLiESIdY78x91oyZZeB152ayRxtXq84l80UEZb8w26yhVoa16v08J
+         ids8T20Nk6YuXNcq4D0BC08stOal0vAdhpXczCZtzNQ/oh+5/Mx0aA0WAVVSIfJ5ABl9
+         d1ZM4J0MiW6+m4iGATSBxDsWwDPOpBQmNCxtPg16PEm03V0mRvpw9SA3PJMN43uae8Lp
+         tJuZ0A55EC3JZ7JWBfhL2iGj3jm1Y2Qthh8u+agWnWFddK+ev3J7ut4SqcppXJXCShls
+         tBfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790963875; x=1791568675;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pFiozDtXbElFjY52A4C+mnOyigQ9AyYGm8ni+YdlmxI=;
+        b=b0r+2cUHLOBAcBgx/neloXg3F6yTt9saCk73v05v1L2G0dsTp7Pc4gpXmV7JSOzhng
+         2DB4x+NspWLWgEGCg0YKh31IrSWlZqRxAl7/PqfYZ3EhapSre+p6TWXI7ON4sJ8NkKxN
+         xuvlgItVtor4dlDuUslxkrwlnhwyKbzyQFpZFw+bPpUn+he97XMokju+2H2RtUzsoxYD
+         Tsnka0J/nWpSyoHmuDEaSn1zwO+kVcGsbBZcdI2XTHzfig+/mFhr12KpvsOuorXIjEB8
+         X//guKkP72RaleTuz63c/x9PEqdZqU2mrwT+8nWLaAfsFo55y0FkY5lIckrUTK2IqKVu
+         wqLg==
+X-Forwarded-Encrypted: i=1; AKwUvBxvYmHO2CgnfsRZvqEeyPB3KjjTqIy1bLgwlXVQ86pfVWggO5qqvgK80NEA6edItJgiE/s2fcoxyHHeE3l37p8s@lists.infradead.org
+X-Gm-Message-State: AFuF++kz7ABqt89J2A2JKtPY82dw/4UGY4tZapM3AQsBnrXH5XQ4ZvmQ
+	j64HQ60mqsXQ0CQvUXW8gzUT3M7PC6fFDrsGrQta9cNu0SUFZDPp9iNNfaGiiY/WL2ianPyU1vV
+	I5oCtCr0syQ==
+X-Received: from dlbrj21.prod.google.com ([2002:a05:7022:f415:b0:146:40d5:dd5c])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:b045:20b0:14e:516f:441f
+ with SMTP id a92af1059eb24-151c30ed59emr226133c88.20.1790963874830; Fri, 02
+ Oct 2026 10:57:54 -0700 (PDT)
+Date: Fri,  2 Oct 2026 10:57:34 -0700
+In-Reply-To: <20261002175738.3242646-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20261002175738.3242646-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261002175738.3242646-2-irogers@google.com>
+Subject: [PATCH v14 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI PMU definition
+From: Ian Rogers <irogers@google.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	bcm-kernel-feedback-list@broadcom.com, 
+	Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	"=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?=" <ukleinek@kernel.org>, Peter Robinson <pbrobinson@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_102245_846261_A9A4164A 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20261002_105756_796044_013688C3 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +97,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 12:15:14PM +0100, James Clark wrote:
-> If there is a bug in decoding then Perf will exit early and you can't
-> investigate by using the raw dump mode. Make the --no-itrace option stop
-> Coresight decoding after printing the aux header so decode errors don't
-> stop the rest of the samples being printed.
-> 
-> pmu_type and evsel_is_auxtrace need to be set so that the
-> unleader_auxtrace() behavior is the same as without --no-itrace.
-> 
-> Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
+Add device tree bindings for the Broadcom Raspberry Pi AXI PMU block
+found on BCM2835, BCM2711, and BCM2712 SoCs.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Depending on the SoC and security configuration, these PMUs support
+either direct MMIO access for the System monitor or routing via the
+Raspberry Pi firmware mailbox IPC for the VideoCore VPU monitor.
+
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ .../bindings/perf/brcm,bcm2835-axiperf.yaml   | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+
+diff --git a/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+new file mode 100644
+index 000000000000..fcffa5fc6c02
+--- /dev/null
++++ b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/perf/brcm,bcm2835-axiperf.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2835/2711/2712 AXI Performance Monitor
++
++maintainers:
++  - Ian Rogers <irogers@google.com>
++  - Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
++
++description: |
++  The Broadcom BCM2835 series (including BCM2711 and BCM2712) features hardware
++  performance monitors on the AXI bus for evaluating memory bandwidth and
++  system traffic. Depending on the SoC architecture, multiple monitors exist.
++  The primary monitor evaluates the System fabric, while the secondary monitor
++  evaluates the VideoCore VPU hardware.
++
++  Older silicon generally restricts direct MMIO access to the VPU endpoints,
++  requiring them to be accessed over the Raspberry Pi firmware mailbox
++  interface. If the VPU endpoints are memory-mapped, they are supplied as
++  secondary resources.
++
++properties:
++  compatible:
++    enum:
++      - brcm,bcm2835-axiperf
++      - brcm,bcm2711-axiperf
++      - brcm,bcm2712-axiperf
++
++  reg:
++    minItems: 1
++    items:
++      - description: System monitor MMIO surface
++      - description: VPU monitor MMIO surface
++    description: |
++      Memory-mapped I/O resource regions for the AXI PMU endpoints.
++      Typically ordered as System monitor, followed by VPU monitor if directly
++      mapped.
++
++required:
++  - compatible
++  - reg
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - brcm,bcm2712-axiperf
++    then:
++      properties:
++        reg:
++          maxItems: 1
++
++additionalProperties: false
++
++examples:
++  - |
++    pmu@7e009800 {
++        compatible = "brcm,bcm2835-axiperf";
++        reg = <0x7e009800 0x100>,
++              <0x7ee08000 0x100>;
++    };
++  - |
++    pmu@7c012800 {
++        compatible = "brcm,bcm2712-axiperf";
++        reg = <0x7c012800 0x100>;
++    };
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
+
 
