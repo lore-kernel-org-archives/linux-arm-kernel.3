@@ -4,107 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247C5CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B75ECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nr+lcidngyc0ulTQrlYku4smM8GtiOinATZrrJ6f6Ao=; b=Ocrq14Upzxdifo4w/qZdt+ely2
-	ND3kzRiudgAgO1q+YlJYS4JBZxGwY4zydtk/Md2L3EbH1Ef+tMbqtgYFclwvDEEAcnOQEfbLQn6KO
-	9fNFaEgVYauGkGkkGeBlsz0hzLc2kv/js6bs46LOQIB2/rovNTMN0QyBc//Agqcw5EtHWx1dqf7uL
-	21kKUNTYDvooT2hz3mBjn+CNJsBkgrC2BnPu74Nup1oYCRq6Fzf7pgBUBdG6KrfadgMzU378v1mtP
-	sjMqRczngXUxuHauIfnKy4eOdpUVydbZ5wet5eKRTQUMbLGJPsugioZ+ebcHnpEs5hCwBMHszt9v1
-	H0k1497A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7dRvfc70r6OBDko7gZcc8Tn9kTuS8mmELAxhWXxRlI4=; b=dUH24WymArC/BeWcgx7M3bqCWX
+	/OETcseQW35D4xne5xQoprpvKBZuGVzEjPSGQa5EWo2c5tfAWacK2bRw8ObN3aDfmQg+a28tq9em9
+	WI0ljXT5IEMvCDwSz1r/2T+S36pAzWRFy1DrD3ffslKpWmW5B7g4zxUL5UdS9kWT/27DlTerNk2va
+	cEgTHco8UPa6ESfRAGgmt4s0bqEl110kVCH1jjBvckvY80JarkNPPn9PNSBeGAP+J2DRw0YRPDAnB
+	P0mJ8pxxRozwz1xlJYIEciLaDNukbLX16hWJUfOp6Je7qsNIlzBbV3duJBWZuZRbqLHNgQKIZssGY
+	SSxTWVKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZIA-0000000B5Hn-3bCp;
-	Fri, 02 Oct 2026 09:10:58 +0000
-Received: from mail-pj2-x26.google.com ([2607:f8b0:4864:39::26])
+	id 1xCZIs-0000000B5nn-0FAM;
+	Fri, 02 Oct 2026 09:11:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZI7-0000000B5Cj-0vfq
+	id 1xCZIn-0000000B5m7-0paK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 02 Oct 2026 09:11:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7dRvfc70r6OBDko7gZcc8Tn9kTuS8mmELAxhWXxRlI4=; b=HrbkvRL9mCz1Tsp3Nv9Ve2afHO
+	lTFofWfvQ4tn4Gdy6aFc8v8cjic6QIzrV/hFCv58Yoi18dcROzsX01V9L9k1CimXt7ATjPFLwqzkI
+	vcpXfEPZBHignEJvtE34qOlDz1StYOM8wsilYJc2OqcjZIgFSBbYCXtz3gWVI1VKWXdSt6BztvDma
+	3NW/RtPBtIqXTHgd71xrPoktDyeOBuJIn1sgmqiUhBovsf74wR5I8260rMZC9qZumIhw5Sqhh2xTR
+	hBFYopQ4rLJdm7XdRtWVUAp4wTB9tffFM6RPSD42NK0DVhZ4rtiOOzmy2t6ggz8SqufoVzPnSlRyf
+	TA4HDTzA==;
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCZIi-00000005liG-24sb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:10:57 +0000
-Received: by mail-pj2-x26.google.com with SMTP id d9443c01a7336-2d747eb79f7so33799005ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:10:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790932254; x=1791537054; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nr+lcidngyc0ulTQrlYku4smM8GtiOinATZrrJ6f6Ao=;
-        b=iEjzu1/cta/vcGrzxrYSYqcfAKyHGERPYkMC+nAM8u4iWK2bHjLVRug2jrQQhUrLml
-         H2iF6tHaGd18cEOtCOMwitWvrpuMXu9hj6V0gWL2LDT+6VXFF7I5ylOAPlKianA6CI4P
-         wfkpwnTLMwaNrz607hiLW+bmxNQ+fhGY7q6RcFj7WMzGJicV0dVsGDvN8eLDOBxoCm3+
-         1mN+LqK9uhioM0Nk3CKX98V1XMtbR05N9Vvr+HfWWA1ZCyX3xCrjjqC2EVB2or1n1cTc
-         cdEUChlr/YTPzFbcFHTH5iBh2NM4+xL/3iRBOouzBAQkwdCGsWMQVNtfW/N8++gSodUH
-         4V6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790932254; x=1791537054;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nr+lcidngyc0ulTQrlYku4smM8GtiOinATZrrJ6f6Ao=;
-        b=SaJC2xXvyLzQyP3QFllQ/NwZx3KT0UmxkjZk7Xbv5rMqKJqeH/73yMw2j3f/boY7Dd
-         1NeJt+TlvPkqsPxOa8son+q9v6sDey6Kj11DaQibZPLt7URhVo++2W6wbT8ImXj9Fzo3
-         B8/5zEbcw8zSFFuOqTevaWKyz/FT6OIml6HmmiF4AbFIHYruTHAAHq/nsK5YI01DSx5U
-         Wa4zaymLUdgyDKLUIhu2yk/WLsX1nGaCUovU5OjP69RPS8GiffrO5oXyZmnjzICY5k3p
-         xHKNQ0ulhpGrlgcq6Dm/Tn1ozzTxfonvu/E36+283oUPOQOtG4pWVaMJiV8VaHhJkG/E
-         o7MQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxiu3eAfz5HrVdGU9QZm0JUPbZXCMIyFTKsFr8QU0rg9vQJqTC+oye2YRx0kulmBFPjAS19CepCNYlUPUE1kLrr@lists.infradead.org
-X-Gm-Message-State: AFq9FYIP7nIhZ47J8jg6viSi1iO7in0i+Toep3UXCmH4eDM88+V4br+i
-	uKHeWYZztF/E4vGu35pCaOqbvtRCqLbOaU1XX/l1WTbHNyTxWl5JpC42
-X-Gm-Gg: AYBFou26/FvQp5t3FC57lc5YLcItBi3LZXWrvuThvRx/xndKNtGr7NsonCOse68wShN
-	UtG4y69azzFdfhr/C1tdVmsJ0pHc9/Dwi1y/wQBEzsmI0/yuod+fX7tA3W7EU6qZzJhFkDSp3X9
-	a7LcSwKULDa/k2ISSIRf5s1v6C/x1IlgbO913h9M3IMI290sRr5kuqfsEHv3Obb9KRid6aoYf7q
-	QUTjJvHu5lUN26rdKnXPsb50GdGEAdELObwyhQWVwrdUI97Oqcnll1POzGXmqsONupg+jREHr6X
-	VaHbTmYPZtL9oOoYLya1zr5iz9RxgzVUlTax4OEaSbedxhNojm3SepmKKvozOIr46pfRseYbwBB
-	MUrJ2ZqRgtbV7jCr8NrgOyZjs7CDsudtp+sj6Cv0pBPpk0eYXcBEteMirc/oihh87TLz8FZ1BNn
-	JJiiMFhjdl+pyltqzvKShwOOl50BpHPw5DUaTf9k+w1vHRmRmKGxqUn+aMp3m875og0T0NVm32e
-	cLDcm8T3nDKqNaG8cH7UFn9hOdnjts9
-X-Received: by 2002:a17:902:d98c:b0:2dd:5363:3219 with SMTP id d9443c01a7336-2e49b4e303cmr20733295ad.20.1790932254082;
-        Fri, 02 Oct 2026 02:10:54 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f6ab2b9sm5480555ad.36.2026.10.02.02.10.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 02:10:53 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
-To: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	linux-mm@kvack.org,
-	urezki@gmail.com,
-	will@kernel.org
-Cc: Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	baohua@kernel.org,
-	chleroy@kernel.org,
-	david@kernel.org,
-	dev.jain@arm.com,
-	jiangwen6@xiaomi.com,
-	leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com
-Subject: [PATCH v10 10/10] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Fri,  2 Oct 2026 17:09:47 +0800
-Message-Id: <20261002090947.869220-11-jiangwen6@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261002090947.869220-1-jiangwen6@xiaomi.com>
-References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
+	Fri, 02 Oct 2026 09:11:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790932292; x=1822468292;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=QyiqJbVNVVWpOjOeWDvCPx4TpBrd1c2J6poMC4kMREk=;
+  b=eeONtBWGJ5vAFNE90H/7tPNquNuztx1439EDsRWhE1wH3tnE8IgTBawt
+   tWlDk+wXAb94YTipgWbeW95XkZpWqcEyubURi7xzGGWukmwtFkYD/xR/g
+   SqsMc6sbT/mkJWMbfoA1JONRrbmIfjkx9yyNLdRlMqe05LYi+lDn3PUZm
+   fEyejB/5B3OwmUuICo0gCFPfMdIQ/oldvOK/m85/7/ptI+v5PLDVp+vvm
+   iIkbGeXIN1C57up7pZYIrAhJOb1gcaivyMPX7LBA9FK8j9MwljtXBvJ56
+   ZZAlvj8YVkvGrOCpY5ri8KpWhfSBfqYM9UeNtcPB5OO/Fq3L5j9oqVX0o
+   w==;
+X-CSE-ConnectionGUID: K6kcmqTgQBOroRaveL+Z0A==
+X-CSE-MsgGUID: DyHNEIi1RiWBs0+eM9r5zA==
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="63547435"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Oct 2026 02:11:23 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 2 Oct 2026 02:11:23 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 2 Oct 2026 02:11:19 -0700
+Date: Fri, 2 Oct 2026 11:11:18 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<horms@kernel.org>, <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v9 13/15] net: lan966x: add PCIe FDMA XDP support
+Message-ID: <20261002091118.dnavfb3whz5enjcd@DEN-DL-M70577>
+References: <20260928-lan966x-pci-fdma-v9-13-a17caf60f89a@microchip.com>
+ <179092642155.434549.4173203120024624969@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179092642155.434549.4173203120024624969@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_021055_301204_5B025F6B 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20261002_101133_151999_3C670A79 
+X-CRM114-Status: GOOD (  38.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,89 +107,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] This patch removes the PCIe rejection from lan966x_xdp_setup()
+>   (drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c), so a bond can…
+> - [Low] In lan966x_xdp_pci_run(), xdp_init_buff() is called with frame_sz
+>   = fdma->db_size, and hard_start is the slot start (virt_addr -…
+> 
+> --
+> 
+> net: lan966x: add PCIe FDMA XDP support
+> 
+> This commit adds XDP support to the lan966x PCIe FDMA path. The IFH and
+> FCS are stripped before the program runs, and XDP_TX is done by copying
+> the frame into a TX slot behind a newly built IFH. lan966x_xdp_setup()
+> no longer rejects PCIe and skips the page_pool reload on that path.
+> 
+> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> > index 758554c951c52..949994874ed96 100644
+> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> 
+> [ ... ]
+> 
+> > @@ -139,7 +140,123 @@ static bool lan966x_fdma_pci_rx_size_fits(struct fdma *fdma, u32 blockl)
+> >  	       blockl <= fdma->db_size - XDP_PACKET_HEADROOM;
+> >  }
+> >  
+> 
+> [ ... ]
+> 
+> > +static int lan966x_xdp_pci_run(struct lan966x_port *port, void *data,
+> > +			       u32 data_len, void **xdp_data, u32 *xdp_len)
+> > +{
+> 
+> [ ... ]
+> 
+> > +	xdp_init_buff(&xdp, fdma->db_size, &port->xdp_rxq);
+> > +
+> > +	/* hard_start is set to slot start (virt_addr is XDP_PACKET_HEADROOM
+> > +	 * into the slot). Headroom includes the IFH; BPF may grow into it
+> > +	 * via adjust_head. IFH is rebuilt on XDP_TX and unread on XDP_PASS.
+> > +	 */
+> > +	xdp_prepare_buff(&xdp,
+> > +			 data - XDP_PACKET_HEADROOM,
+> > +			 XDP_PACKET_HEADROOM + IFH_LEN_BYTES,
+> > +			 data_len,
+> > +			 false);
+> 
+> [Severity: Low]
+> Can data_end end up past xdp_data_hard_end() here?
+> 
+> frame_sz is the full db_size and hard_start is the start of the slot, so
+> the XDP core computes the data limit as:
+> 
+> include/net/xdp.h:xdp_data_hard_end()
+>     ((xdp)->data_hard_start + (xdp)->frame_sz -
+>      SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
+> 
+> The upper bound in lan966x_fdma_pci_rx_size_fits(), shown in the context
+> above, only reserves the headroom:
+> 
+>     blockl <= fdma->db_size - XDP_PACKET_HEADROOM;
+> 
+> lan966x_fdma_pci_rx_check_frame() sets data to slot + XDP_PACKET_HEADROOM
+> + IFH_LEN_BYTES and data_len to blockl - IFH_LEN_BYTES - ETH_FCS_LEN. At
+> the largest accepted blockl, data_end is then slot + db_size -
+> ETH_FCS_LEN, roughly 316 bytes past xdp_data_hard_end().
+> 
+> For such a buffer, bpf_xdp_adjust_tail() returns -EINVAL for any offset,
+> shrinks included, because it checks this first:
+> 
+>     if (unlikely(data_end > data_hard_end))
+>         return -EINVAL;
+> 
+> Reaching this needs a blockl that eats into the shinfo reserve, for
+> example a malformed BLOCKL. It could also be an oversized frame truncated
+> to DATAL while lan966x_port_change_mtu() has raised MAXLEN but
+> fdma_resize() has not yet reallocated the rings.
+> 
+> Memory safety is not affected, since data_end stays inside the slot the
+> driver owns.
+> 
+> Should lan966x_fdma_pci_rx_size_fits() also reserve
+> SKB_DATA_ALIGN(sizeof(struct skb_shared_info)) so it matches the frame_sz
+> given to xdp_init_buff()?
+> 
+> > +
+> > +	act = bpf_prog_run_xdp(xdp_prog, &xdp);
+> > +
+> > +	*xdp_data = xdp.data;
+> > +	*xdp_len = xdp.data_end - xdp.data;
+> > +
+> > +	switch (act) {
+> > +	case XDP_PASS:
+> > +		return FDMA_PASS;
+> > +	case XDP_TX:
+> > +		return lan966x_fdma_pci_xmit_xdpf(port, *xdp_data, *xdp_len) ?
+> > +		       FDMA_DROP : FDMA_TX;
+> > +	default:
+> > +		bpf_warn_invalid_xdp_action(port->dev, xdp_prog, act);
+> > +		fallthrough;
+> > +	case XDP_ABORTED:
+> > +		trace_xdp_exception(port->dev, xdp_prog, act);
+> > +		fallthrough;
+> > +	case XDP_DROP:
+> > +		return FDMA_DROP;
+> > +	}
+> > +}
+> 
+> [Severity: Medium]
+> Now that lan966x_xdp_setup() no longer rejects PCIe, can a bond attach a
+> program to lan966x PCIe ports and then have its XDP_TX frames silently
+> dropped here?
+> 
+> The ports share lan966x_port_netdev_ops, which provides both .ndo_bpf and
+> .ndo_xdp_xmit. That is all bond_xdp_set() checks, so it accepts these
+> ports. It then pushes the program down:
+> 
+> bond_xdp_set()
+>     dev_xdp_propagate()
+>         lan966x_xdp_setup()    <- now succeeds on PCIe
+> 
+> bond_xdp_set() also calls
+> static_branch_inc(&bpf_master_redirect_enabled_key). After that,
+> bpf_prog_run_xdp() rewrites XDP_TX on a bond slave:
+> 
+>     if (act == XDP_TX && netif_is_bond_slave(xdp->rxq->dev))
+>         act = xdp_master_redirect(xdp);
+> 
+> In round-robin, XOR and 802.3ad modes, xdp_master_redirect() returns
+> XDP_REDIRECT whenever the bond picks a transmit slave other than the
+> receiving port. That action falls into the default case above:
+> 
+> bpf_warn_invalid_xdp_action() -> trace_xdp_exception() -> FDMA_DROP
+> 
+> A bond program that only returns XDP_TX attaches without error, but a
+> hash- or round-robin-dependent share of its packets is dropped. With two
+> slaves in round-robin, that is about half. Before this patch the attach
+> failed with -EOPNOTSUPP.
+> 
+> Should the PCIe path handle XDP_REDIRECT, or keep refusing the attach
+> when the port is a bond slave?
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries. We do not expect any significant overhead for
-this.
+Re-raise of issue dismissed in v7. xdp_features doesn't advertise REDIRECT on
+PCIe, and the warning path is the intended fallback
 
-Add __get_vm_area_node_aligned_caller() as a wrapper over
-__get_vm_area_node() to simplify repeated calls with fixed
-arguments.
-
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
----
- mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
-
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 4acd1ec27604b..3555dc3794e4c 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3328,6 +3328,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
- 				  NUMA_NO_NODE, GFP_KERNEL, caller);
- }
- 
-+static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-+		unsigned long align, unsigned long flags, const void *caller)
-+{
-+	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-+				  VMALLOC_START, VMALLOC_END,
-+				  NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * find_vm_area - find a continuous kernel virtual area
-  * @addr:	  base address
-@@ -3655,6 +3663,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, pgprot_t prot, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3693,7 +3725,8 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
- 
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = vmap_get_aligned_vm_area(size, flags, prot,
-+				__builtin_return_address(0));
- 	if (!area)
- 		return NULL;
- 
--- 
-2.34.1
-
+> 
+> [ ... ]
+> 
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928-lan966x-pci-fdma-v9-0-a17caf60f89a%40microchip.com
 
