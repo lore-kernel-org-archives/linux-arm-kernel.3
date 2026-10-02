@@ -4,86 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF04CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0D5CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oH0+AyrPqVL+/j9iteNRUL5qj/8tZfnE2fNJIb0CWMM=; b=g/i+l+9Yid/JE0lG46Hv74TjVL
-	Gy7jgP/aywWarESzYbCdFVitCjTdzuLRMbDRaUGkiFssXv3XzGbK22c6h20xceG+DtOJZfLY+On5+
-	RXMfjwojKuj/J2m0aAKj0sMVt7hU42J61U2fb+Iw0hf7IqNkm2uonPc5W3ySogpHvw7pbeatcBhU2
-	us3YniSNK2Cgf+Y0YN92Ml7zhJYGLDkCILgdYPs2X/NjptL2KFfEiiyapzRAHpAW+7siqzvHjbTiM
-	wOgObIP825EpFDbgZIBHQMNcOfIsw2ajDJMCA7doY6nf5FKv/xZSDQh/ze+608DGCJRvDfg312cGc
-	7CaX09cA==;
+	bh=OAmOlflbJV02//t0PYsWYtP2AS3mBRNwN6t9PgpiJVo=; b=pbgNl4boD08eCEJrweKGuPOig8
+	Sii9uBs3EojeRqqNx6LXpj1VKw0jR9/ahYOjlHiwRF+usPg/VjI80vSpYSOlJOaPLxCTlGAIMni1D
+	D2/e0CUcpDmHs/JVrKi6iFcXDa0eJjgNtvTvJqTY8RkGomQdeqJ4JBcn0vhZTV91Lh3n7Y4fzydp9
+	DUT/nqvaq9aqoO+nzCG+1Lr6XU0kdCpaAx7B3Zi2esTWNcjoUx8Kt0WaMk6y1uDydxB/BM3V/kiE5
+	EvMrx2O0Sk4R0WxinrHS7KJErMCioQXJZsrBBGBix4iG+jCebQQePjqoi6BNadu3gJKsPHVLGAyqT
+	3uZBr7sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwI-0000000AsRH-0EHL;
-	Fri, 02 Oct 2026 07:44:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCZC2-0000000B3tD-3Bp1;
+	Fri, 02 Oct 2026 09:04:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwH-0000000AsQp-1mdO;
-	Fri, 02 Oct 2026 07:44:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oH0+AyrPqVL+/j9iteNRUL5qj/8tZfnE2fNJIb0CWMM=; b=J++LXO2Gkav/fEEuRW4EsCdU7y
-	ELlOCyxT65immocHMFy5ZKd4zXNk20upZsPZsbfrd9KAG1ZclSyUoBZteeJWlDPN8arQXc+Mkw7Us
-	fZR4wlrrEFxbvjfrJmNfurEzvQNRXH4lvMJ+KVk6tvD4Hxp7wRJPClDJvraI/BY85yoLqLgx9v80Z
-	OJreOORmYHCoT0WdOn1znD4S1j4OuMTr09Si/GGgPlXJYlapmdODfNC6Co2mXf7YxepuGJQCm/c+Y
-	b4eS+7+LSyYa9vbEUVkQYu0jar3SMyDdkJsP0TW5KQcjuu1r1J+lYagsitd1QxGLE4WF11EG0YWcv
-	HwXVi2vg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCXwC-00000005gl3-3KbH;
-	Fri, 02 Oct 2026 07:44:15 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hopcF3646828, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1790927030; bh=oH0+AyrPqVL+/j9iteNRUL5qj/8tZfnE2fNJIb0CWMM=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=iQSF1Q1s1OOFvBwH/CPYc9PoLGfLKtEqY1uim3auXaA4KRcnIeQ0vrVvDdAs56/HM
-	 Zlt0THeMiHTrJXupQB9JngZs9Q1ORtg43h9l//lKIuK90xNrQb/RnLhh9LyyxyP6bi
-	 5pdFrG1sIGzPHWcU+xckrWPG6GUarRRKA4GdDXkymtJRFVS/AJrFkNyxFXdCN9OPIB
-	 CBbs8mVilFge2qshcmlqPA4zmfUYhnNDpnAz3b4MvAN7oCXm67GM7EJg0a3klfbaff
-	 rB8f+KjgTEj+/zR1993V3n9flU48d5wWZct0Wz2iGbbq9ZBMjkPJmdoT0s2g14RHfI
-	 pUa9nzDuJMwMw==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hopcF3646828
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 Oct 2026 15:43:50 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:35 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 2 Oct 2026 15:43:35 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
-	<bmasney+clk@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v15 11/11] arm64: dts: realtek: Add clock support for RTD1625
-Date: Fri, 2 Oct 2026 15:43:31 +0800
-Message-ID: <20261002074331.3066919-12-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261002074331.3066919-1-eleanor.lin@realtek.com>
-References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
+	id 1xCZBz-0000000B3sR-0kcK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 09:04:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790931874;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OAmOlflbJV02//t0PYsWYtP2AS3mBRNwN6t9PgpiJVo=;
+	b=D2M3PPrvLpZ+TzeOKPDzqV7ZjLthvpmY4g6hvILX9XZP4D9tMfdazT7S6nkxRmcDnGIUId
+	P4lu5WBywK0kI8LuUOrdfLjiM9j1w4fjbGnHD110YqWH//vbMGEzAwfwbbUDwm1ppxOIGd
+	R2CLeZjIA3RcGAhpbqEcuKZLH2sKIUE=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-222-NNvnCyIZNruWPVLcZKYIkA-1; Fri, 02 Oct 2026 05:04:32 -0400
+X-MC-Unique: NNvnCyIZNruWPVLcZKYIkA-1
+X-Mimecast-MFC-AGG-ID: NNvnCyIZNruWPVLcZKYIkA_1790931872
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a004b70f99so32641995e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:04:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790931871; x=1791536671;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OAmOlflbJV02//t0PYsWYtP2AS3mBRNwN6t9PgpiJVo=;
+        b=VIOIhqes8SYHr1KrQIlIgFwuLdV12nkBw1RQ3R2j/n7OBwbSBnhw89z4Lg3q0b1ytV
+         d73vI6JQAwlvBlTYE6Zq6PguSGaxQP2plhveDdYYVUe2fSNMvb4lDS27TrUY8hUdek1Z
+         SyFBJb6n7yaILfVhr7oH1Lp03Zv2+30R41sxOxmxBXbk2e9xbWnpMHnxpwY4zn1tn0CM
+         J7wVih19VRJG/NF1etYD6iS9REuxNfMlEG1iIeofQfCBYRUL37Adrv8i5FJvSw1Pel1p
+         dyenfE6YkkMK6pox4ibUXx6pr3cFZKg893eO4AQuzRlXgE26beZgQlfYdxaDNCrv9DFV
+         W0Vw==
+X-Forwarded-Encrypted: i=1; AKwUvBxwv8Y4+FvzMEsa8QwNEeKTxNn5ANt8oa5jq4xGxiHs5Q7cVwGVsErlEzE1amI4o9EqxD7U1cPpazPpekyH8OPO@lists.infradead.org
+X-Gm-Message-State: AFuF++kRw+LaRMbT4PGKE2nxULHxrwiLBKJqr0WDrJ/jZKAj/OD7T922
+	69qYblagAp2EqjyZv/NLbjhuhZcqguR/My1y8GuIUtjn1s1TWqLdbneWrMunGQF24lwWpolLzQs
+	86ocpXtnofFXwX4mZKmoWTD2r8SdS92pzpcIhepmvPbY606Shk+xqXnQRhPfIoOwz+Q4TQBEy5+
+	If
+X-Gm-Gg: AYBFou0z56mC7Liy5voeP/l/VWW17to/N8o+wMSyVnVHxDl4JUIj63wAIdparMc9706
+	JlvXHj8l+p26TUmBGMAbs7SOkLekOA4Y9JVxMxrrnDfdoOAhtXC5U6lXmfdN4caPHl3rcfj9V6A
+	Cw+60yMsVHmUm+Gw2k+tn1T6a92erSCdipbPXixVKn3HFnMPrB8PjJhr1NuX3nmIn59y6iMLJig
+	8H5VREqylxx7Hgr2JTXBlA/5ynFOHRkxmLG1l0o3iJWKstb7kEc4Eua/JAlYNl6YzqotghbM0EA
+	X6QrIelEvQZVvJUrtHGNyUXmlqMVHIrV44uEyNpK84UbG5Fo4kh40XSj/qLIFOeM0nu2sc3r3It
+	CAwXrdx7fCfYsllupLzR0lJHmz8SsMiPSQSO2sWbk4AnbcG6O08ckUTDdHfRCleb1xA==
+X-Received: by 2002:a05:600c:4e42:b0:49e:6050:9fbe with SMTP id 5b1f17b1804b1-4a027586525mr39355245e9.15.1790931871177;
+        Fri, 02 Oct 2026 02:04:31 -0700 (PDT)
+X-Received: by 2002:a05:600c:4e42:b0:49e:6050:9fbe with SMTP id 5b1f17b1804b1-4a027586525mr39354405e9.15.1790931870651;
+        Fri, 02 Oct 2026 02:04:30 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027f2a4c4sm67197175e9.2.2026.10.02.02.04.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 02:04:29 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Maxime Ripard
+ <mripard@kernel.org>
+Cc: Benjamin Tissoires <bentiss@kernel.org>, Jessica Zhang
+ <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+In-Reply-To: <a92aa0bb-d50f-4b67-a645-942090d4fe79@linaro.org>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
+ <arqhwHiVf00j94J7@beelink>
+ <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+ <arrAqg5n87INTHE6@beelink>
+ <674314b4-6b80-4b3a-ac15-eefd31cea607@linaro.org> <artpBMeM13Dd0lLy@houat>
+ <xlv1wls4ebjq.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+ <828c9108-2db1-45a6-9301-19159a094301@linaro.org> <ar4CRTMQGs5_nGKY@houat>
+ <2bd17843-4a65-49b0-9e10-7b73afb206b6@linaro.org>
+ <xlv1cxtsft8e.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+ <a92aa0bb-d50f-4b67-a645-942090d4fe79@linaro.org>
+Date: Fri, 02 Oct 2026 11:04:28 +0200
+Message-ID: <xlv1a4owfp7n.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 4K8ZBhvtJfH-u2vXMoExTX1F6SYilcmQJkDM_t1g2SA_1790931872
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084413_694827_0455BB0C 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20261002_020435_282723_E31FF045 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,76 +133,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the clock controller nodes and osc27m fixed clock for the
-Realtek RTD1625 SoC.
 
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
-Changes in v15:
-- None.
----
- arch/arm64/boot/dts/realtek/kent.dtsi | 33 +++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Hello Neil,
 
-diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
-index df0d5ee3b1b9..e4dc8903efa9 100644
---- a/arch/arm64/boot/dts/realtek/kent.dtsi
-+++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-@@ -26,6 +26,15 @@ timer {
- 			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
- 	};
- 
-+	clocks {
-+		osc27m: osc {
-+			compatible = "fixed-clock";
-+			clock-frequency = <27000000>;
-+			clock-output-names = "osc27m";
-+			#clock-cells = <0>;
-+		};
-+	};
-+
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-@@ -141,6 +150,22 @@ rbus: bus@98000000 {
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 
-+			cc: clock-controller@0 {
-+				compatible = "realtek,rtd1625-crt-clk";
-+				reg = <0x0 0x900>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			ic: clock-controller@7088 {
-+				compatible = "realtek,rtd1625-iso-clk";
-+				reg = <0x7088 0x8>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
- 			uart0: serial@7800 {
- 				compatible = "snps,dw-apb-uart";
- 				reg = <0x7800 0x100>;
-@@ -205,6 +230,14 @@ isom_pinctrl: pinctrl@146200 {
- 				reg = <0x146200 0x34>;
- 			};
- 
-+			iso_s_cc: clock-controller@146310 {
-+				compatible = "realtek,rtd1625-iso-s-clk";
-+				reg = <0x146310 0x8>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
- 			ve4_pinctrl: pinctrl@14e000 {
- 				compatible = "realtek,rtd1625-ve4-pinctrl";
- 				reg = <0x14e000 0x84>;
+Neil Armstrong <neil.armstrong@linaro.org> writes:
+
+> On 10/2/26 09:37, Javier Martinez Canillas wrote:
+>> Neil Armstrong <neil.armstrong@linaro.org> writes:
+>> 
+>> Hello Neil,
+>> 
+>>> On 10/1/26 08:50, Maxime Ripard wrote:
+>> 
+>> [...]
+>> 
+>>>>>
+>>>>> I don't want to add a supplementary maintenance burden for the sake of using a cool
+>>>>> technology which has serious drawbacks and dependencies on user-space even if looks
+>>>>> really cool.
+>>>>
+>>>> Spoiler alert: v2 won't. I've got the in-kernel loader to work and thus
+>>>> you can have a built-in panel driver that works without user-space
+>>>> intervention. So this is not a topic of discussion anymore.
+>>>
+>>> It will still have users-space dependency, meaning the BPF files will need to
+>>> exist in the fs when drivers probes.
+>>>
+>> 
+>> It doesn't have to AFAIU. The BPF programs could be built into the kernel
+>> image, just like firmware binaries could be built-in as well.
+>
+> Right so my main question still is: what does it solve exactly ?
+>
+> All the descriptions I saw so far is that it simply moves
+> the panel C code to a BPF code with no other additions.
+>
+> I still don't have a clear view of what is precisely solves.
+>
+> It adds some complexity to load those BPF driver, adds some
+> maintenance complexities since with every API change we will
+> need validate BPF still works in addition to C (and maybe one day Rust).
+>
+
+https://www.kernel.org/doc/Documentation/bpf/bpf_design_QA.rst doc makes
+it clear that BPF programs can't expect the in-kernel API to be stable,
+so you as mantainer don't have constraints due the panel API being used
+by BPF programs.
+
+In other words, this shouldn't cause additional burden to you (other than
+the code in drm/panel/bpf/, but that is also true for any panel driver).
+
+> As the maintainer of the panels, merging a bunch of new panels at each
+> releases and helping migrating to newer and modern way to interact
+> with panels, I think I have the right to express my interrogations.
+>
+
+Absolutely.
+
+> I'm clearly not the oldest kernel contributor & maintainer around here,
+> but the main interrogation I have when submitting, reviewing and
+> merging is : does it really solve something efficiently.
+>
+
+It does. As mentioned, this could make it easier to have some panels
+working with an existing kernel without any modifications (or out-of-tree
+modules). I wouldn't say to prototype it, because as Maxime said, it could
+even be a proper support. But you get the idea.
+
+So just like sched_ext can be used to extend the scheduler (and some of
+those extensions might even end in some of the scheduling classes once
+are found to be generally useful), this driver could be used to quickly
+add support for new panels.
+
+> I don't want people to be frustrated by my review and question,
+> but I feel I'm allowed to say I'm not convinced about this solution.
+>
+
+Yes, of course. From a bystander, I think making assumptions or taking
+a decision prior to understanding the use case is what might had caused
+frustration. But as Maxime said, it would be helpful to have these
+discussions in person next week at LPC.
+
+I'll also be there, I'm looking forward to meet you in person.
+
+> Neil
+>
+
 -- 
-2.43.0
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
