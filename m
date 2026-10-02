@@ -4,58 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A25CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7DECA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IrLW5pEYO0oilTZDIP73FoizMCyX7PcUbA3uGAhHOPs=; b=hmSVcGT97WAgNw
-	uN/uQbjFDwfeTGPfbuq3PUYUKVLFIXCm50DpnX9+RXSwp19IK3A9JMdy2pELKA9xqkTvndQb036yf
-	17j4obPFgE905yFjsOFXS2x1PUqw3k9GR0UKfoKQ6DgM4MPpri16NzWKZMG2z0J2lLGaaSntGrGNV
-	TZMGXAYKwZHJc/I3T3EA9OVC+beKFfozwW8SOXxT2hWCCCvjC0shiBfxqK4BNSnm0y8BuohAS76TS
-	C3X3oy6Ennm3zLsFl4UpeI6TCF3VioUht6QAv1xG8/9TaXDPjJnfqg6WVHMZmCS6ozkc0eeeJd8g2
-	WdMMWvNo+ULuqe5xzv/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9dtWKSgwnERTDvwF1fgPSvxdCHJ4/jCE3adaCVowAg=; b=JCoxNsDAEpFSUjWXK4vPu0fb2u
+	kVo6gL7/lvT2bBDaseUtqhMdNfOCXxMuS677PBSwznO4i2bdgjq5UZ+30MtUytEWXMy+YRCL9QEzo
+	0AgIdXje2NLJn6KVyus0LQDZIuHtD5Zks0Gx1LL4IHfHGiXkUfVZfswtxaM1+Qiu4gsg7B6VcEkdA
+	Auc/tYsNdEGdNciC2okvioImpOfHFLUOCWr8IG4DfnV6DU6f/POXREoRLJnoJ46f5RY7uoL6uqUBi
+	AtTtBeSLOyPPSPwk9L2YjdmfThUm7NkAj2pjiI65z0EzEzNCNDmTze4007tBDx0bxaWg15VPsShJy
+	dRcju9bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdSS-0000000BgSM-3TNr;
-	Fri, 02 Oct 2026 13:37:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdSQ-0000000BgS1-30US
+	id 1xCdbn-0000000BhP1-2i8z;
+	Fri, 02 Oct 2026 13:47:31 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCdbl-0000000BhOJ-1BZm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 13:37:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 350B7497;
-	Fri,  2 Oct 2026 06:37:44 -0700 (PDT)
-Received: from [10.57.55.104] (unknown [10.57.55.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A6463F85F;
-	Fri,  2 Oct 2026 06:37:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790948267; bh=gwlZA5XW07l9+TTi1JniezJYGGNz9ylLLm2mV2dTelk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vHNgvmx9AqGWDVfBsgLcC6HIEBGPnXE/En5DZY4jr6GyRHem+0pGXkSeutcjtFNfm
-	 cqJEW/C2WQDG0Cj2J+690qJr1NdEeY3PtBU+txiqKzBeN1xxXGaFxQdvujoHmQBipr
-	 ZaLdYABRCYLseHrB+8gfJcO9a6x3FtDOwXgKRdbY=
-Message-ID: <135e085a-68c0-4790-bad2-d87808d08e6f@arm.com>
-Date: Fri, 2 Oct 2026 15:37:44 +0200
+	Fri, 02 Oct 2026 13:47:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mU3tm1tyYVxrCPtpyawm2DbzxQ4gjXE7d8/9gbORsbTGBpwCotsTrgD/oKhRJI0d45gM5Ma+KXL8WyJLyGRjjsDIPIdrlRpITm9ksMEBkZexwkzD4af1a2nHoJMhJStmDmJ1J0lG9j+DQXMdW4n2b+HW4e/YStj035TwwqW1PbF3h3FPe4F4mDa3PhCjBj/vvHIrxxVJNJmuu0WIB2fN/CUr1ei5QY0QWlclGKjF6+jcuHTKfLaVFHKFUYY2TH7NxaQgSRKa3qpJb1CFYrA/iP/aT3VAPsGBlE0e7qSqfpsaB0ebgL8ZThewElHOjUAa3kwWI57Hw8pEfhGKEbKNJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qvv5uR9wQI8hrwSg7KrIDW/gBWyHMhZT3fjc+6e7l2E=;
+ b=OgU87U4aLzohV9HCT8nY/wGB2Qwr5OP3FFROAD7JZ42O4Cd+AYuGmsWFzI7PlWTIEveIPC2ZTBzfRqhlJNu+RISu0Zjh0x4gAND8jJDd/ggOQqw4/S7obhCc3Ii+yQevhCtWAXhXmQ+hKxuyl4JUoJjcMVDalT9/BgTclpfxp1Kn6C8yPU9/2RZw+C79CwbRQhxqRWrq8HXBAV5+cN3YGqRtvSmOt/FtPXqg52wtj1ssS4gdpBHD11rzEV8cDPZVneLGBRmugyt1kmfZU9Gtyuj+5Mk1hMRnH+8mLsndoSB5NO6Cr3qxrduWJyfpz1SG8JtX3ikkanEgLigwrStcnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qvv5uR9wQI8hrwSg7KrIDW/gBWyHMhZT3fjc+6e7l2E=;
+ b=a6ATuoz/zcNQ80BFhv9U5GBS4l702DBtzWm69gJ9fHQnJndPcrxuZk3TtUqaQi8JEcu4VdsM+3vYIWp2iM5Q9vyMRXiHTUtyJazA8iVWAwQ+9kwSGx2xfOo8CWomtoVAHUOPnRH9GIWPF0hIbZVNcWt6ZrdR2/sdncXwCWxzplXpk9qVT4WcsoROcETac61qGlFLZFNiOrgJENAH9cu2EN6hanKLjWjmmxrgZNyefW1xDrJqaEFPOgYXb+2b+Ied8EYGIg+wAapfjcg0AcjeSfSPdpJ6B7eaJ8AISMAtvTH+au5r15yK7smYHvZbproUcUd/iuhjwTNBQ1P4jON3YA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB8597.eurprd04.prod.outlook.com (2603:10a6:10:2d8::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
+ 2026 13:47:23 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0472.016; Fri, 2 Oct 2026
+ 13:47:22 +0000
+Date: Fri, 2 Oct 2026 08:47:10 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
+ new header
+Message-ID: <ar-13p3a7ENGfMOF@SMW015318>
+References: <aqjzvxI4ecoFvRLT@ashevche-desk.local>
+ <aqlpoBJJXfZgsMxT@parshuram>
+ <aqlwRkNcs_UqKjWs@parshuram>
+ <aql6u3T0nnSVr-FC@SMW015318>
+ <aqws8pN2rfS9-dCC@parshuram>
+ <aqz1-OzFobOROuBw@nsa>
+ <aq18_TMNs4EJzgZO@parshuram>
+ <arDtEB0na9DxDWAS@nsa>
+ <arFXc0LqEpgWSS6m@SMW015318>
+ <ar-Il2qP_Qms3Qw1@nsa>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ar-Il2qP_Qms3Qw1@nsa>
+X-ClientProxiedBy: PH7P221CA0080.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::34) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/8] firmware: smccc: lfa: Register ACPI notification
-To: Sudeep Holla <sudeep.holla@kernel.org>
-References: <20260918141112.2115555-1-andre.przywara@arm.com>
- <20260918141112.2115555-5-andre.przywara@arm.com>
- <20260921-smiling-rare-salamander-6c442d@sudeepholla>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260921-smiling-rare-salamander-6c442d@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8597:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44b938fb-cede-407f-749f-08df208baf18
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006|5023799004;
+X-Microsoft-Antispam-Message-Info: VaUFosvvyyCSoij5pZn5FAz8c81rDJ1zxzSiyyrmhKEr0BxIhSsCLSX2Hyoo6XVCkDHcLaIH5mL7J3DqIaKvBPGaKch642wTZbZPh1qQBQ1RwEvnmFq5ezKiamcbH4MioqENYSvNr2DL+xQoXjqxwLaPevKj1hN/hJj0GgQMKsMUc8oEEYOyWVhSw4lv9EXzedxI3E4A0Om8g9H1BTnZV310+lnG1QqkLk2ITjVcLjrNlgRcDrwKgG0Ms5o4t2o5dpYAkr8g1uUJFPYqDcTw+aAwH7ASpsBz+oDBqOZpGwNDl7doAYV+tzhUH7RrllN6qJbz4z/r8kkx6Pr6SlMOvsm3ZGNoYkW4NpunjU+M6xp9w7/W/0f0HNooeYqO4d10O9FJWoPFm8Rfsf56j1Lz0yUbi4AhgZnXlCmMD+DMLPuahuyLtE1Xm9VnylkfTeXCmIrdMf5UC7FAY6q5Jmwg0W33nrhmUXz/wDr08m2N6LH+aVfQfPCSUkvSjsLq3rFrXBvE7vz1Yqn7yqWCw8LIgrlYR2SHqCAIh+MEpMJo/TrljE4aGJ1mcb4pNimAsdTena6qkjXWIWAzHJBK7LU70JrtFxfkSlaxEhatyqZ8TlOweMDqUZyCOuz5s6bwkMojPLQR+Qdel5QJu9KMFHOR4Vxq6JLa7pxaA/pYEMQtgbI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?XV/3gCP3ERW//7THfs934M0LVBrNKQ62ZmlCdlvDcMVUAm1Y7b6XSYRcR7?=
+ =?iso-8859-1?Q?zUwbIqluZ94gP2ywNSHB6184pkL2twAYKm/K0jVHOgqj9ms5H6tFPz9LO0?=
+ =?iso-8859-1?Q?e6axFE4ZwYGqPajNpsJuTqnHohF+1hebywRpcBayKcfDWYAXvhL5pjWgYF?=
+ =?iso-8859-1?Q?VHPPKAUTSNfZ72WgPu2SdgcGkjH3hVLo5JhJd/6b7ZFg9t+dF+uGTTDwo8?=
+ =?iso-8859-1?Q?wUiCkemU/pY4x9dj3XkIdlNlUCrNEMD64QZUhb1GdvZS0enzUmckC7vxmL?=
+ =?iso-8859-1?Q?iMw+8aJy/Q9NmP6Yltz3y5HkUWZ3cJOGxfDqns5i6Hzth9bX74Bdm69CgK?=
+ =?iso-8859-1?Q?BSFdlr1ICR/lTfdI/Em75rCLFocAs27F88jshr+68wczYDw+aGR2XBiELy?=
+ =?iso-8859-1?Q?A+o4N1hH3j8hwPgWaCcfAGPqpKfAOGw75wJq2ocQ7tlNiZ0LN7wcPAfzxS?=
+ =?iso-8859-1?Q?XhgSFZ0DjJGr+yIoBQ2UY5vnqgzFoileOYPewrot25fwW9XEIczvzuxuYm?=
+ =?iso-8859-1?Q?DGia13Ojpkn0QmR/3yrineNlR9aGs67dyxDnF/6PV0K2PZjMSHWdQTIutL?=
+ =?iso-8859-1?Q?9sbdFqkqqnbDhIvXmLAbGwIwaZI0iMYO/SqR/yZ5DmOqXwW4dkk9XOXFp0?=
+ =?iso-8859-1?Q?2d/hG20sA73XYW6dH5DbxzAAMGRaOU6FDVsi/zv8rapn0D4DwbXTOMNds8?=
+ =?iso-8859-1?Q?J/PznehieCZqDB7ZUDX/cjFVVtMC5OdYjTMjunJ1OS0cRdKFVlc069nXOw?=
+ =?iso-8859-1?Q?dTIqSt9xIbsctRor6JtV98AylsOhFFnGmsxbO/nayWjjzYOBHx5mjO1arZ?=
+ =?iso-8859-1?Q?j7CqhyzTNjyHd6PmP3OyyIzrTfOkyOpVmYZtTBrWhdn7Lo0KoUXZxLuhfd?=
+ =?iso-8859-1?Q?b4RyJsm6uJr87FjulCH951PB63XvpGEKuxgcdDKbPXVvNlzb2yDDDl+pMr?=
+ =?iso-8859-1?Q?rzAgX7VPzyWrJRmZYYu1UWRxBiqyraCRXYd4vbHdFfh7Bt35k+wtDWIpsW?=
+ =?iso-8859-1?Q?KMjwA85faGGhZzIPMMtkrZiBPgJfmEylhGaIPGzt888hJP8Z4zjelUhdoj?=
+ =?iso-8859-1?Q?l/bN+b4tJ3l5aadH3XC24tCQ5oJsp8ujQy2HR+C6jhUwSuh3Q4DuIha29F?=
+ =?iso-8859-1?Q?QFrJ0K4y2p8tUZRQx/hIZ7EQcfhkTkOz4XHbK4ksjCXB9mrL3OKnHV1LOw?=
+ =?iso-8859-1?Q?aQN+VMyi1F8pVWA0e5E4EWZMj46H3W/JKTEcRX1iifoE2DhNTuqPVvt2RC?=
+ =?iso-8859-1?Q?FSZ1uBqMzHQPbPlrZNcUyeptaa/rJA1QGqyB8NPM4k8w5/yVdQZFc8/lL3?=
+ =?iso-8859-1?Q?Ts5OVvzz3KhFonAkEoTdu60hje/1plLkF8sZRWaDlSo12Q8DpC+uz7u3ST?=
+ =?iso-8859-1?Q?GCaqebNroTe4yFWGxSmH2ZG3iEVv3Ai26JI7Gs4W0MiS+ZGTAOO3yCUoEP?=
+ =?iso-8859-1?Q?pFeyb/RbmQIkJjyrhdsSBpZeDNW5CSIarjOIUoUUZ52xf2IMkiyw7yfrn3?=
+ =?iso-8859-1?Q?i1pZ+6Uad0T3CAeFzJQxRPCENkC42eSZnYlK61fdjquJZxpAV865aqcz9A?=
+ =?iso-8859-1?Q?aBdolTVpAxGUHrUblnp9a5aBpsqQtwAnQ5fr3J867K6zLZdXG+RcY1RzMk?=
+ =?iso-8859-1?Q?aI4S0oL7dddsfYyVRjN7G3BP6oDATNuKnfLFDdsr+MezB4GW7rlDSKlUrx?=
+ =?iso-8859-1?Q?PyinxOo6bVHGzqplgpGz1pTqNuE2KlL0aT6imyymuc9UcSNtvO+5tr7M8R?=
+ =?iso-8859-1?Q?1P/oHgC2mW8u2eja4Q4cOKCwBZKAwzj0apB29rO24X29SbM59HnwxPs0uL?=
+ =?iso-8859-1?Q?+S75NZYLCiJZN/i4hMBTIe0nsr8jS/9fvwyPkN8OoFz7MEgGKQLD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44b938fb-cede-407f-749f-08df208baf18
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 13:47:22.3111
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dMOb+gu7wK9wgI52DhrE5ehPBp+NwAZUgqBjsf/PEBmzHihmjEKwHFpIbeCgtnr9FS8PgF/KCqfPwxlxpBMhsoQ2hsWaT2zPTKYv4KQk/rvnmr6T10nxqBsrN5ngku3b
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_063750_885386_FF0844D0 
-X-CRM114-Status: GOOD (  43.91  )
+X-CRM114-CacheID: sfid-20261002_064729_325234_F8DBC247 
+X-CRM114-Status: GOOD (  46.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,255 +159,125 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On Fri, Oct 02, 2026 at 11:43:17AM +0100, Nuno Sá wrote:
+> On Mon, Sep 21, 2026 at 11:12:35AM -0500, Frank Li wrote:
+> > On Mon, Sep 21, 2026 at 09:53:49AM +0100, Nuno Sá wrote:
+> > > On Fri, Sep 18, 2026 at 11:33:41PM +0530, Vinod Koul wrote:
+> > > > On 18-09-26, 09:39, Nuno Sá wrote:
+> > > > > On Thu, Sep 17, 2026 at 11:39:54PM +0530, Vinod Koul wrote:
+> > > > > > On 15-09-26, 12:04, Frank Li wrote:
+> > > > > > > On Tue, Sep 15, 2026 at 09:50:22PM +0530, Vinod Koul wrote:
+> > > > > > > > On 15-09-26, 21:22, Vinod Koul wrote:
+> > > > > >
+> > > > > > > > > > Traditional naming would be
+> > > > > > > > > > dma/engine/provider.h
+> > > > > > > > > > dma/engine/consumer.h
+> > > > > > > > >
+> > > > > > > > > consumer and provider and good names.. I would retain the full dmaengine
+> > > > > > > > > everywhere please. dma causes confusion already!
+> > > > > > > >
+> > > > > > > > Thinking about it again, drivers/dma/dmaengine.h should be the provider
+> > > > > > >
+> > > > > > > There some dmaengine code outside drivers/dma directory, like
+> > > > > > > drivers/crypto/ccp/ccp-dmaengine.c
+> > > > > >
+> > > > > > They chose to be outside, their choice... They need to be updated as
+> > > > > > well to point to ../../dma/dmaengine.h :-)
+> > > > >
+> > > > > I tend to agree with Andy but anyways. I feel this is going a bit out of
+> > > > > scope now. So what we have now in the series is:
+> > > > >
+> > > > >
+> > > > > - include/linux/dmaengine.h (without enum dma_slave_buswidth)
+> > > > > - include/linux/dma/types.h (with enum dma_slave_buswidth and new
+> > > > >   dma_buswidth_t type) - A future one would be dma_cap_mask_t and we could
+> > > > >   drop bitmap.h from dmaengine.h
+> > > > > - include/linux/dma/widthmask.h - The new bitmap based API for bus_width
+> > > > >
+> > > > > I kind like the separation (and the whole point was to avoid bitmap.h in
+> > > > > the main dmaengine.h API) but tbh I'm not sure if a consumer driver
+> > > > > will ever use dma/widthmask.h without needing the consumer API. But
+> > > > > to sum things up, what do you suggest for vÛE?
+> > > > >
+> > > > > * include/linux/dmaengine.h as the consumer API and includes the new
+> > > > > the widthmask API
+> > > > > * provider/private goes to drivers/dma/dmaengine.h and just includes
+> > > > > include/linux/dmaengine.h as the starting point?
+> > > > >
+> > > > > Let me know how do you want things for v5
+> > > >
+> > > > Yes lets talk about dma_slave_buswidth, it is client type. This is
+> > > > configured by users to set the width of peripheral.
+> > > > So this needs to be in the include/linux/dmaengine.h
+> > > >
+> > >
+> > > Agreed! But providers also need to set the allowed bus mask. And I'm
+> > > just not sure they need to include/consume all of the consumer API.
+> > > Also, it's common to allow the provider API to be widely used throughout
+> > > the kernel (but I agree that could be even harder to get done - if we
+> > > want to make some stuff really private - but I guess that could be done
+> > > in a second step or more incrementally). We do also have some subfolders
+> > > in `drivers/dma` which means we'll need the odd "../dmaengine.h" relative
+> > > include which I do not love tbh (on top of the crypto stuff).
+> > >
+> > > I really think something like the below would be more appropriate (if we
+> > > just want the provider/consumer API without further splitting like the
+> > > types.h and widthmak.h in this version):
+> > >
+> > > include/linux/dmaengine.h - provider API (as of today)
+> > > include/linux/dmaengine-consumer.h
+> > >
+> > > But anyways, if you or Frank do not object in the next few days, I'll
+> > > take the above approach suggested by Vinod:
+> > >
+> > > drivers/dma/dmaengine.h - provider
+> > > include/linux/dmaengine.h - consumer
+> >
+> > It think it is fine.
+>
+> Hi Frank,
+>
+> So I was aboutto start on this again and I just realized
+> drivers/dma/dmaengine.h already exists today so nothing to do on this
+> series.
 
-On 9/21/26 18:04, Sudeep Holla wrote:
-> On Fri, Sep 18, 2026 at 04:11:07PM +0200, Andre Przywara wrote:
->> From: Vedashree Vidwans <vvidwans@nvidia.com>
->>
->> The Arm LFA spec describes an ACPI notification mechanism, where the
->> platform (firmware) can notify an LFA client about newly available
->> firmware imag updates ("pending images" in LFA terms).
->>
->> Add a faux device after discovering the existence of an LFA agent via
->> the SMCCC discovery mechnism, and use that device to check for the ACPI
->> notification description. Register this when one is provided.
->>
->> The notification just conveys the fact that at least one firmware image
->> has now a pending update, it doesn't say which, also there could be more
->> than one pending. Loop through all images to find every which needs to
->> be activated, and trigger the activation. We need to do this is a loop,
->> since an activation might change the number and the status of available
->> images.
->>
->> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
->> [Andre: convert from platform driver to smccc bus]
->> Signed-off-by: Andre Przywara <andre.przywar@arm.com>
->> ---
->>   drivers/firmware/smccc/lfa_fw.c | 122 +++++++++++++++++++++++++++++++-
->>   1 file changed, 121 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
->> index b6ce478d3fc01..bb89fffde6856 100644
->> --- a/drivers/firmware/smccc/lfa_fw.c
->> +++ b/drivers/firmware/smccc/lfa_fw.c
->> @@ -3,12 +3,14 @@
->>    * Copyright (C) 2025 Arm Limited
->>    */
->>   
->> +#include <linux/acpi.h>
->>   #include <linux/arm-smccc.h>
->>   #include <linux/arm-smccc-bus.h>
->>   #include <linux/array_size.h>
->>   #include <linux/delay.h>
->>   #include <linux/fs.h>
->>   #include <linux/init.h>
->> +#include <linux/kernel.h>
->>   #include <linux/kobject.h>
->>   #include <linux/ktime.h>
->>   #include <linux/list.h>
->> @@ -18,11 +20,13 @@
->>   #include <linux/stop_machine.h>
->>   #include <linux/string.h>
->>   #include <linux/sysfs.h>
->> +#include <linux/types.h>
->>   #include <linux/uuid.h>
->>   #include <linux/workqueue.h>
->>   
->>   #include <uapi/linux/psci.h>
->>   
->> +#define DRIVER_NAME	"ARM_LFA"
->>   #undef pr_fmt
->>   #define pr_fmt(fmt) "Arm LFA: " fmt
->>   
->> @@ -733,6 +737,112 @@ static int update_fw_images_tree(void)
->>   	return 0;
->>   }
->>   
->> +/*
->> + * Go through all FW images in a loop and trigger activation
->> + * of all activatible and pending images.
->> + * We have to restart enumeration after every triggered activation,
->> + * since the firmware images might have changed during the activation.
->> + */
->> +static int activate_pending_image(void)
->> +{
->> +	struct kobject *kobj;
->> +	bool found_pending = false;
->> +	struct fw_image *image;
->> +	int ret;
->> +
->> +	spin_lock(&lfa_kset->list_lock);
->> +	list_for_each_entry(kobj, &lfa_kset->list, entry) {
->> +		image = kobj_to_fw_image(kobj);
->> +
->> +		if (image->fw_seq_id == -1)
->> +			continue; /* Invalid FW component */
->> +
->> +		update_fw_image_pending(image);
->> +		if (image->activation_capable && image->activation_pending) {
->> +			found_pending = true;
->> +			break;
->> +		}
->> +	}
->> +	spin_unlock(&lfa_kset->list_lock);
->> +
->> +	if (!found_pending)
->> +		return -ENOENT;
->> +
->> +	ret = prime_fw_image(image);
->> +	if (ret)
->> +		return ret;
->>
->> +	ret = activate_fw_image(image);
->> +	if (ret)
->> +		return ret;
->> +
->> +	pr_info("%s: automatic activation succeeded\n", get_image_name(image));
->> +
->> +	return 0;
->> +}
->> +
->> +#ifdef CONFIG_ACPI
->> +static void lfa_acpi_notify_handler(acpi_handle handle, u32 event, void *data)
->> +{
->> +	int ret;
->> +
-> 
-> DEN0147, Appendix "LFA updates", assigns notification value 0x80 to new
-> LFA updates. The handler should ignore all events other than 0x80 before
-> attempting automatic activation.
+I just find it and start some cleanup/move work.
 
-Ah, yeah, I missed that bit. Fixed now.
+> I mean I could remove the consumer include on the dmaengine
+> drivers that I'm touching but not really on scope and super important
+> IMO. So, for the consumer side, should I just go to the first approach
+> where all the bus_width API goes into include/linux/dmaengine.h or
+> should I keep:
+>
+> include/linux/engine/types.h
+> include/linux/engine/widthmask.h
+>
+> And have a better separation on the consumer side? Or maybe changing
+> s/engine/consumer/ on the above paths?
 
->> +	while (!(ret = activate_pending_image()))
->> +		;
-> 
-> Some timeout mechanism needed ? Otherwise can we loop for ever if there is
-> a firmware bug ?
+I go through v3 thread, Andy just said split to new type.h, but not have
+provided reason.
 
-Yeah, that's a tricky one. The problem is that an activation could 
-change the whole list of firmware components, so we cannot easily 
-traverse over the existing list of components and just activate each one 
-that is pending. So the idea was to just repeat this exercise with the 
-updated list each time, which ideally should converge at some point.
+I am planning move provide API and data structure to driver/dma/dmaengine.h
 
-But I see the problem, and it's not far fetched to imagine a component 
-forgetting to clear its pending bit, which would lead to it being 
-repeatedly activated.
-So what I would propose is to create a separate list of UUIDs that 
-should be activated, once the IRQ handler starts, then iterate over that 
-list and activate each of them. That is definitely bounded, and would 
-avoid any kind of infinite loop. If any component meanwhile becomes 
-activate-able, that should trigger the interrupt handler later again, 
-courtesy of the GIC's active+pending state. Not sure about the ACPI 
-notification, though, do you know about the semantics of overlapping 
-triggers?
-In any case, that's a bit more code, and slightly less elegant, but I 
-think worth it to avoid the infinite loop.
+include/linux/dmaengine.h will keep consume only defination and API.
 
->> +
->> +	if (ret != -ENOENT)
->> +		pr_warn("notified image activation failed: %d\n", ret);
->> +}
->> +
->> +static int lfa_register_acpi(struct device *dev)
->> +{
->> +	struct acpi_device *acpi_dev;
->> +	acpi_handle handle;
->> +	acpi_status status;
->> +
->> +	acpi_dev = acpi_dev_get_first_match_dev("ARML0003", NULL, -1);
->> +	if (!acpi_dev)
->> +		return -ENODEV;
->> +	handle = acpi_device_handle(acpi_dev);
->> +	if (!handle) {
->> +		acpi_dev_put(acpi_dev);
->> +		return -ENODEV;
->> +	}
->> +
->> +	/* Register notify handler that indicates LFA updates are available */
->> +	status = acpi_install_notify_handler(handle, ACPI_DEVICE_NOTIFY,
->> +					     lfa_acpi_notify_handler, NULL);
->> +	if (ACPI_FAILURE(status)) {
->> +		acpi_dev_put(acpi_dev);
->> +		return -EIO;
->> +	}
->> +
->> +	ACPI_COMPANION_SET(dev, acpi_dev);
->> +
->> +	return 0;
->> +}
->> +
->> +static void lfa_remove_acpi(struct device *dev)
->> +{
->> +	struct acpi_device *acpi_dev = ACPI_COMPANION(dev);
->> +	acpi_handle handle = acpi_device_handle(acpi_dev);
->> +
->> +	if (handle)
->> +		acpi_remove_notify_handler(handle,
->> +					   ACPI_DEVICE_NOTIFY,
->> +					   lfa_acpi_notify_handler);
->> +	acpi_dev_put(acpi_dev);
->> +}
->> +#else	/* !CONFIG_ACPI */
->> +static int lfa_register_acpi(struct device *dev)
->> +{
->> +	return -ENODEV;
->> +}
->> +
->> +static void lfa_remove_acpi(struct device *dev)
->> +{
->> +}
->> +#endif
->> +
->>   static int lfa_smccc_probe(struct arm_smccc_device *sdev)
->>   {
->>   	struct arm_smccc_1_2_regs reg = { 0 };
->> @@ -769,11 +879,21 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
->>   		destroy_workqueue(fw_images_update_wq);
->>   	}
->>   
-> Looks like if update_fw_images_tree() failed, the kset and workqueue will be
-> destroyed. The ACPI init below overwrites err, and both a successful
-> registration and -ENODEV reach return 0(not sure if that is expected).
-> Driver removal or a later notification or any activity will then use
-> the destroyed global objects happily.
+why still need types.h?
 
-Yes, this misses the return err; now, which wasn't necessary before.
+Frank
 
->> -	return err;
->> +	if (!acpi_disabled) {
->> +		err = lfa_register_acpi(&sdev->dev);
-> 
-> There is also no cleanup when lfa_register_acpi() returns another error after
-> inventory setup succeeded. The probe needs some unwind path that returns
-> the original enumeration error and releases the kset and workqueue on every
-> later probe failure.
-
-Ah, yeah, as this patch is extra, and both the main patch and this code 
-evolved somewhat separately, this slipped through the cracks.
-The solution is rather simple: just cleanup after an error is detected, 
-this can even be shared with the DT interrupt code later.
-Fixed now.
-
-> How come the LLMs have not pointed out these issues
-> already ? I see sashiko is unable to review this because of the way you have
-> expressed the dependency. Or make SMCCC patches part of the series for review
-> purposes.
-
-Yes, I heard that Sashiko was about to fix that (but didn't yet?), and 
-the SMCCC bus code was work in progress, changing every few days, so I 
-didn't want to create confusion by prepending outdated patches. It seems 
-like Aneesh's series is now queued, so I might just pick the two 
-required two patches into this series, just for the sake of getting a 
-Sashiko review.
-
-Cheers,
-Andre
-
+>
+> - Nuno Sá
+>
+> >
+> > Frank
+> >
+> > >
+> > > - Nuno Sá
+> > >
+> > > > --
+> > > > ~Vinod
 
