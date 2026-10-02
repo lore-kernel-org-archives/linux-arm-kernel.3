@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210D0CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB814CA5FD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBCw8pns3Yy1YTb0ugMeG3QUzggR1ln+om5qVhUBd0c=; b=tV39xE3mG7ko4O/x7i0avIgVBL
-	ygjauULnvPGR/zMKmfl84yVKAIcemSH6PjC6KWcoMRnkCJXCazKDif2GeaMBAR0tcFiYFpjRAQj0Z
-	hSjpuWj2tEmYY3lChw8Tk/9C3/jIfSpliGNxu/KdID6B56NYyhWA8Pv5d+b485mxbNWCgzF1VbiOA
-	i2vyA4Jifo76fByF2R/S/hjaO2p1F+6yhKVc3hRKFngnhXAOozHvILTQPm6YteEVKxTC7SuEG9VMO
-	xP6DAubas+Spli1uFhzL/hy3nF0XbK/TOYnEFyI1RXEs++8mioeWJubt3bt6WhxWJCJnRe4zApnDo
-	pRTJHvOg==;
+	bh=ZamOMuX8MjxB2Lt+kgQ5ZiA6K6uBqGHTdwsr76SIOFw=; b=Fa0INvGjBz0eATf9ZpUE5QbkZx
+	p4iAZJ9Ixxrsn+NBKlgSlwfuQ630cL5NPVLUVgB7ZvN5pWbsLaMt+VaBdI1sznUSv9pdcRFMhu/ED
+	lqddCUboVnMFng7SqcaeCZ8D3IZ0cnXF7R6eI4zJRv+/qDuo6bf8UXNwvPBYTfUyrEzi//mC4QkX1
+	93PP0Xwv6mcrE/23wRAItHm0ZutLAJKTbaN9lcTouDy7N6JzlQFewmI9OaxgO88tdXv3+DO29meOF
+	JGcwn04hUdNSM3FgoX/astbQV6pL2vm+EDCd2LSfyLZGU1D8gAqu0EybjkGUdaIWom7U3XKLCODA0
+	TCskw1Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYPZ-0000000Ax3s-2f2l;
+	id 1xCYPZ-0000000Ax4C-33NO;
 	Fri, 02 Oct 2026 08:14:33 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYPX-0000000Ax1N-02Lh
+	id 1xCYPW-0000000Ax1B-46Ky
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 02 Oct 2026 08:14:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -32,24 +32,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=mBCw8pns3Yy1YTb0ugMeG3QUzggR1ln+om5qVhUBd0c=; b=nzHODN3+AnpUFeYjM0d3Uv1UOu
-	l44XvruTPewNvaSxLx3EQgQg6CqunIn7b/d2Gv33flS1ImeDj6H2CCQx3rPd7H5aoWNDvZP3yStNw
-	qnA9MmK2L8Wf97vEO/goLNUcZrjy6fEI28dOsmxhi34SP74mIOsk5czAy83Kgqx01FaweRVxIQTRP
-	kauF9LyBUeKcG7lj7KocjUMHmlKItBsE7sT2uCCFNDxMEeCTBvWdx9dKMczKgOuaq8nJH8T+eHp5g
-	7O7MT4N3pJ+JQyByLsaCqMpC2KuZEbdtGKWvrBnR7AR08fJVLZ8Xzq0GrGyDwVGxhBcsgHv6xFjb8
-	oKGX7s/A==;
+	bh=ZamOMuX8MjxB2Lt+kgQ5ZiA6K6uBqGHTdwsr76SIOFw=; b=LiBTnYP9ABQcIS0KSC8iySTdMc
+	5ILZP8qppLxvLzzFeOpRTxQ6XOtUX7o3x1HEAlpDygcvtspw8dQmDhUMsVji2rKvctYWcUY6j21K+
+	fjpicrsjAwD+//FIODNJhJxbJ5tUrUxhTqBMkHjvqGomS1afjXza0QwLh6wX+2/xLP4KedOFiZ5Bx
+	dvuuBaJ3KlZi9Cgr34O9OVgZd0Y4Gt/qtGhkdhZ+vSBaNpQfNaamkF9Rn7Rnd5SVPL+wFyZRNUb8T
+	xmk1p88Lus8apdUqh2Hi1QP/aDy0MkJ5FdzLJpydWleqo9MvDolwCaypPhxpkIXruZIFJhCfjn1JJ
+	eBytEc7g==;
 Received: from sslproxy01.your-server.de ([78.46.139.224])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xCYPR-0003Oc-05;
-	Fri, 02 Oct 2026 10:14:25 +0200
+	id 1xCYPO-0003Mw-2i;
+	Fri, 02 Oct 2026 10:14:22 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xCYPQ-000FgI-2t;
-	Fri, 02 Oct 2026 10:14:24 +0200
+	id 1xCYPO-000FgI-2J;
+	Fri, 02 Oct 2026 10:14:22 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -64,9 +64,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 7/8] ARM: dts: imx6ull: Add parallel display DT overlay for TQMa6ULLx
-Date: Fri,  2 Oct 2026 10:14:08 +0200
-Message-ID: <20261002081417.2092471-8-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/8] ARM: dts: imx6ul: Add LVDS DT overlay for TQMa6ULxL
+Date: Fri,  2 Oct 2026 10:14:03 +0200
+Message-ID: <20261002081417.2092471-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261002081417.2092471-1-alexander.stein@ew.tq-group.com>
 References: <20261002081417.2092471-1-alexander.stein@ew.tq-group.com>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28141/Fri Oct  2 08:26:12 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_011431_052784_24C95124 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20261002_011431_020046_035E3343 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,35 +91,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This simply reuses the .dtso files from TQMa6ULx.
+This simply reuses the .dtso file from TQMa6ULx.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm/boot/dts/nxp/imx/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm/boot/dts/nxp/imx/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index e86b9c1a63005..5f190900904ab 100644
+index ea0799ba1893e..734d40b8d389c 100644
 --- a/arch/arm/boot/dts/nxp/imx/Makefile
 +++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -427,6 +427,8 @@ imx6ul-tqma6ul2l-mba6ulx-lvds-tm070jvhg33-dtbs += imx6ul-tqma6ul2-mba6ulx.dtb im
- imx6ul-tqma6ul2l-mba6ulx-cdtech-dc44-dtbs += imx6ul-tqma6ul2l-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-cdtech-dc44.dtbo
- imx6ul-tqma6ul2l-mba6ulx-cdtech-fc21-dtbs += imx6ul-tqma6ul2l-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-cdtech-fc21.dtbo
- imx6ull-tqma6ull2-mba6ulx-lvds-tm070jvhg33-dtbs += imx6ull-tqma6ull2-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33.dtbo
-+imx6ull-tqma6ull2-mba6ulx-cdtech-dc44-dtbs += imx6ull-tqma6ull2-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-cdtech-dc44.dtbo
-+imx6ull-tqma6ull2-mba6ulx-cdtech-fc21-dtbs += imx6ull-tqma6ull2-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-cdtech-dc44.dtbo
- imx6ull-tqma6ull2l-mba6ulx-lvds-tm070jvhg33-dtbs += imx6ull-tqma6ull2l-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33.dtbo
+@@ -421,8 +421,10 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
+ 	imx6ulz-bsh-smm-m2.dtb
+ 
+ imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33-dtbs += imx6ul-tqma6ul2-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33.dtbo
++imx6ul-tqma6ul2l-mba6ulx-lvds-tm070jvhg33-dtbs += imx6ul-tqma6ul2-mba6ulx.dtb imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33.dtbo
  
  dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ul-tqma6ul2-mba6ulx-lvds-tm070jvhg33.dtb
-@@ -436,6 +438,8 @@ dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ul-tqma6ul2l-mba6ulx-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ul-tqma6ul2l-mba6ulx-cdtech-dc44.dtb
- dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ul-tqma6ul2l-mba6ulx-cdtech-fc21.dtb
- dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ull-tqma6ull2-mba6ulx-lvds-tm070jvhg33.dtb
-+dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ull-tqma6ull2-mba6ulx-cdtech-dc44.dtb
-+dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ull-tqma6ull2-mba6ulx-cdtech-fc21.dtb
- dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ull-tqma6ull2l-mba6ulx-lvds-tm070jvhg33.dtb
++dtb-$(CONFIG_SOC_IMX6UL) += 	imx6ul-tqma6ul2l-mba6ulx-lvds-tm070jvhg33.dtb
  
  imx7d-colibri-emmc-aster-panel-cap-touch-7inch-parallel-dtbs := \
+ 	imx7d-colibri-emmc-aster.dtb \
 -- 
 2.55.0
 
