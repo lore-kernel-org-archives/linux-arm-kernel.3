@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EA9CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9068ECA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrNUgiHK76eibcbmJczjwEumW62nZKL7vmCqyjldhkU=; b=Y+J6jNSKC+ByChOqPj1iwf8yeO
-	I2gjpB3f/1IQ5YH82esWxujWJytlTyp5sDGc91l3vxhNhxlVf6gLFsUwdB/yNnZRfxah22i52VkkK
-	qRPX35LYvJ9Q8x5/hHIwUnyJlbgyi/J1XmqMu1Jcoi2X6+WFgIjw3dsE5MyflQmeByKt1rcQPiA9R
-	F59nU/GTABR0drTDd5/rHOOLBJuL8gyB7HBbzg4Y8bTKmJEhRRHEy1CZq7AwDdDX3wVySLKYNJo5K
-	eB10Cr7XoOpYDnG6mRMHV3LVH+B0113FHeG1hFHCBMep2kwar+KdqYNx5Wuf3V8m80bSos/P8RFSm
-	uTJoIh/A==;
+	bh=Qd05crYEDf1zOBsfrx9KiTFMAUGQioHKS/Nf5VbEp9U=; b=LaDz2O/PPBN2xlmQUsKw1RrzmS
+	JbVumG9TMIgeZSGp+QDQkdImfLc7zgu2XkGL5g2mMULW2UQ1Umk0uZ6ofYYUDVEDl1rYdwj/ohuc6
+	7u3b7cq/Y/LCDO//4lRL12E4x0kYUFiTaSuRgwVTRSlfuw51r++iIRLXRoobBEGPjzErkTsYXiIjh
+	O1Ukc6zdLrPWjkt+tCGPw+bEJ1V3NEZZgxJm53x7OYPr5K4UGVCES8XgqOasKeNKSs8zwSbwSohX1
+	cHrDMJU3OUA8f3RSCjwiFLDGnpH6SICEA/2++bzFizhflJ5C3gWWCTCNh2q9OrOoLyz6jMrYHqmTh
+	+kflP5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZHK-0000000B4VI-0uHu;
-	Fri, 02 Oct 2026 09:10:06 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1xCZHQ-0000000B4Yi-1RI7;
+	Fri, 02 Oct 2026 09:10:12 +0000
+Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZHH-0000000B4TX-17dg
+	id 1xCZHN-0000000B4X8-2Ds9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:10:04 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2caced6038eso7696575ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:10:02 -0700 (PDT)
+	Fri, 02 Oct 2026 09:10:10 +0000
+Received: by mail-pj2-x0d.google.com with SMTP id d9443c01a7336-2e4bc397f2aso230035ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:10:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790932202; x=1791537002; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790932208; x=1791537008; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZrNUgiHK76eibcbmJczjwEumW62nZKL7vmCqyjldhkU=;
-        b=eEg747Qu9HZ58cStRufiVRy3ZSu7siQDJVtCv6asvwrvtncn/HBVQKd7+33XhZ4X80
-         1aEXkcafp/geMHpVCvAgSKEXxL3zWVkDKKl7Sutbcac+EW3SzISrpZDmEI85wHlTk/57
-         mqPx9D87FbrqGq15qkUaNZ063GnAC9fOpXyV36l9DOYWnFwWIZ+Z413NaI2mdCk19l/N
-         srZsQQQb4vVG1RpN+6Ry7abvXHcrb5gZYKFwjxM6Kq4MCwLwb9VtH7ZGjIElaJWZKLpS
-         Pz3Z5WS7QSK1xdOLKfV68s9vnaen/MN05MRnrFyY0kre6VIwiXyOJTeE+tphiEKA8tWg
-         orKA==
+        bh=Qd05crYEDf1zOBsfrx9KiTFMAUGQioHKS/Nf5VbEp9U=;
+        b=qt+UXXJKxPTX4KtyYTzX6ut86jqHLmbOM9vl961xreQ7j+h79/KopFrsdTDsOZiBKD
+         LF0KWbkmCnyA5SdGBCWY4tZN0lwMU8z25Ac9UZ7cJ5wu0NhY4w385Rm16EwXXpRTnYwQ
+         Wbz8Q1WgmhWlEPU0C/FqRb2cglgQDROVjTM/ciVLBe1/eHw5y7ypqltmO6S4lS4rX0LM
+         M0OkPRAH0FUCEsHehuMKiBbQJWvKkUqWbA/pN74q0QFkhjdk0/KjIYF2YWJ3RV9jBsyR
+         vRVRYcdpg3Lw+crJSSabR8mAuf95m6BN+6h2ANJvffpp+1nlvCQDk/3Dy3KPfvJ2OE7+
+         z1XA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790932202; x=1791537002;
+        d=1e100.net; s=20260707; t=1790932208; x=1791537008;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZrNUgiHK76eibcbmJczjwEumW62nZKL7vmCqyjldhkU=;
-        b=Et5P2H0yqMvsUioOw6qhnnzKXcRK1RETXLXZ2rIywWEVJflJ3Yr6q63EDvB8jGkyhf
-         BM2dRBwGuPntGVrZHFO8DtJQPttmtzoBI9EJVC7IDyKSZDecJ7aO8vau0OCCM5v6sxCy
-         Q3d7FBd6GHdAS60oG9Elb3LnniVXR2knmbiXjZjIRltHGndJc544q2NO79kUdr/R7zdV
-         rCFYtljZWk/S6gjzppx4Z0TK/ofzH1vcrRGjmrlFqbLdxPCEyBrRFTUM/oC8r6tcfl9R
-         SIfmT4lehRN0Vgu3z/WaA7zmyUsiiDiymO1XyL1EiYNdOYZSaZagNrCxzi08RV7KnqIS
-         a9Qw==
-X-Forwarded-Encrypted: i=1; AKwUvBzMTkGXMEcavXGtoJ5IVb73IACKNOKs17kw0pbpuhPhQnGf+ytPGDwkkWO/dhIzuaD8UKuCwkqvXlyUSFE8x0BR@lists.infradead.org
-X-Gm-Message-State: AFq9FYLMXhGWwTi+mB5Oa1ppGqciAZrNr5lzp+Ayot3ac1B74ZteEJ5c
-	e7Dxwxd04kUii1Y9ewdTv/Du/geA1yOi+ZA6pat63b5PyOysSpUo+C2y
-X-Gm-Gg: AYBFou080ZLjVh6eCucyiQfRoD9Wjp2iDpBk+YeT00eUh1q3APODwqPYj5t5h3gw/yE
-	l3KMgsNWdbjPFdpQlDY9kSKXGzSIAlqpipVWSp85JGK3g2a0IXWWp2ihc9dPOxPudF7jzqFY0sA
-	9sowHXF6i6i5zoQUNBh3+gMRL/E2DuEx7TFPsVn2YlN+tMfMKeCu9V20NADQ/helclKULt9GDLy
-	DnfjDOqSvT8X78iCHW7apQ0NWbcF4dlIVG42TH0AjP8wHeOtimuD9vfbHNMyr/7tmBvcw0vy3kf
-	kYg6myDOieyb6SKQAlp3ICljfTLk74TzET0pLUgyyQWMRwT4NoKDHV/zqAfLg7Tj2kNBWMrHnGi
-	OJuq0OQaMRXQQMgHaYrF7UZyf0PSp+NnrSdUnDd/WPNDEcUUJNIt7De+1JTZjScKCn6I85mcmZH
-	Q3lIJF6bzfHoZKoa8EVCiS3KbtcT76zVZfR/+ootkb7PjwN/1zwCa+LxcowPdIbP59iMSsK4lhS
-	V5Qgi2hqnAhldD/LyXjO/Jo8jHmm6P1mw==
-X-Received: by 2002:a17:902:f686:b0:2e1:35ec:e03d with SMTP id d9443c01a7336-2e30029e1cdmr33883955ad.31.1790932201968;
-        Fri, 02 Oct 2026 02:10:01 -0700 (PDT)
+        bh=Qd05crYEDf1zOBsfrx9KiTFMAUGQioHKS/Nf5VbEp9U=;
+        b=lE28iqwRgf7fiMGHadRGh/UbZ3zjD16XBh16ZfDxqi5VbwvdOecvOpFywvWhHsEGsl
+         rfIIQ0T2liOwSvNsyyh9LZozRnYc0SnXvh6in1lt6cnen3XlGU+lw4TO/HSVf2+cgQ/O
+         JmGHrQCxOH3YAm8QDNmvpCFmeFPm2eb1CRX++86tdKOxeAY2FGEQvcjeSh/bIcwOuJz0
+         dmtC/LGQSIntoF1gdVN6G2tZtXXM4imdP/XsuQ8wGEQ0uGz8O+cVgqQ9vroIJcWM2mRr
+         c2hZ2tML7aQFQ6bx4KaQUlF5MUqEzRzbMQjLEmrnScAgUhNgPkwqLO4WI5+z86smpVdZ
+         /M1w==
+X-Forwarded-Encrypted: i=1; AKwUvBw1bazxBMEw/+mfxv2yoexeQ5fgufM5kGOU99IADu731uVPIEwxQrftQBfrr+5ClCTCQsq7PAGk3RUis/n+axqS@lists.infradead.org
+X-Gm-Message-State: AFq9FYKpA7ZkbnLh1K65g858HptDhoKNorr0uLUluwjgI5+2tWHSGc6G
+	0qSUMBuOQITvfukVde3Q7nGzOdxQESg/DkFztRTTxpnfibHVmgMmYrb3
+X-Gm-Gg: AYBFou0dKGXdF+HoQ43TltdufMaP2Bsdr155Es04a84Tgp7BsZHH2uvTcfHmio7L6Nl
+	AK6jvSe6qRvnLV/ZzOF9qnKJvUSI3V2ZN8wgkT89arjRQNW7RPY/dhNl0ytp/1/sotwaj+VI0Es
+	7/1RbT1sTwSN45iZDuL8V/vaGfeiZGYKVXU/5Rg/XNs+vnpi+9YW1N65TyUetgwKMip+WkgWvan
+	0KYmbVXalUkiNRU/KoegjFpqfP4jkfPnv4EIaSqZvZ4aAtMjPuMxNAOUtzn67ZHyP7YpkOeWVFj
+	P542xa9iyXcO4xGIybBTS8a3ky8oIasV1wz00ixZ5pLtmjuu4p4PxAioX6PgjqY5aaMqK9w0YUg
+	rNxv977GrDzdGO6T1UYhQG+a68Dzfd354orTDC7ewouUDX/USbVElj8Ah5LdRq6WS8vEoWvcZuN
+	CO7/2Pii1244Zo5KztrDc8uXTo6kU2+ak5GUN+16S1fBV3uyP01M4kzgwclS/hjLjLCunsf9rv8
+	wT6pujakX0eLl4aWlq5dQ==
+X-Received: by 2002:a17:902:dac2:b0:2dd:68a4:170c with SMTP id d9443c01a7336-2e49b612e9emr18357635ad.11.1790932208496;
+        Fri, 02 Oct 2026 02:10:08 -0700 (PDT)
 Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f6ab2b9sm5480555ad.36.2026.10.02.02.09.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f6ab2b9sm5480555ad.36.2026.10.02.02.10.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 02:10:00 -0700 (PDT)
+        Fri, 02 Oct 2026 02:10:06 -0700 (PDT)
 From: Wen Jiang <jiangwenxiaomi@gmail.com>
 X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
 To: akpm@linux-foundation.org,
@@ -94,17 +94,17 @@ Cc: Xueyuan.chen21@gmail.com,
 	npiggin@gmail.com,
 	rppt@kernel.org,
 	ryan.roberts@arm.com
-Subject: [PATCH v10 01/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
-Date: Fri,  2 Oct 2026 17:09:38 +0800
-Message-Id: <20261002090947.869220-2-jiangwen6@xiaomi.com>
+Subject: [PATCH v10 02/10] powerpc/8xx: add pte_set_huge()
+Date: Fri,  2 Oct 2026 17:09:39 +0800
+Message-Id: <20261002090947.869220-3-jiangwen6@xiaomi.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261002090947.869220-1-jiangwen6@xiaomi.com>
 References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_021003_327744_9B9F8F02 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20261002_021009_575497_17A32C73 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,78 +119,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
-set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
-helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
-unavailable on CONFIG_HUGETLB_PAGE=n kernels and couples mm/vmalloc.c to
-HugeTLB internals it does not otherwise need.
+vmap installs PTE-level block mappings (SZ_16K/SZ_512K on powerpc/8xx)
+by reusing set_huge_pte_at(), a HugeTLB helper gated by
+CONFIG_HUGETLB_PAGE. This makes the feature silently unavailable on
+CONFIG_HUGETLB_PAGE=n kernels and couples mm/vmalloc.c to HugeTLB
+internals it does not otherwise need.
 
-Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
-pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
-__set_ptes() and __get_and_clear_full_ptes() directly, so they do not
-depend on CONFIG_HUGETLB_PAGE.
+Add pte_set_huge() to powerpc/8xx, next to the existing
+pmd_clear_huge()/pud_clear_huge() in mm/nohash/8xx.c. It builds the huge
+PTE and writes it into the backing cells directly, without going through
+set_huge_pte_at(), so it does not depend on CONFIG_HUGETLB_PAGE.
+
+No pte_clear_huge() is needed: 8xx does not implement
+arch_vmap_pte_range_unmap_size(), so the vmap unmap path never takes the
+PTE-clearing branch.
+
+In practice PPC_8xx selects HUGETLBFS unconditionally, so
+CONFIG_HUGETLB_PAGE=n does not occur there today; this is a decoupling
+cleanup rather than a new configuration.
 
 There is no caller yet: mm/vmalloc.c is converted later in this series,
 once the generic fallbacks are in place.
 
 Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Reviewed-by: Barry Song <baohua@kernel.org>
+Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 ---
- arch/arm64/include/asm/pgtable.h |  6 ++++++
- arch/arm64/mm/mmu.c              | 23 +++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
+ arch/powerpc/include/asm/nohash/32/pte-8xx.h |  4 +++
+ arch/powerpc/mm/nohash/8xx.c                 | 29 ++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 6000905a2e865..9b762eb68cff0 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1978,6 +1978,12 @@ static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
- 
- #endif /* CONFIG_ARM64_CONTPTE */
+diff --git a/arch/powerpc/include/asm/nohash/32/pte-8xx.h b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
+index e2ea8ba9f8cae..1ee3f8f0de974 100644
+--- a/arch/powerpc/include/asm/nohash/32/pte-8xx.h
++++ b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
+@@ -235,6 +235,10 @@ static inline pte_t ptep_get(pte_t *ptep)
+ }
+ #endif /* CONFIG_PPC_16K_PAGES */
  
 +#define __HAVE_ARCH_PTE_SET_HUGE
 +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
 +		  pgprot_t prot, unsigned long size);
-+#define __HAVE_ARCH_PTE_CLEAR_HUGE
-+pte_t pte_clear_huge(pte_t *ptep, unsigned long addr, unsigned long size);
 +
- #endif /* !__ASSEMBLER__ */
+ #endif
  
- #endif /* __ASM_PGTABLE_H */
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 79d90226fd5dc..ae2f15618c97d 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1912,6 +1912,29 @@ int pmd_clear_huge(pmd_t *pmdp)
- 	return 1;
+ #endif /* __KERNEL__ */
+diff --git a/arch/powerpc/mm/nohash/8xx.c b/arch/powerpc/mm/nohash/8xx.c
+index a9d3f4729eada..2518d2a6bdb41 100644
+--- a/arch/powerpc/mm/nohash/8xx.c
++++ b/arch/powerpc/mm/nohash/8xx.c
+@@ -220,3 +220,32 @@ int pmd_clear_huge(pmd_t *pmd)
+ {
+ 	 return 0;
  }
- 
++
++/*
++ * vmap PTE-level block mapping. Sets a present kernel mapping directly,
++ * so unlike set_huge_pte_at() it needs neither CONFIG_HUGETLB_PAGE nor
++ * set_pte_filter() (a no-op for non-exec kernel mappings).
++ */
 +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
 +		  pgprot_t prot, unsigned long size)
 +{
-+	unsigned long pfn = __phys_to_pfn(phys);
-+	pte_t pte = pte_mkcont(pfn_pte(pfn, prot));
-+	unsigned int nr = size >> PAGE_SHIFT;
++	pmd_t *pmdp = pmd_off(&init_mm, addr);
++	pte_t pte = pfn_pte(PHYS_PFN(phys), prot);
++	pte_basic_t val;
++	pte_basic_t *entry = (pte_basic_t *)ptep;
++	int num, i;
 +
-+	VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
-+	VM_WARN_ON(!IS_ALIGNED(addr, CONT_PTE_SIZE));
-+	VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
++	pte = arch_make_huge_pte(pte, ilog2(size), 0);
++	val = pte_val(pte);
 +
-+	/* For vmap, there is no valid -> valid transition */
-+	VM_WARN_ON(pte_valid(__ptep_get(ptep)));
++	/*
++	 * Make sure hardware valid bit is not set. We don't do
++	 * tlb flush for this update.
++	 */
++	VM_WARN_ON(pte_hw_valid(*ptep) && !pte_protnone(*ptep));
 +
-+	__set_ptes(&init_mm, addr, ptep, pte, nr);
++	num = number_of_cells_per_pte(pmdp, val, 1);
++
++	for (i = 0; i < num; i++, entry++, val += SZ_4K)
++		*entry = val;
 +}
-+
-+pte_t pte_clear_huge(pte_t *ptep, unsigned long addr, unsigned long size)
-+{
-+	return __get_and_clear_full_ptes(&init_mm, addr, ptep,
-+					 size >> PAGE_SHIFT, 0);
-+}
-+
- int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
- {
- 	pte_t *table;
 -- 
 2.34.1
 
