@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C93BCA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 16:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76943CA5FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 16:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3kes/itfXouN+8b8QKCcHWhQnNlQ4qwwFi3DP2N4wKo=; b=u4DzqDuQ++dsuSslM1Zln25sDR
-	+MmgSA/gor4BVn1v/u9UWLAuq0pP0wRJsrjJemWDY5lwitBCh1zjcp1BQEntfMsv3SpYJRjAUCn74
-	0/iKzTUtjJ96fdjxA93za6BWddpv/bY6NXVmRcUSZbU6wXUB76i97U/haMtOQZ66wIn7Y6d74WOBm
-	yfdJuoS5ShNiC+5Xme3Q0uzdpriVaH9kPcN8/RR/GOkyIgeNTeHkNNbYzg7nYKCJdSurwTZV8frVZ
-	Amw6lI7Xc2UPdqz2adusjwcLlzZf6QYtPUSLRlgMUp0WHzx+eYwXuEERQqy1ove+aCYNvJitweHrS
-	7zZAqC1Q==;
+	bh=XvI5rA2BsHrApBR9QCfo5HYzpkgGUKmP3+iH/QCnwts=; b=QcggB6MdJqYKHXeXYoLACiyM3b
+	y4z2RmDlty/G0TPvX5+PlHt/R6lccOQDWPJNJhZpRhaDpzgwX1EA1x659F5e+9MKefS0M91bvaxS5
+	osYaVtQanAv12NCc1dIxCawRCTf1Q+9Vd43UyBd6fOAMKu2LjeiC3EYZLGfN2t5+5qiovJqMsvRwP
+	kCNTJjjm00EZ1xDtykKEU7GCL64vwLN9IWCrt8UAwgRWUh8yAFNDiJz/mgZ0xKp0a8K9zeAqgbYXD
+	CngG63FNcauXbOyPF+cyDHkg8yDSOzhfQ5f+Nxp1XAvtH7qoPanIePbZcHJ634HlBZx4S+4cZR6iM
+	Cn29V2ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCgPV-0000000C4Xa-3Elg;
-	Fri, 02 Oct 2026 16:47:01 +0000
+	id 1xCgPc-0000000C4ah-3gAf;
+	Fri, 02 Oct 2026 16:47:08 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCgPU-0000000C4XA-3R2m
+	id 1xCgPZ-0000000C4Z8-1Yw3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 16:47:00 +0000
+	Fri, 02 Oct 2026 16:47:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41DD260252;
+	by tor.source.kernel.org (Postfix) with ESMTP id CF56160214;
+	Fri,  2 Oct 2026 16:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 912811F00898;
 	Fri,  2 Oct 2026 16:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030971F000FF;
-	Fri,  2 Oct 2026 16:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790959620;
-	bh=3kes/itfXouN+8b8QKCcHWhQnNlQ4qwwFi3DP2N4wKo=;
+	s=k20260515; t=1790959624;
+	bh=XvI5rA2BsHrApBR9QCfo5HYzpkgGUKmP3+iH/QCnwts=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DAFy5SyAedvDBHPiCtmx+Lv1F1yUT3VlWcf2SpPsTYH2g/Ir8NpIKV1eQnA+JQwCW
-	 vFFSTgOvIHsPX5KD5xsZmU2IhQ4p3+cWGmoLJWtDRF3rB7cQuNYMAe9fpFzRfY76qb
-	 xUSCSW6rJtQWSG0gJtCx/h66lUQq3BSVzj0okY0Ll3sUISBEGzGHFjQTPptd6V4QiB
-	 FvUfB2YgBA1FMVlUFNCIu49ket3TIdIYeGxZ/UDd8/nQKNYBGTf4luQUCA4/tGRYVa
-	 m7K4oBaPZxU+C386dbovGdErUHiXfqZcclDp7vHdv0ll/qwt0fOPoRxUcDWWxJHbM9
-	 SWa+poyK8uGmA==
+	b=Us4l3jQnfMXzXUgE0mzhupmPL1OWdNmOIsauX73UiJG05fZUnIs/uldB+LCv9BpE+
+	 3k8r6TjA5cJSWl4NJNP7i/XN9qhp4iMbVjgWBFSPVr34fDxzZAGkugx0hJVIyn60Wp
+	 u9gIF3125QSFvCczjMsq6vV9dz8I0KwFum5ga2B8/VpQ3K/aIMBtjLiuFtcPQeFkWy
+	 t/ooZBVLQ7seWXpKdmUUpgAQjrEXP01+pv6r97/3tTfQpDil+IE6Lfsq99FrXKwZg0
+	 yuP4AVY1R6vyEyVJBm0DBbsXfqkti7g0TNF9rb2tCqMkCey7YTkVdoVRqvhIgP4ObN
+	 CQVN8VFJm/LZw==
 From: Will Deacon <will@kernel.org>
 To: Robin Murphy <robin.murphy@arm.com>,
 	"Joerg Roedel (AMD)" <joro@8bytes.org>,
@@ -65,8 +65,8 @@ Cc: catalin.marinas@arm.com,
 	willmcvicker@google.com,
 	jyescas@google.com
 Subject: Re: [PATCH v2 0/2] Add arm-smmu-v3 support for Laguna SMMU silicon erratum workaround
-Date: Fri,  2 Oct 2026 17:46:38 +0100
-Message-ID: <179095464942.2068396.10273315598059135297.b4-ty@kernel.org>
+Date: Fri,  2 Oct 2026 17:46:39 +0100
+Message-ID: <179095473404.2069316.15351395567657253108.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
 References: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
@@ -97,10 +97,10 @@ On Fri, 11 Sep 2026 21:21:04 +0000, Peter Griffin wrote:
 > 
 > [...]
 
-Applied first patch to iommu (arm/smmu/bindings), thanks!
+Applied second patch to iommu (arm/smmu/updates), thanks!
 
-[1/2] dt-bindings: iommu: arm,smmu-v3: Add arm,instdata-override property
-      https://git.kernel.org/iommu/c/87098700b3cb
+[2/2] iommu/arm-smmu-v3: Add support for arm,instdata-override DT property
+      https://git.kernel.org/iommu/c/937bbba25930
 
 Cheers,
 -- 
