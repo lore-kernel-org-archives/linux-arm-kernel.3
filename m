@@ -4,59 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C4DCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEECCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QwxSrQJom/8+piGZQ0dmbiXuzRTCjKP4HndRUD3YqCs=; b=fJUrUzhQDGE1Z87JXdUv/vUlDC
-	0PuD395qMuhMWNogVPvUzMV3U3VBd/rtfMiE5szhQlfiTfmXxhzjGzPv1eEWTln+hcV9Xb4jSqncE
-	gAB7MP/XwFHISeTePlNOfv1oX7vBB4DfEZCt2eh34nDArTBk1A3GKkq07gJkY6H5ASA7SztYDU24B
-	nwZmD4Ld0uMsMIdC2E43P81qWv+oqwrhih25VPJp/l57e0ueDS78jvaIZ/glkjkFJ2/1yB0nbkM/o
-	woiWipxz8Q11p/uwT0nqxPJKwoLIGOQPnRlameYdIXwnL62iQ1/sFfNE2HBMzW5umA0I0Xip7L/rc
-	aPow/v6g==;
+	bh=O1NvwTXORD+Bb07RA52Wu5WZWJqKJmdYmCUZOMWRc5g=; b=BT9pn0lPV0DGO0r4ixWjjBN2xm
+	jXao6w395dEGBbEMT1naGlPP96J3o7h0DKeZAw3ZrGf6Xo0qS7EqZeXipFTyR5RpeRLIU9O3CS2KJ
+	gHc7DGnOzxs0g4hT2RfMPlFW6/BNklGqTDK77PrYc5Yq7pDP5JIekGAHdZFsNjHVnfnV3l1dYQeHA
+	UgKp1jVXpn+EcS3aY4ZqHZ9THoZ0X/O5gPIa4nIIl3U038c6un4rD09J5wbFes6Lp9tt5R7mKOp4N
+	HtIB7YsNnJ9VNFzSbfofstJORCnwOKK+YGrDXeXjP7rEyiTSJAHL4AZOQQVJAKESqaEeg0nX4OMA6
+	Lo4UT1GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZo0-0000000BBqN-1lrO;
-	Fri, 02 Oct 2026 09:43:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZnx-0000000BBq2-2OCZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:43:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9058A497;
-	Fri,  2 Oct 2026 02:43:44 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 948943F86F;
-	Fri,  2 Oct 2026 02:43:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790934228; bh=bIlBGTbE6NoUAOiXsN6aRXwqWjVDbHnZ0+fxNYTuTGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fixO7Oy2bsG6sTQ1wi7KjtqwK3C14qSLwNZX3cDr1fYuHSdXkjcNVXzBFfW4DIqXB
-	 6i7cyA4MCbeAiEQ/LtYpwcHgAi1mddIuVno7/HOUUNokK3V/gA32fjncacVbo44tYa
-	 rR2t9dY+4iHbyj7jH/hRWTcrhVGxFOrr9z+h3bQQ=
-Date: Fri, 2 Oct 2026 10:43:41 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, rmikey@meta.com, kas@kernel.org,
-	usama.arif@linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH v2] arm64/sve: Don't zero the SVE state buffer when the
- SVE state is live
-Message-ID: <ar98zc8h7UkIR6yc@J2N7QTR9R3.cambridge.arm.com>
-References: <20260915-b4-arm64-sve-acc-memset-v2-1-14b7ab9c71bd@debian.org>
+	id 1xCZth-0000000BCTO-0GW7;
+	Fri, 02 Oct 2026 09:49:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCZtg-0000000BCT4-0B0I;
+	Fri, 02 Oct 2026 09:49:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F6F060A70;
+	Fri,  2 Oct 2026 09:49:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C201F00898;
+	Fri,  2 Oct 2026 09:49:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790934582;
+	bh=O1NvwTXORD+Bb07RA52Wu5WZWJqKJmdYmCUZOMWRc5g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aOMAm0+cj8fILcHV8Uj0RSZsjvcpY1RGYRxgNmibtLJucq4PJOFYlIeiGQVMfrMtH
+	 DuOOY8IKcr5yOnM73cxavmFw/nMHIjF2qDFrl5uDmTm4oMLgD066mfJFMfXw9Bc49t
+	 csqzp1wUBMrdSv3SghZJ/e5GLtijiu6xy2aZ5PO4v+0coTfSNOC/XZkaenDtUej0CP
+	 i/q/JrIeY1TU8Nol9o5vJO8rP4m5pAttrz6dh8syfIsV6x0pir8FExIzAdOKEXHnA9
+	 Cm8d729oJ1G8qj87sC00EzJFfXA+tDEZru+V9USQSA1Xg//ndb/O3J7bRLVs8z/I4V
+	 zfigDTcHw5t/g==
+Date: Fri, 2 Oct 2026 11:49:32 +0200
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <20261002094932.GA3435055@ax162>
+References: <20260930133813.GA3142230@ax162>
+ <ar0a4b9CjL2YHCkY@zx2c4.com>
+ <ar0gTS71qxnx9AkW@zx2c4.com>
+ <20260930151337.GD3142230@ax162>
+ <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
+ <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
+ <ar4nD8aRH7wEvTMt@zx2c4.com>
+ <20261001102059.GA4176271@ax162>
+ <ar46ap4jzLWyP92C@zx2c4.com>
+ <20261001110310.GA138012@ax162>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260915-b4-arm64-sve-acc-memset-v2-1-14b7ab9c71bd@debian.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_024349_689573_9375813E 
-X-CRM114-Status: GOOD (  25.69  )
+In-Reply-To: <20261001110310.GA138012@ax162>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,79 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 03:51:05AM -0700, Breno Leitao wrote:
-> Currently do_sve_acc() always zeroes current->thread.sve_state. This is
-> not necessary in the common case, and avoiding the zeroing has a
-> measurable impact on some benchmarks.
+On Thu, Oct 01, 2026 at 01:03:10PM +0200, Nathan Chancellor wrote:
+> On Thu, Oct 01, 2026 at 12:48:10PM +0200, Jason A. Donenfeld wrote:
+> > Does this commit seem okay with you? I used the diff you sent below and
+> > adjusted the commit message: https://git.zx2c4.com/linux-rng/commit/?id=56ff95ee85715047eb5b5220243778af657778c8
 > 
-> In the common case where the task is not preempted and its state is not
-> altered by a tracer, do_sve_acc() will observe that TIF_FOREIGN_FPSTATE
-> is clear. In such cases, only the live register values matter, and the
-> in-memory copy is stale regardless of whether it is saved in
-> FP_STATE_FPSIMD format or FP_STATE_SVE format.
-> 
-> It is worth skipping the zeroing because the SVE state is discarded on
-> syscall entry, so userspace that mixes SVE and syscalls re-traps
-> constantly. A fleet profile of arm64 hosts running services whose
-> memset() is SVE shows the memset under do_sve_acc() accounting for 29%
-> of the trap handling cost.
-> 
-> Measured on a 72-core Neoverse V2 (SVE VL 128, sve_state_size 546,
-> performance governor) with perf bench sched pipe pinned to one CPU, and
-> SVE operation on write, so that each loop also takes an SVE access trap.
-> 
-> 	* -0.99% kernel instructions
-> 	* -1.38% kernel cycles
-> 	* -1.12% wall clock
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+> Yeah, that seems fine to me, thanks for taking care of it!
 
-Avoiding the memset in the fast path makes sense to me, and I believe
-this is sound, so:
+Can you adjust the LLVM value by one from 4294967295 to 4294967294? ~0U
+is actually a special value, so we hit an assertion in the SystemZ
+backend.
 
-Acked-by: Mark Rutlame <mark.rutland@arm.com>
+  https://github.com/llvm/llvm-project/blob/3f48e22a1f321d5d3341bd812803694cea588785/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp#L9547
+  https://github.com/llvm/llvm-project/blob/3f48e22a1f321d5d3341bd812803694cea588785/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp#L1470-L1471
 
-Mark.
+clang: llvm/lib/Target/SystemZ/SystemZISelLowering.cpp:1471: virtual bool llvm::SystemZTargetLowering::findOptimalMemOpLowering(LLVMContext &, std::vector<EVT> &, unsigned int, const MemOp &, unsigned int, unsigned int, const AttributeList &, EVT *) const: Assertion `Limit != ~0U && "Expected EmitTargetCodeForMemXXX() to handle AlwaysInline cases."' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and dumped files.
+Stack dump:
+0.      Program arguments: ...
+1.      <eof> parser at end of file
+2.      Code generation
+3.      Running pass 'Function Pass Manager' on module 'arch/s390/kernel/vdso/vgetrandom.c'.
+4.      Running pass 'SystemZ DAG->DAG Pattern Instruction Selection' on function '@__kernel_getrandom'
+...
 
-> ---
-> Changes in v2:
-> - Rewrote the commit message using Mark's suggested wording: what
->   matters is that the in-memory copy is stale whenever the state is
->   live, not the format it was last saved in
-> - Link to v1:
->   https://patch.msgid.link/20260914-b4-arm64-sve-acc-memset-v1-1-67866e442393@debian.org
-> ---
->  arch/arm64/kernel/fpsimd.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index e7f1682a3059b..324c9799b0511 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1316,7 +1316,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->  		return;
->  	}
->  
-> -	sve_alloc(current, true);
-> +	sve_alloc(current, false);
->  	if (!current->thread.sve_state) {
->  		force_sig(SIGKILL);
->  		return;
-> @@ -1341,6 +1341,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->  		sve_flush_live();
->  		fpsimd_bind_task_to_cpu();
->  	} else {
-> +		memset(current->thread.sve_state, 0, sve_state_size(current));
->  		fpsimd_to_sve(current);
->  		current->thread.fp_type = FP_STATE_SVE;
->  		fpsimd_flush_task_state(current);
-> 
-> ---
-> base-commit: f2bfbc3554ca6919484030729424b9dee2942d24
-> change-id: 20260911-b4-arm64-sve-acc-memset-3425ad567857
-> 
-> Best regards,
-> --  
-> Breno Leitao <leitao@debian.org>
-> 
+-- 
+Cheers,
+Nathan
 
