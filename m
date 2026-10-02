@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0CACA5FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 20:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270C1CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 20:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE4LsdhNU5SfiDmJkZ9zOXEwMWjWebrgy9SOZRKi4+U=; b=MBS1cuCouJeLgEFIOFC7uWcg3j
-	B6nWT6TqGwGc/XNyZG59K+psTy3x7kykdzqxK30gfoIFp/cIi9WH6xxve2S4cdSbsBgSLZE2krcIO
-	bLQ7j6M0fhbMhQK2N6vvfUcNK80lpshZtsLIGOkY80VTmPEAk0e7E7d196T5CrkgtpzyH5Gp+LvdF
-	/dYCyb0yxVKgw4HKPXOxRBijIkcX1HSCjdc64Qpui+93vmvRJP+04KrSEe8/Uyput4OEJ6m9UbTHP
-	cVlDcXK6qjq6Uv2n0FgVVMX4lWW48Hkgb38cAorLD4pFr23kSmLQhcG9RIRWz6NHDGkGkLlLs2LmK
-	YgOXK6cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yX/9xC1BB29XKcsi1gHnIwdtNtc2m1SRNjsZRYQWmUk=; b=wTXJeFmAuhIAKChZPZH1jREOSc
+	yw8JoUWNvvF6uNITjVKe3jqDXEBDP/eB8zbq0pQoznsfXX3yFb41lNJ8qGSVUXDb4QYHbjZqJim9K
+	xXIEAjkgJpZEoAGAdJoAnQPXsdvzG1cuFcEVmShN+xj/5Uuj3WpenP6TNvpYCylCc9Do2OqZc+R8Y
+	/+MR+5811++Jjewv4J1fTlU36yvOCdvL7QNd3oH/61qm5hMK3w+WxUNL372TaY2UN23AhtAy+L7oX
+	nT7i3iajecBLpGlmyxdimY7R2GtRvzeCwY9CsnZmsx254qmcSjNBeYcnjnKS5AFDkUF1hf6JqrVvp
+	416yu3aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjjp-0000000CTKB-3y1j;
-	Fri, 02 Oct 2026 20:20:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCjkB-0000000CTOq-0JsR;
+	Fri, 02 Oct 2026 20:20:35 +0000
+Received: from mail-qk2-x1f.google.com ([2607:f8b0:4864:34::1f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjjo-0000000CTJe-19wy
+	id 1xCjk8-0000000CTNH-18Xz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 20:20:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A40C04372F;
-	Fri,  2 Oct 2026 20:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C361F000FF;
-	Fri,  2 Oct 2026 20:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790972411;
-	bh=IE4LsdhNU5SfiDmJkZ9zOXEwMWjWebrgy9SOZRKi4+U=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=PDu9VcR41G9L0rhokPRNyVmGcmPd0vzXeiJCulTtzuiGUx2cc3sO8Y+Nr4zy9Rn+w
-	 ShmTvCulR8dFx0vsqLCFquaONxm0OxYGGSdrwpzR007qoqEUrGe70PlI0eeL+F2LK5
-	 X2QqW+n7TgDLWxdKs2zieGKAztRUZEGftBVthjf/BML+zl13wPctKnkr1QvXT0jKhG
-	 98Q8WRic6c/q6fonVa8n2t30Uq04dy36RXnU3E+Vy7Rdttp4juWVdg15crSZLB3z2Z
-	 ImBKD3z42cXPY8kytws8H4iP4jCWGKgUmI1+8+YnU+ATbKiu8k9T0QJcbEOV7Kz3So
-	 udcb+OZruFtqA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7747F3811A72;
-	Fri,  2 Oct 2026 20:20:11 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 02 Oct 2026 20:20:33 +0000
+Received: by mail-qk2-x1f.google.com with SMTP id af79cd13be357-939ca12ab70so931541585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 13:20:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790972431; x=1791577231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yX/9xC1BB29XKcsi1gHnIwdtNtc2m1SRNjsZRYQWmUk=;
+        b=Ncik68Bh6+gdnEjvtWGUoXc8nBQ+/aC3Twq9R+9pox25j92qpreP9DSanZ1C3ogNIL
+         E3gLqtSVg60w5egBDM3Yyq0sGN07iwr95CGSrGmPN2nJBuKvwrHEk7rXVMPLO1K3mG4E
+         5oVA+TcxTR3CtI1WGgpuBuIMpruiC7GmkqqQIkrprtIsxukxHmEwxSOIzYFaHDARRQrD
+         PtoaFkoiORHN63ogcyGyLCP586Q6fBLjVU62m+gNe2i0STGRbQpP4XqQTWzsD5wZNDHX
+         TLgqzbKRH1mfaISc+qBbOlBDG+wAA9Q/vLCHi+xVabTiOpLRxKT1T8/R+ZG93cRhUcsf
+         8y4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790972431; x=1791577231;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yX/9xC1BB29XKcsi1gHnIwdtNtc2m1SRNjsZRYQWmUk=;
+        b=CDPPx615Y8oJOI0roDKS1cpV6FLTuTB9QOM4s4+vm+YlYzaAegb+3ubrgL407NbNC7
+         3DN1RTjgInSFDhuBRX2tWMBFzDsPA8hJ9Zg8+QztYvXjY1tryFxqfy1+++i+JMUmgbU+
+         TRtIfESuJloOl4u5LUhMf6H5PENPX52dqKzOfzjDJoko5nvF7tIeFfiDtcR1PDiR72PW
+         jq2HqurdBekIjoucFkxKp5+jE1kUttps5kcIKhWwCinGJsg+SXU7Fqpb/xBqBN+yO2HF
+         asusJfs03165zWPELT4DwYlso+mwIcT+tztJuiGCXb1TkJX4EZo7kIRByhdgWlu0QB06
+         xYYA==
+X-Forwarded-Encrypted: i=1; AKwUvBy/aG8YtmlRTBePsECv402PqjOLcsURg8zI08pV71miswsDE8MIvGkIf7s91cHQrP5lBOpG13zf6xYDBEN+RYBe@lists.infradead.org
+X-Gm-Message-State: AFuF++lIkjZ1QrCB4wFkJPjP2SHBdwsV8H/Jlh57+LQ2pRP+2ouyDfgp
+	MwcWlDtsMM0byHctd6SZXuKpKJeO4m4wv1U+Na+QcwcR4O4imeBMkyI=
+X-Gm-Gg: AYBFou3FF0yz7FQvNBz6X6nKoNuJ77sBo2f0xBHhwyib3Zqtkx8p8t7YqCNPwIN/gfK
+	+s+AFGjIB5weaGPgDPJXwdlrtTLYDMoPMdoibtjymgCbpQkG+aNpEr9RIF0UNHy2QNWvoGC7+uF
+	q9D7z2iwyx0L1bRWZHIfc1CbfKQ2F2aB5lFbaIs//qYJC7T4PZ2LD3mXGrEI+43NZxYY5OKVEQi
+	m1wTNXs0rCkpxDr3epz4CBEuP5ydst+p1Rs8kcZ/EroXl3pcFvxsWqESOOXbkVNa+sGhZw+S0Yi
+	v7VNqrxgrsGio4Qfgt8Fm5mP2RurJXW3oyHNl7EGINIbt4VQTo+OuHrafAEonYXF5JguXB5rXGj
+	Tx5qaLMn7Hb4PXCJQR6+zeSi/7KrVadaRsfQSmvRGwRWcvmVrDPFjEKuUUXgg4waSBFldxFeMw1
+	Ra6T3U1njYGDjywkcTASvhnWaF7awthJjhbZzNqm5b25QFMT+HEBlrODaL2iCFgTeHQ+5p+B1oH
+	poLS7jIxaiUfirqLFCxpjXbUNbkRMwnAMbLdNugc0YAfXdlQgzk5BKNuxBj8NSYyfsRxYJeRfPD
+	n+dV60PKIrL0bUwEnTExTYd3P5kV
+X-Received: by 2002:a05:620a:649a:b0:93c:c405:3215 with SMTP id af79cd13be357-93cf17580abmr702882185a.44.1790972430750;
+        Fri, 02 Oct 2026 13:20:30 -0700 (PDT)
+Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca1a63d8sm305025585a.12.2026.10.02.13.20.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 13:20:30 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH] soc: mediatek: mtk-devapc: release IRQ before unmapping registers
+Date: Fri,  2 Oct 2026 16:20:28 -0400
+Message-ID: <20261002202028.420575-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v9 00/15] net: lan966x: add support for PCIe FDMA
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179097241009.3571263.7855609924848232097.git-patchwork-notify@kernel.org>
-Date: Fri, 02 Oct 2026 20:20:10 +0000
-References: <20260928-lan966x-pci-fdma-v9-0-a17caf60f89a@microchip.com>
-In-Reply-To: <20260928-lan966x-pci-fdma-v9-0-a17caf60f89a@microchip.com>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horatiu.vultur@microchip.com,
- steen.hegelund@microchip.com, UNGLinuxDriver@microchip.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, herve.codina@bootlin.com, arnd@arndb.de,
- gregkh@linuxfoundation.org, mohsin.bashr@gmail.com, horms@kernel.org,
- richardcochran@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_132032_321679_1B1FC82D 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The managed IRQ remains registered until devres cleanup after remove
+returns, but remove explicitly unmaps the registers used by its handler.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+An interrupt handler already in flight when stop_devapc() is called can
+continue accessing ctx->infra_base after iounmap().
 
-On Mon, 28 Sep 2026 21:32:48 +0200 you wrote:
-> When lan966x operates as a PCIe endpoint, the driver currently uses
-> register-based I/O for frame injection and extraction. This approach is
-> functional but slow, topping out at around 33 Mbps on an Intel x86 host
-> with a lan966x PCIe card.
-> 
-> This series adds FDMA (Frame DMA) support for the PCIe path. When
-> operating as a PCIe endpoint, the internal FDMA engine on lan966x cannot
-> directly access host memory, so DMA buffers are allocated as contiguous
-> coherent memory and mapped through the PCIe Address Translation Unit
-> (ATU). The ATU provides outbound windows that translate internal FDMA
-> addresses to PCIe bus addresses, allowing the FDMA engine to read and
-> write host memory. Because the ATU requires contiguous address regions,
-> page_pool and normal per-page DMA mappings cannot be used. Instead,
-> frames are transferred using memcpy between the ATU-mapped buffers and
-> the network stack. With this, throughput increases from ~33 Mbps to
-> ~620 Mbps for default MTU.
-> 
-> [...]
+Release and synchronize the IRQ before unmapping the register region.
 
-Here is the summary with links:
-  - [net-next,v9,01/15] MAINTAINERS: add FDMA library to Sparx5 SoC entry
-    https://git.kernel.org/netdev/net-next/c/91ad754f3c14
-  - [net-next,v9,02/15] net: microchip: fdma: rename contiguous dataptr helpers
-    https://git.kernel.org/netdev/net-next/c/27470b22eca3
-  - [net-next,v9,03/15] net: microchip: fdma: add PCIe ATU support
-    https://git.kernel.org/netdev/net-next/c/3318a794bb15
-  - [net-next,v9,04/15] net: microchip: fdma: use little-endian types for descriptor fields
-    https://git.kernel.org/netdev/net-next/c/9786c387b299
-  - [net-next,v9,05/15] net: lan966x: add FDMA LLP register write helper
-    https://git.kernel.org/netdev/net-next/c/2e52284420bd
-  - [net-next,v9,06/15] net: lan966x: export FDMA helpers for reuse
-    https://git.kernel.org/netdev/net-next/c/eac4b8882a03
-  - [net-next,v9,07/15] net: lan966x: use a dedicated device for DMA operations
-    https://git.kernel.org/netdev/net-next/c/f83ac2d94a2a
-  - [net-next,v9,08/15] net: lan966x: add FDMA ops dispatch for PCIe support
-    https://git.kernel.org/netdev/net-next/c/5a97c2c00b8e
-  - [net-next,v9,09/15] net: lan966x: clear FDMA interrupt stickies after switch reset
-    https://git.kernel.org/netdev/net-next/c/58e73ef6a1e5
-  - [net-next,v9,10/15] net: lan966x: add shutdown callback to stop the FDMA on reboot
-    https://git.kernel.org/netdev/net-next/c/ab6268b958f0
-  - [net-next,v9,11/15] net: lan966x: add PCIe FDMA support
-    https://git.kernel.org/netdev/net-next/c/e013b82ed3b2
-  - [net-next,v9,12/15] net: lan966x: add PCIe FDMA MTU change support
-    https://git.kernel.org/netdev/net-next/c/1709aa382db7
-  - [net-next,v9,13/15] net: lan966x: add PCIe FDMA XDP support
-    https://git.kernel.org/netdev/net-next/c/fbb46fde6965
-  - [net-next,v9,14/15] misc: lan966x-pci: dts: extend cpu reg to cover PCIE DBI space
-    https://git.kernel.org/netdev/net-next/c/100eead96ed6
-  - [net-next,v9,15/15] misc: lan966x-pci: dts: add fdma interrupt to overlay
-    https://git.kernel.org/netdev/net-next/c/14b9ac2f189d
+This issue was identified during our ongoing static-analysis research
+while reviewing kernel code.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Fixes: c9c0036c1990 ("soc: mediatek: mtk-devapc: Fix leaking IO map on driver remove")
+Assisted-by: LLM
+Cc: stable@vger.kernel.org
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+---
+ drivers/soc/mediatek/mtk-devapc.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-
+diff --git a/drivers/soc/mediatek/mtk-devapc.c b/drivers/soc/mediatek/mtk-devapc.c
+index f54c966138b5b8bda32c383d179a57c78172bf52..57ffe49c99eeb9b0989bd5eefa557a0a7dddbf18 100644
+--- a/drivers/soc/mediatek/mtk-devapc.c
++++ b/drivers/soc/mediatek/mtk-devapc.c
+@@ -54,6 +54,7 @@ struct mtk_devapc_context {
+ 	void __iomem *infra_base;
+ 	struct clk *infra_clk;
+ 	const struct mtk_devapc_data *data;
++	unsigned int irq;
+ };
+ 
+ static void clear_vio_status(struct mtk_devapc_context *ctx)
+@@ -289,6 +290,7 @@ static int mtk_devapc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err;
+ 
++	ctx->irq = devapc_irq;
+ 	platform_set_drvdata(pdev, ctx);
+ 
+ 	start_devapc(ctx);
+@@ -305,6 +307,7 @@ static void mtk_devapc_remove(struct platform_device *pdev)
+ 	struct mtk_devapc_context *ctx = platform_get_drvdata(pdev);
+ 
+ 	stop_devapc(ctx);
++	devm_free_irq(&pdev->dev, ctx->irq, ctx);
+ 	iounmap(ctx->infra_base);
+ }
+ 
 
