@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D85CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8865CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wW+usV49Hq4KSQaZfj7w72/oaCFS8UTUq2zzksz+k+4=; b=yuEhomYVDZB3UMxLkDaTfR7x1P
-	L3Gj3wx97jIOSmqcIDB/pndVdnVwsxrIurrahcugeJKpo6VLS0zhDdwSwhSZsbOHg/dAERlPx1tXE
-	Vj1UFQD4YWGji9kNtLnRSDEsBQvf1tWpPCgZLJ2Nb27M08aiHPfCZNwkGc/F2DLSUvZN9oS688fXa
-	UC/nWKvx1t5BnboOb679fQbYZRtk27ODmaUYIPthTX/JPZf2dC7gkFyJQ9C0ERRmrx7bgVLaPtjbK
-	FX+bV/H12x3dSOGy98HzGDzoCyhuXGO1ANS2KWC4v/FY21QA8kedSkbxHnxqHEIJhs6pmwml0Lx2e
-	A/Y4raoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bvmjk8+3isiEx/PbL0NMnF+Vy0Eg5tTMHHc6McK7PbA=; b=bEZGQOSR8ft8tcAO2bwzYvx2n9
+	y+ImMebYAkIGrFhS38IpUmivxb4vp6D3RtpH2/Acz8y+odMstZMMgzW7VW9Xl0gUhIrkYl/3g8vEm
+	qa8ewv8ffdZlrWnKAEM4QAXbuOdGXWFIj52H560bdvona2cdP7+pjVWTvHDpxWQV5YhVUl62WgHlX
+	eJ+0H2ADt7Ap9MSDVLElTPzNQHpQV1npfoCVhhB3KPgO3z4rodzha1bqT8W1Ne9lDS09D4b3Q7QYG
+	iIzYybOSeecrqA362QhJIGtQEMIhtoKCXBtgZBIw+ZT0iY+2TWQOzsVQ7at9vHP7J4pSylepnuLlw
+	ta5coWTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdof-0000000Bj4T-1CYk;
-	Fri, 02 Oct 2026 14:00:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCdrO-0000000BjTj-30jR;
+	Fri, 02 Oct 2026 14:03:38 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdoe-0000000Bj4H-1O9B
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 14:00:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B667E406E8;
-	Fri,  2 Oct 2026 14:00:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B07A11F00893;
-	Fri,  2 Oct 2026 14:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790949647;
-	bh=wW+usV49Hq4KSQaZfj7w72/oaCFS8UTUq2zzksz+k+4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aYzvfQ8oRLk1Q38eLu4xjkTEjKzzwx0LjWfvQzR7IhPwQ/hfr8bkZNGWiB6P5SASv
-	 2LF63vEPjr7kQ783XlUeM/HSRGCoLQbYgq3PMQeW46AS6wOX+ug4xnLPTZfTjo8AtG
-	 ggGFRnldVc7DNG1B6Yrm6m09bsNGumZCvJ3o4ORLYxlZgCSqFJcUH/yEjR4halyMk6
-	 jTTxPgLcw6G9LlgYBO7rFpFNccQt8IAvv61gsATNq7mkw86TAywwiGDvMsTbffXpJH
-	 y9OqmUoLFXRc52V/scmRU8YfgEKqJ4cQQfeGFEND1z56pERihYkTiqEdCnqEqYCog5
-	 dD1eEBcf/jTWA==
-Date: Fri, 2 Oct 2026 15:00:42 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
-Message-ID: <ar-5CnttybD-1ojM@willie-the-truck>
-References: <20260930121212.3101361-1-fuad.tabba@linux.dev>
- <ar-xtsSOqwWK9jWQ@willie-the-truck>
- <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+	id 1xCdrL-0000000BjS1-3LOf;
+	Fri, 02 Oct 2026 14:03:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=bvmjk8+3isiEx/PbL0NMnF+Vy0Eg5tTMHHc6McK7PbA=; b=qmqbRWZ0QowXq2Swaa/U2k2OC7
+	71mnCUypmoTjQCix0mXwDK6JT31JOQDc1ouX+aOp6vhjXkDPK6W0IwKfMx292qVRgdRX2vO/23mCo
+	5HBtIRaWMQ7rKofXm/JPx3i+NODHDdbQLDU2gZL1BOlnLqFccx1OdeGb8gGYpGPGUtXtNAsQMnMtr
+	rpFqV2NN0WqegvvRximHTrD+NCf7QI7Ew4Seus2T/d3OSleUAzbgvobbebkdbCPE6GvUZPs5lIkD8
+	EZ6nDzUfYE4mhP0xsyBsGhVtciLe3O+iOIbguwdI9QeWze4QR1ePCpuUiXZ8B1RnJvRGl21q8Ewpx
+	hw3JBlVA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	damon.ding@rock-chips.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v6 1/2] dt-bindings: arm: rockchip: add RK3588 DP carrier from Theobroma Systems
+Date: Fri,  2 Oct 2026 16:03:29 +0200
+Message-ID: <20261002140330.2904616-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261002140330.2904616-1-heiko@sntech.de>
+References: <20261002140330.2904616-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_070335_833011_E6211802 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,35 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 02:54:47PM +0100, Fuad Tabba wrote:
-> On Fri, Oct 02, 2026 at 02:29:26PM +0100, Will Deacon wrote:
-> > Are you sure #8 is the correct immediate for the ccmp? My reading of the
-> > pseudocode is that it should be #9, but this instruction has always confused
-> > me and I hate the fact that it doesn't take another condition code mnemonic
-> > instead of a raw immediate value.
-> 
-> My read is that #8 is right. From the CCMP (immediate) pseudocode in the
-> Arm ARM (DDI 0487 M.d, C6.2.81), flags start out as the nzcv immediate
-> and are only overwritten by the compare when the condition holds:
-> 
->       var flags : bits(4) = nzcv;
->       ...
->       if ConditionHolds(condition) then
->           ...
->           (-, flags) = AddWithCarry{datasize}(operand1, NOT operand2, '1');
->       end;
->       PSTATE.[N,Z,C,V] = flags;
-> 
-> So when PMUVer == IMP_DEF the ne fails and NZCV = 0b1000, i.e. N=1, V=0.
-> LT is N != V (Table C1-1), so b.lt is taken and we skip. #9 would give
-> N=1, V=1, so we'd fall through and set the bits on an IMP_DEF PMU.
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Aha, that table is pretty helpful, thanks.
+The DisplayPort carrier is a very simple baseboard only providing serial,
+ethernet and a displayport output.
 
-I think you're right -- I missed the inversion at the end of
-ConditionHolds().
+But its main functionality is that it routes the Analogix eDP controller
+to this DisplayPort output, which allows to test that controller simply
+by hooking it up to a suitable monitor.
 
-I'll pick this up next week.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Will
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index a799bb843f74..3b270690afca 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -1336,9 +1336,11 @@ properties:
+           - const: tsd,rk3588-jaguar
+           - const: rockchip,rk3588
+ 
+-      - description: Theobroma Systems RK3588-Q7 with Haikou baseboard
++      - description: Theobroma Systems RK3588-Q7 with baseboards
+         items:
+-          - const: tsd,rk3588-tiger-haikou
++          - enum:
++              - tsd,rk3588-tiger-displayport-carrier
++              - tsd,rk3588-tiger-haikou
+           - const: tsd,rk3588-tiger
+           - const: rockchip,rk3588
+ 
+-- 
+2.47.3
+
 
