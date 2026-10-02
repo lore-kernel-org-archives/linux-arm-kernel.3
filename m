@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB587CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724AECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0UtDxCzSxsK2ku+CA7l+bjB6RPxfD160Qjz44ZIDIe0=; b=ROpkvL3dkALsbZGprg9AFkBuSz
-	uN/ikUKK7rCwOT9NyiGuguAcrsyl0bH340SIkPyGXOrwdk8L5smcgfDIlmqpN1kHUJV1S4cFxG/tB
-	Aw8YqA9CesqJ6r4V41sbufyRzm2v0/XwixEOVsP/OJ1RKbNFSdC9an50LdClfO1609FqvZsN4YEBS
-	V749spw85YUz1FvkenXf/HAU0MYiu92cTDTqM6FIXx4pehzK/dBXzJs/EJ54EpcFWyxmAMJda5dI6
-	keXSd5FzltYMYs5T0zlCsriu1I0KO2sC7gW1lV+AloWxzArj+p6fyG9MgeKhgLHHmf1Ki5onF1veX
-	EEHXZrzQ==;
+	bh=U34UXyjllH0Eug7CzJDyVr7x8diX3hjPBUy4C+66Wj0=; b=qrO0gzf2qt4zqprKkrx14e7E6k
+	AoX3XmBEeV6IbzzH5PQN5Hn6p1LoUS5u97vQja9ZMeFrnnGMBYBFM0+lg8MJdcNWgCkakk5veLz83
+	uzCUJ3s69wcQlzEGZP5VTtYePDVf7K8E5bOCiK9EwpAxdDilukXPnMFNWilyOrkdB7tqHphHial4S
+	2+rW4b89sNjKjW4I+YPBrktF1rOdDQD60lEXdLo//aH6ifGTe8YrTREAUbVcBy+2r7U9LEXOjNaLb
+	ioOAx09mt+Y08S5HeMcjWCFE6z4liMbmeBjd2Gi6p+77pPUKPhjgKAaXzyMpM7GHOtpAjJl4/vaIz
+	DAissLIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcpA-0000000BcfC-3S1Q;
-	Fri, 02 Oct 2026 12:57:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcp9-0000000Bcf2-29gg
+	id 1xCctI-0000000Bd0f-2D5Z;
+	Fri, 02 Oct 2026 13:01:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCctG-0000000Bd01-0MeS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 12:57:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D4E160A70;
-	Fri,  2 Oct 2026 12:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 501261F000FF;
-	Fri,  2 Oct 2026 12:57:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790945834;
-	bh=0UtDxCzSxsK2ku+CA7l+bjB6RPxfD160Qjz44ZIDIe0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WF9LZxrcVvHu6PW+XOYclk0VVBOQPLtinnNi/jt6r7uTb/njR6uIWn3UAt0/bYaZ0
-	 Q9NbBQDrNX+jztOzQI/FzXzQ60Y3j0ytpRMGVwX6QHBl2Cfn6lwrrSI9kJPHT+wXfy
-	 FOuHQou7kYr7Ik6dI3pg9Yb3gUEOc5G8JTCe0zYFCF6obms2czMWJdCUDjHFQFs3Sx
-	 mhQNBI1a58YE6LNEHKPfFB3iAsFpD4GshDO648dfYfbM0OVVYsIEExWYMBUUXKsG+b
-	 z44pEb8aEHodxNdBXtPqA4CKips1YXXhtTZKdFFgQiq71qwlKk2BL6mOAL2Lbf7gE4
-	 +Mmvv1dpREhiQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xCcp5-0000000GE4t-48QV;
-	Fri, 02 Oct 2026 12:57:12 +0000
-Date: Fri, 02 Oct 2026 13:57:11 +0100
-Message-ID: <86se2o2rbs.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
-In-Reply-To: <CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-	<20261001210703.1597150-6-suzuki.poulose@arm.com>
-	<CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 02 Oct 2026 13:01:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1AF0497;
+	Fri,  2 Oct 2026 06:01:24 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6564E3F86F;
+	Fri,  2 Oct 2026 06:01:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790946088; bh=PPNsKh5iFmYOWcu5Wh5/i5vHtCxevqviLv8Y6BrMjPY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dqJtOXivG2aPuAGzBiMXSIBSYNDf4tXrBQDpUpqUptX3mI4a0yMOrc6LsghKhon0x
+	 UkiosuX/S1rRCJhki2bPF10ihIgxIxVyEHHfdm2CqEZvcjwwJW+4YQ187+yaFb+R+j
+	 4QGq7hezZ4TAYh4tkHW2swzRkOlA80PsRyAqz1Cs=
+Date: Fri, 2 Oct 2026 14:01:14 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
+ Erratum E#030001
+Message-ID: <ar-rGjVKB0vqB-Jx@J2N7QTR9R3.cambridge.arm.com>
+References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
+ <20261002-monaka-fix-for-upstream-v1-2-4aec0b0cbe34@fujitsu.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261002-monaka-fix-for-upstream-v1-2-4aec0b0cbe34@fujitsu.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_060130_302090_31753AD4 
+X-CRM114-Status: GOOD (  33.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +76,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Oct 2026 11:06:52 +0100,
-Fuad Tabba <tabba@google.com> wrote:
+On Fri, Oct 02, 2026 at 07:26:50PM +0900, Tomohiro Misono wrote:
+> FUJITSU-MONAKA Erratum E#030001 affects FUJITSU-MONAKA CPU
+> when using 64k page size.
 > 
-> Hi Suzuki,
+> On affected FUJITSU-MONAKA CPUs, range-based TLBI operations
+> targeting a VA or IPA may fail to invalidate TLB entries when
+> addr[34:29] == all 1 && addr[28:0] == 0 for 512MB mappings.
+> The affected instructions are:
+>   RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*.
+
+How does this work when all of the following are true:
+
+* The S1 translation granule is 4K.
+* The S2 translation granule is 64K.
+* S1 has a 1G block translating VA x to IPA y.
+* S2 has a 512M block translating IPA y to PA z.
+
+In that case, can a "512MB mapping" exist for VA x? I would expect so.
+
+Assuming that is the case, the S1 translation granule doesn't matter,
+and the S1 workaround cannot depend on PAGE_SIZE_64KB.
+
+> Work around the erratum by issuing additional non-range
+> TLBI instructions corresponding to the affected VA or IPA
+> range-based TLBI operations.
 > 
-> On Thu, 01 Oct 2026 22:06:45 +0100, Suzuki K Poulose
-> <suzuki.poulose@arm.com> wrote:
-> [...]
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> [...]
-> > +#define vcpu_is_protected(vcpu)                                                \
-> [...]
-> > +                        if (is_nvhe_hyp_code() &&                        \
-> > +                            !is_protected_kvm_enabled())                 \
-> > +                                __kvm = kern_hyp_va(__kvm);                 \
+> Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 19 +++++++++++++++++
+>  arch/arm64/include/asm/cpucaps.h            |  2 ++
+>  arch/arm64/include/asm/tlbflush.h           | 33 +++++++++++++++++++++++++++++
+>  arch/arm64/kernel/cpu_errata.c              | 10 +++++++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  6 files changed, 67 insertions(+)
 > 
-> On a non-pKVM nVHE host, the hyp callers of this in switch.c and
-> timer-sr.c now translate vcpu->kvm and load vm_flavor on every guest
-> entry and exit, where the is_protected_kvm_enabled() check used to
-> short-circuit. Could they use vcpu_is_protected_pkvm(), and drop the
-> kern_hyp_va() here?
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index ac3248b9f2f3..8ab6284e3d10 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -373,6 +373,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM_010001      |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM_030001      |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ASR            | ASR8601         | #8601001        | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b5a51b0ef944..38248a31d5f1 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1312,6 +1312,25 @@ config FUJITSU_ERRATUM_010001
+>  
+>  	  If unsure, say Y.
+>  
+> +config FUJITSU_ERRATUM_030001
+> +	bool "FUJITSU-MONAKA erratum E#030001: Range TLBI may fail to invalidate some entries"
+> +	depends on PAGE_SIZE_64KB
 
-Just to make sure. Is that what you had in mind?
+As above, I strongly suspect this depends on the conbiation of S1 and S2
+sizes, and could happen regardless of whether S1 uses 64K.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 7318e3e6a5f36..2a3e6d83682d5 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -217,7 +217,7 @@ static const exit_handler_fn pvm_exit_handlers[] = {
- 
- static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
- {
--	if (unlikely(vcpu_is_protected(vcpu)))
-+	if (unlikely(vcpu_is_protected_pkvm(vcpu)))
- 		return pvm_exit_handlers;
- 
- 	return hyp_exit_handlers;
-@@ -238,7 +238,7 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	 * it.  The check below is based on the one in
- 	 * kvm_arch_vcpu_ioctl_run().
- 	 */
--	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
-+	if (unlikely(vcpu_is_protected_pkvm(vcpu) && vcpu_mode_is_32bit(vcpu))) {
- 		/*
- 		 * As we have caught the guest red-handed, decide that it isn't
- 		 * fit for purpose anymore by making the vcpu invalid. The VMM
-diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-index 9930657169133..17bd1ff621ab6 100644
---- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-+++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-@@ -48,7 +48,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
- 	 * or running a protected VM (we don't offset anything in this case).
- 	 */
- 	clr = CNTHCTL_EL1PCEN;
--	if (vcpu_is_protected(vcpu) ||
-+	if (vcpu_is_protected_pkvm(vcpu) ||
- 	    !timer_get_offset(vcpu_ptimer(vcpu)))
- 		set |= CNTHCTL_EL1PCTEN;
- 	else
+> +	default y
+> +	help
+> +	  This option adds a workaround for FUJITSU-MONAKA erratum E#030001.
+> +	  On affected FUJITSU-MONAKA CPUs, range-based TLBI operation
+> +	  targeting a VA or IPA may fail to invalidate some TLB entries
+> +	  for 512MB mappings. The affected instructions are RVA[L]E{1,2,3}*,
+> +	  RVAA[L]E1*, and RIPAS2[L]E1*.
+> +
+> +	  Work around the erratum by issuing additional non-range TLBI
+> +	  instructions corresponding to the affected VA or IPA range-based
+> +	  TLBI operations.
+> +
+> +	  The erratum only affects the FUJITSU-MONAKA on 64k pagesize.
+> +
+> +	  If unsure, say Y.
+> +
+>  config HISILICON_ERRATUM_161600802
+>  	bool "Hip07 161600802: Erroneous redistributor VLPI base"
+>  	default y
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 76350b38f0d7..9220b917ec20 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -66,6 +66,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
+>  	case ARM64_WORKAROUND_4193714:
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
+> +	case ARM64_WORKAROUND_FUJITSU_030001:
+> +		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
+>  	case ARM64_MPAM:
+>  		/*
+>  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 14a78ac0f800..0487daec1652 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -487,6 +487,37 @@ static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+>  	op(arg);
+>  }
+>  
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +static inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end, u16 asid)
+> +{
+> +	u64 addr;
+> +
+> +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030001))
+> +		return;
+> +
+> +	/*
+> +	 * The erratum fails to invalidate TLBI entries in the range when
+> +	 * addr[34:29] == all 1 && addr[28:0] == all 0 for 512M hugepage.
+> +	 * However, since it cannot be determined reliably if the target
+> +	 * entry is hugepage or not here, always assume hugepage is used.
+> +	 * The workaround is to issue extra non-range TLBI ops corresponding
+> +	 * to the affected VA or IPA range-based ops in the range.
+> +	 */
+> +	addr = (start & GENMASK_ULL(63, 35)) | GENMASK_ULL(34, 29);
+> +	while (addr < end) {
+> +		__tlbi_level_asid(lop, addr, TLBI_TTL_UNKNOWN, asid);
+> +		if (addr + BIT_ULL(35) < addr)
+> +			/* overflow */
+> +			break;
+> +		addr += BIT_ULL(35);
+> +	}
+> +}
+> +#else
+> +static inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end, u16 asid)
+> +{
+> +}
+> +#endif /* CONFIG_FUJITSU_ERRATUM_030001 */
+> +
+>  static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
+>  						 u64 start, size_t pages,
+>  						 u64 stride, u16 asid,
+> @@ -518,6 +549,8 @@ static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
+>  		__tlbi_level_asid(lop, addr, level, asid);
+>  		addr += stride;
+>  	}
+> +
+> +	fujitsu_erratum_wa(lop, start, end, asid);
+>  }
 
+It would be much simpler to say range invalidation doesn't work on this
+part.
 
-	M.
+>  
+>  #define __flush_s1_tlb_range_op(op, start, pages, stride, asid, tlb_level) \
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 8ec47d89b45b..5b9dea3c761d 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -1027,6 +1027,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = has_impdef_pmuv3,
+>  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+>  	},
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +	{
+> +		.desc = "FUJITSU-MONAKA Erratum E#030001",
+> +		.capability = ARM64_WORKAROUND_FUJITSU_030001,
+> +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
+> +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
+> +					{}
+> +				})),
+> +	},
 
--- 
-Without deviation from the norm, progress is not possible.
+Are you expecting to add other parts here?
+
+Is there a (future?) revision of MONAKA with this fixed?
+
+Mark.
+
+> +#endif
+>  	{
+>  		.desc = "Known broken GICv3 SEIS implementation",
+>  		.capability = ARM64_WORKAROUND_GICv3_BROKEN_SEIS,
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 2775ba3359cf..50a9aa0e2bf0 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -132,3 +132,4 @@ WORKAROUND_REPEAT_TLBI_SYNC
+>  WORKAROUND_SPECULATIVE_AT
+>  WORKAROUND_SPECULATIVE_SSBS
+>  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+> +WORKAROUND_FUJITSU_030001
+> 
+> -- 
+> 2.43.0
+> 
 
