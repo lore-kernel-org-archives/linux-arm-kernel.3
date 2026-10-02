@@ -4,116 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11EBCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 11:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC05CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2Jhfl4IsYX/26MbYUd05Eygx5yXfRkgTahQeUMWqDQ=; b=4nNfFrDH/YVt6LrIPgz/5UN5Xa
-	Z/8COV+m5GS9xfiKGxgI2sswmkTLGvjIg66XUlOU6I+M7MmyKwe13qe8oCJayyp2tKMKU9MTwEgv2
-	GT7Jv+fgrgYyXJtNpyaOJHzyRdOrxaWaTBj+5bl4BwFdattM3fba1WD5Zr4g4CysWFyUR/mT8hiHf
-	a+q4qmU1uDgYqrRbUNoySAIihZGPqM8mLdpjdejfRuqq076SXyvEZu+zYLkdnzVG5dXoDZ1ZDS6TN
-	nDup6GYEXFnw/bjlcUXRuWRl7dYq6VLiEhKaTUH6QPB0CLnnAtJxYYACcCBpgB+O8H9EJsd5wmBKO
-	673vxjKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=; b=vV9sbUDggXKPtgbX/1tY5dTDVX
+	Tly64H1koXAzGHbXWGWzhYGWJiIvqh42+cqaGertq1wgNB+cPfhomFKSHkfhufTQEe8dlg4pmnxiU
+	0SunG5fX34acWVEyZxo4ELpgi5GoG0wiDm/Z3D3rb2pm9Pqwf4GZ9uwg58d8mrpDswnJhXFHa/jXl
+	/5UoJcoHhXyPescr/OfqG86akKzS3TYtN/WFsO1l9WGmbFVieHHbz80VzqGD6dOrMA+Spix33+Uv6
+	o7OvrGMVw7Qv5l8nEwwYNYQeVfRaJE3IXCPJ0Kc3oWj0jIcEghNl6KXS2IwDStY0RBpl/3PFpO9eh
+	+OMaD55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCbus-0000000BWtL-3JVh;
-	Fri, 02 Oct 2026 11:59:06 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xCc7y-0000000BY1e-3qu5;
+	Fri, 02 Oct 2026 12:12:38 +0000
+Received: from mail-oi2-x11.google.com ([2607:f8b0:4864:32::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCbup-0000000BWsr-3A7M
+	id 1xCc7v-0000000BY19-2qUy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 11:59:05 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48affb828f1so2842432f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 04:59:02 -0700 (PDT)
+	Fri, 02 Oct 2026 12:12:37 +0000
+Received: by mail-oi2-x11.google.com with SMTP id 5614622812f47-4c66ba0b762so1456970b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 05:12:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790942341; x=1791547141; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=A2Jhfl4IsYX/26MbYUd05Eygx5yXfRkgTahQeUMWqDQ=;
-        b=E/+wEx7aqOeaNZyGQQm6TO7Ine5nwhAHjpzZLc1xqZRwfcS01MJROjcqzKvc80og+L
-         Cm/bDImWAOqbYFU8L3Z5+YygNovGeoA73fO64JDVgILaTVlcdDX4Bx8tvP7fEwuGY00S
-         RNcMqIMXQMBBsF2y0CMMYY3/G3uIAdvDdntlt7JlEGdoucz5IBUlb4HW19mVwVL3iBRw
-         xccZJ4hJWWJzgH7lAZcz9f1CUwHwW65eaWVQ6raQ7omiPw0W2Yc7IMFUJM+XE5NPgugn
-         UT1DwS5IocPE3W76q24nWhQyQqBJ4gst4ZFtZ0LPjsPU4PUHPTGjyTCZX7eJj/OtTLb8
-         B7uQ==
+        d=gmail.com; s=20251104; t=1790943154; x=1791547954; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=;
+        b=E+QGpyMkYwAOr1zHrqy1E7rNwW0eKO4FdWABziPwqMRBHeAc1STus4KXGI0Yt3oQM2
+         UDKg5PXknRi821cdoITDje7dmNfTnBswBzM1s3bLWrHogZRmk5H7e2OPwgKpZATY9StM
+         hzJqPJ1O96scRM1kBBUK0BN3jnLve5y0fNIU78BQHb3DliU4L4zXO6wZRREt9YEEb9It
+         jrG9r1Uy4Il2XAmxp1k3O7Z9CoCF8pllqm9SRLDmF2YBZV2Esk4KkU9w8QHmUDJIjCUU
+         rAnBbi/Oqnnrw6dT45QwMSR7cwbnQims5ge5JETig6x782PLUQlwg+O3prNMe9TGCiIu
+         v5WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790942341; x=1791547141;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=A2Jhfl4IsYX/26MbYUd05Eygx5yXfRkgTahQeUMWqDQ=;
-        b=E7KbmS/a411bsCYhmii7tTOp2MA6ZxP9EUWFsMppGZcKr+HjRgvr6L2sFRMbwZcXxv
-         H4jaXg+kyDP5fcGjkU9ZwT4ZKGFA3Dx5iwmOAQ8ta7s7zvDHupoSPLkp8cL3lZPF5/XZ
-         U6K7s7JJJdTSO33aGiwEvBi9SICOFbkynJcJX8VBJmR0D6h/0suo7C/t6LHYP9KGTApv
-         z3WkgV+y4cTCTgNT3eVoTYp9CDxOfPDT6snI+2IvicNIjpuQyBoqWvrjEiaMIQJwG2gZ
-         orsK6v1avLgiRoajksM9WwBbYAd8bzAjqnt6Dg/tvARX+BhvXw6hkl0E2lTTQlIxZR2C
-         L2pw==
-X-Forwarded-Encrypted: i=1; AKwUvBzCdWWRY7lCkRU3kM1oFb48RG/BkCxuGCI9GnGkx2cZtW8dAbs2rPUtwE/rwZPvb5d1cJjuL5pKvfW8kO5v7Nw0@lists.infradead.org
-X-Gm-Message-State: AFuF++k8tQzTe/z3t2f+2Xbk6AaN640zvKJ9HTa/bHA8xAXnQdsg3P35
-	PK+8edNMeb+2t98RMxZeweNDmwdDI+8ynF9B5RcHsFV9rhm1nHRyvYgM
-X-Gm-Gg: AYBFou3z8XwvFplAVgdtmouWtmIjufxx9KjoHNZxj94LYEkRCidbx/rtAKez1E4n9hg
-	sSyFc86FEFBmmSkcpeetV9daEQthT9MSkY2vTKxMxaC4PgwpcKmRzkArfCxiES0v1P2EJN0ywGf
-	PqsbZyEtd9bzTBHPj6srU6kxrlnPZnkwS5/aWLuI7DPgSx/xmq55NmPsraqsK9m6dAHk+dGj/Yw
-	sgHfdUkMHR0Jjnf/0UF+xX+KPY3Q/CM5vIIiAYbR9EShbAiAFtfLXfw3qpTUCwgHT6N5ve4CH/x
-	oh52BFdHwUDQhX/3IGHENzABBbQk+W3PK0vATgDDIxbuoDuzBBK2Daex5YjKxjOQwbIhozW089K
-	dDnQ19+YdTDI5FiICw6oqN5glqb2cjD4sAyk+15KCi/icyrmxIfwDL3Q8XjcjkFX5KAkmJ0yFtQ
-	poDbdYDuiTInyTG6EvakUt9NjSUiuksmg+nZvOgqJWgqgovQyxrngfK1+WtzU6p3Bss1Bv99prI
-	HXV9+C1ysMgt8fhFkUOX8n8DE2tjKsrC+qG0jg0T5mvKkew0ew0XNLqGKVxiqp2FYHdeVqi14t8
-	NVIIKNQ32soUDwwxdOm28ZfFaoX0
-X-Received: by 2002:a05:600c:4307:b0:4a0:b6:4619 with SMTP id 5b1f17b1804b1-4a0274569f9mr32626085e9.0.1790942341160;
-        Fri, 02 Oct 2026 04:59:01 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a03ff2280csm44613255e9.4.2026.10.02.04.58.59
+        d=1e100.net; s=20260707; t=1790943154; x=1791547954;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=;
+        b=BSbty2EBAuhMRhytLEHxESA6yxzljV2GyxD6Zeq2c4GX670qcXwAc+ygxw1whrNizR
+         1cyFEFPcAiGSq1AuToYx6a6W7Rf38bvz/GjPJi5ur5wg0+D0FZVPMGh/ilaPoy0euHLi
+         52jxSCHrS0YeqRc4+0fvxyQBUWeqChO0WOVF5fap9tym8ldtGM7Nb3nD2EDOfZTOYQ6P
+         VcL+S/Tgh3h97c9nw4YS1B/yFoC9ySI1FglK/6TSZ9dCd1b/h4bS+7n6TFlXeart+LSc
+         fuJG2yR0rVoAcBS2bXxS4Z0N5PfayGFkHqLxeVEZZ3XMOiY+hK27zStlbtMtKp/S55A4
+         /mWw==
+X-Forwarded-Encrypted: i=1; AKwUvBwwjDhBZAr9WfVQJ4qaN2ASKLMYUmmRqw1NfFszRabrEZFShBVMz9l9INmLx1hkF2n6oWYcwJDe4IONa2/JuDGg@lists.infradead.org
+X-Gm-Message-State: AFuF++mbQoJMctbU4dR0ASfofO0uXckFZcVlm/a6ZEIlHxw3PFhzlyBz
+	T4JSjvRdx4Yb8oByQrFc/d9PHC4jv/2X18LHz51LBfpQRTcd6d5VmTKr
+X-Gm-Gg: AYBFou3pazuB3hzLaaW1r4QKhjXEHAGmj0xODXdHOwz11ryhr9s3D4EyOEOtY8PZtKo
+	mzMvGfntpFUrBVgO1XWvxUIUBWeKiCNoVmNT4RcrMGtCgN6ZXW5XVhXrYc1AMv0Ajd0Oneeiv6i
+	ngm7kchSnCCOK7p7DhG4AaLzCrADfaGZBmSmH4ydVdKLR1d3KoX8qSnJNwot6UwU0ZHr84XW6JB
+	AT7sNSc4255w/+vCLMI6dGs1ZdMigMmdTD5V9gidkm+RUP/pVtgX/Q4Lup1Q9yYKEaEadQOU4I6
+	tSnGzm3UThMiwtDxRxM4bUW5pGZbBPtO5YNK/+zQMWBi/f4+GXEsye1Q8WIApYIcLCj/kU/pvBm
+	MtLEsrNtYJKnma+o9cDOpgk67LUFBS5bAg5yZuTMpak7MKukebDX2opHRh2lUOMWuuUeN1Xzx3W
+	c9I1JS/+ekspLquU0EKL8WVvI6fpaNo2G+CerYqJvxcafcq4TJVOpjVbK4EqXwY1ZPW1/Mjg==
+X-Received: by 2002:a05:6808:14c2:b0:4c3:cec9:fd18 with SMTP id 5614622812f47-4f528ccf57emr1327475b6e.11.1790943154581;
+        Fri, 02 Oct 2026 05:12:34 -0700 (PDT)
+Received: from localhost ([2a03:2880:12ff:43::])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4f524cd09e2sm1963119b6e.14.2026.10.02.05.12.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 04:59:00 -0700 (PDT)
-Date: Fri, 2 Oct 2026 13:58:57 +0200
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Guo <shawnguo@kernel.org>, Joseph Guo <qijian.guo@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Stefan Eichenberger <eichest@gmail.com>, netdev@vger.kernel.org
-Subject: Re: [PATCH v4 00/13] ARM: dts: imx6ul: Add Variscite VAR-SOM-6UL and
- DART-6UL
-Message-ID: <ar-cgeR8U0dmOTvI@Lord-Beerus.station>
-References: <cover.1790693249.git.stefano.r@variscite.com>
- <20260929121455.437291ea4b53130e3e19778c@hugovil.com>
- <arv4MwHV4LntROkN@Lord-Beerus.station>
- <20261001144344.2100854b8f5e2d81cf87b424@hugovil.com>
+        Fri, 02 Oct 2026 05:12:34 -0700 (PDT)
+From: Matthew Wood <thepacketgeek@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] bpf, arm64: Fix racy plt target update in bpf_arch_text_poke()
+Date: Fri,  2 Oct 2026 05:12:31 -0700
+Message-ID: <20261002121233.561368-1-thepacketgeek@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261001144344.2100854b8f5e2d81cf87b424@hugovil.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_045903_855510_FC779C78 
-X-CRM114-Status: GOOD (  32.77  )
+X-CRM114-CacheID: sfid-20261002_051235_727553_25497936 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,85 +111,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 02:43:44PM -0400, Hugo Villeneuve wrote:
+When a long-jump trampoline is attached to or detached from a bpf prog,
+bpf_arch_text_poke() updates the plt target at the end of the prog by
+temporarily making the page writable:
 
-Hi Hugo,
+	set_memory_rw(page);
+	WRITE_ONCE(plt->target, plt_target);
+	set_memory_ro(page);
 
-> 
-> Great to know Variscite is adding support for the DART-6UL.
-> 
+Since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
+management"), bpf progs are allocated from the bpf prog pack, so
+unrelated progs and their plts commonly share a page. The sequence
+above is not serialized against other pokers, it runs before text_mutex
+is taken and callers only hold the lock of the trampoline being
+updated. Two CPUs attaching to or detaching from different target progs
+in the same page can therefore race:
 
-Thank you Hugo :)
-Over the past year, we have been prioritizing security and consistency
-by adopting a mainline-first approach.
-We have added support for almost all of our SOMs and configurations,
-as well as several driver changes and additions:
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?h=master&qt=author&q=Stefano+Radaelli
-And now it's time for the immortal i.MX6UL!
+	CPU A                           CPU B
+	set_memory_rw(page)
+	                                set_memory_rw(page)
+	                                WRITE_ONCE(plt_B->target, ...)
+	                                set_memory_ro(page)
+	WRITE_ONCE(plt_A->target, ...)  <- permission fault
 
-> 
-> Please work with the existing modular DTSI files, do not simply remove
-> them and reimplement them into your own files.
-> 
+This was hit on an arm64 server with 64K pages while attaching fentry
+programs to bpf progs:
 
-Agreed. Where possible, I’ll reuse the modular files you added and
-propose fix commits wherever changes are needed.
+  Unable to handle kernel write to read-only memory at virtual address ffff80008f46d5f8
+  ESR = 0x000000009600004f
+  FSC = 0x0f: level 3 permission fault
+  pte=00c00200ea5a0783
+  Internal error: Oops: 000000009600004f [#1]  SMP
+  pc : bpf_arch_text_poke+0x214/0x238
+  lr : bpf_arch_text_poke+0x200/0x238
+  Call trace:
+   bpf_arch_text_poke+0x214/0x238 (P)
+   __bpf_trampoline_link_prog+0x1c8/0x470
+   bpf_trampoline_link_prog+0x64/0x90
+   bpf_tracing_prog_attach+0x318/0x4a8
+   bpf_raw_tp_link_attach+0x104/0x258
+   bpf_raw_tracepoint_open+0x6c/0x90
+   __sys_bpf+0x134c/0x3e10
 
-> 
-> I tested it and it works. But like I said, if adjustments need to be
-> made, they are welcome and can be done in a separate patch to fix it.
-> This sequencing is something not very well documented in Variscite
-> datasheets. I asked Variscite support to improve the documentation for
-> that aspect but it was not accepted.
-> 
-> 
-> > For the LWB5 option, the procedure enables WIFI_PWR, waits 10 ms,
-> > enables WLAN_EN and BT_EN, waits 200 ms, then lowers BT_EN before
-> > re-enumerating the SDIO device.
-> > The other Broadcom option does not use the separate WIFI_PWR step.
-> > The existing regulator and MMC power-sequence nodes do not express that
-> > complete, module-dependent procedure, particularly the BT_EN step during
-> > Wi-Fi initialization.
-> > The scripts also select the Bluetooth firmware according to the detected
-> > SDIO device.
-> 
-> Firmware loading is handled properly by the kernel without external
-> scripts (tested with Concerto EVK).
-> 
-> 
-> > We use that procedure to avoid sequencing-related failures for our
-> > customers.
-> > This approach is not new to Variscite’s mainline DTS files.
-> 
-> Yes, this is an old way of doing things, which may have been
-> appropriate in the past when proper support in the kernel was missing
-> to achieve the proper sequencing, but no longer true these days, unless
-> I am mistaken.
-> 
+Rather than serializing the permission changes, stop changing page
+permissions altogether and write the plt target with
+aarch64_insn_write_literal_u64(). It writes through the text patching
+fixmap under patch_lock, the same way the rest of the prog pack is
+written, and performs a single-copy atomic 64-bit store. The plt target
+is naturally aligned (see build_plt()), so CPUs concurrently executing
+the plt still observe either the old or the new target. This is the
+same helper ftrace and static calls use to update 64-bit literals that
+are loaded concurrently.
 
-We are glad the kernel-managed sequence works on your Concerto EVK.
-However, it is wrong for the LWB5 module configuration we support:
-it does not follow the required power-up order and timing validated
-by Variscite.
-The sequence is based on the module requirements and has been tested
-in our labs and across customer configurations over many years.
-A successful test on your EVK does not show that it is correct for all
-the modules and configurations we ship.
+Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
+Signed-off-by: Matthew Wood <thepacketgeek@gmail.com>
+---
+Changes in v2:
+- Replace page permissions change with call to aarch64_insn_write_literal_u64
+- Link to v1: https://lore.kernel.org/linux-arm-kernel/CADvopvZPO1gDMDhDOPcArjRJ0cPpSUZ5suMg-1kwRi+_-Xeitw@mail.gmail.com/
+---
+ arch/arm64/net/bpf_jit_comp.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-The GPL-2.0-only userspace scripts implement this required sequence.
-This is not a matter of preference or an old approach we kept by habit;
-replacing it with the sequence in the current DTS would risk breaking
-supported Variscite configurations.
-If a future kernel implementation can reproduce the complete,
-module-specific sequence, Variscite will be happy to update all affected
-DTS files to use it, after completing the necessary lab testing across
-the supported module variants and configurations.
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 475e70653454..e353403cc1c3 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -3339,13 +3339,15 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
+ 		plt_target = (u64)&dummy_tramp;
 
-If you need any additional material, datasheets, or other information
-from Variscite, please let me know at stefano.r@variscite.com.
-I’ll be happy to provide whatever is needed!
-
-Best Regards,
-Stefano
-
+ 	if (plt_target) {
+-		/* non-zero plt_target indicates we're patching a bpf prog,
+-		 * which is read only.
++		/*
++		 * non-zero plt_target indicates we're patching a bpf prog,
++		 * which is read only. The prog shares its page in the bpf
++		 * prog pack with other progs, so write the aligned target
++		 * through the text patching fixmap without flipping the
++		 * page permissions to avoid racing with concurrent pokers.
+ 		 */
+-		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1))
++		if (aarch64_insn_write_literal_u64(&plt->target, plt_target))
+ 			return -EFAULT;
+-		WRITE_ONCE(plt->target, plt_target);
+-		set_memory_ro(PAGE_MASK & ((uintptr_t)&plt->target), 1);
+ 		/* since plt target points to either the new trampoline
+ 		 * or dummy_tramp, even if another CPU reads the old plt
+ 		 * target value before fetching the bl instruction to plt,
+--
+2.53.0-Meta
 
