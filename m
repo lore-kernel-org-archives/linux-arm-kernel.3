@@ -4,123 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B560CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CE5CA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cztgwljGD8oX4kZgQ1gsJ1QSEaSYmGWQ7py1olDlbuE=; b=17LNORw57avKpRCKBlBRn0a2XC
-	j3dNku3hOz6aYjIZWH/o91JFr47k4kRJfzU8noLYMoSpgNbUAPFcH9sc8q5Prw6Kf9QOqFaKdV+Eh
-	JqTG9kvlPZG6eAu9SDd/dgFmlInIbcuyzGUvOzBW2YBTpd5vml55vi2z6VUPfmprct4KVwTacPUmS
-	Rkw0ildlbDQfyQIk+fXAvS5YUXsLJ9+hLnipGhhL0QQD+PkBgGkS4J9y1T3B3bMqPlBKIorxHbBm5
-	h4bJur/Dr4uE5wqmkG/ZZ/SpvDKB5iFxb+kRsLhmO8/85UZoCRRCbcBDNK6/c/1/MdnffJrw3f3KF
-	kpqUABAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ekKUYOby3c2j+NEGwfq/n/16hDsQN2mSgzvQPgHiWWI=; b=NKKOU/ODZzn4bj7jBJmo5B2n8N
+	vsLIft1teF9PFOc0P0dNfh/K4OiiF1W0Xt+7151QlK6JrZuY4jUcoovuC9Ooig29c0SffWn1q2Xge
+	gHRA46HJVBEnK4pz57ZouuAl75jdoAZwrILCbobE+B6KG6ZuykKzg3pWLlj2+Ez6FDxPb3AIV9LgM
+	uqSq6sh04clvtV+41Hb0MY2O+q0A3cm3KTUv50lKKz/PCk7bV9gXrJ6vq9TglHeequ7axdcECLI2P
+	tYpmJH7dQtVWLiasz3sKX4lRByj8pwuNOUJMnohxuoX4fqXVNRtN+QS8YOtT88Y3dIBX1pHnBU49F
+	zdMozuwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCix8-0000000COhR-0YHY;
-	Fri, 02 Oct 2026 19:29:54 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1xCiy0-0000000COqo-1FVG;
+	Fri, 02 Oct 2026 19:30:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCix5-0000000COge-0q71
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 19:29:53 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48b0ef9c76eso285399f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:29:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790969389; x=1791574189; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cztgwljGD8oX4kZgQ1gsJ1QSEaSYmGWQ7py1olDlbuE=;
-        b=OU7jueguB4fbi2qYPQ5cjNTOI47nhjs+tgAmAePzUp/mEI8eZ06eSwuNEaCac33N2P
-         W8AmwkKZIBqdCBAIgVhalWUy4r7Iemuf05pZQiYK4ZrQvY6xSfrO3rn1dZzFdBQZ2OPm
-         7IKUTzmAgqX67W+Dg7L0ALTh8JsqBjkVb0qBpVJetpBVI68vebZjNGTYuNaPMV9xKa2B
-         RMNIlkwBd9joSd2MZ50vQn8ffLix7RrMy3ex/ZqZ/Lz3H29f6PDZmp7UrwhMimsQs3bE
-         AX1BlXbX0PFY8g/Y/SC48wTJliU7qW/jMIgeoJGP23dP6Aznra9X46qhSpGdK1p0YOfR
-         fbSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790969389; x=1791574189;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cztgwljGD8oX4kZgQ1gsJ1QSEaSYmGWQ7py1olDlbuE=;
-        b=dWwkT/SGQ529BRPtlRDPXxFKS4j0sK9bJhax7Px3kETbfPERKJLIGaSbHMCY2i7Ijw
-         uNLgRz+HIYYohsSdgpUWaBeei3WMGcYoXwMgCm0sK8sVvON1K2dq0DwmfTndAqDPaNSz
-         LxNh8P1P+CvWl+pTvwIKvAuLR0mLqIh6xOqdV+bUtI3qaHOdk0PxOgdMF+vX/XWl/Aib
-         7kdHWT69Mhq/7D19snZQDlSppisn+uxq+HjsgXMaQiB0ekPV0P+uEcF2IUgPuKEqwIh9
-         EEq9uqhq1PogJCMOQh6kk8rAiKfptRKVa3nRuqJu8gdMuLPwnICLA7SbuMvRSr7sj+mv
-         x1NQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwUyyrksEQzkS6myIzxe4+O8MpAh8ZjPm0WueANg5huxvgvFhEAIksTAms5DCgWiUSzWUCnzHx+W8OCJRJyKctV@lists.infradead.org
-X-Gm-Message-State: AFq9FYLu7h3UcUhxn1vRhDULraEND0tHwmKHiWUZBLeqgSF4aLjtrMtx
-	y4M9jMP+DtQZ44/JQlLZqid1/k+G9n7Vdl4U/oo5WHH1vEdTFV5S8SvQ8C4TpFXz5YY=
-X-Gm-Gg: AYBFou21dA/V4uPXir6jFS364JajybNFiLIQmhrOCHNi1gGLMe2QBC6Kq467KGOlhBY
-	Yj/PVLAmfg7Bg5Eoe/LZEYD3b3kYcAfl+PtaL4ZrigPfQEOuB3tJJNdvq6MQrscs3sXdxlg1N+T
-	XjUpbBOkxBFYr5AvvlW0dk1r1JmJikw59m9oo92K96jLhasPdBHcm7K4k6R6Rtyco0bFxdYe27l
-	eaxYeQh1qaUptXFxlfWLx/0rIuCvjN4ALyDKn0P677DNZ77Qkl6xFXkxBAgqEkgwcnAbzZZfWnN
-	qbZ7Z7YDxnwKKubxtn4YTjDFzz74CgZvIwvn3lFG/gRWr1/5WQdk0ILstXzu5PtW5QsjNcFNw9k
-	L1vFf69CAUk8+eIWFNJgg+wV0hiF8Fnjg9QSkXIv7YA9cePyQLlwNSQIU6uGnApo5RlNYSFa5h9
-	rlCPNmuiHBXIE9QZN2t/ST640UF/beOpJO3+1TY9iaij5aKAyvGor9Cnwq6U7c6ZECRom6GgsOk
-	zHyUbnxv9cNrrp0V0YtSIUsFaj9jDghj+jLpWvMpeIU2P961SM=
-X-Received: by 2002:a5d:5d13:0:b0:488:75e4:f5b6 with SMTP id ffacd0b85a97d-48c4801c1aemr625756f8f.54.1790969389014;
-        Fri, 02 Oct 2026 12:29:49 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:2f62:6d3:721b:8c9e? ([2a01:e0a:106d:1080:2f62:6d3:721b:8c9e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b380facfesm8184812f8f.23.2026.10.02.12.29.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Oct 2026 12:29:48 -0700 (PDT)
-Message-ID: <23235204-8e5f-4fa7-a900-66acfcfc593a@linaro.org>
-Date: Fri, 2 Oct 2026 21:29:47 +0200
+	id 1xCixz-0000000COqZ-21qV;
+	Fri, 02 Oct 2026 19:30:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CF3360D77;
+	Fri,  2 Oct 2026 19:30:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 748A01F000FF;
+	Fri,  2 Oct 2026 19:30:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790969446;
+	bh=ekKUYOby3c2j+NEGwfq/n/16hDsQN2mSgzvQPgHiWWI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=d2r2hK5kCljTlCYwbBufk/wivX4jkvPY5GtMgJLcUIUGT4ktspgfRBivcG57guSh0
+	 hmkWr9NCuIzN8DuY1j8dpdZ4MIgpfoMkhqfwhFne9TUTm7tvkDIkyqcyp6gifsaedU
+	 mNrCV965QKAOpjo5mT0u9456Q2feFcLsrcpn4yK2t79qy6ksjZH9IjiJABakb9YbL5
+	 heJGGdWiGwwTNHAPJgbj/idVxDZSAeMzL3J8SODqqJovLo/2+7RpFWIqHOSOxNi79y
+	 Uw9DHbuSk9BoX3hzMhPL2bfOom2XjyLWZ7KwO9IQVaU87sthIFLqZfHTTSxGRCaWc8
+	 PWPWsigErZcDg==
+From: Barry Song <baohua@kernel.org>
+To: willy@infradead.org
+Cc: agordeev@linux.ibm.com,
+	akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	baohua@kernel.org,
+	borntraeger@linux.ibm.com,
+	bp@alien8.de,
+	catalin.marinas@arm.com,
+	chenhuacai@kernel.org,
+	chleroy@kernel.org,
+	dave.hansen@linux.intel.com,
+	david@kernel.org,
+	gerald.schaefer@linux.ibm.com,
+	gor@linux.ibm.com,
+	hca@linux.ibm.com,
+	hpa@zytor.com,
+	kernel@xen0n.name,
+	liam@infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux@armlinux.org.uk,
+	linuxppc-dev@lists.ozlabs.org,
+	ljs@kernel.org,
+	loongarch@lists.linux.dev,
+	luto@kernel.org,
+	maddy@linux.ibm.com,
+	mark.rutland@arm.com,
+	mhocko@suse.com,
+	mingo@redhat.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	palmer@dabbelt.com,
+	peterz@infradead.org,
+	pjw@kernel.org,
+	rppt@kernel.org,
+	shakeel.butt@linux.dev,
+	surenb@google.com,
+	svens@linux.ibm.com,
+	tglx@kernel.org,
+	vbabka@kernel.org,
+	will@kernel.org,
+	x86@kernel.org,
+	zhanghongru06@gmail.com,
+	zhanghongru@xiaomi.com,
+	zhaonanzhe@xiaomi.com
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Date: Sat,  3 Oct 2026 03:30:34 +0800
+Message-Id: <20261002193034.86218-1-baohua@kernel.org>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <ar7MsOb6IJLt4eLo@casper.infradead.org>
+References: <ar7MsOb6IJLt4eLo@casper.infradead.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 1/2] arm64: dts: amlogic: meson-sm1-odroid-hc4: mux the
- SPI NOR HOLD# and WP# pins
-To: iav@iav.lv, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261002-hc4-spi-nor-v2-0-8366a4f91049@iav.lv>
- <20261002-hc4-spi-nor-v2-1-8366a4f91049@iav.lv>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20261002-hc4-spi-nor-v2-1-8366a4f91049@iav.lv>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_122951_281906_672E7F72 
-X-CRM114-Status: GOOD (  21.28  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,73 +111,158 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/2/26 20:36, Igor Velkov via B4 Relay wrote:
-> From: Igor Velkov <iav@iav.lv>
-> 
-> The SPI NOR flash uses six lines, but nor_pins covers only four: data,
-> clock and chip select. Nothing claims HOLD# (BOOT_3) and WP# (BOOT_7),
-> so they keep the boot ROM setting. After a boot from SPI they are in
-> the nor function and the flash works. After a boot from SD with the
-> button under the board, they stay eMMC data lines pulled low, and
-> spi-nor reports "unrecognized JEDEC id bytes: 00 00 00 00 00 00".
-> 
-> Add them as a separate group in meson-g12-common.dtsi rather than to
-> nor_pins: whether HOLD# and WP# reach the SoC depends on the board. The
-> HC4 has eMMC disabled and takes both groups.
-> 
-> Tested on ODROID-HC4: with BOOT_3 and BOOT_7 set back to eMMC with
-> pull-down and spifc rebound, the flash fails as above without this
-> patch and probes as a 16 MiB mtd0 with it.
-> 
-> Fixes: 7178f340e929 ("arm64: dts: meson-sm1-odroid-hc4: add spifc node to ODROID-HC4")
-> Assisted-by: LLM
-> Signed-off-by: Igor Velkov <iav@iav.lv>
-> ---
->   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi    | 9 +++++++++
->   arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 +-
->   2 files changed, 10 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> index 00609d2da674..3135566df880 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> @@ -615,6 +615,15 @@ mux {
->   						};
->   					};
->   
-> +					nor_hold_wp_pins: nor-hold-wp {
-> +						mux {
-> +							groups = "nor_hold",
-> +							       "nor_wp";
-> +							function = "nor";
-> +							bias-disable;
-> +						};
-> +					};
-> +
->   					pdm_din0_a_pins: pdm-din0-a {
->   						mux {
->   							groups = "pdm_din0_a";
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> index 3ece30a0a1ff..c4b93d6619f2 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> @@ -126,7 +126,7 @@ &sd_emmc_c {
->   
->   &spifc {
->   	status = "okay";
-> -	pinctrl-0 = <&nor_pins>;
-> +	pinctrl-0 = <&nor_pins>, <&nor_hold_wp_pins>;
->   	pinctrl-names = "default";
->   
->   	flash@0 {
-> 
+On Fri, Oct 2, 2026 at 5:12 AM Matthew Wilcox <willy@infradead.org> wrote:
+>
+> On Mon, Sep 28, 2026 at 10:48:41AM +0800, Barry Song wrote:
+> > On Mon, Sep 28, 2026 at 6:55 AM Matthew Wilcox <willy@infradead.org> wrote:
+> > > So while doing my slides, I realised that what we need to avoid doing
+> > > is (a) sleeping while holding the mmap_lock (b) returning RETRY while
+> > > holding the VMA lock
+> > >
+> > > And that turns out to be as simple as this patch:
+> > >
+> > > diff --git a/include/linux/mm.h b/include/linux/mm.h
+> > > index dd09c438fa23..94ed2333f8d8 100644
+> > > --- a/include/linux/mm.h
+> > > +++ b/include/linux/mm.h
+> > > @@ -723,6 +723,8 @@ enum {
+> > >   */
+> > >  static inline bool fault_flag_allow_retry_first(enum fault_flag flags)
+> > >  {
+> > > +       if (flags & FAULT_FLAG_VMA_LOCK)
+> > > +               return false;
+> > >         return (flags & FAULT_FLAG_ALLOW_RETRY) &&
+> > >             (!(flags & FAULT_FLAG_TRIED));
+> > >  }
+> > >
+> > > OK, this is a hack.  The function is spectacularly badly named, and
+> > > needs to be renamed before a patch can go upstream.  But this should
+> > > fix the contention on mmap_lock.
+> >
+> > Thanks for your suggestion.
+> > This is exactly what we did in Android Common Kernel before we had
+> > Lorenzo's proposal (bypassing `fault_flag_allow_retry_first()`):
+> >
+> > https://android.googlesource.com/kernel/common/+/1b9b045a586245cc1c29b2747c6586234c7f5bad%5E%21/#F2
+>
+> Looks like that one didn't cover __folio_lock_or_retry(), but that
+> doesn't invalidate your point.
+Yep. `__folio_lock_or_retry()` will make the same thing true for anon
+VMAs, so we intentionally made the hook valid only for file VMAs.Only touching the file retry path seems to involve less VMA
+contention.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>
+> > Note that Lorenzo's proposal avoids mmap_lock contention without
+> > introducing any new VMA lock contention. It also doesn't require a new
+> > flag that would break KMI. So this is clearly the preferred approach.
+>
+> But it does retry multiple times in cases where we know the fault
+> will always fail (eg the fault is on a device-private VMA)
+>
+Right now, these might require a single extra retry for device-private
+and `__vmf_anon_prepare()` cases. The commit log also mentions this.
 
-Thanks,
-Neil
+"Some faults may
+retry unnecessarily, for example, those in __vmf_anon_prepare() or
+device-private fault handling, which require the mmap_lock. However,
+these cases are expected to be infrequent and only add one cheap
+per-VMA lock attempt."
+
+If we do want to remove the extra VMA lock attempt, we might still
+need an additional flag such as VM_FAULT_NEED_MMAP_LOCK:
+
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 2cecf6ba6df7..2821e3bd7462 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -620,6 +620,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	struct vm_area_struct *vma;
+ 	int si_code;
+ 	int pkey = -1;
++	bool vma_lock_retried = false;
+ 
+ 	if (kprobe_page_fault(regs, esr))
+ 		return 0;
+@@ -688,6 +689,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	if (!(mm_flags & FAULT_FLAG_USER))
+ 		goto lock_mmap;
+ 
++lock_vma:
+ 	vma = lock_vma_under_rcu(mm, addr);
+ 	if (!vma)
+ 		goto lock_mmap;
+@@ -734,6 +736,12 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 			goto no_context;
+ 		return 0;
+ 	}
++
++	if (!vma_lock_retried && !(fault & VM_FAULT_NEED_MMAP_LOCK)) {
++		vma_lock_retried = true;
++		goto lock_vma;
++	}
++
+ lock_mmap:
+ 
+ retry:
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 6141160ec652..baadab598d98 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -1734,10 +1734,11 @@ enum vm_fault_reason {
+ 	VM_FAULT_NOPAGE         = (__force vm_fault_t)0x000100,
+ 	VM_FAULT_LOCKED         = (__force vm_fault_t)0x000200,
+ 	VM_FAULT_RETRY          = (__force vm_fault_t)0x000400,
+-	VM_FAULT_FALLBACK       = (__force vm_fault_t)0x000800,
+-	VM_FAULT_DONE_COW       = (__force vm_fault_t)0x001000,
+-	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x002000,
+-	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x004000,
++	VM_FAULT_NEED_MMAP_LOCK     = (__force vm_fault_t)0x000800,
++	VM_FAULT_FALLBACK       = (__force vm_fault_t)0x001000,
++	VM_FAULT_DONE_COW       = (__force vm_fault_t)0x002000,
++	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x004000,
++	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x008000,
+ 	VM_FAULT_HINDEX_MASK    = (__force vm_fault_t)0x0f0000,
+ };
+ 
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index ddc631a388b9..64e08c6153cf 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1480,7 +1480,7 @@ vm_fault_t do_huge_pmd_device_private(struct vm_fault *vmf)
+ 
+ 	if (vmf->flags & FAULT_FLAG_VMA_LOCK) {
+ 		vma_end_read(vma);
+-		return VM_FAULT_RETRY;
++		return VM_FAULT_RETRY | VM_FAULT_NEED_MMAP_LOCK;
+ 	}
+ 
+ 	ptl = pmd_lock(vma->vm_mm, vmf->pmd);
+diff --git a/mm/memory.c b/mm/memory.c
+index 1f83a26f8733..89c8c8a52c16 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3980,7 +3980,7 @@ vm_fault_t __vmf_anon_prepare(struct vm_fault *vmf)
+ 		return 0;
+ 	if (vmf->flags & FAULT_FLAG_VMA_LOCK) {
+ 		if (!mmap_read_trylock(vma->vm_mm))
+-			return VM_FAULT_RETRY;
++			return VM_FAULT_RETRY | VM_FAULT_NEED_MMAP_LOCK;
+ 	}
+ 	if (__anon_vma_prepare(vma))
+ 		ret = VM_FAULT_OOM;
+@@ -4937,7 +4937,7 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
+ 				 * under VMA lock.
+ 				 */
+ 				vma_end_read(vma);
+-				ret = VM_FAULT_RETRY;
++				ret = VM_FAULT_RETRY | VM_FAULT_NEED_MMAP_LOCK;
+ 				goto out;
+ 			}
+ 
+-- 
+2.39.3 (Apple Git-146)
+
 
