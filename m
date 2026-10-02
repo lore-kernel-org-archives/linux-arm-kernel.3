@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1D5CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250B7CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 17:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lcJF+guX3/RRpcKc4nkeyl1bIluwD5F4G3TuMV8WB8=; b=lLPSwFsTVcLo8EvNe2ey2VTKk2
-	niAIbQlEmhuS0lW0WaNqbW+Y5i3vq0KnpyeNvw1ARbvXXPTMAiVxva6DiAz3o74Te+qB+vv/TUj6N
-	lWqCVZa4T5QY4iV+93MCJbgJJCLeIaRzhXMGqWu/LS4mygaTJRCjKmd98zRS1QRETGkFhXMzrkKI3
-	mF8UNKvrW06x0ViKFJazi1qPCaWg3/Z49aCpvWxHQWPze2dkzjYUNsWsqfhWeUKzo751aEg0RZxOA
-	7LrfVKd3wFU+CRx2bpjJhVUvUOQVluFrfuoY+c0myZukXI2ISXIUtImQ8F1+yMyrfgCBHrCZW4XM5
-	Q6OOBPEw==;
+	bh=yMhkUjByDYqzV0dE9mrldeJ+8IpXIqF7GQ2bStZTOT4=; b=duYK1Or/QKfYsFezJl3WcbjBA8
+	5rWxxXxuZcdKzIwUDVNeMEHZP2OSuOffazVZGfGxsUpLpLGdZ35alt9FRZbHpuorIlnCyn7fsSW2p
+	ySoypNqxU59xtYAhqQUB306I2Ul71WG5cF7+9nNJ0iO+LH9D93jHkCfwYUBeGASfdq/cCO2Hpq00+
+	cRXBI25xe2/6a5ontHBK7lFhrQL2VoxdwKMH+r50rqpHNoMjLI5VfWGUB+gqcz5hPhEdQBv51z3+Z
+	QsJI+snX89tjViQ2yAUtSdLoZl4V5Ex5XBnAMiUk+MsOSeNl2HjURxRp0Nlp8oNZB5YcrtXjEwLkv
+	50F5+YIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCghQ-0000000C6m4-2Vmj;
-	Fri, 02 Oct 2026 17:05:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCgnk-0000000C7kw-2vWH;
+	Fri, 02 Oct 2026 17:12:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCghO-0000000C6ly-2U6T
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 17:05:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF0D360230;
-	Fri,  2 Oct 2026 17:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6690C1F00898;
-	Fri,  2 Oct 2026 17:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790960729;
-	bh=2lcJF+guX3/RRpcKc4nkeyl1bIluwD5F4G3TuMV8WB8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i8lkBLFn4jyIAaFjUD6e4CZbXMjQyE5mqT4sarCGlWYfDIosI49AjV0Y4eCc/CQWp
-	 +0ws1Bb7lHvK/ldo+Eee9mRIAxVkhyNVfRUjbg8eJoqieHsmVDsKRZ5s7WWu28/GDe
-	 468jpA4Ng8+LCp4dFZUQP4Xy73IQEQzLxk3W8tN2fMOPDCO8/F8QiQeg+uI4j/8WDS
-	 mCQDApIAvZu5EIEX8/LFHom+9IX+3vjwk4y7qwbzs+s6M3rT6WfhqKFCk2N23ahWla
-	 DKvuviPKYG2tR6qLmN1G7wMTG2JXE5y2t/F5y0OWzfQvrCeG7Pmk9ft9tfBFBkepD/
-	 TbMDoatxNWq0Q==
-Date: Fri, 2 Oct 2026 18:05:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH v2 3/6] dt-bindings: connector: Add Toradex camera
- connector
-Message-ID: <20261002-prepaid-retired-3d2c9cbc035e@spud>
-References: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
- <20261001-verdin-imx8mp-hmp-camera-ready-v2-3-7d1343ecd3ec@toradex.com>
+	id 1xCgnj-0000000C7kg-17dI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 02 Oct 2026 17:12:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yMhkUjByDYqzV0dE9mrldeJ+8IpXIqF7GQ2bStZTOT4=; b=pIeH0WvF0GOQy+YHmlks6CSh4t
+	JPSxoF0suXwmO0AIBKq6jYtDLdhJZlfPAJddj5hiPzJIuZOWf65mI4h1PLcTlUpZhamYWpSCZBcmj
+	tmyI0YR2AcpDqkRknt/SDSXIZyXPMXlcZ1VfvPu7R6MKUXNe1pGP6P6xuQPkEE8eQ4fE0WUmhec6w
+	8yPDPtkQ8j1QHYWmyFpBoiWLgfglFMq73c8fs/b6N0EyUNZbHnOxzdEn7hdUsCQ6haZV0odRub3Kn
+	xnSkYfLsJa+w6uOL9p6Hs9FlZKDXC/yU4ErYR4cthXrkPzCe+kw+vgMy3I509zZ+/vCCmBkMAokOc
+	CMdzFukg==;
+Received: from 54-240-197-239.amazon.com ([54.240.197.239] helo=edge-m2-r2-139.e-iad50.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCgng-00000001emW-3RMf;
+	Fri, 02 Oct 2026 17:12:01 +0000
+Message-ID: <75d47e6d1406f7bde3b0ceeeeee3ca10a8aea889.camel@infradead.org>
+Subject: Re: [PATCH 0/2] Optimise ktime_get_snapshot_id() for capture latency
+From: David Woodhouse <dwmw2@infradead.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, John Stultz <jstultz@google.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Miroslav Lichvar <mlichvar@redhat.com>,
+ Catalin Marinas	 <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier	 <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Rodolfo Giometti	 <giometti@enneenne.com>,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Date: Fri, 02 Oct 2026 18:11:59 +0100
+In-Reply-To: <ar_et83fB9sI16Zi@J2N7QTR9R3.cambridge.arm.com>
+References: <20261002151938.69857-1-dwmw2@infradead.org>
+	 <ar_et83fB9sI16Zi@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-Up/Bh+HndOO4TVan7REo"
+User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cciuDq3elMOy+sRp"
-Content-Disposition: inline
-In-Reply-To: <20261001-verdin-imx8mp-hmp-camera-ready-v2-3-7d1343ecd3ec@toradex.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +74,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---cciuDq3elMOy+sRp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+
+--=-Up/Bh+HndOO4TVan7REo
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 01, 2026 at 01:44:11PM +0200, Ernest Van Hoecke wrote:
-> From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+On Fri, 2026-10-02 at 17:41 +0100, Mark Rutland wrote:
+> On Fri, Oct 02, 2026 at 04:19:36PM +0100, David Woodhouse wrote:
+> > Commit 2e27beeb66e4 ("timekeeping: Allow inlining clocksource::read()")
+> > allows an architecture's primary implementation of clocksource::read()
+> > to be inlined, apparently because the out-of-line function calls get
+> > expensive on x86 with certain speculation mitigations. Use the inline
+> > read in tk_clock_read_snapshot(), and wire it up for arm64 too.
+> >=20
+> > Also bias the clock_id switch() in ktime_get_snapshot_id() for the
+> > likely() case of CLOCK_REALTIME.
+> >=20
+> > Measured on a Cortex-A53 at 1.35GHz (12.5MHz arch counter), with
+> > inlined clocksource reads enabled: the interval from a raw counter
+> > read in the caller to the counter read in ktime_get_snapshot_id()
+> > drops from 49.9ns to 41.2ns with the inline read, and to 38.8ns with
+> > the dispatch bias, mean of 1M iterations.
+> >=20
+> > This is unashamedly a microbenchmark but it actually captures a real
+> > world use case: The time it takes for ktime_get_snapshot_id() to read
+> > the counter is critical to some users, especially 1PPS signal
+> > capture. Every nanosecond helps, and for the inline clocksource read,
+> > the actually *complex* part is already in place; this is just using
+> > the infrastructure that's already there.
 >=20
-> Toradex boards route the sideband signals of their 24-pin camera
-> connectors to different GPIO controllers. Camera overlays which name
-> those controllers directly must therefore be duplicated for each host
-> board.
+> When I mentioned this on IRC, my complaint about complexity wasn't about
+> the core code, My conern was with the subtle interactions *within* the
+> timer driver, and between the timer driver and arch code.
 >=20
-> Describe reset, power-down, detection and power-control as
-> connector-local GPIO functions. This lets an accessory overlay remain
-> independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
-> remain described separately because the GPIO nexus does not abstract
-> them.
->=20
-> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> ---
->  .../connector/toradex,camera-connector.yaml        | 81 ++++++++++++++++=
-++++++
->  1 file changed, 81 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-c=
-onnector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-=
-connector.yaml
-> new file mode 100644
-> index 000000000000..27fee3defde7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connecto=
-r.yaml
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.ya=
-ml#
-> +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> +
-> +title: Toradex camera connector GPIO nexus
-> +
-> +maintainers:
-> +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
-> +
-> +description: |
-> +  Toradex carrier boards share a common 24-pin, 0.5 mm pitch FFC/FPC cam=
-era
-> +  connector carrying MIPI CSI-2, I2C, clock, power, and sideband GPIO si=
-gnals.
-> +  This binding describes the sideband signals as a GPIO nexus. The other
-> +  connector resources remain described by the surrounding board device t=
-ree.
-> +
-> +  The nexus exposes connector-local GPIO function numbers to camera over=
-lays
-> +  and maps the functions wired by a carrier board to their GPIO controll=
-ers.
-> +  GPIO specifiers contain a function number followed by standard GPIO fl=
-ags.
-> +  A board may omit functions which it does not wire.
-> +
-> +  The function numbers are:
-> +    - 0: Camera reset, connector pin 11
-> +    - 1: Camera power-down, connector pin 22
-> +    - 2: Camera identification, connector pin 23
-> +    - 3: Camera power control, connector pin 24
-> +
-> +properties:
-> +  compatible:
-> +    const: toradex,camera-connector
+> I don't think it's fair to say that the core code is the singular
+> complex part.
 
-This seems overly generic, but I assume that's what it's actually called
-and if you make a new camera connector the name will be
-"camera connector 2" or something.
+This patch doesn't touch the *complex* part of the arch_timer support
+with a barge-pole. The inline path is only enabled for the trivial case
+where !arch_timer_counter_has_wa() and thus the indirect function
+pointer is guaranteed to do *precisely* the same thing.
 
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  gpio-map:
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  gpio-map-mask:
-> +    items:
-> +      - const: 0xffffffff
-> +      - const: 0
-> +
-> +  gpio-map-pass-thru:
-> +    items:
-> +      - const: 0
-> +      - const: 0xffffffff
+> Does this show up on any top-level workload, or is the benefit purely
+> limited to microbenchmarks and timer synchronization?
 
-These seem incredibly wide for something with only 4 gpios?
+For PPS, my latest experiments show that even with a tight loop
+*polling* the GPIO directly via MMIO on my test board, the MMIO read
+takes ~400ns. So I don't think we can claim that the ~8ns I get from
+the inlining is critical to the PPS use case, no.
 
-Thanks,
-Conor.
+Rodolfo was concerned about the time taken in ktime_get_snapshot_id();
+I responded that I think it's in the noise but there's some low-hanging
+fruit for making it faster... I think I've fairly much shown that it's
+in the noise *however* hard we try to reduce the rest of the latency.
+I think think it's low-hanging fruit though; I guess it comes down to
+how we view the complexity.
 
-> +
-> +required:
-> +  - compatible
-> +  - "#gpio-cells"
-> +  - gpio-map
-> +  - gpio-map-mask
-> +  - gpio-map-pass-thru
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +    camera-connector {
-> +        compatible =3D "toradex,camera-connector";
-> +        #gpio-cells =3D <2>;
-> +        /*
-> +         * 0: Camera reset, connector pin 11
-> +         * 1: Camera power-down, connector pin 22
-> +         * 2: Camera identification, connector pin 23
-> +         * 3: Camera power control, connector pin 24
-> +         */
-> +        gpio-map =3D <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
-> +                   <1 0 &gpio1 1 GPIO_ACTIVE_HIGH>,
-> +                   <2 0 &gpio1 2 GPIO_ACTIVE_HIGH>,
-> +                   <3 0 &gpio1 3 GPIO_ACTIVE_HIGH>;
-> +        gpio-map-mask =3D <0xffffffff 0x0>;
-> +        gpio-map-pass-thru =3D <0x0 0xffffffff>;
-> +    };
-> +
-> +...
->=20
-> --=20
-> 2.43.0
->=20
+As also discussed on IRC before you pointed out that it's a long way to
+April 1st, the most effective answer for PPS by *far* is to sample the
+counter as early as possible in the exception handler, and for the PPS
+IRQ handler to pull it out of pt_regs.
 
---cciuDq3elMOy+sRp
-Content-Type: application/pgp-signature; name=signature.asc
+https://lore.kernel.org/all/dd7a873caecab6c912e2c0f910d1e46818ea455d.camel@=
+infradead.org/
 
------BEGIN PGP SIGNATURE-----
+I did say I'd post the inline timer patch for posterity and let you
+shoot it down, and here it is. I'm still not posting the entry.S one :)
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar/kVAAKCRB4tDGHoIJi
-0l1DAP9bDUA3Nv7it5RkeD4+LYzY1vUJBthcKaf0+Er4zJ5sTwD/aDRO34o3W2Wc
-18ldXYC69SYV2KiUW0VdsZwoaVQIAQw=
-=tx7U
------END PGP SIGNATURE-----
+--=-Up/Bh+HndOO4TVan7REo
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
 
---cciuDq3elMOy+sRp--
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCE8Ew
+ggWvMIIEl6ADAgECAhANkOKMSmGXhF5eMl0rsRhvMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBHMjAeFw0yNDAzMTMwMDAwMDBaFw0zNDAz
+MTIyMzU5NTlaMGIxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UE
+AxMxRGlnaUNlcnQgQXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTCCAiIw
+DQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOfSIeC0vv1xPQ+dgSxbIIrkaru6skAWJYaGFzmv
+q4Kq+2wU2jxhcWlJg/JeP5jEkq/LM3pn5aaLao79j+XRmS7J1ZpJKUODJVoM4s9MQJhTMvo4qS5Z
+S64g6QR7Obkz3I1Lr3aWeSBmDDEyzue+NKtuWZ1Cxy3RdXo/w5HgRc3l2AercOM3Gt1XonTzEtTb
+Z/Hwc0Sn9Gz8RmGRK6Ka4hVDl8q/2l110KaV233Kh5etP0csXS8MIMdVRfRu3sc5hp13DG7lCKzK
+72a2GEpI8Wpl26G6I1/LMzz/98T+FqjTqxsdquk7Cj7m2vKGLW1BorpQH7WFGPdJQXJe1hfbfiZA
+CcVdCtl4nAacFacmsiArZBfX7AQGL7isvHUwwYFEtcApyGW4p2Lt+t8nvU0CANA6BHOpOz1xOP8W
+mAESbUriIjyuTUf3fJ9oDNCurVqhASMJCDaWI3lYX/QAoiAzt6akqbbZxo2ujW7mGGqc0KxqE2cs
+h2T79v7pC8aUtHBfwNrTR19GnZVxE0eQ7ViIQhR6mpSaUQFA9sG+cmD2G8TnCgYsLa0q8De6F61a
+CBevQGHNzrbZ3JAMneveYg/Jy1XxQHDRcvrMfWKe0jjcWbdKYlaGVPm5V1ILwYz7Yv5ewo3NUrxI
+GJiywe9qPhuJSDZs7VehTuI0FxGIsgKzVjgbAgMBAAGjggFcMIIBWDASBgNVHRMBAf8ECDAGAQH/
+AgEAMB0GA1UdDgQWBBT3m6JO05fF9DQPQw6Bhc6RkzKv+TAfBgNVHSMEGDAWgBTOw0q5mVXyuNtg
+v6l+vVa1lzan1jAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMC
+MHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMG
+CCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkSURS
+b290RzIuY3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdp
+Q2VydEFzc3VyZWRJRFJvb3RHMi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUA
+A4IBAQA+b8Uw53sDspdZgukU+qzLyyHkcjlxGGhHlP+zrmDLKm1wEFvCRS2pili3Hy67i8N4N5NU
+vw5Rg6kv3lxb9S9Rktxk43k+tvm68pl7OxQE55ZjVY87P0lUPGwEqOOwLLyH02ZQcsfq5p5LrOH9
+0JvmvZ1yy73HS+VpDAqOlytE0NSvTIRqFFkKQGQwfjvtql9YflujuNNvJztjBaHKYZsnNSg+J38o
+jYq4TP3pSg3UdVH0PncVjPQyqxC9xef5Xae92Kbkzol3x7Nel3A1bwAkalrDMspvTHvey6LfiBks
+FIqviTnoy7fgjaRAJgHS+RXx/cmuRd3rUAclSVVrYu8RMIIHAzCCBOugAwIBAgIQAzUotrsybJHx
+HTjKOIVdIDANBgkqhkiG9w0BAQsFADBiMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQs
+IEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFzc3VyZWQgRzIgU01JTUUgUlNBNDA5NiBTSEEzODQg
+MjAyNCBDQTEwHhcNMjYwNzE4MDAwMDAwWhcNMjgwMTA0MjM1OTU5WjAeMRwwGgYDVQQDDBNkd213
+MkBpbmZyYWRlYWQub3JnMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA2pYux73kdbYX
+sWF8f1u6DJP91qcqaZetsyfPkZk0B+MmXmAEv0kVes5n15V2mbDThOnpoPFly0UugQO9JYqLfrtD
+tKD5yL58fgrDB9Dw+LQikgrHafl6YSCds5AvUu/8hw2J6noKrcOLJpKlKn9Fl/4IB9Q3JIdLx5aa
+EtTqMalIPqHFOlgrJ7s+aua8xbB8YQ9ahqYBXWRJNv3P/2b1DYtdrz1oqZPE3CcB8Pc6Gf2a1Tcm
+6TAgtEx7Cf1BFcrsrMz7TWHmGQITieNb2r9UYWSc2Gp+GtYFNJCgT0JJXKUBIauPMKBLteYrL8Fo
+ff/uY44dC/mDWjdCP/5x0qelPQjlBvWdHL5zvBTOj06rJ0m3HNI/hnIcDh0Qu2j9reb9rLVcdym6
+bWmBM4uDEB8Zv9Ph0KTBFSy1IosyakuD1j1Os30EzjGfbi0EUXIvnOcYbTBAbM5UAzrxEHMhBvoX
+Pvnx+OyvjJmc9tWxTX6AcSz+m40esbT17URBeZS18afgieiikm5TynlUYP1LciR3hSgGVzvGXnKO
+02VDFR5itGWdRKZ2W5wIShNfWfhSa0D0K5UdIDt5Qc7sjzwK1Yb1sY5Tu0uA5mhIS82q1ov83uxB
+sFkriNnhGv/M1NCDVLBiOMsHu73qUM+yKmgKLwF9Hfn9WI25glbAMI4S5r3hYzcCAwEAAaOCAfcw
+ggHzMB8GA1UdIwQYMBaAFPebok7Tl8X0NA9DDoGFzpGTMq/5MB0GA1UdDgQWBBRcYhqbcGzn1jrT
+JOZaB8O7qllDpzAwBgNVHREEKTAngRNkd213MkBpbmZyYWRlYWQub3JngRBkYXZpZEB3b29kaG91
+LnNlMBQGA1UdIAQNMAswCQYHZ4EMAQUBAjAOBgNVHQ8BAf8EBAMCBeAwHQYDVR0lBBYwFAYIKwYB
+BQUHAwIGCCsGAQUFBwMEMIGpBgNVHR8EgaEwgZ4wTaBLoEmGR2h0dHA6Ly9jcmwzLmRpZ2ljZXJ0
+LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsME2gS6BJ
+hkdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZT
+SEEzODQyMDI0Q0ExLmNybDCBjQYIKwYBBQUHAQEEgYAwfjAkBggrBgEFBQcwAYYYaHR0cDovL29j
+c3AuZGlnaWNlcnQuY29tMFYGCCsGAQUFBzAChkpodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20v
+RGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZTSEEzODQyMDI0Q0ExLmNydDANBgkqhkiG9w0B
+AQsFAAOCAgEAocabrh1cPd5s3vY5rnlBVQSTc7zs2ZWs67dAIltR+05WELrYClVzzUhMs/LOJPlr
+EUo45UDDomXq38DxFepaPd9+iNLjXfn33EX/IG44j04lU/oF/Rg9VeQILkYLbCZ/x9wOjNHZc4SN
+ydY7Dhvf/sT5aBz88u7D5+azZJ7Qf1U57wYseCH1Mt0nDrtr5y19IJ8D9xJJ33RFL6vfpHZBBAQ8
++3RqkKNxLoV2aFvQhxdhjNLDqTv3LjUIdicwPraN7JkxEu7CV2Lka7eRqJgkWL7SK0YmBjGpRafs
++icP/ON5RCCKTTb6VlX8eTG2sJJfsFhvJNCCt6xexbWzWtIrfP7NvPBvwBB737AyEGBZkS5aNizT
+McURJGTv9UKvBh1LF/+tNhYtLvPCN7oecGzhCHht9jcwSkygTo3Y6YlK3QgOu+ncmiBbfeuwlLZ1
+LxbYvG6hgNqXv7u6YyADbYajAQJXJ2OQen39pm3Q/AQSyLYG+B8lDglWsM8tYXPlEdrYJcksGK6F
+nqIX6Bumn43rBooLJdiZp4WmfWdL2pxe+LxRDjprmqu1WprixDxULSTOKJZoqTlugs6y3Bc+if+s
+gHnBBtz9WQ6MtPHkh7zONDAFIKcBmv8OqPQCx0F3Wv3OEybwMpXx0OsKgK8wLldaX1pXcMuyDgTL
+Sqs0AV0OHUgwggcDMIIE66ADAgECAhADNSi2uzJskfEdOMo4hV0gMA0GCSqGSIb3DQEBCwUAMGIx
+CzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UEAxMxRGlnaUNlcnQg
+QXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTAeFw0yNjA3MTgwMDAwMDBa
+Fw0yODAxMDQyMzU5NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqG
+SIb3DQEBAQUAA4ICDwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZe
+YAS/SRV6zmfXlXaZsNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2z
+kC9S7/yHDYnqegqtw4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qG
+pgFdZEk2/c//ZvUNi12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41va
+v1RhZJzYan4a1gU0kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0c
+vnO8FM6PTqsnSbcc0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PW
+PU6zfQTOMZ9uLQRRci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXt
+REF5lLXxp+CJ6KKSblPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQr
+lR0gO3lBzuyPPArVhvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7Iq
+aAovAX0d+f1YjbmCVsAwjhLmveFjNwIDAQABo4IB9zCCAfMwHwYDVR0jBBgwFoAU95uiTtOXxfQ0
+D0MOgYXOkZMyr/kwHQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3
+bXcyQGluZnJhZGVhZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEC
+MA4GA1UdDwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgakGA1UdHwSB
+oTCBnjBNoEugSYZHaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0QXNzdXJlZEcyU01J
+TUVSU0E0MDk2U0hBMzg0MjAyNENBMS5jcmwwTaBLoEmGR2h0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNv
+bS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsMIGNBggrBgEF
+BQcBAQSBgDB+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wVgYIKwYBBQUH
+MAKGSmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNB
+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
+gidCDobyxBc2bQjIWkjiVEwAAAAAAAA=
+
+
+--=-Up/Bh+HndOO4TVan7REo--
 
