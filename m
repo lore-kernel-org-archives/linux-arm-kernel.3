@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7DBCA5FD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F57CA5FC4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 07:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=; b=vkLGBOiE5ebEn+wArp3g+clW77
-	GvePnDW02940+yS1mnoXgsrJkK+Js5694uBrFINNe6OYoqxIwknLKBK1fGCXQ/kAp184KLL4MnykY
-	bPLzgP5Afz6RfmtMxtbI4uspPIcqYNvUEX02eRPTB2OCnMFxVUCACVFE0F8wfojn5hUet+HaSOImI
-	meqlzKj8YCk5b3uzt8sCKqPZXeGOw4gTU3cd3wL52hzhVDqzcNkcs4cIHSrljgQb1gRxFcyyZCwmP
-	cZll9gvSfn4qBFy9pdlyipid9504uWith1IQfgu1Qy2QeNBXkZphWtBoOVTOhoU5FRWP7ka72Gcw3
-	cd0wcl3w==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0eM6Na08tEd3wLZK59YfCDCjW7j4FfA47GQOHkh3kYg=; b=ncYrReDijeThm4mDgD7WzZFS0b
+	tDCzMTxcotAR0FM0ASMEK9PernpNOklfpJaSJ81PXKHK0eSSWoZBT+rT8TmBmlZTmDA43IeZRnuua
+	mLRflFPtL/OCnlIfXT0Ko6jrnTOFiavIIYTc7pu5InUMTFH9heLhpHBguFtFhMHjpg2C2xpxL3fWi
+	SvTi11ghcyCa7DhKGfMv2sfpwcIVEJ+E6hRcee+a9rnKfgn4Wxdp1RD/zjDytZz1gZK2wNjEdte8P
+	+pGdhzqXPWhRpJ5cw47FHi3j8umiWJKrajPjK1o/U1/qi3elXF3glmr6xqrIbCbdST2ZH7Ouetrl9
+	GfA4nQcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwK-0000000AsSW-0eHw;
+	id 1xCXwK-0000000AsSo-1B9L;
 	Fri, 02 Oct 2026 07:44:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwH-0000000AsQu-2Bwn;
-	Fri, 02 Oct 2026 07:44:17 +0000
+	id 1xCXwI-0000000AsR9-1eII;
+	Fri, 02 Oct 2026 07:44:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=; b=QqBA9PxjnUF2w+AZm7hj3XqbkY
-	v9RF0hgOPDct3q/JKUHxAaxMQ/DbcWuIl/SiRPFxi8n/dBvqRKgpFgyo2c/evLgd3g6uomz20LsaW
-	rKBEsvdEYHu3wUrbPa8JKYUdUBfPfha5Xv9yD9ub6cdrw7tb330+6qDtAii0MkZmnsK7q8OnVNGRa
-	/wbqiOpwNoyC8XcRGvBBmheEcVjb2+tZWa0ScCit9ZoJKvnbO5eyLXwhoe6AqW+lg18N+dZGtxkvK
-	+zIPI2T6M4gJPjRHuxwseqqdQJIOl5MO6HowKaJWhPu115OsezV/Vw6wF21FYKfneqWoXvLA+gjmQ
-	W9AtIkZQ==;
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=0eM6Na08tEd3wLZK59YfCDCjW7j4FfA47GQOHkh3kYg=; b=LnAHNZGfrbev5XBzQWdFAbWl2K
+	CgE/34YtXwZn5CwlnEE5pouLbUsUaDX+9WKY6thhzl8P8GCf0PWpi6r2l2URI8cysqtP4bB0Sk4za
+	3wSg4Us0ljSIxkfe0mV0kbyyS1cOxUS0Al9gFnGlxFbm5dYx4qcZzTOwb92QU0oO8+59ymxWPyKGZ
+	ctOEXtJwK24Hb03JPKZO9o2XC+s7mvtLvj7p2s+dLiTU3okdvP89bc+f4MnpL3hRYIBlRRkgVSB+z
+	QISspkKg9x7Fle+gvxzQ2CtH1xs0mEgsbYAIWeSfY0SHleSWPMTVQ6pNtsTm+zq00bDqM7p4Yw7MX
+	PMkTh0Jg==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCXwC-00000005gko-3J61;
-	Fri, 02 Oct 2026 07:44:15 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hlqF73646795, This message is accepted by code: ctloc85258
+	id 1xCXwC-00000005gl2-3N7q;
+	Fri, 02 Oct 2026 07:44:16 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hmnzF3646810, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1790927027; bh=g2nQCEM3gDeJGvqRr7JC/m2BFU1UygahQMSW9jrruUQ=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	b=jRVYFUK5YnoRmiNDeKklzZ1pdgInsSTd9LlydFTjxUV5OrE/HYOAnw2MLeTp8PncV
-	 tFvJt3/CO+lLhssxlnVZWvaL29a1KffXYQVOsG9HkLzynokJeqILy5s5YbVi7wcdya
-	 9ejE0ogtij8iq1ZBreAnB75V/B0sCnLu2/+e/+PfxJq73g2YndDyv/5lQUGGt7kJGJ
-	 hCxqHMZGe1Smk+/zWye7PrNAttAqySW04bbbLegGNAjNXSBnBqhjNWTzFmZbgg7oR9
-	 b2gwpm3FPsNRjZt1D4kjdYBVCC7EvJ67rV0RbX3ntd/QSc1O2G3NKOnf9poR6xB+9c
-	 RruxXEJatF9Pg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hlqF73646795
+	t=1790927028; bh=0eM6Na08tEd3wLZK59YfCDCjW7j4FfA47GQOHkh3kYg=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=t5CsgNYoZfgN98XO90L37tL/zxcaAxY223xqc0QTDOFI4a2hlsaU8IFmglNAm/sWj
+	 yIPQWufGZdzlCTOHBCOVzir+TzI/CvxRATAougYIcLCD+ROgW9e33i5Xmbn/x8buMg
+	 4G3sKg8MoIU5c3Joa25JbvGUp+5Ymr8NXxqqd77oYuft58uu/dgp07q8t+JAAAXU6z
+	 kUF85mwhS2SypICG4LZZGIUNE0gM4PFv865GPOy8CcWWOfJIolmOWxoIm35EVoYgBd
+	 KKYQ4xgeABag8MB0ZtbPJS/VoTfbq/GBbJrqh3STvsn/2GFLtkkAqQabtlqILXU0rD
+	 Gr4fMvrZxNmFw==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hmnzF3646810
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 Oct 2026 15:43:47 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:46 +0800
+	Fri, 2 Oct 2026 15:43:48 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:31 +0800
+ 15.2.2562.49; Fri, 2 Oct 2026 15:43:33 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
  (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 2 Oct 2026 15:43:31 +0800
+ Transport; Fri, 2 Oct 2026 15:43:33 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
@@ -75,17 +71,19 @@ CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
 	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v15 00/11] clk / reset: realtek: Add RTD1625 clock and reset support
-Date: Fri, 2 Oct 2026 15:43:20 +0800
-Message-ID: <20261002074331.3066919-1-eleanor.lin@realtek.com>
+	<eleanor.lin@realtek.com>, Brian Masney <bmasney@redhat.com>
+Subject: [PATCH v15 06/11] clk: realtek: Add support for gate clock
+Date: Fri, 2 Oct 2026 15:43:26 +0800
+Message-ID: <20261002074331.3066919-7-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261002074331.3066919-1-eleanor.lin@realtek.com>
+References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084413_755785_9304E829 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20261002_084413_982495_9E9AAD73 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,145 +98,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-This patch series adds the clock and reset controller support for Realtek's
-RTD1625 SoC platform.
+Introduce clk_regmap_gate_ops supporting enable, disable, and is_enabled
+for standard regmap gate clocks. To accommodate hardware designs, the
+enable and disable operations handle a 'write_en' flag, which asserts an
+adjacent write-enable bit (bit_idx + 1) simultaneously when modifying the
+gate bit.
 
-Because the reset controllers share the same register space with the
-clock controllers on this platform, we utilize the Auxiliary Bus framework
-to decouple them. The clock controllers act as the primary devices,
-registering the reset controllers as auxiliary devices.
+Add clk_regmap_gate_ro_ops as a read-only variant exposing only is_enabled.
 
-To make it easier for maintainers to review, the series has been organized
-by subsystem:
-
-1. Device Tree Bindings:
-   - Add bindings for the Realtek RTD1625 Clock & Reset Controllers.
-
-2. Reset Subsystem:
-   - Introduce the basic Realtek reset infrastructure.
-   - Add the RTD1625-CRT and RTD1625-ISO platform reset drivers.
-
-3. Clock Subsystem Infrastructure:
-   - Introduce a common probe, and add support for basic clocks including
-     PLLs, gate clocks, mux clocks, and MMC-tuned PLLs.
-
-4. Clock Platform Drivers:
-   - Add the clock controller drivers for RTD1625-CRT and RTD1625-ISO.
-   - These drivers provide the clock sources and instantiate the
-     corresponding auxiliary reset devices.
-
-Best regards,
-Yu-Chun Lin
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 ---
 Changes in v15:
-Patch 1 :
-- Add macros for RTD1625_CRT_PLL_VODMA and RTD1625_CRT_CLK_DDSA_DIV4.
-
-Patch 4:
-- Remove reset-related configurations.
-- Switch the registration order of clock and reset controllers.
-
-Patch 6:
 - Improve commit message and add inline comments for the write-enable
 mechanism.
 - Add common helpers 'rtk_clk_regmap_gate_enable()' and
 'rtk_clk_regmap_gate_disable()'.
-
-Patch 7:
-- Simplify 'rtk_clk_regmap_mux_get_parent()' to return the result
-directly.
-
-Patch 9 & 10:
-- Assign parents to gate clocks.
-- Add a read-only hardware PLL 'pll_vodma' and a fixed-factor clock
-'clk_ddsa_div4'.
-
-v14: https://lore.kernel.org/lkml/20260901072446.2563145-1-eleanor.lin@realtek.com/
-v13: https://lore.kernel.org/lkml/20260812020009.3480538-1-eleanor.lin@realtek.com/
-v12: https://lore.kernel.org/lkml/20260804163807.1285869-1-eleanor.lin@realtek.com/
-v11: https://lore.kernel.org/lkml/20260728142806.1954638-1-eleanor.lin@realtek.com/
-v10: https://lore.kernel.org/lkml/20260713155630.3054636-1-eleanor.lin@realtek.com/
-v9: https://lore.kernel.org/lkml/20260624112940.3475605-1-eleanor.lin@realtek.com/
-v8: https://lore.kernel.org/lkml/20260610080824.255063-1-eleanor.lin@realtek.com/
-v7: https://lore.kernel.org/lkml/20260508111641.3192177-1-eleanor.lin@realtek.com/
-v6: https://lore.kernel.org/lkml/20260402073957.2742459-1-eleanor.lin@realtek.com/
-v5: https://lore.kernel.org/lkml/20260324025332.3416977-1-eleanor.lin@realtek.com/
-v4: https://lore.kernel.org/lkml/20260313081100.596224-1-eleanor.lin@realtek.com/
-v3: https://lore.kernel.org/lkml/20260122110857.12995-1-eleanor.lin@realtek.com/
-v2: https://lore.kernel.org/lkml/20260113112333.821-1-eleanor.lin@realtek.com/
-v1: https://lore.kernel.org/lkml/20251229075313.27254-1-eleanor.lin@realtek.com/
-
-Cheng-Yu Lee (9):
-  reset: Add Realtek basic reset support
-  reset: realtek: Add RTD1625 reset controller driver
-  clk: realtek: Introduce common probe()
-  clk: realtek: Add support for phase locked loops (PLLs)
-  clk: realtek: Add support for gate clock
-  clk: realtek: Add support for mux clock
-  clk: realtek: Add support for MMC-tuned PLL clocks
-  clk: realtek: Add RTD1625-CRT clock controller driver
-  clk: realtek: Add RTD1625-ISO clock controller driver
-
-Yu-Chun Lin (2):
-  dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
-  arm64: dts: realtek: Add clock support for RTD1625
-
- .../bindings/clock/realtek,rtd1625-clk.yaml   |  58 ++
- MAINTAINERS                                   |  10 +
- arch/arm64/boot/dts/realtek/kent.dtsi         |  33 +
- drivers/clk/Kconfig                           |   1 +
- drivers/clk/Makefile                          |   1 +
- drivers/clk/realtek/Kconfig                   |  45 +
- drivers/clk/realtek/Makefile                  |  12 +
- drivers/clk/realtek/clk-pll-mmc.c             | 430 +++++++++
- drivers/clk/realtek/clk-pll.c                 | 217 +++++
- drivers/clk/realtek/clk-pll.h                 |  60 ++
- drivers/clk/realtek/clk-regmap-gate.c         |  64 ++
- drivers/clk/realtek/clk-regmap-gate.h         |  65 ++
- drivers/clk/realtek/clk-regmap-mux.c          |  38 +
- drivers/clk/realtek/clk-regmap-mux.h          |  43 +
- drivers/clk/realtek/clk-rtd1625-crt.c         | 822 ++++++++++++++++++
- drivers/clk/realtek/clk-rtd1625-iso.c         | 140 +++
- drivers/clk/realtek/clk-rtk-common.c          |  84 ++
- drivers/clk/realtek/clk-rtk-common.h          |  37 +
- drivers/clk/realtek/freq_table.c              |  57 ++
- drivers/clk/realtek/freq_table.h              |  22 +
- drivers/reset/Kconfig                         |   1 +
- drivers/reset/Makefile                        |   1 +
- drivers/reset/realtek/Kconfig                 |  19 +
- drivers/reset/realtek/Makefile                |   3 +
- drivers/reset/realtek/reset-rtd1625.c         | 262 ++++++
- drivers/reset/realtek/reset-rtk-common.c      |  73 ++
- drivers/reset/realtek/reset-rtk-common.h      |  29 +
- .../dt-bindings/clock/realtek,rtd1625-clk.h   | 166 ++++
- include/dt-bindings/reset/realtek,rtd1625.h   | 171 ++++
- 29 files changed, 2964 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
- create mode 100644 drivers/clk/realtek/Kconfig
- create mode 100644 drivers/clk/realtek/Makefile
- create mode 100644 drivers/clk/realtek/clk-pll-mmc.c
- create mode 100644 drivers/clk/realtek/clk-pll.c
- create mode 100644 drivers/clk/realtek/clk-pll.h
+---
+ drivers/clk/realtek/Makefile          |  1 +
+ drivers/clk/realtek/clk-regmap-gate.c | 64 ++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-regmap-gate.h | 65 +++++++++++++++++++++++++++
+ 3 files changed, 130 insertions(+)
  create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
  create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
- create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
- create mode 100644 drivers/clk/realtek/clk-rtd1625-crt.c
- create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
- create mode 100644 drivers/clk/realtek/clk-rtk-common.c
- create mode 100644 drivers/clk/realtek/clk-rtk-common.h
- create mode 100644 drivers/clk/realtek/freq_table.c
- create mode 100644 drivers/clk/realtek/freq_table.h
- create mode 100644 drivers/reset/realtek/Kconfig
- create mode 100644 drivers/reset/realtek/Makefile
- create mode 100644 drivers/reset/realtek/reset-rtd1625.c
- create mode 100644 drivers/reset/realtek/reset-rtk-common.c
- create mode 100644 drivers/reset/realtek/reset-rtk-common.h
- create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
- create mode 100644 include/dt-bindings/reset/realtek,rtd1625.h
 
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index 71edc18121c6..840aff067b61 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -3,4 +3,5 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
+ 
+ clk-rtk-y += clk-rtk-common.o
+ clk-rtk-y += clk-pll.o
++clk-rtk-y += clk-regmap-gate.o
+ clk-rtk-y += freq_table.o
+diff --git a/drivers/clk/realtek/clk-regmap-gate.c b/drivers/clk/realtek/clk-regmap-gate.c
+new file mode 100644
+index 000000000000..7033aeb1cd82
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-gate.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#include <linux/bits.h>
++#include <linux/clk-provider.h>
++#include <linux/export.h>
++#include <linux/regmap.h>
++#include "clk-regmap-gate.h"
++
++static int rtk_clk_regmap_gate_update(struct clk_hw *hw, bool enable)
++{
++	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
++	unsigned int mask = BIT(clkg->bit_idx);
++	unsigned int val = enable ? mask : 0;
++
++	/*
++	 * Hardware specific design: to modify the gate bit, the adjacent
++	 * write-enable bit (bit_idx + 1) must be asserted simultaneously.
++	 */
++	if (clkg->write_en) {
++		mask |= BIT(clkg->bit_idx + 1);
++		val |= BIT(clkg->bit_idx + 1);
++	}
++
++	return regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
++}
++
++static int rtk_clk_regmap_gate_enable(struct clk_hw *hw)
++{
++	return rtk_clk_regmap_gate_update(hw, true);
++}
++
++static void rtk_clk_regmap_gate_disable(struct clk_hw *hw)
++{
++	rtk_clk_regmap_gate_update(hw, false);
++}
++
++static int rtk_clk_regmap_gate_is_enabled(struct clk_hw *hw)
++{
++	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
++	int ret;
++	u32 val;
++
++	ret = regmap_read(clkg->clkr.regmap, clkg->gate_ofs, &val);
++	if (ret < 0)
++		return ret;
++
++	return !!(val & BIT(clkg->bit_idx));
++}
++
++const struct clk_ops rtk_clk_regmap_gate_ops = {
++	.enable     = rtk_clk_regmap_gate_enable,
++	.disable    = rtk_clk_regmap_gate_disable,
++	.is_enabled = rtk_clk_regmap_gate_is_enabled,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ops, "CLK_REALTEK");
++
++const struct clk_ops rtk_clk_regmap_gate_ro_ops = {
++	.is_enabled = rtk_clk_regmap_gate_is_enabled,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ro_ops, "CLK_REALTEK");
+diff --git a/drivers/clk/realtek/clk-regmap-gate.h b/drivers/clk/realtek/clk-regmap-gate.h
+new file mode 100644
+index 000000000000..9303adda3166
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-gate.h
+@@ -0,0 +1,65 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_CLK_REGMAP_GATE_H
++#define __CLK_REALTEK_CLK_REGMAP_GATE_H
++
++#include "clk-rtk-common.h"
++
++struct rtk_clk_regmap_gate {
++	struct rtk_clk_regmap clkr;
++	unsigned int gate_ofs;
++	u8 bit_idx;
++	u32 write_en : 1;
++};
++
++#define __rtk_clk_regmap_gate_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
++
++#define __RTK_CLK_REGMAP_GATE(_name, _parent, _ops, _flags, _ofs, _bit_idx, \
++			      _write_en)                                    \
++	struct rtk_clk_regmap_gate _name = {                                \
++		.clkr.hw.init = CLK_HW_INIT(#_name, _parent, _ops, _flags), \
++		.gate_ofs = _ofs,                                           \
++		.bit_idx = _bit_idx,                                        \
++		.write_en = _write_en,                                      \
++	}
++
++#define RTK_CLK_REGMAP_GATE(_name, _parent, _flags, _ofs, _bit_idx, _write_en)        \
++	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
++			      _bit_idx, _write_en)
++
++#define RTK_CLK_REGMAP_GATE_RO(_name, _parent, _flags, _ofs, _bit_idx, _write_en)  \
++	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ro_ops, _flags, \
++			  _ofs, _bit_idx, _write_en)
++
++#define __RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _ops, _flags, _ofs, _bit_idx,  \
++				    _write_en)                                \
++	struct rtk_clk_regmap_gate _name = {                                  \
++		.clkr.hw.init = CLK_HW_INIT_NO_PARENT(#_name, _ops, _flags),  \
++		.gate_ofs = _ofs,                                             \
++		.bit_idx = _bit_idx,                                          \
++		.write_en = _write_en,                                        \
++	}
++
++#define RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _flags, _ofs, _bit_idx, _write_en)        \
++	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
++				    _bit_idx, _write_en)
++
++#define RTK_CLK_REGMAP_GATE_NO_PARENT_RO(_name, _flags, _ofs, _bit_idx, _write_en)  \
++	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ro_ops, _flags, \
++				    _ofs, _bit_idx, _write_en)
++
++static inline struct rtk_clk_regmap_gate *to_rtk_clk_regmap_gate(struct clk_hw *hw)
++{
++	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
++
++	return container_of(clkr, struct rtk_clk_regmap_gate, clkr);
++}
++
++extern const struct clk_ops rtk_clk_regmap_gate_ops;
++extern const struct clk_ops rtk_clk_regmap_gate_ro_ops;
++
++#endif /* __CLK_REALTEK_CLK_REGMAP_GATE_H */
 -- 
 2.43.0
 
