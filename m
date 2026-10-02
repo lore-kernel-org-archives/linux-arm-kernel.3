@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B86CA5FDD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49C6CA5FE3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 14:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cMgf3Fui9Ix2ajtwXUt15vsAOgVEpm/AVvj+X+LKiz8=; b=LtUZaOMdvEN//iRiv9/rjmafa1
-	YIU53Pm78aDBvmRzh7Gd1hAyQ3URaZyFBMGwEJk4YoGK1LZ8OTZkYXa1Z0fSjGvhM084Ry2sN43YP
-	w1lHA1fgquotRbTBuJlWLdzTXpLZCDK1PgxTWHZjEB4ng5U5Ab/Nuyr4vjo9Pu2CJmW7TQjuiFNbV
-	DFIxRiDIFtVzJribFEw5e578xTlcTmDf9lUWq8byt4cGeSkoWy397CgaVfxI46NZimwmY9AzWarK6
-	wv0hUkX3SEDghFqD/NY+DP5yjP4M8nVTKm+LBX5PI9nfyJrbFkS3MOkjNFm6kKUfQyDc7yuZstfBq
-	XfASnLdQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SffXu3hph+l7rHbqur1+meEQTVzoWoS2OeulBiCttcI=; b=vHo9hHTbwAPgUHa5sucDCDRQdp
+	tMYJ4QtVelRl4z/8K7p9uqN9mpZ/73mrdxbcpzQTRytf3JwBAz/y9cQLY37oYK4pnu36OarwYCelh
+	iGWnMOwNLp38O8wEEwUP0QGf3s7iRxnQp7zapRh1VM67pTgU/P+gMcVMUtUl8f/7G6YXNBXuA96ko
+	UAUitZtpmD65LBCd/P9NRBa3dafze6AbcbaS2xnTwDq+t+b+ev3rnL4CQ5GtI5fAF/xw3LfwaWkpE
+	2GZjfkLUnwliEKDqthgHnzlG9p9krvFO1y6QpQDBsiMGiuhjcY2Cqqo4qb5naeNYyRQ9z9AMQR461
+	RMASTECQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeFX-0000000Bm41-1nnC;
-	Fri, 02 Oct 2026 14:28:35 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xCeFZ-0000000Bm4x-2ltk;
+	Fri, 02 Oct 2026 14:28:37 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCeFQ-0000000Bm1k-41Zy
+	id 1xCeFS-0000000Bm1s-0uDy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 14:28:33 +0000
+	Fri, 02 Oct 2026 14:28:35 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 97BA71A10B4;
-	Fri,  2 Oct 2026 14:28:21 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 428784E4110C;
+	Fri,  2 Oct 2026 14:28:24 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 690BC603DC;
-	Fri,  2 Oct 2026 14:28:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C157F103281DB;
-	Fri,  2 Oct 2026 16:28:09 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 16CD6603DC;
+	Fri,  2 Oct 2026 14:28:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6CB75103281DD;
+	Fri,  2 Oct 2026 16:28:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790951300; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=cMgf3Fui9Ix2ajtwXUt15vsAOgVEpm/AVvj+X+LKiz8=;
-	b=Jlmd7t0Ksr8v1Qb0dLbT7iFrN4AKKOWXIWqi32LAo4iTjEQOQkZY/3JVUTAJP/t2i/uUuk
-	EoVQ9ipfm85i0zt38mUyUnBwpdg9xN8xHzdgl5na8J8ciaLCpiyqHZuTASsaa+aXFEu0E9
-	K2mZlHYUhw6omq0RaX0kZMDjZxCGAd6O3gTLk5LtEyKUPWDeo5qBsuTYtI3eSmqF8QjrxC
-	/Q2nASK8YpoS/59jgV5Vtvbj/bZoPd9Ty0FUwkGgdn7J3WEO9jd8vfCW0Frthp8pjSU6pW
-	Qfe87rRqfmfP2JzQzLX5ieK5f1ZSs0SkifFY45Wi7itJiqiNKwmbSLCIxLssPA==
+	t=1790951302; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=SffXu3hph+l7rHbqur1+meEQTVzoWoS2OeulBiCttcI=;
+	b=m7O7EwCoQtyD1DZTcCa6C8w7d07YNMLuYBlaq84m1Q3naatoa2FNvzDDPHDxuPAw/7lNRS
+	H6tiRTPIK2g7KElchBqd2a3uDVbrsfYFIHplXuobWWmEj00VYe6IXF1A/JJyAbVpzptDoZ
+	bc4l5ihzAc5KNdNUDDt/S7cprjQikSAlpPsUP6GygHoH+jy8I1/F0F9uXUMwv8XAzLi5ZS
+	a6RvJTVQLkX1KXoMZyLAnIq0M4UXcd65NI0svJ6GVqrHvkc02GlD/t/t6FYZL5a9Axb8H7
+	0E1aNveIG8MLxLHWby3Ml1uy/bdFQEFvf2FyQEijvmSQezVK39zWnP3hiZXFfA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -65,16 +66,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Peter Robinson <pbrobinson@gmail.com>,
 	Joe Damato <joe@dama.to>
-Subject: [PATCH net-next v3 0/3] net: rss: Consider RSS not supported when key and indir sizes are 0
-Date: Fri,  2 Oct 2026 16:28:00 +0200
-Message-ID: <20261002142806.1299041-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 1/3] net: rss: Require indir table size or hash key size to support RSS
+Date: Fri,  2 Oct 2026 16:28:01 +0200
+Message-ID: <20261002142806.1299041-2-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261002142806.1299041-1-maxime.chevallier@bootlin.com>
+References: <20261002142806.1299041-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_072829_188324_772084A3 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20261002_072831_492695_B6929400 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +92,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+A point can be made that devices that report a 0-size indirection table
+and 0-length key size don't really support RSS. Let's return -EOPNOTSUPP
+in that case, and skip these devices during DUMP requests.
 
-This series follows what used to be an stmmac-only series to handle
-devices that don't support RSS but still provice the associated ethtool
-ops.
+This however also reports -ENOTSUPP for devices that only supports flow
+hash fields ops now.
 
-There are a few drivers out there that populate the RSS ethtool ops, but
-don't always support RSS. stmmac and mvpp2 are such examples.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ net/ethtool/ioctl.c | 6 ++++++
+ net/ethtool/rss.c   | 7 +++++--
+ 2 files changed, 11 insertions(+), 2 deletions(-)
 
-Following discussions with Jakub on V2, patch 1 makes so that returning
-a 0-length key and a 0-size indirection table means "we don't do RSS".
-
-Patch 2 introduces a helper to check for RSS support in stmmac, and
-Patch 3 uses it. Patch 3 has been reworked so I haven't applied the
-review tags, sorry about that Joe, Lorenzo and Nicolai :( I've drop the
--EOPNOTSUPP return from the rxfh ops as we return 0 on the sizes.
-
-V3:
- - Add patch 1,
- - No changes on patch 2
- - Removed the -EOPNOTSUPP returns on patch 3
-
-V2:
-https://lore.kernel.org/r/20260928145043.1228968-1-maxime.chevallier@bootlin.com
- - target net-next
- - Add a dedicated helper, following Nicolai's review.
-
-V1: https://lore.kernel.org/netdev/20260926093343.292181-1-maxime.chevallier@bootlin.com/#t
-
-Maxime Chevallier (3):
-  net: rss: Require indir table size or hash key size to support RSS
-  net: stmmac: Introduce a helper to check RSS support
-  net: stmmac: Don't set or get RSS parameters when not supported
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h         | 5 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 6 ++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c    | 4 ++--
- net/ethtool/ioctl.c                                  | 6 ++++++
- net/ethtool/rss.c                                    | 7 +++++--
- 5 files changed, 24 insertions(+), 4 deletions(-)
-
+diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+index 27b0e2e275dc..d32b403c8d3a 100644
+--- a/net/ethtool/ioctl.c
++++ b/net/ethtool/ioctl.c
+@@ -1444,6 +1444,9 @@ static noinline_for_stack int ethtool_get_rxfh(struct net_device *dev,
+ 	if (ops->get_rxfh_key_size)
+ 		rxfh_dev.key_size = ops->get_rxfh_key_size(dev);
+ 
++	if (!rxfh_dev.indir_size && !rxfh_dev.key_size)
++		return -EOPNOTSUPP;
++
+ 	if (copy_from_user(&rxfh, useraddr, sizeof(rxfh)))
+ 		return -EFAULT;
+ 	user_indir_size = rxfh.indir_size;
+@@ -1554,6 +1557,9 @@ static noinline_for_stack int ethtool_set_rxfh(struct net_device *dev,
+ 	if (ops->get_rxfh_key_size)
+ 		dev_key_size = ops->get_rxfh_key_size(dev);
+ 
++	if (!dev_indir_size && !dev_key_size)
++		return -EOPNOTSUPP;
++
+ 	if (copy_from_user(&rxfh, useraddr, sizeof(rxfh)))
+ 		return -EFAULT;
+ 
+diff --git a/net/ethtool/rss.c b/net/ethtool/rss.c
+index d4a1a4724b67..cb9bead0cedd 100644
+--- a/net/ethtool/rss.c
++++ b/net/ethtool/rss.c
+@@ -129,6 +129,9 @@ rss_get_data_alloc(struct net_device *dev, struct rss_reply_data *data)
+ 	if (ops->get_rxfh_key_size)
+ 		data->hkey_size = ops->get_rxfh_key_size(dev);
+ 
++	if (!data->indir_size && !data->hkey_size)
++		return -EOPNOTSUPP;
++
+ 	indir_bytes = data->indir_size * sizeof(u32);
+ 	total_size = indir_bytes + data->hkey_size;
+ 	rss_config = kzalloc(total_size, GFP_KERNEL);
+@@ -449,7 +452,7 @@ rss_dump_one_dev(struct sk_buff *skb, struct netlink_callback *cb,
+ 
+ 	if (!ctx->ctx_idx) {
+ 		ret = rss_dump_one_ctx(skb, cb, dev, 0);
+-		if (ret)
++		if (ret && ret != -EOPNOTSUPP)
+ 			return ret;
+ 		ctx->ctx_idx++;
+ 	}
+@@ -457,7 +460,7 @@ rss_dump_one_dev(struct sk_buff *skb, struct netlink_callback *cb,
+ 	for (; xa_find(&dev->ethtool->rss_ctx, &ctx->ctx_idx,
+ 		       ULONG_MAX, XA_PRESENT); ctx->ctx_idx++) {
+ 		ret = rss_dump_one_ctx(skb, cb, dev, ctx->ctx_idx);
+-		if (ret)
++		if (ret && ret != -EOPNOTSUPP)
+ 			return ret;
+ 	}
+ 	ctx->ctx_idx = ctx->start_ctx;
 -- 
 2.55.0
 
