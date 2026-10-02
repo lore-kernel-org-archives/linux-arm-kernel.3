@@ -4,61 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0D6CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EE9CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FvmB6zyAfevLbB9RCSK1DuwhV/UjwgPSkov7Fabnr5k=; b=hcWo5Br3JEBRGWMgZ+hSvbsw5f
-	r85ONeqy+h50+B0fj6GFmU4ttL33R5J96r4WQPn3fX0qpB+fR3zgreL/ySH6RtGevtO9tYIl5Lm1m
-	mk4OuSTfUF8GSVm5wTzB5YEl5jIWwjxuXzEMd4Ir/I4Wu27jZV5psF/UNYhn+lvhFWMXffeJAgJQi
-	qc/5w0fhJN+nII+HPz4QYhYP/AYuzM7O6e1yRnt5UBTs8PDLog319McEFcfVbTf+y1o9zBHvdjOPm
-	wXcyF3JEv5BDNGqUiBlP4eoLUqhVdyPmdfzcE7heQoym4oiE69H1RfoMwJu3MAqsPK9WPsxpEScdT
-	vTwHxBiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TyT67JBWmU8a3Diw010Aiq6t7ByqroB1mQnZlP3DzI4=; b=aVoIzKJQsrHY4JP3LMeaPrJeJw
+	5ODoYkewR4/rLN7ikBOlu9pkHzKi30FEozcuuwVRwcI4dNqyfTeAppQcL2ANyYnazdeWoWRa5mAmJ
+	ktgYBFEaYlzspZlgfv7YLrQ0RBBcFPvQrBSJ97RjIJ6H6s44g0nCNxEEZVvJNK8Ly4F9W75mv7cz1
+	IlU56+u/eGkuQtabU583uxEPE5vGqfYMw/o7FmnzDSlbA+mkN0b/zZ6uQYzFXsPuikG6jPQ4c8CiY
+	HAUlIKu1URwwZhChqpIAYSgkA66VtXSsHVhYqighdgce0sOlTy0RdhLBvmxEMsH2ql8tquXxitw8G
+	nbQLo7yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfDR-0000000BvYt-0Dly;
-	Fri, 02 Oct 2026 15:30:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfDO-0000000BvY4-1igm
+	id 1xCfDx-0000000Bvcf-10gj;
+	Fri, 02 Oct 2026 15:31:01 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCfDu-0000000Bvc8-1k46
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DB41143D;
-	Fri,  2 Oct 2026 08:30:22 -0700 (PDT)
-Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7875D3F85F;
-	Fri,  2 Oct 2026 08:30:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790955025; bh=Z2LspGkQ5z5Seubq49ws0rOaPx79NGD0/r2VYPepM9A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YOBqbhh55rD5PUXRNb3Ao6y0RLQ96QltvKZhxCchZq1Z/lO0gHRPTiAA+LGjUehv7
-	 yC7EzJ9USIf9GqOP62vpmL+ofQ/VqCApwg4D9ueDOgRBSdYv6uM+gHHeVMGDx/tv5r
-	 /n0vLT5V7kayeSsY5Sk8Uhn6wnKbWzRP4+Mtyc8o=
-Message-ID: <7657b40e-ae69-4218-b5fa-dd00417dfc97@arm.com>
-Date: Fri, 2 Oct 2026 16:30:22 +0100
+	Fri, 02 Oct 2026 15:30:59 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so7288e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 08:30:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790955056; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ULNANYvvmSb90zivWpFis9rsBy13Ros+WCRJ3dsaQSAiJPU49zhnplnFs8kS1DgDdp
+         SPien9rPt4/I4WBkY8oncK7F/VsSbu62/0XqyE3E4GlFhSHHw0xtwe3c0Wk1cM2pzQIo
+         yS29duz8aUcXdnWXnYNs92kFI7oOrv1mNdbF6/mBt8PmcAirP4mq66/zhdYTfMDSdX3i
+         Uf5PsHmnCgob7puH3GKi41fuY2Z+x4lRh7tZAVL+1B4OMUqY90GgmEt31x9nmT6q5qXf
+         AK+MzrilonMdjoAErQbEN3sEroxz/y/7BTci121Ms2dNkMMLtQclIFNei4N4gW0waenR
+         xVpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=TyT67JBWmU8a3Diw010Aiq6t7ByqroB1mQnZlP3DzI4=;
+        fh=V9yUi+32WYQmvQTknuTHwXZbJE5HFE5g/NJEChnE4XE=;
+        b=mczXFRSk97iniztFJoeAUvVtM8+CybQnUfDB3XH1bxftke/658/ROtkwljHUArhixJ
+         YfNMGFqX4R3+tC78+IZOk3o9XwcNZsDSOVP+WSkHxQGLlWDigVCuNo9we/iHKKdMoS3y
+         O+XNm8NxwooK8CkpQYwAut9uJ+19+WrBqzJsHwW6yRR42BfBPVtBFhA+icN4K3F4zUCa
+         jsgpcCFRpevDEnUHuycisEml3PsG0Z1mgWzi0/sdoKgNd6gWQJLjFR09wpB3dQqCmLKC
+         +7Slkvj9g915ekYCRqNo4iL92alZ86I+aRX70CnXAW57+U59IUousQioBlgm4YuKfAaB
+         Lbig==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790955056; x=1791559856; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TyT67JBWmU8a3Diw010Aiq6t7ByqroB1mQnZlP3DzI4=;
+        b=JvmZaIiRLXxXZAMjyrJv3ttitwIYDo8m/wKKU7jL/hvONMgQ+SlhljY9CLQlqyxgiY
+         cftad7xj+rw3K+YQGtB4jM3TjzO+gkeXlxXcEPej1tKHkw/pnQe9CrULE2qYDTkSwgTI
+         j7+kM4w5sZwvQrGI0/EPxF1Ns8zWYlglxADKRAImpZKtCZpT++dUeuk+vn1fZ40x2P70
+         vrcr9QOiv4OtBoUDcrVyBXYcuqXtE+MGKKPkUqLCzng2kCVwxcwYpzWxQDAF4dl62gqc
+         Mvm2sKJkDc0Q4QHDHAFSLOfK02JqZ2e+tL15YycVOVLtJxL974R14WInKqIhBAgyC+tG
+         rMnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790955056; x=1791559856;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=TyT67JBWmU8a3Diw010Aiq6t7ByqroB1mQnZlP3DzI4=;
+        b=O9PWGhVzKMYyvvfslzumu1PD5iQYQtxDpLBmaFK54C+t19oxDoGfwqsW3TlxBV8GRs
+         3zqrNbG/Dh6U8MNpRMPpmGHeCP9AfwWsJxhx3AmhwTAL4pWyFTp6p63JtZ/0uHz9n7zd
+         TgVw87ILtQrGw0QQ/D1zfDZNpLZxjrzMFUpqeMSlhMrhF67Wr3GoIX8HDN+rOxfrAy+g
+         hat/8zdEwhHQY6N4bcS9dsGpT/XzUNwPuriPxWwWAjmB/T1rpouD34ETIbiJYzRjxiwo
+         uVwMDuzFK9mFAvfChHGkNJfgZR4juKALeEo+jeme45bGEEe8P+LKOuBGTnSpxW061x4m
+         0rjw==
+X-Forwarded-Encrypted: i=1; AKwUvBwdZWKXPbcDDlNufWiMV9QI+fQXeRPUfhD/zQQbSBsF0CUjan65zpekQp+IrfQYJR/geBYrCwvSWEWSQWONNOCm@lists.infradead.org
+X-Gm-Message-State: AFq9FYKvtMl9UWg38uKFbbIvuQpQOWNEGpPdtKMFdWNuqBMg5xQCGEsQ
+	dT/mwXuMdBM6au0j/R0vCE4O2RTZjygK4HHK+DmaEy5EFARWllUkpwa03GPqP5Tbz4Dnw2m/PCU
+	CiMSL0XIKaxvJjnFWjV6os698iGKyQllwj5CuTcoauoc3xu8yVaZYqUz0pYY=
+X-Gm-Gg: AYBFou14e4lf+rcfi6uGBdUS+mRclAmgmVqFPvVtBlYEh42j1NjcH8mrShOszT8yFe0
+	9Z22R1GXhLDUVUfWhl6eAGfR9ckItaViTfZ91QzaenPlkgXLDiZJMwS3xWZwomORFY3Yd7xlDXp
+	W3TNnszr+ladpk8n+9CxyxRwd332vvV+oYD0Pz/qxRV0EbYb8k2ZlL1oJ/RTP0XBfr4IeJbWLCc
+	i2Nsu8NYatDEUmJ+STGgmRtQLpmP8Tw+JczbJr7IcCLktsQ0ECFqvbPo3CWIU8kdGHHGDLQJtEu
+	yoYWh8B0LbnEZpdqCT5D+fuRi5avRaYat7AXFsh8CgWTPXCWHtxHMTw+VywgzR5lHE+m75tijsw
+	oy7oIszaLVliKgiah9fp19NTF
+X-Received: by 2002:a05:6512:3b26:b0:5b8:d04b:a1be with SMTP id
+ 2adb3069b0e04-5bb7c91a8a0mr183008e87.2.1790955055657; Fri, 02 Oct 2026
+ 08:30:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: Use linux-arm-kernel list for the MPAM
- driver
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, reinette.chatre@intel.com,
- fenghuay@nvidia.com, Gavin Shan <gshan@redhat.com>,
- Yin Li <yin.li@oss.qualcomm.com>
-References: <20260915103101.1659477-1-ben.horgan@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260915103101.1659477-1-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+ <20261001210703.1597150-6-suzuki.poulose@arm.com> <CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
+ <86se2o2rbs.wl-maz@kernel.org> <CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+ <86pkxs2npx.wl-maz@kernel.org> <CA+EHjTy4rb+6z0bqh7sPqACES0EDpURdeoyiFGmdw3p0PENcOQ@mail.gmail.com>
+ <86o6dc2ka1.wl-maz@kernel.org>
+In-Reply-To: <86o6dc2ka1.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 2 Oct 2026 16:30:19 +0100
+X-Gm-Features: AclHuK-WxuFGXDBt-i8aW4clYrHg0y_cefCod2ajVZ-nmk2Rl2Vmyq6bDATGZwQ
+Message-ID: <CA+EHjTy9wTbjFpgvDOX9Xexw4jpx4uHMHM9ckXYZw8H0_QbAvQ@mail.gmail.com>
+Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
+To: Marc Zyngier <maz@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
+	jonathan.cameron@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_083026_496184_7A64156A 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20261002_083058_597583_16D8A4DD 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +127,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On Fri, 2 Oct 2026 at 16:29, Marc Zyngier <maz@kernel.org> wrote:
+...
+> > I know this is a sketch, but just in case: that's inverted. The sync
+> > only applies to non-protected pKVM VMs (EL2 ignores it for protected
+> > ones), so it would be != VM_PKVM.
+>
+> See what I meant about this stuff being completely intractable? I
+> still have no idea what it means! ;-)
 
-On 15/09/2026 11:31, Ben Horgan wrote:
-> As MPAM is an arm64 feature and patches mostly go via the arm64 maintainers
-> it may be reasonably expected that the MPAM driver uses the list-arm-kernel
-> list.
-> 
-> Make this official by adding the L: in MAINTAINERS.
+Yeah... what is a `!= VM_PKVM` ?!
 
-Makes sense - I've picked this up to send on to Catalin.
-
-
-Thanks,
-
-James
-
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 6215fcb07770..2113a0051b52 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18436,6 +18436,7 @@ M:	James Morse <james.morse@arm.com>
->  M:	Ben Horgan <ben.horgan@arm.com>
->  R:	Reinette Chatre <reinette.chatre@intel.com>
->  R:	Fenghua Yu <fenghuay@nvidia.com>
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	drivers/resctrl/mpam_*
->  F:	drivers/resctrl/test_mpam_*
-
+:D
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
