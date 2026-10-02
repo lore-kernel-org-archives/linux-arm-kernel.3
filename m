@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E15CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76948CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjdIvGj9EmDN1YxuaFdrEFHg8mUUSKAIm4tVYc4i1t8=; b=iEsk/pGImQi0NIwyefYLQgI87C
-	+2oVW8/Cx22ewJ/Pz+spowG8JrF0fSNlNKcU4TBXvqbP7C69hTmK2TKvTRb60xON2qADePH0ONZve
-	K7wF/eX99/zO0GDXXP4fJIcR/1A74fQ9cQKu7IRPywBGuW0N4hHODktxnxZcx6MINJkyNOLdTi3T9
-	iqvDqmtfeQ8eeqOmhVcHLtmjld/yTyc71441rsldZuhA4OnfxtMizFFybLtb+PGQWo5/p5soRswMI
-	rJq46Xnt61wu+UxK8+4//t+yUAhE6QYiCDniNE+gEepHmNMgOuItoNIfCX6ONoFrI4n6ETgu61vFt
-	bUy1xgeA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8WsawnzeODFNIggENzJ5Slr+Qb9wWjZZkflOdLrLx7g=; b=IoWl5RFNZL939MPTwkaqE/RyOT
+	MYGe1rvjuYa/13hwfWbvBOVjjXG+i2yDLM8ef5fIXyjK0Plut8rpuwsNqoILnR6YQG62c5PZpNCNU
+	4SJnSWTco6VPzSV/F7PfxEJmb/x9ZxjNOrXkyAxUhEntT/kYzjwXLl67wLSH9KEUvudguzuwghkyU
+	DNqECI545+uV8Brp5RLmJjtYGwwlvYoxCfpjqEdZDqlKTRwUEWZOSzclv1+9D5SHWu+9QOrsWIshq
+	EQFMK1grnis7QsjrgYhhir2atBOiG287nJ0UvDE1avMf74dGa8lQvopTmN8/tqDX+P96WJWS2AsKy
+	y6z/2D1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf1p-0000000BtOa-2uGo;
-	Fri, 02 Oct 2026 15:18:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf1n-0000000BtNI-1hNM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:18:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9505C143D;
-	Fri,  2 Oct 2026 08:18:22 -0700 (PDT)
-Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCFED3F85F;
-	Fri,  2 Oct 2026 08:18:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954306; bh=YHkCkAvI2azuXQy+PgJBhLP0u3/q7PVdTH38e6wb0i0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hqQtFAEhY6zLjAb+OM/YPQYKPWIuccjUOUEav9q5KLka6+xdA/6QCD4JK0CqwRWSh
-	 zS3NHqQd/+0nwrqaFy0JfLqvNAW6QfOwSuFrajaFNZwPpxJPqvahT8hjMmAu9GPLbT
-	 vkoLmOQNsPN4Tz6sAShK2JzRgpB/7WaMfeL3N7WY=
-Message-ID: <e1316f39-0c60-4331-9155-7b6c3fd7fdf5@arm.com>
-Date: Fri, 2 Oct 2026 16:18:22 +0100
+	id 1xCf38-0000000Btej-2oog;
+	Fri, 02 Oct 2026 15:19:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCf37-0000000BtdH-1Gg0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 02 Oct 2026 15:19:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=8WsawnzeODFNIggENzJ5Slr+Qb9wWjZZkflOdLrLx7g=; b=bQsns2mgrSEMZu5TsQr1x6bQm3
+	Q3kWUpt5A1rw3BQW5/TCPgiaZx+GwnOjBuTJO8QHDpeixQ10o++7J8RrPrx7tBLrEU6eLXNGlixxG
+	F9jfbksGBUWh68DjftpJIY+9yCyrdFuQi7NUCgb+LPPbEXjITe2wLiXI4HMWMvqv0r6DOMUPV1eZD
+	35NPWGr2C31Rwn/kheYWHy/ogobFSedjwG8/QOen0RP0jOFpyvGkHoYnGNIaWPcufCqyH/PZpGXtP
+	21suUKvOdcoAoJptcFMEvKWkhCi8GWJ2ss3uZciPvfIUs4NnQCxxUnZa13babNuVC2YatFWV6xbfs
+	rwxOk28Q==;
+Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
+	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCf34-000000064CQ-2zYQ;
+	Fri, 02 Oct 2026 15:19:47 +0000
+Received: from dwoodhou by i7.infradead.org with local (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xCf31-00000000IAr-3SJO;
+	Fri, 02 Oct 2026 16:19:43 +0100
+From: David Woodhouse <dwmw2@infradead.org>
+To: Thomas Gleixner <tglx@kernel.org>,
+	John Stultz <jstultz@google.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Miroslav Lichvar <mlichvar@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Rodolfo Giometti <giometti@enneenne.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	David Woodhouse <dwmw2@infradead.org>
+Subject: [PATCH 0/2] Optimise ktime_get_snapshot_id() for capture latency
+Date: Fri,  2 Oct 2026 16:19:36 +0100
+Message-ID: <20261002151938.69857-1-dwmw2@infradead.org>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/12] arm_mpam: Switch to kvzmalloc_objs() for
- allocation of component cfg
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
-References: <20260917145617.2202986-1-ben.horgan@arm.com>
- <20260917145617.2202986-12-ben.horgan@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260917145617.2202986-12-ben.horgan@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081827_491210_A7513C08 
-X-CRM114-Status: GOOD (  13.12  )
+Content-Transfer-Encoding: 8bit
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Commit 2e27beeb66e4 ("timekeeping: Allow inlining clocksource::read()")
+allows an architecture's primary implementation of clocksource::read()
+to be inlined, apparently because the out-of-line function calls get
+expensive on x86 with certain speculation mitigations. Use the inline
+read in tk_clock_read_snapshot(), and wire it up for arm64 too.
 
-On 17/09/2026 15:56, Ben Horgan wrote:
-> Each component cfg is sized by the size of a per-PARTID multiplied by the
-> number of PARTIDs. On a platform sized to push the limits of the
-> specification, the allocation using kzalloc_objs() will consistently
-> fail. Change to use kvzmalloc_objs() so that large allocations fall back to
-> vmalloc() based allocations.
+Also bias the clock_id switch() in ktime_get_snapshot_id() for the
+likely() case of CLOCK_REALTIME.
 
-Makes sense. We should do this for any allocation that could be larger than
-a page.
+Measured on a Cortex-A53 at 1.35GHz (12.5MHz arch counter), with
+inlined clocksource reads enabled: the interval from a raw counter
+read in the caller to the counter read in ktime_get_snapshot_id()
+drops from 49.9ns to 41.2ns with the inline read, and to 38.8ns with
+the dispatch bias, mean of 1M iterations.
 
+This is unashamedly a microbenchmark but it actually captures a real
+world use case: The time it takes for ktime_get_snapshot_id() to read
+the counter is critical to some users, especially 1PPS signal
+capture. Every nanosecond helps, and for the inline clocksource read,
+the actually *complex* part is already in place; this is just using
+the infrastructure that's already there.
 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 10fc5168699b..d74292f8cdfd 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -157,7 +157,7 @@ static void mpam_free_garbage(void)
->  		if (iter->pdev)
->  			devm_kfree(&iter->pdev->dev, iter->to_free);
->  		else
-> -			kfree(iter->to_free);
-> +			kvfree(iter->to_free);
+A further use case for arch_inlined_clocksource_read() is a polling
+mode PPS driver¹, which only needs to snapshot the *counter* around
+its GPIO polling, and can then worry about converting it to a
+timestamp after the fact.
 
-And kvfree() is safe to use with non-vmalloc'd memory that we use for things
-like struct class, which get free'd here.
+¹ https://lore.kernel.org/all/24e8134b35cc8be26606d7472295cdb43ea6b38a.camel@infradead.org/
 
+David Woodhouse (2):
+  arm64: Support inlined clocksource reads for the arch counter
+  timekeeping: Use inlined counter read in ktime_get_snapshot_id()
 
->  	}
->  }
->  
-> @@ -2692,7 +2692,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
->  	if (comp->cfg)
->  		return 0;
->  
-> -	comp->cfg = kzalloc_objs(*comp->cfg, mpam_partid_max + 1);
-> +	comp->cfg = kvzalloc_objs(*comp->cfg, mpam_partid_max + 1);
->  	if (!comp->cfg)
->  		return -ENOMEM;
->  
+ arch/arm64/Kconfig                     |   1 +
+ arch/arm64/include/asm/clock_inlined.h |  26 ++++++
+ drivers/clocksource/arm_arch_timer.c   |  21 +++++
+ kernel/time/timekeeping.c              | 110 ++++++++++++++++---------
+ 4 files changed, 121 insertions(+), 37 deletions(-)
+ create mode 100644 arch/arm64/include/asm/clock_inlined.h
 
+-- 
+2.43.0
 
-Reviewed-by: James Morse <james.morse@arm.com>
-
-
-Thanks,
-
-James
 
