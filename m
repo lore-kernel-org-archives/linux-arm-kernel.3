@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859D7CA5FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EDBCA5FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJl6vN2DYWl5SvECY/MNPFkAoXMpLzutrBdwcjZxYRo=; b=1zB+zj38SWY5oaW4PfMlHWXgX0
-	i4GQheDObfeJwaWkraGtsud1tMkm9TnYlpQtSkm4xqgRc/I+Pf3eiewQckbcfM/GBdI4f+PR3DiTF
-	Fz6xJUglNujtQbrLWItJqPFMKCDbHuk8y+ipSHSTiw8mDEpo27Eo9ijuFphaNK1pkKTUUaWBgWhWI
-	NVHgZ3GOVp9ZTbYXBQrH0itMGLKHtK2JiHtQFo6HJXTOLYiHZq2rx4GKdzLj1AIXWwR+KxSrBIMro
-	EM8+676Wt4EGKhTIbE/U1QWaXh6+EwxCwW7lsk2Ftpr8VwU7hIgfHrEGiGT50W5XktWkEy4umaVWh
-	mkM6JI7g==;
+	bh=5xr7pX17mvH2aCY+fCJUZRujhX//jXl3D3Nc+GjIbpY=; b=nk9WD5Vslgad2pIbWSUFZB+Jvf
+	T+BUFLtUojoJRhMBq7P+23pd9uIvPVJMun5/P8EUc0EXyj884nZMdnEa0ox22bQRCMZfUlNSEdfBj
+	kJgHKwcUmdzQ0BB0pYbJd5OJiLK7+AOWNsE5HMjxupm/5aWaxenxvov+xwMu5f1mfDgc6FV4Jhdw8
+	7VqFnnN8552cULRDRLcWFDOmjcFeR6DV1RkXyxofwdrijwzeZDxIwkLw5hOy7icr0IJ8qsN/Ah0Fu
+	dHpoYvzvk/GyaXOAt6IpBWXWUDZbjlMKE9iavaPNmXbvER0SEgLQ5kZ7hbfWFos+A6UkJjTTy1zkE
+	BUGg9lxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjMr-0000000CRaX-0n6N;
-	Fri, 02 Oct 2026 19:56:29 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1xCjNW-0000000CRhs-25Yf;
+	Fri, 02 Oct 2026 19:57:10 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjMo-0000000CRZi-2Lcb
+	id 1xCjNT-0000000CRgr-1qxg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 19:56:28 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-917a9f42283so1665996d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:56:26 -0700 (PDT)
+	Fri, 02 Oct 2026 19:57:09 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-917a9f42283so1671046d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:57:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790970985; x=1791575785; darn=lists.infradead.org;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790971026; x=1791575826; darn=lists.infradead.org;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=NJl6vN2DYWl5SvECY/MNPFkAoXMpLzutrBdwcjZxYRo=;
-        b=w9tBRVAy0FuRGTIdaPkuqDgiTcORaxrjbuBzgnahYpYoUbuxc1+f2nPOlM5zClYqvr
-         Czf+lCtTih7PNMCPd3aBbxgszPwL6eChHxEQwSO6MhvhJuod7CXVBZq27cLBFbc7aEKN
-         5SSniCbCkd/Xw78DYQyOguGfpsf/4HUwOeV8V+hk1j5bs4a6hxNSODFP38xa1vnuQ84G
-         pHwgbOadaM4BVOh4UM0J7ODDtpY9mz9hvjTBh2M15HH6xdANysY63a6zjS+RNeVBEMWa
-         Ivp42TCw3SV5B2ksTdC6Wi3PtMW+M1ka4I9FhCBr68PDk65UE88UNLxg2ronfQ2Ymcyy
-         PF8Q==
+        bh=5xr7pX17mvH2aCY+fCJUZRujhX//jXl3D3Nc+GjIbpY=;
+        b=bifLD7dTFtaE9OoG/QAs2uwCw2GdJRkkdP5qCL3l+KULWCCNzaLFJnqwISeWF8X7JL
+         TXrwC4Azjx6uZVljBOQbcK9sSapcHd/CrgPMs18ikW2LxI4B6316wSDA0w74dXHDS//W
+         HzV8D4hQxPO5+i1yF29r8mQXWSuJqBYH+CUpL1clzS/KfqsCXvcNF3bMczbQeSg2SrfJ
+         P8zGsQw92vMqHWHL4aQk3FPa/b7woaL7Qo4Tf1+ClX8I+p+sFFJZNFCVnSxVqXICKWWs
+         MHrSNzRgrM+o4Xkp44dBNvP5iRnsSQJ6Q0MeU4RBzbuKOcFb03UUZCm5e5DOjJaMWFUj
+         ZZLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790970985; x=1791575785;
+        d=1e100.net; s=20260707; t=1790971026; x=1791575826;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NJl6vN2DYWl5SvECY/MNPFkAoXMpLzutrBdwcjZxYRo=;
-        b=wwenUQDFzQvDqMjxYJtlxLot1tWfpNuh120aKda2w5brFMY0e5emfTTsBbP42BqIrn
-         X6RARSafR7AIqf39cN2yZ9vfXhyApyfZqnkqzZ/3U9/fgUkqmWE5kgUYLZkqI8SuL68Z
-         CzUmNkrK0u7Du8u5U5fdbV+AdHqTsUrYBMbfEg6rVJ7qjaC7YxtWZpLjz565Rx+4OdLW
-         te53/wdGx7FIIPPbSwL+BxAqeHsaaaWod9uFZ//X/cJwlCpAuXg55Czadun1bU2lZ5z4
-         WtGHuCUamNOzQM1yIa+MTOoX9sUz/uU76kAbQzA+oaprsnv/kYAdktxHZB2lrrFLjVKI
-         keCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxIo3GgCI0HGquQFDrUeEQJ32WoTuPLOwb0EbcmfrdK7KFORmE4Z2fyXcHubz+YRz7L3JZqDS9QQdfz77r/QPn4@lists.infradead.org
-X-Gm-Message-State: AFuF++lYUcczS1s3rLVI5rhGf+lytq/LyFdj1yEw6xovwBR35nNOHYlF
-	L0Gj7IyvxtIEuUsZYdCsIuzaSiWe04o3ZngkRdnJiMP7evukSi8vLF9gyDq62AHUKdc=
-X-Gm-Gg: AYBFou0XNh0W2LqVWWZ617Zcne62kNkkUGTFi1vGH19M8VdyjDPKwWqDtXSXnip4YK4
-	dCNY6J+BCyfGjz2SSZ8I0RWotxvQQMmjqi2SvHlA98HapQDChAIpZeU1hChWZE9nIBvjTb8EfDe
-	gYG+g74vllN+SnMkiQ4sqETZ7yEOOdDoMRj4BPGHWqa+C5F8PSzjuDaV71oGb8tI5aitGOoNpSR
-	HAkvg6wTGHNPGAoQ19jvpmMR6Ep5n9Q5u21z1S2Dc15RqDIaz0vJ1b/YAtbe0eMc8EzSizLfrV7
-	20wiwPubdQG60YEt+TNsj/yDtgiFwTr7jFrI/ubCuqBKA0/30PcPZT3F6J65LzYUlS6Vhd5Plbo
-	iq0oQ6zEsFBeZWn7DQp6PQ8eyHFuotvOcYjo86T4Vc2YZbUtHNsmHVrbZUTzMz52SabMI89PG9q
-	rmVhpPTWjUuI5kfqcagLfBpbi24iH1p1DWluHyNqEE9IFQiK1l1VA/5zuz2/hiCVUSjVFewg7I4
-	0pBvhtum/p0bQ==
-X-Received: by 2002:a05:620a:6413:b0:93c:b766:2bfc with SMTP id af79cd13be357-93e50fa6a3dmr87378085a.17.1790970985078;
-        Fri, 02 Oct 2026 12:56:25 -0700 (PDT)
+        bh=5xr7pX17mvH2aCY+fCJUZRujhX//jXl3D3Nc+GjIbpY=;
+        b=PTWk7mxPD5GTz56rnthPvXHEc3oK40IZMY+9FPBHxax/yqSV1SC0FFN51OrfpmXGHg
+         bdCJhggMu3xz4DP/NNSCtav16PNdMZo3k3ykX3YisraZr9O63o8vLXvbdPm/opy6/Wpi
+         RKcLePbLHhRcpX9HdN6gVv6u1jN+pVz+18kaW/tj07oFo0kYl2AjZ1qcp3o0896P6ykG
+         647dc0d90mE6FEf/smGxqUY5wyPr8Bx3SUxeP8H7DUx6IqsOUBdYS4YKhz/RYy+Yl1ZJ
+         jG67r8cmkoOFmlsN/G92o4sRmCFQq6XBDpzm/epiz4MVR0PvYvvIiUVOSOeRSv/HXkjC
+         NIsA==
+X-Forwarded-Encrypted: i=1; AKwUvBy1lYMsw0AjHDcs7PA8SzZ4BE2NdiugNGYwjMV7R62j5q7MeACYZy+588MeiRNwwzpPvds5514yMod9zYfW61DT@lists.infradead.org
+X-Gm-Message-State: AFuF++nwPnfaTI0pSj/ZtGhj6ZdSij5VnWhPuuXwffWQ5eGPhHr9r9xj
+	14MANImg3p+6iFTPxxqp3x1dxI5Ghq9GuEV6/9qs2L/jYG4W6RFsAwZZk68eWCDuwsM=
+X-Gm-Gg: AYBFou1YUz5DqHWZrqPi24lAemL+x/d78fB3mkQ0hdr2J48NBS5/zG524raNPwMTn5+
+	1XTM9NKKyEj0hAmpQ/Y9aZCJFFFXj8kqq6Fz0Pox7h2fWgSU28rtyUmiF1wGtK13gVDokaxTi2W
+	1ip35NGV+fQAuwFP883IhdeLHPS+0vzZFETRQgbeARwkr1wOnNXw5UYCgBCdfeys08anWTMgsAU
+	4TzeU1XW0ayesN5f/4qFA61Qkd09UCAI45CWeld2PoSuDgJSAzJJM8kMdhTuvfEN9CW/+sItxWG
+	goKwQg6cDGxM5u2b1ooi9UtUtjxyPUCBhD4RCalnkIOEjk7w4Ps9ldS3rma2X4Wf84rq4kpqIf6
+	0Yc/qiX+6JSazGj2nuW+1o9+g6OOrsAfJl8CwZMshbd2JZWhAp4k0Bwfxa+Tq1XY/1Dv328stKP
+	8ZgFYB+J4GS4Fz3K7tIfihY2atv83rqm88+RPgaRgsPqrc6bcP/icryp4++s8IM8xPE/++7Mioi
+	t8mzEjIQFRvgg==
+X-Received: by 2002:a05:6214:d46:b0:917:a8b7:c824 with SMTP id 6a1803df08f44-9195d0a24fdmr7529476d6.7.1790971025988;
+        Fri, 02 Oct 2026 12:57:05 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:11:34bd::5ac? ([2606:6d00:11:34bd::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-917e0c17b8esm27137276d6.43.2026.10.02.12.56.23
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-919442ce1c4sm20271766d6.3.2026.10.02.12.57.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 12:56:24 -0700 (PDT)
-Message-ID: <a153b350bdfd614b4da5a15da29079eec7fc4dd4.camel@ndufresne.ca>
-Subject: Re: [PATCH 2/3] media: rockchip: rga: Switch to modern PM_OPS
+        Fri, 02 Oct 2026 12:57:05 -0700 (PDT)
+Message-ID: <60c0db37aa1ba8674a0b205473075ab6cb0ed39b.camel@ndufresne.ca>
+Subject: Re: [PATCH 0/3] media: rockchip: Modernize PM_OPS
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Diederik de Haas <diederik@cknow-tech.com>, Dafna Hirschfeld	
  <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
@@ -82,10 +82,9 @@ To: Diederik de Haas <diederik@cknow-tech.com>, Dafna Hirschfeld
  <jacob-chen@iotwrt.com>
 Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 02 Oct 2026 15:56:23 -0400
-In-Reply-To: <20261001173610.158931-3-diederik@cknow-tech.com>
+Date: Fri, 02 Oct 2026 15:57:04 -0400
+In-Reply-To: <20261001173610.158931-1-diederik@cknow-tech.com>
 References: <20261001173610.158931-1-diederik@cknow-tech.com>
-	 <20261001173610.158931-3-diederik@cknow-tech.com>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -100,12 +99,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-1Mpu87nLgk5Us+/k4nVo"
+	protocol="application/pgp-signature"; boundary="=-4HyN8OfCN+SaQY/bAsCV"
 User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_125626_920481_6FF57886 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20261002_125707_490001_C8EAD2F0 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,84 +120,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-1Mpu87nLgk5Us+/k4nVo
+--=-4HyN8OfCN+SaQY/bAsCV
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
+Hi,
+
 Le jeudi 01 octobre 2026 =C3=A0 19:34 +0200, Diederik de Haas a =C3=A9crit=
 =C2=A0:
-> A new set of modern PM_OPS macros got defined in commit
+> A bunch of new PM_OPS macros got introduced in commit
 > 1a3c7bb08826 ("PM: core: Add new *_PM_OPS macros, deprecate old ones")
 >=20
-> Switch to those new macros so that the PM callbacks are always seen by th=
-e
-> compiler, but discarded if not used. This lets us drop the __maybe_unused
-> annotation from the callback functions.
+> Straight up copied from that commit message:
 >=20
-> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> ---
->  drivers/media/platform/rockchip/rga/rga.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
+>     These new macros are very similar to their SET_*_PM_OPS() equivalent.
+>     They however differ in the fact that the callbacks they set will alwa=
+ys
+>     be seen as referenced by the compiler. This means that the callback
+>     functions don't need to be wrapped with a #ifdef CONFIG_PM guard, or
+>     tagged with __maybe_unused, to prevent the compiler from complaining
+>     about unused static symbols. The compiler will then simply evaluate a=
+t
+>     compile time whether or not these symbols are dead code.
 >=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index b3cb6bf8eb86..f28c93d63760 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -883,7 +883,7 @@ static void rga_remove(struct platform_device *pdev)
->  	pm_runtime_disable(rga->dev);
->  }
-> =20
-> -static int __maybe_unused rga_runtime_suspend(struct device *dev)
-> +static int rga_runtime_suspend(struct device *dev)
->  {
->  	struct rockchip_rga *rga =3D dev_get_drvdata(dev);
-> =20
-> @@ -892,7 +892,7 @@ static int __maybe_unused rga_runtime_suspend(struct =
-device *dev)
->  	return 0;
->  }
-> =20
-> -static int __maybe_unused rga_runtime_resume(struct device *dev)
-> +static int rga_runtime_resume(struct device *dev)
->  {
->  	struct rockchip_rga *rga =3D dev_get_drvdata(dev);
-> =20
-> @@ -900,8 +900,7 @@ static int __maybe_unused rga_runtime_resume(struct d=
-evice *dev)
->  }
-> =20
->  static const struct dev_pm_ops rga_pm =3D {
-> -	SET_RUNTIME_PM_OPS(rga_runtime_suspend,
-> -			   rga_runtime_resume, NULL)
-> +	RUNTIME_PM_OPS(rga_runtime_suspend, rga_runtime_resume, NULL)
->  };
-> =20
->  static const struct of_device_id rockchip_rga_match[] =3D {
-> @@ -927,7 +926,7 @@ static struct platform_driver rga_pdrv =3D {
->  	.remove =3D rga_remove,
->  	.driver =3D {
->  		.name =3D RGA_NAME,
-> -		.pm =3D &rga_pm,
-> +		.pm =3D pm_ptr(&rga_pm),
->  		.of_match_table =3D rockchip_rga_match,
->  	},
->  };
+> So convert the rockchip media components which used the old macros to the
+> new ones.
+>=20
+> Diederik de Haas (3):
+>   media: rkvdec: Switch to modern PM_OPS
+>   media: rockchip: rga: Switch to modern PM_OPS
 
---=-1Mpu87nLgk5Us+/k4nVo
+I'm taking the two first, thanks!
+
+>   media: rkisp1: Switch to modern PM_OPS
+>=20
+>  drivers/media/platform/rockchip/rga/rga.c           |  9 ++++-----
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 11 +++++------
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.c     |  9 +++------
+>  3 files changed, 12 insertions(+), 17 deletions(-)
+
+--=-4HyN8OfCN+SaQY/bAsCV
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasAMZwAKCRDZQZRRKWBy
-9Nm3AP4y8JqQZKv9U0OttedqiWp5M0Ofbzvm9AyImGL7/X3BggEA6Av0uZd+Ipgu
-Sn0DcrUr/Ux6st7B3vMRPFDOud8b9gM=
-=w8WG
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasAMkAAKCRDZQZRRKWBy
+9LnsAQCEQh8/fK0EjxA2qyBxHJJCZTj66w+XssQ/r5decbAYxwD+NAlRMgWmM5Q8
+DCLHzSESx4CgbNEx6od60qqNuMc9Bgs=
+=z221
 -----END PGP SIGNATURE-----
 
---=-1Mpu87nLgk5Us+/k4nVo--
+--=-4HyN8OfCN+SaQY/bAsCV--
 
