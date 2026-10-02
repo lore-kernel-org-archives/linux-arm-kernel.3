@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E80CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A4BCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n01WCNPeg9z3AiuLAtvEO/xgxNAlHvGR+6lhhr+hIWk=; b=g6AApu+wiAGWJ+CODfJUN5PaXR
-	lhq/TXcdm075mfwQakPYuCNzcU9pby+6vn+sCSLWGPFQzoAJ9hvcmwi+mYMfP+3gSCyoFQpgjmQHY
-	DV6USyEZAM7MeLZbpeekqTMGVNo618PDFPoDpNkGJzD+8jZK0yza83JSFVENkpU5qeyZdwwC+5LEx
-	EzZNzgkH4zwLM5oHu/LYIN6xzrvID7r9eK7lY1JoB3EvymnpVr7n3I7AWukPCxt6fLd4jLjU5yxv+
-	ByAU91ySKSWI6JAQ35lipmtuyOd1ELUZ4Iw8/dpg5+6vJg0keDnDUcgnN87tpKmhVkOKmRDHHT3mN
-	Tj4p9Y7w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2qPw+Pg6F2BVS6Rxytm/LCoHFcBV7RBXe2zcL1rJqwQ=; b=xlf/+YT/mfSg6Dy8gDLnfdrknc
+	Q7ZKf1N1mY/i7aMUoIWKEqpSDmF7dvSU5zyW5rd3I4Qb7AWQ+2NXOSX6KCC90PSJBsNhKOW70GQcm
+	ZAGTsWhl1yKABkoM/uxoDAi9J2eVrq3NECbCDcPAA9VPWMnvaS5/miFVaVSpvB9mggbCe92YQQRRV
+	n3OiunZZWZsfoy7Hr5JrBYtcZr7mLBTikyF/b1hTIgVVLkCbjA8EdqOFP0P7js/daj13ZW0U4SuZw
+	ksUxdTqlzgE2Td1rIQIK/6EkYpjWuU3Y/wDsZZzZAxepBF3wTtYC+eMQxGH6Ha13kwjzmjsglXOYL
+	55NO69cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfIX-0000000BwSj-24hN;
-	Fri, 02 Oct 2026 15:35:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfIV-0000000BwSM-35cs
+	id 1xCfJE-0000000BwbO-3L88;
+	Fri, 02 Oct 2026 15:36:28 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCfJB-0000000BwaY-2zNx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:35:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 660BE143D;
-	Fri,  2 Oct 2026 08:35:39 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.85.160])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 938703F882;
-	Fri,  2 Oct 2026 08:35:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790955342; bh=Ey7NB0qS8ZKugxYGyiBGHdk7OWdkE3p8zHjWGF3bJIU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DQs0wtCCgfEpU67TSvbohdw6qNHUkNJsGw92h4qZqWNL0cUCqrQv85AdepTt58uCF
-	 Bt0GMxEaN4JTO9wdQsnxKA3+CpF0o4pGW4CuSMBpopq4pelsJMalKLMKqhL5GYs/CB
-	 OJ3URr3fW5C9idBqNqj7NeZ0I/Mqy8PfqUdd33Eg=
-Message-ID: <99c7f8d2-b65a-4e8b-bb7e-1de16fed3190@arm.com>
-Date: Fri, 2 Oct 2026 16:35:37 +0100
+	Fri, 02 Oct 2026 15:36:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790955386; x=1822491386;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ID/HkmFMTgXfBvEK9zp6+sIFgeqPAHbQ5YXi9GUqiE0=;
+  b=jcuUzkFMQGFwdm3zOyLHtugz5LRvVHLjEmOJITOTrGh+MZo2SrgAoeVg
+   ttExL5OX4ZNxGcGHmQR2SjyEblc+cLCHG/FCTmleJxlaZ2IsQpuH5m2zV
+   Xp0pf4sFMXbAObQhRbDnTdEH1t4+EwiPI2ZgkPiSuPUPj3ogCKqyA1/vG
+   5yRMrsj9RCinyOhhza4x+12YgC/JIRMgPbP1b2LnjUuue+8GioF7sCWOx
+   lpfuZ/yTlscY+RoNioa8pTBwJlgeKvx2OrbVXbjbz9YYcPh4oniiQa0S4
+   2/0zsFSJ/94jokE8R9tciKYA0862J8jUr8QiY9kz53wT97+FsIOjdqWLu
+   g==;
+X-CSE-ConnectionGUID: CAqClPRORPe2vKS07rKQhw==
+X-CSE-MsgGUID: JLIjle/BSP2dtC0OR4PXbA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11923"; a="117247683"
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="117247683"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 08:36:25 -0700
+X-CSE-ConnectionGUID: /exO7IEOQoiF36dXfvuycQ==
+X-CSE-MsgGUID: Btu7op7IREy2zYlUhnhmAw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="279522351"
+Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 08:36:22 -0700
+From: Dawid Glazik <dawid.glazik@linux.intel.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	dawid.glazik@linux.intel.com,
+	maciej.lawniczak@intel.com
+Subject: [PATCH 0/4] arm: dts: aspeed: add Intel AVCRP and JNCRP BMC platforms
+Date: Fri,  2 Oct 2026 18:32:41 +0200
+Message-ID: <cover.1790344811.git.dawid.glazik@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v12 08/13] arm_mpam: propagate MSC access errors for
- interrupt control
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org--cc, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261001153439.3295416-1-andre.przywara@arm.com>
- <20261001153439.3295416-9-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261001153439.3295416-9-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_083543_872098_003D568E 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20261002_083625_762671_54CCA861 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+This series adds initial upstream support for the Intel AVCRP and JNCRP
+BMC platforms based on the ASPEED AST2600.
 
-On 01/10/2026 16:34, Andre Przywara wrote:
-> Allow the functions dealing with interrupt registration and enablement
-> to check for and return errors, and propagate MSC read and write errors
-> from the lower level up.
-> This does not cover the IRQ handler yet, as this needs some more
-> attention.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The first two patches extend the ASPEED board binding to describe the new
+Intel platform compatibles. The remaining patches add the corresponding
+board DTS files and register them in the ASPEED DTB build list.
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Dawid Glazik (4):
+  dt-bindings: arm: aspeed: Add Intel AVCRP board
+  dt-bindings: arm: aspeed: Add Intel JNCRP board
+  ARM: dts: aspeed: add Intel AVCRP BMC
+  ARM: dts: aspeed: add Intel JNCRP BMC
 
-Thanks,
+ .../bindings/arm/aspeed/aspeed.yaml           |   2 +
+ arch/arm/boot/dts/aspeed/Makefile             |   2 +
+ .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 321 ++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 257 ++++++++++++++
+ 4 files changed, 582 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
 
-Ben
 
-> ---
->  drivers/resctrl/mpam_devices.c | 23 +++++++++++------------
->  1 file changed, 11 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index b876f4d2e9a77..60f6a39176ea1 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1118,7 +1118,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	}
->  
->  	/* Clear any stale errors */
-> -	mpam_msc_clear_esr(msc);
-> +	ret = mpam_msc_clear_esr(msc);
-> +	if (ret)
-> +		return ret;
->  
->  	spin_lock(&partid_max_lock);
->  	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-> @@ -2681,9 +2683,7 @@ static int mpam_enable_msc_ecr(void *_msc)
->  {
->  	struct mpam_msc *msc = _msc;
->  
-> -	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
-> -
-> -	return 0;
-> +	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
->  }
->  
->  /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
-> @@ -2691,9 +2691,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->  {
->  	struct mpam_msc *msc = _msc;
->  
-> -	__mpam_write_reg(msc, MPAMF_ECR, 0);
-> -
-> -	return 0;
-> +	return __mpam_write_reg(msc, MPAMF_ECR, 0);
->  }
->  
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
-> @@ -2790,11 +2788,12 @@ static int mpam_register_irqs(void)
->  				return err;
->  		}
->  
-> -		mutex_lock(&msc->error_irq_lock);
-> +		guard(mutex)(&msc->error_irq_lock);
->  		msc->error_irq_req = true;
-> -		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-> +		err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-> +		if (err)
-> +			return err;
->  		msc->error_irq_hw_enabled = true;
-> -		mutex_unlock(&msc->error_irq_lock);
->  	}
->  
->  	return 0;
-> @@ -2815,8 +2814,8 @@ static void mpam_unregister_irqs(void)
->  
->  		mutex_lock(&msc->error_irq_lock);
->  		if (msc->error_irq_hw_enabled) {
-> -			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
-> -			msc->error_irq_hw_enabled = false;
-> +			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
-> +				msc->error_irq_hw_enabled = false;
->  		}
->  
->  		if (msc->error_irq_req) {
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+prerequisite-patch-id: 3af4bd880f896c97741b54ee18845b305a4bd061
+prerequisite-patch-id: 23091b539ec7723a865d82da7703bf70c6ed0222
+prerequisite-patch-id: ac42a7a373fdc407f6377d0b1c74d728af50ba42
+-- 
+2.43.0
 
 
