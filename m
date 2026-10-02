@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C56CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0D6CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2qbnlCfWtpMJpTInUhAzDoS27bFsbxCID6JcqdfH9o=; b=OCzZYAjhXFDddiVL8RnbSW5l0k
-	YTxt1QtOK78fO0jD2wRT5TM1Uj2WPZVCYhwbtFSNlwJud7rueIzu063R81XaIlC3/rDu4FjIAfLte
-	YNaywMzLECsib3fhJTXaON/+5UPht7ElqdqGSVJChI4NZXuNHbwWwEIW5bdbHfU9ONOuzwXI8rXsf
-	WH8D8MnxYNNFoalzJHAHN8WK5EbU0XzNnKe024zDRzGzUKOY0qMJJYxr1aEbWenP/NZlccpLaAsuv
-	rsyWbwhggtxmIwYlxu7lLmDB1pv8TW2yZYfghUREYLxst8TJVPOJ8n2PbIKYRYrm9bn9KXg96o6H8
-	+xJk/nNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FvmB6zyAfevLbB9RCSK1DuwhV/UjwgPSkov7Fabnr5k=; b=hcWo5Br3JEBRGWMgZ+hSvbsw5f
+	r85ONeqy+h50+B0fj6GFmU4ttL33R5J96r4WQPn3fX0qpB+fR3zgreL/ySH6RtGevtO9tYIl5Lm1m
+	mk4OuSTfUF8GSVm5wTzB5YEl5jIWwjxuXzEMd4Ir/I4Wu27jZV5psF/UNYhn+lvhFWMXffeJAgJQi
+	qc/5w0fhJN+nII+HPz4QYhYP/AYuzM7O6e1yRnt5UBTs8PDLog319McEFcfVbTf+y1o9zBHvdjOPm
+	wXcyF3JEv5BDNGqUiBlP4eoLUqhVdyPmdfzcE7heQoym4oiE69H1RfoMwJu3MAqsPK9WPsxpEScdT
+	vTwHxBiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfCV-0000000BvLm-1Lm9;
-	Fri, 02 Oct 2026 15:29:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfCU-0000000BvKx-1AS9
+	id 1xCfDR-0000000BvYt-0Dly;
+	Fri, 02 Oct 2026 15:30:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCfDO-0000000BvY4-1igm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:29:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4823E60A70;
-	Fri,  2 Oct 2026 15:29:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6371F000FF;
-	Fri,  2 Oct 2026 15:29:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790954969;
-	bh=w2qbnlCfWtpMJpTInUhAzDoS27bFsbxCID6JcqdfH9o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MsvbBDriLGUBuPkGG+TXOygYtreoDOfk5yRbhxaHuznlHbq81x4XHJ0sVS+UcJfp7
-	 WLFCTfvNzAMIvgU5jdnaM1XfSRKf4Bgr320idBQLXxYjErS/nnik2TpwvqQFb5guin
-	 fyKzfDkG9wI7FblnrQzKraetRR4WiINQMf3e7hHZhOIC1uklkIFdPe4IRixnUgyCrH
-	 AFmjieMklHpJ/pLLWLAhBijwJWbPSniaQQzoVIIPHzzX71JbiUgZAcc8q3BkXDPHWn
-	 dZt5G8A4SPW0YIU4YrIcfA1Br27tIbE4k8RkoOj1m+tfFRoMURs5q/c7xESNJbmR/J
-	 uYUezl/z+iNmg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xCfCQ-0000000GHfm-2FHs;
-	Fri, 02 Oct 2026 15:29:26 +0000
-Date: Fri, 02 Oct 2026 16:29:26 +0100
-Message-ID: <86o6dc2ka1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
-In-Reply-To: <CA+EHjTy4rb+6z0bqh7sPqACES0EDpURdeoyiFGmdw3p0PENcOQ@mail.gmail.com>
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-	<20261001210703.1597150-6-suzuki.poulose@arm.com>
-	<CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
-	<86se2o2rbs.wl-maz@kernel.org>
-	<CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
-	<86pkxs2npx.wl-maz@kernel.org>
-	<CA+EHjTy4rb+6z0bqh7sPqACES0EDpURdeoyiFGmdw3p0PENcOQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 02 Oct 2026 15:30:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DB41143D;
+	Fri,  2 Oct 2026 08:30:22 -0700 (PDT)
+Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7875D3F85F;
+	Fri,  2 Oct 2026 08:30:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790955025; bh=Z2LspGkQ5z5Seubq49ws0rOaPx79NGD0/r2VYPepM9A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YOBqbhh55rD5PUXRNb3Ao6y0RLQ96QltvKZhxCchZq1Z/lO0gHRPTiAA+LGjUehv7
+	 yC7EzJ9USIf9GqOP62vpmL+ofQ/VqCApwg4D9ueDOgRBSdYv6uM+gHHeVMGDx/tv5r
+	 /n0vLT5V7kayeSsY5Sk8Uhn6wnKbWzRP4+Mtyc8o=
+Message-ID: <7657b40e-ae69-4218-b5fa-dd00417dfc97@arm.com>
+Date: Fri, 2 Oct 2026 16:30:22 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Use linux-arm-kernel list for the MPAM
+ driver
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, reinette.chatre@intel.com,
+ fenghuay@nvidia.com, Gavin Shan <gshan@redhat.com>,
+ Yin Li <yin.li@oss.qualcomm.com>
+References: <20260915103101.1659477-1-ben.horgan@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20260915103101.1659477-1-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_083026_496184_7A64156A 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Oct 2026 15:37:00 +0100,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Fri, 02 Oct 2026 15:15:06 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > Honestly, we introduce the flavor stuff to make it easy to match
-> > things on a particular VM type in a readable way. So why isn't this
-> > reading:
-> >
-> >         if (vcpu->kvm->arch.vm_flavor != VM_PROTECTED_PKVM)
-> >                 return;
-> 
-> I know this is a sketch, but just in case: that's inverted. The sync
-> only applies to non-protected pKVM VMs (EL2 ignores it for protected
-> ones), so it would be != VM_PKVM.
+Hi Ben,
 
-See what I meant about this stuff being completely intractable? I
-still have no idea what it means! ;-)
+On 15/09/2026 11:31, Ben Horgan wrote:
+> As MPAM is an arm64 feature and patches mostly go via the arm64 maintainers
+> it may be reasonably expected that the MPAM driver uses the list-arm-kernel
+> list.
+> 
+> Make this official by adding the L: in MAINTAINERS.
 
-	M.
+Makes sense - I've picked this up to send on to Catalin.
 
--- 
-Without deviation from the norm, progress is not possible.
+
+Thanks,
+
+James
+
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 6215fcb07770..2113a0051b52 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18436,6 +18436,7 @@ M:	James Morse <james.morse@arm.com>
+>  M:	Ben Horgan <ben.horgan@arm.com>
+>  R:	Reinette Chatre <reinette.chatre@intel.com>
+>  R:	Fenghua Yu <fenghuay@nvidia.com>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+>  F:	drivers/resctrl/mpam_*
+>  F:	drivers/resctrl/test_mpam_*
+
 
