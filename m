@@ -4,81 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F754CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA21CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tX2BpxvDPdOOusTWC31XxGnyftfbM4DWjxTo9mGkzUM=; b=E2paoweUtuuqWMJ1fV85I6Tdf9
-	6IvqvtITECivR2tfCUwnR5y1vr7MReSbMDpiABnSxcEdIW86hpe/BnkFl8ENTbAOKXNhWbwwtlo9F
-	4ZpWPw1LygXePIsgqIrG5EcpblZNTPSDbkuQKm3CtkcDoQOunrr5Y5LuaYwD07sD09MYc+ERLkkTw
-	T9T3TWyrkoF8oGSZG1lT/AEuWg7Ln9YSCEJPUasjkCnVmiI/J/PXB9Y5tdfbGB7CPMsT6b4p6qF0F
-	48IvRDoRoYzuYi4Ibauoc2B27+FrfuZiVSJn9vCc/jvG1dT4cz+ixjwFTJNT6VXIIT6181uihWk0/
-	I5dcn2pg==;
+	bh=6uqtZCh5sKiBa1aMXAb5BJTAZQc8AKFENrdMiTf5wfM=; b=3baHuzGEx1UDBAlpqkiyOf/KEL
+	ohfo9IJ0FSWO32B4vRyokkZCpPnohTUq/t9BqAA88w7XyWV9nvZqLZyPLqVrnTcHUoVnD2qm5rnL9
+	FwUMDCMLc+xGWR+qjx/Olhi9oq29IbMw+8jn4hYDqf0ukTlg/AUKch/mAaf/XZlocRoQSsZr98XA3
+	Rnizvjgw9sWo8zwHMfduZyvsRRjABTIj7fiuUvVIKcHtc0TyRDqFH5h0XlHClUcMFdQjh+qXm5vgF
+	XMAlzVAqeh8EY1bgP0menAgH8rdQaAvlKnAneMZ9asFgMj/kabX9SxkzLP4UnhMVCashDogi0p+Sv
+	izid4ymw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZNv-0000000B76g-0S9V;
-	Fri, 02 Oct 2026 09:16:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xCZOo-0000000B7Ic-1ECk;
+	Fri, 02 Oct 2026 09:17:50 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZNr-0000000B75F-3zrT
+	id 1xCZOl-0000000B7I5-476T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:16:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790932611; x=1822468611;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=GfB4AangzbGer9ZinOHaC9/Iw6vF2BIgUKhcXiugwjs=;
-  b=Wit8YHmB5ovBBYZL7nsbfW+T/YTOM2yCMDh+pxyHRSRiuM3ToXz0QCDE
-   gEDlC0nx6891aVg727I17lEjrGnlBR2gbFJ3odtrl9dMt4hpVGoz347gN
-   /bWRgOCd61gZV4OxrqNRfdFPpi6j5X72Aoev9maTCraAldU6Jzk6bugf8
-   9QibypLoWQSkPR8Q77J2Sj2E06a7bqaKqmcQpP4mZKG/0+S7JAH8x2v2U
-   7tgbWM+Nz1NZ+6Sb4VF4yg/lIoyqrGERGUZZrTuh3s/NP82YdBBdcNPMN
-   15xT3iKsI4/xqoMHpGzfIOV+CFt3ix/gILkXrEXkB0HUqT6KQUjI+SVs6
-   A==;
-X-CSE-ConnectionGUID: 1B6BoPspRIaa6wrCNHZR3Q==
-X-CSE-MsgGUID: ZvhM4zZUR1OcZNmWWtJ1aA==
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="63547603"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 02:16:50 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Fri, 2 Oct 2026 02:16:50 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 2 Oct 2026 02:16:46 -0700
-Date: Fri, 2 Oct 2026 11:16:45 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<horms@kernel.org>, <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v9 15/15] misc: lan966x-pci: dts: add fdma
- interrupt to overlay
-Message-ID: <20261002091645.tbhmk64qsf5wllni@DEN-DL-M70577>
-References: <20260928-lan966x-pci-fdma-v9-15-a17caf60f89a@microchip.com>
- <179092642540.434549.1993526526960644611@kernel.org>
+	Fri, 02 Oct 2026 09:17:49 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69265rQL3958830;
+	Fri, 2 Oct 2026 09:17:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=6uqtZCh5sKiBa1aMXAb5BJTAZQc8AK
+	FENrdMiTf5wfM=; b=ZjppKu+Xb/f/KaoBLr2rFJugyrTL723BCaOwEBmWmBnC59
+	k3r8m67jPcYaVd8ORwmboDqQoEByQbOHVKXkiJL13VNFqJhbyjcMUn1XYp/C3b0a
+	U8LFHujV6zFRyMVGOeqqpZ4wy1hhuk+P8I1k6cW1wbzAxTeSphz+BxkDCWilpBXh
+	rDTwYAsf8GpPZ2pM56xlO1fTtSZ8wotN4veMkOfZCBMv0NPP9V3NYCIgVA80Eoro
+	JfCpcyI8gSweqzVDTicBhDn//xmFOYUyKIzv6hGahIOTdnjpF0/ACQwGz+n3RCfo
+	rcVeSbyy1wMJGociV6QGqhvjz3tR7N/czr/pH2ag==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5j5rjd0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 02 Oct 2026 09:17:33 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 69262PFt2076520;
+	Fri, 2 Oct 2026 09:17:32 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h0xcsj6a3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 02 Oct 2026 09:17:32 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6929HSmC45941162
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 2 Oct 2026 09:17:28 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0BB3B20043;
+	Fri,  2 Oct 2026 09:17:28 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F05972004E;
+	Fri,  2 Oct 2026 09:17:26 +0000 (GMT)
+Received: from osiris (unknown [9.87.132.225])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri,  2 Oct 2026 09:17:26 +0000 (GMT)
+Date: Fri, 2 Oct 2026 11:17:25 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: (subset) [PATCH v9 00/24] KVM: s390: Introduce arm64 KVM
+Message-ID: <20261002091725.22510-B-seiden@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+ <179085262878.3865846.5787241839391727949.b4-ty@b4>
+ <20261001132715.108643-A-seiden@linux.ibm.com>
+ <86wls1315l.wl-maz@kernel.org>
+ <20261002080015.22510-A-seiden@linux.ibm.com>
+ <86v77k326m.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179092642540.434549.1993526526960644611@kernel.org>
+In-Reply-To: <86v77k326m.wl-maz@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDAzNiBTYWx0ZWRfXzf+SaVRSYbxi
+ wF6O6ItDg/TjjQZsWvIS6iA/pNx+kTGeei2b09mnkYuIYMQvNAu4GfhXOyjUUU0ecdGH3IcCXgs
+ 8zzy2BhHZFxJHD9SOSQgWcEEoP35fgc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDAzNiBTYWx0ZWRfX6ksXvNaSh//Y
+ qLGbrcdum8WnH1erhMEoQABB1l9Je2YAFiwqN0X/a9GeNPNsbLWZkrcInVgphwEXJAfvKF8kzoA
+ UIAjEcbcoTC6O+M2TpSUxiugeT+5/TVTNvt2jWqvO83EkDuQTG2CBYApKvu9ZWJ8WMo6+m/eQVZ
+ uy3eJXQNOaX+DaYfQ9LeFKbrWhDTIw4gc0RD6NjqlK8itgz3tvrbx+JtuiptfSPSRb+M/VwxF10
+ FaMYAZoIfFmS1t2noOk7/HasizlcmVvCPkkChT9+60jc69zF0PNT7/66sbeBXUkjVoZTLuqyFqR
+ 0FdGxTkEB4K9x55i0cDA+RhXD1blx10kci9trxb1/sLsHrRVwRkFUPhHRQap8hN3zbRRclFkFdh
+ iFISzd2W8M8fXgxjMcGEbO1ZQSotv8F/yjGjvc9BFh9Hv7qdmfJciVbqVxUGbIp77a2oL5NOyTm
+ HePgsSgJ7jxJP7IFoGg==
+X-Proofpoint-GUID: 8jsrgeQygRoRTjmexax4kfknhqu-s8hs
+X-Authority-Analysis: v=2.4 cv=RKcmjIi+ c=1 sm=1 tr=0 ts=6abf76ad cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=ALOfu2a2d7XKILEI8oUA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: 6Gcx6D6PvRG4WEJpQqeeOPCS1cyvHcMq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-02_02,2026-10-01_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
+ adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_021652_059786_BF64B009 
-X-CRM114-Status: GOOD (  33.77  )
+X-CRM114-CacheID: sfid-20261002_021748_026584_03C3C12E 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,134 +147,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+On Fri, Oct 02, 2026 at 10:02:41AM +0100, Marc Zyngier wrote:
+> On Fri, 02 Oct 2026 09:00:15 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > 
+> > Yes the positioning of the functions look good. It builds on top of
+> > kvmarm/next + this (sightly relocated (line numbes are different) patch
+> > + arm on s390 stuff.
 > 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> Cool. I've now pushed out the rebuilt kvmarm/next branch with this,
+> and hopefully it will make it into -next today.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> Let me know if anything else is amiss.
 > 
-> - [Medium] Once this overlay adds the "fdma" interrupt, PCIe instances
->   use lan966x_fdma_pci_ops, and a teardown ordering bug in that backend…
+> > I'll work on a verification tool for you guys to make this process
+> > easier.
 > 
-> --
-> 
-> misc: lan966x-pci: dts: add fdma interrupt to overlay
-> 
-> This commit adds the fdma interrupt (OIC interrupt 14) to the lan966x PCI
-> device tree overlay. This turns on FDMA-based frame injection and extraction
-> when the switch is connected over PCIe.
-> 
-> > diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-> > index 7bb726550cafd..5bb12dbc08431 100644
-> > --- a/drivers/misc/lan966x_pci.dtso
-> > +++ b/drivers/misc/lan966x_pci.dtso
-> > @@ -141,8 +141,9 @@ switch: switch@e0000000 {
-> >  
-> >  					interrupt-parent = <&oic>;
-> >  					interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
-> > +						     <14 IRQ_TYPE_LEVEL_HIGH>,
-> >  						     <9 IRQ_TYPE_LEVEL_HIGH>;
-> > -					interrupt-names = "xtr", "fdma", "ana";
-> > +					interrupt-names = "xtr", "fdma", "ana";
-> 
-> [Severity: Medium]
-> Once the "fdma" interrupt is present, PCIe instances use
-> lan966x_fdma_pci_ops. Does that make a teardown ordering problem in the PCIe
-> FDMA backend reachable?
-> 
-> lan966x_remove() tears down the FDMA before it unregisters the netdevs:
-> 
-> lan966x_main.c:lan966x_remove() {
->     ...
-> 	lan966x->ops->fdma_deinit(lan966x);
-> 	lan966x_cleanup_ports(lan966x);
->     ...
-> }
-> 
-> lan966x_fdma_pci_deinit() disables NAPI and frees both rings. It does not
-> clear lan966x->rx.lan966x, it does not detach the netdevs, and rtnl is not
-> held at this point:
-> 
-> lan966x_fdma_pci.c:lan966x_fdma_pci_deinit() {
-> 	if (lan966x->fdma_ndev)
-> 		napi_disable(&lan966x->napi);
->     ...
-> 	fdma_free_coherent_and_unmap(lan966x->dma_dev, &lan966x->rx.fdma);
-> 	fdma_free_coherent_and_unmap(lan966x->dma_dev, &lan966x->tx.fdma);
-> }
-> 
-> fdma_free_coherent_and_unmap() only clears atu_region, so dcbs and dma
-> still hold their old values.
-> 
-> netif_set_mtu_ext() only checks netif_device_present(). That means an MTU
-> change that alters the max frame size can still run during this window:
-> 
-> lan966x_port_change_mtu()
->   lan966x_fdma_pci_resize()
->     __lan966x_fdma_pci_reload()
->       lan966x_fdma_pci_reload()
->         napi_disable(&lan966x->napi)
-> 
-> The resize guard is only this check:
-> 
-> 	if (!lan966x->rx.lan966x)
-> 		return 0;
-> 
-> rx.lan966x is still non-NULL after deinit. Would the second napi_disable()
-> on an already disabled NAPI spin forever while holding rtnl? That would also
-> block the unregister_netdev() that lan966x_remove() calls next.
-> 
-> The probe error path in lan966x_fdma_pci_init() looks like it has a similar
-> gap:
-> 
-> 	err = lan966x_fdma_pci_tx_alloc(&lan966x->tx);
-> 	if (err) {
-> 		fdma_free_coherent_and_unmap(lan966x->dma_dev, rx_fdma);
-> 		return err;
-> 	}
-> 
-> rx.lan966x has already been set earlier in lan966x_fdma_pci_init(). The
-> netdevs registered by lan966x_probe_port() stay live until the cleanup_ports
-> label.
-> 
-> If an MTU change arrives in that window, NAPI is still enabled from
-> lan966x_port_init(). lan966x_fdma_pci_reload() then allocates new rings and
-> does:
-> 
-> 	fdma_free_coherent_and_unmap(lan966x->dma_dev, &rx_fdma_old);
-> 
-> Is this a second dma_free_coherent() of the RX ring that the error path
-> already freed?
-> 
-> After that, reload re-arms the FDMA on the new rings. The probe error path
-> never calls fdma_deinit for them. Would the coherent memory for the new rings
-> leak, with the outbound ATU windows still mapped and DMA active after probe
-> fails?
-> 
-> The resize guard added in "net: lan966x: add PCIe FDMA MTU change support"
-> is meant to skip the resize until lan966x_fdma_pci_init() has built the
-> rings. It doesn't seem to cover rings that were torn down or only partly
-> built.
-> 
-> The shutdown callback from "net: lan966x: add shutdown callback to stop the
-> FDMA on reboot" avoids this by taking rtnl and calling netif_device_detach()
-> so that ndo_open and ndo_change_mtu can't re-enter the FDMA. Should the
-> remove and probe error paths get the same protection?
-> 
-> The platform backend already has the same remove ordering. The PCIe deinit,
-> resize and reload code is new in this series, though, and this overlay change
-> is what first makes it reachable.
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928-lan966x-pci-fdma-v9-0-a17caf60f89a%40microchip.com
+> I guess the ultimate verification tool is to build s390 with the rest
+> of the patches, which I've just done. This doesn't lead to any error
+> that wasn't already reported.
 
-Pre-existing. Lan966x_remove() is a platform function. It's a re-raise of v7
-11/14 / v8 15/15, the probe/remove ordering. The issue is real, but out-of-scope
-for this series.
+Yes. Fortuinately this will be availabel soon :) 
 
+I wanted to create a simple build target or similar for arm64 that
+mimics the s390 use of arm64 shared code but compiles using an arm64
+toolchain to reduce friction for esp non-maintainers.
+
+I have some ideas. They may work. Let's talk at plumbers about that.
+
+	Steffen
 
