@@ -4,159 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9045DCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A7CCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJRKfKcudVdIXp7kbw1mzYEB8ftrNn95nsWIQz3ozyU=; b=ejpJrx7hKNU0OburKHOgIRaQDP
-	EqJdeeo2mJ5e8SF/aZn9DiNiUYtp0Llx2//0yJ8VVvtazCwhC8RyRyhc9Pz8qS/v5QUxEaZ07WIFs
-	he9ulT6YHWH3ea5VFWZ1caD+J2Ezw/+axSJtirsSA1vhA55Gs2ioCi49V3Fd1Z1JYWvqbWDSsgv4b
-	gpwIG8BtVjEgGCgH9kf3prUbjO/IP1i6Y0VVTrqiMrVO/BpI5zL6VZdaSqk5Q2PkBP++6kLEOQ+I+
-	xwISXWWWYkxZAkC3Ylg8mtSf2jSxKp4RE/+8vt6gUXf6fHeceGFDSDjNFknrdVZ5U4aOp3M6lJx6W
-	y3AnkpbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QXCm89YgWlOfFMMcD+ln38RylJPQVlzhUuqL1d8yYkk=; b=2y7ITUDbr/8UHDh36QC/+pqKX4
+	7Lgj12KEVZbB7Jkg8fizG6jT+/TjAJNXpwGUm78AxYbuwuBzNzTFEf7O+oIVoCqVC6QRLhvKD6Xu7
+	kzqbfESWNFHj4AreLQUtwZrOVxNpb/4bWrbCjpqBLz+fpnNl0xMlWyHq5lxwOMFA1iBsJCTauEYb7
+	fJhGUKJmpFRP/KKY73oCn1VXMHest3c4Z4uRIU4BQHSIIBmM/ZJtJ/BeqgHPWf9qKHJCxFW3Dl2MC
+	ZTDlFknDHz7BAJKbr+ucKnST32If6J86cVWOmrCXOw5YNnzIB4cvK2A2rB4yIezUYoygxNoYUPeIz
+	LPzY3akw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCcea-0000000BbhP-3sSv;
-	Fri, 02 Oct 2026 12:46:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xCcnE-0000000BcUa-2PCB;
+	Fri, 02 Oct 2026 12:55:16 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCceY-0000000Bbgw-2Bqo
+	id 1xCcnB-0000000BcU8-47XP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 12:46:19 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6929nbbu1190437
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Oct 2026 12:46:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TJRKfKcudVdIXp7kbw1mzYEB8ftrNn95nsWIQz3ozyU=; b=Qqm0qUao8AqMrszC
-	lwhBZ5MZPsdrBMukQGX0AE6n1C3g+JdMT+L69ecCi+z8vgxzN+PucBN9X9H1eckZ
-	5Ni+Di7soU3uUbWEZsP1z/+2XCwUbYTiDeif1g2bkDsN7CH4Jsm6GxJSQilhCWGB
-	t3z7UDFi1ipJ2HAUKYap10UHYbXIVfZaYN8bn7VjWf28zynKDlYybBUz5d4Ye6S3
-	x+gGLMkrwNwGsejIOvm2Cd5X3+3E1iqbNwOTpkWZIObyuYq6/b5t1bf5oqSADRC8
-	Mz9+1s4G6TwRYCcZRORaW8HGil3tVOjqFbEc2txC+D07Hhf+SMoHhrhgm44fIXdv
-	D1tVow==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1w8tk0ge-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:46:18 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cfa4e4684bso126200345ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 05:46:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790945177; x=1791549977; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TJRKfKcudVdIXp7kbw1mzYEB8ftrNn95nsWIQz3ozyU=;
-        b=MUB4OLTqyFzP6Qbb5IJtQduA9cJdFNIs1Tci/zk5s0JAcUcBkz8/mesv8qCmJGTQy0
-         MO8PRKp90/NyPPFYwgpJXBoJA43ZW//lZwnCKc3k2HD5YmT/eVH+ys4kU8dnd0Nz75oW
-         zIjLTISjrGOtVCbdeERWcYXU9q0Fhe6J/uoFJOqkF84+TRHfF1nMaA/lT1jqx/LfAVo9
-         Ssyw1ZrmEe40iFc9tp+/0UzpuNn23/gNImW4ybVckyiIqvAjFuaes0kmykbXPuImZyB9
-         Pv+31sjJKHX9zhcpP6fqg3SRPdcfjwfB54Rh+jfChFFv/YG++nMFRwTzJZMco1d9aAwR
-         9NWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790945177; x=1791549977;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TJRKfKcudVdIXp7kbw1mzYEB8ftrNn95nsWIQz3ozyU=;
-        b=Nvvn8IHRM1pDPK2oerjY1QgP8QV9TAQj9Gj3Ak7EqhiyN4bj83PawdJXWGWXH3pxUr
-         aOhoaspCYVhuy972/X8sN+hdTMSNfBEsV84pVn8T555oDZhFFybajY75P+g53R/yDFV5
-         PSpzX2vs4vt41Bn9djvDQHSrmTl2wfB3H3HLUdz6S8OOPYltJO1CeDkEvBpTrj4A3WFF
-         P7UKRhsqCkCvOdKLGcAUcA7Isn9J6CVqcQFL0YjqsrAfvUHiSP4ru75BqtR/U93nuCAf
-         +tIKUAmtQtJR3fkSVN8M4BPJyatI906Krnk4zqRVyfg6pgQ4ncPJYbnH2mIIhqaGWB4v
-         nP3g==
-X-Forwarded-Encrypted: i=1; AKwUvBxZAe+Ip1dx6lfEVBKXyILneWj8MhSlX0xApQhDLU3fca4BS4fFjp0oq+/6ZNe9WXTw3+YNzQho2fyXXorKdPYu@lists.infradead.org
-X-Gm-Message-State: AFq9FYL8sKY8dTlQkzCnbydcvq4ZIfNrWAck+I2dkHepWBriWDCqkWBj
-	5UAF5/IF3R1AVt7JXDfgrSlKtsSrZLpCbiOg0TG7jDLT8dgkWy+HO/oIfXqeflh3uoRMXQmU1hv
-	ihc0pEORXaQl9TXtgn8FS257dXxSBOtYJlfhY9u+YJ7zTTWg9nPZhue1z3wf33nDS7lRksFHBqI
-	6Y/A==
-X-Gm-Gg: AYBFou2SSQv2lcaOEobfbujWOZyt3qg0wS/h0tdx5BmycphPTDo7L0yavFG3PrVAZKr
-	ZW7D7lsUDwxMUX7AO1NZV4yxH/kG830zpBy36vbhmYVtbdgt34YUt+Xn61n0bBt2M1s5ndQCvbp
-	GjlMaSmrMQ45qEtMLxDustBharkbEaADKH6dTi+bayJVxL08Khh+2wcp0zRtOJoUmP8XT6AZhnA
-	2E7Xik405Z6iTcO9G62SRcyzydOnkSZUVLozXt/QiAwCFQ/RvUaB7m893A7Qk5KYFYMcR859qNI
-	dG7UlI9+j6lM49m/XARRc3U2leSlyp2olHScwMI9EFFJedhPfCfoaz2x2+pyV4GhrYmmL9wOe/A
-	oIXeLlpFe3Y/5dWNqFlwCNeoGYGLf0bjLw80lBkr0uKWLbq7qBYBGHSk8FPT6zwpw+OLRBA==
-X-Received: by 2002:a17:902:ccd2:b0:2df:59f1:f304 with SMTP id d9443c01a7336-2e49b65e87bmr23206235ad.33.1790945177272;
-        Fri, 02 Oct 2026 05:46:17 -0700 (PDT)
-X-Received: by 2002:a17:902:ccd2:b0:2df:59f1:f304 with SMTP id d9443c01a7336-2e49b65e87bmr23205955ad.33.1790945176740;
-        Fri, 02 Oct 2026 05:46:16 -0700 (PDT)
-Received: from [10.133.33.14] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e49f71c1d8sm7308885ad.70.2026.10.02.05.46.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Oct 2026 05:46:15 -0700 (PDT)
-Message-ID: <4e218e26-19ac-4c05-94a8-c156952f4da0@oss.qualcomm.com>
-Date: Fri, 2 Oct 2026 20:46:05 +0800
+	Fri, 02 Oct 2026 12:55:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ug+P746c7tcVr4kSwkDTqakg83YnlKJ2QYR7NId+da9Iqo5+E+KH/qdprOeMwLTuWEGo5V2nixwAJEMH0oTlxSLuEiVfpOOW0B6bPibRo7ZN6biOJKUHujGZBxJvdxZ3u83HKthFcrAcS0HTNZBNBAdMZXv/hbYu42Uk7GrYf8H1F78I+QVFe6Yc6gUE5ih5hjcUU7FRG0rHEmBEkUL3DO5w2TuhHDAJkemqFsR4nJ/KD72rZ4Yuv9dRj6JBA/jZE+YmW2p4Ti7hpr9CzN2hDrpzuic2vK6KnL38HI10AGC1eh06iMXgGd0iVA9NrI9Hqctvcob3IOA9fUI/Vf/t1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QXCm89YgWlOfFMMcD+ln38RylJPQVlzhUuqL1d8yYkk=;
+ b=Mvs4dBfTWM3QnDxOEMtbfqL3unvR+xXKzKGYk2zQbjaHThn/XTRbSDPF5+OrgPFgTh/vqY7QvEmEvkVt9QEVgRXERLdqDi+b5Xk2COwvhE9k/x4XgRcWvd4AF+KgMPhcTqjbhG/rSMU+xNNtkBM58VZBy/p1H9TVyojtzoIxZMTn3rmqxcZ4Iz/r27ZYyCkoK0uKnovMRNWFJzzjiinjmzhSBEQVzYzFKzlvds6OEeqr3m1WrYm2EIFw4ZwArrIGPYjuLqGKkqbADP7xH/SuY31PaI4ibJPADnG80xCGo7DF2e7YxV6j9XKctiz0uhGOgcBbElYbcuCWjL5S9CZpWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QXCm89YgWlOfFMMcD+ln38RylJPQVlzhUuqL1d8yYkk=;
+ b=GEYeMEvhZga2xppCbj+R0+QkYF2ICtynuore4YjC2faaMmnITqyZf4Wkz5mQvxbL1GKqwByO36fnRaUvzn+gc1MTN2Oq2smA3CE6yvDf5bf5HKqydGHvGGKTnKNmmQrNwH9Q/UpJixMGTxZueNO/YAhb9GwIrNPHAxIJCx1VOV+Ts/kgOBZpAfFBEIfEgCrF3siI3ZgRV9neTSzv8TSQbqrDp6juZH5LG2vViTAUj066raLy+6mzqaDU8cfp4qgJtUJ0/4fOamoA2zzWKtwtv5Oe5c7wzvLnzMOLnzmBtdjViJkpFHuVJRGsnlaTEup4Ev8sxOO55jVGSGvQsHV1ow==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17) by VI2PR04MB10168.eurprd04.prod.outlook.com
+ (2603:10a6:800:229::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
+ 2026 12:55:05 +0000
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0472.016; Fri, 2 Oct 2026
+ 12:55:05 +0000
+Date: Fri, 2 Oct 2026 15:55:01 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Bill Wendling <morbo@google.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	llvm@lists.linux.dev, codemender-patching+linux@google.com
+Subject: Re: [PATCH] bus: fsl-mc: Annotate fsl_mc_io.portal_virt_addr with
+ __counted_by_ptr
+Message-ID: <kgtsddrbn2b3bseck7ac4gtuxjhqnqwxwlmcimumvduxmxxtqa@tnhtf6mfu7ls>
+References: <20260922223538.2287676-1-morbo@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922223538.2287676-1-morbo@google.com>
+X-ClientProxiedBy: FR0P281CA0043.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:48::8) To MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] cpufreq: Skip updates for unchanged resolved limits
-To: Christian Loehle <christian.loehle@arm.com>, rafael@kernel.org
-Cc: zhenglifeng1@huawei.com, viresh.kumar@linaro.org,
-        linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-        Mario Limonciello <mario.limonciello@amd.com>,
-        K Prateek Nayak <kprateek.nayak@amd.com>,
-        Huang Rui <ray.huang@amd.com>, Perry Yuan <perry.yuan@amd.com>,
-        "Gautham R . Shenoy"
- <gautham.shenoy@amd.com>,
-        Vanshidhar Konda <vanshikonda@os.amperecomputing.com>,
-        Shubhang Kaushik <sh@gentwo.org>,
-        Pierre Gondois <pierre.gondois@arm.com>,
-        Beata Michalska <beata.michalska@arm.com>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Ionela Voinescu <ionela.voinescu@arm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Lukasz Luba <lukasz.luba@arm.com>,
-        Jeremy Linton <jeremy.linton@arm.com>,
-        Peter Zijlstra
- <peterz@infradead.org>, jonathanh@nvidia.com,
-        zhanjie9@hisilicon.com, Vincent Guittot <vincent.guittot@linaro.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>, zhongqiu.han@oss.qualcomm.com
-References: <20260929102957.2591657-1-christian.loehle@arm.com>
- <20260929102957.2591657-4-christian.loehle@arm.com>
-Content-Language: en-US
-From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-In-Reply-To: <20260929102957.2591657-4-christian.loehle@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: ifRtXxyuZcmuZOjLoeOigXLyh6KID5_B
-X-Authority-Analysis: v=2.4 cv=ML/1C8Zl c=1 sm=1 tr=0 ts=6abfa79a cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=7CQSdrXTAAAA:8 a=wYuGpgGkS1f18Qd9x5MA:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDA1MCBTYWx0ZWRfX6WUADbWWLi9c
- aj76A6xUc2l57Wgv5J4gyadSAA9+SujSAG4IhaqmhHBl+NQUkMwgR+QTFa6e5h//l/8z/1SNf/S
- LMrIDmOmxB89rb+7LrVIDG04t2nOyEICJHGy2Ji4Pc9V8dJ7W4lATOPkIhSwwSlGcmgh4T1l6ln
- 3RkXOla9XTPp5w8ztsKCc52S0WbRe0fVRt6FBNR8t2L3HLbgAw88WcufJIDxn6jBpl64c8NG7py
- 43qCBBhnTrmpHUpEaf8nkVCAUAXlVzMn05T3iICZyu14qt19H8te5KMlXVuUWgxAfZmZBh+JRrn
- yj7h8wQS3EpaolxiN/0o3JyMwsDF/gjng6fnWJbV7usl4pNfJomd4wtPTusZUY8V00G/5mZoYgs
- d4lXtVQehOLvBr2wEKQ0TYPmFbtCc9r+qZgcGV12bRECoeGChFO6sPmUYkEiT3E5EXGOCs5Bezj
- 2djrKgIyf1vm5oghjKQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDA1MCBTYWx0ZWRfX2J8SD97plOwM
- H7OqbniCTspC7qRBy9h4mqz48XjhK2ZT1PZfyvK2XdZ6q5uwNlywKxl3/AtM0Gca2bwaxrjXnJH
- PEMEIGEYrODB/ZJcc4Cg4ddkYhzyRyQ=
-X-Proofpoint-ORIG-GUID: ifRtXxyuZcmuZOjLoeOigXLyh6KID5_B
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-02_03,2026-10-01_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 impostorscore=0 phishscore=0 spamscore=0
- bulkscore=0 suspectscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020050
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|VI2PR04MB10168:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e40d0e6-6e31-43f5-df7a-08df20846189
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|7416014|376014|1800799024|366016|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: sIZGr+F2eKIhP4E0pSM0EZMA8fHhcJs7NMWCtusTgn736J57HQVyM/4HJ0LhL6jhfxs0hCqO4CTv/wM6TZAGKhXqgMU6T0iyPbHJrbe9qjuTQMOLERZVN7o0LdpoT2NnmnyXykr0M2hQuHaGZ2rqyR3in2Z9C5QBTlCRdpVznlXL8+Kn+cjdsIc66hmNbqZT6S1+rNzTP3DA1YNefwm9y5C+T8JztNVd11bX3jUex0kvd7zfTIra5rFfcsZTQ2damfbIYxZ3wzAnrDvjx3wkqk3H/iwk4M8U7itQYjQMRNAUAPR2ePvbMLkN1iBUTRTIifWbWrnh2cHSc6VDnb9sQHPTB/ghRVXl1OhT/KZLFlpN1DMR/3+88hTKXvWb0pPqrJUkQH11vDfMIHYmHZlZvZowv/AWi2DBhYxVKxCvvgjFKLzs7gJF3uq/CPebW5tt31J/HdkRbcxSBqqjIM+vOfsl+UI8gbfH4uQaLPObolotP9ymgmxgqL7hv+HxXOwlAEuvn7tJ/mPM67ecteo8m/DhdEZoxpeZ80Bt+xe52Vzhz/ZODLI2vbWaJYVTTN8ejAG9Pr+D0khBjCVs71ggSe1hP9dur0cBmA3fKCZbKUKPhwTY3Yd0ar8lJ7WOWiaqTQbs2Y5uxJvi8bUzd12GyK7KImYylxuCdBr7slRzUPg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(7416014)(376014)(1800799024)(366016)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6MFWMwBcMmSK8wzCkT1T/+ecGiXi4Fe+CHZ8XS6wztHDMkwbJwUE09wRsFHF?=
+ =?us-ascii?Q?UG+DcsvdLX0vozJt/tsz9WAo74JKGm02WPjnmrADQF/6pfj1JGM45wWPtDZV?=
+ =?us-ascii?Q?dTA5QYIsLsgTdS87zQrmxTsIowhoKL7BERaYNmI7rUuVPgO/IFS8LFgS2Mxq?=
+ =?us-ascii?Q?EpPlQ2I1ffj5fJy0EXLeafq9ddgu+2nlnAUr00lEfKRkMRVs8iSXEma68hBA?=
+ =?us-ascii?Q?kputeUDJallAdY3zQag3vXIMwN9GuavOaT0S3/EHJAxih8QwVaFCdf3PWdVA?=
+ =?us-ascii?Q?Kru/r+9lZf264lZZ5ZU8+MdbAjzedW3Qu4zSWg2EjbVLY4gmwGtEK9yt45xD?=
+ =?us-ascii?Q?T21+SM0BjjbaDPHeL0eGWUk2+zcirQRpNKd1LusXcsVj/sFLZxY7vhii9hXo?=
+ =?us-ascii?Q?4/BXoyIlnSPHw7kR1oJ5D0nj8BmLnh2aQbp176oRw2yKBva/rmRRzuxKqZ/Y?=
+ =?us-ascii?Q?ThePcnLLDyX2Y+YIgDrOPLuBMCVrz3E7XpQ9FS6RIyIikxsyZuYTElXpyENf?=
+ =?us-ascii?Q?dG+nwalmNm3dmUbkrPlp+Wbw2Mf59JvZwPMCm96V1dE4rlS3KLo5VL0RJfbU?=
+ =?us-ascii?Q?bdBEZ22SPaKosRJrn2iLemCeT9XQZNzQqFCH406QKXDkoGiXWK2duibDu1vQ?=
+ =?us-ascii?Q?ckWs4FjD7mM2OvmuRt1/3N+xApLGtxGeCE352am+B3fQWpeKOSzD1EUYXAdk?=
+ =?us-ascii?Q?I7oSjZc46LUqBbdMnHrL2E7A00fMzflyJ/4ZN2qULwSHmGZX5aBqQLYwbBk9?=
+ =?us-ascii?Q?qH0BoGc5GfMgN5k1N0YLwG4UHmktMgZnu294qHx+El2kJPk3mBng89DLHc0X?=
+ =?us-ascii?Q?An6fFbQnO/8e/XI4MuKT0Y8y55puuDG/J/rk9Jh9CieOx7dI+B+c859NPx+c?=
+ =?us-ascii?Q?3ssifC39wxbs2gNB9SwtlcfkxHa18JAwz+oYK862lUDsOBbu87x8v10rb1OX?=
+ =?us-ascii?Q?Ay7TJEleJjuXQKAV9gksGlOJQITGeiNpHh7kz9n07kJdsi6/aGmFweSSbuuC?=
+ =?us-ascii?Q?JZk5Gy7qCQpwk4c6wp16FcXUZYZH+a6Iff0Zv9ttp78xQ/+/nqa6XUZikKoA?=
+ =?us-ascii?Q?K8OpAonTzntQVaPSDNBeKF3b2WTZniXnougLQ/wtq44nvcOtjkDe3LkvMBzI?=
+ =?us-ascii?Q?SR/qcCMW0sBbIpgP+3VPiDiGwHPVVWjWlFyltJyPSEj4Vm5OBv/uUBqQnDhR?=
+ =?us-ascii?Q?mKYuQ5c+yLVK0MODb+EUsgY4BxwsTfVh66ev1H4r3lXFFjrjmcCaM5DU3vsQ?=
+ =?us-ascii?Q?K+v8Jr78BZ3v7is5546tBvfTMKavC5snUT2jmeWwFRSDVFhDYSGY5iflu5We?=
+ =?us-ascii?Q?37O36zVnCjCCXLcg0oK8WfN+tfetbuBfm/SvUKv495c/RaY8KrzyfgvdXEce?=
+ =?us-ascii?Q?VHuk4qOU9DPXUP8ZW9jeoGOseECwAkK/cTqzV6OkiYa5BUvTlitbNe2oXmss?=
+ =?us-ascii?Q?fvDqZlUDcTreiyljQ5jTKPpV2RBJwC3fQI4NCqXVTlrVzOafbzvuXzZujxCV?=
+ =?us-ascii?Q?H1pevgbxA/pe+z75zvXNxMEyth3z1lHeM7fG+YrSJ5IHSfgjzewI7Hwiulgx?=
+ =?us-ascii?Q?5g813Rll4LE0kIkT6QRV9FPn1rySfiyFONYqSNsiw4obCqHEp5Yofu+4Oh1L?=
+ =?us-ascii?Q?TXUzWtlmY/sfMX6vSx4r6ztbvfOF2NzrPTT8eid9Wf2k60dRIK03PRfLuu+m?=
+ =?us-ascii?Q?Io/Uuwu8h6y74gdzfd0mZAl4WOE5r4y3gGGf/5kAJqnkhJ0kXQhF5GA0rXz2?=
+ =?us-ascii?Q?GqSNnFMmoQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e40d0e6-6e31-43f5-df7a-08df20846189
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 12:55:05.4679
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N1C+VZQapDohbRaiVlbV+09jredN/v6LRGy9IJV3MV8O/WCJs0TNZQQLPI1E5ZstMp00O+Y6jJ+YafboaLfXog==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_054618_604210_F499C80A 
-X-CRM114-Status: GOOD (  30.48  )
+X-CRM114-CacheID: sfid-20261002_055514_219597_035A8DFC 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,256 +139,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/29/2026 6:29 PM, Christian Loehle wrote:
-> Commit 9801be8bef65 ("cpufreq: Avoid redundant target() calls for unchanged
-> limits") introduced policy->update_limits to skip ->target() when both the
-> frequency and effective limits are unchanged. schedutil still bypasses its
-> frequency cache on every limit notification for CPUFREQ_NEED_UPDATE_LIMITS
-> drivers, and fast switching never consumes the pending state.
+On Tue, Sep 22, 2026 at 10:35:38PM +0000, Bill Wendling wrote:
+> The GCC and Clang compilers provide the __counted_by_ptr attribute,
+> which is used by KASAN and compiler bounds-checking to detect
+> out-of-bounds accesses to pointer fields.
 > 
-> Keep raw QoS/limit notifications triggering schedutil recomputation, but
-> only let CPUFREQ_NEED_UPDATE_LIMITS force a same-frequency callback when
-> resolved policy->{min,max} changes remain pending. Expose that test through
-> a cpufreq-core helper.
+> In "struct fsl_mc_io", the "portal_virt_addr" pointer points to the MC
+> command portal virtual address. The size of this allocated portal in
+> bytes is tracked by the "portal_size" field within the same structure.
 > 
-> Consume pending state before both slow and fast callbacks, including
-> frequency changes, instead of clearing it only in the target == cur case.
-> Use release/acquire ordering for the limits and restore pending state on
-> failure, preserving concurrent updates and retries. Favor the maximum
-> if lockless limit reads observe an inverted pair.
+> Annotate the "portal_virt_addr" pointer field with
+> "__counted_by_ptr(portal_size)" to enable compiler bounds-checking and
+> harden against potential out-of-bounds accesses.
 > 
-> This applies to cppc-cpufreq and amd-pstate's frequency-based paths; the
-> ->adjust_perf() path is unchanged.
-> 
-> Signed-off-by: Christian Loehle <christian.loehle@arm.com>
-> ---
->   drivers/cpufreq/cpufreq.c        | 82 ++++++++++++++++++++++++++------
->   include/linux/cpufreq.h          |  1 +
->   kernel/sched/cpufreq_schedutil.c | 19 ++------
->   3 files changed, 72 insertions(+), 30 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index 44bda2f32fcf..9e932c2a986d 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -2058,6 +2058,21 @@ bool cpufreq_driver_test_flags(u16 flags)
->   	return !!(cpufreq_driver->flags & flags);
->   }
->   
-> +/**
-> + * cpufreq_driver_needs_limits_update - Check for a pending driver limit update.
-> + * @policy: CPU frequency policy to check.
-> + *
-> + * Return: Whether changed resolved limits require a driver callback.
-> + */
-> +bool cpufreq_driver_needs_limits_update(struct cpufreq_policy *policy)
-> +{
-> +	if (!cpufreq_driver_test_flags(CPUFREQ_NEED_UPDATE_LIMITS))
-> +		return false;
-> +
-> +	/* Pairs with cpufreq_set_update_limits(). */
-> +	return smp_load_acquire(&policy->update_limits);
-> +}
-> +
->   /**
->    * cpufreq_get_current_driver - Return the current driver's name.
->    *
-> @@ -2183,6 +2198,30 @@ EXPORT_SYMBOL(cpufreq_unregister_notifier);
->    *                              GOVERNORS                            *
->    *********************************************************************/
->   
-> +static bool cpufreq_test_and_clear_update_limits(struct cpufreq_policy *policy)
-> +{
-> +	if (!cpufreq_driver_needs_limits_update(policy))
-> +		return false;
-> +
-> +	return xchg(&policy->update_limits, false);
+> Cc: codemender-patching+linux@google.com
+> Assisted-by: LLM
+> Signed-off-by: Bill Wendling <morbo@google.com>
 
-Since policy->update_limits is a bool, this would require a 1-byte
-xchg(), which, as far as I know, is not supported on all architectures.
-such as on sparc:
+Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
-static __always_inline unsigned long
-__arch_xchg(unsigned long x, __volatile__ void * ptr, int size)
-{
-	switch (size) {
-	case 2:
-		return xchg16(ptr, x);
-	case 4:
-		return xchg32(ptr, x);
-	case 8:
-		return xchg64(ptr, x);
-	}
-	__xchg_called_with_bad_pointer();
-	return x;
-}
-
-
-> +}
-> +
-> +static void cpufreq_set_update_limits(struct cpufreq_policy *policy)
-> +{
-> +	/* Publish the new limits before making their update pending. */
-> +	smp_store_release(&policy->update_limits, true);
-> +}
-> +
-> +static void cpufreq_read_policy_limits(struct cpufreq_policy *policy,
-> +				       unsigned int *min, unsigned int *max)
-> +{
-> +	/* Lockless reads can mix limit updates; favor max if inverted. */
-> +	*min = READ_ONCE(policy->min);
-> +	*max = READ_ONCE(policy->max);
-> +	if (unlikely(*min > *max))
-> +		*min = *max;
-> +}
-> +
->   /**
->    * cpufreq_driver_fast_switch - Carry out a fast CPU frequency switch.
->    * @policy: cpufreq policy to switch the frequency for.
-> @@ -2209,14 +2248,20 @@ EXPORT_SYMBOL(cpufreq_unregister_notifier);
->   unsigned int cpufreq_driver_fast_switch(struct cpufreq_policy *policy,
->   					unsigned int target_freq)
->   {
-> -	unsigned int freq;
-> +	bool update_limits;
-> +	unsigned int min, max, freq;
->   	int cpu;
->   
-> -	target_freq = clamp_val(target_freq, policy->min, policy->max);
-> +	update_limits = cpufreq_test_and_clear_update_limits(policy);
-> +	cpufreq_read_policy_limits(policy, &min, &max);
-> +	target_freq = clamp_val(target_freq, min, max);
->   	freq = cpufreq_driver->fast_switch(policy, target_freq);
->   
-> -	if (!freq)
-> +	if (!freq) {
-> +		if (update_limits)
-> +			cpufreq_set_update_limits(policy);
->   		return 0;
-> +	}
->   
->   	policy->cur = freq;
->   	arch_set_freq_scale(policy->related_cpus, freq,
-> @@ -2367,12 +2412,16 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
->   			    unsigned int relation)
->   {
->   	unsigned int old_target_freq = target_freq;
-> +	unsigned int min, max;
-> +	bool update_limits;
-> +	int ret;
->   
->   	if (cpufreq_disabled())
->   		return -ENODEV;
->   
-> -	target_freq = __resolve_freq(policy, target_freq, policy->min,
-> -				     policy->max, relation);
-> +	update_limits = cpufreq_test_and_clear_update_limits(policy);
-> +	cpufreq_read_policy_limits(policy, &min, &max);
-> +	target_freq = __resolve_freq(policy, target_freq, min, max, relation);
->   
->   	pr_debug("CPU %u: cur %u kHz -> target %u kHz (req %u kHz, rel %u)\n",
->   		policy->cpu, policy->cur, target_freq, old_target_freq, relation);
-> @@ -2384,11 +2433,8 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
->   	 * calls.
->   	 */
->   	if (target_freq == policy->cur) {
-> -		if (!(cpufreq_driver->flags & CPUFREQ_NEED_UPDATE_LIMITS) ||
-> -		    !policy->update_limits)
-> +		if (!update_limits)
->   			return 0;
-> -
-> -		policy->update_limits = false;
->   	}
->   
->   	if (cpufreq_driver->target) {
-> @@ -2399,13 +2445,19 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
->   		if (!policy->efficiencies_available)
->   			relation &= ~CPUFREQ_RELATION_E;
->   
-> -		return cpufreq_driver->target(policy, target_freq, relation);
-> +		ret = cpufreq_driver->target(policy, target_freq, relation);
-> +	} else if (cpufreq_driver->target_index) {
-> +		ret = __target_index(policy, policy->cached_resolved_idx);
-> +	} else {
-> +		if (update_limits)
-> +			cpufreq_set_update_limits(policy);
-> +		return -EINVAL;
->   	}
->   
-> -	if (!cpufreq_driver->target_index)
-> -		return -EINVAL;
-> +	if (ret && update_limits)
-> +		cpufreq_set_update_limits(policy);
->   
-> -	return __target_index(policy, policy->cached_resolved_idx);
-> +	return ret;
->   }
->   EXPORT_SYMBOL_GPL(__cpufreq_driver_target);
->   
-> @@ -2681,7 +2733,7 @@ static int cpufreq_set_policy(struct cpufreq_policy *policy,
->   			      CPUFREQ_RELATION_H);
->   	if (freq != policy->max) {
->   		WRITE_ONCE(policy->max, freq);
-> -		policy->update_limits = true;
-> +		cpufreq_set_update_limits(policy);
->   	}
->   
->   	freq = __resolve_freq(policy, new_data.min, new_data.min, new_data.max,
-> @@ -2689,7 +2741,7 @@ static int cpufreq_set_policy(struct cpufreq_policy *policy,
->   	freq = min(freq, policy->max);
->   	if (freq != policy->min) {
->   		WRITE_ONCE(policy->min, freq);
-> -		policy->update_limits = true;
-> +		cpufreq_set_update_limits(policy);
->   	}
->   
->   	trace_cpu_frequency_limits(policy);
-> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> index a0a7619d11fd..acd60c2b30f1 100644
-> --- a/include/linux/cpufreq.h
-> +++ b/include/linux/cpufreq.h
-> @@ -499,6 +499,7 @@ int cpufreq_register_driver(struct cpufreq_driver *driver_data);
->   void cpufreq_unregister_driver(struct cpufreq_driver *driver_data);
->   
->   bool cpufreq_driver_test_flags(u16 flags);
-> +bool cpufreq_driver_needs_limits_update(struct cpufreq_policy *policy);
->   const char *cpufreq_get_current_driver(void);
->   void *cpufreq_get_driver_data(void);
->   
-> diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
-> index 49ccd6f1c185..43e448ee3c4c 100644
-> --- a/kernel/sched/cpufreq_schedutil.c
-> +++ b/kernel/sched/cpufreq_schedutil.c
-> @@ -123,22 +123,11 @@ static bool sugov_should_update_freq(struct sugov_policy *sg_policy, u64 time)
->   static bool sugov_update_next_freq(struct sugov_policy *sg_policy, u64 time,
->   				   unsigned int next_freq)
->   {
-> -	if (sg_policy->need_freq_update) {
-> -		sg_policy->need_freq_update = false;
-> -		/*
-> -		 * The policy limits have changed, but if the return value of
-> -		 * cpufreq_driver_resolve_freq() after applying the new limits
-> -		 * is still equal to the previously selected frequency, the
-> -		 * driver callback need not be invoked unless the driver
-> -		 * specifically wants that to happen on every update of the
-> -		 * policy limits.
-> -		 */
-> -		if (sg_policy->next_freq == next_freq &&
-> -		    !cpufreq_driver_test_flags(CPUFREQ_NEED_UPDATE_LIMITS))
-> -			return false;
-> -	} else if (sg_policy->next_freq == next_freq) {
-> +	sg_policy->need_freq_update = false;
-> +
-> +	if (sg_policy->next_freq == next_freq &&
-> +	    !cpufreq_driver_needs_limits_update(sg_policy->policy))
->   		return false;
-> -	}
->   
->   	sg_policy->next_freq = next_freq;
->   	sg_policy->last_freq_update_time = time;
-
-
--- 
-Thx and BRs,
-Zhongqiu Han
 
