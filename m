@@ -4,111 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853BCCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 10:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B9ECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 10:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWVQCSwR0aUoymLEu54Qp5SBrR33qbmFDxb/OCitD2E=; b=2canJr4IOzKoYrgA11VmAxGtcy
-	CuzrZsa4AwrBQZOKj1gCQqYSnBl/1yaPBTSl0PHYAukXGyXf+gy4pHqcRytFRhfoUbT25hl3gAGWO
-	WMuSrttgKwrHJuS5QYwcvHTA4p6I5iYZzsF30i6dPo8qc1gzbgOM4Brzz/3+ocx2OOvsXa5iLEJv8
-	40zGdhIyAgR03onRCKJAjFmNIVMB0rWRNRiOHtnsFBp6a0LNvJvSMpHa3UOVSfasUe/i1wxUX2ZBo
-	X02fkz+S7om4lWWjxBlkLGQOm6Xunk5bZdkdJD812Kl+mG4imF1QfeiWDCXODKzO5Avh8FgEhv7zh
-	6fH2Z1wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9l+Exz40ANsrUtRFRKe6jrUDrI2HVCuixopJvkWLVPo=; b=R73cZEL/obr1m5QJlrQwVbD1zb
+	USfZzDOtKIASuvvb+FJ6AohFNg38rVoBGPccD9FYkmeYYXvGmNV8P0oglVWkK4ZO9gBV0kyLgQG5b
+	NYbcfjtHl5o14WJ9HVDQ1pCnIdjhR1GlSPRyWMrWkONDk3TAiibMkFQ0B9Htp8v8XruP0QQtvGYaR
+	por/J6byCjjqPualW+208BdHBx75s6bWZw+oUwvUfqY1OKqdm1uveLYOSHwIlXmx04TaYyuvd/Ght
+	TvhxDiMSh8GUkgIOD9xMr/MLIQBJOaH074ec8AHbR2NzSMIbWBxRh6YbttO6TKlUMFVboXLuRue68
+	3LgHcQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCaNb-0000000BI7j-2Kn4;
-	Fri, 02 Oct 2026 10:20:39 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1xCaNo-0000000BI9l-2uW6;
+	Fri, 02 Oct 2026 10:20:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCaNY-0000000BI7L-2r94
+	id 1xCaNm-0000000BI9C-229C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 10:20:38 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5ba4065fa07so6732e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 03:20:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790936434; cv=none;
-        d=google.com; s=arc-20260327;
-        b=F+odlX9HhWZrJao6CpSEX8SIDrywOijaIXVj2ltmW4erabPIskFpz51mzBdDEK8Eaa
-         1ntXm88J69m/P+PB4j4pzwooL1jsCu9Hy6X9kxc+TAM4i+9lUdwdCWrB/lvi68Vkv0z8
-         5eEyou208AtjrbkEO3k0beoGCWJ4GGckKrKqNJIRCDhIxmo3V9QW+/d/UaQjkaUUxNyI
-         9vk3LiM95I/RTSQ6SpIehGOXZsT4TlmhqEegs5KNJ4LoUiRmJx+x9IfVdIwueD6l+Qi/
-         XtbUj+4rE2THF9HPVe6R4zK8xBU7/Ugcx0YTD9DcOVIpjUMPk0hvCKwoUZv3TJ0YE7kz
-         Fj0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=AWVQCSwR0aUoymLEu54Qp5SBrR33qbmFDxb/OCitD2E=;
-        fh=ifxlCql/pBdmVMppZ+W1OWCIwbEkv83Tg85oaPA0mLg=;
-        b=VOb5/NBf10VN33ZPpV0YIDqzmAluHb7zdnCKRkfVqpNL8LSrQikgcsMbC/xqYcSeyu
-         lacA3mjEjj5hIRpFKGaHyB9kF7p8goplqJcpauDJYAnSCkSxqlqkpMcADxuufXQRchS/
-         BnKlXrNQc2QwnrcGL3TVKUyTwVRuvTz2mPGmNb5XwMEQPvXauW5GdS1jyaCVV6qgqYqr
-         GpIDSo1U0qwkXvBi9+M+aNDwmd+UKkUvMxlbqgD0+FVYvkIY6FCOy9dTeA9q6PHni01a
-         NkKoP1FV7be2bO0PWU/4Xe4It7S3F9sYfNN0HMpkP5+WSRu3nf0t+AvzuYTRMmgxZtH3
-         vVmQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 02 Oct 2026 10:20:51 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6929nbk9207339
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Oct 2026 10:20:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	9l+Exz40ANsrUtRFRKe6jrUDrI2HVCuixopJvkWLVPo=; b=HA7If939ccg+rm7+
+	jt5jIaoYeOIil3SZQA07KlvWVCheRUztDDzidlD5EpjfTj+XdffICUwMuH7B5O8G
+	2xGUdWWXIq8DQAKE7shxBua+F4sTbanyMRrWyJEp/dUOit202Lcehdq26hDriPeh
+	QXXBuJJVyJN3/9IdTghxn2hkcsAcxHRwktQXT4blRECE2mHvZCrs5yF/Y1aRk2iN
+	0TWNS5x6JnCFHVKVtgt5PusibJmNenGul5WUR2OCXwphHKm1AjeTZC//UcgAM/TX
+	93q2XAu6Xlb+DIoPEGY91Lglu/pFvwdEaCA8y7fHNRxbPvf0p4L+6lzIZB5iz8GP
+	eNbQew==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1v03328y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 10:20:48 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-39512608fb1so11959782a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 03:20:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790936434; x=1791541234; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1790936447; x=1791541247; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AWVQCSwR0aUoymLEu54Qp5SBrR33qbmFDxb/OCitD2E=;
-        b=XkuT6knGvZ97vRblW8rU8Rnil7guijQtNVNZQXJ6rqz+W5gZtUZmiEY787hOpatt/q
-         t98/N1ruxuWl9gf0FBVKnJaUt+f0BogLH4Jsr7dGo6GYib1yY9YQHmG/7JcberCCDrOj
-         sSPrSnMsGfCE8RbRMwWNVIuA0aHXKCxT6x7zRy3NCyyYwRcUTOZQfsuLC9eZ5BUq3qBs
-         isIjZNtZAlGydQuZUjGy73mHQTcWK9wDGdaBFwC3221Jb8Mar1TKu/4E/PwdDA7LYqUx
-         3pmPYTg874OhFFe1ozIsvHTx8AVbMh9yktLg7Qk9/Z2WsJWWdt1/q+MndWpz9pNj1laM
-         sGTA==
+        bh=9l+Exz40ANsrUtRFRKe6jrUDrI2HVCuixopJvkWLVPo=;
+        b=FiY9RH9dnpN0DBa3sh7hpeseamo145oUu+WWCpU89jCJWhnC3aNInO/NeNFqzc/+95
+         GOOLVH5WSvQSgdTgnRAgvYZk+vDuDUQh5s2RMq8cNjJAi7G0gb6U0ZsLXH9Sdkj8llOH
+         9TK0fpilRbt8PO9E2aAt+TCCHj3jaHV/tKtEr6h+5cXzwXe2iV2bzjgMQsSLDImbc0Uk
+         XiCEuhit6EqudB5IaH0hpG8x+vkRnRaDNlxZZbCUO8KRozaJYviB9lYYcy5U09doBfFj
+         isgjVxfsJTbYyGQtO70NuQETIsQYGyvwfM8AunMuBPHD3xI8vAIeRMU+GMwxFkdJvEDZ
+         gdlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790936434; x=1791541234;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=AWVQCSwR0aUoymLEu54Qp5SBrR33qbmFDxb/OCitD2E=;
-        b=apcFVLxeMqOAETyUAyKIpEHEGSwTJrxXnwafKSW9QdWhwTttHJXddB/eq+mFRs+vjq
-         FwUiyzHhGQU4KTi1Hm+KNZkhimFcQTqupPQYPrhKUSKLC2dpSlofYW24q9D9TRrBuETU
-         08wcPPiezq0q5EpXqFfZEgcM48ADpmMMuWHYNBkpmGg56epB/a3FRjveQ0N5ymXKu7vV
-         PKaK0miOlI7PwAH8GPIAab340xeS0qflKM1lBUIBoUjEog1ZWI9iYPI6KmVFJI/E4/WJ
-         +M6I6BgWntKXt5ronF9XGFcQDwtSL/mf5A5WLTTp83GvGmH955lVSbsMIEVvv9IhHuks
-         VhOA==
-X-Forwarded-Encrypted: i=1; AKwUvBwVD1nBf68VC2B4Efyyt9D9vb53jZ+lGm9t8oHKsgqy/2PeLeZhy0kEHuQovuD+uHBQ50PzWz3Gl3LeNpn2g2NJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKwxFdi40j1K3LVOYQo4BvV43iX1AKJf42407OJrzHWOJeqPv1x
-	2IX57Yer8vR6U50nBD9x/o7rl/p1lEBKZMxc6eQprt+tYUbCFUTS9vzhojUg8ARtXRKeWXdPOjW
-	qFYYtGIc8PaQ7By39x2xL/Oe7zHRPUSMc26xHsX1p
-X-Gm-Gg: AYBFou2ThRCCf88GFD102/TMNqCLjesh2dV0WxdV00Dv+n8i9tq7Aq5idEr6dyD9ZVD
-	Irl15Hn1eNdXFaD9Kgq7CNdjZLBunD7SSfXwqUOn2BpNwd/FnjRpieN87fs6/KGrM6IG3JUsRTM
-	mjtbpW4X9Nz7nvlIECCPs61SwisIzHz+YA3xFri18HtCWnEe6Ha5qgMJrXUjAgumY6nK/OuwF1s
-	OlY8fgSsJ9DvgeQQ83ct3SbuwmfgUlmXg7Ze+7TdUziI66CJb2hnd9XcSat16qge4Tf3tHeKKb7
-	hj5inRvzuYdZqM900qUQRQxjewiweg8PahEc9ehIW72NoK06gJZ6x2NVe1go5YBQY9YW7ki6mht
-	d5oWU9jFrcT42SuS7Z+Ww9Fd7
-X-Received: by 2002:a05:6512:1c9:b0:5b7:6707:e44c with SMTP id
- 2adb3069b0e04-5bbe0806600mr67600e87.12.1790936433781; Fri, 02 Oct 2026
- 03:20:33 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790936447; x=1791541247;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9l+Exz40ANsrUtRFRKe6jrUDrI2HVCuixopJvkWLVPo=;
+        b=0q6awg/Ua9Fq2it89fWDCAcgf+o28eJyQ9MmDijyG8wF4jogDPsA04Ey8eZbcui3Bw
+         O5+c7XUu31WRInGxtC4Q3PD946eiqsOK3fJqy2FnURXdBLv9IBykMIu2ppOtraDa7TLP
+         4Q/D9sfSP08aeD4TDcFISkqYF++Andn345Fvw7g9xytZoCh6Q9udFeZLzLGjsafIU4bo
+         0j4wT7yG/b0jMAM5WSCtkcbqXD/nddcrp3w9gi588i2k0AR99ZZZmP/5xUxTh73u0nk1
+         PJABkxaTfJM7UJXc+jWzmY+ectTxYTVD2gRgoeEmtvTiK40NTkvpPzpV0bjfHlTWJOco
+         QlZA==
+X-Forwarded-Encrypted: i=1; AKwUvBy1xPi0UX7v7jou2cJh7Ch5oPbX4pJVpGGzxvdWG1szugGBGP398xoYn0d+/fNFJCxu5JwCkidC8J2RUUtB14Iu@lists.infradead.org
+X-Gm-Message-State: AFq9FYIgyQi4tDMa1KORc+xdABb0r8iNrVGUmpx4TGZkLikFxEWRGqeg
+	JcZPg+EAhtd5IFG7xvcZLx2CI+9nDQ0QgjByv41fT9aM0MeMoIzqokwFKNEF1ogDujqhFKfHpbB
+	VBZVGOB9D7VVdIp/9NJMncqHcBqhg8uPqQimSLlz2WQCWBni98tdGrZR4CCP5kJQkVcvTEGVrua
+	Rr5cbNeq8x3w==
+X-Gm-Gg: AYBFou28jYNRW2Gz03QytxwcdwcNebVqx7LoEqxY11zovd0qBNvm1tEwjhVeJsg0Zh2
+	4+wg5NftxNCBBOrV+vTPcSMvTPf+ekrt0o9tiEtZBFtqkxq1WNhYm2Hqy9O7dfe9a20DTV9wQJf
+	JxNrxB4Hsl0sKxcgvlZeM0FeMN1WUDpi4cdkzt5yvO1PQsIdR15cs/Cj3Q9bB1FrlpHB13vP8yq
+	AsQ2yMLZ822jqyI1zxcgjiTExlD8qSvkhhPpIvZanuzP23O4xtUZ1EL5nt2Fm8bruCC575wIKX2
+	q9zWCtHAgSVgCQwZYgyIi/Ref25tSLD+UkjIQKU0btzFciGxc1fxDublC+7/3C/4XuRT3XS4Grd
+	kZckyqHR1ZTbA7YESh3XP0yEXgrmEU/F3t6yBYahTnQXwKHCDj4Pkcz4GlOZjhhnbQU7enQ==
+X-Received: by 2002:a17:90b:548d:b0:39d:e213:9dd3 with SMTP id 98e67ed59e1d1-3a6ce647e67mr2326311a91.1.1790936447181;
+        Fri, 02 Oct 2026 03:20:47 -0700 (PDT)
+X-Received: by 2002:a17:90b:548d:b0:39d:e213:9dd3 with SMTP id 98e67ed59e1d1-3a6ce647e67mr2326271a91.1.1790936446628;
+        Fri, 02 Oct 2026 03:20:46 -0700 (PDT)
+Received: from [10.133.33.14] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a6ccc96ac0sm3407857a91.2.2026.10.02.03.20.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Oct 2026 03:20:46 -0700 (PDT)
+Message-ID: <d718da43-0efa-49ea-9081-8d395ee013e6@oss.qualcomm.com>
+Date: Fri, 2 Oct 2026 18:20:35 +0800
 MIME-Version: 1.0
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com> <20261001210703.1597150-11-suzuki.poulose@arm.com>
-In-Reply-To: <20261001210703.1597150-11-suzuki.poulose@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 2 Oct 2026 11:19:57 +0100
-X-Gm-Features: AclHuK9rOT56mg_GDAS-UKmKKcU8gCHcSak7k76HWhpeBX7f_dB7iE1PChHGrcQ
-Message-ID: <CA+EHjTxCfmOqiJzYDZHunSuEyoZCbgHuzeSYC8y71Re+9PA6Kw@mail.gmail.com>
-Subject: Re: [PATCH v21 10/23] KVM: arm64: Add VM specific callback for S2 MMU operations
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
-	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
-	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
-	jonathan.cameron@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] cpufreq: Add a driver frequency resolution callback
+To: Christian Loehle <christian.loehle@arm.com>, rafael@kernel.org
+Cc: zhenglifeng1@huawei.com, viresh.kumar@linaro.org,
+        linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+        Mario Limonciello <mario.limonciello@amd.com>,
+        K Prateek Nayak <kprateek.nayak@amd.com>,
+        Huang Rui <ray.huang@amd.com>, Perry Yuan <perry.yuan@amd.com>,
+        "Gautham R . Shenoy"
+ <gautham.shenoy@amd.com>,
+        Vanshidhar Konda <vanshikonda@os.amperecomputing.com>,
+        Shubhang Kaushik <sh@gentwo.org>,
+        Pierre Gondois <pierre.gondois@arm.com>,
+        Beata Michalska <beata.michalska@arm.com>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Ionela Voinescu <ionela.voinescu@arm.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Lukasz Luba <lukasz.luba@arm.com>,
+        Jeremy Linton <jeremy.linton@arm.com>,
+        Peter Zijlstra
+ <peterz@infradead.org>, jonathanh@nvidia.com,
+        zhanjie9@hisilicon.com, Vincent Guittot <vincent.guittot@linaro.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>, zhongqiu.han@oss.qualcomm.com
+References: <20260929102957.2591657-1-christian.loehle@arm.com>
+ <20260929102957.2591657-2-christian.loehle@arm.com>
+Content-Language: en-US
+From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+In-Reply-To: <20260929102957.2591657-2-christian.loehle@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDA0MSBTYWx0ZWRfX81c0AVIorgCe
+ /j+SmXIRNIdxx/mifG8sJgXJl6qcRXvb9v+98BZ57771wPCVfkaZpBLmTmm8PxeeZs3dkovb/EX
+ DFy9DD9MS7C+htrwA7dk7m7hCulyC4s=
+X-Authority-Analysis: v=2.4 cv=GqfXaU1C c=1 sm=1 tr=0 ts=6abf8580 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=XS8obbLTPcTq88lrOBEA:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: QROLpR9w5qK4wxwKyKHqLZhDND81NZRc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDA0MSBTYWx0ZWRfX2J1Y4+9m2bI5
+ w5wIfCC/mMngJrprVZxJ4Jxd4RVHJke8eH3o1miC9Tp0YRo3YYukD+uWv8hmg/xUF1Wjg4c1GxO
+ NElRy5XzOJ1XZwQRSX9I/WuJM9N3iZZKFL/A95Qp6seLGL9ZEwVLWF0LTYMXs6F9v4/ALNBlBZ+
+ F9rN9C58FpWgVt6XRNWY8IzIrrXwnmZMk/aVAUUepqNNzXXlaoBJd+8Mb0/ZK25Xxpt2Qn2PGvt
+ JCtL1VGIjRd2rpP1aeh0JDhp1OOdCZR7bRUzjK6ztREXo4Ki33YIUyj3KHutMnTS+O8u5E8E2/z
+ Ymt/7nPETFQYVlKWHioOiv+twI044m81IpS9vN9vJv/y53JDVZlffQdmyRY1i5EABq8FziHeOpa
+ A87TEuuWslrG71hc7WcsZTOwhytIeDGBrQcetfcmmHpKg+8NjW2MFQb4CDMj0Q9w3S2MXUIj5Nt
+ gGamHM0yFgDS2FRPjaQ==
+X-Proofpoint-ORIG-GUID: QROLpR9w5qK4wxwKyKHqLZhDND81NZRc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-02_03,2026-10-01_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 lowpriorityscore=0 malwarescore=0
+ phishscore=0 impostorscore=0 adultscore=0 bulkscore=0 suspectscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2610020041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_032037_041270_1AE745E9 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20261002_032050_656426_C5ADEED6 
+X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +172,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+On 9/29/2026 6:29 PM, Christian Loehle wrote:
+> Without a frequency table, cpufreq treats the policy range as continuous
+> even when the driver selects discrete performance levels. Governors can
+> then issue different kHz requests for the same driver setting.
+> 
+> Add ->resolve_freq() for table-less ->target() drivers to canonicalize
+> requests within the supplied limits using CPUFREQ_RELATION_{L,H,C}.
+> Document the callback and verification contracts so callers can safely
+> cache resolved requests.
+> 
+> Signed-off-by: Christian Loehle <christian.loehle@arm.com>
 
-On Thu, 01 Oct 2026 22:06:50 +0100, Suzuki K Poulose
-<suzuki.poulose@arm.com> wrote:
-> Add VM type specific S2 MMU operation backends which can be initialized per
-> VM flavor, to keep the handling cleaner.
+Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
 
-The rows only differ where the base already branches (the pKVM TLB
-flushes, the protected VM age and unmap, and from patch 12 its abort),
-so the case for the table rests on the Realm row, which isn't
-functional until the RMI backend lands. Beyond the flushes in patch
-16, which operations do you expect it to override?
+> ---
+>   Documentation/admin-guide/pm/cpufreq.rst |  4 ++++
+>   Documentation/cpu-freq/cpu-drivers.rst   | 19 +++++++++++++++++++
+>   drivers/cpufreq/cpufreq.c                | 17 +++++++++++++++--
+>   include/linux/cpufreq.h                  | 10 ++++++++++
+>   4 files changed, 48 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/pm/cpufreq.rst b/Documentation/admin-guide/pm/cpufreq.rst
+> index 34baf20cc202..e634b87a62a8 100644
+> --- a/Documentation/admin-guide/pm/cpufreq.rst
+> +++ b/Documentation/admin-guide/pm/cpufreq.rst
+> @@ -144,6 +144,10 @@ that belong to the same policy (including both online and offline CPUs).  That
+>   mask is then used by the core to populate the policy pointers for all of the
+>   CPUs in it.
+>   
+> +A table-less driver whose discrete frequencies are derived at runtime can
+> +instead provide a ``->resolve_freq()`` callback to map arbitrary requests to
+> +deterministic, supported frequencies.
+> +
+>   The next major initialization step for a new policy object is to attach a
+>   scaling governor to it (to begin with, that is the default scaling governor
+>   determined by the kernel command line or configuration, but it may be changed
+> diff --git a/Documentation/cpu-freq/cpu-drivers.rst b/Documentation/cpu-freq/cpu-drivers.rst
+> index 17c69f83691e..4f327760bc04 100644
+> --- a/Documentation/cpu-freq/cpu-drivers.rst
+> +++ b/Documentation/cpu-freq/cpu-drivers.rst
+> @@ -86,6 +86,9 @@ And optionally
+>    .set_boost - A pointer to a per-policy function to enable/disable boost
+>    frequencies.
+>   
+> + .resolve_freq - A pointer to a frequency-resolution function for table-less
+> + drivers with discrete, runtime-derived frequencies.  See below.
+> +
+>   
+>   1.2 Per-CPU Initialization
+>   --------------------------
+> @@ -170,6 +173,22 @@ limits on their own. These shall use the ->setpolicy() callback.
+>   1.5. target/target_index
+>   ------------------------
+>   
+> +Table-less ``->target()`` drivers may provide ``->resolve_freq()`` to map a
+> +clamped target to a supported frequency within the supplied limits.
+> +``CPUFREQ_RELATION_L`` selects the lowest frequency at or above the target,
+> +H the highest at or below it, and C the closest, choosing higher on ties.
+> +If no supported frequency is at or above the target, L returns the highest
+> +supported frequency in the interval. If none is at or below the target,
+> +H returns the lowest supported frequency in the interval.
+> +``CPUFREQ_RELATION_E`` is stripped before the call.
+> +
+> +Equivalent requests must resolve to the same frequency, which the target
+> +callbacks must map to one canonical driver request even if performance levels
+> +share a kHz value. This lets callers cache resolved requests. ``->verify()``
+> +must leave a supported frequency in every accepted limit interval.
+> +The callback must not sleep: it may run in scheduler context.
+> +Policies providing both a frequency table and this callback are rejected.
+> +
+>   The target_index call has two arguments: ``struct cpufreq_policy *policy``,
+>   and ``unsigned int`` index (into the exposed frequency table).
+>   
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index 54dde8419bdc..44bda2f32fcf 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -480,8 +480,12 @@ static unsigned int __resolve_freq(struct cpufreq_policy *policy,
+>   
+>   	target_freq = clamp_val(target_freq, min, max);
+>   
+> -	if (!policy->freq_table)
+> +	if (!policy->freq_table) {
+> +		if (cpufreq_driver->resolve_freq)
+> +			return cpufreq_driver->resolve_freq(policy, target_freq, min, max,
+> +							    relation & ~CPUFREQ_RELATION_E);
+>   		return target_freq;
+> +	}
+>   
+>   	idx = cpufreq_frequency_table_target(policy, target_freq, min, max, relation);
+>   	policy->cached_resolved_idx = idx;
+> @@ -495,7 +499,10 @@ static unsigned int __resolve_freq(struct cpufreq_policy *policy,
+>    * @policy: associated policy to interrogate
+>    * @target_freq: target frequency to resolve.
+>    *
+> - * The target to driver frequency mapping is cached in the policy.
+> + * The frequency-table resolution path caches the mapping in the policy.
+> + *
+> + * Keep the policy active and exclude driver teardown; a policy reference
+> + * alone does not protect driver-private data.
+>    *
+>    * Return: Lowest driver-supported frequency greater than or equal to the
+>    * given target_freq, subject to policy (min/max) and driver limitations.
+> @@ -1445,6 +1452,11 @@ static int cpufreq_policy_online(struct cpufreq_policy *policy,
+>   		 * If there is a problem with its frequency table, take it
+>   		 * offline and drop it.
+>   		 */
+> +		if (policy->freq_table && cpufreq_driver->resolve_freq) {
+> +			ret = -EINVAL;
+> +			goto out_offline_policy;
+> +		}
+> +
+>   		ret = cpufreq_table_validate_and_sort(policy);
+>   		if (ret)
+>   			goto out_offline_policy;
+> @@ -2925,6 +2937,7 @@ int cpufreq_register_driver(struct cpufreq_driver *driver_data)
+>   
+>   	if (!driver_data || !driver_data->verify || !driver_data->init ||
+>   	     (driver_data->target_index && driver_data->target) ||
+> +	     (driver_data->resolve_freq && !driver_data->target) ||
+>   	     (!!driver_data->setpolicy == (driver_data->target_index || driver_data->target)) ||
+>   	     (!driver_data->get_intermediate != !driver_data->target_intermediate) ||
+>   	     (!driver_data->online != !driver_data->offline) ||
+> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+> index d3d0d9d02aa4..a0a7619d11fd 100644
+> --- a/include/linux/cpufreq.h
+> +++ b/include/linux/cpufreq.h
+> @@ -364,6 +364,16 @@ struct cpufreq_driver {
+>   	int		(*target)(struct cpufreq_policy *policy,
+>   				  unsigned int target_freq,
+>   				  unsigned int relation);	/* Deprecated */
+> +	/*
+> +	 * Optional for table-less ->target() drivers. Resolve a clamped request
+> +	 * within the supplied limits using CPUFREQ_RELATION_{L,H,C}. Must not
+> +	 * sleep. See Documentation/cpu-freq/cpu-drivers.rst for the contract.
+> +	 */
+> +	unsigned int	(*resolve_freq)(struct cpufreq_policy *policy,
+> +					unsigned int target_freq,
+> +					unsigned int min_freq,
+> +					unsigned int max_freq,
+> +					unsigned int relation);
+>   	int		(*target_index)(struct cpufreq_policy *policy,
+>   					unsigned int index);
+>   	unsigned int	(*fast_switch)(struct cpufreq_policy *policy,
 
-[...]
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-[...]
->  int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
-[...]
-> +       if (!kvm->arch.vm_s2_ops->vm_flush_remote_tlbs)
-> +               return 1;
 
-Every row sets it today, but returning 1 falls back to
-KVM_REQ_TLB_FLUSH, which arm64 doesn't handle, so nothing would be
-flushed. Could vm_flush_remote_tlbs be mandatory, checked in
-kvm_vm_init_vm_s2_ops()?
-
-Cheers,
-/fuad
+-- 
+Thx and BRs,
+Zhongqiu Han
 
