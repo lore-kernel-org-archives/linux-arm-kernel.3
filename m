@@ -4,103 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5360BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202BCCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2MH5ucIaIApIUxucO1uUSHtEgWcgu2UJ4m0lbYAPS4=; b=4KdoobtEOdefYR3bQHAKvngfis
-	tkqxeQZehDU/sbIjo3PFcH3g5bOPUWurhyjRpluRJ49ZipusI1HW8B0t7aBKDiRS1TvaIRo6HhBLi
-	JwOhcpYi2CdXMuPDiTOzyKzg9aYJwwzauxUur3TdMTSUN8Orz3Ru9GkHpCexKXaX9aN08NrIjM4Lc
-	Foteew3ScD0kWNwlvxlZOmplJ6OWRMW4RSmI/8C3+mmV999LFwHlKC7gs0wYajD1dpnW9DtmxU0Qq
-	cIzskSR5LfSL+aGWlcn4qjq8erZ/gAQwdJPYaf6MAFv77dGVd114s6u8H/MvBRyBl6ARAvB2N8E8W
-	xNPDyyyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hWB1QcQGFZjdtaZ+WkrO/eQNuOSYDk3BPt9FwXfnsYM=; b=xBe9eRF4lCJJxQFtDGUSwHB1vW
+	/MxtuOTunhEhm3enIjYpscZFuT4+KnmE2Am89S9nMmuYyYo/tKiMz4A9UZnrXsXD5oCGh3sM62PG6
+	EHPTYIpBwkA+BC/CiAWaOnD+F34jLR0R3VNVijKsylQ8TafhBt04gOlZxu+3flPgyCAFpu0PUJaKB
+	pih7ZFxiujhyXr5GMQyq1I9fO5LyeyNYQLZMJAlRRkGRDdpx0jSKTcubOjIUuyfI5dXllWvdI1Jb8
+	bJd/qtNXZq2uvntiN0O9vglqXnZrfZs4VR90Mq7bdzQJmao7tm4/fFdfPapvwviwDJ9mOqLSrrq0Z
+	hplKXB4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZKG-0000000B6FG-3lta;
-	Fri, 02 Oct 2026 09:13:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCZMc-0000000B6ik-1nS7;
+	Fri, 02 Oct 2026 09:15:34 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZKG-0000000B6Ei-0Fng;
-	Fri, 02 Oct 2026 09:13:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CCAC60A6B;
-	Fri,  2 Oct 2026 09:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25D1F1F000FF;
-	Fri,  2 Oct 2026 09:13:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790932386;
-	bh=E2MH5ucIaIApIUxucO1uUSHtEgWcgu2UJ4m0lbYAPS4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=h7cQ3wxP/WXnnUgi737EQnvb8mHwlBjSrqGRC25rUT2U+o2GapAWWMwQmfebd2ero
-	 75Rgg8Ka0aM9PZ3M4NoRhFEjTooSgRi5XecELvHhbcNfK1e6dYhgbgrhp8jFiZ2M6v
-	 bTCqnmPZn3dIZos81AX3ELuHFswxGZ+zwD1ixny8EFf/qLGnvQMrpw5klmEYkKO8gc
-	 BtwAq8A/FC6vFNLJnN7cyidMBcz51jc+fkq7nJFX5+lTqqZgfwvZzAmHpBPxkpv6Ch
-	 x19LJ1KsMd1ecksWtSLyfRcYhGpFbf5P9rFswBWW3uMN09znpCcWbguZ1bdTV8Rw6O
-	 tyMEUmJcTrPew==
-Message-ID: <f41a6261-ae04-44cb-b01f-b1da02d9cb80@kernel.org>
-Date: Fri, 2 Oct 2026 11:13:00 +0200
+	id 1xCZMZ-0000000B6hP-2Vbu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 09:15:32 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5ba40832934so4224e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 02:15:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790932528; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DzvcsUz/cHIrjnRc/OJcuyWWHJZv1EfED+bnnWlv6Bwfh+TfVVGL5v7SKBhxpXx8fA
+         DEBRw/UOJuZo/Viz8i7tNpPI4kWi/naqceWC3ae8vS6EfDhFrDZsh4i+gxDs6cAgx34G
+         b8eCUYLuarSEEnoKDxSXIYrpS1H/Chbv0Q2hmmdy2wQjOfzMY4VAHTGk/3yZvmHAhwVc
+         QVhYFjV5wKGmwLDfLyL1bhPk4vjJGYJtjQ5WbkLR9e0cFnmtUOs93ZN0erqPoGSYxW8b
+         ZvUaF2h7S+lf/14Y5xB4WtNQuf2mBtXdlMKsHmh1fo/ANWhLsk51IOv1Cx8nxvcMWigf
+         ++2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=hWB1QcQGFZjdtaZ+WkrO/eQNuOSYDk3BPt9FwXfnsYM=;
+        fh=YD/dsvWzKahuvm4ixTtJSQJlxQgZHyfgFBrN9ep5qwY=;
+        b=kIibEyzrEPz6C/dq5V8IXM6o+FKQiUJOvBFF+V3ilxhpmOSQNMx//NOTxzB7sjmGH2
+         Q27g239qx//AFSnSir+AzADvS+a8+iPKz7gfkpVGc1FA/3apSq4zGybnRNyrR0rGlf3b
+         CTQyy7jrqG8wFu+LnASy/fd+XxVw8FqCOQsx/AxsK07xog9V3P36FyvPdRAYtkJCfXQK
+         Y9T+saKFKMej0LY9uNqMZDEPftOJWmYeZiUMwNzw0tRvhhemI/NxubQZAP88g4nlrd1W
+         Yt1Vs3I6ZJW7iQLPAzvCYRlCCdyt3IP/DmpO+p+Iz4mHH2PQvACGturuvCeFM4drc0tU
+         mr9w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790932528; x=1791537328; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hWB1QcQGFZjdtaZ+WkrO/eQNuOSYDk3BPt9FwXfnsYM=;
+        b=AyAF9aNziT35fIHmi+aMjHxEqYVF5HC2PaRPGsE3xDkBpw9HsYk3SEOmyfWQJeHWmo
+         gLABYcE3or89XOvrkky+E0XFm5we+BcZfTKWdzNDhsYo0RLsWHHPJbZ8wOfUuoVfdVVW
+         mD95MrY63QTh870PJcCw4QtyiACHJU9143imjGj/xgtV4BQnEEnLAgnkT9W8CRnn8qib
+         Js4cXpc+BxKWyx5cXmvw3NwqQLgjDvnUGz80VA0zCxeSKfNfTUAa+UZNafXSzQp7yxy5
+         f+IsPicHZ5Q9+6hxiWXxNr463xZN1z3tEdOb3rR6tMsXAEOn7NKvUi2eu69eniMmexIi
+         2HFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790932528; x=1791537328;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=hWB1QcQGFZjdtaZ+WkrO/eQNuOSYDk3BPt9FwXfnsYM=;
+        b=u9iOzhwrmpFAjD3LsmkrbyrlM9NR5x687LOs+cVwPv8BFNg2lJG2B23wnBrXkrDiKT
+         hPGQTy4A8CUzf9Uq0qXLb+BmWbycYppwzFbM2p2QrFl1N9MO56wsmKMLBKsuXYid1/68
+         YuUzUjb6gL7W8MjebShUInWlwOexg4C5+5caxO4+XZkepabERSocBF0fnSMlBRDXwhpb
+         hJ9wq54QLI3MVXnzbhtz6+nJWABVdJeRuGGpm6hFMcxA3aixofqcnvtjwyEJFHcf1YWZ
+         v0osvMF0M5aMV0p/xXPuBq4lbi5LPsUW3DmzFj6ikNBd3i2MtkcTc+emk3JyLczRV5md
+         YSzw==
+X-Forwarded-Encrypted: i=1; AKwUvBzwBSxOZMoAwmGqx3vda3kyAcwZRCNhvwprsX92xhsNZOBSWj3ETSaGMS2nBjoAeGI7QhhOEgDMKygXZaDYGdmv@lists.infradead.org
+X-Gm-Message-State: AFq9FYI9MUUSNxncwDueLSbm4caN+z3TDmE97c2Xxdws72sqzHAV44pg
+	b9SLgxkzocrwIFQ3r/7dm1E/9CsyZSC9uVDT6fSTxxWFLNjz9XY7W0h/1JvdNCmaPteOQ127nOs
+	syrTP2Vbehy6v+iSIjH2HFJjUE9NzfA10692tu3/0
+X-Gm-Gg: AYBFou3wTd6fDn3FaIHfnTjuNvEcDDn53fEAOKuP4h7P0kFKGGdCdVTySkwqh9305W8
+	jSS7ijclFOwOVf1km38aMW7ES3klqIYm5erIUn3+IYu5z4E0OtwWUu6HIXftniOL8x+iYJ/3G0K
+	Q7vN+n/vbuMI/fcr1Pq3Jwt6+0mIUfjQ8lvjwZuawV21Trf6E+OObBXFKCzwkPrsgH9rCWdm3Xj
+	XIlZfTQDRaP598p57hBkoNjTgO8z2C+2jKOJBwtZ8ohRFYzJZQUOCKnxPkxNwFdpuwHeROHxkWr
+	D9ynwIAqPjKs5VWVxdYJxPjcz2uUwdr2fepYHOPxkzdcUnQFBNYx1f1UuVm68DIIenmrIK34oo0
+	ZljkSxwSAHpJExA==
+X-Received: by 2002:a05:6512:1153:b0:5ba:3797:2359 with SMTP id
+ 2adb3069b0e04-5bb7c8d2f8cmr108813e87.2.1790932527310; Fri, 02 Oct 2026
+ 02:15:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-To: BG9OXA <bg9oxa@163.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Andrew Lunn <andrew@lunn.ch>
-References: <20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com> <20261001210703.1597150-12-suzuki.poulose@arm.com>
+In-Reply-To: <20261001210703.1597150-12-suzuki.poulose@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 2 Oct 2026 10:14:51 +0100
+X-Gm-Features: AclHuK81_w9T9KTmUVQvA6ovuNEn5Udf2ErB6CaTomYP4-WPob3E-hZqL0sp0qw
+Message-ID: <CA+EHjTwM=5PXPVByVV75AuNVw5TJRiUqu5TNOcFNPOBmTiL-eg@mail.gmail.com>
+Subject: Re: [PATCH v21 11/23] KVM: arm64: Use a local kvm pointer in kvm_handle_guest_abort()
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
+	jonathan.cameron@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_021531_657690_1F4BCD7F 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,159 +124,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/10/2026 05:52, BG9OXA wrote:
-> Hi all,
-> 
-> This short series adds support for the ALIENTEK QuarkPi-CA2, an RK3588S
-> based single board computer.
-> 
-> Board summary:
->  - Rockchip RK3588S (4x Cortex-A76 + 4x Cortex-A55), LPDDR4x
->  - eMMC, microSD slot, M.2 socket (PCIe 2.0 x1)
->  - Gigabit Ethernet, USB 3.0 Type-A, USB 2.0 Type-A ports and a USB-C
->    port (USB 2.0/3.0 plus DisplayPort altmode, two DP lanes)
->  - HDMI output, three MIPI CSI and two MIPI DSI connectors
->  - ES8388 analog codec with 3.5 mm jack, HUSB311 USB-C PD controller
->  - 40-pin header, RK806 PMIC, IR receiver
->  - No SPI-NOR; the vendor bootloader reads extlinux.conf from the SD/eMMC
->    boot partition
-> 
-> Patch 1 documents the board in the Rockchip platform bindings, patch 2
-> adds the device tree itself (plus its Makefile entry).  The "alientek"
-> vendor prefix is already present in vendor-prefixes.yaml, so no vendor
-> prefix change is needed.
-> 
-> Tested on hardware: boot from SD and eMMC, gigabit Ethernet, the USB 2.0
-> ports, the USB 3.0 Type-A port (UAS storage device, 5000 Mbps link,
-> 309 MB/s), USB-C DisplayPort altmode, HDMI video and audio, ES8388 analog
-> playback over the 3.5 mm jack (checked with music), the ADC keys, the IR
-> receiver, the PWM fan and ramoops.  The M.2 socket is described following
-> the vendor design; no suitable device was available here to exercise that
-> link.  dtbs_check is clean for both patches.
-> 
-> Notes worth the reviewer's attention:
-> 
->  * The codec is clocked through I2S0_8CH_MCLKOUT_TO_IO rather than the
->    internal I2S0_8CH_MCLKOUT mux that the other boards reference.  On
->    RK3588 the MCLK-to-IO routing is a gate in SYS_GRF SOC_CON6 which the
->    bootloader leaves closed, so nothing drives MCLK out to the codec;
->    pointing "clocks" at the _TO_IO clock makes the codec driver open that
->    gate at probe, while "assigned-clocks" stays on the internal mux to
->    keep the 12.288 MHz rate.  Verified on hardware: i2s0_8ch_mclkout_to_io
->    is enabled with the codec (1-0011) as its consumer, and playback works.
-> 
->  * The codec compatible list is "everest,es8388", "everest,es8328", as
->    documented in everest,es8328.yaml and as used by the other boards with
->    this part.  The standalone ES8323 driver cannot instantiate a card on
->    this board at all, which is how the fitted part was confirmed.
-> 
->  * Analog capture from the 3.5 mm TRRS jack (headset microphone) does not
->    work yet: the capture stream returns a constant idle pattern (0xFFFF)
->    although the analog bypass path works, and the DAPM routes and the ALSA
->    controls look correct.  This looks like the same ES8328 capture problem
->    that has been reported for other boards, so I kept it out of this
->    series.
-> 
->  * The USB 3.0 Type-A port is wired to usb_host2_xhci through combphy2_psu;
->    both are enabled here, as in the vendor BSP.  combphy2_psu is free on
->    this board because the M.2 socket uses pcie2x1l2 (combphy0_ps).
-> 
->  * The 3.5 mm jack is fed from the codec outputs (LOUT1/ROUT1) and from the
->    headphone amplifier outputs, as in the vendor tree.  Describing only the
->    amplifier path was tried as well, and on this board that gives no output
->    at the jack at all (verified on hardware with a test tone and with music
->    playback), so both routes are kept.
-> 
->  * The board has three MIPI CSI and two MIPI DSI connectors, but no camera
->    or panel is described here: those are plug-in modules.  Enabling the
->    CSI-2 receiver without a sensor attached makes the driver fail to find
->    its endpoint at probe (verified on hardware), so, as in the vendor
->    tree, camera and panel descriptions belong in overlays.
-> 
->  * GbE: phy-mode is "rgmii-id".  As you explained, phy-mode describes the
->    PCB, and this PCB does not add RX/TX delays, so the delays have to come
->    from the PHY.  I went through where each delay is actually applied:
-> 
->      - MAC side: none.  dwmac-rk takes the delay values from the DT only
->        for the plain "rgmii", "rgmii-rxid" and "rgmii-txid" modes; for
->        PHY_INTERFACE_MODE_RGMII_ID it calls set_to_rgmii(priv, 0, 0), so
->        the RGMII delay registers are written with zero.  (The driver still
->        logs "set tx_delay to 0x30"/"set rx_delay to 0x10" when the
->        properties are absent, but those values are only the parse-time
->        defaults and do not reach the GRF in this mode.)
-> 
->      - PHY side: the delays.  The Motorcomm driver programs its internal
->        RGMII delay for RGMII_ID, using 1950 ps for both directions when
->        rx-internal-delay-ps / tx-internal-delay-ps are not specified,
->        which is its documented default for both directions.
-> 
->     So with "rgmii-id" nothing is added twice.  Measured on hardware with
->     iperf3 at gigabit line rate: in one 900 second run, 96.8 GB transferred
->     at 924 Mbit/s with zero retransmissions; in a second run on the final
->     revision of the series, 300 seconds in each direction, 925 Mbit/s
->     transmit and 937 Mbit/s receive, with 114 and 23 retransmits out of
->     roughly 24 million segments each way (a few ppm).  rx_crc_errors and
->     the other error counters stay at zero in both runs.
-> 
-> This is my first patch to the Rockchip platform.  I am a Chinese amateur
-> electronics hobbyist (amateur radio callsign BG9OXA) working on this board
-> in my spare time, so please point out anything that does not follow the
-> expected style.
-> 
-> Changes in v6:
-> - My oversight, sorry for the noise: when I switched phy-mode to "rgmii-id"
->   in v5 I forgot to update the commit message of patch 2/2 at the same time,
->   so the message still described the v3/v4 approach (delays applied on the
->   MAC side) while the code had moved to the PHY-side delays.  The message now
->   describes what the code does: the PHY adds the delays internally and the
->   MAC adds none, so nothing is applied twice.  The device tree is not touched
->   by this change; the compiled .dtb is byte-for-byte identical to the one in
->   v5 (verified).
-> - Keep the headphone routing as in v5.  On this board the 3.5 mm jack needs
->   the direct codec output routes: describing only the amplifier path gives
->   no output at the jack, which I verified on hardware with a test tone and
->   with music playback.  So the parallel routes are intentional here and
->   were not changed.
-> - Link to v5: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077620.html
-> 
-> Changes in v5:
-> - Use phy-mode = "rgmii-id" and let the PHY add the RGMII delays, instead of
->   "rgmii" with the delay applied on the MAC side, as pointed out by Andrew
->   Lunn.  The MAC adds no delay in this mode, so nothing is applied twice;
->   see the GbE note above for the details and the measurements.
-> - Move the Makefile entry so that the list stays in alphabetical order.
-> - Rename the headphone amplifier node to the generic name "audio-amplifier";
->   the labels are unchanged, so no reference is affected.  The audio routing
->   itself is unchanged, see the note above.
-> - Set the Type-C connector data-role to "host".  The XHCI controller is
->   host-only on this board (dr_mode = "host" and no usb-role-switch), and
->   the vendor DT lists "dual" only because the vendor configures that
->   controller as OTG.  The power role stays "dual", as the board can be
->   powered over Type-C.
-> - Link to v4: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077616.html
-> 
-> Changes in v4:
-> - Add the missing blank line between the include block and the root node.
-> - Fix the node indentation in a few places.  That cleanup is whitespace only;
->   the compiled .dtb is unchanged by it (verified byte-for-byte).
-> - Rename the Type-C controller node to the generic name "typec-port", as the
->   other boards using this part do, and drop its redundant status property.
-> - Give the fixed regulator nodes the "regulator-" name prefix, as the other
->   boards do; the labels are unchanged, so no reference is affected.
-> - Route the Type-C SuperSpeed lanes through the USBDP PHY, as the other
->   RK3588 boards do, so that the PHY does the orientation muxing.
-> - Feed the headphone amplifier from one codec output pair only; that is what
->   the other ES8388 boards do.
-> - Cc the people and lists reported by scripts/get_maintainer.pl.
-> - Link to v3: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077611.html
-> 
+On Thu, 1 Oct 2026 at 22:08, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>
+> kvm_handle_guest_abort() repeatedly obtains the VM from vcpu->kvm.
+>
+> Introduce a local kvm pointer and use it throughout the function. While
+> touching the code, fix the missing whitespace in the
+> kvm_is_nested_s2_mmu() call.
+>
+> Suggested-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-This looks a lot like LLM generated stuff. Don't. The easiest way to
-annoy maintainers. We are not going to read long LLM-generated
-paragraphs for trivial stuff, because trivial stuff should be explained
-with one sentence.
-
-Best regards,
-Krzysztof
+Cheers,
+/fuad
 
