@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D85CA5FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEACA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SgNemasrnnBTeB2QQLiC07WfJ392qU9L3kmu6dEc/N8=; b=QRxMtKbJCuLCXnt90wQjyCdzfA
-	AEleOT0US17x7gW1aXNF0BXMk7uIM6GQSe64CdcFJEDBzcTHGr43kOf6cItaSO9AgIauhHcChrObl
-	gtBG8KNKykpBO5z6i4fsqz5DV8spKMPqV77TfOuLUKNSPddjtaAMEsgaqIUHvwopfHRk6B88VDUlw
-	jWv3JGpS5Kp0Z6mV7lmTgkDXobWTB1OAuTa5OvoBfPmCi1w0vLs687+zVpfw9agwJBQ+BAVi0kZhv
-	YuGfmKhq7fsVRut0iVHuqeb75OtEN7p3+VLgkLexOiAjHpk0hm0w2mjBWl0UCDaKT25Ytxe5JBVpi
-	8yOZoD2Q==;
+	bh=cFDRc4rOIO+c40lpmKovemaErB2R9zNLl58jsdIqFX4=; b=S9uwTM+Nay9bC3D2ianTMfWQY3
+	/I1YUBOv5O5Bajftugmyfa42SEeu+CUUfYvkMfubK0hwdeADQNXGueEYY7vZ0hJsK6R0vYgfk2t/o
+	VT5pHqKX1DFWmN7nWPTTRQt9dnFn10pkjo0qQy7p/jzMvYCXkwbqmqyGdgYSvPvLv1dBnbyYS4YaY
+	2KTBfUutcStoiad/h+pl3a8wtzDJ78A9GDggaiZeJvI9rU6A9J78IEixPOdgtmetm6sN1dnvCySmW
+	mQfJJ5RfrOXmmmaWodubniuUeEAKS1ZToo0Bccu3Gyr2P5Yr7efsedGN5OoPloLx9MJuJwMopKryx
+	Rb/X0+8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwT-0000000AscX-2Fl5;
-	Fri, 02 Oct 2026 07:44:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCYzV-0000000B2NC-1YyE;
+	Fri, 02 Oct 2026 08:51:41 +0000
+Received: from mail-pj2-x0c.google.com ([2607:f8b0:4864:39::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXwK-0000000AsSN-2Ikx;
-	Fri, 02 Oct 2026 07:44:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=SgNemasrnnBTeB2QQLiC07WfJ392qU9L3kmu6dEc/N8=; b=EJzI8VnD2biwSvRaxdFXXDCnvm
-	hCrnh3x7hxt6HCKMFM7dsxDRcFrqP6asn8dwe5pOEGcDqlhF4VHmpZOcE+nwjB8EHA5Qej+RfCRk6
-	an2NXVCUh3XaM3zeHWzAhRIzyXOjwqV43PWTjlgexQmpPhHpmwOX/dy+oMbOx8ij+6otAGM6FHV6j
-	e4xnxzx6jNJXNxpwaTXv9iYOfm7A2ckXgiztS3cSNBlI7C5xx14UY+v51MwKYCRNTdUEyvL7ThpcV
-	yp2ia2ME3WlSubmhvyOogeYvXqEWZI95ByV5uFHO+oqBHIw7BG9p+t8TvzVmKtRShRdkXnDaXwhUv
-	gwuc1MBg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCXwD-00000005gks-29fW;
-	Fri, 02 Oct 2026 07:44:19 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6927hlhhF3646800, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1790927027; bh=SgNemasrnnBTeB2QQLiC07WfJ392qU9L3kmu6dEc/N8=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=Lcpw/cCdGVv0GsXEgIwkXJLB2XuRNfzUJRRX6KeVLHyo4L2qMNh3ViU/RfY3cnF4t
-	 QirwTAOJK7Csl8GPl3nq7W1SsfGJIFA7xMdQWBO5a+DP2sYN+5UIR76BbLirAP9szi
-	 F1Yvt/KcWuz01q+p0NecQMR5FK7+I5bg2nHz69TedTsoOTTKmkj3fXtm+/7DoT78oG
-	 R1VqyJJwoYT7BHQUsy62ciDM4VONhHScPhocHpqBP6I3DhcNXQCjF8apvE5Eqg8uiX
-	 1V4wlL9GzHUtTH4alzxYJTjpD7qZJZh1L7KxbUilN2CCc5B0sMI8iWtuwCWIks5ZDA
-	 jW8XHZBzh7WlA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6927hlhhF3646800
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 Oct 2026 15:43:47 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 2 Oct 2026 15:43:32 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 2 Oct 2026 15:43:31 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <jbrunet+clk@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
-	<bmasney+clk@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v15 02/11] reset: Add Realtek basic reset support
-Date: Fri, 2 Oct 2026 15:43:22 +0800
-Message-ID: <20261002074331.3066919-3-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261002074331.3066919-1-eleanor.lin@realtek.com>
-References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
+	id 1xCYzS-0000000B2Ll-29Sa
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 08:51:41 +0000
+Received: by mail-pj2-x0c.google.com with SMTP id 98e67ed59e1d1-3a2adb9bc3cso3164115a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 01:51:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1790931098; x=1791535898; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cFDRc4rOIO+c40lpmKovemaErB2R9zNLl58jsdIqFX4=;
+        b=n050FP7exRAT6qS1GGJyWLNiie0mlSheN6tBth1fgG1bxm2+mwA2CJdnn/LBQM6tAs
+         25whtMJ/rFR1VcG+jk2OQGoLP9fWHjmQZVFmXc5IYCB30IWOM8yl/qOKsOgd1K6RK38p
+         vMDp7PnBhjQmdi4NGO4HePxyFOkyNWtd9yuWE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790931098; x=1791535898;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cFDRc4rOIO+c40lpmKovemaErB2R9zNLl58jsdIqFX4=;
+        b=0U+Jo16O0n/dwrbMMM9j4cqKquU+iGvdmLR1EQacB5fKhzicGkBSBs2pm8W5txNdq1
+         8kwS697ZgYdX6TWlu5eE3sLzhV9Qh5oe6zc+tmJZjVhxdJgSOMnjUillH3LUKmHOVEAj
+         2Dr7dRmCgAECFSlCZ2GP+yOjkDce9uFVfVx5A/1FJPpRRqm1WoA2DiiCCMqlW7vEtDPo
+         F4UIzv3RZ1IbkGKPDR8nEZwlXz1sf85dJXqj/vW12wJkyI1VM/fSsqsMsGKaCVB85ZxQ
+         g49myTeYuRRiHl7/xt9ekRO8BcZuo90qjAUFIpSQCC0nvJ/AGtZNcij+YcP8Uzeu0shw
+         u7kQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxbTAzJELG10QY5oWA/89FD2LETg4KMsODzWoIoCQbnwdf/SpW7L4UxWvRS7BvbbwG361lXO+rfBeAULHpOxw/E@lists.infradead.org
+X-Gm-Message-State: AFq9FYISacvonulMhY8s/9VgLnCVPuUjhF3hZIlTdkvJT7NAma0UlENu
+	wirJX4c8WTtN/gk4nMj/N7uxxdWTEoHvS+bwnWRZBmCgFTQIQe7TaXi0stizvtspPA==
+X-Gm-Gg: AYBFou1P/U7mwSE8iGzmGsImvEPoP2sAC+eJXjIIpW+KFlASST595wUmMRh/JzY5qjc
+	R3lWwETcW4mriiNVYbp5eUBFLMNo0XBWscUeHhmA/W5nbBg6NYsS3hNxRhfTLl6ZH66Q6tyGyrF
+	XYGMVPsL6iI6zksDHBlYdnqKBt4MpAeFILZJ+9nsuGxCldiDTo/41PHWK2Kd6ema9Mwzgb3KqEY
+	dJYXvwJi20VwH7Agq8XHdHuZoWQ4+gLOv1/e0c/KRV+eC4VVXVDBfxW81DP8/7jIvACLmFJ/E3Q
+	2GCARSLjhEaswbGbLId8yZi84r6VwDXgun7fHFe9Ac0F34Nfl3gmZmiN/GtENd7xzBs1eR5Blhz
+	nlfPgZLeMjFGk2Et40GzYr/zO8kzwhoSFVNLA7NCYxEX5urk6Owv6dLcG+pNPsffu1Cgo0BsrvG
+	u8K/J/E2A9HVg+lRIQuEC2xp4QgeZh/4YhywwTX/S6Ds9anud8IeH1g0Rz5X4UFpe6hTQpt4X7W
+	EJ8hLWZ5iFFwqSU9wOmg3TqMmxMEwI=
+X-Received: by 2002:a17:90b:48ce:b0:3a0:cc3f:b93a with SMTP id 98e67ed59e1d1-3a6cdda1a3dmr768222a91.0.1790931097477;
+        Fri, 02 Oct 2026 01:51:37 -0700 (PDT)
+Received: from google.com ([2a00:79e0:203d:7:eb6d:4917:3e16:43e8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a6dd4bd483sm1024611a91.4.2026.10.02.01.51.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 01:51:36 -0700 (PDT)
+Date: Fri, 2 Oct 2026 16:51:33 +0800
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH RFC] arm64: dts: mediatek: mt8183: Switch to undeprecated
+ qcom,calibration-variant
+Message-ID: <20261002085133.GA2343595@google.com>
+References: <20250225101828.107509-1-krzysztof.kozlowski@linaro.org>
+ <c50e114a-bb5b-40a4-ab01-69ee33b984b8@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c50e114a-bb5b-40a4-ab01-69ee33b984b8@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_084416_008046_AAF52ADB 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20261002_015138_647289_9FAE2697 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,210 +105,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+On Tue, Feb 25, 2025 at 11:23:23AM +0100, AngeloGioacchino Del Regno wrote:
+> Il 25/02/25 11:18, Krzysztof Kozlowski ha scritto:
+> > The property qcom,ath10k-calibration-variant was deprecated in favor of
+> > recently introduced generic qcom,calibration-variant, common to all
+> > Qualcomm Atheros WiFi bindings.
+> > 
+> > Change will affect out of tree users, like other projects, of this DTS.
+> > 
+> > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > 
+> 
+> Ah, finally. That's nice :-)
+> 
+> Regardless of the RFC status....:
+> 
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Define the common reset operations backed by a regmap-based register
-interface for Realtek SoCs.
+I think this can be applied now?
 
-This library exports the standard reset control operations (assert,
-deassert, and status) to be utilized by other specific Realtek reset
-drivers. The implementation supports handling an optional write-enable bit
-required by certain Realtek reset controllers.
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-Changes in v15:
-- None.
----
- MAINTAINERS                              |  1 +
- drivers/reset/Kconfig                    |  1 +
- drivers/reset/Makefile                   |  1 +
- drivers/reset/realtek/Kconfig            |  8 +++
- drivers/reset/realtek/Makefile           |  2 +
- drivers/reset/realtek/reset-rtk-common.c | 73 ++++++++++++++++++++++++
- drivers/reset/realtek/reset-rtk-common.h | 29 ++++++++++
- 7 files changed, 115 insertions(+)
- create mode 100644 drivers/reset/realtek/Kconfig
- create mode 100644 drivers/reset/realtek/Makefile
- create mode 100644 drivers/reset/realtek/reset-rtk-common.c
- create mode 100644 drivers/reset/realtek/reset-rtk-common.h
+ChenYu
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4cd437266dd5..16c9ba043126 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23030,6 +23030,7 @@ M:	Cheng-Yu Lee <cylee12@realtek.com>
- M:	Yu-Chun Lin <eleanor.lin@realtek.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/clock/realtek*
-+F:	drivers/reset/realtek/*
- F:	include/dt-bindings/clock/realtek*
- F:	include/dt-bindings/reset/realtek*
- 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index eda9c698a95f..eda8f42954f2 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -452,6 +452,7 @@ config RESET_ZYNQMP
- 
- source "drivers/reset/amlogic/Kconfig"
- source "drivers/reset/hisilicon/Kconfig"
-+source "drivers/reset/realtek/Kconfig"
- source "drivers/reset/spacemit/Kconfig"
- source "drivers/reset/starfive/Kconfig"
- source "drivers/reset/sti/Kconfig"
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 489fafd6bbe3..486a8d0048ac 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -2,6 +2,7 @@
- obj-y += core.o
- obj-y += amlogic/
- obj-y += hisilicon/
-+obj-y += realtek/
- obj-y += spacemit/
- obj-y += starfive/
- obj-y += sti/
-diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfig
-new file mode 100644
-index 000000000000..5ddf8e5c09c7
---- /dev/null
-+++ b/drivers/reset/realtek/Kconfig
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config RESET_RTK_COMMON
-+	tristate "Realtek common reset driver" if COMPILE_TEST
-+	help
-+	  This option enables the common reset controller library for
-+	  Realtek SoCs. It provides shared reset control operations
-+	  (assert, deassert, status) that other Realtek-specific reset
-+	  drivers can use.
-diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makefile
-new file mode 100644
-index 000000000000..6d68e41748bf
---- /dev/null
-+++ b/drivers/reset/realtek/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_RESET_RTK_COMMON) += reset-rtk-common.o
-diff --git a/drivers/reset/realtek/reset-rtk-common.c b/drivers/reset/realtek/reset-rtk-common.c
-new file mode 100644
-index 000000000000..6900932b0a32
---- /dev/null
-+++ b/drivers/reset/realtek/reset-rtk-common.c
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
-+ */
-+
-+#include <linux/export.h>
-+#include <linux/module.h>
-+#include <linux/regmap.h>
-+#include "reset-rtk-common.h"
-+
-+static inline struct rtk_reset_data *to_rtk_reset_controller(struct reset_controller_dev *r)
-+{
-+	return container_of(r, struct rtk_reset_data, rcdev);
-+}
-+
-+static inline const struct rtk_reset_desc *rtk_reset_get_desc(struct rtk_reset_data *data,
-+							      unsigned long idx)
-+{
-+	return &data->descs[idx];
-+}
-+
-+static int rtk_reset_assert(struct reset_controller_dev *rcdev,
-+			    unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	unsigned int mask, val;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	mask = desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
-+	val  = desc->write_en ? (0x2U << desc->bit) : 0;
-+
-+	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
-+}
-+
-+static int rtk_reset_deassert(struct reset_controller_dev *rcdev,
-+			      unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	unsigned int mask;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	mask = desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
-+
-+	return regmap_set_bits(data->regmap, desc->ofs, mask);
-+}
-+
-+static int rtk_reset_status(struct reset_controller_dev *rcdev,
-+			    unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	unsigned int val;
-+	int ret;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	ret = regmap_read(data->regmap, desc->ofs, &val);
-+	if (ret)
-+		return ret;
-+
-+	return !((val >> desc->bit) & 1);
-+}
-+
-+const struct reset_control_ops rtk_reset_ops = {
-+	.assert   = rtk_reset_assert,
-+	.deassert = rtk_reset_deassert,
-+	.status   = rtk_reset_status,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_reset_ops, "REALTEK_RESET");
-+
-+MODULE_DESCRIPTION("realtek reset infrastructure");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/reset/realtek/reset-rtk-common.h b/drivers/reset/realtek/reset-rtk-common.h
-new file mode 100644
-index 000000000000..3ea35d9573a4
---- /dev/null
-+++ b/drivers/reset/realtek/reset-rtk-common.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Realtek Semiconductor Corporation
-+ * Author: Yu-Chun Lin <eleanor.lin@realtek.com>
-+ */
-+
-+#ifndef __RESET_REALTEK_COMMON_H
-+#define __RESET_REALTEK_COMMON_H
-+
-+#include <linux/reset-controller.h>
-+#include <linux/types.h>
-+
-+struct regmap;
-+
-+struct rtk_reset_desc {
-+	u32 ofs;
-+	u32 bit;
-+	bool write_en;
-+};
-+
-+struct rtk_reset_data {
-+	struct reset_controller_dev rcdev;
-+	const struct rtk_reset_desc *descs;
-+	struct regmap *regmap;
-+};
-+
-+extern const struct reset_control_ops rtk_reset_ops;
-+
-+#endif /* __RESET_REALTEK_COMMON_H */
--- 
-2.43.0
-
+> > ---
+> > 
+> > Dependency/RFC!
+> > 
+> > RFC, because this should be merged release after driver support is
+> > merged:
+> > https://lore.kernel.org/linux-devicetree/20250225-b-wifi-qcom-calibration-variant-v1-0-3b2aa3f89c53@linaro.org/T/#t
+> > ---
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts     | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts      | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts      | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts      | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts      | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts    | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts  | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi  | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts      | 2 +-
+> >   .../boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts      | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi   | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi           | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts       | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts       | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi           | 2 +-
+> >   arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi            | 2 +-
+> >   16 files changed, 16 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
+> > index 83bbcfe62083..f2303d9f125f 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
+> > @@ -35,5 +35,5 @@ trackpad@2c {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_COZMO";
+> > +	qcom,calibration-variant = "GO_COZMO";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> > index 3935d83a047e..13ec15fa284f 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> > @@ -31,7 +31,7 @@ &mt6358codec {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_DAMU";
+> > +	qcom,calibration-variant = "GO_DAMU";
+> >   };
+> >   &i2c2 {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
+> > index 72852b760038..b576b974cf23 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
+> > @@ -40,6 +40,6 @@ &touchscreen {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL";
+> > +	qcom,calibration-variant = "GO_FENNEL";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
+> > index 757d0afd14fb..d64581f35d2c 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
+> > @@ -28,6 +28,6 @@ &touchscreen {
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL";
+> > +	qcom,calibration-variant = "GO_FENNEL";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
+> > index 6641b087e7c5..d0c98d0aba95 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
+> > @@ -28,6 +28,6 @@ &touchscreen {
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL";
+> > +	qcom,calibration-variant = "GO_FENNEL";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
+> > index 877256eab262..3a81786084da 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
+> > @@ -14,5 +14,5 @@ / {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL14";
+> > +	qcom,calibration-variant = "GO_FENNEL14";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
+> > index b981dd31a430..959c4d3d9707 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
+> > @@ -14,5 +14,5 @@ / {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL14";
+> > +	qcom,calibration-variant = "GO_FENNEL14";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
+> > index 078bc765646f..4788edaeab87 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
+> > @@ -22,6 +22,6 @@ trackpad@2c {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_JUNIPER";
+> > +	qcom,calibration-variant = "GO_JUNIPER";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
+> > index ddb993521bbf..01cd59993a7c 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
+> > @@ -14,7 +14,7 @@ / {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL14";
+> > +	qcom,calibration-variant = "GO_FENNEL14";
+> >   };
+> >   &mmc1_pins_uhs {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
+> > index 10c4f920a7d8..c939ef3965ec 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
+> > @@ -14,7 +14,7 @@ / {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_FENNEL14";
+> > +	qcom,calibration-variant = "GO_FENNEL14";
+> >   };
+> >   &mmc1_pins_uhs {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
+> > index c942e461a177..14d03419b92c 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
+> > @@ -37,5 +37,5 @@ trackpad@2c {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_JUNIPER";
+> > +	qcom,calibration-variant = "GO_JUNIPER";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
+> > index ff02f63bac29..c4c08c0f715e 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
+> > @@ -370,7 +370,7 @@ keyboard-controller {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_KAKADU";
+> > +	qcom,calibration-variant = "GO_KAKADU";
+> >   };
+> >   &panel {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
+> > index 2b5a8d1f900e..7428efec95a0 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
+> > @@ -32,5 +32,5 @@ &panel {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_KATSU";
+> > +	qcom,calibration-variant = "GO_KATSU";
+> >   };
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
+> > index 75fadf2c7059..a36b6ddb71f6 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
+> > @@ -32,7 +32,7 @@ &panel {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_KATSU";
+> > +	qcom,calibration-variant = "GO_KATSU";
+> >   };
+> >   &sound {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
+> > index da6e767b4cee..2b283a55f653 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
+> > @@ -349,7 +349,7 @@ keyboard-controller {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "GO_KODAMA";
+> > +	qcom,calibration-variant = "GO_KODAMA";
+> >   };
+> >   &i2c_tunnel {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
+> > index 8b56b8564ed7..00da50a41574 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
+> > @@ -353,7 +353,7 @@ keyboard-controller {
+> >   };
+> >   &qca_wifi {
+> > -	qcom,ath10k-calibration-variant = "LE_Krane";
+> > +	qcom,calibration-variant = "LE_Krane";
+> >   };
+> >   &sound {
+> 
+> 
+> 
 
