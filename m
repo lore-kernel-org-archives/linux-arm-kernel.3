@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC05CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A495CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 12:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=; b=vV9sbUDggXKPtgbX/1tY5dTDVX
-	Tly64H1koXAzGHbXWGWzhYGWJiIvqh42+cqaGertq1wgNB+cPfhomFKSHkfhufTQEe8dlg4pmnxiU
-	0SunG5fX34acWVEyZxo4ELpgi5GoG0wiDm/Z3D3rb2pm9Pqwf4GZ9uwg58d8mrpDswnJhXFHa/jXl
-	/5UoJcoHhXyPescr/OfqG86akKzS3TYtN/WFsO1l9WGmbFVieHHbz80VzqGD6dOrMA+Spix33+Uv6
-	o7OvrGMVw7Qv5l8nEwwYNYQeVfRaJE3IXCPJ0Kc3oWj0jIcEghNl6KXS2IwDStY0RBpl/3PFpO9eh
-	+OMaD55g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CLh+ENzud1W7jlMwtzalp6l/ROxXZyI85Y4rCwOcmlM=; b=LhaAI+9Z/g+FvHB+8jXr5y6BG6
+	w0SHZIKyzXkMrK0FHoUS1CKT+YnH7TyAGLittaZ38D0XBT8/o3oqiZ327cvqDolrhh1xPiFWhent0
+	gw+3xL+JnNe/4PpaslbIO9tI3OvVNS6HzUCLuApEeQKBnif6u6I4T6/UeRhO5i6YWwAI6xNbupBHO
+	g3tsJwTjgOl0PR/glourlc+T1Z+F81y8Vip6eTr/5z6PcdApOB3h+vUpRKiBXvvAa0i+/c9OC/6Fm
+	A1MoPWy8HfHnTOzF6Mf41L2Fm2AjnDxbh5yd0o+RZAnZz3gd1JY5f6Xnt79GYOqrm9NJ9uWRliJR/
+	X80wz8tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCc7y-0000000BY1e-3qu5;
-	Fri, 02 Oct 2026 12:12:38 +0000
-Received: from mail-oi2-x11.google.com ([2607:f8b0:4864:32::11])
+	id 1xCcLZ-0000000BZb3-1Tt8;
+	Fri, 02 Oct 2026 12:26:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCc7v-0000000BY19-2qUy
+	id 1xCcLY-0000000BZau-0CAf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 12:12:37 +0000
-Received: by mail-oi2-x11.google.com with SMTP id 5614622812f47-4c66ba0b762so1456970b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 05:12:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790943154; x=1791547954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=;
-        b=E+QGpyMkYwAOr1zHrqy1E7rNwW0eKO4FdWABziPwqMRBHeAc1STus4KXGI0Yt3oQM2
-         UDKg5PXknRi821cdoITDje7dmNfTnBswBzM1s3bLWrHogZRmk5H7e2OPwgKpZATY9StM
-         hzJqPJ1O96scRM1kBBUK0BN3jnLve5y0fNIU78BQHb3DliU4L4zXO6wZRREt9YEEb9It
-         jrG9r1Uy4Il2XAmxp1k3O7Z9CoCF8pllqm9SRLDmF2YBZV2Esk4KkU9w8QHmUDJIjCUU
-         rAnBbi/Oqnnrw6dT45QwMSR7cwbnQims5ge5JETig6x782PLUQlwg+O3prNMe9TGCiIu
-         v5WQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790943154; x=1791547954;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=81uGpmP7cmZ5oefPKsTcsvoJoAO1uuBsnrj4SEE2374=;
-        b=BSbty2EBAuhMRhytLEHxESA6yxzljV2GyxD6Zeq2c4GX670qcXwAc+ygxw1whrNizR
-         1cyFEFPcAiGSq1AuToYx6a6W7Rf38bvz/GjPJi5ur5wg0+D0FZVPMGh/ilaPoy0euHLi
-         52jxSCHrS0YeqRc4+0fvxyQBUWeqChO0WOVF5fap9tym8ldtGM7Nb3nD2EDOfZTOYQ6P
-         VcL+S/Tgh3h97c9nw4YS1B/yFoC9ySI1FglK/6TSZ9dCd1b/h4bS+7n6TFlXeart+LSc
-         fuJG2yR0rVoAcBS2bXxS4Z0N5PfayGFkHqLxeVEZZ3XMOiY+hK27zStlbtMtKp/S55A4
-         /mWw==
-X-Forwarded-Encrypted: i=1; AKwUvBwwjDhBZAr9WfVQJ4qaN2ASKLMYUmmRqw1NfFszRabrEZFShBVMz9l9INmLx1hkF2n6oWYcwJDe4IONa2/JuDGg@lists.infradead.org
-X-Gm-Message-State: AFuF++mbQoJMctbU4dR0ASfofO0uXckFZcVlm/a6ZEIlHxw3PFhzlyBz
-	T4JSjvRdx4Yb8oByQrFc/d9PHC4jv/2X18LHz51LBfpQRTcd6d5VmTKr
-X-Gm-Gg: AYBFou3pazuB3hzLaaW1r4QKhjXEHAGmj0xODXdHOwz11ryhr9s3D4EyOEOtY8PZtKo
-	mzMvGfntpFUrBVgO1XWvxUIUBWeKiCNoVmNT4RcrMGtCgN6ZXW5XVhXrYc1AMv0Ajd0Oneeiv6i
-	ngm7kchSnCCOK7p7DhG4AaLzCrADfaGZBmSmH4ydVdKLR1d3KoX8qSnJNwot6UwU0ZHr84XW6JB
-	AT7sNSc4255w/+vCLMI6dGs1ZdMigMmdTD5V9gidkm+RUP/pVtgX/Q4Lup1Q9yYKEaEadQOU4I6
-	tSnGzm3UThMiwtDxRxM4bUW5pGZbBPtO5YNK/+zQMWBi/f4+GXEsye1Q8WIApYIcLCj/kU/pvBm
-	MtLEsrNtYJKnma+o9cDOpgk67LUFBS5bAg5yZuTMpak7MKukebDX2opHRh2lUOMWuuUeN1Xzx3W
-	c9I1JS/+ekspLquU0EKL8WVvI6fpaNo2G+CerYqJvxcafcq4TJVOpjVbK4EqXwY1ZPW1/Mjg==
-X-Received: by 2002:a05:6808:14c2:b0:4c3:cec9:fd18 with SMTP id 5614622812f47-4f528ccf57emr1327475b6e.11.1790943154581;
-        Fri, 02 Oct 2026 05:12:34 -0700 (PDT)
-Received: from localhost ([2a03:2880:12ff:43::])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4f524cd09e2sm1963119b6e.14.2026.10.02.05.12.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 05:12:34 -0700 (PDT)
-From: Matthew Wood <thepacketgeek@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>,
-	bpf@vger.kernel.org,
+	Fri, 02 Oct 2026 12:26:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F32843F01;
+	Fri,  2 Oct 2026 12:26:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147F61F00893;
+	Fri,  2 Oct 2026 12:26:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790943999;
+	bh=CLh+ENzud1W7jlMwtzalp6l/ROxXZyI85Y4rCwOcmlM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=j7eGrxGoMElYV4W9Lz4fI2ZW4MqRmu+5mNpqqKCzc/Dby0H12nTiNsAm0tuZic02q
+	 jpLGsjnOS0AQPYWo1JSS4pR6QnP7JKldDGLWQyG278rGB7vghxFUIUdxJ62oYuVAjo
+	 1Fc5ozTZQg91N6QyeQtboasYsYG7gPi+oRhH8eYE7dXmmf5T3vd+qMGU01fe+//6y6
+	 aIzpCSzgXlaFJWsLankN9iqkW9sRcRYLWcJNizGYfQVaP/hp2R01LuP0ZrqN4sDQfi
+	 +8UbBAP+Q/XamlwFJ2fnhXthNVpCcwgsnqZoVN2dwaBXtrqwlrkZZRYPlvKIQ2x5GB
+	 8u8p8cTo/Q0ug==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCcLU-0000000GDNO-42kB;
+	Fri, 02 Oct 2026 12:26:37 +0000
+Date: Fri, 02 Oct 2026 13:26:36 +0100
+Message-ID: <86tsn42sqr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Kohei Enju <enju.kohei@fujitsu.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] bpf, arm64: Fix racy plt target update in bpf_arch_text_poke()
-Date: Fri,  2 Oct 2026 05:12:31 -0700
-Message-ID: <20261002121233.561368-1-thepacketgeek@gmail.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_051235_727553_25497936 
-X-CRM114-Status: GOOD (  17.46  )
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA erratum E#030003
+In-Reply-To: <20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
+References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
+	<20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: misono.tomohiro@fujitsu.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, tglx@kernel.org, radu@rendec.net, enju.kohei@fujitsu.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,93 +92,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a long-jump trampoline is attached to or detached from a bpf prog,
-bpf_arch_text_poke() updates the plt target at the end of the prog by
-temporarily making the page writable:
+On Fri, 02 Oct 2026 11:26:52 +0100,
+Tomohiro Misono <misono.tomohiro@fujitsu.com> wrote:
+> 
+> From: Kohei Enju <enju.kohei@fujitsu.com>
+> 
+> On affected FUJITSU-MONAKA CPUs, an SGI generated by writing to
+> ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1 may be lost if the
+> operation races with CPU interface processing triggered by the arrival
+> of a higher-priority interrupt, an update to a pending interrupt, or a
+> transition of the PE to the Sleep state. When this occurs, the system
+> register write does not complete, causing the issuing core to hang.
+>
 
-	set_memory_rw(page);
-	WRITE_ONCE(plt->target, plt_target);
-	set_memory_ro(page);
+Is the SGI lost? Or is the sender core hanging?
 
-Since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
-management"), bpf progs are allocated from the bpf prog pack, so
-unrelated progs and their plts commonly share a page. The sequence
-above is not serialized against other pokers, it runs before text_mutex
-is taken and callers only hold the lock of the trampoline being
-updated. Two CPUs attaching to or detaching from different target progs
-in the same page can therefore race:
+I expect that virtualised accesses to these registers are not
+affected, since they trap, but it'd be good to document this.
 
-	CPU A                           CPU B
-	set_memory_rw(page)
-	                                set_memory_rw(page)
-	                                WRITE_ONCE(plt_B->target, ...)
-	                                set_memory_ro(page)
-	WRITE_ONCE(plt_A->target, ...)  <- permission fault
+> Work around the erratum by writing 1 to the bit corresponding to the
+> target SGI INTID in GICR_ISPENDR0 of each target PE's GIC Redistributor,
+> instead of writing to the affected system registers.
+> 
+> The affinity topology of affected systems has Aff0 == 0 for every PE,
+> with PEs distinguished by higher affinity levels. Consequently, an
+> ICC_SGI1R_EL1 write can target only one PE, so the workaround does not
+> increase the number of writes required to send an SGI to multiple PEs.
+>
+> Accessing a target PE's GICR_ISPENDR0 requires its Redistributor base to
+> have been discovered. Affected platforms conform to SBBR, which requires
+> PSCI for secondary CPU boot. They therefore do not use the ACPI Parking
+> protocol, which sends an IPI before the secondary CPU has initialized
+> its Redistributor. With PSCI, a secondary CPU discovers its
+> Redistributor before becoming an IPI target.
+> 
+> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  drivers/irqchip/irq-gic-v3.c                | 48 +++++++++++++++++++++++++++++
+>  2 files changed, 50 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 429bdf9a3d9d..13328a30df59 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -377,6 +377,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Fujitsu        | MONAKA          | E#030002        | FUJITSU_ERRATUM_030002      |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Fujitsu        | MONAKA GICv3/v4 | E#030003        | N/A                         |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ASR            | ASR8601         | #8601001        | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..e73fea8a0e27 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -80,6 +80,8 @@ static DEFINE_STATIC_KEY_FALSE(gic_nvidia_t241_erratum);
+>  
+>  static DEFINE_STATIC_KEY_FALSE(gic_arm64_2941627_erratum);
+>  
+> +static DEFINE_STATIC_KEY_FALSE(gic_fujitsu_030003_erratum);
+> +
+>  static struct gic_chip_data gic_data __read_mostly;
+>  static DEFINE_STATIC_KEY_TRUE(supports_deactivate_key);
+>  
+> @@ -238,6 +240,9 @@ static DEFINE_PER_CPU(bool, has_rss);
+>  #define gic_data_rdist()		(this_cpu_ptr(gic_data.rdists.rdist))
+>  #define gic_data_rdist_rd_base()	(gic_data_rdist()->rd_base)
+>  #define gic_data_rdist_sgi_base()	(gic_data_rdist_rd_base() + SZ_64K)
+> +#define gic_data_rdist_cpu(cpu)		(per_cpu_ptr(gic_data.rdists.rdist, cpu))
+> +#define gic_data_rdist_rd_base_cpu(cpu)	(gic_data_rdist_cpu(cpu)->rd_base)
+> +#define gic_data_rdist_sgi_base_cpu(cpu)	(gic_data_rdist_rd_base_cpu(cpu) + SZ_64K)
+>  
+>  /* Our default, arbitrary priority value. Linux only uses one anyway. */
+>  #define DEFAULT_PMR_VALUE	0xf0
+> @@ -1373,6 +1378,13 @@ static void gic_send_sgi(u64 cluster_id, u16 tlist, unsigned int irq)
+>  	gic_write_sgi1r(val);
+>  }
+>  
+> +static void gic_send_sgi_via_rdist(int cpu, unsigned int irq)
+> +{
+> +	void __iomem *base = gic_data_rdist_sgi_base_cpu(cpu);
+> +
+> +	writel_relaxed(BIT(irq), base + GICR_ISPENDR0);
+> +}
+> +
 
-This was hit on an arm64 server with 64K pages while attaching fentry
-programs to bpf progs:
+I don't think there is any need for a helper, given that there is a
+single caller.
 
-  Unable to handle kernel write to read-only memory at virtual address ffff80008f46d5f8
-  ESR = 0x000000009600004f
-  FSC = 0x0f: level 3 permission fault
-  pte=00c00200ea5a0783
-  Internal error: Oops: 000000009600004f [#1]  SMP
-  pc : bpf_arch_text_poke+0x214/0x238
-  lr : bpf_arch_text_poke+0x200/0x238
-  Call trace:
-   bpf_arch_text_poke+0x214/0x238 (P)
-   __bpf_trampoline_link_prog+0x1c8/0x470
-   bpf_trampoline_link_prog+0x64/0x90
-   bpf_tracing_prog_attach+0x318/0x4a8
-   bpf_raw_tp_link_attach+0x104/0x258
-   bpf_raw_tracepoint_open+0x6c/0x90
-   __sys_bpf+0x134c/0x3e10
+>  static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
+>  {
+>  	int cpu;
+> @@ -1386,6 +1398,22 @@ static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
+>  	 */
+>  	dsb(ishst);
+>  
+> +	if (static_branch_unlikely(&gic_fujitsu_030003_erratum)) {
+> +		/*
+> +		 * The affinity topology of affected systems has Aff0 == 0 for
+> +		 * every PE; PEs are distinguished by higher affinity levels.
+> +		 * ICC_SGI1R_EL1 therefore targets only one PE per write, so
+> +		 * using GICR_ISPENDR0 does not increase the number of writes
+> +		 * required to send an SGI to multiple PEs.
 
-Rather than serializing the permission changes, stop changing page
-permissions altogether and write the plt target with
-aarch64_insn_write_literal_u64(). It writes through the text patching
-fixmap under patch_lock, the same way the rest of the prog pack is
-written, and performs a single-copy atomic 64-bit store. The plt target
-is naturally aligned (see build_plt()), so CPUs concurrently executing
-the plt still observe either the old or the new target. This is the
-same helper ftrace and static calls use to update 64-bit literals that
-are loaded concurrently.
+This is not about the number of writes, but the cost of individual
+writes. A sysreg access is almost free (at least it is on decent
+implementations), while an MMIO access is probably one of the worst
+offenders. Therefore implying that there is no extra overhead is
+likely to be misleading. The commit message has the same problem.
 
-Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
-Signed-off-by: Matthew Wood <thepacketgeek@gmail.com>
----
-Changes in v2:
-- Replace page permissions change with call to aarch64_insn_write_literal_u64
-- Link to v1: https://lore.kernel.org/linux-arm-kernel/CADvopvZPO1gDMDhDOPcArjRJ0cPpSUZ5suMg-1kwRi+_-Xeitw@mail.gmail.com/
----
- arch/arm64/net/bpf_jit_comp.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+In any case, I don't think you need to justify anything here, as the
+choice between costly SGIs and a dead CPU is pretty moot.
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 475e70653454..e353403cc1c3 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -3339,13 +3339,15 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
- 		plt_target = (u64)&dummy_tramp;
+> +		 */
+> +		for_each_cpu(cpu, mask)
+> +			gic_send_sgi_via_rdist(cpu, d->hwirq);
+> +
+> +		/* Force the above writes to GICR_ISPENDR0 to be executed */
+> +		dsb(st);
 
- 	if (plt_target) {
--		/* non-zero plt_target indicates we're patching a bpf prog,
--		 * which is read only.
-+		/*
-+		 * non-zero plt_target indicates we're patching a bpf prog,
-+		 * which is read only. The prog shares its page in the bpf
-+		 * prog pack with other progs, so write the aligned target
-+		 * through the text patching fixmap without flipping the
-+		 * page permissions to avoid racing with concurrent pokers.
- 		 */
--		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1))
-+		if (aarch64_insn_write_literal_u64(&plt->target, plt_target))
- 			return -EFAULT;
--		WRITE_ONCE(plt->target, plt_target);
--		set_memory_ro(PAGE_MASK & ((uintptr_t)&plt->target), 1);
- 		/* since plt target points to either the new trampoline
- 		 * or dummy_tramp, even if another CPU reads the old plt
- 		 * target value before fetching the bl instruction to plt,
---
-2.53.0-Meta
+This doesn't force things to be executed. This is about completion of
+the access, and with an nGnRE mapping, it doesn't enforce that the
+stores actually reach the RDs, only an arbitrary point in the memory
+subsystem.  The only way to guarantee this is to perform a read-back.
+
+If this is relying on some additional properties that are
+implementation specific, then this requires to be documented (for
+example, if the implementation treats nGnRE as nGnRnE).
+
+> +		return;
+> +	}
+> +
+>  	for_each_cpu(cpu, mask) {
+>  		u64 cluster_id = MPIDR_TO_SGI_CLUSTER_ID(gic_cpu_to_affinity(cpu));
+>  		u16 tlist;
+> @@ -1871,6 +1899,20 @@ static bool gic_enable_quirk_rk3399(void *data)
+>  	return false;
+>  }
+>  
+> +#define SMCCC_SOC_ID_FUJITSU_MONAKA	0x00040003
+> +
+> +static bool gic_enable_quirk_fujitsu_030003(void *data)
+> +{
+> +	s32 soc_id = arm_smccc_get_soc_id_version();
+> +
+> +	/* Check JEP106 code for FUJITSU-MONAKA chip (0004:0003) */
+> +	if (soc_id != SMCCC_SOC_ID_FUJITSU_MONAKA)
+> +		return false;
+
+Why is this keyed on some firmware interface, while it is the CPU
+interface that is at fault? I'd expect that looking at the MIDR would
+be more reliable.
+
+> +
+> +	static_branch_enable(&gic_fujitsu_030003_erratum);
+> +	return true;
+> +}
+> +
+>  static bool rd_set_non_coherent(void *data)
+>  {
+>  	struct gic_chip_data *d = data;
+> @@ -1951,6 +1993,12 @@ static const struct gic_quirk gic_quirks[] = {
+>  		.mask	= 0xff000fff,
+>  		.init	= gic_enable_quirk_rk3399,
+>  	},
+> +	{
+> +		.desc	= "GICv3: Fujitsu erratum 030003",
+> +		.iidr	= 0x0403043b,
+> +		.mask	= 0xffffffff,
+> +		.init	= gic_enable_quirk_fujitsu_030003,
+
+Same problem. This is looking that the distributor instead of the CPU.
+It's OK to use it as a proxy for further filtering, but the final
+decision should probably rest on the MIDR.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
