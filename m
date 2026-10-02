@@ -4,99 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB2ECA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7732CA5FE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 19:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=; b=ZGDvit4sZpN3AswX8xV4/AED7U
-	A1b4BDLzQVjcboIjlLpkCmAy9VR1MYtwA2dNZShdJXcQNjNb3h3a7eIkLCA3NgsJAh64SK3lyRVzc
-	WpzZnxElQRQvzLF1/wymkDpIWTEl59OGbeApIIpql/3p51ZcigSxyiYlpRuJAB7vdA6jMDOb7wISX
-	FWb90IfwJiIJB2l7O4/qNQ51y1HlLPhqJBYp4JJ3/xTsHKiqQ/lasXJsdCP4UJEmdBoxB9H/ylNjx
-	aNqdH+HTUWSBx4M5fVIN0GDWNh6OGev+tWGiuay2LcmEHr6yOFjB8M6yMdBpnDmaZVnM6wa7MjZMN
-	h5beVdEQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j+6anAjBWwwyq2myOIAQCnGt8ykxWfOmfyjZNrQsOg8=; b=xjrtKWBgi5dIGXdJSRmtagjRod
+	JzFY8l+2zn/TvV7lBkH3cNf2+nnGp9PeMjFZDQXKXjLYaUyveSCaVQ+02KvxrPNOoqaN+e64i6eCu
+	cbzobsmW9WNG1dkkmJo/tLfXiuxpevnlH8ckkfXOOQ3U8cFgAU6Uvt5UpvxkW7iUIOWedrroQdd3x
+	jyjTFA560u9ol+LagkCjLYD1O5innmUHp9n7ellLY8MB0/p0hXJ5ExlkJ/MTTWdzG0jhVFD+6O7O2
+	IKpgPxa1udu9IyKwtPWOwtBQnaAuYSs3YNZJMKUDgLcN0616tVl728cV9Xyd3DokLPWFEIAN17QoX
+	8u3a8SeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjB8-0000000CQGT-3fcZ;
-	Fri, 02 Oct 2026 19:44:23 +0000
-Received: from mail-dy2-x10.google.com ([2607:f8b0:4864:36::10])
+	id 1xCjCz-0000000CQWg-37yt;
+	Fri, 02 Oct 2026 19:46:17 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCjB5-0000000CQF3-1sE4
+	id 1xCjCx-0000000CQW4-3SHg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 19:44:20 +0000
-Received: by mail-dy2-x10.google.com with SMTP id 5a478bee46e88-3396cec93b6so9061799eec.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:44:18 -0700 (PDT)
+	Fri, 02 Oct 2026 19:46:16 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6acbdbc1725so801491a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 12:46:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790970372; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Nm0Bi5Mzu3CNtRG4zScfV1VVxvySRo1RcsXybyU8TDozggVqrBF/enbzDzALm3ngzT
+         ogiHv2aFfbEKTX8kskgJo9h3gq9Zy1PmeviyRrZpNDx2Am1LPycUEpzlJ9XV6je8RCxN
+         xo6Iryt7Zm516mCGe5mA7pE7K+MoVnzcttSaJ7v0ChRADghqSsRtS8fKJ5Dv59pRN3Ha
+         KvWOg1hKhXFBQbfUCbECQSQYovRFAavES8x7IZFTolVKGbZbk1BGYi8LfB4VoLD7yQj0
+         +vuyjYsTs10CqOKfJkDC2k7kd6A57RkZBmiexALNdb9hNh0NAdCX1qeC3LHMYamEyaxt
+         k79Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=j+6anAjBWwwyq2myOIAQCnGt8ykxWfOmfyjZNrQsOg8=;
+        fh=Kg05ywj06voHKVfyxB4J94ZNT4HDa5rh+CHnC4fyCg4=;
+        b=s82GpdObPQ+rDuzovCBB4v2SSA/b8sUdGjFwe83in9CArCKVCyOzny+ZcFat0SHK/O
+         wt/F4dfa4Rvj0nmuEEcEiubwVnCBWpKKSNWtTitXYXGzJ2uGeJPs8QVuEujt98IrrK2r
+         UWTEbrh0ef5XKNxsmo2WE+4lKpIlp1sQTAepDMylegD2ZMCXWOSzGVb6t55NSQKDE3mc
+         LOdDB2SuXWEc/xRCxXr4oFGideSg7Bw6C0ef7JayFppNKcs/SvN2zdyZkZhClJA0yAru
+         nlBQN9/G8laPKGKjebu8fP4IAxMCcbIVTmpFcrk+xZWSjMYTrFNlNiU7NxQIwlrQzDds
+         mDbQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1790970258; x=1791575058; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=;
-        b=SXjXAumYLFaDuvW7/GZ03bYqhhiOnb3izwedX+JDiKcPDHfJZZsjNOVYDqy+OT3k6k
-         A6GChqEttYJcidOJfr5wvlsi1uMj/CJJdyz4fuwCa+22TRqf9Y5d8Ozgw6SmSAshI/h4
-         shLeRfC4+OMiy4mYwM0T6Dr6BhmhwgqYSo4HfSHfIZLPH5yypy1V1sS1qBXnCI8QEiD6
-         DogGPNzz67AQef1DWrfn3bxVXCq6jP8dPC5t4kymLMnExxlnIVcJv2xZmQcJ0i4oJtE4
-         qD3gw8TtQUTwU3NLgS/H+k7d2bS+f9TuRh8ie8EGHmvqzkTyt5nO4OPI5fIA/qd03NYt
-         8f5g==
+        d=gmail.com; s=20251104; t=1790970372; x=1791575172; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j+6anAjBWwwyq2myOIAQCnGt8ykxWfOmfyjZNrQsOg8=;
+        b=kGld5Mt+YyKQwJ1SkjcnfPizVOn7u5yseUPMi1AKoAmqL38gGp9ndm7kQ82gaBOHG8
+         rytlKJC5yOzdipCSMzuYe2ZIibu6EzwqCc9oPuezoWzD2gPx7eXFbosITQkprPvByi7G
+         NzcG5+UnmpgzLNlHEjUuezqbaxEdxrJzTPAhJdWe4BgfJBccDVDmNDNnyQpIKF9ZA25f
+         yQbih5fdVLBvqb21JgrwUIB/EG+mNDQRHHAh6yNx4XpTs614Yhof/st/LSssCLBqQCs1
+         1WFyNYwuUnDQIWoCKM7rg7lg2ykGSovF4/YqiAy8hnywYFBfkiSv7XpWqoXAd6PgvOLJ
+         NSOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790970258; x=1791575058;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rko1U6OoJC3n7W8qpIuhWiCDlnVmuYaiccHeKEGfF6U=;
-        b=qQw2FIsC8g7FEAZhyn/EX4MbsuG6VXE43/N8oWCeMh0s7IbUoFJwoNqVWokDf3BKq3
-         2Os2wwjS4OTNhirXOG/dOZ2zSMlgQXfaE3JZ+k/rIkH0U7f22YV4tTwGsL6qo034d2Ib
-         QHrm8sWeVmd/pB9pKC+piANjdmZaBbTvdOo2pDWiQb2q1xlIPyUT9ngdbtg0n6sq9tLJ
-         P162HjyA3aXB8zSLjJdYSjGV65z9ppLITlY/OIl7EBuIJgaXg0Bf3EGwpx1x5MtvJ9cN
-         mr2TlUt0ubUNdewlt9OjVwN1pYgARZpwv3BELetBI3bxZqBFKhlpurIz6nNE4iTkb9re
-         4MAQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzH+wivqXsanftxSoDdf6O66XamJNQcxpuHZU0i4FqS5c+8g5fJ5jV/bx1/ayRBqwf2gtCQYQsxfvlexrD5EnkF@lists.infradead.org
-X-Gm-Message-State: AFuF++nwn0/CZLriY9ChAMPYF7sKWpv1sW9qcrM5AFIFLenPA1JW6I7Z
-	iHXxPxjWxQORoXjD+DxSxMW6D/MrP11/J4LrbpdijWkFtTXfSNgh1sANi7GVBCO/yGM=
-X-Gm-Gg: AYBFou2b6RTMxzBtKzP6hQgrmryYtLtPOiSn2/lf/fArsLpCbXZ8vU0vdjs8RMqHkgc
-	4yZp5mcFdwnUPcgnB42kDH/VXqFkKe7ch/dfkocl9nPIkF1/maUPhrf7Nhqz544Ra9bWVxokqTv
-	Re4SsqkcyN9BolvAmW54n60PyR+L64yhOzKQHLpdL7aDe4Sp9An/0s0UwFK2CeQK2vI88rtY+SU
-	nxfrC4q8COFQCL+y5GqBLBPIgFiH5MOhF4RhLQh259QWXI5aPAvjt0z+SzwjFtX7azSCIakrf5+
-	aFVvt3UGl976F6oHwR9t7+RJnNmVW6jX6dXdDiv8eX9rE2Fmrj7Bc+n4HAf1eRKTDOfOPpc7vOM
-	yJhVbxzWweKzeyTstjDk/Q8NIU21ymm6pJleo09+KvbN26D3hDOEEAMRYCY/C1uHn9IG2Ox6KTz
-	n+lmSkjNUgWJ3MVPo+XVrl4GMN26x65m8OFLYFRavLLXB2hgrGibSlTCaJZI0Ij/wkEDwfmG6aI
-	jU5YPZ4+oJiyUTFu5F6hBI+H+WkzyN8txqVf1nCTYCYPSQdl/t5fuUQJK8UQqdW88iMtyk=
-X-Received: by 2002:a05:7301:4545:b0:342:94b:aa28 with SMTP id 5a478bee46e88-34f219610a0mr4295623eec.27.1790970257502;
-        Fri, 02 Oct 2026 12:44:17 -0700 (PDT)
-Received: from localhost.localdomain ([2603:8001:5f01:8bab:bcf9:6140:24a9:d1e7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34f14fcd065sm7236803eec.19.2026.10.02.12.44.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 02 Oct 2026 12:44:17 -0700 (PDT)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: Artem Dinaburg <artem@trailofbits.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Simona Vetter <simona@ffwll.ch>,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH 6.1.y] drm/mediatek: Fix potential NULL dereference in mtk_crtc_destroy()
-Date: Fri,  2 Oct 2026 15:44:12 -0400
-Message-ID: <20261002194413.20810-1-artem@trailofbits.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20260707; t=1790970372; x=1791575172;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j+6anAjBWwwyq2myOIAQCnGt8ykxWfOmfyjZNrQsOg8=;
+        b=AeZaq9dBj2HPHp03WTw6ra3TSFTxQF0hN1f//CVNwzZNSSZ7dDdKq+ykZGEdbspyBU
+         tRyzIC8qYfeDykBx3ELCMLK93wdz6hw3ln9rn1/Yz4VTrfvME6G8E2Qp/YZu/0JFz7sW
+         7HsemNTA85cEwLQRbePRcqUYtPgGTjmswF/d68YmMeSGm0XoxGoOsOmaI/BBV6CCky0U
+         Jdh4tMNathe7WONmvsvTcxTxWpquarYMJDl4H2LrEOc5mDHezGYcoyy2Jns5alHRM+ai
+         gPAhfLRsfEb3mfHUNOlt3JTVrXpiSM/N+icsihseKsvGbHaGCutaQE7sTioBlvl0DCJZ
+         NX2Q==
+X-Forwarded-Encrypted: i=1; AKwUvBziSj7v1CC0BGOm1Tma1R95MKptLI9uEklZmbfHROxwktoFLuWQZLtMgtvdko95e2cJ3vSgYo4jY6QDXpnIBlf/@lists.infradead.org
+X-Gm-Message-State: AFq9FYIq0erd2rNUNOGq5+owpdpWbQDew23T4Y4O8ebAW8vzF89c7B7l
+	73pr40pxchfUU4t+47It/smJDJQNXZJ0OThDsRcab2jApcwtrXTFjKe/BJr3eLMRr75zBE81Ubr
+	H4vFiXdEQBx8DpnJfgndS9PGRbZSWaw==
+X-Gm-Gg: AYBFou32nh5AWx98A+miHlnjrTX7I/cW1pDHVVufSurGz4YMKKEGnmY0eddpM+jsp1v
+	LUKvKjpdfh6ZMpq8sw6yetfkB5UznxeeejpRsAB5yt3glTSBQZiKIoMu9Lch0AY9PZi5tzvqpvg
+	4UJfJToOpSpsYVaUor8oJRlAafAe5CHgeUaCnvREHw3e25pavlJ8jNFFkIgjMLEVsBAyg2Sor2r
+	nPJreNH1h50UjBuvV6zUERipY2Usvy/g8UqPeAkVu3f8B//p7CeQiwMY2yxsstdlPN9stuR6v6Y
+	QqsK885f/uZOuSmor7dzNGeuGSUdgr+LKmpzwmIoE9TrkcykLGgVovBgr+Si8AyPx7rPSwWiSEr
+	PX96H3NCML8jycI3pQ1gAH+tZGLlqmtlCwSS7Bi6jAPtdAjhN1jMgjxyqwxMog/wLzUfZ
+X-Received: by 2002:a05:6402:5389:b0:6ae:16f5:5bf0 with SMTP id
+ 4fb4d7f45d1cf-6afada04d25mr366851a12.29.1790970372050; Fri, 02 Oct 2026
+ 12:46:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260917200136.75721-1-mhun512@gmail.com> <ajjy7y3ycnfqrofts457he5zlv34ncqg3n3g2qxgdgod5vbb2u@u56cc6pxihau>
+In-Reply-To: <ajjy7y3ycnfqrofts457he5zlv34ncqg3n3g2qxgdgod5vbb2u@u56cc6pxihau>
+From: Myeonghun Pak <mhun512@gmail.com>
+Date: Fri, 2 Oct 2026 15:46:00 -0400
+X-Gm-Features: AclHuK-OVkulTTcELXTW6ppNQtuiiKOubv_hU1rUhsWYHuSBkRjxBxVA6Daq1vQ
+Message-ID: <CAGEsz8FO4vN2yg=n7-Md9PBm5XVNjSiWAkH0fXNANZkYgUOkhw@mail.gmail.com>
+Subject: Re: [PATCH] soc: fsl: dpio: Free the IRQ before releasing the I/O object
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: Christophe Leroy <chleroy@kernel.org>, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	Ijae Kim <ae878000@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_124419_482231_DAB35E77 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20261002_124615_879890_9A433854 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +119,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dan Carpenter <dan.carpenter@linaro.org>
+Hi Ioana,
 
-[ Upstream commit 4018651ba5c409034149f297d3dd3328b91561fd ]
+Thanks for the suggestion. I've moved devm_free_irq() into
+unregister_dpio_irq_handlers() to keep registration and unregistration
+in sync.
 
-In mtk_crtc_create(), if the call to mbox_request_channel() fails then we
-set the "mtk_crtc->cmdq_client.chan" pointer to NULL.  In that situation,
-we do not call cmdq_pkt_create().
-
-During the cleanup, we need to check if the "mtk_crtc->cmdq_client.chan"
-is NULL first before calling cmdq_pkt_destroy().  Calling
-cmdq_pkt_destroy() is unnecessary if we didn't call cmdq_pkt_create() and
-it will result in a NULL pointer dereference.
-
-[ Backport to 6.1.y: used the older Mediatek CRTC file and helper names. ]
-
-Fixes: 7627122fd1c0 ("drm/mediatek: Add cmdq_handle in mtk_crtc")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Link: https://patchwork.kernel.org/project/dri-devel/patch/cc537bd6-837f-4c85-a37b-1a007e268310@stanley.mountain/
-Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Assisted-by: LLM
-Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
----
-Hi Greg, Sasha, and drm mediatek maintainers,
-
-I am working through the small CVE backports still missing from 6.1.y.
-This one addresses CVE-2024-53056. It skips command-packet destruction when
-channel setup failed before packet creation.
-
-The corresponding 6.6.y backport is already in the 6.6.y stable queue.
-The fix is already present in 6.12.y, 6.18.y, and 7.2.y, but not
-in 6.1.y.
-The target-specific adjustment is recorded in the bracketed note above.
-
-Could you please queue it for 6.1.y?
-
-CVE: CVE-2024-53056
-Upstream: 4018651ba5c409034149f297d3dd3328b91561fd
-
-AI assistance: An LLM helped identify, adapt, and validate this backport; I
-reviewed the resulting code and validation evidence.
+I'll resend both fixes as a two-patch v2 series, with the probe
+error-path cleanup first. That removes the unnecessary unregister call
+before the second patch adds the managed IRQ release.
 
 Thanks,
-Artem Dinaburg
+Myeonghun
 
- drivers/gpu/drm/mediatek/mtk_drm_crtc.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_crtc.c b/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
-index 59b310f7327c86..8e72b3bb51eb94 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_crtc.c
-@@ -161,9 +161,8 @@ static void mtk_drm_crtc_destroy(struct drm_crtc *crtc)
- 
- 	mtk_mutex_put(mtk_crtc->mutex);
- #if IS_REACHABLE(CONFIG_MTK_CMDQ)
--	mtk_drm_cmdq_pkt_destroy(&mtk_crtc->cmdq_handle);
--
- 	if (mtk_crtc->cmdq_client.chan) {
-+		mtk_drm_cmdq_pkt_destroy(&mtk_crtc->cmdq_handle);
- 		mbox_free_channel(mtk_crtc->cmdq_client.chan);
- 		mtk_crtc->cmdq_client.chan = NULL;
- 	}
--- 
-2.39.5
-
+2026=EB=85=84 10=EC=9B=94 2=EC=9D=BC (=EA=B8=88) =EC=98=A4=EC=A0=84 6:44, I=
+oana Ciornei <ioana.ciornei@nxp.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> On Thu, Sep 17, 2026 at 04:01:36PM -0400, Myeonghun Pak wrote:
+> > The DPIO interrupt handler accesses priv->io, but dpaa2_dpio_remove()
+> > releases that object before tearing down the interrupts. The IRQ was
+> > requested with devm_request_irq(), and unregister_dpio_irq_handlers()
+> > only clears its affinity hint. fsl_mc_free_irqs() returns IRQ resources
+> > to the MC resource pool without freeing the handler. An interrupt can
+> > therefore access the freed I/O object before devres releases the IRQ.
+> >
+> > Explicitly free the managed IRQ before returning its resource to the
+> > pool, and perform IRQ teardown before releasing the I/O object. This
+> > also waits for an in-flight handler while the object is still valid.
+> >
+> > This issue was identified during our ongoing static-analysis research
+> > while reviewing kernel code.
+> >
+> > Fixes: 993fec7e11ca ("bus: fsl-mc: dpio: add the DPAA2 DPIO object driv=
+er")
+> > Assisted-by: LLM
+> > Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> > Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> > Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+> > ---
+> >  drivers/soc/fsl/dpio/dpio-driver.c |    6 ++++--
+> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/soc/fsl/dpio/dpio-driver.c b/drivers/soc/fsl/dpio/=
+dpio-driver.c
+> > index d5198ffc4455..fa82cdcc4922 100644
+> > --- a/drivers/soc/fsl/dpio/dpio-driver.c
+> > +++ b/drivers/soc/fsl/dpio/dpio-driver.c
+> > @@ -263,6 +263,8 @@ static int dpaa2_dpio_probe(struct fsl_mc_device *d=
+pio_dev)
+> >  static void dpio_teardown_irqs(struct fsl_mc_device *dpio_dev)
+> >  {
+> >       unregister_dpio_irq_handlers(dpio_dev);
+> > +     devm_free_irq(&dpio_dev->dev, dpio_dev->irqs[0]->virq,
+> > +                   &dpio_dev->dev);
+>
+>
+> I would suggest moving the devm_free_irq() call inside
+> unregister_dpio_irq_handlers() so that we keep the register_ and
+> unregister_ in sync.
+>
+> Thanks,
+> Ioana
 
