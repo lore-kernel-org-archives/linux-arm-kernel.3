@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EEA7CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 21:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E64FCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 21:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fB8AWI5fN2ddbjjum5NsS8hnJ5Z4HHJhTGA5ByCK5bc=; b=bAevoDYZX0ZOLWO8ltbjS7fe6O
-	h5onM/DsiKgEj6XfEQMmvPmMA0laNtU5xzEm2Evjoorf158NwA2II5zsw8k68bNjYuMIK/PgafQqh
-	wFS1RN0796sfXiC/HLas9gCza+dn9ztCgrWm4cufYdSwKN/XVpdSNDtJ2+ex0/B800vWSythotnxw
-	H+iS8CaK2TXfkYOrfJWMn3KEujUuzUkQvg/dFdsJwU34CVV5eZoRAUK136fZP2FPpDVP+o50bOC0X
-	go1akE4khcBiCeDDJNGBAMayhuZxeOzVYYAbg+DApnJtGUdzeeMym4KPJIxqAi0W1drBEvW0mQatq
-	gc7uykHQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hEmHt3m10eoMgtvjPJXuMeA+sz+b1A4aGz4wGZrx/nk=; b=nsvoydcz6715JFpi66WvlCI4PF
+	+sjR+nitDvM7ePTGGe5CXotKR2lpllrXUjygWRPHhV5Uu08Ca/XTzEtbCQ8MvW39P8qas1Rb3ys08
+	XQGMlOCReCmC+nLPNNru3q6b+GpBvHZ5PVx6a0DzQLIO48tnssr2+244mANhvgy3LktBbaukOY88U
+	mWGKUeegnqDge+bFPfaRg6yzAnYyMcwxA0gBgjWnY0rHI9eUknMo6KrNBZvQAiFP9Kfj0inKayBOC
+	LK9E6NllCZ8z8g89NxowHw9vKzl+AkA1XoXWJbExUG1/7SJyW2V9Xzx2IBNXY2tap7eKRl6qzndNR
+	acwaGNYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xClHN-0000000CZ9k-0D4n;
-	Fri, 02 Oct 2026 21:58:57 +0000
+	id 1xClHS-0000000CZC8-17pT;
+	Fri, 02 Oct 2026 21:59:02 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xClHJ-0000000CZ8B-41P7
+	id 1xClHL-0000000CZ8m-2JeC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 21:58:55 +0000
+	Fri, 02 Oct 2026 21:58:56 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 3A1A120B7166;
-	Fri,  2 Oct 2026 14:57:58 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3A1A120B7166
+	by linux.microsoft.com (Postfix) with ESMTPSA id 245BF20B7168;
+	Fri,  2 Oct 2026 14:58:00 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 245BF20B7168
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1790978278;
-	bh=fB8AWI5fN2ddbjjum5NsS8hnJ5Z4HHJhTGA5ByCK5bc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=R1PdC9D/o8T6DS0YoXLIkaCdWW1Sx0fM8Uzz0vRdaAdi45/xlRo0UOGnzwjb7n6mb
-	 ooK3ZYqUVnEHou65FCHOufxw1bUIPGBAJHPO49hEYa37mCAxwR/TXlzw0EQiSTskxq
-	 4Cy+P35X6WwrXvXuV1+fOcs1N4KOfRyFGbYP0/Pc=
+	s=default; t=1790978280;
+	bh=hEmHt3m10eoMgtvjPJXuMeA+sz+b1A4aGz4wGZrx/nk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XSZ3soDNnbcKur+M3I4DJfeSKfPIoMNqlWld0861H2ry1jKugwmM03BnMSEdEo3WQ
+	 mg/C9eHVGtKXVi5fHJMEI50Jz4sKKVTL5gSEa4GEBn/UTKftty9LOUY3ecLL5+mpEW
+	 PgaiHfbasrfcMq5v1KPLW+GF/sZ8gwZKUBq1tm7g=
 From: Kameron Carr <kameroncarr@linux.microsoft.com>
 To: haiyangz@microsoft.com,
 	wei.liu@kernel.org,
@@ -54,15 +54,17 @@ Cc: catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org
-Subject: [PATCH v5 0/6] arm64: hyperv: Add Realm support for Hyper-V
-Date: Fri,  2 Oct 2026 14:57:19 -0700
-Message-ID: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
+Subject: [PATCH v5 2/6] firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
+Date: Fri,  2 Oct 2026 14:57:21 -0700
+Message-ID: <20261002215725.2015959-3-kameroncarr@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
+References: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_145854_050744_0B6F8F21 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20261002_145855_618408_F74837A9 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +79,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Realms (CoCo VMs on ARM) require host calls to be routed through the RMM
-(Realm Management Monitor) via the RSI (Realm Service Interface). This
-series implements most of the necessary changes to support Realms on
-Hyper-V.
+Modify arm_smccc_hypervisor_has_uuid() to check is_realm_world() and
+use rsi_host_call() to query the hypervisor vendor UUID when inside a
+Realm. The realm path is factored into a helper,
+arm_smccc_realm_get_hypervisor_uuid(), that owns a file-static
+rsi_host_call buffer (uuid_hc) serialized by a spinlock.
 
-One required change is not included in this series. The two buffers
-allocated via vzalloc() in netvsc_init_buf() cannot be decrypted in
-vmbus_establish_gpadl(). Currently only linearly mapped memory can be
-decrypted.
+The RSI-specific includes, file-static state and helper are guarded with
+CONFIG_ARM64 because <linux/arm-rsi-cmds.h> does not build on 32-bit
+ARM.
 
-This patch series was tested by booting a Realm on Cobalt 200 running
-Windows. I tested 4KB and 64KB page size. I replaced vzalloc() in
-netvsc_init_buf() with alloc_pages_node() -> set_memory_decrypted() ->
-vmap() in my testing as a workaround for the issue mentioned above [1].
+For non-Realm environments, the existing arm_smccc_1_1_invoke() path
+is unchanged.
 
-Changes since v1 [2]:
-  Patch 1: Add explicit padding to the RSI host call structure
-  Patch 3: Change from a per-cpu pointer lazily allocated to an array
-             of host call structs indexed by cpu id
-  Patch 4: Align input_page + output_page allocation to PAGE_SIZE since
-             that is the smallest unit of memory that can be decrypted
-           ~Remove KASAN tags before passing address to
-             set_memory_decrypted() since __is_lm_address() does pointer
-             arithmetic.~ (reverted in v3)
-  Patch 5: Add a helper function to reduce repetition
-           Check for NULL before indexing into host call array
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+---
+ drivers/firmware/smccc/smccc.c | 41 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
 
-Changes since v2 [3]:
-  Patch 3: Remove hv_hostcall_free() and inline the logic for simplicity
-           Reorder edits to keep #include line at the end of the file
-  Patch 4: Remove kasan_reset_tag()
-
-Changes since v3 [4]:
-  Rebased onto arm64 for-next/smccc-bus which includes moving RSI header
-  files out of arch/arm64 [5]
-
-Changes since v4 [6]:
-  Patch 1, 2, 4: Fix commit message to reflect the new header file names
-  Patch 5: Remove extra blank line
-
-[1] https://lore.kernel.org/all/20260721195633.1438361-1-kameroncarr@linux.microsoft.com/
-[2] https://lore.kernel.org/all/20260609181030.2378391-1-kameroncarr@linux.microsoft.com/
-[3] https://lore.kernel.org/all/20260625173500.1995481-1-kameroncarr@linux.microsoft.com/
-[4] https://lore.kernel.org/all/20260721201148.1441143-1-kameroncarr@linux.microsoft.com/
-[5] https://lore.kernel.org/all/20260923140405.1111554-4-aneesh.kumar@kernel.org/
-[6] https://lore.kernel.org/all/20261001220552.1793471-1-kameroncarr@linux.microsoft.com/
-
-Kameron Carr (6):
-  arm64: rsi: Add RSI host call structure and helper function
-  firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
-  arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
-  Drivers: hv: Mark shared memory as decrypted for CCA Realms
-  arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
-  arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
-
- arch/arm64/hyperv/hv_core.c       | 155 +++++++++++++++++++++++-------
- arch/arm64/hyperv/mshyperv.c      |  38 +++++++-
- arch/arm64/include/asm/mshyperv.h |   4 +
- drivers/firmware/smccc/smccc.c    |  41 +++++++-
- drivers/hv/hv_common.c            |  17 +++-
- include/asm-generic/mshyperv.h    |   1 +
- include/linux/arm-rsi-cmds.h      |  22 +++++
- include/linux/arm-smccc-rsi.h     |   7 ++
- 8 files changed, 244 insertions(+), 41 deletions(-)
-
-
-base-commit: bce57945f5e7207960b2bd567a6e880f90258ffb
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index afc2e4d..7e77170 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -14,6 +14,12 @@
+ 
+ #include <asm/archrandom.h>
+ 
++#ifdef CONFIG_ARM64
++#include <linux/arm-rsi-cmds.h>
++#include <linux/cleanup.h>
++#include <linux/spinlock.h>
++#endif
++
+ static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+ 
+@@ -69,12 +75,45 @@ s32 arm_smccc_get_soc_id_revision(void)
+ }
+ EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
+ 
++#ifdef CONFIG_ARM64
++static struct rsi_host_call uuid_hc;
++static DEFINE_SPINLOCK(uuid_hc_lock);
++
++/*
++ * Helper function to get the hypervisor UUID via an RsiHostCall.
++ */
++static void arm_smccc_realm_get_hypervisor_uuid(struct arm_smccc_res *res)
++{
++	guard(spinlock_irqsave)(&uuid_hc_lock);
++
++	memset(&uuid_hc, 0, sizeof(uuid_hc));
++	uuid_hc.gprs[0] = ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID;
++
++	if (rsi_host_call(__pa_symbol(&uuid_hc)) != RSI_SUCCESS) {
++		res->a0 = SMCCC_RET_NOT_SUPPORTED;
++		return;
++	}
++
++	res->a0 = uuid_hc.gprs[0];
++	res->a1 = uuid_hc.gprs[1];
++	res->a2 = uuid_hc.gprs[2];
++	res->a3 = uuid_hc.gprs[3];
++}
++#endif
++
+ bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
+ {
+ 	struct arm_smccc_res res = {};
+ 	uuid_t uuid;
+ 
+-	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
++#ifdef CONFIG_ARM64
++	if (is_realm_world())
++		arm_smccc_realm_get_hypervisor_uuid(&res);
++	else
++#endif
++		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID,
++				     &res);
++
+ 	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+ 		return false;
+ 
 -- 
 2.45.4
 
