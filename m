@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AE7CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B99CA5FD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/3curpnLarudRMr3RU1coB5E94wZDJq94Az5vgLkuTM=; b=C4Sw+zIj6y7WKSodS04c90WzOI
-	/jXsHZSilIej32kohKnndhCxsIAX3CzNYc3LV17avL2FM/R8J0pfdcZV3co7sp5szwf6ane41P/u3
-	aZP9I//D/RWaXbxaGZ9XeLTTmK5+jYLqqBcgnkZPpt3UbmFEjM5lMMYCVKxqbHWTWLBBF4rXMgz6I
-	hBd+9dtG3Iu03md6hutRJutz5l3hEto9Rg25hoMzrHdE1fWzI7y4uXdDPhGBJfwxSgaaYCvxxQhIw
-	Xpupo/wFJVz2QtGoROZ857iTkwZ8CmMn27wh5h4bHA/j7OBGuOIA7na3kte3HyNXKzsFtcLuEpRaP
-	6EoYxSFw==;
+	bh=sNyEsDdUIjj9QdYmMndkCdcHkWuCIiwfefFpnISO5Vg=; b=DsN91jwuk1ewWS1QiEL8ZMjM2Z
+	HQEJLx+vqGGv5081MHaKgaUR3lm4V/VPmFLAsmW88ZlgM4JpUsWROPVD9A1R9REeEWfa6SPvfoTU2
+	v8FwmS8WRtbW4hDEn163CqgCZ+sjlz+9PLuZxpXOEwUg9lLbrjHwi7tMXl3CpDXBSeDZ9oYpC1s7r
+	wvrFkrNzQjpnsxXmVU9WHQN64VzGx7xLtMjksnu4tocZ4SNGgmntTWfXQX/Osi6emR15P9jM4Ywky
+	cQER4Vze1FRUWDnNMnK1j3600qRjRgZYxvZzRN7rGR5ixtaGjzwbQHTXbBz7Iy3rzwm1dh7MHdg63
+	iiPNuEKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYb3-0000000Ayq4-2GKv;
-	Fri, 02 Oct 2026 08:26:25 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1xCYgi-0000000Aznt-0Ml5;
+	Fri, 02 Oct 2026 08:32:16 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYb1-0000000Aypj-2VPz
+	id 1xCYgf-0000000Azmu-2q5O
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 08:26:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790929584; x=1822465584;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=siUcSXucLvCnlrb1Xgp4F7mBAS3yKi85NsJq4r2dfs0=;
-  b=faISWRK6HWct97A7/7MSdoMAsOOdUULWw4nTvJqTmcbHt3jV2WotLcrD
-   jbwDF4e+KcCAxlRfOLAVaAz81bf1sOJCGDJfZ9LaOhMAFW7iZNbi7NKU1
-   CR2xvRDutYhATILc+38llMaHr0iNgNOn36TlEzXUpuytXkPRG319XLE6G
-   ZRBuhVTDCMl5m9UzVhmAU1GEW//zma+AzYpDE0jGfm7iupngC4u+ZD3vh
-   ZeL/sYiYnmRUjaugTTicKe7eO1OXumWWxPpGGURUMigI9V/YVvoOXoWAq
-   /rmOQVeKMfUsyBlIcdF7VBIj45ayhTwrE72E6kk8+wtIFrp9DEGAchJ9k
-   w==;
-X-CSE-ConnectionGUID: 6mD0QQi5ShKtRMGTVacgWQ==
-X-CSE-MsgGUID: It0ZSSX4Qn+HV5C+HzRrpw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11922"; a="90554355"
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="90554355"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 01:26:22 -0700
-X-CSE-ConnectionGUID: v07VLHlTTZW/gpl9yVKxbA==
-X-CSE-MsgGUID: AQTsk4EpQmuB2buWgQXH1A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="scan'208";a="284264249"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 01:26:15 -0700
-Date: Fri, 2 Oct 2026 11:26:13 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 08/15] gpio: pl061: convert register access to regmap
-Message-ID: <ar9qpeOCU0fpmhse@ashevche-desk.local>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
- <20261001-cv75-v5-v9-8-486cc289a4b8@ambarella.com>
+	Fri, 02 Oct 2026 08:32:15 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d822dso54761715e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 01:32:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790929931; x=1791534731; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sNyEsDdUIjj9QdYmMndkCdcHkWuCIiwfefFpnISO5Vg=;
+        b=hxg10KLGG1AQCpWghbY7JB7AoOViuri4hSKoyjq7roKCYHydkpQkin50ZlgA1li5iI
+         co9bDNwATvJME7sjQO4VwE1upYbbrBTQD6fd/ymf1mSjjczUwz2lBSASKKIZmU1N/rVx
+         Hn8KvUaRf9vrvLaAvKrWz3tKckavdzXKCLhUKvT3Xa+DnHnx14c8W6Scfzb3r5flF9oC
+         H9Zos/lsRzWyQKybBxzKy37W19F8pKaisLBqzD4xrIfSNiDFv0k8QCxxvlUj3gQf6++U
+         GOucg+Y/yb4yZDwpTWwzlhn9vNlfo7oTVAwSF6sah3CHaUZd4p4zPwB6cpBoWEV45nWR
+         w9Ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790929931; x=1791534731;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sNyEsDdUIjj9QdYmMndkCdcHkWuCIiwfefFpnISO5Vg=;
+        b=FaazopUMwpmW8VvLFBkaE3eh2yxs/nZzSffe+cS0yeYP9Vst9c69bfvzWpNsP1TUhu
+         afAANX4ZOn6FkdWB80CYAUBkEm2PS++PMotBONYVwtsGJT+va0EarYfgRFEnUWijfD+y
+         gSw/kdhV+FG2GTwnwWU7PxFNEB/Q9KOaoFj/tZlbrU3Fj3h3hewSQH7DS3HL7tvffeUj
+         n/0ZzQl+NGzjbT3fPxx0UDkm/KW+qOoZBtHdTe3lSbHRsHGjIOKFwief7v7HyPrR3OpM
+         rbX88XwThxNU3uknZKB4x67r7ja3fldaCKgUXBr2inLuGYkEDNaa38/JKjb67pLOt4Nk
+         Eh4g==
+X-Forwarded-Encrypted: i=1; AKwUvBxK64VH6S0IzaWC6vtReDZ59uLPk8wW/gagdMMyP4GDkLzyn+FvnTbESjn6rnGUudfJO13MchonlAcjO3pImSSj@lists.infradead.org
+X-Gm-Message-State: AFuF++kx/HDEbqCibezlYbx+3Cw4Ena9efx5XchfMykkAARldrg+vfxM
+	tcDdi4LueVJ8cn1oApP52UAathlqHjSm44nR+4KMKdgGQBq4cQQsN4Bn
+X-Gm-Gg: AYBFou2svUu8bgrBNooXcSke6CZPhksaZmXz6sjJsi+c9Vd8j6neXjWsE3i0BWVJITo
+	uPZv/FW/aP4LP5Z3YFIdsajJtP/2oDuKzSTpJt2pRKV/B5d66Prvs782pvQgOZ0IGKubr3YI6bT
+	OzcP1GaeZxD6Wz1QqE2pzeziCmr7QT37x+4j/pOXamTiFKlmkVYebwM+rPA7ZSt14fP6JN0LcBk
+	H26wFnwcpNW8bBu7V1vzCh9YcvQBwTVY+feT/61ar5Yu27FrehaHRohODhDH5mQwYPxufHrI9Yz
+	6yR8g4yVhWSrMw15kPc/8d5fT2gE9pwKFt2XVfRpdEMwaWr9rGrw0igR0kUYZfIoPC2Sa0zncfJ
+	os6jrZckTFsdt580BJ3VPoQNNe8K95WYJrJDWzKaYiPlRxqNbVchzHYtGmmcs//h+lescZAvJPd
+	/eoH64LsKZdsHdqY8HtKihLAiel2wWSEZODbmbbT0VU/XJrtTQSN7frCf/Xu1QKpV7RNEfPfDEE
+	HdUw89uEfZYc3wbWTlMmTJxIMLkVfL4lQoLONvwm45MaS92KnBvJ0C9jdjbMJQLhF5us31D+g==
+X-Received: by 2002:a05:600c:2391:b0:4a0:21b9:a55c with SMTP id 5b1f17b1804b1-4a0276a0f7cmr24840835e9.29.1790929930373;
+        Fri, 02 Oct 2026 01:32:10 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027da120bsm67567425e9.0.2026.10.02.01.32.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 01:32:09 -0700 (PDT)
+Date: Fri, 2 Oct 2026 10:32:08 +0200
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH v2 1/6] arm64: dts: freescale: imx8mp-verdin: Add
+ Cortex-M7 remoteproc
+Message-ID: <ew2g6ra2f7l35e56a3cslv53edmljlxm6d6rflakf2meftmjnz@ig6q45jlf6ms>
+References: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
+ <20261001-verdin-imx8mp-hmp-camera-ready-v2-1-7d1343ecd3ec@toradex.com>
+ <ar5sBB5VvZPJVrmt@SMW015318>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261001-cv75-v5-v9-8-486cc289a4b8@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <ar5sBB5VvZPJVrmt@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_012623_700114_4CB8285A 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20261002_013213_727291_D28D8D39 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,110 +108,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 08:40:57PM +0800, Long Zhao via B4 Relay wrote:
+On Thu, Oct 01, 2026 at 09:19:48AM -0500, Frank Li wrote:
+> On Thu, Oct 01, 2026 at 01:44:09PM +0200, Ernest Van Hoecke wrote:
+> > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> >
+> > Describe the Cortex-M7 remote processor available on the Verdin iMX8M
+> > Plus SoM.
+> >
+> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > ---
+> 
+> This indepedent part. suggest send as sperated patch. This time, I can pick
+> this one firstly.
+> 
+> Frank
+> 
 
-> Replace readb()/writeb() with a MMIO regmap while keeping the existing
-> gpio_chip and girq irqchip. Use a raw spinlock so irq_ack() can run
-> under the irq descriptor lock.
+Hi Frank,
 
-...
+Okay, I will send a separate series for this part with the needed edits.
 
->  static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
->  {
->  	struct pl061 *pl061 = gpiochip_get_data(gc);
-> +	unsigned int gpiodir = 0;
->  
-> -	if (readb(pl061->base + GPIODIR) & BIT(offset))
-> +	regmap_read(pl061->regmap, GPIODIR, &gpiodir);
-
-Why not returning an error?
-
-> +	if (gpiodir & BIT(offset))
->  		return GPIO_LINE_DIRECTION_OUT;
->  
->  	return GPIO_LINE_DIRECTION_IN;
-
-I believe this can use regmap_test_bits().
-
-...
-
-> static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
->  {
->  	struct pl061 *pl061 = gpiochip_get_data(gc);
->  	unsigned long flags;
-> -	unsigned char gpiodir;
->  
->  	raw_spin_lock_irqsave(&pl061->lock, flags);
-> -	gpiodir = readb(pl061->base + GPIODIR);
-> -	gpiodir &= ~(BIT(offset));
-> -	writeb(gpiodir, pl061->base + GPIODIR);
-> +	regmap_update_bits(pl061->regmap, GPIODIR, BIT(offset), 0);
-
-_clear_bits()
-
->  	raw_spin_unlock_irqrestore(&pl061->lock, flags);
->  
->  	return 0;
-
-...
-
-> static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
->  {
->  	struct pl061 *pl061 = gpiochip_get_data(gc);
->  	unsigned long flags;
-> -	unsigned char gpiodir;
-> +	unsigned int mask = BIT(offset);
->  
->  	raw_spin_lock_irqsave(&pl061->lock, flags);
-> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-> -	gpiodir = readb(pl061->base + GPIODIR);
-> -	gpiodir |= BIT(offset);
-> -	writeb(gpiodir, pl061->base + GPIODIR);
-> +	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
-> +		     !!value << offset);
-
-_set_bits()
-
-> +	regmap_update_bits(pl061->regmap, GPIODIR, mask, mask);
->  
->  	/*
->  	 * gpio value is set again, because pl061 doesn't allow to set value of
->  	 * a gpio pin before configuring it in OUT mode.
->  	 */
-> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-> +	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
-> +		     !!value << offset);
-
-Ditto.
-
->  	raw_spin_unlock_irqrestore(&pl061->lock, flags);
->  
->  	return 0;
-
-...
-
-> static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
->  static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
->  {
->  	struct pl061 *pl061 = gpiochip_get_data(gc);
-> +	unsigned int val = 0;
-> +
-> +	regmap_read(pl061->regmap, BIT(offset + PL061_DATA_OFFSET), &val);
->  
-> -	return !!readb(pl061->base + (BIT(offset + 2)));
-> +	return !!val;
-
-_test_bits()
-
->  }
-
-...
-
-...and so on...
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Ernest
 
 
