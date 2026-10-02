@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34802CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AE7CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 08:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dDYAyKpyE1u9tXd1NgeesAd5uKLQ18jJ7ka9XYxEvJc=; b=4E/kGzTm16KMAsl45eAz0MZaQM
-	0go3fsaoabh/UdBYBvVY2x/CvQIHS4u7Zi6oOW9wBfcwKmhhDQEEmvX3uqG038FZUbuTuXh/Q20Fu
-	9beqg2kO7eTOXK4AZ6AAQ0ru4Fp1L1HSsyT27fysFLAvX0zO7Pns0RCwgaiZ8TP5p1wWwbciwWw1v
-	F0Cukz0uG6cTgd6pM2XJuOJrai7NJhOXzmO+drX47wwYMrQk5ulGKMDnGwzzY4ULJf+BluAYNle+u
-	1SdoQPDw3nUtpLuP2lib3r4Xfgeeal1kPsBvwqQlKGG+fF7h2auKanGbCL9lScphi+TLoT6HvcR0f
-	WWItDlxA==;
+	bh=/3curpnLarudRMr3RU1coB5E94wZDJq94Az5vgLkuTM=; b=C4Sw+zIj6y7WKSodS04c90WzOI
+	/jXsHZSilIej32kohKnndhCxsIAX3CzNYc3LV17avL2FM/R8J0pfdcZV3co7sp5szwf6ane41P/u3
+	aZP9I//D/RWaXbxaGZ9XeLTTmK5+jYLqqBcgnkZPpt3UbmFEjM5lMMYCVKxqbHWTWLBBF4rXMgz6I
+	hBd+9dtG3Iu03md6hutRJutz5l3hEto9Rg25hoMzrHdE1fWzI7y4uXdDPhGBJfwxSgaaYCvxxQhIw
+	Xpupo/wFJVz2QtGoROZ857iTkwZ8CmMn27wh5h4bHA/j7OBGuOIA7na3kte3HyNXKzsFtcLuEpRaP
+	6EoYxSFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYZF-0000000AygW-10Cv;
-	Fri, 02 Oct 2026 08:24:33 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1xCYb3-0000000Ayq4-2GKv;
+	Fri, 02 Oct 2026 08:26:25 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYZD-0000000Ayfi-17cd
+	id 1xCYb1-0000000Aypj-2VPz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 08:24:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=dDYAyKpyE1u9tXd1NgeesAd5uKLQ18jJ7ka9XYxEvJc=; 
-	b=LZbdrwOJL5TkDIVbq8kSrEAMiYfT4Ww/G4pCXD7WiOcwz6PkAbu8xisaqqDMPEiUc0ILq1qEwJV
-	ZI0WlYh1gdZbS9whxb3plCdPkbYSWYtZA3c+9IG4EUGdKxmDGQMy18d1lC5Vl7NX54tHaf/RprsWU
-	qNQxbB9XSb9Yi7Q/ZnQEtKhdIUisSmrKQhf7i/Cb0bcvYHHCTOV2j5f+ocR9m9YmcP0pu44HhtZvn
-	gUAzy3opB+aeVDulac+CjWBt9znvJvASDDli+7SUw9EVdSF0OKiHB/65cEujhIwxeD9v3oQvwXq4Q
-	0BD8sMXNGwZKPTrjqr3bBgGF7dDMpOFoU6wQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xCYZ4-00000002mhJ-0iWJ;
-	Fri, 02 Oct 2026 16:24:23 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 02 Oct 2026 18:24:22 +1000
-Date: Fri, 2 Oct 2026 18:24:22 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Thara Gopinath <thara.gopinath@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Stanimir Varbanov <svarbanov@mm-sol.com>,
-	Eneas U de Queiroz <cotequeiroz@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Abel Vesa <abelvesa@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	brgl@kernel.org, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v9 00/14] crypto: qce - Fix crypto self-test failures
-Message-ID: <ar9qNirrzOTDLipN@gondor.apana.org.au>
-References: <20260922-qce-fix-self-tests-v9-0-b1aa742e79af@oss.qualcomm.com>
+	Fri, 02 Oct 2026 08:26:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790929584; x=1822465584;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=siUcSXucLvCnlrb1Xgp4F7mBAS3yKi85NsJq4r2dfs0=;
+  b=faISWRK6HWct97A7/7MSdoMAsOOdUULWw4nTvJqTmcbHt3jV2WotLcrD
+   jbwDF4e+KcCAxlRfOLAVaAz81bf1sOJCGDJfZ9LaOhMAFW7iZNbi7NKU1
+   CR2xvRDutYhATILc+38llMaHr0iNgNOn36TlEzXUpuytXkPRG319XLE6G
+   ZRBuhVTDCMl5m9UzVhmAU1GEW//zma+AzYpDE0jGfm7iupngC4u+ZD3vh
+   ZeL/sYiYnmRUjaugTTicKe7eO1OXumWWxPpGGURUMigI9V/YVvoOXoWAq
+   /rmOQVeKMfUsyBlIcdF7VBIj45ayhTwrE72E6kk8+wtIFrp9DEGAchJ9k
+   w==;
+X-CSE-ConnectionGUID: 6mD0QQi5ShKtRMGTVacgWQ==
+X-CSE-MsgGUID: It0ZSSX4Qn+HV5C+HzRrpw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11922"; a="90554355"
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="90554355"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 01:26:22 -0700
+X-CSE-ConnectionGUID: v07VLHlTTZW/gpl9yVKxbA==
+X-CSE-MsgGUID: AQTsk4EpQmuB2buWgQXH1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="scan'208";a="284264249"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.188])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2026 01:26:15 -0700
+Date: Fri, 2 Oct 2026 11:26:13 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 08/15] gpio: pl061: convert register access to regmap
+Message-ID: <ar9qpeOCU0fpmhse@ashevche-desk.local>
+References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+ <20261001-cv75-v5-v9-8-486cc289a4b8@ambarella.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260922-qce-fix-self-tests-v9-0-b1aa742e79af@oss.qualcomm.com>
+In-Reply-To: <20261001-cv75-v5-v9-8-486cc289a4b8@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_012431_303969_A35CBF26 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20261002_012623_700114_4CB8285A 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 02:57:15PM +0200, Bartosz Golaszewski wrote:
-> This iteration - in addition to the previous fixes - proposes to split
-> the QCE driver into a core part necessary to bind to the QCE DT node and
-> enable runtime power management in order to allow to drop the
-> interconnect votes, and the crypto part registering the crypto
-> algorithms. The core module is then enabled in arm64 defconfig while the
-> crypto part stays disabled by default. In addition: the actual
-> registration of crypto algos is gated with a module parameter that
-> default to false.
+On Thu, Oct 01, 2026 at 08:40:57PM +0800, Long Zhao via B4 Relay wrote:
 
-Please check the Sashiko comments:
+> Replace readb()/writeb() with a MMIO regmap while keeping the existing
+> gpio_chip and girq irqchip. Use a raw spinlock so irq_ack() can run
+> under the irq descriptor lock.
 
-https://sashiko.dev/#/patchset/20260922-qce-fix-self-tests-v9-0-b1aa742e79af%40oss.qualcomm.com
+...
 
-Thanks,
+>  static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
+>  {
+>  	struct pl061 *pl061 = gpiochip_get_data(gc);
+> +	unsigned int gpiodir = 0;
+>  
+> -	if (readb(pl061->base + GPIODIR) & BIT(offset))
+> +	regmap_read(pl061->regmap, GPIODIR, &gpiodir);
+
+Why not returning an error?
+
+> +	if (gpiodir & BIT(offset))
+>  		return GPIO_LINE_DIRECTION_OUT;
+>  
+>  	return GPIO_LINE_DIRECTION_IN;
+
+I believe this can use regmap_test_bits().
+
+...
+
+> static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
+>  {
+>  	struct pl061 *pl061 = gpiochip_get_data(gc);
+>  	unsigned long flags;
+> -	unsigned char gpiodir;
+>  
+>  	raw_spin_lock_irqsave(&pl061->lock, flags);
+> -	gpiodir = readb(pl061->base + GPIODIR);
+> -	gpiodir &= ~(BIT(offset));
+> -	writeb(gpiodir, pl061->base + GPIODIR);
+> +	regmap_update_bits(pl061->regmap, GPIODIR, BIT(offset), 0);
+
+_clear_bits()
+
+>  	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+>  
+>  	return 0;
+
+...
+
+> static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
+>  {
+>  	struct pl061 *pl061 = gpiochip_get_data(gc);
+>  	unsigned long flags;
+> -	unsigned char gpiodir;
+> +	unsigned int mask = BIT(offset);
+>  
+>  	raw_spin_lock_irqsave(&pl061->lock, flags);
+> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
+> -	gpiodir = readb(pl061->base + GPIODIR);
+> -	gpiodir |= BIT(offset);
+> -	writeb(gpiodir, pl061->base + GPIODIR);
+> +	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
+> +		     !!value << offset);
+
+_set_bits()
+
+> +	regmap_update_bits(pl061->regmap, GPIODIR, mask, mask);
+>  
+>  	/*
+>  	 * gpio value is set again, because pl061 doesn't allow to set value of
+>  	 * a gpio pin before configuring it in OUT mode.
+>  	 */
+> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
+> +	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
+> +		     !!value << offset);
+
+Ditto.
+
+>  	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+>  
+>  	return 0;
+
+...
+
+> static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
+>  static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
+>  {
+>  	struct pl061 *pl061 = gpiochip_get_data(gc);
+> +	unsigned int val = 0;
+> +
+> +	regmap_read(pl061->regmap, BIT(offset + PL061_DATA_OFFSET), &val);
+>  
+> -	return !!readb(pl061->base + (BIT(offset + 2)));
+> +	return !!val;
+
+_test_bits()
+
+>  }
+
+...
+
+...and so on...
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+With Best Regards,
+Andy Shevchenko
+
+
 
