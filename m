@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C1ACA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 03:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03393CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 04:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HG7hLYwo6VKRj7UF0IiJn2CjzUewNY8+lmn/zodhbzY=; b=Ll0nKJMYU203ogbLz8Pnog3JBV
-	XtLJGCTUkisNw4uqdIt37G14PqBVF1nHs1qaC1QjZG4LLnf1uuQpUFCABzfBcqv9sY0FjyUw7VO2B
-	JZyq1Kb3TXKyUJlxMdWnefgAYcKgE+rrJpcLR1Az8ANkolSu0JPyDh9c8atc450zL/wFUK4I/Pqek
-	fsuz6tKLJXDBFC2gUsBgOGFWJGSvLBl1EPvh2OKVjQ7MOH7cYpf2ffTmPXrqUV9X4+TC06iHT0Fed
-	8qxIm1mo8fJ/tTAkV3Xu2UJ/Iv+xzObRxjY/c30qwnaZWSDZfDPyZRHKvUBV8u7A2W+YU6jnb1aDw
-	ipt4VDOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OKA8Syj48Q7IetCsurK5/TaEJU66JFHb8rMYTLqZg90=; b=zFcls8EzdqosqCCPxAR1vrxaWr
+	tWXf7svrst6XekpKLOT4YNQ9VCz3RspOJPWOJBG9HkZN+BqUpczEVOIFmcf0KASXt+dkfHopyw294
+	1qYipevOh6VdDua189lz5KgxfaranH8op5nD2Mu4sWl5gHcO/xlSP7RXqg2cQmg0OYyhPcUzqtxhq
+	QU2WeRChHF73aOKD2yQO6SjrRb3kuygEWTsYXJSDIkqLnjpMLsWRq6da25luVSDebGmOPbSzwd1vF
+	ahdV9pix2FADEw438sFfGvz1rJikOBMN+QCPoVhRHDl4cbSzswPk4V//o/yT3pW4ffxvWU61C9z3y
+	mWcgKH7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCUJx-0000000AZWl-3KOC;
-	Fri, 02 Oct 2026 03:52:29 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xCUni-0000000AamP-2bRt;
+	Fri, 02 Oct 2026 04:23:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCUJu-0000000AZVe-3r2c;
-	Fri, 02 Oct 2026 03:52:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Date:Subject:MIME-Version:Content-Type:
-	Message-Id:To; bh=HG7hLYwo6VKRj7UF0IiJn2CjzUewNY8+lmn/zodhbzY=;
-	b=Iz79VAHuPviVItrkWPC5D1s5A7KO4pL0saUgClXIBwNPQaSTWi/GcDKqA+IMpp
-	U74MTtB8sYm4HVxlophdrJrhQ6HMNte+fbOQlb4ZytZ0eXik0fuBRC2EvwafafwG
-	ma47g+vfOLZVPFTXxufEYs02d24e85FQGo7e30LQ3iJ6Q=
-From: BG9OXA <bg9oxa@163.com>
-Date: Fri, 02 Oct 2026 11:52:12 +0800
-Subject: [PATCH v6 1/2] dt-bindings: arm: rockchip: add ALIENTEK
- QuarkPi-CA2
+	id 1xCUne-0000000Aam5-1I7V
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Oct 2026 04:23:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790914987;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OKA8Syj48Q7IetCsurK5/TaEJU66JFHb8rMYTLqZg90=;
+	b=coKTmRqcZx/j1+b/qD4Icid79N5cVxOGUPqeMsKNLn6lwJtL25FS5sz9A8lI+V4nKqVK4v
+	7G1H3tKVXfslkBX2oknveCjhY43AxJsOkXy0vDMSl4oR1CC81MbR4CqfR8ZDCqk68CHgkN
+	1adJd5QD/1B/vs+dNtrZbGwRwV6isRg=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-86-IESKRC73MCu6lqFcW_U8UQ-1; Fri,
+ 02 Oct 2026 00:23:05 -0400
+X-MC-Unique: IESKRC73MCu6lqFcW_U8UQ-1
+X-Mimecast-MFC-AGG-ID: IESKRC73MCu6lqFcW_U8UQ_1790914985
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 736E81800671;
+	Fri,  2 Oct 2026 04:23:04 +0000 (UTC)
+Received: from [172.20.64.251] (unknown [10.30.44.73])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E03DB1800345;
+	Fri,  2 Oct 2026 04:23:02 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.3.0-rc5,
+ upstream-arm-next, 7ce52952)
+Date: Fri, 02 Oct 2026 04:23:02 -0000
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <96552.126100200230600105@us-mta-86.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -rbjS-oo3mvYi7AjXvfzWMgDdnSEOAsIYEfUGWMPXzo_1790914985
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261002-b4-quarkpi-ca2-v6-1-9fc33f27ebb9@163.com>
-References: <20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com>
-In-Reply-To: <20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Andrew Lunn <andrew@lunn.ch>, BG9OXA <bg9oxa@163.com>
-X-Mailer: b4 0.16.0
-X-CM-TRANSID: QCgvCgD3f4BsKr9qRjXKCQ--.24074S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XryfJrWxWFWktFyxAF1DKFg_yoWfurbEka
-	4xuF15uFWrXFyFgw45Aan7GFyjqw47Krn7A3WUAF18A34vkws3KFZ5t342kFyxur43urn3
-	CFs5JryxXFnxGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sR_YiiDUUUUU==
-X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC3g8wnWq-Km8NywAA3q
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_205227_306106_F1912B7D 
-X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-CacheID: sfid-20261001_212310_423780_51D8BF8E 
+X-CRM114-Status: UNSURE (   6.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,31 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the ALIENTEK QuarkPi-CA2, an RK3588S based single board computer.
+Hi, we tested your kernel and here are the results:
 
-Signed-off-by: BG9OXA <bg9oxa@163.com>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index a799bb843..a3191bb90 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -182,6 +182,11 @@ properties:
-           - const: alientek,clrv1126f
-           - const: rockchip,rv1126
- 
-+      - description: Alientek QuarkPi-CA2 board
-+        items:
-+          - const: alientek,quarkpi-ca2
-+          - const: rockchip,rk3588s
-+
-       - description: Edgeble Neural Compute Module 2(Neu2) SoM based boards
-         items:
-           - const: edgeble,neural-compute-module-2-io   # Edgeble Neural Compute Module 2 IO Board
+Tested-by: CKI Project <cki-project@redhat.com>
 
--- 
-2.47.3
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2902294141
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
