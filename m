@@ -4,172 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF4DCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCAACA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 10:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwUbl20GLDeB2InvSSXalO8LSqIFIDpO52nAdBiBQik=; b=2nsSpmIIjRGErQuWsjBW+oM2sH
-	jV1VhlUe5ziZamnThRA4k+QVJCQk8LOgwAKoKCijRXw4RPDIMDcWrl6mmgHVbI3pt+gqj32fz0+oj
-	LCR6WtZanMXVt7Qlrl69jACJqV0qm2gcnQnjKUXDk64YekE0rgCIgt2fGmMzaBOjE95K9NmuvLwp5
-	PmXEcyc2I9sr46t6BiQtxrcetgvnrBAdHSQN5Y0SmZ/V7J1h+GPCXUKY4H3szI2U0G7G+u69FZ0ot
-	vbTBxUcVShvijzpzRrujyDRVF7c+PY80Xxrg6B+cbXXagzOApVShoF7UNhET4pHhuV+B9Cdf5B5ZN
-	TtWfKqEA==;
+	bh=Zv+Yzqx6DsdGSD2oFM8VT12PHEpzSkVT9TOCD+GZP2k=; b=4P/cKbz3BqjskQqyTtYbfyoCoE
+	yq2z6NnBTM9zOWZShdc5z7M/TfonVMX5R+MI2Zho/bc/ewEz9i78Sz4Ht+F/yX5Ynp6wyoIC49Q+2
+	vuJUxDA7fvNkDXYmTWA5Ggef5xYuQzoPCi+y7ULIN+PXA8NCijZ1aEHYzFRCQWG0T8Lo9peclFrYT
+	o3rkWoZl3G4xHvyZiTSdtadCk1UMQRdDWXyesMme4a5Cn1lgxhVfgFkALZVifRj3ouMzULS5AaA2z
+	lqnDtegmZ8KmSOTD65y48TGOQ1XTFQD6L/tkRF+gYXLmdmFvlN2G2INeftRZCJejqhZEzgp3QM3Xx
+	1cMaWCEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCa0z-0000000BEkV-1tni;
-	Fri, 02 Oct 2026 09:57:17 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xCa4E-0000000BF7v-3EIQ;
+	Fri, 02 Oct 2026 10:00:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCa0w-0000000BEjX-3swi
+	id 1xCa4D-0000000BF7k-36jT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:57:16 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6929lnkE374067;
-	Fri, 2 Oct 2026 04:57:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=wwUbl20GLDeB2InvSSXalO8LSqIFIDpO52nAdBiBQ
-	ik=; b=eqHpJW2pJzmcwI0tADJYZzeJT5lb2vFz8QT6+6tclFRqa5bDXZgBQRisO
-	I1U37zbzM5c9HF3NUQCJh6O3lvLqNeGKmU9LR05PJwTKNPjVgRA6eFeKHf9AAHj7
-	z4AXwdRyBB+bFDV+6eRl43l5P8cnJpSHaalndZ0b0cFF7G8gERuKFH/ie56IMjuF
-	P9xbGqGPjMiMLFo5A5M84oXEQQ39D6KjgjcebNWiIoIn9AOOXJMBIRpHIs/eMs92
-	i4itlnyHtm8ADGrgCRyS9H4N2eIe8yxKo2X8bLvJMZ2Ht+Q43kaS1GdlFPMJDXtz
-	5AX32LGiKorilQfobvY6iaWvXUviA==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011068.outbound.protection.outlook.com [40.107.208.68])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4h27p3gupw-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 02 Oct 2026 04:57:12 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f5agUBI9RNSEz4+JNyaDNn6OzNGVJeuaLYtdJPDApBoQJ3yvRB774UZSsEceDqjct8gmnQ2qRBijRayFtyivZmv3FkPGSCww4V5vIwPjywBJGQEXtKHPP+hRtSmzz3uKAkd192OYFAtyel/faR6wGd44rpPMWXJvAHlPlAuMcNKhMzTwDpxVPFoeTf6oB258sO3nEtUCox1dAUGDqGGKg/wcWSswiJGOMC5hYJPjnTirERY/eNlgHj1JWNKPHAVwuBhJuhrfgAD9GSUM+wy91ape7J6Xx72Y+n52QTX4pVN2xPpyzHXlPgMHxsOPN2awAKDlKmw/XGUrE7asFvEMiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wwUbl20GLDeB2InvSSXalO8LSqIFIDpO52nAdBiBQik=;
- b=MnlvB/5DW7O7sVrp1GBt4lDOobx+I1dE543eb2pmL70z1Ih0jM8o+T/M/S+ynMGYoIduLXAYnmPqlx0uQlEH/wlLBfsZLlkO4kE2Oqu4gzJkUI39TwQoAPZaH18JHEFBRMarK51CVIAg6RmV5uoBCDReM5slRbC60HNz/BCQD9i6U+ITSy90rC8fywrDEK2MCodBeI+cw0quVetO1M0MZAsDR4ynqjABCVU2ZzcY2PmIxGjd3Leww/zesFSHju7yus6RbPDOtMETc8RpRMvphIHLSS6GtZrvnLVH0+5VSJCsPi8eKqJceO1G49vdEwWJKBUkGZf58i4RHvDp+phehg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wwUbl20GLDeB2InvSSXalO8LSqIFIDpO52nAdBiBQik=;
- b=hvGlGuXfhAf1YkwozP24XeEL6e70srspnNKYG2LaGGMVa5SFuwUOgzcwVGwtzWYPO1yjC9+fIPIwrENTwW2j/1D5zy4y7lxwdCH7vuxdiq2yN+lS7Tc3T/Hht/6lpG0Sy+fqARArwTnztEzQXYkdzF2knzcxWYxxkzsACIy9KnU=
-Received: from CY5PR15CA0011.namprd15.prod.outlook.com (2603:10b6:930:14::23)
- by DSVPR10MB997962.namprd10.prod.outlook.com (2603:10b6:8:3ab::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.12; Fri, 2 Oct
- 2026 09:57:09 +0000
-Received: from SN1PEPF000397B3.namprd05.prod.outlook.com
- (2603:10b6:930:14:cafe::98) by CY5PR15CA0011.outlook.office365.com
- (2603:10b6:930:14::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.19 via Frontend Transport; Fri, 2
- Oct 2026 09:57:09 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SN1PEPF000397B3.mail.protection.outlook.com (10.167.248.57) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Fri, 2 Oct 2026 09:57:08 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 2 Oct
- 2026 04:56:34 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 2 Oct
- 2026 04:56:34 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Fri, 2 Oct 2026 04:56:34 -0500
-Received: from [10.249.144.74] ([10.249.144.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6929uS3L2828403;
-	Fri, 2 Oct 2026 04:56:29 -0500
-Message-ID: <73326965-527b-4de7-85f6-ce3b458c0401@ti.com>
-Date: Fri, 2 Oct 2026 15:26:27 +0530
+	Fri, 02 Oct 2026 10:00:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5049B60A70;
+	Fri,  2 Oct 2026 10:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85C351F000FF;
+	Fri,  2 Oct 2026 10:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790935236;
+	bh=Zv+Yzqx6DsdGSD2oFM8VT12PHEpzSkVT9TOCD+GZP2k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RWPjbqIWjAu2zsKH644XlYKCB/5zP2d+eyVa9bodekD3uk2rLdVH6tt8lzHeMq38o
+	 ENn2x7jo/HkcI0K5NIcAihVD6QbLqBd5wXG0m4508G1xAZ8zqtzIRGYSnefFL4VOPG
+	 FzhNlttZFd5O3qP/+NxlcB2WS8X5zSI1dZKzMszMiSgcODKj9oOVn9ASWNozgAiGif
+	 SrMMYBejgB85ZTyF1lSBPkY/PesxPw6iRcDgmttgTXMtJq6djjtLvkTAxQWCHSZ0la
+	 3E6arBxmnhjWA8jle1iCe4ii42waa4XVlD27m4TYenHN+C89nk70DCpILK/5T1Yu+O
+	 Fl41LZcTWAftQ==
+Message-ID: <e8ce0c1c-32b2-4785-a3a7-99340c55d5f4@kernel.org>
+Date: Fri, 2 Oct 2026 12:00:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/6] dt-bindings: arm: keystone: ti,sci: Update nodename
  pattern
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <afd@ti.com>, <u-kumar1@ti.com>, <vigneshr@ti.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>
+To: "Padhi, Beleswar" <b-padhi@ti.com>
+Cc: nm@ti.com, kristo@kernel.org, ssantosh@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ afd@ti.com, u-kumar1@ti.com, vigneshr@ti.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, devicetree@vger.kernel.org
 References: <20260930194131.117129-1-b-padhi@ti.com>
  <20260930194131.117129-2-b-padhi@ti.com>
  <20261002-rugged-nondescript-cheetah-8caa9b@quoll>
+ <73326965-527b-4de7-85f6-ce3b458c0401@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <20261002-rugged-nondescript-cheetah-8caa9b@quoll>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <73326965-527b-4de7-85f6-ce3b458c0401@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B3:EE_|DSVPR10MB997962:EE_
-X-MS-Office365-Filtering-Correlation-Id: 17cc2a14-6504-4331-19d7-08df206b8570
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700016|82310400026|23010399003|4143699003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: ci94h8GYySYnMyEtlB4/MIMl6swDesSYHItpD6495Fq4caniKGEn8hzOMtJOzqYLbYCgWJFByhy7PCcBg7FCi/2XGBLfpuVoUwSiXZQTt1UBieUdxnsWVYDr2qBwcwfKLJy2EJo9iyodu6DBFDxkBO9j2Cy2DL5obwyIjzA7QnDq7KN+d0Ij/O0QC5XS6KsbZv8EnMB+vGsKkAZFTzPszi8id2uaqUuFAlcxR8xeexpfDDYemvsruGIF59RsN15IjAIvAnetjPSUpqL933s1toXuMvS0VuAXpEhMos2byaqog3LIsYusv7mog0HlCbqGCgfYyKggu7CS2e/3FXJefNHcAfVR9W0v/c8cNgAxtU0sXwxRmGr7hS+uKNrq4QmLORthIt1g0wMvWEtdm4vsxkQLGkV70Mgu5209BX3Eu9VlsLCGu7pno4Z8LmmFHTDkSrav7wRhdL5ctSdPEEPCpLU8FkYh6845BojB9TBIWsxXTcHHZmuI19PRwdF0t8zcmZxnXtasFF3tZu5KswRtVqtdUpf5ljO/6bmgyiT+s5E0Kuthj8yhKTWsVQJgLRkt5v8HEW8m9gVbgcliA73UZVmPU5wwUSnCf+cGLLJpWoZvEbZqfrtc8nlamqt2zrhS15XH22wAPIKJaz5Tun2lQ3ShfSPrMioJDLWuBaUYBCGPbOrJW45Oc0jebG8gBJKwqElcMe8ALVajiHZQ5wKWyQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(4143699003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1APlF7HpXO3qKnnZ/c2MN6JLlR3X4Y+Z60KZrLIltnd7zI5WFuG0/Au87Cfq/Uacn8wfGy6a+oUiFvuLygjwMfBAdrZvYPO9MkHFdVL2T2w/n5ly8vpPcMCY3eZDjeEwfw9/b2ueMO4OcdXBz0J3OsUd/1VfmCJqPzwaCsDZ2NYykRa5oIkpiVBZy5ni+vOa2HG7RIx6s0TLvOsHwoAz8nQiuEopVHKWfDt5LtKTDicakwfVLfdWOpCscQKb3hScsWUq2HgOn0GoprX829Awld/j0O3/IDWbursrcLjl/fE9A1119sd2XBVZ2H2ANUkGHKBrgS0R0tD6y/oyechJavfr54R8oKwgsEppdL3X170zTd5UDUOHPTo7wzNyA2Nx+GkAeccdmF+iHM1F7ORQjCzU6+DovZg2N0iOk5ZMziYUHqU+aSis/eUVBgBA+8Za
-X-Exchange-RoutingPolicyChecked: jctkc6uaOrMyooeV5nVizTMYgGcedZS1hkpdzqs9o9rr+xuNGpaNxmAWpj34K/r6Fc2GCNUhwJmR5v+qNDkpZ++yKtIupW6LY8oeVVetAM2rZwvNOC8kS9N99Q+7gFsj2zQOh6H1DcFjBG4GN3GAtWhkznHVRVZW5UJov7llFGYxvIpFHXkIFXIcqK3lWpoHNZ/omxgPuXv9+XH4kT3Pu/407wOFglF0V6O0WE4hTdA9Bd3Or6rOIKbCqFyYm1gnin/GJ9nlvncHgQjOW3PmNXYT+WCCYVy9xUPzdth2VDlWBs/eEcHuC9RwHfjIjJA02ok0c/FjnkrwKPJMtgNu/A==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 09:57:08.1430
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17cc2a14-6504-4331-19d7-08df206b8570
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B3.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR10MB997962
-X-Proofpoint-ORIG-GUID: MlceroscoLLNeAYkPmt3K-0jpH9BNZgg
-X-Authority-Analysis: v=2.4 cv=edKo7LEH c=1 sm=1 tr=0 ts=6abf7ff8 cx=c_pps
- a=vivBcqwirDOV8GiKLGAusg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8
- a=VShlAP7PljsLZm2I1LAA:9 a=QEXdDO2ut3YA:10 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDAzOSBTYWx0ZWRfX75k1rFtn+DeJ
- PCaxVEXKMr+DHLSi3bVbAsy5MB8zw1Ey55m9HF3WkatvxbGhjAiaRyPq7WUFgjhoyTcLb7mrCiI
- B1eSwIvIolJtadnHnlJbg7X3S7H90VE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDAzOSBTYWx0ZWRfX0yeFfiZR8xJo
- LTh48m/FsanDihV9Oo4RzrVGwE3j8ppo9MJ5o1PpTuwn+2lK1Pw42s0Q+3Bxj9RiDi7eePIvDFg
- /dkqfr7MjOF7OHlJSrNAGpq/bLjeP5JD+j3HieTKSbGi0FLmwJxnUP8hVDEK4cfeXTZl1xMcUEz
- BSS1039v13Byq6wYO07sHyH8QT4g0SugZsbPfUvzjoe5uAaRz+4wO+fIP2eOBPfpdT0U7rwrnIK
- h9p8Qr1H9xEX7MGgj0IghhToqAiix3fN3UesB5ELbz6Al1RZXgt9jG6OeT5vFJJStNpuJmAYH1K
- OB6SB3CbPA/a+ZjbJ7Df7f3dJX4r6N47GTsxVbbhmb7nKIC2UQTu133A4Ny5X2py6KW7GD/CUMa
- zlt6nrsAHiCrE0DIqaOnh/01UwEQeFiRA3O26vHfK5rapXag2UXG3cbYrSc5wXhafHqsPafYoyj
- u+k6N3qka7HH82JBv+Q==
-X-Proofpoint-GUID: MlceroscoLLNeAYkPmt3K-0jpH9BNZgg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-02_03,2026-10-01_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 phishscore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020039
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_025714_980359_AF9C6D5A 
-X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,81 +120,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 02/10/2026 11:56, Padhi, Beleswar wrote:
+> 
+> On 10/2/2026 11:57 AM, Krzysztof Kozlowski wrote:
+>> On Thu, Oct 01, 2026 at 01:11:26AM +0530, Beleswar Padhi wrote:
+>>> The $nodename pattern for TI-SCI controllers mandates specifying a unit
+>>> address, which in turn requires a 'reg' property. This 'reg' is only
+>>> used to describe an optional memory-mapped debug-messages region.
+>>>
+>>> Some controllers may not implement this debug region, so it has no 'reg'
+>> Which ones?
+> 
+> 
+> TDA54 PDM System Controller. I will add this in the commit message
+> in patch revision.
 
-On 10/2/2026 11:57 AM, Krzysztof Kozlowski wrote:
-> On Thu, Oct 01, 2026 at 01:11:26AM +0530, Beleswar Padhi wrote:
->> The $nodename pattern for TI-SCI controllers mandates specifying a unit
->> address, which in turn requires a 'reg' property. This 'reg' is only
->> used to describe an optional memory-mapped debug-messages region.
+There is no such:
+git grep -i TDA54
+
+Please organize your patches correctly. This change makes no sense alone.
+
+> 
 >>
->> Some controllers may not implement this debug region, so it has no 'reg'
-> Which ones?
+>>> and unit address. Therefore, relax the $nodename pattern to allow the
+>>> unit address to be omitted for such controllers. Keep the unit address
+>>> mandatory for the existing ti,k2g-sci and ti,am654-sci controllers.
+>>>
+>>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+>>> ---
+>>> Note: This patch is independent can be applied directly.
+>>>
+>>> Cc: Nishanth Menon <nm@ti.com>
+>>> Cc: Tero Kristo <kristo@kernel.org>
+>>> Cc: Santosh Shilimkar <ssantosh@kernel.org>
+>>> Cc: Rob Herring <robh@kernel.org>
+>>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>>> Cc: Conor Dooley <conor+dt@kernel.org>
+>>> Cc: linux-arm-kernel@lists.infradead.org
+>>> Cc: devicetree@vger.kernel.org
+>>> Cc: linux-kernel@vger.kernel.org
+>>>
+>>>   .../devicetree/bindings/arm/keystone/ti,sci.yaml  | 15 ++++++++++++++-
+>>>   1 file changed, 14 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>>> index 25a2b42105e54..67acce8a559a1 100644
+>>> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>>> @@ -30,7 +30,7 @@ description: |
+>>>   
+>>>   properties:
+>>>     $nodename:
+>>> -    pattern: "^system-controller@[0-9a-f]+$"
+>>> +    pattern: "^system-controller(@[0-9a-f]+)?$"
+>>>   
+>>>     compatible:
+>>>       oneOf:
+>>> @@ -84,6 +84,19 @@ required:
+>>>     - mbox-names
+>>>     - mboxes
+>>>   
+>>> +allOf:
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - ti,k2g-sci
+>>> +              - ti,am654-sci
+>>> +    then:
+>>> +      properties:
+>>> +        $nodename:
+>>> +          pattern: "^system-controller@[0-9a-f]+$"
+>> Drop, not worth complexity.
+> 
+> 
+> Why? We want to make sure dt_binding_check catches system controller
+> nodes which have a debug region but omit the unit address.
 
+As explained many times, individual device schemas are not supposed to
+enforce names.
 
-TDA54 PDM System Controller. I will add this in the commit message
-in patch revision.
-
->
->> and unit address. Therefore, relax the $nodename pattern to allow the
->> unit address to be omitted for such controllers. Keep the unit address
->> mandatory for the existing ti,k2g-sci and ti,am654-sci controllers.
->>
->> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
->> ---
->> Note: This patch is independent can be applied directly.
->>
->> Cc: Nishanth Menon <nm@ti.com>
->> Cc: Tero Kristo <kristo@kernel.org>
->> Cc: Santosh Shilimkar <ssantosh@kernel.org>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> Cc: Conor Dooley <conor+dt@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: devicetree@vger.kernel.org
->> Cc: linux-kernel@vger.kernel.org
->>
->>   .../devicetree/bindings/arm/keystone/ti,sci.yaml  | 15 ++++++++++++++-
->>   1 file changed, 14 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
->> index 25a2b42105e54..67acce8a559a1 100644
->> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
->> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
->> @@ -30,7 +30,7 @@ description: |
->>   
->>   properties:
->>     $nodename:
->> -    pattern: "^system-controller@[0-9a-f]+$"
->> +    pattern: "^system-controller(@[0-9a-f]+)?$"
->>   
->>     compatible:
->>       oneOf:
->> @@ -84,6 +84,19 @@ required:
->>     - mbox-names
->>     - mboxes
->>   
->> +allOf:
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - ti,k2g-sci
->> +              - ti,am654-sci
->> +    then:
->> +      properties:
->> +        $nodename:
->> +          pattern: "^system-controller@[0-9a-f]+$"
-> Drop, not worth complexity.
-
-
-Why? We want to make sure dt_binding_check catches system controller
-nodes which have a debug region but omit the unit address.
-
-Thanks,
-Beleswar
-
->
-> Best regards,
-> Krzysztof
+Best regards,
+Krzysztof
 
