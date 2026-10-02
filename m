@@ -4,99 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D41CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 04:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75322CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 04:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+aNuBHrd5RMEXmJ5WPHyWr9jcSxnvnt7cywTSQ93A8M=; b=Mmn1sAWDKe7ccPk/b/ndpcY+qP
-	V80UZw9nlhBnReowI61IeaylHAY0vbEMiVNeXl15iwyjGxXopSiNs1YvdRfzigX3KRSFb4Z0TSWEC
-	88B0NiW4kgjaG+bYthxND+VpdBqS8y3DSginjbJyADsIyiZYUYRyOrrpfIlaSWVxAFsyldk7Piz0m
-	b3vEeGarsVyZpZv2rdMwScixGSYD0vLSnJ7ZNGdKkkzWQBIQmafvD7W52zKISzG6P1IitYY+bhdEP
-	lCeevGxQVOp15J1w1rztLCKq5HyTwnKnvOWFtZjI31gooB40AyeRPkiLwFZWQAmWII9rFH1LbNQ9p
-	aHvaMqXw==;
+	bh=8JQfx3UqxXtPcM7mzUe1J4JBA7Yl9XeKiBpSr0NipXc=; b=JFFkKzsdc3mHUBPVzIdI6Y7qH1
+	IafcMVxrnmuGyl66gsJrqxeGsqObLN8SnHzPbjY/RUJ3irt20zi7EVy/Acne6uSdwTmLnQdsJPulu
+	DxrRClFeSPW0QZyqfc31K41h98vq6jPqgKd84teyDwBBI4tBAlGzcLm5F8yOBT0/b8f1pVga0rqYC
+	y4V3DskutPe+CApX1VASNfBF+Ss2r6kFVYelbRO6RRUOE0BFIAzT0rGiaPIZJlgjeV+DT+GKnCIfO
+	2+J+B78isLKL0BqDQCe4ftUQyySZ1yfrgVE/BOy4NmHZl6t1oIAhkW8Mjc9jgNsh368VPjxPxwIJ7
+	AUE0SCeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCV4r-0000000AccD-2PRd;
-	Fri, 02 Oct 2026 04:40:57 +0000
-Received: from mail-oi2-x0e.google.com ([2607:f8b0:4864:32::e])
+	id 1xCVCR-0000000AdG3-1gBm;
+	Fri, 02 Oct 2026 04:48:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCV4o-0000000AcbH-2gNj
+	id 1xCVCP-0000000AdFc-1GXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 04:40:55 +0000
-Received: by mail-oi2-x0e.google.com with SMTP id 5614622812f47-4e667873c38so3006297b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 21:40:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790916053; x=1791520853; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+aNuBHrd5RMEXmJ5WPHyWr9jcSxnvnt7cywTSQ93A8M=;
-        b=ksglgx9inAdkCnqvcI1zU3+qPYi6X4mgfKce4sZe0u8V8IfmqByjina+oklPVUi3CS
-         yOc3PXgQZcEhXLfO2RVKy0mi4dcSWzI18108j0z+vPd/FcKSs0hy1pNTCzwl1NLlJcZV
-         y13/8IQdyTxBqaPGLB6cIF11jmUKxXYaBUe9/8Bzx3jsq17bHViXoCv/NQlexqAjrAPF
-         VC4T9HxuMSZqTPsmeEK1jRRod+Lnn+6yNiAPQXf/KUoKkHHiSAAksHV2XNDONk3e1Zna
-         IkiEQ5BJ0G5QFybYec/trQUA6RoYpISlRfTuVRFbLbh9g4Wuj3l7FJL3n+2u1HHzUiAz
-         YHVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790916053; x=1791520853;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+aNuBHrd5RMEXmJ5WPHyWr9jcSxnvnt7cywTSQ93A8M=;
-        b=BDm88dQCHV7SG251PsCn32CTmy6fo8z1uHOKr2sc4m6zvoVz82Df7uEoTHY6SM2uYA
-         K+Fe/CKkIgJcDwmkES838cN6aQUhD50OKuf6HekrUp8PMTIXMziWr8gWqHyu5HrHedxL
-         JYMooWOnLdYsris5oBJLJ8kKiw5RK9Z5m1YvMdMuUBt+06HbYfCY4qGIN49TBBCjDjcz
-         Wy+48V+sRT3PyjL4XvkaK9SMVcLulCHzWFbU6zqI4etTn3azR8o1+jwec07f4hc+pgXx
-         1W+Ng98Y21Pnc0/EZfoaTkiyeCQ7W0sEaf6GY6vJJnPP9AdnuEs+cOsukbQVoCtYFz4S
-         u13w==
-X-Forwarded-Encrypted: i=1; AKwUvBwmsf7p/sVTdITNGv+OwjjWwHQpWdhOb2mmffDVNw5+cJTXSPANCjRnxVOUCRS301/Kgz/C8hT7BFkZmv8mBfiA@lists.infradead.org
-X-Gm-Message-State: AFuF++n9S3Zl0ovcJbI6iorY7ErqhkX85VHh18dHVkh6gaJkYw+LY6bH
-	yBt8yoQbGGGwI2W0KwZ9CzkJD5HceeRFCNJZdKuOpzbjvmLIiMA/N2ov
-X-Gm-Gg: AYBFou1BcjXNvY2iK7+MZXf/Jg0Q+1eCuZsK4BIQ82xQvnxMSSRlsAZKFseTdmkbYyH
-	T8jY5RWmo9oUVOSc7mxiX+wrVSJtaU1p+Ua3McAtHq7dD0pEhdXXXGK43D90UofrfwA8ObHBwEb
-	KtB5GrR4Nvj2wJlu1hK7uVAengCxq+ZhSbt+8DA1o2Z5G4PGlqn3LfkWhO1WD4MbwGgVSMoC/8P
-	nLL+sOGVq4eC6jGGTF5AcwL4lFB7d31NmAQIZrlf7gylfz1ZbhOfgYbucvMaWCbCv36YV0gn328
-	NaCSebhRmWffKFotgMdjT51h6l3pLBMG88lalmYAMzjRhs6IXa78/W4ich+bHm9vHXOfR/eMfT4
-	6XMdDrFcZDYYZQPYf9IM4GP8MZc/TxtNpVArWj7Cyu26uFol5H5oIO2mRtGmwZ60OhlIYkVfGUW
-	ZTUz2PQgMUgHOsSlcMOV5SE6i4cywNf4r1iVreB7UrgRqAdpEocmXWVTRBw4DY+fWVEKTu
-X-Received: by 2002:a05:6808:13c2:b0:4ea:bd4e:5cc5 with SMTP id 5614622812f47-4f52ab8b76amr1425589b6e.46.1790916053267;
-        Thu, 01 Oct 2026 21:40:53 -0700 (PDT)
-Received: from localhost ([2a03:2880:12ff:3::])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4f523da65c2sm1217527b6e.5.2026.10.01.21.40.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 21:40:52 -0700 (PDT)
-From: Matthew Wood <thepacketgeek@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
+	Fri, 02 Oct 2026 04:48:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 67DB060218;
+	Fri,  2 Oct 2026 04:48:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A210E1F000FF;
+	Fri,  2 Oct 2026 04:48:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790916524;
+	bh=8JQfx3UqxXtPcM7mzUe1J4JBA7Yl9XeKiBpSr0NipXc=;
+	h=From:To:Cc:Subject:Date;
+	b=OYyNYkhSTvQeWZ0ZvPAVxTotg8hF58akQv5+5Vkl34XEDG8h89WEMFmlfDYc4I5aS
+	 S+93g1eNMs+nxF6qUqoaA+d2jqOvEPFLOwdtyaF7B2xhheihu4vTxOtv0iNe8fKIfR
+	 HmBMdNEdZEQ8lBwjFaY+Ts9eHait5hKz/AgruDLNO7LnBPAiwvngPRD7j81k7S9MNA
+	 WOgVE2OdK1iOFzN0CaOSQywKuOU5t9GGSeurVIibKvfxCO59FIS9Ggrvbip2TginD3
+	 C5OMHp66MgKj/cnA+QLmBmma8uFRHnts/NqaVziSVQML3NcCmd/150Ma+o1bc7IXpV
+	 ibuz1y1ivP7XA==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
 	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>,
+	rcu@vger.kernel.org,
 	bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] bpf, arm64: Fix text_mutex critical section in bpf_arch_text_poke()
-Date: Thu,  1 Oct 2026 21:40:48 -0700
-Message-ID: <20261002044050.1277356-1-thepacketgeek@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-kernel@vger.kernel.org,
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH v5 0/1] kprobes: Make optprobe optimizer multi-generational and asynchronous
+Date: Fri,  2 Oct 2026 13:48:37 +0900
+Message-ID: <179091651785.526694.220518880874223221.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+User-Agent: StGit/0.19
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_214054_689985_220A3817 
-X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,97 +84,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Widen the text_mutex critical section in bpf_arch_text_poke() to cover
-the page permission changes made while updating a bpf prog's plt target.
-When a long-jump trampoline is attached to or detached from a bpf prog,
-the plt target at the end of the prog is currently updated before
-text_mutex is taken, by temporarily making the page writable:
+Hi,
 
-	set_memory_rw(page);
-	WRITE_ONCE(plt->target, plt_target);
-	set_memory_ro(page);
+Here is the 5th version of the patch for making the optprobe optimizer
+multi-generational and asynchronous.
 
-Leaving this outside text_mutex assumes the page belongs only to the
-prog being poked, whose pokes are already serialized by its trampoline
-lock. Commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
-management") broke that assumption; it switched the arm64 JIT to the bpf
-prog pack allocator, which packs programs into small chunks of large
-shared allocations, without updating bpf_arch_text_poke(). Since then,
-unrelated progs (and their plts) commonly share a page. Two CPUs
-attaching to or detaching from different target progs in the same page
-hold different trampoline locks, so their permission changes can
-interleave:
+The previous version is here:
 
-	CPU A                           CPU B
-	set_memory_rw(page)
-	                                set_memory_rw(page)
-	                                WRITE_ONCE(plt_B->target, ...)
-	                                set_memory_ro(page)
-	WRITE_ONCE(plt_A->target, ...)  <- permission fault
+  https://lore.kernel.org/all/179081403098.474106.12959530220684805449.stgit@devnote2/
 
-This was hit on a 64K page arm64 machine:
+Changes in v5:
+ - Fix comments for each list in optprobe_generation.
+ - Rename kprobe_queued() to kprobe_queued_unopt() and make it check
+   optprobe_queued_unopt() instead of !list_empty(&op->list).
+ - In unoptimize_kprobe(), check !list_empty(&op->list) before
+   !kprobe_optimized(p) so that cooling probes (whose OPTIMIZED flag is
+   already cleared) are correctly handled rather than returning early.
+ - Make sure the probes in freeing_list are removed from hash table
+   and disarmed.
 
-  Unable to handle kernel write to read-only memory at virtual address ffff80008f46d5f8
-  FSC = 0x0f: level 3 permission fault
-  pte=00c00200ea5a0783
-  pc : bpf_arch_text_poke+0x214/0x238
-  Call trace:
-   bpf_arch_text_poke+0x214/0x238 (P)
-   __bpf_trampoline_link_prog+0x1c8/0x470
-   bpf_trampoline_link_prog+0x64/0x90
-   bpf_tracing_prog_attach+0x318/0x4a8
-   bpf_raw_tp_link_attach+0x104/0x258
-   bpf_raw_tracepoint_open+0x6c/0x90
-   __sys_bpf+0x134c/0x3e10
 
-Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
-Signed-off-by: Matthew Wood <thepacketgeek@gmail.com>
+=== How the Asynchronous Multi-Generational Optimizer Works ===
+
+1. Background & Motivation
+--------------------------
+Previously, kprobe_optimizer() executed synchronously:
+- It acquired kprobe_mutex, text_mutex, and cpus_read_lock().
+- It then called synchronize_rcu_tasks() while holding all three locks.
+- Under PREEMPT_LAZY / PREEMPT kernels and CPU-heavy server workloads,
+  synchronize_rcu_tasks() can stall for seconds to minutes waiting for
+  voluntary context switches on all online CPUs.
+- Holding text_mutex and cpus_read_lock() throughout this wait blocked
+  CPU hotplug, module loading/unloading, static keys, and all subsequent
+  kprobe registrations, frequently triggering hung-task watchdogs.
+
+The actual instruction modification (text-patching) takes only
+microseconds. The new optimizer completely decouples instruction patching
+from the Tasks RCU grace period wait using call_rcu_tasks(), dropping all
+locks during the wait.
+
+2. Architecture: Fixed Generational Ring
+----------------------------------------
+To ensure jump optimization never fails with -ENOMEM during tracing,
+a fixed ring of generation slots is used:
+
+  static struct optprobe_generation optprobe_gens[OPTPROBE_GEN_MAX];
+  (OPTPROBE_GEN_MAX = 2)
+
+Each generation struct contains 4 probe lists and tracking state:
+- optimizing_list:
+    Probes waiting for the Tasks RCU grace period to drain all tasks from
+    the original instruction bytes before installing the relative jump.
+- unoptimizing_list:
+    Staging queue for batching unoptimization requests (replacing jumps
+    with breakpoints). This is not a wait queue for a grace period; text
+    unoptimization happens immediately upon generation dispatch.
+- cooling_list:
+    In-use probes whose jumps were unoptimized, waiting for the Tasks RCU
+    grace period to drain all tasks from the optinsn detour slot.
+    Holding them on this list keeps list_empty(&op->list) false, preventing
+    concurrent unregister_kprobes() from prematurely freeing the
+    aggregator or detour buffer before preempted tasks exit.
+- freeing_list:
+    Unused aggregator probes that are already unhashed from kprobe_table[]
+    and waiting for batch release (freeing detour slots and memory) after
+    the grace period completes.
+- rcu:
+    The rcu_head passed to call_rcu_tasks().
+- in_flight / ready:
+    State flags indicating if the generation is currently waiting on
+    Tasks RCU, or if the callback has fired and finalization is pending.
+
+3. The "Waiting Room" Invariant
+-------------------------------
+optprobe_cur_gen points to the current active ingress generation.
+All new optimization, unoptimization, and forced-cleanup requests from
+register_kprobe(), unregister_kprobe(), and kill_optimized_kprobe() are
+queued into optprobe_gens[optprobe_cur_gen].
+
+To ensure an idle generation slot is always available to absorb incoming
+requests without dynamic allocation, the last available generation slot
+is never dispatched while an earlier generation is still in flight
+(optprobe_can_fire() checks active_gens < OPTPROBE_GEN_MAX - 1).
+It acts as a non-blocking "waiting room".
+
+4. Execution Flow of the Optimizer Thread
+-----------------------------------------
+The dedicated optimizer kthread sleeps on kprobe_optimizer_wait and wakes
+when kicked, when a flush is requested, or when an RCU callback completes.
+
+                [ Probes Queued in cur_gen ]
+                            |
+               kprobe_optimizer_thread()
+                            |
+            (batching delay: OPTIMIZE_DELAY)
+                            |
+             kprobe_optimizer() [holds kprobe_mutex]
+             +------------------------------+
+             |                              |
+             v                              v
+   [ Step 1: Finalize ]           [ Step 2: Dispatch ]
+   (for ready generations)        (for cur_gen if can_fire)
+             |                              |
+   - Hold text_mutex & cpus_lock  - Hold text_mutex & cpus_lock
+   - arch_optimize_kprobes()      - arch_unoptimize_kprobes()
+   - do_free_cleaned_kprobes()    - Move in-use to cooling_list
+   - Drain cooling_list           - Advance cur_gen
+   - Drop text_mutex & cpus_lock  - Drop text_mutex & cpus_lock
+   - gen->in_flight = false       - call_rcu_tasks(&gen->rcu)
+             +------------------------------+
+                            |
+                            v
+                  [ Step 3: Notify ]
+                  - If progress:
+                      optimizer_passes++
+                      wake_up_var_locked(optimizer_passes)
+                  - Self-kick if more probes queued
+
+Step 1: Finalize Ready Generations (optprobe_finalize_generation)
+  Runs for any generation where the Tasks RCU callback marked ready = true:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls arch_optimize_kprobes(&gen->optimizing_list) to patch the
+     relative jump into target instructions.
+  3. Releases text_mutex and cpus_read_lock().
+  4. Calls do_free_cleaned_kprobes(&gen->freeing_list) to release detour
+     buffers and free unused aggregator probes.
+  5. Drains gen->cooling_list:
+     - Probes unregistered while in flight (kprobe_unused()) are
+       unhashed with hlist_del_init_rcu() and moved to cur_gen's
+       freeing_list for the next pass.
+     - Probes still in use have their disarming finalized via
+       list_del_init(&op->list), and are queued for re-optimization if
+       still enabled.
+  6. Clears in_flight = false and ready = false, returning the slot to
+     the idle pool.
+
+Step 2: Dispatch the Waiting Room (optprobe_dispatch_generation)
+  If the waiting room has queued probes and active_gens < OPTPROBE_GEN_MAX - 1:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls do_unoptimize_kprobes(): executes arch_unoptimize_kprobes() to
+     replace relative jumps with breakpoints.
+  3. Probes that are unused are moved to gen->freeing_list and removed
+     from the kprobe hash table (hlist_del_init_rcu).
+  4. Probes still in use are moved to gen->cooling_list.
+  5. Releases text_mutex and cpus_read_lock().
+  6. Advances optprobe_cur_gen to the next generation slot.
+  7. Marks gen->in_flight = true, gen->ready = false.
+  8. Calls call_rcu_tasks(&gen->rcu, optprobe_generation_rcu_cb) and
+     immediately returns. kprobe_mutex is completely released while
+     Tasks RCU runs asynchronously in the background.
+
+Step 3: Pass Completion & Flusher Notification
+  1. If any generation was finalized or dispatched (progress was made),
+     increments optimizer_passes and wakes waiters sleeping on
+     wait_for_kprobe_optimizer().
+  2. If the waiting room still has queued probes and another generation
+     can fire immediately (e.g. sibling probes retrying optimization),
+     it kicks itself for another pass.
+
+5. Concurrency & Preemption Safety (The cooling_list)
+-----------------------------------------------------
+Under CONFIG_PREEMPTION=y, a task can be preempted inside an optprobe detour
+buffer (or the detour template). When a probe is disabled, its jump is
+reverted to an int3 breakpoint, but the detour buffer cannot be freed until
+all preempted tasks have executed a voluntary context switch (Tasks RCU).
+
+Because kprobe_mutex is dropped during the grace period, concurrent
+unregister_kprobes() could run. Previously, unregister_kprobes() checked
+kprobe_disarmed(ap), which evaluates:
+  kprobe_disabled(p) && list_empty(&op->list)
+
+If unoptimized in-use probes were simply detached (list_del_init),
+kprobe_disarmed() would become true prematurely, allowing
+free_aggr_kprobe() to free the detour buffer and kfree(op) while a
+preempted task was still inside the detour buffer.
+
+By placing unoptimized in-use probes onto gen->cooling_list:
+- They are kept off unoptimizing_list so arch_unoptimize_kprobes() will
+  never be called twice on them.
+- list_empty(&op->list) remains false throughout the Tasks RCU grace period.
+- unregister_kprobes() sees !kprobe_disarmed() and defers deleting the
+  aggregator.
+- When optprobe_finalize_generation() runs after the grace period, it
+  safely reclaims or disarms them without any use-after-free window.
+
+6. Flush Synchronization (Andrea Parri's Wait Queue Fix)
+--------------------------------------------------------
+When wait_for_kprobe_optimizer() flushes the optimizer:
+- It checks optprobe_optimizer_busy():
+    optprobe_has_queued_probes() || (optprobe_active_gens_count() > 0)
+- Instead of using a completion (which suffered from concurrent-waiter
+  init_completion() clobber races), it monitors the monotonic counter
+  optimizer_passes.
+- If work can be dispatched or a generation is ready, it wakes the
+  optimizer thread. Otherwise, if a generation is merely in flight, it
+  avoids redundant wakeups.
+- It sleeps via wait_var_event_mutex(&optimizer_passes, ..., &kprobe_mutex).
+  This cleanly releases kprobe_mutex while sleeping and wakes only when
+  actual progress is made, preventing CPU-bound spinloops until all
+  in-flight and queued generations drain.
+
+
+Thank you,
+
 ---
- arch/arm64/net/bpf_jit_comp.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 475e70653454..66fab0bfd3da 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -3338,12 +3338,20 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
- 		 */
- 		plt_target = (u64)&dummy_tramp;
+Masami Hiramatsu (Google) (1):
+      kprobes: Make optprobe optimizer multi-generational and asynchronous
 
-+	/* pages of the bpf prog pack are shared between progs, so the
-+	 * set_memory_rw()/set_memory_ro() window below must be serialized
-+	 * against other pokers too.
-+	 */
-+	mutex_lock(&text_mutex);
-+
- 	if (plt_target) {
- 		/* non-zero plt_target indicates we're patching a bpf prog,
- 		 * which is read only.
- 		 */
--		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1))
--			return -EFAULT;
-+		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1)) {
-+			ret = -EFAULT;
-+			goto out;
-+		}
- 		WRITE_ONCE(plt->target, plt_target);
- 		set_memory_ro(PAGE_MASK & ((uintptr_t)&plt->target), 1);
- 		/* since plt target points to either the new trampoline
-@@ -3357,10 +3365,11 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
- 	/* if the old target and the new target are both long jumps, no
- 	 * patching is required
- 	 */
--	if (old_insn == new_insn)
--		return 0;
-+	if (old_insn == new_insn) {
-+		ret = 0;
-+		goto out;
-+	}
 
--	mutex_lock(&text_mutex);
- 	if (aarch64_insn_read(ip, &replaced)) {
- 		ret = -EFAULT;
- 		goto out;
+ kernel/kprobes.c |  471 ++++++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 353 insertions(+), 118 deletions(-)
+
 --
-2.53.0-Meta
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
