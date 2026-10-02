@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B3ACA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB82DCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwExkX56IomKfzzcVs8YYMVfre8uAO6b9w1m8K7XkEY=; b=AbAgd9GdU7tFMHvXt4/p/j+4To
-	+Isdl0CjHf/LZB2Z4lOMlIq9TfjfkuwN9NvBVKmQ9ML+1AIQxyICUZIDwJUPeS/0QgCN/JrOOSU+n
-	oUbdNT+wbMOi+8tzk06ROiax0TO6BUGRjQE6NlU1kL8x32mqAcPgXurAzgQiP4kXYpBegTHRQAWf+
-	vPx4ZFkn3YYvLGILoCS2kmcxLYZ2vUWu1EuzQwqmFZq37H7Jol9VNBVi2x33oaJEFoNlzuFNwxkmB
-	VUDgLVmOQHv/H0rGKRAAyIlKGeytYRupIMBjmaGJ63eoOTB0JLFvdS/t+NWhyxwtChUJnfHx4YrQO
-	kXjWCGsg==;
+	bh=wE3U7Byhrw/Kpcm8Ly1rmNIVci2f+5xG9aFcXfipmYw=; b=yrQce07ooQLont9SAFLCKMrw2X
+	RSYANVUWxosNFGrKpD6AlnC1h0ORyqMnQhC292j3LzdQHw54DYzydsjqu72pOCHWs8KuhxvUbnzgz
+	oDbrOWFctYoFystyoY/hK7WMuG4EvL5/phyRL31vjkI54uuQx1qCUmQ3EBai1b+eCbPXTXcVOuTF0
+	JLjuhoWNhyPfVgcpW5MX/KZLZtiWQDV235eU8fOzl3Dg3yjuYshmiGmkqPWRJO/DaLyFahABT/K3V
+	uoRcqScK8kEyHt0YMj8WbnkjN94ZfM+SsKZgiHeEt1p1KZLSbis/FA+d9+81GziGNfEXd+NALfkMr
+	Nx10PJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCezQ-0000000BsrJ-12VI;
-	Fri, 02 Oct 2026 15:16:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCezM-0000000Bspq-03Q2
+	id 1xCf0u-0000000BtB7-2J4N;
+	Fri, 02 Oct 2026 15:17:32 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCf0r-0000000BtAR-3q3M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:15:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20ECF1476;
-	Fri,  2 Oct 2026 08:15:52 -0700 (PDT)
-Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 638BE3F85F;
-	Fri,  2 Oct 2026 08:15:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954155; bh=wxfqMJtn1W7yfkOIWwGDU+cuf258NP+En0EemreTblU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yl/j+4vjl+68TN7gfciDeWp24lIKIj4Qc/A+khGDSh6B6F+kHmevE+HXub6+tePo7
-	 +wkpQ31fwKH83cv9U9vLWqI430U8wNfxoLz8swyamgdjkdCj3Z2asBq9J+MI8uYN5z
-	 W6j4WHDsXfnA+Qdw/ZOxlLKlXhXUv2i5thyFyBG0=
-Message-ID: <ab39009b-7ce9-4f25-b78f-f24c4bf2a2c8@arm.com>
-Date: Fri, 2 Oct 2026 16:15:53 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/12] arm_mpam: resctrl: Correct check that existing
- class is L3
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
-References: <20260917145617.2202986-1-ben.horgan@arm.com>
- <20260917145617.2202986-9-ben.horgan@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260917145617.2202986-9-ben.horgan@arm.com>
+	Fri, 02 Oct 2026 15:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=wE3U7Byhrw/Kpcm8Ly1rmNIVci2f+5xG9aFcXfipmYw=; b=SMCF/6DTq0glMoooo/iQqxm/tX
+	sg7VCwD1qirlhknp4EwkW5M42uM+MoJd9oS3digNacbkJgC2yN030yIeoNl4o+GpPv8SlgXJTQNjy
+	SSOBuFI8nphakfUvWg5xBYzJ91sQ3iG4V8b6DAbC1wAgZKQWCiOPCUQl9CT4+qptf0LA=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1xCf0k-000000007gc-07t4;
+	Fri, 02 Oct 2026 11:17:23 -0400
+Date: Fri, 2 Oct 2026 11:17:22 -0400
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com, Stefano
+ Radaelli <stefano.r@variscite.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, Joseph Guo
+ <qijian.guo@nxp.com>, Josua Mayer <josua@solid-run.com>, Ernest Van Hoecke
+ <ernest.vanhoecke@toradex.com>, Mehmet Fide
+ <mehmet.fide@screeningeagle.com>, Francesco Dolcini
+ <francesco.dolcini@toradex.com>, Markus Niebel
+ <Markus.Niebel@ew.tq-group.com>, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>, Stefan Eichenberger <eichest@gmail.com>,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH v4 00/13] ARM: dts: imx6ul: Add Variscite VAR-SOM-6UL
+ and DART-6UL
+Message-Id: <20261002111722.a09e76b8e19fdfe3dc857b4e@hugovil.com>
+In-Reply-To: <ar-cgeR8U0dmOTvI@Lord-Beerus.station>
+References: <cover.1790693249.git.stefano.r@variscite.com>
+	<20260929121455.437291ea4b53130e3e19778c@hugovil.com>
+	<arv4MwHV4LntROkN@Lord-Beerus.station>
+	<20261001144344.2100854b8f5e2d81cf87b424@hugovil.com>
+	<ar-cgeR8U0dmOTvI@Lord-Beerus.station>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Spam_score: -2.0
+X-Spam_bar: --
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081557_116895_2DE37FCD 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20261002_081729_957399_E740C2AE 
+X-CRM114-Status: GOOD (  42.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +92,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Stefano,
 
-On 17/09/2026 15:56, Ben Horgan wrote:
-> The class used to back mbm_total_bytes can be either at the L3 or the
-> memory. If a platform had candidate classes at both the memory and the L3
-> then, as the check for whether the existing class is L3 or not in
-> counter_update_class() is broken, the class that will be chosen depends on
-> which order the classes are considered and so the probe order.
+On Fri, 2 Oct 2026 13:58:57 +0200
+Stefano Radaelli <stefano.radaelli21@gmail.com> wrote:
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 9d223057953a..b825bd90d4bd 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -1076,7 +1076,7 @@ static void counter_update_class(enum resctrl_event_id evt_id,
->  	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
->  
->  	if (existing_class) {
-> -		if (class->level == 3) {
-> +		if (existing_class->level == 3) {
->  			pr_debug("Existing class is L3 - L3 wins\n");
->  			return;
->  		}
+> On Thu, Oct 01, 2026 at 02:43:44PM -0400, Hugo Villeneuve wrote:
+> 
+> Hi Hugo,
+> 
+> > 
+> > Great to know Variscite is adding support for the DART-6UL.
+> > 
+> 
+> Thank you Hugo :)
+> Over the past year, we have been prioritizing security and consistency
+> by adopting a mainline-first approach.
+> We have added support for almost all of our SOMs and configurations,
+> as well as several driver changes and additions:
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?h=master&qt=author&q=Stefano+Radaelli
+> And now it's time for the immortal i.MX6UL!
+> 
+> > 
+> > Please work with the existing modular DTSI files, do not simply remove
+> > them and reimplement them into your own files.
+> > 
+> 
+> Agreed. Where possible, I’ll reuse the modular files you added and
+> propose fix commits wherever changes are needed.
+> 
+> > 
+> > I tested it and it works. But like I said, if adjustments need to be
+> > made, they are welcome and can be done in a separate patch to fix it.
+> > This sequencing is something not very well documented in Variscite
+> > datasheets. I asked Variscite support to improve the documentation for
+> > that aspect but it was not accepted.
+> > 
+> > 
+> > > For the LWB5 option, the procedure enables WIFI_PWR, waits 10 ms,
+> > > enables WLAN_EN and BT_EN, waits 200 ms, then lowers BT_EN before
+> > > re-enumerating the SDIO device.
+> > > The other Broadcom option does not use the separate WIFI_PWR step.
+> > > The existing regulator and MMC power-sequence nodes do not express that
+> > > complete, module-dependent procedure, particularly the BT_EN step during
+> > > Wi-Fi initialization.
+> > > The scripts also select the Bluetooth firmware according to the detected
+> > > SDIO device.
+> > 
+> > Firmware loading is handled properly by the kernel without external
+> > scripts (tested with Concerto EVK).
+> > 
+> > 
+> > > We use that procedure to avoid sequencing-related failures for our
+> > > customers.
+> > > This approach is not new to Variscite’s mainline DTS files.
+> > 
+> > Yes, this is an old way of doing things, which may have been
+> > appropriate in the past when proper support in the kernel was missing
+> > to achieve the proper sequencing, but no longer true these days, unless
+> > I am mistaken.
+> > 
+> 
+> We are glad the kernel-managed sequence works on your Concerto EVK.
+> However, it is wrong for the LWB5 module configuration we support:
+> it does not follow the required power-up order and timing validated
+> by Variscite.
 
-Heh, the debug message strong hints at how that was supposed to work!
-
-Reviewed-by: James Morse <james.morse@arm.com>
-
+Please detail exactly what is wrong so that it can be fixed. Better,
+create a patch to fix/improve it.
 
 
-Thanks,
+> The sequence is based on the module requirements and has been tested
+> in our labs and across customer configurations over many years.
+> A successful test on your EVK does not show that it is correct for all
+> the modules and configurations we ship.
 
-James
+Again, like I said before, if things are not optimal they can be
+fixed/improved, not completely wiped out.
+
+I can help you with this (test/implementation) if you explain the
+problems properly.
+
+
+> The GPL-2.0-only userspace scripts implement this required sequence.
+> This is not a matter of preference or an old approach we kept by habit;
+> replacing it with the sequence in the current DTS would risk breaking
+> supported Variscite configurations.
+
+Please be more specific.
+
+
+> If a future kernel implementation can reproduce the complete,
+> module-specific sequence, Variscite will be happy to update all affected
+> DTS files to use it, after completing the necessary lab testing across
+> the supported module variants and configurations.
+
+You need to work with the existing kernel implementation, not delete it.
+
+> If you need any additional material, datasheets, or other information
+> from Variscite, please let me know at stefano.r@variscite.com.
+> I’ll be happy to provide whatever is needed!
+
+As mentioned before, please add the required timing
+sequencing info to your datasheets, it will help everyone.
+
+
+-- 
+Hugo Villeneuve
 
