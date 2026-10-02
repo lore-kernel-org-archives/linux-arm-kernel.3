@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3F3CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62DBCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTC1rS+ncvu1o7dJheAFSjoXB0ahDudA6M6fvIrc0B4=; b=DAajnEkXm/24EsCOcUxfYnr4M/
-	ihMZ3hR52i8MrAglFi1CDwHVc2eVBQYHP9TihB78Dh21QuBWXQb5Ukp3Oj9JSp8KJWb+LI+50Kf+d
-	7NK5qilXlz1WA6tkrkP8UZ2wo5PMEONkF3tICs4gUlAUnmQkzfAcVrUvWLKjSmmFh30JeLZoaXfr7
-	V8KAhqmNz4ndnNQ79gzbijJ7wHF+H3RZpSLk8JQI7d7tIjhXN4DBz2cXQUCJGwofgHI+eNAxhOsPs
-	3vswRcVjK9/sEQikD0rIDK7BwiWFqpc3YjSwEh0+AvMPEXdROW/aW6xxklX/OqAdlVqK1ZCPfkdNy
-	VID+v7vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AosLLIuB1dPtCca7mE3P44tJ+OxOUbCWqvIRUkrF0CQ=; b=TlAji9XMQhTtJWBzXWeeiSpAUe
+	EcO5rd3UpmTsX9OL/d63tBQyU6IEOcKx4KNVozLDj0TgcKuF8y8QmLcKEaKJ7s6lzpmLxpBQEhR8d
+	d0e+sV1t86CCXZFv4liGTW7yEPQVrxxt8pCve3c8ODShRSDtryZyZohTiWJ1o8SkKWLOY9yQ60dMV
+	9H7YWQaaeRSR7Xmvcq39wmLY8RMa/SKqkRyDVe2B0h0eBcxm3UftxPeLkMfL4FGUFuQvAf5fbaJ0I
+	1SC1LwHExu1fwH5T37O9YDBcVAi/i2SjaYq0yRoyZ1U6we1mi4FlrkT0/JlSDhkV5VEotPZnmAVuZ
+	CWQuuiGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf7x-0000000Bub3-3rFg;
-	Fri, 02 Oct 2026 15:24:49 +0000
-Received: from out-241.mta1.migadu.com ([95.215.58.241] helo=mta1.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf7u-0000000BuaK-2Wqw
+	id 1xCf81-0000000BucP-0DCp;
+	Fri, 02 Oct 2026 15:24:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCf7y-0000000BubR-3yzF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:24:49 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=hYyvJwonwfCGOBqxkCTnI3TF2uBM9Q39BNu7gbnNaxg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790954684; v=1; x=1791559484;
- b=oh5Su32LWkDXSDxNOhOyggCT/bTLugpXxcWRcSRiiBUBWZka0iLsMMC30k2LjyCzrQK5VIAI
- zsHM+EzUHpS4AMW3vF3ignMO/EmilOqB0AMnG92L0tKI8qR7BvV1MkBd7t4N+cS8Y7ulEw7dd94
- zkQZj0bHarRhCtKxedJpkPKI=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7a4ec9ea5a154b5c;
-	Fri, 02 Oct 2026 15:24:44 +0000
-X-Mizu-Trace-ID: 7a4ec9ea5a154b5c
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so7228e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 08:24:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx1MNjxNSUYgSFb21QkrxIn5oXSLnhb5kGRMt0YOUt26v1bfDzYK34oGrGSs4RU7yRsqL3fjVr/bjDEKrbLoyob@lists.infradead.org
-X-Gm-Message-State: AFq9FYKVXbHca2IZou7iOXyNeQrRSds5HbX8FKfv22dg4aBUc+9EjhuW
-	ltuI4YTSdPiVrDnFfKFI/8D8Ps2V/x/ribNfsFmKvoMB9sUwsFXa1AhAssjEUoXEcK0bl1uVoau
-	adSk28KzRD8nA8IzpS+nBbFgtWemR1gDJ4vCa9Bjj
-X-Received: by 2002:a05:6512:3b26:b0:5b8:d04b:a1be with SMTP id
- 2adb3069b0e04-5bb7c91a8a0mr181872e87.2.1790954682993; Fri, 02 Oct 2026
- 08:24:42 -0700 (PDT)
+	Fri, 02 Oct 2026 15:24:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DAB3143D;
+	Fri,  2 Oct 2026 08:24:46 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.85.160])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 992463F85F;
+	Fri,  2 Oct 2026 08:24:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790954690; bh=xnlgs42XdKqbQTcU4z+/UmT6K9FjiGZ2s9DZoBILceM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Xb4OIyBoZ5rbDQrDtuphfB7vn5BkZ0VOq7KmL0YI86OEb76pDNrPfRhRtos1xr+EE
+	 4Ze4rtI7Td5RX2fDZH1HQwrFL9c1/K065lnnoqQFzZe7FeJPmafat33cnUZMNnKinh
+	 3htFJZjG4bH6OOYzWFPYfekGfUVtBvcNnkU7GKag=
+Message-ID: <d92066cd-dbc6-47d7-b218-7dc8c97721da@arm.com>
+Date: Fri, 2 Oct 2026 16:24:46 +0100
 MIME-Version: 1.0
-References: <20260930121212.3101361-1-fuad.tabba@linux.dev>
- <ar-xtsSOqwWK9jWQ@willie-the-truck> <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
- <ar-5CnttybD-1ojM@willie-the-truck> <ar_E5HUSTxMSRZhL@arm.com>
-In-Reply-To: <ar_E5HUSTxMSRZhL@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 2 Oct 2026 16:24:06 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzemfoX9e8Ppw+AcuUpNND_CipLCUM9xgid1eYXmV=jzg@mail.gmail.com>
-X-Gm-Features: AclHuK8y7NoaOBtAtTR_MzPpGP3lTRFskNsPTGCg5jv7b0-WVHrMhud2cJRGSNA
-Message-ID: <CA+EHjTzemfoX9e8Ppw+AcuUpNND_CipLCUM9xgid1eYXmV=jzg@mail.gmail.com>
-Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 05/12] arm_mpam: Ensure MBWU counters are reset on
+ restore
+To: James Morse <james.morse@arm.com>
+Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
+References: <20260917145617.2202986-1-ben.horgan@arm.com>
+ <20260917145617.2202986-6-ben.horgan@arm.com>
+ <b61f8b82-a872-4d50-88fc-845287305011@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <b61f8b82-a872-4d50-88fc-845287305011@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_082447_745636_7EFF7259 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20261002_082451_084435_7DD216B1 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +74,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 03:51:16PM +0100, Catalin Marinas wrote:
-> I couldn't figure out the #8 either. I wonder whether it's more readable
-> as (untested):
->
->     sub    x1, x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
->     cmp    x1, #(ID_AA64DFR0_EL1_PMUVer_IMP_DEF - ID_AA64DFR0_EL1_PMUVer_V3P9)
->     b.hs    .Lskip_pmuv3p9_\@    // Skip unless V3P9 <= PMUVer < IMP_DEF
+Hi James,
 
-This looks correct to me.
+On 02/10/2026 16:13, James Morse wrote:
+> Hi Ben,
+> 
+> On 17/09/2026 15:56, Ben Horgan wrote:
+>> When an MSC becomes inaccessible due to cpu offline CFG_MBWU_CTL is set to
+>> zero in mpam_save_mbwu_state(). This is very likely to mean that the config
+>> will mismatch when restoring and so the monitor will be reset. However, the
+>> state may have been lost and so there are no guarantees.
+> 
+> Power management and kexec are the reason this is done.
+> 
+> I have a niggling suspicion that some hardware engineer may allow 'running counters'
+> to inhibit power-down - which means the cache could stay on when all its CPUs are off.
 
-That said, if readability is the goal, I think the plainest is two
-compares and two branches. It's one more instruction, but this runs
-once at boot:
+Ah, I see.
 
-      cmp     x1, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF
-      b.eq    .Lskip_pmuv3p9_\@
-      cmp     x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
-      b.lt    .Lskip_pmuv3p9_\@
+> 
+> We may kexec while these CPUs are off. Leaving the hardware in its reset state is
+> the least surprising thing to do, and also means we don't get bitten by the above
+> (theoretical) power management thing if the next kernel doesn't know about MPAM.
 
-I used ccmp to match __init_el2_debug in the same file, which does the
-same NI/IMP_DEF check with a raw #4, as does reset_pmuserenr_el0 in
-assembler.h (and hyp-entry.S uses the same pattern for HVC64/HVC32).
+Make sense.
 
-Cheers,
-/fuad
+> 
+> 
+>> Ensure the reset happens by setting the reset_on_next_read
+> 
+> Doing this makes it more robust,
+> 
+> 
+>> and remove the unnecessary writes from mpam_save_mbwu_state().
+> 
+> I think this is still a good thing to do.
+> 
+> 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index d39d210574a6..6cba3ef21cc8 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1652,6 +1652,7 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>  	u64 val;
+>>  	struct mon_read mwbu_arg;
+>>  	struct mpam_msc_ris *ris = _ris;
+>> +	struct msmon_mbwu_state *mbwu_state;
+>>  	struct mpam_msc *msc = ris->vmsc->msc;
+>>  	struct mpam_class *class = ris->vmsc->comp->class;
+>>  
+>> @@ -1659,16 +1660,20 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>  		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+>>  			return -EIO;
+>>  
+>> -		if (!ris->mbwu_state[i].enabled) {
+>> +		mbwu_state = &ris->mbwu_state[i];
+>> +
+>> +		if (!mbwu_state->enabled) {
+>>  			mpam_mon_sel_unlock(msc);
+>>  			continue;
+>>  		}
+>>  
+>>  		mwbu_arg.ris = ris;
+>> -		mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+>> +		mwbu_arg.ctx = &mbwu_state->cfg;
+>>  		mwbu_arg.type = mpam_msmon_choose_counter(class);
+>>  		mwbu_arg.val = &val;
+>>  
+>> +		mbwu_state->reset_on_next_read = true;
+>> +
+>>  		mpam_mon_sel_unlock(msc);
+>>  
+>>  		__ris_msmon_read(&mwbu_arg);
+>> @@ -1701,15 +1706,11 @@ static int mpam_save_mbwu_state(void *arg)
+>>  
+>>  		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+>>  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+> 
+>> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> 
+> I plan to drop this line,
+
+Ok, I agree.
+
+Thanks,
+
+Ben
+
+> 
+> 
+>> -		if (mpam_ris_has_mbwu_long_counter(ris)) {
+>> +		if (mpam_ris_has_mbwu_long_counter(ris))
+>>  			val = mpam_msc_read_mbwu_l(msc);
+>> -			mpam_msc_zero_mbwu_l(msc);
+>> -		} else {
+>> +		else
+>>  			val = mpam_read_monsel_reg(msc, MBWU);
+>> -			mpam_write_monsel_reg(msc, MBWU, 0);
+>> -		}
+> 
+> But keep this. With reset_on_next_read the driver won't consume the stale value, and
+> that approach also covers the hardware resetting into unusual states.
+> 
+> 
+> Reviewed-by: James Morse <james.morse@arm.com>
+> 
+> 
+> Thanks,
+> 
+> James
+
 
