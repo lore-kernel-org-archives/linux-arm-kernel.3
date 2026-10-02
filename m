@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEEC0CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C56CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNW+YqrAqiD02dpXizyoFZPqN7BexW83gWD+34LdzW4=; b=NFRkLrt+4/6oGvX911k1G43qgX
-	3Z0cBOtORmvOS5PA/hDQKuQeVxrl/5yYwF4uknjvmJ9q3kMT5RT5mHdrm2iipaWm5Ip7bJi/ue4qX
-	Y1dLUWvxcvymayH58NfXBlhmYCt40nynw71XbVOSs704gIiB6JkrxhuHO8TLjwwjShEDNUmooxqlO
-	/feILBXtsYSiMp1VsQN37z9ZkwHZBfl7KQanyEO4NyyvXfxcXmCJNJU1Q8WBV9FGFEA4SbmC4cDWb
-	p5xfnOT0qBBXQrJdt3R0V9cJNcyxe0fbLzjB79JqOF7391QYJV1mWVUThF3BjaTKD/MhaXiuI6TPx
-	BUjbN1bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2qbnlCfWtpMJpTInUhAzDoS27bFsbxCID6JcqdfH9o=; b=OCzZYAjhXFDddiVL8RnbSW5l0k
+	YTxt1QtOK78fO0jD2wRT5TM1Uj2WPZVCYhwbtFSNlwJud7rueIzu063R81XaIlC3/rDu4FjIAfLte
+	YNaywMzLECsib3fhJTXaON/+5UPht7ElqdqGSVJChI4NZXuNHbwWwEIW5bdbHfU9ONOuzwXI8rXsf
+	WH8D8MnxYNNFoalzJHAHN8WK5EbU0XzNnKe024zDRzGzUKOY0qMJJYxr1aEbWenP/NZlccpLaAsuv
+	rsyWbwhggtxmIwYlxu7lLmDB1pv8TW2yZYfghUREYLxst8TJVPOJ8n2PbIKYRYrm9bn9KXg96o6H8
+	+xJk/nNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfCG-0000000BvGu-0vDc;
-	Fri, 02 Oct 2026 15:29:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfCD-0000000BvFc-25DQ
+	id 1xCfCV-0000000BvLm-1Lm9;
+	Fri, 02 Oct 2026 15:29:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCfCU-0000000BvKx-1AS9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:29:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4DF0143D;
-	Fri,  2 Oct 2026 08:29:08 -0700 (PDT)
-Received: from [10.57.8.170] (unknown [10.57.8.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 279BE3F85F;
-	Fri,  2 Oct 2026 08:29:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954952; bh=P4f1hv785d621ll4HEeJjnSeVQYSEnQeNsJSJrh9rSw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p8E8vMpMtKBWVnygtBY4CCJt+MHMHuQj+M7U9zx+9Pgy3DFcV8HBcxW9kxS/N/00J
-	 XhEBuSPy1e7h4vteMl/XfZe//p0e5hbbJ3qzJoOHabnne1Sh49Qvv+nypCIzoo1Ach
-	 9Du30zeEXLKrw1yW4XTxxKDrFWrNKDsec4rnAzbg=
-Message-ID: <38a5b5d5-d39a-4fa2-8de5-ccc1d92aaff1@arm.com>
-Date: Fri, 2 Oct 2026 16:29:05 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 07/10] kernel: hibernate: Add an arch hook for
- preventing hiberation
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
- linux-pm@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>
-References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
- <20261002061507.1600269-8-suzuki.poulose@arm.com> <ar-PiBQGye4_hQa6@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ar-PiBQGye4_hQa6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_082913_632851_209314DB 
-X-CRM114-Status: GOOD (  19.11  )
+	Fri, 02 Oct 2026 15:29:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4823E60A70;
+	Fri,  2 Oct 2026 15:29:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6371F000FF;
+	Fri,  2 Oct 2026 15:29:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790954969;
+	bh=w2qbnlCfWtpMJpTInUhAzDoS27bFsbxCID6JcqdfH9o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MsvbBDriLGUBuPkGG+TXOygYtreoDOfk5yRbhxaHuznlHbq81x4XHJ0sVS+UcJfp7
+	 WLFCTfvNzAMIvgU5jdnaM1XfSRKf4Bgr320idBQLXxYjErS/nnik2TpwvqQFb5guin
+	 fyKzfDkG9wI7FblnrQzKraetRR4WiINQMf3e7hHZhOIC1uklkIFdPe4IRixnUgyCrH
+	 AFmjieMklHpJ/pLLWLAhBijwJWbPSniaQQzoVIIPHzzX71JbiUgZAcc8q3BkXDPHWn
+	 dZt5G8A4SPW0YIU4YrIcfA1Br27tIbE4k8RkoOj1m+tfFRoMURs5q/c7xESNJbmR/J
+	 uYUezl/z+iNmg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCfCQ-0000000GHfm-2FHs;
+	Fri, 02 Oct 2026 15:29:26 +0000
+Date: Fri, 02 Oct 2026 16:29:26 +0100
+Message-ID: <86o6dc2ka1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
+In-Reply-To: <CA+EHjTy4rb+6z0bqh7sPqACES0EDpURdeoyiFGmdw3p0PENcOQ@mail.gmail.com>
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+	<20261001210703.1597150-6-suzuki.poulose@arm.com>
+	<CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
+	<86se2o2rbs.wl-maz@kernel.org>
+	<CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+	<86pkxs2npx.wl-maz@kernel.org>
+	<CA+EHjTy4rb+6z0bqh7sPqACES0EDpURdeoyiFGmdw3p0PENcOQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,83 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/10/2026 12:03, Catalin Marinas wrote:
-> On Fri, Oct 02, 2026 at 07:15:03AM +0100, Suzuki K Poulose wrote:
->> Add a hook to allow arch code disable hibernation. On arm64, with an RMM active,
->> there could be pages that are delegated to the "Realm" security state. Any
->> access to them are fatal (e.g., hibernate save image or restoring an image to
->> a delegated page). pKVM host also has its restrictions on enabling hibernation.
->>
->> Add a weak arch hook to let the architectures have a say.
->>
->> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
->> Cc: Len Brown <lenb@kernel.org>
->> Cc: Pavel Machek <pavel@kernel.org>
->> Cc: linux-pm@vger.kernel.org
->> Cc: Sudeep Holla <sudeep.holla@kernel.org>
->> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+On Fri, 02 Oct 2026 15:37:00 +0100,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Nit: the subject prefix for kernel/power/ usually is
+> Hi Marc,
 > 
-> 	PM: hibernate: ....
+> On Fri, 02 Oct 2026 15:15:06 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > Honestly, we introduce the flavor stuff to make it easy to match
+> > things on a particular VM type in a readable way. So why isn't this
+> > reading:
+> >
+> >         if (vcpu->kvm->arch.vm_flavor != VM_PROTECTED_PKVM)
+> >                 return;
 > 
-> I can fix it locally, no need to respin (and probably the wrap the long
-> lines in the commit log, we tend to keep them shorter).
-> 
+> I know this is a sketch, but just in case: that's inverted. The sync
+> only applies to non-protected pKVM VMs (EL2 ignores it for protected
+> ones), so it would be != VM_PKVM.
 
-Ack, I will take care of that in the future.
+See what I meant about this stuff being completely intractable? I
+still have no idea what it means! ;-)
 
+	M.
 
->> ---
->>   include/linux/suspend.h  | 1 +
->>   kernel/power/hibernate.c | 8 +++++++-
->>   2 files changed, 8 insertions(+), 1 deletion(-)
->>
->> diff --git a/include/linux/suspend.h b/include/linux/suspend.h
->> index b02876f1ae38a..a3815027773c5 100644
->> --- a/include/linux/suspend.h
->> +++ b/include/linux/suspend.h
->> @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
->>   int hibernate_resume_nonboot_cpu_disable(void);
->>   int arch_hibernation_header_save(void *addr, unsigned int max_size);
->>   int arch_hibernation_header_restore(void *addr);
->> +bool arch_hibernation_available(void);
->>   
->>   #else /* CONFIG_HIBERNATION */
->>   static inline void register_nosave_region(unsigned long b, unsigned long e) {}
->> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
->> index d2479c69d71a4..9d9d53828542f 100644
->> --- a/kernel/power/hibernate.c
->> +++ b/kernel/power/hibernate.c
->> @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
->>   	return !atomic_read(&hibernate_atomic);
->>   }
->>   
->> +__weak bool arch_hibernation_available(void)
->> +{
->> +	return true;
->> +}
->> +
->>   bool hibernation_available(void)
->>   {
->>   	return nohibernate == 0 &&
->>   		!security_locked_down(LOCKDOWN_HIBERNATION) &&
->> -		!secretmem_active() && !cxl_mem_active();
->> +		!secretmem_active() && !cxl_mem_active() &&
->> +		arch_hibernation_available();
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> 
-> Raphael, any objection to this patch going in through the arm64 tree? It
-> matches the style of other __weak functions in this file.
-
-Thanks Catalin
-
-Suzuki
-
-> 
-> Thanks.
-> 
-
+-- 
+Without deviation from the norm, progress is not possible.
 
