@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB16CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5030CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CS+1WddC9LU2dBRnyvoTVR6p6QDTIjDWTeJO+ovyZg=; b=Ig9uEt77/hFipwI/LVV66Y33V/
-	6nhfHYrsCVSnVQmZUoPsWvGIGGey8X+9OLhD7ek2qEgbay6Hst2Y6wb1CORLVQOoac4OXIK5Ds+Bx
-	JUlUChhyOALrxUaafRcrlLj3fYH/Hb7NILIG0Nhbff/uXhmlEUIi1ZWA3WchYU7pb/MSKQResD6w6
-	Rvy7rXGqtTkGjy81iw6jlmDGh46kxq+gcLU9HWwwzOCkgHeCopQefDLjCASWqqiZ+Yl5ODmtM0p/N
-	4BQYfTQ0ennGdIyTfLf+jsPzOXaKLjzJ+pMKDE2R3SjuCC5MWf9GPfuty9WsbVLRTbF8LDoMxWfvg
-	wukAnwGw==;
+	bh=9KryQpw5PkHuyc0/0g5D/mcNk3FqEeMgZBWUSBcaq/k=; b=xBywfE8nWpTk4PrKdop9OcDvCX
+	Ax86bNWzRgY1bf4WDg8+rrbFfIhCz7jwVw/XvCIEkkPXjCHUsHEre3r0ly8uOutApuSny+/JsCNY1
+	eAoRXW7aFeNpqrw3OtjPcn8eyRukVdtYvial5NILswiqWYFOOAbkiBkOO4sH1bCSuQ/kZ1gThMmE9
+	C3+4paxt3D5HfWT+lKjDbl302H5cgytQE/+tIREOepst7+crPdAYalRxNUqBNQpV6ruBK5AMxbRbj
+	MThrcDm/Rblns4mnJyLW7P2VKDYPqYOuov3Lx2dD3dyicEEEdY5lTZu+RyxyRxPkya/ICtDJN9T7J
+	36EVSJUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdNJ-0000000BfhW-2bSw;
-	Fri, 02 Oct 2026 13:32:33 +0000
+	id 1xCdPi-0000000Bg6h-0Tr1;
+	Fri, 02 Oct 2026 13:35:02 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdNI-0000000Bfgy-0DyD
+	id 1xCdPg-0000000Bg68-10QH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 13:32:32 +0000
+	Fri, 02 Oct 2026 13:35:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B17C243A5A;
-	Fri,  2 Oct 2026 13:32:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 487A81F000FF;
-	Fri,  2 Oct 2026 13:32:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D0DC340A79;
+	Fri,  2 Oct 2026 13:34:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFF5C1F000FF;
+	Fri,  2 Oct 2026 13:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790947951;
-	bh=5CS+1WddC9LU2dBRnyvoTVR6p6QDTIjDWTeJO+ovyZg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GwG7mW8qhr86CaqjYE/Yd2RsfCqwMsCXI1iDGRoNkU4pgH6lUy+JL0qRaqhYUBG6E
-	 zl1APCpFBz4sEk0HnkVUwCVe1/xIrU7ttHBmyJ6P4B5SorjsGlEFBNe6193ibDRnnU
-	 j6nUHNrUC3NQCJS5fFiDDEyjyP1heho25GZBHmlyAjzJdeJI4iVbh3WP8e6mdRDH6B
-	 fmktOK6KbL/vwdzmLlp7dkWpn6MeJ3Y/7RcoE0Ft3eTFc5jaCl8r8P/Fm80rO41m1U
-	 Su3Pmj/VsRAGHjDwyCaduNE0dHjvSg5nTjpt2K3texfLOytpg0mSoBamivZMOo+b8Y
-	 FVGaLt7RCr3VQ==
-Date: Fri, 2 Oct 2026 14:32:25 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, will@kernel.org,
-	catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	jonathan.cameron@oss.qualcomm.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v22 07/10] kernel: hibernate: Add an arch hook for
- preventing hiberation
-Message-ID: <20261002-sloppy-tremendous-guan-30cbe5@sudeepholla>
-References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
- <20261002061507.1600269-8-suzuki.poulose@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002061507.1600269-8-suzuki.poulose@arm.com>
+	s=k20260515; t=1790948099;
+	bh=9KryQpw5PkHuyc0/0g5D/mcNk3FqEeMgZBWUSBcaq/k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IKANQyE9ilWDHNOAl0JIUDDOhhzvcgZTvPAxDlfVacEYAIqsSpwQ0Jq3BkLL5G6/r
+	 llXTF4+sZugQSavVZe6GpaDIdC/0HtLsiOKbxBFT/jEfyld9zddxanwgUsrw4twTm8
+	 /MQ670sIJumFUC+Pf6rB/LFalRxsdCF8q9YROMDKsN9lz92y8gCtbZ1gzFRwstKnHt
+	 eaSwAxPiwMInk/y0pzxMKbxnTIWXVTRixyDyLmE48KyjTIIG7+2zOuy55tdiiwsRwZ
+	 iCnBcV08HczuOzpxXkWwjbSkftPQGxqTUjXvLICj9AEVqSbnVJZN9js9XTYXTY/FQu
+	 1cqPm3d8CibBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCdPd-0000000GFBp-26G6;
+	Fri, 02 Oct 2026 13:34:57 +0000
+Date: Fri, 02 Oct 2026 14:34:57 +0100
+Message-ID: <86qzi82pku.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
+In-Reply-To: <CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+	<20261001210703.1597150-6-suzuki.poulose@arm.com>
+	<CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
+	<86se2o2rbs.wl-maz@kernel.org>
+	<CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 07:15:03AM +0100, Suzuki K Poulose wrote:
-> Add a hook to allow arch code disable hibernation. On arm64, with an RMM active,
-> there could be pages that are delegated to the "Realm" security state. Any
-> access to them are fatal (e.g., hibernate save image or restoring an image to
-> a delegated page). pKVM host also has its restrictions on enabling hibernation.
+On Fri, 02 Oct 2026 14:05:17 +0100,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Add a weak arch hook to let the architectures have a say.
+> Hi Marc,
 > 
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Cc: Len Brown <lenb@kernel.org>
-> Cc: Pavel Machek <pavel@kernel.org>
-> Cc: linux-pm@vger.kernel.org
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> On Fri, 02 Oct 2026 13:57:11 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > Just to make sure. Is that what you had in mind?
+> 
+> A diff is worth a thousand words :) Yes, that's it. With that, every
+> remaining hyp user of vcpu_is_protected() only runs with pKVM, so the
+> kern_hyp_va() case in the macro can go too.
 
-FWIW, it makes sense for this RMM use case:
+Not just that. The whole macro can go, see below (only tested a with
+non-protected guest).
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+	M.
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 9e1fa00d96f7c..84703a65bfdd4 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1520,25 +1520,12 @@ struct kvm *kvm_arch_alloc_vm(void);
+ #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+ 
+ #define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+-/*
+- * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
+- * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
+- * which is populated correctly.
+- */
+-#define vcpu_is_protected(vcpu)						\
+-	({								\
+-		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+-		bool __protected = false;				\
+-									\
+-		if (__kvm) {						\
+-			if (is_nvhe_hyp_code() &&			\
+-			    !is_protected_kvm_enabled()) 		\
+-				__kvm = kern_hyp_va(__kvm); 		\
+-									\
+-			__protected = kvm_vm_is_protected(__kvm);	\
+-		}							\
+-		__protected;						\
+-	})
++
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define vcpu_is_protected(vcpu)		BUILD_BUG_ON(1)
++#else
++#define vcpu_is_protected(vcpu)		kvm_vm_is_protected(vcpu->kvm)
++#endif
+ 
+ #define kvm_vm_is_protected_pkvm(kvm)					\
+ 	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index c904647d2f760..ffc99d25955a1 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -57,7 +57,7 @@ pkvm_hyp_vcpu_to_hyp_vm(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+-	return vcpu_is_protected(&hyp_vcpu->vcpu);
++	return kvm_vm_is_protected(hyp_vcpu->vcpu.kvm);
+ }
+ 
+ static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7318e3e6a5f36..2a3e6d83682d5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -217,7 +217,7 @@ static const exit_handler_fn pvm_exit_handlers[] = {
+ 
+ static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
+ {
+-	if (unlikely(vcpu_is_protected(vcpu)))
++	if (unlikely(vcpu_is_protected_pkvm(vcpu)))
+ 		return pvm_exit_handlers;
+ 
+ 	return hyp_exit_handlers;
+@@ -238,7 +238,7 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	 * it.  The check below is based on the one in
+ 	 * kvm_arch_vcpu_ioctl_run().
+ 	 */
+-	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
++	if (unlikely(vcpu_is_protected_pkvm(vcpu) && vcpu_mode_is_32bit(vcpu))) {
+ 		/*
+ 		 * As we have caught the guest red-handed, decide that it isn't
+ 		 * fit for purpose anymore by making the vcpu invalid. The VMM
+diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+index 9930657169133..17bd1ff621ab6 100644
+--- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+@@ -48,7 +48,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+ 	 * or running a protected VM (we don't offset anything in this case).
+ 	 */
+ 	clr = CNTHCTL_EL1PCEN;
+-	if (vcpu_is_protected(vcpu) ||
++	if (vcpu_is_protected_pkvm(vcpu) ||
+ 	    !timer_get_offset(vcpu_ptimer(vcpu)))
+ 		set |= CNTHCTL_EL1PCTEN;
+ 	else
+
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
