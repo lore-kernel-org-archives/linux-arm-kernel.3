@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98362CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 01:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A163CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 01:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bud2eicX84qICDr4fItYKKKJxblLGgtG+EST6vW+/pY=; b=TSpZmg1Al9XL9A4u8zqDSh5rSg
-	DRXVBMFf961Vzu3UFoDCQosHgnnvNgkaaAZK+DiNhpIKPKphZGn30oVWglekDDtVSK6GaDNmuBBqx
-	XUHKqbtsF2FnQQ5lrOV8PMTc5ELL/TIuTjV5Lmzab2LPbqDFY8m+EMaS3xKQjOFHnPL90Et1QhR6d
-	Z226IMnr2q8tVmFWe7Hl+9tIYIQKnZ/O/A+jdf/+wu6X1hT8ncekwVbBi6X818WImE2ySzFG0340b
-	KBB0XfQqYy+kWNExqQSuW7+68lZ/aoWLsfETKJf2vhnUI4XvmM8OJKuqptbo0VkyhkjnQHik0y6lM
-	IKbQDb9g==;
+	bh=4DIHMdSt4GvqiUavnW9Jzr8Gsnq5hKMz0enlBFVs5X8=; b=eaaZsZLtLODhWSp+SSqX2SMXKC
+	Kf46o7tuUzx8J3uPQMB9d/9BnRM/b6pXIerFgfY+1vB0p/G6riU6F5TowRvWv8Ioq7JhUxDGYiGOf
+	z9Nq6y0arTV94RClsAsfstllm7eHVsU0lP+p0nRAPa3Y4UsbnIyZvdZnJCkrsndAJBu9Yz9dz8O5j
+	L3ffa5KWEiGE9v+xzoB9rru9pkBbQfHuMzv/6+yz71Oa8CrYajnQHJVqhvKzyR/BaQj3U8X7QZfn9
+	3jl9+zFcQm7ZCYPZgFAkK3d92xmwtaKAl42/K8OtKaeGH0nI65pTnQTk4HN2/z8p3Oa0EZYeb4NCd
+	qM5PYtlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCSHA-0000000AU8C-14si;
-	Fri, 02 Oct 2026 01:41:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCSMJ-0000000AUMI-3RiQ;
+	Fri, 02 Oct 2026 01:46:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCSH9-0000000AU86-2cDr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 01:41:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7D4560218;
-	Fri,  2 Oct 2026 01:41:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BC0A1F000FF;
-	Fri,  2 Oct 2026 01:41:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790905286;
-	bh=Bud2eicX84qICDr4fItYKKKJxblLGgtG+EST6vW+/pY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Sb0ws6+VXsCRbr2lxa2mKUvTPCZ2yjYRJlqJ82c/RmFex2CNmgPerTIHRA+L8mOo+
-	 2+X2uirsGdC9I7Ql4+xjknOX4O4CiobdiRO7lp9luvtYqHbsRyLPzyLbg0kEC5NDsz
-	 fwsPp2HGsO/6XVHk/rzHioqKqBHehf6DPzZjfno4XBaxHy1FK2/zJZvSfQeEvyqbQf
-	 a8Q3roSP2B+nLIAFZgAD7JZ5TDe/oJjSOSFMrKRUDCSWCECeGOdVF/KYnXLcTkyWS/
-	 caLpz6m67fwfC+IZ5Wax8uMsklSyLfb5MjMUgaTRBXJVEvEO564FWTG0vwgFVz0lAO
-	 Iu50yJz6xs2fQ==
-Subject: Re: [PATCH net v2] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-From: netdev-bot+sashiko@kernel.org
-To: maimon.sagi@gmail.com
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, daniel@iogearbox.net,
- jacob.e.keller@intel.com, joe@dama.to, suraj.gupta2@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 02 Oct 2026 01:41:25 +0000
-Message-ID: <179090528517.434549.11422262316039898353@kernel.org>
-In-Reply-To: <20260930133851.663023-1-maimon.sagi@gmail.com>
-References: <20260930133851.663023-1-maimon.sagi@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xCSMH-0000000AULu-0T0a;
+	Fri, 02 Oct 2026 01:46:46 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D4333227;
+	Fri,  2 Oct 2026 03:44:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790905489;
+	bh=oICVcHOz2Wfgzqh7GpipejxF0d1OizMTX25Z+t8idAE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DL47LK26zxYWCGEwmH0pFphMpQcdDa446j4BIEW/6z2jrfgx1u/HPvf5LspF0B4qm
+	 e6PUuZGYTLC1VVDdFuuXDusl9pBhG9xklqDGgx/8Sj4OayueF0WmZ/r+0sa/0dNgYP
+	 l4McKnsWX9Tt+e/LWL/mGqJ/C9wK+61dNMGhnAiI=
+Date: Fri, 2 Oct 2026 04:46:40 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Diederik de Haas <diederik@cknow-tech.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Jacob Chen <jacob-chen@iotwrt.com>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] media: rkisp1: Switch to modern PM_OPS
+Message-ID: <20261002014640.GB101842@killaraus.ideasonboard.com>
+References: <20261001173610.158931-1-diederik@cknow-tech.com>
+ <20261001173610.158931-4-diederik@cknow-tech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261001173610.158931-4-diederik@cknow-tech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_184645_324167_1B7A9143 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,193 +72,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Thu, Oct 01, 2026 at 07:34:53PM +0200, Diederik de Haas wrote:
+> A new set of modern PM_OPS macros got defined in commit
+> 1a3c7bb08826 ("PM: core: Add new *_PM_OPS macros, deprecate old ones")
+> 
+> Switch to those new macros so that the PM callbacks are always seen by the
+> compiler, but discarded if not used. This lets us drop the __maybe_unused
+> annotation from the callback functions.
+> 
+> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
 
-Critical: 0 · High: 1 · Medium: 0 (1) · Low: 2
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+As the three patches in this series are independent from each other,
+I've taken this in my tree.
 
-- [High] The new TX walk in axienet_dma_bd_release()
-  (drivers/net/ethernet/xilinx/xilinx_axienet_main.c:192) only checks…
-- [Low] The new walk in axienet_dma_bd_release() frees every leftover TX
-  skb with dev_kfree_skb_any() (a drop with…
-- [Low] The new TX walk relies on axienet_stop() having stopped the DMA
-  engine, and the commit message says so.
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but the same
-  kind of leak exists in dmaengine mode.
-
---
-
-net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
-
-axienet_dma_bd_release() now walks the TX descriptor ring before freeing
-it. For each descriptor whose cntrl is still set it unmaps the buffer, and
-it frees any attached skb as a drop. The walk is skipped when tx_bd_v is
-NULL.
-
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 1722b7038f340..8bf27e20e103d 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -186,7 +186,28 @@ static void axienet_dma_bd_release(struct net_device *ndev)
->  	int i;
->  	struct axienet_local *lp = netdev_priv(ndev);
->
-> -	/* If we end up here, tx_bd_v must have been DMA allocated. */
-> +	/* tx_bd_v is NULL if axienet_dma_bd_init() did not get as far as
-> +	 * allocating it; dma_free_coherent() below accepts that.
-> +	 */
-> +	for (i = 0; lp->tx_bd_v && i < lp->tx_bd_num; i++) {
-
-[Severity: High]
-
-Is lp->tx_bd_v ever set back to NULL? The only assignment seems to be the
-dma_alloc_coherent() in axienet_dma_bd_init(). The dma_free_coherent()
-below leaves the pointer in place, so the NULL check only holds on the
-first open, while the private area is still zeroed.
-
-Consider this sequence:
-
-ifup (succeeds)
-ifdown
-  axienet_stop()
-    axienet_dma_bd_release()
-      dev_kfree_skb_any(cur_p->skb)      /* cur_p->skb not cleared */
-      dma_free_coherent(..., lp->tx_bd_v, ...)  /* tx_bd_v left as is */
-ifup
-  axienet_open()
-    axienet_device_reset()
-      __axienet_device_reset() fails, returns before axienet_dma_bd_init()
-    ret = phylink_of_phy_connect(...)    /* reset result overwritten */
-ifdown
-  axienet_stop()
-    axienet_dma_bd_release()
-      walks the already freed tx_bd_v ring
-
-Can this call dev_kfree_skb_any() a second time on the skbs freed at the
-previous close? It would also call dma_unmap_single() on addresses that
-were already unmapped. If the coherent memory has been reused, arbitrary
-values would go to kfree and the DMA unmap.
-
-The out: label in axienet_dma_bd_init() looks like a second way in. If the
-rx_bd_v allocation, netdev_alloc_skb_ip_align() or dma_map_single() fails,
-the TX ring is freed there and tx_bd_v is not cleared. axienet_open() then
-ignores the error, and the next axienet_stop() walks the freed ring.
-
-Before this patch these paths already did a second dma_free_coherent() on
-the stale pointer. With this patch, the freed descriptors are also read,
-and the skb and DMA addresses stored in them are freed and unmapped.
-
-The commit message says:
-
-  tx_bd_v is NULL when axienet_dma_bd_init() did not get as far as
-  allocating it: axienet_open() does not check the result of the reset
-  that runs it.
-
-Could lp->tx_bd_v (and lp->rx_bd_v) be set to NULL after each
-dma_free_coherent()? Clearing cur_p->skb and cur_p->cntrl in the walk, or
-having axienet_open() propagate the axienet_device_reset() error, would
-also close this.
-
-> +		struct axidma_bd *cur_p = &lp->tx_bd_v[i];
-> +
-> +		/* axienet_free_tx_chain() clears cntrl when it reclaims a
-> +		 * descriptor, so a non-zero value means the mapping is live.
-> +		 */
-> +		if (cur_p->cntrl) {
-> +			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
-> +
-> +			dma_unmap_single(lp->dev, addr,
-> +					 (cur_p->cntrl &
-> +					  XAXIDMA_BD_CTRL_LENGTH_MASK),
-> +					 DMA_TO_DEVICE);
-
-[Severity: Low]
-
-This unmap assumes the MM2S engine has stopped. axienet_dma_stop() polls
-the halt bit for at most 5 x 20 ms and does not act on a timeout. It also
-discards the return value of __axienet_device_reset():
-
-  sr = axienet_dma_in32(lp, XAXIDMA_TX_SR_OFFSET);
-  for (count = 0; !(sr & XAXIDMA_SR_HALT_MASK) && count < 5; ++count) {
-          msleep(20);
-          sr = axienet_dma_in32(lp, XAXIDMA_TX_SR_OFFSET);
-  }
-
-  /* Do a reset to ensure DMA is really stopped */
-  axienet_lock_mii(lp);
-  __axienet_device_reset(lp);
-  axienet_unlock_mii(lp);
-
-If the channel neither halts nor resets, could the engine still be reading
-TX payloads after they are unmapped here?
-
-The RX walk and the ring dma_free_coherent() in this function already
-carry the same risk, and the commit message documents the dependency. The
-new exposure is small and limited to faulty hardware.
-
-> +		}
-> +		/* never transmitted, so account it as a drop */
-> +		if (cur_p->skb)
-> +			dev_kfree_skb_any(cur_p->skb);
-
-[Severity: Low]
-
-Is "never transmitted" true for every descriptor that reaches this point?
-axienet_stop() calls napi_disable(&lp->napi_tx) before phylink_stop(), the
-TXEN clear and axienet_dma_stop(). The MM2S engine can keep completing
-frames in that window, and nothing reclaims them.
-
-axienet_free_tx_chain() treats descriptors with the COMPLETE bit set as
-transmitted:
-
-  if (cur_p->skb && (status & XAXIDMA_BD_STS_COMPLETE_MASK)) {
-          ...
-          napi_consume_skb(cur_p->skb, budget);
-          packets++;
-  }
-
-Should this check cur_p->status for XAXIDMA_BD_STS_COMPLETE_MASK and use
-dev_consume_skb_any() for those skbs? As written, frames that were
-actually sent are reported as drops and are left out of tx_packets and
-tx_bytes.
-
-> +	}
-> +
->  	dma_free_coherent(lp->dev,
->  			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
->  			  lp->tx_bd_v,
-
-[Severity: Medium]
-
-This isn't a bug introduced by this patch, but the dmaengine branch of
-axienet_stop() seems to leak in the same way. When lp->use_dmaengine is
-set, axienet_dma_bd_release() is never called. The branch does this:
-
-  dmaengine_terminate_sync(lp->tx_chan);
-  ...
-  for (i = 0; i < TX_BD_NUM_MAX; i++)
-          kfree(lp->tx_skb_ring[i]);
-
-In-flight TX entries still hold an skb and the dma_map_sg() mapping set up
-in axienet_start_xmit_dmaengine(). Only axienet_dma_tx_cb() releases
-those.
-
-xilinx_dma_terminate_all()->xilinx_dma_free_descriptors() frees the
-descriptor lists without invoking client callbacks, so that callback never
-runs for terminated transfers.
-
-Does this leak the TX skbs and their scatterlist mappings on every ifdown
-with traffic in flight? The RX buffers submitted by
-axienet_rx_submit_desc() look like they are lost the same way.
+> ---
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 11 +++++------
+>  1 file changed, 5 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> index f90e01301943..e619a949dbc9 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> @@ -305,7 +305,7 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+>   * Power
+>   */
+>  
+> -static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+> +static int rkisp1_runtime_suspend(struct device *dev)
+>  {
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  
+> @@ -331,7 +331,7 @@ static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+>  	return pinctrl_pm_select_sleep_state(dev);
+>  }
+>  
+> -static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
+> +static int rkisp1_runtime_resume(struct device *dev)
+>  {
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  	int ret;
+> @@ -351,9 +351,8 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
+>  }
+>  
+>  static const struct dev_pm_ops rkisp1_pm_ops = {
+> -	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+> -				pm_runtime_force_resume)
+> -	SET_RUNTIME_PM_OPS(rkisp1_runtime_suspend, rkisp1_runtime_resume, NULL)
+> +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
+> +	RUNTIME_PM_OPS(rkisp1_runtime_suspend, rkisp1_runtime_resume, NULL)
+>  };
+>  
+>  /* ----------------------------------------------------------------------------
+> @@ -815,7 +814,7 @@ static struct platform_driver rkisp1_drv = {
+>  	.driver = {
+>  		.name = RKISP1_DRIVER_NAME,
+>  		.of_match_table = of_match_ptr(rkisp1_of_match),
+> -		.pm = &rkisp1_pm_ops,
+> +		.pm = pm_ptr(&rkisp1_pm_ops),
+>  	},
+>  	.probe = rkisp1_probe,
+>  	.remove = rkisp1_remove,
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930133851.663023-1-maimon.sagi%40gmail.com
+Regards,
+
+Laurent Pinchart
 
