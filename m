@@ -4,86 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07864CA5FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A2BCA5FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luvk4RSDKwxoXOLtb/naS+7NpP4AkbeMINi5BwnyOQg=; b=rU2vkGz6yni7rMST/c13ZRMc5i
-	KBHPTcVsPJ2A+684jqXX9QJdpRfs2iAJYczOksYh/TY1rHpRwn1BZU/D6paoxV3/xrg+Tb6w1quPR
-	mqG1zwvuvoEuYFqBCo33beaqG1YGhx4tnEhFbCNI4WtRLr869NDFe8wZQrN8OAX0HGEGzVjlbDZOc
-	Tp5D22rnfh4Oy7hQfMAfd6jMBU6Q1WNXHM81enH5YPoVC7/Lx/vgPJVqELY47qCLd8qtYH84hPRcm
-	xwvNFibbo0ISZzSxluTTi0PuvDf5pSLji70Mm3ac88OLinTKuElGOPadG4UWuY5JpOyOS1b/Nv/XD
-	33zHHGRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dcN4JKaX3uG/6QlpJtazZDraUxMMRgZ4+sja8nBc76w=; b=dBDm8pJmG+EnhIULD4ULumLjjz
+	tRTRxmXTaFlLSdve2oeunJZZ+9Ados5I59DMVZPRuUpppJQlrq1/KoSBSuo9uT0rWay8ZVeCxyhYA
+	xCyytRaVFKyv7z54IdG2n11BOXj00mLvKI/y/YisV+LwXHDpq96l5gn6oTzxfwIE1ZGieotV6rBJl
+	DwW/6S6qUoPFk3TBug7XtYpDq3Dx6vyPnWPCAnMo8e6ksM7Ss0XzGVedfiibHYGTJXeANB9JSDJE2
+	vYjx8OkdKIKpmUp8tiao+S+sOKfO8cF9VEvdsgsHbQ3tl6dp2BagHkAliH8qnfxJxxofS95ye936L
+	8nNuQBJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoX7-0000000Csmi-3Y5E;
-	Sat, 03 Oct 2026 01:27:25 +0000
-Received: from mail-dy2-f43.google.com ([74.125.229.43])
+	id 1xCodr-0000000Ctbd-2pVZ;
+	Sat, 03 Oct 2026 01:34:23 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoX6-0000000CslQ-1Mgm
+	id 1xCodo-0000000CtaS-1Kcx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 01:27:25 +0000
-Received: by mail-dy2-f43.google.com with SMTP id 5a478bee46e88-34b3e517e6dso134084eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 18:27:24 -0700 (PDT)
+	Sat, 03 Oct 2026 01:34:22 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccb1a98dso48914a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 18:34:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790991259; x=1791596059; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dcN4JKaX3uG/6QlpJtazZDraUxMMRgZ4+sja8nBc76w=;
+        b=tDtrdL2gPvokzgF8dJrk/L2Q4Bz4si/vDjdjJQLdguhzKh8j1WxThUyqjZCW5ObC5m
+         wVDj5DXS8uFLRpqXlJM4hcoybpfxREfroSvBytsPhaiw2JLmNJ2hbq683yj1cs70lNu3
+         o6X26ryOieA/tB629jtW3Bz7r+kV2sfs5pL/o23gQCxh8Qd13GgeZN60ZWJXCBhWZCr+
+         87Ur12Z+HBxmGwmTiUIqLLyzie1rcIThjJ4RRUERsU33wtaudQCCwgPQE77R4guUiSGk
+         npwQbHKxFK5kEJX4FYqYDbnrXKl0NHGKY2Yra0z42+b3KiGNkN3PrUqWHAebKdwGllzc
+         fDXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790990843; x=1791595643;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=luvk4RSDKwxoXOLtb/naS+7NpP4AkbeMINi5BwnyOQg=;
-        b=1E8u6mfuKDvTPPiZ5NEDPfWS0r+n47WEjrrEZo5wMjs+Bnu34wdAZ+mpWb+bCwrQkJ
-         ES7y6c8nbvAYee/T9X9LC+DMkj5Nn5lf2R27fQAGtYMcW0+bdjiF9m6URIOMUJHgea6G
-         SMsMlJ5sTs5EeTBdj19FXIvNUwtPvtR8WsWndCrv26jYALtf9z2/60Omq/7tTPKCEjOv
-         IBjJFfrhdTL4ED1QQ0iTkofDM4ophFvnLv9GPznFcVWxI4Sa62iJJbc6m+QYb4Mivdtg
-         +K3mO/iAC7WLfFqXZiCyYONLudS5IgxeeJXH8SR++8i1R858sycjb3/xeBckw0SOolPg
-         h5Sw==
-X-Forwarded-Encrypted: i=1; AKwUvBzHTzjFWcyTooQCrRm8nrcjmYr5utH9BPbaGeb3ZYVWR8GDuabNaQcLJRfgP9uN60FChAnp2P5N+W/0jattFAHa@lists.infradead.org
-X-Gm-Message-State: AFuF++nP3WAmoxGyPoKejQxR5AgtDvuLda1PPLsujmuw97dFx0yvWrUp
-	Rt5atNgus5pGK6/EbEQ3Ba2H3IUTEIrzr9ZNVN8iflyKWxkuYhB9NGmj
-X-Gm-Gg: AYBFou0bw0H+Mtx6wtAm6nEUtpWj/gyC/63H6RP9vPqQ8eFLLCirQql4CzoQx4bCTLr
-	rAUFJLRD9KDkOi845xr85AvdVErLo5yZC3kloJF1SryRsvsFrZ158k+oon5IT6+gkrshB86tZJl
-	5h1iHmDOv3ZKeGTKDDDNaUk9wCFkQir3cfbqYoqtTHgwr05V5dp8pT3p5nOCxuqWykeXimHbYQz
-	+cul555iB35ZmkN3Rhmx1XxC6e6q9wncsBkzbPhn6QHzTdhMZMClK1EgMMbcyZXG2mtSWta1gkx
-	HrZur/mN9bD3E3+k4aMsNVs/FvIphci2puP0rmc1yufUdUPeP22ps0F+R9ybsK2X26RIrEhtj3P
-	6jZxR7IUpZJrDyvsfHEPfhBpT4ZEFcWXaMmyMgIfxKn8Z/M3yXyCAO/QU5xa7NDZs4GIOqnpd+i
-	rV/sJAS6LumrfG6uibSeJ2VyKe/2rxLzu5ltI/lydrHG1O17kxAwin62Qf91nU6kSBd4zMcOE2r
-	W5kuBB+n/fISBnPprncQTBnlEUKZyQXOeZTlE2zCJWcj1ayEsGExlEkSRBRHkZtYuXlKakYuDVx
-	kRjaOGW1Kom32Y/FfeJFuMvP0eogpg0Hl1eVBWhq/xuR
-X-Received: by 2002:a05:7022:f51a:b0:151:cba2:effc with SMTP id a92af1059eb24-151cba2f2ffmr1217637c88.30.1790990843319;
-        Fri, 02 Oct 2026 18:27:23 -0700 (PDT)
-Received: from localhost ([201.89.183.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fcec9a95sm1116843c88.15.2026.10.02.18.27.22
+        d=1e100.net; s=20260707; t=1790991259; x=1791596059;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dcN4JKaX3uG/6QlpJtazZDraUxMMRgZ4+sja8nBc76w=;
+        b=xHn9q1PLWEqTpM0wk2rwGKVDZByhOSDpcCygCISmHUZ+ob7WlZYcsY//W8lDAoQJLM
+         i18ZPbozIzrDy5tc0zbkaKFy3iEh5ONOi0/Sa1kNLV+7XdBOoea/5kpEEIbE7Qwr5r1K
+         Fl2zxva9V9Xk26OdWru51cl5iFII2tC4YVTh5HS5czFLRYi9Jl3c6FWtJbJFBUp+BLLa
+         pP7V4AHhdtNRvHR949SQIFEgkRKlbmkKAzm8PUXR2MsM8uqDfYSTG8pPUbDj4j17rYSl
+         vMA/qy8zkOfWFFTJM+giFu3dOac9ksqSfQvQC2lA9BvbCx1cBQX9n1vBGYQFo8bxS4A8
+         hc4w==
+X-Forwarded-Encrypted: i=1; AKwUvBzFi2O2/gl8F/qRznfUk7BRkKJhxOYQNkW4LLlCUamcjG49qNcTNNZFIACoUeocYjpqFZbcMMzs0bSYalGdyiiA@lists.infradead.org
+X-Gm-Message-State: AFq9FYJxO5SAL9l58LjXV5aDhscOZWlHAccSF0Vts1xAY2DBiLNWNhBh
+	Qs6OPtumYOoj71ZFgaqCGJYgOEjn38z4pPQr0h/BqzIodOC/nixUc1vP
+X-Gm-Gg: AYBFou2xPuiwg7CD5DTpQgnZuplKC/L0+QrIZAWNFmSVDF8ZjGOYHm2Sm8WRPda7D/z
+	BKcnrfwps51VNBU+TJKwWJVPaHGTf779/rjg3w5Kv4cqzwuROArpdbHGxBUbB/zIxlk26ROSahQ
+	17T/b1j8b/1vhEgUxGozmyuXUZuaEiYoWAKLjoJXPbp0a90rRuX18gPPNSM/wEc+xRDgNn8mv6s
+	ZMRUSi5w9iIALwvCyt6y25kBMB5Zf/Zxa+JLCecowecSQ+s4Mo7ynjq5deUIYvbIXSS4xLMrFx3
+	UpKBZ9rlpJpOu2CGCM8l45Uq7QW62JSYRYIiz8JbGbmlQQIZTNBdtoDysz6RSTEOqO4VmdVksJN
+	uIck6QVs1YgVjvG1H4D48/IQO8ihL5vreda1eQis2OPttYEHSPmVHu5zVI4ugv421BfPEpl3eOT
+	kqaHZqDN8yj2vfjCCHKG05XCUwdmxu//Aby+w11iLXh2y7C3kouJMQqxjuly2hJ1L1n4WXu4jkE
+	dC+o+C0dz4VKzrHRML60+aANfYkaLw0Zi5L8zT5IeJQwJX9Fr6cNNDcjXdSWtPOH1njMNDTNR+G
+	r3SemN47sfRNhRFZtcO9ydy8dpR0fiEfc98wky/s2qk6fzye3Jo=
+X-Received: by 2002:a17:90b:3c44:b0:39e:6c6a:6577 with SMTP id 98e67ed59e1d1-3a6ced75f41mr3500888a91.58.1790991258652;
+        Fri, 02 Oct 2026 18:34:18 -0700 (PDT)
+Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78e4664ebsm861575a91.7.2026.10.02.18.34.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 18:27:22 -0700 (PDT)
-From: Otavio Salvador <otavio@ossystems.com.br>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Otavio Salvador <otavio@ossystems.com.br>
-Subject: [PATCH 2/2] ARM: dts: sun8i-r40: Add SID node and THS calibration
-Date: Fri,  2 Oct 2026 22:25:36 -0300
-Message-ID: <20261003012534.418820-5-otavio@ossystems.com.br>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261003012534.418820-3-otavio@ossystems.com.br>
-References: <20261003012534.418820-3-otavio@ossystems.com.br>
+        Fri, 02 Oct 2026 18:34:17 -0700 (PDT)
+From: James Calligeros <jcalligeros99@gmail.com>
+To: Takashi Iwai <tiwai@suse.de>
+Cc: Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ David Rhodes <david.rhodes@cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+ James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+ linux-mediatek@lists.infradead.org, Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 08/28] ALSA: control: Add kcontrol callbacks for lock/unlock
+Date: Sat, 03 Oct 2026 11:34:07 +1000
+Message-ID: <u9VW29vaRPGENsSTq9RHUg@gmail.com>
+In-Reply-To: <878q4k2xl0.wl-tiwai@suse.de>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-8-741cc20a74e5@gmail.com> <878q4k2xl0.wl-tiwai@suse.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_182724_367933_85B99108 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20261002_183420_380365_121EB211 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,64 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Without the calibration cell, the THS driver leaves the sensor
-calibration registers at their reset value (0x800) and the reported
-temperatures drift from the real die temperature by a chip-dependent
-offset.
+On Tuesday, 29 September 2026 7:52:59=E2=80=AFpm Australian Eastern Standar=
+d Time=20
+Takashi Iwai wrote:
+> On Sun, 20 Sep 2026 06:53:47 +0200,
+>=20
+> James Calligeros wrote:
+> > From: Hector Martin <marcan@marcan.st>
+> >=20
+> > This allows drivers to implement policy around locking/unlocking
+> > controls, such as enforcing that a group of controls may only be locked
+> > by the same process/file, and taking actions when the controls
+> > lock/unlock (such as granting special access on lock and resetting
+> > values on unlock).
+> >=20
+> > This is, in particular, useful to implement volume safety controls, such
+> > that only a particular process (that locks controls and completes a
+> > handshake) may increase volumes above a given safe limit. It also allows
+> > the volume to be automatically lowered if that process dies (which will
+> > trigger an implicit unlock).
+> >=20
+> > Signed-off-by: Hector Martin <marcan@marcan.st>
+> > Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+>=20
+> This doesn't sound like a good approach to me, and this looks rather
+> irrelevant with the purpose of the series.
 
-Add the SID node at 0x01c1b000 and wire the thermal sensor to its
-factory calibration at eFuse offset 0x40, one 16-bit word for each of
-the two sensors.
+I'm not sure what you mean by it being irrelevant. A significant portion
+of the machine driver is dedicated to implementing safety interlocks based
+on the functionality added via this patch. It would be impossible to prevent
+badly-behaving users{,pace} from defeating the safety guarantees made by
+speakersafetyd (and thus permanently damaging the machine) without giving
+speakersafetd exclusive ownership over the safety interlock kcontrol.
 
-The R40 user manual gives the size of the thermal sensor key (32 bits)
-but not its offset. The vendor SDK key map names 0x48 "thermal_sensor",
-but that word is zero on all the boards checked. On an A40i running the
-Boardcon vendor kernel, the THS_0_1_CDATA register holds exactly the
-eFuse word at 0x40 (0x08780875), which confirms the location.
+Is there something specific about this approach that you do not like?
 
-Tested on two Boardcon EMA40i (A40i) boards: THS_0_1_CDATA now holds
-the eFuse word at 0x40 of each chip (0x082d0822 and 0x083d0838) instead
-of the reset value 0x08000800.
+>=20
+> thanks,
+>=20
+> Takashi
 
-Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
----
- arch/arm/boot/dts/allwinner/sun8i-r40.dtsi | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+James
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-index f0ed802a9d08e..c7c9cad695ca4 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-@@ -485,6 +485,18 @@ ohci1: usb@1c19400 {
- 			status = "disabled";
- 		};
- 
-+		sid: efuse@1c1b000 {
-+			compatible = "allwinner,sun8i-r40-sid",
-+				     "allwinner,sun50i-a64-sid";
-+			reg = <0x01c1b000 0x400>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			ths_calibration: thermal-sensor-calibration@40 {
-+				reg = <0x40 0x4>;
-+			};
-+		};
-+
- 		ehci2: usb@1c1c000 {
- 			compatible = "allwinner,sun8i-r40-ehci", "generic-ehci";
- 			reg = <0x01c1c000 0x100>;
-@@ -832,7 +844,8 @@ ths: thermal-sensor@1c24c00 {
- 			clock-names = "bus", "mod";
- 			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
- 			resets = <&ccu RST_BUS_THS>;
--			/* TODO: add nvmem-cells for calibration */
-+			nvmem-cells = <&ths_calibration>;
-+			nvmem-cell-names = "calibration";
- 			#thermal-sensor-cells = <1>;
- 		};
- 
--- 
-2.55.0
+
+
 
 
