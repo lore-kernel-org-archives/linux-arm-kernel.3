@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2665CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F12CA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yNdfF33mWaDtKQmIYOFKyplY+dYLoXzNcNN0FYYoZ7A=; b=U0I+S2dsm/NNclPOnEEu1sCM2F
-	ZK0WL4owg+CJ4AnVNQAO+2bMN1D7oMMOgLrqlarW/FJPVP7GsuZ+/tbNFAKMTI+Gf4GzL8rqXg8yQ
-	lIAjUI7CK3M2JFXeCWZ62OIo7tsnCKxxZHIugx2N0mLmP160Si5SkMjO+dSm7uN0G1nSFMi4ZGCRD
-	kDBL/V0csCQdysi+EjDCB7Z2mhcWNx3mFNM92ct+8v9VNItGrcVnv+j4+KUIMx9mdAGsNokkGSvbv
-	PR7p1LB3uQOWpAj9iiyEn1P5nEAzKg7E+mIFaJWfGibpRwmVLBWsSEmI/pgP6E0W1gq4L8fh2kwUz
-	EbMGdPmQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJ9KSHknag2gDAaw8qLAHoLRC7r7kSMR52AYAhpMLLU=; b=DUb3WQJLutbfE9hhXGmt36BlaH
+	BKN3225BSyaSoezBvzi/RHNBd70eXVxlEvbPukK19RCh8CqbYdH7xrznBLMpLBWr8R5QKdVA8a5lj
+	IKymNJowo4KH71hUuJZBhzd5TGDgRUlIZ+lzXrSCU7buuWPCjZDSIXTGZvRxR/0XoIWYhfVsXea+A
+	d8C8rUdde8V6gznpP4BwjigiCHWYzlzOxdBjiQq5U9/Pfd28BqXXxz0r/0ncTdAuIrfIkVqnvHJ/V
+	z1r6DA8Zk2zNcxU6XETumufxL7SX5GEMQTNwgqGRY8X3nxC74G0lRwxfDnnET12wMc5MnCL+45n7u
+	PDSXUw3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5S4-0000000DwM2-2M7u;
-	Sat, 03 Oct 2026 19:31:20 +0000
+	id 1xD5S7-0000000DwN5-2WKR;
+	Sat, 03 Oct 2026 19:31:23 +0000
 Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5Ry-0000000DwKT-2ncf;
-	Sat, 03 Oct 2026 19:31:18 +0000
+	id 1xD5Ry-0000000DwKU-2luM;
+	Sat, 03 Oct 2026 19:31:20 +0000
 From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791055871;
+	s=mail; t=1791055872;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=yNdfF33mWaDtKQmIYOFKyplY+dYLoXzNcNN0FYYoZ7A=;
-	b=RnUPguuM8lX35TwHLzfLe3aHOiSd6HoDvXZ8EamkK8ISmBPlNWOlleG3KeJOrEOVdJcE8u
-	kb1c7bSXSaoeVgByZLOwNZ7A16uW6dz6GUm+rEVi2d2fM/d7QL4UHJ+wHvmXzpg+/JQAQf
-	O4Rlrh0u2lV3OiSl5wseVS5GO9ZwLznCUZ+B5u6Y+rEbRd1p1+YbriCzVL/AhTpGmwKDQZ
-	Lcs3vGrAUp0vp1LTzMN7knFpt+hxrLS4HYTQ9xQQHyy2Vu4VsAR/MMiYvCh6+dSjQHcjxs
-	XdbF3x0oIm6vg7+nzzT6q7tRgv1fQzLYcfCV8a/TqRpRjUTQcwqNvlIXU44fIw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xJ9KSHknag2gDAaw8qLAHoLRC7r7kSMR52AYAhpMLLU=;
+	b=n07RX+EVKuWHsRjsaX4eWbgeYSzn9qujxFCMaCJH23olVCAiFq4xdRxcAGHbd+j3j4HRZL
+	nnkEXepYDHpzN5BDnUNJ6GS8Z4+f+BAaJ5WMntZNTBWdv6kt7y5kQQnppv4NEJLv91vPgL
+	GAel/RXZ/4Le7gByXBsQbDVqPI3klGakh462uMQ71pDiiJ4TVsIdkNtxvLYpls3Mi3xuey
+	bKyob7XFy0EfWh2mzNAOaoO06CfUK6cYYVA5+U2M8NgocgQw3MkZkTqc1b0N8ZbyLnkG+S
+	KmZ9L9exSxIgedN9N/87NjefVOWroqS6foRN4NQ6AVO7b0r1/9etWI/KblSo7g==
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -49,16 +50,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH 0/3] arm64: dts: mediatek: mt8188: SCP memory, thermal and touchpad fixes
-Date: Sat,  3 Oct 2026 21:31:05 +0200
-Message-ID: <20261003193108.789939-1-michal@nozomi.space>
+Subject: [PATCH 1/3] arm64: dts: mediatek: mt8188-geralt: Reserve SCP dual-core memory region
+Date: Sat,  3 Oct 2026 21:31:06 +0200
+Message-ID: <20261003193108.789939-2-michal@nozomi.space>
+In-Reply-To: <20261003193108.789939-1-michal@nozomi.space>
+References: <20261003193108.789939-1-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_123114_854802_6FA8CDC6 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261003_123114_854607_24E52FA1 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,37 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These patches fix a memory reservation on the MT8188 based Chromebooks
-(Geralt/Ciri), tune the CPU thermal zones of MT8188 and add the
-touchpad of Ciri's detachable keyboard base.
+The trusted firmware on MT8188 protects 0x70000000-0x79ffffff (the SCP
+core1 DRAM region) in the EMI MPU. Only the application processor and
+the SCP may access it; accesses from other bus masters, including the
+GPU, are silently dropped on write and return zeros on read.
 
-The first is a fix for Ciri: a DRAM region that the trusted firmware
-protects for the SCP was handed out to Linux and broke the GPU under
-memory pressure.
+The region is not reserved in the device tree, so Linux hands it out as
+ordinary memory. Under memory pressure, GPU buffers and GPU page tables
+end up there, which causes silent loss of GPU writes, translation
+faults on page-table entries that are valid from the CPU's point of
+view, and the GPU resets that follow.
 
-The second makes the power allocator governor usable on the CPU thermal
-zones, which prevents thermal shutdowns under sustained load.
+Reserve the region, as the ChromeOS device tree does. No driver uses
+it, so describe it as a plain no-map reservation.
 
-The third adds the touchpad of the detachable keyboard base of Ciri.
+Fixes: 5e6af7f54189 ("arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri")
+Signed-off-by: Michał Kopeć <michal@nozomi.space>
+---
+ arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-The series is based on the v7.3-next/dts64 branch of the MediaTek tree.
-
-Tested on Ciri (sku0).
-
-Michał Kopeć (3):
-  arm64: dts: mediatek: mt8188-geralt: Reserve SCP dual-core memory
-    region
-  arm64: dts: mediatek: mt8188: Add power allocator parameters to CPU
-    zones
-  arm64: dts: mediatek: mt8188-geralt: Add the detachable base touchpad
-
- .../boot/dts/mediatek/mt8188-geralt.dtsi      |  23 ++++
- arch/arm64/boot/dts/mediatek/mt8188.dtsi      | 110 +++++++++++++++++-
- arch/arm64/boot/dts/mediatek/mt8370.dtsi      |  14 +++
- 3 files changed, 141 insertions(+), 6 deletions(-)
-
-
-base-commit: bf89276b2db391cbb25d1a0e898280fe85b16fb5
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+index 801eee735afe6..d8edbde6ee4ac 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+@@ -197,6 +197,11 @@ adsp_dma_mem: memory@61000000 {
+ 			reg = <0 0x61000000 0 0x100000>;
+ 			no-map;
+ 		};
++
++		scp_dual_mem: memory@70000000 {
++			reg = <0 0x70000000 0 0xa000000>;
++			no-map;
++		};
+ 	};
+ };
+ 
 -- 
 2.55.0
 
