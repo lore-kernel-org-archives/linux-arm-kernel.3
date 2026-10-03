@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C2FCA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 17:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6634FCA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 17:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+Mqd6Pqbqln8HeOp8rCuqd0Rbs7qUX/fnfxIBh4nMs=; b=sso9HfgTpmOPrdVdzjl0T57nn3
-	VlnYy0eLlW1qG0eNDB3OzeAv1ey4sPyU2DWCxyiBE3omDKvmW4J6Tq4Wq8ugc+K3Isi50cfEZgkHT
-	eYER0Dk5/B7ZP7FJM3AECLaxlRrFJjJAo5xgs+uog3LwvpxDBO+BlTXkY07a8aAtnz7XjEYFeGK5r
-	m1v+7B4WeQ53SOeO5yifgCdjSfA0FsV3/MRfT2AgrPnA6QlMzsyqk8q8vZ4KhR4FER4eCoVe+Q23a
-	mcLRXw+0V8FHfGN4cl2vtjeT4+SXv3HAUZCgJBbpRhvZivVFq+QZfGsJ1Pukr+ntCzK2iT/U2ul32
-	8Y+ct7dA==;
+	bh=ZZnj3SSIl2LiwkfFgN70DpIUxoFz8apLMgOo9Neg9z4=; b=CKjgKtZm12lnmssSfhh/4fKH9E
+	iHrTzAJu1uYMFzQdtWJwn39XmQYfK8PEpPo0P9SGxokxG2XijbGy8dkEc/sQZtubdARMGrevHPeke
+	dTl1x6mhzJ1Xe8WtWKm+7E/GeRDZudeGGQA9hMw2AR3diuEHrlKq6+zOz9nCgpPS465mFkJTVvKMy
+	BfhR47ngxTOhvsdqFnIzr2MsCXANQ1gIC70o9jqbJH3YkLF173FYo136vLJG41z6xyt0JtMD4u+Mc
+	bo3Kcka9n/BbZhw695tqOH8Zv7yXX9Pm/vYi51X0Bm85GzmwFgPgO4ak20yAd2WxtrbY+fiPpUVb7
+	vvsRIrQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD3wz-0000000DslF-1Id5;
-	Sat, 03 Oct 2026 17:55:09 +0000
-Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
+	id 1xD41R-0000000Dt60-46sJ;
+	Sat, 03 Oct 2026 17:59:45 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD3wu-0000000Dsks-1vyK
+	id 1xD41P-0000000Dt5T-03CT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 17:55:06 +0000
-Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2e3453dd0dso138479966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 10:55:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791050102; cv=none;
+	Sat, 03 Oct 2026 17:59:44 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c2940ff2313so50939466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 10:59:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791050381; cv=none;
         d=google.com; s=arc-20260327;
-        b=TfKJBhDokh4vz+GuxGCdLERdExYJek4b1wV6Y31uB/gFDOGLUa/hY3AGqy/cJ0MY/F
-         4PkXQhh0R/QRXLRoJ9U8im5OEBCIP7j1X803F8cgIF/YUoB+BqxCT55uWnDQF8Y7sBoo
-         OIx/aIA1hHXX/wckGwni2QjfIqXWUl0dvMmm17AmLc2oQmtb4flHjkOFVqSG58FW3Pt2
-         llHAHjF6pYeauTXEfqGQro9Qu3cPJcWhN5nPAxd0T/A1v9oCwy3FwxSzI7m8twnuJINW
-         l3pCbSlayGjcXKbpPVSSh8Cc4hTiLwz2Dde/AD06JMkBNVCSSpN+xSuMGfco+vJj6bBd
-         A4aA==
+        b=OFXf4WOZtOt+ox3Lak+5M4n4OKsr/nZZbnA2OzgiT11xWpxJIUj0WvTCa3rN/UanEk
+         cLApENhDAS3RNVgOMwVYrskvA/D19fcpMP3U94pKJg5XwHkbqiZeCfZpfx5hkZiwT4Pa
+         88y4G77c1Z2rnndIQi4VOpn5JYv6HA9klBrVOOONXEvX+711jWFO2WVRn1LHuxAnUeXh
+         H+usA1tsgw1ogHqNbIWjnTZhbFY1embj9+8iYEwkAYQpQ44xjjngNPaKUlN/lnjmMqli
+         6f6sayU6OwD8bOD/Bx40I+bCN1h1jhfXXedlR551HDX967WcECdx4ouIbGu6Md/xcOqJ
+         QT+A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=c+Mqd6Pqbqln8HeOp8rCuqd0Rbs7qUX/fnfxIBh4nMs=;
-        fh=mpT7gkfoEG5ITNxXqjLh4KPs01UrEVT4YumQmGAROFo=;
-        b=ANpKHONMoOURSpgWqnN1uP9B/zJwplAlVRa3hH4xFcS28IUwc28gtpWpbE8edmkPkL
-         upgfx7JKeN1zScEC81TQbQ4VfmE9D/tYXFPwJLd9mHz0tANM/RUM1mL4MzpHAfeLFeIm
-         WHD5t306qFZjfijVAauvJ3qRkrlWt1Rub8A9fanSybIw0zU6Kf29VV95JbL44V7hX8sw
-         mlcFk0hsEgNJTPFaqGbsY74cnXZGMjF5JFTxxEcjgAVlsnHYT6d7xnzE8mf5NoFJYJk8
-         9HyCiCAmm2un64cTuCfhDGquNXCmu+zFIuPElnDo58m56XQRTUZwjKXHrgJN/gEww7WJ
-         LFqw==;
+        bh=ZZnj3SSIl2LiwkfFgN70DpIUxoFz8apLMgOo9Neg9z4=;
+        fh=75NQ+JzgIP1OMe5DLFdXuyduqIIGNnliy0N0IT3vxwU=;
+        b=nz2vfm+vkn4bEWp47d/0Ojs6U127IKE4HQ0l/7lmZV03i3sMOEqVQscPrRaIPQan8U
+         UqF/tAI1s5MMs0kiYDbcHmKr9h+AkR+i1ar21BNTrq6OPCGIZj8jMNDpgjzUKFKFf7Mi
+         TsUK9ldnRg3y0a20c/H2KTCGzjprcThLTtpMDlM4onBPicbeju31MzPHsZ3Mw1BUbVQ8
+         X2JO5pOi9B3r3VR8Ds/Nmin67XXStTsX1X7eCjQqQlEDnoCgUIzPxHg08gYWNNOc6L44
+         B22a+XXpvwjG5BEo+CP1LQJm1LEHdknfHl8H42ytJLlRQXIWDSsYdnKPWpof3qTxHe03
+         t03w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791050102; x=1791654902; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791050381; x=1791655181; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=c+Mqd6Pqbqln8HeOp8rCuqd0Rbs7qUX/fnfxIBh4nMs=;
-        b=ptCLuuREXORYCK2MhBqRceSPYD6dX2eM4PFTP2u/NjbxIpDJnYiP+yj6tnn2SJLy9S
-         hFxCUc5lDnWbR7GqTk6VwUX207a7xGg9zI36iLvsg5nlnowmX6n7ufIYApB8Ju2YBr7j
-         Pc7UfHeHGLu7qC5YUdXfHaaUWZUjqSo8C5dbDjm1SU+gZOWhTcLH6pv3cv4eMMSgzKcI
-         GBb+0i/G58QDkmQJoOeaIAsp0eQFZSi2krirGzSw0v9EnNfR5Tgqu661x0G/DoZ4s/v8
-         1guZwz56UEDLgsqi0bChRNVbT6iWxsI6zgaW3IEfid07aRg4O4CDxvv1IMhO5V25asDV
-         6dfg==
+        bh=ZZnj3SSIl2LiwkfFgN70DpIUxoFz8apLMgOo9Neg9z4=;
+        b=XlcJvStQPFSpilP/4IPaZEtpMY6X7/AFhyTPOLMjG199/OSyjtNnzdbSImcIOwBfmY
+         ekLM5Z4g7OBKPErl8Xaa0V28zVMm1PwUlnQSDsJvGD3EUZPKvJx6xbVe2JvkKZoEZUAE
+         oPwBGVvLwDz+ILOkgBEp+EatcFhIa9nO4vlnmu8vOGgVqDK1/Fj3hQSeV0uJqQSCjVKJ
+         YvAWOzNyzEgbc16LIewle1/xWxTCcb3la33N6cw9qIOvL2pg1Mw2C3WI9MwmcZcb9DlU
+         QO1QS4Hr4eXyodMUqplglKGc0WMyj+5CjpGofcGeguUXdoAkmPWBxT2yOUNiH3NBOAHI
+         zcJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791050102; x=1791654902;
+        d=1e100.net; s=20260707; t=1791050381; x=1791655181;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=c+Mqd6Pqbqln8HeOp8rCuqd0Rbs7qUX/fnfxIBh4nMs=;
-        b=oRMRy2Tiw0hJMERtsH324UskBfmy6DdfKl1yyH7naH4VyzlDywvWOIZgToBgydwqp8
-         fd1AMoYsm4PCnzjYxkC75R1WAqkIGp5ZfSEJk554EcBYwRTFVLuwOLzT4X8k7G0KvZEG
-         rPnMqPRy5ODG1YpyVHJRJgtv8jO/w+bTtQ6vQS8zW67hVPZmpvF0M04hkJzCaWdtDqVu
-         vqitHhRsChusF5Xg2/c23x8g4ZVoVJ8BONymJuu8RP3heUnlHXW6vUMlLRWxPDl9kfvq
-         AtTUY7YPy9DpJSnRwOFIRucYqVDsBxd8Pe1UXo0hBIbD1ySCmlk0wwAwEtRpyPeVe0NG
-         a2fg==
-X-Forwarded-Encrypted: i=1; AKwUvBwXuF3jBGUmK9SQ+2+ZmzFSnid/3tvi8XwJu4hBSk1T53oY08U2QQ6Ea4cAA0r4rOf2Kb+RDoFWh3K+ASte4TZH@lists.infradead.org
-X-Gm-Message-State: AFuF++lYFC1e0zJEvqp2IKtETvzLEKuQ3mVIbnJorZKLps6K/8BTRyCi
-	PDreejibTjSyq8bOrE1sp+QX0VK9QTHv+UFmUu4WFZKlArE4A4eowO8o2bT9i0TDcIIvpcaNqgR
-	Teko+yGQotrFa7yrtC8j6Uk70AsnUA9Y=
-X-Gm-Gg: AYBFou3p7LTULMCEzMU2L9OKhfL/fNVQqJjr38WdXBsxatAOyd/414djhpfIIUV/YWY
-	SYi/jntduKZAx1Fd7r0Waab1w1G37OdMibYDNKykbW0XDgT0V2kUGK6KgcLzpxt3A0urDRhScRt
-	AQgPO9xH1UMHzdWhO3a5SJ/HMLnbScK7QDVeSKtskg6z/gBP0tpIeF/9hZY6tHbhbPZrAuOC/sY
-	/hIbDVnkYGrLAnx7YfTy5kTIyqAyqbyLpSmxgBkFoww3elcvwlE+w3ffb1lr3G9jbdDlG9iQ+bp
-	i3EpX2jSf11Fz48ECclzLBoEnqizBLySFF//4i3O0/MRh7zj3Ftl05cK/P8vkSk6EkSGItmoT/W
-	q9dwhPLya91fWq5vbLBtXvf0QydcgyjjW4ZjuIkPG2reNC+NSllv8cBlJzwNzDrbwUtNKyjOQG8
-	kB7uOgecso/zK8YgV1Cvgu092x+ULjIZXfB1tCsQuE7t0l9h/T5Ptp
-X-Received: by 2002:a17:907:7fa8:b0:c2e:4292:d26b with SMTP id
- a640c23a62f3a-c2e4aac022dmr541503866b.17.1791050102486; Sat, 03 Oct 2026
- 10:55:02 -0700 (PDT)
+        bh=ZZnj3SSIl2LiwkfFgN70DpIUxoFz8apLMgOo9Neg9z4=;
+        b=jydJV3bS8JE5I7DEHe/+6/67/hCLGMJdu831OuAUZozNI8+ffoY9u8AaejD4RpunX6
+         xoUOiiBCa8lMRMw4BYNYqG+7SSq/NtPm/y7j5t0FjiGm7M++ROTRw4Cuzu6ojoJnHwPS
+         Z4pIArDktwNHxnEzo7ORSpr4VPmqpWrF6BQdseVrTp/1Da6hthYmVs0q+dFTZiJxZQpr
+         tfZcCKrf3/37QSXvdpWs8Rj6EbNoIlj85BGvWaivcN0S4l80LjK1YSuPni9qUtTe8BkQ
+         NC+wr25iH2z2Gszkut2GhqvzeWHpQ0GyGERZiz5eXmTKF6WxrRfpq1qHf/68UT0wGi42
+         qVNA==
+X-Forwarded-Encrypted: i=1; AKwUvBze/YUAI70Sn+iQTi/BmXB91YHWooALQHwStqBMmXoGURxnIEWL/HzMpqg/yjbxW51cpou3DxSDBuIBhT/d0+Mv@lists.infradead.org
+X-Gm-Message-State: AFuF++nHqG7WasGtWAjftU/UWsP77Jgm3spPbjex/zHM5OzYGUcLJTNa
+	B8f3kpSlQ+4mQmVAQgIheS0Uh/1jSVsIrVwPVqHLs/tLboIwneZYrdSQ8OKZGaQwpX7PpbskvOy
+	/13wF/rVGnrIblHtjb2rHaVuw+5DtY5w=
+X-Gm-Gg: AYBFou17ZiddSLagGcfLTHa0GZtxBiHr+5gXevA+RAsJ2yLtTuDWmmxQH+20QnP/k5/
+	64D8mmdKPF/ZQ8sLnK0cxI+gL9I9XUmJ5Vekrde/pCcPAh2x+LRVuWgtP6z03Y8jgro8rvD9BaO
+	+3DiHwI39euXjCtBiqh0ReSBWDwG7CWyjoLbjLxjpkeijA18NtCedYW0g3Ndpv0b+APN5z4PhWd
+	ijKpLtuxYIBdMpImyP2qmUf5zlnnFczCsVwjGp2oALAR3tQYAJqoH0GjxtT/+ncnVKA4FOMLt+/
+	D2VFzZeEm/QJdmFlCExOkgYm6X6Ut5mItzLYCsrJA32sg/vapCA42ZIoD/ZRN+4wRlezUDfnERL
+	xUQeQYTSWGNFlkmuoX5ZYsw3qbvbVrVU0qAv/l5Qp4XlhISFmBFhJ0PZwsHDtqDgSDjgucvNfGa
+	CMOxbjtfrppFGidnLNCJhyqy56PrArCW/RLoEbXGpLp0Uh/wVe3KA=
+X-Received: by 2002:a17:907:3cc2:b0:c25:f7db:4bec with SMTP id
+ a640c23a62f3a-c2e4ad53be5mr531992466b.18.1791050380759; Sat, 03 Oct 2026
+ 10:59:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261003-gpio-mxc-cleanup-v1-0-dad728ce27f2@nxp.com> <20261003-gpio-mxc-cleanup-v1-6-dad728ce27f2@nxp.com>
-In-Reply-To: <20261003-gpio-mxc-cleanup-v1-6-dad728ce27f2@nxp.com>
+References: <20261003-gpio-mxc-cleanup-v1-0-dad728ce27f2@nxp.com> <20261003-gpio-mxc-cleanup-v1-9-dad728ce27f2@nxp.com>
+In-Reply-To: <20261003-gpio-mxc-cleanup-v1-9-dad728ce27f2@nxp.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sat, 3 Oct 2026 20:54:25 +0300
-X-Gm-Features: AclHuK-Tnk4vGYGovhYsTrmL0EszXMNMJq3_DIUiup98Oar2sN_FwV71aRE1nR0
-Message-ID: <CAHp75VfcuHPQ3S4LD6OBAMvu=hiGdSU_pji9+8LAGXD=y4C=9A@mail.gmail.com>
-Subject: Re: [PATCH 6/9] gpio: mxc: use local dev variable and device_is_compatible()
+Date: Sat, 3 Oct 2026 20:59:04 +0300
+X-Gm-Features: AclHuK9OR6BXTLgAb_C7YKLGSH3aGu_DtrvC657Cue-9gwAbeSx8tKkdBHiKuRM
+Message-ID: <CAHp75VcRG-LzWSsg8neDOS7qj0wfp3QMoKkDKEYhoobRbfv+VQ@mail.gmail.com>
+Subject: Re: [PATCH 9/9] gpio: mxc: simplify gpio_set_wake_irq() with
+ irq_set_irq_wake and assign_bit
 To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
 Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
 	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
@@ -106,8 +107,8 @@ Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Fr
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_105504_520867_F28C396A 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20261003_105943_080818_C3DE8853 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,26 +126,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Sat, Oct 3, 2026 at 3:10=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.com=
 > wrote:
 >
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Introduce a local 'struct device *dev' variable to replace repeated
-> '&pdev->dev' dereferences throughout mxc_gpio_probe(), improving
-> readability.
->
-> Switch from of_device_is_compatible(np, ...) to the device-model
-> device_is_compatible(dev, ...) API which works with both DT and ACPI
-> firmware backends. The 'np' variable is retained for
-> of_alias_get_id() which has no device-model equivalent.
->
-> No functional change.
+> To simplify gpio_set_wake_irq():
+>  - Replace the enable/disable_irq_wake() if/else branches with a single
+>    irq_set_irq_wake() call which handles both directions internally.
+>  - Replace the separate set_bit()/clear_bit() calls with assign_bit()
+>    which sets or clears the bit based on the enable parameter.
 
-> --- a/drivers/gpio/gpio-mxc.c
-> +++ b/drivers/gpio/gpio-mxc.c
-> @@ -428,17 +428,18 @@ static int mxc_gpio_probe(struct platform_device *p=
-dev)
+...
 
-It seems you missed updating the headers (like switching from of.h to
-property.h). Other than that, it looks good.
+> -       if (enable) {
+> -               if (port->irq_high && (gpio_idx >=3D 16))
+> -                       ret =3D enable_irq_wake(port->irq_high);
+> -               else
+> -                       ret =3D enable_irq_wake(port->irq);
+> -               if (!ret)
+> -                       set_bit(gpio_idx, &port->wakeup_pads);
+> -       } else {
+> -               if (port->irq_high && (gpio_idx >=3D 16))
+> -                       ret =3D disable_irq_wake(port->irq_high);
+> -               else
+> -                       ret =3D disable_irq_wake(port->irq);
+> -               if (!ret)
+> -                       clear_bit(gpio_idx, &port->wakeup_pads);
+> -       }
+> +       if (port->irq_high && (gpio_idx >=3D 16))
+> +               ret =3D irq_set_irq_wake(port->irq_high, enable);
+> +       else
+> +               ret =3D irq_set_irq_wake(port->irq, enable);
+
+> +       if (!ret)
+> +               assign_bit(gpio_idx, &port->wakeup_pads, enable);
+>
+>         return ret;
+
+This uses an unusual pattern, we check for the error first.
+But also this part should not be ping-ponged over the series, it
+should be from the start like this, see my comment against the
+respective patch.
+
+>  }
 
 --=20
 With Best Regards,
