@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBEFCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 00:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218BBCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 00:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDpWehmyXZTuwNLpOmNryZ2PSD85lfcY7+uhsZatBYE=; b=P2ejDjwNP+aXLSSb4rzMjU/ywT
-	25xjhkaqjRfkSlal6mU7GSm2lehmHfX9O1sYOfW3wFMEiswNSwOynqYiXLP1J4C/eiM0gH4Fihlhu
-	NNfTSDjsGlNt1h3uSysk1mpF9bvlDVc18qf/Y/caRbcnInTSYolQ2bIuwl5C04j09Z8owcQ8bGi/3
-	GSL+vrClWZyUsanJA+4tbORDZbf5L37Qd956QBm7WMhsTYlf+cxZFUh/l1iAuETQq3/N8fW8//YXl
-	xRcAnGAYlDRUrqcucN0XBKbFzqWw9bWvPAILO9B29M+ziSUGKf/iX2M4TyoHHwrBySICFDn80pzPV
-	JcnRhuuw==;
+	bh=+0LSbObtLQixt10mRMgsu561+yH+1K8mdQenqKY5U4A=; b=lc4/4gu/Pp2ANwSrW/8uIXF5pG
+	zkyOLZvzSQuDVlBnQceXeGJd/up98BAM5lqAT6nh5GokSDo1312lQni3yMtfjkKGaAtxYMp6cVz3j
+	WzVgYd0yzt8V8lh/k3XS3wCfYzqJoFUU584xl4x78Z6CKmI5X0xjzeDfh5OQQh5sepExYt1ls5zIE
+	4UY6sPRjgBgFbWZwCtmp+Jk6g8a1P770DPn4ICjxKo+WM0C1Hyoe0NU6DHRq/TXPc+q1XLH5XYD/g
+	V9qTpxGm+kQFwTUf+arDPByWCkXdVc+w12ogbpfk/fzFJrnR0DiwGVI5pkhsNlrJS4HNShxbI1xOT
+	KUNV2Zcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVa-0000000CnAO-1hEd;
-	Sat, 03 Oct 2026 00:21:46 +0000
-Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+	id 1xCnVZ-0000000Cn8w-3gxs;
+	Sat, 03 Oct 2026 00:21:45 +0000
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVX-0000000Cn4t-0Uso
+	id 1xCnVU-0000000Cn2k-2aE3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 00:21:44 +0000
-Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-398dc3d8f0fso361986a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:42 -0700 (PDT)
+	Sat, 03 Oct 2026 00:21:42 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d02df2bf09so106735ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790986902; x=1791591702; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790986900; x=1791591700; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=FDpWehmyXZTuwNLpOmNryZ2PSD85lfcY7+uhsZatBYE=;
-        b=jd7RHnCNazHdDZf9El7V+p8Ib7erCCVtToD0noeHW+1DJ0rxhs9rFBkhTqycExFruC
-         J3vUM3Naglj0eBljn6zDNwh82ezqJmejA9UB0+PAayFm/Oc0CjJ3UgUGbtsRxntS2Fs/
-         4vHNGDwFgFFeL9+3Sm9FoTwidySdGWI0bt/btf5W+IcyCRZ3Z5luRgshVEXuMYpW95fp
-         Pl0WX+7uVz6ORG2oAigM21MtNousm6+YT6V7is4Y+jQHmoUCYKiILV5bZhJx07+8rWuu
-         rbK2FTVjt9gyG9WtxE1eX3s3dOnIXrjRkWd8KEyBjP2KDxBPDWbb6uXV9tFVkqOujZhz
-         qzfA==
+        bh=+0LSbObtLQixt10mRMgsu561+yH+1K8mdQenqKY5U4A=;
+        b=Q0AFVd7Ww4JzQqTit998wfzMLMt1teaCd/5Koqw3C3SpzBYrGFIAFNNyifaBkIc2wF
+         OOOFq2KP03NuIEAs/+3/KyyAmcO8C7KO198ZCZ2E+8CACtqM1jqGegsyLpVA78pXkGS3
+         Jmm+ZtCVsg2B/gUXJC2Bsq3MiXPqkwFnbRgxx1cRP/Q96A6A96Q/IP8Ct2au8odNL/X2
+         b/P8IAYwNXonZwyxquWP/OJ42w4WFf98XmJ0tuPGJu68ewFr6TgdznZrUgsJ8pdPV0L2
+         b3Omy0B7G5ah7NrYeXUWNhd8RNH/nAsIu1I6CooUl6CawHRuBJT0vU4RaBwJIj/1UtwP
+         KDTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790986902; x=1791591702;
+        d=1e100.net; s=20260707; t=1790986900; x=1791591700;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FDpWehmyXZTuwNLpOmNryZ2PSD85lfcY7+uhsZatBYE=;
-        b=GQml1c1Md8WNdujZB7uehW9aeEmpgWpljFm+TvbE9/tA7HyMjAYIvvakSCU3pkeZmH
-         jYWR0McGWErXjoq+MSnhO28VCXkFb+4LpyGjGfwRK6FFZ6AfLzdL+4NRgIzNuZUtm/1c
-         pDrPEE5/E/9Tcq5B4hNg3uJWK2Hu57eod8KL8WHzH8e+7Zgg7u5LdiHoxR53PvRkAvVr
-         nqT1GZ4YybDev47Z5a/reTjHt+kYR2g+SI/RV7o3otBhNrHgxEd6kS8tQPm9tbFAl1qc
-         Tiv6J9y6VCKFwIAyCpLrbnp1x2ladvn52dLCkqLbZF68A0hFIB2TyzqcwGoluwlO6+im
-         fqNQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxjSyFmuAAcPIBGaZWi5+a7+/2kGt7WxciRZ95z4y30+ttu5rNB337r+1Gaoxldoh4cdAl8vE77e5Yo96glXkbG@lists.infradead.org
-X-Gm-Message-State: AFq9FYKlaFUWTVtexyUDv/4vOFA0FsXWWmi/jr+EGfsPSJyiHDktQ8mU
-	JyHw20EHYnQLbCMdPVkIYS1P3LfJ67q7izAQh12tLkd/h+pMWY9rfHlUmFkDvydcTYdjbW8rZZ9
-	GJJtAW9sYQzDtXkTjfXIERg==
-X-Received: from pgbdn12.prod.google.com ([2002:a05:6a02:e0c:b0:cca:68cf:6f65])
+        bh=+0LSbObtLQixt10mRMgsu561+yH+1K8mdQenqKY5U4A=;
+        b=JEhyQyzKQ/pmn3rWPOjKctDQ8Cw9YUJycVDVZdhi8mhGC1VEPLRDDW+tHN3b0BXfQH
+         554YmX8juEnJvT7oeD3GMBFX891bn6sh26QOjMrfl6CUf6MB8ZFlGUFmVbpquv0Mb1wZ
+         SPxvbCF0Tqx1pNNR2qComdYPA+tlvfQqdzOd1SHMKi/dL1O5UPO7ZrlWjbN7aXQirqLQ
+         DT4bQSoL4Ov4q6GqJy+OaiUpemjD32heknFhSrwBikMApWdR4EBmXTSG0ReLC5b1QjzB
+         wBfydUysGk9QJVKA+f/XZo4NiqgMqPPoUxC5mBYvIeEzkvADqmL0XNOUyDqT9VQBnbkS
+         4tkw==
+X-Forwarded-Encrypted: i=1; AKwUvBwOspuBQ/d/VHz/YH4NpHzqAwnZSn4xy/D9I1sWQqARG2QuYIBx3Ceo1n2bRxr1Nrz47qVtpPKQ7YU5B9ISuM5E@lists.infradead.org
+X-Gm-Message-State: AFq9FYKD6HUBvXvLJrr3a/05aLmF40q2sNxvFX18uQMCGOyfvlivs8Wc
+	fq5xMIN8HPbdViPYO1oX2nINZq68PVp5gi/AEH0LJZRHNPrPtTN308XZ8JhVuXe/Uws0FEoQTbn
+	OmQDpNCrdkdCPI/210KnCfA==
+X-Received: from plev16.prod.google.com ([2002:a17:903:31d0:b0:2e2:c8c0:e8e2])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:4ac5:b0:3a0:ddef:3da3 with SMTP id 98e67ed59e1d1-3a4f32d94a2mr5433773a91.15.1790986901434;
- Fri, 02 Oct 2026 17:21:41 -0700 (PDT)
-Date: Sat,  3 Oct 2026 00:21:11 +0000
+ 2002:a17:902:e88c:b0:2df:ad58:cf54 with SMTP id d9443c01a7336-2e49b60b6c4mr40943675ad.34.1790986899505;
+ Fri, 02 Oct 2026 17:21:39 -0700 (PDT)
+Date: Sat,  3 Oct 2026 00:21:09 +0000
 In-Reply-To: <20261003002123.505555-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20261003002123.505555-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261003002123.505555-9-jthoughton@google.com>
-Subject: [PATCH v2 08/20] hugetlb: Fully initialize tail struct pages of
- non-pre-HVOed bootmem folios
+Message-ID: <20261003002123.505555-7-jthoughton@google.com>
+Subject: [PATCH v2 06/20] hugetlb_vmemmap: Allow architectures to dynamically
+ disallow HVO
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
@@ -82,8 +82,8 @@ Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.co
 	linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_172143_185648_B70EAC53 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20261002_172140_668344_F3EC4A25 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,93 +98,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-alloc_bootmem() marks all but the head struct page of a bootmem gigantic
-folio as noinit, and gather_bootmem_prealloc_node() then only
-initializes the first HUGETLB_VMEMMAP_RESERVE_PAGES struct pages. The
-remaining tail struct pages are initialized only if the folio ends up
-not being HVOed.
+For arm64, only some platforms support HVO. Add an arch hook to prevent
+HVO from taking affect if the architecture lacks support.
 
-This assumes that a bootmem folio is either pre-HVOed, or will not be
-HVOed at all. However, hugetlb_vmemmap_optimize_bootmem_page() may skip
-pre-HVO because arch_hugetlb_vmemmap_optimization_supported() does not
-yet return true that early in boot (e.g. on arm64, where support depends
-on a system-wide CPU capability), while it does return true by the time
-hugetlb_vmemmap_optimize_bootmem_folios() runs. Such folios are then
-HVOed through the regular remap path with uninitialized tail struct
-pages, which trips the PageTail() WARN in vmemmap_remap_pte().
-
-Avoid this by initializing all tail struct pages up front in
-gather_bootmem_prealloc_node() for folios that were not pre-HVOed. This
-makes the HVO-failure fallback in prep_and_add_bootmem_folios()
-unnecessary, as pre-HVOed folios are never passed through the regular
-remap path, and all other folios now already have initialized tail
-struct pages. A failed optimization either leaves the original vmemmap
-in place or restores the tail struct pages from the shared tail page.
-Remove the fallback.
-
-For folios that are not HVOed at all, this does not change the amount
-of initialization work, only where it is done.
+It may be the case that arch_supports_hugetlb_vmemmap_optimization()
+returns false at first but eventually returns true. This is the case on
+arm64. When this happens, bootmem hugepages won't be immediately HVOed,
+but they will be optimized in prep_and_add_bootmem_folios().
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- mm/hugetlb.c | 28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
+ include/asm-generic/hugetlb.h |  7 +++++++
+ mm/hugetlb_vmemmap.c          | 12 ++++++++++++
+ 2 files changed, 19 insertions(+)
 
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 4dac7ed1df57..e971e2362412 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -3303,17 +3303,6 @@ static void __init prep_and_add_bootmem_folios(struct hstate *h,
- 	hugetlb_vmemmap_optimize_bootmem_folios(h, folio_list);
+diff --git a/include/asm-generic/hugetlb.h b/include/asm-generic/hugetlb.h
+index 635c41cc3479..8d24075d53d4 100644
+--- a/include/asm-generic/hugetlb.h
++++ b/include/asm-generic/hugetlb.h
+@@ -128,4 +128,11 @@ static inline bool gigantic_page_runtime_supported(void)
+ }
+ #endif /* __HAVE_ARCH_GIGANTIC_PAGE_RUNTIME_SUPPORTED */
  
- 	list_for_each_entry_safe(folio, tmp_f, folio_list, lru) {
--		if (!folio_test_hugetlb_vmemmap_optimized(folio)) {
--			/*
--			 * If HVO fails, initialize all tail struct pages
--			 * We do not worry about potential long lock hold
--			 * time as this is early in boot and there should
--			 * be no contention.
--			 */
--			hugetlb_folio_init_tail_vmemmap(folio, h,
--					HUGETLB_VMEMMAP_RESERVE_PAGES,
--					pages_per_huge_page(h));
--		}
- 		hugetlb_bootmem_init_migratetype(folio, h);
- 		/* Subdivide locks to achieve better parallel performance */
- 		spin_lock_irqsave(&hugetlb_lock, flags);
-@@ -3337,6 +3326,7 @@ static void __init gather_bootmem_prealloc_node(unsigned long nid)
- 		struct page *page = virt_to_page(m);
- 		struct folio *folio = (void *)page;
- 		const unsigned long pfn = folio_pfn(folio);
-+		bool pre_hvo;
- 
- 		h = m->hstate;
- 		/*
-@@ -3350,11 +3340,23 @@ static void __init gather_bootmem_prealloc_node(unsigned long nid)
- 		VM_BUG_ON(!hstate_is_gigantic(h));
- 		WARN_ON(folio_ref_count(folio) != 1);
- 
-+		pre_hvo = vmemmap_optimizable_order(pfn_to_section_compound_order(pfn));
++#ifndef __HAVE_ARCH_HVO_SUPPORTED
++static inline bool arch_hugetlb_vmemmap_optimization_supported(void)
++{
++	return IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP);
++}
++#endif /* __HAVE_ARCH_HVO_SUPPORTED */
 +
-+		/*
-+		 * Pre-HVOed folios have their tail struct pages mirrored from
-+		 * the shared tail page, so only the first vmemmap page needs
-+		 * initializing. Otherwise, the tail struct pages (marked noinit
-+		 * in alloc_bootmem()) must all be initialized now: the folio
-+		 * may still be HVOed via the regular remap path (e.g. if the
-+		 * architecture could not determine HVO support at bootmem
-+		 * allocation time), which expects valid tail pages.
-+		 */
- 		hugetlb_folio_init_vmemmap(folio, h,
--					   HUGETLB_VMEMMAP_RESERVE_PAGES);
-+					   pre_hvo ? HUGETLB_VMEMMAP_RESERVE_PAGES :
-+						     pages_per_huge_page(h));
- 		init_new_hugetlb_folio(folio);
+ #endif /* _ASM_GENERIC_HUGETLB_H */
+diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+index 3fdb1e4ce1a1..8596a462fee6 100644
+--- a/mm/hugetlb_vmemmap.c
++++ b/mm/hugetlb_vmemmap.c
+@@ -16,6 +16,7 @@
+ #include <linux/pagewalk.h>
+ #include <linux/pgalloc.h>
+ #include <linux/vmemmap-optimization.h>
++#include <linux/hugetlb.h>
  
--		if (vmemmap_optimizable_order(pfn_to_section_compound_order(pfn)))
-+		if (pre_hvo)
- 			folio_set_hugetlb_vmemmap_optimized(folio);
- 		section_set_compound_order_range(pfn, folio_nr_pages(folio), 0);
+ #include <asm/tlbflush.h>
+ #include "hugetlb_vmemmap.h"
+@@ -529,6 +530,9 @@ static bool vmemmap_should_optimize_folio(const struct hstate *h, struct folio *
+ 	if (!READ_ONCE(vmemmap_optimize_enabled))
+ 		return false;
+ 
++	if (!arch_hugetlb_vmemmap_optimization_supported())
++		return false;
++
+ 	if (!hugetlb_vmemmap_optimizable(h))
+ 		return false;
+ 
+@@ -731,6 +735,14 @@ void __init hugetlb_vmemmap_optimize_bootmem_page(unsigned long pfn, unsigned in
+ 	if (!READ_ONCE(vmemmap_optimize_enabled))
+ 		return;
+ 
++	/*
++	 * Architectures may return false here but true by the time
++	 * hugetlb_init() is called. In this case, although the folios will
++	 * not be pre-HVOed, they will be optimized in hugetlb_init().
++	 */
++	if (!arch_hugetlb_vmemmap_optimization_supported())
++		return;
++
+ 	section_set_compound_order_range(pfn, 1UL << order, order);
+ }
  
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
