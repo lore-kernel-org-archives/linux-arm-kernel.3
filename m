@@ -4,99 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1F4CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 10:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61E0CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 11:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p88yqRzBtcIHaHKazkQdIPEyby4tpYcGRuIGuiev+70=; b=yFrAI0c3ejVs0hBc0dT+YSmRCg
-	0wPF01YUQpVdi7X18/27k9xH/Vdnzk3Wp8wX3cG/GrYxmw3U4t4k9GnVle9zs5PymTKoKqwbbzCYp
-	RrrLi+tBMDL22TWmZqCzbeYvlULYOOchz3maI7a2oZuXfwtW2Kn+Xf8qTAUhpsB1WP43sWtM+NA/c
-	0MT87KbcMjNiEXv3mK2aYAikZ1xEQ96LRTxkXjAzSTMhrs8V3wG20StWidkgQUi56qY1CM0lityZG
-	lsTE/0rhzZq6V7Mc+FNE/9z25CVGBGEb39eao66v8oPP03MfZ+Vox4Vvn5w0nZZDYM3lUoXPupewy
-	fMbr7qPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOkPI3tXRwTtIn8qocSrw0Y1LMVW42C4jrO7SmDiYa4=; b=yo9G882F8Rc2T4L6DIwEwdEHQV
+	jY3JI8hTy/T945sYnT5uSfNL0Uxxf70psvQHPHtb1ZWrx5hHLBlBYKaSsJynEUDfIQzdh48mNuHuF
+	5XzNRXmrJyPh1v6qEGS8vFtAuDbfB4ZslH7l79M9sMKM71bNaFNE2jVSWwkjHProuc8FsIeVeKUhS
+	dD7trQ/+mkzBUWuAUKWfdj+1icnMBm1zwsZplkoseUwoVzKORvAjoq5zvUQsdHrmGE6y1oXQnTzK8
+	2M1BF7GKl2g/RFA3Qjsda0DTXM2gaWtFPF0dNjb7cjqx6st7QUPaFQcZprVHrdpxsSkcVcxZYYwwJ
+	Ddp49zKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxGy-0000000DOHb-3lu4;
-	Sat, 03 Oct 2026 10:47:20 +0000
-Received: from mail-ed2-x2b.google.com ([2a00:1450:4864:33::2b])
+	id 1xCxex-0000000DPpj-3y85;
+	Sat, 03 Oct 2026 11:12:07 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxGw-0000000DOGO-04Pk
+	id 1xCxev-0000000DPpG-31PO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 10:47:19 +0000
-Received: by mail-ed2-x2b.google.com with SMTP id 4fb4d7f45d1cf-6ae19959791so308967a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 03:47:17 -0700 (PDT)
+	Sat, 03 Oct 2026 11:12:06 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2e4ad94ccf0so2297585ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 04:12:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791025924; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eQ0vIYK4RWZSYtjXUyhwum3rqdWJ1lmSw6s+4nZZJADKAnsQw1f2nwyWg6bENXgDSC
+         qchcH7TUH/kY4CFX6z4XH0SP6ZT3jkZIUnQYD0CI0Ay1XaytK/BCUK0wywDWqlV5KDsc
+         CrZuVXskYWjDtkH/sIMZb0LfnMrKZftVT5F2KjxRyVXUs/raf3/g8bp8nVD7xmPuZVtw
+         dgVrtO0F0OcckjPuHzomcDHhR3hSZfowRL+L0I7Sq6cGgy8UaWhyhM7rvq98EVfvNQtw
+         FvsZfoYQ51IKwxlwG4OTxAZnO5XJZWTlotLOe5tHjhsCRQ9v5U9R0Hb17Gb4iY/dHQR7
+         qWlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZOkPI3tXRwTtIn8qocSrw0Y1LMVW42C4jrO7SmDiYa4=;
+        fh=Qr0HoS0wRoSseHsOOi5UgIjUEbcmCE1JInJWJZcble8=;
+        b=DxfsPo7PC6iidoXIqWAg1xtQHNRs9GtuuADx65SACrI5TyVFZArJC0k3/99wHhNxBu
+         fqZFsTBn27LBRSJk77MApkosPjsenneY5P1dTnDxC3YQrL3vn3063M+pwrZrVqhGNVdY
+         fhp9w/yvgN2e3SakTTQVu94pWkgR2U4Zvyjed8Llec2PnRpWOveq7QRIMDbADKOpxSR2
+         93Wye8xWbi0HsaHhLs2TIh6A3cDOKeCGMaT02kLjrmr+X1Xd741D13MTcpbXbe7zq+xL
+         XyBF8GnLY3P4PEMK10pkjy08AWPuHiiHoinaNbyNKQioIM24BUAz6fGEbXewyKB+q1A6
+         gufg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791024436; x=1791629236; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p88yqRzBtcIHaHKazkQdIPEyby4tpYcGRuIGuiev+70=;
-        b=yBX753/gPtSFPZnV0EqrLF1CIc0JRybHe/oJa5eCdvRjFY9yu4ht0pkXE0jJ3jZruD
-         bBQoQJxjpOPhZUzaNay+2yXs8dDQSN7NDbfkIGIZRy2zM6CjydXsNcGv+F2wXYW+6A+1
-         Jf0CvGMfDn69/v4qd93j/MDvf9oOLfe+7Ojr7JrG4SJkrM6Pl0afk6L2ArubDjJspkoq
-         urL9oNkZ0vjvAJGxBfhfWDdyIjEFxW1uLRcxJ2vxwqQagVVFwyWUiPjidd1BMzHCfAtB
-         Yvr8yMB2rGAbcADk5ld2Gmk9sthOJEdrWnezJ8k7Hw/o+Y9KK47mxnAPWfLfmeUWAGKT
-         lLWA==
+        d=gmail.com; s=20251104; t=1791025924; x=1791630724; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZOkPI3tXRwTtIn8qocSrw0Y1LMVW42C4jrO7SmDiYa4=;
+        b=WZVlQw0it3oe1QFzPc8qkb1fIpjriqVBf0j3gBEzUreTAzTn6TBQOtsioGqYTdboV3
+         1ieoLr+08WJkerT2o0IQFmVz+Nlb248FTrM/TyK7LNk4/Vj2CP7hl9zwJwXcIRTs/SZU
+         GngH+rpH59Ecc5oircLzgT1ai+P1yZx+eTnQEeVPUmMxDAiQI8OU1r0GCNQMyYQGJndo
+         1Tz943TBU92NjKS3qEIlDfChIZnsmWzPC+Sw4dVhg7tCNWUuSRVIENgnEI3fIZ2gjyUR
+         EFgwDXKiq8PZ0kiHEzJLXA3EC9ol7P0d2ZOEe/nXZAkcY0KczSzCz1yWD3PUht3OhAhu
+         aV6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791024436; x=1791629236;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=p88yqRzBtcIHaHKazkQdIPEyby4tpYcGRuIGuiev+70=;
-        b=nM6dEkoIGpKN0Ym+M30MtbFmMKT+7JQO4cADDhQqDH4cM4Jxwm4G66kKjP+lq9ftn2
-         PrRTX/Pf7Oz2Xe7lDQZn3RlKna7Yn+kJcUQWJc/1KKLiAZD04XT2EFN6u2/p5Zt604ka
-         0Nazg+CJPllE/vqGlHa4hZM74HmoiaLt1Ew7xXmW6l5yv9/wbofEnuVHyo5ysh7VB1BX
-         OZwvjBH7y0pkFPyMw6k2YrXR2wHU3qzDJDo+JuKeb2Z+gglQnjQrvKiNrwpUXBQxGEjL
-         Pk7q9zUE1gxVdh2CPa8+KYJUukNzY8bwlNHm+e7RvHrrYkFR0bfz0UYYNn8sBsqrnmI5
-         Wg7w==
-X-Forwarded-Encrypted: i=1; AKwUvBy7l92Jj3Ttk8IQ3aRFwSJiJyJ5Q7HClo+oiEt+DlnAnIPnC5JoS75M7HnEOpyvT02JpUR0BQ85w8FQ55HrovHI@lists.infradead.org
-X-Gm-Message-State: AFuF++kU/Pp6j/kpnARXvqdOS8jJLdZBy7eoXwYVj9sy/SiNPUx7daaS
-	1+uXPbCggHLKWbYVGnEhA6tK6EwbVeshFWnbLuPMFE/nNhvzI0vbMadM16vlk38uaWs=
-X-Gm-Gg: AYBFou2zJbZrxg1iFyqRGvr7sw9YKq59K91NgXUqnXnvNEXZTmqEAslkCT6KljJnIhQ
-	vXbCkyDo+kEj1bjrzPpf6DqrKkAF/AX1xSBANgvkab0QXwc1gp254YnA8ViKCvQVDX41v1JR228
-	dhz2qBxMLgUo2IMdEy3bZPgTZyAZM1vAozA7jInsNi7wrFJ8c25/L2Ej8rjrnnu39fA7wp9venn
-	6VVNVvgEB4Z9muI2qNrk/P2yy8VUdvo2Au2SFdA+MboJyss41hIN6I/GdsNty4kUIraC9XZhTLk
-	ta5o6XZVxCEkLNMq8/rw4hiSC5HA61Bupwvcy/krIBFvL/mE1fGeWzcgG+LFnszBwKHcTZFAPbU
-	lQ99RUEJ3nQtNk8AvjuzaI/sJ+1AH4/ZqBqFtKyG5/cb4ncUAmPB3NB9NzXHBEH0+Gyzkl3Z6dj
-	q328MP4s9bzRwLHQ9sgYR/Cjmm4u9wrI9C/DE1chLAha1ZgIuRj2K6pkzCyjEGEskYDYbm6vq8O
-	FPxL8VX3T/9
-X-Received: by 2002:a17:907:7292:b0:c29:f0a4:a4f8 with SMTP id a640c23a62f3a-c2e4a6a1e60mr460884166b.0.1791024436000;
-        Sat, 03 Oct 2026 03:47:16 -0700 (PDT)
-Received: from [192.168.0.167] ([109.77.86.130])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e4cf5f4e4sm192867866b.42.2026.10.03.03.47.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 03 Oct 2026 03:47:15 -0700 (PDT)
-Message-ID: <27eea513-dbab-46c6-a1bb-8d9817f39ae9@linaro.org>
-Date: Sat, 3 Oct 2026 11:47:12 +0100
+        d=1e100.net; s=20260707; t=1791025924; x=1791630724;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZOkPI3tXRwTtIn8qocSrw0Y1LMVW42C4jrO7SmDiYa4=;
+        b=UKf1zm4M54e24jHP2w6tzbVpuYPxopY6k3f2e5LIJqbKi8TeggRg8Kw1bvp9dX3ZMo
+         eH46sBN5pMI7qqozqu4zH4IiYzUyMVKpYyMwkFGm8VE19KmKxqU9iBZ/k7PLPt+4hVAT
+         fowxDweH1Mfq3w2ZpqCGQOqKv1A1hMGNK4zDcsS1SUYz4SkFEerYvAjcASuJ83/L3GXa
+         3lv1ivn5fgHPVIM5h4Mc8aVjrYyY9WOjxLXMwX28br7yRVIwvqnqTHcZ3DgZsGJrS7qb
+         TzeAyQYKw71LGqGLCedfihbujJTedQd22Rdb7tIpC8PTPS5As4snmpfKqWh+g/iQnGYr
+         b/nA==
+X-Forwarded-Encrypted: i=1; AKwUvBzuz+z4yjjm0q6eSqs+REO9NjbQoTHzuWLvf5FKNwixfv/jQIDPxn7CE+eNQ47IiJD061NtPgbpdzE4J+8Hm9Eu@lists.infradead.org
+X-Gm-Message-State: AFq9FYL50Vvz7Lo6FhL1vPA01iREY6/pri3SXSUj9OynR6UnKsKwZqgD
+	qsByeR8AcrmMwkGm/vV2wp9bOJQa5DmoM1ulBSRqVHE8Thstx9r5ZHW+ToOqUFKVsODN8AjY32s
+	vfwctQTLEy7v81tddsbr81xhrEY90UbM=
+X-Gm-Gg: AYBFou0sAEuR8p03oCBW3R9hD9NIQbmPebM59gXuaAnzmy5WkodCTVH3QBbx3pTObsS
+	h9+bTVsDnFghwVNTgI05iLT5scBKrbDSLxyUC3/5sH1Lg0i08hCYhHR/vdLIa9MKGQN5c/hOqYG
+	Pxn0DbS083beFC4Z3L1+byfV5nNcGxUuPVmllKJLU1NcybM/Y5aTIn1r3Es9a+N2q1gH05dnspY
+	+DmmqaGZ6vz3ANw9EDYiMMEeBqJArAoXC8aa+etNtlHzpG45XD2uN7W4htEq/h1PrWYrVp+dwgu
+	CtcEoZzYW4jbf8qZ89QtRj0/cj2OVmtcN0TBAeM7EviQKUofc3liVF7cNAZ9mT4jTjnxeSQveQc
+	GkRYrNZMPqJsisQy0q4WPc6wT2ghFhdzhp5jLQ8UDuDozPZXBk5NgiC/jjPu5EJH2XBNNDXw96+
+	M6b4kJMONYFABx+Bm9erIY6OeriA==
+X-Received: by 2002:a17:903:2406:b0:2d6:ff5f:eeda with SMTP id
+ d9443c01a7336-2e4ea0db41amr21785615ad.6.1791025923705; Sat, 03 Oct 2026
+ 04:12:03 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] phy: rockchip: phy-rockchip-inno-csidphy: add
- support for rk3576 variant
-To: Amin Gattout <amin.gattout@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20260915-rk3576-dphy-v2-0-b56e68b54b8c@gmail.com>
- <6HuMsILf2j8sOpHhyUAGmHbTeavDsa4sI8LzGK1bRrT-XdkhCbQBfa3ytLaMUPaXjfPyHA_3DGWmAaaAbS1tsw==@protonmail.internalid>
- <20260915-rk3576-dphy-v2-3-b56e68b54b8c@gmail.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <20260915-rk3576-dphy-v2-3-b56e68b54b8c@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260811041934.7609-1-phucduc.bui@gmail.com> <ar_fLAeFU4rmrwiH@willie-the-truck>
+ <CAABR9nGqwTGcrr6bKsV5+0GYwkQoP0s_Tu6aTJrhJJW_ZRqFYg@mail.gmail.com> <asCyI2_CNSoDJy1w@willie-the-truck>
+In-Reply-To: <asCyI2_CNSoDJy1w@willie-the-truck>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Sat, 3 Oct 2026 18:11:52 +0700
+X-Gm-Features: AclHuK9Zi1mA9PZ0oSISuDkDrpCS_y9Tgcj6SbSA32DMxp-Ws9T5eeG0iizhVxU
+Message-ID: <CAABR9nH3pkFB-htyrD-Z+iBBcYoVX4Z-hFa_binWCXg9_cHU6A@mail.gmail.com>
+Subject: Re: [PATCH] perf/arm-smmuv3: Propagate errors from optional IRQ lookup
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-perf-users@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_034718_059022_FEF8769E 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261003_041205_769683_97B1EEB6 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,13 +118,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2026 11:42, Amin Gattout wrote:
-> The two RK3576 MIPI CSI-2 DPHYs can be supported using the existing
-> phy-rockchip-inno-csidphy driver, but they need their own driver data:
-> as on RK3588 the GRF control bits live in a dedicated CSI-DPHY GRF at
-> offset 0x0, while each PHY instance only has an APB reset line, as on
-> RK3568.
-> 
-> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Hi Will,
+
+> > > Not sure about this. If it's optional, why should we bail the probe if
+> > > we don't manage to get an irq? Surely it's better to continue without
+> > > the interrupt in that case?
+> > >
+> >
+> > platform_get_irq_optional() returns -ENXIO when no IRQ is available.
+> > Other negative return values indicate errors, including -EPROBE_DEFER.
+> > In the case of -EPROBE_DEFER, we should propagate the error so that
+> > the probe can be retried later.
+>
+> Thanks, The -EPROBE_DEFER case seems more compelling, so perhaps we should
+> check for the expliitly (because it won't fail the probe altogether)?
+>
+
+The idea of the _optional getters is that only the "not present" case
+is turned into a special value (-ENXIO here, NULL for
+devm_clk_get_optional()), while real errors are still reported to the
+caller.
+
+Besides -EPROBE_DEFER, platform_get_irq_optional() can return other
+negative error values depending on how the IRQ is obtained. These
+indicate an actual error rather than the IRQ simply being absent.
+Ignoring them would leave the device running without its interrupt
+and no indication of what went wrong.
+
+So I'd rather keep:
+
+-----------------------------------------------------
+irq = platform_get_irq_optional(pdev, 0);
+if (irq < 0 && irq != -ENXIO)
+        return irq;
+-----------------------------------------------------
+
+and continue without the IRQ only for -ENXIO. This is also the usual
+pattern for platform_get_irq_optional() users.
+
+Best regards,
+Phuc
 
