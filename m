@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F9ECA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 12:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446E4CA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 12:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnNuPBOFoJ+E4mnM/5WK9CbF4T41g018LxYJP+6Inbc=; b=slzIiQiGm5qJrAc2fd9F4yH9rT
-	f4z32ijSOuR6+QKKcwUDGElKAJe/sPfK5nO/muhP2FxSXO94fuIuz01ZNg6n1Ieb/NBAzzoP452OK
-	yzWEjlheYmRvrH+tl1xPvqLYmmtGvbK8OshRvLugLOul6JDCHv9T7ovkPLaKdGgE7LtWgPgOubMrM
-	a4sPyhXWR6jHC6HOv9OPqtk9UUahWDcI1GbUAXEIlHiKBcROoUNp7AAtuNXrwfAEFD6ZjrCC5wfdw
-	kXDoLxvz3eqQoXYK9cBIgOI9k1Xg37cv6A/XaZkmJU/htacpuy5qkTAvDOq6/09Wxp+w/FwKRq/ZF
-	QbZ2OITw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+JZDKY8Pm+m7xlMt9GpnBgo5K7r0EZ5kqFaq0xkbApQ=; b=a87w+4TTXCXh2+2E1xlLToD8NJ
+	AGYRLg7f3MbDYfeXwgbiSRGqHPnxudKV85bpDRGZmHaE0o8dVFYfqDn+lkLg2ypB1qsXP6N/oDO79
+	DBauP02HVfFNtTx8i/BSFCO+DrtRumeh5x6P+HTLKNeTkJQvpF+Vpob7HqMPSH8a2P4nhDJg2Dkuh
+	AahwHeazkMSvSNA2oK3kmFJ9LC19pHgFLRQxLi+f/5r9T2KNkgDrGoxx6449TaRtXeb8KZ2dj2GpY
+	fi2QJEYb5TcWNEf3100q1/dA+f7faYTHwFxXVpTcZCL3NrCDmHEDRWyPV64+IL9nSB+lGoB9JffpM
+	X6hq+DUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCycx-0000000DTsb-2TNa;
-	Sat, 03 Oct 2026 12:14:07 +0000
+	id 1xCysU-0000000DUiG-3JFs;
+	Sat, 03 Oct 2026 12:30:10 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCycw-0000000DTsH-0Pgd
+	id 1xCysS-0000000DUhz-2TMl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 12:14:06 +0000
+	Sat, 03 Oct 2026 12:30:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE7BD411FD;
-	Sat,  3 Oct 2026 12:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E9101F0089B;
-	Sat,  3 Oct 2026 12:14:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B16243CFE;
+	Sat,  3 Oct 2026 12:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128AE1F0089B;
+	Sat,  3 Oct 2026 12:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791029645;
-	bh=rnNuPBOFoJ+E4mnM/5WK9CbF4T41g018LxYJP+6Inbc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VUw/il2bzsw+6JTG9oiEg2OoLA10RP+J828Xw8zZRzdGe2qVKHTPJqpuyZh7EQrx5
-	 xj4sn+Rav34r2lrW4e3QGdPQiyJNFrS9tR+akU1HYoRP/mtPtEed10LKlherZSXF8N
-	 M73lIBqYJCdY1D8NkuIIdTaaqFvt8djh/tjMzR2JSu35xIt0fEFGris5GwDq89/ya6
-	 Cf02ufpPTM3PiSzGDWT/29u92hfflYrarWRHAy0Ia6FPmsJe0gf5ExWoQoELOSgq5S
-	 Z0Y6aFTZE/PvR20YdyWu8LrZ5kfCDJBx+a+tiW/qXPpdiMjGVC2PX9dFtAZceQG0Pn
-	 zReuy3uGP839A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20260515; t=1791030608;
+	bh=+JZDKY8Pm+m7xlMt9GpnBgo5K7r0EZ5kqFaq0xkbApQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=h9P3fNIuaXDWPgnrzBJXr3TwwCnJIpQSYNxZlXeEHm2JqzisfBbyrtL3CknxAKyGL
+	 pFR27cXnjweG14YpvqvCpRtFBN4DmIFcOnWoqI64jOzE/cWeEHvGmTT8gNsPOjFCNN
+	 /zz6FOMCU0mAoCdVD9zMQWiDme42glgKUbek61IZiAY5Nx8nNvk+lnx6lDiEHqW7Py
+	 OvgFOYIRsaujI9O70Qp4KgCgDHhOLaEHEaifYQC1hCdwnqzHMaRAPgeJnBIDwJ8OKw
+	 sElI/OlfeRFtEa/grB5n792AP6fsopfDlAurP6TrxyrzXHOqufQdZmqfHJjXo4OOtR
+	 s6TngiAD94apA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xCyct-0000000GWmb-2c21;
-	Sat, 03 Oct 2026 12:14:03 +0000
+	id 1xCysP-0000000GWsH-3y6y;
+	Sat, 03 Oct 2026 12:30:06 +0000
+Date: Sat, 03 Oct 2026 13:30:05 +0100
+Message-ID: <86fqyn2che.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	Colton Lewis <coltonlewis@google.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	pbonzini@redhat.com,
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] KVM: arm64: Handle hidden FEAT_PMUv3 in ID_AA64DFR0_EL1
-Date: Sat,  3 Oct 2026 13:14:00 +0100
-Message-ID: <179102963296.607377.2477246563507237480.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260930211834.2773546-1-coltonlewis@google.com>
-References: <20260930211834.2773546-1-coltonlewis@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v21 02/15] KVM: arm64: Refuse to start a guest with S1PIE or S1POE but not TCR2
+In-Reply-To: <20260930-arm64-gcs-v21-2-3556644cd927@kernel.org>
+References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
+	<20260930-arm64-gcs-v21-2-3556644cd927@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, coltonlewis@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, peter.maydell@linaro.org, leo.bras@arm.com, weilin.chang@arm.com, yaoyuan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,32 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Sep 2026 21:18:32 +0000, Colton Lewis wrote:
-> When userspace initializes a vCPU with KVM_ARM_VCPU_PMU_V3 and hides
-> FEAT_PMUv3 via ID_AA64DFR0_EL1.PMUVer, KVM hits a WARN_ONCE("Unknown PMU
-> version 0") during reset_pmevtyper() and continues to expose PMU system
-> registers instead of emulating guest accesses as UNDEF.
+On Wed, 30 Sep 2026 22:48:12 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> Patch 1 handles ID_AA64DFR0_EL1_PMUVer_NI in __kvm_pmu_event_mask() and
-> removes the redundant kvm_vcpu_has_pmu() check in reset_pmevtyper().
-> Patch 2 updates pmu_visibility() to check ID_AA64DFR0_EL1.PMUVer via
-> kvm_has_feat() so PMU registers are marked REG_HIDDEN when FEAT_PMUv3 is
-> not advertised.
+> Since there is an architectural dependency between the features as an
+> optimisation we only context switch guest registers for FEAT_S1PIE and
+> FEAT_S1POE if the guest also has FEAT_TCR2. We do not, however, enforce
+> this as a requirement when starting a guest and only configure the traps
+> for accessing the registers based on their individual features. This means
+> that a VMM can configure a guest which can read and write the system
+> registers for FEAT_S1PIE and FEAT_S1POE without the hypervisor updating the
+> values of these registers for the guest.
 > 
-> [...]
+> Avoid this by refusing to create a guest with an affected configuration.
+> 
+> Rather than doing something data driven we open code the checks, I started
+> doing something data driven but it was very clear that such code should be
+> shared with the host kernel cpufeature code. Refactoring for that seemed
+> like disproportionate effort and invasiveness for the context so is
+> deferred for followup work.
 
-Applied to next, thanks!
+This *absolutely* needs to be data driven, and we're not going back to
+over two years ago. We already have most of what is needed in
+config.c, and it is only a matter of making sure that S1PxE is only
+enabled for the guest if TCR2 and ATS1A are also present. If that
+means additional sanitisation of the idregs when finalised, so be it.
 
-[1/2] KVM: arm64: Handle ID_AA64DFR0_EL1.PMUVer == NI in __kvm_pmu_event_mask()
-      commit: aa41a7c3beb59f9dac4e60c9cf1d146f6c9025c4
-[2/2] KVM: arm64: Check ID_AA64DFR0_EL1.PMUVer in pmu_visibility()
-      commit: 517cdec3d4b28ccf5dae2dd03dee2a0a1eef1981
-
-Cheers,
+If userspace decides to expose crap in the ID registers, that's its
+own problem, and we're not in the business of enforcing idiotic
+configurations. The only thing that matters is that the state that KVM
+deals with is consistent.
 
 	M.
+
 -- 
 Without deviation from the norm, progress is not possible.
-
-
 
