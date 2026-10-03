@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DC3CA5FDD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1870CA5FE3
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IwgZe2x+1oxG19dWxTG3Nlb1KBjkFXZ/4cBvqE++qZg=; b=yYfoK37cEeWI7PJq/TOfx4vrpo
-	U0ie95SZKf2bVibHPLaOUImtXejNGssnKSLsJWNi6EikZwSOMBs8IyCVhtcCQuvKMJcpPMQtP1wzn
-	jGNAd0TnXnOvWaMQe+ZY/KJPFNyDZLGKuyo3MhLF3eSk6rk3ea3a+TxQjkYaCmJuWzb6o/ztkCeZn
-	CEZIA9a2Rs6xiu2jswPEi89QsuDc6lmHk5mrEjvEvbCM3d33XWc0eMHzFkhH2rEq4mULN10RMETVf
-	hiMTqD7aB1UUWAGbgaeUzSc8v7DrIEzj/ZaU6VDLD5rUX/Fto3EmfZKDfSPv2JxHRhbHPuwc7e4sB
-	CBq9nkEg==;
+	bh=c0mv7n3kdWHjTmvD33w64LEsE1sTty4i5Iqi5cd+MNU=; b=Hn669cVrQCLkROKF4U1oG5bXN9
+	8jkY/m/6+INlybEA1X6nDq7LafcDQrY+FdlkxGhwn5dMBGvl7hw68eg56AyBZIDFqRYAIDBla4W0H
+	FeZqa90xLU3+bTX4CNRgfTY10EZXSaV9nUEUVtMfgDapqjw7mCMDyjOqXlLgyhhLSd8k3VmJLUZjr
+	Uos3TBAHuPjiXYbZlKgo3+f8qFW7nikR6lZXQedZ+F5lMvYYx0hAu2aMVkDDjj6HGG/yCvWRbQirW
+	7fBM+xKk2XGraFwkTgSX21EV1le/nBDv66GGWpPCTJ6mYf6JUVru6BzIsfJWSHykWjLn98DjvKW3i
+	uQ64tUyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoTg-0000000CrXW-0imA;
-	Sat, 03 Oct 2026 01:23:52 +0000
+	id 1xCoTi-0000000CrYt-2NTG;
+	Sat, 03 Oct 2026 01:23:54 +0000
 Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoTd-0000000CrWN-28it
+	id 1xCoTg-0000000CrWN-2wrI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 01:23:50 +0000
+	Sat, 03 Oct 2026 01:23:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QLRFmeZv6trhlSj6VcAR/C427U9J3Gj3qYUZzU4GF3e/VD5uNMGKO5/61qUPUjuBJranlIV1ypZQP/rsome+p+JDSJMWpEGQaNYTcolNblKGyb0ghjfEGkNCupYfkFlmuZhBFrB+DtOe/DszAWTW48zZlarBhjIYF9dhtI5I5CITepgy0vHVVGyD8LjVYJkkZG3EbHlEJYfd2GjfQ3JIaHCNGOvgEMBWGz7gjD2OHMunLEvMvh+YuAG2u9UtG9J9olKc1srFmGNnDtqMshmFVZPYSw+LnPc3mo2pnwG2/VCPm9cBUYneWSmL/ha+Tj9ITuitWnoFHwurONQ4Il/Ssg==
+ b=Mp6oyr6TljlNAhDdBzQ0E7CajyibjaGms8DGKhd46llgfTYXkMQwt+bX2eFC2RQKqV2At8u2gFQbnD/9yAERe8BXbWkTqAJPQ+a8leW2/lJEARVEVp54t1REPXax/oy+dRDF16ay8I2BVaVC4MIJNk5VEPwvRMz5HS6MC8LA8oVgpfPihnDAR1gziW2++xzpOC+3ps/45+yyC8R1jkrjH9DEWlmhIfXt9+L/wA2gXLNzkFYFgLs0Rio0AaDb7MdIYqR4ZNChXSiz8LTrhKTt+5wTqcGYcbhHtWStfIoWsKpBvtYiHZzkSIK4Q5DTPug6bCV4qzGjng7+WJhu1mwqOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IwgZe2x+1oxG19dWxTG3Nlb1KBjkFXZ/4cBvqE++qZg=;
- b=AIN7jIpatp9YUPVJyYP5e/giG37GjJkEbVpt2Vo+edIr/FUhlsV67ymP0E6c5bT87KZeZLQrX023V+IE3e0Qtdj8pOsFFsveGLYsdBccJsT9zPtf00o8wym5rgWmrBQPzjezAJHWu1OZyrmYUZ+WhtaC6xJyYgAR6UwxPXVAd0KBxVf/3LR0tbdZYPjS1ygAUqYUZn1zj6Pg372vvflX4ANa4ef6IFNZWqc19zYF/UDJV6vBkOTZoKCxLlcS1SQlzWfH0q1MiLJsh+3JDSY02QZYuFKWOTgI7WVBGtyMdCm6QkjeGjqksnJ5UsOoHQj19qeP+USyb9YwLFy9JW43RA==
+ bh=c0mv7n3kdWHjTmvD33w64LEsE1sTty4i5Iqi5cd+MNU=;
+ b=XZUWgTp9Ed8fn53b7StQGugJLiS4GGA2VEJl+xI33JRyJYD83BuDw5SAQXq581qu1hYgHV1tMeAaeQbL6fqI2o5gvjCJezfYzTRHutUrf7sAGkSL3sZ8k/pmBMG0LS5X1n1ZeEq/lbdZL8EwxgEkAsQuV0IJTsMUeJMufP1bv+dfHG01SD7JSdChNDeEQQegBffNO9IAxJTejYu31OQeJllOThbDCscKILAIUO3jZRJLUBek4wwLwrrhvcBiLGzaSnMvFtRLd4+t1ifp1eXTU2It5yonz0iK/x3yY6hJpu15Nvz26qCfVSO8tgAtWVD9hS9/WmVabnHnUw+/xE5+4A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IwgZe2x+1oxG19dWxTG3Nlb1KBjkFXZ/4cBvqE++qZg=;
- b=POK0yDXalja6QKMEtlCqG6t3LXLesY8yjvAvSkh6JkRn9z1HVwPGzjRvheVL+zLeaC7PFYHmOD7TagWlJKQQeesti7F+Wq8whax1ObAzNMFAmQR/sdQUiuCwRSbWvKa3UFZJEUH+7jxw0epjp9/UXrSgIeh18gPCEuKWxT4ZxZDK78DYB/H+iY/bPUf2QZGj7/V0Dq9F1QIiuqU/JNeDhaUyBsQYlwjvWI31RsnLXD7vefaP3nerV/+jPPSyTGNvZTccdK4N+eqgo6xTGVI/jX7mBpbBMj6Ui4joLmMQt3ITgpOLyRT9J4/8mlgMCqYlmq0uzb8lWpAPIUtUd2HecQ==
+ bh=c0mv7n3kdWHjTmvD33w64LEsE1sTty4i5Iqi5cd+MNU=;
+ b=VNMBeRbYvPas49Ie1fR5HiY5kJxWFPgNcAhDmTxqBJh6WJ80NSSDZJr6AvQFZHSfn/q1GmUFmXwDELexn2sH6hDor5kQsdUOpYznV+gq7KehD/xeH3ElSQT0CV7NGV/AjPHa8VGY+oJNMO0NXr/UrKVI+v9K13xUp36pa+4QQV3Mx39NW3U7Ia+nyMViz+X1qUn/yWIZ9IbmjxOc0NKKOEOP60fcYvRPcdQ4nAcERUseNrjo9BJb3d93grJFN5AgflJQy9zbmyZaKdb8heen253Je+8vCfiObfWH2z81PsiPzd2VZb4oyjg7T7G3iaOeeofYijvtsCg8wj0RoeAT3g==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
@@ -77,69 +77,69 @@ Cc: David Matlack <dmatlack@google.com>,
 	Samiullah Khawaja <skhawaja@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: [PATCH v8 5/9] iommu/arm-smmu-v3: Keep track in arm_smmu_invs if range invalidation is used
-Date: Fri,  2 Oct 2026 22:23:24 -0300
-Message-ID: <5-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com>
+Subject: [PATCH v8 7/9] iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
+Date: Fri,  2 Oct 2026 22:23:26 -0300
+Message-ID: <7-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com>
 In-Reply-To: <0-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR13CA0159.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::14) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0131.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::16) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DM4PR12MB6615:EE_
-X-MS-Office365-Filtering-Correlation-Id: 605e8abf-5f1d-48b8-a03f-08df20ecf0cc
+X-MS-Office365-Filtering-Correlation-Id: 6a28435d-1247-4e32-7e3b-08df20ecf0a1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|10067099003|11063799006|56012099006|3023799007|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: ND0NTHiiM0235xpNIvwmByMEwelGj3D0Y93Y0p7Ph5j9WULT7YZktYY+eTDDzUvhswC0igekZbCTAbeWbrdqKnYBhuFchwrEHtUIB3rlBQ8cFuaUiYS2ndYiam3h4OEADSG/eYZOZYoxBjP/0hHmOxrCa6fHU15zmEihT/YyKcXtFtbxtJEXbGXkF6ilzWyvCIODG9FIRWJFY5xkvbpU+aXOH34RfHjq6wjfNhcP4p82s86ntQMfwS3lINR9sKTUlabU/iC+hjsR2tJ2baGvthxhYYiPtN9QGnk0vlmSla2/4iGIDJNG/Akeebg7E9PLPWW0SVC4ZJvG32UP+zHl8ba40MzgMLaC9068960wwO2UHpyjFbBPtEZrdnPdA1WXay9CDzU1zwmcThQQseN1mSLxmyLe/7TYMaWw+1mkFMNY9xvUAwXqXlye4QfjJB8xZo3e0I0pSYkH4xfnyX87V2+fIlcq5STDC9J9rOhGflS1ieJIi0hFEUFVYcqj4cy/jvGC7PtsFqKmd4BPn7NvvRjozzYAIE2yHGZoRS5AxQBcYX/wFKn1wxAEJnmTKYBczkaONgb877GgvHAgYUa3Qoz09vnO2MiZ+DAaIHek8JuVI+I+EX+zldBLNc51+kur2MHzpNu02OJOH/jcrX7zkub/GsOB73z/H9EF7DhgcmUqg4ZBQrfoHFSuhvZTYGx8xDWF/T9JQwCQOg7UxtAoIA==
+X-Microsoft-Antispam-Message-Info: gOZKdXgZ8BmSW76eh57Jk6QqEj9VOwGhb61IJS+ngnPLqnUdRg8Nti1DkyhJIGFM6PEqUqtWGlmuWGAbYAn4GasJ89bG4veeXOtQmiWbQonbcoDcmxNJVSnZYFOWip+mriZXooYFhe2iXaQPSJtI7iA9j32/sTX/mlrc2ZN0oPkhehdoPGK1tMeQKJ8nOvHlTDJ+qP9568Nqeqb5NnTzaYk8gyFtrq6hFIijefaMg4CuHPsX6UAc6TO2yQYA/b6zpqX+gfZwxGVtAAbURFsC2H5FC9lzjeUxxo5zkFCrqlzk7p2eIVCE8PRCluP2vysGPFGpli2O3Z9F3Xmy+c0lN+YjWbAQv+/ysCUmI1Q/D/MpWG1kylGIn9SEp3rTDzLG/9mORflEk4WysfeZLIga5K0LECdnaqHl6Uf7lCN+pkgntW2jDrf3rSbWutOqDFmhll1l/OF7ipN8AYzZH4hib6sMELx+L6sSDoKiSyaVou110nty66gpYDQcoi1KKcAxNXtMkbv9Y8uS4/caIHS1h5AwxrpDaa6JegDiikFNjK/hmJSWwBIBZg61+GL5ErOFmTVtrp1yHN+YJXHBGiFwHnD2jZbxVwxORFDJv/A9pX8Lk3IrpEEv48TfUonoh8D0Kr1J2pwLIX54Cqv/hRhmtGJQtAWfSLPWnMXeY+qpaWC6f3xOJ7aagegfrNeQ7RuP6/NRZUq2i+fEukHYDAn67Q==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(10067099003)(11063799006)(56012099006)(3023799007)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ko1BkijFiVcBqh8KCKV6GKFxpcm5q/GpWN35uwxgVbsqMLeCnz5bLfzLcKaR?=
- =?us-ascii?Q?Vh7ph9Y/pdJqeM+KAm3gLv7Jwe3gkgAVXVgTFKJyY0BcMa06h+iVX3aYdFjq?=
- =?us-ascii?Q?AXh574DA1wJd1raYo19lUadaQOFZ2Niq5BnbL7hWoBncruXgzgg8uKrec4Py?=
- =?us-ascii?Q?oJVpOShWdPgzQOAPx+CV7R78Um3NqqrNppmWjo8U46i/Ur1qxBNlRZbE1z0K?=
- =?us-ascii?Q?ouyKuMG6Hb773qqSerN78JQ5LnkBsjoobjSTU+4ooscvAzCBGFjZJDV6bgLF?=
- =?us-ascii?Q?d59pgHBnOJ4PoYerHk8+skR7XjPT/Cp1hztrYh/3pRQADra8p3mf5ZDRmgyy?=
- =?us-ascii?Q?m+BIx5wLcOxXhWyhoKXE0/FX6pEfM02k23G9hIOANVqXUemNnx9Pd28+rIp7?=
- =?us-ascii?Q?mXr02llTVUbwAyTUgKdsMzdZex7ZwwnhCO2G3myP8BA3ahBAIDtUX5kMNZ7C?=
- =?us-ascii?Q?r+nbrZ3W106R/03ggsVme8jURVdy5rmek+4eECxpN23xV2JeA8WfYy4/0Jtz?=
- =?us-ascii?Q?wilkcE6q7rkN856oSM9DnhH2cEyHIEKX3Ad/B+yVoe7K2BJujPk6A2tVWkA1?=
- =?us-ascii?Q?/Gyv+USCGO/NgiT6ZdxT/7yCLapAGjffM4M38f7XnZwKEB3KpRqQliE8t+F1?=
- =?us-ascii?Q?HdYyvO8AzWBDpCw/OND+UT3cyAiS4k03JTMrOdys2k9Ge3NBNvw3kKE+2EeJ?=
- =?us-ascii?Q?blOGdtgsfIi8KwkgSDMB/UYIQGP9P08F07MJt0eDTabtknPfzpSMJl4bjo/+?=
- =?us-ascii?Q?QvSP5BU58Hc1PndMupY/UHpVjrKEml2B0lEU6Kunx/3/vFz2oxZ0mfuXlYcv?=
- =?us-ascii?Q?Z16VblX2gOalo5EC2S36l3B+CZisGpHbAt4QE5Xw+zffaeXXY+4tKD6AP+a2?=
- =?us-ascii?Q?9gTHmAh00us99takkYlxk7iJ/LMduzwUhOLG6xM1+vSa2hilRxjc2tV2jLfs?=
- =?us-ascii?Q?c3/teSDWTbXeyudi26yE7C0nzlQMJtGswTST0VIajjebgcw7gn6ckO/jeTrr?=
- =?us-ascii?Q?FSjmGB9JmhirvpXfkiYulnNhvqLK/KRSoLmwJ7cIW2nRv0tmiSVNKaRmUxvj?=
- =?us-ascii?Q?B/w8ZFRlI/CRHKGLGnIvLspBiK/6kTfI6zUvP02SNWNbEheChQBMpbljJ04w?=
- =?us-ascii?Q?3fh2WyzkKmzW3Y1aIvRXMic0DlIc839BZsNwwV05bCsMG9dzxbW5apOPLCkg?=
- =?us-ascii?Q?D9NO0fWZK+Sw28CsUbu9WiN/U58WpTSJTY4+05qsKpHszdhhBjbjOAkNFPaW?=
- =?us-ascii?Q?E3u9/7RRUF6DKAzGvS85v6c3/vMmCnTO2KEmPL2L1roSnC0Kqg1dt1LadS4I?=
- =?us-ascii?Q?+NwlRoF1Pe+5BiXisnkt3KAxeYEKUs862Sq5EdPGnW/sY2+LT82jtZYeXPYL?=
- =?us-ascii?Q?wSfnprMs9PJs/5V3C0jjtaNEIBaTZuvHapEAIzYPmoRUOy9gzF4P35mXBXgT?=
- =?us-ascii?Q?DRdzu7fIBteF2IkYGj6xBSqHCqNYspp9OrhzDFB4V/vtY8glkf4MMRtm+gkr?=
- =?us-ascii?Q?BKWOqiya+yGmj53CkqwNhW0NLxaKzUnIWzt2jzSvCWU7ezPiMyQGBqzE1uwF?=
- =?us-ascii?Q?QG2R3SrAQD+Ht4C+7d9g4W69p3kKePMYuaVhZgXFizSGmUb2TgFC5HzyKVA5?=
- =?us-ascii?Q?xMqSepb80qWCaXUSpHjfIyVf/cR2kIZBp3rAlLHASlAsS/iMGPCMYmlHmnsH?=
- =?us-ascii?Q?M6kklSC0fjb4zZJjib1CTttWJgjNRNjtp6biToSZ2pD2fKhy?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NOhlz7th0UIoiX7kiuX7exRMga/2vo/RzAZuHrhVPsCoUDbGkGsUE4jLfAe7?=
+ =?us-ascii?Q?DrBqa5yKinvqluVwoWnHOVBkYb4Ls/ikJlzehENfTALCdRK84fZGPW0jR6fr?=
+ =?us-ascii?Q?wAFKY+iUdfP6bmDk5TjgBPM5tLOaHQEFxd5Pi3voBTmJVapANduAZPdSLI7h?=
+ =?us-ascii?Q?AaGaL7eZlFK87RMEldrOQQH5QYxeoiMSjIeUk4gjB4Ko+tEOpmLrI8QHJOjG?=
+ =?us-ascii?Q?wrQpQ1t12AjTDXaWLZZYseKa6gJsdpVCFk3USLCU+xjUvLkgTBiU3PbFwDFb?=
+ =?us-ascii?Q?LJXvzRJwW7uupHgzmBKq1WySI8E8k/hZI/+upZxqe9umq7BjllvDwpt0btlb?=
+ =?us-ascii?Q?tSMZfwpVffDbFIpD5U0r4VdelPoTJijDPBrjg4raisWWjvCvTp5WqGegZVOZ?=
+ =?us-ascii?Q?4wYtPw5XRO8af0JmevI4hBLfPltMHNuNTXalOcDo3/aJ2tY6g2Eu8km4Ka6i?=
+ =?us-ascii?Q?CVdPsN9Pfg0GoBlGdrLXXrHcm6xRI0NxfsAvrFbAoKfwNMmtplrFIxtKmrU6?=
+ =?us-ascii?Q?9Jttsw05fY+2gE6GWbYmFbj6ihuxl0iWH4bzPfXlUHDnIXjK7qgSntGi6RUV?=
+ =?us-ascii?Q?II3pW2T1MDU6mi27TFTFRcUbL8BOe3EYFljmU0naKIPIbH92beKWrsm4nZhS?=
+ =?us-ascii?Q?UggcTjSG+K2PRmtLmfTfxKKm12EBL5FKwPYdf339RAjBYcICKwa/cVS8waED?=
+ =?us-ascii?Q?Zb6ZgLmXYbfLkZASfIMDvYcEj7bA99/LH2GWooAyGUjs9vzJ7oTO8vcrPssG?=
+ =?us-ascii?Q?WZ6xRJkUcw5uhPOggv2oAHtSLX6nJFrm/nbnzLIDpZ4PMjI45Tg8A2DrRH3x?=
+ =?us-ascii?Q?8kiL1UX8NZ8hQttdCeXYh4THpcidnq3uWi3RPl/ak7AxG41NBI85KOmZR3Bh?=
+ =?us-ascii?Q?gtDzH8+cufILfvGlcV1+9fJ3LxafKaApo+w/OZIDmC94VdNn0gDU5k2WkhuR?=
+ =?us-ascii?Q?YDB3BbUZXszTKgwjIyfX8oDgw8CAS/v01NaFBJ2mC8SG3SSWpNTwRUq13bPT?=
+ =?us-ascii?Q?bq/B6UWuxGUiwTpsI56uFJtVM6dNMhqFM7K6J3lFKnenKDrIquwYvmo5BuAR?=
+ =?us-ascii?Q?D0jeVFhjWZZaxNHKr17CHbbz/d5uzAnjnp4Xuj4l8Dwj5iCsMMilqP9x1pu6?=
+ =?us-ascii?Q?VqIV9Kn1xcDicS5/853dE42rCwfxSZ7qfu6r/7DLCOjuQC3y5Wqx6qfpB9Ki?=
+ =?us-ascii?Q?4lKzTuvD87ABGfQkkqQsXhF3q+oHxOOTVSkh07JTvLe+rIZyXS44/OCMvg6q?=
+ =?us-ascii?Q?K2IGDAYxs9K8NZCeZdysTL6IFWpxHUgAomY8jMBF0qLtQsoeGWSeYZKUGLn5?=
+ =?us-ascii?Q?XSgb5DUmdmlUHhyxOz0/bJu1SY3lJaX37XGi1VXkfU+xABSCJi7VFFktUMHT?=
+ =?us-ascii?Q?8yjfHrQRjiCBl6VqGaH998XVs0v8hRBkiNrLTVaq3f0usSYu29NjSmelj0P1?=
+ =?us-ascii?Q?8AeOSR2un0ULrA5L98fESe5fRq/Yg5O+3urr9h/tZIJyMHAH9QFEMzdX7r7M?=
+ =?us-ascii?Q?0IGU8yGMGkdbOIJqYSET3FgWmV5WYurYAFEeX9Td/xvnmAIzCydyiTxXSIc9?=
+ =?us-ascii?Q?FwVeGG99xb4Fj3LdREKgpxGcVX6VYYyI+Ux3zjLXYqIiaJW+bNzczTm89NpM?=
+ =?us-ascii?Q?vQsHGgKIr2hVXmiHkrxqnbH1RvXll16LU/aUKnhNdcs0FTgbWGEfqKnB31U0?=
+ =?us-ascii?Q?pv/6KkyTGrRngZPk75IC/tL2aQ36f7ZyGcYZEjDXW5t2n6ED?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 605e8abf-5f1d-48b8-a03f-08df20ecf0cc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a28435d-1247-4e32-7e3b-08df20ecf0a1
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2026 01:23:33.6485
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2026 01:23:33.3893
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hFsQKk+GMiX+u06EI4J5yGm4OadKmSwFUeE+st9Qv8OGeehGAsOEN03pLCBsVyiy
+X-MS-Exchange-CrossTenant-UserPrincipalName: TSmLUECXgXRQgJ5k2o+wLmnGissokyLh50jR0yCKtPlA0oIXzQ3Lq/nC6HxDf81N
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6615
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_182349_591602_88793689 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20261002_182352_747660_1074BE8B 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,179 +154,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Summarize if any of the inv entries will use range invalidation and if any
-need ARM_SMMU_OPT_FULL_CONT_RANGE_INV. The next patch will use this to
-avoid range invalidation pre-calculations unless the range commands will
-be used.
+Each of these have their own unique situation, populate the tlbi right at
+the top and pass it into arm_smmu_domain_inv_range(). They will diverge
+further when the iommupt invalidation scheme is introduced.
 
 Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
 Reviewed-by: Pranjal Shrivastava <praan@google.com>
 Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+Tested-by: Pranjal Shrivastava <praan@google.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 38 +++++++++++--------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 19 ++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  5 +++
- 3 files changed, 42 insertions(+), 20 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   | 21 ++++---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 60 +++++++++++--------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 15 +++--
+ 3 files changed, 57 insertions(+), 39 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index e52a7d95c919dc..5a4e45e1512589 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -24,7 +24,9 @@ struct arm_smmu_test_writer {
- static struct arm_smmu_ste bypass_ste;
- static struct arm_smmu_ste abort_ste;
- static struct arm_smmu_device smmu = {
--	.features = ARM_SMMU_FEAT_STALLS | ARM_SMMU_FEAT_ATTR_TYPES_OVR
-+	.features = ARM_SMMU_FEAT_STALLS | ARM_SMMU_FEAT_ATTR_TYPES_OVR |
-+		    ARM_SMMU_FEAT_RANGE_INV,
-+	.options = ARM_SMMU_OPT_FULL_CONT_RANGE_INV,
- };
- static struct mm_struct sva_mm = {
- 	.pgd = (void *)0xdaedbeefdeadbeefULL,
-@@ -645,6 +647,8 @@ static void arm_smmu_v3_invs_test_verify(struct kunit *test,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 2f76f649dcf1a5..faeec656da9e7f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -140,16 +140,19 @@ static void arm_smmu_mm_arch_invalidate_secondary_tlbs(struct mmu_notifier *mn,
  {
- 	KUNIT_ASSERT_EQ(test, invs->num_invs, num_invs);
- 	KUNIT_EXPECT_EQ(test, invs->num_trashes, num_trashes);
-+	KUNIT_EXPECT_TRUE(test, invs->has_range_inv);
-+	KUNIT_EXPECT_TRUE(test, invs->has_full_cont_range_inv);
- 	while (num_invs--) {
- 		KUNIT_EXPECT_EQ(test, invs->inv[num_invs].id, ids[num_invs]);
- 		KUNIT_EXPECT_EQ(test, READ_ONCE(invs->inv[num_invs].users),
-@@ -656,41 +660,41 @@ static void arm_smmu_v3_invs_test_verify(struct kunit *test,
- static struct arm_smmu_invs invs1 = {
- 	.max_invs = 3,
- 	.num_invs = 3,
--	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, },
--		 { .type = INV_TYPE_S2_VMID_S1_CLEAR, .id = 1, },
--		 { .type = INV_TYPE_ATS, .id = 3, }, },
-+	.inv = { { .smmu = &smmu, .type = INV_TYPE_S2_VMID, .id = 1, },
-+		 { .smmu = &smmu, .type = INV_TYPE_S2_VMID_S1_CLEAR, .id = 1, },
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 3, }, },
- };
+ 	struct arm_smmu_domain *smmu_domain =
+ 		container_of(mn, struct arm_smmu_domain, mmu_notifier);
+-	size_t size;
++	struct arm_smmu_tlbi tlbi = {
++		.tgsz_lg2 = smmu_domain->tgsz_lg2,
++		.iova = start,
++		/*
++		 * The mm_types defines vm_end as the first byte after the end
++		 * address, different from IOMMU subsystem using the last
++		 * address of an address range.
++		 */
++		.size = end - start,
++		.iopte_size = PAGE_SIZE,
++	};
  
- static struct arm_smmu_invs invs2 = {
- 	.max_invs = 3,
- 	.num_invs = 3,
--	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
--		 { .type = INV_TYPE_ATS, .id = 4, },
--		 { .type = INV_TYPE_ATS, .id = 5, }, },
-+	.inv = { { .smmu = &smmu, .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 4, },
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 5, }, },
- };
- 
- static struct arm_smmu_invs invs3 = {
- 	.max_invs = 3,
- 	.num_invs = 3,
--	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
--		 { .type = INV_TYPE_ATS, .id = 5, }, /* recover a trash */
--		 { .type = INV_TYPE_ATS, .id = 6, }, },
-+	.inv = { { .smmu = &smmu, .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 5, }, /* recover a trash */
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 6, }, },
- };
- 
- static struct arm_smmu_invs invs4 = {
- 	.max_invs = 3,
- 	.num_invs = 3,
--	.inv = { { .type = INV_TYPE_ATS, .id = 10, .ssid = 1 },
--		 { .type = INV_TYPE_ATS, .id = 10, .ssid = 3 },
--		 { .type = INV_TYPE_ATS, .id = 12, .ssid = 1 }, },
-+	.inv = { { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 10, .ssid = 1 },
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 10, .ssid = 3 },
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 12, .ssid = 1 }, },
- };
- 
- static struct arm_smmu_invs invs5 = {
- 	.max_invs = 3,
- 	.num_invs = 3,
--	.inv = { { .type = INV_TYPE_ATS, .id = 10, .ssid = 2 },
--		 { .type = INV_TYPE_ATS, .id = 10, .ssid = 3 }, /* duplicate */
--		 { .type = INV_TYPE_ATS, .id = 12, .ssid = 2 }, },
-+	.inv = { { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 10, .ssid = 2 },
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 10, .ssid = 3 }, /* duplicate */
-+		 { .smmu = &smmu, .type = INV_TYPE_ATS, .id = 12, .ssid = 2 }, },
- };
- 
- static void arm_smmu_v3_invs_test(struct kunit *test)
-@@ -711,6 +715,8 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	test_a = arm_smmu_invs_alloc(0);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
- 	KUNIT_EXPECT_EQ(test, test_a->num_invs, 0);
-+	KUNIT_EXPECT_FALSE(test, test_a->has_range_inv);
-+	KUNIT_EXPECT_FALSE(test, test_a->has_full_cont_range_inv);
- 
- 	/* Test1: merge invs1 (new array) */
- 	test_b = arm_smmu_invs_merge(test_a, &invs1);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 777ec0e8cb0735..7a5f4b54f3066f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1059,6 +1059,19 @@ static inline int arm_smmu_invs_iter_next_cmp(struct arm_smmu_invs *invs_l,
- 	return arm_smmu_inv_cmp(cur_l, &invs_r->inv[next_r]);
+-	/*
+-	 * The mm_types defines vm_end as the first byte after the end address,
+-	 * different from IOMMU subsystem using the last address of an address
+-	 * range. So do a simple translation here by calculating size correctly.
+-	 */
+-	size = end - start;
+-
+-	arm_smmu_domain_inv_range(smmu_domain, start, size, PAGE_SIZE, false);
++	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
  }
  
-+static void arm_smmu_invs_update_caps(struct arm_smmu_invs *invs,
-+				      const struct arm_smmu_inv *inv)
-+{
-+	if (arm_smmu_inv_is_ats(inv))
-+		invs->has_ats = true;
-+
-+	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-+		invs->has_range_inv = true;
-+		if (inv->smmu->options & ARM_SMMU_OPT_FULL_CONT_RANGE_INV)
-+			invs->has_full_cont_range_inv = true;
-+	}
-+}
-+
- /**
-  * arm_smmu_invs_for_each_cmp - Iterate over two sorted arrays computing for
-  *                              arm_smmu_invs_merge() or arm_smmu_invs_unref()
-@@ -1129,8 +1142,7 @@ struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
- 		 */
- 		if (new != new_invs->inv)
- 			WARN_ON_ONCE(arm_smmu_inv_cmp(new - 1, new) == 1);
--		if (arm_smmu_inv_is_ats(new))
--			new_invs->has_ats = true;
-+		arm_smmu_invs_update_caps(new_invs, new);
- 		new++;
+ static void arm_smmu_mm_release(struct mmu_notifier *mn, struct mm_struct *mm)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 26490d11767266..9724c58d2194d0 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2823,25 +2823,19 @@ static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
+ 	}
+ }
+ 
+-void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+-			       unsigned long iova, size_t size,
+-			       unsigned int granule, bool leaf)
++/*
++ * Perform the invalidation with the parameters described by tlbi on everything
++ * caching for smmu_domain. tlbi is an on-stack structure that contains both the
++ * input description and working memory for this function it must be discarded
++ * after this returns.
++ */
++void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi,
++			  struct arm_smmu_domain *smmu_domain)
+ {
+-	struct arm_smmu_tlbi tlbi = {
+-		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+-		.iova = iova,
+-		.size = size,
+-		.iopte_size = granule,
+-		.leaf_only = leaf,
+-	};
+ 	struct arm_smmu_invs *invs;
+ 
+-	if (!size || size == SIZE_MAX) {
+-		tlbi.single.use_full_inv = true;
+-		tlbi.range.use_full_inv = true;
+-	} else {
+-		arm_smmu_tlbi_calc_single(&tlbi);
+-	}
++	if (!tlbi->single.use_full_inv)
++		arm_smmu_tlbi_calc_single(tlbi);
+ 
+ 	/*
+ 	 * An invalidation request must follow some IOPTE change and then load
+@@ -2860,7 +2854,7 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+ 	 *
+ 	 *  [CPU0]                        | [CPU1]
+ 	 *  change IOPTE on new domain:   |
+-	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_new_domain_invs()
++	 *  arm_smmu_domain_tlbi() {      | arm_smmu_install_new_domain_invs()
+ 	 *    smp_mb(); // ensures IOPTE  | arm_smmu_install_ste_for_dev {
+ 	 *              // seen by SMMU   |   dma_wmb(); // ensures invs update
+ 	 *    // load the updated invs    |              // before updating STE
+@@ -2879,9 +2873,9 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+ 	 * invalidated.
+ 	 */
+ 	if (invs->has_range_inv) {
+-		if (!tlbi.range.use_full_inv) {
++		if (!tlbi->range.use_full_inv) {
+ 			arm_smmu_tlbi_calc_range(
+-				&tlbi,
++				tlbi,
+ 				smmu_domain->stage == ARM_SMMU_DOMAIN_SVA &&
+ 					invs->has_full_cont_range_inv);
+ 		}
+@@ -2895,10 +2889,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+ 		unsigned long flags;
+ 
+ 		read_lock_irqsave(&invs->rwlock, flags);
+-		arm_smmu_domain_tlbi_inv(&tlbi, invs);
++		arm_smmu_domain_tlbi_inv(tlbi, invs);
+ 		read_unlock_irqrestore(&invs->rwlock, flags);
+ 	} else {
+-		arm_smmu_domain_tlbi_inv(&tlbi, invs);
++		arm_smmu_domain_tlbi_inv(tlbi, invs);
  	}
  
-@@ -1240,8 +1252,7 @@ struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs)
+ 	rcu_read_unlock();
+@@ -2914,12 +2908,23 @@ static void arm_smmu_tlb_inv_page_nosync(struct iommu_iotlb_gather *gather,
+ 	iommu_iotlb_gather_add_page(domain, gather, iova, granule);
+ }
  
- 	arm_smmu_invs_for_each_entry(invs, i, inv) {
- 		new_invs->inv[num_invs] = *inv;
--		if (arm_smmu_inv_is_ats(inv))
--			new_invs->has_ats = true;
-+		arm_smmu_invs_update_caps(new_invs, inv);
- 		num_invs++;
- 	}
++/*
++ * Called by io-pgtable-arm.c for each single table level it wants to remove.
++ * size is the size of the table level and granule is the tg in bytes. This must
++ * clear the walk cache and any leaves within the range.
++ */
+ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
+ 				  size_t granule, void *cookie)
+ {
+ 	struct arm_smmu_domain *smmu_domain = cookie;
++	struct arm_smmu_tlbi tlbi = {
++		.tgsz_lg2 = smmu_domain->tgsz_lg2,
++		.iova = iova,
++		.size = size,
++		.iopte_size = 1 << smmu_domain->tgsz_lg2,
++	};
  
+-	arm_smmu_domain_inv_range(smmu_domain, iova, size, granule, false);
++	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
+ 
+ static const struct iommu_flush_ops arm_smmu_flush_ops = {
+@@ -4192,13 +4197,18 @@ static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
+ 				struct iommu_iotlb_gather *gather)
+ {
+ 	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
++	struct arm_smmu_tlbi tlbi = {
++		.tgsz_lg2 = smmu_domain->tgsz_lg2,
++		.iova = gather->start,
++		.size = gather->end - gather->start + 1,
++		.iopte_size = gather->pgsize,
++		.leaf_only = true,
++	};
+ 
+ 	if (!gather->pgsize)
+ 		return;
+ 
+-	arm_smmu_domain_inv_range(smmu_domain, gather->start,
+-				  gather->end - gather->start + 1,
+-				  gather->pgsize, true);
++	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
+ 
+ static phys_addr_t
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d2dc787349e01c..8b71e6cc19f29d 100644
+index bc520698863e57..8e205ddd6bf67c 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -763,6 +763,9 @@ static inline bool arm_smmu_inv_is_ats(const struct arm_smmu_inv *inv)
-  *               Must not be greater than @num_invs
-  * @rwlock: optional rwlock to fence ATS operations
-  * @has_ats: flag if the array contains an INV_TYPE_ATS or INV_TYPE_ATS_FULL
-+ * @has_range_inv: flag if any entry's SMMU supports range invalidation
-+ * @has_full_cont_range_inv: flag if any entry's SMMU requires the CONT range
-+ *                           invalidation workaround
-  * @rcu: rcu head for kfree_rcu()
-  * @inv: flexible invalidation array
-  *
-@@ -792,6 +795,8 @@ struct arm_smmu_invs {
- 	size_t num_trashes;
- 	rwlock_t rwlock;
- 	bool has_ats;
-+	bool has_range_inv;
-+	bool has_full_cont_range_inv;
- 	struct rcu_head rcu;
- 	struct arm_smmu_inv inv[] __counted_by(max_invs);
- };
+@@ -1204,14 +1204,19 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
+ 		       struct arm_smmu_domain *smmu_domain, ioasid_t pasid,
+ 		       struct arm_smmu_cd *cd, struct iommu_domain *old);
+ 
+-void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+-			       unsigned long iova, size_t size,
+-			       unsigned int granule, bool leaf);
++void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi,
++			  struct arm_smmu_domain *smmu_domain);
+ 
+ static inline void arm_smmu_domain_inv(struct arm_smmu_domain *smmu_domain)
+ {
+-	arm_smmu_domain_inv_range(smmu_domain, 0, 0, 1 << smmu_domain->tgsz_lg2,
+-				  false);
++	/* Prefilled for invalidate all */
++	struct arm_smmu_tlbi tlbi = {
++		.tgsz_lg2 = smmu_domain->tgsz_lg2,
++		.single.use_full_inv = true,
++		.range.use_full_inv = true,
++	};
++
++	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
+ 
+ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
 -- 
 2.43.0
 
