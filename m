@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C4CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9536CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cezTBuZnRU09BC5t/TXbbnr/2mOgRJXIrT1bA9nKYfk=; b=bMdTMHwhRtOEL6ZPEEudG/W4aw
-	nAgT5EARW/AExentwusbNnjxM4T0ETZMw2d33VbIVn/vFt80aW9WCPf1oENrcGe+as+skKe8qT9h6
-	S43Lk/N3t6s/NKmmWo5c6N2zSQThkSZq+Ygx+aTnWPQR37ljn0lsXTCNohMpwXDAYMuzNY4Sn6IQB
-	bXxHBSjon6Ve3r8tNw3KosoUMFPL3g2aBgzLS+SwjqbMTRBODDBeENt4HYQTvi/uWnH8G7n3vyPbr
-	rSuFS5MKhuV7kHqkhIdhV9qMTjJ9fR6ZQwGOAd71ZOPJ5gJ2PkfJAdpc/TIBcQaPakZNqxpyH0AP7
-	Xzin1FQw==;
+	bh=KZyZDLnfwvO5kk2IUmjVxda6yTo4+rC+T/RbkzEatd0=; b=k4fszLFHp0eVLaZ/f4DbCNSR2R
+	AbRDJSNsZlMYFPD2DKppi5uelDRoq7jYjKI5NfUmxNxcP2F7AABxfvREvWAaB7Dlys+2DqA67H/G8
+	spjhVsSX41E0F0GjIxb6FYzNluN/txwmCVb/fjnJ1nX4x9AVeC7lUOX8vInzr3mmPJM2jP+eU2t5q
+	ZVNEItgCXfFmiHZzj4KuEC2NvgkeFzyn0AqAuTf/KzeVZf9OT9x50VHbu380NN8pM4rx1laQaW9LD
+	IeWScRDHj8QXTM7Ibqqu09lVC6ddJk+w37MYUAOm/W9r2KJ4Nxrpu/rr7cFLZvJNP+hQtqQMDvcFg
+	y6wk5jVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1n1-0000000Dhoy-2njk;
-	Sat, 03 Oct 2026 15:36:43 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xD1t1-0000000DiFQ-0Gc8;
+	Sat, 03 Oct 2026 15:42:55 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1mt-0000000Dho5-3bxV;
-	Sat, 03 Oct 2026 15:36:41 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W;
-	Sat,  3 Oct 2026 15:36:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1791041788;
-	bh=cezTBuZnRU09BC5t/TXbbnr/2mOgRJXIrT1bA9nKYfk=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=iyRdI8uvT1VnyJT6tqgggenZI6nITXILkxQtf0XryX352UU+lQidWIGBUPATnmApl
-	 NqErh1NgfRSaacsdX3dVtsHcj+ObkGldlks/K3Pp/ACh4wuzlI3nw9I71uwYTuobcz
-	 MAqgn33qV3D/4uufZns8VtPAgjSZZJfnfsm8yK1Y=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56~bDwQpLxK00845508455eucas1p1j;
-	Sat,  3 Oct 2026 15:36:27 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261003153625eusmtip1ba5f07ce91f2ac9a6e0ffa2ce26ac1cb~bDwPATbZ22801128011eusmtip1E;
-	Sat,  3 Oct 2026 15:36:25 +0000 (GMT)
-Message-ID: <eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
-Date: Sat, 3 Oct 2026 17:36:25 +0200
+	id 1xD1sw-0000000DiEn-3sYg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Oct 2026 15:42:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 253204E41134;
+	Sat,  3 Oct 2026 15:42:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E9F80604FF;
+	Sat,  3 Oct 2026 15:42:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 229461032827F;
+	Sat,  3 Oct 2026 17:42:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791042160; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=KZyZDLnfwvO5kk2IUmjVxda6yTo4+rC+T/RbkzEatd0=;
+	b=DDgjgpqyyVsAVzp23/SzSFOH8X0fG8JmMnd5s1lBmutM+/7B1C/A2n55Hb7Geb4mo1XCxq
+	guOW1s0Q/AAeEJ0Vj1T2pzPBbzUIjSudnyJ1/Me+nr6zHQQD8QpsetCImQRsEwHkl8DKks
+	su1EDRuvWdzQ/JjGGvx3srUsZ0OIrYspT7Jo4y/APJNohhSPgRDLgMTzC28dcslznvd4nC
+	zCufdMUGo7/io0D0nmnDoyY1MyTtu2jhUG94u0/DAl1F65YqIdos0wMFY3lDqqRGfpkRFt
+	sB70zarHOyPnGN9bYw5v2UEIpKvf1s1yTBoSJM74vI81MQMSmUb8CngGrzeCig==
+Message-ID: <54177bb2-9fd4-4639-959a-2126f4ab4b04@bootlin.com>
+Date: Sat, 3 Oct 2026 17:42:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH net v6 3/5] net: stmmac: Rename double VLAN references to
+ svlan
+To: netdev-bot+sashiko@kernel.org, ovidiu.panait.rb@renesas.com
+Cc: recv.jo@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ joabreu@synopsys.com, jun.ann.lai@intel.com, yi.fang.gan@intel.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260928203441.34876-4-ovidiu.panait.rb@renesas.com>
+ <179093026338.434549.16397575185437884627@kernel.org>
 Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
-	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
-	<20260917-mutant-chamois-of-competence-46ca77@quoll>
-	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
-	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <179093026338.434549.16397575185437884627@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_083636_492016_546DE4F3 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20261003_084251_659202_359D36C8 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,101 +85,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/30/26 13:01, Krzysztof Kozlowski wrote:
-> On 25/09/2026 23:05, Michal Wilczynski wrote:
->>>> +  clocks:
->>>> +    maxItems: 1
->>>> +    description: Reference oscillator.
->>>
->>> This barely counts as a resource, so usual question: no resources here?
->>> no MMIO? Even the user of this phy is the block itself.
->>>
->>> This makes me wonder if this should be a device node in the first place
->>> (instead folded into the parent).
->>
->> The PHY has no reg because the reg is shared with the controller and
->> owned by the parent - patch 9 lets the bridge take its regmap from
->> there.
->>
->> The user of the PHY is not only the block itself. It is the pixel clock
->> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
->> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
->> it is the only intended source for that clock. The parent has to be
->> assigned explicitly so the general PLL does not end up driving the pixel
->> clock, and so a DSI user does not reach the HDMI PHY clock generator.
->>
->> So it has to be its own node. The HDMI block has two independent
+On 10/2/26 10:37, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
 > 
-> I do not see the logic which lead to this conclusion. Pixel clock
-> provider, so a clock controller, cannot be a user of a phy. Clock
-> controller does not have a physical layer.
+> Low priority / nit picks for your consideration:
+> 
+> - [Low] The self-test renamed to "SVLAN Filtering (perf)"
+>   (stmmac_test_svlanfilt_perfect), and likewise…
 
-Sorry I think the wording was not perfect. I meant the PHY node is a
-pixel clock provider. voutcrg consumes a clock not a PHY.
-
-voutcrg: clock-controller@295c0000 {
-         clocks = <&syscrg ...>, <&hdmi_phy>;
-         clock-names = ...,"hdmitx0_pixelclk";
-};
-
-The consumer of the PHY is only the hdmi controller.
-
-What matters for the node layout is where that clock goes. voutcrg is the
-SoC display clock controller - it is not part of the HDMI block:
-
-hdmi_phy -- pixel clock -> voutcrg
-                              |
-                              - pclk/mclk/bclk -> hdmi_controller
-                              - pix0/pix1 -> dc8200
-
-hdmi_phy and hdmi_controller are the same register block with one reg
-owned by the parent. So if that block is described as a single node:
-
-hdmi_node - pixel clock -> voutcrg
-     ^                          |
-     --- pclk/mclk/bclk --------
-
-the node provides a clock to voutcrg and consumes three clocks from
-voutcrg. That is a cycle in the device tree description.
-
-Split in two there is no cycle: the PHY's only input is xin24m - the 24 MHz
-oscillator which gives a linear order - hdmi_phy, voutcrg, hdmi_controller.
+[...]
 
 > 
-> And really, I have no clue what hdmitx0_pixelclk and voutcrg are. I
-> could probably study the patches a lot to figure that out, but my review
-> queue has still 200 more, so I'll skip.
-> 
-> But nevertheless assigning clock parent of HDMI clock to PHY is
-> standard, most of the platforms have it, thus it is not a justification
-> for odd design.
+> This patch renames the test but keeps it in this state, and the
+> remaining patches in the series do not touch the selftests. Should
+> these two "(perf)" tests be reworked or dropped?
 
-Agreed and that is what this is - I followed RK3328, which uses the same
-Innosilicon IP and also describes it as two nodes:
+FWIW I'm ok with dropping the test. It's still in the history, and
+if anyone is interested in bringing the VLAN perfect filter one day,
+they can bring the tests back too.
 
-hdmi:    hdmi@ff3c0000   clocks = <&cru PCLK_HDMI>, ...
-hdmiphy: phy@ff430000    clocks = <&cru PCLK_HDMIPHY>, <&xin24m>,
-                                  <&cru DCLK_HDMIPHY>
-                         clock-output-names = "hdmi_phy";
-                         #clock-cells = <0>;
-                         #phy-cells = <0>;
+Maxime
 
-The only difference is reg: RK3328 has two register ranges, the JH7110 has
-one, so the parent owns it and the children have none.
-
-> 
->> functions with different clock inputs and one of them feeds back into
->> the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
->> consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
->> into one node that node is both a provider to and a consumer of
->> voutcrg which is a cycle in the hardware description, not just in Linux.
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
 
