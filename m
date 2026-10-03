@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B20CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CA4CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BR3sE4c9XWone9rFuR5bM48qhAQYLIPPfD75FeLODH4=; b=wxR8aYs/LgJQAAZSaRg1LeBHQh
-	O0ImKt5wgrkCtU8ApxpRy5hWVWiyljJ5SyOdPWekkZ4fZga3Kyg6DErIlnaMlPb2mkfKyXOxehoCg
-	LzGyRlIg8r56ygevQKTzP3pbbUyNRKVJuKofsldrVDvmkt22fgLw3LEuAmhJyU72uWyBhBhwbFIV7
-	vEuk9nqyjYFChcDb/WZEi/qOubhVQ8F3yUoDJibQ0YM2kLLRcA7sz3HK/WvWCXkQfrT7+OzCOgsxk
-	wZHCpQ4BWZq8EPTDGqj0Ymhi9NpCX3NhrQiljQ1tEpXNgOrPSHtDXHToQWMRPhQqVR5abGX+Vb35I
-	ZkqaLsUQ==;
+	bh=wLr4Gthn8kmw75l6iaGG4y5Zxf+aPQGpnPskN0Vov/c=; b=q9vCiSQGBWCxrc3Ue0I/miWy/o
+	0w0wnFH8hD51iANAeabTevYNzkbxU1fmk409RYBWY6qFeQXzZUTY6+82/6M2K1z1TtAwZVrp9V0af
+	6sFMb2se7XyWfCsEP3PxFOiO2LppjeM/3QG/obRsZuNtqejffOF8AQAbUkQ6reu9HwW+SCko6w7lj
+	7hzXtMO12jINPkCV5i6H1uy/FMNbWWouDk9r0X4rMXRXWheae4RwTvxROiP3StKeQc68ERTUXHWVY
+	p6/zp0sMsLyatUz4cOhfoYe6kZ7vjqqYkLjWzjIq3zEUPevp5Ahq57HJN7HMVa9CxVNJjZh24CfZ5
+	9bVnQLBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0V3-0000000DaIW-1T0H;
-	Sat, 03 Oct 2026 14:14:05 +0000
+	id 1xD0W6-0000000DaQi-2PdB;
+	Sat, 03 Oct 2026 14:15:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0V1-0000000DaIN-1HVZ
+	id 1xD0W4-0000000DaQW-1X1t
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 14:14:03 +0000
+	Sat, 03 Oct 2026 14:15:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A39060D82;
-	Sat,  3 Oct 2026 14:14:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0EDE1F0089B;
-	Sat,  3 Oct 2026 14:13:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CA60260D82;
+	Sat,  3 Oct 2026 14:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E9B91F0089B;
+	Sat,  3 Oct 2026 14:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791036842;
-	bh=BR3sE4c9XWone9rFuR5bM48qhAQYLIPPfD75FeLODH4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ED9jen6ypnY26FixKFJauvFjGbm7n9ZpIidlX5JkkUrYooB3AL9PphzLh5kytctd5
-	 M4AQkx/B24s+cvjOp1UXl1KAg0COo/nsG3QBpuTdDQ49jmM768dfqd4lhgLhLHN4Y9
-	 Gp/HKYmjNvUX50nM94tSf91WMZtwdAG2ldPNREuhVjKD4k3jznIZp6vvT8/JTOYXMR
-	 kAFASNzA+3FOkQ7IK0XkeVc7QWcKYxIZNeHQG4RZlsufWfrm6ZGF3MQjPew00egcOw
-	 FFdCS4vsLh9CTAd3hV2OsjSnhV13UurVF1qNQzBIeVm6DlVCSglTDV6uUaRcuaG+Zk
-	 2ESfEuovtsUMQ==
-Message-ID: <4d421941-4508-49f2-a1dc-a9f27d075982@kernel.org>
-Date: Sat, 3 Oct 2026 16:13:57 +0200
+	s=k20260515; t=1791036907;
+	bh=wLr4Gthn8kmw75l6iaGG4y5Zxf+aPQGpnPskN0Vov/c=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=jNZoUpeYFSVKW7N7mP5VUgrYrtxq1oK3TZuXj7mdXSLbypzdS/6M2FKZtD87r3lA6
+	 myrpLgZzf5EpslRsdD+lOd3nqZN2ryKRfuaTS+2gER2tsbf3vtWq8nbNdXLSeZV5ng
+	 BCHB4xTa6PvCSk66cBdFTvfXNY8SO6S/0lqQW+GHYlomHN2oXz4KuhOvhsevqTOATx
+	 MpiNzGr2pP5sM0jiK9BDH2rqkV972yHJmxgiCvt3vL0L3IeDoS3MzZzvqbu+1EHgkZ
+	 8MtjHv8BZ+e3aCSZFQ0uKigOArxhJ27dilFq2y06vMMA9DEiuIq642ADLfWqRkf3NP
+	 k4uNNNI5zUYjg==
+Message-ID: <45fbf350-9d75-4f44-927b-d37d7e4c3cd1@kernel.org>
+Date: Sat, 3 Oct 2026 16:15:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v7 6/6] arm64: dts: exynos850: add PMU interrupt
  generation node
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Peter Griffin <peter.griffin@linaro.org>,
  Alexey Klimov <alexey.klimov@linaro.org>
 Cc: Sam Protsenko <semen.protsenko@linaro.org>,
@@ -60,7 +61,7 @@ Cc: Sam Protsenko <semen.protsenko@linaro.org>,
 References: <20260930-exynos850-cpuhotplug-v7-0-203245826333@linaro.org>
  <20260930-exynos850-cpuhotplug-v7-6-203245826333@linaro.org>
  <CADrjBPrm0o5scen0vk2ZiCzGW6kdTWsciPvA9K7JW_yb+Mp8PA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <4d421941-4508-49f2-a1dc-a9f27d075982@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -105,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADrjBPrm0o5scen0vk2ZiCzGW6kdTWsciPvA9K7JW_yb+Mp8PA@mail.gmail.com>
+In-Reply-To: <4d421941-4508-49f2-a1dc-a9f27d075982@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,20 +123,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/10/2026 14:41, Peter Griffin wrote:
+On 03/10/2026 16:13, Krzysztof Kozlowski wrote:
+> On 02/10/2026 14:41, Peter Griffin wrote:
+>>>
+>>> +               pmu_intr_gen: syscon@11870000 {
+>>> +                       compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
+>>> +                       reg = <0x11870000 0x10000>;
+>>> +               };
+>>> +
 >>
->> +               pmu_intr_gen: syscon@11870000 {
->> +                       compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
->> +                       reg = <0x11870000 0x10000>;
->> +               };
->> +
+>> Since you are now creating your own custom regmap in exynos-pmu you
+>> should drop the syscon compatible here. That should avoid syscon.c
+>> ever creating an MMIO regmap (with the wrong spinlock). I've copied
+>> some of the commit text from my commit
 > 
-> Since you are now creating your own custom regmap in exynos-pmu you
-> should drop the syscon compatible here. That should avoid syscon.c
-> ever creating an MMIO regmap (with the wrong spinlock). I've copied
-> some of the commit text from my commit
+> Yes, there should be no syscon fallback.
 
-Yes, there should be no syscon fallback.
+... although not here, but for existing PMU node.
 
 Best regards,
 Krzysztof
