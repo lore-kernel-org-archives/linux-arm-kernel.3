@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40957CA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F938CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aD28cj3L4bP16bv1SX5AbEY1u/TeDOJmTI3lqvzpdB0=; b=HCBqYKzJzV8+fMKX+vZIlU8El5
-	6593SpFs2Xse6Hhk+u/RFRaiDw1uYgUF1F0qSXRgrw5uL0vOlzWFNuqLsVV80+N2bVvEvhjJz/Hbm
-	N0G3wfgaw5Gi5zCViMuO8ehT2/XAU83ikLDFZ9Ex6ydy94VEFs1TQk2XNq49m3blz7V5IgIXEGZZR
-	qj0Cf7qO3dhE1Jz99g20AzhqUzOwDNZGBYu0QJvU5OtZqTEAGVer2fvog2EuaHayXyavsgNE2tYC+
-	cBRTmeCejkDWmMsVtxEB18xdKW5bu0Pi4fmnf+xjSHQh1Vrd9+H+4O7VKs/acAqAtOdT0sm0obybu
-	tDPrs4wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tSUhjkfC0Q2//h6dWhCqwgi4jeXYnkhNBRpnLdYChkc=; b=VqEHk/L7iQ9QOwa7E/eqZuKjbA
+	GvLJOlH9zlCzKVJbemfudf8fjV45IRrvai7tKWFbXOUT5fM8cjK1l4oBbwJALb6VKfpHAM1+QS11I
+	Pm8RyzqphBOO54CWcTnBQI4y8w/gLmavPVkXfFFdJWcFCNUaNaIoogbF8c0Ov8RCsquwgzmrJPtF/
+	INKMjORVLatOZXs9HAiDg5n3gRSwTVqIhMBcJV/w+5BIXCZPS1OXesnVEt7pUN0KhhvIWMTwmmsUA
+	U89tTQUYxBjRzW7Z1+8zYOjrTnzII5LzYmpRH4dBId2n74h3iF7InVYvBfzgSzkWIM4VZQeUdtJJn
+	QQoRL9DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5vk-0000000Dz6h-0VLc;
-	Sat, 03 Oct 2026 20:02:02 +0000
-Received: from mail.nozomi.space ([139.162.184.125])
+	id 1xD6WB-0000000E1CT-48kK;
+	Sat, 03 Oct 2026 20:39:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5vO-0000000DyyO-2i9j;
-	Sat, 03 Oct 2026 20:01:43 +0000
-From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791057696;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aD28cj3L4bP16bv1SX5AbEY1u/TeDOJmTI3lqvzpdB0=;
-	b=zgkxqL8pm7Y0xGAGOr4pq7/MAekzWZvjKJUmlQTrCA1jtbY2tB6voTZaoLojnKt9Ort18a
-	O+j0hNRpC4aSSkWvaovUfvdyjQg8Gj1Cxo91SUbRrTcms7/h+MuHqHY0WxHHvYc35TnzSz
-	UtQi2Rd7SQZb0zfyKh3PKvP2cvgkHFMLr0djytusbHpm5VKIj0zmpzZAAforcHSaVx39mW
-	b52PsRR8ChhHgJESto11dTWQCqZ86tI2Sw4PRlh1Eniz7WY6jVU22ChrflwrSr6qSmPDqQ
-	ZTZwcHS1pi0ibRXLxgl/gXC6Y7/TVPfPmFwI4YUpG3cy6FANGFnYuLRFdSz69g==
-To: Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	=?UTF-8?q?Adri=C3=A1n=20Larumbe?= <adrian.larumbe@collabora.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+	id 1xD6WB-0000000E1CG-04pY;
+	Sat, 03 Oct 2026 20:39:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E6F2560120;
+	Sat,  3 Oct 2026 20:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5A7D1F0089B;
+	Sat,  3 Oct 2026 20:39:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791059977;
+	bh=tSUhjkfC0Q2//h6dWhCqwgi4jeXYnkhNBRpnLdYChkc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=noA68/7ksmbSP7UWWC0+zA5kZh994tu+Z+faRzxxNrfp0AT6nCJlGUpSNMXxx1fUP
+	 GRIbAYUlUrqClUoxTLdcx0TP8SVcfUtkH+sAaETa9Z8whx8gxSbLAjebarfJitsFJF
+	 7XHDuUURtnQGPfZYoHN2F8p+EXF5ACwpGpguq31uHjm3yolN7WBeTPNBs3Z2NS5TNV
+	 DwJksVsvtfbsS5ObA9cWGmuGLG1RKCry+TCfkDNBR7d57lxhkrKnD6yM4B8R33rsD1
+	 yN2OmBM2kE9RRGwbcMgGOMQzjVKgx3pCmUzyUuVqfypnWNqg8MMkoAz6dR3ba7HeVD
+	 zxLHpuf9ort0A==
+Date: Sat, 3 Oct 2026 22:39:34 +0200
+From: Vinod Koul <vkoul@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH 2/3] drm/panfrost: Enable the GPU timestamp counter on MT8188
-Date: Sat,  3 Oct 2026 22:01:31 +0200
-Message-ID: <20261003200132.866240-3-michal@nozomi.space>
-In-Reply-To: <20261003200132.866240-1-michal@nozomi.space>
-References: <20261003200132.866240-1-michal@nozomi.space>
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] phy: hdmi: Add optional FRL TxFFE config options
+Message-ID: <asFoBih6P7Cr6Ute@parshuram>
+References: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
+ <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_130139_750202_FBA018DD 
-X-CRM114-Status: GOOD (  19.43  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,128 +73,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MediaTek SoCs the GPU timestamp counter is fed by the SoC system timer
-only once the TOP_TSVALUEB enable bits are set in the MFGCFG block. The
-setting is lost whenever the GPU power domain is turned off.
+On 01-09-26, 22:55, Cristian Ciocaltea wrote:
+> During HDMI 2.1 FRL link training, the source and sink can negotiate a
+> Transmitter Feed-Forward Equalization (TxFFE) level to improve the
+> signal quality.  Starting from zero, the source may increment the TxFFE
+> level up to a maximum agreed during the LTS3 stage if the sink keeps
+> reporting FLT failures.  TxFFE adjustment is optional and only attempted
+> when both the source and the connected sink support it.
+> 
+> Since the existing HDMI PHY configuration API covers the FRL rate/lane
+> selection only, provide the following fields to the frl sub-struct of
+> phy_configure_opts_hdmi:
+> 
+> * ffe_level: the TxFFE level to apply, only meaningful when
+>   set_ffe_level is set.
+> 
+> * set_ffe_level: a 1-bit flag that changes the semantics of the
+>   phy_configure() call, i.e. when set, the PHY driver must apply the new
+>   ffe_level and ignore the other frl related fields.
 
-Without it, GPU_TIMESTAMP reads zero, so the SYSTEM_TIMESTAMP query and
-timestamps written by jobs are always zero, which breaks timestamp
-queries in userspace drivers.
+The ffe_level 0 implies it is disabled, so why should we use a flag for
+this? Rather use if value valid (non zero) logic to apply..?
 
-Look up the MFGCFG block from the mediatek,mfgcfg phandle and set the
-bits from the vendor quirk hook, which runs on every power-up, as the
-downstream kbase driver does. Without the phandle nothing changes.
+> 
+> The flag-based approach reflects an important invariant in the link
+> training process: whenever the FRL rate or lane count changes, the TxFFE
+> level must be reset to zero.  A separate phy_configure() call with
+> set_ffe_level can only follow after the rate has been established,
+> making the two operations deliberately distinct.
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  include/linux/phy/phy-hdmi.h | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+> index d4cf4430ee8f..1d4b62475079 100644
+> --- a/include/linux/phy/phy-hdmi.h
+> +++ b/include/linux/phy/phy-hdmi.h
+> @@ -19,6 +19,10 @@ enum phy_hdmi_mode {
+>   * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
+>   * @frl.rate_per_lane: HDMI FRL Rate per Lane in Gbps.
+>   * @frl.lanes: HDMI FRL lanes count.
+> + * @frl.ffe_level: Transmitter Feed Forward Equalizer Level.
+> + *	Optional, only meaningful when set_ffe_level flag is on.
+> + * @frl.set_ffe_level: Flag indicating whether or not to reconfigure ffe_level.
+> + *	All the other struct fields must be ignored when this is used.
+>   *
+>   * This structure is used to represent the configuration state of a HDMI phy.
+>   */
+> @@ -29,6 +33,8 @@ struct phy_configure_opts_hdmi {
+>  		struct {
+>  			u8 rate_per_lane;
+>  			u8 lanes;
+> +			u8 ffe_level;
+> +			u8 set_ffe_level : 1;
+>  		} frl;
+>  	};
+>  };
+> 
+> -- 
+> 2.55.0
 
-Signed-off-by: Michał Kopeć <michal@nozomi.space>
----
- drivers/gpu/drm/panfrost/panfrost_device.h |  1 +
- drivers/gpu/drm/panfrost/panfrost_drv.c    |  1 +
- drivers/gpu/drm/panfrost/panfrost_gpu.c    | 39 ++++++++++++++++++++++
- drivers/gpu/drm/panfrost/panfrost_gpu.h    |  1 +
- 4 files changed, 42 insertions(+)
-
-diff --git a/drivers/gpu/drm/panfrost/panfrost_device.h b/drivers/gpu/drm/panfrost/panfrost_device.h
-index 1fe1554f2652b..0a73939a023c3 100644
---- a/drivers/gpu/drm/panfrost/panfrost_device.h
-+++ b/drivers/gpu/drm/panfrost/panfrost_device.h
-@@ -134,6 +134,7 @@ struct panfrost_device {
- 	int mmu_irq;
- 
- 	void __iomem *iomem;
-+	struct regmap *mtk_mfgcfg;
- 	struct clk *clock;
- 	struct clk *bus_clock;
- 	struct clk *bus_ace_clock;
-diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-index 70c05210ea846..e811652e2384d 100644
---- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-@@ -1133,6 +1133,7 @@ static const struct panfrost_compatible mediatek_mt8188_data = {
- 	.pm_domain_names = mediatek_pm_domains,
- 	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
- 	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
-+	.vendor_quirk = panfrost_gpu_mt8188_quirk,
- };
- 
- static const struct panfrost_compatible mediatek_mt8192_data = {
-diff --git a/drivers/gpu/drm/panfrost/panfrost_gpu.c b/drivers/gpu/drm/panfrost/panfrost_gpu.c
-index 29ac0dce5ff89..971abc9cc222c 100644
---- a/drivers/gpu/drm/panfrost/panfrost_gpu.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_gpu.c
-@@ -9,8 +9,11 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- 
- #include <drm/drm_print.h>
- 
-@@ -114,6 +117,40 @@ void panfrost_gpu_amlogic_quirk(struct panfrost_device *pfdev)
- 	gpu_write(pfdev, GPU_PWR_OVERRIDE1, 0xfff | (0x20 << 16));
- }
- 
-+#define MTK_MFG_TIMESTAMP			0x130
-+#define   MTK_MFG_TIMESTAMP_TOP_TSVALUEB_EN	0x3
-+
-+void panfrost_gpu_mt8188_quirk(struct panfrost_device *pfdev)
-+{
-+	/*
-+	 * The GPU timestamp counter only counts once MFGCFG routes the SoC
-+	 * system timer to it. The setting is lost whenever the GPU power
-+	 * domain is turned off, so it has to be restored on every power-up.
-+	 */
-+	if (pfdev->mtk_mfgcfg)
-+		regmap_write(pfdev->mtk_mfgcfg, MTK_MFG_TIMESTAMP,
-+			     MTK_MFG_TIMESTAMP_TOP_TSVALUEB_EN);
-+}
-+
-+static void panfrost_gpu_get_mtk_mfgcfg(struct panfrost_device *pfdev)
-+{
-+	struct device_node *np;
-+	struct regmap *regmap;
-+
-+	np = of_parse_phandle(pfdev->base.dev->of_node, "mediatek,mfgcfg", 0);
-+	if (!np)
-+		return;
-+
-+	regmap = device_node_to_regmap(np);
-+	of_node_put(np);
-+	if (IS_ERR(regmap)) {
-+		dev_warn(pfdev->base.dev, "failed to get MFGCFG: %pe\n", regmap);
-+		return;
-+	}
-+
-+	pfdev->mtk_mfgcfg = regmap;
-+}
-+
- static void panfrost_gpu_init_quirks(struct panfrost_device *pfdev)
- {
- 	u32 quirks = 0;
-@@ -519,6 +556,8 @@ int panfrost_gpu_init(struct panfrost_device *pfdev)
- {
- 	int err;
- 
-+	panfrost_gpu_get_mtk_mfgcfg(pfdev);
-+
- 	err = panfrost_gpu_soft_reset(pfdev);
- 	if (err)
- 		return err;
-diff --git a/drivers/gpu/drm/panfrost/panfrost_gpu.h b/drivers/gpu/drm/panfrost/panfrost_gpu.h
-index b4fef11211d5f..2b974576b96e9 100644
---- a/drivers/gpu/drm/panfrost/panfrost_gpu.h
-+++ b/drivers/gpu/drm/panfrost/panfrost_gpu.h
-@@ -23,5 +23,6 @@ unsigned long long panfrost_cycle_counter_read(struct panfrost_device *pfdev);
- unsigned long long panfrost_timestamp_read(struct panfrost_device *pfdev);
- 
- void panfrost_gpu_amlogic_quirk(struct panfrost_device *pfdev);
-+void panfrost_gpu_mt8188_quirk(struct panfrost_device *pfdev);
- 
- #endif
 -- 
-2.55.0
-
+~Vinod
 
