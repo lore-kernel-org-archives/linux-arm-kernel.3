@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AB6CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA28DCA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOtUI9LbZBFzrdoP5EONAONuH2mAdNCzMzef3tb6ksY=; b=XHMEklMCWsUbIzsAIolksx0Av8
-	ZDtoJhW1BQgIT81uSR76FWDUGsmbZEX3AWIGJMktIeisQ0EmbGjup//Bp7stnRYwGpqai8uIQBpD9
-	aIYhTq24p3vUL1eBgzocIGr1z5mjGDE/r3ATsJ2PShhi6QhgnDevYTuso2Di2FewvXxC2iqH4J+qZ
-	CywCUNXNl3AwJZzaQc9JR1/NMSNwhdzEpxd64cvjhLg4sD1Q4aBdrAXJ2jGJD2EgsB8AorVxsbGDO
-	ryvt82D3+lJW6AX6HObxfJgxRmkSspcFqoZtg/v0069Pk3/vHTJ8NgKgIGbCwoHFEzuziZCdUNpOs
-	m4eU0Kqw==;
+	bh=ElBWia5JS4/SUpc+pf3CM3tN4U00hfaycVh4BT6HqIY=; b=QVruLlfeGEXNjU70GybkkzyfaX
+	E2AODCP19U6ixIJsburOrzqjScPzengNaCrpCKHOzfpssD716K0gfFkZWpUDW6Etrw0PzS2EmeCd2
+	Je9i/5+nHCMm7/fCZAdwZa8dBqoqN+9CpJh0gFjwoCfnzbM5EofFw778XUN1HkL/Gi8sJXoaVOONO
+	OhOe3ctVPMqsFfhdpXv7aeqg42mBShRHDlwaRQELp5+XnhlGC2OfOdkM+0DGbqJrBETIvu8THKsXT
+	DUi/i3+jjY9NjLYh/4JgoZcZrF4KRupsnbtoTOAM8wA6iKus+2uQ2nZFQmmUXxv4AulOP+9oj3zOf
+	8aNEZHcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5fT-0000000DxMv-3hGP;
-	Sat, 03 Oct 2026 19:45:11 +0000
+	id 1xD5fW-0000000DxPm-0yh3;
+	Sat, 03 Oct 2026 19:45:14 +0000
 Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5fR-0000000DxJO-0Q4d;
-	Sat, 03 Oct 2026 19:45:10 +0000
+	id 1xD5fR-0000000DxJo-465I;
+	Sat, 03 Oct 2026 19:45:11 +0000
 From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791056707;
+	s=mail; t=1791056708;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OOtUI9LbZBFzrdoP5EONAONuH2mAdNCzMzef3tb6ksY=;
-	b=Di9FEuevjwnMXtJQ+wJfqyQgGT7k9Gx/vhwJSmdP6snCsq+wwh//x/6JjTyp+4qv5i8XTb
-	GVPv/fyHeVfYfKLGVwn1Axas2lJJ6YgJYqK9vUnAKtFjjKMGvPVcu4VNeey+CuIk05n2Xw
-	fn7i+JkN5jKyLL4QTpUHVIensvYgLR0ZlfQMNLTfPuRDuKqiI/d93KSgC2Y00Mq+sssPPq
-	pRj2YY9DSwAQXzm/XJzVjnXrED71GFfs4rO/RYdJhpkWlPF/E4r+pDJFAWmoI4e+uWiK8F
-	ViWvanb6auSZeaM2q/HBp1fBXet/58RP7+LnI8dOpCR2Cn3tRPAM8Luv3GDkOQ==
+	bh=ElBWia5JS4/SUpc+pf3CM3tN4U00hfaycVh4BT6HqIY=;
+	b=UgcKNCTOuCw8LJyD0onRpa/oupvCUmsEBzixnV3SGgApXsXwHN+dAmNE0kQyzBILLgedKV
+	23j+YH1hcAJS44e8b3yclgAFSgAdqibeLIH/jfbR66DovW5mStRf3QCpdtZzrGPXyiFV8v
+	5AtcGH6UOLfvxdWA+haU4uixLSGKKt5qv5QzbXIvdFyKyWPrEanXLCWiFlUj7061yEZks4
+	9aE0qR8eGbsmllBaLBEVx51MTBBJg7MZTxuq+pAlhfZHUWxZG9Far9LSlFl+y5GWvu6p3/
+	ogJ+iCoBWvk6hlqFjwhitbc1sUT8TWFJm1GUuPmNpJBQ4H9Zw+brtWkYLvx0yw==
 To: Mark Brown <broonie@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>
 Cc: Jaroslav Kysela <perex@perex.cz>,
@@ -54,17 +54,18 @@ Cc: Jaroslav Kysela <perex@perex.cz>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH 2/4] ASoC: mediatek: Don't keep a freed topology name in the static card
-Date: Sat,  3 Oct 2026 21:44:59 +0200
-Message-ID: <20261003194501.832558-3-michal@nozomi.space>
+Subject: [PATCH 3/4] ASoC: mediatek: mt8188: Constrain UL8 FE to its back end's capabilities
+Date: Sat,  3 Oct 2026 21:45:00 +0200
+Message-ID: <20261003194501.832558-4-michal@nozomi.space>
 In-Reply-To: <20261003194501.832558-1-michal@nozomi.space>
 References: <20261003194501.832558-1-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_124509_292309_18CD1F00 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20261003_124510_189829_41CA5FBF 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,92 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The machine drivers pass a static snd_soc_card, which outlives any one
-probe. With SOF, mtk_soundcard_common_probe() calls
-snd_soc_card_set_topology_name(), which devm-allocates "sof-<name>",
-stores it in card->topology_shortname and points card->name at it.
+UL8 advertises up to 24 channels, but its only back end, ETDM1_IN,
+supports at most 16, and its bit clock is limited to 24.576 MHz.
+Without merged constraints, userspace can open UL8 with 48 kHz, 24
+channels and 32-bit slots, which then fails in hw_params:
 
-If the probe then fails or defers, devm frees the string, but the static
-card keeps both pointers. The next probe does not allocate a new name,
-because topology_shortname is already set, so the card registers with
-whatever now occupies that memory:
+  mtk_dai_etdm_configure bck rate 36864000 not support
+  ASoC error (-22): at snd_soc_dai_hw_params() on ETDM1_IN
 
-  input: \xc0cr\xc2 DP Jack as /devices/platform/sound/sound/card0/input10
+Set dpcm_merged_chan/rate/format, as the DL front ends already do, so
+the FE only offers configurations the back end can accept.
 
-UCM matches profiles by card name, so userspace then finds no profile and
-the card is unusable until the next boot.
-
-Save the original name before setting the topology name, and restore it
-from a devm action that runs before the string is freed.
-
-Fixes: ec4489c43efe ("ASoC: soc-card: add snd_soc_card_set_topology_name()")
+Fixes: 96035d46d4b4 ("ASoC: mediatek: mt8188: add machine driver with mt6359")
 Signed-off-by: Michał Kopeć <michal@nozomi.space>
 ---
- .../mediatek/common/mtk-soundcard-driver.c    | 44 ++++++++++++++++++-
- 1 file changed, 43 insertions(+), 1 deletion(-)
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/sound/soc/mediatek/common/mtk-soundcard-driver.c b/sound/soc/mediatek/common/mtk-soundcard-driver.c
-index 4bb98412feb11..a84f4ab4488b7 100644
---- a/sound/soc/mediatek/common/mtk-soundcard-driver.c
-+++ b/sound/soc/mediatek/common/mtk-soundcard-driver.c
-@@ -185,6 +185,43 @@ const struct snd_soc_ops mtk_soundcard_common_capture_ops = {
- };
- EXPORT_SYMBOL_GPL(mtk_soundcard_common_capture_ops);
- 
-+struct mtk_soundcard_name {
-+	struct snd_soc_card *card;
-+	const char *name;
-+};
-+
-+static void mtk_soundcard_restore_name(void *data)
-+{
-+	struct mtk_soundcard_name *saved = data;
-+
-+	saved->card->name = saved->name;
-+	saved->card->topology_shortname = NULL;
-+}
-+
-+/*
-+ * The card is static and outlives this probe, but the topology name is
-+ * devm-allocated. Restore the original name when the probe's resources are
-+ * released, so that a deferred or failed probe does not leave the card name
-+ * pointing to freed memory for the next one.
-+ */
-+static int mtk_soundcard_set_topology_name(struct device *dev,
-+					   struct snd_soc_card *card)
-+{
-+	struct mtk_soundcard_name *saved;
-+
-+	saved = devm_kzalloc(dev, sizeof(*saved), GFP_KERNEL);
-+	if (!saved)
-+		return -ENOMEM;
-+
-+	saved->card = card;
-+	saved->name = card->name;
-+	card->topology_shortname = NULL;
-+
-+	snd_soc_card_set_topology_name(card, "sof");
-+
-+	return devm_add_action_or_reset(dev, mtk_soundcard_restore_name, saved);
-+}
-+
- int mtk_soundcard_common_probe(struct platform_device *pdev)
- {
- 	struct device_node *platform_node, *adsp_node, *accdet_node;
-@@ -292,7 +329,12 @@ int mtk_soundcard_common_probe(struct platform_device *pdev)
- 		card->probe = mtk_sof_card_probe;
- 		card->late_probe = mtk_sof_card_late_probe;
- 
--		snd_soc_card_set_topology_name(card, "sof");
-+		ret = mtk_soundcard_set_topology_name(&pdev->dev, card);
-+		if (ret) {
-+			of_node_put(adsp_node);
-+			of_node_put(platform_node);
-+			return ret;
-+		}
- 	}
- 
- 	/*
+diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+index 75c90d1d165f7..f07aeb6371083 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
++++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+@@ -1142,6 +1142,9 @@ static struct snd_soc_dai_link mt8188_mt6359_dai_links[] = {
+ 		},
+ 		.dynamic = 1,
+ 		.capture_only = 1,
++		.dpcm_merged_chan = 1,
++		.dpcm_merged_rate = 1,
++		.dpcm_merged_format = 1,
+ 		SND_SOC_DAILINK_REG(capture8),
+ 	},
+ 	[DAI_LINK_UL9_FE] = {
 -- 
 2.55.0
 
