@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE30CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E56CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7Cqps3I7ChVDkfGpYIwv5W5QyZBtV/wchFikLgUd30=; b=UPF1czfswl15whJIeeC0IYlMf2
-	l+6AAdt6KTFVP3y0b27QK9u4Ggw4EAjXeJCCq+OHNfKn5K1WEa2QZ8h5A2Irq2ynbnOPyI2Y6n75f
-	T2sZqfySAezKwH4AMvtmBn+H8nkU/xx5/hijU4yhXry/YswYcV5FVvXn65U+gjkNqnzHMEKR9bccL
-	YlqVcv3VQKZTWhheg0h77W+Gg9hU9+j/U8ZmxAMSnYTxKH/vgaBp0ylzJPzhhO0L7NEtwoTUegMuc
-	A9KKigl6Wala/1MAQz/wOCnfoGH6koLi4mWD0KUt/ktrbQNEiT1c3hydMbUlt5e5uezF5fSS0Fdmv
-	dx0isRMw==;
+	bh=Wv72l0hD8jDyK3VWKJExO+bl1rbU9EYOwEy7E6rmeXM=; b=VTTgC7aLYZ7FSlfsYJI7grsEXd
+	kIKRwceh6my9j4i93NGyeDpn/XosiCEXB5tdZ7gt8nkguSDMy2mILBysXEzES7D5rFtm59yiLeFQI
+	BRb5QVOx9jd6KYCR9+TlSPyKBNLAfUwSyr7gti+kRXAIN17g/EzcRLtPff5v2O9YkWzoFf9hDOXH0
+	CW351MWRQFTEGb8yl7FYsg/kZTEgN1GZd3/9+l4azpEERNVUFjFCv3ddxalQ9bl9PGZDk4VFf3n7g
+	EN24E4ephJHNads9N9B++dYcKmi8UvHyPgpw2EMXPrrf3d4vm50CoCH9hYkU94HRtju9gIQhMINNW
+	Y6m6S7FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCvfG-0000000DEWL-36HH;
-	Sat, 03 Oct 2026 09:04:18 +0000
+	id 1xCvhX-0000000DEkU-3xGG;
+	Sat, 03 Oct 2026 09:06:39 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCvfF-0000000DEVt-3m7J;
-	Sat, 03 Oct 2026 09:04:17 +0000
+	id 1xCvhW-0000000DEkL-2J9z;
+	Sat, 03 Oct 2026 09:06:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56CAA60534;
-	Sat,  3 Oct 2026 09:04:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 432F81F0089C;
-	Sat,  3 Oct 2026 09:04:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54CEE602C2;
+	Sat,  3 Oct 2026 09:06:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72CA61F008A0;
+	Sat,  3 Oct 2026 09:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791018257;
-	bh=r7Cqps3I7ChVDkfGpYIwv5W5QyZBtV/wchFikLgUd30=;
+	s=k20260515; t=1791018397;
+	bh=Wv72l0hD8jDyK3VWKJExO+bl1rbU9EYOwEy7E6rmeXM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ifsv1HpTllRjuu7fRpQtXxhQXDdrFcHAzARMmhx+d0R+gZ6eAYie2pV4O1aXnLYOY
-	 vcZGUlC2cwlJOCpajrRIorSilCW1DUSoHoNzVh4IjzXfttEYPC1lcrmHYlmHNCEfmN
-	 sB4ziC3sjmt/onjTlQUba1XPFTYQpeX/65W3ivSDa9DWoNETMRLMf7ksu0Ii1TFhOr
-	 YiBszfZok4J5UWgbDyHqJhYfpcw3dcPFjIzGSa2tPD6UNa1RG1T8ON4zenRDVfscgH
-	 qXc44TtRs8L5/6mxVvELB0rVqEE2ltB5etHgXfPHBKvszaQU2GF7oPWaCe2hEFPvwX
-	 5jQl56+Y07PTg==
-Date: Sat, 3 Oct 2026 11:04:13 +0200
+	b=ZBGCzPG19VqMPJ/xEM8Kkge9Bg0ygZJ3inmdOrgAgzhyOYWy6+jmxQqIPUE0f5o+I
+	 p8BF3hziXT/Z0Y7NjBWfY6ArV8LakvLRQp9yR1vkbBYn+1XXqIur1qqKL2Ohkr3+u9
+	 7STomURNJ5izwpHrRPZ06G1UCC9UMpsUxY93RArxjW0RY/QpFba+MtYC5n1XQc//rb
+	 bV6dPQAEzoCucmBCNcGAcvjyk/HU+RrU0MkBwALYpwVaaCwZeJvysAA7XuGkwlxds2
+	 tBaQzRuHZPjIXOyOmxj8f6J7D8FFVZmyd+r4QgrdYiPYnjwy+YNnfYbWVbis9Rvx+T
+	 ZcO5L5KR192GQ==
+Date: Sat, 3 Oct 2026 11:06:33 +0200
 From: Vinod Koul <vkoul@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Frank Li <Frank.Li@nxp.com>, Christoph Stoidner <c.stoidner@phytec.de>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v16 1/6] phy: core: add notifier infrastructure
-Message-ID: <asDFBIVf06-VaWdx@parshuram>
-References: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-0-126a2e9133c3@collabora.com>
- <20260924-b4-rockchip-dwc3-rockchip-glue-v16-1-126a2e9133c3@collabora.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>, linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: (subset) [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte
+ Charge Control Y
+Message-ID: <asDFmf_G0v_MWY3k@parshuram>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
+ <179016749941.155868.1810345055482953110.b4-ty@kernel.org>
+ <72033c48-5219-4ed4-94fd-1b7d8ef8017c@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-1-126a2e9133c3@collabora.com>
+In-Reply-To: <72033c48-5219-4ed4-94fd-1b7d8ef8017c@gmx.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hello Sebastian,
-
-On 24-09-26, 19:25, Sebastian Reichel wrote:
-> Some PHY devices with multiple ports (e.g. USB3 and DP) require a reset
-> if the configuration changes or cable orientation changes. This is a
-> problem, as the consumer device will run into undefined behavior.
+On 23-09-26, 18:11, Stefan Wahren wrote:
+> Hi Vinod,
 > 
-> With the new PHY notifier API introduced in this patch, the consumer
-> driver can hook into reset events coming from a PHY device to handle the
-> PHY going down gracefully.
+> Am 23.09.26 um 14:44 schrieb Vinod Koul:
+> > On Mon, 07 Sep 2026 17:04:16 +0200, Stefan Wahren wrote:
+> > > This series adds support for the chargebyte Charge Control Y, which is
+> > > an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+> > > Charging System) charging stations.
+> > > 
+> > > sashiko reported in the first version of the series [1] that X_nRST_LAN
+> > > is available via GPIO line names, but there is no reset mechanismn in the
+> > > device tree. This finding is valid. Since the reset line feature isn't
+> > > implemented for LAN8651 driver yet, I like to proceed with the current
+> > > version. The LAN8651 handles reset via SPI commands and in rare cases
+> > > we still have the possibility to control the reset from userspace.
+> > > Btw the pin has a pull resistor in hardware, so it's not floating.
+> > > 
+> > > [...]
+> > Applied, thanks!
+> > 
+> > [1/4] dt-bindings: phy: ti,tcan104x-can: Fix property constrains
+> >        commit: c7f2322431cb6d108b18fb4154606b49e2bc50f7
+> thanks, but what about
 > 
-> Note that this uses -ENOSYS instead of the more sensible -ENOTSUP for
-> the stub functions when GENERIC_PHY is disabled to stay consistent with
-> the existing ones.
+> [3/4] dt-bindings: phy: ti,tcan104x-can: Document Microchip MCP2542
 
-I dont think this series has the usage of this.
-
-I think I am still not convinced why a phy should notify as I dont feel
-we have any mechanism to notifying. Checking status and letting people
-know if not really a notification mechanism... Maybe add a status call
-instead?
+Not sure why I missed this, I have picked it now
 
 -- 
 ~Vinod
