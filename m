@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2FACA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39376CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU4kJGQayYFAkD8rvd0S8uhRZ14L3OxviWvXPNVCttE=; b=vNk+D+cM6Oa24mgRKW+mrhDCVq
-	DeW5xzBwpErNqszlLOZoMkG9stnDZmCtK5FRkrbHjyehD5zWAPCdHx3bSKrvkMu789hJAFdMMe9CS
-	YDl8ZCfZF9AmygDLsl4Ikdl2KB1H2KwBPHEel5nrKEIOJPw8Rex1EFU8lTDlr3wqABm+2Qaf4NebA
-	1Isovpatb6msdR973gEpCiMobIVLnTnmzZ66uGsYSPSvZH4jnjoBa+pybrm3DzS8e0q7beovVWh0P
-	WVdTRpg6lnY42ZQvKanTP7kgGbrkSmO43pxuXHyofdHeEL1OOxIpwsAbGUefI27UetJdpqnk8qR1/
-	xFfxGBqA==;
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P3afzIZFLbpKaON2kpJxPPKXtSWU1Ph/FvDwlHtFc9Y=; b=W2n2tpuLMj2cnwqROslwnbj/G9
+	M163czY3koF5VYDNszVhEm4JzfrWdW3GMEXtzve9ugXMP3UjWhCcMFk/IipwHNwWAMbAmwacUSytQ
+	biwXV7RJNLT2SVQlEeoHS7zgJvUtqdVKD9HeGB32TywO54bkcqGotyGUsXf1KyMCkrUcthk38r2Mp
+	iNH5vuzVzBY07gqKnJG73ozXqmO0gw4CE4VCUXb/C+iipG1pqPs0ti0tnx9594VnjOSPYg3Ryd5Fw
+	25B5VUAtZ7cFM21M04fdMzXevXhAs04g6UHd7AeAjdQkhJi+KRueilPWcxVx9omCT1rzgTuzuF0Rj
+	0+H9L4Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCwSW-0000000DJHS-2MKD;
-	Sat, 03 Oct 2026 09:55:14 +0000
+	id 1xCwWf-0000000DJcI-1Gpg;
+	Sat, 03 Oct 2026 09:59:29 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCwSV-0000000DJGw-2gDB
+	id 1xCwWe-0000000DJbx-0QBs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 09:55:11 +0000
+	Sat, 03 Oct 2026 09:59:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C74EB60AAF;
-	Sat,  3 Oct 2026 09:55:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C861F0089B;
-	Sat,  3 Oct 2026 09:55:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C3A560D82;
+	Sat,  3 Oct 2026 09:59:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C5201F0089B;
+	Sat,  3 Oct 2026 09:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791021310;
-	bh=KU4kJGQayYFAkD8rvd0S8uhRZ14L3OxviWvXPNVCttE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=L3j55Hk0hM0BkDubNicANS74lSr32Hx3vTam27V0EC8OC0FgZ6osT+ggQnWqgc/DG
-	 Twlo1nhFhlqHlWHlc+sxBa93mXJl2i1EYLNaM3SVQlnM7RlXDS0PKAqE7DvUhZaWzg
-	 j96QSzffJkb1e7bAcWb4xQDNOJHYy0hjQwcP+DtpeejaCYe50b1PPUOWAv6nrv8jBN
-	 BHWB9H/EroLPjGnmI2DFSOCZjb6KCsjByv0ItPaOhRDi45FuurH4g1BjteYXgfpoHh
-	 ZVw1DRX7QC1oE/5ZRVQaV+9TRVB/80LDr41FgnrQe1Kl8bB0kfbQtrHmDvEAbPrKOQ
-	 H5yvgj5cvGWUg==
+	s=k20260515; t=1791021567;
+	bh=P3afzIZFLbpKaON2kpJxPPKXtSWU1Ph/FvDwlHtFc9Y=;
+	h=From:To:Cc:Subject:Date;
+	b=F+wEVs18jg0US1SSIgzSUD9bH/WU+qaTSvpZPBSUP/Ql85miX54WEcHAQuIbIp+Nh
+	 xWu7H8pkEsSA1d+8yk1fhP9M/PKIRJ9tOyLUjeTWqmXIY40oEMPgzx7Lhgn/SQOATD
+	 SilEOI4kTrw2UFU9si0oQg4aohd72QJQQHbHMYH7ZJk3GPzLh8TXGHOcMJUqDxrk0P
+	 tTWRGYZuZ6fBCJFOQO6uUlyyveUokKUwsGGbgZKodmA8e6PQ398MYEkFCH6eGjYxOz
+	 dfi6ejckY8e6Rwpu8lK4FUNdy+heb83jmG8i//ZiK94Eu+9DRP63K7ZKE/J255MJPK
+	 btNrWpzASzjUw==
 From: Thierry Reding <thierry.reding@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
@@ -49,12 +49,10 @@ Cc: Thierry Reding <thierry.reding@kernel.org>,
 	Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 2/2] arm64: tegra: Device tree fixes for v7.3
-Date: Sat,  3 Oct 2026 11:55:02 +0200
-Message-ID: <20261003095505.1369507-2-thierry.reding@kernel.org>
+Subject: [GIT PULL 1/7] Device tree bindings changes for v7.4-rc1
+Date: Sat,  3 Oct 2026 11:59:16 +0200
+Message-ID: <20261003095924.1370238-1-thierry.reding@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261003095505.1369507-1-thierry.reding@kernel.org>
-References: <20261003095505.1369507-1-thierry.reding@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -82,35 +80,38 @@ The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.3-arm64-dt-fixes
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.4-dt-bindings
 
-for you to fetch changes up to b86eaddf467a9ddb69dbaa46eea9dda7f93347a3:
+for you to fetch changes up to 8370532640fa15b9480ba19af9314d3266c92aef:
 
-  arm64: tegra: Add PCIe root ports on Tegra264 (2026-08-31 15:14:25 +0200)
+  dt-bindings: soc: tegra: pmc: Document Tegra210B01 (2026-10-03 00:39:13 +0200)
 
 Thanks,
 Thierry
 
 ----------------------------------------------------------------
-arm64: tegra: Device tree fixes for v7.3
+Device tree bindings changes for v7.4-rc1
 
-This contains various fixes for Tegra264. While the PWM and fan patches
-look like they'd be feature additions, I'd like to get them into stable
-kernels because without them, these devices either end up with the fan
-running at full speed or not at all, neither of which are great, but in
-case of the fan not running at all, it can cause the system to overheat.
-
-The remainder are some minor fixes for PCIe, mostly to satisfy the
-device tree validation.
+This contains a minor fix for the Tegra132 external memory controller
+bindings as well as additions of compatible strings for Tegra264 and
+Tegra210-B01 to existing bindings. Also, the new Motorola Artix 4G and
+Droid X2 devices are documented.
 
 ----------------------------------------------------------------
-Thierry Reding (4):
-      arm64: tegra: Add PWM controllers on Tegra264
-      arm64: tegra: Add PWM fan on Jetson AGX Thor DevKit
-      arm64: tegra: Reorder reg and reg-names to match bindings
-      arm64: tegra: Add PCIe root ports on Tegra264
+Aaron Kling (1):
+      dt-bindings: soc: tegra: pmc: Document Tegra210B01
 
- .../boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi |  13 ++
- arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 180 ++++++++++++++++++---
- 2 files changed, 169 insertions(+), 24 deletions(-)
+Svyatoslav Ryhel (1):
+      dt-bindings: arm: tegra: Add Motorola Artix 4G and Droid X2
+
+Thierry Reding (2):
+      dt-bindings: memory: tegra: Fix Tegra132 compatible string
+      dt-bindings: fuse: Document compatible string for Tegra264 FUSE
+
+ Documentation/devicetree/bindings/arm/tegra.yaml               |  6 ++++++
+ .../devicetree/bindings/fuse/nvidia,tegra20-fuse.yaml          |  1 +
+ .../bindings/memory-controllers/nvidia,tegra124-emc.yaml       | 10 +++++++---
+ .../bindings/memory-controllers/nvidia,tegra124-mc.yaml        |  1 +
+ .../devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml      |  5 ++++-
+ 5 files changed, 19 insertions(+), 4 deletions(-)
 
