@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB17CA5FEC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD64CA5FDD
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=23Y/2PgTxZUSaSmiQQfmGqgPefme+EflMV6C57Dhc+k=; b=xQEjLQLlTP8okoCvG5ZgX0NNxc
-	dkePZwyDBNUrzaHaEfgCUHBmMhlf7bbRE+jM1q/ZHWjRJz9Fhwrj42pUMkrSylha6aioVmjha6Nmi
-	ZgD55SAaSzDPwjMS3ffXf82AqFVzx1y3TRDi1oYC4LeHmgXC1magx3h8h+WnkJAUehSPySV9ycBal
-	FCut3hsCRGXPo6lxMukk7is34Byv9zdYW7c6GI1V8I6T/JashagTYaLs+LOLQCUcLZJGF7qWIQeTB
-	sSxMPw4PDRC7hpSu3pv2fD1iT+zJbdHFAHTDD41zR7SOgLOTvsznBjap3p5pcNhsfDunNYRnvVzb0
-	W8FlSSEg==;
+	bh=kyYsESqJs1RzwQhHHMRkPTPKvdniJodMlR3dH9oEz/8=; b=d64YDU4c/2MTUhw609/os1vEpw
+	0Q2gPfRp1qDwi9cltI8FWCcSLgzulWrYtf76eKnsTpOPkkIYCu7j+L+duVgempWdm2Sf/LsYHY6Ls
+	+fk7xdF9y2asycY8WXPqmIN8o/XUfnNLzLT/fFRqVugP0j1QfpwsRgBQ3qQXMWVYV+wTOFQy6aOZG
+	rhDspUfUektgRvyyRzBN7pt2QaNxLaydJjHreT39OB6XiN/wE3/Po9qW/hJj8NnXe0lCNhnX2WV0F
+	fi94WpZBbQu0SJMOlN49iFEWwdTEjYiCgmFe9g9ydjpXgzC8Q65CRsNkdNYSu+Lbs+lsZZOC6bdxK
+	OSboNJdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1c9-0000000Dgdx-3A80;
-	Sat, 03 Oct 2026 15:25:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xD1c6-0000000DgaN-1sm9;
+	Sat, 03 Oct 2026 15:25:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1c8-0000000DgcX-3enI;
-	Sat, 03 Oct 2026 15:25:28 +0000
+	id 1xD1c2-0000000DgYG-3ow6;
+	Sat, 03 Oct 2026 15:25:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 012E660DA2;
-	Sat,  3 Oct 2026 15:25:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 001C01F0089B;
-	Sat,  3 Oct 2026 15:25:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AA22C43DF5;
+	Sat,  3 Oct 2026 15:25:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BED251F0089E;
+	Sat,  3 Oct 2026 15:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791041127;
-	bh=23Y/2PgTxZUSaSmiQQfmGqgPefme+EflMV6C57Dhc+k=;
+	s=k20260515; t=1791041122;
+	bh=kyYsESqJs1RzwQhHHMRkPTPKvdniJodMlR3dH9oEz/8=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=MA8BBvY0ou10kc8WBVXZjL4stUd0LzlylLRTDrUop31oOaz6fkE8QYjQJF9aX4g74
-	 cxxeRYPlFn7YiiDxiVbtof6pHcpcA8GA8Tlof/m6YOMeIfl6gTVgr+p6Pre6sgh8wZ
-	 Pv1OKhKstaP9k6NxwECz95xX4OT4k2Ev0yNdGAuZJkKKP+o9uMdEKuY1n3iQkWt8yY
-	 naO8oaIFK99O/JCIf04jL3UWM34vPeRWb/FVmXsydxmeL3VRURQaCIfixmhLt2U7oq
-	 sCYwq/H/CISdQCG8ZZ3T31V4OsXBK/PtLnE05Fon9uLHOnOrYRpnH6LarRCWdzbs52
-	 9FziDx0tLUByg==
+	b=XJUp2+9Tqlk4TNP3RVNnPIwzWwolmcT3BKGH1Eoy96F2Oe9bNwPFx2R1ST/lXpOma
+	 MR+TEEWlACc43BraA2FSUXEIW/6Px3Uhi129sF2N05SluWKma2Y4SgWN+gpNUCcyVm
+	 oi84C8hiS669+WIDvDKM3u8AJj/boBddD6I5bCkjFkMYVf1/td00zuhycERKL1rDVo
+	 pc6u4gPX2CceGauBDEdIp/PMunjwzSECLED+zFEvTFBTbx2jN9AeJVw28YBMNmxkXr
+	 pb3D3ds3c6Z3wubvJ+H9W8+bsQ6Eaz9NCCOCIY60RDHmRNhTVr9btQUZ8St9cyQHVN
+	 KL6dnZBPXD4gg==
 From: Vinod Koul <vkoul@kernel.org>
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Sven Peter <sven@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Paul Cristian <p4ulcristian@gmail.com>, stable@vger.kernel.org
-In-Reply-To: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
-References: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
-Subject: Re: [PATCH 0/3] phy: apple: atc: Prepare USB3-via-4 tunneling
-Message-Id: <179104112470.223537.13101636843380037853.b4-ty@kernel.org>
-Date: Sat, 03 Oct 2026 17:25:24 +0200
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org
+In-Reply-To: <cover.1787240165.git.geert+renesas@glider.be>
+References: <cover.1787240165.git.geert+renesas@glider.be>
+Subject: Re: [PATCH 0/2] phy: Make sure clk_init_data is fully initialized
+Message-Id: <179104112038.223537.2313404929289351328.b4-ty@kernel.org>
+Date: Sat, 03 Oct 2026 17:25:20 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -71,24 +71,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 21 Aug 2026 15:50:26 +0200, Sven Peter wrote:
-> This short series first fixes an oversight that prevents USB2 from
-> working when DP AltMode with 4 lanes is used. Then it adds the required
-> sequence to point dwc3's PIPE interface to the USB4 Native Host
-> Interface which I plan to submit soon to support USB3-via-USB4 tunnels.
+On Fri, 21 Aug 2026 12:08:38 +0200, Geert Uytterhoeven wrote:
+> 	Hi all,
 > 
-> Best,
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/3] phy: apple: atc: Support DUMMY PIPEHANDLER state in configure_pipehandler
-      commit: a2fd3d1f4db720ac1deb477ce4811c5e4e60e5f8
-[2/3] phy: apple: atc: Factor out the PIPE mux sequence
-      commit: 8ca2e111117bf1d571f7c9de5d0dd91f5b770b11
-[3/3] phy: apple: atc: Implement the USB4 pipehandler state
-      commit: c319906aa47f8616019b01b1dd5c14eef293bb66
+[1/2] phy: freescale: fsl-samsung-hdmi: Make sure clk_init_data is fully initialized
+      commit: fdc340bfc7ab60c4cbdb198c9972114b51d7caa3
+[2/2] phy: rockchip: Make sure clk_init_data is fully initialized
+      commit: 91967098fd985237ba0deff97809ab52d3e51fba
 
 Best regards,
 -- 
