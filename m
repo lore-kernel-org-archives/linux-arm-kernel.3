@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36136CA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD82CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KXqzVoCOHNj4x3oLI8LonBNbU14rAUA+riYDz1pDaA0=; b=SVAVTVok02DH6zRvpyF+sfYnD+
-	6QSTcsf4imk0m+HUWXHcWNOqROH1AqGxI6zWlba2gW7OVujByIZ4KLp4c8g+ea4DmuCZxsjsV3o6J
-	X46y8FoPI23NIorYHXaIklHOTDUrvbFsqWxE2IeLU3rf4NbCY4870n0DIMqgSeRGhbsOF+Y7PRjsr
-	FJJ6YFgdCCH/PQT4d8Zw1Lvp3pRGSoc/NL/EmVo8N69ex9V3cj0V5qXeA9cNkM9ugDznywvnOwP8a
-	2GgumJWIib4V6YTNq+CFyxCA5I4QlAxtXhxVdb+9uKue66FNuyTc6Rr+JkSTNizJW4tpAtdm7BuG+
-	NNGcGRLw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ujjA/EfqFrllDMkLjfG6+3nwCZQypQgUzS75H0VKhkU=; b=YKDCo5iVHpT1uWYithGyo/DM9T
+	ZLtc3vy/N90L9l2PdssTgysbk4hEY5beqa5wLWyv12y/JNECQiHJHWB8gxxp9WgWHMVtZsaqwGRN/
+	XdYdpRnorKfa22GSuXj56gC6OYmEyjdtem/8LNZ1Pw/26hsczZofWSNhDp21kf2GH+UvMF498sLzW
+	8cjYOjTKJaw6I9eKpRPTWq8C0gD2Rgni3TXD4i76zn87fF59GYlzqxPSecuOS3FfVnoKSAsRmP3OK
+	DGiZmheWxu19VVeyWy6uoJTwUpj7CUtlfkuvSbyZ6mEgmxFCsbfweeN/kJwG917DEoQ4/f1kAxmCY
+	lr5Eb83g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5gy-0000000Dxvo-1lQb;
-	Sat, 03 Oct 2026 19:46:44 +0000
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
+	id 1xD5vT-0000000Dyzf-0TUK;
+	Sat, 03 Oct 2026 20:01:43 +0000
+Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5gv-0000000DxtR-1Dld
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 19:46:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791056793; bh=KXqzVoCOHNj4x3oLI8LonBNbU14rAUA+riYDz1pDaA0=;
-	h=From:To:Cc:Subject:Date;
-	b=WOewKR34m6KKKjNP+ze8At/bPfhY6OgNPhEJMMT53/s9QnFTSKa3aASpMmS8vCAuG
-	 ZZi1W2Gzy8fEpdTjB0i+wbeRzlOSYTmwtMKUc1WxK2gLupbfWS7PMgPrLOuZBorIcv
-	 mHk3PIFxvOm/A/t7tmrSoUe6ibRfY0QKSywuwNFE=
-Received: from AERO17.taila7786d.ts.net ([112.43.117.189])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id B9D93CB0; Sun, 04 Oct 2026 03:46:29 +0800
-X-QQ-mid: xmsmtpt1791056789tmd9xg9z6
-Message-ID: <tencent_E9086080313181C5F806E5543C9638DC270A@qq.com>
-X-QQ-XMAILINFO: M2SvzgchpLqfCSVcvSgQB7e432dlIGlLZrovKeFBv0TAHYe9WXGY3FxV37JeyX
-	 dHdwWhfp26KS02Vzsx6TlYjvuA78DOji+Uimyq2rcewDQM8AhJaHQmuy/l5tV+W/yOjE/EN3wHoT
-	 m6rShVkqzEMAgMW+Y7Wk3xBLHbn9tr//fISPELMA9e12w4wcwiPeC6ra/kdRCYcuj3kVn7NrDY9b
-	 FBCyPoTl2u+11jIT+dEbgX1/xcmj7MSRCnB8DGZ8pq1vsv9GUyt7QChwjryZvPKE77WOFP6KBjZv
-	 5zPGDZUZUip3bVuEZYtDSIMPjuvqTLVyGZ/L6gg0510xjGhLR2s1zDfaWhffMzNtY+q8OHmLs0M8
-	 vQa/HF4ZXv0YELi/BjcN1k8do3M8IWh5ShLQFrVbZWf6Tmk0yWtzYD4ee3AD64ctjniNLZxegTeU
-	 Avtxsi5hHR7X0JZBY8v2ymjEflm6X1AhAFTD2nP6XvrK7aacH5gk56xujhYx/AzzHXPi1/hBFqjC
-	 lqG8/TQGwj3i+01TYeKLClAOzuDbTC3x17yIvS6PLkPswQBNqueVfDr85a6XQ/1mQUxI1ZUNJfmx
-	 6lzziCLKmz0hpkVOvtRrzEVIuYg6yFXACFNnb0Bn27GYGmB007QNdAnRdvvio3pb73riA8JPzfyC
-	 4XNjTAKzVa/ipbmTNCpa6172lkEN08h2m+m7u6MR5WF4rvshVA+Y8qGqZjiDY1PmGsdG2SdV00Uz
-	 B9XFp5SRZOVsaPHvuhHeqWoimbzQQi18DwBmUbmWjoZINPIg9Evb/qpczG7YcQsQgNeLzCuw0RY4
-	 cuIqZ3nLNhRea6TIcS+VIxq41YKSJK4TiO1mMbafynWg7UnpoxeZX8ZBGWr9+U8IazMdwdtfdT8+
-	 Y9LPEGRlg6uRA4gyivdF09ugdP2XWE1izXTa4H8YxKUPXggRB/NqT7LI6+2QW63sTiNTeASCJeaz
-	 2ZkUKYKepu/JVDjdE8RYhc7V0s3HvFofsgf3rmuOCuzars0bwPaPJ+t/LK8gyH8pIf6I98SRyvHB
-	 ohf81j9uWj9Yl/TfUSux0+nymAOC7ehMhZRZ6M/KzpcWea2ydI
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: Pufan Jin <2254650260@qq.com>
-To: Conor Dooley <conor+dt@kernel.org>,
+	id 1xD5vN-0000000DyyN-31ss;
+	Sat, 03 Oct 2026 20:01:41 +0000
+From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
+	s=mail; t=1791057695;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ujjA/EfqFrllDMkLjfG6+3nwCZQypQgUzS75H0VKhkU=;
+	b=s3y7zaA/vOa/6nJn9RV1/S648MlfyLxv6NYSbtwk56kRlvGiddXt6T4G8FGyk/cDSkwh3r
+	3w70x96Kjew76d2ZtIsu6Zr6+zQdiASBIgvvRG5/F8EvxvhK1wzVHx0A4FQ90cPAms3P2h
+	KZJCA0SFLK5aozVZ+TwtuDNKCBtrP3w2aNMLr9iWJjy3dL4v+Mh6qRocsMQLTqYnwFqxZi
+	vxo/xeTgHZjOaBPPNaEFCI/9UeNBevdDVKBXe94vDT604KmuyR1V/jIsLH/1VLT44toa7c
+	7xOEzQjFm1Tf6HR99gmDrS6izV+UxHRdTgYsZzuLZ3InJgD40n7BWHuf0i9QpQ==
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	=?UTF-8?q?Adri=C3=A1n=20Larumbe?= <adrian.larumbe@collabora.com>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] arm64: zynqmp: Add support for EBDEE EdgeBoard FZ3A
-Date: Sun,  4 Oct 2026 03:46:22 +0800
-X-OQ-MSGID: <20261003194625.936288-1-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
+Subject: [PATCH 1/3] dt-bindings: gpu: mali-bifrost: Add the MT8188 MFGCFG phandle
+Date: Sat,  3 Oct 2026 22:01:30 +0200
+Message-ID: <20261003200132.866240-2-michal@nozomi.space>
+In-Reply-To: <20261003200132.866240-1-michal@nozomi.space>
+References: <20261003200132.866240-1-michal@nozomi.space>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_124641_871312_D86C1378 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261003_130139_745523_F6202A4F 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EBDEE EdgeBoard FZ3A is a development board built around the MYIR
-MYS-CZU3EG SoM, based on the Xilinx Zynq UltraScale+ XCZU3EG.
+On MT8188 the GPU timestamp counter only counts once a register in the
+MFG configuration block routes the SoC system timer to it, and the
+setting is lost whenever the GPU power domain is turned off. The GPU
+driver has to restore it on every power-up, so it needs a reference to
+that block.
 
-This series adds the EBDEE vendor prefix, documents the board compatible,
-and adds a device tree for the board's PS peripherals:
+Add an optional mediatek,mfgcfg phandle. Allow it on MT8370 as well,
+which shares the GPU and the MFG block with MT8188 and its GPU node in
+mt8188.dtsi. It is optional so that existing devicetrees stay valid;
+without it the timestamp counter reads zero, as before.
 
-  - UART1 debug console
-  - eMMC and microSD card
-  - GEM3 Ethernet
-  - I2C0 and I2C1
-  - QSPI NOR flash
-  - PCIe
-  - USB 3.0 host
-  - DisplayPort output
+Signed-off-by: Michał Kopeć <michal@nozomi.space>
+---
+ .../bindings/gpu/arm,mali-bifrost.yaml          | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-The Paddle-Mobile FPGA accelerator is not included. Its PL description
-depends on vendor-specific IP and an out-of-tree driver.
-
-Tested on EBDEE FZ3A hardware with Linux 7.3.0-rc5: the board boots from
-the SD card into userspace over the serial console, and all enabled board
-functions work as expected.
-
-The base DTB passes CHECK_DTBS=y, and the Xilinx SoC binding passes
-dt_binding_check.
-
-Pufan Jin (3):
-  dt-bindings: Add EBDEE vendor prefix
-  dt-bindings: soc: xilinx: Add EBDEE EdgeBoard FZ3A
-  arm64: zynqmp: Add EBDEE EdgeBoard FZ3A development board
-
- .../bindings/soc/xilinx/xilinx.yaml           |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/xilinx/Makefile           |   1 +
- .../xilinx/zynqmp-ebdee-edgeboard-fz3a.dts    | 272 ++++++++++++++++++
- 4 files changed, 276 insertions(+)
- create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-ebdee-edgeboard-fz3a.dts
-
-
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+index 9db9f84ad964b..08c1c22a270cb 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+@@ -122,6 +122,12 @@ properties:
+   nvmem-cells:
+     maxItems: 1
+ 
++  mediatek,mfgcfg:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the MFG configuration block, which routes the SoC system
++      timer to the GPU timestamp counter.
++
+ required:
+   - compatible
+   - reg
+@@ -226,6 +232,17 @@ allOf:
+       required:
+         - power-domains
+         - power-domain-names
++  - if:
++      properties:
++        compatible:
++          not:
++            contains:
++              enum:
++                - mediatek,mt8188-mali
++                - mediatek,mt8370-mali
++    then:
++      properties:
++        mediatek,mfgcfg: false
+   - if:
+       properties:
+         compatible:
 -- 
 2.55.0
 
