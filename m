@@ -4,69 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E93CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 16:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992E0CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 16:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enXH7320ifaUXA5MfrqFITor839IBio6m2WtR6Wf3pM=; b=yvriJ+/cBTNfdGZZIa3m3G+ewr
-	PzXuCMjebyeB9TkByASuiLeiIN9mBgXVYQCG4tEu0dmCA75CNns/KOqirQ7Wma0FxmWA8CJZ6F5O0
-	HOqdJ4kDgV/gLfZOxbBmZAykOzzJDiLfZT4PlwP/qB5ik2F/gLKow2y2UKM/G0AV72nOdL3aXn6WM
-	DLRP+lT+qQLytdGQD0Bx0sz9NZxLzVgETUq2dRl6uelm8Lv2DY7as9aIizEJ3s3wuSxsceg35UZdX
-	vSineuYcoB4YRmSeKaBvb1uatFqlsayZaguWXT+IllnVKkZpsBU8xlhZyUOP3EbxBw1ttdFVM7aU/
-	2mhcqJqQ==;
+	bh=1XaQcVeyhm8yfAFalkdFK1wk7N73U0zKdzj1RF8N3QE=; b=4w+3FCVAJaJvzuVnUzlbCuMJ+6
+	pTpxR9KAqX6DOWRecoiqIm7TuOAqaQcB/0sfOR/9fJWDxO5X7sWWE+JCtgkMccq93UbMimPyvtMCn
+	qaovyE55EfqWoPE0WeUUtfSFlPRjnL9yrYucsib2EHPR+GN9nNxzUZ3iI8jLPCatYGLGKwbh8Llg2
+	unjtyCnQxjXTZyYDWhemS4MZCVc10n3kDnCQcXc25wD+YmSC7Jz77Zd1CeUuX5vQtRK7qKRq3DvN6
+	79ue71KTBLMZzIyoUvdEuvlw0dJn4w+7EE/hyCafF82QYtH111yOEcU5TPF9J3Xge9NrjNSWhSznt
+	nr/SW79Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD2Lp-0000000DjiK-2UM4;
-	Sat, 03 Oct 2026 16:12:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD2Ln-0000000Dji0-0Llf
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 16:12:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76E9F143D;
-	Sat,  3 Oct 2026 09:12:33 -0700 (PDT)
-Received: from [10.57.8.170] (unknown [10.57.8.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA0A33F763;
-	Sat,  3 Oct 2026 09:12:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791043956; bh=h6+kAYhTqNCk5jLCyFcVvQkz7TJRrMZczCzt8KPp5zw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=WeJ4ekDixCXQNFuyz6q1fIRyA0ToG+nK0I3VpV4M10UQbtKTYc2w28Vgi9UT+YFXD
-	 9PwheUiXaPqI7spjj6FU6ER+i/8EYTnpEPDWoNDHaFgHT4tyYGRkFXFvtPF7KHxSLo
-	 14PbVYgk7AwPUHBBcevGV+xFjAzPFmtlLgUioF6o=
-Message-ID: <ce2e8885-d848-48d3-b82e-49fcd9a6cfcc@arm.com>
-Date: Sat, 3 Oct 2026 17:12:28 +0100
+	id 1xD2Sq-0000000Djx3-1GPU;
+	Sat, 03 Oct 2026 16:19:56 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xD2Sk-0000000DjwE-2leK;
+	Sat, 03 Oct 2026 16:19:54 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261003161944euoutp015445fcbf6e0d4e3cb00b7533697c0e02~bEWDnwLC60335403354euoutp012;
+	Sat,  3 Oct 2026 16:19:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261003161944euoutp015445fcbf6e0d4e3cb00b7533697c0e02~bEWDnwLC60335403354euoutp012
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791044384;
+	bh=1XaQcVeyhm8yfAFalkdFK1wk7N73U0zKdzj1RF8N3QE=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=lsnwuG0Rt3fGmtfGSOO65rhkC0IFUgrq1ANqgsQGtVreBctftYXQpGMAZgPzf+Ci0
+	 +kvHkS1AYixN1TDhKQn3VgurKD90DR9RBMHeFubIeyUtXTe1ckGdkeIPTPBfcYCdGk
+	 P4JjhZ41OygKkWPJO9Q1IpC/ICJqCNGZ8gN2VJqo=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261003161943eucas1p2d4d85e066b9cedf34cbeaf481bf875db~bEWCnjmvZ2037620376eucas1p20;
+	Sat,  3 Oct 2026 16:19:43 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261003161941eusmtip20b539371f409b63e666c140753664cb8~bEWBBnkRs2154121541eusmtip2G;
+	Sat,  3 Oct 2026 16:19:41 +0000 (GMT)
+Message-ID: <e1b83c15-1ca9-4575-97aa-f44552ecb182@samsung.com>
+Date: Sat, 3 Oct 2026 18:19:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 10/23] KVM: arm64: Add VM specific callback for S2 MMU
- operations
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
- <20261001210703.1597150-11-suzuki.poulose@arm.com>
- <86ik3j2m5v.wl-maz@kernel.org> <9873fb9d-6f32-46f6-bcac-6a52e293d011@arm.com>
-In-Reply-To: <9873fb9d-6f32-46f6-bcac-6a52e293d011@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v5 08/21] drm/bridge: inno-hdmi: Split probe out of bind
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Vinod Koul
+	<vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Andy Yan <andy.yan@rock-chips.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
+	<kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <6535891.44csPzL39Z@diego>
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261003161943eucas1p2d4d85e066b9cedf34cbeaf481bf875db
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260929103221eucas1p264107850882dde96fcda4772332d4f41
+X-EPHeader: CA
+X-CMS-RootMailID: 20260929103221eucas1p264107850882dde96fcda4772332d4f41
+References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+	<CGME20260929103221eucas1p264107850882dde96fcda4772332d4f41@eucas1p2.samsung.com>
+	<20260929-jh7110-clean-send-v5-8-82b4d8e3c6c7@samsung.com>
+	<6535891.44csPzL39Z@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_091239_162874_03C4BBA9 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261003_091952_093650_E0D8EA83 
+X-CRM114-Status: GOOD (  37.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +107,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/10/2026 16:30, Suzuki K Poulose wrote:
-> On 03/10/2026 10:01, Marc Zyngier wrote:
->> On Thu, 01 Oct 2026 22:06:50 +0100,
->> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>>
->>> Add VM type specific S2 MMU operation backends which can be 
->>> initialized per
->>> VM flavor, to keep the handling cleaner.
->>>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>> Tested-by: Gavin Shan <gshan@redhat.com>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> ---
->>> Changes since v19:
->>>   - Add a blank line in kvm_arch_flush_remote_tlbs()
-> 
-> 
->>>   struct kvm_s2_mmu {
->>>       struct kvm_vmid vmid;
->>> @@ -332,6 +345,8 @@ struct kvm_arch {
->>>        */
->>>       u64 fgu[__NR_FGT_GROUP_IDS__];
->>> +    const struct kvm_vm_s2_ops *vm_s2_ops;
->>> +
+
+
+On 9/30/26 12:02, Heiko Stübner wrote:
+> Am Dienstag, 29. September 2026, 12:31:05 Mitteleuropäische Sommerzeit schrieb Michal Wilczynski:
+>> inno_hdmi_bind() both sets up the bridge and attaches it to a DRM
+>> encoder. A platform whose HDMI controller is a child of a larger device
+>> needs the first half without the second, since it registers as its own
+>> platform driver and lets the DRM core bind the bridge later.
 >>
->> If you're touching this patch, can you please move this pointer next
->> to the vcpu_ops pointer?
+>> Move the setup into a new exported inno_hdmi_probe(), and reduce
+>> inno_hdmi_bind() to a wrapper around it.
+>>
+>> No functional change intended.
+>>
+>> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  drivers/gpu/drm/bridge/inno-hdmi.c | 49 +++++++++++++++++++++++++++++++++-----
+>>  include/drm/bridge/inno_hdmi.h     |  4 ++++
+>>  2 files changed, 47 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+>> index d7c33b92e2ddf4ced84d17304463f44be52270b8..7a9f54dce2647f0320d77629a28154eade14385f 100644
+>> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
+>> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+>> @@ -929,7 +929,14 @@ static irqreturn_t inno_hdmi_irq(int irq, void *dev_id)
+>>  {
+>>  	struct inno_hdmi *hdmi = dev_id;
+>>  
+>> -	drm_helper_hpd_irq_event(hdmi->bridge.dev);
+>> +	/*
+>> +	 * The interrupt is requested in probe, but bridge.dev is only set once
+>> +	 * the DRM master binds and attaches the bridge, which may never happen.
+>> +	 * Drop hotplug events that arrive before then rather than dereference a
+>> +	 * NULL drm_device.
+>> +	 */
+>> +	if (hdmi->bridge.dev)
+>> +		drm_helper_hpd_irq_event(hdmi->bridge.dev);
 > 
-> Sure, I will do that.
+> This is not part of the commit description and while true, should likely
+> be its own patch with its own description.
 
-Sorry, this is only stored in kvm_arch, while the vcpu_ops are stored
-in the vcpu_arch, to avoid pointer chasing vcpu->kvm->arch->.
 
-I could move it closer to the vm_flavor ?
+It only made sense with this patch, hence why it's included. Happy to
+split it.
 
-Cheers
-Suzuki
+> 
+> 
+>>  
+>>  	return IRQ_HANDLED;
+>>  }
+>> @@ -1061,11 +1068,24 @@ static struct i2c_adapter *inno_hdmi_i2c_adapter(struct inno_hdmi *hdmi)
+>>  	return adap;
+>>  }
+>>  
+>> -struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+>> -				 struct drm_encoder *encoder,
+>> -				 const struct inno_hdmi_plat_data *plat_data)
+>> +/**
+>> + * inno_hdmi_probe - Internal helper to perform common setup
+>> + * @pdev: platform device
+>> + * @plat_data: SoC-specific platform data
+>> + *
+>> + * This function handles all the common hardware setup: allocating the main
+>> + * struct, mapping registers, getting clocks, initializing the hardware,
+>> + * setting up the IRQ, and initializing the DDC adapter and bridge struct.
+>> + * It returns a pointer to the inno_hdmi struct on success, or an ERR_PTR
+>> + * on failure.
+>> + *
+>> + * This function is used by modern, decoupled MFD/glue drivers. It registers
+>> + * the bridge but does not attach it.
+>> + */
+>> +struct inno_hdmi *inno_hdmi_probe(struct platform_device *pdev,
+>> +				  const struct inno_hdmi_plat_data *plat_data)
+>>  {
+>> -	struct platform_device *pdev = to_platform_device(dev);
+>> +	struct device *dev = &pdev->dev;
+>>  	struct inno_hdmi *hdmi;
+>>  	int irq;
+>>  	int ret;
+>> @@ -1128,7 +1148,24 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+>>  	if (ret)
+>>  		return ERR_PTR(ret);
+>>  
+>> -	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>> +	return hdmi;
+>> +}
+>> +EXPORT_SYMBOL_GPL(inno_hdmi_probe);
+>> +
+>> +struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+>> +				 struct drm_encoder *encoder,
+>> +				 const struct inno_hdmi_plat_data *plat_data)
+>> +{
+>> +	struct platform_device *pdev = to_platform_device(dev);
+>> +	struct inno_hdmi *hdmi;
+>> +	int ret;
+>> +
+>> +	hdmi = inno_hdmi_probe(pdev, plat_data);
+>> +	if (IS_ERR(hdmi))
+>> +		return hdmi;
+>> +
+>> +	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL,
+>> +				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>>  	if (ret)
+>>  		return ERR_PTR(ret);
+> 
+> This clutters up the structure even more than it is right now. From "bind"
+> back to "probe" and "dev" back to "pdev" and calling a function called
+> "probe" from the bind callback.
+> 
+> You are right, that all the resource allocation can (and probably should)
+> live in the drivers probe-path, but then please call that probe function
+> from the actual probe path.
+> 
+> For example you could look at how all the Synopsys bridges do that.
 
+That is what the new jh7110 driver does - it is a plain platform driver
+and calls inno_hdmi_probe() from its own probe no component framework.
+Same shape as th1520-dw-hdmi.c which calls dw_hdmi_probe() from its
+platform probe and never calls dw_hdmi_bind().
+
+I kept inno_hdmi_bind() as a wrapper on purpose so the rockchip probe/bind
+flow stays exactly as it is today. I do not have any rockchip hardware and
+moving resource acquisition out of bind and into probe there changes when the
+bridge is added, which I did not want to do build tested only. dw-hdmi keeps
+dw_hdmi_bind() for the same kind of consumer since dw_hdmi-rockchip.c is
+still component based.
+
+I am happy to convert inno_hdmi-rockchip.c so probe acquires the
+resources and bind only attaches - that would let inno_hdmi_bind() go
+away entirely - if someone with rockchip hardware can test it. Otherwise
+I would rather send it separately where it can get proper testing, as
+this series is at 21 patches already.
+
+You are right about pdev - inno_hdmi_bind() will take a platform_device like
+dw_hdmi_bind() does so the to_platform_device() goes away.
+
+> 
+> 
+> Thanks
+> Heiko
+> 
+> 
+> 
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
