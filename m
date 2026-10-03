@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC94CCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 11:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4572ECA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 12:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mUM4eWlKyYPxyDaXS7ik6dAgsgLmpn/ims08byN3U4=; b=mMNDzKCrEJegpuAtnQ2f5HHQh1
-	IkN7AO9GFheOsh1nx9lia8PH2ZNW/uSG1O/7otTAb8+E7X+ZoZ/lO9of+vbOIUdApkU0D24AIskAI
-	cwJRfPaVokqdSoqgLc8+b0xi/f+mmzSTOscRMGwvvL+CwM86hujPKU2z98VwVBppAvpi46yLn/K5J
-	H36Vy5Xl8v442B23LgRlH6KcHTQ5yZVqqd5UhJ6aPgsFUDRwGpkwVn1caM/ACAycETZZnVMkROBvc
-	AK3mzuc0/dz9JuTfSqNOQxe6afW0a5+adrtZu9uNplAxX+8Q/IsjRWsY/GvnnU/8CciK1F7bk6xAQ
-	Wc5Cyiow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2VwFiLcD3ULkC2A6L1yKWuUIxB62Ph+7Tm6gN1JBF5U=; b=AHk2qRIPh+NmwbpOWCBS0AalU9
+	NLUDVHXuuZqy/uvsuc0HQ1lRlJEi5YE3AsYSO9cMSUeDaCc1xKFrqg8U/lv+WrvNaVgV8O8zCOiuN
+	989bgvBrNi4s45VTQGi5VaLbcScbQYqJvksRFf9fKLx9Ud/sMXRDDt49Hu2BjpIdyxiBpNM2OZSZU
+	QgFBPCdnG+ZLS/lvF78DBDgPeqP8uMQcsotTH9rKrrOEI7T3mSJtMhl2sByWvl34PmeNbmoNWsy6u
+	U54cyn0o7yT7u2x+FEldFh7uu/iBq66sOwjCRuwL9937f89x39wghw7K8tUQv5qzWRAlAPyWCeEd7
+	3uQej4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxk2-0000000DQ8U-2DFi;
-	Sat, 03 Oct 2026 11:17:22 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1xCyXE-0000000DSUP-0r2t;
+	Sat, 03 Oct 2026 12:08:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxjy-0000000DQ7e-2fY5;
-	Sat, 03 Oct 2026 11:17:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1791026233; x=1791631033; i=markus.elfring@web.de;
-	bh=3mUM4eWlKyYPxyDaXS7ik6dAgsgLmpn/ims08byN3U4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=c25CTkjrA6BkIQbyTsi04nU/BweS6Js8waT7mjnY7XaWUxgSQHY22Cws9mRFbVTo
-	 2KEwODDfLWVXHCIrYMSO8GTR44P2eA99DNqbrxYxamvlBA2kvdyU9mbhOI7/5ytgf
-	 /uAjPo1OjIa1AIl3d+f4ybluJPA3Nqdt9UiyUuLCa7enrZvmCkjfgcVvfKzhgerIV
-	 rNPGJRpuTan+XaWnPiEUaAVnkCSsjN7RGer2la9+AY7fnwjwudDt6LR9R8ljOmxee
-	 TnWEX/0SflNUKBWj4nFYDI4JZUhsRyvV/0Z3Ac7rZmUFrutK+lY71gn9x4O0Q+oG+
-	 8t6NWWJ+OpyyrWDnDw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1M4sbr-1xEt141bIV-00HCKv; Sat, 03
- Oct 2026 13:17:13 +0200
-Message-ID: <16e2af34-9db3-4167-b6ef-1b3751fec7be@web.de>
-Date: Sat, 3 Oct 2026 13:17:04 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [2/2] firmware: raspberrypi: Clean up local formatting
-To: Stefan Wahren <wahrenst@gmx.net>, Triet Hoang
- <triet.hoang.dev@gmail.com>, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20260919034840.28593-3-triet.hoang.dev@gmail.com>
- <ce9aae9e-bb67-430e-9e2e-83b27265f489@web.de>
- <ef540a61-22d2-475c-a5bb-a7df8b44ee19@gmx.net>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <ef540a61-22d2-475c-a5bb-a7df8b44ee19@gmx.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:2IHL+pm0clhLz/xDSegsl5cvlZK46nQHDTQO0PKMgzNnOxUbLbx
- QudebdsheDJDJ9BY1G/KTAkbyJEhf9/m0AzJ2y7DNbgECJxMLh1j5C078tj4Vfa+MzGu25c
- VNdjg07FRBt7AKk967ocfD3j0Io0+wu1bbAOoPYt+Jf+kwOs2XbTIUJujXv9lgii0yjUGYO
- ZiQ+V2fbDyNxpwJojYC0g==
-UI-OutboundReport: notjunk:1;M01:P0:0v7QXlvTEW4=;Iv0GXSBLQbZxqG4xbE/XUwiGPCW SPq6XIMF1gtwBTzqN2wKcV2xe0b+da0f0p6yT9XJtRjQm/I+cdnAqur9XysO6qWW2bgSVdMkF zR0w+0FrSzvH48Ueg/CrOeG4t5eX63/UeaaJXZpCe658lshbjEZKuAxZOM8356poGW6lce5Ma hFnw/bst4zDdCPCI9qICic9SNIVuERxMW0HskbRocFhKaaWNYlwi+4bOC4QuVF/Vn3ApZ0acg 11Af4dBfAODC24i2IGSEBZVcy/Usugu3Sr9/mKENk8JnU1LVCylqBLXu9D53GIxeDVHWUFH2f /Hd6jU9PYRq4j+uUqxDDtb+qYDbLoI4ZsCmB2mcyB7argr1AWoyQ6UiwZnw/774uaOsBOvwzh tMxBaRmcLD95K4jY5U1+6XR4ZyFHRBzO/ypofqqOEgy3tYYl0YhSi4eN9xAUQ1/DVExDf50NV dQ6FCKibH87Hs8Wk3qfoDnTXAMjcGo9YTJfImEuyI/o4ardisU8qCRRQqyKUoDpBZr62sxCdD wVE2TDThqF4iyFCun/pCwr3kmAbSKPV5ELvMZVIV7fheBdKsGlG53suc27nbmQ9No6U5myj6X gtHwx7WOubKVc0wPlzNqgrYEo4CX/8oe2MXWmNr3lpPb9T/B6BIG9lpLy1TjXfJWFTrrvRsLh NhUp6/4D4gotCcySyTgpH+gTOIYXHYFQ+8B8vLAj4qDsMC8yto1ju/GyAliz1cVuUy3dcxmsp CEBceBFdtJTvBYqsBzA9wqfWr42pzIoBKSC2ocpdva6ZTCZX9cWTCDuoQ64KriY3Zim9CS62b rzrjrH3FtED3HHcIppZ8dqlBXvowH0DECbFFrlVKixkG7UjsUwX9yKvErW+IvQcFKtKZiwv8E v3qCCvRu+Y/FLtvzE5doc74dMOn3pK7ZzJpRVKfgZRdDKjv/Dd7PcwfH3AUECJCOrilu8Uthl 1AnJ1WRniwsXTP97sxYokuIVFPFpMBGfHlm9zy+MC+KQErowgYkyOgZnm/F4/1mGWSY5RPB6Y ktDCgqojgGbRMXjXSRa5WES7S9Wbpd8SVMiBp+784Jza6Dh9EPj1YXgZ2YisKKmkzLrLhdU9m X9SMeOPXkssSFQj7gJUhQTQmug3L3AasKdPwZRf7KXretESKBTUABY8/eb+ehXSNeOfZ75MVq 1wYI2LAgOVOIcLtwVSuCuxvilX4W3h5/0awvgZGQZQRXyYif8xAfdj9roFklu6kC1PzZH0Qdd ygt1dSWcRVIyFK09+MQp9c4QJAUxOnnZvSG6TIaN0oGEFYcyywYRO3/yFW7WTgm8dDUImNwCb yPHp31sBBWCr5+XMjFMkaIhQ4WSO9K5ThNQHSHog/qrw97dpbkplBJTxvNDvbKtFKlG+UhHNy Pn322eRf9g5xxxLDwbJ7hGCbiPaa/nR0+44sw4F9iAPM6eonGTSWZw4S3Fa2jDQHTE33fu1de Y53rePSBbf0cg1WDWSmgBxbvikGFFyvUCce2xmDEHhL49TG4ShRLi0/EXLO0ig0ZUvOExgxfj 8Ome47DIlqrrQ9zD/QjrGPHElJ0EUKoC79GzKMLFDBNsh0BP14Go8Cnp9hbxvLDsBRuV2FodV dY29oGrw/7AdnC/q5YbzcRgk1H8bWqBNrVIaEeCuwpG2Wsdh74eY9zN10wFZrqCT7CSwZ3zVC ZAmF/LMZLTQio/uvbQPcHwuej0oiFCQ2cI1Vb9oISONG+0Dmy+H4rFkF+LLgRneydt9F7XVjf M236WKtc4MQuQWiesiAenBdDAi4QiO3P4+1cprAlE4dBayETSDfIgn0UWYQzziIPEKwmmGZog Ud4DUH93BqfmywZAnPoWASzOjXCtdQb8HhHPEgjcFYjOMPPgoz3XcbHz4H4WCSU+O/w/brWQ3 uDZTrMftqvuku/lvrX/O30C8ImfHcG1Bp6A2WQu0px1BxbCYRixwaPa0HrJvfSCnYjCMnNTxM t7zKVW9QrY14j7aQnlB56DMYpywR2ZRxOJ47+B4/00P2BZdoCdfsND4b4otBKH/XI9PxOrv94 eg/9vCBOBXHMA8vGoJcy8hTGFL8F7SacKURu5588eAyL4faYaLQSpVp1/xjzjzRmtPUXrV0ZE 1lse7I8mUFZYkHLkZZwxU2FzNzEENWulJ+0DLAOmd0NNuhLIquxlQSv0VaHaX++Vr1z+qoUI0 Sz9uUUlRuDxHYuAfetqo3qOthG/7QG0Ho33DKdGH4RVUeuQ6vVOwQZTKkwU60w9D4yLo4sIhP jjyeS8KRTqZxy8qWSOaCoQaGa2v5yYiQzOUNw/+W6fDs7fPs/a1+VXFDTUNBGAWuIQtI3EdHZ b48X0qzVhDfVUXjh9JdjkD28he8LPmtRkwkGfKBMmwvZ+IWyg0UzGlsB+5EDxIN5ydKrEXt9Q g4VoR3bERurMnnNT+jgGVkI/kxu3M9ORRarh56HG8tzbCDtFWGu2sEIVUSWfyFvRdv686eIiV 5w1kWgD8RO9znL62Gcw89iwdWq7ph4nWrEfFyB39NBLfG7lo2h3FRxIwp2R9a1E6aP06N/9YN 1TfhH4f4CWQAhyMvi5CnfHvxssnWF1flNwV25HDt/lXXx6yoViquppyd7d+8s+zKs0LdPJryi tJiGCsfkdUQVkV2VtUWawVe8TPZsqWYP3p8wRI+sFxgsZJ51pY4pFJie3WZNakHk3sIrXcx+l ASjLlOsQjwUKST3yvPaZuQFSrbhIquRo3ivNPA/NNehjMclyef/gO2bMqUOa2WFsxHV6+vmmV hWgQjDveY2h+ln+Y2iRH5wlq6dXuNjSX17JYpn/lDT7VONFSef1dQm8ylzG2C9cDTKmvTg3TR pGvkGLG8TBQs254iS1eIiqtDb1SizQ/IzO9z1bFxLPpQcl3oCXR7L8B6EZMim63ArJeoVscD3 XRWCTV55oOrukYg0LxZjUxrvCHBh/yu8BHN6DUzv2Nsp5j/zgM3Z5xXW6DTjUD7jRt4PvOXrR HaP/RUigASzHK/glv0hZDOxkpnHL1rvR5nK0bo/druy0qpeW/v5Q+njP7z67oVJPRhh+Pei2P RbbS+IU1/qQZ2JSzmI4/LZbPeaqtN39cDQi8FEmbi+JV90apsbN4ZOUugOWjsErQ4fxQm6WlO +eIWBN/elR3ggaXjaKxQW0GR6oP7AdM4HqQ2vS1ujUHm1UxRdE8ooVnHVWBNVGvlYo83dlOw2 bzjIrUnxGql9roUDFDaZX34soGxLV9rMrP1WSmkLvqv6t+YCAyM3YPGZ9F4k5xp/eJ38dDPw+ TlAxw+tfvgv+TdxgX/tQvNw4AXb6cE4NNS1F6301u1dngRPqKPJYWxIaOHx1aPzynNv5VCChB ZlWf0yLNMer5IgJY3ko0uIB/GyL8UFjwtu1dc/xWcaziPW9cwgtMrPityy533yvfDgdkgkDmL EiC+jVxm4ptAEOf08XYL53ZaRVyrsxwBkLZO2pqhzAZ6X7Sl+wy42EprjGDovoNV1Hm2YHH+N JYqnN1Vyzf6+vMhkYyEU+X1dqvM/lGW3DPrN7/QbF3FU1aqUPkzGkL3/1XIrXBRnxRUgBa+Qd MdpradwZXoyeRUdDDwRElQSaZl9wqXl212LlW6wn1Bxhuuu3QnrjSXKiex7Qb2+n63uMErUaZ Dc1lqIDWdC+6Wt0hWri2yrJI0BeHjuNdAVTrOokrQJMNFg5fudxWTHDMj+BXPJtSzBPzQN8kg BG2hdbnOxYQ+blwSPqkSBGa2WB5qjC4BQ1gVmXCgk28fnb9rnLvHJbRjb+JBvIoaMweY2xLex RR5XFxRmPxJzNqxfA3kHsG97vtHhEG9TAry5OudxR4j8JZG7PGF50sa5d4aLvygQ3dzARIy/J kleppXEj2IcgDEVdysff/voswJUDXyE9Zv+6zRBkLMrlWlGwNOq3sh9LXbvs67tD2a4nLreUF
- i3HeWBAubFKxIwqgjiXobplPfBt2kU8ec4AHYsD03BSTgHRTedwJiI+QE+qqRkMBootTKxNt9 xWlHcS0BqlrDT4+oy1dcLYxiKjiJSIYYhbuHWYq/KNpgvY4vuxHd6dLwEtO2UvvxoPjJicM2Q FsGrDxqA/ykihsatI5azgkSfoTcEG+End5ET7bnyfK2FN34l2nH0GyFSZ4uNbkEYwBJQbXtsx fdeVw7RjImivMMUl2XX40Sx58vNaxjPNJ4U7qN0gWAQvZGMgF17TP7EJxdYoMQtZ5GH9pjxuC aeckS8CWjyZIkbAHseaE67wQdBkctBu9A4PThFYbsqRyY9Yxd7EeFllJMQYLmlTcuH8JdJ0xf KT1GmKM97GQcBHWj5X+XbCPwz/fakWyvZPAWGB5sYb0UkO6Uh2R24umJ54icdjF9tHW+9gdPZ aXCYIOG9FrCcHmXMPPZGJCACCrVX0LVNNQIceb27OVgWR6T7LAp81COUuubAxXGIBVQGBgcuk AcB1b6oM1EbnZnamhG2ldAYKPiySowj9H6xGJX5IbJnXNolfQxNRZlg5P0IdxIXv+V16BS9l4 XzUYSxBwOrtunAms5PbukG9U0Kd9WQNXsx+8wE47+7yd1EQ4kD0m8gxQQJB+97njDNDPPgwuL MURhpwaM4K6+CS7pGNYfrv1eKxlnD0Zfr5WEB3OZSvRsMvecTVSse11wyjes0ZKD8/1MwxUly 2Dytuu+UfEwS63WFjuUGwn03rTYL8nRDh+nTnb9Prl4dJa0JnVIN7pUaT7RyqWUCWj63b0Gy2 rUHa0kXS0tlHjz2oqKzczi5yCNUbfxuO8dLh2hla59UWmbCOcuMOd3VlkDH+NX99SJtuL2HkS UdJ9tLla+EH6FX/8SW/eXEtvXU2gD4QkZ7RF8pNQ/PqcI+HpAI0TfHGWFNLwtb+B0bLe4Ddzg oPPRGdX4UWf8GDkGpzOXqLU6gFIiREuJkYFndnzq6th6v8wBkFnnoStHMHlFZJNaohPJy/SGO AOq9ETaYtR8aGw2SxmYEM75yWaBkbJa6eqpmhDhAiHMjN3gcOlkxZQEWmhf6/qL4kZrQyrI1B pT+g2oeKvaXyNJVtEWpbkfRR9F/qIK2gK/Ez4mg7TK3Zlv9VDyI50OaHNrkwySwsM0Xp0y4iY YpenIqrDzJb9DsJIA5KwEkADbCfxhdHTSqXSyJ93m1gQF2fQRQBQM/qLP5/YYrQpX0+5cxuSf S6zb+YfJ7Bb8g4E4dKx0JPex8qdfd40qPaOQFVfgHTeucCw69rPwRQz8R/Fx5wSDh59NwaFjq 3KlAHaFAF4a07GQCCPxjpcjW5i7aj0ipP/5gJ7ovoC8nq3L9kQxlvcSdj2xqptlMZZHcj1Ppv FAgQWd8eljVSWCnjiCU4cmftC4RRKNjrChPog8JLnX0jXJUyGur9mIzPqf5cysb7KEjRgz/n7 HYEiSo5C+gY7yADAkWAKbJKZV8SNqaQGZ2IojRmR+ZSU11bXlM2wgJ19+ENSnCtihqxTa/kxW LA9iMsNkjwlB6nqlPGIEDBPOovEASv1Pbq+4HNoHO0uHrEj+mYYgvc4KdngjEkOIcc4zRCRHv +xtVkEj0xyxuIMHDHOFVtRaV7Q8JenBxZr8wZZthCElr3mQ1Th39M7n4D8RLVOSnCLRIaAJzf 2js9IFc8yXSpUQViujoCWxv/PPgFQh4uOBzTPuT2Uvf5n8jROcVBf8xzuFKolflW/YvgTV2/a +G+sdcJS433gA+z6M8S1B4aNmFUjsmnNZ/bewH2S8Wm+eLx8P/GIkkJwvnA4nqOoN2zMfGpUF kV11CFrl7ccYjjn7+NQf1TZ61yB5QhZy3zn2WQLgtv4WQaNlc3PDUhgo2w7jyz7biHv+GjCb6 YVCV+LIK7P0BH7+eHkR0mwUsT9OuFTdB/bkNjTTLj2ynjtsxLVc3cdNJF5/qRrs12kX0SK4O5 g0bRnevEXnGEcg1EKQIhtTHsf9hAZ4png4nIkjmPF0pObcfHikWqy/oRoq5Iph9bZD8H87oAm njL/Km/rUACZSRwVUYbDf3d8buL6dafjf+9ofSJOT+mUPNDKlCLLi4jvHh4UY7mBdG4sbxxzM fYrjYXK2k+mmD6zg9kaOKVzQIk45JUj2tPageaT11A7aFntZEy6c57omIIxVeeUQFwh631Eq7 CAUHPd2pB8i5G0ff1gMBoqtvC+TSG8+bC7GAHfwZoMmL+b8Yfloh5ebUQbISM13zh+8iwxjI+ EU0ZF56oqK2YdCZc+JTjinWvnhG/rw6rRITtJbw4v//J4169GIYLldYZIL71vbv1TS/305EJO lFXkrPpxKLJr+WjvAOiK5Tq8+CUKzchlDXJjDn4MUn2s5tiK9rbfxeNAhEJ6S1/2MGKOjeljS d/6hQ5Yi/8ri6f0yseFRjJT4KsubjgDq6p3xc/hnjg1ZyXd4D1gS4ieoWV0FZR0md7qicxF4I T1KQK9lme3bh/35II62VzSMTJeCjMFjsnfQ==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_041719_043725_7777479C 
-X-CRM114-Status: UNSURE (   3.08  )
-X-CRM114-Notice: Please train this message.
+	id 1xCyXD-0000000DSUH-2krJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Oct 2026 12:08:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 143A043E32;
+	Sat,  3 Oct 2026 12:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7DF81F0089B;
+	Sat,  3 Oct 2026 12:08:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791029291;
+	bh=2VwFiLcD3ULkC2A6L1yKWuUIxB62Ph+7Tm6gN1JBF5U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Fy6TJMzQk4cahDfG3QAIr52g1zzmOcnK4ffVAcPCkWIXBHCmbmjcIqh5N7kmiFPrf
+	 Fez9zPcgAsM3ABHqRo9y7QnCGsIso6xt4nL4xMJ7RBTiXerjHz2NAcz3VGEN9mUeEi
+	 tk2xaRI0+akbXc71prv6dyIXJjU5HGmyuromgglbSym91H8CskF8yuV5dN4I1ha1GO
+	 14877bmSRY0B0iZe7rEWNCZT1qYkLp70yLL4RL3543yefVuTtX6KL5z+XmHLxi6T79
+	 XY/lM1ZER+XRgP04CJOss40EEYKRlCgwLWEE/lKVkclimeGEx16kdSrkClR1OVG6m2
+	 QLDVTL4UGnT1Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCyXA-0000000GWcU-3vLV;
+	Sat, 03 Oct 2026 12:08:09 +0000
+Date: Sat, 03 Oct 2026 13:08:08 +0100
+Message-ID: <86h5j32dhz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Eric Auger <eric.auger@redhat.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 0/4] KVM: arm64: fix VGICv3 redistributor rollback
+In-Reply-To: <ar_tdaYQO-t1K2F_@gmail.com>
+References: <20260831081005.41346-1-kmehltretter@gmail.com>
+	<ar_tdaYQO-t1K2F_@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>> Add=C2=A0a=C2=A0blank=C2=A0line=C2=A0after=C2=A0the=C2=A0local=C2=A0va=
-riable=C2=A0declaration=C2=A0in
->>> response_callback()=C2=A0and=C2=A0fix=C2=A0the=C2=A0indentation=C2=A0o=
-f=C2=A0the=C2=A0UINT_MAX=C2=A0return=C2=A0in
->>> rpi_firmware_clk_get_max_rate().
->> =E2=80=A6
->>
->> See=C2=A0also:
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/Documentation/process/submitting-patches.rst?h=3Dv7.3-rc4#n88
-> sorry=C2=A0but=C2=A0I=C2=A0didn't=C2=A0get.=C2=A0What's=C2=A0the=C2=A0pr=
-oblem=C2=A0about=C2=A0the=C2=A0commit=C2=A0message?
+On Fri, 02 Oct 2026 18:45:21 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> 
+> On Mon, Aug 31, 2026 at 10:10:00AM +0100, Karl Mehltretter wrote:
+> > Changes since v3:
+> > - Dropped the REDIST/REDIST_REGION serialization and VGIC init/destroy
+> >   rework, keeping the fix close to v2. (Marc)
+> > - Limited rollback to assignments from the new region so an older-region
+> >   assignment cannot be missed during concurrent vCPU creation.
+> > - Added Fuad's Reviewed-by tags to patches 1, 3 and 4. These are otherwise
+> >   unchanged from v3 (formerly patches 1, 4 and 5).
+> > 
+> > Previous version:
+> > v3: https://lore.kernel.org/r/20260822095346.53882-1-kmehltretter@gmail.com
+> > 
+> > Karl Mehltretter (4):
+> >   KVM: arm64: vgic-v3: Undo assignment on iodev registration failure
+> >   KVM: arm64: vgic-v3: Roll back assignments from the new region
+> >   KVM: arm64: selftests: Pass guest code to vm_gic_create_with_vcpus()
+> >   KVM: arm64: selftests: Test VGICv3 redistributor region retry
+> > 
+> >  arch/arm64/kvm/vgic/vgic-mmio-v3.c            |  54 ++++++--
+> >  tools/testing/selftests/kvm/arm64/vgic_init.c | 116 ++++++++++++++++--
+> >  2 files changed, 151 insertions(+), 19 deletions(-)
+> 
+> A friendly ping on v4. Patches 1, 3, and 4 have Fuad's Reviewed-by;
+> patch 2 was revised following Marc's feedback.
 
-=E2=80=9C=E2=80=A6 and fix =E2=80=A6=E2=80=9D
+The trouble is that we don't seem to agree on what "minimal changes"
+means. I've applied these patches locally, and simplified the first
+two patches to get rid of the superfluous helpers.
 
+Thanks,
 
-I imagine that another known advice can eventually be taken better into ac=
-count.
+	M.
 
-=E2=80=9C=E2=80=A6 Solve only one problem per patch. =E2=80=A6=E2=80=9D
-
-Regards,
-Markus
-
+-- 
+Without deviation from the norm, progress is not possible.
 
