@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEEDCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B38CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BuU7jC4i69chPY01RNYqlbIN9dzYHsP3HeLG1L5754=; b=TWtMZWERk2ScLuIOn5LSm5Ljtk
-	raDpiIX2qTl4HpI0YwFcMd90Lr+Vfq5zimsRb0O4IzuYirLAJnG36gSfI3gLfhdPsSc+NB6PDvuu4
-	RP68xEVxDO6qCvhZV3fVpLQkMgTutfosWesRpTaAoiOsAd9JZdIRViJNOgV5qYc7fZKIqYmGWKPDm
-	EWn/a/Fuu8AsvCU6mc94k1DCkqskU0QuaLa4R1tgSK51s9Z4gLtZ1GslRHDXs9j8q4iHyCm5gNlnr
-	09KNfDXNuGUZD+03GUtAZZZCsgNrHzmrZSLCsUWQWOlSUp3GjjeHKDZc2/dR3Uuo7Gx/o1gMCI9Yw
-	0yUF36xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Vf2SJzcw/twLJ3u0C2ergshxmPbVYRKqTuAFoZVLvQI=; b=Ks8tGy8GY781TS
+	7DgquG7uj0xAvzOQN98qw5gAX7bLbX4NA3aPDybcPRWqU/SOB/BG5Fjt6tfmNGzx53zoXsqzb3uOH
+	ADY1OxSqBpBy0UtamMPDjehKsjICpjfvnVsOhH0VAk8Kc1rtFL3jlXjX/pnoDLbax1XoBbhoxwEx1
+	GiimdZ54TeKDuwUGvOLMbXY22mDn8vVPe9gdD7MAwL5q9P6oAUZz36V2S72ZTKglqQXnIK4QlNkKp
+	Ds10Qvz8GgDxX9UKcNdlatymQvjiqoAsk2G1KL/hpb0EZ6uQgIbG6bwh7uylP2M6T5UPAtBzslr3+
+	pODwSUA7icrSmBcAMGkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6g1-0000000E25X-1Hqd;
-	Sat, 03 Oct 2026 20:49:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xD6hO-0000000E2Jm-3KFC;
+	Sat, 03 Oct 2026 20:51:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6fz-0000000E25J-29xD;
-	Sat, 03 Oct 2026 20:49:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D17114027E;
-	Sat,  3 Oct 2026 20:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D9AA1F0089B;
-	Sat,  3 Oct 2026 20:49:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791060586;
-	bh=1BuU7jC4i69chPY01RNYqlbIN9dzYHsP3HeLG1L5754=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=GM3ziYP9DJpdpqyZUdsiOItfTiwlDIV53YabQDxNKLKY6JpkOms/6aC9WNsXAc85A
-	 ijv6PbGX04i93Vu8W0mWkMuzDrJpy+A1k58fCuYuwqbgsxIMrZQ64rlQGukUtbZrnX
-	 KX1mUDuQ2BNtOKdU5C1ZsI5QhzeGYH0C8cQbVQrUur3uMLkDBzcotnk4sdPuo7GZkl
-	 HrJs6d9bGceDMMIuCx2eJ/5UaYb2NyYfnodkBJ6lF/tChW7qqXp+Fugy5vS58zJQeu
-	 plRpQUFpk709ZQbPlv805TmwWB2rSIGtr3yAkC/YMZlXzyLErCI3W5um9I88z1yL2E
-	 e/EYllVn/5DLA==
-From: Vinod Koul <vkoul@kernel.org>
-To: kernel@collabora.com, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Julien Massot <julien.massot@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260826-mtk-usb2-repeater-usb2-v1-0-e8e48e2fd6d8@collabora.com>
-References: <20260826-mtk-usb2-repeater-usb2-v1-0-e8e48e2fd6d8@collabora.com>
-Subject: Re: [PATCH 0/2] phy: mediatek: xsphy: add eUSB2 repeater support
- for USB2 ports
-Message-Id: <179106058316.240943.4391434773392918237.b4-ty@kernel.org>
-Date: Sat, 03 Oct 2026 22:49:43 +0200
+	id 1xD6hJ-0000000E2Ih-02M0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Oct 2026 20:51:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C072C43DEA;
+	Sat,  3 Oct 2026 20:51:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 93A3BC2BCB9;
+	Sat,  3 Oct 2026 20:51:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791060668;
+	bh=hjkUgIJ1jqk8Ay62xKb0orLgoJe2KP9bpAbBa0mAAYE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=A9eNUnN3QIPL7riU43tpSaafRpQEW58Fwcj/PSGLZoIlmo0MWS+2JEyRDgOBFuHVT
+	 yP9sli+79/+2T53lMJE9RaO25TUE/PGYRTf19xDg/1CIiPOJSGzc3BpEjthTaE+CVn
+	 6wGcoJRf6/fi6toFRzJLdblxJrSl1QitjOIw253xJTm/9qsuwhR6WXYx/u7JmaXDu8
+	 7z/fTr5yQAJX315QNFNlNtp6C5Lp1KPQbRiHUm+i0SBBvkLtLXtuB567gnJbeJ1Vvl
+	 7DR3yqCcSHvDfZodO0yEjUl8gYdKjen7F5K+m34bht00u/dEc6Z/jUBq35tTCQHIRu
+	 1lzMLqU7G9HRg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F7AFCA5FE6;
+	Sat,  3 Oct 2026 20:51:08 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH v3 0/3] Apple SoC CIO (USB4/Thunderbolt) reset controller
+Date: Sat, 03 Oct 2026 22:50:59 +0200
+Message-Id: <20261003-b4-cio-reset-v3-0-e605f9e5c8a4@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNyw7CIBQFf6W5azEU0D5W/odxAeXSoqYYqETT9
+ N+FulETl5OcmTNDQG8xQFvM4DHaYN2YgG8K6AY59kisTgyMsj2taUOUIJ11xGPAiUjJjaJCSd0
+ gJOXm0djHmjue3hzu6ozdlBt5MdgwOf9c/2KZd3/SsSSUCMN5VVW6UUIdLuhHvG6d7yG3I/uwW
+ fljs2QzTcXO1FQKJr7sZVleF1r3CvkAAAA=
+X-Change-ID: 20260809-b4-cio-reset-aa3fb04bad9e
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2831; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=hjkUgIJ1jqk8Ay62xKb0orLgoJe2KP9bpAbBa0mAAYE=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bBrO2bZjMG3T4YOf17Q6aB2F/ufR6MlzqEptfv0pOJn
+ h15pbOqo4SFQYyLQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRgEMMX0VPvOXVCzp40+LR
+ 44/Hr9ZNL/no/DqySOjM6xgpHoHPnAz/vSS+Wr71z3/+cRrnGQlpC53pn2S7P8dfOdfRtuGW3/u
+ dHAA=
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +90,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Wed, 26 Aug 2026 14:38:34 +0200, Julien Massot wrote:
-> Some USB2 PHY ports are connected to an external eUSB2 repeater chip
-> that sits between the PHY and the USB connector. To support such
-> configurations, this series adds an optional phys property to the
-> MediaTek xsphy port sub-node and integrates the repeater into the USB2
-> PHY init, exit and mode handling.
-> 
-> The binding follows the same pattern as the Synopsys eUSB2 PHY, which
-> already uses a phys property at the sub-node level to reference an
-> external repeater. The driver change similarly manages the repeater PHY
-> alongside the MediaTek USB2 PHY.
-> 
-> [...]
+The CIO blocks used for USB4/Thunderbolt on Apple Silicon SoCs have a
+reset inside the power manager that has to be deasserted before their
+co-processor can be booted. On t8103 and t8112 each port comes with a
+dedicated register page while t600x and t602x use a single register
+with one request bit per port shared by all ports of a die in the
+middle of the PMGR MMIO region.
 
-Applied, thanks!
+The first patch adds the dt-binding, the second one the driver and the
+last one the device tree nodes for all SoCs. This will be used by the
+upcoming USB4/Thunderbolt series to start the host routers before
+booting their co-processors.
 
-[1/2] dt-bindings: phy: mediatek,xsphy: add optional repeater phys property
-      commit: e95b476302852ac1fb5bffaa824ac2cd35178e58
-[2/2] phy: mediatek: xsphy: add optional repeater support for USB2 ports
-      commit: bda1af7b177a94f6d169f0b359c61e7a7d39a36e
+Best,
+
+Sven
+
+---
+Changes in v3:
+- rebased on -rc1
+- Link to v2: https://patch.msgid.link/20260821-b4-cio-reset-v2-0-2d045f80a424@kernel.org
+
+Changes in v2:
+- dt-bindings: move the t600x example with the PMGR sub-node over to the
+  PMGR binding itself where it can use the correct number of address
+  cells such that the unit address matches reg again (Conor)
+- bail out of probe when no match data is available (Joshua, sashiko)
+- explain why neither a read-modify-write nor a delay before polling
+  is required for the shared t600x register (sashiko)
+- fix a copy/paste error for the M2 MMIO region in the dts change
+- Link to v1: https://patch.msgid.link/20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org
+
+To: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>
+To: Neal Gompa <neal@gompa.dev>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>
+Cc: asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Sven Peter (3):
+      dt-bindings: reset: Add Apple SoC CIO reset
+      reset: Add Apple SoC CIO reset driver
+      arm64: dts: apple: Add CIO reset controllers
+
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |  12 ++
+ .../bindings/reset/apple,t8103-cio-reset.yaml      |  61 +++++++
+ MAINTAINERS                                        |   2 +
+ arch/arm64/boot/dts/apple/t600x-dieX.dtsi          |   8 +-
+ arch/arm64/boot/dts/apple/t602x-dieX.dtsi          |   8 +-
+ arch/arm64/boot/dts/apple/t8103.dtsi               |   6 +
+ arch/arm64/boot/dts/apple/t8112.dtsi               |   6 +
+ drivers/reset/Kconfig                              |  10 ++
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-apple-cio.c                    | 200 +++++++++++++++++++++
+ 10 files changed, 312 insertions(+), 2 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260809-b4-cio-reset-aa3fb04bad9e
 
 Best regards,
--- 
-~Vinod
+--  
+Sven Peter <sven@kernel.org>
 
 
 
