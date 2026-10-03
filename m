@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98483CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD27CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFR639q8tbGk2o2B7bnw3EP7nlm2AxE19opzLE9d4MY=; b=y5yl8eg4gCtfqVxvCoW5Rrh6hD
-	uYm6r/BABdGHYAFwuaTq8nrb6GmdneW5BfFXdRiBSyKx5NQoo6YJQ8bZbg6OZ3katUYfR9qJ7lnSw
-	C/bK5rdxLrX8mdotVRe+gZFmTkHKsxCEbgohlokN4qmonH6gznBQmVaAkCt02Go9RPSGcIJPiJnrw
-	Z7YVM426lV1j8dexYNSrxjouWnH+lp4BfR0ZwhZKUgsyzdVfzzkYtsL3JohxdTRW4C+aZSSKhzX43
-	99Ef26FnWBJ/EWy0YGIciD2XJ9qRdF2b68jxZoKLlrY6JluDoTQF+7mTWabGGT0H15IBd1/y/3hN9
-	LcEeDcZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=; b=wh/2lHp7xg8iJAHOyxHeVmB/qo
+	Kx8zRKZPisPFhWhe/+DBGdpvgXpwa4XnQ3pUoV7XG5m+7bMyJt+5+gkrKQ+Hy0m5q8KElyKw2F4oR
+	i3ahaIT3W9Cyu2KehNtxbfQ92IuTGS5KvMxHAraaPS+5Khcg7HNmERVnU0QXJk/GGI++B4yOhU3s0
+	1W/X/ArJmEG0vcBZSvlm8/uyzCdhggrjjgDuMCy/L689WdS/ufOL7MXjk8r/2O1to45MY22FhtSCa
+	cPsS/iDpCB0DGbh/kynpvzJSWebFMtQ4/4v18Dzy7LXFvhBYJJtxmiTR77OJn1qBAvrPhm95sTr6I
+	1D0meCyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0oM-0000000Dcmw-18dN;
-	Sat, 03 Oct 2026 14:34:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xD0qr-0000000Dd5p-107W;
+	Sat, 03 Oct 2026 14:36:37 +0000
+Received: from sender5-op-o12.zoho.com ([165.173.182.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0oL-0000000Dcmh-0HMW;
-	Sat, 03 Oct 2026 14:34:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE20F42CEC;
-	Sat,  3 Oct 2026 14:34:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78321F0089C;
-	Sat,  3 Oct 2026 14:33:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791038040;
-	bh=AFR639q8tbGk2o2B7bnw3EP7nlm2AxE19opzLE9d4MY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PQLdvN5kALf6gJs73wjnLUlULwRHpG5ddyq+nlsq5nKLkvhk2vfQwyfN+NPRPkC2H
-	 Oi4t+Bm4kV3aMZHP51vZLtSRRe3JhiKeQAfGKgt/1eFSXW8kV5beZBqyGCbCh86cn7
-	 gVpon8b+BBA07NzoUaf0684GUFRFdWBhwrcqaGzFANB+UUq8mtNlYWJpdbkOHpCP+V
-	 r9S/wHF2XRanD5eAczJfi2fpAQiLzKMW+2HnQkBBJiKKCbMDth0l4WGU+EmVuGtRXg
-	 +pNPiwqJAIFDYnwQkAz53N98WVBEDeSrcDe2Ry/CGpOWI3fpOqid16SerRcZJv00ya
-	 0PiEX5Z8SsNXQ==
-Date: Sat, 3 Oct 2026 16:33:57 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com
-Subject: Re: [PATCH v2 0/4] phy: rockchip: inno-usb2: ensure PHY is running
- when clock is requested
-Message-ID: <asESVQlMjOYfHk_M@parshuram>
-References: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
+	id 1xD0qn-0000000Dd5K-16Mn;
+	Sat, 03 Oct 2026 14:36:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791038153; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kLHYAhye2LfTlMwX0V6q6TTBkux+wUFvoV4mXNTnSVevlJCYF5FyMMRkdeFkH0XszsbgO+qYY2nuDmDtmuWaPe/Qry8FJt2ZBs79Ypjdi3fNNl4hpSYv+BiOAYPvjEGr930y6mI6YFb29oTMGzg8MfOcXrhEuaUKicppeQkNN0A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791038153; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=; 
+	b=kRHyPxPAhgGthdAaCK3cR3qk8LPjw/tJr7goGPLgT4hdbGXJLOiOJ1lqY0IdtuTXa9XDacMAmTO1f4RS03uNFPlHZxXQGT2pAIugaTweekvCg9hn+GKltqoM9snXW4m7nB8EGOvghDWut1qOUqMP68/t2wHIXMBOcPKR2QN3pmM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791038153;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:In-Reply-To:Reply-To;
+	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=;
+	b=aVP6eu9QquEmV95y1DiK1BJcTJUnvthZ3+boRCVkxLohCUk8OTC/+kQtbqhGdwwC
+	V3gRD61LqmAqz0zOpqvCC3f+OHP72cIIbFN5+2qPbvitDeoBI/XjkIeRaTIsvgm5ev7
+	f6L/Rn7N7zv+L3ETm7cY0TEXFhKrt4FIczIQYM5w=
+Received: by smtp.zohomail.com with SMTPS id 1791038151074231.15688188388413;
+	Sat, 3 Oct 2026 07:35:51 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 03 Oct 2026 22:35:41 +0800
+Message-Id: <DLVA17A4RRG7.2ECQKV3SJDAGI@pigmoral.tech>
+To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
+Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
+ <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
+ <enzo.adriano.code@gmail.com>, "Andre Przywara" <andre.przywara@arm.com>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>, "Yixun Lan"
+ <dlan@gentoo.org>
+Subject: Re: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733
+ CCU and PRCM
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.22.0
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+ <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
+In-Reply-To: <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_073633_788384_77AC9C90 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,58 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01-10-26, 15:12, Sebastian Reichel wrote:
-> This was noticed on RK3588 EVB1 when resuming from system suspend. This
-> is technically a fix, but its unclear when the bug was introduced and
-> system suspend is broken on RK3588 for quite a while and not just due
-> to this problem. So I think this fix can be merged the normal way via
-> linux-next.
+Hi Chen-Yu,
 
-This looks fine to me, can you check the sashiko issues reported...
+On Sat Oct 3, 2026 at 9:37 PM CST, Chen-Yu Tsai wrote:
+> On Wed, Sep 30, 2026 at 1:27=E2=80=AFAM Junhui Liu <junhui.liu@pigmoral.t=
+ech> wrote:
+>>
+>> Add support for the main CCU and the PRCM module (R-CCU) found in the
+>> Allwinner A733 SoC. The clock architecture is derived from the previous
+>> A523 design, with the MCU_CCU removed and the clock tree extended for
+>> the additional functional blocks found on the A733.
+>>
+>> The A733 introduces a "pll-ref" clock that normalizes the physical
+>> oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
+>> consistent 24MHz reference for the PLL clock tree.
+>>
+>> The peripheral, video, and DE PLLs provide multiple independently gated
+>> outputs with programmable dividers. Model these outputs as separate
+>> divider-and-gate child clocks. Also follow the documented hierarchy for
+>> the derived peripheral PLL outputs. The explicitly named PLL_AUDIO1 /2
+>> and /5 outputs are modeled as fixed-factor clocks, with their divider
+>> fields initialized accordingly.
+>>
+>> Also extend the sunxi-ng SDM (Sigma-Delta Modulation) support for the
+>> dual-pattern register layout used by the A733 PLLs. PLL_AUDIO0 uses the
+>> dual-pattern SDM support to synthesize its fractional output.
+>> PLL_AUDIO1 does not expose fractional rates, but its SDM controls are
+>> modeled so that stale settings left by firmware can be disabled when an
+>> integer rate is programmed.
+>
+> Some of the clock controls, like the PLL and AHB/APB bus dividers, are
+> secure by default and need to be set to non-secure for Linux to be able
+> to use them properly. And there is also a TWD clock in the PRCM that the
+> user manual says is secure only.
+>
+> Have you given any thought to this? If we end up having to convert to
+> SCMI or something to handle those clocks it's going to be a bit ugly.
+>
+> And presumably things work now because the secure/non-secure access bit
+> isn't in effect right now because you aren't using secure boot? At least
+> this was a thing in the past...
+>
 
-> 
-> Changes in v2:
-> - Link to v1: https://patch.msgid.link/20260908-phy-rockchip-inno-usb2-clock-fix-v1-1-f7d59c31b908@collabora.com
-> - Move suspend exit code from rockchip_usb2phy_power_on into a
->   separate patch and reuse it in the clock prepare function;
->   move is done in a separate patch
-> - Updated commit messages with proper rationale
-> - Added one more patch dropping useless assignment
->   of rport->suspended directly after calling
->   rockchip_usb2phy_power_on/off
-> - Add one more patch unifying and simplifying the debug
->   messages for phy init/power_on/power_off/exit
-> 
-> ---
-> To: Vinod Koul <vkoul@kernel.org>
-> To: Neil Armstrong <neil.armstrong@linaro.org>
-> To: Manivannan Sadhasivam <mani@kernel.org>
-> To: Heiko Stuebner <heiko@sntech.de>
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rockchip@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: Igor Paunovic <royalnet026@gmail.com>
-> Cc: kernel@collabora.com
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> 
-> ---
-> Sebastian Reichel (4):
->       phy: rockchip: inno-usb2: simplify and unify PHY op debug messages
->       phy: rockchip: inno-usb2: drop duplicated update of rport->suspended
->       phy: rockchip: inno-usb2: move suspend handling into new function
->       phy: rockchip: inno-usb2: move suspend handling into clock prepare/unprepare for RK3588/RK3576
-> 
->  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 85 +++++++++++++++++++--------
->  1 file changed, 59 insertions(+), 26 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260908-phy-rockchip-inno-usb2-clock-fix-edd65b57f884
-> 
-> Best regards,
-> --  
-> Sebastian Reichel <sebastian.reichel@collabora.com>
+Thanks for pointing this out. This is indeed something I had not
+considered before. I will try enabling secure boot on my spare Cubie A7Z
+board and test it on actual hardware.
 
--- 
-~Vinod
+For the PLL and AHB/APB bus clock controls, the user manual indicates
+that the relevant security bits can be set by TF-A to allow the kernel
+to access these registers. This also appears to be how this has
+traditionally been handled on sunxi platforms. So I think we can do the
+same in TF-A for the A733.
+
+For bus_r_twd_clk, I will test whether the register is indeed always
+secure. If it is, I think the clock can be removed from the kernel and
+left enabled by its hardware reset value or by the boot firmware.
+
+>
+> Thanks
+> ChenYu
+>
+
+--=20
+Best regards,
+Junhui Liu
+
 
