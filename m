@@ -4,66 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B247CA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB22CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91Re1ki5i06ImfQ2WQcYkJL+cFX6XDihWfIGyXVk9j8=; b=u7uA60N9NUq6HBmQ9J7ltlS12Y
-	TpRZsDV28/WLvDS7u55wozBZLA93fuNHro61YPFa5YqdeoFSaY6rlZLF0j5gyN/QmNTLPl4pfmrqB
-	8WrXLHgx5XHWkad1zpZUXx4C2pRf0+UlxJTYGTDzP3DYq/yzSctpiNLgqWC8BXOKjHdTLsOoLUOn4
-	nmDGn4UZFl/lM2WY9Uvmebw1vzOw3x5v+XTxKJqnGx0diXZPdHVbbNS3BUEeDThXmLjMqpcE/LlgW
-	XWTmd2ip7i0VVnqbMSH8YNu+X8jKItHDspKBGGVywF3Q2u/bZN+JjR7JndYBTKW+YqgvZc8Yb2Zjg
-	yd6+/FrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aLAwFt+Tq7GlMEaX8/iY40Albs91lRxQ0vr6oR4axkM=; b=bej8hLLJgd/f7zfkSu53BzwJcY
+	rPYo3Wx5KIzT4YHytjFBvceQi6s40+xCxutMkoPMgTGkybFm+6ONDmGV0BTsk0tSreo6LMVrhB1aN
+	VKzRDdk601cSJO/YAnnSTmtROC0YbKiQol0x9E70r/9bm+MXp29QVSaskHd6LHgssMJaH5MoSVPQS
+	I4WW2W2eCZ4vh/u+jELU8i5+7XT+q8a6Lu/EiwcQEoWEfc5RasU3WzpVhhu+ph9cu6iyyht15RPUP
+	C7wgDc0rHNyvrIgfT53j9yOnpya4ufudBx7CGucVTYFlgCrVIBi2E2RJxJIGTVCwTuk5+FnroNy+s
+	Ho9MV/yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD73s-0000000E3sV-3ywe;
-	Sat, 03 Oct 2026 21:14:28 +0000
+	id 1xD73w-0000000E3t5-0GCy;
+	Sat, 03 Oct 2026 21:14:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD73r-0000000E3sH-41hM
+	id 1xD73s-0000000E3sO-1umg
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 03 Oct 2026 21:14:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 631D843A47;
-	Sat,  3 Oct 2026 21:14:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333431F0089B;
-	Sat,  3 Oct 2026 21:14:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A94F4149A;
+	Sat,  3 Oct 2026 21:14:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED7EE1F0089C;
+	Sat,  3 Oct 2026 21:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791062067;
-	bh=91Re1ki5i06ImfQ2WQcYkJL+cFX6XDihWfIGyXVk9j8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ltMCYBJhrHGywMCwYCJ9iRp6v+aDzPtsuVq2HKqfaurd57oEobFkLFNFD5tiGhRK6
-	 6mCP1gWhsYHLavzgdTNI+TJrrxsMt7jVNJW6grUR4JBpRhVI/Y4XWsLTvXw/RPrIIK
-	 pP08cv3FpCr8lM7nLmTw+UmWiJ/fMloU23eW+C1z0o3CItNgmi4vq6zp8BLjHJMnS0
-	 1ZIEZyeAIC4iQzaP130AYyCzvbqZ7D/PJ/pFk1rTLCx7lkMYVszdtHqwknkrTw57Ji
-	 xRUwAVeLYWfSHSdCudnhgyuaxAU9dP7HTIqOxxFwxYoeqyD+Lq0ccQ9ImMsvqjOEtF
-	 cCLMjIb+uciFg==
-Date: Sat, 3 Oct 2026 23:14:21 +0200
-From: Nathan Chancellor <nathan@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	"kernelci.org bot" <bot@kernelci.org>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH] arm_mpam: make the mon_sel guard conditional only
-Message-ID: <20261003211421.GA1389115@ax162>
-References: <20261003121251.3942666-1-sashal@kernel.org>
+	s=k20260515; t=1791062068;
+	bh=aLAwFt+Tq7GlMEaX8/iY40Albs91lRxQ0vr6oR4axkM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ogVon9PFyFUIsL8EIoHmsBudo4/a+aUMF13pz34KBgNJmPGFnzQ3uVJd3z7a//tC6
+	 iMDGDVTOdiZzFtHPfWBfW1YEAPDJalWnDXSzu6uqvOdD1G0ZD57kBb0V36cPbuVxOn
+	 s32og7QCJQREY/IEGkREZmVLGdFQGgQslVKn8euPOBRpgfAMPB8kxS9MBxa1/VY1WD
+	 X9edRwlM3CbzysfELEuSr+o4MS+pPOYiF4umpDQGRa3KYWbrjzqq2yqR7fkM6XkTIj
+	 VJNpmwiiVm05qUwpukoAAMiDCADIRDe9jA2+vc8BZo6h1u5qOIwwjlHqEjpdqn+t+2
+	 dGKeyfDNRjbmA==
+Message-ID: <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
+Date: Sat, 3 Oct 2026 23:14:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261003121251.3942666-1-sashal@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: Add EBDEE vendor prefix
+To: Pufan Jin <2254650260@qq.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261003194625.936288-1-2254650260@qq.com>
+ <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +116,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 03, 2026 at 08:12:48AM -0400, Sasha Levin wrote:
-> Building arm64 allmodconfig with clang fails:
-> 
->   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
->   of function declared with 'warn_unused_result' attribute
->   [-Werror,-Wunused-result]
->     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
-> 
-> mpam_mon_sel_lock() is __must_check and can fail: for an MSC accessed
-> through the MPAM-Fb firmware interface it returns false when called
-> from a context that cannot sleep. The mon_sel guard was defined with
-> DEFINE_GUARD(), which calls it unconditionally and discards the
-> result, so a guard(mon_sel) user would carry on without the lock and
-> release it on scope exit.
-
-I wondered why we do not see the same warning with GCC since it seems
-like it should also warn on the same construct...
-
-> The unconditional guard only exists as the base for the conditional
-> mon_sel_lock variant, which is the one actually used.
-
-but this is why: GCC may not emit warnings for dead code due to some
-warnings being emitted from the middle end after optimizations happen
-but clang will always warn because its semantic analysis runs in the
-front end before optimizations occur.
-
-> Define mon_sel_lock directly as a conditional guard class instead, as
-> posix-timers does for lock_timer: the constructor returns NULL when
-> the lock cannot be taken, and the destructor only releases a lock
-> that was taken. ACQUIRE(mon_sel_lock, ...) works as before, including
-> ACQUIRE_ERR() returning -EBUSY on failure, and there is no
-> unconditional variant left to misuse.
-
-These macros make my head hurt but this seems correct to me (though not
-enough to give a formal review tag).
-
-> Reported-by: kernelci.org bot <bot@kernelci.org>
-> Closes: https://d.kernelci.org/i/maestro:66f869ecbbb5b8592562ffd89f049c5ddf682547
-> Closes: https://d.kernelci.org/i/maestro:647269216758644837afcaac8e67d8dbe713a0e2
-> Fixes: 0db1715e4c9c ("arm_mpam: propagate MSC access errors for hw_probe functions")
-> Assisted-by: LLM
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-
-Thanks, this fixes the build for me as well.
-
-Tested-by: Nathan Chancellor <nathan@kernel.org> # build
-
-> ---
->  drivers/resctrl/mpam_internal.h | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index ee7c3953a9b6c..be1795b29aca2 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -203,9 +203,10 @@ static inline int mpam_mon_sel_lock_init(struct device *dev,
->  	return devm_mutex_init(dev, &msc->mon_sel_mutex);
->  }
->  
-> -DEFINE_GUARD(mon_sel, struct mpam_msc *,
-> -	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
-> -DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
-> +DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
-> +	     _T ? mpam_mon_sel_unlock(_T) : (void)0,
-> +	     mpam_mon_sel_lock(msc) ? msc : NULL, struct mpam_msc *msc);
-> +DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
->  
->  /* Bits for mpam features bitmaps */
->  enum mpam_device_features {
-> -- 
-> 2.53.0
+On 03/10/2026 21:46, Pufan Jin wrote:
+> Shanghai Xin'yI Electronics Technology Co., Ltd. (EBDEE) manufactures
+> the EdgeBoard series of embedded compute cards, including Zynq
+> UltraScale+ based designs.
 > 
 
--- 
-Cheers,
-Nathan
+What does EBDEE mean? What is the company website?
+
+Best regards,
+Krzysztof
 
