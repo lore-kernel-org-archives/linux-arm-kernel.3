@@ -4,61 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F938CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C08CA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSUhjkfC0Q2//h6dWhCqwgi4jeXYnkhNBRpnLdYChkc=; b=VqEHk/L7iQ9QOwa7E/eqZuKjbA
-	GvLJOlH9zlCzKVJbemfudf8fjV45IRrvai7tKWFbXOUT5fM8cjK1l4oBbwJALb6VKfpHAM1+QS11I
-	Pm8RyzqphBOO54CWcTnBQI4y8w/gLmavPVkXfFFdJWcFCNUaNaIoogbF8c0Ov8RCsquwgzmrJPtF/
-	INKMjORVLatOZXs9HAiDg5n3gRSwTVqIhMBcJV/w+5BIXCZPS1OXesnVEt7pUN0KhhvIWMTwmmsUA
-	U89tTQUYxBjRzW7Z1+8zYOjrTnzII5LzYmpRH4dBId2n74h3iF7InVYvBfzgSzkWIM4VZQeUdtJJn
-	QQoRL9DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X8iuOQXnVYYdSG0NuC0FpqYPqJ9aUVdctLVwjWuIw3s=; b=N86j1JUoz99Jo6bTZXu8PWbosF
+	T3vz4Gictfk6xcMxn2sT1E4TpLAn67D4D1R+rhqosqRMR0H2myagu82JkgOGtFE/2Q7e04507EYWH
+	nSnQgvvkcaKpYD74GR5MENxW7zdc9THO5jK5nexzU5lfENZNJoGWNcY/LtXyoQkV9CvAkdh1X+YMD
+	BbrlkXYc755FecLLtPFyoZMRIiYVf608KfLjIcPHEb9OQ2iD5ahs8K2P1mLG5oqz+rgzjFY7AZz4q
+	scYmrQncS6E6Gy17b5np+qxkXjKGW9H7j+cqI2sIPcIsMoSM9tR0eN8hM3WpUZLWiy6oG7wzOkrzO
+	q905iFPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6WB-0000000E1CT-48kK;
-	Sat, 03 Oct 2026 20:39:39 +0000
+	id 1xD6bs-0000000E1ea-3Kz8;
+	Sat, 03 Oct 2026 20:45:33 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6WB-0000000E1CG-04pY;
-	Sat, 03 Oct 2026 20:39:39 +0000
+	id 1xD6br-0000000E1eA-0ZrJ;
+	Sat, 03 Oct 2026 20:45:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6F2560120;
-	Sat,  3 Oct 2026 20:39:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5A7D1F0089B;
-	Sat,  3 Oct 2026 20:39:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B5CC460120;
+	Sat,  3 Oct 2026 20:45:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333BB1F0089B;
+	Sat,  3 Oct 2026 20:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791059977;
-	bh=tSUhjkfC0Q2//h6dWhCqwgi4jeXYnkhNBRpnLdYChkc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=noA68/7ksmbSP7UWWC0+zA5kZh994tu+Z+faRzxxNrfp0AT6nCJlGUpSNMXxx1fUP
-	 GRIbAYUlUrqClUoxTLdcx0TP8SVcfUtkH+sAaETa9Z8whx8gxSbLAjebarfJitsFJF
-	 7XHDuUURtnQGPfZYoHN2F8p+EXF5ACwpGpguq31uHjm3yolN7WBeTPNBs3Z2NS5TNV
-	 DwJksVsvtfbsS5ObA9cWGmuGLG1RKCry+TCfkDNBR7d57lxhkrKnD6yM4B8R33rsD1
-	 yN2OmBM2kE9RRGwbcMgGOMQzjVKgx3pCmUzyUuVqfypnWNqg8MMkoAz6dR3ba7HeVD
-	 zxLHpuf9ort0A==
-Date: Sat, 3 Oct 2026 22:39:34 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] phy: hdmi: Add optional FRL TxFFE config options
-Message-ID: <asFoBih6P7Cr6Ute@parshuram>
-References: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
- <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
+	s=k20260515; t=1791060329;
+	bh=X8iuOQXnVYYdSG0NuC0FpqYPqJ9aUVdctLVwjWuIw3s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=OZEj4F1nQ7bdjYU+XZTkdEJ7/ssHip5lidQLNVWEi/QuA6awBDOVhvWhzQXm6yFj4
+	 eKotg0qzyzRTMIrQc4GaFLTN1IG6xzhob5Q7l6ys9J4THnxp1Rid4s3b+62yu3V7Zq
+	 5/kv8sJp35n9cpbZ5F9opovWevocGak0PMALOgcHIIOZ/zmullKw1j81ZRkbGHScO6
+	 c9oEPZeC/1yIBZ6Yv2C8ujWVbyvUIo99ndVuw+6hJjXEIKpmm/0hCgCO5X3bBNH63x
+	 jHELs+T79aqduVbESmXLEyYl7qMd5rPThx+TF0J5HF/PJQtqqUmyUQZVlPTgb9xi50
+	 lZCZLAfDvkq+g==
+Message-ID: <3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
+Date: Sat, 3 Oct 2026 22:45:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Maud Spierings <maud_spierings@murena.io>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+ <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+ <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+ <20260917-mutant-chamois-of-competence-46ca77@quoll>
+ <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+ <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+ <eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +147,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01-09-26, 22:55, Cristian Ciocaltea wrote:
-> During HDMI 2.1 FRL link training, the source and sink can negotiate a
-> Transmitter Feed-Forward Equalization (TxFFE) level to improve the
-> signal quality.  Starting from zero, the source may increment the TxFFE
-> level up to a maximum agreed during the LTS3 stage if the sink keeps
-> reporting FLT failures.  TxFFE adjustment is optional and only attempted
-> when both the source and the connected sink support it.
+On 03/10/2026 17:36, Michal Wilczynski wrote:
 > 
-> Since the existing HDMI PHY configuration API covers the FRL rate/lane
-> selection only, provide the following fields to the frl sub-struct of
-> phy_configure_opts_hdmi:
 > 
-> * ffe_level: the TxFFE level to apply, only meaningful when
->   set_ffe_level is set.
+> On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+>> On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>>>> +  clocks:
+>>>>> +    maxItems: 1
+>>>>> +    description: Reference oscillator.
+>>>>
+>>>> This barely counts as a resource, so usual question: no resources here?
+>>>> no MMIO? Even the user of this phy is the block itself.
+>>>>
+>>>> This makes me wonder if this should be a device node in the first place
+>>>> (instead folded into the parent).
+>>>
+>>> The PHY has no reg because the reg is shared with the controller and
+>>> owned by the parent - patch 9 lets the bridge take its regmap from
+>>> there.
+>>>
+>>> The user of the PHY is not only the block itself. It is the pixel clock
+>>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+>>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+>>> it is the only intended source for that clock. The parent has to be
+>>> assigned explicitly so the general PLL does not end up driving the pixel
+>>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+>>>
+>>> So it has to be its own node. The HDMI block has two independent
+>>
+>> I do not see the logic which lead to this conclusion. Pixel clock
+>> provider, so a clock controller, cannot be a user of a phy. Clock
+>> controller does not have a physical layer.
 > 
-> * set_ffe_level: a 1-bit flag that changes the semantics of the
->   phy_configure() call, i.e. when set, the PHY driver must apply the new
->   ffe_level and ignore the other frl related fields.
+> Sorry I think the wording was not perfect. I meant the PHY node is a
+> pixel clock provider. voutcrg consumes a clock not a PHY.
+> 
+> voutcrg: clock-controller@295c0000 {
+>          clocks = <&syscrg ...>, <&hdmi_phy>;
+>          clock-names = ...,"hdmitx0_pixelclk";
+> };
+> 
+> The consumer of the PHY is only the hdmi controller.
+> 
+> What matters for the node layout is where that clock goes. voutcrg is the
+> SoC display clock controller - it is not part of the HDMI block:
+> 
+> hdmi_phy -- pixel clock -> voutcrg
+>                               |
+>                               - pclk/mclk/bclk -> hdmi_controller
+>                               - pix0/pix1 -> dc8200
+> 
+> hdmi_phy and hdmi_controller are the same register block with one reg
+> owned by the parent. So if that block is described as a single node:
+> 
+> hdmi_node - pixel clock -> voutcrg
+>      ^                          |
+>      --- pclk/mclk/bclk --------
+> 
+> the node provides a clock to voutcrg and consumes three clocks from
+> voutcrg. That is a cycle in the device tree description.
 
-The ffe_level 0 implies it is disabled, so why should we use a flag for
-this? Rather use if value valid (non zero) logic to apply..?
+There is no cycle. Internal signals to the block are not represented in DT.
 
-> 
-> The flag-based approach reflects an important invariant in the link
-> training process: whenever the FRL rate or lane count changes, the TxFFE
-> level must be reset to zero.  A separate phy_configure() call with
-> set_ffe_level can only follow after the rate has been established,
-> making the two operations deliberately distinct.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  include/linux/phy/phy-hdmi.h | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
-> index d4cf4430ee8f..1d4b62475079 100644
-> --- a/include/linux/phy/phy-hdmi.h
-> +++ b/include/linux/phy/phy-hdmi.h
-> @@ -19,6 +19,10 @@ enum phy_hdmi_mode {
->   * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
->   * @frl.rate_per_lane: HDMI FRL Rate per Lane in Gbps.
->   * @frl.lanes: HDMI FRL lanes count.
-> + * @frl.ffe_level: Transmitter Feed Forward Equalizer Level.
-> + *	Optional, only meaningful when set_ffe_level flag is on.
-> + * @frl.set_ffe_level: Flag indicating whether or not to reconfigure ffe_level.
-> + *	All the other struct fields must be ignored when this is used.
->   *
->   * This structure is used to represent the configuration state of a HDMI phy.
->   */
-> @@ -29,6 +33,8 @@ struct phy_configure_opts_hdmi {
->  		struct {
->  			u8 rate_per_lane;
->  			u8 lanes;
-> +			u8 ffe_level;
-> +			u8 set_ffe_level : 1;
->  		} frl;
->  	};
->  };
-> 
-> -- 
-> 2.55.0
+What you have is a driver problem and you create some sort of DT
+structure to solve that. DT purpose is NOT to solve your driver
+dependencies or circular connections.
 
--- 
-~Vinod
+Best regards,
+Krzysztof
 
