@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE95ACA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214FECA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lybFAex9WxGAgZ+zpS5TZW8MDwPCoDmGh2YO/5uBlvI=; b=RCjl3Mxvi3iMi37NmAqgyj6/c3
-	9LKermv+HrxB+Ve5me+gm2+OAnkV+BAtomzx22ZZvf8o57bub9BhIFUICkR7c77kZYCwkM/b4uasD
-	t83OERV5uBXhp+FdwEDeE6QRvlYoQ5aXR8y4AOIIYcrnNCxcY6GE2PXXT49JvFXeG/wQJvrwtUK53
-	/zQ2GKj+eZz6vIVnjlzCs6b2gJjK94Mby60g5KTLUDsR1iXVPyXAomxQe+fmJJbTlOntxneVYaKXb
-	8vNZZiWIFFAzHt23Sa70oNhJSFy66QAYSnpeD5MCA1QbNTCVcM1vNG52S67vInWmZDbdnAWJZ/4EL
-	hyowZ6Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2Zfs3PcsP+d5BdM1qvovFHJjOfUJVTAnK9KsR5VRvQ=; b=sLKT0tMoMq5ZZeCul0UkwtCgWD
+	YDIiRCHMytfEzYMsZupsCOgJVOm33uF4DRTbend3uBzbZJk2wMkyeaXViJeYkwPgr7ToApp9Sn1Yn
+	9sq+topURMWZ1KsakBn2Fre4bRav1wIALe8/DHv2ptIOSnkiFKx+lnjljU+fvcjUSrfO2fxQ+eQk6
+	+1J+eCKYd1hN7XsjtrELnln8IbI1pol24TxNjSQnwOCdMNTKgMnVv712D7hfHeWGqFfqqxYu/m/HB
+	y/agazV1gVJPBLqmOSw9IMxOihkiV8IrqRBgieCqU2Cm4dtIL7y6DCFp7X/oy79CX6CHXkemt2Kys
+	np4alYAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD7Mf-0000000E53O-0M5n;
-	Sat, 03 Oct 2026 21:33:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xD7PB-0000000E5JP-2YPk;
+	Sat, 03 Oct 2026 21:36:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD7MY-0000000E51M-22x3;
-	Sat, 03 Oct 2026 21:33:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1791063221;
-	bh=kDXqnGMv+3/dGk6DPxEqeXvBQLgvyQU5ZWM8ZzjXf08=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OpnIRgT17QQtur0E7ZQ1+4nbWFI2gwCemx/0KapAoxCvcfbqCtyXKndD4Y+fQ/EM4
-	 SqhioB0vXIvFRNbrKcA0akg79VEJVi6YYscqU1hSEo3YXe4L/RHhabOeEzRRi7Ln9i
-	 SSh1J8rjqKFZf/dDdmtSXDdNjZE/UwDH0smNer4XqntGgxKFm8IE6xzEgk3EeVzHAh
-	 yZGuZF7ayBD43yRIH2gtEJc9jjtZ9y16CZZR9A04TYETZJCc90911F5G3rAO3U0DN+
-	 Bgfn6E9GoboB1gZGX+Oqt9rLkjryemH9M9FvyJ27hT1DtEIMtNPG7c/uZvjHnqzRMN
-	 +cXR9cJyjrgLA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0716617E022A;
-	Sat, 03 Oct 2026 23:33:40 +0200 (CEST)
-Message-ID: <3c0dc77b-b692-498e-aed6-aa97d827b2f4@collabora.com>
-Date: Sun, 4 Oct 2026 00:33:40 +0300
+	id 1xD7P9-0000000E5JA-34eB
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Oct 2026 21:36:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2253D43591;
+	Sat,  3 Oct 2026 21:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553FE1F0089B;
+	Sat,  3 Oct 2026 21:36:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791063387;
+	bh=+2Zfs3PcsP+d5BdM1qvovFHJjOfUJVTAnK9KsR5VRvQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Gvcb6y8l0nJy4nDvsFrpg8JkXEMdaTMDxhauZHiWn+Gi33KSpgAwcURUv5acAc649
+	 K4k4Kry3ip1wY/NNqQOIM1XdnV4u+HBhU5NMjtTrfw+NsFvYrQ4QAgNz+ofCQzas1H
+	 CuhcF3uzzQIImy/C1p4IE2nSt0rRLRo/omT/PJ3dSV2fVTq+vp+4a1/NYPLRbVGtEm
+	 OPyxkoFc1u5Q+pd8tt0AQmf4IfcLWT4V5va9uJGomYzJScd/mUOBIpZghJlgFw274V
+	 MVLNWgg5wZvTaDqF1Wd88FydVpd+jJ8sjH7MW+xquA5OHPVkphI7CXmWN7hKUoHM4K
+	 r4AgnrvVerWJg==
+Subject: Re: [PATCH v7 3/4] can: rx-offload: allow more than one receive source
+From: netdev-bot+sashiko@kernel.org
+To: ciprianmarian.costea@oss.nxp.com
+Cc: mkl@pengutronix.de, mailhol@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, haibo.chen@nxp.com,
+ linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, s32@nxp.com, imx@lists.linux.dev,
+ eballetb@redhat.com, kuba@kernel.org
+Date: Sat, 03 Oct 2026 21:36:25 +0000
+Message-ID: <179106338585.1406898.13675590689657020972@kernel.org>
+In-Reply-To: <20261002071203.1287650-4-ciprianmarian.costea@oss.nxp.com>
+References: <20261002071203.1287650-4-ciprianmarian.costea@oss.nxp.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] phy: hdmi: Add optional FRL TxFFE config options
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
- <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
- <asFoBih6P7Cr6Ute@parshuram>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <asFoBih6P7Cr6Ute@parshuram>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_143346_685891_ED2AEE7C 
-X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +72,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-On 10/3/26 11:39 PM, Vinod Koul wrote:
-> On 01-09-26, 22:55, Cristian Ciocaltea wrote:
->> During HDMI 2.1 FRL link training, the source and sink can negotiate a
->> Transmitter Feed-Forward Equalization (TxFFE) level to improve the
->> signal quality.  Starting from zero, the source may increment the TxFFE
->> level up to a maximum agreed during the LTS3 stage if the sink keeps
->> reporting FLT failures.  TxFFE adjustment is optional and only attempted
->> when both the source and the connected sink support it.
->>
->> Since the existing HDMI PHY configuration API covers the FRL rate/lane
->> selection only, provide the following fields to the frl sub-struct of
->> phy_configure_opts_hdmi:
->>
->> * ffe_level: the TxFFE level to apply, only meaningful when
->>   set_ffe_level is set.
->>
->> * set_ffe_level: a 1-bit flag that changes the semantics of the
->>   phy_configure() call, i.e. when set, the PHY driver must apply the new
->>   ffe_level and ignore the other frl related fields.
-> 
-> The ffe_level 0 implies it is disabled, so why should we use a flag for
-> this? Rather use if value valid (non zero) logic to apply..?
+Critical: 0 · High: 0 · Medium: 1 · Low: 4 (2)
 
-That's not quite possible because level 0 is valid (and the default) according
-to HDMI 2.1 spec. The source is expected to reset TxFFE to default whenever a
-new FRL rate is set, hence the API shall be conformant. 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Regards,
-Cristian
+- [Medium] In can_rx_offload_move_to_skb_queue() the comment says the
+  sorted merge will 'keep the timestamp order over all sources', but it…
+- [Low] Concern: the commit message describes a live S32G2 flexcan bug,
+  but the patch only adds can_rx_offload_add_source() and nothing calls…
+- [Low] can_rx_offload_add_source() calls
+  can_rx_offload_init_mb_range(source, &weight), then never uses the…
+- [Low] queue->sort is set only by can_rx_offload_add_timestamp(), so
+  with several FIFO-mode or manual-mode sources each source's…
+- [Low] can_rx_offload_add_source() does not check whether @source is
+  already linked.
+
+Pre-existing issues:
+- [Low] This problem wasn't introduced by this patch, but
+  can_rx_offload_init_mb_range() (previously inline in…
+- [Low] This problem wasn't introduced by this patch, but several sources
+  share dev->stats, and can_rx_offload_offload_one(),…
+
+--
+
+can: rx-offload: allow more than one receive source
+
+This commit lets a CAN device have several rx-offload sources, one per
+producer such as an IRQ line. All of them share one can_rx_offload_queue,
+which the primary source owns. A new can_rx_offload_add_source() attaches
+extra sources, and the IRQ finish helpers move each source's skb_irq_queue
+into the shared skb_queue under skb_queue.lock, sorting by timestamp when
+several sources run in timestamp mode.
+
+> diff --git a/drivers/net/can/dev/rx-offload.c b/drivers/net/can/dev/rx-offload.c
+> index 92309ed47bac5..5352d70b6e93c 100644
+> --- a/drivers/net/can/dev/rx-offload.c
+> +++ b/drivers/net/can/dev/rx-offload.c
+> @@ -304,18 +304,40 @@ can_rx_offload_get_echo_skb_queue_tail(struct can_rx_offload *offload,
+>  }
+>  EXPORT_SYMBOL_GPL(can_rx_offload_get_echo_skb_queue_tail);
+>  
+> -void can_rx_offload_irq_finish(struct can_rx_offload *offload)
+> +/* Sources may run on different CPUs at the same time, skb_queue.lock
+> + * serializes them.
+> + */
+
+[Severity: Low]
+This is a pre-existing issue, but the sources also share
+offload->dev->stats. can_rx_offload_offload_one(),
+can_rx_offload_get_echo_skb_queue_timestamp() and
+can_rx_offload_get_echo_skb_queue_tail() update these counters with plain
+increments from IRQ context:
+
+drivers/net/can/dev/rx-offload.c:can_rx_offload_offload_one() {
+    ...
+	if (IS_ERR(skb)) {
+		offload->dev->stats.rx_dropped++;
+		offload->dev->stats.rx_fifo_errors++;
+    ...
+}
+
+When sources run on different CPUs, can these increments get lost?
+
+flexcan already ran these helpers from several IRQ lines at once before
+this series. The only effect is slightly wrong drop and error counters.
+
+> +static void can_rx_offload_move_to_skb_queue(struct can_rx_offload *offload)
+>  {
+>  	struct can_rx_offload_queue *queue = offload->queue;
+>  	unsigned long flags;
+> +
+> +	spin_lock_irqsave(&queue->skb_queue.lock, flags);
+> +
+> +	if (queue->source_cnt > 1 && queue->sort) {
+> +		/* keep the timestamp order over all sources */
+> +		struct sk_buff *skb;
+> +
+> +		while ((skb = __skb_dequeue(&offload->skb_irq_queue)))
+> +			__skb_queue_add_sort(&queue->skb_queue, skb,
+> +					     can_rx_offload_compare);
+
+[Severity: Medium]
+Does this really keep the timestamp order over all sources?
+
+__skb_queue_add_sort() only orders the frames that are in queue->skb_queue
+at the moment of the merge. can_rx_offload_napi_poll() drains that queue
+independently of the producers:
+
+drivers/net/can/dev/rx-offload.c:can_rx_offload_napi_poll() {
+    ...
+	while ((work_done < quota) &&
+	       (skb = skb_dequeue(&queue->skb_queue))) {
+		...
+		netif_receive_skb(skb);
+	}
+    ...
+}
+
+With two sources on different CPUs:
+
+CPU0 (source A)                  CPU1 (source B)
+                                 reads frame ts=10 into skb_irq_queue
+                                 still busy in RX loop, TX complete or
+                                 ESR handling
+reads frame ts=20
+can_rx_offload_irq_finish()
+  merges ts=20, napi_schedule()
+NAPI delivers ts=20
+                                 can_rx_offload_irq_finish()
+                                   merges ts=10
+NAPI delivers ts=10
+
+Can CAN frames reach the stack out of timestamp order this way?
+
+With the next patch in the series, S32G2 in timestamp mode runs all four
+flexcan sources through flexcan_irq() concurrently. That configuration
+meets the queue->source_cnt > 1 && queue->sort condition.
+
+skb_queue.lock only serializes the list manipulation. Nothing holds back
+delivery until the other sources have merged their older frames.
+
+If full ordering isn't achievable here, should the comment and the commit
+message describe the narrower guarantee?
+
+> +	} else {
+> +		skb_queue_splice_tail_init(&offload->skb_irq_queue,
+> +					   &queue->skb_queue);
+> +	}
+
+[Severity: Low]
+Only can_rx_offload_add_timestamp() sets queue->sort. With several
+FIFO-mode or manual-mode sources, each skb_irq_queue is therefore just
+appended here. That happens even when a driver ordered its frames with
+can_rx_offload_queue_timestamp().
+
+The commit message documents this ("Otherwise they append it").
+
+At the end of the series, the only in-tree FIFO multi-source user is
+flexcan on mcf5441x (FLEXCAN_QUIRK_NR_IRQ_3). That part is uniprocessor
+m68k, so its handlers never run in parallel.
+
+Would it make sense to state in the kerneldoc of
+can_rx_offload_add_source() that ordering across sources is not kept in
+FIFO and manual mode, for future SMP users?
+
+[ ... ]
+
+> @@ -350,6 +369,16 @@ void can_rx_offload_threaded_irq_finish(struct can_rx_offload *offload)
+>  }
+>  EXPORT_SYMBOL_GPL(can_rx_offload_threaded_irq_finish);
+>  
+> +static void can_rx_offload_link_source(struct can_rx_offload_queue *queue,
+> +				       struct can_rx_offload *offload)
+> +{
+> +	offload->queue = queue;
+> +	__skb_queue_head_init(&offload->skb_irq_queue);
+> +
+> +	list_add_tail(&offload->node, &queue->sources);
+> +	queue->source_cnt++;
+> +}
+
+[Severity: Low]
+Nothing here checks whether offload is already on a sources list.
+
+Suppose can_rx_offload_add_source() is called twice for the same source
+with no can_rx_offload_del() in between. Wouldn't that reinitialize a live
+skb_irq_queue, count the source twice in source_cnt, and call
+list_add_tail() on a node that is already linked? The node could end up
+pointing at itself, and then the list_for_each_entry_safe() loop in
+can_rx_offload_del() would never finish.
+
+No in-tree path does this. At the end of the series, flexcan calls
+can_rx_offload_del(&priv->offload) in flexcan_close() and on every failure
+path before flexcan_open() adds the sources again. can_rx_offload_init_queue()
+also resets the list.
+
+Would a defensive check against adding the same source twice be worth
+having?
+
+[ ... ]
+
+> @@ -357,41 +386,65 @@ static int can_rx_offload_init_queue(struct net_device *dev,
+
+[ ... ]
+
+> -int can_rx_offload_add_timestamp(struct net_device *dev,
+> -				 struct can_rx_offload *offload)
+> +static int can_rx_offload_init_mb_range(struct can_rx_offload *offload,
+> +					unsigned int *weight)
+>  {
+> -	unsigned int weight;
+> -
+>  	if (offload->mb_first > BITS_PER_LONG_LONG ||
+> -	    offload->mb_last > BITS_PER_LONG_LONG || !offload->mailbox_read)
+> +	    offload->mb_last > BITS_PER_LONG_LONG)
+>  		return -EINVAL;
+
+[Severity: Low]
+This isn't a bug introduced by this patch, but the bound check moved here
+accepts mb_first or mb_last equal to BITS_PER_LONG_LONG (64).
+can_rx_offload_irq_offload_timestamp() walks the range inclusively and
+does:
+
+		if (!(pending & BIT_ULL(i)))
+			continue;
+
+so i == 64 would be an out-of-range shift. Should these checks use >=?
+
+No in-tree driver passes 64 today. flexcan uses mb_count - 2, at91 uses
+rx_last, and ti_hecc uses at most HECC_MAX_MAILBOXES - 1.
+
+[ ... ]
+
+> @@ -416,6 +469,46 @@ int can_rx_offload_add_manual(struct net_device *dev,
+>  }
+>  EXPORT_SYMBOL_GPL(can_rx_offload_add_manual);
+>  
+> +/**
+
+[ ... ]
+
+> +int can_rx_offload_add_source(struct can_rx_offload *primary,
+> +			      struct can_rx_offload *source)
+> +{
+
+[Severity: Low]
+This isn't a bug, but the commit message describes a live S32G2 flexcan
+problem, while nothing in this commit calls can_rx_offload_add_source()
+and there is no Fixes: tag.
+
+This is resolved later in the series. The next patch, "can: flexcan: use
+one rx-offload source per IRQ line", does the following:
+
+- adds the extra sources in flexcan_rx_offload_setup()
+- picks the source per IRQ via flexcan_get_offload()
+- switches flexcan_mailbox_read() to netdev_priv(offload->dev)
+- carries Fixes: 8503a4b1a24d ("can: flexcan: add NXP S32G2/S32G3 SoC
+  support")
+
+So adding the infrastructure first and the user next looks fine.
+
+> +	struct can_rx_offload_queue *queue = primary->queue;
+> +	unsigned int weight;
+> +	int err;
+> +
+> +	if (queue != &primary->own_queue || !queue->source_cnt ||
+> +	    source == primary)
+> +		return -EINVAL;
+> +
+> +	if (queue->sort) {
+> +		err = can_rx_offload_init_mb_range(source, &weight);
+> +		if (err)
+> +			return err;
+> +	}
+> +
+> +	source->dev = primary->dev;
+> +	source->mailbox_read = primary->mailbox_read;
+> +	source->skb_queue_len_max = primary->skb_queue_len_max;
+
+[Severity: Low]
+The weight that can_rx_offload_init_mb_range() computes for source is
+never used. skb_queue_len_max is copied from the primary, and the shared
+NAPI weight is not adjusted. So the drop limit and the NAPI weight depend
+only on the primary's mailbox range.
+
+This matches the commit message ("inherits the mode, netdev, queue length
+limit and mailbox_read() of the primary"). Later in the series,
+flexcan_rx_offload_add_source() copies the primary's mb_first and mb_last
+into every source, so the limit fits there.
+
+A driver that split its mailboxes into a small primary range and a larger
+secondary range would get an undersized shared limit, though.
+
+Should the unused weight be dropped, or is it meant to feed into
+skb_queue_len_max?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261002071203.1287650-1-ciprianmarian.costea%40oss.nxp.com
 
