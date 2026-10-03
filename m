@@ -4,94 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F117ACA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 17:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5385ECA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 17:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/By2OE0+/5lBAO79HI0ShVxfSlShXYgYRuhLK9eN7no=; b=ABer5wQuWoRhbpS4dKveHAyxqf
-	SEGFQhzSIkJZdS5T9SPuEtJY+hCiJrT6doJgcY3dLMsXv5FQeHGJEYBVJEFGU/JoGOJ63m9CGkc3D
-	YpBuMOYdKVAeskDE7KWWIsbQXXOSmRhpZOWe/ED0/4Zk+RVW4+MZ6CCNW55cB7hFfI7Gy8neSorDP
-	o/O+BFrWlIUnPsWqelr+s0hP6u8YlhdBqPaztZD/zHQUN3xFMeeCWgdJ57t/hl27yO9L6ts+zf3wv
-	WiCsbEu4C5ynN0q1X3vKPf/+9MB50PsVY2BB1vjkulMY2QT4AfNsTCeDJ6iJapn3gyIQZsEuFMfEI
-	KDMDtaiA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+bCVSyhH79TQYhJfxbH7MyZvPdnkAvvoBzk8H6SCls=; b=UGQbystXOfPuzSRNWA296BsUwU
+	XGHxODzSacOM8+76K7jXEYvs3cr8vXsd9N9a4hr6Uj9dgbetLe6Dy581d9AoJ2fj6suUD+0Cklpsv
+	ifKa0ME0rSZZZ5dh9+e40t6zxDq4ldvCbl1VD/YWDBtc8YlyqyISkxGsxaAOcHtmXTyXWmLd66Flc
+	HKRZMXpdxHMXVk2obK4i6rnPZON2TovIl00ejlUXn20kXQF4DMXQuktywZfot4wj8vVdYCC0Jz3Xh
+	GEjRHTwQ+/flZ9NKevkj0gi+tzSuEuY9omqdSFxKJD4MJGCDaxQVlNfVIt2lEOVHJpIYXBZlHAMDS
+	rDaju6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD3Y1-0000000Dqro-3EeZ;
-	Sat, 03 Oct 2026 17:29:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xD3eq-0000000DrZJ-1osR;
+	Sat, 03 Oct 2026 17:36:24 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD3Xz-0000000DqrH-2BNt
+	id 1xD3el-0000000DrYm-15rK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 17:29:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86FC060DA1;
-	Sat,  3 Oct 2026 17:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC821F0089B;
-	Sat,  3 Oct 2026 17:29:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791048558;
-	bh=/By2OE0+/5lBAO79HI0ShVxfSlShXYgYRuhLK9eN7no=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=c0KeWhWQDKHWS7d50/NydMyub1tr1wvxe5M1WAakXEmbrIAlZmehc+TqbIVgm8yEf
-	 Pd10HJC1byIsdZ33IVR2Nn+XeC+XUc9buAf7GZCkyig+/wC04+rf/4607jd8PVvsqb
-	 Ncos1ve2x3vaA6VGCaa9lnlpXbiZMZu5sVMER6EjT9VEMjlSsiwxo6zibnbmHf017B
-	 BAX+fr2PeaBbdwDuLTNqfAUQYGskWTpkohYpUdIE0Yv8dkBGhAmnwU0/lmoEFoE1ha
-	 VyCxfljyoUxqI0iGqUIFCNJVE/I1+DojNkomIYHCfpjaKU920gPdlJD/UpGMpabq2M
-	 oRkJpadK6g/Sg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xD3Xv-0000000GbIs-3dJ5;
-	Sat, 03 Oct 2026 17:29:16 +0000
-Date: Sat, 03 Oct 2026 18:32:23 +0100
-Message-ID: <87ld8e3d20.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v21 10/23] KVM: arm64: Add VM specific callback for S2 MMU operations
-In-Reply-To: <ce2e8885-d848-48d3-b82e-49fcd9a6cfcc@arm.com>
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-	<20261001210703.1597150-11-suzuki.poulose@arm.com>
-	<86ik3j2m5v.wl-maz@kernel.org>
-	<9873fb9d-6f32-46f6-bcac-6a52e293d011@arm.com>
-	<ce2e8885-d848-48d3-b82e-49fcd9a6cfcc@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
+	Sat, 03 Oct 2026 17:36:22 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c2dc8cb0decso68302466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 10:36:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791048977; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XE6HAj/iQ7XjcSaGcTg+8HU8otTbjhMggiwDuUHLQDVRT823VKxjfPKslLdyyN9NZK
+         djcr/YG+lxIOYc1UlYmcsQz7pFRy6AC8325e51l2VgOINb8LPOwGalqulhVyhSOusgET
+         Tg70n7jLYKGe20ZHpnvEubZbgCK6SzTKWIq4CLz5W8T3gxd5oTCOn+LqsAL1MN46MRXX
+         eikzJEwMfxaBg3QmWu/4EiRvPrBkO/6jK2QHrWL3LbfABqhoN1xFiVbr5KapDro1mA0c
+         6P4oc9ytwWNkFU2X2xr/6J43nJPtvhTe5GJarfLDqFRLPfyEfyKIM/lYu4fJ1XPtB2Ee
+         w70g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=z+bCVSyhH79TQYhJfxbH7MyZvPdnkAvvoBzk8H6SCls=;
+        fh=W/mS2PR8/iUJwYEhgoNZhpoSn2TYvqBxhqLRHifJTFM=;
+        b=CqrV3gp56qco5PxTH7xp3gkENPQqZolzMz92TifBUCXQUEH34/q3hfs5BIyBQrxNLx
+         EamiPGPmt2DO6dMPm73KcJCOfeAynWZuYjPRJeHTladqR25Z2XsvViNMnnNT3XHRv/xZ
+         M8RrdbnK4U8g4Ir3JwCSLwmLVmdPiK5xRMekZ7Q73Jtmxh/yczKW6FYyYomSb/oo2xS/
+         h+mVEQNzP0IAcc5KYh3gH7dFnoNwzZpt5+c6d1JU7eCx5AW+RKJ/nbS86nBqi6ed30QQ
+         2lAwSHrozFsFHt2dx+F1SzbN8AK45KglOdgcT044BZs8u7IAsfcK1VvsqjkjqcilI4Kw
+         8Row==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791048977; x=1791653777; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=z+bCVSyhH79TQYhJfxbH7MyZvPdnkAvvoBzk8H6SCls=;
+        b=jvjJjuRDHqQB1Y2hc2Nu1TplICq8hzZBSisKfz7UibWvVzWBjpusWC6Yv3Uh8EUdzx
+         7ttyJqzQDKf7LF9TXj/rNlmspMo8/jAn4H2oWkghZ2vIq6tFM49ikJj+2Be0T7gcByMb
+         5YV+mr9LOlViWhRkLwIZ+1qKOW5xWn19pFdwK9k9JNyoMGJ7wEZIsVZxHodx/uLXgLa1
+         GVL8IzTTAIBM7BQTNXBFug8j6Q1FJQ8QV3lsAMGMsnBsMx3s++OwJF3Urqn7/NNC/vUL
+         mb4jdk5YRC30MVWX5C7YRSg/4TWjaoQXsztmX/oYCEx/6DUBn93JmRK8EzFSxh7zyrmL
+         ZbbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791048977; x=1791653777;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z+bCVSyhH79TQYhJfxbH7MyZvPdnkAvvoBzk8H6SCls=;
+        b=NWYd97D8hfXiq8rpvS5SoYaO8dSTXH7BkTpS8CDB0W2TAToOOD7Q9pFvR5kPmc5ULl
+         oc/KcJTpMptlaVTOzF538N5kgTORytOfDSVNpaD+TCqqIbVcpV8GBlhV9R0Tv5FLk+wz
+         om//Wn+qyGvJ8BGf4Su44XL56a0jVkQPMdv9Sx+BagOuRW9BCGkiBD8sX0xGRc9AgG3e
+         DquxN9cZuA/Kvs7CpqQHYrTxANOA5tWgA/x/hqnBzsUlX+Hg6eTxr+2FJIq/7Syj0pmG
+         akeXwxA8XYgahVLTZRzbRSVa1tlE9EGdhCMEFa7P158wHvUB1fhG/j7uKmwiYKhzKqn7
+         FHQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxomJglxoyWtiEQ53YXcf3K1aZeqD5tEfimSf4mhaiZ4MarWKPlRc1ojH/udwiAli7r87sifvngqoxQyU+wMe2f@lists.infradead.org
+X-Gm-Message-State: AFuF++mZqu02Fh85USZLwVda5ynxbVdBubWAQ2T5FBLmoRafLBQ37Oe7
+	Kc+O1w7gnQ+zr8f12tGKczMUZkQUGVr5q6q3x67OKl74vqOmdIeEJBTGpb5/YB+D+ibLIFB1kjh
+	EkaYYnjlsNd0Go9PBQbdj7Ebl6IIYeC8=
+X-Gm-Gg: AYBFou0KFxAlUf6e4200OSCpcJCBRZ5EaIaykWLekjCDGzYD3DSFLDKpBr8Gukjn6WO
+	OfxN7dAF3MVo3+FxO+hk2uwUO2OoeP0T9r7T0hWyrahfKg74wIH8psJELCwfvKRT2IS6zZQ6kyx
+	/Trpa/obHojq9lQkvjUi0AoDwvQcGjTj8wxClIzelbvL2TDOD9Lsh7X5f5OH1AVwOnHlIhlfJXJ
+	jefGm8SZHgTA/F3MdYCxXU4zmuAJxLXFXd5EKR6OmI6FOqDhtq/eZykWtnX9rwJ4J8PbN57IcfR
+	8gG+O92LZYSTYwE88XAuVYtuN/7kxrh2MFqsW84rBvQaox8G+qhdI5cWou0V8qsJAtegprfg2/V
+	oR38VQgd4Urzw5SRZAkIEL8lnUgFQg7XuKme6WXHE2v0OKmcv0q+ovGH4mIktstn+RWzH5ITrf9
+	kdUQ5EDjAgy5LQ/EkO4qWiAWeGTPBeYvPZBXEQvf4V
+X-Received: by 2002:a17:907:7b8c:b0:c2d:fc0b:551a with SMTP id
+ a640c23a62f3a-c2e6e7ce8femr227244866b.0.1791048976875; Sat, 03 Oct 2026
+ 10:36:16 -0700 (PDT)
+MIME-Version: 1.0
+References: <20261003-gpio-mxc-cleanup-v1-0-dad728ce27f2@nxp.com> <20261003-gpio-mxc-cleanup-v1-1-dad728ce27f2@nxp.com>
+In-Reply-To: <20261003-gpio-mxc-cleanup-v1-1-dad728ce27f2@nxp.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Sat, 3 Oct 2026 20:35:40 +0300
+X-Gm-Features: AclHuK9bpapDMgc469XMoVwaBwPajoR_JzR60Owqy_i8pAhthfGXkoi2ZLHq1Yw
+Message-ID: <CAHp75VdWQZSsign6YBM34UAtis=Jj5ENqKcNzkhW4vS=v-bqmw@mail.gmail.com>
+Subject: Re: [PATCH 1/9] gpio: mxc: fix race between chained IRQ handler
+ install and probe completion
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_103621_505845_A1C975CF 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,54 +123,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 03 Oct 2026 17:12:28 +0100,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->=20
-> On 03/10/2026 16:30, Suzuki K Poulose wrote:
-> > On 03/10/2026 10:01, Marc Zyngier wrote:
-> >> On Thu, 01 Oct 2026 22:06:50 +0100,
-> >> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> >>>=20
-> >>> Add VM type specific S2 MMU operation backends which can be
-> >>> initialized per
-> >>> VM flavor, to keep the handling cleaner.
-> >>>=20
-> >>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> >>> Tested-by: Gavin Shan <gshan@redhat.com>
-> >>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >>> ---
-> >>> Changes since v19:
-> >>> =C2=A0 - Add a blank line in kvm_arch_flush_remote_tlbs()
-> >=20
-> >=20
-> >>> =C2=A0 struct kvm_s2_mmu {
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct kvm_vmid vmid;
-> >>> @@ -332,6 +345,8 @@ struct kvm_arch {
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u64 fgu[__NR_FGT_GROUP_IDS__];
-> >>> +=C2=A0=C2=A0=C2=A0 const struct kvm_vm_s2_ops *vm_s2_ops;
-> >>> +
-> >>=20
-> >> If you're touching this patch, can you please move this pointer next
-> >> to the vcpu_ops pointer?
-> >=20
-> > Sure, I will do that.
->=20
-> Sorry, this is only stored in kvm_arch, while the vcpu_ops are stored
-> in the vcpu_arch, to avoid pointer chasing vcpu->kvm->arch->.
+On Sat, Oct 3, 2026 at 3:09=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.com=
+> wrote:
 
-Ah, my bad,
+> mxc_update_irq_chained_handler() is called before the IRQ domain, the
+> generic IRQ chip, and the port list entry are set up. If an interrupt
+> arrives in that window:
+>
+>  - mx3_gpio_irq_handler() calls generic_handle_domain_irq() with
+>    port->domain still NULL.
+>  - mx2_gpio_irq_handler() walks mxc_gpio_ports, but the port has not
+>    been added to the list yet.
+>
+> Additionally, if any of the subsequent probe steps (gpio_generic_chip_ini=
+t,
+> devm_gpiochip_add_data, irq_domain_create_legacy, or mxc_gpio_init_gc)
 
-> I could move it closer to the vm_flavor ?
+We refer to the functions as func(), like you have done above, but here...
+(No need to resend just for this.)
 
-Maybe. Check whether that introduces a hole or not (I'm trying to keep
-this structure as packed as possible). But we can always change this
-later on.
-
-Thanks,
-
-	M.
+> fail, the error paths never unregister the chained handler, leaving a
+> dangling handler that points at freed memory.
+>
+> Move the handler installation after all its dependencies are ready and
+> after list_add_tail(), so the handler is never live while the data
+> structures it touches are incomplete, and is never installed if probe
+> fails.
 
 --=20
-Jazz isn't dead. It just smells funny.
+With Best Regards,
+Andy Shevchenko
 
