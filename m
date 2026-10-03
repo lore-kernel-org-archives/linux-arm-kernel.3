@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D52CA5FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07864CA5FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WQLlaZBcT5TiKH6jHmoF4Nd+NZMHVC1YNos0SXXELk=; b=AUzkFu5u9GN5JUD8XKRsNQe3KG
-	f1zJFv58gnIepsTdV0LBvpcXuWmDfU2oh1OIlolHPGobvx9dkV7STQr85EYxBCF/JXLqwdsA3Qrpj
-	0D2nIsXErx6kLx8OUvtdjieQh2zUaeMoZLh9i4DKLqVQtlWycy/huL30xXPbxofn/H/GB3obLB8od
-	n9/MRKbxqh7KcAa/rtcx8vnviHQyp81fzi1HF1NwkkMf/Y8suVb4s4h6e9rMMVdTqB+rcppU2P/jn
-	jycZPqZlHWgsivIOt3S7tHUZ2KftylRR3LkkzIuIylo89JUmJB8Lg+o0Fjxi3QlS7EQFi56EEvTSL
-	OF/1wpYw==;
+	bh=luvk4RSDKwxoXOLtb/naS+7NpP4AkbeMINi5BwnyOQg=; b=rU2vkGz6yni7rMST/c13ZRMc5i
+	KBHPTcVsPJ2A+684jqXX9QJdpRfs2iAJYczOksYh/TY1rHpRwn1BZU/D6paoxV3/xrg+Tb6w1quPR
+	mqG1zwvuvoEuYFqBCo33beaqG1YGhx4tnEhFbCNI4WtRLr869NDFe8wZQrN8OAX0HGEGzVjlbDZOc
+	Tp5D22rnfh4Oy7hQfMAfd6jMBU6Q1WNXHM81enH5YPoVC7/Lx/vgPJVqELY47qCLd8qtYH84hPRcm
+	xwvNFibbo0ISZzSxluTTi0PuvDf5pSLji70Mm3ac88OLinTKuElGOPadG4UWuY5JpOyOS1b/Nv/XD
+	33zHHGRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoX4-0000000CskW-38fp;
-	Sat, 03 Oct 2026 01:27:22 +0000
-Received: from mail-dy1-f176.google.com ([74.125.82.176])
+	id 1xCoX7-0000000Csmi-3Y5E;
+	Sat, 03 Oct 2026 01:27:25 +0000
+Received: from mail-dy2-f43.google.com ([74.125.229.43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCoX2-0000000Csj8-2jRo
+	id 1xCoX6-0000000CslQ-1Mgm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 01:27:21 +0000
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-3510f00d974so224511eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 18:27:20 -0700 (PDT)
+	Sat, 03 Oct 2026 01:27:25 +0000
+Received: by mail-dy2-f43.google.com with SMTP id 5a478bee46e88-34b3e517e6dso134084eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 18:27:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790990840; x=1791595640;
+        d=1e100.net; s=20260707; t=1790990843; x=1791595643;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9WQLlaZBcT5TiKH6jHmoF4Nd+NZMHVC1YNos0SXXELk=;
-        b=WsdTBM8c2it3rtUPUTcmMPAzRoMi1DHIs8KmLRYxvfhKk3DjoolRN7WXJOHsQAH9UI
-         XKS5k52QNt+2odPGQCJObDUsF+Y0raWKbSol/cFia+GJbf0p2JcFUo5TIJqqpZruK+Uc
-         P/K/P0BLdntEeAX9V6WGxKOYMblc84Vqf5/VbqTJ+ie0ewm/Lr+V0KEc6HOsVQ9MUwLl
-         BieNQ5Ap0TEersMhVI/m9WxIo93ovecV9GqqWDullNFi8gGDmeFN8KMsDwVTkI0Xlf2E
-         DoA5UbqcGM3t25T/Fio2TgCU7HBZhLUQ9DTSdyrcYneSYyTCOlaEHBfxGQOpKVp0o4sU
-         e1sg==
-X-Forwarded-Encrypted: i=1; AKwUvBwvhSINlGVXW8FZoq4BYF6X8mLsR1x3vhcqu4qzNV0/YdHYSud8Vpnq7x5nN6fDkt8Pfqw4BlAK0N9LYRucqPCt@lists.infradead.org
-X-Gm-Message-State: AFuF++nYskMdVU8kE1tRJl8qvUerESZQBoxN4PKJOilT/wUCRebfgNXc
-	T+h9oCIzOh9x4Gk4c5J/F296Fdwb0ASoovE+WqUuDLJv2E50VMsUMz6h
-X-Gm-Gg: AYBFou32HwravCphbm6FIgCPPE34uiSHZWbEG9WCnuVfG3YRWGpB1SLxH4Vw1hDFphg
-	l/EXtmc9k0av+IrGibBewSv8y94tnPDwY7X5sP9JniVS+l+w5cxfswlXb761deTWvjljxc0HBDK
-	Eaf7c7GZi77ucIM5lg8/EjUNPEZfvj4pWgeT4Wo81XRsAdj6RlZTb6JcFuv4OxF0UJfIeuZVS8u
-	l+3wJh/TplUySbEbDvrDYu8vYnXRPZIDwSkttYs7P7uxSRNaF6ISXRWejEtDVEj+7Z6ZXkAwpTg
-	osmb8pqrvRCik5tOcxlpKakzGq8bm8cFB/HIEBDwskB0eKDbtbO8Vlcbub5e7kz3P1qqTXkLl25
-	LCVDICxufyWNyyFHZuzkpIBD8fF1gJezclnYmMFy/k7V3n8pa493paLKlauNCITeCTrlksgBGWt
-	IPZo0gfXkV08ykxf9QyerRfjlQGmoTWThZsU5+jatKP6wA0wkKjm6ivbG7hFLyAoU4SZFeIPO2o
-	MkIpeghbdXaqCfDoGmt1hVOufE2pR7WUlRItJy1h+V81WmJzEa5D7+fxiGUFP6KjnbmGDGfqOfj
-	T+wc0t3IEDuiuQt82tpOJxAWVa2/BQ3VfqURYxjEO6Y+
-X-Received: by 2002:a05:701b:4510:20b0:144:eaa7:2763 with SMTP id a92af1059eb24-151c2d0b226mr1341545c88.16.1790990839589;
-        Fri, 02 Oct 2026 18:27:19 -0700 (PDT)
+        bh=luvk4RSDKwxoXOLtb/naS+7NpP4AkbeMINi5BwnyOQg=;
+        b=1E8u6mfuKDvTPPiZ5NEDPfWS0r+n47WEjrrEZo5wMjs+Bnu34wdAZ+mpWb+bCwrQkJ
+         ES7y6c8nbvAYee/T9X9LC+DMkj5Nn5lf2R27fQAGtYMcW0+bdjiF9m6URIOMUJHgea6G
+         SMsMlJ5sTs5EeTBdj19FXIvNUwtPvtR8WsWndCrv26jYALtf9z2/60Omq/7tTPKCEjOv
+         IBjJFfrhdTL4ED1QQ0iTkofDM4ophFvnLv9GPznFcVWxI4Sa62iJJbc6m+QYb4Mivdtg
+         +K3mO/iAC7WLfFqXZiCyYONLudS5IgxeeJXH8SR++8i1R858sycjb3/xeBckw0SOolPg
+         h5Sw==
+X-Forwarded-Encrypted: i=1; AKwUvBzHTzjFWcyTooQCrRm8nrcjmYr5utH9BPbaGeb3ZYVWR8GDuabNaQcLJRfgP9uN60FChAnp2P5N+W/0jattFAHa@lists.infradead.org
+X-Gm-Message-State: AFuF++nP3WAmoxGyPoKejQxR5AgtDvuLda1PPLsujmuw97dFx0yvWrUp
+	Rt5atNgus5pGK6/EbEQ3Ba2H3IUTEIrzr9ZNVN8iflyKWxkuYhB9NGmj
+X-Gm-Gg: AYBFou0bw0H+Mtx6wtAm6nEUtpWj/gyC/63H6RP9vPqQ8eFLLCirQql4CzoQx4bCTLr
+	rAUFJLRD9KDkOi845xr85AvdVErLo5yZC3kloJF1SryRsvsFrZ158k+oon5IT6+gkrshB86tZJl
+	5h1iHmDOv3ZKeGTKDDDNaUk9wCFkQir3cfbqYoqtTHgwr05V5dp8pT3p5nOCxuqWykeXimHbYQz
+	+cul555iB35ZmkN3Rhmx1XxC6e6q9wncsBkzbPhn6QHzTdhMZMClK1EgMMbcyZXG2mtSWta1gkx
+	HrZur/mN9bD3E3+k4aMsNVs/FvIphci2puP0rmc1yufUdUPeP22ps0F+R9ybsK2X26RIrEhtj3P
+	6jZxR7IUpZJrDyvsfHEPfhBpT4ZEFcWXaMmyMgIfxKn8Z/M3yXyCAO/QU5xa7NDZs4GIOqnpd+i
+	rV/sJAS6LumrfG6uibSeJ2VyKe/2rxLzu5ltI/lydrHG1O17kxAwin62Qf91nU6kSBd4zMcOE2r
+	W5kuBB+n/fISBnPprncQTBnlEUKZyQXOeZTlE2zCJWcj1ayEsGExlEkSRBRHkZtYuXlKakYuDVx
+	kRjaOGW1Kom32Y/FfeJFuMvP0eogpg0Hl1eVBWhq/xuR
+X-Received: by 2002:a05:7022:f51a:b0:151:cba2:effc with SMTP id a92af1059eb24-151cba2f2ffmr1217637c88.30.1790990843319;
+        Fri, 02 Oct 2026 18:27:23 -0700 (PDT)
 Received: from localhost ([201.89.183.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fa74fa1csm1218093c88.1.2026.10.02.18.27.18
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fcec9a95sm1116843c88.15.2026.10.02.18.27.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 18:27:18 -0700 (PDT)
+        Fri, 02 Oct 2026 18:27:22 -0700 (PDT)
 From: Otavio Salvador <otavio@ossystems.com.br>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -73,17 +73,17 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Otavio Salvador <otavio@ossystems.com.br>
-Subject: [PATCH 1/2] dt-bindings: nvmem: SID: Add binding for R40 SID controller
-Date: Fri,  2 Oct 2026 22:25:35 -0300
-Message-ID: <20261003012534.418820-4-otavio@ossystems.com.br>
+Subject: [PATCH 2/2] ARM: dts: sun8i-r40: Add SID node and THS calibration
+Date: Fri,  2 Oct 2026 22:25:36 -0300
+Message-ID: <20261003012534.418820-5-otavio@ossystems.com.br>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261003012534.418820-3-otavio@ossystems.com.br>
 References: <20261003012534.418820-3-otavio@ossystems.com.br>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_182720_687349_8C60982E 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20261002_182724_367933_85B99108 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,32 +98,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner R40 SID exposes its 2Kbit eFuse at offset 0x200 of the
-controller, readable directly from MMIO like on the A64. Add the R40
-compatible with the A64 one as fallback, as done for the A100, H616 and
-A523.
+Without the calibration cell, the THS driver leaves the sensor
+calibration registers at their reset value (0x800) and the reported
+temperatures drift from the real die temperature by a chip-dependent
+offset.
 
-On an A40i, all 64 eFuse words read through the MMIO window match the
-words read through the SID_PRCTL/SID_RDKEY registers, so the R40 does
-not need the register-based readout of the H3.
+Add the SID node at 0x01c1b000 and wire the thermal sensor to its
+factory calibration at eFuse offset 0x40, one 16-bit word for each of
+the two sensors.
+
+The R40 user manual gives the size of the thermal sensor key (32 bits)
+but not its offset. The vendor SDK key map names 0x48 "thermal_sensor",
+but that word is zero on all the boards checked. On an A40i running the
+Boardcon vendor kernel, the THS_0_1_CDATA register holds exactly the
+eFuse word at 0x40 (0x08780875), which confirms the location.
+
+Tested on two Boardcon EMA40i (A40i) boards: THS_0_1_CDATA now holds
+the eFuse word at 0x40 of each chip (0x082d0822 and 0x083d0838) instead
+of the reset value 0x08000800.
 
 Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
 ---
- .../devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml       | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/allwinner/sun8i-r40.dtsi | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml b/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-index f67470b8a2ed2..a4960b0ef8cbe 100644
---- a/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-@@ -25,6 +25,7 @@ properties:
-       - const: allwinner,sun50i-a64-sid
-       - items:
-           - enum:
-+              - allwinner,sun8i-r40-sid
-               - allwinner,sun50i-a100-sid
-               - allwinner,sun50i-h616-sid
-               - allwinner,sun55i-a523-sid
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+index f0ed802a9d08e..c7c9cad695ca4 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+@@ -485,6 +485,18 @@ ohci1: usb@1c19400 {
+ 			status = "disabled";
+ 		};
+ 
++		sid: efuse@1c1b000 {
++			compatible = "allwinner,sun8i-r40-sid",
++				     "allwinner,sun50i-a64-sid";
++			reg = <0x01c1b000 0x400>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			ths_calibration: thermal-sensor-calibration@40 {
++				reg = <0x40 0x4>;
++			};
++		};
++
+ 		ehci2: usb@1c1c000 {
+ 			compatible = "allwinner,sun8i-r40-ehci", "generic-ehci";
+ 			reg = <0x01c1c000 0x100>;
+@@ -832,7 +844,8 @@ ths: thermal-sensor@1c24c00 {
+ 			clock-names = "bus", "mod";
+ 			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
+ 			resets = <&ccu RST_BUS_THS>;
+-			/* TODO: add nvmem-cells for calibration */
++			nvmem-cells = <&ths_calibration>;
++			nvmem-cell-names = "calibration";
+ 			#thermal-sensor-cells = <1>;
+ 		};
+ 
 -- 
 2.55.0
 
