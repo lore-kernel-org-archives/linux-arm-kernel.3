@@ -4,138 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A78CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 20:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B247CA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfNciX7Kzw3HdRiwwkOeKUPFQ5qprTv16kcShTgN2+k=; b=P3wfxiXJNuWsib4IZux15OZDcy
-	63gcAo3URoXd+0y+ZQeLW11NoBrbiONaXnKHq6NR9ZcP8BS514Ryr75EfRTIN/sa0zw3Y6FnnBzX1
-	LQAK0KzeTVlAri+7EuYFD8WJ/0MhXjGyDaAyVqYVD3aMK0BuHztJ1fZdHnjdetay6U6t5e4vLsh6N
-	bzpYwSW4z8WyD9VOZCrngHJ2LvRojbzXJpMaIKefi2m6reV5tPFoMjWuB6LuOeKFq1lD2U0InhlXg
-	28nz8UyldLOoEALoOBQ8nTavRL5RGTnUFyq0cvWl+q0tSeMgHia/jpF3fcN8TD9mCgGBT9nnzr/mM
-	raDc3TNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=91Re1ki5i06ImfQ2WQcYkJL+cFX6XDihWfIGyXVk9j8=; b=u7uA60N9NUq6HBmQ9J7ltlS12Y
+	TpRZsDV28/WLvDS7u55wozBZLA93fuNHro61YPFa5YqdeoFSaY6rlZLF0j5gyN/QmNTLPl4pfmrqB
+	8WrXLHgx5XHWkad1zpZUXx4C2pRf0+UlxJTYGTDzP3DYq/yzSctpiNLgqWC8BXOKjHdTLsOoLUOn4
+	nmDGn4UZFl/lM2WY9Uvmebw1vzOw3x5v+XTxKJqnGx0diXZPdHVbbNS3BUEeDThXmLjMqpcE/LlgW
+	XWTmd2ip7i0VVnqbMSH8YNu+X8jKItHDspKBGGVywF3Q2u/bZN+JjR7JndYBTKW+YqgvZc8Yb2Zjg
+	yd6+/FrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6lT-0000000E2mT-2mda;
-	Sat, 03 Oct 2026 20:55:27 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1xD73s-0000000E3sV-3ywe;
+	Sat, 03 Oct 2026 21:14:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD6lK-0000000E2lk-2DBV
+	id 1xD73r-0000000E3sH-41hM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 20:55:21 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 9CDAF140007F
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  3 Oct 2026 16:55:16 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Sat, 03 Oct 2026 16:55:16 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1791060907;
-	 x=1791147307; bh=OfNciX7Kzw3HdRiwwkOeKUPFQ5qprTv16kcShTgN2+k=; b=
-	Ky8EfLvXf0aC70x9f/nMD3WXA+ORYs4sALykdU2/byvq1nv0BBPHigAlpyAP/IqT
-	4t4a7B77kJO33ETFg577Mcm1C64uJsiFhrOptkCHBDnhPOfOea06xKJxjoslPhny
-	NU+6qCa4F9+i9LzVBCvpV59SwtCK0r6xZhlgkxCmxYytfqSon6hMPRqBlfGRttq2
-	ErA4CulWUqFIR9sVNSk7cbv3os5GA3YemXOoMUiynnz3wdDzkfhE1tNXhzBkSDEP
-	UgVbe+Yjvd0RpNOs4wuAcJXeyT6DUbaTOG0NHShsqP1wM7fExvHLA8M7iUXHdb4I
-	5s2KK8dHRxOOXT4edsnK2Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1791060907; x=
-	1791147307; bh=OfNciX7Kzw3HdRiwwkOeKUPFQ5qprTv16kcShTgN2+k=; b=S
-	7fsTYLjnnNjAFIpV9EYHI9P4fZ8SL2NOH5xYHEmAezgIIrMGOKSjeIEgCvU0ro5k
-	ceV6IEcXiw3jha2BPJwisPBO39rUSdXGa6M2nMqQldGF8uGfextNKsuROszwTUoi
-	dVoDDQtAanLiF2lgALIhV9qoh4Y1Nj693i+Iy/rZQ4uiWe0iCrdysGCbXJwT3uEk
-	K9SgzUGGWaJnBfNREMdKTKQ2jTiDyG5TZ+1GwhSKU+QO7sTNOPUeW6XE9lSmRic2
-	ZB0UV7XHXfPXeP7bKDxJdci4fks4pKwTV3+elT9JJUnYlZ+mAkbqRhWJwqr2Sbfd
-	9RYX0/1QQFWUk6TU4f93A==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-09-30; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1791060907; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:ZIyecqyJcmJrbjYZiEZVJ2VxUBhtdY/21X4UqcWhjUhpWrS
-	5wj3q7dl/SHFRI+SHto6H7s9GCyE4BQRtBtPzp875DaykOGbm7pjiHh2IJjXj+tb
-	t9xCUkt2vNVBRoHXd89KnvyyZmkcLj0UpFXr9oOgV9MmupuuCyURfd9iBHNiM99p
-	FKSu+YlJDNDk+Frlw2my3bHcryyNuoaqD2bPFzDvVS3jdpmvdrN43fOtnciI0q/e
-	arn3UDwVOIfDXEJ+FH8nYmx3Z+5xWw7FgtNKZYY+Slet03FM1B6fQj3wUgeBIsLE
-	cERlcm46LatG6vxhal0vFu80C7h7sZlAa1wht3w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-09-30; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:GyCnERTPxeQJXOVuBs4/3L4C1Z0l5VIWw1a73NTjPwk=:ik7SfSihSd7srhBjbKZLRLCC+5A0g+MU1oxC+qFg0bs=;
-X-ME-Sender: <xms:omvBauSuhQ9ggYy7989JCPhwB6R-s7ru-2oqUNtMJuJlcqt_drIV_w>
-    <xme:omvBaukiy4RtVekt9T-yEl6ngW4FNAbq5hY6x1nS_MzUEkZ1LH80gpQuVS5z-rJEX
-    ulZRvyDbtuqhWHFaQe7TrOO57-ZhP9pUGdvaab0E4BfIb_JVAVZETU>
-X-ME-Proxy-Cause: dmFkZTGqH8D9AZ6i468pJhQ4wce95TqgvWhQCyTKZkCG4CrneDArON+7/8DMt2wEyyJ7OD
-    D3pMjg1tDeDiOgWCeMuJ1436+gm3Us7QCtRXM6sLINq66msbS3UsULBA6yhM3Q7fnWFHb9
-    N5i6fPBFDRCnd8M6jh7BeeFKr1WvING5wnczFTvlr12bejiGMrRnKq53guQRIJkf3sfbjv
-    Z6jLx8VvQdtwlxix5W09SkU/bLFM4BeUQtlfLuAMzxVNy5goDBeDFqLs+0GzF2OMA8rTuq
-    pDDPsid/yCcdhRBdYsMj/XKICHStxjoecO5Cc2TN0apwn1EEF8TUtps7HjyOJF5nWWRihe
-    gVmvANIo9weSefu3A7KOOmck9frk3x8YsjLZgPBi9/KGkAXyFujXcKWPK4Unqqdd88F7uE
-    RT4uzvp4dgWgsIH3Lc527rWyvdTGQrPBFj9ElH8RMnr9rezUz8kRcoy4WRqyBQw7PHhf0R
-    O/HnmN4GzSW2Vn+VZv8titcAqBOuzlm25EA++2DeUln4VezeM63EY3qv9jKkic+gi79V5L
-    T9wnwnzwtwVWc1/hztNmYbR64lDrBjl28EO7whK3Jh+QtkjBOcEwtBqTgYHy3f2nElM2B7
-    oDxzOh1bkURtFbvfuCi4lXdUvZcxDFZHq8rGh/s5qOmE90PtoBkSSnz06A6Q
-X-ME-Proxy: <xmx:p2vBai5fGbqic6xOPaGn7iuoMwyr8WkQ1Cax7uQWG-mDOJl1L4hGoQ>
-    <xmx:p2vBalheBCeok7JKOnC49lqszB57hW1aDK4w7eAEsISLrtf5t71UdA>
-    <xmx:p2vBak6jJP8_83eqUPlZg8VIIEIwR3qWHMvFYiy4QW3RvKIccFM1bQ>
-    <xmx:p2vBamB8QStobUsUf2LgrNhs1Sb_6kP3ctE7Ya2atwurpH18c7Oz-A>
-    <xmx:q2vBajK4fHg2k9GM_8swAZyfBQok5fZlrrX7qFBzzNoZQWYPACbz5o8N>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id AEE9032A008A; Sat,  3 Oct 2026 16:54:58 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sat, 03 Oct 2026 21:14:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 631D843A47;
+	Sat,  3 Oct 2026 21:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333431F0089B;
+	Sat,  3 Oct 2026 21:14:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791062067;
+	bh=91Re1ki5i06ImfQ2WQcYkJL+cFX6XDihWfIGyXVk9j8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ltMCYBJhrHGywMCwYCJ9iRp6v+aDzPtsuVq2HKqfaurd57oEobFkLFNFD5tiGhRK6
+	 6mCP1gWhsYHLavzgdTNI+TJrrxsMt7jVNJW6grUR4JBpRhVI/Y4XWsLTvXw/RPrIIK
+	 pP08cv3FpCr8lM7nLmTw+UmWiJ/fMloU23eW+C1z0o3CItNgmi4vq6zp8BLjHJMnS0
+	 1ZIEZyeAIC4iQzaP130AYyCzvbqZ7D/PJ/pFk1rTLCx7lkMYVszdtHqwknkrTw57Ji
+	 xRUwAVeLYWfSHSdCudnhgyuaxAU9dP7HTIqOxxFwxYoeqyD+Lq0ccQ9ImMsvqjOEtF
+	 cCLMjIb+uciFg==
+Date: Sat, 3 Oct 2026 23:14:21 +0200
+From: Nathan Chancellor <nathan@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	"kernelci.org bot" <bot@kernelci.org>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH] arm_mpam: make the mon_sel guard conditional only
+Message-ID: <20261003211421.GA1389115@ax162>
+References: <20261003121251.3942666-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-ThreadId: A-PcLBAcdglw
-Date: Sat, 03 Oct 2026 22:54:28 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
- "Gary Guo" <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- "Benno Lossin" <lossin@kernel.org>,
- "Andreas Hindborg" <a.hindborg@kernel.org>,
- "Alice Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>,
- "Danilo Krummrich" <dakr@kernel.org>,
- "Daniel Almeida" <daniel.almeida@collabora.com>,
- "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>,
- =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- "Linus Walleij" <linusw@kernel.org>,
- "Christian Schrefl" <chrisi.schrefl@gmail.com>,
- "Bradley Morgan" <brads@mainlining.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>,
- "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>,
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
- llvm@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <3436fcef-a052-4261-afb5-677b0bbf28c2@app.fastmail.com>
-In-Reply-To: <asEzZ1wOQ_MbgEsk@gmail.com>
-References: <20261003093827.77857-1-kmehltretter@gmail.com>
- <20261003093827.77857-3-kmehltretter@gmail.com>
- <33197b82-3eff-4c87-b370-c677ca31a02a@app.fastmail.com>
- <asEzZ1wOQ_MbgEsk@gmail.com>
-Subject: Re: [PATCH 2/2] ARM: rust: Enable Rust support for ARMv5TE
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_135519_026996_0B938152 
-X-CRM114-Status: GOOD (  32.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261003121251.3942666-1-sashal@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,97 +78,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 3, 2026, at 19:07, Karl Mehltretter wrote:
-> On Sat, Oct 03, 2026 at 12:45:07PM +0100, Arnd Bergmann wrote:
->>
->> > Kernels that also contain ARMv4 or ARMv4T CPUs are built for the
->> > lowest architecture and stay excluded. CPU_32v5 also covers the ARMv5T
->> > ARM1020. C code is already built with -march=armv5te there, so Rust
->> > matches.
->> 
->> None of this makes sense to me: The target should not control
->> the instruction set, that is what the -march= flag is needed for.
->> Does that not get passed for Rust?
->
-> No. arch/arm/Makefile only passes --target=arm-unknown-linux-gnueabi,
-> no CPU or feature flags. That target has "+v6" built in, so Rust code
-> in an ARMv7 kernel is built as ARMv6 today.
+On Sat, Oct 03, 2026 at 08:12:48AM -0400, Sasha Levin wrote:
+> Building arm64 allmodconfig with clang fails:
+> 
+>   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
+>   of function declared with 'warn_unused_result' attribute
+>   [-Werror,-Wunused-result]
+>     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> 
+> mpam_mon_sel_lock() is __must_check and can fail: for an MSC accessed
+> through the MPAM-Fb firmware interface it returns false when called
+> from a context that cannot sleep. The mon_sel guard was defined with
+> DEFINE_GUARD(), which calls it unconditionally and discards the
+> result, so a guard(mon_sel) user would carry on without the lock and
+> release it on scope exit.
 
-How do you build ARMv7-A rust code in user space? If the default is
-ARMv6, doesn't that rule out things like thumb2, vfpv3 and sensible
-(inlined) atomics?
+I wondered why we do not see the same warning with GCC since it seems
+like it should also warn on the same construct...
 
-In the kernel, we don't normally allow neon code, but it sounds like
-we may need to make rust depend on !CONFIG_THUMB2_KERNEL, as that
-may be problematic when linking with v6 code.
+> The unconditional guard only exists as the base for the conditional
+> mon_sel_lock variant, which is the one actually used.
 
-> I tried the generic target with CPU flags (libcore for versatile on
-> v7.3-rc1, rustc 1.99.0, CPU arch from the build attributes of core.o):
->
->   --target=arm-unknown-linux-gnueabi
->       ARMv6, uses uxtb/uxth/sxth/rev
->   --target=arm-unknown-linux-gnueabi -Ctarget-cpu=arm926ej-s
->       still ARMv6
->   --target=arm-unknown-linux-gnueabi -Ctarget-cpu=arm926ej-s
+but this is why: GCC may not emit warnings for dead code due to some
+warnings being emitted from the middle end after optimizations happen
+but clang will always warn because its semantic analysis runs in the
+front end before optimizations occur.
 
-Ok, so I guess this is more like -mtune= in clang and gcc?
+> Define mon_sel_lock directly as a conditional guard class instead, as
+> posix-timers does for lock_timer: the constructor returns NULL when
+> the lock cannot be taken, and the destructor only releases a lock
+> that was taken. ACQUIRE(mon_sel_lock, ...) works as before, including
+> ACQUIRE_ERR() returning -EBUSY on failure, and there is no
+> unconditional variant left to misuse.
 
->  -Ctarget-feature=-v6
->      ARMv5TE, but every rustc call warns
->      "unstable feature specified for `-Ctarget-feature`: `v6`"
-...
-> So -Ctarget-cpu can add features but does not remove the +v6. The
-> generic target also declares 64-bit atomics, armv5te and armv4t only
-> 32 bit. Below ARMv6 I only see the separate targets.
+These macros make my head hurt but this seems correct to me (though not
+enough to give a formal review tag).
 
-Maybe this should be "+v7-a" instead of "-v6" to allow allow the
-compiler to use all ARMv7-A features instead? It would be surprising
-if they added 32-bit Arm support to Rust without a way to target what
-is in almost every single chip and Linux distro today.
+> Reported-by: kernelci.org bot <bot@kernelci.org>
+> Closes: https://d.kernelci.org/i/maestro:66f869ecbbb5b8592562ffd89f049c5ddf682547
+> Closes: https://d.kernelci.org/i/maestro:647269216758644837afcaac8e67d8dbe713a0e2
+> Fixes: 0db1715e4c9c ("arm_mpam: propagate MSC access errors for hw_probe functions")
+> Assisted-by: LLM
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
 
->> I don't see what part of rust would depend on ARMv5 instructions,
->> it should just work on ARMv4T as well, though ARMv4 may be
->> trickier because missing bx instructions etc.
->
-> Agreed. !CPU_32v4T only came from the armv5te target, which emits clz
-> and blx. With the armv4t target it can go. ARMv4 has no rustc target.
+Thanks, this fixes the build for me as well.
 
-Ok, makes sense.
+Tested-by: Nathan Chancellor <nathan@kernel.org> # build
 
->> This looks wrong, the choice between armv5 and armv7 should work
->> the same way as the choice between armv6 and armv7/v8, if I read
->> the rustc docs correctly, this should be using the target-cpu=
->> argument on the generic arm-unknown-linux-gnueabi target.
->
-> There is no choice between ARMv6 and ARMv7 today. Both get the generic
-> target without flags and so ARMv6 code. And target-cpu= on the generic
-> target does not get below ARMv6, see the table above. That is why I
-> used a separate target for ARMv5.
->
-> For a v2 of this I would
->
-> - pick the rustc target next to the -march lines: armv4t for
->   CPU_32v4T, armv5te for CPU_32v5, the generic one from ARMv6K upwards
-> - select HAVE_RUST for everything except CPU_32v4 and plain CPU_V6
+> ---
+>  drivers/resctrl/mpam_internal.h | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index ee7c3953a9b6c..be1795b29aca2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -203,9 +203,10 @@ static inline int mpam_mon_sel_lock_init(struct device *dev,
+>  	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+>  }
+>  
+> -DEFINE_GUARD(mon_sel, struct mpam_msc *,
+> -	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> -DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
+> +DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
+> +	     _T ? mpam_mon_sel_unlock(_T) : (void)0,
+> +	     mpam_mon_sel_lock(msc) ? msc : NULL, struct mpam_msc *msc);
+> +DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
+>  
+>  /* Bits for mpam features bitmaps */
+>  enum mpam_device_features {
+> -- 
+> 2.53.0
+> 
 
-I would leave out CPU_V7M as well, it's not worth trying to
-support, and likely going away soon. It's probably not supported
-by rust either, as this requires building with -march=armv7 or
--march=armv7-m and is definitely incompatible with -march=armv7-a
-and -march=armv6k.
-
-> - make arch-support.rst say the same
->
-> I have this running in QEMU on v7.3-rc1 with
-> - sx1 (OMAP310, ARM925T, ARMv4T), omap1_defconfig
-> - versatilepb (ARM926EJ-S), versatile_defconfig
-> - raspi0 (ARM1176), bcm2835_defconfig without ARCH_MULTI_V7
->
-> Would that be ok for you?
-
-Yes, sounds fine to me, though I would still hope to get native
-ARMv7-A support in place of "build for v6 and hope for the best"
-approach eventually. 
-
-      Arnd
+-- 
+Cheers,
+Nathan
 
