@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43675CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B20CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysfM9IAbHWXYt4DlCn+irb3OrGl+LHIXpQvLcw7iq/M=; b=ToDxQs3OydeRKz4YwVd1Id5Aty
-	fokqnAERCq3/F/ayJsuDSxRaNySyfT7ilCPVIKY3MaG0/rjbgeTiHHnpZzYoGhhH3ytHAfYXOMR3Y
-	pcc+QL7OJpS/sRLhhzW2NEz6Slo7cqEvgfr9TFad6NKJ3vgIFqyO9NZMTG+a+QNgklNd7Ip5CxTEA
-	GU81sLa9LgZoIIqnyU+fCDNz9+iiR7cu79JKiCjb48SoJgRHCTd5YjO7v91NrwKU19fP0Lm+k7LCt
-	LrQInmy9CrOZ2+hRyE1uXkgwV4NuxAgljbtnu/1K38mzpu24oIFpiXO2ECkFYys0677Ix9UZps1cy
-	3eZ7en/g==;
+	bh=BR3sE4c9XWone9rFuR5bM48qhAQYLIPPfD75FeLODH4=; b=wxR8aYs/LgJQAAZSaRg1LeBHQh
+	O0ImKt5wgrkCtU8ApxpRy5hWVWiyljJ5SyOdPWekkZ4fZga3Kyg6DErIlnaMlPb2mkfKyXOxehoCg
+	LzGyRlIg8r56ygevQKTzP3pbbUyNRKVJuKofsldrVDvmkt22fgLw3LEuAmhJyU72uWyBhBhwbFIV7
+	vEuk9nqyjYFChcDb/WZEi/qOubhVQ8F3yUoDJibQ0YM2kLLRcA7sz3HK/WvWCXkQfrT7+OzCOgsxk
+	wZHCpQ4BWZq8EPTDGqj0Ymhi9NpCX3NhrQiljQ1tEpXNgOrPSHtDXHToQWMRPhQqVR5abGX+Vb35I
+	ZkqaLsUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0Pb-0000000Da1V-3vsI;
-	Sat, 03 Oct 2026 14:08:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xD0V3-0000000DaIW-1T0H;
+	Sat, 03 Oct 2026 14:14:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0PZ-0000000Da1M-42gT
+	id 1xD0V1-0000000DaIN-1HVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 14:08:26 +0000
+	Sat, 03 Oct 2026 14:14:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 958F0433BF;
-	Sat,  3 Oct 2026 14:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 988941F0089C;
-	Sat,  3 Oct 2026 14:08:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A39060D82;
+	Sat,  3 Oct 2026 14:14:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0EDE1F0089B;
+	Sat,  3 Oct 2026 14:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791036505;
-	bh=ysfM9IAbHWXYt4DlCn+irb3OrGl+LHIXpQvLcw7iq/M=;
+	s=k20260515; t=1791036842;
+	bh=BR3sE4c9XWone9rFuR5bM48qhAQYLIPPfD75FeLODH4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=j8R0rA/V1KdoUl7fhsroHNX9hGuo0FltVTnR71niL/GXSaIISF4HVUj7XrsiuJHMW
-	 43fYF8xzJg6dZH7n/vErBNQM2n3qU3B5B+LdcFiZNpuFN0c5StGRi+KLeQefIth5oM
-	 mV8JgOIoXeedj1q0+UgViyyyXzVEeyQ5G0HsuekWRUalgLxoihCLZlzVzmvTS9A6Q8
-	 Y4DlN8to7ffMLCHoWBgCBUEJcBDl5jC5uQXSwPhCQxpB3Fk8BtkQT6MvG5fITvwHu0
-	 5PGadK4ktZLTSrgCQ9kHTu8E8LhksoTxdGDwSx/qMEmL5lIP5iGDCpviAiv4LOQ96H
-	 yw79WZutfVPsA==
-Message-ID: <b8270c62-08fb-467d-9cd3-af06a70ad1ee@kernel.org>
-Date: Sat, 3 Oct 2026 16:08:19 +0200
+	b=ED9jen6ypnY26FixKFJauvFjGbm7n9ZpIidlX5JkkUrYooB3AL9PphzLh5kytctd5
+	 M4AQkx/B24s+cvjOp1UXl1KAg0COo/nsG3QBpuTdDQ49jmM768dfqd4lhgLhLHN4Y9
+	 Gp/HKYmjNvUX50nM94tSf91WMZtwdAG2ldPNREuhVjKD4k3jznIZp6vvT8/JTOYXMR
+	 kAFASNzA+3FOkQ7IK0XkeVc7QWcKYxIZNeHQG4RZlsufWfrm6ZGF3MQjPew00egcOw
+	 FFdCS4vsLh9CTAd3hV2OsjSnhV13UurVF1qNQzBIeVm6DlVCSglTDV6uUaRcuaG+Zk
+	 2ESfEuovtsUMQ==
+Message-ID: <4d421941-4508-49f2-a1dc-a9f27d075982@kernel.org>
+Date: Sat, 3 Oct 2026 16:13:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] Initial Exynos850 ACPM support for exynos-acpm
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-References: <20260929-exynos850-acpm-firmware-support-v3-0-473a69fc8a3d@linaro.org>
+Subject: Re: [PATCH v7 6/6] arm64: dts: exynos850: add PMU interrupt
+ generation node
+To: Peter Griffin <peter.griffin@linaro.org>,
+ Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>,
+ linux-samsung-soc@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Henrik Grimler <henrik@grimler.se>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260930-exynos850-cpuhotplug-v7-0-203245826333@linaro.org>
+ <20260930-exynos850-cpuhotplug-v7-6-203245826333@linaro.org>
+ <CADrjBPrm0o5scen0vk2ZiCzGW6kdTWsciPvA9K7JW_yb+Mp8PA@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260929-exynos850-acpm-firmware-support-v3-0-473a69fc8a3d@linaro.org>
+In-Reply-To: <CADrjBPrm0o5scen0vk2ZiCzGW6kdTWsciPvA9K7JW_yb+Mp8PA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,39 +122,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 04:11, Alexey Klimov wrote:
-> This series adds support for the Exynos850 SoC to the Samsung ACPM
-> firmware IPC driver.
+On 02/10/2026 14:41, Peter Griffin wrote:
+>>
+>> +               pmu_intr_gen: syscon@11870000 {
+>> +                       compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
+>> +                       reg = <0x11870000 0x10000>;
+>> +               };
+>> +
 > 
-> The Exynos850 contains an APM co-processor that handles IPC messages for
-> clocks, power, thermal management, and PMIC control. While it uses the
-> same underlying ACPM communication machinery and protocols set as
-> the GS101, the exact implementation details vary between the two SoCs.
-> 
-> Those protocol-specific differences will be managed individually by the
-> corresponding protocol drivers. However, a dedicated compatible string
-> is still required for the core IPC driver because the Exynos850 firmware
-> utilizes a different initialisation data base offset.
-> 
-> First patch updates the google,gs101-acpm-ipc dt-bindings to include the
-> new "samsung,exynos850-acpm-ipc" compatible string and adds clocks
-> descriptions for clocks that can be controlled via ACPM or by Linux
-> directly.
-> 
-> Second patch adds the corresponding match data, base offset, and clock
-> device name to the exynos-acpm firmware driver.
-> 
-> There is a dependency for driver changes on clk-acpm exynos850 series
-> which seems to be accepted/merged:
-> https://lore.kernel.org/linux-samsung-soc/20260915-exynos850-acpm-clk-v2-0-ffad4a6b3fb1@linaro.org/
+> Since you are now creating your own custom regmap in exynos-pmu you
+> should drop the syscon compatible here. That should avoid syscon.c
+> ever creating an MMIO regmap (with the wrong spinlock). I've copied
+> some of the commit text from my commit
 
-
-I don't understand this dependency. Why does a firmware driver depend on
-clock one?
-
-You do understand that mentioning fake dependencies only stalls the
-patchset? I would have applied it now, but because of this question, it
-will wait and due to conferences might miss this merge window.
+Yes, there should be no syscon fallback.
 
 Best regards,
 Krzysztof
