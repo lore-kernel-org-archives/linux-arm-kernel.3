@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53194CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7735CCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 14:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTabz4k5Pu6RL0JYLkoNNQQVHbYboO3IWOxirWvU088=; b=qijk6+7Zz/Oo1benL20c8Rb/kD
-	RdVr/DPB5ZtXufKPA0orwayrCxe9v8ZAVFqyIOrDkOZ4qyNsu0UgYBWIRs/cm1KOwbPhhzXI0rE1C
-	0oHcUA4f1FFgF5fo/4iYf16/jcnTG2ECwYuz8lz3q5UNtaUUg6EpDKSDHggr326vqgFMIdFgJUtzR
-	efwAHMCKg0h3hGtdtfHXme7T4YWnqYCmKGzLzM0sK/1lqukfgcjr7dLgYI3cvOetFwQusDP5iJP3y
-	7oBV1xImprZ+5+DGy4zSb7FMn9uKgyt2xwGSbx/mknu57Yn3B8rf/RekeSmNdVrdyRqcz3GED42UX
-	5eB6ISAA==;
+	bh=Za1pZegFszNhsXf/v1xZJxwhyF/n2vi12w8ByATTNQk=; b=N4Z1IbT7V4uenHq+WPLizj6I3Z
+	OiZiJlw2XtbWWJ2rny5UBC0FAdWjLQgckRyNjU5hSf0sociF77+QKJXd2uAtae9ohag8VAUNqxetR
+	kibM+w2tRMKT+VQ6+WMqJdyvOcHFaFhQaokH+kUzbDJtAautBqFwusaxEdJ46pTPEZdpVg29gbo8F
+	o4G/qf+6lLYWRKRjpzE/VcF2MB4LE5qr6dwMYAEZGcGJ6JzeAgVyKqyWcbyMdhHnd+9mg1fZeTMhl
+	OyotvcKDmvMnv7lIEbzbFy4QZvqmIB5ER+vWze1y3xb3N3AyYHE92yC4IRMAV/kiRqUHYd6nsEHpj
+	N2nYR0kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0uF-0000000DdPz-3O9e;
-	Sat, 03 Oct 2026 14:40:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xD0vC-0000000DdXM-417w;
+	Sat, 03 Oct 2026 14:41:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0uE-0000000DdPm-225I
+	id 1xD0vB-0000000DdX7-2S97
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 14:40:06 +0000
+	Sat, 03 Oct 2026 14:41:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 100AC43F81;
-	Sat,  3 Oct 2026 14:40:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1D71F0089B;
-	Sat,  3 Oct 2026 14:40:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CA94F60D82;
+	Sat,  3 Oct 2026 14:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C32811F0089B;
+	Sat,  3 Oct 2026 14:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791038405;
-	bh=CTabz4k5Pu6RL0JYLkoNNQQVHbYboO3IWOxirWvU088=;
+	s=k20260515; t=1791038464;
+	bh=Za1pZegFszNhsXf/v1xZJxwhyF/n2vi12w8ByATTNQk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H8KKBSqd1lH0Fx13M/hdBhHXIVsjXUY29DeHXhIVdOmKjKEX/QgLfSm/Xsrp8CmTc
-	 H8pEQcZCCz2OYKD6ocLSGdywoW3a4X43NL62xecE8aKvLPr+LYlivANEKH3z9A3oga
-	 Z1tFrwik1JiJ903uFLy6l8/FxZJI+sC3vA6U122n6mI0/2lxFXbb+xTJv9DvnL+Cmu
-	 RSFWMWzkec/Nq/eqSTthzF/HEzhovWtiSljIYRyk4JwfnxmRoKcdotFf+9OP1V+qYt
-	 22WJPi4uaDFLPEDuCdzLXIBNDUY4pkIWrIEF/Ilh1gFrFI0cL8b5ULYo70GbVCA6kU
-	 kJFkTMx//2dFA==
-Date: Sat, 3 Oct 2026 16:40:03 +0200
+	b=nU4kZ3olmxqRaWGh/BMyUHNDmUetS5azGwKj+HLbpDQ+6CwqJrNiiXtOqPvtCxGby
+	 n8C2YQcakn+dKgddXQgrFasrajHZTSYl95IkQg/PrhO1L6/BYRw3sLgjV/d9+wR/kl
+	 n8HpXYCJab/uHaIQWOvLOIWtPBMYrOFV1pkXjjFG7fvRzNEAlamHlU/QOwnW4Z9z/Y
+	 x+2oUmN4B201cIbsl2ncSI3rnvDb7c6UJrkhBpK5YhRyL7Fw3lOBK9Xo0Y9BFyFStF
+	 pNukhjCLyv9PkPaDwwRLvjBlF9eDfu9C/LpoKxHlchOfR4Gulr7D/cri+QLY+T27IJ
+	 PsiNQffNRWcjQ==
+Date: Sat, 3 Oct 2026 16:41:01 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Dawid Glazik <dawid.glazik@linux.intel.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -50,14 +50,14 @@ Cc: Rob Herring <robh@kernel.org>,
 	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, maciej.lawniczak@intel.com
-Subject: Re: [PATCH 1/4] dt-bindings: arm: aspeed: Add Intel AVCRP board
-Message-ID: <20261003-effective-acoustic-toucanet-7f615f@quoll>
+Subject: Re: [PATCH 2/4] dt-bindings: arm: aspeed: Add Intel JNCRP board
+Message-ID: <20261003-convivial-mottled-turkey-d6c932@quoll>
 References: <cover.1790344811.git.dawid.glazik@linux.intel.com>
- <63367a27ef8c7f27a9d273b65b02b02009d149c6.1790344811.git.dawid.glazik@linux.intel.com>
+ <212171467173c9af64b3f8ecddca2a445b7e7148.1790344811.git.dawid.glazik@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <63367a27ef8c7f27a9d273b65b02b02009d149c6.1790344811.git.dawid.glazik@linux.intel.com>
+In-Reply-To: <212171467173c9af64b3f8ecddca2a445b7e7148.1790344811.git.dawid.glazik@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 06:32:42PM +0200, Dawid Glazik wrote:
-> Add a compatible string for Intel AVCRP BMC board.
+On Fri, Oct 02, 2026 at 06:32:43PM +0200, Dawid Glazik wrote:
+> Add a compatible string for Intel JNCRP BMC board.
 > 
 > Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
-> ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index 8ec7a3e74a21..2c8180e49b2f 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -106,6 +106,7 @@ properties:
->                - ibm,rainier-bmc
->                - ibm,sbp1-bmc
->                - ibm,system1-bmc
-> +              - intel,avcrp-bmc
 
-Why breaking the order? I could imagine people adding to the end,
-because they do not care yet still follows some logic. But this
-counters any logic.
-
->                - ibm,tacoma-bmc
+Squash patches. You don't even say anything useful in commit msg, just
+repeat subject and diff, so what is the point of having it separate?
 
 Best regards,
 Krzysztof
