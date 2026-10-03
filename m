@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3513CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A5ACA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unBqi0MX/8KCQS91QoNMn+Nc1WyPoQ98I28/q0De3xw=; b=L/Tf7KBmLzjYiEmQCQylvwvuDL
-	tKgk5LuDhB9M1V67akv/QNh0nSCjxgi74rNHJvLvaYAxzmeVsvTBuG4tTznn3ZSZ8l6VlCvAEY1zT
-	AcBl7ROa6tGhgL/Oux570CDhCSS7UquGbmkuuOgd8VcAtO5yivcBB9Ij/L+YvgmMOw7TcNzM2fKRD
-	vQLemwwW6m+DQ+CwfPfuC9tnQ+yI5ycd7lW7SD9E9sCDFp/Zy+1KjRnsbQ7BeEb1fPTYptg15x6Xl
-	wbVJ4M4RYtp0K3tv3yV1EDeC0QLPSgo/YxxvdN+CJpqjnKiUHv+huHCWa4+Ut9giiXoK/hx8xhR57
-	jh/sfTBQ==;
+	bh=dZFsMAAio4MyynFkVOwcTl70yzlCaaP6RPy4jzGQ2V4=; b=uXgA0ykSUU2qEFx9E1LslDj5my
+	AyDNDXtak8czEIpdHLRSsAY0h5wacJmudNukqWrn9ZQQsKxrabmgk+GTHhMc7882sGmMsPOtslpnw
+	CQYRfY6PPS1R2/r0YrOjamH+csP1q8toBw2VSVs+7Nt9j1GAHMz3Cm3aRzkACkHfDDTLF6mHKjW4j
+	GQo8yU0xBM3xWldPfkdaM7h8OTgGqUI6oSyw6LLSQx2JgP1iFKw7DGGzexLCr8KkW5ic66z/T1oSL
+	yDagCzzghiWHwYXxK5xyDANohMuU9SjtuGG8419Rg7RjWBeXkD96dN+T818W2oLFoIbPwWZzn93/L
+	2O1I5z9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1Yf-0000000Dg9k-0iJe;
-	Sat, 03 Oct 2026 15:21:53 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1xD1aF-0000000DgHF-1aNi;
+	Sat, 03 Oct 2026 15:23:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1Yc-0000000Dg9K-3JeG
+	id 1xD1aD-0000000DgH7-1lFY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 15:21:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791040911; x=1822576911;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/j9RNnRrsl73fLwVyVNDb/7A6HoUBrV9DU6bJoMj46o=;
-  b=Yu6pTDBNYVn/yN8AhuxRAcGaI6YgCZXD2Nw0QoCwqZgnZaY9Ueofzj8D
-   luhF1viEU1vQhFq0+2qKM4jzAHcJtEwR3dIesfi11JY2QGWVlPmQiwau8
-   PVJBG4qefnE/FMxpO22fu639LOl421I+ryDs9XTpiUFccr1Inbix0KwYM
-   KV6uPDKcONTtD175TvAWh+Y26rv8XeCnCCariTyYp1zuouKxKG+b6FYHR
-   WpatvSEfNXkPXU/KqfLMI8i+DntMFy1ZQkTpb9GDh0u0fjllLxdRVNiMK
-   OkugCwzqAiVn5Ojhc2KSRCpGLIu+/kjYIDD/aqvx+UZykY7kCbPac5UQI
-   w==;
-X-CSE-ConnectionGUID: WKjCtCUvTtaoeS3RBTuCTA==
-X-CSE-MsgGUID: 0WGSuun0TeCaMEvn+oW+MQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11924"; a="79337835"
-X-IronPort-AV: E=Sophos;i="6.27,138,1787036400"; 
-   d="scan'208";a="79337835"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2026 08:21:50 -0700
-X-CSE-ConnectionGUID: hnSRoQklRf6ym3VAg/jLOg==
-X-CSE-MsgGUID: vBUrSaiBSwatowgH9UNQ1A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,138,1787036400"; 
-   d="scan'208";a="280205801"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.245.78])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2026 08:21:47 -0700
-Date: Sat, 3 Oct 2026 18:21:44 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Brian Norris <briannorris@chromium.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Fabrice Gasnier <fabrice.gasnier@st.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
- dependency
-Message-ID: <asEdiIT7l49vhn7i@ashevche-desk.local>
-References: <20261002230714.507921-1-briannorris@chromium.org>
- <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_082150_870857_C86BC183 
-X-CRM114-Status: GOOD (  26.54  )
+	Sat, 03 Oct 2026 15:23:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EE7060D82;
+	Sat,  3 Oct 2026 15:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 433A31F0089B;
+	Sat,  3 Oct 2026 15:23:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791041008;
+	bh=dZFsMAAio4MyynFkVOwcTl70yzlCaaP6RPy4jzGQ2V4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=bDgLwrOlpJKHrIZOIejcTJ3yI3BC+pP6zepnXJE8NBinApH5b1fk0u7UuJ/tNPopP
+	 cQHItu/XDEDXLqUiQPDZ+ilZz9Sk0YgyJCAWlffm7/DU/bU3QC1GVTCwOKo6nG0kJy
+	 45PXr3C0KUjo83d/Q0WgpuxYS/FvXQn2nBhpH8eUzAyFPpK1TTSNJEV6vynkFcxrK9
+	 HYbwH4ww4svosJk+45G6ivZFmYv5Ssjvm+THtK9aC7guy4PaPP3TevsUd9ImtyeAc8
+	 9Phj+9AMKyc+pzcOKDC3Y4pQCw8lSwD+ZGbZji28b+k0FiEeJ+7dIGxcSjgq5KjLAc
+	 6qwCA6lIinvkg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3F73924470;
+	Sat,  3 Oct 2026 15:23:28 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc6
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <asC14CHKGoRQLv6n@willie-the-truck>
+References: <asC14CHKGoRQLv6n@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <asC14CHKGoRQLv6n@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: e060d9069b49fe55f38057dfe592068014652671
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: c5adb6c8a26d653fe1d0ee52908d998f7471e9eb
+Message-Id: <179104100695.114271.9380561947647238848.pr-tracker-bot@kernel.org>
+Date: Sat, 03 Oct 2026 15:23:26 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, mark.rutland@arm.com, maz@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
-> When a child device suspends, it does not update the last_busy timestamp
-> for its parent. If that parent configured autosuspend and didn't
-> otherwise maintain its last_busy timestamp, it may now be immediately
-> eligible to suspend. This is probably not expected -- the parent should
-> wait for its autosuspend delay before suspending.
-> 
-> The effect of this behavior is that a parent device may suspend sooner
-> than its autosuspend delay, simply because its usage was accounted by
-> its children, and not by direct references to the parent device.
-> 
-> This was noticed in several cases, and some have implemented
-> workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
-> runtime autosuspend delay when slow polling"). At the same time, Ulf
-> suggested these problems "should be solved in the runtime PM core".
-> 
-> Instead of working around the problem in drivers, we propagate last_busy
-> timestamps from a dependent device to its dependencies any time it may
-> allow a dependency to suspend -- i.e., when releasing a refcount for its
-> parent or suppliers. We take care to only propagate the timestamp if it
-> is larger than the existing busy timestamp.
-> 
-> Note that this works best if the dependent device is using autosuspend
-> (and therefore updates its last_busy timestamps appropriately), but even
-> for a non-autosuspend child, this is still somewhat useful --
-> non-autosuspend devices still automatically update their last_busy every
-> time they resume.
+The pull request you sent on Sat, 3 Oct 2026 08:59:28 +0100:
 
-> Link: https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Because Linus might complain on odd Link tags, please make sure you have a
-reference to it in the text and place it in a form like
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/c5adb6c8a26d653fe1d0ee52908d998f7471e9eb
 
-Link: $URL [1]
-
-and respectively in the text use [1] as a reference.
-
-> Cc: Ulf Hansson <ulfh@kernel.org>
-
-Can go under the '---' cutter, so it won't pollute the commit message in the
-Git history.
-
-> Signed-off-by: Brian Norris <briannorris@chromium.org>
-> ---
-
- Cc: ...
-
-...
-
-> +/*
-> + * Propagate last_busy timestamp from one device to another. This can, for
-> + * example, prevent overactive suspend when a dependency's usage is primarily
-> + * driven by one of its dependents.
-> + */
-> +static void rpm_propagate_last_busy(struct device *dev, struct device *target)
-> +{
-> +	s64 busy = atomic64_read(&dev->power.last_busy);
-> +	s64 target_busy = atomic64_read(&target->power.last_busy);
-> +
-> +	while (target_busy < busy)
-
-But here you already have an outdated ones, no? Why is this not a problem?
-
-> +		if (atomic64_try_cmpxchg(&target->power.last_busy, &target_busy, busy))
-> +			return;
-> +}
+Thank you!
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
