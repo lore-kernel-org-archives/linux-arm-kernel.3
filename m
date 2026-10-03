@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0874FCA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3513CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLPFLfTkHiZ6Gx7z+NgvsssZ8RKOEn+Vn2kNApBR+go=; b=AWRdoF15KRzsg61OBOpK+FPcJ7
-	t9uVZk7nyDHK44KnEx/RPrgXvOg4z8X4aV03GzxGl1NF814vpJO+MNJkPlj7lzbXtsCi8aFFm8EBI
-	MhaxCS7qNJWrgmFHj5UZoE3+8ENthp7FNcDvsx3dVB7z/LdfdJI161MSc2nYqAQmQOM9XO6A3AmvQ
-	+mq8Fh3A17NvEt8SfQvEns0vo925ZJsFYab+Z7oOoeXyIQ4M8z2990EuAn8PkxRW5vVcBBQekTXhU
-	sa8Pd9RNiM0Jy53rEcxd7xlkZutz2MhJmsEPjF8Po9NSXSB6V3PRJGl51QQ6sYP9PqEqYQ/Li6U3X
-	c/AwqJ+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=unBqi0MX/8KCQS91QoNMn+Nc1WyPoQ98I28/q0De3xw=; b=L/Tf7KBmLzjYiEmQCQylvwvuDL
+	tKgk5LuDhB9M1V67akv/QNh0nSCjxgi74rNHJvLvaYAxzmeVsvTBuG4tTznn3ZSZ8l6VlCvAEY1zT
+	AcBl7ROa6tGhgL/Oux570CDhCSS7UquGbmkuuOgd8VcAtO5yivcBB9Ij/L+YvgmMOw7TcNzM2fKRD
+	vQLemwwW6m+DQ+CwfPfuC9tnQ+yI5ycd7lW7SD9E9sCDFp/Zy+1KjRnsbQ7BeEb1fPTYptg15x6Xl
+	wbVJ4M4RYtp0K3tv3yV1EDeC0QLPSgo/YxxvdN+CJpqjnKiUHv+huHCWa4+Ut9giiXoK/hx8xhR57
+	jh/sfTBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1JC-0000000DfR2-0mMs;
-	Sat, 03 Oct 2026 15:05:54 +0000
-Received: from mail-10631.protonmail.ch ([79.135.106.31])
+	id 1xD1Yf-0000000Dg9k-0iJe;
+	Sat, 03 Oct 2026 15:21:53 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1J8-0000000DfQ9-0624
+	id 1xD1Yc-0000000Dg9K-3JeG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 15:05:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1791039946; x=1791299146;
-	bh=PLPFLfTkHiZ6Gx7z+NgvsssZ8RKOEn+Vn2kNApBR+go=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=I53wjgiRtN2Zf3E00/oDjZu7I2kKSi0fP0e0+WI6gyHeErOIjgfs1bX/mHGk6/cMT
-	 cgCYI2EUCxtf0PgaQ2+7CRypNdK711PvqRpzXbiOP/eNl+OUlJOrbKwalkWWKuIQkP
-	 2Hizt97LgqZo9TcMgbXXyJjVXIjjR+pT5t+8uV+tUcsgCxFNo5DKW69Zw8FfKY72jT
-	 si0G4HuaXcVYRUBHN0nolP+U+VFmEKj72wWq5NnznNv/cVzZ2FwFItGzppDQ05q1QK
-	 uRXYvcjTmfyRW816I24WGMubeKelUsoTp0nD6kQmfWZoI7kmNrKRDBMwFwMwzzGdxx
-	 PF5832HmQ6pgQ==
-Date: Sat, 03 Oct 2026 15:05:39 +0000
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-From: Norman Herms <dockseed@proton.me>
-Cc: wens@kernel.org, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, Andre Przywara <andre.przywara@arm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU and PRCM
-Message-ID: <BZm0Br5_P98xkwslO2JLeCMSyqps8EfQzDnH1Ox34cpoxCpkznXDa4RUM40-b1WKuZ3w3Cy0LPBE31oL8T1nq1Z8iT9Z51wUJBRp3iQIn-Y=@proton.me>
-In-Reply-To: <DLVA17A4RRG7.2ECQKV3SJDAGI@pigmoral.tech>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com> <DLVA17A4RRG7.2ECQKV3SJDAGI@pigmoral.tech>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: 012ea9b791ccfacd729444e4ea18d26359c9bbc6
+	Sat, 03 Oct 2026 15:21:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791040911; x=1822576911;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/j9RNnRrsl73fLwVyVNDb/7A6HoUBrV9DU6bJoMj46o=;
+  b=Yu6pTDBNYVn/yN8AhuxRAcGaI6YgCZXD2Nw0QoCwqZgnZaY9Ueofzj8D
+   luhF1viEU1vQhFq0+2qKM4jzAHcJtEwR3dIesfi11JY2QGWVlPmQiwau8
+   PVJBG4qefnE/FMxpO22fu639LOl421I+ryDs9XTpiUFccr1Inbix0KwYM
+   KV6uPDKcONTtD175TvAWh+Y26rv8XeCnCCariTyYp1zuouKxKG+b6FYHR
+   WpatvSEfNXkPXU/KqfLMI8i+DntMFy1ZQkTpb9GDh0u0fjllLxdRVNiMK
+   OkugCwzqAiVn5Ojhc2KSRCpGLIu+/kjYIDD/aqvx+UZykY7kCbPac5UQI
+   w==;
+X-CSE-ConnectionGUID: WKjCtCUvTtaoeS3RBTuCTA==
+X-CSE-MsgGUID: 0WGSuun0TeCaMEvn+oW+MQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11924"; a="79337835"
+X-IronPort-AV: E=Sophos;i="6.27,138,1787036400"; 
+   d="scan'208";a="79337835"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2026 08:21:50 -0700
+X-CSE-ConnectionGUID: hnSRoQklRf6ym3VAg/jLOg==
+X-CSE-MsgGUID: vBUrSaiBSwatowgH9UNQ1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,138,1787036400"; 
+   d="scan'208";a="280205801"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.245.78])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2026 08:21:47 -0700
+Date: Sat, 3 Oct 2026 18:21:44 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Brian Norris <briannorris@chromium.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Fabrice Gasnier <fabrice.gasnier@st.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
+ dependency
+Message-ID: <asEdiIT7l49vhn7i@ashevche-desk.local>
+References: <20261002230714.507921-1-briannorris@chromium.org>
+ <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_080551_403175_19430A83 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20261003_082150_870857_C86BC183 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,46 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
+> When a child device suspends, it does not update the last_busy timestamp
+> for its parent. If that parent configured autosuspend and didn't
+> otherwise maintain its last_busy timestamp, it may now be immediately
+> eligible to suspend. This is probably not expected -- the parent should
+> wait for its autosuspend delay before suspending.
+> 
+> The effect of this behavior is that a parent device may suspend sooner
+> than its autosuspend delay, simply because its usage was accounted by
+> its children, and not by direct references to the parent device.
+> 
+> This was noticed in several cases, and some have implemented
+> workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
+> runtime autosuspend delay when slow polling"). At the same time, Ulf
+> suggested these problems "should be solved in the runtime PM core".
+> 
+> Instead of working around the problem in drivers, we propagate last_busy
+> timestamps from a dependent device to its dependencies any time it may
+> allow a dependency to suspend -- i.e., when releasing a refcount for its
+> parent or suppliers. We take care to only propagate the timestamp if it
+> is larger than the existing busy timestamp.
+> 
+> Note that this works best if the dependent device is using autosuspend
+> (and therefore updates its last_busy timestamps appropriately), but even
+> for a non-autosuspend child, this is still somewhat useful --
+> non-autosuspend devices still automatically update their last_busy every
+> time they resume.
 
-> Thanks for pointing this out. This is indeed something I had not
-> considered before. I will try enabling secure boot on my spare Cubie A7Z
-> board and test it on actual hardware.
+> Link: https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/
 
-First a correction to my earlier reply in this thread. I answered
-ChenYu's "presumably ... the secure/non-secure access bit isn't in
-effect" with "yes" and quoted the UM note that these registers are
-always non-secure in non-security mode. On our non-fused A7S boards
-(SID + 0xA0 =3D 0, also when read from EL3) that does not hold for every
-register. Read from EL3 with a test BL31, CCMU_SEC_SWITCH_REG is 0x7
-after BL31's security setup, S_TWD_BGR_REG is 0x1 and the SPC status
-registers are 0xffffffff, but from non-secure all of them read 0, and
-non-secure writes to the first two do not stick. So secure filtering
-is active on these parts even without the fuse.
+Because Linus might complain on odd Link tags, please make sure you have a
+reference to it in the text and place it in a form like
 
-> For the PLL and AHB/APB bus clock controls, the user manual indicates
-> that the relevant security bits can be set by TF-A to allow the kernel
-> to access these registers. This also appears to be how this has
-> traditionally been handled on sunxi platforms. So I think we can do the
-> same in TF-A for the A733.
+Link: $URL [1]
 
-That is what the BL31 on our boards does: PRCM_SEC_SWITCH_REG |=3D 0x7
-and 0x7 to CCMU_SEC_SWITCH_REG at CCU + 0x1F00, as the vendor BL31
-does. From EL3 both read 0 before and 0x7 after. The 0x1F00 versus
-0x0F00 trap in the A733 TF-A port is in my first reply.
+and respectively in the text use [1] as a reference.
 
-> For bus_r_twd_clk, I will test whether the register is indeed always
-> secure. If it is, I think the clock can be removed from the kernel and
-> left enabled by its hardware reset value or by the boot firmware.
+> Cc: Ulf Hansson <ulfh@kernel.org>
 
-On our non-fused boards it is already inaccessible from the non-secure
-side (reads 0, writes ignored). From EL3 it reads 0x1, the UM default,
-so the gate is open. Details are in my reply to ChenYu on patch 3/8,
-which crossed with yours.
+Can go under the '---' cutter, so it won't pollute the commit message in the
+Git history.
 
-Same boards and caveats as before: AI agents (Claude) on my boards, a
-report, not a Tested-by.
+> Signed-off-by: Brian Norris <briannorris@chromium.org>
+> ---
 
-Thanks,
-Norman
+ Cc: ...
+
+...
+
+> +/*
+> + * Propagate last_busy timestamp from one device to another. This can, for
+> + * example, prevent overactive suspend when a dependency's usage is primarily
+> + * driven by one of its dependents.
+> + */
+> +static void rpm_propagate_last_busy(struct device *dev, struct device *target)
+> +{
+> +	s64 busy = atomic64_read(&dev->power.last_busy);
+> +	s64 target_busy = atomic64_read(&target->power.last_busy);
+> +
+> +	while (target_busy < busy)
+
+But here you already have an outdated ones, no? Why is this not a problem?
+
+> +		if (atomic64_try_cmpxchg(&target->power.last_busy, &target_busy, busy))
+> +			return;
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
