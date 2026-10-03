@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA19CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BAC2CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 09:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PyX8VvJHS5WFJC5R8op7rV8x56n/aE6duu5Fw2y3gp0=; b=nQXp2nEx3y26Zfz2yiW8Nafphu
-	odZqMb/jGDXtN0xrO+0bnPgDAH+cz0iGWofynVFkMzw4IXuJUuebXzLa5sqlYoqcoRmzNK7x4iXAN
-	AQzFAdYdF+eIZ3eUTmbuU4DrC12rmyQikMrkJ144I9uUpdNGLFC7TRPJdLWxriV6JL3LFj420Ha+N
-	UdDKvEHmXYdMUclqkpa6QxCwKYeNwMubLxkJthjEU/ULpx8yuluVTN7AQGXQde2f9NGLo+XKAIiBj
-	TFr63x+DCFuLBIhNSIbhkC28xvMrKY4PwBKVrS0XwVY7SutscJx/C2h2CzT9IIzf6lBGmGUcD1bDh
-	WP7KaOgQ==;
+	bh=MrBYuxJRI8Q0gYPvH2mARUPM0a0QmKyyZXNcWC/6qBU=; b=bk49pm/cvFSkbNfNkrCClLpGBs
+	zBBJAimBmbR1UYDBtf/CFgBn1aNPU/dJz6PFE5rB2Z6c6e4OsNLzIPl/Fx/q1ykzmF8e6kbaXOkBy
+	KEdWIhGudtnvANWyslN/OoUFfY8griO39/R+6rLu2bf/oQnS/UHgJdyUM2XJjLRykb2sCS21ul4wd
+	ypLSMQh6MlodfC4ng3MopCBp3zTYNtwYgaayQNHtD0nQxUST7d8AYmtsTiC5uO0fGGemECHv2J+YH
+	CluXvVNopnB99Oble/qiUYD+PPcZfH/M74ZTP+ZKHX7W8Ka0hxPRfjfcuZWv2dao086XR12PuF8pR
+	ghvVh+9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCw1U-0000000DH4Z-0kng;
-	Sat, 03 Oct 2026 09:27:16 +0000
+	id 1xCwAN-0000000DHj4-0mTD;
+	Sat, 03 Oct 2026 09:36:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCw1T-0000000DH4T-0GLl
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 09:27:15 +0000
+	id 1xCwAL-0000000DHii-2HUm;
+	Sat, 03 Oct 2026 09:36:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA27D43DD1;
-	Sat,  3 Oct 2026 09:27:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84AE71F0089B;
-	Sat,  3 Oct 2026 09:27:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 408FA4359F;
+	Sat,  3 Oct 2026 09:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D04801F0089C;
+	Sat,  3 Oct 2026 09:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791019633;
-	bh=PyX8VvJHS5WFJC5R8op7rV8x56n/aE6duu5Fw2y3gp0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=feglxkK/piFBaeQNWOUvhHgfXd5/PW+ToT5SWiPOGnxHv6LZJDO+qmRizom0HM3rK
-	 5Qlq67AJdE0dTetjoZXDk5RcfxVXfKaJh5nY/Ho0YZSrX08WjzY2j2OIzGJd/b43f8
-	 dXrIO7lzgpAdgMgKpldaoSVf9f7RaIE2UQLZcn7RlcWaqU1v70QSXqNk7yBRoGNSII
-	 gajigRafR+c1uVm7nOQh7Yd97eE7V56G9MuFTIoSM43wIYzv3BH8SF5H9Gu800T1/O
-	 V6onJXa2f9OTHYdejKzPlxsFuPYyYtSvxUXvYW2jXXySzRYm1m+SlGaorLGj9ikcre
-	 yb/uTo1mBEjFw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xCw1P-0000000GV3c-1FKs;
-	Sat, 03 Oct 2026 09:27:11 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Vincent Donnefort <vdonnefort@google.com>
-Cc: joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kernel-team@android.com,
-	fuad.tabba@linux.dev
-Subject: Re: [PATCH v5 0/4] trace_hyp_printk() for pKVM/nVHE hypervisor
-Date: Sat,  3 Oct 2026 10:27:08 +0100
-Message-ID: <179101962008.602721.42919125204106176.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261001143000.3371786-1-vdonnefort@google.com>
-References: <20261001143000.3371786-1-vdonnefort@google.com>
+	s=k20260515; t=1791020185;
+	bh=MrBYuxJRI8Q0gYPvH2mARUPM0a0QmKyyZXNcWC/6qBU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kzA2DMIs3EUtDVSj0D37/deDvrCJb8OHldkuyNuYtIzVLVnjGVEr6538nJKIb9M0i
+	 XGPf2Uf/IDYVGE5zoBZbX8hbpT4O3+aj6QG/4Hsh/msjtBZ6EvSUIW6L74StrtVTty
+	 wTh+Yz932o20f9ZY2jO4BQS8xXIZHaNC2RHjrEyQ1hJE0P8PbBAmyAxk2TaR5bi+eb
+	 8+VY1kshFzf0cH9hD9OYt5DOhylO5OTtE/AO9zOGTXKFZWffYxAg3mCkBhlWPLP7e7
+	 uerw1wJ868hHFRf1bhxEUUhhtV7W2QC/Ctm6yqKUHBf67HvkQip+HCopBTa8Vlxaoi
+	 gjdBa9B8WGADA==
+From: Vinod Koul <vkoul@kernel.org>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Nikolai Burov <nikolai.burov@jolla.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nikolai Burov <nikolai.burov+review@abscue.de>
+In-Reply-To: <20260711-mt6858-xsphy-poweron-v1-1-dee2fb71c7d5@jolla.com>
+References: <20260711-mt6858-xsphy-poweron-v1-1-dee2fb71c7d5@jolla.com>
+Subject: Re: [PATCH] phy: mediatek: xsphy: clear U2 DTM0 force bits during
+ init
+Message-Id: <179102018248.199361.12549208373713075681.b4-ty@kernel.org>
+Date: Sat, 03 Oct 2026 11:36:22 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 Oct 2026 15:29:56 +0100, Vincent Donnefort wrote:
-> This series adds a hypervisor event "hyp_printk" which enables
-> developers to log pretty much anything into the hypervisor tracing
-> buffer, just like the kernel function trace_printk().
+
+On Sat, 11 Jul 2026 13:34:46 +0300, Nikolai Burov wrote:
+> On mobile SoCs, the USB PHY is completely powered off during bootup.
+> As a result, various bits in the DTM0 register are set that prevent
+> the USB 2.0 PHY from functioning. Clear them as part of the
+> initialization sequence.
 > 
-> This enables rich logging from the hypervisor, while leaving all the
-> string parsing burden to the kernel. This has been the main way of
-> debugging pKVM in Android.
 > 
-> [...]
 
-Applied to next, thanks!
+Applied, thanks!
 
-[1/4] KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
-      commit: d35311c5d66095da3949787064d4738fee435d67
-[2/4] KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
-      commit: 955feee93e037af78caed7e98d29bbf0268420b0
-[3/4] tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
-      commit: 604aaeb39521ef70f56c036dc065b133c85f06aa
-[4/4] KVM: arm64: Add hyp_printk event to nVHE/pKVM hyp
-      commit: 92866564020c2fbede7f77f5957a75f11f931d53
+[1/1] phy: mediatek: xsphy: clear U2 DTM0 force bits during init
+      commit: 02df7fe1297d35d33c9841f345f61bf10f969300
 
-Cheers,
-
-	M.
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+~Vinod
 
 
 
