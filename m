@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB22CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE95ACA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLAwFt+Tq7GlMEaX8/iY40Albs91lRxQ0vr6oR4axkM=; b=bej8hLLJgd/f7zfkSu53BzwJcY
-	rPYo3Wx5KIzT4YHytjFBvceQi6s40+xCxutMkoPMgTGkybFm+6ONDmGV0BTsk0tSreo6LMVrhB1aN
-	VKzRDdk601cSJO/YAnnSTmtROC0YbKiQol0x9E70r/9bm+MXp29QVSaskHd6LHgssMJaH5MoSVPQS
-	I4WW2W2eCZ4vh/u+jELU8i5+7XT+q8a6Lu/EiwcQEoWEfc5RasU3WzpVhhu+ph9cu6iyyht15RPUP
-	C7wgDc0rHNyvrIgfT53j9yOnpya4ufudBx7CGucVTYFlgCrVIBi2E2RJxJIGTVCwTuk5+FnroNy+s
-	Ho9MV/yw==;
+	bh=lybFAex9WxGAgZ+zpS5TZW8MDwPCoDmGh2YO/5uBlvI=; b=RCjl3Mxvi3iMi37NmAqgyj6/c3
+	9LKermv+HrxB+Ve5me+gm2+OAnkV+BAtomzx22ZZvf8o57bub9BhIFUICkR7c77kZYCwkM/b4uasD
+	t83OERV5uBXhp+FdwEDeE6QRvlYoQ5aXR8y4AOIIYcrnNCxcY6GE2PXXT49JvFXeG/wQJvrwtUK53
+	/zQ2GKj+eZz6vIVnjlzCs6b2gJjK94Mby60g5KTLUDsR1iXVPyXAomxQe+fmJJbTlOntxneVYaKXb
+	8vNZZiWIFFAzHt23Sa70oNhJSFy66QAYSnpeD5MCA1QbNTCVcM1vNG52S67vInWmZDbdnAWJZ/4EL
+	hyowZ6Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD73w-0000000E3t5-0GCy;
-	Sat, 03 Oct 2026 21:14:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xD7Mf-0000000E53O-0M5n;
+	Sat, 03 Oct 2026 21:33:53 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD73s-0000000E3sO-1umg
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 21:14:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A94F4149A;
-	Sat,  3 Oct 2026 21:14:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED7EE1F0089C;
-	Sat,  3 Oct 2026 21:14:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791062068;
-	bh=aLAwFt+Tq7GlMEaX8/iY40Albs91lRxQ0vr6oR4axkM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ogVon9PFyFUIsL8EIoHmsBudo4/a+aUMF13pz34KBgNJmPGFnzQ3uVJd3z7a//tC6
-	 iMDGDVTOdiZzFtHPfWBfW1YEAPDJalWnDXSzu6uqvOdD1G0ZD57kBb0V36cPbuVxOn
-	 s32og7QCJQREY/IEGkREZmVLGdFQGgQslVKn8euPOBRpgfAMPB8kxS9MBxa1/VY1WD
-	 X9edRwlM3CbzysfELEuSr+o4MS+pPOYiF4umpDQGRa3KYWbrjzqq2yqR7fkM6XkTIj
-	 VJNpmwiiVm05qUwpukoAAMiDCADIRDe9jA2+vc8BZo6h1u5qOIwwjlHqEjpdqn+t+2
-	 dGKeyfDNRjbmA==
-Message-ID: <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
-Date: Sat, 3 Oct 2026 23:14:23 +0200
+	id 1xD7MY-0000000E51M-22x3;
+	Sat, 03 Oct 2026 21:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1791063221;
+	bh=kDXqnGMv+3/dGk6DPxEqeXvBQLgvyQU5ZWM8ZzjXf08=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OpnIRgT17QQtur0E7ZQ1+4nbWFI2gwCemx/0KapAoxCvcfbqCtyXKndD4Y+fQ/EM4
+	 SqhioB0vXIvFRNbrKcA0akg79VEJVi6YYscqU1hSEo3YXe4L/RHhabOeEzRRi7Ln9i
+	 SSh1J8rjqKFZf/dDdmtSXDdNjZE/UwDH0smNer4XqntGgxKFm8IE6xzEgk3EeVzHAh
+	 yZGuZF7ayBD43yRIH2gtEJc9jjtZ9y16CZZR9A04TYETZJCc90911F5G3rAO3U0DN+
+	 Bgfn6E9GoboB1gZGX+Oqt9rLkjryemH9M9FvyJ27hT1DtEIMtNPG7c/uZvjHnqzRMN
+	 +cXR9cJyjrgLA==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0716617E022A;
+	Sat, 03 Oct 2026 23:33:40 +0200 (CEST)
+Message-ID: <3c0dc77b-b692-498e-aed6-aa97d827b2f4@collabora.com>
+Date: Sun, 4 Oct 2026 00:33:40 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: Add EBDEE vendor prefix
-To: Pufan Jin <2254650260@qq.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek
- <michal.simek@amd.com>, Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261003194625.936288-1-2254650260@qq.com>
- <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/3] phy: hdmi: Add optional FRL TxFFE config options
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
+ <20260901-hdptx-ffe-v2-1-3a5922c76fc5@collabora.com>
+ <asFoBih6P7Cr6Ute@parshuram>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <asFoBih6P7Cr6Ute@parshuram>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_143346_685891_ED2AEE7C 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,14 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/10/2026 21:46, Pufan Jin wrote:
-> Shanghai Xin'yI Electronics Technology Co., Ltd. (EBDEE) manufactures
-> the EdgeBoard series of embedded compute cards, including Zynq
-> UltraScale+ based designs.
+Hi Vinod,
+
+On 10/3/26 11:39 PM, Vinod Koul wrote:
+> On 01-09-26, 22:55, Cristian Ciocaltea wrote:
+>> During HDMI 2.1 FRL link training, the source and sink can negotiate a
+>> Transmitter Feed-Forward Equalization (TxFFE) level to improve the
+>> signal quality.  Starting from zero, the source may increment the TxFFE
+>> level up to a maximum agreed during the LTS3 stage if the sink keeps
+>> reporting FLT failures.  TxFFE adjustment is optional and only attempted
+>> when both the source and the connected sink support it.
+>>
+>> Since the existing HDMI PHY configuration API covers the FRL rate/lane
+>> selection only, provide the following fields to the frl sub-struct of
+>> phy_configure_opts_hdmi:
+>>
+>> * ffe_level: the TxFFE level to apply, only meaningful when
+>>   set_ffe_level is set.
+>>
+>> * set_ffe_level: a 1-bit flag that changes the semantics of the
+>>   phy_configure() call, i.e. when set, the PHY driver must apply the new
+>>   ffe_level and ignore the other frl related fields.
 > 
+> The ffe_level 0 implies it is disabled, so why should we use a flag for
+> this? Rather use if value valid (non zero) logic to apply..?
 
-What does EBDEE mean? What is the company website?
+That's not quite possible because level 0 is valid (and the default) according
+to HDMI 2.1 spec. The source is expected to reset TxFFE to default whenever a
+new FRL rate is set, hence the API shall be conformant. 
 
-Best regards,
-Krzysztof
+Regards,
+Cristian
 
