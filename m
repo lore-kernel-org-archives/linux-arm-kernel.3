@@ -4,105 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD48DCA5FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 00:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CD5CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 00:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfcvLuUEPFWe2mOv6aQ2IkNlSkoxsO/iYToWb+ipXsQ=; b=WmYDUDNsVrqCqVTJWON0Z49OIc
-	O61u9/4/HYFDa6wk803vskYt6rRFMIZJVkohsESVtbGTsP/Sw2Q1SzEGoY7C/7aYxOGWWCcut/oWK
-	gC1bD0zU+GnM+NJbTE12ATFoFi40K2FlsyHVNu5K72MyOY501lbkhhIfcmCje2oXpsmEMqaMrSJo3
-	yOtXsAy9ZsD/lajpby7pPDFXXLApZ+8WdI+Cc9Jsd6oKcZQe3v5g1L2JexHLxjqHjiVd1b4G2aTaA
-	jMXCssyBDIZnivxLSyb/tDTMI9J9mmqsh0sxZlPz6bgD+sR455Jthfu3if9bF2uk2dX6SFY8626XZ
-	TtOFZKag==;
+	bh=93aW5kJ7TuXndYGEWNCSD+XJA7ltxFbIps3WQL+8iZc=; b=VELsAPH+/LfzKYLiOQpLa6v5Ag
+	7W+Dc8ksfA9oVvfPEf4tVL9PgrbYwvYVNBSZ8ioyGHc+C448EHl0AyrYqSbpdQWxIMCjAVnLQuUaN
+	eZ9WB1uvO5isf+Q4N/C++7PG6drZ1dTYS98GFUMH9D1yhVLxLDcVAHw5MuDR35BaggL5X9Az0Dt01
+	PHTCLM1hWZTl0WkoQGmx4IMqvv8iZxWDhT+lHbzy40IOgY6/zSFyhLVGxkUaRVZrHBhijnyrtm3pC
+	8849No+XzLygMTGiqXupIdGbPNGJP2FFLwIKNkBEiA0nPMsswZqwsEE9fx375cldiqpbh9ka94ToN
+	IZCyTM6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnHl-0000000Cm6M-063w;
-	Sat, 03 Oct 2026 00:07:29 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1xCnVV-0000000Cn4D-24rA;
+	Sat, 03 Oct 2026 00:21:41 +0000
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnHi-0000000Cm5p-1iS4
+	id 1xCnVT-0000000Cn1G-0CRE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 00:07:27 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cfbbdfa60bso468765ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:07:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790986045; cv=none;
-        d=google.com; s=arc-20260327;
-        b=M6jQJqLHks4AG40sv7f7LzWmbl1POHGNj1um/xGDBihEcZkLv4e+sGXAXkdsXQvWWh
-         mUfuyQQe8V2RpYCQhWq7/jCACBDInA5yFw8eDXjU5+0Ahba71p5dnce+YqejKaXkpINP
-         448ILjeV158Rhsy590PLlJocTSZYweRjk6gSMwQEqwLPsXEfHdp+Fe3LzCrdLThv8VE2
-         PY9hKY8cHtF75j+dbmLYMTphtRn48L1xJgFwiDUDX28Lq+Q8rCQzbrPydWGtvqyzbfHq
-         gpF6274hiK1UD+q3xAnQ04+9wp1gbTVh2KKAmHAPo1zFN+e104bAo0y66t0u4cCRdCZK
-         O9eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=HfcvLuUEPFWe2mOv6aQ2IkNlSkoxsO/iYToWb+ipXsQ=;
-        fh=p1S8iL5G0hTpyzb6jV8+992/IqSPKV8YsmSjZSLp9g8=;
-        b=i9+9Onzzhd48EpsU0pSuRjEGz9jUitmAUEUdyC+m4CJnzngGRgzxY9hZUF3rMCh47L
-         G//xYlC4B1rVXYzXW3fCy0B9wLUVTcmdmRjZR4j1PnWIP3FadNddpzqKN5tPv0UCL1/w
-         8P61bE/4L16VR90s69Z6jpxn+2E7tLbYVBz5jHrUPfMHvpgHhprSTp+LrQqAEaOqqatU
-         FFou+7pHsZNW3rnwj302JoKlzrlQWmJ8MUu19ZHl/78vea/YqOn5DqylasWq8/cTZHup
-         EA6tTG4LOUwUDfISJmlC+wjBhoa2UP/rejAQ3xShkmkidd21jlzAR7kzR4B0qCxKTKxb
-         UKuA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 03 Oct 2026 00:21:40 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2e2c785aa62so715ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790986045; x=1791590845; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1790986897; x=1791591697; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HfcvLuUEPFWe2mOv6aQ2IkNlSkoxsO/iYToWb+ipXsQ=;
-        b=SkFNZD0MkFLd8S95ykJeqa4W+rlXTwKoqZiuQ6+oLp0M4+sbGur6/QGfKUHlcZXkIs
-         ZeJzBFbQF2+HfgIRXWJBS2dNH33TXgRGfUEM3eZW04YAUzeznEEaR1b8ytsbmDf/xG7K
-         0dgORmnkQZQqYoZuQTvV/749xGI+gq194sySPMSnFbZpfh256Y1fRaepVwUhv5/n4gtd
-         5TJ+5lhrUw6wuMO7LYkHd5JtxQCz0vpHowmN0cQHqxaJCp731mvsPAeTH45cs25BzQDJ
-         qzybt7wcFj7ddxUY69GT0l4JoXwAzZdrG8X+3fuVhccRWHBcucC6HJURTiOACpOLZIxx
-         8KIA==
+        bh=93aW5kJ7TuXndYGEWNCSD+XJA7ltxFbIps3WQL+8iZc=;
+        b=FCC2OigSG0gD652x7vMqofRXQDggsn9psJ6pzjeLTXW5FwSwmrnMMZXoLouAjHhTCr
+         AVgcocSs7fc+jcmt98t8+k3IPdCnp9A6mAr2pw9D/dhf3xQYSQs1279+JpEh+v9fu0tG
+         SAHGo/AExE5bll1O5RgpOYouEHJ+9zJ14TiddXy3hubWzkID5B3vMmhpsF4jCajokET3
+         oqRcza0fDIbXdTHLgqax1DFvh+DPoByCJc59rMK/mfLKv9AuxLwRdwnpZCWep9rz7sWn
+         iDPXvlVUiAnOjhlmJVNqsd5QZ2UvYfr5bxL0jHNSPOcTcOb6Xm07EdsYFAANyInPkzfr
+         CONw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790986045; x=1791590845;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=HfcvLuUEPFWe2mOv6aQ2IkNlSkoxsO/iYToWb+ipXsQ=;
-        b=TnXrz8Oy+IgVYQpf4ZQn+JUJK9FFRWu1urKU2bVIhtG3WiieJCyhO3I5lMzqfD+/Bq
-         w+B49yHO0tMmZZfm0kUGNE7Cq9DndvqkRqsWO2V/Sd5ZtummMV2obtxYD7pbJnZmCVoG
-         7cFC3CQUMtPfrLgkwnmS9mDifXXnd9PLiwVk5u7GHbwOAUnGLfR1JmOCnLUN4XStcHdl
-         duzpHxBOFyCcmmie+ehneQEjab4p0U4rGF++774ihGh1FRNLJxkVafiFb5KbPA3RAmIq
-         EeK6kXeRlwxCEu8hArcwcusmREWN9kDnA7vE9XhwyBDTTBQv3yHqvk1vdRJibeiI2Nz+
-         5Bsg==
-X-Forwarded-Encrypted: i=1; AKwUvBzkJWElu5aMT5HK9+VeejUG+Zpgqy94V8Dd5Q3JIiMgiErAhpl28lvrN5ajOBwIFIbnYbv2uEtvYMrGZY1ymeH2@lists.infradead.org
-X-Gm-Message-State: AFq9FYJGYk/RjWkfhzJ4M3HNcjdnMQYhzYqVQKdocRtiJE8uWcpADhWZ
-	Dhh2F8QrF0p0k1DhRhQFFQxeiIIm1SNVyzirfpyZ2Wom29XN2gx3QAKykhSFx5CJg8ysJH/MBOd
-	ApN3HtAXTWM0tak3A87GQWNBEE3ZRhQ8=
-X-Gm-Gg: AYBFou0t/Y5ms0n3l8dpHj2rV+lggy/YdIYH0SPg10WZmowaoLWvg9WbHTYfKIj5sLT
-	iFZzv/xbkYJycXVCyAy6hCIuQSZXTXMuUUUsFFstzEpDPYZD9FTwRXU5yzFrey0WPZEM+xrwyfX
-	g5/JM43dVYR1GwXr0DahjeGjQpkfetC1xXUEyE/SeAFg+v0FEF1GLF3Jusaw59rw1ETqACaUNRi
-	k6YifHAaClZG/jT9PcVP+LawQPXa1jH2BM/Y75xwEOHmnFIj8FRInhiOoJ1MZLjD+Zg2Aq71mbS
-	QVHU1yRYJ0E5glT2Gb6zkeLfwD0K0WdFQJbdH+aUM4wPf+lBa56iWmwILAlwfHMenEzJy0xS1aR
-	pCa+ryEqc+7bKlSU20lxUb4mbYtb3hxU3S0nbqXUx2wyjTWcJI4S1sZ/flIFKMTAGv9Jy9SJurz
-	xsLgO0FueIh/ZTWwJgWPKc8+T4lg==
-X-Received: by 2002:a17:90b:5108:b0:3a6:e5ee:52c with SMTP id
- 98e67ed59e1d1-3a7877615bcmr603948a91.63.1790986045194; Fri, 02 Oct 2026
- 17:07:25 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260811041934.7609-1-phucduc.bui@gmail.com> <ar_fLAeFU4rmrwiH@willie-the-truck>
-In-Reply-To: <ar_fLAeFU4rmrwiH@willie-the-truck>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Sat, 3 Oct 2026 07:07:12 +0700
-X-Gm-Features: AclHuK-xDRj275wrNIYauFmD4ArHDsq6qQwz8Qk8YquS81RnLrT5xbVpnSPRvtE
-Message-ID: <CAABR9nGqwTGcrr6bKsV5+0GYwkQoP0s_Tu6aTJrhJJW_ZRqFYg@mail.gmail.com>
-Subject: Re: [PATCH] perf/arm-smmuv3: Propagate errors from optional IRQ lookup
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-perf-users@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+        d=1e100.net; s=20260707; t=1790986897; x=1791591697;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=93aW5kJ7TuXndYGEWNCSD+XJA7ltxFbIps3WQL+8iZc=;
+        b=RvEJqcAPNzODMY1GrSrohEv3LEZV/ISacDNfD5stMA0aU4htgTZSyDmsw23UEs7sw9
+         TZNzJupN7xTOaFDtI4X4/vy9LfMjUv9A7U8T7Jv8ygev/TUyrsaBcrChQpf+Aog1ZpAc
+         herLDxGryxyNkdJ7KfGgFY+v2TuBq9jiCFSolgEBIpQ8Mkmmw7wYjzOUJDlA2jgadm3v
+         tiAn+EMzJKVjGbIrDnztj1EblHIQy+8q0H7kaJUmckxRJe7QkGfw7PLwPFUiysf/jXjm
+         pp3XeUX+2mXTKksbBH0ALwi3rdd2fhzTgGHPNcp+BeRPXhlt6UQ+91ZtOhDG/Tqoo7Tp
+         WWrA==
+X-Forwarded-Encrypted: i=1; AKwUvBzsQW8nECKZhHn2q98bOX4iuPmrp1D1qs130MrMSMBCYy8uFt7iWQq/4oi7SZDx0oUzfxed06n1Gxu23rkvz+CG@lists.infradead.org
+X-Gm-Message-State: AFq9FYKfK5NMG5KnM1mCZwtFWVmioowgGSruOrlhPN84P6ebsE4G0tTd
+	phG0J4QXs7XGY3pY2AgHV/RKbc0eEUuAJ3KBpit/PtIp/wxuqrKvtkQgq82D7P4OmCR5P5+eLbz
+	BqXXRkOtwd1UmgY4gIa091A==
+X-Received: from pjbfh14.prod.google.com ([2002:a17:90b:34e:b0:3a0:6f00:2a50])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:3d86:b0:39e:6c68:c77b with SMTP id 98e67ed59e1d1-3a6ce83b91emr4273665a91.49.1790986896998;
+ Fri, 02 Oct 2026 17:21:36 -0700 (PDT)
+Date: Sat,  3 Oct 2026 00:21:06 +0000
+In-Reply-To: <20261003002123.505555-1-jthoughton@google.com>
+Mime-Version: 1.0
+References: <20261003002123.505555-1-jthoughton@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261003002123.505555-4-jthoughton@google.com>
+Subject: [PATCH v2 03/20] hugetlb_vmemmap: Always flush TLB if needed upon PTE remapping
+From: James Houghton <jthoughton@google.com>
+To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@kernel.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
+	David Rientjes <rientjes@google.com>, James Houghton <jthoughton@google.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_170726_477367_BBB831E9 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20261002_172139_151635_69741263 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+vmemmap_remap_range() can potentially leave the vmemmap in a partially
+optimized state. In this case, a TLB flush should be done if the walk
+caller asked for it, even if the optimization was not fully applied.
 
-Thank you for your review.
+A follow-up patch will more completely deal with partially-optimized
+folios.
 
->
-> Not sure about this. If it's optional, why should we bail the probe if
-> we don't manage to get an irq? Surely it's better to continue without
-> the interrupt in that case?
->
+Signed-off-by: James Houghton <jthoughton@google.com>
+---
+ mm/hugetlb_vmemmap.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-platform_get_irq_optional() returns -ENXIO when no IRQ is available.
-Other negative return values indicate errors, including -EPROBE_DEFER.
-In the case of -EPROBE_DEFER, we should propagate the error so that
-the probe can be retried later.
+diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+index 0057fa2a16a8..1a2645c382ba 100644
+--- a/mm/hugetlb_vmemmap.c
++++ b/mm/hugetlb_vmemmap.c
+@@ -163,13 +163,11 @@ static int vmemmap_remap_range(unsigned long start, unsigned long end,
+ 	ret = walk_kernel_page_table_range(start, end, &vmemmap_remap_ops,
+ 				    NULL, walk);
+ 	mmap_read_unlock(&init_mm);
+-	if (ret)
+-		return ret;
+ 
+ 	if (walk->remap_pte && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
+ 		flush_tlb_kernel_range(start, end);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ /*
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
-Best regard,
-Phuc
 
