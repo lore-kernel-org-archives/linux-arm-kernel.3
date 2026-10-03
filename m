@@ -4,85 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B67CA5FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 01:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C17CA5FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 02:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4VjIDdEMsxckzeTQAC8VMO9zeN/fS3+8A2YCNQtbhGo=; b=zPyNRvufOpKz1Hi0Lyf6OWBQsd
-	5fV11Tr4W+u+esI4JKLtf2Wtj3oz6lzMsKojKURUKL5lITihVuMnDXRjLw+ir5X8qUQk1OW+PGUsc
-	BvI2sJo/wsU3/jrvQB9tUxXjVBm/HQcdBqr+npVu7Q1a7ET49dqePAZpVa0HnbmkNhiggVSB1xfNX
-	dBlVcGuPS1pUyWc0cNDd3mPrP/JEMWL7k5lgnpMlpR88JdDV25O/AXKkIpGBA2bOqB6hiC3tjntkR
-	+YW9vNvwL7JSzIVQWbQ9HRffdUcGAGeK5ZTO9ynZsuCz1SAq+C7ro+x3uvgftA0W7WaQv6NKUvjfb
-	O3Xq2g8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=plquQeUloiL87vmPGVV3hnraEtMAeUwrodMBUE86jkY=; b=eJ8pKVLv8xk6rf3ErG0zchMRCt
+	TkPzgJ2/cgve5ir/quVFmoheJRNZg+WiMBKbH10tvtiiDJRNyImeskc4xolrw7F5x1+9r+rzJdYsM
+	QA47kR/MbtwwSKqSfJQkP6+az2O15XRcrQSDt3t55SHoxxWnHT2LpvLlQQl6NWSZwx0f3zemWds3+
+	oB0f2zwu3vyARyrpEAVJ2kRrLpZqHYwdQTKAlS1SibzfLV4P4RvWfVkm30jFy8THEfI9+lvcdCd8P
+	V8q5BQNKxyQOR9eoTGu6ZGfoxYTH9pDBFAF2+j3lEZ//Y0AyvarQffHmnVYc/zZuXIyh1Fzx2aeAf
+	+IQDvoGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVj-0000000CnN7-3k7Z;
-	Sat, 03 Oct 2026 00:21:55 +0000
-Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
+	id 1xCp83-0000000Cv7U-0kV2;
+	Sat, 03 Oct 2026 02:05:35 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVa-0000000Cn8q-3ZL2
+	id 1xCp7x-0000000Cv73-2SKU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 00:21:48 +0000
-Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-88a1de72cf7so101b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790986905; x=1791591705; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4VjIDdEMsxckzeTQAC8VMO9zeN/fS3+8A2YCNQtbhGo=;
-        b=g5vWAwBCHikyU8oCEesFRyYfUknwtQsZx7MTRfiyeHB0K0Lihqz+gV7rq9AJL30xKQ
-         vVkmt8VH57LoQZ/LSAwgTxtVLldggWQwbQUeqcdT0cgHGBoRqIlMzzJHabj76i5P8xyH
-         KW7mwB+szzPUIfgWhgD2PrmF5WpYlChVkOu2Uw39IJUTWi3aWNGJohpcXzy9FpF2SDCz
-         Gk6ATbi0rR1u/BrLqAHi2dyKbASGuogPGyUweTLhmrQjcSuCNgjAEArSU5IjlEwVxpAf
-         V4NmjlbBC5qsKGpFQ2DRabnRWfTYbRehcgjDQ1wVEkbyDIBKp1gkKY7OVh3FrPTbaPdN
-         9zMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790986905; x=1791591705;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4VjIDdEMsxckzeTQAC8VMO9zeN/fS3+8A2YCNQtbhGo=;
-        b=vJ/ORTKueOPZO+H/fy9z7HkiKUza3AQgvy1v478JBrY7qJzBmTpYKiUPHT1LVofJCJ
-         9elkWNJfP1c8niAIsBQILt2TZLHWAK+gU6agSy4kZLkiBOFHKKxiZ8vvjUQ3XozfHuR9
-         QfcHyOUcUB6G300f7tUf7FShjiAPIoBYpED2w8c3UU6JobyXDLGLIA9U1Bs9z36H2pqh
-         +ji61EIiZkUGw0LCjo6a0Tn1IgqZZHbd+ilNFINELjwt+jmVH96NXB+hWLuYhIjiSwsC
-         7KJ/YzyvGVa7gdaiRRKYAYhQvZDqt06jthFHV16gKH9i5veujgkR6ChB6bh+QfF4bVOG
-         PGjA==
-X-Forwarded-Encrypted: i=1; AKwUvByGEKEJLyedsCjkYgn4F95vdlE0/PCo7zk/WcUWh4KtYTvCXXfMy4/ky4/YJrAFHJoTjMTUpytoV1/JCYmPFdBP@lists.infradead.org
-X-Gm-Message-State: AFuF++n0Yu7f0NGqZKa9s1FBzWFkUcRTQniwHpW7iq+Hc4ZiqBqoDwoS
-	EvNTjoCiJAaEqnqnDfbj72ITYO52sgAaqU4ExFoEph1BgqIS0ZeN4b1RPAr/9aNH6mhDlzTkAHi
-	3fY2/MBO9ZXGnCkTucBcscg==
-X-Received: from pflr17.prod.google.com ([2002:aa7:9891:0:b0:87c:d84f:5ff5])
- (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:a245:b0:878:3704:e0ed with SMTP id d2e1a72fcca58-88af5f9362bmr3106493b3a.19.1790986905085;
- Fri, 02 Oct 2026 17:21:45 -0700 (PDT)
-Date: Sat,  3 Oct 2026 00:21:15 +0000
-In-Reply-To: <20261003002123.505555-1-jthoughton@google.com>
-Mime-Version: 1.0
-References: <20261003002123.505555-1-jthoughton@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261003002123.505555-13-jthoughton@google.com>
-Subject: [PATCH v2 12/20] arm64: Implement try_update_vmemmap_pte using the AF trick
-From: James Houghton <jthoughton@google.com>
-To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
-	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
-	David Rientjes <rientjes@google.com>, James Houghton <jthoughton@google.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
+	Sat, 03 Oct 2026 02:05:31 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:25c2:6a77:c271:6ec1:599])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1A1D3593;
+	Sat,  3 Oct 2026 04:03:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790993009;
+	bh=W/YWP1xpuEQLxbrDAlJEzxXMFwIqHADxNYpCPBGkQ3M=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=DsFCRSOD0zFWvpBDwCpsFoIiPG8T5vJ0VfIqTpq3gUtC/J6Te1hQi/4hnnFwQUogO
+	 cWjCZCLoEz+ZfXtGhIUhl8LWnA07q0/kpNH20T+KzeTKpFSqxWhEvq5U6i128UMV6x
+	 MRqncGRM1kGtwSfwxIqu5MhDJ9ANqlWVBP8syGWU=
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com> <20260925133001.2780868-7-r-donadkar@ti.com> <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
+Subject: Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison OV2312 driver
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: tomi.valkeinen@ideasonboard.com, mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com, kristo@kernel.org, sakari.ailus@linux.intel.com, mripard@kernel.org, jai.luthra@linux.dev, devarsht@ti.com, y-abhilashchandra@ti.com, laurent.pinchart@ideasonboard.com
+To: Mirela Rabulea <mirela.rabulea@nxp.com>, Rishikesh Donadkar <r-donadkar@ti.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
+Date: Sat, 03 Oct 2026 07:35:16 +0530
+Message-ID: <179099311665.241161.3689416902838951007@freya>
+User-Agent: alot/0.13.dev38+g8e372ce37.d20260925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_172146_903034_0945A108 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20261002_190530_122079_482F054C 
+X-CRM114-Status: GOOD (  37.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,111 +66,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-try_update_vmemmap_pte() must modify vmemmap PTEs without introducing a
-time window where other CPUs on the system might fault.
+Hi Mirela,
 
-Normally a break-before-make sequence is required to avoid conflicts
-with cached translations. However, if we can guarantee that the existing
-translation cannot be cached, a BBM sequence is not needed.
+Quoting Mirela Rabulea (2026-10-02 21:46:11)
+> Hi=C2=A0Rishikesh, Jay, Laurent, Hans, Sakari,
+>=20
+> On 9/25/26 16:29, Rishikesh Donadkar wrote:
+> > From: Jai Luthra <j-luthra@ti.com>
+> >
+> > Omnivision OV2312 is an RGB-IR sensor, i.e. it uses a 4x4 R,G,B,Ir bayer
+> > pattern to capture both visible and near-infrared light. Every alternate
+> > frame, the sensor changes the exposure and IR flash strobe registers to
+> > stream an -
+> > A. IR-dominant frame on CSI-2 virtual channel 0
+> > B. RGB-dominant frame on CSI-2 virtual channel 1
+> >
+> > These A/B frames are routed as separate v4l2 streams, which may be
+> > mapped to two separate /dev/videoX nodes by the CSI-RX DMA driver.
+> >
+> > Both of these streams are captured at a resolution of 1600x1301, 30 fps
+> > each (60fps total). The extra row (1301 vs 1300) is an embedded line
+> > prepended to each frame by the sensor, containing the following register
+> > values:
+> >    0x4813 - VC (Virtual Channel)
+> >    0x321A - Group ID
+> >    0x3920 - Strobe
+> >    0x3501 - Exposure HI
+> >    0x3502 - Exposure LO
+> >    0x3508 - Gain HI
+> >    0x3509 - Gain LO
+> >    0x350e - Current Exposure HI
+> >    0x350f - Current Exposure LO
+> >
+> > This driver also supports a few v4l2 controls like horizontal/vertical
+> > flip, multi exposure and multi gain controls.
+> >
+> > Signed-off-by: Jai Luthra <j-luthra@ti.com>
+> > Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+[...]
+> > +static int ov2312_set_ctrl(struct v4l2_ctrl *ctrl)
+> > +{
+> > +       struct ov2312 *ov2312 =3D container_of(ctrl->handler,
+> > +                                            struct ov2312, ctrls);
+> > +       int ret;
+> > +
+> > +       /*
+> > +        * If the device is not powered up by the host driver do
+> > +        * not apply any controls to H/W at this time. Instead
+> > +        * the controls will be restored right after power-up.
+> > +        */
+> > +       if (pm_runtime_suspended(ov2312->dev))
+> > +               return 0;
+> > +
+> > +       switch (ctrl->id) {
+> > +       case V4L2_CID_EXPOSURE_MULTI:
+> > +       case V4L2_CID_AGAIN_MULTI:
+> > +       case V4L2_CID_DGAIN_MULTI:
+> > +               dev_dbg(ov2312->dev, "debug: %s: %s =3D [%u, %u]\n", __=
+func__,
+> > +                               ctrl->name, ctrl->p_new.p_u32[0], ctrl-=
+>p_new.p_u32[1]);
+> > +
+> > +               ret =3D ov2312_set_AB_mode(ov2312);
+>=20
+> So, the group hold for A/B context is set right away, when the control=20
+> arrives.
+>=20
+> While working with the Omnivision OX05B1S, which is also an RGB-IR=20
+> sensor, we run into this problem:
+>=20
+> The normal expected sequence is that the sensor will output alternating=20
+> frames VC0, VC1, VC0, VC1,...
+>=20
+> But=C2=A0 when user space tries to do automatic exposure and gain control=
+ via=20
+> v4l2 muti controls, if the driver applies the values immediately, if the =
 
-Translations with the AF unset may not be cached (see Arm ARM Rule
-DWZCQ); the implementation of try_update_vmemmap_pte() on arm64 takes
-advantage of this fact to replace a PTE without BBM and therefore
-without leaving a window open where PE might fault on this translation.
+> virtual channels are not switched within the proper timeframe, it is=20
+> possible to run into frame duplication (no more nice alternating frames=20
+> VC0, VC1, VC0, VC1,...but duplicate VC0,VC0 or VC1,VC1).
 
-Of course, if some CPUs on the system do not support HW AF management,
-clearing the AF will introduce potential faults.
-system_supports_bbm_through_af() will return false if any CPUs on the
-system do not support HW AF.
+Yes I remember seeing a similar thing on OV2312 as well when the AE/AGC
+algorithm is turned on, and thus exposure and gain controls are updated
+frequently.
 
-Signed-off-by: James Houghton <jthoughton@google.com>
----
- arch/arm64/include/asm/pgtable.h | 60 +++++++++++++++++++++++++++++---
- 1 file changed, 56 insertions(+), 4 deletions(-)
+In our case the streams get mixed, so in the captured frames for VC0
+(IR-dominant) we would occassionally see frames with the exposure/gain
+values that we expect in VC1 (RGB-dominant) and vice-versa.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index e47c3d010715..f8e66bb22c0c 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1249,14 +1249,24 @@ static inline void __pte_clear(struct mm_struct *mm,
- 	__set_pte(ptep, __pte(0));
- }
- 
--static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
--		unsigned long address, pte_t *ptep)
-+/*
-+ * Atomically clear the Accessed flag. Return the old value of the PTE.
-+ */
-+static inline pte_t __ptep_clear_young(pte_t *ptep)
- {
- 	atomic64_t *pteval = (atomic64_t *)&pte_val(*ptep);
- 	s64 af_mask = PTE_AF;
- 
--	/* Atomically clear PTE_AF, checking that it was set before. */
--	return af_mask & atomic64_fetch_andnot_relaxed(af_mask, pteval);
-+	/* Atomically clear PTE_AF. */
-+	u64 oldval = atomic64_fetch_andnot_relaxed(af_mask, pteval);
-+
-+	return __pte(oldval);
-+}
-+
-+static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
-+		unsigned long address, pte_t *ptep)
-+{
-+	return pte_young(__ptep_clear_young(ptep));
- }
- 
- static inline bool __ptep_clear_flush_young(struct vm_area_struct *vma,
-@@ -1734,6 +1744,48 @@ static inline void pte_clear(struct mm_struct *mm,
- 	__pte_clear(mm, addr, ptep);
- }
- 
-+#define __HAVE_ARCH_TRY_UPDATE_VMEMMAP_PTE
-+static inline int try_update_vmemmap_pte(unsigned long addr, pte_t *ptep,
-+					 const pte_t pte)
-+{
-+	const int max_attempts = 16;
-+	int attempts = 0;
-+	pte_t old_pte;
-+
-+	if (!system_supports_bbm_through_af())
-+		return -EOPNOTSUPP;
-+
-+	/* This routine is only to be used for valid-to-valid transitions. */
-+	if (WARN_ON_ONCE(!pte_valid(pte)))
-+		return -EINVAL;
-+
-+	old_pte = __ptep_get(ptep);
-+
-+	do {
-+		if (WARN_ON_ONCE(!pte_valid(old_pte)))
-+			return -EINVAL;
-+
-+		/* We should never get a contiguous PTE here. */
-+		if (WARN_ON_ONCE(pte_valid_cont(old_pte)))
-+			return -EINVAL;
-+
-+		if (pte_young(old_pte)) {
-+			/* __ptep_clear_young() returns the overwritten PTE */
-+			old_pte = pte_mkold(__ptep_clear_young(ptep));
-+
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-+		}
-+	/*
-+	 * Translations without AF cannot be cached, so we can replace
-+	 * them without BBM.
-+	 */
-+	} while (!try_cmpxchg_relaxed(&pte_val(*ptep), &pte_val(old_pte),
-+				      pte_val(pte)) &&
-+		 ++attempts < max_attempts);
-+
-+	return attempts == max_attempts ? -EAGAIN : 0;
-+}
-+
- #define clear_full_ptes clear_full_ptes
- static inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
- 				pte_t *ptep, unsigned int nr, int full)
--- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+I had assumed this mixing was due to asynchronous nature of the control
+updates coming in, where the exposure+gain latch on with a delay of 2
+frames, but the rest of the registers in the group (like VC ID, and IR
+strobe) have a variable delay depending upon when the group registers are
+programmed.
 
+Without the AE/AGC the frames are stable (no mixing), so we must be talking
+about the same or very similar issues.
+
+> The information we received from the sensor vendor is that group0 update =
+
+> needs to be between 2 group0 launchpoints (similar for group 1). We can=20
+> use the status register to query the currently active context, and in=20
+> order to avoid frame duplication we can update each group only when its=20
+> context is active.
+>=20
+
+Ah, thanks for the pointer, a status register for group launch points
+sounds quite useful.
+
+> This is problematic in the v4l2-api context, it implies that even while=20
+> streaming, a v4l2 control cannot be committed to sensor registers right=20
+> away.
+>=20
+> Even with workarounds in the sensor driver, to defer for later the=20
+> updates for the inactive context, it is still problematic: defer for how =
+
+> long, and problems with overloaded systems, a stress test can bring us=20
+> in a broken VC sequence, as there is no atomic way to determine the=20
+> current active context + update the right group.=C2=A0 A broken VC sequen=
+ce=20
+> shows up for example in libcamera as lost frames.
+>=20
+
+Indeed, I think we need some sort of a mechanism to enforce timings of
+control updates in V4L2 framework. And I don't yet know if system stress
+would make this impossible to ensure without enabling RT?
+
+But knowing the sensor hardware provides status registers is a good sign
+that it should be possible to fix.
+
+> Rishikesh, Jai,
+>=20
+>  =C2=A0did you notice this problem on OV2312? A way to reproduce this is =
+to=20
+> stress the driver with frequent repeated set controls (for the=20
+> multi-controls), and observe broken VC sequence (I observed it with=20
+> libcamera and on the CSI analyzer).
+>=20
+
+Yes frequent control updates reliably reproduce the stream mixing on OV2312
+as well.
+
+Would it be possible for you to share the downstream driver or the status
+register you have used? We could experiment if the same solution helps on
+OV2312 too.
+
+>=20
+> Laurent, Hans, Sakari,
+>=20
+> did you encounter similar situations? Any comments or proposals? The=20
+> concern here, to summarize, is: v4l2 control cannot be committed to=20
+> sensor registers right away (even when streaming) and we are also unsure =
+
+> when the right moment to perform the register access may come.
+>=20
+
+I think this is a good candidate for discussion in the upcoming LPC BoF
+session [1]. Are you planning to travel to EOSS/LPC in Prague next week?
+
+I won't be travelling unfortunately, but hopefully Rishikesh, Laurent and
+others can discuss this.
+
+[1]: https://lore.kernel.org/all/22a0424b-c67d-4dcc-a31c-26acd764c653@ti.co=
+m/
+>=20
+> Regards,
+>=20
+> Mirela
+>=20
+
+Thanks,
+Jai
+
+> > +               break;
+> > +
+> > +       case V4L2_CID_HFLIP:
+> > +       case V4L2_CID_VFLIP:
+> > +               ret =3D ov2312_set_orientation(ov2312);
+> > +               break;
+> > +
+> > +       default:
+> > +               ret =3D -EINVAL;
+> > +       }
+> > +
+> > +       return ret;
+> > +}
+> > +
+> >
 
