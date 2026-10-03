@@ -4,60 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61F9CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 21:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B83A3CA5FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 22:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VPw9IUST4MTI4NDpxhmLwBIOZI2fEhJtaK02pXVE9+c=; b=g52J56Hv1fTwEF2/I1ABTJqHnc
-	BzZIE0/hYOvzw7w4vqeLFUqgpagh/FZQKaCUjjTIsM7Pm1LiBwyHcz56uq1q+UnZt6IlM1YVnWG7u
-	d2Pei5b7VaCL5Sva7dZxqSHEtp/xfBceCAdMnpx+n/xi1r08wsiNgLn5OHM1FMeop3mRNHrLU2/u8
-	xiVa70xr39vno176lT6Z9QlBhH7EgO2HqtHz/i+TTqAd8fkDh3IWXluC4QLU78MWmHIpLnmBajaX0
-	cqZAaFmSKhEdGXpTy4TKS9+y9+m5C7IFNx1u+Mfuz51VsNAJdnlBAbuhhAWNQxUeOv09KiEdt5S3F
-	4TGnWFUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U3wvj1HZXvSFEqnxTHNRHB1lpN/qwUATGcRBe6uZy5E=; b=p46v3WMVEhtQ3DVDkZyXOsB1p+
+	FXMCKfHZfc6RQbDy7pvZwEYyrUR2v+UDFz3cAtSFQUXL52METUfUfdvDXV+fbUdydvexUHleob/WX
+	cfMIgoYgLuv2MRwKCKssZVZW1QC0ukqUlXkQEO6im0AGcjqVUjlW1MzcV6cs9iaTEmuFlpYj1zcSy
+	ifmrDEYuYdqMwt8lO9Lx4xmsBSkvuXepJKBx/sTBHUx0P/Bvs+1aGkCxNY8X8N4zploHLhbmdxTq1
+	xhVlRWHVGLm4ttBpb+2KHtJeHcGZbO+8qvU4Q8msgQhB+q2tn+y2rY47HhZNJHNUpydw+EZLQMfe6
+	6XbSUEMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD7PD-0000000E5KG-43lg;
-	Sat, 03 Oct 2026 21:36:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xD8LG-0000000E7eg-4AGK;
+	Sat, 03 Oct 2026 22:36:31 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD7PA-0000000E5JJ-38dp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 21:36:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 807744116D;
-	Sat,  3 Oct 2026 21:36:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EB071F0089C;
-	Sat,  3 Oct 2026 21:36:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791063388;
-	bh=VPw9IUST4MTI4NDpxhmLwBIOZI2fEhJtaK02pXVE9+c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=baP4vsupBvKIxNxg0+cnwTt45K/cw8YIYShfomiDt5Q6hJeDI9W24iNBd2sgZhYqc
-	 wHZ/tl9h8AL8PtIGs2naElgaAKFKZWM8iRmPN6Q/rt4nTA87NmfbzviTrdFGxIXRHI
-	 +JdAHGZJ0FCObNIJIfhdxKruscmwGjOkZw3j+GXhk9/rzmPTrj5/5wUOKaKXHruLXW
-	 +nguRx+Ze2Kpp6TMv9x6pdIfW7/n/syvnDdbyvRO4A4FTVYckFMUUQx9/jRfbNyNL8
-	 eGfxsl4sSNYyXJzYA9RyA0FU/3Y2zYKxnqBa8fg3IHU5CXaYQiovmDQNRnmJN1KeP7
-	 2bODg3M90dE1A==
-Subject: Re: [PATCH v7 4/4] can: flexcan: use one rx-offload source per IRQ line
-From: netdev-bot+sashiko@kernel.org
-To: ciprianmarian.costea@oss.nxp.com
-Cc: mkl@pengutronix.de, mailhol@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, haibo.chen@nxp.com,
- linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, s32@nxp.com, imx@lists.linux.dev,
- eballetb@redhat.com, kuba@kernel.org
-Date: Sat, 03 Oct 2026 21:36:27 +0000
-Message-ID: <179106338718.1406898.9181099617806406362@kernel.org>
-In-Reply-To: <20261002071203.1287650-5-ciprianmarian.costea@oss.nxp.com>
-References: <20261002071203.1287650-5-ciprianmarian.costea@oss.nxp.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xD8Kt-0000000E7cP-2rBl;
+	Sat, 03 Oct 2026 22:36:18 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261003223559euoutp025c12500faec891b33d1895efec774da0~bJej50LOi2979329793euoutp02W;
+	Sat,  3 Oct 2026 22:35:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261003223559euoutp025c12500faec891b33d1895efec774da0~bJej50LOi2979329793euoutp02W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791066959;
+	bh=U3wvj1HZXvSFEqnxTHNRHB1lpN/qwUATGcRBe6uZy5E=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=s+ttd66VboYyGUSjzBv7F9IX2SuCBaJhFEnDHEhqvuOOeO3iV7tsKpo2xRAiGmACk
+	 nqccU/5pfph9t+/O5NfG7oJLVN/ERgwwZhnv5V7OBd8Gw10F6uQRnUeXg0TDAqoawV
+	 vIKIwNfyoQcs1aNgJ7jQnwNVRcoQEywfr2xjQb9g=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261003223558eucas1p2cb1d410a774401ec0c3c69c1f59d658d~bJei3nizz0619606196eucas1p2v;
+	Sat,  3 Oct 2026 22:35:58 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261003223556eusmtip1c175f34ccabf55dbdb34e5940f15ffe5~bJeg2dql11552315523eusmtip1K;
+	Sat,  3 Oct 2026 22:35:56 +0000 (GMT)
+Message-ID: <3c5c15d9-ea7e-49a2-adae-ec3e3c72594b@samsung.com>
+Date: Sun, 4 Oct 2026 00:35:55 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261003223558eucas1p2cb1d410a774401ec0c3c69c1f59d658d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+	<20260917-mutant-chamois-of-competence-46ca77@quoll>
+	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+	<eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+	<3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_153609_149511_CD3B3B87 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,273 +113,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 (1) · Medium: 1 (1) · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] Concurrent handlers can still corrupt the shared rx-offload
-  queue through the TX-completion path, which is the bug class the…
-- [Medium] In flexcan_irq() (drivers/net/can/flexcan/flexcan-core.c), the
-  per-line source's skb_irq_queue is only flushed when `handled` is set…
-- [Low] The patch has `Fixes: 8503a4b1a24d ("can: flexcan: add NXP
-  S32G2/S32G3 SoC support")`, so stable trees that carry S32G2 support…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it remains
-  after it.
-- [Medium] This problem wasn't introduced by this patch, but concurrent
-  S32G2 handlers still race on shared CAN state and statistics.
-
---
-
-can: flexcan: use one rx-offload source per IRQ line
-
-This patch adds an rx-offload source with can_rx_offload_add_source() for
-each extra FlexCAN IRQ line: bus off, error and the secondary mailbox line.
-flexcan_irq() picks the source from the IRQ number and passes it to the
-functions that queue skbs, so concurrent handlers on S32G2 no longer corrupt
-the shared rx-offload queue. flexcan_mailbox_read() now gets the private
-data through netdev_priv() instead of container_of().
-
-> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-> index f5d22c61503fa..2ef06ed0c7449 100644
-> --- a/drivers/net/can/flexcan/flexcan-core.c
-> +++ b/drivers/net/can/flexcan/flexcan-core.c
-
-[ ... ]
-
-> @@ -932,7 +934,7 @@ static void flexcan_irq_state(struct net_device *dev, u32 reg_esr)
->  	if (unlikely(new_state == CAN_STATE_BUS_OFF))
->  		can_bus_off(dev);
->  
-> -	err = can_rx_offload_queue_timestamp(&priv->offload, skb, timestamp);
-> +	err = can_rx_offload_queue_timestamp(offload, skb, timestamp);
->  	if (err)
->  		dev->stats.rx_fifo_errors++;
->  }
-
-[Severity: Medium]
-This is a pre-existing issue and was not introduced by this patch.
-Concurrent S32G2 handlers still race on the shared CAN state here.
-
-With FLEXCAN_QUIRK_BROKEN_PERR_STATE, flexcan_irq_state() runs on every
-call on every line. It compares the new_state from its own ESR snapshot
-with priv->can.state, without a lock:
-
-	/* state hasn't changed */
-	if (likely(new_state == priv->can.state))
-		return;
-
-can_change_state() then does a plain priv->state = new_state.
-
-Can two CPUs see the same transition? If so, both would queue an error
-frame, both would bump can_stats and both would call can_bus_off().
-
-Could a handler with an older ESR snapshot replace a newer
-CAN_STATE_BUS_OFF with CAN_STATE_ERROR_WARNING?
-
-The BROKEN_PERR_STATE block at the end of flexcan_irq() has a similar
-problem. It calls flexcan_error_irq_enable() or flexcan_error_irq_disable()
-based on unlocked snapshots of last_state and priv->can.state. Both
-functions write a full CTRL value built from reg_ctrl_default. Can the last
-writer leave ERR_MSK out of step with the final state?
-
-The dev->stats and can_stats counters (tx_bytes, tx_packets, rx_errors,
-rx_fifo_errors, rx_dropped, bus_error) are also plain read-modify-write
-updates from several hardirq contexts, so increments can be lost.
-
-[ ... ]
-
-> @@ -1120,7 +1141,7 @@ static irqreturn_t flexcan_irq(int irq, void *dev_id)
->  
->  		handled = IRQ_HANDLED;
->  		stats->tx_bytes +=
-> -			can_rx_offload_get_echo_skb_queue_timestamp(&priv->offload, 0,
-> +			can_rx_offload_get_echo_skb_queue_timestamp(offload, 0,
->  								    reg_ctrl << 16, NULL);
->  		stats->tx_packets++;
->  
-
-[Severity: High]
-Can two handlers still race on the echo skb here?
-
-flexcan_open() requests flexcan_irq() on dev->irq, irq_boff, irq_err and
-irq_secondary_mb. Every call reads flexcan_read_reg_iflag_tx(). The TX
-iflag is cleared only after the echo skb has been taken:
-
-		flexcan_write64(priv, priv->tx_mask, &regs->iflag1);
-		netif_wake_queue(dev);
-
-So two handlers on different CPUs can both see the TX bit, and both go
-down this path:
-
-flexcan_irq()
-  can_rx_offload_get_echo_skb_queue_timestamp(offload, 0, ...)
-    __can_get_echo_skb(dev, 0, ...)
-
-__can_get_echo_skb() checks priv->echo_skb[idx] and clears the slot only
-later, with no lock or xchg. Both CPUs can therefore get the same skb.
-
-For a PACKET_LOOPBACK skb, each CPU adds it with __skb_queue_add_sort() to
-its own source's skb_irq_queue. can_rx_offload_move_to_skb_queue() later
-merges both into the shared queue->skb_queue. Would that link the same skb
-into one list twice, so that NAPI passes a freed skb to
-netif_receive_skb()?
-
-For an echo skb that is not PACKET_LOOPBACK, both CPUs would call
-dev_consume_skb_any() on it.
-
-There is a related interleaving. The late handler could pick up a new echo
-skb that flexcan_start_xmit() queued after the first handler's
-netif_wake_queue(). It would then write FLEXCAN_MB_CODE_TX_INACTIVE to
-tx_mb, aborting a transmission that was already reported as sent.
-
-The echo handling itself is older than this patch. However, the commit
-message says this fixes concurrent handlers corrupting the shared
-rx-offload queue. Should the TX completion handling (or the whole handler)
-be serialized across lines, rather than only splitting the staging queues?
-
-[ ... ]
-
-> @@ -1143,12 +1164,12 @@ static irqreturn_t flexcan_irq(int irq, void *dev_id)
->  	if ((reg_esr & FLEXCAN_ESR_ERR_STATE) ||
->  	    (priv->devtype_data.quirks & (FLEXCAN_QUIRK_BROKEN_WERR_STATE |
->  					   FLEXCAN_QUIRK_BROKEN_PERR_STATE)))
-> -		flexcan_irq_state(dev, reg_esr);
-> +		flexcan_irq_state(dev, offload, reg_esr);
->  
-
-[ ... ]
-
-> @@ -1189,7 +1210,7 @@ static irqreturn_t flexcan_irq(int irq, void *dev_id)
->  	}
->  
->  	if (handled)
-> -		can_rx_offload_irq_finish(&priv->offload);
-> +		can_rx_offload_irq_finish(offload);
->  
->  	return handled;
->  }
 
-[Severity: Medium]
-Can a state-change skb get stuck in a per-line source here?
 
-nxp_s32g2_devtype_data has FLEXCAN_QUIRK_BROKEN_PERR_STATE, so the
-flexcan_irq_state() call above runs on every call, whatever ESR contains.
-If new_state differs from priv->can.state, flexcan_irq_state() queues an
-error skb with can_rx_offload_queue_timestamp(offload, ...). It does this
-even when handled is still IRQ_NONE.
+On 10/3/26 22:45, Krzysztof Kozlowski wrote:
+> On 03/10/2026 17:36, Michal Wilczynski wrote:
+>>
+>>
+>> On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+>>> On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>>>>> +  clocks:
+>>>>>> +    maxItems: 1
+>>>>>> +    description: Reference oscillator.
+>>>>>
+>>>>> This barely counts as a resource, so usual question: no resources here?
+>>>>> no MMIO? Even the user of this phy is the block itself.
+>>>>>
+>>>>> This makes me wonder if this should be a device node in the first place
+>>>>> (instead folded into the parent).
+>>>>
+>>>> The PHY has no reg because the reg is shared with the controller and
+>>>> owned by the parent - patch 9 lets the bridge take its regmap from
+>>>> there.
+>>>>
+>>>> The user of the PHY is not only the block itself. It is the pixel clock
+>>>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+>>>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+>>>> it is the only intended source for that clock. The parent has to be
+>>>> assigned explicitly so the general PLL does not end up driving the pixel
+>>>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+>>>>
+>>>> So it has to be its own node. The HDMI block has two independent
+>>>
+>>> I do not see the logic which lead to this conclusion. Pixel clock
+>>> provider, so a clock controller, cannot be a user of a phy. Clock
+>>> controller does not have a physical layer.
+>>
+>> Sorry I think the wording was not perfect. I meant the PHY node is a
+>> pixel clock provider. voutcrg consumes a clock not a PHY.
+>>
+>> voutcrg: clock-controller@295c0000 {
+>>          clocks = <&syscrg ...>, <&hdmi_phy>;
+>>          clock-names = ...,"hdmitx0_pixelclk";
+>> };
+>>
+>> The consumer of the PHY is only the hdmi controller.
+>>
+>> What matters for the node layout is where that clock goes. voutcrg is the
+>> SoC display clock controller - it is not part of the HDMI block:
+>>
+>> hdmi_phy -- pixel clock -> voutcrg
+>>                               |
+>>                               - pclk/mclk/bclk -> hdmi_controller
+>>                               - pix0/pix1 -> dc8200
+>>
+>> hdmi_phy and hdmi_controller are the same register block with one reg
+>> owned by the parent. So if that block is described as a single node:
+>>
+>> hdmi_node - pixel clock -> voutcrg
+>>      ^                          |
+>>      --- pclk/mclk/bclk --------
+>>
+>> the node provides a clock to voutcrg and consumes three clocks from
+>> voutcrg. That is a cycle in the device tree description.
+> 
+> There is no cycle. Internal signals to the block are not represented in DT.
+> 
+> What you have is a driver problem and you create some sort of DT
+> structure to solve that. DT purpose is NOT to solve your driver
+> dependencies or circular connections.
+
+The structure is not something I added. The voutcrg binding has required
+an input clock named hdmitx0_pixelclk since it was merged in 2023
+a097a5ec14df ("dt-bindings: clock: Add StarFive JH7110 Video-Output
+clock and reset generator") and this series does not touch that file:
+
+Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+       - const: hdmitx0_pixelclk
+
+Mainline satisfies it with a placeholder, because so far nothing provided the
+real clock:
+
+hdmitx0_pixelclk: hdmitx0-pixel-clock {
+            compatible = "fixed-clock";                                                                          
+            clock-output-names = "hdmitx0_pixelclk";
+            #clock-cells = <0>;
+};
+
+All this series does is point that existing input at the device that actually
+generates it.
+
+TRM [1] table 5-3  on page 529 lists the display CRG's input clocks. Most come from
+dom_vout_top, but three come from IP blocks inside the subsystem:
+
+clk_hdmitx0_pixelclk        297 MHz   u0_hdmi_tx.clk_pix
+clk_mipitx_dphy_rxesc        10 MHz   u0_mipitx_dphy.clk_rxesc
+clk_mipitx_dphy_txbytehs    297 MHz   u0_mipitx_dphy.clk_txbytehs
+
+and on page 530 the CRG offers clk_hdmitx0_pixelclk as Source1 for:
+
+u0_dc8200.clk_pix0      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
+u0_dc8200.clk_pix1      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
+u0_cdns_dsiTx.clk_dpi   Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
 
-handled can stay IRQ_NONE when a handler on another line has already acked
-all RX, TX and ESR interrupt bits. Two cases reach this path:
+The DC8200 and the DSI TX are separate devices, so the pixel clock
+crosses two block boundaries to reach them.
 
-  - a passive to warning/active transition, which raises no interrupt
-  - a concurrent handler that has not updated can.state yet
+That is also why the DT has to be able to name it. Those MUXes have two
+parents and the selection is made in DT:
 
-Before this patch, the skb sat in priv->offload.skb_irq_queue, and the next
-handled interrupt on any line flushed it.
+&dc8200 {
+          assigned-clocks = <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>, ...;
+          assigned-clock-parents = <&hdmi_phy>, <&hdmi_phy>;
+};
 
-Now flexcan_get_offload() sends it to offload_boff, offload_err or
-offload_secondary_mb. Only can_rx_offload_irq_finish() on that same source
-drains it, or can_rx_offload_del() purges it at close.
+and voutcrg takes it as an input clock because that is what the hardware
+does. If the PHY is folded into the HDMI node, that input phandle points at
+a node which also consumes pclk/mclk/bclk from voutcrg. That is where the
+cycle comes from - the hardware topology not the driver.
 
-On the bus-off or error line, could the state-change frame stay stuck for
-an arbitrarily long time? When it is finally merged, its stale timestamp
-would sort it against frames that were already delivered, so it would
-arrive out of order.
+[1] - https://doc-en.rvspace.org/JH7110/PDF/JH7110_TRM_StarFive_Preliminary_V2.pdf
 
-can_rx_offload_irq_finish() already returns early when skb_irq_queue is
-empty. Would calling it unconditionally avoid this?
+> 
+> Best regards,
+> Krzysztof
+> 
 
-[ ... ]
-
-> @@ -1381,6 +1402,15 @@ static void flexcan_ram_init(struct net_device *dev)
->  	priv->write(reg_ctrl2, &regs->ctrl2);
->  }
->  
-> +static int flexcan_rx_offload_add_source(struct flexcan_priv *priv,
-> +					 struct can_rx_offload *source)
-> +{
-> +	source->mb_first = priv->offload.mb_first;
-> +	source->mb_last = priv->offload.mb_last;
-
-[Severity: High]
-This isn't a bug introduced by this patch, but it remains after it. Every
-extra source gets the full primary mailbox range here, and the RX loop in
-flexcan_irq() runs on every line:
-
-		while ((reg_iflag_rx = flexcan_read_reg_iflag_rx(priv))) {
-			...
-			ret = can_rx_offload_irq_offload_timestamp(offload,
-								   reg_iflag_rx);
-
-Nothing serializes flexcan_mailbox_read() between CPUs. The FlexCAN read
-sequence assumes a single reader:
-
-  - reading C/S locks the MB
-  - the ID and data are copied
-  - IFLAG is cleared
-  - reading the free running timer unlocks the MB, globally
-
-Suppose two handlers both have bit n in their IFLAG snapshot. Can both of
-them read MB n? The CODE stays RX_FULL after a read, so the second reader
-passes this check and delivers the frame a second time:
-
-		if ((code != FLEXCAN_MB_CODE_RX_FULL) &&
-		    (code != FLEXCAN_MB_CODE_RX_OVERRUN))
-			return NULL;
-
-Another CPU can read priv->read(&regs->timer) from flexcan_mailbox_read(),
-flexcan_irq_state() or flexcan_irq_bus_err(). Could that unlock the MB
-while this CPU is still copying it, so the hardware overwrites it mid-copy?
-
-Could the second reader's late clear
-
-	flexcan_write64(priv, FLEXCAN_IFLAG_MB(n), &regs->iflag1);
-
-wipe the IFLAG of a newer frame that arrived after the first reader
-unlocked the MB? Later scans would then miss that frame.
-
-The commit message defers this to a follow-up series ("All handlers still
-process the whole mailbox range"). Until then, the S32G2 support named in
-the Fixes: tag can deliver duplicated, torn or lost CAN frames.
-
-> +
-> +	return can_rx_offload_add_source(&priv->offload, source);
-
-[Severity: Low]
-can_rx_offload_add_source() only exists once these earlier patches in the
-series are applied:
-
-  can: rx-offload: move skb_queue and napi into struct can_rx_offload_queue
-  can: rx-offload: allow more than one receive source
-
-The fix also relies on two things from those patches: the per-source
-offload->queue linkage, and the locked merge in
-can_rx_offload_move_to_skb_queue().
-
-Neither of those patches has a Fixes: or Cc: stable tag. This commit has:
-
-  Fixes: 8503a4b1a24d ("can: flexcan: add NXP S32G2/S32G3 SoC support")
-
-If stable selects this patch only through the Fixes: tag, will the build
-fail? A hand backport could also leave out the merge logic that actually
-stops the corruption.
-
-Would it help to add Cc: stable@vger.kernel.org, with dependency notes for
-both rx-offload patches?
-
-> +}
-
-[ ... ]
-
+Best regards,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261002071203.1287650-1-ciprianmarian.costea%40oss.nxp.com
+Michal Wilczynski <m.wilczynski@samsung.com>
 
