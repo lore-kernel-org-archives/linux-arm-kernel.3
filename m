@@ -4,121 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50D5CA5FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 10:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CDFCA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 10:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J2QUNYNnHdWQ/LZMhbJIi8OYNLDwOK3NJvOKK0udUn8=; b=n3pkRDGmo39hj8FV2/uUXp85gO
-	Yoldx14KcXFsRTz3j0eJbig1xWY9mKNq1wZF2zx94Vw6R+6msGqMxhNqnWeNS0+vzqopxugVo0Znt
-	UHLe/3/9CceY2QePxAVwqZnB/tD6fCJVQMu0f8eeXXh8Hgp3JVEIBtHL1vw51wuOfYx3GHwZ4llzP
-	fVH68wUvulS4Hjqh5b0rm6ZBwtRyLqnVF8WwU6636wlEUVnKU1CAZQEu/e/IQDIwWeqaGQc5h2QO7
-	7mIvGu3mssN942CsOe/tW+6g429QCT+weGyjVVaEizE/gNTs9ZU2BOaq8t1Tff/vrK6TnmfF+Bbt+
-	m/ZBhAeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vXMtAL44iVcAA9WhOxwAITTnVgekcVqTaNx1U8S7snU=; b=kau1tO/yW6LqRPp/6Dp60UgKcC
+	SPYx9sZVGU/L3BhHHtFvifckOL9yHbDuhD21QXZ0agg3XzMs4tzIW3BVqAJi3ScwcPStqC1lPCtg5
+	VoIXhCwoWWMEyf6X8s9hT8bn1cZ1M0bSuvvaXlL/uKd4KOxjwE1FxiV1++2Kzl+SafiWw1Hq7Gq3E
+	ezn4WhSGWXX5TCgEJA+WpkbayNzTyjShZS3xrS8M7BdpNs0YbpFYFwYtxyFvk28VFPNEWTsveNHx6
+	2YhT0lmPfseGB/UX8D7KMalSVx0MG4s0vgaX1KGIcyLp0dqLV0wAwNTHLzA+TuNkYp9lJ7cZ9J5r1
+	0G0Gmf+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCwvF-0000000DMVf-2sYT;
-	Sat, 03 Oct 2026 10:24:53 +0000
-Received: from mail-dy2-x0d.google.com ([2607:f8b0:4864:36::d])
+	id 1xCwvg-0000000DMZ1-43Hw;
+	Sat, 03 Oct 2026 10:25:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCwvC-0000000DMVM-3qdU
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 10:24:52 +0000
-Received: by mail-dy2-x0d.google.com with SMTP id 5a478bee46e88-34c28125492so26512eec.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 03:24:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791023089; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dWhpnqTKq2DymzCRvaoEJeBrDgB745qCh1lwauqXWUq/Ge5PtTdsv0vXHZ93vbWArk
-         MiP3UQCFanhvXyE6i9mB0plSA0F8TA2wyfvmjsfgNOFlF3gpO1OMJfxp8ALun/iP281R
-         qxlPFAqi71hwbvO4D9MiC3TtJCnvZZsts0SEJUuCQJ8aU4w2oYj59nAYmZDvoD2LpU/B
-         nyZYRyzRwV/Mz4k2d7g8MR6G7xMoyQIMNkweXMticRqBpPTD08Ruj+Kgl55fbLLRatnz
-         CsbuZcXngME4U64/HQJW7kYi4SDV/3vDkzORRFmMh+GMaM9Vs89ZYA0ZMR4dfF2rgOw3
-         3O5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=J2QUNYNnHdWQ/LZMhbJIi8OYNLDwOK3NJvOKK0udUn8=;
-        fh=IfVwb4OvEqJvhezhdwb42bGBsRhCXpnMOabD5+G3YuM=;
-        b=hsshDZZr1IwlbLEqr3UPgwlbBGPzF/41HHDO0Tf7bWK3zyzWmu1TrsZ/JJ2iGWPS1b
-         WXo6sIb2V9UMZ0+Kgerb6afuYabzQ+AMnwNCOK+YCwvXlzN9qUcq6ZVkIvJIIUKWspjr
-         13Thcu4ofdzwxhU6g154A5O7iaI8GiPo6SPFRC1PJAKmCv3iOSrt8g8UHg1Qpa0owevk
-         XTKQ5dgLKFUUuPahsmVZ+uu85EGtkhHUAEo2KE7etAEOH3+Gdhm4Yj3D6c+RDWfDHeoY
-         bYTJd8nvdah8klzIG1Y1pN2CVOds/p9ryZadZpxxTMek92LEX3J8Wdhz/CTGuYjMbTmA
-         pQZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791023089; x=1791627889; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J2QUNYNnHdWQ/LZMhbJIi8OYNLDwOK3NJvOKK0udUn8=;
-        b=hlVgTSpohzgLU/upTGTbhQv9QHqi26GBmDUCI3ERLdGsjaDIMx0QgGC9/75OBaNEgh
-         OMoescCjYxRA5QetZSpin/XSm5y41ADS7KJzQvbC0IAHHIVTLKEkBtlZLzQk3kbntW91
-         V/fKpnw56uHnfK+EHAEteV4YVGRxjztxAXYqryLHggiuhl23zNASNDCv793vEwzFtXFU
-         TijgjOM9i7Vgv0W/nTWeNCXyklibf2WCxK40v3oeAm5H+MUu97gqZz08oCVL8So319e+
-         wF+SNIT4IIXxrCYn3BhYazA6lEwMcbtZ6q+qEa7hqMsmm+1NtDxqN1jnvRRhLpfEpq1M
-         me0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791023089; x=1791627889;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J2QUNYNnHdWQ/LZMhbJIi8OYNLDwOK3NJvOKK0udUn8=;
-        b=dprUIGnhW6WS+gmVzus8wBshWFJ4UWEbdUNV5mZr6rO8AIlNZLjpKL2IwtpI1ebxHk
-         z28zyOBBA7cUF7WwRRTPq5CaEQw1OU+CX8FwMQS5oqg/a0/bvU2saigSntryBS2eI7/d
-         jtdFGD6LzgkHUvb1PI3Q6rAqhh5N5S0fl2uZgHSa/pvLARzqn1XRlJfquOQe0jU6o0kH
-         N1aWBSO6yfYqlaEY2oUYxNjA9l7mQownxcILai18bQGkOoIsYUtSvL5vFbTAH/JgkvU8
-         brapBY0TGXVAnf2ML/PuA7i31gD9v1QCf4XiEFDppGajAJCy+BxvLHwBdFdLpCdEgxUl
-         bBUQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw9/sibThBEj2d+QtVFJYHFvnbc83Kvt46yoWEUXWbqerwwPJgCk4bGDmu0ivdggW53vKte021v4jeBAhQDbWG6@lists.infradead.org
-X-Gm-Message-State: AFq9FYK2EavfDz12rD696sIuHvdrWRlNs5XgtzOcEoEu9pc6r6/jRbV+
-	pTT/zVZ1wFWrItCo8Ne6aT1sshpGQ3qJDe5H4uJEXIk8pDcnHfs0M33mtmcaljrLimB8dX4ccvX
-	0mz+wHlnf3EeGh7iNjVGbSHoYvhsmfmk=
-X-Gm-Gg: AYBFou2uFORUJoK92HCqxMD9fvUrm3da2iEEKjOnOihgI2k1WZvD8Nx9RWaqRkXWAA2
-	K94D6cVuZzG8g91ZJ3T9tJTO0TWN8MZfZ5JVsX9Ix2P1gT00iN+sY9BBA63+PZJb1LXhAexKIPF
-	M00vlexaVGKMpPc4kHzIBiP5XNbdpXIgBk4N88JPq9oYXMYtGlFDNBq6P8M2w6YAmQpvuHu5LeX
-	qBJVu/RILllwK9Q20AcXCYJUvVK4Gt6bipM4NZ5ESTcowqjDgcQfRQWUGf7upO+APsFnp0Tw62l
-	cfGvIllcAvdCRDxKtv8KnT6eKP7yxkMW8l+S22iHP5yKR61M4tEKh+b5hBZ8qACHzhhQwdYdyv8
-	FwLLu/uos6Dbar3BQgfdQemHi/6OtWbrKJD7AGiG85mOK9NpUDgyTOewciYbcIx3uUD0ejq78/n
-	yRMn6LQHsqOelT20P61frIAaGAJ+o93/+gUIuuLO+SCUU6+Cus7x/axsMFICiVgw==
-X-Received: by 2002:a05:7300:54c3:b0:34b:47b2:677e with SMTP id
- 5a478bee46e88-34f14ff2bb8mr10351658eec.1.1791023089391; Sat, 03 Oct 2026
- 03:24:49 -0700 (PDT)
+	id 1xCwvf-0000000DMYS-0VqX;
+	Sat, 03 Oct 2026 10:25:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37A4960A56;
+	Sat,  3 Oct 2026 10:25:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3F751F0089B;
+	Sat,  3 Oct 2026 10:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791023117;
+	bh=vXMtAL44iVcAA9WhOxwAITTnVgekcVqTaNx1U8S7snU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ObKK7SNvJ4iK/TmrgstzeGLH8c/hvCwqZD1SP+BrFfC/TwLDEx/D3pvSBA2br3NZg
+	 QylWtd/Dml3XK2wrm+x3CG4NsZ388JrygzvySxe1ouHnZA6yBTWMCxyAQ8h3UPPVwU
+	 /X9lkwxNa1hbIxBf00Jmpzf0N7XtF5hag4S0X2WAGC0A61AVKuagROT5uyIldsHofd
+	 NKILFHMZnCaoFnwVgjm3spo7MHjpuDexFsvsXfhonXEebVNtLDZaotfuhBq7sa9Lhg
+	 VUrts4oRZUjdEE3EQwETkySLZP5u1q+HXpK92Spl8tAi97lYFqT3R9t3fK0eEM6Gpt
+	 ZhkeZJUjj8mLA==
+Subject: Re: [PATCH] net: gro: mark frag_list GRO packets as SKB_GSO_DODGY
+ when a list element exceeds gso_size
+From: netdev-bot+sashiko@kernel.org
+To: shiming.cheng@mediatek.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, willemb@google.com,
+ daniel.zahka@gmail.com, alice@isovalent.com, sd@queasysnail.net,
+ eilaimemedsnaimel@gmail.com, imv4bel@gmail.com, nbd@nbd.name,
+ dsahern@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ stable@vger.kernel.org, steffen.klassert@secunet.com, lena.wang@mediatek.com
+Date: Sat, 03 Oct 2026 10:25:16 +0000
+Message-ID: <179102311631.434549.14789093097225958254@kernel.org>
+In-Reply-To: <20260929100256.23192-1-shiming.cheng@mediatek.com>
+References: <20260929100256.23192-1-shiming.cheng@mediatek.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20261003093827.77857-1-kmehltretter@gmail.com> <20261003093827.77857-3-kmehltretter@gmail.com>
-In-Reply-To: <20261003093827.77857-3-kmehltretter@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sat, 3 Oct 2026 12:24:35 +0200
-X-Gm-Features: AclHuK-MLIrX0vJiZQYXgDSKkkdNcg8lXBGZYj63LJj9lWkFu6OJmgqYprkqXmo
-Message-ID: <CANiq72kGay03jqFOfFcJOjr9Poy+yc2u0=Ep_9LQ+KMy=1JtRQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: rust: Enable Rust support for ARMv5TE
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
-	Christian Schrefl <chrisi.schrefl@gmail.com>, Bradley Morgan <brads@mainlining.org>, 
-	"Paul E . McKenney" <paulmck@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_032450_962093_7DB0D2BA 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,21 +75,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 3, 2026 at 11:38=E2=80=AFAM Karl Mehltretter <kmehltretter@gmai=
-l.com> wrote:
->
-> Tested on v7.3-rc1 with clang 22.1.8, rustc 1.99.0 and bindgen 0.73.2
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Great to see more arch support! Just to confirm, are there any
-toolchain requirements to be aware of?
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-If yes, then we should add them to Kconfig, `scripts/min-tool-version.sh` e=
-tc.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-If not, then please test with the minimum versions too! :)
+- [Medium] The patch's premise does not hold on this tree, so the new
+  check in skb_gro_receive_list() (net/core/gro.c:262-264) can never…
+- [Medium] The Fixes: tag points at the wrong commit, and the message
+  leaves out the commit the patch depends on.
 
-Thanks!
+--
 
-Cheers,
-Miguel
+net: gro: mark frag_list GRO packets as SKB_GSO_DODGY when a list element exceeds gso_size
+
+This commit sets SKB_GSO_DODGY on the aggregated skb in
+skb_gro_receive_list() when an appended frag_list element is longer than
+skb_shinfo(p)->gso_size. The goal is to push LRO-produced aggregates
+onto the conservative segmentation path instead of skb_segment_list().
+
+> Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
+> Cc: <stable@vger.kernel.org>
+
+[Severity: Medium]
+Is this the right Fixes: tag?
+
+3a1296a38d0c added the generic fraglist chaining that UDP uses. The
+condition tested here doesn't look reachable through UDP fraglist GRO.
+GSO UDP skbs are flushed in dev_gro_receive():
+
+net/core/gro.c:dev_gro_receive() {
+    ...
+		if (!skb_is_gso_tcp(skb) ||
+		    (skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+			NAPI_GRO_CB(skb)->flush = 1;
+    ...
+}
+
+Also, udp_gro_receive_segment() stops merging once an skb's ulen is larger
+than the head's, so no element can be longer than gso_size.
+
+An element longer than gso_size could only come from TCP fraglist GRO.
+That was added by 8d95dc474f85 ("net: add code for TCP fraglist GRO").
+The existing fix for this scenario, 66817a9794263c, also names
+8d95dc474f85.
+
+The DODGY bit set here only has an effect through the checks in
+tcp4_gso_segment() and tcp6_gso_segment():
+
+net/ipv4/tcp_offload.c:tcp4_gso_segment() {
+    ...
+		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
+		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+			return __tcp4_gso_segment_list(skb, features);
+    ...
+}
+
+426ca15c7f6c ("net: fix segmentation of forwarding fraglist GRO") added
+the DODGY test there. 17bd3bd82f9f79 added the skb_pagelen() check next
+to it.
+
+With Cc: stable, the current tag would pull this patch into 5.10, 5.15,
+6.1 and 6.6. Those trees do not have TCP fraglist GRO, so the change
+does nothing there. Trees that have TCP fraglist GRO but not
+426ca15c7f6c never read the new bit either.
+
+Should the tag point at 8d95dc474f85 instead? Should the dependency on
+426ca15c7f6c be mentioned? The commit those stable trees seem to need is
+66817a9794263c.
+
+> diff --git a/net/core/gro.c b/net/core/gro.c
+> index 29b4d02bf5198..6c5b11b63d3b5 100644
+> --- a/net/core/gro.c
+> +++ b/net/core/gro.c
+> @@ -259,6 +259,9 @@ int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
+>  	skb_shinfo(p)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
+>  
+>  	NAPI_GRO_CB(skb)->same_flow = 1;
+> +	/* frag_list element larger than gso_size (already coalesced before list-append) */
+> +	if (skb_shinfo(p)->gso_size && skb->len > skb_shinfo(p)->gso_size)
+> +		skb_shinfo(p)->gso_type |= SKB_GSO_DODGY;
+
+[Severity: Medium]
+Can this condition ever be true on the current tree?
+
+Commit 66817a9794263c ("net: gro: Fix nesting of TCP GSO SKBs in
+skb_gro_receive_list()") is already an ancestor of this patch. It covers
+the same HW-GRO case by keeping GSO skbs out of fraglist GRO:
+
+net/ipv4/tcp_offload.c:tcp4_check_fraglist_gro() {
+    ...
+		/* flist GRO applies to consecutive non-GSO skbs */
+		if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
+    ...
+}
+
+tcp6_check_fraglist_gro() has the same guard. A GSO skb therefore ends
+up with is_flist == 0. tcp_gro_receive() then flushes before it calls
+skb_gro_receive_list():
+
+	flush |= NAPI_GRO_CB(p)->is_flist != NAPI_GRO_CB(skb)->is_flist;
+
+A GSO skb that starts a new flow also gets
+is_flist = !sk && !skb_is_gso(skb), which is 0.
+
+For non-GSO TCP skbs, tcp_gro_receive() also flushes on:
+
+	flush |= (len - 1) >= mss;
+
+Here mss is skb_shinfo(p)->gso_size and len is skb_gro_len(skb). After
+the skb_pull(skb, skb_gro_offset(skb)) in skb_gro_receive_list(), len
+equals skb->len. So skb->len > gso_size can't hold at this point.
+
+For UDP, dev_gro_receive() flushes GSO skbs, as well as skbs that already
+carry a frag_list:
+
+	NAPI_GRO_CB(skb)->flush = skb_has_frag_list(skb);
+
+udp_gro_receive_segment() also stops merging when
+ulen > udp_get_len_short(uh2).
+
+Is there a reproducer that still hits this after 66817a9794263c? If not,
+this looks like dead code, and the stable tag would send it in place of
+66817a9794263c. Should this patch be dropped in favor of the existing
+fix?
+
+>  
+>  	return 0;
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260929100256.23192-1-shiming.cheng%40mediatek.com
 
