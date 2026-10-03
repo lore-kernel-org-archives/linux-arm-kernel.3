@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F12CA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B708CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 19:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJ9KSHknag2gDAaw8qLAHoLRC7r7kSMR52AYAhpMLLU=; b=DUb3WQJLutbfE9hhXGmt36BlaH
-	BKN3225BSyaSoezBvzi/RHNBd70eXVxlEvbPukK19RCh8CqbYdH7xrznBLMpLBWr8R5QKdVA8a5lj
-	IKymNJowo4KH71hUuJZBhzd5TGDgRUlIZ+lzXrSCU7buuWPCjZDSIXTGZvRxR/0XoIWYhfVsXea+A
-	d8C8rUdde8V6gznpP4BwjigiCHWYzlzOxdBjiQq5U9/Pfd28BqXXxz0r/0ncTdAuIrfIkVqnvHJ/V
-	z1r6DA8Zk2zNcxU6XETumufxL7SX5GEMQTNwgqGRY8X3nxC74G0lRwxfDnnET12wMc5MnCL+45n7u
-	PDSXUw3g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rrkz7SQZupuPWDT3oGVi7jy5HpE8mbCCyjqfsJLEW24=; b=oyk3gTirjIL5b+ZIv1HhFVO0hS
+	rhNidjtlkqRX+ucounw0ECs3nJzVtnr1rfk9WM73i2hzSMC22mY8zvwQNZESiYJp9QqOrwsZN6jPv
+	6LfXJ7Yxbqga+90bZ0fKYSqcX1bRPZs3GMNuSwSoonF7oRz6fdODKBYk0mWc3msNbdTCSlKGNV8ff
+	qoK57jGOaA5LQ5vEQtmRQ2zvRcwxxRbr/T8gcX8Lh/BK7OsggxRwTdvrBr8jCp3Qf7sEgWLM7Yl8G
+	zyzAGQ1lbtwwELehKK/gT6UPNkPBykxrBBqUAakClUbNHC0COrH8ZMqgH+2lvXKEIttKMWOujJgTM
+	gzO8mLGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5S7-0000000DwN5-2WKR;
-	Sat, 03 Oct 2026 19:31:23 +0000
+	id 1xD5fR-0000000DxJq-0aom;
+	Sat, 03 Oct 2026 19:45:09 +0000
 Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD5Ry-0000000DwKU-2luM;
-	Sat, 03 Oct 2026 19:31:20 +0000
+	id 1xD5fO-0000000DxJ7-3lw9;
+	Sat, 03 Oct 2026 19:45:08 +0000
 From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791055872;
+	s=mail; t=1791056704;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xJ9KSHknag2gDAaw8qLAHoLRC7r7kSMR52AYAhpMLLU=;
-	b=n07RX+EVKuWHsRjsaX4eWbgeYSzn9qujxFCMaCJH23olVCAiFq4xdRxcAGHbd+j3j4HRZL
-	nnkEXepYDHpzN5BDnUNJ6GS8Z4+f+BAaJ5WMntZNTBWdv6kt7y5kQQnppv4NEJLv91vPgL
-	GAel/RXZ/4Le7gByXBsQbDVqPI3klGakh462uMQ71pDiiJ4TVsIdkNtxvLYpls3Mi3xuey
-	bKyob7XFy0EfWh2mzNAOaoO06CfUK6cYYVA5+U2M8NgocgQw3MkZkTqc1b0N8ZbyLnkG+S
-	KmZ9L9exSxIgedN9N/87NjefVOWroqS6foRN4NQ6AVO7b0r1/9etWI/KblSo7g==
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fei Shao <fshao@chromium.org>,
-	devicetree@vger.kernel.org,
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Rrkz7SQZupuPWDT3oGVi7jy5HpE8mbCCyjqfsJLEW24=;
+	b=tVthf2V9abfZ5t6twtvBHsQD7En5A+RDKeldAQuCEK7IhGrloWOAo97H3qihxQlGPTZ31q
+	cmY52nLMqwUL3bG6xUF/jJAibXGQFIWGcBTTOQY55oVmpzxfKhGjRZcnKx9ZCUErDtNB0A
+	gwv1oRIaiMe6f3pSofk03qCQJE6/Ccg2zhvFXTPz2a6XJGkSd/jLVvoRQOP2ucSk9kipAx
+	49lRx/MeQOpADj89+MwurqOeLUy31kv4ZFM+rdWNiaDGv0tTZq5QUTwXbQzE7/LEsFI/Fl
+	jyIFPUkAgIEKJn/Fh7qB3z9Tub5pf7nhxyY3maHwI04rCbhdHEKGUDM7DBe25g==
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Trevor Wu <trevor.wu@mediatek.com>,
+	linux-sound@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH 1/3] arm64: dts: mediatek: mt8188-geralt: Reserve SCP dual-core memory region
-Date: Sat,  3 Oct 2026 21:31:06 +0200
-Message-ID: <20261003193108.789939-2-michal@nozomi.space>
-In-Reply-To: <20261003193108.789939-1-michal@nozomi.space>
-References: <20261003193108.789939-1-michal@nozomi.space>
+Subject: [PATCH 0/4] ASoC: Fixes for the MT8188 sound card
+Date: Sat,  3 Oct 2026 21:44:57 +0200
+Message-ID: <20261003194501.832558-1-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_123114_854607_24E52FA1 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20261003_124507_122112_B2896F16 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trusted firmware on MT8188 protects 0x70000000-0x79ffffff (the SCP
-core1 DRAM region) in the EMI MPU. Only the application processor and
-the SCP may access it; accesses from other bus masters, including the
-GPU, are silently dropped on write and return zeros on read.
+These patches fix problems found while bringing up audio with SOF on
+the Lenovo Chromebook Duet Gen 9 (Ciri, MT8188) on a mainline kernel.
 
-The region is not reserved in the device tree, so Linux hands it out as
-ordinary memory. Under memory pressure, GPU buffers and GPU page tables
-end up there, which causes silent loss of GPU writes, translation
-faults on page-table entries that are valid from the CPU's point of
-view, and the GPU resets that follow.
+The first two fix the common MediaTek sound card probe when the card
+cannot be bound on the first attempt. A missing component made the
+card fail its rebind because the codec references were already
+released, and a deferred or failed probe left the static card with a
+topology name that devm had freed, so the card registered with a
+garbage name and UCM found no profile for it.
 
-Reserve the region, as the ChromeOS device tree does. No driver uses
-it, so describe it as a plain no-map reservation.
+The third limits the UL8 front end on MT8188 to what its only back end,
+ETDM1_IN, supports, so that userspace can no longer pick a
+configuration that fails in hw_params.
 
-Fixes: 5e6af7f54189 ("arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri")
-Signed-off-by: Michał Kopeć <michal@nozomi.space>
----
- arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+The fourth is not MediaTek specific: hdmi-codec parsed the all-zero
+ELD that bridges return without a sink, which logged "Unknown ELD
+version 0" on every open of a disconnected HDMI/DP PCM.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index 801eee735afe6..d8edbde6ee4ac 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -197,6 +197,11 @@ adsp_dma_mem: memory@61000000 {
- 			reg = <0 0x61000000 0 0x100000>;
- 			no-map;
- 		};
-+
-+		scp_dual_mem: memory@70000000 {
-+			reg = <0 0x70000000 0 0xa000000>;
-+			no-map;
-+		};
- 	};
- };
- 
+Tested on Ciri.
+
+Michał Kopeć (4):
+  ASoC: mediatek: common: Keep codec references until the card is bound
+  ASoC: mediatek: Don't keep a freed topology name in the static card
+  ASoC: mediatek: mt8188: Constrain UL8 FE to its back end's
+    capabilities
+  ASoC: hdmi-codec: Don't parse an empty ELD on startup
+
+ sound/soc/codecs/hdmi-codec.c                 |  8 ++-
+ .../mediatek/common/mtk-soundcard-driver.c    | 67 ++++++++++++++++++-
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c     |  3 +
+ 3 files changed, 73 insertions(+), 5 deletions(-)
+
+
+base-commit: 0d6ef8b530db8dbad6b06309cf2683f1032f8013
 -- 
 2.55.0
 
