@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD689CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C4CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 15:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8RRdaCYPA33wIU/LOcuilSET0w7vnNX3u3/McsxZyHw=; b=yRqml52fuSSDhjEt+SsMhn0K+V
-	hVjU0bzPAs4aNsPmnLu+rtB0NLPkypEFwa+J1Q34/EarVuoC8kngYISj/sGTBlti1oxIIq0/y1IPN
-	QOHQZvI7Z7Rj7xoA5oekKN5rQrAvyxnGBh1EI/LV8EcDxfLTsHTRVjZpmoLAkTzQHGJTiAFWAfuvO
-	Y4LsVx+iAe5etu2vz3m5RnSDOdFK57xhJ4NChc/MZmMRrbcQfpLy0iClIM5/Ve4f82UuFsENK9B82
-	DWa0QIAoN9wN08uFxGANRAiwDc8Y5/aAUpM4BQtLCeUdVGV/nizsgroMtXrDmDZLbmGEXxSB1N+BG
-	LUQqzlhg==;
+	bh=cezTBuZnRU09BC5t/TXbbnr/2mOgRJXIrT1bA9nKYfk=; b=bMdTMHwhRtOEL6ZPEEudG/W4aw
+	nAgT5EARW/AExentwusbNnjxM4T0ETZMw2d33VbIVn/vFt80aW9WCPf1oENrcGe+as+skKe8qT9h6
+	S43Lk/N3t6s/NKmmWo5c6N2zSQThkSZq+Ygx+aTnWPQR37ljn0lsXTCNohMpwXDAYMuzNY4Sn6IQB
+	bXxHBSjon6Ve3r8tNw3KosoUMFPL3g2aBgzLS+SwjqbMTRBODDBeENt4HYQTvi/uWnH8G7n3vyPbr
+	rSuFS5MKhuV7kHqkhIdhV9qMTjJ9fR6ZQwGOAd71ZOPJ5gJ2PkfJAdpc/TIBcQaPakZNqxpyH0AP7
+	Xzin1FQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1go-0000000DhKM-2BEb;
-	Sat, 03 Oct 2026 15:30:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1gl-0000000DhJq-3A9h
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Oct 2026 15:30:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B511143D;
-	Sat,  3 Oct 2026 08:30:08 -0700 (PDT)
-Received: from [10.57.8.170] (unknown [10.57.8.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78A283F86F;
-	Sat,  3 Oct 2026 08:30:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791041411; bh=DqNzmiLqSRpWo/O9PN56Vgk4zOzq2vzIekil+azxtfs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VsluF5b6kSrZ+AUV4dej8J3hVAA0bso9VTPuE066QFBnPImM3oadyvBD4Og9UtP29
-	 50yVKbbIbWEUm/fpCMSMFhuU/77J7B7JoUuvUqrzDggYJQOP30hz3/M2LO4o+uEVYK
-	 m0MI8bfOukYnTKVm+bkg7o+Z0KqJJtqTlD7KGh4M=
-Message-ID: <9873fb9d-6f32-46f6-bcac-6a52e293d011@arm.com>
-Date: Sat, 3 Oct 2026 16:30:04 +0100
+	id 1xD1n1-0000000Dhoy-2njk;
+	Sat, 03 Oct 2026 15:36:43 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xD1mt-0000000Dho5-3bxV;
+	Sat, 03 Oct 2026 15:36:41 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W;
+	Sat,  3 Oct 2026 15:36:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791041788;
+	bh=cezTBuZnRU09BC5t/TXbbnr/2mOgRJXIrT1bA9nKYfk=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=iyRdI8uvT1VnyJT6tqgggenZI6nITXILkxQtf0XryX352UU+lQidWIGBUPATnmApl
+	 NqErh1NgfRSaacsdX3dVtsHcj+ObkGldlks/K3Pp/ACh4wuzlI3nw9I71uwYTuobcz
+	 MAqgn33qV3D/4uufZns8VtPAgjSZZJfnfsm8yK1Y=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56~bDwQpLxK00845508455eucas1p1j;
+	Sat,  3 Oct 2026 15:36:27 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261003153625eusmtip1ba5f07ce91f2ac9a6e0ffa2ce26ac1cb~bDwPATbZ22801128011eusmtip1E;
+	Sat,  3 Oct 2026 15:36:25 +0000 (GMT)
+Message-ID: <eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+Date: Sat, 3 Oct 2026 17:36:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 10/23] KVM: arm64: Add VM specific callback for S2 MMU
- operations
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
- <20261001210703.1597150-11-suzuki.poulose@arm.com>
- <86ik3j2m5v.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86ik3j2m5v.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
 Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+	<20260917-mutant-chamois-of-competence-46ca77@quoll>
+	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_083016_086534_EDFB2DF7 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20261003_083636_492016_546DE4F3 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +111,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/10/2026 10:01, Marc Zyngier wrote:
-> On Thu, 01 Oct 2026 22:06:50 +0100,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+
+
+On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+> On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +    description: Reference oscillator.
+>>>
+>>> This barely counts as a resource, so usual question: no resources here?
+>>> no MMIO? Even the user of this phy is the block itself.
+>>>
+>>> This makes me wonder if this should be a device node in the first place
+>>> (instead folded into the parent).
 >>
->> Add VM type specific S2 MMU operation backends which can be initialized per
->> VM flavor, to keep the handling cleaner.
+>> The PHY has no reg because the reg is shared with the controller and
+>> owned by the parent - patch 9 lets the bridge take its regmap from
+>> there.
 >>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->> Tested-by: Gavin Shan <gshan@redhat.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->> Changes since v19:
->>   - Add a blank line in kvm_arch_flush_remote_tlbs()
-
-
->>   struct kvm_s2_mmu {
->>   	struct kvm_vmid vmid;
->>   
->> @@ -332,6 +345,8 @@ struct kvm_arch {
->>   	 */
->>   	u64 fgu[__NR_FGT_GROUP_IDS__];
->>   
->> +	const struct kvm_vm_s2_ops *vm_s2_ops;
->> +
+>> The user of the PHY is not only the block itself. It is the pixel clock
+>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+>> it is the only intended source for that clock. The parent has to be
+>> assigned explicitly so the general PLL does not end up driving the pixel
+>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+>>
+>> So it has to be its own node. The HDMI block has two independent
 > 
-> If you're touching this patch, can you please move this pointer next
-> to the vcpu_ops pointer?
+> I do not see the logic which lead to this conclusion. Pixel clock
+> provider, so a clock controller, cannot be a user of a phy. Clock
+> controller does not have a physical layer.
 
-Sure, I will do that.
+Sorry I think the wording was not perfect. I meant the PHY node is a
+pixel clock provider. voutcrg consumes a clock not a PHY.
 
->> +
->> +static const struct kvm_vm_s2_ops protected_pkvm_vm_s2_ops = {
->> +	.vm_flush_remote_tlbs		= pkvm_flush_remote_tlbs,
->> +	.vm_flush_remote_tlbs_range	= pkvm_flush_remote_tlbs_range,
->> +	/*
->> +	 * Not supported for Protected VMs under pKVM
->> +	 * .vm_age_gfn
->> +	 * .vm_test_age_gfn
->> +	 * .vm_stage2_unmap_range
->> +	 */
+voutcrg: clock-controller@295c0000 {
+         clocks = <&syscrg ...>, <&hdmi_phy>;
+         clock-names = ...,"hdmitx0_pixelclk";
+};
+
+The consumer of the PHY is only the hdmi controller.
+
+What matters for the node layout is where that clock goes. voutcrg is the
+SoC display clock controller - it is not part of the HDMI block:
+
+hdmi_phy -- pixel clock -> voutcrg
+                              |
+                              - pclk/mclk/bclk -> hdmi_controller
+                              - pix0/pix1 -> dc8200
+
+hdmi_phy and hdmi_controller are the same register block with one reg
+owned by the parent. So if that block is described as a single node:
+
+hdmi_node - pixel clock -> voutcrg
+     ^                          |
+     --- pclk/mclk/bclk --------
+
+the node provides a clock to voutcrg and consumes three clocks from
+voutcrg. That is a cycle in the device tree description.
+
+Split in two there is no cycle: the PHY's only input is xin24m - the 24 MHz
+oscillator which gives a linear order - hdmi_phy, voutcrg, hdmi_controller.
+
 > 
-> I really think we should have *something* here that returns
-> "unsupported", and avoid NULL-checks in the dispatchers.
+> And really, I have no clue what hdmitx0_pixelclk and voutcrg are. I
+> could probably study the patches a lot to figure that out, but my review
+> queue has still 200 more, so I'll skip.
+> 
+> But nevertheless assigning clock parent of HDMI clock to PHY is
+> standard, most of the platforms have it, thus it is not a justification
+> for odd design.
 
-Ack
+Agreed and that is what this is - I followed RK3328, which uses the same
+Innosilicon IP and also describes it as two nodes:
+
+hdmi:    hdmi@ff3c0000   clocks = <&cru PCLK_HDMI>, ...
+hdmiphy: phy@ff430000    clocks = <&cru PCLK_HDMIPHY>, <&xin24m>,
+                                  <&cru DCLK_HDMIPHY>
+                         clock-output-names = "hdmi_phy";
+                         #clock-cells = <0>;
+                         #phy-cells = <0>;
+
+The only difference is reg: RK3328 has two register ranges, the JH7110 has
+one, so the parent owns it and the children have none.
 
 > 
->> +};
->> +
->> +static const struct kvm_vm_s2_ops pkvm_vm_s2_ops = {
->> +	.vm_flush_remote_tlbs		= pkvm_flush_remote_tlbs,
->> +	.vm_flush_remote_tlbs_range	= pkvm_flush_remote_tlbs_range,
->> +	.vm_age_gfn			= kvm_vm_age_gfn,
->> +	.vm_test_age_gfn		= kvm_vm_test_age_gfn,
->> +	.vm_stage2_unmap_range		= kvm_vm_stage2_unmap_range,
+>> functions with different clock inputs and one of them feeds back into
+>> the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
+>> consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
+>> into one node that node is both a provider to and a consumer of
+>> voutcrg which is a cycle in the hardware description, not just in Linux.
 > 
-> and since we have this: can we get rid of the KVM_PGT_FN() hack?
-
-Ack, I will give it a go.
-
-
->> +#define KVM_VM_S2_OPS(flavor, ops)		\
->> +		[flavor] = ops
->> +static const struct kvm_vm_s2_ops *arm64_vm_s2_ops[] = {
->> +	KVM_VM_S2_OPS(VM_VHE, &kvm_default_vm_s2_ops),
->> +	KVM_VM_S2_OPS(VM_NVHE, &kvm_default_vm_s2_ops),
->> +	KVM_VM_S2_OPS(VM_PKVM, &pkvm_vm_s2_ops),
->> +	KVM_VM_S2_OPS(VM_PROTECTED_PKVM, &protected_pkvm_vm_s2_ops),
 > 
-> nit: move the '&' into the macro.
+> Best regards,
+> Krzysztof
+> 
 
-Ack.
-
-Suzuki
-
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
