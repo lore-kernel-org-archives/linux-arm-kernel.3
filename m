@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A49CA5FE3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB148CA5FDD
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Oct 2026 00:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTGwDHpLhUzAsXa7WFBlG6P/g0gt4zDPf57eK2yB0Jg=; b=3Om33mKHuO81/E2tYBABbz8yCd
-	EUiuW5WRcacMRXo9zMH+Hh84i9NQGkvG2gmUBmUHqDZamhV5Jec01lG1y9yuMqrsJamn620aer1nk
-	tK/pYoiu3/0AnunLhcFv6sdIlBKpiIlNzyG7pTqoam3vFCzaL7i8sfZDNOzb1KHKaynFlXofZTpIJ
-	XdrsFVyHHxJ9vGGlPCp76+rJjkk4q//di0pJoDzRHBFHKnUIrAiVouOVqBThEkhe9WDQjkCmHHwz6
-	MoVvBaiRpj2J0ehR+7ZbkU8WnT8MtP/WTIoSBaXmxIW88KUIZoLW6tJ9o+to2PxQhHqvMxq81TYoW
-	AEs0k3+g==;
+	bh=CW0PrPzO/He6EZ9NlACY98E/BL7OIKImRa0WQareyfQ=; b=UU6XHI2tWP8E9Gfj2hCf/rDeAs
+	OIELXGgLlcSSGd6JAWBK8hDiYqnDWr1QXYqFje5BlgQe0Vnlr3xF4jqfb5whmOyzkRcNCSlCBv22n
+	eyNDSdn2dqYeMRjcdYcV9gRijSwFM9SOaD+HqDBsvJM1BkaUSKapLqNOjFHZcwwYDqEy1UWanDjtk
+	1zkOmXSQgFdzG4dMmCK/Qd4jDW+bar5NmGhZSmXEIOlaWpfufrmT8bLIJkhUxKH01puoRH1UGasYk
+	YTMz89MG+njnyxO4uOwIrkaUgl4rJb18MdHGKSCLFfUliZ0OhBEmUROmmh5HWIaT7leW0s419+bGH
+	e745G46Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVg-0000000CnIY-0pgI;
-	Sat, 03 Oct 2026 00:21:52 +0000
-Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCnVZ-0000000Cn7F-04b2
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xCnVa-0000000Cn9Z-0BZU;
 	Sat, 03 Oct 2026 00:21:46 +0000
-Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-ca8aee88725so61655a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:44 -0700 (PDT)
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCnVU-0000000Cn2G-1cRF
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Oct 2026 00:21:43 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cc7e6720b31so73361a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 17:21:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790986904; x=1791591704; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790986899; x=1791591699; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RTGwDHpLhUzAsXa7WFBlG6P/g0gt4zDPf57eK2yB0Jg=;
-        b=j59ZDcd+3XkZqdC1UAMhcJCUjVnDOHGBk25OYz2jH58sNG50YKrf4AGcHCg15ex3HM
-         pa40oFzIB6WvydnxNJwI18GmVxzqD/AmCS6eyqo0kt2v69GfADIoST3mUMU6IA6STrdu
-         d33/PtfKdgYrdAdoKqIdPD/jl8Fj1zUKF/oOMDztD/Nyr2L95kT5iQ61q6J2Q9j4io7F
-         9bp9eK5F3P8FtL478piWuUslBT+Rhq51+1BzY3lp37Odo7Xa8OH918Du7jkMZnPGWmBy
-         VUxjg4i0WSu3O6C6FWAniKhSPTmc/oRsgybW3CBvwDxIE6qOYe0+6IWKl/v9jvaB9Zun
-         k/hg==
+        bh=CW0PrPzO/He6EZ9NlACY98E/BL7OIKImRa0WQareyfQ=;
+        b=XO3P0vZcT7kBo6jGlFDwJwHIc1WC7pQyydVHhANfQNzf4Q/mchLqEpLUanesxIeAkP
+         x77ggKClnJsG7G0uBaKnOhHaOoo3lsUWfy/3UvsH+c+XKFa4uy4BR8ALB4AE5DGaAxuM
+         0hwbTcXFb2PA+M+bg4ApUljjlM78LSPdihNLmJKjIoMvDCNPxjgxHmIEu5nINQobBPqs
+         0InTG4+psqiTgm/rpWhxm7iiykGbFgYVMNRRHeOIEeVAiTDD5DWqfRsbUM9FfRqXk7OK
+         4g+AZcE10hUZsrTE0tLgyoKwsPYEKbRdsnzl08DCxPq11kvwoTcR/zRFfgsWTSDHnrzW
+         dwZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790986904; x=1791591704;
+        d=1e100.net; s=20260707; t=1790986899; x=1791591699;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RTGwDHpLhUzAsXa7WFBlG6P/g0gt4zDPf57eK2yB0Jg=;
-        b=JxoRIQBcCZDS535FMtj3XfPvBanhQSNN7JUNISHrk/Pv51lCmFWe8ddp4+p2JGS24K
-         DLH1bUS2daYI0OcfZ63rkgKvE5hBRzFw7lcLbd0TB+e+om8mvCkW62gLKaUywK89KLVu
-         1ScfrQK95PdS2vVW0lxsR/2icvtcD2Cgb3UV8rVF/+yF8P30wIS3HWCyZbTFxJoAdZpc
-         FHwJnJTZz63JiYIXS1h9YwdAitBYiQPgcLOxodubEtl7tCVHSzRnVSwqsyAtzHjpcfRF
-         FTcIH0oJQA/YFmBI3Lukobi6Z57M+Ri6Vs6/OOvntSDm9Y9tSZvM0ghybkmtvxvD0INw
-         KlrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxQW6GwUwH7V+7BpFxUQCO3Mh3+A7d3JdQjooLO8SXtOJYZyqs8i7Nqjr+ODsanRCdv1CMWtjKSrfvEzL3Mp5RY@lists.infradead.org
-X-Gm-Message-State: AFuF++nIGBwwQbK5CG5X65UVUAcn7a5W8of0y5p2JcXLFnQa5g0qR+Vk
-	2G1YOsh8KK5b5GdzlOem7dtYcMI0rafZMmVkdEvwreihrfY3YoLlMhi3BapAmc/5AzULkyK1Qj1
-	+zN7QJwGHQEkE3EfxA6FpZw==
-X-Received: from pgaa6-n2.prod.google.com ([2002:a05:6a02:6486:20b0:cca:bb35:aa9c])
+        bh=CW0PrPzO/He6EZ9NlACY98E/BL7OIKImRa0WQareyfQ=;
+        b=ILQBZDkedpbwoM/KP9L6gJNvKuCz9ry9lIdRppIu+EA9wCqeMqT6iOdYQRIPj4r7FX
+         DVnzSerDwk78Pw0RqM/0S5vUdQxx2mjkkibYL3gtbo/Xzl05n7+S7jml6FOjecRSCsgG
+         ojXbYUEmkTLD4mfqLCKI8d1nvimMgnmbLejICyO2doql/4YrlfvLyWzuNddRotijws1R
+         xMnE4A94ZgcSk67WCzw2cwYHdP6KFZlY52Z03Au6UVpzc719OWPLAnfCNDH34ju6P0I1
+         mlMMIAfu9YJwDE9gHfPiPJdS3cGL2/dXGolkJryV80agmnkKXxB2G1yxcYuusYOn+XhW
+         FXWw==
+X-Forwarded-Encrypted: i=1; AKwUvBwvmyTjOcgmIrIDgBydOchcYcP8z5pCDOeBxErAwyH4HfzBvZa5T7l15gVvz7sK4152F/ldjxcULkYAnq5zxD/R@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ177GGiWOoCzPmIgbfp9HRDfSFS7JgWzvlRzo9G9CUwUZYzDLD
+	odzlyeKwjgINUrwrsCsttUbAhUhuOnSGOS4b9YVE50+ylno9acwV2olbvjMd6Nv2g1TIaoUBWg2
+	ew50cXCEP6Urrv11ztQAApQ==
+X-Received: from pgby27-n2.prod.google.com ([2002:a05:6a02:651b:20b0:cc7:d8ea:a7b5])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a21:7103:b0:3dd:a006:7b3b with SMTP id adf61e73a8af0-3e0bd4133a8mr4176550637.58.1790986903290;
- Fri, 02 Oct 2026 17:21:43 -0700 (PDT)
-Date: Sat,  3 Oct 2026 00:21:13 +0000
+ 2002:a17:90b:134c:b0:39e:6a7e:ee1b with SMTP id 98e67ed59e1d1-3a6ce7db233mr2804158a91.39.1790986898532;
+ Fri, 02 Oct 2026 17:21:38 -0700 (PDT)
+Date: Sat,  3 Oct 2026 00:21:08 +0000
 In-Reply-To: <20261003002123.505555-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20261003002123.505555-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261003002123.505555-11-jthoughton@google.com>
-Subject: [PATCH v2 10/20] hugetlb_vmemmap: Expose whether HVO is enabled to
- architecture code
+Message-ID: <20261003002123.505555-6-jthoughton@google.com>
+Subject: [PATCH v2 05/20] hugetlb_vmemmap: Use try_update_vmemmap_pte to
+ update in-use PTEs
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
@@ -82,8 +82,8 @@ Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.co
 	linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_172145_076107_3DB2A0C4 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20261002_172140_603317_82EAB276 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +98,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Architectures that select CONFIG_ARCH_WANT_HUGETLB_VMEMMAP_RO_AFTER_INIT
-may configure the system at boot depending on whether HVO is enabled,
-e.g. arm64 requires all CPUs to support hardware access flag updates
-only if HVO is enabled.
+set_pte_at() cannot be used to replace in-use vmemmap PTEs on arm64, so
+replace it with a more specific routine, try_update_vmemmap_pte().
 
-Add hugetlb_vmemmap_optimize_enabled() so that they can check. It is
-declared before <asm/hugetlb.h> is included, so that it can also be used
-from inline helpers there.
+try_update_vmemmap_pte() is used for modifying page table entries such
+that there is a guarantee that no fault will be taken.
 
-It only reflects the hugetlb_free_vmemmap= kernel command line parameter
-(and the sysctl, when writable), not whether the architecture supports
-HVO.
+For the generic implementation, please note one difference: set_pte()
+does not invoke page_table_check_ptes_set(), but set_pte_at(), the call
+we are about to replace, does. However, this is a functional no-op
+because page_table_check_ptes_set() does nothing for init_mm PTEs, which
+vmemmap PTEs are.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- include/linux/hugetlb.h |  9 +++++++++
- mm/hugetlb_vmemmap.c    | 18 ++++++++++++++++++
- 2 files changed, 27 insertions(+)
+ arch/loongarch/include/asm/pgtable.h |  2 +
+ arch/riscv/include/asm/pgtable.h     |  2 +
+ arch/x86/include/asm/pgtable.h       |  2 +
+ include/linux/pgtable.h              | 22 +++++++++++
+ mm/hugetlb_vmemmap.c                 | 56 +++++++++++++++++++---------
+ 5 files changed, 67 insertions(+), 17 deletions(-)
 
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 5029c7241863..1ef73b5da664 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -22,6 +22,15 @@ struct node;
+diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+index f87603135131..123eda3f6035 100644
+--- a/arch/loongarch/include/asm/pgtable.h
++++ b/arch/loongarch/include/asm/pgtable.h
+@@ -633,6 +633,8 @@ static inline long pmd_protnone(pmd_t pmd)
+ #define pmd_leaf(pmd)		((pmd_val(pmd) & _PAGE_HUGE) != 0)
+ #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
  
- void free_huge_folio(struct folio *folio);
++#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
++
+ /*
+  * We provide our own get_unmapped area to cope with the virtual aliasing
+  * constraints placed on us by the cache architecture.
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 4c8fc6845503..6cfae7720882 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -1165,6 +1165,8 @@ static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
  
-+#ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
-+bool hugetlb_vmemmap_optimize_enabled(void);
-+#else
-+static inline bool hugetlb_vmemmap_optimize_enabled(void)
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
++#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
++
+ /*
+  * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs that
+  * are !pte_none() && !pte_present().
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index ef0252a09c28..f60c09cdf1ec 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1368,6 +1368,8 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ }
+ #endif
+ 
++#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
++
+ #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+ static inline pud_t pudp_establish(struct vm_area_struct *vma,
+ 		unsigned long address, pud_t *pudp, pud_t pud)
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 780fe849ff8b..59ab7ca93548 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -457,6 +457,28 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+ #endif
+ #define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, pte, 1)
+ 
++#ifdef ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
++/*
++ * try_update_vmemmap_pte - Remap PTEs used by the vmemmap.
++ * @addr: Base address of the remapped PTE.
++ * @ptep: Page table pointer to be overwritten.
++ * @pte: Page table entry to write.
++ *
++ * This function is only to be used to update PTEs that map the vmemmap. The
++ * only valid transitions supported by this function are: leaf-level
++ * (PAGE_SIZE), valid-to-valid. The pfn and prot bits may be changed.
++ *
++ * Implementations of this function must ensure that, while the update is taking
++ * place, CPUs will not fault on the remapped virtual address.
++ */
++static inline int try_update_vmemmap_pte(unsigned long addr, pte_t *ptep,
++					 pte_t pte)
 +{
-+	return false;
++	set_pte(ptep, pte);
++	return 0;
 +}
 +#endif
 +
- #ifdef CONFIG_HUGETLB_PAGE
- 
- #include <linux/pagemap.h>
+ #ifndef __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+ extern int ptep_set_access_flags(struct vm_area_struct *vma,
+ 				 unsigned long address, pte_t *ptep,
 diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index de4148a8aabf..c1c736dd08b9 100644
+index 90db4d069ff6..3fdb1e4ce1a1 100644
 --- a/mm/hugetlb_vmemmap.c
 +++ b/mm/hugetlb_vmemmap.c
-@@ -448,6 +448,24 @@ static int __init hugetlb_vmemmap_optimize_param(char *buf)
- }
- early_param("hugetlb_free_vmemmap", hugetlb_vmemmap_optimize_param);
+@@ -33,7 +33,7 @@
+  *			operations.
+  */
+ struct vmemmap_remap_walk {
+-	void			(*remap_pte)(pte_t *pte, unsigned long addr,
++	int			(*remap_pte)(pte_t *pte, unsigned long addr,
+ 					     struct vmemmap_remap_walk *walk);
  
-+/**
-+ * hugetlb_vmemmap_optimize_enabled - whether HVO is enabled
-+ *
-+ * This only reflects the hugetlb_free_vmemmap= kernel command line parameter
-+ * and the vm.hugetlb_optimize_vmemmap sysctl, not whether the architecture
-+ * supports HVO (see arch_hugetlb_vmemmap_optimization_supported()).
-+ *
-+ * The value is final once early parameters have been parsed only if the
-+ * architecture selects CONFIG_ARCH_WANT_HUGETLB_VMEMMAP_RO_AFTER_INIT;
-+ * otherwise it may change at any time through the sysctl.
-+ *
-+ * Return: true if HVO is enabled.
-+ */
-+bool hugetlb_vmemmap_optimize_enabled(void)
-+{
-+	return READ_ONCE(vmemmap_optimize_enabled);
-+}
-+
- static int __hugetlb_vmemmap_restore_folio(const struct hstate *h,
- 					   struct folio *folio, unsigned long flags)
+ 	unsigned long		nr_walked;
+@@ -140,11 +140,13 @@ static int vmemmap_pte_entry(pte_t *pte, unsigned long addr,
+ 			     unsigned long next, struct mm_walk *walk)
  {
+ 	struct vmemmap_remap_walk *vmemmap_walk = walk->private;
++	int ret = 0;
+ 
+-	vmemmap_walk->remap_pte(pte, addr, vmemmap_walk);
+-	vmemmap_walk->nr_walked++;
++	ret = vmemmap_walk->remap_pte(pte, addr, vmemmap_walk);
++	if (!ret)
++		vmemmap_walk->nr_walked++;
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static const struct mm_walk_ops vmemmap_remap_ops = {
+@@ -196,18 +198,20 @@ static void free_vmemmap_page_list(struct list_head *list)
+ 		free_vmemmap_page(page);
+ }
+ 
+-static void vmemmap_remap_pte(pte_t *pte, unsigned long addr,
+-			      struct vmemmap_remap_walk *walk)
++static int vmemmap_remap_pte(pte_t *pte, unsigned long addr,
++			     struct vmemmap_remap_walk *walk)
+ {
+ 	struct page *page = pte_page(ptep_get(pte));
+ 	pte_t entry;
++	bool head;
++	int ret;
++
++	head = walk->nr_walked == 0 && walk->vmemmap_head;
+ 
+ 	/* Remapping the head page requires r/w */
+-	if (unlikely(walk->nr_walked == 0 && walk->vmemmap_head)) {
++	if (unlikely(head)) {
+ 		VM_WARN_ON_ONCE(!PageHead((const struct page *)addr));
+ 
+-		list_del(&walk->vmemmap_head->lru);
+-
+ 		/*
+ 		 * Makes sure that preceding stores to the page contents from
+ 		 * vmemmap_remap_free() become visible before the set_pte_at()
+@@ -226,17 +230,30 @@ static void vmemmap_remap_pte(pte_t *pte, unsigned long addr,
+ 		entry = mk_pte(walk->vmemmap_tail, PAGE_KERNEL_RO);
+ 	}
+ 
++	ret = try_update_vmemmap_pte(addr, pte, entry);
++	if (ret)
++		return ret;
++
++	/* We successfully overwrote the vmemmap PTE, so we can free
++	 * the vmemmap page that was just unmapped, and if we mapped
++	 * the new head page, remove it from the list so that it
++	 * doesn't get freed later.
++	 */
+ 	list_add(&page->lru, walk->vmemmap_pages);
+-	set_pte_at(&init_mm, addr, pte, entry);
++	if (head)
++		list_del(&walk->vmemmap_head->lru);
++
++	return 0;
+ }
+ 
+-static void vmemmap_restore_pte(pte_t *pte, unsigned long addr,
+-				struct vmemmap_remap_walk *walk)
++static int vmemmap_restore_pte(pte_t *pte, unsigned long addr,
++			       struct vmemmap_remap_walk *walk)
+ {
+ 	struct page *src = pte_page(ptep_get(pte)), *dst;
++	int ret;
+ 
+ 	if (WARN_ON_ONCE(!walk->vmemmap_tail))
+-		return;
++		return -EINVAL;
+ 
+ 	/*
+ 	 * When restoring a partially-HVOed page, keep the copied head page
+@@ -244,20 +261,25 @@ static void vmemmap_restore_pte(pte_t *pte, unsigned long addr,
+ 	 * page.
+ 	 */
+ 	if (walk->vmemmap_tail != src)
+-		return;
++		return 0;
+ 
+ 	VM_WARN_ON_ONCE(PageHead((const struct page *)addr));
+ 
+ 	dst = list_first_entry(walk->vmemmap_pages, struct page, lru);
+-	list_del(&dst->lru);
+ 	copy_page(page_to_virt(dst), page_to_virt(src));
+ 
+ 	/*
+ 	 * Makes sure that preceding stores to the page contents become visible
+-	 * before the set_pte_at() write.
++	 * before the try_update_vmemmap_pte() write.
+ 	 */
+ 	smp_wmb();
+-	set_pte_at(&init_mm, addr, pte, mk_pte(dst, PAGE_KERNEL));
++
++	ret = try_update_vmemmap_pte(addr, pte, mk_pte(dst, PAGE_KERNEL));
++	if (ret)
++		return ret;
++
++	list_del(&dst->lru);
++	return 0;
+ }
+ 
+ /**
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
