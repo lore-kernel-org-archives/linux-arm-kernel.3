@@ -4,94 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E416CCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4B6CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nfYr76LOTu8jVRzggIwBN8xVUqu42mEkcSJCjGTgQ0g=; b=cK1N3lA1BB5VmG
-	4fgFBW08vVC4kZpO77sDCU/0odtfiWM64FSqgEdRh3g+h3UP+LHFDiglH4+cCfsHYpOhSBoVN51bW
-	Zs4ASSQnMcTPq+xbVZr/UI2EJXuNN+DW2qWIQU0mMuLpe1dPzmX3A94KSBwHntfrZkzwHKLOSGn/D
-	N7brsnUDq9LQ2WUNH9EGY3xJmDcI3oohuQ8uzSU60WD91uuB+xK1kFlpU7TgoJPihsqiPyIzGKo0Q
-	SoY4ce6b92PAj9NvoqGO2APPrhbuMfIBkuqEtOJfthxxmXwr1+Ba4vim7OuPByYt58H+e+2tSyuCU
-	Cw11fOn+yg3b8AaYo7cA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZYjx+1r5vp0THNJehBxeMIT4m4dt14EorNdO1/i8AY=; b=qGOQzoomD4Is2LPErF677J0ll7
+	EXRtRNctI4LA3FHhVvfjQbGeVJfIGasGQ/D0qSV5WE88HxP238oVFxJKNGXnbn0lWPzsn5mbWU7w1
+	1+d8O9RjapCd+dN4jRLRIRb1mhb2fUeb3toU7yj6BE3XNRemTR7IFRO9Ixjk7XlwY67UycgMwDg8+
+	yEEEX1relsufPXaFB3p4YyUvO02pzuBV2lkBqVOv3jbmk5z7JJFU2X8xMMa1mWzXc1p9R+waci3kU
+	xiNAO8A1buDVpcxdF4lDXX4bA1WF3frAO69BAPN0NDH33+wzTXBRqkxFupRArQ06a2JrsNgj6V4Ah
+	OijbYhIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDLDR-0000000Empw-1V0Z;
-	Sun, 04 Oct 2026 12:21:17 +0000
-Received: from mail-qk2-f41.google.com ([74.125.230.233])
+	id 1xDLEp-0000000EmvQ-2DsP;
+	Sun, 04 Oct 2026 12:22:43 +0000
+Received: from mail-qk2-x0d.google.com ([2607:f8b0:4864:34::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDLDM-0000000EmpX-2pHy
+	id 1xDLEm-0000000Emv2-47Gv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 12:21:14 +0000
-Received: by mail-qk2-f41.google.com with SMTP id af79cd13be357-93df7b21008so84321885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:21:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791116471; x=1791721271;
+	Sun, 04 Oct 2026 12:22:42 +0000
+Received: by mail-qk2-x0d.google.com with SMTP id af79cd13be357-93e49f4d30bso91185085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:22:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791116559; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sBhnDeBVD1+GZozIWP/icKLL/Gi9tYuml5pMfGaMRw1w9eplYQAJZG4ZUWPBBBJn4H
+         is1gB/Eg+1VIyp1MNXfO/lqYCUaQ3DcgCySum0kjcxyXMLQKjL3cpTpZhbFWryi77a6a
+         PJf1LV+Mwt2Jqui3Rx0SfhxZcjSKo8p01DD7XnVqd6ue0+hd9PWpUIBMrOe/rp7MH1jp
+         8MhGZFzS8udsbHqROaw5gcnBzCvpOeE8bwW0j5WaZ5RVFqsr33lR1rre0M6y91ELSooR
+         MO3/nuQO2bGb31Z2dr3oFkOMmlfu8eY+ZoKuxtjrbFdM7/ypsHcFjdA7MsNk8xFsHwVv
+         B2dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9ZYjx+1r5vp0THNJehBxeMIT4m4dt14EorNdO1/i8AY=;
+        fh=wMf03VeyC7cnlK7+xbzJt6jtNaIPG633ypPU5Z6TA/w=;
+        b=l3N3wTdOLpXIdVinpahNvmqcDVXiLgznuMKSV0lN3P7Jz3hXmqYxABuaSq04puCbnt
+         mrMUw79KKvAKLCTsFjDIar/woURNE2iwI7U6KI/XgGjrfYv8StvXNjF/Ir59yHATYdFU
+         grqAFnIEAHLQSicLBDZ+ilcTq2vObnkb/A1MwhiJ89Ie1Ug/Oz8y+7YZ8cdW0RWTaV5u
+         yorfAvSvfq0ufnxKoWWIaCHpLuYn41RAmrl/xqLw0rIEXNQni9IcMvup6Zu1Wk4TtYiO
+         2py5X1r4hYF/32OkDTdpFsePmiBVrNQCB9oOrMx6XAmrwnVVRzyT2bDr+LQWOxtCav+t
+         MOnQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791116559; x=1791721359; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9ZYjx+1r5vp0THNJehBxeMIT4m4dt14EorNdO1/i8AY=;
+        b=gaFprp6kVxzd5C92J/Dx0DiAku4mJ6Z2zxJVXRoi8INpQUfLRICGE+10wzTAXaXRdX
+         kqeOJsTzkd3dpMbBKIY3T8LEwPWUgIk44VUJKX+83K4bRKNfWorUN9SGb6x72NUE4UxT
+         YeF24FdGcmmV0CP/K7s+J2xJR5FclGJGlUYJs6RoyTIdlxiw6XHnroOkOE8pNDbSkPE0
+         4J+E4YN3o1j0jduI0dgg4luXpfuqU9kPEJZ6K30ZvA4r7EbNNPnhuor0+AnqWPazlhC0
+         DrWwjHoO/jGNtKSOBmkwo2d1iAtDPq55elQbMZ5yWwjarrr9lKdjGCYtSxNZfQznAJ8W
+         W+7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791116559; x=1791721359;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nfYr76LOTu8jVRzggIwBN8xVUqu42mEkcSJCjGTgQ0g=;
-        b=G/lnEk2NopUQuqO6bM/M7z25TCkSEhT/UKM14dIqCZ5R1LOZxImz7L+F84Aw4Cbwjl
-         QekWGBvfuP3dOJ/GpnzUPaKfuShRK45Ae3/eeKDTBsye6JF7uN6p208pOEOEbwCxZCRR
-         bforNnFqnC4kjOhz9PaEUK8wFxLjZvc+CQgfha41J+EcrIYA4al5AvbQyl5dcVU97Wys
-         w7Ku9FvWi4qHE5T/6Ot+TFMv8zzCIcVeVY04iDeF9lMGy/gOu0RUhU4oH/+N8cX4D1lZ
-         R+tdMKbSaUVBRw9yBz6u4rrIj+DFR6L87yDHdWvpoT5CguafnUyPsNCEOpis7mTqrgWT
-         +9hg==
-X-Forwarded-Encrypted: i=1; AKwUvBxOC8iMZ9ebjMLnKJj0zkOvqOUCaUsUjclF8SKblqePfwAJCS9sOBDeGYpyHOeXE9OnZ7IAJfAgmRP4TtPlnMjH@lists.infradead.org
-X-Gm-Message-State: AFuF++nKViAVADv4Em0h/ype5IyRr3T68XUjDCVHtVDmJZrXH4X7Bkjl
-	+kwdH5OssdTR605vxebAFzZLZNq/R0m8sg3kWgTAosorqyhLC1wIHdXnfw0ECS8q0lD6kQ==
-X-Gm-Gg: AYBFou399b2gYNWTY81NIlfuduxfnxggYZsGqOXzp0F/ja4+HWknAMLWm2tkS7O5Oso
-	3H+ZjxZG22KGLx0RMDM1UWDd0L3Kv+21HbxRkZ376qVUg1V80NqS1h9W2TFlEUmeFRAAe83cWnX
-	b2CQJ9v8//rNpWBfw1KkrB7ZZDfhfVgbAYHiw59EXNVulk27l8B4WxQvLwj2/LAjeqA1Ec7TB1m
-	jXl2BeOw9519jgT7LXqmLsIFs/mZFmwnYN77kX7cK6/Z2FQvWCOZS1in/fG6xC+74RrLV5Hx0S0
-	xRP3pbePJeucWjlSLTg3WXxHYDQZP8TDtiupdTltHsow7UpU7hukAqGkJa4JN34DFkt+0ElXHVz
-	jhdY7CI9ZpVee9lkGu+V+F1lFapFBIViljMQIj0nLeNLxHmO/gNtOv0mNj2c6rG2+UCN4CoEvHl
-	j2xjj6x7+6GONHdo3xYHPUnMtQo2mS2VgaIhkIw2eTGnjud9IvTTfbi59rErvCy/ftSWlkBigK9
-	WFfK2peIs70b1gi3wRieWlZ8PIxsfFgvEC+4WgReEOPHj6Johjm4/sKQhLCilWF
-X-Received: by 2002:a05:620a:4713:b0:939:ab90:8f6a with SMTP id af79cd13be357-93ce82c5a53mr1594536285a.18.1791116471076;
-        Sun, 04 Oct 2026 05:21:11 -0700 (PDT)
-Received: from mail-qk2-f12.google.com (mail-qk2-f12.google.com. [74.125.230.204])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93e4e9b4071sm422013185a.23.2026.10.04.05.21.10
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 04 Oct 2026 05:21:10 -0700 (PDT)
-Received: by mail-qk2-f12.google.com with SMTP id d75a77b69052e-52fb76ef1d0so6280521cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:21:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwWRbtADO0QQa9/xBrVr2s+WepX3VJJF+dHExqZsUxhtwvJbxskFyM8Mhm4r/P2DUKqj/KyYSdxF2LAZWNuxFbw@lists.infradead.org
-X-Received: by 2002:a05:690e:d01:b0:66f:7e05:c3f8 with SMTP id
- 956f58d0204a3-677ac00785emr2680725d50.42.1791116014048; Sun, 04 Oct 2026
- 05:13:34 -0700 (PDT)
+        bh=9ZYjx+1r5vp0THNJehBxeMIT4m4dt14EorNdO1/i8AY=;
+        b=iqHm5saT3mzYSb49adaJ2e5xJwY5MptHLGz5FCIDXi8a+pNcjNVH2xALulTAbSeiAR
+         7eiciULiJz5GmNnnVOr402lgAFbQsj4dcUr9PUYz+Jf0QLI0f63pfVDoSZygJv3vpuml
+         DgceK7Ld968BQnYVwOrNXX7kk1C2kGWuoBF6MyB0FiHouAIXbNY/WHnTsJUd1ehwoffp
+         yRlhz8D9lI/c7qjRqPlJLOOF2e/FiLN9awnyOXBdcAeQMnJzS32dL5cpan9xxDnDlIj+
+         yEOLOm8YWkfv2Jfm8NikuM4YhlwMafxr4C0IV3crMSpBCE2yy6/Sb50TMAZNHKzNCVN/
+         n70g==
+X-Forwarded-Encrypted: i=1; AKwUvByuMDukRRYHT8ju2VUXppxZVPMz4uIT5ZGS/jl8AyMkXGMGkvoo1odbl5qj+GYwGCrjHQKeEMYg1jDxszRTeSBF@lists.infradead.org
+X-Gm-Message-State: AFuF++nHDPbNlo6MSUs/foCNqzlIAzBESaNavXDCAwkRToIH8prHo28h
+	p4pKFh1aM+f3EfHz1WeNLnPeosthrDh/ksn9V6Kn/WTLUG6uspTyBGPthE+0zqpGrw1fWgqTFPO
+	LYdRXD1ICWI4O2GvkrtV886dPH/i9hXw=
+X-Gm-Gg: AYBFou1YJsl8QlNf4FAgbdHwnpsfazCPCGNCw6mVyJazl+a2/a3hfcKe1jZoWESzNP8
+	SOYn148I/BR2HIU6bqHr0vaerEOQO66XokoH0rDNQTgBwbwPaa6Brv3quSlOiU9VlFvPQkn+QgJ
+	+5d/Elaxn/GvGE5vsU/XCG1ghGVlPBAba0NQCuxP/t6l9pR4w25wYOih/1ooasMpq0LpdLA4v/h
+	nM/Wr0wFgTcETMA66TR9qcZUsMMKwjElMY2FggP0zcoNZVVZA1IwS4ZLGvpHVEZeDwtBzIOnP1j
+	GANDoWTz0WJ5ulFoQN25aO4bVaUkQW+RSen1ynp2tahI5UiVsIRTiu1r08Mtkk2P6/MM
+X-Received: by 2002:a05:620a:43a5:b0:936:df48:d507 with SMTP id
+ af79cd13be357-93ce94ed6e2mr1355623985a.18.1791116559566; Sun, 04 Oct 2026
+ 05:22:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260905153234.133217-1-tanure@linux.com> <20260905153234.133217-5-tanure@linux.com>
- <aqSX-kUvYaixESxe@redhat.com> <CAJX_Q+2vpcFw-5evCkykwWo6jbHvKvQ4XjYt_EKFyJuQm_ES5g@mail.gmail.com>
- <1jcxui79k0.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1jcxui79k0.fsf@starbuckisacylon.baylibre.com>
-From: Lucas Tanure <tanure@linux.com>
-Date: Sun, 4 Oct 2026 13:13:22 +0100
-X-Gmail-Original-Message-ID: <CAJX_Q+0T=k44tHbJ5BSAsD-RvpytA6mLu1FKu_2GZgYucorXNw@mail.gmail.com>
-X-Gm-Features: AclHuK8rosb4K--WkyZLuEcRV46M1KSWdwcM-4rWMY7HfYobH2sNfTEc1o2MX3w
-Message-ID: <CAJX_Q+0T=k44tHbJ5BSAsD-RvpytA6mLu1FKu_2GZgYucorXNw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] clk: meson: t7: don't mark sys_ampipe_nand as critical
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Chuan Liu <chuan.liu@amlogic.com>, 
-	Jian Hu <jian.hu@amlogic.com>, Ronald Claveau <linux-kernel-dev@aliel.fr>, 
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261004120526.2728564-1-zxyan0222@gmail.com> <179111571610.1402591.377888819234151971@kernel.org>
+In-Reply-To: <179111571610.1402591.377888819234151971@kernel.org>
+From: zhu xin <zxyan0222@gmail.com>
+Date: Sun, 4 Oct 2026 20:22:27 +0800
+X-Gm-Features: AclHuK9jrfPfFj8M3GL_Owa_kw9zKNkIad5XcOnkNjdlIpwCoWA_TR7BFvZBUXw
+Message-ID: <CAP7veTLPuO6QfS89b0VuKSBYDmQkgQtPO94KEhVtjNTNLoYNdQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v7 0/3] net: stmmac: dwxgmac2: timestamp
+ interrupt support + Agilex5 fix
+To: netdev-bot+sinfo@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, richardcochran@gmail.com, 
+	maxime.chevallier@bootlin.com, muhammad.nazim.amirul.nazle.asmade@altera.com, 
+	rohan.g.thomas@altera.com, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_052112_740870_A9D393AB 
-X-CRM114-Status: GOOD (  33.72  )
+X-CRM114-CacheID: sfid-20261004_052241_192588_5DBC4CD9 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +120,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 12, 2026 at 4:51=E2=80=AFPM Jerome Brunet <jbrunet@baylibre.com=
-> wrote:
+On Sun, Oct 4, 2026 at 8:08=E2=80=AFPM <netdev-bot+sinfo@kernel.org> wrote:
 >
-> On sam. 12 sept. 2026 at 08:50, Lucas Tanure <tanure@linux.com> wrote:
+> Hi!
 >
-> > On Sat, Sep 12, 2026 at 1:08=E2=80=AFAM Brian Masney <bmasney@redhat.co=
-m> wrote:
-> >>
-> >> Hi Lucas,
-> >>
-> >> On Sat, Sep 05, 2026 at 04:32:34PM +0100, Lucas Tanure wrote:
-> >> > sys_ampipe_nand clocks the pipeline stage inserted in the bus path
-> >> > between the SD/eMMC controllers and the NIC_MATRIX fabric. It does h=
-ave
-> >> > identifiable consumers - the three MMC controllers - so marking it
-> >> > critical was the wrong tool: the clock should be referenced from the
-> >> > consumer nodes and claimed by the mmc driver instead.
-> >> >
-> >> > Drop the CLK_IS_CRITICAL flag and update the comment accordingly.
-> >> > sys_am2axi0..2 remain critical as they clock the AXI DMA bus itself =
-and
-> >> > have no single identifiable consumer.
-> >> >
-> >> > Assisted-by: Claude:claude-fable-5
-> >> > Signed-off-by: Lucas Tanure <tanure@linux.com>
-> >> > ---
-> >> > This patch depends on the MMC controllers actually referencing the c=
-lock:
-> >> > the dt-bindings, mmc driver and t7 DTS changes adding the "pipeline"
-> >> > clock must land before this patch, otherwise the boot hangs and memo=
-ry
-> >> > corruption this clock caused are reintroduced.
-> >>
-> >> This series should be merged together in one tree? Which tree? I can
-> >> provide an Acked-by if it should go through the mmc tree.
-> >>
-> >> Brian
-> >>
-> > It's definitely best to keep the series together in one tree to avoid
-> > boot regressions,
-> > but I think the clk tree is the better fit since the core changes
-> > revolve around clock logic.
-> > Could you accept it ?
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
 >
-> No. This applies on top of another change already queued in the amlogic
-> clock tree. It can't go through the MMC tree at the moment.
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 >
-> This clock is not critical in mainline right now, so
-> 1) I could merge this and it and in practice there would be no
->    regression. The problem you had would still be there until the MMC
->    change lands
->
-> 2) Or you can wait for the MMC stuff to land and re-submit this in
->    the next cycle.
->
-> Your choice. IMO, (1) is fine.
->
-> >
-> > thanks
-> > lucas
->
-> --
-> Jerome
-Hi Jerome,
 
-Sorry for the late reply. The MMC side is in next now, so the clock has
-a real consumer.
+- How discovered: Patch 1 and Patch 2 were found by code inspection
+  during review.  Patch 3 was found during development testing on a
+  local DWXGMAC2 board: the PTP clock advertised the aux snapshot
+  channels and PTP_EXTTS_REQUEST succeeded, but no PTP_CLOCK_EXTTS
+  event ever arrived - inspection then showed the XGMAC hwif pointed
+  at the generic stmmac_ptp ops, which read the dwmac4 offset instead
+  of the XGMAC register.
 
-Can you take this patch dropping the sys_ampipe_nand part or
-should I re-submit a new version dropping sys_ampipe_nand change and
-only marking sys_am2axi0/1/2 as critical?
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by code inspection). If it was triggered please include
+>    the symptoms, like the stack trace or error messages.
+>
 
-Thanks
-Lucas
+- Actually triggered: the EXTTS failure of Patch 3 was hit on real
+  hardware as described above.  The races fixed by Patch 1 and the
+  OOB index of Patch 2 were found by inspection and have not been
+  observed in isolation.
+
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
+>
+
+- Tested on: local DWXGMAC2 hardware (not Agilex5), for the Patch EXTTS
+  issue and basic PTP operation. Agilex5 has not been tested locally.
+
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account. If the series needs another revision for
+> other reasons, please include the information in the commit messages
+> then.
+>
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
