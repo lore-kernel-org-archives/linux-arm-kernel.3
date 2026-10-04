@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A2DCA5FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 15:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F7DCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 15:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ijVzIve29PHeaUaMD0UnyB/2N/58uvZFm5f+2hPLu0=; b=bnfRCI/XqZ9PQKFNakuvMV2w5S
-	W6BpgYu2vxURbbtIq0fv9RBdhR9IBhw/pSkcmB7lkpCwi0LBzb1mH78YgXxRtf18uOqg98BhU6U+W
-	LlQFPxdyT59KOHtb9qYqQMsgPmE2yqUtxtJASKhkmeLILFHKJrpfUQtkaATEOtZbiPon8M713BPry
-	woQx9he456DWXNAT9lxXRnaznpgS3fnwVLt4H/11w3JoDdYINpF9gKDqa7liaW1r+JMp67K7npBDO
-	HK3rcJ5XroFU5zG1CL9HloCFj/inG+37j+4I5e3McYtN11XUfTxWHlk3OfVJ1ip2ddbtP5Q08bzAN
-	CCVxdZSQ==;
+	bh=A8UQiiW/gzilrgvSzhDTIjzX+BX5W1JZdipDo+7xtF0=; b=2CFQPXa+sTGzldsdgpaEAP0J1+
+	GizaBIli+K3EPHxgWsZWKIPXQyQpfXKAZUCq6+Uo2GFnY7VgTbh3Dig1JuG+YQ+I5e3NTpS8uw9MQ
+	QcF4hGVJZbPVPCx8uXMFEh/NkBuvaaWmDNUrr41sVOQzGEa5B+O7ye3suq6sy5q/qqYkI09JViCJp
+	RsojQkQljv1qxr3w2iJoUw6FRPZOYve4Zu/os9qNoGHR8Zw7TvOMsqGoZw02jmLwZD+AdnidfWSHR
+	rPy2taRzMbbQ1tI5i8kZBHoF3dJIh/8V4ctvihxrSAL1uYTM5TIy7yD1/BB3e/fzl+MizbfD+VCsT
+	9gAbSKtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDO9q-0000000EzUR-36Xd;
-	Sun, 04 Oct 2026 15:29:46 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xDOBJ-0000000Ezl4-18ok;
+	Sun, 04 Oct 2026 15:31:17 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDO9m-0000000EzSo-20dd
+	id 1xDOBA-0000000Ezjp-3uqM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 15:29:46 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a003bd18e5so5705275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 08:29:42 -0700 (PDT)
+	Sun, 04 Oct 2026 15:31:11 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a1728d8dfcso190275e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 08:31:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791127781; x=1791732581; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1791127867; x=1791732667; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9ijVzIve29PHeaUaMD0UnyB/2N/58uvZFm5f+2hPLu0=;
-        b=jq6IcRNlczbKj4idOg1ibCBIss5o/eWZmbz/1nP04sI4S36/dElHTezNmbyQzFPTDF
-         eQDLZhoiHdY+GlpAl5+20IBgpejhQizPpUUQmFqBl4Rjb4pLBfI6p7gMQ2M9FJ5vX74T
-         OKHScIVfVdqL0DuEA/xMoA0vkorQ+t539vYeLDtbID/7j2F+6ChQBVLodAh5qPffXWaB
-         Dgon3rLO8c28rtmG1K0ONhbJ8IRRVM+G8mpSQtsjChqBWQb2L7M8Umvgjbwlzvbz47Tg
-         sjvCMPjVTsEF1jTAIMB8MQQirvDIwDVGQSpazauzmZs6RHPdGGKhQPqJHPswy+dU8kbm
-         qeLg==
+        bh=A8UQiiW/gzilrgvSzhDTIjzX+BX5W1JZdipDo+7xtF0=;
+        b=ve/u1JEEBQa0Zx6eCDuLPhD9uQsrYBUGq9qlIFBntcgPpG/Jemz+RsscNDsA+v7pIX
+         hvNPkGY9elAEtcGnBBm8c9Z/tJRAFn/0YjR6wLSFUdGVVSgrlHRSCi1TCzOo2e2A0nso
+         p99ortwUAnULTOafCha2dF6IG35tA0+7Uu0kfVJInb8SVJUWAPnnipGOGSvmwQC1qzvn
+         gFPssad+YnLM1kJXNQXYYiHXUaMpexWdD3ssRCd6rkIyRAZo5CTNtgOpFUjrISVI6dUB
+         tYoCkneN4sjrp+yT7PKk3P1G1s4jfDB317vo6Xr67hsk/qrmZlhFhzHpgYthfVCQxu0Y
+         18kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791127781; x=1791732581;
+        d=1e100.net; s=20260707; t=1791127867; x=1791732667;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9ijVzIve29PHeaUaMD0UnyB/2N/58uvZFm5f+2hPLu0=;
-        b=I0jiJeMzqWkUoclFt1Z69yLFDvbp/Pgds6Xl8CdO/RHrLMxFPV57QqGLsrbevpsGG+
-         hhLPIFv0cizGB1ccO5Iff8pFWkIZ/CgTSYUJtu46j7sPht6Je5FxNCwvYUJi9S4M1KaA
-         Sa/Rg9CAqqdp80AYk0tpx+fiXo6bEPwIyoWBcn+jQ5eOXv8dC+eTz60Yuwzmif4yrOkF
-         yc8A7gXKo2VG0c2zv50SK/Yq0yF7IaVU+KUHuGJeySCzkoDIdaQIZnlfiS2OdWhyDZX6
-         py/5GSOjE5k4nNz2PMZn7MftO7/nF4Ev5FPZigLdYo4jG8VTwibTNkK9h7JZ+P/jrPNQ
-         yzbA==
-X-Forwarded-Encrypted: i=1; AKwUvByDMTYKMMmBlwlynO+99rvTkGwEgUy2y9waoGY89fxqCIEbveresNPazwUVEqYrb23p2LhAFYHR0qfEtPXaSKwR@lists.infradead.org
-X-Gm-Message-State: AFuF++l/ziYVtxrJSe6A+6J12AYqHf7uyHOduMj+Sszfqi6dhEwdutAl
-	c7xzcl24rvPmldpJB6P7CWTD3BiGzGlXfsR/R9g+p9ixKDNNZPvKMmCoBhX0116bafY=
-X-Gm-Gg: AYBFou1DmvoaSEA8sNsoulsBQ0w8wLIOsVtLbiIYXwN0+Za+uJTG3kHDGcfwpI8jNMX
-	/2qo33XwAPuW6WD3wNZl3GP7xgkIzJhtuIh3uzGSm4vDMtoPmJaUZefxMAKP2/iC6Or5eCoJGZc
-	HI0gPI+c91jnRZ/WX0zDp/PiBoi3tpLK/BKuD48ceZcmimVHKS9NV4cWvL6YuRu2+REZ6qDhst9
-	KE1ucSJChSaD2dMyfSvZJyfhsz2NNhug1xeaJqKjHwZZkUw0S9afh8d4P6BXc0l4SabYE266trf
-	YGyokmqtHa7JAgZ+ZMroYuc9159XNTsMk8NtGGVmn4HMUY/ViogV6KG/YPDdE3o+op3VdFkRAKU
-	lvLICeqP/0NORgyEedIV+HM1b1l8V5Jafc7zN53YnknASxHUMa3tyVwxewxyS2y/KxaR1vkgf8g
-	SZjuitI0JWNBCOkeP3b/ylwG+xVecCTTas0XDx00cbR8AmnKsnb9BekR7Ylii1Qa/xuAY2RSE6s
-	X/cdo+d
-X-Received: by 2002:a05:600c:8b22:b0:4a1:6811:8d with SMTP id 5b1f17b1804b1-4a1681100f1mr75606585e9.11.1791127780679;
-        Sun, 04 Oct 2026 08:29:40 -0700 (PDT)
+        bh=A8UQiiW/gzilrgvSzhDTIjzX+BX5W1JZdipDo+7xtF0=;
+        b=Hi13DLBtrzE6lECr8oUCDrkS3JDTHKB09X3Ujy5/ZMIWK25ybs1FXfS8Owc1Q+4PdA
+         i/OB7OHpZOI5Oy4Q/K6JJFjEhG8Fo3EX9SDx/q7IGoa+OO1ie9jTSM5WsOhroWwmIuYe
+         O3iGDTM74X5fV1Hboqkjxzt4NjH4/u/9yxWpN7DhGwuCISnNyajHAQe6KK3OLz4p4HAi
+         ucJ3LTRTy97rrOaBiuGAZpSIH+rDxx1dwgtWVP6h1eeg3bWfs2lMkGoIz78XJGafjoL+
+         wqWCTrEK6LvCLMCcs6Hb0OGQaP0IQ7XS10EdPZcLz/QzXuisJ9fJngEkF3h3wzf3yAZc
+         yGuw==
+X-Forwarded-Encrypted: i=1; AKwUvBwKUJ1Q8/USCUEfRZKSLvvQtz9FUb6sjMXhInEVuxvlTFUi0tLbEIZH2Bm0DVUiWyyHc7L0QPX5cpDkLQJGaFQO@lists.infradead.org
+X-Gm-Message-State: AFuF++lIjRjGsBguGz8c7CC01p27jYQigQdfxbpwlMODc/LAakPZQMXf
+	dsraLfGVhcyX7CNdsthlQN+UARjUClU+tCN3g6/VNatsR5fsjdG0HD3JgVw4MOXcMeY=
+X-Gm-Gg: AYBFou0tdkGyDgJjj2QTMSkGXnPqgHnR19DLjn5wnYApwMm8huMxYpdHJcn0h+1iDP/
+	xgaQCZkuXIMTQU8vYQ0I0Ov9fAOqJgDexvhXkXVX5MFDTtehgaCBSgMj059ReciNXmLfcK/Fese
+	4LIP1s+eeTTrKTfpJou+M1zjf9ToGcU739eNlsdYx8wrxC1JtMqm8OScvkVhTD+9x4cGi8oAOMK
+	UMjoymo7absCtDfCtNYl4u3XECf/M0InuNduIUioCus84Jt+8nVmpzWS6qAwocQsMlqury557hM
+	vMH3HULbNVsJNZFnQy6KgJiwMyTDu1wxW8Ix/v4QVk6Y8fignGX8UBjNTWxiosbcyl1INHS8brA
+	oxU+96nDT9NzTOQA0tZoy1klv5ml0nkkvsE0gJVgmCMXBtx87Bkl9457bF8krXcj4Ch7zXERtDI
+	4t3Q69p8pYiSE/JyQHFGYcnCmi+jHf/okcMk5R+3zgqlwOxxHWxRsJkizRoluPdTQdux1x+OHFe
+	Uow+CGm
+X-Received: by 2002:a05:600c:3103:b0:4a0:1feb:de6a with SMTP id 5b1f17b1804b1-4a1680fd804mr74504535e9.30.1791127866831;
+        Sun, 04 Oct 2026 08:31:06 -0700 (PDT)
 Received: from [172.20.10.3] ([37.169.53.153])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280d1e38sm220447725e9.13.2026.10.04.08.29.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027741586sm262949745e9.14.2026.10.04.08.31.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 04 Oct 2026 08:29:39 -0700 (PDT)
-Message-ID: <e27cd2c3-7fd6-4327-a84d-3f66d902f141@linaro.org>
-Date: Sun, 4 Oct 2026 17:29:37 +0200
+        Sun, 04 Oct 2026 08:31:05 -0700 (PDT)
+Message-ID: <022f5372-7963-41b1-ba76-2d89c51aa8c6@linaro.org>
+Date: Sun, 4 Oct 2026 17:31:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [RFC PATCH 6/6] arm64: dts: amlogic: t7: khadas-vim4: enable the
- ethernet port
-To: Lucas Tanure <tanure@linux.com>, xianwei.zhao@amlogic.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
+Subject: Re: [PATCH] drm/meson: encoder_dsi: load ENCL gamma table while ENCL
+ is disabled
+To: y-asai.0816@docomonet.jp,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20261004144046.391444-1-tanure@linux.com>
- <20261004144046.391444-7-tanure@linux.com>
+ Nicolas Belin <nbelin@baylibre.com>, Jagan Teki <jagan@amarulasolutions.com>
+Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, John Williams <porschemad911@gmail.com>
+References: <20261004-meson-gamma-v1-1-6347558e2bb3@docomonet.jp>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -121,12 +116,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20261004144046.391444-7-tanure@linux.com>
+In-Reply-To: <20261004-meson-gamma-v1-1-6347558e2bb3@docomonet.jp>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_082944_919610_84CD4297 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20261004_083109_015508_5AA300BC 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,75 +137,75 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/4/26 16:40, Lucas Tanure wrote:
-> The board carries a Realtek RTL8211F gigabit PHY on the external
-> management bus, connected to the MAC over RGMII.
+On 10/4/26 16:50, Shigeaki Asai via B4 Relay wrote:
+> From: Shigeaki Asai <y-asai.0816@docomonet.jp>
 > 
-> Enable the controller, hand it the ethernet pins and point it at the
-> PHY. The clock delays RGMII needs are supplied by the MAC rather than
-> the PHY: 2ns on transmit and 2000ps on receive, the values the vendor
-> kernel programs.
+> meson_encoder_dsi_atomic_enable() programmed the ENCL gamma LUT right
+> after meson_venc_mipi_dsi_mode_set(), i.e. while the ENCL timing
+> generator was already running (ENCL_VIDEO_EN=1). Writing the LUT
+> during active video stalls the hardware: L_GAMMA_CNTL_PORT
+> WR_RDY/ADR_RDY deassert and the ENCL line counter (ENCL_INFO_READ)
+> freezes, so every remaining write times out (~8s total at boot) and
+> the panel ends up with a corrupted gamma table (wrong colors).
 > 
-> The PHY interrupt output is wired to GPIOH_6, so describe it and let
-> link changes be reported instead of polled. The PHY reset pin is driven
-> by an RC network on the board, not by the SoC, so there is no reset line
-> to describe.
+> Instrumented boots on the ODROID-GO Ultra (S922X) show:
 > 
-> Tested at 930Mbit/s sustained receive over a minute, with no MAC error
-> counters moving in either direction.
+>    failing:  start: VIDEO_EN=1 INFO 0000001a->002d0000 GAMMA_CNTL=00000030
+>              stall: INFO 002d0000->002d0000 GAMMA_CNTL=00000000
+>              (VID_CLK_CNTL2 / VIID_CLK_CNTL / VIID_CLK_DIV unchanged,
+>               i.e. the ENCL clock is still running)
+>    fixed:    start: VIDEO_EN=0 INFO 00000000->00000000 GAMMA_CNTL=00000030
+>              no stall, no timeout
 > 
-> Assisted-by: LLM
-> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> Whether it failed depended only on timing, which is why enabling
+> lock debugging (LOCKDEP etc.) appeared to "fix" it most of the time.
+> It happens regardless of the bootloader (mainline or Hardkernel vendor
+> U-Boot).
+> 
+> The function already writes ENCL_VIDEO_EN=0 right afterwards before
+> re-enabling the encoder, so simply move meson_encl_load_gamma() after
+> that write. This matches the order used by the vendor U-Boot's own LCD
+> driver, which never times out.
+> 
+> Tested on the ODROID-GO Ultra with mainline U-Boot: 5 cold boots +
+> 3 warm reboots, no timeouts, correct colors, LOCKDEP disabled.
+> 
+> Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
+> Cc: stable@vger.kernel.org
+> Tested-by: John Williams <porschemad911@gmail.com>
+> Signed-off-by: Shigeaki Asai <y-asai.0816@docomonet.jp>
 > ---
->   .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 28 +++++++++++++++++++
->   1 file changed, 28 insertions(+)
+> This was found on the ODROID-GO Ultra while bringing it up on
+> Lakka / ROCKNIX. Happy to test any alternative approach.
+> ---
+>   drivers/gpu/drm/meson/meson_encoder_dsi.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index 0fa83362b417..5d0365ddde72 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -14,6 +14,7 @@ / {
->   	compatible = "khadas,vim4", "amlogic,a311d2", "amlogic,t7";
+> diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> index faa309cb97a6..912cd676bbe2 100644
+> --- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> +++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+> @@ -65,9 +65,9 @@ static void meson_encoder_dsi_atomic_enable(struct drm_bridge *bridge,
+>   	/* ENCL clock setup is handled by CCF */
 >   
->   	aliases {
-> +		ethernet0 = &ethmac;
->   		serial0 = &uart_a;
->   		mmc0 = &sd_emmc_c;
->   		mmc1 = &sd_emmc_b;
-> @@ -256,6 +257,33 @@ xtal: xtal-clk {
->   	};
->   };
+>   	meson_venc_mipi_dsi_mode_set(priv, &crtc_state->adjusted_mode);
+> -	meson_encl_load_gamma(priv);
 >   
-> +&ethmac {
-> +	status = "okay";
-> +	pinctrl-0 = <&eth_pins>, <&eth_rgmii_pins>;
-> +	pinctrl-names = "default";
-> +
-> +	/*
-> +	 * The RGMII clock delays are added by the MAC, so the PHY is
-> +	 * asked for the mode that adds none.
-> +	 */
-> +	phy-mode = "rgmii";
-> +	phy-handle = <&external_phy>;
-> +	amlogic,tx-delay-ns = <2>;
-> +	rx-internal-delay-ps = <2000>;
-> +};
-> +
-> +&ext_mdio {
-> +	external_phy: ethernet-phy@0 {
-> +		/* Realtek RTL8211FD-CG */
-> +		reg = <0>;
-> +		max-speed = <1000>;
-> +
-> +		interrupt-parent = <&gpio_intc>;
-> +		/* RGMII_INT on GPIOH_6 */
-> +		interrupts = <154 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +};
-> +
->   &i2c_m_ao_a {
->   	status = "okay";
->   	pinctrl-0 = <&i2c0_ao_d_pins>;
+>   	writel_relaxed(0, priv->io_base + _REG(ENCL_VIDEO_EN));
+> +	meson_encl_load_gamma(priv);
+>   
+>   	writel_bits_relaxed(ENCL_VIDEO_MODE_ADV_VFIFO_EN, ENCL_VIDEO_MODE_ADV_VFIFO_EN,
+>   			    priv->io_base + _REG(ENCL_VIDEO_MODE_ADV));
+> 
+> ---
+> base-commit: 70456f05d4b6396b22048c4b8cd3cb98ecf9f9e3
+> change-id: 20261004-meson-gamma-3306257c0d28
+> 
+> Best regards,
+> --
+> Shigeaki Asai <y-asai.0816@docomonet.jp>
+
+Thanks for figuring this out !
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
