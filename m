@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800FBCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA33CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yeL+tqV9B+AEp/kqMcCgdeSnw6MJnhOAjYzN5tkPjHo=; b=IVEhuKBpypId6jGATlKWiwgJFX
-	mOrAEXOOZ42Q5HYZ4XygQrbn7HNQMq9gAlbpsYAO4jB7fh5uBxZFv/yIzx56HXCT22AfvMwDNzzdr
-	GIWWcoEcw5Q7z5WsImNswizO57YCCdKvghz96yDCKAKqmF5Khd5XdLqrwdBN76l0UPhq9vC+LN7yg
-	HzazAwzZzwoHq1Xk4kvfut2HroYrjdpZOpZi56hCoBeknh6OuZbIZw8yTUHtGSdXG58i8jYlSNqo9
-	G2Lb9CRziMkuDUX9w6KwNkrrb8c1tmsGT6yvdTU2dcfHahxawXb1PdKb8//shS9A0sTZwVrHXeLH9
-	lTZasi8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nBef/T7kqIDXgJTIB3F2cHjk1f6Ku17sV1wYZEl8TXA=; b=u8+T3ZJ/Nqj9/rIyYWLAZ3FUfY
+	BO0FZ+heJpJcO+asebFHMu4+SvXmhBTxDcMshO+v515kqEu99WAIi/hmZDaG8A6TGkP27LcPqzvCn
+	iazvYtoQ/8bgWKIR69WAh5/3P/ysXY2JNAK0swYDX3NxhXF+cdhkLDxUNGaTEsoQZyITRvv8OSZ14
+	se3KvW9XsF7dzCpeAxCZVRqTnNdDv3CoUfqdMuBK8lXocShkKssyybAL7o9+Sh+hFPGOpbuM64YdK
+	BZfBhW4M+Sj35hRBQWU1lsjLPddnycotdOA/HVXx2NCOplFqi81TAeup1Bar6VL9Iil2mo+DzFIHG
+	x+ZKTYnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUsF-0000000FRDq-0rgW;
-	Sun, 04 Oct 2026 22:40:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUsD-0000000FRDP-2aHf;
-	Sun, 04 Oct 2026 22:40:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8A6F60200;
-	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 235EFC2BCB9;
-	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791153600;
-	bh=u1lLC1WSbIv1AIKWpV3FLRj7881n0ba0sc0bTNDIolA=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=ea8WjSwbKtae6TmcoxiznkZwKEZcoR7xm5yfx2rK37Ycln38B9eDIPLSAOP9aTxby
-	 SJcV+ppApv7QbmOzi2azBynpR17T5mE6f8h2viokik6I74aD+fTRjHcvUEVBTwqVcV
-	 IQcsBbTYPN7EKmNN9srJCkTbNwGbAWzg3EaG0gw7lzUCTQbd97ojT/ssLsNXXZhvy2
-	 qYvTKlizqtDekJfNhQlOurDf792KsoV1Q1mGtd3A5FZ7nn3tHm4qiIGj3zWZ0Fb8GS
-	 EYcTEX9uNntha3U7VsgJSjmQUkGza3YobBNie8OIWgGfDNn9UTiayCDBoRnByDAMdF
-	 dUfC6l1ky+93g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F1BCCA5FCE;
-	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Sun, 04 Oct 2026 22:39:58 +0000
-Subject: [PATCH] arm64: dts: rockchip: Add the battery charger to Kobol
- Helios64
+	id 1xDV7Q-0000000FSBJ-0p7N;
+	Sun, 04 Oct 2026 22:55:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDV7J-0000000FSAo-0R7o
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Oct 2026 22:55:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72DDA152B;
+	Sun,  4 Oct 2026 15:55:31 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 221903F763;
+	Sun,  4 Oct 2026 15:55:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791154534; bh=RDHP23Rz1AtuQ5UyF09iEJjPkzDkAng7PEW+9RHDvPg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JaTtcy6oNNVU5GcCEw5dj7YeY8yWboSgWEZODnBbbiKJSEl7l0oge7rFRLXTsCpYk
+	 YmGZEzDhfwv4qczCg8+cwyzbuQHSmlQ3k73krrHLbi2ahyPjA9O+gPKvpSq72umIm2
+	 oIDa2hTHT2elg/B9Zuvpz0Y/y02NjWaoII8vDTLE=
+Date: Mon, 5 Oct 2026 00:50:36 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523
+ CPU CCU clock controller
+Message-ID: <20261005005036.7fd5e60e@ryzen.lan>
+In-Reply-To: <20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
+References: <20260925225112.14081-1-andre.przywara@arm.com>
+	<20260925225112.14081-3-andre.przywara@arm.com>
+	<20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261004-helios64-dc-charger-v1-1-0eabf0274d47@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAL3VwmoC/x2MQQqAMAwEv1JyNtAWrehXxIO0sQZEJQURpH83C
- HMZmN0XCglTgdG8IHRz4fNQcY2BuC1HJuSkDt764KztcKOdzxJaTBG1kEyClGI7KEO0PejyElr
- 5+V+nudYPz9yeUGUAAAA=
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2197; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=DAhlfIUWqvGqD77K4GZRu5rOeDoaIBCJ6zw/SQS3zzI=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmHru7Lig//2vTZPf/F63ncxZ1qTC/Md11Zp3Lm0+k0w
- w++ArWWHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiLsoM/7OWJcyrnVq08Nm1
- lR9ZUift6rt/PSTI0cU++PmWY/8r36xiZNjWXfb2yb+pVWrX365/6X253ThbzUxTYn1y6QbRO7c
- fcbACAA==
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_155537_326588_EA765225 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +75,146 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Igor Velkov <iav@iav.lv>
+On Tue, 29 Sep 2026 10:42:29 +0200
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Helios64 has a battery backup built around a BQ24133 charger. The
-charger works on its own; the SoC only sees two status lines:
+Hi Krzysztof,
 
-- VCC12V_DCIN_GOOD on GPIO0_A2, a divider from the 12 V input, high
-  while the mains adapter powers the board;
-- CHARGER_STATUS# on GPIO2_D3, the inverted STAT output of the charger,
-  high while the battery is charging.
+thanks for the review!
 
-Describe them as a gpio-charger. Both lines have external resistors, so
-the pins get no pull.
+> On Sat, Sep 26, 2026 at 12:51:10AM +0200, Andre Przywara wrote:
+> > There are four clock controllers in the A523 SoC, but only three are
+> > described in the DT binding so far.
+> > 
+> > Add a description for the CPU CCU, which provides separate clocks for
+> > the two CPU clusters and the DSU interconnect.
+> > 
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
+> >  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
+> >  2 files changed, 50 insertions(+), 1 deletion(-)
+> >  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+> > 
+> > diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> > index 58be701a720ea..8d5481fb63ae8 100644
+> > --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> > @@ -19,6 +19,7 @@ properties:
+> >    compatible:
+> >      enum:
+> >        - allwinner,sun55i-a523-ccu
+> > +      - allwinner,sun55i-a523-cpu-ccu
+> >        - allwinner,sun55i-a523-mcu-ccu
+> >        - allwinner,sun55i-a523-r-ccu
+> >  
+> > @@ -35,12 +36,23 @@ properties:
+> >  
+> >  required:
+> >    - "#clock-cells"
+> > -  - "#reset-cells"
+> >    - compatible
+> >    - reg
+> >    - clocks
+> >    - clock-names
+> >  
+> > +if:
+> 
+> This goes to the allOf block.
 
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on 7.3-rc5: online follows the mains adapter, status reads
-Charging while the battery recharges and Not charging once it is full.
+OK.
 
-Schematic, sheets 9, 15 and 29:
-https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
----
- .../arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+> > +  properties:
+> > +    compatible:
+> > +      contains:
+> > +        const: allwinner,sun55i-a523-cpu-ccu
+> > +then:
+> > +  properties:
+> > +    "#reset-cells": false
+> > +else:
+> > +  required:
+> > +    - "#reset-cells"
+> > +
+> >  allOf:
+> >    - if:
+> >        properties:
+> > @@ -64,6 +76,30 @@ allOf:
+> >              - const: iosc
+> >              - const: losc-fanout
+> >  
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          enum:
+> > +            - allwinner,sun55i-a523-cpu-ccu
+> > +
+> > +    then:
+> > +      properties:
+> > +        clocks:
+> > +          items:
+> > +            - description: High Frequency Oscillator (usually at 24MHz)
+> > +            - description: Low Frequency Oscillator (usually at 32kHz)
+> > +            - description: Internal Oscillator
+> > +            - description: Peripherals PLL 0 (1200 MHz output)
+> > +            - description: Peripherals PLL 0 (600 MHz output)
+> > +
+> > +        clock-names:
+> > +          items:
+> > +            - const: hosc
+> > +            - const: losc
+> > +            - const: iosc
+> > +            - const: pll-periph0-2x
+> > +            - const: pll-periph0-600m
+> > +
+> >    - if:
+> >        properties:
+> >          compatible:
+> > diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+> > new file mode 100644
+> > index 0000000000000..042f2310f64de
+> > --- /dev/null
+> > +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+> 
+> Filename should match compatible.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-index d146e5075b4f..813a39964357 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-@@ -62,6 +62,15 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
+Is that a new requirement? We never did this for the Allwinner clock or
+reset bindings, all headers are named like sun<x>i-<soc>-<name>-ccu.h.
+And I think especially since we have sun55i-a523-mcu-ccu.h and
+sun55i-a523-r-ccu.h, I think we should stay consistent, at least for
+the existing SoCs.
+
+> > @@ -0,0 +1,13 @@
+> > +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> > +/*
+> > + * Copyright 2025 Arm Ltd.
+> > + */
+> > +
+> > +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+> > +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+> > +
+> > +#define CLK_CPU_L		7
+> 
+> Indices start from 0 or 1
+
+This is also something very common for Allwinner clocks: the CCU has
+clocks that are not exposed to the DT, because they are internal
+clocks we need to model the clock tree. We number them logically,
+and often the basic clocks are not exposed. See sun50i-a64-ccu.h,
+sun50i-h616-ccu.h, sun8i-h3-ccu.h, to just name a few (there are many
+more). The other clocks are named in the internal headers, in the
+clock driver directory.
+
+Cheers,
+Andre
+
  
-+	dc-charger {
-+		compatible = "gpio-charger";
-+		charger-type = "mains";
-+		gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
-+		charge-status-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&dcin_good>, <&charger_status>;
-+	};
-+
- 	clkin_gmac: external-gmac-clock {
- 		compatible = "fixed-clock";
- 		clock-frequency = <125000000>;
-@@ -493,6 +502,16 @@ user1_btn: user1-btn {
- 		};
- 	};
- 
-+	charger {
-+		charger_status: charger-status {
-+			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		dcin_good: dcin-good {
-+			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	gmac {
- 		gphy_reset: gphy-reset {
- 			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_output_low>;
-
----
-base-commit: 36bd12104f6e9462f6e97989fd8ef9eb1609623f
-change-id: 20261005-helios64-dc-charger-edc49c499c07
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
 
 
