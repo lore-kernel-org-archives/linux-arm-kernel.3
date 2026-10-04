@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ADFCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 07:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8EDCA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 07:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaALBH7KtyB3bx5d8xgg7P/JbOXz1TSQ5t12mUF5/lQ=; b=wjfH+OPpaJndW0yZyoJAQkbavD
-	FGV4HkqsZIxwkOWSaGVQ8t09N6//1hBBLkN1CUUgZoaDVGmVSOLjdZKpybXmKtHGCtGpHItKY2IV9
-	e3neiiWpVOmM96drxRvVSC53r3QWq3vySPOYkXTrFMr3vqnFp/Gvs5rma5h9sjigTcn7aMQ9rL2/r
-	4wnkh3p5uOU2PL4J0LjAbYErv9JjP9JbQktYwoPBi9RS5rhQNXy+g3jPzcbVRHCUvDg/TruZ00xq/
-	7SZkl25Cq0LgDYUFum9RTaoRL30c8QktD5M14J2Cju+9Pb3Tap25zNbArbhHX+gOQhroIZL1phRpa
-	DSwH2I3Q==;
+	bh=9Rmulx5tWtZwNZ4srP1UM6NrLE00b/t8K2ZAJDxpNCg=; b=rjzHql4mIqxkJ9VEbsr7RyDnxY
+	HvuetfsQJ6O+/OOH6/g/lT8I8qUMIl7dwpYpffsmi+WEC3XAwwcpyaNOtZ/N+WbQqHLSz4wKOUQJU
+	M1orWVpN6SlaIMvR89iuOWCirm2yusHPIuL7tohOCK7S0wQFBSa4Miwo0G3FpDN2lGqYNyFA95KpF
+	Ly9Epy7U8oYqgXn4fB+hebx385SHNrnt5T9j7U5CBpMLy58/a65Tf8K5BvaZAofO1F/7MBI4+GBp2
+	3wbHfI9tbjDDyCfcPPOxslGDbAJaDyo/pqsr6lFPP7T/IX6BGj5AOM3x7QQel/tbaveyVxEPRxmng
+	PKdBRmGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDGh5-0000000ETGe-3Dm7;
-	Sun, 04 Oct 2026 07:31:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xDGuX-0000000EU16-3kkN;
+	Sun, 04 Oct 2026 07:45:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDGh4-0000000ETG5-0T6V;
-	Sun, 04 Oct 2026 07:31:34 +0000
+	id 1xDGuW-0000000EU0v-2IU2;
+	Sun, 04 Oct 2026 07:45:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CDF960052;
-	Sun,  4 Oct 2026 07:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6014E1F000FF;
-	Sun,  4 Oct 2026 07:31:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7675860098;
+	Sun,  4 Oct 2026 07:45:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97A591F000FF;
+	Sun,  4 Oct 2026 07:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791099092;
-	bh=AaALBH7KtyB3bx5d8xgg7P/JbOXz1TSQ5t12mUF5/lQ=;
+	s=k20260515; t=1791099927;
+	bh=9Rmulx5tWtZwNZ4srP1UM6NrLE00b/t8K2ZAJDxpNCg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=abDMitp54FxhagYBgoG+kvko9jBduTfHfZ9zabX/y2DyVZjoF9Lqxvzehh2sf2f2u
-	 3IgtZ7rkl1XKyYTdUWDuWgAe7hLdow+htO4bmUr1NCqCu72QJRCSfmbeHwlJkWmuP+
-	 YNX9kd3C0ZdglEdiOwtj3JtUidmmDCCOcBLAO/y74lEZzn0g3RHpLjSgovnQR0xezg
-	 Uu+QcStwHnFRlOE6675ZCRxJxibzbszAHN6B4bX/PmMmEF2LU7dy9JChygxbJXTi+/
-	 EshXkc/ss7C7KfOO7QOkV4+Ez4128c62jJvEwRds2tbF6Pc5qLlX/xplSepOdn+mRp
-	 JCw2atTLyD7kw==
-Date: Sun, 4 Oct 2026 09:31:30 +0200
+	b=liiYdyZc/+jysn1D8TPlEHk+jjZ5GSvFJM8qFJWTumsm72ri3c7XNO1KXJeK7WZJR
+	 b/2b/HH+CGvOmSE9h/4OSBzlZTw5FRuo0ivZp7fD2Rk4wsRLDsdiJKLahR74/if2rD
+	 Kzj5jSQNglKtffgsWLTGnvP6iIhDVsjsABQALJRQaQc2w4gfkZvFMn5UsSvbG9HaZ2
+	 NrmW7d1toY0d4lg61EeYXxDlfTs6xNwZoZWHkq2FqXNQdnq/fT3nLX/ZLHuO4qBA3+
+	 frFON9bcXmeoXrChDVD8vBH5wI0DMJ3zJiaS/9abplLgdjOv1/HIXApTSIXB5uc8xp
+	 rtxGGBZdYl4OQ==
+Date: Sun, 4 Oct 2026 09:45:24 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+To: =?utf-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Jiri Kosina <jikos@kernel.org>, 
+	Benjamin Tissoires <bentiss@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Peter Robinson <pbrobinson@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v14 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
- PMU definition
-Message-ID: <20261004-tricky-eggplant-galago-baea94@quoll>
-References: <20261002175738.3242646-1-irogers@google.com>
- <20261002175738.3242646-2-irogers@google.com>
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Allen Lin <allencl_lin@hotmail.com>, 
+	Tylor Yang <tylor_yang@himax.corp-partner.google.com>, Felix Kaechele <felix@kaechele.ca>, 
+	Douglas Anderson <dianders@chromium.org>
+Subject: Re: [PATCH v5 1/6] dt-bindings: input: Add Himax HX83102J touchscreen
+Message-ID: <20261004-terrific-lemon-hamster-2ab5cf@quoll>
+References: <20261003142741.48634-1-michal@nozomi.space>
+ <20261003142741.48634-2-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261002175738.3242646-2-irogers@google.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261003142741.48634-2-michal@nozomi.space>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 10:57:34AM -0700, Ian Rogers wrote:
-> Add device tree bindings for the Broadcom Raspberry Pi AXI PMU block
-> found on BCM2835, BCM2711, and BCM2712 SoCs.
-> 
-> Depending on the SoC and security configuration, these PMUs support
-> either direct MMIO access for the System monitor or routing via the
-> Raspberry Pi firmware mailbox IPC for the VideoCore VPU monitor.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
+On Sat, Oct 03, 2026 at 04:27:36PM +0200, Micha=C5=82 Kope=C4=87 wrote:
+> From: Allen_Lin <allencl_lin@hotmail.com>
+>=20
+> Add the binding for the touch function of the Himax HX83102J, a touch
+> and display driver integrated (TDDI) controller. The touch function is
+> connected over SPI and shares the analog supplies and the reset of the
+> display function, so it is powered and reset together with the panel
+> and has to follow it.
+>=20
+> Signed-off-by: Allen_Lin <allencl_lin@hotmail.com>
+
+Please use full name, not login or nickname. I see original patchset had
+the same issue, but full name was provided in the maintainers entry. If
+the original author does not want to fix that, you can takeover the
+patchset.
+
+
+> [michal@nozomi.space: rename ddreset-gpios to display-reset-gpios,
+>  describe the shared supplies and the display reset, take over
+>  maintainership, drop Rob's Reviewed-by because of these changes]
+> Signed-off-by: Micha=C5=82 Kope=C4=87 <michal@nozomi.space>
 > ---
-
-I could not find lore links in your cover letter, changelog is cut (only
-v13), so probably we are repeating. Please start using b4 if providing
-entire changelog with links is too difficult.
-
->  .../bindings/perf/brcm,bcm2835-axiperf.yaml   | 71 +++++++++++++++++++
->  1 file changed, 71 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+>  .../input/touchscreen/himax,hx83102j.yaml     | 98 +++++++++++++++++++
+>  MAINTAINERS                                   |  6 ++
+>  2 files changed, 104 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/input/touchscreen/h=
+imax,hx83102j.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/himax,hx=
+83102j.yaml b/Documentation/devicetree/bindings/input/touchscreen/himax,hx8=
+3102j.yaml
 > new file mode 100644
-> index 000000000000..fcffa5fc6c02
+> index 0000000000000..c9f229bf9ca7b
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
-> @@ -0,0 +1,71 @@
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/himax,hx83102j.=
+yaml
+> @@ -0,0 +1,98 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/perf/brcm,bcm2835-axiperf.yaml#
+> +$id: http://devicetree.org/schemas/input/touchscreen/himax,hx83102j.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Broadcom BCM2835/2711/2712 AXI Performance Monitor
+> +title: Himax hx83102j touchscreen
 > +
 > +maintainers:
-> +  - Ian Rogers <irogers@google.com>
-> +  - Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-
-Drop
-
+> +  - Micha=C5=82 Kope=C4=87 <michal@nozomi.space>
 > +
-> +description: |
-> +  The Broadcom BCM2835 series (including BCM2711 and BCM2712) features hardware
-> +  performance monitors on the AXI bus for evaluating memory bandwidth and
-> +  system traffic. Depending on the SoC architecture, multiple monitors exist.
-> +  The primary monitor evaluates the System fabric, while the secondary monitor
-> +  evaluates the VideoCore VPU hardware.
+> +description:
+> +  The Himax HX83102J is a touch and display driver integrated (TDDI)
+> +  controller. Its touch function is connected over SPI and reports HID
+> +  packets. The display and touch functions share the analog supplies and
+> +  the display reset, so the touch function is powered and reset together
+> +  with the panel it is part of.
 > +
-> +  Older silicon generally restricts direct MMIO access to the VPU endpoints,
-> +  requiring them to be accessed over the Raspberry Pi firmware mailbox
-> +  interface. If the VPU endpoints are memory-mapped, they are supplied as
-> +  secondary resources.
+> +allOf:
+> +  - $ref: /schemas/input/touchscreen/touchscreen.yaml#
+> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
 > +
 > +properties:
 > +  compatible:
-> +    enum:
-> +      - brcm,bcm2835-axiperf
-> +      - brcm,bcm2711-axiperf
-
-Why random order? Keep the list properly sorted by name.
-
-> +      - brcm,bcm2712-axiperf
+> +    const: himax,hx83102j
 > +
 > +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description: System monitor MMIO surface
-> +      - description: VPU monitor MMIO surface
-> +    description: |
-> +      Memory-mapped I/O resource regions for the AXI PMU endpoints.
-> +      Typically ordered as System monitor, followed by VPU monitor if directly
-> +      mapped.
+> +    maxItems: 1
 > +
-> +required:
-> +  - compatible
-> +  - reg
+> +  interrupts:
+> +    maxItems: 1
 > +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - brcm,bcm2712-axiperf
-> +    then:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
+> +  reset-gpios:
+> +    maxItems: 1
 
-Why brcm,bcm2835-axiperf has flexible number of addresses?
+You need description to explain why this is different than
+display-reset-gpios.
+
+> +
+> +  vccd-supply:
+> +    description: Digital I/O supply of the touch function.
+> +
+> +  vsn-supply:
+> +    description: Negative analog supply, shared with the display functio=
+n.
+> +
+> +  vsp-supply:
+> +    description: Positive analog supply, shared with the display functio=
+n.
 
 Best regards,
 Krzysztof
