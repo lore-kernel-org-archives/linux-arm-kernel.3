@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE4FCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7E6CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhWu4uw5o5wh7b2H29oc0pRbeM49NcyIRT4ZZJDKW44=; b=u9QAKELyHpzzJL72SgYe4AqcCH
-	IkogFMO+PmdJH3qbYvhn9E29OexCb2QOCbcFMPLPVRGCHLZod0670AIkmAuOKVKjF1qf4WYjFYvjL
-	ccrUUl8peqDaDMou4Q3jxz8o92Za3YRB2NYgKveNB8JemfkWQARadyKN3UpQItd+eWn/MmF76V1LG
-	iKQtmykPb/hA6gXGGpIvhU3wgro9mbrfj88VhekDTw42JUKTrbdnNMd5jFm3FcG7cz/fFHatmD1kx
-	tfYx5S0Vqrvv/fRtm+4y25nAuKUZP9x0LzBt2ZjZAR0qWuJgkZUfkqFrtxqD1tGWPYhlBaRryKxS6
-	Ml+Ra/Aw==;
+	bh=N0TzU/95uskboWjItlmFUA2DDko2UkLtMPoW5S3lpfA=; b=VafUOlOHzHNabH3G8JIxLE05Hh
+	LJPx1Ps9Zhn7jiRXgnek3yg+Lq7onzc5UvCvl5s+lP+q+Oem2PuBo57cKfTyF5VwdPXbOy1+/EuVQ
+	V50pznM9EArBoYy96iXvB7Tx7cj4MNoKx96h/juiExEAaVEorklYb7TbfFE/DAtOacN/C5Oi8d+YA
+	VI9q8ae7MusyRI3DlrcTkeg5bkVX5MYL0SQ4cKMYtUHqrDYjl4Rsf89OoF86/26DGVKJAvSkW1eCY
+	/9CVjzKz3++8ezJUe2wpDGJQ29d3U1Ot8JAUxHUlRMP+a7w3znbYM+hxdaywhwLgge8C8nYiKTJml
+	iEy4ilCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSef-0000000FFMv-1lpU;
-	Sun, 04 Oct 2026 20:18:02 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xDSeq-0000000FFSk-30BQ;
+	Sun, 04 Oct 2026 20:18:04 +0000
+Received: from mail-westeuropeazon11013013.outbound.protection.outlook.com ([52.101.72.13] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSeY-0000000FFAW-1FgW
+	id 1xDSea-0000000FFEz-3jS2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:17:49 +0000
+	Sun, 04 Oct 2026 20:17:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r3p+a71ZbupFSZOlKn92tD3wuUhOJ5QhwSNvXz/LsRb/6Ztk6qqlwNOjqf/PMOeGUiFZlMRh47Iq3tWsdASEdt1stoDqZh8FZj6bI5Yf9hvIA4+XX2OQ/ZZt11aTHJmY+eZ/Oa7yM9fAOGL+cXU/hCyYptkn2swD4k9pc2/YpzI4WxogVw/IesBCjznBQJSWSpb9x9nWzI9/Ly4BigpNnWVtr3GISOp4raLWFKc7s5mYCLZuXkWxkRSuN2moBh3QGa8jGJ5SihI4RRVlakiGBYnJnrv8pCYMPmdwi7rPr/BLHUaDsHIE5mi7k3LmbaI8TVUCXCuJzpDZSpCPT6KSWw==
+ b=BNU6PsBXjr6qvyEDbd9nvdajqVIjFamDZo9HpDbKNGO4lFHP9ypcZI8FOD2N3LonWkf4o3HjDfo/c8TO7BtB6X598jpkEGNWMruEdmOsb2wBmuNoBT0cNip/zZ9AvJrllW+G5KXcPQ9IXi807yrSr3cZG760W6L/aqeza/Bpd9XQe9q20H518gYPIk+v3YvKYvjgw3VMywc23YyddaD90kO/qs1PBn3QN9X85I+RdNmHKel7Zg7IJmhamNhmryQJkLBq4tRgoxmG5ZTgiBFqginbwzcqhm9WVOpR8/pppLv0nLJZSeK3fJ729m2vyPhpRdYQMkNEI0f893WreE5ABA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xhWu4uw5o5wh7b2H29oc0pRbeM49NcyIRT4ZZJDKW44=;
- b=y3DDtsNCYydT/6B4dJEjr8BgM3nYo8qunUxnUGsgmueAIH2REVXB2/3sQVU5mxXB84PcDwl4oO6UuR8HOWsLl6UX5+nDfJcM/Xtc6wfDKly0oMTSf9FPT7dcLyKpMBZ/ZX9lq3XjmSroGXUQdCVvEwKnByAPASRxjNcOijCgKpKBdXUurkv6MadW6kKb+BkB+lNyf+4Az2a8hB9L0AdgMtTyhDkbdh5WPXv+j++RkdzRmzysBQ/wJrtXwnLCT0cqf8bLSCWGW46k2Ejg1jYH7sdZropfP4bJ1/5pMCzYMMFAcZHRh+ZZHt7k8BsDrKLPv1+4ZkiPlF2AgY68+bT59g==
+ bh=N0TzU/95uskboWjItlmFUA2DDko2UkLtMPoW5S3lpfA=;
+ b=cc0VVmuxAVVrXoS0Yj6FjOibmDcE2McnKFAIqc+scCENKDTnEBYb5A20Iy5UKKxqgNA2TigaM2kmpEdjbxP7h4prz9hTcFc+rocu6AxGmp3BP7UCndTs6DPDmC4HYGDMQ2n4knZkH07i1hIzTUja0ln4GPKcHqhjhZZds85aJPmUsIjHItb1j7o/baWqKjxVfa5zCdZ/3/TqSYdFtN0NUryoSpTGOBIJ1pOxua/r+2lmNeE7dMq4QtxPE3dTayhTVj2kdhhyXMJy4kX+LRm0xraQW7tlU+vo/x7WpakwDvySoL9cgRMcwG5C3ORSkRm1P3wSultIpcCiRQ3ZFynKMg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  195.60.68.100) smtp.rcpttodomain=kernel.org smtp.mailfrom=axis.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xhWu4uw5o5wh7b2H29oc0pRbeM49NcyIRT4ZZJDKW44=;
- b=rN8vfR+zVda6dbRivhwlqRvwI26CA6Y9vFnD/rJBmku0juWn/v+OPughYYOFd5t9ejg7s1cc4vgT2wPFNbFRLmekYBj1Ak7oKsFS7Ay5RAIZl/IIa9Qu75Tt8bJlF0plH68UsJvldZ8aSQQeqfJp8DxZF5koroiL3rq3NDB/Aa0=
-Received: from DU7P194CA0007.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:553::30)
- by PA1PR02MB11885.eurprd02.prod.outlook.com (2603:10a6:102:56c::9) with
+ bh=N0TzU/95uskboWjItlmFUA2DDko2UkLtMPoW5S3lpfA=;
+ b=ow1ejFwjFlJR6eFpo3+C5W9UsJB9nqP1Y4EGfm1RDUtAfIZv5A5hu6pYrV2mCbEthE0aky0pmYE+mmFJ9lP49LanwRnhW35YYDwa/ELwnVla8YD0QygsLta3S/VU6aVq3F/+q4aD24S1e8iV+RH+l0IAIGngdENLEA3cTRu0UjI=
+Received: from DU7P194CA0014.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:553::31)
+ by AM0PR02MB5857.eurprd02.prod.outlook.com (2603:10a6:208:183::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Sun, 4 Oct
- 2026 20:17:41 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.19; Sun, 4 Oct
+ 2026 20:17:42 +0000
 Received: from DU2PEPF00028D09.eurprd03.prod.outlook.com
- (2603:10a6:10:553:cafe::6e) by DU7P194CA0007.outlook.office365.com
- (2603:10a6:10:553::30) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10a6:10:553:cafe::62) by DU7P194CA0014.outlook.office365.com
+ (2603:10a6:10:553::31) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:17:41 +0000
+ Oct 2026 20:17:42 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=axis.com;
@@ -61,7 +61,7 @@ Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
 Received: from mail.axis.com (195.60.68.100) by
  DU2PEPF00028D09.mail.protection.outlook.com (10.167.242.169) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:41 +0000
+ 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:42 +0000
 Received: from se-mail11w.axis.com (10.20.40.11) by se-mail10w.axis.com
  (10.20.40.10) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Sun, 4 Oct
@@ -70,18 +70,18 @@ Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail11w.axis.com
  (10.20.40.11) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
  Transport; Sun, 4 Oct 2026 22:17:41 +0200
 Received: from lap5cd525d1j1.sto.se.axis.com (unknown [10.224.134.145])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 1E0B94BBC;
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 6E6F81467;
 	Sun,  4 Oct 2026 22:17:41 +0200 (CEST)
 Received: by lap5cd525d1j1.sto.se.axis.com (Postfix, from userid 22105)
-	id F0622803CDC4; Sun,  4 Oct 2026 22:17:10 +0200 (CEST)
+	id 250A78039B99; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 From: Henrik Grimler <henrik.grimler@axis.com>
-Date: Sun, 4 Oct 2026 22:16:01 +0200
-Subject: [PATCH 04/17] ARM: dts: samsung: exynos4-cpu-thermal: fix
- indentation and sort
+Date: Sun, 4 Oct 2026 22:16:12 +0200
+Subject: [PATCH 15/17] ARM: dts: samsung: exynos4210-smdkv310: sort
+ properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261004-exynos-arm-cleanup-v1-4-45e435353c56@axis.com>
+Message-ID: <20261004-exynos-arm-cleanup-v1-15-45e435353c56@axis.com>
 References: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 In-Reply-To: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -91,42 +91,42 @@ CC: <devicetree@vger.kernel.org>, <waqar.hameed@axis.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, Henrik Grimler <henrik.grimler@axis.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2863;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2555;
  i=henrik.grimler@axis.com; h=from:subject:message-id;
- bh=/eCgP/CKJv44KbVKstiLo7GDKMhs0J22Jc0phXktnjw=;
- b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQr5+WXD5NKwsDf+6/qc3Wc1cIU/ElaqPvvj
- fyZXDn8NWCJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0KwAKCRCwB25JC3Fh
- a4K2B/4vQU6t6OAlKS2JlRNyRE8sIn+LevZbKl0nxnJ+Yx9dj/dN491FvZrWpOaqVu6f1ut7oxv
- apfdOwRIc7yF7d8vddiZO4j3knpEqp6NdfzKnoeZdq1CeZVL7+4LkCnJNM+mNCqpiGOG6mZb/+D
- Rg11QGm7sOPJZX29+0SKm5lyH5QUGVwVntZ3iNn2Zwt8pzVYF5Fd48W3IQYJTwSAS2Ox9ZrhjKZ
- arS5Mo8rbqf2UDwq6Rh+WBiI+MphhXRl3rS9o4NbGYEHlCDbssW1Pq683xb4M7MbwLfPO3p2x+E
- /XoljArIfH0mWzlDKqXGsOTMNH84/ve3cwQ09Qks+JxMJJRM
+ bh=jHEjOv97lgsv6AQquPw6bPFmhlvuIt7C3xZ1jjfZ1UQ=;
+ b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrRBT8vYdTWAIFQXH0ULtJXSCW9lgdHr+sZRR
+ TppvkA41JiJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0QQAKCRCwB25JC3Fh
+ axzyB/9nL5blRXzShnSaoBWKks8WAZYtM16mdmA6MYLWCxObHPlhYUpXP5/06uVbwnjBi+PoDya
+ NRVuzk0Rg2eEpmRc9z8gKrorvHauE1QyaMKNU/DgBW6SUIjRZXvwOnq2BBQKvQnYss1ewHaj/J9
+ 9qodW2bbfcmxKPQFv/wGGTFBQf0EQK5XtfYMV9vB48gV99YRJvKdpJOgOF/6YGGeL0BydPTVuoU
+ tfAG+wmwnOT4cjc5Ax6CWvm9kEnkoyiC2H3Den0XtBsq+hdol8GvoJmNdg2uoaVitgIa5fq5Coz
+ teoq3CJerk0BGe4lHaZRsECcjs5zF4khRCvPj/p997139EDO
 X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
  fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D09:EE_|PA1PR02MB11885:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62571de4-ad42-4d5d-deff-08df22548b11
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D09:EE_|AM0PR02MB5857:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3aa6b867-423a-4fda-1efd-08df22548b6c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|23010399003|30052699003|36860700016|1800799024|18002099003|22082099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: +Ff8pdvg0A4C7NMn65XlLsOiF2D9GGKd/f0yiGqvLf4jtBicbWUm3cufg1KxDy/5yc0VHCFjCopX+FrFBUE44g/w53d6inI/bJTENknRRpOpFS6kQ5juIrCbT3k68ZGDajERGJeJ/2fnoFC32stGi/KZDz8TRQ5e0IoSwJK+W5l4n49lkLJUACaciKpWREPrj7gXM4n/dGn9Ug0YEPEy3l8Xe+F6bq8aglFDfGG0bK6icaZWYcNBxC0x8vSe1wqJ3+WrQNgo86KnkE91GHsHEulFB6n797+RoSvAaDkAENDwk8AmI3sU8cfhzZEnOXL6V0sm0LLJf6IX7i4xk6beO5hX58tToLfRxCzu8pgHEUpIbUDfDx66ez6MGU61/WxMvQ9BBZOBrTXbjAhewuC9PSEO3p/l/zRuf5eUjM/xV6VPILhsJ9ituTj6rSY5apDZe+detYYHz9WWmbeOXiPFui7KTQSGl3T+nTXs+YD1bqK8eXutozacO2rFYp9lCLdvKrhBQBgMu/y/bcA9l41fapN6OkcWOLD6T/BiJGTOceVO68KjIDSmA1UeT6fkKmBtuKOQvr3xbwbD3Ztk6y00P4MrnbEdNdDxpEJ8Uq++4qFljhtdc4ZS1A0Alpyo3QMlQsXabNal1T0BHoqnXCYt0MCHVBEKVLwsZF9MPMetP/D6pzvc4Eu81po8w0ZTwtsjV0IWQnM3pYF64ZORtdZTYg==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(23010399003)(30052699003)(36860700016)(1800799024)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|30052699003|1800799024|376014|82310400026|18002099003|22082099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: Jks678ZKrwENAQX1fdU1EJ+5ZFhJxX8sNpsfoj0sJ5csQe5hhnpuEo0s2mxYEIcTVaH4AJ1F9iELM4+2AnXFMym9vJWov0T55mRfL+LSbla/E6nkICNcFOOK+o9bKnl9VQnYl2hasgDc+bnBo+YpQCYwYqvAICubBTNMVHZK3xyh5l5DpCp82KVlJoDIjC0570cxoanD7OzYZ6uAYuxqRfYf+vwMsfwRQEXl7eJm5QtoT766Ksh+01M4DPZ75Oy+6s8kYopMoLIZT7kDFU1iMyWQ4q47QqGb9DzsNAX9Tyn6fxQfngL7ncF08KjZtVnh3Wl3JlrAZ5jJ2mnRITmlaOg0k/joAr+jAsuOUD46COxuWuo2mdSwuBmMyrtG2e5SIHPSmHoGBNjLVD5RGpgDOy+RMZm6F2VbMKZMyF1DFQrNOaUxWLCxWEOxHDSkRfSWLAbV7J44EI9K0yZdVjRuAPoyNor4pGHt4veDQ0vlawcLWXP8/2QBgfzToPBX/dGxCFNRYhnN/n82OHHXhxZJy6674zBxPhl0fJ6UigF/G3GqgzPe4WiPhy4946Evm1+4q691iQK6sxMwuI0MauqXhMTus6Azwyuwy4Y48iB1SvjHwei3CqjJLjGdlxSitq7htjApBWeaXjicE/9425bSPF4Ur2Nwnt9J5YTDWdKlNHt1JD5VjKjx9868PENt4KNGQkkYEFrLS2mPcKz7rwBvmg==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(30052699003)(1800799024)(376014)(82310400026)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VHaUEvUmo6Dhheqe1UAfQ/a8uEDrkx5SSBG8Ah3HxH7Ri5tjTYBqB1t0ycgiQSAZtE6K02eK7VVmbVtycr8yceDx4pnktglRiUmVn/7yTt7W9d0+UjGrJiTUxV28v77oFh5Pcl38d8IdYuMV/4Qg1BaQrjTf7YoAFHILjsR6u643XnhFZfw10w26yVBxuCgJ+41y0FaA9Nb1h88+bUN7CBY+d9ySLFoblX2reD9iBALYZkcjea1J52i9hMilJaXOXVxu6lkaTaniMACja+QxQmvlxS41rcknI+3XXur+gddWbTn1ahseidGOfz3eNQqI//H/xv6u43iKfWivBQ41sIAi4Xo+LCqe2CCNIbHuAzgubrPrL+yhwuV/YBZofI96bx1hFYbXsdS/5HbojZ5mHusAzJ7OsxRFwGvCeqv2RXsD3ChTHfwzN8caBbq0QJQu
+X-MS-Exchange-AntiSpam-MessageData-0: E06Cm88JH/9CXvGwWKjxgRJomezbaiAYSWijtqG2ulP64m7mH1NNGutf9UDz8EhaFzh9mEpkmeopFK8jcF9m9KVB/2VnfSe+W1JEi13bF82Ze0dwWhqs4yPAg3a7k7FfwWhNlMiKMuHqty8MtCtWZ2y1yAH35B8mRpPZYESq7VAIRM1nfu36OVcANr+LzGpCheefFE4Z2BeyPdoL4TIcw8zXFHR4J3p9DDPnp781QBMJBmLwLeKEm2rxVIZOMKyX7GMOe6Hj1LilxaKH5jo0LhsDuM/xi4vmws5ru1VKmYRVlCUXuouFbUB0RML+W3fH956VYMNwDcOOTcUDv2BU8JXisOOBsFYB+9e1aZwWWmYERrhnPrW/0DPPf5o9MwFPegaGSrz1q0QJZTEJgOeKYOSfO40EuEFidzShB53RJzclaecjzKd6W87q3UcWgrRY
 X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:41.5200
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:42.1126
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62571de4-ad42-4d5d-deff-08df22548b11
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3aa6b867-423a-4fda-1efd-08df22548b6c
 X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
 X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D09.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR02MB11885
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR02MB5857
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_131746_501818_CC14ED0F 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20261004_131748_981579_B6D7D793 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,105 +141,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing indentation level, sort child nodes alphabetically and add
-newlines before every child. Fixed partially with the help of
-dtfmt (Devicetree Source formatter).
+And add or delete newlines where applicable, and sort properties
+according to the preferred style. Fixes warnings from dt-check-style
+like:
 
-Fixes warnings from dt-check-style in strict mode like:
-
-  samsung/exynos4-cpu-thermal.dtsi:32: [required-blank-lines] child node must be preceded by a blank line
-  samsung/exynos4-cpu-thermal.dtsi:38: [child-name-order] child node 'cooling-maps' out of name order
+  samsung/exynos4210-smdkv310.dts:90: [property-order] property 'wakeup-source' out of canonical order (should sort before 'linux,input-no-autorepeat')
+  samsung/exynos4210-smdkv310.dts:91: [property-order] property 'pinctrl-names' must be placed after 'pinctrl-0'
+  samsung/exynos4210-smdkv310.dts:93: [required-blank-lines] "status" must be preceded by a blank line
 
 Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
 ---
- arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi | 72 ++++++++++++----------
- 1 file changed, 39 insertions(+), 33 deletions(-)
+ arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts | 21 +++++++++++++--------
+ 1 file changed, 13 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi b/arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi
-index 27a1a8952665..48bac2fe6172 100644
---- a/arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi
-@@ -8,41 +8,47 @@
- #include <dt-bindings/thermal/thermal.h>
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts b/arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts
+index a6b73a8967c6..609853bb840a 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts
+@@ -60,6 +60,7 @@ map0 {
+ 			/* Corresponds to 800MHz */
+ 			cooling-device = <&cpu0 2 2>;
+ 		};
++
+ 		map1 {
+ 			/* Corresponds to 200MHz */
+ 			cooling-device = <&cpu0 4 4>;
+@@ -70,6 +71,7 @@ map1 {
+ &i2c_0 {
+ 	samsung,i2c-sda-delay = <100>;
+ 	samsung,i2c-max-bus-freq = <100000>;
++
+ 	status = "okay";
  
- / {
--thermal-zones {
--	cpu_thermal: cpu-thermal {
--		thermal-sensors = <&tmu>;
--		polling-delay-passive = <0>;
--		polling-delay = <0>;
--		trips {
--			cpu_alert0: cpu-alert-0 {
--				temperature = <70000>; /* millicelsius */
--				hysteresis = <10000>; /* millicelsius */
--				type = "active";
--			};
--			cpu_alert1: cpu-alert-1 {
--				temperature = <95000>; /* millicelsius */
--				hysteresis = <10000>; /* millicelsius */
--				type = "active";
--			};
--			cpu_alert2: cpu-alert-2 {
--				temperature = <110000>; /* millicelsius */
--				hysteresis = <10000>; /* millicelsius */
--				type = "active";
--			};
--			cpu_crit0: cpu-crit-0 {
--				temperature = <120000>; /* millicelsius */
--				hysteresis = <0>; /* millicelsius */
--				type = "critical";
--			};
--		};
--		cooling-maps {
--			map0 {
--				trip = <&cpu_alert0>;
-+	thermal-zones {
-+		cpu_thermal: cpu-thermal {
-+			thermal-sensors = <&tmu>;
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
+ 	eeprom@50 {
+@@ -84,12 +86,13 @@ eeprom@52 {
+ };
+ 
+ &keypad {
++	wakeup-source;
++	pinctrl-0 = <&keypad_rows &keypad_cols>;
++	pinctrl-names = "default";
+ 	samsung,keypad-num-rows = <2>;
+ 	samsung,keypad-num-columns = <8>;
+ 	linux,input-no-autorepeat;
+-	wakeup-source;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&keypad_rows &keypad_cols>;
 +
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu_alert0>;
-+				};
+ 	status = "okay";
+ 
+ 	key-1 {
+@@ -177,8 +180,9 @@ &rtc {
+ 
+ &sdhci_2 {
+ 	bus-width = <4>;
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_cd &sd2_bus4>;
++	pinctrl-names = "default";
 +
-+				map1 {
-+					trip = <&cpu_alert1>;
-+				};
- 			};
--			map1 {
--				trip = <&cpu_alert1>;
+ 	status = "okay";
+ };
+ 
+@@ -200,13 +204,14 @@ &serial_3 {
+ 
+ &spi_2 {
+ 	cs-gpios = <&gpc1 2 GPIO_ACTIVE_HIGH>;
 +
-+			trips {
-+				cpu_alert0: cpu-alert-0 {
-+					temperature = <70000>; /* millicelsius */
-+					hysteresis = <10000>; /* millicelsius */
-+					type = "active";
-+				};
-+
-+				cpu_alert1: cpu-alert-1 {
-+					temperature = <95000>; /* millicelsius */
-+					hysteresis = <10000>; /* millicelsius */
-+					type = "active";
-+				};
-+
-+				cpu_alert2: cpu-alert-2 {
-+					temperature = <110000>; /* millicelsius */
-+					hysteresis = <10000>; /* millicelsius */
-+					type = "active";
-+				};
-+
-+				cpu_crit0: cpu-crit-0 {
-+					temperature = <120000>; /* millicelsius */
-+					hysteresis = <0>; /* millicelsius */
-+					type = "critical";
-+				};
- 			};
+ 	status = "okay";
+ 
+ 	flash@0 {
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+ 		compatible = "winbond,w25x80", "jedec,spi-nor";
+ 		reg = <0>;
++		#address-cells = <1>;
++		#size-cells = <1>;
+ 		spi-max-frequency = <1000000>;
+ 
+ 		controller-data {
+@@ -214,14 +219,14 @@ controller-data {
+ 		};
+ 
+ 		partition@0 {
+-			label = "U-Boot";
+ 			reg = <0x0 0x40000>;
++			label = "U-Boot";
+ 			read-only;
+ 		};
+ 
+ 		partition@40000 {
+-			label = "Kernel";
+ 			reg = <0x40000 0xc0000>;
++			label = "Kernel";
  		};
  	};
  };
--};
 
 -- 
 2.43.0
