@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE527CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 19:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C6ECA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 19:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/0+8/7+L8DONYJQ3fWVSioDtnywAJwCJWEJlOMQxkV4=; b=jpy7iuPnfn+IqZ98IqGVIj0StY
-	zcz/EJGwHvGjp5mnJmVhKtBM2Ue+uUORbVuFjRkhcMUtInTKR0ZmR22LnmLvSo1H+GJw44T7SqEL/
-	UVtrnBs8fNdi0i+d0Yfa0w+F8yE5Dhu7QC1ipfEjk+axAcJdvpMq28IIxdQXSRVea4DKiCAkDWeeV
-	gSRNzkqcjGdYW0Q02VXQ4GpiGOWB/78iiUTaD365wZifvyBdHCxU/9pXrtmHkGfJIXm5ecsvfRpoO
-	mi84ZitYAezxC8Z5IDhNrAdtXe4jrJhfu14rIR2mbm/gJBOm8KHIj5bEgNSkBPXEuAtbzZF6NpHhZ
-	hO89iDmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ltr9IuWe66b3dEPQokcAToGLMYH/D9Aig3Tp+730PGE=; b=Haui/Np+qkQyXMREp31ic81v24
+	DQQyR5fwPAW4os4OBAbyoQ3Kys6jOlco55aOyK/eEjlTj2NjvY9tNtCIWXyJDAzTn7xZUzUZPXQG+
+	FZZBMX6E25vTeBV9t3HYKCpcXxnhdpwUwBoxWmEKWcQlJMv5AsWhbKJeoDo2vl3MMT1tVijouI/w0
+	jxKLptEWCLBSbQq3hIiIxseJNHOwMHWGsfAuEkga2pJNEJsw6LfDjMElq65EnQBiWwTYnfEC0+M2y
+	cRx+kSxxCVUeh54AtLTfYyHnh8pktk/24dxWnZe8ybCWxShv/8c8R5WAdErhQmgdSYAh6MWqzSYD/
+	ZPx2bD+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSEU-0000000FDlt-02xp;
-	Sun, 04 Oct 2026 19:50:50 +0000
-Received: from mail-dy1-x1348.google.com ([2607:f8b0:4864:20::1348])
+	id 1xDSFx-0000000FDvo-0oSW;
+	Sun, 04 Oct 2026 19:52:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSEQ-0000000FDl6-2XiE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 19:50:47 +0000
-Received: by mail-dy1-x1348.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso1855081eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 12:50:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791143445; x=1791748245; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/0+8/7+L8DONYJQ3fWVSioDtnywAJwCJWEJlOMQxkV4=;
-        b=twsSrKN3ZSMe0cu4umCIlupHW8BaB+o9Zj5+g5ekO3CcR50wQFmxkUV01JH//28AoF
-         /eyDwy2buOkcm/yMYjY6knM1D0cH/RbuRkp3STgP1dxFLE9FzoN/ljy0gIer3+Hx8TE6
-         VIOOV5vKON9CMOKTdNxTh2JRFrw4iyLwMkEiJQYI9xeXrk44YDzmi71iinXhqtC77eMT
-         SjfQRls2h862ioQO5dEeAlNB9KqSVFSv4JvWUXqaWErmrCYHeEQdVLHv4C6yvJ81mSp3
-         1ucHVzqRcPVARN7FxePWTBpV4PQ3keQAqwTEcfiRNt6cPtYRURVxAUl+H/R8JJYRlWCQ
-         5x5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791143445; x=1791748245;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/0+8/7+L8DONYJQ3fWVSioDtnywAJwCJWEJlOMQxkV4=;
-        b=t82RIZgJJ39aQTaVn6dTrjlN7lU8EBXJWu6cA1xztOxFr7eEj0NIIr83NnnBM1k31c
-         rqwqf5DQ9JpuPtbrmClMrCCitLZRaVGsDz1MyKMcdQEfWLrcX1mdyNg9tBWCHV2BLMyp
-         LIdA06g73F4GkJ201JiP/FNJcpBdeBjc+iTSukUm5EK/6ZOvavhz4VIQbMZdjpRVhTgs
-         fnlOTgNOLR9qo+EC12q8gZ151G/5hZHQCjcz/PxX+WArAzoPL2VFLgyHkf631YGeJSLL
-         GCNMIWoXoQdxLzAyRfo2Zn1kcXzQtt4mQ0I/xIRdSqh+VDbMqse3Y6t6l2hxYZlrIW8F
-         D5ew==
-X-Forwarded-Encrypted: i=1; AKwUvBxz6kUFtqaV/7r/ORTPoRxdFJ6idUCVQ2AiHFfZTekI7fRlIS6QmjSEfY1N/F8oQx0F/lCSkKdInP5hrlb/tAXM@lists.infradead.org
-X-Gm-Message-State: AFuF++lNAAr9jugJPYOVSW5/0Oz+6feInfc2WD1/ysZnDCS2iUCF+mwR
-	q/vUVP/Kj481b98wPaC3EBOCriGC+27/dkUOATj0JYSax/za4MPBFuNdSe4CWYwKoSxiO0kwpRY
-	GlEET07jM0I0kTEGetaz3+gfPCg==
-X-Received: from dlbti5.prod.google.com ([2002:a05:7022:1b05:b0:159:4114:9dd])
- (user=danielmentz job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7022:f90b:b0:149:c766:3629 with SMTP id a92af1059eb24-14f5c5e9661mr13770215c88.23.1791143444306;
- Sun, 04 Oct 2026 12:50:44 -0700 (PDT)
-Date: Sun,  4 Oct 2026 19:50:27 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261004195027.227748-1-danielmentz@google.com>
-Subject: [PATCH v2] iommu/arm-smmu-v3: Align memory attributes for
- SMMU-originated accesses
-From: Daniel Mentz <danielmentz@google.com>
-To: iommu@lists.linux.dev
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	nicolinc@nvidia.com, smostafa@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	dawei.li@linux.dev, jgg@ziepe.ca, praan@google.com, 
-	Daniel Mentz <danielmentz@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_125046_677929_1D55764D 
-X-CRM114-Status: GOOD (  14.42  )
+	id 1xDSFw-0000000FDvb-2PMd;
+	Sun, 04 Oct 2026 19:52:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ACEC160120;
+	Sun,  4 Oct 2026 19:52:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9631A1F000FF;
+	Sun,  4 Oct 2026 19:52:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791143539;
+	bh=ltr9IuWe66b3dEPQokcAToGLMYH/D9Aig3Tp+730PGE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=OSMmr2217D9ydx6a2nj9BN6lcTPvtCj3ZMfZV/AIqXXuwrI/C80kQPBzDg0FlX249
+	 T6vrvB/5cBOvFzVD3s51P/R2bCet+b/Wqp++5qz2CG9+/RC2r7Ndo9BXcHHKt1r8+P
+	 bQ8oslBOJxlvJPqADyWK66c99sp4hRt/C7SpuJ3v2mE3al1s8frM7lz9GfK7LAstAA
+	 i8sZ9Kf+dtP8jS7vkr82UQYP8UKd+XwPJlitFTDnxuSop8ACrq2HrjADhZEaYCt6e1
+	 8uy2FQnOgEcloOtPYbJobZGaunH1L01FwMJ2qpywEMqAtzTdX+kB46FYyQSn0jkygv
+	 alXjyxNZ3hnaA==
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: keep the GMAC powered when the
+ PHY wakes the system
+From: netdev-bot+sashiko@kernel.org
+To: iav@iav.lv
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, heiko@sntech.de, edumazet@kernel.org,
+ rmk+kernel@armlinux.org.uk, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Sun, 04 Oct 2026 19:52:18 +0000
+Message-ID: <179114353815.434549.32562462811934801@kernel.org>
+In-Reply-To: <20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4@iav.lv>
+References: <20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4@iav.lv>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,120 +73,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SMMU specification defines several types of SMMU-originated memory
-accesses, including Stage 1 and Stage 2 translation table walks, stream
-table accesses (L1STD and STE fetches), CD table accesses (L1CD and CD
-fetches), and queue accesses (CMDQ fetch, EVENTQ write, PRIQ write).
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-While the memory attributes used for Stage 1 and Stage 2 translation
-table walks are configured in io-pgtable-arm based on whether the SMMU
-is coherent (ARM_SMMU_FEAT_COHERENCY), the attributes for stream tables,
-CD tables, and queues are currently hardcoded to Inner Shareable,
-Write-Back.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 2
 
-On non-coherent systems, however, memory for stream tables, CD tables,
-and queues is allocated via dma_alloc_coherent() /
-dmam_alloc_coherent(), which provides CPU mappings with Normal
-Non-Cacheable attributes. Having a non-coherent SMMU access these
-buffers with Inner Shareable, Write-Back attributes results in
-mismatched memory attributes between the CPU and the SMMU.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Configure the memory attributes for tables and queues in
-arm_smmu_device_reset() and arm_smmu_make_cdtable_ste() based on
-ARM_SMMU_FEAT_COHERENCY, matching the attributes used for translation
-table walks:
+- [Medium] The new predicate in rk_gmac_suspend() takes 'ndev->phydev ==
+  NULL' to mean 'no PHY needs to stay powered for wake'.
+- [Low] The commit body says Helios64 (RTL8211F, WoL in the PHY) hangs
+  after 6911308d7d11.
+- [Low] rk_gmac_suspend() reads ndev->phydev, an RTNL-protected field,
+  without RTNL and without READ_ONCE(), in `ndev->phydev &&…
 
-- In SMMU_CR1, use Outer Shareable, Non-Cacheable for non-coherent
-  SMMUs, while retaining Inner Shareable, Write-Back for coherent SMMUs.
-  This applies to stream table accesses as well as queue accesses (CMDQ
-  fetch, EVENTQ write, PRIQ write).
-- In STE.{S1CIR, S1COR, S1CSH}, use Outer Shareable, Non-Cacheable for
-  non-coherent SMMUs, while retaining Inner Shareable, Write-Back
-  Read-Allocate for coherent SMMUs. This applies to CD table accesses.
+Pre-existing issues:
+- [Medium] rk_gmac_resume() ignores the return value of rk_gmac_powerup()
+  and always returns 0.
 
-Assisted-by: LLM
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Daniel Mentz <danielmentz@google.com>
----
-Changes in v2:
-- Rename local variables 'cache' and 'sh' to 'cr1_cache' and 'cr1_sh' in
-  arm_smmu_device_reset() (Nicolin, Will)
-- Collect Reviewed-by from Nicolin
-- Link to v1: https://lore.kernel.org/linux-iommu/20260929032229.3532247-1-danielmentz@google.com/
+--
 
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 37 +++++++++++++++------
- 1 file changed, 27 insertions(+), 10 deletions(-)
+net: stmmac: dwmac-rk: keep the GMAC powered when the PHY wakes the system
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 34e916ea339f..02cc6fb83461 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1905,6 +1905,15 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
- {
- 	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
- 	struct arm_smmu_device *smmu = master->smmu;
-+	u64 s1c, s1csh;
-+
-+	if (smmu->features & ARM_SMMU_FEAT_COHERENCY) {
-+		s1c = STRTAB_STE_1_S1C_CACHE_WBRA;
-+		s1csh = ARM_SMMU_SH_ISH;
-+	} else {
-+		s1c = STRTAB_STE_1_S1C_CACHE_NC;
-+		s1csh = ARM_SMMU_SH_OSH;
-+	}
- 
- 	memset(target, 0, sizeof(*target));
- 	target->data[0] = cpu_to_le64(
-@@ -1916,9 +1925,9 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
- 
- 	target->data[1] = cpu_to_le64(
- 		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) |
--		FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
--		FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
--		FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH) |
-+		FIELD_PREP(STRTAB_STE_1_S1CIR, s1c) |
-+		FIELD_PREP(STRTAB_STE_1_S1COR, s1c) |
-+		FIELD_PREP(STRTAB_STE_1_S1CSH, s1csh) |
- 		((smmu->features & ARM_SMMU_FEAT_STALLS &&
- 		  !master->stall_enabled) ?
- 			 STRTAB_STE_1_S1STALLD :
-@@ -5102,7 +5111,7 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
- static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- {
- 	int ret;
--	u32 reg, enables;
-+	u32 reg, enables, cr1_cache, cr1_sh;
- 
- 	/* Clear CR0 and sync (disables SMMU and queue processing) */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_CR0);
-@@ -5116,12 +5125,20 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		return ret;
- 
- 	/* CR1 (table and queue memory attributes) */
--	reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
--	      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
--	      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-+	if (smmu->features & ARM_SMMU_FEAT_COHERENCY) {
-+		cr1_cache = CR1_CACHE_WB;
-+		cr1_sh = ARM_SMMU_SH_ISH;
-+	} else {
-+		cr1_cache = CR1_CACHE_NC;
-+		cr1_sh = ARM_SMMU_SH_OSH;
-+	}
-+
-+	reg = FIELD_PREP(CR1_TABLE_SH, cr1_sh) |
-+	      FIELD_PREP(CR1_TABLE_OC, cr1_cache) |
-+	      FIELD_PREP(CR1_TABLE_IC, cr1_cache) |
-+	      FIELD_PREP(CR1_QUEUE_SH, cr1_sh) |
-+	      FIELD_PREP(CR1_QUEUE_OC, cr1_cache) |
-+	      FIELD_PREP(CR1_QUEUE_IC, cr1_cache);
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_CR1);
- 
- 	/* CR2 (random crap) */
+With this patch, rk_gmac_suspend() also skips rk_gmac_powerdown() when the
+attached PHY reports phy_may_wakeup(). Before, it only checked
+device_may_wakeup() on the MAC. The decision is stored in a new
+suspend_powerdown field, and rk_gmac_resume() uses it to decide whether
+to call rk_gmac_powerup().
+
+> When the PHY handles it, device_may_wakeup()
+> is false for the MAC, and rk_gmac_suspend() powers the GMAC down: its
+> clocks stop and phy-supply is released.
+>
+> On Helios64 (RTL8211F, Wake-on-LAN in the PHY) the board then hangs on
+> the first or second suspend with a magic-packet wake.
+
+[Severity: Low]
+Does this describe the in-tree Helios64 configuration?
+
+The gmac node in rk3399-kobol-helios64.dts has no ethernet-phy child. So
+the RTL8211F probe never calls device_set_wakeup_capable() on the PHY, and
+rtl8211f_get_wol() reports no WoL support:
+
+drivers/net/phy/realtek/realtek_main.c:rtl8211f_get_wol() {
+    ...
+	if (!device_can_wakeup(&dev->mdio.dev)) {
+		wol->supported = 0;
+		return;
+	}
+    ...
+}
+
+phylink then passes the request to stmmac_mac_wol_set(), which does:
+
+	device_set_wakeup_enable(priv->device, !!wolopts);
+
+So on the in-tree board, the old !device_may_wakeup(dev) check in
+rk_gmac_suspend() already kept the GMAC powered.
+
+The case fixed here only happens with a DT that gives the PHY node an
+interrupt and wakeup-source. That requirement is mentioned only below the
+--- line. The same goes for the need for the separate interrupt storm fix
+[1] to get the 20 of 20 result. Both notes are dropped when the patch is
+applied.
+
+Also, on Helios64 phy-supply is vcc_lan, which is vcc3v3_sys_s3. That
+regulator has regulator-always-on and regulator-on-in-suspend, so
+releasing it does not cut PHY power on this board. That leaves the stopped
+clocks as the only trigger the message describes.
+
+Could the commit message say which configurations are affected, why the
+board hangs, and that [1] is also needed?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 72bdbcb5e863a..06faeb156b97d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+[ ... ]
+
+> @@ -1530,10 +1531,13 @@ static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
+>  
+>  static int rk_gmac_suspend(struct device *dev, void *bsp_priv_)
+>  {
+> +	struct net_device *ndev = dev_get_drvdata(dev);
+>  	struct rk_priv_data *bsp_priv = bsp_priv_;
+>  
+> -	/* Keep the PHY up if we use Wake-on-Lan. */
+> -	if (!device_may_wakeup(dev))
+> +	/* Keep the MAC and PHY powered if either of them wakes the system. */
+> +	bsp_priv->suspend_powerdown = !device_may_wakeup(dev) &&
+> +		!(ndev->phydev && phy_may_wakeup(ndev->phydev));
+
+[Severity: Medium]
+What happens here if PHY WoL was enabled and the interface was brought
+down before suspend?
+
+With the link up, "ethtool -s ethX wol g" is taken by the wakeup-capable
+PHY. phylink masks it out of the MAC request, so device_may_wakeup() stays
+false for the MAC.
+
+"ip link set ethX down" then runs:
+
+stmmac_release()
+  phylink_disconnect_phy()
+    phy_disconnect()
+      phy_detach()
+        phy_suspend()     <- RTL8211F arms PME (PHY_ALWAYS_CALL_SUSPEND)
+        phydev->attached_dev->phydev = NULL;
+
+phylib keeps a detached PHY like this armed on purpose, as shown in
+mdio_bus_phy_may_suspend():
+
+	if (!netdev && phy_may_wakeup(phydev))
+		return false;
+
+On system suspend, stmmac_suspend() jumps to suspend_bsp because the
+interface is not running:
+
+	if (!ndev || !netif_running(ndev))
+		goto suspend_bsp;
+
+Here ndev->phydev is NULL, so suspend_powerdown becomes true.
+rk_gmac_powerdown() then gates the GMAC clocks and drops phy-supply while
+the PHY is still the wake source. How bad this is depends on the board:
+on Helios64 only the clocks stop, but where phy-supply can be switched
+off, the PHY loses power.
+
+Before 6911308d7d11, the MAC wakeup flag stayed set across ifdown for PHY
+WoL, so the glue kept the GMAC powered. Should the new check also cover
+this case?
+
+[Severity: Low]
+Is it safe to read ndev->phydev here without rtnl_lock()?
+
+stmmac_suspend() drops rtnl before it calls the glue hook:
+
+	rtnl_lock();
+	phylink_suspend(priv->phylink, !!priv->wolopts);
+	rtnl_unlock();
+	...
+suspend_bsp:
+	if (priv->plat->suspend)
+		return priv->plat->suspend(dev, priv->plat->bsp_priv);
+
+It also does not cancel the service task. stmmac_reset_subtask() runs on
+priv->wq, which is not freezable. It takes rtnl_lock() and does:
+
+	set_bit(STMMAC_DOWN, &priv->state);
+	dev_close(priv->dev);
+	dev_open(priv->dev, NULL);
+
+This clears ndev->phydev in phy_detach() and sets it again from
+__stmmac_open().
+
+A reset queued by stmmac_global_err() can overlap with rk_gmac_suspend().
+If it does, suspend_powerdown can be decided while the PHY is halfway
+through detach or attach, and rk_gmac_resume() reuses that decision
+without checking again. In theory, if the compiler reloads ndev->phydev
+between the NULL test and the call, phy_may_wakeup() could also be passed
+NULL.
+
+Would it help to read the pointer once with READ_ONCE() into a local, or
+to do the check under rtnl_lock()?
+
+[ ... ]
+
+> @@ -1543,8 +1547,7 @@ static int rk_gmac_resume(struct device *dev, void *bsp_priv_)
+>  {
+>  	struct rk_priv_data *bsp_priv = bsp_priv_;
+>  
+> -	/* The PHY was up for Wake-on-Lan. */
+> -	if (!device_may_wakeup(dev))
+> +	if (bsp_priv->suspend_powerdown)
+>  		rk_gmac_powerup(bsp_priv);
+>  
+>  	return 0;
+
+[Severity: Medium]
+This is a pre-existing issue, but rk_gmac_resume() drops the return value
+of rk_gmac_powerup() and always returns 0.
+
+rk_gmac_powerup() can fail in rk_gmac_check_ops(), rk_get_phy_intf_sel(),
+gmac_clk_enable(), a GRF write, or regulator_enable() in rk_phy_powerup().
+In that case stmmac_resume() never takes its error path:
+
+	if (priv->plat->resume) {
+		ret = priv->plat->resume(dev, priv->plat->bsp_priv);
+		if (ret)
+			return ret;
+	}
+
+Instead it goes on to access MAC registers with the clocks off.
+
+A later rk_gmac_powerdown() would then call pm_runtime_put_sync() without
+a matching get, and regulator_disable() on a regulator that is already
+disabled.
+
+Should rk_gmac_resume() return the error from rk_gmac_powerup()?
+
 -- 
-2.56.0.rc1.315.gc6ed9934b7-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4%40iav.lv
 
