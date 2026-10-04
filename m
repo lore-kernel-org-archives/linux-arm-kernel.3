@@ -4,109 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7F7CA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE1BCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhuCTwJXESFC7GXHK/sAbi8kSiySbX6q8d3D6uLo3NQ=; b=yPLEKCsxaDhzj9kIeCQCEV1pTZ
-	DtnJAaIU3rnchP+/xNi4Vr43fUTKrZF5GwtLbp39cZU3KiKN351Ftzheh2zkhZ0Yv23hiR6Uh0ZCz
-	7diSrx/ggShWcVg8fXkoBYcOKBH/lgTamKLuuvKmewmbUXYmf+G64evKy4Xmk7hp2kDEfdSn8ssBq
-	6k1Nngve8YIH1rXqJ6XW7I7IwmKsAeAOxF+ga6C+uSxQVblMXLGfw8MuIVZ1B3H2HyhiJ0MaCLA6x
-	s1mAOE6EAdcb6qwISqbLM4gKDZ4/CXQRbNCOHMd39A2yuHdaUNiChaDRRidmTJB5NABt3AkhsNwu/
-	lvLWI+7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=; b=XoPDUyYIjMLanhVJx1w5Uw++Do
+	lBzkquBryGjlbef0PSVCYOUVZpx1dqIlFkbVjLtbFmYd1pREslzcAWEzg3WFOK+2OIdg7JiPABQve
+	+6vN9d0IEg1uCroanJ1TRqltBDzDFXdTz0DIjooB6fCOCz82ADZo6rInGiHkbChh13roKbtABB+dh
+	W2Bn3Lmh0gImkSTExgZC2DupMWjq9rVX31aeZPU8xXUu7qbfWkfp9yOt3hDgY2h8xJyWiVhnrT7P6
+	twS5jEUivxsZLYAdPTxYmxycNNBB4h+jWEu6K6/IHaDQ7ZHs7nmQEMlukQy7ZV5xaqwsCf++LfnBt
+	xeC+wXzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKNy-0000000Ek9N-1VnY;
-	Sun, 04 Oct 2026 11:28:06 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xDKyr-0000000Elr3-0WoR;
+	Sun, 04 Oct 2026 12:06:13 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKNw-0000000Ek8h-0aN2
+	id 1xDKyo-0000000ElqT-23rR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 11:28:05 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a024e16179so5198255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 04:28:03 -0700 (PDT)
+	Sun, 04 Oct 2026 12:06:11 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccc02279so510109a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:06:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1791113282; x=1791718082; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AhuCTwJXESFC7GXHK/sAbi8kSiySbX6q8d3D6uLo3NQ=;
-        b=VQzfF5Azn5hh6mnPYl1JkkUHOk3K2Jt+S9YyJAEe0Ci8ctd6HLRpOb9vfao0mNoedY
-         Y8/07toRhoXTJBTYrtCD1gXHhhtpsBAR2P5wx7RTgHbwzJV2saej0yqOO6twxrTEHLHC
-         dPc2b685BdAQGN7iizkhZVoK7Jp/QkRbPSnuBP67i13Zcje8rJq+frEiwf+XiJ+Xyx8k
-         02zlJ/xn754HfIxSxjmoVnFztC3k06+hw/agL+3QU9lwx8vsgRjagwWa1lSYCzxNGk6V
-         Lxe70GFZ0sk6+ze3UEqfvsxMRM53Ch+5QRxNjIBVeEV2iwy70zdcsrdSUsmrmFS3NFf4
-         CwUQ==
+        d=gmail.com; s=20251104; t=1791115569; x=1791720369; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=;
+        b=cfqfN0HZ8oY9IxYFyDECOEj9WDPGK3yvRYXn4Y4F6k/DjcAvTEQBUynALpnEy1EvXS
+         M7esXSU8dCcbD5JAbY3sQE8yzNtz0ngb37FQICFBtYiNFw3ixFDxsXpVsGkxVrdYZuom
+         0EOWG8075ge51IGZl1OgYyfjRRZ8pm48qLgb48p0Jjg5+VlSH9QzC2QZGjDNzcKRrX/z
+         jiPVzhkNjZSovtOrJm3mfWac+Kq3UcLsSmxiDux2uK4FxP88YuM6+ReGEqLL1pB9vuXj
+         JH90MqhQttxgdq4ZAyypdUudsaeuNma60wHJ3xwxF/pQ48b63K88DAbN+OKI6BqdSd59
+         5PKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791113282; x=1791718082;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AhuCTwJXESFC7GXHK/sAbi8kSiySbX6q8d3D6uLo3NQ=;
-        b=eIgIQdnSfsI29fG8Q5GVmXU2cUAoTDaiFj/hsn7cfSYVFv3VbBSSTF3FrV0AlGqPMA
-         P7LKm6lqPWXy3kB6MAQO7m1j8meB5MEPHER7W4l6nLNqoZmSUHOL9qBiIraUG7CdyP0c
-         7VdcL/dVctZarLuwThA4NFyF6F7r0B8E2givWULDLwbwktKmCEIA74LMC9ScF/6wKsrJ
-         DxuKnKdF80V5j7i0CHVvTFgquDvOhpj0O1+1J+JhYIteeohqQSXdN0GtiQjZ4lpEdGEX
-         feme+51wjtIzNgbibVdlQB69g9I28jPVliEW6uBd+3g/TRCWTKdOwdGlOvlsO8v3sIRN
-         5jyw==
-X-Forwarded-Encrypted: i=1; AKwUvBxNltSPl852TPzz4nEwPZHlia1fItYOCk4+XzvcokO1A/jUo1mf7tPzwJ2d3mXbuoV8LoMigr1PmxnFWcXxGqj0@lists.infradead.org
-X-Gm-Message-State: AFuF++lRxuQrDXKcRCVlhf8nHSkFO8IHEwVZmZWXz4kQRE7RMvkeAKTd
-	1DueDpiE3NQTCfqO3oXdzSdfXkd+/iro3HRIWh4XDDy+kLJ4jyRVLAjRuIbkndDfPTk=
-X-Gm-Gg: AYBFou21IS8q/m2lnJAuw+kLTYHsuvBDt/ZIxmzf5S7pSYP1BKZuadSYSIFPaN9pUoQ
-	yrBSEGA6EKjmQYguEa/RkU7jm3DLILcyQYyGfwcofGqikva8iBjsY18O1BJo5vakcIKusAq96ZD
-	GrRQgeuOpqdM7NhqVH00k2rnaONHtrVg0af9suAEaOMlFLGlKSskoeHcV4LzqQnLPO7nkv2u0cD
-	ypMnBtRuY23425yVUScspGSMLHnhlMXU231q1dy/o2CXIpol2IPNk1cePsZwnLlZnVewsGBnfDB
-	9iGnl7zHqjrDktfyZAnEqDD2VgH2gn8R5FaNIGgli2aniZLdrp3YoyObrJEZbr18HkHSE3zabr7
-	/KbYjfT1ck2w4KGSd/h1GxY01AUyE971+hZ+2elvvnVW/6PZZkroQGldaseQsKjBoQeT2EL2WDC
-	qDu+tamGo4xIrF2nUYEol8MT3r731dDhNHEaDNk9F3/Q4me6FsXwUVgCZp1sRZtx4VjE1plELTo
-	66bfSTW9Rjzx/I7d55jdKG+jSIcOpzfjGM5sfyMxzwI+VqzUM20qVl+WWfgq8YyKGuIIA5Nf0nM
-	KXq5jKXOfsZaC7hR1V0OJtXxHe5ZvL7DUrTWxPGm
-X-Received: by 2002:a05:600c:8717:b0:4a0:2867:d8a9 with SMTP id 5b1f17b1804b1-4a02867da4cmr125457755e9.30.1791113282016;
-        Sun, 04 Oct 2026 04:28:02 -0700 (PDT)
-Received: from ?IPv6:2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f? (2001-1aeb-400-6f00-73f4-bfe7-a3e6-c16f.ip6.tmcz.cz. [2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a16d6295f9sm129342815e9.14.2026.10.04.04.28.00
+        d=1e100.net; s=20260707; t=1791115569; x=1791720369;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=;
+        b=m2ySD50wJGu8BqA/5GZCm5L4NTLB+jfbqtnkJFzHBKEUHKAaFdkxl7mYBE+3bCk60a
+         jpCJZihxNzdxX5rrYxhNpiYlIIkkASd5JThz47RMWZRffiwpHkiQsG7FUwSCNNhT1Hf0
+         frrUjc0RX4gZO5Fd5Oo3pDFGIiHF2pFEIk+eu1XiWEV1JYkoCjE2URFnweAg4l1iCw7T
+         WTGx1yFsS0ozlCVeN+rpnfShI+inXAbWlgN63Q/gHMMvQbKDlRB8TV7DldcdSJ+3m4Z/
+         JIq4GZcLj8oQouL8RFdbUVU/W4xDXEEt/KQW97vU+Cq95yKAw4UMSNQePGVPhVnB+Eiy
+         KSxA==
+X-Forwarded-Encrypted: i=1; AKwUvByLVeLP+prjXP2OGzCSiOrKFfw3yZHmiS4ujNMAO53rfC2tjKz+KgWH4j3pQOI9emc5a0DZFuTh8guqmyo4ZRBr@lists.infradead.org
+X-Gm-Message-State: AFq9FYJcsRjgH5C18ZqVQq9mvHTufIzTOf61r+dL2A5QmqfupCBJUAAf
+	yQp0/Gj/MAovc9V8ET2HTD9Ypcx4aEFRK0S14D4JQ3boKAY5ykMt24W3Vgk8Rw==
+X-Gm-Gg: AYBFou1E11FsqROT9alwh9lkvZ8H8gJRuVLgpSbemvq5FRAluPtdeGy2iXTgzZmKQ7n
+	iaNkdu6w31kbNHNYy6JjTXdp0HXDgwgcfkiT82kEQqyM5GD2LbA9qmEdw3ZyPVzastZQ1D2g8Kg
+	EO8qJ2Wi5c/NESIfBD/j7OjSy3KvedrxYoAXkxCjMbyyA991h6W8uBwJdGWgyOuefQrNdspBWP6
+	RJDv97LQoPMgW3OhmTGfNqExTXySc6UQoq0NnoQb9k/WfbmQ6qPHlnlx2+i1SoxhRhebMDQZXOk
+	8uAeex90SM85F9qRxjTmAOk0aEPqFzJ5BvrSy+k8jVXNw+gNawswTFwitqO44YJoOtF/QXDPZzj
+	cV2BbEquzmKEwl8GmQ1yw/6oVSRTiSahKyNeSdHtUGV5PAtUH5LkZyGsG2cJ+YtwaNoVPzY/wmC
+	rVqLa3tfz/FrthksowIWNPO5gVqBdtiOy/4wtupIaUnZTGF4NztDSABro6fn8e/sZod7aKvg==
+X-Received: by 2002:a17:90b:3c4d:b0:3a7:8350:49a5 with SMTP id 98e67ed59e1d1-3a783505109mr3878592a91.32.1791115568964;
+        Sun, 04 Oct 2026 05:06:08 -0700 (PDT)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a79e7c243csm2603661a91.0.2026.10.04.05.06.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 04:28:01 -0700 (PDT)
-Message-ID: <0afab6a00aaa0bd7d9085a2573bd3133252a07c7.camel@ndufresne.ca>
-Subject: Re: [PATCH v3] media: mediatek: jpeg: retry HW selection after
- successful wait
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, bin.liu@mediatek.com, Mauro
- Carvalho Chehab <mchehab@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@kernel.org>,  Irui Wang <irui.wang@mediatek.com>, Kyrie Wu
- <kyrie.wu@mediatek.com>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Date: Sun, 04 Oct 2026 07:27:59 -0400
-In-Reply-To: <20260815134949.49042-1-pengpeng@iscas.ac.cn>
-References: <20260815134949.49042-1-pengpeng@iscas.ac.cn>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-QpMlAF90W0tCNQZ2Cp7Y"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+        Sun, 04 Oct 2026 05:06:08 -0700 (PDT)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	richardcochran@gmail.com,
+	maxime.chevallier@bootlin.com,
+	muhammad.nazim.amirul.nazle.asmade@altera.com,
+	rohan.g.thomas@altera.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v7 0/3] net: stmmac: dwxgmac2: timestamp interrupt support + Agilex5 fix
+Date: Sun,  4 Oct 2026 20:05:23 +0800
+Message-Id: <20261004120526.2728564-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_042804_198275_3EE5E4AD 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20261004_050610_539456_8E743312 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,88 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds auxiliary snapshot (EXTTS) interrupt support to
+DWXGMAC2/DWXLGMAC2, fixes a stale TSIS race on the Agilex5
+cross-timestamp path that the new handler would otherwise expose, and
+guards the shared aux snapshot handler against a zero channel mask.
 
---=-QpMlAF90W0tCNQZ2Cp7Y
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Patch 1 makes smtg_crosststamp() complete on the persistent ATSNS
+count instead of the transient TSIS bit, waits for the ATSFC FIFO
+clear to complete, and holds aux_ts_lock across the whole
+trigger/poll/drain sequence so a concurrent PTP_CLK_REQ_EXTTS
+request cannot flush the snapshot FIFO mid-flight.
 
-Le samedi 15 ao=C3=BBt 2026 =C3=A0 21:49 +0800, Pengpeng Hou a =C3=A9crit=
-=C2=A0:
-> wait_event_interruptible_timeout() returns a positive value when its
-> condition becomes true before the timeout. mtk_jpegdec_worker() treats
-> every nonzero result as a failure, so a normal decoder wakeup finishes
-> the mem2mem job as though no hardware became available.
->=20
-> Handle interrupted waits and exhausted timeout retries separately, and
-> retry hardware selection after a successful wakeup. Increment the retry
-> count only for actual timeouts. The encoder uses
-> wait_event_interruptible(), whose successful return is zero, so its
-> existing check is correct; leave that separate no-timeout policy
-> unchanged.
->=20
-> Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interfac=
-e")
-> Assisted-by: Codex:gpt-5
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Patch 2 guards the shared aux snapshot handler against a zero
+PTP_ACR channel mask: ilog2() is applied to the mask without
+checking for zero, and ilog2(0) yields an out-of-range event index
+that ptp_clock_event() feeds to test_bit() unchecked from hard IRQ
+context.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Patch 3 wires up a dedicated DWXGMAC2 timestamp interrupt handler,
+following the guarded pattern of the shared one.  Before this change
+the XGMAC hwif entries used the generic stmmac_ptp ops, whose
+timestamp_interrupt callback read the dwmac4 offset
+GMAC_TIMESTAMP_STATUS (0xb20) instead of the XGMAC register at 0xd20.
+The PTP clock advertised the aux snapshot channels, so
+PTP_EXTTS_REQUEST succeeded but no event was ever delivered.
 
-Applied, ty.
+Following 30300d9f9150 ("net: stmmac: xgmac: Disable the Timestamp
+interrupt by default"), XGMAC_TSIE is not added back to
+XGMAC_INT_DEFAULT_EN.  Instead it is armed on demand from the
+PTP_CLK_REQ_EXTTS enable/disable path via a new optional
+timestamp_interrupt_cfg mac callback (mirroring dwmac1000).  The
+interrupt is only touched after the ATSFC FIFO clear has completed,
+and the handler refuses to drain entries while that clear is still
+in flight; it also leaves the snapshot FIFO alone while an internal
+cross-timestamp owns it (STMMAC_FLAG_INT_SNAPSHOT_EN), is disarmed
+when the PTP clock is unregistered, and is re-armed on resume by
+stmmac_rearm_timestamp_irq(), which redoes the EXTTS programming
+under aux_ts_lock before re-arming, when a channel was left enabled
+across suspend.
 
-> ---
-> Changes since v2:
-> https://lore.kernel.org/all/20260720115322.89784-1-pengpeng@iscas.ac.cn/
-> - add the Fixes tag
-> - revalidate the decoder-only change against current mainline
-> - add the required coding-assistant attribution
->=20
-> Changes since v1:
-> https://lore.kernel.org/all/20260625003142.99598-1-pengpeng@iscas.ac.cn/
-> - split interrupted waits, timeout exhaustion and successful wakeups
-> - use distinct diagnostics and explain why the encoder path is unchanged
->=20
->  drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index d147ec483081..9634c95aaada 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1697,9 +1697,15 @@ static void mtk_jpegdec_worker(struct work_struct =
-*work)
->  		ret =3D wait_event_interruptible_timeout(jpeg->hw_wq,
->  						       atomic_read(&jpeg->hw_rdy) > 0,
->  						       MTK_JPEG_HW_TIMEOUT_MSEC);
-> -		if (ret !=3D 0 || (i++ > MTK_JPEG_MAX_RETRY_TIME)) {
-> -			dev_err(jpeg->dev, "%s : %d, all HW are busy\n",
-> -				__func__, __LINE__);
-> +		if (ret < 0) {
-> +			dev_err(jpeg->dev, "decoder HW wait interrupted: %d\n",
-> +				ret);
-> +			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
-> +			return;
-> +		}
-> +
-> +		if (!ret && i++ > MTK_JPEG_MAX_RETRY_TIME) {
-> +			dev_err(jpeg->dev, "all decoder HW are busy\n");
->  			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
->  			return;
->  		}
->=20
-> base-commit: dac3e89a2c90c2feeb471e1f22a2512ad424b792
+v1: https://lore.kernel.org/netdev/20260806-dwxgmac2-timestamp-irq-v1-1-c051c79c9d90@gmail.com/
+v2: https://lore.kernel.org/netdev/20260810100221.9166-1-zxyan0222@gmail.com/
+v3: https://lore.kernel.org/netdev/20260818132722.1852876-1-zxyan0222@gmail.com/
+v4: https://lore.kernel.org/netdev/20260902131441.322167-1-zxyan0222@gmail.com/
+v5: https://lore.kernel.org/netdev/20260910081020.86227-1-zxyan0222@gmail.com/
+v6: https://lore.kernel.org/netdev/20260929073553.4136336-1-zxyan0222@gmail.com/
 
---=-QpMlAF90W0tCNQZ2Cp7Y
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+v7:
+- Rebase onto the current net-next/main: stmmac_resume() now only
+  re-initialises timestamping under priv->ptp_enabled (8181678a92f0),
+  so stmmac_rearm_timestamp_irq() moved inside that block.
+- Raise and drop STMMAC_FLAG_INT_SNAPSHOT_EN under aux_ts_lock in
+  smtg_crosststamp(), so concurrent cross-timestamp requests cannot
+  lose the flag.
+- Restore the enabled auxiliary snapshot trigger on resume: the
+  platform init resets the MAC, so stmmac_rearm_timestamp_irq() now
+  flushes the FIFO and re-programs the PTP_ACR ATSEN bit (channel
+  recorded by stmmac_enable()) before re-arming the interrupt.
 
------BEGIN PGP SIGNATURE-----
 
-iHQEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasI4PwAKCRDZQZRRKWBy
-9NuTAPiH0Pb4Hv6jCeaCxdy/4aZd8Z1R3IzPxbwVYpFmBA/lAQCWv/jVgYefRNok
-CUnniqRpZ//vxqIPJzCA3jzERvecAQ==
-=u5ij
------END PGP SIGNATURE-----
+Zxyan Zhu (3):
+  net: stmmac: dwmac-socfpga: complete cross-timestamp on ATSNS
+  net: stmmac: guard against a zero channel in the aux snapshot handler
+  net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
 
---=-QpMlAF90W0tCNQZ2Cp7Y--
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 36 ++++++++---
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 59 +++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |  5 ++
+ .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 17 +++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 51 ++++++++++++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 23 +++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  2 +
+ include/linux/stmmac.h                        |  1 +
+ 9 files changed, 187 insertions(+), 11 deletions(-)
+
+
+base-commit: 62d7b9186cad08324d6b9d262631104bb215e67d
+-- 
+2.34.1
+
 
