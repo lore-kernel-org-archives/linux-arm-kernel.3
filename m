@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E683BCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 06:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C285CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 06:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jkeBQXMC0mxk0cVDHkusiZ0VJqmjJ/qXxgzgEOL765k=; b=D2Pu9/Z2kEQJtR/qebk5vpvMAY
-	HYcTsP/nv5WL2ekpF7yHSxFsk41BsYK8s7QMMXmAwY1vWFml9h+ksdQwPO4LyILhisXZk79kG+wrH
-	SFQvv1ZzveMT/tjMXH+ayML4KlPZztxXdINQVTj32r/2peaS0o2m159xUtafQI0O8gjU1ug9/jmAu
-	xAfYxSZ0Ev4EJ3M/c36NanKcKUndu0I2qW38++LY1av163AE45DoZhFIOMFRbYWuBeeydIXy6s4Yl
-	+AHhX+liilM7YdjVRnfxBw/68z4xtskfZUNprI7TgkfA2/Fm0FiGyabb1a3sbVqNLE6YyCenb5Fw7
-	4g5nWn9Q==;
+	bh=jUq35Mj7y/kPdp1eqVQTd7ny1GwkFBnwNODPDMNc1j4=; b=vOlcdxhyo2W87WAXoDpRkzdXRx
+	OmyMwFf6atPNsUNTjNqb8rhj55mUK5etbmV+JkRw25CHBhYtuZculyHljHz2hujFiIsE0rtVniBPh
+	W5RGp6pDja+uogO3B4JRowfxfpvmQmO1Jk1gCGHynSWhIHr67oYuDNT2WRzvX9cbL0XMdOiv9y4vy
+	T/ZlTsk3jfZB32SU3sD0e7Am77UO9gfrLYlcI1QnbpVNzQf3bYhOg1bKghEmLGgce5XwI01m609RF
+	35F8Tnp6B6CAy2TTweFA8IjmFANUzFXZJE83MsLvzacCLWwMf3igmXOP91TDLvhSHVQbarm3f0MaX
+	EFRT3H1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDFsI-0000000EQyM-1zRl;
-	Sun, 04 Oct 2026 06:39:06 +0000
-Received: from mail-4322.protonmail.ch ([185.70.43.22])
+	id 1xDGCB-0000000ERdz-4AdB;
+	Sun, 04 Oct 2026 06:59:39 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDFsF-0000000EQy0-3UrT
+	id 1xDGC9-0000000ERdU-0GOb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 06:39:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=ypm3tercgjcidctqjyemeslyim.protonmail2; t=1791095940;
-	x=1791355140; bh=jkeBQXMC0mxk0cVDHkusiZ0VJqmjJ/qXxgzgEOL765k=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=E2Ez0S4tFO8YVQ8T5qWnVIic2lvgr3uh0+BneFzPTl3KOrw/shTnKvF9OrARpxbl9
-	 p03kHEZDlviTZPO3vjguFBd1Fd/ypPxNdH3jJdwBq/RoGgCD4YK1TeIN2sWZEIpEhw
-	 OL7zWysttLIM+ka6wB+hWoWgcf9VkX7OMObcCozhI68Ej6WGmu3oN4uBs+pFH9Z22E
-	 8F7Elywq9okdORKCk22Y2YHkvW3uHjZb98eHXULmXerj47t2Mfu2TcwSdPb/iccbxm
-	 /CpXcM5zZ3l+WhTyr4imdHXixLGOKvyKTTAb3Om5fQgXWaU1SWErzz5YSU8zImtvjp
-	 84KUwJA+ryfFg==
-Date: Sun, 04 Oct 2026 06:38:56 +0000
-To: Andre Przywara <andre.przywara@arm.com>, Linus Walleij <linusw@kernel.org>
-From: Norman Herms <dockseed@proton.me>
-Cc: Pablo Mazzini <pmazzini@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: pinctrl: sunxi: a733: irq_banks too small for port K
-Message-ID: <lqyUiTS5jK5vqN8dT8ByLl8sBPTW6eSDG_13v8UAkVIUCnnxLv4UBrlHTm0c7f4brqOd5ur4sDdgld0Ol4usnXOHgJscjqwJl2BrzPpJk5Y=@proton.me>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: 9d76db5c45f7d18900f3d56a77fb38acbbf9487a
+	Sun, 04 Oct 2026 06:59:38 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48c5358fc28so177341f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 23:59:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791097175; x=1791701975; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jUq35Mj7y/kPdp1eqVQTd7ny1GwkFBnwNODPDMNc1j4=;
+        b=iQ9X5RL3ec0RTuFHkqq5HhlAIZus2DpLqeBJhe5KwQqL7DGf/+8NSjpPDRw05p1tg/
+         BOIu2GQcrfFtUstjQfza4N299H/D71obXgaEMxJZOIXqHkyyFmJsqENnGq0LCWFf796i
+         sWTShnLy4DGmLGedDmBOW5jsRVgzAKyRoPF4EEM9Ad3Y9xhxMGEtsZn4cCrGtzC5gVPA
+         KreAdvIz6wou3u4HCozkED/N0aY2CSPk9fi/y/VkKebjldOX0PrHrx67r9OD8YsfDa37
+         T1MdPhErbIxUDy4X+rvLQ0yCxPtm0gGiphzpLLCXilLsxneCgZuQvBfuUs8YICbZcrzM
+         IE7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791097175; x=1791701975;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jUq35Mj7y/kPdp1eqVQTd7ny1GwkFBnwNODPDMNc1j4=;
+        b=gnbMrawmDuoHosXThLDEcYct/7CNRDkjTsmXWoHcaayqW+PW1jlbAl5+YZOWVWm5ar
+         0sTUwKDZjocW6P/0+n5hle1stSg7CrlUvT1v68vhEGZDqycf/ZvCv32TSGWGlCUTd7BC
+         s5zNiXLgJ9vysHtJdRDab1nc+ZPWxKiN6D40IcCBramVA+xpRMN9sXs8gL0ZgNrbKocD
+         sKfh3E98goHl5Ni95qVm2Ni7+P03e2Eg2AdceV9JqdX06/UfLBEeAKhZNeF7qdVFna/Q
+         uqqocZOJ8mJCT8cDP6XgWywoHNe+oF5mKhqa4rWRbeRfMlQAfvpsMrmw6/WhXeLkg8KS
+         Xf1w==
+X-Forwarded-Encrypted: i=1; AKwUvBxrVveR19H2xvjYohOwJwd/Udzyw0cYYHXtY3M0oRE4+KLIYv0Zi3+BZSGYsiIw7l930OsZ55oe0rnbuT1CZlfx@lists.infradead.org
+X-Gm-Message-State: AFq9FYIsrplv68kVBXU3aCbFM21osvWJlS0tlPDH7vOw3t19SHrNc4I/
+	kXsfO1lxTf9suId/erS4BD0HcXxC/8pMU/EREunBCX+iG6H63EXR9CG0
+X-Gm-Gg: AYBFou1hEqDwzorj7dQnTr9bMoxkVYlhg+S0LXjWlF/lFqT3cIRC/AGOexaR9LbIQyz
+	FwPkOvF9JAi7MgVQGpmMDeTV74jt5CEcOkx4FTV2qMNFwlGUDEYiWH3l0pIvi6IMfZh/bQMoz1G
+	CRqxN9p7rbDLSy9fFL26nfDKkIkFY1T+3mBcegHomEUjQQfyn7ISzmnL6RyvXSAyB/25CGcKxTw
+	cXItpOrpLCzgMtWFl2JCq5mvdbKfSPQAwDPdmbve55oEFA7UHP0KKnIo/hVkzPnT9+PKFdptCMH
+	4+IESYq/19fzPMSBF4J2mJj+GbkR2QEjSWvEWghL6bRUZD2VrFsm4yx7TgkO8aJvwm3LI8zlnQN
+	9vqo4Wr1zwG7FF7X21gk4M87NvTZurJh+Hlu1ptb9/wyM/Tz0e0itxdFmqxwU3kMnJPAkvO75Hr
+	4CwI9qYETAO/yNrvvTi4SNud1H76A+F5Clg/BFll+H61NP3dYGypAKFIYAiLDyp85ZY5XZsFS1B
+	+0FoAWgC/VKFUasqdrD/onNPNPqLzTQPIwCMoGERlfRRy9h7Gw=
+X-Received: by 2002:a05:6000:2610:b0:48a:f11e:6d57 with SMTP id ffacd0b85a97d-48c47fe6a3fmr6495332f8f.19.1791097174408;
+        Sat, 03 Oct 2026 23:59:34 -0700 (PDT)
+Received: from fedora-tap.advaoptical.com ([82.166.23.19])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c57d927cdsm1761318f8f.6.2026.10.03.23.59.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 Oct 2026 23:59:34 -0700 (PDT)
+From: Sagi Maimon <maimon.sagi@gmail.com>
+To: netdev@vger.kernel.org
+Cc: kuba@kernel.org,
+	pabeni@redhat.com,
+	suraj.gupta2@amd.com,
+	radhey.shyam.pandey@amd.com,
+	michal.simek@amd.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	robert.hancock@calian.com,
+	sean.anderson@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sagi Maimon <maimon.sagi@gmail.com>
+Subject: [PATCH net v5] net: axienet: do not report TX completions as NAPI work
+Date: Sun,  4 Oct 2026 09:59:30 +0300
+Message-ID: <20261004065930.1004953-1-maimon.sagi@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_233904_501607_9C1056B1 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261003_235937_162532_E451F8F2 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,48 +107,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Andre, Linus,
+axienet_tx_poll() reclaims every completed TX descriptor in one pass:
+it passes lp->tx_bd_num to axienet_free_tx_chain() as the descriptor
+limit, and @budget is only used as the napi_consume_skb() bulk-free
+hint.  It then returns the number of packets reclaimed, which is bounded
+by the ring size rather than by the budget, so the poll can report more
+work than it was given.  This was seen after TX completion interrupts
+had not been taken for a while and a full ring was reclaimed at once:
 
-Observation on "pinctrl: sunxi: add support for the Allwinner A733"
-(Andre's series [2], now in linusw/devel for 7.4):
-the A733 pinctrl description sets .irq_banks =3D 10, but PA does not
-exist there, and prepare_function_table() in pinctrl-sunxi-dt.c counts
-IRQ banks from PA, so PB is 1 and PK is 10. This is the same
-numbering problem as in Pablo's thread [1].
+  eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
+        returned 96, exceeding its budget of 64.
 
-With irq_banks =3D 10, PK (26 pins, bank 10):
- - sunxi_pinctrl_init_with_flags() allocates irq_array for 320
-   entries but sunxi_pinctrl_build_state() writes PK to 320..345
-   (104 bytes past the end) at every probe;
- - PK gets no parent interrupt and its hwirqs are outside the IRQ
-   domain, so there are no GPIO interrupts on port K.
+netpoll is affected as well.  poll_one_napi() polls with a budget of 0
+to reclaim the TX path only, and warns once if any work is reported.
 
-Measured on two Radxa Cubie A7S boards, same kernel (v7.3-rc5 plus
-this series), once as is and once with irq_banks =3D 11. Requesting
-edge detection on PK0 through the GPIO v2 character device fails
-with ENXIO as is and works with irq_banks =3D 11. PB0 as a control
-works in both cases.
+TX completions are not budgeted work: Documentation/networking/napi.rst
+lets a poll process any number of them.  Do as bcmgenet does since
+commit a58cdf56b6eb ("net: bcmgenet: complete Tx NAPI after one reclaim
+pass"): reclaim the ring, complete NAPI with no work done, re-enable the
+TX completion interrupt and return 0.  Re-enabling the interrupt raises
+it straight away if more completions are already pending, so none is
+left behind.  This also drops the extra poll that used to follow a full
+budget's worth of completions, which only found an empty ring.
 
-KASAN (generic) does not report the overflow on either board. devres
-rounds the allocation up to the whole kmalloc bucket, so the 104
-bytes still lie inside the object. The out-of-bounds write is
-therefore invisible to KASAN here.
+netpoll polls with a budget of 0 and must not complete NAPI, so skip
+the completion then; napi_complete_done() refuses it in that case
+anyway.
 
-Regarding Pablo's thread: with the convention Andre preferred there
-(count from PA, placeholder interrupt in the DT), the A733 needs
-irq_banks =3D 11, which also matches the binding (exactly 11
-interrupts). 10 would only be right with the renumbering from
-Pablo's patch, which is not applied.
+Suggested-by: Jakub Kicinski <kuba@kernel.org>
+Fixes: 5a6caa2cfabb ("net: xilinx: axienet: Fix packet counting")
+Assisted-by: LLM sparse
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+---
 
-I am not a kernel developer. The measurements were run on my boards
-by AI agents, and the analysis was done with the help of an AI
-assistant (Claude). This is a report, not a Tested-by.
+Notes:
+    Changes in v5:
+    - Complete NAPI with 0 and return 0, following commit a58cdf56b6eb as
+      Jakub suggested, instead of capping the returned packet count at the
+      budget.  Subject changed to match.
+    - Dropped Suraj's Reviewed-by, as the change is different now.
+    - Build-tested only; not yet run on hardware.
+    - v4: https://lore.kernel.org/netdev/20260930071536.627964-1-maimon.sagi@gmail.com/
+    
+    Changes in v4:
+    - Keep reclaiming the whole ring and cap only the value returned, as
+      Paolo Abeni and the review of v3 suggested, instead of stopping the
+      reclaim at the budget.
+    - Fixes: now names 5a6caa2cfabb (review of v3).
+    - v3: https://lore.kernel.org/netdev/20260924135052.185129-1-maimon.sagi@gmail.com/
+    
+    Changes in v3:
+    - Report no work for a budget of 0, so netpoll cannot trip the
+      WARN_ONCE() in poll_one_napi().
+    - v2: https://lore.kernel.org/netdev/20260917115657.20697-1-maimon.sagi@gmail.com/
+    
+    Changes in v2:
+    - Treat a budget of 0 as no limit, so that netpoll still drains the TX
+      ring.
+    - v1: https://lore.kernel.org/netdev/20260914114821.55503-1-maimon.sagi@gmail.com/
 
-[1] https://lore.kernel.org/linux-sunxi/20260929203634.32998-1-pmazzini@gma=
-il.com/
-[2] https://lore.kernel.org/linux-sunxi/20260910133519.459011-1-andre.przyw=
-ara@arm.com/
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-Thanks,
-Norman
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 09443623a3e2..a13323a9399f 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -985,9 +985,9 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+  * axienet_tx_poll - Invoked once a transmit is completed by the
+  * Axi DMA Tx channel.
+  * @napi:	Pointer to NAPI structure.
+- * @budget:	Max number of TX packets to process.
++ * @budget:	NAPI budget, or 0 when polled by netpoll.
+  *
+- * Return: Number of TX packets processed.
++ * Return: Always 0.  TX completions are not counted against the budget.
+  *
+  * This function is invoked from the NAPI processing to notify the completion
+  * of transmit operation. It clears fields in the corresponding Tx BDs and
+@@ -1019,7 +1019,12 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
+ 			netif_wake_queue(ndev);
+ 	}
+ 
+-	if (packets < budget && napi_complete_done(napi, packets)) {
++	/* The whole ring was reclaimed above, so there is nothing left to
++	 * poll for: complete with no work done, as TX completions do not
++	 * count against the budget.  netpoll polls with a budget of 0 and
++	 * must not complete NAPI.
++	 */
++	if (budget && napi_complete_done(napi, 0)) {
+ 		/* Re-enable TX completion interrupts. This should
+ 		 * cause an immediate interrupt if any TX packets are
+ 		 * already pending.
+@@ -1028,7 +1033,7 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
+ 		axienet_dma_out32(lp, XAXIDMA_TX_CR_OFFSET, lp->tx_dma_cr);
+ 		spin_unlock_irq(&lp->tx_cr_lock);
+ 	}
+-	return packets;
++	return 0;
+ }
+ 
+ /**
+
+base-commit: 6dc989ea46b96ce170840174b4a38c4a387fb005
+-- 
+2.47.0
+
 
