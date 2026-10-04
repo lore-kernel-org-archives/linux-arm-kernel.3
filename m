@@ -4,110 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B97CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7D5CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gMc178loumsMJ2fyhcP0L7Qn5VoTNXOEWwEnxYnAdM=; b=JGDC97S4e/tBr8mbu2BkRUEuM/
-	G6QtuWoFXWACABsU24fsXqHmixLPZhC2aRlNJklwii5ODVUxKJ2AaawUIHZQigYFUsP50EMPMlbi2
-	9/rV4jZmZTp+OD3OEilrdeq0Tr5x1sGz8jg4DBET8eOgvhnhjvXPdBtbTAGzStqn55x68RNEm+vQQ
-	4OQ+u1ksqhAVzv1+CPiKi3wggsNn1D0F0Vl2PGOn7ojP9KURVpVFGxu8j3laimyEEwx2q5rbcNMFJ
-	9UaUw3WFIy/y23KVV4CHGCyJXggebWq6vrLWhIxAw9/eAGTgbtI04Feo+rOHngZRLggCVlzm2/n4+
-	TxvqPDvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=axUuY6R+xPUQ9WsKqWZyN6vKAeBDZjWnfhApo6LvrFU=; b=VgfuinA0xBhLH0tONJFuk50+i/
+	0hNZt26OEBrc3YLigt1WN6AYQ4m+DvfmyAuylb69UD6rNhmx+r0o3RTkr78s9bt+ZCB/Smyo3drwZ
+	eJEeN71GLKswMdKMcXzgKzKH2ylCeJ3F6fMidpRxjcuY1Y59Kx90mIgE4dLIP6scBlnV4PArae5lD
+	nFQ+6n1k93HjhOf+hOE31JHA7vG9fm67b2pPhb6OApvobKhIZbNmrXasM/3yq/ueCA9CTgm0wysos
+	d6oSbKEx35w8WgpB03zqKWe4Bn7eHcZq5xnP8AZ4B1V8/6JFB5arFHKlN1+h5LHd6jOFgXQAkWt+F
+	d6Is6bLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDK2K-0000000Ehjl-0vky;
-	Sun, 04 Oct 2026 11:05:44 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1xDKBM-0000000EiQJ-37Db;
+	Sun, 04 Oct 2026 11:15:04 +0000
+Received: from mail-24418.protonmail.ch ([109.224.244.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDK2B-0000000EhiP-1GVr
+	id 1xDKBI-0000000EiP8-0hcu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 11:05:42 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4887840c529so232208f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 04:05:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1791111933; x=1791716733; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1gMc178loumsMJ2fyhcP0L7Qn5VoTNXOEWwEnxYnAdM=;
-        b=BGxt0DhtT0sUk0TXbpxhrGObhcvQpUzW2I+FdNRYcyXY+h/Mvp5A4QZVhPRV1t/qB4
-         JuVQAhbkgKEsC/xZhG+mnJOkaRBOy3Zl4S29Pw2YGLqRh6MK5ymemiGoX+N72KDVFbe4
-         AhAkrJHqe3Aqub94nO7qxX0wVimlCmdKg20q8CWMVGZPQcOen7AATjRxoA1E8pLDX3R7
-         ZWWKZifQZXR0aEzilpMPnNDKW2YYDojzHUowgvPsL55q0BEogctDVhj3SKOo76Z24jL2
-         vOQeJXVaWiRZUps96UXU0/u7t6T6i5+U+GXtKGoTZZ7sNnQz0mwj6t1aCKmUSi7f1wf9
-         iJ+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791111933; x=1791716733;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1gMc178loumsMJ2fyhcP0L7Qn5VoTNXOEWwEnxYnAdM=;
-        b=SsJOx8rtwMOMOzDv+HhRUBxT8XR4+/4YNf/bH+Q3K3YlobSOl3HX1rpewxxduCqGhg
-         2OzomaoI/XUGzLL2k03A4AL/Af4ijyKaaVKzrBLAjSXVMS7Ggw7FDJm1HLVEpYb1ZrMI
-         QN01u5bxevVD6eaIahI59WmUYWt2l9CRQ40SYQSIoWbF4wQAlL8wpVAq3XZZxPQma4PR
-         zn9rPehg6WWFcnvSfTAP1FN1rTL8386/RhKUIJlPL7L4wp5/aIusCdde9qjc+Yj1HXw9
-         PsjkvkWZbO9wJ38/4fMs+4BByWRuqIwlDNQXU62+2/N2KxML37EpqlvjRJQIRWyfg2Ba
-         0fdg==
-X-Forwarded-Encrypted: i=1; AKwUvBzf4NrNpM2kXAj/lsTYmvOeML5zO1+Xnr+QX0pMC924jkhw6yVMLxIyOkJ1w0sih/LFOuO2Paz2ioQVOj1pAErQ@lists.infradead.org
-X-Gm-Message-State: AFuF++n0yU4jYn/qCO/JWLHei/hZsrd6sIbwz+4xeaRm5PhUvT1z9yoC
-	UkxzvkZtbwki8U4qgBuiXiy5aI+wizUboFyIBaC9DZgSJ6bs6ZR/t5eC0sDWBoW6zIM=
-X-Gm-Gg: AYBFou33oa1DFaWbi+omGAFYHUFKnhRCbH84CdYhiDAP1DVGcbfg4hT1iTVjQ4LgqoH
-	iJ0EDIiVR8TllxRcy5Av47tfxltlTsL28piAhIl74YidlNF5Mvjv6NsYB4IdPXhCtilP/1ICfJL
-	XnT3BRig0ASnuugOH46upsQwBFzPgLHY+eU+X6x0//7oRd+XzHPsYJwYO9dko8i3uSaSVjv/y1U
-	hODFbqlmefgY4HRYam3zfciCsyf8d2U0Vg+TETSKIZbjnRXT/xWAoYLrR2SMFT7hQGk4TBGWaDP
-	yORRvPAOVfexwJnjImz+DFOaqVgErNCe5Ye/+SDrGNVMcATXWboVp6Y6JCxw7gn6gLLbBNq9SyP
-	k16+gqW5VMWKPIxLMspoRRLSjil0USY5naG3IyJeJntoAlbDBjrXqENBq4orXgPQ+LLy6jdg0FF
-	rHNp14S+AcVndfnSOZCCoYgSMK80JAOYf86c3yCrDrJRrIDSXnHALsf+IGiOMY7/GFD1PYNFXam
-	gX+z7SgB4nieXPE5Yin+msjD7w5h2AicwgVw3JgF+PW1Zz6VaRaXMjYkSXMnlVrqGuLySCzttSt
-	EfByo6oDgq08kfdLZ6aOUOC5205Kr119TDdp7rrc
-X-Received: by 2002:a05:600c:548c:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4a027534bd7mr125807085e9.5.1791111932983;
-        Sun, 04 Oct 2026 04:05:32 -0700 (PDT)
-Received: from ?IPv6:2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f? (2001-1aeb-400-6f00-73f4-bfe7-a3e6-c16f.ip6.tmcz.cz. [2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a03048abc9sm100142955e9.0.2026.10.04.04.05.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 04:05:31 -0700 (PDT)
-Message-ID: <d166bd7190c1a71921a1eaff3359ffcd8b825afb.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: mediatek: jpeg: Avoid context access after job
- finish
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Kazuki Hanai <hnkz.64@gmail.com>, Bin Liu <bin.liu@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@kernel.org>,  Tomasz Figa <tfiga@chromium.org>, Xia Jiang
- <xia.jiang@mediatek.com>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Date: Sun, 04 Oct 2026 07:05:30 -0400
-In-Reply-To: <e7aef28efd9860e80b8be8865dd04268ee2fd786.camel@ndufresne.ca>
-References: <20260902112230.452176-1-hnkz.64@gmail.com>
-	 <e7aef28efd9860e80b8be8865dd04268ee2fd786.camel@ndufresne.ca>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Xzpp1i9yhFiY86lHCQIK"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+	Sun, 04 Oct 2026 11:15:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1791112496; x=1791371696;
+	bh=axUuY6R+xPUQ9WsKqWZyN6vKAeBDZjWnfhApo6LvrFU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=IO3RWP4MxsoympIGLuMgbYvzs9IVs1H4h4EsImXO+KDAGmiMm81gXPq616RUv4pyV
+	 ggy3fdn3B1uimqvqorZcmf+qI98ciJzr1bgAYUSxyXC7UxeaI80pKFqxQD3jg/VIxn
+	 yHonCeDb115PBvkfjUGx6GIifZYHjiEyg/8FNF9vi2HTjprUr4Q2Mvm9qnvxv/Febi
+	 GOkZofTu0EYjJLfFWclkELv5rALS8Rzyacmu4qht+nbVA8iRmVS+G5BBTU2P8RHd3n
+	 qpLtzBjgXdNwsBQtR8DjlHZSW85qIUfycbCeVl3tu19oVcg3Jnc9IH5StFjEjeerUO
+	 cwh9aunD2WP7A==
+Date: Sun, 04 Oct 2026 11:14:50 +0000
+To: wens@kernel.org
+From: Norman Herms <dockseed@proton.me>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, Andre Przywara <andre.przywara@arm.com>
+Subject: AW: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
+Message-ID: <TEcOYCDcz77vYtgXxuHGwhVo6AFFgV2M5rIDAsLiG4T7fD6J41La8o19hf2iMQhaMXd1wHsvqeDardYv7hjy3TbV9oCkfzYKRMn0EGlh7Ww=@proton.me>
+In-Reply-To: <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech> <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+Feedback-ID: 144388465:user:proton
+X-Pm-Message-ID: 24affaecb9b426f52699549cb7abbc8bb40c0be3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_040535_373713_D2C5F054 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20261004_041501_785186_C1D90303 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,78 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Oct 4, 2026 at 1:03 PM Chen-Yu Tsai <wens@kernel.org> wrote:
+> > +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
+> > +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
+> > +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
+> > +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
+>
+> I suspect these refer to a AHB-AHB bridge for the various subsystems show=
+n
+> in the memory map. That would explain why when the "ahb-store" clock is
+> gated, the storage bits stop working.
+>
+> If that's the case, we should describe it as the parent of each storage
+> peripheral bus gate's parent. Same would go for the other types. I haven'=
+t
+> checked what the BSP does though.
 
---=-Xzpp1i9yhFiY86lHCQIK
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Two data points, in case they help.
 
-Le jeudi 03 septembre 2026 =C3=A0 09:26 -0400, Nicolas Dufresne a =C3=A9cri=
-t=C2=A0:
-> Le mercredi 02 septembre 2026 =C3=A0 20:22 +0900, Kazuki Hanai a =C3=A9cr=
-it=C2=A0:
-> > v4l2_m2m_job_finish() publishes job completion and wakes waiters
-> > before it returns. A concurrent file release can therefore finish
-> > v4l2_m2m_ctx_release() and free the context while the single-core IRQ
-> > handler continues with its tail.
-> >=20
-> > Both handlers only need the device for the matching runtime PM put.
-> > Use the IRQ-owned jpeg pointer instead of dereferencing ctx after
-> > completion has been published. This preserves the get/put pairing and
-> > removes the post-completion context access.
-> >=20
-> > Fixes: 45f13a57d813 ("media: platform: Add jpeg enc feature")
-> > Fixes: 5827e4b14ee7 ("media: platform: Improve power on and power off f=
-low")
-> > Cc: stable@vger.kernel.org
-> > Assisted-by: Codex:gpt-5
-> > Signed-off-by: Kazuki Hanai <hnkz.64@gmail.com>
->=20
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+The vendor BSP (radxa/allwinner-bsp, branch cubie-aiot-v1.5.0,
+drivers/clk/sunxi-ng/ccu-sun60iw2.c) models no hierarchy either. It
+registers every gate in 0x5c0 and 0x5e0 as a keyed gate on the
+oscillator and marks each one CLK_IS_CRITICAL or CLK_IGNORE_UNUSED, so
+clk_disable_unused() never closes any of them.
 
-Also applied to my tree now, ty
+On a Cubie A7S running our own 6.18-based tree, with the GPU power
+domain up and ahb-gpu0 (0x5c0 bit 7) and mbus-gpu0 (0x5e0 bit 16) both
+closed, drm/powervr still bound, read the core ID and loaded the
+matching firmware, but the firmware then failed to boot ("Firmware
+failed to boot"). With both bits set, the same modprobe initialized the
+GPU. So for the GPU, register access worked with these two gates
+closed; what failed was the firmware running on the GPU.
 
->=20
-> > ---
-> >  drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/dri=
-vers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > index d147ec4830811..9010e7b1108fa 100644
-> > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > @@ -1574,7 +1574,7 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_j=
-peg_dev *jpeg)
-> >  	v4l2_m2m_buf_done(src_buf, buf_state);
-> >  	v4l2_m2m_buf_done(dst_buf, buf_state);
-> >  	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
-> > -	pm_runtime_put(ctx->jpeg->dev);
-> > +	pm_runtime_put(jpeg->dev);
-> >  	return IRQ_HANDLED;
-> >  }
-> > =20
-> > @@ -1855,7 +1855,7 @@ static irqreturn_t mtk_jpeg_dec_irq(int irq, void=
- *priv)
-> >  	v4l2_m2m_buf_done(src_buf, buf_state);
-> >  	v4l2_m2m_buf_done(dst_buf, buf_state);
-> >  	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
-> > -	pm_runtime_put(ctx->jpeg->dev);
-> > +	pm_runtime_put(jpeg->dev);
-> >  	return IRQ_HANDLED;
-> >  }
-> > =20
+The measurements were run on my boards by AI agents.
 
---=-Xzpp1i9yhFiY86lHCQIK
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasIy+gAKCRDZQZRRKWBy
-9O1/AP0Ub/AIchVgAs3Ts4yTOsB4mOEvnEYHlNzN5kVNk8UUrAEAtPaya56szHHG
-qpbxCFdG4wfkrMMaiqEo5qcevW0q1QM=
-=L2sR
------END PGP SIGNATURE-----
-
---=-Xzpp1i9yhFiY86lHCQIK--
+Norman
 
