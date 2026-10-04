@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F17CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7FCCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uy9Q3tbdz+bui0y9VTIEUWiKdTD1iXpwWnnbF74qV50=; b=UxeK2C6gngh/08dZOmU8cwwD/0
-	UAYJ1z9wTpFK1q876DN4E3ortXcrCTAlUSF5oe8SdSpB3nOUHPz+NWVlDkhRW8FDI3OsLNqENvJ86
-	pY/Auy+VZF6CPVwPqVi5R0/0tpUoWJNIm8Ht260bVtYht/Zdcw5GiwIfVWPiEkYAHrKHY/2/U+vuE
-	VXZCeHPCiHDPFAhZ5lrkzvv/3CKumykWdJfwdx+CjIytp+daAa0uUmLczxFVYDmfwF1c5RFsec4yr
-	poOSSY4faSj2EswONwJBInABf1OlTuwdIaqaZNgVG7+gldzHV/UnaUs+w/V802hQ/7rGgBFxvqRi7
-	cYYMiZ5A==;
+	bh=j+VillOJtWalaw/jSDZBznfL15QfMpYdQSSXIanytqE=; b=pKRpAgWourYXh4UVLs5ro0zL7Z
+	h5e4aPDmuZgKOzOnMPoPpkiQNdjKwGhmAGIW3IQraZ01mIoGEijaZJeq5Z04VrFPZekIgkaH13OSE
+	yDgKy4cR/FNJuX0BfIJZzesmxTInQ/xIhdI5V0OBgHuM3ftnKmeN9EDVOwNmJ8bFeiB1wmRRJrhBX
+	DJfTpiZAhMiMFg5VuNWmrfNFF35UHD49y9fti3tGPthdhoKyPKrVeYAuJRi6fYKhMQmT8dVP++Wl5
+	3jIkUJW6/01ctrkCzz8AQqw2Ii9qQkjWRE04J3Ko6Lis3bDVz7yH0v1kj894H6674WiAkqi3teTrk
+	bdpujGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDlAE-0000000GoUJ-1Uq1;
-	Mon, 05 Oct 2026 16:03:43 +0000
+	id 1xDlAL-0000000GoWI-3AhO;
+	Mon, 05 Oct 2026 16:03:49 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDlAD-0000000GoU9-1a2K;
-	Mon, 05 Oct 2026 16:03:41 +0000
+	id 1xDlAL-0000000GoW4-1npn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 16:03:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8141260514;
-	Mon,  5 Oct 2026 16:03:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A812A1F000FF;
-	Mon,  5 Oct 2026 16:03:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5BAAC60514;
+	Mon,  5 Oct 2026 16:03:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DDCD1F0089A;
+	Mon,  5 Oct 2026 16:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791216220;
-	bh=uy9Q3tbdz+bui0y9VTIEUWiKdTD1iXpwWnnbF74qV50=;
+	s=k20260515; t=1791216227;
+	bh=j+VillOJtWalaw/jSDZBznfL15QfMpYdQSSXIanytqE=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=N6hfV9vwAAcjKw6ywFISMDvvnnopeXYcUCWfAn34XnUogNcOzMktPYH+pxXOdM3S/
-	 1jumCjNGD1Vh94w9SFOm3XxGDWSxohv94SfCKIfoeX15wrSZGeAfw+W+E2saz4ctx4
-	 +BpuPUwwiCZUeXFHGr73EPPaWz8taS13cqMMVbCyBF9T8w0sEiZtWnypEq/zah9m4h
-	 9VEKAmcLyPt/EpdJEJCyXcSc7wnuJseIUZPlxNapLYO0+eW0VD5ZZ0POAxM1sKSgAI
-	 eKrGa1ErfyzAUqEP2ehgUqEkma6GSevWzsps12D/tYaI8lyQ12fMPpLtO2ojxKOMle
-	 9VCTamkP7vm9A==
+	b=naR0LI81YLfOeNm6VeqBbtgI34qRJ+qxJqz/URSBK+YBKRkKjx39zGrqBDH2VouEs
+	 WeM8EwGR6PytDADsMbgQmlK2xcQu6ZJPVZwcYXvt5hHQ/6tXzmcpUHEJAv+PW9Mq6H
+	 YvqCRphUFPLDmxw6A6lt6QL90zj2tTs4L5rQrmZdKemLB9Tcq5rYiwElECAk/aj1dQ
+	 8oogT0JUKKeqMCAkoBJj/1X9zyhqcB6B6jZ2v4n0KhGx9Y5iD8wcE1UNPSSO8PdcXV
+	 gSUbsJrNIChqoidCIGTsengCDZWtrixfnS3FFqANX6Gmxf6PcidvU6vR7mCwT6y/ZH
+	 Sgkg8a8FWiPeQ==
 From: Mark Brown <broonie@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Mizuno Miotsuki <founder@crepuse.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-In-Reply-To: <20260918125711.94361-1-founder@crepuse.com>
-References: <20260918125711.94361-1-founder@crepuse.com>
-Subject: Re: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec
- revision B
-Message-Id: <179120561124.150114.10537889348334092855.b4-ty@b4>
-Date: Mon, 05 Oct 2026 15:06:51 +0200
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Varshini Rajendran <varshini.rajendran@microchip.com>, 
+ =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <bence98@sch.bme.hu>, 
+ Robert Marko <robert.marko@sartura.hr>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sashiko <sashiko-bot@kernel.org>
+In-Reply-To: <20260923012950.15651-1-kmehltretter@gmail.com>
+References: <20260923012950.15651-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH] spi: atmel-quadspi: balance runtime PM and pclk across
+ system sleep
+Message-Id: <179114276714.150114.17193721637289577017.b4-ty@b4>
+Date: Sun, 04 Oct 2026 21:39:27 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1402; i=broonie@kernel.org;
- h=from:subject:message-id; bh=BrgvY9C1AO5zWbjnc6fnpMokKv5Jds1/AAOuj/pA5OE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqw8pVUf4HgHtDb0Aiz+dFRtFmIeYir8Vg6yi3P
- 6fSkGw1mTyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasPKVQAKCRAk1otyXVSH
- 0PV8B/0QM7bHgOvqLr1t/W4Jp0YQkUQP0fuX3bM30P11974tTYC1yOxEvb6nHQC1IL+fxcpLT1r
- k/9i5uAxtlhJPs0bfVqkggEI1rCMuJHy+O0LMJdBGn0jcFWs7RaLJGrI1cyXrhkTzufffM1rdoX
- vgDYPDDqB881h8GDF26/LRB4oEzh+w7RVjpfDtnBiI7a4rV4Ox2BtjOOJfPXZ6C9ToQQEAIh0p/
- ZSLLBKcP67iBUSAdaqoJMBkIgABzp55DKVsr8XIcLdhuEzP0xj3fJD80mZNumhH4Tfj6dNK96Iw
- 6Je0apFoibi4lnMlkvICYq4XIFrgjD+TAr9GsCMPkAF8mFqW
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1152; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=TwCApKgSzLwszhlYokP7yH9qXvdd7jTgvIMJN1h2+3Y=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqw8pcv5EFqGPBUU7JDV4g11HA0yZJRIt92YJam
+ aJoPX64gE+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasPKXAAKCRAk1otyXVSH
+ 0JRzB/49fPpvqUSexwJD8TEcmWyAxxlv4A9Stb2Lnm6F+I56hcwNbR8X1wVPIiKubVfH2KXaV8Y
+ 2/VSWIQAziCxSJ0vnIvPI+S1Z1nmvM1dQpy6XxWY5tilmd2RM/J4jrYwj0akzwemrVVbNF7LWD8
+ FgH2UWkLXXtAWB1cPX8egTQMjmkl2eMUMPEVg0EWgwenfORN7OIhSTjNzh0fn4C6qcou4yDqJ0N
+ zj31DD3WLPB9QB7VbsvcEsF2p6C2at43skxh6VKSkP7hCvLc1Qv5hxu/FV/UYQN6cCHhPzVxPof
+ Q2/PoU0Tz6i21AlITv5uYchIPCY/ZjmVf5claccgF3geCtP4
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,26 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Sep 2026 12:57:18 +0000, Mizuno Miotsuki wrote:
-> ASoC: codecs: rk3308: add support for codec revision B
-> 
-> Hi,
-> 
-> The current RK3308 internal codec driver detects codec revision B
-> (chip ID 0x3308) but explicitly rejects it. The initial 2022 driver
-> supported revision B with a monolithic power sequence; the later DAPM
-> rewrite left it unsupported.
-> 
-> [...]
+On Wed, 23 Sep 2026 03:29:50 +0200, Karl Mehltretter wrote:
+> spi: atmel-quadspi: balance runtime PM and pclk across system sleep
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
 Thanks!
 
-[1/1] ASoC: codecs: rk3308: add support for codec revision B
-      https://git.kernel.org/broonie/sound/c/157f7cba77a9
+[1/1] spi: atmel-quadspi: balance runtime PM and pclk across system sleep
+      https://git.kernel.org/broonie/spi/c/717e45f97246
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
