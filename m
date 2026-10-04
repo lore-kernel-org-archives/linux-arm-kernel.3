@@ -4,115 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61919CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85467CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRY4iUwoy0k7A4Q+WlcGtk6KJOn/v2ablV6+SEfz6BM=; b=QHWW4/kLNGiI+8uVyzXlR0esqN
-	HlKvG+oifrviLb2JKOkkQOyRG0dU/kn/72M3Tl6ku3EfEvUPgZk1Ewu6TvS9j5OehhYQT72gGOoKc
-	jSQbiNWUOt4iJ03I0T8brq2N4AY9e1yvZ8cwV6hybHDtslEsSMu8g1YIzzrhgiP3tE0mwgJ2t3Ukb
-	SfWNkgJdA+P/7v0QYxDV2qu11MGPVV8hbZ+TudeHg7ZLm4G3cUu2EO57AIXowk2WBrgnTM0qTPsQ2
-	L3Nb7dN63yKc79UK4XRIBOET4dcm1Vww8uT8ywwFs/AXPP94xb5MMMf4otUOuIZACFjySgoruD7rV
-	NxOcl9nA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sP+U6vTOYVFeaddq3bndo5VJDBbsue1fF5yn9Hxp6Z8=; b=IuwQ07y71+9gBP
+	JMLR0rsoHmfHa3Hjule8k0gNCr7Uj6DCxFXtsFQ1QTCf5+bCH2OxQCHedQCP7oWZ1Yr2Gc/0FxK68
+	ZORwnSXSnfIL/xCKlJ9ZMAp/HlbCnzUHc+sVaUDExvCUrIES92Kx22oJElaQAfIkIK8CizUEq4Kpx
+	mjHM9LLBmLzCAAjKroJFOzfLLW9H89IG2AzBBGZ1EF0zpGDUnFwC82Aif0ORWqAmmkisjsjHe0NiD
+	jSaAt4zNoeiD56RzdNsUwb04TAwCHPnjYBFuvacKoc5YxxaKX2NhcV6gJglDIhbXtTjjGvgkZReos
+	lF3o341R09ECWyFOrcxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDK0F-0000000Eh6E-3mOf;
-	Sun, 04 Oct 2026 11:03:35 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1xDK0i-0000000EhEQ-1hZG;
+	Sun, 04 Oct 2026 11:04:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDK0C-0000000Eh58-1YiA
+	id 1xDK0g-0000000EhDr-27Bh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 11:03:34 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a16629a040so12520065e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 04:03:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1791111810; x=1791716610; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BRY4iUwoy0k7A4Q+WlcGtk6KJOn/v2ablV6+SEfz6BM=;
-        b=thoYrUzbHCPMz9fozHRA4NhSAkaXQO5ga5eB6Wyjy4Ow5hc3cl8eZg/o0C6ETW0scG
-         BCuVf6YmkkKWXFNQzl0iUum44G4tKqrPoAXLeDxfm6N89f2RkBwRsJw0qCXpa5tfoT3M
-         H3focm3aBPHL/CH5ke6U/UnIWSEFmij+U2OQw4m+aijOZKVIp7GaH7GGj7sPUZpHl8EP
-         OOqLkFxpIs/7PPi5tWWWCxKtHkzAfQ/m5IAcFFAOcLFWdV1T/2XU+HUw1C+8mkiGNTRF
-         UW0p8Am99STjy9kl/snM+7yfgGOeIeq866ztoA0FoHxKnl5BTtwZvRQEXSV/6xlQJ3Fr
-         hHGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791111810; x=1791716610;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BRY4iUwoy0k7A4Q+WlcGtk6KJOn/v2ablV6+SEfz6BM=;
-        b=qFMR0z6yG9wE7uB7pAEbVIBMFets+4KkknAu2i2kgHA2eKSIfmPArP4/u+ecJMUgSy
-         xN8+PddyDmhmdibuINnVW9YOvQANCjKpY/jJlBpVd93Fsl2ppEZCvamEL1FNqGFkt0V2
-         OUoHXZZWAJdWoVGGc14pqb8LBG23/XFv9piSu+qEHQdpPdZu5GVUEcxZM+uwGOiGXp61
-         Lp/0++Xrcuvny1cWvmjB+bXIyP5FjuFIkjOaWb5v+R5qX+6E1YXj5vwJ56B+rjqz8GCr
-         OMB2oaQeX/8TgD9wM5vU6byr5i4IC2KBDRSeTB2ZXm/ClI1s/fweEpf27Pxmh6Eiibvw
-         i3ww==
-X-Forwarded-Encrypted: i=1; AKwUvBwzuVZc5farqsy7RbTosCTbQ2LrvCBI6OoiH+F0XdON2httzSriKvJWgdXGFsgVeaeD9gD2BO310YDF8Wv0orZR@lists.infradead.org
-X-Gm-Message-State: AFuF++ma+twPZR4vQ22oaZ5Nn3OnlS/kdfmn3vswWf/cOJH29jz2bwPp
-	MrFDG/p+QMtcRGHjhJ6Eb7803MWi8V03xrH9iKK3l3h9zpDkU0IwkpykSI0HUsIh2Yk=
-X-Gm-Gg: AYBFou0WK/5xnz6T5M/1ijwbxh65lDEj5Ao5hlj1g6iPvgCPX/wL1agidEXaz7lgSlE
-	Jo3GpxbvWmedeGfUu+V33q9G3cc3cjkNJnsIneb1SycR+5o9L+xOM0DCWKgjpzX1nuPKrn7leDS
-	+w+jtupoqvWMoZfHN0BYzFbtAP0u/3RYVz/aLgmFOW+Pc/cgiFtg60llHsm+9xW9dtsUH2BUAbU
-	GKDUIY4owYUrF0kMbc3mOoe+oDV1xq1u0siYAWYWr7j9+8HHPgzqxapAraLX2UhrsNy96Jyj9p1
-	CLLP1CYGmiChVyKD0dSh8cyB/yduFns/tqjJCCIwbHmLcN+2VzPhSYRRCJr19DOGpQe/+RIS7li
-	bv9NsMa96pA387ZUdT+Zkhh8WkEN7PB8V1oC0G5JGTvRVXTC1u5UAp8W1MCqFDpDD1PMhLA50/N
-	SybKNpNc0UiCt6eLN6v+bhSzubPSgEaaNbJ8BhpWyaZiLEVXx43kDUeHor4L5a1bp14b+XrJsqk
-	qUYJqBt/OWSCORAAasUhhiSTwUTmUoPp4FqlognlDANA27+8TaUO4m6rQvnl7TrBpvzTcPVmbs+
-	vwQZIcTI07RgP+a6rpX0/FIJgOBgj+42dXi98JA3
-X-Received: by 2002:a05:600c:3509:b0:4a1:69c0:a1f7 with SMTP id 5b1f17b1804b1-4a169c0a338mr59304215e9.34.1791111809834;
-        Sun, 04 Oct 2026 04:03:29 -0700 (PDT)
-Received: from ?IPv6:2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f? (2001-1aeb-400-6f00-73f4-bfe7-a3e6-c16f.ip6.tmcz.cz. [2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027740a2fsm283591575e9.13.2026.10.04.04.03.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 04:03:29 -0700 (PDT)
-Message-ID: <5c6b215401bd705f2023102e9d8b779ee4ae8c4a.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Radu Rendec <radu@rendec.net>, "GUO Ren (XuanTie)" <guoren@kernel.org>, 
- Paul Walmsley	 <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Daniel
- Lezcano	 <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Anup Patel	 <anup@brainfault.org>, Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen	 <andrew-ct.chen@mediatek.com>, Yunfei Dong
- <yunfei.dong@mediatek.com>,  Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
- Houlong Wei <houlong.wei@mediatek.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>
-Date: Sun, 04 Oct 2026 07:03:27 -0400
-In-Reply-To: <2b23ecf7ae8baf0266c3701060858abec901a71c.camel@rendec.net>
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-		 <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
-	 <2b23ecf7ae8baf0266c3701060858abec901a71c.camel@rendec.net>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-TPZS9VL83/bL5Rbeq0pg"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+	Sun, 04 Oct 2026 11:04:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF45C43D44
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Oct 2026 11:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C432A1F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Oct 2026 11:04:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791111841;
+	bh=sP+U6vTOYVFeaddq3bndo5VJDBbsue1fF5yn9Hxp6Z8=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=Wq47FrTZl87QqSe72Vw6iixqDzDAGVGWBG4ujf3ihu+oLVPRSKYEu4pliFc7Vnu4B
+	 0CAFZ1R3dg8mMjq5nwRYczn8xSsmIdg0NTH4ZAuh4m5FlVzq/kzuJ5BYsdQntAmm+8
+	 8ApZI6wnB0PbodOQ4hO68ZUjinVkDPBMHODWLypyPwwT3HPUqzxfMHYLAHtT/DTJGL
+	 IEnpyIrsIzVRN8sIBrKl0+bVI8YL3wmqt6nFPh8pfP8qi9iILS/2BpWVAcxTCYT0WZ
+	 YaEtzUPzXkLkZQg5Q3vcmXOPxQ4XcD2Ec50gSfqI4cb/ywjVFJ0RSER2Dd/gLQr5+Z
+	 UJ1tYbAxQRntQ==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3a97c689f0bso5438181fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 04:04:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxq3KgU07LjvUtbK0gNAabCGSL3dadIQqTQl97mKvGgDq7zQSTc4jTQEP7XQ55OBfb9YXnBe2dd9wBS6PL/Je78@lists.infradead.org
+X-Gm-Message-State: AFq9FYLVApCOSW49Jt9rtirb1Gd4Z83W8C6m0RZ/qn2ppF1W8gOuhnkH
+	XxGcHyY2YYeKqYE3PhEJFe4GjftaELI4/ByJz+dwo8ZvJth1dUpeACPLtZ49i8smorj6dBLYDRo
+	0kT0NkMzYr537fI69n8BTVgGCefTquy8=
+X-Received: by 2002:a05:651c:b06:b0:3a3:2a41:e329 with SMTP id
+ 38308e7fff4ca-3a974f2002fmr11552811fa.9.1791111839797; Sun, 04 Oct 2026
+ 04:03:59 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_040333_310278_4F520D04 
-X-CRM114-Status: GOOD (  25.63  )
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
+In-Reply-To: <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 4 Oct 2026 13:03:46 +0200
+X-Gmail-Original-Message-ID: <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+X-Gm-Features: AclHuK-3Yak0ZaS0tUNz8C2FVnQs0VdN0bcI-ns1tG3C0FjgWxx3tVmNCyaYb4Y
+Message-ID: <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, 
+	Andre Przywara <andre.przywara@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,139 +86,180 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 29, 2026 at 7:28=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
+h> wrote:
+>
+> Add the bus clock gates that control access to the devices' register
+> interface on the Allwinner A733 SoC. These clocks are typically
+> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
+> various multimedia engines. It also includes bus gates for system
+> components like the IOMMU and MSI-lite interfaces.
+>
+> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
+> Disabling either store gate breaks access to boot/storage devices such
+> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
+> power domain registers when unused clocks are disabled.
+>
+> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 +++++++++++++++++++++++++++=
++++++-
+>  1 file changed, 491 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-n=
+g/ccu-sun60i-a733.c
+> index 1b2d4d36ec4c..b077e5d2f32c 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> @@ -4,6 +4,10 @@
+>   * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
+>   * Based on the A523 CCU driver:
+>   *   Copyright (C) 2023-2024 Arm Ltd.
+> + *
+> + * TODO: The real parents of some bus gates, including its-pcie0-aclk,
+> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in the
+> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
+>   */
 
---=-TPZS9VL83/bL5Rbeq0pg
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+[...]
 
-Le jeudi 17 septembre 2026 =C3=A0 21:21 -0400, Radu Rendec a =C3=A9crit=C2=
-=A0:
-> On Fri, 2026-09-11 at 03:27 +0000, GUO Ren (XuanTie) wrote:
-> > The last enumerator of this driver's firmware IPI id list is a bound
-> > for the VPU mailbox protocol, not a generic host IPI limit. Follow the
-> > existing naming in this header: IPI_VPU_INIT already carries a VPU
-> > prefix, so the terminator should match.
-> >=20
-> > The same convention is used by the SCP IPI enum, which ends with a
-> > prefixed SCP_IPI_MAX rather than a bare IPI_MAX.
-> >=20
-> > Rename IPI_MAX to IPI_VPU_MAX and update the descriptor table bounds
-> > and range checks. No functional change.
-> >=20
-> > Link: https://lore.kernel.org/linux-riscv/20260908222349.GA2324870@ax16=
-2
-> > Cc: Nathan Chancellor <nathan@kernel.org>
-> > Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk=
+, "mbus", mbus_parents, 0x588
+>                                            BIT(31),     /* gate */
+>                                            CLK_IS_CRITICAL,
+>                                            CCU_FEATURE_UPDATE_BIT);
+> +static const struct clk_hw *mbus_hws[] =3D { &mbus_clk.common.hw };
+> +
+> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_h=
+ws, 0x58c, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hws=
+, 0x58c, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws,=
+ 0x58c, BIT(2), 0);
+> +
+> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x5=
+94, BIT(0), 0);
+> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x5=
+9c, BIT(0), 0);
+> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x5=
+a4, BIT(0), 0);
+> +
+> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_h=
+ws, 0x5b4, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_hws=
+, 0x5b4, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_hws,=
+ 0x5b4, BIT(2), 0);
 
-Applied, ty.
+> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
+> +                         0x5c0, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
+> +                         0x5c0, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
+> +                         0x5c0, BIT(2), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
+> +                         0x5c0, BIT(3), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
+> +                         0x5c0, BIT(4), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
+> +                         0x5c0, BIT(5), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
+> +                         0x5c0, BIT(6), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
+> +                         0x5c0, BIT(7), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
+> +                         0x5c0, BIT(8), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
+> +                         0x5c0, BIT(9), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
+> +                         0x5c0, BIT(16), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
+> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
+> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
+> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
 
-> > ---
-> > =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.c | 12 ++++++------
-> > =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.h |=C2=A0 4 ++--
-> > =C2=A02 files changed, 8 insertions(+), 8 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/me=
-dia/platform/mediatek/vpu/mtk_vpu.c
-> > index 8d8319f0cd22..b3e9f8c4ab7a 100644
-> > --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> > +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> > @@ -211,7 +211,7 @@ struct mtk_vpu {
-> > =C2=A0	struct vpu_regs reg;
-> > =C2=A0	struct vpu_run run;
-> > =C2=A0	struct vpu_wdt wdt;
-> > -	struct vpu_ipi_desc ipi_desc[IPI_MAX];
-> > +	struct vpu_ipi_desc ipi_desc[IPI_VPU_MAX];
-> > =C2=A0	struct share_obj __iomem *recv_buf;
-> > =C2=A0	struct share_obj __iomem *send_buf;
-> > =C2=A0	struct device *dev;
-> > @@ -221,7 +221,7 @@ struct mtk_vpu {
-> > =C2=A0	struct mutex vpu_mutex; /* for protecting vpu data data structur=
-e */
-> > =C2=A0	u32 wdt_refcnt;
-> > =C2=A0	wait_queue_head_t ack_wq;
-> > -	bool ipi_id_ack[IPI_MAX];
-> > +	bool ipi_id_ack[IPI_VPU_MAX];
-> > =C2=A0};
-> > =C2=A0
-> > =C2=A0static inline void vpu_cfg_writel(struct mtk_vpu *vpu, u32 val, u=
-32 offset)
-> > @@ -296,7 +296,7 @@ int vpu_ipi_register(struct platform_device *pdev,
-> > =C2=A0		return -EPROBE_DEFER;
-> > =C2=A0	}
-> > =C2=A0
-> > -	if (id < IPI_MAX && handler) {
-> > +	if (id < IPI_VPU_MAX && handler) {
-> > =C2=A0		ipi_desc =3D vpu->ipi_desc;
-> > =C2=A0		ipi_desc[id].name =3D name;
-> > =C2=A0		ipi_desc[id].handler =3D handler;
-> > @@ -319,7 +319,7 @@ int vpu_ipi_send(struct platform_device *pdev,
-> > =C2=A0	unsigned long timeout;
-> > =C2=A0	int ret =3D 0;
-> > =C2=A0
-> > -	if (id <=3D IPI_VPU_INIT || id >=3D IPI_MAX ||
-> > +	if (id <=3D IPI_VPU_INIT || id >=3D IPI_VPU_MAX ||
-> > =C2=A0	=C2=A0=C2=A0=C2=A0 len > sizeof(send_obj->share_buf) || !buf) {
-> > =C2=A0		dev_err(vpu->dev, "failed to send ipi message\n");
-> > =C2=A0		return -EINVAL;
-> > @@ -748,7 +748,7 @@ static void vpu_ipi_handler(struct mtk_vpu *vpu)
-> > =C2=A0	s32 id =3D readl(&rcv_obj->id);
-> > =C2=A0
-> > =C2=A0	memcpy_fromio(data, rcv_obj->share_buf, sizeof(data));
-> > -	if (id < IPI_MAX && ipi_desc[id].handler) {
-> > +	if (id < IPI_VPU_MAX && ipi_desc[id].handler) {
-> > =C2=A0		ipi_desc[id].handler(data, readl(&rcv_obj->len),
-> > =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 ipi_desc[id].priv);
-> > =C2=A0		if (id > IPI_VPU_INIT) {
-> > @@ -934,7 +934,7 @@ static int mtk_vpu_probe(struct platform_device *pd=
-ev)
-> > =C2=A0#ifdef CONFIG_DEBUG_FS
-> > =C2=A0	debugfs_remove(vpu_debugfs);
-> > =C2=A0#endif
-> > -	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_MAX);
-> > +	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_VPU_MAX);
-> > =C2=A0vpu_mutex_destroy:
-> > =C2=A0	mutex_destroy(&vpu->vpu_mutex);
-> > =C2=A0disable_vpu_clk:
-> > diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/me=
-dia/platform/mediatek/vpu/mtk_vpu.h
-> > index 3951547e9ec5..44ab631ec904 100644
-> > --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> > +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> > @@ -49,7 +49,7 @@ typedef void (*ipi_handler_t) (void *data,
-> > =C2=A0 *			 handle VP8 video encoder job,, and vice versa.
-> > =C2=A0 * @IPI_MDP:		 The interrupt from vpu is to notify kernel to
-> > =C2=A0 *			 handle MDP (Media Data Path) job, and vice versa.
-> > - * @IPI_MAX:		 The maximum IPI number
-> > + * @IPI_VPU_MAX:	 The maximum VPU IPI number
-> > =C2=A0 */
-> > =C2=A0
-> > =C2=A0enum ipi_id {
-> > @@ -60,7 +60,7 @@ enum ipi_id {
-> > =C2=A0	IPI_VENC_H264,
-> > =C2=A0	IPI_VENC_VP8,
-> > =C2=A0	IPI_MDP,
-> > -	IPI_MAX,
-> > +	IPI_VPU_MAX,
-> > =C2=A0};
-> > =C2=A0
-> > =C2=A0/**
->=20
-> Reviewed-by: Radu Rendec <radu@rendec.net>
+I suspect these refer to a AHB-AHB bridge for the various subsystems shown
+in the memory map. That would explain why when the "ahb-store" clock is
+gated, the storage bits stop working.
 
---=-TPZS9VL83/bL5Rbeq0pg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+If that's the case, we should describe it as the parent of each storage
+peripheral bus gate's parent. Same would go for the other types. I haven't
+checked what the BSP does though.
 
------BEGIN PGP SIGNATURE-----
+> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
+> +                         0x5e0, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
+> +                         0x5e0, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
+> +                         0x5e0, BIT(11), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate", mb=
+us_hws,
+> +                         0x5e0, BIT(12), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate", mb=
+us_hws,
+> +                         0x5e0, BIT(14), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
+> +                         0x5e0, BIT(16), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
+> +                         0x5e0, BIT(18), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
+> +                         0x5e0, BIT(24), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
+> +                         0x5e0, BIT(28), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws=
+,
+> +                         0x5e0, BIT(29), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
+> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasIyfwAKCRDZQZRRKWBy
-9FPtAQDkOJhhuAzPdjhptdi8Ylku8gIEE5VszzwnAapD1IuDBQEAglHv3kKr78aE
-qCuExFYbYHz3OhJLH8ntRzJdldPqtQk=
-=d6+8
------END PGP SIGNATURE-----
+Same thing for the MBUS clocks.
 
---=-TPZS9VL83/bL5Rbeq0pg--
+> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hws=
+,
+> +                         0x5e0, BIT(31), 0);
+> +
+> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
+> +                         0x5e4, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
+> +                         0x5e4, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
+> +                         0x5e4, BIT(2), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
+> +                         0x5e4, BIT(3), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
+> +                         0x5e4, BIT(5), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
+> +                         0x5e4, BIT(8), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
+> +                         0x5e4, BIT(9), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
+> +                         0x5e4, BIT(11), 0);
+> +/* Undocumented, taken from the vendor kernel. */
+> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
+> +                         0x5e4, BIT(12), 0);
+> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
+> +                         0x5e4, BIT(18), 0);
+
+[...]
+
+The remaining definitions look correct (minus the vendor BSP ones which I
+couldn't check at this time).
+
+I didn't check the clock list additions.
+
+Consider this
+
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+
+
+We can change the AHB / MBUS clock parents later if we do figure it out.
+
+
+ChenYu
 
