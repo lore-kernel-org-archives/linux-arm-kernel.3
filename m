@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7D5CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1B1CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 11:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=axUuY6R+xPUQ9WsKqWZyN6vKAeBDZjWnfhApo6LvrFU=; b=VgfuinA0xBhLH0tONJFuk50+i/
-	0hNZt26OEBrc3YLigt1WN6AYQ4m+DvfmyAuylb69UD6rNhmx+r0o3RTkr78s9bt+ZCB/Smyo3drwZ
-	eJEeN71GLKswMdKMcXzgKzKH2ylCeJ3F6fMidpRxjcuY1Y59Kx90mIgE4dLIP6scBlnV4PArae5lD
-	nFQ+6n1k93HjhOf+hOE31JHA7vG9fm67b2pPhb6OApvobKhIZbNmrXasM/3yq/ueCA9CTgm0wysos
-	d6oSbKEx35w8WgpB03zqKWe4Bn7eHcZq5xnP8AZ4B1V8/6JFB5arFHKlN1+h5LHd6jOFgXQAkWt+F
-	d6Is6bLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fijvjhapfoEhEf+4wD4kYLOXf7zvrs6V5pFZuPl92ek=; b=xxxWgpa09aVkn86rEoI9+RLJ41
+	UEyV3XIZ5FfWjeohaivSV4tiVxGosh+kxNXOky93CO5expa2nrfddEYC4ZR/K08A86GSiqDLvurHg
+	PxG0bGlqOnO5WBDtRLQvhldaTN12tSMjNYHatjS91CGZpW9pj97QyL6fLVt+PzJYpApGO4pCg5qHT
+	fZRVTazSDGV7gXJzNh5whGG0dOGmbMKZwPS2RQvv+WTz2PO+TR/nhr1CzpP/f1Gzh4SW1wWv9BioI
+	4Gan6ghA7pS5vKNYIPfyeUrp2HfrS13kMkIrCMihfxWKtmAofnN9wvTjsqKn7c2Elm++ww/4Cj2rI
+	5jW3vIOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKBM-0000000EiQJ-37Db;
-	Sun, 04 Oct 2026 11:15:04 +0000
-Received: from mail-24418.protonmail.ch ([109.224.244.18])
+	id 1xDKBt-0000000EiVT-4C76;
+	Sun, 04 Oct 2026 11:15:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKBI-0000000EiP8-0hcu
+	id 1xDKBs-0000000EiUw-2AsB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 11:15:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1791112496; x=1791371696;
-	bh=axUuY6R+xPUQ9WsKqWZyN6vKAeBDZjWnfhApo6LvrFU=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=IO3RWP4MxsoympIGLuMgbYvzs9IVs1H4h4EsImXO+KDAGmiMm81gXPq616RUv4pyV
-	 ggy3fdn3B1uimqvqorZcmf+qI98ciJzr1bgAYUSxyXC7UxeaI80pKFqxQD3jg/VIxn
-	 yHonCeDb115PBvkfjUGx6GIifZYHjiEyg/8FNF9vi2HTjprUr4Q2Mvm9qnvxv/Febi
-	 GOkZofTu0EYjJLfFWclkELv5rALS8Rzyacmu4qht+nbVA8iRmVS+G5BBTU2P8RHd3n
-	 qpLtzBjgXdNwsBQtR8DjlHZSW85qIUfycbCeVl3tu19oVcg3Jnc9IH5StFjEjeerUO
-	 cwh9aunD2WP7A==
-Date: Sun, 04 Oct 2026 11:14:50 +0000
-To: wens@kernel.org
-From: Norman Herms <dockseed@proton.me>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, Andre Przywara <andre.przywara@arm.com>
-Subject: AW: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
-Message-ID: <TEcOYCDcz77vYtgXxuHGwhVo6AFFgV2M5rIDAsLiG4T7fD6J41La8o19hf2iMQhaMXd1wHsvqeDardYv7hjy3TbV9oCkfzYKRMn0EGlh7Ww=@proton.me>
-In-Reply-To: <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech> <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: 24affaecb9b426f52699549cb7abbc8bb40c0be3
+	Sun, 04 Oct 2026 11:15:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 92E2960210;
+	Sun,  4 Oct 2026 11:15:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6191F00893;
+	Sun,  4 Oct 2026 11:15:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791112535;
+	bh=fijvjhapfoEhEf+4wD4kYLOXf7zvrs6V5pFZuPl92ek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RsSUnbjW1qWUpBj3emsjmBAQhKGCkFahGHCMAUEwLF5wcB/p/NAaOvsqFioFEUjht
+	 TZ2AAIMk7DWIpVelszsYsFsxDXpnnSYhJwDESSlSOYv77Ac97Fv2go/m04vVlcKvy1
+	 zpmP50o5HW5Gz1a3v1kx9zyI8QA5lvuxwlpMXhcmso0Zz2Jdcj/A7cTDC6i3dOVkmr
+	 JlVN4YOOEmS5OBrgMVWXFR8/hArTxTYsN2CqxbMC3Bz4+zlqpafYxACHIj2J6p9YUA
+	 WNWAGUXcFhY+/qw9e5yILWOXX8oDit6cy2SaieN/4S0GCQjykkDib40KbXlo5tGrQq
+	 mXfz/skjmJl3A==
+Date: Sun, 4 Oct 2026 13:15:32 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: soc@lists.linux.dev, linux-omap@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] ARM: dts: OMAP updates for v7.4
+Message-ID: <20261004-illustrious-bipedal-weasel-5ce5db@quoll>
+References: <7ha4p1b7lw.fsf@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_041501_785186_C1D90303 
-X-CRM114-Status: GOOD (  12.43  )
+Content-Disposition: inline
+In-Reply-To: <7ha4p1b7lw.fsf@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 4, 2026 at 1:03 PM Chen-Yu Tsai <wens@kernel.org> wrote:
-> > +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
-> > +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
-> > +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
-> > +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
->
-> I suspect these refer to a AHB-AHB bridge for the various subsystems show=
-n
-> in the memory map. That would explain why when the "ahb-store" clock is
-> gated, the storage bits stop working.
->
-> If that's the case, we should describe it as the parent of each storage
-> peripheral bus gate's parent. Same would go for the other types. I haven'=
-t
-> checked what the BSP does though.
+On Mon, Sep 28, 2026 at 10:36:59AM -0700, Kevin Hilman wrote:
+> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+> 
+>   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v7.4/dt-signed
+> 
+> for you to fetch changes up to c3037b5c7c38bdf78c214e7dbe513a553ce8f47b:
+> 
+>   ARM: dts: am335x-bonegreen-eco: Enable 1GHz OPP by increasing vdd_mpu voltage (2026-09-21 09:02:20 -0700)
+> 
+> ----------------------------------------------------------------
+> ARM: dts: OMAP updates for v7.4
+> - am335x-bonegreen-eco: Enable 1GHz OPP
+> - clock fixes for camera sensors
+> - misc cleanups, DT fallbacks, schema updates
+> 
 
-Two data points, in case they help.
+Thanks, applied
 
-The vendor BSP (radxa/allwinner-bsp, branch cubie-aiot-v1.5.0,
-drivers/clk/sunxi-ng/ccu-sun60iw2.c) models no hierarchy either. It
-registers every gate in 0x5c0 and 0x5e0 as a keyed gate on the
-oscillator and marks each one CLK_IS_CRITICAL or CLK_IGNORE_UNUSED, so
-clk_disable_unused() never closes any of them.
+Best regards,
+Krzysztof
 
-On a Cubie A7S running our own 6.18-based tree, with the GPU power
-domain up and ahb-gpu0 (0x5c0 bit 7) and mbus-gpu0 (0x5e0 bit 16) both
-closed, drm/powervr still bound, read the core ID and loaded the
-matching firmware, but the firmware then failed to boot ("Firmware
-failed to boot"). With both bits set, the same modprobe initialized the
-GPU. So for the GPU, register access worked with these two gates
-closed; what failed was the firmware running on the GPU.
-
-The measurements were run on my boards by AI agents.
-
-Norman
 
