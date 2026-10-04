@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982D9CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F1DCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=0YH1FLUx0AOx1iSe4xA+5diQem
-	93RSv8mxCjiuoghD0GduK88SW847ZoP/APOuKTAyeP0SmRGKdlIVMlffF1BRvmoPXMgGnv1RlCols
-	9w1gecQSp5PMLcGA2Njcyfw6sOJgyP6ERYI9F8aREwtEHIYw0b3MO9Nj+fdIoVD+gyYRl673Bpdj8
-	PNOnSSe9lKt8wMJYmqhebx1mVml18nEny0456D/aqj4k9WxDUPnXKeuZFggmCIrzTYLThSsOJMnbi
-	NWJ7VSt3LguPkLqu5qIA8MF2uQRnk9vGkLvhyZKzB40uW1s+Fnwxv9WdloWSWgR0ILVCuPmvvf4a5
-	GvNdLIjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4/oZBwZNUJHzy5epIabVPY4mFU5VbIVDH+NWWmNIeek=; b=Yp5JGfINbhDhQaBsvSQ3h+LoL3
+	ls5kHmpTcpcIjyVBFmGXEWnADT+hDvyq+UI+Lr7VHcjykiyOALFclkSRnhA7MnJx8g1N/CpM9F8w2
+	cWFXxdhlE52fuy8yHfjQjAfhkgVyCudmhoeYfi5GXPsX/KeeC6ZLmgOcRrFfhpOdu4SrVMJimZ4s8
+	s0wy8lBAnHZry1wCaCtVbrwt6nSaQDqiU1srRFrMCfwtkCiyOBnmYz+K0tKiih00ASqEjPzguT4R6
+	xWNfOa/uaJvKbyQo6/wNRCXOj1xH7SPpV4OFo9Mk+beXcvB/czvwhU0cJrOC6t0c2xeUDkffgNOfW
+	AeudMNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT90-0000000FInZ-2LlU;
-	Sun, 04 Oct 2026 20:49:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDTBo-0000000FJ50-3uBS;
+	Sun, 04 Oct 2026 20:52:08 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT8z-0000000FInE-1b8J
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:49:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6DA9F601F7;
-	Sun,  4 Oct 2026 20:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FE661F000FF;
-	Sun,  4 Oct 2026 20:49:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791146952;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bQPFG1eH8MlS1WdA1PL227LgKW3ijDNeLX4a/hFg3A5tIJBs2R4L2pQmbea3oPOZ9
-	 uEDR4AFrQIH2K1vLGYWUh9CJMilLz4E6BfOfSRGJBSKzGh0ai4XccVHtFU6p9/ZPmb
-	 zkXGKzgGu6nyO1i3CB0N1mEuKvjeK2c3SZ+afifpbsSmpQNl7s0q4Xolxb9ZbixSaK
-	 IrCM3I0AbmC79vbvGNwfeli07npEC5loZOsPRkZqR3AiJaGnd5fZ48u+7ZdggW7ZxL
-	 bWZZwWBGsoE/EdM5OcyLiL0gcZNQjTdhO7pOrHjhZQZvDWVeZoWg/F6hqXGvZxN28T
-	 +ceI17KlLvYSA==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- James Hilliard <james.hilliard1@gmail.com>
-Subject: Re: [PATCH net-next v3 0/2] net: stmmac: introduce XDP rx multi-buff support
-Date: Sun, 04 Oct 2026 20:49:10 +0000
-Message-ID: <179114695065.1402591.17659606391395950626@kernel.org>
-In-Reply-To: <20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com>
-References: <20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	id 1xDTBl-0000000FJ3n-48yl;
+	Sun, 04 Oct 2026 20:52:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=4/oZBwZNUJHzy5epIabVPY4mFU5VbIVDH+NWWmNIeek=; b=wt92fhu357919RTJDNuElokXT5
+	M5JjrN8l+xwjMphQUvyIA2LxI+IWLTVbu+nrqFOPKwZ9UnSJk4nZQ17IgIO1YY/bOkTw0cQ5jt4a3
+	uUo3MEnb5VqBHNNB9MDEWVCgFMqDfQnEJaBVRAXgOmfgOThnTBwKe3JxpBYt6OVrhnc7/T+n2F9bk
+	ROqB+elV0YYVpoz3JafIkbaAtcdyyf10KOs8FjM9UMeuR726hfFLp7ZNG795EXaNsswtDcBP5wB3R
+	J+FtjepK3vuoWVNnRfXq3vDD5h4hzdKYgd6QTbqfCG1rro8U6kycPuyY1LiAZFyvvXs3UJFT1yO/V
+	bB51AfeQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joachim Eastwood <joachim.eastwood@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	diederik@cknow-tech.com,
+	jonas@kwiboo.se,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v6 00/12] arm64: dts: rockchip: Add NanoPi M6 board
+Date: Sun,  4 Oct 2026 22:51:46 +0200
+Message-ID: <179114705963.3265768.14931994624548567445.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
+References: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_135206_072569_55ECE051 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +73,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On Thu, 03 Sep 2026 23:23:12 +0200, Joachim Eastwood wrote:
+> This patch series add support for the NanoPi M6. This board is very
+> similar to the NanoPi R6C and R6S boards which are already supported.
+> 
+> Main differences:
+> * M.2 M-key slot with PCIe (Also present on R6C)
+> * M.2 E-key slot with PCIe and USB (from hub)
+> * 1 additional USB 2.0 port from an on-board USB hub
+> * RT5616 audio CODEC
+> 
+> [...]
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Applied, thanks!
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
+[01/12] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M6
+        commit: bd3edfb61ee0b68dc95aa7ddd53cef65b5bdb3f7
+[02/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing sdmmc cd pinctrl
+        commit: 30fcc62cf5d27fe264145bb743407af62f8ff240
+[03/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing pcie rst pinctrl
+        commit: 1d974afb0ea4e1ffc03535a2b2ae5a84d35738d7
+[04/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove pull up on rtc int pin
+        commit: 2d4c429e561b21c07f95ed41481a5d1062659c9e
+[05/12] arm64: dts: rockchip: rk3588s-nanopi-r6: pcie2x1l2: add clkreq
+        commit: 3ac1a8d422126ea08f6ce32c0a05e181e08d9299
+[06/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove always-on and boot-on from vdd_npu_s0 reg
+        commit: 92507cbe7581c519da115128a2ce6930dd9dd6fb
+[07/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove useless vcc_3v3_pcie20
+        commit: 1faf8018879fc0e4a76958f2122f6ab7aac5957a
+[08/12] arm64: dts: rockchip: rk3588s-nanopi-r6: add gmac1 phy-supply
+        commit: e7fd313ef4e5907a0bd769101de48ae354b7fcca
+[09/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove bogus vcc5v0_usb regulator
+        commit: 9518c669aa24574445e874c89313a133c276513b
+[10/12] arm64: dts: rockchip: rk3588s-nanopi-r6: add comment about gmac phy-mode
+        commit: 92b4f18f9a07786f9146788ca5e18cb9469bd1cf
+[11/12] arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to support M6 boards
+        commit: c08257d642ac9d821710852f514577d331a13390
+[12/12] arm64: dts: rockchip: add support for NanoPi M6 board
+        commit: 2640aea473b463e260ba2f52833e7c1fc2074246
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
