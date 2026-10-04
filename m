@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA6ACA5FEC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A7DCA5FE6
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=96QaT7NGG5QsEpOMqkx1EIAlPmNTiG95XHMpgburkGw=; b=giiBMYDCMyZibHsRWtQ7s3IyMu
-	NCFV5fEogX+NY9CYankC28nzh+Vw2HMc5C1caVadAF2JraCNyJUBKFVS7yi1A22In2tCyK18d3Heh
-	YkRbein5EzOnjea9JEREXm5/OyRum6d2ENpVL9N8Ml18wv/polGwYWAeBvs4mJh/QdpFXodmJrBQ4
-	8C3sHM8hOgOWfABPlmRZ6+pvjmsvpVIYtrxGWPfzCSvUS0lvamUIaVWlu+h08bh29FIRTTBnA0scE
-	MMQIOioCYiMecEeno4VHBXgRVKIb4Fa7AzMswK0+4/igUxzsPBz+zWMe2hl9+wDosB9MMC6YBAaR/
-	rkn6io1Q==;
+	bh=mHSI40dsTHxFMuVJXj1OieVkVr/y4sBG3eNLFH4/pak=; b=lQ533Yw4Ph6z4Z+cttPgFHtT38
+	nmZzClxwUWBw6HC0/d+Gf/pZ1/FlFC3WcysHD7diWJ00AU+QDXqYKUuo/T0EpKAasIABuRXjfgWBP
+	Y5kwwUpj2fWqwdh2DNRN28D4OfxNVBZA8hzYV1ZrL9+vc3UWWkJ3NiICdKDCh6pbBly2DSlKdScOT
+	Mz5+xD+tn/x6zwH0/0EK0dreQrdd4jjLG/wXVdJPy3xKPTcuUK2ZXFO3xZODyJbtBBrG9jSrWHdqA
+	PQHQ+dKKawbO8UZOWCxZjrA073FoMwPpY76QeayfOnC8d2lhAkSd3cMHTdm/bj3N9Ds5fX9h2vJMr
+	7SQRmZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSeH-0000000FEnV-1ixf;
-	Sun, 04 Oct 2026 20:17:29 +0000
-Received: from mail-westeuropeazon11013023.outbound.protection.outlook.com ([52.101.72.23] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xDSeJ-0000000FEs4-1vFr;
+	Sun, 04 Oct 2026 20:17:31 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSe8-0000000FEfq-20Ko
+	id 1xDSe8-0000000FEfo-3whU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:17:22 +0000
+	Sun, 04 Oct 2026 20:17:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eg5TfAcL9DlLg9kfkihclqkyIMnHmZohj3qLjY5OaPrMXUyD9ofnSM5F69Mm6rNz24eqhRsKW4Tyo4cNc/rdaV+zgI2XfC5lHegiwWI+jBPCISkfEslfY2NG1TcLvwb4wCxBK2Fkh+1tN/fx1ku5MzQC7u6cpEHZ6pkDIC5Vww2XXZ3xWUVOPHqFOU2j1EBKwqRlvGgO0wf3MOAL/DrkCetXidgJgyllFZ9jPIJQBtQvVluhnH4+8IRcnxZVna50zUSPlmSSpEbfAvXZr2C/Y+ZelKQc4YVjnVw3tkX01hPeAf0nqEkS4cfNvIC8aZp4LpKnPUmHHqUceFMG+6Rf1g==
+ b=feCfjMvMCf8ywxZvbhWkSn8UsUCwfYmWGSyOYU8sonOjUXMAsvDXgEVoNCHfOCl1yc+QLdMLBE8zZ0KG2tYg1s6KrfIKDwwygM4/y7SLjdQMJLc1WpI5k9uCNv03k1XLq2oFldL5/E9OUKFMr4RwREKPuHx417oq+lujZ/7VxoIgGn75A6v7yZJUTClpmQ51IWfFLZa7/NU3rGxorQP8eDv1MPCwT6eexdS6AiNpURSEgbvBvC7YuKS6UvaPV/cVagynZlLHN2Tf2Un/D3KVsb8YmRwhYaxMrgFk9wU5cuJl6+YNbDmAX8Nwt3PrxUNMEeYPufaidj8aDSpf5cZJNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=96QaT7NGG5QsEpOMqkx1EIAlPmNTiG95XHMpgburkGw=;
- b=aK5coZ2tsmDDymICIbpcIq1Bs6g7E7YxcrFTCuNsvhRknBoOo+pmHarwHV2tfEryyYxf70QGxKIJsmFeWR07OqrXKq59vBT1ApiTl897o2vegtZvSFNgZ4TPXBuvEAz2J6di9PzQwcDz4JtjTf2SUK9ueEx30/g2z0/BQPttQjGHVbd0xMWodQj13LJOJuGw4vGXQhCLw00fpnR+pAomwcSjVkGYWdEoxmXDMWeJ/24YeQYR9O6nFMTDYx1CsT1haYHtLW/Btfults1ryWeJ7RK9jCVpBnnzSGeVbow8fAvQVattDuGTBGijYt7zzmXQDjk6ns42SvpDyLBu+BmGAw==
+ bh=mHSI40dsTHxFMuVJXj1OieVkVr/y4sBG3eNLFH4/pak=;
+ b=e9xxcZbrtPh6Vq+8Ge4cV7iq5oTbXFDU2e5p5Sj8QBY+lyb7agQfZdpxcwV4zf96oH6BuKVy9Ji6N/eI0PjkzVqZ9uBXv0C/mEGStsomjoowCFAtmalSJrLGK8SCbAsXhoKLNLSn9V/mtB8E6ZutSfNqYO1FEsE/0FVD3kiwa3F82VT9DCizhKD2Of0biqyCv6/dTR4LAT31QFH/UhXXf4Kbd8GlJxn65fmvYaR2l1MIsa0R9BzkVG+wuQP38VQIUztki55fG8c7+sCzBjuceSNXmRmVedWsygGfVPazaFeU5rz0VpBqp+O0avqT8eysVwaxW1jsrCClSbuJqt9MaQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  195.60.68.100) smtp.rcpttodomain=kernel.org smtp.mailfrom=axis.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=96QaT7NGG5QsEpOMqkx1EIAlPmNTiG95XHMpgburkGw=;
- b=GWj3ItlPNrCfvymL81kUxmNmU9heWmjvn4tsjsq47X8q94Dypf1Zbvr4u/8dFLKXOPZWFYzSarXW2EXrnEpfj21nnTaXX8R36H1l+vve+lQN5dwAL/CC+Ku9rU6XQ1Rhxuz7NtzO5ph3SJ4t5U3njEAeiMlnUr0vuzoc2RfaLv8=
-Received: from DUZPR01CA0290.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::28) by GV1PR02MB8353.eurprd02.prod.outlook.com
- (2603:10a6:150:54::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Sun, 4 Oct
- 2026 20:17:12 +0000
-Received: from DU2PEPF00028D0B.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::61) by DUZPR01CA0290.outlook.office365.com
- (2603:10a6:10:4b7::28) with Microsoft SMTP Server (version=TLS1_3,
+ bh=mHSI40dsTHxFMuVJXj1OieVkVr/y4sBG3eNLFH4/pak=;
+ b=WTnUx0a+PzkLGLlGAT0Wk5OsoUZBC6Hrl/pr+N7841+LwCEmrSVWjuWzjyQOF1w3kv6TfjUiBUz5n6MSBSeclFhoT/N16Gk5KRBgvA4ElYUWTEF3SOdMwtyJ9//6J2/Lb0qAncR0XCcAQmmzlLfmoPv9pma54qG1YwfPJlvwt8E=
+Received: from AS9PR04CA0135.eurprd04.prod.outlook.com (2603:10a6:20b:48a::10)
+ by PR3PR02MB6217.eurprd02.prod.outlook.com (2603:10a6:102:71::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sun, 4 Oct
+ 2026 20:17:13 +0000
+Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
+ (2603:10a6:20b:48a:cafe::85) by AS9PR04CA0135.outlook.office365.com
+ (2603:10a6:20b:48a::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:17:12 +0000
+ Oct 2026 20:17:13 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=axis.com;
@@ -59,28 +59,29 @@ Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
  195.60.68.100 as permitted sender) receiver=protection.outlook.com;
  client-ip=195.60.68.100; helo=mail.axis.com; pr=C
 Received: from mail.axis.com (195.60.68.100) by
- DU2PEPF00028D0B.mail.protection.outlook.com (10.167.242.171) with Microsoft
+ DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:12 +0000
-Received: from se-mail11w.axis.com (10.20.40.11) by se-mail10w.axis.com
- (10.20.40.10) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:13 +0000
+Received: from se-mail11w.axis.com (10.20.40.11) by se-mail11w.axis.com
+ (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Sun, 4 Oct
  2026 22:17:11 +0200
 Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail11w.axis.com
  (10.20.40.11) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
  Transport; Sun, 4 Oct 2026 22:17:11 +0200
 Received: from lap5cd525d1j1.sto.se.axis.com (unknown [10.224.134.145])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 384864CED;
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 7C24B4C10;
 	Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 Received: by lap5cd525d1j1.sto.se.axis.com (Postfix, from userid 22105)
-	id F2D35803CDC5; Sun,  4 Oct 2026 22:17:10 +0200 (CEST)
+	id 2D0E2803CDC2; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 From: Henrik Grimler <henrik.grimler@axis.com>
-Date: Sun, 4 Oct 2026 22:16:02 +0200
-Subject: [PATCH 05/17] ARM: dts: samsung: exynos4210: sort nodes by address
+Date: Sun, 4 Oct 2026 22:16:14 +0200
+Subject: [PATCH 17/17] ARM: dts: samsung: exynos4210-universal_c210: fix
+ alignments
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261004-exynos-arm-cleanup-v1-5-45e435353c56@axis.com>
+Message-ID: <20261004-exynos-arm-cleanup-v1-17-45e435353c56@axis.com>
 References: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 In-Reply-To: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -90,42 +91,42 @@ CC: <devicetree@vger.kernel.org>, <waqar.hameed@axis.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, Henrik Grimler <henrik.grimler@axis.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3940;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2322;
  i=henrik.grimler@axis.com; h=from:subject:message-id;
- bh=5dIr61AenKslm4JmcCHuDtadO4naqsXmZmCVqeYe8vo=;
- b=owGbwMvMwMW4gT3Pk7swMZvxtFoSQ9ahLbqexRzPwnKsV+nPbhXSnP/a+sp0K3Ez0U+ySgH3L
- JveH03qZDRmYWDkYpAVU2TRqddcN71TPkVy5aOzMINYmUCmMHBxCsBEXldzMKws2re/q+3pXXF5
- NxUPw+32vxr0tBc5qDPfPbZO/7Da0/1GO3h96tt3bfutIGvkIWV+oGeaGfdh2+RFb3yqrINy+Q9
- +3cb44VaiytmGmNhV3P1rz074wy/y942k2KYGxUdNPQ4Mmp/yajpz6gWnaIQx3HhbvDJ+dyWXCV
- v/DcldKQ9zF9uvy7y2epVa1OT9UhIvPq4+qDZtZ9jnTaXJB2fuSZn7gqtksU3230cfs6SmtfYt2
- +onk3/tqPfTypTJjfzucz3fN5a4/XlSn+8xTeR8r4jNblm5dx4CpRPKO3x0l2Ze99q+3/iY0Zfn
- ylEn5XgFAzRmP3G5JZJYpnC3foqf/arSlrSw9H7OF9EXAQ==
+ bh=tuMsVOxmF3Mi1dpHCymqRfFU8dXZlkH0tTL8VIeVhuc=;
+ b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrREUFW8hhbO8RoyJtFCbar9cU78vP4LHq3jB
+ oioFOLkqrCJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0RAAKCRCwB25JC3Fh
+ a3OBB/98bAVyLRbBdMcbklScV+8/qZRsBTjRKFbyedwthEm6m4k1IIvatWC6RUXycs6EXeI/Nlv
+ Int7vMvyI2LaOcSojMENhv9H4o11WPXSt+VZRQSLEh453/1Le0Mcqeg4ujFmgt9jKAHdi1K3ayo
+ iSJ249XB/iUZgMWEfGrlHhtFaGHhXehoUiZa8m1TP2d48GZ8OMwLH9/hRKLoJ8c3Yo7DbQdG7/j
+ j2RU/pFIeDSJCeSVLhU7vqI0eUPJ7AK/Ghp07tBA/2LSmLrmZ+p6hCACnNxQgl82UBnje/pu2+l
+ HYuTFgiuU71U26JU25g7VveY8vqIJyZ+0eeOGYvTAiZstkT1
 X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
  fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|GV1PR02MB8353:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0bc2cb82-455d-4d3c-3efe-08df2254798f
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885D:EE_|PR3PR02MB6217:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c6066b9-7033-4138-37eb-08df22547a4a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|30052699003|1800799024|82310400026|10067099003|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: /hBrBugGqpq92sND2lA9SN4BslVymjgCdfF6A2bwZbNccIRcJSauZ4hER3/Uujz4n0M1x4nytFvmzISWK9azqHs4Jq0NRCJtitAPkA9nGfS3VxdUz+0YLp2qRDL2H0SClrAlm5V/C3pqPz9EXPyokOgpfwacSWXxudII3LsUCiEMT6q2pPiNe9TlO767u3Wq3zyj6J5eokYnejitVX3eUgHLZjZfQviRPUGTkD+oIYWiVE1Awp+Xs+pLwvDB6/vk5lbTIrNr4f86+IORxXv4pmpXpJt02ElDRVzXNID0mSPbO9cQFRSMWY6c/4jukJxbuJHxLTI2pfy1SpoMwp3EksnTqk7nfroreJnjAzv3qRvoYWYQE7THSpwKpha8/yoY6dgGulVQCEvOBpCRgZM0yzr3usDTkQ0gh4LNmbyPrv1cHI1cpMRvU9FgPvocHzcQOfRz/toN+JHaNPm10YuFfzLF1wKF0U5zTInBW5vnzabVeMWZP4y8zBpJ2Bd4RF4DBiiNT7u76fQcWQVGiCFPchLSJNtvr7d7qAFHBModtrknKjHo+/mLJTOfnhYkKSpExrTbyvZJCpcgk9/QTBdb8GBV9aqd8dAcIJeY9Vv4evpLaMiA0MHTVFKmMQpbBw25pcZFUadTgXbexCg0QW0s+0eoeLxhat1BIlI8KskzXJZLsAZ8u852/zy/KgKNUOfw7wXn9PimgEUkyp9MWFjFOw==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(30052699003)(1800799024)(82310400026)(10067099003)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|30052699003|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: iWAyvjzoptUDKpl1KNSIUZW1IG1qb4kQdIlBMjVf8oe5ULBKW7bw8sWF2w/n4A+sWZF3dUZ773R3k3k6XdJBnCu2zCNybNyDuyDN29m9xxZYQgMv4KBNBygfXKioiNHQIEwNDJbs4RrgOmWVRpeQ7Vy3EuqdKNK8CgIqH0vt9KFOdfpExMly2P33Y5WDXUjGmWjNz/NsuXqZBhCV7hXIAVLS3gJXHN0iFTlm/S1RfFA1feBVhy3OIRzL9WEZAKC5olweYWvChnDoZF06I0zfnhTXwp3EYIoRUc5CUjMDv/5mT8TmIjW2rObrPU7otDP49RkA0JqbqKTqf1HkSPHvGXbloF3JVYjstHqHBjkuKnPAhbcjjVay9IfITzMAXC4XFtbbl+Svtp1+qxGTVdY1DcBdd8m9xJnNSeu/ltWHKbunV3yk37SFmc+cZf3FWGHacHTg5cHX7zklB7/RH2EuTSdo4PCrRny7Ua0b49mxQitAg99SEi5wzI3zuhsGRKoCyOeWRUwTxgHQ7hSOwkmeiaj1zmCK+rvnFiPeIYmNiuu9YQZVkld5TDrY0Vup46ACWYKKpzjk21FwZTLsG88M5WHBNv5yfI/XPtZB/n5zaDtUdbEkz+32IwjpQ6Cnwe5o6ywNO3SflmhDHsAXyJQZUkL0/Z7L+YsyEoACL1e+3EfbWnzNeqGZZ9wBjvB1NwD4wnH1YOSTx655JRc/LmFk3Q==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(30052699003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Ud6yk9J/6357JNnhytmCFoVJWmwIdsjpyyFqxSwvEaBVFDbP8R9++Tz8zXKfUcueNM9HdGjXt7EEWm6nFvEmDrGFBBfczPxXjoyl2bCmJAZOIGF6YuGhOBgYqHXsj2N97TjMFbzHVHD1FimZW2kUy31Poa5Ws1TL6x0DSSAUt6zkEgCe5WZhpqKhvzfFNDIN/j94sj1ysKbuhrL6QaUsaPUr1BUnkUJOFMsp7fMl8HbIqF/7WNY8SKsOsy7vB0yfQBM8JvYvKtmWQYwGHCpiW3UMX1VJdN/IrKFm8LScujWh2/npRM+yh2yoy/S8EUC81oGq7GRI+ifml83MykKvO1EQqxReIiCaAvZg2+ECxXNn6KrccLt7QNWmWMTHPpycx3OAnk3MrbquhrQgWtLGC4pwo3uqmPJCwo7BZE/VZOtCt2XgL/XdoV2pUe2qdDuY
+X-MS-Exchange-AntiSpam-MessageData-0: cYkQ1RVjX3W7P5hM/Ta/XVTU/PEk3S6Lkgsc+QIUzIO1e031IBmhUtlb9v/QnEQI6MawoAu3fvQE0YlmWK5kPm5OEM04KgoU8xQ4trHXjKW+n0wC/ayb0pIrNvgcacQH6dHkHwK9AY2unJLNfO6OXcxbYe6vVQeuIPfUuSeVg8Lj5QdEbuRBujhT4KJ6JW5CVeYN0Cv6BAh0yvXxohiiM4bQHRS+L0yt+pxf9cbmu2OkizXM1WpbvRF6XSZ68m7j7bj/Gbv/dEV7ZNbquzzVMOc3dUYcqpgsqi0Xq2mWuWSlZu0B121UzKIGH5p4sEioXj8FlyyTwFpm9VQaim4CStAYyt6Y6gz3N3IRXF3vjLgyz52UENG0QQYSMFG+AL7ktJSstPNjyycfmevdXCQ98IzXiEHrHBvlaBkWgJP4cCI0myztTDoBbvAVN9Y1MJCb
 X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:12.1414
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:13.3650
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0bc2cb82-455d-4d3c-3efe-08df2254798f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c6066b9-7033-4138-37eb-08df22547a4a
 X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0B.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR02MB8353
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR02MB6217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_131720_525259_14F1B7DE 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20261004_131721_027818_A9626B2B 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,136 +141,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nodes should be sorted by address, or in the absence of an address,
-alphabetically. Sort all nodes except the pinctrl ones, to keep them
-grouped and in order by alias numbering.
-
-Fixes child-address-order warnings from dt-check-style in strict mode
-like:
-
-  samsung/exynos4210.dtsi:369: [child-address-order] child node @12220000 out of address order
+Remove extra empty line, align multiline properties and add space
+after /delete-property/. Fixed with dtfmt (Devicetree Source
+formatter).
 
 Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
 ---
- arch/arm/boot/dts/samsung/exynos4210.dtsi | 77 ++++++++++++++++---------------
- 1 file changed, 39 insertions(+), 38 deletions(-)
+ .../boot/dts/samsung/exynos4210-universal_c210.dts | 23 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4210.dtsi b/arch/arm/boot/dts/samsung/exynos4210.dtsi
-index 510e8665d1a2..66b1a55f703d 100644
---- a/arch/arm/boot/dts/samsung/exynos4210.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4210.dtsi
-@@ -269,15 +269,10 @@ pd_lcd1: power-domain@10023ca0 {
- 			label = "LCD1";
- 		};
- 
--		l2c: cache-controller@10502000 {
--			compatible = "arm,pl310-cache";
--			reg = <0x10502000 0x1000>;
--			cache-unified;
--			cache-level = <2>;
--			prefetch-data = <1>;
--			prefetch-instr = <1>;
--			arm,tag-latency = <2 2 1>;
--			arm,data-latency = <2 2 1>;
-+		clock: clock-controller@10030000 {
-+			compatible = "samsung,exynos4210-clock";
-+			reg = <0x10030000 0x20000>;
-+			#clock-cells = <1>;
- 		};
- 
- 		mct: timer@10050000 {
-@@ -301,10 +296,22 @@ watchdog: watchdog@10060000 {
- 			clock-names = "watchdog";
- 		};
- 
--		clock: clock-controller@10030000 {
--			compatible = "samsung,exynos4210-clock";
--			reg = <0x10030000 0x20000>;
--			#clock-cells = <1>;
-+		l2c: cache-controller@10502000 {
-+			compatible = "arm,pl310-cache";
-+			reg = <0x10502000 0x1000>;
-+			cache-unified;
-+			cache-level = <2>;
-+			prefetch-data = <1>;
-+			prefetch-instr = <1>;
-+			arm,tag-latency = <2 2 1>;
-+			arm,data-latency = <2 2 1>;
-+		};
-+
-+		ppmu_acp: ppmu@10ae0000 {
-+			compatible = "samsung,exynos-ppmu";
-+			reg = <0x10ae0000 0x2000>;
-+
-+			status = "disabled";
- 		};
- 
- 		pinctrl_0: pinctrl@11400000 {
-@@ -330,20 +337,15 @@ pinctrl_2: pinctrl@3860000 {
- 			reg = <0x03860000 0x1000>;
- 		};
- 
--		g2d: g2d@12800000 {
--			compatible = "samsung,s5pv210-g2d";
--			reg = <0x12800000 0x1000>;
--			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&clock CLK_SCLK_FIMG2D>, <&clock CLK_G2D>;
--			clock-names = "sclk_fimg2d", "fimg2d";
--			power-domains = <&pd_lcd0>;
--			iommus = <&sysmmu_g2d>;
--		};
--
--		ppmu_acp: ppmu@10ae0000 {
--			compatible = "samsung,exynos-ppmu";
--			reg = <0x10ae0000 0x2000>;
--			status = "disabled";
-+		sysmmu_fimd1: sysmmu@12220000 {
-+			compatible = "samsung,exynos-sysmmu";
-+			interrupt-parent = <&combiner>;
-+			reg = <0x12220000 0x1000>;
-+			interrupts = <5 3>;
-+			clock-names = "sysmmu", "master";
-+			clocks = <&clock CLK_SMMU_FIMD1>, <&clock CLK_FIMD1>;
-+			power-domains = <&pd_lcd1>;
-+			#iommu-cells = <0>;
- 		};
- 
- 		ppmu_lcd1: ppmu@12240000 {
-@@ -354,6 +356,16 @@ ppmu_lcd1: ppmu@12240000 {
- 			status = "disabled";
- 		};
- 
-+		g2d: g2d@12800000 {
-+			compatible = "samsung,s5pv210-g2d";
-+			reg = <0x12800000 0x1000>;
-+			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock CLK_SCLK_FIMG2D>, <&clock CLK_G2D>;
-+			clock-names = "sclk_fimg2d", "fimg2d";
-+			power-domains = <&pd_lcd0>;
-+			iommus = <&sysmmu_g2d>;
-+		};
-+
- 		sysmmu_g2d: sysmmu@12a20000 {
- 			compatible = "samsung,exynos-sysmmu";
- 			reg = <0x12a20000 0x1000>;
-@@ -364,17 +376,6 @@ sysmmu_g2d: sysmmu@12a20000 {
- 			power-domains = <&pd_lcd0>;
- 			#iommu-cells = <0>;
- 		};
--
--		sysmmu_fimd1: sysmmu@12220000 {
--			compatible = "samsung,exynos-sysmmu";
--			interrupt-parent = <&combiner>;
--			reg = <0x12220000 0x1000>;
--			interrupts = <5 3>;
--			clock-names = "sysmmu", "master";
--			clocks = <&clock CLK_SMMU_FIMD1>, <&clock CLK_FIMD1>;
--			power-domains = <&pd_lcd1>;
--			#iommu-cells = <0>;
--		};
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
+index bcc636adba91..2e8d48315390 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
+@@ -35,7 +35,6 @@ chosen {
+ 		stdout-path = "serial2:115200n8";
  	};
+ 
+-
+ 	fixed-rate-clocks {
+ 		xxti {
+ 			compatible = "samsung,clock-xxti";
+@@ -353,7 +352,7 @@ vdd_arm_reg: pmic@60 {
+ 				    <&gpx0 4 GPIO_ACTIVE_HIGH>;
+ 		max8952,default-mode = <0>;
+ 		max8952,dvs-mode-microvolt = <1250000>, <1200000>,
+-						<1050000>, <950000>;
++					     <1050000>, <950000>;
+ 		max8952,sync-freq = <0>;
+ 		max8952,ramp-speed = <0>;
+ 	};
+@@ -367,9 +366,9 @@ pmic@66 {
+ 
+ 		max8998,pmic-buck1-default-dvs-idx = <0>;
+ 		max8998,pmic-buck1-dvs-gpios = <&gpx0 5 GPIO_ACTIVE_HIGH>,
+-						<&gpx0 6 GPIO_ACTIVE_HIGH>;
++					       <&gpx0 6 GPIO_ACTIVE_HIGH>;
+ 		max8998,pmic-buck1-dvs-voltage = <1100000>, <1000000>,
+-						<1100000>, <1000000>;
++						 <1100000>, <1000000>;
+ 
+ 		max8998,pmic-buck2-default-dvs-idx = <0>;
+ 		max8998,pmic-buck2-dvs-gpio = <&gpe2 0 GPIO_ACTIVE_HIGH>;
+@@ -650,8 +649,8 @@ brcmf: wifi@1 {
  };
  
+ &serial_0 {
+-	/delete-property/dmas;
+-	/delete-property/dma-names;
++	/delete-property/ dmas;
++	/delete-property/ dma-names;
+ 	pinctrl-0 = <&uart0_data &uart0_fctl>;
+ 	pinctrl-names = "default";
+ 
+@@ -674,20 +673,20 @@ bluetooth {
+ 
+ &serial_1 {
+ 	status = "okay";
+-	/delete-property/dmas;
+-	/delete-property/dma-names;
++	/delete-property/ dmas;
++	/delete-property/ dma-names;
+ };
+ 
+ &serial_2 {
+ 	status = "okay";
+-	/delete-property/dmas;
+-	/delete-property/dma-names;
++	/delete-property/ dmas;
++	/delete-property/ dma-names;
+ };
+ 
+ &serial_3 {
+ 	status = "okay";
+-	/delete-property/dmas;
+-	/delete-property/dma-names;
++	/delete-property/ dmas;
++	/delete-property/ dma-names;
+ };
+ 
+ &soc {
 
 -- 
 2.43.0
