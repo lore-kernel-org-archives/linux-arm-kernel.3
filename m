@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C420DCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 17:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E95CA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 17:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5uUcI1/RkV6pA20Ka1TbaV7lMFxccYVTKU3RyjDpPg=; b=oC8s17DKK8jHEjz4KgwnTukrCo
-	Pgpx2OTtyRVor0kvxylnVha2vmoILbsTNh2gFGRUjmNTKHGWiKCOauhSB6nkCqZy2/hqXRTlWBxwo
-	85hcFb3QuZzEQgv2Sx7gxqChPzN33EnNMlr9mkpvIA59/kkQIUh+fOG83oGvz7XGPHETgSEgToz9s
-	oXmo9G8Y6tDu4s8cyIL14o/smmLlFEC1+8JBzCSwiWbAc+16DvkH9pLkOLoss4kkXMqiCKSQMlVfD
-	juuhtXdzEVUCiTQNrcpeZERA4W3XqqpIFRzqnV/vVUXtQWT3IqY2XYH7SEk4PP9iLiISuREpcCbkM
-	jou8UFtw==;
+	bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=; b=yN6j/xQ1f/BvYf16kwQh0nAKGu
+	OUGEsYHcEky9IGiTEnJpDWMBx5OGHwWcG4u7Q8Spv/mclHCHa1EwCDmDpDjyRxSuBT5vMRp70Cdda
+	HKF9La64D+leefnYfRVk5sTyhKOUtLDMedq1SrQfC+fgL7ItqGmrZYMmPi1EAFgcpBHwRhcqeTRUe
+	t/Pi6DIKmalznrSXVpP3zECz7EEl7wRe9b6t0KFBQElR1PTMRMn/jsXeZD0J/IfWNi0K3NNtwoYLA
+	ZQifp4dSfdnyHuWuFjJWzUkPiJbBNNwQuTOVW3686uRvaAsKnx0ElnnIOpm7rwk3dZQCUkRpl7sNC
+	nJROEY6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDPpS-0000000F5mx-0BHK;
+	id 1xDPpS-0000000F5nh-1LQD;
 	Sun, 04 Oct 2026 17:16:50 +0000
-Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+Received: from mail-ed2-x0d.google.com ([2a00:1450:4864:33::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDPpL-0000000F5fG-38IQ
+	id 1xDPpN-0000000F5h4-2zVi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 17:16:45 +0000
-Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6af7d408b51so716652a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 10:16:43 -0700 (PDT)
+	Sun, 04 Oct 2026 17:16:47 +0000
+Received: by mail-ed2-x0d.google.com with SMTP id 4fb4d7f45d1cf-6ac6fa788e6so1117188a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 10:16:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1791134202; x=1791739002; darn=lists.infradead.org;
+        d=bairaktaris.de; s=google; t=1791134204; x=1791739004; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=O5uUcI1/RkV6pA20Ka1TbaV7lMFxccYVTKU3RyjDpPg=;
-        b=yGMhF/gYyNho5yXSTFjAjtg/11MybZblNkFmA+VERLwIHjYk55NRNL6qqgApLgxCUA
-         qYStuCWzGMzJyHG3yPo+7jtMI13hCVsYHyimTuK6Clasr7N5FITlLyVyX7xJQ9iS5lXe
-         ilLo9Iga2x6DiydQ0ipcFgNPeFhIjWRrKPZ914Zz4CFnsSvcGrvn7FB93rjpvsyha2Ql
-         5PTw3h6iKmpO7r9gigYZoJba8nsn4erxSQeJimh/gSBYuFnpXt/h/4zVWUnc14CwotQW
-         KNZJ8eWgVFz0vDX6L/4y7eybVLu3TyOePSTQZv4Lf2TOwGSvF29v+5q1gWt9mRYO6hBc
-         +CLA==
+        bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=;
+        b=putEpqN5sv3rzaY8Hy1gk7VsyC/6bwXHaU3jprc+YQ9QyvjNsw6HdAfaDqgBQaUbfX
+         Uv7jJyq7xQ9qW7RqoAzMgdTAQfuViwcuaPo6BuU6unLN4AK7Ye3M+n5lWSjfHV73gaje
+         Z6AW+9A6tqu55JZlgT0611bF64z96EbMyingnmXf1xK79X2geUyaVEYim5kasCliAcKC
+         PfV1OOhqOn6meV54E5WZlL0gn2YHGjVh1QgHSnWOx2cbttk48+jCsSN/BZ0GXG+gq8ng
+         riW36CpVu4Y7P7qB0ecNmlJVS52VFNymkFMgnjXZEFnELLwLhlMsLS/HnRZydXN912QH
+         9ELw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791134202; x=1791739002;
+        d=1e100.net; s=20260707; t=1791134204; x=1791739004;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O5uUcI1/RkV6pA20Ka1TbaV7lMFxccYVTKU3RyjDpPg=;
-        b=thn0N7eBLNjCf36binXs/d/IAFnTeaU6YopitU8C3Rr9Z144TmlBrimj06tNqsbNdO
-         oSvz8ATjesytaZVO3T5AMNwDZ3ALnD6+xYDZIldAKWR5U1Cg8tZ4paYFgU7wkoELK8rB
-         7zhhBoWOXROW5K5LcP3OeOGtOb4dZqzQeRUTeKXr0+FQ/JodwK/swCNRRCKBzvs0xvCN
-         zICRFqPVWP6GBFST/ukbcdkODKg68m14Tq7peGncJumLMBX1BEG82JDUPZ2i4hEZS67w
-         JABx8yyoYxSE47ZguynB4aqi+vKkmU5eFaIAyAN//2yWnq9UqUmevXdXtd7DLCIc8F85
-         uPqw==
-X-Forwarded-Encrypted: i=1; AKwUvBype+TjMldwb9xpFFj4qK2+OnZVPcCX2bXl3owgnABQJa2WPhzC2zEU1qpztuqfinJKfm9dGMFsCvOkK6pmj0s4@lists.infradead.org
-X-Gm-Message-State: AFq9FYLAHjqZ9Njh1gIfdWpKtXh8un/kn1I5oP52XcmOWDeUSlgI+H+E
-	9O/5xJlzquVzOmVZ/qqULJzDd1Q3R3d9ntrbFipV9MIxWPdMwIBEVofV8yDIIpCz3Q==
-X-Gm-Gg: AYBFou0bQjV0IX2X0AqRYjGOCK1q+zj0Y3A45YzplbOwAoURymx65FJaOXyl/ZdfO1V
-	VAWKAHXtxCF7K49CbXt7wmg6adkndxWwsD2+kHew5mIEKfrDQ2bHRIjhKYg8KBYl7Y00gYCdlUx
-	ijo8xeLub6oa28G5qA7+g1mdX7hS5zwla310DnEfX9OznSPk/CpY3Hv4niVKr9GHvZHEAzig3zs
-	zc582kuUi47Ry5rjAeYNA/Ymbobi5RGdPXDnYWJ3zOcwt5FdevfjJuA6Zq4ZY4SHZ4UfepE9TIC
-	rC6gpUMmnH6Kl1hIcGf5HflYrHmpaUZ32gyyc58uv1BYjGM3UnFROeDA6naZTviSM5s8p9sKnP7
-	iLFKQcsONFc9ZvlKlnFr0Zjp8VlOIyfSlFGY+jDvB+bFTKoAWb0q02noedOrjsFOegMvn4G0Knw
-	Yf3iO/McoUGsOUBesDHAsnZWtnu0La1x/J9Hrk7zL42iHdDIGnXy2/XuaLSd5STlv9VjEWGaeWF
-	bd3uDibELKNEY8QqKd+WyG6Nq7fm5snTyZ9t8eOkyMsmDDDNiL7hlOu1ritZngQuQk7krRH8SlQ
-	EqckWLyWFPZCreC5t5LF6HyeOyXLLJ3YlneHJUsmfnShsTHnoglFUmlrTXUn5MCCTqKZLldVa1Z
-	eTGeTffVy3IWkdOHRk0fNA9accf9+La5xjNBUlGzg97wQU/bsvYMn45Kw2fiomQSb0VjuOLtsaW
-	J3hn+RIHYICIa/nrgP7c6sZPBvL74bNOrxlg==
-X-Received: by 2002:a05:6402:27c9:b0:6aa:e251:ecb4 with SMTP id 4fb4d7f45d1cf-6af9e0468eamr6985282a12.2.1791134202135;
-        Sun, 04 Oct 2026 10:16:42 -0700 (PDT)
+        bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=;
+        b=CRFNZeH3vGQxNxjJQ7lUE172W9EaiYaHxv9P+Pn84NCxcQhJNt8xptwWoJOWPqG5z+
+         od6L5F/w+6wCdP+c0lF6e+fQyVkWGBRcijL+gJJ4V34w5gLYAVPQwJLIM5Gv/x+u0O9X
+         i1s88iBpBCqKPdGArz9QarW5mss8BjBg98WhferSxHj16z+siDBQRi5qsoo8opC8ghzm
+         bIZeyDFGsp587hsVzxn7yy3c7Sfb0egI+2e6fYsWZFJBfFldi0kGaErVOpRZgwhnGKvw
+         5b3D30AqxSlCaZ4yMPCK2NjY00bZg1Rnc0mtqr7fCTdMICv0oGW9Uc7H+oKFoK1YtuN7
+         w5fQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy4tRWyBA1YpO2AlPzaZlxP92YWra8BPmTcopdOEvTka2+2uyf7S7p/tZblxqVD6CMf2lt0ySzgv9YdYQXl+we2@lists.infradead.org
+X-Gm-Message-State: AFq9FYIe4ETPEYr8b/G69KhsWn2qNAV1By32DwfGp2vh8HQvHf4Q3z6R
+	HvgyM42CGA2p7o2W/P3ztQnYViVW6tQUXTPz0BR+0Zh7cQAU6+TjlAAzcMphiL10rw==
+X-Gm-Gg: AYBFou0UtxzxPAds+XYCbSEzxSeRT4/cBk963L3tyeQePBTShS4b0QmDZwAw3MAPaXA
+	dgRYEX1QWTP/nhhNJbyr8yvHr8dq4Eanxz3MaWZMub3U2e983Xk+g2ghBN/scJjMaWZRaOE+BoC
+	einwc69yCEppje1DsjFW2K6BtOReHdj3BWqsQzfs5P6ffoUVPn2vTI9xfJKzwHdKCVIpAJkmc1f
+	IxzYzdDcLRJYzZ2H1PALJKLN0/8qLdLgUpLcfuITq22ppPqHcHDZFHRRjfbkOo5fjRz2z1Tpfd4
+	0ApPo/hRRredq03vqgbi5qVuvtV8ghcF4it9pUPtO6f+AZBhThSyXJa0zs1kE7Mtpg6k8pofzA5
+	LdBUq8U2aN3xFEAsrd81Wh/NUt/pRxekWOYj3CK3UymDQBJB6/DkL+ftERktUVojhddEneCZZgG
+	OZxHfM1kORMIufntQO4BKyueSFzAwCbJfcG1885N7R5feyeeaYzndEA6DimYI5DDjY3O0/Qx5ni
+	ZVrBe+kmZqh5wq/pGVQfFUZRY0xyo8xHkYD7sz0VGWNGg9ntRQuLA7S2AzLmDzjYJEoECjjvyBv
+	+W9NZsStcuCI3LH55AbGRvFARGlN66kAE3yttUGSaI8oPB3wGK7/EwCFmmEWlbB1A6FamIIJTX3
+	4fXxZILS0EwuqoBN+QVXJI2dCeIN5h3l8sw/uS0JvXlGS7qbWFGYJq/OwTBh9vHDwubpgZFfR9c
+	dbty5xfhcfW055ubWtJLmbL70=
+X-Received: by 2002:a05:6402:52c1:b0:6ac:7737:e50d with SMTP id 4fb4d7f45d1cf-6af9e2fd054mr5882545a12.29.1791134203816;
+        Sun, 04 Oct 2026 10:16:43 -0700 (PDT)
 Received: from Desktop (pd9513667.dip0.t-ipconnect.de. [217.81.54.103])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb014784bsm2256819a12.3.2026.10.04.10.16.40
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb014784bsm2256819a12.3.2026.10.04.10.16.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 10:16:40 -0700 (PDT)
+        Sun, 04 Oct 2026 10:16:42 -0700 (PDT)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: pablo@netfilter.org,
 	fw@strlen.de
@@ -103,17 +103,17 @@ Cc: phil@nwl.cc,
 	mbloch@nvidia.com,
 	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH nf-next v3 2/3] netfilter: flowtable: carry a priority into the offload
-Date: Sun,  4 Oct 2026 19:16:35 +0200
-Message-ID: <20261004171636.3545085-3-julius@bairaktaris.de>
+Subject: [PATCH nf-next v3 3/3] selftests: netfilter: nft_flowtable.sh: check the priority a flow carries
+Date: Sun,  4 Oct 2026 19:16:36 +0200
+Message-ID: <20261004171636.3545085-4-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261004171636.3545085-1-julius@bairaktaris.de>
 References: <20261004171636.3545085-1-julius@bairaktaris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_101643_828684_771DF3C6 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20261004_101645_801232_43F3C47D 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,146 +128,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Packets forwarded by the flowtable skip the ruleset, so a priority set
-by "meta priority set" before "flow add" only applies to the first
-packets of a connection, and drivers never see it.
+Count the forwarded TCP packets that leave with priority 0:3 and those
+that leave with none, first without a priority and then with "meta
+priority set 0:3" ahead of "flow add". With the priority set, every
+packet must carry it, including those the flowtable forwards. Runs for
+IPv4 and IPv6.
 
-Store skb->priority of the packet that creates the flow, apply it in
-the software fast path and emit it as FLOW_ACTION_PRIORITY, the action
-act_skbedit uses. Flows without a priority are unchanged. On IPv4,
-ip_forward() derives a priority from the TOS by default, so a flow can
-carry one without a rule. The priority applies to both directions.
-
-airoha uses it as the QoS queue of flows that leave through a GDM port,
-as its software path does, mtk ignores it like FLOW_ACTION_CSUM, and
-mlx5 ignores it on flowtable flows (previous patch). airoha and mtk
-parse tc flower rules in the same function, so they now also accept
-skbedit priority there.
-
-Assisted-by: Claude:claude-opus-5
+Assisted-by: Claude:claude-fable-5-1
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- Documentation/networking/nf_flowtable.rst       |  4 +++-
- drivers/net/ethernet/airoha/airoha_ppe.c        |  3 +++
- drivers/net/ethernet/mediatek/mtk_ppe_offload.c |  1 +
- include/net/netfilter/nf_flow_table.h           |  1 +
- net/netfilter/nf_flow_table_ip.c                |  6 ++++++
- net/netfilter/nf_flow_table_offload.c           | 11 +++++++++++
- net/netfilter/nft_flow_offload.c                |  2 ++
- 7 files changed, 27 insertions(+), 1 deletion(-)
+ .../selftests/net/netfilter/nft_flowtable.sh  | 110 ++++++++++++++++++
+ 1 file changed, 110 insertions(+)
 
-diff --git a/Documentation/networking/nf_flowtable.rst b/Documentation/networking/nf_flowtable.rst
-index d757c21c10f2..5844ab19aec6 100644
---- a/Documentation/networking/nf_flowtable.rst
-+++ b/Documentation/networking/nf_flowtable.rst
-@@ -71,7 +71,9 @@ forwarding path including the Netfilter hooks and the flowtable fastpath bypass.
+diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable.sh b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
+index 449c518bd947..73c7b1ec2208 100755
+--- a/tools/testing/selftests/net/netfilter/nft_flowtable.sh
++++ b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
+@@ -458,6 +458,106 @@ fi
+ 	check_dscp "dscp_fwd" "$pmtu"
+ }
  
- The flowtable entry also stores the NAT configuration, so all packets are
- mangled according to the NAT policy that is specified from the classic IP
--forwarding path. The TTL is decremented before calling neigh_xmit(). Fragmented
-+forwarding path. The TTL is decremented before calling neigh_xmit(). The flow
-+also stores the priority of the packet that created it, so a priority set before
-+``flow add`` applies to the packets that the flowtable forwards. Fragmented
- traffic is passed up to follow the classic IP forwarding path given that the
- transport header is missing, in this case, flowtable lookups are not possible.
- TCP RST and FIN packets are also passed up to the classic IP forwarding path to
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 92611802801e..e790305ea955 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -1161,6 +1161,9 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
- 		case FLOW_ACTION_REDIRECT:
- 			odev = act->dev;
- 			break;
-+		case FLOW_ACTION_PRIORITY:
-+			priority = act->priority;
-+			break;
- 		case FLOW_ACTION_CSUM:
- 			break;
- 		case FLOW_ACTION_VLAN_PUSH:
-diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-index 99b28aaa7cc4..4ee99e8e4a34 100644
---- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-+++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-@@ -378,6 +378,7 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
- 		case FLOW_ACTION_REDIRECT:
- 			odev = act->dev;
- 			break;
-+		case FLOW_ACTION_PRIORITY:
- 		case FLOW_ACTION_CSUM:
- 			break;
- 		case FLOW_ACTION_VLAN_PUSH:
-diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
-index f2e2771f188f..23218c8cbc3d 100644
---- a/include/net/netfilter/nf_flow_table.h
-+++ b/include/net/netfilter/nf_flow_table.h
-@@ -202,6 +202,7 @@ struct flow_offload {
- 	unsigned long				flags;
- 	u16					type;
- 	u32					timeout;
-+	u32					priority;
- 	struct rcu_head				rcu_head;
- };
- 
-diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
-index c8c29a9a1684..c85e2d608c32 100644
---- a/net/netfilter/nf_flow_table_ip.c
-+++ b/net/netfilter/nf_flow_table_ip.c
-@@ -509,6 +509,9 @@ static int nf_flow_offload_forward(struct nf_flowtable_ctx *ctx,
- 	ip_decrease_ttl(iph);
- 	skb_clear_tstamp(skb);
- 
-+	if (flow->priority)
-+		skb->priority = flow->priority;
++check_priority()
++{
++	local what="$1"
++	local pmtu="$2"
++	local ok=1
 +
- 	if (flow_table->flags & NF_FLOWTABLE_COUNTER)
- 		nf_ct_acct_update(flow->ct, tuplehash->tuple.dir, skb->len);
- 
-@@ -1104,6 +1107,9 @@ static int nf_flow_offload_ipv6_forward(struct nf_flowtable_ctx *ctx,
- 	ip6h->hop_limit--;
- 	skb_clear_tstamp(skb);
- 
-+	if (flow->priority)
-+		skb->priority = flow->priority;
++	local counter
++	counter=$(ip netns exec "$nsr1" nft reset counter netdev priocheck prio3 | grep packets)
++	local pc3=${counter%*bytes*}
++	pc3=${pc3#*packets}
 +
- 	if (flow_table->flags & NF_FLOWTABLE_COUNTER)
- 		nf_ct_acct_update(flow->ct, tuplehash->tuple.dir, skb->len);
- 
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index 801a3dd9ceea..caaadffc2563 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -696,6 +696,17 @@ nf_flow_rule_route_common(struct net *net, const struct flow_offload *flow,
- 	    flow_offload_eth_dst(net, flow, dir, flow_rule) < 0)
- 		return -1;
- 
-+	if (flow->priority) {
-+		struct flow_action_entry *entry;
++	counter=$(ip netns exec "$nsr1" nft reset counter netdev priocheck prio0 | grep packets)
++	local pc0=${counter%*bytes*}
++	pc0=${pc0#*packets}
 +
-+		entry = flow_action_entry_next(flow_rule);
-+		if (!entry)
-+			return -1;
++	local failmsg="FAIL: pmtu $pmtu: $what counters do not match, expected"
 +
-+		entry->id = FLOW_ACTION_PRIORITY;
-+		entry->priority = flow->priority;
-+	}
++	case "$what" in
++	"prio_none")
++		if [ "$pc3" -gt 0 ] || [ "$pc0" -eq 0 ]; then
++			echo "$failmsg prio3 == 0, prio0 > 0, but got $pc3,$pc0" 1>&2
++			ret=1
++			ok=0
++		fi
++		;;
++	"prio_fwd")
++		if [ "$pc3" -eq 0 ] || [ "$pc0" -gt 0 ]; then
++			echo "$failmsg prio3 > 0, prio0 == 0, but got $pc3,$pc0" 1>&2
++			ret=1
++			ok=0
++		fi
++		;;
++	*)
++		echo "FAIL: pmtu $pmtu: unknown priority check $what" 1>&2
++		ret=1
++		ok=0
++	esac
 +
- 	tuple = &flow->tuplehash[dir].tuple;
++	if [ "$ok" -eq 1 ] ;then
++		echo "PASS: $what: priority packet counters match"
++	fi
++}
++
++test_tcp_forwarding_set_priority()
++{
++	local pmtu="$3"
++	local proto="$4"
++	local dstip="$5"
++	local dstport="$6"
++	local lret=0
++
++ip netns exec "$nsr1" nft -f - <<EOF
++table netdev priocheck {
++   counter prio0 { }
++   counter prio3 { }
++
++   chain egress0 {
++      type filter hook egress device "veth0" priority 0; policy accept
++      meta l4proto tcp meta priority 0:3 counter name "prio3"
++      meta l4proto tcp meta priority none counter name "prio0"
++   }
++
++   chain egress1 {
++      type filter hook egress device "veth1" priority 0; policy accept
++      meta l4proto tcp meta priority 0:3 counter name "prio3"
++      meta l4proto tcp meta priority none counter name "prio0"
++   }
++}
++EOF
++	if [ $? -ne 0 ]; then
++		echo "SKIP: Could not load netdev:egress for veth0 and veth1"
++		return 0
++	fi
++
++	if ! test_tcp_forwarding_ip "$1" "$2" "$pmtu" "$proto" "$dstip" "$dstport"; then
++		lret=1
++	fi
++	check_priority "prio_none" "$pmtu"
++
++	# The flow stores the priority set before it is added, so the packets
++	# the flowtable forwards leave with it too, in both directions.
++ip netns exec "$nsr1" nft -f - <<EOF
++table inet prioset {
++   chain forward {
++      type filter hook forward priority -1; policy accept
++      meta priority set 0:3
++   }
++}
++EOF
++	if ! test_tcp_forwarding_ip "$1" "$2" "$pmtu" "$proto" "$dstip" "$dstport"; then
++		lret=1
++	fi
++	check_priority "prio_fwd" "$pmtu"
++
++	ip netns exec "$nsr1" nft delete table inet prioset
++	ip netns exec "$nsr1" nft delete table netdev priocheck
++
++	return $lret
++}
++
+ test_tcp_forwarding_nat()
+ {
+ 	local nsa="$1"
+@@ -516,6 +616,11 @@ else
+ 	ret=1
+ fi
  
- 	for (i = 0; i < tuple->encap_num; i++) {
-diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index 32b4281038dd..c8eaf7bc356d 100644
---- a/net/netfilter/nft_flow_offload.c
-+++ b/net/netfilter/nft_flow_offload.c
-@@ -117,6 +117,8 @@ static void nft_flow_offload_eval(const struct nft_expr *expr,
- 	if (tcph)
- 		flow_offload_ct_tcp(ct);
- 
-+	flow->priority = pkt->skb->priority;
++if ! test_tcp_forwarding_set_priority "$ns1" "$ns2" 0 6 "[dead:2::99]" 12345; then
++	echo "FAIL: IPv6 flow offload for ns1/ns2 with priority update" 1>&2
++	ret=1
++fi
 +
- 	__set_bit(NF_FLOW_HW_BIDIRECTIONAL, &flow->flags);
- 	ret = flow_offload_add(flowtable, flow);
- 	if (ret < 0)
+ # delete default route, i.e. ns2 won't be able to reach ns1 and
+ # will depend on ns1 being masqueraded in nsr1.
+ # expect ns1 has nsr1 address.
+@@ -572,6 +677,11 @@ if ! test_tcp_forwarding_set_dscp "$ns1" "$ns2" 1 4 10.0.2.99 12345; then
+ 	exit 0
+ fi
+ 
++if ! test_tcp_forwarding_set_priority "$ns1" "$ns2" 1 4 10.0.2.99 12345; then
++	echo "FAIL: flow offload for ns1/ns2 with priority update and pmtu discovery" 1>&2
++	ret=1
++fi
++
+ ip netns exec "$nsr1" nft reset counters table inet filter >/dev/null
+ 
+ if ! test_tcp_forwarding_nat "$ns1" "$ns2" 1 ""; then
 -- 
 2.53.0
 
