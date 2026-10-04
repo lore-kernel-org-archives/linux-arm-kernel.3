@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE1BCA5FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E74CA5FEC
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=; b=XoPDUyYIjMLanhVJx1w5Uw++Do
-	lBzkquBryGjlbef0PSVCYOUVZpx1dqIlFkbVjLtbFmYd1pREslzcAWEzg3WFOK+2OIdg7JiPABQve
-	+6vN9d0IEg1uCroanJ1TRqltBDzDFXdTz0DIjooB6fCOCz82ADZo6rInGiHkbChh13roKbtABB+dh
-	W2Bn3Lmh0gImkSTExgZC2DupMWjq9rVX31aeZPU8xXUu7qbfWkfp9yOt3hDgY2h8xJyWiVhnrT7P6
-	twS5jEUivxsZLYAdPTxYmxycNNBB4h+jWEu6K6/IHaDQ7ZHs7nmQEMlukQy7ZV5xaqwsCf++LfnBt
-	xeC+wXzA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTEYOw9n/f+CuyLaWuC1D1eq7TsF3FBxSGnXYETmVL4=; b=jwH2tESsGGnbn+HTEFL3WC12nv
+	PUWlTfb76mqyYw70SCQ4LU9mgfS5sYrsUAKB3EG90WfNt2/AIXuA5UCRRqb9rSJVi9iNGXOIY82aZ
+	OEPt7oH3D7MQlItXTTcMtRHRyJuPQb75YguhcWU50k1kpM0lBmCyKMFHaw0cbSqjPcL/JFqe24kUn
+	84upKbuyoZemyIk46U5gcBGO0EqDx+55J3btriTT0hNeozVnmJUzLzep8qOi1Yw/cjacz+UZxn4Bf
+	JiHF6/U/M+z1XNEf0FQx/QMGAR9o2hX+8ozalRhxvD82iMyna6dZX1iXgPgs+6CCSg3+yKITfEEgx
+	BvE9Qufg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKyr-0000000Elr3-0WoR;
-	Sun, 04 Oct 2026 12:06:13 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1xDKyv-0000000ElsD-0zx9;
+	Sun, 04 Oct 2026 12:06:17 +0000
+Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKyo-0000000ElqT-23rR
+	id 1xDKyr-0000000Elr7-3abT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 12:06:11 +0000
-Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccc02279so510109a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:06:09 -0700 (PDT)
+	Sun, 04 Oct 2026 12:06:14 +0000
+Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc4aa0f1766so404146a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:06:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791115569; x=1791720369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=;
-        b=cfqfN0HZ8oY9IxYFyDECOEj9WDPGK3yvRYXn4Y4F6k/DjcAvTEQBUynALpnEy1EvXS
-         M7esXSU8dCcbD5JAbY3sQE8yzNtz0ngb37FQICFBtYiNFw3ixFDxsXpVsGkxVrdYZuom
-         0EOWG8075ge51IGZl1OgYyfjRRZ8pm48qLgb48p0Jjg5+VlSH9QzC2QZGjDNzcKRrX/z
-         jiPVzhkNjZSovtOrJm3mfWac+Kq3UcLsSmxiDux2uK4FxP88YuM6+ReGEqLL1pB9vuXj
-         JH90MqhQttxgdq4ZAyypdUudsaeuNma60wHJ3xwxF/pQ48b63K88DAbN+OKI6BqdSd59
-         5PKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791115569; x=1791720369;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791115573; x=1791720373; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nwd8qadBr0UxQpeVs5pWLNg1qZ6CtGQ15NzXNboPOx4=;
-        b=m2ySD50wJGu8BqA/5GZCm5L4NTLB+jfbqtnkJFzHBKEUHKAaFdkxl7mYBE+3bCk60a
-         jpCJZihxNzdxX5rrYxhNpiYlIIkkASd5JThz47RMWZRffiwpHkiQsG7FUwSCNNhT1Hf0
-         frrUjc0RX4gZO5Fd5Oo3pDFGIiHF2pFEIk+eu1XiWEV1JYkoCjE2URFnweAg4l1iCw7T
-         WTGx1yFsS0ozlCVeN+rpnfShI+inXAbWlgN63Q/gHMMvQbKDlRB8TV7DldcdSJ+3m4Z/
-         JIq4GZcLj8oQouL8RFdbUVU/W4xDXEEt/KQW97vU+Cq95yKAw4UMSNQePGVPhVnB+Eiy
-         KSxA==
-X-Forwarded-Encrypted: i=1; AKwUvByLVeLP+prjXP2OGzCSiOrKFfw3yZHmiS4ujNMAO53rfC2tjKz+KgWH4j3pQOI9emc5a0DZFuTh8guqmyo4ZRBr@lists.infradead.org
-X-Gm-Message-State: AFq9FYJcsRjgH5C18ZqVQq9mvHTufIzTOf61r+dL2A5QmqfupCBJUAAf
-	yQp0/Gj/MAovc9V8ET2HTD9Ypcx4aEFRK0S14D4JQ3boKAY5ykMt24W3Vgk8Rw==
-X-Gm-Gg: AYBFou1E11FsqROT9alwh9lkvZ8H8gJRuVLgpSbemvq5FRAluPtdeGy2iXTgzZmKQ7n
-	iaNkdu6w31kbNHNYy6JjTXdp0HXDgwgcfkiT82kEQqyM5GD2LbA9qmEdw3ZyPVzastZQ1D2g8Kg
-	EO8qJ2Wi5c/NESIfBD/j7OjSy3KvedrxYoAXkxCjMbyyA991h6W8uBwJdGWgyOuefQrNdspBWP6
-	RJDv97LQoPMgW3OhmTGfNqExTXySc6UQoq0NnoQb9k/WfbmQ6qPHlnlx2+i1SoxhRhebMDQZXOk
-	8uAeex90SM85F9qRxjTmAOk0aEPqFzJ5BvrSy+k8jVXNw+gNawswTFwitqO44YJoOtF/QXDPZzj
-	cV2BbEquzmKEwl8GmQ1yw/6oVSRTiSahKyNeSdHtUGV5PAtUH5LkZyGsG2cJ+YtwaNoVPzY/wmC
-	rVqLa3tfz/FrthksowIWNPO5gVqBdtiOy/4wtupIaUnZTGF4NztDSABro6fn8e/sZod7aKvg==
-X-Received: by 2002:a17:90b:3c4d:b0:3a7:8350:49a5 with SMTP id 98e67ed59e1d1-3a783505109mr3878592a91.32.1791115568964;
-        Sun, 04 Oct 2026 05:06:08 -0700 (PDT)
+        bh=FTEYOw9n/f+CuyLaWuC1D1eq7TsF3FBxSGnXYETmVL4=;
+        b=OW+TLQu7tLcao/CBFtO7xUTjne+fehHojPKBqJEEXFJigsGI/2H/DG5+vsYgpyTBBU
+         cf0UxHx6x+wvTvMX4iSxvmpq3foNyiNzsKq6y9KqXrLqXUEjb66cLjTC+uXbQ1xz9DTf
+         ZkQSXNp25ZQ0glfrHD+yJp4zYarYqCT9tQnleCtJYtp5jS3m8zfhzg+1TrxfnGXJIujL
+         3oB/ADhtLNqavbGXCvq3clNxqyZNtfPo42BXWLO1p27DJ9kfCFSiZKFx601PiQN6rNdy
+         bivswa+ZCtuOqp/y19NAqC5UB3GqK5FHv5LEZFlWQlsvW6NChuQU/t2+EjB2BZMk1xfF
+         BFjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791115573; x=1791720373;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FTEYOw9n/f+CuyLaWuC1D1eq7TsF3FBxSGnXYETmVL4=;
+        b=Jvurm/hao46DAgJ22lkDHF3gNtCJ8yU9kC4Hr9hw4elH00w64+7aE0Qf22tODG/EwU
+         +NpDcC0dqPCiLYjTI+Tw+llw7rWvudj32Mnsa+hgFh4AsTanpZXAw2OPt2EGrypk/9dJ
+         vLtzlFPD1zYU1Piy+KfkIkPytw/PDILMOUSLuMqs+sos7ndaNvryjw6Imdg5BZJif2RP
+         HTmycTIpbcJyTpL8y1NdABtnKp6vFwEXwYdNO8BHd+MjGbVp62+0W5cQ0rXLXy9CUhri
+         31HtGkuvVvIgaitEfen+QTH/7cfmkIeNClMGH2r9ww+56hD6loN0DXyv6X4dc9/QgsKA
+         n22w==
+X-Forwarded-Encrypted: i=1; AKwUvBwIhiA3Ov20gDHbFY1JRXIWSrk/p67+pb2AIhyijYZsdy0WtTUWWV/o/skyVa9sel0yaYy7BK2L9fIHWD67ieFp@lists.infradead.org
+X-Gm-Message-State: AFq9FYLoaMNah5/cfhyYSZHZZKeyQoXYKOyCU3Pj4ywVpave5s1g51gr
+	/LjPx34uydGbGEmb+AT6lbM+rzpD05ykpY3uHUDEyV3hQJ7JcFN1Tv48
+X-Gm-Gg: AYBFou1UjFp+f0dSaHjlgrcpF5i6kGvSmxjNra7UGEbWRXzWHdM+g9z6DZzwa2RmVMw
+	kr2LpXWRniB/xYQRVe7KAePK3eIgrRr3pMAglMEm4jqyRaamy0pUHYt3lrkAcm+SPGLK2SVgx2N
+	AB/eBTDsipZ9Br/VHu84tLF+1oT5312Ywq02KsP+GaB1a66KvQ6e+r8EC8U1KgiVGhPnhII4LRO
+	M1UbBxXjL5iUiPVn8NFoKruXw0VTme9zcZ1RrEq+rFaChmf1Z1c2cRIDLoV9ma84V7f0uuEauv6
+	S5Zy2WL9w2gi7K+PYbN2gyUCBg6/mYe9g8x4jKLRU5A1JikB41SWfSWXeG54kmjQhuJsm+b/55Q
+	/RtRhsbR9a7yWy8bkNOFafUQRt++ZMMLUVuq4d5QTp+R5x80b6QB6SHvuKd1ycR6CLPYGK+oTlL
+	jTPvxpeZLJyd7giZ8VRxMF1DO9AeveHRnKWIStjYWyyH8UwpYeWGfmneWInu3X3d90WjH0ug==
+X-Received: by 2002:a17:90b:518d:b0:3a4:b418:94cf with SMTP id 98e67ed59e1d1-3a6cec143d7mr6861879a91.14.1791115572650;
+        Sun, 04 Oct 2026 05:06:12 -0700 (PDT)
 Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a79e7c243csm2603661a91.0.2026.10.04.05.06.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a79e7c243csm2603661a91.0.2026.10.04.05.06.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 05:06:08 -0700 (PDT)
+        Sun, 04 Oct 2026 05:06:12 -0700 (PDT)
 From: Zxyan Zhu <zxyan0222@gmail.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -85,15 +86,17 @@ Cc: mcoquelin.stm32@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Zxyan Zhu <zxyan0222@gmail.com>
-Subject: [PATCH net-next v7 0/3] net: stmmac: dwxgmac2: timestamp interrupt support + Agilex5 fix
-Date: Sun,  4 Oct 2026 20:05:23 +0800
-Message-Id: <20261004120526.2728564-1-zxyan0222@gmail.com>
+Subject: [PATCH net-next v7 1/3] net: stmmac: dwmac-socfpga: complete cross-timestamp on ATSNS
+Date: Sun,  4 Oct 2026 20:05:24 +0800
+Message-Id: <20261004120526.2728564-2-zxyan0222@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261004120526.2728564-1-zxyan0222@gmail.com>
+References: <20261004120526.2728564-1-zxyan0222@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_050610_539456_8E743312 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20261004_050613_905107_3A63DFDA 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +111,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds auxiliary snapshot (EXTTS) interrupt support to
-DWXGMAC2/DWXLGMAC2, fixes a stale TSIS race on the Agilex5
-cross-timestamp path that the new handler would otherwise expose, and
-guards the shared aux snapshot handler against a zero channel mask.
+The Agilex5 smtg_crosststamp() handler arms an internal auxiliary
+snapshot, toggles GPO0 and then polls XGMAC_INT_STATUS for TSIS to
+learn that the snapshot is ready.  TSIS is a transient, read-to-clear
+status bit: it is set by any MAC timestamp event and cleared the moment
+XGMAC_TIMESTAMP_STATUS is read.
 
-Patch 1 makes smtg_crosststamp() complete on the persistent ATSNS
-count instead of the transient TSIS bit, waits for the ATSFC FIFO
-clear to complete, and holds aux_ts_lock across the whole
-trigger/poll/drain sequence so a concurrent PTP_CLK_REQ_EXTTS
-request cannot flush the snapshot FIFO mid-flight.
+That makes the TSIS poll racy in two ways.  A stale TSIS latched by an
+unrelated event satisfies the poll immediately, before the auxiliary
+snapshot is latched, so the FIFO comes back empty and *device is never
+written even though the call returns 0.  Conversely a concurrent reader
+of XGMAC_TIMESTAMP_STATUS, such as the TX timestamp completion path, can
+clear TSIS while the poll is waiting and make it time out with "Wait for
+time sync operation timeout".
 
-Patch 2 guards the shared aux snapshot handler against a zero
-PTP_ACR channel mask: ilog2() is applied to the mask without
-checking for zero, and ilog2(0) yields an out-of-range event index
-that ptp_clock_event() feeds to test_bit() unchecked from hard IRQ
-context.
+The auxiliary snapshot FIFO level is also reported by the ATSNS count
+in XGMAC_TIMESTAMP_STATUS.  Reading XGMAC_TIMESTAMP_STATUS does not
+affect ATSNS, so the destructive reads above cannot disturb it.  Poll
+ATSNS instead of TSIS, and wait for the PTP_ACR_ATSFC FIFO clear to
+complete first so a stale ATSNS from a previous snapshot cannot satisfy
+the poll before the new snapshot is latched.
 
-Patch 3 wires up a dedicated DWXGMAC2 timestamp interrupt handler,
-following the guarded pattern of the shared one.  Before this change
-the XGMAC hwif entries used the generic stmmac_ptp ops, whose
-timestamp_interrupt callback read the dwmac4 offset
-GMAC_TIMESTAMP_STATUS (0xb20) instead of the XGMAC register at 0xd20.
-The PTP clock advertised the aux snapshot channels, so
-PTP_EXTTS_REQUEST succeeded but no event was ever delivered.
+Hold aux_ts_lock across the whole sequence instead of dropping it
+right after arming, so a concurrent PTP_CLK_REQ_EXTTS request cannot
+set PTP_ACR_ATSFC and flush the FIFO between the poll and the drain
+loop, which would leave *device filled from an empty FIFO.
 
-Following 30300d9f9150 ("net: stmmac: xgmac: Disable the Timestamp
-interrupt by default"), XGMAC_TSIE is not added back to
-XGMAC_INT_DEFAULT_EN.  Instead it is armed on demand from the
-PTP_CLK_REQ_EXTTS enable/disable path via a new optional
-timestamp_interrupt_cfg mac callback (mirroring dwmac1000).  The
-interrupt is only touched after the ATSFC FIFO clear has completed,
-and the handler refuses to drain entries while that clear is still
-in flight; it also leaves the snapshot FIFO alone while an internal
-cross-timestamp owns it (STMMAC_FLAG_INT_SNAPSHOT_EN), is disarmed
-when the PTP clock is unregistered, and is re-armed on resume by
-stmmac_rearm_timestamp_irq(), which redoes the EXTTS programming
-under aux_ts_lock before re-arming, when a channel was left enabled
-across suspend.
+Fixes: fd8c4f645496 ("net: stmmac: socfpga: Add hardware supported cross-timestamp")
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+---
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 31 ++++++++++++++-----
+ 1 file changed, 24 insertions(+), 7 deletions(-)
 
-v1: https://lore.kernel.org/netdev/20260806-dwxgmac2-timestamp-irq-v1-1-c051c79c9d90@gmail.com/
-v2: https://lore.kernel.org/netdev/20260810100221.9166-1-zxyan0222@gmail.com/
-v3: https://lore.kernel.org/netdev/20260818132722.1852876-1-zxyan0222@gmail.com/
-v4: https://lore.kernel.org/netdev/20260902131441.322167-1-zxyan0222@gmail.com/
-v5: https://lore.kernel.org/netdev/20260910081020.86227-1-zxyan0222@gmail.com/
-v6: https://lore.kernel.org/netdev/20260929073553.4136336-1-zxyan0222@gmail.com/
-
-v7:
-- Rebase onto the current net-next/main: stmmac_resume() now only
-  re-initialises timestamping under priv->ptp_enabled (8181678a92f0),
-  so stmmac_rearm_timestamp_irq() moved inside that block.
-- Raise and drop STMMAC_FLAG_INT_SNAPSHOT_EN under aux_ts_lock in
-  smtg_crosststamp(), so concurrent cross-timestamp requests cannot
-  lose the flag.
-- Restore the enabled auxiliary snapshot trigger on resume: the
-  platform init resets the MAC, so stmmac_rearm_timestamp_irq() now
-  flushes the FIFO and re-programs the PTP_ACR ATSEN bit (channel
-  recorded by stmmac_enable()) before re-arming the interrupt.
-
-
-Zxyan Zhu (3):
-  net: stmmac: dwmac-socfpga: complete cross-timestamp on ATSNS
-  net: stmmac: guard against a zero channel in the aux snapshot handler
-  net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
-
- .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 36 ++++++++---
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 59 +++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  5 ++
- .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 17 +++++-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 51 ++++++++++++++++
- .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 23 +++++++-
- .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  2 +
- include/linux/stmmac.h                        |  1 +
- 9 files changed, 187 insertions(+), 11 deletions(-)
-
-
-base-commit: 62d7b9186cad08324d6b9d262631104bb215e67d
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 1d7f0a57d288..c5f71bfc7cf4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -337,8 +337,18 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 	acr_value = readl(ptpaddr + PTP_ACR);
+ 	acr_value |= PTP_ACR_ATSFC;
+ 	writel(acr_value, ptpaddr + PTP_ACR);
+-	/* Release the mutex */
+-	mutex_unlock(&priv->aux_ts_lock);
++
++	/* Wait for the FIFO clear to complete, so the poll below only
++	 * observes snapshots latched by this trigger.
++	 */
++	ret = readl_poll_timeout(ptpaddr + PTP_ACR, acr_value,
++				 !(acr_value & PTP_ACR_ATSFC), 10, 10000);
++	if (ret) {
++		mutex_unlock(&priv->aux_ts_lock);
++		netdev_err(priv->dev, "%s: Failed to clear snapshot FIFO\n",
++			   __func__);
++		return ret;
++	}
+ 
+ 	/* Trigger Internal snapshot signal. Create a rising edge by just toggle
+ 	 * the GPO0 to low and back to high.
+@@ -349,10 +359,16 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 	gpio_value |= XGMAC_GPIO_GPO0;
+ 	writel(gpio_value, ioaddr + XGMAC_GPIO_STATUS);
+ 
+-	/* Poll for time sync operation done */
+-	ret = readl_poll_timeout(priv->ioaddr + XGMAC_INT_STATUS, v,
+-				 (v & XGMAC_INT_TSIS), 100, 10000);
++	/* Wait for the auxiliary snapshot to be latched: the ATSNS count
++	 * is the FIFO level and is not affected by reading
++	 * XGMAC_TIMESTAMP_STATUS, so concurrent readers cannot disturb
++	 * the poll.
++	 */
++	ret = readl_poll_timeout(ioaddr + XGMAC_TIMESTAMP_STATUS, v,
++				 FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK, v),
++				 100, 10000);
+ 	if (ret) {
++		mutex_unlock(&priv->aux_ts_lock);
+ 		netdev_err(priv->dev, "%s: Wait for time sync operation timeout\n",
+ 			   __func__);
+ 		return ret;
+@@ -364,8 +380,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 		.use_nsecs = false,
+ 	};
+ 
+-	num_snapshot = FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK,
+-				 readl(ioaddr + XGMAC_TIMESTAMP_STATUS));
++	num_snapshot = FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK, v);
+ 
+ 	/* Repeat until the timestamps are from the FIFO last segment */
+ 	for (i = 0; i < num_snapshot; i++) {
+@@ -375,6 +390,8 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 		read_unlock_irqrestore(&priv->ptp_lock, flags);
+ 	}
+ 
++	mutex_unlock(&priv->aux_ts_lock);
++
+ 	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
+ 	system->cycles = smtg_time;
+ 
 -- 
 2.34.1
 
