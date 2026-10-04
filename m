@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C6ECA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 19:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F24ECA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltr9IuWe66b3dEPQokcAToGLMYH/D9Aig3Tp+730PGE=; b=Haui/Np+qkQyXMREp31ic81v24
-	DQQyR5fwPAW4os4OBAbyoQ3Kys6jOlco55aOyK/eEjlTj2NjvY9tNtCIWXyJDAzTn7xZUzUZPXQG+
-	FZZBMX6E25vTeBV9t3HYKCpcXxnhdpwUwBoxWmEKWcQlJMv5AsWhbKJeoDo2vl3MMT1tVijouI/w0
-	jxKLptEWCLBSbQq3hIiIxseJNHOwMHWGsfAuEkga2pJNEJsw6LfDjMElq65EnQBiWwTYnfEC0+M2y
-	cRx+kSxxCVUeh54AtLTfYyHnh8pktk/24dxWnZe8ybCWxShv/8c8R5WAdErhQmgdSYAh6MWqzSYD/
-	ZPx2bD+Q==;
+	bh=kUIWaC88q0Bw4l+W8HSB54nC9nI/6KV4K3UIv1ypbKY=; b=ywMKzxmYZmH4UC/Cixzb19qw0a
+	cbgojil2IUXqQ0tPWkLV1pzAvibjM/wtDO7+nn6C2ZidwHMQ9dq9jtHvIjzW3ObSTeshbGZEJx5yD
+	+xnVbRUJiuL0PFvdqujpEnCEVP4JqLo8IhiMmakC5IoLIZFpU16mvqLZ8/e4X+8XPEOBUEjbO9MXu
+	zs1bBMMHjkzfvB9NOi9+knMDI+FzKQ/rYk1wTwIKV/+rab+npQh0f3Y3RhEITFH8gHDc+tIRmntyb
+	2i5EmAh/YV3DiG9dPF48irFrMbvF9gk9ZGBFnmitdzzga4dqThpcFp5PRPjUD8JzGLBuM47u7zNDC
+	XFE4Zv0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSFx-0000000FDvo-0oSW;
-	Sun, 04 Oct 2026 19:52:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xDSaz-0000000FEUs-3j3A;
+	Sun, 04 Oct 2026 20:14:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSFw-0000000FDvb-2PMd;
-	Sun, 04 Oct 2026 19:52:20 +0000
+	id 1xDSaw-0000000FEUm-0WIU
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Oct 2026 20:14:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACEC160120;
-	Sun,  4 Oct 2026 19:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9631A1F000FF;
-	Sun,  4 Oct 2026 19:52:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92B2341903;
+	Sun,  4 Oct 2026 20:13:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3BFF1F000FF;
+	Sun,  4 Oct 2026 20:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791143539;
-	bh=ltr9IuWe66b3dEPQokcAToGLMYH/D9Aig3Tp+730PGE=;
+	s=k20260515; t=1791144839;
+	bh=kUIWaC88q0Bw4l+W8HSB54nC9nI/6KV4K3UIv1ypbKY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OSMmr2217D9ydx6a2nj9BN6lcTPvtCj3ZMfZV/AIqXXuwrI/C80kQPBzDg0FlX249
-	 T6vrvB/5cBOvFzVD3s51P/R2bCet+b/Wqp++5qz2CG9+/RC2r7Ndo9BXcHHKt1r8+P
-	 bQ8oslBOJxlvJPqADyWK66c99sp4hRt/C7SpuJ3v2mE3al1s8frM7lz9GfK7LAstAA
-	 i8sZ9Kf+dtP8jS7vkr82UQYP8UKd+XwPJlitFTDnxuSop8ACrq2HrjADhZEaYCt6e1
-	 8uy2FQnOgEcloOtPYbJobZGaunH1L01FwMJ2qpywEMqAtzTdX+kB46FYyQSn0jkygv
-	 alXjyxNZ3hnaA==
-Subject: Re: [PATCH net] net: stmmac: dwmac-rk: keep the GMAC powered when the
- PHY wakes the system
+	b=jg0JWCa/by34WL3CmzK/O05a1p/buJChGldkdMlaLCsm8gM+mvk8EduO9B2LJ2wtq
+	 Nhhww3mCRVYJlNH44bI7XMPWzxrKl7gwtnj2kodSY1EvWPwbq8GUPedBdKlgfi6V/y
+	 cEjC44FwvlIUwKZGiFdjTyetP6qpaGjMG0Hqt4UvFp/xnI4jhEDneI7YyL2qH1wQHx
+	 pyiI9v9gedayEb9VZCNz6gGSMcFs4hBKR1wCIPqYy2EkRR4FDYFw9cDWFBW1N4JV1y
+	 XlWhPyeWPsGugh+/sS8rNK8HZY7Bw6riahDO6a5z9T8T5jsUMkUUQDM/d6ZlIQamoZ
+	 QnsfKV0GmlfmA==
+Subject: Re: [PATCH net-next] net: stmmac: mask the MAC interrupt while resume
+ resets the MAC
 From: netdev-bot+sashiko@kernel.org
 To: iav@iav.lv
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, heiko@sntech.de, edumazet@kernel.org,
- rmk+kernel@armlinux.org.uk, mcoquelin.stm32@gmail.com,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, mcoquelin.stm32@gmail.com,
  alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sun, 04 Oct 2026 19:52:18 +0000
-Message-ID: <179114353815.434549.32562462811934801@kernel.org>
-In-Reply-To: <20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4@iav.lv>
-References: <20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4@iav.lv>
+Date: Sun, 04 Oct 2026 20:13:58 +0000
+Message-ID: <179114483834.434549.10718571008152168526@kernel.org>
+In-Reply-To: <20260930-stmmac-irq-shut-v1-1-104d1a1dcb28@iav.lv>
+References: <20260930-stmmac-irq-shut-v1-1-104d1a1dcb28@iav.lv>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,10 +74,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 2
+Critical: 0 · High: 0 · Medium: 2 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -84,198 +85,221 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new predicate in rk_gmac_suspend() takes 'ndev->phydev ==
-  NULL' to mean 'no PHY needs to stay powered for wake'.
-- [Low] The commit body says Helios64 (RTL8211F, WoL in the PHY) hangs
-  after 6911308d7d11.
-- [Low] rk_gmac_suspend() reads ndev->phydev, an RTNL-protected field,
-  without RTNL and without READ_ONCE(), in `ndev->phydev &&…
-
-Pre-existing issues:
-- [Medium] rk_gmac_resume() ignores the return value of rk_gmac_powerup()
-  and always returns 0.
+- [Medium] The defect is specific to dwmac1000, but stmmac_resume() now
+  calls disable_irq(ndev->irq) on every core for the whole resume.
+- [Medium] stmmac_resume() now re-enables ndev->irq on every exit path,
+  including error exits where GMAC_INT_MASK was never restored.
+- [Low] The commit message names commit 2e2c878a3141 ("net: stmmac:
+  remove SGMII/RGMII/SMII interrupt handling") as the point after which…
+- [Low] The new comment in the generic stmmac_resume() says 'Resume
+  resets the MAC, leaving every core interrupt unmasked until the mask…
 
 --
 
-net: stmmac: dwmac-rk: keep the GMAC powered when the PHY wakes the system
+net: stmmac: mask the MAC interrupt while resume resets the MAC
 
-With this patch, rk_gmac_suspend() also skips rk_gmac_powerdown() when the
-attached PHY reports phy_may_wakeup(). Before, it only checked
-device_may_wakeup() on the MAC. The decision is stored in a new
-suspend_powerdown field, and rk_gmac_resume() uses it to decide whether
-to call rk_gmac_powerup().
+This patch disables ndev->irq for the whole of stmmac_resume() when the
+interface is running, and enables it again on every exit path. The aim is
+to stop an RGMII interrupt storm on dwmac1000. There, the MAC reset in
+stmmac_hw_setup() clears GMAC_INT_MASK, and it stays clear until
+dwmac1000_core_init() writes it again.
 
-> When the PHY handles it, device_may_wakeup()
-> is false for the MAC, and rk_gmac_suspend() powers the GMAC down: its
-> clocks stop and phy-supply is released.
->
-> On Helios64 (RTL8211F, Wake-on-LAN in the PHY) the board then hangs on
-> the first or second suspend with a magic-packet wake.
+> stmmac_resume() resets the MAC in stmmac_hw_setup(). On dwmac1000 the
+> reset clears the interrupt mask, and all core interrupts stay unmasked
+> until dwmac1000_core_init() writes it again. A link change in that
+> window raises an RGMII interrupt, and no handler clears it since
+> commit 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII interrupt handling").
+> The line storms:
+
+[ ... ]
+
+> The message repeats every few milliseconds and the network stays down
+> until a power cycle or a watchdog reset.
 
 [Severity: Low]
-Does this describe the in-tree Helios64 configuration?
+Should this carry a Fixes: tag for the commit it names?
 
-The gmac node in rk3399-kobol-helios64.dts has no ethernet-phy child. So
-the RTL8211F probe never calls device_set_wakeup_capable() on the PHY, and
-rtl8211f_get_wol() reports no WoL support:
+Fixes: 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII interrupt handling")
 
-drivers/net/phy/realtek/realtek_main.c:rtl8211f_get_wol() {
+That commit removed dwmac1000_rgsmii() and its call from
+dwmac1000_irq_status(). That call read GMAC_RGSMIIIS to ack the interrupt:
+
+-	if (intr_status & PCS_RGSMIIIS_IRQ)
+-		dwmac1000_rgsmii(ioaddr, x);
+
+It also moved GMAC_INT_DISABLE_RGMII into GMAC_INT_DEFAULT_MASK. Since
+then, the mask written by dwmac1000_core_init() is the only protection.
+
+The only trailers are Assisted-by and Signed-off-by, and the note after
+them says the patch was ported to net-next. Both 7.2 and 7.3-rc5 were
+tested as affected. Would net, with a Fixes: tag and possibly Cc: stable,
+be the better target?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 3ad9252bf6aea..6e0415538327b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8356,16 +8356,26 @@ int stmmac_resume(struct device *dev)
+>  {
+>  	struct net_device *ndev = dev_get_drvdata(dev);
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> +	bool irq_off;
+>  	int ret;
+>  
+> +	/* Resume resets the MAC, leaving every core interrupt unmasked until
+> +	 * the mask is written again: a link change in that window would storm.
+> +	 */
+
+[Severity: Low]
+Does this comment hold for every core that uses stmmac_resume()?
+
+Only dwmac1000 writes a mask register, where 0 means everything is
+unmasked:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:dwmac1000_core_init() {
     ...
-	if (!device_can_wakeup(&dev->mdio.dev)) {
-		wol->supported = 0;
-		return;
-	}
+	writel(GMAC_INT_DEFAULT_MASK, ioaddr + GMAC_INT_MASK);
     ...
 }
 
-phylink then passes the request to stmmac_mac_wol_set(), which does:
+dwmac4 and xgmac write enable registers instead. On those cores a reset
+leaves the core interrupts disabled, not unmasked:
 
-	device_set_wakeup_enable(priv->device, !!wolopts);
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:dwmac4_core_init() {
+    ...
+	writel(GMAC_INT_DEFAULT_ENABLE, ioaddr + GMAC_INT_EN);
+    ...
+}
 
-So on the in-tree board, the old !device_may_wakeup(dev) check in
-rk_gmac_suspend() already kept the GMAC powered.
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_core_init() {
+    ...
+	writel(XGMAC_INT_DEFAULT_EN, ioaddr + XGMAC_INT_EN);
+    ...
+}
 
-The case fixed here only happens with a DT that gives the PHY node an
-interrupt and wakeup-source. That requirement is mentioned only below the
---- line. The same goes for the need for the separate interrupt storm fix
-[1] to get the 20 of 20 result. Both notes are dropped when the patch is
-applied.
+Could the comment say that this is a workaround specific to dwmac1000?
 
-Also, on Helios64 phy-supply is vcc_lan, which is vcc3v3_sys_s3. That
-regulator has regulator-always-on and regulator-on-in-suspend, so
-releasing it does not cut PHY power on this board. That leaves the stopped
-clocks as the only trigger the message describes.
+> +	irq_off = netif_running(ndev);
+> +	if (irq_off)
+> +		disable_irq(ndev->irq);
 
-Could the commit message say which configurations are affected, why the
-board hangs, and that [1] is also needed?
+[Severity: Medium]
+What happens to other devices on this line while resume runs? In single
+IRQ mode the line is requested as shared:
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 72bdbcb5e863a..06faeb156b97d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+stmmac_request_irq_single() {
+    ...
+	ret = request_irq(dev->irq, stmmac_interrupt,
+			  IRQF_SHARED, dev->name, dev);
+    ...
+}
+
+disable_irq() masks the line for every handler on it. The line then stays
+masked through all of these:
+
+  plat->resume()
+  stmmac_mdio_reset()
+  SerDes power-up
+  rtnl_lock()
+  mutex_lock(&priv->lock)
+  stmmac_hw_setup(), including the DMA soft reset poll of up to 200ms
+  in dwmac_dma_reset()
+  PTP init
+  phylink_resume()
+
+No other device on the line gets interrupts during that time. Suppose one
+of them waits for its own interrupt while holding RTNL, or another lock
+that stmmac_resume() needs. Can that stall until a timeout, or forever if
+the wait has no timeout? Lockdep would not see this dependency.
+
+The commit message mentions IRQF_SHARED only as the reason to leave the
+line enabled during suspend.
+
+The problem is specific to dwmac1000. Could the fix avoid the shared line
+altogether? Some options:
+
+  rewrite GMAC_INT_MASK right after the reset
+  restore the read-to-clear of GMAC_RGSMIIIS in dwmac1000
+  disable the line only between the reset and core_init
 
 [ ... ]
 
-> @@ -1530,10 +1531,13 @@ static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
->  
->  static int rk_gmac_suspend(struct device *dev, void *bsp_priv_)
->  {
-> +	struct net_device *ndev = dev_get_drvdata(dev);
->  	struct rk_priv_data *bsp_priv = bsp_priv_;
->  
-> -	/* Keep the PHY up if we use Wake-on-Lan. */
-> -	if (!device_may_wakeup(dev))
-> +	/* Keep the MAC and PHY powered if either of them wakes the system. */
-> +	bsp_priv->suspend_powerdown = !device_may_wakeup(dev) &&
-> +		!(ndev->phydev && phy_may_wakeup(ndev->phydev));
+> @@ -8451,6 +8462,9 @@ int stmmac_resume(struct device *dev)
+>  	stmmac_legacy_serdes_power_down(priv);
+>  	mutex_unlock(&priv->lock);
+>  	rtnl_unlock();
+> +out:
+> +	if (irq_off)
+> +		enable_irq(ndev->irq);
 
 [Severity: Medium]
-What happens here if PHY WoL was enabled and the interface was brought
-down before suspend?
+Can this enable the line again while GMAC_INT_MASK is still clear?
 
-With the link up, "ethtool -s ethX wol g" is taken by the wakeup-capable
-PHY. phylink masks it out of the MAC request, so device_may_wakeup() stays
-false for the MAC.
+If stmmac_init_dma_engine() fails, stmmac_hw_setup() returns before
+stmmac_core_init(). That is the only place where dwmac1000_core_init()
+restores the mask:
 
-"ip link set ethX down" then runs:
-
-stmmac_release()
-  phylink_disconnect_phy()
-    phy_disconnect()
-      phy_detach()
-        phy_suspend()     <- RTL8211F arms PME (PHY_ALWAYS_CALL_SUSPEND)
-        phydev->attached_dev->phydev = NULL;
-
-phylib keeps a detached PHY like this armed on purpose, as shown in
-mdio_bus_phy_may_suspend():
-
-	if (!netdev && phy_may_wakeup(phydev))
-		return false;
-
-On system suspend, stmmac_suspend() jumps to suspend_bsp because the
-interface is not running:
-
-	if (!ndev || !netif_running(ndev))
-		goto suspend_bsp;
-
-Here ndev->phydev is NULL, so suspend_powerdown becomes true.
-rk_gmac_powerdown() then gates the GMAC clocks and drops phy-supply while
-the PHY is still the wake source. How bad this is depends on the board:
-on Helios64 only the clocks stop, but where phy-supply can be switched
-off, the PHY loses power.
-
-Before 6911308d7d11, the MAC wakeup flag stayed set across ifdown for PHY
-WoL, so the glue kept the GMAC powered. Should the new check also cover
-this case?
-
-[Severity: Low]
-Is it safe to read ndev->phydev here without rtnl_lock()?
-
-stmmac_suspend() drops rtnl before it calls the glue hook:
-
-	rtnl_lock();
-	phylink_suspend(priv->phylink, !!priv->wolopts);
-	rtnl_unlock();
-	...
-suspend_bsp:
-	if (priv->plat->suspend)
-		return priv->plat->suspend(dev, priv->plat->bsp_priv);
-
-It also does not cancel the service task. stmmac_reset_subtask() runs on
-priv->wq, which is not freezable. It takes rtnl_lock() and does:
-
-	set_bit(STMMAC_DOWN, &priv->state);
-	dev_close(priv->dev);
-	dev_open(priv->dev, NULL);
-
-This clears ndev->phydev in phy_detach() and sets it again from
-__stmmac_open().
-
-A reset queued by stmmac_global_err() can overlap with rk_gmac_suspend().
-If it does, suspend_powerdown can be decided while the PHY is halfway
-through detach or attach, and rk_gmac_resume() reuses that decision
-without checking again. In theory, if the compiler reloads ndev->phydev
-between the NULL test and the call, phy_may_wakeup() could also be passed
-NULL.
-
-Would it help to read the pointer once with READ_ONCE() into a local, or
-to do the check under rtnl_lock()?
-
-[ ... ]
-
-> @@ -1543,8 +1547,7 @@ static int rk_gmac_resume(struct device *dev, void *bsp_priv_)
->  {
->  	struct rk_priv_data *bsp_priv = bsp_priv_;
->  
-> -	/* The PHY was up for Wake-on-Lan. */
-> -	if (!device_may_wakeup(dev))
-> +	if (bsp_priv->suspend_powerdown)
->  		rk_gmac_powerup(bsp_priv);
->  
->  	return 0;
-
-[Severity: Medium]
-This is a pre-existing issue, but rk_gmac_resume() drops the return value
-of rk_gmac_powerup() and always returns 0.
-
-rk_gmac_powerup() can fail in rk_gmac_check_ops(), rk_get_phy_intf_sel(),
-gmac_clk_enable(), a GRF write, or regulator_enable() in rk_phy_powerup().
-In that case stmmac_resume() never takes its error path:
-
-	if (priv->plat->resume) {
-		ret = priv->plat->resume(dev, priv->plat->bsp_priv);
-		if (ret)
-			return ret;
+stmmac_hw_setup() {
+    ...
+	ret = stmmac_init_dma_engine(priv);
+	if (ret < 0) {
+		phylink_rx_clk_stop_unblock(priv->phylink);
+		...
+		return ret;
 	}
+    ...
+	stmmac_core_init(priv, priv->hw, dev);
+    ...
+}
 
-Instead it goes on to access MAC registers with the clocks off.
+The failure can come from stmmac_prereset_configure(), or from
+stmmac_reset() timing out ("Failed to reset the dma"). The timeout is a
+known case when clk_rx_i from the PHY is not running yet.
 
-A later rk_gmac_powerdown() would then call pm_runtime_put_sync() without
-a matching get, and regulator_disable() on a regulator that is already
-disabled.
+dwmac_dma_reset() returns -ETIMEDOUT and leaves SFT_RESET set:
 
-Should rk_gmac_resume() return the error from rk_gmac_powerup()?
+dwmac_dma_reset() {
+    ...
+	return readl_poll_timeout(ioaddr + DMA_BUS_MODE, value,
+				 !(value & DMA_BUS_MODE_SFT_RESET),
+				 10000, 200000);
+}
+
+So the hardware finishes the reset once the RX clock starts. That usually
+happens when the PHY link comes up, which phylink_prepare_resume() has
+already started. The reset clears the mask just as the RGMII link change
+event arrives.
+
+The error then takes this path:
+
+stmmac_resume()
+  stmmac_hw_setup() fails
+  goto error_unlock
+  out:
+    enable_irq(ndev->irq)
+
+stmmac_interrupt() never acks the RGMII source and always returns
+IRQ_HANDLED:
+
+stmmac_interrupt() {
+    ...
+	stmmac_common_interrupt(priv);
+	stmmac_dma_interrupt(priv);
+	return IRQ_HANDLED;
+}
+
+Because of that, the spurious IRQ detector will not disable the line
+either. Does the storm this patch fixes come back on these exits, with no
+later core_init to close the window?
+
+The commit message says the line is enabled again "on every exit path".
+On these exits, though, it is enabled inside the window the patch is
+meant to close.
+
+>  
+>  	return ret;
+>  }
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-dwmac-rk-phy-wol-v1-1-9fdc50bd9ae4%40iav.lv
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-stmmac-irq-shut-v1-1-104d1a1dcb28%40iav.lv
 
