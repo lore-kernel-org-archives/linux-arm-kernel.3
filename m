@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A61CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6598CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0a14oKoy0hGUwl14Hk8RU7rKTvewWF1YWf6zha/hyIA=; b=V2Uc3XnONWuc6FN0snOOrvxIn8
-	+zC1TqAzbEVuE9BS8Cz+X0XlAweUdVRe3PzxGXvKpMnt9u0gZZVxSj0uH1x8z5HOPo0sBZ0qDOkjd
-	VhgtZodd0ZgIAzijf1fXhXgJyR2s0gwUkgy34ibK+a/7DrLfO12lCEcTnNi/pDxhr3ssEMxweGXxU
-	ePSOqN7X9MBTDR/5CqPbs2hpo8kwTds8HDNKGLITYxOP4zQgOOTQb00iZGVMXj8lXTKbR+6wo4QeI
-	PisrYUwh2cAh3G1vaH49/SHXIBSYkbGOCjkFhhwrRjAb8fg8PKgBiPxteKQYlJ4G/wmQECpDnN8P0
-	6lHTHa3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1DjzRkPglXkLnXbY7wN8PS3ogcu8ALsIIsvswqRjdFE=; b=FM8sVGclRN6JupMOjUAySbQ9nW
+	bC7onZEiVfWbybJzH2rECEB4B22dmZFcEs1Vl5stXArC/vXyGlqKTOjgSkOJ+y1bDarJHDxDRJjCf
+	Sy9YNDCXxFuqEesp3U6aksuNTyOMNJLiEbNucV+PC8bFad2g9E57XxSCVNOZ4NHks8llx4Og2yHaM
+	DrFV81NHOxGbT5zv5w6+Ke+L7Yv/I5P7ihhiRvRBp5lC/2jEEtp8Bjpqm5EgQFngTsD2yzeQ8HoST
+	QdB5yBCLFVm4HPmwgez1Qaj00/ssnRPNeAou32lb0h0rcv2nUC6K2zKN1PXWpJh6vFO4EVOen5ki3
+	Xrrgak+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUP4-0000000FPGU-3FEq;
-	Sun, 04 Oct 2026 22:09:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xDUQB-0000000FPlJ-0bbE;
+	Sun, 04 Oct 2026 22:11:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUP0-0000000FPEb-3uE3
+	id 1xDUQA-0000000FPl4-2Ibr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:09:53 +0000
+	Sun, 04 Oct 2026 22:11:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD562432C2;
-	Sun,  4 Oct 2026 22:09:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D134E1F0089C;
-	Sun,  4 Oct 2026 22:09:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 50115403D5;
+	Sun,  4 Oct 2026 22:11:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3279B1F000FF;
+	Sun,  4 Oct 2026 22:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791151790;
-	bh=0a14oKoy0hGUwl14Hk8RU7rKTvewWF1YWf6zha/hyIA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=n5Zyv5MTZ0zOCqwrSKCOEolSaVcLU9JMCtvCNhhelqGJZfoCTAtnpgntlDQE5tLAj
-	 0IUtejN0rG779RBdHIkl+OFKun4DtDNmDryEDJFrp4+N7pMGBghB2Krfqx2vI0pVd1
-	 okBm5bJPF2pGWf8xxv5Zv7IYsPYfWGPPPPkbV08g4pb89fTqohe4mbQ0Pwln6bVKwq
-	 MUpzCuA6+R+VNZo+N7rJ019ZUXj9ZYgq4vplViFE4kuDctFObjRtVr8FWlQqm0USE7
-	 nMn6j7PcJ4wCf6GkSfcHqqZNTBqAXSVsqQToig4zBeW01iXxEE977DZq2QK/Pw6TcI
-	 HdDLXLgdS1yYQ==
+	s=k20260515; t=1791151862;
+	bh=1DjzRkPglXkLnXbY7wN8PS3ogcu8ALsIIsvswqRjdFE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HH8fiKGNTvOUka8cytqfjPz55KfUztVmkOh/aBQdRNW0yL1QMtNWxaacH+9MBB96p
+	 RA3qPtQhJ0NHHOzurorpnZ3bBh+j+dLodHipyRX+7Qe2thTIm6VHS1yMwNLrE3GyDO
+	 i/jZJOHljB1336OzqAaLUpUZ5sX3JvfPrL1bu7vTmmbi0g2Wx46TsVUrTS28V7onHb
+	 4h5G5grnwy/7Haf42cPVCGpEPKxs4HFkVPRMWRTJIEFjQ+1WoL0LmMWehaMmAnTEMn
+	 +U40ag21NPWOZXUrw4MLk2XVTBh2rCarZGqvuVLtBCjaK9GBOLzPqXGC8125ax68W4
+	 1yPyJtjXpxx1Q==
+Date: Sun, 4 Oct 2026 23:10:58 +0100
 From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	robin.murphy@arm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yushan Wang <wangyushan12@huawei.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	u.kleine-koenig@baylibre.com,
-	linuxarm@huawei.com,
-	liuyonglong@huawei.com,
-	prime.zeng@hisilicon.com,
-	wangzhou1@hisilicon.com
-Subject: Re: [PATCH v6 0/3] drivers/perf: hisi: Updates for HiSilicon uncore PMUs
-Date: Sun,  4 Oct 2026 23:09:20 +0100
-Message-ID: <179113241038.1478216.17577065797192083960.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260916065348.3957834-1-wangyushan12@huawei.com>
-References: <20260916065348.3957834-1-wangyushan12@huawei.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: mark.rutland@arm.com, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] perf: Add Arm Bus Monitor Unit driver
+Message-ID: <asLO8rGQPYo3KhKB@willie-the-truck>
+References: <c936505c43275f434bce924b7657e42bfb25579c.1789652832.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c936505c43275f434bce924b7657e42bfb25579c.1789652832.git.robin.murphy@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +68,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 14:53:45 +0800, Yushan Wang wrote:
-> This patchset adds support for the ITS PMU and a new version of MN PMU.
+On Thu, Sep 17, 2026 at 02:47:12PM +0100, Robin Murphy wrote:
+> Arm's Bus Monitor Unit is a low-level performance analysis tool for
+> matching and counting transactions at interconnect interfaces. Each
+> BMU consists of a number of "interface monitoring units", with some
+> global controls to synchronise them and so permit accurate calculation
+> of cross-interface metrics. Each IMU contains, among other things, its
+> own PMU largely based on the CoreSight PMU architecture, but with some
+> functional incompatibilities due to the nature of how much per-event
+> filtering needs to be crammed in to categorise AXI/CHI transactions at
+> the protocol level. As such it gets an honorary home in arm_cspmu/ in
+> order to share the common register definitions, but for simplicity does
+> not try to bend the functional abstraction to fit.
 > 
-> The ITS (Interrupt Translation Service) PMU counts the number and
-> latency of interrupts routed to the ITS by category (LPI/SGI/PPI), and
-> collects micro-op statistics for the ITS itself. It supports filtering
-> counters by a 32-bit interrupt id (int_id).
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > 
-> [...]
+> ---
+> v3:
+>  - Couple of inconsequential tweaks to shut Sashiko up about things
+>    that would never actually happen anyway
+>  - Drop unneeded DT patches that I can't be bothered to fix right now
 
-Applied to arm64 (for-next/perf), thanks!
+Please can you take a look at the Sashiko comments on this one?
 
-[1/3] drivers/perf: hisi: Consolidate uncore PMU cpuhp states
-      https://git.kernel.org/arm64/c/4c226fa3238a
-[2/3] drivers/perf: hisi: Add support for uncore ITS PMU
-      https://git.kernel.org/arm64/c/38de567676bf
-[3/3] drivers/perf: hisi: Add cycle event for new MN PMU
-      https://git.kernel.org/arm64/c/8a76246afe04
-
-Cheers,
--- 
 Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
