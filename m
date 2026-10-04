@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9447CCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EDACA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 12:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+CAZYh8v0QDN7ZotKXM0PQZtaFfuu3vpY61Ne2zKy0=; b=d40uxF8ywvYcRAerrOLsTdaQzu
-	U43Ex3/MUyl5KXKvIPc0ZMh6u2WjDsSt7/MLvRTSw1gzqH+vNPL4JmToMnP/vEBoia2oH+LpX3YxM
-	1IILegeJq04MYv8Cu/mi2UaUnhRK5Hi0KNWt12+fmVP/WD+BEn7VyXQ0jU5HpWC+8N+ebI0QEvCpm
-	LjWngqlYcTFTqzqMs9NaiGDoeuLv+iIjFjM4d03g88XuBMniZwevc7DQt66GcuTTdFAvdWi6U8pr+
-	GZVe1p4zVSsj2Gqu/S3byES4u265zrKAMhmZmKSATftPbQNljcWSXC7B8cMtc13aEu3ETW4p19/Mm
-	AC81rsGQ==;
+	bh=HoUsQCnpzAhkZBf0cjpcTuGjeYvtMj/bviuftqvYWbk=; b=ozVC34rBaY+XmaepCcA0D7OdFs
+	4N3wzF9DVdYWrh3+aMVFae+U9ymvsNhwZSxQOMPLDqGE71HFexYx2SV1i9OxblBSO25zJ/JAuyq19
+	b+gy8befveWMJYZchIWCBbY1+R6r4oC6fQW1SHnH/iD2ZxmwzTxHmnk2rhpNRWAIShmSKXtsV7l3j
+	i1NMiUz9DgoP4l9AQ8WH8FBfIU/mvjWwSeFGDcym3Td/1tc7OtgNGwlW84EkWsybrWE1IJm9BEM6x
+	EgSo25lgkVxsmFVst3CRz0XnzuD9S850AUVGdwRbs6AfCXGu7Xx8Xq3DQmJK4E2mXpEgeqJRtrKeN
+	jCJOH92g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKyx-0000000EltH-21tA;
-	Sun, 04 Oct 2026 12:06:19 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1xDKz6-0000000Elw8-2Sf4;
+	Sun, 04 Oct 2026 12:06:28 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDKyv-0000000ElsW-3PGZ
+	id 1xDKz1-0000000Elts-0xap
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 12:06:18 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3a7d283e017so208523a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:06:17 -0700 (PDT)
+	Sun, 04 Oct 2026 12:06:27 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so425857a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 05:06:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791115577; x=1791720377; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791115582; x=1791720382; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=p+CAZYh8v0QDN7ZotKXM0PQZtaFfuu3vpY61Ne2zKy0=;
-        b=fvVEgf+106kflCN4F56W/9vBxxl3isH7Bodov3r5yk0FyTTAv47ufDdEO2tZvc1Suv
-         qyiTrebcN+r9bl9Oag5fstydgRjV3n3xufZeawzTaacGmFsJ6Y3CDfGSoTd72H/KvE+j
-         MbRwfkRNG73Qg5qAYEQbjiy/S+/374K4yPwMSdTuR1rCX1vS4Z4HiGgk4jlVj4rSo+g+
-         BUh/xp4mq87PjK37wRivRFVNfr6ZQaET26JMg8hm3crkEw9M7AHH18LYw4q4PO5+YKaC
-         rvbVZFXAu+IGW6OMLzSm0m1XHQFB9NO9pR1GOaYQ/Rm/Dc/mqANap5hJ95QrUCXxKXB6
-         ds2w==
+        bh=HoUsQCnpzAhkZBf0cjpcTuGjeYvtMj/bviuftqvYWbk=;
+        b=Xabi+1z6ImfjTSQgubiZs5jr43RyYDJfmUkhb9Zm1ombHFygwROpuhdBxqFhxBZ4cF
+         WnECVkOaJSo7pc3pMGMJciv6IyBGdirFbajls2mv6zxbdnsPNO3joy6nPx38yIyZkd55
+         B+pg9PxgEpzlGHzPvXMBz4LQK1RczOmAhjrjfTzW5SrSffjfA2WsA1AAOE9kgGAYByNT
+         mQ3UFrhL1J9AkTLDMTLoRDtbcgAfKFg/vpYt1GJdG9MvG/8iwncrhbfZmLk0y2pp44d6
+         6KOWNc8rpPGK+DXBV3zNAEGbsOi6oJSvlDRWPtFw0GAcdCBlZiIbbhzb2AaA9WAHdLG7
+         N4sQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791115577; x=1791720377;
+        d=1e100.net; s=20260707; t=1791115582; x=1791720382;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p+CAZYh8v0QDN7ZotKXM0PQZtaFfuu3vpY61Ne2zKy0=;
-        b=K3s31jDBaGeDKpt5EXodtM5MxcZ0e23IuXxusQYA0ukOOttYf9dWZrp3pzdz+HBhq9
-         j6Okdp8QO1Wrj1Faexvp3A66omYmf+RAu2DDpvq9X5zYqPBEM6/29QnSYXLI88JyvHNN
-         WFdXRNNJQkI/5y3j8HAC2Sjgj7CjII7ndpaqx7YpvBH5meV2EUV1O2fM3MDKmplWuH9u
-         bJf7jYDjiFErCavlqO9L0/0q5Y9XUb0WPPk2rtePs58oG0LjvET8Bkt4IS/pIYlMRznS
-         6v/kx8eidp2yDidRFfCLJL/WhXPP5cpmHrQBo1n5y0/i4Dj53IBWwFnZMoSy4hF+zuLp
-         tE7w==
-X-Forwarded-Encrypted: i=1; AKwUvBzmMdFjnvj/gpObdrfeJ0beYvxHx+1meNqqQ09XWyO7B24CIj0hIbq7qQjgSSS5LdwWc6ZpNJTWFyAJVtWws/Qs@lists.infradead.org
-X-Gm-Message-State: AFq9FYI2ilZqDkb/J84bT2XNurJORAfzbFjzF9zoY+oHgIaScBNJz+Tn
-	9m0cBAmeeqmwhKcflTvb1UxY5IXMQP4QoGzXBdmA9wpiGeFC8k87OE08
-X-Gm-Gg: AYBFou3fHhlBOmYn4Cfk1B1I3X9eYx2hOCK0XNNQXkeyAeRiE6C0LwpxCDFagfuk+K7
-	sQswXE9cBJYuDTYq+oI2WrJueP1npA/q/FxhUuDzzFhZUMA+DKfFl0olt/FaqwYFl/EzQGxd4ch
-	XPGYQBNhtX4o1Gpp/YQ7TyK/pW+e7pgkveiYq5BneSOi2h2U3sVVcwKfoImvRVcGtz4u/gSjshy
-	zci6ssA9Ue0igx6AvNLNxbMppmSYGt791QY0Jy7FD/tkosV718a9/kZ6eoB/S3Ll4+bVQVKy8e2
-	aKkclfx6W5Gu8LpoIhz8iEzuouUBpFI7xJb+wLmDCrU2Jg64CpIfbldUvk6QxrGiPbaMV1x03so
-	XHSyhAeTNHhxCTr3IjC56Z5xT8Prp+hNWTirSuu+AIu5lNy+xa3ZhJqqCWsedCmVhwaq6py0DEp
-	Ec2UqOW6A6wFV0G90Jn5BukLnYM6J6ZnDL6wTksMlmKWx8My7WGuij2ICkd91kHSaG1RjmnA==
-X-Received: by 2002:a17:90a:d60e:b0:3a7:f4d:b23d with SMTP id 98e67ed59e1d1-3a7875265bemr3132986a91.52.1791115576910;
-        Sun, 04 Oct 2026 05:06:16 -0700 (PDT)
+        bh=HoUsQCnpzAhkZBf0cjpcTuGjeYvtMj/bviuftqvYWbk=;
+        b=REONfUAXWUbgxixhqucui0qG54WqbATbPVC4oAGacH9bg/srRvffLcbuKQWE4gODuX
+         urBDoZ1QoRsi+hKADrwQi9gFLWhJFso3qeBys3XGyHGf4uzBPKg2SugpDfGaQfw/bl6w
+         k5r0fO3kvdwflE2ymq63dDoTgfQGdsv5kxoFACUFfy480cY9QiXoC691tBEj6qWzmeDG
+         EHOJyMjgsStBF/w/HDShs9gySYuT6jV+MO2p3zCJPaFgLa9LcdPCKVNb1vT04sI8dEtc
+         TahZ3MM0qPgEfZ1pI757nECnej02HyeM6eK+4fOy5rniRJVbU9BlRgz2Lxcj3GoyDX+3
+         grqQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzOK2oQGLxCaBDAxJGfWAKh3Zf6PTYMicZ2pcphiJRFcfvMdeqy88r2XxlqG/pABiDD/pwzOwySwBr8EbugWAMZ@lists.infradead.org
+X-Gm-Message-State: AFq9FYLxCMm+124iVEO2g2izIJ2jgn+u6nNYGjAToAX6K/Ttd6b0aoK1
+	37k6Dt9iwjXFudhYFNSEkLozjjwk1y9lYU5+7cBrWx9SqkHseIXK/w/S
+X-Gm-Gg: AYBFou23UNn25J4YHNRh/9v71kSOV7IuVh5eAAAYaeAPerVzQTpekGiur9DbiTyhc3y
+	GlB+g9Cx2GV6DoAzMnLiA1IAXsxf7stswA7lGkKtopXIDi4VxUnKOa8arQ5u3BwmQmG1C4PDOjq
+	kUU/a+o+BTelItyZPkibX/9D6hNG6IRoFM4l9h2uRTSEpk61oCcdMGSvJmHeg7Q+D0a8qel2pGq
+	lhGQng+nd/WkQTqk4qlx3zrA8Z22HFaH2hvEqkBcDrfsKGoRDHf9QI2Xk4dDqRsQ9NSa+VAqwLc
+	RuXIGEdSLiDa2KLCjSIDTEfGYtWB3UDbaBwk730g8uzUvrJXBUH9sbiXsp8IQD9tMohx3SWEy9h
+	KatkYDEEv6ZUr0LN24gravNCd/vTHfm/Xgbo7aRQeaIYaQy+QGnNE3h2Z4MLpBaopxXRX8b87dz
+	iuNUW2Lx59l+0aw0eiQXu+mOhFqqBzDiydLj8L2cF0IMnAtarjiQm/ODkXhkYntQpohIYdDQ==
+X-Received: by 2002:a17:90b:4b10:b0:3a7:db88:3495 with SMTP id 98e67ed59e1d1-3a7db883cc2mr906806a91.52.1791115582211;
+        Sun, 04 Oct 2026 05:06:22 -0700 (PDT)
 Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a79e7c243csm2603661a91.0.2026.10.04.05.06.12
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a79e7c243csm2603661a91.0.2026.10.04.05.06.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 05:06:16 -0700 (PDT)
+        Sun, 04 Oct 2026 05:06:21 -0700 (PDT)
 From: Zxyan Zhu <zxyan0222@gmail.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -85,19 +85,18 @@ Cc: mcoquelin.stm32@gmail.com,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Zxyan Zhu <zxyan0222@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net-next v7 2/3] net: stmmac: guard against a zero channel in the aux snapshot handler
-Date: Sun,  4 Oct 2026 20:05:25 +0800
-Message-Id: <20261004120526.2728564-3-zxyan0222@gmail.com>
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v7 3/3] net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
+Date: Sun,  4 Oct 2026 20:05:26 +0800
+Message-Id: <20261004120526.2728564-4-zxyan0222@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261004120526.2728564-1-zxyan0222@gmail.com>
 References: <20261004120526.2728564-1-zxyan0222@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_050617_884828_DB1146BB 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20261004_050626_528026_0215CE9B 
+X-CRM114-Status: GOOD (  29.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +111,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic timestamp_interrupt() handler derives the EXTTS channel
-index with ilog2() applied directly to the PTP_ACR channel mask, with
-no check for a zero mask.  ilog2(0) yields -1, which ends up in
-event.index as 0xffffffff, and ptp_clock_event() uses that index in
-test_bit() against a PTP_MAX_CHANNELS bitmap without range validation,
-reading far past the allocation from hard IRQ context.
+The DWXGMAC2 hwif entries use the generic stmmac_ptp hwtimestamp ops,
+whose timestamp_interrupt callback reads the dwmac4 offset
+GMAC_TIMESTAMP_STATUS (0xb20) instead of the XGMAC register at 0xd20,
+and whose interrupt enable mask XGMAC_INT_DEFAULT_EN omits XGMAC_TSIE.
+The PTP clock nevertheless advertises the auxiliary snapshot channels
+on XGMAC, so PTP_EXTTS_REQUEST succeeds but no PTP_CLOCK_EXTTS event is
+ever delivered.
 
-The zero-mask window is reachable: stmmac_enable() sets
-STMMAC_FLAG_EXT_SNAPSHOT_EN before it programs PTP_ACR, so an EXTTS
-interrupt arriving in between passes the flag check while the mask is
-still clear (snapshots can also linger in the FIFO from a previous
-enable, as only PTP_ACR_ATSFC clears them).
+Fix this with a dedicated DWXGMAC2 timestamp interrupt handler that
+reads XGMAC_TIMESTAMP_STATUS and reports the pending auxiliary
+snapshots as PTP_CLOCK_EXTTS events.  The handler deliberately does
+not gate its status read on XGMAC_INT_TSIS: TSIS is an aggregate,
+read-to-clear bit that the TX timestamp completion path (which polls
+the same register for TXTSC) clears before the handler can observe
+it, while ATSNS and the snapshot FIFO still hold the aux events.  A
+dwmac4-style TSIS gate would silently drop them.
 
-Check the mask before applying the ilog2().
+XGMAC_TSIE is not added back to XGMAC_INT_DEFAULT_EN, which
+30300d9f9150 ("net: stmmac: xgmac: Disable the Timestamp interrupt by
+default") deliberately keeps clear.  Instead it is armed on demand from
+the PTP_CLK_REQ_EXTTS enable/disable path of stmmac_enable(), through a
+new optional stmmac_ops->timestamp_interrupt_cfg() callback implemented
+only for DWXGMAC2/DWXLGMAC2 (on top of dwxgmac2_irq_modify()), like
+dwmac1000 does with dwmac1000_timestamp_interrupt_cfg().  This keeps
+platforms that do not use EXTTS at their current interrupt load and
+leaves the other cores untouched: stmmac_enable() is shared with
+dwmac4/dwmac5, whose timestamp interrupt stays always-enabled and is
+relied upon by intel_crosststamp(), so a direct irq_modify() call
+there is not an option; cores that do not implement the callback keep
+their current behaviour.
 
-Fixes: 8851346912a1 ("net: stmmac: Assign configured channel value to EXTTS event")
-Cc: stable@vger.kernel.org
+The interrupt is only touched after the PTP_ACR_ATSFC FIFO clear has
+completed, and the handler refuses to drain entries while that clear
+is still in flight, so a stale snapshot is never reported as an event;
+if the clear times out, the error is returned without changing the
+interrupt state.  The handler also leaves the snapshot FIFO alone
+while an internal cross-timestamp owns it: smtg_crosststamp() sets
+STMMAC_FLAG_INT_SNAPSHOT_EN for the duration of the cross-timestamp,
+raised and dropped under aux_ts_lock so concurrent requests cannot
+lose it, and the handler then only clears the interrupt source,
+mirroring the dwmac4 handler's treatment of intel_crosststamp().
+
+The timestamp interrupt is also disarmed after ptp_clock_unregister(),
+which drops STMMAC_FLAG_EXT_SNAPSHOT_EN as well.
+
+On resume stmmac_rearm_timestamp_irq() redoes the EXTTS programming
+stmmac_enable() performed on XGMAC: stmmac_hw_setup() reprograms
+XGMAC_INT_EN from XGMAC_INT_DEFAULT_EN, which drops XGMAC_TSIE, and a
+platform init callback may have reset the MAC and dropped the PTP_ACR
+trigger as well.  It flushes the FIFO and re-programs the enabled
+auxiliary snapshot trigger (recorded in ext_snapshot_num by
+stmmac_enable()) under aux_ts_lock, re-validates the channel there,
+and re-arms the interrupt only if the flush completed.
+
+Fixes: 4bb7aff9e6d0 ("net: stmmac: Add PTP support for XGMAC2")
 Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  5 ++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 59 +++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |  5 ++
+ .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 12 ++++
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 51 ++++++++++++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 23 +++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  2 +
+ include/linux/stmmac.h                        |  1 +
+ 9 files changed, 159 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-index b9a985fa772c..2a076e228e9a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-@@ -242,7 +242,10 @@ static void timestamp_interrupt(struct stmmac_priv *priv)
- 		       GMAC_TIMESTAMP_ATSNS_SHIFT;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index c5f71bfc7cf4..9030cc1cc677 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -311,6 +311,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 		return -EBUSY;
  
- 	acr_value = readl(priv->ptpaddr + PTP_ACR);
--	channel = ilog2(FIELD_GET(PTP_ACR_MASK, acr_value));
+ 	mutex_lock(&priv->aux_ts_lock);
++	priv->plat->flags |= STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 	/* Enable Internal snapshot trigger */
+ 	acr_value = readl(ptpaddr + PTP_ACR);
+ 	acr_value &= ~PTP_ACR_MASK;
+@@ -328,6 +329,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 		acr_value |= PTP_ACR_ATSEN3;
+ 		break;
+ 	default:
++		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 		mutex_unlock(&priv->aux_ts_lock);
+ 		return -EINVAL;
+ 	}
+@@ -344,6 +346,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 	ret = readl_poll_timeout(ptpaddr + PTP_ACR, acr_value,
+ 				 !(acr_value & PTP_ACR_ATSFC), 10, 10000);
+ 	if (ret) {
++		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 		mutex_unlock(&priv->aux_ts_lock);
+ 		netdev_err(priv->dev, "%s: Failed to clear snapshot FIFO\n",
+ 			   __func__);
+@@ -368,6 +371,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 				 FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK, v),
+ 				 100, 10000);
+ 	if (ret) {
++		priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 		mutex_unlock(&priv->aux_ts_lock);
+ 		netdev_err(priv->dev, "%s: Wait for time sync operation timeout\n",
+ 			   __func__);
+@@ -390,6 +394,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
+ 		read_unlock_irqrestore(&priv->ptp_lock, flags);
+ 	}
+ 
++	priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 	mutex_unlock(&priv->aux_ts_lock);
+ 
+ 	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 1a88cbaed70c..313c24e9a49d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -42,6 +42,12 @@ static void dwxgmac2_irq_modify(struct mac_device_info *hw, u32 disable,
+ 	spin_unlock_irqrestore(&hw->irq_ctrl_lock, flags);
+ }
+ 
++static void dwxgmac2_timestamp_interrupt_cfg(struct stmmac_priv *priv, bool en)
++{
++	stmmac_mac_irq_modify(priv, en ? 0 : XGMAC_TSIE,
++			      en ? XGMAC_TSIE : 0);
++}
++
+ static void dwxgmac2_update_caps(struct stmmac_priv *priv)
+ {
+ 	if (!priv->dma_cap.mbps_10_100)
+@@ -1154,6 +1160,57 @@ static int dwxgmac2_get_mac_tx_timestamp(struct mac_device_info *hw, u64 *ts)
+ 	return 0;
+ }
+ 
++void dwxgmac2_timestamp_interrupt(struct stmmac_priv *priv)
++{
++	u32 ts_status, pending_snapshots, acr_value, channel;
++	struct ptp_clock_event event;
++	unsigned long flags;
++	u64 ptp_time;
++	int i;
++
++	if (priv->plat->flags & STMMAC_FLAG_INT_SNAPSHOT_EN) {
++		/* Read the status to clear the timestamp interrupt source;
++		 * the FIFO belongs to the cross-timestamp path.
++		 */
++		readl(priv->ioaddr + XGMAC_TIMESTAMP_STATUS);
++		return;
++	}
++
++	/* Reading XGMAC_TIMESTAMP_STATUS clears the TSIS and AUXTSTRIG
++	 * bits, so the ATSNS count is the only reliable indication of
++	 * pending auxiliary snapshots.  TXTSC is cleared by
++	 * XGMAC_TXTIMESTAMP_SEC and is not affected by this read.
++	 */
++	ts_status = readl(priv->ioaddr + XGMAC_TIMESTAMP_STATUS);
++
++	if (!(priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN) || !priv->ptp_clock)
++		return;
++
++	pending_snapshots = FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK, ts_status);
++	if (!pending_snapshots)
++		return;
++
++	acr_value = readl(priv->ptpaddr + PTP_ACR);
++	/* Entries observed while the FIFO is being flushed are stale. */
++	if (acr_value & PTP_ACR_ATSFC)
++		return;
 +	channel = FIELD_GET(PTP_ACR_MASK, acr_value);
 +	if (!channel)
 +		return;
 +	channel = ilog2(channel);
++
++	for (i = 0; i < pending_snapshots; i++) {
++		read_lock_irqsave(&priv->ptp_lock, flags);
++		stmmac_get_ptptime(priv, priv->ptpaddr, &ptp_time);
++		read_unlock_irqrestore(&priv->ptp_lock, flags);
++
++		event.type = PTP_CLOCK_EXTTS;
++		event.index = channel;
++		event.timestamp = ptp_time;
++		ptp_clock_event(priv->ptp_clock, &event);
++	}
++}
++
+ static int dwxgmac2_flex_pps_config(void __iomem *ioaddr, int index,
+ 				    struct stmmac_pps_cfg *cfg, bool enable,
+ 				    u32 sub_second_inc, u32 systime_flags)
+@@ -1413,6 +1470,7 @@ static int dwxgmac2_config_l4_filter(struct mac_device_info *hw, u32 filter_no,
+ const struct stmmac_ops dwxgmac210_ops = {
+ 	.core_init = dwxgmac2_core_init,
+ 	.irq_modify = dwxgmac2_irq_modify,
++	.timestamp_interrupt_cfg = dwxgmac2_timestamp_interrupt_cfg,
+ 	.update_caps = dwxgmac2_update_caps,
+ 	.set_mac = dwxgmac2_set_mac,
+ 	.rx_ipc = dwxgmac2_rx_ipc,
+@@ -1468,6 +1526,7 @@ static void dwxlgmac2_rx_queue_enable(struct mac_device_info *hw, u8 mode,
+ const struct stmmac_ops dwxlgmac2_ops = {
+ 	.core_init = dwxgmac2_core_init,
+ 	.irq_modify = dwxgmac2_irq_modify,
++	.timestamp_interrupt_cfg = dwxgmac2_timestamp_interrupt_cfg,
+ 	.set_mac = dwxgmac2_set_mac,
+ 	.rx_ipc = dwxgmac2_rx_ipc,
+ 	.rx_queue_enable = dwxlgmac2_rx_queue_enable,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index 265671170bf6..eba87410f985 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -258,7 +258,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwxgmac210_dma_ops,
+ 		.mac = &dwxgmac210_ops,
+ 		.vlan = &dwxgmac210_vlan_ops,
+-		.hwtimestamp = &stmmac_ptp,
++		.hwtimestamp = &dwxgmac2_ptp,
+ 		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = &dwmac510_tc_ops,
+@@ -280,7 +280,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwxgmac210_dma_ops,
+ 		.mac = &dwxlgmac2_ops,
+ 		.vlan = &dwxlgmac2_vlan_ops,
+-		.hwtimestamp = &stmmac_ptp,
++		.hwtimestamp = &dwxgmac2_ptp,
+ 		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = &dwmac510_tc_ops,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index a8a5c8fdd5ed..14a47d68399f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -317,6 +317,8 @@ struct stmmac_ops {
+ 	void (*update_caps)(struct stmmac_priv *priv);
+ 	/* Change the interrupt enable setting. Enable takes precedence. */
+ 	void (*irq_modify)(struct mac_device_info *hw, u32 disable, u32 enable);
++	/* Arm or disarm the timestamp interrupt on demand (optional) */
++	void (*timestamp_interrupt_cfg)(struct stmmac_priv *priv, bool en);
+ 	/* Enable the MAC RX/TX */
+ 	void (*set_mac)(void __iomem *ioaddr, bool enable);
+ 	/* Enable and verify that the IPC module is supported */
+@@ -420,6 +422,8 @@ struct stmmac_ops {
+ 	stmmac_do_void_callback(__priv, mac, update_caps, __priv)
+ #define stmmac_mac_irq_modify(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, mac, irq_modify, (__priv)->hw, __args)
++#define stmmac_mac_timestamp_interrupt_cfg(__priv, __args...) \
++	stmmac_do_void_callback(__priv, mac, timestamp_interrupt_cfg, __priv, __args)
+ #define stmmac_mac_set(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, mac, set_mac, __args)
+ #define stmmac_rx_ipc(__priv, __args...) \
+@@ -672,6 +676,7 @@ extern const struct stmmac_desc_ops ndesc_ops;
  
- 	for (i = 0; i < num_snapshot; i++) {
- 		read_lock_irqsave(&priv->ptp_lock, flags);
+ extern const struct stmmac_hwtimestamp stmmac_ptp;
+ extern const struct stmmac_hwtimestamp dwmac1000_ptp;
++extern const struct stmmac_hwtimestamp dwxgmac2_ptp;
+ 
+ extern const struct stmmac_mode_ops ring_mode_ops;
+ extern const struct stmmac_mode_ops chain_mode_ops;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+index 2a076e228e9a..4b906bc33d26 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+@@ -280,3 +280,15 @@ const struct stmmac_hwtimestamp dwmac1000_ptp = {
+ 	.get_ptptime = dwmac1000_get_ptptime,
+ 	.timestamp_interrupt = dwmac1000_timestamp_interrupt,
+ };
++
++const struct stmmac_hwtimestamp dwxgmac2_ptp = {
++	.config_hw_tstamping = config_hw_tstamping,
++	.init_systime = init_systime,
++	.config_sub_second_increment = config_sub_second_increment,
++	.config_addend = config_addend,
++	.adjust_systime = adjust_systime,
++	.get_systime = get_systime,
++	.get_ptptime = get_ptptime,
++	.timestamp_interrupt = dwxgmac2_timestamp_interrupt,
++	.hwtstamp_correct_latency = hwtstamp_correct_latency,
++};
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3ad9252bf6ae..53aaf2716c46 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -18,6 +18,7 @@
+ #include <linux/clk.h>
+ #include <linux/kernel.h>
+ #include <linux/interrupt.h>
++#include <linux/iopoll.h>
+ #include <linux/ip.h>
+ #include <linux/tcp.h>
+ #include <linux/skbuff.h>
+@@ -894,6 +895,54 @@ static int stmmac_init_ptp_clk_freq(struct stmmac_priv *priv)
+ 	return 0;
+ }
+ 
++/**
++ * stmmac_rearm_timestamp_irq - re-arm the timestamp interrupt
++ * @priv: driver private structure
++ * Description: this re-arms the on-demand timestamp interrupt if an
++ * auxiliary snapshot channel was left enabled.
++ */
++static void stmmac_rearm_timestamp_irq(struct stmmac_priv *priv)
++{
++	u32 acr_value;
++	int ret, num;
++
++	if (!(priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN) ||
++	    !priv->ptp_clock)
++		return;
++
++	/* Flush the FIFO, re-program the enabled auxiliary snapshot
++	 * trigger and re-arm the interrupt only if the flush completed.
++	 */
++	if (priv->plat->core_type != DWMAC_CORE_XGMAC)
++		return;
++
++	mutex_lock(&priv->aux_ts_lock);
++	/* Snapshot the channel under the lock: a concurrent disable may
++	 * have dropped it since the gate check above.
++	 */
++	num = priv->plat->ext_snapshot_num;
++	if (num < 0) {
++		mutex_unlock(&priv->aux_ts_lock);
++		return;
++	}
++	acr_value = readl(priv->ptpaddr + PTP_ACR);
++	acr_value &= ~PTP_ACR_MASK;
++	acr_value |= PTP_ACR_ATSFC;
++	writel(acr_value, priv->ptpaddr + PTP_ACR);
++	ret = readl_poll_timeout(priv->ptpaddr + PTP_ACR, acr_value,
++				 !(acr_value & PTP_ACR_ATSFC), 10, 10000);
++	if (!ret) {
++		acr_value |= PTP_ACR_ATSEN(num);
++		writel(acr_value, priv->ptpaddr + PTP_ACR);
++		stmmac_mac_timestamp_interrupt_cfg(priv, true);
++	} else {
++		netdev_err(priv->dev,
++			   "%s: Failed to restore auxiliary snapshot channel\n",
++			   __func__);
++	}
++	mutex_unlock(&priv->aux_ts_lock);
++}
++
+ /**
+  * stmmac_init_timestamping - initialise timestamping
+  * @priv: driver private structure
+@@ -8418,6 +8467,8 @@ int stmmac_resume(struct device *dev)
+ 		ret = stmmac_init_timestamping(priv);
+ 		if (ret)
+ 			goto error_stop_dma;
++
++		stmmac_rearm_timestamp_irq(priv);
+ 	}
+ 
+ init_coalesce:
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 3bfcc9760dce..19fa79839e46 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -239,13 +239,20 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
+ 				return -EBUSY;
+ 			}
+ 
++			if (rq->extts.index >= PTP_ACR_ATSEN_NUM) {
++				mutex_unlock(&priv->aux_ts_lock);
++				return -EINVAL;
++			}
++
+ 			priv->plat->flags |= STMMAC_FLAG_EXT_SNAPSHOT_EN;
++			priv->plat->ext_snapshot_num = rq->extts.index;
+ 
+ 			/* Enable External snapshot trigger */
+ 			acr_value |= PTP_ACR_ATSEN(rq->extts.index);
+ 			acr_value |= PTP_ACR_ATSFC;
+ 		} else {
+ 			priv->plat->flags &= ~STMMAC_FLAG_EXT_SNAPSHOT_EN;
++			priv->plat->ext_snapshot_num = -1;
+ 		}
+ 		netdev_dbg(priv->dev, "Auxiliary Snapshot %d %s.\n",
+ 			   rq->extts.index, on ? "enabled" : "disabled");
+@@ -255,6 +262,17 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
+ 		ret = readl_poll_timeout(ptpaddr + PTP_ACR, acr_value,
+ 					 !(acr_value & PTP_ACR_ATSFC),
+ 					 10, 10000);
++		/* Arm or disarm the timestamp interrupt only once the FIFO
++		 * clear has completed, so the handler does not observe a
++		 * snapshot that the clear is about to discard.
++		 */
++		if (!ret) {
++			stmmac_mac_timestamp_interrupt_cfg(priv, on);
++		} else if (on) {
++			mutex_lock(&priv->aux_ts_lock);
++			priv->plat->ext_snapshot_num = -1;
++			mutex_unlock(&priv->aux_ts_lock);
++		}
+ 		break;
+ 	}
+ 
+@@ -355,7 +373,7 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 	if (pps_out_num)
+ 		priv->ptp_clock_ops.n_per_out = pps_out_num;
+ 
+-	n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	n_ext_ts = min(priv->dma_cap.aux_snapshot_n, PTP_ACR_ATSEN_NUM);
+ 	if (n_ext_ts)
+ 		priv->ptp_clock_ops.n_ext_ts = n_ext_ts;
+ 
+@@ -394,6 +412,9 @@ void stmmac_ptp_unregister(struct stmmac_priv *priv)
+ 		pr_debug("Removed PTP HW clock successfully on %s\n",
+ 			 priv->dev->name);
+ 
++		stmmac_mac_timestamp_interrupt_cfg(priv, false);
++		priv->plat->flags &= ~STMMAC_FLAG_EXT_SNAPSHOT_EN;
++
+ 		mutex_destroy(&priv->aux_ts_lock);
+ 	}
+ }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
+index 3fe0e3a80e80..a2082e1299b8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.h
+@@ -81,6 +81,7 @@
+ #define	PTP_ACR_ATSEN3		BIT(7)	/* Auxiliary Snapshot 3 Enable */
+ #define	PTP_ACR_ATSEN(index)	(PTP_ACR_ATSEN0 << (index))
+ #define	PTP_ACR_MASK		GENMASK(7, 4)	/* Aux Snapshot Mask */
++#define	PTP_ACR_ATSEN_NUM	4	/* Aux Snapshot 0-3 */
+ #define	PMC_ART_VALUE0		0x01	/* PMC_ART[15:0] timer value */
+ #define	PMC_ART_VALUE1		0x02	/* PMC_ART[31:16] timer value */
+ #define	PMC_ART_VALUE2		0x03	/* PMC_ART[47:32] timer value */
+@@ -103,6 +104,7 @@ int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
+ 
+ void dwmac1000_get_ptptime(void __iomem *ptpaddr, u64 *ptp_time);
+ void dwmac1000_timestamp_interrupt(struct stmmac_priv *priv);
++void dwxgmac2_timestamp_interrupt(struct stmmac_priv *priv);
+ 
+ extern const struct ptp_clock_info stmmac_ptp_clock_ops;
+ extern const struct ptp_clock_info dwmac1000_ptp_clock_ops;
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 00be2df63d22..487dd492c4b1 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -351,6 +351,7 @@ struct plat_stmmacenet_data {
+ 	u8 vlan_fail_q;
+ 	bool provide_bus_info;
+ 	int int_snapshot_num;
++	int ext_snapshot_num;
+ 	int msi_mac_vec;
+ 	int msi_wol_vec;
+ 	int msi_sfty_ce_vec;
 -- 
 2.34.1
 
