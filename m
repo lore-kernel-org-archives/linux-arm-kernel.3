@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A13CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BF5CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=r+9536ubjZAnFwIuv7vJah3WtJ0YDIcg7Gc+K2rs9aQ=; b=tzxXJbQtw6Jsu9
-	GWIii3QXspjECnyMEgpJ8jOe5d7m/Bdsz69ePRmMvpzMOzDp4M99R9EICPqoqnVgn/NDlUjRSr0Ld
-	xW50MgnITr829V30YGuOuBjK24e8U84aBif81xdLS9hjBq5U88t5PviInvTYUI3A31CGpCz7f7oox
-	UHxkLwbMU61Z5u7oC2BCqE/pI9S4j4jVDPrVRjoxExDaQqGIACWfiVc2dhczXr0FmS9F2YX47yobI
-	CpTmrn8tVtbbQA6R8hS3vqiQ0EssVMEjELW+1edmm1YSu5Uof90fWgvNQ+GyUlJzJAN5v8WDvuqXS
-	VfMcRNdECJU90SLALcig==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFLLUGu2HiBjJj5EPsQ0wYfXMvvqmqcb0LYvPjjspzA=; b=uCYq6ZW0WqOhsB7VMYa19U01dl
+	KNRSL0wnYUHbbS+8FG3tQvghvNDTzx+FAhdwF4zVqPgCOrbCheM6vM4sL+gAvtHBZGR6dkF1ovmdt
+	L3IbtLEKNVw/weNZugow8tEC3kS/672Q6w0B8wyWIPV83slFrMPf5psrbrQXDMoIMqu6MFMGN4tB7
+	jLIGTPPzNqQC2FVeI4FS9O1pmqW48a8KTYoC626vq3+yRo4gIwYYquOxXJf5cy4AGTlvLglGg+rmH
+	wYfRvFfYM58DwjOE9BhXCNsOIrZ42aPVrejLL7KMfFDw0HEkt7I8wOpS3uCQClXEHTo6JTtQWGEfr
+	LBoj/OlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT2u-0000000FHGM-0mgA;
-	Sun, 04 Oct 2026 20:42:56 +0000
+	id 1xDT2w-0000000FHHe-1cQL;
+	Sun, 04 Oct 2026 20:42:58 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT2q-0000000FHFi-2blm
+	id 1xDT2s-0000000FHFx-1DI5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:42:55 +0000
+	Sun, 04 Oct 2026 20:42:56 +0000
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 694II3hE3860111
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 4 Oct 2026 20:42:51 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 694IHQh53858897
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 4 Oct 2026 20:42:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=r+9536ubjZAnFwIuv7vJah
-	3WtJ0YDIcg7Gc+K2rs9aQ=; b=Szrox9BHjCbSDvM7cy1pAWuE2n9H5Hn2+2P/aA
-	GnLoLOCdBTy23YTCuTqtmmRE6cFnD+XpmfzSYtbarhzObcDd8HIXTttpFk7uwny2
-	D5n5+0pYrhbbEYq8Yjj9XeM1m3eV5qtTujZ+Y6+DLVxfijrhiAZWzX9Hikp0b+it
-	D3SBuz6izbxWihXL4sFG5vvCk2YSB6b+ISCeYLM3BeN/Es7a3ZXEVkU5yb3m33gv
-	IiRlMcdPNaXvgUgr9W8QhUne5m56jQPAFPcO2KbwSWGiWp0+6KqODXHZvcZuBc7n
-	43a49lB5cOOADWbEmQYrI8JBCgTzwfxuN9Thta6s61d8eLng==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h2ssubqja-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MFLLUGu2HiBjJj5EPsQ0wYfXMvvqmqcb0LYvPjjspzA=; b=ee//qSgmhlyap/nX
+	bGJ5dFdrAImlu1oN38GGoFftuBf709oKkZ7sKK+p2svzEwCYamY9dyDuAvO9U5yQ
+	0MhcZ8NfFaTHVMUGUVJ3RXTOwHs8ZgK35sv5eh0XJpZ7S541/ifKOkezoWGRtgE1
+	K/LvfiBRrJRw65ImwxPpA/VepFP1M8sE9sbfkAJvo0sPNn5t0yhyBh7yhzzEP1j6
+	i9+PBlmkwIqEzJq9HQ8DzixV4CVezxLsAODcJga04oG4w0ysWJE+50yz2OmsvJlo
+	upDbUW72YgTUtgw+O69EpTtm7iPt/EaqTcFb22+7GPWImQEDJKzIO3Wr4Ktcxpve
+	U7N4YQ==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h2ssubqjg-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 20:42:51 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93a3f673221so241806285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 13:42:51 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 20:42:53 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93dd3c3badbso258434785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 13:42:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791146571; x=1791751371; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=r+9536ubjZAnFwIuv7vJah3WtJ0YDIcg7Gc+K2rs9aQ=;
-        b=Wuxfm3LV1JwCxb7d3ouUUraUoSeUrExehPvzMEzgFSN71B5MwD1wbzvybofq3g6niZ
-         ZFpgBtqy85VK0yB0+0nP68ZOXHOBqoapsVH1EyLhvh/Qqb2TJQLGR+QAFL4SwWoA6A0U
-         Ql7JCym6UWbyElUGf8tPT8nudnKWfkC7KVVdNChf833dy/4wIpT7dkukcHMIMSC5k5wh
-         +9lxkgixEHOkOA50jUWwWoqjP8CZOd+2GjErB+EWzhEpkL6PzDnA88jnMU9QazL3nUJC
-         +NHs74UciHEYCvNAkZUv0fpqntjU6e7GicZm6/0r8YqAmdNTYWymdy0qYgFb68fo5gJo
-         1LUg==
+        d=oss.qualcomm.com; s=google; t=1791146573; x=1791751373; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MFLLUGu2HiBjJj5EPsQ0wYfXMvvqmqcb0LYvPjjspzA=;
+        b=ibKqKAdNA2gza6Xde1dHITI4AysR5v5Illt71w351SihHXOMGpNL/+x4gc2FTrVv1E
+         uEwBmYLU0UMIvAFyJdNyYgnxZyXJr89MKKCXjQzdgLExQQjJeuypPT6+0PHj1YfN1YK4
+         uKmtGK9b5rl+d4wwhXJN1pT99XuZbKQjeiInssFrGadbJPdJfI0s0aoqJt/pXcYeyIrJ
+         QhTkA3FIJ1Mz27AyLWoODxms+92/2X89BdKAhk09HvxVSXEzNKANWWOlO56WxOqV9y95
+         OwsQCBtg6tcjTYxZBj/kriahLrBo33Q5LspPh6kWp+N1YvNlZ/ZeWKt9JCFyhOKC9PhL
+         YZiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791146571; x=1791751371;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=r+9536ubjZAnFwIuv7vJah3WtJ0YDIcg7Gc+K2rs9aQ=;
-        b=yV/NI2Kzx3As5j9OtN6XPYrOw+qP8tYtKHH0zSzmlDq4+XIpQ4jc0o2yF6A0iUvC8f
-         Bs0s1UtVUynjW01kiPuxrLsWuacHtmxZktdNC3z66DmuUry1omNYySDUooRpEDHkYRtJ
-         lRwBr2JhwFiVtlmv/mpzE4lsVkhWjqvZK1DkHBrWvgS97h8kTM/pAJrm8ovLHZcevaPv
-         y2aM2J2iYOWxtiaZAij8C25/ht0cogWS9cn/KpVMdWYcXRHJqFlnVqNZWvXCykTiSFZv
-         MFkUK4aS5GDQlBPMjPuVYjF2x+jMgaEMueu8SMz+BEaOFzmfZ5tkgJDsy4C5W+y1ujei
-         CzSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzXecGsjcOLWbp6TZ/Er14NN9PHZqLUiER0sxfi0IFYB0HtIIl8Cg44oDixcmsQkfqmVM7bn0ThO5QCpPF0Pmsi@lists.infradead.org
-X-Gm-Message-State: AFuF++nDHcpAA4sozBo7eUDMk3wQpRQ4KlLWLf0kyHR0lDcLPs/exLj/
-	I4/B8N5wLbAc8hNdtfdpPq6MTkydGJGF6c7fWJ93TR4Q8GnhwzWoJhsdafWa/l+PS4GLwSvAfPY
-	6oVggVBNMgLJq2Df0g5+iuDyHOZRiBuoJ6jxnchWMAFpwe57bD5t83Q/pHCgUN/CTOIB9DV5H0/
-	pyDg==
-X-Gm-Gg: AYBFou1+z3N7B2EOmGQsK/KdH/Y2e1L6o7o3+DcAZbKgeXiuKcor/6TXOHHTlc3UHgC
-	sZcpWqgb2mVV0Wy7hsalx9XPSWoaJ9JpZQce5awmCIcfmomzIWcxCRX+nVk0zBA4MXANW5KrJqP
-	IVlM2/amhRmSIdAjzkBEhRsKd+i0KsfQDH6fQROVZ0rvJxRaSHO4DW+YiNzdrlSbEX6MdgPqCYI
-	mI401nahjzzBpVatmfuuTbcOQIKGVdTnCdw8XDh/dGXjSDyhjaW7NPTSeEuuOGT9MrYTBMtTBTw
-	0moUQJML/Srp3Jq3QL2V8m6qonRUybm2tHYi6FbHZjMVPJU4gONXtmdRpq3jnrMGFCf/FSqby5W
-	dH5ylIey2u9YlfA==
-X-Received: by 2002:a05:620a:4397:b0:93e:516e:a8d2 with SMTP id af79cd13be357-93e516ec2f0mr1017728385a.4.1791146570698;
-        Sun, 04 Oct 2026 13:42:50 -0700 (PDT)
-X-Received: by 2002:a05:620a:4397:b0:93e:516e:a8d2 with SMTP id af79cd13be357-93e516ec2f0mr1017725085a.4.1791146570116;
-        Sun, 04 Oct 2026 13:42:50 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791146573; x=1791751373;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MFLLUGu2HiBjJj5EPsQ0wYfXMvvqmqcb0LYvPjjspzA=;
+        b=wiCHNl1VQjxDGkK28uOlURIRmB0WsUdNxFG/XOHE/x3o0TeJfskT/VAYryscjHxq7k
+         N5djsAohA41TOBIAAsF6SCpanKE0nWA32mtTrvIBVgmMRaTvJ/W+e7pxMJ8UUOPNVSDI
+         RFwUKKipWJynwzQQnRspUY6Zs+itoa19t2FhdSMQCOLm1V71MR/SCLGeU4mmAMWQaRIv
+         9CS2TczGT+XTyvO6r75/D+mS3Kzdk3E/mMRi+BnnA/QnTAzRwkcK5GVFAQWC3D2m7MYz
+         OX580y+Da9Tmamw008nAspVvRYLCz3nngHghD229xobV5QWUhz9e+hJaDDnuy2dPQSCU
+         AqEg==
+X-Forwarded-Encrypted: i=1; AKwUvBxX1lUBOU22nrWSWrElZQr8YzkBB2+hm3kWZ2YgZWvnah2LLPI2Lgk3mMvgUHwY5oujLXxfi0qKh46qZ1UZxc/8@lists.infradead.org
+X-Gm-Message-State: AFuF++le3nankDKHmTi9jF7qJH2Vrr4sWIGbTu+CzEw/kaoSM7AnhYsr
+	8KQomqCz2DXNk6w1A6wBSB4tYeKM8ALLmr7VW/JRciifKOEKHzClyUvAwHLsDmCRV1mQuUl3kdO
+	SAg3LByxG2EKxEdUL0UznysEZzPF6r1l9dq26nwiN9PyKGXww9mN0a9XpLPqwuXviVBDieybeKV
+	0eRw==
+X-Gm-Gg: AYBFou3l3ZeJJkC5x67JIf4+lwrc30g62yBtjLsWx4MuHrwT4hbbA8rwvNcfPMxXT4i
+	a/hfVwDmw1/4Yke2ZRccWZwgY3XDh7FgksYdT/xXXq5cmd+mfsOwpaFLdUs4B/NkU/0tR8VOhSW
+	HkbMmgEzrUUgZP0CxyDdlErb/2LLpN7ew54KpGHZt8z+Z4HR6p+bGE09nzYjy2vMyWDdpuEopki
+	/ItJF4hu+HOkleUNcJ72x4IYUOpF0ktnnjCkvNrJ4tcVTyqxO+WdLzR1fYt3vg0uJWQeiGHDZF9
+	zoPTomkFGus1PHnAwyROvS78XA5pWUhxBfzrN+uO2iGGNdzGy1rRp7TvED0EMHatqbCZj4lPWj+
+	q27bn8viZJ4bz4A==
+X-Received: by 2002:a05:620a:710e:b0:939:1222:b9f1 with SMTP id af79cd13be357-93e50bea455mr981063685a.0.1791146572512;
+        Sun, 04 Oct 2026 13:42:52 -0700 (PDT)
+X-Received: by 2002:a05:620a:710e:b0:939:1222:b9f1 with SMTP id af79cd13be357-93e50bea455mr981060085a.0.1791146572001;
+        Sun, 04 Oct 2026 13:42:52 -0700 (PDT)
 Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b38307190sm19496719f8f.45.2026.10.04.13.42.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a16bcb9a21sm227604135e9.10.2026.10.04.13.42.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 13:42:49 -0700 (PDT)
+        Sun, 04 Oct 2026 13:42:51 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net-next v3 0/2] net: stmmac: introduce XDP rx multi-buff
- support
-Date: Sun, 04 Oct 2026 22:42:00 +0200
-Message-Id: <20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com>
+Date: Sun, 04 Oct 2026 22:42:01 +0200
+Subject: [PATCH net-next v3 1/2] net: stmmac: take ownership of saved RX
+ state at poll entry
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NQQ7CIBAF0KsY1tIwFGnrynsYF7QdLIkUBSQ1T
- e8uYWVMN5P8/Pw3KwnoDQZyPqzEYzLBuDmH+nggw6TmO1Iz5kw445J10NIQrVUD9Qu1PQUpZKd
- 4AwIVyZOnR22Wwl3JjJHOuERyy81kQnT+U/4kKP0+mYACZb04QTMKJpS+uBCq11s9BmdtlU/xE
- v8xOPwZPBsSWy4RtK6Z3DG2bfsCgQxBnf0AAAA=
-X-Change-ID: 20260918-stmmac-rx-mb-16469a2714ea
+Message-Id: <20261004-stmmac-rx-mb-v3-1-50fa171af9ec@oss.qualcomm.com>
+References: <20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com>
+In-Reply-To: <20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Andrew Lunn <andrew+netdev@lunn.ch>,
         "David S. Miller" <davem@davemloft.net>,
@@ -117,28 +116,27 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Ong Boon Leong <boon.leong.ong@intel.com>
 Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
         linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-        James Hilliard <james.hilliard1@gmail.com>,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+        James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA0MDA4MiBTYWx0ZWRfXyN+bdAZS7QBQ
- dbShCByt9vDr3kwLRUcFYwE6sG6eqrxU+99/VBTo5/fwLYV90ynOQNqbvN9TeAHSm3cAgOrOppN
- sDESL8XoEtKZCWM+WSVlSCSPb5pxt50=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA0MDA4MiBTYWx0ZWRfXxBzEbKPVqhiI
- XD30jaj+WDzyfKPkEy7uKCQ93M+fJXLrq1OHbzZh7eR2M9dvfpT+GHZq7KngIBGA0WNWSHAy3nt
- ZuAupHyB7xJLeWc9YGnI8Jn3SWObysxNy6ZF09DfxQHBHVitk/YjQbbcTbV0UCNXDDHo4yr8jN4
- oiqTq+3mj5qNNTJsP8TDPFcwcAYskWRMZ6id/ONPrbNzhVodZ1OH3WGial8z9MW9DHW2pBBdjtz
- gtqoQ/icYTZN4k0M9kjjpx/WOXFddOHcARbHfQ12GlA5qtpEx1UJlPjQ+YXaH8uArMBViawQXz4
- ydN/+vv5FJojMtMCaBaRcRC/8rT5yaU7++wadCDo4hzlXIowrBX9rUajlxoznk7g47I91SA2+aa
- fy9qg8H3xsgRUbouBxdPadrqruEQtnnVrq08sMKVAo86FpMuMmFrlST/dK07mfx8JSKaqMefGuo
- XX5WUbSF/v7BLqkXX5w==
-X-Proofpoint-GUID: TKS1utTMRT5gaVUbUog4-1Zstg5FKUrd
-X-Proofpoint-ORIG-GUID: TKS1utTMRT5gaVUbUog4-1Zstg5FKUrd
-X-Authority-Analysis: v=2.4 cv=FryQbGrq c=1 sm=1 tr=0 ts=6ac2ba4b cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA0MDA4MiBTYWx0ZWRfX2ijpjRTp3ZF1
+ l1dWuGvwq/J4Fz1Z0z48WXpSKc/YrzuU5nJmROySeVIwuvJIG6QewbBLwYNBQVqDcMvD1zZ8+5T
+ BR+/Z9BV125q1gHFeAGqZj5CSvRnl3A=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA0MDA4MiBTYWx0ZWRfX0Ny840azQmf1
+ hDyGa8nDDSm+qge0mOwBE6OnKa5Mh0GwtX5bVvBJaDCWBPKpl7HkKL9Uy1BP609+BUYGxIzYqOR
+ SUP9wMfbI7ey0dCeUmnvzD3GaSg4yrp4BcCfwavrL+kPRtqw/vSBQyvdtvPlWPLfzi0WdNn4kvS
+ F/10fu+zwpBXVg06GMBZZG2ihHWYAeu9hzWT6Ce7ABrygNz4oKEPNwjR4GzF0DUEZvI8+MSpolN
+ RXFdtUiX3V5znB1nvv5+lC2B0ixl0qu6h1nnwM8pjnG4n9nVc+2TjqiXgj3sUTWxlV1zEifuU8v
+ SOe7SOU3olpVTgj+Fa+CLDrQJ1iYTaAH2rrU7pe5ZgyVFyHjv5g7fBLNt+Z18ndxAfZyHtRS5N+
+ U06srQdc85Ko1+JdlwEwDqBryri8O6Y0G02mmd5o2e7Of9B0+4wkVrfxweZANHkpwfq9behWc5/
+ yuxVZimcSWNPDsPCFJg==
+X-Proofpoint-GUID: hH3Rwdxn5bg30tw-3nQj1nGxHKRaW5cJ
+X-Proofpoint-ORIG-GUID: hH3Rwdxn5bg30tw-3nQj1nGxHKRaW5cJ
+X-Authority-Analysis: v=2.4 cv=FryQbGrq c=1 sm=1 tr=0 ts=6ac2ba4d cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=SNmR0GAD1IuDnH7kD-MA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
+ a=pGLkceISAAAA:8 a=Wh313J_-GvSRXK7hiU8A:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-04_05,2026-10-02_02,2025-10-01_01
@@ -148,8 +146,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610040082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_134252_793800_477B8017 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20261004_134255_013434_6A8F440E 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,40 +162,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework stmmac_rx routine to properly support XDP rx multi-buff.
-Fix possible rx_q state leaks closing/opening the interface.
+From: James Hilliard <james.hilliard1@gmail.com>
 
+When a saved partial packet completes with a poll budget of one, the
+old loop can leave state_saved and state.skb pointing at an skb that
+has already been delivered or freed. The next poll then reuses that
+pointer, causing a use-after-free or double free.
+
+Take the saved state at poll entry and clear the stored ownership
+immediately. Save it again only if the packet remains incomplete,
+including when the next descriptor is still DMA-owned. Release a
+saved partial skb when the RX ring is destroyed.
+
+Apply the same state handling to stmmac_rx_zc(), which also leaves
+state_saved set when a saved frame finishes at the budget boundary.
+That path saves only error and length bookkeeping, not an skb pointer.
+Track whether a frame remains incomplete independently of the status
+read from the next descriptor, so a DMA-owned descriptor does not erase
+the continuation state.
+
+Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
+Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
-Changes in v3:
-- Return secondary page in case of error.
-- Introduce stmmac_xdp_shrink_tail() to remove the ethernet FCS.
-- Add patch 'net: stmmac: take ownership of saved RX state at poll
-  entry' from James.
-- Link to v2: https://lore.kernel.org/r/20260921-stmmac-rx-mb-v2-1-6e826e1ff306@oss.qualcomm.com
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 54 +++++++++++++++--------
+ 1 file changed, 35 insertions(+), 19 deletions(-)
 
-Changes in v2:
-- Rely on xdp_buff_add_frag() to create xdp fragments
-- Fix bugs in rx_q state recording
-- Fix the corner case where we receive more than MAX_SKB_FRAGS fragments
-- Cosmetics
-- Link to v1: https://lore.kernel.org/r/20260918-stmmac-rx-mb-v1-1-0b4517d404af@oss.qualcomm.com
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 0c381ae0d0ff..b2d20628ed21 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2180,6 +2180,9 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	else
+ 		dma_free_rx_skbufs(priv, dma_conf, queue);
+ 
++	dev_kfree_skb_any(rx_q->state.skb);
++	rx_q->state.skb = NULL;
++	rx_q->state_saved = false;
+ 	rx_q->buf_alloc_num = 0;
+ 	rx_q->xsk_pool = NULL;
+ 
+@@ -5581,12 +5584,12 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 	unsigned int count = 0, error = 0, len = 0;
+ 	int dirty = stmmac_rx_dirty(priv, queue);
+ 	unsigned int next_entry = rx_q->cur_rx;
++	bool in_progress = rx_q->state_saved;
+ 	u32 rx_errors = 0, rx_dropped = 0;
+ 	unsigned int desc_size;
+ 	struct bpf_prog *prog;
+ 	bool failure = false;
+ 	int xdp_status = 0;
+-	int status = 0;
+ 
+ 	if (netif_msg_rx_status(priv)) {
+ 		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
+@@ -5597,23 +5600,25 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
+ 				    rx_q->dma_rx_phy, desc_size);
+ 	}
++
++	if (rx_q->state_saved) {
++		error = rx_q->state.error;
++		len = rx_q->state.len;
++		rx_q->state_saved = false;
++	}
++
+ 	while (count < limit) {
+ 		struct stmmac_rx_buffer *buf;
+ 		struct stmmac_xdp_buff *ctx;
+ 		unsigned int buf1_len = 0;
+ 		struct dma_desc *np, *p;
+-		int entry;
++		int entry, status;
+ 		int res;
+ 
+-		if (!count && rx_q->state_saved) {
+-			error = rx_q->state.error;
+-			len = rx_q->state.len;
+-		} else {
+-			rx_q->state_saved = false;
++		if (!in_progress) {
+ 			error = 0;
+ 			len = 0;
+ 		}
+-
+ read_again:
+ 		if (count >= limit)
+ 			break;
+@@ -5652,6 +5657,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 		if (!buf->xdp)
+ 			break;
+ 
++		in_progress = status & rx_not_ls;
++
+ 		if (priv->extend_desc)
+ 			stmmac_rx_extended_status(priv, &priv->xstats,
+ 						  rx_q->dma_erx + entry);
+@@ -5724,7 +5731,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 		count++;
+ 	}
+ 
+-	if (status & rx_not_ls) {
++	if (in_progress) {
+ 		rx_q->state_saved = true;
+ 		rx_q->state.error = error;
+ 		rx_q->state.len = len;
+@@ -5766,9 +5773,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+ 	struct stmmac_channel *ch = &priv->channel[queue];
+ 	unsigned int count = 0, error = 0, len = 0;
+-	int status = 0, coe = priv->hw->rx_csum;
+ 	unsigned int next_entry = rx_q->cur_rx;
++	bool in_progress = rx_q->state_saved;
+ 	enum dma_data_direction dma_dir;
++	int coe = priv->hw->rx_csum;
+ 	unsigned int desc_size;
+ 	struct sk_buff *skb = NULL;
+ 	struct stmmac_xdp_buff ctx;
+@@ -5788,25 +5796,28 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
+ 				    rx_q->dma_rx_phy, desc_size);
+ 	}
++
++	if (rx_q->state_saved) {
++		skb = rx_q->state.skb;
++		error = rx_q->state.error;
++		len = rx_q->state.len;
++		rx_q->state.skb = NULL;
++		rx_q->state_saved = false;
++	}
++
+ 	while (count < limit) {
+ 		unsigned int buf1_len = 0, buf2_len = 0;
+ 		enum pkt_hash_types hash_type;
+ 		struct stmmac_rx_buffer *buf;
+ 		struct dma_desc *np, *p;
+-		int entry;
++		int entry, status;
+ 		u32 hash;
+ 
+-		if (!count && rx_q->state_saved) {
+-			skb = rx_q->state.skb;
+-			error = rx_q->state.error;
+-			len = rx_q->state.len;
+-		} else {
+-			rx_q->state_saved = false;
++		if (!in_progress) {
+ 			skb = NULL;
+ 			error = 0;
+ 			len = 0;
+ 		}
+-
+ read_again:
+ 		if (count >= limit)
+ 			break;
+@@ -5835,6 +5846,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 
+ 		prefetch(np);
+ 
++		in_progress = status & rx_not_ls;
++
+ 		if (priv->extend_desc)
+ 			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
+ 		if (unlikely(status == discard_frame)) {
+@@ -6019,7 +6032,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		count++;
+ 	}
+ 
+-	if (status & rx_not_ls || skb) {
++	if (in_progress || skb) {
+ 		rx_q->state_saved = true;
+ 		rx_q->state.skb = skb;
+ 		rx_q->state.error = error;
+@@ -8339,6 +8352,9 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
+ {
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+ 
++	dev_kfree_skb_any(rx_q->state.skb);
++	rx_q->state.skb = NULL;
++	rx_q->state_saved = false;
+ 	rx_q->cur_rx = 0;
+ 	rx_q->dirty_rx = 0;
+ }
 
----
-James Hilliard (1):
-      net: stmmac: take ownership of saved RX state at poll entry
-
-Lorenzo Bianconi (1):
-      net: stmmac: rework stmmac_rx to support XDP rx multi-buff
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 388 ++++++++++++++--------
- 2 files changed, 249 insertions(+), 142 deletions(-)
----
-base-commit: 14b9ac2f189db8809a3c9f750d7700cfc9d21f77
-change-id: 20260918-stmmac-rx-mb-16469a2714ea
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.55.0
 
 
