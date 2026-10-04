@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D224ACA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 13:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3FBCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 13:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNI2qDnLiaqV8BxH9fuxXcoBvBHpUmc8du3BEbYd2ug=; b=jHMLW5iWIGnb+UYaWMxIOyRVUO
-	DUehM0kd1DY79Sahz9rZjbNj1uQbhN/5pc3/bDW+ZBAN02EOoK39KIgydLeoz6sq+aAsvSQ4nVjmF
-	5gzqNQ1VF0aDvUWe7nWyzXP/2rKajocusXyAoX3/NmRHNepqDLFXq7e2nQ9Rd2tTjNHrdonIdUY+R
-	rtesJ5U896BVu/T303jVesy00PwRDKIT0878ijgokProxMNqWloSLw6nACtndcgqDJ0lo5wsy5aXs
-	AwoQ+YUcU79mg3sxpzxneHETR5AKure7cgKizAnpSkeiwuQI+bnLda/fzH14vFxbMnzt7a1iq5BKw
-	UwvXCfcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ihd+dofvU6Mcgj3MdWdld4bUs480ZOkVZ8XCTiohnu8=; b=G/6qG3RCoHZlh6Oov6EHLf/mo2
+	qBmuWPdIjk7c6k4cB/UgqtHhmFhhvTii78RhQ1lK9Av1TLpkINdipsPO0P3YFZ/cEw7Zbn8sD4GpU
+	tTZZ0ie1gxkYU/EcQV34mmXmfW2SWL3gF4dj9znldC0C0koUVP45xNaVy5a5dJhWMMXakl4oYoCV7
+	FPLd/UeEq5A/YRhpRHhLpOooa69tT+iCoLDHfkPYsjthdI+/ojapaWPWG4Eo7dY4TKQAqHKoH4bj2
+	RVyvu5xZRRKarf0Fdds4Uk0tXClW1zpr0ABbS+adFCPS4Pagk0e0Cq8evh7qQH+RXdVzcjw46AwG9
+	osLvji7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDMRq-0000000ErAC-2l3Z;
-	Sun, 04 Oct 2026 13:40:14 +0000
-Received: from out-160.mta0.migadu.com ([2001:41d0:1004:224b::a0] helo=mta0.migadu.com)
+	id 1xDMSn-0000000ErLA-3TI2;
+	Sun, 04 Oct 2026 13:41:13 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDMRn-0000000Er9i-2Fmd
+	id 1xDMSh-0000000ErJz-2nTJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 13:40:13 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PNI2qDnLiaqV8BxH9fuxXcoBvBHpUmc8du3BEbYd2ug=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791121208; v=1; x=1791726008;
- b=n7384kgFTnYSpuQ2b29ZFzkEQrV0WEbGXRRmk76HZJrdfRKoq5shRI1aK5M5haeFhUMM1cc1
- Sx0JRx60U3BiV6odCialgnU1KPISUUxLbLfaDfy2kjFRI42Am3FocEZKmadqqKk0Y6vkRZ98l7k
- j/VP+3tOb2kHPFl+/YIi8MZk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 22ccb7e257ac288e;
-	Sun, 04 Oct 2026 13:40:07 +0000
-X-Mizu-Trace-ID: 22ccb7e257ac288e
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so3726e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 06:40:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy5zwhu9ELePFAfcK/NtnlKRmpzNd45Pw+sJTXnVEGpzHwqsUiNbxJgtHV5C/yotgWwCM7pbEoNxJ7Y7+g7iEqS@lists.infradead.org
-X-Gm-Message-State: AFq9FYJHk+KtCpIAe/TaAg5xyq9LTXz9p/Wyf/iG5+DZ1TfARK77X4QY
-	cJDHh/dplccHJFXsyU7dKoJDuT9HyvQBXXERLbuPcHuDsbG/2kfbEAsATmKu8tRt25k9J46zxun
-	5jOm6NbeJPuG6MTYYorl3evnBFPEQiitWoBxGwivq
-X-Received: by 2002:a05:6512:23a1:b0:5bb:27df:415f with SMTP id
- 2adb3069b0e04-5bcb62e44a6mr80016e87.15.1791121206347; Sun, 04 Oct 2026
- 06:40:06 -0700 (PDT)
+	Sun, 04 Oct 2026 13:41:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CE4D41A1129;
+	Sun,  4 Oct 2026 13:41:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 29736604FE;
+	Sun,  4 Oct 2026 13:41:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A72C1032817F;
+	Sun,  4 Oct 2026 15:40:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791121263; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Ihd+dofvU6Mcgj3MdWdld4bUs480ZOkVZ8XCTiohnu8=;
+	b=NvJQmWY6oV3Ja8xANIq3B3P9pcEN+tee1cqds4XePR5AAnzLOaknyImx+sZw2QP9RrlXLL
+	eHpb9Q6y8Qr3aXJXh6klwYhtolMHCP/1xooHI/SZXhaBSs9O14zhoWt1KBOvYa5aGJyZAt
+	ypm/zMhH98KMkIWI4HKqQWRMz6NE3D1apdac1VRIoszUyE8Iaz30wjhq8UqZACrqPekFTg
+	CnBgGke4wA6VzRxfbOBuPy6jFZGwQjmPCX8usxGOlLV9F34mKppDxW5zsU9wkxnJfRTYjF
+	VcV9c4vtzdMC3s6ZpMKmKAHHk0XGLfT8HIIXKckonFsxD8tXPqvwsrAZNQClLg==
+Message-ID: <c76a27fd-4131-4a4d-a832-de96e0006a55@bootlin.com>
+Date: Sun, 4 Oct 2026 15:40:56 +0200
 MIME-Version: 1.0
-References: <20260930121212.3101361-1-fuad.tabba@linux.dev>
- <ar-xtsSOqwWK9jWQ@willie-the-truck> <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
- <ar-5CnttybD-1ojM@willie-the-truck> <ar_E5HUSTxMSRZhL@arm.com>
- <CA+EHjTzemfoX9e8Ppw+AcuUpNND_CipLCUM9xgid1eYXmV=jzg@mail.gmail.com>
- <ar_QOXqCYTGargBe@arm.com> <asIQ1ZwUjkmNJbRP@willie-the-truck>
-In-Reply-To: <asIQ1ZwUjkmNJbRP@willie-the-truck>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 4 Oct 2026 14:39:29 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwYMT6gKZiBf70S9JgNtzBj2jES_4xkzVUVKHHd6mPNvg@mail.gmail.com>
-X-Gm-Features: AclHuK_ztBU3Lp4brNTuBuj0lY992tOQjsYAyS5cYhB7Md0NCpETrVALGjPVujw
-Message-ID: <CA+EHjTwYMT6gKZiBf70S9JgNtzBj2jES_4xkzVUVKHHd6mPNvg@mail.gmail.com>
-Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, "Rob Herring (Arm)" <robh@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 3/7] net: stmmac: mediatek: add RX/TX delay
+ stage divider in platform data
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Biao Huang <biao.huang@mediatek.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260924-dwmac-mediatek-mt8189-v2-0-430bd74d5ef9@collabora.com>
+ <20260924-dwmac-mediatek-mt8189-v2-3-430bd74d5ef9@collabora.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260924-dwmac-mediatek-mt8189-v2-3-430bd74d5ef9@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_064012_301463_130E9B4D 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20261004_064108_454536_075B3FAD 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,19 +90,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 04 Oct 2026 09:39:49 +0100, Will Deacon <will@kernel.org> wrote:
-[...]
-> I wonder if it would be worth having some #defines for some of the common
-> conditions, so we could avoid having the bare immediates each time in
-> future? (obviously, that would be a separate cleanup rather than part of
-> this fix).
+Hi,
 
-Thanks Will. I think it would. There are only a handful outside
-arch/arm64/lib, so it's small. I'd name each value after the condition
-the following branch tests, e.g. CCMP_NZCV_LT rather than #8, so
-nobody has to work out the flags by hand. I'll send something once
-this is in your tree.
+On 9/24/26 09:23, Louis-Alexis Eyraud wrote:
+> In preparation of newer SoC support, that have like MT8189 SoC
+> different RX and TX internal delay stage steps than MT8188/MT8195, add
+> the RX and TX delay stage divider values in the variant platform data
+> and replace the hardcoded value use in mt8195_set_delay.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Cheers,
-/fuad
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c | 20 ++++++++++++++++++--
+>  1 file changed, 18 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> index f7eb85110df0..1c532cc3a975 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> @@ -100,6 +100,8 @@ struct mediatek_dwmac_variant {
+>  
+>  	u32 rx_delay_max;
+>  	u32 tx_delay_max;
+> +	u16 rx_delay_stage_div;
+> +	u16 tx_delay_stage_div;
+>  	u8 dma_bit_mask;
+>  };
+>  
+> @@ -300,13 +302,25 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat,
+>  
+>  static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
+>  {
+> +	u16 rx_delay_stage_div = plat->variant->rx_delay_stage_div;
+> +	u16 tx_delay_stage_div = plat->variant->tx_delay_stage_div;
+>  	struct mac_delay_struct *mac_delay = &plat->mac_delay;
+> -	u32 rx_delay_stage_val = mac_delay->rx_delay / MT8195_DLY_RXC_STAGE_DIV;
+> -	u32 tx_delay_stage_val = mac_delay->tx_delay / MT8195_DLY_TXC_STAGE_DIV;
+> +	u32 rx_delay_stage_val;
+> +	u32 tx_delay_stage_val;
+>  	u32 gtxc_delay_val = 0;
+>  	u32 rmii_delay_val = 0;
+>  	u32 delay_val = 0;
+>  
+> +	if (rx_delay_stage_div)
+> +		rx_delay_stage_val = mac_delay->rx_delay / rx_delay_stage_div;
+> +	else
+> +		rx_delay_stage_val = 0;
+> +
+> +	if (tx_delay_stage_div)
+> +		tx_delay_stage_val = mac_delay->tx_delay / tx_delay_stage_div;
+> +	else
+> +		tx_delay_stage_val = 0;
+> +
+>  	switch (plat->phy_mode) {
+>  	case PHY_INTERFACE_MODE_MII:
+>  		delay_val |= FIELD_PREP(MT8195_DLY_TXC_ENABLE,
+> @@ -415,6 +429,8 @@ static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
+>  	.num_clks = ARRAY_SIZE(mt8195_dwmac_clk_l),
+>  	.rx_delay_max = MT8195_DLY_RXC_MAX,
+>  	.tx_delay_max = MT8195_DLY_TXC_MAX,
+> +	.rx_delay_stage_div = MT8195_DLY_RXC_STAGE_DIV,
+> +	.tx_delay_stage_div = MT8195_DLY_TXC_STAGE_DIV,
+>  	.dma_bit_mask = 35,
+>  };
+>  
+> 
+
 
