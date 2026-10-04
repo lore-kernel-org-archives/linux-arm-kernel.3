@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F1DCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357E4CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/oZBwZNUJHzy5epIabVPY4mFU5VbIVDH+NWWmNIeek=; b=Yp5JGfINbhDhQaBsvSQ3h+LoL3
-	ls5kHmpTcpcIjyVBFmGXEWnADT+hDvyq+UI+Lr7VHcjykiyOALFclkSRnhA7MnJx8g1N/CpM9F8w2
-	cWFXxdhlE52fuy8yHfjQjAfhkgVyCudmhoeYfi5GXPsX/KeeC6ZLmgOcRrFfhpOdu4SrVMJimZ4s8
-	s0wy8lBAnHZry1wCaCtVbrwt6nSaQDqiU1srRFrMCfwtkCiyOBnmYz+K0tKiih00ASqEjPzguT4R6
-	xWNfOa/uaJvKbyQo6/wNRCXOj1xH7SPpV4OFo9Mk+beXcvB/czvwhU0cJrOC6t0c2xeUDkffgNOfW
-	AeudMNEQ==;
+	bh=ELsLdn+4Qh6lp87H1c3X8IMTeSqRAZu1aVbHKFxqmEo=; b=uWJ+b5yvwLFuYLr9qkcwVDJPtn
+	zJKBBAVS+PAhPjHL7+uv2EU1H6IVk1qp7Rcja/ovX7jlF/apsPQN+WNr9w9cPzzk9fCm+id0E5gNT
+	YwVTnx/yy9I59TUkoFHTNl598Pp2aMETQ748axW6X+/2uwYsFuqJxU3FKMzcG4IOMQnolyXyaQBl0
+	XOSPY8rnXZNpyiDAUWwL450fAo0FpYYXEAV5IKfhFKrG+V2Y+X4ewpjItgNgm04xwW9ydTz3dujSu
+	ShI51NqJ95SKxRH9ITiLB2AQc9GetGMzuT43/bXTrcDii5DIGb8D127gBVHmZan6ANWMTVZqf5ubH
+	PaYtuxbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDTBo-0000000FJ50-3uBS;
-	Sun, 04 Oct 2026 20:52:08 +0000
+	id 1xDTBs-0000000FJ5z-0NAP;
+	Sun, 04 Oct 2026 20:52:12 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDTBl-0000000FJ3n-48yl;
-	Sun, 04 Oct 2026 20:52:07 +0000
+	id 1xDTBm-0000000FJ3o-0PVG;
+	Sun, 04 Oct 2026 20:52:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=4/oZBwZNUJHzy5epIabVPY4mFU5VbIVDH+NWWmNIeek=; b=wt92fhu357919RTJDNuElokXT5
-	M5JjrN8l+xwjMphQUvyIA2LxI+IWLTVbu+nrqFOPKwZ9UnSJk4nZQ17IgIO1YY/bOkTw0cQ5jt4a3
-	uUo3MEnb5VqBHNNB9MDEWVCgFMqDfQnEJaBVRAXgOmfgOThnTBwKe3JxpBYt6OVrhnc7/T+n2F9bk
-	ROqB+elV0YYVpoz3JafIkbaAtcdyyf10KOs8FjM9UMeuR726hfFLp7ZNG795EXaNsswtDcBP5wB3R
-	J+FtjepK3vuoWVNnRfXq3vDD5h4hzdKYgd6QTbqfCG1rro8U6kycPuyY1LiAZFyvvXs3UJFT1yO/V
-	bB51AfeQ==;
+	bh=ELsLdn+4Qh6lp87H1c3X8IMTeSqRAZu1aVbHKFxqmEo=; b=TEdwpFsVofoNdgj2nTC5BT3t6t
+	jGiu2l1l5uwUbftHZV6UPFekbeT6lbRy2hBiW4tlZCpQgEAe59VN3UmVacUl61uQZ8qxvwUwzTXnd
+	97sHgIf9mrzWbygPYNfNnQIrvWac2Vs3Qv5Z2OENNv+y91gugNyKhKCqB0qm0At0ZMrLL+6J2bHkH
+	3iuEG06pmd6oPcW4/lyCqG8uubKiRSiTsIm97lidPpXrOGzwsPki5Qudlbcof8uvbxxRVyygwwIG/
+	JYYwNcgmr7toSsi9kaxVaPjQgVL9+OA51HLiO7DObKKFg3OGEu8N6Hjnmf+2PpB7ANcQa8SLYtipM
+	maFWfOmw==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Joachim Eastwood <joachim.eastwood@gmail.com>
+	Johan Jonker <jbx6244@gmail.com>,
+	Alex Bee <knaerzche@gmail.com>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	David Summers <beagleboard@davidjohnsummers.uk>,
+	Detlev Casanova <detlev.casanova@collabora.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	diederik@cknow-tech.com,
-	jonas@kwiboo.se,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v6 00/12] arm64: dts: rockchip: Add NanoPi M6 board
-Date: Sun,  4 Oct 2026 22:51:46 +0200
-Message-ID: <179114705963.3265768.14931994624548567445.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm(64): dts: rockchip: give HDMI sound cards SoC-specific names
+Date: Sun,  4 Oct 2026 22:51:45 +0200
+Message-ID: <179114705961.3265768.12585686056328294949.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
-References: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
+In-Reply-To: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
+References: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_135206_072569_55ECE051 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20261004_135206_136901_E75F555F 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +81,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 03 Sep 2026 23:23:12 +0200, Joachim Eastwood wrote:
-> This patch series add support for the NanoPi M6. This board is very
-> similar to the NanoPi R6C and R6S boards which are already supported.
+On Thu, 10 Sep 2026 09:34:42 -0400, Detlev Casanova wrote:
+> Some Rockchip SoC that exposes HDMI audio through simple-audio-card
+> currently expose a generic and inconsistent 'simple-audio-card,name':
+> - HDMI on rk3066a, rk3288, rk3328, rk356x and rk3576
+> - hdmi-sound on rk3399
+> - hdmi[01] on rk3588
 > 
-> Main differences:
-> * M.2 M-key slot with PCIe (Also present on R6C)
-> * M.2 E-key slot with PCIe and USB (from hub)
-> * 1 additional USB 2.0 port from an on-board USB hub
-> * RT5616 audio CODEC
+> There is also rockchip,tinker-codec on rk3288.
 > 
 > [...]
 
 Applied, thanks!
 
-[01/12] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M6
-        commit: bd3edfb61ee0b68dc95aa7ddd53cef65b5bdb3f7
-[02/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing sdmmc cd pinctrl
-        commit: 30fcc62cf5d27fe264145bb743407af62f8ff240
-[03/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing pcie rst pinctrl
-        commit: 1d974afb0ea4e1ffc03535a2b2ae5a84d35738d7
-[04/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove pull up on rtc int pin
-        commit: 2d4c429e561b21c07f95ed41481a5d1062659c9e
-[05/12] arm64: dts: rockchip: rk3588s-nanopi-r6: pcie2x1l2: add clkreq
-        commit: 3ac1a8d422126ea08f6ce32c0a05e181e08d9299
-[06/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove always-on and boot-on from vdd_npu_s0 reg
-        commit: 92507cbe7581c519da115128a2ce6930dd9dd6fb
-[07/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove useless vcc_3v3_pcie20
-        commit: 1faf8018879fc0e4a76958f2122f6ab7aac5957a
-[08/12] arm64: dts: rockchip: rk3588s-nanopi-r6: add gmac1 phy-supply
-        commit: e7fd313ef4e5907a0bd769101de48ae354b7fcca
-[09/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove bogus vcc5v0_usb regulator
-        commit: 9518c669aa24574445e874c89313a133c276513b
-[10/12] arm64: dts: rockchip: rk3588s-nanopi-r6: add comment about gmac phy-mode
-        commit: 92b4f18f9a07786f9146788ca5e18cb9469bd1cf
-[11/12] arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to support M6 boards
-        commit: c08257d642ac9d821710852f514577d331a13390
-[12/12] arm64: dts: rockchip: add support for NanoPi M6 board
-        commit: 2640aea473b463e260ba2f52833e7c1fc2074246
+[1/8] ARM: dts: rockchip: Rename rk3066a HDMI audio card
+      commit: 92e0587100ef8b2d103c7932750ad4237ef90e97
+[2/8] ARM: dts: rockchip: Rename rk3288-miqi HDMI audio card
+      commit: fbd2ec5bdb267034516f16d392cd52098ab5b7c1
+[3/8] ARM: dts: rockchip: Rename rk3288-tinker HDMI audio card
+      commit: e048e4da69a8362a7eaff26a10052f7d0020974f
+[4/8] arm64: dts: rockchip: Rename rk3328 HDMI audio card
+      commit: daa0db717771d43c25d98c2798fa6a7b0252deb7
+[5/8] arm64: dts: rockchip: Rename rk3399 HDMI audio card
+      commit: 946482033221ce5055721997888739cd57e3e5b2
+[6/8] arm64: dts: rockchip: Rename rk3566 and rk3568 HDMI audio cards
+      commit: 8043ed0f40fe2b49df1c2c25409ab6bd3f88e806
+[7/8] arm64: dts: rockchip: Rename rk3576 HDMI audio card
+      commit: d3d3b67505fa5f10af587a6fc8e6d4640010d52e
+[8/8] arm64: dts: rockchip: Rename rk3588 HDMI audio cards
+      commit: d1b7c3228041f4b3ad888abe6a31f6494279e979
+
+I felt generous and donated the two ";" that the rk3566/rk3568 patch
+was missing ;-)
+
 
 Best regards,
 -- 
