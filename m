@@ -4,120 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A19CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8287CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 21:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toKCLuddFKZGK1knkyz1JteG7hTUcdTTUOfnApwFp6o=; b=zLV/mX0So7JZwYzjG4jA6vTZAV
-	zVbyvRiGu4dsr4LfaABOM+m5pbXQZoMoz280+4bzjwutmBuukgLJsUPUqo/Yyv4SND7Dno4ysvypB
-	YRsBfoHtWaL8jiQca/iKb/Y6t+Uh4L2MydlSehcc49LiRRzAzLbWXoSxmA5dWf8/YyuIPGha4ZlLi
-	OhP7kJ2vPMp8Kh8QrtTEzsvztZGA+ZrPYC5hsDKfztvVwI9EQdIe7HgNVUs2oevbCunxem1Hc38IH
-	bKk3QKyzafDQh2gUDY6TmMaPJ7jUmOX5LraqbDa0U9I6Reo92Wofkwonlz676t5UhKcj+pCBzRpID
-	6xwbY+9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZyOZV2jREkEMgP7lc0lXhqq3JrvHJwGpCfb5qvHgmmY=; b=f9ZNisXCmS/9GOOCZIiJJfNeAh
+	GVihRgMljYPsuFCvt2f1xjGZEkcl9cT7Sn5JMeCW9cH+Hc5w0HXmyg4o97saBNOxWrnAI7Gd17FAJ
+	X6sjrew30lItUPDUKdv1dMl8Uz9Lau3tYhO7bI9iPqTsyjHaXSFGoK2wR4ZZrB5zILtc0u2nEzTXW
+	YEAuOGk5D51sul1SBM6GHwpCCWbs9MUbEuSmQkATVb7OMz1fxO2XJaPoFEJmVwTvN8L5FrnL77M4o
+	XoYgIPGtSNNtYsWNEXDTZIGCO8Dh9HYgkJzfAVVk2yeyQqz6040uge7NC/aimwdFhxbQ4S4nxTZjG
+	1+OcvLVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDTIy-0000000FJj1-164E;
-	Sun, 04 Oct 2026 20:59:32 +0000
-Received: from mail-eastus2azon11011027.outbound.protection.outlook.com ([52.101.57.27] helo=BN8PR05CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDTIv-0000000FJiK-25yW
+	id 1xDTLp-0000000FK0Q-2f2U;
+	Sun, 04 Oct 2026 21:02:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDTLl-0000000FJzS-2bPk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:59:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eSOzz86+qnVQ8vx/oPu4JH1PMaUsOG0OOi0/RgrUABS63vKcwvI0kSoRRY6c6+8LZ64CuW3vTfQP0tYUx3qjjDrp9T6pDIdcNnshtZf62B8RKqqYCyjRrWFb1kjg60m+Vo7cfvMpFAWjr5BMM2aVc9wizYdVqzQton2TYGO7l6jzlAWGf1jcbKfP/ZX1f2Y4Y52l4CVrmydEYdYj8f/yCKidj6dGGjfaq6ySiMQmvKmYK7aGYwh3JAxE2ogK7QZJnzRogNksPTN0ubuMnFG+GprjkFH3lJr31vbgVMEsTPTZ9yF8JxYKy6WKoWqTesg0T6PQ6teNoMDAiM6bdBuRTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=toKCLuddFKZGK1knkyz1JteG7hTUcdTTUOfnApwFp6o=;
- b=ERTWS/nYBndNmy1RrWhMHcgjLXQEl8kwTwvccph8ueRTNOIN/rwPntMFFAXeJvNOU/oAxK870HiAzOkP1emtfTLJQVP/Gmth8MzkEd2gFJO/VlE82xJ2IUaSJqb5jFryzLeJwYeXSo8gxv1L021pSR9pLdXI0y3KMtCNgfy8X+vC3ASND0WE5ugALu14sv4kv0H0eJMPWNC+LUsWTP6L5GtDKbq/GBXI5gz9jPVf2MybAFcFlESd4g7lst5brM1Sw0Ef4/LpxPInHH9SUh0JEvU2vNVe2TaN6nq/lgjDgTjCPLUB7Mwn52/iXTIS3ppDAW7SaKPyA/23Zi7ePJAJgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=toKCLuddFKZGK1knkyz1JteG7hTUcdTTUOfnApwFp6o=;
- b=tntlC9KME7hEETL+oT2gMipmctFBLbf5P1gA2Lzg2RAT3NwPNUaSH0FufYpX9Dc6EtMjV0Dl6nhcMPRNnn5NVCl2RetmKMQbwwwF9jngVqu9tHdepz/UpAZ5jcRU0rDIZvDZhVl9wcHu6A75Hx+dknBHjm/rOVyNDeAJ7capIXbJPNW6edKlQY6ftw2RKgaoDC9m+bESlYWbNqw4bahxIc+BneD1TdUORthF8dyLY0FkCNl4EKOxfy9LyXLs8Hos+cPEaOHk/9MJp7FBt87R3VpqZ3pMczfgLiGanHzzLm9TZKwk3y2CgIrsCsZu9Q+y2PMyrZnAju/2Ng2++7vlsg==
-Received: from MN0P223CA0009.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::7)
- by DS0PR12MB7898.namprd12.prod.outlook.com (2603:10b6:8:14c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Sun, 4 Oct
- 2026 20:59:21 +0000
-Received: from IA0PEPF00000041.namprd04.prod.outlook.com
- (2603:10b6:208:52b:cafe::23) by MN0P223CA0009.outlook.office365.com
- (2603:10b6:208:52b::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:59:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- IA0PEPF00000041.mail.protection.outlook.com (10.167.249.171) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:59:21 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
- 2026 13:59:08 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
- 2026 13:59:07 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Sun, 4 Oct 2026 13:59:06 -0700
-Date: Sun, 4 Oct 2026 13:59:04 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
-	<kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
-Subject: Re: [PATCH v10 06/13] iommu/arm-smmu-v3: Add
- ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
-Message-ID: <asK+GIWzXjwN3EaB@nvidia.com>
-References: <cover.1788130528.git.nicolinc@nvidia.com>
- <d661395d986d3aa78af200f55e43740996ee8a0f.1788130528.git.nicolinc@nvidia.com>
- <asJTsw-oWDlSqNa3@willie-the-truck>
- <20261004163501.GB4064@nvidia.com>
+	Sun, 04 Oct 2026 21:02:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4317152B;
+	Sun,  4 Oct 2026 14:02:18 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C7A23F86F;
+	Sun,  4 Oct 2026 14:02:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791147742; bh=L8CykEMHJYwOt0EHko7Ar+PdxNSESH4QKQqzSpPvsyY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XrryI15AkdfMkkPNwFILx0swrNyjbuIaMUS1pbP0xtTUgafj9UJT/dqcGwLtN3Lqr
+	 2LjD/EQAXPO3wVbXCPVYrPR14QDX+k1Xtg9ifhAy+5ANP7tF004Axj09sdlXcdBuWt
+	 Ys+zRjqxbh0HYYhb8+daShac9XyV4/GqwB9z3dZY=
+Date: Sun, 4 Oct 2026 22:57:24 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Norman Herms <dockseed@proton.me>
+Cc: Linus Walleij <linusw@kernel.org>, Pablo Mazzini <pmazzini@gmail.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, "linux-gpio@vger.kernel.org"
+ <linux-gpio@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
+ <linux-sunxi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: pinctrl: sunxi: a733: irq_banks too small for port K
+Message-ID: <20261004225724.0b821e9c@ryzen.lan>
+In-Reply-To: <lqyUiTS5jK5vqN8dT8ByLl8sBPTW6eSDG_13v8UAkVIUCnnxLv4UBrlHTm0c7f4brqOd5ur4sDdgld0Ol4usnXOHgJscjqwJl2BrzPpJk5Y=@proton.me>
+References: <lqyUiTS5jK5vqN8dT8ByLl8sBPTW6eSDG_13v8UAkVIUCnnxLv4UBrlHTm0c7f4brqOd5ur4sDdgld0Ol4usnXOHgJscjqwJl2BrzPpJk5Y=@proton.me>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261004163501.GB4064@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000041:EE_|DS0PR12MB7898:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e37410c-e4aa-414f-3023-08df225a5d03
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|6133799003|18002099003|22082099003|4143699003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 6a9N8jAzLwmUxAizcTzy9lBveA2liY9XTpbm2W8fxBXU6ZhDeR7DY9XqwxkSXz15Y6heJH5cLkmnIvEqYxUXfbgv3Xgnb6iStvbNt/VdFeVE6JluMJFJrU4XQaPlx3LDYrx8u1VK53bWa7dvfipbOKb6xZAaYbhE2uHQxxbk9hVqEuDL/t9b3jIPTh2iRqmDKp7J2vgzXA7sXu54oFbKrda6qCrnfMdWnCep0y0g2yD6nuPmNDzblzhreVHe/bk67cctONND6/2NZFnCMMAQnDsXJ0ky7wJxjXAe9mtSix/qasJ1wa1wzg/YfZQZtZOAOcTyDBUvVoi8JM7dE/OTEhZfomj2+350HTpaZJU3dxuwN+zvrNGMQrxfHcrpTIrjwjaKDLqZfDZUKq8U50yd+y6AEg3X7FtpK9fLeA3WvMWApNZkGEbm8EONtbyzMKw3aAZjHqRTQ73SFUrvKFIEXNBv7WE4bfXM2Gk1WAxS9W53djCqcUM2BKS20KAYsXC5+0XT84NYhNPl19pHhmP50soA6k6A/m8DETNcAndyssH8VaGowJmZD4YU9oQYh5Gw24aMKyVDb5bcqZfx5dRE1UlzEfXNFlIMaGIMXBtYi1LRA5COZNzWvvoDA2GojH6qlZ1NdhQ1SdEdg6BLDlWhUHKP+JZoO6gjmrT0FB1Hij5cxKirV34XaNW4KzBSiE81e1h7cdHp1M/laP5h1LbprA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(6133799003)(18002099003)(22082099003)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3gX5DC6Uiqtcl4KUnuddRYwunv4rCAPQ8S+tR6haf2SsdrodzOgTRB94j8ChtMrNA1RHzI02662gQbX6jjsNxHxtx2Jzgd0u4EP/QBUHj1KlAk9sS7N+U/TpwnBfBVvlHHkk8JJvV/Ik7TYAxRPiD3rVWY2OioD3fWcYwOrP4GnvcioJTOQL2JtVioNBH9DZ1/u/h3HQH+bLvkixHcBUGvZ/4tyciwWMrCWp7PoYFb+kRGmLHwGd58YH/huLED9icccWYgX0DOyXOVfZ1Uogx7HvBANWTqW9qwh19Ex80ltsCYVRbQFZchYZHXIMJU+vtip8EUoEmBTCuyQhK5tm4ZtK6IfWRvkAvWXZQCqaX8XhcJRke8/R08rounNtEd4HNlxXhjMjUlmUD37D6cwDc3Tj9Qk71lxoYQSdzkwcseSNvqXCT5jliSv/xqcKqTkp
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:59:21.0893
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e37410c-e4aa-414f-3023-08df225a5d03
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF00000041.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7898
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_135929_545565_76FAECD0 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20261004_140225_924355_75592A06 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,40 +75,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 01:35:01PM -0300, Jason Gunthorpe wrote:
-> On Sun, Oct 04, 2026 at 02:25:07PM +0100, Will Deacon wrote:
-> > > + *  - A structural inconsistency at adoption time tosses the entire adoption and
-> > > + *    makes the SMMU fall back to a full reset blocking in-flight DMAs.
-> > > + *  - L2 stream tables are adopted lazily at master-inserting time, to bound the
-> > > + *    peak memory use against a corrupted L1 table; any lazy L2 adoption failure
-> > > + *    rejects that device alone, as its blast radius is bounded to the bus.
-> > > + *  - Only a coherent SMMU (ARM_SMMU_FEAT_COHERENCY) is supported, as the stream
-> > > + *    table adoption is done by memremap with MEMREMAP_WB, which is verified on
-> > > + *    the real hardware. Callers of these functions are responsible for gating
-> > > + *    ARM_SMMU_FEAT_COHERENCY once during the probe.
-> > 
-> > This is an artificial restriction and not one that I'm wild about for kdump:
-> > we should be able to support this for non-coherent SMMUs as well. Is there
-> > anything more to it than using MEMREMAP_WC in that case?
->  
-> I've forgotten why it ended up like this, it was some complication
-> that seemed hard.. MEMREMAP_WC is not the same attribute dma coherent
-> would have used, I'm not sure we have the right stuff to be able to
-> flush any write combining buffer? I'm nervous about that at least.
+On Sun, 04 Oct 2026 06:38:56 +0000
+Norman Herms <dockseed@proton.me> wrote:
+
+Hi Norman,
+
+> Andre, Linus,
 > 
-> Remember this is not just reading it but it has to operate like this
-> after the fact. In handover you wanted to use the dma cohernent
-> preservation.
+> Observation on "pinctrl: sunxi: add support for the Allwinner A733"
+> (Andre's series [2], now in linusw/devel for 7.4):
+> the A733 pinctrl description sets .irq_banks = 10, but PA does not
+> exist there, and prepare_function_table() in pinctrl-sunxi-dt.c counts
+> IRQ banks from PA, so PB is 1 and PK is 10. This is the same
+> numbering problem as in Pablo's thread [1].
 > 
-> So, I think this restriction is mostly a lack of the right MEMREMAP
-> flag? It is not insovlable just work outside the scope of this series.
 
-I agree that it's safer to defer that to a followup series. It
-also needs someone who has a non-coherent HW for a full test.
+So I blame AI, but that below is a lot of words for a simple problem:
+the number of IRQ banks should be 11, not 10. If we go with the dummy
+IRQ. There are no official DTs for the A733 yet, so we need to decide
+there, and I guess that depends on the outcome of the A523 problem.
+I will send a fix after -rc1, with one of the solutions - unless you
+beat me to it.
 
-On the other hand, this series is tested by folks from multiple
-organizations, so it's really a needed and verified one.
+Thanks,
+Andre
 
-Thanks
-Nicolin
+> With irq_banks = 10, PK (26 pins, bank 10):
+>  - sunxi_pinctrl_init_with_flags() allocates irq_array for 320
+>    entries but sunxi_pinctrl_build_state() writes PK to 320..345
+>    (104 bytes past the end) at every probe;
+>  - PK gets no parent interrupt and its hwirqs are outside the IRQ
+>    domain, so there are no GPIO interrupts on port K.
+> 
+> Measured on two Radxa Cubie A7S boards, same kernel (v7.3-rc5 plus
+> this series), once as is and once with irq_banks = 11. Requesting
+> edge detection on PK0 through the GPIO v2 character device fails
+> with ENXIO as is and works with irq_banks = 11. PB0 as a control
+> works in both cases.
+> 
+> KASAN (generic) does not report the overflow on either board. devres
+> rounds the allocation up to the whole kmalloc bucket, so the 104
+> bytes still lie inside the object. The out-of-bounds write is
+> therefore invisible to KASAN here.
+> 
+> Regarding Pablo's thread: with the convention Andre preferred there
+> (count from PA, placeholder interrupt in the DT), the A733 needs
+> irq_banks = 11, which also matches the binding (exactly 11
+> interrupts). 10 would only be right with the renumbering from
+> Pablo's patch, which is not applied.
+> 
+> I am not a kernel developer. The measurements were run on my boards
+> by AI agents, and the analysis was done with the help of an AI
+> assistant (Claude). This is a report, not a Tested-by.
+> 
+> [1] https://lore.kernel.org/linux-sunxi/20260929203634.32998-1-pmazzini@gmail.com/
+> [2] https://lore.kernel.org/linux-sunxi/20260910133519.459011-1-andre.przywara@arm.com/
+> 
+> Thanks,
+> Norman
+> 
+
 
