@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82737CA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800FBCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qol00xKd0T0+apHbVQX4zHawmYMyVklpl08y4ubxCGE=; b=E9f7cv2cr+IwwFP5UsVKz7Z2XG
-	Yh8RnQubr2Wsk+CXCcTjdd8TyjLzrPhXEOA2BvM8Pi/DMi/t6Ujy1QO/lwo4mF3R9lE45d/yZpgAi
-	N0PhcdPtrLqUF2qKaUxsJewbgD3zusVDMHrZZFmcZGbXIxITohM5oHVzdxe1Ow4BUqeVpckdyIKSq
-	lTec5VGpGQN1HqF62PnNEIXrIbC/stzpbrlre8N2Kl6jIvmnWlOW/06rVqxrFoPnhbMSNyYfLfqIp
-	3n9QVwK7dY+xEVgerIaRL8DP6zLnIKOKYyx7vOwqdrV5MKhQuqnc/I/it+NlYjP1nyaKZsa8GRX0L
-	w9Y2YQtw==;
+	bh=yeL+tqV9B+AEp/kqMcCgdeSnw6MJnhOAjYzN5tkPjHo=; b=IVEhuKBpypId6jGATlKWiwgJFX
+	mOrAEXOOZ42Q5HYZ4XygQrbn7HNQMq9gAlbpsYAO4jB7fh5uBxZFv/yIzx56HXCT22AfvMwDNzzdr
+	GIWWcoEcw5Q7z5WsImNswizO57YCCdKvghz96yDCKAKqmF5Khd5XdLqrwdBN76l0UPhq9vC+LN7yg
+	HzazAwzZzwoHq1Xk4kvfut2HroYrjdpZOpZi56hCoBeknh6OuZbIZw8yTUHtGSdXG58i8jYlSNqo9
+	G2Lb9CRziMkuDUX9w6KwNkrrb8c1tmsGT6yvdTU2dcfHahxawXb1PdKb8//shS9A0sTZwVrHXeLH9
+	lTZasi8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUSa-0000000FPw9-1qnv;
-	Sun, 04 Oct 2026 22:13:32 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1xDUsF-0000000FRDq-0rgW;
+	Sun, 04 Oct 2026 22:40:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUSY-0000000FPvm-1Sm6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:13:31 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-35118a5991dso608257eec.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 15:13:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791152009; x=1791756809; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qol00xKd0T0+apHbVQX4zHawmYMyVklpl08y4ubxCGE=;
-        b=jH42Z6jP27Zg8oQd7DabZ4ezoeOTdeaTJqwropWEU2/KkRndIp4DC8A28WsGPMGUsb
-         Y+8r1FBy/4D2Xozpmv3D3PeuYVd04zTOB7MHjYrvHvwgX0jRrcm7h6EfDYV2NQgcbzTi
-         +1Yjtp54xonazZTS8vapXP7ZF7CD2YNxaCpDqdDcRteYRpQiGi6nW8yjVgzQ6zFcnLLv
-         NeNMkBTVMrPr8M2388gYpl9Vnq6Ei9s3N20nWujPFL/4ACINO66JgVwcZnJLUy+5W14d
-         fFS43mhVFdH5hJN/jpCsKLCYcc1YaeqpwU5shGFLF75xMt50+WN21IqWQ6/FhlLDRjVz
-         WmZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791152009; x=1791756809;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Qol00xKd0T0+apHbVQX4zHawmYMyVklpl08y4ubxCGE=;
-        b=TCzYD3OGBHqVq/Y4dE07/P44wPA5NhbioyOQtdEafJoTIooTXWwl7Et8uvmAVkh533
-         y+ZGNa5Th2YCXDpf4LDxs7wQKjCifSFniWQYjGi8rvt/omdAHsSXbPf6p9dbHOhTMsgA
-         nlisVhl9EznGNDzLLqzXyffoNBbhQzc6HnPXmHIXGspUyK/Xwxqqh9IxJXGFJsuC/6Mb
-         akJjnJTCuAtfuGKGLV3iAUkamco5rrtYqSwnFGZvkQzNcQbvIPGRAEqm4ufDv9OofF/9
-         qZoRDqYPA6sqH9XwTmVvmvuvidwUUImKUvBwc5lTZWsF9G6v/9Q7yx92SWRVnwIhxcnO
-         /3Cg==
-X-Forwarded-Encrypted: i=1; AKwUvBx3eS6YVktHlCLArsqPw9iXLQlwbe4z3R2+h/Tl8wf7thB+vk/J8vNWKe+0hAkCjIXeSXEo0isZixUSW14OO7ns@lists.infradead.org
-X-Gm-Message-State: AFq9FYL2jcsf9noQ2AzcrnOfSn2qWXTiQDeuPdm0W+0PKrc/qfqwRkU/
-	Zi0GYggfX0MQ2hi+skhicdd7pnwrEFtbiWR5YZYZtDfGB9wwK+UuZEZZ1YdlG+GP
-X-Gm-Gg: AYBFou3rF4GKJdvzmzbpxnO3RgjJAuoQXa4ZE+cIHvldJW8iLqOsP2NTwlNAL2VpCtc
-	MDchwXjCRxPWSyArJAKduFMwlWCtCxeDS29M/Fjf7JarNikq2W7IXpy4WlJBWZZS/BWLZcqkTj3
-	hBeW9wLwt8qAxknMD4dE+nT/j5TJRHmK4vlWLX62MZArj3cvx1G6o/ejJZ0lsfyDw8GmR28tR0s
-	3K9tRlOh/FRLKj6tIDCrkDL2Nde5K8v/vyymkI73lOoVaPACo2eXJxexpuFZgzUmVjEbwXkApps
-	DatMlaj3zIL0Bf8EE6P23HEBnY4qqBKg+FuTIT6bkGwoMWDOr1AVtMbPwxuN9Tl658XgwrT6pA4
-	Ul9R+c/qAkek42BfGjXcXlzyZANVKxh/l8TiVAD1+cWI7u8eRTpuYLl1m0u7rMhbnSbniB1VuBx
-	Vq4MPUnq0FhEdXC8+24eqrriLyuJDH4a5zV3R8Ibx/lci65jNIfo1rXYdpRrMJFC5GuL4VHP2jZ
-	24AoaM3dyulicFnJueEoSlBf0XV9lA8QC7v/O/YIONxtegJlhbt5Ax5KRf48/9+4f0noV5g07Xw
-	y1glw7CkwQMDvtZMDU7QvOOJWyzG7n3q3ynaNXy0zmvxV/CO
-X-Received: by 2002:a05:7301:782:b0:351:1e72:735d with SMTP id 5a478bee46e88-3511e7277b6mr5112361eec.19.1791152009426;
-        Sun, 04 Oct 2026 15:13:29 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3512718a18esm8976988eec.17.2026.10.04.15.13.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 15:13:28 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-rtc@vger.kernel.org
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v3] rtc: stmp3xxx: use devm_platform_ioremap_resource()
-Date: Sun,  4 Oct 2026 15:13:27 -0700
-Message-ID: <20261004221327.416323-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	id 1xDUsD-0000000FRDP-2aHf;
+	Sun, 04 Oct 2026 22:40:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A8A6F60200;
+	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 235EFC2BCB9;
+	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791153600;
+	bh=u1lLC1WSbIv1AIKWpV3FLRj7881n0ba0sc0bTNDIolA=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=ea8WjSwbKtae6TmcoxiznkZwKEZcoR7xm5yfx2rK37Ycln38B9eDIPLSAOP9aTxby
+	 SJcV+ppApv7QbmOzi2azBynpR17T5mE6f8h2viokik6I74aD+fTRjHcvUEVBTwqVcV
+	 IQcsBbTYPN7EKmNN9srJCkTbNwGbAWzg3EaG0gw7lzUCTQbd97ojT/ssLsNXXZhvy2
+	 qYvTKlizqtDekJfNhQlOurDf792KsoV1Q1mGtd3A5FZ7nn3tHm4qiIGj3zWZ0Fb8GS
+	 EYcTEX9uNntha3U7VsgJSjmQUkGza3YobBNie8OIWgGfDNn9UTiayCDBoRnByDAMdF
+	 dUfC6l1ky+93g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F1BCCA5FCE;
+	Sun,  4 Oct 2026 22:40:00 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Sun, 04 Oct 2026 22:39:58 +0000
+Subject: [PATCH] arm64: dts: rockchip: Add the battery charger to Kobol
+ Helios64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_151330_394951_F0D2FE0D 
-X-CRM114-Status: GOOD (  16.36  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261004-helios64-dc-charger-v1-1-0eabf0274d47@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAL3VwmoC/x2MQQqAMAwEv1JyNtAWrehXxIO0sQZEJQURpH83C
+ HMZmN0XCglTgdG8IHRz4fNQcY2BuC1HJuSkDt764KztcKOdzxJaTBG1kEyClGI7KEO0PejyElr
+ 5+V+nudYPz9yeUGUAAAA=
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2197; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=DAhlfIUWqvGqD77K4GZRu5rOeDoaIBCJ6zw/SQS3zzI=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmHru7Lig//2vTZPf/F63ncxZ1qTC/Md11Zp3Lm0+k0w
+ w++ArWWHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiLsoM/7OWJcyrnVq08Nm1
+ lR9ZUift6rt/PSTI0cU++PmWY/8r36xiZNjWXfb2yb+pVWrX365/6X253ThbzUxTYn1y6QbRO7c
+ fcbACAA==
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,107 +83,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the open-coded platform_get_resource() plus devm_ioremap()
-sequence with a single devm_platform_ioremap_resource() call, which folds
-the resource lookup and mapping into one step and returns an ERR_PTR on
-failure, checked with IS_ERR() and propagated via PTR_ERR().
+From: Igor Velkov <iav@iav.lv>
 
-Move the mapping ahead of the devm_kzalloc() so that an error or deferred
-probe is handled before the rtc_data allocation, avoiding needless work.
+Helios64 has a battery backup built around a BQ24133 charger. The
+charger works on its own; the SoC only sees two status lines:
 
-The fsl,stmp3xxx-rtc nodes in imx23.dtsi (reg = <0x8005c000 0x2000>) and
-imx28.dtsi (reg = <0x80056000 0x2000>) each provide a single
-non-overlapping IORESOURCE_MEM window, so the region reservation now
-performed by devm_platform_ioremap_resource() introduces no conflict.
+- VCC12V_DCIN_GOOD on GPIO0_A2, a divider from the 12 V input, high
+  while the mains adapter powers the board;
+- CHARGER_STATUS# on GPIO2_D3, the inverted STAT output of the charger,
+  high while the battery is charging.
 
-Keep the alarm IRQ in a local, as it is only used in probe, and fail
-probe on a platform_get_irq() error instead of passing it to
-devm_request_irq(). Drop the open-coded error messages, as
-devm_platform_ioremap_resource() and devm_request_irq() already
-report failures.
+Describe them as a gpio-charger. Both lines have external resistors, so
+the pins get no pull.
 
 Assisted-by: LLM
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
- v3: fix compilation.
- v2: add platform_get_irq error check
- drivers/rtc/rtc-stmp3xxx.c | 35 ++++++++++++++---------------------
- 1 file changed, 14 insertions(+), 21 deletions(-)
+Tested on 7.3-rc5: online follows the mains adapter, status reads
+Charging while the battery recharges and Not charging once it is full.
 
-diff --git a/drivers/rtc/rtc-stmp3xxx.c b/drivers/rtc/rtc-stmp3xxx.c
-index 7afcd14aeee5..9ddb4c0e39c5 100644
---- a/drivers/rtc/rtc-stmp3xxx.c
-+++ b/drivers/rtc/rtc-stmp3xxx.c
-@@ -56,7 +56,6 @@
- struct stmp3xxx_rtc_data {
- 	struct rtc_device *rtc;
- 	void __iomem *io;
--	int irq_alarm;
- };
+Schematic, sheets 9, 15 and 29:
+https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
+---
+ .../arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+index d146e5075b4f..813a39964357 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+@@ -62,6 +62,15 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
  
- #if IS_ENABLED(CONFIG_STMP3XXX_RTC_WATCHDOG)
-@@ -245,29 +244,26 @@ static void stmp3xxx_rtc_remove(struct platform_device *pdev)
- static int stmp3xxx_rtc_probe(struct platform_device *pdev)
- {
- 	struct stmp3xxx_rtc_data *rtc_data;
--	struct resource *r;
-+	void __iomem *io;
- 	u32 rtc_stat;
- 	u32 pers0_set, pers0_clr;
- 	u32 crystalfreq = 0;
-+	int irq_alarm;
- 	int err;
- 
-+	irq_alarm = platform_get_irq(pdev, 0);
-+	if (irq_alarm < 0)
-+		return irq_alarm;
++	dc-charger {
++		compatible = "gpio-charger";
++		charger-type = "mains";
++		gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
++		charge-status-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&dcin_good>, <&charger_status>;
++	};
 +
-+	io = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(io))
-+		return PTR_ERR(io);
+ 	clkin_gmac: external-gmac-clock {
+ 		compatible = "fixed-clock";
+ 		clock-frequency = <125000000>;
+@@ -493,6 +502,16 @@ user1_btn: user1-btn {
+ 		};
+ 	};
+ 
++	charger {
++		charger_status: charger-status {
++			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
 +
- 	rtc_data = devm_kzalloc(&pdev->dev, sizeof(*rtc_data), GFP_KERNEL);
- 	if (!rtc_data)
- 		return -ENOMEM;
- 
--	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!r) {
--		dev_err(&pdev->dev, "failed to get resource\n");
--		return -ENXIO;
--	}
--
--	rtc_data->io = devm_ioremap(&pdev->dev, r->start, resource_size(r));
--	if (!rtc_data->io) {
--		dev_err(&pdev->dev, "ioremap failed\n");
--		return -EIO;
--	}
--
--	rtc_data->irq_alarm = platform_get_irq(pdev, 0);
-+	rtc_data->io = io;
- 
- 	rtc_stat = readl(rtc_data->io + STMP3XXX_RTC_STAT);
- 	if (!(rtc_stat & STMP3XXX_RTC_STAT_RTC_PRESENT)) {
-@@ -354,13 +350,10 @@ static int stmp3xxx_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(rtc_data->rtc))
- 		return PTR_ERR(rtc_data->rtc);
- 
--	err = devm_request_irq(&pdev->dev, rtc_data->irq_alarm,
--			stmp3xxx_rtc_interrupt, 0, "RTC alarm", &pdev->dev);
--	if (err) {
--		dev_err(&pdev->dev, "Cannot claim IRQ%d\n",
--			rtc_data->irq_alarm);
-+	err = devm_request_irq(&pdev->dev, irq_alarm, stmp3xxx_rtc_interrupt,
-+			       0, "RTC alarm", &pdev->dev);
-+	if (err)
- 		return err;
--	}
- 
- 	rtc_data->rtc->ops = &stmp3xxx_rtc_ops;
- 	rtc_data->rtc->range_max = U32_MAX;
++		dcin_good: dcin-good {
++			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	gmac {
+ 		gphy_reset: gphy-reset {
+ 			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_output_low>;
+
+---
+base-commit: 36bd12104f6e9462f6e97989fd8ef9eb1609623f
+change-id: 20261005-helios64-dc-charger-edc49c499c07
+
+Best regards,
 -- 
-2.56.0
+Igor Velkov <iav@iav.lv>
+
 
 
