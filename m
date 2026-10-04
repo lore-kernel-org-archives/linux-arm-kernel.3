@@ -4,105 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD557CA5FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 16:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1715CCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 16:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/tchJIk+lKINiAanpGCL5WbtkLidxV2OcRDCiQWNgmo=; b=P+96TiFnkrPC5+mBFDm7e3xlQ7
-	xsNKdippxdv6d4pohTX/q0hGSfS1S6vDdBvrCC4nB3XWiMwnymSArOZCPuGfqTBCmK6D9heudbxEz
-	c5bCJDcUcHs+sIE5WfWDRgruhAptq4KWOIEqaaBg1U0T8jYJtC1R5Vr8MQ3xWmMYI60i16g8hLgh4
-	S60UBoSWtMhMS5iumzn+ATDRZR+70NvoZXUhUgzIH3jJnMssfhTbzF//4oYMUveiSsbNaW8vUaSKw
-	mWBpCSzge9gjc6/Aa4qsQ4fgDUddqsDja+jmRmd6Z2isSurtKk9ue6b5nQuNyVXHcHzon3118kEVG
-	5WGVThVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbxFwWy+eY4MuamDh0FY9xMP8T9Hc5wcKz+2yKU7rNA=; b=Zo89MntDE3Sak97cwp9RtNxB/3
+	+vUuu9bmBfsp4IAS7+lPtwu3ZE+HBkQ2igmOMjPNqU7Y/zg0FDibzrd4e9+vrWCL7kaY/Sqf4RXQm
+	VZfI+guWo2PvYJCzzOAS8pS3I/AWk3QDwHvRD1Fuo2RWYuw6jOZ3ijPTdAMunf4qHQ49k+kk7Mru7
+	mGkMGP12GolE4dZGklq//5FJXjR8+3qB5GNEv3w64MMSEiaBgL1LvcAvZChXd+PSpMb1JzD5oWOba
+	WvTN+qioYHVlX3Hge25GuHsCAdad5af7gl02Kma3LEuFxHc5zGL/QCAtLwP6VVDi5DfarC0mUP7XO
+	meGjjORA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDOuR-0000000F1bT-02wj;
-	Sun, 04 Oct 2026 16:17:55 +0000
-Received: from mail-yx2-x2a.google.com ([2607:f8b0:4864:41::2a])
+	id 1xDOz3-0000000F1r4-2J9A;
+	Sun, 04 Oct 2026 16:22:41 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDOuO-0000000F1b6-3Er7
+	id 1xDOz0-0000000F1qk-2xk8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 16:17:53 +0000
-Received: by mail-yx2-x2a.google.com with SMTP id 956f58d0204a3-6768036283dso560968d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 09:17:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791130671; cv=none;
-        d=google.com; s=arc-20260327;
-        b=f2bvyLVj9Evebhh20kkjreyGeNZtd6XSzvhksHQhaYJ0n2lWbESEHSr4G6tbiC6Vuu
-         haBX8CIvLODIksGyubBksslmz6E//vzESy5o2O2qY+cH+yZ0/8BaFOHLYHc0unNz2q72
-         SEI5lGTIviCc3qnMVrQ3Ob+lYp18aFz4XuBLaQbCQ+hfT93xdL2MTSIJGqY1o2x1KXlc
-         q2d/HQ2IeSJKHCdks4zD85M6syqc6VdlfAZbFMQZPu5hKhIYJurW6hnKZvjbbtQ+V+TF
-         iFHfFcep5QLP95A0xHwZao8mEN6STwvyEcIDpiJzOrO2bBpr9AOlu0sAkmwM4MKTAoip
-         QCQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/tchJIk+lKINiAanpGCL5WbtkLidxV2OcRDCiQWNgmo=;
-        fh=evB4yG+9syd0AkiwOLMtnpfjfUo40hr61aA/SiE6Jes=;
-        b=RMyDecd+gniuWI98Bi8/p7X8Wkk2UzLW/GZXuuRJlf9mVSdfO17G7uq0t74GuJ/zZp
-         qPP8G2J6w3hujA7ZffXihHVpXXkOpoJ8JS2OH5fmamIphk+EbUAnAGendhHWabREDqk3
-         Dbf52k5UMsQ6qbOGahbMZATE/RscyzGyU8njayzqKaIcChla6nJn7ZSEjQgwo1axn4gj
-         bjRFJD4nhpD86vkQZr/L2EKaxxIOTZaIQmeqnjJS3jvqEE4xsNBkQuwRisH2h/ZA2ORT
-         UYiFiRK0qnQD11nGwir5PRHDGR5eLKTnkejQwzBFp33ElF3lfEsx/xfm8aK7ziQ449af
-         TOHg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1791130671; x=1791735471; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/tchJIk+lKINiAanpGCL5WbtkLidxV2OcRDCiQWNgmo=;
-        b=m7Aovd+0mMj6JmHOoSzUXmMhf7cP0x7WgeooGW95zADN2+6s+odLkkNXNV2BZ4Rb+z
-         s+E968xpMTMxr1P8nMfdzjtgaJz9fRmLFet0Ng/+EN2mVSEwJEWHgkNikFl8IAA967zk
-         9gJuwl1tBJ9Ps5boO5zKwiFc6Plc/0rdtQ1xg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791130671; x=1791735471;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/tchJIk+lKINiAanpGCL5WbtkLidxV2OcRDCiQWNgmo=;
-        b=QQzsW2JSFla1XEespPJjtxGLguoR6Rlehv/+cRUwXEsor6/TXTjpHBfHGDRvF2afxF
-         POFan+KeU9piNTKBqiWKKsRFr47A6I1xIKi4hFQ5laAu342A4Nt86MKKOqjkWmw/Zesq
-         N17ysqEcJkMqtQTO6VwERs5C4eG7ETp7vf8PGaFDJTRe9ZkiMXppwvox/Nd8azjRsi02
-         rKSMcoLK/R3yWSb7xnuFn1bh0p6mQmyDwfM8gGVgC03OSxmH9KZZBZpfsfR03sJl6QbS
-         PF4po2Nz8gTYvlvm0i0Fv9FtyUJyL8B60Mv8GMUkfEg1DGOUFTIrg0lMM8Zxdy3KsaKM
-         GCDQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzliXUdmRsskm2WYqoftMv6KNg4Bq5f9eARYBkRvT3xWlAxSH4IPPEq6teZVdfBbg1Ojp3/XIjmQZxqVV7tIVWj@lists.infradead.org
-X-Gm-Message-State: AFq9FYJYn84y8wgPWoE2AgSdm+Pq2NTXstofAMzZE4IrawwG1Ed3+gs7
-	Gwr22qV7WirGKZAYK4NarrPQAnglpQwlHjJhD1qQkgx+0y2nbFeFZhQhK5wkfkQlgl5ni0/6StC
-	NWgiyobB6WW0jmmB3WME2cv15+AMlmkBVOJExT8S4
-X-Gm-Gg: AYBFou1Aj7ajYrVPbWHc9UGUw7T9IVWamia5y3vTl0lLFY/iN8lGFrpNopavWyCYpxv
-	8kkHG/7VVEPjxM68CCzYut5qehd8LErPbpO3j1MqJo8GtgA6LY3P6QqxfjuMfqAcPrj5cpRCBWK
-	Et4txAySj0N2hK4yxXalWgAZIm87OUSDM8I0lnAuxllg9PZPiYERlQ3EUeU04tmIsqJW6DMTkg2
-	vFx0CzR5Ccaq0cSKfsZX7Uj4X+OsToOd7AzBj61ooOSNX7XbpVbByj2YgcaB66eQehmRx10cPzT
-	UvWXrNFnpD2QiOtRJP86hP8vhOqLn21d2dBA2VFPTGXva/SBqfzNwRL2
-X-Received: by 2002:a05:690e:168a:b0:677:af43:e268 with SMTP id
- 956f58d0204a3-677af43ef66mr2978859d50.113.1791130670771; Sun, 04 Oct 2026
- 09:17:50 -0700 (PDT)
+	Sun, 04 Oct 2026 16:22:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SIKhHw1e/ol8Dnmhz8nXmuZ3tN3p0zhBLEVKxIcd99e1HXc105CCrS02SzwFNnTroyTU6WNs/KTmvzirxCuM7lYw29bUuPj/olcLEI9dHPjTnKx3f/9OtQ9YGnXl6g89chcMhn6ezFKK9HjMRAntH5yy+3uUlbADWSkFUsuORspXcu9on0F2Cu5/fsfItuS6r8oeTqb+mEYWf0jnEa3zkDLii7pcsQFWiXeUUGBSbbaYWQCdma7X7e6nBjphiw1yYbxibWhc6GgPCPzCJTPNab3daHnG1YL6LRmunZHzXOQR5hHWWshbaAxklWqYYYXhdNmhbzWBQ7KPg6ib5DUGPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fbxFwWy+eY4MuamDh0FY9xMP8T9Hc5wcKz+2yKU7rNA=;
+ b=TVERCZPD7CRtDu3fssBN8trXY0mFRFQtKqtj3dX/IOoIRxb40i6+B4VLbvidwMjoHj/W7SsY1bQWAS7cNy0Wxz9SJlGGaG/OxW4nzuyYtDvRlFyM8mUlOMLVly82v7jZDKZ77a5v2vdgHQn91euxGye6t+kbz9niZKAQk+HJRuI319D2k5FvzL1n0e2hxivRxsmAC8TqY+xXh/rAUsMqBmysBdRxMqREwGgQqzXqa8Ib+QiDGWBh6IZY+flrqswbkrjHETAvvTAqTF8N+l9zUap0Cz3beq8IQKYoabcYvUSmQvK0HP7SmXvzDgUZsmP8IS7RAHvBnLA2KSFnpLDb6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fbxFwWy+eY4MuamDh0FY9xMP8T9Hc5wcKz+2yKU7rNA=;
+ b=OBsnhCH+hFsAoyOkZtp1wDYlHocDNfNghcNNy0wigWZuJ8w7+n5sYBqU/wuesOamVApWaAatNFBfIk1Gi22sYq7luzATzQyoT0MnEy64PSnYEMJwUsrW9/zEmgzhbrehXPBIGvEiHSUkEc62upYEmX8gVHzrJrw3NKI1OHZ0P46esNa/kGNOon4I9Pw68pP3u1nO9lD0621qrBxnHvzS3h/t7Oz/9ReopSHEPwKlntUMl2Tf8VYTZiPj0xV1Rs9TrQqPB1343xKuGlKqETacLk2j8sbH5Q9XD6rYmZg27X3U7JdTOUnL4GX98/cEslcKieKJuAxwfiz2z60Sq2NMbA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by DS0PR12MB7971.namprd12.prod.outlook.com
+ (2603:10b6:8:14e::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Sun, 4 Oct
+ 2026 16:22:22 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0472.016; Sun, 4 Oct 2026
+ 16:22:22 +0000
+Date: Sun, 4 Oct 2026 13:22:19 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Will Deacon <will@kernel.org>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
+	joro@8bytes.org, praan@google.com, kevin.tian@intel.com,
+	smostafa@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	jamien@nvidia.com, kas@kernel.org
+Subject: Re: [PATCH v10 02/13] iommu/arm-smmu-v3: Make the ASID space per
+ SMMU instance
+Message-ID: <20261004162219.GA4064@nvidia.com>
+References: <cover.1788130528.git.nicolinc@nvidia.com>
+ <782e24224c916ad0f48de1a49c139e71c8db0ef2.1788130528.git.nicolinc@nvidia.com>
+ <asJTaw0lU9cRN4Gk@willie-the-truck>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <asJTaw0lU9cRN4Gk@willie-the-truck>
+X-ClientProxiedBy: VI6PEPF00000229.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:808:1::8f3) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-References: <20260803135249.2898083-1-wenst@chromium.org>
-In-Reply-To: <20260803135249.2898083-1-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Sun, 4 Oct 2026 18:17:38 +0200
-X-Gm-Features: AclHuK8AbiOI1d3O1oMAtq-YB9tfgZCN1siOUfw9uTtQBVIHV68l-lLxUKSjvHc
-Message-ID: <CAGXv+5FS7gLB7-koaPKMqjtMPjOSWguW9NN_tS+8Wi2GTSHYEQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/exynos: Set supported modifiers during plane init
-To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DS0PR12MB7971:EE_
+X-MS-Office365-Filtering-Correlation-Id: 88952b91-24cd-4753-f23e-08df2233ab69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|10067099003|11063799006|5023799004|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: waEXAtrdtih1HopeUHXngpA+UiKx8/OUR/9IxhGzz9bup9Rufy0Hg8o1Hgi6G8TvggzNB+Mi/UtKDp1egHYXEhBN64D94Ipew6aLm3HvTMq53mac9IMEzY869iaOOzpXg0fogOLqh6g6pqcjTkyHnYsmXAiNm8SF54z5HtsthemLZRar2m6V5OO1tV/hB8Z0yAoYYPdbhWAJwBNfs5CxUqgyKObjX+6GWPEdpxp9rXXeuk2nqiy33UFsDBP3D0fbRrpAci2sauPQb/kif0tb/ErJCB466Li/2zWlmK710ruSC9iicCCQKVOy96Br9R+kMePIuE777kjkejxQxsPtU0VZXJCP/4nnpVF3n8uVb86wW6qa9wkDWp6rJM/Q42rOAKQIQJY7vk2IZDyG6g/A6N+ykHzdfmhyn/RfhROfxZt8HQwYLwIkTxITI0fj0GqUT83RsMYqPo7+6AoFK+KcP4UQB0YFMmm/DFJ+yyCXYbLF+BXB92Vv8yCDC1v2O7mLZxeHWiGHH0URKxtftxTB/Yxg+X4YlhhSMXVx88TX4vVHoH1Cxbyp+kUF3KVjKTXulwwokPUXTiByjvv6wm/RderS4+PEafsqJLjZTcUrQqYQnvsxawA6VVZPSOeS5LvgyceRkh4PV/SmU8DSJ7vXM28U2WxU21Lo0WFu8EArEOU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(10067099003)(11063799006)(5023799004)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?clbZIuHTTcyaCHyxPMeTRa6qXeaQBVR79KdJmY5yFeJS3MkB/lTsTEZr7pLT?=
+ =?us-ascii?Q?IecJCDdMO6X0nCrEUH+AInbxoYkuA+YqbEiEd/2J7wVjpj3Yt+A8g1eDtNEx?=
+ =?us-ascii?Q?KijSLGRrmC55RknO5i9HfEfl9vMvVdgfuAmcqlSMUyZL+rNOMHZw53oOCX5m?=
+ =?us-ascii?Q?AtL4kZBlrY7KfLUhKgI5XQZQN+T5xdgMHIkliXK6Ey7BViCfXDxBn9PeyigU?=
+ =?us-ascii?Q?UiBsKD4c9jUomNYY1ZKbegdm6zNiv0dsLh6Ny5FQp+QlB4D0ixaetJ4hXHdj?=
+ =?us-ascii?Q?uYrPHjK5eO6B9dtTB5t5jn+z+IlU4DPiTNpmIF8Xb6plS04o97qEYWPIY+SM?=
+ =?us-ascii?Q?EHLUYVI1GgbIyWxHk8Hd8MJXLH2O+1VMMEqcW1f2sP5/4vpZI4qwbXe/QqD+?=
+ =?us-ascii?Q?lQ6CaeiP/x+dpY5C09E2N+2RnRVY6W42s7ymanDtoGe6FjYtHreb1bHL+DSg?=
+ =?us-ascii?Q?+fnN2gyvFDHMsBGVmC9AjdsUZpibeBzmj4+bI1mqDCpkYFhX0XrRRBjPmDay?=
+ =?us-ascii?Q?iapmMKbHEmtvJdyQqbUllixnKdpCjmKpY77bi+jjGzb/k29++qbN432Tdmdp?=
+ =?us-ascii?Q?Owa/VkUzKO5lZFYWvzxZzAD7Rb9vjGedTU4ACWZwIPg6xMSPok3ch0QEtY6b?=
+ =?us-ascii?Q?3n73IrUSCaKCHJs+6d0KJLU/Cc7ZUj6/d4JHu5bIRAd6RYcXzUFDtOhXj3Kf?=
+ =?us-ascii?Q?pVHKAu2I2ioOulLtG0cA9SBQ3TUmtjuVlhPN0Fx3pXUKx9rqaLRIP5NPt2r5?=
+ =?us-ascii?Q?iWAdG4UGbkBFXtwiqu42FlUjCTRERik2EHziRuQVJjYVqVGZ4We3+IFL3SEj?=
+ =?us-ascii?Q?EuURRelZNnOiLBPsKzf098kF6iQ0tiqCMXt7+q4U9C71AeRm0KRHvXRbtKtK?=
+ =?us-ascii?Q?TU9fj/MfmnHlj8IOguTe79ZdpU4X6diHUI+heH/s0deZonpMomd2h1iJwTeE?=
+ =?us-ascii?Q?hDHPTU1bzALNalj807QNmCZ6+UzoJI10KmPbOekP0Evut9S8LYaHaoHyA6xd?=
+ =?us-ascii?Q?sLjVd3/u3+07X1LAMrA9rvZKVQlyHmAj37/OXdmjW9ciT3bK9/ixAI47cz30?=
+ =?us-ascii?Q?q+MoKDhyQCLx9PfS4/lIap6hlM0UwQqfUE34hZCgWMsmSoE14AMH5yl8tTF2?=
+ =?us-ascii?Q?0pdIvVUyWW4r+KqOV2gae4oWt0msZ0D4gthkRyURigIB6QHAMQim9sNNDLTz?=
+ =?us-ascii?Q?2QHl41AhCkzrsulz3l3w1zc8zC0S+vyGmYwuWg+oJEnePuECtIuTpBt3wvVW?=
+ =?us-ascii?Q?h2G3M+V+nLRk66s0u1DLtu67QUBfE+6YpiO5VObWVsjWV7D7M+1iK9PF3a35?=
+ =?us-ascii?Q?XG8t9rpZW0jPWET65vIiGZIuIUO5Z4GrU0G7gDFTnA7w41nEfGtN7vy+lU9T?=
+ =?us-ascii?Q?h9zgPegkEvtbxvEuh4cmgNS+lb1k+ht00/zYDqdP27m5Hx6+EMpDdIIalZ4p?=
+ =?us-ascii?Q?cdkx9AJ5a9ywh5xiFPbrtAxo0PFcq6IJEuNfg8TAn/zgcMBBwDv16bU8JkhG?=
+ =?us-ascii?Q?DXsXGC4teumkwTbHQAo4/jNPKAbcZfpoeELFwlDDKMNegF5iKWupMEMFJy3y?=
+ =?us-ascii?Q?z68kowrlKXjmDDUmHqGma7sfdrWTo161ThD+pNdZSSP/iYb1/myqatX+uMuP?=
+ =?us-ascii?Q?++8EaJy9KG6WVUmeIdIny2Ja9XTapNLRkmEgrBUAgtPgE3HhnnM9lNxTmUA2?=
+ =?us-ascii?Q?PYYGksGZnIh+nEC+GHCOL6XyMUeWQDwB+aTBEZOLBEwJK5vw?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 88952b91-24cd-4753-f23e-08df2233ab69
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 16:22:22.5601
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z4Zi40NQAKxQViOuqgWUhsDP4ebjvi/hssCrUkEv1j7fpwNl+WpFye0dR3hbSHs6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_091752_894156_6C63FC52 
-X-CRM114-Status: GOOD (  29.12  )
+X-CRM114-CacheID: sfid-20261004_092238_767067_8AB6012E 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,154 +140,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sun, Oct 04, 2026 at 02:23:55PM +0100, Will Deacon wrote:
+> On Sun, Aug 30, 2026 at 04:18:03PM -0700, Nicolin Chen wrote:
+> > An ASID tags the TLB entries within one SMMU, so two instances can use the
+> > same ASID without ever aliasing each other. Yet the driver allocates them
+> > out of a single global xarray, which makes the instances share a space that
+> > the hardware keeps apart, and lets one instance exhaust the IDs of another.
+> > 
+> > That global space is a leftover from the BTM support that shared ASIDs with
+> > the CPU. Now ARM_SMMU_FEAT_BTM is never set, nothing looks a domain up by
+> > its ASID, and a domain is pinned to one SMMU at the attach.
+> 
+> We probably need to figure out what we're doing with BTM. Over at:
+> 
+> https://lore.kernel.org/r/20260907184513.GA2543240@ziepe.ca
+> 
+> Jason was talking about bringing it back once the remaining invs stuff
+> has landed. If that happens, what is the correct sequence to allocate
+> the same ASID on every SMMU instance after these patches?
 
-On Mon, Aug 3, 2026 at 3:52=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> wr=
-ote:
->
-> The exynos driver currently checks the modifier in a helper called by
-> the plane atomic check helper callback. This check only concerns whether
-> the selected plane supports the tiled format or not. This is tied to
-> the plane's hardware capability.
->
-> Turns out the tiled support was added around the same time modifiers
-> were being plumbed through DRM planes. The latter provided a way to
-> describe per-plane modifier support.
->
-> Add a field to the hardware plane capability struct to allow adding
-> an optional list of supported modifiers. This is passed to
-> drm_universal_plane_init(). This also allows the core to generate
-> and pass to userspace a list of supported modifiers for each plane.
->
-> EXYNOS_DRM_PLANE_CAP_TILE and the existing helper are removed, as the
-> check is now down by the DRM atomic check.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+The last attempt I had at this already relied on the per-instance
+ASID, it made it simpler.
 
-Any chance someone could take a look at this? This drops some redundant
-code.
+The flow upon SVA domain attach to a device is broadly
+ - Check if the asid is free in the per instance asid xarray
+ - If there is a conflict
+   * Reserve a new empty asid
+   * Allocate two invs list, first with both ASIDs, second with only
+     new
+   * Set the first invs list. Barrier
+   * Update the CD entries for the conflicted domain to the new ASID
+   * Flush CDs and IOTLB
+   * Set the second invs list. Barrier
+   * Set the SVA as the owner of the replaced asid
 
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_drv.h   |  2 +-
->  drivers/gpu/drm/exynos/exynos_drm_plane.c | 30 +----------------------
->  drivers/gpu/drm/exynos/exynos_mixer.c     |  8 +++++-
->  3 files changed, 9 insertions(+), 31 deletions(-)
->
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/ex=
-ynos/exynos_drm_drv.h
-> index b126cd129944..ab0edb826261 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-> @@ -92,7 +92,6 @@ struct exynos_drm_plane {
->  #define EXYNOS_DRM_PLANE_CAP_DOUBLE    (1 << 0)
->  #define EXYNOS_DRM_PLANE_CAP_SCALE     (1 << 1)
->  #define EXYNOS_DRM_PLANE_CAP_ZPOS      (1 << 2)
-> -#define EXYNOS_DRM_PLANE_CAP_TILE      (1 << 3)
->  #define EXYNOS_DRM_PLANE_CAP_PIX_BLEND (1 << 4)
->  #define EXYNOS_DRM_PLANE_CAP_WIN_BLEND (1 << 5)
->
-> @@ -112,6 +111,7 @@ struct exynos_drm_plane_config {
->         const uint32_t *pixel_formats;
->         unsigned int num_pixel_formats;
->         unsigned int capabilities;
-> +       const uint64_t *modifiers;
->  };
->
->  /*
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/=
-exynos/exynos_drm_plane.c
-> index 5c04ef87e400..31f5f0941154 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-> @@ -174,30 +174,6 @@ static struct drm_plane_funcs exynos_plane_funcs =3D=
- {
->         .atomic_destroy_state =3D exynos_drm_plane_destroy_state,
->  };
->
-> -static int
-> -exynos_drm_plane_check_format(const struct exynos_drm_plane_config *conf=
-ig,
-> -                             struct exynos_drm_plane_state *state)
-> -{
-> -       struct drm_framebuffer *fb =3D state->base.fb;
-> -       struct drm_device *dev =3D fb->dev;
-> -
-> -       switch (fb->modifier) {
-> -       case DRM_FORMAT_MOD_SAMSUNG_64_32_TILE:
-> -               if (!(config->capabilities & EXYNOS_DRM_PLANE_CAP_TILE))
-> -                       return -ENOTSUPP;
-> -               break;
-> -
-> -       case DRM_FORMAT_MOD_LINEAR:
-> -               break;
-> -
-> -       default:
-> -               DRM_DEV_ERROR(dev->dev, "unsupported pixel format modifie=
-r");
-> -               return -ENOTSUPP;
-> -       }
-> -
-> -       return 0;
-> -}
-> -
->  static int
->  exynos_drm_plane_check_size(const struct exynos_drm_plane_config *config=
-,
->                             struct exynos_drm_plane_state *state)
-> @@ -245,10 +221,6 @@ static int exynos_plane_atomic_check(struct drm_plan=
-e *plane,
->         /* translate state into exynos_state */
->         exynos_plane_mode_set(exynos_state);
->
-> -       ret =3D exynos_drm_plane_check_format(exynos_plane->config, exyno=
-s_state);
-> -       if (ret)
-> -               return ret;
-> -
->         ret =3D exynos_drm_plane_check_size(exynos_plane->config, exynos_=
-state);
->         return ret;
->  }
-> @@ -312,7 +284,7 @@ int exynos_plane_init(struct drm_device *dev,
->                                        &exynos_plane_funcs,
->                                        config->pixel_formats,
->                                        config->num_pixel_formats,
-> -                                      NULL, config->type, NULL);
-> +                                      config->modifiers, config->type, N=
-ULL);
->         if (err) {
->                 DRM_DEV_ERROR(dev->dev, "failed to initialize plane\n");
->                 return err;
-> diff --git a/drivers/gpu/drm/exynos/exynos_mixer.c b/drivers/gpu/drm/exyn=
-os/exynos_mixer.c
-> index 69dea5049309..d74e605a452b 100644
-> --- a/drivers/gpu/drm/exynos/exynos_mixer.c
-> +++ b/drivers/gpu/drm/exynos/exynos_mixer.c
-> @@ -93,6 +93,12 @@ static const uint32_t vp_formats[] =3D {
->         DRM_FORMAT_NV21,
->  };
->
-> +static const uint64_t vp_modifiers[] =3D {
-> +       DRM_FORMAT_MOD_LINEAR,
-> +       DRM_FORMAT_MOD_SAMSUNG_64_32_TILE,
-> +       DRM_FORMAT_MOD_INVALID
-> +};
-> +
->  struct mixer_context {
->         struct platform_device *pdev;
->         struct device           *dev;
-> @@ -148,8 +154,8 @@ static const struct exynos_drm_plane_config plane_con=
-figs[MIXER_WIN_NR] =3D {
->                 .num_pixel_formats =3D ARRAY_SIZE(vp_formats),
->                 .capabilities =3D EXYNOS_DRM_PLANE_CAP_SCALE |
->                                 EXYNOS_DRM_PLANE_CAP_ZPOS |
-> -                               EXYNOS_DRM_PLANE_CAP_TILE |
->                                 EXYNOS_DRM_PLANE_CAP_WIN_BLEND,
-> +               .modifiers =3D vp_modifiers,
->         },
->  };
->
-> --
-> 2.55.0.571.g244d577d93-goog
->
+This cycle repeats every time the SVA is connected to a domain, we
+don't need to do a 'global' operation. That is why the per-instance
+approach was simpler
+
+BTM has a per-CD flag to indicate if the CD uses a 'BTM' ASID or a
+normal ASID. It is fine for normal ASID's to alias the MM as they
+won't participate in DVM, so only SVA needs to do this.
+
+It was the STE that was broken and lacked that bit so you always had
+to be careful with the vmid.
+
+So the simplificaiton to do BTM is to only support guest BTM, where
+the instance has no S2 support in the IDR. Leave figuring out the vmid
+with kvm to another project.
+
+IIRC..
+
+Jason
 
