@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D32CA5FFD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F7ECA5FEC
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHP/J59+E8YDwyyYeW2J97OeTqPD4JvCsWYeUWKz014=; b=t2YUV4GqytGnAPg3X5tb48MvOy
-	YoGH7yd5bqiEnnBbfs998avdRM4dLRTd3M24OjyOYZChzKeemFsh/lycrBI6eqhOdMRv92yHv2z+w
-	UNl/INGxmtqCRNfJH9nmMJ6IDawSIvZayssWq6MriDRrnmGLdox/GU7IdxKhk1tEciag0/OoMJFHi
-	Qmjh8dpZQbA2kSgCkY8gm35VT29A3TobcZkt2ou8bTQAmhNkSUrIty4maILPJTfMGqYiFlBWOCkxr
-	umbHk7yZ1MTKadLxXppHrU3Au5bPHIdvN27CFsLhV3+bF2FyO1n3tfSY9bN1C7e6Klq+P34WL2JmC
-	a37ldiFg==;
+	bh=vPGAk8LVcGDdAMFFmf5X7xLi+wDp9fUI4rA5XeoVm3I=; b=SvU4koOk+GgsZhUPBILTvYE0y+
+	lr9ZPpv9VFbgdzB4HHWtTDoTQxLbEalJ8M2PP7b0lpg++ccTbJCEd/zH3XgQTxO43zbdvfA2naL0o
+	TBD2x0LlXVx7Y09gqRgHyUHCozgo7o9XZgCYkLxxfJdEgJB8nmGU1qUOx/Wtw6UjY/eGEheGU8kZA
+	4Ka64UxCKUWqhtD4ikiXE7yLGUWChX/SKIWZLT5qW/2sJIIdcTrmIbqaVnywpqvfpgNTa/wgehOGR
+	mKXuzJhxMaIgZCH1ktVRST64ZThITiAEy05/tKIdQq8dWvp9DjDuQHXuSUe0FvM+TeTMs6Xa/pTKa
+	KByKXKmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSeH-0000000FEof-3Vmj;
-	Sun, 04 Oct 2026 20:17:29 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xDSeJ-0000000FEsg-2k9w;
+	Sun, 04 Oct 2026 20:17:31 +0000
+Received: from mail-westeuropeazon11010021.outbound.protection.outlook.com ([52.101.69.21] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSe8-0000000FEfs-2UBk
+	id 1xDSe9-0000000FEgR-39qH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:17:24 +0000
+	Sun, 04 Oct 2026 20:17:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yzKDfSvRRUFDHsJ87C8jbWyEKxKwzmGli+lXW6WLzLySJPmDtgJOCUcLSWb5nQvN8itsgjCunQUXb/LM/g12K2vg5S/XkN+XzV+2EsLZHjGm9btOkYDVpaoykxjgq0Ke7hHBJnu3+uC8f53dvk36eCGun54NT2jq8qqHzKxdLNYeRPHoNtnaSk7aVFF2arbFqFwrqi07AEmUkPc4jSJLGxP4XwRR2iTV1ZgUVytkix/EpAtHXzxbze3eqawDlgBavlTfYWN4xXiKO/k68B0pG362jemVDA96ocq2jUCm4ph0t2EI2cU0FOVQ4mSQCcSFBfTWp6ky8xzU2gK1Q8Y3Tg==
+ b=XlbfDdTa9xjFCO/vKBPC855OGS7JiwzOKtkUXlY4b6S9H/VIKqDPuVcSBkc6ZDRPtIyqRpmFsGhT7dIxIjIiGEhg4kY8ZaPWeVCR38IncP3fu3aFvTu1YoXilXf8mQ5QxQDr2a7zoe/3Tfk/BEdbGB8EYEmourU73xHPL4aBkK/g5y4wG554a8OopDo/Wl1Wi/r0TSJmNSHY/WNcsmZ1rpGm5meqpYa9qr1V6aCFhJpGOzOiwAskljf0xxd/tYcj8BOubT/TMZ1aBFKbWyEtq7aUutXNwfu/QxVlmaC2izUjBIZobz7CKH1GPZ4wPFwHp52kBKzDiEiOEL8G0uEF1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UHP/J59+E8YDwyyYeW2J97OeTqPD4JvCsWYeUWKz014=;
- b=Vi4fwUgbi8q4cfAkqG+Widp8ScvgdMcPdwY+zRBhWD1Um9a5vcdDMyqSZ4PYv2X/j5Lz415D9Sj090T71GdiJWmOdktztJdu4x8BHl4aASUi2XjLOQll+XLmz/bHmEHqbeZX05qfdC1hPsyLcFJbriPo3MCjJzanF+7c3h+T8Hjr8rIuXcLPw3Yl9xfFqatAzmiXhTrIiMyjcLs+AnQgjyMgsgW8DvNFh3bg8I61Yj5dKCKbCPJmHQ8FHfjM90ZfkTF61GhEHV2qG2W22nVCTCYyZiUA536Ty9FiEdu9TdaYUdND+61+OkFZ5k9S67EsIwhY6AydeoBhwADba6notw==
+ bh=vPGAk8LVcGDdAMFFmf5X7xLi+wDp9fUI4rA5XeoVm3I=;
+ b=BtcIvqtQhzkHsfXkJ1a+9bcK8eipJ+z4SvYyowJxT9YyOG7JsnPhubPyxpS41vD8WXxG52SLbbM+/WGAhnMDQy8DyKKlSe9N/2zdURCVconWPe0lh0nReFJ74HdJgn3pcxv/k+Gz/wpPtx0gtC1F6A+VdkUUm+LUuWxpY3SxbVB/WPVG/ck18PYMlmnwpcvOP9UTxzgxbcuzcnkJ7PHhyJ6Rq76jAU4Z+ieyeAGXRra42fu71G5TLl/XDu8BGY5fyxd5ign4hXj2qI0eKsXToOufflmnS95kt8kqkyYXNq5p+Ff8nJy2+H3TDzOaXwdI0aMIwfuwY4sSCx1xe7XcLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  195.60.68.100) smtp.rcpttodomain=kernel.org smtp.mailfrom=axis.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UHP/J59+E8YDwyyYeW2J97OeTqPD4JvCsWYeUWKz014=;
- b=EmPlFGXDxXdfgGicapLJibXw72S+7966laLUG1dJsakrzROgoK8UyA42zzFmQqrZZP5DBUPWBh2bwNeiCItUL4JUjxoFT1gfK7Sgv7OhiwJbqUpf4QG+ssgL1/3DXxlnwmEfeBFbNqpsM04DLb7Ysh+W9rCbcPs89raP4HukrNQ=
-Received: from DUZPR01CA0301.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::18) by DU4PR02MB12226.eurprd02.prod.outlook.com
- (2603:10a6:10:62a::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Sun, 4 Oct
+ bh=vPGAk8LVcGDdAMFFmf5X7xLi+wDp9fUI4rA5XeoVm3I=;
+ b=M3L0FBkK07VgosiPqQuFSvr47HGEUklRSJ6yWUEFvuOVfa4LJpK4A8xody45YYVwTvD2JWhZgjZ6pZ3r+nqLu4Ea9bdLmjuXy4Cg2Wy8X52QNXGV0WFbOwtUmB33g9TgEC3qgpSYRAN2YML0WuCQ0pIg0DaEy+XSZgakjdLXH8I=
+Received: from DUZPR01CA0305.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b7::26) by DU0PR02MB9347.eurprd02.prod.outlook.com
+ (2603:10a6:10:416::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sun, 4 Oct
  2026 20:17:15 +0000
 Received: from DU2PEPF00028D0B.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::8f) by DUZPR01CA0301.outlook.office365.com
- (2603:10a6:10:4b7::18) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10a6:10:4b7:cafe::30) by DUZPR01CA0305.outlook.office365.com
+ (2603:10a6:10:4b7::26) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
  Oct 2026 20:17:15 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
@@ -62,25 +62,30 @@ Received: from mail.axis.com (195.60.68.100) by
  DU2PEPF00028D0B.mail.protection.outlook.com (10.167.242.171) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:15 +0000
-Received: from se-mail11w.axis.com (10.20.40.11) by se-mail10w.axis.com
+Received: from SE-MAILARCH01W.axis.com (10.20.40.15) by se-mail10w.axis.com
  (10.20.40.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Sun, 4 Oct
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.39; Sun, 4 Oct
+ 2026 22:17:11 +0200
+Received: from se-mail11w.axis.com (10.20.40.11) by SE-MAILARCH01W.axis.com
+ (10.20.40.15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.61; Sun, 4 Oct
  2026 22:17:11 +0200
 Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail11w.axis.com
  (10.20.40.11) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
  Transport; Sun, 4 Oct 2026 22:17:11 +0200
 Received: from lap5cd525d1j1.sto.se.axis.com (unknown [10.224.134.145])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 7C9094CE7;
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 3A0314CEE;
 	Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 Received: by lap5cd525d1j1.sto.se.axis.com (Postfix, from userid 22105)
-	id 19D82803CDCC; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
+	id 11DE8803CDCA; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 From: Henrik Grimler <henrik.grimler@axis.com>
-Date: Sun, 4 Oct 2026 22:16:09 +0200
-Subject: [PATCH 12/17] ARM: dts: samsung: exynos4210-trats: sort properties
+Date: Sun, 4 Oct 2026 22:16:07 +0200
+Subject: [PATCH 10/17] ARM: dts: samsung: exynos4210-pinctrl: align all
+ continued lines
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261004-exynos-arm-cleanup-v1-12-45e435353c56@axis.com>
+Message-ID: <20261004-exynos-arm-cleanup-v1-10-45e435353c56@axis.com>
 References: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 In-Reply-To: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -90,42 +95,43 @@ CC: <devicetree@vger.kernel.org>, <waqar.hameed@axis.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, Henrik Grimler <henrik.grimler@axis.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5847;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5509;
  i=henrik.grimler@axis.com; h=from:subject:message-id;
- bh=155hOZToryhTQVwsTExUuBBKOpX2mJ6uFedNiltgP8Q=;
- b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQ7WbZEat5WQR8HmvWpP+OOYcYSsD4IJjYop
- 3uAyj1UZOOJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0OwAKCRCwB25JC3Fh
- a2+MCADKbfLQ3fpXJ9qj0mKu9V8x/T9SjIGeJj9/2/8z6YSMuy21fTA6nZjDuUGHlLHjvy2pUI7
- 7h3V76VTibVI+W0XInaOwSGa3NPmBHLL+EUgjHu5edWU8JZQhmQZUUYRzboLgAnV/Vm7skB7vuv
- R+h52BrL1odGWQJZLB+OWsXC/JRd3NhbuUCwxy6i58N8bETInkccahhwVSSOVfYSQugKGkMNRim
- jIdwYQz5rlXf34tblHkNtdJUWatKamYgopMfIOKlcT4VOTnolj4nwvw8vNM6gVNTGMLnA3EVGsl
- CsokHD/H060Vby6GZfv1B1f4wEnva7HDNbYskhXsN3t1ICja
+ bh=lkXdmczR3oYAV6MdblMtFNi3ysZTgsLk60ulnUgeAUc=;
+ b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQ3gh4sglJr6ROaISdqnBZntkxoacUrdJ59g
+ 0yC/N45SOmJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0NwAKCRCwB25JC3Fh
+ a0/vB/9wOgT3UelZIcoe9eA6EsGgZT+opc7pIGl5XA/6Ic2Yks2NtdjlbArjXxbcldz3SHz3vkO
+ AW380JuJIZIV1k/RyVvGAmtzxV6M+vTDjj1Sy4ZJlYmM+1Ls/sy2AnFG5UxFODjOOrGjAYkw/FP
+ 3ilgsjiNPVTnBoxF7c26p8f97TQcc46bCdib+iiTVZ8CZR973OZ/Sx9Jk/2h7YFHujOo7oEOw9u
+ cS08RFqdpozOiZ6/Eh7uxyS7d6/GeHhJZvYC6K4oHCSz6ZpKNCmNr94JI5yUxvNBKSRPrYhCUrN
+ BSmwShI962KK78Fww5XNyKS6T00OKYHxCbVL6qgP1O7EIMuS
 X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
  fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|DU4PR02MB12226:EE_
-X-MS-Office365-Filtering-Correlation-Id: 670d6fa0-11f9-4bae-4ae1-08df22547b89
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|DU0PR02MB9347:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf8b5fae-ee17-4c66-dfc8-08df22547baa
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|30052699003|23010399003|376014|82310400026|11063799006|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Ne2VE7nJVmcFAAP9y7q3qIjMNPzkkj+8yLRCihbNdrdR6uo3xhIcnRoPHXu5nTZ66MMahGg3bbcZlc9z3qCQCPQUcrRom4jwEkRx1XnKKbCSQoDlsRRNZuHkxeqInyFrWpkHGhwM95muubBCHOvDaNVBwAJnH0Y5CzX+Kxzosj6m1xrP1vkCc+7CymlYPhE6LkzW1TcZro4W0fp6rF33NKL7yim4ISYLXzecJ1+L/Rv4rqxL9OLDfCXy+0uVM7oLLIqLNfGzxuDlKWDWkfTAeD/YgjtM4fNg6OUrqCEE/uiuEhJ3D0vMKUOnp0NCwV38e1SBfgcUsK/ICv8cuUG9XAWy9vI+62ngC/BfTCBHE3Nc1LgXDGAt0+gzQLOPGfo6DJ3JcbXpIx8YxqwiKrpWQb3uRMisMR0a7rXV3hBoxDSyNQk9ucApcGXBwVp+IR1QUYmvmh5R2HQQF/N4kcjoQcaQ85bZRKNt8QfVopsFyBi5BmzJLejZoJOk2XjrhvxGy+DAJaqfs5rOzZxW7PrsoiG6FsleEou0kzrE1ZEz7KFkkbj3foVcQlKE3Vhx02/D1v4DxMRDzL/xazf+5AW/fC1pyq3rYfhMTs3s9fz+hgHejm3u/vrbkx1jR7PRaYjv6lSTKIU/oJ+HrCBZHu0048xyw3bkton3CSf+H4bjgYBp7Bn/uQxcrB4/t/oLQmh0vM7lFbZvnFjWqdEoQ+pM4w==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(30052699003)(23010399003)(376014)(82310400026)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|1800799024|30052699003|376014|22082099003|18002099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 6eed8iQ1MynDuSuBF6e6NmaV17DNKcCrURn7HtmwIota+xe9GwyzZaRr1qFRX3m7uRekU7RFEXMjtfRKikvZ5WSYIi6I9TjlaG/JAacCKWTnyXs9xiIjkMVF3BFg5yk1UoUgxk5YCdV0KPTq9y41yO91doXSmesNflufD6DORuxh1RoYUVvKXl3+JLTEgy4XEpOz9ul/VEyx2qXjHQp4DBfX2Azr0tmz2IG6YH6JMZhDU6roC5LRfEZZz3IIQCUN4CGcqrJVQD4fkfHEp9tb4DN7yofvo5RR9VgE5Q/d1sFg7SFj5ZyoUhu+804bRfeByLrFKrVMVbchzmPmDV0c8fZIMRnvRFYcsdwrbUkX5o6VKrESEVu5NQFXW+O3w0sLpgLJhWZe9tVPxt21ZfDfvuGrWNrmaJsnD9rkH1Db/d1QrZUysY43NQWbT+bg4CXk/LBcHnq1Mspo/SDIURgeI7mh1vxuwycPtzcyH6IBqdoKBqQJg0lDCFZVcL48YarjMRADfi6Om8XlK0PLYGGat0O7TCXPwmseZRCXvsZQEUyfB0bRZ7ca0zTxmic5BFqpLRke0A6tR7CP4s28BL/saKxSJI7LNEWkbPM4aNMhrJmXEQm+qZBpxHfLZ5IZwV2B9KDQVErZbcboGis9BXCAXInhA/XTwIzMCsMZumpywsVhKmlazGZ6CbQ0Dw1b/qkoD9BAQrbxOCbskP+vu137Eg==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(1800799024)(30052699003)(376014)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DJOk6LHIYH/0ZfzD0KxYUBNDngp852NxC12NPbmQgZaUnUabgqIQL5OOM8VDIg0L/wf0Eah51ZMkcjHjptjy9BsnYTgXYX4DFbRILnOqBhus0bs9ORqOEn4mg6WWWFcvNyWOvet+gp5/qcZK1HqMXMO6pL5jC/VPz8d6j0rmz+J9WmUSOPFsGU1j70uwLVUpW5GeoluS8iKb7quPB+mg5SLRHDTg+p1OKfp1ktbMQiAXrVS8wIRkppA0z+1GhfrusTjeJ8lRajDoLpWzrCKtXdVetcw0u2ql+5lZ8hRhs3Iphbe7yXB7e8oR0ZT1fF2oGxka4dtnysu5dT3XvqhwyoRKVrgftnrsdApOJb+eafpLoa8LDeCM1vt4eVH2Rf9RO6RA1oB9Q5OAtFAZOl4tf8xuOsGM9OpEu8cxNDxlZjPThumWHfZIEZssFTRieYpc
+X-MS-Exchange-AntiSpam-MessageData-0: N80TaJxtehGVN/u1GcPOR/7Rkq5V7in/G4tG7v9UsBAx3NGUOaGCwd62FFhFzaIr/R7SWKMs3eqEZPo1wQVaMrzeVGPyNS1TVhTEPKb7rfeSpE4XaUzN/U+ivNvjDkSrKweZf7DLOy6/yC8R2s3mvqCYwXmRHX1nydDZIjDzc8FU9Ul+xgWuR9q34Depfvp3VQSIsc4zKmGeN1RCbHEfA2DcnZpaZSdt2w9aFDk15+YbAyYO2lxByPKDh85N8ZsuFKtX35bA+3YMXleZZ1tWlkurWuMtvnR736StXZTWjrsj9q1hnYdE3NeUs7hpEkEoXXQidACEWlPHHwpL8qjFclqXQ0+NZV+VTZ6LR8WyJS017OyHs4rOhR4iAP2nFDfJ9iCJfHS6me+KhxlreUYEVhLrq0KkDCeNPYkTqSxzU4kHNkmM09x49WWzAbiBB+Jy
 X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:15.4573
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:15.6786
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 670d6fa0-11f9-4bae-4ae1-08df22547b89
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf8b5fae-ee17-4c66-dfc8-08df22547baa
 X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
 X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0B.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR02MB12226
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR02MB9347
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_131720_657955_A59C028E 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20261004_131721_804174_FF2BF77F 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,243 +146,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-And add or delete newlines where applicable, and sort properties
-according to the preferred style. Fixes warnings from dt-check-style
-like:
+A combination of tabs and spaces should be used to ensure elements are
+aligned. Fix all properties where applicable.
 
-  samsung/exynos4210-trats.dts:122: [property-order] property 'label' out of canonical order (should sort before 'linux,code')
-  samsung/exynos4210-trats.dts:179: [required-blank-lines] "status" must be preceded by a blank line
-  samsung/exynos4210-trats.dts:183: [property-order] property 'compatible' out of canonical order (should sort before 'reg')
+Fixes warnings from dt-style-checker in strict mode, like:
+
+  samsung/exynos4210-pinctrl.dtsi:252: [continuation-alignment] continuation should align to column 32 (to < or ")
 
 Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
 ---
- arch/arm/boot/dts/samsung/exynos4210-trats.dts | 60 ++++++++++++++++----------
- 1 file changed, 38 insertions(+), 22 deletions(-)
+ arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi | 42 +++++++++++------------
+ 1 file changed, 21 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-trats.dts b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-index 20fe148387fc..8d4ebcf86775 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-@@ -96,31 +96,31 @@ gpio-keys {
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi b/arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi
+index 70d268f9fcb1..01d30141d9bf 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi
++++ b/arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi
+@@ -249,7 +249,7 @@ i2c5_bus: i2c5-bus-pins {
  
- 		vol-down-key {
- 			gpios = <&gpx2 1 GPIO_ACTIVE_LOW>;
--			linux,code = <114>;
- 			label = "volume down";
- 			debounce-interval = <10>;
-+			linux,code = <114>;
- 		};
+ 	i2s1_bus: i2s1-bus-pins {
+ 		samsung,pins = "gpc0-0", "gpc0-1", "gpc0-2", "gpc0-3",
+-				"gpc0-4";
++			       "gpc0-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -257,7 +257,7 @@ i2s1_bus: i2s1-bus-pins {
  
- 		vol-up-key {
- 			gpios = <&gpx2 0 GPIO_ACTIVE_LOW>;
--			linux,code = <115>;
- 			label = "volume up";
- 			debounce-interval = <10>;
-+			linux,code = <115>;
- 		};
+ 	pcm1_bus: pcm1-bus-pins {
+ 		samsung,pins = "gpc0-0", "gpc0-1", "gpc0-2", "gpc0-3",
+-				"gpc0-4";
++			       "gpc0-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_3>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -265,7 +265,7 @@ pcm1_bus: pcm1-bus-pins {
  
- 		power-key {
- 			gpios = <&gpx2 7 GPIO_ACTIVE_LOW>;
--			linux,code = <116>;
- 			label = "power";
- 			debounce-interval = <10>;
- 			wakeup-source;
-+			linux,code = <116>;
- 		};
+ 	ac97_bus: ac97-bus-pins {
+ 		samsung,pins = "gpc0-0", "gpc0-1", "gpc0-2", "gpc0-3",
+-				"gpc0-4";
++			       "gpc0-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_4>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -273,7 +273,7 @@ ac97_bus: ac97-bus-pins {
  
- 		ok-key {
- 			gpios = <&gpx3 5 GPIO_ACTIVE_LOW>;
--			linux,code = <352>;
- 			label = "ok";
- 			debounce-interval = <10>;
-+			linux,code = <352>;
- 		};
- 	};
+ 	i2s2_bus: i2s2-bus-pins {
+ 		samsung,pins = "gpc1-0", "gpc1-1", "gpc1-2", "gpc1-3",
+-				"gpc1-4";
++			       "gpc1-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -281,7 +281,7 @@ i2s2_bus: i2s2-bus-pins {
  
-@@ -163,6 +163,7 @@ map0 {
- 			/* Corresponds to 800MHz at freq_table */
- 			cooling-device = <&cpu0 2 2>, <&cpu1 2 2>;
- 		};
-+
- 		map1 {
- 			/* Corresponds to 200MHz at freq_table */
- 			cooling-device = <&cpu0 4 4>, <&cpu1 4 4>;
-@@ -176,11 +177,12 @@ &dsi_0 {
- 	samsung,burst-clock-frequency = <500000000>;
- 	samsung,esc-clock-frequency = <20000000>;
- 	samsung,pll-clock-frequency = <24000000>;
-+
- 	status = "okay";
+ 	pcm2_bus: pcm2-bus-pins {
+ 		samsung,pins = "gpc1-0", "gpc1-1", "gpc1-2", "gpc1-3",
+-				"gpc1-4";
++			       "gpc1-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_3>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -387,9 +387,9 @@ lcd_clk: lcd-clk-pins {
  
- 	panel@0 {
--		reg = <0>;
- 		compatible = "samsung,s6e8aa0";
-+		reg = <0>;
- 		vdd3-supply = <&vcclcd_reg>;
- 		vci-supply = <&vlcd_reg>;
- 		reset-gpios = <&gpy4 5 GPIO_ACTIVE_HIGH>;
-@@ -209,40 +211,45 @@ timing-0 {
- };
+ 	lcd_data16: lcd-data-width16-pins {
+ 		samsung,pins = "gpf0-7", "gpf1-0", "gpf1-1", "gpf1-2",
+-				"gpf1-3", "gpf1-6", "gpf1-7", "gpf2-0",
+-				"gpf2-1", "gpf2-2", "gpf2-3", "gpf2-7",
+-				"gpf3-0", "gpf3-1", "gpf3-2", "gpf3-3";
++			       "gpf1-3", "gpf1-6", "gpf1-7", "gpf2-0",
++			       "gpf2-1", "gpf2-2", "gpf2-3", "gpf2-7",
++			       "gpf3-0", "gpf3-1", "gpf3-2", "gpf3-3";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -397,10 +397,10 @@ lcd_data16: lcd-data-width16-pins {
  
- &exynos_usbphy {
--	status = "okay";
- 	vbus-supply = <&safe1_sreg>;
-+
-+	status = "okay";
- };
+ 	lcd_data18: lcd-data-width18-pins {
+ 		samsung,pins = "gpf0-6", "gpf0-7", "gpf1-0", "gpf1-1",
+-				"gpf1-2", "gpf1-3", "gpf1-6", "gpf1-7",
+-				"gpf2-0", "gpf2-1", "gpf2-2", "gpf2-3",
+-				"gpf2-6", "gpf2-7", "gpf3-0", "gpf3-1",
+-				"gpf3-2", "gpf3-3";
++			       "gpf1-2", "gpf1-3", "gpf1-6", "gpf1-7",
++			       "gpf2-0", "gpf2-1", "gpf2-2", "gpf2-3",
++			       "gpf2-6", "gpf2-7", "gpf3-0", "gpf3-1",
++			       "gpf3-2", "gpf3-3";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -408,11 +408,11 @@ lcd_data18: lcd-data-width18-pins {
  
- &fimc_0 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC0>,
- 			  <&clock CLK_SCLK_FIMC0>;
- 	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
- 	assigned-clock-rates = <0>, <160000000>;
-+
-+	status = "okay";
- };
+ 	lcd_data24: lcd-data-width24-pins {
+ 		samsung,pins = "gpf0-4", "gpf0-5", "gpf0-6", "gpf0-7",
+-				"gpf1-0", "gpf1-1", "gpf1-2", "gpf1-3",
+-				"gpf1-4", "gpf1-5", "gpf1-6", "gpf1-7",
+-				"gpf2-0", "gpf2-1", "gpf2-2", "gpf2-3",
+-				"gpf2-4", "gpf2-5", "gpf2-6", "gpf2-7",
+-				"gpf3-0", "gpf3-1", "gpf3-2", "gpf3-3";
++			       "gpf1-0", "gpf1-1", "gpf1-2", "gpf1-3",
++			       "gpf1-4", "gpf1-5", "gpf1-6", "gpf1-7",
++			       "gpf2-0", "gpf2-1", "gpf2-2", "gpf2-3",
++			       "gpf2-4", "gpf2-5", "gpf2-6", "gpf2-7",
++			       "gpf3-0", "gpf3-1", "gpf3-2", "gpf3-3";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -810,8 +810,8 @@ eint31: ext-int31-pins {
  
- &fimc_1 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC1>,
- 			  <&clock CLK_SCLK_FIMC1>;
- 	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
- 	assigned-clock-rates = <0>, <160000000>;
-+
-+	status = "okay";
- };
+ 	cam_port_a_io: cam-port-a-io-pins {
+ 		samsung,pins = "gpj0-0", "gpj0-1", "gpj0-2", "gpj0-3",
+-				"gpj0-4", "gpj0-5", "gpj0-6", "gpj0-7",
+-				"gpj1-0", "gpj1-1", "gpj1-2", "gpj1-4";
++			       "gpj0-4", "gpj0-5", "gpj0-6", "gpj0-7",
++			       "gpj1-0", "gpj1-1", "gpj1-2", "gpj1-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -847,7 +847,7 @@ gpz: gpz-gpio-bank {
  
- &fimc_2 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC2>,
- 			  <&clock CLK_SCLK_FIMC2>;
- 	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
--		assigned-clock-rates = <0>, <160000000>;
-+	assigned-clock-rates = <0>, <160000000>;
-+
-+	status = "okay";
- };
+ 	i2s0_bus: i2s0-bus-pins {
+ 		samsung,pins = "gpz-0", "gpz-1", "gpz-2", "gpz-3",
+-				"gpz-4", "gpz-5", "gpz-6";
++			       "gpz-4", "gpz-5", "gpz-6";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
+@@ -855,7 +855,7 @@ i2s0_bus: i2s0-bus-pins {
  
- &fimc_3 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC3>,
- 			  <&clock CLK_SCLK_FIMC3>;
- 	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
- 	assigned-clock-rates = <0>, <160000000>;
-+
-+	status = "okay";
- };
- 
- &fimd {
-@@ -257,15 +264,18 @@ &hsotg {
- 	vusb_d-supply = <&vusb_reg>;
- 	vusb_a-supply = <&vusbdac_reg>;
- 	dr_mode = "peripheral";
-+
- 	status = "okay";
- };
- 
- &i2c_3 {
-+	pinctrl-0 = <&i2c3_bus>;
-+	pinctrl-names = "default";
-+
- 	samsung,i2c-sda-delay = <100>;
- 	samsung,i2c-slave-addr = <0x10>;
- 	samsung,i2c-max-bus-freq = <400000>;
--	pinctrl-0 = <&i2c3_bus>;
--	pinctrl-names = "default";
-+
- 	status = "okay";
- 
- 	touchscreen@48 {
-@@ -281,11 +291,13 @@ touchscreen@48 {
- };
- 
- &i2c_5 {
-+	pinctrl-0 = <&i2c5_bus>;
-+	pinctrl-names = "default";
-+
- 	samsung,i2c-sda-delay = <100>;
- 	samsung,i2c-slave-addr = <0x10>;
- 	samsung,i2c-max-bus-freq = <100000>;
--	pinctrl-0 = <&i2c5_bus>;
--	pinctrl-names = "default";
-+
- 	status = "okay";
- 
- 	pmic@66 {
-@@ -312,9 +324,9 @@ pmic@66 {
- 						 <1000000>, <950000>;
- 
- 		max8997,pmic-buck2-dvs-voltage = <1100000>, <1000000>,
--						 <950000>,  <900000>,
-+						 <950000>, <900000>,
- 						 <1100000>, <1000000>,
--						 <950000>,  <900000>;
-+						 <950000>, <900000>;
- 
- 		max8997,pmic-buck5-dvs-voltage = <1200000>, <1200000>,
- 						 <1200000>, <1200000>,
-@@ -488,9 +500,10 @@ bt_device_wakeup: bt-device-wakeup-pins {
- };
- 
- &rtc {
--	status = "okay";
- 	clocks = <&clock CLK_RTC>, <&pmic_ap_clk>;
- 	clock-names = "rtc", "rtc_src";
-+
-+	status = "okay";
- };
- 
- &sdhci_0 {
-@@ -499,6 +512,7 @@ &sdhci_0 {
- 	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_bus8>;
- 	pinctrl-names = "default";
- 	vmmc-supply = <&vemmc_reg>;
-+
- 	status = "okay";
- };
- 
-@@ -508,12 +522,11 @@ &sdhci_2 {
- 	pinctrl-names = "default";
- 	vmmc-supply = <&tflash_reg>;
- 	cd-gpios = <&gpx3 4 GPIO_ACTIVE_LOW>;
-+
- 	status = "okay";
- };
- 
- &sdhci_3 {
--	status = "okay";
--
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 
-@@ -523,8 +536,10 @@ &sdhci_3 {
- 	mmc-pwrseq = <&wlan_pwrseq>;
- 	vmmc-supply = <&tflash_reg>;
- 
--	pinctrl-names = "default";
- 	pinctrl-0 = <&sd3_clk>, <&sd3_cmd>, <&sd3_bus4>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
- 
- 	brcmf: wifi@1 {
- 		compatible = "brcm,bcm4330-fmac", "brcm,bcm4329-fmac";
-@@ -537,12 +552,13 @@ brcmf: wifi@1 {
- };
- 
- &serial_0 {
--	status = "okay";
- 	pinctrl-0 = <&uart0_data &uart0_fctl>;
- 	pinctrl-names = "default";
- 
- 	uart-has-rtscts;
- 
-+	status = "okay";
-+
- 	bluetooth {
- 		compatible = "brcm,bcm4330-bt";
- 
+ 	pcm0_bus: pcm0-bus-pins {
+ 		samsung,pins = "gpz-0", "gpz-1", "gpz-2", "gpz-3",
+-				"gpz-4";
++			       "gpz-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_3>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
 
 -- 
 2.43.0
