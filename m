@@ -4,116 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E95CA5FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 17:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6953ACA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 17:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=; b=yN6j/xQ1f/BvYf16kwQh0nAKGu
-	OUGEsYHcEky9IGiTEnJpDWMBx5OGHwWcG4u7Q8Spv/mclHCHa1EwCDmDpDjyRxSuBT5vMRp70Cdda
-	HKF9La64D+leefnYfRVk5sTyhKOUtLDMedq1SrQfC+fgL7ItqGmrZYMmPi1EAFgcpBHwRhcqeTRUe
-	t/Pi6DIKmalznrSXVpP3zECz7EEl7wRe9b6t0KFBQElR1PTMRMn/jsXeZD0J/IfWNi0K3NNtwoYLA
-	ZQifp4dSfdnyHuWuFjJWzUkPiJbBNNwQuTOVW3686uRvaAsKnx0ElnnIOpm7rwk3dZQCUkRpl7sNC
-	nJROEY6g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f7rAIIfQRjf/DZlHIopzmqG8GHaCqWeari8L74hauSs=; b=aAxu5w7Rf64/u7ghw6jG/RKKfk
+	rvA07a7FuHI+LDtHFALHEGRJmRmA8X/6Ctw9bDipghsDSTvADjT3RvumNaYanJ1EIXPQt3oKcbvfi
+	x840Mss92wf0oLYHHZfhPuVimONVCeXi7t+g8Jrp4+6RuQjLhlXxYa0AeX2p0xsi5E4x6gUPt5IDG
+	yF5mi3fwS9wP7XffhCIeGMxuTJc4n63AiAqCo0ZJfI0YTjcxxvDdrsJ+iuN6BlGM/FfD7ENMADPrJ
+	07a0DLRB2TMvmsO0R13Wi/UXT4fAii9SWbN+bKY0SQWT57IOAe+E2iTE09BY4d23SgKgdVi+AgbDx
+	FYmie27w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDPpS-0000000F5nh-1LQD;
-	Sun, 04 Oct 2026 17:16:50 +0000
-Received: from mail-ed2-x0d.google.com ([2a00:1450:4864:33::d])
+	id 1xDPv5-0000000F6uG-0mDd;
+	Sun, 04 Oct 2026 17:22:39 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDPpN-0000000F5h4-2zVi
+	id 1xDPv0-0000000F6ss-3ieu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 17:16:47 +0000
-Received: by mail-ed2-x0d.google.com with SMTP id 4fb4d7f45d1cf-6ac6fa788e6so1117188a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 10:16:45 -0700 (PDT)
+	Sun, 04 Oct 2026 17:22:37 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3a49623b865so488499a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 10:22:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1791134204; x=1791739004; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=;
-        b=putEpqN5sv3rzaY8Hy1gk7VsyC/6bwXHaU3jprc+YQ9QyvjNsw6HdAfaDqgBQaUbfX
-         Uv7jJyq7xQ9qW7RqoAzMgdTAQfuViwcuaPo6BuU6unLN4AK7Ye3M+n5lWSjfHV73gaje
-         Z6AW+9A6tqu55JZlgT0611bF64z96EbMyingnmXf1xK79X2geUyaVEYim5kasCliAcKC
-         PfV1OOhqOn6meV54E5WZlL0gn2YHGjVh1QgHSnWOx2cbttk48+jCsSN/BZ0GXG+gq8ng
-         riW36CpVu4Y7P7qB0ecNmlJVS52VFNymkFMgnjXZEFnELLwLhlMsLS/HnRZydXN912QH
-         9ELw==
+        d=gmail.com; s=20251104; t=1791134551; x=1791739351; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f7rAIIfQRjf/DZlHIopzmqG8GHaCqWeari8L74hauSs=;
+        b=BZNh0Kp7PsFGDPKlJjmq8/qsFSsJOeiQgI7Ijd3pStENlNeId3zHxJ8GikVwshY4ng
+         5+mQ83X7CwscggvHgh+oCbYtqK9HViA8ApHmDzAWx6v+8Nirz6rjvlhtowDKg0qwNdHv
+         g4c8uSHUtHIzzySEFICc4LYq1nm6Z6asYNiFONf8QupAM45mqwW9jN1blTgTd88NOGDY
+         q5MLXF3HOH8/dYKZCIwveZCXNx+lvW9N73OhpIFYD8VbknsrO7Ri8TOWspn+bEJESMlw
+         1C0MDLGKyn1+YqDqJHCt+7i/zkVKW0bC1Pyw1Dz3l4yFiZJr3yoJGJ1kMaOQ02tCLf9M
+         ji6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791134204; x=1791739004;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dHUtQGoQ43VDmpGd3bfBB5J/hFSSTUqRFc74DU6+NPk=;
-        b=CRFNZeH3vGQxNxjJQ7lUE172W9EaiYaHxv9P+Pn84NCxcQhJNt8xptwWoJOWPqG5z+
-         od6L5F/w+6wCdP+c0lF6e+fQyVkWGBRcijL+gJJ4V34w5gLYAVPQwJLIM5Gv/x+u0O9X
-         i1s88iBpBCqKPdGArz9QarW5mss8BjBg98WhferSxHj16z+siDBQRi5qsoo8opC8ghzm
-         bIZeyDFGsp587hsVzxn7yy3c7Sfb0egI+2e6fYsWZFJBfFldi0kGaErVOpRZgwhnGKvw
-         5b3D30AqxSlCaZ4yMPCK2NjY00bZg1Rnc0mtqr7fCTdMICv0oGW9Uc7H+oKFoK1YtuN7
-         w5fQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy4tRWyBA1YpO2AlPzaZlxP92YWra8BPmTcopdOEvTka2+2uyf7S7p/tZblxqVD6CMf2lt0ySzgv9YdYQXl+we2@lists.infradead.org
-X-Gm-Message-State: AFq9FYIe4ETPEYr8b/G69KhsWn2qNAV1By32DwfGp2vh8HQvHf4Q3z6R
-	HvgyM42CGA2p7o2W/P3ztQnYViVW6tQUXTPz0BR+0Zh7cQAU6+TjlAAzcMphiL10rw==
-X-Gm-Gg: AYBFou0UtxzxPAds+XYCbSEzxSeRT4/cBk963L3tyeQePBTShS4b0QmDZwAw3MAPaXA
-	dgRYEX1QWTP/nhhNJbyr8yvHr8dq4Eanxz3MaWZMub3U2e983Xk+g2ghBN/scJjMaWZRaOE+BoC
-	einwc69yCEppje1DsjFW2K6BtOReHdj3BWqsQzfs5P6ffoUVPn2vTI9xfJKzwHdKCVIpAJkmc1f
-	IxzYzdDcLRJYzZ2H1PALJKLN0/8qLdLgUpLcfuITq22ppPqHcHDZFHRRjfbkOo5fjRz2z1Tpfd4
-	0ApPo/hRRredq03vqgbi5qVuvtV8ghcF4it9pUPtO6f+AZBhThSyXJa0zs1kE7Mtpg6k8pofzA5
-	LdBUq8U2aN3xFEAsrd81Wh/NUt/pRxekWOYj3CK3UymDQBJB6/DkL+ftERktUVojhddEneCZZgG
-	OZxHfM1kORMIufntQO4BKyueSFzAwCbJfcG1885N7R5feyeeaYzndEA6DimYI5DDjY3O0/Qx5ni
-	ZVrBe+kmZqh5wq/pGVQfFUZRY0xyo8xHkYD7sz0VGWNGg9ntRQuLA7S2AzLmDzjYJEoECjjvyBv
-	+W9NZsStcuCI3LH55AbGRvFARGlN66kAE3yttUGSaI8oPB3wGK7/EwCFmmEWlbB1A6FamIIJTX3
-	4fXxZILS0EwuqoBN+QVXJI2dCeIN5h3l8sw/uS0JvXlGS7qbWFGYJq/OwTBh9vHDwubpgZFfR9c
-	dbty5xfhcfW055ubWtJLmbL70=
-X-Received: by 2002:a05:6402:52c1:b0:6ac:7737:e50d with SMTP id 4fb4d7f45d1cf-6af9e2fd054mr5882545a12.29.1791134203816;
-        Sun, 04 Oct 2026 10:16:43 -0700 (PDT)
-Received: from Desktop (pd9513667.dip0.t-ipconnect.de. [217.81.54.103])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb014784bsm2256819a12.3.2026.10.04.10.16.42
+        d=1e100.net; s=20260707; t=1791134551; x=1791739351;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=f7rAIIfQRjf/DZlHIopzmqG8GHaCqWeari8L74hauSs=;
+        b=0qMvZhM6ArubvK3lTwlHkSQ/UiZeg9yjSTm9oxYXy9mYwxKVi1+yC+sp0cozAKpPrm
+         4G+xS8k/HAFFM761YhFAPSmxwHSZLwhDBk/vBA7uLj2fXtVwvYVMuEFiSmno5o3GdqTv
+         Y9XNQIoCRyBPEomCPr42WKL4JnhmFI6J1Ms8ao0NfvssGChzpqQ+uvPyjhxaMxN2mpwO
+         2yZg1HRxX1q7N1aGsMJfnXIJIFmaKdbphW3mTGfJah+x+/VagXVRYl29khs9IWWh5ax0
+         7w6SEJCFUvnN+d2UsrG6dyasA6X3i4vN9Z++kvtz1Jym/PRuaL2y4HPI2kfJCNeXmykn
+         cG9g==
+X-Forwarded-Encrypted: i=1; AKwUvBxKxRrDDlh07I/pXQxB3ifhDRajuOP7dZC4CXZgWer2uOZf/r42xGsg3w0x8f+cWXjXkJ8xTT3ntZM2isBK73gU@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ5W59ySBhUcDujfAB/kq2FvQTFcdtVI6cGB8X4IB61NL7wpGYy
+	V+L2RFrD/b9fOeSicxmhFrPKHBbiodc4QOlkxlHUl0TKRF7UP7V9Cz/W
+X-Gm-Gg: AYBFou3qF6cEdpjMgc7oEaSkES7zYjAerCuJj+ljFDGMfzA9u2U7YMEYfWDZkNxUc4X
+	QrejhOopWn79+J6kSNbifnziJOhbgxm0gh/2tWEEEOSoihOngNEqX5OxIEw72S7aT/cGT9093gU
+	KDr4C+5WSqnguPgVDdAbsbppb7V+GkdsMtsT08KzFYf6rQvFIP9F8830tI5+BSbdxd4FclSHRKt
+	XTBZhr69ZhzFxhNwXU3D9FznhFc3N9255HJ0gzM1W1X2eT+vxvVn/wQoeW6PXLr8qOiJCjjKLI3
+	S6bphxzU+ZW6fKW4pGxXg4BEnLcLn4u/7aSz4CPlJmOvoa7nqAolaRM7C3twomIfd718inNCgko
+	zkAiLut/uQxqiTeM9Im4UgTJs8X97ROEBtucdHXLRVa34QZt6PJWkDbhIcgAKpLjm45jXUlRdlY
+	4HapbuDWmQK25GeN0ug3BYxX1ASMcjf7kYu6lF9034Su6dcNvZPB98/VCOA9yWFW4qHcUZFrOxj
+	+RovfpLHAmAGg==
+X-Received: by 2002:a17:90b:4d:b0:3a4:aee8:76ef with SMTP id 98e67ed59e1d1-3a78717db57mr4586561a91.21.1791134551329;
+        Sun, 04 Oct 2026 10:22:31 -0700 (PDT)
+Received: from SonYoungWon.skbroadband ([121.125.40.90])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a6dd4bd483sm5847677a91.4.2026.10.04.10.22.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 10:16:42 -0700 (PDT)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: pablo@netfilter.org,
-	fw@strlen.de
-Cc: phil@nwl.cc,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	lorenzo@kernel.org,
-	nbd@nbd.name,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	corbet@lwn.net,
-	rdunlap@infradead.org,
-	skhan@linuxfoundation.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+        Sun, 04 Oct 2026 10:22:30 -0700 (PDT)
+From: Youngwon Son <yoson5375@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	saeedm@nvidia.com,
-	leon@kernel.org,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH nf-next v3 3/3] selftests: netfilter: nft_flowtable.sh: check the priority a flow carries
-Date: Sun,  4 Oct 2026 19:16:36 +0200
-Message-ID: <20261004171636.3545085-4-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261004171636.3545085-1-julius@bairaktaris.de>
-References: <20261004171636.3545085-1-julius@bairaktaris.de>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Youngwon Son <yoson5375@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: Enable the NPU on ODROID-M2
+Date: Mon,  5 Oct 2026 02:21:15 +0900
+Message-ID: <20261004172115.5105-1-yoson5375@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_101645_801232_43F3C47D 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20261004_102235_995412_E3D07F18 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,154 +102,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Count the forwarded TCP packets that leave with priority 0:3 and those
-that leave with none, first without a priority and then with "meta
-priority set 0:3" ahead of "flow add". With the priority set, every
-packet must carry it, including those the flowtable forwards. Runs for
-IPv4 and IPv6.
+Enable the NPU cores and their IOMMUs on the ODROID-M2 and wire up
+the vdd_npu_s0 regulator.
 
-Assisted-by: Claude:claude-fable-5-1
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
+As the regulator is now controlled through the NPU power domain,
+remove regulator-always-on. regulator-boot-on is not needed either,
+since the RK8602 state can be read back.
+
+Tested with the rocket driver and Mesa Teflon (MobileNet V1).
+
+Signed-off-by: Youngwon Son <yoson5375@gmail.com>
 ---
- .../selftests/net/netfilter/nft_flowtable.sh  | 110 ++++++++++++++++++
- 1 file changed, 110 insertions(+)
+ .../boot/dts/rockchip/rk3588s-odroid-m2.dts   | 36 +++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable.sh b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-index 449c518bd947..73c7b1ec2208 100755
---- a/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-@@ -458,6 +458,106 @@ fi
- 	check_dscp "dscp_fwd" "$pmtu"
- }
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
+index 4e98fa3349..ea4d86a588 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
+@@ -320,8 +320,6 @@ vdd_npu_s0: regulator@42 {
+ 		reg = <0x42>;
+ 		fcs,suspend-voltage-selector = <1>;
+ 		regulator-name = "vdd_npu_s0";
+-		regulator-always-on;
+-		regulator-boot-on;
+ 		regulator-min-microvolt = <550000>;
+ 		regulator-max-microvolt = <950000>;
+ 		regulator-ramp-delay = <2300>;
+@@ -441,6 +439,10 @@ &pd_gpu {
+ 	domain-supply = <&vdd_gpu_s0>;
+ };
  
-+check_priority()
-+{
-+	local what="$1"
-+	local pmtu="$2"
-+	local ok=1
++&pd_npu {
++	domain-supply = <&vdd_npu_s0>;
++};
 +
-+	local counter
-+	counter=$(ip netns exec "$nsr1" nft reset counter netdev priocheck prio3 | grep packets)
-+	local pc3=${counter%*bytes*}
-+	pc3=${pc3#*packets}
-+
-+	counter=$(ip netns exec "$nsr1" nft reset counter netdev priocheck prio0 | grep packets)
-+	local pc0=${counter%*bytes*}
-+	pc0=${pc0#*packets}
-+
-+	local failmsg="FAIL: pmtu $pmtu: $what counters do not match, expected"
-+
-+	case "$what" in
-+	"prio_none")
-+		if [ "$pc3" -gt 0 ] || [ "$pc0" -eq 0 ]; then
-+			echo "$failmsg prio3 == 0, prio0 > 0, but got $pc3,$pc0" 1>&2
-+			ret=1
-+			ok=0
-+		fi
-+		;;
-+	"prio_fwd")
-+		if [ "$pc3" -eq 0 ] || [ "$pc0" -gt 0 ]; then
-+			echo "$failmsg prio3 > 0, prio0 == 0, but got $pc3,$pc0" 1>&2
-+			ret=1
-+			ok=0
-+		fi
-+		;;
-+	*)
-+		echo "FAIL: pmtu $pmtu: unknown priority check $what" 1>&2
-+		ret=1
-+		ok=0
-+	esac
-+
-+	if [ "$ok" -eq 1 ] ;then
-+		echo "PASS: $what: priority packet counters match"
-+	fi
-+}
-+
-+test_tcp_forwarding_set_priority()
-+{
-+	local pmtu="$3"
-+	local proto="$4"
-+	local dstip="$5"
-+	local dstport="$6"
-+	local lret=0
-+
-+ip netns exec "$nsr1" nft -f - <<EOF
-+table netdev priocheck {
-+   counter prio0 { }
-+   counter prio3 { }
-+
-+   chain egress0 {
-+      type filter hook egress device "veth0" priority 0; policy accept
-+      meta l4proto tcp meta priority 0:3 counter name "prio3"
-+      meta l4proto tcp meta priority none counter name "prio0"
-+   }
-+
-+   chain egress1 {
-+      type filter hook egress device "veth1" priority 0; policy accept
-+      meta l4proto tcp meta priority 0:3 counter name "prio3"
-+      meta l4proto tcp meta priority none counter name "prio0"
-+   }
-+}
-+EOF
-+	if [ $? -ne 0 ]; then
-+		echo "SKIP: Could not load netdev:egress for veth0 and veth1"
-+		return 0
-+	fi
-+
-+	if ! test_tcp_forwarding_ip "$1" "$2" "$pmtu" "$proto" "$dstip" "$dstport"; then
-+		lret=1
-+	fi
-+	check_priority "prio_none" "$pmtu"
-+
-+	# The flow stores the priority set before it is added, so the packets
-+	# the flowtable forwards leave with it too, in both directions.
-+ip netns exec "$nsr1" nft -f - <<EOF
-+table inet prioset {
-+   chain forward {
-+      type filter hook forward priority -1; policy accept
-+      meta priority set 0:3
-+   }
-+}
-+EOF
-+	if ! test_tcp_forwarding_ip "$1" "$2" "$pmtu" "$proto" "$dstip" "$dstport"; then
-+		lret=1
-+	fi
-+	check_priority "prio_fwd" "$pmtu"
-+
-+	ip netns exec "$nsr1" nft delete table inet prioset
-+	ip netns exec "$nsr1" nft delete table netdev priocheck
-+
-+	return $lret
-+}
-+
- test_tcp_forwarding_nat()
- {
- 	local nsa="$1"
-@@ -516,6 +616,11 @@ else
- 	ret=1
- fi
+ &pinctrl {
+ 	hdmi {
+ 		hdmi0_tx_on_h: hdmi0-tx-on-h {
+@@ -514,6 +516,36 @@ &pwm0 {
+ 	status = "okay";
+ };
  
-+if ! test_tcp_forwarding_set_priority "$ns1" "$ns2" 0 6 "[dead:2::99]" 12345; then
-+	echo "FAIL: IPv6 flow offload for ns1/ns2 with priority update" 1>&2
-+	ret=1
-+fi
++&rknn_core_0 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
 +
- # delete default route, i.e. ns2 won't be able to reach ns1 and
- # will depend on ns1 being masqueraded in nsr1.
- # expect ns1 has nsr1 address.
-@@ -572,6 +677,11 @@ if ! test_tcp_forwarding_set_dscp "$ns1" "$ns2" 1 4 10.0.2.99 12345; then
- 	exit 0
- fi
- 
-+if ! test_tcp_forwarding_set_priority "$ns1" "$ns2" 1 4 10.0.2.99 12345; then
-+	echo "FAIL: flow offload for ns1/ns2 with priority update and pmtu discovery" 1>&2
-+	ret=1
-+fi
++&rknn_core_1 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
 +
- ip netns exec "$nsr1" nft reset counters table inet filter >/dev/null
- 
- if ! test_tcp_forwarding_nat "$ns1" "$ns2" 1 ""; then
++&rknn_core_2 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
++
++&rknn_mmu_0 {
++	status = "okay";
++};
++
++&rknn_mmu_1 {
++	status = "okay";
++};
++
++&rknn_mmu_2 {
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&vcca_1v8_s0>;
+ 	status = "okay";
 -- 
-2.53.0
+2.43.0
 
 
