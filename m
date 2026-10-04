@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF00CA5FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A61CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkNIQLMpC1d0MEJXAzW0sGVZFQPX3e0T6cZ2nuvw/Bs=; b=dJjj+zx1EIHhlacV2/PCWZ9KHe
-	zwHqN1fNCo4yeVb+YYJRvxauZ0HsflsB0t8iMfM27ZOKvCm1z32AR+R+OKlv7t7Z4hnAm9l80tKBD
-	WUjG4PTSQoV9tMj671RgdEYAdlm3IMEpy7zPiTHy64yu77j1CQfWtW8RWk6NiMwrCEDQgCnRJS+cQ
-	JFLtM3Un4bOg8ePlhGA9wfjgwFIOW6Yah8c/8vy0TiqM8zCCYQkIYlcA7U+xmkr/oUXW6L1a3ZCNP
-	dYCTW+6KNa88wOeF4gdhcT6AjeNfm7qGi3uaxpA/0ph3CPi0iQ0VoXfZDGcYa0ikFRGakwZU9r6XN
-	TG7FBtAA==;
+	bh=0a14oKoy0hGUwl14Hk8RU7rKTvewWF1YWf6zha/hyIA=; b=V2Uc3XnONWuc6FN0snOOrvxIn8
+	+zC1TqAzbEVuE9BS8Cz+X0XlAweUdVRe3PzxGXvKpMnt9u0gZZVxSj0uH1x8z5HOPo0sBZ0qDOkjd
+	VhgtZodd0ZgIAzijf1fXhXgJyR2s0gwUkgy34ibK+a/7DrLfO12lCEcTnNi/pDxhr3ssEMxweGXxU
+	ePSOqN7X9MBTDR/5CqPbs2hpo8kwTds8HDNKGLITYxOP4zQgOOTQb00iZGVMXj8lXTKbR+6wo4QeI
+	PisrYUwh2cAh3G1vaH49/SHXIBSYkbGOCjkFhhwrRjAb8fg8PKgBiPxteKQYlJ4G/wmQECpDnN8P0
+	6lHTHa3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOy-0000000FPDV-2paz;
-	Sun, 04 Oct 2026 22:09:48 +0000
+	id 1xDUP4-0000000FPGU-3FEq;
+	Sun, 04 Oct 2026 22:09:54 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOx-0000000FPCa-2a5C
+	id 1xDUP0-0000000FPEb-3uE3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:09:47 +0000
+	Sun, 04 Oct 2026 22:09:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 600F740D9D;
+	by sea.source.kernel.org (Postfix) with ESMTP id AD562432C2;
+	Sun,  4 Oct 2026 22:09:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D134E1F0089C;
 	Sun,  4 Oct 2026 22:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72441F00898;
-	Sun,  4 Oct 2026 22:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791151787;
-	bh=vkNIQLMpC1d0MEJXAzW0sGVZFQPX3e0T6cZ2nuvw/Bs=;
+	s=k20260515; t=1791151790;
+	bh=0a14oKoy0hGUwl14Hk8RU7rKTvewWF1YWf6zha/hyIA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UQIGghcmZ2XPSAGpdOETkygsDHVBwLjNJemPo2BdKKHMrkSfXA4i1U/OV7ph006pu
-	 OmjvWTkoIaMe2wZpusrKJqhvzM9aQEuNrmAilDXVne69UwK+TsUSz7gQ69EO80a70r
-	 0ZoMis4oCoJMWnV7SPg8PEOIdkmsyJCL6712k52yosu8Ks8EYDxP+knNn7NvkUc5cx
-	 WMBo2BDjbXmXwVNAN1UZGvCuvdp8q5noKk9BSPvHeTHOoZMAtSxxePeeVPjZOD/pYA
-	 AmQolxiJyhmzvOHZm24BVO1yM9g679NErgZebCyhy3sXNSErPsAX+w0V3XVq4d/Hzr
-	 aGm7Dkn/VvVAQ==
+	b=n5Zyv5MTZ0zOCqwrSKCOEolSaVcLU9JMCtvCNhhelqGJZfoCTAtnpgntlDQE5tLAj
+	 0IUtejN0rG779RBdHIkl+OFKun4DtDNmDryEDJFrp4+N7pMGBghB2Krfqx2vI0pVd1
+	 okBm5bJPF2pGWf8xxv5Zv7IYsPYfWGPPPPkbV08g4pb89fTqohe4mbQ0Pwln6bVKwq
+	 MUpzCuA6+R+VNZo+N7rJ019ZUXj9ZYgq4vplViFE4kuDctFObjRtVr8FWlQqm0USE7
+	 nMn6j7PcJ4wCf6GkSfcHqqZNTBqAXSVsqQToig4zBeW01iXxEE977DZq2QK/Pw6TcI
+	 HdDLXLgdS1yYQ==
 From: Will Deacon <will@kernel.org>
-To: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Ruoyu Wang <ruoyuw560@gmail.com>
+To: mark.rutland@arm.com,
+	robin.murphy@arm.com,
+	jonathan.cameron@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yushan Wang <wangyushan12@huawei.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] perf/dwc_pcie: Fix PCI device reference leak in probe
-Date: Sun,  4 Oct 2026 23:09:19 +0100
-Message-ID: <179113437863.1501714.3722625240012640399.b4-ty@kernel.org>
+	u.kleine-koenig@baylibre.com,
+	linuxarm@huawei.com,
+	liuyonglong@huawei.com,
+	prime.zeng@hisilicon.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v6 0/3] drivers/perf: hisi: Updates for HiSilicon uncore PMUs
+Date: Sun,  4 Oct 2026 23:09:20 +0100
+Message-ID: <179113241038.1478216.17577065797192083960.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260820135611.3901886-1-ruoyuw560@gmail.com>
-References: <20260820135611.3901886-1-ruoyuw560@gmail.com>
+In-Reply-To: <20260916065348.3957834-1-wangyushan12@huawei.com>
+References: <20260916065348.3957834-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,23 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026 21:56:11 +0800, Ruoyu Wang wrote:
-> pci_get_domain_bus_and_slot() returns a referenced PCI device. When the
-> subsequent RAS DES capability lookup fails, dwc_pcie_pmu_probe() returns
-> -ENODEV without releasing that reference. Repeated failed probes can
-> therefore keep the PCI device allocated after removal.
+On Wed, 16 Sep 2026 14:53:45 +0800, Yushan Wang wrote:
+> This patchset adds support for the ITS PMU and a new version of MN PMU.
 > 
-> Declare the looked-up device with __free(pci_dev_put), so the temporary
-> reference is released on every return path. Keeping the reference scoped
-> to the whole probe also covers all later uses of the device during
-> initialization.
+> The ITS (Interrupt Translation Service) PMU counts the number and
+> latency of interrupts routed to the ITS by category (LPI/SGI/PPI), and
+> collects micro-op statistics for the ITS itself. It supports filtering
+> counters by a 32-bit interrupt id (int_id).
 > 
 > [...]
 
 Applied to arm64 (for-next/perf), thanks!
 
-[1/1] perf/dwc_pcie: Fix PCI device reference leak in probe
-      https://git.kernel.org/arm64/c/3a4067658363
+[1/3] drivers/perf: hisi: Consolidate uncore PMU cpuhp states
+      https://git.kernel.org/arm64/c/4c226fa3238a
+[2/3] drivers/perf: hisi: Add support for uncore ITS PMU
+      https://git.kernel.org/arm64/c/38de567676bf
+[3/3] drivers/perf: hisi: Add cycle event for new MN PMU
+      https://git.kernel.org/arm64/c/8a76246afe04
 
 Cheers,
 -- 
