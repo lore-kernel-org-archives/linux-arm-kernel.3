@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECECCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 06:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6416FCA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 06:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqmOLIl36qQETjuB7PbP+3Wg/tYuEHw7Jvc1sfwFByk=; b=1oOu9wJv5PIs+dDOBsm/zX+6P4
-	wBOurC3KGFGKybdq2DBSau1QtaCkixoFTH3Oytjx8VWCi0RkA9wECK6EnFWiEVrXXwIsVSuIB5Erm
-	+W6e6NS0hHPBHLeIBim4bctNkVERlknB71qzQ4+qov56bV36bmgN/zOwkNvXYTArPSjUZmkxRUADd
-	yzhHtRPh7sLiqEBn6El35CtTEYF4R9u9aqasXkdMT9XWqC29lCoZrgR4ylT/QU+jE0TwEA/4P7leS
-	/aImy/UmlgmLabwj4qXhv+UoRm2whknPcF2PaDNli8KELdDpS61fX9fzAWH8/2949z/8cp+wdTB/d
-	j+kAjQWg==;
+	bh=ND6Xn9LGPIbgdWx9zVUU2I1uYz7XDZMstUVT6Q27OyU=; b=i24SVW8FcGRg09105xj3tHY/uQ
+	3EaKyZ3NlAaMmx2o9DVmoZNs6M9NDlkeSNw7sTsIuXzRNQATDKGstu2UeQzcxlUBnfEzrrpf+Qn2n
+	wxBlOS8z4v9XLTe5z/8O7uOxpG5yCpJwVnb0l7T+8P1i8OTCuhK6XQgtJkqVCKt6eUiEOAFgZqS9v
+	hP0acI/efAsss9QkxJ7lJhXvQnDjBN4M3TIcN/2l2rcMfupmv6BLWFh2aoKuND/pRuxyzYDl1kcvk
+	2fx9q01MfDBKTgcDHKDxqQ5yBnjHisiCP/1SOCCywt1qEVbRksGyuW60u8StiLg6Jk6hb9+wmaFlG
+	lIeQfh0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDFLT-0000000ENSQ-3f0i;
-	Sun, 04 Oct 2026 06:05:11 +0000
+	id 1xDFLg-0000000ENZa-0yOh;
+	Sun, 04 Oct 2026 06:05:24 +0000
 Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDFLR-0000000ENQE-15tr
+	id 1xDFLY-0000000ENVk-28we
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 06:05:10 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id 98e67ed59e1d1-3a6df9494e5so178896a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 23:05:09 -0700 (PDT)
+	Sun, 04 Oct 2026 06:05:23 +0000
+Received: by mail-pj2-x0d.google.com with SMTP id 98e67ed59e1d1-3a6f8525bfbso384326a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Oct 2026 23:05:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791093908; x=1791698708; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791093916; x=1791698716; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jqmOLIl36qQETjuB7PbP+3Wg/tYuEHw7Jvc1sfwFByk=;
-        b=dgecnP3ANhyNkZIIhxqoogbP8dFuhwyeMpQ4T7YpsNKQO/3saHE2fGhtXMiYg+jJws
-         5ZT5gqTLlspcrSNQ6VfptdmmkPVTD3bdr90FVgqdCVDlGKnjVySyfNAt9nQzgUyUQG9s
-         CsbpuIBkKlGyLHdFYFYUSqXL3bMit4xUYRj3ns+nRli7rZ8IcUFNrX6B2ofhTiVcx8ZJ
-         KtN4QFNk/G4Ake2iagb7gdpcpjvsuYN+AH/Npxdx3eqjpEONS37apwWmuxtbsGtEPRSt
-         YoQvENKjFyqb4ojynVQ7oOEMAfpVBR5imhMkYifbe23Kq8JA2I9E7nusVjgnonjRVv0b
-         Q4mA==
+        bh=ND6Xn9LGPIbgdWx9zVUU2I1uYz7XDZMstUVT6Q27OyU=;
+        b=L6iYVDNy1S+fhNIcoGFppgvHYDdVZukn+UE50wzlsHFSKmuQOrwB8nA/v5hS6TKaF8
+         iQmyZvV0kJqSjJQMdZj7/qJli6N/WaoEK9fmc6tVE0SxDsi+FkyjmhwQjJrWJppgLC/u
+         NfhrClhxsax1cc/yDkjNADGf/icWkEUf8wRlYA8vBG28XEt7Rt9TSXXaRNw7y6ANx+lI
+         TDKjF9zsUFqc0H+QCl9cEL77FZTfI72Lfy07CsuX4UVgyUUoRxB3dHDrNQ8cVwmM15im
+         FOSGylT8uX2j4ZzRpiy9+ndkkFeCw4IkXDtfOgnuoI9IGDhpkdLuypUmiaodfBR/FMPW
+         WyEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791093909; x=1791698709;
+        d=1e100.net; s=20260707; t=1791093916; x=1791698716;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jqmOLIl36qQETjuB7PbP+3Wg/tYuEHw7Jvc1sfwFByk=;
-        b=0RtcC4fbvhy0+mQHalvKYXXXyO/OAoBnCWSPoJ2abHnz1a/MibJut0lIbqFIvhTDF6
-         BamtzE4kq6BphOdnFlZ2oBsw6HTIAO0HiIR0UTx+nqaiCda1vrK1Po0a005TzHzZCYpq
-         +CSzgx5oJun3PBePXuztK5/78MNyn0hLpV0h8BuU0QtF5ce1M0VRO+HTDO6gsSFxWNAh
-         EyueDIlImF/UJ0a1olO3MUhSqSBpF9JLSd/JLDc+KhLStx9Z0kE4Ezn5QCjOjtqKhUZ9
-         iMwHvF7taaAXNF5NLeGogNif5OEbxNqOJ1cJclh4MFsTad2YhP4Vn3WTC3K3WyGbQ8QW
-         q3FQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx/kOXWIuGBQ6ne/J1PYqbu8lRMcc6bOdFyilnMs/gJbnpUp1cX+ZFK9LWxng8U4uUs+GfoJkOQrKarENtyJETf@lists.infradead.org
-X-Gm-Message-State: AFq9FYLiTcqzxjGJ3mBcD44A1Z9CXOZRl9BvRV8qJ7NW4FDMiNUVWRyr
-	mCdzwfl9RnkWsZEODomHKhUm5385/dc+YbOLGfUdva2W0fsTw5EfZDuk
-X-Gm-Gg: AYBFou1qznLLxjZWZJgQra+q++i3vVjZC6g1SK2VBSx8cpqn3bvLVgFYl3qdFSZn8k8
-	qmYsTV/N+9cC36gaSUEi+twjVnHklWBtWwA8WUx//bP0vmfQofxCDwNjeBQTl8BWTd9jyaTl3DG
-	PmEuvCIScIQEzXFd0rtuHExyAtF21/9pCTeDeQ+xrUZsgJ0oy/m3Ow5HGykx3Wjec6SJzIdya5w
-	aTLd8P9QoGNKOB8vgu7DVZwHNqjfsVLicL+1MN5p4/rTkfKaC61x7L62m47cfSaCfDb+CeP02Jo
-	SF9N7SkweJYhDE8DVM2SMGhCzvsViFKkJHNJiLdBCbORb1QmRDv6YaSNE1OnXWIEVucYWHkLsvq
-	JTJxRzjrM2ikaTIa1ANnr0yAv1gfSbfu6veKQqVVgV2k+cAuC1dah9OGXn7wv0fHZ2PrRMs63V8
-	5Sw5Vjm8J+UI7tgLOh+IAX2sPF4f1xO5iayRv6/BYv3TLpn0Hz1JmC4Q7DaS8XoygPiHKZegxWh
-	siZDwVLGfddNUvP2jT1JphpRAV5wx0WIm+idEYrG6Rno8lh+s+mVcbjhhvgC67MlTuTdncxQmfN
-	5vuonRtx+pUzrZWBtL+yvIo5yzAAgSAcWNx9uEBJ0nrhxQg=
-X-Received: by 2002:a17:90a:1117:b0:3a6:e9bf:f244 with SMTP id 98e67ed59e1d1-3a6e9bff6c1mr2758728a91.1.1791093908591;
-        Sat, 03 Oct 2026 23:05:08 -0700 (PDT)
+        bh=ND6Xn9LGPIbgdWx9zVUU2I1uYz7XDZMstUVT6Q27OyU=;
+        b=wj6w4hxbSaQWB5U197jcw/d92j8RsJLYVwmAD2+/XUoAyYhC2yHU8ZTD4SkHX18mRV
+         +VH0yzfxErlCPyUmV1eotZHhcu8B7JZq82GXP5pEHVn3ZkGSmxU5qBjWbG+EHhyvFbA0
+         8mSj2CNV4w9W4VY2QfhyNaF+YF3LtznrIWrlhhwmeZkU1srIoxkFppIs4+L1ypLeuZMU
+         YhYFC9hEhSleMU1bphdhcVn9EViU13xehqBpNvgliKwwf4Tq6In19UNU00l/q4SSTss3
+         8MqsR+b5uCrVBcEWzkgggPAOPstfTzrb8I8FMJsnXkuTcnK7EZAN8moqRBNKw21Pzb5z
+         5Hgw==
+X-Forwarded-Encrypted: i=1; AKwUvBzptaSxQrF8sus6vqFmB0gtnxSSZrJmf4KcM/PF/bTejBabI/8Fu/+CLFw2hu6kpKF5nymWtw7rh6RYiD36RfzX@lists.infradead.org
+X-Gm-Message-State: AFq9FYI/mN2GSYNt3jHqK/C2PPBPX7Fkzzm8mFHfjdFIQUfs8jVM37XZ
+	eBD7VJWdqh/wJp22ixout4RuXOCKqqSrxf+VlEkYe1+oxZHULISqU2e+
+X-Gm-Gg: AYBFou2/JYutZyW1bdkKh71sSnGSwo6eLP33xCarCL85ygIDRN4NmwdHGFZn3D4+B+w
+	HGf6rT+ny+LyFTLr+SgVq8RaPpLeGXn3pnnH6uygRNtmASKHK3IryNULXpLRMBvUE9oP59gVUKR
+	2pnQD01m45cTB4nGa0plJMuFZDXoAtm9ftLWI5av0qaq70/jwUZARoi7Luu/QGWwgtFy8lqStkc
+	yeuoCmLiXDhfsYobZc9ifYsOYe7CpmCO2AIS2glwT7LvT9G2FJEBC8mk51Se2/+19qUh4WBf3Fw
+	68xYZK8x3WyKS1lGdujAxNBCXblffc3QGoXqvP9flSC01fpmyfTOgVeGKWZvrzoYMINT9nECDgh
+	KW9JphvgBafz783VbE7HcKnwjevfUgiExCMKqFWnxNwJqMTc20tWbCsaIeTbbFWJmd455jcwlpA
+	b5/esD62EimbqNCCbYttnEO1XkAIBTF9gX2NFJ8Al2salJkSpA1on1SfBU5n6LBPOBj00Kgspix
+	ybVX5ab4UOtOV0ORpTksJa1KN4YKc0klV+ogxASF7rr+132zIxHzW1Qp5hokuisaexq1YQjB6i1
+	Ni6PfAJ7wGGfzBfmRs/1zXpMRy/vBn4fWhusIAbY+AiuS9I=
+X-Received: by 2002:a17:90b:2812:b0:3a4:cbaf:f152 with SMTP id 98e67ed59e1d1-3a6cec2fb6emr2736881a91.33.1791093915710;
+        Sat, 03 Oct 2026 23:05:15 -0700 (PDT)
 Received: from [192.168.2.3] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78d4a869esm5844094a91.2.2026.10.03.23.05.00
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78d4a869esm5844094a91.2.2026.10.03.23.05.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Oct 2026 23:05:08 -0700 (PDT)
+        Sat, 03 Oct 2026 23:05:15 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 04 Oct 2026 16:03:31 +1000
-Subject: [PATCH v2 04/21] ASoC: dt-bindings: cs42l42: Document
- sound-name-prefix property
+Date: Sun, 04 Oct 2026 16:03:32 +1000
+Subject: [PATCH v2 05/21] ASoC: dt-bindings: Add binding for Apple Silicon
+ Mac audio
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261004-macaudio-v2-4-7b47ed6335a8@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261004-macaudio-v2-5-7b47ed6335a8@gmail.com>
 References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
 In-Reply-To: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
 To: David Rhodes <david.rhodes@cirrus.com>, 
@@ -101,18 +101,18 @@ Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=872;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7056;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=Cx0fL2VvnwLsqHLvmS8INkeZRK4JUpqpc1FDp9KDOfU=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFkH3+TMa63lNI19lscfXLmmJedDuMK8VtmvCllnZKIn9
- T9vunipYyILgxgXg6WYIsuGJiGP2UZsN/tFKvfCzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
- RjrGOkYMXJwCMNUb7zL8U0p1EZI4bPTtEkvLYlWLwllT1wbqXbuteH7xl8+7ontLkxn+B5/2/bb
- vj4KDQUOSipjXKZlle7gEz9leeFF4cCXrY4eXTAA=
+ bh=edwYXBTQUN1BJwuH/myONPpbVVDVKxKBlGn6cvmdYcM=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFkH3+T8n6S05ssjt3VXeH/5abN0rD7X8l3TwfnwMveNC
+ nZTjyX/6pjIwiDGxWAppsiyoUnIY7YR281+kcq9MHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
+ oZGOsY4RAxenAEx1wlNGhib72Y9aU6bFiwarVGz6cGLlmgUJu3PeybAcaEmz/zF56yFGhvPLv85
+ urNso86dFdsvVpArpA09jsy7Lmf68f8T2CUMzJwMA
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_230509_325772_D9B526E4 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20261003_230517_691371_8F51ED22 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +127,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some consumers may wish to prepend the codec's name with a known value
-to identify a specific codec among many. Enable this with the common
-sound-name-prefix property.
+From: Martin Povišer <povik+lin@cutebit.org>
 
+Add a binding for the primary audio subsystem found on Apple Silicon
+Macs. This binding integrates the codecs and SoC I2S peripheral
+used for driving the headset jack and speaker arrays on all Apple
+Silicon Macs. The internal microphones on this platform are
+connected to a distinct coprocessor and are not part of this
+"main" audio subsystem.
+
+Signed-off-by: Martin Povišer <povik+lin@cutebit.org>
+Co-developed-by: James Calligeros <jcalligeros99@gmail.com>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- .../bindings/sound/cirrus,cs42l42.yaml   | 3 +++
- 1 file changed, 3 insertions(+)
+ .../bindings/sound/apple,macaudio.yaml   | 210 +++++++++++++++++++++++++
+ 1 file changed, 210 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml b/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
-index bc759eaadeca..035463be1456 100644
---- a/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
-+++ b/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
-@@ -29,6 +29,9 @@ properties:
-   '#sound-dai-cells':
-     const: 0
- 
-+  sound-name-prefix:
-+    $ref: component-common.yaml#/properties/sound-name-prefix
+diff --git a/Documentation/devicetree/bindings/sound/apple,macaudio.yaml b/Documentation/devicetree/bindings/sound/apple,macaudio.yaml
+new file mode 100644
+index 000000000000..c0a04fab82d3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/apple,macaudio.yaml
+@@ -0,0 +1,210 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/apple,macaudio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-   VP-supply:
-     description:
-       VP power supply.
++title: Sound peripheral integration for Apple Silicon Macs
++
++description:
++  The speakers and headphone jack on Apple Silicon Macs are
++  part of an integrated audio subsystem comprising of Apple's
++  I2S peripheral (MCA) and a series of codecs. The machines
++  have a wide variety of topologies ranging from a simple
++  mono speaker in the desktops to complex stereo arrays with
++  dual-opposed woofers and tweeters all driven by their own
++  mono amplifiers. This arrangement can be expressed as a
++  set of DAI links, where the MCA ports each codec is connected
++  to are represented by the CPU side of the link.
++
++maintainers:
++  - James Calligeros <jcalligeros99@gmail.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - apple,j180-macaudio
++              - apple,j274-macaudio
++              - apple,j293-macaudio
++              - apple,j313-macaudio
++              - apple,j314-macaudio
++              - apple,j316-macaudio
++              - apple,j375-macaudio
++              - apple,j413-macaudio
++              - apple,j415-macaudio
++              - apple,j473-macaudio
++              - apple,j456-macaudio
++              - apple,j457-macaudio
++      - items:
++          - enum:
++              - apple,j493-macaudio
++          - const: apple,j293-macaudio
++      - items:
++          - enum:
++              - apple,j414-macaudio
++              - apple,j504-macaudio
++              - apple,j514-macaudio
++          - const: apple,j314-macaudio
++      - items:
++          - enum:
++              - apple,j416-macaudio
++              - apple,j516-macaudio
++          - const: apple,j316-macaudio
++      - items:
++          - enum:
++              - apple,j475-macaudio
++              - apple,j575-macaudio
++          - const: apple,j375-macaudio
++      - items:
++          - enum:
++              - apple,j613-macaudio
++          - const: apple,j413-macaudio
++      - items:
++          - enum:
++              - apple,j615-macaudio
++          - const: apple,j415-macaudio
++      - items:
++          - enum:
++              - apple,j474-macaudio
++          - const: apple,j473-macaudio
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
++  model:
++    description:
++      Model name for presentation to users
++    $ref: /schemas/types.yaml#/definitions/string
++
++patternProperties:
++  "^dai-link(@[0-9a-f]+)?$":
++    description: |
++      Node for each sound peripheral such as the speaker array, headphones jack,
++      or microphone.
++    type: object
++    $ref: tdm-slot.yaml#
++
++    additionalProperties: false
++
++    properties:
++      reg:
++        maxItems: 1
++
++      link-name:
++        description: Name for the peripheral
++        enum: [ Headphone Jack, Speaker, Speakers ]
++        $ref: /schemas/types.yaml#/definitions/string
++
++      codec:
++        type: object
++
++        additionalProperties: false
++
++        properties:
++          sound-dai:
++            minItems: 1
++            maxItems: 8
++            description: |
++              DAI list with the CODEC-side DAIs connected to the above CPU-side
++              DAIs and involved in this sound peripheral.
++
++              The list is in left/right order if applicable. If there are more
++              than one CPU-side DAIs (there can be two), the CODECs must be
++              listed first those connected to the first CPU, then those
++              connected to the second.
++
++              In addition, on some machines with many speaker codecs, the CODECs
++              are listed in this fixed order:
++
++              Four speakers: Left Front, Left Rear, Right Front, Right Rear
++              Six speakers: Left Woofer 1, Left Tweeter, Left Woofer 2,
++                            Right Woofer 1, Right Tweeter, Right Woofer 2
++
++        required:
++          - sound-dai
++
++      cpu:
++        type: object
++
++        additionalProperties: false
++
++        properties:
++          sound-dai:
++            minItems: 1
++            maxItems: 2
++            description: |
++              DAI list with CPU-side I2S ports involved in this peripheral.
++
++        required:
++          - sound-dai
++
++    patternProperties:
++      "^dai-tdm-idle-mode-[0-9]$":
++        $ref: tdm-slot.yaml#/properties/dai-tdm-idle-mode
++
++      "^dai-tdm-slot-tx-idle-mask-[0-9]$":
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: Idle slot mask. A bit being set to 1 indicates
++          that the corresponding TDM slot is inactive/idle.
++
++    required:
++      - reg
++      - codec
++      - cpu
++
++required:
++  - compatible
++  - model
++
++additionalProperties: false
++
++examples:
++  - |
++    sound {
++      compatible = "apple,j416-macaudio", "apple,j316-macaudio";
++      model = "MacBook Pro J416";
++
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      dai-link@0 {
++        reg = <0>;
++        link-name = "Speakers";
++
++        dai-tdm-idle-mode-0 = "zero";
++        dai-tdm-idle-mode-3 = "zero";
++        dai-tdm-slot-tx-idle-mask-0 = <0xf0f0f0>;
++        dai-tdm-slot-tx-idle-mask-3 = <0x0f0f0f>;
++
++        codec {
++          sound-dai = <&speaker_left_woof1>,
++                      <&speaker_left_tweet>,
++                      <&speaker_left_woof2>,
++                      <&speaker_right_woof1>,
++                      <&speaker_right_tweet>,
++                      <&speaker_right_woof2>;
++        };
++
++        cpu {
++          sound-dai = <&mca 0>, <&mca 1>;
++        };
++      };
++
++      dai-link@1 {
++        reg = <1>;
++        link-name = "Headphone Jack";
++
++        codec {
++          sound-dai = <&jack_codec>;
++        };
++
++        cpu {
++          sound-dai = <&mca 2>;
++        };
++      };
++    };
 
 -- 
 2.55.0
