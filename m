@@ -4,98 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343ABCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D18CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=; b=xMLhBsLNjkAzJ2CYoEd4ESr9ao
-	OGNaChYPDkAB2vwW4Tn2FerghfAMAZcGbSiEwHe0w1VDbL4SVIUmtMzdmKooit+p0ht1HJA1iX37D
-	47up4T3rJYQdsZvuw6Egle3yiubRMUuiyUEAAcfvzeKByaGL2l+1apcHWTgCORgQa/iLwhSIoZtNL
-	8juWtwMHNS3IME3QFJLniHkjQUuxQKW/p8rYzdECThlIlXGnlAqTHap31uMehN3cW7oFOLxSZJACe
-	NW1rCiN3IJMj714xfhiqSrD3dBd5LonOevxHjEgIm3oqLCrstLt/VZiB/Bf23SIA3XqhUFVINPcNP
-	dXKBI0zw==;
+	bh=rinosCynbc2xpe3rDyj7sc4OtS5EUsnctpcqA6exJpo=; b=sd4GQFUogu6ZRXSThQNyPBhx3z
+	3LDIRtDzqi/vc63irgGyyD80vHeWKqP5njeRkwRXgoUg9+EU7O9Qf1CWRh1NFAQExxpZrq5xGMkIh
+	tyx1RFGEzqugWuICrfbauNcn5e9nDQsNySZTk+76/1dTenrd33kyqQSqPUvgsUMjmt4nY62NjI4Eh
+	nOFzc0mz3UKgENEO30DAQX16WZc0700YyxlsT0+wZbvwR69YcYXPGs6tP9bLvoG7VQ2dl4QmTpHqa
+	8VboFp8QkpzFn2ae1MnH/xnjbALSC1kdALt1HfhDARuEb/6chQOwo1JvcyRZR2zpL+hAYlmvFIHuh
+	praztL5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiVU-0000000GUaG-0DS4;
-	Mon, 05 Oct 2026 13:13:28 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1xDiWj-0000000GV1W-1qn7;
+	Mon, 05 Oct 2026 13:14:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiVR-0000000GUYi-11f4
+	id 1xDiWi-0000000GV0w-09nN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 13:13:26 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49d05d51553so12577465e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 06:13:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791206003; x=1791810803; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=;
-        b=ELn9TZ+pgCEd0dwFFbaUwISj+gIqFA9+Omz/zKp/lPBUXnumy7fpkKuTyODtujmt9f
-         BZ9sjW7BN3hCvqpaKGemIhNZE89P//trzz9Ab1n5AqqiUWNsPCKYE2qLa5VMopBBfK8A
-         6dHonrt/vyq4djGpXuzkrEL8oY2/Pct5NZTAeaqETpFjc7U2lqBxhTgVT0sEqYexARE6
-         8tEepSQFuxR6vJVWf7OwXPKAIFbGTiPwCgqhW9iJ1OKicC8qkFZhQ5o1iWE7v0yxdcjl
-         hMfsewf+kJ92Fg42KdKqtwrX9fUOZXGMEZwjbC+VjsWRrUq2DLnZtSq8XX3Q9X1Ns6z2
-         kufg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791206003; x=1791810803;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=;
-        b=lbk5JUZVVUrgh9JOMNQl6yJaAqgHfspgmy3ozT8g3W6QtYmA5zXk2M3hmRyoy3g7pm
-         F1euiH6kau+y6K80emVfGIH3+U8hYW5L9gDjvHUo81JaQtzFOJVcBlKlizLHjEERLUxo
-         CfZQFkpfg+m5RMWFMaWFjQiVRTYcIqqM6TINi4kY4Jp0DC3V0VuZ3jkMDD9X7yYbZ/zt
-         BiPmpSWm1Ci9CJ6l3FZX9ijnlv+Eo8oIvFOqF1sWdM2NIsRxu6I0xR7cplGAaamhg8f1
-         XBpw0P5dXGrG+IfrJ2e2XCtMznpuo0/cuNnOeJOxNkbYsbzpN/NVuwGnmcRcwFYKDo0m
-         0slw==
-X-Forwarded-Encrypted: i=1; AKwUvBx2EMblz1zdeNduCQP4NVh1aYoMA/09K6oYqxjXbXPH2NedvtTF+y6kb+y0M8hvioOWi0K6a+ThJtrliKQrfmsf@lists.infradead.org
-X-Gm-Message-State: AFuF++nf6FctxvtQiGCqtTzuF0DdTHZd0Huuzz3BJBp1FrVHxF51kXYo
-	e9btLkBHEa2j8ChAJd9ePF2NE0K6Cz1leD+H18ysvqiczFnXQQ5ysfFh
-X-Gm-Gg: AYBFou175u1WlJFMYV0CCE1tFqNbjvarY+mvh45wUp5JtuBvWwM7+itMsHMePJlxM9p
-	qXD6trEHTaH3qk49SfC7Q1HHLKu05vmCeP0WBxn+Y3HEuLhHu2PQsFdPHYW+oAUY+nlGhHHJF2K
-	eP8ci7tOWzyJjLn1fssLMwHebmlokj8WmaznHkOspjYN0y0DuUnPVj8sJqVv4YFU9h27jy5kbot
-	iE39UuSoUWNQTro52dH/dufv8myVwd3OLXcltLmVivqNVQGdUFKK/zeoww08mLkYcfHnL0RW45b
-	UOrieAqMeNUPwzmYMikchmJ5Tw3gr7kh9g76fEM+xCxs2wfYv5Nps3z2q42xXyDDn4pcmpug0vo
-	JYLVWmlUk//Y14IrKUEtLu0r7s7EpS3bMjiY+bL2NRwinutdNvrRnobFzdhRSjAth1FKKiedMdq
-	kLLApl2kmLu4PsdQx9grlashArIUlBDpxudlhC5yuNAJyo6mHQw+3Uwdd/qEJC8lE2U1n8ip1pM
-	iApk3V+tBK1wmnVkrry+1slwnt1tBdW+RfdBc+wdiDJ0NakSzOfIha5ea5lN7AxpBNxVJaqGQtX
-	7iLruGe2YEYA0GuQyHncerOtauQTS72EUNb0uXRuzFKnaJH6Cxf1/7UBqXEVrRdy8ZehS+09ejd
-	QzYR62yO510+fVrwNjwbghFLUmYNvs4L8p4xwPJ2U0KzE/24aDQ6TWUk697lLWKy581gBN/25yt
-	OROgVJXA==
-X-Received: by 2002:a05:600c:4705:b0:49c:fc6e:a3da with SMTP id 5b1f17b1804b1-4a1680ffb88mr122325845e9.25.1791206003215;
-        Mon, 05 Oct 2026 06:13:23 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027734b49sm343621165e9.10.2026.10.05.06.13.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 06:13:23 -0700 (PDT)
-Date: Mon, 5 Oct 2026 15:13:17 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Conall O'Griofa <conall.ogriofa@amd.com>, <linux-iio@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <git@amd.com>, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v4 06/15] iio: adc: xilinx-xadc: Use
- guard()/scoped_guard() for spinlock locking
-Message-ID: <20261005151317.00001df3@gmail.com>
-In-Reply-To: <20261005094205.1045874-7-dileepkumar.nagavarapu@amd.com>
-References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
-	<20261005094205.1045874-7-dileepkumar.nagavarapu@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Mon, 05 Oct 2026 13:14:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DC3760236;
+	Mon,  5 Oct 2026 13:14:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3DF71F000FF;
+	Mon,  5 Oct 2026 13:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791206082;
+	bh=rinosCynbc2xpe3rDyj7sc4OtS5EUsnctpcqA6exJpo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=JZEOtb4nZaXBOW/R96TfohV/XC08ptl4jMwaJKP0DJ4Sax9/HHj6kpL8nLvOCMxJW
+	 cS5ZW4x3BpU0WpJ837UZmPRP58PrCjMBEs5VU9m1LLLby9W/2szifjJVHrIjtzDmUS
+	 7wELp05B88pySbsjbxNSaIs5PZ7AqMZJhQJ7D5DZGl6YO8nk7jJLDvf/DkRL/42myA
+	 rwl+XJV74yYuPJfclqishkZ5H22Dqy1zo3rAe5QmaRWM0tvjuFQa2K0lMmGFx95PPb
+	 7hkzrSl9L2ocSaEv55GfEd5XBJZ//Gm26T0I5YaxuyiOczE83GVq8XjFI522C1LMmR
+	 PHiPRJ/WKoaog==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
+ Bhargav Joshi <j.bhargav.u@gmail.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ goledhruva@gmail.com, m-chawdhry@ti.com, daniel.baluta@gmail.com, 
+ simona.toaca@nxp.com
+In-Reply-To: <20260924-ti-davinci-spi-v5-1-ed811dc6cd89@gmail.com>
+References: <20260924-ti-davinci-spi-v5-1-ed811dc6cd89@gmail.com>
+Subject: Re: [PATCH v5] spi: dt-bindings: ti,davinci-spi: Convert to DT
+ schema
+Message-Id: <179113445460.150114.379419426296382402.b4-ty@b4>
+Date: Sun, 04 Oct 2026 19:20:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_061325_305525_A2EDC583 
-X-CRM114-Status: GOOD (  12.81  )
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1123; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=KVGeYyZ+6WVVLz3FLkcRdwWY/D8tnkeZOopq1PLkY8M=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqw6K8qMhKJZ78dWWvOIYCkRZyq8g5Ma6N73h/Q
+ js71uWZHHuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasOivAAKCRAk1otyXVSH
+ 0EmZB/9QWH3BLvEK/ETB7ZJNoIzT142mol77BtQOPzpHXGrhAEFxBKIQrAPgMhvhepeE2o/Q4VB
+ HYJNF/qkDIBnJlCEd6hqHUClo2uLi+qUe/Y6U5tl9hJ89L4LL57uWTa3YgpP3EGMStkmXIcaRN9
+ PgRDe7HVxOpqshzVX1eu0o+LUm6g/VLKL5cpX9/WpPtIRibIYdVFmBQnrKLCqnpISjIGTBIyweR
+ AVeTK5gjOe4lj5VA04JYvtFnaFRoUQh+QsHgx8biXX91Nb/+/xC3e+u0JDuaYKx+kIZXP4yxqEF
+ /4GdJIVfMpzf3r/2ZftpBkQ0BCCjzl92AQUTQeLkxgf5FXUU
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Oct 2026 15:11:56 +0530
-Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
+On Thu, 24 Sep 2026 04:12:40 +0530, Bhargav Joshi wrote:
+> spi: dt-bindings: ti,davinci-spi: Convert to DT schema
 
-> Use guard() and scoped_guard() helpers for spinlock handling
-> instead of spin_lock/spin_unlock sequences.
-> 
-> This removes the need for explicit spin_unlock()
-> 
-> No functional change intended.
-> 
-> Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-> ---
+Applied to
 
-...
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
-> @@ -677,15 +670,15 @@ static int xadc_trigger_set_state(struct iio_trigger *trigger, bool state)
->  		xadc->trigger = NULL;
->  	}
->  
-> -	spin_lock_irqsave(&xadc->lock, flags);
-> -	xadc_read_reg(xadc, XADC_AXI_REG_IPIER, &val);
-> -	xadc_write_reg(xadc, XADC_AXI_REG_IPISR, XADC_AXI_INT_EOS);
-> -	if (state)
-> -		val |= XADC_AXI_INT_EOS;
-> -	else
-> -		val &= ~XADC_AXI_INT_EOS;
-> -	xadc_write_reg(xadc, XADC_AXI_REG_IPIER, val);
-> -	spin_unlock_irqrestore(&xadc->lock, flags);
-> +	scoped_guard(spinlock_irqsave, &xadc->lock) {
-> +		xadc_read_reg(xadc, XADC_AXI_REG_IPIER, &val);
-> +		xadc_write_reg(xadc, XADC_AXI_REG_IPISR, XADC_AXI_INT_EOS);
-> +		if (state)
-> +			val |= XADC_AXI_INT_EOS;
-> +		else
-> +			val &= ~XADC_AXI_INT_EOS;
-> +		xadc_write_reg(xadc, XADC_AXI_REG_IPIER, val);
-> +	}
->  
->  err_out:
->  	mutex_unlock(&xadc->mutex);
+Thanks!
 
-Since you've moved the spinlocks to use guard, what about replacing
-mutex_lock/unlock as well?
+[1/1] spi: dt-bindings: ti,davinci-spi: Convert to DT schema
+      https://git.kernel.org/broonie/spi/c/38ee6caa8d10
 
-Otherwise this seems fine.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
--- 
-Kind regards,
-Joshua Crofts
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
