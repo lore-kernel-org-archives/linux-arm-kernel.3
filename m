@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DDBCA5FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF00CA5FFD
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmHpsPp9iLBwKSLkzgRZINeT3/eG4Q/SLR9a6Ub540M=; b=RWBzWcuh9uB8sNhB5n94h25nyD
-	1pau5JeJUR8zkixwMqAMOE8/QgW3jffiXSbGk8RjKgTVE/KXtjXpokt0sRR4eGJPZDpVMGAKsXP8V
-	zXJo4OjFht0UhcvY3GmPqk37CcQwo8Vz8vXzvknw+HCDCJYds9R4FFjk/2ukF7mnHn5miwK7JeGHC
-	IBJ/qYlETCCdoPUF26ecOt2ykT68o8s510LWgoeogQia4uNuISlGbDYcORBv2CmmPurhZfhV6iO33
-	rLsM0g2fI9kEZpjBv6nxU2vjuVuuw5UQzoomXbqEGPW5TbOV9RBS7Id2iqHndMoO9bbOWgL6+YYCr
-	kNBNyFiQ==;
+	bh=vkNIQLMpC1d0MEJXAzW0sGVZFQPX3e0T6cZ2nuvw/Bs=; b=dJjj+zx1EIHhlacV2/PCWZ9KHe
+	zwHqN1fNCo4yeVb+YYJRvxauZ0HsflsB0t8iMfM27ZOKvCm1z32AR+R+OKlv7t7Z4hnAm9l80tKBD
+	WUjG4PTSQoV9tMj671RgdEYAdlm3IMEpy7zPiTHy64yu77j1CQfWtW8RWk6NiMwrCEDQgCnRJS+cQ
+	JFLtM3Un4bOg8ePlhGA9wfjgwFIOW6Yah8c/8vy0TiqM8zCCYQkIYlcA7U+xmkr/oUXW6L1a3ZCNP
+	dYCTW+6KNa88wOeF4gdhcT6AjeNfm7qGi3uaxpA/0ph3CPi0iQ0VoXfZDGcYa0ikFRGakwZU9r6XN
+	TG7FBtAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOt-0000000FPAD-0c38;
-	Sun, 04 Oct 2026 22:09:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDUOy-0000000FPDV-2paz;
+	Sun, 04 Oct 2026 22:09:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOr-0000000FP9n-3ZhD
+	id 1xDUOx-0000000FPCa-2a5C
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:09:42 +0000
+	Sun, 04 Oct 2026 22:09:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98F3B444EE;
-	Sun,  4 Oct 2026 22:09:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4491F0089A;
-	Sun,  4 Oct 2026 22:09:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 600F740D9D;
+	Sun,  4 Oct 2026 22:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72441F00898;
+	Sun,  4 Oct 2026 22:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791151781;
-	bh=nmHpsPp9iLBwKSLkzgRZINeT3/eG4Q/SLR9a6Ub540M=;
+	s=k20260515; t=1791151787;
+	bh=vkNIQLMpC1d0MEJXAzW0sGVZFQPX3e0T6cZ2nuvw/Bs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DU+R/k2iTEDi8OdYsB51Epn3Jf2n83BpJfVD5Rpv1WKNRx+d1kc2R1JTqIy0+KwjO
-	 239RIN5YZ80bVXlpmcwTgFnSA6v2sk21jub++3xAau7HDdm8gHh5zudtog84rCOBnw
-	 gcmAJK8qGA1ObwA69DI7d8uHsfCrnFMPATmmS28Qk9qk30DJ/MSyZXKPxmEAKz6Ws+
-	 SWZVFYD3ldgQE5dKlhvil2146DnwqJfLNKC1RvxjyJyQC3nTsdB/vlLJEnjUW1uaRz
-	 QQDgZnZ5ytF27NALGb1Xg+NRgqKCwNN61GBxwCj4Lgm3odwGeE9OzsRA4OpBJXmUKd
-	 pox0Vh5J0lAgg==
+	b=UQIGghcmZ2XPSAGpdOETkygsDHVBwLjNJemPo2BdKKHMrkSfXA4i1U/OV7ph006pu
+	 OmjvWTkoIaMe2wZpusrKJqhvzM9aQEuNrmAilDXVne69UwK+TsUSz7gQ69EO80a70r
+	 0ZoMis4oCoJMWnV7SPg8PEOIdkmsyJCL6712k52yosu8Ks8EYDxP+knNn7NvkUc5cx
+	 WMBo2BDjbXmXwVNAN1UZGvCuvdp8q5noKk9BSPvHeTHOoZMAtSxxePeeVPjZOD/pYA
+	 AmQolxiJyhmzvOHZm24BVO1yM9g679NErgZebCyhy3sXNSErPsAX+w0V3XVq4d/Hzr
+	 aGm7Dkn/VvVAQ==
 From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Myria Sarvay <myrialsarvay@gmail.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Markus Elfring <Markus.Elfring@web.de>,
+	Ruoyu Wang <ruoyuw560@gmail.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev
-Subject: Re: [PATCH] drivers/perf: apple_m1: Add macOS 27 M2 Event
-Date: Sun,  4 Oct 2026 23:09:17 +0100
-Message-ID: <179114879411.1633099.5402206319757216770.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] perf/dwc_pcie: Fix PCI device reference leak in probe
+Date: Sun,  4 Oct 2026 23:09:19 +0100
+Message-ID: <179113437863.1501714.3722625240012640399.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
-References: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
+In-Reply-To: <20260820135611.3901886-1-ruoyuw560@gmail.com>
+References: <20260820135611.3901886-1-ruoyuw560@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,20 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 12 Sep 2026 18:03:35 +1000, Myria Sarvay wrote:
-> This patch adds another known PMU event that can be found under
-> /usr/share/kpep on macOS 27 for M2 macs. INST_SIMD_ALU_VEC purports to
-> count "Retired non-load/store vector Advanced SIMD instructions", and as
-> we already noted, can only be registered on counter 7. Though this event
-> only shows up on the M2 kpep records, it can be set on M1 CPUs, and
-> records something.
+On Thu, 20 Aug 2026 21:56:11 +0800, Ruoyu Wang wrote:
+> pci_get_domain_bus_and_slot() returns a referenced PCI device. When the
+> subsequent RAS DES capability lookup fails, dwc_pcie_pmu_probe() returns
+> -ENODEV without releasing that reference. Repeated failed probes can
+> therefore keep the PCI device allocated after removal.
+> 
+> Declare the looked-up device with __free(pci_dev_put), so the temporary
+> reference is released on every return path. Keeping the reference scoped
+> to the whole probe also covers all later uses of the device during
+> initialization.
 > 
 > [...]
 
 Applied to arm64 (for-next/perf), thanks!
 
-[1/1] drivers/perf: apple_m1: Add macOS 27 M2 Event
-      https://git.kernel.org/arm64/c/652ab8ee0d27
+[1/1] perf/dwc_pcie: Fix PCI device reference leak in probe
+      https://git.kernel.org/arm64/c/3a4067658363
 
 Cheers,
 -- 
