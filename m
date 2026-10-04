@@ -4,132 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699B3CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A498CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UFpmwPITavAi+mVFxqfyT299O6/p6th9oJChZ5LtH+0=; b=I8yKak4/ge00VI7EpsddJRwiIV
-	QehqKfkV+0NZy4/zMgB1UlYTKjsXQckbrvLBTlfcgGebWQRC85lPPO2bMz+bs/XPLeikY67teQKDL
-	MQe0XyeoK0tT73Tb8Cj5+/QCVQ1IkpNrIrgwhpfEsAjbi43uXBOOV73igHJPdWAvtYWO2iY+1A/Ks
-	C0/HRT8bCABn+5GcVnbzOp+4CX9t8Q3UdaFMeOSv3FcVFzX5fBrxIewaAxgSkyTjIs9Z/kPqHTByY
-	CF6f1FHcQ+sBSXmNnjCg4MkoaQ4K8MGl0gzvI/rjwQ1UI30wDIUSDFG/2a6mJWPww0Sy1z2R9Gkem
-	Z0fftS2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=; b=ldzlzH8G7/9Cj3BlEdS2HJEMxS
+	qpNGqYiMcDR4McsygVk97N7WY9EqSZaBZqx2O0eB9aviRuTrDEYSfiJcYcuerEXj7RboR26u611C9
+	ZvIeAuereuuj++v504RNuEBUrbC4agEUY9Hrea1wfd2kTT8IOl3QidmiYezpT9QoEviBY56AXOqOs
+	czhhBIvjom9xF5HPVfuhp1aIQPlyKtJzXZ0Wk+qmJpKoEEXRynk0niG+cWeRfgaRI7wKdBBBWWfxh
+	ceILQ4eoZaJMpQmcx0T7NAJtsWv+HRkNm5k618Mm0SiRWstlgYIm+DLkSti5vJk2xE1nLMC0BxCkF
+	bB1Rj/GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSer-0000000FFT7-0R09;
-	Sun, 04 Oct 2026 20:18:05 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xDShz-0000000FGCx-3489;
+	Sun, 04 Oct 2026 20:21:19 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSeb-0000000FFFe-3GN5
+	id 1xDShw-0000000FGCZ-44eA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:17:52 +0000
+	Sun, 04 Oct 2026 20:21:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=foi0wvEFpgNk2Q9lKhjtRRtfDL8uJR263GAckoI8uDfarSaVX+w7xi/0V6G5y9NNmcEoSHcBrhqJQnkeX2CUzy0+xF9jiiMX5zAZoYNcbBBR3uOS6b6ywRgWpcMU6/7eCfbgIiCtmxFrNAglCwiZiI7U1pvw85XW0Gdc9h2MgzavVWEZyVuxmoi+WcOhTxlhvOjQnCRx031MDUp4I4b5l5BkmQsa3mNmYnrXj3tBHJId+ha7BtynTzZNAVlCpcRz48IvTZCN9dnKm+3N3bnHuJPYDk/A1W7ff01sYelTKMh4j9rDIWmmpgI9IIhGwP5y8Z3QwOewf0Xsc/pV08VGsA==
+ b=ZP7RUSazbUCYQc8vlpeeeUeb+JmiWZavI9Ir+czWNn3MazRuB0rHUdxtWSkXbnNhBnrJDSkGXsd5grxQ2HflYRPKBstEILYp47AY6k2Cdr4oXOTbg6m35dAqVLX4duZWiJ6ptBOPVLbbuiJFi5yFQ1FrNrTFGw6p3sSL3pgpuJCg2imWNbsehTZ+LnKfNuQtGhwzgo1X98WFWXpkLfPGGgG56Xah/2hU6gaMjbr3JKQpdoELje7u/ycKTbXSCEslCU7t4ag6oN0QWXB8Avu6Q5CVwO/54tn7HlG1+m29XPZCuhhVU549ZCYTX5UycIsCDbA66ulqfrsI66X/+B1ZNA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UFpmwPITavAi+mVFxqfyT299O6/p6th9oJChZ5LtH+0=;
- b=cszAbO9IbQS7+W131AQ1xhHxrPHrKsY3iooedacu1F2YjFU4cd2CfJrGJVZngIIR+1Ahss7VcLHKjsvka+guMSwbXk4MxRNNFK1HZC1wic7S9BWgz4BZlSuQh3leNqJA9TzNuE16582k/Xchdhaxvl2ufZAz2S0lVxp2JynMbroIHPS9K60A/5FVHwVVyDBksbqC1xnXBLRxWGcMFH7qN976pf6s0iQhciCcI4mgyKzGjTLvHPEqAot9xs8g0twWLVG5E9BqL/ku8WuoTN9CenlLA1xSxGY6WIWyoOTV0eX3DlYgM1u/aNDAcS06yhiA4OvovwQriCBCsOhhOlWoBw==
+ bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=;
+ b=dfCJ5o14OP6p6GG20rsFO1kGy+JUeWU3PzNddBWLFDAgAmUCgPNB93+mIdIkCwUQO6+a7Z/vUb5A0ROtUPJeCr8bCuE0EHD4hrR8OEjJYfELbY8x4LlY0XK0oaG/36x5X6QSOGDG8WLeNeOphbToxAZgehoz9+IGHB4RFlkoQ/fBszlsSJvkDK/9yaT2NJbkseGF7j882Zwe/fsY5cBQ3FOZNm6t/zl5F46rn4fBTHVcDYTqqwTnveL8yTDjm0ZJMFVBTUgLnq/21xh5N+0oIBsSBoBuBaAkyTlv8DsRYuArH1eOVRaMtr2oxv/pLuxrD5phTqaXHSlIt6OOOK0Qtg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=kernel.org smtp.mailfrom=axis.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UFpmwPITavAi+mVFxqfyT299O6/p6th9oJChZ5LtH+0=;
- b=F46WW20PtIpCWzKg+e1wLDuFq4cef1DCW/eT6VpDMuSY6+UTSCSoGUPLwwlgreM+fNgZypgc04ijNVyCoznlQ2ygGk8r0Te2JYc8JxifzJDd0aw6oUunw7YFzIVGx1OCcZJIB2x3hDTow1fZevwiYQRbBF5gP6X7mqPxqtlJOgg=
-Received: from DU2P250CA0014.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:231::19)
- by AS1PR02MB8163.eurprd02.prod.outlook.com (2603:10a6:20b:476::16) with
+ bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=;
+ b=UU+CFVsokl+HIlN/l0Hz5DC7h92/0/sPS6hsyV7l/0++9FhfJJTV6VwrNTWiUDOPAPJgUCRiMrPvArU/ZfDu8HwjBdZtbNulIXFrftrbX+JpBWWcZVOZrTnuMhQKWH4GLgUhHnnuVBZwuxu8fKEV9ekAvIMx07j0e8tyoFAjzlHRylFaofAuYp4QgpNAFUOZ0rII+sj6gREFL96MgBKytrzEa0ZaCc+FjGZQGvF2l+IWvb1wl4OKybmfNlrKNz3aYHJiagPBuycxPXawoPHLZwCbSLCsLpZLJhmd5/qe41E24rTvu/VbjJzJ6Hzz/6lCYlswl1YTQIMsxlcoZOMxlQ==
+Received: from PH8PR22CA0004.namprd22.prod.outlook.com (2603:10b6:510:2d1::19)
+ by DS0PR12MB7970.namprd12.prod.outlook.com (2603:10b6:8:149::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Sun, 4 Oct
- 2026 20:17:42 +0000
-Received: from DB3PEPF00008860.eurprd02.prod.outlook.com
- (2603:10a6:10:231:cafe::45) by DU2P250CA0014.outlook.office365.com
- (2603:10a6:10:231::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sun, 4 Oct
+ 2026 20:21:06 +0000
+Received: from SN1PEPF000397B3.namprd05.prod.outlook.com
+ (2603:10b6:510:2d1:cafe::54) by PH8PR22CA0004.outlook.office365.com
+ (2603:10b6:510:2d1::19) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:17:41 +0000
+ Oct 2026 20:21:06 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- DB3PEPF00008860.mail.protection.outlook.com (10.167.242.11) with Microsoft
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SN1PEPF000397B3.mail.protection.outlook.com (10.167.248.57) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:41 +0000
-Received: from SE-MAILARCH01W.axis.com (10.20.40.15) by se-mail11w.axis.com
- (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.39; Sun, 4 Oct
- 2026 22:17:41 +0200
-Received: from se-mail10w.axis.com (10.20.40.10) by SE-MAILARCH01W.axis.com
- (10.20.40.15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.61; Sun, 4 Oct
- 2026 22:17:41 +0200
-Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail10w.axis.com
- (10.20.40.10) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
- Transport; Sun, 4 Oct 2026 22:17:41 +0200
-Received: from lap5cd525d1j1.sto.se.axis.com (unknown [10.224.134.145])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 195FC1467;
-	Sun,  4 Oct 2026 22:17:41 +0200 (CEST)
-Received: by lap5cd525d1j1.sto.se.axis.com (Postfix, from userid 22105)
-	id EF889803CDC3; Sun,  4 Oct 2026 22:17:10 +0200 (CEST)
-From: Henrik Grimler <henrik.grimler@axis.com>
-Date: Sun, 4 Oct 2026 22:16:00 +0200
-Subject: [PATCH 03/17] ARM: dts: samsung: exynos4: sort all properties
+ 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:21:06 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
+ 2026 13:20:55 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Sun, 4 Oct 2026 13:20:55 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Sun, 4 Oct 2026 13:20:54 -0700
+Date: Sun, 4 Oct 2026 13:20:52 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: <robin.murphy@arm.com>, <jgg@nvidia.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
+Subject: Re: [PATCH v10 03/13] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for
+ the event queue
+Message-ID: <asK1JIsTay1yeBEU@nvidia.com>
+References: <cover.1788130528.git.nicolinc@nvidia.com>
+ <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
+ <asJTer4cNh4DAQMY@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261004-exynos-arm-cleanup-v1-3-45e435353c56@axis.com>
-References: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
-In-Reply-To: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-CC: <devicetree@vger.kernel.org>, <waqar.hameed@axis.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Henrik Grimler <henrik.grimler@axis.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10467;
- i=henrik.grimler@axis.com; h=from:subject:message-id;
- bh=3tq1E1EVYIn/MH/e7Z0pnfEPq0fhTEUEHHBRIJFtTmA=;
- b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQpsCfOtc+vzVfE87hLhiGbzF47ThJl1Dwvp
- LV5qOYP3SmJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0KQAKCRCwB25JC3Fh
- ayLqCACpR7MZwrXScDltekjeXXEKpd0Xu3bmXeFMyvYc5RJwLF4zlzLNfBrD70obFegopuBJyo+
- FT7bFitTxqeXqzd0F6llvy5o2E6eENm3Qw615ZqjiUdQR6MyxlJQFbj1M17/Pizt0p7AFnydqJn
- BYiGtTJgEE2wrDWSogfDAznmZIJA2RhWF0xNoWNJwOaJS+YHSJtgVnbzlvZmrCkX0CVgRtJgInX
- NW6wsp77wvzMCtdDPIwKxWxnV7BzsV8RkKpvamzUHg8cugyGaQYEdahgoLwvLojqBwweMco8wch
- zrRuwKJ2QuFgs/DFNEMJV6cHtBonXV856zuNqu5G/ySYPje1
-X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
- fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <asJTer4cNh4DAQMY@willie-the-truck>
+X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF00008860:EE_|AS1PR02MB8163:EE_
-X-MS-Office365-Filtering-Correlation-Id: 647e27cf-5f7a-4af2-21b9-08df22548b2b
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B3:EE_|DS0PR12MB7970:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f866ae4-3db0-41a3-8506-08df2255051f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|30052699003|36860700016|82310400026|23010399003|10067099003|3023799007|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: rdvmaz0cd+vRKZzJZ6adcb7pJGFHBun2siYuHxFgNWB8AUkdcmm7HPToX3HlB9GwDElvvvmkVHFgba6hIaXmQnVPVD5Jf5ByaLOYlSsaX4W6YSxrg/1DKCTbvVUFSkvvebU+e0iGVQdOz5GTDtfS1fYozSJ7uzkgNO7FSbfnBUdNuTKjhBg5MJVkS0rymBoZielVgHrWrPuKI+w5rA83TUXFmMsmNaAzW/X9cEQ0yqaLBREGKKVfMVrPkuD84CKeHCjThkG3QMlEDMY2y5NIjmpdHSJjVYfiM4UJ/GeC8ktTtL+Q+dbfB+vndd6S8zXawPNEsFMNDF8IU9KhnFfFME539MqAB1G1GDW9gj/TY0Nt8wa4dGSowBrzoBiRHUksq0vFYeSx3fxaw41HBi2fRzxv/5/P1uRbQq9VPdTg97tgScutCb/D4m0CU7XKilw0UON3sBmeTV3u5gX5dm9QlF/FW7GtJ9kadGCR6wSeNbf/+FN2ccYfOJxOIU3wgZ+TtdfgWOYQ//AddFXw5yUztY6aQFdFCHxFIiFZ0FqegZRsQQCCFcG+0hoaw/Vz1c0BoXRzfqJ6ciadZGnXoARqBiWoUFEIrOUC/IpzjNh0CUfqavOlN1ZPKB5z2/i3KKqtyj/C+2eLc99QLNiRKPmvm2vrslZuEAr+AfuJD6ZV3vb/Vg2W94fsFjT0N5QykZPkoNFas32w9dLuck1zxkNuCQ==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(30052699003)(36860700016)(82310400026)(23010399003)(10067099003)(3023799007)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|23010399003|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: CVZqiiL7ZbkBezhDIyAqZK6qmyy2q4uldMa40UKX113CaEmWNEVT8mku2YGEo3G1/bPNonMF4ybZKSzFfWApx3MSeFa7AwVLzZRwHdLSDsNt5D65X+zS2MPfKLKK4QiPKkJV+VoAfaRRHE+svivKqg+WYDYtAlBBBaRKb4y6NABI0cwsOzY/voQxNBa54pYj7fh6hMB10S8NBQiRDxya1E9khYQC7xxMXcg6bCERJegJV+CmwG2csRo6IW3ofkOc3bOkdvOQZCeUibQrObqD2LRGChkIM8AdFhYGjZnYM13oO4kQ2eEGBKvhXD6wldYYpEvgsG6FBd9l5fVEKd//FTk84siD5gTrY8YV01DLVXFl7wGX0RfBJNLoozYLVhCUHSx9TUzIuZNvzRA4ECJ4DtPB6TGgFjbrdrBjzHjhLj/CtvRMgSCaHHDEBrnP+GZFPIfHHKUuk1TIzm5Ato4hRqX0foh/YHcEjbaUEdlWjUT9Sqpv4yiSHIbbA/WN5yzyUj/s7edKlQtblZdbuJJaBe8kYn8dXit4wbz77jR39gqpNFl0u54zh02FtprgBL50GF/qTMOuvg2W+1uUpMgxHf+pO9I/siS6HwVMy92beqCMkamz11lHNdYfJ304cY6qLksQK2MPhx5sXJQotc49dyyrMYdKYb+/ENBt9lafVuJoO/Kub0BhMOiH2jG+KwQ5/MFalnBBSwSR9UFlA4qIFw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: gD4i4cs7fEdTJ5GR6gG9HCI4dhpYEIvRjxkCdmDPCkfTonPuauIv5grUUW5+WV8Zi7QKW1zem5lRVHGoZcay3GsNQ9shcjjeRdtPb//18XA60TEbC66mAT4f8dOlq7TIbdotIdzaTfAVlnyqaEKeUgBZrOwHQiPb8QfVf1NlhYWybPVm/cOhFiq3SlXxXoel7qjfJdqCIsAqhtUiwaXjvquDV0pf8fpChyKyhFBjyW9fSuyZ5euZi596s8rg4g9azPSobTl3OYaV2A5ZTMCFd9QJ89ATTlFFQS7E+X0d91XiiKwqRn12gWWHDhjcNiZJWz2WexhgHNnrjVEYwVgB3LzI1FAly1+z6waSdrLFHkVsgiQgQIm7CSobzdlSEG47H2k3d9YsTGI41jbsvsYiW3OVYfXajxaGoDsWQ+htrR9ZagyfO+Hrb9iC3+04zO28
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:41.6879
+X-MS-Exchange-AntiSpam-MessageData-0: 5sTOE5zCtw2AXDvFX4TriSn+7bTaQgEjU4/RtMx8ME7OHL0wl/iSPp/QmPcFTxD3ntCpAQo1xgcaypSwGT8Vw4xBs2qj4UqduRRx/usDffvebLxD/gG6JHUqBJPqdH3FgcH7PLq5d0wUWjV6/ZSVFtOgJCZW1k42saFkHhtu4VJ5QqtuqtGbqTVPIdrMRJENknm4HQNjBRRGlbyBeNF4/cTqzqEaT1pMlrQsS4AWL+/0zb88GzgpBfWgP6DZmi2zjSyMS9nzoyDAff09dGSlVWyRXrVCLkPB9TFLjd+Z3v+ohLmuLV6URgzbsFETvSLEdvRsFSnnY3eL1YK8nw257Sh5RV4BTDZv5Fd1UdFMH8EGgX4Eg4AAiI7rMYVrpW/evGagDSH9qhLAh5q88E7+EGUsTdVw7HoLqDhbUdht8edtl+5x39kHvD32yRv0RY3Y
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:21:06.2010
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 647e27cf-5f7a-4af2-21b9-08df22548b2b
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF00008860.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f866ae4-3db0-41a3-8506-08df2255051f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B3.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR02MB8163
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7970
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_131750_042161_30C90AFE 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20261004_132117_019134_CB13C10D 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,369 +131,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes dt-check-style in strict mode property-order warnings like:
+On Sun, Oct 04, 2026 at 02:24:10PM +0100, Will Deacon wrote:
+> On Sun, Aug 30, 2026 at 04:18:04PM -0700, Nicolin Chen wrote:
+> > The driver programs and enables the event queue unconditionally, while the
+> > PRI queue has an ARM_SMMU_FEAT_PRI gating each of its touch points. Yet a
+> > kdump kernel wants to leave both of the queues alone, which would take an
+> > is_kdump_kernel() test at every one of those places.
+> > 
+> > Add an ARM_SMMU_FEAT_EVTQ that the probe always sets, as the event queue is
+> > architecturally mandatory, and gate the queue's allocation, its interrupt
+> > and its CR0 and IRQ_CTRL enables on it, so that a later change can turn the
+> > queue off in a single place.
+> > 
+> > No functional change intended.
+> > 
+> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Suggested-by: Robin Murphy <robin.murphy@arm.com>
+> > Assisted-by: Claude:claude-opus-5
+> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 79 +++++++++++++--------
+> >  2 files changed, 52 insertions(+), 28 deletions(-)
+> 
+> Sashiko has comments about the event queue MSI configuration for this patch.
+> Please can you have a look?
 
-  samsung/exynos4.dtsi:226: [property-order] property 'iommus' out of canonical order (should sort before 'samsung,sysreg')
+Sashiko raised those because it doesn't read subsequent patches.
 
-Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
----
- arch/arm/boot/dts/samsung/exynos4.dtsi | 89 +++++++++++++++++-----------------
- 1 file changed, 45 insertions(+), 44 deletions(-)
+And I left them as-is because I don't think they worth a change:
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4.dtsi b/arch/arm/boot/dts/samsung/exynos4.dtsi
-index f69b01423ae0..43cbbedbfe41 100644
---- a/arch/arm/boot/dts/samsung/exynos4.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4.dtsi
-@@ -60,9 +60,9 @@ pmu: pmu {
- 
- 	soc: soc {
- 		compatible = "simple-bus";
-+		ranges;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
--		ranges;
- 
- 		clock_audss: clock-controller@3810000 {
- 			compatible = "samsung,exynos4210-audss-clock";
-@@ -86,8 +86,8 @@ i2s0: i2s@3830000 {
- 			clock-output-names = "i2s_cdclk0";
- 			dmas = <&pdma0 12>, <&pdma0 11>, <&pdma0 10>;
- 			dma-names = "tx", "rx", "tx-sec";
--			samsung,idma-addr = <0x03000000>;
- 			#sound-dai-cells = <1>;
-+			samsung,idma-addr = <0x03000000>;
- 
- 			status = "disabled";
- 		};
-@@ -159,16 +159,16 @@ pd_gps_alive: power-domain@10023d00 {
- 
- 		gic: interrupt-controller@10490000 {
- 			compatible = "arm,cortex-a9-gic";
-+			reg = <0x10490000 0x10000>, <0x10480000 0x10000>;
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
--			reg = <0x10490000 0x10000>, <0x10480000 0x10000>;
- 		};
- 
- 		combiner: interrupt-controller@10440000 {
- 			compatible = "samsung,exynos4210-combiner";
-+			reg = <0x10440000 0x1000>;
- 			#interrupt-cells = <2>;
- 			interrupt-controller;
--			reg = <0x10440000 0x1000>;
- 		};
- 
- 		sys_reg: syscon@10010000 {
-@@ -198,22 +198,23 @@ dsi_0: dsi@11c80000 {
- 			phy-names = "dsim";
- 			clocks = <&clock CLK_DSIM0>, <&clock CLK_SCLK_MIPI0>;
- 			clock-names = "bus_clk", "sclk_mipi";
--
--			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+
-+			status = "disabled";
- 		};
- 
- 		camera: camera@11800000 {
- 			compatible = "samsung,fimc";
- 			ranges = <0x0 0x11800000 0xa0000>;
- 
--			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			#clock-cells = <1>;
- 			clock-output-names = "cam_a_clkout", "cam_b_clkout";
- 
-+			status = "disabled";
-+
- 			fimc_0: fimc@0 {
- 				compatible = "samsung,exynos4210-fimc";
- 				reg = <0x0 0x1000>;
-@@ -221,9 +222,9 @@ fimc_0: fimc@0 {
- 				clocks = <&clock CLK_FIMC0>,
- 					 <&clock CLK_SCLK_FIMC0>;
- 				clock-names = "fimc", "sclk_fimc";
-+				iommus = <&sysmmu_fimc0>;
- 				power-domains = <&pd_cam>;
- 				samsung,sysreg = <&sys_reg>;
--				iommus = <&sysmmu_fimc0>;
- 
- 				status = "disabled";
- 			};
-@@ -235,9 +236,9 @@ fimc_1: fimc@10000 {
- 				clocks = <&clock CLK_FIMC1>,
- 					 <&clock CLK_SCLK_FIMC1>;
- 				clock-names = "fimc", "sclk_fimc";
-+				iommus = <&sysmmu_fimc1>;
- 				power-domains = <&pd_cam>;
- 				samsung,sysreg = <&sys_reg>;
--				iommus = <&sysmmu_fimc1>;
- 
- 				status = "disabled";
- 			};
-@@ -249,9 +250,9 @@ fimc_2: fimc@20000 {
- 				clocks = <&clock CLK_FIMC2>,
- 					 <&clock CLK_SCLK_FIMC2>;
- 				clock-names = "fimc", "sclk_fimc";
-+				iommus = <&sysmmu_fimc2>;
- 				power-domains = <&pd_cam>;
- 				samsung,sysreg = <&sys_reg>;
--				iommus = <&sysmmu_fimc2>;
- 
- 				status = "disabled";
- 			};
-@@ -263,9 +264,9 @@ fimc_3: fimc@30000 {
- 				clocks = <&clock CLK_FIMC3>,
- 					 <&clock CLK_SCLK_FIMC3>;
- 				clock-names = "fimc", "sclk_fimc";
-+				iommus = <&sysmmu_fimc3>;
- 				power-domains = <&pd_cam>;
- 				samsung,sysreg = <&sys_reg>;
--				iommus = <&sysmmu_fimc3>;
- 
- 				status = "disabled";
- 			};
-@@ -281,10 +282,10 @@ csis_0: csis@80000 {
- 				power-domains = <&pd_cam>;
- 				phys = <&mipi_phy 0>;
- 				phy-names = "csis";
--
--				status = "disabled";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-+
-+				status = "disabled";
- 			};
- 
- 			csis_1: csis@90000 {
-@@ -298,10 +299,10 @@ csis_1: csis@90000 {
- 				power-domains = <&pd_cam>;
- 				phys = <&mipi_phy 2>;
- 				phy-names = "csis";
--
--				status = "disabled";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-+
-+				status = "disabled";
- 			};
- 		};
- 
-@@ -370,10 +371,10 @@ sdhci_3: mmc@12540000 {
- 		exynos_usbphy: usb-phy@125b0000 {
- 			compatible = "samsung,exynos4210-usb2-phy";
- 			reg = <0x125b0000 0x100>;
--			samsung,pmureg-phandle = <&pmu_system_controller>;
- 			clocks = <&clock CLK_USB_DEVICE>, <&clock CLK_XUSBXTI>;
- 			clock-names = "phy", "ref";
- 			#phy-cells = <1>;
-+			samsung,pmureg-phandle = <&pmu_system_controller>;
- 
- 			status = "disabled";
- 		};
-@@ -396,10 +397,10 @@ ehci: usb@12580000 {
- 			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_USB_HOST>;
- 			clock-names = "usbhost";
--
--			status = "disabled";
- 			phys = <&exynos_usbphy 1>, <&exynos_usbphy 2>, <&exynos_usbphy 3>;
- 			phy-names = "host", "hsic0", "hsic1";
-+
-+			status = "disabled";
- 		};
- 
- 		ohci: usb@12590000 {
-@@ -408,10 +409,10 @@ ohci: usb@12590000 {
- 			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_USB_HOST>;
- 			clock-names = "usbhost";
--
--			status = "disabled";
- 			phys = <&exynos_usbphy 1>;
- 			phy-names = "host";
-+
-+			status = "disabled";
- 		};
- 
- 		gpu: gpu@13000000 {
-@@ -517,10 +518,10 @@ serial_3: serial@13830000 {
- 		};
- 
- 		i2c_0: i2c@13860000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x13860000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C0>;
- 			clock-names = "i2c";
-@@ -531,10 +532,10 @@ i2c_0: i2c@13860000 {
- 		};
- 
- 		i2c_1: i2c@13870000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x13870000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C1>;
- 			clock-names = "i2c";
-@@ -545,10 +546,10 @@ i2c_1: i2c@13870000 {
- 		};
- 
- 		i2c_2: i2c@13880000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x13880000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C2>;
- 			clock-names = "i2c";
-@@ -559,10 +560,10 @@ i2c_2: i2c@13880000 {
- 		};
- 
- 		i2c_3: i2c@13890000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x13890000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C3>;
- 			clock-names = "i2c";
-@@ -573,10 +574,10 @@ i2c_3: i2c@13890000 {
- 		};
- 
- 		i2c_4: i2c@138a0000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x138a0000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C4>;
- 			clock-names = "i2c";
-@@ -587,10 +588,10 @@ i2c_4: i2c@138a0000 {
- 		};
- 
- 		i2c_5: i2c@138b0000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x138b0000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C5>;
- 			clock-names = "i2c";
-@@ -601,10 +602,10 @@ i2c_5: i2c@138b0000 {
- 		};
- 
- 		i2c_6: i2c@138c0000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x138c0000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C6>;
- 			clock-names = "i2c";
-@@ -615,10 +616,10 @@ i2c_6: i2c@138c0000 {
- 		};
- 
- 		i2c_7: i2c@138d0000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-i2c";
- 			reg = <0x138d0000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C7>;
- 			clock-names = "i2c";
-@@ -629,10 +630,10 @@ i2c_7: i2c@138d0000 {
- 		};
- 
- 		i2c_8: i2c@138e0000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "samsung,s3c2440-hdmiphy-i2c";
- 			reg = <0x138e0000 0x100>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_I2C_HDMI>;
- 			clock-names = "i2c";
-@@ -740,8 +741,8 @@ mdma1: dma-controller@12850000 {
- 
- 		fimd: fimd@11c00000 {
- 			compatible = "samsung,exynos4210-fimd";
--			interrupt-parent = <&combiner>;
- 			reg = <0x11c00000 0x20000>;
-+			interrupt-parent = <&combiner>;
- 			interrupts = <11 0>, <11 1>, <11 2>;
- 			interrupt-names = "fifo", "vsync", "lcd_sys";
- 			clocks = <&clock CLK_SCLK_FIMD0>, <&clock CLK_FIMD0>;
-@@ -754,12 +755,12 @@ fimd: fimd@11c00000 {
- 		};
- 
- 		tmu: tmu@100c0000 {
--			interrupt-parent = <&combiner>;
- 			reg = <0x100c0000 0x100>;
-+			interrupt-parent = <&combiner>;
- 			interrupts = <2 4>;
-+			#thermal-sensor-cells = <0>;
- 
- 			status = "disabled";
--			#thermal-sensor-cells = <0>;
- 		};
- 
- 		jpeg_codec: jpeg-codec@11840000 {
-@@ -793,8 +794,8 @@ hdmi: hdmi@12d00000 {
- 				      "sclk_hdmiphy", "mout_hdmi";
- 			phy = <&hdmi_i2c_phy>;
- 			power-domains = <&pd_tv>;
--			samsung,syscon-phandle = <&pmu_system_controller>;
- 			#sound-dai-cells = <0>;
-+			samsung,syscon-phandle = <&pmu_system_controller>;
- 
- 			status = "disabled";
- 		};
-@@ -805,18 +806,18 @@ hdmicec: cec@100b0000 {
- 			interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&clock CLK_HDMI_CEC>;
- 			clock-names = "hdmicec";
--			samsung,syscon-phandle = <&pmu_system_controller>;
- 			hdmi-phandle = <&hdmi>;
- 			pinctrl-0 = <&hdmi_cec>;
- 			pinctrl-names = "default";
-+			samsung,syscon-phandle = <&pmu_system_controller>;
- 
- 			status = "disabled";
- 		};
- 
- 		mixer: mixer@12c10000 {
- 			compatible = "samsung,exynos4210-mixer";
--			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
- 			reg = <0x12c10000 0x2100>, <0x12c00000 0x300>;
-+			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
- 			power-domains = <&pd_tv>;
- 			iommus = <&sysmmu_tv>;
- 
+1. IRQ_CTRL_EVTQ_IRQEN is never enabled in the kdump mode, so that
+   ARM_SMMU_EVTQ_IRQ_CFG0 line shouldn't matter.
 
--- 
-2.43.0
+2. arm_smmu_write_msi_msg() is never called in the kdump mode since
+   devm_request_threaded_irq() is guarded with ARM_SMMU_FEAT_EVTQ.
 
+Sashiko is only right about the small waste of the MSI vector since
+it's unused. But, that nvec decrement trick only works for PRIQ, as
+its MSI index is at top of the list:
+
+   enum arm_smmu_msi_index {
+	EVTQ_MSI_INDEX,
+	GERROR_MSI_INDEX,
+	PRIQ_MSI_INDEX,
+	ARM_SMMU_MAX_MSIS, // "nvec--" shifts up this, skipping PRIQ
+   };
+
+On the other hand, EVTQ_MSI_INDEX is at 0. Skipping it would need to
+shift the entire index list; struct arm_smmu_msi_cfg would not work
+straightforwardly as today.
+
+Nicolin
 
