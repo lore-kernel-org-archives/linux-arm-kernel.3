@@ -4,64 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A416CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 09:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEF0CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 09:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zna8m+vw1RWGEQgBqdQPaVJmN/rHO5KCpQzP/sBKZ78=; b=vQq1fsDL35IP081Abxxjyh/PjI
-	jPv7b3bd5K6KLHGnqKsfHtsqCGnS2hEsIS3rHdXs4jrzPWUuGbhkVV50mMIo7z247OIbmUvL6ACqH
-	ir+QXDRwQmi7ZIp9A3jccYR8TG53RaS886fwl1+0ikXtumT1oMkWCJuZYv9d6QVCNKjUeSD8L7SKc
-	b/bI/ng/uHMe+KRQRZjmLWBPZwIE5JWE4+UjRrdOvqJAhtBm2hYd7+GtZ3di+GvSgkW1gnAsLqYje
-	6FzLjPrAvhT/4Pcr29CXwQnYeTWqJoAsBykMGEUuwRpiqWQyKbhT1/SDC5JirCVIGrZuHubpGEAFP
-	9uujVGaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JoFX+YMXd60kpER0QJajp4LEvvy2XvMbrnb9b5wYktk=; b=v0NWqEoA9CK6lavG3oyp+9XfP8
+	idz5QPuRuc15xFXrFDIEHVjpKTHszyp2N3c9vVHMh8OgsJ+Q8QFB+nGsklisSDXiB9i23K+Mq5Nn0
+	c6UtPUQTW6QPtPmV75GSLLpp4kpRpT33mFFW63vQUuJp2K6X9oc/py512nknG4w6GAX6sS3Z4Bmwu
+	kOQ8W8aoqisQ2qbY830OaqXzjFBCWXj0sTQPZkulRVWwLHQfWTVc7RzsrBCyT3evBV9P57Q1f6hJQ
+	yY0haLRMqjLX69+VPoHQs5noWrmP1OH+pJCtQZPJBcPLQW+y/u8gpa+CHw56GkfKGH2lIclz7owQS
+	9qExrZkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDIH2-0000000EazB-06VK;
-	Sun, 04 Oct 2026 09:12:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xDImd-0000000EdAs-1ron;
+	Sun, 04 Oct 2026 09:45:27 +0000
+Received: from mail-pj1-x1061.google.com ([2607:f8b0:4864:20::1061])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDIGv-0000000Earv-2eiC;
-	Sun, 04 Oct 2026 09:12:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E11CC60514;
-	Sun,  4 Oct 2026 09:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 395131F00899;
-	Sun,  4 Oct 2026 09:12:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791105160;
-	bh=Zna8m+vw1RWGEQgBqdQPaVJmN/rHO5KCpQzP/sBKZ78=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=j8dYDMBPS8oIzpb2EOIEaWeR2glu/blQr58/rYM/pkeCEMrsTfyyep14jBIKRitNq
-	 yBMY6BpkLic2S4h+4VLjIPEHo54fxLbfa3THsbXDRlECzF1PMpmvtTmEId9lyBNRMN
-	 kZK1P2jgUGWdiOLveiQzqk3EkSYL8vBUrIaCcTUk/M4j6ZF0lyG/JL5uMpx7rNtLKb
-	 z9kwkIsWX9eFzOYTJOfrua+BP2470vop3qwgW1bksqSaBk1L7K9MKHggPbEDCbJ9v0
-	 SvijqnjtmrPjvlyPfF9QPF5INs+G9XTXZ4Azq4VJWMUjk+zTsz82g8+9Yo3hd1OJdi
-	 sfdrr5HYYPDkA==
-Subject: Re: [PATCH v9 5/6] net: wwan: t9xx: Add FSM thread
-From: netdev-bot+sashiko@kernel.org
-To: jackbb_wu@compal.com
-Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
- johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- wen-zhi.huang@mediatek.com, shi-wei.yeh@mediatek.com,
- Minano.tseng@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, robert_yu@compal.com, Jeff_Chang@compal.com,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-doc@vger.kernel.org
-Date: Sun, 04 Oct 2026 09:12:38 +0000
-Message-ID: <179110515875.434549.15342661090118032987@kernel.org>
-In-Reply-To: <20260930-t9xx_driver_v1-v9-5-3248b9256956@compal.com>
-References: <20260930-t9xx_driver_v1-v9-5-3248b9256956@compal.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xDImZ-0000000EdA4-0ky6
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Oct 2026 09:45:25 +0000
+Received: by mail-pj1-x1061.google.com with SMTP id 98e67ed59e1d1-3a49623b865so384992a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 02:45:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791107120; x=1791711920;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JoFX+YMXd60kpER0QJajp4LEvvy2XvMbrnb9b5wYktk=;
+        b=L655D51mT7GhvZ/gjkv4eaIGqkeE3Lkxirn+EcnUU1MUimcwJNXs6UYQEkE96RsQ+q
+         XRLx3Y6lzbF0urq16DV64VJ5UleDzuaF6bJTP9l+G6D2nGid7zZaowwD6Zwf5qswdqwK
+         60YjKKvXxsRkZT0L5n6BcRo7Z1j5tvZhV+njchjGGnrKZMMED8LOI1C3jYiP+zNlFkTm
+         mGaBpF7q1yBl7CWa9fdQ/8yGEyAc4Qn9cI47PktYAXe1ROYXibNmQfmC73T8yui/B4FG
+         +hMAJ+WPlx1jBw4RQuBgwVVVnK29HLldIi6edTx51PFgUfRZ0Os2CGqJSvINm0D23uBf
+         Ne2Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwQ3oOu1Hht2NtMIch96C5je7Y7rnixAMZeZ6LXLIMZrtTYU499ah+XUipD1pwmV4luZypPaK3cMv66bntXv7DJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYId8Nwr0zw99Y2VtR612OSRNQPiw1qcs3Kb1SVYMGOLzjf/Ajq8
+	lmNfxRWuQit9HRtcspj4iuInIPoI1IIycuMaAutgjySIoQ2tS2xWCqkfts8ZRomBy7J3T9tRAXt
+	smb3bmtmlJWrCpdE0XXLNcSMnVBG1knQmRMK/Dbw9MWCq5MYTFjqfrNti+aQNkU/vrTmHcQRZbG
+	aaIFKIvEchXvmEXrrkwSu1j6DtvrKY46UiiQI8Lk7wgke/+9AMf9oVMQY9HXKYzUWTFSvv4Rbqk
+	4ToHSsCTWQKbEme2hZ+X1O3f5DFGEwCI5tu
+X-Gm-Gg: AYBFou1u8Q504rH7ENPu6FdZ8WHez6B3jE4bAausa4Fzf0h9sJAguNYj2ni2MlD7ILh
+	c7yHjnVzTbDY9sd9yZIFapFSfQjTWmpPRVKAxZTBEjowvF53MsNR8i2Lv+kW5o2Oi0W18101W+Q
+	9OLH3cepkNFve7RVEvAAeRfLGseN7y0+m0aRbB3tzl5utJ9u8FChGpYXAZ1Wg9Bsv90shbqXvS/
+	uD/RvnKMhm1l7EbzoEcXmaNUzbr84ZyrXY+xLHzAPNYO4vnkEs7MRW/hZezCdEOc8D5rVJDnFUG
+	ExtNLAjdNRLyLMNFQis1gfV4oniuwrL/7kmS11v+fGn51yNxJVbYzlf+YU7Y/li2yB5gr/bhBaj
+	pF3160JbAxkqaj4sf4Sv3K1XL78S3b+BLAzHyJLIBfKEVVgAJq5awh+IH7zpFiBsHXI/nGkuiM1
+	0naPKv2ffSqk5RtQtRFaDwZiLks2198VzAyG6CnNw=
+X-Received: by 2002:a17:90b:1d43:b0:3a4:c028:fd6e with SMTP id 98e67ed59e1d1-3a7872b30fcmr3018578a91.30.1791107120356;
+        Sun, 04 Oct 2026 02:45:20 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3a78e49134asm2497687a91.6.2026.10.04.02.45.18
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Oct 2026 02:45:20 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-34ef0362d95so1883613eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 02:45:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1791107117; x=1791711917; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JoFX+YMXd60kpER0QJajp4LEvvy2XvMbrnb9b5wYktk=;
+        b=aSg29d92ujHBuxSwhhPwvf9ZscGVfcTp7xds84vZShu9H+aKRqJouQpvldBbOXcC+R
+         tJzkZOVrl1DLE/VbUBXrCNX9o58oav/NJCA3gh6zth+uWY0xo9IWMliRa2MzZeD1HLb7
+         zvgqAgf3fxTw83mJak5UokYpWbRPlLomD/kFQ=
+X-Forwarded-Encrypted: i=1; AKwUvBwAzMmCx4UJON28zWxL448rUIN5mj0SdBacbqTqPzhf0xZcmS1Gx8dRZSUScHO9Mef1QY3UdYR2sZiSqCoWBHjD@lists.infradead.org
+X-Received: by 2002:a05:7022:eb42:20b0:144:fc5b:2121 with SMTP id a92af1059eb24-151c30ec64cmr5879803c88.17.1791107117117;
+        Sun, 04 Oct 2026 02:45:17 -0700 (PDT)
+X-Received: by 2002:a05:7022:eb42:20b0:144:fc5b:2121 with SMTP id a92af1059eb24-151c30ec64cmr5879764c88.17.1791107116264;
+        Sun, 04 Oct 2026 02:45:16 -0700 (PDT)
+Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fcec9a95sm12736954c88.15.2026.10.04.02.45.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Oct 2026 02:45:15 -0700 (PDT)
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel@collabora.com,
+	Arend van Spriel <arend.vanspriel@broadcom.com>
+Subject: Re: [PATCH wireless-next v2] wifi: brcmfmac: Improve D3 substate entering timeout handling
+Date: Sun,  4 Oct 2026 02:45:10 -0700
+Message-ID: <20261004094510.1323851-1-arend.vanspriel@broadcom.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260915-brcmfmac-bcm43752-suspend-fix-v2-1-1bd84914998b@collabora.com>
+References: <20260915-brcmfmac-bcm43752-suspend-fix-v2-1-1bd84914998b@collabora.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_024523_442313_2403EA17 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,595 +121,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 15 potential
-issue(s) to consider.
-
-Critical: 0 · High: 4 · Medium: 7 · Low: 4
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] Recovery can unmap TX buffers the device still owns.
-- [High] Use-after-free of rxq in mtk_cldma_rxq_free().
-- [High] Use-after-free on trb_srv during HIF teardown.
-- [High] The RX DMA engine can be restarted after mtk_cldma_rxq_free()
-  has stopped it, and the buffers are then freed under live DMA.
-- [Medium] An RX error can be dropped for good in mtk_cldma_err_work().
-- [Medium] mtk_mhccif_isr_work() acks MHCCIF_EP2RC_SW_INT_ACK before it
-  dispatches callbacks, and it ignores their return values.
-- [Medium] The IRQ teardown in mtk_cldma_dev_exit() relies on 'mask first
-  so no new interrupt can fire, then wait out any in-flight handler'.
-- [Medium] In mtk_cldma_txq_free() and mtk_cldma_rxq_free(),
-  synchronize_irq() and flush_work(&drv_info->err_work) run before the…
-- [Medium] mtk_cldma_err_work() calls mtk_cldma_stop_queue(DIR_RX) with
-  no serialization against rxq->rx_done_work.
-- [Medium] An incompatible OPTIONAL_SUPPORT reply satisfies the handshake
-  even though the host marked the feature mandatory.
-- [Medium] HS1 masking race.
-- [Low] The justification for leaking the DMA pools contradicts itself.
-- [Low] The new comment in mtk_cldma_exit() says 'the caller holds
-  trans->submit_lock'.
-- [Low] In mtk_cldma_dev_exit(), WRITE_ONCE(cd->cldma_drv_info[hif_id],
-  NULL) carries the comment 'Unpublish before teardown; pairs with the…
-- [Low] In mtk_fsm_feature_set_match(), the
-  RTFT_TYPE_SUPPORT_BACKWARD_COMPAT case only compares versions and…
-
---
-
-net: wwan: t9xx: Add FSM thread
-
-This adds an FSM kthread. It serializes device and OS events into state
-transitions and notifies registered listeners before and after each one.
-The MD and SAP HS1/HS2/HS3 runtime feature handshake is wired into the
-FSM, and CLDMA bring-up and teardown are driven from FSM state
-transitions. That includes the IRQ registration and a new QUEUE_ERROR
-recovery worker.
-
-> diff --git a/drivers/net/wwan/t9xx/mtk_fsm.c b/drivers/net/wwan/t9xx/mtk_fsm.c
-> new file mode 100644
-> index 0000000000000..94617933e7713
-> --- /dev/null
-> +++ b/drivers/net/wwan/t9xx/mtk_fsm.c
-> @@ -0,0 +1,1174 @@
-
-[ ... ]
-
-> +static int mtk_fsm_feature_set_match(enum runtime_feature_support_type *cur_ft_spt,
-> +				     struct runtime_feature_info rtft_info_st,
-> +				     struct runtime_feature_info rtft_info_cfg)
-> +{
-
-[ ... ]
-
-> +	case RTFT_TYPE_OPTIONAL_SUPPORT:
-> +		if (FIELD_GET(FEATURE_TYPE, rtft_info_cfg.feature) == RTFT_TYPE_NOT_EXIST ||
-> +		    FIELD_GET(FEATURE_TYPE, rtft_info_cfg.feature) == RTFT_TYPE_NOT_SUPPORT) {
-> +			*cur_ft_spt = RTFT_TYPE_NOT_SUPPORT;
-> +		} else {
-> +			if (FIELD_GET(FEATURE_VER, rtft_info_st.feature) ==
-> +			    FIELD_GET(FEATURE_VER, rtft_info_cfg.feature))
-> +				*cur_ft_spt = RTFT_TYPE_MUST_SUPPORT;
-> +			else
-> +				*cur_ft_spt = RTFT_TYPE_NOT_SUPPORT;
-> +		}
-> +		break;
-
-[Severity: Medium]
-Should a version mismatch here fail the handshake when the host has
-marked the feature mandatory?
-
-mtk_fsm_hs_info_init_by_hsid() configures MD_PORT_ENUM and SAP_PORT_ENUM
-as RTFT_TYPE_MUST_SUPPORT, version 0. Suppose the device replies
-OPTIONAL_SUPPORT with a different version. This code sets cur_ft_spt to
-RTFT_TYPE_NOT_SUPPORT and returns 0. BACKWARD_COMPAT with a lower version
-gives NOT_EXIST in the same way.
-
-mtk_fsm_parse_hs2_msg() then skips the port enumeration action:
-
-    if (cur_ft_spt == RTFT_TYPE_MUST_SUPPORT && query_rtft_action[ft_id]) {
-
-HS3 still goes out, and the FSM can reach READY without the mandatory
-enumeration ever running. That seems to contradict the comment in the
-NOT_SUPPORT case above: "The device refusing a feature the host declared
-mandatory must fail the handshake".
-
-> +	case RTFT_TYPE_SUPPORT_BACKWARD_COMPAT:
-> +		if (FIELD_GET(FEATURE_VER, rtft_info_st.feature) >=
-> +		    FIELD_GET(FEATURE_VER, rtft_info_cfg.feature))
-> +			*cur_ft_spt = RTFT_TYPE_MUST_SUPPORT;
-> +		else
-> +			*cur_ft_spt = RTFT_TYPE_NOT_EXIST;
-> +		break;
-
-[Severity: Low]
-This case only compares versions and never looks at the host's
-configured type. For a feature the host never offered, query_ft_set[] is
-zero (NOT_EXIST, version 0). The >= check then always passes and
-cur_ft_spt becomes MUST_SUPPORT.
-
-mtk_fsm_parse_hs2_msg() will then run query_rtft_action[ft_id] on data
-supplied by the device. For example, during the MD handshake the device
-could trigger the SAP_PORT_ENUM action (mtk_port_status_update()).
-
-Should this case reject or downgrade when the host config is NOT_EXIST
-or NOT_SUPPORT, as the MUST_SUPPORT and OPTIONAL_SUPPORT cases do?
-
-[ ... ]
-
-> +static int mtk_fsm_idle_evt_handler(struct mtk_md_dev *mdev,
-> +				    u32 dev_state, struct mtk_md_fsm *fsm)
-> +{
-
-[ ... ]
-
-> +	/* On failure keep the handshake channels masked and report it, so
-> +	 * the device's next boot-flow notification can retrigger us.
-> +	 */
-> +	if (mtk_fsm_evt_submit(mdev, FSM_EVT_STARTUP, FSM_F_DFLT,
-> +			       NULL, 0, 0) == FSM_EVT_RET_FAIL) {
-> +		dev_err(mdev->dev, "Failed to submit STARTUP evt, waiting for retry\n");
-> +		return -ENOMEM;
-> +	}
-
-[Severity: Medium]
-Can this retry ever arrive?
-
-mtk_mhccif_isr_work() acks MHCCIF_EP2RC_SW_INT_ACK before it dispatches
-the callbacks, and it ignores their return values. mtk_mhccif_init()
-documents EP2RC notifications as one-shot: the device never re-sends
-them.
-
-The callback runs under spin_lock_bh, so mtk_fsm_evt_submit() allocates
-with GFP_ATOMIC here and can fail under memory pressure. When it fails,
-this function returns before it unmasks the HS channels. In addition,
-mtk_fsm_early_bootup_handler() leaves last_dev_state unlatched so that
-the repeated notification is not filtered out.
-
-mtk_fsm_hs1_handler() relies on the same assumption:
-
-    /* Only consume the notification once the event is queued; on a
-     * failed submit the channel stays unmasked and uncleared so the
-     * device's retry still reaches us.
-     */
-
-The status has already been acked, and DEV_STAGE_IDLE is the last stage,
-so no second notification seems to come. The FSM would then stay in ON
-with the HS channels masked, and the device would never reach READY.
-
-The callbacks also ack a second time through mtk_pci_clear_ext_evt().
-That contradicts the dispatcher's ack-first ordering, and it can erase
-an event that was re-asserted in the meantime.
-
-[ ... ]
-
-> +static int mtk_fsm_hs1_handler(u32 status, void *__hs_info)
-> +{
-
-[ ... ]
-
-> +	if (mtk_fsm_evt_submit(mdev, FSM_EVT_STARTUP, hs_info->fsm_flag_hs1,
-> +			       hs_info, sizeof(*hs_info), 0) == FSM_EVT_RET_FAIL) {
-> +		dev_err(mdev->dev, "Failed to submit HS1 evt(hs%d), waiting for retry\n",
-> +			hs_info->id);
-> +		return -ENOMEM;
-> +	}
-> +	mtk_pci_mask_ext_evt(mdev, hs_info->mhccif_ch);
-> +	mtk_pci_clear_ext_evt(mdev, hs_info->mhccif_ch);
-
-[Severity: Medium]
-Can the mask here undo the FSM thread's re-arm?
-
-mtk_fsm_evt_submit() queues the event and wakes the FSM thread before
-this callback masks and clears the channel. Meanwhile the FSM thread on
-another CPU can process the STARTUP event and fail. Examples are the
--EPROTO state check, a mtk_fsm_ctrl_ch_start() failure, or a failed HS1
-send. On failure it unmasks the HS channels in mtk_fsm_startup_act() so
-that a retry can come in:
-
-    hs_err:
-        for (int hs_id = 0; hs_id < HS_ID_MAX; hs_id++)
-            mtk_pci_unmask_ext_evt(mdev, fsm->hs_info[hs_id].mhccif_ch);
-
-This callback then masks the channel again, and later HS notifications
-stay masked.
-
-The FSM side does not take mhccif_lock, so the lock held here does not
-order the two paths. On PREEMPT_RT the spin_lock_bh section can also be
-preempted, which makes the window wider.
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> index 0f281bfb38cc7..080ae29d3a887 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> @@ -32,11 +32,184 @@
-
-[ ... ]
-
-> +static int mtk_cldma_isr(int irq_id, void *param)
-> +{
-
-[ ... ]
-
-> +	mtk_pci_clear_irq(mdev, drv_info->pci_ext_irq_id);
-> +	mtk_pci_unmask_irq(mdev, drv_info->pci_ext_irq_id);
-> +
-> +	return IRQ_HANDLED;
-> +}
-
-[Severity: Medium]
-Does this unconditional unmask defeat the mask in mtk_cldma_dev_exit()?
-
-mtk_cldma_dev_exit() relies on this sequence:
-
-    mtk_pci_mask_irq(mdev, drv_info->pci_ext_irq_id);
-    synchronize_irq(virq_id);
-    mtk_pci_unregister_irq(mdev, drv_info->pci_ext_irq_id);
-
-Its comment says "mask first so no new interrupt can fire". A handler
-that is already running would unmask L1 again here before
-synchronize_irq() returns.
-
-mtk_pci_unregister_irq() uses the same mask plus synchronize_irq()
-sequence and then clears irq_cb_list[] and irq_cb_data[].
-mtk_pci_irq_handler() reads cb and data as two separate loads, without
-irq_cb_lock:
-
-    cb = READ_ONCE(priv->irq_cb_list[irq_id]);
-    if (likely(cb)) {
-        smp_rmb();
-        cb(irq_id, priv->irq_cb_data[irq_id]);
-
-A new interrupt could then call mtk_cldma_isr() with NULL data. It could
-also run against a drv_info whose workqueue is being destroyed and which
-is freed later.
-
-In the queue-timeout path, mtk_cldma_rearm_queues() and
-mtk_cldma_drv_init() can also rewrite int_mask and unmask L2 sources
-after the handler has been removed.
-
-mtk_pci_irq_msix() masks L1 before dispatch, so an interrupt that finds
-no handler leaves L1 masked rather than armed indefinitely.
-
-[ ... ]
-
-> @@ -679,8 +853,11 @@ static void mtk_cldma_txq_free(struct cldma_drv_info *drv_info, u32 txqno)
->  
->  	irq_id = mtk_pci_get_virq_id(mdev, drv_info->pci_ext_irq_id);
->  	synchronize_irq(irq_id);
-> -	/* flush on-going work */
-> +	/* flush on-going work; the error worker may have loaded this txq
-> +	 * before it was unpublished above, so it has to be retired too
-> +	 */
->  	flush_work(&txq->tx_done_work);
-> +	flush_work(&drv_info->err_work);
->  	mtk_cldma_mask_intr(drv_info, DIR_TX, txqno, QUEUE_XFER_DONE);
->  	mtk_cldma_mask_intr(drv_info, DIR_TX, txqno, QUEUE_ERROR);
-
-[Severity: Medium]
-Is err_work flushed too early here? synchronize_irq() and
-flush_work(&drv_info->err_work) both run before QUEUE_ERROR is masked
-for this queue.
-
-If a QUEUE_ERROR interrupt lands in between, mtk_cldma_isr() sets the
-tx_err_qs bit, unmasks QUEUE_ERROR again and queues err_work after the
-flush has finished.
-
-A later OPEN could reallocate the same queue number before the stale
-err_work runs. err_work would then stop the new queue and complete its
-pending TX requests with -EPIPE.
-
-mtk_cldma_rxq_free() uses the same ordering. On RX, a stale bit would
-stop and restart a healthy new queue, which is the case the new comment
-in rxq_free says the flush prevents.
-
-> @@ -987,8 +1165,11 @@ static void mtk_cldma_rxq_free(struct cldma_drv_info *drv_info, u32 rxqno)
->  
->  	irq_id = mtk_pci_get_virq_id(mdev, drv_info->pci_ext_irq_id);
->  	synchronize_irq(irq_id);
-> -	/* flush on-going work */
-> +	/* flush on-going work; the error worker may still be about to stop
-> +	 * this queue number, which a later allocation could already reuse
-> +	 */
->  	flush_work(&rxq->rx_done_work);
-> +	flush_work(&drv_info->err_work);
-
-[Severity: High]
-Is this flush ordering enough to keep rxq alive?
-
-mtk_cldma_err_work() can load rxq with
-smp_load_acquire(&drv_info->rxq[i]) before rxq_free() unpublishes the
-slot. It then spends time in mtk_cldma_stop_queue(DIR_RX), and finally
-does:
-
-    atomic_set(&rxq->need_restart, 1);
-    queue_work(drv_info->wq, &rxq->rx_done_work);
-
-If that queue_work() runs after flush_work(&rxq->rx_done_work) has
-returned, flush_work(&drv_info->err_work) waits only for err_work
-itself. rxq_free() then goes on to kfree(rxq) while rx_done_work is
-still pending, and mtk_cldma_rx_done_work() later runs on freed memory.
-
-need_exit does not help, because the work_struct itself is inside the
-freed rxq.
-
-Should err_work be flushed before rx_done_work? This path can be reached
-from both mtk_cldma_close() and mtk_cldma_dev_exit().
-
-[ ... ]
-
-> @@ -1072,6 +1254,67 @@ static int mtk_cldma_hw_recovery(struct cldma_drv_info *drv_info, u32 qno)
-
-[ ... ]
-
-> +static int mtk_cldma_dev_exit(struct cldma_dev *cd, int hif_id)
-> +{
-
-[ ... ]
-
-> +	/* quiesce the IP before releasing descriptor memory: disable its
-> +	 * interrupt output and reset it, so it cannot touch the rings again
-> +	 */
-> +	mtk_pci_write32(mdev, drv_info->base_addr + drv_info->hw_regs->reg_cldma_int_mask,
-> +			LINK_ERROR_VAL);
-> +	mtk_cldma_drv_reset(drv_info);
-> +
-> +	if (drv_info->ring_leaked) {
-> +		/* A ring is leaked and its descriptors live in these pools:
-> +		 * the device may still master DMA into them, so handing them
-> +		 * back to the allocator would open a use-after-free window.
-> +		 */
-> +		dev_err(mdev->dev, "CLDMA%d rings leaked, leaking DMA pools too\n",
-> +			drv_info->hw_id);
-> +	} else {
-> +		dma_pool_destroy(drv_info->bd_dma_pool);
-> +		dma_pool_destroy(drv_info->gpd_dma_pool);
-> +	}
-
-[Severity: Low]
-Which of these two comments is correct? The reset above is said to
-quiesce the IP "so it cannot touch the rings again". This branch then
-skips dma_pool_destroy() because "the device may still master DMA into
-them".
-
-ring_leaked is only set after txq_free() or rxq_free() has already reset
-the instance and the stop still timed out. So the code already assumes
-that a reset is not enough in that case.
-
-Either the pool leak is unnecessary, or the "cannot touch the rings
-again" claim is wrong. The leak policy in the commit message does not
-say which guarantee it relies on.
-
-> +
-> +	/* Unpublish before teardown; pairs with the acquire loads of this
-> +	 * slot. No release is needed, there is no prior store to expose.
-> +	 */
-> +	WRITE_ONCE(cd->cldma_drv_info[hif_id], NULL);
-> +	kfree(drv_info);
-
-[Severity: Low]
-Does this comment match the code? It says "Unpublish before teardown".
-The store actually runs after the IRQ unregister, the queue frees,
-destroy_workqueue(), the reset and dma_pool_destroy().
-
-The comment looks copied from txq_free() and rxq_free(), where the order
-really is the other way round. The protection today comes from
-mtk_cldma_exit() clearing trans->dev first and from the trb threads
-being joined.
-
-[ ... ]
-
-> @@ -1095,6 +1338,11 @@ static int mtk_cldma_start_xfer(struct cldma_drv_info *drv_info, u32 qno)
->  	 * names; tx_done_work advances free_idx under the same lock.
->  	 */
->  	spin_lock(&txq->ring_lock);
-> +	if (unlikely(txq->is_stopping)) {
-> +		spin_unlock(&txq->ring_lock);
-> +		return -EPIPE;
-> +	}
-
-[Severity: High]
-Can this -EPIPE return lead to unmapping TX buffers that the device
-still owns?
-
-mtk_cldma_tx() treats any error from mtk_cldma_start_xfer() as a reason
-to flush the ring:
-
-    ret = mtk_cldma_start_xfer(drv_info, que->txqno);
-    if (unlikely(ret)) {
-        dev_err(mdev->dev, "Failed to trigger cldma tx\n");
-        mtk_cldma_txq_flush(drv_info, txq, ret);
-    }
-
-mtk_cldma_txq_flush() clears CLDMA_GPD_FLAG_HWO, calls
-dma_unmap_single() and completes every pending skb.
-
-mtk_cldma_err_work() sets is_stopping before it polls
-mtk_cldma_stop_queue(). If the stop fails, it leaves is_stopping set on
-purpose and skips the flush, because the device may still be walking the
-ring. A TRB_CMD_TX that arrives during the stop poll, or any time after
-a failed stop, would flush exactly the requests err_work is trying to
-keep.
-
-mtk_cldma_submit_tx() also never checks is_stopping, although the new
-comment in struct txq says the producer reads it under ring_lock. So new
-HWO descriptors keep being published into the ring.
-
-Nothing clears is_stopping after a failed stop. Wouldn't every later TX
-on that queue take the flush path?
-
-[ ... ]
-
-> @@ -1124,11 +1372,22 @@ int mtk_cldma_init(struct mtk_ctrl_trans *trans)
-
-[ ... ]
-
-> +	/* Latch-and-clear up front: the caller holds trans->submit_lock, so
-> +	 * publishing the NULL here makes any later submit path bail out in
-> +	 * mtk_cldma_get_tx_budget() instead of walking freed queues.
-> +	 */
->  	trans->dev = NULL;
-
-[Severity: Low]
-Is the locking precondition in this comment accurate? The err_cldma_exit
-path in mtk_pcie_hif_init() is taken when mtk_ctrl_trb_srv_init() fails,
-and it calls mtk_cldma_exit() without holding submit_lock.
-
-That is harmless today because trans->available is still 0 on that
-path. Should the comment cover this case as well?
-
-[ ... ]
-
-> @@ -1250,6 +1510,82 @@ static void mtk_cldma_txq_flush(struct cldma_drv_info *drv_info,
-
-[ ... ]
-
-> +	tx_err = atomic_xchg(&drv_info->tx_err_qs, 0);
-> +	rx_err = atomic_xchg(&drv_info->rx_err_qs, 0);
-> +
-> +	for (i = 0; i < HW_QUEUE_NUM; i++) {
-> +		if (tx_err & BIT(i)) {
-> +			/* pairs with smp_store_release() in txq_alloc */
-> +			txq = smp_load_acquire(&drv_info->txq[i]);
-> +			if (!txq)
-> +				continue;
-
-[ ... ]
-
-> +			ret = mtk_cldma_stop_queue(drv_info, DIR_TX, i);
-> +			if (ret) {
-> +				/* the device may still be walking the ring:
-> +				 * unmapping its buffers here would leave it
-> +				 * writing into unmapped memory. is_stopping is
-> +				 * left set so nothing submits to it again.
-> +				 */
-> +				dev_err(drv_info->mdev->dev,
-> +					"TX queue %d stop failed (%d), keeping its requests\n",
-> +					i, ret);
-> +				continue;
-> +			}
-
-[Severity: Medium]
-Does this continue, and the one after the !txq check above, also skip
-RX error handling for the same queue index?
-
-Both masks are consumed up front with atomic_xchg(). When the TX branch
-hits either continue, the "if (rx_err & BIT(i))" branch for the same i
-never runs.
-
-The ISR has already cleared and unmasked the RX QUEUE_ERROR source. As
-the comment in the RX branch notes, a stopped RX queue raises no further
-interrupt. Wouldn't that RX queue then stay stalled until it is closed
-and reopened?
-
-[ ... ]
-
-> +		if (rx_err & BIT(i)) {
-> +			/* pairs with smp_store_release() in rxq_alloc */
-> +			rxq = smp_load_acquire(&drv_info->rxq[i]);
-> +			if (!rxq)
-> +				continue;
-> +			ret = mtk_cldma_stop_queue(drv_info, DIR_RX, i);
-
-[Severity: Medium]
-Is this stop serialized with rxq->rx_done_work? drv_info->wq is
-allocated with WQ_UNBOUND, so err_work and rx_done_work can run at the
-same time on different CPUs.
-
-Consider an rx_done_work near its end. It can read need_restart == 0 and
-call mtk_cldma_resume_queue(DIR_RX) right after this stop. err_work then
-sets need_restart and queues rx_done_work again. That call runs
-mtk_cldma_rxq_restart() and reprograms the start address on a queue that
-may already be running again.
-
-The comment below says the queue is handed back to its worker instead
-of being programmed here. The stop command is also queue programming,
-though, and it is not serialized with the owner's resume or restart.
-
-> +			if (ret) {
-
-[ ... ]
-
-> +			atomic_set(&rxq->need_restart, 1);
-> +			queue_work(drv_info->wq, &rxq->rx_done_work);
-
-[Severity: High]
-Can the RX engine be restarted after mtk_cldma_rxq_free() has stopped
-it?
-
-The end of mtk_cldma_rx_done_work() checks need_exit and then acts on
-it, with no lock:
-
-    if (!atomic_read(&rxq->need_exit)) {
-        if (atomic_xchg(&rxq->need_restart, 0))
-            mtk_cldma_rxq_restart(drv_info, rxq);
-        else if (ret != -ENXIO)
-            mtk_cldma_resume_queue(drv_info, DIR_RX, rxq->rxqno);
-    }
-
-rxq_free() sets need_exit and calls mtk_cldma_stop_queue(DIR_RX), then
-synchronize_irq() and flush_work(). A worker that read need_exit == 0
-before that can still call mtk_cldma_rxq_restart() after the stop has
-completed. flush_work() only waits for the restart to finish.
-
-The stop returned 0, so ring_leaked stays false. rxq_free() then unmaps
-and frees the RX skbs and returns the GPDs, while the SO engine may be
-running on HWO descriptors.
-
-Setting need_restart here on every RX QUEUE_ERROR makes this
-interleaving concrete. The added flush_work(&drv_info->err_work) in
-rxq_free() does not stop the hardware again.
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-> index d485bd7e3bf9c..658189dace01b 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-> @@ -473,19 +473,23 @@ int mtk_pcie_hif_exit(struct mtk_md_dev *mdev)
-
-[ ... ]
-
->  	/* Join the service threads before freeing what they dereference: they
->  	 * read trans->dev without a lock, so clearing it cannot stop a
->  	 * consumer that has already loaded the pointer.
->  	 */
->  	mtk_ctrl_trb_srv_exit(trans);
->  	mtk_cldma_exit(trans);
-
-[Severity: High]
-Does this ordering leave a window where trb_srv is used after it has
-been freed?
-
-mtk_ctrl_trb_srv_exit() calls kthread_stop() and kfree(srv), and only
-then sets trans->trb_srv[i] = NULL. The CLDMA IRQ is masked, and
-drv_info->wq drained, only later in
-mtk_cldma_exit()->mtk_cldma_dev_exit().
-
-This patch registers mtk_cldma_isr(), so mtk_cldma_tx_done_work() and
-mtk_cldma_err_work()->mtk_cldma_txq_flush() can run inside that window.
-Both do this without a lock:
-
-    srv = trans->trb_srv[trans->srv_cfg[hif_id][txqno]];
-    if (was_starved && srv)
-        wake_up(&srv->trb_waitq);
-
-srv can already be freed at that point. It is even still non-NULL
-between the kfree() and the NULL store.
-
-The commit message says "mtk_pcie_hif_exit() joins the trb service
-threads before mtk_cldma_exit() frees what they dereference". However,
-the IRQ and work producers that also dereference trb_srv[] are not
-quiesced before srv is freed.
-
-A queue can still be open at this point. That happens, for example, when
-the DEV_RM submit fails and removal forces cleanup, or when
-mtk_port_ch_disable() times out.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-t9xx_driver_v1-v9-0-3248b9256956%40compal.com
+On Tue, 15 Sep 2026 02:50:39 +0200, Sebastian Reichel wrote:
+> Some firmwares (e.g. BCM43752) do not service the D3_INFORM mailbox
+> handshake when idle, so the D3 ACK never arrives. If WoWL is not armed
+> the device is going to be powered off during system suspend and
+> re-probed on resume anyway (brcmf_pcie_pm_leave_D3() handles that), so
+> the missing ACK is harmless and must not abort the whole system suspend.
+> When WoWL is active the device has to stay powered with its state
+> preserved, so keep treating the timeout as fatal.
+
+Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
+
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
 
