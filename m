@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F72CCA5FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 08:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EF0CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 08:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bgra3BxEIGlsaAKcIEdoGtWPE9OTXIcVpwqZBq8xG2s=; b=RgcTSTf4WWCbsuirO9YMY9xTvG
-	y63D1puhzh5rZV/HlTJnrjGd8egZPepa7Q7uopUDgRFrCUD+xVPb30/OCmnRpspBlROj1bBeKXfhK
-	+qd/Vc7QX4WWBe9ZUIytCjWqOnAeF/1b8ireJvEsY6DC6ZPFWNly8Lonhzg+2LtR+CB6WyL5kQv/J
-	UHHtWqchmVjpsWJ7bfAhf6J3RWBt0gfYcVU6TTrztip2aF2VYufKh5akxSkWOAM8o2zgVQarAdLrd
-	e41oA/xtpvHHJF50N/kDAYnIRELCJQKm07lWDuEqtM9Shk4snh0buNdcCIL2fzIatA2qtUovdne9c
-	eH5yrPGA==;
+	bh=t7R2yoCiAeLQBhB6gJTWyBDgFqLo/L9FrePQ72IrN3c=; b=3TbnoBwrTwsZSHaKRW19t2YnXW
+	nY+nVXDJnrHSqBR+6GpQKGxG+4SA8rqntyBKUXr5KMESTlWoVQ7qt/0/feX4Fvbv0jaKyJmGP6QHy
+	hzBNRkxW1aTLYGNmApgZGDj4gscgmH/Ss6qg3PKtv/t4lpEKbl56sWS6flmRi0rx35DQhPPZ0MS9O
+	TPLyoT3JU1yxo6GtAo9x8mFZYGJNLmrDl8nGMPkfijtC4X+o+nhIkyMd5Ho92mOLhLO+Mv+C4NeFk
+	E4A3ZXz6FMjk0rk4NWPdEgTHVlXDqFviDnTleauHRu1ElGludWoQlQs0boSDRpJ+Nysiqgtr7FRAU
+	OoADHEgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDHAr-0000000EVIw-0wSq;
-	Sun, 04 Oct 2026 08:02:21 +0000
+	id 1xDHAx-0000000EVNW-3mnu;
+	Sun, 04 Oct 2026 08:02:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDHAn-0000000EVGp-3UrH
+	id 1xDHAu-0000000EVLT-2SjN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 08:02:19 +0000
+	Sun, 04 Oct 2026 08:02:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49CB01A32;
-	Sun,  4 Oct 2026 01:02:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 238111691;
+	Sun,  4 Oct 2026 01:02:20 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24C7F3F85F;
-	Sun,  4 Oct 2026 01:02:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF0A93F85F;
+	Sun,  4 Oct 2026 01:02:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791100935; bh=xzcLgoMasxkE++6SrJ30wfYIbvLL2TT2AU643nKeL+8=;
+	t=1791100943; bh=hfA0ap4Xo70CAlarCd2qZoILhqj61SvsIL72n1hY+fo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hsB43wy+y6/zFhP0nqOvP2hOfikMoOONXitWfGNTilJtHpbg+wlzbLOSpcfL4FHCP
-	 0vpfIB83mKmZ2L04HWLmbsrPoxBDwLzj9dDSFquyAFjYtuT76l02E7Fs+OhipZfoLy
-	 n8t5mObAiivAJ2wi0miIRtCJ7y7DAEFIFUoi2a+Y=
+	b=fUyzch/heLxnqdJXkzRRihj7yFSPtr5jY4Ybn2ha+lVXD3oblfdIYvMj9+HEK6xFI
+	 2KiVB6yWEOssFr9B+Evr+pDGnhOqJ5WXUghPvpmPYF1nKghvCM4VkRQPmaoJOVrC2f
+	 0KJVUVKl+H02qVBA23QzzmtLg14cSgLQEWLid+eE=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,18 +63,23 @@ Cc: sudeep.holla@kernel.org,
 	puranjay@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v13 02/25] firmware: arm_scmi: Allow registration of unknown-size events/reports
-Date: Sun,  4 Oct 2026 09:00:43 +0100
-Message-ID: <20261004080106.3355393-3-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH v13 04/25] dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+Date: Sun,  4 Oct 2026 09:00:45 +0100
+Message-ID: <20261004080106.3355393-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261004080106.3355393-1-cristian.marussi@arm.com>
 References: <20261004080106.3355393-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_010217_981897_09D158FE 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20261004_010224_833598_4CDD2EFD 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,108 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow protocols to register events with build-time unknown sizes: such
-events can be declared zero-sized and let the core SCMI stack perform the
-needed safe-net boundary checks based on the configured transport size.
+Add new SCMI v4.0 Telemetry protocol bindings definitions.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v12 --> v13
- - improve variable naming
-v10 --> v11
- - account for ktime_t field when checking boundary
-v2 --> v3
- - split out of previous patch on protocol notifier
- - use max() instead of max_t()
----
- drivers/firmware/arm_scmi/notify.c | 25 ++++++++++++++++++++-----
- drivers/firmware/arm_scmi/notify.h |  8 ++++++--
- 2 files changed, 26 insertions(+), 7 deletions(-)
+v3 --> v4
+ - changed protocol number to lowercase 1b
+ - fixed misplaced block for protocol 0x1b
 
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index fb60fb07c0ed..7d1bb424a723 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -595,7 +595,13 @@ int scmi_notify(const struct scmi_handle *handle, u8 proto_id, u8 evt_id,
- 	if (!r_evt)
- 		return -EINVAL;
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org
+---
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index 6fc44105f1c3..b63543390fd9 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -324,6 +324,14 @@ properties:
+     required:
+       - reg
  
--	if (len > r_evt->evt->max_payld_sz) {
-+	/*
-+	 * Events with a zero max_payld_sz are sized to be of the maximum
-+	 * size allowed by the transport: no need to be size-checked here
-+	 * since the transport layer would have already dropped such
-+	 * over-sized messages.
-+	 */
-+	if (r_evt->evt->max_payld_sz && len > r_evt->evt->max_payld_sz) {
- 		dev_err(handle->dev, "discard badly sized message\n");
- 		return -EINVAL;
- 	}
-@@ -752,7 +758,7 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 				  const struct scmi_protocol_handle *ph,
- 				  const struct scmi_protocol_events *ee)
- {
--	int i;
-+	int i, max_msg_sz, default_report_sz;
- 	unsigned int num_sources;
- 	size_t payld_sz = 0;
- 	struct scmi_registered_events_desc *pd;
-@@ -767,6 +773,9 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	if (!ni)
- 		return -ENOMEM;
- 
-+	max_msg_sz = ph->hops->get_max_msg_size(ph);
-+	default_report_sz = max_msg_sz + sizeof(ktime_t);
++  protocol@1b:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
 +
- 	/* num_sources cannot be <= 0 */
- 	if (ee->num_sources) {
- 		num_sources = ee->num_sources;
-@@ -779,8 +788,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	}
++    properties:
++      reg:
++        const: 0x1b
++
+ unevaluatedProperties: false
  
- 	evt = ee->evts;
--	for (i = 0; i < ee->num_events; i++)
--		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
-+	for (i = 0; i < ee->num_events; i++) {
-+		if (evt[i].max_payld_sz == 0) {
-+			payld_sz = max_msg_sz;
-+			break;
-+		}
-+		payld_sz = max(payld_sz, evt[i].max_payld_sz);
-+	}
- 	payld_sz += sizeof(struct scmi_event_header);
- 
- 	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
-@@ -807,7 +821,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 		mutex_init(&r_evt->sources_mtx);
- 
- 		r_evt->report = devm_kzalloc(ni->handle->dev,
--					     evt->max_report_sz, GFP_KERNEL);
-+					     evt->max_report_sz ?: default_report_sz,
-+					     GFP_KERNEL);
- 		if (!r_evt->report)
- 			return -ENOMEM;
- 
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-index f18f98c5ab3b..ff4044fd7448 100644
---- a/drivers/firmware/arm_scmi/notify.h
-+++ b/drivers/firmware/arm_scmi/notify.h
-@@ -18,8 +18,12 @@
- /**
-  * struct scmi_event  - Describes an event to be supported
-  * @id: Event ID
-- * @max_payld_sz: Max possible size for the payload of a notification message
-- * @max_report_sz: Max possible size for the report of a notification message
-+ * @max_payld_sz: Max possible size for the payload of a notification message.
-+ *		  Set to zero to use the maximum message size allowed by the
-+ *		  transport.
-+ * @max_report_sz: Max possible size for the report of a notification message.
-+ *		   Set to zero to use the maximum message size allowed by the
-+ *		   transport plus the additional ktime_t timestamp.
-  *
-  * Each SCMI protocol, during its initialization phase, can describe the events
-  * it wishes to support in a few struct scmi_event and pass them to the core
+ $defs:
 -- 
 2.54.0
 
