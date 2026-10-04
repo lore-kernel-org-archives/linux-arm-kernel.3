@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A53CA5FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 13:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D224ACA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 13:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NE+HpL+4/nhk7flotB6WS91GeUU38z3uKjg3coP2+A=; b=awMU1aFrxfZRvttDFa7MMJzum7
-	I1rSWJZg5LMdA1AiPq9FsiZNJXRaKu64U5Kt4I2mkUxw6Kn2lM+a/QTsw+HcYkrBHZBK8YGcVN2h6
-	ZUhd70LAPUoT5kPYtxaScE8ql+irRR8MHc3Y3PY2A0dJUjFEbUE02I9vMqvgYH3l0TIw8E9gE5i0u
-	3S0SPitHRqqpiyjXCfg07O9z0FLVA6KmGUG3GB9cz2hsefuQgDcPh2FQPxaSqWD0Xp5/CVF2IhJgt
-	RNp5H66kl/bxHiM7sVtjU1J15ca+pvXBrBC/Ck4D6hd+WrzX7UDKfNeSo3kUBwmnFCz78XvSiOPoh
-	6QkuedPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNI2qDnLiaqV8BxH9fuxXcoBvBHpUmc8du3BEbYd2ug=; b=jHMLW5iWIGnb+UYaWMxIOyRVUO
+	DUehM0kd1DY79Sahz9rZjbNj1uQbhN/5pc3/bDW+ZBAN02EOoK39KIgydLeoz6sq+aAsvSQ4nVjmF
+	5gzqNQ1VF0aDvUWe7nWyzXP/2rKajocusXyAoX3/NmRHNepqDLFXq7e2nQ9Rd2tTjNHrdonIdUY+R
+	rtesJ5U896BVu/T303jVesy00PwRDKIT0878ijgokProxMNqWloSLw6nACtndcgqDJ0lo5wsy5aXs
+	AwoQ+YUcU79mg3sxpzxneHETR5AKure7cgKizAnpSkeiwuQI+bnLda/fzH14vFxbMnzt7a1iq5BKw
+	UwvXCfcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDMOH-0000000EqnG-3H35;
-	Sun, 04 Oct 2026 13:36:35 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xDMRq-0000000ErAC-2l3Z;
+	Sun, 04 Oct 2026 13:40:14 +0000
+Received: from out-160.mta0.migadu.com ([2001:41d0:1004:224b::a0] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDMOC-0000000Eqmi-451Q;
-	Sun, 04 Oct 2026 13:36:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 37AFF1A1129;
-	Sun,  4 Oct 2026 13:36:25 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EDF8A604FE;
-	Sun,  4 Oct 2026 13:36:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 84D591032817F;
-	Sun,  4 Oct 2026 15:36:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791120983; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2NE+HpL+4/nhk7flotB6WS91GeUU38z3uKjg3coP2+A=;
-	b=fHlTaruJ9UYX/TCjh6ddGz8FdeTNaer7ynqNrXWLEwa1DvvmgSQdmitTz9TuVK30gfequZ
-	eJ1p8rOeBqdI6eziZL7EZhi4Ry0bNZbVpje8JAO/DKhrMOe3SwWJ3Ivxu1mVLatxBK0/TS
-	gY9MoIU3I0+NqDHWiLPPIi6nnm5CFmJF9IvyA1rflAcpNiAa8blYQVmQcqOsaglTtEY+s0
-	WSNZGMtc8lqHGUTOt7tYh+CMkWSACp/zx+k4SqHEvlCAr6JFDeWX31VSRYV6u5vPNqTG98
-	O6siwBPKsc7fEJtz4+E5n2GFtCtS68uNTKhTsrGmJa+fINa5ihn5dp9XZgHWiA==
-Message-ID: <117c8f0b-cc8a-4b55-ba32-0a7f441b96b3@bootlin.com>
-Date: Sun, 4 Oct 2026 15:36:11 +0200
+	id 1xDMRn-0000000Er9i-2Fmd
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Oct 2026 13:40:13 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=PNI2qDnLiaqV8BxH9fuxXcoBvBHpUmc8du3BEbYd2ug=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791121208; v=1; x=1791726008;
+ b=n7384kgFTnYSpuQ2b29ZFzkEQrV0WEbGXRRmk76HZJrdfRKoq5shRI1aK5M5haeFhUMM1cc1
+ Sx0JRx60U3BiV6odCialgnU1KPISUUxLbLfaDfy2kjFRI42Am3FocEZKmadqqKk0Y6vkRZ98l7k
+ j/VP+3tOb2kHPFl+/YIi8MZk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 22ccb7e257ac288e;
+	Sun, 04 Oct 2026 13:40:07 +0000
+X-Mizu-Trace-ID: 22ccb7e257ac288e
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so3726e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 06:40:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy5zwhu9ELePFAfcK/NtnlKRmpzNd45Pw+sJTXnVEGpzHwqsUiNbxJgtHV5C/yotgWwCM7pbEoNxJ7Y7+g7iEqS@lists.infradead.org
+X-Gm-Message-State: AFq9FYJHk+KtCpIAe/TaAg5xyq9LTXz9p/Wyf/iG5+DZ1TfARK77X4QY
+	cJDHh/dplccHJFXsyU7dKoJDuT9HyvQBXXERLbuPcHuDsbG/2kfbEAsATmKu8tRt25k9J46zxun
+	5jOm6NbeJPuG6MTYYorl3evnBFPEQiitWoBxGwivq
+X-Received: by 2002:a05:6512:23a1:b0:5bb:27df:415f with SMTP id
+ 2adb3069b0e04-5bcb62e44a6mr80016e87.15.1791121206347; Sun, 04 Oct 2026
+ 06:40:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/7] net: stmmac: mediatek: simplify TX/RX
- delay handling in mt8195_set_delay
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20260924-dwmac-mediatek-mt8189-v2-0-430bd74d5ef9@collabora.com>
- <20260924-dwmac-mediatek-mt8189-v2-2-430bd74d5ef9@collabora.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260924-dwmac-mediatek-mt8189-v2-2-430bd74d5ef9@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260930121212.3101361-1-fuad.tabba@linux.dev>
+ <ar-xtsSOqwWK9jWQ@willie-the-truck> <CA+EHjTzT+2M40GfyxHp6p6OugjoA2BRSkbFK-PMeLGz+qCUM9w@mail.gmail.com>
+ <ar-5CnttybD-1ojM@willie-the-truck> <ar_E5HUSTxMSRZhL@arm.com>
+ <CA+EHjTzemfoX9e8Ppw+AcuUpNND_CipLCUM9xgid1eYXmV=jzg@mail.gmail.com>
+ <ar_QOXqCYTGargBe@arm.com> <asIQ1ZwUjkmNJbRP@willie-the-truck>
+In-Reply-To: <asIQ1ZwUjkmNJbRP@willie-the-truck>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Sun, 4 Oct 2026 14:39:29 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwYMT6gKZiBf70S9JgNtzBj2jES_4xkzVUVKHHd6mPNvg@mail.gmail.com>
+X-Gm-Features: AclHuK_ztBU3Lp4brNTuBuj0lY992tOQjsYAyS5cYhB7Md0NCpETrVALGjPVujw
+Message-ID: <CA+EHjTwYMT6gKZiBf70S9JgNtzBj2jES_4xkzVUVKHHd6mPNvg@mail.gmail.com>
+Subject: Re: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, "Rob Herring (Arm)" <robh@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_063629_751492_79940B5F 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20261004_064012_301463_130E9B4D 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,195 +85,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sun, 04 Oct 2026 09:39:49 +0100, Will Deacon <will@kernel.org> wrote:
+[...]
+> I wonder if it would be worth having some #defines for some of the common
+> conditions, so we could avoid having the bare immediates each time in
+> future? (obviously, that would be a separate cleanup rather than part of
+> this fix).
 
-On 9/24/26 09:23, Louis-Alexis Eyraud wrote:
-> The mt8195_set_delay function modifies at its beginning the TX and RX
-> internal delay variables, located in the driver data, by dividing
-> them by a constant (290) and restores their original values by
-> multiplying them again at the function end. It is done in order to
-> convert them into a step value, used by the hardware registers for
-> setting these delays.
-> 
-> But this is rather pointless to modify the driver data for that, while
-> it could be done locally in the function. The original delay values
-> cannot be used anymore (if needed) during mt8195_set_delay processing.
-> Finally, they are altered after the function call if they are not a
-> multiple of 290.
-> 
-> So, simplify these delay variable handling by using local variables to
-> convert them into the register value and use those in the write calls.
-> Also, remove the two private conversion functions, that are not useful
-> anymore and add definitions for MT8195 RX/TX delay maximum and divider
-> values.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Thanks Will. I think it would. There are only a handful outside
+arch/arm64/lib, so it's small. I'd name each value after the condition
+the following branch tests, e.g. CCMP_NZCV_LT rather than #8, so
+nobody has to work out the flags by hand. I'll send something once
+this is in your tree.
 
-Nice cleanup :)
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 77 ++++++++++------------
->  1 file changed, 36 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 30ae0dba7fff..f7eb85110df0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -63,6 +63,11 @@
->  #define MT8195_DLY_RMII_TXC_ENABLE	BIT(5)
->  #define MT8195_DLY_RMII_TXC_STAGES	GENMASK(4, 0)
->  
-> +#define MT8195_DLY_RXC_STAGE_DIV	290 /* 290ps per stage */
-> +#define MT8195_DLY_RXC_MAX		9280 /* 32 x 290ps */
-> +#define MT8195_DLY_TXC_STAGE_DIV	290 /* 290ps per stage */
-> +#define MT8195_DLY_TXC_MAX		9280 /* 32 x 290ps */
-> +
->  struct mac_delay_struct {
->  	u32 tx_delay;
->  	u32 rx_delay;
-> @@ -293,39 +298,27 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat,
->  	return 0;
->  }
->  
-> -static void mt8195_delay_ps2stage(struct mediatek_dwmac_plat_data *plat)
-> -{
-> -	struct mac_delay_struct *mac_delay = &plat->mac_delay;
-> -
-> -	/* 290ps per stage */
-> -	mac_delay->tx_delay /= 290;
-> -	mac_delay->rx_delay /= 290;
-> -}
-> -
-> -static void mt8195_delay_stage2ps(struct mediatek_dwmac_plat_data *plat)
-> -{
-> -	struct mac_delay_struct *mac_delay = &plat->mac_delay;
-> -
-> -	/* 290ps per stage */
-> -	mac_delay->tx_delay *= 290;
-> -	mac_delay->rx_delay *= 290;
-> -}
-> -
->  static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  {
->  	struct mac_delay_struct *mac_delay = &plat->mac_delay;
-> -	u32 gtxc_delay_val = 0, delay_val = 0, rmii_delay_val = 0;
-> -
-> -	mt8195_delay_ps2stage(plat);
-> +	u32 rx_delay_stage_val = mac_delay->rx_delay / MT8195_DLY_RXC_STAGE_DIV;
-> +	u32 tx_delay_stage_val = mac_delay->tx_delay / MT8195_DLY_TXC_STAGE_DIV;
-> +	u32 gtxc_delay_val = 0;
-> +	u32 rmii_delay_val = 0;
-> +	u32 delay_val = 0;
->  
->  	switch (plat->phy_mode) {
->  	case PHY_INTERFACE_MODE_MII:
-> -		delay_val |= FIELD_PREP(MT8195_DLY_TXC_ENABLE, !!mac_delay->tx_delay);
-> -		delay_val |= FIELD_PREP(MT8195_DLY_TXC_STAGES, mac_delay->tx_delay);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_TXC_ENABLE,
-> +					!!tx_delay_stage_val);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_TXC_STAGES,
-> +					tx_delay_stage_val);
->  		delay_val |= FIELD_PREP(MT8195_DLY_TXC_INV, mac_delay->tx_inv);
->  
-> -		delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
-> -		delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES, mac_delay->rx_delay);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE,
-> +					!!rx_delay_stage_val);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES,
-> +					rx_delay_stage_val);
->  		delay_val |= FIELD_PREP(MT8195_DLY_RXC_INV, mac_delay->rx_inv);
->  		break;
->  	case PHY_INTERFACE_MODE_RMII:
-> @@ -336,16 +329,16 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  			 * The ingress timing can be adjusted by RMII_RXC delay macro circuit.
->  			 */
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_TXC_ENABLE,
-> -						     !!mac_delay->tx_delay);
-> +						     !!tx_delay_stage_val);
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_TXC_STAGES,
-> -						     mac_delay->tx_delay);
-> +						     tx_delay_stage_val);
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_TXC_INV,
->  						     mac_delay->tx_inv);
->  
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_RXC_ENABLE,
-> -						     !!mac_delay->rx_delay);
-> +						     !!rx_delay_stage_val);
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_RXC_STAGES,
-> -						     mac_delay->rx_delay);
-> +						     rx_delay_stage_val);
->  			rmii_delay_val |= FIELD_PREP(MT8195_DLY_RMII_RXC_INV,
->  						     mac_delay->rx_inv);
->  		} else {
-> @@ -361,9 +354,9 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  				 * by RXC delay macro circuit.
->  				 */
->  				delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE,
-> -							!!mac_delay->rx_delay);
-> +							!!rx_delay_stage_val);
->  				delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES,
-> -							mac_delay->rx_delay);
-> +							rx_delay_stage_val);
->  				delay_val |= FIELD_PREP(MT8195_DLY_RXC_INV,
->  							mac_delay->rx_inv);
->  			} else {
-> @@ -372,9 +365,9 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  				 * by TXC delay macro circuit.
->  				 */
->  				delay_val |= FIELD_PREP(MT8195_DLY_TXC_ENABLE,
-> -							!!mac_delay->rx_delay);
-> +							!!rx_delay_stage_val);
->  				delay_val |= FIELD_PREP(MT8195_DLY_TXC_STAGES,
-> -							mac_delay->rx_delay);
-> +							rx_delay_stage_val);
->  				delay_val |= FIELD_PREP(MT8195_DLY_TXC_INV,
->  							mac_delay->rx_inv);
->  			}
-> @@ -384,12 +377,16 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	case PHY_INTERFACE_MODE_RGMII_TXID:
->  	case PHY_INTERFACE_MODE_RGMII_RXID:
->  	case PHY_INTERFACE_MODE_RGMII_ID:
-> -		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE, !!mac_delay->tx_delay);
-> -		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES, mac_delay->tx_delay);
-> +		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
-> +					     !!tx_delay_stage_val);
-> +		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES,
-> +					     tx_delay_stage_val);
->  		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_INV, mac_delay->tx_inv);
->  
-> -		delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
-> -		delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES, mac_delay->rx_delay);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE,
-> +					!!rx_delay_stage_val);
-> +		delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES,
-> +					rx_delay_stage_val);
->  		delay_val |= FIELD_PREP(MT8195_DLY_RXC_INV, mac_delay->rx_inv);
->  
->  		break;
-> @@ -408,8 +405,6 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	regmap_write(plat->peri_regmap, MT8195_PERI_ETH_CTRL1, delay_val);
->  	regmap_write(plat->peri_regmap, MT8195_PERI_ETH_CTRL2, rmii_delay_val);
->  
-> -	mt8195_delay_stage2ps(plat);
-> -
->  	return 0;
->  }
->  
-> @@ -418,8 +413,8 @@ static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
->  	.dwmac_set_delay = mt8195_set_delay,
->  	.clk_list = mt8195_dwmac_clk_l,
->  	.num_clks = ARRAY_SIZE(mt8195_dwmac_clk_l),
-> -	.rx_delay_max = 9280,
-> -	.tx_delay_max = 9280,
-> +	.rx_delay_max = MT8195_DLY_RXC_MAX,
-> +	.tx_delay_max = MT8195_DLY_TXC_MAX,
->  	.dma_bit_mask = 35,
->  };
->  
-> 
-
+Cheers,
+/fuad
 
