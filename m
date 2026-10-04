@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4F7CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484A7CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CIysZCZmDY+hsmraxBJHQH/HCXeMIwx5nXj3FwnpnSI=; b=o4PSMAxxGuX+EVwULsKJ1pvl9S
-	r8I8bhOWPYxlevubvm9puq4oWGTOdufL6EEmU/Hy6Hhd3OP/uNghrAe4WvZH3kgQxAdmEx7aepZZZ
-	xBBwZnSPrLLlQRVrhLFwwHUpZtpi9n/Nx/u2rzq7djSkAG0m1ehWQDnBX3dfsf4g0zUPNhaquPNfT
-	NwPeYZ5IrZ/T89KYYSApZ0M5IyAFYSS7wg1GPSePLv+1pLPUD969hzIbM+Sbn3tsY5xYlWSZCefIO
-	FEie8sPMHw9zQzgxEpnKzghVzva9AJnoxpvTZptq2TRHXPqqY3DgRlCJk25YVx69eeUAqI27aD0Wh
-	WfOS0jsw==;
+	bh=GEpsd3NY71emI/OU49o6DxhBuREbDH43G5MVLueQf1M=; b=ukXVHQUYewc/nssgHH54Mffnjh
+	rW+AU91mH08RwZmHmNasv8TjTFRtotkqUE3jGo1VRaTDkufFkQYRIajpNN6k3bSGygqC3rasF755T
+	0nC2XdkXiGMzepN+UYGpPc3KAHVly1kD9sIOJsWqRBB3e/MexK4Cv6Bn8sZdVW+9h5QUPMgOGOJ1P
+	YgphWtcfoKIuaJPGcesKMhCbwOR0GJtmizplOQwT0WoaUFMsmSXsA0UJHyMula5a4scJ/5bWZ6CXv
+	DFhMzvbT0XsKGM2Bi0acdbCtPYaawwxu68uUJp1zzzmgUI5py4jj3YcDyxJNS6AxG3gKn3uf0eyxn
+	gc73ImeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOr-0000000FP9N-0El2;
-	Sun, 04 Oct 2026 22:09:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDUOw-0000000FPBZ-127B;
+	Sun, 04 Oct 2026 22:09:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOp-0000000FP98-2rru
+	id 1xDUOu-0000000FPAy-2iuE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:09:39 +0000
+	Sun, 04 Oct 2026 22:09:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22C96444F3;
-	Sun,  4 Oct 2026 22:09:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCDDA1F00893;
-	Sun,  4 Oct 2026 22:09:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6839C444F8;
+	Sun,  4 Oct 2026 22:09:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153FC1F000FF;
+	Sun,  4 Oct 2026 22:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791151779;
-	bh=CIysZCZmDY+hsmraxBJHQH/HCXeMIwx5nXj3FwnpnSI=;
+	s=k20260515; t=1791151784;
+	bh=GEpsd3NY71emI/OU49o6DxhBuREbDH43G5MVLueQf1M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RbZJVM4aJi45z4MD6FnfIIwGAZCzBlIK2SKaDsBl8ypr7Tk53Qis+r/5UedLY+0Xa
-	 5MTaU7LSg0MsWm8HkKGlPyaOZM0MoHliMPdi3TZiG88ToSEOT+u4DjhSNXqjv6LcZ8
-	 aBgZM3o9PVTKNHRHvUoRRmtZCV42Z2Bf2O0Aq0OF6NnRsndGAIx86Tpm1iEAmS3kCF
-	 FbmPZZW2KdsFJ6nU6fu0Y2U5ff4DmLaeJiboUxUdXZ9oj4pGagrE+AdN9Idyp0pSpZ
-	 tDGr4geVL0YIiwGrIZCFVjzJgUmup98Ibw7OQf+JxYbrCk0tNgDh87JN8DCFuEZHaV
-	 c4Rqs044oq/rQ==
+	b=fA7FZlfh2W9/hpnctq9tr1o0yQnOFCnkaOTqTSrBgMzFcNLPjxul2caadNj73wipx
+	 dFPny8lZMhs/03/zoLz+mCFJecd6Z7aYLz18RNj2t+9ZLnj6i/QZQHsvAcBW+SP0AX
+	 DQdnISC1IIPcW3clt/nPLSzU+B6sePHL3I2jrZbDXw0Hbg8vSyx3H1PORLdpunqvdx
+	 tUCwt+dLL2VoD3duJW4n/I4wP1nBQspFDi81xPFtXKW7s4Gs4+VYOZrmpxhC67sjEd
+	 7AsKZ1jIVhAMnNMjYmIG0tknP9MPVVXw4XJ6ZjgEiHPELZkSAT2Q2Ipm4aNcmQdqMH
+	 7Hw/SrDagQxhA==
 From: Will Deacon <will@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Leo Yan <leo.yan@arm.com>
+To: Khuong Dinh <khuong@os.amperecomputing.com>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>
 Cc: catalin.marinas@arm.com,
+	mark.rutland@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH 0/3] perf: Suppress redundant ITRACE start records for Arm SPE and CoreSight
-Date: Sun,  4 Oct 2026 23:09:16 +0100
-Message-ID: <179113376395.1496517.2313914567669442516.b4-ty@kernel.org>
+	stable@vger.kernel.org,
+	Jianhao Xu <jianhao.xu@seu.edu.cn>
+Subject: Re: [PATCH] perf: xgene: initialize lock before requesting IRQ
+Date: Sun,  4 Oct 2026 23:09:18 +0100
+Message-ID: <179114855064.1630764.1277374161771369343.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
-References: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+In-Reply-To: <20260902072241.3489222-1-runyu.xiao@seu.edu.cn>
+References: <20260902072241.3489222-1-runyu.xiao@seu.edu.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -83,25 +77,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Sep 2026 17:36:14 +0100, Leo Yan wrote:
-> Thanks to Tamas Petz for noticing that Arm CoreSight perf data can contain
-> many PERF_RECORD_ITRACE_START records.
+On Wed, 02 Sep 2026 15:22:41 +0800, Runyu Xiao wrote:
+> xgene_pmu_probe() requests the PMU IRQ before initializing
+> xgene_pmu->lock. request_irq() enables IRQ handling before it returns,
+> so xgene_pmu_isr() can run in this window and acquire the uninitialized
+> raw spinlock.
 > 
-> PERF_RECORD_ITRACE_START provides the decoder with the initial thread
-> context when that information is absent from the trace stream. Once
-> tracing has started, Arm SPE and CoreSight decoders track subsequent
-> context changes using context packets or recorded sched_switch events.
+> Initialize the lock before requesting the IRQ so the handler always sees a
+> valid lock.
 > 
 > [...]
 
 Applied to arm64 (for-next/perf), thanks!
 
-[1/3] perf/core: Export perf_event_itrace_started()
-      https://git.kernel.org/arm64/c/ce512db53e0d
-[2/3] perf: arm_spe: Suppress redundant ITRACE start records
-      https://git.kernel.org/arm64/c/87f78017e8c8
-[3/3] coresight: perf: Suppress ITRACE start records
-      https://git.kernel.org/arm64/c/8f8301eaa400
+[1/1] perf: xgene: initialize lock before requesting IRQ
+      https://git.kernel.org/arm64/c/d4b7b0c77142
 
 Cheers,
 -- 
