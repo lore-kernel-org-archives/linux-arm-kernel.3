@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99740CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF70CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvtwBHB/29za1lBzcRuhdIUCXU2ONAT7YGslVIQD3fI=; b=JI8f/5QscMx5fCQCyRxdAUeev0
-	xg6y2CWRKabl4ZpeSTxJa3OiGB1Au+sUSvfMEBVsuJ/7z9orlmno5XFY+7nVrx27+w/dT2A+sKwCU
-	fTF6subC3diqvF/Oi4kdOnASbXsGFGdVVcB3hTVHjFQNJe6QpIkmr4yXoZSRI/V88Y/y7EQkGOgCa
-	pxKzuatPEA9cLLbVVKB/mqkbU4WqWl7TJCdAv8ph5SyXb1BaSbLXUmFLqHLhpYuPzh2BcT0bdEZNU
-	q7mZXD9GTk0mZ0X4HomjvWTz8IsbviwjZiNYocGF+EOyjtxjc6EhUGgKvlXhU+a8MtZ6aare8wKRP
-	ydDZgzWQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1pLbVNzpT4k4uzm/tuI3sNHGXY3AO/i5v4vy/cMAy5M=; b=w1PWo+sv/ijevBUlpXzeiEpsvB
+	/Li2fr5sp0u66HKONccKdmc0dBkL2IEUY1V4RG2PdetA4/LRn1gbt9bxJN++k4xuRpREjEXsTL4Z8
+	gf0UXKXVxqtSDyzuD2rvZ5Mn+qNx/D2qtaAgD+4TGll5tet3MT1mZACdgBHg3mWTnw4k+kbBGW7Hk
+	xQMDe+SDs/UWM5XqQ1EJTdXvsSa0Ayx9C4ZtkMK4BtuOBVvkIdg97m2b7C7SkeLH9HNwlbQKF2Ivg
+	1dfNbPtldf0Nq/syfCPtn0Z3KmWzhfghJUfK7IDVa8MV+LHXYR5n86L40hHYdhKQnrk9ySvP0pfHJ
+	eX2SP5lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSv1-0000000FGsg-1QmS;
-	Sun, 04 Oct 2026 20:34:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDSvk-0000000FGw0-1z3r;
+	Sun, 04 Oct 2026 20:35:34 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSuy-0000000FGsW-1UuB
+	id 1xDSv2-0000000FGsd-22zv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:34:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17651601F7;
-	Sun,  4 Oct 2026 20:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EF7F1F000FF;
-	Sun,  4 Oct 2026 20:34:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791146080;
-	bh=wvtwBHB/29za1lBzcRuhdIUCXU2ONAT7YGslVIQD3fI=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=KvZbKb5dyXgbImEhRmYvpxrdH5/N4/2vT4VGeSBFjhDf9OCOQudEgwZojC1zvKOXf
-	 f8drGcZlGWFBewZ7aCSk6AywEI2EGsRNoYKYSGMqr6ynYaZJ7I8ipwy0cagfYdVP3b
-	 cCw1MfXlFv2v9LMhJ589kVGjWb6UcRcRXEacJ2IwnmxiQn5WeybJDVUgoKTDJ/Plcg
-	 bKdQkW8EwNXGGd5pOc2ShCEHWgx7qfNXdKzSowfcakItuE7Dv4keMsVZeH58BURb2t
-	 5b+Tc+siPF6SvmR3Dk5dIon+98y/EJO4Tdc6Hg8ulG1FxZ+V4bDF0YD5YJQ5yTA1rM
-	 +D5Tv5yMQ2RYw==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- jernej.skrabec@gmail.com, samuel@sholland.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <20260927200820.795348-1-olek2@wp.pl>
-References: <20260927200820.795348-1-olek2@wp.pl>
-Subject: Re: [PATCH v2] arm64: dts: allwiner: h5: OrangePi PC2: add
- ethernet LEDs
-Message-Id: <179114607889.27465.17745402190793009878.b4-ty@kernel.org>
-Date: Mon, 05 Oct 2026 04:34:38 +0800
+	Sun, 04 Oct 2026 20:34:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id E18DC1A1138;
+	Sun,  4 Oct 2026 20:34:45 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A7204604FE;
+	Sun,  4 Oct 2026 20:34:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D7E501032820F;
+	Sun,  4 Oct 2026 22:34:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791146084; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=1pLbVNzpT4k4uzm/tuI3sNHGXY3AO/i5v4vy/cMAy5M=;
+	b=0yzQYGwmusJsIxmTjYFWxhjC4uF+JeaScpF48UTpoFVYGGeeAt5IJB+d1AaCPDiTA2zCfR
+	JTUMHAS1qxn2OJ21xouHV9Yukj+IYkFA+9hZ8Q31XOYhziH++1ER/TIO2NiMGSwdITNBcg
+	F8+ct5i/cnb4pbOFo5Gwqy5CAHOUo8+KS7zwSCOz6fe8xdGA+jjGBZl6zbnrKEoW79RAmS
+	dMpUdtaWeTZ0YiU7ktsMvlVgeHf+sxaIMOu6jtSijGPaFJ04KjpYhc1hUSILTl5szGJyZN
+	2EB3QOYgl3uuJlhU9PDIPfLRfHSHamXZtPb9EflPfDIeKPdk+nsHL82RzCsGaw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: dt for v7.4 (#1)
+Date: Sun, 04 Oct 2026 22:34:43 +0200
+Message-ID: <87o6d96w7w.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_133448_680703_43BCC37D 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,18 +72,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 27 Sep 2026 21:38:18 +0200, Aleksander Jan Bajkowski wrote:
-> This patch adds support for Ethernet LEDs. Keep the default LED settings.
-> 
-> 
+Hi,
 
-Applied to sunxi/dt-for-7.4 in sunxi, thanks!
+Here is the first pull request for dt for mvebu for v7.4.
 
-[1/1] arm64: dts: allwiner: h5: OrangePi PC2: add ethernet LEDs
-      https://git.kernel.org/sunxi/linux/c/265ffb8d8dfe
+Gregory
 
-Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-dt-7.4-1
+
+for you to fetch changes up to 6dfda79476538a9aad1d2dac45453e62c6939522:
+
+  ARM: dts: marvell: armada-388: use onnn,pca9655 compatible (2026-09-30 08=
+:48:51 +0200)
+
+----------------------------------------------------------------
+mvebu dt for 7.4 (part 1)
+
+Various fixes for Armada 388 based boards (helios4, clearfog)
+Clean up indentation in dove, kirkwood and orion5x dtsi files.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      ARM: dts: marvell: Replace spaces indentation with tabs
+
+Rosen Penev (10):
+      ARM: dts: helios4: fix lm75 supply name
+      ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
+      ARM: dts: marvell: add missing SDHCI clock-names
+      ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
+      ARM: dts: armada-388-helios4: fix vmmc property name
+      ARM: dts: helios4: fix vbus-supply for USB2 PHY
+      ARM: dts: helios4: fix spi1 location
+      ARM: dts: helios4: use national,lm75 compatible
+      ARM: dts: helios4: add #phy-cells to USB nop phys
+      ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
+
+ .../boot/dts/marvell/armada-385-clearfog-gtr.dtsi  |  2 +-
+ arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi |  7 +----
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts   | 36 ++++++++----------=
+----
+ arch/arm/boot/dts/marvell/armada-38x.dtsi          |  1 +
+ arch/arm/boot/dts/marvell/armada-395-gp.dts        |  1 -
+ arch/arm/boot/dts/marvell/armada-39x.dtsi          |  1 +
+ arch/arm/boot/dts/marvell/dove.dtsi                | 22 ++++++-------
+ arch/arm/boot/dts/marvell/kirkwood-6282.dtsi       | 15 +++++----
+ .../dts/marvell/kirkwood-guruplug-server-plus.dts  |  4 +--
+ arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi       |  4 +--
+ arch/arm/boot/dts/marvell/kirkwood-synology.dtsi   | 12 ++++----
+ .../arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts |  2 +-
+ 12 files changed, 46 insertions(+), 61 deletions(-)
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
