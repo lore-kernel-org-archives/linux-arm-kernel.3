@@ -4,92 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA06ECA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 18:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABBACA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 18:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P6evII+OYGy4KorzI0D9PG9Yw6wuZMZhhjBM6jWvrVQ=; b=nTo2p1A1ub/3st9GqpnI+Cjnj2
-	7o54agzJzHuBXigCoS2DZEgAs3Xw2nPFKg21Zo1ptWjg3/8u+oLXPw8a3kMuQzzX5lBnRbqVQz3Ox
-	OL5MHxJcr/YXk/WxSjMrtTF5Y30bKr6zP0+Cc6KGUko3YXfIWLiTI5tlFZ2TFxa4wgxWBFyIPRP+z
-	/+SQAicZ5mejsw7/O2XqYNNjrmdej3Y7/CDDx26LuNQgNQ4qC5ockuJSrvLcsjUEJMR4jfKTxuaW9
-	d0kiEQGbsLWiTB5NrWiW4FyLJDtv+NUjYIAHfjntonxUkDVOjik914B/2TA6Qr1Vn/kgbTo2A8HOe
-	72MYsP1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yLp7Ndo/7k4Ng8+ohcODGZItHn+YB7X4XQ/xgVicdsE=; b=QAa9SVrYvrA9z2DqYmnBU9gT6R
+	izZFFir17uzAjdv7RThgt+RtctGkqfa2C4sTMR5D6EhYB4ZpkW4R44xuivxtexnSiy+1HgQBZ9Myx
+	enc7rGG1KvRWN3xjvsscTYJBfNYhG7025Hgmg2Uk9GCU7n1acjL8hcuE6dwsBPfq+kGUlaIVtGOW1
+	jYwLkvwzhhqjGvDFCZlIJGEgwqqXXkXjVwzbNiHHznY/I0rRpQWqMw++Q94d0KfkaLTS+PvvTMB60
+	B90cyyn7ykwaw1TXYlwy5hHas/NLZwhjIvFHIG/cujqV3qUeXp6uoTbOnB0upobJvhXDlmM9YmAai
+	Lg44HJzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDRGF-0000000FBSB-3OuZ;
-	Sun, 04 Oct 2026 18:48:35 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1xDROG-0000000FBrM-2ywq;
+	Sun, 04 Oct 2026 18:56:52 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDRGC-0000000FBRA-33CS
+	id 1xDROD-0000000FBqa-0Qs0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 18:48:34 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-33fb4680717so3181931eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 11:48:32 -0700 (PDT)
+	Sun, 04 Oct 2026 18:56:51 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a1681949b8so6239285e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 11:56:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791139711; x=1791744511; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P6evII+OYGy4KorzI0D9PG9Yw6wuZMZhhjBM6jWvrVQ=;
-        b=MCfN7MErIuup0HyYSVcbaYa1nj0dyV4WqiMjcz0YM/6R28nqajvGvMv6YBWTufWJ+K
-         L71Akhf7ogKrJLke+wUB24m4sqLJl2dQv/ztfCWJu5MfdMhTEBKTAyRkW0h2DtoJO4w2
-         BnEexTFHYEg7UwJva0K2HAq+PdP0GvZXyfkItbOZF2QdA2HMCqeN1Q0XozrgERDEGm0J
-         HnFDOe4Wo2ZFwimSBshmCrsxcrpyslk7k+KxsW/+DdRwmIMTlsJ1oyTV2QwQ/4F2JSxA
-         vwZdlEGgJyBA+zyOWHu+oNxK7D0Xa1QRXrv2tjgQviw0ZsIBydLz8B9Uq6HmCgzg9dRQ
-         9k8g==
+        d=gmail.com; s=20251104; t=1791140207; x=1791745007; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yLp7Ndo/7k4Ng8+ohcODGZItHn+YB7X4XQ/xgVicdsE=;
+        b=GpooVAqtHZODX9dGORMZikX99RNkdix3LWa8TfXX6cEMclbZnLVA9tqg8pQk8S/eV8
+         HN+93niIp3z1mRBiMVR1SkD9bMXsgNz3NgNRGVnbO/cMru1rX3cOTf2MzKoIxScWECPS
+         wuuCvz6bHTXuhsIsiMLTeGQEKogw2ev4z0/7b/+AxZ58hyyHMcMymCX0DQ0uY7mo0Wjq
+         dqYc+n3SKL9vMD71DcfWt6LpqFYP+nZ2+wm+TBUN/nTPQh/UjdMuCbrC2R7L0ydFclOg
+         11uus5aVUbkj5PmdG/9SsfcWShxcs22i2VEXIIzxMn1TEFs1KEZ4a6EcJdHtQi6OpphN
+         hrUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791139711; x=1791744511;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P6evII+OYGy4KorzI0D9PG9Yw6wuZMZhhjBM6jWvrVQ=;
-        b=uWPGfqTKD5u3OuqkP6qMtx2E5PNeZuj5MVUwf7BPvyGpi+QsWP+Ht3rhc7z50AdH7K
-         Dm/RQV/BwS3vfkVIPYga7wJJ7i2k0N5Flm8wS/JV4/TLwfyyQxSeFOOA468yM87eOVuE
-         28cuygZZWMpnMv/AtP+Opf93Snxk1Ozz9XFWt7nGguEK2MMt0brnXteWFQXCnzZxxDf2
-         xJsgi5U78w1mI6fb7YSgyh5pJn6gvYA/z/CGZFjZv3f/iZHcw/Gnw/r8GEzdKmtmZIF2
-         NLN2buy60SPTypxUpXFY2OW3fA/D7Pk4ZoAYn3vVNHvinclo2p1VzQt71MWOQ4gKCNds
-         HPeA==
-X-Forwarded-Encrypted: i=1; AKwUvBxUMiqvcuoeFhPvEKnIgu991tJJN6ep30PnKLVDfK/zrsx0pNOe0+piXvPd/rmNPRyA7nh5DeOWCcZvXNHpBn3w@lists.infradead.org
-X-Gm-Message-State: AFuF++mtO17K323exnJvO8hjJL/JtJ1y7aPINy0qpTk72PjXXH+m+5l3
-	z0y3zOrKLpg9ldyQU8WYn2pfMzNhFrwBVUGteg7WYfmht6J2+/TsDKi5
-X-Gm-Gg: AYBFou2cOY0jCtLc2gLUfMcakLBLK/v1baOqMuYgqyrjEY8djG2jusSX9lBUImIvCap
-	UC+fw0iEQcRdoRcJl47sty7tTU4+qP4alfjmfXt19vaTi5CNQockCicJHCJ/fqr9mWzUUZ/yGRo
-	8cWc90N6fVkKaokYEGMhHOOqx7/tglxL1KDfGX9NtRK2IkdsKEDCV7y6Vdh/eloJt+bV5UEcTvq
-	Qid+CoBgv8bvaAU38vMriBSZgYEAcJwxGYJdwo0l0Jlzu425d2NyW2mEKGCNAMz4uJ4/rQThRSY
-	8/rI/NsshQvU0ho4b7W98IVYQtt5RuOvpcBE9wIHya9CnzLSWPEqmLa31+sUPht26+zjMNXh6aM
-	wGYoNV7QeGT26LQFnQCntdOakxUAEap28Cn5gcTB7i1EeK7HjtVOYM5gSbY8irT6pAhWmJ29fxz
-	I8OZwv8rhmRlt3fKqrFM3xZHe48GmZD9NI0ueffETKGYQBqQkCOutjT+s5iiGd4EmAs89sf3xFh
-	e3z0jC8UNxOU/1gvuWo1BhFefvvblDj2Y9pLDHLJkxkQx59pCD8mSvAhcIPvyRulPfRBvfD0326
-	H4bixP1MCWd0hDZpA4MH2D9aVjaABT85Ot/yUT6l5kN+Jr6B
-X-Received: by 2002:a05:693c:41c7:10b0:351:13b4:9c59 with SMTP id 5a478bee46e88-35113b49cb0mr6822345eec.2.1791139710731;
-        Sun, 04 Oct 2026 11:48:30 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-351270204e0sm7754374eec.1.2026.10.04.11.48.29
+        d=1e100.net; s=20260707; t=1791140207; x=1791745007;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=yLp7Ndo/7k4Ng8+ohcODGZItHn+YB7X4XQ/xgVicdsE=;
+        b=ii1e6tg0o+nZ30Ktg57xSzrYVYj8ZhiNmw+Ap3APcSKvaNpwPiIBoNTSfNGp6zJBb+
+         yzJ4Uz2rhtNjK9qLqBGOyZAvoEueljPvmEQTgQcjNnJ5CkXq2+cIkQLo/L3xH4FcSxCn
+         vA8TjmrYirWVEfP6J/lbNMYp2CpkpCJkwHZnJZiv59xT8DYJhnXcjfKc2PQnRynnxe7N
+         xOOXdcu1JnXs9Wl5t2bWDozL0QLwGlKFIySPBUOvM0nCrfbL9BBPUJPMATFLbglt1fzN
+         txU0zbTJBmorEwOBXxmTDM6oIH30A2vcCUlti0GjNyETSB44U7ISxCEK+R7Fe67RXQ11
+         NkuA==
+X-Forwarded-Encrypted: i=1; AKwUvBwpQePw7dgD5mRpFEEa+it/oZyaz7kQ+r32CH4Z2nOMyWg1RqgxCdr28EOX8rxNyAEQrDylX0igCMzfY+MwWbeU@lists.infradead.org
+X-Gm-Message-State: AFuF++nNFqTWKkPYW2TixN20xWJNZXYg9VSUVCefe44mYWTFzD30n9Ap
+	VOv7eZ21VK1FR727h1bT6XAM3Y4mZzGqtvzrzi8tLHCwBznktL6wjOPh
+X-Gm-Gg: AYBFou0zmtu6/6rwJKa2aWvookZE4B99LDY0tpbZ5mii7UlsNJEo/T74JwU5GmYB/dt
+	4ezYHwvww2WNlbKYWKddtMHtPvObMdkWU9YCikHx5dcZwzqM8IryKwyu7J6ha0UGH8Ii4f4JiCW
+	4dK0g3GcWAIzfTZVmib6t3/G29MVvX1nkvJ5M8gs8aaI7pR9+3OE7cP4seHaOk8LFi77XtF+PoS
+	JwU7NySdErvG34TkcWQdyzZoQYL5nSajf6ztFAA27Frjw7L1+HD6KcECUNqA+nUrSWJuTTA36Vx
+	R96d59WNlqd0e/kNTqkjS/RiltWlo9NOZYPAyHS0cB2fGnPx76vsX67MlBX9k4ruzGr8vAWoP+V
+	ZAe1X9aO/hrelmi53JXWHGqZFIFBVgdfK1jUn0+6LthA3mRO62e51XbPRRhmajMhvPLcxWbXyxO
+	d04Zt+vIn/AhojlXp8b+gsAUfFp0Ngj3h4p4+FklLYuSav8utRse06QOSvj6w7hlPl2/T2z1AJy
+	iHRQZD854C7IqvmJeRIDd1vP30wA70v4f+Ee5umSRaEmIEKrM/kYm2diR98h9g079VCBRXbElwp
+	Nh8zj4+d+keebMwT4/X5Z8wR/SAvCG3fQ4yO9hMY54cfT9J9f7QOGXtgmBim7sjh6Vutx/IgXS8
+	Kqg6rPKA=
+X-Received: by 2002:a05:600c:6212:b0:49c:fa20:cbfc with SMTP id 5b1f17b1804b1-4a02758405cmr139001325e9.19.1791140206606;
+        Sun, 04 Oct 2026 11:56:46 -0700 (PDT)
+Received: from MacBook-Pro-von-Karl (dynamic-2a02-3100-a190-7401-a90c-9d77-a1b8-e6a2.310.pool.telefonica.de. [2a02:3100:a190:7401:a90c:9d77:a1b8:e6a2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280bcf0fsm318633385e9.6.2026.10.04.11.56.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 11:48:30 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-mips@vger.kernel.org
-Cc: John Crispin <john@phrozen.org>,
-	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rosen Penev <rosenp@gmail.com>,
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH] mips: ralink: mt7621: avoid casting away __iomem in wraparound test
-Date: Sun,  4 Oct 2026 11:48:28 -0700
-Message-ID: <20261004184828.31284-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.56.0
+        Sun, 04 Oct 2026 11:56:46 -0700 (PDT)
+Date: Sun, 4 Oct 2026 20:56:43 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+	Christian Schrefl <chrisi.schrefl@gmail.com>, Bradley Morgan <brads@mainlining.org>, 
+	"Paul E . McKenney" <paulmck@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
+	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: rust: Enable Rust support for ARMv5TE
+Message-ID: <asKgtWX7q-mgvnOc@gmail.com>
+References: <20261003093827.77857-1-kmehltretter@gmail.com>
+ <20261003093827.77857-3-kmehltretter@gmail.com>
+ <CANiq72kGay03jqFOfFcJOjr9Poy+yc2u0=Ep_9LQ+KMy=1JtRQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CANiq72kGay03jqFOfFcJOjr9Poy+yc2u0=Ep_9LQ+KMy=1JtRQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_114832_762369_B4FABB3F 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20261004_115649_221703_77ADE56F 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +117,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CPHYSADDR() casts its argument to an integer, which strips the __iomem
-annotation from dm and triggers a sparse warning. Compute the physical
-address from detect_magic directly. The result is unchanged since the
-sum never exceeds the 512MB KSEG mask.
+On Sat, Oct 03, 2026 at 12:24:35PM +0100, Miguel Ojeda wrote:
+> On Sat, Oct 3, 2026 at 11:38 AM Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> >
+> > Tested on v7.3-rc1 with clang 22.1.8, rustc 1.99.0 and bindgen 0.73.2
+> 
+> Great to see more arch support! Just to confirm, are there any
+> toolchain requirements to be aware of?
+> 
+> If yes, then we should add them to Kconfig, `scripts/min-tool-version.sh` etc.
+> 
+> If not, then please test with the minimum versions too! :)
+> 
 
-Fixes: 4ddaf88aadd3 ("mips: ralink: mt7621: add missing __iomem")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202610041411.uJXWXF8i-lkp@intel.com/
-Assisted-by: LLM
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- arch/mips/ralink/mt7621.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for suggesting that! No extra requirements as far as I can tell.
+I now also test with the minimum versions (LLVM 17.0.1 and gcc 8.1.0,
+with rustc 1.85.0 and bindgen 0.71.1).
 
-diff --git a/arch/mips/ralink/mt7621.c b/arch/mips/ralink/mt7621.c
-index ae7b8cfedd5f..2d10c74b13c1 100644
---- a/arch/mips/ralink/mt7621.c
-+++ b/arch/mips/ralink/mt7621.c
-@@ -65,7 +65,7 @@ static bool __init mt7621_addr_wraparound_test(phys_addr_t size)
- {
- 	void __iomem *dm = (void __iomem *)KSEG1ADDR(&detect_magic);
- 
--	if (CPHYSADDR(dm + size) >= MT7621_LOWMEM_MAX_SIZE)
-+	if (CPHYSADDR(&detect_magic) + size >= MT7621_LOWMEM_MAX_SIZE)
- 		return true;
- 	__raw_writel(MT7621_MEM_TEST_PATTERN, dm);
- 	if (__raw_readl(dm) != __raw_readl(dm + size))
--- 
-2.56.0
+So far I found one small issue with gcc 8.1.0. A fix for that will be in
+the v2 series.
 
+Karl
 
