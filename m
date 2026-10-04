@@ -4,119 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A498CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A51CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=; b=ldzlzH8G7/9Cj3BlEdS2HJEMxS
-	qpNGqYiMcDR4McsygVk97N7WY9EqSZaBZqx2O0eB9aviRuTrDEYSfiJcYcuerEXj7RboR26u611C9
-	ZvIeAuereuuj++v504RNuEBUrbC4agEUY9Hrea1wfd2kTT8IOl3QidmiYezpT9QoEviBY56AXOqOs
-	czhhBIvjom9xF5HPVfuhp1aIQPlyKtJzXZ0Wk+qmJpKoEEXRynk0niG+cWeRfgaRI7wKdBBBWWfxh
-	ceILQ4eoZaJMpQmcx0T7NAJtsWv+HRkNm5k618Mm0SiRWstlgYIm+DLkSti5vJk2xE1nLMC0BxCkF
-	bB1Rj/GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Iu6lAlqaodgXtL2mhM3pv2AXvPYLj6PPOmWMM+ICyy0=; b=yyEIxh/LvBmJ9jzIfaVfWPgdf2
+	Mpyz24oteREO7IZlzUDxpMM96qsra8QQaFteTti4lsR7PGlFFg09cbPIHf43vsPg9qvWjJy73qbuG
+	SlZOUw7Q33tYMU8o6kIeQY5bLFOmJy8Qn5vjSBP2DnL7xIx6+2X2vNxXYT3KYnjyP05uJ3pxew/pz
+	+sRA2Qtw5rZYXKOVGMHG8tuPGax6/+4V3gctTRKX5rwQ4wxHs3jTlFVINhfveMDLU5f2r+rJQJq5u
+	2AssItHQeyw9U5MC4GbSIm8hD5UfJwBdXfGDXVIHL5bqHbjKlcl24Pmy5lZcQfwy1ge0CodsH9NtS
+	AbKTBOHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDShz-0000000FGCx-3489;
-	Sun, 04 Oct 2026 20:21:19 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1xDSkQ-0000000FGMm-0brI;
+	Sun, 04 Oct 2026 20:23:50 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDShw-0000000FGCZ-44eA
+	id 1xDSkL-0000000FGMG-11hq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:21:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZP7RUSazbUCYQc8vlpeeeUeb+JmiWZavI9Ir+czWNn3MazRuB0rHUdxtWSkXbnNhBnrJDSkGXsd5grxQ2HflYRPKBstEILYp47AY6k2Cdr4oXOTbg6m35dAqVLX4duZWiJ6ptBOPVLbbuiJFi5yFQ1FrNrTFGw6p3sSL3pgpuJCg2imWNbsehTZ+LnKfNuQtGhwzgo1X98WFWXpkLfPGGgG56Xah/2hU6gaMjbr3JKQpdoELje7u/ycKTbXSCEslCU7t4ag6oN0QWXB8Avu6Q5CVwO/54tn7HlG1+m29XPZCuhhVU549ZCYTX5UycIsCDbA66ulqfrsI66X/+B1ZNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=;
- b=dfCJ5o14OP6p6GG20rsFO1kGy+JUeWU3PzNddBWLFDAgAmUCgPNB93+mIdIkCwUQO6+a7Z/vUb5A0ROtUPJeCr8bCuE0EHD4hrR8OEjJYfELbY8x4LlY0XK0oaG/36x5X6QSOGDG8WLeNeOphbToxAZgehoz9+IGHB4RFlkoQ/fBszlsSJvkDK/9yaT2NJbkseGF7j882Zwe/fsY5cBQ3FOZNm6t/zl5F46rn4fBTHVcDYTqqwTnveL8yTDjm0ZJMFVBTUgLnq/21xh5N+0oIBsSBoBuBaAkyTlv8DsRYuArH1eOVRaMtr2oxv/pLuxrD5phTqaXHSlIt6OOOK0Qtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gnvjIoBpiVa0v/G9CktuetqHt5VDy4vQhVI5IaYGwlk=;
- b=UU+CFVsokl+HIlN/l0Hz5DC7h92/0/sPS6hsyV7l/0++9FhfJJTV6VwrNTWiUDOPAPJgUCRiMrPvArU/ZfDu8HwjBdZtbNulIXFrftrbX+JpBWWcZVOZrTnuMhQKWH4GLgUhHnnuVBZwuxu8fKEV9ekAvIMx07j0e8tyoFAjzlHRylFaofAuYp4QgpNAFUOZ0rII+sj6gREFL96MgBKytrzEa0ZaCc+FjGZQGvF2l+IWvb1wl4OKybmfNlrKNz3aYHJiagPBuycxPXawoPHLZwCbSLCsLpZLJhmd5/qe41E24rTvu/VbjJzJ6Hzz/6lCYlswl1YTQIMsxlcoZOMxlQ==
-Received: from PH8PR22CA0004.namprd22.prod.outlook.com (2603:10b6:510:2d1::19)
- by DS0PR12MB7970.namprd12.prod.outlook.com (2603:10b6:8:149::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sun, 4 Oct
- 2026 20:21:06 +0000
-Received: from SN1PEPF000397B3.namprd05.prod.outlook.com
- (2603:10b6:510:2d1:cafe::54) by PH8PR22CA0004.outlook.office365.com
- (2603:10b6:510:2d1::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:21:06 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF000397B3.mail.protection.outlook.com (10.167.248.57) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:21:06 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
- 2026 13:20:55 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Sun, 4 Oct 2026 13:20:55 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Sun, 4 Oct 2026 13:20:54 -0700
-Date: Sun, 4 Oct 2026 13:20:52 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <robin.murphy@arm.com>, <jgg@nvidia.com>, <joro@8bytes.org>,
-	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
-Subject: Re: [PATCH v10 03/13] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for
- the event queue
-Message-ID: <asK1JIsTay1yeBEU@nvidia.com>
-References: <cover.1788130528.git.nicolinc@nvidia.com>
- <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
- <asJTer4cNh4DAQMY@willie-the-truck>
+	Sun, 04 Oct 2026 20:23:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id AF8984E41156;
+	Sun,  4 Oct 2026 20:23:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 67A6E604FE;
+	Sun,  4 Oct 2026 20:23:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D19451032820F;
+	Sun,  4 Oct 2026 22:23:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791145419; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=Iu6lAlqaodgXtL2mhM3pv2AXvPYLj6PPOmWMM+ICyy0=;
+	b=c16y1G7V3Ioe0+oCDYPDM2I9U+JWsVdQOiYqIA6G3gwfYoi5JqOLoQ8cuay0ksnsQdY2E9
+	lK4VouDxVYAmicjPaIh60iWmhCFSp/p51SU/aJKSr8LAZVAfFbs1qOiRmbRABkyUo2wLeK
+	hicmd84K0O5vBg3CCSw5rI/nWAsyQZCm0OQ2W3uMCUNHz2D0CXC8pIX+sT3OWh/rOZF7vE
+	7yUzKWxjGiioNjOKptUxnbnvuj6gtON1j5guLJ/PNl7bpYsj9xEQXKAAPCUFvcEm6l/+fL
+	cbdu0EkIVIknxqNygzphYns/+e13raCUNGNROrT/QWBrtdsR3GjvCWB2uXMIsw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: arm for v7.4 (#1)
+Date: Sun, 04 Oct 2026 22:23:36 +0200
+Message-ID: <87tsn16wqf.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <asJTer4cNh4DAQMY@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B3:EE_|DS0PR12MB7970:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f866ae4-3db0-41a3-8506-08df2255051f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|23010399003|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: CVZqiiL7ZbkBezhDIyAqZK6qmyy2q4uldMa40UKX113CaEmWNEVT8mku2YGEo3G1/bPNonMF4ybZKSzFfWApx3MSeFa7AwVLzZRwHdLSDsNt5D65X+zS2MPfKLKK4QiPKkJV+VoAfaRRHE+svivKqg+WYDYtAlBBBaRKb4y6NABI0cwsOzY/voQxNBa54pYj7fh6hMB10S8NBQiRDxya1E9khYQC7xxMXcg6bCERJegJV+CmwG2csRo6IW3ofkOc3bOkdvOQZCeUibQrObqD2LRGChkIM8AdFhYGjZnYM13oO4kQ2eEGBKvhXD6wldYYpEvgsG6FBd9l5fVEKd//FTk84siD5gTrY8YV01DLVXFl7wGX0RfBJNLoozYLVhCUHSx9TUzIuZNvzRA4ECJ4DtPB6TGgFjbrdrBjzHjhLj/CtvRMgSCaHHDEBrnP+GZFPIfHHKUuk1TIzm5Ato4hRqX0foh/YHcEjbaUEdlWjUT9Sqpv4yiSHIbbA/WN5yzyUj/s7edKlQtblZdbuJJaBe8kYn8dXit4wbz77jR39gqpNFl0u54zh02FtprgBL50GF/qTMOuvg2W+1uUpMgxHf+pO9I/siS6HwVMy92beqCMkamz11lHNdYfJ304cY6qLksQK2MPhx5sXJQotc49dyyrMYdKYb+/ENBt9lafVuJoO/Kub0BhMOiH2jG+KwQ5/MFalnBBSwSR9UFlA4qIFw==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5sTOE5zCtw2AXDvFX4TriSn+7bTaQgEjU4/RtMx8ME7OHL0wl/iSPp/QmPcFTxD3ntCpAQo1xgcaypSwGT8Vw4xBs2qj4UqduRRx/usDffvebLxD/gG6JHUqBJPqdH3FgcH7PLq5d0wUWjV6/ZSVFtOgJCZW1k42saFkHhtu4VJ5QqtuqtGbqTVPIdrMRJENknm4HQNjBRRGlbyBeNF4/cTqzqEaT1pMlrQsS4AWL+/0zb88GzgpBfWgP6DZmi2zjSyMS9nzoyDAff09dGSlVWyRXrVCLkPB9TFLjd+Z3v+ohLmuLV6URgzbsFETvSLEdvRsFSnnY3eL1YK8nw257Sh5RV4BTDZv5Fd1UdFMH8EGgX4Eg4AAiI7rMYVrpW/evGagDSH9qhLAh5q88E7+EGUsTdVw7HoLqDhbUdht8edtl+5x39kHvD32yRv0RY3Y
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:21:06.2010
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f866ae4-3db0-41a3-8506-08df2255051f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B3.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7970
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_132117_019134_CB13C10D 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20261004_132345_463399_51203F62 
+X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,56 +72,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 02:24:10PM +0100, Will Deacon wrote:
-> On Sun, Aug 30, 2026 at 04:18:04PM -0700, Nicolin Chen wrote:
-> > The driver programs and enables the event queue unconditionally, while the
-> > PRI queue has an ARM_SMMU_FEAT_PRI gating each of its touch points. Yet a
-> > kdump kernel wants to leave both of the queues alone, which would take an
-> > is_kdump_kernel() test at every one of those places.
-> > 
-> > Add an ARM_SMMU_FEAT_EVTQ that the probe always sets, as the event queue is
-> > architecturally mandatory, and gate the queue's allocation, its interrupt
-> > and its CR0 and IRQ_CTRL enables on it, so that a later change can turn the
-> > queue off in a single place.
-> > 
-> > No functional change intended.
-> > 
-> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Suggested-by: Robin Murphy <robin.murphy@arm.com>
-> > Assisted-by: Claude:claude-opus-5
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 79 +++++++++++++--------
-> >  2 files changed, 52 insertions(+), 28 deletions(-)
-> 
-> Sashiko has comments about the event queue MSI configuration for this patch.
-> Please can you have a look?
+Hi,
 
-Sashiko raised those because it doesn't read subsequent patches.
+Here is the first pull request for arm for mvebu for v7.4.
 
-And I left them as-is because I don't think they worth a change:
+Gregory
 
-1. IRQ_CTRL_EVTQ_IRQEN is never enabled in the kdump mode, so that
-   ARM_SMMU_EVTQ_IRQ_CFG0 line shouldn't matter.
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-2. arm_smmu_write_msi_msg() is never called in the kdump mode since
-   devm_request_threaded_irq() is guarded with ARM_SMMU_FEAT_EVTQ.
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-Sashiko is only right about the small waste of the MSI vector since
-it's unused. But, that nvec decrement trick only works for PRIQ, as
-its MSI index is at top of the list:
+are available in the Git repository at:
 
-   enum arm_smmu_msi_index {
-	EVTQ_MSI_INDEX,
-	GERROR_MSI_INDEX,
-	PRIQ_MSI_INDEX,
-	ARM_SMMU_MAX_MSIS, // "nvec--" shifts up this, skipping PRIQ
-   };
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-arm-7.4-1
 
-On the other hand, EVTQ_MSI_INDEX is at 0. Skipping it would need to
-shift the entire index list; struct arm_smmu_msi_cfg would not work
-straightforwardly as today.
+for you to fetch changes up to 76e67df8bc1cb72157368c3669119e64cdb0a6a6:
 
-Nicolin
+  ARM: mvebu: fix Cortex-A9 errata selection for Armada 38x (2026-09-30 22:=
+27:22 +0200)
+
+----------------------------------------------------------------
+mvebu arm for 7.4 (part 1)
+
+Fix Cortex-A9 errata selection for Armada 38x that are r4p1 and not r2p0.
+
+----------------------------------------------------------------
+Qingfang Deng (1):
+      ARM: mvebu: fix Cortex-A9 errata selection for Armada 38x
+
+ arch/arm/mach-mvebu/Kconfig | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
