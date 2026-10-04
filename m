@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8EDCA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 07:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3240CA5FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 07:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Rmulx5tWtZwNZ4srP1UM6NrLE00b/t8K2ZAJDxpNCg=; b=rjzHql4mIqxkJ9VEbsr7RyDnxY
-	HvuetfsQJ6O+/OOH6/g/lT8I8qUMIl7dwpYpffsmi+WEC3XAwwcpyaNOtZ/N+WbQqHLSz4wKOUQJU
-	M1orWVpN6SlaIMvR89iuOWCirm2yusHPIuL7tohOCK7S0wQFBSa4Miwo0G3FpDN2lGqYNyFA95KpF
-	Ly9Epy7U8oYqgXn4fB+hebx385SHNrnt5T9j7U5CBpMLy58/a65Tf8K5BvaZAofO1F/7MBI4+GBp2
-	3wbHfI9tbjDDyCfcPPOxslGDbAJaDyo/pqsr6lFPP7T/IX6BGj5AOM3x7QQel/tbaveyVxEPRxmng
-	PKdBRmGw==;
+	bh=jamzlZtcZjJfzDEPCHyTED59WHCHN0O2C6tOYRv+MmM=; b=2s/nyv/zTmY65Fe9rKA0IUzPA5
+	0v/iGG3ZV0rSTwbot+RZkA6L1v5tpESZzoS1jvVKUVd9sJ5ywYMGGZ3jzUr69W2eBl735l0YEJOBM
+	ZjcSbcJwzmgg9MfqPCyXpIi/WOTJP1PYH8p+wp9EO2WskZEWI4sEb1jzQ9KXgHvPtY0h4UFjueEOs
+	BObiMvhfUmxHOrxKZ9fFw7IWarsN1XOd2ctYg365gK3J1e2u6y017hJ8cKpUbWgsX5ErLLuh+tZaJ
+	Xf952b6V/rUYq1XXzy3iJ4jhFiojgP+MIIa8C+TXm7ufc+bW9faxrDAGNEH3r6zOTSi8JH94gKQvG
+	l7qIr6VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDGuX-0000000EU16-3kkN;
-	Sun, 04 Oct 2026 07:45:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDGz0-0000000EUT0-0dLv;
+	Sun, 04 Oct 2026 07:50:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDGuW-0000000EU0v-2IU2;
-	Sun, 04 Oct 2026 07:45:28 +0000
+	id 1xDGyy-0000000EUSp-0sEb;
+	Sun, 04 Oct 2026 07:50:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7675860098;
-	Sun,  4 Oct 2026 07:45:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97A591F000FF;
-	Sun,  4 Oct 2026 07:45:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61D9660052;
+	Sun,  4 Oct 2026 07:50:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7267E1F000FF;
+	Sun,  4 Oct 2026 07:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791099927;
-	bh=9Rmulx5tWtZwNZ4srP1UM6NrLE00b/t8K2ZAJDxpNCg=;
+	s=k20260515; t=1791100203;
+	bh=jamzlZtcZjJfzDEPCHyTED59WHCHN0O2C6tOYRv+MmM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=liiYdyZc/+jysn1D8TPlEHk+jjZ5GSvFJM8qFJWTumsm72ri3c7XNO1KXJeK7WZJR
-	 b/2b/HH+CGvOmSE9h/4OSBzlZTw5FRuo0ivZp7fD2Rk4wsRLDsdiJKLahR74/if2rD
-	 Kzj5jSQNglKtffgsWLTGnvP6iIhDVsjsABQALJRQaQc2w4gfkZvFMn5UsSvbG9HaZ2
-	 NrmW7d1toY0d4lg61EeYXxDlfTs6xNwZoZWHkq2FqXNQdnq/fT3nLX/ZLHuO4qBA3+
-	 frFON9bcXmeoXrChDVD8vBH5wI0DMJ3zJiaS/9abplLgdjOv1/HIXApTSIXB5uc8xp
-	 rtxGGBZdYl4OQ==
-Date: Sun, 4 Oct 2026 09:45:24 +0200
+	b=DEO4TWsDA5C7Knse4HcVxemvo4FQlDiZ6JXv/+p7k7bU8L6SVKWHdh7LaGpA7Ff5N
+	 s6N3jM/RfxcPHTIuyPQLFSjl5wxWkFaUjdv0bFWati7zW1udp+DQM4CQIHdSSLsLES
+	 ekdQUyEj9tZNOBK8glpoCTBkKv/h5Kapw1mLmpV/O7nd0vSQXd8xwKof+UAOThiejK
+	 pvZYxxL+x8hGg5N1y8Z3ICMgq3bjaUc8r8PjW6aO8XBi2q8rgv1VDGjLgcWUItRik5
+	 J6KGtqF/LKR59XPOnVtgRnbK9ad9nkGH6WjnlHZel/osjuPcBHJfa7DxTW1dx0aIdr
+	 XFhNxZkPEndNw==
+Date: Sun, 4 Oct 2026 09:50:00 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: =?utf-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>
 Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -53,15 +53,15 @@ Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Allen Lin <allencl_lin@hotmail.com>, 
 	Tylor Yang <tylor_yang@himax.corp-partner.google.com>, Felix Kaechele <felix@kaechele.ca>, 
 	Douglas Anderson <dianders@chromium.org>
-Subject: Re: [PATCH v5 1/6] dt-bindings: input: Add Himax HX83102J touchscreen
-Message-ID: <20261004-terrific-lemon-hamster-2ab5cf@quoll>
+Subject: Re: [PATCH v5 2/6] HID: Add Himax HX83102J touchscreen driver
+Message-ID: <20261004-enigmatic-healthy-saiga-ee2ac2@quoll>
 References: <20261003142741.48634-1-michal@nozomi.space>
- <20261003142741.48634-2-michal@nozomi.space>
+ <20261003142741.48634-3-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261003142741.48634-2-michal@nozomi.space>
+In-Reply-To: <20261003142741.48634-3-michal@nozomi.space>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,92 +76,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 03, 2026 at 04:27:36PM +0200, Micha=C5=82 Kope=C4=87 wrote:
-> From: Allen_Lin <allencl_lin@hotmail.com>
->=20
-> Add the binding for the touch function of the Himax HX83102J, a touch
-> and display driver integrated (TDDI) controller. The touch function is
-> connected over SPI and shares the analog supplies and the reset of the
-> display function, so it is powered and reset together with the panel
-> and has to follow it.
->=20
-> Signed-off-by: Allen_Lin <allencl_lin@hotmail.com>
+On Sat, Oct 03, 2026 at 04:27:37PM +0200, Micha=C5=82 Kope=C4=87 wrote:
+> +/**
+> + * himax_spi_drv_probe - Probe function for the SPI driver
+> + * @spi: Pointer to the spi_device structure
+> + *
+> + * This function is called when the SPI driver is probed. It initializes=
+ the
+> + * himax_ts_data structure and assign the settings from spi device to
+> + * himax_ts_data. The buffer for SPI transfer is allocate here. The SPI
+> + * transfer settings also setup before any communication starts.
+> + *
+> + * Return: 0 on success, negative error code on failure
+> + */
+> +static int himax_spi_drv_probe(struct spi_device *spi)
+> +{
+> +	int ret;
+> +	struct himax_ts_data *ts;
+> +	static struct himax_platform_data *pdata;
+> +
+> +	dev_info(&spi->dev, "%s: Himax SPI driver probe\n", __func__);
 
-Please use full name, not login or nickname. I see original patchset had
-the same issue, but full name was provided in the maintainers entry. If
-the original author does not want to fix that, you can takeover the
-patchset.
+NAK, that's not acceptable. We do not have such code upstream.
 
+> +	ts =3D devm_kzalloc(&spi->dev, sizeof(struct himax_ts_data), GFP_KERNEL=
+);
+> +	if (!ts)
+> +		return -ENOMEM;
+> +	if (spi->controller->flags & SPI_CONTROLLER_HALF_DUPLEX) {
+> +		dev_err(ts->dev, "%s: Full duplex not supported by host\n", __func__);
 
-> [michal@nozomi.space: rename ddreset-gpios to display-reset-gpios,
->  describe the shared supplies and the display reset, take over
->  maintainership, drop Rob's Reviewed-by because of these changes]
-> Signed-off-by: Micha=C5=82 Kope=C4=87 <michal@nozomi.space>
-> ---
->  .../input/touchscreen/himax,hx83102j.yaml     | 98 +++++++++++++++++++
->  MAINTAINERS                                   |  6 ++
->  2 files changed, 104 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/input/touchscreen/h=
-imax,hx83102j.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/input/touchscreen/himax,hx=
-83102j.yaml b/Documentation/devicetree/bindings/input/touchscreen/himax,hx8=
-3102j.yaml
-> new file mode 100644
-> index 0000000000000..c9f229bf9ca7b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/input/touchscreen/himax,hx83102j.=
-yaml
-> @@ -0,0 +1,98 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/input/touchscreen/himax,hx83102j.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Himax hx83102j touchscreen
-> +
-> +maintainers:
-> +  - Micha=C5=82 Kope=C4=87 <michal@nozomi.space>
-> +
-> +description:
-> +  The Himax HX83102J is a touch and display driver integrated (TDDI)
-> +  controller. Its touch function is connected over SPI and reports HID
-> +  packets. The display and touch functions share the analog supplies and
-> +  the display reset, so the touch function is powered and reset together
-> +  with the panel it is part of.
-> +
-> +allOf:
-> +  - $ref: /schemas/input/touchscreen/touchscreen.yaml#
-> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: himax,hx83102j
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  reset-gpios:
-> +    maxItems: 1
+Stop printing __func__ everywhere.
 
-You need description to explain why this is different than
-display-reset-gpios.
+> +		return -EIO;
+> +	}
+> +	pdata =3D &ts->pdata;
+> +	ts->dev =3D &spi->dev;
+> +	if (!spi->irq) {
+> +		dev_err(ts->dev, "%s: no IRQ?\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +	ts->himax_irq =3D spi->irq;
+> +	pdata->gpiod_rst =3D devm_gpiod_get(ts->dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(pdata->gpiod_rst)) {
+> +		dev_err(ts->dev, "%s: gpio-rst value is not valid\n", __func__);
 
+Syntax is return dev_err_probe
+
+> +		return -EIO;
+> +	}
 > +
-> +  vccd-supply:
-> +    description: Digital I/O supply of the touch function.
+> +	spi->bits_per_word =3D 8;
+> +	spi->mode =3D SPI_MODE_3;
+> +	spi->cs_setup.value =3D HIMAX_SPI_CS_SETUP_TIME;
 > +
-> +  vsn-supply:
-> +    description: Negative analog supply, shared with the display functio=
-n.
+> +	ts->spi =3D spi;
+> +	/*
+> +	 * The max_transfer_size is used to allocate the buffer for SPI transfe=
+r.
+> +	 * The size should be given by the SPI master driver, but if not availa=
+ble
+> +	 * then use the HIMAX_MAX_TP_EV_STACK_SZ as default. Which is the least=
+ size for
+> +	 * each TP event data.
+> +	 */
+> +	if (spi->controller->max_transfer_size)
+> +		ts->spi_xfer_max_sz =3D spi->controller->max_transfer_size(spi);
+> +	else
+> +		ts->spi_xfer_max_sz =3D HIMAX_MAX_TP_EV_STACK_SZ;
 > +
-> +  vsp-supply:
-> +    description: Positive analog supply, shared with the display functio=
-n.
+> +	ts->spi_xfer_max_sz =3D min(ts->spi_xfer_max_sz, HIMAX_BUS_RW_MAX_LEN);
+> +	/* SPI full-duplex rx_buf and tx_buf should be equal */
+> +	ts->xfer_rx_data =3D devm_kzalloc(ts->dev, ts->spi_xfer_max_sz, GFP_KER=
+NEL);
+> +	if (!ts->xfer_rx_data)
+> +		return -ENOMEM;
+> +
+> +	ts->xfer_tx_data =3D devm_kzalloc(ts->dev, ts->spi_xfer_max_sz, GFP_KER=
+NEL);
+> +	if (!ts->xfer_tx_data)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&ts->irq_lock);
+> +	mutex_init(&ts->rw_lock);
+> +	mutex_init(&ts->reg_lock);
+> +	dev_set_drvdata(&spi->dev, ts);
+> +	spi_set_drvdata(spi, ts);
+> +
+> +	ts->probe_finish =3D false;
+> +	ts->initialized =3D false;
+> +	ts->ic_boot_done =3D false;
+> +
+> +	ret =3D himax_platform_init(ts);
+> +	if (ret) {
+> +		dev_err(ts->dev, "%s: platform init failed\n", __func__);
+> +		return ret;
+> +	}
+> +
+> +	ret =3D himax_chip_detect(ts);
+> +	if (ret) {
+> +		dev_err(ts->dev, "%s: IC detect failed\n", __func__);
+> +		return ret;
+> +	}
+> +
+> +	ret =3D himax_chip_init(ts);
+> +	if (ret < 0)
+> +		return ret;
+> +	ts->probe_finish =3D true;
+> +
+> +	return ret;
+> +	himax_platform_deinit(ts);
+> +}
+> +
+> +/**
+> + * himax_spi_drv_remove - Remove function for the SPI driver
+> + * @spi: Pointer to the spi_device structure
+> + *
+> + * This function is called when the SPI driver is removed. It deinitiali=
+zes the
+
+Really? Can a remove callback be called in other context? Why are you
+explaining obvious parts?
+
+> + * himax_ts_data structure and free the resources allocated for the SPI
+> + * communication.
+> + */
+> +static void himax_spi_drv_remove(struct spi_device *spi)
+> +{
+> +	struct himax_ts_data *ts =3D spi_get_drvdata(spi);
+> +
+> +	if (ts->probe_finish) {
+> +		if (ts->ic_boot_done) {
+> +			himax_int_enable(ts, false);
+> +
+> +			if (ts->hid_probed)
+> +				himax_hid_remove(ts);
+> +		}
+> +		himax_platform_deinit(ts);
+> +	}
+> +}
+> +
+> +/**
+
+Really, why kerneldoc for standard functions?
+
+> + * himax_shutdown - Shutdown the touch screen
+> + * @spi: Himax touch screen spi device
+> + *
+> + * This function is used to shutdown the touch screen. It will disable t=
+he
+> + * interrupt, set the reset pin to activate state. Then remove the hid d=
+evice.
+
+Why are you describing what the code is doing? Drop all such comments.
+Look at other drivers how they do it.
+
+> + *
+> + * Return: None
+> + */
+> +static void himax_shutdown(struct spi_device *spi)
+> +{
+> +	struct himax_ts_data *ts =3D spi_get_drvdata(spi);
+> +
+> +	if (!ts->initialized) {
+> +		dev_err(ts->dev, "%s: init not ready, skip!\n", __func__);
+> +		return;
+> +	}
+> +
+> +	himax_int_enable(ts, false);
+> +	gpiod_set_value(ts->pdata.gpiod_rst, 1);
+> +	himax_power_deconfig(&ts->pdata);
+> +	himax_hid_remove(ts);
+> +}
+> +
+> +#if defined(CONFIG_OF)
+
+Drop
+
+> +static const struct of_device_id himax_table[] =3D {
+> +	{ .compatible =3D "himax,hx83102j" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, himax_table);
+> +#endif
+> +
+> +static struct spi_driver himax_hid_over_spi_driver =3D {
+> +	.driver =3D {
+> +		.name =3D		"hx83102j",
+> +		.owner =3D	THIS_MODULE,
+
+Drop, this is some ancient downstream code
+
+> +#if defined(CONFIG_OF)
+
+Drop
+
+> +		.of_match_table =3D of_match_ptr(himax_table),
+> +#endif
+> +	},
+> +	.probe =3D	himax_spi_drv_probe,
+> +	.remove =3D	himax_spi_drv_remove,
+> +	.shutdown =3D	himax_shutdown,
+> +};
+> +
+> +static int __init himax_ic_init(void)
+> +{
+> +	return spi_register_driver(&himax_hid_over_spi_driver);
+> +}
+> +
+> +static void __exit himax_ic_exit(void)
+> +{
+> +	spi_unregister_driver(&himax_hid_over_spi_driver);
+> +}
+> +
+> +module_init(himax_ic_init);
+> +module_exit(himax_ic_exit);
+
+Why this is not standard module spi driver?
+
+It seems you upstream some old, vendor code. Don't. Instead take newest,
+reviewed mainline driver and customize it,  so you will not repeat
+trivial issues we fixed 13 years ago like that owner thingy, wrong
+return messages, usage of __func__, not using dev_err_probe and even the
+kerneldoc. This is not how upstream drivers are written.
 
 Best regards,
 Krzysztof
