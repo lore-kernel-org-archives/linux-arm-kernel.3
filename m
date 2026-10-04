@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484A7CA5FFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DDBCA5FF0
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 22:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GEpsd3NY71emI/OU49o6DxhBuREbDH43G5MVLueQf1M=; b=ukXVHQUYewc/nssgHH54Mffnjh
-	rW+AU91mH08RwZmHmNasv8TjTFRtotkqUE3jGo1VRaTDkufFkQYRIajpNN6k3bSGygqC3rasF755T
-	0nC2XdkXiGMzepN+UYGpPc3KAHVly1kD9sIOJsWqRBB3e/MexK4Cv6Bn8sZdVW+9h5QUPMgOGOJ1P
-	YgphWtcfoKIuaJPGcesKMhCbwOR0GJtmizplOQwT0WoaUFMsmSXsA0UJHyMula5a4scJ/5bWZ6CXv
-	DFhMzvbT0XsKGM2Bi0acdbCtPYaawwxu68uUJp1zzzmgUI5py4jj3YcDyxJNS6AxG3gKn3uf0eyxn
-	gc73ImeQ==;
+	bh=nmHpsPp9iLBwKSLkzgRZINeT3/eG4Q/SLR9a6Ub540M=; b=RWBzWcuh9uB8sNhB5n94h25nyD
+	1pau5JeJUR8zkixwMqAMOE8/QgW3jffiXSbGk8RjKgTVE/KXtjXpokt0sRR4eGJPZDpVMGAKsXP8V
+	zXJo4OjFht0UhcvY3GmPqk37CcQwo8Vz8vXzvknw+HCDCJYds9R4FFjk/2ukF7mnHn5miwK7JeGHC
+	IBJ/qYlETCCdoPUF26ecOt2ykT68o8s510LWgoeogQia4uNuISlGbDYcORBv2CmmPurhZfhV6iO33
+	rLsM0g2fI9kEZpjBv6nxU2vjuVuuw5UQzoomXbqEGPW5TbOV9RBS7Id2iqHndMoO9bbOWgL6+YYCr
+	kNBNyFiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOw-0000000FPBZ-127B;
-	Sun, 04 Oct 2026 22:09:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xDUOt-0000000FPAD-0c38;
+	Sun, 04 Oct 2026 22:09:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUOu-0000000FPAy-2iuE
+	id 1xDUOr-0000000FP9n-3ZhD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 22:09:44 +0000
+	Sun, 04 Oct 2026 22:09:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6839C444F8;
-	Sun,  4 Oct 2026 22:09:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153FC1F000FF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 98F3B444EE;
 	Sun,  4 Oct 2026 22:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4491F0089A;
+	Sun,  4 Oct 2026 22:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791151784;
-	bh=GEpsd3NY71emI/OU49o6DxhBuREbDH43G5MVLueQf1M=;
+	s=k20260515; t=1791151781;
+	bh=nmHpsPp9iLBwKSLkzgRZINeT3/eG4Q/SLR9a6Ub540M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fA7FZlfh2W9/hpnctq9tr1o0yQnOFCnkaOTqTSrBgMzFcNLPjxul2caadNj73wipx
-	 dFPny8lZMhs/03/zoLz+mCFJecd6Z7aYLz18RNj2t+9ZLnj6i/QZQHsvAcBW+SP0AX
-	 DQdnISC1IIPcW3clt/nPLSzU+B6sePHL3I2jrZbDXw0Hbg8vSyx3H1PORLdpunqvdx
-	 tUCwt+dLL2VoD3duJW4n/I4wP1nBQspFDi81xPFtXKW7s4Gs4+VYOZrmpxhC67sjEd
-	 7AsKZ1jIVhAMnNMjYmIG0tknP9MPVVXw4XJ6ZjgEiHPELZkSAT2Q2Ipm4aNcmQdqMH
-	 7Hw/SrDagQxhA==
+	b=DU+R/k2iTEDi8OdYsB51Epn3Jf2n83BpJfVD5Rpv1WKNRx+d1kc2R1JTqIy0+KwjO
+	 239RIN5YZ80bVXlpmcwTgFnSA6v2sk21jub++3xAau7HDdm8gHh5zudtog84rCOBnw
+	 gcmAJK8qGA1ObwA69DI7d8uHsfCrnFMPATmmS28Qk9qk30DJ/MSyZXKPxmEAKz6Ws+
+	 SWZVFYD3ldgQE5dKlhvil2146DnwqJfLNKC1RvxjyJyQC3nTsdB/vlLJEnjUW1uaRz
+	 QQDgZnZ5ytF27NALGb1Xg+NRgqKCwNN61GBxwCj4Lgm3odwGeE9OzsRA4OpBJXmUKd
+	 pox0Vh5J0lAgg==
 From: Will Deacon <will@kernel.org>
-To: Khuong Dinh <khuong@os.amperecomputing.com>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Myria Sarvay <myrialsarvay@gmail.com>
 Cc: catalin.marinas@arm.com,
-	mark.rutland@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Jianhao Xu <jianhao.xu@seu.edu.cn>
-Subject: Re: [PATCH] perf: xgene: initialize lock before requesting IRQ
-Date: Sun,  4 Oct 2026 23:09:18 +0100
-Message-ID: <179114855064.1630764.1277374161771369343.b4-ty@kernel.org>
+	asahi@lists.linux.dev
+Subject: Re: [PATCH] drivers/perf: apple_m1: Add macOS 27 M2 Event
+Date: Sun,  4 Oct 2026 23:09:17 +0100
+Message-ID: <179114879411.1633099.5402206319757216770.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260902072241.3489222-1-runyu.xiao@seu.edu.cn>
-References: <20260902072241.3489222-1-runyu.xiao@seu.edu.cn>
+In-Reply-To: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
+References: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,21 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Sep 2026 15:22:41 +0800, Runyu Xiao wrote:
-> xgene_pmu_probe() requests the PMU IRQ before initializing
-> xgene_pmu->lock. request_irq() enables IRQ handling before it returns,
-> so xgene_pmu_isr() can run in this window and acquire the uninitialized
-> raw spinlock.
-> 
-> Initialize the lock before requesting the IRQ so the handler always sees a
-> valid lock.
+On Sat, 12 Sep 2026 18:03:35 +1000, Myria Sarvay wrote:
+> This patch adds another known PMU event that can be found under
+> /usr/share/kpep on macOS 27 for M2 macs. INST_SIMD_ALU_VEC purports to
+> count "Retired non-load/store vector Advanced SIMD instructions", and as
+> we already noted, can only be registered on counter 7. Though this event
+> only shows up on the M2 kpep records, it can be set on M1 CPUs, and
+> records something.
 > 
 > [...]
 
 Applied to arm64 (for-next/perf), thanks!
 
-[1/1] perf: xgene: initialize lock before requesting IRQ
-      https://git.kernel.org/arm64/c/d4b7b0c77142
+[1/1] drivers/perf: apple_m1: Add macOS 27 M2 Event
+      https://git.kernel.org/arm64/c/652ab8ee0d27
 
 Cheers,
 -- 
