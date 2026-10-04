@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A06CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3EACA5FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FHi5SSwNyA40AkhdeSQQY3wYjSyoS+jBUwAoUpuM9gM=; b=f2xEBjnuTDN9xzLbmEA5slkY7O
-	sZWBXHJ9O0f42GMcweTvLnBfaYBmBzBD1CvtDVHo++fl5xueMXDcYWWya9s7Zu4UdNHsAkEb2IM4p
-	lPp/bYnTv4sZGtqOMKrdoVG7fHtlxQBmYPjLr4G0rY14Xo+ApV915UXCm2ndWQ1N2hrIDeKdtLya/
-	P/FWQLAXcN3Iesf6MOekHGDDiM7/7Op6EvAS/lLsPlcWUrTc6VJsZ2luw5mNgsGTYOzl1uuEZNHzs
-	1hqJ6D9cFlifX9yh4NvuIrO0DL8uIyxIGj62sfQ7M5V9nycIrsJPj9sko/SnPO2Zw+FPrXH41yFKt
-	0Vkk6pUQ==;
+	bh=JY3ljlRSf2pHiTtXpArTuxLnmNlIc1QHxJQmZnui9xU=; b=YXYL89rZWtN8wlAkNpaoD48mif
+	R0WlqnevJi4mFJWuAjPu//AjuzsCXKFTsmOwLNoYyM5Hc+OwvgCUe3guBKo+gt9DIkiQl2E8xSVno
+	x4IoldJQhBvwIE6ZK+pkwCFmsRj5DzcnkainI9QOx+/7pgXaVHuW0yfri7eSd4LOOAjDirguAU+Sh
+	OpVDlhaeKnOttuk1/g4oH8e27h2/0E4DeGd5s4lB6ganSgHgZVOf78bp7lxyxr2WXOrJfeIFBdL9H
+	5T53xqAXO/i9a6oahovm5wYt9sYV9EzIFGPfY2fRZjzKjwHsDtWr/GlVmBRxjUkgNaUETWnrarvZ0
+	VRgAPPXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSeI-0000000FEqX-1uLL;
+	id 1xDSeI-0000000FErF-3DRO;
 	Sun, 04 Oct 2026 20:17:30 +0000
 Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDSe9-0000000FEgQ-1wEM
+	id 1xDSeA-0000000FEib-2zGz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:17:25 +0000
+	Sun, 04 Oct 2026 20:17:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=it6ImxvE+wAudIUq0krcnZxBk0uPVD3thsyVQRzOCAKzByOUaodyR7kzoHWjM5ztj0g0eEw0jKsZ5I5aDkupGlJM737i7MLUPVg1mxJQk465vzxHwu/yuPIWqnXcd4w8SM7kt5ToF9L9VCjCe5G6vIRa5HGTNXEqefwncC4DCxvzioDzWhGco59A6YFBn/bDFuGTMGjYprxZkLSqwcoAIvOiL2YcI7FLt1m53EvewJT6PG+KQed3Pq5m2NkaNCPMa0Hj5wQBVFXQwucssmGxOUzV7D0CuvoyO+yPaqYG2HmJxakBmSOc3D8WBE5985KNLmzKuZaEmDKiow4JLC/xBw==
+ b=vttoV2wRL0r4kLwNpLio33LYaxFYps1TIAaQRizyvnlRbHFIUzH/x89c8WIbrfPf9WjlbZo5+ZRp1/jQvmdFJoAvuluk+WS77N7kb0fkPUMOXAKhRpezS38bgngkTzl65jFinwsVtTrg4nPifYyLxRKfUJoBAv65sxLEBgQINuqNf6bXoz3TrkEt+dKyEKl6XFhtzoXhQ2axCsmIJHwmeXhUFfSuiuJpEzrrQjpQLlTzcFncmB5WiKsDgkkBZC9DL2/W/j4Jo8yl7HTxDVu6/sR0zGQ5aWxrmRXaNOBvLc//O7e87zFHxo2rSUC+C5mv4TBnek/lkNOVjPV49Gkr4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FHi5SSwNyA40AkhdeSQQY3wYjSyoS+jBUwAoUpuM9gM=;
- b=hnTVzPgsQijzKBCN5lwNQc98h+Emia5Qb7pvT6M9su9LVtb8XPK2Pa0IW/ZMuHtbN8BC9WWA2X9HEoPvy00btvujJauyD/56AwRF4xbltTZcMWtUSeFuzdjhAlSM14pm2KVXNPRpurJRhzJ3On4eay+2XD9eUcqT64QGVmAXwFINSTwDA9ogx92O4yxRxZP+U8+d2snRpjaO7mPEGpKWXf5S4hfBrKXvVSvPIjfnYwdogN8BUfwTTuNk0fs0wSEx5DXNLf6QigV4uZQQ368BnWqc9nwZAt2zoEWltnxmzYtfPiwOOfPOX5+WFQ5z0q3g+eIsI7vR5OcHMmFbivDxZw==
+ bh=JY3ljlRSf2pHiTtXpArTuxLnmNlIc1QHxJQmZnui9xU=;
+ b=Ub5dejC3XY/P4T5t06vj7IEUUGelCKEE+R+h92e9+LoyexX/3IhC4adTojCFC+xE3y/ATCkbH2G0VSRqSqLDMv4Aj31DpcPlu6d49af2OStGi7yVqVKzKJ0UGdnJfqnq6/RYqvNxrUuOHLnWLHTrJNXbjBuekKqO8V/KVJbA9WyAAsoVHazaTiyiy6QTu1LOAZG1KN/CzEW53iH0LXTXlXTdxU3mn+sUrAFXJU7iG6c3U3LgxTVHdo4hN6OLus27v7pH8kS31gaMOoYy94tHc71jOY/bFDQkrGtDa3ym0gocMA1yrXlXch0VumurzgarUSBudDxBMM74aYG3FH6nLw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  195.60.68.100) smtp.rcpttodomain=kernel.org smtp.mailfrom=axis.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FHi5SSwNyA40AkhdeSQQY3wYjSyoS+jBUwAoUpuM9gM=;
- b=cbKKXQ4Y/PCW3k1AwecGEFMIZkg3X+Ust23dBZ0h2CEEF+z41mdNXc1YOtCYyk2Xhne1+oZkLGVqfqiql7OxQBXIv72383gjq6V35kyFhb9LgIMOq6kzf7OkCqQbYic2wMw+snlCtbtvSxlmp0GCZanmmycE67jfCLxq4Yb/2Po=
-Received: from DUZPR01CA0299.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::10) by PAXPR02MB7310.eurprd02.prod.outlook.com
- (2603:10a6:102:1c5::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Sun, 4 Oct
- 2026 20:17:15 +0000
-Received: from DU2PEPF00028D0B.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::a5) by DUZPR01CA0299.outlook.office365.com
- (2603:10a6:10:4b7::10) with Microsoft SMTP Server (version=TLS1_3,
+ bh=JY3ljlRSf2pHiTtXpArTuxLnmNlIc1QHxJQmZnui9xU=;
+ b=DsFUIs5/3j6YtyQFg1qOF2e5jgDGFb7PjhDe/tVBbD3He9kyHytVOdXyE30yYRs2/v7hFFmHjBBd1MA6Dl0Cu4dIvKwhWlLiJ+LCENzF2ZjEwBLnEHo5rqesyAHzL5QOIrhsaN/YSmvAutrkFpZa5v583U+V6fYGeCT/bNx67tk=
+Received: from AS9PR04CA0135.eurprd04.prod.outlook.com (2603:10a6:20b:48a::10)
+ by GV1PR02MB8537.eurprd02.prod.outlook.com (2603:10a6:150:9b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Sun, 4 Oct
+ 2026 20:17:14 +0000
+Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
+ (2603:10a6:20b:48a:cafe::85) by AS9PR04CA0135.outlook.office365.com
+ (2603:10a6:20b:48a::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Sun, 4
- Oct 2026 20:17:15 +0000
+ Oct 2026 20:17:13 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=axis.com;
@@ -59,29 +59,28 @@ Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
  195.60.68.100 as permitted sender) receiver=protection.outlook.com;
  client-ip=195.60.68.100; helo=mail.axis.com; pr=C
 Received: from mail.axis.com (195.60.68.100) by
- DU2PEPF00028D0B.mail.protection.outlook.com (10.167.242.171) with Microsoft
+ DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:15 +0000
-Received: from se-mail10w.axis.com (10.20.40.10) by se-mail10w.axis.com
- (10.20.40.10) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:17:13 +0000
+Received: from se-mail10w.axis.com (10.20.40.10) by se-mail11w.axis.com
+ (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Sun, 4 Oct
  2026 22:17:11 +0200
 Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail10w.axis.com
  (10.20.40.10) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
  Transport; Sun, 4 Oct 2026 22:17:11 +0200
 Received: from lap5cd525d1j1.sto.se.axis.com (unknown [10.224.134.145])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 8859C4CEB;
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 7C2924BBC;
 	Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 Received: by lap5cd525d1j1.sto.se.axis.com (Postfix, from userid 22105)
-	id 20CC1803CDCE; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
+	id 15CE8803CDCB; Sun,  4 Oct 2026 22:17:11 +0200 (CEST)
 From: Henrik Grimler <henrik.grimler@axis.com>
-Date: Sun, 4 Oct 2026 22:16:11 +0200
-Subject: [PATCH 14/17] ARM: dts: samsung: exynos4210-universal_c210: sort
- properties
+Date: Sun, 4 Oct 2026 22:16:08 +0200
+Subject: [PATCH 11/17] ARM: dts: samsung: exynos4210-i9100: sort properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261004-exynos-arm-cleanup-v1-14-45e435353c56@axis.com>
+Message-ID: <20261004-exynos-arm-cleanup-v1-11-45e435353c56@axis.com>
 References: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 In-Reply-To: <20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -91,42 +90,42 @@ CC: <devicetree@vger.kernel.org>, <waqar.hameed@axis.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, Henrik Grimler <henrik.grimler@axis.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8101;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9363;
  i=henrik.grimler@axis.com; h=from:subject:message-id;
- bh=sp8AdmTP7L0sIZbAZ8efyJOCnoaHOUGBoQhzMik887E=;
- b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQ/FSWiFCqiNrK4IJQky9bwsvLD8ke82qv5m
- 7DtugRCKgiJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0PwAKCRCwB25JC3Fh
- a4/bB/4wYNxOl9g4Pd7GeHncNpl72o5kk28g9XZ1dulQuO9Wqx836sfK/k4cdAGy2Tf3/Sd7nX2
- ia1JKxKL6Wp5VsZXXEJBMDO7UonhxXSRIfDwR601O2hV29oj6NZQqarMrQQsfPspv8jS4BSle3J
- fS/u+Rf0LspC2PhYUYcg3dvpE856PKS0836MW/FuY8lwozTHc5V4efrkjdehynj44LD/o6fIbFw
- UtkBwrxllayggVZ+bNFDp4wG2kJ1iLQXGPEI+4kfa3NQzi9Xvo/4/D81lAQ5qe+BwJ/ZfPaqEF8
- 7SitZinbz9JNqfR8jd3BkxpQlXCfwr4q+7w3+jN/gqYBNVU9
+ bh=8YYKtA7CrbEe/oqSLIXWN5arZ6+yr9lXgdwkwf6Z0QE=;
+ b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqwrQ5DPfRQ+MXisYSiExtCQvoZeKFCZal+wz1H
+ ds8mTSVCVKJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasK0OQAKCRCwB25JC3Fh
+ a0zeCACJ/OI6gBylQOvJo40GJ/7YSSzmsyqRdfX0tZjlwX0WVdiYFpcN7TexZZAKwVtNYlEa3Kz
+ iCLZ7t+O6pmVHrwnFzCCozqYM+tBt5o7P4l4lZKUgYablE6Bchq50ky7f/nYWC7/DtN2pv0lhpi
+ 60icr7dwMwassrzVuUzjTcwSB4kyvztoeGC5ynL1TGj4iqhRjMQ2G9KStq/mDxIijgjKCULNF5X
+ bdmko8sYcFhPfwr89pERhAXuzRwKbj0x56aeXlYX7JoAgwW9jiGMwaIPT0R9wmVf38qo7as+zoj
+ Wwj0kQQAk6gLuJbpx3HAeurbubdePb18SIrB9U0VsAyY1YtY
 X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
  fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|PAXPR02MB7310:EE_
-X-MS-Office365-Filtering-Correlation-Id: d83adf7a-7376-4900-92fc-08df22547b4a
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885D:EE_|GV1PR02MB8537:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffe254b3-3049-474d-e5b7-08df22547a97
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|30052699003|1800799024|82310400026|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: n0za9vMd3EJ3YL4hnGU7TYtziTX4dIWCZ1dutF5yCwZO9GIu+2dgZtF6b2ygy+qV6qSHntXo1PpMjdQbKl152Q2WBcUT8/z6VK0W+r8i5k9CjcNdIGnEf2K8KOOuf1yDgsKyhpTwyIhxFhpqguYnYHHsxfJSvYWl6cdywszhuEfauZnQg5UBxsNjo04v7XmTGFeNFaLozOST8eDT/YuLEKXpFKarBM6o53zSN8ShFDyBWgTj+e0I1EkRwrK4+xWl6qb8Aq0eIZtYbaUHxc6bGcHhpRcOlNzZsEg6UjtLmtVzUG5YiZLb+aLrfaEXT5OClrpoGtzVSUsxdXrlFAhHklCeiF+Grtuhm+ADGJtqJ5n4NLRFzuYPpcmNgroy0H3JcWpZNMZ/f+/g9lyRIY8Ll9tTkVivyTkX+yzr9k9DksKEBQ7hhZnnaCu5KZ/V7JnR9eJq2wGv7qy8lVnxs/5Bt3XzpiiLFo1mIKx17uFVXW9Nnxs3SEicQFfijk4D6q3m7FN7XxL/4iinhVJOKBMSR/hVnUHTsdRQgmresZv2LddDHQ+ZWS/dmHn2AZ4lbZPYyduM4TEj3awIVbJ3bpoVvCyLe2l6WwFhTE+6UDRu66Q589oHsd9mfnernioXgWs2SZCgzQFVd9XPPFASrCWL/bzQttyAZi6Rq/cuJ8k32exTEW0aIaxs1LSkwhAT4uhvu5RNyyQhfTyEX2z0mQWQdA==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(30052699003)(1800799024)(82310400026)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|30052699003|82310400026|376014|36860700016|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: SRlbCT71IRrm99YPIV9nDiV4Lub5VBEnOVopGAwkrpGKeQE8zAykuhgEb+jqSnblKJk2uFnX/sBpXF9rRiJ8gsHaBXWB32bpOxkOG2W1tXgelQ7NauwSUQiB9yTQxSq30PLAscPskZFVh63rhsMNL+EONjQ2o0zi5h7WPCTN0bavGi/gWc0cN7Ozlb3bPlMz/TL+MtbELZwvEjSpI7YRvTzket9toPOj4qG69DFpLjHB5U+CeWha+0fip2NOYHsqTDID9sOWW3re7k0rPgudGhVXxp7QSPkw6RQnNSqPYddvBadTH/COYP3ELfP7eGwKBixFMoVaeYbnAH+vzJ/7ryOhgT/nHzay1qzE3RCSborlSPtaz4gwAx5TKOyAElq8Bf48+ySRuOe+ppBpaSnq1wjTahU2DPHfRa2dxZoQxwuUpu/uS5hvY7/NrnlhcDfHQw+oWJCuOxhT6h/OPt6Ea2pwVQcCQx4xbbt28q21UaXYAJSibtBJ0w9cKJXW/P9vlaRROD5juu6QKsnMwekyAotptBUfUwg2n09ZsnUsTwisdWtdghQ0Zu4uUdLcqJv61FlPYiFmuiwR+MdLqzy8YD1wlkc5iFfWUPAxg3rxZoXlWZaRbFR7rr9Nym9jPOWygJ6nA4qwiRlka1F6HGx8qkyI3G2JAun2LjE5FeiRpWXw4t5wDaFFnlveWdIlwqkRUonTX+Bykq5cqgKbS6q/hg==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(30052699003)(82310400026)(376014)(36860700016)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AeqiVvaroegt1ExLaLhvdy4p4kZJQty9zmS/UYJu/MPwUWiYmGQXNnACR6pOKfy61mUHmjJfZmJM91NkqQfjhCfbRSnsu4cxyAP7AdVJWXF9nXZbRjZ0vyA7rxROWDT41sCSwUcaAxfXVHyQEZNxKKiQlJ7ddCnc3RpQpi2iLE0ksmp9dBv6PElPsed7/76/tT+Akxl5agFXgiNEW5tLLXLYnh6orpExWJ8ZZX4ZhhgRXwsdxeiu/4nB443DNN70mKr3P70SWSAO2Ff5CNT0Zqf40N4HmTuqUTIJbagJy+rIwRSU+2VIz5ZIxRambiRZkCwHPr7Q9Mmx0YXZ5XcScDsPThqK6nmL+l6gwknCLZtGb6flBH33PCgLbmuJ8B4BmqfEoa0Ii0H5erxwKwCovpwzSONmez7tQe50CcVrfQ6w4jxrpkAfUGXQxYpksaUQ
+X-MS-Exchange-AntiSpam-MessageData-0: rJ2Dr6ihJ/qXLQGyei5n0qSsxwLp1UH2oX7LFmUId1SIXLrLatjlL8tEDpDwjogGrDQ76O96A+UjGWm38J1rJdel6TkycvcWLtjZcj3nTfPQZftN71D/heVRgd8NqQ4Qjll/E1+ePOanpwQD5+YoMXprCC/SKj+9IxH2mmcBBqmOJe5SSZudfNSUnNHs2YKH3Jng1HotYI4i5ak93FoUokEtYkxheg6OT1N0jn8uGGJHaAPPgknyd6PBXukCcwPWrNKYawG2HkPm0WzZAW2WYzfUTO6Masaj1Sj6ASW/3f0ZXT1PjLh4ZyLDl1LC8QgSFJZ1GebMv4ftl5+pekpKSgpUbPGc/u1oh6reVeWjapIMeI0Vu+6xqrzUMZUeC3mDPenvVvehBcVsF3WDd19CfAHjqJpY6Pv+hmUyCu9lA9YOQq35ZLlt9GQV6o0hdTLc
 X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:15.0470
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:17:13.8751
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d83adf7a-7376-4900-92fc-08df22547b4a
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffe254b3-3049-474d-e5b7-08df22547a97
 X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0B.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR02MB7310
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR02MB8537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_131721_680945_E025D80D 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20261004_131722_800784_6CF2B475 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,105 +142,103 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 And add or delete newlines where applicable, and sort properties
 according to the preferred style. Fixes warnings from dt-check-style
-in strict mode like:
+like:
 
-  samsung/exynos4210-universal_c210.dts:338: [property-order] property 'pinctrl-0' out of canonical order (should sort before 'samsung,i2c-max-bus-freq')
-  samsung/exynos4210-universal_c210.dts:340: [required-blank-lines] "status" must be preceded by a blank line
+  samsung/exynos4210-i9100.dts:275: [child-name-order] child node 'pmic-ap-clk' out of name order
+  samsung/exynos4210-i9100.dts:287: [required-blank-lines] "status" must be preceded by a blank line
+  samsung/exynos4210-i9100.dts:288: [property-order] property 'assigned-clocks' out of canonical order (should sort before 'status')
+
+Also remove double spaces in max8997 buck dvs voltages list.
 
 Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
 ---
- .../boot/dts/samsung/exynos4210-universal_c210.dts | 91 ++++++++++++++--------
- 1 file changed, 57 insertions(+), 34 deletions(-)
+ arch/arm/boot/dts/samsung/exynos4210-i9100.dts | 125 +++++++++++++------------
+ 1 file changed, 65 insertions(+), 60 deletions(-)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-index 744039068e8f..bcc636adba91 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-@@ -74,46 +74,46 @@ gpio-keys {
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+index b9a31714381c..85e4d334a5e6 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+@@ -97,31 +97,31 @@ gpio-keys {
  
- 		vol-up-key {
- 			gpios = <&gpx2 0 GPIO_ACTIVE_LOW>;
--			linux,code = <115>;
- 			label = "volume up";
- 			debounce-interval = <1>;
-+			linux,code = <115>;
- 		};
- 
- 		vol-down-key {
+ 		key-vol-down {
  			gpios = <&gpx2 1 GPIO_ACTIVE_LOW>;
--			linux,code = <114>;
+-			linux,code = <KEY_VOLUMEDOWN>;
  			label = "volume down";
- 			debounce-interval = <1>;
-+			linux,code = <114>;
+ 			debounce-interval = <10>;
++			linux,code = <KEY_VOLUMEDOWN>;
  		};
  
- 		config-key {
- 			gpios = <&gpx2 2 GPIO_ACTIVE_LOW>;
--			linux,code = <171>;
- 			label = "config";
- 			debounce-interval = <1>;
- 			wakeup-source;
-+			linux,code = <171>;
+ 		key-vol-up {
+ 			gpios = <&gpx2 0 GPIO_ACTIVE_LOW>;
+-			linux,code = <KEY_VOLUMEUP>;
+ 			label = "volume up";
+ 			debounce-interval = <10>;
++			linux,code = <KEY_VOLUMEUP>;
  		};
  
- 		camera-key {
- 			gpios = <&gpx2 3 GPIO_ACTIVE_LOW>;
--			linux,code = <212>;
- 			label = "camera";
- 			debounce-interval = <1>;
-+			linux,code = <212>;
- 		};
- 
- 		power-key {
+ 		key-power {
  			gpios = <&gpx2 7 GPIO_ACTIVE_LOW>;
--			linux,code = <116>;
+-			linux,code = <KEY_POWER>;
  			label = "power";
- 			debounce-interval = <1>;
+ 			debounce-interval = <10>;
  			wakeup-source;
-+			linux,code = <116>;
++			linux,code = <KEY_POWER>;
  		};
  
- 		ok-key {
+ 		key-ok {
  			gpios = <&gpx3 5 GPIO_ACTIVE_LOW>;
--			linux,code = <352>;
+-			linux,code = <KEY_OK>;
  			label = "ok";
- 			debounce-interval = <1>;
-+			linux,code = <352>;
+ 			debounce-interval = <10>;
++			linux,code = <KEY_OK>;
  		};
  	};
  
-@@ -147,6 +147,7 @@ lcd@0 {
- 			reset-delay = <10>;
- 			panel-width-mm = <90>;
- 			panel-height-mm = <154>;
-+
- 			display-timings {
- 				timing {
- 					clock-frequency = <23492370>;
-@@ -164,6 +165,7 @@ timing {
- 					pixelclk-active = <0>;
- 				};
- 			};
-+
- 			port {
- 				lcd_ep: endpoint {
- 					remote-endpoint = <&fimd_dpi_ep>;
-@@ -185,12 +187,13 @@ hdmi_ddc: i2c-ddc {
- 		compatible = "i2c-gpio";
- 		sda-gpios = <&gpe4 2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 		scl-gpios = <&gpe4 3 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
--		i2c-gpio,delay-us = <100>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+@@ -141,6 +141,7 @@ i2c_max17042_fuel: i2c-9 {
  
- 		pinctrl-0 = <&i2c_ddc_bus>;
- 		pinctrl-names = "default";
-+		i2c-gpio,delay-us = <100>;
+ 		battery@36 {
+ 			compatible = "maxim,max17042";
++			reg = <0x36>;
+ 
+ 			interrupt-parent = <&gpx2>;
+ 			interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+@@ -148,7 +149,6 @@ battery@36 {
+ 			pinctrl-0 = <&max17042_fuel_irq>;
+ 			pinctrl-names = "default";
+ 
+-			reg = <0x36>;
+ 			maxim,over-heat-temp = <700>;
+ 			maxim,over-volt = <4500>;
+ 		};
+@@ -284,21 +284,24 @@ pmic_ap_clk: pmic-ap-clk {
+ &camera {
+ 	pinctrl-0 = <&cam_port_a_clk_active>;
+ 	pinctrl-names = "default";
+-	status = "okay";
+ 	assigned-clocks = <&clock CLK_MOUT_CAM0>, <&clock CLK_MOUT_CAM1>;
+ 	assigned-clock-parents = <&clock CLK_XUSBXTI>, <&clock CLK_XUSBXTI>;
 +
- 		status = "okay";
- 	};
++	status = "okay";
  };
-@@ -209,6 +212,7 @@ map0 {
+ 
+ &csis_1 {
+-	status = "okay";
+ 	vddcore-supply = <&vusb_reg>;
+ 	vddio-supply = <&vmipi_reg>;
+ 	clock-frequency = <160000000>;
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 
++	status = "okay";
++
+ 	port@4 {
+ 		reg = <4>;
++
+ 		csis1_ep: endpoint {
+ 			remote-endpoint = <&s5k5bafx_ep>;
+ 			data-lanes = <1>;
+@@ -317,6 +320,7 @@ map0 {
  			/* Corresponds to 800MHz */
  			cooling-device = <&cpu0 2 2>;
  		};
@@ -249,28 +246,30 @@ index 744039068e8f..bcc636adba91 100644
  		map1 {
  			/* Corresponds to 200MHz */
  			cooling-device = <&cpu0 4 4>;
-@@ -217,58 +221,67 @@ map1 {
+@@ -325,62 +329,63 @@ map1 {
  };
  
  &ehci {
 -	status = "okay";
+-
  	phys = <&exynos_usbphy 1>;
  	phy-names = "host";
-+
-+	status = "okay";
- };
+-};
  
- &exynos_usbphy {
--	status = "okay";
- 	vbus-supply = <&safeout1_reg>;
-+
-+	status = "okay";
- };
+-&exynos_usbphy {
+ 	status = "okay";
++};
  
- &fimc_0 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC0>,
- 			  <&clock CLK_SCLK_FIMC0>;
++&exynos_usbphy {
+ 	vbus-supply = <&safe1_sreg>;
+-};
+ 
+-&fimc_0 {
+ 	status = "okay";
++};
+ 
++&fimc_0 {
+ 	assigned-clocks = <&clock CLK_MOUT_FIMC0>, <&clock CLK_SCLK_FIMC0>;
  	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
  	assigned-clock-rates = <0>, <160000000>;
 +
@@ -278,19 +277,21 @@ index 744039068e8f..bcc636adba91 100644
  };
  
  &fimc_1 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC1>,
- 			  <&clock CLK_SCLK_FIMC1>;
+-	/* Back camera not implemented */
+-	status = "disabled";
+-
+ 	assigned-clocks = <&clock CLK_MOUT_FIMC1>, <&clock CLK_SCLK_FIMC1>;
  	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
  	assigned-clock-rates = <0>, <160000000>;
 +
-+	status = "okay";
++	/* Back camera not implemented */
++	status = "disabled";
  };
  
  &fimc_2 {
 -	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC2>,
- 			  <&clock CLK_SCLK_FIMC2>;
+-
+ 	assigned-clocks = <&clock CLK_MOUT_FIMC2>, <&clock CLK_SCLK_FIMC2>;
  	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
  	assigned-clock-rates = <0>, <160000000>;
 +
@@ -298,168 +299,227 @@ index 744039068e8f..bcc636adba91 100644
  };
  
  &fimc_3 {
--	status = "okay";
- 	assigned-clocks = <&clock CLK_MOUT_FIMC3>,
- 			  <&clock CLK_SCLK_FIMC3>;
+-	/* Back camera not implemented */
+-	status = "disabled";
+-
+ 	assigned-clocks = <&clock CLK_MOUT_FIMC3>, <&clock CLK_SCLK_FIMC3>;
  	assigned-clock-parents = <&clock CLK_SCLK_MPLL>;
  	assigned-clock-rates = <0>, <160000000>;
 +
-+	status = "okay";
++	/* Back camera not implemented */
++	status = "disabled";
  };
  
  &fimd {
- 	pinctrl-0 = <&lcd_clk>, <&lcd_data24>;
- 	pinctrl-names = "default";
 -	status = "okay";
--	samsung,invert-vden;
--	samsung,invert-vclk;
  	#address-cells = <1>;
  	#size-cells = <0>;
-+	samsung,invert-vden;
-+	samsung,invert-vclk;
+ 
++	pinctrl-0 = <&lcd_clk>, <&lcd_data24>;
++	pinctrl-names = "default";
 +
+ 	samsung,invert-vden;
+ 	samsung,invert-vclk;
+ 
+-	pinctrl-0 = <&lcd_clk>, <&lcd_data24>;
+-	pinctrl-names = "default";
 +	status = "okay";
-+
+ 
  	port@3 {
  		reg = <3>;
-+
- 		fimd_dpi_ep: endpoint {
- 			remote-endpoint = <&lcd_ep>;
- 		};
-@@ -277,18 +290,20 @@ fimd_dpi_ep: endpoint {
+@@ -392,26 +397,26 @@ fimd_dpi_ep: endpoint {
+ };
  
  &gpu {
- 	mali-supply = <&buck2_reg>;
-+
- 	status = "okay";
- };
+-	status = "okay";
+-
+ 	mali-supply = <&vg3d_breg>;
+-};
  
- &hdmi {
- 	hpd-gpios = <&gpx3 7 GPIO_ACTIVE_HIGH>;
--	pinctrl-names = "default";
- 	pinctrl-0 = <&hdmi_hpd>;
-+	pinctrl-names = "default";
- 	hdmi-en-supply = <&hdmi_en>;
- 	vdd-supply = <&ldo3_reg>;
- 	vdd_osc-supply = <&ldo4_reg>;
- 	vdd_pll-supply = <&ldo3_reg>;
- 	ddc = <&hdmi_ddc>;
-+
+-&hsotg {
  	status = "okay";
- };
++};
  
-@@ -296,15 +311,17 @@ &hsotg {
- 	vusb_d-supply = <&ldo3_reg>;
- 	vusb_a-supply = <&ldo8_reg>;
- 	dr_mode = "peripheral";
-+
++&hsotg {
+ 	dr_mode = "otg";
+ 	vusb_d-supply = <&vusb_reg>;
+ 	vusb_a-supply = <&vusbdac_reg>;
+-};
+ 
+-&i2c_1 {
  	status = "okay";
++};
+ 
++&i2c_1 {
+ 	samsung,i2c-sda-delay = <100>;
+ 	samsung,i2c-slave-addr = <0x10>;
+ 	samsung,i2c-max-bus-freq = <100000>;
+ 
++	status = "okay";
++
+ 	lis3dh: accelerometer@19 {
+ 		compatible = "st,lis3dh-accel";
+ 		reg = <0x19>;
+@@ -423,14 +428,14 @@ lis3dh: accelerometer@19 {
  };
  
  &i2c_3 {
+-	status = "okay";
 +	pinctrl-0 = <&i2c3_bus>;
 +	pinctrl-names = "default";
+ 
  	samsung,i2c-sda-delay = <100>;
  	samsung,i2c-slave-addr = <0x10>;
  	samsung,i2c-max-bus-freq = <100000>;
+ 
 -	pinctrl-0 = <&i2c3_bus>;
 -	pinctrl-names = "default";
-+
- 	status = "okay";
++	status = "okay";
  
- 	tsp@4a {
-@@ -314,17 +331,24 @@ tsp@4a {
+ 	touchscreen@4a {
+ 		compatible = "atmel,maxtouch";
+@@ -442,14 +447,14 @@ touchscreen@4a {
  };
  
  &i2c_5 {
+-	status = "okay";
 +	pinctrl-0 = <&i2c5_bus>;
 +	pinctrl-names = "default";
+ 
  	samsung,i2c-sda-delay = <100>;
  	samsung,i2c-slave-addr = <0x10>;
  	samsung,i2c-max-bus-freq = <100000>;
+ 
 -	pinctrl-0 = <&i2c5_bus>;
 -	pinctrl-names = "default";
-+
- 	status = "okay";
- 
- 	vdd_arm_reg: pmic@60 {
- 		compatible = "maxim,max8952";
- 		reg = <0x60>;
- 
-+		regulator-name = "VARM_1.2V_C210";
-+		regulator-min-microvolt = <770000>;
-+		regulator-max-microvolt = <1400000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+
- 		max8952,vid-gpios = <&gpx0 3 GPIO_ACTIVE_HIGH>,
- 				    <&gpx0 4 GPIO_ACTIVE_HIGH>;
- 		max8952,default-mode = <0>;
-@@ -332,20 +356,14 @@ vdd_arm_reg: pmic@60 {
- 						<1050000>, <950000>;
- 		max8952,sync-freq = <0>;
- 		max8952,ramp-speed = <0>;
--
--		regulator-name = "VARM_1.2V_C210";
--		regulator-min-microvolt = <770000>;
--		regulator-max-microvolt = <1400000>;
--		regulator-always-on;
--		regulator-boot-on;
- 	};
++	status = "okay";
  
  	pmic@66 {
- 		compatible = "national,lp3974";
-+		reg = <0x66>;
- 		interrupts-extended = <&gpx0 7 0>, <&gpx2 7 0>;
--		pinctrl-names = "default";
- 		pinctrl-0 = <&lp3974_irq>;
--		reg = <0x66>;
+ 		compatible = "maxim,max8997-pmic";
+@@ -458,6 +463,11 @@ pmic@66 {
+ 		interrupts-extended = <&gpx0 7 IRQ_TYPE_NONE>,
+ 				      <&gpx2 3 IRQ_TYPE_EDGE_FALLING>;
+ 
++		pinctrl-0 = <&max8997_irq>, <&otg_gp>, <&usb_sel>;
 +		pinctrl-names = "default";
- 
- 		max8998,pmic-buck1-default-dvs-idx = <0>;
- 		max8998,pmic-buck1-dvs-gpios = <&gpx0 5 GPIO_ACTIVE_HIGH>,
-@@ -576,13 +594,15 @@ i2c_ddc_bus: i2c-ddc-bus-pins {
- 
- &pwm {
- 	compatible = "samsung,s5p6440-pwm";
 +
- 	status = "okay";
++		charger-supply = <&charger_reg>;
++
+ 		max8997,pmic-buck1-uses-gpio-dvs;
+ 		max8997,pmic-buck2-uses-gpio-dvs;
+ 		max8997,pmic-buck5-uses-gpio-dvs;
+@@ -475,34 +485,28 @@ pmic@66 {
+ 						 <1000000>, <950000>;
+ 
+ 		max8997,pmic-buck2-dvs-voltage = <1100000>, <1000000>,
+-						 <950000>,  <900000>,
++						 <950000>, <900000>,
+ 						 <1100000>, <1000000>,
+-						 <950000>,  <900000>;
++						 <950000>, <900000>;
+ 
+ 		max8997,pmic-buck5-dvs-voltage = <1200000>, <1200000>,
+ 						 <1200000>, <1200000>,
+ 						 <1200000>, <1200000>,
+ 						 <1200000>, <1200000>;
+ 
+-		pinctrl-0 = <&max8997_irq>, <&otg_gp>, <&usb_sel>;
+-		pinctrl-names = "default";
+-
+-		charger-supply = <&charger_reg>;
+-
+ 		regulators {
+ 			vadc_reg: LDO1 {
+ 				regulator-name = "VADC_3.3V_C210";
+ 				regulator-min-microvolt = <3300000>;
+ 				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+-
+ 			};
++
+ 			valive_reg: LDO2 {
+ 				regulator-name = "VALIVE_1.1V_C210";
+ 				regulator-min-microvolt = <1100000>;
+ 				regulator-max-microvolt = <1100000>;
+ 				regulator-always-on;
+-
+ 			};
+ 
+ 			vusb_reg: LDO3 {
+@@ -706,14 +710,14 @@ CHARGER_TOPOFF {
+ };
+ 
+ &i2c_7 {
+-	status = "okay";
++	pinctrl-0 = <&i2c7_bus>;
++	pinctrl-names = "default";
+ 
+ 	samsung,i2c-sda-delay = <100>;
+ 	samsung,i2c-slave-addr = <0x10>;
+ 	samsung,i2c-max-bus-freq = <400000>;
+ 
+-	pinctrl-0 = <&i2c7_bus>;
+-	pinctrl-names = "default";
++	status = "okay";
+ 
+ 	magnetometer@c {
+ 		compatible = "asahi-kasei,ak8975";
+@@ -724,8 +728,8 @@ magnetometer@c {
+ };
+ 
+ &pinctrl_0 {
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&sleep0>;
++	pinctrl-names = "default";
+ 
+ 	sleep0: sleep-state {
+ 		gpa0-0-pin {
+@@ -822,36 +826,35 @@ tsp224_irq: tsp224-irq-pins {
  };
  
  &rtc {
 -	status = "okay";
  	clocks = <&clock CLK_RTC>, <&pmic_ap_clk>;
  	clock-names = "rtc", "rtc_src";
-+
-+	status = "okay";
- };
+-};
  
- &sdhci_0 {
-@@ -591,6 +611,7 @@ &sdhci_0 {
- 	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_bus8>;
- 	pinctrl-names = "default";
+-&sdhci_0 {
+ 	status = "okay";
++};
+ 
++&sdhci_0 {
+ 	bus-width = <8>;
+ 	non-removable;
  	vmmc-supply = <&vemmc_reg>;
-+
- 	status = "okay";
- };
  
-@@ -600,12 +621,11 @@ &sdhci_2 {
+ 	pinctrl-0 = <&sd0_clk>, <&sd0_cmd>, <&sd0_bus8>;
  	pinctrl-names = "default";
- 	vmmc-supply = <&ldo5_reg>;
- 	cd-gpios = <&gpx3 4 GPIO_ACTIVE_LOW>;
-+
- 	status = "okay";
- };
+-};
  
- &sdhci_3 {
--	status = "okay";
--
+-&sdhci_2 {
+ 	status = "okay";
++};
+ 
++&sdhci_2 {
+ 	bus-width = <4>;
+ 	cd-gpios = <&gpx3 4 GPIO_ACTIVE_LOW>;
+ 	vmmc-supply = <&vtf_reg>;
+ 
+ 	pinctrl-0 = <&sd2_clk>, <&sd2_cmd>, <&sd2_bus4>;
+ 	pinctrl-names = "default";
+-};
+ 
+-&sdhci_3 {
+ 	status = "okay";
++};
+ 
++&sdhci_3 {
  	#address-cells = <1>;
  	#size-cells = <0>;
  
-@@ -615,8 +635,10 @@ &sdhci_3 {
+@@ -861,8 +864,10 @@ &sdhci_3 {
  	mmc-pwrseq = <&wlan_pwrseq>;
- 	vmmc-supply = <&ldo5_reg>;
+ 	vmmc-supply = <&vtf_reg>;
  
 -	pinctrl-names = "default";
  	pinctrl-0 = <&sd3_clk>, <&sd3_cmd>, <&sd3_bus4>;
@@ -469,15 +529,15 @@ index 744039068e8f..bcc636adba91 100644
  
  	brcmf: wifi@1 {
  		compatible = "brcm,bcm4330-fmac", "brcm,bcm4329-fmac";
-@@ -628,7 +650,6 @@ brcmf: wifi@1 {
+@@ -875,13 +880,13 @@ brcmf: wifi@1 {
  };
  
  &serial_0 {
 -	status = "okay";
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	pinctrl-0 = <&uart0_data &uart0_fctl>;
-@@ -636,6 +657,8 @@ &serial_0 {
+-
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&bt_en>, <&bt_res>, <&uart0_data>, <&uart0_fctl>;
++	pinctrl-names = "default";
  
  	uart-has-rtscts;
  
