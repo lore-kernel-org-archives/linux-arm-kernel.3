@@ -4,81 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432A2CA5FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 14:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FB2CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 15:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/jeWLU4m1PwyUKsxP40/61d7gOfGSFHjQiTf3VOWpH0=; b=nOb+jpRO+SYn33oWU7pQnNvAFA
-	8fZTmWvaoZLTbSNJHKZpEopmsy+jmd1eu8wIZaYkAqmTrnvhuC1Z4hTqDqd8q9UTrjQYB1OXplXtf
-	gNkcAyGSOPXhwKchSuHY4uTrQfSzlJjuF/8J16jOiZXtoBB6wN5f05KmCLHqPcZiLvm17kAYnl68D
-	x0SUWrzbGYvt/b5WPEPtN/Giot23fTCerol0OSzxzYFtsallfBqAPWlrYvlOCrak8lqN0rTEEXHm5
-	ib0UEWL1rxPBPUcorW9FoH2SA9LTuInNHGOVKagv6uSase2sfuLdRqgCz6uafxYwD4RWQO6er8svz
-	ILW3Bnbw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WA4cfENfPEbrDvuT53Cr6d7+lPDcZpBsXedFYV5NI20=; b=ue+fP67BApq5YwDdnMk7WRK3ni
+	RX53NfVM7sP15BPtqRDoMGX5x/sPMFem9ZvJzPvdaUIjSNDxgJn8RDFP/MZ8Pk8pGf1nh0GbL1Sy/
+	Ajngzuz71J1laqMhFSlbBl83hMKnVrOgQWoDMhIQBCFO0wBnX2EHP5VhSw+bKyaW53xbSJjNpAFpd
+	qgTNOuBOTvXzC7ZA2ZPC6FjeD8qN9EvT8Be+dyVPKki0oNYcbBEr0O8x/2aDMYvhmA3XQTweeol/m
+	38wm8PWJeyoHV011lV2ieeBLZYyry9S4I/WuZwYeBJOqiWZMfqR08zHh3Mtb9kWdfsYdYWC6KmFd6
+	i4qxLXrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDNXh-0000000Ewps-3lC8;
-	Sun, 04 Oct 2026 14:50:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xDO8c-0000000Ez87-0kKT;
+	Sun, 04 Oct 2026 15:28:30 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDNXg-0000000EwpN-1dFV;
-	Sun, 04 Oct 2026 14:50:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C98314394F;
-	Sun,  4 Oct 2026 14:50:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A42A1C2BCB9;
-	Sun,  4 Oct 2026 14:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791125419;
-	bh=ksNh/cGrEv1PgupfeXYl3pyjEDpGERY+1FVkyy1VR28=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=OIly5H5pCnSTczTQArt7HZa6P6KS2y6CYkzLuUgX9Q+/IYH7WMRN70J042jE+FeE2
-	 N6i7ujPPOXpsvOZP56HOCk9PQGSVpsXK6wWCLrVJV0BFDznwmigBtxIN6EXuDJvK/l
-	 lw/aTs1gFtloYtxTLTMCoFZYquc9o3ZCKYfztoTkpBg/myYvcbGKrLVzXvM4dDbp0D
-	 +dgx+BQy8hEP+IXe9k7zb10w3FM1D8tBZnXvdTl0sdyWjBcDwQgG9dn9eEdZve67oJ
-	 tkyeowW+cw2YGpt65wm2xGqrsWt1+D4DeWCLzykf+CYY4SWX/IzH9p2VMeyaA7bvV9
-	 +bpCO1JcdjWxw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FDE4CA5FCE;
-	Sun,  4 Oct 2026 14:50:19 +0000 (UTC)
-From: Shigeaki Asai via B4 Relay <devnull+y-asai.0816.docomonet.jp@kernel.org>
-Date: Sun, 04 Oct 2026 23:50:17 +0900
-Subject: [PATCH] drm/meson: encoder_dsi: load ENCL gamma table while ENCL
- is disabled
+	id 1xDO8Y-0000000Ez70-4B77
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Oct 2026 15:28:28 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a0977b9c20so15287855e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 08:28:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1791127704; x=1791732504; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WA4cfENfPEbrDvuT53Cr6d7+lPDcZpBsXedFYV5NI20=;
+        b=b03t48xMgTeFbzNfi1xgiA/kNQTzLvylNdfZKbYkia1+/HWc+BmstOuEm8x/NkSs9Z
+         B53m6bJqIumi6aBtUcfGAeXf1iiHyPp0D4F3NPqUCGT/9OtCmvIFxVLB0+eJv0dEOh2H
+         frIeYBNMrxE9vlz0kfdkqktNU2jsCXwcBLCQwKHEQHsiR6IVp4TuK7Bi6bhsmYqOb1Fi
+         jC0lxebVXd3ieMY0Qp5rnCre/ht5hirUGcIYyQSWmLIBX3sb2HMJbCdpKyHKGnVb+/8L
+         sV3d7il8nBJQp0zoqPVB6gTWpEUQA8yOspaWhsJ/FGtVnqIyUPrZTxh/Gf1kKRJlCblq
+         E7Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791127704; x=1791732504;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WA4cfENfPEbrDvuT53Cr6d7+lPDcZpBsXedFYV5NI20=;
+        b=Un6YHkrUSMkHTpjR4VORN/Fu3c8GCOhMJ09Sdl9I3DX5dQQqHM2dRE/hi13qSKEqbM
+         8ctYfn53k5MsFFqKyjG82fWBbcdMvD2FyHiMxKJ4wpizFsPSlZ5dZMf4XuNsSl0w/Lwb
+         957UYm+OXiBBO0x3+5woiAf9W/638pu5n7WqhQNCLO2Fh4NFzcX9fl61xk94pRviio/9
+         +DFG7ZCZDG+kXdlx+GjEjg8l0IIMt24FqCUAXPHfQeX6MOoO4JyurM4k4f3gE40hHPrQ
+         94CjXExCp/GnSam06jboDWnEs/YQaEv5t9NY9fqH9tVfAplI8LMabODBcsShqX4JulA5
+         xM0Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzM7KbJQi6fd1CqRT4Qk9SIdHnhuNgi58HyPCg2QmlA69Akkc8Tj9CenBQvbQA+ynJtfX/YRjWOnFP+QuCSPMYh@lists.infradead.org
+X-Gm-Message-State: AFuF++nLeZn/v2IJzX0RBUk8oFq6+jlKEHoV+6bNa6lIFfP3YY5eYtgf
+	UM7HfiwjpD1ajwpLVXUlcFq/Wwre+9YqiIgTNt7n8teaqn9h2Alt5twtdhGdTtrdlm4=
+X-Gm-Gg: AYBFou1bn2eJwbTZ8+1zqhYtOoZyQhT5mgoJr4kP7zFAhLabrOOZSGanvZMLxyGiiGQ
+	q5R1KvLbdndZ8fxds00R2WvmR4XXQTUP04+d0rqpXPb9wHaxbAyIUujUgDKnljQLh6TWFQs2eCp
+	9Qv+xGPwboIvrDUtB5utLU/0tMfxUkwLLCz9jdzKJtPOP2w9DM9YAQ4fVZFrmXc/KkzGxSsAnKC
+	J+W+78gHJjGVgRZ/soGn4yM9Mnii1Plk6Q0DH/XstE7eds/LIRGqZkDnuNziOA0RRiJC+24rMtt
+	sCC3uoW7/Lzcq1MavgBiJ7i9OZVeHI5qzN8HUxHH0WBpjjzSD3LR9SZ/U2Yx4EMeYRc5wG8I2yV
+	Rli8oaOoM1SBPHRqWkUNxdrSGSzomStnYmX/daLtanRlvWmZg7lBWS4OOisReRfI+LsZBHIDRGL
+	GHXkOR98ZCOrW7uTxcc7quVTI3h2o/Ch1cIGh6jBnEoPvIl5pWBueQK2pnq0rMj25I+gVvXOyib
+	VkE0R3A
+X-Received: by 2002:a05:600c:4e13:b0:49c:cee0:e7c1 with SMTP id 5b1f17b1804b1-4a02757999cmr135331735e9.16.1791127704520;
+        Sun, 04 Oct 2026 08:28:24 -0700 (PDT)
+Received: from [172.20.10.3] ([37.169.53.153])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280d1e38sm220380705e9.13.2026.10.04.08.28.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 04 Oct 2026 08:28:23 -0700 (PDT)
+Message-ID: <162c3908-cbf9-4bf2-8594-8592d5e4c3e5@linaro.org>
+Date: Sun, 4 Oct 2026 17:28:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [RFC PATCH 3/6] net: stmmac: dwmac-meson8b: add support for the
+ Amlogic T7
+To: Lucas Tanure <tanure@linux.com>, xianwei.zhao@amlogic.com,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20261004144046.391444-1-tanure@linux.com>
+ <20261004144046.391444-4-tanure@linux.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261004144046.391444-4-tanure@linux.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261004-meson-gamma-v1-1-6347558e2bb3@docomonet.jp>
-X-B4-Tracking: v=1; b=H4sIAKhnwmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDAwMT3dzU4vw83fTE3NxEXWNjAzMjU/NkgxQjCyWgjoKi1LTMCrBp0bE
- QfnFpUlZqcgnICKXaWgDtxUAKbwAAAA==
-X-Change-ID: 20261004-meson-gamma-3306257c0d28
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Nicolas Belin <nbelin@baylibre.com>, 
- Jagan Teki <jagan@amarulasolutions.com>
-Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, John Williams <porschemad911@gmail.com>, 
- Shigeaki Asai <y-asai.0816@docomonet.jp>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791125418; l=2799;
- i=y-asai.0816@docomonet.jp; s=20261004; h=from:subject:message-id;
- bh=epdsIAmy9JIKhg6OxImAsy/RAjs7ztCfGy7gPcYMgNE=;
- b=h1/oYAEa0HS+pqwwtr8ShKjfVW0AjgRlYY9z53yxUQUK0hbzAlVR8WNCPGetlPDMDGiY6cTF2
- en6s7mGAgp2D8IBtRWbfgNkpTT4Jym6j+2p7MFWctL/CZY5Yu0idK3I
-X-Developer-Key: i=y-asai.0816@docomonet.jp; a=ed25519;
- pk=jkd95ViSn8i/X3oPMHYG1A8mae8IOwOKGE64kzLqC5c=
-X-Endpoint-Received: by B4 Relay for y-asai.0816@docomonet.jp/20261004 with
- auth_id=1110
-X-Original-From: Shigeaki Asai <y-asai.0816@docomonet.jp>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_082827_089650_AFB12DE2 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,76 +138,93 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: y-asai.0816@docomonet.jp
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shigeaki Asai <y-asai.0816@docomonet.jp>
+On 10/4/26 16:40, Lucas Tanure wrote:
+> The glue registers on the T7 are laid out exactly as the G12A ones, RX
+> delay field included, so the T7 can reuse the G12A settings.
+> 
+> What the T7 does not share is how the controller reaches DRAM: the bus
+> path goes through a pipeline stage with a gate of its own, and no device
+> other than the controller has any use for that gate. Claim it and hold
+> it enabled for as long as the controller is bound, otherwise it is
+> switched off as unused and a transfer that has been started can never
+> complete.
+> 
+> Give the T7 match data of its own so that only it looks the clock up,
+> and require the clock instead of treating it as optional: the controller
+> cannot do DMA without it, and failing the probe with a clear message
+> beats booting and hitting an undiagnosable hang later.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>   .../ethernet/stmicro/stmmac/dwmac-meson8b.c   | 19 +++++++++++++++++++
+>   1 file changed, 19 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
+> index e4d5c41294f4..450f7b4b29a6 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
+> @@ -81,6 +81,7 @@ struct meson8b_dwmac;
+>   struct meson8b_dwmac_data {
+>   	int (*set_phy_mode)(struct meson8b_dwmac *dwmac);
+>   	bool has_prg_eth1_rgmii_rx_delay;
+> +	bool has_pipeline_clk;
+>   };
+>   
+>   struct meson8b_dwmac {
+> @@ -384,6 +385,7 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
+>   	struct plat_stmmacenet_data *plat_dat;
+>   	struct stmmac_resources stmmac_res;
+>   	struct meson8b_dwmac *dwmac;
+> +	struct clk *pipeline_clk;
+>   	int ret;
+>   
+>   	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+> @@ -443,6 +445,13 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
+>   	if (IS_ERR(dwmac->timing_adj_clk))
+>   		return PTR_ERR(dwmac->timing_adj_clk);
+>   
+> +	if (dwmac->data->has_pipeline_clk) {
+> +		pipeline_clk = devm_clk_get_enabled(dwmac->dev, "pipeline");
+> +		if (IS_ERR(pipeline_clk))
+> +			return dev_err_probe(dwmac->dev, PTR_ERR(pipeline_clk),
+> +					     "missing pipeline clock\n");
+> +	}
+> +
+>   	ret = meson8b_init_rgmii_delays(dwmac);
+>   	if (ret)
+>   		return ret;
+> @@ -479,6 +488,12 @@ static const struct meson8b_dwmac_data meson_g12a_dwmac_data = {
+>   	.has_prg_eth1_rgmii_rx_delay = true,
+>   };
+>   
+> +static const struct meson8b_dwmac_data meson_t7_dwmac_data = {
+> +	.set_phy_mode = meson_axg_set_phy_mode,
+> +	.has_prg_eth1_rgmii_rx_delay = true,
+> +	.has_pipeline_clk = true,
+> +};
+> +
+>   static const struct of_device_id meson8b_dwmac_match[] = {
+>   	{
+>   		.compatible = "amlogic,meson8b-dwmac",
+> @@ -500,6 +515,10 @@ static const struct of_device_id meson8b_dwmac_match[] = {
+>   		.compatible = "amlogic,meson-g12a-dwmac",
+>   		.data = &meson_g12a_dwmac_data,
+>   	},
+> +	{
+> +		.compatible = "amlogic,t7-dwmac",
+> +		.data = &meson_t7_dwmac_data,
+> +	},
+>   	{ }
+>   };
+>   MODULE_DEVICE_TABLE(of, meson8b_dwmac_match);
 
-meson_encoder_dsi_atomic_enable() programmed the ENCL gamma LUT right
-after meson_venc_mipi_dsi_mode_set(), i.e. while the ENCL timing
-generator was already running (ENCL_VIDEO_EN=1). Writing the LUT
-during active video stalls the hardware: L_GAMMA_CNTL_PORT
-WR_RDY/ADR_RDY deassert and the ENCL line counter (ENCL_INFO_READ)
-freezes, so every remaining write times out (~8s total at boot) and
-the panel ends up with a corrupted gamma table (wrong colors).
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Instrumented boots on the ODROID-GO Ultra (S922X) show:
-
-  failing:  start: VIDEO_EN=1 INFO 0000001a->002d0000 GAMMA_CNTL=00000030
-            stall: INFO 002d0000->002d0000 GAMMA_CNTL=00000000
-            (VID_CLK_CNTL2 / VIID_CLK_CNTL / VIID_CLK_DIV unchanged,
-             i.e. the ENCL clock is still running)
-  fixed:    start: VIDEO_EN=0 INFO 00000000->00000000 GAMMA_CNTL=00000030
-            no stall, no timeout
-
-Whether it failed depended only on timing, which is why enabling
-lock debugging (LOCKDEP etc.) appeared to "fix" it most of the time.
-It happens regardless of the bootloader (mainline or Hardkernel vendor
-U-Boot).
-
-The function already writes ENCL_VIDEO_EN=0 right afterwards before
-re-enabling the encoder, so simply move meson_encl_load_gamma() after
-that write. This matches the order used by the vendor U-Boot's own LCD
-driver, which never times out.
-
-Tested on the ODROID-GO Ultra with mainline U-Boot: 5 cold boots +
-3 warm reboots, no timeouts, correct colors, LOCKDEP disabled.
-
-Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
-Cc: stable@vger.kernel.org
-Tested-by: John Williams <porschemad911@gmail.com>
-Signed-off-by: Shigeaki Asai <y-asai.0816@docomonet.jp>
----
-This was found on the ODROID-GO Ultra while bringing it up on
-Lakka / ROCKNIX. Happy to test any alternative approach.
----
- drivers/gpu/drm/meson/meson_encoder_dsi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
-index faa309cb97a6..912cd676bbe2 100644
---- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
-@@ -65,9 +65,9 @@ static void meson_encoder_dsi_atomic_enable(struct drm_bridge *bridge,
- 	/* ENCL clock setup is handled by CCF */
- 
- 	meson_venc_mipi_dsi_mode_set(priv, &crtc_state->adjusted_mode);
--	meson_encl_load_gamma(priv);
- 
- 	writel_relaxed(0, priv->io_base + _REG(ENCL_VIDEO_EN));
-+	meson_encl_load_gamma(priv);
- 
- 	writel_bits_relaxed(ENCL_VIDEO_MODE_ADV_VFIFO_EN, ENCL_VIDEO_MODE_ADV_VFIFO_EN,
- 			    priv->io_base + _REG(ENCL_VIDEO_MODE_ADV));
-
----
-base-commit: 70456f05d4b6396b22048c4b8cd3cb98ecf9f9e3
-change-id: 20261004-meson-gamma-3306257c0d28
-
-Best regards,
---  
-Shigeaki Asai <y-asai.0816@docomonet.jp>
-
-
+Thanks,
+Neil
 
