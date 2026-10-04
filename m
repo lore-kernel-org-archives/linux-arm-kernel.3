@@ -4,79 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7C6CA5FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7112CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Oct 2026 20:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=; b=L3+ytdsSddkD1eJMA9nv9rJGg2
-	WoTybXpiYG1D3pFM7CQBiLgMeV4axeujhtwlJJlBCAna8cWdy4iCDOGhiH6TFNQZuJfFQQQ5HS5Co
-	o8kPd2rZNl0d6DahzUnOj9PzndaF9kjRAj/L7/oQ4KZ/lnwLp7Usfv5QIipNe7Ywm8dluQLZWT1tD
-	hLpzq3tlHQR0n0JhTfMAL8+30b7kj8rJbfpwzm/e7Az5PCmWxtJLvOs5ES4A2SavITH2s7u1mmOnF
-	M3VXw92e0DYIqwL+QE+UOGyNDK36uW8o2IQSfhpvD/ISkA44iz9bCgHuPg/L7VyVQgrj6wFlLOrFw
-	rlXCmESg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlWAed+/SrqJQekZMX1xSkZKywb/agcxG25UCF/2iIw=; b=gGG1ocHHun4kmhAyIabRoSTF/r
+	u9HO9jFzcf1t7SvGAn7gT8lPBJlnEdVrSNVVejrQ8TCcXNp/u6lHfyEOhpokbm+oXHRoYX732UGoh
+	6zasq/pFj11r+pAEPeb3MBGynuzpKBgnF963lIrEKL6mPp3HyfPNcEhGrpr1ljhZSv2CQBM0YDsko
+	LfChUtxDS8fbRPFLnWbrjbA456KUJjMY8nqGeQ1INoJ+q0lPcFp5obYkVO23PcxzkHU8De4DY2xhs
+	hYnyYl1KhlH8oOsmT1mFzSKNgVMyIKeZzGxiCMyI5rv0SncwIofBp7coiTz0WORtpPN8dr/XEB5tf
+	DJEN5hKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT6r-0000000FI5l-2whA;
-	Sun, 04 Oct 2026 20:47:01 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xDT7S-0000000FIP4-3i1l;
+	Sun, 04 Oct 2026 20:47:38 +0000
+Received: from mail-westus3azon11010005.outbound.protection.outlook.com ([52.101.201.5] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDT6o-0000000FI2v-2Gt1
+	id 1xDT7L-0000000FIMC-3Uaz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Oct 2026 20:47:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id F1FD71A113A;
-	Sun,  4 Oct 2026 20:46:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C58B3604FE;
-	Sun,  4 Oct 2026 20:46:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3E6661032820F;
-	Sun,  4 Oct 2026 22:46:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791146815; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=;
-	b=A6VOebVNjDlnkxLhmL0E3QTdnjmAbZ1/upC3qI/K+qBTvGg1CDBKmCqWdW03bm9DRqEd+k
-	9jl1fMbJxIE9+lmjR2yhoMejcH/YpKYZ6IWH6e/NBD/q00evPj7xVpf/6VULIaDBBKAUy0
-	06r7+AQvaxr5xdMUzBp5WiU4vjR4HHKAfVyYKXQxmllN8yhtNTKAhafa+GApsfwTlaiDuA
-	Xw/8fnbMdqmshvOt1wpHXCS+XTojvtghdyaNPSPNMFwfh00kH8MSynAeymjDUY7HjmAAEL
-	3lPz05kh+LP1wPqsN/zQ3jGd+c3QwT3qCIEDOZBgQPWE4G1O80VAqb6R/m+pRA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Sun, 04 Oct 2026 22:45:31 +0200
-Subject: [PATCH v8 7/7] arm64: dts: nuvoton: ma35d1: Add LXT crystal and
- clock-names
+	Sun, 04 Oct 2026 20:47:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S/4fQ2u+Axf/ELTBYmGUKt9AaanWOX6hLPMMXLEKYCgrGkC1kiNy5aD+UyeiQ/z+275uhhRTmRUgVVFOMIon8Ru2Q9JXvkTGZJba8o7L83vux688yWvOUDW3e9r1tjWK3iO1va0Ytz7wRD8ub90mJsBl3mRre9ATN7VkogK1D4oe+NAIJ9472cp7rMzoko7m1Pg36HdczYdqVjm6Isp9cZz7h6CBX0upJDHoElHTtoQEWqWGNihaoPSlD9XBFPb9UmPBkApOUYZ+F5MioaOzNyQl6M/AUf8LlZ+l9Uf+8GobWoX0z43B6lrB/o5wCJK7xNbdq4wiOYj2czdrlxO0JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AlWAed+/SrqJQekZMX1xSkZKywb/agcxG25UCF/2iIw=;
+ b=R5HFI4HeOdiLEb28lZ7KATDP7pu9l/86rUHG9od841vopiupDlicRHY5mfLtjhcENrVQiPYE+hihR+sQoGaMSG5l0aLoWIAByeL5ef+QiAAjWbDIK56/W/ZrluKZ88GVlju0LBH2j6rU+RryCG+7LX98Jhc+n9qyT+k8G07vhykFf8NXaJZMRMRFAzMQ6nOsu1SOCSlZ3O92TocW3UIaQl2Zt33EEaDIJjNR5va3116L8pI6pgbabcbFXf/sk+mBKnxhNodydd8pAzODXps5zynzMywkaRY2n1tqRMwj4fucuxZ6opG0RCsDrfbJV+u5EzerjwExJcikiLNoyMl8Cg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AlWAed+/SrqJQekZMX1xSkZKywb/agcxG25UCF/2iIw=;
+ b=L/JzfnmFiHX4XmGzJxIQNhf54prlgwqJmLbL+YksNL5URYDk1DlMY8dhroFz6450WZ7Q9ZI+jsbE0sRQjMwwMGqfarWK9uHmACLdtfPQQxSnwBt07Tl2Rh+6dJCPSl2g6AGw1Jo4KvBzbENEbZVeKReGROKT/uAC4FVDUgbxc0UOHNO4pjneaU11PUc8Hdw2Xq3N8ZCbkC8safmFMrlLcegmTmpUhpUrCbSlSLwtQahPk07LwBVSew+r1ZkKRyaGkmBosKjq90gkyBTo3ivsaHjIC3T8+GRE5DOX6HQluFYw/X9wiskSbdJDDDxESAdStBbv1bhAL1I+8MfqxCmZpw==
+Received: from PH1PEPF00013305.namprd07.prod.outlook.com (2603:10b6:518:1::17)
+ by EAYPR12MB923140.namprd12.prod.outlook.com (2603:10b6:303:2fd::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Sun, 4 Oct
+ 2026 20:47:25 +0000
+Received: from SJ5PEPF000001F1.namprd05.prod.outlook.com
+ (2a01:111:f403:c902::d) by PH1PEPF00013305.outlook.office365.com
+ (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Sun, 4
+ Oct 2026 20:47:25 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001F1.mail.protection.outlook.com (10.167.242.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Sun, 4 Oct 2026 20:47:25 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
+ 2026 13:47:20 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
+ 2026 13:47:19 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Sun, 4 Oct 2026 13:47:18 -0700
+Date: Sun, 4 Oct 2026 13:47:16 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: <robin.murphy@arm.com>, <jgg@nvidia.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
+Subject: Re: [PATCH v10 06/13] iommu/arm-smmu-v3: Add
+ ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
+Message-ID: <asK7VILK4CgEFjdT@nvidia.com>
+References: <cover.1788130528.git.nicolinc@nvidia.com>
+ <d661395d986d3aa78af200f55e43740996ee8a0f.1788130528.git.nicolinc@nvidia.com>
+ <asJTsw-oWDlSqNa3@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261004-perso-ma35d1-upstream-clk-v8-7-e1a106a128c0@bootlin.com>
-References: <20261004-perso-ma35d1-upstream-clk-v8-0-e1a106a128c0@bootlin.com>
-In-Reply-To: <20261004-perso-ma35d1-upstream-clk-v8-0-e1a106a128c0@bootlin.com>
-To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
- Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <asJTsw-oWDlSqNa3@willie-the-truck>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F1:EE_|EAYPR12MB923140:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6b8efcbc-ca6e-4636-048a-08df2258b260
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|23010399003|82310400026|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: jM2qrAllgSdQt2RTq3j00ncImY325iB7ZNQ2ofPGP5vOZZQcgUVha6AM3lBUfigrxlhVgFgC+sT9a2E4eOjl6PPE+AKDe2k23CT58hrR+0L4H6LK2OuziwciTjsMZra7wyROIFtggtxE1+tOt7oe5lu7O3vwazOjhI6LPLMnomNewY/NAL02+NyuNRJNEMdImXS/hMEkl8HtB2mjfYR2cJQOujVYS+3aq4Da6mt2cWRV6F4DR24C0tcTOpWE2tS/eTU4aiNIJ+1P7Ko8MKV8UH/CKi8dARI8YlgklVIHy06bNIlpczq3RjCe2XP/yz+dybaAS6qkztOwQ4FPn+BoT/i8u02U+9DSQ78UDdgD85u+UHhpNDH503BoKNyAuSZsH8RxgQfiuEj8gNkB/4+NL8AZYDZU05qxK2w9TTzns1amYgIUM93xO48mIBKj/bw5eckIzjXDS4V/N/kgeyLNhsGi/1wfL02Z0yLFmNd0O5KZ8imC7DNbUg8/DcMAGVQKUt9ymNd1DE5xNVWMCvol6mLS2iNUI+mWZjWwr/zB5hp9S7MuDPCuWzDSOgImAdNHuvDAMzC9kiGS3lIOcCn48jfl3qvs/l/HnKMzfKtd60uF+A42KzEAFXxmYoo6DlgPkCdXUP6Im0O9qDwCTaX4+LT5br1xLG3LYhDTl0DX5N/E/ddvZ4zr6U95hR2T8Y2Tgmcnjw0aFmkjNsyGTv3Hlw==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(23010399003)(82310400026)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bdzZcHIDQ/8xC2Xj/jpzwVq7alsvddXyQdioWv+0quzJ0/XlA//FxVIS8GRAeqdgD1IfVh3QjsyFr1oXqJQRq6iLWjY/0ms12yyfxVV2naadWldnLBqcrRMrTJraSoiwb2mqlp1chbz59qQO3SEwKcwsPQbt0EA4r9oOFutJOfSqfWw2mTWR8wmNDsem36NRPkbzPXGGSx8j1AIomCJjJTF3sw2cQ6vwnVmCGrSo11eWXjuo5/pgA8ztkU98lD3m4DugnYSBXCQk0fvNECLYWl/NH37HmdzH497Wqofv5QZp1VUcwKaOz7wM2Fo27NHJDHcMoyk4kCy/GULjlTY7UuGk1SY6QgHEDtljMx36rwlaQUcb/Mt9aiEJsN71ch+1dwE3okHM07FJYLAg3DfFLTdGz0T0rM94aZeJ7TJo9D4Vy6MsJnEtcl5BFsHMrEIv
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2026 20:47:25.3763
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6b8efcbc-ca6e-4636-048a-08df2258b260
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR12MB923140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_134658_747899_F0EFEB66 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261004_134732_941145_00804916 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +131,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock controller takes its two crystal oscillator inputs from the
-board: HXT and LXT. The LXT crystal is not described at all: add the
-fixed clock node for it and reference both inputs from the clock
-controller node, with their respective clock-names.
+On Sun, Oct 04, 2026 at 02:25:07PM +0100, Will Deacon wrote:
+> On Sun, Aug 30, 2026 at 04:18:07PM -0700, Nicolin Chen wrote:
+> >  drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  21 ++
+> >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c | 229 ++++++++++++++++++
+> 
+> Please don't put this here. The live update / handover stuff is going to
+> need very similar logic (see the RFC from Pranjal) and I don't fancy
+> having to rename or resplit this file when that comes along.
+> 
+> Maybe just stick all of arm-smmu-v3-kexec.c and arm-smmu-v3-kdump.c into
+> arm-smmu-v3-handover.c or something?
 
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Fixes: b69af0984732 ("arm64: dts: nuvoton: Add initial ma35d1 device tree")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
----
- arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi         | 3 ++-
- 3 files changed, 14 insertions(+), 1 deletion(-)
+Hmm, Pranjal and I already aligned that cleanly. And there is no
+further rename/resplit in his series.
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-index d7670afb0a63..7752e85734ac 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
- };
- 
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index 8f3cb18d39b6..5c65f1fe5da9 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
- };
- 
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..9a341c2b1397 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -92,7 +92,8 @@ clk: clock-controller@40460200 {
- 			compatible = "nuvoton,ma35d1-clk";
- 			reg = <0x00000000 0x40460200 0x0 0x100>;
- 			#clock-cells = <1>;
--			clocks = <&clk_hxt>;
-+			clocks = <&clk_hxt>, <&clk_lxt>;
-+			clock-names = "hxt", "lxt";
- 		};
- 
- 		pinctrl: pinctrl@40040000 {
+arm-smmu-v3-kexec: common helpers for both
+arm-smmu-v3-kdump: kdump specific (my series)
+arm-smmu-v3-liveupdate: liveupdate specific (Pranj's)
 
--- 
-2.55.0
+Each of them is built on a separate config:
+ arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_KEXEC) += arm-smmu-v3-kexec.o
+ arm_smmu_v3-$(CONFIG_IOMMU_LIVEUPDATE) += arm-smmu-v3-liveupdate.o
+ arm_smmu_v3-$(CONFIG_CRASH_DUMP) += arm-smmu-v3-kdump.o
 
+If we put everything into one big file, we'd add the two individual
+config guards internally, which isn't as clean as currently IMHO.
+
+Note that the kdump file has a very long notes (kdump specific).
+
+Thanks
+Nicolin
 
