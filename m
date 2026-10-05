@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A2DCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A42CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igZN1JZDbo2eUKBPEUpUUpCrkVNkHeN8r7Knm9kKQTQ=; b=fuGmrOjO4J1dbOLbk98Ze5thCK
-	QqKTOVNO25jUsH7MM/ut8M8YNwIU10GCIxYOkIaEEBA/3CNYCXAOYhxaYJ44Kn1Wf/hAPFtZqc3uz
-	cW52LGb93JCgF54S4wWyHId3XFBGYLOVfVsDCQn9Gax7zFvleCwqFmgkeBZAfFyKYvm05DTo0g7Hg
-	7lv/EZNf25OIEsMuS5HqU0jPTLi8DRB2hXBm75XCR17Dp8UXYL5B7QbBvn46UZOuD/HWqfk3qOk8f
-	d5cSUkBSNdn3uSozpbCaZ5tuXVJ/XODNXPH2diASET4kRHKUm8irD8kTJ6RC0yJVLuPxZY5FXLJr+
-	EYTWYagg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mIyNrxYji7RcIsIgOpeC8k0CsXMP+tzrbGGH8eNPUTg=; b=4Jghoxnm87oNkU4UBiH/srT96m
+	hm8pBrperdWF+WIBLojAKCTJVeLbj3CbpFJceX8mg+SVcjzzn8CkfW1NiYOgyqiB7AYrhwg1ZE1SW
+	KcjJRxGmQqo6p66nmJ+rnoB5hMERDSV2pxfaRNPjOT65xcwQBmz7cp8qa50DYNLxOjziNa2vs35w9
+	4zfXbJOpdP8ydd74rcj2tv+UiJWk2/IIIdJRBynt847Tr4Z2J47NSQ9Wnn4RkjDp6WXXpbFWEEthV
+	7mWSxvQ5WK0XyG03iczBM5Kmnyt4zV3wwvHpCE8/VIa1eGT6lYapji6g79O1pW6O0FKr55kD+NScq
+	Xjvk5MoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfjj-0000000G8hx-0ei9;
-	Mon, 05 Oct 2026 10:15:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDfko-0000000G8re-1Z5y;
+	Mon, 05 Oct 2026 10:17:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfjh-0000000G8hX-37Z2;
-	Mon, 05 Oct 2026 10:15:57 +0000
+	id 1xDfkn-0000000G8r7-1Mjf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 10:17:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D16016022E;
-	Mon,  5 Oct 2026 10:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D621F000FF;
-	Mon,  5 Oct 2026 10:15:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CDB94388F;
+	Mon,  5 Oct 2026 10:17:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08C1C1F000FF;
+	Mon,  5 Oct 2026 10:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791195356;
-	bh=igZN1JZDbo2eUKBPEUpUUpCrkVNkHeN8r7Knm9kKQTQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=An2WvZiwsWKnpOmzD7EhVh/cUnMfKgzdSuhVcnMzNFQSLCIoBtJx78i0B1znUxaDN
-	 RgCKZaTMVvAjf93YFfRIbzLoP53eGrP3LrCzQrln7v/TJnHAXuwNhA19BRsMC9+TMl
-	 aMysBMrB0hNy1SPB6gJwdT9kQp6uY6q7oouukBqJinSSS3v9IhDy5ecEujy0ShzCa9
-	 U2rLLXsg5fAmaANx438MBfL8cjcvbnS9kiG8AVR/HGyZ0OerZ6bq7iOvAdxsJZqSrI
-	 P8cyxXrk669aMgH4FcOwhcrxvJM4csesxv9fvIuXSeU6KYRCZQ2ni6wMiRFGpx7CZ+
-	 jxylDv3tBpikg==
-Date: Mon, 5 Oct 2026 12:15:53 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 0/3] airoha: an7581: USB support
-Message-ID: <asN42bZlK_jwS6uH@parshuram>
-References: <20260930071826.48811-1-ansuelsmth@gmail.com>
+	s=k20260515; t=1791195424;
+	bh=mIyNrxYji7RcIsIgOpeC8k0CsXMP+tzrbGGH8eNPUTg=;
+	h=From:To:Cc:Subject:Date;
+	b=fnbg9qsa5b7tl+Ceo8yDct4/j/jPORTmoKxCytmi0l3aPtL4VHi/C+vqxUm0kPefy
+	 AMbbKr+vsa54FCZ5ZQxBY1lT2up/QqfRKXy4HeVt4/LSBCMBSJTabQNT5wxwO3/Bgy
+	 rkf8xoT4hNwkP7Hwq6eih97XfAXiv+5UwllVJYrWiqUQl25Q+mKw+pwKYAuwxbBINJ
+	 hPXh+7XOnmMBXNOJGww//BOScVfoaHwiXoi4x8r5eMOUNjSzQFZ2pZq7ZLp2H4t6t2
+	 PzZDrcuFsIXfQMjEggVWii/w2tlXf+jD/wJLBw4W4Q0ZqD5wTg4n/SN4khqjKAH16z
+	 Eo3+yMfDTsI+Q==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64: google: New ARCH_GOOGLE for v7.4
+Date: Mon,  5 Oct 2026 12:16:57 +0200
+Message-ID: <20261005101657.34571-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930071826.48811-1-ansuelsmth@gmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2681; i=krzk@kernel.org; h=from:subject; bh=cKhxjhjZPy5BthbsxNGJBD3mR+z9ZrRk5op393gV9VQ=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqw3kZDwh/wvuX7RuHobbirDjbjOtf/zBNzhGtD GsikyiGAaWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCasN5GQAKCRDBN2bmhouD 11omEACKI16QIkVnwofkj2xe89Jsjul9o7318uzEIXFvlizQ7cnqh6d1U0cHZgg+YyNsMRWCzZZ wuMoUEx83uvzt2RtM9yaDCMsXRa5mPYNqypv7c4SgFzs3+SBljesMiyf95AUOQtbZelrstrpM4e axJWfhI60PcchI4/H+2Fz5TFZ7zzFSMH9RHI9cx+A1282DAsd+pOkQ3PkfW0X3io9QDrEUdfwJQ OJmfxP5792FbfhCrGaDWhtDQEMeL6Vgk6jM2AXMqrft9DglHms1dQqDWTOpsaTmQAcphVAJOHXe x9VsmDxkKZptgjsN6e6DtxGOmd0tuxvC6fn6xdUyHJG1FiZIQ/DZ8CRGi16p+p4Z+84dZXWPUpb cdndKlq49VhpxGjvS8svS6IgCKVVcdon27JyM+z8oInal6W9B6UCUGkEL9K2pqCmZ9xICseZu/j UoKQrcDuEI95ugIMLlW8HpG/S3SI8xvI5R2sCTsHurqUkTJ780p6iihwTIYoXxJUxNataD2LNgQ SjZTmTqNbZpmGAz7VquYpKBQ2zeBKZTsO0Q5Ur8xjdsDl9aJOOPrGAg3VyDkm574Ku0tdc0twBH KfIZDvmnss4eFiGtISxp4yM6dEDXxOogMMdu+AZ1S9px4tfH1fVB5iwq2nP1NyDNPtNBC1PrS4v R+x65YlbXeyoyjg==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +72,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30-09-26, 09:18, Christian Marangi wrote:
-> This is a major rework of the old v2 series.
-> 
-> The SoC always support USB 2.0 but for USB 3.0 it needs additional
-> configuration for the Serdes port. Such port can be either configured
-> for USB usage or for PCIe lines or HSGMII and these are configured
-> in the SCU space.
-> 
-> The previous implementation of a dedicated SSR driver was too
-> complex and fragile for the simple task of configuring a register
-> hence it was dropped and the handling is entirely in the PHY driver.
-> 
-> Everything was reducted to the dt-bindings to describe the Serdes line.
-> 
-> Also the property for the PHY are renamed to a more suitable name and
-> everything is now mandatory to simplify the implementation.
-> (the PHY are always present and active on the SoC)
-> 
-> Also other unrelated patch are dropped from this series.
+Hi Arnd and SoC folks,
 
-This does not apply for me and Kconfig seems to have a trailing
-whitespace which checkpatch complains about. Can you fix these and send
+New SoC platform, in the future this will be handled by Peter Griffin.
 
--- 
-~Vinod
+Best regards,
+Krzysztof
+
+
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/google-lga-7.4
+
+for you to fetch changes up to 18686b294c6f6ba778cba66eccf01b9fcdf48988:
+
+  arm64: dts: google: lga: fixup #size-cells DT warning (2026-09-30 07:21:35 +0200)
+
+----------------------------------------------------------------
+Google Tensor G5 SoC family - new platform
+
+Introduce new ARCH_GOOGLE for the Google Tensor G5 (Laguna) family of
+SoCs.  The very early designs - Google GS101 - were derivatives of
+Samsung SoC, thus they were grouped under Samsung SoC.  The G5 however
+went its own way, so no commonality with Samsung and a new ARCH_GOOGLE
+symbol.  Currently upstreamed SoC is used for example in Google Pixel 10
+phones.  Add basic support of three of their variants (Pixel 10, Pixel
+10 Pro, Pixel 10 Pro XL).
+
+----------------------------------------------------------------
+Douglas Anderson (2):
+      arm64: dts: google: Add dts directory for Google-designed silicon
+      arm64: dts: google: Add initial dts for frankel/blazer/mustang
+
+Peter Griffin (3):
+      dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+      arm64: defconfig: enable Tensor G5 SoC family
+      arm64: dts: google: lga: fixup #size-cells DT warning
+
+ Documentation/devicetree/bindings/arm/google.yaml |  48 ++-
+ MAINTAINERS                                       |   1 +
+ arch/arm64/Kconfig.platforms                      |   8 +
+ arch/arm64/boot/dts/Makefile                      |   1 +
+ arch/arm64/boot/dts/google/Makefile               |   6 +
+ arch/arm64/boot/dts/google/lga-blazer.dts         |  15 +
+ arch/arm64/boot/dts/google/lga-frankel.dts        |  15 +
+ arch/arm64/boot/dts/google/lga-mustang.dts        |  15 +
+ arch/arm64/boot/dts/google/lga-pixel-common.dtsi  |  22 ++
+ arch/arm64/boot/dts/google/lga.dtsi               | 411 ++++++++++++++++++++++
+ arch/arm64/configs/defconfig                      |   1 +
+ 11 files changed, 524 insertions(+), 19 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/google/Makefile
+ create mode 100644 arch/arm64/boot/dts/google/lga-blazer.dts
+ create mode 100644 arch/arm64/boot/dts/google/lga-frankel.dts
+ create mode 100644 arch/arm64/boot/dts/google/lga-mustang.dts
+ create mode 100644 arch/arm64/boot/dts/google/lga-pixel-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/google/lga.dtsi
 
