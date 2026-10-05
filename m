@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6FECA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D8CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXkyvNpPZqrM5P5UyeacA+TyFuP56hMHBlt411AUfhk=; b=Pt/1CMDxj0PYk2S0UyAhL1EXB2
-	6gFgfYQPuStaKo7BiQlv/yKN+DJcIQCfsNZfHNTT/Z4Et7XVIX13fBoiLilISaCVqN8PGxI5aDA/w
-	XlLv2ewypBWMZKanCG76BmdhqKpuunTkEHOvmo0yHQ+YxNW70rLexyvWtPbxgSZVeVUPonomMHHyP
-	TfoPwRaQ4GnKEb9Ihk5r/fmUyXorpRVrUshyw7wza0Vg+HH8TU8oB5uotHCMVSW3BYWHsLmWUHg6W
-	LEshVZ6gshh9ZHM3Ly9xEcBIUVnesqWVzaqWcCsVTveP9KHnvPcrDqEuSbGWw8f6nGvITl8iQQC3M
-	IoyFxaew==;
+	bh=D+Y6d8UnrGoNFXVY4j5x4i4B2RwDWSIwdnLaT7QqWYA=; b=ACa9Dr4pnciTw8PcxEi1T+YQQ4
+	DrVbA6MHreLvPWVIeuJ1QMDXVhhPXF0QPYezNZt0xkXEJvBq62Wra28EIJ2gxvYZPe2BBifg/1eRR
+	Bzz6/mdfeibmKu3apYIdqJof1B90WG+UncBWtJEIMaJ2f8i5J5F/VIlATrKnAHSXy1HkDLQREabRo
+	WDDPKm6zHVTiX2hc6MK/ajThbw7Z1lJzLb9mVD5hijNnr4zAq56fL8iFmFArqi+Ju/VcGonvzaole
+	61TZbtmfWxpsFzR5Dw0Pc56g1otB8QFXi4b+btlIzJ2dAaPT/09qcy9zrZg/wCWQz3H2wHFfWQDxC
+	pZ/zD0xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdjL-0000000FpoB-10T5;
-	Mon, 05 Oct 2026 08:07:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDdkP-0000000FpyR-2JMw;
+	Mon, 05 Oct 2026 08:08:33 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdjK-0000000Fpnw-1QBH
+	id 1xDdkN-0000000Fpxq-1AVA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 08:07:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67E206022E;
-	Mon,  5 Oct 2026 08:07:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45E231F000FF;
-	Mon,  5 Oct 2026 08:07:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791187645;
-	bh=XXkyvNpPZqrM5P5UyeacA+TyFuP56hMHBlt411AUfhk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FHKVX4rQKpRY8RrCMtnTYucloQH8ReN38hlkAK1CA5qYPt8kQamrFV62rn9/Pf0b8
-	 SYy8fhLnFufschUrdMxZlL4rkxwkLGq6jZ4BtVmBL+Rx1ydZQmh9D2EkBfAQc+EKco
-	 9PekgerDeWSVRzRGOUMDwxU9fF860loJZvgejSh+aU0Jla7I5iSJHuutjjrKsIwnNH
-	 +NiBMkVf7XBgVqIl0+E+bSh8J+dkzODQyb7FMav1auMNwIXYKb4MVRm/nWQgCGbBda
-	 n2sAWr1z04Qsuu3zcrtIbOLmdgY9SZo//jwuIMxT0HEKKuUDt4qzah/iDBIhfcT1jR
-	 UXMlF5+OQA9kQ==
-Subject: Re: [PATCH net 2/2] net: phy: xilinx-gmii2rgmii: Restore PHY driver on remove
-From: netdev-bot+sashiko@kernel.org
-To: vineeth.karumanchi@amd.com
-Cc: git@amd.com, netdev@vger.kernel.org, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- f.fainelli@gmail.com, harini.katakam@amd.com, appanad@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 05 Oct 2026 08:07:23 +0000
-Message-ID: <179118764380.434549.2031845358588611322@kernel.org>
-In-Reply-To: <20261001074718.3944521-3-vineeth.karumanchi@amd.com>
-References: <20261001074718.3944521-3-vineeth.karumanchi@amd.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 05 Oct 2026 08:08:32 +0000
+Received: from francesco-nb (93-33-55-11.ip43.fastwebnet.it [93.33.55.11])
+	by mail11.truemail.it (Postfix) with ESMTPA id 384511FCC5;
+	Mon,  5 Oct 2026 10:08:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1791187709;
+	bh=D+Y6d8UnrGoNFXVY4j5x4i4B2RwDWSIwdnLaT7QqWYA=; h=From:To:Subject;
+	b=pc46WDqn850L7lcIP9Fhgqz50KA3iyT13iys3P83fFFH2WP1JTTiUdlzjxtjMHvVV
+	 HCtW83/A9eD1cpccAu9bCoFi7j0aSvw1PCz7wjrMaLb92gfV/RsN5zPJtscGFMubg9
+	 /ZOsBaI0zujfilGLjnXmUYIQgnSpMRoEd8ewqvtkR2KzSYgmVqFDG/CjdDsBJ2Doeq
+	 O2WWifHY6ZjZMBtZ+WMQLB8d9W7V6g+UOJ/VGVty3Ri5/ppfw9BGBiLUwBJK92vu0a
+	 dRA0n3+jy7CbCP75Dk8d+Cuea+2T9TgZEVE/IxwCusznJrIDAZnnQrCsLH7SrmB55M
+	 S/AfgUIpKsrjg==
+Date: Mon, 5 Oct 2026 10:08:22 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Ivan T. Ivanov" <iivanov@suse.de>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
+ cache coherency issue
+Message-ID: <20261005080822.GA13120@francesco-nb>
+References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
+ <aqleHm4stDi3Pt//@shlinux89>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqleHm4stDi3Pt//@shlinux89>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_010831_475003_B095EE2A 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,170 +84,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello,
 
-Critical: 0 · High: 2 · Medium: 0 · Low: 0
+On Tue, Sep 15, 2026 at 11:02:54PM +0800, Peng Fan wrote:
+> On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
+> >From: Peng Fan <peng.fan@nxp.com>
+> >
+> >According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
+> >suffers from a cache coherency issue (ERR050104). The upper bits, above
+> >bit 35, of the ARADDR and ACADDR buses within the Arm A53 subsystem
+> >have been incorrectly connected. This causes some TLBI and IC
+> >maintenance operations exchanged between the A53 and A72 core clusters
+> >to be corrupted.
+> >
+> 
+> Any comments?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Any plan to have this merged?
 
-- [High] xgmiitorgmii_remove()
-  (drivers/net/phy/xilinx_gmii2rgmii.c:147-149) always writes the driver…
-- [High] The fix relies on every reader of phydev->drv holding
-  phydev->lock, and that is not true.
+Francesco
 
---
-
-net: phy: xilinx-gmii2rgmii: Restore PHY driver on remove
-
-This adds a remove callback to the GMII-to-RGMII converter. The callback
-restores the attached PHY's original phydev->drv under phydev->lock, so
-phydev->drv no longer points at the devres-freed conv_phy_drv copy after
-the converter is unbound. It also drops the device reference taken by
-of_phy_find_device().
-
-> diff --git a/drivers/net/phy/xilinx_gmii2rgmii.c b/drivers/net/phy/xilinx_gmii2rgmii.c
-> index 61f71e977a574..b9aa5515577b5 100644
-> --- a/drivers/net/phy/xilinx_gmii2rgmii.c
-> +++ b/drivers/net/phy/xilinx_gmii2rgmii.c
-> @@ -128,10 +128,29 @@ static int xgmiitorgmii_probe(struct mdio_device *mdiodev)
-
-[ ... ]
-
-> +static void xgmiitorgmii_remove(struct mdio_device *mdiodev)
-> +{
-> +	struct gmii2rgmii *priv = mdiodev_get_drvdata(mdiodev);
-> +
-> +	/*
-> +	 * The attached PHY is a separate, still-bound device whose state
-> +	 * machine keeps running and dispatches ->read_status / ->set_loopback
-> +	 * under phydev->lock. Restore its original driver under that lock so
-> +	 * the swap cannot race an in-flight dispatch; the restored driver is
-> +	 * the PHY's own static phy_driver, not the devres-freed conv_phy_drv.
-> +	 */
-> +	mutex_lock(&priv->phy_dev->lock);
-> +	priv->phy_dev->drv = priv->phy_drv;
-
-[Severity: High]
-Is it safe to write priv->phy_drv back here without first checking that
-phydev->drv still points at &priv->conv_phy_drv?
-
-The only thing the converter holds is the device reference from
-of_phy_find_device(). There is no device link and no module reference on
-the PHY driver. That means the PHY can be unbound or rebound while the
-converter stays bound, and in that case phylib has already changed
-phydev->drv:
-
-drivers/net/phy/phy_device.c:phy_remove() {
-    ...
-	phydev->drv = NULL;
-
-	return 0;
-}
-
-A rebind does the same thing: phy_probe() installs a new driver with
-phydev->drv = phydrv.
-
-If the converter is unbound after that, xgmiitorgmii_remove() writes back
-the stale pointer that xgmiitorgmii_probe() saved. Three outcomes look
-possible.
-
-First, an unbound PHY gets a non-NULL drv again. That passes the
-"if (!phydev->drv)" guards in phy.c and phy_device.c. The old driver's
-callbacks then run against a phydev->priv that devres already freed. If
-the PHY driver module was unloaded, they run in freed module text.
-
-Second, if the PHY was rebound to another driver (for example Generic
-PHY), the old driver's ops get installed over the new binding. They then
-see the new driver's phydev->priv.
-
-Third, if the converter is probed again, it passes the
-!priv->phy_dev->drv check in xgmiitorgmii_probe() and memcpy()s from the
-stale driver struct.
-
-The comment above assumes the PHY is still bound and that the restored
-driver is the PHY's own phy_driver. Nothing seems to enforce either
-assumption.
-
-Would it be better to restore only when phydev->drv == &priv->conv_phy_drv,
-and to tie the converter's lifetime to the PHY binding?
-
-> +	mutex_unlock(&priv->phy_dev->lock);
-
-[Severity: High]
-Does taking phydev->lock here actually prevent the use-after-free on
-conv_phy_drv? The commit message says:
-
-    Restore the attached PHY's original driver while
-    holding phydev->lock so that the update cannot race with an active PHY
-    callback.
-
-The lock only excludes readers that also hold phydev->lock, and not every
-reader of phydev->drv does. Once xgmiitorgmii_remove() returns,
-devres_release_all() frees priv, and conv_phy_drv along with it.
-
-The state machine drops the lock before its suspend step:
-
-drivers/net/phy/phy.c:phy_state_machine() {
-    ...
-	mutex_lock(&phydev->lock);
-	state_work = _phy_state_machine(phydev);
-	mutex_unlock(&phydev->lock);
-
-	_phy_state_machine_post_work(phydev, state_work);
-}
-
-phy_stop() does the same. _phy_state_machine_post_work() then calls
-phy_suspend(), which copies phydev->drv into a local and dereferences it
-with no lock held:
-
-drivers/net/phy/phy_device.c:phy_suspend() {
-    ...
-	const struct phy_driver *phydrv = phydev->drv;
-    ...
-	if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
-		return -EBUSY;
-
-	if (!phydrv->suspend)
-		return 0;
-
-	ret = phydrv->suspend(phydev);
-    ...
-}
-
-phy_ethtool_get_sset_count() also dereferences the driver before it takes
-the mutex. It is reachable from the ethtool ioctl through
-ethtool_get_phy_stats_phydev():
-
-drivers/net/phy/phy.c:phy_ethtool_get_sset_count() {
-    ...
-	if (phydev->drv->get_sset_count &&
-	    phydev->drv->get_strings &&
-	    phydev->drv->get_stats) {
-		mutex_lock(&phydev->lock);
-    ...
-}
-
-Could this sequence happen?
-
-CPU0                                  CPU1
-phy_suspend()
-  phydrv = &priv->conv_phy_drv
-                                      xgmiitorgmii_remove()
-                                        mutex_lock(&phydev->lock)
-                                        phydev->drv = priv->phy_drv
-                                        mutex_unlock(&phydev->lock)
-                                      devres_release_all()
-                                        kfree(priv)
-  phydrv->flags / phydrv->suspend
-
-If so, CPU0 would read freed memory and might call through it. That is the
-same kind of use-after-free this patch is meant to fix.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001074718.3944521-1-vineeth.karumanchi%40amd.com
 
