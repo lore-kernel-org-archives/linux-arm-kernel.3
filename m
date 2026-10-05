@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A146CA5FFD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0F0CA5FFC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYtR1M/6ZfPBDMq0CnJpLKzfzsT/eoXUfhR57UXueyQ=; b=zmZEiRnY61l9xhfY3UlisTPC4d
-	qtXon7V4srVw7yFIe61XUo/Ntw874yN4oQogDM2KDXbYFeMHgeniiNiWVbqjBvK1tLVyPjs17kjxM
-	sNiLOHBBKtPdDjDFsOofxSTIS6KcVejkhpkoBWP1CW1hbLCyREHv9epBI4AGs2R/kAZIZO3r+HuAQ
-	4s2kirM5omwXIvyhs9qpAhKI3f/umUlOXNNL55JBjwduW8jhoL79YJdZ8fYGuiY9oXk61ct8YLC7K
-	uesAd50YAWT8veKw9nEyfmuvE+hamMAMwx73LUmUmR6ZdBLG6aJDUslmMqrYYTeAGpBpic6MPoY9q
-	c9E/7zQw==;
+	bh=RR3SF8bBNYM0M+gmxu0vGHYjR8VY7Gn3WIgokObd70Y=; b=iX0CUtoX+SpJGt8SWRm9ABtnRH
+	pEotNqkpuHSBDWaYnpsGQBQEPrydtGx5FiysYK7SFpXEYRIB40Fnu6Lmx+vK/iLH+PPv/5y219iff
+	rFgJzZbaTyhIpQh1izp7D6lb9yhWIGSnWXbFAUN2PKyJyMTNEhuXTp7GmeBVc8MEXXzDdsLB8HeJa
+	MhDFlLDYbbXqj6OSn8ErfMEeGsYdQPaO6grwbM6cXqqo+dqjV01OY9WxRhNApx9wrIntWzsECYyGj
+	xhZldUTedEKQkfVMuD3Q/MAs/AOmnJG8Tr9CpXIWKSW9B++dOCXaUOk8BYQLpg76XeIny0BR2oM3J
+	g8PR4+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeh3-0000000FxKy-3bt5;
-	Mon, 05 Oct 2026 09:09:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeh2-0000000FxJ9-3gWc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 05 Oct 2026 09:09:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=XYtR1M/6ZfPBDMq0CnJpLKzfzsT/eoXUfhR57UXueyQ=; b=SrjnOtWREcAVJDShGbLPyNxkIa
-	Ew1HRfr1teoMHjKZveETy/IUp/hl2s0Mxy6pjb9uYGIIOLx3veR7ESWpkc+wGpv7O3qqfMSjs3NhR
-	1KdZT+YNrmiPr5MSPCmXRtUwYCjQbKp0iBJZL452HlIduVJqFLZT7BGu7B4x2mikwg8vFdRwd2M19
-	2/xexgIRLNfMm3BzzYHG9qmvdWH13nOuVNXJbaU/ErRd3vHX/PwBIAOONPVWkdziyGn4LjVl9v9l0
-	u8677n3TJzUK89Wab21e5cchNg+6Jq951e3m/IRoLeNqeWq3vsO23gC6bdk37KJGbey2gOENy2HAT
-	McLplzcQ==;
+	id 1xDeh4-0000000FxLU-0Hsr;
+	Mon, 05 Oct 2026 09:09:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xDegz-00000007kqH-2U9w
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDegu-0000000Fx8d-3bKp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:09:07 +0000
+	Mon, 05 Oct 2026 09:09:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C7351684;
-	Mon,  5 Oct 2026 02:08:59 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 477EF152B;
+	Mon,  5 Oct 2026 02:08:56 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EE1EE3F66F;
-	Mon,  5 Oct 2026 02:08:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A8E483FA7A;
+	Mon,  5 Oct 2026 02:08:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791191342; bh=H+4kqsPac3dmJA9PfDo6eks6Egeh4gjjwuOEOQNZra0=;
+	t=1791191339; bh=s6QkqMg6xgjyuVjQ+GhP11BRTVN5gNs8kOtMV/1c+UY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kB5cmTdC3/QvQPvMHhhzr4ilHk/vLTJ1DRe2iz5TSOF2On9v/1dzIXbH56Gwkbwl+
-	 b0krWpkb3oZRm5uF33KjmSbe6YwXjH0/CvoItNnd/E31DdN23kaLqCuBiFjA3SS8p8
-	 Rg3oLAyj+i0TZVIrar8E2auShoGvx5Iyyg3ELDTo=
+	b=ZbJA97biHbWivO3tOrVOusJ6pRpukf3xp/f8RMdpOGAzwI4FAfIJNXGikpnOrXTXf
+	 MhqahK+3Fj0cAl2+nC+51vOuhPDDsoh3f5ChTHixN+6IlhJSA6SclmgaOtR8ARTc0g
+	 vhX1qY4CJsQlSBYjPPi/P00n3mtuIWDqcunIJG2Q=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -80,17 +65,18 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v22 17/23] KVM: arm64: CCA: Add bare minimal S2 operations for Realm
-Date: Mon,  5 Oct 2026 10:07:48 +0100
-Message-ID: <20261005090754.2140522-18-suzuki.poulose@arm.com>
+Subject: [PATCH v22 16/23] KVM: arm64: CCA: Add VCPU load/put for Realms
+Date: Mon,  5 Oct 2026 10:07:47 +0100
+Message-ID: <20261005090754.2140522-17-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261005090754.2140522-1-suzuki.poulose@arm.com>
 References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_100906_232328_D46B907A 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20261005_020900_950117_0ACD8C67 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bare minimal MMU operation hooks for Realms. The mem_abort handling
-is chosen as the default KVM variant. However this cannot be reached for
-Realms yet and we would need real RMI command support to make it fully
-functional. Similarly, unmapping stage2 requires RMI command support.
-Until then reuse follow protected pKVM hook and ignore unmapping.
-This will be addressed in the later series.
+RMM controls the VCPU settings and most are hidden from the KVM, except
+for the VGIC and timer bits.
 
-RMM takes care of the TLB flushing as required, when the Stage2 is
-modified. So host doesn't need to do anything explicitly. RMM doesn't
-support access flags for the stage2, even for the shared IPA.
+A later patch would add syncing the VCPU state into the Realm REC related
+SMC parameters.
 
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-Changes since v21:
- - Reuse no_age_gfn for Realms. Also use no_stage2_unmap_range for
-   now, until we get proper RMI backed driver.
----
- arch/arm64/kvm/mmu.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ arch/arm64/kvm/arm.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 909ea3f545e83..58bc6a85f48b4 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -180,6 +180,12 @@ static int kvm_vm_flush_remote_tlbs(struct kvm *kvm)
- 	return 0;
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 6c81fec35ecec..294cea4cc8271 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -802,6 +802,13 @@ static void pkvm_vcpu_load(struct kvm_vcpu *vcpu)
+ 			  &vcpu->arch.vgic_cpu.vgic_v3);
  }
  
-+static int realm_flush_remote_tlbs(struct kvm *kvm)
++static void realm_vcpu_load(struct kvm_vcpu *vcpu)
 +{
-+	/* Nothing to do here, RMM does the job */
-+	return 0;
++	kvm_timer_vcpu_load(vcpu);
++	kvm_vgic_load(vcpu);
++	vcpu_set_wfx_traps(vcpu);
 +}
 +
- /**
-  * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-  * @kvm:	pointer to kvm structure.
-@@ -207,6 +213,13 @@ static int kvm_vm_flush_remote_tlbs_range(struct kvm *kvm,
- 	return 0;
- }
- 
-+static int realm_flush_remote_tlbs_range(struct kvm *kvm,
-+					 gfn_t gfn, u64 nr_pages)
-+{
-+	/* Nothing to do here, RMM does the job */
-+	return 0;
-+}
-+
- int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
- 				     gfn_t gfn, u64 nr_pages)
+ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
  {
-@@ -2896,6 +2909,16 @@ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
- 	.vm_mem_abort			= kvm_vm_mem_abort,
+ 	vcpu->cpu = cpu;
+@@ -854,6 +861,12 @@ static void pkvm_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ }
+ 
++static void realm_vcpu_put(struct kvm_vcpu *vcpu)
++{
++	kvm_timer_vcpu_put(vcpu);
++	kvm_vgic_put(vcpu);
++}
++
+ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ {
+ 	vcpu->arch.vcpu_ops->vcpu_put(vcpu);
+@@ -2213,6 +2226,11 @@ static const struct kvm_vcpu_ops pkvm_vcpu_ops = {
+ 	.vcpu_put = pkvm_vcpu_put,
  };
  
-+static const struct kvm_vm_s2_ops realm_vm_s2_ops = {
-+	.vm_flush_remote_tlbs		= realm_flush_remote_tlbs,
-+	.vm_flush_remote_tlbs_range	= realm_flush_remote_tlbs_range,
-+	.vm_age_gfn			= no_age_gfn,
-+	.vm_test_age_gfn		= no_age_gfn,
-+	/* Until we get proper support for unmap */
-+	.vm_stage2_unmap_range		= no_stage2_unmap_range,
-+	.vm_mem_abort			= kvm_vm_mem_abort,
++static const struct kvm_vcpu_ops realm_vcpu_ops = {
++	.vcpu_load = realm_vcpu_load,
++	.vcpu_put = realm_vcpu_put,
 +};
 +
- #define KVM_VM_S2_OPS(flavor, ops)		\
- 		[flavor] = &(ops)
+ #define KVM_VCPU_OPS(flavor, ops)		\
+ 	[(flavor)] = &(ops)
  
 -- 
 2.43.0
