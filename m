@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E397BCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 07:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053A2CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9UADx5siGKeK5KCATSLSOTyedeT0k/fdcCEK1ZVtIuQ=; b=KU+kodcsdByNuTBsUa6rvnHdEC
-	6qgs9wgzLCSy5xlhTSjaiY7IUllpPIKXKcoR+WulbKNbvJWaJpgX1mGF42EAihcQ1xa/67NbEJJU7
-	zKEq/GklnBuPxs4gATPayZJEm/pI3CHEzAgbWLrOt4TrswywPs6dau79fsERDL21V2ioJDm4sJ7Xe
-	L/T7hL9JlEFtT+SH4TQkLGl8w01nRQzNWbCsj3ZKmwvCLfr5LXOMwxMbZYyepwJ9kyd/NnYmZviaJ
-	RG4gX1jr95TtT2dlAtT0O6EYQ9HwkS+SErRtw5qNO7N9zh5/oXhTgoUIdbi25zOqzgGSNR/IeOREK
-	9jiwiVmQ==;
+	bh=7h9+yYx9vCpmotG9nojbUu5IAfempJl5vCqPgtuwvFo=; b=od1RfbdJmGRIVZ3hOOhwALjrfX
+	Wg2ooWPxAWF+2MbILZeakb3kyjI88zcmpPomrIB4El8Clz4+vrm7lInQ9lTADafyw+xvfHJQYZD04
+	HTREldpKRODO7pZxlwoYp79eY7mnZMubSHfs3Xu2etCg0kE1PybGaaA8YsEQXlw5ycNv1zN3pZAW1
+	qska92/NymeXsnAv/I3fqe8O6OZzfBZKWSIyNcMGHSv19XsSDXJeBpnDny0Olk+jrI/4yFagPtiLd
+	4UnR3ilOYe/JtKv31CTTMh3ZRuWzIprLYdg/jNgVxdoJnc1NuUkyucDDVQu9miPgXknAYfTfOxl3U
+	JdjR0LLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE05Y-00000000GER-0OMZ;
-	Tue, 06 Oct 2026 07:59:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xE0Hp-00000000GoF-1Ic1;
+	Tue, 06 Oct 2026 08:12:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE05W-00000000GDd-1z6M
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 06 Oct 2026 07:59:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9UADx5siGKeK5KCATSLSOTyedeT0k/fdcCEK1ZVtIuQ=; b=Z6tyzbiRjHk8/+As9r3lssgI5m
-	jbpYTSFqyyCv5/yN0cg+DNQ9ZenCeRQkMBU2aETKk6+garwQt7GkriF08CL86yiCoZV9/cXHDPb3i
-	N0JwB/FzIGp/XqX1PQ6pN8SwLXqDxmsKFG/Rx3MtAcvq2/9OzC1hj2PQUbaCrhEnBC+K7h8Fx14sQ
-	OUkMhG3su03MoLxn2oPw8y9t192SwPtZsG02o6TjLEjURszl9PQmATaJ8K73GbnrNnUARQDhTBKxe
-	kxN91xfCll6I1CHiel/R7g0d9+t/oWud2M7vQexQhDc55FFReNY6ebUTljmS9C2xo0qpHUkI/9J3Z
-	9JKRTXPg==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xE05T-00000008YEa-0VnG
+	id 1xE0Hn-00000000Go9-3i5v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 07:59:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 218DD1A1154;
-	Tue,  6 Oct 2026 07:59:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E50D260553;
-	Tue,  6 Oct 2026 07:59:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2AFC0103308A6;
-	Tue,  6 Oct 2026 09:59:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791273576; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=9UADx5siGKeK5KCATSLSOTyedeT0k/fdcCEK1ZVtIuQ=;
-	b=DaBqXNsqHxGDfFPoYUUv7E2wCtlmm4y/KS3i8vfonuSiH6cqiVL3+otxLy9VfNEpNh2pj5
-	tL63Ornt/T7WteOWMPXk0iy5lBXfRqkXC3DAtR2Ana3t+EUP1dgRU4ygPo+aRAUum0NRto
-	h/jXGFvvVyGPbfhxCIq3PX1jwRUZpuOg08E+Rd5s0SKLk0WfJD+9tfTJvf9VqK9EsoEAXg
-	tDYjvV6lUEa86kWa3BtrqVIB9C1cS+j+wV4G+qnEeH2AIY5nrO7pATdGICiLMO2plcmRGP
-	+NQFhhxKcf01ecK1yGS8CxKW80/++DTNsiwcOSTrxH3LdxZfCVqly4sQVAjvjg==
-Message-ID: <d6e61c8b-cd3d-43fe-b4ac-19ff5d790b0f@bootlin.com>
-Date: Tue, 6 Oct 2026 09:59:29 +0200
+	Tue, 06 Oct 2026 08:12:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 36573601F1;
+	Tue,  6 Oct 2026 08:12:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E16611F000FF;
+	Tue,  6 Oct 2026 08:12:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791274348;
+	bh=7h9+yYx9vCpmotG9nojbUu5IAfempJl5vCqPgtuwvFo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=KczcJp2NxsC52UaYoca9TicJzMgEWYYjA2x8RRf/B+/Nqqff/wA3UI82zsn0N9NII
+	 WF1bJncM83HmEYUBu+6k3GYheW9rWQuc1v0nXYBSJZMEP8+voIe1vVh6qT4y0pkYeX
+	 oFzll+FG/JZGUuMcE2x1+YYIk/B+HD3Th2ETUzv34sQwFXzG24ntRUbtqTjC5DaRRC
+	 dTT9F7WgbdPP6V39SaGwlDDa9QQeUNpXdBCG8U25Oz1xt+zNi/KcLQmSwovWdoD6Fb
+	 2TvOk6M98iCjBwDxop4Gt6W8VhLAQNZPxLtMix98IEYS28U41OqvDYEsyNg/CdI0gd
+	 xl9Jp6LP5R+nQ==
+From: Mark Brown <broonie@kernel.org>
+To: Olivier Moysan <olivier.moysan@foss.st.com>, 
+ Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Myeonghun Pak <mhun512@gmail.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
+In-Reply-To: <20261004043451.1138613-1-mhun512@gmail.com>
+References: <20261004043451.1138613-1-mhun512@gmail.com>
+Subject: Re: [PATCH] ASoC: stm: stm32_i2s: request IRQ after regmap
+ initialization
+Message-Id: <179120716531.150114.2078241476703327218.b4-ty@b4>
+Date: Mon, 05 Oct 2026 15:32:45 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/3] net: rss: Require indir table size or
- hash key size to support RSS
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
- jitendra.vegiraju@broadcom.com, thomas.petazzoni@bootlin.com,
- alexis.lothore@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, pbrobinson@gmail.com, joe@dama.to
-References: <20261002142806.1299041-2-maxime.chevallier@bootlin.com>
- <179121059086.434549.5364767976780818051@kernel.org>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <179121059086.434549.5364767976780818051@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_085947_566404_5AAE81B6 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1141; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=zm+OpLLELwb7hrM2/g1QIO+IVAqsCSLrDqO6ci09Vvs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqxK1mb4SogEOteBhnmY/5JBgFwx62J4mRMdXey
+ mz9uw+UdYKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasStZgAKCRAk1otyXVSH
+ 0MUMB/4jH6NwA/h9kOpUpsDoQh+ZlGcm/CH16zFLgmwQooPdrGJSG19NkGw3V6oe6cCaVL+LrAS
+ zPmWdqJZh/7SIbRMG9th7EALTxaOu9PMir6NIlvslMG9WLvL68GpRfvkjoM79wIwE+Ke296StJP
+ BJ7QiuV/wv2fqE97AuVnJY2jpYk+H7lrJTlVfgyjnc9m1D6DxCtAncnIER08k2c83QeKOugMY11
+ sxy/jZZw15HTKi7NCcKqRalzvwf5Ljop+kCKUtHtI9cJcoRwYPsUR3oKgwmxmqKuaNG6VANycEO
+ JPUISc/t+z/VMpSj5dMyUgavq9K0CMr3Bt52zS58Qm88Dc7J
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,24 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 04 Oct 2026 00:34:51 -0400, Myeonghun Pak wrote:
+> ASoC: stm: stm32_i2s: request IRQ after regmap initialization
 
+Applied to
 
-On 10/5/26 16:29, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
+Thanks!
 
+[1/1] ASoC: stm: stm32_i2s: request IRQ after regmap initialization
+      https://git.kernel.org/broonie/sound/c/1b207c85551f
 
-> [Severity: Medium]
-> rss_get_data_alloc() is shared by RSS_GET, RSS_SET and RSS_CREATE. Does
-> this drop flow-hash reporting for devices that have ->get_rxfh but report
-> 0/0 sizes?
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Yes it does, that's the intended behaviour here. RSS bits are all optional,
-but does it make sense to report hashing params when the indirection table
-is size 0 and key len is 0 ?
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Maxime
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
