@@ -4,65 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34627CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBDCCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNnXFWmwLPPFEi6jlV/oyQsN1wGX9viqM9jVVnzW/i8=; b=2dU7QB5G39vnEHBEyXN3Qdy5La
-	cnjJ+0LrCchqL67a6GWaH+/EqEOBRA0thfnHBOi4eFuVhEc9QplJY5KZKsIV8MflVlPwqAxF0k0ga
-	B9e4rRURDGzuV8mRlZrovmeC5X2rxTsPfE4Aal6/tHeoZPgs+1iglaqpDTsZYq0B06E1Z0GezsJUM
-	VTY6ZtecVc3omeEeiKHsaG0WdGsa/VrRdIU4pZHhYUAvoZdDRfZWYV94niOBcxfkBp8Wnnd8Hl9zR
-	NV3Td4YyOZB0wxMd8a6dl60HV/HBKFuqgFgRpA20i6wds1xlLFb2j2jakZHEa+NuUKVhexwgiuDMz
-	pcO0DLEQ==;
+	bh=PRuchyLASPNs/Idu1XzTq6YGjzxyPtWok/wuyzbhaUw=; b=vH5IkASF1qzGXVH8Jfm6ErpkyR
+	bi+no7ZNw0PRWBd2aTgGHhEbUTYhUlxHuUfKiQss8RVfan5aQ72YHCInPrz/77d6l0F8y+/gyZ71j
+	st7vXCZ0Z4MUU8ulXx4aS5q0OHDc19Qiiu+9+9yyqhkwJEh1K2RlU2zRW5ZrU8MaErhP7EDDy6glt
+	RFghU6ZUhSWn0bDTh9D45iHicjjkuE6hNCxTgYiSBXN+q/Us6Cu+7phpo/JP47mcs5FP90wCcQWFy
+	JG5VVjeQyDfZQydbbEuMTwo3cVdtXYsTgdw41bRG22a/MHf1Q51/EpBU9q2HS3zoUr2MCshELI5Bg
+	9S4+WPJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfbu-0000000G7q1-19sP;
-	Mon, 05 Oct 2026 10:07:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xDfdG-0000000G82b-271y;
+	Mon, 05 Oct 2026 10:09:19 +0000
+Received: from mail-westus3azon11010012.outbound.protection.outlook.com ([52.101.201.12] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfbt-0000000G7pi-0Rbe;
-	Mon, 05 Oct 2026 10:07:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F8D54085A;
-	Mon,  5 Oct 2026 10:07:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEEE81F000FF;
-	Mon,  5 Oct 2026 10:07:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791194872;
-	bh=JNnXFWmwLPPFEi6jlV/oyQsN1wGX9viqM9jVVnzW/i8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=B0IGPCmopouwW4cNU/iiNXWslex16ZrFSaZWk+rbei8IkBWTpW+mED5m/GCumV/SG
-	 no1UZ2WJcFvrMvhahxidGR4x16U22EUuNdSo9xlSIXCzgCrswGOEHXw2uLo0iJHyej
-	 UHnHWlnebk77fBHM5YQFz7A2vQaetdbvT2ZgkSU8vHRajSAaDSOqL3mP7yiqGvHhMV
-	 8Z9PVedgr8kj0Zes5R59C5QAHsMKhjFbGMGgkyhC3uuvWSjP0GiGcIvXxxHLrr6klh
-	 zMSJC36ju56wUgtTZhl5qWESGlBRce+PaxkQPqpPVnJ3A6xHHBTSVZ/oHZPRjYQ+vS
-	 dWU0GX10jyF1w==
-Date: Mon, 5 Oct 2026 12:07:48 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] phy: nuvoton: phy-ma35d1-usb2: extend to
- dual-port with OTG support
-Message-ID: <asN29Gi71MIA-2fq@parshuram>
-References: <20260929020854.1282339-1-a0987203069@gmail.com>
- <20260929020854.1282339-4-a0987203069@gmail.com>
+	id 1xDfd8-0000000G81N-3qha
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 10:09:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C3ILky1M5EvunATQtP6LL1IT6Iu+/xU3FlPOD5JgiB3X5/pXx1OcKDyGU4blvuLblq7kXNfcPaPIba0VZp3sBEppebJZVAZO3HlkEcCyPy0IJv0REyLNjfQk32c5Vz2HS6JLddowR66+W5zgCdoelXr2PMjbvLKUZmORR3924YRM1Sx2nqxiTAnCppJmEsH6gXSF2pCHPolS9kk3DoAg30oVe9eHMSocyhWeo1e6iDJMRdIjrLSw0W2h8f9ZnipVIA9J3/G4GwRgV2V3kcSnxVPF8wI1DE5cH1vu3nDqI4c4U5wNqnvANmUh9E8D7IDL6cBBjxAGmXECmAw7ioaWeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PRuchyLASPNs/Idu1XzTq6YGjzxyPtWok/wuyzbhaUw=;
+ b=dZp1uf81F0z1hcTyZ40w/nk2Al5Fkcf25+7dY+3cbndnxSQehQN2X2rLULodtk47nrPMekJZGmrnhha9WhskY+pBfU1VtiV+E3bbIsL1GMVQH/boHbbYv7Y//attyV38r1MXSc5DoddJ16y3571PGq5Vfzhoscq/aUYu7VyPiLGU72KSghxdj964N3AJNPAVj84x+DZt4UA8/qjmXbzpdhm9ChpwtgiWYcR/RNti2VuqJKsFODzPagz1CPQ4t+nrPkJ2sspEUfW+Rkmb5qPI2telrxtU3sjpwH+K4zz3wMzSioy3hwBnX4tyChVJnHHo+mn3e4TdsLKfmU2S0wtgdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PRuchyLASPNs/Idu1XzTq6YGjzxyPtWok/wuyzbhaUw=;
+ b=iU+b86M23XPv08q/GW3BRpEKWrTPeCz61MDZMZPqvWaSBpqWSdOXMevuy+ULMc8gEtcQgCwKdsPQpmVeZsCMaWYbrQy4tOayx4solxnCMWN50fRbIKclUx/7EamKf4j+YvXev5JHk+yxxM0WNXQp3lGgwPsik1EEhPYTmrk0Kf8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by BY5PR12MB4228.namprd12.prod.outlook.com (2603:10b6:a03:20b::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
+ 2026 10:08:59 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0472.016; Mon, 5 Oct 2026
+ 10:08:59 +0000
+Message-ID: <189054b2-3899-429f-b5fb-5be6917f7960@amd.com>
+Date: Mon, 5 Oct 2026 12:08:48 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/6] dma-buf: Add ranged mapping invalidation
+To: Fred Griffoul <griffoul@gmail.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Sumit Semwal <sumit.semwal@linaro.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>
+Cc: David Woodhouse <dwmw2@infradead.org>,
+ Ackerley Tng <ackerleytng@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Joerg Roedel <joro@8bytes.org>,
+ Robin Murphy <robin.murphy@arm.com>, Alex Williamson <alex@shazbot.org>,
+ Shuah Khan <shuah@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, linux-kselftest@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, x86@kernel.org
+References: <20260720111259.122911-1-dwmw2@infradead.org>
+ <20261005095552.52748-1-griffoul@gmail.com>
+ <20261005095552.52748-4-griffoul@gmail.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20261005095552.52748-4-griffoul@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT4PR01CA0304.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10e::20) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260929020854.1282339-4-a0987203069@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|BY5PR12MB4228:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3cefb0a-155e-4bd5-fb0d-08df22c8aca4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: aKS7Plx6L4aE2cwQY4Kl8/biwQ+YvW9UckTYYYjPmFbIbga+HbrKCXwwqgAt4NaEGs4SWPOt4yyoc5UrszxWnm4hOnVmdRm5Koir+eXUBwvkgvSvLJ/PmZ/z/kBLUApd/nSwGBkA6dzUYuYhiyDJnn0nTw6KFEnBRt6Bgi1QKCoW96YgwLJ7uO6ZgLzSt50yiB4Vzc1dJxN8CdtieOB1QvaGjnvRM6IskuYzIirFpWMyH08cjcI+gbR/j+h7UTLbB/fBnqKOqjjM72cBdfmkk/1mrigsAN/Tua47pj7xpcpYXTWvn5ACl5RVPySjbFI/3pSzmd1jEAe+HcNbG7Jcgr0eqfQjRU7qTEaaCxEfTfZU6EG//V0BnaR318cAUB7ODylrukN7Hxb97TGkDj468l+/MoblIaWJlxJT3skxiqvve3FZAXY/sMMEjlhZtdQNJKNfWMkWHqK3Nb1Dy8HngZDIoiHF61Uv0zxQ4QDRva3dGNfOgCWTe4HIgf9nCcvnWfY8jJ9z32wouVX6SQ/ycSzZ9Dw5WJqi1kWx0mExOghfVysZA+9xEqwLVKBPn6y96jrJg4Vv8cmmXbzRZfpt1eTbe40wZHHFPsMkfZXFHemqC8gLmL5/sF8Nw4wfu1uw6TE790LGK9q5ANBVJxfhsE5JzUlB16wpd7+R645t0Tk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnZab3ZLTk1zOW4rM2hUeE45K0pMZXE1c3pSZXdidG9meDFWMkVuclc4YVlJ?=
+ =?utf-8?B?SHF4MUJMdTVDcUt0b3phR0lnRWJtRWtnV292bWs0eG9oazFKUld2cXp4NnNC?=
+ =?utf-8?B?UGNUaUtndHhIOWhFTUhmdTBkdDR1ejZ4VkNHeGVTLzhnUVErQ2VWMVk4LzBm?=
+ =?utf-8?B?bUcvN0o0Zy9xRmNUZUtXQ3cybWhwZkMvQXZ4VzlwV1JUbEVFckNJNVFrTVk2?=
+ =?utf-8?B?U3ZUZStMU01QK3VFWHNpTnlrdXZVWGNRK1VDSFd6cTE1ZmxQSXlPWDZTOGVT?=
+ =?utf-8?B?SjI1akh4RTBueU1pcUZkSForalpTWHIrb3FNRXVHZ2Z4VHpvUUJKbHR2THB5?=
+ =?utf-8?B?cTBPaWxRQkRXbVB3cGU1M2NCbnJTYm14VDVLd1VnV2JJdzAzOHoyaHBLRktH?=
+ =?utf-8?B?Ky8xdnBlc3hLbElwdUZFUUpTdkVxQk5hZ0lqTEJYQW1hUUJKbWdjcytQUm50?=
+ =?utf-8?B?T3JZYlZKa1JRWS9LUHZoVURqUUJpTVBKblpxWU5JZjdEVDVtU3M1bkFDMEM2?=
+ =?utf-8?B?Y0MyM0NTOWM0blJlbXcxN0tDS2VtRFlQL1lObjFGbjV3SFY0c3RDRURXU0tu?=
+ =?utf-8?B?OGtZRUlENjd6ODFhcmhzMDhiaCtSSDlQZGF2bUxXVHIxQksvN2JLWi9NaEQv?=
+ =?utf-8?B?NjA4VUtuWVc2bmpVUWxPMG8xWnBjQkZCODFZMXZxbFVTbkl2VU10cXBnUHZu?=
+ =?utf-8?B?M080RlljNnpuY2FOR200TnZIM3ZKb2d2eE8yemh1T29xejN3L1E1Q1BvRklI?=
+ =?utf-8?B?cXNKRlh6amdoOS9OVE52M1NYVFZrb04wMW9wdXJkV0hTcG9HQkM5M2hFYTNW?=
+ =?utf-8?B?ZTdzMWNNWURpNHNMWW9QemcxNWw0QUxVWjVCY0RXYzR5QkFCMWdCTGYvUmFG?=
+ =?utf-8?B?UVk3QTJjT2QyVXdCbUhqSFBSN2lYUWF3MnJxQzNqVzE1YjVNc2kzODdDeExw?=
+ =?utf-8?B?R3F3NGJKdUpwak9va1hndERuc3hOeHFqd3Y4RW5WN28waC8wdzFuMEtlaXpY?=
+ =?utf-8?B?Z2oraEUyTjBuVW1adWJzS1ZITkhJditIWm5PMHRUa08wZnNHYnBSLzRVT3k5?=
+ =?utf-8?B?T0hRVDdGL2NDcy81YzhCQlhRUkpNTFBzVGVWYm5GY29seEZsNEk5RURSRlRs?=
+ =?utf-8?B?RFFSZmhLVHU1aEwwUTU5RjRXSEJmNVcrYnd3TWN5TnhKbXZrMWJsajJjaGNS?=
+ =?utf-8?B?REZzSTNVTmszY29KMjFFcC9pbzcrQVk3d2w1TXhVMStTOVRGWGtRdW0ySW1M?=
+ =?utf-8?B?ckx3cGFHbG9Qb0JNMkFxTVR4aE9pQ1MyUERTYVN2a01UeU1Fa0ZDRVpXTGNP?=
+ =?utf-8?B?b3RXSHBLQlJpbndHWERkOHRlenFEaXhWNHNDVlY1ajFmZVFiSWlYOFg4ZW5U?=
+ =?utf-8?B?YUF0Zmp5TXh3SkVqa1dMZXVVTEYzZ2hjbHFSMFM3aC9Dd2FwR2dYSEtDOE5o?=
+ =?utf-8?B?bmt1VWVDZ0t4M1FuakdoR0xFVjVxYzRmc0hoQk9aNWVhYkFqOXNuQlA3RlJa?=
+ =?utf-8?B?UXo5RUFBUXlzeTRJOUdsRUVJekg3dkd0YkNlM3BKdUE3L1YxNnRMUTM2Q1NH?=
+ =?utf-8?B?enIxUGtMNkhJcHNjWXV2bEIwakp2RFZwOUQwSEtVbGJDQWVTclhnbGJDdmxL?=
+ =?utf-8?B?UExlZE0ySzd1bHZKY0VqbGFiVkZVbzl0L1NoV0RCMjRZaFJ5Rjk0TnpBeU1q?=
+ =?utf-8?B?V2ZHRXMvR1JhVFl6TzluTkxmQUNmbjg2eVNhOE13NFVSSTRQVUhnNmhNRmNo?=
+ =?utf-8?B?TmpDRGdqa1JaY1psTFNPL0oxcmtkcWRlenNYamxMNHphMVJaQ1c2cGFVZDht?=
+ =?utf-8?B?UDZTc1JIbmtYMGxINXE4bDBZR0Q2SUp0L29LbUxMdE5rcGY1NUFRUW1qY00w?=
+ =?utf-8?B?NExZQ3NyTlByejFvVk1PNjlLcUVmYmhoYjcwbGJJVlk1QWh4UzZrTFFOWWNH?=
+ =?utf-8?B?WFlEWUJ3MS94REZ6Z3d0a1QrOENqWU1NMk1LeWp3bGs1ZldMRnBobjRReXFU?=
+ =?utf-8?B?V0k2clZNRzdvSjJLa2QzdUxpTU9SVzdBOXMyMml6YUFQZlJBRjFscmdYVDNW?=
+ =?utf-8?B?Z3B2TjBvdUFhWklOaVl5eWJtVW13SW1qa0Zpd2hjb0U3cnNRWjFYQ1o2bjYv?=
+ =?utf-8?B?c1VVN012cVdCUWtlaXQ0cVpsRFpiSERIRERVYzNRd1UwcGo5alZ6WkpxZTha?=
+ =?utf-8?B?YWI4U21yNHduK2RFQ2pxK1Vaak0xVzE2R3JqTkhDa1lMS0ZzbFgvSDBaaVBr?=
+ =?utf-8?B?eWNyZzUyK1k2czR4VjlHNVMzamFvOEV2Yjl5VTVlNlJMaWtGNEJvQkw5aFRP?=
+ =?utf-8?Q?0B9+nKmnBkEpZMvJ56?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3cefb0a-155e-4bd5-fb0d-08df22c8aca4
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 10:08:59.6509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AJl+UFqf0sYUVm4UPyg78W8ujOjnfVAn24iraIuxrxj9SmFrtYLh67EZcYWDlmw+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4228
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_030910_971575_4DDAC0BC 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +165,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29-09-26, 10:08, Joey Lu wrote:
-> PHY0 and PHY1 use the same power-on/reset sequence in USBPMISCR, with
-> PHY1 control bits shifted 16 positions relative to PHY0.  A separate
-> driver for PHY1 would duplicate this logic, so the existing driver is
-> extended to manage both ports.
+On 10/5/26 11:55, Fred Griffoul wrote:
+> From: Fred Griffoul <fgriffo@amazon.co.uk>
 > 
-> The original driver polled only DEVCKSTB after releasing PHY0 from
-> reset.  When USB0 operates in host mode (USB ID pin floating or tied
-> high) only HSTCKSTB and CK12MSTB assert; DEVCKSTB never sets.  Polling
-> exclusively for DEVCKSTB in host mode causes a 1 ms timeout on every
-> phy_init() call from the EHCI driver.  The init callback is changed to
-> accept either host-mode or device-mode clock stability, whichever
-> asserts first.
+> dma_buf_invalidate_mappings() tells every importer that the whole
+> buffer changed. An exporter that changes one part of its memory cannot
+> say which bytes changed, so importers throw away mappings that are
+> still valid.
 > 
-> The power_on and power_off callbacks are replaced by a single init
-> callback that handles PHY reset and clock-stable polling, because
-> there is no PHY-specific clock gate on MA35D1; the PHY analog block
-> derives its reference from the HXT crystal.
+> Add an exporter helper that invalidates a byte range, and an importer
+> callback that receives it. The callback means that the address, the
+> attributes or the backing of the range changed. If part of the range is
+> no longer backed, get_phys() returns -ENOENT for it. Importers must stop
+> using their old answer before the callback returns. Importers that do
+> not implement the callback still receive a whole-buffer invalidation.
+
+Yeah that is exactly one of the reasons why we don't allow that.
+
+Clear NAK to the whole approach. See the reply to patch #2 for a detailed description.
+
+Regards,
+Christian.
+
 > 
-> A read-only USB role switch is registered for PHY0 to expose the USB0
-> role to userspace via the standard role-switch sysfs interface.  The
-> .set callback returns -EOPNOTSUPP because the hardware mux is fully
-> automatic with no software override path.  When CONFIG_USB_ROLE_SWITCH
-> is not enabled, the registration returns -ENODEV and the driver skips
-> the role switch gracefully without failing probe.
-> 
-> Two new optional device-tree properties are implemented:
->   - nuvoton,rcalcode: writes per-port 4-bit resistor calibration trim
->     codes to the RCALCODE field in USBPMISCR.
->   - nuvoton,oc-active-high: sets the UHOVRCURH bit in MISCFCR0 to treat
->     the over-current detect input as active-high.
-> 
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
 > ---
->  drivers/phy/nuvoton/phy-ma35d1-usb2.c | 286 +++++++++++++++++++-------
->  1 file changed, 211 insertions(+), 75 deletions(-)
+>  drivers/dma-buf/dma-buf.c | 30 ++++++++++++++++++++++++++++++
+>  include/linux/dma-buf.h   | 16 ++++++++++++++++
+>  2 files changed, 46 insertions(+)
 > 
-> diff --git a/drivers/phy/nuvoton/phy-ma35d1-usb2.c b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-> index 9a459b700ed4..547c7d55d8ff 100644
-> --- a/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-> +++ b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-> @@ -1,11 +1,16 @@
->  // SPDX-License-Identifier: GPL-2.0
->  /*
-> - * Copyright (C) 2024 Nuvoton Technology Corp.
-> + * Nuvoton MA35D1 USB 2.0 PHY driver
+> diff --git a/drivers/dma-buf/dma-buf.c b/drivers/dma-buf/dma-buf.c
+> index 66b85d53ed22..e7010163eb2f 100644
+> --- a/drivers/dma-buf/dma-buf.c
+> +++ b/drivers/dma-buf/dma-buf.c
+> @@ -1389,6 +1389,36 @@ void dma_buf_invalidate_mappings(struct dma_buf *dmabuf)
+>  }
+>  EXPORT_SYMBOL_NS_GPL(dma_buf_invalidate_mappings, "DMA_BUF");
+> 
+> +/**
+> + * dma_buf_invalidate_mappings_range - notify attachments that a range changed
+> + * @dmabuf: buffer whose layout changed
+> + * @offset: first changed byte
+> + * @length: number of changed bytes
 > + *
-> + * Supports PHY0 (USB0 OTG port, shared between DWC2 gadget and EHCI0/OHCI0)
-> + * and PHY1 (USB1 host-only port, used by EHCI1/OHCI1). The hardware mux on
-> + * PHY0 switches automatically via the USB ID pin.
-> + *
-> + * Copyright (C) 2026 Nuvoton Technology Corp.
+> + * Importers with a ranged callback stop using their old mappings of the range
+> + * before returning. Other importers receive the existing whole-buffer
+> + * callback, which is correct but coarser. The reservation lock must be held.
+> + */
+> +void dma_buf_invalidate_mappings_range(struct dma_buf *dmabuf,
+> +                                      unsigned long offset,
+> +                                      unsigned long length)
+> +{
+> +       struct dma_buf_attachment *attach;
+> +
+> +       dma_resv_assert_held(dmabuf->resv);
+> +       list_for_each_entry(attach, &dmabuf->attachments, node) {
+> +               const struct dma_buf_attach_ops *ops = attach->importer_ops;
+> +
+> +               if (!ops)
+> +                       continue;
+> +               if (ops->invalidate_mappings_range)
+> +                       ops->invalidate_mappings_range(attach, offset, length);
+> +               else if (ops->invalidate_mappings)
+> +                       ops->invalidate_mappings(attach);
+> +       }
+> +}
+> +EXPORT_SYMBOL_NS_GPL(dma_buf_invalidate_mappings_range, "DMA_BUF");
+> +
+>  /**
+>   * dma_buf_get_phys - describe the run that starts at an offset
+>   * @attach: attachment to query
+> diff --git a/include/linux/dma-buf.h b/include/linux/dma-buf.h
+> index b223962e20c2..55c3fe60a0ba 100644
+> --- a/include/linux/dma-buf.h
+> +++ b/include/linux/dma-buf.h
+> @@ -485,6 +485,19 @@ struct dma_buf_attach_ops {
+>          * required behavior.
+>          */
+>         void (*invalidate_mappings)(struct dma_buf_attachment *attach);
+> +
+> +       /**
+> +        * @invalidate_mappings_range: [optional] a byte range changed
+> +        *
+> +        * The exporter changed the address, attributes or backing of
+> +        * [@offset, @offset + @length). The importer must stop using its old
+> +        * answer for that range before returning.
+> +        * Importers without this callback receive @invalidate_mappings for
+> +        * the whole buffer instead.
+> +        */
+> +       void (*invalidate_mappings_range)(struct dma_buf_attachment *attach,
+> +                                         unsigned long offset,
+> +                                         unsigned long length);
+>  };
+> 
+>  /**
+> @@ -600,6 +613,9 @@ struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *,
+>  void dma_buf_unmap_attachment(struct dma_buf_attachment *, struct sg_table *,
+>                                 enum dma_data_direction);
+>  void dma_buf_invalidate_mappings(struct dma_buf *dma_buf);
+> +void dma_buf_invalidate_mappings_range(struct dma_buf *dma_buf,
+> +                                      unsigned long offset,
+> +                                      unsigned long length);
+>  bool dma_buf_attach_revocable(struct dma_buf_attachment *attach);
+>  /* bits 0-7: memory type (a value, not flags) */
+>  #define DMA_BUF_PHYS_ATTR_TYPE_MASK    GENMASK(7, 0)
+> --
+> 2.47.3
+> 
 
-Not correct, this should be updated to 2024-2026, you dont drop the
-copyright notices, you update them!
-
->   */
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/delay.h>
-> -#include <linux/io.h>
-
-why is this dropped? 
--- 
-~Vinod
 
