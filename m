@@ -4,112 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF13CA6000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE8FCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpaxwB2ZrsJszCEJA0sJve13Y/99r5lc2MZ3LWkGqeM=; b=Hn8w0nt8VKq9RDZZMeTyp53uUb
-	vXWu0x1264eCcttDRU6Ri8/+n9rrj3gPGuzhkRb9uW4rTdgDEkxzoT2amhcSWla7eSfWWvZ7dlMkO
-	UxRaJrh8J/TO0lnZNyGHvR3S5NnsfNOlDBGB6ZHrptMUCHk7NMQwt1A8/7j2qoW5pg4l48+tPLM+D
-	r+y5X4mADQZOd2WzpFgoCgYpB2w5+TcixnAy0PyBFNYdonRzbTFPHfW2g9ZW9p9nlNwDjnDoJSqpq
-	ghiMpsqg+gBDGkQPoRbQROmianKveKSRlM7xbhiDBJT/bz8M06TbTqbekyILv7AHqzuns0BF6ErHX
-	9hqv7voQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VJ3aIExDf7Vwm1ZzRemWe9zF2SleuBxqq66clvypQjw=; b=V/Cz7tm4QkFDOfmgq8G6QpxMCC
+	JGfC902HELuHrZJDOdZjBRDHEy7KHuxLZlGD8luVvv2GVYkPr+BSl6qNTbx7DtHnSA7Enf7WGkrP8
+	uL9yUV/TKUCwI4SpEHRMVCtwkhx3A/RjfUAIickDVzWuXo4kitwgRf6WwpxzgM1+2dlG9Wnx9h5Q4
+	h2MA4vGdKEr496Et+l6lCBD4druXSZGu6Dgop+b1pcUHyweiHI9Ieg012hYW6aKETx4UP9w1mnJKE
+	AAVe9ijnkCgSEaQAnXxhEN9woAcrCNLtHmGltu/BxOVYIBz8RJvi0ANHwLp0hRP8hFwWEty4X9saQ
+	RDQqsDew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcsY-0000000Fm4C-39dw;
-	Mon, 05 Oct 2026 07:12:54 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1xDd0K-0000000Fmlt-1aAp;
+	Mon, 05 Oct 2026 07:20:56 +0000
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcsV-0000000Fm3R-3jjF
+	id 1xDd0H-0000000Fml6-3qQl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 07:12:53 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc502d509c0so363452a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 00:12:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791184371; cv=none;
-        d=google.com; s=arc-20260327;
-        b=s4WCRK4sl+SaCljwhWdAREitKZroUOobpiXGrJoSiMSdewx3I8T/i43ZxTqy6sypnI
-         akHtoKXyH5LaX4fk0ZGGc3U48luzES61cu6TJ8pIP9ibtwEc6nRfDGVt4fsFlp4xJHKl
-         7IDqwPdCSeHsw63dKwpsYtIQOKO21ucQ6doxgPYpgG5MrqQhgoSriDsgApy5TExF7TB6
-         GnGZyy9dfrtQdfawGO4gBkqe6PEIRgybClbh3teEmVyTkFzepFHA/tx17aS5RL3LJeuq
-         3JYhmPXT7pIL/fWAkAqAe+wqts6YoC7RPoBVM6LdixDrZWETNsbJ3X1ft4cVJ0eCBDiq
-         58JA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OpaxwB2ZrsJszCEJA0sJve13Y/99r5lc2MZ3LWkGqeM=;
-        fh=QjTmdFWO5ndyfNq2kBJqW7w8Fi/RCa4fgL2PNivmTrk=;
-        b=Gz/DlnHtUM8ZkRpY5yNSYkd5CpJmRs/L9WTDMb54pKR6psKQmgJ2rN75ftX7aJVh0U
-         wNT2nggw/YLVns9PVX3wq/DdEHwW+5keI63phBmndQUuty+Yonu9BWRGkFpHkUGa9IAM
-         8hHZZFR4r1Ad8FwoxfMwr693H5fbzvUyWwzDbqJLu6IsF52JtHyLsCZ6YttsyC7sgwRW
-         9Q0qieWZNS0YpS0GR45eTLEn4Kj84BfSVwjly0n7tK4lInael1h3R5egGVEzTngTg+ed
-         qmSIH+7xuTb0rRziD3fZEAlnkqopYRJWPIESd/cfbvGNcxT2H09n2OXzL3DcTJQsA557
-         hncQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 05 Oct 2026 07:20:55 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-49e6862e924so14475115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 00:20:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791184371; x=1791789171; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OpaxwB2ZrsJszCEJA0sJve13Y/99r5lc2MZ3LWkGqeM=;
-        b=O7+wjL5N12Aq5Jb63mMRXk1Q/h9UcQsQWVq/ORerjJCIHZQ7Be4nsBVt1jbgwha26F
-         G6q2fGgYcLtTkHQiLSbNidSTI2JbW1aJRMTFWuUzrzZA0jODpN1Y4yRP+qVajZuwNtw4
-         Drm1QO3XUzNsuPPU05K+c+YYISjba+GBjv1XdkJK8OgEVria45LNcXIohOJQymDHVU5m
-         Qcst1xhOPZYLaMVjUWpK71ktWhNO1nGxkQt/SWbXD1wSPHueWzrqg3lZUi2onY5QQkZm
-         nsEoQ2HkETmzcjNYWN6yXVE4PckOUWJPlTIq0PQsCS1Ctzz6LDNRAXT6Yv5HZOCgYtQp
-         QGkw==
+        d=google.com; s=20251104; t=1791184851; x=1791789651; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VJ3aIExDf7Vwm1ZzRemWe9zF2SleuBxqq66clvypQjw=;
+        b=keNNRktd282TyE/WzQA9NnanFyu3vOA1rCmPqgcrUDrNdXYGObrGmHDsSPmgS8fYWD
+         5Nl79CEXuv5xDlB+N+1x8Ad//1VO8trJFZVcr9Or/YcaaKQhz/W3rRb/5RUYIYPEi1pp
+         T0PxEa2xvzHqIlKVNXwrjJympj5JzdXU0vxvAcC7O9892+fCcFqTeFLpLI2RdX0zW2BZ
+         ZWJno7ix7y15a1/5MDiVdxz3mX9P1v3bRqv1LpOg1zidXMWKh2HQqcfudW8JgBzcAhK2
+         l5LN9c9HbZcpZ5dezjF+zwN94XSQzC2PvgfdQnL1Zd9l7I/5fupRqtVeuKoht85QuWe3
+         AlLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791184371; x=1791789171;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OpaxwB2ZrsJszCEJA0sJve13Y/99r5lc2MZ3LWkGqeM=;
-        b=PCdLso9w3WDohZ1R1j7D8YYdjeMsRv7rpca0HBZBcgwGKnVPDquZTgms87YqdiB6wW
-         W8e9lp1FFNH2Zl6iXRHGMUjXt2NtMFe7+k2Omwv2x4jlENg12xvw7+0VZ5SXdDpXNztx
-         N5KPADYGw/tWKmSxMCmEv/Jt7FUwK+qzs4IQPvjXnZBzqOysGN8ZV8VmynBMjCcjavoA
-         zNU6t+jgCU2O9eirNWIlLpz1kbQzOnmhsVp5m/8q0qU5IPQibgiK4lwGD2rvyi10Dofy
-         cQ7xBsU6WVbvvJ895C24N1WoPp9guOFsKIcwvoKGuWmMQCyVLfK8tLwHu1TzZeWn6WhE
-         Aing==
-X-Forwarded-Encrypted: i=1; AKwUvBxtnVcuL/byc7ylwrUdrWfyg8MGXBwgs1Nw7jH+CRofliO8oiNiTn8dVHEHoyLQPlhQEsGX9LgKxC2dodIh21Zs@lists.infradead.org
-X-Gm-Message-State: AFq9FYIXCaEvuJuh8rqTjEW1o2Y3NZz6zdI4mJBzwauvDDkWpNvBUEzz
-	vMo6wtwzDsqrREY0jsNfh9xNroTJ+xNT7PJ0938Wgm39njSnCpbGRAnZtb7rV1anHa/MNtDu5cY
-	dduL/3dlCV7HSAzgCDAlp4ZY8pnptJH8=
-X-Gm-Gg: AYBFou0D5JnPfXCGrVj8DIPOmPd5QxjX6/pqJrqX74wEjP2X0HZf+LVbd4QcUccPPDW
-	l8humyEjVaA8wzey5G7eMlHsWDzQxXEdVvPkQhznSUWPQZrjLefp8wAPq+CM0ZzomqJsbtVKPpF
-	pNVYtsfE0zLEhAoEs6ZistlYdxuqJ4bqALX9fF2XIWMGL3KGFdWKncrsYOl9+XfadmaFT7JoHHQ
-	0SDYZNkQkNVwNp/oPoz3jenQkenqh5QHX2ByxxUC71loBRVqsP0n6bZ020cD5UQvGQ4EXIbNLoK
-	Q9vsfIeBEVWNVHAit1MjLnSmSz7iv88RlIJbpMQdZgHdLUzcp/TLFP4t1fYoCqlAfU5PSlrTK6w
-	Yb9Xp7ArdA5mlbBj6k6vUFppaTVuHzJxfAxU+oHmcpu1re/LOXPn0YPIlgJGJj8hpXwb1bQ1RMx
-	Tz3g==
-X-Received: by 2002:a17:90b:514e:b0:3a8:10e2:ad05 with SMTP id
- 98e67ed59e1d1-3a810e2d610mr1367843a91.50.1791184370925; Mon, 05 Oct 2026
- 00:12:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260925044908.450775-1-phucduc.bui@gmail.com>
- <20260925044908.450775-7-phucduc.bui@gmail.com> <asKt42FgsbhSbQUP@sirena.org.uk>
-In-Reply-To: <asKt42FgsbhSbQUP@sirena.org.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Mon, 5 Oct 2026 14:12:38 +0700
-X-Gm-Features: AclHuK-Et_fC8GWEQTaTqwFWDt-VY_3yjba5DhCZkN25S8jgTJ6mltQqi4wer9o
-Message-ID: <CAABR9nFyEJBwXP=4SjuGNfGQJub2y_DPE87c6j6BPmqMBgjESA@mail.gmail.com>
-Subject: Re: [PATCH 06/14] ASoC: mediatek: mt8195: Fix FE startup error handling
-To: Mark Brown <broonie@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Trevor Wu <trevor.wu@mediatek.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, cassiogabrielcontato@gmail.com, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Haotian Zhang <vulab@iscas.ac.cn>, HariKrishna Sagala <hariconscious@gmail.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+        d=1e100.net; s=20260707; t=1791184851; x=1791789651;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VJ3aIExDf7Vwm1ZzRemWe9zF2SleuBxqq66clvypQjw=;
+        b=XTHC+sadSmhGUo0nt+arI2ujOKgd4h51RA42wgYmi0urcd2GvHNR5D9ZJZHNQ3eGsX
+         dgLrDRd89jzfaiQDkFEqIKzfFXZgDKI2OCH4oZsxWoHjJPNydINeKmdOw+XJOU5F/PIv
+         jRb/IoOhpOefhOPel6QUIjwv8ZV+LlHqA10mvvgidkQEBGb4AUk2a3KRV9PI4PNJdrQh
+         uItWzF9SlyxZ99msUb7/5TP5O6fbg/hA/WTHNvtiqXGk1idqByZoCg23+Yb4bo1P2sxn
+         HoBZy+TEs/WxjkezGd1cLvIkCrWDicPAUeqxtUUtsGEGncBiBonsZR/EIrMxzzJxVgNT
+         7/YA==
+X-Forwarded-Encrypted: i=1; AKwUvBxwll25dlSO8BoVAjgiREB9DGiUZ2z8jf/CJgDJNTILJSOdp6+Igep8bszogsl5AhzsFY6MnAYK7jDBmmjAMuYl@lists.infradead.org
+X-Gm-Message-State: AFuF++kSwzQGZcjStqg570Ta+1FpBWZoceEfBgs15TNODpiDI2lahow+
+	M53/QdaJJ6dwR+ldFOQ0PrIOAKGS59yC6abSwPXl3lVDM8GYGLI8Uee3Sd7SE7vQLih7diiJ+QT
+	jCfeBw2m+l8GvcZdjM0nNmQ==
+X-Received: from wmbgy25.prod.google.com ([2002:a05:600c:8819:b0:4a1:738b:7acf])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:6287:b0:49d:1df8:156d with SMTP id 5b1f17b1804b1-4a1680f5050mr86675175e9.18.1791184851211;
+ Mon, 05 Oct 2026 00:20:51 -0700 (PDT)
+Date: Mon,  5 Oct 2026 08:20:46 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261005072046.2246900-1-vdonnefort@google.com>
+Subject: [PATCH] KVM: arm64: pkvm: Drop keneldoc markers for the allocator structs
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_001251_932302_2C6C84B8 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20261005_002053_989885_B9EC78E2 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +91,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+chunk_hdr and hyp_allocator are private. Their description is not
+exposed to the API documentation. Drop the kerneldoc markers.
 
-Thank you for your review.
+While at it add the missing description for chunk_hdr::data.
 
-> > +     ret = snd_pcm_hw_constraint_step(runtime, 0,
-> > +                                      SNDRV_PCM_HW_PARAM_BUFFER_BYTES,
-> > +                                      MT8195_MEMIF_BUFFER_BYTES_ALIGN);
-> > +     if (ret)
-> > +             goto err_fe_shutdow;
->
-> This will return 1 if a new constraint is installed which is not a
-> failure.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Do you mean snd_pcm_hw_constraint_integer() rather than
-snd_pcm_hw_constraint_step()?
+diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
+index c1881c0011c9..e1e6dd21cda1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/alloc.c
++++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
+@@ -28,13 +28,14 @@
+  */
+ #define MIN_ALLOC_SIZE 16UL
+ 
+-/**
++/*
+  * struct chunk_hdr - Chunk header
+  * @next:       offset from this chunk header to the next one.
+  * @prev:       offset from this chunk header to the previous one.
+  * @__unmapped: Internal field containing the offset to the unmapped page
+  *              boundary, multiplexed with the allocation state flag.
+  * @hash:       Hash computed over the chunk header.
++ * @data:       Chunk payload.
+  */
+ struct chunk_hdr {
+ 	u32			next;
+@@ -45,7 +46,7 @@ struct chunk_hdr {
+ 	char			data[];
+ } __aligned(MIN_ALLOC_SIZE);
+ 
+-/**
++/*
+  * struct hyp_allocator - Heap allocator
+  * @start:		Start in the allocator's reserved virtual address range.
+  * @end:		End in the allocator's reserved virtual address range.
 
-snd_pcm_hw_constraint_step() returns zero on success or a negative
-error code on failure,
-so it does not return 1 when a new constraint is installed.
+base-commit: f0406245cb9855e6318335a8a223551354291a46
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
-snd_pcm_hw_constraint_integer() is also called from
-mtk_afe_fe_startup(), and it can
-return a positive value when the interval is changed, zero when it is
-unchanged,
-or a negative error code on failure.
-
-I will change the caller to check for a negative return value:
-
--------------------------------------------------------
-ret = mtk_afe_fe_startup(substream, dai);
-if (ret < 0)
-        goto err_clk_unprepare;
--------------------------------------------------------
-
-Best regards,
-Phuc
 
