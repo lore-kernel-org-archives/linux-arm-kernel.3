@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE594CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 00:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2BACA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 00:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qt4AF6JQKyE6uygooK/SxnHREEfSJjzApt+FZOlvCr8=; b=SkyU2yDtGEdftwQnJMGBTlbiCv
-	3IfuBvc6lCOxgC3/NKcXjzvBQGCtslrlGmxj8nH10YLiB8Btx5LZpBsyXpdVEJyzY4bvbA+25dhbB
-	Lq7G1FsiRGrEXOjVdfQDWB/1GlpXSK4SU+czuhMP/K3oNP6zTEk6r1FFzziRrL4yDNr0PewbZzWgu
-	PQcL0f5Upe5vL1i/XCDFlEAKgSTqF7n7ZkHoK6bGWYO1B8Vyj6mSW6/IvH99H1m6B8AxImamO6aMd
-	OtUT8NXHZH/6VA01rjrwtHPoD3/yqmcibOp/ZqNmG6R7F9OcTkbAnFwHrr9rzDwiMRy9R8519UznZ
-	DkRYzmXQ==;
+	bh=inyvIWMv7unO0c6RqbNQ4bd+IsCsVjIsgCSdVV+HLRA=; b=Ojnex8DrqKe3C/UplrXmWNTcbT
+	efiwWrcxAOX87Uvb943lZCBEK4gqrjLtDxN7wUfDsiZJ7RLRVBS/6iyMPLmjTR45idsBavX6SIvSq
+	t0aSBnsrbuD0XtfX0HemZZDbMSnA0YLvstVccG3h0xzmehX6FfQQwy1iVFs8JFmBSpIDcehbrwt4k
+	JWt1gjjXuPBQauZO67I+5FsGzYXkJnn46uQnLVmpPPyW+Uwbs4Pn+PS1W6ZEdeObdMNi+TPpoJoEb
+	tWrVcl4d6jjLbLBhJsJp1nMnMp1ibiAbZ5pc2v09tK89QOmzVXQwev4GMwXarbbC7EY3UR3j3Z6JA
+	9GPqm3JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWji-0000000FWk8-2IBc;
-	Mon, 05 Oct 2026 00:39:22 +0000
+	id 1xDWjF-0000000FVxq-3Coc;
+	Mon, 05 Oct 2026 00:38:53 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWjK-0000000FW0r-2hkj;
-	Mon, 05 Oct 2026 00:39:01 +0000
+	id 1xDWjC-0000000FVw1-1tJr;
+	Mon, 05 Oct 2026 00:38:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1791160736;
-	bh=7fGQZHsiMEI+KvEu/Wd3yCNxcl4JUPPlRnzvM//GmE8=;
+	s=mail; t=1791160726;
+	bh=Y//2B/y9c1+PInn0UoaxR3RF1A8oIriYQhCokHi1XEY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Ft5m6Ht/vGUOTYpNAzD91IblMMefBa2GGW/km6qVPt0aLN/LqvF82XDVAZo0EwbLE
-	 A+bJLD7FVW45I8FZ8B7YrdY3muJirznAYUAdSaeW/wZ/tS0DxUAqW8+Oqd/MUyD/1M
-	 QlCxhAgh7K8aSNa2aOEXXEal1Iz+uL8xMf35wJw/Gu8ZAK4kPcLnPGn+LM/vkGzKo4
-	 6g5eoGQ+Le5XEPpwN7hwxhlRmytHVbob+JODXMx2o6q0vIWrNDjLdYlkmXhyvuYcyy
-	 daotZIRlt84kanntL1g1+Qnx1oE18aapBjhnjdrmlkQSWsLLsY64KLFdCEIi1SbqyE
-	 b/64amG4w/HUA==
+	b=CCmzHR+yJ2n9MfkF6irj3PEzCxGhZVSFlwYI2AQkvKjrwLouXDfGrhZGq3lsYYEK+
+	 A23AXoSYEQyhuA9dZXxxSXxhKUCuveL8IiykwAf2OJt6f7TjpUF5yPaCUdil0ttKHC
+	 8Ueus4zQpjw2RsOloQ0p9aQNifkQ5Hx9gZBIEvbta5VxnPJKlQwy1rUAbomEsV3Ba5
+	 onPISy+IE4LkSaIg7J3G7MRiUgysvDWC7dVwg3fU+TShuR3txzeK3u0aQPjq1uWGQQ
+	 6vEHSwys18RpuLf7X/naMEdD9DzDscPhE8YCxlYM7yxGj7h42sK1nOIYzrHSI8eShi
+	 xBnFGj75JInKg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A3CD317E14FE;
-	Mon, 05 Oct 2026 02:38:56 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3FF2017E04B7;
+	Mon, 05 Oct 2026 02:38:46 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 05 Oct 2026 03:38:17 +0300
-Subject: [PATCH v12 16/16] drm/bridge: dw-hdmi-qp: Drop unused .setup_hpd()
- phy op
+Date: Mon, 05 Oct 2026 03:38:02 +0300
+Subject: [PATCH v12 01/16] drm/bridge: dw-hdmi-qp: Demote i2c bus error
+ messages to debug level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261005-dw-hdmi-qp-scramb-v12-16-195157ba0b40@collabora.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261005-dw-hdmi-qp-scramb-v12-1-195157ba0b40@collabora.com>
 References: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
 In-Reply-To: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -67,15 +67,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maud_spierings@hotmail.com>, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- =?utf-8?q?Robin_R=C3=A4ber?= <robin.raebi@gmail.com>, 
- Igor Paunovic <royalnet026@gmail.com>
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_173858_860736_E91B503F 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261004_173850_665539_4EE7DFBA 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the transition to .{enable|disable}_hpd() phy ops complete in both
-the bridge and platform drivers, .setup_hpd() has no remaining callers.
-Drop it.
+A NACK or timeout on the DDC bus is a normal condition when the sink is
+absent or unpowered.  Some displays keep HPD asserted and the EDID
+EEPROM readable while in standby, but leave the SCDC slave unpowered.
+This results in i2c-related error messages on every boot during
+scrambling setup, even though the condition is handled gracefully and
+the SCDC configuration is restored on the next hotplug event.
 
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
-Tested-by: Robin Räber <robin.raebi@gmail.com>
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588 Orange Pi 5 Plus, dual HDMI
+Log the i2c bus level failures with dev_dbg_ratelimited() instead,
+matching the silent behaviour of the non-QP dw-hdmi i2c bus algorithm.
+The DDC users already report failures at the appropriate level, e.g. the
+SCDC helpers via drm_scdc_dbg().  This also makes the no-hpd special
+casing of the read path messages redundant, so drop it.
+
+Reported-by: Diederik de Haas <diederik@cknow-tech.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 3 ---
- include/drm/bridge/dw_hdmi_qp.h              | 1 -
- 2 files changed, 4 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 54181b052fe2..b268c9376087 100644
+index c9568aea98dc..9abcea92b720 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -1089,9 +1089,6 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
- 	/* Clear DONE and ERROR interrupts */
- 	dw_hdmi_qp_write(hdmi, I2CM_OP_DONE_CLEAR | I2CM_NACK_RCVD_CLEAR,
- 			 MAINUNIT_1_INT_CLEAR);
--
--	if (hdmi->phy.ops->setup_hpd)
--		hdmi->phy.ops->setup_hpd(hdmi, hdmi->phy.data);
- }
+@@ -350,22 +350,14 @@ static int dw_hdmi_qp_i2c_read(struct dw_hdmi_qp *hdmi,
  
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index b4fb1c578a5b..ad33f9cafdeb 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -16,7 +16,6 @@ struct dw_hdmi_qp_phy_ops {
- 	int (*init)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable)(struct dw_hdmi_qp *hdmi, void *data);
- 	enum drm_connector_status (*read_hpd)(struct dw_hdmi_qp *hdmi, void *data);
--	void (*setup_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*enable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- };
+ 		stat = wait_for_completion_timeout(&i2c->cmp, HZ / 10);
+ 		if (!stat) {
+-			if (hdmi->no_hpd)
+-				dev_dbg_ratelimited(hdmi->dev,
+-						    "i2c read timed out\n");
+-			else
+-				dev_err(hdmi->dev, "i2c read timed out\n");
++			dev_dbg_ratelimited(hdmi->dev, "i2c read timed out\n");
+ 			dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+ 			return -EAGAIN;
+ 		}
+ 
+ 		/* Check for error condition on the bus */
+ 		if (i2c->stat & I2CM_NACK_RCVD_IRQ) {
+-			if (hdmi->no_hpd)
+-				dev_dbg_ratelimited(hdmi->dev,
+-						    "i2c read error\n");
+-			else
+-				dev_err(hdmi->dev, "i2c read error\n");
++			dev_dbg_ratelimited(hdmi->dev, "i2c read error\n");
+ 			dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+ 			return -EIO;
+ 		}
+@@ -404,14 +396,14 @@ static int dw_hdmi_qp_i2c_write(struct dw_hdmi_qp *hdmi,
+ 
+ 		stat = wait_for_completion_timeout(&i2c->cmp, HZ / 10);
+ 		if (!stat) {
+-			dev_err(hdmi->dev, "i2c write time out!\n");
++			dev_dbg_ratelimited(hdmi->dev, "i2c write time out!\n");
+ 			dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+ 			return -EAGAIN;
+ 		}
+ 
+ 		/* Check for error condition on the bus */
+ 		if (i2c->stat & I2CM_NACK_RCVD_IRQ) {
+-			dev_err(hdmi->dev, "i2c write nack!\n");
++			dev_dbg_ratelimited(hdmi->dev, "i2c write nack!\n");
+ 			dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+ 			return -EIO;
+ 		}
 
 -- 
 2.55.0
