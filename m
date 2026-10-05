@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6612ACA5FE2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9CACA5FCE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 05:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+/zpVbhwsUpNbrOoO6Rbtd5iCkQr04e+OVUHoKIuXg0=; b=q8eFe3YwT+jPXX0pdVSmZl4flb
-	/t2ijwEwwJ2YaJR+rQNPzUZ8J5Uo0vxgKTncMwFfbsVpztzShiw2ThDRpMa3GnoprMUmxMmzJyr4Y
-	o3IyjZt4uNMrM+G7jes/O91bUPUZEq/HPxkxd06+Z+oKsAQsuU+MoFT9unz8Bzjpb1AiQi+49d5SW
-	dJn2hv7oaL5HbDe+tU0TLi6dneHAX3NVzpUskLIomWWIurObERXQc0XmgOXqqkXTifMBFIjea4aR2
-	i2+NQNqDS6ew2T89ZM67djv5vmHITi24ha2wyW+V2PjbsF6lk6f+TKcClYDukNutBHckxXFAIgfTw
-	0a51g/fg==;
+	bh=eqJik4IYOHY/75Y5UuCar2kZCYK5tdqZHpjteh0qpAE=; b=YyCYeEG1MT47EgpoqCdwFxAF02
+	lxsNsGKVIJQH5fdfDLQhQSE0Czd4V7R8WL4a+ZQDFxiTZyoJHgob7SRvebnhLujric73YbkAkl/oB
+	V8ylsmCVfveAKL79XK8Co3vHrUkVtq1J9lz/04+FJww9VpWG3luHJN+As3QwYl1BRp6ZkFGrNFjbT
+	pHt0XZW7UQZZiAISZPdbuYfEpt/ocxm2h6OzkuB5+X8z4AQ2LE6uoTsUpngiH9QBOyTu+Ft0TxzgZ
+	u/mjcOHi0iaKFQzOmaOC5c5OOB7QSZlxDujTrH2oD5qMv2f/Vwi3YSD3K6mqETpUy28S5iqDHui/y
+	chAXlSNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDarp-0000000FgL8-2Ujp;
-	Mon, 05 Oct 2026 05:04:01 +0000
-Received: from out-89.mta0.migadu.com ([2001:41d0:1004:224b::59] helo=mta0.migadu.com)
+	id 1xDarn-0000000FgKc-22rq;
+	Mon, 05 Oct 2026 05:03:59 +0000
+Received: from out-86.mta0.migadu.com ([2001:41d0:1004:224b::56] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDarm-0000000FgKD-38jJ
+	id 1xDark-0000000FgJp-2UKq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 05:04:00 +0000
+	Mon, 05 Oct 2026 05:03:58 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=X2NngjtUK3UIGZuKRsaGbM1Nn8I+pzP8pxoF8AGn/sk=;
+DKIM-Signature: a=rsa-sha256; bh=1rAAjG7z10ioumPSrvqWzbDK82NOUf1K670uFQMRS8o=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791176636; v=1; x=1791781436;
- b=YgGTHIl4h42GtXWpwWVzwnO0+3KLoSTk8HvVmhlxI5ku1kPGwKuqwYpAQBx6pwQjUujdZInA
- 5gNcSXvsPDlig0ReaaO2gqyvqBj4JYDUD2/yw5t5iTSHIifLINA5gElwjrkblH3whvw+gWjYDRu
- tGa2RVG1zdsN8Mj8TsiqdnNI=
+ t=1791176631; v=1; x=1791781431;
+ b=oDMhlVj9/nI1UZ/sFwlnmgPqdqbnBPoYi3iurNSUjbU4rIQS0n/T78TbtBGGI3/ht/Gwel5i
+ 1iZpxicyUc0ukcYzN6kqumBkthyxRM+sEBD9P8z0Bzc2Hcur/WJiNK1+nTHEBlZfkhXBh2xLvm2
+ tt9u/Xzev2SonrF/sX/c0W6M=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 2334147f9724cdcb;
-	Mon, 05 Oct 2026 05:03:56 +0000
-X-Mizu-Trace-ID: 2334147f9724cdcb
+Received: by smtp.migadu.com with ESMTPS id 80948e4cdbc2f4cc;
+	Mon, 05 Oct 2026 05:03:51 +0000
+X-Mizu-Trace-ID: 80948e4cdbc2f4cc
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -54,17 +54,17 @@ Cc: catalin.marinas@arm.com,
 	yuzenghui@huawei.com,
 	vdonnefort@google.com,
 	qperret@google.com,
-	tabba@google.com,
-	mark.rutland@arm.com
-Subject: [PATCH] KVM: arm64: Pend host SErrors for protected vCPUs through HCR_EL2.VSE
-Date: Mon,  5 Oct 2026 06:03:52 +0100
-Message-Id: <20261005050352.836980-1-fuad.tabba@linux.dev>
+	tabba@google.com
+Subject: [PATCH v3] KVM: arm64: selftests: Check SError is not pending after delivery
+Date: Mon,  5 Oct 2026 06:03:49 +0100
+Message-Id: <20261005050349.836795-1-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_220358_927556_0E42F9AC 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20261004_220356_837786_160900CA 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_inject_serror_esr() reads PSTATE.A and SCTLR2_EL1.NMEA to decide
-whether to emulate the SError's exception entry or pend it through
-HCR_EL2.VSE. For a protected vCPU, the host's copy of those is stale,
-and when it reads as unmasked KVM emulates the entry on that copy. EL2
-never delivers it as an SError: its entry handler turns the pending
-exception into an external abort on the trapped access, and an MMIO
-completion still pending trips WARN_ON(INCREMENT_PC).
+test_serror() never looks at the vCPU after the SError is delivered, so
+a stale pending SError goes unnoticed. Read the vCPU events back and
+check the SError is no longer pending.
 
-Always pend through HCR_EL2.VSE for a protected vCPU. EL2 forwards it,
-and the guest's own masking decides when the SError is taken.
-
-Fixes: 872383bd12e11 ("KVM: arm64: Add per-EC entry/exit state marshalling for protected guests")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20261001142109.794CA1F000FF@smtp.kernel.org/
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
-Applies on kvmarm/next. A follow-up to "KVM: arm64: Confine protected VM
-vCPU state to EL2" [1], from Sashiko's review of its v4 patch 12.
+The fix from v2 was applied [1], but not this test.
 
-[1] https://lore.kernel.org/all/20261001135711.1640520-1-fuad.tabba@linux.dev/
+Changes since v2 [2]:
+- Dropped the fix, now in kvmarm/next.
+- Rebased on kvmarm/next.
 
- arch/arm64/kvm/inject_fault.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+[1] https://lore.kernel.org/all/20261001135711.1640520-2-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260921101030.1231605-1-fuad.tabba@linux.dev/
 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index d6c4fc16f8795..49a342b078365 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -378,8 +378,11 @@ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr)
- 	 *
- 	 * As we're emulating the SError injection we need to explicitly populate
- 	 * ESR_ELx.EC because hardware will not do it on our behalf.
-+	 *
-+	 * A protected vCPU's PSTATE and SCTLR2_EL1 live at EL2, so pend through
-+	 * HCR_EL2.VSE and let the guest's own masking apply.
- 	 */
--	if (!serror_is_masked(vcpu)) {
-+	if (!vcpu_is_protected(vcpu) && !serror_is_masked(vcpu)) {
- 		pend_serror_exception(vcpu);
- 		esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SERROR) | ESR_ELx_IL;
- 		vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
+ tools/testing/selftests/kvm/arm64/external_aborts.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/tools/testing/selftests/kvm/arm64/external_aborts.c b/tools/testing/selftests/kvm/arm64/external_aborts.c
+index 7836756a38a6c..c35b0c87250a1 100644
+--- a/tools/testing/selftests/kvm/arm64/external_aborts.c
++++ b/tools/testing/selftests/kvm/arm64/external_aborts.c
+@@ -239,6 +239,7 @@ static void test_serror_guest(void)
+ 
+ static void test_serror(void)
+ {
++	struct kvm_vcpu_events events;
+ 	struct kvm_vcpu *vcpu;
+ 	struct kvm_vm *vm = vm_create_with_dabt_handler(&vcpu, test_serror_guest,
+ 							unexpected_dabt_handler);
+@@ -247,6 +248,11 @@ static void test_serror(void)
+ 
+ 	vcpu_inject_serror(vcpu);
+ 	vcpu_run_expect_done(vcpu);
++
++	vcpu_events_get(vcpu, &events);
++	TEST_ASSERT(!events.exception.serror_pending,
++		    "SError still pending after the guest took it");
++
+ 	kvm_vm_free(vm);
+ }
+ 
 
 base-commit: fa22cd9947fc245d71bc40482f7f78eb0d5a4af0
 -- 
