@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEFFCA5FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3C7CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prj36X89FCSiP6RVyAsb7oBjYhBNv9z/wSeGzLB7KRc=; b=N15Lm2//7nF2ecY/fHxs70UjAF
-	KibUTNmLM9+9z/hQrV9uDc6fF5f/OHrNhZvmakWODDsMnAbRYiWLS6l17SZwkuTm8guHObcxWgU0x
-	diHSqmP4nF2gY9LldGBE4tpGtvKhwxBy5r4WdrCaWxmWOEmrPnBtiCL8kLWM4PPSyVVxx5Sn/HEE5
-	77mDi31FtimJnXtZ83dWl2eN9NUyHL8JQE5VIYpqB1N9dUaknWOW0V9UlzW1zaTkU5skK7AjnemkP
-	vj9fhanpHSNFT9X4lGfWserg9WnmsiHBcthKGL89+CrfA96moX70tRZ0rifKKnWGQW+dGYCf0zpn7
-	wZCKQLmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJFGQKjvbH1HqSDayT62DQ2rPAzEBQdHJkasbzlXbNg=; b=kE3Wwz9YtGcBJUmKYKfhnp9kuI
+	YFLZteMsfKQISutn+wC5npLXqfDdyf/5dT2XZ6sP5zNIe64o/MqDwX8yeF4QtLmO07h3kx9phP+cy
+	X7kkWkL9X5rbHTkdMV5LuiICvbIx3KIw9aw9wmWVgsYZKkK8YKMhgDSDmX+GH1d7aFntm34lWI/z5
+	kkAjBO4qOn7TDtHV20mFh1VgzdZq/4pgP+b1ZhRhHP9SSXHC5PjzIwtd+bJFLwSSkQoZyE1/Omy/o
+	jl4nVYIA9c8DID0Tv/gbpEgeMUPt2CW9F3TvCJ6IFE/u07PHlDCq4/texVo8MgveMimOpb/6qNtei
+	STsafifQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaT4-0000000Ff0A-15zP;
-	Mon, 05 Oct 2026 04:38:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDaWU-0000000FfNq-2mf7;
+	Mon, 05 Oct 2026 04:41:58 +0000
+Received: from sender6-op-o12.zoho.com ([165.173.180.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaT2-0000000Fez8-3Z5Q
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 04:38:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A18DA6025F;
-	Mon,  5 Oct 2026 04:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6E91F00893;
-	Mon,  5 Oct 2026 04:38:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791175103;
-	bh=prj36X89FCSiP6RVyAsb7oBjYhBNv9z/wSeGzLB7KRc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Dpi0nWYXHA/+IYTGJOk0pSaQ6hjK8U1RAeN8W44IaSHQGKhVHKyjF9bcuzD7i7q8S
-	 xlQ8N0sU6nceYvUxyu37VA3To8++ILJNp5BuASsFom8uqrjj+mYuygeZfFBEzUn6UD
-	 hkMwYEw1ASK2kt8kOMOF7XNTvUCvfvu2LzI0YnDTq3x79JXuQXhe864xVRQ3KfN4cG
-	 tO4fw6iP6f+x6BdBGzMJYrbm2g4COZsHe29DIcJm14PnbIltMB57zalVAQRvFoV3XI
-	 sgcnBvR9thh2nRy8dSqYmbDzoJWcfnHhwdOtgL/xz5RcNKy8T1aeKF1pF1RNUl53KB
-	 enEKt//dERFEg==
-Subject: Re: [PATCH net-next v4 4/4] net: stmmac: restore EST before starting
- DMA on open and resume
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
- lorenzo.bianconi@oss.qualcomm.com, andrew+netdev@lunn.ch, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, Jose.Abreu@synopsys.com, linux@armlinux.org.uk,
- edumazet@google.com, davem@davemloft.net, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, fancer.lancer@gmail.com, horms@kernel.org,
- maxime.chevallier@bootlin.com, richardcochran@gmail.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org
-Date: Mon, 05 Oct 2026 04:38:21 +0000
-Message-ID: <179117510159.434549.6990304999484677101@kernel.org>
-In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-4-9d4366587b73@gmail.com>
-References: <20260930-stmmac-est-reapply-after-open-v4-4-9d4366587b73@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	id 1xDaWR-0000000FfNS-4C4v;
+	Mon, 05 Oct 2026 04:41:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791175281; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AI67L/etDKRXMy/h3C/49dpfgoEQTzxqfRUsfPKNRCeO7jwbUxjXou0t+MSuNygOA5ajn7UVyb2DoAuxBJuPQo5EMuJK7SrCtH2jY2Qgd+lrJ4yBllNuOYZ/+GUNAgLftThDJPrMKOHl9/c2VnaajwKSyV/vlij8ly8f+hf3TWk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791175281; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=qJFGQKjvbH1HqSDayT62DQ2rPAzEBQdHJkasbzlXbNg=; 
+	b=PDfcLn1BYodAaZUEHZJw2Dd2oDe1yF3nrD0G5arhe66YWaJZUjcH7leENicRbTn0dlYOXdk6L7cIbAsH8rMgs8M1XK6kvxx2NBRc8TjqZNIa4OKM4POx2vRIpuJx3mm8KQ8MxYwGZt38B4nP2gH+hwFjGnl8WVCwK7vVSWpblcU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791175281;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
+	bh=qJFGQKjvbH1HqSDayT62DQ2rPAzEBQdHJkasbzlXbNg=;
+	b=Vlu2rvsuksYEU7h9UlpgeiLM4sV2miSw8nrRHl0jfNGZvoK2wDl80etPsjnuc3aj
+	bOSQvL4WI6A+Vr5cwNPvzu5bDHEvH81Vkn11EIx0PCCYuHdDZQu3Sys8XaANa76iiH+
+	h7bqGLFvsABQvSS9yzOe53P8IJJ/bJWv12anp2Ac=
+Received: by smtp.zohomail.com with SMTPS id 1791175279488549.9267500854362;
+	Sun, 4 Oct 2026 21:41:19 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 05 Oct 2026 12:41:10 +0800
+Message-Id: <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
+Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
+ <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
+ <enzo.adriano.code@gmail.com>, "Andre Przywara" <andre.przywara@arm.com>
+Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.22.0
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+ <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
+ <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+In-Reply-To: <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_214156_525721_3C20797B 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,206 +91,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Hi Chen-Yu,
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 0
+On Sun Oct 4, 2026 at 7:03 PM CST, Chen-Yu Tsai wrote:
+> On Tue, Sep 29, 2026 at 7:28=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.t=
+ech> wrote:
+>>
+>> Add the bus clock gates that control access to the devices' register
+>> interface on the Allwinner A733 SoC. These clocks are typically
+>> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
+>> various multimedia engines. It also includes bus gates for system
+>> components like the IOMMU and MSI-lite interfaces.
+>>
+>> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
+>> Disabling either store gate breaks access to boot/storage devices such
+>> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
+>> power domain registers when unused clocks are disabled.
+>>
+>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 ++++++++++++++++++++++++++=
+++++++-
+>>  1 file changed, 491 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-=
+ng/ccu-sun60i-a733.c
+>> index 1b2d4d36ec4c..b077e5d2f32c 100644
+>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+>> @@ -4,6 +4,10 @@
+>>   * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
+>>   * Based on the A523 CCU driver:
+>>   *   Copyright (C) 2023-2024 Arm Ltd.
+>> + *
+>> + * TODO: The real parents of some bus gates, including its-pcie0-aclk,
+>> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in the
+>> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
+>>   */
+>
+> [...]
+>
+>> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_cl=
+k, "mbus", mbus_parents, 0x588
+>>                                            BIT(31),     /* gate */
+>>                                            CLK_IS_CRITICAL,
+>>                                            CCU_FEATURE_UPDATE_BIT);
+>> +static const struct clk_hw *mbus_hws[] =3D { &mbus_clk.common.hw };
+>> +
+>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_=
+hws, 0x58c, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hw=
+s, 0x58c, BIT(1), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws=
+, 0x58c, BIT(2), 0);
+>> +
+>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x=
+594, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x=
+59c, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x=
+5a4, BIT(0), 0);
+>> +
+>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_=
+hws, 0x5b4, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_hw=
+s, 0x5b4, BIT(1), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_hws=
+, 0x5b4, BIT(2), 0);
+>
+>> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
+>> +                         0x5c0, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
+>> +                         0x5c0, BIT(1), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
+>> +                         0x5c0, BIT(2), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
+>> +                         0x5c0, BIT(3), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
+>> +                         0x5c0, BIT(4), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
+>> +                         0x5c0, BIT(5), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
+>> +                         0x5c0, BIT(6), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
+>> +                         0x5c0, BIT(7), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
+>> +                         0x5c0, BIT(8), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
+>> +                         0x5c0, BIT(9), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
+>> +                         0x5c0, BIT(16), 0);
+>> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
+>> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
+>> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
+>> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
+>
+> I suspect these refer to a AHB-AHB bridge for the various subsystems show=
+n
+> in the memory map. That would explain why when the "ahb-store" clock is
+> gated, the storage bits stop working.
+>
+> If that's the case, we should describe it as the parent of each storage
+> peripheral bus gate's parent. Same would go for the other types. I haven'=
+t
+> checked what the BSP does though.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+As Norman mentioned in his reply, the vendor BSP also does not model
+this hierarchy and instead models these gates as independent clocks
+parented to the oscillator. The manual does not describe the hierarchy
+either, so I don't think we have enough information to model it
+differently at this point.
 
-- [Medium] The patch gives stmmac_resume() a new way to fail: if
-  stmmac_setup_est() returns an error, resume jumps to error_stop_dma…
-- [Medium] __stmmac_open() can now fail at the new est_error exit
-  (stmmac_main.c:4205-4207).
-- [Medium] In __stmmac_open(), stmmac_start_all_dma() now runs after
-  phylink_start() (stmmac_main.c:4211 -> 4216).
+I will add comments explaining why ahb_store_clk, mbus_store_clk, and
+ahb_cpus_clk are marked critical.
 
---
+>
+>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
+>> +                         0x5e0, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
+>> +                         0x5e0, BIT(1), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
+>> +                         0x5e0, BIT(11), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate", m=
+bus_hws,
+>> +                         0x5e0, BIT(12), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate", m=
+bus_hws,
+>> +                         0x5e0, BIT(14), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
+>> +                         0x5e0, BIT(16), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
+>> +                         0x5e0, BIT(18), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
+>> +                         0x5e0, BIT(24), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
+>> +                         0x5e0, BIT(28), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hw=
+s,
+>> +                         0x5e0, BIT(29), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
+>> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
+>
+> Same thing for the MBUS clocks.
+>
+>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hw=
+s,
+>> +                         0x5e0, BIT(31), 0);
+>> +
+>> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
+>> +                         0x5e4, BIT(0), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
+>> +                         0x5e4, BIT(1), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
+>> +                         0x5e4, BIT(2), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
+>> +                         0x5e4, BIT(3), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
+>> +                         0x5e4, BIT(5), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
+>> +                         0x5e4, BIT(8), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
+>> +                         0x5e4, BIT(9), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
+>> +                         0x5e4, BIT(11), 0);
+>> +/* Undocumented, taken from the vendor kernel. */
+>> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
+>> +                         0x5e4, BIT(12), 0);
+>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
+>> +                         0x5e4, BIT(18), 0);
+>
+> [...]
+>
+> The remaining definitions look correct (minus the vendor BSP ones which I
+> couldn't check at this time).
+>
+> I didn't check the clock list additions.
+>
+> Consider this
+>
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+>
 
-net: stmmac: restore EST before starting DMA on open and resume
+Thanks!
 
-The core reset clears the MTL_EST registers. This patch replays the cached
-taprio/EST schedule after timestamp initialization in __stmmac_open() and
-stmmac_resume(). It also moves stmmac_start_all_dma() out of
-stmmac_hw_setup() and into its callers, so DMA starts only after the EST
-replay succeeds.
+>
+> We can change the AHB / MBUS clock parents later if we do figure it out.
+>
+>
+> ChenYu
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index e93f3238be1fb..2104eaef8806f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+--=20
+Best regards,
+Junhui Liu
 
-[ ... ]
-
-> @@ -4200,12 +4199,22 @@ static int __stmmac_open(struct net_device *dev,
->  	if (ret)
->  		goto ptp_error;
->  
-> +	/* The core soft reset in stmmac_hw_setup() clears the MTL_EST
-> +	 * registers, so re-apply the taprio offload after PTP is up.
-> +	 */
-> +	ret = stmmac_setup_est(priv);
-> +	if (ret < 0)
-> +		goto est_error;
-
-[Severity: Medium]
-What state is the interface left in if this new exit is taken during an MTU
-change?
-
-The est_error exit comes after the memcpy() at the top of __stmmac_open()
-has overwritten priv->dma_conf. It also comes before stmmac_init_coalesce(),
-phylink_start() and the NAPI enable.
-
-stmmac_change_mtu() reopens the device in place:
-
-stmmac_change_mtu() {
-    ...
-		__stmmac_release(dev);
-
-		ret = __stmmac_open(dev, dma_conf);
-		if (ret) {
-			free_dma_desc_resources(priv, dma_conf);
-			kfree(dma_conf);
-			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
-			return ret;
-		}
-    ...
-}
-
-After this failure the interface stays IFF_UP. priv->dma_conf still holds
-the descriptor, buffer and page pool pointers that were just freed. The
-txtimers hold the zeroed hrtimers copied from the new dma_conf, because
-stmmac_init_coalesce() was skipped.
-
-The next close, ring parameter change or XDP change goes through
-__stmmac_release(). Every NAPI is already disabled at that point. Would
-stmmac_disable_all_queues() then hang forever in napi_disable() under
-RTNL?
-
-If execution got past that point, hrtimer_cancel() would run on
-uninitialized hrtimers. free_dma_desc_resources(priv, &priv->dma_conf)
-would then free the same rings a second time. Until then, readers such as
-the debugfs descriptors_status file would dereference the freed
-descriptor memory.
-
-The ptp_error and irq_error exits already used this weak unwind. What
-changes is that an EST register write timeout (readl_poll_timeout() in
-est_write()) during a routine MTU change can now reach it. Before this
-patch the device kept running, just without its EST schedule.
-
->  	stmmac_init_coalesce(priv);
->  
->  	phylink_start(priv->phylink);
->  
->  	stmmac_vlan_restore(priv);
->  
-> +	/* Restore the installed schedule before starting DMA. */
-> +	stmmac_start_all_dma(priv);
-
-[Severity: Medium]
-Can starting DMA after phylink_start() race with the phylink resolve
-worker?
-
-phylink_start() calls phylink_enable_and_run_resolve(), which queues
-pl->resolve. phylink_resolve() does not take RTNL, so it can call
-stmmac_mac_link_up() while __stmmac_open() is still running here.
-
-stmmac_mac_link_up() sets speed and duplex with an unlocked
-read-modify-write of MAC_CTRL_REG:
-
-	old_ctrl = readl(priv->ioaddr + MAC_CTRL_REG);
-	ctrl = old_ctrl & ~priv->hw->link.speed_mask;
-	...
-	if (ctrl != old_ctrl)
-		writel(ctrl, priv->ioaddr + MAC_CTRL_REG);
-
-For each channel, stmmac_start_all_dma() does its own unlocked
-read-modify-write of the same register. On dwmac4/5:
-
-dwmac4_dma_start_tx() {
-    ...
-	value = readl(ioaddr + GMAC_CONFIG);
-	value |= GMAC_CONFIG_TE;
-	writel(value, ioaddr + GMAC_CONFIG);
-}
-
-dwmac4_dma_start_rx() does the same for GMAC_CONFIG_RE. GMAC_CONFIG has
-the same offset as MAC_CTRL_REG. On XGMAC, dwxgmac2_dma_start_tx() does the
-same on XGMAC_TX_CONFIG, which holds the speed field.
-
-Consider this interleaving:
-
-__stmmac_open()                      phylink_resolve worker
-dwmac4_dma_start_tx()
-  value = readl(GMAC_CONFIG)
-                                     stmmac_mac_link_up()
-                                       writel(ctrl, MAC_CTRL_REG)
-  writel(value | TE, GMAC_CONFIG)
-
-The open path writes back the stale speed and duplex. stmmac_mac_set() in
-the worker only checks that TE/RE are set, so it does not correct this.
-Would the link then report up while the MAC runs at the wrong speed or
-duplex until the next link change?
-
-Before this patch, DMA started inside stmmac_hw_setup(), before
-phylink_start(), so these accesses could not overlap. stmmac_resume() is
-not affected because DMA starts there before phylink_resume().
-
-Would moving stmmac_start_all_dma() before phylink_start() close this
-window and still replay EST before DMA starts?
-
->  	ret = stmmac_request_irq(dev);
->  	if (ret)
->  		goto irq_error;
-
-[ ... ]
-
-> @@ -8420,6 +8430,10 @@ int stmmac_resume(struct device *dev)
->  	}
->  
->  init_coalesce:
-> +	ret = stmmac_setup_est(priv);
-> +	if (ret < 0)
-> +		goto error_stop_dma;
-
-[Severity: Medium]
-Does this error path leave the device half resumed?
-
-error_stop_dma stops DMA, clears MAC TX/RX, powers down the serdes and
-returns. It does not re-enable NAPI or call netif_device_attach().
-
-stmmac_suspend() had already done this:
-
-	netif_device_detach(ndev);
-
-	stmmac_disable_all_queues(priv);
-
-The interface is still IFF_UP. A later "ip link set down" would then run
-this on NAPIs that are already disabled:
-
-__stmmac_release()
-  stmmac_disable_all_queues()
-    napi_disable()
-      napi_disable_locked()
-
-napi_disable_locked() would then loop forever while holding RTNL:
-
-	while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
-		usleep_range(20, 200);
-		val = READ_ONCE(n->state);
-	}
-
-A stmmac_init_timestamping() failure could already reach this incomplete
-unwind. This patch adds an EST trigger, most realistically an est_write()
-register timeout. A failed EST reprogram used to be harmless at resume,
-but now it leaves the device in this state.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73%40gmail.com
 
