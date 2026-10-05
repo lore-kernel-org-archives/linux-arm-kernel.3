@@ -4,77 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CDACA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DC7CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TqsOa1rvGDxopVBYQ+zTn4967jcE0GLlKMO9YJV04I=; b=aQUX4/2EOdi8D3JmEMDScg98dJ
-	/Sz8CRhEpZbqKI1Wy4U7mDb64IXHYoCkaxQrMTnzVuZKRwLn03jyEbLx0f+Wtvh1c3BO60TZDErZf
-	xD2DtHFYzsW4kYhn2RtOPoNqOyZdysWE4QVH4LQivMBClm87W5fYvVI6ruz9xSs48+FnV4sZNa8ku
-	glQSj99MN8WUHT8/MTxOgJNfpBLN7yN2JFNkzrjiuHKdqfQFnw5poWhBSbFb1B833qAyXC3eFem4S
-	Yizy7yG3fXElH4wZg8gqyPZeC0BFHBJFpsI93NcxzNJUt/3hD9FEQhlIgZd0hsR6/AlrAwXFQ8ASL
-	6rghxJSA==;
+	bh=ONuAfwO9E4ixY5T7A2NxatSseTcwUzIRgeJpb2V/chQ=; b=paCzr+NJi8tcTmd9PtWBnQRmh2
+	r3U1R4RSBF4gZP1AJZV+O81uHjCUYGTcFLXSCBvVqtTNJ+8fThOYUeMXWH+XUswA10+7K3AxYq1ry
+	B0n4vIn7zgPzVAOIqtOvewJnNIm4Iz30sy8a2qv1lm85ocPlRVxqH8qTnftm0AR/Qiqr1jQdZu1ta
+	djS/ygaMJlroXrpTNpVpxYoFl7zgDCl0w/rqppau+i+6Uhs7VasECNQ7dVDkSIZ8By2g/rVZE+Uef
+	4pY4t6xYjK+bo4sdAKx5KDjgp6WTas2Ri5lqbFJ/Bt3zBZprLGIGOZqtpgyv6p62mZyS6NMyp6SH6
+	/9aZ5UBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmWd-0000000Gv97-2f3q;
-	Mon, 05 Oct 2026 17:30:55 +0000
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
+	id 1xDmYi-0000000GvVq-0GdM;
+	Mon, 05 Oct 2026 17:33:04 +0000
+Received: from de-smtp-delivery-113.mimecast.com ([194.104.111.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmWZ-0000000Gv66-2aDn
+	id 1xDmYf-0000000GvVO-1lkH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 17:30:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791221447; bh=4TqsOa1rvGDxopVBYQ+zTn4967jcE0GLlKMO9YJV04I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=l9YZuGu64l6YNUScxZAqrPveQSupH1zujFv8+6J0fKEyUVIWbD53R0CLzCGKmkxLH
-	 tplAT6rbWFBmLV7q1Dsa3nDsiToHcn3m7SkL2Y5FNnAmS1LCldJXxdzCNhy2MGJ8K7
-	 BPBw090a1EkNNeviBIlnTPHw1NFtkmDeuGHCmqck=
-Received: from AERO17.taila7786d.ts.net ([2409:8a7c:21c:8010:c675:1308:618e:14ff])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id 7A82281B; Tue, 06 Oct 2026 01:30:40 +0800
-X-QQ-mid: xmsmtpt1791221444tw7m44esb
-Message-ID: <tencent_B409D5BD9480045814D3720C7D9047C55406@qq.com>
-X-QQ-XMAILINFO: MllZffuBkEb56ovUuknNPm1oIUn05VExjOqJsUmdfwgXPZ8UhOh5pdOVgOxrAb
-	 Tc/jw7pRzljOXyzCjQlL819NaOO1hIidkUgYJCLUlAsE7cCgd5vQIDi0m822WbhFglB6ZsbKMn+d
-	 UTb61T659JM9zT/U37G0baid56y8+nILjDqp33F+wY2v2N22OLSelUHGGidelLsEkxlAsXzIB/hW
-	 7YX4Vayzd4uVt/NvVwllWnfDH3O/G+p6V4KKjYt8jNJDL0ct/azAoHQvw4t1wI3FSoCS2d5/xRg8
-	 d4+5y0xSxj76zROcUD9Ofd8IX1wIeFcPEgAaUvoQkEvG0iFijvddQYFF9IHPvxbYwiOgkIhT399P
-	 z4q2C7gR31cKQu3jZ8axcRqP/yWqxK+qvFKCknSoOpi//25zXg3ynIQc5FcZWcXsOnN1kvdHzSBM
-	 YvgTrEP2o5rmkAfhrhXomGyNP/ypDqtZP+C/nUtF3md3SDWkZHx/tVlgVkRCt2vzhdc4dfOPG2wk
-	 Eaddk7C3aCLlGPAsGjq4yZzZXihdN88sxLUBirWg43RrJyN2bPaT+DT1SJ5ctpeF3gc5YT8AZ7zn
-	 pjIfqba61L5vW0VZTOa/JYYHHXzVGPCDXs1WoSZSvSD1F3iQFSVnVq/LcePUqNFIv0LfTShNFUCI
-	 bKa8bMEMkIzTr0jHQywVYRE/qvQ9LNJUROvGhWPFeWGJOtfpKg6t2SFu8JqSnObMeYhqdEub7nfO
-	 9nALAAgpEEwqWLPsYdo7/WZg1PHV8KiBe8GkWjyvSddOu/QtqB4Vw+lTrItqKOq9ByIn8P78Xxm5
-	 LQQ78NIdap3tESlHq4WO/qFVr0M7hNimLQq8L9N9IxNB9332HJJQDYIlO7oMZ3p9185YPIWdkU9R
-	 ++pWylDkMeZTsA0m5+nbrIk9DJBaIXUUdZzp9ZmxZ1iN9TcOASl0qEZn992Lrfx4jn2F69EUZTUh
-	 xu62pNP9NKvH6VRP93brwJq+W8ggjLbgYs5aVImIaYUAAdeFcSlwRJ+ds+dhWM4Sckm342LFwbD/
-	 X0zWKeYKKTcxJMkcwoywf7qYP+a4PuUqzzIe0ezcJadH05AfYoLqqBUKh3SRsMWVSGPOahidDQYW
-	 QiXmXuQUl23KDR1pdiyOi6J1zEOQ==
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-From: Pufan Jin <2254650260@qq.com>
-To: Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	andrew@lunn.ch
-Subject: [PATCH v2 3/3] arm64: zynqmp: Add ALINX EdgeBoard FZ3A
-Date: Tue,  6 Oct 2026 01:30:39 +0800
-X-OQ-MSGID: <20261005173039.707304-4-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261005173039.707304-1-2254650260@qq.com>
-References: <20261005173039.707304-1-2254650260@qq.com>
+	Mon, 05 Oct 2026 17:33:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=toradex.com; s=toradex-com;
+	t=1791221576;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ONuAfwO9E4ixY5T7A2NxatSseTcwUzIRgeJpb2V/chQ=;
+	b=SDWGPj7fcXw36/7DrsuczyPgd4Phd+4lvJ3739Pot2QKeACGcLGWWq79aaTGxbuBoeNUCi
+	xNEHfm9h5FhbQmggFf5i0lW+XaTgUiBKVtW47Cv4jFqxxUlptMm3Nu+DEnUu49xew4IOQg
+	Iw6Rxmwn0gpFvlirm2hWviaO1/LgBOE=
+Received: from ZR1P278CU001.outbound.protection.outlook.com
+ (mail-switzerlandnorthazon11022072.outbound.protection.outlook.com
+ [40.107.168.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-44-OEOBfRwAO1CkhYLQ2X3ayQ-1; Mon, 05 Oct 2026 19:32:53 +0200
+X-MC-Unique: OEOBfRwAO1CkhYLQ2X3ayQ-1
+X-Mimecast-MFC-AGG-ID: OEOBfRwAO1CkhYLQ2X3ayQ_1791221573
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8) by
+ ZR1P278MB1392.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:98::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.20; Mon, 5 Oct 2026 17:32:51 +0000
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2]) by ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2%6]) with mapi id 15.21.0472.016; Mon, 5 Oct 2026
+ 17:32:51 +0000
+Date: Mon, 5 Oct 2026 19:32:49 +0200
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
+To: Frank Li <Frank.Li@nxp.com>, Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: freescale: imx952: Add GPIO5 lines 18 to 20
+Message-ID: <asPfQZURHvVzbgVU@francesco-nb>
+References: <20261005172622.135725-1-francesco@dolcini.it>
+In-Reply-To: <20261005172622.135725-1-francesco@dolcini.it>
+X-ClientProxiedBy: MI1P293CA0024.ITAP293.PROD.OUTLOOK.COM (2603:10a6:290:3::6)
+ To ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZRAP278MB0495:EE_|ZR1P278MB1392:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fef649c-eee8-4d5b-6a28-08df2306ae8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|18002099003|22082099003|10067099003|56012099006
+X-Microsoft-Antispam-Message-Info: fpZQYy0uB+OV1Dy7JBgfXyfZKI1KOdMki1LbyiwxObWoOHy3sb1kC7O4gmKeiA5by/lPvqjO33kdMx7XlwtvSKATtpmAq1NVHP93TQhOSRTApxsKaq7KgCXxBP/t8NzLE4d65R1giz4bVIieifYaHOhsXsM8PFku7L2crb2agUH13VbzJ0BUl6dAMiX5cL1YzFI7hx5wZi3KoIBb7zbP4JBX4x1VFFT7tPlRylODffCoJTveo7Di9QDSV3ZojvnpdjubfX97r+rAXxDHjp+185wo1ueSvPtj/wphICII9Wzz9ClrgcTBigiJQ55AZfnoPXRrynBNATVVqveo9StmVwYTN/OWwUCxcOovVVio4xoYQHkLDz0Yt9gtTg73xAkRYFx2YP1OMLMjmJC/rNnHXDV1vO0wdYSYbeBsM9bkuj2chLtgBuuQOFEqUgKODO68fSpbU5koCyQRpB8cKufj5gZqzwWB2LIoSgPcZH0GT5FNggcN20ZGK89h9n1VnjoHgJ+cJjxCp/ED3Zc0Uql37dhgI9iSaxCzJI4CXEPElHFabK7ZbyrJ0LcMHeBEMsy+WDD+VRU//qGiCF1t2E84dukyFalMx0IcKs2S+4S7Wml5eHq7Ul5imfVmDWD1PC/0W+Z9c/daNVkWTcuVJBdfPepL/aot7tXhr4Zi0NLOxTY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1102
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8n4rX/IXV1mqL4GVpPc1xTWNFSugcejCz+0eB9eI9oDgwiyQThT7mpkDUZx1?=
+ =?us-ascii?Q?VnUjtI43xNWbrP/M+Pyux9/mRqRudvDyVSuQuq8bj2m5uuSEHxOwauhDlZHB?=
+ =?us-ascii?Q?5b2GtCvArLMBHqI1Rt5tx9+A0eUx+kmbqEAtNPWxZ+Oh5aQfylrDBHvVJ0xP?=
+ =?us-ascii?Q?pmB1+6BqPVnH6Qa95/xWRyt5rhvT4aWe+TL9BQKQ8mgs2w9qAvXjOtdm750D?=
+ =?us-ascii?Q?lZYwdRmOzsZXIPzkRmUUcUr+dim+zUgsbJJ7/o0zuFEBnNyiFqo634tfOCEQ?=
+ =?us-ascii?Q?n2l+x0kgWCCxmLOLfq18U5R7VNqdDgfieM00JnLsb4O2z0SVPxDKcM/yZI+9?=
+ =?us-ascii?Q?Ow6f9KLfdQ8R8BZaV4xiUG1aOgMW+1svF9Bdr9khuVgKxVSpd32fiomDYo+k?=
+ =?us-ascii?Q?ndZySlUTqTXTUR+F1mzWhQ3nblzQp+KBUajVc40d6qmkRPo9FW/Q3D1ntda9?=
+ =?us-ascii?Q?bMVCRm7+QJ3SdkDvNoCSYilSbf1rUi67j8WaWRKuVUO/mcoJVKukG3jEwIVR?=
+ =?us-ascii?Q?Bj+/BXYtKnAr3Uw+d147Yui4WqqPW2IEkoU6Ny2EalCZ0QxuSsaFCDPvggIU?=
+ =?us-ascii?Q?qqIggs9GHKG8jvZw+RyH7cR6IMfrOgp9+halmaKYMC+5i2jFFVArWlzW/ru0?=
+ =?us-ascii?Q?gI+LPJwV3/V0Ek4vvh42z2L4faLJdTK1PUH/fuYuZ/736E3NP/1zFnrLMBhr?=
+ =?us-ascii?Q?/Yh5emV0Qs1+AkHj/YCC8j/dhAUO5pht6oHuL56f+lipM74lNFkgRmOzB5h7?=
+ =?us-ascii?Q?jPy40T6dZuywNOvvn90pihxgpZAuSarAbFQyfkE8LazotOZfZR66LUHDQBlG?=
+ =?us-ascii?Q?iEH0X2cWA+mXGzNAtog1Gh0CPqGN074HJLr3KeXQcsroLAsphiY3ttO4n0+8?=
+ =?us-ascii?Q?yZFJW4mhS+ORe0yDjN0nUXBMndAnSz5cbGAtfUpcsJj1CmZmJqPFQXVO0OTY?=
+ =?us-ascii?Q?zMqCNTY7u5PUO2f3mNIpTHpkhCQMC3XydnfGkBMfQJjc1VLG0RS1Oe7Y/Ojp?=
+ =?us-ascii?Q?oWIpGOaZlHXwYVKdRHDYTa/qu9RK4rT6L1635nKavpL7Sve+e3YJ2P69EmTB?=
+ =?us-ascii?Q?OEmiEs+MkLuYcGcs++/uU4NSqJcu/SGcFMKGevT4c0WoEUVoVw4a1v3QcWFI?=
+ =?us-ascii?Q?H164Jej6YyM1yx72U4qeB4GfCCPQL885nsQYh1MwS6lEXQu/bwfOXI0BkRD9?=
+ =?us-ascii?Q?lQBxxXvwG1ONjw49tsWXHO3otKIrZvc+/gHK4jaVYvi280O1+Ym89CbS5FQd?=
+ =?us-ascii?Q?bYkkuy1Z2zytnXnV/5fwIIYVCH0ojpDtcsXz2hBRIKDOxVU6fX/KUg0bjEAd?=
+ =?us-ascii?Q?GgvFA8dfMfI/CjMwLDC3M+0XV7Ko4OSjfEOs0jEOIxNA4oVtqXLf78GpZEmU?=
+ =?us-ascii?Q?TmcdzR3be0A1Evh4HF5dgzhSl09SKvECm8nGxCDRdulZc/gZHkkvgqSAb+VV?=
+ =?us-ascii?Q?Tn5IkW834EI2EFBTyJXnUjZ1QY+5e4OzNKNNy9swuiMBm7tl0hUFjb6Fpzj1?=
+ =?us-ascii?Q?LJUEDCXaKz0QcEdprLfrq7Zsn9dgKLwmk023KCx51XJysFsoFYdCWSjgdmb5?=
+ =?us-ascii?Q?xPjROYUxjRal53jhWz4suflOsT/HbHDnG2m2wF+rfDIejkXDH0Bkt0uE3+Qo?=
+ =?us-ascii?Q?oG8ZfKmQ35HqrPHobgAgKZGIacFepJkZ87RNDUCGgSH8rZQW0VK3qNRR0ZYA?=
+ =?us-ascii?Q?7rfqEjfQFSAGGGmV3iJ/rLXRNyEO3qCUZHQVyaBsU5iEs71pcXFrAJyZO8Z0?=
+ =?us-ascii?Q?lRSqroWOOPE65dNZTWYSehvfKpeasJ8=3D?=
+X-Exchange-RoutingPolicyChecked: yluifC8fWzNqNph+stMVZ7TRPkk2DuqR5kQR7qSrEXWojWPlWxdnr39QRGXc6eHXz0mChKaWNKPzc+PH3hnLH6UmffsJWjW20CcjHLvCC6Ox2hWcnXipqcO9RBDQyUNjbp+Q3JRTcbfrUF/0CZbzMVK6sjBlzxkz5KdQjm3VRp2WyzIMp+F7lhjApGSGvwPjqRgwyAfADUf0upFUhgxeIlo4jNrDuHJ/FeaV9z1LFf50j/Zzq7ERDn0k+f2gW2p3gWUdI1jA3qHpHNjj2C2I0RyGWcKlsGpGToOa0u4q1efXmWsn7sPSRycRfjVZoVMiDev8jV++2BoF7QdZk5aiPg==
+X-OriginatorOrg: toradex.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fef649c-eee8-4d5b-6a28-08df2306ae8f
+X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 17:32:51.6415
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d9995866-0d9b-4251-8315-093f062abab4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r6I5rZxKHBFG76ETuFEvLw37j5I51KKp6Hvitf49fk0AUHlgDlpQiAOI0+NYVh1ykJBVKdcldakTg1GJwxOtFAK9KiSVt6ip5djMDJFlXnQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR1P278MB1392
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: SYCwp_KCZjPqHIm0GLgHloQTsjbk18Gisuwxu74sZx4_1791221573
+X-Mimecast-Originator: toradex.com
+Content-Type: text/plain; charset=WINDOWS-1252
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_103052_219370_4916E8C1 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20261005_103301_609769_DC8F86D4 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,401 +143,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree for the ALINX EdgeBoard FZ3A, a single board computer
-based on the Xilinx Zynq UltraScale+ XCZU3EG SoC.
+Hello Frank,
 
-Supported peripherals:
-  - UART1 debug console
-  - eMMC (HS200) and microSD card
-  - GEM3 Ethernet with Micrel KSZ9031 PHY on the MDIO bus
-  - I2C0 and I2C1
-  - QSPI NOR flash
-  - PCIe
-  - USB 3.0 host
-  - DisplayPort output
+On Mon, Oct 05, 2026 at 07:26:21PM +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+>=20
+> Add missing GPIO5 lines, GPIO_IO38, GPIO_IO39 and GPIO_IO40 are
+> GPIO-only pads fixed to GPIO5[18:20], their SW_MUX_CTL registers have no
+> MUX_MODE field (IMX952RM Rev.1, 2026-07-08, sections 33.3.2.44-46 and
+> 33.3.2.184-186).
+>=20
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx952-pinfunc.h | 6 ++++++
+>  arch/arm64/boot/dts/freescale/imx952.dtsi      | 4 ++--
+>  2 files changed, 8 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h b/arch/arm64/=
+boot/dts/freescale/imx952-pinfunc.h
+> index debe6ede2d70..72cfe7893af8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
+> +++ b/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
+> @@ -307,6 +307,12 @@
+>  #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPUART7_RX                0x=
+00A4 0x02D4 0x05B0 0x02 0x01
+>  #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPSPI4_SCK                0x=
+00A4 0x02D4 0x0568 0x04 0x01
+> =20
+> +#define IMX952_PAD_GPIO_IO38__WAKEUPMIX_TOP_GPIO5_IO_18               0x=
+00A8 0x02D8 0x0000 0x00 0x00
+> +
+> +#define IMX952_PAD_GPIO_IO39__WAKEUPMIX_TOP_GPIO5_IO_19               0x=
+00AC 0x02DC 0x0000 0x00 0x00
+> +
+> +#define IMX952_PAD_GPIO_IO40__WAKEUPMIX_TOP_GPIO5_IO_20               0x=
+00B0 0x02E0 0x0000 0x00 0x00
+> +
 
-Tested on hardware with Linux 7.3.0-rc5: the board boots from SD card
-into userspace over the serial console, gem3 negotiates 1000Mbps/Full
-duplex with phy-mode = "rgmii-id", and the eMMC runs in HS200 mode.
+Frank: the downstream kernel has different names, that seems not
+correct. A double check on why you have this wrong naming on your
+donwstream kernel is appreciated.
 
-The base DTB passes CHECK_DTBS=y, and the Xilinx SoC binding passes
-dt_binding_check.
-
-Signed-off-by: Pufan Jin <2254650260@qq.com>
----
- arch/arm64/boot/dts/xilinx/Makefile           |   1 +
- .../xilinx/zynqmp-alinx-edgeboard-fz3a.dts    | 350 ++++++++++++++++++
- 2 files changed, 351 insertions(+)
- create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
-
-diff --git a/arch/arm64/boot/dts/xilinx/Makefile b/arch/arm64/boot/dts/xilinx/Makefile
-index 70fac0b27..3e07b36ef 100644
---- a/arch/arm64/boot/dts/xilinx/Makefile
-+++ b/arch/arm64/boot/dts/xilinx/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_ZYNQMP) += avnet-ultra96-rev1.dtb
-+dtb-$(CONFIG_ARCH_ZYNQMP) += zynqmp-alinx-edgeboard-fz3a.dtb
- dtb-$(CONFIG_ARCH_ZYNQMP) += zynqmp-zc1232-revA.dtb
- dtb-$(CONFIG_ARCH_ZYNQMP) += zynqmp-zc1254-revA.dtb
- dtb-$(CONFIG_ARCH_ZYNQMP) += zynqmp-zc1751-xm015-dc1.dtb
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts b/arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
-new file mode 100644
-index 000000000..ab6bda7a6
---- /dev/null
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
-@@ -0,0 +1,350 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Device tree for the ALINX EdgeBoard FZ3A
-+ * based on the Xilinx Zynq UltraScale+ XCZU3EG
-+ *
-+ * Copyright (c) 2026 Pufan Jin
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/pinctrl/pinctrl-zynqmp.h>
-+#include "zynqmp.dtsi"
-+#include "zynqmp-clk-ccf.dtsi"
-+
-+/ {
-+	model = "ALINX EdgeBoard FZ3A";
-+	compatible = "alinx,edgeboard-fz3a", "xlnx,zynqmp";
-+
-+	aliases {
-+		ethernet0 = &gem3;
-+		i2c0 = &i2c0;
-+		i2c1 = &i2c1;
-+		mmc0 = &sdhci0;
-+		mmc1 = &sdhci1;
-+		serial0 = &uart1;
-+		serial1 = &uart0;
-+		spi0 = &qspi;
-+		usb0 = &usb0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	dpcon: connector {
-+		compatible = "dp-connector";
-+		label = "mini-DP";
-+		type = "mini";
-+
-+		port {
-+			dpcon_in: endpoint {
-+				remote-endpoint = <&dpsub_dp_out>;
-+			};
-+		};
-+	};
-+
-+	dp_aclk: clock-dp-aclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
-+	gtr_refclk0: clock-gtr-ref0 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
-+	gtr_refclk1: clock-gtr-ref1 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <26000000>;
-+	};
-+
-+	gtr_refclk2: clock-gtr-ref2 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <27000000>;
-+	};
-+
-+	/*
-+	 * Vendor TF-A 1.8.1 does not register LPD_LSBUS (ID 31) into CCF.
-+	 * Provide a fixed-clock fallback for bus peripherals to probe.
-+	 */
-+	lpd_lsbus: clock-lpd-lsbus {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x7ff00000>;
-+	};
-+
-+	vcc_3v3_pcie: regulator-pcie {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie-reset";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio 37 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	reserved_memory: reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		linux_cma: cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			alloc-ranges = <0x0 0x0 0x0 0x80000000>;
-+			size = <0x0 0x20000000>;	/* 512MB */
-+			linux,cma-default;
-+		};
-+	};
-+};
-+
-+&ams_pl {
-+	status = "okay";
-+};
-+
-+&ams_ps {
-+	status = "okay";
-+};
-+
-+&dwc3_0 {
-+	dr_mode = "host";
-+	maximum-speed = "super-speed";
-+	snps,dis_enblslpm_quirk;
-+	snps,dis_u2_susphy_quirk;
-+	snps,hsphy_interface = "ulpi";
-+	snps,usb3_lpm_capable;
-+	status = "okay";
-+};
-+
-+&gem3 {
-+	clocks = <&lpd_lsbus>, <&zynqmp_clk GEM3_REF>,
-+		 <&zynqmp_clk GEM3_TX>, <&zynqmp_clk GEM3_RX>,
-+		 <&zynqmp_clk GEM_TSU>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gem3_default>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&phy0>;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		phy0: ethernet-phy@1 {
-+			reg = <1>;
-+			compatible = "ethernet-phy-id0022.1620";
-+		};
-+	};
-+};
-+
-+&gpio {
-+	clocks = <&lpd_lsbus>;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0_default>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1_default>;
-+	status = "okay";
-+};
-+
-+&out_dp {
-+	dpsub_dp_out: endpoint {
-+		remote-endpoint = <&dpcon_in>;
-+	};
-+};
-+
-+&pcie {
-+	phys = <&psgtr 0 PHY_TYPE_PCIE 0 0>;
-+	status = "okay";
-+};
-+
-+&pinctrl0 {
-+	status = "okay";
-+
-+	pinctrl_i2c0_default: i2c0-default {
-+		conf {
-+			bias-pull-up;
-+			groups = "i2c0_8_grp";
-+		};
-+
-+		mux {
-+			function = "i2c0";
-+			groups = "i2c0_8_grp";
-+		};
-+	};
-+
-+	pinctrl_i2c1_default: i2c1-default {
-+		conf {
-+			bias-pull-up;
-+			groups = "i2c1_8_grp";
-+		};
-+
-+		mux {
-+			function = "i2c1";
-+			groups = "i2c1_8_grp";
-+		};
-+	};
-+
-+	pinctrl_usb0_default: usb0-default {
-+		mux {
-+			function = "usb0";
-+			groups = "usb0_0_grp";
-+		};
-+	};
-+
-+	pinctrl_sdhci0_default: sdhci0-default {
-+		mux {
-+			groups = "sdio0_0_grp";
-+			function = "sdio0";
-+		};
-+
-+		conf {
-+			groups = "sdio0_0_grp";
-+			slew-rate = <SLEW_RATE_SLOW>;
-+			bias-disable;
-+		};
-+	};
-+
-+	/*
-+	 * Omit 'power-source' and 'bias-high-impedance' to avoid spurious
-+	 * warnings on the board's pre-2023.1 PM firmware. Bank voltage
-+	 * and pin directions are already configured by hardware.
-+	 */
-+	pinctrl_gem3_default: gem3-default {
-+		mux {
-+			function = "ethernet3";
-+			groups = "ethernet3_0_grp";
-+		};
-+
-+		conf {
-+			groups = "ethernet3_0_grp";
-+			slew-rate = <SLEW_RATE_SLOW>;
-+		};
-+
-+		conf-rx {
-+			pins = "MIO70", "MIO71", "MIO72", "MIO73", "MIO74",
-+			       "MIO75";
-+			low-power-disable;
-+		};
-+
-+		conf-tx {
-+			pins = "MIO64", "MIO65", "MIO66", "MIO67", "MIO68",
-+			       "MIO69";
-+			bias-disable;
-+			low-power-enable;
-+		};
-+
-+		mux-mdio {
-+			function = "mdio3";
-+			groups = "mdio3_0_grp";
-+		};
-+
-+		conf-mdio {
-+			groups = "mdio3_0_grp";
-+			slew-rate = <SLEW_RATE_SLOW>;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+&psgtr {
-+	clocks = <&gtr_refclk0>, <&gtr_refclk1>, <&gtr_refclk2>;
-+	clock-names = "ref0", "ref1", "ref2";
-+	status = "okay";
-+};
-+
-+&qspi {
-+	clocks = <&zynqmp_clk QSPI_REF>, <&lpd_lsbus>;
-+	num-cs = <1>;
-+	status = "okay";
-+
-+	flash: flash@0 {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		compatible = "jedec,spi-nor";
-+		reg = <0x0>;
-+		spi-max-frequency = <50000000>;
-+		spi-rx-bus-width = <4>;
-+		spi-tx-bus-width = <1>;
-+	};
-+};
-+
-+&sdhci0 {
-+	clocks = <&zynqmp_clk SDIO0_REF>, <&lpd_lsbus>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sdhci0_default>;
-+	non-removable;
-+	disable-wp;
-+	no-sd;
-+	no-sdio;
-+	mmc-hs200-1_8v;
-+	cap-mmc-hw-reset;
-+	bus-width = <8>;
-+	xlnx,mio-bank = <0>;
-+	assigned-clock-rates = <187498125>;
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	clocks = <&zynqmp_clk SDIO1_REF>, <&lpd_lsbus>;
-+	disable-wp;
-+	no-1-8-v;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	clocks = <&zynqmp_clk UART0_REF>, <&lpd_lsbus>;
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	clocks = <&zynqmp_clk UART1_REF>, <&lpd_lsbus>;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	phy-names = "usb3-phy";
-+	phys = <&psgtr 1 PHY_TYPE_USB3 0 1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usb0_default>;
-+	reset-gpios = <&gpio 44 GPIO_ACTIVE_LOW>;
-+
-+	status = "okay";
-+};
-+
-+&zynqmp_dpdma {
-+	status = "okay";
-+};
-+
-+&zynqmp_dpsub {
-+	clocks = <&dp_aclk>,
-+		 <&zynqmp_clk DP_AUDIO_REF>,
-+		 <&zynqmp_clk DP_VIDEO_REF>;
-+	clock-names = "dp_apb_clk", "dp_aud_clk", "dp_vtc_pixel_clk_in";
-+	phy-names = "dp-phy0", "dp-phy1";
-+	phys = <&psgtr 3 PHY_TYPE_DP 0 2>,
-+	       <&psgtr 2 PHY_TYPE_DP 1 2>;
-+	status = "okay";
-+};
--- 
-2.55.0
+Francesco
 
 
