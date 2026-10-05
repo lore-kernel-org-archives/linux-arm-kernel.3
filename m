@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0DACA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB57CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=17GfxD/dmICqQ9cPJZzmwk4XPn3JD/KJk3iF5TduUls=; b=JbsN1YUq7l6gu8RgNkgIir9upu
-	9fzdEpAmY+GqI35Tl7iQxlgTyU/b6jgnxp/lUgk0Bw9XsNehQM/QLlIvQd8lVJlXqXH4MXyZi5duZ
-	2YfP8zkPzJzbzkxr8pNDpp7Gtieoki4CnJpsmnndz3CkoH6A4INMR3eZvToQTadrTZFIZrSjQx/xC
-	emBM5c6wD04cyoecb2PcltkfKQ/CJztRrmTOz1s7MX7ycR3Chtu/GJ8oOSQZEycCIGU42EtKz37Ql
-	hPgabj+/n0LcSE27Mm8Ds97wXRL13G60nmdyZb13nF8OD+i/IHlR3uxM0vBJfwr923qACmBpVQ+oQ
-	Id/IriGg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mM96EH6+OvEcFcgZIg/Izjec9utL//+6+FzoZE3eP/I=; b=gjYZN5nzixR4O5FMPmGvC/KiNG
+	3+/sveddt//MSY9xtoEIVK4h03H2JdadKhNm8+FMBS+ZIJGkhfrX+AX/wblMsLFIGQ0FrrRn0/7dh
+	VE7yO0SxB8UNwYoX0BYAtO17PCf4BctbSyoPvcjPq6cFaStggd990pmZ+U2v8qFn5IzwQ7Of2psQj
+	8i/LTYG5466+XU8m1vxSihEgpIM2pSQZGaeNKMzb24js0Wn3oZmhei4dldkXoZh15fJi1Dq/8rEBz
+	AcW4nA+dO9ZjMQtSmu2kmULEAqsSZzQaUozto5BG8/hBrx6OT00hG6tUuACJE0HsXQ+OHqBYqrH5O
+	dIKQ1PDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDlTF-0000000GpcL-3Bm2;
-	Mon, 05 Oct 2026 16:23:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDlTD-0000000Gpbx-0TxE
+	id 1xDlWC-0000000GppE-3h9U;
+	Mon, 05 Oct 2026 16:26:24 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.50])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDlW8-0000000Gpom-2dFc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 16:23:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A18D7152B;
-	Mon,  5 Oct 2026 09:23:10 -0700 (PDT)
-Received: from NH27D9T0LF.arm.com (unknown [10.57.12.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1AD743F66F;
-	Mon,  5 Oct 2026 09:23:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791217394; bh=Y+mYSXG7sOxQkecidf0lc3JWzlGyd8J8+bTbdmTk65Q=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XicBDFAxgNQFcfVbFd7ubsuA4RrfeC8ebyoDYn5yCRtpFPVytb7e31MnzkZ7zgglR
-	 Z9nJWr1jD6nfGR9mz2IJ7LqVGTtJZw7cep50soMkG9FFUwkVBq1b9lFORHXxV8/k2A
-	 upGhKZ+sYZQN3muofn4A1rZVsLWm5v/1b7kXumLE=
-From: Emanuele Rocca <emanuele.rocca@arm.com>
-To: Sunil Goutham <sgoutham@marvell.com>
-Cc: Geetha sowjanya <gakula@marvell.com>,
-	Ratheesh Kannoth <rkannoth@marvell.com>,
-	Subbaraya Sundeep <sbhatta@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Srujana Challa <schalla@marvell.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Tamar Christina <Tamar.Christina@arm.com>,
-	Jeremy Linton <Jeremy.Linton@arm.com>,
-	Emanuele Rocca <emanuele.rocca@arm.com>
-Subject: [PATCH net] octeontx2: use arch_extension to enable LSE
-Date: Mon,  5 Oct 2026 18:21:37 +0200
-Message-ID: <20261005162137.71397-1-emanuele.rocca@arm.com>
-X-Mailer: git-send-email 2.54.0
+	Mon, 05 Oct 2026 16:26:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791217577; bh=mM96EH6+OvEcFcgZIg/Izjec9utL//+6+FzoZE3eP/I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=MfTGUDxi+UN0hsK/OAOGHm2aw/nh9jCYFSf20bmqP+QC6h2h6Qg+VIb0hdERWJqHI
+	 8ikH80zF+Ja00BLxE4GoRbLooTm1xI/WArbQ66KmuTZMyM2lNrEqEAWxr7OAGWTE6a
+	 2GUQtnC1vTGqGPjAwbhDIy8FzjAzMxUdXqhgrVtA=
+Received: from [198.18.0.1] ([2409:8a7c:21c:8010:c675:1308:618e:14ff])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id 68EABA6E; Tue, 06 Oct 2026 00:26:14 +0800
+X-QQ-mid: xmsmtpt1791217574thc5z48a5
+Message-ID: <tencent_13712505F7B9023560934C4431D3411C1508@qq.com>
+X-QQ-XMAILINFO: Me8mHstNM5a8SJ1BJzUVkamztcveQ3txPTzgUYUGcf+HueWlJZc2WpvtxLMDfw
+	 APP03LMvlAUXwRXad9ICAXzfE1q3sj1h/EiynQQmAjd2YYdYLbufeaeo3zUmGXdwsE60wrhXFyL6
+	 N/7wMfc6KQVmxmDO+KeNpZe+KagorjYyndye/7s7sxF+n9cQVFIqtl3zWDfmq62EBmKCSRVG/jei
+	 TGFhGohyKb4UrwnJCzdguv4e5Az+1o3z6X9yZHVfZXbxgeAoj4p9IGQFh3I8NwY2cYzdzrMgjva7
+	 cqYWnteOl5/wZ1P6ZMcNU8lYLg2D4KmaTEiausW4J7rqkfyIDMBanoPZxJpm7fR22GXG+gloF9Ab
+	 p1/C1cR2jq9OlZu63j2APyeq1UfF7bin2ZgG/ZwHRafAGVdAIdIxmsC2NcD+Ll6a3jABMo7qWdEB
+	 4GnWzj9W520b64Vn4bS0uHxxfF+vX2omtYlIVUDp3DZVie7jTOHm4wbhHakk739n0LwAnIszbCJ4
+	 fHcYdD7y7/moEhzhGLeNekxzOwaFiCNYUxrAJ1c2YsMVMHx3OW6yR+X1eyLUbLbwBXVEHXq+Fq3q
+	 EwnYQoN3hc3zMspH476AGbyrvzZ//GICk4kbWhcq5dHQJLoMXhJKHJAj9pIQIPcv6hAYDqDKQNg3
+	 m+KVhX9PsYxyzduXBOLxqlBRHCUak4ANcZvRpyUdRnAj0/JdYmXzthGDHQsud1iDStd9y83DQHBC
+	 /o6Q/qbaRwqLmHAC+Q7DlwFyF8ukhTQOjBmG4iuNiHJwziuSgWtK2oskN90zd2EsC8zH0lyi6qrK
+	 Nk2MwSstGeOPJ0PKH/Kt+BuYqfDWuUCyG4VG09byMPkCW3pwRkHln7SyXCalflR1tQks3aI+YxNo
+	 /Zwk9+6Kf+WclgCnKhLA7jaURpSExwgZz9vKhgVgrS+/o+SlxxTp/TUnRIMOIAF2fkSyEso32/W4
+	 zAbec6F0b+gzUAhfLS+l5OqCW+KMHdunWnzyfSEjXFUpfgXDHb4kyf2NFJMnP8WVWATDxm6aK7jW
+	 DVNJ/e9QlKoXUVYRYvtlF5y0sguQmj5mhCna/MdlbDIMc0j2rQ
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-OQ-MSGID: <e2571f5c-820d-4d4c-85ac-1908b55db0ed@qq.com>
+Date: Tue, 6 Oct 2026 00:26:14 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: zynqmp: Add EBDEE EdgeBoard FZ3A development
+ board
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261003194625.936288-1-2254650260@qq.com>
+ <tencent_06FFBD8580099835137D0C541050057B4906@qq.com>
+ <fb944e1e-2386-4e5e-a2f8-8c0ccf66362f@lunn.ch>
+Content-Language: en-US
+From: Pufan Jin <2254650260@qq.com>
+In-Reply-To: <fb944e1e-2386-4e5e-a2f8-8c0ccf66362f@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_092319_257800_713B1B27 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20261005_092621_696829_565EB543 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +92,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of using ".cpu generic+lse", use ".arch_extension lse" to
-enable LSE.
 
-The ".cpu generic+lse" directive replaces the assembler's current feature
-set with generic+lse, dropping other previously enabled features. In
-contrast, ".arch_extension lse" enables LSE while preserving the current
-feature set.
+On 2026/10/5 05:25, Andrew Lunn wrote:
+>> +&gem3 {
+>> +	clocks = <&lpd_lsbus>, <&zynqmp_clk GEM3_REF>,
+>> +		 <&zynqmp_clk GEM3_TX>, <&zynqmp_clk GEM3_RX>,
+>> +		 <&zynqmp_clk GEM_TSU>;
+>> +	phy-mode = "rgmii-id";
+>> +	status = "okay";
+>> +};
+> No MDIO bus? No phy-handle?
+>
+>     Andrew
+Hi Andrew,
 
-For example, the following code is rejected with "selected processor does
-not support retaa", because ".cpu generic+lse" drops PAuth even though it
-was enabled by armv9-a:
+Thanks for the review. In v1, the mdio node and phy-handle were omitted,
+relying on the Cadence MACB driver's MDIO auto-probing, which was 
+incomplete.
 
- .arch armv9-a
- .text
- .cpu generic+lse
- retaa
+According to the hardware schematics and live register readback, the board
+has an on-board Micrel KSZ9031RNX Gigabit PHY strapped to MDIO address 1
+(PHYAD[2:0] = 001b, PHY ID 0x00221620).
 
-We encountered this issue while building the kernel with GCC configured
-using --with-arch=armv9-a. Since Armv9-A includes pointer authentication,
-GCC can assume that PAuth instructions are available and may use retaa
-when generating PAuth-protected returns.
+In v2, I have added an explicit mdio bus node with the PHY at reg = <1>:
 
-Fixes: caa2da34fd25a ("octeontx2-pf: Initialize and config queues")
-Signed-off-by: Emanuele Rocca <emanuele.rocca@arm.com>
----
- drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h | 2 +-
- include/linux/soc/marvell/octeontx2/asm.h                | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
+```
+     mdio {
+         phy0: ethernet-phy@1 {
+             reg = <1>;
+             compatible = "ethernet-phy-id0022.1620";
+         };
+     };
+```
 
-diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h
-index eecee612b7b2..c525c557b38e 100644
---- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h
-+++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h
-@@ -786,7 +786,7 @@ static inline u64 otx2_atomic64_add(u64 incr, void __iomem *addr)
- 	u64 __iomem *ptr = addr;
- 	u64 result;
- 
--	__asm__ volatile(".cpu   generic+lse\n"
-+	__asm__ volatile(".arch_extension lse\n"
- 			 "ldadd %x[i], %x[r], [%[b]]"
- 			 : [r]"=r"(result), "+m"(*ptr)
- 			 : [i]"r"(incr), [b]"r"(ptr)
-diff --git a/include/linux/soc/marvell/octeontx2/asm.h b/include/linux/soc/marvell/octeontx2/asm.h
-index d683251a0b40..a9d29f5d6eeb 100644
---- a/include/linux/soc/marvell/octeontx2/asm.h
-+++ b/include/linux/soc/marvell/octeontx2/asm.h
-@@ -17,7 +17,7 @@
- #define otx2_lmt_flush(ioaddr)                          \
- ({                                                      \
- 	u64 result = 0;                                 \
--	__asm__ volatile(".cpu  generic+lse\n"          \
-+	__asm__ volatile(".arch_extension lse\n"	\
- 			 "ldeor xzr, %x[rf], [%[rs]]"   \
- 			 : [rf]"=r" (result)            \
- 			 : [rs]"r" (ioaddr));           \
-@@ -30,7 +30,7 @@
-  */
- #define cn10k_lmt_flush(val, addr)			\
- ({							\
--	__asm__ volatile(".cpu  generic+lse\n"		\
-+	__asm__ volatile(".arch_extension lse\n"	\
- 			 "steorl %x[rf],[%[rs]]"		\
- 			 : [rf] "+r"(val)		\
- 			 : [rs] "r"(addr));		\
-@@ -40,7 +40,7 @@ static inline u64 otx2_atomic64_fetch_add(u64 incr, u64 *ptr)
- {
- 	u64 result;
- 
--	asm volatile (".cpu  generic+lse\n"
-+	asm volatile (".arch_extension lse\n"
- 		      "ldadda %x[i], %x[r], [%[b]]"
- 		      : [r] "=r" (result), "+m" (*ptr)
- 		      : [i] "r" (incr), [b] "r" (ptr)
--- 
-2.47.3
+and referenced it with phy-handle = <&phy0> under phy-mode = "rgmii-id".
+
+This has been validated on physical hardware at 1000 Mbps Full Duplex
+with zero CRC/frame errors.
+
+Best regards,
+Pufan Jin
 
 
