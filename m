@@ -4,100 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1EECA5FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 23:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D651CA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 23:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MV9congHlVCrHEqybgP75xi1HGXEwIeAsocmSQkvZMs=; b=dxhTLBNqUGEP3ICjwnX8H61ATh
-	1RharNcvY0Rz4tfWePeW1v8ttW+XB0ueHGtq4wqCfmT3GOzq51gE3JIwCcDiiGD3r2wbKPNTfs6ZA
-	vQZKj224TMT4wFF3jnGRtSRLVtYuwDq6jTR9ZEDwy0cyXAbuOokqypKTwe7ZwSTemg15qJtogmhPq
-	hZGghIifw7YHnFNPAa6mI0qfO0JtpqNahl1m9VgvWEn2MTN1MAiIIEqvhg1+C3frFb8ZYQgZ8Odot
-	mZzZsBgCrYiUARvzyBJizwYkt0cn1jeIw0v8GVIvpfB1etW9lhdQ2SHGBHgPDAWh4U4M0t8zxllan
-	86auzLbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jg7eC6O8sczD/5bWQmAv3EpmSexdLgJjBCRuuQxdedo=; b=lE8PULdFekygffAnAAYTPvWTvM
+	XGnnujAakqnPt4E2shWy7bea31E7TQj7HKYsfDnYctUfkJE9sSX3Ge+oncjl5WSIb7OabToDYmVFH
+	fCJ1Qlsra1pbOFplsmt4JAelaaZ65HQ5ZPeXKCnPNomcfOMuNxGk6LJdtV/0VTpN/1G43+A06T5p5
+	T3eOrbbG41jjfqHttXVgvW0ScJrBaRM/PhudfzjbHF04uMV1bEzn4xI/MgJE+5uIDxNudbLvK6wuy
+	w/J0OReIlyBGcFK6PDLnTuxq9ucvyd9N3JGckOkmbGTWyfR8gM7VIUP+RBZpy/pa1LfRkuE1y3sxE
+	x5fJF2Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDsJH-0000000HLTh-2Jdl;
-	Mon, 05 Oct 2026 23:41:31 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1xDsRJ-0000000HLtB-1Gl3;
+	Mon, 05 Oct 2026 23:49:49 +0000
+Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDsJE-0000000HLTC-2MVy
+	id 1xDsRG-0000000HLsa-35XA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 23:41:30 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-39dacf053eeso1101699a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 16:41:27 -0700 (PDT)
+	Mon, 05 Oct 2026 23:49:47 +0000
+Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33e46a15703so3193340eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 16:49:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1791243687; x=1791848487; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MV9congHlVCrHEqybgP75xi1HGXEwIeAsocmSQkvZMs=;
-        b=RvxvdADPTtPpaJsLZHiBzrDgDInrTP+nfv5hBv9IGsbznCyNeT0l+BNseOpqzGd7v2
-         erpLRvHUTxkD8ybbj/D9IZB+tAkSapJMjbyqM1tr0V5CpcN3XC5TR+4Pg8Hvbo3lSsIf
-         Q5oq9iZy0C9/aBZpcwk7mGCFMHULOq+gHiYaMRg22oja650I7P2DR6kjiRimAV3MOsAw
-         bCBTCfKl4vRGY9jhnDDt79YfisZJLLAVmM32jTcfdzymImXvghNaqQZh2ui9eFCPRQqz
-         kXmnsQIPxkczYzvHgoQwkkGaqcSao3U7zCYXjAvgMAdThAXrul4U0gL5TMzVQdBBLPUd
-         my+w==
+        d=gmail.com; s=20251104; t=1791244185; x=1791848985; darn=lists.infradead.org;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jg7eC6O8sczD/5bWQmAv3EpmSexdLgJjBCRuuQxdedo=;
+        b=oJgmCCwH575J7zUbfN6yBNMeBWbdu4hI2G8G92RrdVxhKvK6JMXKM4dYyDWmYIXFq+
+         MlbdLo//4cXkTwGCKBNckYO934CTLWvTnTRY5sltW5vlZg8gxwxj2WLWODurJMEcly3t
+         YfCLQnc35mw90i4ZqfzS7mwe2qWP4VXDeW2osFjCMCwvfsenvB0Uaq0Cm1zFRrw1XYhI
+         viQlYwZzgExGRRV/ahJcd5OJ3UG4ehyMWRU98EzL08BwFtrraiz47+oZ8neAWxP0D6SY
+         w8vO5/P8SfC4PZtgTT/iBNQav6IIcOSXuLWW89CCukv6pdSKjuBmPUtZBgtt4Kv1Vf3a
+         fEzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791243687; x=1791848487;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MV9congHlVCrHEqybgP75xi1HGXEwIeAsocmSQkvZMs=;
-        b=HRKN8LzTFfYCsK2a8/ZPOjO3GFRiyZmHqParjNiofPxFxBR4wzseC3mOHSmx79aSJC
-         Hms8jfo+AKtRyQ5yucV54e2DRFotrbqKKufIP8KHK7r3FR0U/48uZWLp7rsJ446t7Q25
-         Pfw+eB0FwCCsPNWvxiJA44ND81ckqCDL2nhmVznJeLlDSyvM0b89smmwPjmmDyT25+xG
-         L78xcEFkguWx5kCa51U6Fj4EA6or1K61oINl02XDsxWv+xnslVgh7Z60K27lTCsVVXbN
-         3yCoqqSmbdBvL5ft6rDXE2pO++CZC16OnC9GNfz1hlSIL5aniJPJXiJ2ld3XB4GUjRr+
-         YHGA==
-X-Forwarded-Encrypted: i=1; AKwUvBwJLxX4d3ydCvct3xABh9QI1lDkyhayMvvgqrns6rKIuSrTl/7VLZaZuDUbyA7ycYUUackLMWgrRUerFuxAwi8Q@lists.infradead.org
-X-Gm-Message-State: AFq9FYJr1537ljVpPVmg10JuBsBGPTqzUqt3zGXxJJ6EXBMPOEA5m3tG
-	fgN2DHSGAN7L9Erkr/5VMu9chYB3BFyUNv1PgQkUETUssVRQl/HU6r8IP3Hae69cnpg=
-X-Gm-Gg: AYBFou2mFnni/AZuowis8Ng2qck8OWduChKdsLuqw3hQLDSoQTjcrZ6sbxXcfsR9YhL
-	C8MQa/9k9AXNHlOl8dJIXHOanvM4hUyjZ0moMXqXafwhd0yQft4rdB9GcRxSpWGu2r6Fzt+Oma9
-	SKFSBE7S3c/EeF79kVEoiifKkrzLaPrkDRCFDU+uuf68aEcWltkVC2SR2RB59x/u29VzHZKKh1s
-	ZT35Xhd2Z3/vXTo+SWDgVwi55tjxDQlxBQCObvcgmwqD+4wTIvClwd3HvEO4mezZQF4xHi5eT0X
-	SVVMczXjuw86hqvcSNHOnqTvhXACn+Xy38akwVe3tdn00vE1N0y4ifQj5J4wu+5QoxlJzqqxR4z
-	NZgDp3pHs1xZ2n4AIFjRS8cqtmejLHDCXOpQZp2JHTOT+Uu8uAW9/yaaavX9cyAIK4LUsMFbDDy
-	hDS9aImWugvNQy4kHYT4AjNjiYAQECuA+/FvQAh7ZhfdxVPGH1npEV5jmscEmkcS591D+//G3RR
-	sBK6vJHJXZuf866hfkrwoM=
-X-Received: by 2002:a17:90b:5805:b0:3a0:f4ee:d2a6 with SMTP id 98e67ed59e1d1-3a6ce6e6756mr7887037a91.19.1791243686911;
-        Mon, 05 Oct 2026 16:41:26 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:54::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8211b74c8sm2765205a91.0.2026.10.05.16.41.24
+        d=1e100.net; s=20260707; t=1791244185; x=1791848985;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jg7eC6O8sczD/5bWQmAv3EpmSexdLgJjBCRuuQxdedo=;
+        b=Uvz+tlXCMCUP0ZYN3uzqtRurxLtvBAq17K9K8JFg2OQF3/uRZPCTuZQnVJ34NNkT3B
+         3wP9HQovjnbO8mxVqGDSW1GCIX/RXkiHLUdmx+yhNJwjGE4aODxMAMx74reXLnsOkmtl
+         8EBj4xiO+c7Un5nc1P0Cj3tLGeTGtJD+1wpOrmzjPXKjc73MZfIT9CuSN4szl1uQVvLB
+         UkIGsijKlUv8WljaVT2+8xQ0yD1WBbIhTNF2z0HCGJs5guGnHWyJ3tSGOgJZPGOlQk0J
+         TsoettF3kwhU/7KC7nMygRwtUZWVwacchVs9NHEBCgJ0/eZtJBf+t4vdkWBb4nAVgOUH
+         NpGw==
+X-Forwarded-Encrypted: i=1; AKwUvByOxBu5P3ZJ4l2lvwnABhf0I94QrO0p1+TIPKQ4MxF0EneNb4AK+4O6Db+CLE07IDk2t1pee0Q2Tb2TXadlupED@lists.infradead.org
+X-Gm-Message-State: AFuF++m3lkN+n/4uEeM9JVVHkIykKd/EK0e4mLeFS802aCWWDrI7SP5c
+	FM7krpYU9lxJdT4TmKK4wXsHeP1+7G4MTKZgYOpT0nluaz1OxuJpZtwm
+X-Gm-Gg: AYBFou3Orkv9UKfgnK+QmgF90hm2+pMTsnhDqhj0F10cWv8Ddi0cFdcUye4tK/QV0YU
+	sRMsbAkugc+NPhsRwXBvHpX6IZzJY4n4d02YqLdbtZACBkqCcX6jaruWuOX+dgqeJLfz/JK3MMB
+	v6itwvb99bg5wYdYaumEW3GYa53S2JG7YOBUb6zh5M25PvUo5sUAQMrhMsJzTLLJ0mNhd8MSuEm
+	j0NlJ53WWUDFD5lCWKMQtevcb7k5TJAy46+tJbC1ho/UnbYAQ0Rma82H/MgcErpL2PNoetCPeW9
+	4KzrpcUBHP2rn9JlU9Sxjfal74Y1PFfnt2Ut233eq5BopQG2NuxcYqkL+w6/vAPQgD0bhonqHxS
+	ZeOkcv2GocYx28ou3VB7L8JIk9rUzh0iDsCj3hfhh4rLtrw53SH1YfMRDdUfvhC5Vm56fLm89JB
+	GMSBXaKsthNVUyywN2TyX5sUJeOQyBfoSqhc0dZZ5bTT4QwU0fmjFdhicifLjvunZh
+X-Received: by 2002:a05:701b:4587:b0:14b:992f:c168 with SMTP id a92af1059eb24-14f58fd2a19mr13452231c88.4.1791244184897;
+        Mon, 05 Oct 2026 16:49:44 -0700 (PDT)
+Received: from arlo ([72.235.71.10])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-15d84ec510dsm2126430c88.13.2026.10.05.16.49.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 16:41:25 -0700 (PDT)
-Date: Mon, 5 Oct 2026 16:41:24 -0700
-From: Joe Damato <joe@dama.to>
-To: Sagi Maimon <maimon.sagi@gmail.com>
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com,
-	michal.simek@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	daniel@iogearbox.net, jacob.e.keller@intel.com,
-	suraj.gupta2@amd.com, linux-arm-kernel@lists.infradead.org,
+        Mon, 05 Oct 2026 16:49:43 -0700 (PDT)
+Date: Mon, 5 Oct 2026 13:49:40 -1000
+From: Raiden Horner <raidenhornerdev@gmail.com>
+To: slongerbeam@gmail.com, p.zabel@pengutronix.de, Frank.Li@nxp.com,
+	mchehab@kernel.org, gregkh@linuxfoundation.org
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-Message-ID: <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Sagi Maimon <maimon.sagi@gmail.com>, netdev@vger.kernel.org,
-	radhey.shyam.pandey@amd.com, michal.simek@amd.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, daniel@iogearbox.net,
-	jacob.e.keller@intel.com, suraj.gupta2@amd.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
+Subject: [PATCH] staging: media: imx: Fixed depricated implementations of 80
+ char limit & open parentheses line ending
+Message-ID: <asQ3lNQ2kZ_hBHZt@arlo>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261004083759.1016519-1-maimon.sagi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_164128_929312_4664657E 
-X-CRM114-Status: GOOD (  29.10  )
+X-CRM114-CacheID: sfid-20261005_164946_789303_70CFC1B5 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,78 +99,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 11:37:59AM +0300, Sagi Maimon wrote:
-> axienet_dma_bd_release() walks the RX ring to unmap and free every
-> receive buffer before releasing it, but frees the TX descriptor ring
-> with dma_free_coherent() alone.  Any descriptor that
-> axienet_free_tx_chain() had not yet reclaimed still holds its skb and
-> its streaming DMA mapping, and both are lost.
-> 
-> axienet_stop() disables TX NAPI and stops the DMA engine before calling
-> it, so nothing reclaims those descriptors afterwards.  Bringing the
-> interface down while frames are in flight therefore leaks up to
-> lp->tx_bd_num skbs and mappings each time.
-> 
-> Walk the TX ring the way axienet_dma_err_handler() already does: unmap
-> every descriptor whose cntrl is still set - axienet_free_tx_chain()
-> clears it on reclaim - and free any skb still attached, as a drop.
-> This relies on axienet_stop() having stopped the DMA engine first, as
-> the RX walk in the same function already does.
+Fixed open parentheses line ending issue & readability. 
+I presume this syntax was there to meet the old 80 char limit, and double checked the changelogs to make sure this was not already submitted.
+If not I apologize, I am still getting used to using the indexing system.
+
+Signed-off-by: Raiden Horner <raidenhornerdev@gmail.com>
+---
+ drivers/staging/media/imx/imx-ic-prpencvf.c   | 13 +++--
+ drivers/staging/media/imx/imx-media-csi.c     |  4 +-
+ .../staging/media/imx/imx-media-dev-common.c  |  2 +-
+ drivers/staging/media/imx/imx-media-fim.c     |  5 +-
+ drivers/staging/media/imx/imx-media-utils.c   | 54 +++++--------------
+ 5 files changed, 24 insertions(+), 54 deletions(-)
+
+diff --git a/drivers/staging/media/imx/imx-ic-prpencvf.c b/drivers/staging/media/imx/imx-ic-prpencvf.c
+index 77360bfe081a..69f5ca280454 100644
+--- a/drivers/staging/media/imx/imx-ic-prpencvf.c
++++ b/drivers/staging/media/imx/imx-ic-prpencvf.c
+@@ -704,11 +704,11 @@ static int prp_start(struct prp_priv *priv)
+ 	}
  
-[...]
+ 	if (ipu_rot_mode_is_irt(priv->rot_mode))
+-		priv->eof_irq = ipu_idmac_channel_irq(
+-			ic_priv->ipu, priv->rot_out_ch, IPU_IRQ_EOF);
++		priv->eof_irq = ipu_idmac_channel_irq(ic_priv->ipu,
++						      priv->rot_out_ch, IPU_IRQ_EOF);
+ 	else
+-		priv->eof_irq = ipu_idmac_channel_irq(
+-			ic_priv->ipu, priv->out_ch, IPU_IRQ_EOF);
++		priv->eof_irq = ipu_idmac_channel_irq(ic_priv->ipu,
++						      priv->out_ch, IPU_IRQ_EOF);
+ 
+ 	ret = devm_request_irq(ic_priv->ipu_dev, priv->eof_irq,
+ 			       prp_eof_interrupt, 0,
+@@ -761,9 +761,8 @@ static void prp_stop(struct prp_priv *priv)
+ 	/*
+ 	 * and then wait for interrupt handler to mark completion.
+ 	 */
+-	ret = wait_for_completion_timeout(
+-		&priv->last_eof_comp,
+-		msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&priv->last_eof_comp,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(&ic_priv->sd, "wait last EOF timeout\n");
+ 
+diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+index ef22a083f8eb..4eb621ddda25 100644
+--- a/drivers/staging/media/imx/imx-media-csi.c
++++ b/drivers/staging/media/imx/imx-media-csi.c
+@@ -679,8 +679,8 @@ static void csi_idmac_wait_last_eof(struct csi_priv *priv)
+ 	/*
+ 	 * and then wait for interrupt handler to mark completion.
+ 	 */
+-	ret = wait_for_completion_timeout(
+-		&priv->last_eof_comp, msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&priv->last_eof_comp,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(&priv->sd, "wait last EOF timeout\n");
+ }
+diff --git a/drivers/staging/media/imx/imx-media-dev-common.c b/drivers/staging/media/imx/imx-media-dev-common.c
+index 0d0ee8627a2d..be445df93518 100644
+--- a/drivers/staging/media/imx/imx-media-dev-common.c
++++ b/drivers/staging/media/imx/imx-media-dev-common.c
+@@ -377,7 +377,7 @@ struct imx_media_dev *imx_media_dev_init(struct device *dev,
+ EXPORT_SYMBOL_GPL(imx_media_dev_init);
+ 
+ int imx_media_dev_notifier_register(struct imx_media_dev *imxmd,
+-			    const struct v4l2_async_notifier_operations *ops)
++				    const struct v4l2_async_notifier_operations *ops)
+ {
+ 	int ret;
+ 
+diff --git a/drivers/staging/media/imx/imx-media-fim.c b/drivers/staging/media/imx/imx-media-fim.c
+index ccbc0371fba2..9e9bacf9dcec 100644
+--- a/drivers/staging/media/imx/imx-media-fim.c
++++ b/drivers/staging/media/imx/imx-media-fim.c
+@@ -205,9 +205,8 @@ static void fim_acquire_first_ts(struct imx_media_fim *fim)
+ 	if (!fim->enabled || fim->num_skip > 0)
+ 		return;
+ 
+-	ret = wait_for_completion_timeout(
+-		&fim->icap_first_event,
+-		msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&fim->icap_first_event,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(fim->sd, "wait first icap event timeout\n");
+ }
+diff --git a/drivers/staging/media/imx/imx-media-utils.c b/drivers/staging/media/imx/imx-media-utils.c
+index f119477cac6b..00cd391b5ff7 100644
+--- a/drivers/staging/media/imx/imx-media-utils.c
++++ b/drivers/staging/media/imx/imx-media-utils.c
+@@ -16,18 +16,12 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 	/*** YUV formats start here ***/
+ 	{
+ 		.fourcc	= V4L2_PIX_FMT_UYVY,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_UYVY8_2X8,
+-			MEDIA_BUS_FMT_UYVY8_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_UYVY8_2X8, MEDIA_BUS_FMT_UYVY8_1X16),
+ 		.cs     = IPUV3_COLORSPACE_YUV,
+ 		.bpp    = 16,
+ 	}, {
+ 		.fourcc	= V4L2_PIX_FMT_YUYV,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_YUYV8_2X8,
+-			MEDIA_BUS_FMT_YUYV8_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_YUYV8_2X8, MEDIA_BUS_FMT_YUYV8_1X16),
+ 		.cs     = IPUV3_COLORSPACE_YUV,
+ 		.bpp    = 16,
+ 	}, {
+@@ -71,10 +65,7 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 		.cycles = 2,
+ 	}, {
+ 		.fourcc	= V4L2_PIX_FMT_RGB24,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_RGB888_1X24,
+-			MEDIA_BUS_FMT_RGB888_2X12_LE
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_2X12_LE),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 24,
+ 	}, {
+@@ -132,55 +123,36 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SBGGR16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SBGGR10_1X10,
+-			MEDIA_BUS_FMT_SBGGR12_1X12,
+-			MEDIA_BUS_FMT_SBGGR14_1X14,
+-			MEDIA_BUS_FMT_SBGGR16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SBGGR10_1X10, MEDIA_BUS_FMT_SBGGR12_1X12,
++				       MEDIA_BUS_FMT_SBGGR14_1X14, MEDIA_BUS_FMT_SBGGR16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SGBRG16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SGBRG10_1X10,
+-			MEDIA_BUS_FMT_SGBRG12_1X12,
+-			MEDIA_BUS_FMT_SGBRG14_1X14,
+-			MEDIA_BUS_FMT_SGBRG16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SGBRG10_1X10, MEDIA_BUS_FMT_SGBRG12_1X12,
++				       MEDIA_BUS_FMT_SGBRG14_1X14, MEDIA_BUS_FMT_SGBRG16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SGRBG16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SGRBG10_1X10,
+-			MEDIA_BUS_FMT_SGRBG12_1X12,
+-			MEDIA_BUS_FMT_SGRBG14_1X14,
+-			MEDIA_BUS_FMT_SGRBG16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SGRBG10_1X10, MEDIA_BUS_FMT_SGRBG12_1X12,
++				       MEDIA_BUS_FMT_SGRBG14_1X14, MEDIA_BUS_FMT_SGRBG16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SRGGB16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SRGGB10_1X10,
+-			MEDIA_BUS_FMT_SRGGB12_1X12,
+-			MEDIA_BUS_FMT_SRGGB14_1X14,
+-			MEDIA_BUS_FMT_SRGGB16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SRGGB10_1X10, MEDIA_BUS_FMT_SRGGB12_1X12,
++				       MEDIA_BUS_FMT_SRGGB14_1X14, MEDIA_BUS_FMT_SRGGB16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_GREY,
+-		.codes = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_Y8_1X8,
+-			MEDIA_BUS_FMT_Y10_1X10,
+-			MEDIA_BUS_FMT_Y12_1X12
+-		),
++		.codes = IMX_BUS_FMTS(MEDIA_BUS_FMT_Y8_1X8, MEDIA_BUS_FMT_Y10_1X10,
++				      MEDIA_BUS_FMT_Y12_1X12),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 8,
+ 		.bayer  = true,
+-- 
+2.47.3
 
-> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> Assisted-by: LLM sparse
-> Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
-> ---
-> 
-> Notes:
->     Changes in v3:
->     - Clear tx_bd_v and rx_bd_v after freeing the rings.  v2 only caught a
->       NULL tx_bd_v from a first open; after a close followed by a failed
->       reset the walk would have read the freed ring (Sashiko).
->     - Reword the comment on the skb free: a descriptor can complete after
->       TX NAPI was disabled, so "never transmitted" was not always true
->       (Sashiko).
->     - Say in the commit message which hardware the test ran on.
->     - Kept Jacob's Reviewed-by, as the changes are small; please say if
->       that is not OK.
->     - The hardware test is v1's.  The changes since only affect the
->       failed-reset paths, which it did not exercise, and how the freed skbs
->       are accounted.
->     - v2: https://lore.kernel.org/netdev/20260930133851.663023-1-maimon.sagi@gmail.com/
-
-[...]
-
-> 
->  .../net/ethernet/xilinx/xilinx_axienet_main.c | 26 ++++++++++++++++++-
->  1 file changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 09443623a3e2..c88c671f8b2d 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -186,11 +186,34 @@ static void axienet_dma_bd_release(struct net_device *ndev)
-
-[...]
-
-> +	lp->tx_bd_v = NULL;
->  
->  	if (!lp->rx_bd_v)
->  		return;
-> @@ -221,6 +244,7 @@ static void axienet_dma_bd_release(struct net_device *ndev)
->  			  sizeof(*lp->rx_bd_v) * lp->rx_bd_num,
->  			  lp->rx_bd_v,
->  			  lp->rx_bd_p);
-> +	lp->rx_bd_v = NULL;
->  }
-
-The added null writes makes me think that centralizing this code and using it
-from both axienet_dma_err_handler and axienet_dma_bd_release (instead of
-repeating it) is a good idea like I mentioned in the last post.
-
-The code seems right tho even tho I don't like duplicating the logic.
-
-Reviewed-by: Joe Damato <joe@dama.to>
 
