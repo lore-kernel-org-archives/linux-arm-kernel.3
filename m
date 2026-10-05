@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 775B8CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AD9CA5FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Anf5KHHXmIQryXJL7OjihtFBWm+PJQaijP7bg/SprY=; b=0m++ITPqeacpt+gcdCMmQ9sZ/Q
-	IbSkZwoHNfRoKM0M/fpk23/r14M183Vio5yY6PrYGp1NQ3Vq5eyEA2O6jlkEJvMMrZ8ZJPkeFuWl4
-	O2naIjus06kj1L27D2DJkI2gPVlOX/ngdSARgONzI91Ru7Dtq455KzIqnDR7HKTm9m4aWC3GYQJiS
-	LQ+s3kgcIUib6xoxPvgbYpVvhs3vxdOXpjKrrVbusloRYMKSSCtzR6SDl0g/EM9Z/ZGiUCa/ZoeXL
-	jenW22i9A2ee9Xe1cuV59k+jp0l9lpEql/vixDQT/HjfFCDJwXT9Kz1SPruF2yiL3wWAtDPo5mnb8
-	8o7TDteA==;
+	bh=BU6r9ETSklSPrbVIstMQM7CQuv+fcmQeMbwRafanowQ=; b=QxhktaPs5UYF67smOg/ZI4Kjt9
+	Y40DaMuXT/N9Jsd++JyVWdfxTufv2uGDK/NFt+dWGSIbO/rnnKMocYN9bkcSP8+b55d93l6vMmYPH
+	Ktrq3BKztyCw4UGfnQjqotqKVWOxHW8fy1GsjruZl+mhHCMLps9cfTcGOeXrsHg0DRyJHFMCXl1nX
+	svflRPaBFD8DZn3ksPHKiBP2QlBGgnYdo9pugJio3jO9jLDrg8tg9+Qqbs+V8JABYnuY8ufdOHvQr
+	xAonwhOUpnAV2vb4dS8TJI0iSplvA7vLrp5ESAxFBe1rWW+ybLhWo80iHT9ZxNYGGNry4jZjmQEW+
+	M08c+zOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDd4N-0000000Fn1q-3lPa;
-	Mon, 05 Oct 2026 07:25:07 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xDd6y-0000000FnDv-1tpQ;
+	Mon, 05 Oct 2026 07:27:48 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDd4L-0000000Fn1B-1Xne
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 07:25:06 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a16c1608faso7538665e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 00:25:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791185101; x=1791789901; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3Anf5KHHXmIQryXJL7OjihtFBWm+PJQaijP7bg/SprY=;
-        b=uyGho0yqIXqhusj8kd91Pp39UWJU2QZ2dNblD3BzcRb5HfHkwOhe25+SP6LPFSkQzW
-         nMwwd6dNC/cLkkwyomYGO12AbyX63fhryOiIiQNFmjQv1qUd24lisS1krOsSvYMAZ8bl
-         m32G3WR6DCmBFk94Hn/qpTLQxD1EmuMqjZyMvuRAYlU8150j6vjNCzfi6iuHAgByvPsB
-         b0VV6laZM2Lub/ehQ+SYMEgtiyA0zPbPwt/u2WwV2mSl9DchQklVx+xe4BgInXqINfLy
-         sHaPi9+FZTs1wIFfecp0F/leQsUdJgO9IgT9F1RRXyFvN3aHSyE97YPqvytGfwOcG6nc
-         65Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791185101; x=1791789901;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3Anf5KHHXmIQryXJL7OjihtFBWm+PJQaijP7bg/SprY=;
-        b=RwxRyIjSegxkkrNsbTtx3JTyEwO2v+afnShTFp6tpEhdCTxBRUlNpHPoV1Zw18Zijb
-         kxIAb5zP62kj/Z8PyI4jxYp4A1vMx/QivgFWrE7GNPUqVMWcIn9Yo7gAjbIkhQyp8Rd0
-         OeiH1ChaQ2MQ/AMweO6bon7eDy/28IW5V+E6m4WaybWjWIbwFIqNdpoqD+lMX18f0kh4
-         /7lefxMwiOJDUXgardE5gM+vd8I0yemnykBwxLA5HDCNx1wLl6b/9BcWr7RZtWbbb/9h
-         BmBSHuzGcqNU0keLM4asGhijLhUsbtx7dfCEU++QfU8qTOSK+YFaiGIaya5T3lcHbhWB
-         z8lA==
-X-Forwarded-Encrypted: i=1; AKwUvBxmnRoeg/lTgVjHaozzik6yQb9LzCqQbTc5RxzyTKKnu+K5Ko3XRouJAFZt+DvVumuCbJSgsWjnRA8lGO8aRyQC@lists.infradead.org
-X-Gm-Message-State: AFuF++nU7FKzTywgcFvSaGxu7Ecbkyh5G5ZDrogyT5Tg6kmakTTL08D+
-	gz8bttY7RpOXUjx+rsUk4gvnfWECJMnNgxojRA4uIizwwsstms0oACxCouU5vue+XA==
-X-Gm-Gg: AYBFou3xd7eO/uj1Numtagq62j9avaJRjuYAi+ijz/ywN6cQbs6ET3TlKU7YS43xqFh
-	99kg7GbIt497vMP6xHd3f+bZM97wcfrVE1RsnOLFozyt0pmT/0dH/M/w6Ncb/mQZDAc378I9ZDB
-	66iCB6jjTxerAgDkALq4fahEsc4kIs9uQSJ/RqwUni8g75UuKLAmuWkwBV0cRqtYOMsWfJFShnw
-	EFBHa7OmZB1uBxiF1beVj7hxwnpERh9Cir+MoS41qst97F5zn90i7/qccinPY8zGWH/DAct4CUo
-	0Ytvi7hOsY02da6A6BeA/rZAKtfoKlTzCuwPxLDndHNVsfbZcPOSZLnTxTIv4mzpD7n90IiByD/
-	UBRt91kNn8q49VD6k3M2E7uaJUUoAcXjEX6x2f0deZIXgBUgSWmXE/FpAjV2rTFOx1ADFzhOQNw
-	5qwziE0rJFiuS/ELn+CVxPEUiXORTHOtiamdZ9HQukKevOfw+RJ8PxPFnzWnQYg7ghwE+WJD02l
-	kg2+xzoclfg3POppoJ/7fdVNvI5tDYp2/F2Y8QH+Uw=
-X-Received: by 2002:a05:600d:8645:10b0:4a1:7366:6c7c with SMTP id 5b1f17b1804b1-4a173666cdcmr14240555e9.5.1791185100477;
-        Mon, 05 Oct 2026 00:25:00 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c63904832sm1218489f8f.14.2026.10.05.00.24.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 00:24:59 -0700 (PDT)
-Date: Mon, 5 Oct 2026 08:24:56 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	kernel-team@android.com, fuad.tabba@linux.dev
-Subject: Re: [PATCH] KVM: arm64: pkvm: Drop keneldoc markers for the
- allocator structs
-Message-ID: <asNQyNI6nPcNuxwm@google.com>
-References: <20261005072046.2246900-1-vdonnefort@google.com>
+	id 1xDd6u-0000000FnCq-12yB;
+	Mon, 05 Oct 2026 07:27:47 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.54])
+	by APP-01 (Coremail) with SMTP id qwCowAAX6u1IUcNqyUDqCQ--.9868S2;
+	Mon, 05 Oct 2026 15:27:07 +0800 (CST)
+Message-ID: <b22705108be21d1b267fa5964e6c084a08c1fba1.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, Krzysztof Kozlowski
+	 <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>,  Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+ Yan <andy.yan@rock-chips.com>, Philipp Zabel	 <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng	
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
+ Belhachemi	 <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+ Brunet	 <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+ linux-clk@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, 	linux-riscv@lists.infradead.org, Marek
+ Szyprowski <m.szyprowski@samsung.com>,  Maud Spierings
+ <maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Chaoyi
+ Chen	 <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>,
+ Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=	 <u.kleine-koenig@baylibre.com>
+Date: Mon, 05 Oct 2026 15:27:04 +0800
+In-Reply-To: <3c5c15d9-ea7e-49a2-adae-ec3e3c72594b@samsung.com>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+		<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+		<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+		<20260917-mutant-chamois-of-competence-46ca77@quoll>
+		<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+		<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+		<eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+		<3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
+	 <3c5c15d9-ea7e-49a2-adae-ec3e3c72594b@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261005072046.2246900-1-vdonnefort@google.com>
+X-CM-TRANSID: qwCowAAX6u1IUcNqyUDqCQ--.9868S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3GF13Cr4furW8WrWkJFy3twb_yoW7Kw1xpr
+	18ta4UJryDZr18Xr1jqr1UXFy5tw1DA3W5Xr15JF18Jrn8tryIqF1UXr1jgFyDJrs7Aw17
+	tryUXrZrZr1DArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxU-HqcUUUUU
+X-Originating-IP: [112.94.101.54]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_002505_425474_E9CC2C6F 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20261005_002744_658344_1C7DCAAE 
+X-CRM114-Status: GOOD (  42.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +111,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 08:20:46AM +0100, Vincent Donnefort wrote:
-> chunk_hdr and hyp_allocator are private. Their description is not
-> exposed to the API documentation. Drop the kerneldoc markers.
-> 
-> While at it add the missing description for chunk_hdr::data.
-> 
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+=E5=9C=A8 2026-10-04=E6=97=A5=E7=9A=84 00:35 +0200=EF=BC=8CMichal Wilczynsk=
+i=E5=86=99=E9=81=93=EF=BC=9A
+>=20
+>=20
+> On 10/3/26 22:45, Krzysztof Kozlowski wrote:
+> > On 03/10/2026 17:36, Michal Wilczynski wrote:
+> > >=20
+> > >=20
+> > > On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+> > > > On 25/09/2026 23:05, Michal Wilczynski wrote:
+> > > > > > > +=C2=A0 clocks:
+> > > > > > > +=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > > > > > +=C2=A0=C2=A0=C2=A0 description: Reference oscillator.
+> > > > > >=20
+> > > > > > This barely counts as a resource, so usual question: no
+> > > > > > resources here?
+> > > > > > no MMIO? Even the user of this phy is the block itself.
+> > > > > >=20
+> > > > > > This makes me wonder if this should be a device node in the
+> > > > > > first place
+> > > > > > (instead folded into the parent).
+> > > > >=20
+> > > > > The PHY has no reg because the reg is shared with the
+> > > > > controller and
+> > > > > owned by the parent - patch 9 lets the bridge take its regmap
+> > > > > from
+> > > > > there.
+> > > > >=20
+> > > > > The user of the PHY is not only the block itself. It is the
+> > > > > pixel clock
+> > > > > provider for the whole display subsystem, voutcrg takes
+> > > > > hdmitx0_pixelclk
+> > > > > as the parent of its DC8200 pixel MUXes, and while HDMI
+> > > > > output is active
+> > > > > it is the only intended source for that clock. The parent has
+> > > > > to be
+> > > > > assigned explicitly so the general PLL does not end up
+> > > > > driving the pixel
+> > > > > clock, and so a DSI user does not reach the HDMI PHY clock
+> > > > > generator.
+> > > > >=20
+> > > > > So it has to be its own node. The HDMI block has two
+> > > > > independent
+> > > >=20
+> > > > I do not see the logic which lead to this conclusion. Pixel
+> > > > clock
+> > > > provider, so a clock controller, cannot be a user of a phy.
+> > > > Clock
+> > > > controller does not have a physical layer.
+> > >=20
+> > > Sorry I think the wording was not perfect. I meant the PHY node
+> > > is a
+> > > pixel clock provider. voutcrg consumes a clock not a PHY.
+> > >=20
+> > > voutcrg: clock-controller@295c0000 {
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks =3D <&syscrg =
+...>, <&hdmi_phy>;
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names =3D ...,=
+"hdmitx0_pixelclk";
+> > > };
+> > >=20
+> > > The consumer of the PHY is only the hdmi controller.
+> > >=20
+> > > What matters for the node layout is where that clock goes.
+> > > voutcrg is the
+> > > SoC display clock controller - it is not part of the HDMI block:
+> > >=20
+> > > hdmi_phy -- pixel clock -> voutcrg
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - pclk/mclk/bclk -> hdmi_controller
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - pix0/pix1 -> dc8200
+> > >=20
+> > > hdmi_phy and hdmi_controller are the same register block with one
+> > > reg
+> > > owned by the parent. So if that block is described as a single
+> > > node:
+> > >=20
+> > > hdmi_node - pixel clock -> voutcrg
+> > > =C2=A0=C2=A0=C2=A0=C2=A0 ^=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |
+> > > =C2=A0=C2=A0=C2=A0=C2=A0 --- pclk/mclk/bclk --------
+> > >=20
+> > > the node provides a clock to voutcrg and consumes three clocks
+> > > from
+> > > voutcrg. That is a cycle in the device tree description.
+> >=20
+> > There is no cycle. Internal signals to the block are not
+> > represented in DT.
+> >=20
+> > What you have is a driver problem and you create some sort of DT
+> > structure to solve that. DT purpose is NOT to solve your driver
+> > dependencies or circular connections.
+>=20
+> The structure is not something I added. The voutcrg binding has
+> required
+> an input clock named hdmitx0_pixelclk since it was merged in 2023
+> a097a5ec14df ("dt-bindings: clock: Add StarFive JH7110 Video-Output
+> clock and reset generator") and this series does not touch that file:
+>=20
+> Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: hdmitx0_pixelclk
+>=20
+> Mainline satisfies it with a placeholder, because so far nothing
+> provided the
+> real clock:
+>=20
+> hdmitx0_pixelclk: hdmitx0-pixel-clock {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compat=
+ible =3D "fixed-
+> clock";=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-=
+output-names =3D "hdmitx0_pixelclk";
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 #clock=
+-cells =3D <0>;
+> };
+>=20
+> All this series does is point that existing input at the device that
+> actually
+> generates it.
+>=20
+> TRM [1] table 5-3=C2=A0 on page 529 lists the display CRG's input clocks.
+> Most come from
+> dom_vout_top, but three come from IP blocks inside the subsystem:
+>=20
+> clk_hdmitx0_pixelclk=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 297 MHz=C2=
+=A0=C2=A0 u0_hdmi_tx.clk_pix
+> clk_mipitx_dphy_rxesc=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 10 MHz=C2=
+=A0=C2=A0 u0_mipitx_dphy.clk_rxesc
+> clk_mipitx_dphy_txbytehs=C2=A0=C2=A0=C2=A0 297 MHz=C2=A0=C2=A0 u0_mipitx_=
+dphy.clk_txbytehs
+>=20
+> and on page 530 the CRG offers clk_hdmitx0_pixelclk as Source1 for:
+>=20
+> u0_dc8200.clk_pix0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Source0 clk_dc8200_pix0=
+=C2=A0 Source1
+> clk_hdmitx0_pixelclk
+> u0_dc8200.clk_pix1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Source0 clk_dc8200_pix0=
+=C2=A0 Source1
+> clk_hdmitx0_pixelclk
+> u0_cdns_dsiTx.clk_dpi=C2=A0=C2=A0 Source0 clk_dc8200_pix0=C2=A0 Source1
+> clk_hdmitx0_pixelclk
+>=20
+> The DC8200 and the DSI TX are separate devices, so the pixel clock
+> crosses two block boundaries to reach them.
+>=20
+> That is also why the DT has to be able to name it. Those MUXes have
+> two
+> parents and the selection is made in DT:
+>=20
+> &dc8200 {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 assigned-clocks =
+=3D <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
+> ...;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 assigned-clock-par=
+ents =3D <&hdmi_phy>, <&hdmi_phy>;
+> };
+>=20
+> and voutcrg takes it as an input clock because that is what the
+> hardware
+> does. If the PHY is folded into the HDMI node, that input phandle
+> points at
+> a node which also consumes pclk/mclk/bclk from voutcrg. That is where
+> the
+> cycle comes from - the hardware topology not the driver.
 
-I forgot the relevant tags
+I think the common clock framework has a "orphaned clock" feature to
+solve this kind of cyclic clock dependency, although this could be a
+pandora's box if not properly used.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202610041002.Yvw5qUrt-lkp@intel.com/
+Thanks,
+Icenowy
 
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
-> index c1881c0011c9..e1e6dd21cda1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/alloc.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
-> @@ -28,13 +28,14 @@
->   */
->  #define MIN_ALLOC_SIZE 16UL
->  
-> -/**
-> +/*
->   * struct chunk_hdr - Chunk header
->   * @next:       offset from this chunk header to the next one.
->   * @prev:       offset from this chunk header to the previous one.
->   * @__unmapped: Internal field containing the offset to the unmapped page
->   *              boundary, multiplexed with the allocation state flag.
->   * @hash:       Hash computed over the chunk header.
-> + * @data:       Chunk payload.
->   */
->  struct chunk_hdr {
->  	u32			next;
-> @@ -45,7 +46,7 @@ struct chunk_hdr {
->  	char			data[];
->  } __aligned(MIN_ALLOC_SIZE);
->  
-> -/**
-> +/*
->   * struct hyp_allocator - Heap allocator
->   * @start:		Start in the allocator's reserved virtual address range.
->   * @end:		End in the allocator's reserved virtual address range.
-> 
-> base-commit: f0406245cb9855e6318335a8a223551354291a46
-> -- 
-> 2.56.0.rc1.315.gc6ed9934b7-goog
-> 
+>=20
+> [1] -
+> https://doc-en.rvspace.org/JH7110/PDF/JH7110_TRM_StarFive_Preliminary_V2.=
+pdf
+>=20
+> >=20
+> > Best regards,
+> > Krzysztof
+> >=20
+>=20
+> Best regards,
 
--- 
-Vincent
 
