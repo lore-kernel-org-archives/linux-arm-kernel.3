@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7264ACA5FF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC53CCA5FF0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 21:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdzZmoxRoZM+UMpL7Eq9SHs9ftgxVclJGjtJeClfYhA=; b=aifruX564lHe3XodF/WjkFCynj
-	Za3a5sfcvZ+6Zz2fIUOErNVVxMSP1i5QICtskaVgu/3aCj4LYJZSQ05soBxbeOYtLCvdyGSUc7vPd
-	vb+oC6OhkIz+0Doxg++938gAUgjTWq70OUJRzp1HRHMxXNr9WtyTtGUjFDSmvxog6dEaBEZT8pRsx
-	EYgoxMzRNeLC9xbBGiQhb1lgNphbyejdossReLSyJ5rUgOh1JB2Pb6CqbeUOLd//YvMzsg66O1ESR
-	ZTzR0YeLmyGeBDqHT7asywAvnN8ZQG0/wsX4lGMrXk1J+R18zyWbQ0r/MUSUEjamfTLMqNa5vilAv
-	XYwJHs8Q==;
+	bh=l8zDm9e1xHnYMUq1q62pJ6OOsloulGmM1Wyx7GdvjYE=; b=Q29m4nuqeO9+dlRZI2OVy5XFtR
+	ziR0mu2Xlgi0OHAooTHYlMBs2kkqrqPgqakbrD4Qi8Pu7+FFhma0kKB5YVI7NeZrc/c82pP9JiXfo
+	I4/Nmn0+ehzgHhAVkTNHHno0ZbPxBfETYSAiGUIpWdCyT4Dmtn9pcOsPREE8IlT+6yDGrkQ+jNsUo
+	Nst9zOrYK+w+TJanPac8qd26aZ7Q7movrgApAKS8thMPn58oq54oh4HB1LzTIZmA1wXb4al/3RWt3
+	VWH93wjn2s5EoX/HdQK8F1yBai44RJ9IgIZiXbrPgjisK7xtKsbiTh2xKigQBH6Fp8/0zLzsQrJ7V
+	25ViqXQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDq2v-0000000HBee-3FO0;
+	id 1xDq2v-0000000HBeL-2m9w;
 	Mon, 05 Oct 2026 21:16:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDq2v-0000000HBeA-1IWv
+	id 1xDq2u-0000000HBe7-3VSA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 21:16:29 +0000
+	Mon, 05 Oct 2026 21:16:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E110443C15;
-	Mon,  5 Oct 2026 21:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3DF1F00899;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8470F600E2;
 	Mon,  5 Oct 2026 21:16:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22A881F00898;
+	Mon,  5 Oct 2026 21:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791234988;
-	bh=YdzZmoxRoZM+UMpL7Eq9SHs9ftgxVclJGjtJeClfYhA=;
+	s=k20260515; t=1791234987;
+	bh=l8zDm9e1xHnYMUq1q62pJ6OOsloulGmM1Wyx7GdvjYE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bTYfzgnRLN+71jSvBERhtSZO3zSjb+mLxaRNWxGUJLayHcjkcTmlTlb6phLm0RktH
-	 cGJyJ4VmroXI2jHiyIZjpBqk1j3kvnHzwSs2p3lqd7RWfazybkVldiDGR+2ezlNWxs
-	 G8sDRskjHQO8ivpJTpIRRnnQHnmWQQFmR+8r1AsjC6gQxgQh3yKI8U37OAklGtNYxU
-	 5h2RJn53JbUrz94DHxAS84FkyB4+G5RLpme2Doqjlo120Cvh+rRv8jXnIy0XDeb1dx
-	 MCf5N6TSHFQhj3yRdwz0owqQ9t/k74HfADaT1cJs7VxH0Nwb0rSaq2iw/cMxmCQTkz
-	 5Vnc+ARNgr0cQ==
-Subject: Re: [PATCH net-next v3 2/2] net: stmmac: rework stmmac_rx to support
- XDP rx multi-buff
+	b=U9hEDN7kGCij1ILVCpFuMKyXOGyKYgTqZ2i/qUau8MN4HTp5ri+yrW2zKmA2NDvul
+	 xZWFv8qQ+7iF/i0Wf9bxEohMEnGvxuTccOtngyopmIFr/+e/kZIyXUYgPswbXvVZEF
+	 FdvXxu3uv3IxmavrOgbklp6CFqrMtWtS41speuoeM/6wCCAqCBbCyPpeRds43Nt/za
+	 EwdD+Ho8pECrPwLMBwZCIH+qwI2OZOvp2Q9O3sdYK1lMQrhCiSAjoXqUGptL7/8TH9
+	 V7GgD8pfIKE4rDk7TatTmNQvGm+uevN9dWKJMw+K59O7RYeONX3/zWIJQBlxeIvw6r
+	 KKcLMFqGJNDVQ==
+Subject: Re: [PATCH net-next v3 1/2] net: stmmac: take ownership of saved RX
+ state at poll entry
 From: netdev-bot+sashiko@kernel.org
 To: lorenzo.bianconi@oss.qualcomm.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -53,11 +53,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
  netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Mon, 05 Oct 2026 21:16:27 +0000
-Message-ID: <179123498740.434549.17434194748750363367@kernel.org>
-In-Reply-To: <20261004-stmmac-rx-mb-v3-2-50fa171af9ec@oss.qualcomm.com>
-References: <20261004-stmmac-rx-mb-v3-2-50fa171af9ec@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Mon, 05 Oct 2026 21:16:25 +0000
+Message-ID: <179123498568.434549.2388087192931853745@kernel.org>
+In-Reply-To: <20261004-stmmac-rx-mb-v3-1-50fa171af9ec@oss.qualcomm.com>
+References: <20261004-stmmac-rx-mb-v3-1-50fa171af9ec@oss.qualcomm.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -75,10 +75,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 3
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -86,222 +86,203 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] stmmac_rx() now gathers every buffer of a frame into one
-  xdp_buff.
-- [Medium] stmmac_rx() now hands a multi-buffer xdp_buff (head plus frags
-  in the head page's skb_shared_info) to the XDP program.
-- [Low] Several 'In addition' bullets in the commit message describe the
-  parent tree's behaviour wrongly.
-- [Low] Rejected in the baseline decision; kept here because
-  requires_validation is set.
-- [Low] In stmmac_rx(), the non-PASS verdict branch (if (IS_ERR(skb)))
-  still has the comment '/* Clear skb as it was set as status by the XDP…
+- [High] At the reviewed commit, stmmac_rx() resets skb/error/len at the
+  top of the loop only when `!in_progress`, instead of whenever count >…
+- [Low] The commit message leaves out one of the behaviour changes.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it remains at
+  the end of the series and the patch reworks the same continuation-…
 
 --
 
-net: stmmac: rework stmmac_rx to support XDP rx multi-buff
+net: stmmac: take ownership of saved RX state at poll entry
 
-This reworks stmmac_rx() to accumulate all descriptors of a frame into a
-single xdp_buff, so the XDP program runs on the full, possibly fragmented,
-packet. A partial skb is no longer saved in rx_q->state across NAPI polls;
-the in-progress xdp_buff is saved there instead. XDP_PASS frames are built
-into an skb with napi_build_skb() and xdp_update_skb_frags_info(), and FCS
-stripping moves to a new stmmac_xdp_shrink_tail() helper.
-
-> Build the xdp_buff by accumulating all the descriptors that make up a
-> frame, so the XDP program runs on the full (possibly fragmented) packet
-> instead of just the first buffer.
-
-[Severity: Low]
-This isn't a bug, but could the scope be stated more precisely? When XDP is
-enabled, stmmac_xdp_set_prog() still rejects dev->mtu > ETH_DATA_LEN and
-still turns off SPH:
-
-	priv->sph_active = priv->sph_capable && !stmmac_xdp_is_enabled(priv);
-
-So the program only sees fragmented xdp_buffs for oversized frames that the
-MAC accepts at MTU 1500 through GMAC_CONFIG_JE or the XGMAC GPSL setting.
-
-Would it help to say in the commit message that the jumbo MTU restriction
-for XDP stays in place?
-
-[ ... ]
-
-> - release all buffers belonging to a frame when it is dropped on RX
->   errors, instead of leaking the ones already attached to the xdp_buff;
-> - drop the whole frame when the number of fragments exceeds
->   MAX_SKB_FRAGS, instead of delivering a truncated one;
-
-[ ... ]
-
-> - skip zero-length fragments, which can happen for non-first
->   descriptors when split-header (SPH) is enabled.
-
-[Severity: Low]
-Are these bullets accurate when compared with the parent tree?
-
-On the leak claim: the parent stmmac_rx() built no xdp_buff frags. On
-error it called dev_kfree_skb(skb) on an skb marked with
-skb_mark_for_recycle(), which returns the attached page_pool frags.
-
-On the truncation claim: the parent called
-skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags, ...) with no bound, so it
-would not have delivered a truncated frame.
-
-On zero-length fragments: the parent already had the
-"} else if (buf1_len) {" and "if (buf2_len) {" guards.
-
-These read like changelog notes from an earlier revision of the patch.
-Could they be reworded to describe the change against the current tree?
+This patch changes stmmac_rx() and stmmac_rx_zc() so they take the saved
+RX state at poll entry and clear it right away. The state is saved again
+only if the frame is still incomplete, which a new in_progress flag tracks.
+The patch also frees any saved partial skb in
+__free_dma_rx_desc_resources() and stmmac_reset_rx_queue().
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index b2d20628ed214..3098fd6df1582 100644
+> index 0c381ae0d0ffa..b2d20628ed214 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
 [ ... ]
 
-> @@ -5874,135 +5996,94 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
-
-[ ... ]
-
->  		} else if (buf1_len) {
-> -			dma_sync_single_for_cpu(priv->device, buf->addr,
-> -						buf1_len, dma_dir);
-> -			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
-> -					buf->page, buf->page_offset, buf1_len,
-> -					priv->dma_conf.dma_buf_sz);
-> +			if (!stmmac_build_xdp_frags(priv, rx_q, buf1_len,
-> +						    buf->page,
-> +						    buf->page_offset,
-> +						    dma_dir, &ctx.xdp)) {
-> +				if (!error)
-> +					rx_dropped++;
-> +				error = 1;
-> +			}
->  			buf->page = NULL;
->  		}
+> @@ -5652,6 +5657,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (!buf->xdp)
+>  			break;
 >  
->  		if (buf2_len) {
-> -			dma_sync_single_for_cpu(priv->device, buf->sec_addr,
-> -						buf2_len, dma_dir);
-> -			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
-> -					buf->sec_page, 0, buf2_len,
-> -					priv->dma_conf.dma_buf_sz);
-> +			if (!stmmac_build_xdp_frags(priv, rx_q, buf2_len,
-> +						    buf->sec_page, 0,
-> +						    dma_dir, &ctx.xdp)) {
-> +				if (!error)
-> +					rx_dropped++;
-> +				error = 1;
-> +			}
->  			buf->sec_page = NULL;
->  		}
-> +		frames++;
+> +		in_progress = status & rx_not_ls;
+> +
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats,
+>  						  rx_q->dma_erx + entry);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but this patch reworks the
+continuation state in stmmac_rx_zc(), so it seems worth raising here. Can
+a frame that spans more than one descriptor be delivered with the wrong
+length?
+
+The non-LS branch drops the buffer without updating len or setting error:
+
+	/* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+	if (likely(status & rx_not_ls)) {
+		xsk_buff_free(buf->xdp);
+		buf->xdp = NULL;
+		dirty++;
+		count++;
+		goto read_again;
+	}
+
+The LS descriptor is then handled as a complete frame with len == 0:
+
+	buf1_len = stmmac_rx_buf1_len(priv, p, status, len);
+	len += buf1_len;
+	...
+	buf->xdp->data_end = buf->xdp->data + buf1_len;
+
+stmmac_rx_buf1_len() returns min(dma_buf_sz, plen - len), so buf1_len
+comes from the total frame length. The LS buffer only holds the tail of
+the frame, though. Also, the hardware buffer size for an XSK queue is
+xsk_pool_get_rx_frame_size() (see stmmac_set_queue_rx_buf_size()), not
+dma_buf_sz.
+
+stmmac_xdp_enable_pool() only requires frame_size >= ETH_FRAME_LEN +
+VLAN_HLEN * 2, and its comment says "XDP ZC does not span multiple
+frame". However, dwmac4 sets GMAC_CONFIG_JE in GMAC_CORE_INIT. So jumbo
+frames from the wire are accepted and split across descriptors.
+
+For example, with 4K chunks frame_size is 3840. A 5000-byte frame leaves
+1160 real bytes in the LS buffer, but data_end = data + 1532. The XDP
+program, AF_XDP or stmmac_construct_skb_zc() would then see a frame whose
+L2 header comes from the sender's payload, followed by 372 stale umem
+bytes. If frame_size is in [1522, 1536), data_end can also run a few
+bytes past the end of the chunk.
+
+The new in_progress tracking only carries error and len, and both are 0
+here, so it doesn't change this.
+
+Would it work to set error = 1 for a non-LS descriptor in ZC mode? The new
+in_progress tracking would then carry the drop state across poll and
+DMA-owned boundaries. The follow-up patch in the series doesn't touch
+stmmac_rx_zc().
 
 [ ... ]
 
-> +		skb = stmmac_xdp_run_prog(priv, &ctx.xdp);
+> @@ -5788,25 +5796,28 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
 
-[Severity: Medium]
-Can this pass a multi-buffer xdp_buff to an XDP program that was loaded
-without BPF_F_XDP_HAS_FRAGS?
+[ ... ]
 
-stmmac_build_xdp_frags() calls xdp_buff_add_frag(), which sets
-XDP_FLAGS_HAS_FRAGS. stmmac_xdp_run_prog() then runs whatever program is
-attached, and the driver never checks prog->aux->xdp_has_frags.
-stmmac_xdp_set_prog() only gates the attach on MTU:
-
-	if (prog && dev->mtu > ETH_DATA_LEN) {
-
-These frames can still arrive at MTU 1500. GMAC_CORE_INIT always sets
-GMAC_CONFIG_JE, XGMAC sets GPSL to XGMAC_JUMBO_LEN, and dma_buf_sz is 1536.
-On cores with buffer2, a 1537 to 3072 byte frame fills buf1 and buf2 of one
-descriptor and becomes a head plus one frag. Larger frames span several
-descriptors.
-
-A program that never opted in to frags sees only the head through
-data/data_end, but its verdict applies to the whole frame.
-
-Also, stmmac_dvr_probe() still advertises:
-
-	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
-			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
-
-Should NETDEV_XDP_ACT_RX_SG be advertised here? And should programs
-without xdp_has_frags either be rejected or kept away from frags-bearing
-buffers?
-
-> +		/* Due xdp_adjust_tail: DMA sync for_device
-> +		 * cover max len CPU touch
-> +		 */
-> +		sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
-> +		sync_len = max(sync_len, pre_len);
+> -		if (!count && rx_q->state_saved) {
+> -			skb = rx_q->state.skb;
+> -			error = rx_q->state.error;
+> -			len = rx_q->state.len;
+> -		} else {
+> -			rx_q->state_saved = false;
+> +		if (!in_progress) {
+>  			skb = NULL;
+>  			error = 0;
+>  			len = 0;
+>  		}
+> -
+>  read_again:
+>  		if (count >= limit)
+>  			break;
+> @@ -5835,6 +5846,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  
+>  		prefetch(np);
+>  
+> +		in_progress = status & rx_not_ls;
 > +
-> +		/* For Not XDP_PASS verdict */
-> +		if (IS_ERR(skb)) {
-> +			unsigned int xdp_res = -PTR_ERR(skb);
-> +
-> +			if (xdp_res & STMMAC_XDP_CONSUMED) {
-> +				stmmac_xdp_put_buff(rx_q, &ctx.xdp, sync_len,
-> +						    true);
-> +				rx_dropped++;
-> +			} else if (xdp_res & (STMMAC_XDP_TX |
-> +					      STMMAC_XDP_REDIRECT)) {
-> +				xdp_status |= xdp_res;
-> +			}
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
+>  		if (unlikely(status == discard_frame)) {
 
-[Severity: Medium]
-What happens on XDP_TX when ctx.xdp carries frags? Does the frame go out
-truncated to the head buffer?
+[Severity: High]
+Can len carry over into a new frame when an XDP program returns XDP_TX
+or XDP_REDIRECT on the first, non-LS descriptor of a multi-descriptor
+frame?
 
-The path is:
+in_progress is set from status & rx_not_ls before the XDP verdict, and
+the TX/REDIRECT path doesn't clear it:
 
-__stmmac_xdp_run_prog()
-  stmmac_xdp_xmit_back()
-    xdp_convert_buff_to_frame()
-    stmmac_xdp_xmit_xdpf()
+	} else if (xdp_res & (STMMAC_XDP_TX |
+			      STMMAC_XDP_REDIRECT)) {
+		xdp_status |= xdp_res;
+		buf->page = NULL;
+		skb = NULL;
+		count++;
+		continue;
+	}
 
-The converted frame keeps the frags flag, but xdpf->len covers only the
-linear head. stmmac_xdp_xmit_xdpf() sets up one descriptor and marks it as
-both first and last:
+The next iteration skips the !in_progress reset. len is kept while skb
+is NULL, so the continuation descriptor is treated as the start of a
+frame.
 
-	stmmac_set_tx_dma_entry(tx_q, entry, buf_type, dma_addr, xdpf->len,
-				false);
-	stmmac_set_tx_dma_last_segment(tx_q, entry);
+If plen - len is 1 to 3 bytes, stmmac_rx_buf1_len() returns that value
+and stmmac_rx_buf2_len() returns 0. Then this code:
+
+	if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
+		buf1_len -= ETH_FCS_LEN;
+		fcs_stripped = true;
+	}
+
+wraps buf1_len to about 0xfffffffd. xdp_prepare_buff() then sets
+data_end about 4GiB past data. On XDP_PASS, this later code would hit
+skb_over_panic():
+
+	buf1_len = ctx.xdp.data_end - ctx.xdp.data;
 	...
-	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
-			       csum, priv->descriptor_mode, true, true,
-			       xdpf->len);
+	skb_put(skb, buf1_len);
 
-The frags are never mapped or queued, yet the action is counted as
-successful. The EST SDU check also measures only the head:
+dwmac4 sets GMAC_CONFIG_JE, so a remote sender can choose the frame
+length.
 
-	    xdpf->len > priv->est->max_sdu[queue]) {
+Before this patch, the XDP_CONSUMED plus rx_not_ls goto read_again path
+already kept len. The mid-frame TX/REDIRECT route looks new, though.
 
-The frag pages are not leaked, because stmmac_tx_clean() returns them via
-xdp_return_frame_rx_napi().
+The next patch in the series, "net: stmmac: rework stmmac_rx to support
+XDP rx multi-buff", removes this path. After it, the XDP program only runs
+after the LS descriptor, and the FCS is stripped by
+stmmac_xdp_shrink_tail(), which bounds-checks the offset.
 
-Oversized XDP_TX frames were also truncated before this patch. The
-difference is that the program now sees the whole frame and returns
-XDP_TX for it.
+This patch carries Fixes: tags. Could it be backported to stable without
+that rework?
 
-Should frags-bearing frames be dropped on XDP_TX until
-stmmac_xdp_xmit_xdpf() can transmit multiple descriptors?
+[ ... ]
 
-> +
-> +			/* Clear skb as it was set as status by
-> +			 * the XDP program
-> +			 */
-> +			frames = 0;
+> @@ -8339,6 +8352,9 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
+>  {
+>  	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+>  
+> +	dev_kfree_skb_any(rx_q->state.skb);
+> +	rx_q->state.skb = NULL;
+> +	rx_q->state_saved = false;
+>  	rx_q->cur_rx = 0;
+>  	rx_q->dirty_rx = 0;
+>  }
 
 [Severity: Low]
-This isn't a bug, but the comment still talks about clearing skb. The code
-now resets frames instead, and skb is a loop-local variable that is never
-cleared. Could the comment say that the in-progress frame state is being
-dropped?
+The commit message says:
 
-[ ... ]
+    Release a saved partial skb when the RX ring is destroyed.
+
+That covers the __free_dma_rx_desc_resources() hunk. The
+stmmac_reset_rx_queue() hunk doesn't destroy the ring, though. It runs
+through stmmac_reset_queues_param() from __stmmac_open(),
+stmmac_xdp_open() and stmmac_resume(), and is also called directly from
+stmmac_enable_rx_queue().
+
+Before this patch, stmmac_reset_rx_queue() only cleared cur_rx and
+dirty_rx. So after stmmac_resume(), the first poll could add descriptors
+from the re-armed ring to the partial skb saved before suspend.
+
+Could the commit message also mention the open, resume and queue-enable
+change? The patch carries Fixes: tags and may go to stable.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261004-stmmac-rx-mb-v3-0-50fa171af9ec%40oss.qualcomm.com
