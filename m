@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356EDCA5FF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E3BCA5FF0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 00:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bq/bI0JivkjLPmMgLmag/L0XOinkNgv2jczA2pOiqzs=; b=zjZcQwz1yENihp3huSxIe8JLI6
-	3VFLWI2OwtckkO+1AYnja6nNc4VxudNzyH8E0XpZC1jgo+547OhylUXWuv2+FodcQW2OLbb15hLay
-	ON3fzZ/4Wt/5Mz8uBufkZOfzYLeGMMsIoC8UGS6hCdMXXXtWIM2bX4yFtjJcvDuzQryynfXQOD97R
-	JfnSS6ZararaPj9CpUuj1MK2DBf/eoPDdy8/aZMOz3s3NNaO1h6iMSHrqgZQSQ28REC72Ms05N8aM
-	Ls811807BHhdXvWuUUOVDiSl3sK68pYJPZqmpOweSL84HapSiyJXpKuKRsAXXWPJ/TeblU9UAMbEY
-	gPFz45lg==;
+	bh=0D+h+M15AfIHrMbWK3I3jOW93fnSYzZJj7b2pbSDGCQ=; b=UWOnuAwYNQvXblnTUPSGT4+pRx
+	GIrE2g18lIrxoqJz5Eb0oQFGPEAVxn2N2TXvyWBX0cvC2gd7Ol1vkqIti75adfH8qh9nvFpccCrXW
+	PlmkYOviSL+5/u97+g8nWmiMv+YJb5NBmEc7afRHyRxhCLIspvqCl9NL+WypHmrgu7Q4+zf0BwW0X
+	lbb7cPTFNVjjhEiJSGUYhPlRuCQL1ObcvkWpYpydoJn/pY6T9BwfOJPthmuu1cRg68TMqLO9GWyE7
+	lYr1IT4qrVpmO+avYl9oLStvx0G33RRrKkwPQNVu37DGCN+rJMbwUEQiLxQk0REnR4h9WRTKbuEb+
+	gxcFYj2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWjZ-0000000FWQr-049L;
-	Mon, 05 Oct 2026 00:39:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xDWja-0000000FWUm-3Q6t;
+	Mon, 05 Oct 2026 00:39:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWjH-0000000FVy9-2Jfg;
-	Mon, 05 Oct 2026 00:38:59 +0000
+	id 1xDWjI-0000000FVz4-1bHh;
+	Mon, 05 Oct 2026 00:39:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1791160732;
-	bh=piFUhSsVM6dznBeqHDG8mXOwHyyVgOt/aNawLBe88SU=;
+	s=mail; t=1791160734;
+	bh=TASRq49hme2uQo/K/gA104MdMLmlEYc6sP7FfHC2c4c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eaZhnhthgS6/VNZck0EfG7GtyNIfAGW05btR4TsbW9TBaXcX8BDeYEc8BJIjyBCKs
-	 bxGCok9u1tYjY/QIKCV5p+1XVpEbN18NejhkG+QgSjrZyYRM/OkOCfCEZLnCEcRIXS
-	 I8Rtb/ATqQGFutT8mt5KanrASK0nOAmpJTop4FisGmIi2Q3IghPXvb/Aq3TEyT//nt
-	 Nbl2zO3XYvqYBo7oB2OVYRRaSN3Sss1XcXAbzHW629XHbFng8wAFgaHtRck/4ReLPz
-	 vmqupu3Y9iN8vehsFIC6lUdO1a0UQv8r4xAOd8ioQdp0/sAEeCMejMY++M98vaY1T8
-	 VS38dqAyCKCvg==
+	b=U4n7Ho9m+xcxz9WADJctFcN+e7W/Tm0AmWmUdXjB7FOIO0I9IstrMAVmLXGxiSFTE
+	 zvi0A462jQG9phzfFn64HsHDmpafImjGNlTXLqWlwptTWAgrGJyd4rCfFDNyFNyt1Z
+	 kj90kl0mErrL4qdlOvGbaTrEz/jLbSLE9p2BsI/7yyHo68jtD13fbog9RoqAli5nsY
+	 CKvgFJ4etmphTIOkhmwpWnh+KbkR28lth5V6ediqfEL2Y4rF+SPVn5pC6vTdQQDn1G
+	 IwCtuxHe55IKycQHn5GO51wM1tjCdKWVEMVflEdGKNd/yV5BHXO5SXr9JUL8Ix3rpr
+	 /weFHHqVTAIFg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8268F17E1274;
-	Mon, 05 Oct 2026 02:38:52 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8D57E17E1407;
+	Mon, 05 Oct 2026 02:38:54 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 05 Oct 2026 03:38:11 +0300
-Subject: [PATCH v12 10/16] drm/rockchip: dw_hdmi_qp: Avoid spurious HPD IRQ
- thread wakeups
+Date: Mon, 05 Oct 2026 03:38:14 +0300
+Subject: [PATCH v12 13/16] drm/rockchip: dw_hdmi_qp: Factor out HPD
+ interrupt (un)mask helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261005-dw-hdmi-qp-scramb-v12-10-195157ba0b40@collabora.com>
+Message-Id: <20261005-dw-hdmi-qp-scramb-v12-13-195157ba0b40@collabora.com>
 References: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
 In-Reply-To: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -66,14 +66,14 @@ To: Sandy Huang <hjc@rock-chips.com>,
  Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Sashiko <sashiko-bot@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
  Diederik de Haas <diederik@cknow-tech.com>, 
  =?utf-8?q?Robin_R=C3=A4ber?= <robin.raebi@gmail.com>, 
  Igor Paunovic <royalnet026@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_173855_772995_0DB374B5 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20261004_173858_166429_8AB81C5A 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +88,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 and RK3588 HPD hardirq handlers read shared status registers
-and currently wake the threaded handler whenever any bit in those
-registers is set.  This can wake the HDMI IRQ thread for unrelated
-status bits, and on RK3588 can also wake the thread for the other HDMI
-port.
+Extract the GRF-level HPD interrupt mask/unmask register writes into
+dedicated dw_hdmi_qp_rk35{88,76}_{mask,unmask}_hpd() helpers, and use
+them from the .enable_hpd()/.disable_hpd() phy ops as well as the
+hardirq, threaded re-arm and io_init() paths.
 
-Mask the status value with the SoC-specific HPD interrupt bit before
-deciding whether to wake the threaded handler.  On RK3588, select the
-HDMI0 or HDMI1 HPD bit according to the instance port id.
+This is a preparatory refactor that separates the SoC-level HPD mask
+from the phy op entry points, so a subsequent change can gate the
+platform HPD IRQ line without affecting the debounce paths.
 
-No stable backport is needed.  The issue may only cause spurious IRQ
-thread wakeups and does not cause functional breakage.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260702151346.5A4EC1F000E9@smtp.kernel.org/
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Tested-by: Robin Räber <robin.raebi@gmail.com>
 Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588 Orange Pi 5 Plus, dual HDMI
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 54 ++++++++++++++++++--------
+ 1 file changed, 37 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 456bf2f194d7..dff400233154 100644
+index 9e48ec06eb66..ecf12403101d 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -34,6 +34,7 @@
+@@ -277,9 +277,8 @@ dw_hdmi_qp_rk3588_read_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 	return val ? connector_status_connected : connector_status_disconnected;
+ }
  
- #define RK3576_IOC_HDMI_HPD_STATUS	0xa440
- #define RK3576_HDMI_LEVEL_INT		BIT(3)
-+#define RK3576_HDMI_OHPD_INT		BIT(4)
+-static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++static void dw_hdmi_qp_rk3588_unmask_hpd(struct rockchip_hdmi_qp *hdmi)
+ {
+-	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 	u32 val;
  
- #define RK3576_VO0_GRF_SOC_CON1		0x0004
- #define RK3576_HDMI_FRL_MOD		BIT(0)
-@@ -64,7 +65,9 @@
- #define RK3588_HPD_HDMI1_IO_EN_MASK	BIT(13)
- #define RK3588_GRF_SOC_STATUS1		0x0384
- #define RK3588_HDMI0_LEVEL_INT		BIT(16)
-+#define RK3588_HDMI0_OHPD_INT		BIT(17)
- #define RK3588_HDMI1_LEVEL_INT		BIT(24)
-+#define RK3588_HDMI1_OHPD_INT		BIT(25)
- #define RK3588_GRF_VO1_CON3		0x000c
- #define RK3588_GRF_VO1_CON6		0x0018
- #define RK3588_COLOR_DEPTH_MASK		GENMASK(7, 4)
-@@ -348,7 +351,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
- 	u32 intr_stat, val;
+ 	if (hdmi->port_id)
+@@ -292,9 +291,8 @@ static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+ }
  
- 	regmap_read(hdmi->regmap, RK3576_IOC_HDMI_HPD_STATUS, &intr_stat);
--	if (intr_stat) {
-+	if (intr_stat & RK3576_HDMI_OHPD_INT) {
- 		val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1);
+-static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++static void dw_hdmi_qp_rk3588_mask_hpd(struct rockchip_hdmi_qp *hdmi)
+ {
+-	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 	u32 val;
  
- 		regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
-@@ -381,6 +384,8 @@ static irqreturn_t dw_hdmi_qp_rk3588_hardirq(int irq, void *dev_id)
+ 	if (hdmi->port_id)
+@@ -305,6 +303,20 @@ static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+ }
  
- 	regmap_read(hdmi->regmap, RK3588_GRF_SOC_STATUS1, &intr_stat);
- 
-+	intr_stat &= hdmi->port_id ? RK3588_HDMI1_OHPD_INT : RK3588_HDMI0_OHPD_INT;
++static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++{
++	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
 +
++	dw_hdmi_qp_rk3588_unmask_hpd(hdmi);
++}
++
++static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++{
++	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
++
++	dw_hdmi_qp_rk3588_mask_hpd(hdmi);
++}
++
+ static const struct dw_hdmi_qp_phy_ops rk3588_hdmi_phy_ops = {
+ 	.init		= dw_hdmi_qp_rk3588_phy_init,
+ 	.disable	= dw_hdmi_qp_rk3588_phy_disable,
+@@ -325,23 +337,31 @@ dw_hdmi_qp_rk3576_read_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 		connector_status_connected : connector_status_disconnected;
+ }
+ 
++static void dw_hdmi_qp_rk3576_unmask_hpd(struct rockchip_hdmi_qp *hdmi)
++{
++	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_CLR, 1) |
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0));
++}
++
++static void dw_hdmi_qp_rk3576_mask_hpd(struct rockchip_hdmi_qp *hdmi)
++{
++	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1));
++}
++
+ static void dw_hdmi_qp_rk3576_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+-	u32 val;
+ 
+-	val = (FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_CLR, 1) |
+-	       FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0));
+-
+-	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
++	dw_hdmi_qp_rk3576_unmask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3576_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 
+-	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
+-		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1));
++	dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ }
+ 
+ static const struct dw_hdmi_qp_phy_ops rk3576_hdmi_phy_ops = {
+@@ -375,7 +395,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
+ 	regmap_read(hdmi->regmap, RK3576_IOC_HDMI_HPD_STATUS, &intr_stat);
+ 
+ 	if (intr_stat & RK3576_HDMI_OHPD_INT) {
+-		dw_hdmi_qp_rk3576_disable_hpd(NULL, hdmi);
++		dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ 		return IRQ_WAKE_THREAD;
+ 	}
+ 
+@@ -389,7 +409,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_irq(int irq, void *dev_id)
+ 	mod_delayed_work(system_percpu_wq, &hdmi->hpd_work,
+ 			 msecs_to_jiffies(HOTPLUG_DEBOUNCE_MS));
+ 
+-	dw_hdmi_qp_rk3576_enable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3576_unmask_hpd(hdmi);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -404,7 +424,7 @@ static irqreturn_t dw_hdmi_qp_rk3588_hardirq(int irq, void *dev_id)
+ 	intr_stat &= hdmi->port_id ? RK3588_HDMI1_OHPD_INT : RK3588_HDMI0_OHPD_INT;
+ 
  	if (intr_stat) {
- 		if (hdmi->port_id)
- 			val = FIELD_PREP_WM16(RK3588_HDMI1_HPD_INT_MSK, 1);
+-		dw_hdmi_qp_rk3588_disable_hpd(NULL, hdmi);
++		dw_hdmi_qp_rk3588_mask_hpd(hdmi);
+ 		return IRQ_WAKE_THREAD;
+ 	}
+ 
+@@ -418,7 +438,7 @@ static irqreturn_t dw_hdmi_qp_rk3588_irq(int irq, void *dev_id)
+ 	mod_delayed_work(system_percpu_wq, &hdmi->hpd_work,
+ 			 msecs_to_jiffies(HOTPLUG_DEBOUNCE_MS));
+ 
+-	dw_hdmi_qp_rk3588_enable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3588_unmask_hpd(hdmi);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -435,7 +455,7 @@ static void dw_hdmi_qp_rk3576_io_init(struct rockchip_hdmi_qp *hdmi)
+ 
+ 	regmap_write(hdmi->regmap, 0xa404, 0xffff0102);
+ 
+-	dw_hdmi_qp_rk3576_disable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+@@ -460,7 +480,7 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+ 		val = FIELD_PREP_WM16(RK3588_HDMI0_GRANT_SEL, 1);
+ 	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
+ 
+-	dw_hdmi_qp_rk3588_disable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3588_mask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
 
 -- 
 2.55.0
