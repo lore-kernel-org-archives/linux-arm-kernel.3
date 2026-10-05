@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15833CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E087BCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KptHfrcQ4aindQkNpO+syEz+BjMEx0loaikAdffFS7M=; b=JS1Nfnk586qS0D0gKpLfs6+YBO
-	2xANFpsouO8suW4Fi1fWYQk8hLvbtjai3RUIszLP06jZvwPG+B9MAj6u4OIK+nD4fYTdrF3f7An/7
-	jcWejNCmfrqdgeilRR0ZR452oAJkk9AJJMGy/5Xlv637qZasmxPAMaiO728dwmVkXAiQJSU/AQSQ6
-	tPfTwYlk3FvHiVB9M3InOBtp+W1NPj4MgvmsoRfHlDG2kl0LP82JeOfBBZAbcff671/vLJDGeXs1H
-	HzFTxkceZaFFVJJWFTGXYY56XigEhJVeJvjbDRE67FLYSg0Har7OojvMFMR9oxMrBmTQyGS/8FZOl
-	OePJnCKg==;
+	bh=DHbE/ZQrnN4lIbhz9d2lRY1XaGiqJgT56yvkXrJ87/I=; b=Lwaoe1jrPd/ys4j/he1izVFbRE
+	abmxa5SU1OYybXVaJEXHpkZGV4nAjM8aYzhCL5KABLxBiiIX56k2b97mWY8Pz+1Uaelor2PkZLujQ
+	0IUgD8vx0f2gAouLVBTED8//4y2COJMH/xXRvLSpifcEh9+lEu86Q2GWxbJu2ZvkxN6yWSJ6OPaFX
+	zqtHKFzupFNy4NRYNokzg8eboWmRI9TmvKJgVDy+iQ3JcntCdMKUaLPgi7FAAsUOJ581Buh0Wotxg
+	v4L0PUpwe+o3kje/QtZX+bJmNszeKoHyJtYmmrdMGnQ+neNckd+QBEqSJIUTumkLEF4ytHGnw4cXY
+	GlgjQVKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDkfQ-0000000GlDF-0AB1;
-	Mon, 05 Oct 2026 15:31:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDkfE-0000000GlAg-0Lk6
+	id 1xDkfq-0000000GlLM-1EtY;
+	Mon, 05 Oct 2026 15:32:18 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDkfn-0000000GlJX-0Xbl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 15:31:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDDB1152B;
-	Mon,  5 Oct 2026 08:31:33 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B85EB3F66F;
-	Mon,  5 Oct 2026 08:31:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791214297; bh=UfbkEj7jWC5+3mriZ290i7LpZ34xnOeNx98uhNGcwvs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=exVUm0cZnHQnY5eDcThWwtVtsV8bnj/H4FIk9vMSC0M9uS6j/8ciV6Puh+y0NX116
-	 oI/KBHXz6lA63AsMY4N4h+jtZA/cp2j9D7tDztXG8s4lHbkVXoN5n7cQWvthLajd+L
-	 3/qGM3C3zhcyE1sjAcn3EEG/VTNV+Zr8YqR+3xUg=
-Date: Mon, 5 Oct 2026 16:31:28 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH V3 1/4] arm64/mm: Use pmdp_get() for PMD accesses
-Message-ID: <asPCv5Icdm7Z9mWF@arm.com>
-References: <20260924062214.1635078-1-anshuman.khandual@arm.com>
- <20260924062214.1635078-2-anshuman.khandual@arm.com>
+	Mon, 05 Oct 2026 15:32:16 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-917a2800e83so25428806d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 08:32:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791214334; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cHrjcB8C1edP9Smbvkr3xeKf2JUuzI26j6lMYyjse91dOnoeBNZKajrL0TUKasUofP
+         qc78iujsvxHmGaJlWa8Y6UPAh8/aVSHSY3VfPUoCzRe7nbh04elqvLujbRauVwEGwy28
+         j6MsQpEmtPfdnVTIS6v7m3QCqQEJ5Y/9LYVA5NRqc839HPImTzkJg18jQ+P3M5NJ/y/N
+         ogcJbFVic1VCrszcDOUf32IPIwU0yftj1G0WK9dF2j0sR6G/qmoIN7445reE4XhnRnye
+         79ufgWBHe+J7sBBl0w3FZCD0lotYjgvJx49rEuCU2tqRvAGub9BLw+UdgfkzeEZjqKqa
+         nNMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=DHbE/ZQrnN4lIbhz9d2lRY1XaGiqJgT56yvkXrJ87/I=;
+        fh=xniySZdR0lxY55RLxqZI6ZtVRkrWtxL3a672FZBnQJs=;
+        b=IkZ/Zwg8pp9XThiYlQHZcWAtXEv6ORMSv4jdjfZflO/jp9W1BzhDPGb70sIiQx1zyH
+         AN+FZeVkyqZVogM+CAtK2QBhETKknxSLJxz5KdCeybF6VwwfNGoQklMVu7MeSIx36JPU
+         QWUvowjOY2S/SjsZ2MmtP6zwe5eHLcB93aO5Pdt6/9tkMGIIPpwFvoZndGa7oqzPpA9n
+         Q1dk0DDXrFSaWOcX8qqdR/aZnQcqOj/deEcLx5POW+y+4vNBryGBBCnCU/e5u6eesZFH
+         zfmS3m0bs0AgHbGtdAhqLQ540fOokJpOea1BPzh8LQeHo1WHSk/qwP1NvJV3pETalj/V
+         cQ5A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791214334; x=1791819134; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DHbE/ZQrnN4lIbhz9d2lRY1XaGiqJgT56yvkXrJ87/I=;
+        b=NpKru6aDvESWXWumGHAVJVh1sPMukLacdmbilG1DhNdCZL1DUDHhucsVXJCZFsAq4e
+         g35n8Qp41b6SOgfyKA7nQSfo4ttYh0jE0iHOOJv5ivcKPGWpRfhO4wGZrpT5h6dUESme
+         LwfRzOmrUV0hz19QHAlAqrXRcuOhdcwwyNalddBqnF4lI57rMsd6t5VZxTa6EhpPrRSb
+         zsnvNOL2UTqMDwTMsdhQbDh58vDI/qHKhuCkJi9beEcybyoqmn2Tmh7PXIw9/6MB8/l+
+         0/bgECRknk7Gj8UJkV4xSr+IO2qUpkFME5Kfv3y9CqAakWKENdUJwhSWpKY4vmo9rzXH
+         aYlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791214334; x=1791819134;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=DHbE/ZQrnN4lIbhz9d2lRY1XaGiqJgT56yvkXrJ87/I=;
+        b=Aa/cG4hBz0XRcLYupBbiVHDWdY8Xmk1K668sReEf9tJzNeGN8C5rCejQ2Flbhjgtqq
+         r6zhhiB7r3Np/cysa3snEq/4nk/KXm7xCBnyQQociUuud0K5TpReyhszeQDxcUftftN2
+         zXtp3Q40w6l9KC+3TMY9BSX2hLnwhuCyHqidVgJN//584ic4iQuhDt7lsxJVUdKWH+n2
+         ZK5KzMw4PZSF3z8yIC7unXxupdMi8gfyi8TX4UUkH+MrILdS5lt23pdEUWHIvdX2uhA4
+         B2srvR7ayMg6sSP0LCeG64i+d43dtRo97561BZbeQAZmgADa0LjtLWtQp55mSvxsP1tX
+         OYIg==
+X-Forwarded-Encrypted: i=1; AKwUvBwb286i8LG3gnL+ZReFUqcdAQOWhktf1bCPbtx/Of9xCrQtZWJc4OacBQvc45zfhxpZpNirH8/O9ylpZDZcN+oe@lists.infradead.org
+X-Gm-Message-State: AFuF++kDFZspH/aJTcES8Vfa0xT/ZJefb/cc8IGkemqNa0VNbTWRDma+
+	XYJajQmNXpifCHxTvWrj7lPJWXK7fE/CSdJ0tFKjrYFSUWsItne9IV0iH0jxkz+EBphD80TZDgx
+	fGI0T8+7ddtmHnB37OJ8CpFgwd1ZskM4NC4DP
+X-Gm-Gg: AYBFou2pEGvrM43hDF3x1K9EGp61U24R61mofY2NDz01JrJBL0D1yx/oxFaBIZfQrnN
+	3nKP48h4RusBtW2HDGKb7A1QyFNoZwfjGupdW2rVJlpXQxxscg4Y7izX8Nud8DCbrA8UMY6vdJt
+	V2Lxe6Gh5RnKmoKgzNcnfzbsmjGHN6GnvQ1Sdd3PDbsHT9NIpEylUuNhthrEZYONb/cm2Ot3aMI
+	NWSRvn7sGjCAbUoKP0+eNxbRh6I7MHv44jiIz17edVMxKWcMtm0A1mBTbeJyIYpcpz/yA1XTkKH
+	+y/29Tkrg+hPAm3FIBwaZ6MXaviFrNQAV29yZ9qklLzq9A6FO0OfVUk=
+X-Received: by 2002:a05:6214:4906:b0:915:e9af:3145 with SMTP id
+ 6a1803df08f44-9195d07bd1amr138006566d6.12.1791214333390; Mon, 05 Oct 2026
+ 08:32:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260924062214.1635078-2-anshuman.khandual@arm.com>
+References: <20261005105535.2472-1-ansuelsmth@gmail.com> <asPCFDMXyntAV6lx@parshuram>
+In-Reply-To: <asPCFDMXyntAV6lx@parshuram>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Mon, 5 Oct 2026 17:31:59 +0200
+X-Gm-Features: AclHuK9sfRTTob9cejo5rJV-vGSG3XFEFgdIAL7ikLesT7uwwOKne_JE24bBBNs
+Message-ID: <CA+_ehUx_B2K3WgLYkt2fz5jzDRB24LQRB3uX_VScZ2QSxCojPg@mail.gmail.com>
+Subject: Re: [PATCH v13 0/3] airoha: an7581: USB support
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_083141_219779_3573637F 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20261005_083215_178063_4FD2C6DC 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +118,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 11:52:11AM +0530, Anshuman Khandual wrote:
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 763c5a411d64..9ad2d03e86ad 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -84,6 +84,12 @@ static inline void arch_leave_lazy_mmu_mode(void)
->  	arch_flush_lazy_mmu_mode();
->  }
->  
-> +#define pmdp_get pmdp_get
-> +static inline pmd_t pmdp_get(pmd_t *pmdp)
-> +{
-> +	return READ_ONCE(*pmdp);
-> +}
+Il giorno lun 5 ott 2026 alle ore 17:28 Vinod Koul <vkoul@kernel.org>
+ha scritto:
+>
+> On 05-10-26, 12:55, Christian Marangi wrote:
+> > This is a major rework of the old v2 series.
+> >
+> > The SoC always support USB 2.0 but for USB 3.0 it needs additional
+> > configuration for the Serdes port. Such port can be either configured
+> > for USB usage or for PCIe lines or HSGMII and these are configured
+> > in the SCU space.
+> >
+> > The previous implementation of a dedicated SSR driver was too
+> > complex and fragile for the simple task of configuring a register
+> > hence it was dropped and the handling is entirely in the PHY driver.
+> >
+> > Everything was reducted to the dt-bindings to describe the Serdes line.
+> >
+> > Also the property for the PHY are renamed to a more suitable name and
+> > everything is now mandatory to simplify the implementation.
+> > (the PHY are always present and active on the SoC)
+> >
+> > Also other unrelated patch are dropped from this series.
+> >
+> > Changes v13:
+> > - Rebase on top of phy next
+>
+> Pls fix the chechpatch issues. There is new blank line at EOF, SPDX
+> format mismatches and many more. Make sure you pass --strict flag to it
+>
 
-This is the same as the generic version. Does it need redefining?
+My checkpatch doesn't report the blank line. Am I missing something?
+For SPDX, is it ok to change it? The commit just move file. I would
+like to fix that in a separate commit after. (I can include in this
+series if you
+want)
 
-> +
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->  
-> @@ -811,7 +817,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->  }
->  
->  /* Find an entry in the third-level page table. */
-> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
-> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
-> +					 pte_index(addr) * sizeof(pte_t))
+The other warning are about Kconfig description where I can
+artificially make the help text longer (no idea if it's OK...)
 
-Why not make this change in the generic version?
+And the line too long for the define but making the line shorter
+would result in a disaster for the register.
 
--- 
-Catalin
+Up to you what I should fix but I guess the real important one
+is the blank line but my checkpatch script is not detecting that...
+
+Can you help?
 
