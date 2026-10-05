@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148FFCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD9DCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azL6RWzxNPLFbjqexUqOSuUWiCvD6BgcwHGYwvXeEQQ=; b=tK0FEdeGWnMMakDQI1c9x2iHMi
-	9Os9LkQIn2kq+Z5xfPLURcwulBGP90RRwc3GI+CVKjSzo4WeoDNApc5AC+cDya/cYu4oI1Tr2jnBy
-	4jpOCS1+FbaBAZZdzAmHHW/hZYbqnILbmF4qYiFurOhDjID4VN4a6NLhjpQvn3KXY2nsr6uvsUDLG
-	Dv7euuyQYaJA6YRrOF7FasZiFp0k4aWgmXRL15WBbT3haxfW8YCgdCkiSDlNaK9RE/EFMi/FObfhe
-	pGgVFCosZxrwW+HEZzuO0ZGl0cfuz/YcXbHNvw4kHAOynSc7QsmjaEVACVmOIUDwSdDug3GR8jydJ
-	JFxttMYA==;
+	bh=N1Tdp41tcttMIXzEsnKaz7v2lLzbgncTRrts6HtrK/4=; b=c1h0sX5M5GsB0v24Z/1seubVZ2
+	+ZMp04QgYiPYmfA7Ea4COEKSEjQBk8F7Ovd+q1WKVjouyeU12ykpRZfJZaZThbj1d4YfG3JfP6MwN
+	jeCcT11jMHaQSh2nQJ3z4AM9sFmPTx6pj1p95c4raRBtLmu2daSvi3VGD2foN50mAe8eBvmpfGvIt
+	guMtURi8GM5J6ki2Iz8cHnPJhZUcmP9OQcuT0xskqFth56mpJa6QZQZ69nS4uushQNfNnQqPQqOQS
+	u2uoY6+dxKjsDO4C7lBE13yVqTCg1l0q6KkxQFFL1jnm8xXVMLFVCldzr3RKn3ph6JeVUe3HvHfAL
+	0fn7Squw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDe3p-0000000Fsxa-1Pcz;
-	Mon, 05 Oct 2026 08:28:37 +0000
-Received: from out-104.mta1.migadu.com ([2001:41d0:203:375::68] helo=mta1.migadu.com)
+	id 1xDe5d-0000000FtEV-2GmC;
+	Mon, 05 Oct 2026 08:30:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDe3m-0000000FswD-0vig
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 08:28:36 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=azL6RWzxNPLFbjqexUqOSuUWiCvD6BgcwHGYwvXeEQQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791188911; v=1; x=1791793711;
- b=U0H/bsw7+TDb9QXyxEZ/AQJFBxjCGWFWzx8wxbRswus5Aortw+hnirb9iNXcSZFjQjkkyWtZ
- Mf0uUNZNRosNDeY16L1qvmLcm+CLCntqDkhdkkMfF6VJ4Zm6UYuDYcXcHvTBa5cyGrBtHGZ6TEL
- aQ5YSxO5PvuR2dRvEJR5SmXE=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 0f515bffc3b7d3a7;
-	Mon, 05 Oct 2026 08:28:31 +0000
-X-Mizu-Trace-ID: 0f515bffc3b7d3a7
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so3587e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 01:28:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwF457OwlVOtg0FtNAoLv/EFdg3CbdFOnuUaLhjENv8w8h57xqsSZfzGSbclProBdCbSeLrskWc9Xh96jdLvbdA@lists.infradead.org
-X-Gm-Message-State: AFq9FYKTNKAr5BRtlYCw1LwgC1jeWbeKyoOI0HJCyYnYsB2HGbjLbYGK
-	n8UQII0RQOmJ7x3zGtVU539KWcCS3VIACv5cGtfT3xUiZPxfmTNEZE+VPMyuVYAbqyETAa6qdZ1
-	UmNVFyfdTU6pWLLk/Qed5/8oDuM9dUMnbYNxGIH44
-X-Received: by 2002:a05:6512:440e:b0:5bc:b531:51ea with SMTP id
- 2adb3069b0e04-5bcb62cfb9dmr110049e87.13.1791188905794; Mon, 05 Oct 2026
- 01:28:25 -0700 (PDT)
+	id 1xDe5c-0000000FtEH-1UHN;
+	Mon, 05 Oct 2026 08:30:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F374A433DB;
+	Mon,  5 Oct 2026 08:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34EFC1F000FF;
+	Mon,  5 Oct 2026 08:30:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791189027;
+	bh=N1Tdp41tcttMIXzEsnKaz7v2lLzbgncTRrts6HtrK/4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mc6BgPdstjE5mHOMP9Ya3gYfkxM1G9DPWSSKfzHGlwaMcKj+ezqoYdXv7kfxGT/GC
+	 OJqs/GNzf80R3VURsLMxkqwM7dWfJK4T5iqD1j8k9Z5NJpIZc76GEfLlzK8mXFUEIN
+	 mqc1FyvB1KMU+TFC+H827L6eA8DHmaQmsZa7xyxQRzeMtf68Z3yQ1jOB8goX8cs9aM
+	 T6kJXIkHI4tR+E+OLG1Uu221MxzfZdS7wB572QKdMl+GsTRSYU/GAfAe6OOHNsfjAi
+	 5tcLGHhA0q0hjePPSsKc/eI+ZxvDOaxTvzcmHVkkjcMFK2j3CT9zKYBz4wsZ+w2B+S
+	 uDf7pmmzAT7CA==
+Date: Mon, 5 Oct 2026 10:30:24 +0200
+From: Vinod Koul <vkoul@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v16 1/6] phy: core: add notifier infrastructure
+Message-ID: <asNgINDic6A3Gvtq@parshuram>
+References: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-0-126a2e9133c3@collabora.com>
+ <20260924-b4-rockchip-dwc3-rockchip-glue-v16-1-126a2e9133c3@collabora.com>
+ <asDFBIVf06-VaWdx@parshuram>
+ <asJGziv0N3qtXo6_@venus>
 MIME-Version: 1.0
-References: <20261005050349.836795-1-fuad.tabba@linux.dev> <asNdAXGkxagm88Su@kernel.org>
-In-Reply-To: <asNdAXGkxagm88Su@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 5 Oct 2026 10:27:49 +0200
-X-Gmail-Original-Message-ID: <CA+EHjTxG=JUc7qERzdkOE4hEMUVSWK2AUtcR1JJ-k6S0m_RxqA@mail.gmail.com>
-X-Gm-Features: AclHuK_skcmiWKYt-g9sV07lqcK6sGjUvRohlQWsrIQerdG0YwJX1vJl3n2KYq4
-Message-ID: <CA+EHjTxG=JUc7qERzdkOE4hEMUVSWK2AUtcR1JJ-k6S0m_RxqA@mail.gmail.com>
-Subject: Re: [PATCH v3] KVM: arm64: selftests: Check SError is not pending
- after delivery
-To: Oliver Upton <oupton@kernel.org>
-Cc: maz@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	vdonnefort@google.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_012835_013111_8BED107B 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <asJGziv0N3qtXo6_@venus>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,20 +77,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On 04-10-26, 14:44, Sebastian Reichel wrote:
+> Hello Vinod,
+> 
+> On Sat, Oct 03, 2026 at 11:04:13AM +0200, Vinod Koul wrote:
+> > On 24-09-26, 19:25, Sebastian Reichel wrote:
+> > > Some PHY devices with multiple ports (e.g. USB3 and DP) require a reset
+> > > if the configuration changes or cable orientation changes. This is a
+> > > problem, as the consumer device will run into undefined behavior.
+> > > 
+> > > With the new PHY notifier API introduced in this patch, the consumer
+> > > driver can hook into reset events coming from a PHY device to handle the
+> > > PHY going down gracefully.
+> > > 
+> > > Note that this uses -ENOSYS instead of the more sensible -ENOTSUP for
+> > > the stub functions when GENERIC_PHY is disabled to stay consistent with
+> > > the existing ones.
+> > 
+> > I dont think this series has the usage of this.
+> > 
+> > I think I am still not convinced why a phy should notify as I dont feel
+> > we have any mechanism to notifying. Checking status and letting people
+> > know if not really a notification mechanism... Maybe add a status call
+> > instead?
+> 
+> This series contains the infrastructure and the consumer of the PHY
+> reset notification (dwc3 rockchip glue driver). The producer/sender
+> of the PHY reset notification is the first patch in the USBDP part 3
+> series. I grouped the patches like this, so that this series has PHY
+> patches followed by USB patches instead of PHY - USB - PHY. Patches
+> must be applied in the exact order (i.e. first the patches added the
+> PHY reset notifier infrastructure, then the DWC3 notification
+> consumer and then the USBDP notification producer).
+> 
+> The broader picture solved by this is (pre-existing race condition
+> issue in USBDP):
 
-On Mon, 5 Oct 2026 at 10:17, Oliver Upton <oupton@kernel.org> wrote:
->
-> Hi Fuad,
-[...]
->
-> Can you add coverage for the vCPU events state to all the test cases? In
-> addition to the case where the SError is taken, it'd be good to assert
-> that the SError remains pending if the guest masked it.
+Thanks, this is helpful to understand the context. Few questions on
+below to help me understand more...
 
-Will do,
-/fuad
+> 
+> 1. USBDP PHY provides critical resources to DWC3 USB controller
 
-> Thanks,
-> Oliver
+what resources are these?
+
+> 2. USBDP PHY needs to reset to reconfigure (e.g. enable/disable DP side),
+>    which means the resource is temporarily not available
+
+Who invokes reset, I guess the controller (dwc3), so it ought to be
+aware of the reset condition.
+
+> 3. DWC3 accesses its registers during the reset -> SError, because PHY is off
+
+I would assume that dwc3 should know about it as invoking entity..
+
+> 
+> This series combined with the first patch of USBDP part 3 changes
+> things, so that it works like this:
+> 
+> 1. USBDP PHY provides critical resources to DWC3 USB controller
+> 2. USBDP PHY needs to reset to reconfigure (e.g. enable/disable DP side),
+>    which means the resource is temporarily not available
+> 3. USBDP PHY driver sends pre-reset notification
+> 4. DWC3 goes into a safe mode after receiving the pre-reset notifiaction
+> 5. USBDP PHY does the reset
+> 6. USBDP PHY reset finishes, USBDP PHY driver sends post-reset nofication
+> 7. DWC3 returns to normal mode after receiving the post-reset notification
+
+> 
+> This avoids running into the SError.
+> 
+> Greetings,
+> 
+> -- Sebastian
+
+
+
+-- 
+~Vinod
 
