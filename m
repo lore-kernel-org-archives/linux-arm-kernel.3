@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD26CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F246CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3pORT8MRyPPJkeRnXsygr7iJGGqhaxubZR9jjt6cbk=; b=F3akR/mOhP/c3TAUyHXFYndFEB
-	uBhuar/Yn28dbLVstq/CiSyxY4HI144LPJzkcLiJwHFPm6dVhaej7WCwPMpx0KcnhR50+YpcV3LPW
-	9PWGF11skpL0dlPMeWZlYhSe6hc3/522ABRk5GyPiS/wpf7fQv+AynKbiplqQxOxH9ZdzDpt7+KCw
-	mMW4Q55UfkjY8aWr8RKpWH2LRmgGTRJJyzg9Yb/vO0O+SzHx6xJJEPzNI4B9Y6LEybH4kM2WuykQc
-	AVhHQZgW2qGvk19jpKdGfyPYKZWi35dXFdM0vOG0UkfuS6zY6cI5ufGcX6+eTaFWDuHLxAvsUNjMS
-	CoT63grw==;
+	bh=ULzXOTNGZsl8i2FLpcSokhpQ3RMxibrvq655plx5ZCI=; b=XNjrenwHR6paLhYviqY8oHhp17
+	r/22lZ8BFB8swNcOlW5zK4nNd/8PB6SYBp6nAmlNunKvFERr05wHYFr1xQdPXDsTCaFI1xpUc5fLz
+	8vPjOFhtwvOHXxydgx1rzysk0qQAMrof9eNyEcRa0g7b5Tqa6FSWK/JkGeEbNxyg+/dGgpj18pyXu
+	CEv3qD/l//HfXjK7KGKPUm4SsgClnmFKqLmBpsSmyFrzNM7Gbxg51CT1s9eUGHh7wk/ZmwcSOgFBV
+	lkbExDCSi5P4WbheVCaVR6pod4lWsmSDiUCfWULLHfAa16lj5J3VQKellbbqJNimxOVM14lYY7WwM
+	PwtJ6m8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDllk-0000000Gr8z-1AMb;
-	Mon, 05 Oct 2026 16:42:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDllg-0000000Gr7a-0oeA
+	id 1xDlti-0000000Grpm-1sNF;
+	Mon, 05 Oct 2026 16:50:42 +0000
+Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDltf-0000000GrpJ-34U8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 16:42:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B02D152B;
-	Mon,  5 Oct 2026 09:42:18 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BD493F66F;
-	Mon,  5 Oct 2026 09:42:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791218541; bh=2BnlRaekwJa1zpDI6gqSZacNqin8Ey/6G0b7goZB50g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qyhDh8CBsi951EOcBfBUDIHumzCLo47ccOMIUJDsSuohreAS7MXXrJo4dOkI8aj4O
-	 MrB+rBKHKC8Y6BoNArUQec2mz+M0U8RjTpFR6eod3zbw0+MlftqBbASthksqHol57V
-	 sbEGMZlCj5sszfJ4YWbwnh4qxo7TJGzUXBK2ZdHU=
-Message-ID: <92758f79-d5b7-4c15-a55d-6bea5f84a028@arm.com>
-Date: Mon, 5 Oct 2026 17:42:18 +0100
+	Mon, 05 Oct 2026 16:50:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791219037; bh=ULzXOTNGZsl8i2FLpcSokhpQ3RMxibrvq655plx5ZCI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=x7OBPfO9JJEpW2akVBCoN15RsWSE4268h6ygySivBpFaCP7ky7RQrHnkr5oKvjb+K
+	 xGT3H+SnTDtJjDyHEYVRCudnaiikNr05FT3giJI0FXpYNpmw0wzJNhv8HVF4Wo7BEk
+	 0IpNQhhlvksHNoOlDneXKXurFk57ADJXs4sPNUME=
+Received: from [198.18.0.1] ([112.43.117.189])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id CA2AAA64; Tue, 06 Oct 2026 00:50:34 +0800
+X-QQ-mid: xmsmtpt1791219034tau95ipbk
+Message-ID: <tencent_914955849500DD870ACC806531A5C590050A@qq.com>
+X-QQ-XMAILINFO: NI6TJc3opC6FnwBB3JyN5aL8szNLbrC3r3O/o187PhPGZ8qmUlb1VVzwccvVkm
+	 VcfM+uhFE2ChuvowuTHPmpPW591cRGH56ItSZfD8Ce2SHhzlMIzmxHGNasQWsLz/MDVm2lQV8J9a
+	 if3wuxWsRpN6JNrKZa9B/ZjgnyypR1fztgT0csOGUfawd4raWhN47ku2XLmJ5HUCr4npaCSCM2XK
+	 bjKOQBlLa0Ocd6jY1Kr/06kDKjfetsn7LOBcPB7KkR2izW6WutafF18Bb5o1D3EWlQlAXvlwFyEb
+	 pDrC4jjTzJt8ulcEDqejWDs0jTVgDNrQnR71pEk3eSByODbtVWZfdwIqbyN962rjbPqqGSLYn+Lg
+	 TpoLSCoyE962STOaos8IYr9/aD/KA0ruwAOsmQ4eQ9pLaYGge4PMrZec+q1vmNB4XU3GsNjIxknY
+	 lTEIjZyxxKK8lwHDVDIzvCz40eAnyDoxeJsIAeukxF5tQBzL71NJ6XB42GPin1YXg1jzx21N9z0J
+	 wscTlYdqQYgQ0FZh5VRz3rRkBlgKfv6LYxyZH0LVuT/mBxIWGkXxlDFjbjSqFUwxND+/vd0u7A83
+	 RiKuhAp6SLiVer6pN6IjuVaUqbq84h5364Rs4AfRNgjgxZd1hEbbIwyndwIYtjOy+ASmrVaDxVAZ
+	 QPiL8jj8eY5NOiqMWDqoekul//3TwKRyDY+JptTYL92cT97uOtFS96x1jIPEZLX0wCoiytixr43D
+	 dMTAaHfK/JSRHoB9yIfB1n0Y8si/GpedwaBE8ISaU7PdI396J5THMZOaTMJbCtrlus79Az35uiWF
+	 U+H2wjJqZMA7dYJ3J83PFMmi/+sTlhPo05Ie7HZukprx6QwiQHqRhEzCZ8hlOztTcXNBzYpCoMpB
+	 7DX8R9zW7zj+w9POOxhwn1SAL3SO7LHabWoFLvslQozGgi2mV4UHJrHhR7cEBIkYG6V6SG1LTj6f
+	 z1efEBPHmpYykbBm1n+UCfc6f/tE/dGGOQzOk3bY5ukIFRn919eWnkkfnI/FGhQomzv9fBhtTMBa
+	 hlpDcVl2xWyO7P1JigwuyYNV4y3u0tAyfTEz2j3AYjnx1AWUB5
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-OQ-MSGID: <aa9d52bb-5501-46dd-b90e-739dbbe53487@qq.com>
+Date: Tue, 6 Oct 2026 00:50:34 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Align memory attributes for
- SMMU-originated accesses
-To: Daniel Mentz <danielmentz@google.com>, iommu@lists.linux.dev
-Cc: will@kernel.org, joro@8bytes.org, nicolinc@nvidia.com,
- smostafa@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, dawei.li@linux.dev, jgg@ziepe.ca,
- praan@google.com
-References: <20261004195027.227748-1-danielmentz@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261004195027.227748-1-danielmentz@google.com>
+Subject: Re: [PATCH 0/3] arm64: zynqmp: Add support for EBDEE EdgeBoard FZ3A
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <tencent_E9086080313181C5F806E5543C9638DC270A@qq.com>
+ <f1e7750f-7057-4430-9783-83dc8a8a2e23@lunn.ch>
+Content-Language: en-US
+From: Pufan Jin <2254650260@qq.com>
+In-Reply-To: <f1e7750f-7057-4430-9783-83dc8a8a2e23@lunn.ch>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_094224_400316_AF417ADD 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20261005_095040_112937_2B250991 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,148 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/10/2026 8:50 pm, Daniel Mentz wrote:
-> The SMMU specification defines several types of SMMU-originated memory
-> accesses, including Stage 1 and Stage 2 translation table walks, stream
-> table accesses (L1STD and STE fetches), CD table accesses (L1CD and CD
-> fetches), and queue accesses (CMDQ fetch, EVENTQ write, PRIQ write).
-> 
-> While the memory attributes used for Stage 1 and Stage 2 translation
-> table walks are configured in io-pgtable-arm based on whether the SMMU
-> is coherent (ARM_SMMU_FEAT_COHERENCY), the attributes for stream tables,
-> CD tables, and queues are currently hardcoded to Inner Shareable,
-> Write-Back.
-> 
-> On non-coherent systems, however, memory for stream tables, CD tables,
-> and queues is allocated via dma_alloc_coherent() /
-> dmam_alloc_coherent(), which provides CPU mappings with Normal
-> Non-Cacheable attributes. Having a non-coherent SMMU access these
-> buffers with Inner Shareable, Write-Back attributes results in
-> mismatched memory attributes between the CPU and the SMMU.
-> 
-> Configure the memory attributes for tables and queues in
-> arm_smmu_device_reset() and arm_smmu_make_cdtable_ste() based on
-> ARM_SMMU_FEAT_COHERENCY, matching the attributes used for translation
-> table walks:
 
-This still isn't answering the question of "why?" though. Yes the 
-architecture says some things, but if we were strict about avoiding 
-mismatched attributes then Linux couldn't ever support non-coherent DMA 
-at all! Similarly while the architecture does permit SMMU 
-implementations to be picky about their output attributes, does any such 
-implementation actually exist at all, let alone in a system capable of 
-running mainline Linux?
+On 2026/10/5 05:29, Andrew Lunn wrote:
+> On Sun, Oct 04, 2026 at 03:46:22AM +0800, Pufan Jin wrote:
+>> The EBDEE EdgeBoard FZ3A is a development board built around the MYIR
+>> MYS-CZU3EG SoM, based on the Xilinx Zynq UltraScale+ XCZU3EG.
+> What exactly are you describing here. The SoM or the carrier board?
+>
+> Generally, there is a dtsi for the SoM, and a dts for the carrier
+> board which includes the SoM .dtsi file.
+>
+>        Andrew
+Hi Andrew,
 
-And yes, io-pgtable-arm does happen to be a little more fastidious with 
-attributes, but that is more to do with Qualcomm SMMUv2 platforms that 
-gave a magic meaning to the outer-cacheable attribute on a 
-still-otherwise-non-coherent downstream interconnect - which we support 
-via IO_PGTABLE_QUIRK_ARM_OUTER_WBWA - but is not directly relevant to 
-arm-smmu-v3 itself.
+Apologies for the confusion in the v1 commit message.
 
-So, short of a justification why it is unavoidably _necessary_ to change 
-an assumption that in practice has held since day one, I'm still going 
-to hold the opinion that at worst this smells like a sneaky hack around 
-DT/ACPI describing coherency incorrectly, which really should be fixed 
-in the firmware; or at best is just churn for no practical benefit that 
-will only help hide that bug in future. And if someone does have a 
-justifiable use-case for wanting to use a coherent SMMU non-coherently, 
-then it's all the more reason to add proper DMA API support for that 
-rather than bodging firmware to try to trick Linux, as there's already a 
-wishlist of similar use-cases (PCIe No Snoop, Panfrost's tiler heap, etc.)
+The EdgeBoard FZ3A is actually a monolithic single-board computer
+designed and manufactured by ALINX. All components—the Zynq UltraScale+
+XCZU3EG SoC, 2GB DDR4, 8GB eMMC, 32MB QSPI NOR flash, KSZ9031 Ethernet
+PHY, and all external I/O connectors—are directly soldered onto a single
+PCB. There is no separate System-on-Module or board-to-board connector.
 
-Thanks,
-Robin.
+The reference to "MYIR MYS-CZU3EG SoM" in my v1 commit message was an
+erroneous assumption on my part during initial research.
 
-> - In SMMU_CR1, use Outer Shareable, Non-Cacheable for non-coherent
->    SMMUs, while retaining Inner Shareable, Write-Back for coherent SMMUs.
->    This applies to stream table accesses as well as queue accesses (CMDQ
->    fetch, EVENTQ write, PRIQ write).
-> - In STE.{S1CIR, S1COR, S1CSH}, use Outer Shareable, Non-Cacheable for
->    non-coherent SMMUs, while retaining Inner Shareable, Write-Back
->    Read-Allocate for coherent SMMUs. This applies to CD table accesses.
-> 
-> Assisted-by: LLM
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Daniel Mentz <danielmentz@google.com>
-> ---
-> Changes in v2:
-> - Rename local variables 'cache' and 'sh' to 'cr1_cache' and 'cr1_sh' in
->    arm_smmu_device_reset() (Nicolin, Will)
-> - Collect Reviewed-by from Nicolin
-> - Link to v1: https://lore.kernel.org/linux-iommu/20260929032229.3532247-1-danielmentz@google.com/
-> 
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 37 +++++++++++++++------
->   1 file changed, 27 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 34e916ea339f..02cc6fb83461 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1905,6 +1905,15 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
->   {
->   	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
->   	struct arm_smmu_device *smmu = master->smmu;
-> +	u64 s1c, s1csh;
-> +
-> +	if (smmu->features & ARM_SMMU_FEAT_COHERENCY) {
-> +		s1c = STRTAB_STE_1_S1C_CACHE_WBRA;
-> +		s1csh = ARM_SMMU_SH_ISH;
-> +	} else {
-> +		s1c = STRTAB_STE_1_S1C_CACHE_NC;
-> +		s1csh = ARM_SMMU_SH_OSH;
-> +	}
->   
->   	memset(target, 0, sizeof(*target));
->   	target->data[0] = cpu_to_le64(
-> @@ -1916,9 +1925,9 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
->   
->   	target->data[1] = cpu_to_le64(
->   		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) |
-> -		FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> -		FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> -		FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH) |
-> +		FIELD_PREP(STRTAB_STE_1_S1CIR, s1c) |
-> +		FIELD_PREP(STRTAB_STE_1_S1COR, s1c) |
-> +		FIELD_PREP(STRTAB_STE_1_S1CSH, s1csh) |
->   		((smmu->features & ARM_SMMU_FEAT_STALLS &&
->   		  !master->stall_enabled) ?
->   			 STRTAB_STE_1_S1STALLD :
-> @@ -5102,7 +5111,7 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
->   static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   {
->   	int ret;
-> -	u32 reg, enables;
-> +	u32 reg, enables, cr1_cache, cr1_sh;
->   
->   	/* Clear CR0 and sync (disables SMMU and queue processing) */
->   	reg = readl_relaxed(smmu->base + ARM_SMMU_CR0);
-> @@ -5116,12 +5125,20 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   		return ret;
->   
->   	/* CR1 (table and queue memory attributes) */
-> -	reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
-> -	      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
-> -	      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-> +	if (smmu->features & ARM_SMMU_FEAT_COHERENCY) {
-> +		cr1_cache = CR1_CACHE_WB;
-> +		cr1_sh = ARM_SMMU_SH_ISH;
-> +	} else {
-> +		cr1_cache = CR1_CACHE_NC;
-> +		cr1_sh = ARM_SMMU_SH_OSH;
-> +	}
-> +
-> +	reg = FIELD_PREP(CR1_TABLE_SH, cr1_sh) |
-> +	      FIELD_PREP(CR1_TABLE_OC, cr1_cache) |
-> +	      FIELD_PREP(CR1_TABLE_IC, cr1_cache) |
-> +	      FIELD_PREP(CR1_QUEUE_SH, cr1_sh) |
-> +	      FIELD_PREP(CR1_QUEUE_OC, cr1_cache) |
-> +	      FIELD_PREP(CR1_QUEUE_IC, cr1_cache);
->   	writel_relaxed(reg, smmu->base + ARM_SMMU_CR1);
->   
->   	/* CR2 (random crap) */
+Because it is a single-board computer, everything belongs in a single
+zynqmp-alinx-edgeboard-fz3a.dts without a separate SoM .dtsi. I have
+corrected the commit message and cover letter in v2 to describe it
+accurately as an integrated SBC.
+
+Best regards,
+Pufan Jin
 
 
