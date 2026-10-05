@@ -4,120 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49FA7CA5FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49C7CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KCErEo1wEmMk+mf7jU8H4RsXealnJyQ44fgkbs7wqm4=; b=i+rsyK5omEhV26Y/gAHhnEUpn3
-	eaAd2J6lSzzRwbpoFXba4Ri693nNRE30I5j5oxp9G7ERWxAx1aueDcfNDw+HKFfuvd01hAjMhmqgt
-	p73hj70QnplTuBdlaYfapOTnj/TNvlZMP4yXF+YpvUVbSaDbnWhyYebtPrWSH+ynBuRym+XtHt8yj
-	yH/3/wruHwRlyD81XctV/nEEPDb5R7xXGhBx20Pn1Eax0Aqsero3swLnKhw/hlJjAq9pxxTCZTvu/
-	9knrU2J2TBMDKpYm9f0hkMC5PzGaD/SRPIWuB2GrwZX4fRDcEaxqN7z6L101/IRNkak2cuJunJeg+
-	aBl0kcQw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JTKWejYowm2p4DJaJvyyuvQbEpNVbY+JknPKvn9wkJo=; b=ZMp2l1rgfcQ45orEvDnAi0uhCX
+	tpqWmrm7SoyOnxhhofP4JQGPTyF318Pm8wlSVOFR3zD6NAsW4pskKm83UguZXLaNERv5czBck2hT4
+	eCNU8V++E7X1l5ACn1p0NubcyFTgSmOQnBEP/mzrqbPv9uBDHjtnMCHHZA8/6ihfEWQ5Pekh/VXr2
+	8oo23EEwT/fWYOwZs8atzQTsTdtY7/NaHi1Fd9+CbJH5KOmXGNicVwWvOwqmsuhGlAtPcWenbLxr2
+	cbOsqPFm4/3K8IJsaAllkRyMOkLokN2JwTaEgf2BT+LkG4jzACQ+thx/z2TJzz67Dov8zfn//wQoj
+	LtEzXN2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDqnE-0000000HEE1-0HEK;
-	Mon, 05 Oct 2026 22:04:20 +0000
-Received: from mail-ej2-x0b.google.com ([2a00:1450:4864:34::b])
+	id 1xDqpW-0000000HEQB-1wUS;
+	Mon, 05 Oct 2026 22:06:43 +0000
+Received: from mail-pj2-x0c.google.com ([2607:f8b0:4864:39::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDqnB-0000000HECs-0z4t
+	id 1xDqpT-0000000HEPi-43Jh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 22:04:18 +0000
-Received: by mail-ej2-x0b.google.com with SMTP id a640c23a62f3a-c2e85cec3acso105995066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 15:04:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791237854; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HGsYY3/hvv5VHQjKXBEdSq+Ryhb/alNfzvHcAOuANjZyZcjNjSiVriRNyNsuTCKfI9
-         PVwSwgyfSgKngAkxRyniqOx+NxdVopJsmiGvNVMQWPaeQP2qyytD1+uKfSJgRtjz6sqy
-         Q5tPr2ObC6SMqJLoYQbeyzHnQNhd1TPhjtZVaPUOswv1rmFcYhG8Kg8ACnAGoD/vM5qJ
-         zRv75Yz2fiDvcBbZmXRRjsBiOSQTNMZ05KogpvyUmmyVM3FvJNETOOlDlADHJ7AQGfbm
-         j9F2dYcRpcMOzhGdiug9jkYih5T3h1pbTjhvFkwT+oZ6jWB3PuQ9qoh2akjqBmdUvUfz
-         vyLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KCErEo1wEmMk+mf7jU8H4RsXealnJyQ44fgkbs7wqm4=;
-        fh=GHrc2gbo8SYFb84HRhw7VGjWw20/jDQw0QJ7TvrwL7I=;
-        b=fbe3OzhyiiURarPnfE2qjhnmgnmvisNzgPk4y8pkxb/C7IZlfLI910vjCdAWI+DjN4
-         vwaYXWTmf8SRwSNR1mjy3OyHCF9DSXwies3HFYRsPe35UnZXMRIluyOFOx2Bg4Us5WVW
-         hVpLpajgGQ13BVxucfhPJwGlwn/Gw9ZuE32GugUWyOaMYJdIMzgWnJcalXYqWZ96FWaw
-         s0+R+n9J+id1AKyxy3wOEmo38aad3rrZIbIummGet+sdJCETTNXlq6RfzDcsnKK2PKZr
-         ZiTAhAeDnhSNfXr9lhKDhppUWQlUfo2p0XKCaTXr4ucDkRGYDvZp/jp1AXeGpuZJnNIW
-         LchQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 05 Oct 2026 22:06:41 +0000
+Received: by mail-pj2-x0c.google.com with SMTP id d9443c01a7336-2e58733c31fso5718965ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 15:06:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791237854; x=1791842654; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KCErEo1wEmMk+mf7jU8H4RsXealnJyQ44fgkbs7wqm4=;
-        b=hPhAu0fqpP81LCNgCEa3GiD2e1AqfDw0dJH/Mrba+OzCVgUMeAQ5FaGIvCq10WpUz2
-         WC9t3wkIwXMUhLcCd8DQaK2cL9++tAdwNVARPzlxcqgtRo9oiABKmXb8Duyi2oTOAIrj
-         CVcQaV8D7z9nVSemouWOlYU/scx1hqDxVJ7T3Dq+yaWa9HAFPYIg6DI0OqD/GuZ4Fo2D
-         DgpXTFj0f7hpw7gUf4BjpD7A+KkYGPiQfTLp5QEIQ8oo2GBk5h+RTSpwCrizD0U+E3l1
-         bowttj59kB1teS5eqNcwUsUVqpC8Ds+Daj6v7266w8qDAHpZHpBC09F0vvWH19xgGZCo
-         UdhQ==
+        d=gmail.com; s=20251104; t=1791237999; x=1791842799; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JTKWejYowm2p4DJaJvyyuvQbEpNVbY+JknPKvn9wkJo=;
+        b=FtjNlGMzcbXb/0ltx9gTIg4fm52EhUWlqA+JsHnuSsnTOcEq7cFXycWdp2SGJfBLBj
+         rW2pj/SCo2jeMD9QM1eW7XUJ3h84UfiXDmojuqzkXJL1696JuhOErob7fCSKNNgAREUD
+         lp4nuEefE4QYbF3VfFZ9Qk+6zUVWc3bPJJG/Eqo2WrvINqDLWR0uITxGcqLHBn8MMA6V
+         ooArA+g+8cbeLaYxd1sRs/JBTi0wcPY1ijo3vwha90qEpT+on2vRdR0Dp1dh2yctDke0
+         Qmgc8YIdMroDWiycFGTroh/xDgSNG8qy18qXMjCH94gVDPdvHMcKtAPgF33rjEVL+deg
+         yvig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791237854; x=1791842654;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KCErEo1wEmMk+mf7jU8H4RsXealnJyQ44fgkbs7wqm4=;
-        b=YnW4oztdZW7ysl2yTxz6h9FGnKkWYzWyIyUEz7YaHbwMjrEPnCQLBSTTxbAvzJJw0R
-         wllpQ5j5A/H4OisyGuo0J9uxIZvAPvMjg3pz7uib7xp2UFcA/MQ+RKpZUS/e1DAGYiZH
-         WXOtYCX1ezX0ICNSNLTdBCsuvU3ThHb8oVRglZ/rRlMn3TW6Byp8aCZqFWIkp0uj6ece
-         QxMtdOktWhPMjdgsQHKmvm562zfblvRNdFdyLCyHUh5yx+8XqTUvCh2442/xoUIJWvpk
-         nKOLDsATKnqWjaaNx74HiFg3QjL04IW2niNTAwIJWLcHxYWL7p5MK+4lnyybGlZgJszi
-         XpnQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwXCUN0rb1GYq3mZKHCjkZmChc7dz2nqmiVIOhq7m8htvaZbGQXrlfJ0pdsPU9saR5efII4O8kuhmu5KkeRF2AB@lists.infradead.org
-X-Gm-Message-State: AFuF++kbwVGExYfx9dC5ccnCQDkmCdzmxQhqwCxnd6HKs+0IUM/gRQp7
-	wnoRJYwdI2ZHlrV0xKot80luRwHIDFTVrZrU5faXx5uev4Eg2qiowhoB1tVmpwyvsYhpPPxrJqk
-	D/vOrXhcilc1ZsDPA3AI1BasHYbdqLrQ=
-X-Gm-Gg: AYBFou2+9fDMO0s043hXjw1yNET86NxUIW0uvJePxyinZfC0j+rER7dz1FEimeVV4ai
-	rCnkv+YSas/KpHgMyzKlqa2u3uvkew6RJgDtbJA1GBpMSu3LOtzYdPAY7UDziEUc6eOvyUOeGae
-	x/sDXeBoW7JkzMI2a38YhUYXC3lGrsxVM2ab83RAqnuqqTsoN+Dj4edICLZNr7l1np3c6Aimn4q
-	DD+6X/TJQtlr/CnLm7MaE/jLluvJdJF9/5zO6yXTxuAgzHuDckdBp8HaZEF//2VVy2OxitfKqnm
-	FNtkS7I1G8GpC8FuWRyDoQGmQKfUHu5DvUK8qeIwaI1R18acPK/axm/hqQ==
-X-Received: by 2002:a17:907:3e29:b0:c2e:19b1:dfe2 with SMTP id
- a640c23a62f3a-c2e4ad3b1cemr1046003766b.23.1791237854529; Mon, 05 Oct 2026
- 15:04:14 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791237999; x=1791842799;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JTKWejYowm2p4DJaJvyyuvQbEpNVbY+JknPKvn9wkJo=;
+        b=Wo2umHx5Q91z+0804Kdf6n8T7fqTRWEDVDNtdAYmZlz5XJciY2Pg0UXVrtiVuGDaXn
+         WSBl2+YKxbrzhS7zg+SbQPjrf9JRHIeVVc2ZwiwLelEqusbQ0d9BzmL1/tIXFQJWnU59
+         yASSc1QVG5L0FqfZBPrbXyLuL6sRbI42xEwNWfYQV0gGLEpiI6ybX+bCa3+JY96hrNQt
+         dJKSIiJRxY/F733vjhUMUNvgSkio7/cjzFiH021ijQQ07n+Zs5AchJqFbe+yidiA1joa
+         M3ceosNxwqzmUx4dxfd5imnIaqgeuZNemE8gSrXFzYSnb/2qD1yqL+tUtdcN69FVr0Ei
+         LM3w==
+X-Forwarded-Encrypted: i=1; AKwUvByEJDVyV5zrUGGk0v8qs1pFEtAdH+yYPwnhOO8xwYHLnesvtpMxmAjTCAfmk5yCe+f0Tzq9mGaOcgrAfZ2gRjig@lists.infradead.org
+X-Gm-Message-State: AFq9FYLnAlUYXiwaFx8FJVDACq7yxw3AriPO646rpr3OLASdVCZT1+N1
+	Lzh9nsGFZ8SQyJXyuh76DwTK2Y3vBbGC2a2Z1dLet4v3WWWCMtUT0CocjjwKan5R
+X-Gm-Gg: AYBFou2XSdIk2f1IiGH0BawGnTUtiLWd/OG1KA9lY7UOmr6l4b3dacsVcqichBXfKql
+	UCDgdyKofwu8P16qu3qgZFdtJq2jn3ykCAvTM2BA4OWrgOCp7+rb4ojBszkBOBUrSB0TXybNfg+
+	d5qPVsjgo77n6nSQ290q3V52QyOFLeslsyqtabtuSfJq6wg4yAH3vOXgE3KPNoMs5hkn12Z5XbH
+	Sop9pM9Lng4UmhfrQljweUd6meRbjkmF09krZMgrpG13ifVfh9HjzsMQLARH3IDnrkZIfvc3fZp
+	pupDWosU8gSxk4KiWBPUePNKSuqkrvIvm8HHA0Cnj1g9YVvMgAx9cDZYxUd9ZgAWk/35cO91GKk
+	p4nB3FwS1uC7QP2YxA+T88qDSV1pG2KyLd0gEnvZG4w6FNUCUSUaJ4bPw03dzgjgB3MoiLz3nml
+	q1o08itFam2eG5D+SlIzEX7sWlzdiz/9scAqx/PFG5n1QC0LpPePf6Y6dduzccRiAffFGMFmTku
+	eu5CmcfedLNiToXWoFVx4P+8nvLB+iyGapSNSj/ygs5ihN4vqN49gVcZT5IVQze
+X-Received: by 2002:a17:903:191:b0:2dd:c053:d741 with SMTP id d9443c01a7336-2e49b684cffmr118013695ad.40.1791237998457;
+        Mon, 05 Oct 2026 15:06:38 -0700 (PDT)
+Received: from LAPTOP-BEQ9FFIS.localdomain (60-250-51-133.hinet-ip.hinet.net. [60.250.51.133])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e5a5ecbdd3sm13723035ad.48.2026.10.05.15.06.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 15:06:31 -0700 (PDT)
+From: Pin-Hao Chen <billy920225@gmail.com>
+To: Alain Volmat <alain.volmat@foss.st.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
+	linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pin-Hao Chen <billy920225@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] spi: stm32: fix double free of SRAM buffer on MDMA fallback
+Date: Tue,  6 Oct 2026 06:05:28 +0800
+Message-ID: <20261005220528.7199-1-billy920225@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260922200336.2201212-1-coiaprant@gmail.com> <20260922200336.2201212-4-coiaprant@gmail.com>
- <20261005135939.01ccde50@kernel.org> <CALj3r0h7j-4ZAiX67LmbgpmYCvK-Xmzd_qnYYgoBmniAW+eiWw@mail.gmail.com>
- <20261005144432.580daa2f@kernel.org>
-In-Reply-To: <20261005144432.580daa2f@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 6 Oct 2026 06:04:02 +0800
-X-Gm-Features: AclHuK8_KLwVxsmgUNUhSrq19BEwBKrpkwc4LlinlPX0y7uVYSSqgvZVvQtFu6E
-Message-ID: <CALj3r0jNFss4RqdPjJ+NJ=yPRm7zZA0N83T2XxqLuFwoH6iN7g@mail.gmail.com>
-Subject: Re: [PATCH net-next v10 03/11] phy: rockchip: naneng-combphy: add
- SGMII MAC selection for RK3568
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_150417_468373_582C609A 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261005_150640_011013_BEE099B4 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,21 +104,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=886=E6=97=
-=A5=E5=91=A8=E4=BA=8C 05:44=E5=86=99=E9=81=93=EF=BC=9A
->
-> Well, the patch series is already getting stuck because of
-> cross-subsystem acks. Do what you will, I have 700+ patches
-> to look at right now :/
+When the "rxm2m" MDMA channel cannot be obtained, the driver frees the
+SRAM buffer and falls back to DMA-only mode. However, sram_rx_buf is
+left pointing to the freed buffer.
 
-Hi Jakub,
+As a result, stm32_spi_unprepare_msg() may clear the released SRAM
+area, while stm32_spi_remove() or a later probe error path may free the
+buffer again, triggering BUG_ON() in gen_pool_free_owner().
 
-Understood. I'll split it as Vinod suggested: PHY binding+driver to
-linux-phy, DTS to linux-rockchip, and repost the remaining net-next
-patches separately.
+The probe error path also checks sram_pool instead of sram_rx_buf. If
+the SRAM allocation failed and a later probe step fails,
+gen_pool_free() may therefore be called with an unallocated buffer.
 
-One request: could you prioritize picking the stmmac lifetime fix
-(patch 01) if possible? I will send it separately.
+Clear sram_rx_buf after freeing it on the MDMA fallback path and use
+the buffer pointer to determine whether cleanup is needed.
 
-Sorry for the noise.
+Fixes: d17dd2f1d8a1 ("spi: stm32: use STM32 DMA with STM32 MDMA to enhance DDR use")
+Cc: stable@vger.kernel.org
+Signed-off-by: Pin-Hao Chen <billy920225@gmail.com>
+---
+Found by code inspection. Compile-tested only (ARM multi_v7_defconfig,
+W=1 and sparse); no hardware was available for runtime testing.
+
+ drivers/spi/spi-stm32.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+index be88e62075af..605b847d8773 100644
+--- a/drivers/spi/spi-stm32.c
++++ b/drivers/spi/spi-stm32.c
+@@ -2511,6 +2511,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 					gen_pool_free(spi->sram_pool,
+ 						      (unsigned long)spi->sram_rx_buf,
+ 						      spi->sram_rx_buf_size);
++					spi->sram_rx_buf = NULL;
+ 					dev_warn(&pdev->dev,
+ 						 "failed to request rx mdma channel, DMA only\n");
+ 				}
+@@ -2548,7 +2549,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 	if (spi->mdma_rx)
+ 		dma_release_channel(spi->mdma_rx);
+ err_pool_free:
+-	if (spi->sram_pool)
++	if (spi->sram_rx_buf)
+ 		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
+ 			      spi->sram_rx_buf_size);
+ 	if (spi->dma_rx)
+
+base-commit: fd99864b0ac936e870c7ae28354c5cd3dad5efd0
+-- 
+2.53.0
+
 
