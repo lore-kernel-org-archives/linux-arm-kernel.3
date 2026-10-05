@@ -4,146 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F3CCCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F0CCA5FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Id+RQgfgxoLWq+XkEIF0BuoZvG/WH/YkWvYsbTcUJCg=; b=eENXr83Yd9p62f9yIukPYrkdXk
-	DKKGRuGoRZDxwLBbHgP2xt3l3NA9gbs8r48lqAM/VX4n75x0VEHwkHIMrJDG6wIV2maksUAR/vUws
-	yplCtf82zTzXMWR8Tsu4kxO3FF/q4tkRMxVnHG8MQLMdRi7Rnf+Vp0jH9IQHmapvkWsn57bHCXbmw
-	vN4NaWPQDg67uAVgdNHCulOKtjpDcHMMt+Nw83NbdXULcjVyvEquII8SPC44QxsP5v41Gatk8isS/
-	m80pESBnCVskjQ3hZHF84XDR96FswpjpLuDX7MNypbJLXA9sCw98+aosuI2rZUrJf9j4Fz92oGKsi
-	wOLN+/rw==;
+	bh=lQ07Wpw/41IyXuGwO1TNf2h3w/qx6ENdaCXlHUoPSxo=; b=YoWF/y0DqzhWwsVuYUl6asjWJP
+	mQfPKmnrtg5G+kbikFVCU//9jpV3U/QqmEU8ESZQGOqoBMZTY9cPbDjmr6CLmsOhZ8/vwwwFe4I7A
+	yOwwmywV3BzE8AYZIastDbSPreXUUBbWHdu9wdshgkUkunK5uc1PzymEm+TW9SXZLVtCvPfBG5ocT
+	Ke0PBFqjMxGFRAlOes7mXgG7fFhwcOEqqlpNnAHdY9Q2XD7i8tXuh/earfgr5J800ECOJ6Kf2EKjj
+	h4sL7O4fLQWm+kaUnshbwFAG0BSweYNb3DB55hxvuSAY7PVYTfREzXZ4+JdCdevjNBDaqxmdaSKHW
+	oinxXyBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjgX-0000000Ge5G-00CY;
-	Mon, 05 Oct 2026 14:28:57 +0000
-Received: from mail-westeuropeazon11020141.outbound.protection.outlook.com ([52.101.69.141] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xDkCt-0000000GiSd-0dsh;
+	Mon, 05 Oct 2026 15:02:23 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjgR-0000000Ge4k-2erV
+	id 1xDkCq-0000000GiRh-3CNU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 14:28:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGGkPVnlyQzUMt3AQ1F/u9kQWHj0QFjsgoHdkxzp/ILKbMo1z2lxrjdJ6K1e/K7CnIxAwq6kDxh+GoQ8V2fLvlPrJO1KJVyxlCzCF2X44PI4HAjks1VfHlp2jr51Lve8k0V/3XMsY4kgoUcp/BN0adYQDhxcCKrvjKFuousMFTo+WyEckan68kYdt7clnpSf12xV7COPSjUswrrix7ulDWD5odQSQzCzpW+JxHX8aDMYv/45xfiB06FAY6yfqcQSR5TogLhq1+OJrEOBaXnAAqcBHSF5IywWCVC9aH9k56GAfwnIrVFx8LIMVfumkDgbfmz9drW7gaQSEVubH2mQMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Id+RQgfgxoLWq+XkEIF0BuoZvG/WH/YkWvYsbTcUJCg=;
- b=CZ8Jd30Zh4/3MFaNu/pREvL7tf6kziTy/9Z22sqkyAh7j0TOSTFL1czkI7Jpwgk4HUdRYgCCmsR4Dw0qoToCRQ9ijF8WJcACsagPk8QWMIoHDw9VT2iioavVNPCoe+dUxJ5ErbHPBjintbNG3ox+yU72kqluEdQB+oc+ockj2cxVe1PIamEjVg/4EtYRiWm8AmMGlU3Ym+fY8Z8oYVK/J1YBpJQnwif7a6tq9faxbUmLr9WCF2DNk6jdhLK66qiRo0UZcsvHxu0XFjK6RGEwX1lTzXvs6HgcXGJv1GAm0ffjlX/4DDE34rGAn0e8P62tabFA1j/6BiC5cYde8GVT4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Id+RQgfgxoLWq+XkEIF0BuoZvG/WH/YkWvYsbTcUJCg=;
- b=Ya3aFRsj2QIMVrnkAnx/6echOzXaaUfIWFduNQO+xZAmOhyxRSyJX5SKVbwlNM1pH7s88kewLixQ/GkTlh1QJSWHfELN01WvoYbTspqVPV+DIhktCWk02mxe/im6yjsrGBQ2bIpGW7mu68LLNgKDroqwzQUXAF7Z0bHs6gz2eB1cD350dKckr9oLRGX7uAaq7Qd04ZLiITmUC8KDA4h2qgctFklfsinccwc41Neujh0L5/gjx+vaXP2V4pnWuBn1FtfeYrZ4Hl3oRyxxDEJZ/JAz+izFOh9I0htwvdOJCbjmWSRj7garwCGXSmrc5DlvIFRgoTrTCIrMMdHU5vSU4Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:97::22)
- by DB5PR10MB7795.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:4a1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 14:28:43 +0000
-Received: from PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::6aec:a389:7814:860f]) by PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::6aec:a389:7814:860f%4]) with mapi id 15.21.0472.015; Mon, 5 Oct 2026
- 14:28:43 +0000
-Message-ID: <f3e1e3de-6abf-48cb-aba7-7b231c38ec5c@kontron.de>
-Date: Mon, 5 Oct 2026 16:28:42 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v51 5/7] firmware: imx: adds miscdev
-To: Frank Li <Frank.li@oss.nxp.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: pankaj.gupta@oss.nxp.com, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
- Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
- <20260915-imx-se-if-v51-5-4a7dac612cb5@nxp.com>
- <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
- <aqqqDnOMmlfqit6u@SMW015318>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <aqqqDnOMmlfqit6u@SMW015318>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0376.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f7::19) To PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:97::22)
+	Mon, 05 Oct 2026 15:02:22 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a1722c37c9so8691485e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 08:02:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791212539; x=1791817339; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lQ07Wpw/41IyXuGwO1TNf2h3w/qx6ENdaCXlHUoPSxo=;
+        b=aj9gOPAcHSIkAF0PF1CUU//hSgDcQwTsuKMV7YWpp23ISNulwHA4Y7nxqsJe9pQ0x8
+         2d9WRmU9wOHa2IYzhEOJ7IHPy8L4LEvOwaAxNUpZp8ZzDG2GuzcpxzPns6tt+tUp3T8z
+         sNrDyAnRnF8J8UbHCcHw+KUsRvb/irnfB10OSsE29WIf+PNdOPN1xMwwVZBFYzfP3u47
+         IwVLWrCz7axTKkklNU6eFWkx5YpNQNOnps60imh7vCjLeVArfHi4P/lk6xr0Ouz0gb7f
+         6vdYgSTYoVjg4cjr/OSgLyhooo0CZkIR4msGCRu7N7jyphcVjABEHBevX5U700OfDlp3
+         epdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791212539; x=1791817339;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lQ07Wpw/41IyXuGwO1TNf2h3w/qx6ENdaCXlHUoPSxo=;
+        b=W3RDTPSPPfyPGNCWNsTrsA6j+GEIrgXiyHr7IBfFiNCPFOZrrQ/EuPL94sOPHbSqnR
+         +ePrLzuAeKabz4pHARVF9goTTjKoZTwzBBpFZfWAtb8UORapJKTG8XBeJYPOrlEGOTG7
+         lzlApG11Odo1yuyohzrcTDpqklDSFdDbir0/Vndq6/1TIpHv09x6WtwaqZwh+qc1B/Ab
+         iHdWCRCmmGvDh/o9GAYyQUxh5l3JfAaxotZgDFGnkHuAeMpN/4J3c4X+zFSYzkvSw86u
+         xxLsq+mtm+hV7ywBiM1EJaC/sf4G0B3lhX4wxD2tRtIk6g/dtiWcuhv1twUIWbMuULYn
+         6tqw==
+X-Forwarded-Encrypted: i=1; AKwUvBzSKBWmNv+BY7acb/8jWapO8vXvaSUCiAtEZ2ve/4ltQ4W81hlO8Jg3QspAHrtgVzKJlE9MR8BhyTnrTYj/aLGT@lists.infradead.org
+X-Gm-Message-State: AFuF++nBnmHMdBZ2Vg6Al74916kxnZLEyVEgLbHyoM4HYuURdLUYDFMT
+	VLOaQAjpVqvKlG4UqTfsZELA+UdFHtm8WsiKViAEyqQFYToFGaZxnffIG8LsCCXtCA==
+X-Gm-Gg: AYBFou0/HFucVf79FzaMTl1WJFbw2hWgQ4Ht9p6WjI+zv1nYzStMjlwePNaSpi7YGTh
+	yJGRIwrBBaVu9BfDjXfp3kRhDUCNgsm6rXb7uLgpUblOr8mTIpIh3+QQBxjou32HlG2xL6y7rFk
+	S07KDgXREgYz80WkLqd85ecXB9ousw4rxHpmCG/FJmYE5dWQq3BOrrGMfwUTZC11bsO0pINHmrH
+	rLyHgeXhLsfs5CYO0o7sWAIMa+QdN+WGJvZx00ia/5I9DANnCDKultnKBIU7WDrAUfM+mLB1WJA
+	456+ihkZAj3oTlMqQjYNqT0wk43D8k2UpMafvJc8s5I6aPputcR+XmU++oa05BRlChcsGine5VO
+	d6G81QJAg7nnokMVIg2/KKpxqV0Nhod2T6+uplbpNrnEwe2I6/pBc598XjDOhHAzg8TXhvI7ljR
+	+bVQn+7pX4y2pzE8hHoPjXFbYNfErw0D6eC0uq2TW3BRyVQYeBCPPphPn5vicdUXoK1HX/3dUFq
+	wBJtRTNkumPEMZ1VrArYvSN5ydKiD0LHzKZooJgFrA=
+X-Received: by 2002:a05:600c:4e4e:b0:4a0:62d:4424 with SMTP id 5b1f17b1804b1-4a027566f93mr192858015e9.8.1791212537927;
+        Mon, 05 Oct 2026 08:02:17 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1785398b5sm156955e9.2.2026.10.05.08.02.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 08:02:12 -0700 (PDT)
+Date: Mon, 5 Oct 2026 16:02:06 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, tabba@google.com,
+	sebastianene@google.com, keirf@google.com, qperret@google.com,
+	linu.cherian@arm.com
+Subject: Re: [PATCH v3 2/2] KVM: arm64: Support BBM level 3
+Message-ID: <asO77kvqqwCsJt8I@google.com>
+References: <20260904132855.638117-1-smostafa@google.com>
+ <20260904132855.638117-3-smostafa@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PR3PR10MB4288:EE_|DB5PR10MB7795:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f3ee888-4a64-468a-a21f-08df22ecf57d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Ozb49VMc51lNNO4iGAdvOZPCSZXJ6InD9s8HCGk2L3DFvqxsdBKRPSp2RvokAYHlcxMxUnYEPf/fqUvuFK8kQowlPnjtqMNKEVuxalEmWnsg35Vah0zUBPFjbBcMQYuThoAfsGaGsUK+XDeHfib/9TPnQYhPc/Ego/Du5GVC6XsLupxC6WsEMRa2wthZeuv293xi379lBLpkdOpv3Vd6neAGwCk6tD/E2Fnv+D1PChzCiU0C1cceVmlBpL8/5H6cjEZ3AC3qmKB2ct3LJlRS7XI2eFyO8SEFsZbAwqSPXxL17jGGNmGfQ+hSeWrFuurk50L9SUQFbsaeJiSigDR1l+zBtiRI8E/6qWq25yyMx7cAQpBoJ29VdLJXVB+tDJpeb0Y6oll9J8E4rZ9G0K990bPc3lV9Q9xgEoaIN8rfg8UkNsgrk1SYvJLrHikLjcGh2vuK9E+Y9AgBkjy2drOe/wHSuXJE/wC53WAWmUIbSE8A1l5ERyBgZ+NuKwuhUtFCgkqF0Rfs+Nplu5Wthm39SwUwOMBvWBJFEK3DbcpyrcuzZ1HNFiNcG9TU55NW4OmCT01gmkmSxqlZHBaI4c21fryO7tarYvPO5H4+B1vKC1b5lRkqlTPEC3BkoKI2K3fUonm3zsrAPo7oIXRCSoNElkg+x5rJJNbF1nlZYORnBNE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K0lFVVdBVFA3ODArMlIyeG1xSlE2cmU2SVp6VkZHTnZIY2RmNG1IZVRjMEY5?=
- =?utf-8?B?VThWY2hmYVROeG45NEgxSlBYQWttSEl3dllhK0tWb1l6Q1hMcjNQNFFwUCt2?=
- =?utf-8?B?bVFPWlcybXBVMVErcnYzMlBIZUJpbEk1OHBBVzNjalVMOVJLMlA1ZFNWbC9x?=
- =?utf-8?B?TFlOeHVscjk2SHlqcG9aV1RIYmRROTNiOEJuQnBmVWwwV2hnaHo4Zkdrb2Vo?=
- =?utf-8?B?UUR4S1M2UFl0LzlBMDZ6Wi8rNWhnSnVrZG9ucnZGaDhMQWxXQUJHTVBKbkFR?=
- =?utf-8?B?L29EVUtNdnJ4dnBTSFdUSmFpTC9jU2ZaZ3NRbDA5eUgzTjZUVGIvdG8zajFZ?=
- =?utf-8?B?UG82ZkxVdEJBNDZLL2JQOUM3Zi9nSjcxNmVyKzlVWlBnVFZaK255Q21hQjJS?=
- =?utf-8?B?TWo2LzlkaWNmck9EL2pwOVFuWXlJcmc1b0tCMEZPMGRWS1c2RUpkbEtia2pk?=
- =?utf-8?B?bU1NSlY1NG5URU4vMkR1K21Ha2FvaE1OV3lWVW1TQ3JoaXFQak80MUIrMWVp?=
- =?utf-8?B?Y0hUQldIcmZkSkNUTnZHUnBERWlqZVlQVC9pYjhCSFNXa3k3K1FGcFZZeU96?=
- =?utf-8?B?Ulg5K3M2U0p5STY2Tkl6YmozYkZVNG04NTQ0OFVEcVJIeTdwYkFqT3YrRVFV?=
- =?utf-8?B?SVIvVkVDL0NRMHc1U3NyMWx5MXhsRDZvbGNNcjNVMXZSVFpSajFhOE5mL2Ur?=
- =?utf-8?B?ZEJkSEtTc1ovM0tkaUovTk1aN0JrK1pTRUdDVHhKeVViTG1Ma1U2ZVVpZ3E0?=
- =?utf-8?B?NWg1M3FOQnJNaklXTTdxcUZ6R2Z6SENKRkdURzRHVVVVb3MvTndFcUNXREJv?=
- =?utf-8?B?UmUxM05tS2VVTVVDOGx6RDlITzdITnRlcUU2eDVsMzNQTW5CRTJrTms3Wk1i?=
- =?utf-8?B?bzhYV3ZBOXFKWEt1cEkrK0xES3BnL2hHcHM0SXZvbHBHQWs2cStwOGNuYXpS?=
- =?utf-8?B?cDlRajQzRnoyUnVXWmlIVGF2YldqN1ZVSjF4WXk3YWNGT2p3cXNGb2ZjUGxJ?=
- =?utf-8?B?dkNrZTdJTmpST25WM1ZveUJqaFdiOWN0SFhJYTloWWxXc3lQY0tXQy9rbkF2?=
- =?utf-8?B?c0EzWHhYc1h0MGE3Q2tVWEs5WnZZNG15UXd3N0tpWE8vY2F1Q1hRY08vQnNx?=
- =?utf-8?B?THBVRlc2S1UyZ1pGaE5IL1pnNENFNGlFM0R5NDNsRXpZbFJmWVVTUW5INmpi?=
- =?utf-8?B?NU1VOTg5VkhseVRpYTVIOFIzKzlOYWZheTBwSXFhYmRuQXcwUmRULzgzbEtX?=
- =?utf-8?B?dkNQcDVhWXJJZ0I2SW4vVmp5NExpM0xRTGV6ZFRUbzJ6Rmc3bm9QenNQb3gw?=
- =?utf-8?B?TEhWejVNazMyVTVUMHZOZnZMMkRsMVB3YTJKS1M3RlpuSWtjaDVJR21vekcw?=
- =?utf-8?B?akZVZFdqNmQ3eVpPbWxZaVlBaWZrU1lPN3ZvUVhYUHZlT0ZsNEEveGtwWVlB?=
- =?utf-8?B?bG1iaVhJTUtsNVBQNGJHR21pcGJCb3plUVRHZGFGY0J4VFVhWEI2OUMzWklF?=
- =?utf-8?B?OWgwUW9JeUNPbFJETExXak52a2NFVFRrS2lvUFF0MXV3VjZHM2c0NWdSRzFV?=
- =?utf-8?B?V1RzQ1hWa0g0QkFwNmd4UDhYUVNqa052MUZpSFNod2puaFpjcHNYMjIxZUxu?=
- =?utf-8?B?bWN0N1k4bUJzSE5zcEI4K0JidEJGanN3Qkdjd1FDRWZvczFJa0Rzd0dqZXgy?=
- =?utf-8?B?QVhXZndlbXVKdFJiKzBHMTdMcTdjVnptOExBY245OW1pMXdmZnRrREo4V1NS?=
- =?utf-8?B?Mi9xYmxEdXdPbzV4dFo2Z3p6bDh5RzJPclV6dmR6eFRxcHcvUitsejVIbGxD?=
- =?utf-8?B?QkVWcGtlaTBwVHczd1piUWVUTWdja1paSEpyRXhlY1VCL1FnaU5IZmY1a3hn?=
- =?utf-8?B?YjYxSXZJeWdyQ1hWdUtZU2svbmtoRytBa0RuditqcmV0alhVeXQ5WjI5Z0tD?=
- =?utf-8?B?QktqdXpZaXU3d0E3VFpkdHFIaUlGU2l5UXpua1hOUDJzOW5OL1RJMnVmTDhD?=
- =?utf-8?B?b3J0R3hSNy90T3htZ2p4M3hKYXhOUWVKWDVGajRVVnFIeE1tYUpZSGZqc3Y4?=
- =?utf-8?B?a2hxN2pEcXFhYkRkQTN2RDdWZ29ST2xZM21SR0F6aVgzc2dWbVJ0K1plS1N5?=
- =?utf-8?B?bSsyUlk4NGYvQ29nKzM5YXFtZ3I1bDdlWTE1aVRjS1IxbWdXeUV1cktFTzN5?=
- =?utf-8?B?YzBtelBhdnFacU01YkorWmRLcHdKRlI0Q0dhSS9zdm9DUW0zOHBYRzZaYS8z?=
- =?utf-8?B?QTFwZXcrSlptRDN2bVpPdVlHYS9QQ3ZzQWdCKzd3d0NHRUU2MVJYQnpoMmxp?=
- =?utf-8?B?OTRjNTdGeGtOeXYra1ZoZTFZcGhYQmptTmZKdG5xbnNFdUJSckpWU29YL3VX?=
- =?utf-8?Q?EXZT/nOoEQ7tDawU=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f3ee888-4a64-468a-a21f-08df22ecf57d
-X-MS-Exchange-CrossTenant-AuthSource: PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 14:28:43.7615
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iWXZKeh0nzYszHxX8EyzZy+azyAMlduCLr90prj4LyQRcjUOOT5D+SHq77GLpIllFBuxmnOa2U4ResG8Q8uRJviSrdEChPrV/HHp6J41VJ0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR10MB7795
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904132855.638117-3-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_072852_036135_9CB53BF2 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20261005_080220_898485_EECC4041 
+X-CRM114-Status: GOOD (  38.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,41 +106,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16.09.26 16:39, Frank Li wrote:
-> On Wed, Sep 16, 2026 at 03:16:13PM +0200, Arnd Bergmann wrote:
->> On Mon, Sep 14, 2026, at 21:40, pankaj.gupta@oss.nxp.com wrote:
->>> From: Pankaj Gupta <pankaj.gupta@nxp.com>
->>>
->>> Adds the driver for communication interface to secure-enclave, that
->>> enables exchanging messages with NXP secure enclave HW IP(s)
->>> like EdgeLock Enclave, from:
->>> - User-Space Applications via character driver.
->>>
->>> ABI documentation for the NXP secure-enclave driver.
->>
->> I just saw this in linux-next, where it has caused a build failure
->> for a missing include of linux/slab.h. I hadn't see the series
->> before (even though it is a v51, which seems crazy), but I am
+On Fri, Sep 04, 2026 at 01:28:55PM +0000, Mostafa Saleh wrote:
+> If the system supports hardware Break-Before-Make (BBM) level 3, use it
+> to replace stage-2 PTEs directly. Otherwise, fall back to the software
+> BBM sequence.
 > 
-> It is in linux-next about v37, but build bot find many problems, I dropped
-> it and request to fix it. And sashiko is online recently and also find many
-> risk. I request to clean up it, and local AI environment have difference
-> with sashiko, so bump to v51.
+> For BBML3 the sequence is:
+> 1) Get a reference count on the containing table for the new PTE.
+> 2) Atomically update the PTE with the new valid descriptor.
+> 3) Invalidate the TLB for the old PTE.
+> 4) Drop the reference count holding the old PTE.
 > 
-> I put to linux-next again to make sure that pass all build test.
+> Add 2 helpers:
+> 1) kvm_pgtable_use_bbml3(): Checks for the architecture requirement
+>    for BBML3.
 > 
-> Other two problems, need more time to check whole review history. reply
-> you later.
+> 2) stage2_use_bbml3(): Extra checks added by SW design (FWB and DIC)
+>    - As BBML3 will update the PTE atomically, it can only know it
+>      raced with another core at the point of the cmpxchg failing,
+>      unlike the SW implementation which locks the PTE first.
+>      And as we must issue CMOs to the new mapped page before the
+>      update, that means with BBML3 racing cores will issue redundant
+>      CMOs.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/pgtable.c | 111 ++++++++++++++++++++++++++++-------
+>  1 file changed, 90 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index d670da8882a5..a9ba761e9a01 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -82,6 +82,27 @@ static bool kvm_pte_table(kvm_pte_t pte, s8 level)
+>  	return FIELD_GET(KVM_PTE_TYPE, pte) == KVM_PTE_TYPE_TABLE;
+>  }
+>  
+> +/*
+> + * Check if BBML3 can be used for this PTE update.
+> + * Fallback to software break-before-make for leaf-to-leaf changes.
+> + */
+> +static bool kvm_pgtable_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
+> +				  kvm_pte_t new)
+> +{
+> +	if (!system_supports_bbml3())
+> +		return false;
+> +
+> +	if (!kvm_pte_valid(ctx->old) || !kvm_pte_valid(new))
+> +		return false;
+> +
+> +	/* Block <-> Table is ok. */
+> +	if (kvm_pte_table(new, ctx->level) ||
+> +	    kvm_pte_table(ctx->old, ctx->level))
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  static kvm_pte_t *kvm_pte_follow(kvm_pte_t pte, struct kvm_pgtable_mm_ops *mm_ops)
+>  {
+>  	return mm_ops->phys_to_virt(kvm_pte_to_phys(pte));
+> @@ -835,25 +856,46 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  		mm_ops->put_page(ctx->ptep);
+>  }
+>  
+> +/*
+> + * Don't use bbml3 for stage-2 if FWB or DIC are not supported
+> + * as that means racing cores will issue duplicate CMOs.
+> + */
+> +static bool stage2_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
+> +			     kvm_pte_t new)
+> +{
+> +	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB) ||
+> +	    !cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+> +		return false;
+> +
+> +	return kvm_pgtable_use_bbml3(ctx, new);
+> +}
+> +
+>  /**
+>   * stage2_try_break_pte() - Invalidates a pte according to the
+>   *			    'break-before-make' requirements of the
+> - *			    architecture.
+> + *			    architecture, if BBML3 is supported it
+> + *			    will be used and this function won't
+> + *			    break the PTE.
+>   *
+>   * @ctx: context of the visited pte.
+>   * @mmu: stage-2 mmu
+> + * @new: New pte installed in make.
+>   *
+> - * Returns: true if the pte was successfully broken.
+> + * Returns: true if the pte was successfully broken or BBML3 is used.
+>   *
+>   * If the removed pte was valid, performs the necessary serialization and TLB
+>   * invalidation for the old value. For counted ptes, drops the reference count
+>   * on the containing table page.
+>   */
+>  static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> -				 struct kvm_s2_mmu *mmu)
+> +				 struct kvm_s2_mmu *mmu, kvm_pte_t new)
+>  {
+>  	kvm_pte_t locked_pte;
+>  
+> +	/* All handled in stage2_make_pte() */
+> +	if (stage2_use_bbml3(ctx, new))
+> +		return true;
+> +
 
-So this is still in linux-next, but was not sent in the pull request for
-7.4. It's rather confusing to me that maintainers add stuff to
-linux-next for build-testing and then leave it there, neither removing
-it, nor continuing the mainlining process.
+Wouldn't it be easier to keep try_break_pte/make_pte to the !bbml3 case and to
+just create a make_pte_bbml3() variant to be called when stage2_use_bbml3()?
 
-Frank, what is the plan?
+  if (!stage2_use_bbml3()) {
+      if (stage2_try_break_pte())
+          return -EAGAIN;
+      stage2_make_pte();
+  } else {
+      if (stage2_make_pte_bbml3())
+          return -EAGAIN;
+  }
 
-I'm currently rebasing my work for the NVMEM driver onto linux-next, but
-as there have been so many iterations and this whole thing took so long,
-I want to make sure that this is not another dead end where I'm wasting
-my time on.
+I believe also, the error path would look less weird as we catch an error in
+make_pte() but without reverting the break_pte() (even if it is correct right
+now).
+
+And perhaps you could introduce a function that does both break/make
+(stage2_update_pte()?) called by both stage2_split_walker() and
+stage2_map_walk_leaf(). This would avoid repeating the error path.
+
+Otherwise, everything looks functional to me.
+
+-- 
+Vincent
+
+
+>  	if (stage2_pte_is_locked(ctx->old)) {
+>  		/*
+>  		 * Should never occur if this walker has exclusive access to the
+> @@ -873,16 +915,37 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  	return true;
+>  }
+>  
+> -static void stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t new)
+> +static bool stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, struct kvm_s2_mmu *mmu,
+> +			    kvm_pte_t new)
+>  {
+>  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
+>  
+> -	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
+> -
+>  	if (stage2_pte_is_counted(new))
+>  		mm_ops->get_page(ctx->ptep);
+>  
+> +	if (stage2_use_bbml3(ctx, new)) {
+> +		if (!kvm_pgtable_walk_shared(ctx)) {
+> +			/*
+> +			 * stage2_try_set_pte() uses WRITE_ONCE for non-shared walks,
+> +			 * lacking release semantics used in the software BBM case.
+> +			 */
+> +			smp_wmb();
+> +		}
+> +
+> +		if (!stage2_try_set_pte(ctx, new)) {
+> +			/* Raced with another core. */
+> +			if (stage2_pte_is_counted(new))
+> +				mm_ops->put_page(ctx->ptep);
+> +			return false;
+> +		}
+> +
+> +		stage2_clean_old_pte(ctx, mmu);
+> +		return true;
+> +	}
+> +
+> +	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
+>  	smp_store_release(ctx->ptep, new);
+> +	return true;
+>  }
+>  
+>  static bool stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
+> @@ -1001,7 +1064,7 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
+>  		return 0;
+>  	}
+>  
+> -	if (!stage2_try_break_pte(ctx, data->mmu))
+> +	if (!stage2_try_break_pte(ctx, data->mmu, new))
+>  		return -EAGAIN;
+>  
+>  	/* Perform CMOs before installation of the guest stage-2 PTE */
+> @@ -1014,7 +1077,8 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
+>  	    stage2_pte_executable(new))
+>  		mm_ops->icache_inval_pou(kvm_pte_follow(new, mm_ops), granule);
+>  
+> -	stage2_make_pte(ctx, new);
+> +	if (!stage2_make_pte(ctx, data->mmu, new))
+> +		return -EAGAIN;
+>  
+>  	return 0;
+>  }
+> @@ -1057,19 +1121,21 @@ static int stage2_map_walk_leaf(const struct kvm_pgtable_visit_ctx *ctx,
+>  	childp = mm_ops->zalloc_page(data->memcache);
+>  	if (!childp)
+>  		return -ENOMEM;
+> -
+> -	if (!stage2_try_break_pte(ctx, data->mmu)) {
+> -		mm_ops->put_page(childp);
+> -		return -EAGAIN;
+> -	}
+> -
+>  	/*
+>  	 * If we've run into an existing block mapping then replace it with
+>  	 * a table. Accesses beyond 'end' that fall within the new table
+>  	 * will be mapped lazily.
+>  	 */
+>  	new = kvm_init_table_pte(childp, mm_ops);
+> -	stage2_make_pte(ctx, new);
+> +	if (!stage2_try_break_pte(ctx, data->mmu, new)) {
+> +		mm_ops->put_page(childp);
+> +		return -EAGAIN;
+> +	}
+> +
+> +	if (!stage2_make_pte(ctx, data->mmu, new)) {
+> +		mm_ops->put_page(childp);
+> +		return -EAGAIN;
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -1549,18 +1615,21 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	if (IS_ERR(childp))
+>  		return PTR_ERR(childp);
+>  
+> -	if (!stage2_try_break_pte(ctx, mmu)) {
+> -		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
+> -		return -EAGAIN;
+> -	}
+> -
+>  	/*
+>  	 * Note, the contents of the page table are guaranteed to be made
+>  	 * visible before the new PTE is assigned because stage2_make_pte()
+>  	 * writes the PTE using smp_store_release().
+>  	 */
+>  	new = kvm_init_table_pte(childp, mm_ops);
+> -	stage2_make_pte(ctx, new);
+> +	if (!stage2_try_break_pte(ctx, mmu, new)) {
+> +		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
+> +		return -EAGAIN;
+> +	}
+> +
+> +	if (!stage2_make_pte(ctx, mmu, new)) {
+> +		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
+> +		return -EAGAIN;
+> +	}
+>  	return 0;
+>  }
+>  
+> -- 
+> 2.55.0.979.g7e5102b832-goog
+> 
 
