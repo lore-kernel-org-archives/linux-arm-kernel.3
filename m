@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC69DCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97153CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Or8bGKd328cjwT8opyEZlfDyIVPvTUBoe+zbP1elmYo=; b=nyVVGp9mGgVIrgP+5l3NTReNAP
-	7caBRFmnHmDrYAo5KiI3lim61izHhs4cgY7NhrbH6G4Khr11Vkk7Fs5xiN0eMi2MSeF3EMd1cP0KQ
-	BlO8XGfwCXGSbikzS4gZKjTfUHtRQouGsZ7TWfr26/lFOvCSgt96CPDU1tGjPTQSVedH++0jNPPzS
-	t/hcv9nQ9MWW5XlsV3UWsWh9fDc9nyNuNXhf+IzP9Lagy7xN1Ux2kYUtpEhJsA1rPA0CH+s7UKYEZ
-	eboInTE2f1QcgJby0brsOnfkdDKulJ591cCF4t8ipknn/RtNWqJ8fIQ45orf+k3rEepGk9oj+mRzO
-	XIsHtVXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p+NqYzkJi4bbpKBIQTUInr2tga3QhuawnSpp33S+pYw=; b=y1HYN5VmKh6jupwm3n54YUxkp8
+	wz9FpzjGJuBW+0WbHUMSsheXmN2j/z+TCyE+vQsAoN56dw3rCHhkydqqml5fbGKNRHm6V3rKZITNF
+	wWYx7d9+KCmRbY9cbKZW81k+I5FqGZtGDgV3+ka/44t6YBGeChlHF9aruNSXRVC+z57l+GyVcpI4s
+	+2fi5+ScTWL1xu2DdxHP73z65ggKF1mXPVJzjRnc5dz50r82fR8FU6LUK8svEwRUVubsLum9eiqfi
+	OwRmt2BM1SdnIxgrZDvoilHuggmv8IwOfS4pypiEXRLjmbh+18Wber0sqanp4sPxgPBte4e7jB0jt
+	g5pBHq+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDirW-0000000GYH2-0kI4;
-	Mon, 05 Oct 2026 13:36:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDirQ-0000000GYEg-2jO8;
-	Mon, 05 Oct 2026 13:36:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1388E60A64;
-	Mon,  5 Oct 2026 13:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89D251F00898;
-	Mon,  5 Oct 2026 13:36:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791207367;
-	bh=Or8bGKd328cjwT8opyEZlfDyIVPvTUBoe+zbP1elmYo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VB/Kis31yp9kknyjWLppXvf5/9uVnI20+ZnC5JqOwjgd5VGolKJLtr4GgX5A0aK3F
-	 5qi3AJiSmy/cyjYXOeisSUjtYRLXbkxwYLxQxHzQodNVnJs5xVyHf/dsgoW8HuqtTM
-	 GGZ8l2+v4yS+4BY3d/+yGLOv/BFO9nfaWi8OdxsvEqjTYqcIKEgtKrACvQIA9LTDQl
-	 t0jz5KHyRfdRsz+zTzKFZePwb9T9iLYJpmJSzePfG7G2oLCvWWIyo9clqU3jkO/Haa
-	 A3ZNYY4VMjR00Iq3ewzfo4unC2yhW7GhATyhFqoIxDXo+oRvyMF+2JnUWkSCbQT7UU
-	 XBXVWO5Dmiz0w==
-Subject: Re: [PATCH net-next v5 3/3] net: dsa: let user ports wait for a PHY
- that probes late
-From: netdev-bot+sashiko@kernel.org
-To: f@lex.la
-Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- olteanv@gmail.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- conor@kernel.org, f.fainelli@gmail.com, chester.a.unal@arinc9.com,
- daniel@makrotopia.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Date: Mon, 05 Oct 2026 13:36:06 +0000
-Message-ID: <179120736615.434549.15639450340100893930@kernel.org>
-In-Reply-To: <20261001130208.105558-4-f@lex.la>
-References: <20261001130208.105558-4-f@lex.la>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xDiyj-0000000GZDn-37vj;
+	Mon, 05 Oct 2026 13:43:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDiyg-0000000GZCK-1qKu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 13:43:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32DC0152B;
+	Mon,  5 Oct 2026 06:43:33 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E30A93F86F;
+	Mon,  5 Oct 2026 06:43:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791207816; bh=CWv6wDh/LavMy4SV7bBu3KaB84y77Ij9h09DIbD8w5s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VLYv7U5EP08T54sp7h2B/09wBnOsC4TvmV02qYm6eGHza6LJHmO1R8roAh6sT2slN
+	 +rvqGyGgHDQGKgWruurZ3lqoiG2xPqrMgNDnHr4JWyPg4bkDSAE5hMdUJUz5g5IIA2
+	 +Zk9w/TmBh0kM9L12NVmftvoIdG2RhIFUTW2c0DE=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] perf/arm_cspmu: Add Arm system PMU
+Date: Mon,  5 Oct 2026 14:42:53 +0100
+Message-ID: <162173d376d223941b0c8b4e4a1c9ad2ae5c11a3.1791207773.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_064338_574227_65C923EC 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,133 +67,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Arm's latest Compute Subsystems and SoCs are using a common PMU block
+in various places which can mostly just be driven as a generic 64-bit
+CoreSight PMU, but does have an IMP-DEF register for additional
+filtering. The details of event and filter encodings depend on the
+particular PMU instance, so are left to the higher level Arm Telemetry
+Solution tooling.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+v2: Rebase onto for-next/perf
 
-- [Medium] This patch arms phylink's self-requeueing late-PHY poller
-  (pl->late_phy_poll on system_freezable_power_efficient_wq) for…
-- [Low] The comment this patch adds on struct
-  dsa_switch::phy_may_probe_late (include/net/dsa.h:458-460) says a…
+ drivers/perf/arm_cspmu/Kconfig      |  7 +++
+ drivers/perf/arm_cspmu/Makefile     |  1 +
+ drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
+ drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
+ drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
+ 5 files changed, 83 insertions(+)
+ create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
 
---
-
-net: dsa: let user ports wait for a PHY that probes late
-
-This adds a phy_may_probe_late bit to struct dsa_switch. dsa_user_phy_setup()
-passes it to phylink so that a user port can wait for a PHY whose driver
-needs host firmware and probes late. mt7530 opts in.
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index 7781a63b4e6fd..e4c155605e27f 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -3548,6 +3548,7 @@ mt7530_probe_common(struct mt7530_priv *priv)
->  	priv->ds->priv = priv;
->  	priv->ds->ops = &mt7530_switch_ops;
->  	priv->ds->phylink_mac_ops = &mt753x_phylink_mac_ops;
-> +	priv->ds->phy_may_probe_late = true;
-
-[Severity: Medium]
-
-With this opt-in, phylink's late PHY poller (pl->late_phy_poll) can be
-pending on mt7530 user ports. Does anything on the switch shutdown path
-cancel it?
-
-mt7530_shutdown() and the mmio shutdown handler both call
-dsa_switch_shutdown(). That function closes the conduits, detaches and
-unlinks the user netdevs, and clears conduit->dsa_ptr:
-
-net/dsa/dsa.c:dsa_switch_shutdown() {
-    ...
-	dsa_switch_for_each_user_port(dp, ds) {
-		conduit = dsa_port_to_conduit(dp);
-		user_dev = dp->user;
-
-		netif_device_detach(user_dev);
-		netdev_upper_dev_unlink(conduit, user_dev);
-	}
-    ...
-}
-
-It never calls phylink_disconnect_phy() or phylink_destroy(). Those two
-functions and phylink_fwnode_phy_connect() are the only callers of
-phylink_late_phy_cancel(). phylink_stop() does not cancel the work either.
-
-Suppose the PHY driver binds shortly before a reboot or kexec. A poll that
-is still queued (up to 30 seconds out after backoff) can then run after
-.shutdown has returned:
-
-phylink_late_phy_poll()
-    phylink_attach_phy()
-        phy_attach_direct()
-            phy_init_hw()
-            phy_resume()
-    phylink_bringup_phy()
-        phy_request_interrupt()
-
-Could this cause MDIO traffic, a PHY soft reset and config_init, and an
-IRQ request on hardware that has already been shut down? Could it also
-leave that interrupt enabled for a kexec'd kernel?
-
-For comparison, sfp_shutdown() calls cancel_delayed_work_sync() on
-sfp->poll and sfp->timeout.
-
->  	mutex_init(&priv->reg_mutex);
->  	spin_lock_init(&priv->stats_lock);
->  	INIT_DELAYED_WORK(&priv->stats_work, mt7530_stats_poll);
-> diff --git a/include/net/dsa.h b/include/net/dsa.h
-> index 5d12191b6f6f5..f7e78c3a123d3 100644
-> --- a/include/net/dsa.h
-> +++ b/include/net/dsa.h
-> @@ -455,6 +455,11 @@ struct dsa_switch {
->  	 */
->  	u32			dscp_prio_mapping_is_global:1;
->  
-> +	/* Drivers whose .port_enable copes with a NULL phy may set this to
-> +	 * let user ports wait for a PHY that needs host firmware.
-> +	 */
-> +	u32			phy_may_probe_late:1;
-
-[Severity: Low]
-
-Is "copes with a NULL phy" the whole requirement for opting in?
-
-The only caller of .port_enable is dsa_user_open() ->
-dsa_port_enable_rt(dp, dev->phydev). When phylink_late_phy_poll() attaches
-the PHY later, it forces a major config and calls phy_start(). It does not
-call .port_enable again with the new phy.
-
-gswip_port_enable() already handles a NULL phy:
-
-	if (phydev)
-		mdio_phy = phydev->mdio.addr & GSWIP_MDIO_PHY_ADDR_MASK;
-
-So gswip meets the rule as written. Yet the commit message says gswip must
-not opt in, because the PHY address would stay wrong until the next open.
-
-The same applies to qca8k. Adding an if (phy) check around
-phy_support_asym_pause(phy) in qca8k_port_enable() would satisfy this
-comment. A PHY that attaches late would then never advertise asym pause.
-
-Should the comment say that the driver must not depend on the phy argument
-of .port_enable at all? That would match the reasoning in the commit
-message.
-
-> +
->  	/* Listener for switch fabric events */
->  	struct notifier_block	nb;
->  
-
-[ ... ]
-
+diff --git a/drivers/perf/arm_cspmu/Kconfig b/drivers/perf/arm_cspmu/Kconfig
+index 6f4e28fc84a2..25bd55f036a4 100644
+--- a/drivers/perf/arm_cspmu/Kconfig
++++ b/drivers/perf/arm_cspmu/Kconfig
+@@ -27,3 +27,10 @@ config AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU
+ 
+ 	  In the first phase, the driver enables support on MCU PMU used in
+ 	  AmpereOne SoC family.
++
++config ARM_SYSTEM_PMU
++	tristate "Arm System PMU"
++	depends on ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU
++	help
++	  Support additional event filtering attributes for the CoreSight-based
++	  PMU blocks found in various parts of Arm Compute Subsystems and SoCs.
+diff --git a/drivers/perf/arm_cspmu/Makefile b/drivers/perf/arm_cspmu/Makefile
+index 220a734efd54..90c3cd710157 100644
+--- a/drivers/perf/arm_cspmu/Makefile
++++ b/drivers/perf/arm_cspmu/Makefile
+@@ -8,3 +8,4 @@ arm_cspmu_module-y := arm_cspmu.o
+ 
+ obj-$(CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += nvidia_cspmu.o
+ obj-$(CONFIG_AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += ampere_cspmu.o
++obj-$(CONFIG_ARM_SYSTEM_PMU) += arm_syspmu.o
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index 912f03ce3ef5..9f298ea1a974 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -358,6 +358,13 @@ static struct arm_cspmu_impl_match impl_match[] = {
+ 		.module		= NULL,
+ 		.impl_init_ops	= NULL,
+ 	},
++	{
++		.module_name	= "arm_syspmu",
++		.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++		.pmiidr_mask	= PMIIDR_IMPLEMENTER,
++		.module		= NULL,
++		.impl_init_ops	= NULL,
++	},
+ 	{
+ 		.module_name	= "ampere_cspmu",
+ 		.pmiidr_val	= ARM_CSPMU_IMPL_ID_AMPERE,
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index c4058d602477..03e34692a965 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -149,6 +149,7 @@
+ 
+ /* JEDEC-assigned JEP106 identification code */
+ #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
++#define ARM_CSPMU_IMPL_ID_ARM		0x43B
+ #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
+ 
+ /* PMDEVARCH */
+diff --git a/drivers/perf/arm_cspmu/arm_syspmu.c b/drivers/perf/arm_cspmu/arm_syspmu.c
+new file mode 100644
+index 000000000000..ac234768a2f8
+--- /dev/null
++++ b/drivers/perf/arm_cspmu/arm_syspmu.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/io.h>
++#include <linux/module.h>
++
++#include "arm_cspmu.h"
++
++#define PMEVFILT3R	0x200
++
++static struct attribute *arm_syspmu_format_attrs[] = {
++	ARM_CSPMU_FORMAT_EVENT_ATTR,
++	ARM_CSPMU_FORMAT_FILTER_ATTR,
++	ARM_CSPMU_FORMAT_FILTER2_ATTR,
++	ARM_CSPMU_FORMAT_ATTR(filter3, "config3:0-63"),
++	NULL,
++};
++
++static struct attribute **arm_syspmu_get_format_attrs(const struct arm_cspmu *cspmu)
++{
++	return devm_kmemdup(cspmu->dev, arm_syspmu_format_attrs,
++			    sizeof(arm_syspmu_format_attrs), GFP_KERNEL);
++}
++
++static void arm_syspmu_set_ev_filter(struct arm_cspmu *cspmu,
++				     const struct perf_event *event)
++{
++	u32 offset = 8 * event->hw.idx;
++
++	writeq(event->attr.config1, cspmu->base0 + PMEVFILTR + offset);
++	writeq(event->attr.config2, cspmu->base0 + PMEVFILT2R + offset);
++	writeq(event->attr.config3, cspmu->base0 + PMEVFILT3R + offset);
++}
++
++static int arm_syspmu_init_ops(struct arm_cspmu *cspmu)
++{
++	switch (FIELD_GET(PMIIDR_PRODUCTID, cspmu->impl.pmiidr)) {
++	case 0x9c3:
++		cspmu->impl.ops.set_ev_filter = arm_syspmu_set_ev_filter;
++		cspmu->impl.ops.get_format_attrs = arm_syspmu_get_format_attrs;
++		break;
++	default:
++		break;
++	}
++	return 0;
++}
++
++static const struct arm_cspmu_impl_match arm_syspmu_param = {
++	.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++	.module		= THIS_MODULE,
++	.impl_init_ops	= arm_syspmu_init_ops
++};
++
++static int __init arm_syspmu_init(void)
++{
++	return arm_cspmu_impl_register(&arm_syspmu_param);
++}
++
++static void __exit arm_syspmu_exit(void)
++{
++	arm_cspmu_impl_unregister(&arm_syspmu_param);
++}
++
++module_init(arm_syspmu_init);
++module_exit(arm_syspmu_exit);
++
++MODULE_DESCRIPTION("Arm System PMU Driver");
++MODULE_LICENSE("GPL");
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001130208.105558-1-f%40lex.la
+2.54.0.dirty
+
 
