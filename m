@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE4BCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C29CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYh2rxKMx2Wm+Lvc6QK3nB5xBauzxm6BmT4G4eVxSRw=; b=W/IT4mTxGLN0267KiXzWCHapjQ
-	LkkmPPIInVA/sonY8HMO11YguY43YW0tOmxT3mE3CpY+6C7i3a4wUpbF5AoJ7ng1sLJ6E86ZGBceM
-	TZv9K8QHTMwwMYciXR9swTNmQKIJgWGmfpWAcUaoCK5cjwJAlsLYS6CyR+jP6HwUHMLkOgaf/SwRl
-	YcpPUPmsQSU33Gg2eW3sAAdy/v5LxZjUdGsjJ0ops9NEiSf4LQskh7Vqt+UUaTA/MTVS3s1Ut1fr3
-	4LGsDMdrbGpyGoNcx65oQBztWQ3LVjA2R0w95zcfZqhWCIY2m5UdNfuyBf/31qx0gc3QGxeYnWhfM
-	3xWchkfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1ah6BRYlOqcajJUdl5DlnBTDzNHXdGvo5x5zaQWEpp8=; b=Z4TfDzFPnhlwxhaHQQv09J9M9t
+	hmtC+T4d7+Wa0C8INQMPM2Rr11AjJdVCo0M0XssA7n2X8A5hxke+Z5ZBC/np106nUOyN7O+xknG4d
+	eGB9I7MTpFO3OoEpwrIrWxKUQnL9u56MuoApcH1TyP4dr443wIU7+hPpXCj6r2ACZBqNM8zK2p57S
+	iep7I+8m8qTV5Xh8j5+FxkD6W/RPZy/E+rsfUQu63/CbCtgpHojZn8Z11Z6UHkZ3xZb/BeZGZSGyp
+	HQKKiNOr3xULGCWtDIXBNzywOZHb6loo9vRU/8J5ZC4VApBhexpyRcAuWYlBWd4MPNyhe/3K6mh/y
+	tfsvbniA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmDT-0000000GtZy-2DSl;
-	Mon, 05 Oct 2026 17:11:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDmJc-0000000GuC9-0dtY;
+	Mon, 05 Oct 2026 17:17:28 +0000
+Received: from mail.scd31.com ([205.209.125.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmDS-0000000GtYl-1PVo;
-	Mon, 05 Oct 2026 17:11:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A80B414D2;
-	Mon,  5 Oct 2026 17:11:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C07521F00893;
-	Mon,  5 Oct 2026 17:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791220266;
-	bh=HYh2rxKMx2Wm+Lvc6QK3nB5xBauzxm6BmT4G4eVxSRw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ol/xJsFgT2Yczz6kItqZg4PP+pPv2843l7xlxzUkrJigmBhMGNe0PAkqpxaMgl7+R
-	 e0rZEDY8t4JKy/E54WTLLVpxIxf4gtJKewD84TlTTR+qRVPimWeUVX/xY6VlaaGM+N
-	 VoeT7ZwIZhH9zLh1L5Ci3GpGlrF9Ss8XT0RSi/BdGEJo/ibQkv88zFUfH65ZSv8iTS
-	 zERF4e1IFNdmw6A/EQ+HbwGY8UNtKK/+eYoQZ3d2P69bBQgucMVeJeZ/socIyT2QlI
-	 iwz6KVzrVYsvjLGn5FdXBV2iHoIIz6VWDqVhn52hWnz2mM6PV3DUmUWcK36ZPm5aja
-	 yDGeUGGFxRwsg==
-Date: Mon, 5 Oct 2026 12:11:05 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Brian Masney <bmasney+clk@redhat.com>, devicetree@vger.kernel.org,
+	id 1xDmJY-0000000GuBZ-0CmG;
+	Mon, 05 Oct 2026 17:17:26 +0000
+From: Sophie D <patches@scd31.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=scd31.com; s=mail;
+	t=1791220639;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1ah6BRYlOqcajJUdl5DlnBTDzNHXdGvo5x5zaQWEpp8=;
+	b=NkIZVHIe/NEIztwGEg5rftAncOzAtTd97OTgds4MCRjaTV/u3umbjksfKTQ9FIca5njqWK
+	nMg0AiLZCR5QQctw/NiPKpQoIP2TcGME8CvMv/oxmWWUj0e3t+ysmtH0Hoqqig9DzG7SV/
+	DCfTWlZTeL9Lz47VpWivUgLmhuRTkPUExavQDbOmRiOMb8I9JvaxzphsY7U/jbN0I/8cdm
+	TB9YZ/dTHE8dC1mprBE1sYQ71q7dG4euLmlK+5bozG8LqXkHfzCV/qb1oh0zQU76aKH4MJ
+	JDw0USNlv8wLTnmUEVuTsch++5vFwgnc06pl333eMOUBVHLENZlQmZei4I6Rcg==
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Jerome Brunet <jbrunet+clk@baylibre.com>, linux-pm@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>, kernel@collabora.com,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/7] dt-bindings: devfreq: event: rockchip,dfi: add
- rk3576
-Message-ID: <179122026463.1037372.13014542138147307791.robh@kernel.org>
-References: <20260921-b4-rockchip-dfi-rk3576-support-v2-0-04f847016321@collabora.com>
- <20260921-b4-rockchip-dfi-rk3576-support-v2-3-04f847016321@collabora.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sophie D <patches@scd31.com>
+Subject: [PATCH] clk: mediatek: mt2701: Enable all subsystem clocks by default
+Date: Mon,  5 Oct 2026 13:17:05 -0400
+Message-ID: <20261005171706.2164743-1-patches@scd31.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921-b4-rockchip-dfi-rk3576-support-v2-3-04f847016321@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_101724_195036_444282C2 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +70,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Only the core MT2701 clock driver is enabled by default when building
+for ARCH_MEDIATEK on ARM; none of the subsystem clock drivers are. As a
+result, multi_v7_defconfig produces a kernel where Ethernet, PCIe, USB,
+display, GPU and audio do not work on MT7623 boards such as the Banana
+Pi BPI-R2, as their clocks live in ethsys, hifsys, mmsys, g3dsys and
+audsys.
 
-On Mon, 21 Sep 2026 23:15:05 +0200, Sebastian Reichel wrote:
-> From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> The RK3576 has DFI hardware for monitoring the DDR's bandwidth much
-> like other rockchip SoCs do. Unlike the RK3588 however, it only has two
-> memory channels, so only two per-channel pclks for DFI.
-> 
-> Add a compatible for this SoC's variant, and add it to the conditionals
-> at the bottom of the bindings file.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/devfreq/event/rockchip,dfi.yaml          | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
+Default all of the MT2701 subsystem clock drivers to
+COMMON_CLK_MT2701, in line with newer SoCs such as MT8173, MT8183 and
+MT7986.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sophie D <patches@scd31.com>
+---
+ drivers/clk/mediatek/Kconfig | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index 0e8dd82aa84e..a449ec878abc 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -29,48 +29,56 @@ config COMMON_CLK_MT2701
+ config COMMON_CLK_MT2701_MMSYS
+ 	bool "Clock driver for MediaTek MT2701 mmsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 mmsys clocks.
+ 
+ config COMMON_CLK_MT2701_IMGSYS
+ 	bool "Clock driver for MediaTek MT2701 imgsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 imgsys clocks.
+ 
+ config COMMON_CLK_MT2701_VDECSYS
+ 	bool "Clock driver for MediaTek MT2701 vdecsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 vdecsys clocks.
+ 
+ config COMMON_CLK_MT2701_HIFSYS
+ 	bool "Clock driver for MediaTek MT2701 hifsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 hifsys clocks.
+ 
+ config COMMON_CLK_MT2701_ETHSYS
+ 	bool "Clock driver for MediaTek MT2701 ethsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 ethsys clocks.
+ 
+ config COMMON_CLK_MT2701_BDPSYS
+ 	bool "Clock driver for MediaTek MT2701 bdpsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 bdpsys clocks.
+ 
+ config COMMON_CLK_MT2701_AUDSYS
+ 	bool "Clock driver for Mediatek MT2701 audsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports Mediatek MT2701 audsys clocks.
+ 
+ config COMMON_CLK_MT2701_G3DSYS
+ 	bool "Clock driver for MediaTek MT2701 g3dsys"
+ 	depends on COMMON_CLK_MT2701
++	default COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 g3dsys clocks.
+ 
+-- 
+2.55.0
 
 
