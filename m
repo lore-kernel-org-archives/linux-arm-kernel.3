@@ -4,127 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0909CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 11:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C06CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 12:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0Fn4xuYRvi/Ep3my+xCHICO0ZIL+WrDmVGVP+HJwXw=; b=HcsV+BGrXAzF43DOIGaAeFhv0V
-	/tFtuDrzXuTGMyzannyEesMvdpGMpguubJd7W3Zw5fOC2VIzs0EGMZVMjg4w0bTd/6Py4wP2CE2CF
-	yPbd1RpCs4O85Van1OiMt/aYEPeHcKgBoX3PoFeS7cNViREiCdd2wouocu6Qbzegz8GBXDurRs7O6
-	5uQEOhSt5LeqMZO5BcRGM769zseoOIRchMXs9q2JOmqz6AQV+1wBQHLQLlvjvJObAdrqdWPK+znv/
-	u1xq6aviJfTnLroWDcLfQEZpJhaZkfWtIXrh7eRqKdUcKPoQZFlupdINsUGNr/ExzJGzvuLCahXH9
-	nuhYloGQ==;
+	bh=+6k1mdZtwEgz1KO8lXOKSUbhxVxxBDU+Qo+cKaKMlYU=; b=MiA8xHfIWa/ysPzeeM7609ARcS
+	FOXgQkGBIznEhBD+xYLrl/9WepPLGj8mI+f2Z4gMfIx9FWX07SajIKMj3410FjKNNh/qQFuIXoCP/
+	NnreWL1VIpqz6vo/mCDxbZxbVQIKiWij+v5NKuo9OldqCUaMzO0y2YGlKIsfannm+5HiQMei3HZz/
+	4U0gnfsb5zaGOBvyfK2gSnT0RvpQozQz/S30mNbLH34sN8nwP46TQgzontTEoH8mnrvSJrApy4Q3Z
+	0V4u7609c3mRBPqRs5dHTXh5/M8+voSKOOAc0CC4SL+uWCrdD5Le21meSu2b3L+W2ljPkP0fAniqn
+	eHRaWa+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfQa-0000000G664-2YOy;
-	Mon, 05 Oct 2026 09:56:13 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfQR-0000000G5yK-0GE2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:56:05 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6aa850436d3so1671774a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 02:56:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791194161; x=1791798961; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=U0Fn4xuYRvi/Ep3my+xCHICO0ZIL+WrDmVGVP+HJwXw=;
-        b=Pjgd2xysuCAb0ACqVoOzD8xRSNbx+a2EZvQ/7U1fPLJzKJ9tZjAPykw5p39WzgSp9F
-         RmjQCvyk+b3ghnP2GwbWkkogmdozDBlMzXclRDmon/y1xBxe3Tf4F6kQzwXGL5de3HdI
-         hxlKNYwyFc/kR7/QzD4xMoD5KQBiBiO0qS2yzITHK33rATgbTOYh5ZAQugDSzaKmFj3S
-         rTBS1klkWpCFBx5la6cSfJcml3RPENAsg/CETEQf6CsDUyStO+u75+GZuL+6Baj5vxWV
-         zZdsb6fmF3Bf6PdVQKEV5kAJEL7wM0iGKceyoys6gxSlO9fRcc8pO8W26frp0+efeFXV
-         3qCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791194161; x=1791798961;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U0Fn4xuYRvi/Ep3my+xCHICO0ZIL+WrDmVGVP+HJwXw=;
-        b=G5/u7UIgrPHXSWt1/5z5oKMtacwOQOcKQArbfPqUDNfICeoc7MbNSqKpQLRygcWtz8
-         B8D2A3Y7tsglhsTh6Rzq59LyR8IWP019L9Vba4VpRlECvr9tWYOlt6cQ22vmHMdY1S3p
-         WYXPlpxlJLgkZ5aL/9xj306h+BKk6J+5fBAYm9LnSBR5BFKviIvCONLBvCjHHptp8h/F
-         Od3ygFZFFzAcODrQTH5hmg+ar/7XD8jvj4Py239NkDsKAHv7EuYqKNoGeTg0nqjKyats
-         6WmZVtX8WPrsIe9rwgbgp4qCgX/jlLa32pNUvTBsKfExtGP992H6ScnK5ESo9HZTCBhu
-         BBBw==
-X-Forwarded-Encrypted: i=1; AKwUvBw9VhAlBgl5u+zMrmZEGTHxOBRzY8l97U4Zfjp1Y/gToaW9JcBSfAMYQoINMcjqzbd2bhfZ5JaDfIUacbDRAhQb@lists.infradead.org
-X-Gm-Message-State: AFuF++m368VMNPCpYyy7zqvaH/sVIBG0fFnptttegbJexzAKC/TGorqC
-	HfSHVHnRXC57JSWxLErmHWif8M6owuaI/maJVWqaDVfcahE2jyTRW6sd
-X-Gm-Gg: AYBFou01l0Yx7YWSgNsOqbECH/kuIYy3XQ0VA0s9hSyp2+5Qxi+pcayRAyuN3wUOQ0w
-	JOfJPt9R0ExJ4j9dLMFUg5mQvFvaHV5SwFHwc83dl97Pe1AQJUX3J1tDjFI22mxQoG//GAGbqou
-	7/wZvI8HJwb+lCTvcrESxroTRT85YHbpvR31njcbIE8gERHl0wOAYo8pjf9aLspOfR2RJkE/bzs
-	vNbj918IfJa8f22RUj//Kp95sVagE/xA2x4EYy33gfFgvstpSAIB7+EKmx0fxjbHiuAqSGrecCa
-	E0vX3W3HiSBbCnvnTDMMS+eB6jfFAsYku6gKeMqR+/4puEcdV/iNw0imA+S14bmCtT868f5uTWW
-	8dB2dm19BLX0GUnxqDD5Jk7RKlvIvUoDfGGuQ258TfC06PO0CjH0wbexnQnSqz9mejqgXC+gyBG
-	oP5cHsgRp/Fqp9eJ5WZbcpgSyzCnryP85iVDE8XeW6Q7m60n1Sn6UQ5oVSrEdFQm2BUVs0PK9rh
-	NAHenzo4gowXX1lUWYsarXEFl70OwIP0gMB4fXm8eJjh9xSzQLgwW/jSRlUwWBQLGEg9Yv1KFx+
-	ZNVvAtuNnnElYFSUEjlsM39z0NTes3usoSI=
-X-Received: by 2002:a17:907:3da8:b0:c2e:34b7:8899 with SMTP id a640c23a62f3a-c2e6edfb51dmr545128866b.30.1791194160845;
-        Mon, 05 Oct 2026 02:56:00 -0700 (PDT)
-Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31562aba16sm50753266b.23.2026.10.05.02.55.59
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 05 Oct 2026 02:56:00 -0700 (PDT)
-From: Fred Griffoul <griffoul@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Kevin Tian <kevin.tian@intel.com>
-Cc: David Woodhouse <dwmw2@infradead.org>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Alex Williamson <alex@shazbot.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-kselftest@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	x86@kernel.org
-Subject: [RFC PATCH 5/6] KVM: guest_memfd: Add dma-buf backing
-Date: Mon,  5 Oct 2026 09:55:51 +0000
-Message-ID: <20261005095552.52748-6-griffoul@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261005095552.52748-1-griffoul@gmail.com>
-References: <20260720111259.122911-1-dwmw2@infradead.org>
- <20261005095552.52748-1-griffoul@gmail.com>
+	id 1xDhTl-0000000GNRn-0Ngy;
+	Mon, 05 Oct 2026 12:07:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDhTg-0000000GNQw-21tK;
+	Mon, 05 Oct 2026 12:07:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54873152B;
+	Mon,  5 Oct 2026 05:07:23 -0700 (PDT)
+Received: from [192.168.147.49] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7D8D3F86F;
+	Mon,  5 Oct 2026 05:07:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791202046; bh=3FgcCnbV9YRK9cWAc5HYLFiWEjRwfbEEYLqixQdU520=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EJjN4Ffqe2Y68JHHRmfhnLQ2jkZ6dkZdRpINSBf9H3ljFLGnSO/iS3BmoeQbGd2qV
+	 caYdW4R837bIczfSbfRSnS83xo8hcHgy5M+2lu4ErmrqhHNwLyHsakUcOzDv+0TMqS
+	 IFNGxJmJAcAJ3NEyprpWvdFaOk7a/oGUTtn20C0M=
+Message-ID: <b138ae28-bd90-414c-9e57-c493877c9bad@arm.com>
+Date: Mon, 5 Oct 2026 13:07:18 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] usb: mtu3: Fix double dereference in TP_printk
+To: paulmck@kernel.org
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ chunfeng.yun@mediatek.com, gregkh@linuxfoundation.org, rostedt@goodmis.org,
+ mark.rutland@arm.com
+References: <20260922103756.104846-1-vladimir.murzin@arm.com>
+ <845ef1a3-8d85-4007-aa2c-05e59e79afcd@arm.com>
+ <315259c9-d7b9-44bc-8896-ecb9429a6eb5@paulmck-laptop>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <315259c9-d7b9-44bc-8896-ecb9429a6eb5@paulmck-laptop>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_025604_116760_0470C70E 
-X-CRM114-Status: GOOD (  28.45  )
+X-CRM114-CacheID: sfid-20261005_050732_727376_0C7FEE4D 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,452 +73,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fred Griffoul <fgriffo@amazon.co.uk>
+Hi All,
 
-A memory owner that exports a dma-buf should be able to use that one
-object for both guest stage-2 mappings and device IOMMU mappings. A
-second, KVM-specific backing interface would duplicate the description
-of the memory layout and the rules for invalidating it.
+On 9/28/26 19:21, Paul E. McKenney wrote:
+> On Mon, Sep 28, 2026 at 02:11:42PM +0100, Vladimir Murzin wrote:
+>> Hi All,
+>>
+>> Gentle ping... spat is still present in v7.3-rc5
+> If no one else wants to push it, I can do so.  I gotta admit that the
+> resulting test failures when I forget to apply it are a bit annoying.  ;-)
+> 
+> 							Thanx, Paul
+> 
 
-Add GUEST_MEMFD_FLAG_USE_DMABUF and a dmabuf_fd field to
-KVM_CREATE_GUEST_MEMFD. This backing has its own kvm_gmem_ops.
-guest_memfd attaches to the buffer as a revocable importer without a
-device. At creation, it asks for the run at offset 0 and refuses MMIO
-or unknown attributes, so a buffer that KVM can never map fails early.
-Offset 0 may be unbacked.
+FYI, splat is still present in v7.3-rc6 :(
 
-On a fault, guest_memfd takes the reservation once. It asks get_phys()
-about the PUD-sized, PMD-sized and page-sized blocks around the faulting
-page, in that order, and maps the first block that one aligned RAM run
-covers. If the page is not backed or the run is not supported, the
-fault returns -EFAULT. A READONLY run is mapped without stage-2 write
-permission.
+Thanks
+Vladimir
 
-The invalidation callback only runs KVM's invalidation over the
-affected range. It does not allocate memory or call the exporter. A
-fault that read the layout during the change sees mmu_invalidate_seq
-move and retries.
-
-Callbacks can start as soon as guest_memfd attaches. A dma-buf-backed
-file is therefore added to the inode's list of guest_memfd files under
-filemap_invalidate_lock.
-
-mmap() uses the exporter's dma-buf mmap. fallocate() and populate are
-not supported. Import the DMA_BUF symbol namespace so that a
-CONFIG_KVM=m build passes modpost.
-
-Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
----
- include/linux/kvm_host.h       |   1 +
- include/uapi/linux/kvm.h       |   6 +-
- tools/include/uapi/linux/kvm.h |   6 +-
- virt/kvm/Kconfig               |   1 +
- virt/kvm/guest_memfd.c         | 239 +++++++++++++++++++++++++++++++--
- 5 files changed, 243 insertions(+), 10 deletions(-)
-
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index f84f3ab44acf..0158dc46580b 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -834,6 +834,7 @@ static inline u64 kvm_gmem_get_supported_flags(struct kvm *kvm)
- 
- 	if (!kvm || kvm_arch_supports_gmem_init_shared(kvm))
- 		flags |= GUEST_MEMFD_FLAG_INIT_SHARED;
-+	flags |= GUEST_MEMFD_FLAG_USE_DMABUF;
- 
- 	return flags;
- }
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 419011097fa8..f8c83013773d 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -1654,11 +1654,15 @@ struct kvm_memory_attributes {
- #define KVM_CREATE_GUEST_MEMFD	_IOWR(KVMIO,  0xd4, struct kvm_create_guest_memfd)
- #define GUEST_MEMFD_FLAG_MMAP		(1ULL << 0)
- #define GUEST_MEMFD_FLAG_INIT_SHARED	(1ULL << 1)
-+#define GUEST_MEMFD_FLAG_USE_DMABUF	(1ULL << 2)
- 
- struct kvm_create_guest_memfd {
- 	__u64 size;
- 	__u64 flags;
--	__u64 reserved[6];
-+	/* With USE_DMABUF, memory comes from this dma-buf's leading bytes. */
-+	__s32 dmabuf_fd;
-+	__u32 pad;
-+	__u64 reserved[5];
- };
- 
- #define KVM_PRE_FAULT_MEMORY	_IOWR(KVMIO, 0xd5, struct kvm_pre_fault_memory)
-diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-index d0c0c8605976..ebeb2bc353ed 100644
---- a/tools/include/uapi/linux/kvm.h
-+++ b/tools/include/uapi/linux/kvm.h
-@@ -1644,11 +1644,15 @@ struct kvm_memory_attributes {
- #define KVM_CREATE_GUEST_MEMFD	_IOWR(KVMIO,  0xd4, struct kvm_create_guest_memfd)
- #define GUEST_MEMFD_FLAG_MMAP		(1ULL << 0)
- #define GUEST_MEMFD_FLAG_INIT_SHARED	(1ULL << 1)
-+#define GUEST_MEMFD_FLAG_USE_DMABUF	(1ULL << 2)
- 
- struct kvm_create_guest_memfd {
- 	__u64 size;
- 	__u64 flags;
--	__u64 reserved[6];
-+	/* With USE_DMABUF, memory comes from this dma-buf's leading bytes. */
-+	__s32 dmabuf_fd;
-+	__u32 pad;
-+	__u64 reserved[5];
- };
- 
- #define KVM_PRE_FAULT_MEMORY	_IOWR(KVMIO, 0xd5, struct kvm_pre_fault_memory)
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 794976b88c6f..7ac4c8a371eb 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -105,6 +105,7 @@ config KVM_GENERIC_MEMORY_ATTRIBUTES
- 
- config KVM_GUEST_MEMFD
-        select XARRAY_MULTI
-+       select DMA_SHARED_BUFFER
-        bool
- 
- config HAVE_KVM_ARCH_GMEM_PREPARE
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 0f4bf2cc5e8e..f401cc560eb4 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <linux/dma-buf.h>
-+#include <linux/dma-resv.h>
-+#include <linux/module.h>
- #include <linux/anon_inodes.h>
- #include <linux/backing-dev.h>
- #include <linux/falloc.h>
-@@ -44,6 +47,8 @@ struct gmem_inode {
- 	struct list_head gmem_file_list;
- 
- 	u64 flags;
-+	struct dma_buf *dmabuf;
-+	struct dma_buf_attachment *attach;
- };
- 
- static __always_inline struct gmem_inode *GMEM_I(struct inode *inode)
-@@ -477,21 +482,37 @@ static const struct vm_operations_struct kvm_gmem_vm_ops = {
- #endif
- };
- 
--static int kvm_gmem_native_mmap(struct file *file, struct vm_area_struct *vma)
-+static int kvm_gmem_validate_mmap(struct file *file,
-+				  struct vm_area_struct *vma)
- {
- 	if (!kvm_gmem_supports_mmap(file_inode(file)))
- 		return -ENODEV;
--
- 	if ((vma->vm_flags & (VM_SHARED | VM_MAYSHARE)) !=
--	    (VM_SHARED | VM_MAYSHARE)) {
-+	    (VM_SHARED | VM_MAYSHARE))
- 		return -EINVAL;
--	}
-+	return 0;
-+}
- 
--	vma->vm_ops = &kvm_gmem_vm_ops;
-+static int kvm_gmem_native_mmap(struct file *file, struct vm_area_struct *vma)
-+{
-+	int ret = kvm_gmem_validate_mmap(file, vma);
- 
-+	if (ret)
-+		return ret;
-+	vma->vm_ops = &kvm_gmem_vm_ops;
- 	return 0;
- }
- 
-+static int kvm_gmem_dmabuf_mmap(struct file *file, struct vm_area_struct *vma)
-+{
-+	struct dma_buf *dmabuf = GMEM_I(file_inode(file))->dmabuf;
-+	int ret = kvm_gmem_validate_mmap(file, vma);
-+
-+	if (ret)
-+		return ret;
-+	return dma_buf_mmap(dmabuf, vma, vma->vm_pgoff);
-+}
-+
- /* File-op dispatchers — thin: they all go through the backing's ops table. */
- 
- static int kvm_gmem_fops_release(struct inode *inode, struct file *file)
-@@ -617,6 +638,172 @@ bool __weak kvm_arch_supports_gmem_init_shared(struct kvm *kvm)
- 	return true;
- }
- 
-+/* ---- a dma-buf behind the file ----------------------------------------- */
-+
-+/*
-+ * Refuse a buffer whose first run guest_memfd can never map, such as MMIO,
-+ * at creation rather than on every fault. A gap at offset 0 is legal. This
-+ * is advisory: each fault checks the run it uses.
-+ */
-+static int gmem_dmabuf_check(struct dma_buf_attachment *attach, u64 size)
-+{
-+	struct phys_vec pv;
-+	u32 attr;
-+	int ret;
-+
-+	dma_resv_lock(attach->dmabuf->resv, NULL);
-+	ret = dma_buf_get_phys(attach, 0, size, &pv, &attr);
-+	dma_resv_unlock(attach->dmabuf->resv);
-+	if (ret == -ENOENT)
-+		return 0;
-+	if (ret)
-+		return ret;
-+	if (!dma_buf_phys_attr_known(attr) ||
-+	    dma_buf_phys_attr_type(attr) != DMA_BUF_PHYS_ATTR_RAM)
-+		return -EOPNOTSUPP;
-+	return 0;
-+}
-+
-+static void gmem_dmabuf_invalidate_range(struct dma_buf_attachment *attach,
-+					 unsigned long offset,
-+					 unsigned long len)
-+{
-+	struct inode *inode = attach->importer_priv;
-+	pgoff_t npages = i_size_read(inode) >> PAGE_SHIFT;
-+	pgoff_t start = offset >> PAGE_SHIFT;
-+	pgoff_t end = min_t(pgoff_t, DIV_ROUND_UP(offset + len, PAGE_SIZE),
-+			    npages);
-+
-+	if (start >= end)
-+		return;
-+	/* Lock order: dma-buf reservation, file invalidation, then mmu_lock. */
-+	filemap_invalidate_lock(inode->i_mapping);
-+	kvm_gmem_invalidate_start(inode, start, end);
-+	kvm_gmem_invalidate_end(inode, start, end);
-+	filemap_invalidate_unlock(inode->i_mapping);
-+}
-+
-+static void gmem_dmabuf_invalidate(struct dma_buf_attachment *attach)
-+{
-+	struct inode *inode = attach->importer_priv;
-+
-+	gmem_dmabuf_invalidate_range(attach, 0, i_size_read(inode));
-+}
-+
-+static const struct dma_buf_attach_ops gmem_dmabuf_attach_ops = {
-+	.allow_peer2peer	= true,
-+	.invalidate_mappings	= gmem_dmabuf_invalidate,
-+	.invalidate_mappings_range = gmem_dmabuf_invalidate_range,
-+};
-+
-+static int kvm_gmem_dmabuf_attach(struct inode *inode, int dmabuf_fd)
-+{
-+	struct gmem_inode *gi = GMEM_I(inode);
-+	struct dma_buf_attachment *attach;
-+	struct dma_buf *dmabuf;
-+	int ret;
-+
-+	dmabuf = dma_buf_get(dmabuf_fd);
-+	if (IS_ERR(dmabuf))
-+		return PTR_ERR(dmabuf);
-+	if (dmabuf->size < i_size_read(inode)) {
-+		ret = -EINVAL;
-+		goto put;
-+	}
-+
-+	gi->dmabuf = dmabuf;
-+	attach = dma_buf_dynamic_attach(dmabuf, NULL, &gmem_dmabuf_attach_ops,
-+					inode);
-+	if (IS_ERR(attach)) {
-+		ret = PTR_ERR(attach);
-+		goto clear_put;
-+	}
-+	gi->attach = attach;
-+	ret = gmem_dmabuf_check(attach, i_size_read(inode));
-+	if (ret)
-+		goto detach;
-+	return 0;
-+
-+detach:
-+	dma_buf_detach(dmabuf, attach);
-+	gi->attach = NULL;
-+clear_put:
-+	gi->dmabuf = NULL;
-+put:
-+	dma_buf_put(dmabuf);
-+	return ret;
-+}
-+
-+static void kvm_gmem_dmabuf_release(struct inode *inode)
-+{
-+	struct gmem_inode *gi = GMEM_I(inode);
-+
-+	if (!gi->dmabuf)
-+		return;
-+	dma_buf_detach(gi->dmabuf, gi->attach);
-+	dma_buf_put(gi->dmabuf);
-+	gi->attach = NULL;
-+	gi->dmabuf = NULL;
-+}
-+
-+static int gmem_dmabuf_get_pfn(struct file *file, struct kvm *kvm,
-+			       struct kvm_memory_slot *slot, gfn_t gfn,
-+			       kvm_pfn_t *pfn, struct page **page,
-+			       int *max_order, bool *writable)
-+{
-+	static const int orders[] = { PUD_ORDER, PMD_ORDER, 0 };
-+	struct gmem_inode *gi = GMEM_I(file_inode(file));
-+	struct gmem_file *f = gmem_file_of(file);
-+	pgoff_t index = kvm_gmem_get_index(slot, gfn);
-+	pgoff_t npages = i_size_read(file_inode(file)) >> PAGE_SHIFT;
-+	unsigned int oi;
-+	int ret = -EFAULT;
-+
-+	if (file != READ_ONCE(slot->gmem.file))
-+		return -EFAULT;
-+	if (xa_load(&f->bindings, index) != slot)
-+		return -EIO;
-+
-+	/* A block maps at an order only if one aligned RAM run covers it. */
-+	dma_resv_lock(gi->dmabuf->resv, NULL);
-+	for (oi = max_order ? 0 : ARRAY_SIZE(orders) - 1;
-+	     oi < ARRAY_SIZE(orders); oi++) {
-+		int order = orders[oi];
-+		pgoff_t bs = ALIGN_DOWN(index, 1UL << order);
-+		u64 blen = (u64)PAGE_SIZE << order;
-+		struct phys_vec pv;
-+		u32 attr;
-+
-+		if (bs + (1UL << order) > npages)
-+			continue;
-+		if (dma_buf_get_phys(gi->attach, (u64)bs << PAGE_SHIFT, blen,
-+				     &pv, &attr) ||
-+		    pv.len != blen || !IS_ALIGNED(pv.paddr, blen) ||
-+		    !dma_buf_phys_attr_known(attr) ||
-+		    dma_buf_phys_attr_type(attr) != DMA_BUF_PHYS_ATTR_RAM)
-+			continue;
-+
-+		*pfn = PHYS_PFN(pv.paddr) + (index - bs);
-+		*page = NULL;
-+		if (max_order)
-+			*max_order = order;
-+		if (writable && (attr & DMA_BUF_PHYS_ATTR_READONLY))
-+			*writable = false;
-+		ret = 0;
-+		break;
-+	}
-+	dma_resv_unlock(gi->dmabuf->resv);
-+	return ret;
-+}
-+
-+static int kvm_gmem_dmabuf_populate(struct file *file, struct kvm *kvm,
-+				    struct kvm_memory_slot *slot, gfn_t gfn,
-+				    kvm_pfn_t *pfn, struct page *src_page,
-+				    int order)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
- static int  kvm_gmem_native_bind(struct file *file, struct kvm *kvm,
- 				 struct kvm_memory_slot *slot, loff_t offset);
- static void kvm_gmem_native_unbind(struct file *slot_file, struct kvm *kvm,
-@@ -654,7 +841,17 @@ static const struct kvm_gmem_ops kvm_gmem_native_ops = {
- 	.fallocate = kvm_gmem_native_fallocate,
- };
- 
--static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
-+static const struct kvm_gmem_ops kvm_gmem_dmabuf_ops = {
-+	.bind      = kvm_gmem_native_bind,
-+	.unbind    = kvm_gmem_native_unbind,
-+	.get_pfn   = gmem_dmabuf_get_pfn,
-+	.populate  = kvm_gmem_dmabuf_populate,
-+	.release   = kvm_gmem_native_release,
-+	.mmap      = kvm_gmem_dmabuf_mmap,
-+};
-+
-+static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags,
-+			     int dmabuf_fd)
- {
- 	static const char *name = "[kvm-gmem]";
- 	struct gmem_file *f;
-@@ -695,6 +892,12 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
- 
- 	GMEM_I(inode)->flags = flags;
- 
-+	if (flags & GUEST_MEMFD_FLAG_USE_DMABUF) {
-+		err = kvm_gmem_dmabuf_attach(inode, dmabuf_fd);
-+		if (err)
-+			goto err_inode;
-+	}
-+
- 	file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
- 	if (IS_ERR(file)) {
- 		err = PTR_ERR(file);
-@@ -703,12 +906,17 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
- 
- 	file->f_flags |= O_LARGEFILE;
- 	file->private_data = &f->backing;
--	f->backing.ops = &kvm_gmem_native_ops;
-+	f->backing.ops = flags & GUEST_MEMFD_FLAG_USE_DMABUF ?
-+			 &kvm_gmem_dmabuf_ops : &kvm_gmem_native_ops;
- 
- 	kvm_get_kvm(kvm);
- 	f->kvm = kvm;
- 	xa_init(&f->bindings);
-+	if (flags & GUEST_MEMFD_FLAG_USE_DMABUF)
-+		filemap_invalidate_lock(inode->i_mapping);
- 	list_add(&f->entry, &GMEM_I(inode)->gmem_file_list);
-+	if (flags & GUEST_MEMFD_FLAG_USE_DMABUF)
-+		filemap_invalidate_unlock(inode->i_mapping);
- 
- 	fd_install(fd, file);
- 	return fd;
-@@ -734,8 +942,11 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
- 
- 	if (size <= 0 || !PAGE_ALIGNED(size))
- 		return -EINVAL;
-+	if (args->pad ||
-+	    (!(flags & GUEST_MEMFD_FLAG_USE_DMABUF) && args->dmabuf_fd))
-+		return -EINVAL;
- 
--	return __kvm_gmem_create(kvm, size, flags);
-+	return __kvm_gmem_create(kvm, size, flags, args->dmabuf_fd);
- }
- 
- /*
-@@ -1211,6 +1422,8 @@ static struct inode *kvm_gmem_alloc_inode(struct super_block *sb)
- 	mpol_shared_policy_init(&gi->policy, NULL);
- 
- 	gi->flags = 0;
-+	gi->dmabuf = NULL;
-+	gi->attach = NULL;
- 	INIT_LIST_HEAD(&gi->gmem_file_list);
- 	return &gi->vfs_inode;
- }
-@@ -1225,11 +1438,19 @@ static void kvm_gmem_free_inode(struct inode *inode)
- 	kmem_cache_free(kvm_gmem_inode_cachep, GMEM_I(inode));
- }
- 
-+static void kvm_gmem_evict_inode(struct inode *inode)
-+{
-+	kvm_gmem_dmabuf_release(inode);
-+	truncate_inode_pages_final(&inode->i_data);
-+	clear_inode(inode);
-+}
-+
- static const struct super_operations kvm_gmem_super_operations = {
- 	.statfs		= simple_statfs,
- 	.alloc_inode	= kvm_gmem_alloc_inode,
- 	.destroy_inode	= kvm_gmem_destroy_inode,
- 	.free_inode	= kvm_gmem_free_inode,
-+	.evict_inode	= kvm_gmem_evict_inode,
- };
- 
- static int kvm_gmem_init_fs_context(struct fs_context *fc)
-@@ -1292,3 +1513,5 @@ void kvm_gmem_exit(void)
- 	rcu_barrier();
- 	kmem_cache_destroy(kvm_gmem_inode_cachep);
- }
-+
-+MODULE_IMPORT_NS("DMA_BUF");
--- 
-2.47.3
+>> Cheers
+>> Vladimir
+>>
+>> On 9/22/26 11:37, Vladimir Murzin wrote:
+>>> Paul reported kernel splat:
+>>>
+>>> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+>>> [    0.000000] ------------[ cut here ]------------
+>>> [    0.000000] Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+>>> [    0.000000] WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x144/0x14c, CPU#0: swapper/0/0
+>>> [    0.000000] Modules linked in:
+>>> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc1 #15247 PREEMPT
+>>> [    0.000000] Hardware name: linux,dummy-virt (DT)
+>>> [    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>> [    0.000000] pc : test_double_dereference+0x144/0x14c
+>>> [    0.000000] lr : test_double_dereference+0x144/0x14c
+>>> [    0.000000] sp : ffffc80aa7633bf0
+>>> [    0.000000] x29: ffffc80aa7633bf0 x28: ffffc80aa7c0f047 x27: 000508b58019388f
+>>> [    0.000000] x26: 0000000000000003 x25: 0000000000000007 x24: ffffc80aa5fceff8
+>>> [    0.000000] x23: ffffc80aa7c0f05a x22: ffffc80aa64edfe8 x21: ffffc80aa7c0fce8
+>>> [    0.000000] x20: ffffc80aa7c0f047 x19: 0000000000000013 x18: 0000000000000001
+>>> [    0.000000] x17: 6572656420656c62 x16: 756f642073616820 x15: 746c61685f746573
+>>> [    0.000000] x14: 0000000000000000 x13: ffff000139d90000 x12: 0000000000000045
+>>> [    0.000000] x11: 00000000000000cf x10: ffff00013f546428 x9 : ffff000139d90000
+>>> [    0.000000] x8 : 3fffffffffffc000 x7 : 0000000000000001 x6 : 0000000000000001
+>>> [    0.000000] x5 : ffff00013f4e6440 x4 : 0000000000000000 x3 : 0000000000000000
+>>> [    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc80aa764a700
+>>> [    0.000000] Call trace:
+>>> [    0.000000]  test_double_dereference+0x144/0x14c (P)
+>>> [    0.000000]  trace_event_raw_init+0x37c/0x5d8
+>>> [    0.000000]  event_init+0x34/0xc0
+>>> [    0.000000]  trace_event_init+0xec/0x588
+>>> [    0.000000]  trace_init+0x24/0x6e0
+>>> [    0.000000]  start_kernel+0x4a0/0x8ec
+>>> [    0.000000]  __primary_switched+0x88/0x90
+>>> [    0.000000] irq event stamp: 0
+>>> [    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+>>> [    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
+>>> [    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
+>>> [    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
+>>> [    0.000000] ---[ end trace 0000000000000000 ]---
+>>> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
+>>> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
+>>>
+>>> Which also observed by Mark and myself.
+>>>
+>>> The splat it result of new check introduced by b5cc230af5e5 ("tracing:
+>>> Warn when an event dereferences a pointer in TP_printk()") which
+>>> correctly catches issue with %pad dereferencing the address saved in
+>>> the ring buffer. TP_fast_assign() logic gets executed when the
+>>> tracepoint is triggered, however the TP_printk() is executed when the
+>>> user reads the trace buffer which could be seconds, minutes, hours,
+>>> days, even months later and nothing guarantee that __entry->gpd_ring
+>>> pointer will still be pointing to what it was when it was recorded.
+>>>
+>>> Fix the issue by capturing immediate value of gpd_ring.dma when trace
+>>> point is triggered.
+>>>
+>>> Reported-by: Paul E. McKenney <paulmck@kernel.org>
+>>> Tested-by: Mark Rutland <mark.rutland@arm.com>
+>>> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>> ---
+>>>  drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+>>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+>>> index 89870175d635..9aaa167d69c1 100644
+>>> --- a/drivers/usb/mtu3/mtu3_trace.h
+>>> +++ b/drivers/usb/mtu3/mtu3_trace.h
+>>> @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>>>  		__field(unsigned int, flags)
+>>>  		__field(unsigned int, direction)
+>>>  		__field(struct mtu3_gpd_ring *, gpd_ring)
+>>> +		__field(dma_addr_t, gpd_ring_dma)
+>>>  	),
+>>>  	TP_fast_assign(
+>>>  		__assign_str(name);
+>>> @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>>>  		__entry->flags = mep->flags;
+>>>  		__entry->direction = mep->is_in;
+>>>  		__entry->gpd_ring = &mep->gpd_ring;
+>>> +		__entry->gpd_ring_dma = mep->gpd_ring.dma
+>>>  	),
+>>>  	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+>>>  		__get_str(name), usb_ep_type_string(__entry->type),
+>>>  		__entry->maxp, __entry->slot,
+>>>  		__entry->mult, __entry->maxburst,
+>>> -		__entry->gpd_ring, &__entry->gpd_ring->dma,
+>>> +		__entry->gpd_ring, &__entry->gpd_ring_dma,
+>>>  		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+>>>  		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+>>>  		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+>>> -- 2.34.1
+>>>
 
 
