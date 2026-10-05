@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1F6CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32241CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXrzamUiAJ0mpV1t9zMukfDRmQqDgv+2i1UGZZgSEvk=; b=DRrIg5iAcZrv10Y3yUEcT1N/vi
-	HWURoL7o1MwyRMa8XIMWNH6lJQ3ae8crmTxXK8O7iiS85WYQKn5W7PEsQ/sOugBnNrFZGU8ACC2Eq
-	LYxBpiWKLaJJiWH6n+Q30/Wu8MByWaOGyicVgQHPRX74Vmnj/E0YH2+jHhgjn/OnVwVXEu7MYH/Hj
-	mncp3eLy7wKl2WrV6L0MkxKSh6hy4Ce+TXEmNpdOxYFECv7CNRD9jt+2OytWeNjr+xzyyZ3bW3Ldm
-	0+2bit20kW2o3rD3bSVQAZV6dzmOUXlNZlr9b38uRoJ4/yygzvT9Us+1pHXvjTZj8FCLNX91IJ7IN
-	/gahJC8Q==;
+	bh=J6NkkpPQo4HgaIrylzYbwGqEXamwBxK8IIDMEAX3dmU=; b=nPpMILnfxD6MHD5N/JlhgcgX3Q
+	BRGohv3VmxJ/skibZ8YmhLQ2brUTaKd7qNP7G2ZvDMX99D8Z9H0bgyG9uj9Ryypzkdf/cdA95iVwo
+	x6I5yszqCP7JpIk6d/cl9/Eudb23LPvIowoMjgkQWzlEL2aCVOq2sLGHvR+tnwkTHHm4wIzJtp46P
+	29LSOfFiqiBdLgPVyoWPsJlSLF7BxT4hqrFvTAjvR2aDUMmqAaL8Ma0RN0ILS2qqovdZ7s/XkqDWN
+	I6AwQUSeWFX1vOhju5WH7kHEMismNG56am5LttdHI9Sa7OCWpUZIYkREizK9OR24qrOZVgICISC/C
+	1DEypfDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfE9-0000000G2Ro-2V3j;
-	Mon, 05 Oct 2026 09:43:21 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1xDfEH-0000000G2ZV-1nxF;
+	Mon, 05 Oct 2026 09:43:29 +0000
+Received: from mail-eastus2azon11011019.outbound.protection.outlook.com ([52.101.57.19] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfE1-0000000G2Kd-0g4p
+	id 1xDfE9-0000000G2Oc-2Qtq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:43:19 +0000
+	Mon, 05 Oct 2026 09:43:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tMC5Ll2EGF2xKWp8gVJOd1XZlJAs3maKnsimuS4XDIhIOV75w/+xoAxpHFNFRm70AbGhkd/mBEe0wFQFryVly4UM/pOG452k95mzpZA2xokETsK9X3IjpsZtUjNQ3ecp7MLo8OTCcHMH6Is41yGmBiLaqz5cif+EuHtcSF+6fw0r4i/oU1m+EUPOf238Yr790TGjE3QNTDfXGYhKCLvA1LgBQwBHaSGBh+dPny8GW8/Y8zo31o8pagrFPtG3HdFH9f+2tAgJynix0gSjQCIiSs2IpbDkt4UI/SOizy/NBYmW/StPb+KhTe5pFgqzkxBUATa3mL55/CyaOd35ngbtbQ==
+ b=t+qxqf/2DZWIkAf8i4JtROJwI7xM5zfoog+0nZBIyhKRG6FYU1cVrGtpU9JS7U8q8FZQqb72hvt99XYarUk5cE02znN6r18dOBPdrbo2vVc4fA9px0cEszPGPvoX/Fj8CpdIITb1KIbjbAYVc5UeDkQNyhWCmesBaZ5xm88hmiPSQ5UKtdYwpKEeKCHZGTOqPJ3CG2BbLV38WjkhiCK5VxFpFvccqjmDNQQ67fS67gtga0qbrdYdDE6XXBvLAygp/6lWPkiRUBDpMUSn2fwh9acuFrLC4mGGCfz2Vtw2MRT6hiC5lru3CxN6Kk5nt+bm2ZdEeQGolFILQzNaExan9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RXrzamUiAJ0mpV1t9zMukfDRmQqDgv+2i1UGZZgSEvk=;
- b=CKyAieHBiRA4uAwPTDyQJBQRoEPJ80s2G2RrRBttXwAVKBckGpUxNrZ3Z7ZfyqryW2ZV9sK9wTmx1aFvzclZMyM54TrkZ2ITLL/sonCDHm3AWg0exVtcBsqQlkLDc0uQVh07JcQagtGGN8YdMoplOiRo8B3ZhKrEAkP55MH/1DOev1Vn2bfEpnXZy0GH3dkS4Eb738UVva8GJwK/tUHNQRgMzThpe1rj4c3WxCq6YLwrrr0uoaPmrT7nJaYCdmuRZRnEw70Jx4TF3YUGTzIUM5oud+4d43f4QD5dK9O7+EtsDYWcdyMBMwtiXt/lagxf29OkdSxGqnq9ER6pq3KkWg==
+ bh=J6NkkpPQo4HgaIrylzYbwGqEXamwBxK8IIDMEAX3dmU=;
+ b=JNDsncuAEotxwTrpjPDEHhCYd+yWJATkWBI9syKaDKsV1Wno+bAOwRdL1d03BVK1YxsnwHCkmqqkL+upRxEt1ZTXGk4PazFz2SB0c40+BK6ldYGOOIx7iOSbhw59BOQU7k11F0K24KDSFbzlAR/WKyorp7wksOJdoxHBns+TGq1vCGrN7ut3yVz5UDd9bnhBnID7sx24CML0Dr4R8iFDPVJcsAmjAQLCfkN7tZUao+4Br7zvSZMDeX7ocjcvxs96qBaV3fkTRHC3tz6uLM8G9488xrWgHuGq+H/fRWIQh669wYqIJshFnduAxFZ7LfBeZtCslkLlt2yNk7zTZOlPOg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RXrzamUiAJ0mpV1t9zMukfDRmQqDgv+2i1UGZZgSEvk=;
- b=ycc8vDcH2Cu0a5lNrDmylx7Vk3pNhJq9YuMJukFTnMwqDjDg3nZvhKDMeSe++uALpN9OBYETJI1FYH17Ib9xbDbQmhoOa5Nmt/z+Gk0k035i9lh01wXhz7BVcbcPNvD2OYjAKcv2RS1n8PadZVPmnkCYmq0sKrnyRaSYTsLmqeE=
-Received: from BN0PR02CA0020.namprd02.prod.outlook.com (2603:10b6:408:e4::25)
- by BY5PR12MB4066.namprd12.prod.outlook.com (2603:10b6:a03:207::22) with
+ bh=J6NkkpPQo4HgaIrylzYbwGqEXamwBxK8IIDMEAX3dmU=;
+ b=gkENLEpac+ZK4GlbFhuzLBnZgM0dCHd/YS/sSoGxvpDDb9lo/bjYw9MQHJh77wlDPS05CTpv9aHlOhxPsJSjqgAaldpSylBckeEY/fgY5vKARmrM4js12ffo2PHZjJPKqFKJeksXA/rQSsnTE1aOBQUTk1NvTdiN0xFtSLmCrcU=
+Received: from BN0PR03CA0029.namprd03.prod.outlook.com (2603:10b6:408:e6::34)
+ by DS0PR12MB8768.namprd12.prod.outlook.com (2603:10b6:8:14f::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 09:43:06 +0000
-Received: from BN3PEPF0000B071.namprd04.prod.outlook.com
- (2603:10b6:408:e4:cafe::1f) by BN0PR02CA0020.outlook.office365.com
- (2603:10b6:408:e4::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Mon, 5 Oct
+ 2026 09:43:15 +0000
+Received: from BL02EPF0002992D.namprd02.prod.outlook.com
+ (2603:10b6:408:e6:cafe::2b) by BN0PR03CA0029.outlook.office365.com
+ (2603:10b6:408:e6::34) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
- Oct 2026 09:43:05 +0000
+ Oct 2026 09:43:15 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN3PEPF0000B071.mail.protection.outlook.com (10.167.243.116) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BL02EPF0002992D.mail.protection.outlook.com (10.167.249.58) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 09:43:05 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 09:43:15 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
- 2026 04:43:02 -0500
+ 2026 04:43:14 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
+ 2026 04:43:13 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 5 Oct 2026 04:42:59 -0500
+ Transport; Mon, 5 Oct 2026 04:43:10 -0500
 From: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
 To: Jonathan Cameron <jic23@kernel.org>, David Lechner
 	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
@@ -78,9 +82,9 @@ CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, Dileep Kumar Nagavarapu
 	<dileepkumar.nagavarapu@amd.com>, Sai Krishna Potthuri
 	<sai.krishna.potthuri@amd.com>
-Subject: [PATCH v4 12/15] iio: adc: xilinx-xadc: Add helper functions for the device setup
-Date: Mon, 5 Oct 2026 15:12:02 +0530
-Message-ID: <20261005094205.1045874-13-dileepkumar.nagavarapu@amd.com>
+Subject: [PATCH v4 15/15] iio: adc: xilinx-xadc: Add I2C interface support
+Date: Mon, 5 Oct 2026 15:12:05 +0530
+Message-ID: <20261005094205.1045874-16-dileepkumar.nagavarapu@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
 References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
@@ -89,28 +93,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B071:EE_|BY5PR12MB4066:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3a5f923f-3854-453f-ec7d-08df22c50e83
+X-MS-TrafficTypeDiagnostic: BL02EPF0002992D:EE_|DS0PR12MB8768:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b434b19-82f2-45c4-70e1-08df22c51411
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|18002099003|22082099003|11063799006|6133799003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: BLBpZJvrCSq+FIRlsthRJxei2xbVoFgrGmGkLYzWzKeVmhGJpb5ERHwLAmo64IbOXkuFGkq8X/17kcW6+59bATHWohqjzqsbhYms1tZrTMhCpqn90crJbHN8oNNMe1ndbd89c/t0TU6Pl7Sj9Q0cmTA+0PoqkngCr6SmdyY2fGv7Gq3Q2Stz4lsCst8+XmkS7ddHlfiFHN8z1MQjmaX9zC1aJdlJXSl9bGEAnPgODJdKL6IVVZci2TC14UMHn861V6KW+TvQdc9yM8nPv0gDrhVhvB6RnY+zEkv1+yqQf1q4zaetH+kYP3ymEnXe4IpuxKllC6j7SijCdpsY7z8xFdmsJbwmftZ9TuuQ8xI3KJ0ki4Qwd/HC90FuEHAzLF3VMRITujwnlQDTl9m4qayfVpJSGPhThg/80udpVQ5Y3qXZTQddFyt5RLY0AwsAfFrlFEld+FGOixnXkHhbMO5vDamFF2KWU/GtdSENLMDWPoTULAfeuS2fjty/YdPa5vc/rMWZNjY2ajNvQLysHxOYrMiLgQBhgxcudfE39xGHi/zQevT+w/HeFZ+hAjB9GtMTpaa9GYWsKDMRSQZN2ZXmApPuu6d9BFcSWj4CCgXm4zPVbSBfRzGBMTkP3Qn2Idkk8FwmN/dPU4ez522wYhnHV3uMHCRteVXd7ixgqJelQJjABk0AextQYwYemmWjzaXLTLTeekK4pQll+S2ZhjUcRA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(18002099003)(22082099003)(11063799006)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|6133799003|18002099003|22082099003|3023799007|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: I6Y3Ulh2bqeP6SsQaSeaXnRQuHelhLRhGvriRLAQn880EI69HW5ah5DFDvxejaP+/ARxE6xR7fm452I0rjZ0z/jlQ55jSnXiOs9jXGBbRZUasq83DSFiw8gLEeDLagTcW1m5Ow85i6HVvZuJs24UOQlBpBDsxL9qvlMlL96STOK/h0VUpLvyP9J6mbKQ1hbfTfDL8PNh+rIko55UnjzK+bhDTvzew4TWzdxmTDXOZo2wQdygJWWSoRBk6V0QP487bTAIVDRKKJTO5FwGgkXvr1ML3O7QvGs3DfnP5xT1xBezbxlKnCVEzlsD3kgBeH9bN9IIiGsaQeyhxDKgwNtgObfjTzoNUA9/1qNsnoQCcRvvzGpfpkcG1/elnfanC+CPgg2IIP0XIZ6GZMZDbimvWleaZDq3xyOuclHtZqWHY4mDIBhAA2CRzw2MKRP6+DZ0H3WHr/hONDFp7F5srRaVoP/62wurEcgqmrAfSumvryea87xqK/2JHr+HwIBOJ1xDwzOYv9muPmO/87ilbRoReO0fsEQNXgvll569LNQo4Fx1MxUMcHHiReJf/127nWexczzxXZ+nSkJoATJ6/+2BmRQyB9ODWyFpI+cNJM0V199ZLtNxz0JFieyoBu5ZWM8yJPUHAB5w+wQR8k2dmhf8bb0DLhPcNlfP3caOXlis9THhbtvgaclSV3+q7Dk195FoW902zCyMIG46f7Zk2rt+Xg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(6133799003)(18002099003)(22082099003)(3023799007)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: G5XnG+zJYWIcnMsSwqRKpQIzcQ88ggPZeIPQ5w+49shr38MVL7LJmhSUzFXJM5FqSpgT1YyXvakRt503qshMAHnBfbQxOD/0WGxZjVRutHw276+5v6mfKxW21NRT/c3717q6Uzv+Opmj4RE9+CUxtiF7caIi1iUWhd1SJHkxSHbHvIlHThNL9X2BrKCjEPJgj/X0uC+3OJNCV+3RQR5zVy9Hai8/7L2iYHSOMRnAJl9ew5v7SXPCket3INcn19Xg4m2LsZVlkquG3HucwkYHx9Ibv9R77Ut/dZGL7JI//zOxqf4HiknxVMvmFRUoZoeAztuWR1yu8/zlxsG44ARiucai0Gl0KLjCHYrJn9lnSZT4uNB2kYkn+Hjls9vZlTa2sEN6We2PCrB2mzsm3PhEo5bdyPxakqc1mpHPy6f7OxUmPbPKJIuy/fUjpt+dx4Ep
+X-MS-Exchange-AntiSpam-MessageData-0: 0TnxMNz9GeOUsVmy9TbCmLw+jBNynKG24comSu/JVOalCU+K4XKtdYUy3tYHVh6gH/QXpMVOpyyV8AxDNaomBhq3MTQLNbE/l3FTbIttJwCoX0lGh+fAyCDjiOu7gX6YC0ylrMsYxDFAzKrS/jwDVpcdAdXsQvQ4hajOpHKIRW3X2YwEYrkmPAy35jZgWUCDIQjNcsEn8cshaKj6BHfGBGsHqJ9xZtEFNrME38fLzQbApiNcwMbamJhoCfjuwNbQRZapTfz0fCa8JMAKUWaRx2KpqbfGNoOppVOq7SwkNSZx6Wl5jN5QE0J4Hx8dHdOgNAnHMhet51dq2hJwkZFTX8E9GUaTaIJDaics5adlq28OCIW1bo6zHTFEwjR+g/zrV/ew26t7EtHVyG2bYVUj8byJdFY/TWTVECNfdYrTanHSfytzvjTXSXxBgMNdlhwY
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 09:43:05.6903
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 09:43:15.0128
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3a5f923f-3854-453f-ec7d-08df22c50e83
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b434b19-82f2-45c4-70e1-08df22c51411
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B071.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992D.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4066
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8768
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_024314_452522_3968CFBE 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20261005_024321_762185_DAF1899D 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,178 +129,409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the platform driver probe function by extracting device
-setup and configuration logic into reusable helper functions:
-xadc_device_setup(): handles IIO device allocation and basic setup
-xadc_device_configure(): handles device tree parsing and bipolar mask
-configuration
+Add I2C interface support for Xilinx System Management Wizard IP along
+with the existing AXI memory-mapped interface. This support enables
+monitoring the voltage and temperature on UltraScale+ devices where the
+System Management Wizard is connected via I2C.
 
-Move the bipolar channel mask calculation immediately after
-xadc_parse_dt(), as the channel information used to build
-the mask is populated there and remains unchanged before it is consumed.
-
-This refactoring reduces code duplication and prepares for sharing the
-common setup logic between platform and I2C drivers.
+Key changes:
+- Implement 32-bit DRP (Dynamic Reconfiguration Port) packet format
+  as per Xilinx PG185 specification.
+- Add separate I2C probe with xadc_i2c_of_match_table to handle same
+  compatible string ("xlnx,system-management-wiz-1.3") on I2C bus.
+- Add NULL checks for get_dclk_rate callback function in sampling rate
+  functions to support interfaces without clock control
+- Create separate iio_info structure(xadc_i2c_info) without event
+  callbacks for I2C devices
+- Add xadc_i2c_transaction() function to handle I2C read/write operations
+- Add XADC_TYPE_US_I2C type to distinguish I2C interface from AXI
+- Defer XADC hardware initialization until first device access, since the
+  I2C path reaches the PL SysMon indirectly through a platform controller
+  DRP bridge that may not yet be operational at probe() time. Initializing
+  on first read/write instead avoids probe failures caused by transient
+  unavailability of that downstream path.
 
 Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
 ---
- drivers/iio/adc/xilinx-xadc-core.c | 105 +++++++++++++++++++----------
- 1 file changed, 71 insertions(+), 34 deletions(-)
+ drivers/iio/adc/Kconfig            |  15 ++
+ drivers/iio/adc/Makefile           |   1 +
+ drivers/iio/adc/xilinx-xadc-core.c |  25 ++-
+ drivers/iio/adc/xilinx-xadc-i2c.c  | 236 +++++++++++++++++++++++++++++
+ drivers/iio/adc/xilinx-xadc.h      |   1 +
+ 5 files changed, 274 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/iio/adc/xilinx-xadc-i2c.c
 
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index 15ecf001b3ce..dd0ff0982d51 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -2051,6 +2051,21 @@ config XILINX_XADC
+ 	  The driver can also be build as a module. If so, the module will be called
+ 	  xilinx-xadc.
+ 
++config XILINX_XADC_I2C
++	tristate "Xilinx System Management Wizard I2C Interface support"
++	depends on I2C
++	select XILINX_XADC_CORE
++	help
++	  Say yes here to allow accessing the System Management
++	  Wizard on UltraScale+ devices via I2C.
++
++	  This provides voltage and temperature monitoring capabilities
++	  through the same IIO sysfs interface, but using I2C communication
++	  protocol.
++
++	  The driver can also be built as a module. If so, the module
++	  will be called xilinx-xadc-i2c.
++
+ config XILINX_AMS
+ 	tristate "Xilinx AMS driver"
+ 	depends on ARCH_ZYNQMP || COMPILE_TEST
+diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+index 4cb06243966c..1f22f8a4b439 100644
+--- a/drivers/iio/adc/Makefile
++++ b/drivers/iio/adc/Makefile
+@@ -178,3 +178,4 @@ obj-$(CONFIG_XILINX_AMS) += xilinx-ams.o
+ xilinx-xadc-common-y := xilinx-xadc-core.o xilinx-xadc-events.o
+ obj-$(CONFIG_XILINX_XADC_CORE) += xilinx-xadc-common.o
+ obj-$(CONFIG_XILINX_XADC) += xilinx-xadc-platform.o
++obj-$(CONFIG_XILINX_XADC_I2C) += xilinx-xadc-i2c.o
 diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
-index 92cd38cd1834..d95a84e7e561 100644
+index 2addb61cf5b1..80199c4ddf69 100644
 --- a/drivers/iio/adc/xilinx-xadc-core.c
 +++ b/drivers/iio/adc/xilinx-xadc-core.c
-@@ -933,6 +933,33 @@ static int xadc_read_raw(struct iio_dev *indio_dev,
- 	}
- }
+@@ -227,7 +227,7 @@ static int xadc_power_adc_b(struct xadc *xadc, unsigned int seq_mode)
+ 	 * non-existing ADC-B powers down the main ADC, so just return and don't
+ 	 * do anything.
+ 	 */
+-	if (xadc->ops->type == XADC_TYPE_US)
++	if (xadc->ops->type == XADC_TYPE_US || xadc->ops->type == XADC_TYPE_US_I2C)
+ 		return 0;
  
-+static int xadc_setup_buffer_and_triggers(struct iio_dev *indio_dev, int irq)
-+{
-+	struct device *dev = indio_dev->dev.parent;
-+	struct xadc *xadc = iio_priv(indio_dev);
-+	int ret;
+ 	/* Powerdown the ADC-B when it is not needed. */
+@@ -249,7 +249,7 @@ static int xadc_get_seq_mode(struct xadc *xadc, unsigned long scan_mode)
+ 	unsigned int aux_scan_mode = scan_mode >> 16;
+ 
+ 	/* UltraScale has only one ADC and supports only continuous mode */
+-	if (xadc->ops->type == XADC_TYPE_US)
++	if (xadc->ops->type == XADC_TYPE_US || xadc->ops->type == XADC_TYPE_US_I2C)
+ 		return XADC_CONF1_SEQ_CONTINUOUS;
+ 
+ 	if (xadc->external_mux_mode == XADC_EXTERNAL_MUX_DUAL)
+@@ -354,6 +354,9 @@ int xadc_read_samplerate(struct xadc *xadc)
+ 	u16 val16;
+ 	int ret;
+ 
++	if (!xadc->ops->get_dclk_rate)
++		return -EOPNOTSUPP;
 +
-+	if (!(xadc->ops->flags & XADC_FLAGS_BUFFERED))
-+		return 0;
-+
-+	ret = devm_iio_triggered_buffer_setup(dev, indio_dev, &iio_pollfunc_store_time,
-+					      &xadc_trigger_handler, &xadc_buffer_ops);
-+	if (ret)
-+		return ret;
-+
-+	if (irq > 0) {
-+		xadc->convst_trigger = xadc_alloc_trigger(indio_dev, "convst");
-+		if (IS_ERR(xadc->convst_trigger))
-+			return PTR_ERR(xadc->convst_trigger);
-+
-+		xadc->samplerate_trigger = xadc_alloc_trigger(indio_dev, "samplerate");
-+		if (IS_ERR(xadc->samplerate_trigger))
-+			return PTR_ERR(xadc->samplerate_trigger);
-+	}
-+
-+	return 0;
-+}
-+
- static int xadc_write_samplerate(struct xadc *xadc, int val)
+ 	ret = xadc_read_adc_reg(xadc, XADC_REG_CONF2, &val16);
+ 	if (ret)
+ 		return ret;
+@@ -463,9 +466,13 @@ EXPORT_SYMBOL_NS_GPL(xadc_setup_buffer_and_triggers, "IIO_XADC");
+ 
+ int xadc_write_samplerate(struct xadc *xadc, int val)
  {
- 	unsigned long clk_rate = xadc_get_dclk_rate(xadc);
-@@ -1256,6 +1283,43 @@ static const char *const xadc_type_names[] = {
- 	[XADC_TYPE_US] = "xilinx-system-monitor",
+-	unsigned long clk_rate = xadc_get_dclk_rate(xadc);
++	unsigned long clk_rate;
+ 	unsigned int div;
+ 
++	if (!xadc->ops->get_dclk_rate)
++		return -EOPNOTSUPP;
++
++	clk_rate = xadc->ops->get_dclk_rate(xadc);
+ 	if (!clk_rate)
+ 		return -EINVAL;
+ 
+@@ -658,6 +665,11 @@ static const struct iio_info xadc_info = {
+ 	.update_scan_mode = &xadc_update_scan_mode,
  };
  
-+static struct iio_dev *xadc_device_setup(struct device *dev, int size, const struct xadc_ops **ops)
++static const struct iio_info xadc_i2c_info = {
++	.read_raw = &xadc_read_raw,
++	.write_raw = &xadc_write_raw,
++};
++
+ int xadc_parse_dt(struct iio_dev *indio_dev, unsigned int *conf, int irq)
+ {
+ 	struct device *dev = indio_dev->dev.parent;
+@@ -769,6 +781,7 @@ EXPORT_SYMBOL_NS_GPL(xadc_parse_dt, "IIO_XADC");
+ static const char *const xadc_type_names[] = {
+ 	[XADC_TYPE_S7] = "xadc",
+ 	[XADC_TYPE_US] = "xilinx-system-monitor",
++	[XADC_TYPE_US_I2C] = "xilinx-system-monitor",
+ };
+ 
+ struct iio_dev *xadc_device_setup(struct device *dev, int size, const struct xadc_ops **ops)
+@@ -784,7 +797,11 @@ struct iio_dev *xadc_device_setup(struct device *dev, int size, const struct xad
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	indio_dev->name = xadc_type_names[(*ops)->type];
+-	indio_dev->info = &xadc_info;
++	if ((*ops)->type == XADC_TYPE_US_I2C)
++		indio_dev->info = &xadc_i2c_info;
++	else
++		indio_dev->info = &xadc_info;
++
+ 	indio_dev->modes = INDIO_DIRECT_MODE;
+ 
+ 	return indio_dev;
+diff --git a/drivers/iio/adc/xilinx-xadc-i2c.c b/drivers/iio/adc/xilinx-xadc-i2c.c
+new file mode 100644
+index 000000000000..cee2f7b3f9bd
+--- /dev/null
++++ b/drivers/iio/adc/xilinx-xadc-i2c.c
+@@ -0,0 +1,236 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Xilinx XADC I2C Interface Driver
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
++ *
++ * This driver implements I2C interface support for Xilinx System Management
++ * Wizard IP on UltraScale+ devices. It uses the 32-bit DRP (Dynamic
++ * Reconfiguration Port) packet format as per Xilinx PG185 specification.
++ */
++
++#include <linux/bits.h>
++#include <linux/bitfield.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++
++#include <linux/iio/iio.h>
++
++#include "xilinx-xadc.h"
++
++#define XADC_I2C_READ_DATA_SIZE		2
++#define XADC_I2C_WRITE_DATA_SIZE	4	/* 32-bit DRP packet */
++#define XADC_I2C_INSTR_READ		BIT(2)
++#define XADC_I2C_INSTR_WRITE		BIT(3)
++
++#define XADC_I2C_DRP_DATA0_MASK		GENMASK(7, 0)
++#define XADC_I2C_DRP_DATA1_MASK		GENMASK(15, 8)
++#define XADC_I2C_DRP_ADDR_MASK		GENMASK(7, 0)
++
++/* Byte offsets within the 32-bit DRP packet, per Xilinx PG185 */
++#define XADC_I2C_DRP_DATA_LOW		0
++#define XADC_I2C_DRP_DATA_HIGH		1
++#define XADC_I2C_DRP_ADDR		2
++#define XADC_I2C_DRP_INSTR		3
++
++#define XADC_INPUT_MODE_BITS		16
++
++struct xadc_i2c {
++	struct xadc xadc;
++	struct i2c_client *client;
++	bool hw_initialized;
++	unsigned int conf0;
++	unsigned int bipolar_mask;
++};
++
++static int xadc_i2c_read_transaction(struct xadc *xadc, unsigned int reg, u16 *val)
 +{
-+	struct iio_dev *indio_dev;
-+
-+	*ops = device_get_match_data(dev);
-+	if (!*ops)
-+		return ERR_PTR(-ENODEV);
-+
-+	indio_dev = devm_iio_device_alloc(dev, size);
-+	if (!indio_dev)
-+		return ERR_PTR(-ENOMEM);
-+
-+	indio_dev->name = xadc_type_names[(*ops)->type];
-+	indio_dev->info = &xadc_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+
-+	return indio_dev;
-+}
-+
-+static int xadc_device_configure(struct iio_dev *indio_dev, int irq,
-+				 unsigned int *conf0, unsigned int *bipolar_mask)
-+{
++	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
++	u8 write_buffer[XADC_I2C_WRITE_DATA_SIZE] = { 0 };
++	struct i2c_client *client = xadc_i2c->client;
++	u8 read_buffer[XADC_I2C_READ_DATA_SIZE];
 +	int ret;
 +
-+	ret = xadc_parse_dt(indio_dev, conf0, irq);
-+	if (ret)
++	write_buffer[XADC_I2C_DRP_ADDR] = FIELD_GET(XADC_I2C_DRP_ADDR_MASK, reg);
++	write_buffer[XADC_I2C_DRP_INSTR] = XADC_I2C_INSTR_READ;
++
++	ret = i2c_master_send(client, write_buffer, XADC_I2C_WRITE_DATA_SIZE);
++	if (ret < 0)
 +		return ret;
 +
-+	*bipolar_mask = 0;
-+	for (unsigned int i = 0; i < indio_dev->num_channels; i++) {
-+		if (indio_dev->channels[i].scan_type.sign == 's')
-+			*bipolar_mask |= BIT(indio_dev->channels[i].scan_index);
-+	}
++	ret = i2c_master_recv(client, read_buffer, XADC_I2C_READ_DATA_SIZE);
++	if (ret < 0)
++		return ret;
++
++	*val = FIELD_PREP(XADC_I2C_DRP_DATA0_MASK, read_buffer[XADC_I2C_DRP_DATA_LOW]) |
++	       FIELD_PREP(XADC_I2C_DRP_DATA1_MASK, read_buffer[XADC_I2C_DRP_DATA_HIGH]);
 +
 +	return 0;
 +}
 +
- static void xadc_cancel_delayed_work(void *data)
- {
- 	struct delayed_work *work = data;
-@@ -1275,18 +1339,14 @@ static int xadc_probe(struct platform_device *pdev)
- 	int irq;
- 	int i;
- 
--	ops = device_get_match_data(dev);
--	if (!ops)
--		return -EINVAL;
-+	indio_dev = xadc_device_setup(dev, sizeof(*xadc), &ops);
-+	if (IS_ERR(indio_dev))
-+		return PTR_ERR(indio_dev);
- 
- 	irq = platform_get_irq_optional(pdev, 0);
- 	if (irq < 0 && (irq != -ENXIO || !(ops->flags & XADC_FLAGS_IRQ_OPTIONAL)))
- 		return irq;
- 
--	indio_dev = devm_iio_device_alloc(dev, sizeof(*xadc));
--	if (!indio_dev)
--		return -ENOMEM;
--
- 	xadc = iio_priv(indio_dev);
- 	xadc->ops = ops;
- 	init_completion(&xadc->completion);
-@@ -1298,30 +1358,13 @@ static int xadc_probe(struct platform_device *pdev)
- 	if (IS_ERR(xadc->base))
- 		return PTR_ERR(xadc->base);
- 
--	indio_dev->name = xadc_type_names[xadc->ops->type];
--	indio_dev->modes = INDIO_DIRECT_MODE;
--	indio_dev->info = &xadc_info;
--
--	ret = xadc_parse_dt(indio_dev, &conf0, irq);
-+	ret = xadc_device_configure(indio_dev, irq, &conf0, &bipolar_mask);
- 	if (ret)
- 		return ret;
- 
--	if (xadc->ops->flags & XADC_FLAGS_BUFFERED) {
--		ret = devm_iio_triggered_buffer_setup(dev, indio_dev, &iio_pollfunc_store_time,
--						      &xadc_trigger_handler, &xadc_buffer_ops);
--		if (ret)
--			return ret;
--
--		if (irq > 0) {
--			xadc->convst_trigger = xadc_alloc_trigger(indio_dev, "convst");
--			if (IS_ERR(xadc->convst_trigger))
--				return PTR_ERR(xadc->convst_trigger);
--
--			xadc->samplerate_trigger = xadc_alloc_trigger(indio_dev, "samplerate");
--			if (IS_ERR(xadc->samplerate_trigger))
--				return PTR_ERR(xadc->samplerate_trigger);
--		}
--	}
-+	ret = xadc_setup_buffer_and_triggers(indio_dev, irq);
++static int xadc_i2c_write_transaction(struct xadc *xadc, unsigned int reg, u16 val)
++{
++	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
++	struct i2c_client *client = xadc_i2c->client;
++	u8 write_buffer[XADC_I2C_WRITE_DATA_SIZE];
++	int ret;
++
++	/* low byte of the 16-bit DRP data value */
++	write_buffer[XADC_I2C_DRP_DATA_LOW] = FIELD_GET(XADC_I2C_DRP_DATA0_MASK, val);
++	/* high byte of the 16-bit DRP data value */
++	write_buffer[XADC_I2C_DRP_DATA_HIGH] = FIELD_GET(XADC_I2C_DRP_DATA1_MASK, val);
++	write_buffer[XADC_I2C_DRP_ADDR] = FIELD_GET(XADC_I2C_DRP_ADDR_MASK, reg);
++	write_buffer[XADC_I2C_DRP_INSTR] = XADC_I2C_INSTR_WRITE;
++
++	ret = i2c_master_send(client, write_buffer, XADC_I2C_WRITE_DATA_SIZE);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
++static int xadc_hardware_init(struct xadc *xadc)
++{
++	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
++	int ret;
++
++	for (unsigned int i = 0; i < ARRAY_SIZE(xadc->threshold); i++) {
++		ret = xadc_i2c_read_transaction(xadc, XADC_REG_THRESHOLD(i), &xadc->threshold[i]);
++		if (ret)
++			return ret;
++	}
++
++	ret = xadc_i2c_write_transaction(xadc, XADC_REG_CONF0, xadc_i2c->conf0);
 +	if (ret)
 +		return ret;
++
++	ret = xadc_i2c_write_transaction(xadc, XADC_REG_INPUT_MODE(0), xadc_i2c->bipolar_mask);
++	if (ret)
++		return ret;
++
++	ret = xadc_i2c_write_transaction(xadc, XADC_REG_INPUT_MODE(1),
++					 xadc_i2c->bipolar_mask >> XADC_INPUT_MODE_BITS);
++	if (ret)
++		return ret;
++
++	xadc_i2c->hw_initialized = true;
++
++	return 0;
++}
++
++static int xadc_i2c_read_reg(struct xadc *xadc, unsigned int reg, u16 *val)
++{
++	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
++
++	/*
++	 * Deferring initialization to the first real read/write means it
++	 * only runs once the device is actually being used, at which point
++	 * the full path down to the PL SysMon is expected to be up. This
++	 * avoids spurious probe failures caused by transient unavailability
++	 * of hardware outside this driver's control.
++	 */
++	if (!xadc_i2c->hw_initialized) {
++		int ret;
++
++		ret = xadc_hardware_init(xadc);
++		if (ret)
++			return ret;
++	}
++
++	return xadc_i2c_read_transaction(xadc, reg, val);
++}
++
++static int xadc_i2c_write_reg(struct xadc *xadc, unsigned int reg, u16 val)
++{
++	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
++
++	/*
++	 * Deferring initialization to the first real read/write means it
++	 * only runs once the device is actually being used, at which point
++	 * the full path down to the PL SysMon is expected to be up. This
++	 * avoids spurious probe failures caused by transient unavailability
++	 * of hardware outside this driver's control.
++	 */
++	if (!xadc_i2c->hw_initialized) {
++		int ret;
++
++		ret = xadc_hardware_init(xadc);
++		if (ret)
++			return ret;
++	}
++
++	return xadc_i2c_write_transaction(xadc, reg, val);
++}
++
++static const struct xadc_ops xadc_system_mgmt_wiz_i2c_ops = {
++	.read = xadc_i2c_read_reg,
++	.write = xadc_i2c_write_reg,
++	.setup_channels = xadc_parse_dt,
++	.type = XADC_TYPE_US_I2C,
++	.temp_scale = 509314,
++	.temp_offset = 280231,
++};
++
++static int xadc_i2c_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	unsigned int conf0, bipolar_mask;
++	const struct xadc_ops *ops;
++	struct iio_dev *indio_dev;
++	struct xadc_i2c *xadc_i2c;
++	struct xadc *xadc;
++	int ret;
++
++	indio_dev = xadc_device_setup(dev, sizeof(*xadc_i2c), &ops);
++	if (IS_ERR(indio_dev))
++		return PTR_ERR(indio_dev);
++
++	xadc_i2c = iio_priv(indio_dev);
++	xadc_i2c->client = client;
++	xadc = &xadc_i2c->xadc;
++	xadc->ops = ops;
++
++	ret = devm_mutex_init(dev, &xadc->mutex);
++	if (ret)
++		return ret;
++
++	spin_lock_init(&xadc->lock);
++
++	ret = xadc_device_configure(indio_dev, 0, &conf0, &bipolar_mask);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to setup the device\n");
++
++	xadc_i2c->conf0 = conf0;
++	xadc_i2c->bipolar_mask = bipolar_mask;
++	xadc_i2c->hw_initialized = false;
++
++	return devm_iio_device_register(dev, indio_dev);
++}
++
++static const struct of_device_id xadc_i2c_of_match_table[] = {
++	{
++		.compatible = "xlnx,system-management-wiz-1.3",
++		.data = &xadc_system_mgmt_wiz_i2c_ops,
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(of, xadc_i2c_of_match_table);
++
++static struct i2c_driver xadc_i2c_driver = {
++	.probe = xadc_i2c_probe,
++	.driver = {
++		.name = "xadc-i2c",
++		.of_match_table = xadc_i2c_of_match_table,
++	},
++};
++module_i2c_driver(xadc_i2c_driver);
++
++MODULE_IMPORT_NS("IIO_XADC");
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>");
++MODULE_AUTHOR("Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>");
++MODULE_DESCRIPTION("Xilinx XADC I2C Interface Driver");
+diff --git a/drivers/iio/adc/xilinx-xadc.h b/drivers/iio/adc/xilinx-xadc.h
+index 66d333ad91ec..c43001ec738c 100644
+--- a/drivers/iio/adc/xilinx-xadc.h
++++ b/drivers/iio/adc/xilinx-xadc.h
+@@ -71,6 +71,7 @@ struct xadc {
+ enum xadc_type {
+ 	XADC_TYPE_S7, /* Series 7 */
+ 	XADC_TYPE_US, /* UltraScale and UltraScale+ */
++	XADC_TYPE_US_I2C, /* UltraScale+ I2C interface */
+ };
  
- 	xadc->clk = devm_clk_get_enabled(dev, NULL);
- 	if (IS_ERR(xadc->clk))
-@@ -1366,12 +1409,6 @@ static int xadc_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	bipolar_mask = 0;
--	for (i = 0; i < indio_dev->num_channels; i++) {
--		if (indio_dev->channels[i].scan_type.sign == 's')
--			bipolar_mask |= BIT(indio_dev->channels[i].scan_index);
--	}
--
- 	ret = xadc_write_adc_reg(xadc, XADC_REG_INPUT_MODE(0), bipolar_mask);
- 	if (ret)
- 		return ret;
+ struct xadc_ops {
 -- 
 2.34.1
 
