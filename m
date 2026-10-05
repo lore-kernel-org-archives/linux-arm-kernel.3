@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515E9CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343ABCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ck/YSmwX+BAU8aauMUDi1gthqNGVLuO2QlzjEMLfeNg=; b=OHRHitM+4gGviB2HcZcE1D7xqy
-	fXri64BCGLwt4q9xDdAJ/wGEh+I5usIt3mj3ugJ9Vmuse1O5Tv87DxJ+A7C2lgbHnHFyPM8qfFxA5
-	lzh3eD8JfEi0iaITIYGazczQY1yA5X/+HQtg+Xlbmrf6be+W/8C9XgsYfiqcTCibbx6650mtQ0ij3
-	vVbf+gA6gtu9qA+uOaD1+0H8pFmFwEZS+e4LXACrUk6z7KdrZprmMCD3cfviJcsyk+U9aAEgt9eQk
-	UUGmNXUOfBLDY6+tWvJCJI/hEvYaZOoZQ1atxVATaJdIkt9DiWlx8C9DgPiRWIOogm6OF8oWysFU/
-	mVGNg51A==;
+	bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=; b=xMLhBsLNjkAzJ2CYoEd4ESr9ao
+	OGNaChYPDkAB2vwW4Tn2FerghfAMAZcGbSiEwHe0w1VDbL4SVIUmtMzdmKooit+p0ht1HJA1iX37D
+	47up4T3rJYQdsZvuw6Egle3yiubRMUuiyUEAAcfvzeKByaGL2l+1apcHWTgCORgQa/iLwhSIoZtNL
+	8juWtwMHNS3IME3QFJLniHkjQUuxQKW/p8rYzdECThlIlXGnlAqTHap31uMehN3cW7oFOLxSZJACe
+	NW1rCiN3IJMj714xfhiqSrD3dBd5LonOevxHjEgIm3oqLCrstLt/VZiB/Bf23SIA3XqhUFVINPcNP
+	dXKBI0zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiSF-0000000GSxp-0IdZ;
-	Mon, 05 Oct 2026 13:10:07 +0000
-Received: from mail-wr2-f34.google.com ([74.125.225.98])
+	id 1xDiVU-0000000GUaG-0DS4;
+	Mon, 05 Oct 2026 13:13:28 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiS3-0000000GSkB-3l0i
+	id 1xDiVR-0000000GUYi-11f4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 13:10:05 +0000
-Received: by mail-wr2-f34.google.com with SMTP id ffacd0b85a97d-48b00a0ac65so871407f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 06:09:55 -0700 (PDT)
+	Mon, 05 Oct 2026 13:13:26 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49d05d51553so12577465e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 06:13:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791205793; x=1791810593; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791206003; x=1791810803; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Ck/YSmwX+BAU8aauMUDi1gthqNGVLuO2QlzjEMLfeNg=;
-        b=fldadw0XNDzdLA6BgqE/Lj4dPlhWThInwS2K5e86/MS7m2fU6DAyL31f0x7vqOTcZ0
-         YZwMfD83qtAXuB8o3qde75FyOqcDmOH8FG+PLkK0oD3/JB77FrtJ3ThlYQnlPvgs5dNR
-         t0R6u0UYDAYav0dUPs84gFmvNsbPGlCbuIDJvNfx+BriU4//RLChbObz2yqQxyRpWZXi
-         2UUNnwoXCj6kHYvcfEMwTvXEfS0haHDw0O8LpicYhyupm5hpw4kGFiLdPWantRt6EQpS
-         +Qfu5gHs+BpxrRkCCFXygXN0zyxcJlBlNBKbXhVgsJFLpPjSIxmjVR8b0qK2NYLdVzDM
-         dCjQ==
+        bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=;
+        b=ELn9TZ+pgCEd0dwFFbaUwISj+gIqFA9+Omz/zKp/lPBUXnumy7fpkKuTyODtujmt9f
+         BZ9sjW7BN3hCvqpaKGemIhNZE89P//trzz9Ab1n5AqqiUWNsPCKYE2qLa5VMopBBfK8A
+         6dHonrt/vyq4djGpXuzkrEL8oY2/Pct5NZTAeaqETpFjc7U2lqBxhTgVT0sEqYexARE6
+         8tEepSQFuxR6vJVWf7OwXPKAIFbGTiPwCgqhW9iJ1OKicC8qkFZhQ5o1iWE7v0yxdcjl
+         hMfsewf+kJ92Fg42KdKqtwrX9fUOZXGMEZwjbC+VjsWRrUq2DLnZtSq8XX3Q9X1Ns6z2
+         kufg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791205793; x=1791810593;
+        d=1e100.net; s=20260707; t=1791206003; x=1791810803;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ck/YSmwX+BAU8aauMUDi1gthqNGVLuO2QlzjEMLfeNg=;
-        b=2NmtRuv0IZTN1kY3sZmyaFIZ88LAHQXu5Jfj1SP+YeFevU1O+i1czXR3VVx31EQtZy
-         1ea173UD7uYJMtTxVLn7qJ3M8uOQHjsbxWiDWHPv/8BE2kH+mlSrDoNWX2L9hrB3eqrZ
-         DhKx7T4xR6oh8+TDVOcAhv6Gvnh/TWbRupFevoY6wHGunh6iWD1ylFnE1NSQKFn36B1S
-         3Dd7kBYeFYNfXuUEGEffSS67J5/4+RZ/0TqFL1WPN8oas7LdMO7nyU0VXqZ21obMd3G1
-         OkTIoZ5KD2BQUab8Uo0EyMcg9UNw9xZaQcucdqp136jQqpILxTTh0h4m8yxfyDMgDdWZ
-         ndyA==
-X-Forwarded-Encrypted: i=1; AKwUvBzjNGkQBuYLDNmH4edC15lWqK7jTGswFoNAjDhgOrdmgUToIiAohHWAz3kKXM42AvyKjcywt8SIcFMlSvABDwFt@lists.infradead.org
-X-Gm-Message-State: AFq9FYKXv2J681udI8TjptPW1KAgSI2f0QCjigmvI3k8QPVVfFEP4xiN
-	qwGss2La9hxvg8QNJBKAs3ETHSp7hv9AIRJVnSiYurbbsL9z/Dc66qh0
-X-Gm-Gg: AYBFou100hbV7ZN8w+my+fOJ2LBpMY+w/M+8ahDhPqVgkzPhTisGZpSuy9C8hZiraiu
-	4eMcYPDQ9NXSOPXDYcvWxT3BB34F3A67stJ6Wyux6TtOIyhegeP+9usQiBuK3AQTXnC00usVI1n
-	6t3ZxSQGF2H7FT/aH6WBB183krG6v9QxRKgR1Xw/p8EWtfAfktySAyx+X+paihxs/zo37gWdVJB
-	NItuSgPm8xHQb33aSvcisrWSKUHcOOdbGRHK2WtLyTrc/Uk2/7O736dbdOkuROQInz50a78D0GC
-	0TAgtO8mzhMKPZJEp1tQ1bRHPc3lMlkeGTOPdSOQ0e9awfJQEcsiEoOGfANOVki96rYPDLs+dCu
-	XBJ2/A+pV8crByYNPH3pBp3OisXlXPT5JQVrHNXmHFD+DaqR5Y+rXJjrhdxTosX7Zn0kaSqdEWN
-	wqU7VFnKP8I+vMdvJdDGfoRJg2K352k9TmiikQkS/BB5f6VHnJ0whxNUpKmVKOnHroeRowcHBdO
-	RUio0NKEuu2b5BcHtiVXZjyV3MMkU68o7RJiNZynEzqxXyrbdt775QxE/klr2S48FmurOG3tc8Z
-	D26wPNUn4iQrCY4zhNlc9vP/g85cf9jt4kp7gU/VPe4k+yhjiYtZL/hGlREQKgz94s1S7SeG78G
-	YhLPC+55FsRK6kDdGDfTrylITvscnlk5Y1oUvksJo6iKl1V8fotHIijwNQ46TRI0pqq4C3B6iQe
-	1q9P5zm3PGdmNCXr0=
-X-Received: by 2002:a5d:64ca:0:b0:488:83f7:6352 with SMTP id ffacd0b85a97d-48b126f542emr19074352f8f.4.1791205793268;
-        Mon, 05 Oct 2026 06:09:53 -0700 (PDT)
+        bh=lUlOSe5A8lNERyF+m/EbmOxMTZ4XiY1F/mU41HusoYs=;
+        b=lbk5JUZVVUrgh9JOMNQl6yJaAqgHfspgmy3ozT8g3W6QtYmA5zXk2M3hmRyoy3g7pm
+         F1euiH6kau+y6K80emVfGIH3+U8hYW5L9gDjvHUo81JaQtzFOJVcBlKlizLHjEERLUxo
+         CfZQFkpfg+m5RMWFMaWFjQiVRTYcIqqM6TINi4kY4Jp0DC3V0VuZ3jkMDD9X7yYbZ/zt
+         BiPmpSWm1Ci9CJ6l3FZX9ijnlv+Eo8oIvFOqF1sWdM2NIsRxu6I0xR7cplGAaamhg8f1
+         XBpw0P5dXGrG+IfrJ2e2XCtMznpuo0/cuNnOeJOxNkbYsbzpN/NVuwGnmcRcwFYKDo0m
+         0slw==
+X-Forwarded-Encrypted: i=1; AKwUvBx2EMblz1zdeNduCQP4NVh1aYoMA/09K6oYqxjXbXPH2NedvtTF+y6kb+y0M8hvioOWi0K6a+ThJtrliKQrfmsf@lists.infradead.org
+X-Gm-Message-State: AFuF++nf6FctxvtQiGCqtTzuF0DdTHZd0Huuzz3BJBp1FrVHxF51kXYo
+	e9btLkBHEa2j8ChAJd9ePF2NE0K6Cz1leD+H18ysvqiczFnXQQ5ysfFh
+X-Gm-Gg: AYBFou175u1WlJFMYV0CCE1tFqNbjvarY+mvh45wUp5JtuBvWwM7+itMsHMePJlxM9p
+	qXD6trEHTaH3qk49SfC7Q1HHLKu05vmCeP0WBxn+Y3HEuLhHu2PQsFdPHYW+oAUY+nlGhHHJF2K
+	eP8ci7tOWzyJjLn1fssLMwHebmlokj8WmaznHkOspjYN0y0DuUnPVj8sJqVv4YFU9h27jy5kbot
+	iE39UuSoUWNQTro52dH/dufv8myVwd3OLXcltLmVivqNVQGdUFKK/zeoww08mLkYcfHnL0RW45b
+	UOrieAqMeNUPwzmYMikchmJ5Tw3gr7kh9g76fEM+xCxs2wfYv5Nps3z2q42xXyDDn4pcmpug0vo
+	JYLVWmlUk//Y14IrKUEtLu0r7s7EpS3bMjiY+bL2NRwinutdNvrRnobFzdhRSjAth1FKKiedMdq
+	kLLApl2kmLu4PsdQx9grlashArIUlBDpxudlhC5yuNAJyo6mHQw+3Uwdd/qEJC8lE2U1n8ip1pM
+	iApk3V+tBK1wmnVkrry+1slwnt1tBdW+RfdBc+wdiDJ0NakSzOfIha5ea5lN7AxpBNxVJaqGQtX
+	7iLruGe2YEYA0GuQyHncerOtauQTS72EUNb0uXRuzFKnaJH6Cxf1/7UBqXEVrRdy8ZehS+09ejd
+	QzYR62yO510+fVrwNjwbghFLUmYNvs4L8p4xwPJ2U0KzE/24aDQ6TWUk697lLWKy581gBN/25yt
+	OROgVJXA==
+X-Received: by 2002:a05:600c:4705:b0:49c:fc6e:a3da with SMTP id 5b1f17b1804b1-4a1680ffb88mr122325845e9.25.1791206003215;
+        Mon, 05 Oct 2026 06:13:23 -0700 (PDT)
 Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c6228d716sm3851685f8f.24.2026.10.05.06.09.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027734b49sm343621165e9.10.2026.10.05.06.13.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 06:09:53 -0700 (PDT)
-Date: Mon, 5 Oct 2026 15:09:37 +0200
+        Mon, 05 Oct 2026 06:13:23 -0700 (PDT)
+Date: Mon, 5 Oct 2026 15:13:17 +0200
 From: Joshua Crofts <joshua.crofts1@gmail.com>
 To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
 Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
@@ -83,19 +83,19 @@ Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
  Conall O'Griofa <conall.ogriofa@amd.com>, <linux-iio@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
  <git@amd.com>, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v4 10/15] iio: adc: xilinx-xadc: Add clarifying comments
-Message-ID: <20261005150937.000044b6@gmail.com>
-In-Reply-To: <20261005094205.1045874-11-dileepkumar.nagavarapu@amd.com>
+Subject: Re: [PATCH v4 06/15] iio: adc: xilinx-xadc: Use
+ guard()/scoped_guard() for spinlock locking
+Message-ID: <20261005151317.00001df3@gmail.com>
+In-Reply-To: <20261005094205.1045874-7-dileepkumar.nagavarapu@amd.com>
 References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
-	<20261005094205.1045874-11-dileepkumar.nagavarapu@amd.com>
+	<20261005094205.1045874-7-dileepkumar.nagavarapu@amd.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_060955_951957_9EDF1365 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261005_061325_305525_A2EDC583 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,12 +110,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Oct 2026 15:12:00 +0530
+On Mon, 5 Oct 2026 15:11:56 +0530
 Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
 
-> Add missing comments on struct mutex and spinlock_t in struct xadc
-> (per checkpatch.pl), and explain the non-obvious FIFO-drain loop and
-> Zynq alarm-bit reordering logic.
+> Use guard() and scoped_guard() helpers for spinlock handling
+> instead of spin_lock/spin_unlock sequences.
+> 
+> This removes the need for explicit spin_unlock()
 > 
 > No functional change intended.
 > 
@@ -124,9 +125,38 @@ Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
 > Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
 > ---
 
-LGTM.
+...
 
-Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>
+> @@ -677,15 +670,15 @@ static int xadc_trigger_set_state(struct iio_trigger *trigger, bool state)
+>  		xadc->trigger = NULL;
+>  	}
+>  
+> -	spin_lock_irqsave(&xadc->lock, flags);
+> -	xadc_read_reg(xadc, XADC_AXI_REG_IPIER, &val);
+> -	xadc_write_reg(xadc, XADC_AXI_REG_IPISR, XADC_AXI_INT_EOS);
+> -	if (state)
+> -		val |= XADC_AXI_INT_EOS;
+> -	else
+> -		val &= ~XADC_AXI_INT_EOS;
+> -	xadc_write_reg(xadc, XADC_AXI_REG_IPIER, val);
+> -	spin_unlock_irqrestore(&xadc->lock, flags);
+> +	scoped_guard(spinlock_irqsave, &xadc->lock) {
+> +		xadc_read_reg(xadc, XADC_AXI_REG_IPIER, &val);
+> +		xadc_write_reg(xadc, XADC_AXI_REG_IPISR, XADC_AXI_INT_EOS);
+> +		if (state)
+> +			val |= XADC_AXI_INT_EOS;
+> +		else
+> +			val &= ~XADC_AXI_INT_EOS;
+> +		xadc_write_reg(xadc, XADC_AXI_REG_IPIER, val);
+> +	}
+>  
+>  err_out:
+>  	mutex_unlock(&xadc->mutex);
+
+Since you've moved the spinlocks to use guard, what about replacing
+mutex_lock/unlock as well?
+
+Otherwise this seems fine.
 
 -- 
 Kind regards,
