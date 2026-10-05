@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636D6CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747CACA5FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gRcb9zLvElHXZtFmXPe9zupLvWQuZzujh+9iiVsBPh4=; b=pyfSyM5zE10uvRTTk3IaW2ftdp
-	oF49l8WJOsPb2L5jhgtSPxnl2HVD2Ns7TERnEFqXXTyD4ciZiU+cfM/HG8mS5zb4Wy3yiiAvJq+h6
-	wEfB2qYRfdvtJD6V6lN4vPUhomJenskfBv25PqwrDenkMjMSvXFhy69mhk/u+eRwCdCmycWZc/v7w
-	zCzVvh46PkDj7U3/uahkZZOvEQTttODfLZKj0PHufVC9dv4U94FZyHfaT3kNiBXfsFUg2nsmrWyp2
-	IIkQl6/oDDtw+Ux9RTsk9Vx61iLbqy1DgG/XtskBj3StykfFsqpow1cSl3c0BwAHL9igCQ+06aVwV
-	l2XwRidg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JEGPocbhabTmG9JnP0it9oQn8qUEYKbqSsbZyc3hfr4=; b=jPIODr/pizl5G4zPpy2RFK81si
+	Aj/Zgb7fMLtZ94vUkylRoA98fJwmaeuDCIy5RAwNat3X0b1B/1Io5wg/CKquCsDOUenIyK5MN2uNL
+	8XFvchkUu5nQnmA4CF4AKOzV9ahj3QRQoHdWnISuJbsH3jLu2fl4o+5UtQDi3uNAYFU92T+WZns8i
+	oOxPnAf8KseYeMY0+ceTHyNYqrzuN7JK7cpVVCkgZXaPiWRrZMbnKEF2PLHnsRT2cJqzuQmIzDkt4
+	E0Pj2snCAUmz3jThV7Maq5NYufEgN2pceY/xR++N5Nf2voNXEoXX+sUa5zfcvowQJahkWhO2S53Nn
+	8cUGHVSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfIX-0000000G4MU-3h8k;
-	Mon, 05 Oct 2026 09:47:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDfKv-0000000G4fv-1a4i;
+	Mon, 05 Oct 2026 09:50:21 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfIW-0000000G4LO-0Jx0
+	id 1xDfKr-0000000G4eV-3U4I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:47:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28E0160235;
-	Mon,  5 Oct 2026 09:47:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E0F1F0089D;
-	Mon,  5 Oct 2026 09:47:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791193670;
-	bh=gRcb9zLvElHXZtFmXPe9zupLvWQuZzujh+9iiVsBPh4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ju3bQnsD4MbRoBThXUmageuiqholHbCt5hOtpn8b2giUuAhnJ9GbYNxnIClxgH0+E
-	 RCDuc7sRvTT6Qxdx5ZwP2nhiSOcVr2YVvrYIdFvxBGrwQVGYQHkZT92PAR8omcq7eJ
-	 6ju/VvTuMecQxRivAVDkceF1UrWu9tI7k0tiNreINhSVNJAfnhws0HVoLKYFJGE2e6
-	 kCTRilci8KCS9f7fQ0phtH/fXSjGl9n96Rb+diZsI36ePLoNBO/Zkk2Cq3jlbEJXaX
-	 hWD1PyMf1/7RI+IE+/rKfEMjuJSUWg+LnvDeZTyv1VMSPn4E6+j+onfqxqL73MBxQp
-	 CpWJdOr0S2rRw==
-Subject: Re: [PATCH net-next v4 1/2] net: stmmac: fix TX coalesce race and
- div-by-zero in XDP/legacy path
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, boon.leong.ong@intel.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Mon, 05 Oct 2026 09:47:49 +0000
-Message-ID: <179119366947.434549.18258387588944949725@kernel.org>
-In-Reply-To: <20261001-b4-stmmac-xmit-mb-v4-1-664e0c3eb289@oss.qualcomm.com>
-References: <20261001-b4-stmmac-xmit-mb-v4-1-664e0c3eb289@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 05 Oct 2026 09:50:19 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 4F0EB1FC35;
+	Mon,  5 Oct 2026 11:50:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1791193815;
+	bh=JEGPocbhabTmG9JnP0it9oQn8qUEYKbqSsbZyc3hfr4=; h=From:To:Subject;
+	b=GiX/fnpMMtR20Mo8hBpj/2dvtW01C4IwPdHEyvyhF96+RdiRqllIxBHcmwA9X18kJ
+	 CLcm/JlEDrNRFZAxf7OZf7aOOxU4WX8TDWNOZSak+m+kuo3Og5fOGwA3Y/Pm6zmd3L
+	 2icwxNEliViG+JDHuM10h/QvGNriQhzucDZHKrrx8anr6exFKRzUUBPZhAFGsWZoF8
+	 uT5LwEyVkOKvQ3D99U+BCzPe+w/i6OKCwS5BMnqyLp1svoUqAYzCMW4DXOaqoGxP55
+	 B02e2Z3ZE+FKBdTNYYryQDJbVMaHb4w5+K2clEUNxsgZwjs4lEm8gflBjZSh8+wAF0
+	 q7g40Z1Om6o9Q==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Francesco Dolcini <francesco@dolcini.it>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/4] drm/bridge: Add Thine THC63LVD827 LVDS encoder and 10inch LVDS panel on Colibri iMX7
+Date: Mon,  5 Oct 2026 11:50:00 +0200
+Message-ID: <20261005095006.20290-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_025018_034207_E480E86C 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,129 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
+This series adds support for the Thine THC63LVD827 DPI to LVDS encoder and
+afterward uses it to add DT overlays to enable the Toradex 10inch LVDS panel
+on Colibri iMX6ULL / iMX7 with the Iris v2 carrier board.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+v2:
+ - address review comment on the binding (Frank), document the power
+   supplies
+ - driver: add power supplies support, enforce the input sampling edge
+   via atomic_check, use bridge.next_bridge with
+   of_drm_get_bridge_by_endpoint(), drop unused code
+ - move the common part of the Colibri iMX7 overlay to a dtsi shared
+   between Colibri iMX6ULL and iMX7, minor cleanups to the overlay and
+   the Makefile
+ - new patch adding the Colibri iMX6ULL overlay
 
-- [Medium] The commit message says the stmmac_xdp_xmit_xdpf() divide-by-
-  zero is "only theoretical", but a privileged user can trigger it and…
+v1: https://lore.kernel.org/all/20260908100230.83796-1-francesco@dolcini.it/
 
-Pre-existing issues:
-- [Low] __stmmac_set_coalesce() publishes tx_coal_frames[q] and
-  tx_coal_timer[q] as two separate stores and shares no synchronisation…
+Francesco Dolcini (4):
+  dt-bindings: display: bridge: Add THine THC63LVD827
+  drm/bridge: Add THine THC63LVD827 LVDS encoder
+  ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 10"
+    LVDS
+  ARM: dts: imx6ull-colibri-emmc: Add Toradex Capacitive Touch Display
+    10" LVDS
 
---
-
-net: stmmac: fix TX coalesce race and div-by-zero in XDP/legacy path
-
-This patch wraps every access to tx_coal_frames[] in READ_ONCE() or
-WRITE_ONCE(), since ethtool writes the array while the TX fast paths read
-it without a lock. It also guards the modulo in stmmac_xdp_xmit_xdpf()
-against a zero tx_coal_frames[queue].
-
-> Both issues were found by code inspection while extending the XDP TX
-> path with multi-buff support, and neither has ever been triggered, so
-> they are only theoretical. Tested on the Qualcomm RB3-gen2 board.
-
-[Severity: Medium]
-
-Is the division by zero in stmmac_xdp_xmit_xdpf() really only
-theoretical?
-
-__stmmac_set_coalesce() only rejects the case where both values are zero:
-
-	if ((ec->tx_coalesce_usecs == 0) &&
-	    (ec->tx_max_coalesced_frames == 0))
-		return -EINVAL;
-
-So "ethtool -C ethX tx-frames 0" is accepted. tx-usecs keeps its default
-of STMMAC_COAL_TX_TIMER, and stmmac_ethtool_ops advertises
-ETHTOOL_COALESCE_MAX_FRAMES. After that, tx_coal_frames[queue] is 0.
-
->From then on, before this patch, every XDP_TX verdict
-(stmmac_xdp_xmit_back()->stmmac_xdp_xmit_xdpf()) and every ndo_xdp_xmit
-redirect into the device would evaluate:
-
-	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-
-On x86, for example the dwmac-intel platforms that advertise XDP
-basic and redirect, this raises a divide error in NAPI softirq context.
-
-On arm64, UDIV with a zero divisor returns 0 instead of trapping. That
-may be why the RB3-gen2 board never hit it.
-
-CAP_NET_ADMIN can trigger this with standard tools. Could the commit
-message describe it as a reachable crash rather than a theoretical one?
-Would it also make sense to send the div-by-zero fix separately from the
-READ_ONCE()/WRITE_ONCE() annotations?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> index 1cf0f8820b337..30e0d499326d8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-
-[ ... ]
-
-> @@ -887,14 +888,14 @@ static int __stmmac_set_coalesce(struct net_device *dev,
->  		int i;
->  
->  		for (i = 0; i < tx_cnt; i++) {
-> -			priv->tx_coal_frames[i] =
-> -				ec->tx_max_coalesced_frames;
-> +			WRITE_ONCE(priv->tx_coal_frames[i],
-> +				   ec->tx_max_coalesced_frames);
->  			priv->tx_coal_timer[i] =
->  				ec->tx_coalesce_usecs;
->  		}
->  	} else if (queue < tx_cnt) {
-> -		priv->tx_coal_frames[queue] =
-> -			ec->tx_max_coalesced_frames;
-> +		WRITE_ONCE(priv->tx_coal_frames[queue],
-> +			   ec->tx_max_coalesced_frames);
->  		priv->tx_coal_timer[queue] =
->  			ec->tx_coalesce_usecs;
->  	}
-
-[Severity: Low]
-
-This is a pre-existing issue and was not introduced by this patch.
-tx_coal_frames[] and tx_coal_timer[] are still published as two separate
-stores, with no synchronisation against the TX path.
-
-Can a concurrent stmmac_xmit() see a mixed pair? Take a change from
-(frames=N, usecs=0) to (frames=0, usecs=U). The TX path could read the
-new frames value:
-
-	tx_coal = READ_ONCE(priv->tx_coal_frames[queue]);
-	...
-	else if (!tx_coal)
-		set_ic = false;
-
-It could then read the old timer value in stmmac_tx_timer_arm():
-
-	u32 tx_coal_timer = priv->tx_coal_timer[queue];
-
-	if (!tx_coal_timer)
-		return;
-
-That frame would then get neither an IC interrupt nor the completion
-timer. Its completion would wait for the next TX or NAPI activity on that
-queue. The same window exists for stmmac_tso_xmit() and
-stmmac_xdp_xmit_xdpf().
-
-READ_ONCE()/WRITE_ONCE() make each field consistent on its own, which is
-all the commit message claims. The window across the two fields is still
-there.
-
-[ ... ]
+ .../display/bridge/thine,thc63lvd827.yaml     | 138 +++++++++++
+ MAINTAINERS                                   |   6 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |  13 +
+ ...emmc-iris-panel-cap-touch-10inch-lvds.dtso |  49 ++++
+ ...ibri-iris-panel-cap-touch-10inch-lvds.dtsi |  70 ++++++
+ ...emmc-iris-panel-cap-touch-10inch-lvds.dtso |  47 ++++
+ drivers/gpu/drm/bridge/Kconfig                |  11 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/thc63lvd827.c          | 228 ++++++++++++++++++
+ 9 files changed, 563 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-iris-panel-cap-touch-10inch-lvds.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
+ create mode 100644 drivers/gpu/drm/bridge/thc63lvd827.c
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001-b4-stmmac-xmit-mb-v4-0-664e0c3eb289%40oss.qualcomm.com
+2.47.3
+
 
