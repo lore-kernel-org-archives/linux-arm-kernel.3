@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747CACA5FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E24CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JEGPocbhabTmG9JnP0it9oQn8qUEYKbqSsbZyc3hfr4=; b=jPIODr/pizl5G4zPpy2RFK81si
-	Aj/Zgb7fMLtZ94vUkylRoA98fJwmaeuDCIy5RAwNat3X0b1B/1Io5wg/CKquCsDOUenIyK5MN2uNL
-	8XFvchkUu5nQnmA4CF4AKOzV9ahj3QRQoHdWnISuJbsH3jLu2fl4o+5UtQDi3uNAYFU92T+WZns8i
-	oOxPnAf8KseYeMY0+ceTHyNYqrzuN7JK7cpVVCkgZXaPiWRrZMbnKEF2PLHnsRT2cJqzuQmIzDkt4
-	E0Pj2snCAUmz3jThV7Maq5NYufEgN2pceY/xR++N5Nf2voNXEoXX+sUa5zfcvowQJahkWhO2S53Nn
-	8cUGHVSA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zQCJHTmUR2ik7FJ/fHt/vodGLDZk2JgO4ighUQKlqSE=; b=saP5OIer2uOwOXdFNV1TvIk9S+
+	qurdKKPpy8ffI6JzDR6jWLmfpEHzSdHnhBOE21AaWp5yZRDyVNbsn7m8KSefF9Q5OiAN6sjCRMuoB
+	mmpqQu7Mh1e/XU//d7B2dwoRKjSZJwNf/jiWuxoZ/dv7fwXnDiqcGJKbaQtTvAy9OAoKUx77GcLQL
+	xFJndgMHDIAsZ4GnaorOGVF0IWmDAaUYzO53xaTaf1kb0ias4rTWhzX2qhU2/umXAfDYvvbil+KX7
+	fb3Q4mP3NxktDH75/m+zl3N7+DuxMlNd9C1LF5V2oYNeRvbRGEEccHGn9XLD6s45wT+VX0Aaillp/
+	2bcu71tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfKv-0000000G4fv-1a4i;
-	Mon, 05 Oct 2026 09:50:21 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1xDfKx-0000000G4gm-2B1C;
+	Mon, 05 Oct 2026 09:50:23 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfKr-0000000G4eV-3U4I
+	id 1xDfKs-0000000G4eY-1Fa5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:50:19 +0000
+	Mon, 05 Oct 2026 09:50:20 +0000
 Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 4F0EB1FC35;
-	Mon,  5 Oct 2026 11:50:14 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 70EA91FC47;
+	Mon,  5 Oct 2026 11:50:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1791193815;
-	bh=JEGPocbhabTmG9JnP0it9oQn8qUEYKbqSsbZyc3hfr4=; h=From:To:Subject;
-	b=GiX/fnpMMtR20Mo8hBpj/2dvtW01C4IwPdHEyvyhF96+RdiRqllIxBHcmwA9X18kJ
-	 CLcm/JlEDrNRFZAxf7OZf7aOOxU4WX8TDWNOZSak+m+kuo3Og5fOGwA3Y/Pm6zmd3L
-	 2icwxNEliViG+JDHuM10h/QvGNriQhzucDZHKrrx8anr6exFKRzUUBPZhAFGsWZoF8
-	 uT5LwEyVkOKvQ3D99U+BCzPe+w/i6OKCwS5BMnqyLp1svoUqAYzCMW4DXOaqoGxP55
-	 B02e2Z3ZE+FKBdTNYYryQDJbVMaHb4w5+K2clEUNxsgZwjs4lEm8gflBjZSh8+wAF0
-	 q7g40Z1Om6o9Q==
+	s=default; t=1791193816;
+	bh=zQCJHTmUR2ik7FJ/fHt/vodGLDZk2JgO4ighUQKlqSE=; h=From:To:Subject;
+	b=CZiRzcX17qLU1RfmIaqp8H4HA8ppPmq4kaCJQvseXqC/MJ/5LOo6XObOftDBa3Svi
+	 LsA8bPUqR70jxpCGsOgNkTFqGfuiUrmiOHqTWbKh3w0RPo/4uiKBo0vORgpCCpSzY5
+	 NXxvxKaFGtrnt3DIVzi8E3qYTw1HdU8Tlz0hdDLxdbI9EOIfqLNw2YZ4RzVIIbpKmo
+	 QCdGkKdf5NxkkO42LP458movXKdQk/R9WwyBg8pkTnpPXWgXQX6bX9/dXhccML8h6h
+	 vikIvbhbgZVShHjUO64r50YYBqhQK23skdyuqt2qvPpbiKXbytL1adKpy/kirMgvjE
+	 m3hf26+rT2tEQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Francesco Dolcini <francesco@dolcini.it>,
 	Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -66,15 +66,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 0/4] drm/bridge: Add Thine THC63LVD827 LVDS encoder and 10inch LVDS panel on Colibri iMX7
-Date: Mon,  5 Oct 2026 11:50:00 +0200
-Message-ID: <20261005095006.20290-1-francesco@dolcini.it>
+Subject: [PATCH v2 1/4] dt-bindings: display: bridge: Add THine THC63LVD827
+Date: Mon,  5 Oct 2026 11:50:01 +0200
+Message-ID: <20261005095006.20290-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261005095006.20290-1-francesco@dolcini.it>
+References: <20261005095006.20290-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_025018_034207_E480E86C 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20261005_025018_647228_9C18A871 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +93,183 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-This series adds support for the Thine THC63LVD827 DPI to LVDS encoder and
-afterward uses it to add DT overlays to enable the Toradex 10inch LVDS panel
-on Colibri iMX6ULL / iMX7 with the Iris v2 carrier board.
+Add THine THC63LVD827 DPI to LVDS encoder.
 
+The THC63LVD827 is a simple DPI to LVDS encoder that can be configured
+with input pins.
+
+Link: https://www.thine.co.jp/en/products/detail/THC63LVD827.html
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
 v2:
- - address review comment on the binding (Frank), document the power
-   supplies
- - driver: add power supplies support, enforce the input sampling edge
-   via atomic_check, use bridge.next_bridge with
-   of_drm_get_bridge_by_endpoint(), drop unused code
- - move the common part of the Colibri iMX7 overlay to a dtsi shared
-   between Colibri iMX6ULL and iMX7, minor cleanups to the overlay and
-   the Makefile
- - new patch adding the Colibri iMX6ULL overlay
-
-v1: https://lore.kernel.org/all/20260908100230.83796-1-francesco@dolcini.it/
-
-Francesco Dolcini (4):
-  dt-bindings: display: bridge: Add THine THC63LVD827
-  drm/bridge: Add THine THC63LVD827 LVDS encoder
-  ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 10"
-    LVDS
-  ARM: dts: imx6ull-colibri-emmc: Add Toradex Capacitive Touch Display
-    10" LVDS
-
- .../display/bridge/thine,thc63lvd827.yaml     | 138 +++++++++++
- MAINTAINERS                                   |   6 +
- arch/arm/boot/dts/nxp/imx/Makefile            |  13 +
- ...emmc-iris-panel-cap-touch-10inch-lvds.dtso |  49 ++++
- ...ibri-iris-panel-cap-touch-10inch-lvds.dtsi |  70 ++++++
- ...emmc-iris-panel-cap-touch-10inch-lvds.dtso |  47 ++++
- drivers/gpu/drm/bridge/Kconfig                |  11 +
- drivers/gpu/drm/bridge/Makefile               |   1 +
- drivers/gpu/drm/bridge/thc63lvd827.c          | 228 ++++++++++++++++++
- 9 files changed, 563 insertions(+)
+ - use folded style for the description
+ - document the power supplies
+---
+ .../display/bridge/thine,thc63lvd827.yaml     | 138 ++++++++++++++++++
+ MAINTAINERS                                   |   5 +
+ 2 files changed, 143 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-iris-panel-cap-touch-10inch-lvds.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
- create mode 100644 drivers/gpu/drm/bridge/thc63lvd827.c
 
+diff --git a/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml b/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
+new file mode 100644
+index 000000000000..37d018eee813
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
+@@ -0,0 +1,138 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/thine,thc63lvd827.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: THine THC63LVD827 DPI to LVDS encoder
++
++maintainers:
++  - Francesco Dolcini <francesco.dolcini@toradex.com>
++
++description: >
++  The THC63LVD827 converts a 24-bit parallel RGB interface plus HSYNC,
++  VSYNC and data-enable to single-link or dual-link LVDS.
++
++  The LVDS output data mapping is configured using the MAP and 6B/8B inputs,
++  that can be controlled by GPIOs.
++
++  The LVDS output link mode (single/dual) is configured using the MODE input.
++
++  The parallel interface pixel clock sample polarity is configurable with the
++  R/F input strap option.
++
++properties:
++  compatible:
++    const: thine,thc63lvd827
++
++  map-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the MAP input. A high level selects Mapping Mode 1
++      and a low level selects Mapping Mode 2.
++
++  mode-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the MODE input. A high level selects single-link
++      LVDS output and a low level selects dual-link LVDS output.
++
++  b6b8-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the 6B/8B input. A high level selects 6-bit (21-bit)
++      mode and a low level selects 8-bit (27-bit) mode.
++
++  powerdown-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the active-low /PDWN input. A high level selects
++      normal operation and a low level power down the chip.
++
++  vcc-supply:
++    description: Power supply for the digital circuitry (1.8V).
++
++  pllvcc-supply:
++    description: Power supply for the PLL circuitry (1.8V).
++
++  lvdsvcc-supply:
++    description: Power supply for the LVDS outputs (1.8V).
++
++  iovcc-supply:
++    description: Power supply for the IO inputs circuitry (1.8V, 2.5V or 3.3V).
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Parallel RGB input
++
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml
++            unevaluatedProperties: false
++
++            properties:
++              pclk-sample:
++                description:
++                  Sample data on falling (0) or rising (1) edges of the pixel
++                  clock signal.
++                enum: [ 0, 1 ]
++                default: 0
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: LVDS output 1st link, used in single- and dual-link mode.
++
++      port@2:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Optional LVDS output 2nd link, for dual-link mode.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    lvds-encoder {
++        compatible = "thine,thc63lvd827";
++
++        map-gpios = <&gpio4 10 GPIO_ACTIVE_HIGH>;
++        mode-gpios = <&gpio4 11 GPIO_ACTIVE_HIGH>;
++        powerdown-gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    pclk-sample = <1>;
++                    remote-endpoint = <&dpi_out>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                endpoint {
++                    remote-endpoint = <&lvds_display_in>;
++                };
++            };
++        };
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b9e03e2960e1..32923e76252b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8721,6 +8721,11 @@ F:	Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+ F:	drivers/gpu/drm/bridge/synopsys/dw-dp.c
+ F:	include/drm/bridge/dw_dp.h
+ 
++DRM DRIVER FOR THINE THC63LVD827 DPI TO LVDS BRIDGE
++M:	Francesco Dolcini <francesco@dolcini.it>
++S:	Maintained
++F:	Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
++
+ DRM DRIVER FOR TI DLPC3433 MIPI DSI TO DMD BRIDGE
+ M:	Jagan Teki <jagan@amarulasolutions.com>
+ S:	Maintained
 -- 
 2.47.3
 
