@@ -4,76 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFBCCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A77BCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCdtdx1IUP8ShAtMruchd0VuoPIMEYgJy8nEzHLCc7A=; b=jMKCBKmOBfmJkF6WOEdufefZAo
-	oU4rGd9Gt9C1ySp5wY4L0LCCaVNRJksCFlnw0msrELYuSLcEDIfjZYZyDyyaltVHFMjUd3GKcdoh9
-	CP5R6uUPodZ3okEHlZtwgL3KHdBlx0/5zcn/3ShD2t+gkLM9EGjyneRDRl8YSzZ0s90HT13roKJJX
-	nUHkvGwHPLAMpleCWUjr7h+e/bPaszgnv8lulgTBqLOoq3ozjK2NDF0YXBuGevaat2ifrIQtyWGL1
-	B2Uy3Rc9eGtFd3HfG0F94rAoer9RGnlzT0P13iocGI/HsssEtJkMKd6zaFLyq/8duDdimJwCBzM6D
-	xUMK80Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T/lUy849mj6VnNKpU9WpJMDBkHN9KlFh1cVOi8EQynU=; b=au54sNvOMqPPaULlKw4FTtjLj+
+	YoKrpvpFEWCSn+GrVWalq/xYgbzmxlfQuX4OWrsIxFB+/9cIR6LyxgaSuzbEpDvtyeziGzFwV7Pc3
+	Pec7Fr2jBBuK2MTefd8kpAhMw82egowyfU7EHZSIsSQyOzhMT/7CPNsiU5QCl8Ya7vPCFIq/m0xiU
+	clwjFmLtHKQ8muXhEzXqTZUTCnYb0N+l2qDwYKsVkqNTdzbH2KKVFCQmrgvFgO6ESGNGFNyzWvgBD
+	rvOtSO0xU2dPx11Es3ud52KpP55Sl5Jo8sihNYUMB20gpdw8Zgtd6HSrCuQhqhOQuYpZUYID9g2AE
+	37LywfqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfxG-0000000GBFq-0WGj;
-	Mon, 05 Oct 2026 10:29:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDfzv-0000000GBgf-2epD;
+	Mon, 05 Oct 2026 10:32:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfxC-0000000GBFG-2b7p;
-	Mon, 05 Oct 2026 10:29:54 +0000
+	id 1xDfzt-0000000GBgH-40sd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 10:32:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1B9B41E47;
-	Mon,  5 Oct 2026 10:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D6B91F00893;
-	Mon,  5 Oct 2026 10:29:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 296016022E
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  5 Oct 2026 10:32:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4525C1F000FF;
+	Mon,  5 Oct 2026 10:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791196193;
-	bh=VCdtdx1IUP8ShAtMruchd0VuoPIMEYgJy8nEzHLCc7A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EdQS5stBnMbPXiRcjd4FuvNTHjketIOyyw9D0JFaCumzZVZiPnWrOaetdc0vwicTZ
-	 4ecyytPDbThwviIHN3oPcSx7ugGG8y0+n3Q/LUP81tbL8TKA8vaD1sjs+YzooUfQkr
-	 QEHqbcZY1L+tqfXgoHMx3QH6mexfus4vVuLQdiat3S3MRgvJTVs9x1rKucNaTyHOLZ
-	 EsJj7+hSjix2AZc8cSImvumDcXgb2r4IZuFLVbqUonmICQ1030jKOs9wd9fCMtAvDJ
-	 MAPeT2YO2zSUymyPUW7hae8tlv8bhEW/FzW24KWRF6xS8BUOdd1hbW9/yVaUTMnBq1
-	 j1Hq7F9YL/EwQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 537931AC57CE; Mon, 05 Oct 2026 11:29:51 +0100 (BST)
-Date: Mon, 5 Oct 2026 12:29:51 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Trevor Wu <trevor.wu@mediatek.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	cassiogabrielcontato@gmail.com,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Haotian Zhang <vulab@iscas.ac.cn>,
-	HariKrishna Sagala <hariconscious@gmail.com>,
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 06/14] ASoC: mediatek: mt8195: Fix FE startup error
- handling
-Message-ID: <asN8HzfxSHmBjfu1@sirena.co.uk>
-References: <20260925044908.450775-1-phucduc.bui@gmail.com>
- <20260925044908.450775-7-phucduc.bui@gmail.com>
- <asKt42FgsbhSbQUP@sirena.org.uk>
- <CAABR9nFyEJBwXP=4SjuGNfGQJub2y_DPE87c6j6BPmqMBgjESA@mail.gmail.com>
- <asNbjSrPYVbeqSae@sirena.co.uk>
- <CAABR9nEXM1OSnV6L4=N1YCbtWn5yMNr+OMEZ4p8h3WMaQXbgmA@mail.gmail.com>
+	s=k20260515; t=1791196360;
+	bh=T/lUy849mj6VnNKpU9WpJMDBkHN9KlFh1cVOi8EQynU=;
+	h=From:To:Cc:Subject:Date;
+	b=iM0QOHD5DvGs59THN9N6wk73MIj4DjMjq9RJG4Tb8ym+t3Pjbi0gG9zPd4VrsHF7W
+	 zKtupEpmxEze17lWyCefCiEG6jW9jQggkYEUbO7tyTWsXsnRwnwQsnaqhqhEZS6FP6
+	 J40VEVbmVSupNlovnBCyTF3IFr5LuqAij8hzhx/MFLPVq6Kr+mQHBm4RCc7VMoWDYt
+	 Q33Mb+IVe6cp/sfIZF/BuPr+GhWRe7S1/Ehn2RtMzgBGH+d4/zwJ02nS/CfOc8Gtjo
+	 5LIjKPWYFrXDOxINesT183zCBgnTz9YCXTtae5gCOY94UctV33KRSJsvyml/GcEwvX
+	 35RBGqTZj/UXQ==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL 1/2] arm64: dts: dt cleanup for v7.4
+Date: Mon,  5 Oct 2026 12:32:31 +0200
+Message-ID: <20261005103232.37247-3-krzk@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cO30F3djDKDguik/"
-Content-Disposition: inline
-In-Reply-To: <CAABR9nEXM1OSnV6L4=N1YCbtWn5yMNr+OMEZ4p8h3WMaQXbgmA@mail.gmail.com>
-X-Cookie: You will forget that you ever knew me.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1124; i=krzk@kernel.org; h=from:subject; bh=cF7kn8sbCTjHjPAnkFXtSa+cYcnQlfglW+sMPEYeiXI=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqw3zAIe0E9u+XD4chZ5ixi+pEkbiLCoKR9ddth QazU1Khd6SJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCasN8wAAKCRDBN2bmhouD 13NKD/9aotDiwjLm1cz4/dH/DhuK2z9l4a7AcETMf895hiW3q6u6sIfOkqfM5Tco8D0IIH5N/wi 2gN8q00h03nNRurpqUR2E0DQra+WnEJ7ecmTlb8gjMvyMogEmAjsdxtvrbIcHxT1JlHyk72uA9q S9dAAxRa6XrJj7oi5KJ4NmhzXVoHJMfd8KS6hXz1/R7bsYV8lxg+xTRkgq7MdbQld5bmwOYuROe qUtAfrL4jMkdzJVd0pa9f6Dl38bnxP/y6qDDvCHkpGxaLvPxCHSJVzQSRBvpIRtC9uQxmj0CEVF lQj7vcKBRnenRIfnMuNYsgqfN43r3qsKmdJkrSo1b2ZZuk29V9spq79W4aA2CCAvPwHiC7hrEcf Tpb53enXgyn4NXcLociQRLh0xU3tUhdGDCHqmw8jBBNMc1zglmiYPWtE+xEztZfCr2a01ZCmqkz rinoe2rT5+p5AFrDpJk3xViZtEtP3AhnoSZGY8Ike1fViP9Cyk/F7FrhVG7UItPzJEmgGUmbOZz HdZBBEVjVDwll8En8WqXf2k6EBQxK+1dIFuHCBCeNGsROPpR7c6/bQ10Z2/P0mZNhneJdoOXUfv J2yYtDY3iP+eaducth/XmKp+rRhx4k5v7zM79NnQ49XN2mCCnzbOUwuskF0NzR+cpV1qAKtTY33 SJFj0n2+PH/2kJg==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +70,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
---cO30F3djDKDguik/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-On Mon, Oct 05, 2026 at 04:36:37PM +0700, Bui Duc Phuc wrote:
+are available in the Git repository at:
 
-> On the core side, snd_soc_dai_startup() only treats ret == 0 as success:
-> it calls soc_dai_mark_push() only in that case.
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-dt.git tags/dt64-cleanup-7.4
 
-> Is a positive return from startup intentional/allowed?
+for you to fetch changes up to 1f6101ae9560c381bb6e3b4322b51d784a648019:
 
-It shouldn't be, no.
+  arm64: dts: cavium: thunder-88xx: Replace spaces indentation with tabs (2026-09-19 08:41:31 +0200)
 
---cO30F3djDKDguik/
-Content-Type: application/pgp-signature; name="signature.asc"
+----------------------------------------------------------------
+Minor improvements in arm64 DTS for v7.4
 
------BEGIN PGP SIGNATURE-----
+A few more or less trivial style cleanups pointed out by dt-check-style
+for Actions and Cavium platorms.
 
-iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCasN8DAAKCRAv73Ows9A4
-ia6oAPwKWuMtsVlLKHYETHbUSa6bMxHSYmnL0pqfug21qnTy2AEAm5OXh1XSYpqm
-8UdNRFdnbnPy7SX5g/RLbguKIMWCBQA=
-=Obcm
------END PGP SIGNATURE-----
+----------------------------------------------------------------
+Krzysztof Kozlowski (2):
+      arm64: dts: actions: Replace spaces indentation with tabs
+      arm64: dts: cavium: thunder-88xx: Replace spaces indentation with tabs
 
---cO30F3djDKDguik/--
+ arch/arm64/boot/dts/actions/s700.dtsi        | 6 +++---
+ arch/arm64/boot/dts/actions/s900.dtsi        | 6 +++---
+ arch/arm64/boot/dts/cavium/thunder-88xx.dtsi | 6 +++---
+ 3 files changed, 9 insertions(+), 9 deletions(-)
 
