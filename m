@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AECCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 20:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 341BCCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 20:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lAdfxofOjXBbqsp0/iF1q0AKoAn+osrW0QUEeXjGUM=; b=ilKRwLWcqfTAkK2BTMk7yZkbt6
-	0XHLVUwHjZZb0MzG5Yt+3msYWnVsalElv92HAbSil13ps/0K2EWbo0Yay7OfmJHOuSbH3dVLrtLkR
-	gXGuqPCrUHrwF7RywCRv/0UthcmQE2EaUpimR833WkUR0XROF47+8juILRif5iKrl4uM0rr47Zr0z
-	61u7kl3PtwaXoudvRJ7viX9y9lhiDU9vS9F4cp8tB5+Tl6Q3tceivJI2K8uk56QuFfGYatBTL4Ayl
-	AGM+kxLxgZ9h2iU4HTIecxgAxaoMxNdw3et/R2sPcgU/0rsOO2lrTiZf7Q+HpFaggtvbKfRTzAEYU
-	vr/KEAJA==;
+	bh=Em+DHux8TygVduIPIQfg6MjS0noelHiEnVwLPezX/Nk=; b=R7P5U/3Vb/7yBmLulHiEMofert
+	XDixg9OCtzbXGDuCjN3tt3mIhfLqGkf+ImPoAmcgvJIkRRsedH/fdVoArOWYYqJq1/0gt6XNddnWN
+	/78HlBxT0m+k7BsASn7UqbOx4BIH8VNTe3vG9/f6tvGTgDeVpqJDd4DOTclKSB8R4+VWde+DE+AKF
+	qwkMiX2RiELrXR2dqXHA8xfO6RiIUW5oR8tDIvNwJB+wXk2wJFlhWEJsEIfz93Eq8NfiTQxlRWFED
+	3A17c/7Sl3cTMv2D3cua0WDiSq5o7JzWLpzGlohMuJOUZLHU+iyPLpib0wedMkZB56WK9MTxvBi2+
+	N1k0yjkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDpIN-0000000H82l-1KBI;
-	Mon, 05 Oct 2026 20:28:23 +0000
-Received: from mail-ed2-x0e.google.com ([2a00:1450:4864:33::e])
+	id 1xDpIT-0000000H885-2GZ5;
+	Mon, 05 Oct 2026 20:28:29 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDpIL-0000000H7zY-01Lp
+	id 1xDpIR-0000000H85L-1knX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 20:28:22 +0000
-Received: by mail-ed2-x0e.google.com with SMTP id 4fb4d7f45d1cf-6afbfed31d1so2505815a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 13:28:20 -0700 (PDT)
+	Mon, 05 Oct 2026 20:28:28 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6acb57c2b88so3064611a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 13:28:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791232099; x=1791836899; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791232105; x=1791836905; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2lAdfxofOjXBbqsp0/iF1q0AKoAn+osrW0QUEeXjGUM=;
-        b=kGaZ7rX9gd2DJKWb0AmnzHmYH3ybHJKsfXJh+qhvJutvObwVxQsf0dS7J8mUxDFWE6
-         zbn/D8XuB9GveXY5LijHW4SOuF5wA7mrSfa5i5udG5B+odF3YkMIYxGkkzO+dgtC4fky
-         BGrV0TtOkU2RrcvK2w0KDgLQuLeqXsnMniwYzZop6SvKyzNuY7KtUNRRqFTxhe11YO5T
-         Gg8fsq9gew9vPAbcE7huHr/AiRjPWq66Qc8Oftk/Z07o7wci/jl8MZQnphszW3B+abi4
-         WutAQNSDFebplTc7MYiXzd589M2qIhKNpg/4T2PdjRuUKyfYt+16rAG4Fd4jHkkqWqC8
-         JNjg==
+        bh=Em+DHux8TygVduIPIQfg6MjS0noelHiEnVwLPezX/Nk=;
+        b=Sab8L9PfEsj6oSDfr89gfCOziLsx6yEvJ5qSWwDkayVdYkKozftTJXdizp9CwrJ+vN
+         jXewQDxoyeGBI9JO042hp4Tf91W38TJAjAVWukPdMtWfB+jthfjWa79HFxVzCqZ9l+yV
+         FXi18sx04K2XotW8fjfmElnGM1IrsFKdfbAmhurfRbtWRM6C1dRzvdilbSofRUPT+Tjx
+         iws18p1nuj5fBug6MAm69ruJnjJLUyZBcRklNTakk1n3GB23wL1xeVPUkAssjGZGeiTh
+         JxgZjGJv0lRhYXUQOPTE531ni0HhTfKGbNzsO2p2/IsVKVtJZs1Ib3W2UCG5jCZ1xdGb
+         LNVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791232099; x=1791836899;
+        d=1e100.net; s=20260707; t=1791232105; x=1791836905;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2lAdfxofOjXBbqsp0/iF1q0AKoAn+osrW0QUEeXjGUM=;
-        b=Stv1Arl3LgmE+H0axXuMMhMBgz0yc6cxfJA5fuNk6vUJiJGZwuobhzy5B9Pn42IXq4
-         Cyr4IRFVfsBfZxZ18xRy+ez94pR5l/0UnskZVRnln+98zuIfYDt/TTj/HAdx6bdifgyc
-         UqhJ8q/DpR5JWCnmlsRM8yWkD0Vz8dzmmx7ccq7rk/K8qryw9ZjHXgmHz/bgVX2OvnKR
-         5bzJt55qMQClw4oV947nQ6qbu6azgMVIzw3TK4RM8H6rSJckDInJKuWEr91RRiOYIUn2
-         ba0pWxZyBwxujZIofCS/cx1CZVWk+Zf2QATQ0gB0UgXo28bdAcFBEB18S0cH5VETYHyW
-         ot0A==
-X-Forwarded-Encrypted: i=1; AKwUvByWYnfn1QSg3IxZiJG3gOeZyIoNq+YeK+eq6PpXkFFiGQarg45EUOYKn2gUuaNTBhaKA9W1IvQlwh6CD5xieobK@lists.infradead.org
-X-Gm-Message-State: AFq9FYIzvtgFhQTPrlR2X6XBX52Wj+RV/enG2m8Obd9VHED78CiPWL3W
-	rDkGIgZ6Yim3H7JUcv//gc1LyHpws8tQdt0MZAJ/4qFX8ovk09IeM/3F
-X-Gm-Gg: AYBFou2pbRnb8lLp9MU5CbKLLlckgco96U2uhj5W41hjjxswqu7ZB0QyzB8X+lOXSFr
-	Pu0f2Ar/BgJMI1QHgkChsOatMHGmsSA0Uw390WPQC6khINgbivpbgmp5xOlprswjBF1HHto0XQX
-	6buQb9MXM/IVjjmfoFVKBnQTsb5GlkSpsxZLyd5iNrhNiHpAcmZg1jQR/anNYbKBAFHgDZIMVKq
-	bopDiQ4gOPZiiSv/oXnx/AIYwZ/4W/SSrgG4qo1bMrfZrXOPg7u8VCJBBt8lceSTwRFjizTRDcF
-	C1LrZ93WyM8+gKHnB4/l1/U2agqeWUuat1N/0W97AKcDduztPu+hDC8bCdw8blqRAjjXBauWoMA
-	dF8Q+aFjdi29CxJNl09iuZK4r183OUrivP4f0UqjqG3T0O3SOCoyjKNWroaTkJkgfJvmySTODDv
-	x95Nw+2yfT3qEBaAVfJrZTG4aAbAIbCFFCqliUNswWEIv3fUOpUVJFWZwsEXRfMuCCLCelyjLTS
-	Q0yRWDz6T7ytGFQQ4k4SD1JG3pGQoclDg==
-X-Received: by 2002:a05:6402:3905:b0:6ac:73f8:2e5a with SMTP id 4fb4d7f45d1cf-6af9e3002b7mr10742942a12.41.1791232099075;
-        Mon, 05 Oct 2026 13:28:19 -0700 (PDT)
+        bh=Em+DHux8TygVduIPIQfg6MjS0noelHiEnVwLPezX/Nk=;
+        b=QzTMCFQ5kf00S5IY1lFgWcU5pi95W+f9l0iTR+P6Rn6WiZIpGckjldXRVvHlvJjD/x
+         eFE2xIYL40AUEHsijcK/Lbk44zyXQuip3mZ4bPrwcoFQR9XW+fnZU27HwVPflhPaYMVG
+         0jMSWGpCUHdtxmjTVibvEvN+rMouixn6SmR6AZp5FGxgcV68fPUAn5CqAUDmxG3/T7w3
+         KF4sOyjMLjyqBFwD8nc9ZlCh5B1BlRdxuzyB9ZlxmiyTUvcrNt66g21dQmFr1F+9GVMp
+         1vc56hx14sVdzaqOWMWcWpY5wqkYlxMrdSYsOqvjei7Cv8bCJbI3RJXBaxm3yxFJ8EMP
+         G23A==
+X-Forwarded-Encrypted: i=1; AKwUvBxHIuaRdE2SXcW1yUFs2lIbEAvYnvlgcwpDR/ieHFLLwpDO+9eHC8YSqaT09Bt4snBw4k+UFhXnQF5asjD1BumX@lists.infradead.org
+X-Gm-Message-State: AFq9FYIacZK5QROyaqZw+TCSlUkiCNuCWpl+CjsM2VcTCtMZ4e1J5o4m
+	n0B1jpq9JV4lutkOS21/Uod6Oe/YkCOszeEVnRLbHrmLSVF0uAD4WWVQ
+X-Gm-Gg: AYBFou21KpbqeYepK6dz2exAQVApzO6Tqpq36drQ7eZu6hHyMgseJSr370q/VamzuGS
+	k/9dZFC/7NOh+A3AGDbQYnxvMb4UTIQl7JA+dbButy6tzjxAh7oS0d+X+t+3Kp1deoA5PtLlkZS
+	Fz3MzlY6myllfsQJvsnjhNzD6w+iOlkPT+vvIJl3UEgprby2YQeTpHh5FpfRWCH960u2GLFDGQj
+	j4LVK0EugT4TjW7iwFTr7OrqJhVpk7g+MmBnsukc3c31nWYdJ4WNkNUadotUgYxJbbNxVNT7DgP
+	91bpD/SvObbZKl+1u3eZ/HgqBZeunZ44gN3wFOQL8ifoWWwn0gz+28pxhBLynXEbXleYJOTFNET
+	C27f1PDXqWVpUd4dOMp4k+46PTNhJd00SEF/L1ldXeuxgghrYyLJPINFbdiK2P7d2kIsxdfQfHL
+	nw0vZ1AJw2eCoeg+421MlmXPmW2KALLH8p9t4gFLTfwt+mN6EufAgrh5wQIL1wQo0emLMhXN7c/
+	IaW33MIFP+EkLNscISw/7axb3RDct6z
+X-Received: by 2002:a05:6402:4021:b0:6ac:aec6:a3b9 with SMTP id 4fb4d7f45d1cf-6afad90627bmr7128320a12.24.1791232105212;
+        Mon, 05 Oct 2026 13:28:25 -0700 (PDT)
 Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb01e572asm3801024a12.13.2026.10.05.13.28.17
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb01e572asm3801024a12.13.2026.10.05.13.28.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 13:28:18 -0700 (PDT)
+        Mon, 05 Oct 2026 13:28:23 -0700 (PDT)
 From: Pablo Mazzini <pmazzini@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Thomas Gleixner <tglx@kernel.org>
 Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 06/11] rtc: sun6i: add Allwinner B288 compatible
-Date: Mon,  5 Oct 2026 21:27:26 +0100
-Message-ID: <20261005202731.153971-7-pmazzini@gmail.com>
+Subject: [PATCH v3 08/11] dt-bindings: interrupt-controller: add Allwinner B288 NMI
+Date: Mon,  5 Oct 2026 21:27:28 +0100
+Message-ID: <20261005202731.153971-9-pmazzini@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261005202731.153971-1-pmazzini@gmail.com>
 References: <20261005202731.153971-1-pmazzini@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_132821_057604_D18F63D8 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20261005_132827_500284_96E9706F 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,25 +112,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver only uses one alarm interrupt, so no functional change.
+Same register layout as the sun9i-a80 NMI, like the V3s.
 
 Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/rtc/rtc-sun6i.c | 1 +
+ .../interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml         | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/rtc/rtc-sun6i.c b/drivers/rtc/rtc-sun6i.c
-index 7fc60880e409..cd6ac5bb20cd 100644
---- a/drivers/rtc/rtc-sun6i.c
-+++ b/drivers/rtc/rtc-sun6i.c
-@@ -859,6 +859,7 @@ static int sun6i_rtc_probe(struct platform_device *pdev)
- static const struct of_device_id sun6i_rtc_dt_ids[] = {
- 	{ .compatible = "allwinner,sun6i-a31-rtc" },
- 	{ .compatible = "allwinner,sun8i-a23-rtc" },
-+	{ .compatible = "allwinner,sun8i-b288-rtc" },
- 	{ .compatible = "allwinner,sun8i-h3-rtc" },
- 	{ .compatible = "allwinner,sun8i-r40-rtc" },
- 	{ .compatible = "allwinner,sun8i-v3-rtc" },
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
+index bb9273ec2457..179e7842bf46 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
+@@ -29,6 +29,7 @@ properties:
+       - const: allwinner,sun55i-a523-nmi
+       - items:
+           - enum:
++              - allwinner,sun8i-b288-nmi
+               - allwinner,sun8i-v3s-nmi
+               - allwinner,sun50i-a100-nmi
+               - allwinner,sun50i-h616-nmi
 -- 
 2.52.0
 
