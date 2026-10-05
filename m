@@ -4,120 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F64CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06177CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/ziH18LAbNiH6REnk/O8I8z/GkAviNGuhqg0Og/uFo=; b=P+FlQrnrh7hcMxOpMNWdHhSSDt
-	Vc1UF02YXf867gJNufJ7IBmnO/Gai8uL6PYW52OP1BmcEdRamtfz0RQfxqduiJh6RHkJzD7ogMyVj
-	PAGfTxPmBPUG7ML++atNpY8k+hr41deIEfavJPpfzMSPYFM2A4N2zVF7CP5IYXnnuHcNBih8fZ7gi
-	tpfvLQKvhbipxbpEyD0fw9in10nez+uqt0bFwqKhe4sEmXFY2pHQobIAWRLUFzL0o7w1fXwHGDRX/
-	G4pm6YJB0OJ6lltDANSuIgdJARig8VlqxvneJVkMfZOGYP0k7477umwo9meZQ4xQhZ3vxY4SpYy9O
-	TYxO08Xw==;
+	bh=Hp0eT36ZoGYYwqx1P4uri5STuyS5zLwYbpHm41ewMko=; b=UeR9Os0DWAHm/tiziG5jM2i5BO
+	XROTxy+CFM/bAfDHqC1Aa0e9O6509l5GXT9fa1iCmyh2tNy6K9LAQKN5819D4OWtBGMIztZ/7Xhrr
+	0cePM8V+5wUHwHsT1nCZMTXIXcDrdk7c9291xe6nNruVI5NG0LBiR5GOsiKFmruBRzUgmTEBsCgZP
+	fuXbPvcf0Wh2BZhGCoYt4N8Dc0TLskSCh6gJFUMj6oU1U0a1qFp4EVZGTHACft+ZJKK48jwbHPi/l
+	Ffo/Qr7UfPHO94UIoK6ASERBu+4G61TgWxYjjhQyAuQK+Mynjhx9bzTsU9mM4SUnj7WaHdJ4JdIwJ
+	18pG0RXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaSu-0000000Fexv-3k26;
-	Mon, 05 Oct 2026 04:38:16 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xDaT2-0000000Fez9-05fj;
+	Mon, 05 Oct 2026 04:38:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaSs-0000000FexZ-2lFB
+	id 1xDaT0-0000000Feyn-2yi1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 04:38:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DwRrwi2SN3uL/RDyJifpYdQf6Fbm4o8UYhwHbPu9cdKCkqbbFcOSbMSLftPTd2bIqptxbk9KMlvG4f2xmxfbylO2ohDcTINDAXv+TpeK1Msdlq3f3pJqFL9gChIr2zn8Ro1dBp1yKPoA8NvennYYh3CkTU+45OuhjwMObVGEyzrehaWDo2STDlhtRWN2HeOOb47k5uNArm5fYJHpggR8LL9KGob36g1OVxpVn9XPA221NM8RM8ocjl+PE+thihvy/n6ScLAxPA58P6PyFH7dW4kajn908vqoaJHUhDhqn6PUQM6bPjDSJ7rdO/zqL7F7YV8jLuyJ5XoEp2k300nBuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O/ziH18LAbNiH6REnk/O8I8z/GkAviNGuhqg0Og/uFo=;
- b=KzYbgpyiK45S4ErMEgVZ1tyGpJ/KT4QdUKKDgoEQ52BMg9NodC+jLh6jJiYuuCOrqzKsY3jjPTw3qk2E/GhyoYJ+eVq435hte1mL3XssNi51BUccaAp/MNyX9Lj9mwz9VmiV6VPv8ugHyMJ+AP0lDWxrTx5e2vuNI5C3iYM9XxNP9AHdXDM5j5bsE95zAabstFbURzqBoX5+/OQkpwklOBccfLM3m1VvyBiM9nw+Y7KA9MDvRZQNPriAt2MtoOumZcFCBlqcnc/tyLr8Yva2zuGKrzIX7OC8jUN+h9bqnMbNW/Euhq6GH9Y6NwwTna8xt5sRg4BE2fGHe2+uosnv0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O/ziH18LAbNiH6REnk/O8I8z/GkAviNGuhqg0Og/uFo=;
- b=EOm4fmrjYhR2rkyzj1jJD1kuwfKDMA138kMZ+Y4bpEbU11Yr6Qr8gVwDIFpAbC9HAxgxKjiUZk71+CSnaf6egGdZ6pzgMtaGyq7juBTZOVuKkUqVOkRGyJ+UlIL2v944xjq4NJdUXTTXYC+kmMJivYV8sbQuewRPz08VKXFVF5SHISECPTKJ7lf7S2Vu2NBtIHGMmqUst/6iNHsoqpenaOPI+ZWBTFwJErcUO8csjNTo90rlIFEvzsMIilODdgdSuMgC4f2MlJXGQKMfJFlS1Rs14hdAesz1Qezudei6GU11qfYbbD+tPJodSzfSAh1IEM4X98WK50Jt1HnWBX0TZg==
-Received: from BN0PR04CA0205.namprd04.prod.outlook.com (2603:10b6:408:e9::30)
- by MN0PR12MB6295.namprd12.prod.outlook.com (2603:10b6:208:3c0::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 5 Oct
- 2026 04:38:05 +0000
-Received: from BN3PEPF0000B069.namprd21.prod.outlook.com
- (2603:10b6:408:e9:cafe::85) by BN0PR04CA0205.outlook.office365.com
- (2603:10b6:408:e9::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
- Oct 2026 04:38:05 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B069.mail.protection.outlook.com (10.167.243.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.3 via Frontend Transport; Mon, 5 Oct 2026 04:38:05 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
- 2026 21:37:51 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Sun, 4 Oct
- 2026 21:37:51 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Sun, 4 Oct 2026 21:37:49 -0700
-Date: Sun, 4 Oct 2026 21:37:48 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <robin.murphy@arm.com>, <jgg@nvidia.com>, <joro@8bytes.org>,
-	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
-Subject: Re: [PATCH v10 03/13] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for
- the event queue
-Message-ID: <asMpnDFQgry5moXr@nvidia.com>
-References: <cover.1788130528.git.nicolinc@nvidia.com>
- <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
- <asJTer4cNh4DAQMY@willie-the-truck>
- <asK1JIsTay1yeBEU@nvidia.com>
+	Mon, 05 Oct 2026 04:38:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B82006022F;
+	Mon,  5 Oct 2026 04:38:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 284101F000FF;
+	Mon,  5 Oct 2026 04:38:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791175101;
+	bh=Hp0eT36ZoGYYwqx1P4uri5STuyS5zLwYbpHm41ewMko=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PLGX8rzvtHB8iHSGX6CYjCbg/IqTHwTaZHMAgGffuVSQ0IYFDk24i6rOw/shYyNvs
+	 /+mbSxo657QB7a2CIa57LgZRqrm2ND1fXCqx52c7gaeAqSkuxV6D1PghDb2SmqZolV
+	 fhYrXtAiBIIeEZNXax1UEFSPnjsVIuTnxbg2jjqvNjewChNTyWDF/zG0YRHM/hxVu6
+	 Tlu/WFx3vMfWGVC2Npech6xgqcXRzCV391BbWjYvV7TnDVFFOuvL9IteuDdNA7ESbS
+	 +ebUEZnlOEGJYbsoJSlO1ZuH9m3gCV8JznW+P6OTVNsDxR2gpkWXWE3e7nO0BMYmN+
+	 UR0EgevShLUyw==
+Subject: Re: [PATCH net-next v4 3/4] net: stmmac: preserve the installed EST
+ schedule on errors
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
+ lorenzo.bianconi@oss.qualcomm.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, linux@armlinux.org.uk,
+ edumazet@google.com, davem@davemloft.net, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, fancer.lancer@gmail.com, horms@kernel.org,
+ maxime.chevallier@bootlin.com, richardcochran@gmail.com,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org
+Date: Mon, 05 Oct 2026 04:38:19 +0000
+Message-ID: <179117509969.434549.14027278696780761740@kernel.org>
+In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-3-9d4366587b73@gmail.com>
+References: <20260930-stmmac-est-reapply-after-open-v4-3-9d4366587b73@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <asK1JIsTay1yeBEU@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B069:EE_|MN0PR12MB6295:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86f2abc9-145c-4b64-bd04-08df229a729c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|82310400026|36860700016|18002099003|22082099003|56012099006|4143699003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: clfLeG/L8tgcaN7J43Z2CnRijOGk2R/53/l1X4I69udX82FLN3s0XDoVLpaD06XvfathkvIbTYE5YyVbDwTOyOFSzNMEKG/eI2dlXSzVFE24muY7J8rwn1hFgIVXmlJcNiIXaMIA9lPgaTs5nKAdk6vguopLfYwyV4yLsWyRITzGV6grBGvVNtVBwLiONCs+l30cr5Tz5bgsBIpJKxM4j5VzyCN0/VncUvZ0VNVtXAASRc0/Ns2sqgNjam+8GlcFT0E0hdRptpp6hjXrYyQ7q7cZx6Hrm4FvO342HpF8uzFdof2Rk3vTC4Xzsw8+UaVwnod2NxxD+3ZEoYJ71Qk6QV2ZXZLqXuJXX1dze326jKbfjKIdcJe7/dh78JThQIkkN9Rsn2MA2cBIegf7PwZ9/qBllMn80E8OUd9mbcraNyHaU0cwc0coKa0/ASKhhLNGXTIOHwA8evTfw3TiRmLKscVfkfT+QcRm8UnRVyLwd2rGJy+XL5b9lT7+zNh5IG14z67gFCc4o2brAXJpqSRigWoPOkEOx+lWuec9o81hJZNaPVYdE2mUFHqvtEGuAOgti5Xj0n/35M9uPKF6xR8U6VfB36whjm6BIOd0v6xRCS2+uescDaUKbLTQHY5sj8I6jk+wp1oSVlocIetf+cDK4WBqLUTatbOgHBRSGQr9hgfLdxQdAbVC3g5PHq3yA2P4MEZBZ5HBLJo1XYjfr2EzAg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(82310400026)(36860700016)(18002099003)(22082099003)(56012099006)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 0OLONGkrCschtZ18UPp67Z8gEvIR6B9vTpauU93HDopdtR19EUilmaUqG4Tz3Uy2S7vFvDkUuG79a/EWFUdOQEcYAAq4SacDaVMx3V7J2weP5C0//yxVhGzZbHluhCE2fY/P8lEzoq4ZDYa9jZhdYufx/XsdB0jJWF+yDzeeumJE/eS4vMOVMxMHPaVo04zLVaykX3F0ely9B5UYUhts87SOj9mlgqF+7sE/0NP1qHbHiUzirmnzT00G7QMY+9EVEpWaJkPNlGhzcs5bu4u6csqYyieHVEPrc2HzaumH+17b+LEYFvZeI/29dP59ceFyzcN6gsIMyFv0YHzcws3Xr0CD7PG7dcPM7CpuIsbpBxdBmPB6tslfUwdzFAzv4BdTLWRCtAMPiPaQwO4kq3K/RS3cjtB8Uz+Z0qL6Jypd3AbU+7n6MfotVaDyIm944JrG
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 04:38:05.1228
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86f2abc9-145c-4b64-bd04-08df229a729c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B069.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6295
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_213814_715751_EE6B1222 
-X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,83 +78,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 01:20:52PM -0700, Nicolin Chen wrote:
-> Sashiko is only right about the small waste of the MSI vector since
-> it's unused. But, that nvec decrement trick only works for PRIQ, as
-> its MSI index is at top of the list:
-> 
->    enum arm_smmu_msi_index {
-> 	EVTQ_MSI_INDEX,
-> 	GERROR_MSI_INDEX,
-> 	PRIQ_MSI_INDEX,
-> 	ARM_SMMU_MAX_MSIS, // "nvec--" shifts up this, skipping PRIQ
->    };
-> 
-> On the other hand, EVTQ_MSI_INDEX is at 0. Skipping it would need to
-> shift the entire index list; struct arm_smmu_msi_cfg would not work
-> straightforwardly as today.
+Thank you for your contribution! Sashiko AI review found 8 potential
+issue(s) to consider.
 
-I made a small change swapping those two indexes. Though it cannot
-break the dependency on the vectors, I think we should be fine as
-there should be no use case for !FEAT_EVTQ && FEAT_PRI.
+Critical: 0 · High: 0 · Medium: 2 (3) · Low: 6
 
------------------------prep patch--------------------------
-@@ -59,4 +59,4 @@ static DEFINE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
- enum arm_smmu_msi_index {
--	EVTQ_MSI_INDEX,
- 	GERROR_MSI_INDEX,
-+	EVTQ_MSI_INDEX,
- 	PRIQ_MSI_INDEX,
-@@ -70,7 +70,2 @@ static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
- static phys_addr_t arm_smmu_msi_cfg[ARM_SMMU_MAX_MSIS][3] = {
--	[EVTQ_MSI_INDEX] = {
--		ARM_SMMU_EVTQ_IRQ_CFG0,
--		ARM_SMMU_EVTQ_IRQ_CFG1,
--		ARM_SMMU_EVTQ_IRQ_CFG2,
--	},
- 	[GERROR_MSI_INDEX] = {
-@@ -80,2 +75,7 @@ static phys_addr_t arm_smmu_msi_cfg[ARM_SMMU_MAX_MSIS][3] = {
- 	},
-+	[EVTQ_MSI_INDEX] = {
-+		ARM_SMMU_EVTQ_IRQ_CFG0,
-+		ARM_SMMU_EVTQ_IRQ_CFG1,
-+		ARM_SMMU_EVTQ_IRQ_CFG2,
-+	},
- 	[PRIQ_MSI_INDEX] = {
-@@ -4967,3 +4967,3 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 
--	/* Allocate MSIs for evtq, gerror and priq. Ignore cmdq */
-+	/* Allocate MSIs for gerror, evtq and priq. Ignore cmdq */
- 	ret = platform_device_msi_init_and_alloc_irqs(dev, nvec, arm_smmu_write_msi_msg);
-@@ -4974,4 +4974,4 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 
--	smmu->evtq.q.irq = msi_get_virq(dev, EVTQ_MSI_INDEX);
- 	smmu->gerr_irq = msi_get_virq(dev, GERROR_MSI_INDEX);
-+	smmu->evtq.q.irq = msi_get_virq(dev, EVTQ_MSI_INDEX);
- 	smmu->priq.q.irq = msi_get_virq(dev, PRIQ_MSI_INDEX);
------------------------------------------------------------
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
------------------------nvec patch--------------------------
-@@ -4952,3 +4961,11 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
--	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
-+
-+	/* PRIQ's vector needs EVTQ's to be kept */
-+	WARN_ON_ONCE(!(smmu->features & ARM_SMMU_FEAT_EVTQ) &&
-+		     (smmu->features & ARM_SMMU_FEAT_PRI));
-+
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
-+	else
-+		nvec--;
- 
------------------------------------------------------------
+- [Medium] tc_taprio_configure() (stmmac_tc.c:1022-1023) now rejects
+  TAPRIO_CMD_REPLACE with -EOPNOTSUPP whenever priv->ptp_enabled is…
+- [Medium] The new rollback in tc_taprio_configure() rewrites the EST
+  registers right after the replacement schedule has been armed.
+- [Low] This concern said that stmmac_setup_est() in stmmac_est.h has no
+  callers and that the tc_taprio_configure() comment refers to a 'reset…
+- [Low] The `!priv->ptp_clock_ops.gettime64` test in
+  tc_taprio_configure() (stmmac_tc.c:1022) is now dead and misleading.
+- [Low] The comment on __stmmac_setup_est() (stmmac_est.c:83) says it
+  programs 'either the installed schedule or an unpublished…
+- [Low] stmmac_est.h has no include guard.
+- [Low] The new scratch buffer `est = kzalloc_obj(*est)`
+  (stmmac_tc.c:1036) holds a struct stmmac_est.
+- [Low] stmmac_setup_ptp() registers the PHC (stmmac_main.c:975) before
+  it sets priv->ptp_enabled = true (line 976).
 
-I also did a rebase on arm/smmu/updates, resolving merge conflict.
+Pre-existing issues:
+- [Medium] stmmac_set_time() (the settime64 op, stmmac_ptp.c:133-145)
+  steps the PHC under ptp_lock only.
+- [Medium] The TX hot paths (stmmac_xmit, stmmac_xdp_xmit_zc,
+  stmmac_xdp_xmit_xdpf) read priv->est.enable and priv->est.max_sdu[]…
+- [Medium] This concern said that after stmmac_hw_setup() ->
+  stmmac_init_dma_engine() -> stmmac_reset() clears the EST block,…
 
-I can quickly respin a v11 once we finalize the discussions in the
-other thread. 
+--
 
-Thanks
-Nicolin
+net: stmmac: preserve the installed EST schedule on errors
+
+This patch builds a TAPRIO replacement schedule in a separately allocated
+struct stmmac_est. It copies that schedule to priv->est only after the
+hardware accepts it, and restores the installed schedule on failure. A
+shared __stmmac_setup_est() helper is used for new schedules, rollback
+and stmmac_adjust_time(), which now holds est_lock across the whole clock
+step.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+> index f15d4d046aa74..15c2d1794e229 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+> @@ -80,6 +80,47 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+>  	return 0;
+>  }
+>  
+> +/* Program either the installed schedule or an unpublished replacement. */
+> +int __stmmac_setup_est(struct stmmac_priv *priv, struct stmmac_est *est)
+> +{
+
+[ ... ]
+
+> +	lockdep_assert_held(&priv->est_lock);
+> +
+> +	if (!priv->ptp_enabled)
+> +		return -EOPNOTSUPP;
+
+[Severity: Low]
+stmmac_setup_ptp() registers the PHC before it sets ptp_enabled:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_setup_ptp() {
+    ...
+	stmmac_ptp_register(priv);
+	priv->ptp_enabled = true;
+    ...
+}
+
+Suppose an adjtime lands in that window while priv->est.enable is set.
+stmmac_adjust_time() then disables EST and steps the clock, and this
+check returns -EOPNOTSUPP, which leaves EST off in hardware.
+
+At this commit, stmmac_hw_setup() has already reset EST before
+stmmac_setup_ptp() runs. The later patch "net: stmmac: restore EST before
+starting DMA on open and resume" re-arms EST via stmmac_setup_est() right
+after stmmac_setup_ptp(). What remains is that adjtime returns
+-EOPNOTSUPP for a clock step that was actually applied.
+
+Is that return value intended?
+
+> +
+> +	read_lock_irqsave(&priv->ptp_lock, flags);
+> +	err = stmmac_get_systime(priv, priv->ptpaddr, &now);
+> +	read_unlock_irqrestore(&priv->ptp_lock, flags);
+
+[Severity: Medium]
+This is a pre-existing issue, but stmmac_set_time() (the settime64 op)
+steps the PHC while holding only ptp_lock:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c:stmmac_set_time() {
+    ...
+	write_lock_irqsave(&priv->ptp_lock, flags);
+	stmmac_init_systime(priv, priv->ptpaddr, ts->tv_sec, ts->tv_nsec);
+	write_unlock_irqrestore(&priv->ptp_lock, flags);
+    ...
+}
+
+It does not take est_lock, does not disable EST and does not replay the
+schedule. Can a settime land between this PHC read and the EST register
+writes below? Can a settime after a schedule is installed leave the
+hardware BTR stale?
+
+The commit message's "Hold est_lock throughout a clock step" covers only
+the adjtime path. The old tc_taprio_configure() and stmmac_adjust_time()
+were not serialized against settime64 either.
+
+[ ... ]
+
+> +	err = stmmac_est_configure(priv, priv, est,
+> +				   priv->plat->clk_ptp_rate, true);
+> +	if (err)
+> +		netdev_err(priv->dev, "failed to re-configure EST\n");
+
+[Severity: Low]
+This isn't a bug, but this helper now also does the first install of a
+new schedule from tc_taprio_configure(). The message removed there was
+"failed to configure EST".
+
+A failed initial install is now logged as a re-configure failure. On the
+rollback path, "failed to restore EST" follows this message. Would
+"failed to configure EST" be more accurate here?
+
+> +
+> +	return err;
+> +}
+> +
+>  static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
+>  			   struct stmmac_extra_stats *x, u32 txqcnt)
+>  {
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+> index f70221c9c84af..5665e7a539948 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+> @@ -65,3 +65,16 @@
+>  #define EST_GCL_DATA			0x00000034
+>  
+>  extern const struct stmmac_est_ops dwmac510_est_ops;
+> +
+> +int __stmmac_setup_est(struct stmmac_priv *priv, struct stmmac_est *est);
+> +static inline int stmmac_setup_est(struct stmmac_priv *priv)
+> +{
+> +	int ret = 0;
+> +
+> +	mutex_lock(&priv->est_lock);
+> +	if (priv->est.enable)
+> +		ret = __stmmac_setup_est(priv, &priv->est);
+> +	mutex_unlock(&priv->est_lock);
+> +
+> +	return ret;
+> +}
+
+[Severity: Low]
+stmmac_setup_est() has no callers at this commit. The new comment in
+tc_taprio_configure() also refers to a "reset replay" consumer that does
+not exist yet.
+
+The last patch in the series, "net: stmmac: restore EST before starting
+DMA on open and resume", adds callers in __stmmac_open() and
+stmmac_resume(). At the end of the series the helper and the comment are
+both accurate.
+
+Would it make sense to add this helper in that patch instead?
+
+[Severity: Low]
+stmmac_est.h has no include guard. Until now it held only macros and an
+extern declaration, which are safe to include more than once.
+
+This adds a static inline body that dereferences priv->est_lock and
+priv->est and calls mutex_lock(). Would a second inclusion cause a
+redefinition error? Does the header now silently depend on stmmac.h being
+included first?
+
+All current includers include stmmac.h first and include this header
+once, so the build works today.
+
+[Severity: Medium]
+This is a pre-existing issue, but stmmac_hw_setup() clears the EST block:
+
+stmmac_hw_setup()->stmmac_init_dma_engine()->stmmac_reset()
+
+At this commit, nothing re-programs EST afterwards while priv->est.enable
+stays set.
+
+The last patch in the series, "net: stmmac: restore EST before starting
+DMA on open and resume", fixes this. It calls stmmac_setup_est() in
+__stmmac_open() after stmmac_setup_ptp(), and in stmmac_resume() before
+stmmac_start_all_dma(). Those cover both callers of stmmac_hw_setup().
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> index 67c6fc32d0ea6..58dda3282973e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+
+[ ... ]
+
+> @@ -979,6 +980,9 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+>  	if (!priv->dma_cap.estsel)
+>  		return -EOPNOTSUPP;
+>  
+> +	if (ctr > (u64)U32_MAX * NSEC_PER_SEC)
+> +		return -ERANGE;
+> +
+>  	switch (wid) {
+>  	case 0x1:
+>  		wid = 16;
+> @@ -1015,6 +1019,8 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+>  
+>  	if (qopt->cmd == TAPRIO_CMD_DESTROY)
+>  		goto disable;
+> +	if (!priv->ptp_enabled || !priv->ptp_clock_ops.gettime64)
+> +		return -EOPNOTSUPP;
+
+[Severity: Medium]
+Does this reject TAPRIO_CMD_REPLACE whenever the interface is down?
+
+priv->ptp_enabled is set only in stmmac_setup_ptp(), called from
+__stmmac_open(), and stmmac_release_ptp() clears it on close. Neither
+stmmac_setup_tc() nor tc_setup_taprio() checks netif_running().
+
+Before this patch, a full-offload taprio replace on a down interface read
+the PHC through gettime64, programmed EST and succeeded. Now it fails
+with -EOPNOTSUPP on a MAC that has estsel set:
+
+  ip link set dev X down
+  tc qdisc replace dev X root taprio ... flags 0x2
+    -> tc_taprio_configure()
+       -> return -EOPNOTSUPP
+
+An installed schedule already survives a down/up cycle, and the later
+"restore EST ... on open" patch replays it on open. Could a replace while
+down be cached in the same way instead of being rejected?
+
+The commit message mentions neither this gate nor the new -ERANGE check
+for cycle_time > U32_MAX * NSEC_PER_SEC above.
+
+[Severity: Low]
+This isn't a bug, but is the gettime64 test still needed?
+
+__stmmac_setup_est() no longer reads the PHC through gettime64. It checks
+priv->ptp_enabled itself and uses stmmac_get_systime().
+
+Also, priv->ptp_clock_ops is copied at hwif init from
+stmmac_ptp_clock_ops or dwmac1000_ptp_clock_ops. Both set .gettime64, so
+this condition can never be true. stmmac_adjust_time() calls the same
+helper without this check.
+
+>  
+>  	if (qopt->num_entries > dep)
+>  		return -EINVAL;
+> @@ -1023,25 +1029,27 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+>  	if (qopt->cycle_time_extension >= BIT(wid + 7))
+>  		return -ERANGE;
+>  
+> -	mutex_lock(&priv->est_lock);
+> -	memset(&priv->est, 0, sizeof(priv->est));
+> -	mutex_unlock(&priv->est_lock);
+> +	/* Build the replacement without changing the installed schedule. An
+> +	 * entry rejected below must not leave an enabled, zero-cycle cache for
+> +	 * PHC adjustment or reset replay to consume.
+> +	 */
+> +	est = kzalloc_obj(*est);
+> +	if (!est)
+> +		return -ENOMEM;
+
+[Severity: Low]
+This isn't a bug, but struct stmmac_est is about 8268 bytes because
+gcl_unaligned[] and gcl[] each hold EST_GCL (1024) u32 entries.
+
+That is larger than the biggest kmalloc cache on 4K page systems, so every
+taprio replace makes a physically contiguous order-2 allocation. The
+buffer is short-lived and allocated in sleepable context. Would
+kvzalloc_obj() with kvfree() be a better fit?
+
+[ ... ]
+
+> +	mutex_lock(&priv->est_lock);
+> +	ret = __stmmac_setup_est(priv, est);
+> +	if (ret)
+> +		goto restore;
+>  
+>  	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
+> -					      qopt->mqprio.preemptible_tcs);
+> +					     qopt->mqprio.preemptible_tcs);
+>  	if (ret)
+> -		goto disable;
+> +		goto restore;
+>  
+> -	return 0;
+> +	priv->est = *est;
+
+[Severity: Medium]
+This is a pre-existing issue, but stmmac_xmit(), stmmac_xdp_xmit_zc() and
+stmmac_xdp_xmit_xdpf() read priv->est.enable and priv->est.max_sdu[] with
+no est_lock and no READ_ONCE().
+
+Can a packet sent during this struct copy be checked against a mix of old
+and new max_sdu values?
+
+The old memset() followed by field-by-field updates had the same race,
+with intermediate states at least as bad, so the struct copy does not
+make it worse.
+
+> +	mutex_unlock(&priv->est_lock);
+> +free_est:
+> +	kfree(est);
+> +	return ret;
+> +
+> +restore:
+> +	/* A failed hardware update must not publish the rejected schedule. */
+> +	if (priv->est.enable)
+> +		err = __stmmac_setup_est(priv, &priv->est);
+> +	else
+> +		err = stmmac_est_configure(priv, priv, &priv->est,
+> +					   priv->plat->clk_ptp_rate, false);
+
+[Severity: Medium]
+When stmmac_fpe_map_preemption_class() fails, __stmmac_setup_est(priv,
+est) has already armed the replacement through est_configure(..., true):
+
+	if (enable)
+		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+
+SSWL asks the hardware to switch lists at the programmed BTR, and it stays
+set until the switch happens. When base_time is in the past, that is
+usually about one cycle later.
+
+This restore rewrites the GCL and the other EST registers microseconds
+later. It does not clear EEST or wait for SSWL first.
+
+An admin can trigger the FPE failure. dwmac5_fpe_map_preemption_class()
+returns -EINVAL with SP scheduling when a preemptible TC spans several
+queues, or when queue weights differ.
+
+If the hardware aborts indirect GCL writes while SSWL is pending (the
+Synopsys EST programming model describes this), est_write() would not
+notice, because it only polls SRWO:
+
+	return readl_poll_timeout(est_addr + EST_GCL_CONTROL, ctrl,
+				  !(ctrl & EST_SRWO), 100, 5000);
+
+Could the restore then return 0 while the hardware later switches to the
+rejected schedule, and priv->est still describes the old one?
+
+Would checking the FPE mapping before arming the replacement, or waiting
+for SSWL to clear, avoid this?
+
+> +	if (err)
+> +		netdev_err(priv->dev, "failed to restore EST\n");
+> +	mutex_unlock(&priv->est_lock);
+> +	goto free_est;
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73%40gmail.com
 
