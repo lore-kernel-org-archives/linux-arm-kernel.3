@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AB9CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 14:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB35CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 14:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATzG+L8YsNUmOKoBB/0ap9vpolQt4BSY6mfBdVkuIBU=; b=ZEaEZ+9JehrTkjjbXcGbEvqj/w
-	yDMCjTyTcQYRmCfDYwZ/Zba6EfWy9H1oeyZhqR0Hw9l1bc0qxyQ1sOIcLkjlGs5kRMazBOxcYhHUy
-	lFz730DPXkZBEyAMhg4V/C0nAhxX/Is7+GmsffixWK1/uj8jXjPj7fYcoypHklDRUNwyxJ4M9uOyt
-	t6IIv65NJXTSZlFT2E5hTo87I4FhoSZrwe6f6SvexymqG0pwHrNA1csQ6P9KaNxo2uK7lNjTXMjan
-	Ox3GIpriXv+EQBzff0el1EGiFSsUDWSehgTKEqE2XWatx3lVOmQFPAC7JWwZv87WM3EE9EqZccBx0
-	AM3qYRNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p7Nxs/oVN/5HCjt2fBg0kk11WLxbvxrVh6U549L0PwA=; b=o7MqW8vrVcsMMmP5lxCHZO+l+G
+	qGf+vzZvqsaOGnxcHxhfOBX/1/zvohK+SffXBP+FfUlDijWesi5ikwm/Ka4Nlb2M6Q2+Wn2ikgRCL
+	gSQkaj5gn7wv7DF6Vul3d7VuArQbPBnxDIBiGPoZNifJcDo+OgyhNAfZBNNbHDQSMDaGR/n5/IZr4
+	jU1DbhGriwotZw+3Eif7F9NSJZqTNsWZmE2BAdENWupUqQwmrXlsCYmdVwZATRUSjQ+id/bbYeqq2
+	F/3LtpNlja09NjhgThvKoqa9ItwJIM35AV9tvZh56kfWRpc9wRwUq2ufsmJG9GSSB4RUiOLlbyl6T
+	8QA5dWqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjS8-0000000Gbu2-0aYR;
-	Mon, 05 Oct 2026 14:14:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjS6-0000000GbtF-1j68
+	id 1xDjSD-0000000Gbvg-1MUe;
+	Mon, 05 Oct 2026 14:14:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDjS8-0000000Gbtt-04Ku
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 14:14:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87F366053B;
-	Mon,  5 Oct 2026 14:14:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F6A1F000FF;
-	Mon,  5 Oct 2026 14:14:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791209641;
-	bh=ATzG+L8YsNUmOKoBB/0ap9vpolQt4BSY6mfBdVkuIBU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=nofCIAYhG7dNx6Jw6Tof83bZ3Q/+7konRGEISbyroRn1NByU6/aOAKmc0teLiI8lt
-	 K6tsqsGxDeQcEDShasFyL66hB3qgvNpFedhW7YfO0UcexAJpg26kjhGEttcbwPgRsG
-	 x3BPnfgN3VaS0D8pNgHIyuGwfBdTjxmYLVw+tqArtgDTkc459DVhh+9OP8yI6YPbqs
-	 SJfhWhqj4LZhura48DtBsEZ9CGUqi/83qsbutwq/qJzlojUDwCaMw5MztiiLKaRiwH
-	 cBXV0ZCS8qWievWHK3MgCjFQbDLhRoFP7AxcSNy5f7tQqfu9Vl0aD15ANj99os4pRU
-	 3paQf3N7TilWg==
-Subject: Re: [PATCH net-next v4 1/3] net: stmmac: set real_num_tx_queues to
- max(offset + count)
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, olteanv@gmail.com,
- 0x1207@gmail.com, daniel@riscstar.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, dcaratti@redhat.com
-Date: Mon, 05 Oct 2026 14:13:59 +0000
-Message-ID: <179120963986.434549.17858114667686220816@kernel.org>
-In-Reply-To: <20261001-stmmac-mqprio-prio-offload-v4-1-a74610d7f1e5@oss.qualcomm.com>
-References: <20261001-stmmac-mqprio-prio-offload-v4-1-a74610d7f1e5@oss.qualcomm.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 05 Oct 2026 14:14:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6021152B;
+	Mon,  5 Oct 2026 07:13:58 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 860A23F66F;
+	Mon,  5 Oct 2026 07:14:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791209642; bh=HU2NB+KNDLZNYYCTRaaiO8C0EY9/i/5AxUl5Hd2/odY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lVekYft/MDIpu55mLXXLVD3cT63pbv6cRL1IBRkh4fUupBUrzkNbrNjQHo1RrsD6a
+	 +V/8/N/U4a0zhKajN66oV/A9+zfzv9s3bYpDiNpBzFVejcRGCwTc+K0K+xLyBtLsnz
+	 nsKfd1abSUWUW9VdiovJB118sGcki2Ks4z+K+Dco=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3] perf/arm_cspmu: Add Arm system PMU
+Date: Mon,  5 Oct 2026 15:11:00 +0100
+Message-ID: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_071404_262721_8F18ADFA 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,76 +67,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Arm's latest Compute Subsystems and SoCs are using a common PMU block
+in various places which can mostly just be driven as a generic 64-bit
+CoreSight PMU, but does have an IMP-DEF register for additional
+filtering. The details of event and filter encodings depend on the
+particular PMU instance, so are left to the higher level Arm Telemetry
+Solution tooling.
 
-Low priority / nit picks for your consideration:
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
 
-- [Low] The commit message describes only one of two failure modes.
+v3: Fix 32-bit COMPILE_TEST to match arm_cspmu.c
 
---
+ drivers/perf/arm_cspmu/Kconfig      |  7 +++
+ drivers/perf/arm_cspmu/Makefile     |  1 +
+ drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
+ drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
+ drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
+ 5 files changed, 83 insertions(+)
+ create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
 
-net: stmmac: set real_num_tx_queues to max(offset + count)
-
-This patch changes how tc_setup_dwmac510_mqprio() computes the number of
-real TX queues. It now uses the maximum of offset[i] + count[i] instead
-of the sum of the per-TC counts. As a result, real_num_tx_queues covers
-the highest queue in the TC map even when the mqprio layout has gaps or
-a non-zero first offset.
-
-> netif_set_real_num_tx_queues() then passes this too-small count to
-> netif_setup_tc(), which invalidates the mapping.
-
-[Severity: Low]
-Is this description complete? It seems to cover only layouts where TC0
-itself ends up out of range.
-
-In tc_setup_dwmac510_mqprio(), stmmac_set_ndev_tcs() runs before
-netif_set_real_num_tx_queues(). It starts by calling netdev_reset_tc(),
-which zeroes dev->prio_tc_map:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:stmmac_set_ndev_tcs() {
-	...
-	netdev_reset_tc(ndev);
-	...
-}
-
-So when netif_setup_tc() runs, every priority maps to TC0, and the TC0
-check is the only one that can fire:
-
-net/core/dev.c:netif_setup_tc() {
-	...
-	/* If TC0 is invalidated disable TC mapping */
-	if (res.offset + res.count > txq) {
-		netdev_warn(dev, "Number of in use tx queues changed invalidating tc mappings. Priority traffic classification disabled!\n");
-		WRITE_ONCE(dev->num_tc, 0);
-		return;
-	}
-	...
-}
-
-mqprio_init() installs the user's prio_tc_map only after the offload
-callback returns.
-
-Take a gapped layout where TC0 fits, such as "queues 1@0 1@2". The old
-sum gives real_num_tx_queues = 2, and nothing gets invalidated. TC1
-keeps offset 2, so on transmit:
-
-netdev_core_pick_tx()
-  netdev_pick_tx()
-    skb_tx_hash()          /* returns 2 */
-  netdev_cap_txqueue()     /* 2 >= real_num_tx_queues, warns, returns 0 */
-
-stmmac does not implement ndo_select_queue. That traffic class,
-including express or preemptible FPE traffic, would therefore go out on
-queue 0 with only a ratelimited warning. Its mapping would not be
-rejected.
-
-The code change handles both cases. Could the commit message also
-describe this misrouting case, so backporters can see the full impact of
-the bug being fixed?
-
+diff --git a/drivers/perf/arm_cspmu/Kconfig b/drivers/perf/arm_cspmu/Kconfig
+index 6f4e28fc84a2..25bd55f036a4 100644
+--- a/drivers/perf/arm_cspmu/Kconfig
++++ b/drivers/perf/arm_cspmu/Kconfig
+@@ -27,3 +27,10 @@ config AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU
+ 
+ 	  In the first phase, the driver enables support on MCU PMU used in
+ 	  AmpereOne SoC family.
++
++config ARM_SYSTEM_PMU
++	tristate "Arm System PMU"
++	depends on ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU
++	help
++	  Support additional event filtering attributes for the CoreSight-based
++	  PMU blocks found in various parts of Arm Compute Subsystems and SoCs.
+diff --git a/drivers/perf/arm_cspmu/Makefile b/drivers/perf/arm_cspmu/Makefile
+index 220a734efd54..90c3cd710157 100644
+--- a/drivers/perf/arm_cspmu/Makefile
++++ b/drivers/perf/arm_cspmu/Makefile
+@@ -8,3 +8,4 @@ arm_cspmu_module-y := arm_cspmu.o
+ 
+ obj-$(CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += nvidia_cspmu.o
+ obj-$(CONFIG_AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += ampere_cspmu.o
++obj-$(CONFIG_ARM_SYSTEM_PMU) += arm_syspmu.o
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index 912f03ce3ef5..9f298ea1a974 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -358,6 +358,13 @@ static struct arm_cspmu_impl_match impl_match[] = {
+ 		.module		= NULL,
+ 		.impl_init_ops	= NULL,
+ 	},
++	{
++		.module_name	= "arm_syspmu",
++		.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++		.pmiidr_mask	= PMIIDR_IMPLEMENTER,
++		.module		= NULL,
++		.impl_init_ops	= NULL,
++	},
+ 	{
+ 		.module_name	= "ampere_cspmu",
+ 		.pmiidr_val	= ARM_CSPMU_IMPL_ID_AMPERE,
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index c4058d602477..03e34692a965 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -149,6 +149,7 @@
+ 
+ /* JEDEC-assigned JEP106 identification code */
+ #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
++#define ARM_CSPMU_IMPL_ID_ARM		0x43B
+ #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
+ 
+ /* PMDEVARCH */
+diff --git a/drivers/perf/arm_cspmu/arm_syspmu.c b/drivers/perf/arm_cspmu/arm_syspmu.c
+new file mode 100644
+index 000000000000..2f5ceda5c4d1
+--- /dev/null
++++ b/drivers/perf/arm_cspmu/arm_syspmu.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/io-64-nonatomic-lo-hi.h>
++#include <linux/module.h>
++
++#include "arm_cspmu.h"
++
++#define PMEVFILT3R	0x200
++
++static struct attribute *arm_syspmu_format_attrs[] = {
++	ARM_CSPMU_FORMAT_EVENT_ATTR,
++	ARM_CSPMU_FORMAT_FILTER_ATTR,
++	ARM_CSPMU_FORMAT_FILTER2_ATTR,
++	ARM_CSPMU_FORMAT_ATTR(filter3, "config3:0-63"),
++	NULL,
++};
++
++static struct attribute **arm_syspmu_get_format_attrs(const struct arm_cspmu *cspmu)
++{
++	return devm_kmemdup(cspmu->dev, arm_syspmu_format_attrs,
++			    sizeof(arm_syspmu_format_attrs), GFP_KERNEL);
++}
++
++static void arm_syspmu_set_ev_filter(struct arm_cspmu *cspmu,
++				     const struct perf_event *event)
++{
++	u32 offset = 8 * event->hw.idx;
++
++	writeq(event->attr.config1, cspmu->base0 + PMEVFILTR + offset);
++	writeq(event->attr.config2, cspmu->base0 + PMEVFILT2R + offset);
++	writeq(event->attr.config3, cspmu->base0 + PMEVFILT3R + offset);
++}
++
++static int arm_syspmu_init_ops(struct arm_cspmu *cspmu)
++{
++	switch (FIELD_GET(PMIIDR_PRODUCTID, cspmu->impl.pmiidr)) {
++	case 0x9c3:
++		cspmu->impl.ops.set_ev_filter = arm_syspmu_set_ev_filter;
++		cspmu->impl.ops.get_format_attrs = arm_syspmu_get_format_attrs;
++		break;
++	default:
++		break;
++	}
++	return 0;
++}
++
++static const struct arm_cspmu_impl_match arm_syspmu_param = {
++	.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++	.module		= THIS_MODULE,
++	.impl_init_ops	= arm_syspmu_init_ops
++};
++
++static int __init arm_syspmu_init(void)
++{
++	return arm_cspmu_impl_register(&arm_syspmu_param);
++}
++
++static void __exit arm_syspmu_exit(void)
++{
++	arm_cspmu_impl_unregister(&arm_syspmu_param);
++}
++
++module_init(arm_syspmu_init);
++module_exit(arm_syspmu_exit);
++
++MODULE_DESCRIPTION("Arm System PMU Driver");
++MODULE_LICENSE("GPL");
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001-stmmac-mqprio-prio-offload-v4-0-a74610d7f1e5%40oss.qualcomm.com
+2.54.0.dirty
+
 
