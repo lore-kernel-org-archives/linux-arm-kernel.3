@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B2DCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F17CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 16:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWUV3emk7ULpEee/9G63NluqNobYqArTy8HB1/MEtJY=; b=qDPmA0GrpJUmZFX1xSlO8k7Ort
-	HUuHnS8JlqvMi8MCO9EcrhW9VhP+0UZhpOvwBR/bAgo1zbDZ1DpSPxvW2aMK9GLOex4BecaKKT2PI
-	QKAkmIHMkS9rQR1VJ/w9j6W/y3OI0Yox4NDqpz/wuefEYrcukXTfvpHBr2aCLfG4Opmj2Wqu2/j+o
-	nSuDweOGYzC1sWcr+3YVSCOYRQBKd5il1yBld1AKfIvlo1mpUAcG2ZGf0ze640U53VsK4ekT6ZLeD
-	MlNj/bcjKvxL7s1B0b+ndUjZbkiD0jgpHw+m9YDyD1t/bQ5qHi2+3oVxnVMLmPPQI2D771HM7edPO
-	umrgxlhg==;
+	bh=uy9Q3tbdz+bui0y9VTIEUWiKdTD1iXpwWnnbF74qV50=; b=UxeK2C6gngh/08dZOmU8cwwD/0
+	UAYJ1z9wTpFK1q876DN4E3ortXcrCTAlUSF5oe8SdSpB3nOUHPz+NWVlDkhRW8FDI3OsLNqENvJ86
+	pY/Auy+VZF6CPVwPqVi5R0/0tpUoWJNIm8Ht260bVtYht/Zdcw5GiwIfVWPiEkYAHrKHY/2/U+vuE
+	VXZCeHPCiHDPFAhZ5lrkzvv/3CKumykWdJfwdx+CjIytp+daAa0uUmLczxFVYDmfwF1c5RFsec4yr
+	poOSSY4faSj2EswONwJBInABf1OlTuwdIaqaZNgVG7+gldzHV/UnaUs+w/V802hQ/7rGgBFxvqRi7
+	cYYMiZ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDl6A-0000000GoCH-1sSA;
-	Mon, 05 Oct 2026 15:59:30 +0000
-Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
+	id 1xDlAE-0000000GoUJ-1Uq1;
+	Mon, 05 Oct 2026 16:03:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDl64-0000000GoBN-1TSh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 15:59:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791215953; bh=wWUV3emk7ULpEee/9G63NluqNobYqArTy8HB1/MEtJY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=q6YVYBE88V85PRYuvbIq3neymOFilDrh8cO5qqWizFRHMcK9SRpLyPHt8eRZJni7Y
-	 AhKt8fy55tPNH8CsIQjBLqWSSSxlOWUz1zluf+zzrhlW37b1Qt4B/fIXqOR5d3oOCn
-	 V0ik3x92lqC62BA97RBRf05IWe3tL4K+cSNtOyvU=
-Received: from [198.18.0.1] ([112.43.117.189])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id ECAA2E19; Mon, 05 Oct 2026 23:59:10 +0800
-X-QQ-mid: xmsmtpt1791215950tdkxd44af
-Message-ID: <tencent_F21509258CF77A024260954C593157414F08@qq.com>
-X-QQ-XMAILINFO: MhK4DKsBP06iQ0lS0hbC/UsLm9tt/MybcZCBA3F8VcY7H+aZeqAd8AROVa4pXO
-	 d0pIei1IbKnZP6DIoAZ63YcKKcIIkGQ3lkGuWRWClueza9+PIxnIIKTf8t8nr/fD59D89U+EIBVL
-	 pJFEJqG/ddtw5tSjxy2YFSR+z9MfRNKc9ZRI/oUaJVVtgZgVMtgcmxujBACCn8EYlTkhkOy0abr5
-	 UIrmORpcPUMjDgrISxSTXiW5LEzQkcaCECIfYULE7jpwPQ9JpmJnpalM9QCqCCgEvpqM+MXLOR9R
-	 rieP/2H5nNw/HcFtxJEy8tf99kEmztlQhucqRvsYMdswUg39IwpMehiIqPOj5UsRax51j6bWULQd
-	 MfimKaKfYpn6P9dkwjxbcByDoMLz5WUT4SkljPAo4/lpKlU+Rw3BktTsSqhBDHsf8jCztjIrKWAQ
-	 XDBmKvZFD2PA64M1mbBuk/kGfHlewP1vX0rf5xKn3oi9VHXm59MUd1DvSgJrOKYRDf96S/BftjSI
-	 xBJnmgL1W61ajxRpkwW/FRSpkD1EpgOq6XOIgx9uQLwTL5NnEpv2PmN7mHMZlhN8KDyjwLjioN/M
-	 cKqmzeUks5/DOyjXIydFIQc8XU1LjrdqhxZhFerDTBvdj6/xfeCP2EmnPbaGq9TLwKQy+JRS6bDP
-	 9uGeerVZETCB01xMQ08u8Vg5lw3fGgFE3pUQ84v8LFXlCPVLrRdlFiLT7uBAST08rJVbbYLoKHwT
-	 8gmRwww+uZG7+jl95rniYFUkuf7qerHqPYFLGuiWx+0n2tB2/0zveOW771jTcHcy1MFD/K5dHQSM
-	 JNVCpywNHClD+uLOE0pS5cvCEiSHRElx8K2HMhhtkcvVzFW4hXxNzR9TGd5defYSxt3C8dAAeSIs
-	 DUmd5qUZr5M4PF+goJFu0Jv9zkfT+17Drz7uukSJJTPfuh3Ht3fLXtutvMBzqjzXtcq1atYFt+wu
-	 dbEw1n9AsI99ZeU9EbxG4Kag8ygSlF+NQbK7v21Rt9cC1+0tN+4vI4cR2Bm0zj7qt0n665bJexjb
-	 PVd9o2DAmUBQtthosmwrLPWjIwWhwLHgcCd6sQb39CZIa9YZkfnPbX5y913nQ=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-OQ-MSGID: <322103a8-cf74-4213-bc95-e65c34366dd1@qq.com>
-Date: Mon, 5 Oct 2026 23:59:10 +0800
+	id 1xDlAD-0000000GoU9-1a2K;
+	Mon, 05 Oct 2026 16:03:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8141260514;
+	Mon,  5 Oct 2026 16:03:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A812A1F000FF;
+	Mon,  5 Oct 2026 16:03:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791216220;
+	bh=uy9Q3tbdz+bui0y9VTIEUWiKdTD1iXpwWnnbF74qV50=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=N6hfV9vwAAcjKw6ywFISMDvvnnopeXYcUCWfAn34XnUogNcOzMktPYH+pxXOdM3S/
+	 1jumCjNGD1Vh94w9SFOm3XxGDWSxohv94SfCKIfoeX15wrSZGeAfw+W+E2saz4ctx4
+	 +BpuPUwwiCZUeXFHGr73EPPaWz8taS13cqMMVbCyBF9T8w0sEiZtWnypEq/zah9m4h
+	 9VEKAmcLyPt/EpdJEJCyXcSc7wnuJseIUZPlxNapLYO0+eW0VD5ZZ0POAxM1sKSgAI
+	 eKrGa1ErfyzAUqEP2ehgUqEkma6GSevWzsps12D/tYaI8lyQ12fMPpLtO2ojxKOMle
+	 9VCTamkP7vm9A==
+From: Mark Brown <broonie@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Mizuno Miotsuki <founder@crepuse.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+In-Reply-To: <20260918125711.94361-1-founder@crepuse.com>
+References: <20260918125711.94361-1-founder@crepuse.com>
+Subject: Re: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec
+ revision B
+Message-Id: <179120561124.150114.10537889348334092855.b4-ty@b4>
+Date: Mon, 05 Oct 2026 15:06:51 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: Add EBDEE vendor prefix
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261003194625.936288-1-2254650260@qq.com>
- <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
- <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
-Content-Language: en-US
-From: Pufan Jin <2254650260@qq.com>
-In-Reply-To: <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_085927_171122_D91DC397 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1402; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=BrgvY9C1AO5zWbjnc6fnpMokKv5Jds1/AAOuj/pA5OE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqw8pVUf4HgHtDb0Aiz+dFRtFmIeYir8Vg6yi3P
+ 6fSkGw1mTyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasPKVQAKCRAk1otyXVSH
+ 0PV8B/0QM7bHgOvqLr1t/W4Jp0YQkUQP0fuX3bM30P11974tTYC1yOxEvb6nHQC1IL+fxcpLT1r
+ k/9i5uAxtlhJPs0bfVqkggEI1rCMuJHy+O0LMJdBGn0jcFWs7RaLJGrI1cyXrhkTzufffM1rdoX
+ vgDYPDDqB881h8GDF26/LRB4oEzh+w7RVjpfDtnBiI7a4rV4Ox2BtjOOJfPXZ6C9ToQQEAIh0p/
+ ZSLLBKcP67iBUSAdaqoJMBkIgABzp55DKVsr8XIcLdhuEzP0xj3fJD80mZNumhH4Tfj6dNK96Iw
+ 6Je0apFoibi4lnMlkvICYq4XIFrgjD+TAr9GsCMPkAF8mFqW
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 18 Sep 2026 12:57:18 +0000, Mizuno Miotsuki wrote:
+> ASoC: codecs: rk3308: add support for codec revision B
+> 
+> Hi,
+> 
+> The current RK3308 internal codec driver detects codec revision B
+> (chip ID 0x3308) but explicitly rejects it. The initial 2022 driver
+> supported revision B with a monolithic power sequence; the later DAPM
+> rewrite left it unsupported.
+> 
+> [...]
 
-On 2026/10/4 05:14, Krzysztof Kozlowski wrote:
-> On 03/10/2026 21:46, Pufan Jin wrote:
->> Shanghai Xin'yI Electronics Technology Co., Ltd. (EBDEE) manufactures
->> the EdgeBoard series of embedded compute cards, including Zynq
->> UltraScale+ based designs.
->>
-> What does EBDEE mean? What is the company website?
->
-> Best regards,
-> Krzysztof
+Applied to
 
-Hi Krzysztof,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
+Thanks!
 
-Thank you for pointing this out. "EBDEE" was an improper local acronym
-derived from "EdgeBoard Developer Edition".
+[1/1] ASoC: codecs: rk3308: add support for codec revision B
+      https://git.kernel.org/broonie/sound/c/157f7cba77a9
 
-The actual commercial brand and manufacturer of the board is ALINX
-(Shanghai Xin'yi Electronics Technology Co., Ltd.). The official
-company website is:
-https://www.alinx.com/
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-I have dropped the "ebdee" prefix and replaced it with "alinx" in v2
-to properly match the manufacturer and board schematics.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Best regards,
-Pufan Jin
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
+Thanks,
+Mark
 
 
