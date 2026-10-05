@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A13CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47549CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hF7FailYv+Ln6nxbjzEM/8FcOhFWUuPUwewYVZDC1Nw=; b=XpRioyXliIkjBrzX3phJF9ZrkI
-	jVTXvY8qYHq+4MoMkUJFlwNIeBiNoRC7R41yLAoeV7LLINVEaY91iX7ctdtRIcWxtOR7C7ktOZt9r
-	gQ/xb6r+DROrBDnwV9a5NLXgy6HLbG1aw1nSX7+IjnXIwYgxGZx+tpNy63wxmZTAl+/IdGVJXck6O
-	yUTLuMnAqOeyI2vuUNbj5bscrOwZSHHUHdEH6Na2aqtVMzhnlvKLU4538vGChUMpHDcVV1ldRjuux
-	RSmrh+B0cjXI/AjNijejMcvx51dO1yrFkS8wBMA3cuQhE3IpFqLwcmXZybPAn7FkksCWYHLRPTwoC
-	lEvhp/mg==;
+	bh=yguBw+NCE5EBddLbSggqfD770lhl8HWF3MI8cQQkQbs=; b=cz0UjWVsDSmBd1v3XOggmGyuvC
+	UKLU0+xR8wfJLZ5UIhhQqIGckiXP7YLxQnux/t9ujPgh0ykpLHMhp7yRxhLKiMGr/EfSE5A9hRXpv
+	9HU/pN5okEbHBxnsjkJUKCkMbnAerfoOOwXbMYT7Pc2rtbNtP9qwvufdzcXdPikE98JAJbPt0p8su
+	6Pnh7u/cy0K9OR0HBSFByc+JSsPJTSnZCFsBmCtPsRhXGtKa3anzyJJx+54a5fQyvZO8cPqciVzzA
+	0bNLTfc7oM+ePkXAEKrW96GT8L1M4AleuIvv2H8yX4Kxd1NACiK4wapaP+3kRGPSX3PVbNaBC80nl
+	/ve/smQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDegQ-0000000FwYJ-27hV;
-	Mon, 05 Oct 2026 09:08:30 +0000
+	id 1xDegS-0000000Fwad-2g0M;
+	Mon, 05 Oct 2026 09:08:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDegN-0000000FwUO-0kXN
+	id 1xDegQ-0000000FwXs-1onN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:08:28 +0000
+	Mon, 05 Oct 2026 09:08:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 312581684;
-	Mon,  5 Oct 2026 02:08:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AC911576;
+	Mon,  5 Oct 2026 02:08:26 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 910723F66F;
-	Mon,  5 Oct 2026 02:08:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D82D03F66F;
+	Mon,  5 Oct 2026 02:08:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791191306; bh=z2LIrMIFE7EZF/TVEdQSDUxiMgdKOJBaWzN/bjwGxjQ=;
+	t=1791191309; bh=BicQ2agMF8WddKiPdc29R77aPK6mes59v7ybLPMSnVA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SwvMORJZlIlOgBlqZh4x7TdaL3H8J1hDi1q1+aJtu9rqzeKo/rcNdeMIazfX5Ef1p
-	 FdVprzlhucKg4BGW0SNTxJAyrdvea6bmwDvgmGCFhfC+vqKh7YhEdtHlALsy4ozVrf
-	 zPNQ0HTqLmrYktBSX946vASixC312jIvMqzAS1Ig=
+	b=F9SOcFFNPe4pmGdULc6Y8UGDBXiLKb4yFq8EHGQbnwE1Z1h6dSJdIfh+RXesBgw1L
+	 21c8sPmHCgdvjUO+SgCUBj5oyzsQjAIjrMGyketMcWNX0sir+p2e5EEuUbAtYF1WBa
+	 nqvUNtoxcJQEihXr5RJp4i2MmkBCGXFFfNBGd3/I=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -65,17 +65,17 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v22 06/23] KVM: arm64: Don't call vcpu_set_pauth_traps for pKVM host
-Date: Mon,  5 Oct 2026 10:07:37 +0100
-Message-ID: <20261005090754.2140522-7-suzuki.poulose@arm.com>
+Subject: [PATCH v22 07/23] KVM: arm64: Refactor the vcpu_load to allow for VM specific callbacks
+Date: Mon,  5 Oct 2026 10:07:38 +0100
+Message-ID: <20261005090754.2140522-8-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261005090754.2140522-1-suzuki.poulose@arm.com>
 References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_020827_454260_8435DDF7 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20261005_020830_584735_859A9299 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,96 +90,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vcpu_set_pauth_traps() bails out and does nothing for pKVM hosts.
-Clean this up by moving the is_protected_kvm_enabled() check to the
-caller, in preparation for adding VM specific vcpu load/put callbacks.
+To keep the VCPU load/put handling cleaner with the different kinds of VM
+types, we are about to introduce VM specific callbacks to do just the right
+thing. In preparation for that, make some refactoring to add the change
+easier by mainly feature specific configurations to individual wrappers,
+so that different callbacks could reuse the helpers.
 
-While at it, do an early return if the vcpu doesn't have ptrauth.
+Adds vcpu_prepare_mmu()/vcpu_put_mmu() wrappers to load/put MMU related
+configurations for !pKVM guests. Additionally makes it explicit that
+kvm_arm_vmid_clear_active() is not required for pKVM host.
 
-No functional changes
+Add vcpu_load_pvtime(), vcpu_set_wfx_traps() wrappers for handling the
+corresponding configurations.
 
+While at it, also make it clear that the timer loading constraints only
+apply for the VHE.
+
+No functional changes intended. Based on a work by Marc Zyngier.
+
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
 Changes since v19:
- - New patch, since addition of this to the Refactoring patch makes it a bit
-   more bigger and harder to review
+ - Add vcpu_put_mmu() to pair with the vcpu_prepare_mmu() and make the
+   call conditional on !is_protected_kvm_enabled(). Preparing the path
+   for per-flavor callbacks
+ - Update the timer load constraints comment to reflect that it only applies
+   for VHE
+ - Wrap kvm_arm_vmid_clear_active() to vcpu_put_mmu() to compliement
+   with the vcpu_prepare_mmu(). Also only clear the VMID for non-pKVM
+   guests
 ---
- arch/arm64/kvm/arm.c | 52 +++++++++++++++++++++++---------------------
- 1 file changed, 27 insertions(+), 25 deletions(-)
+ arch/arm64/kvm/arm.c | 59 ++++++++++++++++++++++++++++++--------------
+ 1 file changed, 40 insertions(+), 19 deletions(-)
 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index bcec14c587119..50b84065ead1a 100644
+index 50b84065ead1a..24800809b4a96 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -631,33 +631,34 @@ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
- 
- static void vcpu_set_pauth_traps(struct kvm_vcpu *vcpu)
- {
--	if (vcpu_has_ptrauth(vcpu) && !is_protected_kvm_enabled()) {
--		/*
--		 * Either we're running an L2 guest, and the API/APK bits come
--		 * from L1's HCR_EL2, or API/APK are both set.
--		 */
--		if (unlikely(is_nested_ctxt(vcpu))) {
--			u64 val;
-+	if (!vcpu_has_ptrauth(vcpu))
-+		return;
- 
--			val = __vcpu_sys_reg(vcpu, HCR_EL2);
--			val &= (HCR_API | HCR_APK);
--			vcpu->arch.hcr_el2 &= ~(HCR_API | HCR_APK);
--			vcpu->arch.hcr_el2 |= val;
--		} else {
--			vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
--		}
-+	/*
-+	 * Either we're running an L2 guest, and the API/APK bits come
-+	 * from L1's HCR_EL2, or API/APK are both set.
-+	 */
-+	if (unlikely(is_nested_ctxt(vcpu))) {
-+		u64 val;
- 
--		/*
--		 * Save the host keys if there is any chance for the guest
--		 * to use pauth, as the entry code will reload the guest
--		 * keys in that case.
--		 */
--		if (vcpu->arch.hcr_el2 & (HCR_API | HCR_APK)) {
--			struct kvm_cpu_context *ctxt;
-+		val = __vcpu_sys_reg(vcpu, HCR_EL2);
-+		val &= (HCR_API | HCR_APK);
-+		vcpu->arch.hcr_el2 &= ~(HCR_API | HCR_APK);
-+		vcpu->arch.hcr_el2 |= val;
-+	} else {
-+		vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
-+	}
- 
--			ctxt = this_cpu_ptr_hyp_sym(kvm_hyp_ctxt);
--			ptrauth_save_keys(ctxt);
--		}
-+	/*
-+	 * Save the host keys if there is any chance for the guest
-+	 * to use pauth, as the entry code will reload the guest
-+	 * keys in that case.
-+	 */
-+	if (vcpu->arch.hcr_el2 & (HCR_API | HCR_APK)) {
-+		struct kvm_cpu_context *ctxt;
-+
-+		ctxt = this_cpu_ptr_hyp_sym(kvm_hyp_ctxt);
-+		ptrauth_save_keys(ctxt);
- 	}
+@@ -684,14 +684,11 @@ static bool kvm_vcpu_should_clear_twe(struct kvm_vcpu *vcpu)
+ 	return single_task_running();
  }
  
-@@ -749,7 +750,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	else
- 		vcpu->arch.hcr_el2 |= HCR_TWI;
+-void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++static void vcpu_prepare_mmu(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_s2_mmu *mmu;
+ 	int *last_ran;
  
--	vcpu_set_pauth_traps(vcpu);
+-	if (is_protected_kvm_enabled())
+-		goto nommu;
+-
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_load_hw_mmu(vcpu);
+ 
+@@ -721,34 +718,56 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 		kvm_call_hyp(__kvm_flush_cpu_context, mmu);
+ 		*last_ran = vcpu->vcpu_idx;
+ 	}
++}
+ 
+-nommu:
++static void vcpu_put_mmu(struct kvm_vcpu *vcpu)
++{
++	kvm_arm_vmid_clear_active();
++}
++
++static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
++{
++	if (kvm_vcpu_should_clear_twe(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWE;
++	else
++		vcpu->arch.hcr_el2 |= HCR_TWE;
++
++	if (kvm_vcpu_should_clear_twi(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWI;
++	else
++		vcpu->arch.hcr_el2 |= HCR_TWI;
++}
++
++static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
++{
++	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
++		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
++}
++
++void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++{
+ 	vcpu->cpu = cpu;
+ 
 +	if (!is_protected_kvm_enabled())
-+		vcpu_set_pauth_traps(vcpu);
++		vcpu_prepare_mmu(vcpu);
+ 	/*
+-	 * The timer must be loaded before the vgic to correctly set up physical
+-	 * interrupt deactivation in nested state (e.g. timer interrupt).
++	 * For VHE, the timer must be loaded before the vgic to correctly
++	 * set up physical interrupt deactivation in nested state (e.g. timer
++	 * interrupt).
+ 	 */
+ 	kvm_timer_vcpu_load(vcpu);
+ 	kvm_vgic_load(vcpu);
+ 	kvm_vcpu_load_debug(vcpu);
+ 	kvm_vcpu_load_fgt(vcpu);
++
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
++
+ 	kvm_arch_vcpu_load_fp(vcpu);
+ 	kvm_vcpu_pmu_restore_guest(vcpu);
+-	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+-		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
  
- 	if (is_protected_kvm_enabled()) {
- 		kvm_call_hyp_nvhe(__pkvm_vcpu_load,
+-	if (kvm_vcpu_should_clear_twe(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWE;
+-
+-	if (kvm_vcpu_should_clear_twi(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWI;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWI;
++	vcpu_load_pvtime(vcpu);
++	vcpu_set_wfx_traps(vcpu);
+ 
+ 	if (!is_protected_kvm_enabled())
+ 		vcpu_set_pauth_traps(vcpu);
+@@ -787,7 +806,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_put_hw_mmu(vcpu);
+-	kvm_arm_vmid_clear_active();
++
++	if (!is_protected_kvm_enabled())
++		vcpu_put_mmu(vcpu);
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+ 	vcpu->cpu = -1;
 -- 
 2.43.0
 
