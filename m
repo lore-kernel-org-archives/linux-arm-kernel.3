@@ -4,117 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56A7CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 19:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81D3CA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 20:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/qDjdhnf1K4jL+eSOR//AyfyY3LunJ50+oBekLeJFw=; b=FpnjqYuh4kOSyVogDptu6p5NQg
-	Vubst5PTCP65qTAhEkXnrCBqVvUeDG7pyyzJ+WlcO7k60XXvD4d/iyE6sfXZeFhbXcALwg7jqYUVq
-	ElbcRS1c5rYnBKOrxCELOMlgr9SU5VJiF0Kuwmjq0jotcGu8leWIsZp58jS0B8Xyel73bIhpwEif8
-	6zg7ue9kbVJxN/8+o/vjbynG7gz2a8iMSS4T/mTXolaaEeWLnd4R7v3Ikv821F+BvwNamA0JlbQyc
-	8oWNMlZCKI94CpOBjBIMSftFQ+k0MQRpjNqTqyK5K+TKPFy/vjx3pNv0m+jmyFTdt6OlQ5i4nK7y4
-	Io8QiLRA==;
+	bh=nCiUSXl1sTqT+a31rbofdcXjLxgQuX1RkjO3vSRBV8Y=; b=ND5oS+2A93j/Gxx0XoJjRC+BsE
+	gaYAKxF8wVCPAQ2yzH/Qt5EWOQyrNwuvIUSj9P2K+RoElxe1IKcIWR3pNh01ofJUTVzpHpIxbsF+L
+	oO81jbhGCrVwzMsOhybuk443Y0gNqhi8zJ0bPfCFwDIuMMrTeFRlvaWFUuIJDc9ZGL1Llv4h4mMDV
+	zGt/EDybm6CZtAthRVT3wEMETcN1nTLDNqViExqMGw8pYRt/ESd7tUHKsh1RmIaLIiGanZ+tnEEk8
+	cs14nn/EkLvSTKOSzXk9ev5hfxT7HaipwW/x41CQ5HdZFZIj/2aJh4JowgJlenwJwQqDTx1oLUD2k
+	EDY0Eb8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDoRO-0000000H4lL-0Iz4;
-	Mon, 05 Oct 2026 19:33:38 +0000
-Received: from mail-westus2azon11012039.outbound.protection.outlook.com ([52.101.48.39] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1xDp74-0000000H7KY-1iM3;
+	Mon, 05 Oct 2026 20:16:42 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDoRL-0000000H4kb-2z9l
+	id 1xDp70-0000000H7Jl-2zEL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 19:33:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QaBH8+bnclXcwR2P04lpsTaURFLlNUcelGMd0dWklP+TgOjfrvukwI5HrZrzfG/iMIFljunKZGiuf7tnJT6wlYeTHUDBrvd+TN7f00K5E4BPARjSWBP2GPZnVPpLZWztfM6ts+r7wqQmQ35NClcO4JGsr322hAjAkfAAjbnLu+sbLTa4jgFZGXEP6ZbYXMZAQvFlZXVqcQgt1AgdKr/jsV6k42/P2sVcMgSRHlv53qWOHk0A1gNiCvF7V1elL+qOF+ybM9gzcZ5kSFAERIZb8Iv7VjYjzyoh0hROfv2xmFbiTg9zTKH2+jNh9PxWNZiEc7EQuF0jbi80S2iL6wQADg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y/qDjdhnf1K4jL+eSOR//AyfyY3LunJ50+oBekLeJFw=;
- b=Px3qYLH8/KvpQu2p2Qtd0EVgoj4ay6VCDij9etevIdA/j56vvnCCbTdsu9Xvp+pinJ0hc9eyNX0UviUG26mnIiDThmLvkODUyruUyjdJHI5Xv4Jpbf6+K8bVAxce2DMhbYi7y4rHj8VOLjR0+FeKWnGRSmcs5bfzsGG7JrhLZBByw1bumChJhPIkQa0rAiEoPito5A4VKjCTA/XWKi/wM+WFQHcDGN1Y87z3ZBDrr6q38sjua+1KxLI9p/Jx43v7KSRtlek2CuH8I4ASXKW0CgLBR9kqEIbSdjnGmB4lIuMEr8GAdGVXRYlF/TvdKAR1tmXJu0Btfa0aErWBsLsFpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y/qDjdhnf1K4jL+eSOR//AyfyY3LunJ50+oBekLeJFw=;
- b=jSIBfXL/+EnWXk8UfCQ9bFZ1XwBIf9pGR+IUcqPJnr81FKnC2g8XHU72nDIPxg/WV1b+uWdXKgm6oQsCv/emck/LPhTBZSZ4YrnVhcKH6ZiMlQ7by3dl5RtFKAQHUZIzqITrEYJ7WUlgANdJYvRXAnprwnDpQ/TOa0qDTT9MNQYpGNjLycIikXvaR04P9LssNi0QD9DKWnBKktDwJgJ52ELNEMrCUypk/sJPDHfPKleBTKYWdg469NOqgLMWYRlO5ZbHKXfct79X0H2gb56JJU42J4iVCblH4TmPPX6hkKRISNHWR/J/cbubMmkUDMjQm7A32+Svzz+dcxvqPkOFRg==
-Received: from SJ0PR13CA0103.namprd13.prod.outlook.com (2603:10b6:a03:2c5::18)
- by DM4PR12MB5939.namprd12.prod.outlook.com (2603:10b6:8:6a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 19:31:23 +0000
-Received: from BY1PEPF0001AE1D.namprd04.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::26) by SJ0PR13CA0103.outlook.office365.com
- (2603:10b6:a03:2c5::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 5
- Oct 2026 19:31:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BY1PEPF0001AE1D.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Mon, 5 Oct 2026 19:31:22 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
- 2026 12:31:01 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 5 Oct 2026 12:31:01 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 5 Oct 2026 12:31:00 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
-	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
-Subject: [PATCH v11 01/11] iommu/arm-smmu-v3: Init the vmid_map ida before the stream table setup
-Date: Mon, 5 Oct 2026 12:30:44 -0700
-Message-ID: <058aeb235a458c5b48d918d947608c76dde0d845.1791226953.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1791226953.git.nicolinc@nvidia.com>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
+	Mon, 05 Oct 2026 20:16:40 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-8ab43af5e97so2333107b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 13:16:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1791231396; x=1791836196; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nCiUSXl1sTqT+a31rbofdcXjLxgQuX1RkjO3vSRBV8Y=;
+        b=IEfg3U6iBqP19/dzwLitaW+L/GjNTlmkTtx/1UBuV0fEYkqHqRpzfoIzXkmOAkMknY
+         7uRU/LOUa3zbnEjG17wuoUIwGEh/3CDMJQjCbifECgQFAbwN8gTx+1lK95mpKnkVNo2y
+         x7tNA/2CRUxKPrTQlnSnNya98/zH4oowD/st/MTLqhZJCFkEf4KXS5IfINN638cMi8zg
+         /EU3USlm6ziT5t5IEVRtrDjDzm5ble9Q3Hqv1573MrPWMSJgTlqMvBOgAdm76krcDJgk
+         tV2XTCcAn5FqYk8r6Asph1Dtosoh8Yxw1Ro8vvwNtf0wtmnAFIu3NdL1KBcu2XuNW/+P
+         QyWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791231396; x=1791836196;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nCiUSXl1sTqT+a31rbofdcXjLxgQuX1RkjO3vSRBV8Y=;
+        b=sGzHh7ZOTMbC11PIsALvTDPxZvmuvORZ2JFrCpRHTRQYTIWkx2D98BeXAnQO6IrMo1
+         shl6U+Io//hEZy52jtNU9IWO1cmQ+D6z8tyBP7fy8gOXmWxNAZqxSnWf/zZuZRxekOf5
+         5KCJAA1fKM7t9b8x3NpXQLj1GKopeAX/X0dUT/qdeOYICSpqerlZ2Kyc+NG2eB8rVmPV
+         xvwDd4q+q7kh7t99thFivrahJK2O28WLSKP+hBMEsv0O59WeJDXW/JLts9BVNEgX/sSc
+         r5YrSdn40wg4RtYT3vCb8ZRbSSJtmaIVnVbLvTdo3xnCUWurr6ZUz5LVaZsulnCnvNzc
+         ueIQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzdRQZVTN2OE0ZZroyclkZAi6Pcv8JeyN0DVG1KLXkEG05EWXWTbEm6du+uBfqt/HaA1GRoK3abxdQ/2POv5PLG@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGRbY9uHqSYccXv7m6GcO7Ypjg0+ZsJZQGK9unZiYRzGORqq1b
+	Vpe3UgwBEwaAYj0rBhLvUg8i0r79E8BziqeuiSgNwpni+3R+SiPvkUH7tU+VQBX1wJQ=
+X-Gm-Gg: AYBFou1BIQcqZRSbOQqi1gN8XZvbcjZE+px92mNnVE9ap8LzXsn5Snoh+S/RUW3wMPB
+	6TCGEwxfrCLxLvKp2Ib39YFotqGhKPNTUjQ5NEXLHB3bYkRGV4tfzpDXYVkxg804+pblVfzECOE
+	7wYlWj12u5Kse/alQX9rcn4EbSrjWR+DByPLRJGuUzVW3Vma2QdIvjrntSN6FfCJ9RAignMfLkL
+	yIvs5W05Iv6Q6Ru1gofLyEthdNnXtUINRMb+fxI+1ihhYcM3rSZHybTL4xi3c2GlCMII9NU/bRG
+	gEjDwgMKvSm310OB6cnrZRxC6olu1Ad0QV2Q/4ORLx9kXXHWdMiwLSuGin0JuOAuDKyw7u0JO8l
+	zuxSWreR/YNqBrmYD4upyx5FpkTkD8AfLhm5h19VM60BZUlvIaEOPDb2L0Tg/he/8IXfQEIHp3W
+	9zlb3nQKUn9ySTCIDeMTDxZ7i3jXDrEfrGUqTCMFk8ZYTEVlhtI11YiMRCA0geqxqKCfiW8G65o
+	p7Phm9VqPSw7dLH2t8m82m0+L+Obe889/KfDw==
+X-Received: by 2002:a05:690c:7448:b0:8ab:3938:dfbd with SMTP id 00721157ae682-8af721149cdmr3487907b3.31.1791231396588;
+        Mon, 05 Oct 2026 13:16:36 -0700 (PDT)
+Received: from toolbox ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8af515d034bsm12664527b3.42.2026.10.05.13.16.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 13:16:36 -0700 (PDT)
+Date: Mon, 5 Oct 2026 15:16:09 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+Message-ID: <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1D:EE_|DM4PR12MB5939:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e790fff-f335-405b-5ae4-08df23173d4f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|376014|7416014|22082099003|18002099003|56012099006|11063799006|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: OOyNVhXZivKytB0NyIYKUeMxSQWgDshG8m0AeuRXKYawi8xcR/rht1QFzOVwr5T+IHZYdeI2RU0oom1hfLeQYmZpgQl2raKuv2cXxQWWuvE6nhmJpBcxU35AlTLUqZ20T+kFk66hkw3q0tl6Mp0ZZu6RmghNTOuOmtiLpxqniq51oPEHN5EFXay8hhmHcvxozrVmriciq6+SSEwbX1KIcmr/V1hqbetzYw+v9josvOIXzSCThownUXaZ4y+SBHPgpXiQ7cfib57jGSLf2tXuI3GMHi5+yGSJD/dYZkIJv1gKQA0r8hneatzfoK5U/kAvAbSe71OV3z5r8/RxpTLrmRV4COkwuXIwQri0QQNSgMRqRxt8uO52BjY3Imm1uCr4yelqOhjYO6VWo75NteEDBC837Kzt1txJnHlWpMZHlFTRAi3zOdJhqINCdT5R9ydlaFUzpNXDhyRjnQzGoFrE0eerKxhNV5m0k1PRn07w/2nApybXSCRpyKOIsIdoAd/VFK15Bj2SMm8fDnArCRJSj4YgpTsVzObEnW8x9Dd/bWv6+tEFWuP5b1zhR4zn69yc+8UROjaMlSSj/2sWjX7bwhDRsCOYlNujpCz6gYOF5iJfEggxPyOuNx7JARQfSlvUkFONxXKuxk8N0ToQW9SQGfTa9c/6+FKPd7LNspHrp1VlVGvEz561j16NuJIF5Zgrd4DEzqN0MyMkJ3PSXdMecw==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: FeTZDN2QMLvRlwfyjHJrAtfCoJwbMR4sKOBw1dqKFMcU3zUEp3tmyEtvTkA7ps9nq1tMrLutKvNQGkkUSGyldKz4AsQaKzkGRrTztDd2jhevRR6gGhBac1CgU+o9gCheq+WfOJfy/ByaFafIPHp8RYSHH9SJRCJ/f/riRaqCSL0WpMnOlIDUl9JayIMw4y7ORF1z7pXSH10z9PZmVMmcr3tzZ7kazDhib42TlbQeXrmJDdExcXJFxqCbju4DxOxmGyx3cg28HGKn9UdZDTIBGE62nrIx+kjD/HfU93olTQHUB7n6qxv/tc5AS/yUwT7b7+CB38WVTcqq87R9WIp8pDFsjqwS6ogyPXEhPwaFNlfy6dmsAJAkbrsweBllvveT+lu+QUQMzvxnckhX85dCwCVFb4np3tej44xe89+PK3V1aDbU73TueUKMFLfXZFFh
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 19:31:22.9569
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e790fff-f335-405b-5ae4-08df23173d4f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1D.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5939
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_123335_757056_D9325A4C 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20261005_131638_904993_692B06D8 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,55 +107,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vmid_map ida is initialized after the stream table setup, along with
-the devres action that destroys it.
+On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrote:
+> stmmac_update_subsecond_increment() ignores the error returned by
+> stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
+> addend and system time programming errors, always returning success. A
+> failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
+> system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
+> leaving the hardware timestamp counter in a non-running or partially
+> configured state while the driver keeps operating as if timestamping
+> were up. This matters for TAPRIO/EST offloading, which derives the gate
+> base time from the hardware timestamp counter.
+> 
+> The same hooks are also called from the PHC callbacks: settime64 and
+> adjfine drop the error and report success to clock_settime() and
+> clock_adjtime(), so a dead PTP reference clock goes unnoticed by
+> ptp4l/phc2sys.
+> 
+> Return error codes from stmmac_update_subsecond_increment(),
+> stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
+> settime64/adjfine callbacks instead of silently returning success. On
+> failure, roll back the partially applied configuration so the hardware
+> and the driver bookkeeping stay consistent, and report the reason
+> through the devlink extack. Also guard against a zero sub-second
+> increment, which would otherwise divide by zero when computing the
+> addend.
+> 
+> Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
+> tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializing
+> timestamping, so a failed init does not leave TX/RX timestamping
+> enabled on a counter that never started.
+> 
+> Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to generic HW Interface Helpers")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> ---
+> Changes in v3:
+> - Do not run stmmac_config_addend() in
+>   stmmac_update_subsecond_increment() error path.
+> - Return error from stmmac_adjust_freq() and stmmac_set_time().
+> - Reset hw ts configuration in stmmac_init_timestamping().
+> - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-added-systime-error-v2-1-beb2a6b5f866@oss.qualcomm.com
+> 
+> Changes in v2:
+> - Initialize sec_inc to 0 in stmmac_restore_subsecond_increment()
+>   routine.
+> - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-added-systime-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++++++++++++++------
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
+>  2 files changed, 84 insertions(+), 32 deletions(-)
 
-An upcoming change will reserve the crashed kernel's in-use VMIDs in this
-ida, from a kdump kernel's stream table adoption that runs in place of the
-regular setup and returns early.
+Hello, I'm noticing that after this patch was merged into linux-next,
+boot seems to hang when ip=dhcp is used because ethernet isn't working
+on the TH1520 Lichee Pi 4a. These lines get printed in a loop over and
+over
 
-Move the ida_init() and its devres registration to the entry of the whole
-function, so that the ida is ready by the time the adoption path runs.
+IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] thead-dwmac ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+f2 mtu 1500 DHCP
+[   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmmac-0:01] driver [RTL8211F Gigabit Ethernet] (irq=POLL)
+[   24.912780] dwmac1000: Master AXI performs any burst length
+[   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety Features support found
+[   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init failed
+SIOCSIFFLAGS: Connection timed out
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Tested-by: Breno Leitao <leitao@kernel.org>
-Tested-by: Cristian Prundeanu <cpru@amazon.com>
-Assisted-by: LLM
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+I suspect that this has something to do with the error codes being
+discarded in your patch/some particular quirk of this hardware where it
+doesn't support these PTP related bits.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 34e916ea339ff..792627e1c790e 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4842,17 +4842,17 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
-+	ida_init(&smmu->vmid_map);
-+	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
-+				       &smmu->vmid_map);
-+	if (ret)
-+		return ret;
-+
- 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
- 		ret = arm_smmu_init_strtab_2lvl(smmu);
- 	else
- 		ret = arm_smmu_init_strtab_linear(smmu);
--	if (ret)
--		return ret;
--
--	ida_init(&smmu->vmid_map);
--
--	return devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
--					&smmu->vmid_map);
-+	return ret;
- }
- 
- static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
--- 
-2.43.0
+I've CC'ed the linux-riscv list, in case anyone here is more familiar
+with this particular board and knows why this is happening.
 
+Regards
+Anirudh Srinivasan
 
