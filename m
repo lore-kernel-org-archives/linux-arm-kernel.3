@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E0CCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9253CCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQMvdvTBs6iJwXtYsvXOz+3I/5tVR71kCapN0bE7bQI=; b=Sjh3wgd5N/tYUUgHHVUnVIwjg/
-	EGlWJI2o+B5/fPltzSCAMPlATBesKIjf0RMouyNFxtk5+svBDN/8ZqPKsqBF+aAww07lLC4G5/jVa
-	OV4Uhsdrt82JhWaPeXUFzrhHd9Y0gkA1O1sMmb5dMCq8VHbhfH4RGLWGmfa126Nus08oVQCjJJuLv
-	VwaEHhqFND0tzeRdZQF3tLwaiJJPr3+/vPzspwx0vHag2mp2BPn7olcEsjk8a8ZLrlvg9zj6wcnNH
-	ytYGuz5c7d6KDlKzjCFd1jFKfnWIKaU/PHwEbvNsS4Qc0fYZxUhEiW6H42UEZNRVOVEJOniGwp7aD
-	Zusp2oJg==;
+	bh=mPenIixNxeo/RZZYYRWBFbMM7vTNg8wPpLI436ns0nM=; b=KFdlAqC5fPPhjqVAJoGxn+1LSY
+	+NkX4ubn1FcMbGGrelLltdY+9CTXMCeXy1FFcCESxiCfbV26Q0cKQS4jM2r8CtVk3/4qmf096rs4r
+	6Xz7/kzKLfbl9vpbs0GCKOk5kErkEpflSxeVHGly/xf8eQ+A3VjR3KUPUMnWvf8MqRZCQ+Xd7YhMM
+	cS052Xkz2cCWLIYBZCgghNwYcviSEYaJQEOYK+4BXksYQnR078+aceETDuHdrm5qpyVheHzwzxBTA
+	vgApDEqTJ7Ez4zmzMmUEd4+/OzYreQkSHxLavaNSr9A8Q9Lbss+Mu8tXg4vOBpyUZalOS6XQu6SMr
+	k6YvXPZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDef1-0000000Fvrd-48ZK;
-	Mon, 05 Oct 2026 09:07:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeey-0000000Fvpl-2Hu6
+	id 1xDegA-0000000FwM9-13nA;
+	Mon, 05 Oct 2026 09:08:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDeg7-0000000FwKp-1IRd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:07:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5098D43DDA;
-	Mon,  5 Oct 2026 09:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF1C41F00893;
-	Mon,  5 Oct 2026 09:06:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791191220;
-	bh=pQMvdvTBs6iJwXtYsvXOz+3I/5tVR71kCapN0bE7bQI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=igPnMmADQExidCdXXF4Wq/8dGBbJ0wI+gdVJN4/wH8sdLmM2n3DtJ6kyrXfLTlsP2
-	 sYkU7tnCxXat1UP+UwJ9dP11QqwRhyD1KZDm1s1wUpOY8wjEdr6wSsqY1FYQd9m+QY
-	 MFyybganmv1DZttCNZi16Cknzv7vnUZHmQ1SCwdxXF9h5VoKkNWv+eMyUvaZ7dqYZ8
-	 ewmxeTQhAA0kIPAt1DVDm3mPH4yVwcF1dlPVn/Flvod+Ayt9FBWa24ZqlYbNHQOVOb
-	 jwuUFOivRn+ElTXeCzBXaoxxjTxD4mqDcc4ZMDs7LhEgx7FsJU7WL53d1hUVNnYi7k
-	 onyP15+t5wbtA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Mon, 05 Oct 2026 10:04:35 +0100
-Subject: [PATCH v2 4/4] firmware: arm_scmi: Skip unused performance-domain
- devices
+	Mon, 05 Oct 2026 09:08:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 611831576;
+	Mon,  5 Oct 2026 02:08:06 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BEE4A3F66F;
+	Mon,  5 Oct 2026 02:08:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791191289; bh=VEvLdkz1eGObHkr5aPI59l9BjDBAJ/q4k8m4P7yH6kc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VTekPLpml7vv33SnmoRUcJNZV8KWAJ6Jr9TOi847zCOM+o4aL1oI/SgkU2KIXQYGF
+	 6fn619PCfEi0acgEGmCmg7/FsXfnwtUDkqqPJtai3oaroPwGoHtWj5+Khzi/VvUGCZ
+	 QOAP4i9ET+l5oUkd45PTJwYJj9pC2jJsm2ec/9aM=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH v22 01/23] KVM: arm64: protected VM: Handle user writes to CNTVCT_EL0/CNTPCT_EL0
+Date: Mon,  5 Oct 2026 10:07:32 +0100
+Message-ID: <20261005090754.2140522-2-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261005-scmi_bus_fixes-v2-4-34a51338875a@kernel.org>
-References: <20261005-scmi_bus_fixes-v2-0-34a51338875a@kernel.org>
-In-Reply-To: <20261005-scmi_bus_fixes-v2-0-34a51338875a@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, Peng Fan <peng.fan@nxp.com>, 
- Hans de Goede <johannes.goede@oss.qualcomm.com>, imx@lists.linux.dev, 
- linux-gpio@vger.kernel.org
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_020811_436836_4BE736E4 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,53 +90,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI performance-domain driver uses the named "perf" device only
-when its firmware node declares #power-domain-cells. Otherwise its
-probe returns without registering a provider, while the same SCMI
-protocol may still be needed by the separate "cpufreq" device.
+Protected VMs doesn't allow setting offsets for virtual and physical
+counters, as the offset is always fixed to 0. The VM ioctl is filtered
+out based on the cap. However we don't prevent the userspace from trying
+to write to the CNTVCT/CNTPCT registers. This would lead to KVM triggering
+a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
 
-Do not create the "perf" device when the provider property is absent.
-This avoids an unnecessary device claiming the protocol fwnode and
-leaves cpufreq creation unchanged. Update the device-creation contract
-to document that an intentionally omitted named device returns NULL.
+Fix this by always "fixing" the timer offsets to 0 and marking that the
+timer offset is set in the kvm->arch.flags at KVM init time for protected
+VMs. This prevents the access to the VM specific vm_offset at low cost.
+A userspace writing to the CNT*CT_EL0 would observe success, without
+any real effect. This is cleaner over spilling "*_is_protected()"
+checks and "matches" what we really do in practise. i.e., always run
+with "fixed counter offset of 0".
 
-Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-Tested-by: Peng Fan <peng.fan@nxp.com> #i.MX95 EVK
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Reported by Sashiko
+
+Link: https://lore.kernel.org/all/20260908164641.416911F00A3A@smtp.kernel.org
+Fixes: f7d05ee84a6a ("KVM: arm64: Prevent host from managing timer offsets for protected VMs")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Tested-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- drivers/firmware/arm_scmi/bus.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ Changes since v19:
+  - Fix typos in commit description and explain why we choose the approach.
+  - Improve comment in the code
+ Changes since v18:
+  - Retain NULL vm_offset for protected VMs to avoid host tampering with the
+    offset.
+  - Moved the flag setting into kvm_timer_init_vm(), where it should have been
+    in the first place
+---
+ arch/arm64/kvm/arch_timer.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 6be31b5121b3..b235d322330b 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -570,6 +570,11 @@ _scmi_device_create(struct fwnode_handle *fwnode, struct device *parent,
- {
- 	struct scmi_device *sdev;
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 6ac3321f4c575..a45845f4ae4ea 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -1110,8 +1110,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+ 		timer_context_init(vcpu, i);
  
-+	/* The perf device is only needed when it provides power domains. */
-+	if (protocol == SCMI_PROTOCOL_PERF && !strcmp(name, "perf") &&
-+	    !fwnode_property_present(fwnode, "#power-domain-cells"))
-+		return NULL;
+ 	/* Synchronize offsets across timers of a VM if not already provided */
+-	if (!vcpu_is_protected(vcpu) &&
+-	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
++	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
+ 		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+ 		timer_set_offset(vcpu_ptimer(vcpu), 0);
+ 	}
+@@ -1133,6 +1132,15 @@ void kvm_timer_init_vm(struct kvm *kvm)
+ 	 */
+ 	for (int i = 0; i < NR_KVM_TIMERS; i++)
+ 		kvm->arch.timer_data.ppi[i] = get_vgic_ppi(kvm, default_ppi[i]);
 +
- 	sdev = __scmi_device_create(fwnode, parent, protocol, name);
- 	if (!sdev)
- 		pr_err("(%pfwf) Failed to create device - protocol 0x%x (%s)\n",
-@@ -596,10 +601,8 @@ _scmi_device_create(struct fwnode_handle *fwnode, struct device *parent,
-  *
-  * Return: The created device (or one of them if @name was NOT provided and
-  *	   multiple devices were created) or NULL if no device was created;
-- *	   note that NULL indicates an error ONLY in case a specific @name
-- *	   was provided: when @name param was not provided, a number of devices
-- *	   could have been potentially created for a whole protocol, unless no
-- *	   device was found to have been requested for that specific protocol.
-+ *	   note that NULL can also indicate that a named device is not needed
-+ *	   for this fwnode, or that no device was requested when @name is NULL.
-  */
- struct scmi_device *scmi_device_create(struct fwnode_handle *fwnode,
- 				       struct device *parent, int protocol,
-
++	/*
++	 * Protected VMs don't allow the userspace to set counter offsets,
++	 * either set via counter register writes or the dedicated ioctls.
++	 * Pretend the offset has already been set and rely on the default
++	 * offset being 0.
++	 */
++	if (kvm_vm_is_protected(kvm))
++		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
+ }
+ 
+ void kvm_timer_cpu_up(void)
 -- 
 2.43.0
 
