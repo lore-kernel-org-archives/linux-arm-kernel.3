@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97153CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5289CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p+NqYzkJi4bbpKBIQTUInr2tga3QhuawnSpp33S+pYw=; b=y1HYN5VmKh6jupwm3n54YUxkp8
-	wz9FpzjGJuBW+0WbHUMSsheXmN2j/z+TCyE+vQsAoN56dw3rCHhkydqqml5fbGKNRHm6V3rKZITNF
-	wWYx7d9+KCmRbY9cbKZW81k+I5FqGZtGDgV3+ka/44t6YBGeChlHF9aruNSXRVC+z57l+GyVcpI4s
-	+2fi5+ScTWL1xu2DdxHP73z65ggKF1mXPVJzjRnc5dz50r82fR8FU6LUK8svEwRUVubsLum9eiqfi
-	OwRmt2BM1SdnIxgrZDvoilHuggmv8IwOfS4pypiEXRLjmbh+18Wber0sqanp4sPxgPBte4e7jB0jt
-	g5pBHq+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hB96Gs8hLMTWWdb83gK/pYz1+UsEAi8km31i/cat4RQ=; b=QWbM+cfy87TWemZO/geloyDKO4
+	ZFB6IMNkyZ/uHkD5wW9TP7NzXOa86oahryOd8jKNaKjH+PT/Vo9tvI5gIoSgOZLgupX30r/PtCL4t
+	GxuwQKjGsAOxTbpN4SlzH0x5WWFgKlKuQvqNa4SLhyi7Rrf7lYi3xmZBypcCZfTo229hUaE62HDda
+	78NpLH/eGa95gYvlzUwHnJ9GelWf/cmpVanJsr/jBVJvl9NOkv6VC/cIl791E6fZqUHUzwzmKa2pA
+	Z7aHtw695w7hLzI+J+8Hjx2A6i6r7lkUA5cUyoLWWoH71PBhNyIDUjXNakeJYzTIFEnOYZBW86TZ8
+	SdTS7R/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiyj-0000000GZDn-37vj;
-	Mon, 05 Oct 2026 13:43:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiyg-0000000GZCK-1qKu
+	id 1xDjDL-0000000Gavu-2jtS;
+	Mon, 05 Oct 2026 13:58:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDjDK-0000000Gavm-1U0n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 13:43:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32DC0152B;
-	Mon,  5 Oct 2026 06:43:33 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E30A93F86F;
-	Mon,  5 Oct 2026 06:43:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791207816; bh=CWv6wDh/LavMy4SV7bBu3KaB84y77Ij9h09DIbD8w5s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VLYv7U5EP08T54sp7h2B/09wBnOsC4TvmV02qYm6eGHza6LJHmO1R8roAh6sT2slN
-	 +rvqGyGgHDQGKgWruurZ3lqoiG2xPqrMgNDnHr4JWyPg4bkDSAE5hMdUJUz5g5IIA2
-	 +Zk9w/TmBh0kM9L12NVmftvoIdG2RhIFUTW2c0DE=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] perf/arm_cspmu: Add Arm system PMU
-Date: Mon,  5 Oct 2026 14:42:53 +0100
-Message-ID: <162173d376d223941b0c8b4e4a1c9ad2ae5c11a3.1791207773.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
+	Mon, 05 Oct 2026 13:58:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BEA614395D;
+	Mon,  5 Oct 2026 13:58:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FE91F000FF;
+	Mon,  5 Oct 2026 13:58:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791208725;
+	bh=hB96Gs8hLMTWWdb83gK/pYz1+UsEAi8km31i/cat4RQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lxcb1hadOyNcndGwI00W4Z2i9T1Fj36nxN1D2FABJulC5gVeSYv5Q9e2v7Du8iSo8
+	 l9EdafQXzGFQb+2bUrP9KVZaLoOCsN3EgLkxVj1c87x5MSVAPl57SMTUU2P4+p3VHu
+	 dW7zwbSIFQGEybrPwwAxc4rTFnnJed0v+0TOEGX/5ZFrzX6u/FnQw01BhKBweU9dvK
+	 +D3bIIVYRcoPMn/kerQrg3ohui+YMleOC/fVXOCg5cZZ9yK+kQCyC0For2J9Km7QWi
+	 49zRK2Pc3DelHioJT8W1saw4BDmTjJXwguBFIRXNl58T9Pk7EUgTrIfmKsWsFVXd3n
+	 rzZ6qquDq2Z5g==
+Date: Mon, 5 Oct 2026 15:58:42 +0200
+From: Vinod Koul <vkoul@kernel.org>
+To: Hemanth Selam <hemanth.selam@gmail.com>
+Cc: Frank Li <Frank.Li@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dmaengine: fix typos in comments
+Message-ID: <asOtEhjOMXc9SVNP@parshuram>
+References: <20260907063343.22255-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_064338_574227_65C923EC 
-X-CRM114-Status: GOOD (  17.43  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260907063343.22255-1-hemanth.selam@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,154 +70,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm's latest Compute Subsystems and SoCs are using a common PMU block
-in various places which can mostly just be driven as a generic 64-bit
-CoreSight PMU, but does have an IMP-DEF register for additional
-filtering. The details of event and filter encodings depend on the
-particular PMU instance, so are left to the higher level Arm Telemetry
-Solution tooling.
+On 07-09-26, 12:03, Hemanth Selam wrote:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.  Only touches comments, no code
+> changes.
+> 
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> ---
+>  drivers/dma/bcm-sba-raid.c        | 8 ++++----
+>  drivers/dma/ppc4xx/xor.h          | 2 +-
+>  drivers/dma/xilinx/xilinx_dpdma.c | 2 +-
+>  3 files changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/dma/bcm-sba-raid.c b/drivers/dma/bcm-sba-raid.c
+> index 0de03611252e..485fcde390dd 100644
+> --- a/drivers/dma/bcm-sba-raid.c
+> +++ b/drivers/dma/bcm-sba-raid.c
+> @@ -734,7 +734,7 @@ sba_prep_dma_memcpy(struct dma_chan *dchan, dma_addr_t dst, dma_addr_t src,
+>  	struct sba_device *sba = to_sba_device(dchan);
+>  	struct sba_request *first = NULL, *req;
+>  
+> -	/* Create chained requests where each request is upto hw_buf_size */
+> +	/* Create chained requests where each request is up to hw_buf_size */
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
+This is bogus, pls drop these... If there are real typos pls fix those
+instead! This is not a language book, it is code, upto should be just
+fine!
 
-v2: Rebase onto for-next/perf
+>  	while (len) {
+>  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
+>  
+> @@ -877,7 +877,7 @@ sba_prep_dma_xor(struct dma_chan *dchan, dma_addr_t dst, dma_addr_t *src,
+>  	if (unlikely(src_cnt > sba->max_xor_srcs))
+>  		return NULL;
+>  
+> -	/* Create chained requests where each request is upto hw_buf_size */
+> +	/* Create chained requests where each request is up to hw_buf_size */
+>  	while (len) {
+>  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
+>  
+> @@ -1356,7 +1356,7 @@ sba_prep_dma_pq(struct dma_chan *dchan, dma_addr_t *dst, dma_addr_t *src,
+>  	if (!(flags & DMA_PREP_PQ_DISABLE_Q))
+>  		dst_q = &dst[1];
+>  
+> -	/* Create chained requests where each request is upto hw_buf_size */
+> +	/* Create chained requests where each request is up to hw_buf_size */
+>  	while (len) {
+>  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
+>  
+> @@ -1626,7 +1626,7 @@ static int sba_probe(struct platform_device *pdev)
+>  	sba->dev = &pdev->dev;
+>  	platform_set_drvdata(pdev, sba);
+>  
+> -	/* Number of mailbox channels should be atleast 1 */
+> +	/* Number of mailbox channels should be at least 1 */
+>  	ret = of_count_phandle_with_args(pdev->dev.of_node,
+>  					 "mboxes", "#mbox-cells");
+>  	if (ret <= 0)
+> diff --git a/drivers/dma/ppc4xx/xor.h b/drivers/dma/ppc4xx/xor.h
+> index da1230df2817..0931e18cd0d3 100644
+> --- a/drivers/dma/ppc4xx/xor.h
+> +++ b/drivers/dma/ppc4xx/xor.h
+> @@ -12,7 +12,7 @@
+>  
+>  #include <linux/types.h>
+>  
+> -/* Number of XOR engines available on the contoller */
+> +/* Number of XOR engines available on the controller */
+>  #define XOR_ENGINES_NUM		1
+>  
+>  /* Number of operands supported in the h/w */
+> diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
+> index d9a3542c4531..bcc188e70441 100644
+> --- a/drivers/dma/xilinx/xilinx_dpdma.c
+> +++ b/drivers/dma/xilinx/xilinx_dpdma.c
+> @@ -1032,7 +1032,7 @@ static int xilinx_dpdma_chan_wait_no_ostand(struct xilinx_dpdma_chan *chan)
+>  {
+>  	int ret;
+>  
+> -	/* Wait for a no outstanding transaction interrupt upto 50msec */
+> +	/* Wait for a no outstanding transaction interrupt up to 50msec */
+>  	ret = wait_event_interruptible_timeout(chan->wait_to_stop,
+>  					       !xilinx_dpdma_chan_ostand(chan),
+>  					       msecs_to_jiffies(50));
+> -- 
+> 2.48.1
 
- drivers/perf/arm_cspmu/Kconfig      |  7 +++
- drivers/perf/arm_cspmu/Makefile     |  1 +
- drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
- drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
- drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
- 5 files changed, 83 insertions(+)
- create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
-
-diff --git a/drivers/perf/arm_cspmu/Kconfig b/drivers/perf/arm_cspmu/Kconfig
-index 6f4e28fc84a2..25bd55f036a4 100644
---- a/drivers/perf/arm_cspmu/Kconfig
-+++ b/drivers/perf/arm_cspmu/Kconfig
-@@ -27,3 +27,10 @@ config AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU
- 
- 	  In the first phase, the driver enables support on MCU PMU used in
- 	  AmpereOne SoC family.
-+
-+config ARM_SYSTEM_PMU
-+	tristate "Arm System PMU"
-+	depends on ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU
-+	help
-+	  Support additional event filtering attributes for the CoreSight-based
-+	  PMU blocks found in various parts of Arm Compute Subsystems and SoCs.
-diff --git a/drivers/perf/arm_cspmu/Makefile b/drivers/perf/arm_cspmu/Makefile
-index 220a734efd54..90c3cd710157 100644
---- a/drivers/perf/arm_cspmu/Makefile
-+++ b/drivers/perf/arm_cspmu/Makefile
-@@ -8,3 +8,4 @@ arm_cspmu_module-y := arm_cspmu.o
- 
- obj-$(CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += nvidia_cspmu.o
- obj-$(CONFIG_AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += ampere_cspmu.o
-+obj-$(CONFIG_ARM_SYSTEM_PMU) += arm_syspmu.o
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index 912f03ce3ef5..9f298ea1a974 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.c
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -358,6 +358,13 @@ static struct arm_cspmu_impl_match impl_match[] = {
- 		.module		= NULL,
- 		.impl_init_ops	= NULL,
- 	},
-+	{
-+		.module_name	= "arm_syspmu",
-+		.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
-+		.pmiidr_mask	= PMIIDR_IMPLEMENTER,
-+		.module		= NULL,
-+		.impl_init_ops	= NULL,
-+	},
- 	{
- 		.module_name	= "ampere_cspmu",
- 		.pmiidr_val	= ARM_CSPMU_IMPL_ID_AMPERE,
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
-index c4058d602477..03e34692a965 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.h
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-@@ -149,6 +149,7 @@
- 
- /* JEDEC-assigned JEP106 identification code */
- #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
-+#define ARM_CSPMU_IMPL_ID_ARM		0x43B
- #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
- 
- /* PMDEVARCH */
-diff --git a/drivers/perf/arm_cspmu/arm_syspmu.c b/drivers/perf/arm_cspmu/arm_syspmu.c
-new file mode 100644
-index 000000000000..ac234768a2f8
---- /dev/null
-+++ b/drivers/perf/arm_cspmu/arm_syspmu.c
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/io.h>
-+#include <linux/module.h>
-+
-+#include "arm_cspmu.h"
-+
-+#define PMEVFILT3R	0x200
-+
-+static struct attribute *arm_syspmu_format_attrs[] = {
-+	ARM_CSPMU_FORMAT_EVENT_ATTR,
-+	ARM_CSPMU_FORMAT_FILTER_ATTR,
-+	ARM_CSPMU_FORMAT_FILTER2_ATTR,
-+	ARM_CSPMU_FORMAT_ATTR(filter3, "config3:0-63"),
-+	NULL,
-+};
-+
-+static struct attribute **arm_syspmu_get_format_attrs(const struct arm_cspmu *cspmu)
-+{
-+	return devm_kmemdup(cspmu->dev, arm_syspmu_format_attrs,
-+			    sizeof(arm_syspmu_format_attrs), GFP_KERNEL);
-+}
-+
-+static void arm_syspmu_set_ev_filter(struct arm_cspmu *cspmu,
-+				     const struct perf_event *event)
-+{
-+	u32 offset = 8 * event->hw.idx;
-+
-+	writeq(event->attr.config1, cspmu->base0 + PMEVFILTR + offset);
-+	writeq(event->attr.config2, cspmu->base0 + PMEVFILT2R + offset);
-+	writeq(event->attr.config3, cspmu->base0 + PMEVFILT3R + offset);
-+}
-+
-+static int arm_syspmu_init_ops(struct arm_cspmu *cspmu)
-+{
-+	switch (FIELD_GET(PMIIDR_PRODUCTID, cspmu->impl.pmiidr)) {
-+	case 0x9c3:
-+		cspmu->impl.ops.set_ev_filter = arm_syspmu_set_ev_filter;
-+		cspmu->impl.ops.get_format_attrs = arm_syspmu_get_format_attrs;
-+		break;
-+	default:
-+		break;
-+	}
-+	return 0;
-+}
-+
-+static const struct arm_cspmu_impl_match arm_syspmu_param = {
-+	.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
-+	.module		= THIS_MODULE,
-+	.impl_init_ops	= arm_syspmu_init_ops
-+};
-+
-+static int __init arm_syspmu_init(void)
-+{
-+	return arm_cspmu_impl_register(&arm_syspmu_param);
-+}
-+
-+static void __exit arm_syspmu_exit(void)
-+{
-+	arm_cspmu_impl_unregister(&arm_syspmu_param);
-+}
-+
-+module_init(arm_syspmu_init);
-+module_exit(arm_syspmu_exit);
-+
-+MODULE_DESCRIPTION("Arm System PMU Driver");
-+MODULE_LICENSE("GPL");
 -- 
-2.54.0.dirty
-
+~Vinod
 
