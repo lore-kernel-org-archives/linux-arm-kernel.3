@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C05CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340C5CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0E0kZNEEosSgGH99aMOAH+blyCZGVgX/b9FbaeaxoPo=; b=FmyO4l7Y9LglzZz5f7J9z7i4Le
-	5xxeoqKywYU7s+01sLg58qKzt6FE0B/lak6JjoKq6W+VORZnTbpXyieZvmu6rj2B3+tFUsEv6V1CL
-	2i5lLetYpguekbq+VOenrOxKpa8Hhst0r/xkg5aJA/9dtIlB0Tqn4diFetaSFJrHhft1zP0JXN64U
-	i04J8Qb3pt9UU4ehKyO7S5EN7u1Bc2coQFWbj6sdwZ0p1Z1JOHZQtpfifMXSyDzl0PQewWEUgAjuY
-	YtB3jKEHfkJUOsaow6eYKkyxggxAAntt6VLmU8Cf1I+6iAgOofRXinjq6inQMKWQIm43iJ3qCwaPv
-	0f8TCcHw==;
+	bh=dNNu6FxDNOOWjNZIXKqoN5QQzPfYosIUED3AJWJ62cA=; b=NgVAXLjYdlzAqLMZ36OqP5Y11t
+	BaYz/z14yPMwvjzOxPPEqoXskyi1pgTCRSfsAeCr+WPRBrk7ykk/9bnkQSX+PqNalGYFYd9dYChLR
+	byNDSaiGZGIixLfgLbauoyniky8F+cG4weNfLIefRqrBeYaQcW78dYDc5pW5euUqma2kF1q8+SVoc
+	LT3Jg+/IefuypBxF2VXgzq0edcXgKjl6RR2LjdOYGXEvPDRhq/qZ+iDsbDPzCLkNy9/3nZ+XORutx
+	803gbaN/am9GQ+tXgqpm0kQGN48VfBemUkrYZZszOvs0jKvXR3txl4ncWs+lq6wdTk9tV2LPXUYE7
+	SsaHDN9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDgEv-0000000GDlY-3lRV;
-	Mon, 05 Oct 2026 10:48:13 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xDgH7-0000000GENr-23Cj;
+	Mon, 05 Oct 2026 10:50:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDgEq-0000000GDjZ-44Pj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 10:48:10 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d8239so13768745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 03:48:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791197287; x=1791802087; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0E0kZNEEosSgGH99aMOAH+blyCZGVgX/b9FbaeaxoPo=;
-        b=tlr59VDknuC5iL5f4FsaeIDnVUEXt4sf3GXtrSpLNZvDEUpeACsdg+ilReES5ekCbs
-         vqy50L5r+MHftwLxEzgickEmI17yfEueOL2lHIwcyBv6jY4Rxr1R9BqoBfbSkryBTglV
-         AxYj2jbAvzOGQphIbmhPh5ChI3UBpQ4CpYINmvunfbkV8jZhdUDHlKvTNSViggfGP9Oh
-         aeeIufDaPnUcG874f+0bJZR8ROA965J+5CvOJVJz+ZVt9478jHUEboMrAz0VvTu8fuEA
-         1+aIowgZuri3AUj6wEulJfH8FoHPDgCC2lLkDDnadGOPFodtHqX1IFRnKymhTWmCpdEv
-         0JvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791197287; x=1791802087;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0E0kZNEEosSgGH99aMOAH+blyCZGVgX/b9FbaeaxoPo=;
-        b=Cvu0a9ipyY0zIeHWRMaQ44rGGxz+i41OeFTyWgvcCeRc+FQLHF2nPolt3Qu1Cofb1a
-         KQrCUadf/0ovSx1/I7ZPpoMF1JoEKN3e1JplPL15WwJSnLWu4VtNnW452KVt5ib3Z088
-         Al8xID7OwniFoKlO7USmLVAU7HTJB5P+Ek4Qu9O9N0S3SvWLtMRd4euI5iEqA2AR64wZ
-         0rBa1mU5HDxpj72DyAAQllHiBD9hTJbrI7uroOTYVVuYNp0CHt5ovlRCea0ayOEF3m2X
-         Ua9NdUyHR73Ha0vn1b9pHo3kD0oo+WLzXA7s1FfYySs1lNUvIRvSjihKRysUsYoseb2m
-         +iJw==
-X-Forwarded-Encrypted: i=1; AKwUvBzODhDgMrTZLK2Hiju4R3Pk2V/03RvWipDZBnn5iCiIcdsqcRE0E0BeBleLLdKC1UklXZXIHx6xltS6WkVogh2W@lists.infradead.org
-X-Gm-Message-State: AFuF++niKU+KZNWAKEDKLbpH2fptkDSZAu2Z0DQrSwIQmHwAMtutll/S
-	yykYnY21w3ZF3b2zVGkUWSJe0gbQtJbT+sdqDfJq0p79EVak1UZSra8zq9SZf0YOwQ==
-X-Gm-Gg: AYBFou1ldkfIXA+0U6qCW49mpYd5kd7vbJFD8CSlS7URFC5/ShzFKGf//w1u0YW9UWl
-	jbXwJJEdOEqDkXWi+p+Bt2wR6jj1k5D8BiAPGXYKK9uEPx+YHg02dIFDBbXA3HHj29EXmSmnixb
-	btSoOcbyZ5Gnp/sl5FGulMlbmNm7oxOd2rTnD4CDhHULVyLD+vE3QwR++EDahwx/lL/VdN9aWaF
-	04EPT/EDbhi+UV+rNEbVjbdD8Ijpup2m6mNyXLwf/vY+VDusKH6elCUjcAtvfShF3a+TKBrWopz
-	/0dHxlCXx3xStwJOs+/xARxhCIxb4vn2taLtyP/Mrh26S6qHIVSGLmgVEn4l+RU4gcQ9hedCBSl
-	PN/Z2ndT+reAWF1Ca87IKj46vgAvWhdGHUNoTHV3JwqHCmCOc5DvThNNg8jf7WDDxnCIGs+NFx5
-	G+q8BJbp/I1Q9uXan6ogagwLSczoGpSRLjJZOl4oy/XXMojg0KBVzgVkX+9eUDdzsPcSbD95Joy
-	+BJqWAJNQ9Ffg6a2MOSYqjoPzBlYwSyOun7M/ViJvE=
-X-Received: by 2002:a05:600c:a112:b0:4a1:7690:d878 with SMTP id 5b1f17b1804b1-4a17690d93emr7713595e9.17.1791197286488;
-        Mon, 05 Oct 2026 03:48:06 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0e1afbc44sm329471285e9.4.2026.10.05.03.48.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 03:48:04 -0700 (PDT)
-Date: Mon, 5 Oct 2026 11:48:00 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
-	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
-	david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <asOAYODGZa-7EIV1@google.com>
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <arIYtjmSKCs14SqO@sumit-xelite>
- <arKW_91EeKA-w96m@willie-the-truck>
- <are21BjeS1O3RYE3@sumit-xelite>
- <aruh86rd5FMv2i9G@willie-the-truck>
- <ar5TPvANFUoosxGW@sumit-xelite>
+	id 1xDgH6-0000000GENg-03F4;
+	Mon, 05 Oct 2026 10:50:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CA3941A0E;
+	Mon,  5 Oct 2026 10:50:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC531F00893;
+	Mon,  5 Oct 2026 10:50:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791197427;
+	bh=dNNu6FxDNOOWjNZIXKqoN5QQzPfYosIUED3AJWJ62cA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NuV4R0Ndzki6VgB4Om4UUR9MgwgrCfkDvYNpScrdMa8v6zgXtRhGbYNLY8o6xqR9X
+	 WZMwikc6KCkeH1v78mAGgD5+QpJvL8eYyNOXjE+BI1OfcfRcgjEVInuynXSqGyo5Ll
+	 KW91Nr3aNCxs4Yd3hApAAHQgw1NnnauvVWpzbvw8tJ828dbL51RmsPt6RfWZb3yQRW
+	 pbxpmsidwPYxW0bMYBtGuBnhwXVZinQcwSO9rXSiV6dskijym854NtJ5TXtzYd2QR1
+	 AtHLbhVf3r9ngpvLs0nDmVvEwShhjy1uECf8whixppree5lwxS+YOLwPZ5aH7A4PLc
+	 ACtkjOcCQT7/w==
+Date: Mon, 5 Oct 2026 11:50:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 08/20] dt-bindings: reset: add Synaptics SL261X SoCs
+Message-ID: <asOA6-r41fuoGkEo@squawk>
+References: <20260929061417.20733-1-jszhang@kernel.org>
+ <20260929061417.20733-9-jszhang@kernel.org>
+ <20260929-sprang-stir-af07a907ccb2@spud>
+ <ar0npPCHX1P5Gjzx@xhacker>
+ <20260930-legend-helium-ca5a0ff56709@spud>
+ <ar_POzPRppAwK7ui@xhacker>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Gk8IWZpUcu6PCSl4"
 Content-Disposition: inline
-In-Reply-To: <ar5TPvANFUoosxGW@sumit-xelite>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_034809_034339_6FB6C068 
-X-CRM114-Status: GOOD (  51.27  )
+In-Reply-To: <ar_POzPRppAwK7ui@xhacker>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,109 +90,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
-> On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
-> > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
-> > > Looks like you dropped me from your reply.
-> > 
-> > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
-> > CC list to To: and drops you. I suspect the same thing happened to Thierry
-> > when he replied here:
-> > 
-> > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
-> > 
-> > I can't figure out why that's happening :/
-> > I manually tried to fix the To: and Cc: lines in this message.
-> 
-> Thanks.
-> 
-> > 
-> > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
-> > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
-> > > > for arm64 because it relies on being able to unmap arbitrary parts of
-> > > > the linear map, which isn't generally possible unless you force pte-level
-> > > > mappings for everything, which is prohibitive for perf/power.
-> > > 
-> > > As per the cover letter it's about allocating pages that are not present
-> > > in the direct map. This essentially fits the protected DMABufs use-case
-> > > where we don't want any kernel mapping to exist at any time. Bufers
-> > > allocated from protected DMABufs are only meant to be accessed by the
-> > > TEE implementation or HW accelerators like in the secure media pipeline.
-> > 
-> > That sounds like it should probably build on top of this series, then.
-> 
-> The main problem I see with this series is it tries to move from the generic
-> CMA allocator to a reserved FF-A CMA pool which again comes from the
-> DT. We already support reserved pool allocations via "no-map" which are
-> discovered dynamically from OP-TEE.
+--Gk8IWZpUcu6PCSl4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I can't think of a way around a DT declaration. We need to know what region is
-PTE-level before the direct map is installed and of_reserved_mem is very handy
-for that purpose. And as this PTE-level mapping is costly we certainly only want
-to enable it for platforms that absolutely need it.
+On Fri, Oct 02, 2026 at 11:35:23PM +0800, Jisheng Zhang wrote:
+> On Wed, Sep 30, 2026 at 05:49:18PM +0100, Conor Dooley wrote:
+> > On Wed, Sep 30, 2026 at 11:15:48PM +0800, Jisheng Zhang wrote:
+> > > On Tue, Sep 29, 2026 at 08:44:13PM +0100, Conor Dooley wrote:
+> > > > On Tue, Sep 29, 2026 at 02:14:05PM +0800, Jisheng Zhang wrote:
+> > > > > Add device tree bindings for the resets on Synaptics SL261X SoCs.
+> > > > >=20
+> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > > ---
+> > > > >  .../bindings/reset/syna,sl261x-reset.yaml     | 40 ++++++++++
+> > > > >  include/dt-bindings/reset/syna,sl261x-reset.h | 80 +++++++++++++=
+++++++
+> > > > >  2 files changed, 120 insertions(+)
+> > > > >  create mode 100644 Documentation/devicetree/bindings/reset/syna,=
+sl261x-reset.yaml
+> > > > >  create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
+> > > > >=20
+> > > > > diff --git a/Documentation/devicetree/bindings/reset/syna,sl261x-=
+reset.yaml b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+> > > > > new file mode 100644
+> > > > > index 000000000000..8cfec17df800
+> > > > > --- /dev/null
+> > > > > +++ b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.y=
+aml
+> > > > > @@ -0,0 +1,40 @@
+> > > > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > > > > +# Copyright (C) 2026 Synaptics Incorporated
+> > > > > +%YAML 1.2
+> > > > > +---
+> > > > > +$id: http://devicetree.org/schemas/reset/syna,sl261x-reset.yaml#
+> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > +
+> > > > > +title: Synaptics SL261X reset controller
+> > > > > +
+> > > > > +maintainers:
+> > > > > +  - Jisheng Zhang <jszhang@kernel.org>
+> > > > > +
+> > > > > +description: The reset controller node must be a sub-node of the=
+ chip
+> > > > > +  controller node on SL261X SoCs.
+> > > > > +
+> > > > > +properties:
+> > > > > +  compatible:
+> > > > > +    enum:
+> > > > > +      - syna,sl261x-soc-reset
+> > > > > +      - syna,sl261x-system-reset
+> > > > > +
+> > > > > +  "#reset-cells":
+> > > > > +    const: 1
+> > > > > +
+> > > > > +required:
+> > > > > +  - compatible
+> > > > > +  - "#reset-cells"
+> > > > > +
+> > > > > +additionalProperties: false
+> > > > > +
+> > > > > +examples:
+> > > > > +  - |
+> > > > > +    chip: chip-control@f7e10000 {
+> > > > > +        reg =3D <0xf7e10000 0x1000>;
+> > > > > +
+> > > > > +        chip_rst: reset {
+> > > > > +            compatible =3D "syna,sl261x-soc-reset";
+> > > > > +            #reset-cells =3D <1>;
+> > > > > +        };
+> > > >=20
+> > > > Why can't this just be part of the parent node?
+> > >=20
+> > > Good question! IMHO, the reasons are:
+> > >=20
+> > > 1. the so called Gbls(Gbl means global) such as mcuGbl and
+> > > chip control Gbl contain not only reset, pinctrl and clk/plls
+> > > but also some other registers for different purposes, e.g in the
+> > > chip control gbl, there are some registers to control eth phy sel(RMII
+> > > or RGMII), and TXC 90 degree selection etc. These registers will
+> > > be used by the Ethernet driver;
+> > >=20
+> > > While there's no pinctrl regs in avioGbl and vppGbl. In the vppgbl,
+> > > there are some registers for DPHYTX etc.
+> > >=20
+> > > As can been, in different Gbls, there maybe different purposes regist=
+ers, no
+> > > obvious patterns.
+> > >=20
+> > > So the question here is why not split the gbl into different register
+> > > spaces, and abstract each space for each function group?
+> >=20
+> > No, you misunderstood. I'm not asking for the register space to be
+> > split, I am asking why you cannot do
+> > | syscon@f7e1000 {
+> > | 	compatible =3D "syna,sl2610-soc-syscon", "syscon";
+> > | 	reg =3D <0xf7e10000 0x1000>;
+> > | 	#clock-cells =3D <1>;
+> > | 	#reset-cells =3D <1>;
+> > | };
+> > With this kind of thing, you can either use the auxiliary bus or
+> > MFD_CELL_NAME() to create the other devices. The latter is good if
+> > you've got a region with clocks that also has resets thrown in, the
+> > former is probably better if you have a syscon with a genuine
+> > assortment of different functions that you're going to be looking up via
+> > phandle.
+>=20
+> I see your points now. But there are two problems with this solution:
+>=20
+> 1. Besides reset, pinctrl and clk, the so called "Gbl" also contains
+> registers for other purpose, e.g DPHYTX, when we need the driver for
+> DPHYTX, I assume I could also go with the auxiliary bus or MFD_CELL_NAME(=
+),
 
-> 
-> If we can rather support a generic CMA like allocator for arm64 which
-> can support unmapped allocations then I am all for it. These platform
-> specific reserved pools isn't a scalable solution.
+Correct.
 
-What do you mean by generic CMA allocator here? An extension to
-shared-dma-pool? Or having the CMA automatically doing the unmap/map on
-cma_alloc() cma_release()?
+>=20
+> 2. where should the driver(s) and dt-bindings doc be put?
+> I assume drivers/soc/synaptics/ and
+> Documentation/devicetree/bindings/soc/synaptics?
 
-Right now I have created an API for the unmapping/remapping part. It adds a
-burden on the caller, but the alternative solution is introducing post-alloc
-pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
-the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
+Personally, this is where I put them in the MFD_CELL_NAME() case. In the
+aux bus case, there's generally no "parent" driver that just probes
+children, so it'd go into clock or whatever the main purpose is.
 
--- 
-Vincent
+Thanks,
+Conor,.
 
-> 
-> > You could allocate the DMABufs from a CMA region that has no linear alias.
-> 
-> Allocation from generic CMA pool is already the case here:
-> 
-> tee_shm_alloc_dma_mem() ->
->   dma_alloc_pages()
-> 
-> Do you mean it's just fine to unmap buffers allocated from generic CMA
-> region since it doesn't have any linear alias?
-> 
-> > 
-> > > > Vincent's series tackles that by using a pool so that only that part of
-> > > > memory requires the pte-level mappings in the linear map. That's the
-> > > > whole point of it, so I don't think it makes sense to drop it in favour
-> > > > of Brendan's approach (which doesn't work).
-> > > >
-> > > 
-> > > For protected DMABufs, we even don't require any pte-level mappings in
-> > > linear map. The whole idea of mapping and unmapping is just a bottleneck
-> > > for performance sensitive secure media pipeline use-cases. That's why if
-> > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
-> > > be the best fit for this use-case.
-> > 
-> > The point is that you will require pte-level mappings for the linear map
-> > if you want to unmap from it at runtime on arm64. If you don't, then you
-> > can end up needing to split a block mapping (e.g. pmd-level) when you
-> > decide to unmap only part of it and there isn't a safe way to do that on
-> > arm64 without transiently unmapping the entire block, which can lead to
-> > fatal translation faults during that window.
-> 
-> I agree with you here, what I am rather trying to find if on arm64 there
-> is any possibilty to have a generic allocator for unmapped pages. That's
-> the use-case here as well as what Brendan't patch-set was trying to address.
-> 
-> > 
-> > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
-> > > how Brendan is doing it for x86?
-> > 
-> > Because arm64 != x86? Presumably x86 doesn't have the strict
-> > break-before-make requirements we have on arm64.
-> > 
-> 
-> Sure, sounds like you are eluding to that the generic MM flag
-> __GFP_UNMAPPED being proposed can't be supported on arm64, right?
-> 
-> -Sumit
+>=20
+> Kindly correct me if I misunderstood something.
+>=20
+> Thanks
+> >=20
+> > > Two blocking
+> > > points make this impossible and ugly: different reg space may not be
+> > > aligned at 4KB boundary, e.g reset: 0x350 ~ 0x37c; eth phy sel:0xa18;
+> > > some registers which belong to similar functionality, e.g clks, may n=
+ot be
+> > > adjacent.
+> >=20
+> > This sort of thing, with non-adjacent clocks is still possible, you have
+> > a regmap just like before.
+> >=20
+> > > So the best way is to abstract these GBLs via. "syscon", "simple-mfd"=
+, and
+> > > put necessary subnodes such as reset, pinctrl and clks under the GBL
+> > > node. If the registers in GBL is misc control, pass the syscon phandle
+> > > to the main driver, e.g I planed to pass the syscon phandle to GMAC
+> > > driver to control the RMII/RGMII selection.
+> >=20
+> > And you can get the regmap from other drivers by doing phandle or
+> > compatible based lookups just like before.
+> >=20
+> > >=20
+> > > 2.follow current bg2 and bg2q style
+> > > e.g arch/arm/boot/dts/synaptics/berlin2q.dtsi
+> > >=20
+> > > IMHO, why bg2 and bg2q dtsi files are implemented as current
+> > > style is due to the above point 1.
+> >=20
+> > Unfortunately, this is the berlin2q devicetree showing its age, we've
+> > been pushing people away from nodes that exist just to probe a driver
+> > and don't provide any additional value. Something like
+> > | chip-control@f7e10000 {
+> > |     reg =3D <0xf7e10000 0x1000>;
+> > |=20
+> > |     chip_rst: reset {
+> > |         compatible =3D "syna,sl261x-soc-reset";
+> > |         #reset-cells =3D <1>;
+> > |     };
+> > |=20
+> > |     chip_clk: clock {
+> > |         compatible =3D "syna,sl261x-soc-clock";
+> > |         #clock-cells =3D <1>;
+> > |     };
+> > is exactly the pattern we are trying to avoid.
+> >=20
+> > Cheers,
+> > Conor.
+> >=20
+> > >=20
+> > > Kindly let me know if there's a better solution.
+> > >=20
+> > > > From a quick check of the dts, the node with this subnode didn't al=
+so
+> > > > have a system-reset node too, so there's no conflict or anything of=
+ that
+> > > > nature.
+> > > >=20
+> > > > > +    };
+> > > > > diff --git a/include/dt-bindings/reset/syna,sl261x-reset.h b/incl=
+ude/dt-bindings/reset/syna,sl261x-reset.h
+> > > > > new file mode 100644
+> > > > > index 000000000000..7034f58aae5b
+> > > > > --- /dev/null
+> > > > > +++ b/include/dt-bindings/reset/syna,sl261x-reset.h
+> > > > > @@ -0,0 +1,80 @@
+> > > > > +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> > > > > +/*
+> > > > > + * Copyright (C) 2026 Synaptics Incorporated
+> > > > > + *
+> > > > > + * Author: Jisheng Zhang <jszhang@kernel.org>
+> > > > > + */
+> > > > > +
+> > > > > +#ifndef _DT_BINDINGS_SL261X_RESET_H
+> > > > > +#define _DT_BINDINGS_SL261X_RESET_H
+> > > > > +
+> > > > > +/* ACPU subsystem */
+> > > > > +#define RST_SOC_SDIO0		0
+> > > > > +#define RST_SOC_USB0		1
+> > > > > +#define RST_SOC_EMMC		2
+> > > > > +#define RST_SOC_GETH0		3
+> > > > > +#define RST_SOC_SDIO1		4
+> > > > > +#define RST_SOC_USB1		5
+> > > > > +#define RST_SOC_GETH1		6
+> > > > > +#define RST_SOC_USB0PHY		7
+> > > > > +#define RST_SOC_USB0CORE	8
+> > > > > +#define RST_SOC_USB0MAHB	9
+> > > > > +#define RST_SOC_USB1PHY		10
+> > > > > +#define RST_SOC_USB1CORE	11
+> > > > > +#define RST_SOC_USB1MAHB	12
+> > > > > +#define RST_SOC_UART0		13
+> > > > > +#define RST_SOC_UART1		14
+> > > > > +#define RST_SOC_UART2		15
+> > > > > +#define RST_SOC_UART3		16
+> > > > > +#define RST_SOC_I2C0		17
+> > > > > +#define RST_SOC_I2C1		18
+> > > > > +#define RST_SOC_SPI0		19
+> > > > > +#define RST_SOC_SPI1		20
+> > > > > +#define RST_SOC_SPI2		21
+> > > > > +#define RST_SOC_SPI3		22
+> > > > > +#define RST_SOC_APBTIMERS	23
+> > > > > +#define RST_SOC_APBSYSCNT	24
+> > > > > +#define RST_SOC_APBWDT		25
+> > > > > +#define RST_SOC_APBGPIO		26
+> > > > > +#define RST_SOC_APBDMA		27
+> > > > > +#define RST_SOC_GPUCORE		28
+> > > > > +#define RST_SOC_NPUCORE		29
+> > > > > +#define RST_SOC_AVIOAIOG	30
+> > > > > +#define RST_SOC_AVIOVPPG	31
+> > > > > +#define RST_SOC_AVIOVIPG	32
+> > > > > +
+> > > > > +/* system subsystem */
+> > > > > +#define RST_SM_ADCCORE		0
+> > > > > +#define RST_SM_ADCPRST		1
+> > > > > +#define RST_SM_CAN0PRST		2
+> > > > > +#define RST_SM_CAN0SRST		3
+> > > > > +#define RST_SM_CAN1PRST		4
+> > > > > +#define RST_SM_CAN1SRST		5
+> > > > > +#define RST_SM_GPIOPRST		6
+> > > > > +#define RST_SM_GPIOSRST		7
+> > > > > +#define RST_SM_I2CM0PRST	8
+> > > > > +#define RST_SM_I2CM0SRST	9
+> > > > > +#define RST_SM_I2CM1PRST	10
+> > > > > +#define RST_SM_I2CM1SRST	11
+> > > > > +#define RST_SM_I3CPRST		12
+> > > > > +#define RST_SM_I3CSRST		13
+> > > > > +#define RST_SM_PDMPRST		14
+> > > > > +#define RST_SM_PDMSRST		15
+> > > > > +#define RST_SM_PVTHSRST		16
+> > > > > +#define RST_SM_PVTPRST		17
+> > > > > +#define RST_SM_PWMPERIRST	18
+> > > > > +#define RST_SM_PWMPRST		19
+> > > > > +#define RST_SM_SPIMPRST		20
+> > > > > +#define RST_SM_SPIMSRST		21
+> > > > > +#define RST_SM_SPISPRST		22
+> > > > > +#define RST_SM_SPISSRST		23
+> > > > > +#define RST_SM_UART0PRST	24
+> > > > > +#define RST_SM_UART0SRST	25
+> > > > > +#define RST_SM_UART1PRST	26
+> > > > > +#define RST_SM_UART1SRST	27
+> > > > > +#define RST_SM_UART2PRST	28
+> > > > > +#define RST_SM_UART2SRST	29
+> > > > > +#define RST_SM_UART3PRST	30
+> > > > > +#define RST_SM_UART3SRST	31
+> > > > > +
+> > > > > +#endif /* _DT_BINDINGS_SL261X_RESET_H */
+> > > > > --=20
+> > > > > 2.53.0
+> > > > >=20
+> > >=20
+> > >=20
+>=20
+>=20
+
+--Gk8IWZpUcu6PCSl4
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasOA6wAKCRB4tDGHoIJi
+0tAeAP9g4V0Uppa+RPpNSegPViM1PGFBb2qMlUfL3Eqtfqq5rwD8DNvWRbx6J1Y2
+bBUZpYZhNV0JSq2I6MV77ygY10S8cQ4=
+=9BJK
+-----END PGP SIGNATURE-----
+
+--Gk8IWZpUcu6PCSl4--
 
