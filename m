@@ -4,86 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B08CA5FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD70BCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:Message-ID:Reply-To:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R4xsJYMrf5HGdjphikg5hJt2U4oFPoxOZcXn/vcWrJM=; b=gmwQCLF71GzAQ7
-	AzRR5rJYyh5CNH0MKtr4tOaWSF7sjjPMbe/sNTC5Db5rOpAXcU6LL4G/T4+FfaeV6jPJ2LsLwmPqZ
-	b5AM5NkaEpymcdP9f3DmPk87oKj8sZSnQIxzLdcfZuHypyLPirZGL+iktfV1GeivsiwCmG1tpillh
-	I0JNNDtbRoymayNX7XVMuEAyOvZTmzJSzgnz1by7jY5FBNQOilgPU0BU2+4aL3oxnNpIYGTMQR8RD
-	vQzLfa3ELemFMvAaVgwlCa/llXZqFhwhu+5E4fMjT5vQfnikX/TpW3yKLWTlHAqcdqFNFKdg3j9+P
-	4LUNXiO+yd5BWCFePHZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GpejxqvnJOL3cxPbY4OqEX+7x4vsVHXPgVP/mQ6i+Sg=; b=r+YStplhJHIdwP34QDPhJ8WFCe
+	jznlEpoVJl0yeuR75+J0Q5nQ5Hon4xQsVJXCgbsq92doL8mb4GADLoHYKMGSvv1BcSVpQMuIBs1Py
+	547vCy0I1Al3BFGPvkPD0oUsVD8TL//QOD7E4PrTSMj6N/KDswJQiFzoBqQRkynHg3oPWgS2Phhjv
+	DjNki+lDHhlsBH2744O21SPG77Ll+fkQCoCHAKm90uZuWavvY5duUhz4K62qxODM3xe6ra6t3BXX9
+	Ioswc5FGti50LWJnkfaj0CEX2dvGpYS3vj73SuCgeSauX5fpPda8sRsSbUiKFWI0TnPmInN47/mES
+	kfn0j8ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfBR-0000000G1kb-3j4o;
-	Mon, 05 Oct 2026 09:40:33 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xDfDQ-0000000G1yE-1pc3;
+	Mon, 05 Oct 2026 09:42:36 +0000
+Received: from mail-southcentralusazon11012008.outbound.protection.outlook.com ([40.93.195.8] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfBN-0000000G1jv-46xJ;
-	Mon, 05 Oct 2026 09:40:33 +0000
-Received: from [127.0.0.1] (unknown [IPv6:2a02:560:5ca5:d100:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 272642012A4;
-	Mon, 05 Oct 2026 11:40:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791193226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R4xsJYMrf5HGdjphikg5hJt2U4oFPoxOZcXn/vcWrJM=;
-	b=QCAcaSq7lgfYtWlyqoWlUQiM7/4L+x2v4P1IZ8CgiJj2RacGXeBNz7GU/VnHZax5ofyeag
-	YhKhxa8w+v5o10axjZj41dyNzmSRUlFN04Cjomhtv7o2nnKI/UqRAwvTCELzyg1P39vCgq
-	8m8EsdAyYHzvV1Pw0Oht77OW9EqPSbO8tX+tYPaZ7ZjSWW/4/D0vRATVGCk08Marafs2Gm
-	TSTNFs6iwxaHUnhPiNSllIesG5doessKIV9N7ENVbINHF+3133rTavggEthiqBvKb5bL0W
-	l54r0eV3MeU2nxg5MdoCy/foeVr+LwSku5vHt+tNAVWgt2OnYLXCf+lJEDSbaA==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791193226; a=rsa-sha256;
-	cv=none;
-	b=KySaxDTa9Nn4orTzLSZ2pAbYYJp7WOmsWsOG8la4L+gEmRQd5gCUgU8pI6BH3jxH0sIMBC
-	eC7C/ngmXxfPKugShKayGMY9/t+GBDI80VDS8GmajfGf4KUtOhs0TWGziqzXRrZXQEQtWX
-	35ojsr39fLvLKUi0Z+/HsaAepx0YfKf32n1gxCDwiowtQ9Fb22gGq1AB/ATogN6OnxvTrc
-	pb342ma7PzNDzdOCPAz3phjkH06PnVybyJzKtvDWVPdgnSE2EwGZke9lNiJzzb24lXofDp
-	7leIZ9I5qr6/TEuFknxAZEVyzxi11cLjwOMIX80tw/Az1rkFsNTtdB6DGzsYmA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sha@pengutronix.de smtp.mailfrom=s.hauer@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791193226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R4xsJYMrf5HGdjphikg5hJt2U4oFPoxOZcXn/vcWrJM=;
-	b=UHn7Z83nTe0iQi98ov7g8Gqfb81hE2ll8TqojTYQNIlY/nltK9SsQZJO9QzT/eh48sFAwn
-	gL2qVq0rTYc0ycEVlzQzkopaXNdvZoJXs2wzfnxFhKuL8gkZqjHFV6G8V3kAhek9afMqsB
-	hBZt8JYCxJPbYi8CIjFTaLaqoYwSFjYgoKiuHZMiegvioY2IdKgx95PwHWBjl/hHpnpVfe
-	ln2ZemKadbuvEuRaHg9aSKw9HI2Di0YHkrltwjdCIqEX8JRAdXX4DqDhBzTtotCBum77zq
-	ks8EB1hNZKffrz4JlfW/uH2XqjnxeUUPMdYTPJ7D2eoOP8WLii2xvsjd0ccxIQ==
-Message-ID: <ea747d54-acec-45cd-bcc4-77385812eead@pengutronix.de>
-From: "Sascha Hauer" <s.hauer@pengutronix.de>
-Subject: Re: [PATCH v5 2/4] media: rockchip: Add JPEG decoder driver
-To: "Nicolas Dufresne" <nicolas@ndufresne.ca>
-Cc: "Sascha Hauer" <s.hauer@pengutronix.de>, "Lucas Sinn" <lucas.sinn@wolfvision.net>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <c28b782fd2de05f4e1fdaa1df96a57f04640f4df.camel@ndufresne.ca>
-References: <20260925-rockchip-jpegdec-v5-0-30658833cb68@pengutronix.de>
- <20260925-rockchip-jpegdec-v5-2-30658833cb68@pengutronix.de>
- <8a559d812623457381e65e0e62699ba043de7861.camel@ndufresne.ca>
- <97676b94-47f9-4937-a1aa-69e8bbd527df@pengutronix.de>
- <c28b782fd2de05f4e1fdaa1df96a57f04640f4df.camel@ndufresne.ca>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Mon, 05 Oct 2026 09:40:24 +0000
+	id 1xDfDM-0000000G1xV-2spJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 09:42:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KEOQw3Nm7tWWI/NU6bli8ZKdZ8qr589GlysZqb4Kn8o5TPGg863JuUfUgGMYp9o8GVugrEBXBVDZUDDTKA++ncgyf8QBL6YTfnVFKiospAZOlNV4ZdwKdbA3SW3N5wUXewmpM3RBtrpbqXzqKi0HMJTwE/EFgCJYZZ5zLcypWOcleZ00piauHyvhhXilI7QT4a4zMrShsLQ8qJGZvj6EHpkMWA4q3jOumdleiAtD8CWykF5M85AkcJwmAuWD2mMESt4BB6+Yhay3g90bSGudGpU1nD1yJ/lmna9MCTHIxWEFA0zIqkSl9sW3QQc+NRMedkM4mE+iJxKD8xa/qRyRZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GpejxqvnJOL3cxPbY4OqEX+7x4vsVHXPgVP/mQ6i+Sg=;
+ b=c4O1XLzC4VY3OihYHQRvOjNDIuv15ERoXytAs8uiksdFQ2j6wR1aOa3FT+CXUYdOlNN5iHl1uriLxm5wgoWspotlZu1T88DjZJWFW18NErNHUHOIFxBPi1+eRP0SgoOnFTDuCBgYWDlj4gwRyXYHjehB7VguN156SUcV4P2fRTFdWfErL1eQeMvwA55fu0zkMCR38zx2rlukBnHGujb3PcxzzNZca7i3bgEKKFqpgw5I+x0bmrIEZe0WaZSjPOn9RM0T7HD8rp1IboNP9TA9ZN8VQwn0/qi6hFuAWc1slIxRxMyJDVxSTWiltJONp/AffOjOC140T+NNBD4lPnxUmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GpejxqvnJOL3cxPbY4OqEX+7x4vsVHXPgVP/mQ6i+Sg=;
+ b=wAN+FbPCF/UXe1OEUJAowLv6P6H7YE98ilxURmC7txl7qqTpukHiPmmoCG6L98UVRD4TDNPB/rjzVRJ87RriozAsUl5//PHTsqaUQ4LnLEdbwDsBO3C9Bl8g9X6SthR6y3fUEqFWgGTdkTqijnMR7ghbVlPoTKcWV29uIfE3feI=
+Received: from BN9PR03CA0958.namprd03.prod.outlook.com (2603:10b6:408:108::33)
+ by CY8PR12MB7538.namprd12.prod.outlook.com (2603:10b6:930:95::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Mon, 5 Oct
+ 2026 09:42:24 +0000
+Received: from BN3PEPF00022BD5.namprd03.prod.outlook.com
+ (2603:10b6:408:108:cafe::1a) by BN9PR03CA0958.outlook.office365.com
+ (2603:10b6:408:108::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
+ Oct 2026 09:42:24 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN3PEPF00022BD5.mail.protection.outlook.com (10.167.248.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 09:42:23 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
+ 2026 04:42:22 -0500
+Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
+ Transport; Mon, 5 Oct 2026 04:42:19 -0500
+From: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>
+CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, Dileep Kumar Nagavarapu
+	<dileepkumar.nagavarapu@amd.com>, Sai Krishna Potthuri
+	<sai.krishna.potthuri@amd.com>
+Subject: [PATCH v4 02/15] iio: adc: xilinx-xadc: Fix coding style issues
+Date: Mon, 5 Oct 2026 15:11:52 +0530
+Message-ID: <20261005094205.1045874-3-dileepkumar.nagavarapu@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
+References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD5:EE_|CY8PR12MB7538:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b259803-90e1-4b17-ee79-08df22c4f5a9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|1800799024|376014|10067099003|56012099006|11063799006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mvzERrUzRF8713ZIG3DEUFLqhvEhEOc+h9Kc08hYdmknqMfNbzUPPAS7iIJJSqvKsqUWiLuEPXmndFOXy3bVTyECeLAAulhrO9a8HkyJbfT5cwwgQPBB1bESCdHm/ccM1SUkS2/RLolVzqxbhsErGzwy7IG7KgXXroLC06lmE+/zBv8AQzYesbBIBvga7CPy5IIAXlm3y9Qrb9FV1AxTCDdwAdilNcSM1DGDjCf0/0LnrMcyYBdvkXUkRAnx3cSoMDJVaS6sLLkvq6bZulTOAYrGsfcHRT54cUxEPFWJsLlSVX1ExMgdGgyuvy4FNT2JsDjFp6CClNond8BNCfAMgPXJsFsrswXnIRVPKc2vJ35BKvSOTT06reanwsWXrgTb9AkIuY/UO1FHIHC35fGolvxiD8HRvxxMQAwNB0pkA5FMTBgaJ5z1jh38nyAJy//DMJS1BLla5HakO47EX9+ZrRXXoHD1QMRL5kKil4SdGTHqXwcNsj3FdzdiXvt1io5UN3/TQcmHkcWdXuMy4hBwcTJeyRzd3S/SeCmEKEiwd6g7b5t/IDa1b7lUfvck2fwUs9nkCLoZKPsgx1IQOx/b/RRoTtDqMfjGUHbFtrQTzwc+RmMpIHqFgwA6Bp+Ce3i79OZaRVt93cFYIKSzUjXASz6uKXKpHBE3oDd0al2DlaQrmYqANdTGg1Et61VXb8Vg9UCmfWBh2NVF81Z2tk1dfQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(1800799024)(376014)(10067099003)(56012099006)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MbyK6A4tBgMn+fVgk8uYBsCh7u8D/xwBLD5QwSxH/wx3jE1Mc2uM+Cgmb2wtD+0yiTAX3BFh5nrcuLDiI4jOFhapckfIK4m8QQVZNhXs2ZWV71Im6T51E4kq2nwoOyTCTH5HcKCAKWelgqMxathu8lL2wkEOIWcGOpnCDPX4giML4EafSvDjI2Ga3g9SmVMQ9/e/3JuxuT12aLoEZVpxVRXcdrYwtY1fNs3pLp6LYsz4vqRzs3JDftgKY+rQM+NIYqB0uqaNl4gstC3nmC7rcpBo53LDHVc5VGCxhp/LI/ceQiAaG4AJTEetilX/5ZbUKMIAvUKNLXM0R6+TEe70rNEuE6Xf8vEiWDhCtaSFpGH6VUm4ef2qsykXDbfIcuks3fN2w+slKwAGXq19OoGAV3g2C+YoFPnkcSupIOs37Ihbf/hw6pG5w6XqoQeYga7x
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 09:42:23.9958
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b259803-90e1-4b17-ee79-08df22c4f5a9
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BD5.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_024030_447878_21D21BB3 
-X-CRM114-Status: GOOD (  60.58  )
+X-CRM114-CacheID: sfid-20261005_024232_801365_F305C968 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,289 +125,669 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-29 15:34, Nicolas Dufresne wrote:
-> > > > +static int vdpu720_fill_chroma(struct rkjpegd_ctx *ctx,
-> > > > +			       struct vb2_v4l2_buffer *dst_buf)
-> > > > +{
-> > > > +	struct rkjpegd_dev *jpegd =3D ctx->dev;
-> > > > +	struct vb2_buffer *vb =3D &dst_buf->vb2_buf;
-> > > > +	u32 y_size, size;
-> > > > +	void *dst_cpu;
-> > > > +	int ret;
-> > > > +
-> > > > +	mutex_lock(&ctx->fmt_lock);
-> > >=20
-> > > I keep seeing this fmt lock over and over and can't get my head aroun=
-d why you
-> > > would need that. There is implicit locking in the VIDIOC system that =
-do protect
-> > > these. Again, can you in your own word explain your choices ?
-> >=20
-> > It comes with dynamic resolution support. The check for a new resolution
-> > has to be done in device_run() to make sure the resolution change takes
-> > place on that exact frame. Doing it in buf_queue() would mean we get the
-> > frames still in the queue wrong. We can't take vdev_lock in
-> > device_run() which is why sashiko continuously stumbled upon missing
-> > locking of ctx->dst_fmt.
-> >=20
-> > I cannot judge how propable an actual race or how serious this missing
-> > locking is. But yes, the fmt_lock is a direct result of my LLM fighting
-> > against Sashiko.
-> >=20
-> > So I could drop dynamic resolution support (which I don't need
-> > currently), or we could ignore Sashiko here.
->=20
-> That's the tougher one to solve I suppose. This is probably the first jpeg
-> decoder implementing DYN_RESOLUTION, which is valid, just a feature more =
-recent
-> then most jpeg decoders today.
->=20
-> I was mostly triggered by the fact  called fmt lock, since device_run() o=
-nly
-> occurs while the device is streaming, and the format cannot change while
-> streaming.
->=20
-> On dynamic resolution change, to avoid the need for this locking, I belie=
-ve you
-> want to delay the update of the dst_fmt to when the draining have complet=
-ed and
-> userspace stop streaming. Only then it is safe, as in order to resume dec=
-oding,
-> userspace will have to call streamon, which will fail if the allocated bu=
-ffers
-> are too small. There is no other validation of the buffer size in place, =
-so
-> otherwise you can just do CMD_START and let the HW write all over the pla=
-ce.
+Address checkpatch.pl warnings in the XADC driver:
+- function prototypes/definitions split across lines that now
+  fit within the line length limit
+- Realign remaining multi-line statements to the opening parenthesis
+- Add a missing space around a binary operator
+- Fix pointer/const spacing ("*const" vs "* const")
+- Adjust blank lines around a few statements
+- Reorder the local declarations (size_t n and void *data) in
+  xadc_update_scan_mode(), the only token-order change
+  (not a checkpatch warning)
 
-Ok, with the next version the fmt_lock will be gone. I'll update dst_fmt
-only under vdev_lock. On a format change the decoder stops at that
-frame. In g_fmt I can now report either the dst_fmt, or, when the
-decoder has stopped, the format of the frame at the head of the queue.
+No functional changes intended.
 
-> > > > +	irqreturn_t ret =3D IRQ_NONE;
-> > > > +	u32 status;
-> > > > +
-> > > > +	/* The registers are only clocked while the device is runtime act=
-ive. */
-> > > > +	if (pm_runtime_get_if_active(jpegd->dev) <=3D 0)
-> > > > +		return IRQ_NONE;
-> > >=20
-> > > Was that sashiko asking you to do that ?
-> >=20
-> > Yes, several times:
-> >=20
-> >   =E2=96=8E [High] The interrupt handler reads hardware registers witho=
-ut checking if the device is active via=20
-> >   =E2=96=8E pm_runtime, leading to crashes on spurious interrupts.
-> >=20
-> >=20
-> >   =E2=96=8E [Severity: High]
-> >   =E2=96=8E This reads the VDPU720_REG_INT register unconditionally upo=
-n entry. If a spurious interrupt or an=20
-> >   =E2=96=8E irqpoll event occurs while the device is in a runtime-suspe=
-nded state (with clocks and power domains=20
-> >   =E2=96=8E gated off), will this read trigger a synchronous external a=
-bort on ARM? Should it use=20
-> >   =E2=96=8E pm_runtime_get_if_active() to verify the power state first?
-> >=20
-> >   =E2=96=8E If a spurious interrupt fires while the IP block is held in=
- reset, the rkjpegd_vdpu720_irq() handler=20
-> >   =E2=96=8E will run. Because PM runtime is still active, pm_runtime_ge=
-t_if_active() will succeed, and the handler
-> >   =E2=96=8E will try to read from the hardware (VDPU720_REG_INT), which=
- can cause a bus stall or kernel panic.
-> >=20
-> > > To start with, if you clock off the
-> > > device, you won't get the IRQ. If you clock off the device between th=
-e start of
-> > > this function and here in a race, you have some bigger problems in yo=
-ur driver.
-> > >=20
-> > > This type of IP is not free-running, its trigger based. When its trig=
-gered, it
-> > > should be busy and a PM ref should be held. Be careful with sashiko r=
-emarks, it
-> > > does not differentiate free-running IP from triggered IP.
-> > >=20
-> > > I'm also a little worried that maybe you don't actually understand th=
-is, since
-> > > its quite possible you simply fed sashiko into your llm to produce th=
-is v5.
-> >=20
-> > Ok, shows I have to think a bit more before taking Sashiko things for
-> > granted.
->=20
-> Yes, though I was off a little, what I mean is that for triggered devices=
- like
-> this, which don't have known spurious IRQ hw bugs, you want the PM runtim=
-e to be
-> held for the duration of job, which imply it will be running on IRQ. The =
-method
-> you have now would be useful if there was a shared IRQ or some known hard=
-ware
-> bugs to deal with.
+Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
+---
+ drivers/iio/adc/xilinx-xadc-core.c   | 143 ++++++++++-----------------
+ drivers/iio/adc/xilinx-xadc-events.c |  50 +++++-----
+ drivers/iio/adc/xilinx-xadc.h        |  40 +++-----
+ 3 files changed, 90 insertions(+), 143 deletions(-)
 
-No shared IRQ and no known hardware bugs currently, so I can drop the
-runtime PM from the IRQ handler.
-
-> > > > +			rkjpegd_last_buffer_done(ctx, vbuf);
-> > > > +			v4l2_m2m_mark_stopped(ctx->fh.m2m_ctx);
-> > > > +			v4l2_event_queue_fh(&ctx->fh, &rkjpegd_eos_event);
-> > > > +			return;
-> > > > +		}
-> > > > +
-> > > > +		v4l2_m2m_buf_queue(ctx->fh.m2m_ctx, vbuf);
-> > > > +		return;
-> > > > +	}
-> > > > +
-> > > > +	rkjpegd_parse_src_buf(ctx, vb);
-> > >=20
-> > > This function can fail, its not clear once you ignore the return valu=
-e how the
-> > > error will propagade to device_run() and produce a matching error dst=
- buffer.
-> >=20
-> > The error travels through src_buf->parsed and rkjpegd_vdpu720_run()
-> > bails out with an error when the frame couldn't be parsed. I can make
-> > that clearer by returning an error from rkjpegd_parse_src_buf() and
-> > setting the variable here instead.
->=20
-> Not sure I completely followed, but the main point is either drop
-> rkjpegd_parse_src_buf() return value and related code if not needed, or u=
-se the
-> return value to propagate the error.
-
-rkjpegd_parse_src_buf() returns void in this version. Anyway, will
-change to return an error and use that value.
-
-> > > > +static void rkjpegd_stop_streaming(struct vb2_queue *vq)
-> > > > +{
-> > > > +	struct rkjpegd_ctx *ctx =3D vb2_get_drv_priv(vq);
-> > > > +	struct vb2_v4l2_buffer *vbuf;
-> > > > +
-> > > > +	for (;;) {
-> > > > +		if (V4L2_TYPE_IS_OUTPUT(vq->type))
-> > > > +			vbuf =3D v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-> > > > +		else
-> > > > +			vbuf =3D v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
-> > > > +		if (!vbuf)
-> > > > +			break;
-> > > > +		if (V4L2_TYPE_IS_CAPTURE(vq->type))
-> > > > +			vb2_set_plane_payload(&vbuf->vb2_buf, 0, 0);
-> > > > +		v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_ERROR);
-> > > > +	}
-> > > > +
-> > > > +	v4l2_m2m_update_stop_streaming_state(ctx->fh.m2m_ctx, vq);
-> > > > +
-> > > > +	/* A seek also ends a drain a resolution change had cut short. */
-> > > > +	if (V4L2_TYPE_IS_OUTPUT(vq->type))
-> > > > +		ctx->fh.m2m_ctx->last_src_buf =3D NULL;
-> > > > +	else
-> > > > +		rkjpegd_resume_drain(ctx);
-> > > > +
-> > > > +	if (V4L2_TYPE_IS_OUTPUT(vq->type) &&
-> > > > +	    v4l2_m2m_has_stopped(ctx->fh.m2m_ctx))
-> > > > +		v4l2_event_queue_fh(&ctx->fh, &rkjpegd_eos_event);
-> > >=20
-> > > That is strange, STREAMOFF will flush the queues, so adding an event =
-to the
-> > > event queue seems odd, I never seen that before.
-> >=20
-> > The same pattern is in the vicodec since [1], was added to mxc-jpeg in
-> > [2] and went into this driver from there.
-> >=20
-> > Sending EOS here is deprecated anyway:
-> >=20
-> >       For backwards compatibility, the decoder will signal a ``V4L2_EVE=
-NT_EOS``
-> >       event when the last frame has been decoded and all frames are rea=
-dy to be
-> >       dequeued. It is a deprecated behavior and the client must not rel=
-y on it.
-> >       The ``V4L2_BUF_FLAG_LAST`` buffer flag should be used instead.
-> >=20
-> > Maybe we can just drop it for a new driver.
->=20
-> But that's different, its about sending EOS event when the LAST buffer is=
- queued
-> into the capture pool. Driver that strictly want to implement this backwa=
-rd
-> compatibility must resort to queuing an empty LAST buffer. Doing this in
-> streamoff seems odd, I would need to further dig into. I must admit, I ne=
-ver
-> seen that event being used, so I don't really know how it was historicall=
-y used.
->=20
-> You can always leave it, I'm just not convince of the usefulness, as we s=
-hould
-> be flushing the queues when we stop streaming.
-
-I'll drop it.
-
-> > > > +module_platform_driver(rkjpegd_driver);
-> > > > +
-> > > > +MODULE_DESCRIPTION("Rockchip JPEG decoder driver");
-> > > > +MODULE_AUTHOR("Lucas Sinn <lucas.sinn@wolfvision.net>");
-> > > > +MODULE_LICENSE("GPL");
-> > > > +MODULE_IMPORT_NS("DMA_BUF");
-> > >=20
-> > >=20
-> > > Looking forward your feedback, I'm quite surprised of "your" choices,=
- and how
-> > > you possibly have needed this complexity.
-> >=20
-> > Thanks for the thorough and honest review.
-> >=20
-> > When I first worked with v4l2_m2m many years ago I was excited how easy
-> > it has become to write such an m2m driver. I am also shocked to see how
-> > many possible races sashiko found and through which hoops I had to go to
-> > make sashiko happy (I still haven't accomplished that it seems).
-> >=20
-> > Much of the complexity comes from two things: The watchdog and the
-> > dynamic resolution handling.
-> >=20
-> > Sashiko claims the watchdog has to protect itself against a race with
-> > the irq handler. That of course misses that the watchdog only triggers
-> > because the IRQ doesn't come which makes it quite unlikely that the IRQ
-> > comes in the precise moment the watchdog triggers.
->=20
-> That should be solved using the watchdog API alone. On a theoretical basis
-> (cause I don't program this every day):
->
-> irq_func()
-> {
->   if (!cancel_delayed_work(&dev->watchdog_work))
-> 		return IRQ_HANDLED;
->   ...
-> }
->=20
-> watchdog_func()
-> {
->   reset_so_that_no_possible_irq_occures_passed_this_line();
->   return;
-> }
->=20
-> So in the IRQ handler, you use the delayed work API to guaranty that your
-> whatchdog won't be called. If its being called, or has been called, then =
-it does
-> an early return.
->=20
-> For the watchdog, the delayed worker code ensures that once called,
-> cancel_delayed_work() will return false. You have to make sure you synchr=
-onously
-> guaranty that no more IRQ will occur, hense why we operate a HW reset. It=
-s also
-> usually the only way to recover a wedged IP.
-
-Done that.
-
-Sascha
-
---
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+index bfabe78b66e3..472246b6a1c7 100644
+--- a/drivers/iio/adc/xilinx-xadc-core.c
++++ b/drivers/iio/adc/xilinx-xadc-core.c
+@@ -119,14 +119,12 @@ static const unsigned int XADC_ZYNQ_UNMASK_TIMEOUT = 500;
+  */
+ #define XADC_MAX_SAMPLERATE 150000
+ 
+-static void xadc_write_reg(struct xadc *xadc, unsigned int reg,
+-	uint32_t val)
++static void xadc_write_reg(struct xadc *xadc, unsigned int reg, uint32_t val)
+ {
+ 	writel(val, xadc->base + reg);
+ }
+ 
+-static void xadc_read_reg(struct xadc *xadc, unsigned int reg,
+-	uint32_t *val)
++static void xadc_read_reg(struct xadc *xadc, unsigned int reg, uint32_t *val)
+ {
+ 	*val = readl(xadc->base + reg);
+ }
+@@ -140,9 +138,7 @@ static void xadc_read_reg(struct xadc *xadc, unsigned int reg,
+  * sleep and wait for an interrupt that signals that a response is available in
+  * the data FIFO.
+  */
+-
+-static void xadc_zynq_write_fifo(struct xadc *xadc, uint32_t *cmd,
+-	unsigned int n)
++static void xadc_zynq_write_fifo(struct xadc *xadc, uint32_t *cmd, unsigned int n)
+ {
+ 	unsigned int i;
+ 
+@@ -162,26 +158,22 @@ static void xadc_zynq_drain_fifo(struct xadc *xadc)
+ 	}
+ }
+ 
+-static void xadc_zynq_update_intmsk(struct xadc *xadc, unsigned int mask,
+-	unsigned int val)
++static void xadc_zynq_update_intmsk(struct xadc *xadc, unsigned int mask, unsigned int val)
+ {
+ 	xadc->zynq_intmask &= ~mask;
+ 	xadc->zynq_intmask |= val;
+ 
+-	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTMSK,
+-		xadc->zynq_intmask | xadc->zynq_masked_alarm);
++	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTMSK, xadc->zynq_intmask | xadc->zynq_masked_alarm);
+ }
+ 
+-static int xadc_zynq_write_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t val)
++static int xadc_zynq_write_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t val)
+ {
+ 	uint32_t cmd[1];
+ 	uint32_t tmp;
+ 	int ret;
+ 
+ 	spin_lock_irq(&xadc->lock);
+-	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH,
+-			XADC_ZYNQ_INT_DFIFO_GTH);
++	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH, XADC_ZYNQ_INT_DFIFO_GTH);
+ 
+ 	reinit_completion(&xadc->completion);
+ 
+@@ -206,8 +198,7 @@ static int xadc_zynq_write_adc_reg(struct xadc *xadc, unsigned int reg,
+ 	return ret;
+ }
+ 
+-static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t *val)
++static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t *val)
+ {
+ 	uint32_t cmd[2];
+ 	uint32_t resp, tmp;
+@@ -217,8 +208,7 @@ static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg,
+ 	cmd[1] = XADC_ZYNQ_CMD(XADC_ZYNQ_CMD_NOP, 0, 0);
+ 
+ 	spin_lock_irq(&xadc->lock);
+-	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH,
+-			XADC_ZYNQ_INT_DFIFO_GTH);
++	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH, XADC_ZYNQ_INT_DFIFO_GTH);
+ 	xadc_zynq_drain_fifo(xadc);
+ 	reinit_completion(&xadc->completion);
+ 
+@@ -246,9 +236,7 @@ static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg,
+ 
+ static unsigned int xadc_zynq_transform_alarm(unsigned int alarm)
+ {
+-	return ((alarm & 0x80) >> 4) |
+-		((alarm & 0x78) << 1) |
+-		(alarm & 0x07);
++	return ((alarm & 0x80) >> 4) | ((alarm & 0x78) << 1) | (alarm & 0x07);
+ }
+ 
+ /*
+@@ -287,9 +275,8 @@ static void xadc_zynq_unmask_worker(struct work_struct *work)
+ 	/* if still pending some alarm re-trigger the timer */
+ 	if (xadc->zynq_masked_alarm) {
+ 		schedule_delayed_work(&xadc->zynq_unmask_work,
+-				msecs_to_jiffies(XADC_ZYNQ_UNMASK_TIMEOUT));
++				      msecs_to_jiffies(XADC_ZYNQ_UNMASK_TIMEOUT));
+ 	}
+-
+ }
+ 
+ static irqreturn_t xadc_zynq_interrupt_handler(int irq, void *devid)
+@@ -310,8 +297,7 @@ static irqreturn_t xadc_zynq_interrupt_handler(int irq, void *devid)
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTSTS, status);
+ 
+ 	if (status & XADC_ZYNQ_INT_DFIFO_GTH) {
+-		xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH,
+-			XADC_ZYNQ_INT_DFIFO_GTH);
++		xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_DFIFO_GTH, XADC_ZYNQ_INT_DFIFO_GTH);
+ 		complete(&xadc->completion);
+ 	}
+ 
+@@ -324,12 +310,11 @@ static irqreturn_t xadc_zynq_interrupt_handler(int irq, void *devid)
+ 		 */
+ 		xadc_zynq_update_intmsk(xadc, 0, 0);
+ 
+-		xadc_handle_events(indio_dev,
+-				xadc_zynq_transform_alarm(status));
++		xadc_handle_events(indio_dev, xadc_zynq_transform_alarm(status));
+ 
+ 		/* unmask the required interrupts in timer. */
+ 		schedule_delayed_work(&xadc->zynq_unmask_work,
+-				msecs_to_jiffies(XADC_ZYNQ_UNMASK_TIMEOUT));
++				      msecs_to_jiffies(XADC_ZYNQ_UNMASK_TIMEOUT));
+ 	}
+ 	spin_unlock(&xadc->lock);
+ 
+@@ -340,8 +325,7 @@ static irqreturn_t xadc_zynq_interrupt_handler(int irq, void *devid)
+ #define XADC_ZYNQ_IGAP_DEFAULT 20
+ #define XADC_ZYNQ_PCAP_RATE_MAX 200000000
+ 
+-static int xadc_zynq_setup(struct platform_device *pdev,
+-	struct iio_dev *indio_dev, int irq)
++static int xadc_zynq_setup(struct platform_device *pdev, struct iio_dev *indio_dev, int irq)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 	unsigned long pcap_rate;
+@@ -362,8 +346,7 @@ static int xadc_zynq_setup(struct platform_device *pdev,
+ 		return -EINVAL;
+ 
+ 	if (pcap_rate > XADC_ZYNQ_PCAP_RATE_MAX) {
+-		ret = clk_set_rate(xadc->clk,
+-				   (unsigned long)XADC_ZYNQ_PCAP_RATE_MAX);
++		ret = clk_set_rate(xadc->clk, (unsigned long)XADC_ZYNQ_PCAP_RATE_MAX);
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -390,7 +373,7 @@ static int xadc_zynq_setup(struct platform_device *pdev,
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTSTS, ~0);
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTMSK, xadc->zynq_intmask);
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_CFG, XADC_ZYNQ_CFG_ENABLE |
+-			XADC_ZYNQ_CFG_REDGE | tck_div | XADC_ZYNQ_CFG_IGAP(igap));
++		       XADC_ZYNQ_CFG_REDGE | tck_div | XADC_ZYNQ_CFG_IGAP(igap));
+ 
+ 	if (pcap_rate > XADC_ZYNQ_PCAP_RATE_MAX) {
+ 		ret = clk_set_rate(xadc->clk, pcap_rate);
+@@ -440,8 +423,7 @@ static void xadc_zynq_update_alarm(struct xadc *xadc, unsigned int alarm)
+ 	xadc_read_reg(xadc, XADC_ZYNQ_REG_INTSTS, &status);
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTSTS, status & alarm);
+ 
+-	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_ALARM_MASK,
+-		~alarm & XADC_ZYNQ_INT_ALARM_MASK);
++	xadc_zynq_update_intmsk(xadc, XADC_ZYNQ_INT_ALARM_MASK, ~alarm & XADC_ZYNQ_INT_ALARM_MASK);
+ 
+ 	spin_unlock_irqrestore(&xadc->lock, flags);
+ }
+@@ -464,29 +446,24 @@ static const unsigned int xadc_axi_reg_offsets[] = {
+ 	[XADC_TYPE_US] = XADC_US_AXI_ADC_REG_OFFSET,
+ };
+ 
+-static int xadc_axi_read_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t *val)
++static int xadc_axi_read_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t *val)
+ {
+ 	uint32_t val32;
+ 
+-	xadc_read_reg(xadc, xadc_axi_reg_offsets[xadc->ops->type] + reg * 4,
+-		&val32);
++	xadc_read_reg(xadc, xadc_axi_reg_offsets[xadc->ops->type] + reg * 4, &val32);
+ 	*val = val32 & 0xffff;
+ 
+ 	return 0;
+ }
+ 
+-static int xadc_axi_write_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t val)
++static int xadc_axi_write_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t val)
+ {
+-	xadc_write_reg(xadc, xadc_axi_reg_offsets[xadc->ops->type] + reg * 4,
+-		val);
++	xadc_write_reg(xadc, xadc_axi_reg_offsets[xadc->ops->type] + reg * 4, val);
+ 
+ 	return 0;
+ }
+ 
+-static int xadc_axi_setup(struct platform_device *pdev,
+-	struct iio_dev *indio_dev, int irq)
++static int xadc_axi_setup(struct platform_device *pdev, struct iio_dev *indio_dev, int irq)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 
+@@ -542,8 +519,7 @@ static void xadc_axi_update_alarm(struct xadc *xadc, unsigned int alarm)
+ 	 * passed the alarm mask in the same order as in the XADC alarm enable
+ 	 * register.
+ 	 */
+-	alarm = ((alarm & 0x07) << 1) | ((alarm & 0x08) >> 3) |
+-			((alarm & 0xf0) << 6);
++	alarm = ((alarm & 0x07) << 1) | ((alarm & 0x08) >> 3) | ((alarm & 0xf0) << 6);
+ 
+ 	spin_lock_irqsave(&xadc->lock, flags);
+ 	xadc_read_reg(xadc, XADC_AXI_REG_IPIER, &val);
+@@ -589,8 +565,7 @@ static const struct xadc_ops xadc_us_axi_ops = {
+ 	.temp_offset = 280231,
+ };
+ 
+-static int _xadc_update_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t mask, uint16_t val)
++static int _xadc_update_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t mask, uint16_t val)
+ {
+ 	uint16_t tmp;
+ 	int ret;
+@@ -602,8 +577,7 @@ static int _xadc_update_adc_reg(struct xadc *xadc, unsigned int reg,
+ 	return _xadc_write_adc_reg(xadc, reg, (tmp & ~mask) | val);
+ }
+ 
+-static int xadc_update_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t mask, uint16_t val)
++static int xadc_update_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t mask, uint16_t val)
+ {
+ 	int ret;
+ 
+@@ -619,17 +593,16 @@ static unsigned long xadc_get_dclk_rate(struct xadc *xadc)
+ 	return xadc->ops->get_dclk_rate(xadc);
+ }
+ 
+-static int xadc_update_scan_mode(struct iio_dev *indio_dev,
+-	const unsigned long *mask)
++static int xadc_update_scan_mode(struct iio_dev *indio_dev, const unsigned long *mask)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+-	size_t n;
+ 	void *data;
++	size_t n;
+ 
+ 	n = bitmap_weight(mask, iio_get_masklength(indio_dev));
+ 
+-	data = devm_krealloc_array(indio_dev->dev.parent, xadc->data,
+-				   n, sizeof(*xadc->data), GFP_KERNEL);
++	data = devm_krealloc_array(indio_dev->dev.parent, xadc->data, n,
++				   sizeof(*xadc->data), GFP_KERNEL);
+ 	if (!data)
+ 		return -ENOMEM;
+ 
+@@ -715,8 +688,7 @@ static int xadc_trigger_set_state(struct iio_trigger *trigger, bool state)
+ 			else
+ 				convst = 0;
+ 		}
+-		ret = _xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF0_EC,
+-					convst);
++		ret = _xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF0_EC, convst);
+ 		if (ret)
+ 			goto err_out;
+ 	} else {
+@@ -743,8 +715,7 @@ static const struct iio_trigger_ops xadc_trigger_ops = {
+ 	.set_trigger_state = &xadc_trigger_set_state,
+ };
+ 
+-static struct iio_trigger *xadc_alloc_trigger(struct iio_dev *indio_dev,
+-	const char *name)
++static struct iio_trigger *xadc_alloc_trigger(struct iio_dev *indio_dev, const char *name)
+ {
+ 	struct device *dev = indio_dev->dev.parent;
+ 	struct iio_trigger *trig;
+@@ -789,8 +760,7 @@ static int xadc_power_adc_b(struct xadc *xadc, unsigned int seq_mode)
+ 		break;
+ 	}
+ 
+-	return xadc_update_adc_reg(xadc, XADC_REG_CONF2, XADC_CONF2_PD_MASK,
+-		val);
++	return xadc_update_adc_reg(xadc, XADC_REG_CONF2, XADC_CONF2_PD_MASK, val);
+ }
+ 
+ static int xadc_get_seq_mode(struct xadc *xadc, unsigned long scan_mode)
+@@ -804,8 +774,7 @@ static int xadc_get_seq_mode(struct xadc *xadc, unsigned long scan_mode)
+ 	if (xadc->external_mux_mode == XADC_EXTERNAL_MUX_DUAL)
+ 		return XADC_CONF1_SEQ_SIMULTANEOUS;
+ 
+-	if ((aux_scan_mode & 0xff00) == 0 ||
+-		(aux_scan_mode & 0x00ff) == 0)
++	if ((aux_scan_mode & 0xff00) == 0 || (aux_scan_mode & 0x00ff) == 0)
+ 		return XADC_CONF1_SEQ_CONTINUOUS;
+ 
+ 	return XADC_CONF1_SEQ_SIMULTANEOUS;
+@@ -838,8 +807,7 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
+-				  seq_mode);
++	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK, seq_mode);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -854,7 +822,7 @@ static int xadc_preenable(struct iio_dev *indio_dev)
+ 	int ret;
+ 
+ 	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
+-		XADC_CONF1_SEQ_DEFAULT);
++				  XADC_CONF1_SEQ_DEFAULT);
+ 	if (ret)
+ 		goto err;
+ 
+@@ -883,8 +851,7 @@ static int xadc_preenable(struct iio_dev *indio_dev)
+ 	if (ret)
+ 		goto err;
+ 
+-	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
+-		seq_mode);
++	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK, seq_mode);
+ 	if (ret)
+ 		goto err;
+ 
+@@ -917,7 +884,7 @@ static int xadc_read_samplerate(struct xadc *xadc)
+ }
+ 
+ static int xadc_read_raw(struct iio_dev *indio_dev,
+-	struct iio_chan_spec const *chan, int *val, int *val2, long info)
++			 struct iio_chan_spec const *chan, int *val, int *val2, long info)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 	unsigned int bits = chan->scan_type.realbits;
+@@ -1017,11 +984,11 @@ static int xadc_write_samplerate(struct xadc *xadc, int val)
+ 		div = 0xff;
+ 
+ 	return xadc_update_adc_reg(xadc, XADC_REG_CONF2, XADC_CONF2_DIV_MASK,
+-		div << XADC_CONF2_DIV_OFFSET);
++				   div << XADC_CONF2_DIV_OFFSET);
+ }
+ 
+ static int xadc_write_raw(struct iio_dev *indio_dev,
+-	struct iio_chan_spec const *chan, int val, int val2, long info)
++			  struct iio_chan_spec const *chan, int val, int val2, long info)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 
+@@ -1035,9 +1002,8 @@ static const struct iio_event_spec xadc_temp_events[] = {
+ 	{
+ 		.type = IIO_EV_TYPE_THRESH,
+ 		.dir = IIO_EV_DIR_RISING,
+-		.mask_separate = BIT(IIO_EV_INFO_ENABLE) |
+-				BIT(IIO_EV_INFO_VALUE) |
+-				BIT(IIO_EV_INFO_HYSTERESIS),
++		.mask_separate = BIT(IIO_EV_INFO_ENABLE) | BIT(IIO_EV_INFO_VALUE) |
++				 BIT(IIO_EV_INFO_HYSTERESIS),
+ 	},
+ };
+ 
+@@ -1293,9 +1259,8 @@ static int xadc_parse_dt(struct iio_dev *indio_dev, unsigned int *conf, int irq)
+ 	}
+ 
+ 	indio_dev->num_channels = num_channels;
+-	indio_dev->channels = devm_krealloc_array(dev, channels,
+-						  num_channels, sizeof(*channels),
+-						  GFP_KERNEL);
++	indio_dev->channels = devm_krealloc_array(dev, channels, num_channels,
++						  sizeof(*channels), GFP_KERNEL);
+ 	/* If we can't resize the channels array, just use the original */
+ 	if (!indio_dev->channels)
+ 		indio_dev->channels = channels;
+@@ -1303,7 +1268,7 @@ static int xadc_parse_dt(struct iio_dev *indio_dev, unsigned int *conf, int irq)
+ 	return 0;
+ }
+ 
+-static const char * const xadc_type_names[] = {
++static const char *const xadc_type_names[] = {
+ 	[XADC_TYPE_S7] = "xadc",
+ 	[XADC_TYPE_US] = "xilinx-system-monitor",
+ };
+@@ -1332,8 +1297,7 @@ static int xadc_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 
+ 	irq = platform_get_irq_optional(pdev, 0);
+-	if (irq < 0 &&
+-	    (irq != -ENXIO || !(ops->flags & XADC_FLAGS_IRQ_OPTIONAL)))
++	if (irq < 0 && (irq != -ENXIO || !(ops->flags & XADC_FLAGS_IRQ_OPTIONAL)))
+ 		return irq;
+ 
+ 	indio_dev = devm_iio_device_alloc(dev, sizeof(*xadc));
+@@ -1360,10 +1324,8 @@ static int xadc_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	if (xadc->ops->flags & XADC_FLAGS_BUFFERED) {
+-		ret = devm_iio_triggered_buffer_setup(dev, indio_dev,
+-						      &iio_pollfunc_store_time,
+-						      &xadc_trigger_handler,
+-						      &xadc_buffer_ops);
++		ret = devm_iio_triggered_buffer_setup(dev, indio_dev, &iio_pollfunc_store_time,
++						      &xadc_trigger_handler, &xadc_buffer_ops);
+ 		if (ret)
+ 			return ret;
+ 
+@@ -1372,8 +1334,7 @@ static int xadc_probe(struct platform_device *pdev)
+ 			if (IS_ERR(xadc->convst_trigger))
+ 				return PTR_ERR(xadc->convst_trigger);
+ 
+-			xadc->samplerate_trigger = xadc_alloc_trigger(indio_dev,
+-				"samplerate");
++			xadc->samplerate_trigger = xadc_alloc_trigger(indio_dev, "samplerate");
+ 			if (IS_ERR(xadc->samplerate_trigger))
+ 				return PTR_ERR(xadc->samplerate_trigger);
+ 		}
+@@ -1416,8 +1377,7 @@ static int xadc_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	for (i = 0; i < 16; i++)
+-		xadc_read_adc_reg(xadc, XADC_REG_THRESHOLD(i),
+-			&xadc->threshold[i]);
++		xadc_read_adc_reg(xadc, XADC_REG_THRESHOLD(i), &xadc->threshold[i]);
+ 
+ 	ret = xadc_write_adc_reg(xadc, XADC_REG_CONF0, conf0);
+ 	if (ret)
+@@ -1433,8 +1393,7 @@ static int xadc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = xadc_write_adc_reg(xadc, XADC_REG_INPUT_MODE(1),
+-		bipolar_mask >> 16);
++	ret = xadc_write_adc_reg(xadc, XADC_REG_INPUT_MODE(1), bipolar_mask >> 16);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/iio/adc/xilinx-xadc-events.c b/drivers/iio/adc/xilinx-xadc-events.c
+index c188d3dcab48..f92776cd90c0 100644
+--- a/drivers/iio/adc/xilinx-xadc-events.c
++++ b/drivers/iio/adc/xilinx-xadc-events.c
+@@ -12,8 +12,8 @@
+ 
+ #include "xilinx-xadc.h"
+ 
+-static const struct iio_chan_spec *xadc_event_to_channel(
+-	struct iio_dev *indio_dev, unsigned int event)
++static const struct iio_chan_spec *xadc_event_to_channel(struct iio_dev *indio_dev,
++							 unsigned int event)
+ {
+ 	switch (event) {
+ 	case XADC_THRESHOLD_OT_MAX:
+@@ -23,7 +23,7 @@ static const struct iio_chan_spec *xadc_event_to_channel(
+ 	case XADC_THRESHOLD_VCCAUX_MAX:
+ 		return &indio_dev->channels[event];
+ 	default:
+-		return &indio_dev->channels[event-1];
++		return &indio_dev->channels[event - 1];
+ 	}
+ }
+ 
+@@ -43,9 +43,10 @@ static void xadc_handle_event(struct iio_dev *indio_dev, unsigned int event)
+ 		 * events.
+ 		 */
+ 		iio_push_event(indio_dev,
+-			IIO_UNMOD_EVENT_CODE(chan->type, chan->channel,
+-				IIO_EV_TYPE_THRESH, IIO_EV_DIR_RISING),
+-			iio_get_time_ns(indio_dev));
++			       IIO_UNMOD_EVENT_CODE(chan->type, chan->channel,
++						    IIO_EV_TYPE_THRESH,
++						    IIO_EV_DIR_RISING),
++			       iio_get_time_ns(indio_dev));
+ 	} else {
+ 		/*
+ 		 * For other channels we don't know whether it is a upper or
+@@ -53,9 +54,10 @@ static void xadc_handle_event(struct iio_dev *indio_dev, unsigned int event)
+ 		 * channel value if it wants to know.
+ 		 */
+ 		iio_push_event(indio_dev,
+-			IIO_UNMOD_EVENT_CODE(chan->type, chan->channel,
+-				IIO_EV_TYPE_THRESH, IIO_EV_DIR_EITHER),
+-			iio_get_time_ns(indio_dev));
++			       IIO_UNMOD_EVENT_CODE(chan->type, chan->channel,
++						    IIO_EV_TYPE_THRESH,
++						    IIO_EV_DIR_EITHER),
++			       iio_get_time_ns(indio_dev));
+ 	}
+ }
+ 
+@@ -68,7 +70,7 @@ void xadc_handle_events(struct iio_dev *indio_dev, unsigned long events)
+ }
+ 
+ static unsigned int xadc_get_threshold_offset(const struct iio_chan_spec *chan,
+-	enum iio_event_direction dir)
++					      enum iio_event_direction dir)
+ {
+ 	unsigned int offset;
+ 
+@@ -110,18 +112,16 @@ static unsigned int xadc_get_alarm_mask(const struct iio_chan_spec *chan)
+ 	}
+ }
+ 
+-int xadc_read_event_config(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir)
++int xadc_read_event_config(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			   enum iio_event_type type, enum iio_event_direction dir)
+ {
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 
+ 	return (bool)(xadc->alarm_mask & xadc_get_alarm_mask(chan));
+ }
+ 
+-int xadc_write_event_config(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, bool state)
++int xadc_write_event_config(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			    enum iio_event_type type, enum iio_event_direction dir, bool state)
+ {
+ 	unsigned int alarm = xadc_get_alarm_mask(chan);
+ 	struct xadc *xadc = iio_priv(indio_dev);
+@@ -155,10 +155,9 @@ int xadc_write_event_config(struct iio_dev *indio_dev,
+ 	return ret;
+ }
+ 
+-int xadc_read_event_value(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, enum iio_event_info info,
+-	int *val, int *val2)
++int xadc_read_event_value(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			  enum iio_event_type type, enum iio_event_direction dir,
++			  enum iio_event_info info, int *val, int *val2)
+ {
+ 	unsigned int offset = xadc_get_threshold_offset(chan, dir);
+ 	struct xadc *xadc = iio_priv(indio_dev);
+@@ -180,10 +179,9 @@ int xadc_read_event_value(struct iio_dev *indio_dev,
+ 	return IIO_VAL_INT;
+ }
+ 
+-int xadc_write_event_value(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, enum iio_event_info info,
+-	int val, int val2)
++int xadc_write_event_value(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			   enum iio_event_type type, enum iio_event_direction dir,
++			   enum iio_event_info info, int val, int val2)
+ {
+ 	unsigned int offset = xadc_get_threshold_offset(chan, dir);
+ 	struct xadc *xadc = iio_priv(indio_dev);
+@@ -227,9 +225,9 @@ int xadc_write_event_value(struct iio_dev *indio_dev,
+ 			xadc->threshold[offset + 4] = 0;
+ 		else
+ 			xadc->threshold[offset + 4] = xadc->threshold[offset] -
+-					xadc->temp_hysteresis;
++				xadc->temp_hysteresis;
+ 		ret = _xadc_write_adc_reg(xadc, XADC_REG_THRESHOLD(offset + 4),
+-			xadc->threshold[offset + 4]);
++					  xadc->threshold[offset + 4]);
+ 		if (ret)
+ 			goto out_unlock;
+ 	}
+diff --git a/drivers/iio/adc/xilinx-xadc.h b/drivers/iio/adc/xilinx-xadc.h
+index b4d9d4683117..b36510450982 100644
+--- a/drivers/iio/adc/xilinx-xadc.h
++++ b/drivers/iio/adc/xilinx-xadc.h
+@@ -19,21 +19,16 @@ struct xadc_ops;
+ struct platform_device;
+ 
+ void xadc_handle_events(struct iio_dev *indio_dev, unsigned long events);
+-
+-int xadc_read_event_config(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir);
+-int xadc_write_event_config(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, bool state);
+-int xadc_read_event_value(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, enum iio_event_info info,
+-	int *val, int *val2);
+-int xadc_write_event_value(struct iio_dev *indio_dev,
+-	const struct iio_chan_spec *chan, enum iio_event_type type,
+-	enum iio_event_direction dir, enum iio_event_info info,
+-	int val, int val2);
++int xadc_read_event_config(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			   enum iio_event_type type, enum iio_event_direction dir);
++int xadc_write_event_config(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			    enum iio_event_type type, enum iio_event_direction dir, bool state);
++int xadc_read_event_value(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			  enum iio_event_type type, enum iio_event_direction dir,
++			  enum iio_event_info info, int *val, int *val2);
++int xadc_write_event_value(struct iio_dev *indio_dev, const struct iio_chan_spec *chan,
++			   enum iio_event_type type, enum iio_event_direction dir,
++			   enum iio_event_info info, int val, int val2);
+ 
+ enum xadc_external_mux_mode {
+ 	XADC_EXTERNAL_MUX_NONE,
+@@ -77,8 +72,7 @@ enum xadc_type {
+ struct xadc_ops {
+ 	int (*read)(struct xadc *xadc, unsigned int reg, uint16_t *val);
+ 	int (*write)(struct xadc *xadc, unsigned int reg, uint16_t val);
+-	int (*setup)(struct platform_device *pdev, struct iio_dev *indio_dev,
+-			int irq);
++	int (*setup)(struct platform_device *pdev, struct iio_dev *indio_dev, int irq);
+ 	void (*update_alarm)(struct xadc *xadc, unsigned int alarm);
+ 	unsigned long (*get_dclk_rate)(struct xadc *xadc);
+ 	irqreturn_t (*interrupt_handler)(int irq, void *devid);
+@@ -89,22 +83,19 @@ struct xadc_ops {
+ 	int temp_offset;
+ };
+ 
+-static inline int _xadc_read_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t *val)
++static inline int _xadc_read_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t *val)
+ {
+ 	lockdep_assert_held(&xadc->mutex);
+ 	return xadc->ops->read(xadc, reg, val);
+ }
+ 
+-static inline int _xadc_write_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t val)
++static inline int _xadc_write_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t val)
+ {
+ 	lockdep_assert_held(&xadc->mutex);
+ 	return xadc->ops->write(xadc, reg, val);
+ }
+ 
+-static inline int xadc_read_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t *val)
++static inline int xadc_read_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t *val)
+ {
+ 	int ret;
+ 
+@@ -114,8 +105,7 @@ static inline int xadc_read_adc_reg(struct xadc *xadc, unsigned int reg,
+ 	return ret;
+ }
+ 
+-static inline int xadc_write_adc_reg(struct xadc *xadc, unsigned int reg,
+-	uint16_t val)
++static inline int xadc_write_adc_reg(struct xadc *xadc, unsigned int reg, uint16_t val)
+ {
+ 	int ret;
+ 
+-- 
+2.34.1
 
 
