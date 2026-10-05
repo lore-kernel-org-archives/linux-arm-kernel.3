@@ -4,114 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032A2CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C42CA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=; b=rxaePgiDqnN4Xt298Kw5Fy9e9H
-	THKyzX2Z9M6In39biL7SGoCNG3mMGuksplgT/qNB4MbTU/jE7QfQyDoBf2ZB6xVDCMl4n6JoqTFVE
-	KFjkgrdOlxJ8Zq8clQJ/XGuICuMhTubzoT+itcEN5TMbmQncbO3LK9TwH9rihCS41vWfOEhX2PQK7
-	Enocy97YwH1QKwodXHp6xxP9/sgMdyyJ3TK/vtLWknCsx+sxIn0ar1+SfG4LXAWBshyAvFlKLbQW3
-	syr7Am38Ebgb1X/KU6v9G5i5XSbs2g6VwYdUKVdqY1bMVqmGwH7o2lx/bP7DXJVamaduANRoIEmFE
-	PmPOpGLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gWhcgcYJdXOFXOtpi5RzTefbcfjpX2JryO8wWi6ZZ7U=; b=Fvq/W3ZxGzjmdYpt2SNUsGEeYv
+	+QQ64mEYfFl1CZ5j4a1TugTxtl67ttlaFR/7Kw6wh08M85hpJwMsAE+Tws2eGdvxQosrdoUgTxaJC
+	ix8GLEheq1ezXQOZZLmIazqMQQHZZqh7QCZOQYb7QasSFgQBXdlX/F+2dUcdZCG4PxcW1mKqHdpQ3
+	17HSu1i4g4HWyrroAgyD6YFtQt2raAy2jjCQecqRVGEgU9gvYNgSnJGiLoHtLTP4Tdr7X38UpC3cO
+	yjnrD5bTW1hX85NiuJ5CrgOHYRSQEneuNtAzkDAQ6Vt8ez80moW+ay2AztAof/KssS9FX5F4JvApy
+	gMVxDBLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDrMb-0000000HHlG-0G6h;
-	Mon, 05 Oct 2026 22:40:53 +0000
-Received: from mail-yx2-x2a.google.com ([2607:f8b0:4864:41::2a])
+	id 1xDrSj-0000000HIQq-3dW4;
+	Mon, 05 Oct 2026 22:47:13 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDrMY-0000000HHhV-2WMp
+	id 1xDrSg-0000000HIQT-2veI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 22:40:51 +0000
-Received: by mail-yx2-x2a.google.com with SMTP id 956f58d0204a3-6768036283dso1776270d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 15:40:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791240049; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cDKBjjgkk0k56FZP8gMPv2BPeGkYWgmw3BmGBZ7/UmJNAxZXxmPTUAeP6vdZ5u/Cwh
-         pd5NhJb3CWO9wiKg6lg2682vqYDjRyB2AEzOoQolJDzF/gaAl45SeXzmnkM3yCpwklis
-         IIRJguE8BQALTMKKBF1QWhIYZE8mS1mt8sb67DwgGf+lH/JSyADisAKKZ3kzFWbEzQ2Z
-         tQPswHuYLJT0dsgcD3xHnNmb0xYy5dwrMochv1HWPkb5iqMNtvfB2At7AZ6i4SrIbcHv
-         WnY6mLFy3vetEXNNgDCcpuHRknnwwaYd7UkhhwDc02vuFiocv0I80h32NaPqkGBnRthS
-         iqXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
-        fh=kdfzeyiStbZ5A3SUiVrQT108q7WNF6hM8cg5bxpac5c=;
-        b=IY6pwphRZfQSJwuQxbVfzMM7Hd+asDT3/wlJBX4z9vgabkyDQi/9R3ZGUl7pZkXV1S
-         9ikrAAPBZ9x9jUtDeRE6qtaGtimxHErYZSJSguKsZ4i0V4OUlzykOy5ykmCBIszqX2A5
-         zAXkE/9e/XM+5FGGxFpQigaqidYf7VtgT2GzpgHkDz52O2UcQQJk4WVhmkhijrwWBpEL
-         OIKZi2eKmTwFMTfqtykLD4KJ4+25wCKIiU+kHTZM1Ns5H+zBrR4LVQg12WsdRYeA4Mp4
-         0F2bVKf0L4aWxN+AOQ1KmERCo942IbEsj12ZpYXKEMeZSG738jBan5VBq7PPrg8UKJn/
-         E61w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 05 Oct 2026 22:47:12 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 695HKmgS323193;
+	Mon, 5 Oct 2026 17:47:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=gWhcgcYJdXOFX
+	Otpi5RzTefbcfjpX2JryO8wWi6ZZ7U=; b=BuYt7rS+3MnONDfC0WUM3UHHG8keo
+	wWFYJxltgzgAKH8ZCKRQHs60wlvHU+xfRva1YAyrJ/1BcejJ2mOZr56bEjihL59j
+	dvkzbkiv/hxjesI5i/tyh85wmsYQM9hnUSOePA9m9baO4DA5Oi3l/ekzgeJeuJKH
+	lM663oWOSB5rSTYjkNOqTZtc61sjKmPhAf+Wdpm1kN/d0+ht5W/T46MlQrKDcUw6
+	i4hLU71dcQ8acl3sE/E/pJ0sPV5V0pHmEP44mk+dvivJyh4xaWgNIJhHWcchud3j
+	/1mbsAAh5uDtE/E3ZsFEMi5q6Xu0br1lyR66TAcoCEqvjmwPsL6kPBkZQ==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012038.outbound.protection.outlook.com [52.101.48.38])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4h4d7du64e-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 05 Oct 2026 17:47:08 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n3Llp/WqPsT+Q5cMUHwNpQa3tmN5NxmYfAwWvXK06Z3v0dCNSgkUrzH4XxsBhAVgvx+UcTv9OxZP7sHfR+2Ke5IuFDvX32oO7XJS0dw7e2Pem3YUb1ky1htQRB/I2K5x5OMJ45fFiMbAbZgo6HlIMSr+RqLE68sLMpnAErpzjkbpKfaPMNg+P0bk92Y9tKEJp8BHk0zMzG8IC5IBKOAlIi3E3BWYeHUPvJeg2hS+ArYAweB4mSJdxxy12w1N3PohDaOxEQgXDSQTXE6X4O8+Eoyo8XjYAtgb88Xs8IPFGng3iKhgfI6AibTVgNhrRfkkuUNDpOl/+1yKg2pOlHhIdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gWhcgcYJdXOFXOtpi5RzTefbcfjpX2JryO8wWi6ZZ7U=;
+ b=PEEmJxE+J9q2vMzW+rHy04GkdK56UZSUhPdZ9KcbYDk8sIymwGrlQuBs1O1YOznCX2IKoNOduJG+fZNCXY8ZA6X5Rllt8xw3ccZ/CWIGkpVRyL5nVcyWkaf0ojj3aDl6as1smDVWI6fxBNmsl3uBRiPUH65GjjZJULzBUEquU/y2TiXLyKgWeS+1Xuh9dseXR81No6Mbz2ZGE6Qt4b9uGFkXTM6OlXTdKm8NG7J+LaAOI6QPYmxOKx5Fu5pR17OHbDLdyra/89ZEthZAj1GhnXBmF0ifvxnYbwe3OL2cybJW8TPwCyTsC5NHg2tKsk06TTzUx9TY7UJSL6049bVY9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1791240049; x=1791844849; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
-        b=MoqLOTwrJb/61+KPF37F846o1YYLqN4xDdl4f5a9wbXJybEQ+C0YTUdlOepmVxd73N
-         no94Z6uxpq5gc9MPxVq96wuqWHBneQBP8Q1f7pWg7diA5n9Vi/kHHE/R+nnTBEZFfM1C
-         YCX7KeQqNZ+lqpU4zpGvyllnIyJHptPSt+SldjDS5+sbhehzr5GDA6F/GfpryNowPzDm
-         Hdrpye6XIBN5O+zG/EguDW5GezH7knapocZjnp48CoNJulGtUe3rl0zyOBWF1zTRAjAW
-         PDBTKQK/xU2LAwO2izf0BNF+g6nFs70drkYuATEDg4oUbfR/LdxPqTcxOmcr2BzOXz0c
-         1JKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791240049; x=1791844849;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
-        b=N6QzbqT/lVrIH0S/PqaMq5JtfLs57w/pp06Arp4Nf8Sef519Ksu0cZ2Ahas21draH1
-         mIPDW1dUqvhJzUMg5k0EvmKv6FS22I2HN1jGLFp2hzfNepUug1YVO5iC2mthZXIO65PW
-         TxJfpFwlplUwz/1sfCxASwkaIhe8Myk2YuwNK+uKj7M1OKLMzE3auRDKsX93vmbzTrLS
-         T/xV88IZPR9vL9V9QUveChJyO6Kt/7tAVu5/V87PR5JEsMz6rSBThmBEsoKa4B5+JDse
-         w0VwHmwo9SnXNUXMFJb/2ymQAs0ep9afB6W2CO1wSHlpdtqwFllt9yDZ3KllYmSIp4dy
-         Y1Pg==
-X-Forwarded-Encrypted: i=1; AKwUvBx0j6aF4uYgegRGebe3yGh79CCRUIC7GLVbsblKt+IsEiDpn7yGK5AARvIkAPCBkA67et6KtFDAil6AbCyZALPe@lists.infradead.org
-X-Gm-Message-State: AFq9FYIeKlwovwXxfzdswThOvWY3GDMdYn+oOy9sfQHbt60D4+SNEOmA
-	h+BdEVULF72wzdAJHhiFGX6i2H4b5ykYjRuC+2URdNgtOfT5KANcRa8R88U4N0HM+arT9Dwmf0q
-	sZPnDrU9O9u3X742Uy9/g8db5uKZGWViASAPiZDUJog==
-X-Gm-Gg: AYBFou0gPu1rJ4sxtUD4oTPr/IqWb/dZ3Ptlpu0k04oE2LMsm0/o6yFM8ZxUASVlB0p
-	HpRXYzxZIYP0c8Vp5W1O2SK6lnUA2xMcYCngMryCVyPzrtQdPKVuQ5uCsIeInTD1ZiwHqZsWLxg
-	lyaSm0hbjM7vJyVNjOGqd2dxu5JidDsQwI1PaQ7QX/rXaKsqX39y6J2pKcHpUdwyUI4NhMN/8kE
-	p+V8hdxJ3FXQ+Lw8WgDAsknEI2kSzPLiWIXUwAiGHSgntFRdXkUZyrY1N31Xs1NauGcw4HSxyqR
-	eMuVkt6D11P2rAyPPYxIgVafyyctnM72fT3z7qfiPj7Y+c89oWJLg3ijLO3tIoRXWtgZ04SFHAj
-	iQoZFsTMhlNo=
-X-Received: by 2002:a53:eb86:0:b0:677:a004:4c3b with SMTP id
- 956f58d0204a3-677ac155deemr3157728d50.127.1791240048910; Mon, 05 Oct 2026
- 15:40:48 -0700 (PDT)
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gWhcgcYJdXOFXOtpi5RzTefbcfjpX2JryO8wWi6ZZ7U=;
+ b=EUkJEUfzZSdvPJ7PINqH7iIa6GzWyGjQJtYcaqNHkJGPYLd5u2zk+aLOVlkQhmTeDoj8GHCwzcCTxDkXVil9nP1oqLkC+HHwZWR+cR+2j5sLcpZ+jh3dy0yOiuWeM7ALVZhVJx7WxM7NXJjdCgvxm8v/jwEA6tEuDdlfgzT3ktc=
+Received: from CH0PR04CA0119.namprd04.prod.outlook.com (2603:10b6:610:75::34)
+ by DS0PR10MB7294.namprd10.prod.outlook.com (2603:10b6:8:f6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Mon, 5 Oct
+ 2026 22:46:57 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:75:cafe::1a) by CH0PR04CA0119.outlook.office365.com
+ (2603:10b6:610:75::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
+ Oct 2026 22:46:57 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Mon, 5 Oct 2026 22:46:56 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 5 Oct
+ 2026 17:46:24 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 5 Oct
+ 2026 17:46:23 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 5 Oct 2026 17:46:23 -0500
+Received: from hpz2.dhcp.ti.com (hpz2.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 695MkNTL1054010;
+	Mon, 5 Oct 2026 17:46:23 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>
+Subject: [PATCH v3] arm64: dts: ti: Add k3-am62p-wakeup.dtsi for AM62PX efuse GP_SW1
+Date: Mon, 5 Oct 2026 17:46:23 -0500
+Message-ID: <20261005224623.1836410-1-jm@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
- <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca> <asQcQIh56MV1OJur@lore-desk>
-In-Reply-To: <asQcQIh56MV1OJur@lore-desk>
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Mon, 5 Oct 2026 17:40:36 -0500
-X-Gm-Features: AclHuK_waBcUE5jt710thOReYEcaNoXlOFQ7cNij63z-oA9tFI26Hbx-S3DtTtI
-Message-ID: <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
-Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
- programming errors
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Jose Abreu <Jose.Abreu@synopsys.com>, 
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|DS0PR10MB7294:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3161b9f-50aa-454e-7cf0-08df23328f14
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|23010399003|1800799024|13003099007|18002099003|10067099003|3023799007|56012099006;
+X-Microsoft-Antispam-Message-Info: u1IEhhY4+0rzU+HFKDFl/P9MZ0DXrgy/zOTEgOaTDLVI3A5GyBFmjo5SPQrU1089LAwkF+9sC+HLbUoqAUMRXd6sEsiFq2Wn4ktglLU1Sxgi7g4CdftXFPIoSu1JFZE9q2A3LeCWMeBhlROWnqLD06m4Fn6PyciKgbGKZE10WiRMaK333jXjuWqpnedESRWGjZrxGdUs2CiiSUM6pNMHyrSqzoSZLYdRJ3eLPR5NY8PGe6J7K6ZaUtG4s+TY1opkRiC1SAMAJi23ZtMiKPRgGjGLhsnzX1dV8l7Vonm3d69ywqIvQovcGyavufVzKSDGHSqPrphYXN9Bv9CMZw+NNVGw/VgIFnJKeSM8S/813hCyh2Vn2gvVMXeUQUSWrIAbBzWTl6STgLUJ9RYUb1sUXG6fIommO3Ru0kjlgHO15Oijb5cL096mcnVKg5P8JzDRQjm6ZQKcyzEa2opUv/yA0XvZLW07pMBeignWoKXRJWTQtOniEB0JZCWnpsPrFadMdEuBiyu1lFPy5AuY+4QJkP/c1a59nGDkvM3c0bQdVb+0LpUMEdSnlVY9b8sUn2kUxw2CTaAzCNAk+m/EF3F7vv1lKKEPdvJWGmYPNJF6lE7dsY059mZdYG/aH0PSA9FeR5PQWFmF6jHlLewgWLRNtw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(23010399003)(1800799024)(13003099007)(18002099003)(10067099003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: dJtidCcByGLxYJ2iuDV8n5lfEGVk3Izy6XrRGBJJig9Q0SK+OvekfdMTlarSbb+3QrAKuayzGZB14rPlH8wCSj0cdSTb4lGpGnsPWtFC8SG8kVMIBgI3klYiJJ40fp3YupSBscPU6fqrT5or3MdWpSAksRLB4Fi2z4Btx9VYOABhlIMp2bIdr46dSMbcG0zb1npgR+dcqNg+LKkAtZaCC1mNZVhwEpSGOeUhjj0TAEkEmSBdK4DtUcX+EACCSLmKuJJeUXbUMhqG7f2QX55M1m0LLNYQpCuij9n2OsPGXP3ueLi5HLOp71H17MEa7HxT5tz4pbo791H5mA7E2St+jBMp7wjWC2AFZeCBfC/Xc/aGSNGCw0KCn5W6nJ2adpOnwhWY1KyvJvCHYw6x2UHvQiJ4GTBx7g2WvvhiM6crihKgbq3VKka4CZZYRN+hoaU9
+X-Exchange-RoutingPolicyChecked: J4PsEwVfPEpgNqSNj6YISxPKvysIdY1+euGBGJsHWsN+6y8WRHTl0yMygTgNdxb9MZrDdhGQcHFEL3U0olsNU0TJUeNr3XyR51MfoGrE8pA6kqmzv6d/GLrUUtOTb/S0Pj2gOtcxxjNdWaPuReKY9aPLfYtHQz7YtWVU54t1HaSZ3vdvTC0HQ8+OioxiyyDCCHBkjt1S37THL3zVnvIKaoeFM1jeMJIJqapsywE7yzqQnYN0ovKqx0HZPi70O1x84ZD919sEtg4A8qmFxIZgw9RvY3nVLhVBO/5wAdKaTU4r2PdLxprENSAAdVWBnNnYgmHF9HrcXPuE13AWXI/L7g==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 22:46:56.4742
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3161b9f-50aa-454e-7cf0-08df23328f14
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7294
+X-Authority-Analysis: v=2.4 cv=AMeVrcbb c=1 sm=1 tr=0 ts=6ac428ec cx=c_pps
+ a=alg3xCnYRXnG81SgvFS1VQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=KGfP4kqFyaGSDz3jI5oA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA1MDA4OSBTYWx0ZWRfX3YTCyadPRbiu
+ nNDTbYTA0bdGigMAZEEOTSd7DAmHVQOcOpjr6hZvbb5kAdx/9ccTYMbno4tAMj1/f1TdPxQgqy2
+ IYenRsWUZSNAE4C7JawLPMOhUzEalyc=
+X-Proofpoint-ORIG-GUID: wG9U-5PhSgXhIvp_4emot1KHFJcX3IQy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA1MDA4OSBTYWx0ZWRfX0SmG/nZOIkz0
+ Ye1crveBb/4Q9jFj8yVUIVVnwYAB/Si+KzcPlcwkMV6drp41RDJOThNMVv8x00IphjWX5AMRbXJ
+ mmS6Fq0yjRzaoODCMCFPxYonourlmh7lCoxnKr7A6Beb4J2A24438nJgzoOn+8XVpyvejt+x3ko
+ 6SH1/EV5G2R4EKw3K3SfvCY5Jj94UoD/rGQuSuZ387AUWkxomhohllfUtu5XIcOa4g3zDLYb6sb
+ JbDCA3agEnIffARBYXBdtDAsg74yQsDqtZrGKO/y2ykQbzFNIWWb8XPGHAuDYA5a/Zb5/NsL9gU
+ SoG532iXKc/jO5xJIlUF4WmhGWm49+bFOSNiT6AGLmJuNk4VuiqQF8tGzAnt+RTVPF3OGpRoVCK
+ DtDrQe6FHX3bs+SkesE4+nxGdFXsESD9m+32ikGWQPDEomgaXiBVkAk/MWG2jmn/xYh6DTVLHqU
+ 8wfqR6/plGScw1H11og==
+X-Proofpoint-GUID: wG9U-5PhSgXhIvp_4emot1KHFJcX3IQy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-05_05,2026-10-05_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 impostorscore=0 adultscore=0 bulkscore=0
+ phishscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610050089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_154050_662095_8D037C0D 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20261005_154710_773251_A9C563EC 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,100 +176,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Create k3-am62p-wakeup.dtsi which includes AM62P-specific WAKEUP
+domain nodes.
 
-On Mon, Oct 5, 2026 at 4:53=E2=80=AFPM Lorenzo Bianconi
-<lorenzo.bianconi@oss.qualcomm.com> wrote:
->
-> > On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrote:
-> > > stmmac_update_subsecond_increment() ignores the error returned by
-> > > stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
-> > > addend and system time programming errors, always returning success. =
-A
-> > > failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
-> > > system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
-> > > leaving the hardware timestamp counter in a non-running or partially
-> > > configured state while the driver keeps operating as if timestamping
-> > > were up. This matters for TAPRIO/EST offloading, which derives the ga=
-te
-> > > base time from the hardware timestamp counter.
-> > >
-> > > The same hooks are also called from the PHC callbacks: settime64 and
-> > > adjfine drop the error and report success to clock_settime() and
-> > > clock_adjtime(), so a dead PTP reference clock goes unnoticed by
-> > > ptp4l/phc2sys.
-> > >
-> > > Return error codes from stmmac_update_subsecond_increment(),
-> > > stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
-> > > settime64/adjfine callbacks instead of silently returning success. On
-> > > failure, roll back the partially applied configuration so the hardwar=
-e
-> > > and the driver bookkeeping stay consistent, and report the reason
-> > > through the devlink extack. Also guard against a zero sub-second
-> > > increment, which would otherwise divide by zero when computing the
-> > > addend.
-> > >
-> > > Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
-> > > tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializin=
-g
-> > > timestamping, so a failed init does not leave TX/RX timestamping
-> > > enabled on a counter that never started.
-> > >
-> > > Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to gener=
-ic HW Interface Helpers")
-> > > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> > > ---
-> > > Changes in v3:
-> > > - Do not run stmmac_config_addend() in
-> > >   stmmac_update_subsecond_increment() error path.
-> > > - Return error from stmmac_adjust_freq() and stmmac_set_time().
-> > > - Reset hw ts configuration in stmmac_init_timestamping().
-> > > - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-added-sys=
-time-error-v2-1-beb2a6b5f866@oss.qualcomm.com
-> > >
-> > > Changes in v2:
-> > > - Initialize sec_inc to 0 in stmmac_restore_subsecond_increment()
-> > >   routine.
-> > > - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-added-sys=
-time-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
-> > > ---
-> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++++++++++=
-++++------
-> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
-> > >  2 files changed, 84 insertions(+), 32 deletions(-)
-> >
-> > Hello, I'm noticing that after this patch was merged into linux-next,
-> > boot seems to hang when ip=3Ddhcp is used because ethernet isn't workin=
-g
-> > on the TH1520 Lichee Pi 4a. These lines get printed in a loop over and
-> > over
-> >
-> > IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] thead-dw=
-mac ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
-> > f2 mtu 1500 DHCP
-> > [   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmmac-0:01] =
-driver [RTL8211F Gigabit Ethernet] (irq=3DPOLL)
-> > [   24.912780] dwmac1000: Master AXI performs any burst length
-> > [   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety Features=
- support found
-> > [   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init failed
-> > SIOCSIFFLAGS: Connection timed out
->
-> Hi Anirudh,
->
-> based on the reported error, stmmac_init_tstamp_counter() fails with
-> -ETIMEDOUT. In particular this can occurs if:
->
-> stmmac_init_tstamp_counter()
->  -> stmmac_update_subsecond_increment() -> stmmac_config_addend() -> -ETI=
-MEDOUT
->  -> stmmac_init_systime() -> -ETIMEDOUT
->
-> I guess we should understand which one is failing and why it is failing.
+In k3-am62p-wakeup.dtsi, add efuse node for GP_SW registers at offset
+0x230. GP_SW1 at offset 0x4 will be used to determine AM62P silicon
+revision.
 
-It seems like both are timing out, both config_addend
-(PTP_TCR_TSADDREG) and init_systime (PTP_TCR_TSINIT).
+Signed-off-by: Judith Mendez <jm@ti.com>
+Reviewed-by: Moteen Shah <m-shah@ti.com>
+---
+This patch adds GP_SW1 efuse node for AM62PX only now that bindings [0]
+are in place.
 
-Regards
-Anirudh Srinivasan
+Changes since v2:
+- Add Moteen's review tag
+- Fix commit description as per Moteens review [1]
+
+[0] https://lore.kernel.org/all/178942274041.683176.599438200260103620.b4-ty@kernel.org/
+[1] https://lore.kernel.org/linux-devicetree/b82dec19-02a9-4b93-a2bb-3cbb6f33ae63@ti.com/
+
+Link to v2:
+https://lore.kernel.org/all/20260922165714.425576-1-jm@ti.com/
+---
+ arch/arm64/boot/dts/ti/k3-am62p-wakeup.dtsi | 25 +++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p.dtsi        |  1 +
+ 2 files changed, 26 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-wakeup.dtsi
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-wakeup.dtsi
+new file mode 100644
+index 0000000000000..c56fb3890c983
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62p-wakeup.dtsi
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Device Tree file for the AM62P WAKEUP domain peripherals
++ *
++ * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++&wkup_conf {
++	gpsw_efuse: efuse@230 {
++		compatible = "ti,am62p-efuse", "socionext,uniphier-efuse";
++		reg = <0x230 0x10>;
++		#address-cells = <1>;
++		bootph-all;
++		#size-cells = <1>;
++
++		gpsw1: gpsw1@4 {
++			reg = <0x4 0x4>;
++		};
++	};
++};
++
++&chipid {
++	nvmem-cells = <&gpsw1>;
++	nvmem-cell-names = "gpsw1";
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p.dtsi b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
+index 9d6266d6ddb82..058f264ee0646 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
+@@ -154,3 +154,4 @@ cbass_wakeup: bus@b00000 {
+ 
+ /* Include AM62P specific peripherals */
+ #include "k3-am62p-main.dtsi"
++#include "k3-am62p-wakeup.dtsi"
+-- 
+2.34.1
+
 
