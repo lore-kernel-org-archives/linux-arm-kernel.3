@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AABCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 06:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9C6CA5FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 06:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=321duBp0aPp9ESQIUn3PgEtVLnGlcLT2lvoMXfWxb2Y=; b=IoBtNJQZ5Ak6x5
-	rloIIwWTDr64wcN/BbTEy9LOHiFgMELu0ZJCp7Rk5gg2fhdXomy85fTu82QA72D6BN86v8BhcFstA
-	WJreZwZMK+JpuS0Hkd1MY2b/UfNbuDMR2wV1PxUm7N411yqUlojnDR26ltYUcBczsBM0s4hXhONUs
-	L/wC56RTOaCfI2nOZ5KVIjpyhryFSuWNMMaK1lDH+2Rn9yoNIKbKbMuPpaMU2cpKwAwICoPXDNTCU
-	iFomeF+njgnkz/xXRSfDiuOM9rG5LtwR2PH4b9IjVexUHPclri7em2PUi4yzujiANKILVA5OPbNRC
-	KdmE/bF0uxJ7efyMgyQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0NuiB/b5/WbYYEyiXEGqACpXXyEMDlEux42pPiuE6qU=; b=tGV/DxbiVMmLAhNiBy5LkYW2ON
+	4Cjxa4Y/M09Khk0ptVgnKhSp2OcERqHw2Hg8qYiByoascUEGCP0n5lEZ/LgtV4NGEWlaZdoqoIi1k
+	sJDvQnO0FAPlhQ748etwEDjmA3pX99IzGU+9nvIOKNZQcBL18foc3Qty0VsST3smfugPLXRFdPXA0
+	iGAKUerxIdVcEmJFnJJGM3WU06vBjOYg4wc/V1SNTf2UvJe4/X6ir0g1KS4XLogGpYYHvrfken+QT
+	yy7r4QyCOKS0aR7za0a3cZiZYLx/5SOq0cv1WoWaBO6rzslIJhX+86ynPcrYruKOzQnMln4ZreY/3
+	a+MolIOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcOQ-0000000Fk0J-27iH;
-	Mon, 05 Oct 2026 06:41:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1xDcbU-0000000Fkop-3qwS;
+	Mon, 05 Oct 2026 06:55:16 +0000
+Received: from mx.socionext.com ([202.248.49.38])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcOM-0000000FjzL-1fMM
+	id 1xDcbR-0000000FkoN-47sc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 06:41:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBACF1595;
-	Sun,  4 Oct 2026 23:41:34 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88A5B3F763;
-	Sun,  4 Oct 2026 23:41:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791182498; bh=gPS4BaPCtTXPkS/p8WI2ZOze4/Fjezx1OmLe4zcOaeU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=iJBOFkhyRkxDNSYu02g9UxsbHGxbruPrgL0D5tGBG06toBL2lw8y5vZyyuenf0q+4
-	 1eOIIWsEa7tWNBClthYMJ/VFcNqRFOCoGaSYEujimXlW7ms7jJX8ZxyFPait/jXuUx
-	 Hrf3cEXGPzzoFMxv490xa3FwfIB0J1XyQUHUg8/M=
-Date: Mon, 5 Oct 2026 12:11:34 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org, 
-	catalin.marinas@arm.com
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH V3 0/4] arm64/mm: Convert pgtable READ_ONCE() as
- pxdp_get()
-Message-ID: <6eghulpg35z63dpimrtw6p6x3zwfllfzjhpkpmgs5vcz4mpoda@poqgboea7nz5>
+	Mon, 05 Oct 2026 06:55:15 +0000
+Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
+  by mx.socionext.com with ESMTP; 05 Oct 2026 15:55:10 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id BB12D2091574;
+	Mon,  5 Oct 2026 15:55:10 +0900 (JST)
+Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 5 Oct 2026 15:55:10 +0900
+Received: from [10.213.138.49] (unknown [10.213.138.49])
+	by iyokan3.css.socionext.com (Postfix) with ESMTP id 06E4810D843;
+	Mon,  5 Oct 2026 15:55:10 +0900 (JST)
+Message-ID: <632a5ff5-89e3-437d-b89e-dbcef35fbd49@socionext.com>
+Date: Mon, 5 Oct 2026 15:55:10 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260924062214.1635078-1-anshuman.khandual@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Malathi A <malathi.a2000@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260917040511.103232-1-malathi.a2000@gmail.com>
+ <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+ <arUvJyvChXXcasSu@ashevche-desk.local>
+ <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
+ <arZ5KxIp55qA6UA7@ashevche-desk.local>
+ <faa1027c-7279-462a-9c6f-f03354b9cfd3@socionext.com>
+ <arot4SH3vbDpKC8A@ashevche-desk.local>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <arot4SH3vbDpKC8A@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_234143_483315_85A3445F 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20261004_235514_146434_8B700A61 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,94 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 11:52:10AM +0530, Anshuman Khandual wrote:
-> Route READ_ONCE() accesses on pgtable entries via level specific generic MM
-> pxdp_get() helpers which platforms could then override when required. These
-> accessors on arm64, will help in ensuring page table accesses are performed
-> in an atomic manner while reading 128 bit page table entries later. But for
-> now they just default to READ_ONCE(), thus preserving existing behaviour on
-> current D64 translation a well.
+On 2026/09/28 18:05, Andy Shevchenko wrote:
+> On Mon, Sep 28, 2026 at 03:51:09PM +0900, Kunihiko Hayashi wrote:
+>> On 2026/09/25 22:37, Andy Shevchenko wrote:
+>>> On Fri, Sep 25, 2026 at 08:32:20PM +0900, Kunihiko Hayashi wrote:
+>>>> On 2026/09/24 23:09, Andy Shevchenko wrote:
+>>>>> On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
+>>>>>> On 2026/09/17 13:05, Malathi A wrote:
 > 
-> This is similar to generic MM where all atomic accesses have already been
-> converted from READ_ONCE() into pgtable level specific accessors.
+> ...
 > 
-> These are preparatory patches for D128 enablement, although standing their
-> own for D64 translation as well. These patches are split from earlier D128
-> V1 series. There are no functional changes here and besides mm kselftests
-> do not show any regression.
+>>> So, in such a case how do you see the scenario when system is resumed
+>>> (Right?
+>>> Otherwise we can't do anything, like detaching driver from the device.)
+>>> and
+>>> clock is disabled?
+>>
+>> Ah, I understand your point. I was assuming that the driver could later
+>> be detached after uniphier_uart_resume() failed, leaving the clock disabled.
 > 
-> https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
-> 
-> This series applies on v7.3-rc4 but after applying the following patches on
-> pgtable entry print standardization posted earlier.
-> 
-> https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
-> 
-> https://lore.kernel.org/linux-mm/20260916044933.2689426-1-anshuman.khandual@arm.com/
+> I'm not sure, I don't know if I was right. Can you confirm that this scenario
+> is not possible? So, it might look like CPU is resumed, some of the devices
+> were resumed, but this particular UART failed to resume, and now we want to
+> detach it. If this case is possible, I believe tons of the device drivers as
+> of today may be affected by the same issue (it doesn't mean that the issue
+> is impossible to happen, one needs to investigate deeper)
+Sorry for the delayed reply.
 
-Hello Catalin/Andrew,
+Unfortunately, I can't confirm whether this scenario is impossible.
+I don't currently have an environment where I can reproduce this system
+suspend/resume case either.
 
-The above mentioned dependencies are already in mm-unstable, thus reflecting
-in linux-next as well. Just to rule out merge conflict - this series applies
-cleanly, builds and boots on latest tag next-20261002, which contains above
-dependencies. But please do let me know if there are still some issues in
-resolving this situation - will be happy to help. Thank you.
+I agree that if a device can later be detached after its system resume callback
+has failed, this may affect other drivers using the same pattern as well,
+and determining that seems to require a deeper look into the PM core behavior.
 
-- Anshuman
+>> If that sequence cannot happen after a failed system resume, then my concern
+>> doesn't apply.
+> 
+> As pointed out I'm not sure. Last time I experimented with failed resume > long time ago.
 
-> 
-> These patches have been hosted here as well.
-> 
-> git@git.gitlab.arm.com:linux-arm/linux-anshuman.git (arm64_pxdp_get_v3)
-> 
-> Changes in V3:
-> 
-> - Added overrides for pxdp_get() and replaced remaining READ_ONCE()
-> - Updated all commit messages as required
-> - Dropped previous tags
-> 
-> Changes in V2:
-> 
-> https://lore.kernel.org/all/20260922061638.3967467-1-anshuman.khandual@arm.com/
-> 
-> - Rebased on v7.3-rc4 along with all latest dependencies
-> - Updated commit messages per Ryan
-> - Added tags from Ryan
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20260903060657.2717457-1-anshuman.khandual@arm.com/
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Lorenzo Stoakes <ljs@kernel.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Linu Cherian <linu.cherian@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> 
-> Anshuman Khandual (4):
->   arm64/mm: Use pmdp_get() for PMD accesses
->   arm64/mm: Use pudp_get() for PUD accesses
->   arm64/mm: Use p4dp_get() for P4D accesses
->   arm64/mm: Use pgdp_get() for PGD accesses
-> 
->  arch/arm64/include/asm/pgtable.h | 40 +++++++++++++++++----
->  arch/arm64/mm/fault.c            |  8 ++---
->  arch/arm64/mm/fixmap.c           |  6 ++--
->  arch/arm64/mm/hugetlbpage.c      | 10 +++---
->  arch/arm64/mm/kasan_init.c       | 18 +++++-----
->  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
->  arch/arm64/mm/pageattr.c         |  8 ++---
->  arch/arm64/mm/trans_pgd.c        | 14 ++++----
->  8 files changed, 95 insertions(+), 69 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+So I don't have a definitive answer here either, and can only point out this
+as a potential issue for now.
+
+Thank you,
+
+---
+Best Regards
+Kunihiko Hayashi
 
