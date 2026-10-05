@@ -4,118 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60C1CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 21:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7264ACA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 21:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v463Ztb7l8HkbYlND0+jy6OLKJauaplyxKRrplRmY1k=; b=WxmX/DOamYSKVH/ujcdt3K1hwX
-	2ljKOKbQe/FeYiQ7g13R5Uc932p/0C89m8PeGtIGauSK42eRlmL63XNZ0M8B43EUl7x9rKnVgk0uq
-	JBq/io3Ebj4Tv9c3CfNBPFGPB8res00t2zCQjZiZF20KWYJfx91WnZGNuwHvnZMuth7wddkrfcksf
-	4WmvhN/9no8f78MxxP5ZkfGyVOE0XQoRO+EK+b7uamQTn84eQDPYFM3+UjbbcxHfVcc4cul8ftozr
-	aRRh9+FYV6yPxcBIHbwbKZeUvUXggRDPsCNuHkqNBWfNnfSR/VfJ4DxAU0uspo+t4vXE27xjbl4uf
-	oUJ9NV6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YdzZmoxRoZM+UMpL7Eq9SHs9ftgxVclJGjtJeClfYhA=; b=aifruX564lHe3XodF/WjkFCynj
+	Za3a5sfcvZ+6Zz2fIUOErNVVxMSP1i5QICtskaVgu/3aCj4LYJZSQ05soBxbeOYtLCvdyGSUc7vPd
+	vb+oC6OhkIz+0Doxg++938gAUgjTWq70OUJRzp1HRHMxXNr9WtyTtGUjFDSmvxog6dEaBEZT8pRsx
+	EYgoxMzRNeLC9xbBGiQhb1lgNphbyejdossReLSyJ5rUgOh1JB2Pb6CqbeUOLd//YvMzsg66O1ESR
+	ZTzR0YeLmyGeBDqHT7asywAvnN8ZQG0/wsX4lGMrXk1J+R18zyWbQ0r/MUSUEjamfTLMqNa5vilAv
+	XYwJHs8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDq1s-0000000HBV3-1xDv;
-	Mon, 05 Oct 2026 21:15:24 +0000
-Received: from mail-ed2-x0b.google.com ([2a00:1450:4864:33::b])
+	id 1xDq2v-0000000HBee-3FO0;
+	Mon, 05 Oct 2026 21:16:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDq1o-0000000HBTI-43DX
+	id 1xDq2v-0000000HBeA-1IWv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 21:15:22 +0000
-Received: by mail-ed2-x0b.google.com with SMTP id 4fb4d7f45d1cf-6aa912db07bso1567406a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 14:15:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791234918; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oOPz8HJFo3O62IIL6h7LGoatg7QvVA2Ipb0JcPkZ2nNBhR05VrFsAtflqvnXu2Hxek
-         tIESvKAHgHz/ryqEsalA/LEtnmkL20qIAkT3a7x9o+MVWlfJ/LwDcLhiE9Npe+1l4COW
-         zi96+sy9jiR36U0OVQekhPqSXFV0Y2s6WPSiu/8H446/aIcA09dKD682Sr4mhKGZFTJb
-         tyfo73moZUYoDjGhyOpNBArueQR8Kq5e6ehpokEHN2s7Mvd8spBY8Db8IIJNWncT2bWZ
-         OjRRMe2rjhcvtI7LNyver/ICWl8zmB6MZxqqOtZv4uHBIMkjAOi3gAQyEmFhEw8MM7j1
-         rKCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=v463Ztb7l8HkbYlND0+jy6OLKJauaplyxKRrplRmY1k=;
-        fh=WHwZtGkm0WkW9Bd+5N4UjvgVkqAn3DyaZy1O9tDA1+w=;
-        b=GJkABrztAbtoKGC8PFcVtHjAl+7m3l7ZgVlv7Rpy3el1vdyhF9NcMJfJkT8bOtQ+Yy
-         NXc7EfcXfFyQoai6tImc4Zw7+HwGj/XQoINxUYRx887gWn/BVF3mOta/cznOV6I26XkR
-         xTTX1mTVt+g6XcGFPtjAwI8Ib3kRiC5MlGnHCAfn2xnvBV6eGISPAcnvXld4s0ZUt2J4
-         RapZli0VytR67sXIqFyNCXD6Z7q4dn3XC9pKXRe9AyPrrP7hYEY9NbRt/6jIacqHn1Rm
-         ekove0cgtB88UD1Da5oEvKTMH/Fe2MbC9DuDKUTGZ95Xp9P9ot5f4VSMoqbMZZVVvlk7
-         PhLQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791234918; x=1791839718; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=v463Ztb7l8HkbYlND0+jy6OLKJauaplyxKRrplRmY1k=;
-        b=dSRTaO8dWwoAqpFXB3yfnsnJRwJiL3GQ4k2pMks1ShBnzp3nT9VQP9SCqwJGvUMGCH
-         zhQ7VSGh+xKB9KHKqbMJIRL0oSf5mOfhsxFYK+sjxqeQmlIGpHfg/VMjzACjeK6rDd53
-         EPn0Ap2Pxy8M994hY6/1yFzOsUWEj/GjTONp7B18s3FgbiUO68znsJmdBtUt4/aftCP/
-         /cYKBIllW7rKTSbb7h716pbe9jOXhicRSKe5ZRyrtY1BrPp/qUY39B44RovSCprHVkvl
-         ljV+Nzf6AXPJhS8SutRljRweNQrTlooN+M2le60gOXNxHDbXXo3BdwgImWLIWe20Osxw
-         NV/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791234918; x=1791839718;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v463Ztb7l8HkbYlND0+jy6OLKJauaplyxKRrplRmY1k=;
-        b=nDQiL1+XO+TC4paArPNYNQ9jluHvvgxBioa/BxxksqYZ/rL8daqzR473KGTdD4UMNL
-         9nOMHvR5zfm/GZwCAmAO/7Lc8uuWPX+hqU0M2qGOahMz8oxQIuuYDIOB9uwCg/ZhsZp6
-         nhgbCxIw3+rHjsR7qm5acbQPcmGaLN6/eBwcd4XVOvWsPyKHOd3/H4JSPL58OICciJ8p
-         hJ+AljnfpbWvaXmZiwEZrseqJc0vHEjbVWANSVsHY+mT8HXm3z97ZPSRyhk0dYEW88V4
-         sL4OgoTPOM5jjkYt9iw9j9uw7XNV7STvmaLrAQKfmdnBg+heYJGVfwWMtrFpYdqgQQLr
-         3w1Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxV1ArBclb7sAmwgPuiKduLmM3xN7wjYZFrp7FDPiDaVGfRR6tA8zqXNj/ylboedBJULTlBQ0gn/lFpXksvwZQG@lists.infradead.org
-X-Gm-Message-State: AFq9FYIJlHJY60miMcrejeSW0rpA4pxvXfgAd/H5oJY74aZZrPNx8dVd
-	u2mzsoibvxzzZtzFvMc8MsU3upXItzGJmfEJOBxiCIB/2fOeKlDhH2+nSY7/7F3Q5xMC8glfr2i
-	Sr03e4BCBDOy8Xxh+rcep4AdB5Qmzd24=
-X-Gm-Gg: AYBFou10kODWTOPd3DpVX0FnB/wMwS1CSrcC5E89FZ9sF1O2TFXcv6uVN7Z5Kas7dV4
-	NLsU8GjTBLK7Sgk6ECPprmSqp4DmxLYiuYwIKZ9cpUNTG5wAK704KzLGsD+6h0VAU77rqh/HLq7
-	KMivD/Jf3h7Gd2y+v/pD5vh4IR2I3N29Ts6Ejb+sDMmeW66eZUd0FIGXk8KoFK6e1FLV1yygdYu
-	7GFk+tMryLAzyQuvNWST5MO4xgrpTRd8OOeSvLjKSVlwPRESv4uTDrdXXTFJ5SQ7mEmNOw8Ln/O
-	MdqZ7XojpFg8Ba7WEFr9Nh0XOmVo1Hsmwcw1I1H64xNZz92jQKPqgOA1OA==
-X-Received: by 2002:a17:907:7215:b0:c2d:bd95:874a with SMTP id
- a640c23a62f3a-c2e4ad79199mr1112515766b.17.1791234918176; Mon, 05 Oct 2026
- 14:15:18 -0700 (PDT)
+	Mon, 05 Oct 2026 21:16:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E110443C15;
+	Mon,  5 Oct 2026 21:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3DF1F00899;
+	Mon,  5 Oct 2026 21:16:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791234988;
+	bh=YdzZmoxRoZM+UMpL7Eq9SHs9ftgxVclJGjtJeClfYhA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bTYfzgnRLN+71jSvBERhtSZO3zSjb+mLxaRNWxGUJLayHcjkcTmlTlb6phLm0RktH
+	 cGJyJ4VmroXI2jHiyIZjpBqk1j3kvnHzwSs2p3lqd7RWfazybkVldiDGR+2ezlNWxs
+	 G8sDRskjHQO8ivpJTpIRRnnQHnmWQQFmR+8r1AsjC6gQxgQh3yKI8U37OAklGtNYxU
+	 5h2RJn53JbUrz94DHxAS84FkyB4+G5RLpme2Doqjlo120Cvh+rRv8jXnIy0XDeb1dx
+	 MCf5N6TSHFQhj3yRdwz0owqQ9t/k74HfADaT1cJs7VxH0Nwb0rSaq2iw/cMxmCQTkz
+	 5Vnc+ARNgr0cQ==
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: rework stmmac_rx to support
+ XDP rx multi-buff
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Mon, 05 Oct 2026 21:16:27 +0000
+Message-ID: <179123498740.434549.17434194748750363367@kernel.org>
+In-Reply-To: <20261004-stmmac-rx-mb-v3-2-50fa171af9ec@oss.qualcomm.com>
+References: <20261004-stmmac-rx-mb-v3-2-50fa171af9ec@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260922200336.2201212-1-coiaprant@gmail.com> <20260922200336.2201212-4-coiaprant@gmail.com>
- <20261005135939.01ccde50@kernel.org>
-In-Reply-To: <20261005135939.01ccde50@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 6 Oct 2026 05:15:07 +0800
-X-Gm-Features: AclHuK-hmC2IHermBe0I62cu-4Uo5MfOk7srVIbtbJ9DQ0aB5gykKJWKnA3WMzU
-Message-ID: <CALj3r0h7j-4ZAiX67LmbgpmYCvK-Xmzd_qnYYgoBmniAW+eiWw@mail.gmail.com>
-Subject: Re: [PATCH net-next v10 03/11] phy: rockchip: naneng-combphy: add
- SGMII MAC selection for RK3568
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_141521_085788_09A59A68 
-X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,59 +75,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=886=E6=97=
-=A5=E5=91=A8=E4=BA=8C 04:59=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Wed, 23 Sep 2026 04:03:27 +0800 Coia Prant wrote:
-> > On RK3568, the SGMII interface can be routed to either GMAC0 or
-> > GMAC1 via the GRF register pipe_sgmii_mac_sel.
-> >
-> > Add support for this selection by introducing
-> > the "rockchip,sgmii-mac-sel" DT property.
-> >
-> > From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
-> > bit 1 (pipe_sgmii_mac_sel) is defined as:
-> >
-> >     0: SGMII routed to GMAC0
-> >     1: SGMII routed to GMAC1
-> >
-> > The hardware reset value is 1 (GMAC1). If the property is set to 0,
-> > the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-> > remains at GMAC1.
-> >
-> > This is necessary for boards such as the Ariaboard Photonicat, which
-> > uses the SGMII interface connected to GMAC0.
-> >
-> > Out-of-range values are rejected by dtschema, so the driver does not
-> > duplicate the range check.
->
-> While looking thru the patches again I noticed this is changing generic
-> PHY. Maybe you can send it separately to Vinod? I don't see a hard
-> dependency? The code can "converge" during the merge window for the
-> whole thing to work.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Hi Jakub,
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
-Thanks for the suggestion. I looked at this again, and I think the
-dependency is a bit more involved than it might seem.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The PHY patch (03/11) adds the driver support for
-"rockchip,sgmii-mac-sel", which is documented by the PHY binding (02/11).
-The DTS patch (10/11) then uses this property. If I send 03/11 separately
-to Vinod and keep 10/11 in net-next, dtbs_check will flag the DTS property
-as undocumented until the PHY binding lands in mainline. That would break
-DTS validation for the net-next series.
+- [Medium] stmmac_rx() now gathers every buffer of a frame into one
+  xdp_buff.
+- [Medium] stmmac_rx() now hands a multi-buffer xdp_buff (head plus frags
+  in the head page's skb_shared_info) to the XDP program.
+- [Low] Several 'In addition' bullets in the commit message describe the
+  parent tree's behaviour wrongly.
+- [Low] Rejected in the baseline decision; kept here because
+  requires_validation is set.
+- [Low] In stmmac_rx(), the non-PASS verdict branch (if (IS_ERR(skb)))
+  still has the comment '/* Clear skb as it was set as status by the XDP…
 
-Also, splitting into separate series means each has to queue and get
-reviewed independently, which I'm worried might not all make the merge
-window in time.
+--
 
-So unless you strongly prefer splitting, I'd rather keep the whole series
-together in net-next. If that works, would it be possible to coordinate an
-Ack from Vinod for the PHY part? Or if you still think it should go
-separately, I can do that too, but I wanted to flag the dependency and
-timing first.
+net: stmmac: rework stmmac_rx to support XDP rx multi-buff
 
-Thanks,
-Coia
+This reworks stmmac_rx() to accumulate all descriptors of a frame into a
+single xdp_buff, so the XDP program runs on the full, possibly fragmented,
+packet. A partial skb is no longer saved in rx_q->state across NAPI polls;
+the in-progress xdp_buff is saved there instead. XDP_PASS frames are built
+into an skb with napi_build_skb() and xdp_update_skb_frags_info(), and FCS
+stripping moves to a new stmmac_xdp_shrink_tail() helper.
+
+> Build the xdp_buff by accumulating all the descriptors that make up a
+> frame, so the XDP program runs on the full (possibly fragmented) packet
+> instead of just the first buffer.
+
+[Severity: Low]
+This isn't a bug, but could the scope be stated more precisely? When XDP is
+enabled, stmmac_xdp_set_prog() still rejects dev->mtu > ETH_DATA_LEN and
+still turns off SPH:
+
+	priv->sph_active = priv->sph_capable && !stmmac_xdp_is_enabled(priv);
+
+So the program only sees fragmented xdp_buffs for oversized frames that the
+MAC accepts at MTU 1500 through GMAC_CONFIG_JE or the XGMAC GPSL setting.
+
+Would it help to say in the commit message that the jumbo MTU restriction
+for XDP stays in place?
+
+[ ... ]
+
+> - release all buffers belonging to a frame when it is dropped on RX
+>   errors, instead of leaking the ones already attached to the xdp_buff;
+> - drop the whole frame when the number of fragments exceeds
+>   MAX_SKB_FRAGS, instead of delivering a truncated one;
+
+[ ... ]
+
+> - skip zero-length fragments, which can happen for non-first
+>   descriptors when split-header (SPH) is enabled.
+
+[Severity: Low]
+Are these bullets accurate when compared with the parent tree?
+
+On the leak claim: the parent stmmac_rx() built no xdp_buff frags. On
+error it called dev_kfree_skb(skb) on an skb marked with
+skb_mark_for_recycle(), which returns the attached page_pool frags.
+
+On the truncation claim: the parent called
+skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags, ...) with no bound, so it
+would not have delivered a truncated frame.
+
+On zero-length fragments: the parent already had the
+"} else if (buf1_len) {" and "if (buf2_len) {" guards.
+
+These read like changelog notes from an earlier revision of the patch.
+Could they be reworded to describe the change against the current tree?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b2d20628ed214..3098fd6df1582 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -5874,135 +5996,94 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+
+[ ... ]
+
+>  		} else if (buf1_len) {
+> -			dma_sync_single_for_cpu(priv->device, buf->addr,
+> -						buf1_len, dma_dir);
+> -			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+> -					buf->page, buf->page_offset, buf1_len,
+> -					priv->dma_conf.dma_buf_sz);
+> +			if (!stmmac_build_xdp_frags(priv, rx_q, buf1_len,
+> +						    buf->page,
+> +						    buf->page_offset,
+> +						    dma_dir, &ctx.xdp)) {
+> +				if (!error)
+> +					rx_dropped++;
+> +				error = 1;
+> +			}
+>  			buf->page = NULL;
+>  		}
+>  
+>  		if (buf2_len) {
+> -			dma_sync_single_for_cpu(priv->device, buf->sec_addr,
+> -						buf2_len, dma_dir);
+> -			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+> -					buf->sec_page, 0, buf2_len,
+> -					priv->dma_conf.dma_buf_sz);
+> +			if (!stmmac_build_xdp_frags(priv, rx_q, buf2_len,
+> +						    buf->sec_page, 0,
+> +						    dma_dir, &ctx.xdp)) {
+> +				if (!error)
+> +					rx_dropped++;
+> +				error = 1;
+> +			}
+>  			buf->sec_page = NULL;
+>  		}
+> +		frames++;
+
+[ ... ]
+
+> +		skb = stmmac_xdp_run_prog(priv, &ctx.xdp);
+
+[Severity: Medium]
+Can this pass a multi-buffer xdp_buff to an XDP program that was loaded
+without BPF_F_XDP_HAS_FRAGS?
+
+stmmac_build_xdp_frags() calls xdp_buff_add_frag(), which sets
+XDP_FLAGS_HAS_FRAGS. stmmac_xdp_run_prog() then runs whatever program is
+attached, and the driver never checks prog->aux->xdp_has_frags.
+stmmac_xdp_set_prog() only gates the attach on MTU:
+
+	if (prog && dev->mtu > ETH_DATA_LEN) {
+
+These frames can still arrive at MTU 1500. GMAC_CORE_INIT always sets
+GMAC_CONFIG_JE, XGMAC sets GPSL to XGMAC_JUMBO_LEN, and dma_buf_sz is 1536.
+On cores with buffer2, a 1537 to 3072 byte frame fills buf1 and buf2 of one
+descriptor and becomes a head plus one frag. Larger frames span several
+descriptors.
+
+A program that never opted in to frags sees only the head through
+data/data_end, but its verdict applies to the whole frame.
+
+Also, stmmac_dvr_probe() still advertises:
+
+	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
+			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
+
+Should NETDEV_XDP_ACT_RX_SG be advertised here? And should programs
+without xdp_has_frags either be rejected or kept away from frags-bearing
+buffers?
+
+> +		/* Due xdp_adjust_tail: DMA sync for_device
+> +		 * cover max len CPU touch
+> +		 */
+> +		sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
+> +		sync_len = max(sync_len, pre_len);
+> +
+> +		/* For Not XDP_PASS verdict */
+> +		if (IS_ERR(skb)) {
+> +			unsigned int xdp_res = -PTR_ERR(skb);
+> +
+> +			if (xdp_res & STMMAC_XDP_CONSUMED) {
+> +				stmmac_xdp_put_buff(rx_q, &ctx.xdp, sync_len,
+> +						    true);
+> +				rx_dropped++;
+> +			} else if (xdp_res & (STMMAC_XDP_TX |
+> +					      STMMAC_XDP_REDIRECT)) {
+> +				xdp_status |= xdp_res;
+> +			}
+
+[Severity: Medium]
+What happens on XDP_TX when ctx.xdp carries frags? Does the frame go out
+truncated to the head buffer?
+
+The path is:
+
+__stmmac_xdp_run_prog()
+  stmmac_xdp_xmit_back()
+    xdp_convert_buff_to_frame()
+    stmmac_xdp_xmit_xdpf()
+
+The converted frame keeps the frags flag, but xdpf->len covers only the
+linear head. stmmac_xdp_xmit_xdpf() sets up one descriptor and marks it as
+both first and last:
+
+	stmmac_set_tx_dma_entry(tx_q, entry, buf_type, dma_addr, xdpf->len,
+				false);
+	stmmac_set_tx_dma_last_segment(tx_q, entry);
+	...
+	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
+			       csum, priv->descriptor_mode, true, true,
+			       xdpf->len);
+
+The frags are never mapped or queued, yet the action is counted as
+successful. The EST SDU check also measures only the head:
+
+	    xdpf->len > priv->est->max_sdu[queue]) {
+
+The frag pages are not leaked, because stmmac_tx_clean() returns them via
+xdp_return_frame_rx_napi().
+
+Oversized XDP_TX frames were also truncated before this patch. The
+difference is that the program now sees the whole frame and returns
+XDP_TX for it.
+
+Should frags-bearing frames be dropped on XDP_TX until
+stmmac_xdp_xmit_xdpf() can transmit multiple descriptors?
+
+> +
+> +			/* Clear skb as it was set as status by
+> +			 * the XDP program
+> +			 */
+> +			frames = 0;
+
+[Severity: Low]
+This isn't a bug, but the comment still talks about clearing skb. The code
+now resets frames instead, and skb is a loop-local variable that is never
+cleared. Could the comment say that the in-progress frame state is being
+dropped?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261004-stmmac-rx-mb-v3-0-50fa171af9ec%40oss.qualcomm.com
 
