@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D229CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B405CA5FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxbS28SntsMUQyXM5E13ugMcWQINhgsovIcMpFDcwJ4=; b=s6p8aAvF5FPwAoN/BNUB/CIWfz
-	7dSnlmKsXlM5Cb6Xtaob+CT3Yxa2s50wA1Pl/W3h/1nJlCtjVqubNaX4G8RrwKaRLi/i2m/raBbAh
-	fRED5YQbxkqA++3BFxOIgd7fZ8fMc6cyyFwoIWfxMwauqiyRQDIrPpT/uuG6OcN+/C6Rb0EJMx12V
-	hnEU+HH91eTfqRWgCw3nrVYL0e/hXH2X4IUaNm02vqMx6b588m5uByPAInSXGtMVAv/1UFR+iQbhy
-	Q7gwzstbnwQXF8+P/8/sL0unCn4duSLO1+iFhARy9Z1JYgApPC4JcGkw373JUfW9zQ6lPQRM2AIcG
-	qj5HuQuQ==;
+	bh=S9LLP3L3r4GfzGbBu98Bx9XvNPWkG8mpmi7bZfdLOis=; b=O2TbhpChqv/uXH6lpjd0mU2zDw
+	oBBBG6Rx7i7OgS4dPmD1PpwLRaPyWX9fNM1HLlHmhcGBLsgMtxnfG26NP+TbnvdUkHT4GPPtOdII2
+	M4Z3ZbMWhLEZG4RVD3fGeY/obkDGu9IwfSI8Xl0kMC20PdDTc5euB0GsFBYO4pzGqmoDyD9oCgRY4
+	O7o7ynsACrE+buo1xlppqS7ouh+woux5WpgZKOpmesftfEIt3YH+JTUzrTyKOP6SjH6M0PYFcR9PL
+	h5deUbQbrIEfkapS+Ej/mA5kKc+nfjzhFO8ABx6fR0jGKqE4sWsxQ6zquIwoXFDVMN596KIleX7st
+	3ACXZecQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeex-0000000Fvol-3DSY;
+	id 1xDeex-0000000Fvp3-3fZc;
 	Mon, 05 Oct 2026 09:06:59 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeeu-0000000Fvn4-3v8M
+	id 1xDeew-0000000FvoM-3ky9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:06:56 +0000
+	Mon, 05 Oct 2026 09:06:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 797C043DDA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C9DF40C3C;
+	Mon,  5 Oct 2026 09:06:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC9FD1F000FF;
 	Mon,  5 Oct 2026 09:06:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1420F1F0089C;
-	Mon,  5 Oct 2026 09:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791191216;
-	bh=gxbS28SntsMUQyXM5E13ugMcWQINhgsovIcMpFDcwJ4=;
+	s=k20260515; t=1791191218;
+	bh=S9LLP3L3r4GfzGbBu98Bx9XvNPWkG8mpmi7bZfdLOis=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=DjJoWloRFZNFBdWo3TyOVpX8PmVPTpKiT4yzrRJ5apizSOE41FzvGpytITen5Tn12
-	 wLpb8UGqtY8sjDFl9A7e/4tOG8eCNvI7rV9AEzpW9ZtHvaSFbAHkb8WKy7hlI4olFu
-	 oJjH3/PsPE8DwKg9hTYpGJZVHGHkHK/hC1lw0KbaM9wzl4kGf+gRf3cldzNuAMrhR+
-	 tCuHvZhUZuLoIXOvyAg7cHCiRv/Oy2G+fmQLgA/1w5cY4DDBW3o5mC19lwvJ3FS6BP
-	 OYujNII2UpyflFLbtpXG1nMuIgsMSVtH9waetva2nBHgfDvz4esDiKG3v8oEfz1qGR
-	 oWrh2uYpOfIhQ==
+	b=fLCVyhvUW0Y6Hyh3TwXYubczgHA0pJplKACRk1toqj5MpXSNhfeRy472sDjnFJayv
+	 HAsRLWfDjGw2wohTx8CaOpL3aiyHf3CrMAgREgF0M7McBOlfTeGzd1d9pHi29+L8ki
+	 GrQbWtXWfNIs9SSfxl968lLIJsuTIfAOUDtVNsH98ySQ55JVOoPnvmPBOPz8+/PPhB
+	 k5bc76vmM/1z9mBRcJxp2+mZXp6FAOL5Qe0u91CEkG7QaIs8O9YTWY8/jq70lxb17y
+	 zTkx9PPasc/Qcwf3pfgxuig5COONhnLut0gMunougeLkT/EzVxeBL5NrauK/PveE5+
+	 CI95gakIcm4ng==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Mon, 05 Oct 2026 10:04:33 +0100
-Subject: [PATCH v2 2/4] firmware: arm_scmi: Skip requests for standard
- protocol devices
+Date: Mon, 05 Oct 2026 10:04:34 +0100
+Subject: [PATCH v2 3/4] pinctrl: imx: Match the standard SCMI pinctrl
+ device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261005-scmi_bus_fixes-v2-2-34a51338875a@kernel.org>
+Message-Id: <20261005-scmi_bus_fixes-v2-3-34a51338875a@kernel.org>
 References: <20261005-scmi_bus_fixes-v2-0-34a51338875a@kernel.org>
 In-Reply-To: <20261005-scmi_bus_fixes-v2-0-34a51338875a@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
  Cristian Marussi <cristian.marussi@arm.com>, Peng Fan <peng.fan@nxp.com>, 
  Hans de Goede <johannes.goede@oss.qualcomm.com>, imx@lists.linux.dev, 
- linux-gpio@vger.kernel.org
+ linux-gpio@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,137 +73,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI core creates devices for the standard protocol IDs during
-protocol enumeration, without waiting for an SCMI driver request.
-Recording a request for one of these devices also rejects a second
-driver registering the same protocol/name pair.
+Use the standard "pinctrl" SCMI device name instead of the i.MX-specific
+"pinctrl-imx" name. Standard devices no longer have exclusive request
+tracking, so the i.MX and generic pinctrl drivers can register for the
+same protocol/name pair. Their probe checks select the appropriate
+driver for the platform.
 
-When the first driver unregisters, unrequesting that pair destroys the
-core-created device. No other driver can be bound to it at that point,
-but removing it also removes the device that a later driver could bind
-to or use for module autoloading.
+This solves the issue that occurs when both "pinmux" and "pinmux-imx"
+devices that share the same fwnode as only the first device registered
+is assigned as the owner of the fwnode. If this owner device fails to
+probe (e.g., its driver is blocklisted or missing), it never reaches
+the driver_bound() stage and the system skips cleaning up its supplier
+links. Even if a alternative device binds successfully, the system
+still looks to the broken original owner. As a result, all dependent
+hardware components (I2C, SPI, UART, USB, MMC, PCIe) defer probing
+forever, halting the boot process.
 
-Skip request tracking for standard devices. Keep request tracking and
-rollback for nonstandard devices unchanged.
+Note that the solution doesn't support same fwnode being shared by
+multiple devices and associated fw_devlink feature.
 
-Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: NXP S32 Linux Team <s32@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Reported-by: Peng Fan <peng.fan@nxp.com>
+Closes: https://lore.kernel.org/all/20260928-driver-core-v1-1-0846bb8e0f32@nxp.com
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Tested-by: Peng Fan <peng.fan@nxp.com> #i.MX95 EVK
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/bus.c | 73 +++++++++++++++++++++++------------------
- 1 file changed, 41 insertions(+), 32 deletions(-)
+ drivers/firmware/arm_scmi/bus.c              | 1 -
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index f2e2ed56bc32..230ee9f6f1aa 100644
+index 230ee9f6f1aa..6be31b5121b3 100644
 --- a/drivers/firmware/arm_scmi/bus.c
 +++ b/drivers/firmware/arm_scmi/bus.c
-@@ -186,12 +186,44 @@ static void scmi_protocol_device_unrequest(const struct scmi_device_id *id_table
- 	}
- }
- 
-+/* Standard protocols table */
-+static const struct scmi_device_id scmi_std_id_table[] = {
-+	{ SCMI_PROTOCOL_POWER, "genpd" },
-+	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
-+	{ SCMI_PROTOCOL_PERF, "perf" },
-+	{ SCMI_PROTOCOL_PERF, "cpufreq" },
-+	{ SCMI_PROTOCOL_CLOCK, "clocks" },
-+	{ SCMI_PROTOCOL_SENSOR, "hwmon" },
-+	{ SCMI_PROTOCOL_SENSOR, "iiodev" },
-+	{ SCMI_PROTOCOL_RESET, "reset" },
-+	{ SCMI_PROTOCOL_VOLTAGE, "regulator" },
-+	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
-+	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
-+	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
-+	{ },
-+};
-+
-+static bool scmi_device_id_in_std_id_table(const struct scmi_device_id *id)
-+{
-+	for (int i = 0; scmi_std_id_table[i].name[0]; i++) {
-+		if (scmi_std_id_table[i].protocol_id == id->protocol_id &&
-+		    !strcmp(scmi_std_id_table[i].name, id->name))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static int scmi_protocol_table_register(const struct scmi_device_id *id_table)
- {
- 	const struct scmi_device_id *entry;
- 	int ret;
- 
- 	for (entry = id_table; entry->name[0]; entry++) {
-+		/* Skip standard devices as they are created unconditionally */
-+		if (scmi_device_id_in_std_id_table(entry))
-+			continue;
-+
- 		ret = scmi_protocol_device_request(entry);
- 		if (ret)
- 			goto err_unrequest;
-@@ -200,8 +232,11 @@ static int scmi_protocol_table_register(const struct scmi_device_id *id_table)
- 	return 0;
- 
- err_unrequest:
--	while (entry != id_table)
--		scmi_protocol_device_unrequest(--entry);
-+	while (entry != id_table) {
-+		--entry;
-+		if (!scmi_device_id_in_std_id_table(entry))
-+			scmi_protocol_device_unrequest(entry);
-+	}
- 
- 	return ret;
- }
-@@ -211,8 +246,10 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
- {
- 	const struct scmi_device_id *entry;
- 
--	for (entry = id_table; entry->name[0]; entry++)
--		scmi_protocol_device_unrequest(entry);
-+	for (entry = id_table; entry->name[0]; entry++) {
-+		if (!scmi_device_id_in_std_id_table(entry))
-+			scmi_protocol_device_unrequest(entry);
-+	}
- }
- 
- static bool scmi_device_name_is_transport(const char *name)
-@@ -542,34 +579,6 @@ _scmi_device_create(struct fwnode_handle *fwnode, struct device *parent,
- 	return sdev;
- }
- 
--/* Standard protocols table */
--static const struct scmi_device_id scmi_std_id_table[] = {
--	{ SCMI_PROTOCOL_POWER, "genpd" },
--	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
--	{ SCMI_PROTOCOL_PERF, "perf" },
--	{ SCMI_PROTOCOL_PERF, "cpufreq" },
--	{ SCMI_PROTOCOL_CLOCK, "clocks" },
--	{ SCMI_PROTOCOL_SENSOR, "hwmon" },
--	{ SCMI_PROTOCOL_SENSOR, "iiodev" },
--	{ SCMI_PROTOCOL_RESET, "reset" },
--	{ SCMI_PROTOCOL_VOLTAGE, "regulator" },
--	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
--	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
+@@ -199,7 +199,6 @@ static const struct scmi_device_id scmi_std_id_table[] = {
+ 	{ SCMI_PROTOCOL_VOLTAGE, "regulator" },
+ 	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
+ 	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
 -	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
--	{ },
--};
--
--static bool scmi_device_id_in_std_id_table(const struct scmi_device_id *id)
--{
--	for (int i = 0; scmi_std_id_table[i].name[0]; i++) {
--		if (scmi_std_id_table[i].protocol_id == id->protocol_id &&
--		    !strcmp(scmi_std_id_table[i].name, id->name))
--			return true;
--	}
--
--	return false;
--}
--
- /**
-  * scmi_device_create  - A method to create one or more SCMI devices
-  *
+ 	{ },
+ };
+ 
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+index 613552e35070..b259a526ccc1 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+@@ -354,7 +354,7 @@ static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
+ }
+ 
+ static const struct scmi_device_id scmi_id_table[] = {
+-	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
++	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(scmi, scmi_id_table);
 
 -- 
 2.43.0
