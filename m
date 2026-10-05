@@ -4,102 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1832CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABCECA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LoOBU3dKUoijTmAk3p1LupdivqwWNOCTytdFGuDGRd8=; b=3kHp5XdiKuqLnDLDtY1R/7Yb4L
-	GLV51up/qewRT80ccVBBdQIyE542b5ysKXErVQ5sNvadQ0rFdJ7RDZEV4mgrgQiesK4QjCT/AxW+P
-	dnfCbMbVxLgql57KOk4AvGUBTNsA7z9mgNoZxvokxs84BJUAJeFU1TMecjo+neyDwINMM6GSUYfd3
-	jT7a53ZqbbIxMHSFsFD1sSStZsOrza4t637upFTefFGG2YaZQikokZguM842GT9GdHwFOLNXnmdUQ
-	VtQBjVSBB4ZERHw9jD/Z19GK+GEM/gLiEQgZaDbxfOZU97AbtyIbQW+ISEy9lip21oE6E+vJlkLXb
-	laM384nw==;
+	bh=znHr15ngoIrnyD0Loh8A8gjvgvi//2QapaxdSU8F3XU=; b=gdIkUubwKTa7pHkPUeQyvdOLfe
+	ArKumFl80NrBDD8DD8az7QM/S7NoFpmb+9/mC5dtiBxIYm4oz/3DDtq9er3Zo46Lb9tdYdY4M31pQ
+	sK/LdWYnkM8yjF5tdbLn99AJnp00xbwYzC6O70nZDL+Qd+qqBUgH6PxWajuoHZt6wKc9uhxaJDAZS
+	NEEF5rIXGYROoENG6CaADpkN0LoiCG5j9jTY6M2cYZVt4NC6pMEDb8wJWap7cZgyTPzgJ2f6Y+2fs
+	PbaNk67AtxKoVEz4qBcBZIoasW8ijMGMn1CxZCJ5zK06ibkTmKheMRQnQ6O8TUZt86mz9LNJXMfCE
+	u8AnP7WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDZzg-0000000Fdyi-3hVT;
-	Mon, 05 Oct 2026 04:08:04 +0000
-Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
+	id 1xDaBN-0000000Fecn-281d;
+	Mon, 05 Oct 2026 04:20:09 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDZze-0000000Fdy1-2gZ5
+	id 1xDaBL-0000000Fec0-0x6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 04:08:04 +0000
-Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33e630052ebso1989754eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 21:08:01 -0700 (PDT)
+	Mon, 05 Oct 2026 04:20:08 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a0977b9c20so18137315e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 21:20:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791173281; x=1791778081; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791174005; x=1791778805; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=LoOBU3dKUoijTmAk3p1LupdivqwWNOCTytdFGuDGRd8=;
-        b=yOmalqbLJ3eRVsrbmp2RDV8lvbf5a8e0dTsbF3V+d6Ar2ZwKm8DCUTVPCWf7a8IAn6
-         mMs0jW5BdHaGUXAHQoAJmH5bfZvJ7QOwer/CDqhCa1RBEsJ5WDmIrBoH4dMEV7syLVsS
-         VnZfy/R+5eVzRZDOZ1CL7qfKnr/26PTScM2OSH4Fxu5ZBSTJ2pnRloOPyFotPsHZHBUj
-         fxRPcmwEyZC2t+lDNofSuyg1uyUivRxSgd0TAlyRNYYxQJUd7a74EAM4RSilMRzMqU9Q
-         haDRNMw9/3rZMvF2JBuOrMaswDG7s0q33/YJtUbPIbgYcm+xAlCcBZqP+/QJurKvk93W
-         OWIg==
+        bh=znHr15ngoIrnyD0Loh8A8gjvgvi//2QapaxdSU8F3XU=;
+        b=Ct4LU4+TISPPUDjgDu+HPk4OqBRE0ADgMqCpAEr+8VMIsv3vMFD1UGGFMFYN0XSfmQ
+         o32WHLp9jhnvO+JZZ61kjOCDK8+WegOf/S4pN0IaW3HTBPjsLFL+U9y7IBvtPcjmc0q3
+         3QMOg9GP4oWBbC4Gj/chOHBX34GyrXYiATd+JoA0WcKiWZDKD87kobUYzsHTRQMaqKIH
+         5l8M0JEQ0VI4n622A1HqAZN5mOA0IFWc9fcYkWGu1SXydIN/etAZ8/2pMQpW9kIeTLhL
+         m2Ra3VhDPvtpu7UcyWl0isy67YOrKsJjrokv1BRTCuOrZZxilsyiZolVldSvqp8qNM4I
+         E5UQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791173281; x=1791778081;
+        d=1e100.net; s=20260707; t=1791174005; x=1791778805;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LoOBU3dKUoijTmAk3p1LupdivqwWNOCTytdFGuDGRd8=;
-        b=YsdMsN5cqv8XKqTOIsIAB1UYT8mGmXPsfR2bbUcFKvXLWddKuN4xd+Kw+3hVOe9e8R
-         gtEXRd9bn8s3avfzDAnTY+pwVoA7aRLPgo17qOuqHlx9MkZWWIaI9TQhhP0oFoRin6jB
-         /lOw4kJ6Abs3+F9PXPzaSCttAJoEBTWRm0tmMnTOmtr3+6CHQbQBtof7SrWVLCPXLWqf
-         plH8ZnV900EtJxKxDtRVCBE/LPqLiiZ8q0Dn0f68Lq4wogQMUDCzQRlw6ET4+QYubLDy
-         dCEeMRpBxxJ6JznX96MYP5B2+hsG3u1gqSH+S9j7SbBLh7LlyJMOU2FVwBdrID9ItADg
-         L8qQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxd++11k+yityS50Oj7MkJbtVRCONWwBMR9R112Yp/1S2+Zlo1p3tkw8N5MKqhFO9Q9xH2eUthvU8s7MLBN0FEa@lists.infradead.org
-X-Gm-Message-State: AFuF++kgo7l0G0f8dbvqG1C+dXqBpU6xDM3mT2G/KomjJFRYnqvJsZnR
-	OhkbCOo4AYKyyeB5FdpRZaodjoVzmMTfejAkkt+xB7MnbwXcTt5YL3m6dmOp+YiS9JM=
-X-Gm-Gg: AYBFou0CHczIfzKtzGeaDod4zRfJtxa0KHZopsd5BrZoK7kshmvojiHJ3e57Q5TOp1E
-	w48i0pxxGRPZNIUpOiJFyMqWhCIbMFuQdfcijjqHPq2lAU4a9upiSna/fyejLpXYHqEdk1tcqF7
-	rfm0CVYZI1bBkN2GBrKJb9uvcjGpFzHnaUDj4tnQ+WhE0gIHfbfW2nxUgEodLpOv25FmzzBsBR6
-	fIfyz/ECuhLYXAd4Tb+9UcCvReyUiIm3Ofz6+8sPC0lt/8EfkcyjF36PyJZGML6TvpBw0rNR0NJ
-	OKBzLxutIuvHqopqFSVDvb26YtCM3QymL39LuetKoCd56raDKSkHbxzfZ3GxAR/FXYqfX6Gnfx1
-	9CDrQlNcFMUpbHLsOgK/Dz+leeHDQ/Qklp8pvkq8yk4tfS6VuIf0HhskLlpZy58wc0oIvd3CzC9
-	pWqPrqT8nQqkBazmYtz4Ey5v4toyaRGnuFBRNddivWewtxwdNFRVV6dFwAmGnu/sIOtWupyj/f
-X-Received: by 2002:a05:701b:2810:b0:149:cfa4:9b3b with SMTP id a92af1059eb24-14f58de5451mr12982932c88.3.1791173281135;
-        Sun, 04 Oct 2026 21:08:01 -0700 (PDT)
-Received: from localhost ([122.172.87.224])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fcec9a95sm18805270c88.15.2026.10.04.21.07.59
+        bh=znHr15ngoIrnyD0Loh8A8gjvgvi//2QapaxdSU8F3XU=;
+        b=uUIrGz1ICuIKoREXKU517EzgEUe24Rb1nH1H9w2SLlpYuTZANYWA/pDbwIVW8PipOf
+         lMXzDZI1YwDerrV9sG/YHkOvYyDHIeDX0J7cszDMo9mnZFsfVrQqTTngrHfV4v6MbdjH
+         SSnMJxKjmVG+7og7kBcN2vBAyR7wiyG8wcm0yuqyI0qNxpGt4NrU2QmVFVr4y+FLyTVW
+         2GIWYYpx+Glzwa7Hs+d/INIxM0p5f3kKGzKs2kGbHkUYIP3pzi4af/UUgp5dZkt1V/sY
+         4HrocnkNDAu2jhlmOn+2AU7XjVwmTk+5ZcAYpoRToSqRjewMTD5bW+9iPJW0tIQJiDJs
+         fSEw==
+X-Forwarded-Encrypted: i=1; AKwUvBxGfGZC46rdQsG62To3fyIClLMMutb7TH5FDQgl3v6JJ/SjXZg7oLcVn2isdgh2ucb8SbCNdXwbWOFyPoFIZ1Jn@lists.infradead.org
+X-Gm-Message-State: AFuF++mKdr2vri5RdDs0KMWHVo7+cmikehdnf0QTeoAPkqnKq6wsX0lg
+	/htVs5Yaz31D8SPlUBzTdxn4nn4DR3iToL7luFMfXVQ+0yYjUFl8ky+n
+X-Gm-Gg: AYBFou27a7ADNa+s/X39AJFNwa4RxKdRbUmXvuix85QpmMZYhHE6BpHJt1q1H6yaW1t
+	zCp02eDgxdwEmP0yMugG5/kSnFUyCcHKNgcLsG98shqga5pJ7mZbMrejoFc3E7YXJYZomc1lVjs
+	jFaU3KCM7rr1JtxrzN00LLFM7oFOvnKOm5db1HJunNmXlxMNgKSmS27Du3oFojoOAr5X2LBDgmZ
+	GPDIqR2OWhUYHnaF6dnk3QFloYmlkx3EuMb7jRsDTpVudr/0yNW56qmhCwY4z4ZFa/es5W1r4s7
+	kHgR5GsSH3F67AprID+YqucHJCHadGbSt9kgpXFtqh/wqygrKWZ2zJJZr8xPfkLoAiwiOfoiSvF
+	NkyXI+iSzY+fwt8bPjf7fB11KO29YzliR7dSXObFuAt981x4S+oxjHZIgrQ7piorfVo/bsKO0Ow
+	Avw3tj3peCau8tbVvc1eBZBA7qfDMjd7OUxBhe1aIBrwN57F0Cs9y67dOtsB5BN5LDXb4am5Qh0
+	CNWuvCqkXvsDQZaot4erdQ+dEniP3tpgJN4tChbraN/abnuppyr+1LtJfTzbdDcmuFxPYiRLIVK
+	aV18nSoZmmGS5GCdUBhgbo+JKxz8ijkF6OL45J6YyimtK/MjCTR0EO8qTXEBZOhgpA==
+X-Received: by 2002:a05:600c:3e06:b0:4a1:6ad5:257d with SMTP id 5b1f17b1804b1-4a16d3d5c54mr77517745e9.29.1791174005080;
+        Sun, 04 Oct 2026 21:20:05 -0700 (PDT)
+Received: from MBP-von-Karl (dynamic-2a02-3100-b305-2001-39fa-3d24-821a-4eae.310.pool.telefonica.de. [2a02:3100:b305:2001:39fa:3d24:821a:4eae])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027725c6asm355769085e9.8.2026.10.04.21.20.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 21:08:00 -0700 (PDT)
-Date: Mon, 5 Oct 2026 09:37:57 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Sumeet Pawnikar <sumeet4linux@gmail.com>
-Cc: rafael@kernel.org, krzk@kernel.org, amit.kachhap@gmail.com,
-	daniel.lezcano@kernel.org, thara.gopinath@gmail.com,
-	talel@amazon.com, hayashi.kunihiko@socionext.com,
-	mhiramat@kernel.org, mmayer@broadcom.com, sumitg@nvidia.com,
-	peter.griffin@linaro.org, myungjoo.ham@samsung.com,
-	kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, sven@kernel.org,
-	j@jannau.net, marcan@marcan.st, casey.connolly@linaro.org,
-	sre@kernel.org, wens@kernel.org, t.schramm@manjaro.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-samsung-soc@vger.kernel.org, kernel@pengutronix.de,
-	imx@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] cpufreq: Use %pe to print error pointers
- symbolically
-Message-ID: <asMinVwyd7gcvRlo@vireshk-B250M-D3H>
-References: <20260912191156.185448-1-sumeet4linux@gmail.com>
- <20260912191156.185448-4-sumeet4linux@gmail.com>
+        Sun, 04 Oct 2026 21:20:04 -0700 (PDT)
+Date: Mon, 5 Oct 2026 06:20:01 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Russell King <linux@armlinux.org.uk>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Linus Walleij <linusw@kernel.org>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
+	Bradley Morgan <brads@mainlining.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: rust: Enable Rust support for ARMv5TE
+Message-ID: <asMj2D6_Zx4ZIfrw@gmail.com>
+References: <20261003093827.77857-1-kmehltretter@gmail.com>
+ <20261003093827.77857-3-kmehltretter@gmail.com>
+ <33197b82-3eff-4c87-b370-c677ca31a02a@app.fastmail.com>
+ <asEzZ1wOQ_MbgEsk@gmail.com>
+ <3436fcef-a052-4261-afb5-677b0bbf28c2@app.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260912191156.185448-4-sumeet4linux@gmail.com>
+In-Reply-To: <3436fcef-a052-4261-afb5-677b0bbf28c2@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_210802_685347_2D69561C 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20261004_212007_319989_D9AC0BF5 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,91 +116,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13-09-26, 00:41, Sumeet Pawnikar wrote:
-> Replace PTR_ERR() and %ld with %pe and pass the original pointer directly
-> to pr_err() and pr_warn(). The %pe format specifier prints a symbolic error
-> name (e.g. -ENOMEM) when CONFIG_SYMBOLIC_ERRNAME is enabled, otherwise it
-> falls back gracefully and prints the raw integer value. This makes messages
-> more readable without any functional change.
-> 
-> Signed-off-by: Sumeet Pawnikar <sumeet4linux@gmail.com>
-> ---
->  drivers/cpufreq/bmips-cpufreq.c   | 4 ++--
->  drivers/cpufreq/cppc_cpufreq.c    | 4 ++--
->  drivers/cpufreq/qoriq-cpufreq.c   | 4 ++--
->  drivers/cpufreq/s3c64xx-cpufreq.c | 5 ++---
->  4 files changed, 8 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/bmips-cpufreq.c b/drivers/cpufreq/bmips-cpufreq.c
-> index a8e35bc75fb2..389fff5e6f65 100644
-> --- a/drivers/cpufreq/bmips-cpufreq.c
-> +++ b/drivers/cpufreq/bmips-cpufreq.c
-> @@ -132,8 +132,8 @@ static int bmips_cpufreq_init(struct cpufreq_policy *policy)
->  
->  	freq_table = bmips_cpufreq_get_freq_table(policy);
->  	if (IS_ERR(freq_table)) {
-> -		pr_err("%s: couldn't determine frequency table (%ld).\n",
-> -			BMIPS_CPUFREQ_NAME, PTR_ERR(freq_table));
-> +		pr_err("%s: couldn't determine frequency table (%pe).\n",
-> +			BMIPS_CPUFREQ_NAME, freq_table);
->  		return PTR_ERR(freq_table);
->  	}
->  
-> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
-> index 80893844353c..f767898ebfb5 100644
-> --- a/drivers/cpufreq/cppc_cpufreq.c
-> +++ b/drivers/cpufreq/cppc_cpufreq.c
-> @@ -230,8 +230,8 @@ static void cppc_fie_kworker_init(void)
->  
->  	kworker_fie = kthread_run_worker(0, "cppc_fie");
->  	if (IS_ERR(kworker_fie)) {
-> -		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
-> -			PTR_ERR(kworker_fie));
-> +		pr_warn("%s: failed to create kworker_fie: %pe\n", __func__,
-> +			kworker_fie);
->  		fie_disabled = FIE_DISABLED;
->  		kworker_fie = NULL;
->  		return;
-> diff --git a/drivers/cpufreq/qoriq-cpufreq.c b/drivers/cpufreq/qoriq-cpufreq.c
-> index 42edb41ad459..0652e5df0278 100644
-> --- a/drivers/cpufreq/qoriq-cpufreq.c
-> +++ b/drivers/cpufreq/qoriq-cpufreq.c
-> @@ -57,8 +57,8 @@ static u32 get_bus_freq(void)
->  	/* get platform freq by its clock name */
->  	pltclk = clk_get(NULL, "cg-pll0-div1");
->  	if (IS_ERR(pltclk)) {
-> -		pr_err("%s: can't get bus frequency %ld\n",
-> -		       __func__, PTR_ERR(pltclk));
-> +		pr_err("%s: can't get bus frequency %pe\n",
-> +		       __func__, pltclk);
->  		return PTR_ERR(pltclk);
->  	}
->  
-> diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-cpufreq.c
-> index 9cef71528076..9a01592425ee 100644
-> --- a/drivers/cpufreq/s3c64xx-cpufreq.c
-> +++ b/drivers/cpufreq/s3c64xx-cpufreq.c
-> @@ -152,15 +152,14 @@ static int s3c64xx_cpufreq_driver_init(struct cpufreq_policy *policy)
->  
->  	policy->clk = clk_get(NULL, "armclk");
->  	if (IS_ERR(policy->clk)) {
-> -		pr_err("Unable to obtain ARMCLK: %ld\n",
-> -		       PTR_ERR(policy->clk));
-> +		pr_err("Unable to obtain ARMCLK: %pe\n", policy->clk);
->  		return PTR_ERR(policy->clk);
->  	}
->  
->  #ifdef CONFIG_REGULATOR
->  	vddarm = regulator_get(NULL, "vddarm");
->  	if (IS_ERR(vddarm)) {
-> -		pr_err("Failed to obtain VDDARM: %ld\n", PTR_ERR(vddarm));
-> +		pr_err("Failed to obtain VDDARM: %pe\n", vddarm);
->  		pr_err("Only frequency scaling available\n");
->  		vddarm = NULL;
->  	} else {
+On Sat, Oct 03, 2026 at 10:54:28PM +0100, Arnd Bergmann wrote:
+> How do you build ARMv7-A rust code in user space? If the default is
+> ARMv6, doesn't that rule out things like thumb2, vfpv3 and sensible
+> (inlined) atomics?
 
-Applied. Thanks.
+With another target, armv7-unknown-linux-gnueabi (soft-float ABI, no
+NEON). The kernel never used it. It fits the same scheme
 
--- 
-viresh
+  rust-target-$(CONFIG_CPU_32v7)   :=armv7-unknown-linux-gnueabi
+  rust-target-$(CONFIG_CPU_32v6)   :=arm-unknown-linux-gnueabi
+
+A v6K+v7 kernel stays ARMv6 like its C code. My planned v2 has this as
+last patch. It changes the Rust code of all ARMv7-only kernels from
+ARMv6 to ARMv7.
+
+> In the kernel, we don't normally allow neon code, but it sounds like
+> we may need to make rust depend on !CONFIG_THUMB2_KERNEL, as that
+> may be problematic when linking with v6 code.
+
+You are right, for modules. Built-in Rust code works on a Thumb-2
+kernel (Pi 400 and QEMU). Rust modules do not load
+
+  rust_minimal: section 8 reloc 24 sym 'rust_helper_krealloc_node_align': unsupported interworking call (ARM -> Thumb)
+
+Same on v7.3-rc1. rustc has no Thumb-2 target with the soft-float ABI.
+!THUMB2_KERNEL would also remove the built-in case, so v2 leaves it
+alone.
+
+I have a first module loader patch instead. bl to a Thumb function
+becomes blx, other branches go through a PLT veneer. Rust modules then
+load on a Thumb-2 kernel in QEMU. I would send it separately after more
+testing. Or do you prefer !(THUMB2_KERNEL && MODULES) for now?
+
+> >   --target=arm-unknown-linux-gnueabi -Ctarget-cpu=arm926ej-s
+> 
+> Ok, so I guess this is more like -mtune= in clang and gcc?
+
+More like -mcpu. 
+It adds features but does not override the +v6 of the target.
+
+> Maybe this should be "+v7-a" instead of "-v6" to allow allow the
+> compiler to use all ARMv7-A features instead? It would be surprising
+> if they added 32-bit Arm support to Rust without a way to target what
+> is in almost every single chip and Linux distro today.
+
+rustc does not know +v7-a. +v7 works but warns about an unstable
+feature. The separate target avoids that.
+
+On the CP15 barriers. With the generic target a fence(SeqCst) from
+core::sync::atomic becomes
+
+  mcr p15, #0, r0, c7, c10, #5
+
+and with the armv7 target dmb ish. No kernel Rust code does that today,
+the Rust objects I looked at have no CP15 access and no swp. But
+nothing prevents it.
+
+> I would leave out CPU_V7M as well, it's not worth trying to
+
+It is left out already. HAVE_RUST needs CPU_32v6K, CPU_32v5 or
+CPU_32v4T.
+
+Thanks
+Karl
 
