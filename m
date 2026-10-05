@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5289CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AB9CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 14:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hB96Gs8hLMTWWdb83gK/pYz1+UsEAi8km31i/cat4RQ=; b=QWbM+cfy87TWemZO/geloyDKO4
-	ZFB6IMNkyZ/uHkD5wW9TP7NzXOa86oahryOd8jKNaKjH+PT/Vo9tvI5gIoSgOZLgupX30r/PtCL4t
-	GxuwQKjGsAOxTbpN4SlzH0x5WWFgKlKuQvqNa4SLhyi7Rrf7lYi3xmZBypcCZfTo229hUaE62HDda
-	78NpLH/eGa95gYvlzUwHnJ9GelWf/cmpVanJsr/jBVJvl9NOkv6VC/cIl791E6fZqUHUzwzmKa2pA
-	Z7aHtw695w7hLzI+J+8Hjx2A6i6r7lkUA5cUyoLWWoH71PBhNyIDUjXNakeJYzTIFEnOYZBW86TZ8
-	SdTS7R/A==;
+	bh=ATzG+L8YsNUmOKoBB/0ap9vpolQt4BSY6mfBdVkuIBU=; b=ZEaEZ+9JehrTkjjbXcGbEvqj/w
+	yDMCjTyTcQYRmCfDYwZ/Zba6EfWy9H1oeyZhqR0Hw9l1bc0qxyQ1sOIcLkjlGs5kRMazBOxcYhHUy
+	lFz730DPXkZBEyAMhg4V/C0nAhxX/Is7+GmsffixWK1/uj8jXjPj7fYcoypHklDRUNwyxJ4M9uOyt
+	t6IIv65NJXTSZlFT2E5hTo87I4FhoSZrwe6f6SvexymqG0pwHrNA1csQ6P9KaNxo2uK7lNjTXMjan
+	Ox3GIpriXv+EQBzff0el1EGiFSsUDWSehgTKEqE2XWatx3lVOmQFPAC7JWwZv87WM3EE9EqZccBx0
+	AM3qYRNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjDL-0000000Gavu-2jtS;
-	Mon, 05 Oct 2026 13:58:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDjS8-0000000Gbu2-0aYR;
+	Mon, 05 Oct 2026 14:14:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDjDK-0000000Gavm-1U0n
+	id 1xDjS6-0000000GbtF-1j68
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 13:58:46 +0000
+	Mon, 05 Oct 2026 14:14:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEA614395D;
-	Mon,  5 Oct 2026 13:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FE91F000FF;
-	Mon,  5 Oct 2026 13:58:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 87F366053B;
+	Mon,  5 Oct 2026 14:14:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F6A1F000FF;
+	Mon,  5 Oct 2026 14:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791208725;
-	bh=hB96Gs8hLMTWWdb83gK/pYz1+UsEAi8km31i/cat4RQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lxcb1hadOyNcndGwI00W4Z2i9T1Fj36nxN1D2FABJulC5gVeSYv5Q9e2v7Du8iSo8
-	 l9EdafQXzGFQb+2bUrP9KVZaLoOCsN3EgLkxVj1c87x5MSVAPl57SMTUU2P4+p3VHu
-	 dW7zwbSIFQGEybrPwwAxc4rTFnnJed0v+0TOEGX/5ZFrzX6u/FnQw01BhKBweU9dvK
-	 +D3bIIVYRcoPMn/kerQrg3ohui+YMleOC/fVXOCg5cZZ9yK+kQCyC0For2J9Km7QWi
-	 49zRK2Pc3DelHioJT8W1saw4BDmTjJXwguBFIRXNl58T9Pk7EUgTrIfmKsWsFVXd3n
-	 rzZ6qquDq2Z5g==
-Date: Mon, 5 Oct 2026 15:58:42 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Hemanth Selam <hemanth.selam@gmail.com>
-Cc: Frank Li <Frank.Li@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Michal Simek <michal.simek@amd.com>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dmaengine: fix typos in comments
-Message-ID: <asOtEhjOMXc9SVNP@parshuram>
-References: <20260907063343.22255-1-hemanth.selam@gmail.com>
+	s=k20260515; t=1791209641;
+	bh=ATzG+L8YsNUmOKoBB/0ap9vpolQt4BSY6mfBdVkuIBU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nofCIAYhG7dNx6Jw6Tof83bZ3Q/+7konRGEISbyroRn1NByU6/aOAKmc0teLiI8lt
+	 K6tsqsGxDeQcEDShasFyL66hB3qgvNpFedhW7YfO0UcexAJpg26kjhGEttcbwPgRsG
+	 x3BPnfgN3VaS0D8pNgHIyuGwfBdTjxmYLVw+tqArtgDTkc459DVhh+9OP8yI6YPbqs
+	 SJfhWhqj4LZhura48DtBsEZ9CGUqi/83qsbutwq/qJzlojUDwCaMw5MztiiLKaRiwH
+	 cBXV0ZCS8qWievWHK3MgCjFQbDLhRoFP7AxcSNy5f7tQqfu9Vl0aD15ANj99os4pRU
+	 3paQf3N7TilWg==
+Subject: Re: [PATCH net-next v4 1/3] net: stmmac: set real_num_tx_queues to
+ max(offset + count)
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, olteanv@gmail.com,
+ 0x1207@gmail.com, daniel@riscstar.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, dcaratti@redhat.com
+Date: Mon, 05 Oct 2026 14:13:59 +0000
+Message-ID: <179120963986.434549.17858114667686220816@kernel.org>
+In-Reply-To: <20261001-stmmac-mqprio-prio-offload-v4-1-a74610d7f1e5@oss.qualcomm.com>
+References: <20261001-stmmac-mqprio-prio-offload-v4-1-a74610d7f1e5@oss.qualcomm.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907063343.22255-1-hemanth.selam@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,93 +74,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-09-26, 12:03, Hemanth Selam wrote:
-> Fix typos in comments, reported by scripts/checkpatch.pl using the
-> misspelling list in scripts/spelling.txt.  Only touches comments, no code
-> changes.
-> 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-> ---
->  drivers/dma/bcm-sba-raid.c        | 8 ++++----
->  drivers/dma/ppc4xx/xor.h          | 2 +-
->  drivers/dma/xilinx/xilinx_dpdma.c | 2 +-
->  3 files changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/dma/bcm-sba-raid.c b/drivers/dma/bcm-sba-raid.c
-> index 0de03611252e..485fcde390dd 100644
-> --- a/drivers/dma/bcm-sba-raid.c
-> +++ b/drivers/dma/bcm-sba-raid.c
-> @@ -734,7 +734,7 @@ sba_prep_dma_memcpy(struct dma_chan *dchan, dma_addr_t dst, dma_addr_t src,
->  	struct sba_device *sba = to_sba_device(dchan);
->  	struct sba_request *first = NULL, *req;
->  
-> -	/* Create chained requests where each request is upto hw_buf_size */
-> +	/* Create chained requests where each request is up to hw_buf_size */
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-This is bogus, pls drop these... If there are real typos pls fix those
-instead! This is not a language book, it is code, upto should be just
-fine!
+Low priority / nit picks for your consideration:
 
->  	while (len) {
->  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
->  
-> @@ -877,7 +877,7 @@ sba_prep_dma_xor(struct dma_chan *dchan, dma_addr_t dst, dma_addr_t *src,
->  	if (unlikely(src_cnt > sba->max_xor_srcs))
->  		return NULL;
->  
-> -	/* Create chained requests where each request is upto hw_buf_size */
-> +	/* Create chained requests where each request is up to hw_buf_size */
->  	while (len) {
->  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
->  
-> @@ -1356,7 +1356,7 @@ sba_prep_dma_pq(struct dma_chan *dchan, dma_addr_t *dst, dma_addr_t *src,
->  	if (!(flags & DMA_PREP_PQ_DISABLE_Q))
->  		dst_q = &dst[1];
->  
-> -	/* Create chained requests where each request is upto hw_buf_size */
-> +	/* Create chained requests where each request is up to hw_buf_size */
->  	while (len) {
->  		req_len = (len < sba->hw_buf_size) ? len : sba->hw_buf_size;
->  
-> @@ -1626,7 +1626,7 @@ static int sba_probe(struct platform_device *pdev)
->  	sba->dev = &pdev->dev;
->  	platform_set_drvdata(pdev, sba);
->  
-> -	/* Number of mailbox channels should be atleast 1 */
-> +	/* Number of mailbox channels should be at least 1 */
->  	ret = of_count_phandle_with_args(pdev->dev.of_node,
->  					 "mboxes", "#mbox-cells");
->  	if (ret <= 0)
-> diff --git a/drivers/dma/ppc4xx/xor.h b/drivers/dma/ppc4xx/xor.h
-> index da1230df2817..0931e18cd0d3 100644
-> --- a/drivers/dma/ppc4xx/xor.h
-> +++ b/drivers/dma/ppc4xx/xor.h
-> @@ -12,7 +12,7 @@
->  
->  #include <linux/types.h>
->  
-> -/* Number of XOR engines available on the contoller */
-> +/* Number of XOR engines available on the controller */
->  #define XOR_ENGINES_NUM		1
->  
->  /* Number of operands supported in the h/w */
-> diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
-> index d9a3542c4531..bcc188e70441 100644
-> --- a/drivers/dma/xilinx/xilinx_dpdma.c
-> +++ b/drivers/dma/xilinx/xilinx_dpdma.c
-> @@ -1032,7 +1032,7 @@ static int xilinx_dpdma_chan_wait_no_ostand(struct xilinx_dpdma_chan *chan)
->  {
->  	int ret;
->  
-> -	/* Wait for a no outstanding transaction interrupt upto 50msec */
-> +	/* Wait for a no outstanding transaction interrupt up to 50msec */
->  	ret = wait_event_interruptible_timeout(chan->wait_to_stop,
->  					       !xilinx_dpdma_chan_ostand(chan),
->  					       msecs_to_jiffies(50));
-> -- 
-> 2.48.1
+- [Low] The commit message describes only one of two failure modes.
+
+--
+
+net: stmmac: set real_num_tx_queues to max(offset + count)
+
+This patch changes how tc_setup_dwmac510_mqprio() computes the number of
+real TX queues. It now uses the maximum of offset[i] + count[i] instead
+of the sum of the per-TC counts. As a result, real_num_tx_queues covers
+the highest queue in the TC map even when the mqprio layout has gaps or
+a non-zero first offset.
+
+> netif_set_real_num_tx_queues() then passes this too-small count to
+> netif_setup_tc(), which invalidates the mapping.
+
+[Severity: Low]
+Is this description complete? It seems to cover only layouts where TC0
+itself ends up out of range.
+
+In tc_setup_dwmac510_mqprio(), stmmac_set_ndev_tcs() runs before
+netif_set_real_num_tx_queues(). It starts by calling netdev_reset_tc(),
+which zeroes dev->prio_tc_map:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:stmmac_set_ndev_tcs() {
+	...
+	netdev_reset_tc(ndev);
+	...
+}
+
+So when netif_setup_tc() runs, every priority maps to TC0, and the TC0
+check is the only one that can fire:
+
+net/core/dev.c:netif_setup_tc() {
+	...
+	/* If TC0 is invalidated disable TC mapping */
+	if (res.offset + res.count > txq) {
+		netdev_warn(dev, "Number of in use tx queues changed invalidating tc mappings. Priority traffic classification disabled!\n");
+		WRITE_ONCE(dev->num_tc, 0);
+		return;
+	}
+	...
+}
+
+mqprio_init() installs the user's prio_tc_map only after the offload
+callback returns.
+
+Take a gapped layout where TC0 fits, such as "queues 1@0 1@2". The old
+sum gives real_num_tx_queues = 2, and nothing gets invalidated. TC1
+keeps offset 2, so on transmit:
+
+netdev_core_pick_tx()
+  netdev_pick_tx()
+    skb_tx_hash()          /* returns 2 */
+  netdev_cap_txqueue()     /* 2 >= real_num_tx_queues, warns, returns 0 */
+
+stmmac does not implement ndo_select_queue. That traffic class,
+including express or preemptible FPE traffic, would therefore go out on
+queue 0 with only a ratelimited warning. Its mapping would not be
+rejected.
+
+The code change handles both cases. Could the commit message also
+describe this misrouting case, so backporters can see the full impact of
+the bug being fixed?
 
 -- 
-~Vinod
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001-stmmac-mqprio-prio-offload-v4-0-a74610d7f1e5%40oss.qualcomm.com
 
