@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D638ACA5FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7425CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2rF1+ysFAoUBVu9HLCXelaf+0gW06xdxdvh6wQc3nA=; b=Pi8DcTWq7ysuAHL9d/lHHDZfds
-	vbiobROROZS59h18yVtRQp6k1kPV3mJYWRmH4dgBGCwpfskC5URFtGFVaVrOY6KUV8eDpby8hzVq9
-	XYi4Um+kq1HOjFlLfw7ha3Tfxi0/KJTvrjUgZEIKHpVQd8XrzQiZi8Kv9kP0JJ7pBP9Vkcp2ow3Ok
-	2tZocAAzjKyYnsrH2xknuC2u1E/SSVN1vQY2e8DZLaOgOYfemVInBCcXDua/+ISlq76jtUbInupAK
-	Dd5NokRBxw0MTZqhhHbwqYqL9RTaqEWYOec3T5PRo2lkwSmQlJn67eTN+IyvfEB4GqvhaSTmPssCv
-	Tr+lHswA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SlhXGKnnb8pkhO4y+zbXadXuhtCrpqlVnwCc1gI5uHM=; b=QVpAOIlUeDpykW
+	P3tvnw9/TuD5y0tegspTolvFhGBFT+O4JX9+2AIPjR6Dga/2r86XBeHEvL7peUsoad+2lLy5dvN6S
+	O1jIB10rjQTeDFw+6WpId1fo6fUPSzxIEb3x4zwUg1Xzrqpu/bDCNVdj+5s/6dZ4GZjR7O7R8+sQF
+	dUYImo4eNHdzIwUoP5OkZBW1U7jvbxAmq0nGw1lVcIfv+X1jxVi476HfxyCGYpAbHCedZ237zsI6h
+	u/bx+3TfhGQHXPCDOKRgsAXWtlbEsgrD5cKDqTdHjRunMrJpf67rc/F5IN5BZYr/3wmmEqg2GT6+/
+	KW7GzXTsijkV+tJE4COQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeaS-0000000FvRs-36m1;
-	Mon, 05 Oct 2026 09:02:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeaQ-0000000FvR9-0sHy
+	id 1xDees-0000000Fvm2-1lL1;
+	Mon, 05 Oct 2026 09:06:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDeer-0000000Fvlq-2rBw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:02:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50279152B;
-	Mon,  5 Oct 2026 02:02:13 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62B473F66F;
-	Mon,  5 Oct 2026 02:02:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791190936; bh=wzKbXcm9aX7tddsl1dJRDbixjLaOCm42RIzbP5lg+5Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BWUNNiOdSkAjCx/IrsnnuZPHK2MQ2nujJ8LoSUkIn6VrEYUzdLL9Mv9EF+A4BPRIL
-	 d6U7CO5/r+w7SziIcjVnSQD3GMX1h6pWF2pAJuVXXkAZrSVCM3Lgw60iN35eQx1/e6
-	 5aMEwUajUHrIWyqQwVtsBi4/l5dMrhFp18PkN6I4=
-Message-ID: <2c75983e-5e63-4613-a9a8-055015d04bbf@arm.com>
-Date: Mon, 5 Oct 2026 11:02:05 +0200
+	Mon, 05 Oct 2026 09:06:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DEF644038;
+	Mon,  5 Oct 2026 09:06:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E2461F0089A;
+	Mon,  5 Oct 2026 09:06:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791191213;
+	bh=SlhXGKnnb8pkhO4y+zbXadXuhtCrpqlVnwCc1gI5uHM=;
+	h=From:Subject:Date:To:Cc;
+	b=Tow8CwkUFBMBAh7+TdtIPzcALsDlLwpqGDEcsyyNKPPeUcv+v1BsgAX3FPPgQ/Pne
+	 ZzENzdRiY5O1FU7YaFcVheh9ts7OuNKOEaHIHzHMUTV56HVuH0V/KCHpVFYlReePlD
+	 rhT/cPgFsdUwGHbP6H0fdHgVOBZEEpV+jQ/HsxBLAppWJjU0UFPlZFpWB+LD1WoxWz
+	 7viAKx3sl7ADYHY/BFW67vCOe5xMX+32+m8oUimkKzg7A3O4VxjjW+5oMJU/LdS9cp
+	 spvrc3KCgfcu+Oy1Nk3FFgs4eKotnoCKCZAYjEU+/gSGIrFR2m14x4BNQUeZrId18/
+	 Xz/naMtFszbGg==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v2 0/4] firmware: arm_scmi: Some fixes to address conflicts
+ with fw_devlink
+Date: Mon, 05 Oct 2026 10:04:31 +0100
+Message-Id: <20261005-scmi_bus_fixes-v2-0-34a51338875a@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: sun8i-r40: Add SID node and THS calibration
-To: Otavio Salvador <otavio@ossystems.com.br>, Chen-Yu Tsai
- <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Srinivas Kandagatla
- <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261003012534.418820-3-otavio@ossystems.com.br>
- <20261003012534.418820-5-otavio@ossystems.com.br>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261003012534.418820-5-otavio@ossystems.com.br>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_020218_437545_C0DA1C85 
-X-CRM114-Status: GOOD (  21.67  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACFow2oC/3WNwQ6CMBBEf4Xs2Zq2RARP/ochhJYFVgVMF4iG9
+ N9t8ezxZebNbMDoCBkuyQYOV2KaxgD6kIDt67FDQU1g0FJnSkot2A5UmYWrlt7IQhWmxbxJbY4
+ agvRyuAfBuZU/5sXc0c5xJTZ64nlyn/1xVbH3d3xVQoo8K07W1CZt8Xx9oBvxeZxcB6X3/gthT
+ gd8vwAAAA==
+X-Change-ID: 20261002-scmi_bus_fixes-19bfe8d3c8e2
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, Peng Fan <peng.fan@nxp.com>, 
+ Hans de Goede <johannes.goede@oss.qualcomm.com>, imx@lists.linux.dev, 
+ linux-gpio@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,83 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Otavio,
+Peng’s [1] identified the problem of multiple SCMI devices sharing one
+protocol fwnode. His [2] shows the consequence: the first device owns
+the fwnode but does not bind, so fw_devlink can leave consumers deferred
+even when another device binds successfully.
 
-thanks for sending the patch!
+This four-patch series reduces those cases within SCMI. It prevents
+protocol device creation in exclusive raw mode, stops treating core
+created standard devices as driver owned requests, and makes the i.MX
+pinctrl driver match the standard `pinctrl` device instead of creating
+a second device for the same fwnode. It also omits the `perf` device
+when the firmware node does not describe a performance domain provider,
+without changing `cpufreq` device creation. IIO/HWMON don't have any
+fw_devlink dependency and having two devices shouldn't be an issue.
 
-On 10/3/26 03:25, Otavio Salvador wrote:
-> Without the calibration cell, the THS driver leaves the sensor
-> calibration registers at their reset value (0x800) and the reported
-> temperatures drift from the real die temperature by a chip-dependent
-> offset.
-> 
-> Add the SID node at 0x01c1b000 and wire the thermal sensor to its
-> factory calibration at eFuse offset 0x40, one 16-bit word for each of
-> the two sensors.
-> 
-> The R40 user manual gives the size of the thermal sensor key (32 bits)
-> but not its offset. The vendor SDK key map names 0x48 "thermal_sensor",
-> but that word is zero on all the boards checked. On an A40i running the
-> Boardcon vendor kernel, the THS_0_1_CDATA register holds exactly the
-> eFuse word at 0x40 (0x08780875), which confirms the location.
+These changes address the SCMI cases above; they do not provide a
+general driver core solution for devices that share a fwnode.
 
-So in some U-Boot BSP sources on github I see 
-arch/arm/include/asm/arch-sun8iw11p1/sid.h putting the sensor at 0x34 
-(like the H3 or A64).
-Can you check the values there? I see that Tina-Linux puts them at 0x40, 
-as you reported, and it's probably more reliable there than in the 
-U-Boot sources, but it's worth double checking.
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 
-The rest looks alright (checked the manual and how the compatible string 
-is handled in the driver), so if you can confirm that it's 0x40:
+[1] https://lore.kernel.org/all/20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com
+[2] https://lore.kernel.org/all/20260928-driver-core-v1-1-0846bb8e0f32@nxp.com
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+---
+Changes in v2:
+- Dropped "pinctrl-imx" from scmi_std_id_table array correctly this time.
+- Updated the trailers received so far(Thanks Peng Fan and Hans de Goede)
+- Link to v1: https://patch.msgid.link/20261002-scmi_bus_fixes-v1-0-8695cbab3fe7@kernel.org
 
-Thanks,
-Andre
+---
+Sudeep Holla (4):
+      firmware: arm_scmi: Avoid protocol devices in exclusive raw mode
+      firmware: arm_scmi: Skip requests for standard protocol devices
+      pinctrl: imx: Match the standard SCMI pinctrl device
+      firmware: arm_scmi: Skip unused performance-domain devices
 
-> 
-> Tested on two Boardcon EMA40i (A40i) boards: THS_0_1_CDATA now holds
-> the eFuse word at 0x40 of each chip (0x082d0822 and 0x083d0838) instead
-> of the reset value 0x08000800.
-> 
-> Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
-> ---
->   arch/arm/boot/dts/allwinner/sun8i-r40.dtsi | 15 ++++++++++++++-
->   1 file changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-> index f0ed802a9d08e..c7c9cad695ca4 100644
-> --- a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
-> @@ -485,6 +485,18 @@ ohci1: usb@1c19400 {
->   			status = "disabled";
->   		};
->   
-> +		sid: efuse@1c1b000 {
-> +			compatible = "allwinner,sun8i-r40-sid",
-> +				     "allwinner,sun50i-a64-sid";
-> +			reg = <0x01c1b000 0x400>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			ths_calibration: thermal-sensor-calibration@40 {
-> +				reg = <0x40 0x4>;
-> +			};
-> +		};
-> +
->   		ehci2: usb@1c1c000 {
->   			compatible = "allwinner,sun8i-r40-ehci", "generic-ehci";
->   			reg = <0x01c1c000 0x100>;
-> @@ -832,7 +844,8 @@ ths: thermal-sensor@1c24c00 {
->   			clock-names = "bus", "mod";
->   			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
->   			resets = <&ccu RST_BUS_THS>;
-> -			/* TODO: add nvmem-cells for calibration */
-> +			nvmem-cells = <&ths_calibration>;
-> +			nvmem-cell-names = "calibration";
->   			#thermal-sensor-cells = <1>;
->   		};
->   
+ drivers/firmware/arm_scmi/bus.c              | 106 +++++++++++++++++----------
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c |   2 +-
+ 2 files changed, 67 insertions(+), 41 deletions(-)
+---
+base-commit: aac4e67d6eb93118cfa70c6562b5f9c81a7042ef
+change-id: 20261002-scmi_bus_fixes-19bfe8d3c8e2
+
+
+-- 
+Regards,
+Sudeep
 
 
