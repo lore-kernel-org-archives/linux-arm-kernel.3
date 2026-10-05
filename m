@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C29CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C509CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1ah6BRYlOqcajJUdl5DlnBTDzNHXdGvo5x5zaQWEpp8=; b=Z4TfDzFPnhlwxhaHQQv09J9M9t
-	hmtC+T4d7+Wa0C8INQMPM2Rr11AjJdVCo0M0XssA7n2X8A5hxke+Z5ZBC/np106nUOyN7O+xknG4d
-	eGB9I7MTpFO3OoEpwrIrWxKUQnL9u56MuoApcH1TyP4dr443wIU7+hPpXCj6r2ACZBqNM8zK2p57S
-	iep7I+8m8qTV5Xh8j5+FxkD6W/RPZy/E+rsfUQu63/CbCtgpHojZn8Z11Z6UHkZ3xZb/BeZGZSGyp
-	HQKKiNOr3xULGCWtDIXBNzywOZHb6loo9vRU/8J5ZC4VApBhexpyRcAuWYlBWd4MPNyhe/3K6mh/y
-	tfsvbniA==;
+	bh=Vo3/R/UpUzh6/sfdwtuW9Y23N0AJmticKut7jC50Xqw=; b=fULAJ6oIS5zAkzNn9E4kd9TB6I
+	mSC94xeTAwu/LjM8CbBqPcaVMRSB/Erj7Cy7wpzGLFoiy9aI9ZZmOSlo10eyViJwImabr+awQy+xV
+	NA5HfUB7wiW+XlJ82NUc8P452IHo58RtcJdXYZR7WQdymqu8Xbyn3o/PeX1KCmcIeNi1x5p7GA1xf
+	dmbcIKjaQQF+4Quhwduafv88OjP74MnDBwg7Yd4kgHg4vV04el04jRA8K8wVrVp7bK0MBjx2KZ6yA
+	diCSjZJ2JQ4pgysfaDYdR6hg3chov2hvbes5e8eIUmiY0gBIwVEvqFYRQjVy+xkI6PGHlS0Zp5pOT
+	O61BLjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmJc-0000000GuC9-0dtY;
-	Mon, 05 Oct 2026 17:17:28 +0000
-Received: from mail.scd31.com ([205.209.125.10])
+	id 1xDmST-0000000Guoc-2jSt;
+	Mon, 05 Oct 2026 17:26:37 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmJY-0000000GuBZ-0CmG;
-	Mon, 05 Oct 2026 17:17:26 +0000
-From: Sophie D <patches@scd31.com>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=scd31.com; s=mail;
-	t=1791220639;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1ah6BRYlOqcajJUdl5DlnBTDzNHXdGvo5x5zaQWEpp8=;
-	b=NkIZVHIe/NEIztwGEg5rftAncOzAtTd97OTgds4MCRjaTV/u3umbjksfKTQ9FIca5njqWK
-	nMg0AiLZCR5QQctw/NiPKpQoIP2TcGME8CvMv/oxmWWUj0e3t+ysmtH0Hoqqig9DzG7SV/
-	DCfTWlZTeL9Lz47VpWivUgLmhuRTkPUExavQDbOmRiOMb8I9JvaxzphsY7U/jbN0I/8cdm
-	TB9YZ/dTHE8dC1mprBE1sYQ71q7dG4euLmlK+5bozG8LqXkHfzCV/qb1oh0zQU76aKH4MJ
-	JDw0USNlv8wLTnmUEVuTsch++5vFwgnc06pl333eMOUBVHLENZlQmZei4I6Rcg==
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1xDmSO-0000000Guni-0d9A
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 17:26:36 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 9A6222291E;
+	Mon,  5 Oct 2026 19:26:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1791221189;
+	bh=Vo3/R/UpUzh6/sfdwtuW9Y23N0AJmticKut7jC50Xqw=; h=From:To:Subject;
+	b=WZA4Jqe4L2sP4O+dt2hMr3GY0I9p+xGwrYYBVRk8c0bdZzNQ4QCP04V77ybzIM2bp
+	 aPQ7H81Oo8qL22pZ42aEY03qts2TDxUF7v+hGRQZ1aYY/mLBQPRveMYBIs1ioYoLks
+	 Im2LQAiL9LPFn6X3PwHCWcXVkgKVrHlyEsI8FbYWGxuuy56Is4m0M+MQlFoHpnt/gO
+	 JckwQZLRpRjenfwtCT1xJ8B5hW9Xx0prAaWld0PIPgNjysbS8AauSpCC+0WwMOGl1h
+	 Ygy0uvweR8fpgTWLtl3MhtapP1ZUKhNdI3NetyJQH/XwrvUYzJKVbINiaQhFR97aDK
+	 6FBjU5gI+5PEw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sophie D <patches@scd31.com>
-Subject: [PATCH] clk: mediatek: mt2701: Enable all subsystem clocks by default
-Date: Mon,  5 Oct 2026 13:17:05 -0400
-Message-ID: <20261005171706.2164743-1-patches@scd31.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: freescale: imx952: Add GPIO5 lines 18 to 20
+Date: Mon,  5 Oct 2026 19:26:21 +0200
+Message-ID: <20261005172622.135725-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_101724_195036_444282C2 
-X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-CacheID: sfid-20261005_102633_104784_2A782A8A 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,84 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only the core MT2701 clock driver is enabled by default when building
-for ARCH_MEDIATEK on ARM; none of the subsystem clock drivers are. As a
-result, multi_v7_defconfig produces a kernel where Ethernet, PCIe, USB,
-display, GPU and audio do not work on MT7623 boards such as the Banana
-Pi BPI-R2, as their clocks live in ethsys, hifsys, mmsys, g3dsys and
-audsys.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Default all of the MT2701 subsystem clock drivers to
-COMMON_CLK_MT2701, in line with newer SoCs such as MT8173, MT8183 and
-MT7986.
+Add missing GPIO5 lines, GPIO_IO38, GPIO_IO39 and GPIO_IO40 are
+GPIO-only pads fixed to GPIO5[18:20], their SW_MUX_CTL registers have no
+MUX_MODE field (IMX952RM Rev.1, 2026-07-08, sections 33.3.2.44-46 and
+33.3.2.184-186).
 
-Signed-off-by: Sophie D <patches@scd31.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- drivers/clk/mediatek/Kconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/boot/dts/freescale/imx952-pinfunc.h | 6 ++++++
+ arch/arm64/boot/dts/freescale/imx952.dtsi      | 4 ++--
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 0e8dd82aa84e..a449ec878abc 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -29,48 +29,56 @@ config COMMON_CLK_MT2701
- config COMMON_CLK_MT2701_MMSYS
- 	bool "Clock driver for MediaTek MT2701 mmsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 mmsys clocks.
+diff --git a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h b/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
+index debe6ede2d70..72cfe7893af8 100644
+--- a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
++++ b/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
+@@ -307,6 +307,12 @@
+ #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPUART7_RX                0x00A4 0x02D4 0x05B0 0x02 0x01
+ #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPSPI4_SCK                0x00A4 0x02D4 0x0568 0x04 0x01
  
- config COMMON_CLK_MT2701_IMGSYS
- 	bool "Clock driver for MediaTek MT2701 imgsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 imgsys clocks.
++#define IMX952_PAD_GPIO_IO38__WAKEUPMIX_TOP_GPIO5_IO_18               0x00A8 0x02D8 0x0000 0x00 0x00
++
++#define IMX952_PAD_GPIO_IO39__WAKEUPMIX_TOP_GPIO5_IO_19               0x00AC 0x02DC 0x0000 0x00 0x00
++
++#define IMX952_PAD_GPIO_IO40__WAKEUPMIX_TOP_GPIO5_IO_20               0x00B0 0x02E0 0x0000 0x00 0x00
++
+ #define IMX952_PAD_CCM_CLKO1__CCMSRCGPCMIX_TOP_CLKO_1                 0x00D4 0x0304 0x0000 0x00 0x00
+ #define IMX952_PAD_CCM_CLKO1__NETCMIX_TOP_NETC_TMR_1588_TRIG1         0x00D4 0x0304 0x0494 0x01 0x00
+ #define IMX952_PAD_CCM_CLKO1__WAKEUPMIX_TOP_FLEXIO1_FLEXIO_26         0x00D4 0x0304 0x04AC 0x04 0x00
+diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+index 1154b66dadb2..4930e09e0206 100644
+--- a/arch/arm64/boot/dts/freescale/imx952.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+@@ -1076,8 +1076,8 @@ gpio5: gpio@43850000 {
+ 			clocks = <&scmi_clk IMX952_CLK_BUSWAKEUP>,
+ 				 <&scmi_clk IMX952_CLK_BUSWAKEUP>;
+ 			clock-names = "gpio", "port";
+-			gpio-ranges = <&scmi_iomuxc 0 103 12>, <&scmi_iomuxc 12 36 6>;
+-			ngpios = <18>;
++			gpio-ranges = <&scmi_iomuxc 0 103 12>, <&scmi_iomuxc 12 36 9>;
++			ngpios = <21>;
+ 		};
  
- config COMMON_CLK_MT2701_VDECSYS
- 	bool "Clock driver for MediaTek MT2701 vdecsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 vdecsys clocks.
- 
- config COMMON_CLK_MT2701_HIFSYS
- 	bool "Clock driver for MediaTek MT2701 hifsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 hifsys clocks.
- 
- config COMMON_CLK_MT2701_ETHSYS
- 	bool "Clock driver for MediaTek MT2701 ethsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 ethsys clocks.
- 
- config COMMON_CLK_MT2701_BDPSYS
- 	bool "Clock driver for MediaTek MT2701 bdpsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 bdpsys clocks.
- 
- config COMMON_CLK_MT2701_AUDSYS
- 	bool "Clock driver for Mediatek MT2701 audsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports Mediatek MT2701 audsys clocks.
- 
- config COMMON_CLK_MT2701_G3DSYS
- 	bool "Clock driver for MediaTek MT2701 g3dsys"
- 	depends on COMMON_CLK_MT2701
-+	default COMMON_CLK_MT2701
- 	help
- 	  This driver supports MediaTek MT2701 g3dsys clocks.
- 
+ 		aips1: bus@44000000 {
 -- 
-2.55.0
+2.47.3
 
 
