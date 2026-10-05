@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC06CA5FFE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3154BCA5FFC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsQ6WpVz6dLVvH0jIBhmi25p6i3B1TGiyxsQ84fsA2k=; b=2eXWnQt6KoczAARWERXYLoE5mm
-	a8iXnaiC0pujzw7qiR/eX7Kx8O1gaOUqHFn8qXEQulqPFPvhQXs9BETTo+Do/SQLnK/kFnFZn4YR2
-	Wi0u9fFGHMNAYpyux79vTuN2UrFI+/j+HDx/4Z5GnEsmHNszcFzUz0uSaNt1rfor9NTrgkQ2oQkm4
-	ZZVhZwDA5FfowIhxQ5zbbxaIQufKW+AZEwYA+4evPs8QWUEqjXW4sO+JV1QR8PDKv4FqWRowTk7sg
-	Q1tWYQqXgCJJpD4Dfim6JtKoao/lfzXhpVcOPCKKO7iHdWndHhAUEcvjRB3Rwufyf58neUoBFVeW0
-	vM5G9zIQ==;
+	bh=Wur1NLL6aiOKmJUmUiVG+uZqeCciMOf0+vtQvT0dX/Y=; b=PhR3cTAigL0M/7Idriiffgah7N
+	p6wNLCQOv/1Jt/lJtXhNOjx2SCwfKpRJCtXakiALNIo4PRRAeYlKhdPJ4bPQmjgkoqHJOaNK3FUr5
+	Nz4FPRSUkzm8DYIGEmfAnQIeVYojCsAPa+3b5eoilSCGGQjEhnv4TJTqI8XwRz2j/6SBGJKS0uUZh
+	7d4ZNxXI0nPYdQkjFmhasVbLT94uMd4XI7VVyJjTmZxNybptXxOkE0y3wGhspF+FS2ppsT06LpV/o
+	oYRDhb96/6R0Row1I5KBVzjgSjwhJYMOCQCKXpG+u1Xi1PZpuS+OTstEYV/BafzM4AQJYQUgLNrPc
+	pdP2UPYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmWa-0000000Gv7R-1CPa;
+	id 1xDmWa-0000000Gv7l-2ECb;
 	Mon, 05 Oct 2026 17:30:52 +0000
-Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
+Received: from out203-205-221-164.mail.qq.com ([203.205.221.164])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmWV-0000000Gv5f-2ALN
+	id 1xDmWX-0000000Gv5l-2p0y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 17:30:50 +0000
+	Mon, 05 Oct 2026 17:30:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791221444; bh=xsQ6WpVz6dLVvH0jIBhmi25p6i3B1TGiyxsQ84fsA2k=;
+	t=1791221445; bh=Wur1NLL6aiOKmJUmUiVG+uZqeCciMOf0+vtQvT0dX/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CnYcGjszzX4vLRX+c/tVUCcO8hGJMp1q3PVyJoN/6xjb7xwekfJD9bwP5tCOTH3vE
-	 6Yw+uEBODCQKULOXuUcv8G2UJKRUqeoXlC5fy6EMEFe7XBVN18VjtPkPl79IEbg//B
-	 2pKdVO0heDyI5kpKDuqIh7mKZzkA/ylJbOWzKsHs=
+	b=mardqgMsI6biMBS2wnKEZpDy4LiWIM9ZCS6I/RBSRczSZmCcUYOQGFr7cmw2TxMdt
+	 oekh9Ru3dftx0vgupLxIJR63w0q9dRr0Iam75vDRHy34059QK4zs0zW40prHAJvDi/
+	 fk2vuRV4iI046xOxbMHmVeLwvX2pezIXxJXRv6MQ=
 Received: from AERO17.taila7786d.ts.net ([2409:8a7c:21c:8010:c675:1308:618e:14ff])
 	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
 	id 7A82281B; Tue, 06 Oct 2026 01:30:40 +0800
-X-QQ-mid: xmsmtpt1791221442t6kaszaez
-Message-ID: <tencent_C77DAF0026980C137B8C46907F855FC9E506@qq.com>
-X-QQ-XMAILINFO: M2SvzgchpLqf+ciKQjAvwfVmEe4sr15OLSKB4SNAmTOQmrBm32CGsyNdYdTAaG
-	 I8j/Cid2dyzy1w5em+7qNt5yIbjAxZ2KXvvAfu3Vb36iuzTRscsKxRCED8KQlwpsqRW1xBS6Aal0
-	 mqa0OL1koXEqMm2ec8V26dy3crIuSE9w050iTVBZnhsH/zckZTXUp2nj59xqR58os5P+9KlzXZfv
-	 SyOHPQ9S2bLxEfKKot1KmrelxxGNd8wgavvGDyLoaCLBcsaAMEipw7zfMRcSjdSoBMXwiNQaV+jZ
-	 rtF9KIvaviVkH0qYMkMRcozEpiVVAzcgMt+0o+xeqR+wZiP1O0AdDvWyIY6+7L4/yjdAKlDs8bro
-	 uPIBuyx5mEjCUwtyROvC8bJwgCbsJNfgadFINjkd3yx7amXqhYnh3em5ze+jGlurDJ6xec4hIIIb
-	 b1Vgu8eTb55FvomtDeeEJr9XMFZleh3zyoyDw4uhV+4wFad+iZ0w56pzgLCzueOUBZWPNd0vFek9
-	 pg4wvIIj5SdIUpXCOFhqXDNNm40m076RTEXJQJmg+FfOvL1bZQB+Oly+QrNa1NoBW6FyfvuDp5RP
-	 U7MzTKzxyxn+q7ACzB5NwIppxsrB8xPqEGiFa8Suhty0dZE8AswJTFzrb6o+U2IPhXm7g79nkmV4
-	 2wdPU0kclAQDpIAY9mfe5d8UBF8iJGpVLN3tQV6EGtVIrmjz37tP4m8HsK+nop2Palky4Rn3qohO
-	 TooJgjZX/6xKqcVO+PEhye68xsZ1t+0/N/r/LGdsc4xE9TELcMszYwGFNpcpk6YZdxs8riZy8O+D
-	 NcxXdcqCGXEl4IXvZDz8KCcr0QDNxEU+MyOWU0KLv/JpjVNrS8+cRvIdXvM2IOCna4EUYHppowpM
-	 /lp7O4BeGj6v+UllWYbHCKgOxUQsXubsI/On5Gv+EoQE3sFJRcR5eKj4YZ3ng2R5h6Ogztfjitm/
-	 FI3VL51J+dlUgUCtaO2lyg28bIpnKDqDGwkXBi+pGflec7mWoa0GbifAZIGHrv/pq7zl/eE5AHqz
-	 smzbeoNG+yasZyhsaEcg5nEf5v9u2W93mC0C1WBhQ5eNR/UQ0dXXwcpRGkWLWymCikkDlGOlSWyb
-	 XK065aFcyMJdB4Sg4=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-mid: xmsmtpt1791221443th06dqgbu
+Message-ID: <tencent_083C0104B06626D418A320F00AB992DD7B07@qq.com>
+X-QQ-XMAILINFO: MRMtjO3A6C9XpybnuFTaIZm4mrEpr2c73AFdvMwVIo3lC4zNAU+ilEx13A1PAQ
+	 N0vkhR5a4Q0H675Rh8Ar+HEWBXmfybqGyeAghMV6EtAEhUgFdEtnySAxLIlGOK80FJrKj1+jbEeW
+	 uU8G5+P7nhuACRKpVemdSsV5OcCP8jkZrppqSY/kAmAPLC94gsy6KiuypZtlFmXbmdEKNwOosIyI
+	 v3XTzIMdOGoqBGZtf0eFEo3wo2YztGGhVX8EpnwoI2ryiDHeawEZX7yuPgocwNyMUXDnwVSJ0Dt8
+	 w2gFkc80HvxqrgzLqLjOsNgOniGiTRZwjohYL4aYIpFlDa7lKGV1lXJNsVqvivMmFwmldBRNFdTI
+	 hqb6eFLWnv1WWRrDoH1G1HG4mV+XhxyvBRfozEYnbOaL58fo0RQD9i1W1m9hIeKIYUT+KRPVy4zM
+	 rRG5PccMfMVPub2EmjvfBdKdl1WcWDLLwgFVERI8sOHYpnRgoW/CHOlXZz+jcQ5fSvWV5xrQatAT
+	 Y/m1gCbcfZVs+acjb22oWMxlDc7u2o82zcKJRnNgTsb+TwjZg+PZeISv8DYolzP2Gv16RAt2onud
+	 PjZysveZwyeDxEIGI3gHpr/+8bFdZoIS8bXDC4jDqyBQbonxJs3bCs6khg1001QB1w1HzRDcsuC3
+	 owpsTqrCQ3xzhvu8GYi/LDN2slZp/6TP5vh4q5Aw6Vhk0FSxXxk4ByfdbRcdvQGSZsIbTdsTrvhY
+	 L35SVyh0ksEq+0hRB1+EvWS96r/rUgke7uByySS9XS9Ra/1/nPPtfRxuKjGiS5OQwT7LeNc5Njh1
+	 vMU2MbwqOmBeH8beoZVeo3/cOQrKYVWe2ccMaOPsGmBn5JN7eAgdlALpDubiFeVLN+wm9AwfK705
+	 pXKjfuss1IfcjxYWd9zAtxFpps/Fx4byYy58RDteXXUowj1+DXIV6cE+EhL2FuBotc5w1f4XbH+j
+	 kkmW5RVT40zQUR8SEHwwyZIHo/xitdDA8SxSU8XrELWhlyMiSoBflsqHqkpenikEDpqLtrxZTUQN
+	 3UOchapfr3PClKeT+GJAky7WHItA/Bu5TdpxghciJPMkhA6UjTMmUA1rKD6Gzu0VmsHqF0pcUBmO
+	 N53mBxiBgRfL4/BNjL5WXvrGGkVwzImgQU9qr2XGhu4Ygt7ec=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 From: Pufan Jin <2254650260@qq.com>
 To: Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -64,17 +64,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	andrew@lunn.ch
-Subject: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add ALINX vendor prefix
-Date: Tue,  6 Oct 2026 01:30:37 +0800
-X-OQ-MSGID: <20261005173039.707304-2-2254650260@qq.com>
+Subject: [PATCH v2 2/3] dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+Date: Tue,  6 Oct 2026 01:30:38 +0800
+X-OQ-MSGID: <20261005173039.707304-3-2254650260@qq.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261005173039.707304-1-2254650260@qq.com>
 References: <20261005173039.707304-1-2254650260@qq.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_103047_913402_4389A242 
-X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-CacheID: sfid-20261005_103050_056751_EECE8409 
+X-CRM114-Status: UNSURE (   8.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,27 +90,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add vendor prefix for ALINX (Shanghai Xin'yi Electronics Technology
-Co., Ltd.).
+Document the ALINX EdgeBoard FZ3A compatible.
 
 Signed-off-by: Pufan Jin <2254650260@qq.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ba2002969..97e7ef340 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -90,6 +90,8 @@ patternProperties:
-     description: AlgolTek, Inc.
-   "^alientek,.*":
-     description: Guangzhou Xingyi Intelligent Technology Co., Ltd.
-+  "^alinx,.*":
-+    description: Shanghai Xin'yi Electronics Technology Co., Ltd. (ALINX)
-   "^allegro,.*":
-     description: Allegro DVT
-   "^allegromicro,.*":
+diff --git a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml b/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+index c9f99e0df..ad7c71f9b 100644
+--- a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
++++ b/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+@@ -46,6 +46,7 @@ properties:
+ 
+       - items:
+           - enum:
++              - alinx,edgeboard-fz3a
+               - xlnx,zynqmp-zc1751
+           - const: xlnx,zynqmp
+ 
 -- 
 2.55.0
 
