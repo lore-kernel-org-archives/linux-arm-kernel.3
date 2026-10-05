@@ -4,104 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0235CCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85ACCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O6/Hu0+FzeutECjLCJhR6ThF6X+jor72I2j2aChvi7s=; b=gGHW03vtyGKUGUYDAUI2chRkaN
-	oVVjjyhvzj6fMEp3AoDJ6DAX5zQvFRrJ3FMyF+atZfDPACxO6nfiCTQbOUJ9pRDc627hCYQ1anIgC
-	M5NTOpUz6TDgMoWuStIulXM2KHaenWF38DXVxt/nCXkWGIgTAs+a0JSM+pcUZXzFIi8wR7m1I4iy7
-	3AhZ1pzPa0XVGlfysiCjU6/Av1ZJLe2FGEMJ0bZR/640fRe7ObIpYZ7rHxvLmkAacpAsix67fuqCg
-	b/rpfz1ZKlOgGOe9gWrtW3UyBbaWLv88ko3x0+fp1ER85mFEhlMmkQmHXJnFMMEXaSJGQMhBu88Z9
-	tzp/+Lyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OT4fTCBzl6ea0tdPBPkwmD3TW36PNhwwmU38PY2NoAw=; b=38h1Z/ULDAoSjRsPSwQ8JplBr9
+	F8my4523cBmEKqlSjQItaG7clcFkwN/vBUiqKIlkbKPmDW5Na/aYeKMWiZNMfSuNStseLh/iXTfla
+	zaZktv6Zd7zSANcfLQ7Brp3qeekFuEivVji7I3SfJJl8ghMk5HSy4D3YGook6od7Qu2FmDevgqw9x
+	nUDSuxGgxqvAh2bDFW+mbKla1H6iRY+3xhRr7P46FFq78XrTmQV1zEKHigodCqLbD8kqYYy4HWi06
+	0sfs0kfh4nFo6k0asPs5FJzT2akAA7XJ6TYJNFGOqb+zfvvuEEq9qHLT+1Slmhn6n/HpHzyEaYi+x
+	MjK+RYCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDe93-0000000Ftnr-0wRm;
-	Mon, 05 Oct 2026 08:34:01 +0000
-Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+	id 1xDeFJ-0000000FuI9-1U6c;
+	Mon, 05 Oct 2026 08:40:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDe8z-0000000FtnQ-1Mo5
+	id 1xDeFI-0000000FuI2-2g3J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 08:34:00 +0000
-Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6ad186afdf4so2528460a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 01:33:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791189235; x=1791794035; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O6/Hu0+FzeutECjLCJhR6ThF6X+jor72I2j2aChvi7s=;
-        b=SVYfhaQ7sc6gq3uGZfRaGIz10UJCrGmtYwJCsF09DIvoAp/XWNwoM70q7H2/gq2eqN
-         ek20wV9oU8nC2KC7jpWDX0b2brn3kKW/2FZdm+uysdyi/v8jN0owEK3DVZtWn1T4YFJQ
-         AOcB8h7nonuw+MJr/u2rIaJ8RYUa+NA/8H8+naWHMwiUgSNPklNe3ke+rJVu9hShGshe
-         B/Ht/xoO2S8V5wA3nazWe8jztWO3qd1cPbjDtMiZll6f8ggqKdYzd2jjSeYByPu63PG0
-         yKrwRzVVCdpOzr+UL10JXtU63CFvpXHky197amS/RZ4/QvylV6eBZo3mg52pkhhlKLU7
-         Vi7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791189235; x=1791794035;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O6/Hu0+FzeutECjLCJhR6ThF6X+jor72I2j2aChvi7s=;
-        b=ZTFngrAsips1i5h1LcEUvhSpviJsoakAMCTBaE7IDId94LcXFTjPpy7DYLHDgscLs3
-         sKB8HPwl6TrveNpJcYn0yPYJ6WL4RQie16TNOpsvEovbpGIKc61u2QNsZXhYvzEnKI6x
-         lnjMOLxkaLhqhBhIo4aWoFOWr1D7U5rcKIDR8Wd0sp8BlCGDknzC9hkkVu4X+uPNHzdG
-         GSCZ3sOwwSN3xhkvKqmR1GZJM7Imw2kNGiQ9rVmLsukGJO/3dNnA03/ASYc+6YctZXJs
-         r60jbI42Bd7fDgqhT4/P5PTKhinEJha5yDfok9Rz/Fhd/ML+vmTZcEqMH5+7xS2z5cmY
-         BYXw==
-X-Forwarded-Encrypted: i=1; AKwUvBxWTYGktFOj91zgY8z6HEffqxCL8/0nje5h+iM9z4nkY5UZtok/Yu0dCxM7/Ja2buuIn8aruGRmhmQElS508kCJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYIdkXWXTyua1mEDiEFZ+9HRQ1oiB3+INrFnXHLRWxxDo48BTzCa
-	bUuity9apHQN1tWHgtXmn8BtzdIDTaCLk75IjxlfW2d06L+tC6/NJVlTJVqSXU9QkSM=
-X-Gm-Gg: AYBFou1GAC+AIrCiLynWcTWOCUwVAeDQfkkbPt1iZEVcNJp90X5o7j+YriwPrOhwGyb
-	d1WoOMUw5qH+PdRPb6XRPkzFQtrODC+nuf4sjIfBFxqLJ33gJj13AaZxm871/0I3R5Q7Iwk1Ji3
-	iKBwClJNj9sIYAfB7obTBgV+aHrhoF0aBTDyyWY66OLHLJxLFTK2gjvuEGXI4KxGEgE5E88CZ4g
-	C2V/W/cWfNM8+UdEEmRdZ7hDK98mdg1m1Ne0/LGPJ+iWdPKdwyE2tNMjFUnt1wHPx6EZUPw04VD
-	7pBFcKpxIuFNcUS4Q6S9Bk/oao27WIlcHDd/Usv/F6V7xuBvxx7gp1qFJTpWA7e3JnjfJ7IK1/1
-	fUr7eCym5djFhIOZareqhjEoE/PVoHgGFnOqf960IbnoFDuG2l8Tt67iUBSFrJQaFY7WxMmY03j
-	U/OzroFhTnM3j99qIhcLrzOmH7BBN+EUi6/izbDtqlGEButjiSLXn3IyL9fH3ptCE32VeAAsb+Y
-	90=
-X-Received: by 2002:a05:6402:4594:b0:6ac:c82f:3caa with SMTP id 4fb4d7f45d1cf-6af9e03e03dmr8002385a12.1.1791189233468;
-        Mon, 05 Oct 2026 01:33:53 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb005a424sm3031255a12.0.2026.10.05.01.33.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 01:33:52 -0700 (PDT)
-Message-ID: <c22b2771-95c5-4f1d-bd9e-26088313b864@linaro.org>
-Date: Mon, 5 Oct 2026 09:33:51 +0100
+	Mon, 05 Oct 2026 08:40:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CF8A4092E;
+	Mon,  5 Oct 2026 08:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424981F000FF;
+	Mon,  5 Oct 2026 08:40:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791189628;
+	bh=OT4fTCBzl6ea0tdPBPkwmD3TW36PNhwwmU38PY2NoAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e6+39s7dojdpn57bOln9SdDj77kq3GXuRYOEc4Gm39fJlu+B2J/ZduPGUzr2efObT
+	 ZJCz5CLam8qehPkkIiHWC9jzLo3mbRxMAiB0RJeUV+4ZL9MYllSjQTLYPwROymbka+
+	 /A9UrZ086Z+ROMSV2wwSGb42pHPwLLGNQN42B+Q2AyiweuXbm6yNToUbPIVFDfWnrZ
+	 5pUNCRKMbaMq/gwluzf4zY6NOH6phd+zrdxfjBwHun7aTaj8N3zCnHhNq/l8/qwmkJ
+	 /shnVG5aWIu8LPx3Ht11qTeruxeOAxBd60wsX7qutlSBYYeZohg7Ka92o6+vKGC4QD
+	 d1dHjZyOZkTqw==
+Date: Mon, 5 Oct 2026 01:40:17 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Kristina =?utf-8?Q?Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-efi@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Subject: Re: [RFC 00/12] arm64: Add support for TLBI domains
+Message-ID: <asNicWUtP4v1ti19@kernel.org>
+References: <20261001110655.461473-1-kristina.martsenko@arm.com>
+ <87mrsu3gql.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] perf cs-etm: Synthesize missing HW_ID mappings for
- raw trace
-To: Leo Yan <leo.yan@arm.com>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Suyash Mahar <smahar@meta.com>,
- Amir Ayupov <aaupov@fb.com>, Arnaldo Carvalho de Melo <acme@redhat.com>,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
- <20261002-james-cs-hw_id-output-failure-v3-3-1d8b6ef339c8@linaro.org>
- <20261002171405.GG1208404@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261002171405.GG1208404@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_013357_391230_BCEB22CB 
-X-CRM114-Status: GOOD (  23.32  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <87mrsu3gql.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,49 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey,
 
-
-On 02/10/2026 18:14, Leo Yan wrote:
-> On Fri, Oct 02, 2026 at 12:15:13PM +0100, James Clark wrote:
+On Sat, Oct 03, 2026 at 05:12:50PM +0100, Marc Zyngier wrote:
+> Hi Kristina,
+> 
+> On Thu, 01 Oct 2026 12:06:43 +0100,
+> Kristina Martšenko <kristina.martsenko@arm.com> wrote:
 > 
 > [...]
 > 
->>   static struct cs_etm_queue *cs_etm__get_queue(struct cs_etm_auxtrace *etm, int cpu)
->> @@ -314,12 +317,11 @@ static int cs_etm__map_trace_id_v0(struct cs_etm_auxtrace *etm, u8 trace_chan_id
->>   		return -EINVAL;
->>   
->>   	/*
->> -	 * If the queue is unformatted then only save one mapping in the
->> -	 * queue associated with that CPU so only one decoder is made.
->> +	 * Ignore HW_IDs for unformatted, a decoder will be made
->> +	 * unconditionally later.
->>   	 */
->>   	if (etmq->format == UNFORMATTED)
->> -		return cs_etm__insert_trace_id_node(etmq, trace_chan_id,
->> -						    cpu_metadata);
->> +		return 0;
+> >   * It's also possible to use TLBI domains to limit a KVM guest's TLB
+> >     invalidations to CPUs where the guest has run. I'll try to include that in
+> >     the next version. This series only disables domains for guests.
 > 
-> Nitpick: It seems to me that we can move the
-> etmq->format == UNFORMATTED check into cs_etm__process_aux_output_hw_id().
-> 
-> This avoids duplicating the check in both cs_etm__map_trace_id_v0()
-> and cs_etm__process_trace_id_v0_1(), and makes it more apparent that
-> the unformatted case does not use HW_ID at all.
-> 
-> It's up to you whether to keep it as is or update it. Either way:
-> 
+> My take on this is that just like MPAM, it makes little sense to
+> expose this to guests. As long as the L0 hypervisor has the means that
+> to scope TLBIs to the relevant domains (subset of CPUs to start with,
+> but hopefully SMMUs eventually), we're good.
 
-I might leave it for now. It's also called by 
-cs_etm__map_trace_ids_metadata() which doesn't have a reference to the 
-queue, and neither does cs_etm__process_aux_output_hw_id(). Probably not 
-worth another refactor at this point.
+Err... I think TLBID is quite useful in a VM and unlike MPAM should
+actually be virtualizable.
 
-> Reviewed-by: Leo Yan leo.yan@arm.com
-> 
-> P.S. Although I contributed the initial idea, the change is now quite
-> different from the original patch I shared. Please feel free to drop my
-> name if you prefer.
+Think of a case where a VM spans multiple chiplets, the VMM will likely
+affine vCPU threads to a particular chiplet and present a virtual
+topology to the guest. If those underlying chiplets map to TLBI domains
+then it seems beneficial to expose virtual domains to the guest.
 
-Will do if I send another one, but it looks like it can be applied now 
-so it might have to stay.
+Even for VMs that fit within a single domain, you'll still need VMM
+participation to scope the virtual domain correctly and affine the vCPU
+threads appropriately.
+
+I don't think this needs to happen as part of the initial enablement, no
+issues with hiding the feature for now. We can revisit the topic later
+how the feature is expected to work for KVM.
+
+Thanks,
+Oliver
 
