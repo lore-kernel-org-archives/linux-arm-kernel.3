@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D9FCA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC70CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXOM5m9Q69KwO7/u/mcoD4fwd7UUqM2LsQSwQWfuppY=; b=m8bj1MZWSCNaF80t6q6n4EWsHh
-	0D2tU7oJ0BhR3ax29sdR1Bpcnc3e468OVcUgOtY2kirYbpOZqG04pnCvxO9nRbnH2ba0rXH8CqN8K
-	6WoiSq34C2cdqXsQ/B7hU3G5WdVRiwb6tOhoIRNaoC5qSEgxDY4Qncswe4Vw2jtAHI3CmTx6Lcm20
-	dJ8Jnjl1X/MubZt2tF1frt09GH+/e2StaLtzwrLJmy0v8nPDWZTtTPLA8C6cqCoxiPiJI+DIYnkgU
-	iz3OaTsH0OPjYKeHbUz8beo+2g+DbA9KDfTCH0/3juK93eovh30lkIwfAr95W9o59sufh8SPT+D1l
-	8rs5FznQ==;
+	bh=jj8juTRF8BNg42eLql4dmeLHvm0zqwKNTWAupdQfKl8=; b=TTifUskIuwgES6XIg6MC7aZQ05
+	78dkSsdIWY26n1MqYJuApwT4zyVQ0IC6XMXUZqIE612rkmh0Ep7tq1WS3bvLQ9OFvQhLRVN1H3TO1
+	iZQb+Y7vYvOI95HlrLMrXc5qNg/ZRCNxqWE46RJ6hVdmQeuJtc6+hjvr3wufmj7jk/EKKa8lndl14
+	KpnGS02GFvJh4vxSH/W/qh1EheTFAo8czB24FeZfeJhEi0LVA5o73NclC9x5UP8WcOiRoNcpdO/kK
+	XEdHeDOcV8FZnuMKBjV21/qiZOYC3dK7BxFm4wmKxmLYg+v+uRGmr36jj5UAQ3fsCmAlgiHvkqi64
+	Rfo+QQog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeoy-0000000FzGg-2h3c;
-	Mon, 05 Oct 2026 09:17:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDeov-0000000FzEC-3C0X;
-	Mon, 05 Oct 2026 09:17:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8221152B;
-	Mon,  5 Oct 2026 02:17:12 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED5D03F66F;
-	Mon,  5 Oct 2026 02:17:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791191836; bh=HVeqBCma9XhPQYuXr7Z1BFby/I89QIvKhp1Qz/Sy+Fc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lpUkjIKqVD2+wgOZwWjHfaqcnAIOIiZd3eLZsf6wSBSB4hW0xAMMT3/10Lmlrwifu
-	 CN9yeYzy+LatTmrx6kdYmZFt+2+4QqkeIsWO4jHmUJbkhdKQV+jDepAzXQYqnw21Fc
-	 AcKyquEiAMypKcdXGDJ87Dsc2jJveIx5ZKcjOXDk=
-Message-ID: <4ac4c90f-887e-4545-9c26-9706bdaa1a79@arm.com>
-Date: Mon, 5 Oct 2026 11:17:00 +0200
+	id 1xDf35-0000000G0pJ-0Iaw;
+	Mon, 05 Oct 2026 09:31:55 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDf33-0000000G0og-04LT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 09:31:54 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c2940ff2313so106310866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 02:31:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1791192711; x=1791797511; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jj8juTRF8BNg42eLql4dmeLHvm0zqwKNTWAupdQfKl8=;
+        b=eVi1peE13wBRBwBFc0S4w3HsvArj+d3vv38mCWx77ha3PGVZX0uromAIT9+STTP8Nj
+         aSNO12AjuBVU4f/gqvmv+34EPR3+xBldBigB0Um+aDD8zSDxQAojIVjFy10dKOp7J2s+
+         f9SXSWHhWh+iwdfHBO9CM/BJu5doDzPA4zblKt19h+QJKvcrVBDso2TmAzeOqLexqWpG
+         Ek4IX/+D/FbzqhQ7y9hEW9GfXnVWIejlMDMpnXJCIW0wUR5HAnyA/L8ZyfikuFA8FKhT
+         PB9wxyLUQ6m66Bf+HYcwWwRYHRK65Wef3G4cvgZGm0dNXSogYOhIyRRfzbDpg/kqbkk6
+         fj6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791192711; x=1791797511;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jj8juTRF8BNg42eLql4dmeLHvm0zqwKNTWAupdQfKl8=;
+        b=nWrtmlXq4t/ewR3bH3cDAmX1VqsZtXu5wLothVh3vN2vubtINuc9B7EKZ5/qTtIdef
+         1k99CHcB3augnujK7gC58ds/2M4yK3TrGuHN/3lJaIbkjJkn/YGxWWq2bgB4CXt5to4f
+         MUg4R8V0bKSeUuGVZLCQJOJW16Bkc4O4ov3XyiotDdaZGpadqjS5NzBlYKaKRwG2zmXL
+         bkaTc6FhCWxliW/MEkF4+HTGmL7+qWuALua23l0uV70LupXcolbefUxDmxWwnCj9WqOt
+         r8kBoPUrsUd3lfbiH+Mqcj+6eie5wYstYJ1bkLRValeQwB94rpA4N4ynseA/Y+5MHVa1
+         XYyg==
+X-Forwarded-Encrypted: i=1; AKwUvBwceztZRyRo6PgQcoXF0OIWxKaNN6iAK+Qlv1g9QsLgEVH54G8Sdah/UdSyJID3LT1JWpOD7dEqzm4FtBlnrsnD@lists.infradead.org
+X-Gm-Message-State: AFuF++lHHxKPtzQ6SmeNOOJWRY5pyKw3V2py5Y3pqcCxMnBeprd8VkWj
+	8WuIah9N7SUfCuM1RsbkwTGRQeZ6SnF+KxeYuEWzntzU1hbH0uxkHx2qD9yBmsXdSys=
+X-Gm-Gg: AYBFou2VTSHX5tp1ow9CNZ1dbxJrJy8rEed2MUQo1BrLHyTpQXE2Dc/J656EQw3UVhQ
+	bZQAUt8NzB1yQoidqLFN+MLzmBdzItKmpbM8fPijHuEf9xH+iUk7H9TuoDXkncg6UvN9iUnfiJk
+	lIH5DUwFOom4fTJX3Imerfip6oZDM5V7I8IwGUB3uocRzl4BYihy5tkhNJSNRlH07uGX7kqA7PQ
+	drE0dwF0FdGc/VdPQhtiKBhAC7qoZuBfI3f6u5xQcj4g0ZtVCbmGhoVsKJQ4xK3j6rv++Y3d5t3
+	hxzBd5f4UblaerjZEmjBbrO5at/NuKwPxc6OJnjinXxbNwYpWmfVPn/4ZZGfu0vL9BOseNjS+kE
+	Y2292nkWCLKN7c+SJyh+JNwWpzGBtz7FOH4cj/iLiCvoflw9JUEyCMJoKW5NV23JotIraYt/9Qf
+	8Shsq60Q11mLRR20d0+1hO10j68lgP2/rFjkD/PUXirLqHZFma3wf+/g4AF27eoRS2s2HZLwQE6
+	eibNH/62c7eLw==
+X-Received: by 2002:a17:907:179a:b0:c2d:c6e7:9e9a with SMTP id a640c23a62f3a-c2e4aabae2emr924547566b.11.1791192711132;
+        Mon, 05 Oct 2026 02:31:51 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c3155ef11b9sm49533566b.0.2026.10.05.02.31.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Oct 2026 02:31:50 -0700 (PDT)
+Message-ID: <9c5e1aa7-4e0f-4576-b322-b4594cdea5b0@linaro.org>
+Date: Mon, 5 Oct 2026 10:31:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
-To: Junhui Liu <junhui.liu@pigmoral.tech>, wens@kernel.org
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>,
- Enzo Adriano <enzo.adriano.code@gmail.com>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
- <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
- <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
- <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
+Subject: Re: [PATCH 2/3] perf: arm_spe: Factor HW discard mode out of
+ arm_spe_perf_aux_output_begin()
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Suzuki Poulose <Suzuki.Poulose@arm.com>, Al Grant <Al.Grant@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
+ <20260805-james-spe-software-discard-v1-2-0ff0e44c4c92@linaro.org>
+ <asNfh-qywjOPxajj@willie-the-truck>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <asNfh-qywjOPxajj@willie-the-truck>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_021717_898491_6FCE31E4 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20261005_023153_084414_8EAB5269 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,191 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 10/5/26 06:41, Junhui Liu wrote:
-> Hi Chen-Yu,
-> 
-> On Sun Oct 4, 2026 at 7:03 PM CST, Chen-Yu Tsai wrote:
->> On Tue, Sep 29, 2026 at 7:28 PM Junhui Liu <junhui.liu@pigmoral.tech> wrote:
->>>
->>> Add the bus clock gates that control access to the devices' register
->>> interface on the Allwinner A733 SoC. These clocks are typically
->>> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
->>> various multimedia engines. It also includes bus gates for system
->>> components like the IOMMU and MSI-lite interfaces.
->>>
->>> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
->>> Disabling either store gate breaks access to boot/storage devices such
->>> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
->>> power domain registers when unused clocks are disabled.
->>>
->>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
->>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
->>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->>> ---
->>>   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 ++++++++++++++++++++++++++++++++-
->>>   1 file changed, 491 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>> index 1b2d4d36ec4c..b077e5d2f32c 100644
->>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>> @@ -4,6 +4,10 @@
->>>    * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
->>>    * Based on the A523 CCU driver:
->>>    *   Copyright (C) 2023-2024 Arm Ltd.
->>> + *
->>> + * TODO: The real parents of some bus gates, including its-pcie0-aclk,
->>> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in the
->>> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
->>>    */
->>
->> [...]
->>
->>> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588
->>>                                             BIT(31),     /* gate */
->>>                                             CLK_IS_CRITICAL,
->>>                                             CCU_FEATURE_UPDATE_BIT);
->>> +static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
->>> +
->>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_hws, 0x58c, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hws, 0x58c, BIT(1), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws, 0x58c, BIT(2), 0);
->>> +
->>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x594, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x59c, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x5a4, BIT(0), 0);
->>> +
->>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_hws, 0x5b4, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_hws, 0x5b4, BIT(1), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_hws, 0x5b4, BIT(2), 0);
->>
->>> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
->>> +                         0x5c0, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
->>> +                         0x5c0, BIT(1), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
->>> +                         0x5c0, BIT(2), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
->>> +                         0x5c0, BIT(3), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
->>> +                         0x5c0, BIT(4), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
->>> +                         0x5c0, BIT(5), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
->>> +                         0x5c0, BIT(6), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
->>> +                         0x5c0, BIT(7), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
->>> +                         0x5c0, BIT(8), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
->>> +                         0x5c0, BIT(9), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
->>> +                         0x5c0, BIT(16), 0);
->>> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
->>> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
->>> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
->>> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
->>
->> I suspect these refer to a AHB-AHB bridge for the various subsystems shown
->> in the memory map. That would explain why when the "ahb-store" clock is
->> gated, the storage bits stop working.
->>
->> If that's the case, we should describe it as the parent of each storage
->> peripheral bus gate's parent. Same would go for the other types. I haven't
->> checked what the BSP does though.
-> 
-> As Norman mentioned in his reply, the vendor BSP also does not model
-> this hierarchy and instead models these gates as independent clocks
-> parented to the oscillator. The manual does not describe the hierarchy
-> either, so I don't think we have enough information to model it
-> differently at this point.
 
-Well, I wouldn't use the BSP as a good example on how to model the clock 
-tree, they have been very misguided in the past.
-What the BSP does is to add just more input/gate MBUS clocks for each 
-device, which is something I think we should avoid.
-To that regard using them as parent clocks for the existing gates, as 
-Chen-Yu suggested, sounds like a good idea: We keep a single clock for 
-the devices, but still can turn both clocks off (I think, not tested).
+On 05/10/2026 09:27, Will Deacon wrote:
+> On Wed, Aug 05, 2026 at 04:01:52PM +0100, James Clark wrote:
+>> Discard mode doesn't call perf_aux_output_begin() or emit aux records,
+>> and enabling it never fails. We'll add a second discard mode in the
+>> next commit so it will be cleaner if there is a separate begin function
+>> just for discard mode.
+>>
+>> No functional changes intended.
+> 
+> [...]
+> 
+>> +static void arm_spe_pmu_begin_discard(struct perf_output_handle *handle,
+>> +				      struct perf_event *event)
+>> +{
+>> +	u64 limit;
+>> +
+>> +	limit = FIELD_PREP(PMBLIMITR_EL1_FM, PMBLIMITR_EL1_FM_DISCARD);
+>> +	limit |= PMBLIMITR_EL1_E;
+>> +
+>> +	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+>> +}
+>> +
+>>   static int arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+>>   					 struct perf_event *event)
+>>   {
+>>   	u64 base, limit;
+>>   	struct arm_spe_pmu_buf *buf;
+> 
+> Is it worth checking that we have a discard event in begin_discard() and
+> similarly that we don't have a discard event in output_begin()? It looks
+> like quite an error-prone interface for the caller, otherwise.
+> 
 
-Cheers,
-Andre
+Makes sense, I can add that.
 
-> I will add comments explaining why ahb_store_clk, mbus_store_clk, and
-> ahb_cpus_clk are marked critical.
+>> @@ -775,6 +785,12 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+>>   		arm_spe_pmu_disable_and_drain_local();
+>>   		break;
+>>   	case SPE_PMU_BUF_FAULT_ACT_OK:
+>> +		if (arm_spe_discard_mode(event)) {
+>> +			arm_spe_pmu_begin_discard(handle, event);
+>> +			isb();
+>> +			break;
+>> +		}
 > 
->>
->>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
->>> +                         0x5e0, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
->>> +                         0x5e0, BIT(1), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
->>> +                         0x5e0, BIT(11), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate", mbus_hws,
->>> +                         0x5e0, BIT(12), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate", mbus_hws,
->>> +                         0x5e0, BIT(14), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
->>> +                         0x5e0, BIT(16), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
->>> +                         0x5e0, BIT(18), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
->>> +                         0x5e0, BIT(24), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
->>> +                         0x5e0, BIT(28), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
->>> +                         0x5e0, BIT(29), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
->>> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
->>
->> Same thing for the MBUS clocks.
->>
->>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hws,
->>> +                         0x5e0, BIT(31), 0);
->>> +
->>> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
->>> +                         0x5e4, BIT(0), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
->>> +                         0x5e4, BIT(1), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
->>> +                         0x5e4, BIT(2), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
->>> +                         0x5e4, BIT(3), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
->>> +                         0x5e4, BIT(5), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
->>> +                         0x5e4, BIT(8), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
->>> +                         0x5e4, BIT(9), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
->>> +                         0x5e4, BIT(11), 0);
->>> +/* Undocumented, taken from the vendor kernel. */
->>> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
->>> +                         0x5e4, BIT(12), 0);
->>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
->>> +                         0x5e4, BIT(18), 0);
->>
->> [...]
->>
->> The remaining definitions look correct (minus the vendor BSP ones which I
->> couldn't check at this time).
->>
->> I didn't check the clock list additions.
->>
->> Consider this
->>
->> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
->>
+> This looks like new behaviour?
 > 
-> Thanks!
-> 
->>
->> We can change the AHB / MBUS clock parents later if we do figure it out.
->>
->>
->> ChenYu
-> 
+> Will
+
+I just extracted the discard part of arm_spe_perf_aux_output_begin() 
+into here and arm_spe_pmu_begin_discard(). The PMBLIMITR_EL1 write and 
+isb() should be the same.
+
+Do you mean that now it does arm_spe_pmu_begin_discard() unconditionally 
+before checking PERF_AUX_FLAG_TRUNCATED? Truncated would never be set in 
+HW discard mode, so it should be equivalent. And the IRQ would never 
+fire anyway so we don't get here until SW discard is added, and even if 
+it did, handle->event is NULL so the handler would exit on the first 
+line anyway.
+
+I suppose there's another change that it can never call 
+arm_spe_pmu_stop()? But that wouldn't have happened in discard mode either.
+
+James
 
 
