@@ -4,95 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8261ECA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 20:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BD0CA5FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 20:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lngvV3FBuEfkmR/eOgCU094o1/RwaIUjzlpowVfZV8Y=; b=zN/VQcI9XjU70/XHGkJmmFXo3c
-	nRlHiSHNu43mrI37Obr17+bZ39J8grXkRroa0hfH3cfpeKgZRsivXCSbovyH5snXZhHxFki59T96Q
-	RFQNt2Nd0lgBLslGRvWBKdhFOOCCheFn0cjKSaB53TBY8OaD1EA8w3T+8RZGobrmuWBFsbWAw5oEU
-	wDpYzF0HxQyeAKCeMOn6euN+fcbcNFsL+L7lgqY+ZWLH+GCRYtLkm2pxGZDRBSPBVL4DHkVZvcp4t
-	huVbv1DzUwRx9uU+bfaCPOnmfZRflHpgaqfUH8SGmnGuyHNMmGpOUyBbQgUhTi1NKDrzys59FBqhr
-	Vf/Dt8WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNafjFO4Ut1TwDaTPr3P/axyEnqBWHbeDSGq9rqxadc=; b=S9tNh4vUCVWeut/Cvm0yWY6ZV5
+	+gUPKhFflUugEURK32PS+qHo7p3S88VVliSYdbLpyMjv7jwcd+QOkhMsrt5ySfr3+U/za+C93Dvgk
+	gPopnflBh5VsgN0XHEO8mUrOeTOCKxqQYyLdjLgqjLVKX7LuMPVDDCzW1RPbOi/Ly32ve1G7ddwvg
+	c/caBGoCsLUgE9Zz5bVc+3/wKQkbhqj3eWap4SL8jS6CEL8kS26BS1yi4sn6zsW1F+JzZ8RddQKyd
+	fkQWeoMuR0JylmEshD9YXofz12XS8cZkAjzsJJVEvfth6omB053tr5J+Qrz32x9WwDdD6T619ihMP
+	ePdaAEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDpIg-0000000H8Iv-3fPL;
-	Mon, 05 Oct 2026 20:28:42 +0000
-Received: from mail-ed2-x2b.google.com ([2a00:1450:4864:33::2b])
+	id 1xDpcX-0000000H9h6-3W1l;
+	Mon, 05 Oct 2026 20:49:13 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDpIc-0000000H8ET-37Ti
+	id 1xDpcV-0000000H9gW-0QZG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 20:28:41 +0000
-Received: by mail-ed2-x2b.google.com with SMTP id 4fb4d7f45d1cf-6ae19959791so2695381a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 13:28:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791232116; x=1791836916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lngvV3FBuEfkmR/eOgCU094o1/RwaIUjzlpowVfZV8Y=;
-        b=AGY0i4a5Dw3AxOULZaYBZ9nv2aMLowj7KASzMCAWg7H+gAn4H+Zx4kzw1pS4I+y2mM
-         Cl67mMV8PospyhfGTsi6Pp3BiBRAfKiMkiUyVwxjDV/pY8tf5a7X18VtIEu/ulHiZImR
-         pwcP68TfDf94QUKzt++IvRrYM3x3mo846fiUXx6QZmV7AY0IhMzrG8JD/uhDJxcWYgnw
-         hXAVlThcVwwQxRyUNRXNfaAqaC126ofs6fBVYaAejRrBIXPCeIK8dy2Y0ldONgOM71Vv
-         fEgM5dOPytaW10o1F3RQa7AW9Wibwr8kEuBhrPlA04eMKXZokoHkKBSrp22uQ5qJLKuG
-         j2zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791232116; x=1791836916;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lngvV3FBuEfkmR/eOgCU094o1/RwaIUjzlpowVfZV8Y=;
-        b=H9017b563LDLc60jQl6PFIYCr0IUU7M5WeM1URq6UweSvwVANsK+FhuyaMF8UcGtQ4
-         whlj+6oJLbiUpiejISLEsbgQVH8mSKcaGMKg2UTbiQKszLWhr9JIEG8GiLYkAimRaC9F
-         F5YeiqbBTFPxdmkB14MNNdiHYR+Tt8okRN3eXgCucwBOOwChvd3LDeEa6Ux1c6JYQm4W
-         Y8MorctlCInLkaaPat3LyZ739kOwqSOM1BlUogJtdlm9ip6eRdKpCAzQzb0HzmHgIG0B
-         u6q3DEkaTzDz6bTw9XaCGChq4Dkk9rdJlSoJiIduekTqWgcopSGu1x3vYmiAhaDhQ/y2
-         9GXA==
-X-Forwarded-Encrypted: i=1; AKwUvByi6Ql5K7f5xJEKfTdkjvBYpcLaZzXIu5nxogQn2KlqtpZclv2Cy9N6L+q83TZyHq2+bYPBHVVRgRA1kvI8GuQK@lists.infradead.org
-X-Gm-Message-State: AFq9FYLEE6m+WaJX2YL349UyIbPfgz/JD0ETIcUEiu3rSRK5dRPdGAgd
-	1mxP/gFKcUoUIvyQdE6dEvpYuHUHTCJYicmbRgKv7dkzrCdgsR2mEq0Q
-X-Gm-Gg: AYBFou2KLxyuaAydaMCkhvQUL82rivt5BxB4dh0MeEZLGRVhDpkci+NdSBAge04YZXj
-	8y2pkunMLAkj44vyTsO40GxGtwUmba5J9tOoGc1p+ptt5fAhwd1R6NTnjP0fHOGcYnQ5InEgx6S
-	gwTHHG3R3x/ZinDbrPRpH9nhMYirT1mGwoBQ63d6ShO8JP1r5c4hznBrkL8OPuweKTu9gmiYp1E
-	W7bwdxKst7TGkXMgtlhvU/ZCxooEaKwHOsNEmpFuzzN4TCPltbkpKiYcElTbbQ8WxdONMxW3oF2
-	KpNVbpQTIVHXJYBIANrQ/EMgLO+g7c/oIKbSmq/FM5VLkUNO2fp4spHsgs8J39U4TQHXi3AzW9f
-	R0T5ql+/IpwN4r6oaZe1EKbMxkA5uRJ3jzpqHEzfezSENBM10z0As5mrNFT7xK4hci7pS55L5Gv
-	g2Dkd23/Zr1OHVXwmcaWLwz3nL3ob9gW0cGkeSOvEsfn+St9P4Ry6lU41L4b53qg31m1UT2SUNE
-	zCoWQUhip2xMRf8H363WyR2ZUVLjzUn
-X-Received: by 2002:a05:6402:24c6:b0:6ac:7077:6c4b with SMTP id 4fb4d7f45d1cf-6af9e021817mr7765457a12.5.1791232116509;
-        Mon, 05 Oct 2026 13:28:36 -0700 (PDT)
-Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6afb01e572asm3801024a12.13.2026.10.05.13.28.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 13:28:34 -0700 (PDT)
-From: Pablo Mazzini <pmazzini@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Pablo Mazzini <pmazzini@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 11/11] ARM: dts: allwinner: add B288 and the PocketBook Verse
-Date: Mon,  5 Oct 2026 21:27:31 +0100
-Message-ID: <20261005202731.153971-12-pmazzini@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261005202731.153971-1-pmazzini@gmail.com>
-References: <20261005202731.153971-1-pmazzini@gmail.com>
+	Mon, 05 Oct 2026 20:49:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r7592dF816jADNKXN/dEQobk6oLcUa/W1+PdDUsagBP+L5NZa4mYONisafqQryUhHwFWXrsltHymgTwfywl4209NgHwAmNl7CxlqNI01M48u0RwAoBiz7XXvn2o4jgQKUInWV7+Pg0hlvlv1oNXXwqz1ta4A0jxxfGCso02fJQIXW6W6l3tfKJcBX65+0jap/lCiSyhYnGeBwnanHnswuH8h2gRjLkRT335J+fWGyK3KWSbbumJhrGZYx10Kp/QGmcWFNeC/sA225ORWu2kgFwUdI1U3av5FfjkPjhiyWYUy2UvwuGX0y1AGnw94557qvzkfAWj8lQhFZxxESOwwbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PNafjFO4Ut1TwDaTPr3P/axyEnqBWHbeDSGq9rqxadc=;
+ b=QeZL7cuQ53H9hw+D0Ze/8JsucJXhHiVD10cVBc2LvFI2EHi9iF/rkosrvn6QnIIGB63YM6Avn2LQxD1IHOfK1KBC2mpuypmg8tELHapT45cOcpi/H9pIe+HMQAoroHmmpRHyXGpxomqDXOEYcn9p9jT6HSiC+UBKYMu1A4x1kFvtHYPT/+0TikZtyOLfLZHwkTT+wLEUw29DJ3Sle2IIvdoYJhwM+QLxyoYRzTRbYy/JCRefo0/2fEEQtjSjaGjXtdSxqwEzuaYqGVj5vX9QQDOHb8OV3XZM6iyRknMK7IErjOTCKakrrjsNLSNnXd5foCocUfl5rhrVnMX6TS/klA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PNafjFO4Ut1TwDaTPr3P/axyEnqBWHbeDSGq9rqxadc=;
+ b=erlZjm0EQQGEmeO/XVXEENhQbg6ChnelGiscUKmxBBb+3rNdh6eP1/jUfedW9ciEHpH2RZCAFTBUBQi/eMeVTyW1XpwvC5wsqbvWtx6DYen77cdOE3ZHB+Y44UpD6uuqrY2G9sfiZdAwGiUDrTCVH4P59/TAStJRrYOMjlcEr8PNJImLEiaBNj1W62icLpT7Gj6fclXgycMJbALJUtjdc0BFx2gSWH2GfQKp88/sbLyJMwXo6539WLdAJR1MmQHT4UXlEBwAMt5IFsfLiTGeEq+63OkCWdehlbtlmFOINyXRcSZOzXaxv8LJS4IkuS2sLr8ZXyYcYZMTOrN8vfSE3Q==
+Received: from CH2PR10CA0021.namprd10.prod.outlook.com (2603:10b6:610:4c::31)
+ by IA0PPFFEC453979.namprd12.prod.outlook.com (2603:10b6:20f:fc04::beb) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
+ 2026 20:48:59 +0000
+Received: from BN5PEPF0004698D.namprd02.prod.outlook.com
+ (2603:10b6:610:4c:cafe::19) by CH2PR10CA0021.outlook.office365.com
+ (2603:10b6:610:4c::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
+ Oct 2026 20:48:59 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN5PEPF0004698D.mail.protection.outlook.com (10.167.245.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Mon, 5 Oct 2026 20:48:58 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
+ 2026 13:48:33 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
+ 2026 13:48:32 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Mon, 5 Oct 2026 13:48:31 -0700
+Date: Mon, 5 Oct 2026 13:48:29 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
+	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
+Subject: Re: [PATCH v11 00/11] iommu/arm-smmu-v3: Adopt the crashed kernel's
+ stream table for kdump
+Message-ID: <asQNHT9Vk61t/vrn@nvidia.com>
+References: <cover.1791226953.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <cover.1791226953.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN5PEPF0004698D:EE_|IA0PPFFEC453979:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b753c89-ff3a-4eba-41dd-08df23221498
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|36860700016|376014|1800799024|82310400026|11063799006|56012099006|10067099003|22082099003|18002099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info: +XYHK8nCWh0ul8EaEOBbwChUV8Igy1N7x+fqPu9cNGydJxhSeYIt2JKnTOrBhHUpifjEYfCeSHCOnuar072ubfcPOWeSaKDzxkGNgt/ZzRc99eCudPgMy1Je8NPupVW4HM943Y1KM5DEeolV/fB46G3eSjGwu3sBfJ9ukaIF4n9w2Qoy82Ir3LhXV5byT0e9iv5n59tbswXE7TwM3kNXzxmbaRxBINTOnN2VK/1nuUnndzKJUIuBvseRwTcngqZ4r526ZXfxZuR9WkDtRP8SypiFF0/9jdhwSwHDYvS4KADrgiR4fqyQy9dHKBj7Oq5XrAGv2FCBtMENBDVqV4pZPKeR3orLWcb+bX6FmZ1gXzb8nsDOaA6RifWr7+SkVDpXVLw0NPND7C+xZoD8Ee4vl10vBgPwrtLql+fvkr1XgAyiezKo15X5xA8LwR3LUyaS+QzXWXDoI1pYcaSWUVYCR3EoSnFPE1KlxxGTdohA7AIIf30ZSHXkjtuVkU6+RMwGGO0NsDNLKwXa+oOzK63jC8uHtYZ5tWil/C7WZzs9ARtWBv12D6EdGeqzcfJ4IAETX8VETQXxCuJu/Txp4vooUoc/RvPpTcQtEPSfOOUxSVXWoxd8jg+ZD62xPKlxerPaYpxISMGkA+vHgmX5bETOFoIYRQ3MPygXQR+uWgJ8y8S5PoHoOzLVsHwZJFXMJAnXc4Z+ZC1DyLuJujEgF2hKYg==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LInX/I+2WZ9dK6+MFMN47ckOwFRwABy1U8MHPG9kcOPGldPvvxcw1dPZrk8M1tt+LdBxNgDIQMap0GSavvhwGF9delncvAp10EzAxWb+pQiJLTAQJP8KswQHBoi0BDbqwEZVqYOpysJxKYT9TKUimi7/GWmWjvA1vih1vX4NX0HF6w6387a3fCdvopAcxXt9t5wapewXyq3aRy83+OyHeW7iILVo5YgF2kmoxLOcBEezEqnVgAT4/7a5fOeBcpC0ngptm5sJ9gchxwbKhz0miQPW5o2TpfCRXghoyX4SMp7xMzWeRnM032CAkgnNyAX8Q/KmQwMXuEwKUXTasvF7r6jco1jQYsuXuDYXuMfMevtwnfLggbU05IeMF8DlQQr+jf9jZ/4ElCd0kqsEMnFvHtq6aSST4LsBZrb0fdtK4vI5AOcs5Yj1KrW9+7sKT7w3
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 20:48:58.9444
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b753c89-ff3a-4eba-41dd-08df23221498
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN5PEPF0004698D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFFEC453979
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_132838_875963_178CDC48 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20261005_134911_150056_398E4256 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,446 +131,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the B288 SoC .dtsi and the PocketBook Verse (PB629) board.
+On Mon, Oct 05, 2026 at 12:30:43PM -0700, Nicolin Chen wrote:
+> This is on Github:
+> https://github.com/nicolinc/iommufd/commits/smmuv3_kdump-v11
+> 
+> Changelog
+> v11
+>  * Rebase on arm/smmu/updates branch
+>  * Add Tested-by from Breno and Cristian
+>  * Add Reviewed/Acked-by from Jason and Kiryl
+>  * Update commit messages and Assisted-by tags
+>  * New prep patch: swap EVTQ/GERROR MSI indexes
+>  * Skip EVTQ's CFG0 write and vector allocation
+>  * Merge arm-smmu-v3-kdump code into arm-smmu-v3-kexec
+>  * Fold patches accordingly as static functions require callers
 
-Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
----
- arch/arm/boot/dts/allwinner/Makefile          |   1 +
- .../allwinner/sun8i-b288-pocketbook-verse.dts | 114 +++++++
- arch/arm/boot/dts/allwinner/sun8i-b288.dtsi   | 290 ++++++++++++++++++
- 3 files changed, 405 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
+Will,
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index 75b2b6a2f7a6..2dfdc01e4825 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -227,6 +227,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a83t-bananapi-m3.dtb \
- 	sun8i-a83t-cubietruck-plus.dtb \
- 	sun8i-a83t-tbs-a711.dtb \
-+	sun8i-b288-pocketbook-verse.dtb \
- 	sun8i-h2-plus-bananapi-m2-zero.dtb \
- 	sun8i-h2-plus-libretech-all-h3-cc.dtb \
- 	sun8i-h2-plus-orangepi-r1.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts b/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
-new file mode 100644
-index 000000000000..a60cbb638019
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
-@@ -0,0 +1,114 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * PocketBook Verse (PB629), an Allwinner B288 based e-reader.
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-b288.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "PocketBook Verse";
-+	compatible = "pocketbook,verse", "allwinner,sun8i-b288";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_dldo2>;
-+	bus-width = <4>;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
-+	disable-wp;
-+	status = "okay";
-+};
-+
-+&mmc3 {
-+	vmmc-supply = <&reg_dcdc1>;
-+	vqmmc-supply = <&reg_dldo1>;
-+	bus-width = <8>;
-+	non-removable;
-+	cap-mmc-hw-reset;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pc-supply = <&reg_dldo1>;
-+	vcc-pd-supply = <&reg_dldo1>;
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	axp22x: pmic@34 {
-+		/* labelled AXP227 */
-+		compatible = "x-powers,axp221";
-+		reg = <0x34>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+#include "axp22x.dtsi"
-+
-+&reg_dcdc1 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <3000000>;
-+	regulator-max-microvolt = <3000000>;
-+	regulator-name = "vcc-io";
-+};
-+
-+&reg_dcdc2 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1260000>;
-+	regulator-max-microvolt = <1260000>;
-+	regulator-name = "vdd-cpu";
-+};
-+
-+&reg_dcdc4 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1100000>;
-+	regulator-max-microvolt = <1100000>;
-+	regulator-name = "vdd-sys";
-+};
-+
-+&reg_dcdc5 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1350000>;
-+	regulator-max-microvolt = <1350000>;
-+	regulator-name = "vcc-dram";
-+};
-+
-+&reg_aldo3 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <3000000>;
-+	regulator-max-microvolt = <3000000>;
-+	regulator-name = "avcc";
-+};
-+
-+&reg_dldo1 {
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+	regulator-name = "vcc-pc";
-+};
-+
-+&reg_dldo2 {
-+	/* microSD slot */
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+	regulator-name = "vcc-sdcv";
-+};
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-b288.dtsi b/arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
-new file mode 100644
-index 000000000000..dc8264a547cf
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
-@@ -0,0 +1,290 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Allwinner B288 (sun8iw10p1) SoC
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/clock/sun8i-b288-ccu.h>
-+#include <dt-bindings/reset/sun8i-b288-ccu.h>
-+
-+/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+	interrupt-parent = <&gic>;
-+
-+	osc24M: osc24M-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24M";
-+	};
-+
-+	osc32k: osc32k-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		clock-output-names = "osc32k";
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "arm,cortex-a7";
-+			device_type = "cpu";
-+			reg = <0>;
-+			clocks = <&ccu CLK_CPUX>;
-+			clock-names = "cpu";
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "arm,cortex-a7";
-+			device_type = "cpu";
-+			reg = <1>;
-+			clocks = <&ccu CLK_CPUX>;
-+			clock-names = "cpu";
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv7-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		nmi_intc: interrupt-controller@1c000d0 {
-+			compatible = "allwinner,sun8i-b288-nmi",
-+				     "allwinner,sun9i-a80-nmi";
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			reg = <0x01c000d0 0x0c>;
-+			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		/*
-+		 * mmc0 is a v4p1x controller, so it runs in the old timing
-+		 * mode and needs the sample and output phase clocks.
-+		 */
-+		mmc0: mmc@1c0f000 {
-+			compatible = "allwinner,sun8i-b288-mmc",
-+				     "allwinner,sun7i-a20-mmc";
-+			reg = <0x01c0f000 0x1000>;
-+			clocks = <&ccu CLK_BUS_SDMMC0_BUS>,
-+				 <&ccu CLK_MMC0>,
-+				 <&ccu CLK_MMC0_OUTPUT>,
-+				 <&ccu CLK_MMC0_SAMPLE>;
-+			clock-names = "ahb", "mmc", "output", "sample";
-+			resets = <&ccu RST_BUS_MMC0>;
-+			reset-names = "ahb";
-+			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&mmc0_pins>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		mmc3: mmc@1c12000 {
-+			compatible = "allwinner,sun8i-b288-emmc",
-+				     "allwinner,sun50i-a64-emmc";
-+			reg = <0x01c12000 0x1000>;
-+			clocks = <&ccu CLK_BUS_SDMMC3_BUS>, <&ccu CLK_MMC3>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC3>;
-+			reset-names = "ahb";
-+			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&mmc3_pins>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* mmc2 @0x01c11000 is an unsupported SDHCI-style controller. */
-+
-+		ccu: clock-controller@1c20000 {
-+			compatible = "allwinner,sun8i-b288-ccu";
-+			reg = <0x01c20000 0x400>;
-+			clocks = <&osc24M>, <&osc32k>;
-+			clock-names = "hosc", "losc";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		rtc: rtc@1c20400 {
-+			compatible = "allwinner,sun8i-b288-rtc";
-+			reg = <0x01c20400 0x400>;
-+			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-output-names = "osc32k", "osc32k-out";
-+			clocks = <&osc32k>;
-+			#clock-cells = <1>;
-+		};
-+
-+		pio: pinctrl@1c20800 {
-+			compatible = "allwinner,sun8i-b288-pinctrl";
-+			reg = <0x01c20800 0x400>;
-+			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_PIO>, <&osc24M>, <&osc32k>;
-+			clock-names = "apb", "hosc", "losc";
-+			gpio-controller;
-+			#gpio-cells = <3>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+
-+			mmc0_pins: mmc0-pins {
-+				pins = "PF0", "PF1", "PF2",
-+				       "PF3", "PF4", "PF5";
-+				function = "mmc0";
-+				allwinner,pinmux = <2>;
-+				drive-strength = <30>;
-+				bias-pull-up;
-+			};
-+
-+			i2c0_pins: i2c0-pins {
-+				pins = "PB6", "PB7";
-+				function = "i2c0";
-+				allwinner,pinmux = <2>;
-+			};
-+
-+			mmc3_pins: mmc3-pins {
-+				pins = "PC1", "PC4", "PC5", "PC6",
-+				       "PC7", "PC8", "PC9", "PC10",
-+				       "PC11", "PC12", "PC13", "PC14";
-+				function = "mmc3";
-+				allwinner,pinmux = <5>;
-+				drive-strength = <40>;
-+				bias-pull-up;
-+			};
-+
-+			uart0_pb_pins: uart0-pb-pins {
-+				pins = "PB4", "PB5";
-+				function = "uart0";
-+				allwinner,pinmux = <2>;
-+			};
-+		};
-+
-+		wdt: watchdog@1c20ca0 {
-+			compatible = "allwinner,sun8i-b288-wdt",
-+				     "allwinner,sun6i-a31-wdt";
-+			reg = <0x01c20ca0 0x20>;
-+			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>;
-+		};
-+
-+		uart0: serial@1c28000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x01c28000 0x400>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clocks = <&ccu CLK_BUS_UART0>;
-+			resets = <&ccu RST_BUS_UART0>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@1c28400 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x01c28400 0x400>;
-+			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clocks = <&ccu CLK_BUS_UART1>;
-+			resets = <&ccu RST_BUS_UART1>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@1c28800 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x01c28800 0x400>;
-+			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clocks = <&ccu CLK_BUS_UART2>;
-+			resets = <&ccu RST_BUS_UART2>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@1c28c00 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x01c28c00 0x400>;
-+			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clocks = <&ccu CLK_BUS_UART3>;
-+			resets = <&ccu RST_BUS_UART3>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@1c29000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x01c29000 0x400>;
-+			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clocks = <&ccu CLK_BUS_UART4>;
-+			resets = <&ccu RST_BUS_UART4>;
-+			status = "disabled";
-+		};
-+
-+		i2c0: i2c@1c2ac00 {
-+			compatible = "allwinner,sun8i-b288-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x01c2ac00 0x400>;
-+			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_TWI0>;
-+			resets = <&ccu RST_BUS_I2C0>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&i2c0_pins>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c1: i2c@1c2b000 {
-+			compatible = "allwinner,sun8i-b288-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x01c2b000 0x400>;
-+			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_TWI1>;
-+			resets = <&ccu RST_BUS_I2C1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@1c2b400 {
-+			compatible = "allwinner,sun8i-b288-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x01c2b400 0x400>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_TWI2>;
-+			resets = <&ccu RST_BUS_I2C2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		gic: interrupt-controller@1c81000 {
-+			compatible = "arm,gic-400";
-+			reg = <0x01c81000 0x1000>,
-+			      <0x01c82000 0x2000>,
-+			      <0x01c84000 0x2000>,
-+			      <0x01c86000 0x2000>;
-+			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+		};
-+	};
-+};
--- 
-2.52.0
+I have checked the new Sashiko finding against this v11.
 
+To approach its claimed 35-trillion bound, every L1 descriptor,
+STE and CD L1 descriptor must pass the validations, which takes
+a deliberately built aliasing table but is not likely reachable
+in practice: with a corrupted memory, one of the entries would
+more likely either skip the iteration (V=0) or fail the test.
+
+I tend to ignore that. But if you think it is worth addressing
+and have some good idea about it, I don't mind a respin.
+
+Thanks
+Nicolin
 
