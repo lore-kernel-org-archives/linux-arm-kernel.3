@@ -4,131 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DC7CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD8ECA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONuAfwO9E4ixY5T7A2NxatSseTcwUzIRgeJpb2V/chQ=; b=paCzr+NJi8tcTmd9PtWBnQRmh2
-	r3U1R4RSBF4gZP1AJZV+O81uHjCUYGTcFLXSCBvVqtTNJ+8fThOYUeMXWH+XUswA10+7K3AxYq1ry
-	B0n4vIn7zgPzVAOIqtOvewJnNIm4Iz30sy8a2qv1lm85ocPlRVxqH8qTnftm0AR/Qiqr1jQdZu1ta
-	djS/ygaMJlroXrpTNpVpxYoFl7zgDCl0w/rqppau+i+6Uhs7VasECNQ7dVDkSIZ8By2g/rVZE+Uef
-	4pY4t6xYjK+bo4sdAKx5KDjgp6WTas2Ri5lqbFJ/Bt3zBZprLGIGOZqtpgyv6p62mZyS6NMyp6SH6
-	/9aZ5UBQ==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=06i4WcQESlvt9d5hVxVL6XtfxJGmUMnEYGAhzyyvOHw=; b=g0yvvp9riznCnisptuxJFJri5F
+	cA2gNFsy/VfbzcVgTG3Dkaf60+NFeVAx3zpOHKhwOcqDusePkDiaz+44vtYwOiKB90DNaiPLkU7DR
+	miX2uoHAHByZO7iM6pd/VfVHGg//oUwqAHIrq8BEpf5f4M+a73ZsFS9g3cMdUjWzevFRfySZTdZit
+	mfyGzsHVU4kuStjffIyA8iq6C8okfF7mFIi09z8yOGFnCVTgH4FeyCrxtefAAuy0lP/W8u/HfJiHN
+	V2OOdAfDZAoPkmZWJ1aEQ1PCW/LLrUwMyRxEAh4BgV+A9OIJJvNdj388PTr0HYORcIdkeUzSzvBAW
+	AkiyIlnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmYi-0000000GvVq-0GdM;
-	Mon, 05 Oct 2026 17:33:04 +0000
-Received: from de-smtp-delivery-113.mimecast.com ([194.104.111.113])
+	id 1xDmYv-0000000Gva3-0jx4;
+	Mon, 05 Oct 2026 17:33:17 +0000
+Received: from out203-205-221-231.mail.qq.com ([203.205.221.231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmYf-0000000GvVO-1lkH
+	id 1xDmYs-0000000GvYe-0yto
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 17:33:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=toradex.com; s=toradex-com;
-	t=1791221576;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ONuAfwO9E4ixY5T7A2NxatSseTcwUzIRgeJpb2V/chQ=;
-	b=SDWGPj7fcXw36/7DrsuczyPgd4Phd+4lvJ3739Pot2QKeACGcLGWWq79aaTGxbuBoeNUCi
-	xNEHfm9h5FhbQmggFf5i0lW+XaTgUiBKVtW47Cv4jFqxxUlptMm3Nu+DEnUu49xew4IOQg
-	Iw6Rxmwn0gpFvlirm2hWviaO1/LgBOE=
-Received: from ZR1P278CU001.outbound.protection.outlook.com
- (mail-switzerlandnorthazon11022072.outbound.protection.outlook.com
- [40.107.168.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- de-mta-44-OEOBfRwAO1CkhYLQ2X3ayQ-1; Mon, 05 Oct 2026 19:32:53 +0200
-X-MC-Unique: OEOBfRwAO1CkhYLQ2X3ayQ-1
-X-Mimecast-MFC-AGG-ID: OEOBfRwAO1CkhYLQ2X3ayQ_1791221573
-Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8) by
- ZR1P278MB1392.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:98::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.20; Mon, 5 Oct 2026 17:32:51 +0000
-Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
- ([fe80::88:6821:13f5:a5b2]) by ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
- ([fe80::88:6821:13f5:a5b2%6]) with mapi id 15.21.0472.016; Mon, 5 Oct 2026
- 17:32:51 +0000
-Date: Mon, 5 Oct 2026 19:32:49 +0200
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
-To: Frank Li <Frank.Li@nxp.com>, Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: freescale: imx952: Add GPIO5 lines 18 to 20
-Message-ID: <asPfQZURHvVzbgVU@francesco-nb>
-References: <20261005172622.135725-1-francesco@dolcini.it>
-In-Reply-To: <20261005172622.135725-1-francesco@dolcini.it>
-X-ClientProxiedBy: MI1P293CA0024.ITAP293.PROD.OUTLOOK.COM (2603:10a6:290:3::6)
- To ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8)
+	Mon, 05 Oct 2026 17:33:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791221592; bh=06i4WcQESlvt9d5hVxVL6XtfxJGmUMnEYGAhzyyvOHw=;
+	h=From:To:Cc:Subject:Date;
+	b=vEVNBgE9bXkG7ny5INeAyekjas8ERoiSySS1Xsna0hZBEEXYf0J4k/1xCVeKAfiqs
+	 MznJX1OyqhNcSNNjcOI+lAoeXkmzONdQCrgGEoSL5VJjx/Onznhh49BSpOcgUrQVwW
+	 cVH895LZchFOeaoGp9uST67Hs+dgwZ2zMkWN37Ms=
+Received: from AERO17.taila7786d.ts.net ([2409:8a7c:21c:8010:c675:1308:618e:14ff])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id 8493A252; Tue, 06 Oct 2026 01:33:09 +0800
+X-QQ-mid: xmsmtpt1791221589t8fu07obf
+Message-ID: <tencent_AFCC7B9046C57B49E6FDBD8009981E935006@qq.com>
+X-QQ-XMAILINFO: Nx5J06Esz7r7GeE/XHa3dCNz59OfJGVkoXqRXygwwtoTU4VYjug57S68tanRxP
+	 UQRzBBrqj4wX5zSj7WZ5ceCrkvlQ97O9gVeHca132oRSjklCu+/P5TwOoSCggdtEWCCW5ukmTUew
+	 g1D4dld8qheyrWkG9q4FFiBnPXE3odYFT6z0m5zJ5OhZ3LWNS1RKJi8E5IOXFxlb1UEXJzIkI2gm
+	 XK5Vg3ccA15ShAnk85fUTjGeFdtGg8mJ3P4AUNcdK1piKl9/LrHzPtuenJX3SZ8dT+1cspASMSOG
+	 qPH9iUkpI282MkQGd3c2G/guzcl6gLg6sg/rtkS2rR+pd7zRpYPPNrcGRmMdP8oc4NyQ085PePN1
+	 m0Imq9kl9haTphx06PU+nPUTwgg6rOfbkoveGu0/dBJejUtiuTKTLSBv9whdV5RBiLYM6JriErv4
+	 BlcNAtO+cTI1QR50F7nMlkWQb3OhY80x6Pp13EjCf8ZAV4HgjlMvebi1mBUV8/mTUk62ZIZkxXZy
+	 2rtZodl/hG8G2LYt221URqc0lHS4bP2oI4O+MEBuuFmZdNIq/x21J+L1WvBbVp6KhK3gxJHES+9z
+	 S31b74dDE89hi2qsOON2KX8jniM8DdnsUpVNS6q5W/gpbZISi95zWJdoCEEsvo4PVYwg100jNyc7
+	 XkkokXheo4a9lhoiX/HsR/cfDl4c9sFkbs9f/3tt2QU87z0VkSgC0NdBbJZzdk9FeQMUhIvv1Gyy
+	 Li2AFwQF1RttoHC4oWoNbv9WbDnA/kimgMdcfnfJ6v110RbDrkAw318I2VMuLkB0ERQCeEFDO5X2
+	 NMjKoahjgNpIaX05ALdGMbh3X17J+NxKw7dGo9vRkbC1SaNWTTjVdL7FFlWUUCPGvNhrdUJnLuyV
+	 zEAoOt2b06Q7YNueT13HdYSKDhWzYeibdfms0GB1G14umxUJU+gOdA/vPn4V1CA5q6/G5RzrmLg1
+	 F3xLBq46wdWULGauA18S9Ca5ySU4yd/f6IvAkvPijvjxDREAaj1t5zYhJhYqwDU7edPopM2GN+GV
+	 z1ghKBBKKUAglGW1UGVjqcfRLrYd5qzrIqE2Ph8ATS2BXM2EbV7Y9bUjfMBnJSC6aCpym8CA3vNH
+	 q/2CDFr+BYQ/0KSFSoBERZ9LuGFECp/G6TyT6/u/bjwpwzoz7znaylomgF1A==
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+From: Pufan Jin <2254650260@qq.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	andrew@lunn.ch
+Subject: [PATCH v2 0/3] arm64: zynqmp: Add support for ALINX EdgeBoard FZ3A
+Date: Tue,  6 Oct 2026 01:33:05 +0800
+X-OQ-MSGID: <20261005173308.710986-1-2254650260@qq.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZRAP278MB0495:EE_|ZR1P278MB1392:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9fef649c-eee8-4d5b-6a28-08df2306ae8f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|18002099003|22082099003|10067099003|56012099006
-X-Microsoft-Antispam-Message-Info: fpZQYy0uB+OV1Dy7JBgfXyfZKI1KOdMki1LbyiwxObWoOHy3sb1kC7O4gmKeiA5by/lPvqjO33kdMx7XlwtvSKATtpmAq1NVHP93TQhOSRTApxsKaq7KgCXxBP/t8NzLE4d65R1giz4bVIieifYaHOhsXsM8PFku7L2crb2agUH13VbzJ0BUl6dAMiX5cL1YzFI7hx5wZi3KoIBb7zbP4JBX4x1VFFT7tPlRylODffCoJTveo7Di9QDSV3ZojvnpdjubfX97r+rAXxDHjp+185wo1ueSvPtj/wphICII9Wzz9ClrgcTBigiJQ55AZfnoPXRrynBNATVVqveo9StmVwYTN/OWwUCxcOovVVio4xoYQHkLDz0Yt9gtTg73xAkRYFx2YP1OMLMjmJC/rNnHXDV1vO0wdYSYbeBsM9bkuj2chLtgBuuQOFEqUgKODO68fSpbU5koCyQRpB8cKufj5gZqzwWB2LIoSgPcZH0GT5FNggcN20ZGK89h9n1VnjoHgJ+cJjxCp/ED3Zc0Uql37dhgI9iSaxCzJI4CXEPElHFabK7ZbyrJ0LcMHeBEMsy+WDD+VRU//qGiCF1t2E84dukyFalMx0IcKs2S+4S7Wml5eHq7Ul5imfVmDWD1PC/0W+Z9c/daNVkWTcuVJBdfPepL/aot7tXhr4Zi0NLOxTY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1102
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8n4rX/IXV1mqL4GVpPc1xTWNFSugcejCz+0eB9eI9oDgwiyQThT7mpkDUZx1?=
- =?us-ascii?Q?VnUjtI43xNWbrP/M+Pyux9/mRqRudvDyVSuQuq8bj2m5uuSEHxOwauhDlZHB?=
- =?us-ascii?Q?5b2GtCvArLMBHqI1Rt5tx9+A0eUx+kmbqEAtNPWxZ+Oh5aQfylrDBHvVJ0xP?=
- =?us-ascii?Q?pmB1+6BqPVnH6Qa95/xWRyt5rhvT4aWe+TL9BQKQ8mgs2w9qAvXjOtdm750D?=
- =?us-ascii?Q?lZYwdRmOzsZXIPzkRmUUcUr+dim+zUgsbJJ7/o0zuFEBnNyiFqo634tfOCEQ?=
- =?us-ascii?Q?n2l+x0kgWCCxmLOLfq18U5R7VNqdDgfieM00JnLsb4O2z0SVPxDKcM/yZI+9?=
- =?us-ascii?Q?Ow6f9KLfdQ8R8BZaV4xiUG1aOgMW+1svF9Bdr9khuVgKxVSpd32fiomDYo+k?=
- =?us-ascii?Q?ndZySlUTqTXTUR+F1mzWhQ3nblzQp+KBUajVc40d6qmkRPo9FW/Q3D1ntda9?=
- =?us-ascii?Q?bMVCRm7+QJ3SdkDvNoCSYilSbf1rUi67j8WaWRKuVUO/mcoJVKukG3jEwIVR?=
- =?us-ascii?Q?Bj+/BXYtKnAr3Uw+d147Yui4WqqPW2IEkoU6Ny2EalCZ0QxuSsaFCDPvggIU?=
- =?us-ascii?Q?qqIggs9GHKG8jvZw+RyH7cR6IMfrOgp9+halmaKYMC+5i2jFFVArWlzW/ru0?=
- =?us-ascii?Q?gI+LPJwV3/V0Ek4vvh42z2L4faLJdTK1PUH/fuYuZ/736E3NP/1zFnrLMBhr?=
- =?us-ascii?Q?/Yh5emV0Qs1+AkHj/YCC8j/dhAUO5pht6oHuL56f+lipM74lNFkgRmOzB5h7?=
- =?us-ascii?Q?jPy40T6dZuywNOvvn90pihxgpZAuSarAbFQyfkE8LazotOZfZR66LUHDQBlG?=
- =?us-ascii?Q?iEH0X2cWA+mXGzNAtog1Gh0CPqGN074HJLr3KeXQcsroLAsphiY3ttO4n0+8?=
- =?us-ascii?Q?yZFJW4mhS+ORe0yDjN0nUXBMndAnSz5cbGAtfUpcsJj1CmZmJqPFQXVO0OTY?=
- =?us-ascii?Q?zMqCNTY7u5PUO2f3mNIpTHpkhCQMC3XydnfGkBMfQJjc1VLG0RS1Oe7Y/Ojp?=
- =?us-ascii?Q?oWIpGOaZlHXwYVKdRHDYTa/qu9RK4rT6L1635nKavpL7Sve+e3YJ2P69EmTB?=
- =?us-ascii?Q?OEmiEs+MkLuYcGcs++/uU4NSqJcu/SGcFMKGevT4c0WoEUVoVw4a1v3QcWFI?=
- =?us-ascii?Q?H164Jej6YyM1yx72U4qeB4GfCCPQL885nsQYh1MwS6lEXQu/bwfOXI0BkRD9?=
- =?us-ascii?Q?lQBxxXvwG1ONjw49tsWXHO3otKIrZvc+/gHK4jaVYvi280O1+Ym89CbS5FQd?=
- =?us-ascii?Q?bYkkuy1Z2zytnXnV/5fwIIYVCH0ojpDtcsXz2hBRIKDOxVU6fX/KUg0bjEAd?=
- =?us-ascii?Q?GgvFA8dfMfI/CjMwLDC3M+0XV7Ko4OSjfEOs0jEOIxNA4oVtqXLf78GpZEmU?=
- =?us-ascii?Q?TmcdzR3be0A1Evh4HF5dgzhSl09SKvECm8nGxCDRdulZc/gZHkkvgqSAb+VV?=
- =?us-ascii?Q?Tn5IkW834EI2EFBTyJXnUjZ1QY+5e4OzNKNNy9swuiMBm7tl0hUFjb6Fpzj1?=
- =?us-ascii?Q?LJUEDCXaKz0QcEdprLfrq7Zsn9dgKLwmk023KCx51XJysFsoFYdCWSjgdmb5?=
- =?us-ascii?Q?xPjROYUxjRal53jhWz4suflOsT/HbHDnG2m2wF+rfDIejkXDH0Bkt0uE3+Qo?=
- =?us-ascii?Q?oG8ZfKmQ35HqrPHobgAgKZGIacFepJkZ87RNDUCGgSH8rZQW0VK3qNRR0ZYA?=
- =?us-ascii?Q?7rfqEjfQFSAGGGmV3iJ/rLXRNyEO3qCUZHQVyaBsU5iEs71pcXFrAJyZO8Z0?=
- =?us-ascii?Q?lRSqroWOOPE65dNZTWYSehvfKpeasJ8=3D?=
-X-Exchange-RoutingPolicyChecked: yluifC8fWzNqNph+stMVZ7TRPkk2DuqR5kQR7qSrEXWojWPlWxdnr39QRGXc6eHXz0mChKaWNKPzc+PH3hnLH6UmffsJWjW20CcjHLvCC6Ox2hWcnXipqcO9RBDQyUNjbp+Q3JRTcbfrUF/0CZbzMVK6sjBlzxkz5KdQjm3VRp2WyzIMp+F7lhjApGSGvwPjqRgwyAfADUf0upFUhgxeIlo4jNrDuHJ/FeaV9z1LFf50j/Zzq7ERDn0k+f2gW2p3gWUdI1jA3qHpHNjj2C2I0RyGWcKlsGpGToOa0u4q1efXmWsn7sPSRycRfjVZoVMiDev8jV++2BoF7QdZk5aiPg==
-X-OriginatorOrg: toradex.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9fef649c-eee8-4d5b-6a28-08df2306ae8f
-X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 17:32:51.6415
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d9995866-0d9b-4251-8315-093f062abab4
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: r6I5rZxKHBFG76ETuFEvLw37j5I51KKp6Hvitf49fk0AUHlgDlpQiAOI0+NYVh1ykJBVKdcldakTg1GJwxOtFAK9KiSVt6ip5djMDJFlXnQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR1P278MB1392
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SYCwp_KCZjPqHIm0GLgHloQTsjbk18Gisuwxu74sZx4_1791221573
-X-Mimecast-Originator: toradex.com
-Content-Type: text/plain; charset=WINDOWS-1252
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_103301_609769_DC8F86D4 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20261005_103314_828290_68D304BD 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,47 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
+The ALINX EdgeBoard FZ3A is a single board computer from ALINX based on
+the Xilinx Zynq UltraScale+ XCZU3EG SoC.
 
-On Mon, Oct 05, 2026 at 07:26:21PM +0200, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
->=20
-> Add missing GPIO5 lines, GPIO_IO38, GPIO_IO39 and GPIO_IO40 are
-> GPIO-only pads fixed to GPIO5[18:20], their SW_MUX_CTL registers have no
-> MUX_MODE field (IMX952RM Rev.1, 2026-07-08, sections 33.3.2.44-46 and
-> 33.3.2.184-186).
->=20
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx952-pinfunc.h | 6 ++++++
->  arch/arm64/boot/dts/freescale/imx952.dtsi      | 4 ++--
->  2 files changed, 8 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h b/arch/arm64/=
-boot/dts/freescale/imx952-pinfunc.h
-> index debe6ede2d70..72cfe7893af8 100644
-> --- a/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
-> +++ b/arch/arm64/boot/dts/freescale/imx952-pinfunc.h
-> @@ -307,6 +307,12 @@
->  #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPUART7_RX                0x=
-00A4 0x02D4 0x05B0 0x02 0x01
->  #define IMX952_PAD_GPIO_IO37__WAKEUPMIX_TOP_LPSPI4_SCK                0x=
-00A4 0x02D4 0x0568 0x04 0x01
-> =20
-> +#define IMX952_PAD_GPIO_IO38__WAKEUPMIX_TOP_GPIO5_IO_18               0x=
-00A8 0x02D8 0x0000 0x00 0x00
-> +
-> +#define IMX952_PAD_GPIO_IO39__WAKEUPMIX_TOP_GPIO5_IO_19               0x=
-00AC 0x02DC 0x0000 0x00 0x00
-> +
-> +#define IMX952_PAD_GPIO_IO40__WAKEUPMIX_TOP_GPIO5_IO_20               0x=
-00B0 0x02E0 0x0000 0x00 0x00
-> +
+This series adds the ALINX vendor prefix, documents the board compatible,
+and adds a device tree for the board's PS peripherals:
 
-Frank: the downstream kernel has different names, that seems not
-correct. A double check on why you have this wrong naming on your
-donwstream kernel is appreciated.
+  - UART1 debug console
+  - eMMC (HS200) and microSD card
+  - GEM3 Ethernet with Micrel KSZ9031 PHY on the MDIO bus
+  - I2C0 and I2C1
+  - QSPI NOR flash
+  - PCIe
+  - USB 3.0 host
+  - DisplayPort output
 
-Francesco
+The Paddle-Mobile FPGA accelerator is not included. Its PL description
+depends on vendor-specific IP and an out-of-tree driver.
+
+Tested on ALINX FZ3A hardware with Linux 7.3.0-rc5: the board boots from
+SD card into userspace over the serial console, gem3 negotiates
+1000Mbps/Full duplex with phy-mode = "rgmii-id", and the eMMC runs in
+HS200 mode.
+
+The base DTB passes CHECK_DTBS=y, and the Xilinx SoC binding passes
+dt_binding_check.
+
+Changes since v1:
+  - Use the correct vendor prefix 'alinx' instead of 'ebdee', and rename
+    the board and DTS file accordingly (Krzysztof Kozlowski)
+  - Describe the board as a single board computer with the SoC, DDR4 and
+    eMMC on one PCB, not a carrier board with a MYIR SoM (Andrew Lunn)
+  - Add the MDIO bus and describe the KSZ9031 PHY with phy-handle
+    (Andrew Lunn)
+  - Enable eMMC HS200 on sdhci0: drop no-1-8-v, add pinctrl and
+    mmc-hs200-1_8v
+  - Drop power-source and bias-high-impedance from pinctrl_gem3_default,
+    which only produce spurious warnings on the board's pre-2023.1 PM
+    firmware
+
+Pufan Jin (3):
+  dt-bindings: vendor-prefixes: Add ALINX vendor prefix
+  dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+  arm64: zynqmp: Add ALINX EdgeBoard FZ3A
+
+ .../bindings/soc/xilinx/xilinx.yaml           |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/xilinx/Makefile           |   1 +
+ .../xilinx/zynqmp-alinx-edgeboard-fz3a.dts    | 350 ++++++++++++++++++
+ 4 files changed, 354 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
+
+Range-diff against v1:
+1:  d6e565186 < -:  --------- dt-bindings: Add EBDEE vendor prefix
+2:  f546b0d1a < -:  --------- dt-bindings: soc: xilinx: Add EBDEE EdgeBoard FZ3A
+3:  b114e1da4 < -:  --------- arm64: zynqmp: Add EBDEE EdgeBoard FZ3A development board
+4:  c33ea63b7 = 1:  c33ea63b7 dt-bindings: vendor-prefixes: Add ALINX vendor prefix
+5:  888548b4e = 2:  888548b4e dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+6:  cd96303fb = 3:  cd96303fb arm64: zynqmp: Add ALINX EdgeBoard FZ3A
+
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+-- 
+2.55.0
 
 
