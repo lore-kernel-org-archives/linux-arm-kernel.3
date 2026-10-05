@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB3ECA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB80FCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0NVZ30vrrOpWLOHWdsZnk3EmA+lh8mtHimeASpcURQ=; b=FhoFLuCRxVt6mdpsmmS2raAcqt
-	PAi2Jvkceacu2ZMfhdyGCi3XFe7jjC21FxeEPHZxEimPdSlLjvJ4f+4N7hhsdlqfMhCQIJq6xHkeq
-	feftsmfA3W/2zNNlp+hVjMxf/hwwS6ry4ZuydgZA6eIJ2y1iigFMDv3g8ay2Tfv4bfsNtAkbWYOPj
-	EEnP91P0gEW3C5bR+liluoiVleZQsWCDSmdNG/wb6vb3DDTDFolBpcn738ijRTTvx4NiMEmU/CmYm
-	yppenK2z1wI/etk1yJGpcNqVx2+hNZUhw/mMKtpWKrd9XubPJa3BNVRjYrupf3w9pHSTq+4AdiFXq
-	S9odAlcg==;
+	bh=1m0VKyXAl9UvOM2m80f7vibkh+DaQDic+AOY37wFW5E=; b=l4OqLXtLwmZ/5FX6vHNqfInJUe
+	V05+jpEc56i4EfLZwEc0UPMFKcUdnd0pF+/iQhY3inFQz1y8ncIjG1rP/xFy6Gjeh0djAXZvBOUFY
+	vPgyC/FKl0uUFi7Vmk0xsHfuOL5ymz5WVRUkwPij8cNNNb3ivVnMLcurobGNQi0N0vFDmwiiDrsBX
+	yJV9rQY4DM9Y1MmRAWMX695HuTKA8o6ktD7nT/Ye8KEwdtCaQx6OAIF0Fl5AGgJ1qqKfWis49ovCU
+	QU34UUeATWCIJEEYZoxhYsz383tK3DPa/UBbBuztUea2AY+n1P6ocH/kXtGiY9yMH5y5eqGUhBexW
+	Hiuji6iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfF7-0000000G397-1hdC;
-	Mon, 05 Oct 2026 09:44:21 +0000
-Received: from mail-centralusazon11011023.outbound.protection.outlook.com ([52.101.62.23] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1xDfFL-0000000G3Dk-2NQ9;
+	Mon, 05 Oct 2026 09:44:35 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfEz-0000000G36U-1Eta
+	id 1xDfFF-0000000G3Bq-1NFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:44:18 +0000
+	Mon, 05 Oct 2026 09:44:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nmjWz5SLl8luzm9NS8x7EEl9J26QS+rOS3AM8haO5MXLI3HhKASEXtlPb67SH/oFSYmY9P6BEQIspD8vAfvVGYeYd7vli2lPQj3VVuGv22p35lzWhwj9eEmOGT8JwGqh4EFrNcn3m1lDc/xwhOGFXiLXYa/nZ5Dz8me/AQ1xkBAgXarI2ZIph5k0Q/eZxX9bTBNlPpBGtLF8TtTx9+RxRB5DekuwTYup44yofqbN1kxA5TPcCof1nQAOZ//Of6A3Osxvkd17p5mftLY4Y08LkmXV0QG1HyVt4D3BnFPtET8U0tXkC2KShdcHJc9E02nFdV04cWBN9VKxQLTquNzVmQ==
+ b=gJfJIEJmwddmhi1QoBC5zYzAAk991dxGAg0IScn/kZhF65OYoJrfhUZZxw/FVdOBjNkstYE6S19GWmDUGOZ0ucNV4/GBkinNE7Zm/P8tbB5LMZm9BFXvOnI/0PSGZm5vgOU43xzILzxrHw677wnjxeVPBw61bAeeStAFXrH2rGZG0APC43ll542tEz1IhqmmE9vcZd38bbNAprJUw7oqffX/Rr9rN7Qa2K2+9ccd/qJVaMjy8mPc72oZmhvuXmFSRf/3O/QvNsWIuxtbgtwv7MZbPsK2uTFtFVEU9fNVwjAQol0AcU6cuytZyDfjNE20ORVu7yDvqkfpxMiJCqAWJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o0NVZ30vrrOpWLOHWdsZnk3EmA+lh8mtHimeASpcURQ=;
- b=KDrXD3IHR2guPMf7fYZL7PDbOeL5RAOS8BvT7kLrCnAm1/Oye/cCuBCi5sUmt9Kq9GfZr2l19Y7U4SCN1HTL4tHAX5G3YEDnyaIcaxW08tNGXaHe0yhwCYve/DA5wqy2IcQ8+mmbGWIOycDPiEPKg/EXGleumroH4ExfmwFVYUCBzdgcIsDj1HG0IaNIa67mW5vY/TuwzMGyUhBQs4nF6keZM1fR7pGeRev2BCM0boUsIrNc+BHYfglfh4H9x6oC0vmnFmQUyxgSb3DU1FTpcxiXsCexRMk5FhsNfBRUFxGrhT9eT3NLEv7SQK+1UilBAI2+ipM5PoWMkOnfX14qMA==
+ bh=1m0VKyXAl9UvOM2m80f7vibkh+DaQDic+AOY37wFW5E=;
+ b=SMxeo8FmOHEWxyLZs7h2aBhklBSmjO/S28d9VdPjYgKw5zj0/UrMMauI/a0bmvIPyDSUZeP6TX4BLEqpDHX/Tr5Wwz5+5Myu4QMBVDM/Vr6tTEbW2Fc++ywWYxfs3D8xannbvXtVrdgNlHbKVXVjAVa4v6NRa5ebVrfsTOZsh2/Sk+BdCNsNgq0Y7Bx4C7bPZxSE3cfDrgHWNFcbsHxKAhfVpBMRW5COAqgXgMjiwdAotdYztlyzH5MRuC+UuH7GBhFY8lLE+ll3GmA2Ut1bSjnwTEppt5B8pjBNRgj2Cuc4jU0XA0dNn35muVz3pQNh6r8SciohgLKNdUYF9qY7JA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o0NVZ30vrrOpWLOHWdsZnk3EmA+lh8mtHimeASpcURQ=;
- b=qZULDZy3SFDBuaM+qu3qEtrjB1M6TrcqNJ7aKFMJx5WLhJQsgAnYy7UPcn7uVwTE52498N+nj14jFGFj5HHlGTwHzybEAfnl/qbwLP5tXUDkrKOzYqaApsRfvio9jKTtadnZ84cLwQ5wcyG4UNfY7cuRFF4sUGeTV+AJiNPXkrU=
-Received: from CH0PR13CA0017.namprd13.prod.outlook.com (2603:10b6:610:b1::22)
- by PH0PR12MB5632.namprd12.prod.outlook.com (2603:10b6:510:14c::17) with
+ bh=1m0VKyXAl9UvOM2m80f7vibkh+DaQDic+AOY37wFW5E=;
+ b=PoaGKsjqtRcXVAlc/LWuw1TlZNgl7w+aVgW0T+pA4kGDzlmDWMh1G/1Vi6tOVH8VytvWX017rs/FDnYweilDVuYKmQajLcTJU707UmGuIe2ORF2PfZANv7va5DWrmIloCfJkF/Sa34Oa7sNr1t5pRVLEaLKrc+ui0vn2L/lKsH4=
+Received: from BN0PR03CA0013.namprd03.prod.outlook.com (2603:10b6:408:e6::18)
+ by PH6PR12MB944609.namprd12.prod.outlook.com (2603:10b6:510:3de::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 09:43:01 +0000
-Received: from BL02EPF00029929.namprd02.prod.outlook.com
- (2603:10b6:610:b1:cafe::50) by CH0PR13CA0017.outlook.office365.com
- (2603:10b6:610:b1::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 5
- Oct 2026 09:43:00 +0000
+ 2026 09:42:20 +0000
+Received: from BL02EPF0002992D.namprd02.prod.outlook.com
+ (2603:10b6:408:e6:cafe::8e) by BN0PR03CA0013.outlook.office365.com
+ (2603:10b6:408:e6::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Mon, 5
+ Oct 2026 09:42:20 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,16 +59,16 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- BL02EPF00029929.mail.protection.outlook.com (10.167.249.54) with Microsoft
+ BL02EPF0002992D.mail.protection.outlook.com (10.167.249.58) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 09:43:00 +0000
+ 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 09:42:20 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
- 2026 04:42:58 -0500
+ 2026 04:42:18 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 5 Oct 2026 04:42:55 -0500
+ Transport; Mon, 5 Oct 2026 04:42:15 -0500
 From: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
 To: Jonathan Cameron <jic23@kernel.org>, David Lechner
 	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
@@ -76,11 +76,10 @@ To: Jonathan Cameron <jic23@kernel.org>, David Lechner
 	Conall O'Griofa <conall.ogriofa@amd.com>
 CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, Dileep Kumar Nagavarapu
-	<dileepkumar.nagavarapu@amd.com>, Sai Krishna Potthuri
-	<sai.krishna.potthuri@amd.com>
-Subject: [PATCH v4 11/15] iio: adc: xilinx-xadc: Refine Zynq read/write error handling on timeout/interrupt
-Date: Mon, 5 Oct 2026 15:12:01 +0530
-Message-ID: <20261005094205.1045874-12-dileepkumar.nagavarapu@amd.com>
+	<dileepkumar.nagavarapu@amd.com>, <stable@vger.kernel.org>
+Subject: [PATCH v4 01/15] iio: adc: xilinx-xadc: Correct write edge in CFG
+Date: Mon, 5 Oct 2026 15:11:51 +0530
+Message-ID: <20261005094205.1045874-2-dileepkumar.nagavarapu@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
 References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
@@ -89,28 +88,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00029929:EE_|PH0PR12MB5632:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c31d113-c5ea-444e-6156-08df22c50b6a
+X-MS-TrafficTypeDiagnostic: BL02EPF0002992D:EE_|PH6PR12MB944609:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc3fff11-e344-4687-0d06-08df22c4f364
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|23010399003|1800799024|36860700016|22082099003|18002099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: ZvqUCZ0x4Ai1Qw1tAFIeRxlXsgdwefX8V+yGJo7gunELm8cJT0t1zh3zqSnFVgDSH6qgc9yZZADX1uXNrCsc7uVYXffdSFq91YiDWdw+th0PhJHbUe1mR4mZ3KRQuo98g8dBr02LICZ94ct56/b6K3HMeJelvm3k8XQE4KaK0tNDvEDreoOgtCWRAKZORwlvzHFY575YmBH5AlIpjlWtxh0R2IzvEDuz7s66oa7a7nIfueBf/SiDifyhirYFwajZ8hF87y0ZGxC7rT6a0cwXG1CKm79Q6gOINHFPSWuxzfDnTlnsS3Foui40QLQ39i9+oOtzWIS6N9QEYCOO8tWMOO1pAPm1+o8GC8e/Oub5zR74btPcPIePtZ89Q9Ms7hoz9Ew1ywnPhJfMgquzEc4VmQD3RDZw4BOu8i6kYWEXCYmTQGav9HbdOYzQu+jy16qdSROes4k84FT0eFIBLyM3PGgro9RpTPBy7hRCpGHi3YZqUr/wAGpRfU9/MoY6elDeTeM5ZJshtH1qO3bC10F/adxjpLrOpuZRhhceQT1LCrDvZU/RjSt5w1gL84dI5oZVQ+9WCDmZDkc6QcPo9dmAYhws0CHmBgMq0r8y563D/CH7qhyWOQz0c4uyXzOm/7Hc/pBd8G5UnDRg4Za3f1Dwj0N36Wa0Y5B+LDMOT/VIAOzuq7Gu4OHlCwYOVnKaZUvtuvvbVigvoh3l7OscgeU0+w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(23010399003)(1800799024)(36860700016)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|18002099003|22082099003|11063799006|6133799003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 0u6J8anENjJrQAtnMV/mfwQYuOEtvRw71yKLjpltHoEiSpeyuX+fzwLHeGlRyjql5Dsv6cerriLMTpKXJqZQOJWM2VaeprFcNL09AcD0rFsYrszNabPr4P7KHP+XUcZ196cL7CpfIq7IPxLWrZDsjDavfo2x1wdpOfwiHI1jSxXyJDwN8zOLEBGCWLTcLjagLDBpCP/m367HxX0EJQMsxHWnZ+xuaLMSwT1kCWpMXhZ3aKkOeZNWid5GxPfKUt6UkgjsFhXgAZ2yW1FxLb8FoTWEp3xxQPWEDr8iloFNTJG48phL2rDmwG1lAI/vr5lDlhvc4B8kzpUpTcqV1lrHBhGNgjxlLp5D5Ps7S5GBMqTONTOwqu/rPZyvfSxZad0SSN+VXGjIq5zwNJShlLugXw6nsZdXDZfPYLOhfkv/TkfYvQuPw1s/fSok78/n3izgFWQbNycM+V9qedEfosODcfOoOAqcSe4afdulTGOZr4cJLWRlNfU51ZbixOzdRHTtS+hhq+3fKALeHRInSL+nRjc9Iypv51MMo4jRx7ASmxll/ysrhQrzyWVWpUklVwuc6kdE81/Aa9buGHYaqB43y0S9XmX5LMlGcPHiQ8fiIH3QPuKBJsK6WWNq4/QVdPnd2W5SwzCBhraTbLLp/7+PPqZUE9TjInvJAn6HM9xYbrfIZDdBKn1v3kh4KWiEhPUt
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(18002099003)(22082099003)(11063799006)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Bz8DWO7lSOS+BzJ2jwxY2Izyd9rBUhdORlIagIQ55HF9XxTAzWIIhVaeSHRaWu6iynLM4La/CP/Fd46J4F/eLyNizHLbZb+cnLHF0rwNUTWBroiMAppZO/NGcAiPUxq+NzuFkQ2ie0bQ1NwT0QBUI1qUxT80h5I0rRRuZ+Hx+56b8q3E8yJMzJl1EqEHCl2ZfUQsimj2NPW+X/T1oOEHckDdD6xOHd9+jolmUgt7KaS+xf8SN6JrlAYIXjF5oH8Vj99+qw7Gyn+GP2CfekB9LVCZyPJBlpukyhgQvznn3qjPPcBqSKCa53QbR8D1witxRF5IG3+jtzLsPw71OWGleUxuVo8gauZykj8rId3e1MxiOpswpZwNwli+aLqAEPr8boJFmv248wGS/kgPVatPwpmbjo4jqs48RfYI4vcQYBysE5P7gQB2CrPzBmGd11D8
+X-MS-Exchange-AntiSpam-MessageData-0: dtNOCcMScX6z7vuA9qOtl5dQAajdKnMzphzJYagPVrqLpz6x77Jufk2FkclGKeaWqirr2RzXRRuQcJH+ULOWABjNk8D0zVhw9SJ6n/tGqMmZmmqNfPbwTQzKTlAeNsxmwX3tW3UipkpApsNUYAnfuZ1pE1qEOMhBxE65/V7SBnZjNWwcb5h8A6I5LFA2MTZzHj47rN5bkgWxmRqn2PvGLbG8cdIsjIMvg8jud0w5JogiYMyO/4nLxbQ2/Xos3dZ+Lj1IoJ5VmjCMRtCTfbABCR58zyUUhhuQzXMsuw5zFmb23wa8oES9MdqC9m37NlczETg2yF6CeE/kIbrAEwjv6ihjyx4aAAF9ksIRPbj7gar9lfykPqHXDiZsWXhOLNCzhkhmIW6x6zMUdUv8qM6oKt+ULflwVcbsdp2lae25NOmK8cXQ1wu2GC/fYlao4bPN
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 09:43:00.4879
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 09:42:20.1826
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c31d113-c5ea-444e-6156-08df22c50b6a
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc3fff11-e344-4687-0d06-08df22c4f364
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00029929.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992D.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5632
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH6PR12MB944609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_024415_518065_DAAC14FB 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20261005_024429_369664_36F027A0 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +124,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refine the error codes returned from the wait, the same way in both
-xadc_zynq_write_adc_reg() and xadc_zynq_read_adc_reg(): a timeout
-(ret == 0) now returns -ETIMEDOUT instead of the previous -EIO,
-giving a more precise errno for this condition. An interrupted wait
-(ret < 0) now propagates that error to the caller instead of being
-silently treated as success.
+UG585 describes the PS-XADC interface configuration steps: REDGE is
+1 and WEDGE is 0. This is consistent with the XADCIF_CFG register
+default value.
 
-xadc_zynq_write_adc_reg() waits on xadc->completion after issuing the
-Zynq DRP write command, then drains the response word from
-XADC_ZYNQ_REG_DFIFO. The DFIFO read already ran unconditionally after
-the wait, regardless of outcome.
+Configure WEDGE to 0 as specified by the TRM. Abnormal
+XADC temperature readings observed on Zynq-7000 are no
+longer reproducible with the documented setting applied.
 
-Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
+Co-developed-by: Conall O'Griofa <conall.ogriofa@amd.com>
+Signed-off-by: Conall O'Griofa <conall.ogriofa@amd.com>
 Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
+Cc: stable@vger.kernel.org
 ---
- drivers/iio/adc/xilinx-xadc-core.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+ drivers/iio/adc/xilinx-xadc-core.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
-index 47fa4d516611..92cd38cd1834 100644
+index cab66bb8cc1c..bfabe78b66e3 100644
 --- a/drivers/iio/adc/xilinx-xadc-core.c
 +++ b/drivers/iio/adc/xilinx-xadc-core.c
-@@ -172,14 +172,16 @@ static int xadc_zynq_write_adc_reg(struct xadc *xadc, unsigned int reg, u16 val)
- 	}
+@@ -390,8 +390,7 @@ static int xadc_zynq_setup(struct platform_device *pdev,
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTSTS, ~0);
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_INTMSK, xadc->zynq_intmask);
+ 	xadc_write_reg(xadc, XADC_ZYNQ_REG_CFG, XADC_ZYNQ_CFG_ENABLE |
+-			XADC_ZYNQ_CFG_REDGE | XADC_ZYNQ_CFG_WEDGE |
+-			tck_div | XADC_ZYNQ_CFG_IGAP(igap));
++			XADC_ZYNQ_CFG_REDGE | tck_div | XADC_ZYNQ_CFG_IGAP(igap));
  
- 	ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
--	if (ret == 0)
--		ret = -EIO;
--	else
--		ret = 0;
- 
- 	xadc_read_reg(xadc, XADC_ZYNQ_REG_DFIFO, &tmp);
- 
--	return ret;
-+	if (ret == 0)
-+		return -ETIMEDOUT;
-+
-+	if (ret < 0)
-+		return ret;
-+
-+	return 0;
- }
- 
- static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg, u16 *val)
-@@ -207,7 +209,8 @@ static int xadc_zynq_read_adc_reg(struct xadc *xadc, unsigned int reg, u16 *val)
- 
- 	ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
- 	if (ret == 0)
--		ret = -EIO;
-+		return -ETIMEDOUT;
-+
- 	if (ret < 0)
- 		return ret;
- 
+ 	if (pcap_rate > XADC_ZYNQ_PCAP_RATE_MAX) {
+ 		ret = clk_set_rate(xadc->clk, pcap_rate);
 -- 
 2.34.1
 
