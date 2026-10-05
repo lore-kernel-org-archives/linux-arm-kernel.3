@@ -4,95 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E398CA5FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032A2CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 22:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IeBd/f+KYPaUD3mTxXbAK7RiokjVClr9ke91eN5DQPw=; b=jTj/Uxnab57UhEx6QjT7IigOmh
-	rk6psybcrZio85vB1jA4FX/GmVnSbo1OdtG8jSncrY6s+mL7MttOBIlTKeLdOqrlaSmjlhjKZr7mQ
-	YEcMv0607n1c82ywyyl6mi6dMoTiRB0ap49CN5SsbmhYVV2UCQN5mTYuSBDntppX7acgQZCUm5uUQ
-	U2TxikdeS7zHVrRmIU7piWnpr56Ih2D9e91VRn3juztXoVdaFmCI2S4VZCqdFoXwP6UgQlbsesDXe
-	lK9A9lUU3eYXZlYqBWPr5KxvRszpdb3p6ODOfm31qQkNRPyp7mW1vCZLcSbYHV7extTsW0Jx9NX+u
-	TEh7FKpw==;
+	bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=; b=rxaePgiDqnN4Xt298Kw5Fy9e9H
+	THKyzX2Z9M6In39biL7SGoCNG3mMGuksplgT/qNB4MbTU/jE7QfQyDoBf2ZB6xVDCMl4n6JoqTFVE
+	KFjkgrdOlxJ8Zq8clQJ/XGuICuMhTubzoT+itcEN5TMbmQncbO3LK9TwH9rihCS41vWfOEhX2PQK7
+	Enocy97YwH1QKwodXHp6xxP9/sgMdyyJ3TK/vtLWknCsx+sxIn0ar1+SfG4LXAWBshyAvFlKLbQW3
+	syr7Am38Ebgb1X/KU6v9G5i5XSbs2g6VwYdUKVdqY1bMVqmGwH7o2lx/bP7DXJVamaduANRoIEmFE
+	PmPOpGLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDrMX-0000000HHhj-3sfg;
-	Mon, 05 Oct 2026 22:40:49 +0000
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
+	id 1xDrMb-0000000HHlG-0G6h;
+	Mon, 05 Oct 2026 22:40:53 +0000
+Received: from mail-yx2-x2a.google.com ([2607:f8b0:4864:41::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDrMV-0000000HHfJ-1aNJ
+	id 1xDrMY-0000000HHhV-2WMp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 22:40:49 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-398a0a87595so1450065a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 15:40:47 -0700 (PDT)
+	Mon, 05 Oct 2026 22:40:51 +0000
+Received: by mail-yx2-x2a.google.com with SMTP id 956f58d0204a3-6768036283dso1776270d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 15:40:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791240049; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cDKBjjgkk0k56FZP8gMPv2BPeGkYWgmw3BmGBZ7/UmJNAxZXxmPTUAeP6vdZ5u/Cwh
+         pd5NhJb3CWO9wiKg6lg2682vqYDjRyB2AEzOoQolJDzF/gaAl45SeXzmnkM3yCpwklis
+         IIRJguE8BQALTMKKBF1QWhIYZE8mS1mt8sb67DwgGf+lH/JSyADisAKKZ3kzFWbEzQ2Z
+         tQPswHuYLJT0dsgcD3xHnNmb0xYy5dwrMochv1HWPkb5iqMNtvfB2At7AZ6i4SrIbcHv
+         WnY6mLFy3vetEXNNgDCcpuHRknnwwaYd7UkhhwDc02vuFiocv0I80h32NaPqkGBnRthS
+         iqXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
+        fh=kdfzeyiStbZ5A3SUiVrQT108q7WNF6hM8cg5bxpac5c=;
+        b=IY6pwphRZfQSJwuQxbVfzMM7Hd+asDT3/wlJBX4z9vgabkyDQi/9R3ZGUl7pZkXV1S
+         9ikrAAPBZ9x9jUtDeRE6qtaGtimxHErYZSJSguKsZ4i0V4OUlzykOy5ykmCBIszqX2A5
+         zAXkE/9e/XM+5FGGxFpQigaqidYf7VtgT2GzpgHkDz52O2UcQQJk4WVhmkhijrwWBpEL
+         OIKZi2eKmTwFMTfqtykLD4KJ4+25wCKIiU+kHTZM1Ns5H+zBrR4LVQg12WsdRYeA4Mp4
+         0F2bVKf0L4aWxN+AOQ1KmERCo942IbEsj12ZpYXKEMeZSG738jBan5VBq7PPrg8UKJn/
+         E61w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791240047; x=1791844847; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IeBd/f+KYPaUD3mTxXbAK7RiokjVClr9ke91eN5DQPw=;
-        b=nKUSphK1E/rs2WwcZ7YlCTl+GC0WZuZyJivoEif4ilE7SA6W0XopbrxijUaFLgor15
-         flDSOmjsUcAipw59WCYe4q5/WyC7xlgxXHLufoiYehBYGHgi8ORZfiJ1vM1P/vDULYIW
-         z5xuXbSd3780/gBH6hgJId3Bq6dcatW09EVtjuYs6bpxqmAv/ztn/Yqud167xy1hY7AG
-         gyrbhVJ+WxNvWxdwR0ajlpPrxZ7lTNpphxiNE0vfP1nfVSRktHoj9S2U9yEfgXOa3rHB
-         mD9ghukF/st8lLAKcyeSmzmH0ELNnRpJ/QI1IvERfYt29oqLRnb5xTAkNPc/nPCMBGoj
-         gY4w==
+        d=tenstorrent.com; s=google; t=1791240049; x=1791844849; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
+        b=MoqLOTwrJb/61+KPF37F846o1YYLqN4xDdl4f5a9wbXJybEQ+C0YTUdlOepmVxd73N
+         no94Z6uxpq5gc9MPxVq96wuqWHBneQBP8Q1f7pWg7diA5n9Vi/kHHE/R+nnTBEZFfM1C
+         YCX7KeQqNZ+lqpU4zpGvyllnIyJHptPSt+SldjDS5+sbhehzr5GDA6F/GfpryNowPzDm
+         Hdrpye6XIBN5O+zG/EguDW5GezH7knapocZjnp48CoNJulGtUe3rl0zyOBWF1zTRAjAW
+         PDBTKQK/xU2LAwO2izf0BNF+g6nFs70drkYuATEDg4oUbfR/LdxPqTcxOmcr2BzOXz0c
+         1JKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791240047; x=1791844847;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IeBd/f+KYPaUD3mTxXbAK7RiokjVClr9ke91eN5DQPw=;
-        b=ieHFqZKhp1cV75V3xRdKj8P1SIpXa2ck9qJpwCWpTUld40TmI5RYLBkFcw8Cq7sH8i
-         1IyUQPNUV2jI9IPKZq9cwhuKjEmnU0xnPXpJKbQno9pvpO48/2UDTVB6a4AHv+t81P7n
-         5pM0lToIqyRIHMn0cVtEaqEGT6mE7w6t1PD2Xnlw9YnlgdS9IY+tSIGR2JU3wD754j1z
-         lvksfZeTYVMtMdvn1E3auuCD5hg4WLYRDT4jyOklZXnoLAVnV2QCh9TILrNEoDe/29p2
-         1SJAjiyPJgQkgksUGsVD0dRAhsKzQVJZDteqraofVSGIxW75OhGO6MK/9JNKXgLqBTwk
-         cwLg==
-X-Forwarded-Encrypted: i=1; AKwUvBysLS63zsoxRqhHFVtmltDh7OHyvCrCG+NWztmKkgR8Z3D0rVn/8T2AUJb54XYFRKJs6s+TVl52Ctuc2tjdN2ff@lists.infradead.org
-X-Gm-Message-State: AFq9FYI1o9Wu89Otyc/mk9fr/pk8YWMH9FbtddwK0xCkML/FwKrnsRQl
-	yzAn7IPVbf9Yy/6UsEk136yPz9Qwj5l6gV12emqdCDhXxj4XrJAR3XJQ
-X-Gm-Gg: AYBFou22PF9aNU0Ztu3tluFs2mS1JQLx8HV7dWx0HxY3hT+ISIAIEZqrdp5dUWqk1rc
-	JFY/rnSiJpdHh72NkQTPtApvk0KuvG4Zq91xokQHeX4WfZtHgwHbnfC8z+OkFj6rkQU3cnXdJvK
-	fKgz+XqLqxejGYc2yaxw4uv07M0+eSFRKC2I0BOWZJOHDBAK9zMhsEPIi3b5ZeOdreaQ/dgRGSt
-	D4SaNRLLHRSFaSOpqDJom9BouYybxjjIROlu+ArtvBvWVBHAdxRprq3qOPm/Nu1Dk0YKoockS8B
-	Bv1riScyJKlGsSx7pAOMdGy5DrueOONK/JhHRu+J97gVIjNKJr7VOAQSjZUPnaeZy8LVEplwDCv
-	nx6debOWaFU9P26IIb3STb0h4B6LIxi80xtDaRqdLYgxj1V8CyHlc1PVS145vGZrgzIOVnJNMkA
-	UUR4MJ+8o+ekidsG/rYVF+j5KMaLB2wirxsJVWe3pDDdVkj2QpOjgx7bR4YCHQHfzmQA+YQ/M7y
-	CdZjuk=
-X-Received: by 2002:a17:90b:2886:b0:3a8:2c7e:8986 with SMTP id 98e67ed59e1d1-3a82c7e90c0mr2473707a91.17.1791240046758;
-        Mon, 05 Oct 2026 15:40:46 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a853e66d7fsm1496243a91.5.2026.10.05.15.40.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 15:40:46 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v10 2/2] arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
-Date: Tue,  6 Oct 2026 06:40:08 +0800
-Message-ID: <20261005224008.1140250-3-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261005224008.1140250-1-coiaprant@gmail.com>
-References: <20261005224008.1140250-1-coiaprant@gmail.com>
+        d=1e100.net; s=20260707; t=1791240049; x=1791844849;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Yoy4+gNGcQV5h8mXnlsNwLFsTZ1uQXaQDtjTnekUSzk=;
+        b=N6QzbqT/lVrIH0S/PqaMq5JtfLs57w/pp06Arp4Nf8Sef519Ksu0cZ2Ahas21draH1
+         mIPDW1dUqvhJzUMg5k0EvmKv6FS22I2HN1jGLFp2hzfNepUug1YVO5iC2mthZXIO65PW
+         TxJfpFwlplUwz/1sfCxASwkaIhe8Myk2YuwNK+uKj7M1OKLMzE3auRDKsX93vmbzTrLS
+         T/xV88IZPR9vL9V9QUveChJyO6Kt/7tAVu5/V87PR5JEsMz6rSBThmBEsoKa4B5+JDse
+         w0VwHmwo9SnXNUXMFJb/2ymQAs0ep9afB6W2CO1wSHlpdtqwFllt9yDZ3KllYmSIp4dy
+         Y1Pg==
+X-Forwarded-Encrypted: i=1; AKwUvBx0j6aF4uYgegRGebe3yGh79CCRUIC7GLVbsblKt+IsEiDpn7yGK5AARvIkAPCBkA67et6KtFDAil6AbCyZALPe@lists.infradead.org
+X-Gm-Message-State: AFq9FYIeKlwovwXxfzdswThOvWY3GDMdYn+oOy9sfQHbt60D4+SNEOmA
+	h+BdEVULF72wzdAJHhiFGX6i2H4b5ykYjRuC+2URdNgtOfT5KANcRa8R88U4N0HM+arT9Dwmf0q
+	sZPnDrU9O9u3X742Uy9/g8db5uKZGWViASAPiZDUJog==
+X-Gm-Gg: AYBFou0gPu1rJ4sxtUD4oTPr/IqWb/dZ3Ptlpu0k04oE2LMsm0/o6yFM8ZxUASVlB0p
+	HpRXYzxZIYP0c8Vp5W1O2SK6lnUA2xMcYCngMryCVyPzrtQdPKVuQ5uCsIeInTD1ZiwHqZsWLxg
+	lyaSm0hbjM7vJyVNjOGqd2dxu5JidDsQwI1PaQ7QX/rXaKsqX39y6J2pKcHpUdwyUI4NhMN/8kE
+	p+V8hdxJ3FXQ+Lw8WgDAsknEI2kSzPLiWIXUwAiGHSgntFRdXkUZyrY1N31Xs1NauGcw4HSxyqR
+	eMuVkt6D11P2rAyPPYxIgVafyyctnM72fT3z7qfiPj7Y+c89oWJLg3ijLO3tIoRXWtgZ04SFHAj
+	iQoZFsTMhlNo=
+X-Received: by 2002:a53:eb86:0:b0:677:a004:4c3b with SMTP id
+ 956f58d0204a3-677ac155deemr3157728d50.127.1791240048910; Mon, 05 Oct 2026
+ 15:40:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca> <asQcQIh56MV1OJur@lore-desk>
+In-Reply-To: <asQcQIh56MV1OJur@lore-desk>
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Date: Mon, 5 Oct 2026 17:40:36 -0500
+X-Gm-Features: AclHuK_waBcUE5jt710thOReYEcaNoXlOFQ7cNij63z-oA9tFI26Hbx-S3DtTtI
+Message-ID: <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Jose Abreu <Jose.Abreu@synopsys.com>, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_154047_448744_28C8691D 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20261005_154050_662095_8D037C0D 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,146 +126,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Ariaboard Photonicat has a Motorcomm YT8521SC Gigabit Ethernet PHY
-connected to GMAC0 via XPCS SGMII.  Enable the necessary nodes to make
-this port functional.
+Hi Lorenzo,
 
-Add rockchip,sgmii-mac-sel = <0> to the already enabled combphy2,
-to route the SGMII interface to GMAC0.  RK3568 has three Combo PHYs
-that can carry SGMII; which one is wired to the XPCS is a board-level
-choice, and Photonicat uses combphy2.
+On Mon, Oct 5, 2026 at 4:53=E2=80=AFPM Lorenzo Bianconi
+<lorenzo.bianconi@oss.qualcomm.com> wrote:
+>
+> > On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrote:
+> > > stmmac_update_subsecond_increment() ignores the error returned by
+> > > stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
+> > > addend and system time programming errors, always returning success. =
+A
+> > > failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
+> > > system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
+> > > leaving the hardware timestamp counter in a non-running or partially
+> > > configured state while the driver keeps operating as if timestamping
+> > > were up. This matters for TAPRIO/EST offloading, which derives the ga=
+te
+> > > base time from the hardware timestamp counter.
+> > >
+> > > The same hooks are also called from the PHC callbacks: settime64 and
+> > > adjfine drop the error and report success to clock_settime() and
+> > > clock_adjtime(), so a dead PTP reference clock goes unnoticed by
+> > > ptp4l/phc2sys.
+> > >
+> > > Return error codes from stmmac_update_subsecond_increment(),
+> > > stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
+> > > settime64/adjfine callbacks instead of silently returning success. On
+> > > failure, roll back the partially applied configuration so the hardwar=
+e
+> > > and the driver bookkeeping stay consistent, and report the reason
+> > > through the devlink extack. Also guard against a zero sub-second
+> > > increment, which would otherwise divide by zero when computing the
+> > > addend.
+> > >
+> > > Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
+> > > tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializin=
+g
+> > > timestamping, so a failed init does not leave TX/RX timestamping
+> > > enabled on a counter that never started.
+> > >
+> > > Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to gener=
+ic HW Interface Helpers")
+> > > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> > > ---
+> > > Changes in v3:
+> > > - Do not run stmmac_config_addend() in
+> > >   stmmac_update_subsecond_increment() error path.
+> > > - Return error from stmmac_adjust_freq() and stmmac_set_time().
+> > > - Reset hw ts configuration in stmmac_init_timestamping().
+> > > - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-added-sys=
+time-error-v2-1-beb2a6b5f866@oss.qualcomm.com
+> > >
+> > > Changes in v2:
+> > > - Initialize sec_inc to 0 in stmmac_restore_subsecond_increment()
+> > >   routine.
+> > > - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-added-sys=
+time-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
+> > > ---
+> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++++++++++=
+++++------
+> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
+> > >  2 files changed, 84 insertions(+), 32 deletions(-)
+> >
+> > Hello, I'm noticing that after this patch was merged into linux-next,
+> > boot seems to hang when ip=3Ddhcp is used because ethernet isn't workin=
+g
+> > on the TH1520 Lichee Pi 4a. These lines get printed in a loop over and
+> > over
+> >
+> > IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] thead-dw=
+mac ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > f2 mtu 1500 DHCP
+> > [   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmmac-0:01] =
+driver [RTL8211F Gigabit Ethernet] (irq=3DPOLL)
+> > [   24.912780] dwmac1000: Master AXI performs any burst length
+> > [   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety Features=
+ support found
+> > [   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init failed
+> > SIOCSIFFLAGS: Connection timed out
+>
+> Hi Anirudh,
+>
+> based on the reported error, stmmac_init_tstamp_counter() fails with
+> -ETIMEDOUT. In particular this can occurs if:
+>
+> stmmac_init_tstamp_counter()
+>  -> stmmac_update_subsecond_increment() -> stmmac_config_addend() -> -ETI=
+MEDOUT
+>  -> stmmac_init_systime() -> -ETIMEDOUT
+>
+> I guess we should understand which one is failing and why it is failing.
 
-Enable the xpcs node and its port 0 sub-node, referencing combphy2
-as the SerDes PHY.
+It seems like both are timing out, both config_addend
+(PTP_TCR_TSADDREG) and init_systime (PTP_TCR_TSINIT).
 
-Add the mdio0 node with the YT8521SC PHY at address 3, including its
-reset GPIO and LED configuration.  Also add LED configuration for the
-existing RGMII PHY on mdio1 for consistency.
-
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../boot/dts/rockchip/rk3568-photonicat.dts   | 74 ++++++++++++++++++-
- 1 file changed, 72 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-index 58c1052ba8ef3..fdaa4a2a4328b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-@@ -3,6 +3,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3568.dtsi"
-@@ -241,6 +242,7 @@ &combphy1 {
- };
- 
- &combphy2 {
-+	rockchip,sgmii-mac-sel = <0>;
- 	status = "okay";
- };
- 
-@@ -260,9 +262,18 @@ &cpu3 {
- 	cpu-supply = <&vdd_cpu>;
- };
- 
--/* Motorcomm YT8521SC LAN port (require SGMII) */
-+/* Motorcomm YT8521SC LAN port */
- &gmac0 {
--	status = "disabled";
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>;
-+	assigned-clock-parents = <&clk_gmac0_xpcs_mii>;
-+	managed = "in-band-status";
-+	pcs-handle = <&xpcs_mii0>;
-+	phy-handle = <&sgmii_phy>;
-+	phy-mode = "sgmii";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim>;
-+	status = "okay";
- };
- 
- /* Motorcomm YT8521SC WAN port */
-@@ -341,6 +352,36 @@ &i2s0_8ch {
- 	status = "okay";
- };
- 
-+&mdio0 {
-+	sgmii_phy: ethernet-phy@3 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x3>;
-+		max-speed = <1000>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+		};
-+	};
-+};
-+
- &mdio1 {
- 	rgmii_phy: ethernet-phy@3 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-@@ -350,6 +391,25 @@ rgmii_phy: ethernet-phy@3 {
- 		reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
- 		rx-internal-delay-ps = <1500>;
- 		tx-internal-delay-ps = <1500>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+		};
- 	};
- };
- 
-@@ -586,3 +646,13 @@ &xin32k {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&clk32k_out1>;
- };
-+
-+&xpcs {
-+	phys = <&combphy2 PHY_TYPE_SGMII>;
-+	phy-names = "serdes";
-+	status = "okay";
-+};
-+
-+&xpcs_mii0 {
-+	status = "okay";
-+};
--- 
-2.47.3
-
+Regards
+Anirudh Srinivasan
 
