@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B902CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D9FCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YM7TE7exdYuQCUvvTDui+rJZ2DPmZv/3pJBXSuDfZEY=; b=AITLuSj0EDW2YrIHL8oJzqR1pU
-	+o+c5wiXsNPa/aTBaPnZklFQAzh3i+WNJgmloakL5XZd7XMt9LsxeG6MkJT4UeBJh7ZjMincZABZ6
-	WHZhdvIdM71RcnywgczQF8ERk3hY/CfoiYuGTw/UNllrwK+ZjkLNRvBICNPr4rCpGYwpjNkXH+yJe
-	qxjEYlwfCdOXfSQLXc+FlJ2DD91zAzADnXj2B73ngelpBGjwlhoUINBwvg0XWSLxzfLk09V9SQhTz
-	gO9Dc8Z6/P5jCCQ+e/9ggSMb1J+dzXQ15dRSmektjElamBDcxuhuwQ3GdoOrUPR73ODtumwuckwGk
-	OCCCr9cQ==;
+	bh=JXOM5m9Q69KwO7/u/mcoD4fwd7UUqM2LsQSwQWfuppY=; b=m8bj1MZWSCNaF80t6q6n4EWsHh
+	0D2tU7oJ0BhR3ax29sdR1Bpcnc3e468OVcUgOtY2kirYbpOZqG04pnCvxO9nRbnH2ba0rXH8CqN8K
+	6WoiSq34C2cdqXsQ/B7hU3G5WdVRiwb6tOhoIRNaoC5qSEgxDY4Qncswe4Vw2jtAHI3CmTx6Lcm20
+	dJ8Jnjl1X/MubZt2tF1frt09GH+/e2StaLtzwrLJmy0v8nPDWZTtTPLA8C6cqCoxiPiJI+DIYnkgU
+	iz3OaTsH0OPjYKeHbUz8beo+2g+DbA9KDfTCH0/3juK93eovh30lkIwfAr95W9o59sufh8SPT+D1l
+	8rs5FznQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDenE-0000000FyuA-1UGp;
-	Mon, 05 Oct 2026 09:15:32 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDenA-0000000Fytb-0bXe
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:15:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 80BE81A116A;
-	Mon,  5 Oct 2026 09:15:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4FD29604FE;
-	Mon,  5 Oct 2026 09:15:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D83721033071E;
-	Mon,  5 Oct 2026 11:15:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791191722; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=YM7TE7exdYuQCUvvTDui+rJZ2DPmZv/3pJBXSuDfZEY=;
-	b=dwOWGp8wKr0jZVpSpX3ZYBI4KFhl54LXQ9h6fu3/xkcdNtS7BtWiV1Hbkysk4k0skqq6N3
-	/cVZrAg46Ju8MU3LPgMVJuu/6igHYukg4F3FTd8BJ6kYFX5BOqTUP6hZZptWyWvpe4on9y
-	K3mJ8dY0itsAP9AVfG7omEZZJmCW2M/n1O361nbh3QvCpn7sx7DMS9/21UY9fkiGXMpbvW
-	j9+bruWHVmU+tAohvm6D5pGU4KF/5S3kh5KX8g62P6ye2dURx7tGDXDVZzIHPCGQEgy6Wk
-	YVmEiFX1WvgGqb6oxSX5itxoEzwaaMqUwpu8s0BDJmtuOpfv50+lLtDRs3D5dw==
-Message-ID: <6bb85939-ff35-46e1-88cc-1bed0034e787@bootlin.com>
-Date: Mon, 5 Oct 2026 11:15:15 +0200
+	id 1xDeoy-0000000FzGg-2h3c;
+	Mon, 05 Oct 2026 09:17:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDeov-0000000FzEC-3C0X;
+	Mon, 05 Oct 2026 09:17:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8221152B;
+	Mon,  5 Oct 2026 02:17:12 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED5D03F66F;
+	Mon,  5 Oct 2026 02:17:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791191836; bh=HVeqBCma9XhPQYuXr7Z1BFby/I89QIvKhp1Qz/Sy+Fc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lpUkjIKqVD2+wgOZwWjHfaqcnAIOIiZd3eLZsf6wSBSB4hW0xAMMT3/10Lmlrwifu
+	 CN9yeYzy+LatTmrx6kdYmZFt+2+4QqkeIsWO4jHmUJbkhdKQV+jDepAzXQYqnw21Fc
+	 AcKyquEiAMypKcdXGDJ87Dsc2jJveIx5ZKcjOXDk=
+Message-ID: <4ac4c90f-887e-4545-9c26-9706bdaa1a79@arm.com>
+Date: Mon, 5 Oct 2026 11:17:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/2] net: stmmac: Disable NAPI before stopping Tx
- queues in stmmac_xdp_release()
-To: Kurt Kanzenbach <kurt@linutronix.de>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Eric Dumazet <edumazet@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>,
- Song Yoong Siang <yoong.siang.song@intel.com>,
- Noor Azura Ahmad Tarmizi <noor.azura.ahmad.tarmizi@intel.com>,
- Mohd Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
- <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
+To: Junhui Liu <junhui.liu@pigmoral.tech>, wens@kernel.org
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>,
+ Enzo Adriano <enzo.adriano.code@gmail.com>
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+ <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
+ <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
+ <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_021529_671949_812ED9B2 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20261005_021717_898491_6FCE31E4 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,77 +83,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kurt,
+Hi,
 
-On 10/5/26 09:09, Kurt Kanzenbach wrote:
-> Attaching an XDP program while Tx traffic is running results in kernel
-> crashes in stmmac_xmit() -> dwmac4_set_addr().
+On 10/5/26 06:41, Junhui Liu wrote:
+> Hi Chen-Yu,
 > 
-> Loading an XDP program tears down and reallocates all DMA resources via
-> stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
-> the Tx queues before disabling NAPI:
+> On Sun Oct 4, 2026 at 7:03 PM CST, Chen-Yu Tsai wrote:
+>> On Tue, Sep 29, 2026 at 7:28 PM Junhui Liu <junhui.liu@pigmoral.tech> wrote:
+>>>
+>>> Add the bus clock gates that control access to the devices' register
+>>> interface on the Allwinner A733 SoC. These clocks are typically
+>>> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
+>>> various multimedia engines. It also includes bus gates for system
+>>> components like the IOMMU and MSI-lite interfaces.
+>>>
+>>> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
+>>> Disabling either store gate breaks access to boot/storage devices such
+>>> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
+>>> power domain registers when unused clocks are disabled.
+>>>
+>>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+>>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>>> ---
+>>>   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 ++++++++++++++++++++++++++++++++-
+>>>   1 file changed, 491 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+>>> index 1b2d4d36ec4c..b077e5d2f32c 100644
+>>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+>>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+>>> @@ -4,6 +4,10 @@
+>>>    * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
+>>>    * Based on the A523 CCU driver:
+>>>    *   Copyright (C) 2023-2024 Arm Ltd.
+>>> + *
+>>> + * TODO: The real parents of some bus gates, including its-pcie0-aclk,
+>>> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in the
+>>> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
+>>>    */
+>>
+>> [...]
+>>
+>>> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588
+>>>                                             BIT(31),     /* gate */
+>>>                                             CLK_IS_CRITICAL,
+>>>                                             CCU_FEATURE_UPDATE_BIT);
+>>> +static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
+>>> +
+>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_hws, 0x58c, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hws, 0x58c, BIT(1), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws, 0x58c, BIT(2), 0);
+>>> +
+>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x594, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x59c, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x5a4, BIT(0), 0);
+>>> +
+>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_hws, 0x5b4, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_hws, 0x5b4, BIT(1), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_hws, 0x5b4, BIT(2), 0);
+>>
+>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
+>>> +                         0x5c0, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
+>>> +                         0x5c0, BIT(1), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
+>>> +                         0x5c0, BIT(2), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
+>>> +                         0x5c0, BIT(3), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
+>>> +                         0x5c0, BIT(4), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
+>>> +                         0x5c0, BIT(5), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
+>>> +                         0x5c0, BIT(6), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
+>>> +                         0x5c0, BIT(7), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
+>>> +                         0x5c0, BIT(8), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
+>>> +                         0x5c0, BIT(9), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
+>>> +                         0x5c0, BIT(16), 0);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
+>>> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
+>>> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
+>>> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
+>>
+>> I suspect these refer to a AHB-AHB bridge for the various subsystems shown
+>> in the memory map. That would explain why when the "ahb-store" clock is
+>> gated, the storage bits stop working.
+>>
+>> If that's the case, we should describe it as the parent of each storage
+>> peripheral bus gate's parent. Same would go for the other types. I haven't
+>> checked what the BSP does though.
 > 
->  stmmac_xdp_release:
->    netif_tx_disable
->    stmmac_disable_all_queues
->    ...
->    free_dma_desc_resources
-> 
-> A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
-> takes the Tx queue lock, reaps completed descriptors and wakes the queue
-> again when it observes it stopped with enough descriptors available.
-> Nothing stops the queue afterwards, so the Tx path resumes while
-> free_dma_desc_resources() releases the descriptor rings underneath it.
-> 
-> On non-coherent platforms dma_free_coherent() tears down the vmalloc
-> mapping of the descriptors, so the subsequent stmmac_xmit() faults on an
-> unmapped address instead of corrupting memory silently.
-> 
-> Disable NAPI first and stop the Tx queues afterwards, which is the order
-> already used by __stmmac_release().
-> 
-> The issue can be easily reproduced by:
-> 
->  1. Run iperf
->  2. Run application which opens an AF_XDP/ZC socket
-> 
-> Assisted-by: Claude:claude-opus-5
-> Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in stmmac_xdp_release()")
-> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+> As Norman mentioned in his reply, the vendor BSP also does not model
+> this hierarchy and instead models these gates as independent clocks
+> parented to the oscillator. The manual does not describe the hierarchy
+> either, so I don't think we have enough information to model it
+> differently at this point.
 
-This now matches the non-xdp case, great :)
+Well, I wouldn't use the BSP as a good example on how to model the clock 
+tree, they have been very misguided in the past.
+What the BSP does is to add just more input/gate MBUS clocks for each 
+device, which is something I think we should avoid.
+To that regard using them as parent clocks for the existing gates, as 
+Chen-Yu suggested, sounds like a good idea: We keep a single clock for 
+the devices, but still can turn both clocks off (I think, not tested).
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cheers,
+Andre
 
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> I will add comments explaining why ahb_store_clk, mbus_store_clk, and
+> ahb_cpus_clk are marked critical.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 9741f97fa37a..796817caf7af 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -7178,15 +7178,15 @@ void stmmac_xdp_release(struct net_device *dev)
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	u8 chan;
->  
-> -	/* Ensure tx function is not running */
-> -	netif_tx_disable(dev);
-> -
->  	/* Disable NAPI process */
->  	stmmac_disable_all_queues(priv);
->  
->  	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
->  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
->  
-> +	/* Ensure tx function is not running */
-> +	netif_tx_disable(dev);
-> +
->  	/* Free the IRQ lines */
->  	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
->  
+>>
+>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
+>>> +                         0x5e0, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
+>>> +                         0x5e0, BIT(1), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
+>>> +                         0x5e0, BIT(11), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate", mbus_hws,
+>>> +                         0x5e0, BIT(12), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate", mbus_hws,
+>>> +                         0x5e0, BIT(14), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
+>>> +                         0x5e0, BIT(16), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
+>>> +                         0x5e0, BIT(18), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
+>>> +                         0x5e0, BIT(24), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
+>>> +                         0x5e0, BIT(28), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
+>>> +                         0x5e0, BIT(29), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
+>>> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
+>>
+>> Same thing for the MBUS clocks.
+>>
+>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hws,
+>>> +                         0x5e0, BIT(31), 0);
+>>> +
+>>> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
+>>> +                         0x5e4, BIT(0), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
+>>> +                         0x5e4, BIT(1), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
+>>> +                         0x5e4, BIT(2), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
+>>> +                         0x5e4, BIT(3), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
+>>> +                         0x5e4, BIT(5), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
+>>> +                         0x5e4, BIT(8), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
+>>> +                         0x5e4, BIT(9), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
+>>> +                         0x5e4, BIT(11), 0);
+>>> +/* Undocumented, taken from the vendor kernel. */
+>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
+>>> +                         0x5e4, BIT(12), 0);
+>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
+>>> +                         0x5e4, BIT(18), 0);
+>>
+>> [...]
+>>
+>> The remaining definitions look correct (minus the vendor BSP ones which I
+>> couldn't check at this time).
+>>
+>> I didn't check the clock list additions.
+>>
+>> Consider this
+>>
+>> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+>>
+> 
+> Thanks!
+> 
+>>
+>> We can change the AHB / MBUS clock parents later if we do figure it out.
+>>
+>>
+>> ChenYu
 > 
 
 
