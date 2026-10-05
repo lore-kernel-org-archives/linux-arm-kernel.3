@@ -4,148 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42166CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 18:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6091ECA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 18:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqv4wAFN5hhj+vjq7T8uWvopMzxW3L2IbSGP67DpKxo=; b=GGwODIWucanbTH1hiWHFRIA6mD
-	6l+BsqHOizyC/IiAdOZM31wR0FSdQl5Ve+pLgnEGgsg4GekGgGE2LH4VuJebgL6Cmr4qttUh9tZew
-	Ob4eJYMAvnf3t9f6UIGykmiJN+BJ/KYMue7jm7oIlpby4G0rYVl7VMc8b9k84d2pP9QU9k1Dme2C1
-	8Gr4uU8GYCsM63fo1HWRt5Y+oMyXCpZPJQG/0iaJsOp3CM/yJZYXYkvJ4gjEUheDIMPrrRk/bVFI3
-	0gii6gSy3Y8p+p+EBhEsdFc4JeG6vEQ1afKA31qMbm6aZ8NX603KFiDb8ihFP/9jyzIiDDuul7SYo
-	uylgDn+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=; b=awN1E2Sbhtg1m/dnAZ9LoIWtQS
+	RVWZfGi6O0Tp2RGg0xfHX+Ien+qBddQvNMiP71jFhJso/g2aEQtC7RjbEwKrU9/1EgTBovVGRZ3Ed
+	I2+pUvuTirYL7y9sOLDR9/yGE265wrJToLNKOPKkH7IXyIob/3uQwAeIeObHmNd0unuz7f2BYI22N
+	jynRRQIm/FeBPXKcs6JJvbu8dH87lIQZQdqK5w5mclDbuTnJ8GlYelQajCkro9iVP82v8GklUhLtC
+	xzA5X7WmBCZ4vxQT0fxs968kmQLfu29VtGrQeSnt13YG0AfnHQBHshsOfcMPk1tfEjNfHnqX863tb
+	XyZVC8og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDnCa-0000000Gz5t-2j3T;
-	Mon, 05 Oct 2026 18:14:16 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1xDnT2-0000000GzqG-1wHU;
+	Mon, 05 Oct 2026 18:31:16 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDnCW-0000000Gz4h-408q
+	id 1xDnSv-0000000Gzo2-2USo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 18:14:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hyaqYLauyAO3NY32hL0TF6fLI+nlOjMIvg1fE9IanB0/RX5QjbgOIK2G19Fe4sSznnWvj9vPNBScoTkQOeYwC4Xv3HTq70qK1hB6w7hSD5csfE+zSq+iPVaC2zL22OUEtKI/YB7/M60IP1TCbYV7KnHFSMAhuZZnp1UAucoBfCrGqXRaP2zcF+wGgXhHQ7EdGBXbN1p0p/LJOuUzx9iT5qcjTQsGXlnHYl5k4sEwJ6SSHDUWhwydYXUWOPMKazDh1b0NcISBvbMB8dnYsOBMyNLg046taFFKFEZsRvqesXGsI6KXAFOv+Aan25csdb/KMHjVvhnsYCE+lQP6quvrrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fqv4wAFN5hhj+vjq7T8uWvopMzxW3L2IbSGP67DpKxo=;
- b=u9uYs1bOwftcGH2hyShHPhZpPWxJv6vP33+jqdVuDRcb10CJo6s66xHdIjQJDMMFFcRFDtbYUS20+kFSwlEZWmRXGihq21nSNrNCs9e7IHccOM9C1YdvF9Ug4+KDKllOt+w+qva1uGNhBU54q6IAqaN8BoYYRfOTw0gAcvL9aPBQZpyGJvSiAQNGvfrrPOdF+FKcHEQ3e2Bmu/bHcuAzkBk1PGS6o1qc28f6lY8sQYK388ZEZrUOOj9PEJl6T4DggbfBoE55AghVNk4iThGnFM9WdrTLYorWvpO3hXSSt594yPsgHgdcH7ZBa8nlVfa0rV1+pySbYvFvVOKFnZk36g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fqv4wAFN5hhj+vjq7T8uWvopMzxW3L2IbSGP67DpKxo=;
- b=GPC6gkoKOvnFQnrrN8t1qLc8eyWYTKWnu6q5TrQHz9TbTQveVmM0kX7C1euWek+faWdx8XCfywhQqCH5sK4Fd+OzmyLjHxP8hhJIoTkt7LUk8ZRiB6Xw3fw1b33h79gLk6rikWbBzymnMe+a81h5zR8FxtSWi51/Uhbfu9q+YgDIPHvXFliTCe39tmXWUd+u12TL/uQH/zW5Vv2hE1BlD+AtSqNb7BkKHc1qpVOMGOckK68B0IPffnFsBzfjvkq+yT4PUkKp98GpM6Fiz4iAEt9wAViyOt5MZmO8vO7jRMdAMeDunL7PAtimYZE/ypZ5jPoI+dQYckChVBkzZlvfqw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
- by MN2PR12MB4080.namprd12.prod.outlook.com (2603:10b6:208:1d9::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 18:13:59 +0000
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0472.016; Mon, 5 Oct 2026
- 18:13:59 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: =?utf-8?q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- kvmarm@lists.linux.dev, linux-efi@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-mm@kvack.org
-Subject: Re: [RFC 00/12] arm64: Add support for TLBI domains
-Date: Mon, 05 Oct 2026 14:13:57 -0400
-X-Mailer: MailMate (3.0r7032)
-Message-ID: <4DB4935E-4381-4FC5-8B0A-BBCAF55C7D53@nvidia.com>
-In-Reply-To: <asND3-Wnb2hiDAop@willie-the-truck>
-References: <20261001110655.461473-1-kristina.martsenko@arm.com>
- <DLW95E2XWSVT.8W90FW4WG6K8@nvidia.com> <asND3-Wnb2hiDAop@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-MS-Reactions: disallow
-X-ClientProxiedBy: BL1PR13CA0274.namprd13.prod.outlook.com
- (2603:10b6:208:2bc::9) To IA0PR12MB8374.namprd12.prod.outlook.com
- (2603:10b6:208:40e::7)
+	Mon, 05 Oct 2026 18:31:14 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3282db206d3so6640774eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 11:31:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791225068; x=1791829868; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=;
+        b=s5qtOexOvMckyIgGYM/6Y9vqV2kKlbpIdCnHgFILEAWMGbhAK+AbYCl+lVcfW9c48F
+         WfPMG0MvepNVBwBiEuDtpvWkb0L1/390v1eD10Nmy+wT/xUlM0aENLt/1RIJYZ0qQI9U
+         e1fjwuZKGNEE2kXx09txBYM7zPEwi5d8ysBTeK0NQIApxkrsr5OJWuMYl6ow/ZuJ+9FQ
+         qR7bjrgU0bTZD68nz5Rcra45suixBQxlvLhGNNftWaiXYeHzOiteDfFUQALoY0bnnwxb
+         AMY3NMJ6uADWmwYmnX+LkPBblSL0TN42qyk24picLUZg/orsQ1tu8Cb6QA5lNJ4nkRwr
+         BKDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791225068; x=1791829868;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=;
+        b=ZdoP4gJP2VsoabkXBC/ULkFMA9dVXt2Du4wbU5VKh8WnZHzLPA6RT1x4RAJSCVMmiI
+         +HPuVpyKEnZNUpZEo+Q8/r5s4gYfxJUFBGI67KtyzKR5SS59PQ9pYuyPtRXh+vaSacst
+         dHbKuFPYAhj3plaPJh6x4xdmza0qXSqG7vaWVzEgu+rVhS8UcHaCtJHbDASMnwqWtegE
+         SDCgFo3HFv57nGuog9ENfJirTRd6QrwgEBM6PmZn1TmfxV2nMzNQIRUJbgrF5IXdcetJ
+         6P6Zf/IqWRN7PMjQfeFrqPNBtDTYtrdo0LXy3s2Ec2+5LUF/C5ybZiNWxnMHhc3PXQrX
+         98Mg==
+X-Forwarded-Encrypted: i=1; AKwUvByOl1NqwJ9rJAI1qwzJXgYj4sx8ESTa/DKzAOfx53GrJYPMB8W6nJy4RsysEflpSi4VH3BhiM+vn8eTzYFucMQB@lists.infradead.org
+X-Gm-Message-State: AFuF++mwxpbWwMvIh4nUJuHY/2T1BspeVbDjcD+bxyy5obCBISMRKrR7
+	0i/Aw0XgJ/QZ+gzm9zIMOGCJyiv7Y5r1GJTQcVlLp/b/pS2rieuj0pW0
+X-Gm-Gg: AYBFou3IKFpkBNheD6tY0aTzIKXIEGdYdi08ZYptBbIVZOthDthsr+YdvCvgv1sjqOA
+	G+Q3yv4O9JKfpJvgRlDlEvYiInrkKpG26tuBCh60K5DOhQPKsZyTkhY7KgDMBEQSJtzlSZ/5LiV
+	D1f8I87hchzKyS/eW0tP5H/xo3ZqJXWIO4k7veNsNLxdPFFccMAWMVwW2J+IvsgLrwoZEGXI9OO
+	30ZyUWez/Id0VT383jIzDGPdcWg8S06Y/anscrMsRsjGG3eMsdIO8jVOSraW/ms8+xkCtUr6CV5
+	ats9zG8mZRR2/vOfwm9ouZ5fn83sNVjboWjWo2b+URWojE6Tc2WO/yIRQ0YNzUPF62TlwvqrlbZ
+	MFY6Y5LpDaTDnMy584y3zUBA6afTLalprqhTJRm2Off+f+wWW+HY5uGswTrffZ6HVzUIoPjlH2Z
+	7WgG5r4YLh54melj/tJOSo4bD0qq2nPqFOqJatjwEbeo5DChyyjKaa+vek3tfWp/FBFtB7O2vCu
+	fS+vv1+y2rc3onxkTqeeByCiQBPTNUz3fGew7f3GHycEzX5egVcyit3gDU4RbXdAv7RTkR/iRGE
+	qgluHcE=
+X-Received: by 2002:a05:7301:f84:b0:34c:1f07:2d5 with SMTP id 5a478bee46e88-3511162fa68mr10914269eec.6.1791225067702;
+        Mon, 05 Oct 2026 11:31:07 -0700 (PDT)
+Received: from MaquinaLab.. ([179.179.237.181])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146ac4dc4sm140223eec.23.2026.10.05.11.31.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 11:31:07 -0700 (PDT)
+From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Norman Herms <dockseed@proton.me>
+Subject: Re: [PATCH v5 3/8] clk: sunxi-ng: a733: Add PRCM CCU
+Date: Mon,  5 Oct 2026 15:30:20 -0300
+Message-ID: <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|MN2PR12MB4080:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7b5e4fc-56c9-44fc-ebc8-08df230c6d88
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 1Scs5rf/wDSp2ycutRhIqusg2T0HcitIlZrOFuX8JxTFMjuXU7GTUKwryURX5run0+5J8wIgsNmDBGME3yUs7e0K32RAR6MNC/wbr9D4i0w6b0OpHm7iVWFviQw2QkkLc0Af3Vl4waCYafiFMO81ixqFmDYm2k1c8gjqdoyjxiLcePdEBjs0DpKGFUsDwY9jcie7NsAo7KOjgtZa2jJHgBZbBGWQtUNEMLbTaVB9vZ+NGLuU/Oc6i7OV+r9TWPa9uoBSZWbbhRQbuSe25+DI/UfYZmCjH2JoGTThoMSsdifWbUJhG9Y+Ku5bj/3WXoZj0Ua17irGNA7LVX8uKVOZV6jefBku4Jf3OETryMuX2wWEQA2CF5CuB8EaxNCc3LVMeJW5iFQ11RJoEZxb7I2NXAZhebjmnuG8f6ky6AHK1A2tcn0+40B2VtFk6YUZZcHpSfmagvmbjcEIwwuANiNnyb4mRkRIqohbZq5mBg/D1aEeiH4DTYo7ki3g2zDgDSFQlNSZIFDiVlCkTjSMEfQiMwG2beClMMQi0OeYXo/L1YyZO7HBtGjPOEkfAbikiESoB+ApXBLQJEKGHFdFizKMBBZs/DOP/BKEhcJ/tgAxUf8WJAcJSSyvW4MzNDoZd8bPlPAE7oyxQjSIXkJDfuUcJhVeKCfGH1h6QAzTnpuiIWY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHgzYnY1b2ZJY3ZrSUc1dWx6dm1DakZWNHVncnpzSUg5UTQxUUFmWTIwQk81?=
- =?utf-8?B?N0tVWDZsS2VWMzZvUDZBUG1sdjQ1Vk1hZG5OYk9CT21ZQVc3Ti9hb04vVG8z?=
- =?utf-8?B?L0NjOU85dXRWYUpBZE00UlUvVzVqV2llTkVhMitmWVNBTDNyWUlOaGsyU2VT?=
- =?utf-8?B?NktFQUpNeld5Q3l4UzhJWjFwd1BBWmxKRDdMbU91aFVzRW5VWUdncEUrdDdq?=
- =?utf-8?B?eFg5R3BYRjd5UHNBQ3VTYSthVnlweVJwSEVPd1djNTk0bzVlR0pEa0Rhdzcx?=
- =?utf-8?B?bks0QVI1dzN4eDhYckFZQmoxMk5LYVZxZGFBQk1WUEdrT3RjQTVFNDUxZG90?=
- =?utf-8?B?N3BzUW1WNk5SWXF5WFpxTnJhR1RkellBT0Jjd2ZwWTdKVDJkOVBzeVpGVHpW?=
- =?utf-8?B?eURTRkJReGNVYTNOYUtSSjd5Tkd4aXp3ckFFSjE5MWkvS2NWRnJXbXRGMGRl?=
- =?utf-8?B?NkdHR20wbTlCZlM1aGFKZHR6QkR2TVdzRTZ0dE9rZFE5RitkYlRoM3pneXkx?=
- =?utf-8?B?Y0RiNEVXSEEvTG9sNWxiN1cxWVlpNzlwdm1LcnpueVBDdXppZWp4TTJITG1n?=
- =?utf-8?B?cGQ4TFFDWEpGMTB3MnBNSHRXL0lQM0pZU21LZ2c5azNKNGFDNUtiRFBTaWJm?=
- =?utf-8?B?aGUrQkNrQnNXWHh2TXF6Q0s5WUNiSEQycEwrQi9nRE1FR2VVdnVYZVdOTHVL?=
- =?utf-8?B?RCtRVDliTUwyaGFRMzJmQS9UaHRKTmU2Y1kzVkg1MC80bTNGS0FVZm9YUWpz?=
- =?utf-8?B?S25tVUYyU2RoNDNtcnFFd29rWGhXQnF4VUk3ZWpZbVo4cDZVWWxTTjBzeXpK?=
- =?utf-8?B?TDgwNHJKNm95L0RSV1E4Mm44RXU1VXZwWkRJYnpodXpTYWJkem4yTHd1V21q?=
- =?utf-8?B?WmlZTnZBYXp4dHlOdzFTbFZsOVF4cGxVLzRCODZyQWNpNk5NWjhad0pVNGV2?=
- =?utf-8?B?UFhha1NsY3VkZEJ2RnFwY2dqck1BT3VkSlJxRGd5WkFKWEdzKytPV0wwT1Y4?=
- =?utf-8?B?QVl2c0FKRTdPbE81VGRtSVhtSVl5R3kzdi9TVGU4K3ZYa0RCTDNDQThLcjdk?=
- =?utf-8?B?MVNoSzR2alRQaHFZcE9pMlIwRERVTzRKYVF6cTM4aytRL1ZpNk9wRHBmYzVx?=
- =?utf-8?B?VmJ0VGVHT29MWlZaS3NLYU41TXRnaHpRZzJiaitPT1ZMWWxiS3Z2b1VxSktC?=
- =?utf-8?B?NWkrUmhtaTZzcXBKbzZsZ3JVSE1kRDkrT3BSSWhZOHErUUhicU9Ua1lEQ1BT?=
- =?utf-8?B?SEhCa0g4NUVraUFSck4wc3BVMjA5bW8zc095ZEtib2lJUE9zMVZiTXg1cnpK?=
- =?utf-8?B?cDcxeE9QNWVveXFOTGxBT2ExTEpGZVR2TUJQWEUyZyt5dUNucTRpSkl0NW5H?=
- =?utf-8?B?dCtBMzR3V2dsRDg4NUk1akRWMHRoZ1VhNjJKc0l6ZFJUOHZ0MWx4eFJLRU1E?=
- =?utf-8?B?S0xzWk5jTVIvWlZhL09RZlZDaHh4NCtKVStLSE9BaEVBL21JRmpYaldPRk5P?=
- =?utf-8?B?YXkrODN3b2Q1cEs3U0tkNXRETnNELzdPTTJKZnZvcGEzNmo2NDR2SXMrRzRE?=
- =?utf-8?B?QVZ2RXFhYjVnT3p5UVhqVzJ4TXo1eERMQmREOWp0NGo5SjIvalhhSXd5YUNR?=
- =?utf-8?B?eSt1U3A5czNtM1FuSWFnYlIwYXJTNktDNnFNa0ZlelNxdkJWQlliNTdYcDhZ?=
- =?utf-8?B?U3RubGVmbW1xWEx6bk9Jcy9ObWFSdko1cytOUkxWUkhpV1hIN2Q3MDkxTWtE?=
- =?utf-8?B?ODJURkFSczNSUy9uVjRjUDFzdDZTSUxXN2NLNkVTZGUxa3dHN0ZNK0Rtemd4?=
- =?utf-8?B?R2U3N044ZUdlTW1pY1Q1b2ZuQm5OdUtZczdhbm4rQ2trOW8yRDE2RGtoZFpZ?=
- =?utf-8?B?dmprUzQvTXRIbnZBYWFXWTg0MUFIU1FCS1Vici9zZm5YL0luZitJdTRTQXl6?=
- =?utf-8?B?dnJwK0djYklLcEp6REJNUElTRHdWUHl2Qk9OZGxpVWJ6aW9MNEt5d1dQdXJ6?=
- =?utf-8?B?K09LTlJMcEcvZEFWYVdhdTV0clZLZ3pSY0ZZZ1RKZnYyV3AyNk5oL3QvOHRS?=
- =?utf-8?B?YjBrVW56YS9WMXlpNkJZWXlzdUZCQkJXMExnTDkxTjhFVmlxRGFCRWN0Y3FW?=
- =?utf-8?B?L0V2aWZUbmZGRnFSZkxBdTVTNDQ4aTNVL0VBTDVQaXE0WGF6V3gzODlGb3BC?=
- =?utf-8?B?cXhDWm80QzdYZjVGa05Rb2MwcHdkMnlrL2x3anVYNDRnZ2hRUmZQdVlzeWJU?=
- =?utf-8?B?N0JBZU1ELzVFVzRHZEVCWE9pV25LdDNmMkNRS2s0c0NDRWk3TUFZcGY5d1NT?=
- =?utf-8?Q?Aky9uxdbUqOcxH/fzD?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7b5e4fc-56c9-44fc-ebc8-08df230c6d88
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 18:13:59.6078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V9obrgPESDeqnlaixAeZnXZGbDbYlIeMT02ga+Uh4kElYHPnyxGhtSXkB0DSNm2v
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4080
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_111414_520081_F1FD836F 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20261005_113113_573625_3E45A03F 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,43 +126,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5 Oct 2026, at 2:29, Will Deacon wrote:
+Hi Junhui,
 
-> On Sun, Oct 04, 2026 at 02:06:48PM -0400, Zi Yan wrote:
->> On Thu Oct 1, 2026 at 7:06 AM EDT, Kristina Martšenko wrote:
->>> This series allows the kernel to use TLBI domains. TLBI domains (FEAT_TLBID) is
->>> an Arm architecture feature that enables a TLB invalidation to target a subset
->>> of CPUs instead of the whole system. It can improve performance on systems with
->>> many CPUs. TLBID is not yet part of the Arm Architecture Reference Manual but
->>> some of it is described in the latest XML [1].
->>>
->>> The goal of this series is to send TLBI commands only to the CPUs where a
->>> process has run (i.e. where its page tables have been installed). The last
->>
->> IIUC, mm_cpumask() is used to store this information on x86 and other
->> archs. I see you put this information in tlbid_domains of mm_context_t
->> from patch 9, although in the form of tlb id domains. I wonder why not
->> make arm64 also update mm_cpumask() like x86 and other archs and derive
->> the tlbid domains based on mm_cpumask() and a cpu-to-domain mapping
->> (added in patch 7).
->
-> Historically, maintaining mm_cpumask() was a horrible source of contention
-> when we looked at it in the past. Maybe that's no longer true, but it
+On Wed Sep 30, 2026 at 1:26 AM CST, Junhui Liu wrote:
+> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
 
-Do you have a pointer to the cost you have in mind? LLM can only finds some
-overhead reduction work done by Rik for x86[1][2].
+[...]
 
-[1] https://lore.kernel.org/all/20180716190337.26133-8-riel@surriel.com/T/#u
-[2] https://lore.kernel.org/all/20241114152723.1294686-2-riel@surriel.com/
+> +static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
+> +			 0x21c, BIT(0), 0);
 
-BTW, patch 9 is updating tlbid domains unconditionally. It can be optimized
-in the same way as Rik did for x86 mm_cpumask(), read the tlbid domain first
-and only update if CPU is in a new domain.
+I'm bringing up mainline on a Radxa Cubie A7Z (PCB V1.11, 1 GiB). With
+7.3-rc6, this series and a local common-DT integration, PSCI reboot and
+power-off hang once unused clocks are disabled. The boot chain uses
+vendor boot0/BL31 and source-built SCP/U-Boot.
 
-> would be good to see some numbers if we want to start keeping that thing
-> accurate on arm64.
+Keeping both of these gates enabled fixes reboot; either alone still
+hangs. With only these two marked CLK_IS_CRITICAL, reboot returns to
+boot0 and power-off drops DCDC1 from 3.3 V to 0.7 V and turns off the
+green LED with power still connected. I haven't checked whether each
+gate is needed for power-off on its own.
 
+My guess is that BL31 talks to the SCP for these, but I haven't traced
+it, and it may be specific to the vendor firmware.
 
-Best Regards,
-Yan, Zi
+Would it make sense to mark them CLK_IS_CRITICAL, like bus-r-cpucfg
+already is? I can test the next revision on this board either way.
+
+Thanks,
+Vinicius
 
