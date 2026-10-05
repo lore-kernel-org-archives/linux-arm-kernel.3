@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313ADCA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B2DCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LgPYNYfrn7ye985WUhZmZjMTjO1NjL5/D97itGyhqAw=; b=D9DArPfwq982kOZntSZ5PLf3W6
-	cOybE73QsWHxsoQYoAVfmdYYC8RcZffH3V96lwf3e6FYtar9KiWg8iWrxkJTcOcY+2o7PFH0cD6g+
-	TdG2Th8SGnfgibqdrzYS8dZ4ESbvQuIxLCrwvHlwnkeUfqGc2oa/XsnVHCmb82lECLWiS+azJCHcR
-	VlsWQBlnEqO1+Ko7fi/wEtk4RHvWiGtDY6JrOjVPP6ozWHzuCQtVUnZ3/Fifz7HyQPPuq9c4BhGed
-	1CCgvckh8w/m6Aue5/KZniuKA806LD1MlQm76m8/EKcuYNinUzsNGTWbEE8KuzpigXNRep9/Wqz47
-	SDQMGD2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wWUV3emk7ULpEee/9G63NluqNobYqArTy8HB1/MEtJY=; b=qDPmA0GrpJUmZFX1xSlO8k7Ort
+	HUuHnS8JlqvMi8MCO9EcrhW9VhP+0UZhpOvwBR/bAgo1zbDZ1DpSPxvW2aMK9GLOex4BecaKKT2PI
+	QKAkmIHMkS9rQR1VJ/w9j6W/y3OI0Yox4NDqpz/wuefEYrcukXTfvpHBr2aCLfG4Opmj2Wqu2/j+o
+	nSuDweOGYzC1sWcr+3YVSCOYRQBKd5il1yBld1AKfIvlo1mpUAcG2ZGf0ze640U53VsK4ekT6ZLeD
+	MlNj/bcjKvxL7s1B0b+ndUjZbkiD0jgpHw+m9YDyD1t/bQ5qHi2+3oVxnVMLmPPQI2D771HM7edPO
+	umrgxlhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDl3O-0000000GnrF-3rxh;
-	Mon, 05 Oct 2026 15:56:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xDl6A-0000000GoCH-1sSA;
+	Mon, 05 Oct 2026 15:59:30 +0000
+Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDl3N-0000000Gnqt-2lyH;
-	Mon, 05 Oct 2026 15:56:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 453EB40966;
-	Mon,  5 Oct 2026 15:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 366F21F00893;
-	Mon,  5 Oct 2026 15:56:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791215797;
-	bh=LgPYNYfrn7ye985WUhZmZjMTjO1NjL5/D97itGyhqAw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cj4VBovtnl76Di0FNaORQZqDfwdvc7zCoApzbtNjmPFX9T+uWd73bUMuh06UpnQ1+
-	 ksSW1dEw2ub2TgAc9dPSUkjq9UsyIpuDX6Pv0bucOlI867eEbPfpGtLEsNSX7jrwRr
-	 hO6Y8Q0Es7gBAN1iCW3ji5CF3mgjFCSkukc684bfHudd3KBwDlysCcz70C38EukJEy
-	 7e3l+7ReX/I2JelXHCkZ1jLV7X3DZA6DEK1rlGvOC+NzJAOB8rgZ3+7zr5Gja+OICu
-	 YKs18aFOTmpUEKcJbxSSZCe2vO8BGvgwIYw8chacuWO6WU1WI6CQ7l0xgyljXt4/kA
-	 ACVa3CuIoU6ug==
-Date: Mon, 5 Oct 2026 17:56:32 +0200
-From: Keith Busch <kbusch@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: Update saved Max Payload Size in pcie_set_mps()
-Message-ID: <asPIsBZYD51d7YsL@kbusch-mbp>
-References: <20261005124154.2190628-2-cassel@kernel.org>
+	id 1xDl64-0000000GoBN-1TSh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 15:59:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791215953; bh=wWUV3emk7ULpEee/9G63NluqNobYqArTy8HB1/MEtJY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=q6YVYBE88V85PRYuvbIq3neymOFilDrh8cO5qqWizFRHMcK9SRpLyPHt8eRZJni7Y
+	 AhKt8fy55tPNH8CsIQjBLqWSSSxlOWUz1zluf+zzrhlW37b1Qt4B/fIXqOR5d3oOCn
+	 V0ik3x92lqC62BA97RBRf05IWe3tL4K+cSNtOyvU=
+Received: from [198.18.0.1] ([112.43.117.189])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id ECAA2E19; Mon, 05 Oct 2026 23:59:10 +0800
+X-QQ-mid: xmsmtpt1791215950tdkxd44af
+Message-ID: <tencent_F21509258CF77A024260954C593157414F08@qq.com>
+X-QQ-XMAILINFO: MhK4DKsBP06iQ0lS0hbC/UsLm9tt/MybcZCBA3F8VcY7H+aZeqAd8AROVa4pXO
+	 d0pIei1IbKnZP6DIoAZ63YcKKcIIkGQ3lkGuWRWClueza9+PIxnIIKTf8t8nr/fD59D89U+EIBVL
+	 pJFEJqG/ddtw5tSjxy2YFSR+z9MfRNKc9ZRI/oUaJVVtgZgVMtgcmxujBACCn8EYlTkhkOy0abr5
+	 UIrmORpcPUMjDgrISxSTXiW5LEzQkcaCECIfYULE7jpwPQ9JpmJnpalM9QCqCCgEvpqM+MXLOR9R
+	 rieP/2H5nNw/HcFtxJEy8tf99kEmztlQhucqRvsYMdswUg39IwpMehiIqPOj5UsRax51j6bWULQd
+	 MfimKaKfYpn6P9dkwjxbcByDoMLz5WUT4SkljPAo4/lpKlU+Rw3BktTsSqhBDHsf8jCztjIrKWAQ
+	 XDBmKvZFD2PA64M1mbBuk/kGfHlewP1vX0rf5xKn3oi9VHXm59MUd1DvSgJrOKYRDf96S/BftjSI
+	 xBJnmgL1W61ajxRpkwW/FRSpkD1EpgOq6XOIgx9uQLwTL5NnEpv2PmN7mHMZlhN8KDyjwLjioN/M
+	 cKqmzeUks5/DOyjXIydFIQc8XU1LjrdqhxZhFerDTBvdj6/xfeCP2EmnPbaGq9TLwKQy+JRS6bDP
+	 9uGeerVZETCB01xMQ08u8Vg5lw3fGgFE3pUQ84v8LFXlCPVLrRdlFiLT7uBAST08rJVbbYLoKHwT
+	 8gmRwww+uZG7+jl95rniYFUkuf7qerHqPYFLGuiWx+0n2tB2/0zveOW771jTcHcy1MFD/K5dHQSM
+	 JNVCpywNHClD+uLOE0pS5cvCEiSHRElx8K2HMhhtkcvVzFW4hXxNzR9TGd5defYSxt3C8dAAeSIs
+	 DUmd5qUZr5M4PF+goJFu0Jv9zkfT+17Drz7uukSJJTPfuh3Ht3fLXtutvMBzqjzXtcq1atYFt+wu
+	 dbEw1n9AsI99ZeU9EbxG4Kag8ygSlF+NQbK7v21Rt9cC1+0tN+4vI4cR2Bm0zj7qt0n665bJexjb
+	 PVd9o2DAmUBQtthosmwrLPWjIwWhwLHgcCd6sQb39CZIa9YZkfnPbX5y913nQ=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-OQ-MSGID: <322103a8-cf74-4213-bc95-e65c34366dd1@qq.com>
+Date: Mon, 5 Oct 2026 23:59:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261005124154.2190628-2-cassel@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: Add EBDEE vendor prefix
+To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261003194625.936288-1-2254650260@qq.com>
+ <tencent_E21E2A584AF8EE0505C2C0809838621C8209@qq.com>
+ <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
+Content-Language: en-US
+From: Pufan Jin <2254650260@qq.com>
+In-Reply-To: <387c02a6-1298-44a7-952e-47d1d8535541@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_085927_171122_D91DC397 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,32 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 02:41:55PM +0200, Niklas Cassel wrote:
-> pcie_set_mps() changes the Max Payload Size (MPS) in the Device Control
-> register but leaves the copy saved by pci_save_state() alone, so the next
-> pci_restore_state() puts back the old value.
-> 
-> The PCI core does change the MPS of devices whose state has already been
-> saved: pci_configure_mps() reduces a Root Port's MPS when a device with a
-> smaller MPS Supported is hot-added directly below it (commit 9f0e89359775
-> ("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")), and with
-> "pci=pcie_bus_safe", pcie_bus_configure_settings() can do the same when
-> pciehp calls it after a hot-add.  The Root Port's state was saved when it
-> was added and again when portdrv probed it.
-> 
-> Since commit 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root
-> Ports in a platform-specific way"), pcibios_reset_secondary_bus() restores
-> that saved state, without saving it first, after host->reset_root_port()
-> has reset the Root Port, e.g. during AER recovery or on Link Down with the
-> qcom and Rockchip DWC drivers.  The Root Port then goes back to the old,
-> larger MPS while the device below it is restored to the smaller one, so
-> the Root Port may send TLPs that the device treats as Malformed.
-> 
-> Update the saved copy of Device Control when pcie_set_mps() changes the
-> MPS, like commit 909f7bf9b080 ("PCI: Update saved_config_space upon
-> resource assignment") does for BARs.
 
-Looks good to me:
+On 2026/10/4 05:14, Krzysztof Kozlowski wrote:
+> On 03/10/2026 21:46, Pufan Jin wrote:
+>> Shanghai Xin'yI Electronics Technology Co., Ltd. (EBDEE) manufactures
+>> the EdgeBoard series of embedded compute cards, including Zynq
+>> UltraScale+ based designs.
+>>
+> What does EBDEE mean? What is the company website?
+>
+> Best regards,
+> Krzysztof
 
-Reviewed-by: Keith Busch <kbusch@kernel.org>
+Hi Krzysztof,
+
+
+Thank you for pointing this out. "EBDEE" was an improper local acronym
+derived from "EdgeBoard Developer Edition".
+
+The actual commercial brand and manufacturer of the board is ALINX
+(Shanghai Xin'yi Electronics Technology Co., Ltd.). The official
+company website is:
+https://www.alinx.com/
+
+I have dropped the "ebdee" prefix and replaced it with "alinx" in v2
+to properly match the manufacturer and board schematics.
+
+Best regards,
+Pufan Jin
+
+
+
 
