@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9CACA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 05:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5A9CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 05:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eqJik4IYOHY/75Y5UuCar2kZCYK5tdqZHpjteh0qpAE=; b=YyCYeEG1MT47EgpoqCdwFxAF02
-	lxsNsGKVIJQH5fdfDLQhQSE0Czd4V7R8WL4a+ZQDFxiTZyoJHgob7SRvebnhLujric73YbkAkl/oB
-	V8ylsmCVfveAKL79XK8Co3vHrUkVtq1J9lz/04+FJww9VpWG3luHJN+As3QwYl1BRp6ZkFGrNFjbT
-	pHt0XZW7UQZZiAISZPdbuYfEpt/ocxm2h6OzkuB5+X8z4AQ2LE6uoTsUpngiH9QBOyTu+Ft0TxzgZ
-	u/mjcOHi0iaKFQzOmaOC5c5OOB7QSZlxDujTrH2oD5qMv2f/Vwi3YSD3K6mqETpUy28S5iqDHui/y
-	chAXlSNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KIP+2Kd9KtbIjj0iXZhXehPTicPKa1pbhyoZBh1wMo4=; b=wBZfnYM+syVCLcVR/hyBpCsvJl
+	0p0Tm2z5Pho8ZvGXTReDkMi+yfngPz86Pje6J7+tkG57oL81su9NE1unQi5sZcYH1F48J3qJ+ZdCh
+	zHAUK9MkfuilLTrwJMGzeWzUWWjykE1Jj+GwipfdJq+CLRkTsFDgaYHAFoQgjzr5cUGcz4v1WuMKf
+	0BApgnnr1vsYnqXqmZ0YDuo9CPGt6wkZRaKFce3QQNnOOdziiGAWUWIPTSP3lNqsoEoelzDd9l0WM
+	WFwMH33vJw/i69QjDXTR/OuK8esvsacXCZJBu+4JvCBnS5hE5sXVXQ5Cw46Ke631Va9YKDmtBJ8hs
+	YxU03bug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDarn-0000000FgKc-22rq;
-	Mon, 05 Oct 2026 05:03:59 +0000
-Received: from out-86.mta0.migadu.com ([2001:41d0:1004:224b::56] helo=mta0.migadu.com)
+	id 1xDbGP-0000000Fh3M-2XrL;
+	Mon, 05 Oct 2026 05:29:25 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDark-0000000FgJp-2UKq
+	id 1xDbGM-0000000Fh2z-36UI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 05:03:58 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=1rAAjG7z10ioumPSrvqWzbDK82NOUf1K670uFQMRS8o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791176631; v=1; x=1791781431;
- b=oDMhlVj9/nI1UZ/sFwlnmgPqdqbnBPoYi3iurNSUjbU4rIQS0n/T78TbtBGGI3/ht/Gwel5i
- 1iZpxicyUc0ukcYzN6kqumBkthyxRM+sEBD9P8z0Bzc2Hcur/WJiNK1+nTHEBlZfkhXBh2xLvm2
- tt9u/Xzev2SonrF/sX/c0W6M=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 80948e4cdbc2f4cc;
-	Mon, 05 Oct 2026 05:03:51 +0000
-X-Mizu-Trace-ID: 80948e4cdbc2f4cc
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	kvmarm@lists.linux.dev,
+	Mon, 05 Oct 2026 05:29:24 +0000
+DKIM-Signature: a=rsa-sha256; b=UNGHZEpEiaD159QgaaDCEFfkcvxSa8QJjY+ciWNpxzDdPxsKsm98VDBPcpNYcjP0iizZx4cBjuCkbaBZajCKAPNp1a4ChmuSFWL3vl+UBfLS3FWgQ4IWJl+vL8XP4RKntLSAYU7GGvlJo1NI7uqBR7zX0ey6jE0gXhcpBldSwsVrKmUs95LGf4epmZjVv5jz19YnZgOJ5y7cpi3zPk7omiBHGtvjDvlbuK563LX2xNFFtyVH4V7wOB643uBJPlfSIxU98mGmMvetlOEtMbnwOdKYBkN5hnekEufx1oO98OefFZr1CaqATNCZxocwoC7ADXaO0CwFlePEAqHytaJ7jQ==; s=purelymail1; d=q-lab.dev; v=1; bh=Vn3zjnwgyF/pasgQ2mGKhSYal+8VdI+0lX/7JlzOwXI=; h=Received:From:To:Subject:Date;
+DKIM-Signature: a=rsa-sha256; b=MXj6K+MXIMn/S7FkQ/jHU2nHJpWDQKj5OolVBlh/A8PLmRubDeTULqA+WGmnphHSXiwPP06+XDuv1BXwD2hiJLmcNkzpYEuRzle4CxM9lk2REF8NXO9EnPwoYbTYzldYBPpPMhEw7jKYlHb/MA/x1ga1FJO3aAo3TSLRgAqvqRLAK1uQAL8DX5amYBhg4D16AvH+uqIbDFNgGBWwT5V8IXxDrmD4Hjtq/L09gAdZdhdplXkG3EhG/vyN7RR0a910+paFM4qrPDW18zhYyRiojYDK0hhbnqYClhDJjYKXNETKkxtPaGQSNNYMtyNeEADiMAgeeSpE8o8bmFbWd3wfvA==; s=purelymail1; d=purelymail.com; v=1; bh=Vn3zjnwgyF/pasgQ2mGKhSYal+8VdI+0lX/7JlzOwXI=; h=Feedback-ID:Received:From:To:Subject:Date;
+Feedback-ID: 284201:25281:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Authentication-Results: purelymail.com; auth=pass
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1344933009;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 05 Oct 2026 05:29:02 +0000 (UTC)
+From: Quentin Freimanis <quentin@q-lab.dev>
+To: netdev@vger.kernel.org
+Cc: Daniel Machon <daniel.machon@microchip.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	UNGLinuxDriver@microchip.com,
+	Richard Cochran <richardcochran@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	vdonnefort@google.com,
-	qperret@google.com,
-	tabba@google.com
-Subject: [PATCH v3] KVM: arm64: selftests: Check SError is not pending after delivery
-Date: Mon,  5 Oct 2026 06:03:49 +0100
-Message-Id: <20261005050349.836795-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+Subject: [PATCH net v2] net: sparx5: start the TOD counters on non-PTP lan969x variants
+Date: Sun,  4 Oct 2026 22:28:26 -0700
+Message-ID: <20261005052826.14251-1-quentin@q-lab.dev>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
+Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_220356_837786_160900CA 
-X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-CacheID: sfid-20261004_222922_844912_726BAED8 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,51 +74,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-test_serror() never looks at the vCPU after the SError is delivered, so
-a stale pending SError goes unnoticed. Read the vCPU events back and
-check the SError is no longer pending.
+Currently the base non-PTP-capable lan969x variants don't forward any
+Ethernet frames:
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+  $ ip link set eth10 up
+
+  $ ip addr add 10.0.0.54/24 dev eth10
+
+  $ ping 10.0.0.1
+  PING 10.0.0.1 (10.0.0.1): 56 data bytes
+
+  --- 10.0.0.1 ping statistics ---
+  7 packets transmitted, 0 packets received, 100% packet loss
+
+  $ cat /proc/interrupts | grep fdma
+    20:          0  GIC-0  120 Level     sparx5-fdma
+
+  $ ip -s link show dev eth10
+      RX:  bytes packets errors dropped  missed   mcast
+           20828     102      0       0       0      72
+      TX:  bytes packets errors dropped carrier collsns
+               0       0      0       0       0       0
+
+Testing showed that starting the domain 0 TOD counter gets networking
+working again, but start all three for consistency with the PTP variants.
+
+Fixes: 207966787b71 ("net: sparx5: add feature support")
+Suggested-by: Daniel Machon <daniel.machon@microchip.com>
+Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
 ---
-The fix from v2 was applied [1], but not this test.
+Changes in v2:
+- Drop the TOD start helper and start all three counters (Daniel)
+- Fix capitalization in comment explaining why non-PTP parts
+  need the TOD counters running (Daniel)
+- Add test log showing user impact
 
-Changes since v2 [2]:
-- Dropped the fix, now in kvmarm/next.
-- Rebased on kvmarm/next.
+v1: https://lore.kernel.org/netdev/20260928044955.29647-1-quentin@q-lab.dev=
+/
 
-[1] https://lore.kernel.org/all/20261001135711.1640520-2-fuad.tabba@linux.dev/
-[2] https://lore.kernel.org/all/20260921101030.1231605-1-fuad.tabba@linux.dev/
+ .../ethernet/microchip/sparx5/sparx5_ptp.c    | 28 +++++++++++--------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
 
- tools/testing/selftests/kvm/arm64/external_aborts.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/tools/testing/selftests/kvm/arm64/external_aborts.c b/tools/testing/selftests/kvm/arm64/external_aborts.c
-index 7836756a38a6c..c35b0c87250a1 100644
---- a/tools/testing/selftests/kvm/arm64/external_aborts.c
-+++ b/tools/testing/selftests/kvm/arm64/external_aborts.c
-@@ -239,6 +239,7 @@ static void test_serror_guest(void)
- 
- static void test_serror(void)
- {
-+	struct kvm_vcpu_events events;
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm = vm_create_with_dabt_handler(&vcpu, test_serror_guest,
- 							unexpected_dabt_handler);
-@@ -247,6 +248,11 @@ static void test_serror(void)
- 
- 	vcpu_inject_serror(vcpu);
- 	vcpu_run_expect_done(vcpu);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/n=
+et/ethernet/microchip/sparx5/sparx5_ptp.c
+index 5953e04ef14e..2826e48af103 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+@@ -622,18 +622,9 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
+ =09=09sparx5->ptp =3D 1;
+ =09}
+=20
+-=09if (!sparx5->ptp)
+-=09=09return 0;
+-
+-=09for (i =3D 0; i < SPARX5_PHC_COUNT; ++i) {
+-=09=09err =3D sparx5_ptp_phc_init(sparx5, i, &sparx5_ptp_clock_info);
+-=09=09if (err)
+-=09=09=09return err;
+-=09}
+-
+-=09spin_lock_init(&sparx5->ptp_clock_lock);
+-=09spin_lock_init(&sparx5->ptp_ts_id_lock);
+-=09mutex_init(&sparx5->ptp_lock);
++=09/* The base, non-PTP-capable lan969x variants need the
++=09 * first TOD counter running to forward frames.
++=09 */
+=20
+ =09/* Disable master counters */
+ =09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0), sparx5, PTP_PTP_DOM_CFG);
+@@ -657,6 +648,19 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
+ =09/* Enable master counters */
+ =09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0x7), sparx5, PTP_PTP_DOM_CFG);
+=20
++=09if (!sparx5->ptp)
++=09=09return 0;
 +
-+	vcpu_events_get(vcpu, &events);
-+	TEST_ASSERT(!events.exception.serror_pending,
-+		    "SError still pending after the guest took it");
++=09for (i =3D 0; i < SPARX5_PHC_COUNT; ++i) {
++=09=09err =3D sparx5_ptp_phc_init(sparx5, i, &sparx5_ptp_clock_info);
++=09=09if (err)
++=09=09=09return err;
++=09}
 +
- 	kvm_vm_free(vm);
- }
- 
-
-base-commit: fa22cd9947fc245d71bc40482f7f78eb0d5a4af0
--- 
-2.39.5
++=09spin_lock_init(&sparx5->ptp_clock_lock);
++=09spin_lock_init(&sparx5->ptp_ts_id_lock);
++=09mutex_init(&sparx5->ptp_lock);
++
+ =09for (i =3D 0; i < sparx5->data->consts->n_ports; i++) {
+ =09=09port =3D sparx5->ports[i];
+ =09=09if (!port)
+--=20
+2.55.0
 
 
