@@ -4,141 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F745CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C21CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wTpXd2xcXmR9jaqSnaJI/lPyn8DKYRE9YWWV6/HaoMI=; b=mwvuNBgkwLbCnzLTBdzHrpp19s
-	iIFFBEV//+/hKK8M8vITS+zaCvFsb6u8BToh8tbPKITXM99hdpFS+ilBCnYqLAM/CyquCLOt/HB+n
-	6y1seYscQSpIMwSOrXZRm1gniqBhAAnr8agwDS7NRYRP+qlRweiy93QkFn5ALtLsdJUoNOiJLGRZd
-	JIyoR+pk/Ty3tecIsHlJ8D235JrY8jFO8u+o8yyQRbenTv/gURnafU3ls+MVWk5qTjs5ajIRoGZpT
-	wa6Q5qM/YjtJIkpyIimTbiDriqkidacXEBB/8nOH15/tpXOS7QKDb2aDB/tYaZh+YtpWhWVKxg3kX
-	y5t1WaUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lD6pTqRDMSfKXNqb4UUFNdsEKglv/1NbFFOX0KLFSbY=; b=nup7+n05qytFFg4OAPl5exTjx3
+	up1ubEy4vOZlDXSRjzGi5nSUGrUL4b+Somld3bJaGfmgjTKK7OpfQbQNSr7UvSlrOdu2QtjiJivGr
+	uIDsj1YKn4ErpkreQhhYkZBFdl/jMZ9fDgxjh7gGk2LZc7ottO1gp/598fy78oH44VR+MGKrXqPQs
+	FYPcjkzIvnUNF5liPwJLNF1ecKmk7t63A2O0DCMr+/9e0oCSHStNzxly+e2dKs3p6krrGyQiG9YYs
+	RdfD6dmBTnrQ8glr6gjeSMLK8qjf3XP/xwqWw9p9Y3T8EwbO2wcKdCcmez1RfYAWxUWnALvJBBZNS
+	iycWy7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfgC-0000000G8HR-2Phg;
-	Mon, 05 Oct 2026 10:12:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xDfQS-0000000G604-3Ol4;
+	Mon, 05 Oct 2026 09:56:04 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfg9-0000000G8Gt-1VeU
+	id 1xDfQO-0000000G5wk-1Xus
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 10:12:18 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6958xn991105273
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Oct 2026 10:12:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=wTpXd2xcXmR9jaqSnaJI/lPy
-	n8DKYRE9YWWV6/HaoMI=; b=HJspakl/D69qWYxop7Ch866rgarzmM6aBt1VrN/G
-	mcmGUKHdvQegqiobw9pjzMJyk88qynk/bAwRJ8hee69FbTgmQwjII0/kMv/4bHBi
-	yaO9LB4EE7bUhqLe6/Lp4U9zEi58ZoBb5+xJFk1dmWhi7VxQDwzH4eD7vyn0QkjG
-	DzgapdM/0CcFy+qFiD8mWVOWICllHIUFCwxj+ub9F8tixnifo0lg5M0+TiQKtK0j
-	V2Y42MEmZUtaVPGIAl0WC0p47TUY8agIlaLT/ihZPi+hvQquefxBqF5jiC3B/A2b
-	zLvU1/F2ib4w16ekdF5rLkklPU+ym0gdsIa0BnP/uw2lqA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h2ssu5cv0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 10:12:16 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93bfb2da664so344216085a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 03:12:16 -0700 (PDT)
+	Mon, 05 Oct 2026 09:56:02 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c29703cb470so266546966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 02:55:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791195135; x=1791799935; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wTpXd2xcXmR9jaqSnaJI/lPyn8DKYRE9YWWV6/HaoMI=;
-        b=Bcr7GUR1sft205Hxyxa1gwUfUeAGWAX0BMJOQ2xY4y+AhoXTEG44KBbGBcuGqFVcFB
-         ObTF9BYUbHelVvAgSWsTY1kjnRg8DzJ+sGrQy1b22f/i2EK4PJmhsDxT539CbfSI98B0
-         4TNN+/PYrNbw8UVbwfGqmDFIc8sPWmoFRnXGllY8mu3htfh5RlGVBbYqFaeRpFkWEtiQ
-         bzHWJCmv682xXylD3m+9wJY1tkOLv/BsHuYMLnUZlOgkaLqUGoR73/OgvQMgHWOb9hbj
-         D3BJiczw+etEqpoxGvPiPIeXm+luNyEzOPoPJfk7YQ1A0HlWPHzQonF01i111JJQRSnk
-         yxpg==
+        d=gmail.com; s=20251104; t=1791194158; x=1791798958; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lD6pTqRDMSfKXNqb4UUFNdsEKglv/1NbFFOX0KLFSbY=;
+        b=GkAas0yLX5topkkg21JlPop6o3SnmbkQyhoMXlWfJppUKtgXENM+nH3djFsmkUU/Rl
+         OG+wjJ0bXrm8VsQlWKIAIk4wiX4DpDBacXp9LXts+1glh5cwEQjKRRTkve1GFusnm0WN
+         KDcTSzbEPJoIPHXAqV7D2/XpJ8hkcqzDjC/o9eS9E1D6ZzOy7r3/jK4fvjpnwajMWdng
+         2lzniA7YSbm2YycOxt9XV5ogxOH192Pwxnyjrxts4vx5MAeOky2L/w0409D3ffRvdk5K
+         vmMad2MNswOUX36gL47qc1f3x0xAUmqgyXw2TAV170UYUXlyHnAwwhuFSbp1J2K6L5r3
+         jN1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791195135; x=1791799935;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wTpXd2xcXmR9jaqSnaJI/lPyn8DKYRE9YWWV6/HaoMI=;
-        b=t/b3WtTZujRssAI+3usQHGjovx6XlwnkxviW1Id/Dmr4HjqsQ/Fl3/yzzbnwYZDoGN
-         rS4LATt/ojOUGllND1ldapz9poFdLetMcSLeT1SKxFbrBf3EjLN2Eae3IfeOZaw8/oln
-         K9xdGk17aMmGG+OB0k8ods3C+gDdMisjavDSWnTFOQHC6xbDQFN4H/iBlvFUf0CrNSlG
-         pqS3MGpbSZyrEtl/1/nByd7AR7BRSFXdKVjG42vg6KsjzEIGOp5ODHVqfe3Xa+zgrGUE
-         CCmMZB+H7UOTzjG1dHoVamsvH4lLg1lrnYBj+jhTbaH4N2PALwpR0YrG2xs8jpYN/AVc
-         W6Wg==
-X-Forwarded-Encrypted: i=1; AKwUvBx2sSyq3qW0L6m0HEnl97hKYnwAzKELD+Ab1Q9vdILi8jE+x6ULRyn/VQf5bkBM0/o1bmac1aVZNK6zHp7csh+R@lists.infradead.org
-X-Gm-Message-State: AFuF++lr9GNxDFseT9Mythpb1PROxOjH9BMexlsZ3onkAZK85eHNK3xB
-	pZEObD51nG8Av80THurfQHZlVmN1WaZ4+Xzz9Ua8nT30JELeIQQy+6929rNg9i910WbWZ76HRVx
-	armOSGi4jcbThds1IMhg/RmtDODOmQVOMJSaAjpYIJwBIvj88PoCjeqdFQxOgnMXueM6h4s/7Oc
-	bkkA==
-X-Gm-Gg: AYBFou0GdksTCVUiJopNupYE90LQFAy3ZHr6EGD+Cs5klAuiKdhdVPsFaxeSuksJ82N
-	e37MZ0HrRzFtVKaSGS+GFQ6SQGVAJ2Ig0jdsrZ8AJ7Cc4un3X4LcNDIeLhviP9P9Rl3DhsVExCK
-	9tnO/+w/fpDlFCUVMxVjY2mpqe3Olju74rIC6Fcz/KfmlJ3hq9+YazajCc6WqPoxcm30dszKv3F
-	aYwx67f1UoSgrlzy8crXUF10E8FFUVhXtUGlic/6MyzQKZ1KwTt3LgcIcYNmAwbfohspSb5Eujk
-	9JsBuk+HmbJ9Tb4mXCPj0ZUTkbWQ3mPLy6nt+8r8RY+WfU/QHZV2HGizDy1Rds1JoFbYrp7UN7y
-	D7PDE8gVp5FB+Uw==
-X-Received: by 2002:a05:620a:6f92:20b0:939:a834:98f2 with SMTP id af79cd13be357-93ce7c126d3mr1270433385a.15.1791195135275;
-        Mon, 05 Oct 2026 03:12:15 -0700 (PDT)
-X-Received: by 2002:a05:620a:6f92:20b0:939:a834:98f2 with SMTP id af79cd13be357-93ce7c126d3mr1270430585a.15.1791195134577;
-        Mon, 05 Oct 2026 03:12:14 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a162e867e8sm306620895e9.15.2026.10.05.03.12.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 03:12:13 -0700 (PDT)
-Date: Mon, 5 Oct 2026 12:12:12 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-        john.fastabend@gmail.com, sdf@fomichev.me, boon.leong.ong@intel.com,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v4 1/2] net: stmmac: fix TX coalesce race and
- div-by-zero in XDP/legacy path
-Message-ID: <asN3_ExreXflhcPN@lore-desk>
-References: <20261001-b4-stmmac-xmit-mb-v4-1-664e0c3eb289@oss.qualcomm.com>
- <179119366947.434549.18258387588944949725@kernel.org>
+        d=1e100.net; s=20260707; t=1791194158; x=1791798958;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lD6pTqRDMSfKXNqb4UUFNdsEKglv/1NbFFOX0KLFSbY=;
+        b=NdnXnSFM7/oy8PtQKnjO5lVFx2ZgUSW3SQVN22npxmGSIG74Kqq83IyiT1KPmgjBXT
+         HZxVYWjQYlMIYSP/8+kN7ZE/87vMt3bH5+9c/RpwYZBbMQNB6butgyvxoKRylyBUBUTh
+         n7XPNXu2a16la5YuF6LJWaiM4t27nQ+Gl/U00uZCeOFlBSSq31o8Vdi7C9lBh4Qa7+87
+         GhyrFu27TgLCfuMsT2WAtjbIBAYjrXNXXySqFcVRQXoCe7H0mOFWGVoB0ph92D06MpHw
+         ZT4m7/Kf3E854m9SgE/70HpUi6dOlpkWPkDD/N8qUDQoamxBWpImdnJ7tg9866Hk2bYX
+         g8bA==
+X-Forwarded-Encrypted: i=1; AKwUvBzl9ZYVdqobthmYU92stFmtEtHMuiiI3SXNRAMRtipOfGwGv1Hcn2M45d4u0ObPMLUmBlXfamoC77wVMBLmjQau@lists.infradead.org
+X-Gm-Message-State: AFq9FYLNlsrHEvmciOBu2Ezprbk89hVyRDWinmaNc6OfVj3Qc+yTY25F
+	PpD0bIu5EKXJGrZumfmfB/9H7WzFyZoe3Lpm9g7OXGXxNrB3e38K9C+V
+X-Gm-Gg: AYBFou20IupdsVu96nAoYrn9hROOpnNaBepwdCaV25hnOx3ELhKM/NVpVpQgQyiUY8j
+	a0vjpu5p/voCkouYSArA+TTsBXeTN0MZkKpwDvSKlaBcGF0bbo/X1fhWxg1Xagmu4oQLgL/b8pG
+	mBWcQ9wVrYVgDk0Ll4WN4iUVUhdTdaSiikewrj5U0syPBeUawxGPZLDhoKei0Bnmh0q+djIgL46
+	1pfIGlExOtKHI9U102T5gcQYdKZIoO0FqHErTGP20Ut+OxEqCkEw4OviKFr5pnGqweXDwheK/aI
+	TLaNhqSZGRz5YZ8dMwzwvWQoWVK/qNGijaGoDULF8mvzDL76NzWl5RIyP5bgxBc4BKPETq6yLic
+	sA3bx0neji+H+sS4Zg3Lt3OJ7eUBy7ssdSwCz4vTO0HirG1QzQXj3R1DiEX9r5qcZVUhsdlcUiT
+	OBK/bPtRzbWcNgYaAedYdFcELR4jPuvUneC0KjSyD/fsyUWdFnrlkHNKppR/0MiX4yUqRytffV3
+	n+VOka/qnMTB87BmfGGiJlDMQOJgsJcZu/2KJVBj8xo5ImLOQfk6tUUSxFE5VH8we6rtHhQSFd3
+	+5BdOo1z/rtNDebV9BUAhhiu+qeShCR/7Vo=
+X-Received: by 2002:a17:907:3da3:b0:c2e:7fe7:288e with SMTP id a640c23a62f3a-c2e7fe736eamr411177566b.32.1791194158114;
+        Mon, 05 Oct 2026 02:55:58 -0700 (PDT)
+Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31562aba16sm50753266b.23.2026.10.05.02.55.56
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 05 Oct 2026 02:55:57 -0700 (PDT)
+From: Fred Griffoul <griffoul@gmail.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>
+Cc: David Woodhouse <dwmw2@infradead.org>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Alex Williamson <alex@shazbot.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-kselftest@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	x86@kernel.org
+Subject: [RFC PATCH 3/6] dma-buf: Add ranged mapping invalidation
+Date: Mon,  5 Oct 2026 09:55:49 +0000
+Message-ID: <20261005095552.52748-4-griffoul@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261005095552.52748-1-griffoul@gmail.com>
+References: <20260720111259.122911-1-dwmw2@infradead.org>
+ <20261005095552.52748-1-griffoul@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UfQjmt/PTQh8Ar59"
-Content-Disposition: inline
-In-Reply-To: <179119366947.434549.18258387588944949725@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA1MDAzOSBTYWx0ZWRfX7ySvDIWPsYlp
- zTw4m/JG1/uXdbSIQG9XlLAENPCoCozTp4bFnu7V/axCiDoPoDS8LvnVaycxOH+oEZe5fhvBM1F
- gSM3aPTUsJ/pr+scg+6ybagLHOTIt+RpiFbN09VrVR19S0AndwzK7zvBGt1JN+CQ6nof8Gp3vtf
- MJL6qU9CarsKYNQqstyZRoqE7hbSG52ohn6XSRtNaWYIlekMimqVlj0/DKxPwcMX1fyBAQyIM3J
- JN6QlGdFjvsoLc/csrQY0tfpMF8As21vkGPROh4g/G7aBQK6cDCJ7I8ZBM7xO8Qkamb4TkvUh6Y
- jdTBHxetgUxnKHOQr951ldLqzyv7fDYoPTVAzUFk6QRSjfxjMTwHQJO+7YePlW5fPsnhLZMVit4
- R7xz4X9mY6a7KlasO4z0I0j9xi9AoHZ+ymv3foIN0woPXaKlPdaiCY/qK835tFy5sPDuj6SOc68
- z9GQIL1GuZj8vGE2Wow==
-X-Proofpoint-ORIG-GUID: vB4bXbc2j6KDiBC8yS0J3QEcTwpnupgw
-X-Proofpoint-GUID: vB4bXbc2j6KDiBC8yS0J3QEcTwpnupgw
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA1MDAzOSBTYWx0ZWRfXzelqzuS9zjXJ
- KVQ3pPp9Fe7Y3mHTu6gD/wDxKEW8+0Sfi33GtTkV30RZnIQfwH3Pu9uYcgHdpVyuvvXpOjD+tW0
- DJIhdZJRmICKuju2ZcT7RP3eFKewAcs=
-X-Authority-Analysis: v=2.4 cv=XPSl2ghE c=1 sm=1 tr=0 ts=6ac37800 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=hMNoLFnnqX5p7295vMQA:9 a=QEXdDO2ut3YA:10
- a=UvE2pUckuqDNxODme40A:9 a=bTQJ7kPSJx9SKPbeHEYW:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-05_01,2026-10-02_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 adultscore=0 malwarescore=0 spamscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610050039
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_031217_548840_8692B78A 
-X-CRM114-Status: GOOD (  39.75  )
+X-CRM114-CacheID: sfid-20261005_025600_456790_6A69BCA7 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,166 +137,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---UfQjmt/PTQh8Ar59
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+From: Fred Griffoul <fgriffo@amazon.co.uk>
 
-On Oct 05, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0 (1)
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->=20
-> - [Medium] The commit message says the stmmac_xdp_xmit_xdpf() divide-by-
->   zero is "only theoretical", but a privileged user can trigger it and=E2=
-=80=A6
->=20
-> Pre-existing issues:
-> - [Low] __stmmac_set_coalesce() publishes tx_coal_frames[q] and
->   tx_coal_timer[q] as two separate stores and shares no synchronisation=
-=E2=80=A6
->=20
-> --
->=20
-> net: stmmac: fix TX coalesce race and div-by-zero in XDP/legacy path
->=20
-> This patch wraps every access to tx_coal_frames[] in READ_ONCE() or
-> WRITE_ONCE(), since ethtool writes the array while the TX fast paths read
-> it without a lock. It also guards the modulo in stmmac_xdp_xmit_xdpf()
-> against a zero tx_coal_frames[queue].
->=20
-> > Both issues were found by code inspection while extending the XDP TX
-> > path with multi-buff support, and neither has ever been triggered, so
-> > they are only theoretical. Tested on the Qualcomm RB3-gen2 board.
->=20
-> [Severity: Medium]
->=20
-> Is the division by zero in stmmac_xdp_xmit_xdpf() really only
-> theoretical?
+dma_buf_invalidate_mappings() tells every importer that the whole
+buffer changed. An exporter that changes one part of its memory cannot
+say which bytes changed, so importers throw away mappings that are
+still valid.
 
-with 'theoretical' I mean I spotted the issue with code inspection and I ha=
-ve
-never observed it in practice. I agree this is a real issue.
+Add an exporter helper that invalidates a byte range, and an importer
+callback that receives it. The callback means that the address, the
+attributes or the backing of the range changed. If part of the range is
+no longer backed, get_phys() returns -ENOENT for it. Importers must stop
+using their old answer before the callback returns. Importers that do
+not implement the callback still receive a whole-buffer invalidation.
 
->=20
-> __stmmac_set_coalesce() only rejects the case where both values are zero:
->=20
-> 	if ((ec->tx_coalesce_usecs =3D=3D 0) &&
-> 	    (ec->tx_max_coalesced_frames =3D=3D 0))
-> 		return -EINVAL;
->=20
-> So "ethtool -C ethX tx-frames 0" is accepted. tx-usecs keeps its default
-> of STMMAC_COAL_TX_TIMER, and stmmac_ethtool_ops advertises
-> ETHTOOL_COALESCE_MAX_FRAMES. After that, tx_coal_frames[queue] is 0.
->=20
-> >From then on, before this patch, every XDP_TX verdict
-> (stmmac_xdp_xmit_back()->stmmac_xdp_xmit_xdpf()) and every ndo_xdp_xmit
-> redirect into the device would evaluate:
->=20
-> 	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] =3D=3D 0)
->=20
-> On x86, for example the dwmac-intel platforms that advertise XDP
-> basic and redirect, this raises a divide error in NAPI softirq context.
->=20
-> On arm64, UDIV with a zero divisor returns 0 instead of trapping. That
-> may be why the RB3-gen2 board never hit it.
->=20
-> CAP_NET_ADMIN can trigger this with standard tools. Could the commit
-> message describe it as a reachable crash rather than a theoretical one?
-> Would it also make sense to send the div-by-zero fix separately from the
-> READ_ONCE()/WRITE_ONCE() annotations?
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/dri=
-vers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> > index 1cf0f8820b337..30e0d499326d8 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
->=20
-> [ ... ]
->=20
-> > @@ -887,14 +888,14 @@ static int __stmmac_set_coalesce(struct net_devic=
-e *dev,
-> >  		int i;
-> > =20
-> >  		for (i =3D 0; i < tx_cnt; i++) {
-> > -			priv->tx_coal_frames[i] =3D
-> > -				ec->tx_max_coalesced_frames;
-> > +			WRITE_ONCE(priv->tx_coal_frames[i],
-> > +				   ec->tx_max_coalesced_frames);
-> >  			priv->tx_coal_timer[i] =3D
-> >  				ec->tx_coalesce_usecs;
-> >  		}
-> >  	} else if (queue < tx_cnt) {
-> > -		priv->tx_coal_frames[queue] =3D
-> > -			ec->tx_max_coalesced_frames;
-> > +		WRITE_ONCE(priv->tx_coal_frames[queue],
-> > +			   ec->tx_max_coalesced_frames);
-> >  		priv->tx_coal_timer[queue] =3D
-> >  			ec->tx_coalesce_usecs;
-> >  	}
->=20
-> [Severity: Low]
->=20
-> This is a pre-existing issue and was not introduced by this patch.
-> tx_coal_frames[] and tx_coal_timer[] are still published as two separate
-> stores, with no synchronisation against the TX path.
+Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
+---
+ drivers/dma-buf/dma-buf.c | 30 ++++++++++++++++++++++++++++++
+ include/linux/dma-buf.h   | 16 ++++++++++++++++
+ 2 files changed, 46 insertions(+)
 
-as pointed out by sashiko, this is a pre-existing issue and it needs to be
-fixed with a dedicated patch.
+diff --git a/drivers/dma-buf/dma-buf.c b/drivers/dma-buf/dma-buf.c
+index 66b85d53ed22..e7010163eb2f 100644
+--- a/drivers/dma-buf/dma-buf.c
++++ b/drivers/dma-buf/dma-buf.c
+@@ -1389,6 +1389,36 @@ void dma_buf_invalidate_mappings(struct dma_buf *dmabuf)
+ }
+ EXPORT_SYMBOL_NS_GPL(dma_buf_invalidate_mappings, "DMA_BUF");
+ 
++/**
++ * dma_buf_invalidate_mappings_range - notify attachments that a range changed
++ * @dmabuf: buffer whose layout changed
++ * @offset: first changed byte
++ * @length: number of changed bytes
++ *
++ * Importers with a ranged callback stop using their old mappings of the range
++ * before returning. Other importers receive the existing whole-buffer
++ * callback, which is correct but coarser. The reservation lock must be held.
++ */
++void dma_buf_invalidate_mappings_range(struct dma_buf *dmabuf,
++				       unsigned long offset,
++				       unsigned long length)
++{
++	struct dma_buf_attachment *attach;
++
++	dma_resv_assert_held(dmabuf->resv);
++	list_for_each_entry(attach, &dmabuf->attachments, node) {
++		const struct dma_buf_attach_ops *ops = attach->importer_ops;
++
++		if (!ops)
++			continue;
++		if (ops->invalidate_mappings_range)
++			ops->invalidate_mappings_range(attach, offset, length);
++		else if (ops->invalidate_mappings)
++			ops->invalidate_mappings(attach);
++	}
++}
++EXPORT_SYMBOL_NS_GPL(dma_buf_invalidate_mappings_range, "DMA_BUF");
++
+ /**
+  * dma_buf_get_phys - describe the run that starts at an offset
+  * @attach: attachment to query
+diff --git a/include/linux/dma-buf.h b/include/linux/dma-buf.h
+index b223962e20c2..55c3fe60a0ba 100644
+--- a/include/linux/dma-buf.h
++++ b/include/linux/dma-buf.h
+@@ -485,6 +485,19 @@ struct dma_buf_attach_ops {
+ 	 * required behavior.
+ 	 */
+ 	void (*invalidate_mappings)(struct dma_buf_attachment *attach);
++
++	/**
++	 * @invalidate_mappings_range: [optional] a byte range changed
++	 *
++	 * The exporter changed the address, attributes or backing of
++	 * [@offset, @offset + @length). The importer must stop using its old
++	 * answer for that range before returning.
++	 * Importers without this callback receive @invalidate_mappings for
++	 * the whole buffer instead.
++	 */
++	void (*invalidate_mappings_range)(struct dma_buf_attachment *attach,
++					  unsigned long offset,
++					  unsigned long length);
+ };
+ 
+ /**
+@@ -600,6 +613,9 @@ struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *,
+ void dma_buf_unmap_attachment(struct dma_buf_attachment *, struct sg_table *,
+ 				enum dma_data_direction);
+ void dma_buf_invalidate_mappings(struct dma_buf *dma_buf);
++void dma_buf_invalidate_mappings_range(struct dma_buf *dma_buf,
++				       unsigned long offset,
++				       unsigned long length);
+ bool dma_buf_attach_revocable(struct dma_buf_attachment *attach);
+ /* bits 0-7: memory type (a value, not flags) */
+ #define DMA_BUF_PHYS_ATTR_TYPE_MASK	GENMASK(7, 0)
+-- 
+2.47.3
 
-Regards,
-Lorenzo
-
->=20
-> Can a concurrent stmmac_xmit() see a mixed pair? Take a change from
-> (frames=3DN, usecs=3D0) to (frames=3D0, usecs=3DU). The TX path could rea=
-d the
-> new frames value:
->=20
-> 	tx_coal =3D READ_ONCE(priv->tx_coal_frames[queue]);
-> 	...
-> 	else if (!tx_coal)
-> 		set_ic =3D false;
->=20
-> It could then read the old timer value in stmmac_tx_timer_arm():
->=20
-> 	u32 tx_coal_timer =3D priv->tx_coal_timer[queue];
->=20
-> 	if (!tx_coal_timer)
-> 		return;
->=20
-> That frame would then get neither an IC interrupt nor the completion
-> timer. Its completion would wait for the next TX or NAPI activity on that
-> queue. The same window exists for stmmac_tso_xmit() and
-> stmmac_xdp_xmit_xdpf().
->=20
-> READ_ONCE()/WRITE_ONCE() make each field consistent on its own, which is
-> all the commit message claims. The window across the two fields is still
-> there.
->=20
-> [ ... ]
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261001-b4-stmmac-xmit-mb-v4-0-664e0c3eb289%40oss.qualcomm.com
-
---UfQjmt/PTQh8Ar59
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasN3/AAKCRA6cBh0uS2t
-rHGpAP4u5rsRmhyEgCWlJ1hLUiJ6poy7UiqYIcRNsGH2h4wwIgD/SAI26R14/nqi
-gX/DwdFmAvUo2UpQ/YeWx60UO70Togw=
-=Hpyz
------END PGP SIGNATURE-----
-
---UfQjmt/PTQh8Ar59--
 
