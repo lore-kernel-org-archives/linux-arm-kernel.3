@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D8CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A78CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 08:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+Y6d8UnrGoNFXVY4j5x4i4B2RwDWSIwdnLaT7QqWYA=; b=ACa9Dr4pnciTw8PcxEi1T+YQQ4
-	DrVbA6MHreLvPWVIeuJ1QMDXVhhPXF0QPYezNZt0xkXEJvBq62Wra28EIJ2gxvYZPe2BBifg/1eRR
-	Bzz6/mdfeibmKu3apYIdqJof1B90WG+UncBWtJEIMaJ2f8i5J5F/VIlATrKnAHSXy1HkDLQREabRo
-	WDDPKm6zHVTiX2hc6MK/ajThbw7Z1lJzLb9mVD5hijNnr4zAq56fL8iFmFArqi+Ju/VcGonvzaole
-	61TZbtmfWxpsFzR5Dw0Pc56g1otB8QFXi4b+btlIzJ2dAaPT/09qcy9zrZg/wCWQz3H2wHFfWQDxC
-	pZ/zD0xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DyajoXEiE5OZTyyC4HoS1mecTSELNPfDNIq8DNtLUK4=; b=Jo8WBDpl42hRaMi06Uubee/Kvt
+	SkhGe0diEdLxlslbWR5uyg8BDSn9r56M4BEvb+Bqf2FOdlksrl2upZqIo0weSKF2ZN9LeIpI2G/sB
+	ZXszp2lwiqAach15O7LDQ6kWDBUo512PjmYwaF9rkGj+Na7n03EoYVu9Ikb4rGC3/W02vjxoTAfjc
+	/XDyMDsa3HchGQdeicIdeIGCxbqU7rBD1ZJ6eKuRJsBt+EyV9gNRY/XZiyh0WqNVG1sR4qGegOBaA
+	BLMIEY11ox934hPKaRLuAAzkL64hFOoXMm+HHTDDErrlMBBZ9qetptuWx/8iNYvsmiKKZ148J+JwA
+	4cGT1Png==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdkP-0000000FpyR-2JMw;
-	Mon, 05 Oct 2026 08:08:33 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1xDdlM-0000000FqGM-3rhQ;
+	Mon, 05 Oct 2026 08:09:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdkN-0000000Fpxq-1AVA
+	id 1xDdlM-0000000FqGE-0PVN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 08:08:32 +0000
-Received: from francesco-nb (93-33-55-11.ip43.fastwebnet.it [93.33.55.11])
-	by mail11.truemail.it (Postfix) with ESMTPA id 384511FCC5;
-	Mon,  5 Oct 2026 10:08:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1791187709;
-	bh=D+Y6d8UnrGoNFXVY4j5x4i4B2RwDWSIwdnLaT7QqWYA=; h=From:To:Subject;
-	b=pc46WDqn850L7lcIP9Fhgqz50KA3iyT13iys3P83fFFH2WP1JTTiUdlzjxtjMHvVV
-	 HCtW83/A9eD1cpccAu9bCoFi7j0aSvw1PCz7wjrMaLb92gfV/RsN5zPJtscGFMubg9
-	 /ZOsBaI0zujfilGLjnXmUYIQgnSpMRoEd8ewqvtkR2KzSYgmVqFDG/CjdDsBJ2Doeq
-	 O2WWifHY6ZjZMBtZ+WMQLB8d9W7V6g+UOJ/VGVty3Ri5/ppfw9BGBiLUwBJK92vu0a
-	 dRA0n3+jy7CbCP75Dk8d+Cuea+2T9TgZEVE/IxwCusznJrIDAZnnQrCsLH7SrmB55M
-	 S/AfgUIpKsrjg==
-Date: Mon, 5 Oct 2026 10:08:22 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
- cache coherency issue
-Message-ID: <20261005080822.GA13120@francesco-nb>
-References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
- <aqleHm4stDi3Pt//@shlinux89>
+	Mon, 05 Oct 2026 08:09:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F8276022E;
+	Mon,  5 Oct 2026 08:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97EC1F000FF;
+	Mon,  5 Oct 2026 08:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791187770;
+	bh=DyajoXEiE5OZTyyC4HoS1mecTSELNPfDNIq8DNtLUK4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BDiOIjRQv1EGmqCsNVvPO3VFpxHPm1p+dL8msuPVOWYylIPSmUBxkBrmoJq8b3/eZ
+	 Q5B9CvoKyaXadPxVRJiLiXD2fXWIk0+85yhB5IdDANPsNr/Q7bjA73Xj9rQd6tEwqQ
+	 QImX85QUrDamFCxTH4qvftrRyFfGdZ7uedb3AMgP+igyN1Nj8EpmQ+P7N53ZA3XsG/
+	 0ub4/sS12G/7vkyCcbRElBOaiHrqFYqS/3FAp4l82Vbz1EqrJdTeFEbkmuQEgqMFaD
+	 5CfUy3wJXzKd5MAT5k6QMIqnpGm+YNtPG11nuPaopCqsL3eHGYg+F6w5ByXvn3ZI1r
+	 Mjv1Juutcwq4A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xDdlI-0000000Gyvk-2GAO;
+	Mon, 05 Oct 2026 08:09:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	fuad.tabba@linux.dev
+Subject: Re: [PATCH] KVM: arm64: pkvm: Drop keneldoc markers for the allocator structs
+Date: Mon,  5 Oct 2026 09:09:22 +0100
+Message-ID: <179118775350.630534.9707834125912557281.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261005072046.2246900-1-vdonnefort@google.com>
+References: <20261005072046.2246900-1-vdonnefort@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqleHm4stDi3Pt//@shlinux89>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_010831_475003_B095EE2A 
-X-CRM114-Status: GOOD (  10.26  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,24 +88,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Tue, Sep 15, 2026 at 11:02:54PM +0800, Peng Fan wrote:
-> On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
-> >From: Peng Fan <peng.fan@nxp.com>
-> >
-> >According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
-> >suffers from a cache coherency issue (ERR050104). The upper bits, above
-> >bit 35, of the ARADDR and ACADDR buses within the Arm A53 subsystem
-> >have been incorrectly connected. This causes some TLBI and IC
-> >maintenance operations exchanged between the A53 and A72 core clusters
-> >to be corrupted.
-> >
+On Mon, 05 Oct 2026 08:20:46 +0100, Vincent Donnefort wrote:
+> chunk_hdr and hyp_allocator are private. Their description is not
+> exposed to the API documentation. Drop the kerneldoc markers.
 > 
-> Any comments?
+> While at it add the missing description for chunk_hdr::data.
 
-Any plan to have this merged?
+Applied to next, thanks!
 
-Francesco
+[1/1] KVM: arm64: pkvm: Drop keneldoc markers for the allocator structs
+      commit: 6b1abd43b27a5ecac0672482dc8ca1e48c2c8d15
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
