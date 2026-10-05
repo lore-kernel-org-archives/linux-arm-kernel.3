@@ -4,114 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6091ECA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 18:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75F4CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 18:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=; b=awN1E2Sbhtg1m/dnAZ9LoIWtQS
-	RVWZfGi6O0Tp2RGg0xfHX+Ien+qBddQvNMiP71jFhJso/g2aEQtC7RjbEwKrU9/1EgTBovVGRZ3Ed
-	I2+pUvuTirYL7y9sOLDR9/yGE265wrJToLNKOPKkH7IXyIob/3uQwAeIeObHmNd0unuz7f2BYI22N
-	jynRRQIm/FeBPXKcs6JJvbu8dH87lIQZQdqK5w5mclDbuTnJ8GlYelQajCkro9iVP82v8GklUhLtC
-	xzA5X7WmBCZ4vxQT0fxs968kmQLfu29VtGrQeSnt13YG0AfnHQBHshsOfcMPk1tfEjNfHnqX863tb
-	XyZVC8og==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mOgbWILBmA1EDd62aOZ6WfyN7vNlPpZv9jEP/DVTRhA=; b=my76WJgwo+8gKUw/we/MkRAZV8
+	K4kqo3F9/IH4RMYUBvn5dZ8yQ27kjcmLwPa21gqIohoqqx3u+dfGh2pfobHGG/txwBPkQmEnX1OMi
+	SIPymAnLdeoPlY26RHbXSAYE6gXxUfZ6Z31eFpCRCcpcBmsIoRFCRUx+s2WEFePWlDe0Y479QOJrq
+	8/fjbV8tm0jkgToRsz/BlsKjOQoH+zewU3Rb8I0ZHuh3DQNeVaFE/6ILMn+j+Lq9Dg6pEQd3seodz
+	YPivN7B68X/BdySckVNpKsGrMneXBfw+RKY2uqMmuSntivM3dUwSKcqLA7SIAKkhMcilY7dCyN/pJ
+	pArqrRCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDnT2-0000000GzqG-1wHU;
-	Mon, 05 Oct 2026 18:31:16 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1xDnk6-0000000H1eG-2unH;
+	Mon, 05 Oct 2026 18:48:54 +0000
+Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDnSv-0000000Gzo2-2USo
+	id 1xDnk3-0000000H1dY-46nv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 18:31:14 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3282db206d3so6640774eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 11:31:08 -0700 (PDT)
+	Mon, 05 Oct 2026 18:48:53 +0000
+Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-35118a5991dso1214644eec.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 11:48:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791225068; x=1791829868; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=;
-        b=s5qtOexOvMckyIgGYM/6Y9vqV2kKlbpIdCnHgFILEAWMGbhAK+AbYCl+lVcfW9c48F
-         WfPMG0MvepNVBwBiEuDtpvWkb0L1/390v1eD10Nmy+wT/xUlM0aENLt/1RIJYZ0qQI9U
-         e1fjwuZKGNEE2kXx09txBYM7zPEwi5d8ysBTeK0NQIApxkrsr5OJWuMYl6ow/ZuJ+9FQ
-         qR7bjrgU0bTZD68nz5Rcra45suixBQxlvLhGNNftWaiXYeHzOiteDfFUQALoY0bnnwxb
-         AMY3NMJ6uADWmwYmnX+LkPBblSL0TN42qyk24picLUZg/orsQ1tu8Cb6QA5lNJ4nkRwr
-         BKDg==
+        d=gmail.com; s=20251104; t=1791226131; x=1791830931; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mOgbWILBmA1EDd62aOZ6WfyN7vNlPpZv9jEP/DVTRhA=;
+        b=GL8kaJwJvpDDsgghWRNCqzi2IIQmMDU9pdjJj6xD9yO/yxaNdgb45tuPA51FkmSgSD
+         56au0XqZ3rd/TNrSbrkLs1Vbk/LbjjibStsrXfmc2Qub8yevJHbni44Ywl8MJYskhH2S
+         aSO/BQg2/MOdKcNT5dn3M+oHChRywOBleM96yBP5qRCePHEE6izbsb/YqsjcwH6e3/L2
+         1tAnhyPfIe9dlk40fEvDOZRMjwtLmXQbtrVyP6s0kAvFluUWewYNydXKOSG/BPMJMMzB
+         28oIVCf2Acq4Z+KG8g8Ig0mk/Y/vWQLA4hVSttN6Rj40TjplEK/d1whOFnp2s4e4OLes
+         tWCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791225068; x=1791829868;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6PuYbZh3CSJx/YeySaraDhA8HTOEwlS5gR3oZ9G0OMs=;
-        b=ZdoP4gJP2VsoabkXBC/ULkFMA9dVXt2Du4wbU5VKh8WnZHzLPA6RT1x4RAJSCVMmiI
-         +HPuVpyKEnZNUpZEo+Q8/r5s4gYfxJUFBGI67KtyzKR5SS59PQ9pYuyPtRXh+vaSacst
-         dHbKuFPYAhj3plaPJh6x4xdmza0qXSqG7vaWVzEgu+rVhS8UcHaCtJHbDASMnwqWtegE
-         SDCgFo3HFv57nGuog9ENfJirTRd6QrwgEBM6PmZn1TmfxV2nMzNQIRUJbgrF5IXdcetJ
-         6P6Zf/IqWRN7PMjQfeFrqPNBtDTYtrdo0LXy3s2Ec2+5LUF/C5ybZiNWxnMHhc3PXQrX
-         98Mg==
-X-Forwarded-Encrypted: i=1; AKwUvByOl1NqwJ9rJAI1qwzJXgYj4sx8ESTa/DKzAOfx53GrJYPMB8W6nJy4RsysEflpSi4VH3BhiM+vn8eTzYFucMQB@lists.infradead.org
-X-Gm-Message-State: AFuF++mwxpbWwMvIh4nUJuHY/2T1BspeVbDjcD+bxyy5obCBISMRKrR7
-	0i/Aw0XgJ/QZ+gzm9zIMOGCJyiv7Y5r1GJTQcVlLp/b/pS2rieuj0pW0
-X-Gm-Gg: AYBFou3IKFpkBNheD6tY0aTzIKXIEGdYdi08ZYptBbIVZOthDthsr+YdvCvgv1sjqOA
-	G+Q3yv4O9JKfpJvgRlDlEvYiInrkKpG26tuBCh60K5DOhQPKsZyTkhY7KgDMBEQSJtzlSZ/5LiV
-	D1f8I87hchzKyS/eW0tP5H/xo3ZqJXWIO4k7veNsNLxdPFFccMAWMVwW2J+IvsgLrwoZEGXI9OO
-	30ZyUWez/Id0VT383jIzDGPdcWg8S06Y/anscrMsRsjGG3eMsdIO8jVOSraW/ms8+xkCtUr6CV5
-	ats9zG8mZRR2/vOfwm9ouZ5fn83sNVjboWjWo2b+URWojE6Tc2WO/yIRQ0YNzUPF62TlwvqrlbZ
-	MFY6Y5LpDaTDnMy584y3zUBA6afTLalprqhTJRm2Off+f+wWW+HY5uGswTrffZ6HVzUIoPjlH2Z
-	7WgG5r4YLh54melj/tJOSo4bD0qq2nPqFOqJatjwEbeo5DChyyjKaa+vek3tfWp/FBFtB7O2vCu
-	fS+vv1+y2rc3onxkTqeeByCiQBPTNUz3fGew7f3GHycEzX5egVcyit3gDU4RbXdAv7RTkR/iRGE
-	qgluHcE=
-X-Received: by 2002:a05:7301:f84:b0:34c:1f07:2d5 with SMTP id 5a478bee46e88-3511162fa68mr10914269eec.6.1791225067702;
-        Mon, 05 Oct 2026 11:31:07 -0700 (PDT)
-Received: from MaquinaLab.. ([179.179.237.181])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146ac4dc4sm140223eec.23.2026.10.05.11.31.00
+        d=1e100.net; s=20260707; t=1791226131; x=1791830931;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mOgbWILBmA1EDd62aOZ6WfyN7vNlPpZv9jEP/DVTRhA=;
+        b=ZrUrPG+ZpaiccmW0i9IA7YE+l6wHPIwm5Bw9uaP+KxIvcgMlbiguWeWoPBq4RRmqrp
+         j/OG1yjANHnjkrUPe3Oj8iqz8YXnImOcHrVEA6lFI2tot3lLI/GJJQaLMk057WT+vtBk
+         NI5Vd+6Pb3MigeeWeSFnJIEf8C/vFieh3F2kb41d/APZk4wjlpWkjwfF+sYWiu5/fq4z
+         03Lg52OlX1Tbe7UPMU53caAyvxOaZGGLLC0B/jMlv4GY283kPWlWdVhX/6rfepBBl3u0
+         PxHLTPNJIip5znc+QQGz2Cg5BUzuE6tQN0vxyBrvo0SmvzR3Xlw54uGtNveL3V/NsR/c
+         Ymkw==
+X-Forwarded-Encrypted: i=1; AKwUvBx4ifzo2knayS3VAYl2e/SjceN79hw97AYF4oVKRCGx1ABF9ZL16F3dzZ7D9aGxG8SeTjBHw3i196xAogOVQr0U@lists.infradead.org
+X-Gm-Message-State: AFuF++mo2yPPCOdwbNCnFCnXX3B1BHxrDist3lNn3sVVSPe1S7YJSxmB
+	oWjNEnMzfAT3WbkYoDv6SMQc+ve/8MzCGvmgW7kWX7ITNUmSs2g6VD7p
+X-Gm-Gg: AYBFou0y4ASWAIGZI4czmgy4SsiI2i+PsOgNrdVajblnZwAaIrKaWr94feqwvlZpK2w
+	bWnc/SKsL3ZxfyKX5BRQe0uIW+0u56UgPfZ9KF8rA7uDFuXhu/sY/QoFFwKFe/rOLBooYPFEixG
+	L/u7LN4yPlzoaYTB8J7uYF0vJEQnWIui8aWraFpa0ZX2kGZIIrGhpsTZfpbW23wvTlu7U+HuEGb
+	RDOmrpV1Q6QSu5VVkIG0nn1EGDjJ4+d4MplLG+p+6NjK1W0Yy0MaD/CT6VYUyGbr41eGKCCl0hn
+	djZbeHpOtzvB4+D9DOW9fwVJ9TzTCehhnwiTONa00RwZ+B3QW6uxeHbe2F9nPvietsIviEwZLyY
+	2vwwf0cRP5m5OpdKCRLYGoxRwKSQE5RcvdkJfR5oXyj9WleKYeIaLnzloIO2aWPHk9ARUZrUQhk
+	OO04K2yiJrmv/NmQjLBxbAfRIvzFfzGUYbRupLqGvG5nIbqLSKHgo+KGqjLdfzQQpAuE3HEDL1I
+	bBeQxMTJMth5iFkvCYY9Q7X3t/d7FY=
+X-Received: by 2002:a05:7301:6184:10b0:33c:e72:5b3b with SMTP id 5a478bee46e88-34f2185899bmr14499131eec.25.1791226130364;
+        Mon, 05 Oct 2026 11:48:50 -0700 (PDT)
+Received: from inhnjlux1020.ls.ege.ds ([2406:b400:53:bc23:13ce:62d6:5ad0:c521])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146a297b0sm216369eec.11.2026.10.05.11.48.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 11:31:07 -0700 (PDT)
-From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
+        Mon, 05 Oct 2026 11:48:49 -0700 (PDT)
+From: Udaya Kiran Challa <challauday369@gmail.com>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: skhan@linuxfoundation.org,
+	me@brighamcampbell.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Norman Herms <dockseed@proton.me>
-Subject: Re: [PATCH v5 3/8] clk: sunxi-ng: a733: Add PRCM CCU
-Date: Mon,  5 Oct 2026 15:30:20 -0300
-Message-ID: <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
+	Udaya Kiran Challa <challauday369@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v4 2/2] ARM: dts: kirkwood: Rename netxbig LED child nodes to led-*
+Date: Tue,  6 Oct 2026 00:17:46 +0530
+Message-Id: <20261005184746.252723-1-challauday369@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_113113_573625_3E45A03F 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20261005_114852_021573_C14E19C9 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,33 +107,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+Rename the LED child nodes in kirkwood-netxbig.dtsi and
+kirkwood-net5big.dts from descriptive names (e.g. blue-power, red-sata0)
+to generic led-* names to match the new YAML binding schema.
 
-On Wed Sep 30, 2026 at 1:26 AM CST, Junhui Liu wrote:
-> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
+Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+Signed-off-by: Udaya Kiran Challa <challauday369@gmail.com>
+---
+ arch/arm/boot/dts/marvell/kirkwood-net5big.dts  | 14 +++++++-------
+ arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi | 14 +++++++-------
+ 2 files changed, 14 insertions(+), 14 deletions(-)
 
-[...]
+diff --git a/arch/arm/boot/dts/marvell/kirkwood-net5big.dts b/arch/arm/boot/dts/marvell/kirkwood-net5big.dts
+index 2497ad26b5b6..49deeb40f4e2 100644
+--- a/arch/arm/boot/dts/marvell/kirkwood-net5big.dts
++++ b/arch/arm/boot/dts/marvell/kirkwood-net5big.dts
+@@ -85,8 +85,8 @@ g762_clk: g762-oscillator {
+ 		};
+ 	};
+ 
+-	netxbig-leds {
+-		blue-sata2 {
++	leds {
++		led-0 {
+ 			label = "netxbig:blue:sata2";
+ 			mode-addr = <5>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -96,7 +96,7 @@ NETXBIG_LED_SATA 1
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		red-sata2 {
++		led-1 {
+ 			label = "netxbig:red:sata2";
+ 			mode-addr = <5>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -105,7 +105,7 @@ NETXBIG_LED_ON 2
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		blue-sata3 {
++		led-2 {
+ 			label = "netxbig:blue:sata3";
+ 			mode-addr = <6>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -115,7 +115,7 @@ NETXBIG_LED_SATA 1
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		red-sata3 {
++		led-3 {
+ 			label = "netxbig:red:sata3";
+ 			mode-addr = <6>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -124,7 +124,7 @@ NETXBIG_LED_ON 2
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		blue-sata4 {
++		led-4 {
+ 			label = "netxbig:blue:sata4";
+ 			mode-addr = <7>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -134,7 +134,7 @@ NETXBIG_LED_SATA 1
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		red-sata4 {
++		led-5 {
+ 			label = "netxbig:red:sata4";
+ 			mode-addr = <7>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+diff --git a/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi b/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi
+index d4edf2727388..23e8e8b4597d 100644
+--- a/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi
++++ b/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi
+@@ -115,7 +115,7 @@ &gpio1 13 GPIO_ACTIVE_HIGH
+ 		enable-gpio = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
+-	netxbig-leds {
++	leds {
+ 		compatible = "lacie,netxbig-leds";
+ 
+ 		gpio-ext = <&netxbig_gpio_ext>;
+@@ -123,7 +123,7 @@ netxbig-leds {
+ 		timers = <NETXBIG_LED_TIMER1 500 500
+ 			  NETXBIG_LED_TIMER2 500 1000>;
+ 
+-		blue-power {
++		led-0 {
+ 			label = "netxbig:blue:power";
+ 			mode-addr = <0>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -133,7 +133,7 @@ NETXBIG_LED_TIMER1 3
+ 			bright-addr = <1>;
+ 			max-brightness = <7>;
+ 		};
+-		red-power {
++		led-1 {
+ 			label = "netxbig:red:power";
+ 			mode-addr = <0>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -142,7 +142,7 @@ NETXBIG_LED_ON 2
+ 			bright-addr = <1>;
+ 			max-brightness = <7>;
+ 		};
+-		blue-sata0 {
++		led-2 {
+ 			label = "netxbig:blue:sata0";
+ 			mode-addr = <3>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -152,7 +152,7 @@ NETXBIG_LED_SATA 1
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		red-sata0 {
++		led-3 {
+ 			label = "netxbig:red:sata0";
+ 			mode-addr = <3>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -161,7 +161,7 @@ NETXBIG_LED_ON 2
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		blue-sata1 {
++		led-4 {
+ 			label = "netxbig:blue:sata1";
+ 			mode-addr = <4>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+@@ -171,7 +171,7 @@ NETXBIG_LED_SATA 1
+ 			bright-addr = <2>;
+ 			max-brightness = <7>;
+ 		};
+-		red-sata1 {
++		led-5 {
+ 			label = "netxbig:red:sata1";
+ 			mode-addr = <4>;
+ 			mode-val = <NETXBIG_LED_OFF 0
+-- 
+2.34.1
 
-> +static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
-> +			 0x21c, BIT(0), 0);
-
-I'm bringing up mainline on a Radxa Cubie A7Z (PCB V1.11, 1 GiB). With
-7.3-rc6, this series and a local common-DT integration, PSCI reboot and
-power-off hang once unused clocks are disabled. The boot chain uses
-vendor boot0/BL31 and source-built SCP/U-Boot.
-
-Keeping both of these gates enabled fixes reboot; either alone still
-hangs. With only these two marked CLK_IS_CRITICAL, reboot returns to
-boot0 and power-off drops DCDC1 from 3.3 V to 0.7 V and turns off the
-green LED with power still connected. I haven't checked whether each
-gate is needed for power-off on its own.
-
-My guess is that BL31 talks to the SCP for these, but I haven't traced
-it, and it may be specific to the vendor firmware.
-
-Would it make sense to mark them CLK_IS_CRITICAL, like bus-r-cpucfg
-already is? I can test the next revision on this board either way.
-
-Thanks,
-Vinicius
 
