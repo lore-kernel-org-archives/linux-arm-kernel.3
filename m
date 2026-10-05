@@ -4,68 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88C8CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D8ECA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 07:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTFZ0+ppaHBeezrtAiXyT5t0v4Qt5fwZihigO50o4zQ=; b=XME6MNVPZp0EbXg89NogzHC/mY
-	8WPuOds2LJVWWFvStn/aC/DhtgVMBqcY5/idP1zUu3J35AffZUbx2TKFjtuoGvo+56w+eK7Te/k7M
-	fqljVjMifroxvbevEqo7WthJ5BOQGNwBfcIMXK5ru4QHOfVOt9SP0wzD9TdVtkSjPaCzq9bsuWVaI
-	kuTfwwdnHyvjEgy7/S1FvHY42xXIxzeYhAXvbkCNIy3UQBQyeeipXPB5j8NED44vchNpyaTlHFY5N
-	QX8haEmqmAgoAWf/57h2vCYQe0654FR1t8mVHFJWGBT6V8EXZ6bcKU3zukO3ZkVl7q6dTuuZ+sM/S
-	Y2iy4WFQ==;
+	bh=xAVQMT6mdhsNRSuRByO+cLEzQhlwcOKja0nvC5l/Hb4=; b=YhD56QIkBCZ7/xiyfhQ61UPmUc
+	e7RtsHDjkMDuRSCRRvha+k6MhRIpPXQQh4j1BTVYn48OCHdPPsNZq7Yt40SXKorNB8BL3gLWAPYQG
+	rMtlHXwxWE1AG1HTQhXPy44TRzTeJhcWpZGKlYk/a9L8QNi/EhWGLgnMalJp3x2NnP6WHuX1S/zxH
+	xr9eTEVf5YS1yAzdDijghbaH9LD9tNKkMx+WWp/q1+zwqqPTSbDapT1uLVN2hCnVYGhQ5Ng/lSDd+
+	MIFIh+/Ek/QVbbyB21/XfRZzxGp9cTcq1uIzf30d8MdGXTV1oTGYszyAhLdMeI4IiVv2cwhkfr4t8
+	94xUR8wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdVx-0000000Four-1q45;
-	Mon, 05 Oct 2026 07:53:37 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1xDdZL-0000000Fp6y-3mTu;
+	Mon, 05 Oct 2026 07:57:07 +0000
+Received: from mail-eastus2azon11011020.outbound.protection.outlook.com ([52.101.57.20] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDdVt-0000000Fou7-1ZkN
+	id 1xDdZJ-0000000Fp6a-3Dy0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 07:53:36 +0000
-Received: from francesco-nb (93-33-55-11.ip43.fastwebnet.it [93.33.55.11])
-	by mail11.truemail.it (Postfix) with ESMTPA id 0D35F1F8C7;
-	Mon,  5 Oct 2026 09:53:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1791186805;
-	bh=dTFZ0+ppaHBeezrtAiXyT5t0v4Qt5fwZihigO50o4zQ=; h=From:To:Subject;
-	b=h57Gf9RI09DzmwL75inBBQ5foOdIGCIJSc7QKVYyYRpAJbhG31YkAMPL4Eg3RGbg+
-	 wdq4NW9Z3lNBZrjpXPrbWL4cJNnV21WAKXeEUTY1p0y0Dn9nPMUVc+Mvv1bmdYRtUR
-	 R/h+uA9QsUGCxhMB0Gzb/LgXIolV2czzzopaAzEdwppBmxqgA/0gc0ajoODJdgBTT0
-	 jn7xCCkIG9w1lr+1aGfIi3TxznGdxdMq+CksPOQoVpHnlEwuAfqKtUyRFjPhsI9oES
-	 2p7T/spnYnDrEl5dWYPpkOXY7utsl2EfsQX5GyxE6jb/Jy8hF23xElW+L/TN6Bpmke
-	 LndTKF9pg2wbg==
-Date: Mon, 5 Oct 2026 09:53:19 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Leonardo Costa <leoreis.costa@gmail.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	francesco.dolcini@toradex.com, leonardo.costa@toradex.com,
-	hvilleneuve@dimonoff.com, marex@nabladev.com,
-	stefano.r@variscite.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/7] ARM: dts: imx6q-apalis: Add Toradex Capacitive Touch
- Display 10.1" LVDS
-Message-ID: <20261005075319.GA7692@francesco-nb>
-References: <20261001155412.3177428-1-leoreis.costa@gmail.com>
- <20261001155412.3177428-4-leoreis.costa@gmail.com>
- <ar6JnZp1jBvlc8bx@SMW015318>
- <20261002081824.GA7222@francesco-nb>
- <ar_bsQbD-IbvUf86@SMW015318>
+	Mon, 05 Oct 2026 07:57:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yUjGznyiuMfZG4sK5EmCKGlc0dv7gw40jBVZSZ/Rk8OwrWiAP29xr0O/kf34BtFX977TmTP6p0eYT3TRS1FhIhFZ6/ZNEYUqy8tNGqXCQ1nMYGIgrkvr3M+HdmGp8s6ba/QPr8vVxIqmCFiU4eeCX1fu2QhGW6aQlKRRdt1L46X2ZU+sEUPf5LNeIWIx7utPDikuV9xro5tNBWPAS8PDehfbNGGIJPGirBQieM89xbJ2RipGU8abpmAhHT/4fuF6qAKsnasX6WuWQxKbaSQHvulIgQMk56wUQ4rO5xY8dE3U8yP+TsOmWPDwfAL4XQ5/tXWIwJOXLL1gs7JcOWOYTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xAVQMT6mdhsNRSuRByO+cLEzQhlwcOKja0nvC5l/Hb4=;
+ b=j2fqJOesR1cZBBC5q/XCY390pT9m11EtEP6GTe15Wz+yLTX/9+1pyhLsqM1+1mUFGKxFg6QA/4xFrDzFXXRNRm6iX6bwxXWQ+biIxu6KEoH7OjJCHNYGBZqci/+ub5jfFiuXAJFqGeLSWpwczqUUJoEeOEMuyyjpVR6YGU2gjPcjlKa8YKwnJ1vIFiMhchoMRM5bLydT+V9T6y+qvnF7/Jy19rnk1+5lsLh669PUY1BtLI9h765InBqIssIAj9N3iTwGGeoKSByq2CgQsov8pfEDMse8jjmsToepKg6ZmEYZVT8fVKrik9Q3DjXzWg67ijcoZOh1FbFOpN54A6IKXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xAVQMT6mdhsNRSuRByO+cLEzQhlwcOKja0nvC5l/Hb4=;
+ b=GDFJ6GZ+6En6UUsvN8Mkx9kZhAPOUxM1SPG0MPm/nTfixcbrT6Ilp4S6ldjdPOyDnzAKI1YZ2cryqzKCWN5aGSdtNR3W2Rcp6bitEI1f0khiCf/y6VqF9hYSrD6JUGyqagHcS2P2EgwO9F8b9OWdpsTfKXgLwVMuSGwXllVbWIBIQjjttpM8ZVUZaJoT+zU4i/J3VnQF2GRno3TbsAvkCe9Zmfh3mV6+eAo1WzfO9yzNMPtqLN6IokruR3Ifu85XXiEMQSmu0hUmfuVA6Ta4tH6Di/R2GFbZE6CmJuHRrKQ2qzXnprOUraGIXayHTSzqnOWkcQ+mrANiWYRTNbIeRg==
+Received: from PH7P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:326::11)
+ by SA3PR12MB9179.namprd12.prod.outlook.com (2603:10b6:806:3a1::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
+ 2026 07:56:59 +0000
+Received: from SJ5PEPF000001EE.namprd05.prod.outlook.com
+ (2603:10b6:510:326:cafe::a0) by PH7P220CA0024.outlook.office365.com
+ (2603:10b6:510:326::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.19 via Frontend Transport; Mon, 5
+ Oct 2026 07:56:58 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ5PEPF000001EE.mail.protection.outlook.com (10.167.242.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Mon, 5 Oct 2026 07:56:58 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 5 Oct
+ 2026 00:56:37 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Mon, 5 Oct 2026 00:56:37 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Mon, 5 Oct 2026 00:56:36 -0700
+Date: Mon, 5 Oct 2026 00:56:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: <robin.murphy@arm.com>, <jgg@nvidia.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>
+Subject: Re: [PATCH v10 06/13] iommu/arm-smmu-v3: Add
+ ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
+Message-ID: <asNYMpZfyMHakuZ6@nvidia.com>
+References: <cover.1788130528.git.nicolinc@nvidia.com>
+ <d661395d986d3aa78af200f55e43740996ee8a0f.1788130528.git.nicolinc@nvidia.com>
+ <asJTsw-oWDlSqNa3@willie-the-truck>
+ <asK7VILK4CgEFjdT@nvidia.com>
+ <asNEmjxZ73ezL4I3@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <ar_bsQbD-IbvUf86@SMW015318>
+In-Reply-To: <asNEmjxZ73ezL4I3@willie-the-truck>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EE:EE_|SA3PR12MB9179:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23c6e39a-2e6a-44fd-0cfa-08df22b63b9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|7416014|23010399003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: meNuGWJPZwkFhs4VQJegb5s3BgbHhOy9Pt7cATVmFPSuNtFEcGn2h4hrnkA7Zc9YfDynK1ELPefMfcPdeP6XdyFWRJdF7nl65J8NJ03szoWT4mc6azoGaCG1QmBeHslHJaCUBgrcx1C/T0pV7MM7UwTzpJggKc/QkexVCasW2u8ehUNJiP0xmUdyBdW1zMCAjgb/TWqG3gAPVakGbinRmoptluRIDAEiNKLDdbUit4gneNJKpOm3gpNbfzrua55SlPjr8CW08tvfMtzQuepiAjNKG6OUBO1c5bc5Co+eHgJGLYPCwQXUtWxuswqE2R9IIptPjX2nqsTw2EplU6kvMp5Y2IX7cnlfmvp0N3oUqjK4E4HsXWxTytsc1+kIbmvn4EcYhpNAGimU8apEQ50u3TfXSiO2/cvkol69hGvOa/zAsMeChT0t9ss8DOojPpk5ieYm5uTWXLPII0EPt3mo3nfNJXf9dTzyBw0fqx0Bvyv1HxsHw/dB+Ikb0rqtruJCsZQccj2EGnfwUhhJ/yvagO+SVJ0r4vqhDBueNHpKHK//x8WT9C+KzUIrlzSRvuMjC5AP0Pq7PT3cKGCT5fQIj3Fc+DFuU2o146Ri9HdCuGbobgRUPxgu7XO1iKS8fyDnxIRx8zJhPisByuZMaM9L7iOWdNjrXcnEdkzuRNSCtwhqPR8kXuO3eNzwreNdUqp7Wp6h3QpendE2FCiMSU+afg==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(7416014)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vfXX90Z6IzULzgLbwjyUpxCXsgykg9rhk6mDmgzZxjhC8GWilxkber58WdLtNu6TSvKnq6juJzs6Yb45uot6FzCr+xB+rfvUFncXC7ig1XrskqQCMXqbO0IULdJlTkl5PdyHDipCyMT3OmIg2g/J/PmWiOFX7UnVmfcDJJ3qrPrMn3nkgRnRhHGIOdCcnd6ZF3yPfuGF/UtYK+WA4fFwN+YlbPkMgfG9cR7GryK8i5Izt6a5R8t2whhznLZObyqYQ+caSqY4f6MhqL41zf/fhmyaKfXHgKq4Px8sVQy+ymiZch2q5xSAhJ2YKLEBqv7Ml0ShwTNrSZe1pSdOOsjKNYUU8RCaKKK/62RPGxOY1HvzkvgWpYNTiCx+XAmKzt4jV3pV57sRzKDoY3InfzTtfZM2WIu+lK0Cl3v8Pd5n0hJEzWBQK1X04pTEn5Q8N3yJ
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 07:56:58.9100
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23c6e39a-2e6a-44fd-0cfa-08df22b63b9b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_005334_614886_BB4A6088 
-X-CRM114-Status: GOOD (  56.56  )
+X-CRM114-CacheID: sfid-20261005_005705_813406_F9377FB4 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,194 +133,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
-
-On Fri, Oct 02, 2026 at 11:28:33AM -0500, Frank Li wrote:
-> On Fri, Oct 02, 2026 at 10:18:24AM +0200, Francesco Dolcini wrote:
-> > On Thu, Oct 01, 2026 at 11:26:05AM -0500, Frank Li wrote:
-> > > On Thu, Oct 01, 2026 at 12:52:53PM -0300, Leonardo Costa wrote:
-> > > > From: Leonardo Costa <leonardo.costa@toradex.com>
-> > > >
-> > > > Add a device tree overlay for the Toradex Capacitive Touch Display 10.1"
-> > > > LVDS connected via the Apalis iMX6 LDB.
-> > > >
-> > > > The panel is a LogicTechno LT170410-2WHC 10.1" WXGA IPS LCD and the
-> > > > touch input is provided by an Atmel MaxTouch capacitive touch
-> > > > controller.
-> > > >
-> > > > Remove the panel-lvds node from the Apalis iMX6 dtsi, as it is an
-> > > > external component that does not exist at the SoM level.
-> > > >
-> > > > The overlay is also combined with the Apalis iMX6 V1.2 Ixora Carrier
-> > > > Board V1.2 device tree to provide a ready-to-use DTB.
-> > > >
-> > > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-> > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> > > > ---
-> > > >  arch/arm/boot/dts/nxp/imx/Makefile            |  6 +++
-> > > >  ...6q-apalis-panel-cap-touch-10inch-lvds.dtso | 53 +++++++++++++++++++
-> > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi | 13 -----
-> > > >  3 files changed, 59 insertions(+), 13 deletions(-)
-> > > >  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-cap-touch-10inch-lvds.dtso
-> > >
-> > > similar 7" case, add panel module name in file
-> > >
-> > > imx6q-apalis-lvds-panel-lt170410.dtso
-> >
-> > This does not work, sorry, the current name is the correct one, for
-> > various reasons:
-> >
-> >  - the product is a display made with a specific connector, touch
-> >    controller and display and more. The actual panel is just part of it
-> >  - the current name wholly describe the product, it's a public product
-> >    with an official name, all of that is clearly linked in the commit
-> >    message and comments. there is no ambiguity.
-> >  - the same toradex accessories are not module specific, they are used
-> >    across multiple families/carrier board. It is a whole ecosystem that is
-> >    building on top of standardized interfaces and connectors. The same
-> >    overlay file is available for multiple boards and in multiple SoC
-> >    vendor directory (as of now TI and NXP, soon we are going to have
-> >    also QCOM). Having a consistent naming scheme is important, we cannot
-> >    call the same things differently every time.
-> >  - there was a situation in which we did a new product revision of a
-> >    display, specifically the "Toradex Capacitive Touch Display 10.1"
-> >    LVDS" there are two versions. The official product name is the same,
-> >    apart an additional version number, one is version1, the other is
-> >    version2. They have differences, and it's not just the panel, more
-> >    stuff changed, so having the panel name in the filename will not
-> >    help. v2 support is already in [1], for reference.
-> >  - the toradex naming scheme is not encoding the actual part number used
-> >    in the product name, for example we have apalis imx6 v1.2 that uses a
-> >    different touch/adc than previous apalis imx v1.1. The product has a
-> >    different schematics, different BoM and so on
+On Mon, Oct 05, 2026 at 07:32:58AM +0100, Will Deacon wrote:
+> On Sun, Oct 04, 2026 at 01:47:16PM -0700, Nicolin Chen wrote:
+> > On Sun, Oct 04, 2026 at 02:25:07PM +0100, Will Deacon wrote:
+> > > On Sun, Aug 30, 2026 at 04:18:07PM -0700, Nicolin Chen wrote:
+> > > >  drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
+> > > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  21 ++
+> > > >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c | 229 ++++++++++++++++++
+> > > 
+> > > Please don't put this here. The live update / handover stuff is going to
+> > > need very similar logic (see the RFC from Pranjal) and I don't fancy
+> > > having to rename or resplit this file when that comes along.
+> > > 
+> > > Maybe just stick all of arm-smmu-v3-kexec.c and arm-smmu-v3-kdump.c into
+> > > arm-smmu-v3-handover.c or something?
+> > 
+> > Hmm, Pranjal and I already aligned that cleanly. And there is no
+> > further rename/resplit in his series.
+> > 
+> > arm-smmu-v3-kexec: common helpers for both
+> > arm-smmu-v3-kdump: kdump specific (my series)
+> > arm-smmu-v3-liveupdate: liveupdate specific (Pranj's)
+> > 
+> > Each of them is built on a separate config:
+> >  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_KEXEC) += arm-smmu-v3-kexec.o
+> >  arm_smmu_v3-$(CONFIG_IOMMU_LIVEUPDATE) += arm-smmu-v3-liveupdate.o
+> >  arm_smmu_v3-$(CONFIG_CRASH_DUMP) += arm-smmu-v3-kdump.o
+> > 
+> > If we put everything into one big file, we'd add the two individual
+> > config guards internally, which isn't as clean as currently IMHO.
+> > 
+> > Note that the kdump file has a very long notes (kdump specific).
 > 
-> Do you have schematics number to identify it?
+> I dunno, three files seems way over the top for this imo. I'd rather have
+> one (even if it uses preprocessor guards internally) otherwise it just
+> seems inevitable that we'll have random internals exposed from one file
+> to the other, or duplication of logic or both. Even if we end up splitting
+> it eventually, I'd much rather start from a position where everything is
+> in one place.
 
-Why do you ask specifically about schematics? We have schematics and we
-have a way to identify a product to the related schematic. The way we
-identify schematics, whatever is a number, a string, or anything else
-seems not relevant to me.
+OK. I'll merge them, maybe into arm-smmu-v3-kexec as Jason suggested?
 
-But yes, answering you question, we do have schematics and a unique
-way to identify them, and it's not using "numbers".
+Or do you still prefer handover?
 
-What matters here, is that Toradex products have a unique number,
-and we have a way to trace product revisions.
-
-So, for each product we have
-
-<product name> <pid>
-
-and <pid> is 8 digits, the first 4 digits is the end customer product
-definition, and it matches with the product name, and the last 4 digits
-is the product revision.
-
-All of that is documented, see https://developer.toradex.com/hardware/hardware-resources/general-product-information/ordering-information-and-product-identification-pid-pid4-and-pid8/,
-and this is what is used for any kind of product traceability.
-
-Staying on our LVDS 10inch panel example
-
-Capacitive Touch Display 10.1" LVDS | PID4: 1212 | PID8: 12121000 | (version 1)
-Capacitive Touch Display 10.1" LVDS | PID4: 1212 | PID8: 12122000 | (version 2)
-
-
-> > , and there is no
-> >    reference of the difference touch/adc in the name. You can see this
-> >    information from the public documentation just looking at the
-> >    version. or you can check yourself comparing the two DTS in the linux
-> >    kernel tree.
-> >
-> > [1]
-> >  arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds.dtso
-> >  arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds-v2.dtso
-> 
-> V2 is okay, but "panel-cap-touch-10inch-lvds" is too common. This may
-> cause naming pollution if we implement shared one panel dtso for all boards.
-
-This is the product name, what is missing is the vendor. Given the
-vendor (Toradex), the product is unique.
-
-We could rename all of our accessories dtbo adding a "tdx" prefix (when
-they are Toradex products, of course).
-
-So for example we could have
-
-k3-am625-verdin-tdx-panel-cap-touch-10inch-lvds.dtso
-k3-am625-verdin-tdx-panel-cap-touch-10inch-lvds-v2.dtso
-
-This way your concern on name pollution is solved using the vendor
-("tdx") as prefix in the accessory name.
-
-It's going to be a pain to rename this stuff, and it's going to have an
-impact on users (that as I keep writing and insisting are the one that
-matter). On the other hand, when we have a toradex product ("verdin", or
-"apalis", ...), having a matching Toradex accessory to me is the default
-and this info is not needed.
-
-When adding non-toradex accessory to a toradex board we make explicit
-the vendor of the accessory, see
-
-arch/arm64/boot/dts/ti/k3-am625-verdin-rpi-display-2-7in.dtso
-
-where we have the "rpi" prefix.
-
-So, my proposal would be to accept that for dtbo, combined with Toradex
-board, the default is to be a Toradex accessory, therefore there is no
-need of any additional string in the name. The second option, would be
-to add a redundant "tdx" prefix. It will create a rename mess and it
-will have an impact to the user, but it will not be wrong.
-
-Your proposal, onthe other hand, is not working, and not matching the
-reality of the product described by the dtbo.
-
-> > > > +/dts-v1/;
-> > > > +/plugin/;
-> > > > +
-> > > > +&{/} {
-> > > > +	panel-lvds {
-> > > > +		compatible = "logictechno,lt170410-2whc";
-> > > > +		backlight = <&backlight>;
-> > > > +		power-supply = <&reg_3v3_sw>;
-> > >
-> > > use name reg_lvds_panel, it help improve reusablity.
-> >
-> > I disagree.
-> >
-> > The regulator should be the one that is physically used on
-> > the board. The DTS *must* describe the HW as accurately as possible, we
-> > are not supposed to invent non existing regulator and more in general
-> > non existing HW.
-> 
-> It reflact hardware, it connect by a connectors HEAD. In Connect HEADER,
-> VCC for panel is fixed naming, like vcc_lcd_xxxx. Difference mainboards
-> route it to difference supply.
-> 
-> Dtso file should use name in HEADER.  The main dts descript how connect
-> it to provider, currently use additional label for it.
-
-The power supply it is not the pin number on the connector.
-
-The power supply is in the board. We have board in which the power
-supply can be controlled by a gpio, board in which it is fixed, board in
-which this power supply is shared with other peripherals. So no, the
-power supply is not the pin number in the connector. What you write here
-is wrong.
-
-> > I see your need to avoid duplication, and I agree with it. But an
-> > accurate HW description and the user experience trumps this need.
-> > And I insist on the user experience, what we are doing is for someone to
-> > use, we should not make the life of people hard because we decide on
-> > non-descriptive or inaccurate names.
-> 
-> We take an iterative approach, learning and improving as we progress. New
-> issues are addressed step by step, and better solutions are adopted
-> whenever they are identified. Once a new approach proves to be more
-> effective, we gradually transition to it, especially for new drivers and
-> DTS changes.
-
-Yes, of course. I agree. And this has nothing to do with that we are
-discussing here.
-
-Francesco
-
+Thanks
+Nicolin
 
