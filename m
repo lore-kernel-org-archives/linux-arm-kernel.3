@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B9CCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCA5CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 17:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E4Jqods8IWa/ZQf++Sp/pm73Ty9twiHlBoi2wyBEMeY=; b=Z3hn0kUgL4UfU6jrWGF020bKRZ
-	a6+vdF9rl3Op+RGeVs8Wn6d/BqL/+Us66Q5flK6mzuXIhK+y/LUklrE9qv90qwoR+qrBUT1ipz7Tk
-	UmPD11RTNqGaX/s2XcZWuX8QRJSdko1Div4sewfGygRzO4fW8FrwvyDQtbcwkLxJgynzJFGfQeAZY
-	px+Yz5jHvchdv3oM3zzMCD1pp6j4t2MWqJeXcG3TOtfwo2ENHY436//JLBnNrvxoyKtti26ZlHAYZ
-	cx807x+jlDu1ncilBblJojsofsjV/JjOvogpzL71AN0qnQYRb5/Ktz+FEZb/tta5Cruhr6q9uSjoJ
-	eqIgwEdQ==;
+	bh=TfQFJEJ+w1g7xKma/fMjUoqeslFwGZujvMBK23yADlg=; b=ffMWBqkVE9hvkm+tRQDMrY7Xbm
+	PxCqu+vO+9XFs1h3vdURDp6k4YC/xel01hg/GcfPj4rJd16Z49+MBxxT3hlqHyTTIJjccF9CkPmDJ
+	eGRgRnERQeteqpk8gBw6DEDApH6vD0w6ARpj0fm9XX8RNu/VXQ0JSeB7aERSxKoyXr5vpqgh921uz
+	Yv7TJ8/Y7hHrc8ct1cBExYMHoooxtfZ3df4HoQlZmVE7JhWxx3As9yI3qtWoGPrKBYS+55L04bC1A
+	00VTwuX9Fg7qwPehTy7XZLJ0Ce8+X1Is7mE7YG3YYW1BVsXbMqnjDN3BHLUjpJ3aRwY9/QrdxqDQV
+	WfkkRyVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmgA-0000000GwTy-28Lu;
-	Mon, 05 Oct 2026 17:40:46 +0000
+	id 1xDmgr-0000000GwaR-2niU;
+	Mon, 05 Oct 2026 17:41:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmg9-0000000GwTr-0nkd
+	id 1xDmgp-0000000GwaC-3x9p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 17:40:45 +0000
+	Mon, 05 Oct 2026 17:41:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99BA040367;
-	Mon,  5 Oct 2026 17:40:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A521F000FF;
-	Mon,  5 Oct 2026 17:40:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B05FD43416;
+	Mon,  5 Oct 2026 17:41:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661851F000FF;
+	Mon,  5 Oct 2026 17:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791222044;
-	bh=E4Jqods8IWa/ZQf++Sp/pm73Ty9twiHlBoi2wyBEMeY=;
+	s=k20260515; t=1791222087;
+	bh=TfQFJEJ+w1g7xKma/fMjUoqeslFwGZujvMBK23yADlg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AYBy8r2zPPN96iYrCxO7dDwGAshqmqMYT9Xwli1hFFpFPfx6GsrtRizCD+56Ol6Vc
-	 ExMs/eTJNdmY6oMDOe9Dzk1KL1ajy7/hSvMF3R95yBKilpjd/mdk0aQEfX0Jt0Syng
-	 v7bqRQMKgVEFz+Tg8ggmzT+ucRNEUC8iyvH0G4le69jll6wzHNXwYeCEty1Oapm9Wu
-	 Y1kaMJCLpD7DC3CWJK3h28C5ikIryGN0+NItACht0ndP1288W5hqIH8PceEI+8Ju9v
-	 y8n/Cm75k/6fEt2qGfIH46DVMeVnOVL8alYQgrVcRVWe4tMSh7NfUi6NCF/zdw2bEm
-	 vPguiYKnweQGQ==
-Date: Mon, 5 Oct 2026 12:40:43 -0500
+	b=Kbu43U6KALvdki19VBECdVrFjdx2vCfWAUlM5ZiG6sdWY+l+sRNVInM90HdfWmQhk
+	 qrdnFtGIeEIYut4cBOTEZCmMI60UvgtDYRNmJnL2mVsFff8nrql+eZevCS8e5fZzPo
+	 GTNZRfK+mS8fc3BgDA2fDeJ+WgnxzRDIbLEb2RfgQhj5Djv1Ruwu+Te3aWVL49xJlm
+	 P+YpnNOnFxtoUyed8o+fMnr/oZP183GwI5Ostz7BJdQa8QNWhin1b9CliMm7zTGFC8
+	 PKoo4Te9jzuNsw5WQRKUaRElHTgHoSAFqSX+sOxn1JqabRf+Rc6sNgpaqpa5ikn5jE
+	 zuNdoz/cGo2Bg==
+Date: Mon, 5 Oct 2026 12:41:26 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Leo Yan <leo.yan@arm.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Mike Leach <mike.leach@arm.com>,
-	Michal Simek <michal.simek@amd.com>, coresight@lists.linaro.org,
-	linux-arm-msm@vger.kernel.org, Wei Xu <xuwei5@hisilicon.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	James Clark <james.clark@linaro.org>,
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	devicetree@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	Mike Leach <mike.leach@arm.com>, Wei Xu <xuwei5@hisilicon.com>,
+	James Clark <james.clark@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 1/5] dt-bindings: arm: coresight: Limit static replicator
- to atclk
-Message-ID: <179122204306.1272624.8336607920043307135.robh@kernel.org>
+Subject: Re: [PATCH 2/5] dt-bindings: arm: coresight: Allow atclk for static
+ funnel
+Message-ID: <179122208597.1280954.9033989224338091582.robh@kernel.org>
 References: <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-0-c3edca1c480b@arm.com>
- <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-1-c3edca1c480b@arm.com>
+ <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-2-c3edca1c480b@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-1-c3edca1c480b@arm.com>
+In-Reply-To: <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-2-c3edca1c480b@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +80,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 02 Oct 2026 16:07:20 +0100, Leo Yan wrote:
-> Static replicators have no programmable registers and need no APB
-> programming clock.
+On Fri, 02 Oct 2026 16:07:21 +0100, Leo Yan wrote:
+> Static funnels have no programmable registers and need no APB
+> programming clock. They can still require a trace clock for the ATB
+> datapath.
 > 
-> The Zynq clock controller registers dbg_trc and dbg_apb and calls
-> clk_prepare_enable() for each gate the bootloader left on. This does not
-> depend on the CoreSight nodes' clock references, so removing the unused
-> consumer entries leaves this protection intact.
-> 
-> Keep atclk optional for SoCs that need to control the trace datapath.
-> The unchanged driver still accepts legacy firmware that supplies
-> apb_pclk, atclk, or both by name.
+> Document an optional atclk input. The CoreSight funnel driver already
+> enables it when present.
 > 
 > Assisted-by: Codex:gpt-6
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  .../bindings/arm/arm,coresight-static-replicator.yaml         | 11 ++---------
->  1 file changed, 2 insertions(+), 9 deletions(-)
+>  .../devicetree/bindings/arm/arm,coresight-static-funnel.yaml        | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
