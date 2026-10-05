@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CB0CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A015CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 15:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yt2cIxoQIfLnBunLQQhFqDYMawJbVrX8eYhikJaBfJA=; b=c73+cjNZGHF3d+Q/Iw3b5JjjiF
-	mNVNb9YRfN/pIwX4dDpyweODSOFCRZTaRokwUO7wNC2s6YjJQPbuCLtWAqcxzQzxIOrjVjSKEYfya
-	/QSpgTZZE8AXg5DPpuUpJ+kuL6q//kZIvvYDhXPGLK4ESNU2lRgApWDCXtRnODHZa6IT9eh9iUbqf
-	qcxZVcpYQQRQykYCHZvEmmNYREJSB9F2Wiy/1SYYkfEZUH58vKTB/joykuirjgoJWsqSkGqnLnelf
-	RSQx6VsgqcBCnfSaXKONNCjjzm1oiGUWfo5c114fu82rjZFcakAwH9+qzYqMsxWx5k9hk1DN+f5B1
-	da1OqpMw==;
+	bh=K1L8YDaCe7N34XHyQCY1+QmM5CdC/FpgF3HSRWTxRKo=; b=wiAcLu9aIw7Pf12Mi6u5ORBPFD
+	CfR+9FBVo6NOCG/jrtONqcGbXgq5H+VVs+QWaXKVbo2RLxXt2Rl/dIPOwrgtWFDEmY00qn6Vsm3AF
+	n/dI8uwgfwmY+meE7BP3BvuHDPs0pIiCMK22CNQtiA2Ze6WAFgudzSUwmG8ycZGXL1RlDjL1llQIW
+	TUGapHk7tRunpzjsm3t5yFQeng57EcD0NE9a2+8f3luVhRH+zHCYHDnPLq6WazzXY0pNvJKu3h9W7
+	0vdJmDirxCTDcn54nvC35x3n9WeitHTAkufFqcxj+VrBu7TEkB4EUlqZPzewhWIaoYAbk4XGxYjcb
+	eD42zN8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDkc6-0000000Gksk-2Uo6;
-	Mon, 05 Oct 2026 15:28:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDkfG-0000000GlBM-3wZt;
+	Mon, 05 Oct 2026 15:31:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDkc5-0000000GksX-0CCE;
-	Mon, 05 Oct 2026 15:28:25 +0000
+	id 1xDkfE-0000000GlAi-2qlM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Oct 2026 15:31:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 223D860514;
-	Mon,  5 Oct 2026 15:28:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B74C1F00893;
-	Mon,  5 Oct 2026 15:28:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C694E60A64;
+	Mon,  5 Oct 2026 15:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201111F00893;
+	Mon,  5 Oct 2026 15:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791214103;
-	bh=Yt2cIxoQIfLnBunLQQhFqDYMawJbVrX8eYhikJaBfJA=;
+	s=k20260515; t=1791214299;
+	bh=K1L8YDaCe7N34XHyQCY1+QmM5CdC/FpgF3HSRWTxRKo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CfAIATsk3wvGZrddvArgJlaROWSHSJWAqpJ+FVI3dYxKXFIx8PGP/DMcvjkain+c0
-	 Ujfnd8VBk7JlEl/017/Y2hkLLy9tSdYiWGFIrU2BvEjNpqSGTyC7E78BnGwc6J+gr3
-	 roQC4rZ+14YmSNbzSdu2uM+NE3vRP64GRHzb2CaPC63Q4X0YsG+Zht3P86I1lzuAFp
-	 2x44IxEEVy4eqZ1UX1IVmIuRcHjyZCIuadYRAyVFZXX7BiazcwPh9WZlwgbEURg1CN
-	 q3wwQlUAyBrowvno6hvAkkb7XWhLyzAWp34xOi1XUGn4KCB70OZ/eiPkCs/ue0SkQq
-	 LuuFqiyhVbhnA==
-Date: Mon, 5 Oct 2026 17:28:20 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v13 0/3] airoha: an7581: USB support
-Message-ID: <asPCFDMXyntAV6lx@parshuram>
-References: <20261005105535.2472-1-ansuelsmth@gmail.com>
+	b=YVAC7XicLNVuCWlG033oNrN+soEBb77NoN8O3cCeWuu1fNPL1MlNmDBSDqXUCmcjQ
+	 40XUBMWITyhdGLKqZ78mV9Sehr6jK2mOfaoY7sXTuXxkUOhKTO5MR916QA6ZHnkezm
+	 IgclDdmQWGezk4zE1Hhpuup8zbMH0VWEjT601E7rOg4wS/lwJ0g3w8zZJ1JVAx3flN
+	 PUAFjum12PuM8IwiwAHLxsoR+6PkwEMqEryDHi0zQLg4jXZFi7CxJYxuCxfOFyqWRG
+	 7FxORjYdIv+3j8+dKrNOkYPbuJm47Kq6+O3OTYzN/NxaYqsaSgMTeDOPcVmdGfEXrn
+	 bRgMNduKVsung==
+Date: Mon, 5 Oct 2026 16:31:35 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jay Buddhabhatti <jbuddhab@amd.com>
+Cc: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, cristian.marussi@arm.com,
+	Sudeep Holla <sudeep.holla@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	git@amd.com
+Subject: Re: [RFC PATCH] firmware: arm_scmi: skip empty CLOCK_DESCRIBE_RATES
+ replies
+Message-ID: <20261005-powerful-skilled-caterpillar-e2fdeb@sudeepholla>
+References: <20261001114538.671755-1-jay.buddhabhatti@amd.com>
+ <20261001-persimmon-wallaby-of-popularity-c29bf3@sudeepholla>
+ <00a75d3c-f863-4ed2-aa3f-a6668e5f74f0@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261005105535.2472-1-ansuelsmth@gmail.com>
+In-Reply-To: <00a75d3c-f863-4ed2-aa3f-a6668e5f74f0@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +73,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05-10-26, 12:55, Christian Marangi wrote:
-> This is a major rework of the old v2 series.
+On Mon, Oct 05, 2026 at 06:06:09PM +0530, Jay Buddhabhatti wrote:
+> Hi Sudeep,
 > 
-> The SoC always support USB 2.0 but for USB 3.0 it needs additional
-> configuration for the Serdes port. Such port can be either configured
-> for USB usage or for PCIe lines or HSGMII and these are configured
-> in the SCU space.
+> Thanks for the review. Please find my response inline.
 > 
-> The previous implementation of a dedicated SSR driver was too
-> complex and fragile for the simple task of configuring a register
-> hence it was dropped and the handling is entirely in the PHY driver.
+> On 10/1/2026 8:14 PM, Sudeep Holla wrote:
+> > On Thu, Oct 01, 2026 at 04:45:38AM -0700, Jay Buddhabhatti wrote:
+> > > Some platforms advertise reserved or uninstantiated clock IDs that still
+> > > succeed CLOCK_DESCRIBE_RATES with zero rates. After dynamic rate
+> > > allocation, kcalloc(0) returns ZERO_SIZE_PTR and protocol init then
+> > > dereferences rates[0], which panics.
+> > > 
+> > > Do not allocate or index the rate array when the firmware reports an
+> > > empty list, so unused IDs are skipped instead of taking down the SCMI
+> > > clock provider.
+> > > 
+> > > Fixes: 62ba967595e0 ("firmware: arm_scmi: Make clock rates allocation dynamic")
+> > > Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+> > > ---
+> > > The SCMI server is the source of this zero rate and successful response
+> > > and it should be fixed in SCMI server. This defensive check in Linux is
+> > > still useful because firmware responses must be validated before
+> > > de-referencing dynamically allocated data, The panic is a Linux
+> > > regression introduced by dynamic rate allocation; previous fixed array
+> > > tolerated the same response and other SCMI implementations could return
+> > > the same unexpected response.
+> > > ---
+> > >   drivers/firmware/arm_scmi/clock.c | 18 ++++++++++++++++++
+> > >   1 file changed, 18 insertions(+)
+> > > 
+> > > diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> > > index 0278705d809e..8934a95527e2 100644
+> > > --- a/drivers/firmware/arm_scmi/clock.c
+> > > +++ b/drivers/firmware/arm_scmi/clock.c
+> > > @@ -8,6 +8,7 @@
+> > >   #include <linux/math64.h>
+> > >   #include <linux/module.h>
+> > >   #include <linux/limits.h>
+> > > +#include <linux/slab.h>
+> > >   #include <linux/sort.h>
+> > >   #include "protocols.h"
+> > > @@ -484,6 +485,13 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
+> > >   	if (!st->max_resources) {
+> > >   		unsigned int tot_rates = st->num_returned + st->num_remaining;
+> > > +		/*
+> > > +		 * Unused/reserved clock IDs return 0 rates. kmalloc(0)
+> > > +		 * returns ZERO_SIZE_PTR and must not be dereferenced.
+> > > +		 */
+> > > +		if (!tot_rates)
+> > > +			return 0;
+> > > +
+> > >   		p->clkd->r.rates = devm_kcalloc(p->dev, tot_rates,
+> > >   						sizeof(*p->clkd->r.rates), GFP_KERNEL);
+> > >   		if (!p->clkd->r.rates)
+> > > @@ -505,6 +513,9 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
+> > >   	struct scmi_clk_ipriv *p = priv;
+> > >   	const struct scmi_msg_resp_clock_describe_rates *r = response;
+> > > +	if (ZERO_OR_NULL_PTR(p->clkd->r.rates))
+> > > +		return -EPROTO;
+> > > +
+> > >   	p->clkd->r.rates[p->clkd->r.num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
+> > >   	/* Count only effectively discovered rates */
+> > > @@ -622,6 +633,13 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
+> > >   	if (ret)
+> > >   		return ret;
+> > > +	/*
+> > > +	 * Some platforms expose reserved clock IDs with an empty
+> > > +	 * CLOCK_DESCRIBE_RATES reply. Do not dereference rates[].
+> > > +	 */
+> > > +	if (!clkd->r.num_rates || ZERO_OR_NULL_PTR(clkd->r.rates))
+> > > +		return 0;
+> > > +
+> > 
+> > I expect the Clock rate control bit to be unset in the permissions for
+> > these clock, else it may be dangerous to do this. Please add that check.
 > 
-> Everything was reducted to the dt-bindings to describe the Serdes line.
+> I will add that check in new version. If the Clock rate control bit is set,
+> Linux clears its local copy by setting rate_ctrl_forbidden. The clock
+> remains registered, but clk-scmi does not install set_rate and
+> scmi_clock_rate_set() returns -EACCES. This avoids exposing rate changes
+> when no valid rates were described.
 > 
-> Also the property for the PHY are renamed to a more suitable name and
-> everything is now mandatory to simplify the implementation.
-> (the PHY are always present and active on the SoC)
-> 
-> Also other unrelated patch are dropped from this series.
-> 
-> Changes v13:
-> - Rebase on top of phy next
 
-Pls fix the chechpatch issues. There is new blank line at EOF, SPDX
-format mismatches and many more. Make sure you pass --strict flag to it
+You did mention this is issue in the firmware. If the generic solution(once
+agreed upon) doesn't work on your platform, then you need to fix it with
+a quirk I am afraid. I will let you propose the patch and take it from there.
 
 -- 
-~Vinod
+Regards,
+Sudeep
 
