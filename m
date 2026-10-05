@@ -4,77 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F5ACA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161E9CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 09:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Apz5OD8t2lkSFj/LXvIiPZZcSh8uZzxm6BqniWEIHqI=; b=TE0rGzAMQEa+RKfVkmczqO3dEM
-	wBFM2jPiZqyDLvLljjulz1nqUdYA0Rhm8G8gMPxGvanCG242xyq2m7kCWp6hrsNEgp1Wy2RWwnlyg
-	O8VGXPcF9Nu+IChEeEE+SGn+IXaEZbHil7LAc+z8moep0Q03j4QtQwkQp/INPlAHEN6jHovXUTRGh
-	1Jg8jM7rrxsfrzgVeQgbRUlRsGiZ5bQlKNsnwDDOywEGlo1XPvC0nY+X7Yj4a/96mcbs+KvK8gIm9
-	6Gz2o0YGGw3m7w0gYdqQFJwHWFechA9VCBGalzTW4GaoPz0r9l/lyZwSqFu+0v1PaGAf+Uwh0YVuq
-	xTkOKwPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hBckql0s/2nEbii/g+PLtX2a0BnDe1iX6ffCpfRgr1I=; b=X7764nuewYy4hnW+hBYsDUPWYF
+	g9ggqqYesSSgxQOttptz8kxBnvqgBtbQZByns3HSOs/PodYII2on4d8bj5dUEOgUHQvGCawybFNOh
+	RR79HsJH95bYDzghDJ/Z+L78zRj/TOBD4sSzXMZjMBnt3DuzayzktA2okhBJkV2l0gaVmVE1VrRR+
+	3Vj8snklP4a3JjGGjWbnT7g55Mz2Y71+QFE2laoECeApY8uqvvLoqZ36A/z/UACPTC+VZj2ircw4/
+	wcFFS60k45+d8zwm8a7D8Jz8KpTltBf4QSqWL11ddo3fANuKlYODSBE0dglv5YTt/iJqEmERoBDRb
+	f/3o4RwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfS4-0000000G6e4-1M4F;
-	Mon, 05 Oct 2026 09:57:44 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1xDfQR-0000000G5yh-0sTk;
+	Mon, 05 Oct 2026 09:56:04 +0000
+Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDfS0-0000000G6dK-0z6W
+	id 1xDfQL-0000000G5vv-1r6v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 09:57:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791194260; x=1822730260;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NW+JFu5AUhMGQatFQG++BrYi5Vx0rzk0ULHspNSVPCQ=;
-  b=HxBHRoWQyCgsNxdjSSnwmkQyac7lGPLvadIsI4aoxm/eW7xn5C1QD5Tn
-   pNkqndkY0H6dgcMQND1GVMldjNxe5hgbUW0utJiKI/GDjkbcrSUD8ArTU
-   eA4gsa6QOFhafKy+Jomyt6UT4c3QWrzdG5JvQPIPjTqRdkbpSPslLoCVc
-   V+jv2LdPzS2PKWyKvq+pZIsMxalnOA+4hNfN7nDlgtpV4ZbEvrub7ACrA
-   iVXHzQxOF4kIXhwEQIeWS1K4vrArNC4/ql8dTWNR1+YX5yf8g8VGZBWaz
-   sVvDl/Bedkm3FAu9i2sUzO6LhDokpQYQ+p+R533LnZqG3RiNFVeUoRjPj
-   g==;
-X-CSE-ConnectionGUID: mf9JFqQZQsKivlfVwyVS+Q==
-X-CSE-MsgGUID: Lr+9/NGDRwWxqeEnXMMI9Q==
-X-IronPort-AV: E=Sophos;i="6.27,141,1787036400"; 
-   d="scan'208";a="74825005"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Oct 2026 02:57:38 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Mon, 5 Oct 2026 02:57:37 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 5 Oct 2026 02:57:35 -0700
-Date: Mon, 5 Oct 2026 11:57:35 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Quentin Freimanis <quentin@q-lab.dev>
-CC: <netdev@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
- Cochran" <richardcochran@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net v2] net: sparx5: start the TOD counters on non-PTP
- lan969x variants
-Message-ID: <20261005095735.jzzlcdf6oljxpdpx@DEN-DL-M70577>
-References: <20261005052826.14251-1-quentin@q-lab.dev>
+	Mon, 05 Oct 2026 09:56:01 +0000
+Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c2e2050feb1so284747466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 02:55:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791194155; x=1791798955; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hBckql0s/2nEbii/g+PLtX2a0BnDe1iX6ffCpfRgr1I=;
+        b=n7Mvhcu0V7dI678p5BOO0unQ2H58B3UqBxQbczfqNegECE8Sro/AUClMEWFZ1l3taz
+         yiBR++CSI6BH7Ndj4xNhgwLNbAQRckI4s9z1AuyFNsexfdzJRXtvu8FH3O8bVfLbsrF4
+         Jdv3IH/JRrXqii7CKs9/PsDN2rg+Fsq4gTfHnuTcXYn2T9+XgEkA4CrwxMlBqpTNMoFs
+         jmucEQSLk/O6HvYpfqmgIPMzcl0HocZhXfsxaO4NS8+/5p5rCbIknGyZMpHMLIQz+0cv
+         hZjU4+WGnDz0Ypwg8OBybc1pUK5rTL9HMaIkh29/3KZh2vJq/VgHzhjQlcZNJvoO22dN
+         fpXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791194155; x=1791798955;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hBckql0s/2nEbii/g+PLtX2a0BnDe1iX6ffCpfRgr1I=;
+        b=OAvGI1RTxt9dx5cW+K0wyp29fJ/RR3I7mdvTZiXfmXoljO1usjRl9mGtoVSpBYZkki
+         NjeoRVR+vMS4N3NUSsK45VYnCcRHAt2RnOk/acAwbJ25E2ChAW/HS7dVDoUWAznOPFnB
+         jXJP/GekfNV9clGPsAEaJZawh45JgjF01Ssz7VGy3KUcWYQOQ6B1zLAX6IxcUPm59/dB
+         iLuhIWdXTiq6FH7HtHon1aB7MXY+6uX6z4GLleh9KxBHBrZYh1hnntMX0QVeSsocF4in
+         oWWxdiyW4kMB3kNo02TfxejbmlTbWIVCvftB4EoxlomWWd6UHik/bT8QFUHN0j0D/2ai
+         GZLw==
+X-Forwarded-Encrypted: i=1; AKwUvBwTBQEpiBP94xjoUqKa6SHhoTEMGWOEWOp1yP2e47oq6fsSnu2f+gDCVuLAhxNgsVpzqs93dcYsp9djktKrMeAe@lists.infradead.org
+X-Gm-Message-State: AFuF++khfICqxB+2X53+NS7WfKnRMhmkGVdpIKZUhIWLcwdpBoxQHkfA
+	7g7Y6bPudECDo2KzECITrDcSunNa9FijQMz3+xo6ArfUUKKTvXFMVJHKhDR/TeS1Gu5qUw==
+X-Gm-Gg: AYBFou1VRgF2NVotDEZmeOWI/Izfi778O0dyd9a+nOEPlT7HB5XAn5+OQrOF2JOj26b
+	1mUOG4r2AuHOByZhu9dr/8psGf2kM0uqLfScMZzPnsIfNGOOsjcGS4ta2PvtnoIQIEPyNjaqH0o
+	FK7cHfCluohX6yRNV3jif6iraMqrDiW+SyiHa89qjxeBZuGY+YoatSszHlhrYdXMoVAz/ifWa8s
+	0ugBwL85gTdGXITjct1i5vPj3P1lIQjyZp7T5SfnN2twgsbH9BPmhuwl2Rsa3vJ32g/EinwqlZw
+	S/LMDQjYrx21Psm2990CtHyxuP7+ug8im7SbXGGhrRCfxc9lFaw3CP2j8sefseomapFI7QoXWfr
+	UZ2+ckn2MltHBVgS53FxfI6AJtJprGdndax9skbePcbMNrQCWjRD/bWLK9PQcolQFkP/ymscvA0
+	kTlVruB/q4uyeXJchHHcJSPknKyKZMTfHqiU4i2mpk8KVxJvO+0QnjBoL1Q1tGMZMRlrddfn7zE
+	RV2moVMAeBIu/1u4kr5XRN59RO//P33uPSFfSdN7xvGcLBbe1UjQzv9ueoUuZBHPXxG3OU9SBdy
+	lA0Fv3CkuOacd/gsZKnU8jtgCwsDlZoIMAvRetR23pA3ews=
+X-Received: by 2002:a05:6938:a090:20b0:c2e:52d6:1fb7 with SMTP id a640c23a62f3a-c2e52d6226amr528492566b.22.1791194155086;
+        Mon, 05 Oct 2026 02:55:55 -0700 (PDT)
+Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31562aba16sm50753266b.23.2026.10.05.02.55.53
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 05 Oct 2026 02:55:54 -0700 (PDT)
+From: Fred Griffoul <griffoul@gmail.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>
+Cc: David Woodhouse <dwmw2@infradead.org>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Alex Williamson <alex@shazbot.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-kselftest@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	x86@kernel.org
+Subject: [RFC PATCH 1/6] KVM: guest_memfd: Add a writable result to get_pfn()
+Date: Mon,  5 Oct 2026 09:55:47 +0000
+Message-ID: <20261005095552.52748-2-griffoul@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261005095552.52748-1-griffoul@gmail.com>
+References: <20260720111259.122911-1-dwmw2@infradead.org>
+ <20261005095552.52748-1-griffoul@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261005052826.14251-1-quentin@q-lab.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_025740_496906_060B8D5E 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261005_025557_540934_11992294 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +137,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Currently the base non-PTP-capable lan969x variants don't forward any
-> Ethernet frames:
-> 
->   $ ip link set eth10 up
-> 
->   $ ip addr add 10.0.0.54/24 dev eth10
-> 
->   $ ping 10.0.0.1
->   PING 10.0.0.1 (10.0.0.1): 56 data bytes
-> 
->   --- 10.0.0.1 ping statistics ---
->   7 packets transmitted, 0 packets received, 100% packet loss
-> 
->   $ cat /proc/interrupts | grep fdma
->     20:          0  GIC-0  120 Level     sparx5-fdma
-> 
->   $ ip -s link show dev eth10
->       RX:  bytes packets errors dropped  missed   mcast
->            20828     102      0       0       0      72
->       TX:  bytes packets errors dropped carrier collsns
->                0       0      0       0       0       0
-> 
-> Testing showed that starting the domain 0 TOD counter gets networking
-> working again, but start all three for consistency with the PTP variants.
+From: Fred Griffoul <fgriffo@amazon.co.uk>
 
-Tested-by: Daniel Machon <daniel.machon@microchip.com>
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+A guest_memfd backing has no way to tell KVM that a page must stay
+mapped but must not be written by the guest. get_pfn() returns only a
+frame, and KVM takes write access from the memslot flags.
+KVM_MEM_READONLY is not an option: KVM refuses it on guest_memfd slots,
+because it emulates a write to a read-only slot as MMIO, which private
+memory cannot support.
 
-Thank you for the patch! :-)
+Add a writable output to get_pfn(). KVM sets it to true before the
+call, and the backing may clear it. When it is false, the x86 and arm64
+stage-2 fault paths map the page without write permission. A guest
+write to that page then exits to userspace as a memory fault; KVM first
+releases any page that the backing returned. Callers that do not map
+the page pass NULL.
+
+The result applies to stage-2 mappings only. When KVM writes guest
+memory through the memslot's host address, the permissions of the host
+mapping apply.
+
+Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
+---
+ arch/arm64/kvm/mmu.c        | 13 ++++++++-----
+ arch/arm64/kvm/nested.c     | 10 +++++++---
+ arch/x86/kvm/mmu/mmu.c      | 18 ++++++++++++++++--
+ arch/x86/kvm/svm/sev.c      |  4 ++--
+ include/linux/kvm_host.h    | 11 ++++++++---
+ samples/kvm/gmem_provider.c |  3 ++-
+ virt/kvm/guest_memfd.c      | 13 ++++++++-----
+ 7 files changed, 51 insertions(+), 21 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..32e591edc69d 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1607,7 +1607,7 @@ struct kvm_s2_fault_desc {
+ 
+ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ {
+-	bool write_fault, exec_fault;
++	bool write_fault, exec_fault, writable;
+ 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+@@ -1641,14 +1641,17 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
+ 	smp_rmb();
+ 
+-	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
+-	if (ret) {
++	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL,
++			       &writable);
++	if (ret || (write_fault && !writable)) {
+ 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+ 					      write_fault, exec_fault, false);
+-		return ret;
++		if (!ret)
++			kvm_release_faultin_page(kvm, page, true, false);
++		return ret ?: -EFAULT;
+ 	}
+ 
+-	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
++	if (!(s2fd->memslot->flags & KVM_MEM_READONLY) && writable)
+ 		prot |= KVM_PGTABLE_PROT_W;
+ 
+ 	if (s2fd->nested)
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index fb54f6dad995..9ad1fa029835 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1411,12 +1411,16 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
+ 			return -EFAULT;
+ 	} else {
+-		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
+-		if (ret) {
++		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL,
++				       &writable);
++		if (ret || (write_fault && !writable)) {
+ 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
+ 					      write_fault, false, false);
+-			return ret;
++			if (!ret)
++				kvm_release_faultin_page(vcpu->kvm, page, true, false);
++			return ret ?: -EFAULT;
+ 		}
++		vt->wr.pw &= writable;
+ 	}
+ 
+ 	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 234d0a95abf5..17ac2bfdc164 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -4612,6 +4612,7 @@ static void kvm_mmu_finish_page_fault(struct kvm_vcpu *vcpu,
+ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
+ 				    struct kvm_page_fault *fault)
+ {
++	bool writable;
+ 	int max_order, r;
+ 
+ 	if (!kvm_slot_has_gmem(fault->slot)) {
+@@ -4620,13 +4621,26 @@ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
+ 	}
+ 
+ 	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
+-			     &fault->refcounted_page, &max_order);
++			     &fault->refcounted_page, &max_order, &writable);
+ 	if (r) {
+ 		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
+ 		return r;
+ 	}
+ 
+-	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
++	/*
++	 * The memory's owner has the final say on writability, on top of the
++	 * memslot flag: a page it reports read-only is mapped read-only, and a
++	 * guest write to it exits to userspace rather than being installed.
++	 */
++	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY) &&
++			      writable;
++	if (fault->write && !fault->map_writable) {
++		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
++		kvm_release_faultin_page(vcpu->kvm, fault->refcounted_page,
++				 true, false);
++		fault->refcounted_page = NULL;
++		return -EFAULT;
++	}
+ 	fault->max_level = kvm_max_level_for_order(max_order);
+ 
+ 	return RET_PF_CONTINUE;
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index 125779c82bc4..983e19f7dbd2 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -4063,7 +4063,7 @@ static void sev_snp_init_protected_guest_state(struct kvm_vcpu *vcpu)
+ 	 * The new VMSA will be private memory guest memory, so retrieve the
+ 	 * PFN from the gmem backend.
+ 	 */
+-	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL))
++	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL, NULL))
+ 		return;
+ 
+ 	/*
+@@ -4996,7 +4996,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 		return;
+ 	}
+ 
+-	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
++	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order, NULL);
+ 	if (ret) {
+ 		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+ 				    gpa);
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 04fa0cb126f6..f84f3ab44acf 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -660,9 +660,14 @@ struct kvm_gmem_ops {
+ 		    struct kvm_memory_slot *slot, loff_t offset);
+ 	void (*unbind)(struct file *file, struct kvm *kvm,
+ 		       struct kvm_memory_slot *slot);
++	/*
++	 * @writable: [out] clear to have KVM map the page read-only; a guest
++	 * write then exits as a memory fault.  NULL if the caller does not care.
++	 */
+ 	int (*get_pfn)(struct file *file, struct kvm *kvm,
+ 		       struct kvm_memory_slot *slot, gfn_t gfn,
+-		       kvm_pfn_t *pfn, struct page **page, int *max_order);
++		       kvm_pfn_t *pfn, struct page **page, int *max_order,
++		       bool *writable);
+ 	int (*populate)(struct file *file, struct kvm *kvm,
+ 			struct kvm_memory_slot *slot, gfn_t gfn,
+ 			kvm_pfn_t *pfn, struct page *src_page, int order);
+@@ -2651,12 +2656,12 @@ static inline bool kvm_mem_is_private(struct kvm *kvm, gfn_t gfn)
+ #ifdef CONFIG_KVM_GUEST_MEMFD
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order);
++		     int *max_order, bool *writable);
+ #else
+ static inline int kvm_gmem_get_pfn(struct kvm *kvm,
+ 				   struct kvm_memory_slot *slot, gfn_t gfn,
+ 				   kvm_pfn_t *pfn, struct page **page,
+-				   int *max_order)
++				   int *max_order, bool *writable)
+ {
+ 	KVM_BUG_ON(1, kvm);
+ 	return -EIO;
+diff --git a/samples/kvm/gmem_provider.c b/samples/kvm/gmem_provider.c
+index 9728f5a8029b..75197c088762 100644
+--- a/samples/kvm/gmem_provider.c
++++ b/samples/kvm/gmem_provider.c
+@@ -157,7 +157,8 @@ static int gmem_max_order(struct gmem_info *info, gfn_t gfn, unsigned long index
+ 
+ static int gmem_get_pfn(struct file *file, struct kvm *kvm,
+ 			struct kvm_memory_slot *slot, gfn_t gfn,
+-			kvm_pfn_t *pfn, struct page **page, int *max_order)
++			kvm_pfn_t *pfn, struct page **page, int *max_order,
++			bool *writable)
+ {
+ 	struct gmem_info *info = to_gmem_info(file);
+ 	pgoff_t index = gfn - slot->base_gfn + slot->gmem.pgoff;
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index d284bb70fe05..0f4bf2cc5e8e 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -624,7 +624,7 @@ static void kvm_gmem_native_unbind(struct file *slot_file, struct kvm *kvm,
+ static int  kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 				    struct kvm_memory_slot *slot, gfn_t gfn,
+ 				    kvm_pfn_t *pfn, struct page **page,
+-				    int *max_order);
++				    int *max_order, bool *writable);
+ static void kvm_gmem_native_release(struct file *file);
+ static int  kvm_gmem_native_mmap(struct file *file,
+ 				 struct vm_area_struct *vma);
+@@ -988,7 +988,7 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ static int kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 				   struct kvm_memory_slot *slot, gfn_t gfn,
+ 				   kvm_pfn_t *pfn, struct page **page,
+-				   int *max_order)
++				   int *max_order, bool *writable)
+ {
+ 	pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 	struct folio *folio;
+@@ -1016,7 +1016,7 @@ static int kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order)
++		     int *max_order, bool *writable)
+ {
+ 	const struct kvm_gmem_ops *ops;
+ 
+@@ -1029,7 +1029,10 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		return -EFAULT;
+ 
+ 	*page = NULL;
+-	return ops->get_pfn(file, kvm, slot, gfn, pfn, page, max_order);
++	if (writable)
++		*writable = true;
++	return ops->get_pfn(file, kvm, slot, gfn, pfn, page, max_order,
++			    writable);
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_gmem_get_pfn);
+ 
+@@ -1093,7 +1096,7 @@ static int kvm_gmem_populate_one(const struct kvm_gmem_ops *ops,
+ 				    src_page, 0);
+ 	else
+ 		ret = ops->get_pfn(file, kvm, slot, gfn, &pfn,
+-				   &ignored_page, NULL);
++				   &ignored_page, NULL, NULL);
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.47.3
+
 
