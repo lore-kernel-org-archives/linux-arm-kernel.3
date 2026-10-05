@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB22CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA7DCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 11:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WWLnsU07IwM3dlzINqo8MwV2u40UtVBRundRCk4nAU=; b=xBDu+wDIxc/vsdALei5l/IVM1f
-	TPbuK7LHIQbbNZYCc/djgx0jG/VqLjk8tBEetdZThsRrtfAOIM61c6RoG7zeROCWkUXNdXLJRm2Dp
-	9CX/sG029e57wheD0exCrTGd6exRfFRfwZ4Sy56vL32zDMBpJr3SNEVOOwkmUCWyrBALd8g4PPO7a
-	wyql1x1KEisDmwe4LJZ3MLpiZ8NFB4B3pqvXYwkAsqVm1MM/hMmhzJrCl3GAF8MXixgrbqXUrSpr7
-	qxAtbU7bFqu3QT6A3rbqt3f6hK5iIGNXifBjdxRmepVxyaqCFrCSRZ6MH7eloUmXlS+nzgOpKs7fY
-	kLlBIBaQ==;
+	bh=wpVjroXVisHfj83brLQUbqEhnPiyl/yiKfc5znuepio=; b=kthy0WnsC7D1dj9wwzFN0i1bWh
+	QbsVdXkalyWQ0za9xSalOcdaK8YfUzho09gKFPASfhNAZA3qjLzehr6FZcqGnitgs9akPCB6vOk7M
+	mSkm6Dp4sAxqBFYhv3bEhicyHpY7AR5l3FUvZdvUZJD6pxDpElnrOqc7j1Tn5qZeGdK4kCVqR2hPg
+	N+/Unchi8G/JC3GmZWlMzoUutfK7uUJGqjHiCZbJorIuHP+UbzGzKhkLvqTTIcw6gbo2c4V9HdTFV
+	5yorEnYBrNzX6+Z8ny/cL6VNt0NnpQ/g4MGQBvkRna2tzF/drshemNVF7dOYKsDGIzC1f4/rxapw4
+	13+hBtOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDgEr-0000000GDk0-2bsr;
-	Mon, 05 Oct 2026 10:48:09 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xDgTK-0000000GGi9-2h6o;
+	Mon, 05 Oct 2026 11:03:06 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDgEo-0000000GDiP-1CFn
+	id 1xDgTI-0000000GGhD-1aI2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 10:48:08 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 41B9A2012A4;
-	Mon, 05 Oct 2026 12:48:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791197283;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4WWLnsU07IwM3dlzINqo8MwV2u40UtVBRundRCk4nAU=;
-	b=JxzeQX2WEEGsEASLsm6QCTw87C2PG7PmIvBhtZtY6LbpVtZF2E9r2JeqEF0sv1BSFPAnqO
-	SZrNuajL2IFXrItCem20OrwkXDIbXfXgh8/KbovgQ8FBl+iX4iLxy9ndrPCSS4bxs6BVDN
-	eXhm3RH6nT7qIuvhuQ4M+NHfxUK9B135mTyyclRS8gTWftEUtPtf49BugPUZzSjWndd+ZX
-	TM1vo3A+5ov//KIr/kF6BYGJTT0oqaWWEZc0U2G8xPkkGlG+laOOjKePtr3PhrfXttDOQe
-	Wwk2lxvGHHUI1p3sknGYnLEXfZGWP/a8qFqB3TJlp9d9tqaf065QX6pUuvqejQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791197283; a=rsa-sha256;
-	cv=none;
-	b=WqbX6T7BTT2tgO29bT0nYYJ8UrRW3HZe3mXodZyGkiw1gRX5nKAeYkwnsM4qa73ilmfrWm
-	a61IBaGOs/hTVrFlaZw2s4FBf44uvUi6G3Ew62y4JgbnZ3auCIES0Al6FsqFEWXMxTofNL
-	NUdrA89iXA92VoP23aDDqxt6t/JmROCzqgA0yTQzQD62tuDORE8fr9xEqPGcMZulg/3HQk
-	joe5U9Heycqdq+Kz7ZeG5ev6ujzBvWLksWh/CBK6et+0oZS4VHicUHWJI6G6FheW9n0q0I
-	a+7f2mYBqnsRK/zNbVsB64YmgOa4s3LHks+7tplwL6flAG7P2vaw2FSeUE/mwQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791197283;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4WWLnsU07IwM3dlzINqo8MwV2u40UtVBRundRCk4nAU=;
-	b=c4ELF8VD4aqJYPDF/nVM9RKT8CsEQdL+EL7mhJY2NUSQy7gjxL4Sr5ICLzLPsyK61ZYOo0
-	ig+ULY3IGhjUotN0RVq8D04Br/0b3O0UmS3xPKDFVjr5swzD0IDiEw4ZuSoLPlx3aopkuv
-	9xbZnjbYuyyiWPvo76IHV/NF3JxRgEnrJty3cF8NKC6xO9kB+frQ1KrthYgu56WPJZ9vCF
-	gvSRbk+qFjkbW4yQhP5EpDockAKejIQv4P0x2uCj/DCBfjzgls+BC3FW8/IChV/ErBzK/s
-	MIzsnJvkIIyRwRIMgZTfHJCSORlVClbNxexZPbRN9pbs4sDM+AFcjX9N4gMq/Q==
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xDgEl-004Mxu-0T;
-	Mon, 05 Oct 2026 12:48:03 +0200
-Received: from pengutronix.de (90-182-211-1.rcp.o2.cz [90.182.211.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 8B9295BA103;
-	Mon, 05 Oct 2026 10:48:02 +0000 (UTC)
-Date: Mon, 5 Oct 2026 12:48:02 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: ciprianmarian.costea@oss.nxp.com, mailhol@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
-	haibo.chen@nxp.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, s32@nxp.com, imx@lists.linux.dev, eballetb@redhat.com, 
-	kuba@kernel.org
-Subject: Re: [PATCH v7 3/4] can: rx-offload: allow more than one receive
- source
-Message-ID: <20261005-bittern-of-historical-storm-a147a0-mkl@pengutronix.de>
-References: <20261002071203.1287650-4-ciprianmarian.costea@oss.nxp.com>
- <179106338585.1406898.13675590689657020972@kernel.org>
+	Mon, 05 Oct 2026 11:03:05 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4887840c529so530944f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 04:03:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791198182; x=1791802982; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wpVjroXVisHfj83brLQUbqEhnPiyl/yiKfc5znuepio=;
+        b=r+qMIni+N2InQYEDFoNLyJSVTd1Ui2dLWY/CIKGWpvhZdYF2U3f8Yz+2oVH/b3+fn0
+         zNGrunJ+H8qCZC6iJRt+4/OmTBiEik3h25OSwpwduF6zT8VwBf/txXBZRgtLC9XfkARi
+         bS+TR2hA5e0coYV7R6RCZ/STtIXp/UYyWKaOCHxCo1P8J13O0Lbc5k+S+0JfbBvdiDJh
+         WZmRmcs/pa4tlGeBXKU7vt7jjCYIkH+/0AJEHzNxUx8Awptm+MHKqmG1V6YDiL49zm5d
+         37MRILetMPJN1959xbxdG88lPwGR/91+EnBlWRPGHkOXXoUt3RTyMwGC+oFJ0nQnf8uL
+         TuyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791198182; x=1791802982;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wpVjroXVisHfj83brLQUbqEhnPiyl/yiKfc5znuepio=;
+        b=0b+TctD3dqsf57FqogCCp0u/i0ev5p5faIqdSQhbQo6c9DKbckPaSD8KotT5PgmAwG
+         RwllmgJj/q0HEGKur6yJCC+We9onOkzvDrwe5HTEe/eGpk+DRq7HvW87ncAMzNRLr5GV
+         ybiWWr4cq7gGS3+LzsCQEkzkPXpz2qY0Stg0870o78yaj1R8U/XPxgHMrrWh/3aD2BAr
+         KdxRZBKIgE/z5ZKau0XmyhIrOaaca2gw3753CAnJKKOzDinRi3VcEPWyoR+I8qRjNIol
+         unzVK4yi9L4Ffd18lJgw29rrbygZet0/4lf2Qv7UT1QX7SbyNOTy4K3X0QfoRKWdnX4S
+         9Auw==
+X-Forwarded-Encrypted: i=1; AKwUvBycwxPYGne2mUQa2cQjAsH9Cdhk7IFrX+Si4X2B3cd453bYKcAPrVnbXsweyRb1pwpPbImqd7l4b1KgFX8PynYa@lists.infradead.org
+X-Gm-Message-State: AFq9FYK8XuNZuHnpiFzk7OoJt6mD4ieRhzEZQmtpM20DUCSEvSr1iAPc
+	PbYms1A//S3e2ukKuYNd3+1wr8IdWxG3PhkpKlXTfh7FVAfKNZ7QyCxxVLxPAn2Y8Q==
+X-Gm-Gg: AYBFou0YUij93nIT8cbT9LHuUcRPirb6euzr2BX0F1Q3AozHD1sifmGgbk3wN26t+6b
+	wVVDOODKA1k/7FnwP2qd5EYG8qhjtWbBwlUIldMGExbB+3NVC9vZa4TaYBwjsamXSsM4LdV8z+D
+	tMm08zVJtdt4u1HgPikvJTyBI4SrC1Tz5wQrkD+2x0dUkLb4SbK/aEZGRoYHJdj28nZ8bDtlC1K
+	5piwc4+BkCVfWbmDC6IIyqeZqB2/syp8hWuxPBLBjrDkK3c90tJkyZBYrFxJua1Qy78S9rzO36p
+	YZYDbEzXNMZl5uoJ/9bcbH8hYZer8TGyAoTAU0hCvMDi5Y6RE4cma0PYmo8Nsgm/nwL9AwE/HMa
+	5GIOua3LTq4kaOjBxEw45jZXq7cIA02KiSUKTDW4tIg3hzk7+1nbSNHqJG/TZyMEY+8oiNYrUSD
+	f20UV5IG5RVpKWP1IfaQ9qUupc8VWvL19WcqY8iDhZcOeN8rLi3EJHMB0yCyIyzLpunxXA3o6nJ
+	qffJUw4rf4a4ggeHpyUI6pr/u6hL6351pgaqicov1s=
+X-Received: by 2002:a05:6000:2906:b0:487:13a9:80d with SMTP id ffacd0b85a97d-48b12733c50mr18086704f8f.10.1791198180653;
+        Mon, 05 Oct 2026 04:03:00 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c6227fa65sm2880630f8f.16.2026.10.05.04.02.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 04:02:58 -0700 (PDT)
+Date: Mon, 5 Oct 2026 12:02:55 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
+	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
+	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
+	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
+	david@kernel.org, danielmentz@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: sumit.garg@kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <asOD31rTX6dNfD1o@google.com>
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
+ <are21BjeS1O3RYE3@sumit-xelite>
+ <aruh86rd5FMv2i9G@willie-the-truck>
+ <ar5TPvANFUoosxGW@sumit-xelite>
+ <asOAYODGZa-7EIV1@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5nt4d4nww5iayqlm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <179106338585.1406898.13675590689657020972@kernel.org>
+In-Reply-To: <asOAYODGZa-7EIV1@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_034806_472218_6DD9CBE4 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20261005_040304_443796_A4D17AAB 
+X-CRM114-Status: GOOD (  54.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,59 +112,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sorry, not sure why Sumit's email was dropped...
 
---5nt4d4nww5iayqlm
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 3/4] can: rx-offload: allow more than one receive
- source
-MIME-Version: 1.0
+On Mon, Oct 05, 2026 at 11:48:00AM +0100, Vincent Donnefort wrote:
+> On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
+> > On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
+> > > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
+> > > > Looks like you dropped me from your reply.
+> > > 
+> > > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
+> > > CC list to To: and drops you. I suspect the same thing happened to Thierry
+> > > when he replied here:
+> > > 
+> > > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
+> > > 
+> > > I can't figure out why that's happening :/
+> > > I manually tried to fix the To: and Cc: lines in this message.
+> > 
+> > Thanks.
+> > 
+> > > 
+> > > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+> > > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
+> > > > > for arm64 because it relies on being able to unmap arbitrary parts of
+> > > > > the linear map, which isn't generally possible unless you force pte-level
+> > > > > mappings for everything, which is prohibitive for perf/power.
+> > > > 
+> > > > As per the cover letter it's about allocating pages that are not present
+> > > > in the direct map. This essentially fits the protected DMABufs use-case
+> > > > where we don't want any kernel mapping to exist at any time. Bufers
+> > > > allocated from protected DMABufs are only meant to be accessed by the
+> > > > TEE implementation or HW accelerators like in the secure media pipeline.
+> > > 
+> > > That sounds like it should probably build on top of this series, then.
+> > 
+> > The main problem I see with this series is it tries to move from the generic
+> > CMA allocator to a reserved FF-A CMA pool which again comes from the
+> > DT. We already support reserved pool allocations via "no-map" which are
+> > discovered dynamically from OP-TEE.
+> 
+> I can't think of a way around a DT declaration. We need to know what region is
+> PTE-level before the direct map is installed and of_reserved_mem is very handy
+> for that purpose. And as this PTE-level mapping is costly we certainly only want
+> to enable it for platforms that absolutely need it.
+> 
+> > 
+> > If we can rather support a generic CMA like allocator for arm64 which
+> > can support unmapped allocations then I am all for it. These platform
+> > specific reserved pools isn't a scalable solution.
+> 
+> What do you mean by generic CMA allocator here? An extension to
+> shared-dma-pool? Or having the CMA automatically doing the unmap/map on
+> cma_alloc() cma_release()?
+> 
+> Right now I have created an API for the unmapping/remapping part. It adds a
+> burden on the caller, but the alternative solution is introducing post-alloc
+> pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
+> the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
+> 
+> -- 
+> Vincent
+> 
+> > 
+> > > You could allocate the DMABufs from a CMA region that has no linear alias.
+> > 
+> > Allocation from generic CMA pool is already the case here:
+> > 
+> > tee_shm_alloc_dma_mem() ->
+> >   dma_alloc_pages()
+> > 
+> > Do you mean it's just fine to unmap buffers allocated from generic CMA
+> > region since it doesn't have any linear alias?
+> > 
+> > > 
+> > > > > Vincent's series tackles that by using a pool so that only that part of
+> > > > > memory requires the pte-level mappings in the linear map. That's the
+> > > > > whole point of it, so I don't think it makes sense to drop it in favour
+> > > > > of Brendan's approach (which doesn't work).
+> > > > >
+> > > > 
+> > > > For protected DMABufs, we even don't require any pte-level mappings in
+> > > > linear map. The whole idea of mapping and unmapping is just a bottleneck
+> > > > for performance sensitive secure media pipeline use-cases. That's why if
+> > > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+> > > > be the best fit for this use-case.
+> > > 
+> > > The point is that you will require pte-level mappings for the linear map
+> > > if you want to unmap from it at runtime on arm64. If you don't, then you
+> > > can end up needing to split a block mapping (e.g. pmd-level) when you
+> > > decide to unmap only part of it and there isn't a safe way to do that on
+> > > arm64 without transiently unmapping the entire block, which can lead to
+> > > fatal translation faults during that window.
+> > 
+> > I agree with you here, what I am rather trying to find if on arm64 there
+> > is any possibilty to have a generic allocator for unmapped pages. That's
+> > the use-case here as well as what Brendan't patch-set was trying to address.
+> > 
+> > > 
+> > > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+> > > > how Brendan is doing it for x86?
+> > > 
+> > > Because arm64 != x86? Presumably x86 doesn't have the strict
+> > > break-before-make requirements we have on arm64.
+> > > 
+> > 
+> > Sure, sounds like you are eluding to that the generic MM flag
+> > __GFP_UNMAPPED being proposed can't be supported on arm64, right?
+> > 
+> > -Sumit
 
-On 03.10.2026 21:36:25, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 5 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 4 (2)
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [Medium] In can_rx_offload_move_to_skb_queue() the comment says the
->   sorted merge will 'keep the timestamp order over all sources', but it=
-=E2=80=A6
-
-I've found some old downstream patch series that might solve the RX
-starvation and continuous timestamp problem:
-
-https://lore.kernel.org/all/20261005-upstream-can-rx-offload-batching-alter=
-native-v1-0-4c08ccb516ec@pengutronix.de/
-
-The idea is to not flush the whole skb_irq_queue but only 3/4 of it.
-Feel free to use ideas or the code in your series.
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---5nt4d4nww5iayqlm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCasOAXQAKCRDMOmT6rpmt
-0tLOAQCG73yVaNkcInVFT4BMq0DsG7arhdwnytO1aahprm/zPgD/U1p4cVAsR/Fp
-TmsBt3Q7FYQB55UyDUuGnRor+SXfeAc=
-=rA+P
------END PGP SIGNATURE-----
-
---5nt4d4nww5iayqlm--
+-- 
+Vincent
 
