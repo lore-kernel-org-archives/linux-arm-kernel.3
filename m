@@ -4,138 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FBDCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 12:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0766CCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 12:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BG+5YBNP9Z3rH7F4HapNUkD3aDgpjQbJU5pKUZVOT84=; b=EBUibA57Mm/el7ZqgRSYxWRf93
-	UgdB59EeJ5DDgf0vk4M2ovW/xTm3+40ri0q9CDFL2VqfV3x0z6JVHLfsjh6f1hlhCdcZAy5Pyfw0N
-	VRtxPGvnEOpHWVOxjqHK6f5Bdk6XL8fPFu46u077bAHYG6NmHjsZ2FcUshb9YfA9yHm7VUbJLdsa5
-	TRG1UIFsCkGlve0zQ9DtcHfZfTFQ5jZ8Ofpl6dbzKSF8IvjNP4H7ugFfVnJvR+jmZriFZ8jl/sAsT
-	93OMh5b87pzVGuzfkzauDYkW2y0QOG5a/WGEYkACz2ACSYEh/fRWvXIgi/P6g88vz+J0fGj00DHI5
-	0Q7N2HCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nzUTkMGw2FUAW6LuwD/ZNDODRpqoHDAQwQFc1CjSYPg=; b=fcKSLlR3iyLPpUZVfHRjGFVs4F
+	CTDBc1kQAf8kFuUWEeRcZoEeZjVBWLJkOLfURnXgr2sSKhAXYspXw8+xbZ+gBIuilzb/byuZpBQBS
+	Vn52nINOlEjAuj/LVAh1oescVJu1AV5m2P0joQAyE4azsAn7H/JzP1wMOPFs8Fp8U4ZJwn81w9ux2
+	Z3UY51IyxE9YX68q01EtyzZ7GcO4NaJxlXV+TBnWDn+lUXwv23ZLjzvA2hnN5BnsbsIiBwLaL2mKL
+	zrCe7mRsRwWr4fr2f5cOcQsxiMipj18En+iEOagyTn0vavlUUsevFaWteSR11GTzLVqx8WeAVJGvE
+	yiroBlgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDhvm-0000000GPW6-0FDH;
-	Mon, 05 Oct 2026 12:36:34 +0000
-Received: from mail-southcentralusazon11012046.outbound.protection.outlook.com ([40.93.195.46] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1xDi15-0000000GPxM-35D2;
+	Mon, 05 Oct 2026 12:42:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDhvi-0000000GPVR-2d5H
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 12:36:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jF9uhFubjroBsPA3pYxl5D+0yQGp4KQHO99jztGxERW8vnqncOEvq0OKnCN3gppLlvRNTv8/0LFT1YrGv15ySzcdXg/LY6I40+mYRLgM9IdHeikFkldBJDIXBgumxeDYDx/6x+hreycvVe/RCMqWnR0gx6HluBrNYy2q6Da2ZWDlCjUiGKATvireHgNI3AR4St/z0MTj+F+gz9U0HI4e8RHxqosR3aztaz5MetFklpsSIpeXRwVqOXmDALcK+PGW5Xohn7m7l2eAUBifmtKffzg46QZPiJJZJmmYJpIEser43JNtD8xIyXB5+rJhc/Xux/SinUIXYm5rvFOQbVfxjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BG+5YBNP9Z3rH7F4HapNUkD3aDgpjQbJU5pKUZVOT84=;
- b=jlkebBenJYSw/An8Nj91u8RYK4diMDqjfI8aa95qfU9eNpTp7VVxv6hiBm0qqwWdcrihauHmAJ+csDIkhwBBdOF9WKc5kBpwJ3lLCP9oQlvywMMx/DEc5YCm4TQ/sLbFtrAnuaUOUgMpvW9vdVFgiBWvc+1KByDrn5lIgDcEi5tdjy7Y6W7b8zfOHjmamicqIgWcktvNBv0+J/c5Q0kNWvF4vBrLc0tx9WDyeaDwJ9gd2OoJpK7KJK1pvI3rFVVS7JUtIPdgwoy2/yAfaSKscYdJA1mQlNoQch7Bnvb8Amp7nvkyeWkvv6RbJEX6fR1PGTblM90ZL9+zSa4cgM9WNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BG+5YBNP9Z3rH7F4HapNUkD3aDgpjQbJU5pKUZVOT84=;
- b=LgmFRujD8LqoDzZtfXZnqFd9xBtuKqOujQZbCyODB4dzrA7F7v5e8VUdCTNnpeZjVAwoMUrvDV4jxXbVlbtj7Od3qE/Se9GVs8nojnX1RNzVYAWoJnbgCQ3ck6NHmXn33NekGODy5Ww4wOwQ7XyTbfLOLm99fTtelJCzBjAegD0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB7366.namprd12.prod.outlook.com (2603:10b6:806:2b3::8)
- by CH2PR12MB4263.namprd12.prod.outlook.com (2603:10b6:610:a6::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
- 2026 12:36:16 +0000
-Received: from SA1PR12MB7366.namprd12.prod.outlook.com
- ([fe80::ec75:5e87:d973:77e6]) by SA1PR12MB7366.namprd12.prod.outlook.com
- ([fe80::ec75:5e87:d973:77e6%5]) with mapi id 15.21.0472.015; Mon, 5 Oct 2026
- 12:36:16 +0000
-Message-ID: <00a75d3c-f863-4ed2-aa3f-a6668e5f74f0@amd.com>
-Date: Mon, 5 Oct 2026 18:06:09 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] firmware: arm_scmi: skip empty CLOCK_DESCRIBE_RATES
- replies
-To: Sudeep Holla <sudeep.holla@kernel.org>,
- Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Cc: cristian.marussi@arm.com, arm-scmi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com
-References: <20261001114538.671755-1-jay.buddhabhatti@amd.com>
- <20261001-persimmon-wallaby-of-popularity-c29bf3@sudeepholla>
-Content-Language: en-US
-From: Jay Buddhabhatti <jbuddhab@amd.com>
-In-Reply-To: <20261001-persimmon-wallaby-of-popularity-c29bf3@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0034.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:178::9) To SA1PR12MB7366.namprd12.prod.outlook.com
- (2603:10b6:806:2b3::8)
+	id 1xDi14-0000000GPxC-27IK;
+	Mon, 05 Oct 2026 12:42:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D8096022E;
+	Mon,  5 Oct 2026 12:42:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 493DE1F000FF;
+	Mon,  5 Oct 2026 12:41:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791204121;
+	bh=nzUTkMGw2FUAW6LuwD/ZNDODRpqoHDAQwQFc1CjSYPg=;
+	h=From:To:Cc:Subject:Date;
+	b=SiJWDRnvdHzX5L6j68vY9lMX0NVa03XwvfSvzf9ju2puAsQL5sjT2lbkHuEvJw9P0
+	 jiW+mSmxbW4acqy/D1vZXZJsI9ri3fXUKKyOrCQh4PJvSVmn19hhHRR7tiFxK9q2rm
+	 K/XOJ02by9haIwWOkBm3a1EjV1WfktXnv/CIzMQBcJArea24vvJvy1E13ZMsdutB+C
+	 WseB7a3CSe1yZGKa7IxufovwcxV6I3WO+RNhZP7NadDWUIf+BTRINAQnCl027+jsHl
+	 66DUjOsMW7Cn8pc/7w14/maEAWMPc0kP6Tw9CNl0jguVMdvXlP1rKF4J327D/88QuE
+	 8sbuOPjsxCzaQ==
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] PCI: Update saved Max Payload Size in pcie_set_mps()
+Date: Mon,  5 Oct 2026 14:41:55 +0200
+Message-ID: <20261005124154.2190628-2-cassel@kernel.org>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB7366:EE_|CH2PR12MB4263:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea24e382-f59c-4ac8-a4fb-08df22dd3fba
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|6133799003|18002099003|22082099003|10067099003|3023799007|4143699003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: z4rxymiBPn51fXgykJoga1p1F5xNv8XB+5F0udSiABsvV/MjeFtTWDHEoD/52Knstiu8K2vHZjq4no0ybtlxzX+v+OIQtkJfaMhS3T52kHfo8vCNh5q9pQ2sVtHEnsDIJqGMyi/qQommXf/NC0eIMTzaXWglD0LnSyDYavfpypFJZbnl1JLHKVu75QRJqcmpBLIVndriKO5tDwk/1t5EGctw1oUo1xP5lL+C9bGhk5QaCLQVf+1maIz2G9SiIAOe0HRsXOYHO0E05aM2ZZE6P6Ju/R71sChSAKgUOlJXOjjyeOdcUx/IUM9tpnkhQ7VeZbTgnBJi5PT0/NL7xi+sxVJ9orgIT+f56sq3RZBtVQ89Pxo8F/f+8QGGHOs02fkeU8zrfR2ueVh72NvQroNdmpARPy6PS+/nmOewBiIP01yGp/lhp+ZgAU8LdP4zrKYqenxvbPDLipnYsjccKLe4tG3Tv7T2WSWvFzLDvFYkfA1mJQAXkdjtyPvA7jtUCmVJlFrp2tz4e7amxPeuttqTz8bL126FQcWCOPuSHVw87s5XpwZi20edfRb5HHL0rQD8Vd7KLM7zeLDzrsP4sog0/ynO33KCO0qjpjzHVdUtfmhCew8hL4OqzpTYZRx3e/7FiPnfz6psvI6df82Hz9AlrUsh5oPMz2Rwch23jIfzZZk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7366.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(10067099003)(3023799007)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MkZrMzFaWFZSOUhlSmhHRDBkdytnWHBhc29iN2V4aGY0Vm1ualpuS2MvajVw?=
- =?utf-8?B?ZExsenZTd3Fza0lOOHhubkkraEhtTURoanNmMmxlQ2R3cm5BZTJMQUorL3NN?=
- =?utf-8?B?dkl4eVduZjRJdWt1SlJucTJBVzB6ZFdKMHNBVkZTRm9tYW9VUVh4Vzl0d0hH?=
- =?utf-8?B?OXc2enl2czdLRjFTQ3V6SG9xeHlRYWhXQ3kvcVpTdU9jY1BsZDlyY3FXOWxk?=
- =?utf-8?B?TWN3a0RnUmFlM0VSaTFvK0c2dCt1MHZLbWJTSmVjT1ZwVFBMQmVrL1pJQXFz?=
- =?utf-8?B?R2JxdUxNUWdhc2NhUHRoQW82U2ZmcUZjRzB1a3VIcFEyaHo0SmVIeHcxL1Vn?=
- =?utf-8?B?R1ByK2NPZUtRbWtFWEd2QUJvSkd3bWZFdGg1eEZQMVRqOWZKcjBMKytScVhN?=
- =?utf-8?B?TVdKYXhGQ2JBODFXdXNoaHUwQlJPYmo2V2orREtEeXpnTGZiQ3ByUjcrSlJj?=
- =?utf-8?B?Z0lRbXVveEJueGEwV1VGR0JJUkVGZVBaNTBxSTlxREh1dDAzQVFPdm9aM1BX?=
- =?utf-8?B?anVJM0pIM1RBNUVIWElnRmJwY0Y3alovNHZjMi9XdDA3RCt0cFNnZGJBLzlK?=
- =?utf-8?B?d2tHcklZaVd0MC9qeTVuZVJGT0FPMVBmTzdUL0xmMkRCNjREZkU2cVhTTHAw?=
- =?utf-8?B?MHA5eVhGMG82akJkWUYveWFkd3J4T3BKZzZFYWlGUDFyR21YWHdtcE9uMDJj?=
- =?utf-8?B?d2ZLWk9CbVlFSGJlT0hRVjM1WVVac3hPT0EzMHI1ZVhBVmdhQzV0Vjh1NTYx?=
- =?utf-8?B?ZHhQeEtaUjZCalhyeXZmcUJRN0FRWVhXYnhNeHJlZjFKZzdJRkZNbnV3Q0tj?=
- =?utf-8?B?V3FXRW52eTFBQmt1QmliUnBIQkgzMkh5d1RJR2daL1llVnN3cEVPRW9YaGFq?=
- =?utf-8?B?eVZreFhTQkxpaU5iNnNjRDhzZEtiRHFjaFdNNFB2TlBQWDdVR1BjeDArMDdP?=
- =?utf-8?B?TDc0ZE5ST0hSNG12MVYxeVIrL0pmVkVZamphZ2cvaFB5YXVFZTFValB5YjA1?=
- =?utf-8?B?UjlWNVc5TnV6bmxWREV1WnR6TlpBQndJNjNxU3ltYTF2NTh2b1luTkxidG1Y?=
- =?utf-8?B?RkxFb1lkckV2OVRDL2l1NWlXTFptRzF5K09TZFhTYWdhZUN2RXNLNlpaZERQ?=
- =?utf-8?B?WVZpT0lwMzh5TWtQZGl1UUcrdmpad3dvK3BueVpuMHQ5Y0hJQU1Hb2FTV1JS?=
- =?utf-8?B?NThuNDJaUGROVkl1NG1MTTd2TlNnLy8xT0VMMGZtb21weXFjelp2OEFvU1gv?=
- =?utf-8?B?dk0reGF1MlBhd0xiRGFScTk0aG4xMVdsQ0VnSGFPL0x1VTBwRHc1ZlF0MFNZ?=
- =?utf-8?B?L05rL2tYMUM1R2NnZVlEYWxjMURXWS9XWU9zdThsY0tMMkVUTFpXV3hMbWQv?=
- =?utf-8?B?c041NTBud3MyYVdCbW9yQXpQYldINHEwcUV6MVdZVEQ2K2xnU2Fwc2dONlJP?=
- =?utf-8?B?VGZjMU5JZFpFeVlxSzBDMU9idGpMNWRYa0J1MG1qZ1lOZFJLY0Fmb2VmZk9u?=
- =?utf-8?B?U29yL3dEZmlmNGpvendaUFlDelRsMC9NU3IzVithbjRWTVRQeXBsRW02UExi?=
- =?utf-8?B?SzNvdzBLbXRUM0hoaTh2ZS9qSXFieVR5NDRyTHlxVnV0aE9vYjJOTTBqRlRa?=
- =?utf-8?B?TmZSdkZyMmRPVkx5NEozbjh2TXRKMktkbGpZU3A1N0JVVjFUamZsd2QyMUp4?=
- =?utf-8?B?WDB0RVBzbmtTb0Nld2NqMVBCdENJYVorMjdjMTFOMWlFNkxtaHBrMU1JRmY3?=
- =?utf-8?B?MGV5M09xRHhUdkhWMnlPTVhoOTdBNW5jcGlRT2ZLQi9iZy9MSHdmRnFaYXlI?=
- =?utf-8?B?a3lSR2hsNDlxQU5ocTh1Y1ExcGRZM3NsRjk2Q1dXN2hkM25qd0VQRklwK0dI?=
- =?utf-8?B?d3lUSkFvOGlralp4UzZQQmdaendkRUhSelVOVG0vRmpqNXpYaXlYUE0vRzVG?=
- =?utf-8?B?MGZicGV6NG1Xc1pPbFROKzlhaTF4TEhIc3ltaHpjQTlFeUlvc2Rqb1pMK0gy?=
- =?utf-8?B?UVVmWndpTEFZWCs5ZU9iYkhva2ozY2J1a2c0L3UrZ2xmTWhaQm8rd2Z1dzlQ?=
- =?utf-8?B?M0hYNG9lTXBYS2FZUW1ZemEreDJMUWFMc2hZL3RkdUJVZC9PbUdxbWNSQk9E?=
- =?utf-8?B?RmRyVXF6OTVlTGttVlladFBvNndpOFRZem0rSlNWUFhJVHpkS0pKWmM4aHdh?=
- =?utf-8?B?a2dDWVA0eUZBZjFVdWxqN3dRbnhNK3ROWTZBa3ZYNnlyRStFeVBPN1BmZXZh?=
- =?utf-8?B?cXNyRUluWWhkK3YrRHVJZE9DNkdPSTVpQStCNVR1eVU1ZWQ5b01nQlYvbnNq?=
- =?utf-8?Q?G5QbpftHB8jd5I15yr?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea24e382-f59c-4ac8-a4fb-08df22dd3fba
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7366.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2026 12:36:16.3986
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ssRlJDFsMJOaui2xkqBlP2/2KRUbyKOShmM3j3/eWmZZY7x5iSEtqyVopHpX9khl4dAYaoBFeWuiJrxVjrAJXQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4263
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_053630_844657_89D3AC52 
-X-CRM114-Status: GOOD (  21.00  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3263; i=cassel@kernel.org; h=from:subject; bh=FB+arrFjBGrAlUmQqtf4EI5iCQwOgK1EVKfXkbU9/y4=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLIOzxayd460vzbjx9cSf+9520VljzBufGFU6Vrdoj2Fy 8t8kTFnRykLgxgXg6yYIovvD5f9xd3uU44r3rGBmcPKBDKEgYtTACZiG8rIMC2H+Zzy91Wxb2va tS3aNmSWV5wIcau1/rJy56Udhdt2bmdk+ObpJiHfI3Q8YqLC7I0Ryy1uzKybetzn15FJue+aLN/ cZgAA
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,94 +73,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+pcie_set_mps() changes the Max Payload Size (MPS) in the Device Control
+register but leaves the copy saved by pci_save_state() alone, so the next
+pci_restore_state() puts back the old value.
 
-Thanks for the review. Please find my response inline.
+The PCI core does change the MPS of devices whose state has already been
+saved: pci_configure_mps() reduces a Root Port's MPS when a device with a
+smaller MPS Supported is hot-added directly below it (commit 9f0e89359775
+("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")), and with
+"pci=pcie_bus_safe", pcie_bus_configure_settings() can do the same when
+pciehp calls it after a hot-add.  The Root Port's state was saved when it
+was added and again when portdrv probed it.
 
-On 10/1/2026 8:14 PM, Sudeep Holla wrote:
-> On Thu, Oct 01, 2026 at 04:45:38AM -0700, Jay Buddhabhatti wrote:
->> Some platforms advertise reserved or uninstantiated clock IDs that still
->> succeed CLOCK_DESCRIBE_RATES with zero rates. After dynamic rate
->> allocation, kcalloc(0) returns ZERO_SIZE_PTR and protocol init then
->> dereferences rates[0], which panics.
->>
->> Do not allocate or index the rate array when the firmware reports an
->> empty list, so unused IDs are skipped instead of taking down the SCMI
->> clock provider.
->>
->> Fixes: 62ba967595e0 ("firmware: arm_scmi: Make clock rates allocation dynamic")
->> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
->> ---
->> The SCMI server is the source of this zero rate and successful response
->> and it should be fixed in SCMI server. This defensive check in Linux is
->> still useful because firmware responses must be validated before
->> de-referencing dynamically allocated data, The panic is a Linux
->> regression introduced by dynamic rate allocation; previous fixed array
->> tolerated the same response and other SCMI implementations could return
->> the same unexpected response.
->> ---
->>   drivers/firmware/arm_scmi/clock.c | 18 ++++++++++++++++++
->>   1 file changed, 18 insertions(+)
->>
->> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
->> index 0278705d809e..8934a95527e2 100644
->> --- a/drivers/firmware/arm_scmi/clock.c
->> +++ b/drivers/firmware/arm_scmi/clock.c
->> @@ -8,6 +8,7 @@
->>   #include <linux/math64.h>
->>   #include <linux/module.h>
->>   #include <linux/limits.h>
->> +#include <linux/slab.h>
->>   #include <linux/sort.h>
->>   
->>   #include "protocols.h"
->> @@ -484,6 +485,13 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
->>   	if (!st->max_resources) {
->>   		unsigned int tot_rates = st->num_returned + st->num_remaining;
->>   
->> +		/*
->> +		 * Unused/reserved clock IDs return 0 rates. kmalloc(0)
->> +		 * returns ZERO_SIZE_PTR and must not be dereferenced.
->> +		 */
->> +		if (!tot_rates)
->> +			return 0;
->> +
->>   		p->clkd->r.rates = devm_kcalloc(p->dev, tot_rates,
->>   						sizeof(*p->clkd->r.rates), GFP_KERNEL);
->>   		if (!p->clkd->r.rates)
->> @@ -505,6 +513,9 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
->>   	struct scmi_clk_ipriv *p = priv;
->>   	const struct scmi_msg_resp_clock_describe_rates *r = response;
->>   
->> +	if (ZERO_OR_NULL_PTR(p->clkd->r.rates))
->> +		return -EPROTO;
->> +
->>   	p->clkd->r.rates[p->clkd->r.num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
->>   
->>   	/* Count only effectively discovered rates */
->> @@ -622,6 +633,13 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
->>   	if (ret)
->>   		return ret;
->>   
->> +	/*
->> +	 * Some platforms expose reserved clock IDs with an empty
->> +	 * CLOCK_DESCRIBE_RATES reply. Do not dereference rates[].
->> +	 */
->> +	if (!clkd->r.num_rates || ZERO_OR_NULL_PTR(clkd->r.rates))
->> +		return 0;
->> +
-> 
-> I expect the Clock rate control bit to be unset in the permissions for
-> these clock, else it may be dangerous to do this. Please add that check.
+Since commit 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root
+Ports in a platform-specific way"), pcibios_reset_secondary_bus() restores
+that saved state, without saving it first, after host->reset_root_port()
+has reset the Root Port, e.g. during AER recovery or on Link Down with the
+qcom and Rockchip DWC drivers.  The Root Port then goes back to the old,
+larger MPS while the device below it is restored to the smaller one, so
+the Root Port may send TLPs that the device treats as Malformed.
 
-I will add that check in new version. If the Clock rate control bit is 
-set, Linux clears its local copy by setting rate_ctrl_forbidden. The 
-clock remains registered, but clk-scmi does not install set_rate and 
-scmi_clock_rate_set() returns -EACCES. This avoids exposing rate changes 
-when no valid rates were described.
+Update the saved copy of Device Control when pcie_set_mps() changes the
+MPS, like commit 909f7bf9b080 ("PCI: Update saved_config_space upon
+resource assignment") does for BARs.
 
-Regards,
-Jay
-> 
+Fixes: 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root Ports in a platform-specific way")
+Assisted-by: LLM
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+---
+This fix was originally sent out as part of my RFC series:
+https://lore.kernel.org/linux-pci/20260930145017.1356088-6-cassel@kernel.org/
+
+But sending this fix as a separate patch, as the fix is really unrelated
+to the rest of the series, so it could be picked up independently.
+
+ drivers/pci/pci.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index 8cc6a89130b5..f3b82eb7bfaf 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -1736,6 +1736,24 @@ static void pci_restore_pcie_state(struct pci_dev *dev)
+ 	pcie_capability_write_word(dev, PCI_EXP_SLTCTL2, cap[i++]);
+ }
+ 
++/*
++ * Update the saved copy of the Device Control register after changing it, so
++ * that pci_restore_state() doesn't put back a stale value.  Device Control is
++ * the first register saved by pci_save_pcie_state().
++ */
++static void pcie_update_saved_devctl(struct pci_dev *dev, u16 clear, u16 set)
++{
++	struct pci_cap_saved_state *save_state;
++	u16 *devctl;
++
++	save_state = pci_find_saved_cap(dev, PCI_CAP_ID_EXP);
++	if (!save_state)
++		return;
++
++	devctl = (u16 *)&save_state->cap.data[0];
++	*devctl = (*devctl & ~clear) | set;
++}
++
+ static int pci_save_pcix_state(struct pci_dev *dev)
+ {
+ 	int pos;
+@@ -5983,8 +6001,12 @@ int pcie_set_mps(struct pci_dev *dev, int mps)
+ 
+ 	ret = pcie_capability_clear_and_set_word(dev, PCI_EXP_DEVCTL,
+ 						  PCI_EXP_DEVCTL_PAYLOAD, v);
++	if (ret)
++		return pcibios_err_to_errno(ret);
+ 
+-	return pcibios_err_to_errno(ret);
++	pcie_update_saved_devctl(dev, PCI_EXP_DEVCTL_PAYLOAD, v);
++
++	return 0;
+ }
+ EXPORT_SYMBOL(pcie_set_mps);
+ 
+-- 
+2.55.0
 
 
