@@ -4,99 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602B9CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 12:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853C8CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/Ouz9WloeKvUHxr+IWiDIKxmL82mM4htq+/IQDKXxk=; b=gQTQMZt808VCbT4vnGXWPLffYC
-	pNS0ZhFR6Uqvk8zlLgVwvzjRNvd5oL6nXVOQeznZTEnP7Le/++Ag+Q7u8E36vtfyB22R0RYYsaWgt
-	WZJNyC0ZMG0unJzPLEWay/t91Bdpb0RpQdUBKN93txTFM+zJ0YKznMDdQtplcjIwHwhDU8eTyPz++
-	DHkHM+hnsFJpw86OBh6/oseG5gDv4PbFTgcu0sTvRVcvlpwC1z7Sm5BCVsytG1zYTfhAX9O5r7sdV
-	8IcOPeODam1eSAbp7mOEp/bU2nA/59Ym57s7teGXKYWPKh9WcdEKO4MvmiFnRBWVbxwOa5DPW4O8f
-	R2trXzDw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rl1OZheCBCPMjKUjI2TjxKZoMfCFhn7MxZPI1BYjjA4=; b=NwOxuqT/68klqGpp3m/1sceXoq
+	71gUSfpplrMd0S+H/2DtlewSQkpN2GbyCD5K1MyRFuKGSvx44bKN0i1L6JEFznM2M8R/6RnxjISLi
+	KhzT+CfV0sn18BtpXxMxtvuTwj5169GyozOt5xn58viC3mA6S9FfcBXTvNXn5dt3qkT+vjCFbFtSW
+	uui4jgIpDchP6p6t+kSfkx0vv6+mOgfzwd1LTDTlhizYiQkegjv6Tr+z1HwQocrTj1Y0rdjKrQI1o
+	5m6deVu03qTUbWLUxopF4TACSwsaIBU0EycuY+44DseDG5oldOwew0nQogyZvTOtHLo6OaO8P9T3f
+	cJFRbsjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiFR-0000000GR56-1vgl;
-	Mon, 05 Oct 2026 12:56:53 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xDiKT-0000000GRYi-0iaa;
+	Mon, 05 Oct 2026 13:02:05 +0000
+Received: from mail-wm2-x09.google.com ([2a00:1450:4864:31::9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDiFP-0000000GR4Z-0CkR
+	id 1xDiKN-0000000GRXj-2bwz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 12:56:52 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a0280d4f56so10612095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 05:56:50 -0700 (PDT)
+	Mon, 05 Oct 2026 13:02:01 +0000
+Received: by mail-wm2-x09.google.com with SMTP id 5b1f17b1804b1-49e7361175bso1166645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 06:01:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791205009; x=1791809809; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W/Ouz9WloeKvUHxr+IWiDIKxmL82mM4htq+/IQDKXxk=;
-        b=Vunuuqqt55q5XZv8vvvu5XxEZflU1/lJIox4ZBzAe7MT4o+2kqRkQ/NaN6QC/UL6kS
-         iSJUXeCWS729faCddplFFjHnNcxF4m5+qbsviz7hm2kENmWJDbz7qVL3lNjiRMeBpkFP
-         MoF0NQCTm2GzoXz5aqkF6WBB4v+f+zRYt0Py7WYhpof3v5F1FdD5UwzZG8Qefs/hCsII
-         +q+3zCf70iFSpAZ9Gz2IRvG9QcLwlltl23u74nTn5eoch+lES9YkHlj+RFCsyiEMWKG5
-         XsaipfaGXE0xfW44h9dHhKrPPxTd+/JjZ0idSEv0gNYX6srUljVuKFQXAiJfuCcBI2d3
-         w6OQ==
+        d=gmail.com; s=20251104; t=1791205316; x=1791810116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rl1OZheCBCPMjKUjI2TjxKZoMfCFhn7MxZPI1BYjjA4=;
+        b=UtHzVdRcZRhkKhcKhYMZg9SGm1+U/jVuGG+bh6EqtqQsrMqMudZTJbARSPrd8YJ1yY
+         KLiltdjFodB/cTGeH36cAcGBF+smuKE5DALaVRkTLH8ujE0u2FKRAwyFJ/5nZRf/hUCV
+         64TDT3tSI5xfMyJDmkw+QteQYGLLGcggmEUkkeIAA/oIW4d+3Bc2RswY3LyZ8KHRc+SH
+         VZrUaSLxPP4N4wasUdMjZI2o+8Xvdoy5904hQHRfgBwXKUBy+lhwKdak/bSuKhoe+S3m
+         wOGHtkti9jzoQrWXO4sCnmpFRqXt0WPMhhbzsBIztVLMutPLoMayCKCF+hZOlaFyd0xH
+         LpLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791205009; x=1791809809;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W/Ouz9WloeKvUHxr+IWiDIKxmL82mM4htq+/IQDKXxk=;
-        b=DI0XMhwC8v8Q6VnvjANFVCFultRzSrqs94MWqZI9Q64z8tVZ76VHvFRNzE2UJAgyzG
-         zbXZBX17od+PSAO0QAsA/KGP7HTbgRg9zM/cbZjemPWz3QAMCPttm8aa2KLuV2m+k3pQ
-         ZkLslww3EjA0ldrmlhUDTLGD6kwbZ3B2K9/GlnyB7EKFFoz/PAKWDYK8q9Ujz49HvV7m
-         +uOhqDkAe/Oo5OFUd8s1qY6mFgYCwqqhFRbNiTKeO2J1tgg5rS3eJTtcVGm3SqCN+BBn
-         O5G+GUcsJSsQtmm/zPVCZhwXaZlhZKbak+OQLY8GXwCLQv2lqHBy2WvtlQc7eV+pdyFd
-         /OeQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx1S/oTk7LhCHfhuIV0WulFprZPy5c8fzYRW0Apu+ugacv1gpbZvuHS518YNsDUoTSpJCuqiffm5XcXQ2lqnepf@lists.infradead.org
-X-Gm-Message-State: AFuF++kHzBlXsMpgBqUQCKh2zc1p7/1ionZSsLQYINTRua8256maFPRC
-	i9fQa8y4QrtS3vV0rS5ovpGA0tUiK5GNL2k2KAbWGwETCY3mRR6mXMlO+Wwohw==
-X-Gm-Gg: AYBFou1P2AqsPA4LWf2np3ZO0eJWAfuVG4VoIryfC6XEdL+EyQagxKYEyqNSXWnoCE2
-	hs77DQnfrBMZ9LmiGGQJYVX+HEW0rCxYGMI+bcLxP9Sx4AE0WkQpmqg7f4ZgUZwU3eHTh8xx+cb
-	NrxXhpHmAiueoIgeGSxuJ9I3E/wz+k4gL4qxks4UvNemmYFQKpg1UemBjJBOaadLGnx/nSh2VDx
-	O2lwT1VE4nsVojeplu40JyUytSN5mUmSk0qiRG3D5y5gXlof0u/Afx2cA1KsnmPjbsg8nv3kxQY
-	1/9Ttt2QwJ542yfr2LAHQo820Dfo4cA3MEOPX3PW+0jv0tj0Rhm0SC5IvjrSXOUJNPy9Mmj5+oB
-	z1klnkr5fB+Pc+Wu85MAoD0ZB19AxOLysEbSgsCJBHutQ+PDCw0D4E/0dH+1t1ZoSWB9vc7qxzj
-	GrRAP7Lc1CxgACCTTINhVbtQF7KN0S3if0A4FjX+OL3w8ASlecMujitxb5/ERyT4t/hpgin/8t/
-	f+ZvtOLKutU5//SBLhTicutEfEobGEs52zP1wO/OOGdTVACDaoKzJniYEy/meeg+/DS36o8Q7x1
-	pLrBDFLQfLBnH4yqRkHzgkI7zN8KLfrJ9QroCrpkwBXBYeHyho9XoPFCM0uz1SdE2WoqpdlF2Hh
-	eEuP2YlgzVdR7iszVTPPAcg5FUnmEbj7J8HAbpD2FJvWfxQ8pdKFe923y4k1IMGrMibXbKtiwRC
-	7wQPxv
-X-Received: by 2002:a05:600c:474e:b0:4a0:1bf4:edbd with SMTP id 5b1f17b1804b1-4a027573d30mr166221905e9.5.1791205008939;
-        Mon, 05 Oct 2026 05:56:48 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c622704c1sm2895736f8f.10.2026.10.05.05.56.48
+        d=1e100.net; s=20260707; t=1791205316; x=1791810116;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rl1OZheCBCPMjKUjI2TjxKZoMfCFhn7MxZPI1BYjjA4=;
+        b=2JQ4OHM9qGw4tI/RnVCTAYTfAghWVe1r6dvBFkx5KbEbf5IEe7fz65DBwKc0p/Ga/V
+         2H5j+tpVhPQdBb55TwpkevoGckfpEAn7d5+ZHzWE8mADJmhtx7ukUE7K/NuE2Ee5DgHs
+         5iBTSpDGLfFJ43xttW638NtRN12zEzE/HQDvl1MMJ6cuvO5YIJdAwpQblq0IzbTSWvYo
+         Z/lTYyWQ9UapcZzUp79UJlCGVETas8GlB3b8Au+j0FxzrBSO2UUOntzuVpqzI0q+kGO8
+         64jBCkby+z+tButnHnWphUifFLEkrRM4E2JtP2rKlFBIW/OkzFaAaraKP4NIu5tvvHrJ
+         z/Tg==
+X-Forwarded-Encrypted: i=1; AKwUvByElOvAR2OB8cQ06RaExGt09In6M2VnfCnJuXU9Ly0BrMot4HSUwreqUTBHRCGOwwai4ncIt1N4y0j56zuthvYi@lists.infradead.org
+X-Gm-Message-State: AFuF++mymL/5tMmsqfvReCAZpIzcTEoWcAuYj1fyx261bf4UrhV/0KQi
+	c9yzJHUk952lepG3TrIZDrDsgGxe6yoD07SZeAfqD0O1Edsz+wyxRJUA
+X-Gm-Gg: AYBFou3DUldeikb+/VFp5LI4zbtGmEIK3DL2tYU1wTO153WubtQM7Bq0P9J8wjjR6S2
+	BZ9xZFGUc9M8niVbFHFxv7iLRQoUBYNcwKO9asyC1HNYGLCOCK2SFak2KgdApb3IxzrNEp9Qa8/
+	rqYfJijFfI20NqLuUE5m77mK0+by+l7SgLxwdJzk4d2ekPux+QSs8FXlaOX+mdHAwFfBBNShPWs
+	K15p7L0qzON1Uk9nsSDls5mZdl/9tCt/y7ehggVMKDUMv2fzikovmx4xrfBK7+sxm+Z6Eq6KUZp
+	GfLc3m5p9vh5p5YP6TkdGVqBUCERb7T6IV26MY71K05g+a6SfyNfVJe7K57ZghcPT+OWlbOR4rK
+	rUZMhoNzgabE8kgL5Ud9xM3UV7GHEYqulp4Pn7TnFX5r5DY8vdxYtMCLfgNBkecJL9Y6KuMGd1B
+	Fyryg6Da5Cgr7wiwWe2ANO44ZQYiyXO+qlTFfQZZ5s/2Dy0oRLOTTWq88hrws7eT1G04R2OKYyt
+	VjGibH1+DLAiqLU
+X-Received: by 2002:a05:600c:870f:b0:49f:fc4f:9efb with SMTP id 5b1f17b1804b1-4a02753fd01mr186622465e9.7.1791205316083;
+        Mon, 05 Oct 2026 06:01:56 -0700 (PDT)
+Received: from localhost.localdomain ([78.40.184.2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a03950375dsm137485215e9.1.2026.10.05.06.01.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 05:56:48 -0700 (PDT)
-Date: Mon, 5 Oct 2026 14:56:45 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Conall O'Griofa <conall.ogriofa@amd.com>, <linux-iio@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <git@amd.com>, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v4 09/15] iio: adc: xilinx-xadc: Drop unused header
- files
-Message-ID: <20261005145645.0000170f@gmail.com>
-In-Reply-To: <20261005094205.1045874-10-dileepkumar.nagavarapu@amd.com>
-References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
-	<20261005094205.1045874-10-dileepkumar.nagavarapu@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        Mon, 05 Oct 2026 06:01:55 -0700 (PDT)
+From: Roman Demidov <roman.demidov.nn@gmail.com>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Roman Demidov <roman.demidov.nn@gmail.com>,
+	Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <stefan.wahren@i2se.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.10] staging: vchiq_arm: Avoid NULL ptr deref in vchiq_dump_platform_instances
+Date: Mon,  5 Oct 2026 16:01:41 +0300
+Message-ID: <20261005130143.138638-1-roman.demidov.nn@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_055651_102108_238BAEFA 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261005_060159_678080_DC201029 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,16 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Oct 2026 15:11:59 +0530
-Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
+From: Stefan Wahren <stefan.wahren@i2se.com>
 
-> Remove header files that are no longer required after the
-> recent code cleanups.
+commit aa899e686d442c63d50f4d369cc02dbbf0941cb0 upstream.
 
-A bit of a misleading commit message since you're also adding new
-includes as well.
+vchiq_get_state() can return a NULL pointer. So handle this cases and
+avoid a NULL pointer derefence in vchiq_dump_platform_instances.
 
+Reviewed-by: Nicolas Saenz Julienne <nsaenz@kernel.org>
+Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
+Link: https://lore.kernel.org/r/1642968143-19281-17-git-send-email-stefan.wahren@i2se.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Roman Demidov <roman.demidov.nn@gmail.com>
+---
+Backport fix for CVE-2022-49106
+
+ drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 178cf90fb3e5..adde80b56073 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -2063,6 +2063,9 @@ int vchiq_dump_platform_instances(void *dump_context)
+ 	int len;
+ 	int i;
+ 
++	if (!state)
++		return -ENOTCONN;
++
+ 	/* There is no list of instances, so instead scan all services,
+ 		marking those that have been dumped. */
+ 
 -- 
-Kind regards,
-Joshua Crofts
+2.53.0
+
 
