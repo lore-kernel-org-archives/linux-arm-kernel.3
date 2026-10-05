@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06177CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEFFCA5FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 04:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hp0eT36ZoGYYwqx1P4uri5STuyS5zLwYbpHm41ewMko=; b=UeR9Os0DWAHm/tiziG5jM2i5BO
-	XROTxy+CFM/bAfDHqC1Aa0e9O6509l5GXT9fa1iCmyh2tNy6K9LAQKN5819D4OWtBGMIztZ/7Xhrr
-	0cePM8V+5wUHwHsT1nCZMTXIXcDrdk7c9291xe6nNruVI5NG0LBiR5GOsiKFmruBRzUgmTEBsCgZP
-	fuXbPvcf0Wh2BZhGCoYt4N8Dc0TLskSCh6gJFUMj6oU1U0a1qFp4EVZGTHACft+ZJKK48jwbHPi/l
-	Ffo/Qr7UfPHO94UIoK6ASERBu+4G61TgWxYjjhQyAuQK+Mynjhx9bzTsU9mM4SUnj7WaHdJ4JdIwJ
-	18pG0RXw==;
+	bh=prj36X89FCSiP6RVyAsb7oBjYhBNv9z/wSeGzLB7KRc=; b=N15Lm2//7nF2ecY/fHxs70UjAF
+	KibUTNmLM9+9z/hQrV9uDc6fF5f/OHrNhZvmakWODDsMnAbRYiWLS6l17SZwkuTm8guHObcxWgU0x
+	diHSqmP4nF2gY9LldGBE4tpGtvKhwxBy5r4WdrCaWxmWOEmrPnBtiCL8kLWM4PPSyVVxx5Sn/HEE5
+	77mDi31FtimJnXtZ83dWl2eN9NUyHL8JQE5VIYpqB1N9dUaknWOW0V9UlzW1zaTkU5skK7AjnemkP
+	vj9fhanpHSNFT9X4lGfWserg9WnmsiHBcthKGL89+CrfA96moX70tRZ0rifKKnWGQW+dGYCf0zpn7
+	wZCKQLmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaT2-0000000Fez9-05fj;
-	Mon, 05 Oct 2026 04:38:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xDaT4-0000000Ff0A-15zP;
+	Mon, 05 Oct 2026 04:38:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDaT0-0000000Feyn-2yi1
+	id 1xDaT2-0000000Fez8-3Z5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 04:38:22 +0000
+	Mon, 05 Oct 2026 04:38:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B82006022F;
+	by tor.source.kernel.org (Postfix) with ESMTP id A18DA6025F;
+	Mon,  5 Oct 2026 04:38:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6E91F00893;
 	Mon,  5 Oct 2026 04:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 284101F000FF;
-	Mon,  5 Oct 2026 04:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791175101;
-	bh=Hp0eT36ZoGYYwqx1P4uri5STuyS5zLwYbpHm41ewMko=;
+	s=k20260515; t=1791175103;
+	bh=prj36X89FCSiP6RVyAsb7oBjYhBNv9z/wSeGzLB7KRc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PLGX8rzvtHB8iHSGX6CYjCbg/IqTHwTaZHMAgGffuVSQ0IYFDk24i6rOw/shYyNvs
-	 /+mbSxo657QB7a2CIa57LgZRqrm2ND1fXCqx52c7gaeAqSkuxV6D1PghDb2SmqZolV
-	 fhYrXtAiBIIeEZNXax1UEFSPnjsVIuTnxbg2jjqvNjewChNTyWDF/zG0YRHM/hxVu6
-	 Tlu/WFx3vMfWGVC2Npech6xgqcXRzCV391BbWjYvV7TnDVFFOuvL9IteuDdNA7ESbS
-	 +ebUEZnlOEGJYbsoJSlO1ZuH9m3gCV8JznW+P6OTVNsDxR2gpkWXWE3e7nO0BMYmN+
-	 UR0EgevShLUyw==
-Subject: Re: [PATCH net-next v4 3/4] net: stmmac: preserve the installed EST
- schedule on errors
+	b=Dpi0nWYXHA/+IYTGJOk0pSaQ6hjK8U1RAeN8W44IaSHQGKhVHKyjF9bcuzD7i7q8S
+	 xlQ8N0sU6nceYvUxyu37VA3To8++ILJNp5BuASsFom8uqrjj+mYuygeZfFBEzUn6UD
+	 hkMwYEw1ASK2kt8kOMOF7XNTvUCvfvu2LzI0YnDTq3x79JXuQXhe864xVRQ3KfN4cG
+	 tO4fw6iP6f+x6BdBGzMJYrbm2g4COZsHe29DIcJm14PnbIltMB57zalVAQRvFoV3XI
+	 sgcnBvR9thh2nRy8dSqYmbDzoJWcfnHhwdOtgL/xz5RcNKy8T1aeKF1pF1RNUl53KB
+	 enEKt//dERFEg==
+Subject: Re: [PATCH net-next v4 4/4] net: stmmac: restore EST before starting
+ DMA on open and resume
 From: netdev-bot+sashiko@kernel.org
 To: james.hilliard1@gmail.com
 Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
@@ -56,10 +56,10 @@ Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  bpf@vger.kernel.org
-Date: Mon, 05 Oct 2026 04:38:19 +0000
-Message-ID: <179117509969.434549.14027278696780761740@kernel.org>
-In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-3-9d4366587b73@gmail.com>
-References: <20260930-stmmac-est-reapply-after-open-v4-3-9d4366587b73@gmail.com>
+Date: Mon, 05 Oct 2026 04:38:21 +0000
+Message-ID: <179117510159.434549.6990304999484677101@kernel.org>
+In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-4-9d4366587b73@gmail.com>
+References: <20260930-stmmac-est-reapply-after-open-v4-4-9d4366587b73@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,10 +78,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 8 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 (3) · Low: 6
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -89,354 +89,192 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] tc_taprio_configure() (stmmac_tc.c:1022-1023) now rejects
-  TAPRIO_CMD_REPLACE with -EOPNOTSUPP whenever priv->ptp_enabled is…
-- [Medium] The new rollback in tc_taprio_configure() rewrites the EST
-  registers right after the replacement schedule has been armed.
-- [Low] This concern said that stmmac_setup_est() in stmmac_est.h has no
-  callers and that the tc_taprio_configure() comment refers to a 'reset…
-- [Low] The `!priv->ptp_clock_ops.gettime64` test in
-  tc_taprio_configure() (stmmac_tc.c:1022) is now dead and misleading.
-- [Low] The comment on __stmmac_setup_est() (stmmac_est.c:83) says it
-  programs 'either the installed schedule or an unpublished…
-- [Low] stmmac_est.h has no include guard.
-- [Low] The new scratch buffer `est = kzalloc_obj(*est)`
-  (stmmac_tc.c:1036) holds a struct stmmac_est.
-- [Low] stmmac_setup_ptp() registers the PHC (stmmac_main.c:975) before
-  it sets priv->ptp_enabled = true (line 976).
-
-Pre-existing issues:
-- [Medium] stmmac_set_time() (the settime64 op, stmmac_ptp.c:133-145)
-  steps the PHC under ptp_lock only.
-- [Medium] The TX hot paths (stmmac_xmit, stmmac_xdp_xmit_zc,
-  stmmac_xdp_xmit_xdpf) read priv->est.enable and priv->est.max_sdu[]…
-- [Medium] This concern said that after stmmac_hw_setup() ->
-  stmmac_init_dma_engine() -> stmmac_reset() clears the EST block,…
+- [Medium] The patch gives stmmac_resume() a new way to fail: if
+  stmmac_setup_est() returns an error, resume jumps to error_stop_dma…
+- [Medium] __stmmac_open() can now fail at the new est_error exit
+  (stmmac_main.c:4205-4207).
+- [Medium] In __stmmac_open(), stmmac_start_all_dma() now runs after
+  phylink_start() (stmmac_main.c:4211 -> 4216).
 
 --
 
-net: stmmac: preserve the installed EST schedule on errors
+net: stmmac: restore EST before starting DMA on open and resume
 
-This patch builds a TAPRIO replacement schedule in a separately allocated
-struct stmmac_est. It copies that schedule to priv->est only after the
-hardware accepts it, and restores the installed schedule on failure. A
-shared __stmmac_setup_est() helper is used for new schedules, rollback
-and stmmac_adjust_time(), which now holds est_lock across the whole clock
-step.
+The core reset clears the MTL_EST registers. This patch replays the cached
+taprio/EST schedule after timestamp initialization in __stmmac_open() and
+stmmac_resume(). It also moves stmmac_start_all_dma() out of
+stmmac_hw_setup() and into its callers, so DMA starts only after the EST
+replay succeeds.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> index f15d4d046aa74..15c2d1794e229 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> @@ -80,6 +80,47 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
->  	return 0;
->  }
->  
-> +/* Program either the installed schedule or an unpublished replacement. */
-> +int __stmmac_setup_est(struct stmmac_priv *priv, struct stmmac_est *est)
-> +{
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index e93f3238be1fb..2104eaef8806f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
 [ ... ]
 
-> +	lockdep_assert_held(&priv->est_lock);
-> +
-> +	if (!priv->ptp_enabled)
-> +		return -EOPNOTSUPP;
-
-[Severity: Low]
-stmmac_setup_ptp() registers the PHC before it sets ptp_enabled:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_setup_ptp() {
-    ...
-	stmmac_ptp_register(priv);
-	priv->ptp_enabled = true;
-    ...
-}
-
-Suppose an adjtime lands in that window while priv->est.enable is set.
-stmmac_adjust_time() then disables EST and steps the clock, and this
-check returns -EOPNOTSUPP, which leaves EST off in hardware.
-
-At this commit, stmmac_hw_setup() has already reset EST before
-stmmac_setup_ptp() runs. The later patch "net: stmmac: restore EST before
-starting DMA on open and resume" re-arms EST via stmmac_setup_est() right
-after stmmac_setup_ptp(). What remains is that adjtime returns
--EOPNOTSUPP for a clock step that was actually applied.
-
-Is that return value intended?
-
-> +
-> +	read_lock_irqsave(&priv->ptp_lock, flags);
-> +	err = stmmac_get_systime(priv, priv->ptpaddr, &now);
-> +	read_unlock_irqrestore(&priv->ptp_lock, flags);
-
-[Severity: Medium]
-This is a pre-existing issue, but stmmac_set_time() (the settime64 op)
-steps the PHC while holding only ptp_lock:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c:stmmac_set_time() {
-    ...
-	write_lock_irqsave(&priv->ptp_lock, flags);
-	stmmac_init_systime(priv, priv->ptpaddr, ts->tv_sec, ts->tv_nsec);
-	write_unlock_irqrestore(&priv->ptp_lock, flags);
-    ...
-}
-
-It does not take est_lock, does not disable EST and does not replay the
-schedule. Can a settime land between this PHC read and the EST register
-writes below? Can a settime after a schedule is installed leave the
-hardware BTR stale?
-
-The commit message's "Hold est_lock throughout a clock step" covers only
-the adjtime path. The old tc_taprio_configure() and stmmac_adjust_time()
-were not serialized against settime64 either.
-
-[ ... ]
-
-> +	err = stmmac_est_configure(priv, priv, est,
-> +				   priv->plat->clk_ptp_rate, true);
-> +	if (err)
-> +		netdev_err(priv->dev, "failed to re-configure EST\n");
-
-[Severity: Low]
-This isn't a bug, but this helper now also does the first install of a
-new schedule from tc_taprio_configure(). The message removed there was
-"failed to configure EST".
-
-A failed initial install is now logged as a re-configure failure. On the
-rollback path, "failed to restore EST" follows this message. Would
-"failed to configure EST" be more accurate here?
-
-> +
-> +	return err;
-> +}
-> +
->  static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
->  			   struct stmmac_extra_stats *x, u32 txqcnt)
->  {
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> index f70221c9c84af..5665e7a539948 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> @@ -65,3 +65,16 @@
->  #define EST_GCL_DATA			0x00000034
->  
->  extern const struct stmmac_est_ops dwmac510_est_ops;
-> +
-> +int __stmmac_setup_est(struct stmmac_priv *priv, struct stmmac_est *est);
-> +static inline int stmmac_setup_est(struct stmmac_priv *priv)
-> +{
-> +	int ret = 0;
-> +
-> +	mutex_lock(&priv->est_lock);
-> +	if (priv->est.enable)
-> +		ret = __stmmac_setup_est(priv, &priv->est);
-> +	mutex_unlock(&priv->est_lock);
-> +
-> +	return ret;
-> +}
-
-[Severity: Low]
-stmmac_setup_est() has no callers at this commit. The new comment in
-tc_taprio_configure() also refers to a "reset replay" consumer that does
-not exist yet.
-
-The last patch in the series, "net: stmmac: restore EST before starting
-DMA on open and resume", adds callers in __stmmac_open() and
-stmmac_resume(). At the end of the series the helper and the comment are
-both accurate.
-
-Would it make sense to add this helper in that patch instead?
-
-[Severity: Low]
-stmmac_est.h has no include guard. Until now it held only macros and an
-extern declaration, which are safe to include more than once.
-
-This adds a static inline body that dereferences priv->est_lock and
-priv->est and calls mutex_lock(). Would a second inclusion cause a
-redefinition error? Does the header now silently depend on stmmac.h being
-included first?
-
-All current includers include stmmac.h first and include this header
-once, so the build works today.
-
-[Severity: Medium]
-This is a pre-existing issue, but stmmac_hw_setup() clears the EST block:
-
-stmmac_hw_setup()->stmmac_init_dma_engine()->stmmac_reset()
-
-At this commit, nothing re-programs EST afterwards while priv->est.enable
-stays set.
-
-The last patch in the series, "net: stmmac: restore EST before starting
-DMA on open and resume", fixes this. It calls stmmac_setup_est() in
-__stmmac_open() after stmmac_setup_ptp(), and in stmmac_resume() before
-stmmac_start_all_dma(). Those cover both callers of stmmac_hw_setup().
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 67c6fc32d0ea6..58dda3282973e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -979,6 +980,9 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  	if (!priv->dma_cap.estsel)
->  		return -EOPNOTSUPP;
->  
-> +	if (ctr > (u64)U32_MAX * NSEC_PER_SEC)
-> +		return -ERANGE;
-> +
->  	switch (wid) {
->  	case 0x1:
->  		wid = 16;
-> @@ -1015,6 +1019,8 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  
->  	if (qopt->cmd == TAPRIO_CMD_DESTROY)
->  		goto disable;
-> +	if (!priv->ptp_enabled || !priv->ptp_clock_ops.gettime64)
-> +		return -EOPNOTSUPP;
-
-[Severity: Medium]
-Does this reject TAPRIO_CMD_REPLACE whenever the interface is down?
-
-priv->ptp_enabled is set only in stmmac_setup_ptp(), called from
-__stmmac_open(), and stmmac_release_ptp() clears it on close. Neither
-stmmac_setup_tc() nor tc_setup_taprio() checks netif_running().
-
-Before this patch, a full-offload taprio replace on a down interface read
-the PHC through gettime64, programmed EST and succeeded. Now it fails
-with -EOPNOTSUPP on a MAC that has estsel set:
-
-  ip link set dev X down
-  tc qdisc replace dev X root taprio ... flags 0x2
-    -> tc_taprio_configure()
-       -> return -EOPNOTSUPP
-
-An installed schedule already survives a down/up cycle, and the later
-"restore EST ... on open" patch replays it on open. Could a replace while
-down be cached in the same way instead of being rejected?
-
-The commit message mentions neither this gate nor the new -ERANGE check
-for cycle_time > U32_MAX * NSEC_PER_SEC above.
-
-[Severity: Low]
-This isn't a bug, but is the gettime64 test still needed?
-
-__stmmac_setup_est() no longer reads the PHC through gettime64. It checks
-priv->ptp_enabled itself and uses stmmac_get_systime().
-
-Also, priv->ptp_clock_ops is copied at hwif init from
-stmmac_ptp_clock_ops or dwmac1000_ptp_clock_ops. Both set .gettime64, so
-this condition can never be true. stmmac_adjust_time() calls the same
-helper without this check.
-
->  
->  	if (qopt->num_entries > dep)
->  		return -EINVAL;
-> @@ -1023,25 +1029,27 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  	if (qopt->cycle_time_extension >= BIT(wid + 7))
->  		return -ERANGE;
->  
-> -	mutex_lock(&priv->est_lock);
-> -	memset(&priv->est, 0, sizeof(priv->est));
-> -	mutex_unlock(&priv->est_lock);
-> +	/* Build the replacement without changing the installed schedule. An
-> +	 * entry rejected below must not leave an enabled, zero-cycle cache for
-> +	 * PHC adjustment or reset replay to consume.
-> +	 */
-> +	est = kzalloc_obj(*est);
-> +	if (!est)
-> +		return -ENOMEM;
-
-[Severity: Low]
-This isn't a bug, but struct stmmac_est is about 8268 bytes because
-gcl_unaligned[] and gcl[] each hold EST_GCL (1024) u32 entries.
-
-That is larger than the biggest kmalloc cache on 4K page systems, so every
-taprio replace makes a physically contiguous order-2 allocation. The
-buffer is short-lived and allocated in sleepable context. Would
-kvzalloc_obj() with kvfree() be a better fit?
-
-[ ... ]
-
-> +	mutex_lock(&priv->est_lock);
-> +	ret = __stmmac_setup_est(priv, est);
-> +	if (ret)
-> +		goto restore;
->  
->  	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
-> -					      qopt->mqprio.preemptible_tcs);
-> +					     qopt->mqprio.preemptible_tcs);
+> @@ -4200,12 +4199,22 @@ static int __stmmac_open(struct net_device *dev,
 >  	if (ret)
-> -		goto disable;
-> +		goto restore;
+>  		goto ptp_error;
 >  
-> -	return 0;
-> +	priv->est = *est;
+> +	/* The core soft reset in stmmac_hw_setup() clears the MTL_EST
+> +	 * registers, so re-apply the taprio offload after PTP is up.
+> +	 */
+> +	ret = stmmac_setup_est(priv);
+> +	if (ret < 0)
+> +		goto est_error;
 
 [Severity: Medium]
-This is a pre-existing issue, but stmmac_xmit(), stmmac_xdp_xmit_zc() and
-stmmac_xdp_xmit_xdpf() read priv->est.enable and priv->est.max_sdu[] with
-no est_lock and no READ_ONCE().
+What state is the interface left in if this new exit is taken during an MTU
+change?
 
-Can a packet sent during this struct copy be checked against a mix of old
-and new max_sdu values?
+The est_error exit comes after the memcpy() at the top of __stmmac_open()
+has overwritten priv->dma_conf. It also comes before stmmac_init_coalesce(),
+phylink_start() and the NAPI enable.
 
-The old memset() followed by field-by-field updates had the same race,
-with intermediate states at least as bad, so the struct copy does not
-make it worse.
+stmmac_change_mtu() reopens the device in place:
 
-> +	mutex_unlock(&priv->est_lock);
-> +free_est:
-> +	kfree(est);
-> +	return ret;
-> +
-> +restore:
-> +	/* A failed hardware update must not publish the rejected schedule. */
-> +	if (priv->est.enable)
-> +		err = __stmmac_setup_est(priv, &priv->est);
-> +	else
-> +		err = stmmac_est_configure(priv, priv, &priv->est,
-> +					   priv->plat->clk_ptp_rate, false);
+stmmac_change_mtu() {
+    ...
+		__stmmac_release(dev);
+
+		ret = __stmmac_open(dev, dma_conf);
+		if (ret) {
+			free_dma_desc_resources(priv, dma_conf);
+			kfree(dma_conf);
+			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
+			return ret;
+		}
+    ...
+}
+
+After this failure the interface stays IFF_UP. priv->dma_conf still holds
+the descriptor, buffer and page pool pointers that were just freed. The
+txtimers hold the zeroed hrtimers copied from the new dma_conf, because
+stmmac_init_coalesce() was skipped.
+
+The next close, ring parameter change or XDP change goes through
+__stmmac_release(). Every NAPI is already disabled at that point. Would
+stmmac_disable_all_queues() then hang forever in napi_disable() under
+RTNL?
+
+If execution got past that point, hrtimer_cancel() would run on
+uninitialized hrtimers. free_dma_desc_resources(priv, &priv->dma_conf)
+would then free the same rings a second time. Until then, readers such as
+the debugfs descriptors_status file would dereference the freed
+descriptor memory.
+
+The ptp_error and irq_error exits already used this weak unwind. What
+changes is that an EST register write timeout (readl_poll_timeout() in
+est_write()) during a routine MTU change can now reach it. Before this
+patch the device kept running, just without its EST schedule.
+
+>  	stmmac_init_coalesce(priv);
+>  
+>  	phylink_start(priv->phylink);
+>  
+>  	stmmac_vlan_restore(priv);
+>  
+> +	/* Restore the installed schedule before starting DMA. */
+> +	stmmac_start_all_dma(priv);
 
 [Severity: Medium]
-When stmmac_fpe_map_preemption_class() fails, __stmmac_setup_est(priv,
-est) has already armed the replacement through est_configure(..., true):
+Can starting DMA after phylink_start() race with the phylink resolve
+worker?
 
-	if (enable)
-		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+phylink_start() calls phylink_enable_and_run_resolve(), which queues
+pl->resolve. phylink_resolve() does not take RTNL, so it can call
+stmmac_mac_link_up() while __stmmac_open() is still running here.
 
-SSWL asks the hardware to switch lists at the programmed BTR, and it stays
-set until the switch happens. When base_time is in the past, that is
-usually about one cycle later.
+stmmac_mac_link_up() sets speed and duplex with an unlocked
+read-modify-write of MAC_CTRL_REG:
 
-This restore rewrites the GCL and the other EST registers microseconds
-later. It does not clear EEST or wait for SSWL first.
+	old_ctrl = readl(priv->ioaddr + MAC_CTRL_REG);
+	ctrl = old_ctrl & ~priv->hw->link.speed_mask;
+	...
+	if (ctrl != old_ctrl)
+		writel(ctrl, priv->ioaddr + MAC_CTRL_REG);
 
-An admin can trigger the FPE failure. dwmac5_fpe_map_preemption_class()
-returns -EINVAL with SP scheduling when a preemptible TC spans several
-queues, or when queue weights differ.
+For each channel, stmmac_start_all_dma() does its own unlocked
+read-modify-write of the same register. On dwmac4/5:
 
-If the hardware aborts indirect GCL writes while SSWL is pending (the
-Synopsys EST programming model describes this), est_write() would not
-notice, because it only polls SRWO:
+dwmac4_dma_start_tx() {
+    ...
+	value = readl(ioaddr + GMAC_CONFIG);
+	value |= GMAC_CONFIG_TE;
+	writel(value, ioaddr + GMAC_CONFIG);
+}
 
-	return readl_poll_timeout(est_addr + EST_GCL_CONTROL, ctrl,
-				  !(ctrl & EST_SRWO), 100, 5000);
+dwmac4_dma_start_rx() does the same for GMAC_CONFIG_RE. GMAC_CONFIG has
+the same offset as MAC_CTRL_REG. On XGMAC, dwxgmac2_dma_start_tx() does the
+same on XGMAC_TX_CONFIG, which holds the speed field.
 
-Could the restore then return 0 while the hardware later switches to the
-rejected schedule, and priv->est still describes the old one?
+Consider this interleaving:
 
-Would checking the FPE mapping before arming the replacement, or waiting
-for SSWL to clear, avoid this?
+__stmmac_open()                      phylink_resolve worker
+dwmac4_dma_start_tx()
+  value = readl(GMAC_CONFIG)
+                                     stmmac_mac_link_up()
+                                       writel(ctrl, MAC_CTRL_REG)
+  writel(value | TE, GMAC_CONFIG)
 
-> +	if (err)
-> +		netdev_err(priv->dev, "failed to restore EST\n");
-> +	mutex_unlock(&priv->est_lock);
-> +	goto free_est;
+The open path writes back the stale speed and duplex. stmmac_mac_set() in
+the worker only checks that TE/RE are set, so it does not correct this.
+Would the link then report up while the MAC runs at the wrong speed or
+duplex until the next link change?
+
+Before this patch, DMA started inside stmmac_hw_setup(), before
+phylink_start(), so these accesses could not overlap. stmmac_resume() is
+not affected because DMA starts there before phylink_resume().
+
+Would moving stmmac_start_all_dma() before phylink_start() close this
+window and still replay EST before DMA starts?
+
+>  	ret = stmmac_request_irq(dev);
+>  	if (ret)
+>  		goto irq_error;
+
+[ ... ]
+
+> @@ -8420,6 +8430,10 @@ int stmmac_resume(struct device *dev)
+>  	}
+>  
+>  init_coalesce:
+> +	ret = stmmac_setup_est(priv);
+> +	if (ret < 0)
+> +		goto error_stop_dma;
+
+[Severity: Medium]
+Does this error path leave the device half resumed?
+
+error_stop_dma stops DMA, clears MAC TX/RX, powers down the serdes and
+returns. It does not re-enable NAPI or call netif_device_attach().
+
+stmmac_suspend() had already done this:
+
+	netif_device_detach(ndev);
+
+	stmmac_disable_all_queues(priv);
+
+The interface is still IFF_UP. A later "ip link set down" would then run
+this on NAPIs that are already disabled:
+
+__stmmac_release()
+  stmmac_disable_all_queues()
+    napi_disable()
+      napi_disable_locked()
+
+napi_disable_locked() would then loop forever while holding RTNL:
+
+	while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+		usleep_range(20, 200);
+		val = READ_ONCE(n->state);
+	}
+
+A stmmac_init_timestamping() failure could already reach this incomplete
+unwind. This patch adds an EST trigger, most realistically an est_write()
+register timeout. A failed EST reprogram used to be harmless at resume,
+but now it leaves the device in this state.
 
 [ ... ]
 
