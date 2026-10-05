@@ -4,114 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D33CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F822CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 10:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvK039c+ndNZqYLtVZw/RUvQrQGmrUovg0Lat0BxvJw=; b=JP8bKcrBrVJzh3Lp6lCoRH3ria
-	kTW+U8LGrGIjo9Vzl6zdXM787PxYX3LH2iFkqIyWH/WGjOA0vbaddr3rwkZDVw8Frr67bEEmTICxw
-	ionrVUItyQHuPklG4sAFgq7LmMtMMCJM/aKhjJrwa2TsQzfIKEbF0LZ6tYSo1J8Kp+FXezI/NwtRG
-	5RkyR7HBfZJ1IrwUpFgXwXG3Qu02zRiW/2m2kTyinGxUs0iad5z882j+CvEEr6hWYhwA2eX9S6x63
-	R/ePciygjqvty8C95DYda6FAIkQoIwY6x3IaKTCodpRCMl7CwY0pc2y04oq3RsiWoxJjxCM0Wm3wW
-	XRlPuWFA==;
+	bh=nMK/a6cWnmvDlye2LBu5j5oGE2wSUys+6jVH5716V10=; b=Pmu589T/7RDIaAE7s8qgZ+W2/B
+	38vv/fNCMG6ibz4+GvVTNg8UEeIIpfm5dNDqepZqnZ1Luydwmz48AyN5HcvkBvWXxVCxyXi2eShKx
+	RlizsC3MDg+42s31MDwP6SIEV/PeOGxFd5mgExTUayKOJf60jfgctC2gVniLsM63u7MJzmbdRR0RG
+	U+N/qtouN5JNYu3LNmYgjZRMcg4cnqqL/RNWMnHbdqO6/o+3Sj+rS755dU73DAxkv9N6ETT9LzLgn
+	3tMFI+tu45tq5Q9BzwlZ8zsoqgSnNm6SDFQ1a27VoIMbK0ZLHGHVjPkBu0oLXlVVz6w3NZizrCuz7
+	1zV9h4WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDg2D-0000000GC7d-0nFy;
-	Mon, 05 Oct 2026 10:35:05 +0000
-Received: from mail-pj2-x12.google.com ([2607:f8b0:4864:39::12])
+	id 1xDg6z-0000000GCkf-0Wzz;
+	Mon, 05 Oct 2026 10:40:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDg2A-0000000GC6j-0FpG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 10:35:03 +0000
-Received: by mail-pj2-x12.google.com with SMTP id d9443c01a7336-2dd58e1e2c7so5578015ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 03:35:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791196501; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WkCn64kuZz0xZ7vnh5aICTRI6gopoOwBjGeiU9R39eu4XKHxmy9omXFyxZ569J4KSX
-         t/HeQKaEK9t6OvQv5peKbmVZNa14nwzSwmADQq7Fzmq7ENaqIogOGIQw3PAtEqpdkorA
-         kFHuMfbM6QIjJd3eD46vtvs06ow7Mpso9vGqeFnPioRyDevkHjpuknQeiTSyMfe1GOY/
-         SMgYFaAAKm1DVqVJKveSD3u0Dyv74oHw3J3n4bQ/vnTixTUsij97zvutGgN/BPewgwW/
-         7YdGrMAeAIZGZE0C1WPACbxUBGrM8ENVhFhR0jxd0KG9qCPb+SeNm744TieKK0cALPmV
-         /zpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=kvK039c+ndNZqYLtVZw/RUvQrQGmrUovg0Lat0BxvJw=;
-        fh=BgST8wL1syDz7Dn96zTG4Hk+RLDZJrYPXBMhzVsZqYQ=;
-        b=gUf0OBDBPbkTsuKQPSB9hGyJpMyRVxrEzJUnpAxT9qdSBe2cCotjAeu2ERBG/1qWk+
-         uQJcWDG5JREahp68L5xvXiWaxDv2UaN7UemZFug2ti/sJDKrZRMXvzAUdT8NDdSQeR4k
-         ModLqF7JM3Ise1TVBJKf3TOgOv+1j1TlHTZpt1X4LaZZtnWyjycOngebMbIOoE2y5EWH
-         KyXGLfZqmidMNpsSJsJATrlNS2rQ98UCjN/U5CuirgyplgNkRHYgGfvGg7FyImhhj1rN
-         6HUtaa3DDq6mSjGt1GrIcrACIT95vMPqfr6jqJdzbJJCY7dn/BtUwUvkN8stHyQxojWP
-         PqmA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791196501; x=1791801301; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kvK039c+ndNZqYLtVZw/RUvQrQGmrUovg0Lat0BxvJw=;
-        b=rOY1LzQgLj9X/LZhcZZBkklG5HglyiSNRKvAr891npWbxrFJOMiirO6DK2PG0z95lW
-         1Att/BzgPHmZUmkkBhQ6TTvzqIDt25lMs1I1vgGN5NGEWU0rcumuXYk5re53dIxFZgZT
-         NsF87a37gkLhfPWUn8tzmmAx66e+09Hfc4KSS4zqMHEaEnsh+bInTfeqMnrelrrc17wO
-         kX0DPoamZippHOjIwihDz7jtU7MrepJ33HdPNilV3rlTzp7hOnMDXky17pjc+c1o9Yv0
-         iagd3Cu6jWNnL/oWq+3StG+f7lRz7pYPURU7m3YIVr/b5Gh7IwYlmbT96h5c8A6iWV3X
-         Q6CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791196501; x=1791801301;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kvK039c+ndNZqYLtVZw/RUvQrQGmrUovg0Lat0BxvJw=;
-        b=YhI2f3DtzZ4Fj8KY9RAjoi3Il8jbly5Of7xdH27x2IU2vFHMp9hfzHOHkRtEJCCM5l
-         YxBrj2Uo55mOq4/W5N5vfoRIwwr6oAZaarv/5zwUIBvim1oHyIgdWix94ODtZXLv7NvR
-         gGubE+KX0kGIpE2yCQ7KyfCR4nUNU251qPutZcZub2vaq58KOFozoUU0XpBleCtAjoM4
-         jh7UP3ZVSn+QofD/FbAL8LgVxilAvTFLgYGkQjRee/kHSW75++6xvd0h+DxVnddufKjr
-         Do1SlQUb49gSq31Fk797Fgj4TzeypsyqjdE9AgzjmpB1nXxnH7LxEbo/eNzdJrNHa8gP
-         Ne5g==
-X-Forwarded-Encrypted: i=1; AKwUvBwg7aIZnDc5jJjyBTSLbwpaL1GHqSX9wXe/13hqD7azh4z0rxPHt8ZczbnqeEMi1K3zJWf1H6MQFN6bkkzbEmkx@lists.infradead.org
-X-Gm-Message-State: AFq9FYJvzSKh52dxTV9l1E3PpEAWlYCP6nnwtx2ekNrCALbmfxMR5ZOY
-	NCDgg1Rm4puCSMr7PYQZe6OnF/FfwkBpvfZ8YLzXbl6geVwlsA9MC+xFurVoVxBTIWDGyj1iH/7
-	8NOytFKwCT/d7Ox6aVAvv4aPFvp7TNO4=
-X-Gm-Gg: AYBFou2hZKQTq4dyP1CJk17aT3OvFIxsRqQqjON2M09Nzs9JNfkweXbGWFKw/nwAm1i
-	+nPUjTjabv95ZxkSviuKeIQX5IWee0QzXV/gAD72GrHWnuovbWmS2d2kKsGE2FmNCYXLpvU5/2N
-	kZQTWrVx5Stw3N3OrDshDBruY2qaadYFPaLaFEm6JwbCPVoW2pG+WDsalEai2RMqHk0cdAB4YJ5
-	dIsJEPDUKyy7kDOroWyoQCwB1wCSGH/LSzvo8W8Hd5wxHOyXH+zrce8oKm1jlfPRWAi1TXTNXSU
-	D7qOtsWXqxhTe34pH+eN5+CnYeWJ6ITmA9ySiJhAowDNm+fX1qnabBbkSdf581DYBrScyr20hZu
-	PLYsrgM07PPawwiyUPgcDxXqi1YkLRaJa/jK/d4mF60UHAlElAYYSxpyQORH/C27ypUE=
-X-Received: by 2002:a17:902:ccc2:b0:2df:8aea:7d92 with SMTP id
- d9443c01a7336-2e49b7f79c5mr90908515ad.47.1791196501061; Mon, 05 Oct 2026
- 03:35:01 -0700 (PDT)
+	id 1xDg6x-0000000GCkB-3xB1;
+	Mon, 05 Oct 2026 10:40:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 32EDC60A86;
+	Mon,  5 Oct 2026 10:39:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 710861F00893;
+	Mon,  5 Oct 2026 10:39:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791196798;
+	bh=nMK/a6cWnmvDlye2LBu5j5oGE2wSUys+6jVH5716V10=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gKuSy4G0Mnv9EWI5RFrLWNfQpP55o5UjiR6eXzW0p3HIBnTQA77MkfxfahjlLm+Tw
+	 Y30HMkEAMQpbTnDrLrYyE87XglxHbjT7zEGWZsDLDYuzeX23zyadDlR2OumCEvhqkC
+	 Bp+U81p5OGw+hK3jlGLdOrQ6frStfbM7zGAA539h0DKLyVEn9UtpMjUJbGDnGfBZMV
+	 uPuAermznBjYpKdkzCopmYhX6B1Xt7ryCR+XS+XzJzFL2CSm0/ebe4LEIh4O81v634
+	 mHlj6YiA5rRKlRlhfvUQ0iOi2CdY41/fO8qhn9eLS28gNm2XsPYLHnierVaQwM++d3
+	 +JYL699chO7ow==
+Date: Mon, 5 Oct 2026 11:39:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [RFC PATCH 1/6] dt-bindings: net: amlogic,meson-dwmac: spell out
+ the compatible combinations
+Message-ID: <asN-d_p6RUFfVHdE@squawk>
+References: <20261004144046.391444-1-tanure@linux.com>
+ <20261004144046.391444-2-tanure@linux.com>
 MIME-Version: 1.0
-References: <20260925044908.450775-1-phucduc.bui@gmail.com>
- <20260925044908.450775-7-phucduc.bui@gmail.com> <asKt42FgsbhSbQUP@sirena.org.uk>
- <CAABR9nFyEJBwXP=4SjuGNfGQJub2y_DPE87c6j6BPmqMBgjESA@mail.gmail.com>
- <asNbjSrPYVbeqSae@sirena.co.uk> <CAABR9nEXM1OSnV6L4=N1YCbtWn5yMNr+OMEZ4p8h3WMaQXbgmA@mail.gmail.com>
- <asN8HzfxSHmBjfu1@sirena.co.uk>
-In-Reply-To: <asN8HzfxSHmBjfu1@sirena.co.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Mon, 5 Oct 2026 17:34:49 +0700
-X-Gm-Features: AclHuK8Ugc5AChxqexu-mkihhLXhmwiRf4SISUAZ4NMYY9zRq0-VJGBtciRXzWY
-Message-ID: <CAABR9nFg2mPOA65Q-9SEDwmEoJ+-YUQqOi=c2nspSYF=UBejYA@mail.gmail.com>
-Subject: Re: [PATCH 06/14] ASoC: mediatek: mt8195: Fix FE startup error handling
-To: Mark Brown <broonie@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Trevor Wu <trevor.wu@mediatek.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, cassiogabrielcontato@gmail.com, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Haotian Zhang <vulab@iscas.ac.cn>, HariKrishna Sagala <hariconscious@gmail.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_033502_110106_4D7E0850 
-X-CRM114-Status: GOOD (  10.21  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ATxczT9S6yADiUYP"
+Content-Disposition: inline
+In-Reply-To: <20261004144046.391444-2-tanure@linux.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,18 +87,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+--ATxczT9S6yADiUYP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->
-> > On the core side, snd_soc_dai_startup() only treats ret == 0 as success:
-> > it calls soc_dai_mark_push() only in that case.
->
-> > Is a positive return from startup intentional/allowed?
->
-> It shouldn't be, no.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Thanks for clarifying. I'll send v2 soon.
+--ATxczT9S6yADiUYP
+Content-Type: application/pgp-signature; name=signature.asc
 
-Best regards,
-Phuc
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasN+dwAKCRB4tDGHoIJi
+0kGKAPkBwMPVmHK5gi5+GGmq50tiKHRI64sQpVCtLBiim0uKvwEA+im/zIRf96O+
+sVDm/6scRn1Ei8lICBXZw/R/5hf23A4=
+=Ico9
+-----END PGP SIGNATURE-----
+
+--ATxczT9S6yADiUYP--
 
