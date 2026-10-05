@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496EBCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 00:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95228CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 00:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LFk7ga35z3NrHS6umKXq0xUG3dzK46r7JSMoXY1ndGw=; b=fOfgsPK06+NDi/75Rw7yUYSDr0
-	B6s739Kj4odz6hpv83RYTXWUS/Bw/MkklaVBzg0lNX3MczECZ2SRUsXQ2oOJA9wzuuYnxEqb27fWM
-	a69012YnplseBV/zSz3WurVthh84XhRpULOBu9QklaB1HGfiK6c1diP9WuX4W2KxU0YHp9Nj6SY0L
-	we7gl4smem/lfsBJf7qMM+hP2rDrP8IeRgHrO90ZxWJnbLdYReMQOzLSlp2k75wzzDaSLljtK2zGV
-	P0q/T8SXRRsEaHM7oM+mtoWux/Yx86sCA99/Fp1lElAryPVtmJsBcT4A1GNv3Ik/KnNh6lE9Hjns1
-	M3IuaxTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdLVdS4/lrBCWWkjQfcs1ELUQETVc3D0f8ua88760Vs=; b=YMNiAik0IzAbVxeB/ULn6hbPRx
+	Sf4iO9ZYVhK/kzsUSgNuh5agTtNi0FtJVwMxjml4vVb4FhvBPWpmLD2EkqodjZsxuVxHOdHztl9DV
+	GuBbx7oYVi5mkC98r8NXbJ6C/gnNEQ1LoxOt1ojCmE5d1eFURTEG9dFTEKJ3w2sPIOAopi6vPjyXU
+	gB/S6+LLpCqzGbJbo5Jp9mVHGA57YAZkrbo1OfIjTcBCXrqcIxf6fvf1aa0s2dw55O9DT8O0wRpr0
+	QhWXBX+LjgZEanIFUewYJtMtvN9bFjaPcZV2QdLLBN50y9pZIXX21J4JpynuQkojTNXcNKKNFAfgj
+	qGIf0GFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWJ3-0000000FVSk-3EX0;
-	Mon, 05 Oct 2026 00:11:49 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1xDWjL-0000000FW49-1xle;
+	Mon, 05 Oct 2026 00:38:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDWJ0-0000000FVRy-2UEq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 00:11:47 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-3510b42f4e3so1186255eec.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Oct 2026 17:11:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791159106; x=1791763906; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LFk7ga35z3NrHS6umKXq0xUG3dzK46r7JSMoXY1ndGw=;
-        b=j74VYVrC2fCUMK/rWGrasEjOmTVoYlUzgKqfMfucgcMwGsWEVOVwS10Jwn9lRRuiUC
-         CUIogMeWnqn9wkB454llgEtOTCPSMLAookqXzaOJHGjzfAsO2RM757PF4H/pzHfTto2k
-         622p/jMoTZxiswFaiopOTrmlr2RAtY8dEcM0dSIn4fUNEMhhoGS4WX/RUQ2vX7/QvpeW
-         iNVO3xIowlW/QyWVQoWbD+2eZFuIQcjzn/xCyd6fR1GgcXJ/0LWRgH4KYTa6MOaBKVbS
-         yI854tD2UG8UvUkPROquZ9nsJ8bVbnzmeOFop26B27K8m4hvkP0IajfRsPtUHv1DzJXX
-         AZxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791159106; x=1791763906;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LFk7ga35z3NrHS6umKXq0xUG3dzK46r7JSMoXY1ndGw=;
-        b=GbNir3ST2uA51mXCnNkouzjSkgcxH7dKBAF5jlQrGfp6Fu6Kos6uMJnDUMurmMXLlT
-         Z3AqWsEv3mcGtswlb9dXtbChVL/sNOcj7C0u1Oi+MC4sE9BUcdss3bXZQ06qfTAp4NsW
-         SjbgJgMj7UEeQYSnzlwxOM+bo2G6Mbu/16Y1ImwfDEaX8Nb+/RH7x8R4Gh4IglimHoxj
-         EQ0LgsY3nzyvE3rRQzaNJC9US31YMKbNGZ6n0zH+dGbe3C7EqJUzdtzcG1EHk9u3wfjk
-         4CwxnlMo5nlmpx7qajtAYNf6YV8vENTuecC3aHHHn3r0kXsukGEuVVBbVJBo+3XlKlkB
-         0YEw==
-X-Forwarded-Encrypted: i=1; AKwUvBx/MUZ/an+UgtDgMV+7mezrxei5rmLYziNbIEfeiMavuJILnyfKyHgHhSZOK8psimsKK0cdo2X0rWw1XHbRqnO0@lists.infradead.org
-X-Gm-Message-State: AFuF++k05L7sFV/npjKa8cjdg0TTlANbKgBeTtl3tz8CbboqPpGP7Df2
-	zhH6aOe5hDPzHHg9z3gBQ5SQ+rhySkC5Q42CAo/ojr8xwkMWFDRtc8Eo
-X-Gm-Gg: AYBFou2GBskelPBccPV9BCaNKDxKvHx03+eOhwc2dYTCg0oKIk+9AsBCgv4rBF2pqR0
-	59dT4KNRCl0pciJ5c0Hi95thhAKy88+mbVEq2CRCzZfcMDibMTHE75aaY0CEMwLbQnQkpNX7tFf
-	b3a2dBsEXy4vbiuTw2yb8pfA53Iwt0N3ccow6+VDDqJmaBN95LL65dDdnmylJtvhYRCsq208iPO
-	JXWnhZ3kTg4TWa3UcnCkkXh+BW1yeJRnTJ38Jl1w1U4+R9asWQKEK0WxhN/r45ukqjOPkjkiS02
-	c5DPu30Wj0fVkpi3N5VuwGAFxu+1MB6fexm7mg9Nls4fnbl9L04DT1cxmZ4oI/M8wSj4ock/Wue
-	RTGMWOQbd6uD2OlmwQLnjNWnAZ/QN0LZsa+h07wA26IQuNyPZlJujwLiSlrj+UL+Tn2f67Jequa
-	G8UcJqzKqiWK1d1ur63YrapDCbyRYsRaXTfSZb+juepvCT42ve9nfVDzoh7LW43t1brRRde3u1Y
-	ii3BpmDf7bSyINuK9JO6k35AS1S4FfZnKCqE8yfvlJejSHJyTzU47/KOEO5BkN8ai39Hr57V1TI
-	5Irz58u4WGFhs+vJ6XHKkbmC3x7W/ZTXz1PeSrTN31lEnisw
-X-Received: by 2002:a05:7022:eb47:20b0:143:7001:7643 with SMTP id a92af1059eb24-14f5cdc92f3mr12086833c88.46.1791159105797;
-        Sun, 04 Oct 2026 17:11:45 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-151fc39a6cbsm16540732c88.5.2026.10.04.17.11.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2026 17:11:45 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dri-devel@lists.freedesktop.org
-Cc: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be|_ptr)?\b)
-Subject: [PATCH] drm/exynos: gsc: allocate formats as a flexible array member
-Date: Sun,  4 Oct 2026 17:11:43 -0700
-Message-ID: <20261005001143.576737-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	id 1xDWjC-0000000FVw4-3VKg;
+	Mon, 05 Oct 2026 00:38:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1791160728;
+	bh=c0R0feFeJ5rmGlGgUcOfE4gsdcUy/yoARnD+nAT5VIA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DRl0+KrW2BDVoHKglShd/rVrMG20pKgfq76lQ/TQJcgE6ULUfOb/cevZQPmIfJEjQ
+	 vW/EKZtKrA8Vl0l46jmANtaZTKzSghHtO6yw1CP4fZY9OkhD3RU9PaWc3KAhcQy3lA
+	 64WnD7K5kLTh/IV98rpGVnUmQWhudODqEFVj+dx1HDardruEznb+ylrdOK+URTj+Xz
+	 si1KZeeFjYuCN29CSM0tXj79JBfpl1oHva4ZOLvSsFdQPTP8TDw8CYC9yASo29v84S
+	 lyY+/wSAgRqiZjIGXGiu86tlLvQr3OQMJCUNQVjyvETPXDjP4Xcw4r5ppoOSJxfmNC
+	 AIFbC1z9hQgxw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 52A9917E0D5D;
+	Mon, 05 Oct 2026 02:38:48 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 05 Oct 2026 03:38:05 +0300
+Subject: [PATCH v12 04/16] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 scrambling
+ support
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20261005-dw-hdmi-qp-scramb-v12-4-195157ba0b40@collabora.com>
+References: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
+In-Reply-To: <20261005-dw-hdmi-qp-scramb-v12-0-195157ba0b40@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ =?utf-8?q?Robin_R=C3=A4ber?= <robin.raebi@gmail.com>, 
+ Igor Paunovic <royalnet026@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261004_171146_640512_B84FBC47 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20261004_173851_062046_9F89EB70 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,77 +89,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The formats array is allocated separately with devm_kcalloc() and only
-referenced through the gsc_context. Make it a flexible array member at
-the end of the context and allocate both in one go with struct_size().
+Add support for SCDC scrambling and the high TMDS clock ratio required
+by HDMI 2.0 modes with TMDS character rates above 340 MHz, such as
+4K@60Hz.
 
-Annotate it with __counted_by(num_formats) so the array accesses can be
-bounds checked with FORTIFY_SOURCE and UBSAN_BOUNDS.
+Hook the bridge into the DRM HDMI connector scrambling helpers so the
+sink-side SCDC state and the controller scrambler are updated together
+as part of the atomic enable and disable paths.  This allows the driver
+to advertise HDMI 2.0 support when HPD is available.
 
-Assisted-by: LLM
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Keep no-HPD configurations limited to HDMI 1.4, since SCDC access
+requires a connected HDMI sink.
+
+Modes above the HDMI 2.0 600 MHz TMDS character-rate limit are now
+implicitly rejected by the DRM HDMI connector/bridge infrastructure,
+making the dw_hdmi_qp_bridge_tmds_char_rate_valid() callback redundant.
+Drop it.
+
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Robin Räber <robin.raebi@gmail.com>
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588 Orange Pi 5 Plus, dual HDMI
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_gsc.c | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 60 ++++++++++++++++++----------
+ 1 file changed, 39 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_gsc.c b/drivers/gpu/drm/exynos/exynos_drm_gsc.c
-index d9637ddfcfc4..f1807ef664e1 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_gsc.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_gsc.c
-@@ -99,7 +99,6 @@ struct gsc_context {
- 	void		*dma_priv;
- 	struct device	*dev;
- 	struct exynos_drm_ipp_task	*task;
--	struct exynos_drm_ipp_formats	*formats;
- 	unsigned int			num_formats;
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 4b55bed42ab7..14723ee5cb05 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -2,6 +2,7 @@
+ /*
+  * Copyright (c) 2021-2022 Rockchip Electronics Co., Ltd.
+  * Copyright (c) 2024 Collabora Ltd.
++ * Copyright (c) 2025 Amazon.com, Inc. or its affiliates.
+  *
+  * Author: Algea Cao <algea.cao@rock-chips.com>
+  * Author: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+@@ -536,6 +537,7 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	struct drm_connector *connector;
+ 	unsigned int op_mode;
++	int ret;
  
- 	void __iomem	*regs;
-@@ -110,6 +109,7 @@ struct gsc_context {
- 	int	id;
- 	int	irq;
- 	bool	rotation;
-+	struct exynos_drm_ipp_formats	formats[] __counted_by(num_formats);
- };
+ 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+ 	if (WARN_ON(!connector))
+@@ -546,14 +548,20 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		return;
  
- /**
-@@ -1222,21 +1222,19 @@ static int gsc_probe(struct platform_device *pdev)
- 	struct gsc_context *ctx;
- 	int num_formats, ret, i, j;
- 
--	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	num_formats = ARRAY_SIZE(gsc_formats) + ARRAY_SIZE(gsc_tiled_formats);
-+	ctx = devm_kzalloc(dev, struct_size(ctx, formats, num_formats), GFP_KERNEL);
- 	if (!ctx)
- 		return -ENOMEM;
- 
-+	ctx->num_formats = num_formats;
-+	formats = ctx->formats;
+ 	if (connector->display_info.is_hdmi) {
+-		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
+-			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+-			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
+ 		op_mode = 0;
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
 +
- 	driver_data = device_get_match_data(dev);
- 	ctx->dev = dev;
- 	ctx->num_clocks = driver_data->num_clocks;
- 	ctx->clk_names = driver_data->clk_names;
- 
--	/* construct formats/limits array */
--	num_formats = ARRAY_SIZE(gsc_formats) + ARRAY_SIZE(gsc_tiled_formats);
--	formats = devm_kcalloc(dev, num_formats, sizeof(*formats), GFP_KERNEL);
--	if (!formats)
--		return -ENOMEM;
--
- 	/* linear formats */
- 	for (i = 0; i < ARRAY_SIZE(gsc_formats); i++) {
- 		formats[i].fourcc = gsc_formats[i];
-@@ -1256,9 +1254,6 @@ static int gsc_probe(struct platform_device *pdev)
- 		formats[j].num_limits = driver_data->num_limits;
++		ret = drm_connector_hdmi_enable_scrambling(connector, conn_state);
++		if (ret)
++			dev_warn(hdmi->dev, "Failed to enable scrambling: %d\n", ret);
++
++		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u scramb=%d\n", __func__,
++			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
++			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc,
++			connector->hdmi.scrambler_enabled);
+ 	} else {
+-		dev_dbg(hdmi->dev, "%s mode=DVI\n", __func__);
+ 		op_mode = OPMODE_DVI;
++		dev_dbg(hdmi->dev, "%s mode=DVI\n", __func__);
  	}
  
--	ctx->formats = formats;
--	ctx->num_formats = num_formats;
--
- 	/* clock control */
- 	for (i = 0; i < ctx->num_clocks; i++) {
- 		ctx->clocks[i] = devm_clk_get(dev, ctx->clk_names[i]);
+ 	hdmi->phy.ops->init(hdmi, hdmi->phy.data);
+@@ -568,9 +576,13 @@ static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 					     struct drm_atomic_commit *state)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++	struct drm_connector *connector;
+ 
+ 	hdmi->tmds_char_rate = 0;
+ 
++	connector = drm_atomic_get_old_connector_for_encoder(state, bridge->encoder);
++	drm_connector_hdmi_disable_scrambling(connector);
++
+ 	hdmi->phy.ops->disable(hdmi, hdmi->phy.data);
+ }
+ 
+@@ -605,24 +617,24 @@ dw_hdmi_qp_bridge_edid_read(struct drm_bridge *bridge,
+ 	return drm_edid;
+ }
+ 
+-static enum drm_mode_status
+-dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
+-				       const struct drm_display_mode *mode,
+-				       unsigned long long rate)
++static int dw_hdmi_qp_bridge_scrambler_enable(struct drm_bridge *bridge)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 
+-	/*
+-	 * TODO: when hdmi->no_hpd is 1 we must not support modes that
+-	 * require scrambling, including every mode with a clock above
+-	 * HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ.
+-	 */
+-	if (rate > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ) {
+-		dev_dbg(hdmi->dev, "Unsupported TMDS char rate: %lld\n", rate);
+-		return MODE_CLOCK_HIGH;
+-	}
++	dw_hdmi_qp_write(hdmi, 1, SCRAMB_CONFIG0);
++	dev_dbg(hdmi->dev, "scrambler enabled\n");
+ 
+-	return MODE_OK;
++	return 0;
++}
++
++static int dw_hdmi_qp_bridge_scrambler_disable(struct drm_bridge *bridge)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++
++	dw_hdmi_qp_write(hdmi, 0, SCRAMB_CONFIG0);
++	dev_dbg(hdmi->dev, "scrambler disabled\n");
++
++	return 0;
+ }
+ 
+ static int dw_hdmi_qp_bridge_clear_avi_infoframe(struct drm_bridge *bridge)
+@@ -998,7 +1010,8 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.hpd_enable = dw_hdmi_qp_bridge_hpd_enable,
+ 	.hpd_disable = dw_hdmi_qp_bridge_hpd_disable,
+ 	.edid_read = dw_hdmi_qp_bridge_edid_read,
+-	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
++	.hdmi_scrambler_enable = dw_hdmi_qp_bridge_scrambler_enable,
++	.hdmi_scrambler_disable = dw_hdmi_qp_bridge_scrambler_disable,
+ 	.hdmi_clear_avi_infoframe = dw_hdmi_qp_bridge_clear_avi_infoframe,
+ 	.hdmi_write_avi_infoframe = dw_hdmi_qp_bridge_write_avi_infoframe,
+ 	.hdmi_clear_hdmi_infoframe = dw_hdmi_qp_bridge_clear_hdmi_infoframe,
+@@ -1126,13 +1139,18 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 			   DRM_BRIDGE_OP_HDMI_AUDIO |
+ 			   DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME |
+ 			   DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
+-	if (!hdmi->no_hpd)
+-		hdmi->bridge.ops |= DRM_BRIDGE_OP_HPD;
+ 	hdmi->bridge.of_node = pdev->dev.of_node;
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	hdmi->bridge.vendor = "Synopsys";
+ 	hdmi->bridge.product = "DW HDMI QP TX";
+ 
++	if (hdmi->no_hpd) {
++		hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_4;
++	} else {
++		hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_2_0;
++		hdmi->bridge.ops |= DRM_BRIDGE_OP_HPD;
++	}
++
+ 	if (plat_data->supported_formats)
+ 		hdmi->bridge.supported_formats = plat_data->supported_formats;
+ 
+
 -- 
-2.56.0
+2.55.0
 
 
