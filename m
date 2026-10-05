@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E693CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AD8CA6001
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 13:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Fixvt2Mw6vhDKtMnEAVLX/jGtrbQZGd7/A1Ja+swRk4=; b=AGTyRoMzFgAG2HEC65+AmvYZRZ
-	Ar6dQF5vcS7jTQSMXspugzMrI0YGU7cjPnFCR0Fw0rM3Exkr7rFhPukRHuvbpPuJ2o6JsWp/qrhA1
-	11+qb8VTjmnh5A5EvZFIM4Vc+qmPbNd3tq6U2HJg3x14muXZz8v/twBaR+To527z8rsn7/zsTuMyo
-	p/YfX2EXJS4oI/NW+ylH6/H6yCCqV8pSzyxSII0pwasKt8N6H7QmOQuRwcWM7XPFG1B6ezDiXnhH5
-	aLBs1YHhP362hqH8JFuEwus7D8TsIVtK0eEKalLk7MEHZ5j08wwuS+olLENW66eqXaEQNbjlMn2Ol
-	cj2s22lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bFbL7GOfv8IjG1jhfIRb4AfqHpOijMTMiaVoNDe1QUI=; b=xvZeruFoQU9iDtt2PP4bFKPFTV
+	S4zbM1IfkoHtiffT7aozsOCeXdmGUm78Wul/2RKuEzflAxhiE98mSyO4/+3rqHwkCfy/4MnteBemG
+	wn7nmlbOCxZtWFuW+ZDp1YqbTzEbcd0tmDNHp1EY92qbk097A9Po4+hL8I25jqIh23AZundhuCa2I
+	DV6HRtR1iiEwFVIERu2zjBlp730S9CMazyw9EJ/sNwvvdBoTFtlPt/94xXRPH1PPdmTbGoZuEmCjl
+	KJHwtj1KBNv6EQas5zp/nHct4ugxed994crL3PZK4w968lCpdeK50rHpXN+HMHd0rIEyzXMER3/O4
+	P2snmgZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDil7-0000000GXL4-0opN;
-	Mon, 05 Oct 2026 13:29:37 +0000
-Received: from mail.haxxors.com ([85.14.200.35])
+	id 1xDirR-0000000GYEh-1SIc;
+	Mon, 05 Oct 2026 13:36:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDil4-0000000GXJT-0vAa;
-	Mon, 05 Oct 2026 13:29:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
-	t=1791206367; bh=cUk6hleFdTXonVJwfenNDEbW9WoUZ0doBHdHP/ROhaY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bLS5NlJ/bi+nBz0Mv1zcrkBKhij34z6FyPnn3o66uBgwOTuacYzijng67QjPCd47t
-	 vBTffegyWKV+f5QOLBSJagL4JnX9SkCVrxZkcPxRkLHGQ4MKSZLapC07mMG0EpZ5c3
-	 sKbgPQBM6dP+w0TdZZAv3+KETUYBmqrySc3XtthA=
-Received: from localhost (localhost [127.0.0.1])
-	by mail.haxxors.com (Postfix) with ESMTP id 71647515F0;
-	Mon, 05 Oct 2026 15:19:27 +0200 (CEST)
-X-Virus-Scanned: Debian amavis at mail.haxxors.com
-Received: from mail.haxxors.com ([127.0.0.1])
- by localhost (mail.haxxors.com [127.0.0.1]) (amavis, port 10024) with ESMTP
- id D_R2qTLR8hRm; Mon,  5 Oct 2026 15:19:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
-	t=1791206365; bh=cUk6hleFdTXonVJwfenNDEbW9WoUZ0doBHdHP/ROhaY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dnxVhqSidQ3/E788YaD5mDIaQPJcROYgs7/t9niKEEiPSWZ3kt5pPZ2V3V7leoC9H
-	 q5IQJBx5zSoJVApF9A6oA8g2Aea/PqTFqcv4WISFCz6dkBhaEhuvUM0Guj/UfV7nx8
-	 06rraQQkPrXU9RsOpYwTz91J8wblqvKRLS4+vHXY=
-Received: from esports.myloc.de (p200300ee8f09a300264bfefffe4ffb4b.dip0.t-ipconnect.de [IPv6:2003:ee:8f09:a300:264b:feff:fe4f:fb4b])
-	(Authenticated sender: nils@buechner.me)
-	by mail.haxxors.com (Postfix) with ESMTPSA id 8178A51670;
-	Mon, 05 Oct 2026 15:19:25 +0200 (CEST)
-From: =?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	=?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>,
-	stable@vger.kernel.org
-Subject: [PATCH] pmdomain: mediatek: mt8183: Fix silent audio from premature sync_state
-Date: Mon,  5 Oct 2026 15:19:23 +0200
-Message-ID: <20261005131923.291619-1-nils@buechner.me>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	id 1xDirP-0000000GYEF-1LaD;
+	Mon, 05 Oct 2026 13:36:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 43B906053B;
+	Mon,  5 Oct 2026 13:36:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9801F000FF;
+	Mon,  5 Oct 2026 13:36:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791207366;
+	bh=bFbL7GOfv8IjG1jhfIRb4AfqHpOijMTMiaVoNDe1QUI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nujtkgo0U+/1KCMggbtL//kyCWL/rK4nWOejTnOy5uP6IWROFC3XX7helEkPabOk4
+	 ApkxM5uPUQOpcW2pbhEe4hG/2xO6XkIsbBXNpmC+I4OtUGn1FrKtrTToBfizZTtlH3
+	 M6OQX/lZSSNXWvhe5BKYPfjk3nOB5Bmqom2hD3HtmSZSv8ZNLjGLdTxZITPwQ+AOAW
+	 U1GhhKZLKP1hzGAZnZU5/qunSKcLSLtI4OO87lnKSwQ+kNo6GhH6YjEnv/Z1js4eP6
+	 JhSJFq/eoK6UrF3ql6sge85gilYNRV7+zAC5pN5gM/F6m7iqn3hm3LDagl8YtUjm9h
+	 UvymcTzbKy4gA==
+Subject: Re: [PATCH net-next v5 2/3] net: phylink: wait for PHYs that are
+ known to probe late
+From: netdev-bot+sashiko@kernel.org
+To: f@lex.la
+Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
+ olteanv@gmail.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ conor@kernel.org, f.fainelli@gmail.com, chester.a.unal@arinc9.com,
+ daniel@makrotopia.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Mon, 05 Oct 2026 13:36:04 +0000
+Message-ID: <179120736418.434549.3034364543286173403@kernel.org>
+In-Reply-To: <20261001130208.105558-3-f@lex.la>
+References: <20261001130208.105558-3-f@lex.la>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_062934_532650_392CC6DF 
-X-CRM114-Status: GOOD (  13.55  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +76,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until
-sync_state") made genpd trust that a power domain already on at probe
-time is correctly, fully initialized, and stopped forcing a real
-power-off/power-on cycle for it until the devicetree provider's
-sync_state() callback fires.
+Thank you for your contribution! Sashiko AI review found 8 potential
+issue(s) to consider.
 
-On the Juniper board (Acer Chromebook Spin 311, MT8183), the firmware
-leaves the audio power domain in exactly this misleading state: genpd
-reports it as on, so this new behavior never runs the real hardware
-sequencing in scpsys_power_on() that clears the domain's AXI bus
-protection. Register access to the AFE block over APB keeps working
-normally, giving no obvious sign anything is wrong, but the memif DMA
-engine's own bus transactions silently never complete: its current-
-position register stays frozen at the value it was reset to, the
-period-elapsed interrupt is never raised, and ALSA playback fails with
--EIO. The net effect is silent internal speakers on every boot.
+Critical: 0 · High: 0 · Medium: 3 · Low: 5
 
-This is the same class of problem already fixed for the MFG/GPU
-domains in commit 818d56ac1d ("pmdomain: mediatek: Fix mt8183 hang on
-boot"), which does not cover the audio domain. Apply the identical,
-already-reviewed fix here: MTK_SCPD_KEEP_DEFAULT_OFF makes genpd start
-the domain in GENPD_STATE_OFF instead of trusting the bootloader's
-"on" state, so the AFE driver's own first pm_runtime resume triggers a
-genuine power-on transition and actually runs the bus-protection
-clear.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Root-caused with a git bisect across released kernel versions on real
-Juniper hardware (audio works on v6.6, fails from v6.16 onward),
-narrowing the regression down to this exact commit, and confirmed
-fixed with speaker-test playback after applying this change.
+- [Medium] The deferral gate in phylink_fwnode_phy_connect() does not
+  exclude MLO_AN_INBAND.
+- [Medium] phylink_phy_is_usable() checks only that a driver is bound.
+- [Medium] phylink_phy_is_usable() calls
+  device_is_bound(&phy_dev->mdio.dev) and reads phy_dev->drv without…
+- [Low] Concern: nothing in the tree sets
+  phylink_config.phy_may_probe_late, so the deferral in…
+- [Low] The commit message argues that MACs which connect from ndo_open
+  do not need the deferral, because "a PHY taken by genphy at one open…
+- [Low] If a PHY from another path (an SFP module PHY via
+  phylink_sfp_connect_phy()) attaches while the deferral is armed,…
+- [Low] In phylink_late_phy_poll(), the lost-race check (`if (!ret &&
+  phy_driver_is_genphy(phy_dev))`) only runs when phylink_attach_phy()…
+- [Low] Concern: the deferral gate does not exclude MACs with
+  phylink_config.mac_requires_rxc, so such a MAC could go through…
 
-Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
-Cc: stable@vger.kernel.org
-Signed-off-by: Nils Büchner <nils@buechner.me>
----
- drivers/pmdomain/mediatek/mt8183-pm-domains.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+--
 
-diff --git a/drivers/pmdomain/mediatek/mt8183-pm-domains.h b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-index 5e33b8628..8e29e5117 100644
---- a/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-@@ -22,6 +22,15 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8183[] = {
- 		.pwr_sta2nd_offs = 0x0184,
- 		.sram_pdn_bits = GENMASK(11, 8),
- 		.sram_pdn_ack_bits = GENMASK(15, 12),
-+		/*
-+		 * Depending on firmware, the audio domain may be left
-+		 * partially on at boot, with genpd detecting it as on when
-+		 * it isn't fully initialized. Force a real off/on cycle
-+		 * instead of trusting that state, same as the MFG domains
-+		 * in commit 818d56ac1d ("pmdomain: mediatek: Fix mt8183
-+		 * hang on boot").
-+		 */
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
- 	},
- 	[MT8183_POWER_DOMAIN_CONN] = {
- 		.name = "conn",
+net: phylink: wait for PHYs that are known to probe late
+
+This adds an opt-in deferral to phylink_fwnode_phy_connect() for PHYs
+marked needs-host-firmware whose driver has not bound yet. A delayed work
+item polls under rtnl_trylock() until the driver binds, then attaches and
+brings up the PHY, with a bounded number of retries on connect failure.
+Until then the ethtool link settings paths report no link modes or return
+-EOPNOTSUPP.
+
+> Found on a Keenetic KN-1012 (MT7981B with an MT7531 switch): the EN8811H
+> behind lan4 has its driver on the root filesystem, the switch sets its
+> ports up before that is mounted, and lan4 was lost for the uptime. With
+> this change lan4 attaches once the module loads.
+
+[Severity: Low]
+Is this accurate for this commit on its own? At this point nothing in the
+tree sets phylink_config.phy_may_probe_late. The deferral in
+phylink_fwnode_phy_connect() cannot be reached on the KN-1012 until the
+following patch, "net: dsa: let user ports wait for a PHY that probes
+late". That patch sets ds->phy_may_probe_late in mt7530_probe_common() and
+copies it into dp->pl_config in dsa_user_phy_setup().
+
+With that patch applied the MT7531 path does reach the deferral, so this
+is only about the wording here. Could the message say that the fix takes
+effect together with the next patch?
+
+> and lan743x do one-time PHY setup at that point that a late attach
+> would skip. Those connect from ndo_open, where the problem does not
+> last: a PHY taken by genphy at one open is released at close, and the
+> next open finds the real driver. A MAC that connects once at setup has
+> no such second chance.
+
+[Severity: Low]
+Does the next open actually find the real driver? That seems to hold only
+if the PHY driver module loads while the interface is down.
+
+Suppose the module loads while genphy is bound, for example because IP
+autoconfig or early userspace brought the interface up before the rootfs
+module was loaded. Then driver_attach() for the real driver skips the
+device:
+
+drivers/base/dd.c:__driver_probe_device() {
+    ...
+	if (dev->driver)
+		return -EBUSY;
+    ...
+}
+
+At close, phy_detach_internal() only releases genphy:
+
+	if (phydev->is_genphy_driven) {
+		device_release_driver(&phydev->mdio.dev);
+		phydev->is_genphy_driven = 0;
+	}
+
+After that nothing re-probes the device. On the next open,
+phy_attach_direct() sees d->driver == NULL and binds genphy again.
+
+Wouldn't those ndo_open MACs then get the same "no second chance" result?
+Could the reason for leaving them out be reworded?
+
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index a7d086cdc9b25..a663390fdc9fd 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+
+[ ... ]
+
+> @@ -2390,6 +2412,135 @@ int phylink_connect_phy(struct phylink *pl, struct phy_device *phy)
+
+[ ... ]
+
+> +/* Stale the moment it returns: the device lock this wants cannot be held
+> + * across the attach, whose own failure path takes it again.
+> + */
+> +static bool phylink_phy_is_usable(struct phy_device *phy_dev)
+> +{
+> +	return phy_dev && device_is_bound(&phy_dev->mdio.dev) && phy_dev->drv;
+> +}
+
+[Severity: Medium]
+The kernel-doc for device_is_bound() says "This function must be called
+with the device lock held." The comment explains why the lock cannot be
+held across the attach. Is there a reason it cannot be taken just around
+this check and dropped before phylink_attach_phy()?
+
+Without the lock, can the check pass for a PHY whose unbind has already
+started? __device_release_driver() runs device_remove(), and so
+phy_remove(), before it removes knode_driver:
+
+drivers/net/phy/phy_device.c:phy_remove() {
+    ...
+	phydev->drv = NULL;
+
+	return 0;
+}
+
+klist_remove(&dev->p->knode_driver) only runs after that, so
+device_is_bound() can still return true while drv is being cleared.
+
+The poller then calls phy_attach_direct() with d->driver still set, so
+there is no genphy fallback. The commit message's handling ("the generic
+one binds instead") does not cover this case. If phydev->drv becomes NULL
+during the attach, could phy_attach_direct()
+(phy_drv_supports_irq(phydev->drv)) or phylink_bringup_phy()
+(phy->drv->name) dereference NULL?
+
+The commit message notes that the wider attach/unbind race belongs to
+phylib. The unlocked device_is_bound() call, though, is new in this patch.
+
+[ ... ]
+
+> +	ret = phylink_attach_phy(pl, phy_dev, pl->link_interface,
+> +				 pl->late_phy_flags);
+> +	if (!ret && phy_driver_is_genphy(phy_dev)) {
+> +		/* Lost the race: the attach bound the generic driver, which
+> +		 * is the outcome this poller exists to avoid.
+> +		 */
+> +		phy_detach(phy_dev);
+> +		lost_race = true;
+> +		ret = -EAGAIN;
+> +	}
+
+[Severity: Low]
+Suppose the real driver unbinds between phylink_phy_is_usable() and the
+attach, and the genphy attach that phy_attach_direct() then does fails.
+What happens here?
+
+The genphy probe/bind failure path clears is_genphy_driven:
+
+error_module_put:
+	module_put(d->driver->owner);
+	phydev->is_genphy_driven = 0;
+	d->driver = NULL;
+
+The later error path through phy_detach_internal() clears it as well.
+In both cases ret is non-zero, so lost_race stays false. The poller then
+logs "failed to connect late PHY" and uses up one of
+PHYLINK_LATE_PHY_RETRIES. If none are left, it prints "giving up" and
+stops, even though the real driver was never tried.
+
+Should a failed attach with no real driver bound be kept out of the retry
+count?
+
+[ ... ]
+
+> +	} else if (ret) {
+> +		phylink_err(pl, "failed to connect late PHY: %pe\n",
+> +			    ERR_PTR(ret));
+> +		/* Bounded: each retry re-runs the PHY's init, maybe its reset. */
+> +		if (pl->late_phy_retries) {
+> +			pl->late_phy_retries--;
+> +			again = true;
+
+[Severity: Medium]
+Can this retry end up attaching a PHY that another net_device owns?
+
+phylink_phy_is_usable() does not check phydev->attached_dev. The PHY may
+already be attached elsewhere, for example when two ports have a DT
+phy-handle pointing at the same PHY, or when the PHY was attached through
+another path. Then phy_attach_direct() fails here:
+
+	if (phydev->attached_dev) {
+		dev_err(&dev->dev, "PHY already attached\n");
+		err = -EBUSY;
+		goto error;
+	}
+
+The error label runs phy_detach_internal() on the other owner's
+attachment. That clears attached_dev, phylink and phy_link_change while
+the other phylink still holds the PHY in pl->phydev. This tear-down is
+existing phylib behaviour.
+
+What is new is that the -EBUSY arrives here and is retried. On the next
+poll attached_dev is NULL, so the attach and phylink_bringup_phy()
+succeed, and two phylink instances hold the same phy_device. A disconnect
+on either side would then detach the PHY from under the other.
+
+Should -EBUSY, or a PHY with attached_dev set, be treated as final rather
+than retried?
+
+[ ... ]
+
+> @@ -2440,6 +2605,25 @@ int phylink_fwnode_phy_connect(struct phylink *pl,
+>  	}
+>  
+>  	phy_dev = fwnode_phy_find_device(phy_fwnode);
+> +	if (pl->config->phy_may_probe_late &&
+> +	    pl->link_interface != PHY_INTERFACE_MODE_NA &&
+> +	    fwnode_property_present(phy_fwnode, "needs-host-firmware") &&
+> +	    !phylink_phy_is_usable(phy_dev)) {
+
+[Severity: Medium]
+Should this gate exclude MLO_AN_INBAND, or hold the link down while the
+deferral is pending?
+
+With the deferral armed and phylink started, phylink_resolve() takes the
+in-band path with phy == NULL. The PHY link state is not combined in:
+
+		if (phy)
+			link_state.link &= pl->phy_state.link;
+
+If the PCS reports link, phylink_link_up() calls mac_link_up() and turns
+carrier on. The PHY is not attached, and once the retries run out it may
+never be.
+
+When the poller later attaches the PHY, phy_attach_direct() calls
+netif_carrier_off(phydev->attached_dev) directly, not through
+phylink_link_down(). The forced major config then reads this as false:
+
+	cur_link_state = phylink_link_is_up(pl);
+
+so it skips phylink_link_down()/mac_link_down(). Because
+pl->phy_state.link is still 0, no down transition follows either. The next
+PHY link-up would then call mac_link_up() a second time with no
+mac_link_down() in between.
+
+Does that break the mac_link_up()/mac_link_down() pairing that MAC drivers
+expect?
+
+[ ... ]
+
+> @@ -2481,6 +2665,8 @@ void phylink_disconnect_phy(struct phylink *pl)
+>  
+>  	ASSERT_RTNL();
+>  
+> +	phylink_late_phy_cancel(pl);
+> +
+
+[Severity: Low]
+Is the deferred connect lost if an SFP PHY comes and goes while it is
+armed?
+
+If phylink_sfp_connect_phy() attaches a module PHY while the deferral is
+armed, phylink_late_phy_poll() stops for good:
+
+	/* A PHY arrived by another path, an SFP for one, while queued. */
+	if (!phylink_late_phy_pending(pl)) {
+		rtnl_unlock();
+		return;
+	}
+
+When the module is removed, phylink_sfp_disconnect_phy() calls
+phylink_disconnect_phy(). That now calls phylink_late_phy_cancel() and
+drops late_phy_fwnode, even though the phy-handle PHY was never attached.
+
+Nothing re-arms the deferral, so the needs-host-firmware PHY is never
+connected, even after its driver binds. For a MAC that connects once, the
+port stays without that PHY until the MAC is reprobed.
+
+Reaching this needs a MAC with both an sfp property and a phy-handle to a
+needs-host-firmware PHY. That may be unusual, but the comment in the
+poller suggests this path is expected.
+
+[ ... ]
+
+> diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+> index 3a88a69882a61..6249156b51f15 100644
+> --- a/include/linux/phylink.h
+> +++ b/include/linux/phylink.h
+> @@ -147,6 +147,9 @@ enum phylink_op_type {
+
+[ ... ]
+
+> + * @phy_may_probe_late: if true, a connect to a PHY marked needs-host-firmware
+> + *			whose driver has not bound yet is deferred until that
+> + *			driver binds; see phylink_fwnode_phy_connect().
+
+[Severity: Low]
+This isn't a bug today, but should phy_may_probe_late be documented as
+incompatible with mac_requires_rxc, or checked against it?
+
+While the connect is deferred, PHY_F_RXC_ALWAYS_ON is not passed to any
+PHY. A MAC that needs RX_CLK during its own init would go through that
+init with no PHY keeping it running.
+
+No current configuration reaches this. In-tree only stmmac sets
+mac_requires_rxc, and it does not opt in (the commit message names it as
+a MAC that must not). mt7530 does not set mac_requires_rxc.
+
+Adding !pl->config->mac_requires_rxc to the gate in
+phylink_fwnode_phy_connect(), or noting the conflict here, would cover
+future users.
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001130208.105558-1-f%40lex.la
 
