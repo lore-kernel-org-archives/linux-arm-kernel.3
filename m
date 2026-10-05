@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A5ECA5FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 06:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AABCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Oct 2026 06:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rqiuhs9qS3mStsH6kBsbbBZ7pCIM/ILem2xM4jXsPXQ=; b=mxZlx8n/TlcvzuHEsTtDxNTBMn
-	+dn57PxA7LaGSrJkyf29R4Tfb63VMR0EQ/N2X4vB1iIeNlt4kFUMVHeRrfFDxZxCggfp578nLTRFu
-	AuYORECgfUm+Zx7d4P8jL0oEMJZReaGVY6g6lkUpbOgaxpcYKEhqAxGsL+ePMDmBbs2KNK8nOtnPq
-	iCW90c21TaGoXf6Pj13LcNfRL6hq1QuDs1/RrYe6SOQu2DLGopgEF73+yjEPMNyftPsWTfkHGrX25
-	KP5ffXm9Oqimnj8cr0gRO+Edl9qSC3+O5Lh7csNJyp7+xR9zP9uuPl3Ps66n6G4N+Kz3y25NwAjYF
-	B0m+1PDw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=321duBp0aPp9ESQIUn3PgEtVLnGlcLT2lvoMXfWxb2Y=; b=IoBtNJQZ5Ak6x5
+	rloIIwWTDr64wcN/BbTEy9LOHiFgMELu0ZJCp7Rk5gg2fhdXomy85fTu82QA72D6BN86v8BhcFstA
+	WJreZwZMK+JpuS0Hkd1MY2b/UfNbuDMR2wV1PxUm7N411yqUlojnDR26ltYUcBczsBM0s4hXhONUs
+	L/wC56RTOaCfI2nOZ5KVIjpyhryFSuWNMMaK1lDH+2Rn9yoNIKbKbMuPpaMU2cpKwAwICoPXDNTCU
+	iFomeF+njgnkz/xXRSfDiuOM9rG5LtwR2PH4b9IjVexUHPclri7em2PUi4yzujiANKILVA5OPbNRC
+	KdmE/bF0uxJ7efyMgyQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcHR-0000000FjN1-0RiH;
-	Mon, 05 Oct 2026 06:34:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDcHP-0000000FjMZ-1PVy
+	id 1xDcOQ-0000000Fk0J-27iH;
+	Mon, 05 Oct 2026 06:41:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDcOM-0000000FjzL-1fMM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Oct 2026 06:34:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB81F405BE;
-	Mon,  5 Oct 2026 06:34:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A7481F00893;
-	Mon,  5 Oct 2026 06:34:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791182070;
-	bh=Rqiuhs9qS3mStsH6kBsbbBZ7pCIM/ILem2xM4jXsPXQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M59JCq37XioFaPJIlm2Xap5S5YRaFX1ylNDjqEQH8OseXSwR9Ypk29srT4qmVz8nR
-	 b7NUAaJ1ZyETV86crpTuAJbp8VhqxkPCXYBbJ1tpwB9mStLGZKLtz9CGkjnVH9Pq1e
-	 BhfiZdUl5uSajvtV59i2zgHY7u0eCbDq+dS0QVns1t7RYJlnZD80ams/EK+8e5NsYf
-	 mbkncD8gPb/xT4TieMQ0heVgSk1GnGvc6Y8eeAJsywme3ouNRHjkD2vAYQjlBjDTkt
-	 bXEWnXkA+VbHxaeIPWGuvv9U/xQvxJGzu63pt4iJzFRe/XX0ZI0k2vVXdDUzg2X69z
-	 ixQIpOgbFaNnA==
-Date: Mon, 5 Oct 2026 07:34:25 +0100
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, robin.murphy@arm.com, joro@8bytes.org,
-	praan@google.com, kevin.tian@intel.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org
-Subject: Re: [PATCH v10 06/13] iommu/arm-smmu-v3: Add
- ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
-Message-ID: <asNE8YMbOUq0sncP@willie-the-truck>
-References: <cover.1788130528.git.nicolinc@nvidia.com>
- <d661395d986d3aa78af200f55e43740996ee8a0f.1788130528.git.nicolinc@nvidia.com>
- <asJTsw-oWDlSqNa3@willie-the-truck>
- <20261004163501.GB4064@nvidia.com>
- <asK+GIWzXjwN3EaB@nvidia.com>
+	Mon, 05 Oct 2026 06:41:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBACF1595;
+	Sun,  4 Oct 2026 23:41:34 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88A5B3F763;
+	Sun,  4 Oct 2026 23:41:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791182498; bh=gPS4BaPCtTXPkS/p8WI2ZOze4/Fjezx1OmLe4zcOaeU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=iJBOFkhyRkxDNSYu02g9UxsbHGxbruPrgL0D5tGBG06toBL2lw8y5vZyyuenf0q+4
+	 1eOIIWsEa7tWNBClthYMJ/VFcNqRFOCoGaSYEujimXlW7ms7jJX8ZxyFPait/jXuUx
+	 Hrf3cEXGPzzoFMxv490xa3FwfIB0J1XyQUHUg8/M=
+Date: Mon, 5 Oct 2026 12:11:34 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org, 
+	catalin.marinas@arm.com
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH V3 0/4] arm64/mm: Convert pgtable READ_ONCE() as
+ pxdp_get()
+Message-ID: <6eghulpg35z63dpimrtw6p6x3zwfllfzjhpkpmgs5vcz4mpoda@poqgboea7nz5>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <asK+GIWzXjwN3EaB@nvidia.com>
+In-Reply-To: <20260924062214.1635078-1-anshuman.khandual@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_234143_483315_85A3445F 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +73,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 01:59:04PM -0700, Nicolin Chen wrote:
-> On Sun, Oct 04, 2026 at 01:35:01PM -0300, Jason Gunthorpe wrote:
-> > On Sun, Oct 04, 2026 at 02:25:07PM +0100, Will Deacon wrote:
-> > > > + *  - A structural inconsistency at adoption time tosses the entire adoption and
-> > > > + *    makes the SMMU fall back to a full reset blocking in-flight DMAs.
-> > > > + *  - L2 stream tables are adopted lazily at master-inserting time, to bound the
-> > > > + *    peak memory use against a corrupted L1 table; any lazy L2 adoption failure
-> > > > + *    rejects that device alone, as its blast radius is bounded to the bus.
-> > > > + *  - Only a coherent SMMU (ARM_SMMU_FEAT_COHERENCY) is supported, as the stream
-> > > > + *    table adoption is done by memremap with MEMREMAP_WB, which is verified on
-> > > > + *    the real hardware. Callers of these functions are responsible for gating
-> > > > + *    ARM_SMMU_FEAT_COHERENCY once during the probe.
-> > > 
-> > > This is an artificial restriction and not one that I'm wild about for kdump:
-> > > we should be able to support this for non-coherent SMMUs as well. Is there
-> > > anything more to it than using MEMREMAP_WC in that case?
-> >  
-> > I've forgotten why it ended up like this, it was some complication
-> > that seemed hard.. MEMREMAP_WC is not the same attribute dma coherent
-> > would have used, I'm not sure we have the right stuff to be able to
-> > flush any write combining buffer? I'm nervous about that at least.
-> > 
-> > Remember this is not just reading it but it has to operate like this
-> > after the fact. In handover you wanted to use the dma cohernent
-> > preservation.
-> > 
-> > So, I think this restriction is mostly a lack of the right MEMREMAP
-> > flag? It is not insovlable just work outside the scope of this series.
+On Thu, Sep 24, 2026 at 11:52:10AM +0530, Anshuman Khandual wrote:
+> Route READ_ONCE() accesses on pgtable entries via level specific generic MM
+> pxdp_get() helpers which platforms could then override when required. These
+> accessors on arm64, will help in ensuring page table accesses are performed
+> in an atomic manner while reading 128 bit page table entries later. But for
+> now they just default to READ_ONCE(), thus preserving existing behaviour on
+> current D64 translation a well.
 > 
-> I agree that it's safer to defer that to a followup series. It
-> also needs someone who has a non-coherent HW for a full test.
+> This is similar to generic MM where all atomic accesses have already been
+> converted from READ_ONCE() into pgtable level specific accessors.
 > 
-> On the other hand, this series is tested by folks from multiple
-> organizations, so it's really a needed and verified one.
+> These are preparatory patches for D128 enablement, although standing their
+> own for D64 translation as well. These patches are split from earlier D128
+> V1 series. There are no functional changes here and besides mm kselftests
+> do not show any regression.
+> 
+> https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
+> 
+> This series applies on v7.3-rc4 but after applying the following patches on
+> pgtable entry print standardization posted earlier.
+> 
+> https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
+> 
+> https://lore.kernel.org/linux-mm/20260916044933.2689426-1-anshuman.khandual@arm.com/
 
-I wasn't disputing that, though. I'm saying that it's half finished
-without the non-coherent part, so I'd like to understand what's needed
-to add that. Can you please explain what is needed beyond using
-MEMREMAP_WC? That maps to Normal-NC on arm64, just like the DMA API does.
+Hello Catalin/Andrew,
 
-Will
+The above mentioned dependencies are already in mm-unstable, thus reflecting
+in linux-next as well. Just to rule out merge conflict - this series applies
+cleanly, builds and boots on latest tag next-20261002, which contains above
+dependencies. But please do let me know if there are still some issues in
+resolving this situation - will be happy to help. Thank you.
+
+- Anshuman
+
+> 
+> These patches have been hosted here as well.
+> 
+> git@git.gitlab.arm.com:linux-arm/linux-anshuman.git (arm64_pxdp_get_v3)
+> 
+> Changes in V3:
+> 
+> - Added overrides for pxdp_get() and replaced remaining READ_ONCE()
+> - Updated all commit messages as required
+> - Dropped previous tags
+> 
+> Changes in V2:
+> 
+> https://lore.kernel.org/all/20260922061638.3967467-1-anshuman.khandual@arm.com/
+> 
+> - Rebased on v7.3-rc4 along with all latest dependencies
+> - Updated commit messages per Ryan
+> - Added tags from Ryan
+> 
+> Changes in V1:
+> 
+> https://lore.kernel.org/all/20260903060657.2717457-1-anshuman.khandual@arm.com/
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Linu Cherian <linu.cherian@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> 
+> Anshuman Khandual (4):
+>   arm64/mm: Use pmdp_get() for PMD accesses
+>   arm64/mm: Use pudp_get() for PUD accesses
+>   arm64/mm: Use p4dp_get() for P4D accesses
+>   arm64/mm: Use pgdp_get() for PGD accesses
+> 
+>  arch/arm64/include/asm/pgtable.h | 40 +++++++++++++++++----
+>  arch/arm64/mm/fault.c            |  8 ++---
+>  arch/arm64/mm/fixmap.c           |  6 ++--
+>  arch/arm64/mm/hugetlbpage.c      | 10 +++---
+>  arch/arm64/mm/kasan_init.c       | 18 +++++-----
+>  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
+>  arch/arm64/mm/pageattr.c         |  8 ++---
+>  arch/arm64/mm/trans_pgd.c        | 14 ++++----
+>  8 files changed, 95 insertions(+), 69 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
