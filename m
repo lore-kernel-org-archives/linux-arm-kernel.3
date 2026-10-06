@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2D2CA5FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 14:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FF4CA5FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 14:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qW3JrXnSc/0PGNO65eZiaUtPOoi0orx1PmmfsGlG284=; b=CqsM9x5k6YT6KoD6KINhUpbPfV
-	v0GnQtZmz7L/Em3xjpFc97M2DViKebcS/dNaQscZqdVb2QQQ/w/6UVVsNyotz8T9GVFaCPZniMml6
-	DvnFglSh7md7ZCn5AvThTltTIBpRKZryRP8yEbgEz7F+hLHOEM1NxF5H3z6oQpcEtEVpUVhec8mqm
-	nDQm+ntdN27EILTXiZxQSd/oR4Q51z/6+WB+7r1huLSKgG4cZ8FeLV55SeXBuQw486oRierNPNWcQ
-	ch+RfQo5tHJkUGyyJl1B2G6oLiZDQt9hLATYLeVgn8g1ox9yLdxx+SgvdcmdZiMZNJD2W19CJKVKQ
-	f3cTSo8A==;
+	bh=O4ijsvRQBpFAt/TjBQaHW4rLo5nHlFdAIaOJaUcvaqQ=; b=Oq7FtQAHQS82PtnM0dS66xMzVc
+	tuajINqY6H6rQZh6WVYAbapWCvO17RGj6BilaBZn52DMBbbPhi2BMbZjT/4vdEexlmmA7nt32P/xf
+	bUjudhEuFLB09+WI/AjkJlV0FYJyaIxkx5R5P4IlYx4EyMqozWaxtVRy+BWcOLN2VTHh5ywvVYVQ4
+	SbVOHW05A6410LXOxYQ+npk7gABB95PjaaM55Uh+E7cDBlcXPx+FBrvJgTkJ2NtlBaGT1WDsH7Pbz
+	TnVHbq2S4cPIqOBjChn0rQZdaDxb5TnPFpFoQXbL1ZKAPspU6YjFZQ7a048T7Yc9fmDLUzME6Oc32
+	IjcaQmtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6Vs-00000000ygD-02JG;
-	Tue, 06 Oct 2026 14:51:28 +0000
-Received: from sender5-op-o12.zoho.com ([165.173.182.12])
+	id 1xE6Xw-00000000yzQ-1uZL;
+	Tue, 06 Oct 2026 14:53:36 +0000
+Received: from mail-m9336.xmail.ntesmail.com ([103.126.93.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6Vj-00000000yeu-0vOE;
-	Tue, 06 Oct 2026 14:51:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791298248; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=UrTUQfRR23+2xgdIqR7ufPIOQtXKYEmKzw22QZhkDTRkUab/dXpLLIeAWpsl6J04gQiIMaUqdHrfSYj8ibT4ScL49qqjdzpIVcBEJKje09vkKiZXEEksPT182OnrG4X+AdE6e2W8lepWIJfDNvDge4Ndm7ChAwmRXPbv1RggZX8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1791298248; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=qW3JrXnSc/0PGNO65eZiaUtPOoi0orx1PmmfsGlG284=; 
-	b=Xj2v+E9DkNWwKyCFm2GwLlNrxcTWxTlvN5+DvEqO+/hXb2vXDpbGTR0p/ojgC0qyNODoqtSJOKEx5O7sm4yRM8zPuynEs1phkbJQ3J06K8XP6ZlSa4GOtFEJkv3TpQHkTrnsemxK6CSymjoeSlEQMrhHU3fGUQkMbGr8Gr0vS7U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791298248;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
-	bh=qW3JrXnSc/0PGNO65eZiaUtPOoi0orx1PmmfsGlG284=;
-	b=IVzgev0T1bHj9svuH4dGyZFR2ISdAvkNrGwqY/VQGNW1gWvE2brirG7Zu7Qsx7Sm
-	MUoiK6yo8bKGQx0d+lqAhNanirS+dz2/1HQhaKWDTtKEV7f3kkHDbRTJIiyYhExFQUq
-	/rYY1dLRM0wiVdFTN8BS07NGFSFnzKJ7Tqbr9idE=
-Received: by smtp.zohomail.com with SMTPS id 1791298245153771.1925389458397;
-	Tue, 6 Oct 2026 07:50:45 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 06 Oct 2026 22:50:34 +0800
-Message-Id: <DLXU88MGGIWX.2IUEKEMBTV4QC@pigmoral.tech>
-Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
- <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>, "Jerome
- Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
- <enzo.adriano.code@gmail.com>
-Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Andre Przywara" <andre.przywara@arm.com>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>, <wens@kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
- <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
- <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
- <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
- <4ac4c90f-887e-4545-9c26-9706bdaa1a79@arm.com>
-In-Reply-To: <4ac4c90f-887e-4545-9c26-9706bdaa1a79@arm.com>
-X-ZohoMailClient: External
+	id 1xE6Xs-00000000yyN-2Qvk;
+	Tue, 06 Oct 2026 14:53:34 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5017780f0;
+	Tue, 6 Oct 2026 22:53:25 +0800 (GMT+08:00)
+Message-ID: <08736f4d-a728-4b1e-a28e-882648a412e0@rock-chips.com>
+Date: Tue, 6 Oct 2026 22:53:22 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v12 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
+ selection for RK3568
+To: Coia Prant <coiaprant@gmail.com>
+References: <20261006074749.2010233-1-coiaprant@gmail.com>
+ <20261006074749.2010233-3-coiaprant@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20261006074749.2010233-3-coiaprant@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa111b4849d03a4kunm0891905cc46f12
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSkwZVkxMGExPTklLHkhNH1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=OfXO0jKzVK0ihQAAbN7TAM/2PrWg8O37gdbmTiejSIEvUUVX890S5dzDBItY9mVrD4P4xEdN2x2dwsucg/EcSmrrArDIIQxtuOWAKdEh6iaoXf5uEp03ixDehkjKCODIWzJ2J+i1+gVBDAz+NUtm4+wtU7JSlcPboDrUhcIedvI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=O4ijsvRQBpFAt/TjBQaHW4rLo5nHlFdAIaOJaUcvaqQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_075119_791556_76EF7F0D 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20261006_075333_253744_7A14A829 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,275 +76,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre, Chen-Yu,
+Hi Coia
 
-I ran some tests and now have a better understanding of the clock
-hierarchy. Please see the results below.
+在 2026/10/06 星期二 15:47, Coia Prant 写道:
+> On RK3568, the SGMII interface can be routed to either GMAC0 or
+> GMAC1 via the GRF register pipe_sgmii_mac_sel.
+> 
+> Add support for this selection by introducing
+> the "rockchip,sgmii-mac-sel" DT property.
+> 
+>  From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
+> bit 1 (pipe_sgmii_mac_sel) is defined as:
+> 
+>      0: SGMII routed to GMAC0
+>      1: SGMII routed to GMAC1
+> 
+> The hardware reset value is 1 (GMAC1). If the property is set to 0,
+> the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
+> remains at GMAC1.
+> 
 
-On Mon Oct 5, 2026 at 5:17 PM CST, Andre Przywara wrote:
-> Hi,
->
-> On 10/5/26 06:41, Junhui Liu wrote:
->> Hi Chen-Yu,
->>=20
->> On Sun Oct 4, 2026 at 7:03 PM CST, Chen-Yu Tsai wrote:
->>> On Tue, Sep 29, 2026 at 7:28=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral=
-.tech> wrote:
->>>>
->>>> Add the bus clock gates that control access to the devices' register
->>>> interface on the Allwinner A733 SoC. These clocks are typically
->>>> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, an=
-d
->>>> various multimedia engines. It also includes bus gates for system
->>>> components like the IOMMU and MSI-lite interfaces.
->>>>
->>>> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
->>>> Disabling either store gate breaks access to boot/storage devices such
->>>> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
->>>> power domain registers when unused clocks are disabled.
->>>>
->>>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
->>>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
->>>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->>>> ---
->>>>   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 +++++++++++++++++++++++=
-+++++++++-
->>>>   1 file changed, 491 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunx=
-i-ng/ccu-sun60i-a733.c
->>>> index 1b2d4d36ec4c..b077e5d2f32c 100644
->>>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>>> @@ -4,6 +4,10 @@
->>>>    * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
->>>>    * Based on the A523 CCU driver:
->>>>    *   Copyright (C) 2023-2024 Arm Ltd.
->>>> + *
->>>> + * TODO: The real parents of some bus gates, including its-pcie0-aclk=
-,
->>>> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in t=
-he
->>>> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
->>>>    */
->>>
->>> [...]
->>>
->>>> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_=
-clk, "mbus", mbus_parents, 0x588
->>>>                                             BIT(31),     /* gate */
->>>>                                             CLK_IS_CRITICAL,
->>>>                                             CCU_FEATURE_UPDATE_BIT);
->>>> +static const struct clk_hw *mbus_hws[] =3D { &mbus_clk.common.hw };
->>>> +
->>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbu=
-s_hws, 0x58c, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_=
-hws, 0x58c, BIT(1), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_h=
-ws, 0x58c, BIT(2), 0);
->>>> +
->>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, =
-0x594, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, =
-0x59c, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, =
-0x5a4, BIT(0), 0);
->>>> +
->>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbu=
-s_hws, 0x5b4, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_=
-hws, 0x5b4, BIT(1), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_h=
-ws, 0x5b4, BIT(2), 0);
->>>
->>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
->>>> +                         0x5c0, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
->>>> +                         0x5c0, BIT(1), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
->>>> +                         0x5c0, BIT(2), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws=
-,
->>>> +                         0x5c0, BIT(3), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws=
-,
->>>> +                         0x5c0, BIT(4), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
->>>> +                         0x5c0, BIT(5), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
->>>> +                         0x5c0, BIT(6), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
->>>> +                         0x5c0, BIT(7), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
->>>> +                         0x5c0, BIT(8), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
->>>> +                         0x5c0, BIT(9), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws=
-,
->>>> +                         0x5c0, BIT(16), 0);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
->>>> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
->>>> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
->>>> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
->>>
->>> I suspect these refer to a AHB-AHB bridge for the various subsystems sh=
-own
->>> in the memory map. That would explain why when the "ahb-store" clock is
->>> gated, the storage bits stop working.
->>>
->>> If that's the case, we should describe it as the parent of each storage
->>> peripheral bus gate's parent. Same would go for the other types. I have=
-n't
->>> checked what the BSP does though.
->>=20
->> As Norman mentioned in his reply, the vendor BSP also does not model
->> this hierarchy and instead models these gates as independent clocks
->> parented to the oscillator. The manual does not describe the hierarchy
->> either, so I don't think we have enough information to model it
->> differently at this point.
->
-> Well, I wouldn't use the BSP as a good example on how to model the clock=
-=20
-> tree, they have been very misguided in the past.
+Thanks for your patch. I have a question below, please have a look.
 
-Understood. I will not rely on the BSP's clock hierarchy.
+> This is necessary for boards such as the Ariaboard Photonicat, which
+> uses the SGMII interface connected to GMAC0.
+> 
+> Out-of-range values are rejected by dtschema, so the driver does not
+> duplicate the range check.
+> 
+> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> ---
+>   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index 7843356a4dd47..7b867e7520064 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> @@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
+>   	struct combphy_reg pipe_xpcs_phy_ready;
+>   	struct combphy_reg pipe_pcie1l0_sel;
+>   	struct combphy_reg pipe_pcie1l1_sel;
+> +	struct combphy_reg pipe_sgmii_mac_sel;
+>   	struct combphy_reg u3otg0_port_en;
+>   	struct combphy_reg u3otg1_port_en;
+>   };
+> @@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
+>   	bool enable_ssc;
+>   	bool ext_refclk;
+>   	struct clk *refclk;
+> +	u32 sgmii_mac_sel;
+>   };
+>   
+>   static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
+> @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+>   
+>   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+>   
+> +	priv->sgmii_mac_sel = 1;
 
-> What the BSP does is to add just more input/gate MBUS clocks for each=20
-> device, which is something I think we should avoid.
-> To that regard using them as parent clocks for the existing gates, as=20
-> Chen-Yu suggested, sounds like a good idea: We keep a single clock for=20
-> the devices, but still can turn both clocks off (I think, not tested).
+Before this patch, SGMMI was routed to GMACX depends on bootloader(if
+setting), or routed to GMAC1 by chip default. Without knowing any
+potential candidates setting it via bootloader, you might not force any
+DTS files without "rockchip,sgmii-mac-sel" to pick GMAC1 as fallback.
 
-I tested bus-mmc0, bus-mmc2, bus-spi0, bus-ufs, bus-nand0, and
-bus-spif individually. Disabling each bus gate made the corresponding
-controller's MMIO registers inaccessible: reads either returned zero or
-a fixed invalid value.
+Maybe you could just keep the SGMII route as-it if the property is not
+present. Meanwhile, should validate rockchip,sgmii-mac-sel is a valid
+value passing from DT.
 
-With those individual bus gates enabled, disabling ahb-store made the
-MMIO registers of all those controllers inaccessible. Restoring
-ahb-store made them accessible again.
 
-Based on these results, I plan to make ahb-store the parent of the
-following bus clocks in the next version:
+> +	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+> +
+>   	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
+>   	/* fallback to old behaviour */
+>   	if (PTR_ERR(priv->phy_rst) == -ENOENT)
+> @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+>   		break;
+>   
+>   	case PHY_TYPE_SGMII:
+> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
+> +					     priv->sgmii_mac_sel > 0);
+>   		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
+>   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
+>   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
+> @@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
+>   	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
+>   	/* pipe-grf */
+>   	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
+> +	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
+>   	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
+>   	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
+>   	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
 
-  bus-nand0
-  bus-mmc0
-  bus-mmc1
-  bus-mmc2
-  bus-mmc3
-  bus-spi0
-  bus-spi1
-  bus-spi2
-  bus-spif
-  bus-spi3
-  bus-spi4
-  bus-ufs
-
-I directly tested MMC0, MMC2, SPI0, SPIF, NAND0, and UFS. The remaining
-instances use the same type of bus gates in the same storage subsystem,
-so I plan to model them in the same way.
-
-For mbus-store, testing with MMC0 and UFS showed that disabling it
-breaks the storage DMA paths.
-
-Most of these storage controllers do not have dedicated MBUS gate
-clocks, so there is no clock that can be parented to mbus-store to model
-their DMA dependency. I therefore plan to keep mbus-store marked as
-CLK_IS_CRITICAL, as we already do for the main mbus clock. For NAND,
-which does have a dedicated mbus-nand gate, I will make mbus-store its
-parent.
-
-I also tested NVMe, but disabling either ahb-store or mbus-store had no
-effect on it.
-
-Does this approach look reasonable to you?
-
-Best regards,
-Junhui Liu
-
->
-> Cheers,
-> Andre
->
->> I will add comments explaining why ahb_store_clk, mbus_store_clk, and
->> ahb_cpus_clk are marked critical.
->>=20
->>>
->>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
->>>> +                         0x5e0, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
->>>> +                         0x5e0, BIT(1), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
->>>> +                         0x5e0, BIT(11), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate",=
- mbus_hws,
->>>> +                         0x5e0, BIT(12), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate",=
- mbus_hws,
->>>> +                         0x5e0, BIT(14), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
->>>> +                         0x5e0, BIT(16), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
->>>> +                         0x5e0, BIT(18), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
->>>> +                         0x5e0, BIT(24), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
->>>> +                         0x5e0, BIT(28), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_=
-hws,
->>>> +                         0x5e0, BIT(29), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
->>>> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
->>>
->>> Same thing for the MBUS clocks.
->>>
->>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_=
-hws,
->>>> +                         0x5e0, BIT(31), 0);
->>>> +
->>>> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
->>>> +                         0x5e4, BIT(0), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
->>>> +                         0x5e4, BIT(1), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
->>>> +                         0x5e4, BIT(2), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
->>>> +                         0x5e4, BIT(3), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
->>>> +                         0x5e4, BIT(5), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
->>>> +                         0x5e4, BIT(8), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
->>>> +                         0x5e4, BIT(9), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
->>>> +                         0x5e4, BIT(11), 0);
->>>> +/* Undocumented, taken from the vendor kernel. */
->>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
->>>> +                         0x5e4, BIT(12), 0);
->>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
->>>> +                         0x5e4, BIT(18), 0);
->>>
->>> [...]
->>>
->>> The remaining definitions look correct (minus the vendor BSP ones which=
- I
->>> couldn't check at this time).
->>>
->>> I didn't check the clock list additions.
->>>
->>> Consider this
->>>
->>> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
->>>
->>=20
->> Thanks!
->>=20
->>>
->>> We can change the AHB / MBUS clock parents later if we do figure it out=
-.
->>>
->>>
->>> ChenYu
->>=20
 
