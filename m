@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A773CA5FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F638CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxIeuyPsGM6bXB1gP5y8RQMrIArazkFLfv1yfn+nqd8=; b=ZuFixkZqC9ecax8rT2s+vfRoWX
-	oWp/btUlbBzC3FVSqFydb8kYVt/JS+hVhy6quu/m9kPdJbSsUzgqjv8XdJqnE++TgN9cKCBIbPFx4
-	h3aiZ69OiRC/+wFKQZ5AalZRdtxVMIv8HfESy5AKnOnzbg3ipavN9o/tIb9AizHpPjkPE/zSp8NV2
-	tdvqchQiV8/47UeIgDh7PXkJ/SxjFRECcRlyuRp2c8Ipt3QEX70dzKEZ7TIO+GzsRvBexomWS/g44
-	yCddfsPn05/HNkuqifNdE2ToYane7dxR9/baqT9P1EUwkrb2i+hAqb+GyzsiKi9o6Hk3MWeCRNHBz
-	qvTKRssQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=goSUC8rOLbR1QanLKh3MMf1EmDUtSXdm+TglUr6s/zM=; b=dP35L+hKfDNPYmVYJpEjMoiUCx
+	ODvZ2irrKFPKAI1blDDu1zT6Q+/y3ExJ54uxgvbpZ0Mm27f9+wowByfoUIs9H4NkooZaUif35DXgu
+	CRs/OUuBBuGLCW8JP1PLk83QNGLIk0gGZDIOB+gs3UFrFW5M1UltWu+bKcEO7vVLweokZMqIN8boj
+	28DiNraFe/DhqTx3zHhbL+W5Y9uIUfSm9YE1MaznqPIp0D/Pm43Yt5GkN9WwFpG/A0DcCqaNOr/Ja
+	KilAKTVlwW7q0Dj1jZy5zd2wgd3sDYyHy+TmKZAFiJUcEZ2emGYEs/3Rz6pLgml69zPhAkvEyjr2X
+	SdbDRjSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDuiW-0000000HUYN-2OpL;
-	Tue, 06 Oct 2026 02:15:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xDulx-0000000HUsZ-0d9O;
+	Tue, 06 Oct 2026 02:19:17 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDuiT-0000000HUY1-2GVt
+	id 1xDulu-0000000HUsD-2i56
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 02:15:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791252940;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nxIeuyPsGM6bXB1gP5y8RQMrIArazkFLfv1yfn+nqd8=;
-	b=G5WafGFc4YOxYm28QAizVYszBFEn4sv1QLo7oCrIfdQc7/sRXo8JjaUU4dgWnF107SWaU6
-	ycxNDdQ8msS8B0V+EJAgtMtWjtxqrBFeln8AYefp+0QSRBVgykGY744yeZQMuJyh8F4ivE
-	lTmCNwD682IJ5DIsrMMuMqsujLf3Uks=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-228-SgwcR4O6Mq-emV6-4MYpAg-1; Mon, 05 Oct 2026 22:15:38 -0400
-X-MC-Unique: SgwcR4O6Mq-emV6-4MYpAg-1
-X-Mimecast-MFC-AGG-ID: SgwcR4O6Mq-emV6-4MYpAg_1791252938
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso2643737a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 19:15:38 -0700 (PDT)
+	Tue, 06 Oct 2026 02:19:15 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-3115c4451c8so1632217eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 19:19:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791253154; x=1791857954; darn=lists.infradead.org;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=goSUC8rOLbR1QanLKh3MMf1EmDUtSXdm+TglUr6s/zM=;
+        b=UpVBiYksyKpdjyjgxVZRKw3nDliG8dyxqwhqJnG7pbz2y38aVErR9kfhJM62iiau2Z
+         jI3cbfDZtqOYDlaP4weRH4BKmoxVZ4/hFkevxYliueIrFA0VrpeUkmpPQWpuwf2Bc804
+         sN+NZn4z0wOPFCOi7cIKrtPVWZjVMuHB5soMQXdSottaT06E2LfKd+NO5vf0xOVoAlfR
+         W3hCFOpJscfl06oOzJ7HYbkWWoSVjkeWebhUuhg4RMH9wVI2H4BKaBEJFi4/urJgFzwG
+         aNqq8COlA8K+rlxbzk5uoj0mpp4Ct4vNIrOxR1ea2tvOABN7N043/NJ35xcrrPeRjh5z
+         L1nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791252938; x=1791857738;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1791253154; x=1791857954;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nxIeuyPsGM6bXB1gP5y8RQMrIArazkFLfv1yfn+nqd8=;
-        b=lg2gcTwQqWuc+cuwoWjpk5jygEV88eB3dByw3wVXtS/pfNqz5qkkJob8PsXcm4KSWX
-         c1UTY30ZRXmgDCRlS4qsvAKrtOzBT2TjZR7gt73y1JAcSMjyedED+ssrlAC2HK+38DQU
-         zbLxrp6D65cocpqJcQCz5ProLM2hyrhlsYue2yy52CwQtZ5z5UBtuZtN+gKvuxtUlncB
-         nusmmvb5G7ZJYO1tddsMO8f50d7L8hqTGSmYKbi9nqQE1H2sdEH/qUYhCBCnIbzBjDSW
-         i7a2ZDMtseeIkrOotyNRe1T74HTTXlZ3jZbn6myO1mnaAOJLIWETsj/9wsDbKveXME21
-         zHQg==
-X-Forwarded-Encrypted: i=1; AKwUvBw56uC2IqqD5hpfglxv3LEOXMf8MMpoixBbEd/YRE42pOc6ESislUbBT1qpzjQab3N57nxK73b7PDOPRv2rFO35@lists.infradead.org
-X-Gm-Message-State: AFq9FYLvwhkTpMXCnRCYvTXqlg7URvldPJkuiO/qqZ8CXj2TnUO1uFo6
-	GeApr/BiRYWBTOTSazwEzjlhPy/U0V31oqoq48ft1IUPqeGRJBlbdB4e1UiDeO8FJo/0cpGvlIs
-	RQN+fNBWxU4ZIjbzxVBp9NeER0TIaRKY2xgPQmdiYYLkTUlFeDpSmRCJOov/xOamJaq/hFuwZCy
-	BCFAjDHZi9
-X-Gm-Gg: AYBFou1lnY0XFAiRf+8QKBVKxThc+i8pyhUlCq2Pq8gs/s1nKSEieXVWXXIMBPyzocu
-	CDjG6VKglapg5VIm/fzfcsSsOAAdwXN4B/zurv0F5dR0UU0/lnR1h23C8jROeL+/sDxsIMTVspg
-	OT84zjtPJSkXjibtjC5EoyrW0Dh5EsldiRTVh8v+jSmo8jlaqmDnJa27ZwhDoLwl76bFjgTJXA2
-	LY6ss2vg+2zayODGjMJZophP6PoBycWxsOeRgrEYwWFrclpCKDVAP1NT/gSjBgbFMwim81AHRty
-	NuKUPwblHLdtuQnj5Mw4YQdJLOVhzbeiX9Ig7SWHKCBhXNDacThpw0Lnac64dmyL0lCpUDQmlrA
-	U6EDD0LO3g4UX4MtCakA8BB8fHpw7Q6GG6gOlvG+EvQ==
-X-Received: by 2002:a17:90b:3e86:b0:3a1:66fd:94af with SMTP id 98e67ed59e1d1-3a6ce7f67b5mr4922640a91.37.1791252937692;
-        Mon, 05 Oct 2026 19:15:37 -0700 (PDT)
-X-Received: by 2002:a17:90b:3e86:b0:3a1:66fd:94af with SMTP id 98e67ed59e1d1-3a6ce7f67b5mr4922621a91.37.1791252937271;
-        Mon, 05 Oct 2026 19:15:37 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a7e4b00de6sm5404856a91.1.2026.10.05.19.15.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 19:15:36 -0700 (PDT)
-Message-ID: <0f463e25-1536-473e-809e-6a358f27275f@redhat.com>
-Date: Tue, 6 Oct 2026 12:15:27 +1000
+        bh=goSUC8rOLbR1QanLKh3MMf1EmDUtSXdm+TglUr6s/zM=;
+        b=Ydvt9QFVNLPLPFzt7mFY8Oqxht4sOMgNdUmRSw4zLgptVNOMb9wJEQHG9n9fFQK6FE
+         mPSsgOey4QcrKY+LULLmlYQeOHCmgLhEYDCxBLDQCSIbC3iaVl6vt5F+ZFI+4oQf7goe
+         tvRNhqfqg2XgJm42MWtLTKkuziMz6apKaiE6klAv9ccQuscUyz+PZLlbM0jk6RxJ3W2K
+         E8Bgi7VgfbtMxXacsHtfkpmOSI7q0oa6VQlcFfLvvOXwqWq+Dargr4IhVx9F7lkysMWe
+         E3sCTF09SWOf0eQv2N1xw6+TJ7WeuIEX/ERXVMvvFbmYBkNdayU445v9TA/i4QA2t3Xj
+         ULVg==
+X-Forwarded-Encrypted: i=1; AKwUvBwA6B7AQJUcRO/OdlG5qQMaZ2nrfiB8z46TWAmT7ctafbnPGC0hFZa4p9X+MCXo1i9SKYLtVLtCcxgZtAQi+HeB@lists.infradead.org
+X-Gm-Message-State: AFq9FYIe9e23xihtBR4rmBP/z+jqjvF2Cq1/xpdcUYY/+qJJ/Jxd7iez
+	scnOU2qxQRzL8aNsscppiizL3kA1qRvvNckA7n/MWnBDHgvgMRGKwJZm
+X-Gm-Gg: AYBFou2ffW87zYbAsEbs7QUQFGR6+jp69HuelsXYWWW0W+0XOoFVbZhoQbMmwBJYb/J
+	bkG2enmQPSOkzYcLocE12Gz0IJQepFHaVMmdDWzMwtPixg3bLDE6LMivqL5Q+lb0xVWBCOuZo4u
+	nTnmELh5bJUAyf97mjYmnYA0vpdmblJcg+xh0kduI1FD8wW04SdUKXiSn4U0e/rZ3ZpqlKzAafa
+	lIkmIwbKxJidgiP+soipmI1FqMHiHq6MZPSciOejOz+4PnaFwBFlOTON3bHHHfb/fCQK5Rgczdh
+	LJgrAB/DFDYY4HPWJDGTcgtCUbk+4/B1eQCoLF85bELZqz/GU59tBYgAFgp5iKuTiipT3y7y/+L
+	gHifApzMEvPjg4743XAOXGvxLL4aFns/kO+b/1y9/nLVbaGY2XiGrSuop8S6ONib9/rRhJJa8Ah
+	tdS5749Q9N709iBEVvJKcCyrYO9BWN6aTPWnJx0COovm3TUWV+lbzmQ/eo715Geg5yB+wvHqXe
+X-Received: by 2002:a05:7300:e9d7:10b0:351:2200:1cde with SMTP id 5a478bee46e88-35145200a8emr1646887eec.8.1791253153514;
+        Mon, 05 Oct 2026 19:19:13 -0700 (PDT)
+Received: from arlo ([2607:fb90:742b:7290:cb9a:9a47:ea69:3868])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146a5b004sm3016308eec.18.2026.10.05.19.19.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 19:19:12 -0700 (PDT)
+Date: Mon, 5 Oct 2026 16:19:08 -1000
+From: Raiden Horner <raidenhornerdev@gmail.com>
+To: slongerbeam@gmail.com, p.zabel@pengutronix.de, Frank.Li@nxp.com,
+	mchehab@kernel.org, gregkh@linuxfoundation.org
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] staging: media: imx: Fixed depricated implementations of
+ 80 char limit & open parentheses line ending
+Message-ID: <asRanEEXSR2hDM_e@arlo>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 08/23] KVM: arm64: Add vcpu load/put call backs for
- flavors
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-9-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-9-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: qkUccBLXDwTpwgn4JoLNkQBix2GvQnun-m6b0-ye9Nc_1791252938
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_191541_713528_196C1FB2 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20261005_191914_696055_86136B10 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,24 +99,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> Add VM flavor specific handlers for VCPU load/put, in an effort to make it
-> easier to follow the code. pauth traps were removed from VMs running PKVM
-> as it is a no-op for them.
-> 
-> Based on a patch by Marc Zyngier
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v21:
->   - Add '&' into the KVM_VCPU_OPS() macro
-> ---
->   arch/arm64/include/asm/kvm_host.h |   6 ++
->   arch/arm64/kvm/arm.c              | 138 +++++++++++++++++++++++-------
->   2 files changed, 114 insertions(+), 30 deletions(-)
-> 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Fixed open parentheses line ending issues & readability.
+
+I presume this syntax was there to meet the old 80 char limit, and
+double checked the changelogs to make sure this was not already
+submitted.
+
+If not I apologize, I am still getting used to using the indexing
+system.
+
+Signed-off-by: Raiden Horner <raidenhornerdev@gmail.com>
+---
+Changes in v2:
+	- Fixed line wrapping in the commit message to adhere to 75
+	  columns
+ drivers/staging/media/imx/imx-ic-prpencvf.c   | 13 +++--
+ drivers/staging/media/imx/imx-media-csi.c     |  4 +-
+ .../staging/media/imx/imx-media-dev-common.c  |  2 +-
+ drivers/staging/media/imx/imx-media-fim.c     |  5 +-
+ drivers/staging/media/imx/imx-media-utils.c   | 54 +++++--------------
+ 5 files changed, 24 insertions(+), 54 deletions(-)
+
+diff --git a/drivers/staging/media/imx/imx-ic-prpencvf.c b/drivers/staging/media/imx/imx-ic-prpencvf.c
+index 77360bfe081a..69f5ca280454 100644
+--- a/drivers/staging/media/imx/imx-ic-prpencvf.c
++++ b/drivers/staging/media/imx/imx-ic-prpencvf.c
+@@ -704,11 +704,11 @@ static int prp_start(struct prp_priv *priv)
+ 	}
+ 
+ 	if (ipu_rot_mode_is_irt(priv->rot_mode))
+-		priv->eof_irq = ipu_idmac_channel_irq(
+-			ic_priv->ipu, priv->rot_out_ch, IPU_IRQ_EOF);
++		priv->eof_irq = ipu_idmac_channel_irq(ic_priv->ipu,
++						      priv->rot_out_ch, IPU_IRQ_EOF);
+ 	else
+-		priv->eof_irq = ipu_idmac_channel_irq(
+-			ic_priv->ipu, priv->out_ch, IPU_IRQ_EOF);
++		priv->eof_irq = ipu_idmac_channel_irq(ic_priv->ipu,
++						      priv->out_ch, IPU_IRQ_EOF);
+ 
+ 	ret = devm_request_irq(ic_priv->ipu_dev, priv->eof_irq,
+ 			       prp_eof_interrupt, 0,
+@@ -761,9 +761,8 @@ static void prp_stop(struct prp_priv *priv)
+ 	/*
+ 	 * and then wait for interrupt handler to mark completion.
+ 	 */
+-	ret = wait_for_completion_timeout(
+-		&priv->last_eof_comp,
+-		msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&priv->last_eof_comp,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(&ic_priv->sd, "wait last EOF timeout\n");
+ 
+diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+index ef22a083f8eb..4eb621ddda25 100644
+--- a/drivers/staging/media/imx/imx-media-csi.c
++++ b/drivers/staging/media/imx/imx-media-csi.c
+@@ -679,8 +679,8 @@ static void csi_idmac_wait_last_eof(struct csi_priv *priv)
+ 	/*
+ 	 * and then wait for interrupt handler to mark completion.
+ 	 */
+-	ret = wait_for_completion_timeout(
+-		&priv->last_eof_comp, msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&priv->last_eof_comp,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(&priv->sd, "wait last EOF timeout\n");
+ }
+diff --git a/drivers/staging/media/imx/imx-media-dev-common.c b/drivers/staging/media/imx/imx-media-dev-common.c
+index 0d0ee8627a2d..be445df93518 100644
+--- a/drivers/staging/media/imx/imx-media-dev-common.c
++++ b/drivers/staging/media/imx/imx-media-dev-common.c
+@@ -377,7 +377,7 @@ struct imx_media_dev *imx_media_dev_init(struct device *dev,
+ EXPORT_SYMBOL_GPL(imx_media_dev_init);
+ 
+ int imx_media_dev_notifier_register(struct imx_media_dev *imxmd,
+-			    const struct v4l2_async_notifier_operations *ops)
++				    const struct v4l2_async_notifier_operations *ops)
+ {
+ 	int ret;
+ 
+diff --git a/drivers/staging/media/imx/imx-media-fim.c b/drivers/staging/media/imx/imx-media-fim.c
+index ccbc0371fba2..9e9bacf9dcec 100644
+--- a/drivers/staging/media/imx/imx-media-fim.c
++++ b/drivers/staging/media/imx/imx-media-fim.c
+@@ -205,9 +205,8 @@ static void fim_acquire_first_ts(struct imx_media_fim *fim)
+ 	if (!fim->enabled || fim->num_skip > 0)
+ 		return;
+ 
+-	ret = wait_for_completion_timeout(
+-		&fim->icap_first_event,
+-		msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
++	ret = wait_for_completion_timeout(&fim->icap_first_event,
++					  msecs_to_jiffies(IMX_MEDIA_EOF_TIMEOUT));
+ 	if (ret == 0)
+ 		v4l2_warn(fim->sd, "wait first icap event timeout\n");
+ }
+diff --git a/drivers/staging/media/imx/imx-media-utils.c b/drivers/staging/media/imx/imx-media-utils.c
+index f119477cac6b..00cd391b5ff7 100644
+--- a/drivers/staging/media/imx/imx-media-utils.c
++++ b/drivers/staging/media/imx/imx-media-utils.c
+@@ -16,18 +16,12 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 	/*** YUV formats start here ***/
+ 	{
+ 		.fourcc	= V4L2_PIX_FMT_UYVY,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_UYVY8_2X8,
+-			MEDIA_BUS_FMT_UYVY8_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_UYVY8_2X8, MEDIA_BUS_FMT_UYVY8_1X16),
+ 		.cs     = IPUV3_COLORSPACE_YUV,
+ 		.bpp    = 16,
+ 	}, {
+ 		.fourcc	= V4L2_PIX_FMT_YUYV,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_YUYV8_2X8,
+-			MEDIA_BUS_FMT_YUYV8_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_YUYV8_2X8, MEDIA_BUS_FMT_YUYV8_1X16),
+ 		.cs     = IPUV3_COLORSPACE_YUV,
+ 		.bpp    = 16,
+ 	}, {
+@@ -71,10 +65,7 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 		.cycles = 2,
+ 	}, {
+ 		.fourcc	= V4L2_PIX_FMT_RGB24,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_RGB888_1X24,
+-			MEDIA_BUS_FMT_RGB888_2X12_LE
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_2X12_LE),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 24,
+ 	}, {
+@@ -132,55 +123,36 @@ static const struct imx_media_pixfmt pixel_formats[] = {
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SBGGR16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SBGGR10_1X10,
+-			MEDIA_BUS_FMT_SBGGR12_1X12,
+-			MEDIA_BUS_FMT_SBGGR14_1X14,
+-			MEDIA_BUS_FMT_SBGGR16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SBGGR10_1X10, MEDIA_BUS_FMT_SBGGR12_1X12,
++				       MEDIA_BUS_FMT_SBGGR14_1X14, MEDIA_BUS_FMT_SBGGR16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SGBRG16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SGBRG10_1X10,
+-			MEDIA_BUS_FMT_SGBRG12_1X12,
+-			MEDIA_BUS_FMT_SGBRG14_1X14,
+-			MEDIA_BUS_FMT_SGBRG16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SGBRG10_1X10, MEDIA_BUS_FMT_SGBRG12_1X12,
++				       MEDIA_BUS_FMT_SGBRG14_1X14, MEDIA_BUS_FMT_SGBRG16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SGRBG16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SGRBG10_1X10,
+-			MEDIA_BUS_FMT_SGRBG12_1X12,
+-			MEDIA_BUS_FMT_SGRBG14_1X14,
+-			MEDIA_BUS_FMT_SGRBG16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SGRBG10_1X10, MEDIA_BUS_FMT_SGRBG12_1X12,
++				       MEDIA_BUS_FMT_SGRBG14_1X14, MEDIA_BUS_FMT_SGRBG16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_SRGGB16,
+-		.codes  = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_SRGGB10_1X10,
+-			MEDIA_BUS_FMT_SRGGB12_1X12,
+-			MEDIA_BUS_FMT_SRGGB14_1X14,
+-			MEDIA_BUS_FMT_SRGGB16_1X16
+-		),
++		.codes  = IMX_BUS_FMTS(MEDIA_BUS_FMT_SRGGB10_1X10, MEDIA_BUS_FMT_SRGGB12_1X12,
++				       MEDIA_BUS_FMT_SRGGB14_1X14, MEDIA_BUS_FMT_SRGGB16_1X16),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 16,
+ 		.bayer  = true,
+ 	}, {
+ 		.fourcc = V4L2_PIX_FMT_GREY,
+-		.codes = IMX_BUS_FMTS(
+-			MEDIA_BUS_FMT_Y8_1X8,
+-			MEDIA_BUS_FMT_Y10_1X10,
+-			MEDIA_BUS_FMT_Y12_1X12
+-		),
++		.codes = IMX_BUS_FMTS(MEDIA_BUS_FMT_Y8_1X8, MEDIA_BUS_FMT_Y10_1X10,
++				      MEDIA_BUS_FMT_Y12_1X12),
+ 		.cs     = IPUV3_COLORSPACE_RGB,
+ 		.bpp    = 8,
+ 		.bayer  = true,
+-- 
+2.47.3
 
 
