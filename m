@@ -4,61 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C62CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDBFCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgWbEUgSz0YKuspgKjuMWLzlYWgwmePe2UooMv1UNow=; b=4x/Flz5bq5In9xmIE+mvlGnGAT
-	Qlh4z5uFFPSKzE1Z0wXZx9Wt6+BtTA3J287ArjvsGlN+tMZbgc9a4Hi4ZriWhfvRqNdumV5TZf9vD
-	dWerQ6ZFQM+b+HIBMw1mNb9F/w6cyuGrf4Q2MQiNlB1Jehmt0hrU/Pg7pNwqFX/6j12XBh+3IPV6n
-	shZ0jUBFY1DoaaKtZQ2JxXlFQwcjzYxsqMgFEg1hcHKcHrzmiI0GGItNIwcjeD2B3ahj6rRm3NqeG
-	jEO8hz2qC9/0WUKxauJkZptTOWjeC5BpCYRNuhQM6XCo8Hok9gfDdI8NU+2vYFMMtmPIiNsHaCVPR
-	I2aMD4gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=of93QaY6XIj65pBH2XAxmWVrhe9AOm3GOUOBdUlbxng=; b=JcPZ7PLOcioXCwn5q/iWesH6Dp
+	1icB+ZYHd/Ieum1I7/13DGm7A+atO8AkFqNAm7FY9K2w/t2pPPqkD2RWh20T9Uy9N+pL4sNCEkzaz
+	/jrqq4YiYw7YUr1i8rMyL8lK16QCBv/2WMzONQgWI5pT4dy7Lbhqn4IfpcdK8XtMP5/CXUdFsOk3X
+	0zC9iIKU3EHR3ptasXBLhoqoLio8DLV9fhsFVAXtLi4fUn1OkCEYbrrnfSON/LroKv7Ld5mCqmf+Z
+	fyiNCKw8Euia15GYiosYWphEmQ3Iw6GuS8Opybc1D/a6wumOnuHptsgnEtw2tCNMK9hOkjC7hY+Lv
+	9an/yUOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3ws-00000000hnX-0kK5;
-	Tue, 06 Oct 2026 12:07:10 +0000
-Received: from mail-m10313119179.xmail.ntesmail.com ([103.131.191.79])
+	id 1xE44T-00000000iQp-0RJg;
+	Tue, 06 Oct 2026 12:15:01 +0000
+Received: from mail-westeuropeazon11010026.outbound.protection.outlook.com ([52.101.69.26] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3wn-00000000hlr-1WmB;
-	Tue, 06 Oct 2026 12:07:08 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50150b1f5;
-	Tue, 6 Oct 2026 20:06:49 +0800 (GMT+08:00)
-Message-ID: <8dc2f33d-6c1e-4f5e-9f78-1f74405925a6@rock-chips.com>
-Date: Tue, 6 Oct 2026 20:06:46 +0800
+	id 1xE44Q-00000000iPI-3q3u
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 12:15:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xJfjXjWOXfKd1DlVgt2lwBR+S/YOtPM6YmappFviPGJcbASi0+f7hp1ZH6FLRY3CH00f6qNccWo1mNShKIEWN+3Awtk3nvA5nVySToTe8Ga0RUg2NEkIKupTcX5m4vuoq1WYgS9cY+i4pJSHDbf1Y5HBOQeCmglUp64gyiKMM+PCzDwMeUN6w2Wq8JvxSVFlL3fSKasAOwb/NHIA913eIWK4Z+4mDSXvFEhBi/emjJil0KcFuXKEYRrYayODgfP4FXMWgM7E7QFKdZeBRwSrBeLlT/Tu8svr8fE17e2C1dG4NF+c3mkMLi5iOzQqNKL3hUkdWCiBPk05gC8vUbX+rQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=of93QaY6XIj65pBH2XAxmWVrhe9AOm3GOUOBdUlbxng=;
+ b=EgI+clAzXs9MgXNvNm+hJ110E/erJX5FqKzuDTse0xbJQrK75wgef/rNjEPMtNotOR13Z/hUpZWzKS4HuTtNgnH31WXKYKRd4UVCqUF94VpnyCbW6E2A1NuyEQ4g+Wue6yRUb52dj1V4+zI8KlQ1i+jp0yGm7W2GrP8dysLZGsbBoUGMYJux7Q6HzpTxvZlA6H/AaT6jiXmbrd/Tk2wMgph7PibHcdGq6s/wUAm68yZXqBJL+34cJfbMqmx0O1JupmkU/xRquqOsC/8en70hNbXopl4vP5FXf0BiW+lwcZlb6YFEtvjCuiEoqxVmjaZBmRVVTfE0ftP/cTGmzVInrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=of93QaY6XIj65pBH2XAxmWVrhe9AOm3GOUOBdUlbxng=;
+ b=R5EfQMv5WTsjhyVps1WYuR0zQRWKHXTpbAGa9s9PuTtkZ5xQ1ob7Euhcv0tVi5BJU1veo+v2bEqsti/j6dbRq1m/tOdYJmuA3sxE2I5pYUjmYsCG5UCfJWgATBDZrpgbxu9AWas69kMm/wG3lQmPPrjeVxtv+mQ1a9XWHFE7Fx01FkJd7imWOLG809hlRYrhhIsbFl0C/pwGSabYPsqJzadWvGqtvr13w7mpcoZNYvgQhf1Y9pT7r7n8d7qdmvxMZOvJfQOPjB+m5/rCEnyBfrpW79NrAuDIX3CPVfulkIIpQX1Z7hsbpD2symo4VQKkoYenmrBs3C3NVgVIagNrGg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by FRZPR04MB12432.eurprd04.prod.outlook.com (2603:10a6:d10:1ca::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
+ 2026 12:14:55 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Tue, 6 Oct 2026
+ 12:14:55 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Tue, 06 Oct 2026 20:19:07 +0800
+Subject: [PATCH RFC v5 1/6] iommu/arm-smmu-v3: Don't rb_erase() a
+ never-inserted stream node
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261006-smmu-shared-sid-v5-1-169a59c671d3@nxp.com>
+References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
+In-Reply-To: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>, 
+ Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>, 
+ Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+ Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>, Mostafa Saleh <smostafa@google.com>
+X-Mailer: b4 0.16-dev-7bc12
+X-ClientProxiedBy: MA5PR01CA0268.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:21c::17) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Manivannan Sadhasivam <mani@kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: Update saved Max Payload Size in pcie_set_mps()
-To: Niklas Cassel <cassel@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>,
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- Frank Li <Frank.Li@nxp.com>
-References: <20261005124154.2190628-2-cassel@kernel.org>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261005124154.2190628-2-cassel@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1111bfc5503a4kunm971a00f5c37249
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZT01IVkhPTx1JQkgZSRlDGFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=VP8/HEUqOtHBWrLrpK7O/mHzeRtOuXHwK5HPZDWDRTF6/sHhOH66ytHkco/0RYMYC8SLs5lFPhXvLSVridSALej40TD1llEbEyNG1iOj3Pjl3f34bdIQvzRrUOY4j8krCKeMm3jJgSCUbD81+rYvXGRBktbGjKchWdgao9MuKII=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=lgWbEUgSz0YKuspgKjuMWLzlYWgwmePe2UooMv1UNow=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|FRZPR04MB12432:EE_
+X-MS-Office365-Filtering-Correlation-Id: f937277c-002d-42da-5649-08df23a36ed7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|19092799006|1800799024|10067099003|56012099006|11063799006|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: n2GpAfoo4twfShPGqCS9HKx8eWPYAmJyxOMzTSSNVbYaqetfgBONHGocHXYpSKgJVmF1tbPf1cA/j1znp0HFPYuSJNjRdjjsUcBSGtlDX6ON0hcJXqMDrlCurlcX/7gQoWPVHiKHteR2ZuE6nAAdL5JIKtPj8Z5oCjWqd//eq4bvggvm0uEWeq5c/WTJxDXS3lyp1CQsIQBv8L4His5uKmZgVwEBJ2uLPtg1BT5k3xCLQu0vpezTQbaiE+5+gtHXCGG+eKOVjdO+aTR2xXKjaUb1HxOODSKD5Wmep9ZTXPKaMRl5LuXg/XxhU4Eu+0G1pCtVojylBSUsyPQAz9jbeny0jdYCjOa+LYqiHuowH/EdRZpTkg+GriLxC1+Sotgnlkpn6OPs4AMx2pFzDt4bFbcqpnKzk5igSn6Ig33H17En6XEgfT2sto1GhN6aaTBD+Xd4x649APa966jPl8u6K2FRYK3AbqXT1BcS5j5z57btRsCWBPAP/tAbo9Jw0Maa4twPaoaq7rMkH+c4llk1bkS6sr+8MOnWJ/r6s2lMFQu5UKsNgpPDAdUXcetNUbnT/BvbxsJuf4P1/zaAK0tXhHc4DDajN1tYXhLkWApUftwHdM+5RzsPQkGiB0SnBmFyZcnFwKljO1YPfT6vbpFvdhlFcqfcsxbxElVTkymg4Dl69U1YmCEXUmdexeslIQsVzsjcjN6F9plbPRrN4Bri7g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(19092799006)(1800799024)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTUzNlBLQ3RrNVg3KzVBN3NvSVRLb0d1WTdOeTlkd29XUCtXU0VyY2xtV0NG?=
+ =?utf-8?B?MHZHdjc3MkRTYllJN3RmUFlpQXE2NC9EYklWZGlsZEh1eFc5blJ3cjFUcytY?=
+ =?utf-8?B?RUZxMllJdDVTV0p3UzM4YWoxbDd6dmNsSHRadGNVbEVpVFI3UkV1QThZT3FL?=
+ =?utf-8?B?YzhqNVAxVzhwSVVLeUZaU3g1QU1zQ1BVQXJWV1J6enpTYU5wUVd2WGU3OVVU?=
+ =?utf-8?B?cHZYQkdxMkkxRW9jZFNJT0tEbmZhZFQ2UzBwUThZQXhQNDJEVno5RlZLV1E1?=
+ =?utf-8?B?cnpyQ25TRzBFUWM5OGxSemhlaEZtQW4rYW54U200T3JwVGhiTmtPbnNDQ0p4?=
+ =?utf-8?B?aFRmSTY2M0tYODQ4c3c3a2Z6SGhLS1dXZjZMZCswTk9xOWdvS21Ib3BBRWJK?=
+ =?utf-8?B?TFd2UGdDTnhTaS9sR0lqOGN5d2ZpcUVQZlB3ZlJVUVdSdUxCQlViVk1JNzRJ?=
+ =?utf-8?B?YmFHOVpmb2hydzhkVGVaL0pyV1NKNGtFVnRPWFN2U0tuMEJhTm1YVUg2eXU1?=
+ =?utf-8?B?WGx6UkZvZGQwZTZpUVVHR3o0U3NtV0JMWEVFTG1JVXZRd05sYnArY2Qzdzhx?=
+ =?utf-8?B?emRmNyt4VDhZc2hacU9GMUNoVkZnN3hsOW1iSml2MkRPZmM5RUlQbE13Vmhz?=
+ =?utf-8?B?L0Z2TnFBQUVKOUlSWFBYNFpsR21wa3p0MFM3NTBIOHMzREw2MjlneDVjL0Zu?=
+ =?utf-8?B?MldSQ1lROWpxRVRzdXVsN0lkMmZSaVFkMTJraEExY0JucmZ2Y2xYM1NHY0E0?=
+ =?utf-8?B?cy9oNWZ6MjMxRGtIYkF4aTFEM0VjcEVGYkRNeWw3bGQxbkRMY1Zrc3B5bnRx?=
+ =?utf-8?B?bmdiQ0ZrM1pGZkc3QW96bjZtUkZ4QU5JV3JPZGdjem5VeURsNWlZRkFJSldG?=
+ =?utf-8?B?cUQ5enhHbW1yajJqWGFDZWhCUWZzb2hPODdsbmpFUXA2YjA4cGk1WjZoUmRT?=
+ =?utf-8?B?UE0rdHFxWnBKZ0o4NlpyQ2pDc3hZeFpyNGdGenByTzhaZkZpejQrWFFEUzA4?=
+ =?utf-8?B?Zm1vQlR4b0V3aS93T1NLejdiS1FBWU5FVTNkUUhCVHdyb0M4WWZtOFV1NTFn?=
+ =?utf-8?B?bXVmSEQwaDVXMUw4K1JhQzZ5alJHSFg0cnN1UmIyb1ZiSi9vaFpYNWtjUTlB?=
+ =?utf-8?B?Si9LVnpXTVhBdVVWakhyQngrOFV6eXM5QTNqNFJPSTlBUHpaWERMTGUvbENC?=
+ =?utf-8?B?YmdtazZFYzRGVTQvK0NaTEVtYklzODFiVGxBZEpDZWZkUnNHbFRtam15L0Nr?=
+ =?utf-8?B?T096ZXZkd0F3TkJBaW5oQ1JEZmtJV3drSGxxR3Y5WENPRUtkY2RDTjdJdjRY?=
+ =?utf-8?B?RTlJZ0w2UHp0c2l2YjM2b05CVGpYL29VU2xQTjNZS05yNjdFeGJtbysxYk0y?=
+ =?utf-8?B?dGwwUzlEMG4xTHlKemVYVmdhVU50NWJtYkhsZHV4cFhzUVNiUFNMbVo2aEJI?=
+ =?utf-8?B?cnJuTURKNXlCc3JwQUJqSm1PREpRRHIwYmppQ2tsRU8xbUxoKzFXVGhqNllO?=
+ =?utf-8?B?SjFSK2Z3UnZOVW8zY1JhRnRVeGJGL2FrZ09GL0xyNnkrRUVJSHJaOGVHOXZ1?=
+ =?utf-8?B?WjltbEhmaUJma0RYZkFFc0d6OGRqeHUzREl0ME9hQmZZcGYrdHd0RVlIV1Zi?=
+ =?utf-8?B?bENiajc2U3NvMTdjc3R0NXRYNEx4dm5rS1dsa0l6dXhWK3FrbGtaVnByNEkr?=
+ =?utf-8?B?OEFNRVQvekJwWFR0ZTZvdFV0WDZrcGNqYmdjS0loSUpFc3FvRWFGT1pTQWVs?=
+ =?utf-8?B?b0RQUUFSTTNXY09YbnhzZ1RjaGtmQ1pjOWlkK0VsdmNXOWRXWFBSN3F5c0Q1?=
+ =?utf-8?B?M1lGeC9wdy9adjRHbVNVSFVMdTN2K05YbFozWTYvVlY0c2ZkWmRzMFhLeDd3?=
+ =?utf-8?B?eisyZGRGU0NuWWRvOWRudVUyYnJNY3ZUbkk3VEpSV3hMS1JJT3pjdFB3cG1i?=
+ =?utf-8?B?T29yM1hDOEpwcDgyVm1CRTQ1TzhBSjBuK0E5VTJyUVVISEtnaUJiWDZ2SDBE?=
+ =?utf-8?B?bDU1MW9xbmJTQXRhNEhSZGNGUkdVS0Q0YjJqU2IvcElMMTU5UWpHTmFKV1ha?=
+ =?utf-8?B?UHpNYitUdVU0QVdkWXNpNThWL2VnU3lNb3NPNUFBV0szMVdVM0V5cU9mQ04v?=
+ =?utf-8?B?aDVqMnVzT3dzTUNweUQwMFlJallGRUdOb3ZUd3F6WnRzTk50UFM0bkRQNkJn?=
+ =?utf-8?B?a0VLaFRCRDJEanRyb3QvRkVYdmd4c21TOGd5aTRrQ0J3NVZWRUVURlVnRFdl?=
+ =?utf-8?B?UWVPaVJNeDVpUlpTcHVpM0VMaDZmN3ZRblhYcHhqZnhaaEpqaVBmd01TMUJt?=
+ =?utf-8?B?UDJoa2tLa1c0cVVSb1NzbGZlYXRYYXJrSVFoaW1IOEhwdTZXYUdqQ0Q0Z0h4?=
+ =?utf-8?Q?BszVnhLRm3TRySkNTexOl7DKuLF9V+zCl86s+?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f937277c-002d-42da-5649-08df23a36ed7
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:14:55.7145
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vZK1Z8FBU9649bZCCZieUFMu9PWVgLwerCKZHMPRwn40dHvYKvZEq9LsMz0BCpcwNgZIWTpYVjmR1fCGlZ9bOoS4KgvUWdXftOh8XKdIggYDtEohSPtj4YstPRZUFyr2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR04MB12432
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_050706_040011_B81D5869 
-X-CRM114-Status: GOOD (  28.92  )
+X-CRM114-CacheID: sfid-20261006_051458_965597_467F2F94 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +153,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+From: Nicolin Chen <nicolinc@nvidia.com>
 
-在 2026/10/05 星期一 20:41, Niklas Cassel 写道:
-> pcie_set_mps() changes the Max Payload Size (MPS) in the Device Control
-> register but leaves the copy saved by pci_save_state() alone, so the next
-> pci_restore_state() puts back the old value.
-> 
-> The PCI core does change the MPS of devices whose state has already been
-> saved: pci_configure_mps() reduces a Root Port's MPS when a device with a
-> smaller MPS Supported is hot-added directly below it (commit 9f0e89359775
-> ("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")), and with
-> "pci=pcie_bus_safe", pcie_bus_configure_settings() can do the same when
-> pciehp calls it after a hot-add.  The Root Port's state was saved when it
-> was added and again when portdrv probed it.
-> 
-> Since commit 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root
-> Ports in a platform-specific way"), pcibios_reset_secondary_bus() restores
-> that saved state, without saving it first, after host->reset_root_port()
-> has reset the Root Port, e.g. during AER recovery or on Link Down with the
-> qcom and Rockchip DWC drivers.  The Root Port then goes back to the old,
-> larger MPS while the device below it is restored to the smaller one, so
-> the Root Port may send TLPs that the device treats as Malformed.
-> 
-> Update the saved copy of Device Control when pcie_set_mps() changes the
-> MPS, like commit 909f7bf9b080 ("PCI: Update saved_config_space upon
-> resource assignment") does for BARs.
-> 
+arm_smmu_insert_master() skips inserting a stream whose StreamID duplicates
+one the same master already owns (bridged PCI devices can present duplicate
+IDs), leaving that master->streams[i].node zeroed and unlinked from the
+smmu->streams rb-tree.
 
-LGTM,
+Both the insert error-rollback loop and arm_smmu_remove_master() then call
+rb_erase() on every master->streams[i].node unconditionally. rb_erase() on
+a zeroed node sees a NULL parent, treats the node as the tree root and sets
+root->rb_node = NULL, silently emptying the whole SID tree and breaking SID
+lookups (and DMA) for every other master on the SMMU.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+Mark each node with RB_CLEAR_NODE() after sort_nonatomic() reorders the
+array, since sorting relocates the entries and would leave the earlier
+self-referential RB_CLEAR_NODE() pointer stale. An un-inserted node then
+stays RB_EMPTY_NODE() and is skipped in both erase loops; inserted nodes
+are linked by rb_find_add() and erased as before.
 
-Note that I saw pcie_set_readrq() also changes Device Control register 
-without updating the saved copy, so the reset-restore path reverts it
-too.  Since you added pcie_update_saved_devctl(), mind fixing that here
-as well?
+Fixes: b00d24997a11 ("iommu/arm-smmu-v3: Fix iommu_device_probe bug due to duplicated stream ids")
+Assisted-by: LLM
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 98f105798b89a..dba6c2942af8f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4122,6 +4122,13 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+ 	     NULL);
+ 
++	/*
++	 * Clear after sorting: RB_CLEAR_NODE() records the node's own address,
++	 * which sort_nonatomic() invalidates by relocating the entries.
++	 */
++	for (i = 0; i < fwspec->num_ids; i++)
++		RB_CLEAR_NODE(&master->streams[i].node);
++
+ 	mutex_lock(&smmu->streams_mutex);
+ 	for (i = 0; i < fwspec->num_ids; i++) {
+ 		struct arm_smmu_stream *new_stream = &master->streams[i];
+@@ -4154,7 +4161,9 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 
+ 	if (ret) {
+ 		for (i--; i >= 0; i--)
+-			rb_erase(&master->streams[i].node, &smmu->streams);
++			if (!RB_EMPTY_NODE(&master->streams[i].node))
++				rb_erase(&master->streams[i].node,
++					 &smmu->streams);
+ 		kfree(master->streams);
+ 		kfree(master->build_invs);
+ 	}
+@@ -4174,7 +4183,8 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+ 
+ 	mutex_lock(&smmu->streams_mutex);
+ 	for (i = 0; i < fwspec->num_ids; i++)
+-		rb_erase(&master->streams[i].node, &smmu->streams);
++		if (!RB_EMPTY_NODE(&master->streams[i].node))
++			rb_erase(&master->streams[i].node, &smmu->streams);
+ 	mutex_unlock(&smmu->streams_mutex);
+ 
+ 	kfree(master->streams);
 
-
-> Fixes: 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root Ports in a platform-specific way")
-> Assisted-by: LLM
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-> ---
-> This fix was originally sent out as part of my RFC series:
-> https://lore.kernel.org/linux-pci/20260930145017.1356088-6-cassel@kernel.org/
-> 
-> But sending this fix as a separate patch, as the fix is really unrelated
-> to the rest of the series, so it could be picked up independently.
-> 
->   drivers/pci/pci.c | 24 +++++++++++++++++++++++-
->   1 file changed, 23 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 8cc6a89130b5..f3b82eb7bfaf 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -1736,6 +1736,24 @@ static void pci_restore_pcie_state(struct pci_dev *dev)
->   	pcie_capability_write_word(dev, PCI_EXP_SLTCTL2, cap[i++]);
->   }
->   
-> +/*
-> + * Update the saved copy of the Device Control register after changing it, so
-> + * that pci_restore_state() doesn't put back a stale value.  Device Control is
-> + * the first register saved by pci_save_pcie_state().
-> + */
-> +static void pcie_update_saved_devctl(struct pci_dev *dev, u16 clear, u16 set)
-> +{
-> +	struct pci_cap_saved_state *save_state;
-> +	u16 *devctl;
-> +
-> +	save_state = pci_find_saved_cap(dev, PCI_CAP_ID_EXP);
-> +	if (!save_state)
-> +		return;
-> +
-> +	devctl = (u16 *)&save_state->cap.data[0];
-> +	*devctl = (*devctl & ~clear) | set;
-> +}
-> +
->   static int pci_save_pcix_state(struct pci_dev *dev)
->   {
->   	int pos;
-> @@ -5983,8 +6001,12 @@ int pcie_set_mps(struct pci_dev *dev, int mps)
->   
->   	ret = pcie_capability_clear_and_set_word(dev, PCI_EXP_DEVCTL,
->   						  PCI_EXP_DEVCTL_PAYLOAD, v);
-> +	if (ret)
-> +		return pcibios_err_to_errno(ret);
->   
-> -	return pcibios_err_to_errno(ret);
-> +	pcie_update_saved_devctl(dev, PCI_EXP_DEVCTL_PAYLOAD, v);
-> +
-> +	return 0;
->   }
->   EXPORT_SYMBOL(pcie_set_mps);
->   
+-- 
+2.34.1
 
 
