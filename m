@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB112CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68888CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8WNbSQ2NndjPV7iXRF4G6Fv0k/2ZGfjflcFjlvJ7aM=; b=pDt5mSRyTHXnvuZcM7w5Sq34pC
-	a5pUTiAMLsNquu8PdS46Srq1UwTAayf7fwhjHAb70Iokm2tYG6N6zsWYsu0c2iLSo7HiNSvib9b/4
-	DLZ1ryQhnJHjPnySI/oX3UdiSKerNUTSn+Zcjg2R53pUSJ3pr0KHU/sIqL1EV3v03nyJ777R1zL3v
-	1NujkHrDSEG9+7PR7F2+Q2J//vHFDeVYIS2eOVfrAbPv4M/qBgmjiBaV97iYaIiMcCO81mzUnCxPV
-	1n3J4bdqk9Rl9SWVqMvxHuQGUd4I4phCxxDnnydAJIIVeW0TJW9c6CuCfcfgJhF67U6JKsjQVOT2i
-	3OzBbzFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7gfsXVx+/8n9oPrKU+lyRhGLVz9mpk44PSRn01hrAC0=; b=i821cNKKj+frXcCXoT+u3DBqTw
+	rbvXCWMQ8R8DIVMwehz7YbEUprT2jW3Y+QxWEtbqma5pSJNnz4q9k1zXT8B66RE3zUbHZ9uiZs7jO
+	U8r6KsVSAJr32AmvFXJ76E0rnXOLXP7drCcWB7WItas+WvO8PgFYHfBQj9/GwrNIkWU7tkvdzB3Wz
+	dEMiZv8vczXGIvfE563rpZYTt7QRe9tnnUUTKkbB1vKksl3tnhczNxDtzj0l2J8/OuhyqeDuBzJcy
+	fglQMPTxgJfKBos9bN6wWEQqwAeM9IfbQKJfJNvMWxZ6gq3i5LTqgeawI86OEKno5GYlohqLB8xmT
+	T9BRErQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7sE-000000017ia-2l1n;
-	Tue, 06 Oct 2026 16:18:38 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7s8-000000017hW-0Hts
+	id 1xE7t6-000000017qD-3MPv;
+	Tue, 06 Oct 2026 16:19:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE7t4-000000017pB-1Xzk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:18:37 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 696EZdFQ3852055;
-	Tue, 6 Oct 2026 16:18:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:sender:subject:to; s=pp1; bh=u8WNbSQ2NndjPV7iXRF4G6F
-	v0k/2ZGfjflcFjlvJ7aM=; b=itoo5HJ9p8Ott3EQNGX9ERsAWGMp3M35FoMCRzI
-	1/Tb6Ax8RzF9LxUhJtON1EDYlBj6kN5Kx/3ZJAar3StzBNafbraD8P9Bw9SB8c4N
-	rVrd46s9I+0AwEVcVwFAdbF+XoXhdk1vyFXpRHx5a7QLP2e8XWzemy7tdfBvAjVX
-	32SL/4bKI6MGZNjf1ZnxSXI+GEXnPAMd4UdBX1hpeEWPYRlut5QNW4+BZAsdFutU
-	n5/orjHiA6jx4d7GWzjTojXBBf3fBvXha6YnVZTgzUG3Hc3OElmVi6+blJolkFJN
-	NZfRjJrhjN+hdXRIj97au0KL5+CQABsKL2y7wQ60VsN6qGg==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4h2q4jrey6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 06 Oct 2026 16:18:14 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 696EHVVZ453041;
-	Tue, 6 Oct 2026 16:18:13 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h3dhgtkb7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 06 Oct 2026 16:18:13 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 696GI75K28967516
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 6 Oct 2026 16:18:09 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 42FF72004B;
-	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 232F120040;
-	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
-Received: from vela (unknown [9.111.1.151])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
-Received: from brueckner by vela with local (Exim 4.99.5)
-	(envelope-from <brueckner@linux.ibm.com>)
-	id 1xE7ri-00000000wFB-25qK;
-	Tue, 06 Oct 2026 18:18:06 +0200
-Date: Tue, 6 Oct 2026 18:18:06 +0200
-From: Hendrik Brueckner <brueckner@linux.ibm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v9 03/24] KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
-Message-ID: <asUfPttGx9Mh9Q6D@linux.ibm.com>
-References: <20260930173441.66762-1-seiden@linux.ibm.com>
- <20260930173441.66762-4-seiden@linux.ibm.com>
+	Tue, 06 Oct 2026 16:19:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42FE9143D;
+	Tue,  6 Oct 2026 09:19:24 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2730B3F66F;
+	Tue,  6 Oct 2026 09:19:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791303567; bh=XNv7I0MkTwHx+tdM3j/fp7moNAcgOO1BV5Xs65yK//M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u6IGDAwbX+uzfksBglkc459aOBENYG3WKamYJZ2EUmHMu5c2qyLb2JfJki+0kRs5y
+	 w2i0OHp7bOzXi8oRnzEcPBhVMGQV0kYHt0qyv0g59LHLeeIvgLzCYZFal4GzYagEoB
+	 o0DQvByaa1Bs3yoLzwzcvNh+k7oPl3/SBX12MkiQ=
+Message-ID: <d1720b63-65bf-4019-bc19-1852555f7993@arm.com>
+Date: Tue, 6 Oct 2026 17:19:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930173441.66762-4-seiden@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: ZQaIic_21IstwC9g1Aae6xM8uNoUTjIk
-X-Proofpoint-GUID: -diri8LhwNDbu0AyvUTAhE-ZvbnfI-Pu
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDA2NCBTYWx0ZWRfX48QBrn+w0nnv
- ewO99Xt9kMPRL6JGRFNvKgKuM8XnKsdfcpp863vOIJe9EpvR7itwurzjVLBgO2jD/zfz3MkVGYP
- RmKn+ZsooGv8oIrvD52NPtt4VYRMdH0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDA2NCBTYWx0ZWRfX2/1OhitB30O8
- iXws3zZPHfh9D9yMRMC4haXynDtKHZp0nSHk8zuT6WQCpJKVY3GHmrkGzpB8YSrFxyTZ97ujvEZ
- TERBYrKUHWb1isxboA09YDBuhHzjGQkvB4tooWXRxULAHH252JEwQS3x1OPtrfT45PUUFzxh6le
- FZoSg0FYos2pzINhuWhbHBmMbBx35oG6U728PXQRNIvXw0m3b2qK+uxahVby7OlIokVvgyy7pTW
- npWMiyZVbHWFa33d8CBQwJTCBqOEgPt2UdRAMoTiY3wesEJ8y1k/knsBDLNCcRvLegCeh9SiihW
- kYo6eYV28cIykgYpCU0grkPsxlJ7tbsYjVKRwKrWpKjFBU5e3PDa7gU19raGnYjh+Ar39pL2Hyd
- EM6jE7JTNrxbzSSjHdRiuzlWxwv1B0T56WTZ6x0cSb4vkvCdjdpb0A66DFgftEpGGzR9dPlIG0n
- CXxl03Bpzmlnv69Kvlw==
-X-Authority-Analysis: v=2.4 cv=eYeo7LEH c=1 sm=1 tr=0 ts=6ac51f46 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=o_ygevbwOlYE398wOkEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-06_04,2026-10-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0 clxscore=1015
- spamscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060064
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner
+ <tglx@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
+ linux-watchdog@vger.kernel.org
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arZDwutoadki7tiZ@ashevche-desk.local> <arZNL9BnTGK0Klwc@red-moon>
+ <arZS4vwxps01dGb7@ashevche-desk.local> <arqSqcoWAkhy-8do@red-moon>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <arqSqcoWAkhy-8do@red-moon>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_091834_938232_611AC3E1 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20261006_091930_586671_50789079 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,26 +84,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 07:34:18PM +0200, Steffen Eiden wrote:
-> Defining KVM_MMIO is not flexible enough for multi-KVM systems where one
-> KVM implements MMIO but others do not. Therefore, remove KVM_MMIO from
-> the config space and use the macro KVM_NO_MMIO instead.
-> Define KVM_NO_MMIO for KVM/s390 and for selected KVM/powerpc
-> configurations.
+On 28/09/2026 5:15 pm, Lorenzo Pieralisi wrote:
+> On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
+>> On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
+>>> On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
+>>>> On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
+>>
+>> ...
+>>
+>>>>> +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
+>>>>> +						  const char *propname,
+>>>>> +						  unsigned int index, u32 *value)
+>>>>> +{
+>>>>> +	u32 *values;
+>>>>> +	int ret, count;
+>>>>> +
+>>>>> +	count = fwnode_property_count_u32(fwnode, propname);
+>>>>> +	if (count < 0)
+>>>>> +		return count;
+>>>>> +
+>>>>> +	if (index >= count)
+>>>>> +		return -ENOENT;
+>>>>> +
+>>>>> +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
+>>>>> +	if (!values)
+>>>>> +		return -ENOMEM;
+>>>>> +
+>>>>> +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
+>>>>> +	if (!ret)
+>>>>> +		*value = values[index];
+>>>>
+>>>> Use standard pattern, id est
+>>>>
+>>>> 	if (ret)
+>>>> 		...
+>>>>
+>>>>> +	kfree(values);
+>>>>
+>>>> You want to use __free()
+>>>>
+>>>>> +	return ret;
+>>>>> +}
+>>>>
+>>>> I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+>>>
+>>> Why what (that's what the irq_get() interface requires ?) I agree it is
+>>> suboptimal - the whole point of the series is an RFC on using properties
+>>> to store GSI number/flags, then how to read them we will optimize it
+I>>> when/if we agree that's the approach to be taken.
+>>
+>> Why to have indexed APIs. The callers usually do not want a single item from an
+>> array, they want all of them or a big pile (exception is the array of strings,
+>> but we have matching functions for that).
+>>
+>> As per approach, this patch is against device property and I don't think we are
+>> going to agree on the approach taken in *this* patch.
 > 
-> coalesced_mmio.c is now always compiled&linked. However, for
-> architectures/configurations defining KVM_NO_MMIO this effectively
-> collapses to an empty object with no mmio code.
+> Coming back to this, what is needed here is a way to stash the GSI number,
+> flags and name in stardard storage (like OF nodes IRQ properties, ACPI objects
+> _CRS, etc).
 > 
-> No functional changes.
+> To give you some background, I thought about adding an array of:
+> 
+> GSI [number, flags, name]
+> 
+> to the ACPI static fwnode itself. Then basically the irq_get() API has got
+> all the information it needs from the primary fwnode; while doing that I
+> thought that this might have been a bit like reinventing software nodes
+> (granted, software node properties are ways more general that what I suggest
+> above and I don't expect any other property to be ever added to static fwnodes)
+> that's why I put together the series as it is, precisely to understand what's
+> best.
+> 
+> When you say "against device property", what do you mean precisely ?
+> 
+> I suppose you mean that this approach goes against software node properties
+> usage guidelines ?
+> 
+> Anyway, again, it is just to provide some context, we are talking about
+> a bunch of platform devices, it is nice to have a generic solution but
+> it has to be simple enough too given its scope, I understand very well
+> your concern with this approach as-is - it is there to find a way
+> forward together and show what the problem is.
 
-Changes look good to me.
+I guess software node properties look inviting in theory since they're a 
+ready-made mechanism for effectively attaching arbitrary data to a 
+fwnode, however looking at patches 6-7 and the amount of boilerplate 
+involved in the reality, I'm inclined to think that a dedicated 
+structure for static nodes is probably the best and most efficient 
+compromise here. The redundancy argument rather falls apart once we end 
+up creating copies of those contentiously-made-up property name strings 
+for every node, especially given that any one of those alone is probably 
+already more than the amount of actual data we need per node...
+
+Perhaps the "purest" option might be to just store a function pointer in 
+the fwnode wrapper for each static table type to provide its own 
+internal irq_get() callback, so not stashing intermediate GSI data at 
+all, but I suspect that might end up being more work overall.
+
+Cheers,
+Robin.
 
 > 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> Thanks,
+> Lorenzo
+> 
+>>>> it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
+>>>> array to retrieve a single element is simply wrong.
+>>
+>> ...
+>>
+>>>>> +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
+>>>>> +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
+>>>>> +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
+>>>>
+>>>> Oh... This sounds like a big ugly hack.
+>>>
+>>> That does not help much I am afraid.
+>>>
+>>> What's a ugly hack ? Property names ? Using properties for this purpose ?
+>>
+>> Yes, properties started with "linux," for some core functionality.
+>> Yes, using properties for this also doesn't sound right. I think the problem
+>> here is in the table specifications or somewhere that deep. That's why we
+>> ended up in this series.
+>>
+>>> Again, it is an RFC for this specific reason and I mentioned that in the
+>>> cover letter, thank you for your inputs.
+>>
+>> And here we have a discussion started :-)
+>>
+>> P.S. Looks like I was too quick to jump into this thread. I will wait for
+>> others to share their view on all this.
+>>
+>> -- 
+>> With Best Regards,
+>> Andy Shevchenko
+>>
+>>
 
-Thanks!
-
-Acked-by: Hendrik Brueckner <brueckner@linux.ibm.com>
 
