@@ -4,95 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F632CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E196CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=; b=y4VQzh5bXyH6lZ8j+kqoxRWczg
-	Fw8wFbPeknqU9QV8LUWRmHgju1Fc7amDI6eQolaSsxOsxtbX/riaqhtdMbYMJINZwlWo2aWKzXXC8
-	2IRf2aeOPO/jcMa/3WorRkp3Zcpow9ZQ0upuVVnty2DCju+d8WQi92w/ggppcb3P5xLoFGKux1c0O
-	Dg9i8dnZ3OKAt7QSL2mSM4dUPXm3lfJ/HPNaDrz3+N2vJ9qBkB4LPphXJ0+eT7p6lEsBJKeKmUix8
-	fpm2ARg9OEsV+dELUJI8vVDnBs/WYfYSxrUST8UDA654ESIT0/7ciIMZFfmHtoTQGWFjoSVV5F5DK
-	iNYm99/w==;
+	bh=SYZusaEHeQJp9+PNNGappmpwDZuJKs0VI2BXqV5hxv4=; b=FAnAjRlVYaswMNXgpdnsEU5h4k
+	HhQtdwivNHE8ACOyMiv1Kr2QYUMkmtbL8Ijo0sLJKOjQl7wtAWNFgkdo1czfCfB/LiOInwj0LJUIM
+	sAmUgKyMO+vnPCooQdWqvKH66rlerRrwVx+7kgNJ7/7WIueLTVz+/j9GgURaUiBLMBkKVettD50dp
+	mLbsqHj46cwBmdCoWwoDsJbMY5A0Or5nZ+8B5BS6BO9Pd//gqiDntnX8JFHEqwIzzWEuE/8VdRI0m
+	19aHU72HxFApAb0L4fnIUa7xXUiAYDRVgFwTf1LoJMKD/5CVN0C4cp1nksHLqibPXrGra5FMp1UM7
+	s6LpeDqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2hY-00000000YWA-0LkZ;
-	Tue, 06 Oct 2026 10:47:16 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1xE2iI-00000000YmK-1l2l;
+	Tue, 06 Oct 2026 10:48:02 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2hU-00000000YTq-45wv
+	id 1xE2iE-00000000Yk9-1P3c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 10:47:14 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a021c28046so33965e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:47:11 -0700 (PDT)
+	Tue, 06 Oct 2026 10:48:01 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-917a9f42283so32832796d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:47:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791283677; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nP9Bn/inlTUtUeSc6NRXUk49tl0hgulxPktqPzY3nRCk2J3dtPJ7DO4AvOKTVp7SQz
+         ztM1laKdMHwPtWVVSHeDcf2qitekxAieFJlUWRVl6X55W1+5AIksm9DROHAfoIkafj26
+         G8oetPLuTIqdQCfz79zeIG5wY1D/lBuOcxf6kcoihJdwM6z7Xwe2QLSedM7izk9J1QkF
+         ujx8UWPHGVpmGW66QfAIW7JAjRmx9X2M0Dsrljy5g/Hn0rkDVPuxaIi1XgIVNkp3kjjH
+         mpoP0M7SII+/Dk11YDDb1VBt9e9Qo3h3JyWCIBpD9zQ/FmBmqlKa81WOSi8JfjROtkTZ
+         +fYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SYZusaEHeQJp9+PNNGappmpwDZuJKs0VI2BXqV5hxv4=;
+        fh=ojRVZ/KO3KtF4Kh15A9Q/wOGIoFa+osWcEN2UOlRZnE=;
+        b=S04PqFmYgZgUAXmYVdRa5G1JzQFL3w/NmRUFpz3NXl2Oo0Oe4E3W+4qOytoDDQs0aX
+         2Wd7Fu9xpyDN3ITfd7W5DYoZ0Fz9zy4i47e1f4perdGFyc1krUZfp5UfUWKy8jW4eob5
+         BtubmVghgdWYlbhN8NOonw53WyOmKb7y2h7ScTlZTWqsU91STaIMIFf0eD15ojjynuNN
+         s2Bay+k0aOeSI5dGEsu7gbcgdVad0HNKFH7HC9YNm4DJzVEoxIqWIliIptIT/+iT9ih6
+         YHBsWI18htLOVFKTXc/JuZHBt8UDA6Q2PoCnr3faPOfJWSWbXbXSqQH6LLxkBbtilPxq
+         VU8w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791283630; x=1791888430; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=;
-        b=abSBGWvtyiHbUXTWNSQOUQ8Kk6tHbrf8xxxhF6IZgICjZE2m5esOZdg/QVVCQrrk9p
-         5O7Dhbg/2NN/+mL6miB677PwSMXoeh6p/9JhEC68oGA5AGt5cdGGhu9khwFfVXHcgNOK
-         FLGk47vMCvd2Jv86llAXQcU9hMonQKFaESZnIc/xark+zKMUBAkOLi7xaQJMkB7HBXTQ
-         Se5cHYw/X7dLIX9o+jlpI2uGhqQWmki2jzgpsQWH9B6bfR9Zu11343UUzy7BhPwyuIrp
-         DlZlGozwd7iXjGxy/bOogoJM7ByuAgyTtGmhncS2raqf/g47B1eoUGXEymhfRZ/Y5Z/e
-         6NRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791283630; x=1791888430;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1791283677; x=1791888477; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=;
-        b=Vsn00z3QcmwgK1kdxa4+r5HSv2FmjK3OiRZAyct992llQVqVRRlnDs3gaVrUVOqsZM
-         R0jR56b5TnB/CAR1ydgwhtF2OiDgMwd7h9jYff/Gcb2D4pTOQhHVe15f/v2X2mta11Li
-         cA20ov6+37x6jZ41sAvCqLXsuc/nXKqqysIQaUC+TgEbZrO3Rd3ZQA7p0udHJOQ6abzj
-         wjDxMeTYONBL0BdAe6mU+u/s5PLJahP4zN/6UDDPpPORJS5TLBnrGIVhvLQ30ZgmSTpT
-         +g7fjT4T2wQxMl1f3MdLQK8Kq7A5fK8yidV0KLC8v0OGmh9lS/Y9M6HlxisIHsJ77Vfa
-         bIvQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxttr+s+sjwRwE1uNErvWQtCifkwr1amkviF1hQxR+CjAX9XfpQ4OJJWfETckAOw7eHTEqe8rtNC1NTOutTQN4s@lists.infradead.org
-X-Gm-Message-State: AFuF++l7AF4NM8199jJuD1zjPhi/gPqczp4KN4c3cZJgB2ThRnXpd5WN
-	ZdNlGMWVaySzzkJSXemNDO1uTSR7kk3dbqNp+Ak/VFUY3ZjS1Hh3T4hCJMUqHqDVTw==
-X-Gm-Gg: AYBFou1kO2vIhNuudTY7RgWn0pmxn7a1GK1PBNl1bcVbwU4M47a248lRWMEHhspKNNr
-	PzdvtU41gi2BYp5Gq6TdRUHqoIuuz1J4QOuA80Frf+CrdU6BNYeaBSwOUCo8vnx5bIGxwdDZtjw
-	+gKuo6cGP5GxzHfmnT0qq83nQqOethvLD/FpT6w+ztGEaK2ZuEBM8tFJWDgEfTXwC9JFqQeIuEV
-	ZdqKLTGcRta44QpK4eJGRbddW7RkVu0zP/6JMxEmMbtqkWVf1U13VFiEOkQMOrjiOHcJ7paFfqr
-	TgdWEaE0oMDwvp/LBZyL8Hye+SJ0shCUARnvN1spSygNLztye2Onyfj9PyX3qLZoVTq41ZZpl1i
-	HNzUqP2AxO5Hl7oao9l9oZiTFIv5F5RFioYaO/Wa2rzUnFnyndCaMyaEPJvGzMBgWYxf+Fidsl4
-	XxY9DsI43QFY8ccNyW1aAIluzg+2RYrj1U7RWnM6rTXSsMPU+L4CnYn6O5IiKmeFFfPzO134Cp7
-	YVB4hwqJBYGe5o6PY3M859kVpUqG7q7ekSPtto4
-X-Received: by 2002:a05:600c:6290:b0:4a1:7af1:5386 with SMTP id 5b1f17b1804b1-4a17b4587a5mr465225e9.1.1791283629775;
-        Tue, 06 Oct 2026 03:47:09 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c69afe66bsm3896689f8f.30.2026.10.06.03.47.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 03:47:08 -0700 (PDT)
-Date: Tue, 6 Oct 2026 10:47:04 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, tabba@google.com,
-	sebastianene@google.com, keirf@google.com, qperret@google.com,
-	linu.cherian@arm.com
-Subject: Re: [PATCH v3 2/2] KVM: arm64: Support BBM level 3
-Message-ID: <asTRqPfsrnbBWVSF@google.com>
-References: <20260904132855.638117-1-smostafa@google.com>
- <20260904132855.638117-3-smostafa@google.com>
- <asO77kvqqwCsJt8I@google.com>
+        bh=SYZusaEHeQJp9+PNNGappmpwDZuJKs0VI2BXqV5hxv4=;
+        b=Ge4Ix7kOP/dmKY+AKNxddKN07y+eBtkoHuDirdtf+Tre3VYFT/uEO4lhFZNreZ9UHH
+         NO/wvRzf0nTfSW9zl9NBsZdfr32ooLwjkxkUNbs2gu4BhBVHtSAaF7Buc8VElvcIm6kJ
+         zHU/gudH6FwSO4jXIUtP16nQt2iWZfu14jC9OfYJk/2v3M1vnOEDOknvQdayzJHMuFQs
+         p/Uj5oR9eIXzE5vzFLBGeFwSyB3Y8O7QMuiguPdMTWR/KVGy/Jb4Peoy4tGtFO38dxhX
+         jaZmh/1VlrASJha6t2kGfGklENT4/LHwH7Y2D/UdxdcOrlpJwtpoTGG7eUCHOCcOLxJn
+         PUcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791283677; x=1791888477;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SYZusaEHeQJp9+PNNGappmpwDZuJKs0VI2BXqV5hxv4=;
+        b=Ve0WQokMkMWiTX4TAmSBHjWXus3aQihl3SO24562HaWmCPxSBtYp8BPnFWLcFnrZKD
+         jHwWI9U95nL1VEORUjVx+yhJf6jiPsebJ0UMT+RR0nAYYoDIqZJ8JhafJx+xWZC9ihqc
+         p956Ud5/+VIszKrH7LHjLWr3c0juBcjv8vDstDVYSqpUjEUj6wI/+/wNOB646QR8WGdE
+         0/+JK4WymQ4lOPnRomURmsFXYhIzDCPx0IIj/JrB+FYVaD4zKEG6Ov0eekVULgtK9ZpU
+         WUjYLH4E5902+8/+lqEQaDt3SmxW4w+hZQw/B1i2Hfm2UqUabcDY0GrejABheGAmztkV
+         7Psw==
+X-Forwarded-Encrypted: i=1; AKwUvBwqqONyHQuwdYyX1yj2iS0odxqxPEgwKFPJApu4hcC8/frtaVohV0q6LtAiqGBCmqaFMnXOuSrq8zZHnyWOcajT@lists.infradead.org
+X-Gm-Message-State: AFq9FYL+2E3jtEL4TlorC8vCxFrq2FuFQ1sdL4GClk2Goy91urSwmmxV
+	ImJ9tM/90T+XujVEd2xMLHSQ1LAyqtykA0UOSLh86tSkvbIfsMDh/Y8RQ4TIT3+dFBVlRq69tAQ
+	uutg9easFjy/TMPNSAKQ+yT/RAlQUjLQ=
+X-Gm-Gg: AYBFou2IdjBdjWOjaVczt4glP9R1GJzvjm+p/48jCxOSrmHZjutJWOrOK9tmKnS55eE
+	4Uh9mf1siVPoC2jHW9ZT9Wrr5CbDm90ZiQbFyl9hXDXrDYZF/JUvc++uUxqCvnFpWe7wrH+eo2G
+	uVIZ981aUCvTVnsDJGZ/FT+uNb8ZQg8uXfx3dpKzz7hwGP9bGQ+uJr78E0XaeX+rZe1ChUr2aj4
+	HWQc87ApmO+BV9ejFgNY8Ubb1pZX47QbTt4AjPIGw9aNXwi644Ajc0XetcrUL1x975apMD7XIJh
+	v5xpJ69ViJjWDnzY9y3+Uqy4x4Qblt/bmvmVc9qbtBFRJ8Xtwe0H03zg1HjsqSBYbrRZPjeF5Xz
+	vAv1Y1X31
+X-Received: by 2002:ad4:5fc9:0:b0:912:435f:1a8b with SMTP id
+ 6a1803df08f44-9198b7a05f0mr16247936d6.22.1791283676856; Tue, 06 Oct 2026
+ 03:47:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <asO77kvqqwCsJt8I@google.com>
+References: <20261006102937.10972-1-ansuelsmth@gmail.com> <asTRQ6d0-NYOeHqX@parshuram>
+In-Reply-To: <asTRQ6d0-NYOeHqX@parshuram>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Tue, 6 Oct 2026 12:47:44 +0200
+X-Gm-Features: AclHuK9fa-eKez1qMwGkLA8zpyrdQxMIu76X1IlFgkWsR3UIRNVxdiubkFU4NSU
+Message-ID: <CA+_ehUw8fQHGef_L7YPQEf-wwuzP9km=G64Ty3+AkvM=fkNJ4Q@mail.gmail.com>
+Subject: Re: [PATCH v14 0/3] airoha: an7581: USB support
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_034713_069632_D75C1D39 
-X-CRM114-Status: GOOD (  43.40  )
+X-CRM114-CacheID: sfid-20261006_034758_395853_1327A9D2 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,152 +119,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 04:02:06PM +0100, Vincent Donnefort wrote:
-> On Fri, Sep 04, 2026 at 01:28:55PM +0000, Mostafa Saleh wrote:
-> > If the system supports hardware Break-Before-Make (BBM) level 3, use it
-> > to replace stage-2 PTEs directly. Otherwise, fall back to the software
-> > BBM sequence.
-> > 
-> > For BBML3 the sequence is:
-> > 1) Get a reference count on the containing table for the new PTE.
-> > 2) Atomically update the PTE with the new valid descriptor.
-> > 3) Invalidate the TLB for the old PTE.
-> > 4) Drop the reference count holding the old PTE.
-> > 
-> > Add 2 helpers:
-> > 1) kvm_pgtable_use_bbml3(): Checks for the architecture requirement
-> >    for BBML3.
-> > 
-> > 2) stage2_use_bbml3(): Extra checks added by SW design (FWB and DIC)
-> >    - As BBML3 will update the PTE atomically, it can only know it
-> >      raced with another core at the point of the cmpxchg failing,
-> >      unlike the SW implementation which locks the PTE first.
-> >      And as we must issue CMOs to the new mapped page before the
-> >      update, that means with BBML3 racing cores will issue redundant
-> >      CMOs.
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/pgtable.c | 111 ++++++++++++++++++++++++++++-------
-> >  1 file changed, 90 insertions(+), 21 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index d670da8882a5..a9ba761e9a01 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -82,6 +82,27 @@ static bool kvm_pte_table(kvm_pte_t pte, s8 level)
-> >  	return FIELD_GET(KVM_PTE_TYPE, pte) == KVM_PTE_TYPE_TABLE;
-> >  }
-> >  
-> > +/*
-> > + * Check if BBML3 can be used for this PTE update.
-> > + * Fallback to software break-before-make for leaf-to-leaf changes.
-> > + */
-> > +static bool kvm_pgtable_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
-> > +				  kvm_pte_t new)
-> > +{
-> > +	if (!system_supports_bbml3())
-> > +		return false;
-> > +
-> > +	if (!kvm_pte_valid(ctx->old) || !kvm_pte_valid(new))
-> > +		return false;
-> > +
-> > +	/* Block <-> Table is ok. */
-> > +	if (kvm_pte_table(new, ctx->level) ||
-> > +	    kvm_pte_table(ctx->old, ctx->level))
-> > +		return true;
-> > +
-> > +	return false;
-> > +}
-> > +
-> >  static kvm_pte_t *kvm_pte_follow(kvm_pte_t pte, struct kvm_pgtable_mm_ops *mm_ops)
-> >  {
-> >  	return mm_ops->phys_to_virt(kvm_pte_to_phys(pte));
-> > @@ -835,25 +856,46 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
-> >  		mm_ops->put_page(ctx->ptep);
-> >  }
-> >  
-> > +/*
-> > + * Don't use bbml3 for stage-2 if FWB or DIC are not supported
-> > + * as that means racing cores will issue duplicate CMOs.
-> > + */
-> > +static bool stage2_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
-> > +			     kvm_pte_t new)
-> > +{
-> > +	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB) ||
-> > +	    !cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
-> > +		return false;
-> > +
-> > +	return kvm_pgtable_use_bbml3(ctx, new);
-> > +}
-> > +
-> >  /**
-> >   * stage2_try_break_pte() - Invalidates a pte according to the
-> >   *			    'break-before-make' requirements of the
-> > - *			    architecture.
-> > + *			    architecture, if BBML3 is supported it
-> > + *			    will be used and this function won't
-> > + *			    break the PTE.
-> >   *
-> >   * @ctx: context of the visited pte.
-> >   * @mmu: stage-2 mmu
-> > + * @new: New pte installed in make.
-> >   *
-> > - * Returns: true if the pte was successfully broken.
-> > + * Returns: true if the pte was successfully broken or BBML3 is used.
-> >   *
-> >   * If the removed pte was valid, performs the necessary serialization and TLB
-> >   * invalidation for the old value. For counted ptes, drops the reference count
-> >   * on the containing table page.
-> >   */
-> >  static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
-> > -				 struct kvm_s2_mmu *mmu)
-> > +				 struct kvm_s2_mmu *mmu, kvm_pte_t new)
-> >  {
-> >  	kvm_pte_t locked_pte;
-> >  
-> > +	/* All handled in stage2_make_pte() */
-> > +	if (stage2_use_bbml3(ctx, new))
-> > +		return true;
-> > +
-> 
-> Wouldn't it be easier to keep try_break_pte/make_pte to the !bbml3 case and to
-> just create a make_pte_bbml3() variant to be called when stage2_use_bbml3()?
-> 
->   if (!stage2_use_bbml3()) {
->       if (stage2_try_break_pte())
->           return -EAGAIN;
->       stage2_make_pte();
->   } else {
->       if (stage2_make_pte_bbml3())
->           return -EAGAIN;
->   }
-> 
-> I believe also, the error path would look less weird as we catch an error in
-> make_pte() but without reverting the break_pte() (even if it is correct right
-> now).
-> 
-> And perhaps you could introduce a function that does both break/make
-> (stage2_update_pte()?) called by both stage2_split_walker() and
-> stage2_map_walk_leaf(). This would avoid repeating the error path.
+Il giorno mar 6 ott 2026 alle ore 12:45 Vinod Koul <vkoul@kernel.org>
+ha scritto:
+>
+> On 06-10-26, 12:29, Christian Marangi wrote:
+> > This is a major rework of the old v2 series.
+> >
+> > The SoC always support USB 2.0 but for USB 3.0 it needs additional
+> > configuration for the Serdes port. Such port can be either configured
+> > for USB usage or for PCIe lines or HSGMII and these are configured
+> > in the SCU space.
+> >
+> > The previous implementation of a dedicated SSR driver was too
+> > complex and fragile for the simple task of configuring a register
+> > hence it was dropped and the handling is entirely in the PHY driver.
+> >
+> > Everything was reducted to the dt-bindings to describe the Serdes line.
+> >
+> > Also the property for the PHY are renamed to a more suitable name and
+> > everything is now mandatory to simplify the implementation.
+> > (the PHY are always present and active on the SoC)
+>
+> I get build failure:
+>
+> drivers/phy/airoha/phy-an7581-usb.c:7:10: fatal error: dt-bindings/soc/airoha,scu-ssr.h: No such file or directory
+>     7 | #include <dt-bindings/soc/airoha,scu-ssr.h>
+>       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>
 
-I though about that and was not sure about it at the beginning as
-mentioned in the cover letter:
-    Initially, I encapsulated the full logic of BBM in one function,
-    which was not readable, due to different ordering and dealing with
-    CMO, TLBI.
+This header is present in linux-next
 
-I think that can be better if we call the new helper for all sites
-except for stage2_map_walker_try_leaf(). Although we would need to
-open code the bbml3 check there now. I can try and see how it looks.
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/soc/airoha,scu-ssr.h
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/include/dt-bindings/soc/airoha,scu-ssr.h?id=11952173d8a180ac05641775f80bd6946327478f
 
-Thanks,
-Mostafa
-
-> 
-> Otherwise, everything looks functional to me.
-> 
-> -- 
-> Vincent
-> 
+Introduced by a clk series.
 
