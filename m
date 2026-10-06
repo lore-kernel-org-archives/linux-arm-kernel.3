@@ -4,144 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9729CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43133CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luxxy3DlfbQnr0zDgU2+65NWarwwJHYwJimRGjBVfMQ=; b=rEVX+fauuzOVPJb4UazPEAQD0J
-	7Y52P6KFuPoU2Whbqbklw/m20XBbkE9te2n6lnIrXu+hchnDYtQRdgDZAaPsZGmKltlolmqFG0aqK
-	UDR22fDVtxrdO+wF1H9JLNM8Oms4BWIG75GoehCCSdB36bQqQA4N+z4PBw9HW5YbHGlIefnxIXyXf
-	ExdDhsGbmCMlABZpJ7Haq/GmR7EYCWzXH3bjbgvpYm6SzzCQSW7Qizc6/wl/TeySvKGCrPpIWeOb5
-	/w24hU8oqpKVZ3Tk4l6jOvPmQB4zt7Qj+vK40A30e5YLgcQJ+mNIAtpDeuW0MCeeMVXoJuJQNrtfQ
-	gpboXRtw==;
+	bh=FYe4EhmM6d/Zseobfy/qUsNkksLASh2Bv8kH4UN7/Rw=; b=KUmHYCfKHuQk+KWzypJgGXofmc
+	8wV49IDfXGQPuhO+/ov6dxfQrjHHYMTfWelhIo4rf+DJYTfj9KtsdHb4Jf+vkCZL0YXP/N9Sz0yWt
+	fVPmZ3EnELtI8jwhqw5+bc39I8vyWFALJH5Utzh2PaZSNaD6b2J4F6gtjRHxXFl2kyd+N8Os1Vz/o
+	5+RY3vkKw/7Zz0TPSMWBvYbYu8rrUFLQpjrMayuA7G4SDnyQcH1vcAisQ6K2nH2VQu4KCHu2i3Sv8
+	UuXofd1cFAWVYoCrCOiddG6uknltUgLEtori/YiFcka5wyYf+OJ/mz4g4O19GNrmuH6YRRgZgNJtx
+	JkyJRU/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4D1-00000000k6y-3ssX;
-	Tue, 06 Oct 2026 12:23:51 +0000
-Received: from mail-norwayeastazon11013010.outbound.protection.outlook.com ([40.107.159.10] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xE4MB-00000000lSh-0qME;
+	Tue, 06 Oct 2026 12:33:19 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4Cz-00000000jpl-1pGJ
+	id 1xE4M8-00000000lSF-1uSN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 12:23:50 +0000
+	Tue, 06 Oct 2026 12:33:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kT6Nse4yoiAi/kAXQBXYQe6ZsjvQzGLRFV3BKQFQ7JW1NEdJaN2hoNX8xpqbZLudUTXyNn+at5kU2x4jNF9BsbRsV8KcevD4HQKUg3mxOp1+ThkWXcuFDGOs9POp0j6XKZkECgBeJsKNxaphipxUAQ6ljR/Kttw1TsnRUQI1aPmHpvGAICzk8z5JuNmGVKmwOCABx2PGgNJFs/Iu2dk2NwKr33mwG0cFcwGxX7oOOp5a1VpawTf32ZPvyBWeqkp7iP0taeA9uxzaik9b7SI9giiuX8uLRrqL/8Z6y5RmitXtzcPXBytiPYe5LFzzkFg/ASYSfShK5FrErSLtDKxMBg==
+ b=Hqcis7KiKIsI7UC3ddLwAs3Bb22iY5OTMecgt2OQIQlequspqjFGmemGg9sVPmwiUx5v/HiPEMKc23QSQMcGOs0MJOGFjUSdNZAzoU0t6SqhDDIzPEOUMtt3VWfqmmrlwZF1wczSZrLvzm9QKu5iUmUbBzAM906VcVWBEVq7vc4IArvl60Yyi6A39amiWeA0vB1cuBW5lo+240JvG4NkPG2Tucre9A3ESM4Z7I43055NGkaTkjfe0f+Joaf/Do3BS8dJ1c9s6t1b9KbD1Wr5+tyDX0+n6bn1De0QwkM4Lp4wwVDmSfwRqxU4V4+8Lg/QQnC8IQvCmHU0ozrSJaWdCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=luxxy3DlfbQnr0zDgU2+65NWarwwJHYwJimRGjBVfMQ=;
- b=Hl7eMhV6eHrTw7jHhU5/HAzX8QrmcIcJOrthl47BU025lijROgCsth5Qj8pXbUDvM03k2JgBBbMS67pKLpLXC3SbwvIzRYhvLj2AJSi3LaknERBR4bQgUyfU6VgUh0sty9O5zLGvTp7bPqlwK5euAg85ULVeLVcAdIb2IH0ph3bC3k7yZ+8M3UkYLqtbd5iRj3RZTfaAw8situVzQa/hKmCX69Tha34PYkSIZSvqqt0a0jmpBpcpF/3Yf08ZTmS71SBNeCQQKJyiFzBx+Inwg9BcikGGtxyvHHSjb1XA3956JnoNygx+xW8OPRrMrsLBG4UBwfRZ43k/kvWMh7OqIQ==
+ bh=FYe4EhmM6d/Zseobfy/qUsNkksLASh2Bv8kH4UN7/Rw=;
+ b=iZ+fAMpuxyeGzgg/pqvoyZZLVtoud4xZ7V2LPzhQenyvosgiMB3Ha9zHu/cQmbvsXSTiTAOYyfa00E1yq6Hn5aRUeIPK9558Rilcwyn3595eEHRJgCWoTslBf0icfMXCYaHNNZfAsNSTuP4hI3W32nMaXigtQq1wGVl4s2hM78tkcypfvkUDbWYh1XN0LnRLZfDAIWz0TV1eG6282djA8JtPKmzMu98IH1+SnBiDpR5DIYgze0fj+n6yHme1gaN9/V7IjSEgOo8hFSKCiVoYLHcvLWTCpIqOQcptmZHCQW5nPFesukg2l1hAOO59PMPm7TeAA41zPCjanv2HuMz/cw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=luxxy3DlfbQnr0zDgU2+65NWarwwJHYwJimRGjBVfMQ=;
- b=UmFwHTujZdDiyNlXutuPclQLb9tCN81O8NxCPx7eetQyipkcuo+nuAxWK7w/9d6aRirgu/rnFOBv5RhLhC4DQJnlCUOPgb9qZMWrtTvm7GE4cvl5UEIk6l7lVXjbhOcyhmde2KNZzEtXcbdTMv42CK7GWehtckL0h6JoYYW5ZUHeK53A2ELcW7r6slg0HND3c4YNLj8Y4NNzCySjZKI9DnOEf2fjer6kMPIsg7d8Fvo/8WnvWlXsd8Gl0dvgthnLcvjVGk8GGolMWhA9yHeib/PYRps10N66kcR3Ks90M2Lf6EFUI4EqPS6hykzRigDlpXCZYKosvLkXDWvG4EWm7w==
+ bh=FYe4EhmM6d/Zseobfy/qUsNkksLASh2Bv8kH4UN7/Rw=;
+ b=Xbu4pemSLgw0pSIz63gCHbLUy/qdjCNpmB6vkFlnJuaUNuQXEpKT9gXSvyUbkUB94jPtrmtp7q6ghgKRRpLoJr6JE2Bbpvn9oK8G4GuoG90JkCtQ4+icCS2fe+1xdh7ddRTx0ID6WjEQPQdrWiMflpsPyzqIkyqpvvdmbiHBEXgtgctBBebUUwGT+rCPfm6jcNUR2tAoxQlMpRpQiWnbuKVowelgF1gycbXACyeRvnLC6zkYO2aGNgsCqT+oBRQk6zqSksGb7s7TZpDBxBbCXo2AeXvuwefR8ceE94Xvhe9kEjxCf/ZwJqCmo3XdnfD3BBqWMKipDgAGXo6RM+XKKQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by DU4PR04MB10742.eurprd04.prod.outlook.com
- (2603:10a6:10:58c::12) with Microsoft SMTP Server (version=TLS1_2,
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9244.eurprd04.prod.outlook.com (2603:10a6:20b:4e3::9)
+ by PA2PR04MB10216.eurprd04.prod.outlook.com (2603:10a6:102:406::17) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 12:23:35 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0472.016; Tue, 6 Oct 2026
- 12:23:33 +0000
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Ying Liu <victor.liu@nxp.com>,
-	Frank Li <frank.li@oss.nxp.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v10 9/9] MAINTAINERS: Add entry for i.MX94 DCIF driver
-Date: Tue,  6 Oct 2026 12:22:04 +0000
-Message-ID: <20261006-dcif-upstreaming-v10-9-bcfb28de0aae@oss.nxp.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
-References: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
+ 2026 12:33:09 +0000
+Received: from AS4PR04MB9244.eurprd04.prod.outlook.com
+ ([fe80::adaf:805c:51c5:9538]) by AS4PR04MB9244.eurprd04.prod.outlook.com
+ ([fe80::adaf:805c:51c5:9538%6]) with mapi id 15.21.0472.016; Tue, 6 Oct 2026
+ 12:33:09 +0000
+Message-ID: <8b8ec06e-ac08-491e-998d-a46e1d9ed524@nxp.com>
+Date: Tue, 6 Oct 2026 15:33:06 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXT] Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison
+ OV2312 driver
+To: Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: tomi.valkeinen@ideasonboard.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, sakari.ailus@linux.intel.com, mripard@kernel.org,
+ jai.luthra@linux.dev, jai.luthra@ideasonboard.com, devarsht@ti.com,
+ y-abhilashchandra@ti.com, laurent.pinchart@ideasonboard.com,
+ tomas.babinec@nxp.com, daniel.baluta@nxp.com, Frank Li <Frank.li@nxp.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
+ <20260925133001.2780868-7-r-donadkar@ti.com>
+ <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
+ <3a488385-bf10-4500-b78d-e43c152387a4@ti.com>
+Content-Language: en-US
+From: Mirela Rabulea <mirela.rabulea@nxp.com>
+In-Reply-To: <3a488385-bf10-4500-b78d-e43c152387a4@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR3P281CA0095.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a1::7) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+X-ClientProxiedBy: AS4P190CA0042.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d1::19) To AS4PR04MB9244.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e3::9)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|DU4PR04MB10742:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6a9ff4d-6daa-48e5-649f-08df23a4a366
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9244:EE_|PA2PR04MB10216:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb86fe8a-f24e-403a-4941-08df23a5fa55
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|366016|376014|18002099003|22082099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: HefWsqY1hkk00+F3xhaWp4gbk6gtCHbMONESzTdmg3SIa4qii0I21IhCsSLdXPWbrvjo30gnz3gxhVW3qnLIG4Dv59ffnfoLJzcgPk02h6B/gQ56k/mU8Ki8HGQUiLmWGjgL3Oqchn8kfwF05ZuH5JyAXFsQuOGqa8FZYfVBL9GWribOcZ118W7roUpNKORdCOvV0Ap73GECP7lyCNGNyVi5M2jgRvauCyBOyL+2+Z0nZcOejC6FUN4qPsC7FOf9Svx//RVpr7INP8b4ESPHkE3/cg932yIbwD/BrRGypQHQkfIFXxQx2KMywuFqPthtsQSjp8Lpgo1t+u+2oWfNDqQPotJu5ZONw1eSXYW9UVw4qPuRhqq1i7oub61uLUBrf+xTBXKYVEo5oBQ/YK1olOa4+hoMh/g7+7i582w88UqFqmQehwZ37MvUbeL4m7XkdYxZo1HCWA23ZAwX8BIztIG4E+wW91NmVchc78TAsQ382/NtxMXPfBfluSqEn1xvfKg3TXIfW4iwgr+CAF5gZTAavTKtcMbBfP98H/TNu+n9thR4HxPi5Bp49K0q7s1tCntCzBo+NPKdF8MoGRKDnSxUB0UeTTBzJUq0oXrjMeFEti+UocjnpXy3ZMLmhDIV
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(366016)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|23010399003|11063799006|56012099006|4143699003|260925022911599003|260925021311599003|260925021911599003|10067099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: Js9gUsF1nZ/o+SSanmiNiKXcj+b2FdS2hCCubPMl1GmUmOw7UH8GRS/V8TAH4338HJKun4GzPWFzbh1J2GTg/sUWgDJVaKtCFU9FVEUQ88lqYXcapvlv3GUuqszws245VUXKGzJyPzJ/b4B5XWU2w/pxaddwiQMI682dw1l9Ysiu/XVYwsHN7vi6ajqaoLiI5tb1K0QU8VvFl8N3KYvYtUjlOyW7cPzGyLdiZZ2vmcIdlpp8G9o2x3C8AnCdg5zKkzeLDDLHIMI2D/B5mrTneizfWAr0D/nGiUMzXc1YRuZhhHx3mpQqmJDpWhMRzajKd2DEEkoPTsv42LzrkDRlysBRgSgQBY9kEqIpbNAaFlphUuud6sUhI8CpkcsxLABFbQvDB+EZYKu/4KVu2KQxaMXiZFXUBN4Rk8oIU0rXnsHD9jBGCrP2svZdv4MLlDQxLQkwCJ8seVEITyXwsI/Mt2ye0+Y0WOQbkYj+BkKSgglAp6gEA/K40e/iqPNUJra7KElcuGMyH3FflU2pciovtOjse46fnbdEoQ8Y127Cf0Myax1auN5JbI/srG/mL81iDblPe0zA209p0j27vh45Oqeik2nm5Aavqpa7jTzTmyF0fUlgeT5FjD5v/VyHfOH1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9244.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(23010399003)(11063799006)(56012099006)(4143699003)(260925022911599003)(260925021311599003)(260925021911599003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDc0bDJzclg0aC93anZEdmMzejc2SWVQaUpBSHZ5MXMvVEc2TnlYTDFWNGZ3?=
- =?utf-8?B?Ny9RSjJkb1NUNHZDZnhDRVI5TzFHQUdPamFLUXZrSE9yQ2p2V25yOUp1a04v?=
- =?utf-8?B?eWExVTNtd2JHcW5qWGV2Q2FVR3BqelNJdzdrdzdyTjUrMnFTcUE3d0phcW9B?=
- =?utf-8?B?Ync5aGNBQmpmRGMvQnVuUmN5UmVhaGJMZ1JNekIzWUZiWGVPSytHeHdsNnQz?=
- =?utf-8?B?VWZ0ZmxZQXJZR29HRmxjM0x5TFV6UXFMbjZEWElMbXlQaGZTV0gwbUtIa2dQ?=
- =?utf-8?B?NzFKQzBkdE1zRzB2bTBRcDdDaGt3WjJyQTczbDZXMnArdEdtSnNjcXY4UVA3?=
- =?utf-8?B?bUx2REQrTTlybjhvblg2UzJIWWZwT0ltM0FRZjkzUjNFaUlxRU0vT1VpUmFY?=
- =?utf-8?B?WG9zZHBqVGo0ZzVZaWtwTWRXemN6SDlldm55UEE5eERhSUhxS0ExQ3c3VFRR?=
- =?utf-8?B?Yy93YitJMmNEa3hHOTBPOUVPWmFDQTFZTVF4UXBLVHBNSGd2NFExODVZak9N?=
- =?utf-8?B?TE5KYW1UT0dPYi8xa1lmdThtd09YdURXRytZWW1zVFk4eXY4RXVtb0R1UGZI?=
- =?utf-8?B?U3c0Q1I2VWZMeWdYcllJQXc0VUlsV05uSnQzVVhCalFlSkh5UUVXbTVDZm9y?=
- =?utf-8?B?dThrSmQ1dmorZUxpaXA3WXluSEs3QmEzVU9hdGlSZkNoZlR4eTNYTjUyVUtD?=
- =?utf-8?B?ZHlOYk1OZTJtSmozUUVvZnhRMnlNdGdvNHVueWh6ZUppdnJQbWZiUHRhN3F4?=
- =?utf-8?B?TU9jR3M2eXVNQ2NGTkI5V2U2MHRRYm1nODFQS1Bmc2l5a0dFaXdHOWd6QjJn?=
- =?utf-8?B?MUtrVUNwQmcyRUxRQ1cwbGRVdmhtdWtRVkN6Mkkyb0wzZnJ4SkFiZEdGM0NP?=
- =?utf-8?B?SU5BV0FUdGF4Y0JCQ3JHcDFwcXQ0Z0MwL0ZQY2xMU1c0TjJyM3Y2dXZ2SWps?=
- =?utf-8?B?eFJPYTUxV05kM1ZoQ1gzSDZFbDNGVGJxbFlVaEx3ZkNrUzFZL1VYR2krK2ZV?=
- =?utf-8?B?dFlxdzhDdjRnMnd5aXNFalRRcUZ4Q2gvZU9SaE81V2ZCL0xVWlM2N0o5czY3?=
- =?utf-8?B?S3JzWEU5SnFoR05yejU4bUZJQ1NrTk95YWVOZ1VnSHRyL1VXanNTS3hoaGhL?=
- =?utf-8?B?c0gxdzVBQXpacW5Pd1JkSnlGY3dOVmo0MzFIVkc0cjZLc3ZDWExudjhFdDR2?=
- =?utf-8?B?WlpWWE0wSVk3RW9Db3lVcjlWNXBkK1BkelFNTXJBOTNzNndiVHJOSHZBQzRK?=
- =?utf-8?B?a3FtRDhxcHUwMUhZL2thcFNndXhld2dZaUpOcGZyNERyZC9kc3RMOXEzSk9T?=
- =?utf-8?B?K051SDE2ZlJGQ09mUHhydWg4VWxnZ3dJRW5LWnpPMGFJcEMxYk5abjR3bWQ2?=
- =?utf-8?B?MnQzSE8zanU4NENsbnVMTFZER05BU0p5VXRDZFQwdkFycHowWGpGOGVBNzFv?=
- =?utf-8?B?dDRQUmdOTDNEdG1hdUsvdGxpVHlJTjRJWkZ3VmwyWTIzbzFpaFcyeE1ZWHJn?=
- =?utf-8?B?cEhyU3NGWE94cTNJblZPUWVsdkdoNmJKYWhVUnYyWG12UDNzcGVDRmZSd1p4?=
- =?utf-8?B?SzJRVVN2cDRkTiswak9NcDN5RURQRDl5T3hQZGxuNXFUKzRVYWJVNFA5UVJi?=
- =?utf-8?B?UkJaYS9LN1QrK0g2SkNnSWtCNk1pVDUzVlV6UXlIeEFMTXlNQUl5U3BFL3RN?=
- =?utf-8?B?YWxKWjZlOVRUK0FtQTgyQ2JoM0RENmFIaWprbENyWkpxdk92UjJ2d1h3Mmc4?=
- =?utf-8?B?UWdYbXEzQjFhNWtsTEsvQnpVTytVR2cwUFVhSnUyNHBYOTh0NjlPSGtLMDht?=
- =?utf-8?B?bFBGT0NuTnpXU0Y5QmhhU290MldWY0JzR3NiL29MLzhmbUpwTUhrZVl1RTlu?=
- =?utf-8?B?RHJiRG5NNyt4UHNEcGNhYVJYNFJOcnA4a0tHVmF1eTBqeW0vcTIxT0k1Mjgw?=
- =?utf-8?B?dFo1Yjl1VXVGa1lnZVhLdHAwM09uMzV6SzZSVWVrTEhmak02Vm0yVjVDcWls?=
- =?utf-8?B?Q3RpNUl5N2NFejcwblRmU1drMldBemJ0eUp2YmxOVVhUT1hEVDVYLzBVYkFW?=
- =?utf-8?B?ZVg1SjY3bFpoNjVNM3A1emdDUjIya1ZHQzlLRUVLVjU1VmZQNkhxYTlBb3BU?=
- =?utf-8?B?a3dNaWFFa0Fxd0JDQWFMMStKLy9pVzhIdTBjTTUxbUtRUjlSUWVOT0lHRlFq?=
- =?utf-8?B?cmgyaSt6c05RelNieWZjemFmdEFaRW5RdTJkN0FHUDlONzY5YUZNQUxVQ3BH?=
- =?utf-8?B?b0dDMlJLUFZCOEFRUFZNMm1zTDlIODlWU3NuaEtwRGNHRi8yWHh4RXJ2cTVX?=
- =?utf-8?B?eTdxSEpIclJWaW92TlFjZzlhcTkwcHloa1BOMlNFaW9uMHhhN3lzanlWbEtB?=
- =?utf-8?Q?K1hqj6F+MexTEW14=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6a9ff4d-6daa-48e5-649f-08df23a4a366
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ajFsY09CVE9EQmIwL3F5eU4xenVseGFwaHk5b1NZcW5aTXh6QnJkRStwTEZz?=
+ =?utf-8?B?OGlHUlRBUmpNanZUV2VTWTF1dkN1Mjk4eG80aUthQmZId0ZTVTRmaHJ6a1Rx?=
+ =?utf-8?B?MjVwc0tYOVdGZmZuNi8rclpzMW1FMWJOS1Fhd3RkalNYd1p3VjZHZW84NHFZ?=
+ =?utf-8?B?L3BEZzdFblhGTTFKbXBSQ3dzQmlzdCtGRWgwY01jQkRNaFNsQzlHSGo2Rnhr?=
+ =?utf-8?B?Z2h1MlhJVFBzSEpYcmZDOWhvdVdaK0FVRW91ZUhBellxQVEvZDNVbFEybkg3?=
+ =?utf-8?B?aHhZaitlNHlTZkJEUEdWQW1pT3VpTlFubjdUNjZuNGV4S3JVSFpRNVhaYmhi?=
+ =?utf-8?B?L0dJWlB6M1BtZFFRckZCOS93OWIzZUErTlNRZVZROVk2SGphQnJ1RElVK1lS?=
+ =?utf-8?B?cTN0SlpXaHY4Ymlyd3g2L0trRGJmTnFnTkVxZ2NLSFhDZGRRclpLYk8rVERs?=
+ =?utf-8?B?bklCYm1BM2FsS2RRTkdFYWZib3FjUmN5SlFwcGl4bTk3QnJlNGxxenNFMGRH?=
+ =?utf-8?B?UzRXc01wL1Y3WW1sUHU4Z1BFOEZVbmZkU3hVcnArOCtSV3d5dnN4NmdDMTI5?=
+ =?utf-8?B?QmR1TFJ3Q1Q5UTg1LzB5bHc2N0RXY3E1UlpVY2VTdk5vaFc2Q3B6OUo4R0pq?=
+ =?utf-8?B?TjNucGJHU1ZBb3VaMHZ3TU1VcEZ3SmY2dXhEZExzRGNpQWRaWGVxRDhmZWRN?=
+ =?utf-8?B?bmJ1aTRnWEtTMTAwb1h0a2pwMUdrZFZZSVBrdy94Z2F1NEg3N2lDTmNJWnNw?=
+ =?utf-8?B?QXFjL3p1RFBMdFlYQlltK3l0ZHhzdVEydGNzVENmNGhXQzhVZGdrQmwxNnJs?=
+ =?utf-8?B?cFZ4clFhdDZBSU12VTNvRmhKMlJwQmFCN1Q0ZmgxSW5wMWI3YWZLMHpjbXls?=
+ =?utf-8?B?ZDJraDJLYUxsUFgyTDgzTm94eWpHRGtkS2NsZVZsV216c2NWd2w5R0cxK0Fs?=
+ =?utf-8?B?cVFZd1QxdHMvWEQyb3BTdW81TFFUSVBDOVlLWDlGdFRKdWxOOUdaTGtiSGlI?=
+ =?utf-8?B?TjVuZ2JnWmZmSVl6enJpd3J6UzJiU2dLSnJzU2VSRTFIeHNjeHk5bTlwSjBv?=
+ =?utf-8?B?dG5KN20rRTM2THB2MGZQTDdJZXN2cVZ3SlRQd2Y4NWFNVytSZUtRWFE2TWk5?=
+ =?utf-8?B?Zko3Zk1sWXBiaVFqMlpWYXJoTHZpMkNVcXluVHgvLy9OczhyVllZTHRWamZl?=
+ =?utf-8?B?SVUxajhHbExZRFk5eTdtN1RBQlVTNWRkZmJ0SUc3L093aUV3MWpHOHNhdXZU?=
+ =?utf-8?B?WG8vblFSR01ZcFF2WVVaRWZzaTI1dmVQd0h1TElaRUFiRkxHSEQ5UmsxNTNo?=
+ =?utf-8?B?ckVUUmpTRno2QWFTYWdTQ1d5Y1dHRlFvOE45aUVWc2xGYkxtcGNJcE5MZVFk?=
+ =?utf-8?B?a0w1NEJkRjZGaVhiNHUrZjZ6OWxJU2ZlWFR5WWNxNS8zRlNiUUgxeEtibmk4?=
+ =?utf-8?B?eHRXMkJ2Z2R6QVcwdFY1WThROXFySnJUdEYwc250WjJWaS9HZDAvdDJwclNm?=
+ =?utf-8?B?NE1WL3lhTjJFVjZTTUNXck1HQTl2Q2RzenB5VzA2eUZXSy9IRGFsdlk5d1NL?=
+ =?utf-8?B?bllwWTJ3cVg1SXFlbUF2aDFJS0lmU3BaWmFKTGhLS2dvMHFoNTJxTVNJRnAr?=
+ =?utf-8?B?RDdIT1lEVVpjTHFuN1dDYTFGOWZ5MkdCRU9BRjJrVEhQMW0zVlR1NG9MdFJM?=
+ =?utf-8?B?RlRhTVlyTUY1YlBUQ1RIODJqWUsvSGo1dnFGb295eUdpcU5nZklJaTRoUFVm?=
+ =?utf-8?B?N3FXbFFWaG1seGdkZFFPSFhEQ0ZXUkRhcVV2MnlkU2NVWW43QjM5TzNsTU9s?=
+ =?utf-8?B?QnRreWoxd1JnRitGSDEvRkNVU1NxT0dKV3VZV1YwTE5NVmpyZm9ESUVjczdP?=
+ =?utf-8?B?RHhqNFFMN1JKd3JabTdxWGN5U3JuOHBqVS9hUTRYM3k0Q3pFbHk0ZE5UMmVh?=
+ =?utf-8?B?LzdkS2RzS1lRMGVYTmlpd1ZxaHBHYm5pV3VCQXdiM3hrRnl4RnRGTVRLMkIw?=
+ =?utf-8?B?Mkd3bHpDKzBiaWxzQUhoUUxPdWlabStiRi80L05pV2pkRnNvdzBkeTRYYlB6?=
+ =?utf-8?B?bFJGSy9BRFZ0SHRGVzBRWTVZWmlCL00yMmR0QkpHTkh0bXNBR0ZyTnVlSVBJ?=
+ =?utf-8?B?a3dYV3hiR0dGT3dlZlJSTmJHQUpaR1EwaE9qRGtUMlZ4MFM3anZlRzJKclZS?=
+ =?utf-8?B?ZGVMblN6YUZoeGtya21QZGZGUDVvZUtteXhtVUc5QWVjeDZSaFpPTDJLOHFl?=
+ =?utf-8?B?b3JyQ0ZaWjN4ZUtpN0g2amduK250VVUvN3RUZzhyc250Z1IyMTZNSkpIVUFm?=
+ =?utf-8?B?UlFYSktwbUdsOWFPcmhmdlQ3K3V3OXU1RFRLYWpsNmNya0Jac1NzUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb86fe8a-f24e-403a-4941-08df23a5fa55
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9244.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:23:33.3929
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:33:08.8964
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FF4SZG80/NWJ4Hl1HYtxJtx8XjzHFmh2tUxZg8o9sW/IkmGTTt4XzEbgRmC/B+DizV5Sj4t5ritpZd70KOo5MQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10742
+X-MS-Exchange-CrossTenant-UserPrincipalName: aCVu7QYcFeOVDS9VlufgDPn0ImfN8deBSNVfSucrlPoXmZgGcuhuQqSL96ZoPqxotX7XK3SYNcR3YrHnjjzz4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_052349_502240_62AE7231 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261006_053316_662329_8C302469 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,36 +155,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver is part of DRM subsystem and is located in
-drivers/gpu/drm/imx/dcif.
 
-Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On 10/6/26 08:19, Rishikesh Donadkar wrote:
+> Caution: This is an external email. Please take care when clicking 
+> links or opening attachments. When in doubt, report the message using 
+> the 'Report this email' button
+>
+>
+> On 02/10/26 21:46, Mirela Rabulea wrote:
+>> Hi Rishikesh, Jay, Laurent, Hans, Sakari,
+>>
+>> On 9/25/26 16:29, Rishikesh Donadkar wrote:
+>>> From: Jai Luthra <j-luthra@ti.com>
+>>>
+>>> Omnivision OV2312 is an RGB-IR sensor, i.e. it uses a 4x4 R,G,B,Ir 
+>>> bayer
+>>> pattern to capture both visible and near-infrared light. Every 
+>>> alternate
+>>> frame, the sensor changes the exposure and IR flash strobe registers to
+>>> stream an -
+>>> A. IR-dominant frame on CSI-2 virtual channel 0
+>>> B. RGB-dominant frame on CSI-2 virtual channel 1
+>>>
+>>> These A/B frames are routed as separate v4l2 streams, which may be
+>>> mapped to two separate /dev/videoX nodes by the CSI-RX DMA driver.
+>>>
+>>> Both of these streams are captured at a resolution of 1600x1301, 30 fps
+>>> each (60fps total). The extra row (1301 vs 1300) is an embedded line
+>>> prepended to each frame by the sensor, containing the following 
+>>> register
+>>> values:
+>>>    0x4813 - VC (Virtual Channel)
+>>>    0x321A - Group ID
+>>>    0x3920 - Strobe
+>>>    0x3501 - Exposure HI
+>>>    0x3502 - Exposure LO
+>>>    0x3508 - Gain HI
+>>>    0x3509 - Gain LO
+>>>    0x350e - Current Exposure HI
+>>>    0x350f - Current Exposure LO
+>>>
+>>> This driver also supports a few v4l2 controls like horizontal/vertical
+>>> flip, multi exposure and multi gain controls.
+>>>
+>>> Signed-off-by: Jai Luthra <j-luthra@ti.com>
+>>> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+>>> ---
+>>>   drivers/media/i2c/Kconfig  |  12 +
+>>>   drivers/media/i2c/Makefile |   1 +
+>>>   drivers/media/i2c/ov2312.c | 939 
+>>> +++++++++++++++++++++++++++++++++++++
+>>>   drivers/media/i2c/ov2312.h | 285 +++++++++++
+>>>   4 files changed, 1237 insertions(+)
+>>>   create mode 100644 drivers/media/i2c/ov2312.c
+>>>   create mode 100644 drivers/media/i2c/ov2312.h
+>>>
+>>> diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+>>> index 4d9946479160..8d9d8d491b2e 100644
+>>> --- a/drivers/media/i2c/Kconfig
+>>> +++ b/drivers/media/i2c/Kconfig
+>>> @@ -496,6 +496,18 @@ config VIDEO_OV13B10
+>>>            This is a Video4Linux2 sensor driver for the OmniVision
+>>>            OV13B10 camera.
+>> ...
+>>> +
+>>> +static int ov2312_read(struct ov2312 *ov2312, u16 addr, u32 *val,
+>>> size_t nbytes)
+>>> +{
+>>> +       int ret;
+>>> +       __le32 val_le = 0;
+>>> +
+>>> +       ret = regmap_bulk_read(ov2312->regmap, addr, &val_le, nbytes);
+>> I've received in the past feedback to use cci_* helpers instead of
+>> regmap, see drivers/media/v4l2-core/v4l2-cci.c
+>
+> Sure, I will use them.
+>
+>>> +       if (ret < 0) {
+>>> +               dev_err(ov2312->dev, "%s: failed to read reg 0x%04x:
+>>> %d\n",
+>>> +                       __func__, addr, ret);
+>>> +               return ret;
+>>> +       }
+>>> +
+>>> +       *val = le32_to_cpu(val_le);
+>>> +       return 0;
+>>> +}
+>>> +
+>>> +static int ov2312_write(struct ov2312 *ov2312, u16 addr, u32 val,
+>>> size_t nbytes)
+>>> +{
+>>> +       int ret;
+>>> +       __le32 val_le = cpu_to_le32(val);
+>>> +
+>>> +       ret = regmap_bulk_write(ov2312->regmap, addr, &val_le, nbytes);
+>>> +       if (ret < 0)
+>>> +               dev_err(ov2312->dev, "%s: failed to write reg 0x%04x:
+>>> %d\n",
+>>> +                       __func__, addr, ret);
+>>> +       return ret;
+>>> +}
+>>> +
+>>> +static int ov2312_write_table(struct ov2312 *ov2312,
+>>> +                             const struct reg_sequence *regs,
+>>> +                             unsigned int nr_regs)
+>>> +{
+>>> +       int ret, i;
+>>> +
+>>> +       for (i = 0; i < nr_regs; i++) {
+>>> +               ret = regmap_write(ov2312->regmap, regs[i].reg,
+>>> regs[i].def);
+>>> +               if (ret < 0) {
+>>> +                       dev_err(ov2312->dev,
+>>> +                               "%s: failed to write reg[%d] 0x%04x =
+>>> 0x%02x (%d)!\n",
+>>> +                               __func__, i, regs[i].reg, regs[i].def,
+>>> ret);
+>>> +                       return ret;
+>>> +               }
+>>> +       }
+>>> +       return 0;
+>>> +}
+>>> +
+>>>
+>>>
+>>>
+>>> + */
+>>> +static int ov2312_set_group_a(struct ov2312 *ov2312)
+>>> +{
+>>> +       u32 ir_exposure = ov2312->exposure_multi->p_new.p_u32[1];
+>>> +       u32 ir_again    = ov2312->again_multi->p_new.p_u32[1];
+>>> +       u32 ir_dgain    = ov2312->dgain_multi->p_new.p_u32[1];
+>>> +       u32 ir_strobe_start = OV2312_VTS - ir_exposure - 7;
+>>> +       int ret;
+>>> +
+>>> +       struct reg_sequence ov2312_groupA[] = {
+>>> +               {0x3208, 0x00},/* Group A (IR Dominant VC0) */
+>>> +               {OV2312_AEC_PK_EXPO_HI, (ir_exposure >> 8) & 0xff},
+>>> +               {OV2312_AEC_PK_EXPO_LO, ir_exposure & 0xff},
+>>> +               {OV2312_AEC_PK_AGAIN_HI, (ir_again >> 4) & 0xff},
+>>> +               {OV2312_AEC_PK_AGAIN_LO, (ir_again & 0x0f) << 4},
+>>> +               {OV2312_AEC_PK_DGAIN_HI, (ir_dgain >> 8) & 0xff},
+>>> +               {OV2312_AEC_PK_DGAIN_LO, ir_dgain & 0xff},
+>>> +               {0x3920, 0xff},/* IR Strobe duty cycle */
+>>> +               {0x3927, (ir_exposure >> 8) & 0xff},
+>>> +               {0x3928, ir_exposure & 0xff},
+>>> +               {0x3929, (ir_strobe_start >> 8) & 0xff},
+>>> +               {0x392a, ir_strobe_start & 0xff},
+>>> +               {0x4813, 0x01},/* VC=1. This register takes effect
+>>> from next frame */
+>>> +               {0x3208, 0x10},
+>>> +               {0x320D, 0x00},/* Auto mode switch between group0 and
+>>> group1 ;setting to switch */
+>>> +               {0x320D, 0x31},
+>>> +               {0x3208, 0xA0},
+>>> +       };
+>>> +
+>>> +       ret = regmap_register_patch(ov2312->regmap, ov2312_groupA,
+>>> + ARRAY_SIZE(ov2312_groupA));
+>>> +       if (ret < 0)
+>>> +               dev_err(ov2312->dev,
+>>> +                       "%s: failed to apply Group A register patch
+>>> (%d)!\n",
+>>> +                       __func__, ret);
+>>> +       return ret;
+>>> +}
+>>> +
+>>> +static int ov2312_set_group_b(struct ov2312 *ov2312)
+>>> +{
+>>> +       u32 rgb_exposure = ov2312->exposure_multi->p_new.p_u32[0];
+>>> +       u32 rgb_again    = ov2312->again_multi->p_new.p_u32[0];
+>>> +       u32 rgb_dgain    = ov2312->dgain_multi->p_new.p_u32[0];
+>>> +       int ret;
+>>> +
+>>> +       struct reg_sequence ov2312_groupB[] = {
+>>> +               {0x3208, 0x01},/* Group B (RGB Dominant VC1) */
+>>> +               {OV2312_AEC_PK_EXPO_HI, (rgb_exposure >> 8) & 0xff},
+>>> +               {OV2312_AEC_PK_EXPO_LO, rgb_exposure & 0xff},
+>>> +               {OV2312_AEC_PK_AGAIN_HI, (rgb_again >> 4) & 0xff},
+>>> +               {OV2312_AEC_PK_AGAIN_LO, (rgb_again & 0x0f) << 4},
+>>> +               {OV2312_AEC_PK_DGAIN_HI, (rgb_dgain >> 8) & 0xff},
+>>> +               {OV2312_AEC_PK_DGAIN_LO, rgb_dgain & 0xff},
+>>> +               {0x3920, 0x00},
+>>> +               {0x4813, 0x00},/* VC=0. This register takes effect
+>>> from next frame */
+>>> +               {0x3208, 0x11},
+>>> +               {0x320D, 0x00},/* Auto mode switch between group0 and
+>>> group1 ;setting to switch */
+>>> +               {0x320D, 0x30},
+>>> +               {0x3208, 0xA0},
+>>> +       };
+>>> +
+>>> +       ret = regmap_register_patch(ov2312->regmap, ov2312_groupB,
+>>> + ARRAY_SIZE(ov2312_groupB));
+>>> +       if (ret < 0)
+>>> +               dev_err(ov2312->dev,
+>>> +                       "%s: failed to apply Group B register patch
+>>> (%d)!\n",
+>>> +                       __func__, ret);
+>>> +       return ret;
+>>> +}
+>>> +
+>>> +static int ov2312_set_AB_mode(struct ov2312 *ov2312)
+>>> +{
+>>> +       bool ir_ready  = ov2312->exposure_multi->p_new.p_u32[1] &&
+>>> + ov2312->again_multi->p_new.p_u32[1] &&
+>>> + ov2312->dgain_multi->p_new.p_u32[1];
+>>> +       bool rgb_ready = ov2312->exposure_multi->p_new.p_u32[0] &&
+>>> + ov2312->again_multi->p_new.p_u32[0] &&
+>>> + ov2312->dgain_multi->p_new.p_u32[0];
+>>> +       int ret;
+>>> +
+>>> +       if (ir_ready) {
+>>> +               ret = ov2312_set_group_a(ov2312);
+>>> +               if (ret < 0)
+>>> +                       return ret;
+>>> +       }
+>>> +
+>>> +       if (rgb_ready) {
+>>> +               ret = ov2312_set_group_b(ov2312);
+>>> +               if (ret < 0)
+>>> +                       return ret;
+>>> +       }
+>>> +
+>>> +       /* Wait for 1 frame duration after setting AB mode registers */
+>>> +       if (ir_ready || rgb_ready)
+>>> +               msleep(33);
+>>> +
+>>> +       return 0;
+>>> +}
+>>> +
+>>> +static int ov2312_set_orientation(struct ov2312 *ov2312)
+>>> +{
+>>> +       bool v_flip = ov2312->v_flip->val;
+>>> +       bool h_flip = ov2312->h_flip->val;
+>>> +       u32 reg = (v_flip ? 0x4400 : 0) | (h_flip ? 0x0004 : 0);
+>>> +
+>>> +       return ov2312_write(ov2312, OV2312_TIMING_VFLIP,
+>>> be16_to_cpu(reg), 2);
+>>> +}
+>>> +
+>>> +static int ov2312_set_ctrl(struct v4l2_ctrl *ctrl)
+>>> +{
+>>> +       struct ov2312 *ov2312 = container_of(ctrl->handler,
+>>> +                                            struct ov2312, ctrls);
+>>> +       int ret;
+>>> +
+>>> +       /*
+>>> +        * If the device is not powered up by the host driver do
+>>> +        * not apply any controls to H/W at this time. Instead
+>>> +        * the controls will be restored right after power-up.
+>>> +        */
+>>> +       if (pm_runtime_suspended(ov2312->dev))
+>>> +               return 0;
+>>> +
+>>> +       switch (ctrl->id) {
+>>> +       case V4L2_CID_EXPOSURE_MULTI:
+>>> +       case V4L2_CID_AGAIN_MULTI:
+>>> +       case V4L2_CID_DGAIN_MULTI:
+>>> +               dev_dbg(ov2312->dev, "debug: %s: %s = [%u, %u]\n",
+>>> __func__,
+>>> +                               ctrl->name, ctrl->p_new.p_u32[0],
+>>> ctrl->p_new.p_u32[1]);
+>>> +
+>>> +               ret = ov2312_set_AB_mode(ov2312);
+>>
+>> So, the group hold for A/B context is set right away, when the control
+>> arrives.
+>>
+>> While working with the Omnivision OX05B1S, which is also an RGB-IR
+>> sensor, we run into this problem:
+>>
+>> The normal expected sequence is that the sensor will output alternating
+>> frames VC0, VC1, VC0, VC1,...
+>>
+>> But  when user space tries to do automatic exposure and gain control via
+>> v4l2 muti controls, if the driver applies the values immediately, if the
+>> virtual channels are not switched within the proper timeframe, it is
+>> possible to run into frame duplication (no more nice alternating frames
+>> VC0, VC1, VC0, VC1,...but duplicate VC0,VC0 or VC1,VC1).
+>> The information we received from the sensor vendor is that group0 update
+>> needs to be between 2 group0 launchpoints (similar for group 1). We can
+>> use the status register to query the currently active context, and in
+>> order to avoid frame duplication we can update each group only when its
+>> context is active.
+>
+> Just to clarify, when you say "update each group only when its context
+> is active" you mean when the frame for that group is being captured 
+> right?
+>
+> Lets say group0 is launched, do we need to set the exposure for group0
+> before the next group i.e. group1 is launched?
+>
+> Rishikesh
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ff3bfd42d3f3a..519a52e81e4af 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20039,6 +20039,15 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml
- F:	drivers/media/platform/nxp/imx-jpeg
- 
-+NXP i.MX 94 DCIF DRIVER
-+M:	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-+L:	dri-devel@lists.freedesktop.org
-+L:	imx@lists.linux.dev
-+S:	Maintained
-+T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-+F:	Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-+F:	drivers/gpu/drm/imx/dcif/
-+
- NXP i.MX 95 CSI PIXEL FORMATTER V4L2 DRIVER
- M:	Guoniu Zhou <guoniu.zhou@nxp.com>
- L:	imx@lists.linux.dev
+Yes. For more exact details on the timings required, you may check 
+"Context switch (AB mode) group write timeline" here:
 
--- 
-2.53.0
+https://github.com/nxp-imx/linux-imx/blob/lf-6.18.y/drivers/media/i2c/ox05b1s/ox05b1s_mipi.c#L795 
+
+
+Group0 update (exp0, vc0) needs to be between group0 launch points (t0), 
+but the sensor driver is unaware when the launch points take place, so 
+instead, we try to update group 0 in the first half of t0, which we can 
+determine by querying the status register for the active context.
+
+Check if your 0x322d register provides information about the active 
+group/context.
+
+Maybe it makes sense to do an even more extensive study on the level of 
+compatibility on the register set between ox05b1s and OV2312? I am 
+wondering if it makes sense for these 2 to share a driver, with a 
+compatible for each.
+
+
+Regards,
+
+Mirela
+
+>
+>>
+>> This is problematic in the v4l2-api context, it implies that even while
+>> streaming, a v4l2 control cannot be committed to sensor registers right
+>> away.
+>>
+>> Even with workarounds in the sensor driver, to defer for later the
+>> updates for the inactive context, it is still problematic: defer for how
+>> long, and problems with overloaded systems, a stress test can bring us
+>> in a broken VC sequence, as there is no atomic way to determine the
+>> current active context + update the right group.  A broken VC sequence
+>> shows up for example in libcamera as lost frames.
+>>
+>> Rishikesh, Jai,
+>>
+>>   did you notice this problem on OV2312? A way to reproduce this is to
+>> stress the driver with frequent repeated set controls (for the multi-
+>> controls), and observe broken VC sequence (I observed it with libcamera
+>> and on the CSI analyzer).
+>>
+>>
+>> Laurent, Hans, Sakari,
+>>
+>> did you encounter similar situations? Any comments or proposals? The
+>> concern here, to summarize, is: v4l2 control cannot be committed to
+>> sensor registers right away (even when streaming) and we are also unsure
+>> when the right moment to perform the register access may come.
+>>
+>>
+>> Regards,
+>>
+>> Mirela
+>>
+>>> +               break;
+>>> +
+>>> +       case V4L2_CID_HFLIP:
+>>> +       case V4L2_CID_VFLIP:
+>>> +               ret = ov2312_set_orientation(ov2312);
+>>> +               break;
+>>> +
+>>> +       default:
+>>> +               ret = -EINVAL;
+>>> +       }
+>>> +
+>>> +       return ret;
+>>> +}
+>>> +
+>>>
+>
 
