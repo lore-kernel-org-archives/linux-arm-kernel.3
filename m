@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08ED9CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9930ACA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBX7y9Dvx0JYFE1OtZUYqD4Au/PXvpJQYPvyzoWixqg=; b=vsH7HQIwzq8leKnTUzSm7cbfNt
-	gLmC1lE+I/aqNRJFqaIX0vXDXc4wrTH0Vr3EMGvZ7yk0mE6xOySdxkA+cs7wKqKiF/LxkV7u2K6mX
-	MSBh2kyt2MfxU8GridrKWU5Y1F15SuZXkbVQiak1MYjJxF0+QLqv6KexR2wcBErqoLRdo/geLTn2l
-	SatlehNzYBICu6EyrlDOjGxO+qWc5vAqsXrBMquL1udQrMtujD3f/FrQv5uKLM12R2jmucc1J5b+/
-	jWPDW8aCi7DX0dDmbmTuhsm4mwiBh23LpBINlTzP+bRERWIziG2gNOinV4xOnu1jKTtNLa30fmYUX
-	lxcmnfKQ==;
+	bh=m3le0LRoIEqiKvYzrW3hqwYXLg+E5AHVO4iOgQS6Y7Y=; b=teWoQDJMhX2+PegEA6x3K0km71
+	5n3qZwYBJO3mtDtjXp0Wvm4kPBs5McMdQKsWDJ5dqq5fzzz3AoVLyv5AQMdoEEcX078EqyU3bECYF
+	uzsLpkb5/BxJSKQS6VAYV56shBxzaDwxHlT6yezD+OsuHMFO/smsGIVNCmpUWujvqqq/bEAsUS21i
+	YekpQtv9U2iZXRwiVh4Ua0LVHn23oPzPkfeectBWitHGoqZoRR6c1NCO7uUNOhzeVpLt+Nh/DwBEN
+	PqYBERvpNv2qRBgsuw0YWA+H4oJIrfjDjmSvYRTjZYhkiSExmzH/8x/wSNZAUEyPqDJDrT0QPF50l
+	HSAlbErg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2Be-00000000SzG-3Z8h;
-	Tue, 06 Oct 2026 10:14:18 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1xE2Co-00000000TQR-0tD2;
+	Tue, 06 Oct 2026 10:15:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2BY-00000000Suy-1YJx
+	id 1xE2Cg-00000000TON-0KpN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 10:14:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=fBX7y9Dvx0JYFE1OtZUYqD4Au/PXvpJQYPvyzoWixqg=; b=YmP1+h5uPnQbsxlOVLIkoJG3vb
-	ABj8pZSxFtSUGaBDfRj+NxJeisIc+dx5vTTF3nDFXMscpUvBZfZLQZzevCIAsag0zsZOthBDhZSQV
-	EKjo6+wiBZUk507NL4D5uLIFR7wDZfcT+/chXKxb8GwLArLIWdCFj+wId/HYi5rc7fZZ2isS+309G
-	DlCFwtE31jCD6eHNvti0FsRoRpgWbjwShDgHjNU+D9CmrvNu7Ta2c9RMA3YHX1IvuLm+QZuzwenGI
-	CjnVIXW+ymmnrR6fL/DOBjEQ9yn4RIeDnWkwZBZbI5BtzoFREAhDF2IrOoIAAUj1S9Xryrq+QWr2y
-	9bK3P6Lg==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE2BR-000EzG-3D;
-	Tue, 06 Oct 2026 12:14:06 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE2Au-000Bni-05;
-	Tue, 06 Oct 2026 12:14:05 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/6] arm64: dts: imx93-tqma9352-mba93xxla-mini: remove pullup from CAN pins
-Date: Tue,  6 Oct 2026 12:13:49 +0200
-Message-ID: <20261006101358.2189639-5-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261006101358.2189639-1-alexander.stein@ew.tq-group.com>
-References: <20261006101358.2189639-1-alexander.stein@ew.tq-group.com>
+	Tue, 06 Oct 2026 10:15:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 630356022A
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Oct 2026 10:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B5161F00893
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Oct 2026 10:15:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791281720;
+	bh=m3le0LRoIEqiKvYzrW3hqwYXLg+E5AHVO4iOgQS6Y7Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Dhf+YsEln3vVB4wzsSmjgpeVi3x2X4baGjRWCX/BAuNnzlmOVkT2NGlj2QOR3PvvA
+	 V6V5V41k8cFwlh+c2v6UMl0sjgu2TMkIgBP6FWD58e0qts+VqDsL0O1F69t6bGlyUu
+	 9jMSAvsQ6HVZ6Gwx+5Gcp1PQJ29VVHipPF2fVWN47aFmnpR8oN5moipOdAgBVH0aYz
+	 pAkx73sis9dtuJzAT0J36uXYFvHIHoZoNIlXZaJ0/ANLly980UoEhFcjRwBSlO9mGi
+	 FmD7cfazHfwmG7LBsKlxDNuLM/pcf2CI2ww0Ai6FWGC9zzZj4i6+rSxT81uzqXRcID
+	 q3oSmvuZ0Katg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3a75f960be4so2996241fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:15:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwjPUdBqWVIyFysGjSsorSfhpgVSdX+GJq231MEDJs1SWhB/KVsAxLTTe9zAdiRM0t0vXCu6CXihuVwjuU2xxaq@lists.infradead.org
+X-Gm-Message-State: AFq9FYJGcHitJaW6TJbOpUmJayOi2vRZFSiqqIc5ZP3WKv3VFdyTaZGk
+	5XNr58NObxSwtHLwEyxhQGRHdBa6v8wAoLaJUkskl/ySmYWV76MHTT6m1nXhx7qPv8bivpTOSDa
+	6d75iZazmSD6+/gqGWzjRwTzNKAwTCOk=
+X-Received: by 2002:a05:6512:b94:b0:5bc:ca67:c338 with SMTP id
+ 2adb3069b0e04-5bccc6f0982mr427514e87.18.1791281718870; Tue, 06 Oct 2026
+ 03:15:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28145/Tue Oct  6 08:26:12 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_031412_412586_CBE0E2BC 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+References: <20261006055223.9299-1-kmehltretter@gmail.com>
+In-Reply-To: <20261006055223.9299-1-kmehltretter@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 6 Oct 2026 12:15:04 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmsvaNhEUM1e+zvk-s_r6s6h=b7dKn0k_kA3y=GVuBFfA@mail.gmail.com>
+X-Gm-Features: AclHuK9Kpq7WO3g2iO3espGL5Ug3bTlQit7RXbcEmcKP4KcWJvOiVVHvmmiRJnQ
+Message-ID: <CAD++jLmsvaNhEUM1e+zvk-s_r6s6h=b7dKn0k_kA3y=GVuBFfA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: mm: compare ARM926 cache range sizes as unsigned
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+On Tue, Oct 6, 2026 at 7:53=E2=80=AFAM Karl Mehltretter <kmehltretter@gmail=
+.com> wrote:
 
-Board has external PU, so internal PU are not needed.
+> arm926_flush_user_cache_range() uses BGT to compare end - start
+> with CACHE_DLIMIT. Sizes of 2 GiB or more are treated as negative
+> and take the cache-line loop instead of the whole-cache path.
+>
+> Use BHI for an unsigned comparison, keeping the line-by-line path
+> at exactly CACHE_DLIMIT.
+>
+> With the default 3G/1G split, unmapping an untouched 2 GiB
+> PROT_NONE mapping flushes the range through tlb_start_vma().
+> On a SAM9X75 Curiosity board, munmap() took about 1.3 seconds
+> unpatched and 20 ms patched.
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-Fixes: 20288505481c ("arm64: dts: freescale: add initial device tree for TQMa93xx/MBa93xxLA-MINI")
+Ooops!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../freescale/imx93-tqma9352-mba93xxla-mini.dts  | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+Make sure to put this into Russell's patch tracker!
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-index 0d553a8da7135..d1f63aa9312ee 100644
---- a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-@@ -477,17 +477,17 @@ pinctrl_fec_phy: fecphygrp {
- 	};
- 
- 	pinctrl_flexcan1: flexcan1grp {
--		fsl,pins = /* HYS | PU | FSEL_0 | DSE no drive */
--			   <MX93_PAD_PDM_BIT_STREAM0__CAN1_RX		0x1200>,
--			   /* PU | FSEL_3 | DSE X4 */
--			   <MX93_PAD_PDM_CLK__CAN1_TX			0x039e>;
-+		fsl,pins = /* HYS | FSEL_0 | DSE no drive */
-+			   <MX93_PAD_PDM_BIT_STREAM0__CAN1_RX		0x1000>,
-+			   /* FSEL_3 | DSE X4 */
-+			   <MX93_PAD_PDM_CLK__CAN1_TX			0x019e>;
- 	};
- 
- 	pinctrl_flexcan2: flexcan2grp {
--		fsl,pins = /* HYS | PU | FSEL_0 | DSE no drive */
--			   <MX93_PAD_GPIO_IO27__CAN2_RX			0x1200>,
--			   /* PU | FSEL_3 | DSE X4 */
--			   <MX93_PAD_GPIO_IO25__CAN2_TX			0x039e>;
-+		fsl,pins = /* HYS FSEL_0 | DSE no drive */
-+			   <MX93_PAD_GPIO_IO27__CAN2_RX			0x1000>,
-+			   /* FSEL_3 | DSE X4 */
-+			   <MX93_PAD_GPIO_IO25__CAN2_TX			0x019e>;
- 	};
- 
- 	pinctrl_gpio2: gpio2grp {
--- 
-2.55.0
-
+Yours,
+Linus Walleij
 
