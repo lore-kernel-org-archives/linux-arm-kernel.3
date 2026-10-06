@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BCBCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE12CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qyXVAUKeu7fD1AmJe/M+1hxOC2IlLC6ieg2t+mVQbI=; b=UHhnKUKilAS0q2VLu0PNWtvitL
-	IbYlSPZXkLJNhFWoye1tonSJOTRrMx61ug1jK4CfcMIe3VXGZYY5UYVqgATqzrv37uB6f37m5ag77
-	Rp0NQwSYm1jTNGvEXkzBKr640yk5FZOzQH84hrhTVBthYoVCy2dNm8sGYhraz89VvIyEXCai7yJ+A
-	3tkCYnlvgi+M+7pGnYc3/SoG1wPuPW7uDA09gTXx/GcPdjfF9VVP0a5oAgcBymnOl1lZetPqZzE9m
-	pwJKV6jIFDyCOBh4SylaUlUWHE/PG1E8S7e4+DhGNlyPWxqAAj1Z1SSwYZN0gIEql6sNX1J2NyGoO
-	e51gJkYw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iyS59LHL863YniTBRLDQIsOwBigLIOw+B5p59bUiqbM=; b=AyjPBqsFuXjzqldHxTzfvC1S9i
+	CETihry7cxKxfGDF1kV6e9QFiYKRn/SgiWD7jDgHlBfSaR1YmgoHk47HStOFLI6e7cEDpX/KrfuL2
+	0gDgB2KS+pp+Wy3I+vjmZZ+JnCiBWDvTR8g65Z/DVj8hCE6rGxzlk7J67G12HrBqYAh1X0c5Obbi+
+	miF+k/O7a0zzrsMwhabLAFEJbnFyqUEI0+QOgx2VQe4tINVbSurUBJqzZtPU9r4oY0aN/u+rYUloy
+	vRMSx2CqFLUNFI/zAYtMqGAVGBkkmfcNy/ybU2rjQB6az1gLkSEuHDG9J9+84hzmwhbT969hp5KP+
+	Nr07m+cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7v8-000000017zq-3TMc;
-	Tue, 06 Oct 2026 16:21:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7v1-000000017zF-0LXA;
-	Tue, 06 Oct 2026 16:21:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7583143D;
-	Tue,  6 Oct 2026 09:21:25 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B91E3F66F;
-	Tue,  6 Oct 2026 09:21:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791303689; bh=FUiQOxZp7MucygylVgsIgOnfV2/qHj/GNQ7iil0CDdU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XalXf6pVcVvZbeMt2Zn8WosR+pRyf8V1BLuKW99LfSOYGos8qy7duq0J/4jxWjg8/
-	 DgdWe95kHtfXdcFNd5xbjHl9i/wj5WSQ3H7xJQ3Dm9V8dqm5RFZcHbh9ZvACJWQHHV
-	 1FiJ3Chcp7+UXnag7GlZr5/AgM32YtHXHj+HHB1Y=
-Message-ID: <2b981fe5-589b-4262-9830-f1fc4c332b8c@arm.com>
-Date: Tue, 6 Oct 2026 17:21:25 +0100
+	id 1xE81c-000000018PT-49LJ;
+	Tue, 06 Oct 2026 16:28:21 +0000
+Received: from mail-pz2-x09.google.com ([2607:f8b0:4864:3b::9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE81a-000000018OU-2IRh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 16:28:19 +0000
+Received: by mail-pz2-x09.google.com with SMTP id 41be03b00d2f7-cc7c6cc3513so501294a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 09:28:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791304097; x=1791908897; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iyS59LHL863YniTBRLDQIsOwBigLIOw+B5p59bUiqbM=;
+        b=s+4N9H+UkIKQDngEpuTUHfAlSDiS09UyeGZL2yQrlKO1rmjA6iqQxpR7UQvKHnM49K
+         dBT0sdvS3bPOXKVjz6HewVOliqzOfSTFMZlB0c7zQxj48qfYOZQldjr8mkgFyudd+Mpm
+         HaXJY45sHkfjFFIen1JT5D6pvIwDrVtHUUotIcvK1gEvFsYNo2UtiFEyVPVBVMjo9FBU
+         hOFeX0BpsRRE6eNzRiPb4I3+amgyD9OYxM2IT5mxLoBb2vVEXg5H7mpJMKXgL/7B/Uw7
+         D2J7xsbZ8x6kZO8vIevQ/4AlBCD7TTFCn5hcrCT4gdcmHscgbycnAt/XQS/r6mWtWszw
+         IOCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791304097; x=1791908897;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iyS59LHL863YniTBRLDQIsOwBigLIOw+B5p59bUiqbM=;
+        b=Hs4kmTpmAbmmdX4kxV51c3g3Vr6goTHonaND70Jnh3QJ5V5rFVW3TjupiPCC+AvfCx
+         XmNFwBfVFfm1NPHIxYiVqojS/jpOo5K+cdgJ/0aQ43zN+Ydk2LmsNpY++rF2WOxm3Mkm
+         cofdW45vhwyE5zbnI5CFRefS+oFZuP95/+Kf/22IY1APBusz96mKQs0atlbEHwBc1EUF
+         K0L2pdqBu+cA5ViRvtJd5CWQ+YuId1yCtfZBDF6nu45XuF8275CNcIfEUbbNHS6MimWZ
+         ZXfIQCiGd+oqIby/KYov6tCBv9necSQ+v++lo9mbRfldm6+nFHErEDQ5uu2d1anNWMUi
+         gR2A==
+X-Forwarded-Encrypted: i=1; AKwUvBxbIQ1Rx4dsDyORjUA1qns+hTULqwgeZccg2txAcMGeYLOhJxYgN21unLErtXLHTPlCaLx8fuYQT1XKhIXrYTMR@lists.infradead.org
+X-Gm-Message-State: AFq9FYK2Yta1bJBD0YtxNuZ6p7Ikx/bjJBs1qzshdrpbTPzEGw47Ce9N
+	ieGfMy+Hf+audf+9Sv8cKYVkLJVYvNJ40QQ8PebLy79qU1YVvU3al73Z
+X-Gm-Gg: AYBFou31zwOg8CLx49uo/DfxgYA9ouW9PivANvJNFQrqvThAPUWNimn7JppPHbQiIcC
+	DUoNW3VDl0DOGBE1kYKttr9Ch+w+OwgTELuQcKdCHfZ4y2i0mft07QwRllvlaORjkk3VBIRRvkc
+	Ts5ZbGHPR/sSZvt4c3ECxB307Hlowyf551oy1emRcb5f8Xox2tmyE/THJvx2vXYv2cVd+Up3Dym
+	M0x32Rz2yx6OPKKm7W799gcF6/9LHB9PHwLKLzVuQKldrIPPzWMZi9neKqk+7XmSXMGRdjNLBsy
+	u+tvbUDsBaTBp3XJ50okIdIHAi5Z+4+FEa2oOtZ48ZN8lzr5FTx3tmAr4HtEiZJ7AbfQWVuyYR8
+	Z2QYCy/itMGCYQ6mFfJEbPHl/tjGzJxA3yJGwdAMy/mW1QSTX+QCgAJ61MWFIhgvPZX74LNpm1C
+	3Mbi7MONFVnWXkmCOHBoD+p3zL3aOcDNhHBAlr0nSol/sIFS6mX2iRrdkdDSJftsbGUFWq
+X-Received: by 2002:a05:6a00:3cc7:b0:881:f5e1:6e8c with SMTP id d2e1a72fcca58-890df4ab129mr1783463b3a.33.1791304097548;
+        Tue, 06 Oct 2026 09:28:17 -0700 (PDT)
+Received: from server.lan ([168.138.199.194])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89188a0d603sm259898b3a.19.2026.10.06.09.28.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 09:28:16 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: [PATCH v13 0/2] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+Date: Wed,  7 Oct 2026 00:28:04 +0800
+Message-ID: <20261006162807.2843858-1-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 9/9] iommu/arm-smmu-v3: Adopt the Event queue
- across a Live Update
-To: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev,
- Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
- Kevin Tian <kevin.tian@intel.com>, Samiullah Khawaja <skhawaja@google.com>,
- David Matlack <dmatlack@google.com>, Vipin Sharma <vipinsh@google.com>,
- Mostafa Saleh <smostafa@google.com>, Daniel Mentz <danielmentz@google.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260929071950.2710070-1-praan@google.com>
- <20260929071950.2710070-10-praan@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260929071950.2710070-10-praan@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_092132_160455_617E6512 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20261006_092818_589666_3040BCAE 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,311 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 8:19 am, Pranjal Shrivastava wrote:
-> The SMMU may record events of the preserved devices across the kexec,
-> which the incoming kernel loses by resetting the EVTQ.
+Changes since v12:
 
-Not really; events which matter, i.e. stalled faults, are held until the 
-queue becomes writable again. The only events which could be lost would 
-be those which represent unexpected programming errors left over from 
-the previous kernel, which we really cannot do anything about other than 
-say "well, that happened..." Plus there's already no guarantee that such 
-events aren't lost if the queue becomes full or stops for any other 
-reason, so do we really need the hassle here?
+- Only write pipe_sgmii_mac_sel when the property is present, leaving the
+  routing unchanged otherwise (Shawn).
+- Validate the value in the driver and reject anything other than 0 or 1
+  (Shawn).
+- Drop "default: 1" from the binding; the property is tri-state, so no
+  'default' in the schema is appropriate (Rob).
 
-Tahsnk,
-Robin.
+This is the PHY part split out from the v10 RK3568 SGMII series, sent
+separately to linux-phy as suggested by Vinod and Jakub.
 
-> Preserve the EVTQ memory and leave the EVTQ enabled on shutdown. Only
-> store its preservation token in the ABI, as the incoming kernel reads the
-> base, size, PROD and CONS back from the EVTQ registers. Retain EVTQEN
-> across the reset and wake up the EVTQ thread to handle pending events.
-> 
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
-> ---
->   .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 108 +++++++++++++++++-
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  39 +++++--
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  10 ++
->   include/linux/kho/abi/iommu.h                 |   2 +
->   4 files changed, 143 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-> index c0772bcb8d3a..b7cacf48cf8b 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-> @@ -403,11 +403,48 @@ static void arm_smmu_unpreserve_strtab_linear(struct arm_smmu_device *smmu,
->   					    iommu_ser->smmuv3.l1_strtab_lu_state);
->   }
->   
-> +static size_t arm_smmu_evtq_size(struct arm_smmu_device *smmu)
-> +{
-> +	return ((1 << smmu->evtq.q.llq.max_n_shift) * EVTQ_ENT_DWORDS) << 3;
-> +}
-> +
-> +/* The EVTQ stays enabled across the kexec */
-> +static int arm_smmu_preserve_evtq(struct arm_smmu_device *smmu,
-> +				  struct iommu_hw_ser *iommu_ser)
-> +{
-> +	struct arm_smmu_queue *q = &smmu->evtq.q;
-> +
-> +	iommu_ser->smmuv3.evtq_lu_state = 0;
-> +	if (!(smmu->features & ARM_SMMU_FEAT_EVTQ))
-> +		return 0;
-> +
-> +	return dmam_preserve_coherent_allocation(smmu->dev, q->base,
-> +						 arm_smmu_evtq_size(smmu),
-> +						 q->base_dma,
-> +						 &iommu_ser->smmuv3.evtq_lu_state);
-> +}
-> +
-> +static void arm_smmu_unpreserve_evtq(struct arm_smmu_device *smmu,
-> +				     struct iommu_hw_ser *iommu_ser)
-> +{
-> +	struct arm_smmu_queue *q = &smmu->evtq.q;
-> +
-> +	if (!iommu_ser->smmuv3.evtq_lu_state)
-> +		return;
-> +
-> +	dmam_unpreserve_coherent_allocation(smmu->dev, q->base,
-> +					    arm_smmu_evtq_size(smmu),
-> +					    q->base_dma,
-> +					    iommu_ser->smmuv3.evtq_lu_state);
-> +	iommu_ser->smmuv3.evtq_lu_state = 0;
-> +}
-> +
->   int arm_smmu_preserve(struct iommu_device *iommu,
->   		      struct iommu_hw_ser *iommu_ser)
->   {
->   	struct arm_smmu_device *smmu =
->   		container_of(iommu, struct arm_smmu_device, iommu);
-> +	int ret;
->   
->   	/* Basic info */
->   	iommu_ser->smmuv3.phys_addr = smmu->base_phys;
-> @@ -416,11 +453,20 @@ int arm_smmu_preserve(struct iommu_device *iommu,
->   	iommu_ser->smmuv3.strtab_base_cfg =
->   		readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
->   
-> +	ret = arm_smmu_preserve_evtq(smmu, iommu_ser);
-> +	if (ret) {
-> +		dev_err(smmu->dev, "EVTQ preservation failed\n");
-> +		return ret;
-> +	}
-> +
->   	/* We always implements 2-level when supported by HW */
->   	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
-> -		return arm_smmu_preserve_strtab_2lvl(smmu, iommu_ser);
-> +		ret = arm_smmu_preserve_strtab_2lvl(smmu, iommu_ser);
->   	else
-> -		return arm_smmu_preserve_strtab_linear(smmu, iommu_ser);
-> +		ret = arm_smmu_preserve_strtab_linear(smmu, iommu_ser);
-> +	if (ret)
-> +		arm_smmu_unpreserve_evtq(smmu, iommu_ser);
-> +	return ret;
->   }
->   
->   void arm_smmu_unpreserve(struct iommu_device *iommu,
-> @@ -433,6 +479,7 @@ void arm_smmu_unpreserve(struct iommu_device *iommu,
->   		arm_smmu_unpreserve_strtab_2lvl(smmu, iommu_ser);
->   	else
->   		arm_smmu_unpreserve_strtab_linear(smmu, iommu_ser);
-> +	arm_smmu_unpreserve_evtq(smmu, iommu_ser);
->   }
->   
->   static void arm_smmu_liveupdate_clear_l1_std(struct arm_smmu_device *smmu,
-> @@ -545,12 +592,12 @@ int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu)
->   	 * TODO: Quiesce the CMDQV VCMDQs assigned to guests.
->   	 */
->   
-> -	/* Disable the queues, leaving SMMUEN set for the preserved masters */
-> +	/* The incoming kernel resets the CMDQ and PRIQ and adopts the EVTQ */
->   	cr0 = readl_relaxed(smmu->base + ARM_SMMU_CR0);
-> -	cr0 &= ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
-> +	cr0 &= ~(CR0_CMDQEN | CR0_PRIQEN);
->   	ret = arm_smmu_write_reg_sync(smmu, cr0, ARM_SMMU_CR0, ARM_SMMU_CR0ACK);
->   	if (ret)
-> -		dev_err(smmu->dev, "failed to disable queues\n");
-> +		dev_err(smmu->dev, "failed to disable CMDQ/PRIQ\n");
->   	return ret;
->   }
->   
-> @@ -696,6 +743,57 @@ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
->   	return 0;
->   }
->   
-> +/* Adopt the live EVTQ. Returns -ENOENT if it wasn't preserved */
-> +int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu)
-> +{
-> +	u64 base = readq_relaxed(smmu->base + ARM_SMMU_EVTQ_BASE);
-> +	u32 log2size = FIELD_GET(Q_BASE_LOG2SIZE, base);
-> +	struct arm_smmu_queue *q = &smmu->evtq.q;
-> +	struct iommu_hw_ser *iommu_ser;
-> +
-> +	iommu_ser = iommu_get_preserved_data(smmu->base_phys, IOMMU_ARM_SMMUV3);
-> +	if (!iommu_ser || !iommu_ser->smmuv3.evtq_lu_state)
-> +		return -ENOENT;
-> +
-> +	if (log2size > q->llq.max_n_shift) {
-> +		dev_err(smmu->dev, "preserved EVTQ is larger than supported\n");
-> +		return -EINVAL;
-> +	}
-> +	q->llq.max_n_shift = log2size;
-> +
-> +	q->base = dmam_restore_coherent_allocation(smmu->dev,
-> +			arm_smmu_evtq_size(smmu), &q->base_dma, GFP_KERNEL,
-> +			iommu_ser->smmuv3.evtq_lu_state);
-> +	if (!q->base)
-> +		return -ENOMEM;
-> +
-> +	if (q->base_dma != (base & Q_BASE_ADDR_MASK)) {
-> +		dev_err(smmu->dev, "EVTQ_BASE doesn't match the preserved EVTQ\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	q->prod_reg = smmu->page1 + ARM_SMMU_EVTQ_PROD;
-> +	q->cons_reg = smmu->page1 + ARM_SMMU_EVTQ_CONS;
-> +	q->ent_dwords = EVTQ_ENT_DWORDS;
-> +	q->q_base = base;
-> +
-> +	q->llq.prod = readl_relaxed(q->prod_reg);
-> +	q->llq.cons = readl_relaxed(q->cons_reg);
-> +
-> +	dev_info(smmu->dev, "restored preserved evtq (%u entries)\n",
-> +		 1 << q->llq.max_n_shift);
-> +	return 0;
-> +}
-> +
-> +/* A failed EVTQ restore fails the probe, so a preserved EVTQ implies live */
-> +bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu)
-> +{
-> +	struct iommu_hw_ser *iommu_ser;
-> +
-> +	iommu_ser = iommu_get_preserved_data(smmu->base_phys, IOMMU_ARM_SMMUV3);
-> +	return iommu_ser && iommu_ser->smmuv3.evtq_lu_state;
-> +}
-> +
->   int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
->   {
->   	struct arm_smmu_device *smmu = master->smmu;
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index b371ea6b6009..5f9f8bfac668 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4683,10 +4683,13 @@ static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
->   
->   	/* evtq */
->   	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-> -		ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
-> -					      ARM_SMMU_EVTQ_PROD,
-> -					      ARM_SMMU_EVTQ_CONS,
-> -					      EVTQ_ENT_DWORDS, "evtq");
-> +		ret = arm_smmu_liveupdate_restore_evtq(smmu);
-> +		if (ret == -ENOENT)
-> +			ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q,
-> +						      smmu->page1,
-> +						      ARM_SMMU_EVTQ_PROD,
-> +						      ARM_SMMU_EVTQ_CONS,
-> +						      EVTQ_ENT_DWORDS, "evtq");
->   		if (ret)
->   			return ret;
->   	}
-> @@ -5080,9 +5083,15 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   	 * Same for a Live Update restore.
->   	 */
->   	if (arm_smmu_strtab_is_live(smmu)) {
-> +		u32 qens = CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN;
-> +
->   		dev_info(smmu->dev, "%s: retaining SMMUEN for in-flight DMA\n",
->   			 is_kdump_kernel() ? "kdump" : "live update");
-> -		enables = reg & ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
-> +
-> +		/* An adopted EVTQ keeps running */
-> +		if (arm_smmu_liveupdate_evtq_is_live(smmu))
-> +			qens &= ~CR0_EVTQEN;
-> +		enables = reg & ~qens;
->   		goto reset_queues;
->   	}
->   
-> @@ -5173,12 +5182,15 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   
->   	/* Event queue */
->   	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-> -		writeq_relaxed(smmu->evtq.q.q_base,
-> -			       smmu->base + ARM_SMMU_EVTQ_BASE);
-> -		writel_relaxed(smmu->evtq.q.llq.prod,
-> -			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-> -		writel_relaxed(smmu->evtq.q.llq.cons,
-> -			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-> +		/* An adopted EVTQ resumes from its live BASE/PROD/CONS */
-> +		if (!arm_smmu_liveupdate_evtq_is_live(smmu)) {
-> +			writeq_relaxed(smmu->evtq.q.q_base,
-> +				       smmu->base + ARM_SMMU_EVTQ_BASE);
-> +			writel_relaxed(smmu->evtq.q.llq.prod,
-> +				       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-> +			writel_relaxed(smmu->evtq.q.llq.cons,
-> +				       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-> +		}
->   
->   		enables |= CR0_EVTQEN;
->   		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> @@ -5228,6 +5240,11 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   		return ret;
->   	}
->   
-> +	/* Handle the events recorded across the Live Update */
-> +	if (arm_smmu_liveupdate_evtq_is_live(smmu) &&
-> +	    (smmu->combined_irq || smmu->evtq.q.irq))
-> +		irq_wake_thread(smmu->combined_irq ?: smmu->evtq.q.irq, smmu);
-> +
->   	/* Enable the SMMU interface */
->   	enables |= CR0_SMMUEN;
->   	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 1b33f713f3b7..3a67ba685ef5 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -1214,6 +1214,8 @@ void arm_smmu_unpreserve(struct iommu_device *iommu,
->   int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu);
->   int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu);
->   int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master);
-> +int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu);
-> +bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu);
->   int arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
->   					struct arm_smmu_domain *smmu_domain);
->   #else
-> @@ -1229,6 +1231,14 @@ static inline int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *
->   {
->   	return 0;
->   }
-> +static inline int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu)
-> +{
-> +	return -ENOENT;
-> +}
-> +static inline bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu)
-> +{
-> +	return false;
-> +}
->   static inline int
->   arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
->   				    struct arm_smmu_domain *smmu_domain)
-> diff --git a/include/linux/kho/abi/iommu.h b/include/linux/kho/abi/iommu.h
-> index 397fdb0449a6..4e8cc32c3136 100644
-> --- a/include/linux/kho/abi/iommu.h
-> +++ b/include/linux/kho/abi/iommu.h
-> @@ -208,12 +208,14 @@ struct iommu_intel_ser {
->    * @l2_strtab_lu_states_phys: Physical pointer to an array of u64 LU state tokens
->    *                            indexed by L1 index, 0 for L2 tables that aren't
->    *                            preserved (0 if linear)
-> + * @evtq_lu_state: Live update state token for the Event queue (0 if not preserved)
->    */
->   struct iommu_smmuv3_hw_ser {
->   	u64 phys_addr;
->   	u64 strtab_base_cfg;
->   	u64 l1_strtab_lu_state;
->   	u64 l2_strtab_lu_states_phys;
-> +	u64 evtq_lu_state;
->   } __packed;
->   
->   /**
+On RK3568, the SGMII interface can be routed to either GMAC0 or GMAC1 via
+the GRF register pipe_sgmii_mac_sel. Patch 1 documents the
+"rockchip,sgmii-mac-sel" DT property, patch 2 adds the driver support.
+
+From the RK3568 TRM (Part1, Page 229), PIPE_GRF_XPCS_CON0 bit 1
+(pipe_sgmii_mac_sel) is defined as:
+
+    0: SGMII routed to GMAC0
+    1: SGMII routed to GMAC1
+
+The hardware reset value is 1 (GMAC1). If the property is set to 0, the
+driver routes SGMII to GMAC0; if set to 1, it routes to GMAC1. If the
+property is absent, the driver leaves the routing unchanged, so the
+effective value is whatever the bootloader or hardware reset left.
+
+This is necessary for boards such as the Ariaboard Photonicat, which
+uses the SGMII interface connected to GMAC0.
+
+The DTS changes using this property are sent separately to
+Heiko/linux-rockchip, and the net-next parts (XPCS glue, dwmac-rk SGMII
+support) are sent separately to net-next. There is no hard dependency;
+the pieces can converge during the merge window.
+---
+Coia Prant (2):
+  dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel
+    property
+  phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+
+ .../phy/phy-rockchip-naneng-combphy.yaml      | 13 ++++++
+ .../rockchip/phy-rockchip-naneng-combphy.c    | 42 +++++++++++++++++++
+ 2 files changed, 55 insertions(+)
+
+-- 
+2.47.3
 
 
