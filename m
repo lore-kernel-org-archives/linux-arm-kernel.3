@@ -4,107 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3409ACA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B736CA6001
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 04:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uYC8oY+LrXwAaiDtJ55Vw+0AspCCI39rFIw270qLm/8=; b=kWSeuOhYGAAB0z2Cdz2iCpeFtK
-	hr515DWsN7T3IMbnMdiNLyJsJC5kuHjF/CL4Nwym6WYIToqnF6Qzi9ndNCzQa8bN8xYxGy4NhBKrH
-	suDiSA7rkOtFCMkaIBs2CTgRtQJZOyDDbbHZk1X+P4EM5HHzGeBC056n8qhm/RjX9ow7EStqIxgIi
-	gbag54mGWL8BGHDcGvR3Ti2OCYKPTqPH9meUzzWnU67VeoHGMGD54SXanSWL3i9pXW+2XnaRI1YXH
-	0sgu+Ov3ZFTysHl77+0bUSxBDcgJke897jkmuW31fyK4i7LvylXDFUdgMLzowI6c3axvLdx2xV/G6
-	AvljAUcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3W34IvmqyG+oqSkVi2+sgCWFHBHRjPCMKGtdoVU2Jg4=; b=jGbcAkOVLG5SvxBWdkJR3JKK7a
+	PlFvflZWk4eRg2+w4hVJ/GXd+ia6biaVbO0l1yxVKm+gy3OkXzi6Wydm0Mtt9UKC43wz8qCD8JTme
+	Pe/WzAjF7spL4eGZ7tR7H/Ax/L7VC1eqsTLb3RSZOaM4NhKTkn1sEXLmOA85wHmpuoPiKFvQmB+Yc
+	deAWYge5C9uK+C4KEpYW9bzI8Oy0lmKsfqECess2TQsuU84VWYGzpU+fjMulFzYNJo4bmHrwh/j75
+	Enjsf4w9WWMlMGNTnD/YKJw0yet3GsayrW0/1tAmC+fiGvr9HWslCUkvIvvM5YbP5QMooRqfb2bLX
+	32XxtMxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDwHJ-0000000Hajw-47Oh;
-	Tue, 06 Oct 2026 03:55:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xDwSv-0000000005r-2U9B;
+	Tue, 06 Oct 2026 04:07:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDwHH-0000000HajZ-0d7O
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 03:55:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791258941;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uYC8oY+LrXwAaiDtJ55Vw+0AspCCI39rFIw270qLm/8=;
-	b=UZyRd8WbR9H/ek2vX3r6MVBnp74dOwwfntP33dpFRDNCsBgrPPZhaEbSrCTU6WILz8QaaV
-	PdsVXIdQjiQl58z0L8cQVEbfXv0tKch7ZNlkfhr/dM1wF6mjj5qjQ9bNjYqLIDSiyCfSIP
-	h/F0W9u0F2lChBvjkPCcYG6KtUiMxTA=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-131-82Qr1WaYM3mobwfa4FB9Wg-1; Mon, 05 Oct 2026 23:55:41 -0400
-X-MC-Unique: 82Qr1WaYM3mobwfa4FB9Wg-1
-X-Mimecast-MFC-AGG-ID: 82Qr1WaYM3mobwfa4FB9Wg_1791258940
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3a6d30f66c9so680101a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:55:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791258940; x=1791863740;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uYC8oY+LrXwAaiDtJ55Vw+0AspCCI39rFIw270qLm/8=;
-        b=SO1W1r+Hi2RMp4kuOk6IaUvMAmiuYXGDW6IJQVyoVNxym9NvKN9dJ79DtCFyieZaAp
-         MIQsb/soRS3xJhqfapUlg0bKr7Hmggqw6zCjzrDC2zvvfIwVbo7un1Ba4/aycyJyM3+X
-         H2y1TeTA32cSLMHGQpurAOonAYQPZicizH92Rd4BGkNaHyUMdWHKv6LaVRN5C0WQ6KkU
-         ZeO8gJzhPOMHTiqsdPEmp0tzONjl81L3UBFoekBfcaIvQFiysCMahTB+iNEau4aK7zMD
-         KZjDO3+sg2gfRURihbETcYO8kPhv+f2t2Z8IbKaKQAA9ZRuWuX3/4NKJdkQZXMdWoUp+
-         a7QQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxOqUfOrGSd18vrsyNbu4ZbeXle+ik5HqmsVmmAIc7EE51dt/p8MY3bXXOP2tPtqZh0LnoJV8hQTKsiV/TIbgKt@lists.infradead.org
-X-Gm-Message-State: AFq9FYK2dwxGCe3dBleHOmOn50zHXyqq0uTxYPpb10CvuJsLphcVx5z2
-	BcPMq4GgR2AKMeydIJm4i68yZqZXxGcJdRQ6vNoTYm2Qx9WHausRP4zn0aQf0jJjdCpLvkSKTPL
-	g48+EMZs28u0hoPK2uw5H21oA+G+HMBvvfzXtHB6BBdMf774CCRMsshkp78V/dVKais1I0hbdQX
-	TE
-X-Gm-Gg: AYBFou3SbpjbblGhosZ8Dk6aMpLpHmyzGykutDoHsPqO7joDs5/HEyNPNqgzK++ZWMw
-	Oamd6qQ4jaOMVxb16yB07OqVgPEn8IcVuyTjy4zdNTQkk5ha9eqCXkGDW4Od23E/ImYn+9AnJkZ
-	0IsBzi5EF9na92QJDgmwItG8luQCZAO1PdnCvQn7yAE0mN26p36fCxP6PKO5UJ0hmkk1ZJXkqI7
-	WOHl7i6N3jczZhiAYwlgleJFJL9FJMPcFf6lf8mKfbrUfWMsssam8HwZxN8Jl7zmBs05HvC5cPH
-	aBdGuOA33eEmpIWLN/oDyfUVbK/CAEsN37bHgkQUqSp4NleGvkzJSSLiPu2xM5cEO2z/rjCsm/1
-	QPdkIv4GpcJiA81DVgBjbK1kPASIlitFzd9Pu905t7w==
-X-Received: by 2002:a17:90b:4d84:b0:3a7:ef4:74ba with SMTP id 98e67ed59e1d1-3a8546a64dfmr1230259a91.55.1791258939703;
-        Mon, 05 Oct 2026 20:55:39 -0700 (PDT)
-X-Received: by 2002:a17:90b:4d84:b0:3a7:ef4:74ba with SMTP id 98e67ed59e1d1-3a8546a64dfmr1230238a91.55.1791258939230;
-        Mon, 05 Oct 2026 20:55:39 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cce6e2b012esm1790452a12.29.2026.10.05.20.55.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 20:55:38 -0700 (PDT)
-Message-ID: <e7b6a49c-f9ba-410d-b7b6-55c01d1c5015@redhat.com>
-Date: Tue, 6 Oct 2026 13:55:28 +1000
+	id 1xDwSu-0000000005b-0wJ5;
+	Tue, 06 Oct 2026 04:07:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A8F084171C;
+	Tue,  6 Oct 2026 04:07:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7C2F1C4AF0B;
+	Tue,  6 Oct 2026 04:07:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791259663;
+	bh=IuRMhv2jXOqbgtx7SlN/iDd6kXreksPF+78GGWe3Akk=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=F8hHQHIWrM6FkMdjsU9ZukyWBirQYIxjm+BQuAKWOhTtsQsqm0UvMLJogTMaJKpeP
+	 lWIWrsJ3QkIQ+XNCymgvjEc5udI9zDDHpeTSDtsj9jd3xE7SBkG3GtRyCBQezo9fWd
+	 EwxFl054u4AxiUJ1qRm3u+NukYZvejoMaZnm0Fgj/Me0AdqM8pA5krEBr2YVsyPEhC
+	 AIFMYEkl4X8889NTXWOD8gu9wZ7oMXeRUDK6P3/5TJ2xaWnQ9H/OOpR68lqGH8xebd
+	 zhpuLKkkzMrSBi6gJBDt7HmQzg4hgwrHMrrufbEa6s/PiEXBHnsAoRY5vLKWoPiReo
+	 cByD0GQNF+NGw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 523B4CA5FFE;
+	Tue,  6 Oct 2026 04:07:43 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Tue, 06 Oct 2026 07:07:41 +0300
+Subject: [PATCH] arm64: dts: amlogic: meson-sm1-odroid-hc4: add the fan
+ tachometer
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 05/23] KVM: arm64: Track the type of VM in kvm_arch
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-6-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-6-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ljNGl4lckDvmFexJeYSO4DE0pYZifIn7TVfA7oPCWas_1791258940
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_205543_269609_48BB7E58 
-X-CRM114-Status: GOOD (  25.03  )
+Message-Id: <20261006-hc4-fan-tach-v1-1-4e7cecf0b45b@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAAx0xGoC/x3MMQqAMAxA0atIZgOpBBWvIg61RpulSisilN7d4
+ viG/zMkiSoJpiZDlEeTnqHCtA04b8MhqFs1dNT1hqhH7xh3G/C2ziMzObOOA1tiqMkVZdf3381
+ LKR+zsn5WXgAAAA==
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1206; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=RH2EmPkCmqpHmBH5/Nm+KxSPkZ0CLeL9qNXnqDOExA8=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFlHSnjrMq7GmxkqKHTf/7Dr0qH5Lo/TzkdMu9G00Ug3u
+ ef4ZKbzHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAi9w4w/JUwXLBOWb/u8/mI
+ RW1/1N66emlnWgYLWV532RWbHxQuVsnwP3ZCR5ru+QlMVm+KzjjLxl27KMF8McCl7snvo8uz1hv
+ c5AcA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,79 +86,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> KVM arm64 has different types of VMs with all the different modes in which
-> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
-> protected VM and normal VMs with pKVM. We might soon add other types,
-> e.g., Arm CCA Realm. So in an effort to make the handling of these
-> different types of VMs a bit more friendly to the eyes, add a VM flavor to
-> the kvm_arch and we could then add handlers for different operations based
-> on the VM type.
-> 
-> Keep the flavor initialisation at the beginning to allow for the detection
-> early enough and fail out on any unsupported requests.
-> 
-> With that, add wrappers for checking the "type" of a VM and replace the
-> existing users with the new wrappers.
-> 
-> Given we already have the construct of "kvm_vm_is_protected" in the core
-> KVM code, use that for all confidential compute guests including Realms
-> that we are about to add. Adds __VM_PROTECTED marker vm flavor to draw the
-> boundary for "protected VMs". In later patches, we would add Realm VMs,
->   which would also be classified as protected.
-> 
-> Add a explicit helper to detect if a given VM is a "protected" VM under pKVM.
-> Change the existing users that precisely want to check the VM type. These
-> include :
->    - kvm_arch_prepare_memory_region - For preventing memslot changes after
->      pVM creation.
-> 
-> All the others are retained as a wider check for confidential guest VMs.
-> These are:
->   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
->     configuration
->   - io_mem_abort for dabt handling without valid syndrome information
-> 
-> Both of which are true for Realms too.
-> 
-> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
-> checks in the pkvm hyp specific code doesn't need to change, as the only
-> protected guests it deals with is "protected pKVM" guests. To tighten this
-> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
-> supports.
-> 
-> vcpu_is_protected() usage from nVHE hyp code is tricky, as we need to
-> convert the vcpu->kvm to the HYP VA before checking the flavor. This
-> involves kern_hyp_va() usage in asm/kvm_host.h. To avoid build breaks,
-> include asm/kvm_mmu.h to arm64/kvm/mmio.c.
-> 
-> While at it move the psci_version around to keep the structure packed.
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v21:
->   - Drop kern_hyp_va() and restrict nvhe code to always use vcpu_is_protected_pkvm()
->   - Drop kvm_vm_is_unprotected_pkvm() and open code the check
->   - Move psci_version field in kvm_arch around to keep the structure packed
-> ---
->   arch/arm64/include/asm/kvm_host.h      | 42 +++++++++++++++++++++++---
->   arch/arm64/include/asm/kvm_pkvm.h      |  4 +--
->   arch/arm64/kvm/arm.c                   | 33 ++++++++++++++++----
->   arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 +-
->   arch/arm64/kvm/hyp/nvhe/pkvm.c         |  6 +++-
->   arch/arm64/kvm/hyp/nvhe/switch.c       |  4 +--
->   arch/arm64/kvm/hyp/nvhe/timer-sr.c     |  2 +-
->   arch/arm64/kvm/mmio.c                  |  1 +
->   arch/arm64/kvm/mmu.c                   |  2 +-
->   arch/arm64/kvm/pkvm.c                  |  6 ++--
->   10 files changed, 79 insertions(+), 23 deletions(-)
-> 
+From: Igor Velkov <iav@iav.lv>
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+The fan connector routes the fan's tachometer output to GPIOX_7, but
+the fan node does not describe it. pwm-fan therefore registers no
+fan1_input, and the fan speed cannot be read.
+
+Describe the line as the fan's interrupt.
+
+Tested on ODROID-HC4: fan1_input reads 0 with the fan stopped and
+rises with the duty cycle, to about 4400 rpm at full speed.
+
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+ arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+index 5f15c2299509..261a42560a5e 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+@@ -21,6 +21,8 @@ fan0: pwm-fan {
+ 		#cooling-cells = <2>;
+ 		cooling-levels = <0 120 170 220>;
+ 		pwms = <&pwm_cd 1 40000 0>;
++		interrupt-parent = <&gpio_intc>;
++		interrupts = <IRQID_GPIOX_7 IRQ_TYPE_EDGE_FALLING>;
+ 	};
+ 
+ 	leds {
+
+---
+base-commit: b44e2be772f866985cafdf90355285069ea68495
+change-id: 20261006-hc4-fan-tach-440c1b874a04
+
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
+
 
 
