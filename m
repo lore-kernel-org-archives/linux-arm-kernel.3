@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5422CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F9FCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0HJbfqojCnyDCq67GdTQKqumiVu32qDFX6wYw2kJYng=; b=Nq//TGelLfNHg3LJf1sGoJlWt7
-	2PuDX1Eu5YcZtVHSQGKi1SFKAVBkImIjK0ytjg3LHCmWFCAxfMHqA+kLZu8jFjB1TXpCozKoCiD1M
-	PwuWp18QReumNgEFT34BgthZI2aBERa/3x4UKvP+rBpa/MvR3zfM3dQhvxQddjB8II3bKJ9Li4M6I
-	o2ZQwcCc/2uZlBCMgcR7z72uhGiT0ouwWeiaeJBacC8KjYGxZZV9uXlgjaQFye38e7fgggfWOmF9D
-	5hwt64ai//MdMVbX5D6N5LzlvgEiXncoxD0PKKp5ntZPCqebrm7WNm85rh8VZ1z0cXuKG6VWstw05
-	SuOhO2aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bq2Zd4FEd+reyPiRN7kTRwXnMuIiFrgQ/RnbujYfkYI=; b=D+z3DzSYbDes/I/yRhH81U/BGL
+	M/1zd3BF1B+j41vgx8Gk2e4VvbXONtCGxLde5LkRaAr6kqZhUauhrPaDrdJFi3hTpruLwO0m/0oLj
+	tZI8yj17I3n0VV+3al2jEl5fLQn0V5qqH5PP9ozU0F99ROoCADc5WW7zSRcyX5GpnrnO4dn2pKNTo
+	tZXCsJujuEUrGjNMjUK/KlLqXH1KZIziX3QZn1Lo7SxnTD2Fh1NYKKM9jxVHfTolFX5eZZXuEfTZA
+	rBkMny9M1lwUbgRvDpddAA5ZsaIFuzMc9b5JeWcyJWGM3D6gfHMT35O7u0wP7OdpnACZQpg71qM5C
+	JehHn5vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1SU-00000000NaP-2GcV;
-	Tue, 06 Oct 2026 09:27:38 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1ST-00000000NZg-04h9;
-	Tue, 06 Oct 2026 09:27:38 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1134)
-	id 61EE920B7168; Tue,  6 Oct 2026 02:26:39 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 61EE920B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1791278799;
-	bh=0HJbfqojCnyDCq67GdTQKqumiVu32qDFX6wYw2kJYng=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TuNXtmZ1Fqfzj5XwTvOXRi1jAGQyvOSi23J8GQ1iWAU7FH+zLjWffU5SG6dIeMOL7
-	 eYpBG4SAHoh4gBAJnKOKOiRZaL/ENjCVn/fqfFiMAxmlAHsFM2eahcELTmWojgQOKZ
-	 Q4F17v1qfpqD7Uy88ym/UbkD9Sisd0dT2PkJo7wA=
-Date: Tue, 6 Oct 2026 02:26:39 -0700
-From: Shradha Gupta <shradhagupta@linux.microsoft.com>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Wei Liu <wei.liu@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Baoquan He <baoquan.he@linux.dev>, Will Deacon <will@kernel.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Dexuan Cui <decui@microsoft.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"x86@kernel.org" <x86@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-Subject: Re: [PATCH v3 0/2] hyperv: Run VMBus kexec cleanup from syscore
- shutdown
-Message-ID: <asS+z+2H8iNfnHwW@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <20261001132128.1703511-1-shradhagupta@linux.microsoft.com>
- <SN6PR02MB41578FDB019EE76576C612A8D48A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+	id 1xE1TS-00000000Nmb-2tC5;
+	Tue, 06 Oct 2026 09:28:38 +0000
+Received: from out-142.mta0.migadu.com ([2001:41d0:1004:224b::8e] helo=mta0.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE1TP-00000000NlB-2zAw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 09:28:38 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=v3T3fBb11/yU7ppCqF5TMod7CuvBDECZxjrjNXI8Y9o=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791278911; v=1; x=1791883711;
+ b=PsL7JxdfWqBr55wQ/rfIOw4yeUv7YZfEcRTuZv6UWuOkukydRyHYSD4gkVKv7DQiedOLNLOz
+ z2q2qFK5yPord/fz9SKjajpvJNe5mUsb5ZM5ysIYnWJyCRFF4wL+HfWBbyELn+muClp7s4R6Uza
+ OvUfE6wlMvQzBZ5N4MTC+/rc=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 913d3b9294e19705;
+	Tue, 06 Oct 2026 09:28:30 +0000
+X-Mizu-Trace-ID: 913d3b9294e19705
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	mark.rutland@arm.com,
+	tabba@google.com
+Subject: [PATCH v2] KVM: arm64: Mask SErrors in a protected vCPU's host copy at first run
+Date: Tue,  6 Oct 2026 10:28:26 +0100
+Message-Id: <20261006092826.2201763-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB41578FDB019EE76576C612A8D48A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_022737_093946_4E423DF6 
-X-CRM114-Status: GOOD (  31.35  )
+X-CRM114-CacheID: sfid-20261006_022835_890852_525A70B3 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +79,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 04:14:22PM +0000, Michael Kelley wrote:
-> From: Shradha Gupta <shradhagupta@linux.microsoft.com> Sent: Thursday, October 1, 2026 6:21 AM
-> > 
-> > Kexec reboot fails on ARM64 Hyper-V guests because the VMBus
-> > connection and SynIC CPU hotplug state are not torn down before the
-> > secondary CPUs are stopped. The kexec kernel consequently starts with
-> > the previous kernel's VMBus state still active.
-> > 
-> > The previous version added an ARM64-specific syscore shutdown
-> > implementation. This version follows Michael Kelley's review and moves
-> > the cleanup into the existing architecture-independent VMBus syscore
-> > operations. This removes the separate x86 handler dispatch and gives
-> > x86 and ARM64 the same ordering:
-> > 
-> >   device_shutdown()
-> >   syscore_shutdown()
-> >     VMBus UNLOAD and SynIC CPU hotplug teardown
-> >   machine_shutdown()
-> > 
-> > On x86, VMBus teardown now runs before hv_stimer_global_cleanup().
-> > This ordering is safe after commit be0cfab740e5 ("clocksource: hyper-v:
-> > Remove support for stimer interrupts in message mode") removed the
-> > VMBus dependency from synthetic timer handling.
-> > 
-> > Patch 1 adds a read-only helper that reports whether a kexec reboot is
-> > in progress. The helper is exported because HYPERV_VMBUS is tristate
-> > and the common syscore callback must also link when VMBus is a module.
-> > Patch 2 moves the cleanup into the common callback and removes the
-> > obsolete architecture-specific setup/remove interface.
-> > 
-> > For stable kernels that still support message-mode stimers, an
-> > ARM64-specific backport will be needed to preserve the existing x86
-> > ordering.
-> > 
-> > Changes in v3:
-> >   - Use the existing common VMBus syscore operations on all
-> >     architectures, as suggested by Michael.
-> >   - Remove the x86 handler pointer and the weak setup/remove interface.
-> >   - Add an exported read-only helper for modular VMBus builds.
-> >   - Correct the Fixes tag to the commit that enabled Hyper-V on ARM64.
-> > 
-> > Changes in v2:
-> >   - Use syscore shutdown instead of an ARM64 machine_shutdown() hook, as
-> >     suggested by Catalin.
-> > 
-> > Shradha Gupta (2):
-> >   kexec: Add helper to report an active kexec reboot
-> >   Drivers: hv: Run VMBus kexec cleanup from syscore shutdown
-> > 
-> >  arch/x86/kernel/cpu/mshyperv.c | 17 +----------------
-> >  drivers/hv/hv_common.c         | 10 ----------
-> >  drivers/hv/vmbus_drv.c         | 22 ++++++++++++++--------
-> >  include/asm-generic/mshyperv.h |  2 --
-> >  include/linux/kexec.h          |  2 ++
-> >  kernel/kexec_core.c            |  7 +++++++
-> >  6 files changed, 24 insertions(+), 36 deletions(-)
-> > 
-> > 
-> > base-commit: be0cfab740e58b70047ef6e7e3d578f00ed5d258
-> > --
-> > 2.43.0
-> 
-> Nice! Net impact is to remove 12 lines of code, instead of
-> adding 40, which is great. And nothing under arch/arm64 is
-> modified.
-> 
-> One minor point: In hv_machine_shutdown(), we have two
-> sequential tests of kexec_in_progress. Given that you are
-> removing some code under the first test, I think it would be
-> fair game to do a very minor refactoring of existing code and
-> combine the two tests. It just looks a little funny to have the
-> same test twice in a row.
-> 
-> But regardless of whether you include that change, for
-> the series,
-> 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+The host's copy of a protected vCPU has SErrors masked from reset, so a
+host-injected SError is pended through HCR_EL2.VSE and the guest takes
+it when it unmasks SErrors. However, the VMM can unmask SErrors in that
+copy before the first run, through PSTATE.A or SCTLR2_EL1.NMEA. KVM
+then emulates the SError's entry on the host copy, and the guest never
+takes it as an SError. Exits that copy PSTATE out set PSTATE.A again,
+but nothing clears NMEA. With NMEA set, an SError injected after a
+KVM_RUN that completes an MMIO access but returns before entering the
+guest also trips WARN_ON(INCREMENT_PC).
 
-Thank you Michael, I'll take up the refactoring in a seperate patch.
+Mask SErrors in the host copy when the first run creates the hyp vCPU,
+after which KVM_SET_ONE_REG is rejected. An SError injected before then
+is still emulated, but only writes registers the VMM can set itself.
 
-regards,
-Shradha
+Fixes: 872383bd12e11 ("KVM: arm64: Add per-EC entry/exit state marshalling for protected guests")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20261001142109.794CA1F000FF@smtp.kernel.org/
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+v2:
+ - Set PSTATE.A and clear SCTLR2_EL1.NMEA in the host copy when the hyp
+   vCPU is created, instead of testing vcpu_is_protected() in
+   kvm_inject_serror_esr() (Marc).
+
+Applies on kvmarm/next. A follow-up to "KVM: arm64: Confine protected VM
+vCPU state to EL2" [1], from Sashiko's review of its v4 patch 12.
+
+v1: https://lore.kernel.org/r/20261005050352.836980-1-fuad.tabba@linux.dev/
+[1] https://lore.kernel.org/all/20261001135711.1640520-1-fuad.tabba@linux.dev/
+
+ arch/arm64/kvm/pkvm.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index d4822d8bb16b8..49973c689789f 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -191,12 +191,18 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 	/*
+ 	 * Mirror EL2's seeding of power_state from mp_state. The hyp vCPU is
+ 	 * published, so take mp_state_lock against kvm_psci_vcpu_on().
++	 *
++	 * EL2 never reads the VMM's PSTATE or SCTLR2_EL1: undo any unmasking
++	 * so that a host SError is pended through HCR_EL2.VSE.
+ 	 */
+ 	if (vcpu_is_protected(vcpu)) {
+ 		spin_lock(&vcpu->arch.mp_state_lock);
+ 		if (kvm_arm_vcpu_stopped(vcpu))
+ 			WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_UNINITIALIZED);
+ 		spin_unlock(&vcpu->arch.mp_state_lock);
++
++		*vcpu_cpsr(vcpu) |= PSR_A_BIT;
++		__vcpu_rmw_sys_reg(vcpu, SCTLR2_EL1, &=, ~SCTLR2_EL1_NMEA);
+ 	}
+ 
+ 	vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
+
+base-commit: fa22cd9947fc245d71bc40482f7f78eb0d5a4af0
+-- 
+2.39.5
+
 
