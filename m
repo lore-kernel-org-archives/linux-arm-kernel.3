@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FA8CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C6CCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oF0AqtLKW1wMFXN3AtA1a7ftB0WwEz7YV+0y5nSnPfE=; b=vrvJnP5qlyUl9pF0db8vUzTqB9
-	r1C5yNqsA+0PTeaRDmlkN5wt/sVuHYmIBqVwpNx9tWGirv4C7kfHYdjqZP5DW9e9/Yjhm/ImQ3Mom
-	eepKlj4rczxaE+nzy0ZwsnRr0REgDWemxWiaJu9hZ5pW5uJlO2QGWqqVTiq4oUoDhhD/AaGvjqR6f
-	ERZ3q/v2jDz4nEeimbg/QLQhvkra/BLuTLxjz1z39/xmqFEZLDnT1RftBaxC102SizuHJ/6FYmw+n
-	EK4yGgYf0edgNrzoBkz1kiaCMmDZH0zFhBquTWkabnm51Ai2uLgjlsk6dvKEQUVVu+OoF7Q7m/1Tv
-	+FM3903A==;
+	bh=2iTiEXRkkRUyq0OdUcDn74SXOWzYdu5OFlD5dkwH2Xo=; b=cLkAuz9tWcqx4z9idYG7k98iqg
+	4q0qe7erXn2jgmZox99B4M+4uaSepcmGxkCtdIll+DuM5oAkWBhNQXmSY2IZEgSoUsIF59RN5Iuq4
+	v5Aw/U3IW7yWGoDWTut8e4U7aabOC/FGokEyRWSacErG0N2+1LEtDG1AvIdG6UQkkHC3Ukis/FxfU
+	dNcYlrwm4eVHhS48NGCkFb090knmQj0mckwrSqUn0gz7ZQdtEIMpPgUU+HuD2UKMQ7HeukJm2otxU
+	0NUpEw9iKGgOQNyWpdnfRUwy6EGxIN/HeGZ5G7S/QHwxlx5ju55MzVsZNHFNtKLqpvg4D8FphZnGr
+	JyDeT9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7ID-000000013Kz-0LMv;
-	Tue, 06 Oct 2026 15:41:26 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1xE7JT-000000013VB-3Oyd;
+	Tue, 06 Oct 2026 15:42:43 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7I9-000000013K8-1vqB;
-	Tue, 06 Oct 2026 15:41:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1791301273; x=1791906073; i=wahrenst@gmx.net;
-	bh=oF0AqtLKW1wMFXN3AtA1a7ftB0WwEz7YV+0y5nSnPfE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ImTEcsy1bODjmMx2dhqCEUnxgO+ghTudCRBcUidoFiQKFeJnAkrIXSNgFbFOVbm2
-	 cSISYdNgGsGRuzAR19Zf/fJrJTT35cu2+MXE2l90UKauYPzprtwmLfv4OW/Wp3k47
-	 Er+lfEkOqY94OYNly+YLpZ90CvP8qQDVNtXH0Iw97ScAah/UyG9mORR0Lpge9JIU/
-	 16Y/Tit1aHU03hOiJ+5V4QNaLrfxV8HEy0QXMl4+CwJ50IlCjLN3T9K6gxSnzhvie
-	 HfAwagtDUayEJdOZDA5J0hsUTZV1u0I58G6pbcVNJl6N29XQDxyU/spRuQUexyDUD
-	 f/2uSQkhYh+XrfPt5w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MxlzC-1wTYoB26Bi-00xIfd; Tue, 06
- Oct 2026 17:41:13 +0200
-Message-ID: <03afbe60-4cb3-4777-b95b-3c144d5c7b4e@gmx.net>
-Date: Tue, 6 Oct 2026 17:41:10 +0200
+	id 1xE7JQ-000000013U5-2rYW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 15:42:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=2iTiEXRkkRUyq0OdUcDn74SXOWzYdu5OFlD5dkwH2Xo=;
+	b=ch5PuzuPbxD6P1KR+X5hPHTZme482fmkNqk+TFMnBlKONUcsgjVo0xX1IxzXG4
+	Rod8h4CsiRPCxmEgLiqb9l5epYesrsPKS72FFb17DjB96UXIbK8fodMeJYVr+R7V
+	gUzvQfKFr9JDCpXDKYPM9Hcyh1ybo3T6itvGhIGum7LTQ=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDHErmrFsVqBJiCCw--.47147S2;
+	Tue, 06 Oct 2026 23:41:45 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	dinghui1111@163.com,
+	dinghui@lixiang.com,
+	edumazet@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	liuxuanjun@lixiang.com,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com
+Subject: Re:Re: [PATCH net v4] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+Date: Tue,  6 Oct 2026 23:41:31 +0800
+Message-Id: <20261006154131.2576226-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <179117229846.434549.8891935731909166889@kernel.org>
+References: <179117229846.434549.8891935731909166889@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte Charge
- Control Y
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Christoph Stoidner <c.stoidner@phytec.de>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Fabio Estevam
- <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Marc Kleine-Budde <mkl@pengutronix.de>, devicetree@vger.kernel.org,
- linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol@kernel.org>,
- Aswath Govindraju <a-govindraju@ti.com>
-References: <20260907150420.18787-1-wahrenst@gmx.net>
- <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net> <arFDUby0v52HSNnU@SMW015318>
- <1a7c722b-a4ff-45d5-a590-0910ac47b541@gmx.net>
- <7cc6e394-9895-4f42-a0c1-f1fbd7eafbfa@gmx.net> <ar_Wd3fF94XSj4mh@SMW015318>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <ar_Wd3fF94XSj4mh@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:brCR9kffWRhEWA7ANvQgIUDpRwgpZtemF3TAceeCDFv9rYYtpGN
- 8EhEJ8hbLM9XWHtOZ5E6agNyCMZ4eqUEEhx7CO5WlASQOv1Ud2+v2gP6YQiv/bXmtgtxz9s
- OPF7j08kFko2s+l0ljvLsnrG0g+7EdQkad9/6sZ/hZNIPEmfnnS0gJKQSYr09RT9dBbe5eE
- gV4C0Hg7rBp8FAx+sRqgA==
-UI-OutboundReport: notjunk:1;M01:P0:/bT4Y+9fsL4=;AYcZNta23FC4xA5L0CXkm41UmgM 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 ZZMlan5A==
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDHErmrFsVqBJiCCw--.47147S2
+X-Coremail-Antispam: 1Uf129KBjvAXoW3tFWrtry5GF15ZF4rJFyrZwb_yoW8Ar4DXo
+	WruF1ktw1rtw15ur1ktFWxGrW3GFn3u3WfXrWDur4rAFZ7ZFW5u34rX3WrJFW3JrWjgayD
+	ua4kta9FvFW3Jr1rn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTRQZ2TUUUUU
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0hq-62rFFro-3AAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_084121_876083_02F96E2A 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20261006_084241_163395_EB629BCC 
+X-CRM114-Status: GOOD (  42.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,77 +87,459 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
+Thank you for the detailed review. 
 
-Am 02.10.26 um 18:06 schrieb Frank Li:
-> On Fri, Oct 02, 2026 at 05:31:23PM +0200, Stefan Wahren wrote:
->> Hi Frank,
->>
->> Am 23.09.26 um 11:19 schrieb Stefan Wahren:
->>> Hi Frank,
->>> hi Vinod,
->>>
->>> Am 21.09.26 um 16:46 schrieb Frank Li:
->>>> On Mon, Sep 21, 2026 at 03:09:23PM +0200, Stefan Wahren wrote:
->>>>> Hi Frank,
->>>>>
->>>>> Am 07.09.26 um 17:04 schrieb Stefan Wahren:
->>>>>> This series adds support for the chargebyte Charge Control Y, which=
- is
->>>>>> an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
->>>>>> Charging System) charging stations.
->>>>>>
->>>>>> sashiko reported in the first version of the series [1] that
->>>>>> X_nRST_LAN
->>>>>> is available via GPIO line names, but there is no reset
->>>>>> mechanismn in the
->>>>>> device tree. This finding is valid. Since the reset line feature is=
-n't
->>>>>> implemented for LAN8651 driver yet, I like to proceed with the curr=
-ent
->>>>>> version. The LAN8651 handles reset via SPI commands and in rare cas=
-es
->>>>>> we still have the possibility to control the reset from userspace.
->>>>>> Btw the pin has a pull resistor in hardware, so it's not floating.
->>>>>>
->>>>>> sashiko complained in the fourth version of the series [2] about th=
-e
->>>>>> reset polarity of ethphy2 and the different drive strength across t=
-he
->>>>>> data lines. Both is intended.
->>>>>>
->>>>>> [1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C=
-1F000E9@smtp.kernel.org/
->>>>>> [2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C=
-1F000E9@smtp.kernel.org/
->>>>>>
->>>>>> Changes in V5:
->>>>>> - fix delete-node for pinctrl_leds (reported by sashiko)
->>>>>> - add Krzysztof's Reviewed-by
->>>>> I didn't received any feedback for V5 yet. Do you have any
->>>>> comments or could
->>>>> it be merged?
->>>> Wait for vinod pick phy binding part.
->>> @Vinod are you fine with both PHY bindings?
->>>
->>> @Frank I noticed that this patch has a conflict with the Makefile in
->>> linux-next. Should I rebase or do you resolve the conflict?
->> would it be better if I rebase now and send a V6, I concerned that this
->> misses the cycle.
-> Vinod missed pickup one of binding patch.
-Now both PHY binding patches has applied. My question referred to the=20
-conflict on the Makefile in Patch #4 against your current for-next.
-Should I send a V6 or do you resolve the conflict?
+At 2026-10-05 11:51:38, netdev-bot+sashiko@kernel.org wrote:
+>Thank you for your contribution! Sashiko AI review found 4 potential
+>issue(s) to consider.
+>
+>Critical: 0 · High: 0 (4) · Medium: 2 · Low: 2
+>
+>If you believe none of the issues are legitimate, please reply to each
+>issue of Medium severity or higher and explain why the AI is wrong.
+>If any of them are legitimate and you plan to respin, please let patchwork
+>know by including "pw-bot: cr" as a separate line at the end of your reply
+>(one such reply per series is enough).
+>
+>- [Medium] The patch's new 'freed pointers are NULL' invariant is only
+>  written into the dma_conf object passed to…
+>- [Medium] stmmac_rings_status_show() takes no lock (no rtnl, no
+>  priv->lock).
+>- [Low] The commit describes and fixes real, user-visible defects but has
+>  no Fixes: trailer.
+>- [Low] The commit message says the stmmac_rings_status_show() change
+>  keeps 'the rings sysfs entry' from dereferencing a NULL pointer.
+>
+>Pre-existing issues:
+>- [High] This problem wasn't introduced by this patch, but
+>  stmmac_enable_rx_queue() and stmmac_enable_tx_queue()…
+>- [High] This problem wasn't introduced by this patch, but
+>  stmmac_xdp_set_prog() (stmmac_xdp.c:134-140) calls…
+>- [High] This problem wasn't introduced by this patch, but after a failed
+>  stmmac_xdp_open() inside stmmac_xdp_set_prog() (return value ignored),…
+>- [High] This problem wasn't introduced by this patch, but in
+>  stmmac_xdp_open() the irq_error path runs after the MAC RX/TX has been…
+>
+>--
+>
+>net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+>
+>This patch makes __alloc_dma_rx_desc_resources() and
+>__alloc_dma_tx_desc_resources() undo their own allocations on failure. It
+>also adds NULL checks in the RX/TX buffer free helpers and clears the freed
+>pointers in __free_dma_{rx,tx}_desc_resources(). Finally, it frees the RX
+>resources when the TX allocation fails in alloc_dma_desc_resources(), and
+>skips unallocated rings in stmmac_rings_status_show().
+>
+>> And skip queues whose descriptor rings are not allocated
+>> in stmmac_rings_status_show() so reading the rings sysfs entry will
+>> never dereference a NULL pointer.
+>
+>[Severity: Low]
+>This isn't a bug, but stmmac_rings_status_show() backs a debugfs file, not
+>a sysfs entry:
+>
+>stmmac_init_fs() {
+>    ...
+>	debugfs_create_file("descriptors_status", 0444, priv->dbgfs_dir, dev,
+>			    &stmmac_rings_status_fops);
+>    ...
+>}
+>
+>Could the commit message also explain how the rings end up unallocated
+>while IFF_UP is set? As far as I can tell, this only happens after one of
+>two ignored failures:
+>
+>  - stmmac_xdp_open() failing inside stmmac_xdp_set_prog()
+>  - a per-queue re-allocation failing in stmmac_enable_rx_queue() or
+>    stmmac_enable_tx_queue()
+>
+>In both cases the guard hides the symptom of a half-torn-down interface.
+>
+The rings can indeed be unallocated while IFF_UP remains set
+after an reconfiguration tears down the existing resources and
+the subsequent re-open or re-allocation fails.
 
-Best refards
+Besides the two XDP paths mentioned above, this can also happen when:
+
+  - an MTU change releases the current configuration and the internal
+    __stmmac_open() fails;
+
+  - an ethtool ring parameter update releases the current configuration
+    and stmmac_open() fails; or
+
+  - an ethtool RX/TX channel-count update releases the current
+    configuration and stmmac_open() fails.
+
+These are all pre-existing error recovery issues. In particular, the
+XDP paths do not propagate re-open or per-queue allocation failures, and
+the MTU/ethtool reconfiguration paths leave the netdev marked
+up when their re-open fails.
+
+The descriptors_status change is only defensive: it prevents a debugfs
+read from dereferencing a released or unallocated descriptor ring while
+diagnosing one of these failed reconfiguration states. It is not intended
+to hides the symptom of a half-torn-down interface.
+
+I will update the commit message to describe descriptors_status as a
+debugfs entry, and avoid describing the guard as a complete
+recovery mechanism. The error propagation and recovery-state handling
+will be fixed in follow-up patches.
+
+>> Signed-off-by: Ding Hui <dinghui@lixiang.com>
 >
-> Frank
+>[Severity: Low]
+>Should this have Fixes: tags? The patch fixes two separate problems:
 >
->> Best regards
->>> Best regards
->>>> Frank
->>>>
->>>>> Best regards
->>>>>
+>  - a NULL dereference of rx_q->buf_pool[i] or tx_q->tx_skbuff_dma[i] in
+>    dma_free_rx_skbufs() and dma_free_tx_skbufs() after a failed
+>    kzalloc_objs()
+>  - a leak of the RX page_pools, buf_pools and coherent rings when
+>    alloc_dma_tx_desc_resources() fails
+>
+>Before this patch, stmmac_setup_dma_desc() only did kfree(dma_conf) under
+>alloc_error, and the dma_desc_error label in stmmac_xdp_open() just
+>returns.
+>
+>These problems seem to come from different commits, so more than one
+>Fixes: tag may be needed for net and stable backports.
+>
+The 'Fixes:' tags are intentionally omitted. During the earlier review,
+the maintainer requested that this series target net-next rather than
+net, since the allocation-failure scenario is not suitable for stable
+routing. I will keep the series targeted at net-next.
+
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> index ec62fa7418f41..07176750a0c48 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>
+>[ ... ]
+>
+>> @@ -2161,13 +2173,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+>>  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+>>  
+>>  	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
+>> +	rx_q->dma_erx = NULL;
+>> +	rx_q->dma_rx = NULL;
+>> +	rx_q->dma_rx_phy = 0;
+>
+>[Severity: Medium]
+>Do these NULL stores ever reach priv->dma_conf on the __stmmac_open()
+>failure paths?
+>
+>__stmmac_open() copies the heap dma_conf into priv->dma_conf before the
+>steps that can fail:
+>
+>__stmmac_open() {
+>    ...
+>	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
+>    ...
+>}
+>
+>If stmmac_hw_setup() or stmmac_request_irq() fails after that, the callers
+>free the temporary copy and not priv->dma_conf:
+>
+>stmmac_change_mtu() {
+>    ...
+>		ret = __stmmac_open(dev, dma_conf);
+>		if (ret) {
+>			free_dma_desc_resources(priv, dma_conf);
+>			kfree(dma_conf);
+>    ...
+>}
+>
+>stmmac_open() follows the same pattern under err_dma_resources.
+>
+>So the new NULL stores to dma_rx, buf_pool, page_pool, tx_skbuff and
+>tx_skbuff_dma all land in memory that is kfree()d right away. Meanwhile
+>priv->dma_conf keeps non-NULL pointers to the freed coherent rings and
+>arrays.
+>
+>After a failed MTU change the netdev stays IFF_UP. The new
+>"if (!rx_q->dma_rx)" guards in stmmac_rings_status_show() then pass, and
+>sysfs_display_ring() reads memory that was already released with
+>dma_free_coherent().
+>
+>The commit message says clearing the pointers makes "the NULL guards in
+>the free helpers hold reliably when the long-lived priv->dma_conf is
+>reused". Does that invariant actually hold for priv->dma_conf on these
+>paths?
+>
+You're right. __stmmac_open() copies the temporary dma_conf into
+priv->dma_conf before the later setup steps, so freeing the temporary
+copy in the caller does not update the long-lived copy.
+
+In v5,  resource ownership transfers to priv->dma_conf after that copy,
+__stmmac_open() will release priv->dma_conf on its failure paths, while
+the callers only free the temporary dma_conf container after an
+__stmmac_open() failure. Failures before calling __stmmac_open() still
+release the temporary dma_conf and its resources.
+
+>The aliasing itself predates this patch. Also, after this failure, a later
+>"ip link set down" makes __stmmac_release() call napi_disable() on NAPI
+>instances that are already disabled. That spins under the rtnl lock, so a
+>second free_dma_desc_resources() on priv->dma_conf is not reached on that
+>path.
+>
+>[ ... ]
+>
+Agreed. If stmmac_xdp_open() fails after stmmac_xdp_release() has
+disabled the NAPI instances, stmmac_xdp_set_prog() currently ignores the
+failure and leaves the device in an inconsistent partially torn-down
+state. A subsequent ndo_stop can then attempt to disable the same NAPI
+instances again before it reaches the normal resource cleanup path.
+
+This is a pre-existing XDP reconfiguration error-handling issue. The
+pointer aliasing between the temporary dma_conf and priv->dma_conf also
+predates this series. I will only make the ownership boundary explicit by
+having __stmmac_open() clean up priv->dma_conf after the copy in v5.
+
+The proper fix needs to propagate the stmmac_xdp_open() error and leave
+the device in a consistent state, including the NAPI, IRQ, DMA and TX
+queue state. This is broader than the DMA resource cleanup in this
+series, so it's better to fix it in a follow-up patch rather than add a
+partial recovery here.
+
+>> @@ -2209,9 +2228,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
+>>  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+>>  
+>>  	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
+>> +	tx_q->dma_etx = NULL;
+>> +	tx_q->dma_entx = NULL;
+>> +	tx_q->dma_tx = NULL;
+>> +	tx_q->dma_tx_phy = 0;
+>
+>[Severity: High]
+>This is a pre-existing issue, but is the hardware still pointed at these
+>rings when they are freed on the stmmac_xdp_open() error path?
+>
+>stmmac_xdp_open() {
+>    ...
+>	stmmac_mac_set(priv, priv->ioaddr, true);
+>
+>	/* Start Rx & Tx DMA Channels */
+>	stmmac_start_all_dma(priv);
+>
+>	ret = stmmac_request_irq(dev);
+>	if (ret)
+>		goto irq_error;
+>    ...
+>irq_error:
+>	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+>		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+>
+>init_error:
+>	free_dma_desc_resources(priv, &priv->dma_conf);
+>    ...
+>}
+>
+>If stmmac_request_irq() fails, the rings are freed with dma_free_coherent()
+>and the RX pages go back to the page pool. Unlike stmmac_xdp_release(),
+>this path never calls stmmac_stop_all_dma() or
+>stmmac_mac_set(..., false).
+>
+>Can the DMA engine keep fetching descriptors from freed memory and writing
+>received frames into freed pages?
+>
+>__stmmac_open() looks similar. stmmac_hw_setup() enables the MAC and starts
+>DMA, and the irq_error/init_error path leaves both running before the
+>caller frees the rings.
+>
+>Setting dma_rx_phy and dma_tx_phy to 0 makes the software state look
+>clean, but the channel registers still hold the old bus addresses.
+>
+>[ ... ]
+>
+>> @@ -2298,10 +2328,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+>>  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
+>>  	if (ret) {
+>>  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
+>> -		return -EINVAL;
+>> +		goto err_free_dma;
+>>  	}
+>>  
+>>  	return 0;
+>> +
+>> +err_free_dma:
+>> +	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
+>> +	rx_q->dma_erx = NULL;
+>> +	rx_q->dma_rx = NULL;
+>> +err_free_buf_pool:
+>> +	kfree(rx_q->buf_pool);
+>> +	rx_q->buf_pool = NULL;
+>> +err_destroy_pool:
+>> +	page_pool_destroy(rx_q->page_pool);
+>> +	rx_q->page_pool = NULL;
+>> +	return ret;
+>>  }
+>
+>[Severity: High]
+>This isn't a bug introduced by this patch, but what happens on the XSK
+>pool enable path when this unwind runs?
+>
+>stmmac_enable_rx_queue() and stmmac_enable_tx_queue() return void and only
+>log the failure:
+>
+>stmmac_enable_rx_queue() {
+>    ...
+>	ret = __alloc_dma_rx_desc_resources(priv, &priv->dma_conf, queue);
+>	if (ret) {
+>		netdev_err(priv->dev, "Failed to alloc RX desc.\n");
+>		return;
+>	}
+>    ...
+>}
+>
+>stmmac_xdp_enable_pool() then carries on regardless:
+>
+>	if (need_update) {
+>		stmmac_enable_rx_queue(priv, queue);
+>		stmmac_enable_tx_queue(priv, queue);
+>		napi_enable(&ch->rxtx_napi);
+>
+>		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
+>
+>With this patch, the earlier stmmac_disable_rx_queue() and the new unwind
+>leave rx_q->dma_rx, dma_erx and buf_pool NULL, and tx_q->dma_tx and
+>tx_skbuff_dma NULL as well.
+>
+>The rxtx NAPI can still be scheduled, either by stmmac_xsk_wakeup() (which
+>is also ndo_xsk_wakeup) or by a TX DMA IRQ. Could that reach
+>stmmac_napi_poll_rxtx()->stmmac_rx_zc(), which uses &rx_q->buf_pool[entry]
+>and stmmac_get_rx_desc() on the NULL ring?
+>
+>stmmac_xdp_disable_pool() also re-enables rx_napi and tx_napi after an
+>enable that may have failed.
+>
+>Before this patch the same path was a use-after-free of the freed ring,
+>and the hardware channel still points at that freed ring.
+>
+>[ ... ]
+>
+>> @@ -2413,6 +2463,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
+>>  		return ret;
+>>  
+>>  	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
+>> +	if (ret)
+>> +		free_dma_rx_desc_resources(priv, dma_conf);
+>>  
+>>  	return ret;
+>>  }
+>
+>[Severity: High]
+>This is a pre-existing issue, but stmmac_xdp_open() is one of the callers
+>of alloc_dma_desc_resources(), and stmmac_xdp_set_prog() ignores its
+>failure:
+>
+>stmmac_xdp_set_prog() {
+>    ...
+>	if (if_running && need_update)
+>		stmmac_xdp_open(dev);
+>
+>	if (prog)
+>		xdp_features_set_redirect_target(dev, false);
+>
+>	return 0;
+>}
+>
+>By this point stmmac_xdp_release() has disabled all NAPI instances, freed
+>the IRQs, stopped DMA and freed the rings.
+>
+>stmmac_xdp_open() can fail in alloc_dma_desc_resources(),
+>init_dma_desc_rings() or stmmac_request_irq(). If it does, userspace still
+>gets success. The netdev stays IFF_UP with NAPI disabled, no IRQs, and
+>(with this patch) NULL ring pointers.
+>
+>Would the next ndo_stop or XDP toggle then call napi_disable() on an
+>already-disabled NAPI through stmmac_disable_all_queues()?
+>
+>napi_disable_locked() waits for NAPIF_STATE_SCHED to clear, which only
+>happens on napi_enable(). That looks like a hang while holding the
+>rtnl/netdev lock. stmmac_free_irq() would also run a second time.
+>
+>[Severity: High]
+>This is a pre-existing issue, but after the failed stmmac_xdp_open()
+>described above, the device is still advertised as an XDP redirect
+>target. xdp_features_set_redirect_target() runs whenever prog is set,
+>even if the reopen failed.
+>
+>stmmac_xdp_xmit() is only gated on STMMAC_DOWN, and neither
+>stmmac_xdp_release() nor the failed open sets that bit:
+>
+>stmmac_xdp_xmit() {
+>    ...
+>	if (unlikely(test_bit(STMMAC_DOWN, &priv->state)))
+>		return -ENETDOWN;
+>    ...
+>}
+>
+>Can a devmap or bpf_redirect from another interface then reach
+>stmmac_xdp_xmit_xdpf()? That function:
+>
+>  - computes tx_desc with stmmac_get_tx_desc()
+>  - writes tx_q->tx_skbuff_dma[entry] through stmmac_set_tx_dma_entry()
+>  - stores tx_q->xdpf[entry] = xdpf
+>
+>With this patch these become NULL-pointer writes. Before it, they were
+>writes into freed memory.
+>
+>[ ... ]
+>
+These are valid pre-existing issues. So I plan to fix them in follow-up
+patches rather than expand this resource cleanup patch further.
+
+>> @@ -6570,10 +6622,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+>>  		seq_printf(seq, "RX Queue %d:\n", queue);
+>>  
+>>  		if (priv->extend_desc) {
+>> +			if (!rx_q->dma_erx) {
+>> +				seq_puts(seq, "Extended descriptor ring not allocated\n");
+>> +				continue;
+>> +			}
+>> +
+>>  			seq_printf(seq, "Extended descriptor ring:\n");
+>>  			sysfs_display_ring((void *)rx_q->dma_erx,
+>>  					   priv->dma_conf.dma_rx_size, 1, seq, rx_q->dma_rx_phy);
+>
+>[Severity: Medium]
+>Is this check enough without any locking against the teardown paths?
+>
+>stmmac_rings_status_show() takes neither rtnl nor priv->lock. It loads the
+>pointer for the NULL test, calls seq_printf(), and then loads the field
+>again for sysfs_display_ring().
+>
+>Several teardown paths free the rings under rtnl only:
+>
+>  - ndo_stop (IFF_UP is cleared only after ndo_stop returns)
+>  - stmmac_xdp_release() (IFF_UP stays set)
+>  - MTU and ring size changes
+>  - XSK queue disable
+>
+>With this patch, __free_dma_rx_desc_resources() now does:
+>
+>	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
+>	rx_q->dma_erx = NULL;
+>	rx_q->dma_rx = NULL;
+>
+>A reader that already passed the check can then pass NULL to
+>sysfs_display_ring() with dma_rx_size > 0 and dereference p->des0. If the
+>second load happens before the NULL store, it reads freed coherent memory
+>instead.
+>
+>The use-after-free read predates this patch. The NULL dereference does
+>not, and it contradicts the commit message claim that reading the entry
+>"will never dereference a NULL pointer". The same pattern applies to the
+>dma_rx branch and to both TX branches.
+>
+>[ ... ]
+>
+>-- 
+The NULL checks alone do not prevent a teardown between the
+check and the descriptor read. The v5 will hold RTNL while reading
+`descriptors_status`, which serializes the debugfs reader with the
+control-plane resource teardown paths.
+
+pw-bot: cr
 
 
