@@ -4,91 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA05CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 21:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B83CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 22:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ylT2JTUORypj+MjhE+jQDW+T/v8WU4XCGcgTDo3Q5yQ=; b=fz+OeJHGnhADU0+e5BkdWm3o9t
-	YXSOEZrN3yajeOVGrA2hFVEZ+3k0k/Jt2htBr4CuWxpVBCqkmjxL4bYFD21fMmeQCWT16d0gYYX58
-	50u9Ah4Q9rC5L6jIvQwjRSRi/1gsBSMQzFpSmiwdr5du41AQvwHBv2/NZvN7aWu3OaDDa6cb1TxtV
-	oS/tSc4xV6WLC6Fg9XGRuSqzoa4STSZ0wBO/9uhvmHPeUu4DOrj3/z8X4bBQ2jcdK3XISkfQTmXBa
-	EAolKdhz2RKoaUhqGaKp3WUlQDCzfL4YJhAF2KfmntzTfViu5WLyJ6r3fTJ2AL6X1/qbi6WFOinxP
-	nVmDqNNg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BX1nDoHfY9wIaK7n+kTY5G9GqR52mFVKGv7vDMVDhYE=; b=4hAUh5ZMd3iasR95SzqX0V/BfT
+	AHPBllIisvPNf3+9UU5852KfEFFwS4pN3e9P86xB7bz8Ky21tScKn7aHcWJpc/2ionmWvoiYVn9gZ
+	ZSt93sZxW+fdDI9KQmPdqImwwiY/zyckmlICBtzof1fGHe4iSIihXRulUbLx7AjcHxuQPKxQLYpND
+	bYhn3J3eggO5vApEldZJ1GCWmAoP+9eVoUaikMbyrBUM1I4gYuzAzQaBwBofx+GdL0RYAwNTM/mEJ
+	gxylDcLx/+RujGrAEm97eqjwgJ7wPq1jk/3BjLBSu5f3SLjH/nxvoYr3H42Z4u56v/uDBAi3NMEep
+	mk1vpW4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xECJx-00000001OCF-2BdL;
-	Tue, 06 Oct 2026 21:03:33 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1xEDDj-00000001Qku-2hAk;
+	Tue, 06 Oct 2026 22:01:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xECJu-00000001OBe-2n5J
+	id 1xEDDh-00000001QkZ-1RWD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 21:03:31 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c2e36c3478aso502974166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 14:03:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791320608; x=1791925408; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ylT2JTUORypj+MjhE+jQDW+T/v8WU4XCGcgTDo3Q5yQ=;
-        b=AIMeQfo/5cQglyIDnfRQM5JxTJvhPyVuSJaL/yX2NnDclkCTd2w8tsFHyD20p996iE
-         kaGzEHT/wDPLsY7PCGXxL5cAr3YX0hfVVeHVATeLYQ9RqzNRLh36b4lvMR/MVibEU1Wt
-         2CZTanJrwrlsS9Q35c8pByQnNvoMG6bp2Apr2hQW322EpQJor8ZlxpFr0Tl/TgFEFMAD
-         A3Q/lcsLQErE2lhhBqIoLqug2CEjVFzCjy+ZpWef84S6hqmfe3FMyuuDHHZ9Yt+SEa4E
-         vTgr+kL/IBc7Gct901Pu6aWLpIngltlC3GLJeJFNrh/59BbiMC2skjLvCSyn+Q2op1Kf
-         dZFA==
+	Tue, 06 Oct 2026 22:01:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1791324067;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BX1nDoHfY9wIaK7n+kTY5G9GqR52mFVKGv7vDMVDhYE=;
+	b=NXyzRBp1ckiIDcObA5THYAq6MH+VihOJAsMvUdk8x9OH50qv7dx1/X64naQFIUkwJbKDF3
+	Gt9ZZoO2SifkkEvsai+++Zo8phWSJJH5NCopVSMuRr9fTxAZQaQwxth1LXeUKbF6qpnJ9W
+	Y1Co1I4RAnkJhAFkEdKzNkyKGz0C/5Y=
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com
+ [74.125.82.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-657-T5zNeQlPPmSc_mjbk8J4YQ-1; Tue, 06 Oct 2026 18:01:06 -0400
+X-MC-Unique: T5zNeQlPPmSc_mjbk8J4YQ-1
+X-Mimecast-MFC-AGG-ID: T5zNeQlPPmSc_mjbk8J4YQ_1791324065
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-154e9d2d94fso6962202c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 15:01:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791320608; x=1791925408;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1791324065; x=1791928865;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ylT2JTUORypj+MjhE+jQDW+T/v8WU4XCGcgTDo3Q5yQ=;
-        b=DLT1GWEjmTRYvJim25Dg998Ay16cOP2JBfGdJDMuWhly9LVj0HIe7H6B/yWpK6kH5H
-         0aZf6ZVQND//2sTAiBx+CuEOaJtq8iC5o0UagLeoMvaXavozy/UCwDnHBzaGKg9O7Q0K
-         J9l44i2iI2crG/AhqGbyOX4kGWYWy4Ta3w8pu38rnDp2ckJyE2p8wsWllsy6D/Su/rZ5
-         A1EWOIxGalEtL3/0IhMK9pNBtxJ8ZBb7kpcDOzeJswX2mrzCMptBXICV8omb2jCVqdVB
-         YQyHhpBOBSU2OWu3ukjalUkSyXD78tlOJnkaMA8ZuKICAQnN1bgPnffkx2MycfX9ezD+
-         DYcA==
-X-Forwarded-Encrypted: i=1; AKwUvBx5IXRExxtekhiLAWb3UrsbWCbefLCKUFA3e4v1S2XgRb5lrOEMD82Z26cvO7x8RB5d4mNseUNEYxdveD8RLIrr@lists.infradead.org
-X-Gm-Message-State: AFuF++matlWbKVlCKNupq7X/XYrI4wTfptjDLNMYV2nRNJynyn1aYD11
-	ZesGIHt7J5Zfb08xVSK73xNhaCtyIhktQLAMjDsvTtyuFW7DiyIOoIDy
-X-Gm-Gg: AYBFou2bp1v7vTRIhfbL/c7Zdh1dExrljo8RiF/XI+RQDBRu44+nvVYRDvNMToCwvvV
-	BC+IzIPqoKi+ZJWnxTJN7ELEZh5G3L8oURBCVewitcNneSwCTDnm1h4CBV0Iq8+eBvERubKsMbn
-	qrboXeWYplVKvC5ZfoypFVwPfEz0bSxwVAOyn7PoQDUQ6wCsm+6gPDSpcLd8xvkFl3ekC3hzA0f
-	SwkeDnlhFcLWbQq9rMbwYwOnZ/HIHICWFDo1vPSys+DxxTmbnea04b4FxqinRJY9mhnRSSk12ra
-	eqEjFRf1Yes0+93rNW34Sdnw1HJ2o/1LdmLxzLQo5P1EF/B+wAvjYDQqbW0py+EkvR51eNBYW3F
-	oJcvI0FZ+z41pX2/JoGQzDGrfS6N5q28Eg9Tq6pKwgOs8Matk68wSHKfv88o6icVvJDOr+e7l1W
-	1WWiuW92G0Q+m5lX3yRLu3M5FzrKAXC1AND960KAmoTSZr1QPLUvh7FgzHs1eL/bseAxfB/JpEO
-	7HoZih7EhvLShOQbwpgu/imDo53OByG
-X-Received: by 2002:a17:907:8992:b0:c29:5021:f6f8 with SMTP id a640c23a62f3a-c317c0bc3a7mr23014166b.36.1791320607819;
-        Tue, 06 Oct 2026 14:03:27 -0700 (PDT)
-Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c317c2f9938sm8483166b.50.2026.10.06.14.03.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 14:03:26 -0700 (PDT)
-From: Pablo Mazzini <pmazzini@gmail.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Pablo Mazzini <pmazzini@gmail.com>
-Subject: [PATCH] pinctrl: sunxi: dt: do not accumulate npins across probe attempts
-Date: Tue,  6 Oct 2026 22:03:13 +0100
-Message-ID: <20261006210313.43163-1-pmazzini@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=BX1nDoHfY9wIaK7n+kTY5G9GqR52mFVKGv7vDMVDhYE=;
+        b=ySoXfa48smNfqQMVYKkaOknnxxPaO/dqVjc839Ouic8xnJKKxAZBwpFQi/ycH9S8QG
+         RM6ZPtf5WMoqBXxJRlW7RPiyNtms/zVm8SLx/f7X+NG+gVoaHmraTtWzH3NnQTliznbv
+         z/xsFzDhWLlZUXdlDiKWWSrOuBxBg025Al2e8eKSig64R3oJqS9fGNxSRhMiHfAwrsNp
+         l2cFa1GzXWeGlfviXXVHIU0gboLMbuUf/Uil9GqcH0UqGXItBNSP3EfDpp5C4mpGqJrK
+         uyZcRGTkaiqZWrHSM5HoqvAZbwL2juwiwGs05qKW/NEGuxYE7ED9z1M9WQVl5SUuloZS
+         B2sQ==
+X-Forwarded-Encrypted: i=1; AKwUvByJ0slI5AJ15Ylv5I+XO5Tfovh5yjQ+g4AOGZi2atzZ5DI6OVXpURJhv4o6w4uXu2eL9COyhhmxofJqFFXuRpiJ@lists.infradead.org
+X-Gm-Message-State: AFuF++ksOWYBQx6Q9951bGiEU6PBdRRD8EpO4L/TYxS9vxxvtFnDF2iO
+	/Pk2hAeZWU7NBYOsX/bkANJxA4AwwtpLOhQKXtiKS++pf9hB7r/4rcClB3xN2N05Y9R4Ny4tCAS
+	62p34CAdiWeHFYzSK5QLyVV4U8gP0tNFz5HWX+oMQf4lBrCtKOa5pg0jUhqh4vJCI5ljK37mL2J
+	BW
+X-Gm-Gg: AYBFou0ANc5HrozF//YnWgARmGIPguQFsQMhnoZWJSd1DLueSPvIdzdh9CIV0xvjciy
+	SDmFJc8Hp3V3FV6hm5z0VvMkZALYbhyuXgmPlzcDhJgjTy6FV/nq/9wMjJNTI3sjqhbwNf4YREv
+	7ZvJhl/DNgNtmge3/Q16DKJFRYLzBbk0HYufnOBhdPALJdIaxDOpwLRTiAdMePPqjEQLDyjrn2B
+	vwK5YRl9dC4K374sXABExot6b+EZW3N8V+BCtapjcu3XvvGh9pVLBF4Yd/YbfH1YhRjiWmfFTl+
+	/0yJL4fgDOZm293OdY5/tpn1iJ2+k/Mmawo9bmibOo2cFMoH0qeirqGZcQfFlJ8v27edhT1zzQC
+	aaZaBSB1jXS6DgEEjRmB3B90T5x5p7wFQPUa+ksiyhA==
+X-Received: by 2002:a05:701b:2618:b0:145:7a:7765 with SMTP id a92af1059eb24-162092950d9mr130473c88.36.1791324064796;
+        Tue, 06 Oct 2026 15:01:04 -0700 (PDT)
+X-Received: by 2002:a05:701b:2618:b0:145:7a:7765 with SMTP id a92af1059eb24-162092950d9mr130376c88.36.1791324062351;
+        Tue, 06 Oct 2026 15:01:02 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-16167463910sm1401330c88.9.2026.10.06.15.00.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Oct 2026 15:01:01 -0700 (PDT)
+Message-ID: <e854517f-b364-4c64-b542-7546afadbda3@redhat.com>
+Date: Wed, 7 Oct 2026 08:00:45 +1000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 23/23] KVM: arm64: CCA: Control user register access
+ for Realms
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+ <20261005090754.2140522-24-suzuki.poulose@arm.com>
+ <52e3e45a-751e-40b2-8dd3-3db589ddebee@redhat.com>
+ <7b6ed626-eca4-41f2-ae56-0af59a931b29@arm.com>
+ <6bd785aa-4693-407d-b70a-39b1d0eda63e@redhat.com>
+ <71ceb680-e168-450e-99e0-7a8cf4160bba@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <71ceb680-e168-450e-99e0-7a8cf4160bba@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: FC1xEQ0Ct-RtmUZ5vFA_0_GwSoddnpY7TFkjyXDhe5k_1791324065
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_140330_755678_24A5DF61 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20261006_150109_467715_23FB2D82 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +125,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-init_pins_table() adds to npins in the driver's static descriptor, so
-after a probe deferral the count doubles and the next probe fails with
-"pin 0 already registered". Count into a local instead.
+On 10/6/26 10:36 PM, Suzuki K Poulose wrote:
+> On 06/10/2026 07:16, Gavin Shan wrote:
+>> On 10/6/26 4:01 PM, Suzuki K Poulose wrote:
+>>> On 06/10/2026 06:47, Gavin Shan wrote:
+>>>> On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
+>>>>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>>>>>
+>>>>> The RMM restricts the access to the register states that the host can
+>>>>> read/modify for a given Realm.
+>>>>>
+>>>>> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
+>>>>>        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
+>>>>>        requests.
+>>>>>        MMIO emulation in the unprotected space.
+>>>>>
+>>>>> Additionally we use the sysreg configuration to advertise/configure the
+>>>>> following Realm parameters, which are required before the Realm Descriptor
+>>>>> is created:
+>>>>>   - SVE Vector Length
+>>>>>   - Number of HW Breakpoints/Watchpoints
+>>>>>   - PMU Counters.
+>>>>>
+>>>>> Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and SVE_VLS for
+>>>>> the configuration of Realm creation parameters. We don't support PMUs for
+>>>>> the Realm VMs yet, so PMCR is not exposed.
+>>>>>
+>>>>> The RMM makes similar restrictions for reading of the guest's registers
+>>>>> (this is *confidential* compute after all), however we don't impose the
+>>>>> restriction here. This allows the VMM to read (stale) values from the
+>>>>> registers which might be useful to read back the initial values even if
+>>>>> the RMM doesn't provide the latest version. For migration of a realm VM,
+>>>>> a new interface will be needed so that the VMM can receive an
+>>>>> (encrypted) blob of the VM's state.
+>>>>>
+>>>>> Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
+>>>
+>>>>>   static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+>>>>>   {
+>>>>>       int size;
+>>>>> @@ -553,6 +572,9 @@ static int copy_core_reg_indices(const struct kvm_vcpu *vcpu,
+>>>>>           u64 reg = KVM_REG_ARM64 | KVM_REG_ARM_CORE | i;
+>>>>>           int size = core_reg_size_from_offset(vcpu, i);
+>>>>> +        if (vcpu_is_rec(vcpu) && !kvm_realm_validate_core_reg(i))
+>>>>> +            continue;
+>>>>> +
+>>>>>           if (size < 0)
+>>>>>               continue;
+>>>>> @@ -598,6 +620,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+>>>>>       if (!vcpu_has_sve(vcpu))
+>>>>>           return 0;
+>>>>> +    if (kvm_vm_is_realm(vcpu->kvm))
+>>>>> +        return 1; /* KVM_REG_ARM64_SVE_VLS */
+>>>>> +
+> 
+> This could be vcpu_is_rec().
 
-Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
----
- drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+vcpu_is_rec() is preferred here.
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-index 50a16f3bd131..1c1888394cf1 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-@@ -75,7 +75,7 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
- 					      struct sunxi_pinctrl_desc *desc)
- {
- 	struct sunxi_desc_pin *pins, *cur_pin;
--	int name_size = 0;
-+	int name_size = 0, npins = 0;
- 	int port_base = desc->pin_base / PINS_PER_BANK;
- 	char *pin_names, *cur_name;
- 	int i, j;
-@@ -85,7 +85,7 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
- 	 * Also work out how much memory we need to store all the pin names.
- 	 */
- 	for (i = 0; i < SUNXI_PINCTRL_MAX_BANKS; i++) {
--		desc->npins += pins_per_bank[i];
-+		npins += pins_per_bank[i];
- 		if (pins_per_bank[i] < 10) {
- 			/* 4 bytes for "PXy\0" */
- 			name_size += pins_per_bank[i] * 4;
-@@ -98,12 +98,14 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
- 		}
- 	}
- 
--	if (desc->npins == 0) {
-+	if (npins == 0) {
- 		dev_err(dev, "no ports defined\n");
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	pins = devm_kcalloc(dev, desc->npins, sizeof(*pins), GFP_KERNEL);
-+	desc->npins = npins;
-+
-+	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
- 	if (!pins)
- 		return ERR_PTR(-ENOMEM);
- 
--- 
-2.52.0
+>>>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>>>>>           return 1; /* KVM_REG_ARM64_SVE_VLS */
+>>>>>
+>>>>
+>>>> Aren't above two checks conflicting to each other?
+>>>
+>>> Do they? We allow SVE_VLS only for the Realms and we allow that
+>>> before the vCPUs are finalized. For normal VMs, depending on
+>>> whether the vcpus are finalized, we either send 1 or the full list.
+>>>
+>>
+>> num_sve_regs() can be called for 3 cases: (a) non-finalized RECs; (b) finalized
+>> RECs; (c) Other finalized vCPUs, correct? "if (kvm_vm_is_realm(vcpu-  >kvm))", which
+>> would be "if (vcpu_is_rec(vcpu))", covers (a) and (b). We needn't the excessive
+>> check "if (!kvm_arm_vcpu_sve_finalized(vcpu))". So the check would be something
+>> as below after this series is applied:
+>>
+>>      /*
+>>       * KVM_REG_ARM64_SVE_VLS is visible on realm vCPU no matter if it
+>>       * has been finalized.
+>>       */
+>>      if (vcpu_is_rec(vcpu))
+>>          return 1;
+>>
+>> This check "if (vcpu_is_rec(vcpu))" belongs to PATCH[22]. Hope I make myself
+>> clear this time :)
+> 
+> Sure, these two patches are closely related and may be even could be
+> folded in. I split it out to make it easier to review.
+> 
+> 22: Allow exposing SVE_VLS for unfinalized VCPU RECs
+> 23: Control register accesses includingthe SVE_VLS, but prevent
+> everything else
+> 
+> Does it help ?
+> 
+
+I would suggest to fold PATCH[22] into PATCH[23].
+
+Thanks,
+Gavin
+
+> Cheers
+> Suzuki
+> 
+> 
+>>
+>>>>
+>>>>> @@ -625,6 +650,10 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+>>>>>           return -EFAULT;
+>>>>>       ++num_regs;
+>>>>> +    /* For Realms only support SVE_VLS */
+>>>>> +    if (kvm_vm_is_realm(vcpu->kvm))
+>>>>> +        return num_regs;
+>>>>> +
+>>>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>>>>>           return num_regs;
+>>>>
+>>>> Same question here.
+>>>
+>>> As above.
+>>>
+>>> Suzuki
+>>
+>> Thanks,
+>> Gavin
+>>
+> 
 
 
