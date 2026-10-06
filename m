@@ -4,71 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8EECA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 07:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CA2CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 07:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y687D0b0XnsGS0sPqnJmnJK0mFwzbLcgaZ8E4hwXOuY=; b=eqX5mtZ3uctSOPhTI4q4381hyK
-	xai4Jpp0cgAF1DG8lnlRQDcW3CjXBzv/TwBgfX4/BlnucxaklcnB7Zx3az9gO32set2EuTTdKL7rp
-	lpSL7OaWTfQnunUapu4QL1SkzrayZ2q9JP2z+al33dAfyKkah8KJwocBpFK3zrKnOrBLzfd57td/L
-	j3kCUAps9BKg/5SkjZNR4zZrOHvXAIEGU8ORkGTHyPxw8h4k4Kl/DWYQzRYdtmDvaw6anQDb5vaB9
-	unuw4EfFq+59UKLgIwRi/nyeeefzxef2IA9D9y4pFArkwBgARAvCFYCSQ4Kenvxrj35/jT7jcMUER
-	drDnwHWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+tjicE9VPF+PU9G85Tx6hdrnKiCBhWyUt27oc1U70xE=; b=HqynQBv4XlWM6L
+	Dq0pcq+1Ol3DbnMgXN1wFGCmhxHvfctGrkVV3qysiMnjwzMrVlddu9fsBM/0wubajU12oljbLDi9i
+	/mmqgy9rnjiPbOc6LFKRQSLXldWcAcU2OhU83AhRlb9Z+twZk4D/vIiTdBfhtLZLc9b8Pp3QHYb4x
+	8D5a5sM7SMuYbohnbqLQpk9nzC6n4/CgapIH9GwWfLvArIBt39exU5X/hHneyFMXbXawFWGIPgO3T
+	It/91fs8ul8urFtwGMUaU+YOq7Ac2WnhknIeGLzuTF5HQS6j5vxbt9M9kqHm4EeNQPFG2bnv0ystx
+	ySv/BQNLqkrClxOBk9SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDzwo-00000000Dx7-0cQO;
-	Tue, 06 Oct 2026 07:50:50 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xE044-00000000F23-1hbs;
+	Tue, 06 Oct 2026 07:58:20 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDzwk-00000000Dwg-3cfS
+	id 1xE041-00000000F0t-0yTK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 07:50:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AE9B61A1185;
-	Tue,  6 Oct 2026 07:50:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 80B4960553;
-	Tue,  6 Oct 2026 07:50:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 205751033069A;
-	Tue,  6 Oct 2026 09:50:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791273040; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Y687D0b0XnsGS0sPqnJmnJK0mFwzbLcgaZ8E4hwXOuY=;
-	b=h71LLACy3ly81f+yP0sA5gGlPiCBQERPnJDVMokgcAb93p+b9EO5xXEdmclFfV0U6Md1el
-	jWjZpD+A8b0T32+Pbgm1kDLNW06sJ+TbWD6L1a2fJvWRVD4gfcKWDFek2uBBx9azHk0oFG
-	OfE7pK6l/J40SOqBQodwpvZL7bhCbXwTVO7LjbJzULy0guEOTGTWG99HQJ8W+ipxpRkExv
-	WbFya2BD16PAqkfJqCVdqOp/bbMuAjWxIGjvHz1uH9hO8T6ssuQPDs8fKgKemHbF4fYXQx
-	eS653ptxuAIE6w/Y9j3ntM6wUkZo+PS9KQRay+ztt0McNJreGxxdiupfySZRUw==
-Message-ID: <97bc7b37-0c21-4182-9d1d-075287cd0fde@bootlin.com>
-Date: Tue, 6 Oct 2026 09:50:32 +0200
+	Tue, 06 Oct 2026 07:58:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dWXuRkP5a/aMq3iRtQSvGSj31X0sBVnDHJimgh7aiDZ2JtkZzm3Fvcb0CrIcBs29XHOpow+uLwtKzmy4N7sYgfuYrK/2oeQgbIo0n+8fuab0S3hDeNDAiKVpJ9dUkYY4HUXZU11SgWKJZ8zHI8QNLieUbgDrjDjmIcyAz1/1carRBzIor8xg4wro0Rezp0k+JGBZDdR6dxVHpFoXbk/qNZhMPYfBF/Ht/vyvAOzrbnjk4LFNukTeCJLT5RvHGW4zJHIwRAnpebpVxFH2MSjtRHfy2XRdt2rqFFWGZA5C3jWtsFjwdwpb8o/4rYMW9MngT1zXRZV1S4EFEMDxfRzIEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+tjicE9VPF+PU9G85Tx6hdrnKiCBhWyUt27oc1U70xE=;
+ b=if2EQWcmIOmCA3xcxb7ku0QBPZb5wuiPdoMlQ/QzDrmU68CPibH8kHiSl3juwcfU35pic8sYiYvSb7l0oJ1SEEx1L0N0tDDP8XBR0VltprI8KqzXfsFSpOMhNjseiZ1nF9pkX7alJcwwR22C6jLRmUBfzWjso95loJcyvAuRiLcBkaxHjmFv0d3S6oLwIVv3LlaZkIUIg8MuwWdgcj85LebBUOZTujimMockCqH5mVSqnCeWHifd1mJM0gblVnJ7bYGHr/vn630z9OYEPAaYl7IEukoQXE1wemaChXT+6dxz3vRu4V+53mpmCiXvUxivOSSsUxyx0b6/+C4Vp6LvXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+tjicE9VPF+PU9G85Tx6hdrnKiCBhWyUt27oc1U70xE=;
+ b=JA+HXIFxVtbeHNxJYJ8eUHRJQ3fqewsjhGNLuvMMs6PXKXAWLdchMIymDa8MWpU7WFhKSbFPOXsjGn8Tr94kJL/TZcrCh4zxkKxeNZAqee0kjT1z3XtOmOIaOVwaFeEqcVXVM5XxojB15DmbrdfiAGlRPleduqRy/IS1Zs1A84VvttVhLzRw3jn+u88E44XsN2QZt/hPdBHWjxtZ1QMeha1qtSWXQ8X12Y78PXbYYp9s86uNowauEd8a0KZ54FdZxFkn7pDFfNP+Iro1ER83gW0BQ+rYLv0ZI/5/O4kW0s07bRCsIrLRLvDhLRhwNLBGBvb0cF62yD9psxR1t9BSMA==
+Received: from AS9PR06CA0070.eurprd06.prod.outlook.com (2603:10a6:20b:464::21)
+ by AS4PR10MB5743.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:4f5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Tue, 6 Oct
+ 2026 07:58:10 +0000
+Received: from AMS1EPF00000094.eurprd05.prod.outlook.com
+ (2603:10a6:20b:464:cafe::a8) by AS9PR06CA0070.outlook.office365.com
+ (2603:10a6:20b:464::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.21 via Frontend Transport; Tue, 6
+ Oct 2026 07:58:09 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS1EPF00000094.mail.protection.outlook.com (10.167.242.91) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 07:58:09 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 10:04:10 +0200
+Received: from localhost (10.252.27.219) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 09:58:06 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v4 00/15] iio: adc: stm32: add support for stm32mp23 and
+ stm32mp25
+Date: Tue, 6 Oct 2026 09:57:31 +0200
+Message-ID: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety IRQ
- request failure
-To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Serge Semin <fancer.lancer@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, Nicolai Buchwitz
- <nb@tipi-net.de>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIAOupxGoC/33OwQrCMAwG4FeRnq20ydY5T76HeNjSTCvMyTKHI
+ nt323kRFSEQfki+5KGE+8CiNouH6nkMErpzDNlyoehYnQ+sg49ZgQFnSmt15UnL0CK0F8j1aDV
+ UVCCs87z0pYprl56bcJvJ3f6V5VqfmIbkpIljkKHr7/PN0aa5P3wso4kbcMzkY982nchKhhV1r
+ UoHRngjAH8QEInM1WRsmWNB7pvANwLNDwITYdwaswyNLz6+mKbpCT1Zd9FKAQAA
+X-Change-ID: 20260911-adc-stm32mp25-v1-2ac7328559d9
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: Joshua Crofts <joshua.crofts1@gmail.com>, Marek Vasut
+	<marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Cheick Traore <cheick.traore-ext@st.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>, Patrice Chotard
+	<patrice.chotard@foss.st.com>, Cheick Traore <cheick.traore@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.252.27.219]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000094:EE_|AS4PR10MB5743:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4159e29f-cb3e-4b06-c576-08df237f901c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|7416014|23010399003|82310400026|10067099003|260925021911599003|260925021311599003|11063799006|56012099006|260925022911599003|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: 1EbjTkVFUrRIxpRYcN8tX8giYCHRDTePzb3FowaUuOEdi9SWpjojGBbpivLaP8OQIY4Jo03DUoF/Kk+l3nZfrBazPangsAJX6pJESlX9s0SXt+FfFnhLpBOC4Sii9SJ/1neL75xGhmnLJHzZAMRMixsR7kJ9WQEsT1aoHKfrZn7VFMNgYZ2f+mu++o11YLmnXNYXAPWsmpTHt0cdv6lsSIdeGXxHie6f5vJ2MdpWqqFa/8I7chO3peNFU5GtDNEGYzzggNxkE9p0FXJqs57aDDb5kMBF8MH93UaVaxfgTEKv8JIY9fUhtYbMZ7KvviTJWOPYW7K4IL5/cKuJTEuR5JYiTsgYl42G6rtl9tBVjy976pvQuPRXv+U+ubnirkcA6OuU7VYSLybMlWCTUp0TLK1LzcDjm91mT/vQA4S67pjakGKVaqQnzv3hBZSqA78fqeUynSVQcqpDjKRsh3ldjR1pJyKDg7r2kOiEkMkienUOkIWWWp37FiN6X8swrjxDbnzvA+KSPlDZvfF03H3OYqaQBqPoifhmc6DeeqlJ0Mwb/VDACS1PozFd2IJWHC2iH3RYGAqK9UG3ba5pVmCb+FtQEgSCrXLUsQCXj38r1GpUMb2Rzwb5BIxuEU3XphkRyu2d3xz9E95z4Bv0tRe2fuiK1yn5f4diOgLq/44AAmU=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(7416014)(23010399003)(82310400026)(10067099003)(260925021911599003)(260925021311599003)(11063799006)(56012099006)(260925022911599003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Eiu2gERqaAte6nEAlgqeSJpj9gGmNIgbpzsVEPBpp2KmtuW+pnhKm7ftDnvCI5LXWMPvP8rAUJv9zSpcpvObwEN1dlSouT85ahT/8t/S8tJX/aaEjFhFFuXtnsB/ZB7KdlhIBE8Jl2RbYYxV44iJJ3Z83FUzdRvb+pKSQBA/rVYwphqRjhZib7E2l/RtSyuu7AaIiFCNrkz9lmc9n3z+/SAaD/ohfM2d/DNElkRfqley6OkRng6+tf5k+ORPK0CcMeNCrIdF0iqRVYQiOntge6yttZc3JteNGwKlkYBxOrduwEdC0zPGiZlOHqmNjQhnX9GS/bu9EmpzWfFJJjX9lMuD4O2lzVsdviB1wnXSBAE7t5lTPeQfznfWhwhpAg/JaUPri6xMKU3a7871Eo4IeBS4QGJfjD8tjBYFaPpI+C7QaXTTbsWvPH0FOV42jKu4
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 07:58:09.4651
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4159e29f-cb3e-4b06-c576-08df237f901c
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000094.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_005047_067230_09E72A10 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20261006_005817_616877_83CAF940 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,63 +141,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add support for STM32MP23 and STM32MP25 Analog to Digital Converter.
+It's a variant of other supported STM32MP ADCs. Add the DT bindings,
+driver, SOC DTS and an example on stm32mp257f-ev1 board.
 
-On 10/6/26 09:06, James Hilliard wrote:
-> The safety IRQ is requested after the MAC and optional WoL IRQs. If its
-> request fails, stmmac_free_irq() frees the unregistered safety IRQ and
-> leaks the WoL handler. This can warn about an already-free IRQ and make
-> the next open fail.
-> 
-> Move the safety and WoL cleanup labels into reverse acquisition order.
-> 
-> Fixes: 5c2215167d12 ("net: stmmac: Add driver support for common safety IRQ")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+---
+Changes in v4:
+- Improve differential calibration routine since Sashiko comments
+- Use mV SI unit as advised by Joshua
+- Use const array or structs as advised by Joshua and Sashiko
+- Add collected Acks or Rb from Conor and Joshua
+- Link to v3: https://patch.msgid.link/20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Changes in v3:
+- Refactor the calibration routines since Andy comments
+- Style cleanup since Andy comments (added one precursor patch)
+- Adopt field_prep as advised by Jonathan on patch 2
+- Rebased on additional fix that has been applied separately
+  ("iio: adc: stm32: fix minimum sampling time values")
+- Link to v2: https://patch.msgid.link/20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com
 
-Maxime
+Changes in v2:
+- dt-bindings: updates since discussion with Jonathan. Drop fallback
+  compatible and "st,adc-trigger-sel".
+- driver: address Jonathan and Andy comments and overall:
+  - Split into several pieces to prepare the infrastructure without
+    functional change
+  - Add stm32mp23/25 support
+  - Then add vddgpu feature.
+- Rebased on top of fixes sent separately, since pre-existing issues have
+  been reported by Sashiko on v1.
+  https://patch.msgid.link/20260916-adc-fix-intchan-v1-v3-1-b5f05b86bc60@foss.st.com
+  https://patch.msgid.link/20260916-adc-fix-div0-v3-1-bedf027a6e7e@foss.st.com
+- Link to v1: https://patch.msgid.link/20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com
 
-> ---
-> Changes in v2:
-> - Drop the claim that later per-queue IRQ failures also had broken
->   cleanup; those paths already released both IRQs.
-> - Add Nicolai Buchwitz's Reviewed-by.
-> - Link to v1: https://patch.msgid.link/20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index b837e8e27a35..0403d434c9b9 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3799,13 +3799,13 @@ static void stmmac_free_irq(struct net_device *dev,
->  			free_irq(msi->sfty_ce_irq, dev);
->  		fallthrough;
->  	case REQ_IRQ_ERR_SFTY_CE:
-> -		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
-> -			free_irq(priv->wol_irq, dev);
-> -		fallthrough;
-> -	case REQ_IRQ_ERR_SFTY:
->  		if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
->  			free_irq(priv->sfty_irq, dev);
->  		fallthrough;
-> +	case REQ_IRQ_ERR_SFTY:
-> +		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
-> +			free_irq(priv->wol_irq, dev);
-> +		fallthrough;
->  	case REQ_IRQ_ERR_WOL:
->  		free_irq(dev->irq, dev);
->  		fallthrough;
-> 
-> ---
-> base-commit: d5a007b9b457c915ab1a53227e8939e4018aa97a
-> change-id: 20260930-stmmac-irq-unwind-0be86901638d
-> 
-> Best regards,
-> --  
-> James Hilliard <james.hilliard1@gmail.com>
+---
+Cheick Traore (1):
+      arm64: dts: st: add ADC nodes on stm32mp231
+
+Fabrice Gasnier (11):
+      dt-bindings: iio: adc: stm32-adc: add support for stm32mp23 and stm32mp25
+      iio: adc: stm32-adc: core: manage clock prescaler diversity
+      iio: adc: stm32-adc: core: configurable number of interrupts
+      iio: adc: stm32-adc: rework internal channels data
+      iio: adc: stm32-adc: add vreg enable option to manage diversity
+      iio: adc: stm32-adc: preferred style cleanup
+      iio: adc: stm32-adc: add support for stm32mp25
+      iio: adc: stm32-adc: add support for stm32mp23
+      iio: adc: stm32-adc: add support for vddgpu on stm32mp23 and stm32mp25
+      arm64: dts: st: add ADC nodes on stm32mp251
+      arm64: dts: st: add ADC support on stm32mp257f-ev1 board
+
+Olivier Moysan (1):
+      iio: adc: stm32-adc: manage characterization voltage diversity
+
+Patrice Chotard (2):
+      arm64: dts: st: add vrefint calibration on stm32mp23
+      arm64: dts: st: add vrefint calibration on stm32mp25
+
+ .../devicetree/bindings/iio/adc/st,stm32-adc.yaml  |  71 +++
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             | 116 ++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             | 116 ++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |  22 +
+ drivers/iio/adc/stm32-adc-core.c                   | 104 ++--
+ drivers/iio/adc/stm32-adc-core.h                   |  21 +
+ drivers/iio/adc/stm32-adc.c                        | 602 ++++++++++++++++++++-
+ 7 files changed, 992 insertions(+), 60 deletions(-)
+---
+base-commit: 7b05d04fbd3e7aa3380767122eba0b3df2882ede
+change-id: 20260911-adc-stm32mp25-v1-2ac7328559d9
+
+Best regards,
+--  
+Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
 
