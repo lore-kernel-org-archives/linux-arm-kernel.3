@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45110CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FA8CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOZRXhuGWFzdnu+1SuxucxiaEzKl3OFo/nqf8Re0hDk=; b=r+sCYX2UlqajtdThN2mFjqF2jz
-	BsxF7bTxeziGRb/Hh1+ZY2yEFaP/h8lJliSaxY5syw57dLOSy+uh9nypnh9IC8/b1CdGv5Tsb9Zlo
-	XmfIfHcwDwuPEF/5UD0jlbN6EHiCYBAWJ6DVMAO84910QrtIbVKqYQA/LoylWEZB392fibdiUPERO
-	xpKL0dJ7REDohm6gLtScFJ6YQ512hfXbcVc5tD0XdP2BJmrDJGNUGyXvNGs9khM6PraO+UpHR1yH0
-	3pmhbsz0d89dF4LWqI8lAnyS8ZMEo/s5+smHJigQFwSvgDNszZTZbJ58+f1VRDB8OtaOBh/DTjiak
-	vjMqHgTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oF0AqtLKW1wMFXN3AtA1a7ftB0WwEz7YV+0y5nSnPfE=; b=vrvJnP5qlyUl9pF0db8vUzTqB9
+	r1C5yNqsA+0PTeaRDmlkN5wt/sVuHYmIBqVwpNx9tWGirv4C7kfHYdjqZP5DW9e9/Yjhm/ImQ3Mom
+	eepKlj4rczxaE+nzy0ZwsnRr0REgDWemxWiaJu9hZ5pW5uJlO2QGWqqVTiq4oUoDhhD/AaGvjqR6f
+	ERZ3q/v2jDz4nEeimbg/QLQhvkra/BLuTLxjz1z39/xmqFEZLDnT1RftBaxC102SizuHJ/6FYmw+n
+	EK4yGgYf0edgNrzoBkz1kiaCMmDZH0zFhBquTWkabnm51Ai2uLgjlsk6dvKEQUVVu+OoF7Q7m/1Tv
+	+FM3903A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7EX-000000012x9-0emi;
-	Tue, 06 Oct 2026 15:37:37 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xE7ID-000000013Kz-0LMv;
+	Tue, 06 Oct 2026 15:41:26 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7EU-000000012we-35jt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 15:37:36 +0000
-Received: from killaraus.ideasonboard.com (90-182-211-1.rcp.o2.cz [90.182.211.1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C1B51493;
-	Tue,  6 Oct 2026 17:35:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1791300933;
-	bh=B2Gh86zo7jHv0y6qiZlKzZJTMfJ+fRsbatAe7FqDDc8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M8QovLgUHD09qoWJFLz/RBXeW4qTdGrd6tK4tK3PfJt71yaBBXJMQFafziP5EYfiX
-	 4y6rkYQaBP0rBjZaItWDd82BEj6paPeOLsSV43jJ1XJkak6XZDIcmyVSXwuMzis01U
-	 NsVCaDFhsbaVzj/NQ3QowR2HgiYPFabtk2s56i+o=
-Date: Tue, 6 Oct 2026 17:37:28 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Mirela Rabulea <mirela.rabulea@nxp.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-	vigneshr@ti.com, kristo@kernel.org, mripard@kernel.org,
-	jai.luthra@linux.dev, jai.luthra@ideasonboard.com, devarsht@ti.com,
-	y-abhilashchandra@ti.com
-Subject: Re: Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison OV2312
- driver
-Message-ID: <20261006153728.GA622105@killaraus.ideasonboard.com>
-References: <20260925133001.2780868-1-r-donadkar@ti.com>
- <20260925133001.2780868-7-r-donadkar@ti.com>
- <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
- <asSk9KW-lzuiUJa3@kekkonen.localdomain>
- <577b34a1-4c2f-487d-a4fa-e7ede2b60091@nxp.com>
+	id 1xE7I9-000000013K8-1vqB;
+	Tue, 06 Oct 2026 15:41:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1791301273; x=1791906073; i=wahrenst@gmx.net;
+	bh=oF0AqtLKW1wMFXN3AtA1a7ftB0WwEz7YV+0y5nSnPfE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=ImTEcsy1bODjmMx2dhqCEUnxgO+ghTudCRBcUidoFiQKFeJnAkrIXSNgFbFOVbm2
+	 cSISYdNgGsGRuzAR19Zf/fJrJTT35cu2+MXE2l90UKauYPzprtwmLfv4OW/Wp3k47
+	 Er+lfEkOqY94OYNly+YLpZ90CvP8qQDVNtXH0Iw97ScAah/UyG9mORR0Lpge9JIU/
+	 16Y/Tit1aHU03hOiJ+5V4QNaLrfxV8HEy0QXMl4+CwJ50IlCjLN3T9K6gxSnzhvie
+	 HfAwagtDUayEJdOZDA5J0hsUTZV1u0I58G6pbcVNJl6N29XQDxyU/spRuQUexyDUD
+	 f/2uSQkhYh+XrfPt5w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MxlzC-1wTYoB26Bi-00xIfd; Tue, 06
+ Oct 2026 17:41:13 +0200
+Message-ID: <03afbe60-4cb3-4777-b95b-3c144d5c7b4e@gmx.net>
+Date: Tue, 6 Oct 2026 17:41:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <577b34a1-4c2f-487d-a4fa-e7ede2b60091@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte Charge
+ Control Y
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Christoph Stoidner <c.stoidner@phytec.de>, Conor Dooley
+ <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Fabio Estevam
+ <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol@kernel.org>,
+ Aswath Govindraju <a-govindraju@ti.com>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
+ <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net> <arFDUby0v52HSNnU@SMW015318>
+ <1a7c722b-a4ff-45d5-a590-0910ac47b541@gmx.net>
+ <7cc6e394-9895-4f42-a0c1-f1fbd7eafbfa@gmx.net> <ar_Wd3fF94XSj4mh@SMW015318>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <ar_Wd3fF94XSj4mh@SMW015318>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:brCR9kffWRhEWA7ANvQgIUDpRwgpZtemF3TAceeCDFv9rYYtpGN
+ 8EhEJ8hbLM9XWHtOZ5E6agNyCMZ4eqUEEhx7CO5WlASQOv1Ud2+v2gP6YQiv/bXmtgtxz9s
+ OPF7j08kFko2s+l0ljvLsnrG0g+7EdQkad9/6sZ/hZNIPEmfnnS0gJKQSYr09RT9dBbe5eE
+ gV4C0Hg7rBp8FAx+sRqgA==
+UI-OutboundReport: notjunk:1;M01:P0:/bT4Y+9fsL4=;AYcZNta23FC4xA5L0CXkm41UmgM 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 ZZMlan5A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_083734_946032_71B86F2F 
-X-CRM114-Status: GOOD (  38.55  )
+X-CRM114-CacheID: sfid-20261006_084121_876083_02F96E2A 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +103,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mirela,
+Hello Frank,
 
-On Tue, Oct 06, 2026 at 04:55:25PM +0300, Mirela Rabulea wrote:
-> On 10/6/26 10:36, Sakari Ailus wrote:
-> > On Fri, Oct 02, 2026 at 07:16:11PM +0300, Mirela Rabulea wrote:
-> >> Laurent, Hans, Sakari,
-> >>
-> >> did you encounter similar situations? Any comments or proposals? The concern
-> >> here, to summarize, is: v4l2 control cannot be committed to sensor registers
-> >> right away (even when streaming) and we are also unsure when the right
-> >> moment to perform the register access may come.
-> > 
-> > In practice there's little the kernel overall can do about this: the timing
-> > of everything is handled by the userspace. Drivers that aren't directly in
-> > control of the data path don't even have frame timing information and even
-> > if we did pass that to drivers, I²C writes always have some uncertainty
-> > (system scheduling, I²C access failures etc.), so one needs to be prepared
-> > to failing to do the writes in time, which would further complicate the
-> > UAPI.
+Am 02.10.26 um 18:06 schrieb Frank Li:
+> On Fri, Oct 02, 2026 at 05:31:23PM +0200, Stefan Wahren wrote:
+>> Hi Frank,
+>>
+>> Am 23.09.26 um 11:19 schrieb Stefan Wahren:
+>>> Hi Frank,
+>>> hi Vinod,
+>>>
+>>> Am 21.09.26 um 16:46 schrieb Frank Li:
+>>>> On Mon, Sep 21, 2026 at 03:09:23PM +0200, Stefan Wahren wrote:
+>>>>> Hi Frank,
+>>>>>
+>>>>> Am 07.09.26 um 17:04 schrieb Stefan Wahren:
+>>>>>> This series adds support for the chargebyte Charge Control Y, which=
+ is
+>>>>>> an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+>>>>>> Charging System) charging stations.
+>>>>>>
+>>>>>> sashiko reported in the first version of the series [1] that
+>>>>>> X_nRST_LAN
+>>>>>> is available via GPIO line names, but there is no reset
+>>>>>> mechanismn in the
+>>>>>> device tree. This finding is valid. Since the reset line feature is=
+n't
+>>>>>> implemented for LAN8651 driver yet, I like to proceed with the curr=
+ent
+>>>>>> version. The LAN8651 handles reset via SPI commands and in rare cas=
+es
+>>>>>> we still have the possibility to control the reset from userspace.
+>>>>>> Btw the pin has a pull resistor in hardware, so it's not floating.
+>>>>>>
+>>>>>> sashiko complained in the fourth version of the series [2] about th=
+e
+>>>>>> reset polarity of ethphy2 and the different drive strength across t=
+he
+>>>>>> data lines. Both is intended.
+>>>>>>
+>>>>>> [1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C=
+1F000E9@smtp.kernel.org/
+>>>>>> [2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C=
+1F000E9@smtp.kernel.org/
+>>>>>>
+>>>>>> Changes in V5:
+>>>>>> - fix delete-node for pinctrl_leds (reported by sashiko)
+>>>>>> - add Krzysztof's Reviewed-by
+>>>>> I didn't received any feedback for V5 yet. Do you have any
+>>>>> comments or could
+>>>>> it be merged?
+>>>> Wait for vinod pick phy binding part.
+>>> @Vinod are you fine with both PHY bindings?
+>>>
+>>> @Frank I noticed that this patch has a conflict with the Makefile in
+>>> linux-next. Should I rebase or do you resolve the conflict?
+>> would it be better if I rebase now and send a V6, I concerned that this
+>> misses the cycle.
+> Vinod missed pickup one of binding patch.
+Now both PHY binding patches has applied. My question referred to the=20
+conflict on the Makefile in Patch #4 against your current for-next.
+Should I send a V6 or do you resolve the conflict?
 
-I think an API to group multiple writes in a buffer and trigger the I2C
-operation would be useful. It could be software-based, but it can also
-be useful on platforms where the I2C controller supports hardware
-triggers. I have been told a while ago that some I2C controllers can do
-that (I think on Nvidia chips, but don't quote me on that).
+Best refards
+>
+> Frank
+>
+>> Best regards
+>>> Best regards
+>>>> Frank
+>>>>
+>>>>> Best regards
+>>>>>
 
-> On the kerne side, what would help would be a way to make an atomic 
-> operation out of an i2c read (the status register to determine the 
-> active context) plus a group hold update (a few i2c register writes). I 
-> don't know if that is possible.
-
-What do you mean by atomic operation here ? From an I2C point of view we
-can probably guarantee that nothing will perform I2C access on the same
-bus between the read and write, but only if we submit both operations
-together. Changing the values to be written based on the read value
-isn't possible.
-
-But I don't really see how that would help. The issue is about
-performing I2C accesses at the right time, not about something else
-preempting the I2C bus between the read and write, right ?
-
-> On the v4l2 API side, I believe the current expectation is that upon 
-> s_ctrl, if the value was accepted by the kernel, it will return success, 
-> but user-space should not assume frames will immediately reflect the new 
-> values.
-> 
-> Traditionally, with drivers I have seen so far, if s_ctrl is applied 
-> while streaming, it is applied immediately (but fail in case of i2c 
-> access failure). Upon success, captured frames will reflect the values 
-> after N+1 or N+2.
-
-The point at which the control will take effect is device-dependent.
-Different sensors have different delays for exposure time and analog
-gain. Increasing the delay when interleaving two groups doesn't seem to
-be a fundamental problem. What is crucial, though, is for userspace to
-know when the controls have taken effect.
-
-> > Do you have libcamera in userspace or something else?
-> 
-> Yes, we experienced with libcamera. I can also reproduce the unwanted 
-> behavior with v4l2-ctl streaming + i2ctranfer script that stress the 
-> group hold writes.
-> 
-> If we were to place the responsibility on userspace/libcamera, than 
-> libcamera should be able to handle this:
-> 
-> - after a successful s_ctrl, captured frames will reflect the values 
-> after not N+2 but  X+N+2, where X can be anything because we do not know 
-> when we catch the right context to do the group hold access
-> 
-> - do not expect s_ctrl to fail, unless the value was not accepted; i2c 
-> access failures cannot be catched, because we cannot apply the control 
-> value instantly
-> 
-> - a control value may get accidentally applied to the wrong stream; 
-> because VC takes effect at frame N+1 and exposure and gain settings take 
-> effect at frame N+2, if the group write timing is improper, these may 
-> get out of sync; so user-space may see frames optimized for RGB on the 
-> stream that was supposed to be optimized for Ir or vice-versa, as 
-> confirmed by RishiKesh and Jai on ov2312.
-> 
-> - embedded data information may help identify what settings were 
-> actually applied for a particular captured frame (if embedded data is 
-> available reliably)
-
-We could decide that support for RGB/IR stream interleaving requires the
-ability to capture embedded data. Some people may complain though.
-
--- 
-Regards,
-
-Laurent Pinchart
 
