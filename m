@@ -4,61 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF99CCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 17:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AACCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 17:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WlOvKCLQ6DzAGYFVTM/1xQte9uvosH8fvN2hHk710O4=; b=UP/4XXPYTydCpu
-	pHGmwii28+fJHLDjFbV+DNHfhm6syG4Q2j/eRMVG5bGJr4pjl1cNIVzFPpPCT+ex3n7RlVL5MhuTq
-	uCtmTvtZk7Zh7y1RFDiXRvrcS3/ji70GhFnnasWpTbn2/8DHSQ0jDu0lpueBLSINwuawQi6DdwVJB
-	XqNSd5b2oGqoBT4j9ZNOR6CjuGddO40QFHUVXz9hmNr8OgsceWc437RwrXKHPz9Q6MavnRbn3Zri9
-	ybmAv4JeqQGpjlbdIz5UseOESG/4goodDLzBhYc2HQFPVJ7T6UjYUL7NSDV59zrdYZW/GE8pQa0C6
-	dDjiYh4In3/lnaBaV5fg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L2bhA+uZ3vUrcb5norWF7VUtyFvgn68rxkSwA/DkM+A=; b=1idf4gBa+hN73joNhhNDVMRxCJ
+	SjBwfnO/QEJ0UsVVZ2HS+3bjei0rELoUIX8GWmYTqL4jClYQ9zRk3xDRYZagTRgoKPGXoEMTDgNJD
+	VvzAE2qM3VS8eDOB/mYFc0sgJpoLt4dmWl0ciLIWq0Ij0kDfJ1Od7QzzXcND0MN56q0qDivGzhCfs
+	Sicbj4hz1xg5fRPKYH02NeMC6+hohmWLo2CSp1LAvHGWWVVxLZHbeDzzdLugZVy0KVtBHreARVMO4
+	UUaghkNcUo+HopaUGZnxvoJrLpYuZFK6KGnPdeFDog2F4vzlCu3P7hCGKDYjSj69eM/IUz6VJs4nJ
+	xHwOAldQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE8no-00000001CUg-033f;
-	Tue, 06 Oct 2026 17:18:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE8nl-00000001CU3-2Md3
+	id 1xE8wu-00000001D2D-3vYV;
+	Tue, 06 Oct 2026 17:27:33 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE8wp-00000001D1N-0fbt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 17:18:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C63CC1516;
-	Tue,  6 Oct 2026 10:17:58 -0700 (PDT)
-Received: from [10.2.213.24] (e137867.arm.com [10.2.213.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E0883F763;
-	Tue,  6 Oct 2026 10:17:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791307082; bh=ldhidRQkpbXIfBHpxregDRh7fkE0mKVToAxs/apJWsk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ABNIjXMk/egPevczmKqd/PHJ8uZgO+6b/7Hi9v0ZrE05RS4vB03gBVFFwCnm3fBuI
-	 mDnZXcYKjRQciMKu6qGeaLmJXkhiq0B43HorYKsVkusdl8UUydCqUOAOAPJAuPj5Xc
-	 1Agf9kFu/a8qDLvNBdPLXLGPNz8iqtV6BfRHX2IQ=
-Message-ID: <fd405cda-51bd-4b1c-803c-f2597b2b128e@arm.com>
-Date: Tue, 6 Oct 2026 18:17:52 +0100
+	Tue, 06 Oct 2026 17:27:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FScoJr500Yx9RW7SKHqCr+ZoQ3XW3yBLK33Sb2ulIYKftyvxWzcMLoXCyGkvFeQqGA86OXeWV27P62BXDAKG6APtzmYs+nobl/lqLBXVqCc/3sNm8wWS8VUeQFRDoYguJDe/fx+97j46Z3aU2aDNb24q+ldFKMrLjqH7Tme7YcnkYKL5Zuqu+ZW/jDzIKgKkbnNtsrsuhNr7HN6XwBnO0GyLl94+PVw7wtNQQqDfA6v+hddYg4DEfLXLNyUuUt7KP7dMuCvWbz56iVk19qEuGXYyD+Q3udva00q7cATS3FXTHNJEOgkTc0WDIK0hrw2qrihWdaLv60toj6TtXJs5ZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L2bhA+uZ3vUrcb5norWF7VUtyFvgn68rxkSwA/DkM+A=;
+ b=himKe5n/Ll9xgvmUjCHCDUUj64Z32/xCGvKe2By+pVuORMgt32L8oOaqngUe6M55PO2nq9+2HQurxkfwzYgRdtKar13V4+3sjqhUgELtQkh2dmBHFpv2/Ni3RSQTBqTAXDE1+nGegAhqfWjaIM13EPMRhAsiolu9xNthu3xLcLyhNU5tV76JCAt8tICxZUzdxaPffl/vkGfa4h+SFa7Gm2BwkF9eXTyk/GLha57byNzeIS/VXjgl0BQWI2dkwwWfp1CUuqjngeJzb16KN5UT9phllKz7hr/83yAMQu8s+amS+UrfEXHKjBYFleD78275+z/hz/UFfmepH2A1aYVhvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L2bhA+uZ3vUrcb5norWF7VUtyFvgn68rxkSwA/DkM+A=;
+ b=B6XhkOG5Zxy8qQKL0c0tKrDZIjUAmr9d8QhTR6ZBdNOv6n/uSPALrGtDy2FnZAxvbMRjTKsArH/GZLkLibhJGuoEb3v06HklD7Yjgy57jxf4zX+1bFg0/x9+OFf/KhcpxsiVdPYuP5rfAoA1oQTn3JEQ77D6DDVkvPSAvL0Cvy7ceklDcA26jMhdpfidUL5X4TR6/5zqkWdlDD+GPzaRhoo3iqV2qlco+P1+otEAOfeAyVFRopIx3l81Ou7oQYOKGLdVyvk7Whb4dDNyvwz3D9w8irfQ35wTXrZPCvn60Fl18B202BduH0fGfURQKV1HSEeQDp11VzQM6asAdPzZ+A==
+Received: from CH0PR13CA0015.namprd13.prod.outlook.com (2603:10b6:610:b1::20)
+ by CH3PR12MB873938.namprd12.prod.outlook.com (2603:10b6:610:366::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Tue, 6 Oct
+ 2026 17:27:17 +0000
+Received: from CH2PEPF0000013F.namprd02.prod.outlook.com
+ (2603:10b6:610:b1:cafe::75) by CH0PR13CA0015.outlook.office365.com
+ (2603:10b6:610:b1::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Tue, 6
+ Oct 2026 17:27:17 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF0000013F.mail.protection.outlook.com (10.167.244.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 17:27:17 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 6 Oct
+ 2026 10:26:45 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 6 Oct
+ 2026 10:26:45 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 6 Oct 2026 10:26:44 -0700
+Date: Tue, 6 Oct 2026 10:26:41 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Mostafa Saleh
+	<smostafa@google.com>, Daniel Mentz <danielmentz@google.com>, Ashish Mhetre
+	<amhetre@nvidia.com>, <linux-arm-kernel@lists.infradead.org>, Thomas Gleixner
+	<tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Bjorn Helgaas
+	<bhelgaas@google.com>, <linux-pci@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, <rafael@kernel.org>, Danilo Krummrich
+	<dakr@kernel.org>, <driver-core@lists.linux.dev>
+Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+Message-ID: <asUvUf4PZJ7JCLXp@nvidia.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-12-praan@google.com>
+ <ar1yNtr7Kp2OTcDd@nvidia.com>
+ <ar3yWUmi8E0k37Ml@google.com>
+ <ar6gY9grmdMZcN/M@nvidia.com>
+ <20261002164748.GD3481470@ziepe.ca>
+ <asAeCz_rmpe5hbsh@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP notification
- to task_work()
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
- loongarch@lists.linux.dev
-References: <20261001143516.Ew8C97WS@linutronix.de>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <20261001143516.Ew8C97WS@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <asAeCz_rmpe5hbsh@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000013F:EE_|CH3PR12MB873938:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e5184b9-7d05-443b-15d7-08df23cf1200
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|7416014|376014|1800799024|5023799004|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: oNoxu2o+yOyAyjH9D+1LRzLDxI9f+HufROL+/5PhCmrnxFV6BOn+aebeAH8XqPqgJ0sho+BWc7/SGeTfC7z7NF5NiUl2N1ioxTAbmA59GHDq52Y+MOglo9GFn5md7MWl8fH1OxPehcQm17Tj0Ti6DlgBHNPaP0oRofMVrw+n4gPrdPGlkz3nnP73bus7s1qMwpvGtFb5V3uCcxd5QhR1XdgR3Df7/gVUgqfWPlw+CaXWLJ4e8o+tQW+RrHLcj3Vnw3K2krb30bnaotoERYVn/k/Ew1nVwB+LZEGjUpCRlUZN8aJ0HoSwwUKeSgnL9dyvpUu1Q0ckCiS676esZ89LysFkOzzGF+F0H31VjdID+0aoLdX3OYoXVOZQlcbtlc3rZWV4r6Y+SbMDxnt5vi+7QlweYhQLp1gT8cPrD4+2MdSHv/Ow2IyJHnYAvE7+ijArqirp8dvmpxOkrwHStiX4/gb//aRpk7ag0b1gptjlwLHyXTf6R5xo71EWOcM+dy0BEOjkFnLyi+AhCr2doi6x8932sey5HWkK+nBCBCL49+LBlIB3u5l7+1T5kellBf1j2HPOVtgBqgvGeOvrDLZARQpC62YiRLw8I8HIbIcXU6G6QIbkRfYSqOlk5cIhJ2zT9tEPRIDwKWNjuBq5ZERHV9G43sEGAFiYR/SNXOByWDx5aUeuPtpAyPlAImd5r9DSd+aiw7HVwNvtWgFHTA+YsQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(7416014)(376014)(1800799024)(5023799004)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6on5dneOxA07jgzPwBKxzb8L+veZcqZOhTfU8TMMD841DjK/Y8YM0NxO0IbxjTw6Nh27xVKlWkcUpuVQamUiRioWOF68CytCzy/WSe6FJyLTv6d83PqeDcnhdmDam6kTArvHA71BGK6JABS/q2SR3T1GJht+Cicgktrc71ryBL9MEYX8/uKX4J4nf4AUZcof9XkASjDKq3AcgzpD4+v9VYjWrr8Y1jfdO5Omb+tlhFKqEOea6z4m1sXAupA7ZVpXRSiToepMT70utehgLg2xqWiwjgImHfjZOqcS3VBlc9+YTfY3gdXiBNNvXedYVWvO53tgS8Y1IOsfjolbOphuToj8/qhm7LmXh03Vx7cyL7uQouPD3vUfaiYGO8yxDNeZ1H2yRwrhvAfiDKbaJHb+Oo1TuNgWRdS4o+sXN6lhO+uy7v3BhkFvPLY/Nr9u8oqk
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 17:27:17.5583
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e5184b9-7d05-443b-15d7-08df23cf1200
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB873938
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_101805_703222_D6A9853C 
-X-CRM114-Status: GOOD (  43.15  )
+X-CRM114-CacheID: sfid-20261006_102727_223526_38836F7A 
+X-CRM114-Status: GOOD (  39.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,172 +137,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, Oleg Nesterov <oleg@redhat.com>, Max Filippov <jcmvbkbc@gmail.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Russell King <linux@armlinux.org.uk>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>, Clark Williams <clrkwllms@kernel.org>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>, James Clark <james.clark@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Chris Zankel <chris@zankel.net>, Linus Walleij <linusw@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Jiri Olsa <jolsa@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Fri, Oct 02, 2026 at 09:11:39PM +0000, Pranjal Shrivastava wrote:
+> On Fri, Oct 02, 2026 at 01:47:48PM -0300, Jason Gunthorpe wrote:
+> > On Thu, Oct 01, 2026 at 11:03:15AM -0700, Nicolin Chen wrote:
+> > 
+> > > > So we can't issue ATC_INVs during suspend (the EP is already down), nor
+> > > > during resume (the SMMU resumes *before* the EP is made active). The EP
+> > > > can't use its ATC while suspended, and if it loses power/resets on the
+> > > > way back to D0 (from D3cold, or D3hot with No_Soft_Reset=0), it comes 
+> > > > back with an empty ATC.. same assumption the PCI reset path makes today
+> > > > (pci_dev_reset_iommu_prepare()).
+> > > 
+> > > In that case, would the STOP flag be too late? It's only set in
+> > > the middle of the SMMU suspend. So, an ATC command (via doamin
+> > > invalidation) might be issued prior to the Point of Commitment,
+> > > which will be timed out due to the unresponding EP?
+> > 
+> > How can you ever fix that?
+> 
+> The unfortunate reality is that this gap exists in the kernel even
+> today.. upstream SMMUv3 has no RPM, so it's always on, while the EPs can
+> runtime suspend independently. So an ATC_INV can already be issued to
+> an EP that has suspended. I'd argue RPM improves this slightly, since
+> once the STOP flag is set everything is elided, so the window closes at
+> SMMU suspend instead of never.
 
-Sorry for the long wait, finally taking a look at this !
-(+Linus Walleij for the `arch/arm/` side)
+That doesn't sound very convincing though...
 
-On 01/10/2026 15:35, Sebastian Andrzej Siewior wrote:
-> Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
-> "sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
-> delivered with disabled interrupts and perf intrastrucure expects
-> disabled interrupts while the overflow callback is invoked.
->
-> The callback then sends a SIGTRAP signal for which it acquires
-> sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
-> must not be acquired in atomic context.
->
-> Delay the event callback until the return to userland.
-> Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
-> actual callback invocation to task_work_add() callback. This callback
-> invokes the architecture defines callback arch_hwbp_send_sig().
-Typo : `[...] architecture defined [...]`
-> This requires struct callback_head and the functions require
-> ARCH_NEED_PERF_HW_NOTIF to be defined.
->
-> This was reported against ARM64. ARM, LongARCH and Xtensa follow the
-> same pattern are also converted. Xtensa is the only not supporting
-> PREEMPT_RT but now we have all architectures using the same pattern.
->
-> Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-> Reported-by: Waiman Long <longman@redhat.com>
-> Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
->
-> v2…v3: https://lore.kernel.org/all/20260814085118.OPEA_Ssn@linutronix.de/
->   - Add Xtensa for completion
->   - sashiko complains and wants TWA_SIGNAL instead TWA_RESUME. His
->     argument is that a syscall will trap via get_user() and loop forever
->     instead making progress. This is wrong IMHO. ARM64 will single step
->     over the watchpoint and continue execution. The only downside is that
->     userland will get notified after the syscall completed. So my theory.
->     Using TWA_SIGNAL is worse: Assume we have a watchpoint on UADDR and
->     are in a futex() syscall. The get_user() invocation will trigger the
->     exception, the debug handler will step over and queue a signal. The
->     futex code will notice this and return ERESTARTNOINTR. A signal will
->     be sent, the syscall restarts, traps onto UADDR again, the loop
->     continues. But this should be case now, too…
->     Now that I look into arch_build_bp_info() and do actual testing I must
->     say arm64 does not support mixed breakpoints. This means there is no
->     breakpoint in kernel on a userland address. \o/
+> > How does power management really work, is it expected that the end
+> > device is already quieted by its driver?
+> > 
+> 
+> Yes, power management would topo-sort all dependencies and invoke
+> suspend callbacks accordingly, i.e. in our case the suspend callbacks of
+> all SMMU clients would be called before the SMMU's suspend callback.
 
-For the record, the comment on `task_work_add()` reads :
-> @TWA_SIGNAL works like signals, in that the it will interrupt the targeted
-> task and run the task_work, regardless of whether the task is currently
-> running in the kernel or userspace.
-> [...]
-> @TWA_RESUME work is run only when the task exits the kernel and returns to
-> user mode, or before entering guest mode.
+If that's guaranteed, we should probably -EBUSY the suspend if one
+STE isn't aborted.
 
-At least on arm64, we are explicitly not preemptible while handling
-hardware breakpoint/watchpoint exceptions. (See `debug_exception_enter()`
-in `arch/arm64/kernel/entry-common.c`). So `TWA_RESUME` is definitely
-the behaviour we want in my opinion.
+> > Could the first step in power management install a blocked STE? Then
+> > we don't have to worry about ATC desync and that automatically stops
+> > generating new ATC invalidations if we go and detact the domains too
+> > 
+> 
+> Partially.. at SMMU suspend we set GBPA to abort and clear SMMUEN, so
+> nothing gets through while the SMMU is off. But that's global and only
+> happens after all EPs are down, it doesn't stop ATC_INVs in the window
+> Nicolin pointed out.
+> 
+> One way to ensure the ATC state is relying on the PCIe spec to lose ATC
+> content during D0 entry from D3cold, or D3hot with No_Soft_Reset=0). 
+> 
+> Another way to enforce this, is to *somehow* ask the endpoint drivers
+> disable ATS during *their* suspend, i.e. in the EP's driver's suspend
+> they could call pci_disable_ats or a better suited helper from pci core
+> and the in the pm_resume / rpm_resume they could call it's equivalent 
+> pci_enable_ats, counterpart ensuring a clean ATS state. Or maybe the
 
->
-> v1…v2: https://lore.kernel.org/all/20260713144939.FuCj9yvZ@linutronix.de/
->   - sashiko complained that a memory breakpoint might trigger several
->     times before a signal is sent if the syscall touches the memory (via
->     get_user()) more than once before returning back. This would lead to
->     list corruption in task_work_add(). To handle this, there is now a
->     variable which is set via xchg before task_work_add() and cleared
->     after the signal has been sent.
->
->   arch/arm/include/asm/hw_breakpoint.h       |  1 +
->   arch/arm/kernel/ptrace.c                   |  6 ++---
->   arch/arm64/include/asm/hw_breakpoint.h     |  1 +
->   arch/arm64/kernel/ptrace.c                 |  6 ++---
->   arch/loongarch/include/asm/hw_breakpoint.h |  1 +
->   arch/loongarch/kernel/ptrace.c             |  6 ++---
->   arch/xtensa/include/asm/hw_breakpoint.h    |  1 +
->   arch/xtensa/kernel/ptrace.c                |  6 ++---
->   include/linux/hw_breakpoint.h              |  3 +++
->   include/linux/perf_event.h                 |  4 ++++
->   kernel/events/core.c                       | 26 ++++++++++++++++++++++
->   11 files changed, 45 insertions(+), 16 deletions(-)
->
-> [...]
->
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 915c6fd3f0845..4e0cea7f59e4c 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -215,6 +215,10 @@ struct hw_perf_event {
->   
->   	/* Last sync'ed generation of filters */
->   	unsigned long			addr_filters_gen;
-> +#ifdef ARCH_NEED_PERF_HW_NOTIF
-> +	struct callback_head		arch_hw_notif;
-> +	int				arch_hw_notif_busy;
-> +#endif
->   
->   /*
->    * hw_perf_event::state flags; used to track the PERF_EF_* state.
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 634d2ccbab82d..9b38a14880361 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -13381,6 +13381,28 @@ static void account_event(struct perf_event *event)
->   	account_pmu_sb_event(event);
->   }
->   
-> +#ifdef ARCH_NEED_PERF_HW_NOTIF
-> +static void perf_arch_hwbp_send_sig(struct callback_head *head)
-> +{
-> +	struct perf_event *bp;
-> +
-> +	bp = container_of(head, struct perf_event, hw.arch_hw_notif);
-> +	arch_hwbp_send_sig(bp);
-> +	xchg_relaxed(&bp->hw.arch_hw_notif_busy, 0);
-> +	put_event(bp);
-> +}
-> +
-> +void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sample_data *data,
-> +			   struct pt_regs *regs)
-> +{
-> +	if (WARN_ON_ONCE(!atomic_long_inc_not_zero(&bp->refcount)))
-> +		return;
-> +	if (xchg_relaxed(&bp->hw.arch_hw_notif_busy, 1) ||
-> +	    WARN_ON_ONCE(task_work_add(current, &bp->hw.arch_hw_notif, TWA_RESUME)))
-> +		put_event(bp);
-> +}
-> +#endif
+pci_enable/disable_ats is used by IOMMU drivers only.
 
-I find the function names a bit counter-intuitive, compared to the other
-arch-specific perf functions.
-Given the name `perf_arch_...`, I would have expected them to be defined
-in arch code, rather than in the generic perf code.
- From what I can see, usually perf functions calling an arch-specific
-function lack the `_arch_` infix of their `arch_` counterpart.
+> pci_dev_reset_iommu_prepare/done() pair (with slight refactoring) in EP's
+> suspend/resume?
 
-I do not know very well what we expect in perf, so I might be off-base,
-but would calling them `perf_hwbp_send_sig()` and `perf_hwbp_notify()`
-make sense ?
+That sounds right to me, though a different API for suspend/resume
+will be required. And call them in pci_pm_runtime_suspend/resume()
+maybe.
 
+Jason, how do you think about this?
 
-Otherwise, it looks good to me on the arm64 side !
-I had a look on the arm side as well, given the debug handling architecture
-is similar, and I think it is OK on there as well, though I wouldn't mind
-a more experienced arm review :)
+> I could mention this explicitly in some comments or dev_warn if any of
+> the masters have ATS state as ON during suspend?
+> 
+> LMK what you guys think of that?
+> 
+> > Maybe I'm wondering if power management should involve the core code
+> > so it detaches all the domains from the device, setups up blocking and
+> > then the iommu itself could power ofF?
+> 
+> I'm slightly against the blocking domain attach because it's a
+> reasonable ask for the client drivers to be able to dma_map / unmap when
+> they're suspended, given that most of the modern IOMMU state is
+> in-memory and the only HW state is some sort of TLB/ATC maintenance. We
+> can map/unmap when the IOMMU is off and just ensure a clean cache state.
+> Drivers often want to pre-map everything, power ON just to run their
+> workload, power off and then unmap. 
 
-Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+If it's about mapping, it shouldn't be a problem: while a device is
+in suspend state, iommu_group->domain would point to the DMA domain.
+This is similar to the resetting flow that only sets gdev->blocked.
 
-I also tested the patch with pNMI and CONFIG_PREEMPT_RT on arm64 : I can
-confirm that the atomic sleep warning is gone and everything works
-as expected !
-
-Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com> (arm64)
-
-Thanks a lot for looking into this, combined with[0] the hardware debug
-handling should be much cleaner ! :)
-Kind regards,
-Ada
-
-[0]: https://lore.kernel.org/r/20260907163101.131569-1-ada.coupriediaz@arm.com
-
+Nicolin
 
