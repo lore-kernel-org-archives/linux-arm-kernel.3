@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A7ACA5FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 05:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7E3CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 05:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6HKUn32Pl0RcC+t4ZBVYw0IBfWo3PWYr/PqqN0MysU=; b=BozJC1cn0M5+v30x59AbQwlHQ2
-	LBzYugMhmle1ggZyL62TtKCWhp6z0iuZghE7ZhWtMwfYWhCmb4zTbsRzSVCpFScILiKgHBe90sMk2
-	0oB8lZvByN//KYZh7Wf/D/XFH2Dbl0v+Hh7KeVL9Z5moByX5K11vLN2/6jZUkrUSyO0FRBe+XHmQo
-	YJ5aT/jsKhbSJGSzsWK91iSIkk/W+LTnxOBI6aBCrbWtqw1Rr2wOlUlX/vO3r+XeG3GsQ+26NqRRa
-	G+VdFaSb5tw2U7UwgtROeI5ebfNXdHtLp1kBYvo4PhdcJhiAgelRiHsFA5CUm9yZTjh+gMVA11byJ
-	mY7O3qjw==;
+	bh=HlbDdSB3PruPRmOdVrnRuaAfzphnBA/AuglJGG/CjDA=; b=t49Z6OtI/+wVqEMIX59jbfUrCl
+	Qu3eXBbRub/fO8Pzl7BIVJXvg+UCmUTBE0SbNfltYeoZHIyxnKrtY8iS1nxCPMPlw6wXl7L+iF2HO
+	jLI7XsSvUZTDlg4rF/HEygHPpdIT2sDskpVNVvODu5gSxe4ZxgUSLZip/JKr8WMbTftPJJz9MfaIC
+	2+6EFwbN5HDwV9jyOSen5K6iLsqVGD/C8eohs3BaEpw2o3BKWjRzxsoEqJ5Axb/S2dGv6RseVMhMM
+	zVAeS+RKD3+BGVrFOpljsLf8J+m/QoWFuAqNuQGtQC0+tWHCMBdO+68eOts0+VLGr5RwKaQfubwpD
+	9Gf2pixg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDxq6-000000004cu-3Ima;
-	Tue, 06 Oct 2026 05:35:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xDxyy-0000000052c-2wJF;
+	Tue, 06 Oct 2026 05:44:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDxq4-000000004cJ-335M
+	id 1xDxyw-0000000052D-2M6X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 05:35:46 +0000
+	Tue, 06 Oct 2026 05:44:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791264939;
+	s=mimecast20190719; t=1791265493;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Z6HKUn32Pl0RcC+t4ZBVYw0IBfWo3PWYr/PqqN0MysU=;
-	b=hyfReefnzAFmHYVxWTxE/sXZwI/H++i5Z7kY+6fRKc6XtnR+jn3IHnVvteIORl/STx77xZ
-	eE4Ft9CE4iB7F7oIrJIBGPiXgIiESwrn6UL6+79fdEGkBfUoEdJyN74TDpzo0I96hphD1I
-	SZF8Kgsop61MMDnHdGqiOFKDVM1u2X0=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=HlbDdSB3PruPRmOdVrnRuaAfzphnBA/AuglJGG/CjDA=;
+	b=H/2QPeI5HGWXZ+ZyyHFDqHw+hNrZegLbjCGCA5hxD3IR2VJ72nK43HyGh9rcKlQWhf06qo
+	dsEt9MdiKS4Qvh3ISvgLRXx4+OjUk6A60Vjpv5NH7G7qFL+W2H202kpOVcBxo5jfeyIwKf
+	ALSJBsxUUMg65fhZ7jEfjIQptXCg4pA=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-121-iCvfw7ulOGSgrg1L7i6eLA-1; Tue, 06 Oct 2026 01:35:34 -0400
-X-MC-Unique: iCvfw7ulOGSgrg1L7i6eLA-1
-X-Mimecast-MFC-AGG-ID: iCvfw7ulOGSgrg1L7i6eLA_1791264932
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3a470ead068so2271177a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 22:35:34 -0700 (PDT)
+ us-mta-308-Mq6hiRfuMZWHAQdfWMYKtg-1; Tue, 06 Oct 2026 01:44:51 -0400
+X-MC-Unique: Mq6hiRfuMZWHAQdfWMYKtg-1
+X-Mimecast-MFC-AGG-ID: Mq6hiRfuMZWHAQdfWMYKtg_1791265490
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2e2c785aa62so38092745ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 22:44:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791264932; x=1791869732;
+        d=1e100.net; s=20260707; t=1791265490; x=1791870290;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z6HKUn32Pl0RcC+t4ZBVYw0IBfWo3PWYr/PqqN0MysU=;
-        b=J2PL/wGbjH06CysmCx4sMN/cxCgnRtmkCxV7J+Gv/y+Moo51gA1bRD1iKcHbPntXmX
-         ElMUoTMjoVWKlpyE3OdrG3wyx1cYnO8bIFeXuqDeAfFcMb6ZHkmyu2MaO9BF769RjKvo
-         nxTRqajkWHEXOk6+ljacT+Zhem58D1enFyIa968rc78WD/i9HWRUqVYA+NJi4PNNBc3D
-         es2EuGOnWDsn8AL8pjZuNcOMatjSi+tkKyNHWCfC7INdHNW9dXr9OHG7eGWQQWtXDucU
-         OYXqDqoP8BnL2vM7A4dqVaiigFTMJT3zt0oi/pPz0e3J2H51ubrgntCVHb/3q8mJOdym
-         uZZg==
-X-Forwarded-Encrypted: i=1; AKwUvBzYkKgb3HB+Q8TPkwhWWCkaGLy7aw27O8Z6rsq4NV4uRNw6EuYxtbjg2FAdbt4WX74yt+EwyQboReRad13JuRKT@lists.infradead.org
-X-Gm-Message-State: AFq9FYLlL9Vqr9Tqiw22LBrGKL0QZ6znMvFrBu26moh7nybKT9s8E8nQ
-	67CtRfQGu6S8zHnVOiA7efh8fgN1hCrBfONj7B1d7q6WL2Q2dLsnkUmS+bUrNGxB9mkQg/dmsLn
-	wZQgK9eVBG2x3s/D1QMxo8+Xs4+VjcwDMZ2Xxq1OwsxazAlcuJRIV1ZZh2yGMjrF0ove26Ld7HM
-	Y2
-X-Gm-Gg: AYBFou1QamwvnQ9ga3cxhgL41NVMwjgiLA3BHkcUbPXI373MTGs8TlwT34xZDI2MivF
-	cSSFwIWpF3MRrsdExKiABqb5xVlvdkc7aAkWRIoaB77+TJofolkD1wMFgYi6OtbwGfPOCz1PkGW
-	q6Sd4XRsqj/zjxKZnqZLhVtpPYV/UKaLuQXvlUHVyRmus1wO0kACRfbiT2QJwPL3w4t9H6EJ1iG
-	Smu8XmHNt+jJUplGC0sjydeHrWiU93LHOVFseb7Odvnhhj0VFo4FGJ80xQPnlL66go/RwshEtTI
-	9Y8enf81C+UgvujgCvLAG7HEhWwxo++DjhkA1RiGbGO7+hUL9pS2KYZ3+ntZVDNl9ugGAXaXQKW
-	IgP5uIYBE1GpCx/zC3rzq1vMYC8E6wJa+o0HIRMGniA==
-X-Received: by 2002:a17:90b:5101:b0:3a8:6b84:234d with SMTP id 98e67ed59e1d1-3a87254fb70mr144156a91.6.1791264931659;
-        Mon, 05 Oct 2026 22:35:31 -0700 (PDT)
-X-Received: by 2002:a17:90b:5101:b0:3a8:6b84:234d with SMTP id 98e67ed59e1d1-3a87254fb70mr144145a91.6.1791264931169;
-        Mon, 05 Oct 2026 22:35:31 -0700 (PDT)
+        bh=HlbDdSB3PruPRmOdVrnRuaAfzphnBA/AuglJGG/CjDA=;
+        b=mGTS1jqKt1RPFlRAOGcMkvAmmwJDHf/83YkzEQrAVHWyr/65UruEHDcIOjlm8BN2e5
+         J08hhQUnlQ6ZXla/HgAUIlsgpMnV9MXHo4VNo0bxdP0gdgBIEa7iScRyZQPzEZIhaXVw
+         tX+xijhAs+qwy7ecOevcyFrSo9K3Wx9qD+h6QW1yBaqIZdw9mRdODJAiUG1+daK4tp8a
+         EZVC9OPwEgJLS7Nefc4IfGfXAQhRKXODoO7eGR6TMb78LV4KXtgE6VphEH+FmbyjAvud
+         72T/ir1Gm+P1oryevL+ngvB16lDetIpEVB9Ul+VA9j2UtaLt9DQPnSFak3bOAjCTadKU
+         X00A==
+X-Forwarded-Encrypted: i=1; AKwUvBwkZqsmby6bRWUTdSN2LJDSPAdqqu38hFyCewrILkT9jyPcRRpDaSxl250SW1Ym0/4O7d3D5da/5+XVRbuDCB0x@lists.infradead.org
+X-Gm-Message-State: AFuF++mgx+dXpVDh2y/Kym8eVvbXX4XT8jdxBaiCgZ7L/IZlOqWoubpe
+	bVM4o574Un0Nx6Pqb1MGFEdq15oEU98z3OpFEUzUZPbShNhjEY0Yi1aA6XnZnagt8/M7qWQ4UfB
+	WXEf3loBwqvyoIkg8yGPC1jtN3YhtSwNdzH8IOogGNNXpHvJ3Z5+oeR85aoiAkZIGOB1BIHBdGb
+	cn
+X-Gm-Gg: AYBFou0+hm2IFAvSu4FbihOhinct/MhKkfHiaTCpR3fZ76RuGkzy0wDmgCHGuTigC1z
+	AyWCHJJRZbGx+UFltVaded3kQyDrBmAKF6d6Qj3vbc7kqj8sm2TwwM8LJ785+SCX3rJeUugwSRk
+	+BZHdPMJHrhhg37BMnhVt1a6avCiuxIqN3rzsUE7OYtmx5XGYbAhgl062RN2M9LK1TjkbPeMrz4
+	MFJumgoBPx8IGhHPsNFi4hMe3SJDXM8BlGYEgs93Af5xwNrmby6t97F0K1PapMglDmp9j9kb0PN
+	9fsVwo/5YcHKeq3ZwI1CW08w4Wvryv7Gm/lCadN5r3g7XtzgAiU74Oa35PKv3c0LusN4uaTao7y
+	uELnfdXOKT+nqTmFegPn2kv3y8Vz5ddv17LnzuWNlDw==
+X-Received: by 2002:a17:902:d584:b0:2dd:68a4:16f1 with SMTP id d9443c01a7336-2e5dcd90b05mr3769915ad.11.1791265489976;
+        Mon, 05 Oct 2026 22:44:49 -0700 (PDT)
+X-Received: by 2002:a17:902:d584:b0:2dd:68a4:16f1 with SMTP id d9443c01a7336-2e5dcd90b05mr3769785ad.11.1791265489595;
+        Mon, 05 Oct 2026 22:44:49 -0700 (PDT)
 Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8543deb6dsm3003847a91.16.2026.10.05.22.35.23
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e5a5ecbdd3sm17417165ad.48.2026.10.05.22.44.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 22:35:30 -0700 (PDT)
-Message-ID: <d330fe17-d9a4-4c6c-9d6c-f47162bbfd14@redhat.com>
-Date: Tue, 6 Oct 2026 15:35:21 +1000
+        Mon, 05 Oct 2026 22:44:48 -0700 (PDT)
+Message-ID: <830e8afc-b208-4972-a45a-32c828c14206@redhat.com>
+Date: Tue, 6 Oct 2026 15:44:39 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 22/23] KVM: arm64: CCA: Expose SVE VL register before
- VCPU finalization
+Subject: Re: [PATCH v22 21/23] KVM: arm64: CCA: Support timers in realm RECs
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
@@ -92,21 +91,20 @@ Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
  linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
  sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
  WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
 References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-23-suzuki.poulose@arm.com>
+ <20261005090754.2140522-22-suzuki.poulose@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-23-suzuki.poulose@arm.com>
+In-Reply-To: <20261005090754.2140522-22-suzuki.poulose@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: znvee0SGzjw1sKNuNFJiFpf3YS_mLbcYrx7QmSpeRUw_1791264932
+X-Mimecast-MFC-PROC-ID: bLez87G5EkbiEV28vws5pkZ8LFyUAAUWuB1WM9CJgWs_1791265490
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_223544_841965_CA7B218B 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20261005_224454_682326_0AA6080E 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,132 +120,71 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> From: Steven Price <steven.price@arm.com>
 > 
-> Userspace must configure the SVE vector length before the Realm is created
-> (as it is part of the parameter for Realm creation), but the Realm VCPUs
-> cannot be finalized until after the Realm Descriptor has been created.
+> The RMM keeps track of the timer while the realm REC is running, but on
+> exit to the normal world KVM is responsible for handling the timers.
 > 
-> KVM_GET_REG_LIST currently rejects the unfinalized VCPUs, which prevents
-> the userspace from discovering and configuring the VLs for  the Realm.
+> A later patch adds the support for propagating the timer values from the
+> exit data structure and making sure the values are in sync for KVM.
 > 
-> Allow KVM_GET_REG_LIST for unfinalized RECs and make the SVE register
-> enumeration handle the unfinalized case explicitly. i.e., only expose
-> KVM_REG_ARM64_SVE_VLS before SVE is finalized.
+> Also, RMM doesn't support injecting virtual interrupts backed by Physical
+> interrupts. So, use the existing software resampling mechanims for Realm
+                                                        ^^^^^^^^^
+typo: mechanism
+
+> timer interrupts.
 > 
-> One adverse side effect of this change is that a KVM_GET_REG_LIST call that
-> only probes for the array size will now succeed even if SVE is not
-> finalized, but that seems harmless since the following KVM_GET_REG_LIST
-> with the full array will fail.
-> 
-> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->   arch/arm64/kvm/arm.c   | 15 ++++++++++++++-
->   arch/arm64/kvm/guest.c | 10 +++++-----
->   2 files changed, 19 insertions(+), 6 deletions(-)
+>   arch/arm64/kvm/arch_timer.c | 22 ++++++++++++++++++++--
+>   1 file changed, 20 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index fe707a0c47308..d99e7818f5894 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2004,6 +2004,19 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->   	return __kvm_arm_vcpu_set_events(vcpu, events);
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index a45845f4ae4ea..428709f499205 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -56,11 +56,25 @@ static unsigned long kvm_arch_timer_get_irq_flags(void)
+>   	return kvm_vgic_global_state.no_hw_deactivation ? VGIC_IRQ_SW_RESAMPLE : 0;
 >   }
 >   
-> +/*
-> + * Realm VCPUs can be finalized only after the Realm descriptor is created.
-> + * But in order to seal the SVE VL, we need to allow the userspace to read/write
-> + * to the SVE_VL, before everything is finalized.
-> + * Allow the register list for RECs before the VCPUs are finalized.
-> + */
-> +static bool kvm_arm_vcpu_reg_list_allowed(struct kvm_vcpu *vcpu)
+> +static unsigned long kvm_realm_timer_get_irq_flags(void)
 > +{
-> +	if (kvm_arm_vcpu_is_finalized(vcpu))
-> +		return true;
-> +	return vcpu_is_rec(vcpu);
+> +	/*
+> +	 * RMI_REC_ENTER rejects LRs with the HW bit set, so use the existing
+> +	 * software resampling mechanism for Realm timer interrupts.
+> +	 */
+> +	return VGIC_IRQ_SW_RESAMPLE;
 > +}
 > +
-
-Needn't to keep this helper, and the code can be integrated to kvm_arch_vcpu_ioctl(),
-see below.
-
->   long kvm_arch_vcpu_ioctl(struct file *filp,
->   			 unsigned int ioctl, unsigned long arg)
->   {
-> @@ -2059,7 +2072,7 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
->   			break;
+>   static const struct irq_ops arch_timer_irq_ops = {
+>   	.get_flags	 = kvm_arch_timer_get_irq_flags,
+>   	.get_input_level = kvm_arch_timer_get_input_level,
+>   };
 >   
->   		r = -EPERM;
-> -		if (!kvm_arm_vcpu_is_finalized(vcpu))
-> +		if (!kvm_arm_vcpu_reg_list_allowed(vcpu))
->   			break;
-
-Needn't to keep the helper kvm_arm_vcpu_reg_list_allowed() after its logic is
-combined to kvm_arch_vcpu_ioctl().
-
-		/*
-		 * Realm vCPUs can be finalized only after the Realm descriptor is created.
-		 * We need to allow access KVM_REG_ARM64_SVE_VLS before that so that the
-		 * register can be sealed.
-		 */
-		if (!(vcpu_is_rec(vcpu) || kvm_arm_vcpu_is_finalized(vcpu))
-			break;
-
->   
->   		r = -EFAULT;
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index b01d6622b8720..c3ca369882273 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -598,8 +598,8 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
->   	if (!vcpu_has_sve(vcpu))
->   		return 0;
->   
-> -	/* Policed by KVM_GET_REG_LIST: */
-> -	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-> +	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-> +		return 1; /* KVM_REG_ARM64_SVE_VLS */
->   
-
-Question: After a (Rec) vCPU is finalized, the returned number of registers won't
-be 1. Is this expected? Otherwise, we need to use vcpu_is_rec() here.
-
-	/*
-	 * KVM_REG_ARM64_SVE_VLS is visible for realm vCPUs no matter if
-	 * they have been finalized.
-	 */
-	if (vcpu_is_rec(vcpu))
-		return 1;
-
->   	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
->   		+ 1; /* KVM_REG_ARM64_SVE_VLS */
-> @@ -616,9 +616,6 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
->   	if (!vcpu_has_sve(vcpu))
->   		return 0;
->   
-> -	/* Policed by KVM_GET_REG_LIST: */
-> -	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-> -
->   	/*
->   	 * Enumerate this first, so that userspace can save/restore in
->   	 * the order reported by KVM_GET_REG_LIST:
-> @@ -628,6 +625,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
->   		return -EFAULT;
->   	++num_regs;
->   
-> +	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-> +		return num_regs;
+> +static const struct irq_ops realm_timer_irq_ops = {
+> +	.get_flags	 = kvm_realm_timer_get_irq_flags,
+> +	.get_input_level = kvm_arch_timer_get_input_level,
+> +};
 > +
-
-Same question as above.
-
->   	for (i = 0; i < slices; i++) {
->   		for (n = 0; n < SVE_NUM_ZREGS; n++) {
->   			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
-
-Thanks,
-Gavin
+>   static const struct irq_ops arch_timer_irq_ops_vgic_v5 = {
+>   	.get_input_level = kvm_arch_timer_get_input_level,
+>   	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
+> @@ -1617,8 +1631,12 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
+>   
+>   	get_timer_map(vcpu, &map);
+>   
+> -	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
+> -				      &arch_timer_irq_ops;
+> +	if (vcpu_is_rec(vcpu))
+> +		ops = &realm_timer_irq_ops;
+> +	else if (vgic_is_v5(vcpu->kvm))
+> +		ops = &arch_timer_irq_ops_vgic_v5;
+> +	else
+> +		ops = &arch_timer_irq_ops;
+>   
+>   	for (int i = 0; i < nr_timers(vcpu); i++)
+>   		kvm_vgic_set_irq_ops(vcpu, timer_irq(vcpu_get_timer(vcpu, i)), ops);
 
 
