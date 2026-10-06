@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824A2CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817A3CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V3cTE6CEeaVLSbJBCMPs3juqjM+llsV1pDj+h29WtkM=; b=b8GJWounnQ3M3//qPBhilwnLBO
-	bloM2fK74eAkr5DTnO6uIl48+NMXIctUoO5HFd5A8MgCqCn6XQ0JOngAuLThyaZvfclodUOT6rJEB
-	qMVXuNIG4IMszuHg0saF41EudCw6LygqX5UILsWTDTKMHli38SxwZjD3YNq0N90pdCwl9jnlVHdtY
-	g8omQ+B9DUixI85q5VbKIVTCXVL9KuQ6OTtB/MmYrkSA3NEq6aTYB54WrTEK6RFbg7FaG90ZbEz27
-	JJajimQmiVn/lx7I8nw1xKpQzEAjoTsdC//eU0+rLeeid4hjvW3tjD8OR1a3CpmCeF4+PtMINHejY
-	fID6QENw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pnA79/yMUobrP+H+M+1462+fcHHeEWmkC7DmTbPe43Y=; b=2q5IjvbDyZH6YVlBa8ZjuBpBkv
+	VMNyZrP7vTXh88w5f3WZbYRiXTQ/1U7ys8hfOVqsPH0xH4Om8pd0DaPZyfGBnn/h3+McHDagI44qD
+	LEyFJZ/QTj8UNTuMj9VIP8RJZxQ0IMp03gS6VLlceY9fP8yCsK5sOCvcGWVPtjUCMc5vixaAxAM/g
+	7S4677j5J5vqvSr4vApAUcky+JxF+JVKhq+Ru8v04R48J60QSeUYlGpDKF0ER8vkRbHz1ofy9Xqg/
+	rq39DEtGNYFSmq0cvrB3y6aJg+vg9iIUVSr6wYJ1OPT/C9TP+v3bwljse9yyJoiQWr361Qh4DuHs5
+	p6kv60dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvJF-0000000HWek-46KD;
-	Tue, 06 Oct 2026 02:53:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDvJQ-0000000HWgP-0OJY;
+	Tue, 06 Oct 2026 02:53:52 +0000
+Received: from mail.haxxors.com ([85.14.200.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvJE-0000000HWec-28Bt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 02:53:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBD5440D3F;
-	Tue,  6 Oct 2026 02:53:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E6D1F000FF;
-	Tue,  6 Oct 2026 02:53:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791255219;
-	bh=V3cTE6CEeaVLSbJBCMPs3juqjM+llsV1pDj+h29WtkM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=C3b/+E90+51wgBgIZ63YKbOX5mfjNH4e57ru9piCUPJA0hGhgxUykIJlp8rX+I5XE
-	 WH4p7ElVlUZIvYV+rH/J3LJ5D7JDDVui9cUV0SH+pSXpAsHhQHNbgPE8OWW1pXhf0h
-	 NA70BPbjOWlMl6MfCkouD/F3l70f50mf0qgawKTq9FNERZvKFj0psyGCZaSA0Gfkti
-	 MWZQx1OVSWeONbqoYPqm526aiTTlxxpzw2h1tNIdjz3kW9qCTQSKsAabP/6Yu5f1v3
-	 Zy/vPwSdKkXvZzZhMbLvsuI1SKo1ZB/b8ChaX43kKEuij0erQVLuWEYTKSvqAJS2FW
-	 V4E2BSkf09wUg==
-Date: Mon, 5 Oct 2026 21:53:38 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Moritz Fischer <moritz.fischer@ettus.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Andy Yan <andyshrk@163.com>, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	linux-arm-msm@vger.kernel.org, Sebastian Reichel <sre@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-kernel@vger.kernel.org,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1xDvJM-0000000HWfa-148x;
+	Tue, 06 Oct 2026 02:53:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
+	t=1791255225; bh=n6BEXt7OYkjTFNdfwFEm8H3uUmWyU4uREug1p7Xp2Ig=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IpbGy6nT9XalwC+s4hIvwnobAp+w3EdPb4RYSf8pVolG/uQ3Y4h1BEQGBeEE5i2hT
+	 KVJUkNJagXZMYOz76g3NPi40FZItps/P1Xbd2Evh0DCZCQEy+STqopbsY8ebU7jSVh
+	 H7jjoP7/sYeZF1Iw389C76T/LfdTxr/Il6X6j3SM=
+Received: from localhost (localhost [127.0.0.1])
+	by mail.haxxors.com (Postfix) with ESMTP id 37FF953061;
+	Tue, 06 Oct 2026 04:53:45 +0200 (CEST)
+X-Virus-Scanned: Debian amavis at mail.haxxors.com
+Received: from mail.haxxors.com ([127.0.0.1])
+ by localhost (mail.haxxors.com [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 4vRzOVYAH2xc; Tue,  6 Oct 2026 04:53:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
+	t=1791255223; bh=n6BEXt7OYkjTFNdfwFEm8H3uUmWyU4uREug1p7Xp2Ig=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Lh7MOB+DA/gLdxJT+fsE/Tpoh0SiKYi3MW+Oz+rxHNh0/JQpsmAAmRb3hrxqI7/JE
+	 GHpydLHOFqIoyhiiW8BsUcPggeNhqJlc4YcljDds4X5rLQwM/qaq5DzWKcxtm1+g2u
+	 PWzOqcKcT7IVgVOeRCaSgbzaEa9kuIy+cisFpFgQ=
+Received: from esports.myloc.de (p200300ee8f09a300264bfefffe4ffb4b.dip0.t-ipconnect.de [IPv6:2003:ee:8f09:a300:264b:feff:fe4f:fb4b])
+	(Authenticated sender: nils@buechner.me)
+	by mail.haxxors.com (Postfix) with ESMTPSA id 3C5A0530B1;
+	Tue, 06 Oct 2026 04:53:43 +0200 (CEST)
+From: =?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>
+To: Ulf Hansson <ulfh@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	devicetree@vger.kernel.org, John Stultz <john.stultz@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v26 05/10] dt-bindings: arm: Document reboot mode magic
-Message-ID: <179125521832.3448223.14726360710255018567.robh@kernel.org>
-References: <20260928-arm-psci-system_reset2-vendor-reboots-v26-0-b24e2348e8e1@oss.qualcomm.com>
- <20260928-arm-psci-system_reset2-vendor-reboots-v26-5-b24e2348e8e1@oss.qualcomm.com>
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	=?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>
+Subject: [PATCH] pmdomain: mediatek: Don't power off default-off domains in probe cleanup
+Date: Tue,  6 Oct 2026 04:53:18 +0200
+Message-ID: <20261006025318.503422-1-nils@buechner.me>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260928-arm-psci-system_reset2-vendor-reboots-v26-5-b24e2348e8e1@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_195348_647077_56FCE651 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +82,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+scpsys_remove_one_domain() runs the power-off sequence for every domain
+that reads back as on. Domains with MTK_SCPD_KEEP_DEFAULT_OFF are
+registered with genpd as off and are never powered on by the driver
+before the provider is added, so their clocks are not enabled. When the
+bootloader left such a domain on and scpsys_probe() fails (typically
+-EPROBE_DEFER) after it was added, the cleanup disables those clocks
+anyway, triggering "already disabled"/"already unprepared" warnings from
+the clock core.
 
-On Mon, 28 Sep 2026 11:39:17 +0530, Shivendra Pratap wrote:
-> Add bindings to describe vendor-specific reboot modes. Values here
-> correspond to valid parameters to vendor-specific reset types in PSCI
-> SYSTEM_RESET2 call.
-> 
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  Documentation/devicetree/bindings/arm/psci.yaml | 56 +++++++++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
+Seen on MT8183 Juniper once the audio domain is KEEP_DEFAULT_OFF: six
+clk_core_disable/unprepare WARNs with backtraces on every boot.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Skip the power-off sequence for these domains; only drop the clock
+references.
+
+Runtime-tested on an Acer Chromebook Spin 311 (MT8183, juniper) with a
+7.0-based kernel (the hardware is not set up to boot mainline);
+build-tested on mainline with W=1. On the device with the audio
+domain marked MTK_SCPD_KEEP_DEFAULT_OFF: the six clk core warnings on
+the deferred first probe are gone and audio still works.
+
+The change and this changelog were drafted with an AI coding assistant
+during a debugging session on the hardware; they were reviewed and
+tested by the submitter.
+
+Fixes: c1f3163d8ff3 ("soc: mediatek: pm-domains: Add default power off flag")
+Assisted-by: Claude Opus 5.5
+Signed-off-by: Nils Büchner <nils@buechner.me>
+---
+
+This is a follow-up to "pmdomain: mediatek: mt8183: Fix silent audio
+from premature sync_state" (sent 2026-10-05), which marks the MT8183
+audio domain MTK_SCPD_KEEP_DEFAULT_OFF. With that applied, the firmware
+leaves the audio domain on at boot, so a deferred first probe of
+scpsys runs into this cleanup path on every boot. The fix itself is
+independent and applies on its own.
+
+ drivers/pmdomain/mediatek/mtk-pm-domains.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+index f0fa79e01..2b41bb8ed 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+@@ -1100,6 +1100,16 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
+ 			"failed to remove domain '%s' : %d - state may be inconsistent\n",
+ 			pd->genpd.name, ret);
+ 
++	/*
++	 * Domains with MTK_SCPD_KEEP_DEFAULT_OFF are registered as off and were
++	 * never powered on by this driver (nothing can use them before the
++	 * provider is added), so their clocks were never enabled. If the
++	 * bootloader left one on, running the power-off sequence here would
++	 * disable clocks that are not enabled.
++	 */
++	if (MTK_SCPD_CAPS(pd, MTK_SCPD_KEEP_DEFAULT_OFF))
++		goto put_clocks;
++
+ 	if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER) {
+ 		if (scpsys_hwv_domain_is_enable_done(pd))
+ 			scpsys_hwv_power_off_internal(pd);
+@@ -1108,6 +1118,7 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
+ 			scpsys_power_off_internal(pd);
+ 	}
+ 
++put_clocks:
+ 	clk_bulk_put(pd->num_clks, pd->clks);
+ 	clk_bulk_put(pd->num_subsys_clks, pd->subsys_clks);
+ }
+-- 
+2.53.0
 
 
