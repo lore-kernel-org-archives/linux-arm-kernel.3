@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC41CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AFCCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4H+TvhFzZJAUYfNmA9dZ0GzXWSX3nxxmo95n8TuNVnQ=; b=NUJ+xwJp44ovC9
-	5YyB7qOE0VwaKENCVyOCxCwhp0YU3X0dt/jDRaIsLm7i4zWKD6rOt7E6D1EbKC55K/XME8a4Bd1Wh
-	jr5uWu9Ss9qysuUp/RpuD1wJFc0EUXaUiSDGkAQVlI8sO0oYpS6a5clNAvOGVjakHHJXBrSab8uSq
-	4eZ4AfU4DLaDv93JZUrNKSFh5aRj/xu/ElU8OpqaC7Yx3dOgB0rAWDeUV3MKDI+Z/VAuQmqfiHdVz
-	7A5rnV+PjxT/jGlK28USG++faeYv96YW9TzHaVnZI2yM/O12WYOaUmXJqus1MFTLCAKkUOcGqBIU9
-	SwjcrsgTkGVN+2qHiL4w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WGdidwFghQsQtqY0zrPR0Y9LM6YHzDcsfYGF87hYJ8A=; b=UIr46j8Jgmp8syHZFChAs1varB
+	PGBDxtuDPo+aQuSQhG/KZBk33kGd7Gwynr4d0a8GbA5qUgfk28JWYirMWE7XF+6aKr6FyD8frJmz4
+	VorQr2dAb69p2zHOq5CNJYKdfuiBXl+UJGz1dcCQ7bsQwnW1hEUSJuOZppIvXhUGarWghXQfafvB0
+	5XYXOwGEIgQKlcUqN1gn08HiXAkli9InD6LguZtODumjac2xUUr5rsmUt7UqeiyDraZaRuXMyICNm
+	dR2wUoLDwWbnWBaBTNHVohEAS9pRQRtX/DaLS+MmPQku7d06SYPS10pFbWyRHvKbJrQvUEQs+mGbt
+	JcAAr7vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Zo-00000000u1U-1Lqx;
-	Tue, 06 Oct 2026 13:51:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xE5Zu-00000000u45-3ZRJ;
+	Tue, 06 Oct 2026 13:51:41 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Zm-00000000u0s-0vIZ
+	id 1xE5Zq-00000000u2E-3VsE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 13:51:27 +0000
+	Tue, 06 Oct 2026 13:51:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791294686; x=1822830686;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=v9lEBvjdaqO6XwdYDIqvh1dxR9AHhNinpBUAg9b7Qhw=;
-  b=ru6U7n+TNIOS9f8q0Ne4aRQha6w2gyGXdWIiyMI3xlpajB+PXYo82s3A
-   Yb3qPjf619uK+EBg4p2Upxnh8VkxPQ8sFvSWM1x0JO3XtD1yIu8pKTaFz
-   ZBGnOdGrAW3iYf6rGj5iAXfcf615ukg1CG7Xxz9X6O29L4N/BxVlH0kRY
-   yuJMFJZ8gmVK0WQ+q6Sor6S51DLHztcp3xi6CbxOLkBAwtNBMXXOuUaht
-   ltv4gSYoceb1KdyFVlJ+qnpyF9B7mThlpYLfRhpAIoIQdcp//2F7TjjKZ
-   uW+e07s6oLGzHlB0JCIru9PanWEMW116NDSoW6zV4IlN7aCBEHUutOpES
+  t=1791294691; x=1822830691;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=EmJMagxo52eNRrqh62LCxmNSKdkejMZ+JW2o+3bzEVo=;
+  b=1xH5u7QHi+s9R4QuzOO1m8dQUJW8iYuZBG6qWZlZQupg69bkX4ckut0E
+   RUYoKoc7fPOF4xtT3UT+8oZB+KDhxfybEjsGixFQHZAExOXqjGeGAuUHq
+   9prAhPH8i4rFBGEqT7vcgOSam4aTTZP3mNAtaAwtPgsBkwpzmAljF9y4G
+   1JVLtwY3yJfINTuhHdLYIOQ+/1C1It6EkIyXfWIIDkN2Tw3uUJJKG06pv
+   3jaCaJGna4SvWJOQiCDKBdWKqN5jDFgrTcC4bWGvdCjm+xe3somLo4zGt
+   WAT3DMWxQRxqj34YfXXXrBHJT0f3VsMqfBdM4yz01ZwXPCICq9ktouBcl
    w==;
-X-CSE-ConnectionGUID: +wFIaA0USQyKvtmAKQmJ9w==
-X-CSE-MsgGUID: IYhRJQgaSj+cmdGukXM8WA==
+X-CSE-ConnectionGUID: tJGzYeDVTyGjXQCFJvwVNA==
+X-CSE-MsgGUID: XW8Cd2mhRriVpGBiwm4A4w==
 X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="231742330"
+   d="scan'208";a="296059985"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Oct 2026 06:51:24 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Oct 2026 06:51:30 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 6 Oct 2026 06:51:24 -0700
+ 15.1.2507.58; Tue, 6 Oct 2026 06:51:29 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 6 Oct 2026 06:51:22 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 6 Oct 2026 06:51:27 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next 0/3] net: sparx5: add TAS offload
-Date: Tue, 6 Oct 2026 15:51:05 +0200
-Message-ID: <20261006-sparx5-tas-v1-0-5eef1126dfd5@microchip.com>
+Date: Tue, 6 Oct 2026 15:51:07 +0200
+Subject: [PATCH net-next 2/3] net: sparx5: Move TAS link speed
+ configuration to sparx5_tas.c
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMn8xGoC/x3MMQqAMAxA0atIZgNpwApeRRyKjZqlSlOkIN7d4
- viG/x8wySoGU/dAlltNz9Tg+g7WI6RdUGMzMLF3RB7tCrkOWIIhUxRmR+NIEVpwZdm0/rMZkhR
- MUgss7/sBfcsIHGYAAAA=
-X-Change-ID: 20261006-sparx5-tas-20de2210770d
+Message-ID: <20261006-sparx5-tas-v1-2-5eef1126dfd5@microchip.com>
+References: <20261006-sparx5-tas-v1-0-5eef1126dfd5@microchip.com>
+In-Reply-To: <20261006-sparx5-tas-v1-0-5eef1126dfd5@microchip.com>
 To: Daniel Machon <daniel.machon@microchip.com>,
 	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
  S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
@@ -74,8 +73,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_065126_593195_E8826A0E 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20261006_065130_908191_F719134C 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +89,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds offload of the Time Aware Shaper (IEEE 802.1Qbv),
-configured through tc-taprio, on Sparx5 and lan969x, which are both
-served by the sparx5 driver.
+Move sparx5_tas_speed() and its link speed enum from sparx5_qos.c to a
+new sparx5_tas.c, which the following TAS offload patch builds on.
 
-In hardware, a TAS schedule is run by a TAS list, which steps through
-gate control list (GCL) entries taken from a pool shared by all ports.
-Sparx5 has 128 lists and 10000 GCL entries, lan969x has 60 lists and
-3000 entries. An idle list is in the ADMIN state. Once started, it is
-PENDING until its base time, then OPERATING. A stopped list is
-TERMINATING until the end of its cycle, and then goes back to ADMIN.
+No functional change.
 
-The driver uses two lists per port, so a new schedule can be set up in
-one list while the current one keeps running in the other. When the
-new list reaches its base time, the hardware stops the old one.
-
-The two chips differ in how a list addresses its entries: on Sparx5 a
-list is a contiguous range addressed relative to its base, on lan969x
-it is a linked list addressed by absolute pool index. The driver
-handles both.
-
-Frame preemption is not supported yet, and every queue uses the
-default guard band of 1536 bytes. Making the guard band follow the MTU,
-and taprio queueMaxSDU, are left for a follow-up.
-
-Patch #1 adds the registers used by TAS.
-
-Patch #2 moves the existing TAS link speed configuration to a new
-sparx5_tas.c.
-
-Patch #3 adds the taprio offload.
-
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Daniel Machon (3):
-      net: sparx5: Add registers used by TAS
-      net: sparx5: Move TAS link speed configuration to sparx5_tas.c
-      net: sparx5: Add TAS offload support
+ drivers/net/ethernet/microchip/sparx5/Makefile     |  2 +-
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  3 ++
+ drivers/net/ethernet/microchip/sparx5/sparx5_qos.c | 49 -------------------
+ drivers/net/ethernet/microchip/sparx5/sparx5_qos.h |  1 -
+ drivers/net/ethernet/microchip/sparx5/sparx5_tas.c | 56 ++++++++++++++++++++++
+ 5 files changed, 60 insertions(+), 51 deletions(-)
 
- drivers/net/ethernet/microchip/sparx5/Makefile     |   2 +-
- .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   2 +
- .../microchip/sparx5/lan969x/lan969x_regs.c        |  10 +
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |   2 +
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  28 +
- .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 204 ++++++
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |  53 +-
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.h |   1 -
- .../net/ethernet/microchip/sparx5/sparx5_regs.c    |  10 +
- .../net/ethernet/microchip/sparx5/sparx5_regs.h    |  10 +
- drivers/net/ethernet/microchip/sparx5/sparx5_tas.c | 806 +++++++++++++++++++++
- drivers/net/ethernet/microchip/sparx5/sparx5_tc.c  |  17 +
- 12 files changed, 1094 insertions(+), 51 deletions(-)
----
-base-commit: a5e7d8e446af9803e37a3b6a4d416fb41178348f
-change-id: 20261006-sparx5-tas-20de2210770d
+diff --git a/drivers/net/ethernet/microchip/sparx5/Makefile b/drivers/net/ethernet/microchip/sparx5/Makefile
+index d447f9e84d92..06cf583effdb 100644
+--- a/drivers/net/ethernet/microchip/sparx5/Makefile
++++ b/drivers/net/ethernet/microchip/sparx5/Makefile
+@@ -11,7 +11,7 @@ sparx5-switch-y  := sparx5_main.o sparx5_packet.o \
+  sparx5_ptp.o sparx5_pgid.o sparx5_tc.o sparx5_qos.o \
+  sparx5_vcap_impl.o sparx5_vcap_ag_api.o sparx5_tc_flower.o \
+  sparx5_tc_matchall.o sparx5_pool.o sparx5_sdlb.o sparx5_police.o \
+- sparx5_psfp.o sparx5_mirror.o sparx5_regs.o
++ sparx5_psfp.o sparx5_mirror.o sparx5_regs.o sparx5_tas.o
+ 
+ sparx5-switch-$(CONFIG_SPARX5_DCB) += sparx5_dcb.o
+ sparx5-switch-$(CONFIG_DEBUG_FS) += sparx5_vcap_debugfs.o
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index 0f7d8440f614..41e0597a8d48 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -707,6 +707,9 @@ void sparx5_psfp_init(struct sparx5 *sparx5);
+ void sparx5_new_base_time(struct sparx5 *sparx5, const u32 cycle_time,
+ 			  const ktime_t org_base_time, ktime_t *new_base_time);
+ 
++/* sparx5_tas.c */
++void sparx5_tas_speed(struct sparx5_port *port, int speed);
++
+ /* sparx5_mirror.c */
+ int sparx5_mirror_add(struct sparx5_mall_entry *entry);
+ void sparx5_mirror_del(struct sparx5_mall_entry *entry);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
+index 972da8a71f5a..e580670f3992 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
+@@ -9,17 +9,6 @@
+ #include "sparx5_main.h"
+ #include "sparx5_qos.h"
+ 
+-enum sparx5_tas_link_speed {
+-	TAS_SPEED_NO_GB,
+-	TAS_SPEED_10,
+-	TAS_SPEED_100,
+-	TAS_SPEED_1000,
+-	TAS_SPEED_2500,
+-	TAS_SPEED_5000,
+-	TAS_SPEED_10000,
+-	TAS_SPEED_25000,
+-};
+-
+ /* Calculate new base_time based on cycle_time.
+  *
+  * The hardware requires a base_time that is always in the future.
+@@ -592,41 +581,3 @@ int sparx5_tc_ets_del(struct sparx5_port *port)
+ 
+ 	return sparx5_dwrr_conf_set(port, &dwrr);
+ }
+-
+-void sparx5_tas_speed(struct sparx5_port *port, int speed)
+-{
+-	struct sparx5 *sparx5 = port->sparx5;
+-	u8 spd;
+-
+-	switch (speed) {
+-	case SPEED_10:
+-		spd = TAS_SPEED_10;
+-		break;
+-	case SPEED_100:
+-		spd = TAS_SPEED_100;
+-		break;
+-	case SPEED_1000:
+-		spd = TAS_SPEED_1000;
+-		break;
+-	case SPEED_2500:
+-		spd = TAS_SPEED_2500;
+-		break;
+-	case SPEED_5000:
+-		spd = TAS_SPEED_5000;
+-		break;
+-	case SPEED_10000:
+-		spd = TAS_SPEED_10000;
+-		break;
+-	case SPEED_25000:
+-		spd = TAS_SPEED_25000;
+-		break;
+-	default:
+-		netdev_err(port->ndev, "TAS: Unsupported speed: %d\n", speed);
+-		return;
+-	}
+-
+-	spx5_rmw(HSCH_TAS_PROFILE_CONFIG_LINK_SPEED_SET(spd),
+-		 HSCH_TAS_PROFILE_CONFIG_LINK_SPEED,
+-		 sparx5,
+-		 HSCH_TAS_PROFILE_CONFIG(port->portno));
+-}
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.h b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.h
+index a92a699c551f..04f76f1e23f6 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.h
+@@ -60,7 +60,6 @@ struct sparx5_dwrr {
+ };
+ 
+ int sparx5_qos_init(struct sparx5 *sparx5);
+-void sparx5_tas_speed(struct sparx5_port *port, int speed);
+ 
+ /* Multi-Queue Priority */
+ int sparx5_tc_mqprio_add(struct net_device *ndev, u8 num_tc);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+new file mode 100644
+index 000000000000..3637d4b48ad6
+--- /dev/null
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+@@ -0,0 +1,56 @@
++// SPDX-License-Identifier: GPL-2.0+
++/* Microchip Sparx5 Switch driver
++ *
++ * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
++ */
++
++#include "sparx5_main.h"
++
++enum sparx5_tas_link_speed {
++	TAS_SPEED_NO_GB,
++	TAS_SPEED_10,
++	TAS_SPEED_100,
++	TAS_SPEED_1000,
++	TAS_SPEED_2500,
++	TAS_SPEED_5000,
++	TAS_SPEED_10000,
++	TAS_SPEED_25000,
++};
++
++void sparx5_tas_speed(struct sparx5_port *port, int speed)
++{
++	struct sparx5 *sparx5 = port->sparx5;
++	u8 spd;
++
++	switch (speed) {
++	case SPEED_10:
++		spd = TAS_SPEED_10;
++		break;
++	case SPEED_100:
++		spd = TAS_SPEED_100;
++		break;
++	case SPEED_1000:
++		spd = TAS_SPEED_1000;
++		break;
++	case SPEED_2500:
++		spd = TAS_SPEED_2500;
++		break;
++	case SPEED_5000:
++		spd = TAS_SPEED_5000;
++		break;
++	case SPEED_10000:
++		spd = TAS_SPEED_10000;
++		break;
++	case SPEED_25000:
++		spd = TAS_SPEED_25000;
++		break;
++	default:
++		netdev_err(port->ndev, "TAS: Unsupported speed: %d\n", speed);
++		return;
++	}
++
++	spx5_rmw(HSCH_TAS_PROFILE_CONFIG_LINK_SPEED_SET(spd),
++		 HSCH_TAS_PROFILE_CONFIG_LINK_SPEED,
++		 sparx5,
++		 HSCH_TAS_PROFILE_CONFIG(port->portno));
++}
 
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
