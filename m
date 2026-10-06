@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BABCA5FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7C3CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 17:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NhtZJZdk1KbWcSs2oY5eRjilJqL4vmTJWP5l9NE+2go=; b=h3mHlVruj2PW9UDD9WFl4Eriby
-	C8qiNPayqtHOzyVnNYBgtNu6gE1i77r+FOAbXEGnwEZiMLpGBXbZ0tkNyK0lwk1QcxVcpIG7lXlbh
-	Grxs+ahgPfvfd0RF0n33R9+u5aThLsPQCnSFFHsvR3VN2rnjkrj28Db0Ahsixy6OaH8AI2Q5+N4ik
-	yXOwg77g3pQpb+jaFBJchHn5y+p3XxwtE6w7rnvoFgkQg1Qk1P6xtH1/0zgzRjLo/ltMPwct3R8JJ
-	vGSKJwWEocGZtoiI9sq8xKaXgm6MpfOzwNK4R9Xwx4rQP9aSOx8GT7zEygff4trI1UIE4Lm6Jl9aB
-	ZuTn41CA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GxSXrn1I5iZE9sOU8qsq/Mjbajn5S833YpKv40o2AwE=; b=fSrCopUA0Z9EtR
+	SfvJOwU1aB0Kw5wC0XKAKsF3q61osazPJPTTglQgR5f+MYbZbD5wP0CUYGFv3JS3mvJIu/16rto8h
+	RxMyIHtdrlK5kl+WQQYUowDxK8ydfoWoKI+VpWUsRbVUxZCLCVSbsMCz49NUlqsieWz91qlg6AhGk
+	t4I0dyRA2i48DSX+bmdZGFXDkMSuTYS9zKdw1Rlz6RLaKbUCj9JnRWarA4edHy+/v2WZIvH2gV1K9
+	fEAHuR+2HqEBoS0O2eVGav1bqonYyCo83A3aWvbFV43u+bZ25z+YeEe3bf0SkHMZ0GJEnf04+rDlK
+	dsFIpYX9D9X7pz/hmgyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE89X-000000019lZ-1GFQ;
-	Tue, 06 Oct 2026 16:36:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xE8dt-00000001BSW-3NDT;
+	Tue, 06 Oct 2026 17:07:53 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE89P-000000019jg-2lfL;
-	Tue, 06 Oct 2026 16:36:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 51CC442DD3;
-	Tue,  6 Oct 2026 16:36:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2ABA5C4AF60;
-	Tue,  6 Oct 2026 16:36:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791304583;
-	bh=LQrc2B3YMS2iQmU2qvlySzjFJS7bU5KYVQEza0sBw8U=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=kFzD2MnSEsLw6MuVetUwjcTO4oKLsK4klSuQXj05PcQb8CTszj3C2FwITKhqCKPNa
-	 ghBBvmG8zigjQjRg9/kJFM4Az6LC3TqeN5rqTkVyXXJoSvQXenoy4QKylSdlCuKRS3
-	 tEU5j13357GIF6E88lq4YeLsqWlGvQOOro4ELGYq+uburAZknA3jUf3xgnp0j1Ftps
-	 v+PvMqn9iTJNmfy+JzTff9ukAipueCFQrui0b3bS4ReakU8FcW0Qq7Bp/nzKXqsPlk
-	 tAnzH1DuVO4gygyv4hwmwbM9zt2XO6SDT1a+ww04oUSzV+iQmCISOK2D89fl6kahpK
-	 4D1g0DnE6iE2w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 087A5CA5FFE;
-	Tue,  6 Oct 2026 16:36:23 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Tue, 06 Oct 2026 19:36:17 +0300
-Subject: [PATCH v2] arm64: dts: amlogic: meson-sm1-odroid-hc4: add the fan
- tachometer
+	id 1xE8dq-00000001BQp-0qXt;
+	Tue, 06 Oct 2026 17:07:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version:
+	Content-Type:To; bh=GxSXrn1I5iZE9sOU8qsq/Mjbajn5S833YpKv40o2AwE=;
+	b=CMRKrc0jxFT4bjz3AF5GuIjyiZQkJPzAUYOl2TyXMK+5sfK+wJvolMTMoXpSqT
+	TpPsUJST15QoLwMJ+sX711esOrLEb5sRl8dhyGhfLugdhiHww1mwGD9a24HgFTrN
+	NnmxgVtWRSIoWW/j0h60fb1q+LyM1PJ7k5BLFpuEjTN6A=
+Received: from 4F-GAME.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDnz_fJKsVqPjBSCw--.19378S2;
+	Wed, 07 Oct 2026 01:07:22 +0800 (CST)
+From: Bob Hui <bg9oxa@163.com>
+Subject: [PATCH v7 0/2] arm64: dts: rockchip: Add ALIENTEK QuarkPi-CA2
+Date: Wed, 07 Oct 2026 01:06:25 +0800
+Message-Id: <20261007-quarkpi-ca2-v7-v7-0-a84c6d5d6ef6@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-hc4-fan-tach-v2-1-e27ad96e92a2@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAIAjxWoC/3XMQQrCMBCF4auUWTuShLEVV95DukjixAxIKkkJS
- sndjd27/B+8b4PCWbjAZdggc5UiS+phDgP4aNODUe69wSgzaqVGjJ4w2ISr9RGJlNfuPJFVBP3
- yyhzkvXO3uXeUsi75s+tV/9Y/UNWokXjy7INydHJXsfX4rDC31r7ydyCepQAAAA==
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1903; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=oCCjURBullL5W0mILbeZieiLJNm1TbubemMG4u+TG88=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFlHlRstbGxiiph3/Kw9cOHIVRn/f54PGueqNV7/VGX0o
- ujmBvHjHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiGvGMDHt0Tl09MkWVr2l9
- VML6MxfLNk7eVLPNWqb0y6d36hor/EoYGWapOG2dFPZ41g6Tq7tfbTsaNbsgXWrrqVl/Dot84/r
- Nkc4CAA==
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAJEqxWoC/yXMSQ6DMAxA0asgr2spmElwlaqLYNxikBiSBiEh7
+ t4Ulm/x/wFenIqHJjnAyaZe5ymieiTAvZ0+gtpFAxkqU2NyXIN146LIlnCrkNKObFFzYTiDGC1
+ O3rpfw+frtg/tIPz9X+A8f+yLJI9yAAAA
+X-Change-ID: 20261004-quarkpi-ca2-v7-21d2a59c50c3
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Andrew Lunn <andrew@lunn.ch>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Bob Hui <bg9oxa@163.com>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID: _____wDnz_fJKsVqPjBSCw--.19378S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3WFWrGr1rAry8Zr1Dtw1xuFg_yoW3ZFy3pF
+	ZxXrs8Jr4DGryIkan7Ca17u34rZa18Jw4Ygr1qq34F9a15ZF10yr4S9r45Xa4jkr95K3W2
+	qFsxWa48Ka4DZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pREApUUUUUU=
+X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC+gvINmrFKssN0gAA3e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_100751_026639_C75E194E 
+X-CRM114-Status: GOOD (  28.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,74 +74,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Igor Velkov <iav@iav.lv>
+This series adds support for the ALIENTEK QuarkPi-CA2, an RK3588S based
+single board computer. The binding patch documents the board, the DTS
+patch describes the hardware.
 
-The fan connector routes the fan's tachometer output to GPIOX_7, but
-the fan node does not describe it. pwm-fan therefore registers no
-fan1_input, and the fan speed cannot be read.
+The DTS was rebuilt from scratch against the vendor 5.10 BSP device tree
+and then translated to current mainline bindings, so that every node and
+property has a vendor-side or schematic origin instead of being carried
+over from the earlier revisions.
 
-Describe the line as the fan's interrupt, and mux the pin as a GPIO
-input without bias: R109 on the board pulls the line up to VDDAO_3V3
-(schematic rev1.0, sheet 31).
+Changes in v7:
+- Rebuilt the board DTS from the vendor 5.10 BSP device tree.
+- USB-C: the connector now describes data-role "dual" with role-switch and
+  DP-altmode endpoints, the dwc3 uses usb-role-switch, and the VBUS switch
+  is marked enable-active-high.  v5 had set data-role "host", following the
+  vendor configuration; the port is a dual-role connector and the tested
+  behaviour is host mode with DP altmode on an attached display.
+  https://lore.kernel.org/all/20261001140429.1710C1F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260927140406.5C3381F000FF@smtp.kernel.org/
+- GbE: the RGMII delays are now documented as PHY-side only, matching
+  "rgmii-id" in the DTS; re-measured with this setting, a 500 MB transfer
+  completed with zero retransmissions.
+  https://lore.kernel.org/all/80eceb66-b573-463a-a577-30ba5793dbc4@lunn.ch/
+  https://lore.kernel.org/all/20261001153113.E4B131F000FF@smtp.kernel.org/
+- Audio: both the codec and the amplifier paths to the jack are kept,
+  with the hardware evidence in the patch description.
+  https://lore.kernel.org/all/20261001140429.1710C1F000FF@smtp.kernel.org/
+- Codec: the compatible list is "everest,es8388", "everest,es8328".
+  https://lore.kernel.org/all/20260927125456.4D5501F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260927140406.5C3381F000FF@smtp.kernel.org/
+- Microphone wiring matches the board schematic: the microphone signal
+  (HP_MIC) is on LINPUT1 and its reference (HP_MIC_GND) on RINPUT1.
+- rk806 DVS1 pin names, node names, indentation, blank lines and
+  regulator prefixes cleaned up to match the mainline style.
+  https://lore.kernel.org/all/20260927125456.4D5501F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260929-analytic-cocky-magpie-afefcc@quoll/
+- Recipients collected with "b4 prep --auto-to-cc".
+  https://lore.kernel.org/all/20260929-ambitious-festive-orca-b59ffe@quoll/
+- Link to v6:
+  https://lore.kernel.org/all/20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com/
 
-Tested on ODROID-HC4: fan1_input reads 0 with the fan stopped and
-rises with the duty cycle, to about 4200 rpm at full speed.
+Changes in v6:
+- My oversight, sorry for the noise: when I switched phy-mode to "rgmii-id"
+  in v5 I forgot to update the commit message of patch 2/2 at the same time,
+  so the message still described the v3/v4 approach (delays applied on the
+  MAC side) while the code had moved to the PHY-side delays.  The message now
+  describes what the code does: the PHY adds the delays internally and the
+  MAC adds none, so nothing is applied twice.  The device tree is not touched
+  by this change; the compiled .dtb is byte-for-byte identical to the one in
+  v5 (verified).
+- Keep the headphone routing as in v5.  On this board the 3.5 mm jack needs
+  the direct codec output routes: describing only the amplifier path gives
+  no output at the jack, which I verified on hardware with a test tone and
+  with music playback.  So the parallel routes are intentional here and
+  were not changed.
+- Link to v5: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077620.html
 
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
+Changes in v5:
+- Use phy-mode = "rgmii-id" and let the PHY add the RGMII delays, instead of
+  "rgmii" with the delay applied on the MAC side, as pointed out by Andrew
+  Lunn.  The MAC adds no delay in this mode, so nothing is applied twice;
+  see the GbE note above for the details and the measurements.
+- Move the Makefile entry so that the list stays in alphabetical order.
+- Rename the headphone amplifier node to the generic name "audio-amplifier";
+  the labels are unchanged, so no reference is affected.  The audio routing
+  itself is unchanged, see the note above.
+- Set the Type-C connector data-role to "host".  The XHCI controller is
+  host-only on this board (dr_mode = "host" and no usb-role-switch), and
+  the vendor DT lists "dual" only because the vendor configures that
+  controller as OTG.  The power role stays "dual", as the board can be
+  powered over Type-C.
+- Link to v4: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077616.html
+
+Changes in v4:
+- Add the missing blank line between the include block and the root node.
+- Fix the node indentation in a few places.  That cleanup is whitespace only;
+  the compiled .dtb is unchanged by it (verified byte-for-byte).
+- Rename the Type-C controller node to the generic name "typec-port", as the
+  other boards using this part do, and drop its redundant status property.
+- Give the fixed regulator nodes the "regulator-" name prefix, as the other
+  boards do; the labels are unchanged, so no reference is affected.
+- Route the Type-C SuperSpeed lanes through the USBDP PHY, as the other
+  RK3588 boards do, so that the PHY does the orientation muxing.
+- Feed the headphone amplifier from one codec output pair only; that is what
+  the other ES8388 boards do.
+- Cc the people and lists reported by scripts/get_maintainer.pl.
+- Link to v3: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077611.html
+
+Changes in v3:
+- Rebase onto current mainline and re-run dtbs_check.
+- Drop the explanatory device tree comments, as requested.  The rationale
+  that was in them is in this cover letter instead; the compiled .dtb is
+  unchanged by that cleanup (verified byte-for-byte).
+- Use phy-mode = "rgmii" with the RGMII delay applied on the MAC side
+  instead of "rgmii-rxid", as pointed out by Andrew Lunn: phy-mode
+  describes the PCB wiring, and only one side should add the delay.
+- Rename the fixed regulators that used a different naming scheme so that
+  all of them follow the same style, and use generic node names.
+- Drop two redundant "status = \"okay\"" properties (rga3_core0 and
+  rga3_core1 are already enabled in rk3588-base.dtsi).
+- Add the missing "enable-active-high" to the Type-C VBUS regulator.
+- Use the binding-documented codec compatible pair and drop the
+  "clock-names" property, which everest,es8328.yaml does not allow; the
+  codec node now passes dtbs_check.
+- Drop the phy-supply of u2phy0_otg, the USB 2.0 PHY of the USB-C OTG
+  port.  That rail is the Type-C VBUS and is already owned by the TCPC;
+  while the PHY held it enabled as well, VBUS was powered from boot, the
+  TCPM state machine never saw a VBUS-off event, and the port could not
+  finish a source attach, so DisplayPort altmode never came up (the
+  monitor had power but no picture).  Verified on hardware: the port now
+  attaches at boot and the monitor gets a picture.
+- Add the LED color so the work LED is exposed as "green:heartbeat".
+- Drop the camera sensor and its regulator: camera modules are plug-in
+  devices, and enabling the CSI-2 receiver without a sensor attached makes
+  the driver fail to find its endpoint at probe.  Following the vendor
+  tree, camera and panel descriptions belong in overlays.
+
 Changes in v2:
-- Mux GPIOX_7 as a GPIO input without bias (Neil).
-- Link to v1: https://lore.kernel.org/r/20261006-hc4-fan-tach-v1-1-4e7cecf0b45b@iav.lv
----
- arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+- Fix the RK806 DVS1 pin configuration: dvs1-null-pins used
+  "gpio_pwrctrl2" instead of "gpio_pwrctrl1", as reported by the
+  sashiko review.
+- Translate all device tree comments to English, and drop a stale
+  comment that no longer matched the Type-C / USB3 nodes.  Comment
+  changes only: the code is otherwise byte-for-byte identical to v1.
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-index 5f15c2299509..64602aff1d81 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-@@ -21,6 +21,10 @@ fan0: pwm-fan {
- 		#cooling-cells = <2>;
- 		cooling-levels = <0 120 170 220>;
- 		pwms = <&pwm_cd 1 40000 0>;
-+		interrupt-parent = <&gpio_intc>;
-+		interrupts = <IRQID_GPIOX_7 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-0 = <&fan_tach_pins>;
-+		pinctrl-names = "default";
- 	};
- 
- 	leds {
-@@ -114,6 +118,17 @@ &pcie {
- 	reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
- };
- 
-+&periphs_pinctrl {
-+	fan_tach_pins: fan-tach {
-+		mux {
-+			groups = "GPIOX_7";
-+			function = "gpio_periphs";
-+			bias-disable;
-+			output-disable;
-+		};
-+	};
-+};
-+
- &pwm_cd {
- 	status = "okay";
- 	pinctrl-names = "default";
+Please review.
 
 ---
-base-commit: b44e2be772f866985cafdf90355285069ea68495
-change-id: 20261006-hc4-fan-tach-440c1b874a04
+Bob Hui (2):
+      dt-bindings: arm: rockchip: Add ALIENTEK QuarkPi-CA2
+      arm64: dts: rockchip: Add ALIENTEK QuarkPi-CA2
+
+ .../devicetree/bindings/arm/rockchip.yaml          |    5 +
+ arch/arm64/boot/dts/rockchip/Makefile              |    1 +
+ .../boot/dts/rockchip/rk3588s-quarkpi-ca2.dts      | 1204 ++++++++++++++++++++
+ 3 files changed, 1210 insertions(+)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20261004-quarkpi-ca2-v7-21d2a59c50c3
 
 Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
+--  
+Bob Hui <bg9oxa@163.com>
 
 
