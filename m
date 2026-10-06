@@ -4,117 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FBDCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5F0CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXkpkA6GWhGK97eKJ0WCsKMVQVfrjj3dFUHF7nVSfi4=; b=JLroLfv1BEGpQ0RIWMT8LYDkrE
-	Ukd41Q5P3KYKfAY/CbMlJd/W1KNd3zM08BgKoQF+ix68vP8cMbRhebjNAIpzRWyvHaVrNskG6kMqb
-	NFy0/L5tQ694pjCnwAxUxWfx22r85Jn/9jIxubF+OzYLd2wDna+t3Y8ezVe4YyLvd6YCGsnScxzZJ
-	L+K4l3s9DToMB0F6sBv1z9QtBiKT6dDVhvG5wZ9uuLM99ytW+GmHAdhXfq/njkzP/QZB/PXrA1k9u
-	8kESDbm8j6Cad7CgaKuJKHOq7hb3zHx+p/Maogozbk2iHk5Uhh4/i3vXKyJoElVlfLZhndoIxABMU
-	JzNlFrOg==;
+	bh=st0WdGm0HQhoVPJqkSZGig8FXS+yxZLP3K54PTCRXrQ=; b=N5sv8yvxxKLWRnYyM59JthUHaD
+	jJsAw6myDzX4bUv6m8BOk6YSD5tURWKBn5lc0EeLGCKDHmEk2p4KIsVOmAV41B6FW5TBt7lzNxVKe
+	rCE8Lo7idusrhF6wKfcAAeXQwxhMiEYXxPE2F3AthDcShM5ECG5FVvRRMyOGh2T+cJS62er1kXAVy
+	mHG1RaXhZd427H8js5IAzzEs6/VhE4eHy/HRX3Z4969s3XQtRKL4TnLb+dO68rN6UCytNpeOj0vOG
+	B371A/b9EfJyGgcJV0y5lSNnW/L0yflqFj2RXsTr9iTmPCvy2ujWuPVlaJ3eJXXJKFpLQ6R+IGMz7
+	AAKlYdCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE314-00000000azy-2ykg;
-	Tue, 06 Oct 2026 11:07:26 +0000
-Received: from mail-westus3azon11012069.outbound.protection.outlook.com ([40.107.209.69] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xE31D-00000000b5L-10wW;
+	Tue, 06 Oct 2026 11:07:35 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE30K-00000000asv-3VIW
+	id 1xE313-00000000axq-3E5d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 11:07:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gOK5GFvW/2RrWQK+NfOAB5Y9kmbbDm3ljn9GsDhxkR6Q1zCHdF1fX5CaQic4D0P32MMX0WrLyzdUFLOreDrFv+Lpw1AUPsLeI5mA69mlFMxUxUL6l9oYjFLDCsoOr7dh3c6cCoQzipJZcaZEX7PiZScjzuG4iTKPSdQZjACIbunkxrQJbIb+V8/k4pksTNITwQnreBZtGPJ7Bm7jB4tMMcDJi7cVo1YQGY9o7pFaoT7UtZwLX4hnJ+nuVXxwRO/kULtHm4gIQ280mMoUW0G+gtQx/eytJI0oKJU93LXXuNMwOcWUe5XUdKac0PJ+ATrLskYav2Vh6W64KAO8+jiFVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PXkpkA6GWhGK97eKJ0WCsKMVQVfrjj3dFUHF7nVSfi4=;
- b=BmjYUv42Yx+DCMBG2pUhQnTpwD5rY3D1KZDG2eoqO6x7AS72KTYyrHBZeYG4yEImmJ4sYm/fpKu6irMecQ55P5i8ZoqqogLaTokW+erue5usZ7hmZk/867jKF4nhZ1974F9oe5uW6LATI3csFGrobPdIoob8m0pxtGZgFuJM/mdJwWQB5o1nuIcH0b+bHizNuch7CsYEFo8Jz0DEjFiUMDhaX6UfcCgFdbOcggRlLHqQIHTgaodaoZgi12OOxDW2E0XuVrw77kQHPBYN8uioMxW5+orj+UdMnF3DOzdJiUdrj2Keim04SS0W9xAqQEvsv8SYPPQSZUiSoNhPkL05AQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PXkpkA6GWhGK97eKJ0WCsKMVQVfrjj3dFUHF7nVSfi4=;
- b=vfwIAaY+UiyL6FTzeAvlaxNmqs8I9zSXVwaVx9hXb6VrHkALCKv9HOIc6xU2jt9E1rzmQjvKwthJlHnGix/Pr/vYX6/XDBVpe81XRcYgczbw1Hhk6SMq9Byddj74UwlDYzHsXsLqNT012OdqEGVY7BSnny6jL20o6A67CSvMYCc=
-Received: from BN9P221CA0020.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::32)
- by CH3PR12MB7668.namprd12.prod.outlook.com (2603:10b6:610:14d::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Tue, 6 Oct
- 2026 11:06:28 +0000
-Received: from IA0PEPF00000040.namprd04.prod.outlook.com
- (2603:10b6:408:10a:cafe::27) by BN9P221CA0020.outlook.office365.com
- (2603:10b6:408:10a::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue, 6
- Oct 2026 11:06:26 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- IA0PEPF00000040.mail.protection.outlook.com (10.167.249.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 11:06:26 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 6 Oct
- 2026 06:06:23 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 6 Oct
- 2026 06:06:20 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Tue, 6 Oct 2026 06:06:16 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Michal Simek <michal.simek@amd.com>, Russell King <linux@armlinux.org.uk>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH net-next v4 6/6] net: xilinx: axienet: Add statistics support for XXV ethernet
-Date: Tue, 6 Oct 2026 16:35:50 +0530
-Message-ID: <20261006110550.1990213-7-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261006110550.1990213-1-suraj.gupta2@amd.com>
-References: <20261006110550.1990213-1-suraj.gupta2@amd.com>
+	Tue, 06 Oct 2026 11:07:28 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-91957ec418cso12190716d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 04:07:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791284844; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZBodZyh6lN72KUvFd2U844bDzQOcxBikhpZ9D/0I+X9mxeyrgJH97HXlG2YE+lxOIb
+         R7Up2bfISiYxGv0zwi1/4Agfn+dFx77AECQ2+jYB3i2xEhPYBbw/pO5uVEL2FoHI2wlR
+         MzVizejIMiIGbC860CWXMK/M1MaoCG0NITf2memFrw1banSAJZxqrYc8IYjZzMy3TXYM
+         V9oNOmF+tmp29BW06446xCY4iaWFRbsJbGlJCoZ+5p4gSCSJAhPOIG9Z8ABxap3KwISZ
+         lv7AHxboMBCtWfsilu1zOPFJ5jDR1oACW1dFLL7HFOTD0rbthWKGWiXP87xvzAZeHU5N
+         jxWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=st0WdGm0HQhoVPJqkSZGig8FXS+yxZLP3K54PTCRXrQ=;
+        fh=SfhuybowhyQhFmeRpnYBJwfDVR85zGhsmjNYTVH5/p0=;
+        b=UF/Mc1pK9Koy+gIjNC1v9txszGdm265ShQn+jLALqrj1XvHmYD2XVf3+LrHZW70Nnk
+         Ocz9uFmHeSIk5KpKF2oZy1X0YJyWxGkE0YCEc6+UG82gaUXqFVj6TlTqxTs/e7bgv68m
+         oX5/MiyST/Oqa6wwVR9nIviI7GxV5krOKzNPMiZHQdlHY6BdAIGDQt1bCaaQeAkY9ICj
+         pcQdWR6jpc3o/DJHN9V9d4S2+RbhcAGJSqfNCH3T9YKqmJU56lmZFMOFYBEOEEkW45J3
+         VP5dF5IDl0/yL5ek1hU7L/0xZ7stwXQP9uhgry6RlQmzNfPuu638NQ78qAfA8/Vr1IzO
+         eeTw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791284844; x=1791889644; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=st0WdGm0HQhoVPJqkSZGig8FXS+yxZLP3K54PTCRXrQ=;
+        b=VuxZKT5UtEBb9Oj0WJNAYbwqJ3C9T/Lm7xnw8NO2duka9jQwNMVLSTjzFEF9Y1F/yG
+         AzflmsjOX2dgO37+/tMaKQGuSIQqod9QuG0tNCdQUYtILttAeikBrxO7w8qol4ApexOF
+         ks+BZ77HcW9S4+DAHufex7giUX/+cAGBmgSQInRln90CwhiRxwBowofVgsaP4gMw0FsJ
+         +uB1Vq6pgEYepxqNiScbSzavKCJagnTVK4Ha2E4xnQ8lP0CQu+H3mvLwNq1WW741qGEN
+         jBjV0++EKqoaqaxM0f37kFCIQcWipfGXKG+hIdniD4MnGIWtTqRkc2m9Ux6U+B378g0H
+         gtyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791284844; x=1791889644;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=st0WdGm0HQhoVPJqkSZGig8FXS+yxZLP3K54PTCRXrQ=;
+        b=pgOMFIN6tqsodS08umL9ZvZtyHHxTacZVPHnGc4Nvg+xISZrxa0OOgilbB8s7Z4Ka7
+         N6aaUVICh5vJvJJHnxZcjROTz2J+eZaxR9mRzoCNPtxKVLNYhpLaXurdXM4VO3kt7spQ
+         ARTuhtDx4AvIORd3nnPVkb7pbpaDN+leSQSoC/HmFpEY8CiLG8me+L1iNtWbMSrS08yl
+         qc3ovqIDenSpmRLJ98hHKjSI1zoogccUX72oYGqOEtCaBW0du7aTuxfsBW0hg1fZ8CSN
+         2m2os0p740nvveIqdM+vZN10T3vzI0GpG0DLyKu8c7LkJuvB67/UGZHO/GlyvdeKh9IW
+         qWaQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy0m+Pe20059ITvML1OX90N6KjxpCLVaodZz7gln/ms4skjvHFeKTRr0S4KKtla9E0Ilu3CAndiQOC6QRZ5bSDK@lists.infradead.org
+X-Gm-Message-State: AFuF++kIWUglH07MbSfa2RtBbiKkt8Y9GO9Ew8Vjv+0jFIoLHzwG8d3p
+	/uVL3dj6K2vnQjC2GGpQl3M7JteVmOq7ym9isyyUSoV7CCgrJ3mjutVuc82UPyTQAnhjOwawKxk
+	b84iUzrxD4+hqepVyuEvpt/FnMNn1bxI=
+X-Gm-Gg: AYBFou3VDZ6GLwB7jYY2KyXa1Vcf6FeBEei22c1btBadYSt0rI6ABOC/LkHna2kWaEb
+	X5h5FxpDGMF4nEJQoqrCZRtO5mx4qWJtVB7y9VKSJBYc2fFToYlys32T3gKUrUX3xM80As1l8UG
+	J0zw8XunzYkTRUOF1iVK3GpqeF+MPjmowmaipKM6dIvlGgb+w047UHTLoFceSOrjthA/++gcPZX
+	du9VrcGhD+tZoc+4LbqzDhCKcMmyzfbnE/sJow7ES1jJPTnLdqMXJj+oLJB5xvNFxqa4i1SaL+d
+	QGxRvJ1Wb18LSiI4pxJ/LS/t7bIOt/DdnJcnTlisP6TjZnE2Y8GhGHaIQBnyzGIsOz9KEo8pBOg
+	5ygBowlP+
+X-Received: by 2002:a05:6214:310a:b0:919:5a24:d77c with SMTP id
+ 6a1803df08f44-9198b7bec34mr20040386d6.31.1791284844396; Tue, 06 Oct 2026
+ 04:07:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000040:EE_|CH3PR12MB7668:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae66488a-23a6-4260-8653-08df2399dde8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|7416014|23010399003|36860700016|3023799007|56012099006|10063799003|6133799003|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: RKGuwM6h0QtP4a2+6zJwxdjele/12YsgTUbvHiWnKcXMBDkcSQsfnyDujQJ2whWS5MNMzQHYePoJTDRWr3wiDeNx5qXi5YRcUxzHRJWAEpsnOnJvPF3k8I/AbbN/byTAr3cNOWyaiAtySbRFgteyM86d/8jMxdk0MAVpDDonSSN6+jXvJzMauwpPYa76tSN6O8ORcf8BU9XGJU3VsNbTJrGQtmwWHCpaGwRwdOtJEMfnzf07O92teqDA41GJE07fIOroLv9G83762KpcqJcYpVWWZHDqd5CAE21CzxDKNlhK2sXgToSUr6HL0mKMznBCFtDKDr61JxJTkzooqfUMonT4zZy5Yz6RH3xpOwKAJW5Urc2QErdoA8TN6FHe5jChmwtAHw5hGA9BRHrp96r0A5Y4X6pvnVXCEKVAiWrgTbdkxX+KSNTNijYLCZKABnavd+q0XT/MhFmxpXUo7MTkgpYRJo9vKe9W7DUA0j5fdkhfb6U/cpbKkNxlNim2eAnzrXCeQRKTDFMkU2bWgoqr0uVWfba0Ea5VJZofY9kDt/srhkaegHeFyWQx2+gdQrSIvpo3OvsUPMQMBdl/chvARcn8YTIdNvt5JV1Y5qJmd5GjiAtR6eWhV6UCgY1DgWnwY2gYTjrFrENoxpxbxKjVGJ8Euagd/Il7ikBtzOtEYu1sLreBUK0tfYb2qduTmRsjlCB0PPcQl0uyKxt5lsD96w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(7416014)(23010399003)(36860700016)(3023799007)(56012099006)(10063799003)(6133799003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dMH7OqkiOyW7ntDEtlF2L0bXcnYoidedHvShEBjZexT6FD7/J13E4nzpgxNGBBgXciuGo/dlIZ8Xq7cDyi8CGgdqwGMP408hOxzSOQY9kTDQ+jOHxiQBCFwOEGh/l1lFxwZdin98yQSFLsxGQsKIQYUCAZmfSE+2RcLDzSKWoUy4nMmRxs9+G/Jqfrr4H9x37Fc4aag/2Xvjv/a9TydkaAS7yLKa6k3lZSZb+ObsMdx/BCngWaEuHrBvD1JpRLSW3ruTmOmJw0ZSOSa/vx5vWeclGlj0ETTAInewwKx6Ee6Jvh5TI+jUel/2Z6F3tO6MUa6BTywvAxjpGc5GSmoBJTJFKCee+k39iJSEpD0otb6KAasWN0S7HqWiqLNcf5Vz3HIOwk6TQAiqLPDVG7iwrW3W+ehCZfTLlPpRzgnB268l+RFTkNSL9SWfJJW5XxqT
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 11:06:26.9428
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae66488a-23a6-4260-8653-08df2399dde8
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF00000040.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7668
+References: <20261006102937.10972-1-ansuelsmth@gmail.com> <asTRQ6d0-NYOeHqX@parshuram>
+ <CA+_ehUw8fQHGef_L7YPQEf-wwuzP9km=G64Ty3+AkvM=fkNJ4Q@mail.gmail.com> <asTVqsqOLb29LY08@parshuram>
+In-Reply-To: <asTVqsqOLb29LY08@parshuram>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Tue, 6 Oct 2026 13:07:10 +0200
+X-Gm-Features: AclHuK__1dmQcUVRwrNQOlxQllKfZWHAwvmEnEZJ6X7sEUc-dLa0jeCfKreo69E
+Message-ID: <CA+_ehUxra53C2N8a0t73nLpS4DkaNSzE3STfhU7j3ZoQ9becyg@mail.gmail.com>
+Subject: Re: [PATCH v14 0/3] airoha: an7581: USB support
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_040646_467334_13CCEF42 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20261006_040725_840485_E66FB6C6 
+X-CRM114-Status: GOOD (  26.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,485 +120,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The XXV ethernet exposes a dedicated statistics block whose counters are
-clear-on-tick (PG210): writing TICK_REG latches the internal accumulators
-into the readable registers and clears them, so each post-TICK read yields
-the count for the interval since the previous TICK. Software accumulates
-those intervals, so no last-counter delta (as used by the 1G MAC) is
-needed.
+Il giorno mar 6 ott 2026 alle ore 13:04 Vinod Koul <vkoul@kernel.org>
+ha scritto:
+>
+> On 06-10-26, 12:47, Christian Marangi (Ansuel) wrote:
+> > Il giorno mar 6 ott 2026 alle ore 12:45 Vinod Koul <vkoul@kernel.org>
+> > ha scritto:
+> > >
+> > > On 06-10-26, 12:29, Christian Marangi wrote:
+> > > > This is a major rework of the old v2 series.
+> > > >
+> > > > The SoC always support USB 2.0 but for USB 3.0 it needs additional
+> > > > configuration for the Serdes port. Such port can be either configured
+> > > > for USB usage or for PCIe lines or HSGMII and these are configured
+> > > > in the SCU space.
+> > > >
+> > > > The previous implementation of a dedicated SSR driver was too
+> > > > complex and fragile for the simple task of configuring a register
+> > > > hence it was dropped and the handling is entirely in the PHY driver.
+> > > >
+> > > > Everything was reducted to the dt-bindings to describe the Serdes line.
+> > > >
+> > > > Also the property for the PHY are renamed to a more suitable name and
+> > > > everything is now mandatory to simplify the implementation.
+> > > > (the PHY are always present and active on the SoC)
+> > >
+> > > I get build failure:
+> > >
+> > > drivers/phy/airoha/phy-an7581-usb.c:7:10: fatal error: dt-bindings/soc/airoha,scu-ssr.h: No such file or directory
+> > >     7 | #include <dt-bindings/soc/airoha,scu-ssr.h>
+> > >       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > >
+> >
+> > This header is present in linux-next
+> >
+> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/soc/airoha,scu-ssr.h
+> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/include/dt-bindings/soc/airoha,scu-ssr.h?id=11952173d8a180ac05641775f80bd6946327478f
+> >
+> > Introduced by a clk series.
+>
+> Okay so we have a cross tree dependency. I would like my tree to be
+> buildable and not depend on next.
+>
+> I can
+> a) get a signed tag for this from clk tree with the required patch,
+> merge and then apply this series
+> b) postpone to rc1
+>
+> Either works for me
+>
 
-Feed both ndo_get_stats64() and the ethtool statistics (-S, pause, MAC and
-RMON) from this accumulator path through the axienet_config statistics ops.
-MAC control statistics stay unsupported as the hardware exposes no matching
-counters.
+Maybe "a" is better for other phy driver? The pcie move patch is blocking
+other airoha drivers currently.
 
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |   2 +
- .../net/ethernet/xilinx/xilinx_axienet_main.c |  24 +-
- .../net/ethernet/xilinx/xilinx_axienet_xxv.c  | 269 ++++++++++++++++++
- .../net/ethernet/xilinx/xilinx_axienet_xxv.h  |  55 ++++
- 4 files changed, 348 insertions(+), 2 deletions(-)
+What is the procedure? In theory just the dt patch is needed, nothing else.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index 7ba2fe29e97b..e8e9732c1c84 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -549,6 +549,7 @@ struct skbuf_dma_descriptor {
-  * @rx_ring_head: RX skb ring buffer head index.
-  * @rx_ring_tail: RX skb ring buffer tail index.
-  * @xxv_ip_version: XXV IP version.
-+ * @xxv_stat_base: Software accumulators for the XXV clear-on-tick counters.
-  * @axienet_config: MAC-type specific configuration and operations.
-  */
- struct axienet_local {
-@@ -603,6 +604,7 @@ struct axienet_local {
- 
- 	u64 hw_stat_base[STAT_COUNT];
- 	u32 hw_last_counter[STAT_COUNT];
-+	u64 xxv_stat_base[XXV_STAT_COUNT];
- 	seqcount_mutex_t hw_stats_seqcount;
- 	struct mutex stats_lock;
- 	struct delayed_work stats_work;
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index d0aa768452ea..0ba0d286350e 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -593,7 +593,11 @@ static void axienet_refresh_stats(struct work_struct *work)
- 		mutex_unlock(&lp->stats_lock);
- 	}
- 
--	/* Just less than 2^32 bytes at 2.5 GBit/s */
-+	/* Re-arm the poll before any counter can overflow between updates: the
-+	 * 1G byte counter reaches just under 2^32 in this interval at 2.5 Gbit/s,
-+	 * and the XXV internal accumulators must be latched (via TICK in
-+	 * axienet_xxv_stats_update()) before they saturate at line rate.
-+	 */
- 	schedule_delayed_work(&lp->stats_work, 13 * HZ);
- }
- 
-@@ -602,7 +606,16 @@ static int __axienet_device_reset(struct axienet_local *lp)
- 	u32 value;
- 	int ret;
- 
--	/* Save statistics counters in case they will be reset */
-+	/* Save statistics counters in case they will be reset.
-+	 *
-+	 * The XAE_FEATURE_STATS blocks in this function read the TEMAC
-+	 * statistics registers at XAE_STATS_OFFSET, i.e. they assume the 1G
-+	 * counter layout. This is safe because __axienet_device_reset() is
-+	 * only reached on the non-dmaengine path, which the
-+	 * non_dmaengine capability restricts to the 1G MAC. MACs that use their
-+	 * own statistics mechanism (e.g. XXV, which is dmaengine-only) never
-+	 * execute this path.
-+	 */
- 	mutex_lock(&lp->stats_lock);
- 	if (lp->features & XAE_FEATURE_STATS)
- 		axienet_stats_update(lp, true);
-@@ -1785,6 +1798,13 @@ static int axienet_stop(struct net_device *ndev)
- 	lp->axienet_config->setoptions(ndev, lp->options &
- 				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
- 
-+	/* Final snapshot after RX/TX is disabled, so no frames are missed. */
-+	if (lp->axienet_config->stats_update) {
-+		mutex_lock(&lp->stats_lock);
-+		lp->axienet_config->stats_update(lp);
-+		mutex_unlock(&lp->stats_lock);
-+	}
-+
- 	if (!lp->use_dmaengine) {
- 		axienet_dma_stop(lp);
- 		cancel_work_sync(&lp->dma_err_task);
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
-index 9f7efab84f82..4a2d03b6c480 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
-@@ -8,9 +8,11 @@
- #include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
-+#include <linux/ethtool.h>
- #include <linux/iopoll.h>
- #include <linux/netdevice.h>
- #include <linux/phylink.h>
-+#include <linux/string.h>
- 
- #include "xilinx_axienet.h"
- #include "xilinx_axienet_xxv.h"
-@@ -95,6 +97,69 @@ static struct axienet_option xxvenet_options[] = {
- 	{}
- };
- 
-+/* PG210 statistics-block offsets indexed by enum xxv_stat. Each entry is
-+ * the 32-bit LSB register address; the corresponding MSB is at +4.
-+ */
-+static const u32 axienet_xxv_stat_offsets[XXV_STAT_COUNT] = {
-+	[XXV_STAT_RX_TOTAL_PACKETS]	 = XXV_STAT_RX_TOTAL_PACKETS_OFFSET,
-+	[XXV_STAT_RX_TOTAL_GOOD_PACKETS] = XXV_STAT_RX_TOTAL_GOOD_PACKETS_OFFSET,
-+	[XXV_STAT_RX_TOTAL_BYTES]	 = XXV_STAT_RX_TOTAL_BYTES_OFFSET,
-+	[XXV_STAT_RX_TOTAL_GOOD_BYTES]	 = XXV_STAT_RX_TOTAL_GOOD_BYTES_OFFSET,
-+	[XXV_STAT_RX_BAD_FCS]		 = XXV_STAT_RX_BAD_FCS_OFFSET,
-+	[XXV_STAT_RX_INRANGEERR]	 = XXV_STAT_RX_INRANGEERR_OFFSET,
-+	[XXV_STAT_RX_MULTICAST]		 = XXV_STAT_RX_MULTICAST_OFFSET,
-+	[XXV_STAT_RX_BROADCAST]		 = XXV_STAT_RX_BROADCAST_OFFSET,
-+	[XXV_STAT_RX_UNDERSIZE]		 = XXV_STAT_RX_UNDERSIZE_OFFSET,
-+	[XXV_STAT_RX_FRAGMENT]		 = XXV_STAT_RX_FRAGMENT_OFFSET,
-+	[XXV_STAT_RX_JABBER]		 = XXV_STAT_RX_JABBER_OFFSET,
-+	[XXV_STAT_RX_OVERSIZE]		 = XXV_STAT_RX_OVERSIZE_OFFSET,
-+	[XXV_STAT_RX_PAUSE]		 = XXV_STAT_RX_PAUSE_OFFSET,
-+	[XXV_STAT_TX_TOTAL_PACKETS]	 = XXV_STAT_TX_TOTAL_PACKETS_OFFSET,
-+	[XXV_STAT_TX_TOTAL_GOOD_PACKETS] = XXV_STAT_TX_TOTAL_GOOD_PACKETS_OFFSET,
-+	[XXV_STAT_TX_TOTAL_BYTES]	 = XXV_STAT_TX_TOTAL_BYTES_OFFSET,
-+	[XXV_STAT_TX_TOTAL_GOOD_BYTES]	 = XXV_STAT_TX_TOTAL_GOOD_BYTES_OFFSET,
-+	[XXV_STAT_TX_BAD_FCS]		 = XXV_STAT_TX_BAD_FCS_OFFSET,
-+	[XXV_STAT_TX_FRAME_ERROR]	 = XXV_STAT_TX_FRAME_ERROR_OFFSET,
-+	[XXV_STAT_TX_MULTICAST]		 = XXV_STAT_TX_MULTICAST_OFFSET,
-+	[XXV_STAT_TX_BROADCAST]		 = XXV_STAT_TX_BROADCAST_OFFSET,
-+	[XXV_STAT_TX_PAUSE]		 = XXV_STAT_TX_PAUSE_OFFSET,
-+};
-+
-+/* XXV (PG210) counters exposed via ethtool -S. Only counters that have no
-+ * standard uAPI are listed here; the totals include errored frames, so they
-+ * are distinct from the good-frame counts in rtnl_link_stats64 and the
-+ * IEEE MAC statistics. Every other XXV counter is reported through the
-+ * dedicated stats64, pause, MAC and RMON callbacks instead.
-+ */
-+static const enum xxv_stat axienet_xxv_priv_stats[] = {
-+	XXV_STAT_RX_TOTAL_PACKETS,
-+	XXV_STAT_RX_TOTAL_BYTES,
-+	XXV_STAT_TX_TOTAL_PACKETS,
-+	XXV_STAT_TX_TOTAL_BYTES,
-+	XXV_STAT_TX_BAD_FCS,
-+	XXV_STAT_TX_FRAME_ERROR,
-+};
-+
-+static const char axienet_xxv_ethtool_stats_strings[][ETH_GSTRING_LEN] = {
-+	"RX Total Packets",
-+	"RX Total Bytes",
-+	"TX Total Packets",
-+	"TX Total Bytes",
-+	"TX Bad FCS",
-+	"TX Frame Error",
-+};
-+
-+static u64 axienet_xxv_read_counter(struct axienet_local *lp, enum xxv_stat stat)
-+{
-+	u32 off = axienet_xxv_stat_offsets[stat];
-+	u32 lsb, msb;
-+
-+	lsb = axienet_ior(lp, off);
-+	msb = axienet_ior(lp, off + XXV_STAT_MSB_OFFSET);
-+
-+	return ((u64)msb << 32) | lsb;
-+}
-+
- static bool axienet_xxv_ip_has_gtwiz_status(u32 ip_version)
- {
- 	u8 minor = FIELD_GET(XXV_MIN_MASK, ip_version);
-@@ -134,6 +199,10 @@ static void axienet_xxv_setoptions(struct net_device *ndev, u32 options)
- static void axienet_xxv_probe_init(struct axienet_local *lp)
- {
- 	lp->xxv_ip_version = axienet_ior(lp, XXV_CONFIG_REVISION);
-+	lp->features |= XAE_FEATURE_STATS;
-+
-+	/* Throwaway tick to drain pre-open counts so stats start from zero. */
-+	axienet_iow(lp, XXV_TICKREG_OFFSET, XXV_TICKREG_STATEN_MASK);
- }
- 
- /**
-@@ -308,6 +377,198 @@ static int axienet_10g25g_clk_init(struct axienet_local *lp)
- 	return 0;
- }
- 
-+/**
-+ * axienet_xxv_stats_update - Latch and accumulate XXV hardware counters
-+ * @lp: Pointer to the axienet_local structure
-+ *
-+ * The XXV statistics counters are clear-on-tick (PG210): writing TICK_REG
-+ * latches the internal accumulators into the readable STAT_*_LSB/MSB registers
-+ * and clears the internal accumulators. Each post-TICK read therefore returns
-+ * the count for the interval since the previous TICK, so software accumulates
-+ * those intervals into lp->xxv_stat_base. A last-counter delta (as used by the
-+ * free-running 1G MAC path) is not needed.
-+ */
-+static void axienet_xxv_stats_update(struct axienet_local *lp)
-+{
-+	u64 counter[XXV_STAT_COUNT];
-+	enum xxv_stat stat;
-+
-+	/* Latch the clear-on-tick snapshot and read the counters outside the
-+	 * seqcount write section, so only the accumulator updates run inside it
-+	 * and the reader retry window stays short.
-+	 */
-+	axienet_iow(lp, XXV_TICKREG_OFFSET, XXV_TICKREG_STATEN_MASK);
-+	for (stat = 0; stat < XXV_STAT_COUNT; stat++)
-+		counter[stat] = axienet_xxv_read_counter(lp, stat);
-+
-+	write_seqcount_begin(&lp->hw_stats_seqcount);
-+	for (stat = 0; stat < XXV_STAT_COUNT; stat++)
-+		lp->xxv_stat_base[stat] += counter[stat];
-+	write_seqcount_end(&lp->hw_stats_seqcount);
-+}
-+
-+/**
-+ * axienet_xxv_get_stats64 - Fill rtnl_link_stats64 from XXV counters
-+ * @lp: Pointer to the axienet_local structure
-+ * @stats: Output rtnl_link_stats64 structure to populate
-+ */
-+static void axienet_xxv_get_stats64(struct axienet_local *lp,
-+				    struct rtnl_link_stats64 *stats)
-+{
-+	unsigned int start;
-+	u64 tx_hw_errors;
-+
-+	do {
-+		start = read_seqcount_begin(&lp->hw_stats_seqcount);
-+		stats->rx_crc_errors = lp->xxv_stat_base[XXV_STAT_RX_BAD_FCS];
-+		/* Both in-range length errors and frame-too-long (oversize)
-+		 * frames are IEEE 802.3 length errors, so fold them together
-+		 * into rx_length_errors; rx_over_errors is reserved for receiver
-+		 * FIFO/ring overflow, which the XXV MAC does not expose.
-+		 */
-+		stats->rx_length_errors =
-+			lp->xxv_stat_base[XXV_STAT_RX_INRANGEERR] +
-+			lp->xxv_stat_base[XXV_STAT_RX_OVERSIZE];
-+		stats->rx_errors = lp->xxv_stat_base[XXV_STAT_RX_UNDERSIZE] +
-+				   lp->xxv_stat_base[XXV_STAT_RX_FRAGMENT] +
-+				   lp->xxv_stat_base[XXV_STAT_RX_JABBER] +
-+				   stats->rx_crc_errors +
-+				   stats->rx_length_errors;
-+		stats->multicast = lp->xxv_stat_base[XXV_STAT_RX_MULTICAST];
-+		tx_hw_errors = lp->xxv_stat_base[XXV_STAT_TX_BAD_FCS] +
-+			       lp->xxv_stat_base[XXV_STAT_TX_FRAME_ERROR];
-+	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
-+
-+	/* Fold the HW TX error count into the software tx_errors seeded from
-+	 * dev->stats by the caller. The XXV xmit path bumps dev->stats.tx_errors
-+	 * for frames dropped on pad failure before they reach the MAC, while the
-+	 * HW counters only cover frames the MAC actually transmitted; the two are
-+	 * disjoint. This runs once, outside the seqcount retry loop, so a racing
-+	 * stats update cannot make the accumulation re-add on retry.
-+	 */
-+	stats->tx_errors += tx_hw_errors;
-+}
-+
-+/**
-+ * axienet_xxv_get_ethtool_stats - Copy XXV counters for ethtool -S
-+ * @lp: Pointer to the axienet_local structure
-+ * @data: Output buffer sized for ARRAY_SIZE(axienet_xxv_priv_stats) u64 values
-+ */
-+static void axienet_xxv_get_ethtool_stats(struct axienet_local *lp, u64 *data)
-+{
-+	unsigned int i, start;
-+
-+	do {
-+		start = read_seqcount_begin(&lp->hw_stats_seqcount);
-+		for (i = 0; i < ARRAY_SIZE(axienet_xxv_priv_stats); i++)
-+			data[i] = lp->xxv_stat_base[axienet_xxv_priv_stats[i]];
-+	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
-+}
-+
-+/**
-+ * axienet_xxv_get_strings - Copy XXV ethtool statistics name strings
-+ * @data: Output buffer for the statistics name strings
-+ */
-+static void axienet_xxv_get_strings(u8 *data)
-+{
-+	memcpy(data, axienet_xxv_ethtool_stats_strings,
-+	       sizeof(axienet_xxv_ethtool_stats_strings));
-+}
-+
-+/**
-+ * axienet_xxv_get_sset_count - Number of XXV ethtool statistics
-+ *
-+ * Return: Count of XXV hardware statistics reported via ethtool -S.
-+ */
-+static int axienet_xxv_get_sset_count(void)
-+{
-+	return ARRAY_SIZE(axienet_xxv_ethtool_stats_strings);
-+}
-+
-+/**
-+ * axienet_xxv_get_pause_stats - Fill ethtool pause frame statistics
-+ * @lp: Pointer to the axienet_local structure
-+ * @pause_stats: Output ethtool_pause_stats structure to populate
-+ */
-+static void axienet_xxv_get_pause_stats(struct axienet_local *lp,
-+					struct ethtool_pause_stats *pause_stats)
-+{
-+	unsigned int start;
-+
-+	do {
-+		start = read_seqcount_begin(&lp->hw_stats_seqcount);
-+		pause_stats->tx_pause_frames =
-+			lp->xxv_stat_base[XXV_STAT_TX_PAUSE];
-+		pause_stats->rx_pause_frames =
-+			lp->xxv_stat_base[XXV_STAT_RX_PAUSE];
-+	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
-+}
-+
-+/**
-+ * axienet_xxv_get_eth_mac_stats - Fill IEEE 802.3 MAC statistics
-+ * @lp: Pointer to the axienet_local structure
-+ * @mac_stats: Output ethtool_eth_mac_stats structure to populate
-+ */
-+static void axienet_xxv_get_eth_mac_stats(struct axienet_local *lp,
-+					  struct ethtool_eth_mac_stats *mac_stats)
-+{
-+	unsigned int start;
-+
-+	do {
-+		start = read_seqcount_begin(&lp->hw_stats_seqcount);
-+		mac_stats->FramesTransmittedOK =
-+			lp->xxv_stat_base[XXV_STAT_TX_TOTAL_GOOD_PACKETS];
-+		mac_stats->FramesReceivedOK =
-+			lp->xxv_stat_base[XXV_STAT_RX_TOTAL_GOOD_PACKETS];
-+		mac_stats->OctetsTransmittedOK =
-+			lp->xxv_stat_base[XXV_STAT_TX_TOTAL_GOOD_BYTES];
-+		mac_stats->OctetsReceivedOK =
-+			lp->xxv_stat_base[XXV_STAT_RX_TOTAL_GOOD_BYTES];
-+		mac_stats->FrameCheckSequenceErrors =
-+			lp->xxv_stat_base[XXV_STAT_RX_BAD_FCS];
-+		mac_stats->MulticastFramesXmittedOK =
-+			lp->xxv_stat_base[XXV_STAT_TX_MULTICAST];
-+		mac_stats->BroadcastFramesXmittedOK =
-+			lp->xxv_stat_base[XXV_STAT_TX_BROADCAST];
-+		mac_stats->MulticastFramesReceivedOK =
-+			lp->xxv_stat_base[XXV_STAT_RX_MULTICAST];
-+		mac_stats->BroadcastFramesReceivedOK =
-+			lp->xxv_stat_base[XXV_STAT_RX_BROADCAST];
-+		mac_stats->InRangeLengthErrors =
-+			lp->xxv_stat_base[XXV_STAT_RX_INRANGEERR];
-+	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
-+}
-+
-+/**
-+ * axienet_xxv_get_rmon_stats - Fill RMON statistics and histogram ranges
-+ * @lp: Pointer to the axienet_local structure
-+ * @rmon_stats: Output ethtool_rmon_stats structure to populate
-+ * @ranges: Set to the RMON histogram range table
-+ */
-+static void axienet_xxv_get_rmon_stats(struct axienet_local *lp,
-+				       struct ethtool_rmon_stats *rmon_stats,
-+				       const struct ethtool_rmon_hist_range **ranges)
-+{
-+	unsigned int start;
-+
-+	do {
-+		start = read_seqcount_begin(&lp->hw_stats_seqcount);
-+		rmon_stats->undersize_pkts =
-+			lp->xxv_stat_base[XXV_STAT_RX_UNDERSIZE];
-+		rmon_stats->oversize_pkts =
-+			lp->xxv_stat_base[XXV_STAT_RX_OVERSIZE];
-+		rmon_stats->fragments =
-+			lp->xxv_stat_base[XXV_STAT_RX_FRAGMENT];
-+		rmon_stats->jabbers =
-+			lp->xxv_stat_base[XXV_STAT_RX_JABBER];
-+	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
-+
-+	/* XXV currently exposes only aggregate RMON counters, not per-bin
-+	 * histogram buckets. Keep ranges NULL until histogram bins are wired.
-+	 */
-+	*ranges = NULL;
-+}
-+
- const struct axienet_config axienet_10g25g_config = {
- 	.sw_padding = true,
- 	.internal_pcs = true,
-@@ -320,4 +581,12 @@ const struct axienet_config axienet_10g25g_config = {
- 	.get_regs = axienet_xxv_get_regs,
- 	.phylink_set_caps = axienet_xxv_phylink_set_capabilities,
- 	.pcs_ops = &axienet_xxv_pcs_ops,
-+	.stats_update = axienet_xxv_stats_update,
-+	.get_stats64 = axienet_xxv_get_stats64,
-+	.get_ethtool_stats = axienet_xxv_get_ethtool_stats,
-+	.get_strings = axienet_xxv_get_strings,
-+	.get_sset_count = axienet_xxv_get_sset_count,
-+	.get_pause_stats = axienet_xxv_get_pause_stats,
-+	.get_eth_mac_stats = axienet_xxv_get_eth_mac_stats,
-+	.get_rmon_stats = axienet_xxv_get_rmon_stats,
- };
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
-index 15a323ee05b2..ebfa7d57a859 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
-@@ -63,6 +63,33 @@ struct axienet_config;
- #define XXV_STAT_GTWIZ_OFFSET		0x000004A0
- #define XXV_STAT_AN_LINK_CTL2_OFFSET	0x000009F0
- 
-+/* XXV statistics counter registers (PG210). Each counter is a pair of 32-bit
-+ * registers; the MSB register is XXV_STAT_MSB_OFFSET bytes above the LSB.
-+ */
-+#define XXV_STAT_MSB_OFFSET			4
-+#define XXV_STAT_TX_FRAME_ERROR_OFFSET		0x000006A0
-+#define XXV_STAT_TX_TOTAL_PACKETS_OFFSET	0x00000700
-+#define XXV_STAT_TX_TOTAL_GOOD_PACKETS_OFFSET	0x00000708
-+#define XXV_STAT_TX_TOTAL_BYTES_OFFSET		0x00000710
-+#define XXV_STAT_TX_TOTAL_GOOD_BYTES_OFFSET	0x00000718
-+#define XXV_STAT_TX_BAD_FCS_OFFSET		0x000007B8
-+#define XXV_STAT_TX_MULTICAST_OFFSET		0x000007D8
-+#define XXV_STAT_TX_BROADCAST_OFFSET		0x000007E0
-+#define XXV_STAT_TX_PAUSE_OFFSET		0x000007F0
-+#define XXV_STAT_RX_TOTAL_PACKETS_OFFSET	0x00000808
-+#define XXV_STAT_RX_TOTAL_GOOD_PACKETS_OFFSET	0x00000810
-+#define XXV_STAT_RX_TOTAL_BYTES_OFFSET		0x00000818
-+#define XXV_STAT_RX_TOTAL_GOOD_BYTES_OFFSET	0x00000820
-+#define XXV_STAT_RX_UNDERSIZE_OFFSET		0x00000898
-+#define XXV_STAT_RX_FRAGMENT_OFFSET		0x000008A0
-+#define XXV_STAT_RX_OVERSIZE_OFFSET		0x000008A8
-+#define XXV_STAT_RX_JABBER_OFFSET		0x000008B8
-+#define XXV_STAT_RX_BAD_FCS_OFFSET		0x000008C0
-+#define XXV_STAT_RX_MULTICAST_OFFSET		0x000008E0
-+#define XXV_STAT_RX_BROADCAST_OFFSET		0x000008E8
-+#define XXV_STAT_RX_PAUSE_OFFSET		0x000008F8
-+#define XXV_STAT_RX_INRANGEERR_OFFSET		0x00000908
-+
- /* XXV MAC Register Mask Definitions */
- #define XXV_GT_RESET_MASK		BIT(0)
- #define XXV_TC_TX_MASK			BIT(0)
-@@ -70,6 +97,7 @@ struct axienet_config;
- #define XXV_RCW1_FCS_MASK		BIT(1)
- #define XXV_TC_FCS_MASK			BIT(1)
- #define XXV_RX_BLKLCK_MASK		BIT(0)
-+#define XXV_TICKREG_STATEN_MASK		BIT(0)
- #define XXV_GTWIZ_RESET_DONE		(BIT(0) | BIT(1))
- #define XXV_MAJ_MASK			GENMASK(7, 0)
- #define XXV_MIN_MASK			GENMASK(15, 8)
-@@ -81,6 +109,33 @@ struct axienet_config;
- #define XXV_STAT_CORE_SPEED_10G_MASK	BIT(0)
- #define XXV_RX_STATUS_MASK		BIT(0)
- 
-+/* XXV (10G/25G) MAC statistics counters, used to index xxv_stat_base[]. */
-+enum xxv_stat {
-+	XXV_STAT_RX_TOTAL_PACKETS = 0,
-+	XXV_STAT_RX_TOTAL_GOOD_PACKETS,
-+	XXV_STAT_RX_TOTAL_BYTES,
-+	XXV_STAT_RX_TOTAL_GOOD_BYTES,
-+	XXV_STAT_RX_BAD_FCS,
-+	XXV_STAT_RX_INRANGEERR,
-+	XXV_STAT_RX_MULTICAST,
-+	XXV_STAT_RX_BROADCAST,
-+	XXV_STAT_RX_UNDERSIZE,
-+	XXV_STAT_RX_FRAGMENT,
-+	XXV_STAT_RX_JABBER,
-+	XXV_STAT_RX_OVERSIZE,
-+	XXV_STAT_RX_PAUSE,
-+	XXV_STAT_TX_TOTAL_PACKETS,
-+	XXV_STAT_TX_TOTAL_GOOD_PACKETS,
-+	XXV_STAT_TX_TOTAL_BYTES,
-+	XXV_STAT_TX_TOTAL_GOOD_BYTES,
-+	XXV_STAT_TX_BAD_FCS,
-+	XXV_STAT_TX_FRAME_ERROR,
-+	XXV_STAT_TX_MULTICAST,
-+	XXV_STAT_TX_BROADCAST,
-+	XXV_STAT_TX_PAUSE,
-+	XXV_STAT_COUNT,
-+};
-+
- extern const struct axienet_config axienet_10g25g_config;
- 
- #endif /* XILINX_AXIENET_XXV_H */
--- 
-2.25.1
-
+Thanks a lot for helping in this.
 
