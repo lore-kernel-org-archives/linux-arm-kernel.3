@@ -4,72 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE46CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564FCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEpMztv67Cyg8uTWV9Mrn0QlkmtHYbSR5K1teL2DZsE=; b=jD8HLktw/rC2muyxqIXM3MBub7
-	er4YiUYdt6TXzH302f65pjL4qyju/qfkHyp2wErqH1ALt4bwNHvpf3OibrwZg2QqJzSQmSeIfv82V
-	zDZE4oTOuCRHvZvtK/BgLI9h1ylewzLG6qWSpZJvcHpUxUYr5l2b/6xnMxJvbWTOQqffQgjRuJCqO
-	5/eGBiEeprmjHauk7Vwy+40XnSAxJtGzYXAFHKrF1uOgr7WT4hgARF3NQVh189lFf8PCrEEjNAjms
-	rCOxgrUefq/O4XYsY8VniiWIkWHkbtA4sLI6sFgBzKi52PNUKGwtXFHJuG6CUgD5gLptis1dp+qYd
-	edS8JMhA==;
+	bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=; b=pghJn8jbEyVoyMZI80hrX3TJei
+	nbzbWmt6jyeyu+4O62KVXnKOpEYThodjB+pTYJGsHQxEANaZ1+D/3QxpWK31r+JiCKb2IE/ie+EC6
+	YnFBU1buV9NyAkUZiPWtyrm7GYFKPX33qu+Z43hoF7cc62BMuYAEJA+iJqREq2blotykstAzCMnK0
+	6VX21hd4NbTdhpqGjNv2PE33oUYlGqBkNneB+WlNYVEkUB3rDy/UXXHRDJqN3X/X2LM+p6w2omD+b
+	tUzT2+f96xyOF1L6WZUN1Gax8XAkXLTqJQI2qHldvF+RcaTL+CF+Dky4lPWI6s62YVHAUKiZeEJM7
+	wAk9yhtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7oK-000000017QP-3esE;
-	Tue, 06 Oct 2026 16:14:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xE7ry-000000017gJ-2Ghx;
+	Tue, 06 Oct 2026 16:18:22 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7oJ-000000017QA-3hzM
+	id 1xE7rv-000000017fz-2cbS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:14:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF92B602D3;
-	Tue,  6 Oct 2026 16:14:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6987C1F0089B;
-	Tue,  6 Oct 2026 16:14:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791303274;
-	bh=jEpMztv67Cyg8uTWV9Mrn0QlkmtHYbSR5K1teL2DZsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z0MANvwZB3Ncb6gQ4UczWyet44A2z795k3Vf0ROLlRu0t8m3fMCSF3L6Zkbt+/Nuk
-	 hnm+yMRM/6LFnTVGkQWVqD6MYfh5ps+/HhOigwcKaP5sXOI/8lN0b1oyumtzLvZPUU
-	 uh7ZK/PFNt5z4VHVPGiw8vEbA6hBd/BuFrvExbsdZbO0WQRmFkuoILfjixf+iLVBB3
-	 X4zg0zrTkf6aqIpEIv6+4MzgGSOaf/CZZ+BLX1kx6P1zZ3TvVd/tOac5dwEa2WTqyx
-	 XhseSscSHJkvG/udQ7ZErNNcy+wtYTGiQpkIc80Z8deaxygt+pIvVqmuWsK80B3S8p
-	 YP/nWNmA+PLug==
-Date: Tue, 6 Oct 2026 17:14:28 +0100
-From: Will Deacon <will@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Michiel van Tol <michiel.vantol@arm.com>,
-	Dev Jain <dev.jain@arm.com>, David Hildenbrand <david@kernel.org>,
-	Yabin Cui <yabinc@google.com>, James Morse <james.morse@arm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
-Message-ID: <asUeZA5Z4VjQtf1g@willie-the-truck>
-References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
- <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
- <annp-BdTviQoH6vy@willie-the-truck>
- <20260930164311.GK14479@e132581.arm.com>
- <ar4Iuanz_vA4twGP@willie-the-truck>
- <20261005174144.GL1208404@e132581.arm.com>
+	Tue, 06 Oct 2026 16:18:21 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so35262425e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 09:18:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1791303497; x=1791908297; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=;
+        b=RF2Rg8OdDuQSVDe/AtIGknHmmUmPPCpE0VHEDXGWoqa3ykMCP+/VaCB39nLSrRZvrs
+         g7yVDo/mZo3PWbJOdyULPeq4ApqfgCeCKUuuTKuoqXcMuyqmIfqtPKbhsd+wsXPd7+6N
+         Q0+OI7iuSFn1Lz1kFDr9cZkX0KdVjU9Y5UX9U5gUyMiiMeGhXsC6LTenqold3DEeIU6v
+         C1htQUBUrNUdeGuOZcOP0Lh8s2W75xRm7KoEvzFvZWSdWzFd8rsKUUxNBkPsAesb2pQR
+         8Yzo+ldkPWVKMwdeDnaCACM9mm9M0by+Y+7Te5AQ/d7IEYfscJArt6O+0YtVzU57XBRc
+         XT0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791303497; x=1791908297;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=;
+        b=j6RoauORu1l6RiIjoN0xm5S3L1YoFjDWAeND5Fxi/zUGaWnDnjVUW0Vt2Sm0Z8HHTx
+         yvD8qIBUwOwQpsM9ZwPtAYwrR7U86l+kEizJsNK+6PoHR6nqcn3FcRvjDtZN/IYKwmK9
+         lHSuaeaSlamTYhSXptFWsStnqwrJYceJbk4Q9qLDJvWsR6c8CeS6L6iz+4rwf97s0Q6B
+         PPRHDwWui9PLdNuX50dvVCe5H1adygpeRWiUOUJ0NogYCWXWYXHIaTPxCHOrFqGy0pO6
+         GgI+8Kop/pJFB9wBp7r0l7MjsQOXti7wwWE4c6JFb+4NTCXDMFCnVCeDSH9VAklrjZqS
+         M21g==
+X-Forwarded-Encrypted: i=1; AKwUvBzJXAe8Jo7hEnT40hcsXxAP/uNoVH1XiNXfUfTPuacPiZMFeX0UaHTR6OXCxE6M/Lucf1hITmQh++TZGgn++jDF@lists.infradead.org
+X-Gm-Message-State: AFuF++mRPbDsysdS37N/hgC6pbpIwE1ofMc9g67OSfcMV5CIZzc2B374
+	Gd6jgnrV2H0+fDYgUpHlyAtlUpSprFRHR5yo6HelrjAOMKZUEIXGfopjy1chsu1ZfsU=
+X-Gm-Gg: AYBFou2RNTVFbFev08VXs07avewJY3YB56+V8n1zljGtQBlnL5+pJgD+l4GecCvUMjC
+	DpbE34wWmtgaL7i+MvbYKWMqgJ5/SyCWbN7Mlha9tkEBoN+2+6wIbUDCmfBb5fofgFmGeYSBGu7
+	KMnj26/2WtHoUpcaEVJV0+wtJQlxGmAkp/NQ8DpET9xlpi+xxaSulctw8RsaWw2hZ8SnpOfDGQe
+	LcT+3/YRocKGQml+VwAc0Hv1jELeU7mGgar50Pa+XY3XEmxo0boTP7pble57h2UWPu9vUTCS8Q9
+	dhssQFJ6RxeMAy5Rtp1NncWLu5NJo8I0TdhH8vZyGGPdT6nkJOpgtfN+7DHi6EWh1bm7zwcGWNv
+	IIXwmLlSx2A2ujv6Jjnn+SgueKpDmVkXJ18YsbiSQKCBUmaHyoD6OF2vn3cMT/GsoR2+YNUsiu4
+	CYP2Egyxx6NywBkQTfhw7LRZlyPn0gklWXci7XD30kkFSoYb+nEV9ack2LCjN1/7zSTQhJxy6Hz
+	apMz4H+JKUH+f8jeFzOT1JkNnmve+Hc46VVG7RenlUTwx5zu1aWdbrWPYbMET+Jht1Vsvt7uQnQ
+	+Y627Rfs4pZPo3pgngfvgWlXXxcNruRO+5k78uv3bVGkMYQsl+L0CLTxXmNdokDtpdhQyg==
+X-Received: by 2002:a05:600c:4e87:b0:4a0:2375:dc1a with SMTP id 5b1f17b1804b1-4a1680ece49mr174863895e9.21.1791303497306;
+        Tue, 06 Oct 2026 09:18:17 -0700 (PDT)
+Received: from aspen.lan (aztw-33-b2-v4wan-169864-cust3247.vm26.cable.virginm.net. [92.239.204.176])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1794a1af9sm76346415e9.5.2026.10.06.09.18.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 09:18:16 -0700 (PDT)
+Date: Tue, 6 Oct 2026 17:18:14 +0100
+From: Daniel Thompson <daniel@riscstar.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: netdev-bot+sinfo@kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Davide Caratti <dcaratti@redhat.com>
+Subject: Re: [PATCH net-next v5 0/3] net: stmmac: Introduce hw queue priority
+ offload
+Message-ID: <asUfRhPF-J74TCgG@aspen.lan>
+References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
+ <179128376932.2231598.7510820392039419594@kernel.org>
+ <asTnyCWBTMC-B191@lore-desk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261005174144.GL1208404@e132581.arm.com>
+In-Reply-To: <asTnyCWBTMC-B191@lore-desk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_091819_943269_B08E14C5 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +114,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 06:41:44PM +0100, Leo Yan wrote:
-> On Thu, Oct 01, 2026 at 08:16:09AM +0100, Will Deacon wrote:
-> > On Wed, Sep 30, 2026 at 05:43:11PM +0100, Leo Yan wrote:
-> 
-> > > How about adding a field to struct pmu to specify a preferred maximum
-> > > page order for the AUX buffer? The perf core could try that order first
-> > > and fall back to smaller orders if the allocation fails.
-> > 
-> > I'm not sure that's thr right place for it, really. The driver has no
-> > clue about whether it makes sense to use large contiguous mappings or
-> > not, so I'd have thought that decision should be driven from userspace
-> > (e.g. like MADV_HUGEPAGE) because it really depends on the user's
-> > preference and isn't a fixed property of the hardware.
-> 
-> Here MADV_HUGEPAGE cannot directly apply on this case: perf allocates
-> the AUX pages during mmap, while TRBE accesses them through a separate
-> kernel vmap() mapping.
-> 
-> MADV_HUGEPAGE is applied after mmap, but a preference (or flag) would
-> need to be specified before the AUX mmap.
+On Tue, Oct 06, 2026 at 02:21:28PM +0200, Lorenzo Bianconi wrote:
+> > Hi!
+> >
+> > This is an automated message. This series looks like a fix, but its
+> > commit messages seem to be missing some information:
+> >
+> >  - Whether the issue was actually triggered, or is only theoretical
+> >    (e.g. found by code inspection). If it was triggered please include
+> >    the symptoms, like the stack trace or error messages.
+>
+> This is a theoretical issue found during code inspection.
 
-I was using the madvise option as an example of a user-controllable hint,
-I'm not suggesting you use it directly as-is.
+I haven't triggered anything specific for the real_num_tx_queues changes
+but the overall with/without mqprio offload changes can (and have) been
+reproduced with netperf:
 
-> > > Given the single L1 TRBE TLB entry, the TRBE driver could prefer
-> > > PMD_ORDER (2 MiB with 4 KiB pages) to reduce TLB pressure. This reflects
-> > > the hardware characteristic.
-> > > 
-> > > This could be a trade-off instead of using PERF_PMU_CAP_AUX_PREFER_LARGE,
-> > > avoiding large contiguous allocations that could reintroduce the Android
-> > > OOM issue. I did a quick test with this approach and the results look
-> > > positive.
-> > 
-> > I really don't want the driver to second-guess userspace based on whatever
-> > information it happens to have hard-coded about the specific CPU it's
-> > running on.
-> 
-> The kernel already takes the PERF_PMU_CAP_AUX_PREFER_LARGE flag from a
-> PMU; a preferred maximum order would let the driver give it a bounded
-> value.
+  netperf -H 192.168.10.2 -s 1 -l 12 -y 7 -t UDP_STREAM -- -m 1472 & \
+  netperf -H 192.168.10.2 -s 2 -l 10 -y 5 -t UDP_STREAM -- -m 1472 & \
+  wait
 
-But the driver doesn't have this information.
+With the patchset applied (and the traffic class 7 mapped to a higher
+priority queue and TC 5) then the split of bandwidth massively favours
+TC 7 (with a 2.5G link. TC 7 measure ~2G versus TC 5 at ~2M).
 
-> I do not intend to hard-code or guess a preference for a particular CPU
-> variant. We can map TRBE or SPE buffer at PMD granularity. On a 4
-> KiB-page system, PMD_ORDER is order 9, or 2 MiB. Requesting a larger
-> contiguous chunk cannot increase the mapping granule, so I would cap the
-> preference there. It remains a preference: perf can fall back to smaller
-> orders when allocation fails.
+Without the patchset both streams get ~1G.
 
-My understanding of 18049c8cff9c is that it's not about allocation
-failures, so this doesn't work.
+I guess FWIW the whole series is:
+Tested-by: Daniel Thompson <daniel@riscstar.com>
 
-> Exposing the preference to userspace also seems problematic. Users
-> generally lack the hardware details needed to choose an appropriate
-> value. Even if tools provide a default, the same policy would need to
-> be duplicated across perf, simpleperf, and proprietary tools. I don't
-> think userspace tools are the right place for this policy.
 
-Well I don't think it belongs in the kernel either. I suppose you could
-make it a driver module option but it's ugly as hell. We really need
-Yabin's input here, I think.
-
-Will
+Daniel.
 
