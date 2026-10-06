@@ -4,146 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D120CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F632CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dx9m3KoyXG+64l0VuwtMujcGUymxe716+I4+2iOeJj0=; b=T3DqWdRVaobdODVeJdxGQZJYdh
-	ezcBylToFPAr03lqMQ0+0SajIHTBZy4A/X/r/2c+a0mGhWu1658sv8ogQSm1FYvVHtgX+UQ5kbY+O
-	VYXh4Y+O5zkczT6diLYWnNh31XxbvKX/BvFRzBtD9HZfZEy11i2p9q6oNgqJJWkw4Ld5loYtNhoiS
-	McXef+RFKbewj8umegffTLntUZ1cJPakfCTcGVSdZct4VBJYZW8CEptJ9xQ6LHXb7iMs5KMqlr71x
-	MIO2pdhacgKitauaowqyPa5TNSaLSpIc12GUji+YEwcrVkvwgSKYOJrD+sIrXaINNhuxbUyBQ8Lnh
-	sO/L7Oqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=; b=y4VQzh5bXyH6lZ8j+kqoxRWczg
+	Fw8wFbPeknqU9QV8LUWRmHgju1Fc7amDI6eQolaSsxOsxtbX/riaqhtdMbYMJINZwlWo2aWKzXXC8
+	2IRf2aeOPO/jcMa/3WorRkp3Zcpow9ZQ0upuVVnty2DCju+d8WQi92w/ggppcb3P5xLoFGKux1c0O
+	Dg9i8dnZ3OKAt7QSL2mSM4dUPXm3lfJ/HPNaDrz3+N2vJ9qBkB4LPphXJ0+eT7p6lEsBJKeKmUix8
+	fpm2ARg9OEsV+dELUJI8vVDnBs/WYfYSxrUST8UDA654ESIT0/7ciIMZFfmHtoTQGWFjoSVV5F5DK
+	iNYm99/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2h8-00000000YMG-3uLb;
-	Tue, 06 Oct 2026 10:46:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xE2hY-00000000YWA-0LkZ;
+	Tue, 06 Oct 2026 10:47:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2h4-00000000YIU-02EI
+	id 1xE2hU-00000000YTq-45wv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 10:46:47 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 696ARO211544138
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Oct 2026 10:46:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dx9m3KoyXG+64l0VuwtMujcGUymxe716+I4+2iOeJj0=; b=JZ8Xm0VWnv/GA+bl
-	LyMi+DDxKUXV3Uvxturok4+sagXN+jyJr8J0BrBcKhnySfqEhj511gsyJwW4VFR4
-	P/gTEZF1rL3aR8uyGr7ArWMc0XLFG1JrJPmLKb6IXpzRuyGyrYOqV/fvzhH9rxEN
-	HwEW4KSOMsyjBxu4XRMmFZMXdKlkLOuhN7Dd0naNMaxYyLY+xyPYIHmCSmwgRIV6
-	y9uIhi6/bpllvpK1pDVUrF2v981efQaUr2m0UySfBPSz4OyLr/lZ3zdH0cE44Fzy
-	Q8hpoH8nzwBBNg/hG+8KqT8qBvdVhfzDbNQKCZ0MnehkGfPsw3F2Z9glZNM6r8RJ
-	Vvzk1Q==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h4uy4gu04-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 10:46:45 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93a1de6d5c3so574410485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:46:45 -0700 (PDT)
+	Tue, 06 Oct 2026 10:47:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a021c28046so33965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:47:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791283604; x=1791888404; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dx9m3KoyXG+64l0VuwtMujcGUymxe716+I4+2iOeJj0=;
-        b=Wz2o7VORiD6HnpYXnOFELNtDwEt2ayvFYlMdp+CMY65BJRE11CS/1zh0M6FoQvG2B8
-         /RrO50du87HdaI44e+z/LQaeCV7RB9s/oOVETTIr91/YKjKVVusjX/McX6xltGLbtHs9
-         Sqk+upvKyTmoewJbrc2wsVeyHccDewd7tpCNtO+/ubNBeWGIdXdn034potqSPi5fRaVM
-         ts/pFggcGXlWTpFHV1OtkeRZFfE+WvaYVXmYJCgl0Hsh6QqtDfrak6YfIseK7HXfkVTd
-         Pi5VYI4l6KBgzs+GlTUzXnD3Y2QO2fntEmzZMdGK5S+fnGYh2IVhK1atO4Jx9XvIG8Pf
-         Lf/g==
+        d=google.com; s=20251104; t=1791283630; x=1791888430; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=;
+        b=abSBGWvtyiHbUXTWNSQOUQ8Kk6tHbrf8xxxhF6IZgICjZE2m5esOZdg/QVVCQrrk9p
+         5O7Dhbg/2NN/+mL6miB677PwSMXoeh6p/9JhEC68oGA5AGt5cdGGhu9khwFfVXHcgNOK
+         FLGk47vMCvd2Jv86llAXQcU9hMonQKFaESZnIc/xark+zKMUBAkOLi7xaQJMkB7HBXTQ
+         Se5cHYw/X7dLIX9o+jlpI2uGhqQWmki2jzgpsQWH9B6bfR9Zu11343UUzy7BhPwyuIrp
+         DlZlGozwd7iXjGxy/bOogoJM7ByuAgyTtGmhncS2raqf/g47B1eoUGXEymhfRZ/Y5Z/e
+         6NRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791283604; x=1791888404;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1791283630; x=1791888430;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dx9m3KoyXG+64l0VuwtMujcGUymxe716+I4+2iOeJj0=;
-        b=wkiGY8GEJqhUd7vMfSMI4nFx9bxvwtBV4e96TSytFyjCCCTbdt8gZPLJ9AXukMgmx2
-         4TxjTNXVcj6NfS6qLXWHSu5yHqq/55JldpzkHkkEHppv0+Nz1rvG0rWuwkF1eQ15R7Zz
-         fEl55Hz56dWohWc6z5s4MBe7O65qRgY5o8d9sETGJhT+YGwQN2puf1mdDUMEE+CGyh2o
-         0TRreu10mkg91X4inZSEHGEGaDPY/sonHRRtEhcXQhF/NVe/EC3p1z5+pKMpbLIY9lDO
-         002u8xmMseIAILUY1Ok0yy52ZPBcWsS8ftjEjmTP6pwWuPh26W0HNKjayI1VrrYrI9iR
-         IRBw==
-X-Forwarded-Encrypted: i=1; AKwUvBw3ZTzXFEVFr99osMUh8QoSr2LpiZ+64iiOmbGLsr2QLV1qq4tAt2VE787HI38fsbRR0/n/kKD0jY+OkKBBCpcn@lists.infradead.org
-X-Gm-Message-State: AFuF++nasSt9GlPojWTOK7cTa/lCgVx4a884I3pE3rEF019uWekR6X/f
-	wIYLEsz/nyRbGntZfP9RXtOfpXK4MyWF3Xa/DrlaS3gYgpeWpt13ZmnEruUgl916ciZgBQWLWIG
-	joI2IqJAivmhUjAePHSvpR2JtDCj+bVNACNwv+Qk0DqBLUF1mWgS8CowAuZd6P+y46ISv4hQB8K
-	L/st3VvLEn5w==
-X-Gm-Gg: AYBFou2yvPKBFCsUYWE21QcDjYqym6pNxcjJlNUkB53zBB9OAUAeiP56FdN7QSDes2H
-	aL+fzFU333zC3B8wKnnEGVir8nmWRgR2+f3dLEhJfjYus2Pz9WhVpEERBnl2+OKwLUWbaO1cuGG
-	LrcfIzUpd+x6I+YbiQgOD3cePD76OmBHxNZTf+TYO0pmi4ZcDk63miklcyt4ObnWEVy3QmoLjx+
-	1N57OWS9T7E0BtduvRggrHNO0sNnITsjW7rWiAEbbjijnEGM4+KgiqG/Gq9loeLIrEVeBQ8rD5A
-	SUmGxyJxkTDiohdASnUUoKObXlrIbNj+8dTIYmH33+2nKdgOn6wTKTrqMwH9yWTYAEVzUdwRuSW
-	5oy3y3NKWfcOnlA==
-X-Received: by 2002:a05:620a:3908:b0:93c:88ab:3482 with SMTP id af79cd13be357-93e8f35e81emr163644785a.29.1791283604037;
-        Tue, 06 Oct 2026 03:46:44 -0700 (PDT)
-X-Received: by 2002:a05:620a:3908:b0:93c:88ab:3482 with SMTP id af79cd13be357-93e8f35e81emr163639385a.29.1791283603429;
-        Tue, 06 Oct 2026 03:46:43 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c62289e77sm9986132f8f.21.2026.10.06.03.46.42
+        bh=oNhJI/vsDPATwVHCwRxldmCYKg+ihLyBJJx7xKlf2yc=;
+        b=Vsn00z3QcmwgK1kdxa4+r5HSv2FmjK3OiRZAyct992llQVqVRRlnDs3gaVrUVOqsZM
+         R0jR56b5TnB/CAR1ydgwhtF2OiDgMwd7h9jYff/Gcb2D4pTOQhHVe15f/v2X2mta11Li
+         cA20ov6+37x6jZ41sAvCqLXsuc/nXKqqysIQaUC+TgEbZrO3Rd3ZQA7p0udHJOQ6abzj
+         wjDxMeTYONBL0BdAe6mU+u/s5PLJahP4zN/6UDDPpPORJS5TLBnrGIVhvLQ30ZgmSTpT
+         +g7fjT4T2wQxMl1f3MdLQK8Kq7A5fK8yidV0KLC8v0OGmh9lS/Y9M6HlxisIHsJ77Vfa
+         bIvQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxttr+s+sjwRwE1uNErvWQtCifkwr1amkviF1hQxR+CjAX9XfpQ4OJJWfETckAOw7eHTEqe8rtNC1NTOutTQN4s@lists.infradead.org
+X-Gm-Message-State: AFuF++l7AF4NM8199jJuD1zjPhi/gPqczp4KN4c3cZJgB2ThRnXpd5WN
+	ZdNlGMWVaySzzkJSXemNDO1uTSR7kk3dbqNp+Ak/VFUY3ZjS1Hh3T4hCJMUqHqDVTw==
+X-Gm-Gg: AYBFou1kO2vIhNuudTY7RgWn0pmxn7a1GK1PBNl1bcVbwU4M47a248lRWMEHhspKNNr
+	PzdvtU41gi2BYp5Gq6TdRUHqoIuuz1J4QOuA80Frf+CrdU6BNYeaBSwOUCo8vnx5bIGxwdDZtjw
+	+gKuo6cGP5GxzHfmnT0qq83nQqOethvLD/FpT6w+ztGEaK2ZuEBM8tFJWDgEfTXwC9JFqQeIuEV
+	ZdqKLTGcRta44QpK4eJGRbddW7RkVu0zP/6JMxEmMbtqkWVf1U13VFiEOkQMOrjiOHcJ7paFfqr
+	TgdWEaE0oMDwvp/LBZyL8Hye+SJ0shCUARnvN1spSygNLztye2Onyfj9PyX3qLZoVTq41ZZpl1i
+	HNzUqP2AxO5Hl7oao9l9oZiTFIv5F5RFioYaO/Wa2rzUnFnyndCaMyaEPJvGzMBgWYxf+Fidsl4
+	XxY9DsI43QFY8ccNyW1aAIluzg+2RYrj1U7RWnM6rTXSsMPU+L4CnYn6O5IiKmeFFfPzO134Cp7
+	YVB4hwqJBYGe5o6PY3M859kVpUqG7q7ekSPtto4
+X-Received: by 2002:a05:600c:6290:b0:4a1:7af1:5386 with SMTP id 5b1f17b1804b1-4a17b4587a5mr465225e9.1.1791283629775;
+        Tue, 06 Oct 2026 03:47:09 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c69afe66bsm3896689f8f.30.2026.10.06.03.47.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 03:46:42 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Tue, 06 Oct 2026 12:46:27 +0200
-Subject: [PATCH net-next v5 3/3] net: stmmac: add tc mqprio hw queue
- priority offload
+        Tue, 06 Oct 2026 03:47:08 -0700 (PDT)
+Date: Tue, 6 Oct 2026 10:47:04 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, tabba@google.com,
+	sebastianene@google.com, keirf@google.com, qperret@google.com,
+	linu.cherian@arm.com
+Subject: Re: [PATCH v3 2/2] KVM: arm64: Support BBM level 3
+Message-ID: <asTRqPfsrnbBWVSF@google.com>
+References: <20260904132855.638117-1-smostafa@google.com>
+ <20260904132855.638117-3-smostafa@google.com>
+ <asO77kvqqwCsJt8I@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-stmmac-mqprio-prio-offload-v5-3-d7da93419784@oss.qualcomm.com>
-References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
-In-Reply-To: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>
-Cc: Daniel Thompson <daniel@riscstar.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Davide Caratti <dcaratti@redhat.com>,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDA0MiBTYWx0ZWRfXweMZGI2xRxEw
- aObbwLBt6ve4gk8BRxOoJIHK8BkZIDFKa8HZ69A24mc3zgt2fLFp6ionlfTzHAIr3EVkJldvGgv
- xk7GhxFAUZLOGs7Em3ssLg0usSHrGP0iGArd2BIZjlQnw7K4AXPmfaMTVQ9VS/7JUGIUbfZQcQO
- R/+oJ7grw3kf38plVAJ4Nac3mj7r4faUZXbjlzVQHf4uDYNPQw4qbrRtxxyfGd8ShO+n1sdJwGB
- hYZlM1RHmasL4RLBdTID8hbIBV20v2UOEXm96zTf/1hOBdtHaBlPPN/bEqjAHxtrycofS/eEx1K
- ygj9Ptq9VtZK7ojFTUsyNUIF/NGoHE7TtI4dNjV9sih++Eb0cTWtd6YfGf7cAsDsMx9D/gYsxQM
- MbJsrbiJOz86YTb+0sL0tD3mHjfwApvyHbrxVtE3Z8SWoH1QUCpYDFghY0RTThGdEHQ6Nw/VfNQ
- 5V84yn0ttAWxNnMA2Uw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDA0MiBTYWx0ZWRfX/O8+d+8ZoqPZ
- 5YAf2FQR0zxVCKsEm3BPJATWwYr/q+sSkbE111nGcai88iap7lVSxSKRBesLhwgaHEXXPNkQjXj
- LHuqAkbD3l7DaxNM2BTUh208KFdQJFk=
-X-Authority-Analysis: v=2.4 cv=F97C5ahN c=1 sm=1 tr=0 ts=6ac4d195 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=20KFwNOVAAAA:8 a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=dYERuBvVx-ELa3hM7TQA:9
- a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-ORIG-GUID: f7-gv6v_5X6kyo_wH_Jzvr_TmIbBQcJ9
-X-Proofpoint-GUID: f7-gv6v_5X6kyo_wH_Jzvr_TmIbBQcJ9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-06_03,2026-10-05_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 clxscore=1015 impostorscore=0 malwarescore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060042
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <asO77kvqqwCsJt8I@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_034646_266775_BF06C68A 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20261006_034713_069632_D75C1D39 
+X-CRM114-Status: GOOD (  43.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,318 +107,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the offload of the tc mqprio hw queue priority in the stmmac
-driver. When the mqprio qdisc is configured in channel mode, the MTL TX
-scheduler is switched to strict priority, and the PSTQX/PSTC priority
-bitmask of each TX queue is programmed from the set of frame priorities
-mapped to the owning traffic class (qopt->prio_tc_map).
+On Mon, Oct 05, 2026 at 04:02:06PM +0100, Vincent Donnefort wrote:
+> On Fri, Sep 04, 2026 at 01:28:55PM +0000, Mostafa Saleh wrote:
+> > If the system supports hardware Break-Before-Make (BBM) level 3, use it
+> > to replace stage-2 PTEs directly. Otherwise, fall back to the software
+> > BBM sequence.
+> > 
+> > For BBML3 the sequence is:
+> > 1) Get a reference count on the containing table for the new PTE.
+> > 2) Atomically update the PTE with the new valid descriptor.
+> > 3) Invalidate the TLB for the old PTE.
+> > 4) Drop the reference count holding the old PTE.
+> > 
+> > Add 2 helpers:
+> > 1) kvm_pgtable_use_bbml3(): Checks for the architecture requirement
+> >    for BBML3.
+> > 
+> > 2) stage2_use_bbml3(): Extra checks added by SW design (FWB and DIC)
+> >    - As BBML3 will update the PTE atomically, it can only know it
+> >      raced with another core at the point of the cmpxchg failing,
+> >      unlike the SW implementation which locks the PTE first.
+> >      And as we must issue CMOs to the new mapped page before the
+> >      update, that means with BBML3 racing cores will issue redundant
+> >      CMOs.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/pgtable.c | 111 ++++++++++++++++++++++++++++-------
+> >  1 file changed, 90 insertions(+), 21 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index d670da8882a5..a9ba761e9a01 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -82,6 +82,27 @@ static bool kvm_pte_table(kvm_pte_t pte, s8 level)
+> >  	return FIELD_GET(KVM_PTE_TYPE, pte) == KVM_PTE_TYPE_TABLE;
+> >  }
+> >  
+> > +/*
+> > + * Check if BBML3 can be used for this PTE update.
+> > + * Fallback to software break-before-make for leaf-to-leaf changes.
+> > + */
+> > +static bool kvm_pgtable_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
+> > +				  kvm_pte_t new)
+> > +{
+> > +	if (!system_supports_bbml3())
+> > +		return false;
+> > +
+> > +	if (!kvm_pte_valid(ctx->old) || !kvm_pte_valid(new))
+> > +		return false;
+> > +
+> > +	/* Block <-> Table is ok. */
+> > +	if (kvm_pte_table(new, ctx->level) ||
+> > +	    kvm_pte_table(ctx->old, ctx->level))
+> > +		return true;
+> > +
+> > +	return false;
+> > +}
+> > +
+> >  static kvm_pte_t *kvm_pte_follow(kvm_pte_t pte, struct kvm_pgtable_mm_ops *mm_ops)
+> >  {
+> >  	return mm_ops->phys_to_virt(kvm_pte_to_phys(pte));
+> > @@ -835,25 +856,46 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> >  		mm_ops->put_page(ctx->ptep);
+> >  }
+> >  
+> > +/*
+> > + * Don't use bbml3 for stage-2 if FWB or DIC are not supported
+> > + * as that means racing cores will issue duplicate CMOs.
+> > + */
+> > +static bool stage2_use_bbml3(const struct kvm_pgtable_visit_ctx *ctx,
+> > +			     kvm_pte_t new)
+> > +{
+> > +	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB) ||
+> > +	    !cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+> > +		return false;
+> > +
+> > +	return kvm_pgtable_use_bbml3(ctx, new);
+> > +}
+> > +
+> >  /**
+> >   * stage2_try_break_pte() - Invalidates a pte according to the
+> >   *			    'break-before-make' requirements of the
+> > - *			    architecture.
+> > + *			    architecture, if BBML3 is supported it
+> > + *			    will be used and this function won't
+> > + *			    break the PTE.
+> >   *
+> >   * @ctx: context of the visited pte.
+> >   * @mmu: stage-2 mmu
+> > + * @new: New pte installed in make.
+> >   *
+> > - * Returns: true if the pte was successfully broken.
+> > + * Returns: true if the pte was successfully broken or BBML3 is used.
+> >   *
+> >   * If the removed pte was valid, performs the necessary serialization and TLB
+> >   * invalidation for the old value. For counted ptes, drops the reference count
+> >   * on the containing table page.
+> >   */
+> >  static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> > -				 struct kvm_s2_mmu *mmu)
+> > +				 struct kvm_s2_mmu *mmu, kvm_pte_t new)
+> >  {
+> >  	kvm_pte_t locked_pte;
+> >  
+> > +	/* All handled in stage2_make_pte() */
+> > +	if (stage2_use_bbml3(ctx, new))
+> > +		return true;
+> > +
+> 
+> Wouldn't it be easier to keep try_break_pte/make_pte to the !bbml3 case and to
+> just create a make_pte_bbml3() variant to be called when stage2_use_bbml3()?
+> 
+>   if (!stage2_use_bbml3()) {
+>       if (stage2_try_break_pte())
+>           return -EAGAIN;
+>       stage2_make_pte();
+>   } else {
+>       if (stage2_make_pte_bbml3())
+>           return -EAGAIN;
+>   }
+> 
+> I believe also, the error path would look less weird as we catch an error in
+> make_pte() but without reverting the break_pte() (even if it is correct right
+> now).
+> 
+> And perhaps you could introduce a function that does both break/make
+> (stage2_update_pte()?) called by both stage2_split_walker() and
+> stage2_map_walk_leaf(). This would avoid repeating the error path.
 
-The channel mode offload requires the DCB hw feature and a 1:1 TC to TX
-queue mapping, with a single queue per TC. Configurations with AVB queues
-are rejected, since forcing strict priority conflicts with the CBS
-algorithm. The CBS offload is refused while the strict-priority scheduler
-is active, and so is a channel count change that would enable an AVB
-queue.
+I though about that and was not sure about it at the beginning as
+mentioned in the cover letter:
+    Initially, I encapsulated the full logic of BBM in one function,
+    which was not readable, due to different ordering and dealing with
+    CMO, TLBI.
 
-In the default DCB mode, only the netdev TC map and the FPE preemption
-class mapping are offloaded, leaving the MTL scheduler and the per-queue
-priorities to the device-tree configuration.
+I think that can be better if we call the new helper for all sites
+except for stage2_map_walker_try_leaf(). Although we would need to
+open code the bbml3 check there now. I can try and see how it looks.
 
-The num_tc bound against ARRAY_SIZE(tc_to_txq) is no longer needed: the
-check that each TC's offset + count stays within plat->tx_queues_to_use
-already bounds num_tc, because the TC ranges do not overlap and each one
-spans at least one queue.
+Thanks,
+Mostafa
 
-Reviewed-by: Davide Caratti <dcaratti@redhat.com>
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c  |   2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  33 ++++--
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 134 ++++++++++++++++++++--
- 4 files changed, 148 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 0052f2129297..40eab899027b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -302,7 +302,10 @@ struct stmmac_priv {
- 
- 	struct {
- 		bool enabled;
-+		u32 prio[MTL_MAX_TX_QUEUES];
-+		bool prio_offload;
- 		u32 num_tx_queues;
-+		u8 algo;
- 	} xmit_qdisc;
- 
- 	struct dma_features dma_cap;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-index c889204a7aa5..b6b5ef7c8fc4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-@@ -230,7 +230,7 @@ int dwmac5_fpe_map_preemption_class(struct net_device *ndev,
- 		if (count == 1)
- 			continue;
- 
--		if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
-+		if (priv->xmit_qdisc.algo == MTL_TX_ALGORITHM_SP) {
- 			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
- 			return -EINVAL;
- 		}
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 9c03d21ebfcc..762ac86a9abb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3535,17 +3535,11 @@ static void stmmac_mac_config_rx_queues_prio(struct stmmac_priv *priv)
-  */
- static void stmmac_mac_config_tx_queues_prio(struct stmmac_priv *priv)
- {
--	u8 tx_queues_count = priv->plat->tx_queues_to_use;
--	u8 queue;
--	u32 prio;
--
--	for (queue = 0; queue < tx_queues_count; queue++) {
--		if (!priv->plat->tx_queues_cfg[queue].use_prio)
--			continue;
-+	int i;
- 
--		prio = priv->plat->tx_queues_cfg[queue].prio;
--		stmmac_tx_queue_prio(priv, priv->hw, prio, queue);
--	}
-+	for (i = 0; i < priv->plat->tx_queues_to_use; i++)
-+		stmmac_tx_queue_prio(priv, priv->hw,
-+				     priv->xmit_qdisc.prio[i], i);
- }
- 
- /**
-@@ -3606,7 +3600,7 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
- 	/* Configure MTL TX algorithms */
- 	if (tx_queues_count > 1)
- 		stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
--				priv->plat->tx_sched_algorithm);
-+					      priv->xmit_qdisc.algo);
- 
- 	/* Configure CBS in AVB TX queues */
- 	if (tx_queues_count > 1)
-@@ -7711,6 +7705,14 @@ int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
- 	    tx_cnt < priv->xmit_qdisc.num_tx_queues)
- 		return -EINVAL;
- 
-+	if (priv->xmit_qdisc.prio_offload) {
-+		for (i = priv->plat->tx_queues_to_use; i < tx_cnt; i++) {
-+			if (priv->plat->tx_queues_cfg[i].mode_to_use ==
-+			    MTL_QUEUE_AVB)
-+				return -EINVAL;
-+		}
-+	}
-+
- 	if (netif_running(dev))
- 		stmmac_release(dev);
- 
-@@ -7956,6 +7958,15 @@ static int __stmmac_dvr_probe(struct device *device,
- 	priv->wol_irq = res->wol_irq;
- 	priv->sfty_irq = res->sfty_irq;
- 
-+	/* Default xmit qdisc configuration */
-+	for (i = 0; i < ARRAY_SIZE(priv->plat->tx_queues_cfg); i++) {
-+		if (!priv->plat->tx_queues_cfg[i].use_prio)
-+			continue;
-+
-+		priv->xmit_qdisc.prio[i] = priv->plat->tx_queues_cfg[i].prio;
-+	}
-+	priv->xmit_qdisc.algo = priv->plat->tx_sched_algorithm;
-+
- 	if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN) {
- 		ret = stmmac_msi_init(priv, res);
- 		if (ret)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index a7721b2eee96..ea1f97d6f0bd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -346,6 +346,9 @@ static int tc_setup_cbs(struct stmmac_priv *priv,
- 	if (!priv->dma_cap.av)
- 		return -EOPNOTSUPP;
- 
-+	if (qopt->enable && priv->xmit_qdisc.prio_offload)
-+		return -EOPNOTSUPP;
-+
- 	port_transmit_rate_kbps = qopt->idleslope - qopt->sendslope;
- 
- 	if (qopt->enable) {
-@@ -1266,6 +1269,28 @@ static int stmmac_reset_tc_mqprio(struct net_device *ndev,
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 
-+	if (priv->xmit_qdisc.prio_offload) {
-+		int i;
-+
-+		for (i = 0; i < ARRAY_SIZE(priv->plat->tx_queues_cfg); i++) {
-+			u32 prio;
-+
-+			if (priv->plat->tx_queues_cfg[i].use_prio)
-+				prio = priv->plat->tx_queues_cfg[i].prio;
-+			else
-+				prio = 0;
-+
-+			priv->xmit_qdisc.prio[i] = prio;
-+			if (i < priv->plat->tx_queues_to_use)
-+				stmmac_tx_queue_prio(priv, priv->hw, prio, i);
-+		}
-+
-+		stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
-+					      priv->plat->tx_sched_algorithm);
-+		priv->xmit_qdisc.algo = priv->plat->tx_sched_algorithm;
-+		priv->xmit_qdisc.prio_offload = false;
-+	}
-+
- 	priv->xmit_qdisc.num_tx_queues = priv->plat->tx_queues_to_use;
- 	priv->xmit_qdisc.enabled = false;
- 
-@@ -1275,6 +1300,83 @@ static int stmmac_reset_tc_mqprio(struct net_device *ndev,
- 	return stmmac_fpe_map_preemption_class(priv, ndev, extack, 0);
- }
- 
-+static void tc_mqprio_config_queue_prio(struct stmmac_priv *priv,
-+					struct tc_mqprio_qopt *qopt)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(priv->plat->tx_queues_cfg); i++) {
-+		u32 prio = 0;
-+		int j;
-+
-+		for (j = 0; j < qopt->num_tc; j++) {
-+			int p;
-+
-+			if (qopt->offset[j] != i)
-+				continue;
-+
-+			/* The PSTQX/PSTC priority map is 8 bits wide, so only
-+			 * priorities 0-7 can be represented in hardware.
-+			 * Priorities 8-15 are handled in software by the
-+			 * kernel through the netdev prio_tc_map.
-+			 */
-+			for (p = 0; p < 8; p++) {
-+				if (qopt->prio_tc_map[p] == j)
-+					prio |= BIT(p);
-+			}
-+			break;
-+		}
-+
-+		priv->xmit_qdisc.prio[i] = prio;
-+		if (i < priv->plat->tx_queues_to_use)
-+			stmmac_tx_queue_prio(priv, priv->hw, prio, i);
-+	}
-+
-+	stmmac_prog_mtl_tx_algorithms(priv, priv->hw, MTL_TX_ALGORITHM_SP);
-+	priv->xmit_qdisc.algo = MTL_TX_ALGORITHM_SP;
-+	priv->xmit_qdisc.prio_offload = true;
-+}
-+
-+static int tc_mqprio_validate_chan_mode(struct stmmac_priv *priv,
-+					struct tc_mqprio_qopt_offload *mqprio)
-+{
-+	struct plat_stmmacenet_data *pdata = priv->plat;
-+	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
-+	int i;
-+
-+	if (!priv->dma_cap.dcben) {
-+		NL_SET_ERR_MSG_MOD(mqprio->extack,
-+				   "hw DCB is required to offload mqprio");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	/* Forcing strict priority conflicts with the CBS algorithm
-+	 * of AVB queues, so reject the offload when any queue is
-+	 * configured as AVB.
-+	 */
-+	for (i = 0; i < pdata->tx_queues_to_use; i++) {
-+		if (pdata->tx_queues_cfg[i].mode_to_use == MTL_QUEUE_AVB) {
-+			NL_SET_ERR_MSG_MOD(mqprio->extack,
-+					   "SP conflicts with AVB queues");
-+			return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	for (i = 0; i < qopt->num_tc; i++) {
-+		/* The offload switches the MTL scheduler to strict
-+		 * priority, which only supports a 1:1 TC to TX queue
-+		 * mapping.
-+		 */
-+		if (qopt->count[i] > 1 || qopt->offset[i] != i) {
-+			NL_SET_ERR_MSG_MOD(mqprio->extack,
-+					   "SP requires 1:1 TXQ map");
-+			return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
- 				    struct tc_mqprio_qopt_offload *mqprio)
- {
-@@ -1285,22 +1387,11 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
- 	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
- 	struct net_device *ndev = priv->dev;
- 	u8 ndev_prio_tc_map[TC_BITMASK + 1];
--	int i, err, ndev_ntc;
-+	int i, err, ndev_ntc, mode;
- 
- 	if (!qopt->num_tc)
- 		return stmmac_reset_tc_mqprio(ndev, extack);
- 
--	if (qopt->num_tc > ARRAY_SIZE(tc_to_txq))
--		return -EINVAL;
--
--	/* save current tc values for reset */
--	ndev_ntc = netdev_get_num_tc(ndev);
--	for (i = 0; i < ARRAY_SIZE(ndev->tc_to_txq); i++)
--		ndev_tc_to_txq[i].combined =
--			READ_ONCE(ndev->tc_to_txq[i].combined);
--	for (i = 0; i < ARRAY_SIZE(ndev_prio_tc_map); i++)
--		ndev_prio_tc_map[i] = READ_ONCE(ndev->prio_tc_map[i]);
--
- 	for (i = 0; i < qopt->num_tc; i++) {
- 		if (qopt->offset[i] + qopt->count[i] >
- 		    priv->plat->tx_queues_to_use) {
-@@ -1317,6 +1408,22 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
- 				    qopt->offset[i] + qopt->count[i]);
- 	}
- 
-+	mode = mqprio->flags & TC_MQPRIO_F_MODE ? mqprio->mode
-+						: TC_MQPRIO_MODE_DCB;
-+	if (mode == TC_MQPRIO_MODE_CHANNEL) {
-+		err = tc_mqprio_validate_chan_mode(priv, mqprio);
-+		if (err)
-+			return err;
-+	}
-+
-+	/* save current tc values for reset */
-+	ndev_ntc = netdev_get_num_tc(ndev);
-+	for (i = 0; i < ARRAY_SIZE(ndev->tc_to_txq); i++)
-+		ndev_tc_to_txq[i].combined =
-+			READ_ONCE(ndev->tc_to_txq[i].combined);
-+	for (i = 0; i < ARRAY_SIZE(ndev_prio_tc_map); i++)
-+		ndev_prio_tc_map[i] = READ_ONCE(ndev->prio_tc_map[i]);
-+
- 	err = stmmac_set_ndev_tcs(ndev, qopt->num_tc, tc_to_txq);
- 	if (err)
- 		goto error_reset_tc;
-@@ -1331,6 +1438,9 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
- 	if (err)
- 		goto error_reset_num_tx_queues;
- 
-+	if (mode == TC_MQPRIO_MODE_CHANNEL)
-+		tc_mqprio_config_queue_prio(priv, qopt);
-+
- 	priv->xmit_qdisc.num_tx_queues = num_tx_queues;
- 	priv->xmit_qdisc.enabled = true;
- 
-
--- 
-2.55.0
-
+> 
+> Otherwise, everything looks functional to me.
+> 
+> -- 
+> Vincent
+> 
 
