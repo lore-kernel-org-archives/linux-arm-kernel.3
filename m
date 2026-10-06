@@ -4,102 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564FCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB112CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=; b=pghJn8jbEyVoyMZI80hrX3TJei
-	nbzbWmt6jyeyu+4O62KVXnKOpEYThodjB+pTYJGsHQxEANaZ1+D/3QxpWK31r+JiCKb2IE/ie+EC6
-	YnFBU1buV9NyAkUZiPWtyrm7GYFKPX33qu+Z43hoF7cc62BMuYAEJA+iJqREq2blotykstAzCMnK0
-	6VX21hd4NbTdhpqGjNv2PE33oUYlGqBkNneB+WlNYVEkUB3rDy/UXXHRDJqN3X/X2LM+p6w2omD+b
-	tUzT2+f96xyOF1L6WZUN1Gax8XAkXLTqJQI2qHldvF+RcaTL+CF+Dky4lPWI6s62YVHAUKiZeEJM7
-	wAk9yhtQ==;
+	bh=u8WNbSQ2NndjPV7iXRF4G6Fv0k/2ZGfjflcFjlvJ7aM=; b=pDt5mSRyTHXnvuZcM7w5Sq34pC
+	a5pUTiAMLsNquu8PdS46Srq1UwTAayf7fwhjHAb70Iokm2tYG6N6zsWYsu0c2iLSo7HiNSvib9b/4
+	DLZ1ryQhnJHjPnySI/oX3UdiSKerNUTSn+Zcjg2R53pUSJ3pr0KHU/sIqL1EV3v03nyJ777R1zL3v
+	1NujkHrDSEG9+7PR7F2+Q2J//vHFDeVYIS2eOVfrAbPv4M/qBgmjiBaV97iYaIiMcCO81mzUnCxPV
+	1n3J4bdqk9Rl9SWVqMvxHuQGUd4I4phCxxDnnydAJIIVeW0TJW9c6CuCfcfgJhF67U6JKsjQVOT2i
+	3OzBbzFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7ry-000000017gJ-2Ghx;
-	Tue, 06 Oct 2026 16:18:22 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xE7sE-000000017ia-2l1n;
+	Tue, 06 Oct 2026 16:18:38 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7rv-000000017fz-2cbS
+	id 1xE7s8-000000017hW-0Hts
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:18:21 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so35262425e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 09:18:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1791303497; x=1791908297; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=;
-        b=RF2Rg8OdDuQSVDe/AtIGknHmmUmPPCpE0VHEDXGWoqa3ykMCP+/VaCB39nLSrRZvrs
-         g7yVDo/mZo3PWbJOdyULPeq4ApqfgCeCKUuuTKuoqXcMuyqmIfqtPKbhsd+wsXPd7+6N
-         Q0+OI7iuSFn1Lz1kFDr9cZkX0KdVjU9Y5UX9U5gUyMiiMeGhXsC6LTenqold3DEeIU6v
-         C1htQUBUrNUdeGuOZcOP0Lh8s2W75xRm7KoEvzFvZWSdWzFd8rsKUUxNBkPsAesb2pQR
-         8Yzo+ldkPWVKMwdeDnaCACM9mm9M0by+Y+7Te5AQ/d7IEYfscJArt6O+0YtVzU57XBRc
-         XT0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791303497; x=1791908297;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j4I8sJSiMLDYcZ6HuW+SMx62hAOh6BihMSim0ZcE8Eg=;
-        b=j6RoauORu1l6RiIjoN0xm5S3L1YoFjDWAeND5Fxi/zUGaWnDnjVUW0Vt2Sm0Z8HHTx
-         yvD8qIBUwOwQpsM9ZwPtAYwrR7U86l+kEizJsNK+6PoHR6nqcn3FcRvjDtZN/IYKwmK9
-         lHSuaeaSlamTYhSXptFWsStnqwrJYceJbk4Q9qLDJvWsR6c8CeS6L6iz+4rwf97s0Q6B
-         PPRHDwWui9PLdNuX50dvVCe5H1adygpeRWiUOUJ0NogYCWXWYXHIaTPxCHOrFqGy0pO6
-         GgI+8Kop/pJFB9wBp7r0l7MjsQOXti7wwWE4c6JFb+4NTCXDMFCnVCeDSH9VAklrjZqS
-         M21g==
-X-Forwarded-Encrypted: i=1; AKwUvBzJXAe8Jo7hEnT40hcsXxAP/uNoVH1XiNXfUfTPuacPiZMFeX0UaHTR6OXCxE6M/Lucf1hITmQh++TZGgn++jDF@lists.infradead.org
-X-Gm-Message-State: AFuF++mRPbDsysdS37N/hgC6pbpIwE1ofMc9g67OSfcMV5CIZzc2B374
-	Gd6jgnrV2H0+fDYgUpHlyAtlUpSprFRHR5yo6HelrjAOMKZUEIXGfopjy1chsu1ZfsU=
-X-Gm-Gg: AYBFou2RNTVFbFev08VXs07avewJY3YB56+V8n1zljGtQBlnL5+pJgD+l4GecCvUMjC
-	DpbE34wWmtgaL7i+MvbYKWMqgJ5/SyCWbN7Mlha9tkEBoN+2+6wIbUDCmfBb5fofgFmGeYSBGu7
-	KMnj26/2WtHoUpcaEVJV0+wtJQlxGmAkp/NQ8DpET9xlpi+xxaSulctw8RsaWw2hZ8SnpOfDGQe
-	LcT+3/YRocKGQml+VwAc0Hv1jELeU7mGgar50Pa+XY3XEmxo0boTP7pble57h2UWPu9vUTCS8Q9
-	dhssQFJ6RxeMAy5Rtp1NncWLu5NJo8I0TdhH8vZyGGPdT6nkJOpgtfN+7DHi6EWh1bm7zwcGWNv
-	IIXwmLlSx2A2ujv6Jjnn+SgueKpDmVkXJ18YsbiSQKCBUmaHyoD6OF2vn3cMT/GsoR2+YNUsiu4
-	CYP2Egyxx6NywBkQTfhw7LRZlyPn0gklWXci7XD30kkFSoYb+nEV9ack2LCjN1/7zSTQhJxy6Hz
-	apMz4H+JKUH+f8jeFzOT1JkNnmve+Hc46VVG7RenlUTwx5zu1aWdbrWPYbMET+Jht1Vsvt7uQnQ
-	+Y627Rfs4pZPo3pgngfvgWlXXxcNruRO+5k78uv3bVGkMYQsl+L0CLTxXmNdokDtpdhQyg==
-X-Received: by 2002:a05:600c:4e87:b0:4a0:2375:dc1a with SMTP id 5b1f17b1804b1-4a1680ece49mr174863895e9.21.1791303497306;
-        Tue, 06 Oct 2026 09:18:17 -0700 (PDT)
-Received: from aspen.lan (aztw-33-b2-v4wan-169864-cust3247.vm26.cable.virginm.net. [92.239.204.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1794a1af9sm76346415e9.5.2026.10.06.09.18.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 09:18:16 -0700 (PDT)
-Date: Tue, 6 Oct 2026 17:18:14 +0100
-From: Daniel Thompson <daniel@riscstar.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: netdev-bot+sinfo@kernel.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Davide Caratti <dcaratti@redhat.com>
-Subject: Re: [PATCH net-next v5 0/3] net: stmmac: Introduce hw queue priority
- offload
-Message-ID: <asUfRhPF-J74TCgG@aspen.lan>
-References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
- <179128376932.2231598.7510820392039419594@kernel.org>
- <asTnyCWBTMC-B191@lore-desk>
+	Tue, 06 Oct 2026 16:18:37 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 696EZdFQ3852055;
+	Tue, 6 Oct 2026 16:18:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:sender:subject:to; s=pp1; bh=u8WNbSQ2NndjPV7iXRF4G6F
+	v0k/2ZGfjflcFjlvJ7aM=; b=itoo5HJ9p8Ott3EQNGX9ERsAWGMp3M35FoMCRzI
+	1/Tb6Ax8RzF9LxUhJtON1EDYlBj6kN5Kx/3ZJAar3StzBNafbraD8P9Bw9SB8c4N
+	rVrd46s9I+0AwEVcVwFAdbF+XoXhdk1vyFXpRHx5a7QLP2e8XWzemy7tdfBvAjVX
+	32SL/4bKI6MGZNjf1ZnxSXI+GEXnPAMd4UdBX1hpeEWPYRlut5QNW4+BZAsdFutU
+	n5/orjHiA6jx4d7GWzjTojXBBf3fBvXha6YnVZTgzUG3Hc3OElmVi6+blJolkFJN
+	NZfRjJrhjN+hdXRIj97au0KL5+CQABsKL2y7wQ60VsN6qGg==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4h2q4jrey6-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 06 Oct 2026 16:18:14 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 696EHVVZ453041;
+	Tue, 6 Oct 2026 16:18:13 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h3dhgtkb7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 06 Oct 2026 16:18:13 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 696GI75K28967516
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 6 Oct 2026 16:18:09 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 42FF72004B;
+	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 232F120040;
+	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
+Received: from vela (unknown [9.111.1.151])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue,  6 Oct 2026 16:18:07 +0000 (GMT)
+Received: from brueckner by vela with local (Exim 4.99.5)
+	(envelope-from <brueckner@linux.ibm.com>)
+	id 1xE7ri-00000000wFB-25qK;
+	Tue, 06 Oct 2026 18:18:06 +0200
+Date: Tue, 6 Oct 2026 18:18:06 +0200
+From: Hendrik Brueckner <brueckner@linux.ibm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v9 03/24] KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
+Message-ID: <asUfPttGx9Mh9Q6D@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+ <20260930173441.66762-4-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <asTnyCWBTMC-B191@lore-desk>
+In-Reply-To: <20260930173441.66762-4-seiden@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: ZQaIic_21IstwC9g1Aae6xM8uNoUTjIk
+X-Proofpoint-GUID: -diri8LhwNDbu0AyvUTAhE-ZvbnfI-Pu
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDA2NCBTYWx0ZWRfX48QBrn+w0nnv
+ ewO99Xt9kMPRL6JGRFNvKgKuM8XnKsdfcpp863vOIJe9EpvR7itwurzjVLBgO2jD/zfz3MkVGYP
+ RmKn+ZsooGv8oIrvD52NPtt4VYRMdH0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDA2NCBTYWx0ZWRfX2/1OhitB30O8
+ iXws3zZPHfh9D9yMRMC4haXynDtKHZp0nSHk8zuT6WQCpJKVY3GHmrkGzpB8YSrFxyTZ97ujvEZ
+ TERBYrKUHWb1isxboA09YDBuhHzjGQkvB4tooWXRxULAHH252JEwQS3x1OPtrfT45PUUFzxh6le
+ FZoSg0FYos2pzINhuWhbHBmMbBx35oG6U728PXQRNIvXw0m3b2qK+uxahVby7OlIokVvgyy7pTW
+ npWMiyZVbHWFa33d8CBQwJTCBqOEgPt2UdRAMoTiY3wesEJ8y1k/knsBDLNCcRvLegCeh9SiihW
+ kYo6eYV28cIykgYpCU0grkPsxlJ7tbsYjVKRwKrWpKjFBU5e3PDa7gU19raGnYjh+Ar39pL2Hyd
+ EM6jE7JTNrxbzSSjHdRiuzlWxwv1B0T56WTZ6x0cSb4vkvCdjdpb0A66DFgftEpGGzR9dPlIG0n
+ CXxl03Bpzmlnv69Kvlw==
+X-Authority-Analysis: v=2.4 cv=eYeo7LEH c=1 sm=1 tr=0 ts=6ac51f46 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=o_ygevbwOlYE398wOkEA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-06_04,2026-10-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0 clxscore=1015
+ spamscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_091819_943269_B08E14C5 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20261006_091834_938232_611AC3E1 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +147,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 02:21:28PM +0200, Lorenzo Bianconi wrote:
-> > Hi!
-> >
-> > This is an automated message. This series looks like a fix, but its
-> > commit messages seem to be missing some information:
-> >
-> >  - Whether the issue was actually triggered, or is only theoretical
-> >    (e.g. found by code inspection). If it was triggered please include
-> >    the symptoms, like the stack trace or error messages.
->
-> This is a theoretical issue found during code inspection.
+On Wed, Sep 30, 2026 at 07:34:18PM +0200, Steffen Eiden wrote:
+> Defining KVM_MMIO is not flexible enough for multi-KVM systems where one
+> KVM implements MMIO but others do not. Therefore, remove KVM_MMIO from
+> the config space and use the macro KVM_NO_MMIO instead.
+> Define KVM_NO_MMIO for KVM/s390 and for selected KVM/powerpc
+> configurations.
+> 
+> coalesced_mmio.c is now always compiled&linked. However, for
+> architectures/configurations defining KVM_NO_MMIO this effectively
+> collapses to an empty object with no mmio code.
+> 
+> No functional changes.
 
-I haven't triggered anything specific for the real_num_tx_queues changes
-but the overall with/without mqprio offload changes can (and have) been
-reproduced with netperf:
+Changes look good to me.
 
-  netperf -H 192.168.10.2 -s 1 -l 12 -y 7 -t UDP_STREAM -- -m 1472 & \
-  netperf -H 192.168.10.2 -s 2 -l 10 -y 5 -t UDP_STREAM -- -m 1472 & \
-  wait
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
-With the patchset applied (and the traffic class 7 mapped to a higher
-priority queue and TC 5) then the split of bandwidth massively favours
-TC 7 (with a 2.5G link. TC 7 measure ~2G versus TC 5 at ~2M).
+Thanks!
 
-Without the patchset both streams get ~1G.
-
-I guess FWIW the whole series is:
-Tested-by: Daniel Thompson <daniel@riscstar.com>
-
-
-Daniel.
+Acked-by: Hendrik Brueckner <brueckner@linux.ibm.com>
 
