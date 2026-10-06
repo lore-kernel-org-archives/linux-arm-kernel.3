@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43D7CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09BECA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1T4SsA9cY1Wq3Hbv74FXfyPET5SOEe7zIh1TvR0e2E=; b=Z5c23bbDJtG9THn7u48bzE9Izs
-	whGSQrnPEHq1UT/SYAbbk9JoP7+nan6K/1FCFevNdkFurIatfSx2LcjoN5if+HYjkxpIEBiGSRZLO
-	5E464SQdLNDif7BL5bpqMKRQ4zSI+Ugd/TulN0LJlyGi7OE5+2DmvFp++Z4EsuPHZtZ79bEOS0ffC
-	M4pziAEcEPWhCs/2O1pc4OE+elMCtT0CGeIcIgOYX7kx/ATc8phzPSSidvujYmlCJ1Ks7MzEhlK8w
-	0YuFhXV8m0NnPVRSy92W3eba43NaQc9EkJUv74poLcLIr2hWaNNN6GLjFKiEyN6tAYHwoe+qWpVhi
-	tsghqUWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=; b=i9g6GDX88e5g0TW64TUAKn3Iqs
+	6pJchnMplCh3Jx/HJRGmtp9tCg6zB43g93OyiK1plROkOyNTAP+xia09AJUHGEDR4Q30yFJ3SWZ/t
+	zdu2eg4Hx/D0yEXzQCN7xHQeyrcKQP/MNJtrG7kEwRVzbdWlBZZ92GXyiMr/F6VZiNNThs1bJxxcR
+	BVbNbrGqShV6wQL1ABT0qinZkU8JMleqAkVOVV9vJlikYsjCf0yCCn8YVpY05sa6kJdHd2CFFF1y+
+	CC6zsA6H/XMC5rLJ9zNgoCEytPtoSi7GTFA9xlveePK/hdBjlIwcDepnry+HuYAJKIN3tSHECZpgJ
+	oDIAWI0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0J2-00000000GtH-1xQ7;
-	Tue, 06 Oct 2026 08:13:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xE0TM-00000000HEz-2k3a;
+	Tue, 06 Oct 2026 08:24:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0J1-00000000GtB-02bE
+	id 1xE0TI-00000000HEd-4AbF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 08:13:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A838434DC;
-	Tue,  6 Oct 2026 08:13:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716231F000FF;
-	Tue,  6 Oct 2026 08:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791274426;
-	bh=Q1T4SsA9cY1Wq3Hbv74FXfyPET5SOEe7zIh1TvR0e2E=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=bZUV1UVMswQRIb7ckKMEglOX2Lfp3F0LP7orGSpFUe3+NUt8gZEkqXP9ESeeitW3k
-	 SZLIlA5anCqpmcCWlUWTP4Hlfc0LS+hdrBBAMOKkG0758wG/8Yq2uEwTbeRc4vODWH
-	 CxYyJ0V6tl+kO5eJJmTZf/J1vQJE6Z7xJMRQMJl+0GBmYxutqmH6yBWr8khQSfuXUb
-	 wURhE7A6dvmCpc5lcXysrpXM+Xp6z9OXOAUt9gL+qTEcGx68nwpXmL1kSleVosH9wK
-	 mwWAUoGSZZOWVtAp4EYk+7MzhNGIZGJgRo2jXN/Jp+Da2uvSjNSg8mOOacbw3NH+kH
-	 oBpRP582VVrnw==
-From: Mark Brown <broonie@kernel.org>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Radu Pirea <radu_nicolae.pirea@upb.ro>, 
- Ryan Wanner <ryan.wanner@microchip.com>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frank.Li@oss.nxp.com
-Cc: vkoul@kernel.org, imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20261002192616.161440-1-Frank.Li@oss.nxp.com>
-References: <20261002192616.161440-1-Frank.Li@oss.nxp.com>
-Subject: Re: [PATCH 1/1] spi: use dmaengine_submit() instead of
- ->tx_submit()
-Message-Id: <179120912507.150114.2210463827298762700.b4-ty@b4>
-Date: Mon, 05 Oct 2026 16:05:25 +0200
+	Tue, 06 Oct 2026 08:24:26 +0000
+From: Kurt Kanzenbach <kurt@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1791275058;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=;
+	b=Ef4jOMuhmhoSFMKFG0YA+V7FibBdFdmjvO8xmHqtHDyuPnhG4nQ073ISZIF6WprthnNgEr
+	TaiKfTB18JScFG5iU9YW7N01zXVx0TLoLiOdJXZEp1ARTsCEmNOR6kHjMMAcgbxWb+1Q2t
+	lrecWJjebICUu/2e0favuozPuny81n/ScFIxOEkasul+3tZUpiljj9VLGpYoEHZfq8ZnXK
+	4AbsTWO0/uzf+LLKspG+zxRuKl106KR0woRnpuqr7a5527y8T9APXE1Dq3ZWZ64f+SfwTJ
+	Q/ZKOjFCpJZUqGCaedEJd0aTDoxy4jAXYdDoPbded4U1OupSplByd3G7gIq4MQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1791275058;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=;
+	b=b3DPDroz9fgG0Wn+7bA4SyufMD4jrNVOnLCp0/8vX8KYsMRpd1f8g6oSJFQ8XZ+bJ9fY2l
+	T5hw9Yl6bLxfHIDQ==
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
+ <edumazet@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
+ <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>,
+ Noor Azura Ahmad Tarmizi <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal
+ Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
+ <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Disable NAPI before stopping Tx
+ queues in stmmac_xdp_release()
+In-Reply-To: <6bb85939-ff35-46e1-88cc-1bed0034e787@bootlin.com>
+References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
+ <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
+ <6bb85939-ff35-46e1-88cc-1bed0034e787@bootlin.com>
+Date: Tue, 06 Oct 2026 10:24:17 +0200
+Message-ID: <87tsmzjky6.fsf@jax.kurt.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1126; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Q9vvcmVBRhpRz4C85yLdcNbZrICgW6aw5aF8WscT2f0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqxK2z4yfag+huYeSHQiiV2RWVwh9cfdo/5MeNE
- sKQW0snmweJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasStswAKCRAk1otyXVSH
- 0BXmB/9BzBhmi/lfw68HGvnsbRuqqfe/EtZ6MgdZ3G+uMmanQnuOStMW2NppVyb0y6B3026WRDj
- 27T4owhfLSBjHLugF9LdQ13iP2EMWQx/1KLGA6p2pZtoTHkp0nNh3USTZf+ALMhHBl5whv4v2i7
- gRZD51qQ8q6I4ulLfKhykyWQqe3TEK/AVILdVz/OmsFdbHlGUldyysSSxCC9Mu9UWkh3WjdYA0Q
- yPUrLDkDTqACI7vslyhz/PCyL5CnsIu2At86RSgIl1My6ZFDZEnqYs4GnQHa01AWHhIJuH93col
- deBPBWcrSOTTfBrzt8Q1PpxChKDCVjVIcQyx96lkSbNdv+mU
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_012425_204089_72A4E30A 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Oct 2026 15:26:14 -0400, Frank.Li@oss.nxp.com wrote:
-> spi: use dmaengine_submit() instead of ->tx_submit()
+--=-=-=
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
 
-Applied to
+Hi Maxime,
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
+On Mon Oct 05 2026, Maxime Chevallier wrote:
+> On 10/5/26 09:09, Kurt Kanzenbach wrote:
+>> Attaching an XDP program while Tx traffic is running results in kernel
+>> crashes in stmmac_xmit() -> dwmac4_set_addr().
+>>=20
+>> Loading an XDP program tears down and reallocates all DMA resources via
+>> stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
+>> the Tx queues before disabling NAPI:
+>>=20
+>>  stmmac_xdp_release:
+>>    netif_tx_disable
+>>    stmmac_disable_all_queues
+>>    ...
+>>    free_dma_desc_resources
+>>=20
+>> A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
+>> takes the Tx queue lock, reaps completed descriptors and wakes the queue
+>> again when it observes it stopped with enough descriptors available.
+>> Nothing stops the queue afterwards, so the Tx path resumes while
+>> free_dma_desc_resources() releases the descriptor rings underneath it.
+>>=20
+>> On non-coherent platforms dma_free_coherent() tears down the vmalloc
+>> mapping of the descriptors, so the subsequent stmmac_xmit() faults on an
+>> unmapped address instead of corrupting memory silently.
+>>=20
+>> Disable NAPI first and stop the Tx queues afterwards, which is the order
+>> already used by __stmmac_release().
+>>=20
+>> The issue can be easily reproduced by:
+>>=20
+>>  1. Run iperf
+>>  2. Run application which opens an AF_XDP/ZC socket
+>>=20
+>> Assisted-by: Claude:claude-opus-5
+>> Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in =
+stmmac_xdp_release()")
+>> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+>
+> This now matches the non-xdp case, great :)
 
-Thanks!
-
-[1/1] spi: use dmaengine_submit() instead of ->tx_submit()
-      https://git.kernel.org/broonie/spi/c/ec79a280e8dd
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Thanks for the review! Yes, it does match now. We could also collapse
+the common teardown code between __stmmac_release() and
+stmmac_xdp_release() into a helper function now and reduce code
+duplication.
 
 Thanks,
-Mark
+Kurt
 
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrEsDETHGt1cnRAbGlu
+dXRyb25peC5kZQAKCRDBk9HyqkZzgrM5EACSIYb78xr0ciukoJSgoO8fP1If2Enw
+ngrIFKLHJPoEehs4zxQzcdBscw9KwtDbn1J4E2fgh2oBRA0H2Nv3Q4LFMhBcU/5M
+mVgXmqnj1gLoag8cs685ZTB4J2w6pfLvth5iKx5dDXg3XL9B32sQBlDhuarXElBE
+GCxxAowpQ+f31D1lFINRgIXkxvPujvjFDHDDbYvKCC2w9Zz8UAV5nYElkdQkT9Ii
+NP9clvFTr1ydjR6qPF8PAd2zsvPp9yq97GtQ0eM04JZINSVD/vF1kslb1XziRMZ/
+5TPWFQi44ttkdFnJiiTltYkO6+KXEwHKU1+sbRdikXHHnN662pSvwyKBGuuF2pOt
+gCktw9KNbGmEpa5qzpa5LICsWBPfBOar5D2zXdt5PKszUKsYs10f8S5E6SZhsDQ7
+cQj++6A+gYhf9QT8jWWvlhQmTmOqXEvfT0c1uzM390avpjuS2wdKjj5gDjcZE2ow
+UWzxLEgBm+VGbnNgxtGoL8Jj4h489CTIIdjEhHJmQVjMvWw5q0wSNnnHRsEjCPGd
+cY4XTkVZqSD0dO7LV2ZUj79pBpMGI7a70ASHhpIekxwdMhfinAkZCnBUIt+/sMDH
+ILxZapVvLT5dES437m0FEFQBMgYrptMo+fDbpHa7uYpywYrS2BoLif2sF6sGmJSr
+YPglKi12wAOWgA==
+=O+RA
+-----END PGP SIGNATURE-----
+--=-=-=--
 
