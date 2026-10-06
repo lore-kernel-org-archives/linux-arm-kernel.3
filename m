@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AE0CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45110CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nD/hhm4Kr7J6lnH0iupa5s3YSuaKPx0D4067rx38rvI=; b=G1Zr50bl+BzgL808bnYup/Sokg
-	kEUQCm18ymdONtsmNGfvm/XXEaVBjM02riiGZ2N3uTJbs4GQRnrLM0zMsFlRYoZrVLSEu3RY16B5J
-	2tft0L4e3yK49UlHukejAf55opssJjsJyTGJJIf27MjsYcmbw+VsBmf+9VCpRhn+yU0bCGGxFF1FR
-	wD8iedbh61PHDlWkTa8vJ4TVGFfj4k+FH2EJkUvgbEDm2cVP+5LJc9BmnxnYx2nlkixYZzg0jOC9r
-	Yqy3EhWN+3TdgmLqJb7kG/WVHyuK0IFM0lgFPd2gdKoazTZ1C/a8q1YTMi5zO0rdp5AC8968mKVnO
-	lX42Gbyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mOZRXhuGWFzdnu+1SuxucxiaEzKl3OFo/nqf8Re0hDk=; b=r+sCYX2UlqajtdThN2mFjqF2jz
+	BsxF7bTxeziGRb/Hh1+ZY2yEFaP/h8lJliSaxY5syw57dLOSy+uh9nypnh9IC8/b1CdGv5Tsb9Zlo
+	XmfIfHcwDwuPEF/5UD0jlbN6EHiCYBAWJ6DVMAO84910QrtIbVKqYQA/LoylWEZB392fibdiUPERO
+	xpKL0dJ7REDohm6gLtScFJ6YQ512hfXbcVc5tD0XdP2BJmrDJGNUGyXvNGs9khM6PraO+UpHR1yH0
+	3pmhbsz0d89dF4LWqI8lAnyS8ZMEo/s5+smHJigQFwSvgDNszZTZbJ58+f1VRDB8OtaOBh/DTjiak
+	vjMqHgTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE778-000000012Ae-2fFp;
-	Tue, 06 Oct 2026 15:29:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE774-00000001293-2CuZ;
-	Tue, 06 Oct 2026 15:29:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70E671516;
-	Tue,  6 Oct 2026 08:29:47 -0700 (PDT)
-Received: from [10.57.51.123] (unknown [10.57.51.123])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC8F83F763;
-	Tue,  6 Oct 2026 08:29:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791300590; bh=Cq2ChUUi29FcSyV6R+MfcgNILg3gjc5iJHVVFE7Se6U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DXvYGE59Y6XCAHzrMr1lQkjNsC5xsRPLKCNqQuNz2//ABvPTzb/oAQVd4A82xAo+M
-	 WvfFzaXyCWXrmm3TDyOLqB3UmVAy14BpSKvh8cwuawHbVa1Md2YJPVL3nn2tWsdIdK
-	 YllCn4HXQ/wnXmLSXAlC524ZZuX9xQSwZ3Ta+GlI=
-Message-ID: <d7cb2a75-7d9c-4e91-8fcf-4c466734497d@arm.com>
-Date: Tue, 6 Oct 2026 17:29:45 +0200
+	id 1xE7EX-000000012x9-0emi;
+	Tue, 06 Oct 2026 15:37:37 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE7EU-000000012we-35jt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 15:37:36 +0000
+Received: from killaraus.ideasonboard.com (90-182-211-1.rcp.o2.cz [90.182.211.1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C1B51493;
+	Tue,  6 Oct 2026 17:35:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1791300933;
+	bh=B2Gh86zo7jHv0y6qiZlKzZJTMfJ+fRsbatAe7FqDDc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M8QovLgUHD09qoWJFLz/RBXeW4qTdGrd6tK4tK3PfJt71yaBBXJMQFafziP5EYfiX
+	 4y6rkYQaBP0rBjZaItWDd82BEj6paPeOLsSV43jJ1XJkak6XZDIcmyVSXwuMzis01U
+	 NsVCaDFhsbaVzj/NQ3QowR2HgiYPFabtk2s56i+o=
+Date: Tue, 6 Oct 2026 17:37:28 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mirela Rabulea <mirela.rabulea@nxp.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+	vigneshr@ti.com, kristo@kernel.org, mripard@kernel.org,
+	jai.luthra@linux.dev, jai.luthra@ideasonboard.com, devarsht@ti.com,
+	y-abhilashchandra@ti.com
+Subject: Re: Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison OV2312
+ driver
+Message-ID: <20261006153728.GA622105@killaraus.ideasonboard.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
+ <20260925133001.2780868-7-r-donadkar@ti.com>
+ <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
+ <asSk9KW-lzuiUJa3@kekkonen.localdomain>
+ <577b34a1-4c2f-487d-a4fa-e7ede2b60091@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] clk: sunxi-ng: a733: Add bus clock gates
-To: Junhui Liu <junhui.liu@pigmoral.tech>, wens@kernel.org
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>,
- Enzo Adriano <enzo.adriano.code@gmail.com>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
- <20260930-a733-clk-v5-7-11175b41cd2d@pigmoral.tech>
- <CAGb2v65Lqo7NiFhc2GYdfY7+jkC4Y+p6=Zy85HOFmXJzT0u1fg@mail.gmail.com>
- <DLWMN3TYBP9F.3N62QFP7QEE9U@pigmoral.tech>
- <4ac4c90f-887e-4545-9c26-9706bdaa1a79@arm.com>
- <DLXU88MGGIWX.2IUEKEMBTV4QC@pigmoral.tech>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <DLXU88MGGIWX.2IUEKEMBTV4QC@pigmoral.tech>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <577b34a1-4c2f-487d-a4fa-e7ede2b60091@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_082954_653718_6C407FEF 
-X-CRM114-Status: GOOD (  37.76  )
+X-CRM114-CacheID: sfid-20261006_083734_946032_71B86F2F 
+X-CRM114-Status: GOOD (  38.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,274 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Mirela,
 
-On 10/6/26 16:50, Junhui Liu wrote:
-> Hi Andre, Chen-Yu,
+On Tue, Oct 06, 2026 at 04:55:25PM +0300, Mirela Rabulea wrote:
+> On 10/6/26 10:36, Sakari Ailus wrote:
+> > On Fri, Oct 02, 2026 at 07:16:11PM +0300, Mirela Rabulea wrote:
+> >> Laurent, Hans, Sakari,
+> >>
+> >> did you encounter similar situations? Any comments or proposals? The concern
+> >> here, to summarize, is: v4l2 control cannot be committed to sensor registers
+> >> right away (even when streaming) and we are also unsure when the right
+> >> moment to perform the register access may come.
+> > 
+> > In practice there's little the kernel overall can do about this: the timing
+> > of everything is handled by the userspace. Drivers that aren't directly in
+> > control of the data path don't even have frame timing information and even
+> > if we did pass that to drivers, I²C writes always have some uncertainty
+> > (system scheduling, I²C access failures etc.), so one needs to be prepared
+> > to failing to do the writes in time, which would further complicate the
+> > UAPI.
+
+I think an API to group multiple writes in a buffer and trigger the I2C
+operation would be useful. It could be software-based, but it can also
+be useful on platforms where the I2C controller supports hardware
+triggers. I have been told a while ago that some I2C controllers can do
+that (I think on Nvidia chips, but don't quote me on that).
+
+> On the kerne side, what would help would be a way to make an atomic 
+> operation out of an i2c read (the status register to determine the 
+> active context) plus a group hold update (a few i2c register writes). I 
+> don't know if that is possible.
+
+What do you mean by atomic operation here ? From an I2C point of view we
+can probably guarantee that nothing will perform I2C access on the same
+bus between the read and write, but only if we submit both operations
+together. Changing the values to be written based on the read value
+isn't possible.
+
+But I don't really see how that would help. The issue is about
+performing I2C accesses at the right time, not about something else
+preempting the I2C bus between the read and write, right ?
+
+> On the v4l2 API side, I believe the current expectation is that upon 
+> s_ctrl, if the value was accepted by the kernel, it will return success, 
+> but user-space should not assume frames will immediately reflect the new 
+> values.
 > 
-> I ran some tests and now have a better understanding of the clock
-> hierarchy. Please see the results below.
+> Traditionally, with drivers I have seen so far, if s_ctrl is applied 
+> while streaming, it is applied immediately (but fail in case of i2c 
+> access failure). Upon success, captured frames will reflect the values 
+> after N+1 or N+2.
+
+The point at which the control will take effect is device-dependent.
+Different sensors have different delays for exposure time and analog
+gain. Increasing the delay when interleaving two groups doesn't seem to
+be a fundamental problem. What is crucial, though, is for userspace to
+know when the controls have taken effect.
+
+> > Do you have libcamera in userspace or something else?
 > 
-> On Mon Oct 5, 2026 at 5:17 PM CST, Andre Przywara wrote:
->> Hi,
->>
->> On 10/5/26 06:41, Junhui Liu wrote:
->>> Hi Chen-Yu,
->>>
->>> On Sun Oct 4, 2026 at 7:03 PM CST, Chen-Yu Tsai wrote:
->>>> On Tue, Sep 29, 2026 at 7:28 PM Junhui Liu <junhui.liu@pigmoral.tech> wrote:
->>>>>
->>>>> Add the bus clock gates that control access to the devices' register
->>>>> interface on the Allwinner A733 SoC. These clocks are typically
->>>>> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
->>>>> various multimedia engines. It also includes bus gates for system
->>>>> components like the IOMMU and MSI-lite interfaces.
->>>>>
->>>>> Also mark the ahb-store, mbus-store and ahb-cpus clocks as critical.
->>>>> Disabling either store gate breaks access to boot/storage devices such
->>>>> as MMC and SPI NOR, while gating ahb-cpus hangs any access to the CPUS
->>>>> power domain registers when unused clocks are disabled.
->>>>>
->>>>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
->>>>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
->>>>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->>>>> ---
->>>>>    drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 492 ++++++++++++++++++++++++++++++++-
->>>>>    1 file changed, 491 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>>>> index 1b2d4d36ec4c..b077e5d2f32c 100644
->>>>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>>>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
->>>>> @@ -4,6 +4,10 @@
->>>>>     * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
->>>>>     * Based on the A523 CCU driver:
->>>>>     *   Copyright (C) 2023-2024 Arm Ltd.
->>>>> + *
->>>>> + * TODO: The real parents of some bus gates, including its-pcie0-aclk,
->>>>> + * msi-lite, npu, ufs, sgpio, lpc and i2spcm, are not documented in the
->>>>> + * manual. For now, follow the vendor BSP, which keeps them on hosc.
->>>>>     */
->>>>
->>>> [...]
->>>>
->>>>> @@ -510,9 +522,118 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588
->>>>>                                              BIT(31),     /* gate */
->>>>>                                              CLK_IS_CRITICAL,
->>>>>                                              CCU_FEATURE_UPDATE_BIT);
->>>>> +static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
->>>>> +
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_hws, 0x58c, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hws, 0x58c, BIT(1), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws, 0x58c, BIT(2), 0);
->>>>> +
->>>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x594, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x59c, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x5a4, BIT(0), 0);
->>>>> +
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_hws, 0x5b4, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb-iommu1-sys", apb0_hws, 0x5b4, BIT(1), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb-iommu1-sys", ahb_hws, 0x5b4, BIT(2), 0);
->>>>
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
->>>>> +                         0x5c0, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
->>>>> +                         0x5c0, BIT(1), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
->>>>> +                         0x5c0, BIT(2), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
->>>>> +                         0x5c0, BIT(3), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
->>>>> +                         0x5c0, BIT(4), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
->>>>> +                         0x5c0, BIT(5), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
->>>>> +                         0x5c0, BIT(6), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
->>>>> +                         0x5c0, BIT(7), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
->>>>> +                         0x5c0, BIT(8), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
->>>>> +                         0x5c0, BIT(9), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
->>>>> +                         0x5c0, BIT(16), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
->>>>> +                         0x5c0, BIT(24), CLK_IS_CRITICAL);
->>>>> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
->>>>> +                         0x5c0, BIT(28), CLK_IS_CRITICAL);
->>>>
->>>> I suspect these refer to a AHB-AHB bridge for the various subsystems shown
->>>> in the memory map. That would explain why when the "ahb-store" clock is
->>>> gated, the storage bits stop working.
->>>>
->>>> If that's the case, we should describe it as the parent of each storage
->>>> peripheral bus gate's parent. Same would go for the other types. I haven't
->>>> checked what the BSP does though.
->>>
->>> As Norman mentioned in his reply, the vendor BSP also does not model
->>> this hierarchy and instead models these gates as independent clocks
->>> parented to the oscillator. The manual does not describe the hierarchy
->>> either, so I don't think we have enough information to model it
->>> differently at this point.
->>
->> Well, I wouldn't use the BSP as a good example on how to model the clock
->> tree, they have been very misguided in the past.
+> Yes, we experienced with libcamera. I can also reproduce the unwanted 
+> behavior with v4l2-ctl streaming + i2ctranfer script that stress the 
+> group hold writes.
 > 
-> Understood. I will not rely on the BSP's clock hierarchy.
-
-Well, I meant more the BSP software/DT modelling, as in: this device 
-know needs now two input clocks. As you mentioned, the manual does not 
-describe every relation, so we need to rely on the BSP for knowing the 
-parents. But ...
-
->> What the BSP does is to add just more input/gate MBUS clocks for each
->> device, which is something I think we should avoid.
->> To that regard using them as parent clocks for the existing gates, as
->> Chen-Yu suggested, sounds like a good idea: We keep a single clock for
->> the devices, but still can turn both clocks off (I think, not tested).
+> If we were to place the responsibility on userspace/libcamera, than 
+> libcamera should be able to handle this:
 > 
-> I tested bus-mmc0, bus-mmc2, bus-spi0, bus-ufs, bus-nand0, and
-> bus-spif individually. Disabling each bus gate made the corresponding
-> controller's MMIO registers inaccessible: reads either returned zero or
-> a fixed invalid value.
+> - after a successful s_ctrl, captured frames will reflect the values 
+> after not N+2 but  X+N+2, where X can be anything because we do not know 
+> when we catch the right context to do the group hold access
 > 
-> With those individual bus gates enabled, disabling ahb-store made the
-> MMIO registers of all those controllers inaccessible. Restoring
-> ahb-store made them accessible again.
-
-Ah, awesome, that's a good test, thanks for doing this! I thought that 
-this clock is really about the data path, not the (MMIO register) 
-control part, which is typically a separate low-speed bus (APB).
-Since that is somewhat surprising, it's probably best to add a comment 
-in the code about that.
-
-> Based on these results, I plan to make ahb-store the parent of the
-> following bus clocks in the next version:
-
-Is ahb-store ungated at reset?
-
->    bus-nand0
->    bus-mmc0
->    bus-mmc1
->    bus-mmc2
->    bus-mmc3
->    bus-spi0
->    bus-spi1
->    bus-spi2
->    bus-spif
->    bus-spi3
->    bus-spi4
->    bus-ufs
+> - do not expect s_ctrl to fail, unless the value was not accepted; i2c 
+> access failures cannot be catched, because we cannot apply the control 
+> value instantly
 > 
-> I directly tested MMC0, MMC2, SPI0, SPIF, NAND0, and UFS. The remaining
-> instances use the same type of bus gates in the same storage subsystem,
-> so I plan to model them in the same way.
+> - a control value may get accidentally applied to the wrong stream; 
+> because VC takes effect at frame N+1 and exposure and gain settings take 
+> effect at frame N+2, if the group write timing is improper, these may 
+> get out of sync; so user-space may see frames optimized for RGB on the 
+> stream that was supposed to be optimized for Ir or vice-versa, as 
+> confirmed by RishiKesh and Jai on ov2312.
 > 
-> For mbus-store, testing with MMC0 and UFS showed that disabling it
-> breaks the storage DMA paths.
+> - embedded data information may help identify what settings were 
+> actually applied for a particular captured frame (if embedded data is 
+> available reliably)
 
-When you say "storage DMA", you mean the actual DMA data path, using 
-those chained descriptors? Does it work for PIO accesses, as U-Boot uses?
+We could decide that support for RGB/IR stream interleaving requires the
+ability to capture embedded data. Some people may complain though.
 
-> Most of these storage controllers do not have dedicated MBUS gate
-> clocks, so there is no clock that can be parented to mbus-store to model
-> their DMA dependency.
+-- 
+Regards,
 
-Could this be like mbus-store -> ahb_store -> bus-{mmc,spi,ufs,nand}<n>?
-
-Cheers,
-Andre
-
-> I therefore plan to keep mbus-store marked as
-> CLK_IS_CRITICAL, as we already do for the main mbus clock. For NAND,
-> which does have a dedicated mbus-nand gate, I will make mbus-store its
-> parent.
-> 
-> I also tested NVMe, but disabling either ahb-store or mbus-store had no
-> effect on it.
-> 
-> Does this approach look reasonable to you?
-> 
-> Best regards,
-> Junhui Liu
-> 
->>
->> Cheers,
->> Andre
->>
->>> I will add comments explaining why ahb_store_clk, mbus_store_clk, and
->>> ahb_cpus_clk are marked critical.
->>>
->>>>
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
->>>>> +                         0x5e0, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
->>>>> +                         0x5e0, BIT(1), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
->>>>> +                         0x5e0, BIT(11), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_gate_clk, "mbus-ve-enc0-gate", mbus_hws,
->>>>> +                         0x5e0, BIT(12), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_gate_clk, "mbus-ve-dec0-gate", mbus_hws,
->>>>> +                         0x5e0, BIT(14), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
->>>>> +                         0x5e0, BIT(16), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
->>>>> +                         0x5e0, BIT(18), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
->>>>> +                         0x5e0, BIT(24), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
->>>>> +                         0x5e0, BIT(28), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
->>>>> +                         0x5e0, BIT(29), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
->>>>> +                         0x5e0, BIT(30), CLK_IS_CRITICAL);
->>>>
->>>> Same thing for the MBUS clocks.
->>>>
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hws,
->>>>> +                         0x5e0, BIT(31), 0);
->>>>> +
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
->>>>> +                         0x5e4, BIT(0), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc0_clk, "mbus-ve-enc0", mbus_hws,
->>>>> +                         0x5e4, BIT(1), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
->>>>> +                         0x5e4, BIT(2), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
->>>>> +                         0x5e4, BIT(3), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
->>>>> +                         0x5e4, BIT(5), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
->>>>> +                         0x5e4, BIT(8), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
->>>>> +                         0x5e4, BIT(9), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
->>>>> +                         0x5e4, BIT(11), 0);
->>>>> +/* Undocumented, taken from the vendor kernel. */
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
->>>>> +                         0x5e4, BIT(12), 0);
->>>>> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec0_clk, "mbus-ve-dec0", mbus_hws,
->>>>> +                         0x5e4, BIT(18), 0);
->>>>
->>>> [...]
->>>>
->>>> The remaining definitions look correct (minus the vendor BSP ones which I
->>>> couldn't check at this time).
->>>>
->>>> I didn't check the clock list additions.
->>>>
->>>> Consider this
->>>>
->>>> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
->>>>
->>>
->>> Thanks!
->>>
->>>>
->>>> We can change the AHB / MBUS clock parents later if we do figure it out.
->>>>
->>>>
->>>> ChenYu
->>>
-
+Laurent Pinchart
 
