@@ -4,179 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AD0CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA95CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIWJGS9u7UXs0d2xEM/4BNo4y9HrhTyCSMLXKj8YmFk=; b=smNkhYaOxDMlKdWe8fyplyUO86
-	GGTf5xxbG+gLvnLEObJtdkPoXVI60ulKbdxVYYqezVinZI3GIJpNMgwsafVL4orVBtUwehnCTWdYj
-	bSDbwKoO9hT5es05/QhbDOj8JOV+2Yi2FCBhFRvjHtiNF7zodGNUWxNYv+rrjgaQDUwc7n1QlQrfO
-	TmYITASj/Sp5vu3Gk1BdrmTp7C7NDFyReaa1fLc2n+a6eaQFZoIWUnvAon3e0PNVl46Wm/QDxNh1K
-	G57AIIZMm0K8Q1FrJ+VlSqh0dHdOVLNol3LNYnMliwmqP5VTSPAm9FCbdNZfEwerEZedW8DVwx77v
-	NVJkUECg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dvn19b4boyBGUcsPnzo5ABp8m59u84VQ51c6rR2SwGY=; b=u7TwjqD+eWkHqSygKcqgjszkiu
+	Wk9SP5kWVu8VE0oMh+ZrNmlv9Ts+g7jqip1uMMIpxXeHeAW++lh3hUx2MiWFYDUHUKDXbSNFTp1xk
+	NyNDdslGsC/6KPYKjH08Rcis6HJdkN8D2JQJX/6Sb5aahNREJZ89Q+cAnjV2lvKPe1XzOtLueSrSt
+	qWsNtL2Wa+7KnaT7Vea8gBqLG1oCT6lg1d1bMkLDmlFFZ1TV/C39ZyJdQjCdVza3awW5g/gVZmEiu
+	ykbX9Xdny+JumSVz/tCi6+RkcAV8k281OQzFOBB6IaMIOmWjXPYFSfflCqKwOmqI5w7visKJ3Uxo1
+	LjIakzmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3i8-00000000fG2-0ftO;
-	Tue, 06 Oct 2026 11:51:56 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1xE3oC-00000000fkZ-3LZQ;
+	Tue, 06 Oct 2026 11:58:12 +0000
+Received: from mail-francesouthazon11011000.outbound.protection.outlook.com ([40.107.130.0] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3i6-00000000fFb-0dRK
+	id 1xE3oA-00000000fjp-0vpA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 11:51:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791287514; x=1822823514;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=WQ7Zqm3gLIMuorfvtpQmX9BSViOPnNnftNCswIBGYgU=;
-  b=e1X7SXL8tahYRJCXwzhwyalpCa4onARJWPD+pNKqdAG92HgygAr31/Wp
-   1myMr9mP1h+28FZ0tahVdHeyjVKQppNE4YUbMl3LHAvklSLaLv+XHGXov
-   LUJjnZA5V9lTSjjGhAQTnrQn+vJABDEwGuLaRkz0DKbEXegoKGvwEmR1Q
-   f99OxXvJ3wHE+DkWvYs9XjG+5zgrIPQYFwdFT/JwnfMQ9J7+94P82tPYc
-   pcfNGAIIax//DhMuJnrngf/fhgD6mUgEuPWmZL26MOb6QMdyoIIlOWWbc
-   2CJK1yHEC4RvCrBtE00pyPMzJKzMqNE4eTkc6t4pX41D7SgZwHNT7dYlE
-   g==;
-X-CSE-ConnectionGUID: 8FgGNRTCRbeGlrdXm0m+6w==
-X-CSE-MsgGUID: 8Swg/j4LQRqr21f+vGtv3w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11926"; a="29094"
-X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="29094"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 04:51:53 -0700
-X-CSE-ConnectionGUID: /Z3fk71GRJCZkiXLxuW3UQ==
-X-CSE-MsgGUID: 5cJHlerPSnGwxN18na3WdA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="315151489"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 04:51:53 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 6 Oct 2026 04:51:52 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Tue, 6 Oct 2026 04:51:52 -0700
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.2) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 6 Oct 2026 04:51:52 -0700
+	Tue, 06 Oct 2026 11:58:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kdNTwBMkIEaAwD8uAjxr1YmXsz9iBxhIIOZA+F2yhlB3DX8M4BRrOkn/Lg7bq/+vKZlq6h1DL6DUPD9AICPGi/JphnDPSIAqoM1cWW29iNRiJ7CWb4GN5eNUYwF1TJ7xBR+wybKUJCIRAN7L7qmrDYDXa4D2gtn4qsivgX3E66cm55emmI3kUiCuMRV56ZYXXciOXKgWxftXsMJ48A+4QdxgHDc+oNRFza90tSZ3s6muSSkWFYj3x6ScuhnyE9AvFkRv6bp1zzQ0uT5nueloDoxglDcDjeRME1BQ6JU98GN+WRVyT3kphsCtc6s53w9RdQCuktNin9HvLJgu1EMdRg==
+ b=rMCfOFYaSAC01LzPxgj26aHA55EI2NIiNSj6xFP8sZJReOrfuHX5Ucsl+IkAhE2JmhTd2zc7IcxzeTxcfTPw2qehqpIjADkcndUe2NG6Z+zvIIeomQm6OuHbev0iNS0hgyh3ZyUVOcqh/tijijolzlgNAWqWbwMM4HwGpG105ZJmeo4ApQdjfC140d9vtkQLKXP/rcDIBQfIyxKWuuDfarvgUMqZTeJq7eDVsMmg6x8tcYcJbCL4JnoVRJmo/EjPHy1dM5cRon1tqnS8BHHKV/PeT4OLVUUrdOVmER/mwbgSIoFw531hJm9w88zmMfM5RQclUbqwyX+HhNnq5CLPEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bIWJGS9u7UXs0d2xEM/4BNo4y9HrhTyCSMLXKj8YmFk=;
- b=Ixk8AfB2j6fDTfXsJ2/5IK9VZMwPQsDLqMR69yx6MnpjfLpWQXjQrI0dsWjClhZnUHyqKVkxUvHM0Yih9trUecwrvUUaFt9b54TI8o8mOKxSeJ0Qp0Dbh7Be8jWxH+zmh+1yPLyzjqai//DrjSPoFod3Mzvq/hcW/FcKAOlBxeFMRYUrnMocSeDgcTmY7jZt5SPBb3JkiQJZ+N63cDT4bClyFry55IQKEZjHM8YCOXs3khcXCvpml5w6EI32Q0xNuxNuxyjUdZaEiDcS9j7+n9FL7P2NTE57gUgiTQe0ErM8j3euHRvwGNpTca2HVM3NyGCJaevltNIOIUoo8rH61A==
+ bh=Dvn19b4boyBGUcsPnzo5ABp8m59u84VQ51c6rR2SwGY=;
+ b=FVmkLaGkgoyFDlq0+HcrXTeZnbBwIfaYtbr4CNRSigLKAq2LqhAiLpVAZ+x3hp2tfGDR3p7FgdFLE+mwfeWR+w6S9XAuHfM7VYbBKLL3YDA3BhbmalS2m0oy8Q4pfoLvfwO0LqiMImC6sw6RvzFjMga4PjkuaNT9PHPRVlRGAosOY5VFN67hCmhIg+/ZA1+GDCA85tOP8Wo9TSBW6vW98gdd6a2uTSBW2ic2MK0b6eFBbs1VqNvhXlT7RLaVskFTZTAlByfHzsGLLYD8FlvFTrmE8baXQfr6B0te0I9NegdYjh1siGePshX98mLilfgNxNr8IFjeQlNH5FnZDulAKw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
+ smtp.mailfrom=axis.com; dmarc=pass action=none header.from=axis.com;
+ dkim=pass header.d=axis.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dvn19b4boyBGUcsPnzo5ABp8m59u84VQ51c6rR2SwGY=;
+ b=l5cYat6Qo3H4NDVnAshyWVv/Q3TTfw3h5RpdgcrsqGipgkDOlIe59wriP8NBPwMsQCq9hghWCDhvSIPdaLdX0woEWd2avHSoh9CEuoMRHIBKLT/kRkXW4Te5uz60ynW/XsWFhFCoJZJHaazjVnmGll3sXBPAqPi7NcPNZ7tRz00=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by SN7PR11MB6970.namprd11.prod.outlook.com (2603:10b6:806:2aa::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Tue, 6 Oct
- 2026 11:51:48 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0472.015; Tue, 6 Oct 2026
- 11:51:48 +0000
-Message-ID: <13319d31-c7ac-4b78-a8d1-3f764ce57204@intel.com>
-Date: Tue, 6 Oct 2026 14:51:42 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mmc: sdhci-esdhc-imx: map unsupported driver type to
- Type B
-To: Ian Ray <ian.ray@gehealthcare.com>, Haibo Chen <haibo.chen@nxp.com>, "Ulf
- Hansson" <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
-	Kamal Dasu <kamal.dasu@broadcom.com>
-CC: <stable@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-mmc@vger.kernel.org>, <s32@nxp.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261006105301.996-1-ian.ray@gehealthcare.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20261006105301.996-1-ian.ray@gehealthcare.com>
-Content-Type: text/plain; charset="UTF-8"
+ header.d=none;dmarc=none action=none header.from=axis.com;
+Received: from GV2PPFBD14D17F4.eurprd02.prod.outlook.com
+ (2603:10a6:158:401::5df) by AS4PR02MB8235.eurprd02.prod.outlook.com
+ (2603:10a6:20b:4f2::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 6 Oct
+ 2026 11:58:02 +0000
+Received: from GV2PPFBD14D17F4.eurprd02.prod.outlook.com
+ ([fe80::9ac:6f90:5998:69d6]) by GV2PPFBD14D17F4.eurprd02.prod.outlook.com
+ ([fe80::9ac:6f90:5998:69d6%5]) with mapi id 15.21.0472.016; Tue, 6 Oct 2026
+ 11:58:02 +0000
+From: Henrik Grimler <henrik.grimler@axis.com>
+Subject: [PATCH v2 00/17] ARM: dts: samsung: cleanup Exynos 4210 dts'es
+Date: Tue, 06 Oct 2026 13:57:14 +0200
+Message-Id: <20261006-exynos-arm-cleanup-v2-0-e8e86a3c8c1f@axis.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0243.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b5::11) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+X-B4-Tracking: v=1; b=H4sIABrixGoC/22NwQrCMBBEf6Xs2ZU03UT05H9IDzGudsEmJdHSU
+ vrvxoI3mdMbmDcLZE7CGU7VAolHyRJDAb2rwHcuPBjlVhi00rZWSiNPc4gZXerRP9mF94BHIkf
+ k+dBcLZThkPgu0ya9tIU7ya+Y5u1jrL/tT0f/dGONCskwNabEG3t2k+S9jz2067p+ADNgsEazA
+ AAA
+X-Change-ID: 20261002-exynos-arm-cleanup-944a44ce73b6
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, waqar.hameed@axis.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Henrik Grimler <henrik.grimler@axis.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3393;
+ i=henrik.grimler@axis.com; h=from:subject:message-id;
+ bh=0YrExGg7KTYZc8m7d4iSYEqCfeeMIxp2x5aTS5wGMIk=;
+ b=owEBbQGS/pANAwAKAbAHbkkLcWFrAcsmYgBqxOImwbyZN15YyfkLpIeRoeIzibkVHNisylQc1
+ rpfiCW04/aJATMEAAEKAB0WIQQsfymul4kfZBmp4s2wB25JC3FhawUCasTiJgAKCRCwB25JC3Fh
+ a2VJCACgphzBC9+rl4dpXDyGGoM3Lp6G9Rtm8pD/29cyku+UKN4rfIPgJG3VnCw/e5ZUKeLhsZ1
+ MM1OUj6Ubi7A6toAd5qdV+gutxt4fXtF3xmx16cIYHqIi0OTf7THtBGb7pQlCeqhh1iOCJtfYCv
+ zWxrxhaZZrTeyONuMwUNdfnC1Rv1gsgXoI2ILVSfmwMX4ODjhNZZZZ6+jbpR/jXg/zJcmQwTQ4v
+ rtetCM9flHp/l2W0EMzly6rc/l2qjNLFMSp8xF4Xh4TXltL8EeiTar4NugakSjNqdu8UboX5eyZ
+ YPuLatGz7URWA3WNwS1VHJ+HVafg76x7C2mcB8gT96QXWcV4
+X-Developer-Key: i=henrik.grimler@axis.com; a=openpgp;
+ fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
+X-ClientProxiedBy: BE1P281CA0175.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:b10:66::8) To GV2PPFBD14D17F4.eurprd02.prod.outlook.com
+ (2603:10a6:158:401::5df)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|SN7PR11MB6970:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43fca1d9-fa2d-474d-8227-08df23a033b7
+X-MS-TrafficTypeDiagnostic: GV2PPFBD14D17F4:EE_|AS4PR02MB8235:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd3a776b-2e28-49cc-7817-08df23a112c6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|56012099006|11063799006|22082099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: a19p90rFLLNgsa7OAxJKBAEt7hWMA96V+iMiDb6T7aJXH/6WrBYL3MXX73qpqvkc2ZK4t86htAuiPWSDn2r1o4oTC1pVjkqb55No7Lb31ryx7WtfGtH9CzvtV7uMTw42OvozuV4rOp/9E0bh6uQ86WbU8sIvI1mqvGjClhMHiARjBDz1LvqW8tpmOFG3LQLIhNsmK228nH3QMJFFMmNHf6iMI+zALyGkhDj5ZGp5AVlqtZ4CE4ABTT4mBbhliLU8xF1yUApfDbCpHJtW8MIDIegUmP6mVAggy5+pws77QnNX8I/vNnuZJvSyaAFw3knF9/AJy/KPBS77Mg/cHdd8U+B/FSq8uIXrqFbLYxOzl+CBjK3lvlSW6m5pI6WsifuGHr9z6b+TStcDjtwlydSIaHaO0SpatBL2Ho3H9e29ZtABqQQwCN6G+yXpkthgrJCK8pklHYU4Z1mdWITdqjQ5RE7qumNiir/Y4hHtL9bH13ghlCcOnlHOws3VwogBzfFhbWsdiNwYw/GdsFQBkmiFXzuDC1ozPrdJiwlCZN5pYobIqjCOeKtAmbadTBSWcwSnF/5MxL3l/Z7cqdKRwSyshY4wQaAuLvsX/87GTuj0Exi9uQnvqL94ssv/JiGtmjHx5OOkUeStMI/daBW8IojxKydsgs9AYXVsqzV5Z0KrHhI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(56012099006)(11063799006)(22082099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|18002099003|260925021311599003|11063799006|56012099006|260925021911599003|260925022911599003|10067099003;
+X-Microsoft-Antispam-Message-Info: mmod6BLLA7luHdLxJLy1bsTJUKQWt8ptlKeZcQJihBt4SYuNHU4yNIBVanRpnZk7MwJC544M5N0L7P9LqGtWdpbVfsX7mPE9uLbsUne564iLuYBHbiEN34low/nsV6/vjyoe6pGrC7+ygkAWVhQ6IqCdKvogqfl1dQO1KEuUNUj/8fIaXFNn6OL1i9GqxrDdx7iqqkWvL7Ru63CExNYk30IJLc8izQ0p9+efqzSoBTkZ5dAl9V3QCEsVAInLoFO/4HdoWrGN7qGPfjbh0X7SiXXOeqep11F0M2AM/mK0lbrW8U5MiG+yMhKWbpKAOnGWsweTU/YYSpns/vRxgS16mq7IIPSdThYEqh6Hb00Jjb212SWpF5lGFE7SeqI8jAEMwnPrk7azkW0miT3HOVQdArji/ntHbtSO3yZeihtIdT3t/At7W0jhfwQcjNaxRAHl1PRBl+OAoL4WoO7AfpSukCATds/QXPNE14TIrUutUOgrfVTbNHFjsaPpEhoClkTj1Lw7YihxdJoa7fheoG8Le7A/pj635HcDiWSYBwUbt4OFnJzYbrRcApTNQn8I20qRZAV/yIOHSbXh7NVRjLuPaUkv3LVA17F+rzRcsnweLgza3k1D/exCKCEhS0mN2Ibl
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PPFBD14D17F4.eurprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(18002099003)(260925021311599003)(11063799006)(56012099006)(260925021911599003)(260925022911599003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnBkcDRvV0R0WlljZlROM3R2SEpMSEgwMVlDR2FRRkdkRHJ1TDFucGwvcFBU?=
- =?utf-8?B?OW1ER2lsN3NGb1FkcDl1SEgxWUVkMjQzeDdFaXhTRlBXUWlFa1dQSnV6MHdI?=
- =?utf-8?B?TU1qcmRkc1dEWHh4MWpLck1tUWl1RzdiMTJPdWlIVFpBVGxJZGc1WEpQdU00?=
- =?utf-8?B?U3lzRlFmYzBGWTFDSmNORVVweXdRS0hOay9lbVJIcXJ5Vk0yck9WcGUxQU9n?=
- =?utf-8?B?RUdObUd0OEhxOUlSS0FxK0pLd0dGQTFYKzIwV1FENXdGVCtjRy93TGlHd3B5?=
- =?utf-8?B?UmZzVWN1NTFIZlJCeUxIRzhZemp5TGZEeERhK0djOVpUSkNjakV0WUx2VVNq?=
- =?utf-8?B?aVAyMWlYMUpweE5WdHdGL0dlby9yalZFaXRvajErYXBnZko5a1hTclBJVWFl?=
- =?utf-8?B?YW9sRkppNjlKRGNCaWZjK0oxNFd2ME9qcjcvTVJsZVJyVFFLbkl2QVZQa3hK?=
- =?utf-8?B?ekJqdVJRWUc4Nnp3ZVZWSzFZbEdYZmpqZm1sTUxJcFRVUFpDSEQ3R1lQSGc4?=
- =?utf-8?B?TVhrYVhtWldaQVk5VGVkVmM0Rks2TGVUcS9INEJqaEdQM3pCQkM0d1RobVVH?=
- =?utf-8?B?VDN6aWMra0JaaDdoSEYzT283UUJWaksrNi9PWGdsWVIxbjN3M2JVRXlNZVlw?=
- =?utf-8?B?OE9FeFYxV3F6ZXlhWktyRXNaMzJUMDN2ZHo2L29yS1AwcUhBbkRsa1NMU3kw?=
- =?utf-8?B?MGlQTkhtdmNUSjBiZzdzdzh0ODkrZFBCbDJCYkFNd0xPdFIvYk1ITENBMVJB?=
- =?utf-8?B?UVBLU2lwU2ZkcGp4TkduVmhDTEYrUXh4aFJYNWthZUlQcnlsYVVMUnNWY0Qr?=
- =?utf-8?B?ZHA2aEZsSlhqWGhxZHc4Mll0S1NVTUFKcFNKbVlWTFhzSDdubll2N3FFSkNn?=
- =?utf-8?B?Mkpsd2RtM0ZGK1c2ck9qczNVVHFUVlFqMVV6SDgyVGF3WWFuVUcvc0xTenZs?=
- =?utf-8?B?ZGUvcEI1aXllZ3lRd0Y5L2FEVlZrM2xjLzlTSXp6QUdsT3RUTjR2dXgvSjVR?=
- =?utf-8?B?NWdFQ2ZKaVIvWTg5RFIybFE5Zzc5Z1JpVWtoOTZ6dTdSdytrNyt2RndWaTJE?=
- =?utf-8?B?YnQ0dTJuK0V6cVZkb0hYWEpVaGgzT01qVlN0dndqUm1UY0NSRFdjVFdiNnZZ?=
- =?utf-8?B?WXZjbkdIZXNXYkhNUmJhbG9KR2VBMG02NDhTTmpwUFI1SmtKMlR0ZFBzOE9s?=
- =?utf-8?B?ZUFMell4blI0V0ZwdENIN1gwNStYSzVuMWhlZktXanh4OHFrdFVKNlgrUC9t?=
- =?utf-8?B?L2w4SGh4WWVoMWJreUZPOWsxSktuR1Jva3ZBWEdCWmZHS2VBUHZiSzFoQXBm?=
- =?utf-8?B?aWFkUWxYa0FlWnJJTnl0cG9kSWlJU1I0dFBIMi9LQXBHTHdZWXpyUDVLbmR3?=
- =?utf-8?B?Q1dCUkZZT2txaXJvZTFMMHVxS0pnbXgwdktGNG53YSs4R3d5Yk1WOWpJRG01?=
- =?utf-8?B?VWdCekgwM0pNNUtRNUlydXlZR1ZIZEt6VU5SWTlydnFjMDcrTTVsS1dHc09u?=
- =?utf-8?B?ck9wMXZNTFc3RTE1K0s4SUxla3JmUUlLeFZ0VVBNSzB2bFQvOGxXV3ArZmNU?=
- =?utf-8?B?dTFKa01uTERnLzR5UFNDQVhKd2Q0TlUydDYxY2h2dmZrbEdqUEZ3ZzYzMWs0?=
- =?utf-8?B?eW1OcExIY3FZYXp0ZUNlNGhhMld6V1BHUnZGUm92M1c0Rzh1eXMwamNGMEt3?=
- =?utf-8?B?bXo4WXllU2kxUW94eXdtVlBDWFpuY0tXeERSUTBnZTdIZDE2cXNwN1FNS3FM?=
- =?utf-8?B?cDczMVhSV29uQ1c4Sm94b1VrbVczVG1iak5tSU1GOWViUDlISW1ueEszZmlQ?=
- =?utf-8?B?d21DQmcwNGl3Y3BiVFlEc0x6eHI2QmdsT2FJQ0Yrc0htZ0lmQXJzQ1A0MFRk?=
- =?utf-8?B?Uk13NEhMdGRrcHZ2TFhKRnUwZnd1YkllSElwOFFQSXAyY3NXNWYrcDNaSmlI?=
- =?utf-8?B?NW5BR2tiaUhPa3BwWlRiaGd5SDdJVU5KQ0dHZWVBNjJJUVBaY0JueTloRUtO?=
- =?utf-8?B?NXEvVE10d1JhTFZGOFJGNnFiVDV1T2pSR0swWnJhREtoSVB0d0tyaG5CSjVR?=
- =?utf-8?B?RkVOUmx4NU5FZmNKdmJTSGg0TG0zSU1aYXJLQUVtNStKUFQxSWFjNmhJVTM5?=
- =?utf-8?B?cGhvTEQwUXkyOHMyQUtuZzdyTllqK2xJUDIrVFFnWmJhL0NnNm51MGNVR01a?=
- =?utf-8?B?UVpMcFJiaVUzSzFvZk1SM1dkZEJSSjFFTkJxUVVBWU1sTGZ2bmV5RzRnY01j?=
- =?utf-8?B?TmVyQytXZExqVUZpbW1FM0JjY1V1REs2V0FoOHNqYkZpNmdxN0lub0kvL1p6?=
- =?utf-8?B?eWh6cEpZbVV2cnhYYW5PRXJjcEVNNkR3U1Bma0NobjJyS2VZeFhnUjhpUElu?=
- =?utf-8?Q?nGVgJkIAZDwPz9Ko=3D?=
-X-Exchange-RoutingPolicyChecked: eej3SHAGfPhGplqcz5nXs/E9Jf9LinV3RX0ddNSYcMGos9qwybPoyFa4lNq7agR+646XR46lEggehK0CobMDM14LyZqq/Kk2kuY2YB0M9NjVc45jEtif2LRiNcxL5BpAqFA/5ZaJ6qXs6N5gkIveqYp4BZGsoWkEpa05rwSV223wzcx6FbrWqHqNTeSTGWHlcZqzLU7HGVPnJjt5Ee15TSvn3ldvDwWnwYEyKAvls0xBEsSjbFZGt1Cdr9cqxN7IfQfGFUJLZiOhIhjIJCVnEIGtcwr1dn515KbB7Bed/L3Vkbl6Tz8tkGpWcEMDegMD01qn93BF6wZzJjvSNM1ovA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43fca1d9-fa2d-474d-8227-08df23a033b7
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2IxVlFuN3hlMlJmeWM5WFVWcGYzdTVkajFKU2Y0UklUUE81MjREQ1BYbWc3?=
+ =?utf-8?B?NWl4OUVtOVBMcE5UcjFBVVdlTk0rQUQ5aVJqVzA4OHhhSDVhUFN6VlJQMmpM?=
+ =?utf-8?B?R0Y5b0lxSzVwaEZydW50dGpVRnV2Mll1azlqemdIRTRLQmwwRk1zNHdaNGdv?=
+ =?utf-8?B?WTA3TGt4dzZ3OTdsT2Y5THBNSGFRMkd0VEF3MlpJVDc1WXNCblZIR1FRMnZs?=
+ =?utf-8?B?Y3E0YXQ0UXIyMVZwbmRjSm5FL3V5OXVOdG1mSFRJd0lvdEt3c0ludGIyc2hX?=
+ =?utf-8?B?VE9MVHdvK1lEZW02M2ZpTDdWVVJSbUFSejl0dURyMUx3TGtRKy83blpoUjZ1?=
+ =?utf-8?B?d25BcWdjdy9oN1psLzhXUVRIMXU3eFdlcVYyc0lQdXRaemxjeEcvcWU4cVlm?=
+ =?utf-8?B?YlpkVkZtYzJZUVkzS0ZwT2RjbmJSRkZjNmVxTmg1dDY0WXo1OVFDT09CcnR2?=
+ =?utf-8?B?ZnB6Ykcya2Y3YTcvZEx2RitCQ2JKaEdwdTRzTXc2cEE0RUtXTDhrbmhVdFlk?=
+ =?utf-8?B?c2tjdC9MZmZMd2RnRTh1OCtMTVZGa2QyOVNldXFuckdHVlJqbG1ObzJRZ1hy?=
+ =?utf-8?B?UkpLcXBkQUNtWXVQSEN5aXc0cVNrNUU1ZlNsU2Jkc2NDd2xSYmY5UTZZT2VC?=
+ =?utf-8?B?cWxiVGx4SkovQ1lOY0x2UzA0UlA4TU1FOFpLOVNOZXBMOGd3TVpYb2NDS21h?=
+ =?utf-8?B?VzVlN1AyMVpud1gwSDBuRndvdHJwSE1wZzc1aWFyeW0xL2hjS1c5TWwrNldU?=
+ =?utf-8?B?SUdPZFExZWswUkwxSVRvbEJUT3l0TGVkVjROd3NqbUd6a0hEZTRwbmNHa0Iz?=
+ =?utf-8?B?dVlJanJKK3g0cEZUTGg1Wjhhb2RoOFV3c1VScTdJd0NDUGRRNkVoaFhxZkdQ?=
+ =?utf-8?B?YWFvQVUzWFZVL2MrYVVOS0grYjFRRWFOUDdEYzNsOVhtTTBqSndJNllZOWs5?=
+ =?utf-8?B?M2dmYTQ4S1pma0FWeGg2d0hzNlpMK3N3UWQ4RTQ5SzdSdlFNU1ZhU01KRGdL?=
+ =?utf-8?B?cU1MYlBiWlkwd3huNUIwZWhDNjFqazZ3UU9RMjJTdkU2VWYyWVpqZ2VBaGJq?=
+ =?utf-8?B?bFpCZmtvTVpJVHY5Tit5clJvM3FpYmwvRFpoOTZTSGp0NlIvd3pKa1hNSGlt?=
+ =?utf-8?B?d2dUVG9sa2RUK20rRlFscE9CdlpuTFpBVVFpVTJBMFdERU5wVTVGVUFScVFF?=
+ =?utf-8?B?c2szMkpiZUVZTGNYbmg5ZlJwSFRRVGxsbVlaajJiRnNOY2d5dFo4QVU2a1Mz?=
+ =?utf-8?B?M1JqeDNMbWhEUWYyRTQxMVM3RkpDd3BaVWRWUTdhaGc0SVdrNm8rYjM3SDRo?=
+ =?utf-8?B?YzdBWGtqeVBiMHhxTmhpdW9XbEsyQXBXSHZscXFkL1JoU0hLSkV5TEZpQXlu?=
+ =?utf-8?B?SUhRckh5Ymc2dTVjeFlIU2J0TkhhdXZzbUlIM01scUZkYzBjdDlmeE41SlY2?=
+ =?utf-8?B?TTlsd25RVElOTzAydHhpaDAxVmgzdC9tSnNFOHVRQUplMnQxenNaZFE3WHFO?=
+ =?utf-8?B?WVNIcVJScUhwRGJtdDF2amZHZ1Axd0FBZHUwUlMzakNUd0x3S1hVblBPVzBv?=
+ =?utf-8?B?VVg4YWtnNXpjSEF4UU5STDJpQUlhZXZJdm5kSzlYTDlEWC9CbVNMbUs3UHZo?=
+ =?utf-8?B?NGZhMlRCRXN2RkdqZjhEV2NCdkw5UC9wMHBaSERYeWNQNHpSVGhkbzZMWXpW?=
+ =?utf-8?B?bGYwdkJHN2J5TlRUT01panVaRDRGbVdBTUFMZWg4WXhVdFQ1UjlFTmx5T2Jl?=
+ =?utf-8?B?Qkk2ak5INFJJcXlRelZZWFMrQ0w1Z25oNktJMUR6WDFuWmk5S0xtaTBqcmxH?=
+ =?utf-8?B?WXZzT0FUOVJjb1JuR3llWERERFI5SzNQcDNid1Rsb1NQUDE1S2NRNUtnRkRq?=
+ =?utf-8?B?Q0VHSFhudDhSTXJFNGh0ZzkyVSs4UVAweEJpZUdhbTl6QXVodW80TG9maVlE?=
+ =?utf-8?B?bjlsKzlZakMzR0RyNllBUnRSOG93K1ZhMDY3MDErc0NiS2NwMktNREJNcEp1?=
+ =?utf-8?B?K2dCcDB2aXFxT1JDbHg0VzhOMk9NR1dQbzRvRUJTd2ZPTmxYK09OaWJRTmhV?=
+ =?utf-8?B?VDdUVEpjbllqK2ZPNTV0ekhNem9RZHc2YlZKbkJMOFVRMWtVN1UvRkFJSDZO?=
+ =?utf-8?B?cVV3cDU0Vnp5RyttOXRYWTVINXhwQUwwTVNhOWNXc3p4WHorRlRJTUVmRE1o?=
+ =?utf-8?B?Y2UrNFlQVzlnbEpVMCtvcExLN2loYng1aVR3R2QwVVZydlltUXU3RFJwby81?=
+ =?utf-8?B?WFZyMkJab2ZYQ0NtTWlPUk92SFp3b1VyMjlRQnJKbGdUaWhRK0w0Z2M0MDNz?=
+ =?utf-8?B?Y3piNGFCUXhzaEhyZUZEbkRiQlJQYVlHeVE0RXh0bXJYdjI1WVBzQT09?=
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd3a776b-2e28-49cc-7817-08df23a112c6
+X-MS-Exchange-CrossTenant-AuthSource: GV2PPFBD14D17F4.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 11:51:48.1597
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 11:58:02.3657
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jWhPTlGDHQH3sFvo7302Y1s1HXx+QmBam9w3cpUbgymbzy5WI+TAc2+lbo6gfaqP0Zt7m5cKBucyx9KL7dt9dw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6970
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: bgw6Npw4RQEnGWOhdqPUbwey6xh8MowyQ/qW6ntksmjdrcm1kxSgmv182YfLpdTPLjvzivThU8/73G/l0kWjSg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR02MB8235
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_045154_216501_D51D8CE6 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20261006_045810_283977_9A9E10D7 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,85 +163,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2026 13:53, Ian Ray wrote:
-> Since commit 5a52c5701a67 ("mmc: core: Fix host controller programming
-> for fixed driver type"), the eMMC driver strength is passed directly to
-> mmc_set_driver_type(), which propagates the value through ios.drv_type
-> all the way to sdhci_set_ios().  For 40 Ohm driver strength [1], SDHCI
-> correctly warns:
-> 
->   mmc2: invalid driver type, default to driver type B
-> 
-> Hook ->set_ios() to map any driver type value outside of the SD-defined
-> range to default Type B, so that SDHCI always receives a valid value.
-> 
-> Tested on i.MX8MP (usdhc3, eMMC in HS400) with
-> `fixed-emmc-driver-type = <4>`: the warning is gone and the HS_TIMING
-> register contains 0x43 as expected.
-> 
-> [1] 'fixed-emmc-driver-type', see JESD84-B51 Table 206 and
->     Documentation/devicetree/bindings/mmc/mmc-controller-common.yaml
-> 
-> Fixes: 5a52c5701a67 ("mmc: core: Fix host controller programming for fixed driver type")
-> Link: https://lore.kernel.org/all/20260926122908.866-1-ian.ray@gehealthcare.com/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
-> ---
-> v1 -> v2: Move fix from mmc core to sdhci-esdhc-imx driver per
->           review (see "Link:" above);
->           always provide a valid host driver type.
-> 
->  drivers/mmc/host/sdhci-esdhc-imx.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 6ab59d3e346f..33f63c6dc8ce 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1142,6 +1142,14 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
->  	}
->  }
->  
-> +static void sdhci_esdhc_imx_set_ios(struct mmc_host *mmc, struct mmc_ios *ios)
-> +{
-> +	if (ios->drv_type > MMC_SET_DRIVER_TYPE_D)
-> +		ios->drv_type = MMC_SET_DRIVER_TYPE_B;
+Fix most of the warnings that are reported by
+scripts/dtc/dt-check-style in strict mode with Krzysztof's recent
+fixes [1]). Waqar Hameed's dtfmt tool (described in [2]) has been used
+for some of the empty lines/whitespace fixes, to decrease the risk for
+human error in the process.
 
-Looking at esdhc_writew_le(), it seems that drv_type is not used
-at all.  I'd prefer:
+I have started with just once SOC to keep it small and make it easier
+to review. Sorting of all the nodes, and dealing with all properties
+using "discouraged style", are left for the future.
 
-	/*
-	 * drv_type is not used (see esdhc_writew_le()) but SDHCI rejects
-	 * non-SDHCI values like 0x4 (eMMC 40 ohm) passed via device property
-	 * fixed-emmc-driver-type. Force drv_type to an always-valid value.
-	 */
-	ios->drv_type = MMC_SET_DRIVER_TYPE_B;
+Series has been tested on exynos4210-i9100, no new errors during boot
+as far as I can tell.
 
-> +
-> +	sdhci_set_ios(mmc, ios);
-> +}
-> +
->  static void usdhc_init_card(struct mmc_host *mmc, struct mmc_card *card)
->  {
->  	struct sdhci_host *host = mmc_priv(mmc);
-> @@ -1949,6 +1957,11 @@ static int sdhci_esdhc_imx_probe(struct platform_device *pdev)
->  		 */
->  		host->mmc_host_ops.init_card = usdhc_init_card;
->  
-> +		/*
-> +		 * Validate host driver type.
+[1] https://github.com/krzk/linux/tree/b4/dts-style-checker-blank-lines
+[2] https://lore.kernel.org/linux-arm-kernel/cover.1790629313.git.waqar.hameed@axis.com/
 
-Not really "Validate".  Perhaps "No SDHCI driver type control"
+Signed-off-by: Henrik Grimler <henrik.grimler@axis.com>
+---
+Changes in v2:
+- Patch 8: Add opp-shared to the exynos4210 cpu opp-table, since both
+  cores use the same clock and table. Pointed out by Sashiko.
+- Link to v1: https://patch.msgid.link/20261004-exynos-arm-cleanup-v1-0-45e435353c56@axis.com
 
-> +		 */
-> +		host->mmc_host_ops.set_ios = sdhci_esdhc_imx_set_ios;
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
-Does this need to be conditional on esdhc_is_usdhc(imx_data)?
-Seems like esdhc_writew_le() is used and drv_type ignored either way.
+---
+Henrik Grimler (17):
+      ARM: dts: samsung: exynos4: add or remove empty lines
+      ARM: dts: samsung: exynos4: order *-names properties
+      ARM: dts: samsung: exynos4: sort all properties
+      ARM: dts: samsung: exynos4-cpu-thermal: fix indentation and sort
+      ARM: dts: samsung: exynos4210: sort nodes by address
+      ARM: dts: samsung: exynos4210: add or remove empty lines
+      ARM: dts: samsung: exynos4210: sort all properties
+      ARM: dts: samsung: exynos4210: use operating-points-v2
+      ARM: dts: samsung: exynos4210: align all multiline properties
+      ARM: dts: samsung: exynos4210-pinctrl: align all continued lines
+      ARM: dts: samsung: exynos4210-i9100: sort properties
+      ARM: dts: samsung: exynos4210-trats: sort properties
+      ARM: dts: samsung: exynos4210-origen: sort properties
+      ARM: dts: samsung: exynos4210-universal_c210: sort properties
+      ARM: dts: samsung: exynos4210-smdkv310: sort properties
+      ARM: dts: samsung: exynos4210-smdkv310: sort child nodes
+      ARM: dts: samsung: exynos4210-universal_c210: fix alignments
 
-> +
->  		host->max_timeout_count = 0xF;
->  	}
->  
+ arch/arm/boot/dts/samsung/exynos4-cpu-thermal.dtsi |  72 ++++----
+ arch/arm/boot/dts/samsung/exynos4.dtsi             | 187 ++++++++++++++-------
+ arch/arm/boot/dts/samsung/exynos4210-i9100.dts     | 125 +++++++-------
+ arch/arm/boot/dts/samsung/exynos4210-origen.dts    |  30 ++--
+ arch/arm/boot/dts/samsung/exynos4210-pinctrl.dtsi  |  42 ++---
+ arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts  |  61 ++++---
+ arch/arm/boot/dts/samsung/exynos4210-trats.dts     |  60 ++++---
+ .../boot/dts/samsung/exynos4210-universal_c210.dts | 114 ++++++++-----
+ arch/arm/boot/dts/samsung/exynos4210.dtsi          | 183 ++++++++++++--------
+ 9 files changed, 523 insertions(+), 351 deletions(-)
+---
+base-commit: f0406245cb9855e6318335a8a223551354291a46
+change-id: 20261002-exynos-arm-cleanup-944a44ce73b6
+
+Best regards,
+--  
+Henrik Grimler <henrik.grimler@axis.com>
 
 
