@@ -4,108 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD24CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E1CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yFVV6rDqzkVe7MPT1P1wIPFYg4xEhPTH8XQEr8tqcT8=; b=RWldsiMiJH+foKDE6PUmw+c/wl
-	NPLmT32QPFMIeOdtQ2/ARvwGOISdv6AaDWw5YbRQINUQtu9Ogk0g+VyWi7V4E8r8x3HyOLeg38MNu
-	sQtnMampfAMpG/Z1gIwI8bJOpUeAWewcjF5wsAmRXNAY/7DqUpPr6CAVY/WaTd5dPpZ/5eaKKT0zP
-	kGQOe2TQkEJe8T0Nds+uB0KhiA0swAEVcC3Nj3ZRa5XjDqjwFcxdxumoq6cwqGOStGi1tHf1w2Rek
-	MUxbAPqWxI7gS3SF0hCSN/hnzeh9ygw32zMRHcxlC3xc9DknyEJyvEu6eRxypRCMGcorxP3+IyW9X
-	Ey/+HCLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=; b=H4B5uo05yTs/8hi9unRFq8Gocq
+	wED5XEBqrMkY87dA3gzXd4Zt6zmnmFbrGXhKLFzrfVznInLl/iiSFUtmRrCIwm145tYNQE1k+owNT
+	OvT/w3KtXzwXX1g1MktKzwuxTUtWqeNSuQA8MKYAfMHPYgDY5+BVII552Jh6KYkHSp9Ezb9hZSbRn
+	nLY1AQsVQPcIHugKiqKbSmycVJYLpnjX2TgtwVxZHMCda2nmwgtoOH7lEZbKCAmLw3fJdUuqL3KF8
+	nzvhpSLIrEexbERhcy/fctNQA8pQxbDXLsuZIeFz7SQ1y+rV9Kuyzpz7jwkVboMGY29k229dIniOL
+	lAMB/gCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6xT-000000011ZN-2RTO;
-	Tue, 06 Oct 2026 15:19:59 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1xE75g-0000000120J-1vPr;
+	Tue, 06 Oct 2026 15:28:28 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6xR-000000011YU-2k65
+	id 1xE75c-000000011zr-3x22
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 15:19:58 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-53394bffe0fso20728541cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 08:19:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791299995; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Bk3d9LZOnsJ0s8qJZf/By74gGWMXadjupxGWJPwbNQc1u0sPLOMrcvYeq5mzNTyzno
-         ZkQGxiX0D38M+ciXprxAalk8tOpmQoTLAgug1FxNGf1FgBCIS4Waxu0DCs+rbph/TPkK
-         +gjMmn+GKx8fnFG8U/lmPL8m9UnEHDFdZ0E6WNWHuMfyv+yPYqh7o3TsArI6ZouptHcj
-         3TEWIW/ojW7m8sIAUBKFwJ8nyfHvBdeYST1cNFQpvqeGdgTJ7VWZ+brji72uVb+ubcvz
-         3CLbL+M37X6srrGoq0nA7Hw/U0autZpECJy1OaIOKoFraZ+EJN/cFK8oLSwKDZXPwtAN
-         B6Mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=yFVV6rDqzkVe7MPT1P1wIPFYg4xEhPTH8XQEr8tqcT8=;
-        fh=U/lS8UJ0KVR+Oh0oriHikE71B3l5+I1Y99zGGqI5Pcs=;
-        b=kgPe828LKACZ7DiTubOiASGeqooeV/42L0n5o2whtchJ6ySuB3m0QQeCF57OZe+tJa
-         62j3q+UKEbEgXKQOztBBB/sW6dC0CWIjoObSQWCotMhd+ENjRdRSTJLB6mSS6q1BNak8
-         PNWsX3lVEGcae9BU/xDmjly1JD8R9mZ/HJfyt+Ld5+vPHg3OqqcpeSKXtCa7J1ugOUAU
-         Pj3XGmtunIu+t3vKcxdtfYAcGbfx90FGIWU/wXQ+W5eXWqzWIbw92fELo39TBsuYQK3J
-         o/lhVQmSfFVVbOWCe8NZiiIP8R3ifUyX4eVROm06QzCGfvpC4brmcP8Knf6EwpOMDrCM
-         IuEw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791299995; x=1791904795; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yFVV6rDqzkVe7MPT1P1wIPFYg4xEhPTH8XQEr8tqcT8=;
-        b=ARLz4DCJIjUGv88yYwRk0+Jyg5c6duVB4jkucB4Lfto6sBTkWC0OaXU7VJ4EPbLlZx
-         FMdGshaOKL/9CGZhCOgEs8ftQQ2TM3UiKAFaFSC4PYw9PJ5i1KSDDFuE3klMhoft3BnL
-         lHnCouVhlCaKBlyMKMY49e8ebE6MedVX3Yvyg1qYtF5J95WoxPpGhZEqFDs2LOxh37mT
-         2SOdVHaZR5TZVNFzcTW4qDUO4jsNDG4BtJ5At2ooZxhsOnXmReS+ZGqwlziNFEfRMyqd
-         nZzmW05s7N8WxPOh1lD9YPqtay+91rbE6dzYy7odpG0SDgnPeEpqKnJUTAacTgiccY0X
-         V3fA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791299995; x=1791904795;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=yFVV6rDqzkVe7MPT1P1wIPFYg4xEhPTH8XQEr8tqcT8=;
-        b=yGeA2wQgfmFYgcIbnVxrUmm2MbaH/unALHHUL+vpxepEyx1bVf61hSMkV50VFv2mDG
-         R9ek9rTPTtKuqUpgjKBanX5bheUXHVtG9wjcHKLsifjz0ZTRSbVvOPmGKAcgkKAFB+Fc
-         RNPqzEQCeN7KXeJNm8bCbEhrVWL9hSSQVPhwb5NkarZMxi4FCKg4UMSdC8jjZVFqSMhi
-         JPo0TY8c5eeO9z2lZTPYOPRhCouvk8dBd+wC+oo9P8kIn2mpQAjYfYaWpedEAU8ptM0H
-         ndwneZUmCso5Q9bxGoELEijK5l9BAgTQNUmqyHaFaju+XX9Er+EW8PafYCB8FoEAGX9f
-         5G7w==
-X-Forwarded-Encrypted: i=1; AKwUvBzLv9yqkUN5M+6mTn5QlAaJFCMJnFAZ6D3YCOzqISlu8Dh679rFC6BsC3zy3Esk3LpX7G/0oXSMYdSjxBG9Gs2l@lists.infradead.org
-X-Gm-Message-State: AFuF++mI/eDIWfhvNgu/LSr3UD9gZfqqMM+hW6aSIH8AltipXQX2kBhs
-	6Zf8zS+dowBVKP1eAEcCp06gd4SvGzyyukr4Z12HJ5VA8+BpEegUyF5Qg7ag+cMPC6QiP64EFDn
-	T10cgz0JlzVtDcjee6QO2g19JEMgbrCoBPg==
-X-Gm-Gg: AYBFou0tfccWTh5J9VmXj8uUk1ehP5YHitS8/6WYw0fvgs4mRqIdcl1pbGkHSQfxYSc
-	9rqwETf1B4ht7aGohisg8/SegmrFsNjPXq/rlvsAVv0lmUK7TJZxDYu074kDBM+cV65xJ6ZbtQm
-	GcZvnvq2ivjsh7+XntVMWG2qKbf5yw2QrRK+AegCMy+jYPXcq2RHnYCMLuyJnO2Tc4h5V/q+Vds
-	o18W9LAid+A7/jWg0r5Dm4pvD748/qgdDG2gJF4dgtWamUEyvPLhjrg9pSipBpU8SfiUHqX5vZK
-	0gAzybCsuW5Juj/ihUbqYPFoM/m7D+Dz7uaHKX4iNPWzI6VUib7G+RQG5SqKhqaIRb+w6evmHvj
-	3c0Lvp9MiobJ6avILABf5ZOMSXXnR/Qa1KyEZYNnvOpjjpxk6NNPtKOVJ2dpmIB62ykEBmKYBDg
-	DbDrngYSTv2h+lRLq8TKH/rDvp59AUkVE4t3s7liufoHzfPB0d6NRdMleWsibjGyl0Zn9SDpWfg
-	/s=
-X-Received: by 2002:a05:622a:e49a:10b0:535:70b3:fa0a with SMTP id
- d75a77b69052e-53570b3fb28mr1387511cf.38.1791299994820; Tue, 06 Oct 2026
- 08:19:54 -0700 (PDT)
-Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Tue, 6 Oct 2026 08:19:54 -0700
-Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Tue, 6 Oct 2026 08:19:43 -0700
+	Tue, 06 Oct 2026 15:28:26 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4B3374E410FB;
+	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1708E60553;
+	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A148B103303AB;
+	Tue,  6 Oct 2026 17:28:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791300495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
+	b=Zge95CWJorrmzM4yUowmuOkxRgpEyfxGYa2/sfKipV7dd+RjsKMy/oaGCJ/mVs5Pzo0eEF
+	QAvqalpkxByxwJKXE5vyKH5kFSUwYu2xwYqM4H22Gg37EqMoVQPaCoVQg1pwSTO1lx6V/3
+	Vlba435uh1H4ftEgJSuP+lH4zK400PqocG4hEyzBxYsnoXtQg5EHCs8c/6zB6t0Ce/IzsS
+	zc24HAe/gkebKe8qWRsgGTXAIxZzqeo6jh5cRaaxVEC8RvbhI9cXK0HSSF2/J6ZyylYtTw
+	sQGayXcUHQwmPGI2afJ4QcT9d7FjSH/TXieM2eordIciOwm0Sdwh2ldqsJ84dg==
+Message-ID: <72e19e46-3a14-4a07-9b50-01e5480bf1a3@bootlin.com>
+Date: Tue, 6 Oct 2026 17:28:05 +0200
 MIME-Version: 1.0
-Received: from 77377267392	named unknown	by gmailapi.google.com	with HTTPREST;
- Tue, 6 Oct 2026 10:15:54 -0500
-From: Ting-Han Hou <ue081723@gmail.com>
-Date: Tue, 6 Oct 2026 08:19:54 -0700
-X-Gm-Features: AclHuK9yqSdRAFzPsVeJO1Zn2ht02ZhprGx2lSC9pDzBb2P38sk3c0pSEMytM_o
-Message-ID: <CA+NtrhQBK8uW32qO3dXxVxO1GSN-0EJfyJ16tnyx0o52T17WtQ@mail.gmail.com>
-Subject: [PATCH] scripts/make_fit: Ignore schema checks when decomposing DTBs
-To: Simon Glass <sjg@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+ <asQcQIh56MV1OJur@lore-desk>
+ <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+ <asSb3RNcityVg6ia@lore-desk>
+ <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
+ <asUGoxyJWVcsYBWG@lore-desk>
+ <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_081957_718255_3159778C 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20261006_082825_127668_87D1A760 
+X-CRM114-Status: UNSURE (   4.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +94,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With CHECK_DTBS enabled, Kbuild appends a schema validation command to
-the fdtoverlay command saved in a composite DTB's .cmd file. When DTB
-decomposition is requested, process_dtb() treats every word after -i as
-an input file, including the semicolon and the validator arguments.
-FIT generation then fails with FileNotFoundError while opening or
-checking the size of those words as files.
+Hi,
 
-Limit the input list to the fdtoverlay command before extracting its
-arguments. This preserves the base DTB and overlay order and ignores
-the subsequent schema validation command.
+On 10/6/26 17:12, Anirudh Srinivasan wrote:
 
-Fixes: 17c31aded9a1 ("scripts/make_fit: Support decomposing DTBs")
-Assisted-by: LLM
-Signed-off-by: Ting-Han Hou <ue081723@gmail.com>
----
-Reproduced with DTBs and saved commands generated by the current Kbuild
-rules. Verified uncompressed and gzip FIT payloads, shared-base reuse,
-and the non-decomposed mode. The schema checker was a success-only
-stub; no hardware boot tests were run.
+> Maybe someone more familiar with this board/has used PTP on it before
+> can help out understanding why this is happening. Maybe this is some
+> issue to do with clocks.
 
- scripts/make_fit.py | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Good point, can you give us the full dmesg log of the board booting ?
 
-diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-index 15ba269..9bd35aa 100755
---- a/scripts/make_fit.py
-+++ b/scripts/make_fit.py
-@@ -292,7 +292,8 @@ def process_dtb(fname, args):
+Maxime
 
-         if 'scripts/dtc/fdtoverlay' in cmd:
-             # This depends on the structure of the composite DTB command
--            files = cmd.split()
-+            # Ignore any subsequent commands, such as schema validation
-+            files = cmd.split(';', 1)[0].split()
-             files = files[files.index('-i') + 1:]
-         else:
-             files = [fname]
-
-base-commit: 69f80fef3153299d9c72c53d1d71eef6354b6926
--- 
-2.52.0.windows.1
 
