@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B301FCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2854CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jVTxTfkNs+IvzxUmHzgjnWzXGShomJ5y8a1XbauhqO0=; b=qtDxoGLYGVuQ9s
-	JFtNUZwQnxklFGBRLrHQnCqBHFTdB33IoaqyCOF8S14QEcbDEJkKyoNhi1q2B/mfXEKZjEC7KsuNo
-	npWJxJmUR4x6DvTA7RBA2wc74xrhhaJtCz6GWyXb+zCCSMznzPDs4g9jXVfm62lHLLKu7P7kItDXm
-	IL52kmOpV2KmLi2Cu7egR23PaWW9EAKJqCKSgAJwCmeSz+7w69C64kEn6UCROFP8dHvBrpp7Fx6D9
-	x3vp9SjSE5DQ7wrdFalX64OxVjj0Pio1W4QPlrcBYHm86vtcslUCChMtp21BFeqk9zChBCRZR6MjD
-	qMRWFEfwHb17/E2y7MdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9HJH+uXkT13MNQK1cMIvKlsgzXLnzAXDk7pgKiWtZY=; b=papaTU6eNNNXLNQiuLUwULr2ZJ
+	AVIor9UQRY+CMnKXHT0s4bWJivai+aZgpjCoSjuLL+kphQyZm3TgmdVj8HGsYhw69R6qy9JWVnqTW
+	o3U7Hj6cJKTjURxuiXttztnYAPvyXoLD5SM3xP2WpuHlRQ+OP+LKEPX21f9vm4v8mqOHt8dmIsiI9
+	qURnQ6F4vQrpw6NzWsYuh+LrN4HvgmBzHu4h3AUMxvB11GDzsJpVz/D9kRlbEYBIlfa/Lia7+YCDa
+	6l+GdbHWebB5A0uGjEuypD6OjnmqlOj4GIOs7jdVG0vJYmZn6G3WjnGBNUf1I2I72STsgxdQlprjk
+	ztlFQJdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1XC-00000000OPE-1HR4;
-	Tue, 06 Oct 2026 09:32:30 +0000
-Received: from mail-qt1-f172.google.com ([209.85.160.172])
+	id 1xE1dX-00000000Ouo-41Gl;
+	Tue, 06 Oct 2026 09:39:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1X9-00000000OOn-23XG
+	id 1xE1dW-00000000OuP-073y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 09:32:28 +0000
-Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-53391786e55so6606841cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 02:32:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791279146; x=1791883946;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jVTxTfkNs+IvzxUmHzgjnWzXGShomJ5y8a1XbauhqO0=;
-        b=CzHB4ARIJ7QnG6mtcj68geWU2RoS/CVqJJ0Ra1TeMAES1dI9q9UyxE+gZclfo5tn/Z
-         ClkuBbNN5Ubd/ND1a5FVub8pBYPW9f7O7G4Temp3ATiX0Fllr8mBAJ0SuNOU4oWCdKgq
-         sdAXmd3RI1LqjijZh4c9dmX20R4zd8RVP3jGz2oyqDXGKWS+6UI5IzVyPK9ZafJnrto+
-         Hh6ZJtjGcEgqkBZQHHg67l3V/BQKr93/ojiSmRfOe7qUseFReJmzX+G3S6N7qytOZsiW
-         W3w7VVpQmk1h0/FpIvP3VsQB4MsTnUCtZkDeg+Wb6qjrAAhpyy6jwmVHLWLNnnQviYuB
-         03cA==
-X-Forwarded-Encrypted: i=1; AKwUvBymfmP8zS1CQgTik4JrLhgzluindhhpcUX1uIWLqkAFnLTSjm+ASJeckMHIIfa+MERG0kYTmBkICDSyhknIQLYp@lists.infradead.org
-X-Gm-Message-State: AFuF++lTxSQf+GEqIXpISquVzNmx2JjjFQIV7EjHBe2fx68hNlIvbbOw
-	hpscNrwdChl0fEF2ROuy+5HAVuxncMRLYS0vONO/3WJo9GA+ei/NYoPRD0fEb4YSSwuIIQ==
-X-Gm-Gg: AYBFou0B65/FzeKN3wdFUTN1pDMnN+ZOf+gzvwItHW4dAIwMhtDJBj/uxvgTi0PJ86g
-	QWUwvli48tHq1CWgdCFfjmsbIXk3cEgWzOioWTSKmRigCkbh4ObkEMAIdpYyaH5OJ9WABu8WwVC
-	mJu4MXjpC9BdcVrOmiV0VwII8Mktsl4Y8fJ/FySB2cpoKE7PoULHHm2W8a1uKpvskeTL6fb62t8
-	P7mU1DKuO9+sk9sOpK9qgLBQjCrfh4Blm7XrmlYPdzjfhERDa323vN1MQgs/S+uRWxWoS4cTJf6
-	gBmfJf6m0YpqHpkc8gVlTsaaLtShW3/1MO2+raMG3reMiYlmRutiCc9YWB/zjmdpj6QOAnS877w
-	QlcDyl6SfjX17ZrNjSGAufaUBuKuqUd8axW2dgj0oCcJXAkPIw59rbeC/qinxKWg/QUvTGuVaXM
-	wkK1sRhcGOx6CUIyESsYZQBn8DBoS+OMbus2kY2ampu44iwoFmp9b/T0O8JSkEwAwF2Uuv7tXtU
-	qUzy3qp9Jylmqf/upA8FkyxkCsJ+k0i0UKGcj8+PaI4+mg2Vm2BTg29l+lB9jm/M4A=
-X-Received: by 2002:a05:622a:987:b0:535:20ea:cefe with SMTP id d75a77b69052e-53566910d1amr10681351cf.18.1791279146150;
-        Tue, 06 Oct 2026 02:32:26 -0700 (PDT)
-Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com. [209.85.160.173])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53398a9c92csm119411501cf.11.2026.10.06.02.32.25
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Oct 2026 02:32:25 -0700 (PDT)
-Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-5356b6a7fe5so993971cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 02:32:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwN+4463K0nkeKKK69pqiv9o5GgLGVAPoYfPFpRq+1Oj91aTeu7rLBolpxuqAxv/c7y8lnHEjvY4rRysuOAdfO5@lists.infradead.org
-X-Received: by 2002:a05:690c:7108:b0:8ae:7fb9:8cb8 with SMTP id
- 00721157ae682-8b04f3b6667mr2040067b3.17.1791278683947; Tue, 06 Oct 2026
- 02:24:43 -0700 (PDT)
-MIME-Version: 1.0
-References: <20261004144046.391444-1-tanure@linux.com> <20261004144046.391444-3-tanure@linux.com>
- <asN_-5zalENhkdVA@squawk>
-In-Reply-To: <asN_-5zalENhkdVA@squawk>
-From: Lucas Tanure <tanure@linux.com>
-Date: Tue, 6 Oct 2026 10:24:32 +0100
-X-Gmail-Original-Message-ID: <CAJX_Q+2hD_LTcimHAVhyzgTnp9jYxKKFD2TK5cv9-wLjDh8+wQ@mail.gmail.com>
-X-Gm-Features: AclHuK-bVUCezgDuqipnwl794qiJm9NtCr-yWp4gG5KzmPFjPQMebZJ1Y2LQr9E
-Message-ID: <CAJX_Q+2hD_LTcimHAVhyzgTnp9jYxKKFD2TK5cv9-wLjDh8+wQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/6] dt-bindings: net: amlogic,meson-dwmac: add amlogic,t7-dwmac
-To: Conor Dooley <conor@kernel.org>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_023227_535010_84EDFD0C 
-X-CRM114-Status: GOOD (  30.53  )
+	Tue, 06 Oct 2026 09:39:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A2656022A;
+	Tue,  6 Oct 2026 09:39:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2C6F1F000FF;
+	Tue,  6 Oct 2026 09:39:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791279540;
+	bh=O9HJH+uXkT13MNQK1cMIvKlsgzXLnzAXDk7pgKiWtZY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kDru/Ioz3ij+3dRZx740U4Gb2cGeu3UNTE4DQltvVbtA/ea6TUMkTYu/uB5G+yg9E
+	 3ZUXnlLTdBiCb6+KKvAJwkpdlI1udbxgfiacsddel5nbrfh1hr6XPp9RpRgQaxgLul
+	 HnwJHiRPtKNGE9DPC7ZfgIJy8AjOA56x36cOTH5nAdemdgkimQIyOm8HLxeMFijXiM
+	 4QTvldbbnaN3eGZiN6zodlweXqAdhtJzDumYFFt+C6NV3iCqG1scgCmxxNpOfjnDTQ
+	 8FM/zKBxkZ1rZjhEy2RDgXxRpj2kwvkFCC5tR0JgxnTS6Z4gz1NUhVY9FPCblWyUxI
+	 H0h68H5qx2qPw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xE1dS-0000000HMXc-1zsb;
+	Tue, 06 Oct 2026 09:38:58 +0000
+Date: Tue, 06 Oct 2026 10:42:06 +0100
+Message-ID: <878q4b2mj5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Tomohiro Misono <misono.tomohiro@fujitsu.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA erratum E#030003
+In-Reply-To: <asS5r0WNCQpMIo4p@FCCLS0092175.localdomain>
+References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
+	<20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
+	<86tsn42sqr.wl-maz@kernel.org>
+	<asS5r0WNCQpMIo4p@FCCLS0092175.localdomain>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: enju.kohei@fujitsu.com, misono.tomohiro@fujitsu.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, tglx@kernel.org, radu@rendec.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,154 +91,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 5, 2026 at 11:46=E2=80=AFAM Conor Dooley <conor@kernel.org> wro=
-te:
->
-> On Sun, Oct 04, 2026 at 03:40:42PM +0100, Lucas Tanure wrote:
-> > The T7 has the same ethernet glue as the G12A, but the controller
-> > reaches DRAM through a pipeline stage that the hardware design inserts
-> > in the bus path. That stage has a gate of its own, which no other membe=
-r
-> > of the family has. Nothing else in Linux claims the gate, so it is
-> > switched off as unused and the port can then no longer complete a
-> > transfer.
-> >
-> > Describing it means a fourth clock, and the fourth clock of the existin=
-g
-> > list is the one driving the timing adjustment logic. The T7 applies the
-> > RGMII RX delay through PRG_ETH1 and never enables that logic, so it has
-> > no use for that clock. Give the T7 a list of its own with the pipeline
-> > gate as the fourth entry, under the same name the SD/eMMC controllers o=
-f
-> > this SoC already use for the equivalent stage on their own bus path. Al=
-l
-> > four entries are required, since the port cannot move data without any
-> > of them.
-> >
-> > The RX delay range is the one the G12A has, since it is the same
-> > register field.
-> >
-> > The compatible pairs the T7 name with the 5.10a Synopsys core the MAC
-> > reports, and with the generic fallback.
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Lucas Tanure <tanure@linux.com>
-> > ---
-> >  .../bindings/net/amlogic,meson-dwmac.yaml     | 47 +++++++++++++++++++
-> >  1 file changed, 47 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.=
-yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> > index 90ef79161ab1..96118b4d1560 100644
-> > --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> > +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> > @@ -23,6 +23,7 @@ select:
-> >            - amlogic,meson-gxbb-dwmac
-> >            - amlogic,meson-axg-dwmac
-> >            - amlogic,meson-g12a-dwmac
-> > +          - amlogic,t7-dwmac
-> >    required:
-> >      - compatible
-> >
-> > @@ -57,6 +58,47 @@ allOf:
-> >              - const: clkin1
-> >              - const: timing-adjustment
-> >
-> > +  # The T7 applies the RGMII RX delay through PRG_ETH1 and never enabl=
-es the
-> > +  # timing adjustment logic, so it has no timing-adjustment clock. Wha=
-t it does
-> > +  # need is the gate of the pipeline stage the controller reaches DRAM=
- through.
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: amlogic,t7-dwmac
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          items:
-> > +            - description: GMAC main clock
-> > +            - description: First parent clock of the internal mux
-> > +            - description: Second parent clock of the internal mux
-> > +            - description:
-> > +                clock of the pipeline stage inserted in the bus path b=
-etween
-> > +                the controller and the DRAM. Without it, the controlle=
-r cannot
-> > +                complete DMA transfers.
->
-> Have you checked that this actually works as a limiter to only 4 clocks?
-I have now, and it does limit to four. Adding
-a fifth clock to the board gets rejected:
+On Tue, 06 Oct 2026 10:08:19 +0100,
+Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> 
+> On 10/02 13:26, Marc Zyngier wrote:
+> > On Fri, 02 Oct 2026 11:26:52 +0100,
+> > Tomohiro Misono <misono.tomohiro@fujitsu.com> wrote:
+> > > 
+> > > From: Kohei Enju <enju.kohei@fujitsu.com>
+> > > 
+> > > On affected FUJITSU-MONAKA CPUs, an SGI generated by writing to
+> > > ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1 may be lost if the
+> > > operation races with CPU interface processing triggered by the arrival
+> > > of a higher-priority interrupt, an update to a pending interrupt, or a
+> > > transition of the PE to the Sleep state. When this occurs, the system
+> > > register write does not complete, causing the issuing core to hang.
+> > >
+> > 
+> > Is the SGI lost? Or is the sender core hanging?
+> 
+> Both: the SGI is lost, and the sysreg write does not complete, causing
+> the sending core to hang.
 
-  ethernet@fdc00000 (amlogic,t7-dwmac): clock-names:
-    ['stmmaceth', 'clkin0', 'clkin1', 'pipeline', 'bogus'] is too long
+I don't think the two are distinguishable. You might want to simplify
+the commit message to simply say that the CPU hangs.
 
+[...]
 
-> There's an additionalItems: true in the snps,dwmac.yaml that I don't
-> know if will permit random additional items here.
-There are two checks on clocks and both have to pass: snps,dwmac.yaml
-allows 1 to 10 items, the t7 branch allows exactly 4. The
-additionalItems: true only relaxes the first one, so the second still
-rejects a fifth clock. The "exactly 4" is not something I wrote -
-dt-schema's _fixup_items_size() sets minItems and maxItems from the
-length of the items list.
+> > > +		 */
+> > > +		for_each_cpu(cpu, mask)
+> > > +			gic_send_sgi_via_rdist(cpu, d->hwirq);
+> > > +
+> > > +		/* Force the above writes to GICR_ISPENDR0 to be executed */
+> > > +		dsb(st);
+> > 
+> > This doesn't force things to be executed. This is about completion of
+> > the access, and with an nGnRE mapping, it doesn't enforce that the
+> > stores actually reach the RDs, only an arbitrary point in the memory
+> > subsystem.  The only way to guarantee this is to perform a read-back.
+> 
+> Understood.
+> 
+> I hadn't considered this when writing v1, but on further reflection, I
+> don't think gic_ipi_send_mask() needs to wait for the target CPUs to
+> handle the IPIs.
 
+It's not about the target CPU handling the IPI, that'd be crazy. It is
+about making sure that the IPI request has been observed by the HW and
+that it is not going to race with something else.
+
+> Given that the GICv2 driver does not wait for MMIO
+> write completion either, I don't think we need to ensure completion of
+> these writes before returning.
+
+GICv2 has different architectural requirements (i.e. none). GICv3 is a
+bit clearer, see the requirements at the end of 12.1.3 in IHI0069H.b.
+
+> 
+> If my understanding is correct, I'll remove the dsb(st) in v2.
 >
-> Cheers,
-> Conor.
->
-> > +
-> > +        clock-names:
-> > +          items:
-> > +            - const: stmmaceth
-> > +            - const: clkin0
-> > +            - const: clkin1
-> > +            - const: pipeline
-> > +
-> > +  # Delay definitions for Meson8b and newer (including T7)
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> > +              - amlogic,meson8b-dwmac
-> > +              - amlogic,meson8m2-dwmac
-> > +              - amlogic,meson-gxbb-dwmac
-> > +              - amlogic,meson-axg-dwmac
-> > +              - amlogic,meson-g12a-dwmac
-> > +              - amlogic,t7-dwmac
-> > +    then:
-> > +      properties:
-> >          amlogic,tx-delay-ns:
-> >            enum: [0, 2, 4, 6]
-> >            default: 2
-> > @@ -106,6 +148,7 @@ allOf:
-> >            contains:
-> >              enum:
-> >                - amlogic,meson-g12a-dwmac
-> > +              - amlogic,t7-dwmac
-> >      then:
-> >        properties:
-> >          rx-internal-delay-ps:
-> > @@ -143,6 +186,10 @@ properties:
-> >                - amlogic,meson6-dwmac
-> >                - amlogic,meson8m2-dwmac
-> >            - const: snps,dwmac
-> > +      - items:
-> > +          - const: amlogic,t7-dwmac
-> > +          - const: snps,dwmac-5.10a
-> > +          - const: snps,dwmac
-> >
-> >    reg:
-> >      items:
-> > --
-> > 2.56.0
-> >
+
+As indicated in the spec, you either need nGnRnE+DSB, or a read-back.
+Given that Linux uses nGnRE for all device mappings, read-back is the
+only option here.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
