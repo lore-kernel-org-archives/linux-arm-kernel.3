@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18DDCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8EECA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 07:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Rz7MTGiT2Oa/TzTvQEqnIct/KOrKk64RBkMgo9sxQM=; b=OYrz86oJSx3Q8FHVOT3tyugbDf
-	+iFbu0z2iC5EN3hmT6PLj1sIrzVrcWHz4GismUUbF882E3EQIS0HrYqka/RJJzuFbBfMe3C29qVWV
-	tSz0fYtlQcP+BR7uWZygYbPI9KMI0TmjkWys+Ft4AfvQeQuid69uh2FmP4VW02EHYNZ5Hc3nGwpgz
-	9xz80TkWIW2zJ+E2+u2KnkzG+8lTVRbZe6tmD66/Ew6ekWw8uPKxCW/U8WLuO4JWSf6Uv27JgODEw
-	0wAZoCuckqWvFNCns2wEuwqcG8Q/FN1133D8b2YZr2JTp26GlSQzr7u7Bis0TDTm76YDlu1/GZG4q
-	9D00lK2w==;
+	bh=Y687D0b0XnsGS0sPqnJmnJK0mFwzbLcgaZ8E4hwXOuY=; b=eqX5mtZ3uctSOPhTI4q4381hyK
+	xai4Jpp0cgAF1DG8lnlRQDcW3CjXBzv/TwBgfX4/BlnucxaklcnB7Zx3az9gO32set2EuTTdKL7rp
+	lpSL7OaWTfQnunUapu4QL1SkzrayZ2q9JP2z+al33dAfyKkah8KJwocBpFK3zrKnOrBLzfd57td/L
+	j3kCUAps9BKg/5SkjZNR4zZrOHvXAIEGU8ORkGTHyPxw8h4k4Kl/DWYQzRYdtmDvaw6anQDb5vaB9
+	unuw4EfFq+59UKLgIwRi/nyeeefzxef2IA9D9y4pFArkwBgARAvCFYCSQ4Kenvxrj35/jT7jcMUER
+	drDnwHWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDzv0-00000000DVw-35vP;
-	Tue, 06 Oct 2026 07:48:58 +0000
-Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
+	id 1xDzwo-00000000Dx7-0cQO;
+	Tue, 06 Oct 2026 07:50:50 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDzux-00000000DSF-49V4
+	id 1xDzwk-00000000Dwg-3cfS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 07:48:57 +0000
-Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2d6fbdc8772so12151305ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 00:48:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791272935; x=1791877735; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8Rz7MTGiT2Oa/TzTvQEqnIct/KOrKk64RBkMgo9sxQM=;
-        b=q9gjrOKNL2bTH+wFuBBopQlmkDKoaPGk0IbPNoSvHqNO4bfGecaP68HySy+0+ZHB3O
-         Qd/MkNFqNT0YXMAeb+AgN1A4PjID+/opGVxvvbP3yDGTW+6+6Lbf2rzD/upFH5e+uQwt
-         6tWBj2a3YxJerSqvsJAsCLMYhUlJD7TjXPQtoYxvVWQD5Dt6rE5ekCU0cY6dwDPIUVnB
-         AK/Ad/twZQU3o2q/CXk5MXhQcdLUIxVG1Q21uG5s15EZtFujMlSvl9Vo3++hbGVRnY/M
-         jp9kJzn/ceG/Swqp3+TmgFLwa6KlL0YGOaHEpBEf5oUvBNpnYrDAtjDtZLpi4/QG/kVU
-         wAiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791272935; x=1791877735;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8Rz7MTGiT2Oa/TzTvQEqnIct/KOrKk64RBkMgo9sxQM=;
-        b=jbX9OFuPz5WnI6juFtlTptflHMF4rDMjav4NTvTGZp5g/OvagJVcsO/i0b859hgvqM
-         LruybKLOO4hJxjqPbDrp5v4A1K1wWIvF/gbWBnvLdXPxYK3pXdA0YVK2uOQBGAqYw756
-         E6hd6gl30Stxci1N6Xdc0NG+emXRMMUkA0gIhXJQ76320ZJzmt4Wxl7OD4H4tKrOs3g2
-         29j5ybcZYODLSDYBzVFdhLCn0i/7WmcNv++pUaHbS/VPIZZL2HSsoOCrb+fkdoYOoFBS
-         O3OY3FbT9N9BznmDLFlnaxpJNkmBr1K7HapINoYQZHii8JtX4idDsWhUzpdYViZA6j2p
-         snQw==
-X-Forwarded-Encrypted: i=1; AKwUvByWoCRRT5ZLk2f6JuVI3NdW85xGb6IVpqL6GL1XYrqUMTiX8RjWFW5JGqIswABo5rnBVlwjWwqt+4zXCQPMhvzj@lists.infradead.org
-X-Gm-Message-State: AFuF++k+kIPavTTVHMKb6wmrsUwDMApTfRxvwZB8vKwvXMfXfN0ASBAs
-	3VqIAYOQkrhXQTB3Mft1SKiDUC+BHD6SkUGDIubFrSaJ/8R5r7lnt1zZ
-X-Gm-Gg: AYBFou10GtD1/49C3FvjKMaHE6EciQdLKNl2V4W5MOExMx5bO0zEc2daOh5ukyWmJcA
-	vAkMC0sYe5O0QmsFekWE/29bVSyGvRLHCtIjc9cNV7o94AKoouE+DNY1iaLqK42aR0lVfXpysF+
-	5V1y90LZ+YQCYtSHKWA8cn62EEsrZGe8BT+qCYgR8djKQkIPzW3YuzZ54SWcj8LWb4pjfjaQVPY
-	iX0BrvAKwZkTQlvAM/u8V4v0pdDZCfPz3SUvNDQfTfJkz3BMD3Yh98GDPcz+jCjmbH9VIIbtzwY
-	ZqWZEH0mwn1WMujP+T237gP4VVQ796nHQeuGlaB7lc7DIvoYukukzNQeKERWy0I4CzmfPaoRdBs
-	1Y+m7/dHFJVpvZUtrCnk48ZyTKzNn9wP/3YVNN4z/a2YOekKnLcg4jXHuihJdSY8xt26VbZfDAW
-	lNNWEUlonlLwZtKkn+RmX68RVVTYqD+cSm/T8FcZ/R8ooomg5fM9YZEiWPRudt7LfSrnQ/
-X-Received: by 2002:a05:6a21:6b10:b0:3dd:a195:fa24 with SMTP id adf61e73a8af0-3e0d6d83bccmr8487088637.73.1791272935144;
-        Tue, 06 Oct 2026 00:48:55 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cce6d2406b1sm1998173a12.8.2026.10.06.00.48.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 00:48:53 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v12 2/2] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
-Date: Tue,  6 Oct 2026 15:47:49 +0800
-Message-ID: <20261006074749.2010233-3-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261006074749.2010233-1-coiaprant@gmail.com>
-References: <20261006074749.2010233-1-coiaprant@gmail.com>
+	Tue, 06 Oct 2026 07:50:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id AE9B61A1185;
+	Tue,  6 Oct 2026 07:50:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 80B4960553;
+	Tue,  6 Oct 2026 07:50:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 205751033069A;
+	Tue,  6 Oct 2026 09:50:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791273040; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Y687D0b0XnsGS0sPqnJmnJK0mFwzbLcgaZ8E4hwXOuY=;
+	b=h71LLACy3ly81f+yP0sA5gGlPiCBQERPnJDVMokgcAb93p+b9EO5xXEdmclFfV0U6Md1el
+	jWjZpD+A8b0T32+Pbgm1kDLNW06sJ+TbWD6L1a2fJvWRVD4gfcKWDFek2uBBx9azHk0oFG
+	OfE7pK6l/J40SOqBQodwpvZL7bhCbXwTVO7LjbJzULy0guEOTGTWG99HQJ8W+ipxpRkExv
+	WbFya2BD16PAqkfJqCVdqOp/bbMuAjWxIGjvHz1uH9hO8T6ssuQPDs8fKgKemHbF4fYXQx
+	eS653ptxuAIE6w/Y9j3ntM6wUkZo+PS9KQRay+ztt0McNJreGxxdiupfySZRUw==
+Message-ID: <97bc7b37-0c21-4182-9d1d-075287cd0fde@bootlin.com>
+Date: Tue, 6 Oct 2026 09:50:32 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety IRQ
+ request failure
+To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Serge Semin <fancer.lancer@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Nicolai Buchwitz
+ <nb@tipi-net.de>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_004856_036784_F98D25C5 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20261006_005047_067230_09E72A10 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3568, the SGMII interface can be routed to either GMAC0 or
-GMAC1 via the GRF register pipe_sgmii_mac_sel.
+Hi,
 
-Add support for this selection by introducing
-the "rockchip,sgmii-mac-sel" DT property.
+On 10/6/26 09:06, James Hilliard wrote:
+> The safety IRQ is requested after the MAC and optional WoL IRQs. If its
+> request fails, stmmac_free_irq() frees the unregistered safety IRQ and
+> leaks the WoL handler. This can warn about an already-free IRQ and make
+> the next open fail.
+> 
+> Move the safety and WoL cleanup labels into reverse acquisition order.
+> 
+> Fixes: 5c2215167d12 ("net: stmmac: Add driver support for common safety IRQ")
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
-bit 1 (pipe_sgmii_mac_sel) is defined as:
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-    0: SGMII routed to GMAC0
-    1: SGMII routed to GMAC1
+Maxime
 
-The hardware reset value is 1 (GMAC1). If the property is set to 0,
-the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-remains at GMAC1.
-
-This is necessary for boards such as the Ariaboard Photonicat, which
-uses the SGMII interface connected to GMAC0.
-
-Out-of-range values are rejected by dtschema, so the driver does not
-duplicate the range check.
-
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index 7843356a4dd47..7b867e7520064 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
- 	struct combphy_reg pipe_xpcs_phy_ready;
- 	struct combphy_reg pipe_pcie1l0_sel;
- 	struct combphy_reg pipe_pcie1l1_sel;
-+	struct combphy_reg pipe_sgmii_mac_sel;
- 	struct combphy_reg u3otg0_port_en;
- 	struct combphy_reg u3otg1_port_en;
- };
-@@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
- 	bool enable_ssc;
- 	bool ext_refclk;
- 	struct clk *refclk;
-+	u32 sgmii_mac_sel;
- };
- 
- static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
-@@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
- 
- 	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
- 
-+	priv->sgmii_mac_sel = 1;
-+	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
-+
- 	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
- 	/* fallback to old behaviour */
- 	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-@@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
- 		break;
- 
- 	case PHY_TYPE_SGMII:
-+		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-+					     priv->sgmii_mac_sel > 0);
- 		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-@@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
- 	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
- 	/* pipe-grf */
- 	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
-+	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
- 	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
- 	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
- 	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
--- 
-2.47.3
+> ---
+> Changes in v2:
+> - Drop the claim that later per-queue IRQ failures also had broken
+>   cleanup; those paths already released both IRQs.
+> - Add Nicolai Buchwitz's Reviewed-by.
+> - Link to v1: https://patch.msgid.link/20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b837e8e27a35..0403d434c9b9 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3799,13 +3799,13 @@ static void stmmac_free_irq(struct net_device *dev,
+>  			free_irq(msi->sfty_ce_irq, dev);
+>  		fallthrough;
+>  	case REQ_IRQ_ERR_SFTY_CE:
+> -		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
+> -			free_irq(priv->wol_irq, dev);
+> -		fallthrough;
+> -	case REQ_IRQ_ERR_SFTY:
+>  		if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
+>  			free_irq(priv->sfty_irq, dev);
+>  		fallthrough;
+> +	case REQ_IRQ_ERR_SFTY:
+> +		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
+> +			free_irq(priv->wol_irq, dev);
+> +		fallthrough;
+>  	case REQ_IRQ_ERR_WOL:
+>  		free_irq(dev->irq, dev);
+>  		fallthrough;
+> 
+> ---
+> base-commit: d5a007b9b457c915ab1a53227e8939e4018aa97a
+> change-id: 20260930-stmmac-irq-unwind-0be86901638d
+> 
+> Best regards,
+> --  
+> James Hilliard <james.hilliard1@gmail.com>
 
 
