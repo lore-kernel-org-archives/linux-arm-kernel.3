@@ -4,115 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1A5CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 23:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A15ECA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 23:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aO34Wg+EhZ2MBBOCazylrMjmoEMFQZsqrQuOcpOxfGo=; b=lgCIqYWzpM1+KZKcjePdHQeLxL
-	E+SvQMkb8p70hJ6g44w3eUL+u9QpLtYkAuMfhc6NjCSDDkoKUOm+DX/1S+MdNJLYWiKpNP/TSLGj9
-	M9dUOdCFBvnaw6E43KRnLaVzvIF9BXMOQnvOYNHUZz3iMXe/r+38U1tvj70SSHiuOzz1e8tl85ijY
-	dXb8mTetWgouB0KLlO0T0DAwSQReI2UvwcePMkv6dsr4e97xffwDnU89FtDWT2gOFrvzYY/G6V0Sd
-	1bI/IVaJhyhCwZLan7LXaWCcT1WrZb0lHUVHWI5pMHqf2syxJIDnaroiyIBe2KwqxImBX2y99Ekut
-	cgT3M01g==;
+	bh=cIiO4Q0ssDJyTXwlk+4PxB5WXHAZtmW2h48B8nNaGPg=; b=Tggm1bywsT4tyQ+O8lFgj6gZcp
+	nj5zQvr2N9+q2xxfaRou8PuWll9Wr3LnQbzVuC0Kt8Y/dkGQZtAdBT3yhUbd59HV1pfz25+gWeM1S
+	qDaZCNqivmYh74rQ8koawsOjIJMj76B3z/4zwJpR6guopdMvSBDkmg9dxF3TGXRPEUrcZrQquZVjc
+	jtxVyzhdydFqD/c/YvvbbNot75ueya3fD3XQohUZHttYyWHwU13jRmqco9Ki38Uw43wIaep4u6w+v
+	d+SbQ1NVdciuDmrNwTKFGaZGdfqfiqvUZh3WJHQEp0BFg/2eaRlmlFGW1rZ7wXw4ceIFw2IeTxsCG
+	J7j0FWVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEEPg-00000001U4s-2aSK;
-	Tue, 06 Oct 2026 23:17:36 +0000
-Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEEPd-00000001U4T-11QJ
+	id 1xEEVg-00000001UHH-1AvS;
+	Tue, 06 Oct 2026 23:23:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEEVc-00000001UGv-3igo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 23:17:34 +0000
-Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-98076bb236eso597683241.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 16:17:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791328652; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kViCH1inStxVWOmlIJ7UZ8AZVKArzMEwmjMnsXVq0qFqhtQF/U2CGb2qF2rWpaJBkd
-         UrGzq2KwiT51wRTSMe/wM+wOlT0Gelr1/rAWHTsu2A6/nNYCF1euxjGXo/uLm1YmY/+s
-         N5O7/Wrd892jdmjk59vK0c9rl7kbTjUOtDuy2J/VL9ua7U1wAsipdBGyQKMmGdcmlYab
-         Mi4td7fPYUXUaC6QGa2dm926q5iIUYCdBbUzfmuCvE6uxE3LbQSgdChk17r1Pe/08iu2
-         6iyt13mmS6WfVJZNoqEivR9uAVfGblNmA8Qmn17aptsm6MEOXNxpS+zBCJ1VNKYdAqee
-         jFMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=aO34Wg+EhZ2MBBOCazylrMjmoEMFQZsqrQuOcpOxfGo=;
-        fh=To3m5mfj6Y6ZXYyM54NAtBNo8skPXqCRu1ePF5LwC+E=;
-        b=qCsfS5Ym347x6Jy+Gms3ZSeUaMvsof0ZR13aVQ5qRp5CxVttayXqH+pPhEjyQYcjGH
-         2ggKV0+UBECrvV0PrcSYLWn6EHHcYCZnZf9V7L45R6eGdsB5nCHMgvsqchd+rVD/hq6W
-         urLgclIqg6maCKHjsOjxqDfyFBligKtu6c0wE4EQdQtz5D5w8lKfGsfoMQxturYjjxfe
-         fnA2kpg1f45Wue0LAkN5M2IearBd3GwgkFJMbwXL4hbCvvpWLXJyMUn+6SSiJpW8H7Rb
-         4/yX8fdbO7HWR2aHoCBi4gm/XgMfX8siUmiESRJ9TqY720jTQCZpTEmv1+yn4wlMVIc4
-         qiBQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791328652; x=1791933452; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aO34Wg+EhZ2MBBOCazylrMjmoEMFQZsqrQuOcpOxfGo=;
-        b=G0x3pNlbf+tsOc5/5K5Z2gFpOOxhWLv3Df5lxj0hEkV7uVIfhpNkzJLkM3oTWOhlXt
-         oWbGElrWDStqaThizjx+0XI10f4OK1Y1Nzrqh9rhu7u3BuCln9bhnzxPqoiYh3DKMljB
-         H5uXp6Nzh+PztOYfu+glAhkH86JWVOCHUmarohGAJxqZjpfBJ2mjPUnbVgmjzNpSUnGK
-         3qLWbYGeWN0Vboga17PUxlKsXF147wVqaKl4TXf2iL1xFAmtY479/gUXn6gH2ZzE8dP6
-         NmoR/GFZXaqDW3sAwozVkh6oiX58M6CeJHAjBvbQab/XWMo1tIXi29UjGpoH3AHz+pYp
-         kFCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791328652; x=1791933452;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aO34Wg+EhZ2MBBOCazylrMjmoEMFQZsqrQuOcpOxfGo=;
-        b=brxeypgVxBN6VkzOJan3RbN7PDYHF8Xl7sT5zwMnyJkOYuUWuB+zHxpDALzm8xwcVQ
-         WD6Kl4bNZ81Ud2mBQ5ITnp1bVsYbe4DtpVJftpXol9towRYVbSHVIPB4Bw7X2shBhSON
-         I1QvqlD3NCYs/UYsxCxvcQHy2wMYwRUExWAF94J0yCuGO9x8VolZDShCnwI2Plhkwqvh
-         x4EgA2VMHST96ONOm+HA6girIWalLvMOgPOzdqMRaM+zGvwjYqj0CvHr9t2h3S920UeY
-         QHwfuZTmjs+6AISgSo+KZNd5KzruLwZh89lddyVX8YsfA74Mae39GIw7L/r2697pYCVm
-         30GQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy2L2GLMfh5Z1qJoP1V0BFeEYC0cj7SPzbeUkjskPHmtC81lpyZU4brLmQ6XV89Aoor8B4zufMXb2M+Tp5Ml+bA@lists.infradead.org
-X-Gm-Message-State: AFq9FYKBVFoV6iOGH+wozQEDRISh7U6W7Ge5Cb1KPmGk8z7nBU59UyR+
-	USPqHLaaPZ8KdphtxdouxtZMJxNwBj1gVVKj+Yf44gegzSjui+S1P2OZFnjq4/sge+fPIAKWr0e
-	kQGTZ0vfklB99nvXgK/5Cl/fnLkAif/M=
-X-Gm-Gg: AYBFou0DB7YE0FHSyymiUoUjimLqZY11n/M3ETerPGhSK2pmsOLIVDdkwPPAgqgP1ZL
-	jXgH5tFXKK0hFMoGcQMg8up7gI64418ExESKZXMd5AYiG/mJsYQ/4VHNO4UZTRoij3JCRhvG0LH
-	nGr+ev5LNcd13goFJOH+77ZvVZIfvUJMUyKfcLmgJ16uFqYTY4AndcQKUOsu7rfzRxA2r4Jx0/j
-	mnzQzLBUEFnbimLZmMGjZKYiG1b5TMbbp/VslNFVByVoY3mjwVU/pu3GmOtsZ9kk2kdb8y7zjc6
-	ErGWDfjuXFAH9lNqHzoyR/QcqkvRCvlP9Zf0TPsHzcttqFMqBmuFh/wRKv3RiKchcamu/+1dNhT
-	2DUhiDbGzm9uSzbIIS/cOkY7KjOrReFlkBs39LGEzkk7iVVjyIIaBelHuUyR4fl4fBOwwLyvpy5
-	S8TDzB2eyAkX+0NCchqN1LMjKuRA7f1aMIByRCR4v+YDdn7Eh05xBVJuLX
-X-Received: by 2002:a05:6102:2924:b0:7ad:3ad3:997a with SMTP id
- ada2fe7eead31-7ca36e443a7mr124714137.5.1791328651645; Tue, 06 Oct 2026
- 16:17:31 -0700 (PDT)
+	Tue, 06 Oct 2026 23:23:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DC63152B;
+	Tue,  6 Oct 2026 16:23:39 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00D1B3F763;
+	Tue,  6 Oct 2026 16:23:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791329022; bh=aCf+ecADbpzZJB4b2Abbl4SbvxENP8Hj3uwHBY5Y/2g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pvSidUC1OjgIh52WAADE1kQvxGBSINL9WVgf6mcIrbC1OnU0w/KAbTE2G8jnpcQq6
+	 XqBPHRzVa6qVBjNd071DFriJEpI+r0sDcZg8lNcslFrPmSzcQolMjEzLLCpF7uC4z+
+	 ZuZ0ShU4AHBNWB9AiZcps9b0WFIECbmsoDSO9oSA=
+Date: Wed, 7 Oct 2026 01:23:37 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Pablo Mazzini <pmazzini@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: sunxi: dt: do not accumulate npins across
+ probe attempts
+Message-ID: <20261007012337.6765eae7@ryzen.lan>
+In-Reply-To: <20261006210313.43163-1-pmazzini@gmail.com>
+References: <20261006210313.43163-1-pmazzini@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
- <179127056620.2231598.8882282421523696709@kernel.org> <CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
- <20261006155214.63c5cb5b@kernel.org>
-In-Reply-To: <20261006155214.63c5cb5b@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 6 Oct 2026 17:17:20 -0600
-X-Gm-Features: AclHuK95whFkQF1vfwc0DrtRzHj7zemriMM1hLHVnrlFjQ1KlVVaQcu7yNMv7bU
-Message-ID: <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
-Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety IRQ
- request failure
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev-bot+sinfo@kernel.org, netdev@vger.kernel.org, 
-	Paolo Abeni <pabeni@redhat.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Serge Semin <fancer.lancer@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Nicolai Buchwitz <nb@tipi-net.de>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_161733_299775_55D26492 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20261006_162345_083100_E953E988 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,26 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2026 at 4:52=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wro=
-te:
->
-> On Tue, 6 Oct 2026 01:14:52 -0600 James Hilliard wrote:
-> > > Please do not repost the series just to address the above. Instead,
-> > > reply to this email with the missing information, so that reviewers
-> > > can take it into account. If the series needs another revision for
-> > > other reasons, please include the information in the commit messages
-> > > then.
->
-> Please make sure you read this paragraph, to the end.
+On Tue,  6 Oct 2026 22:03:13 +0100
+Pablo Mazzini <pmazzini@gmail.com> wrote:
 
-How much detail should I be including? I had previously been told to try
-and keep commit message more terse[0] and this info didn't seem particularl=
-y
-useful.
+Hi Pablo,
 
-Should I put this info below the --- separator so it doesn't end up in the
-final commit or something like that?
+> init_pins_table() adds to npins in the driver's static descriptor, so
+> after a probe deferral the count doubles and the next probe fails with
+> "pin 0 already registered". Count into a local instead.
 
-[0] https://lore.kernel.org/all/CAD++jL=3D6Ov5BPK1naX6orzMsrJPm_g6SkdRaU6Ji=
-+okXMFaZdQ@mail.gmail.com/
+Can't we just initialise desc->npins to 0, at the beginning of
+init_pins_table? I think Sashiko suggested that even...
+
+Cheers,
+Andre
+
+> 
+> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> ---
+>  drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+> index 50a16f3bd131..1c1888394cf1 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+> @@ -75,7 +75,7 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
+>  					      struct sunxi_pinctrl_desc *desc)
+>  {
+>  	struct sunxi_desc_pin *pins, *cur_pin;
+> -	int name_size = 0;
+> +	int name_size = 0, npins = 0;
+>  	int port_base = desc->pin_base / PINS_PER_BANK;
+>  	char *pin_names, *cur_name;
+>  	int i, j;
+> @@ -85,7 +85,7 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
+>  	 * Also work out how much memory we need to store all the pin names.
+>  	 */
+>  	for (i = 0; i < SUNXI_PINCTRL_MAX_BANKS; i++) {
+> -		desc->npins += pins_per_bank[i];
+> +		npins += pins_per_bank[i];
+>  		if (pins_per_bank[i] < 10) {
+>  			/* 4 bytes for "PXy\0" */
+>  			name_size += pins_per_bank[i] * 4;
+> @@ -98,12 +98,14 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
+>  		}
+>  	}
+>  
+> -	if (desc->npins == 0) {
+> +	if (npins == 0) {
+>  		dev_err(dev, "no ports defined\n");
+>  		return ERR_PTR(-EINVAL);
+>  	}
+>  
+> -	pins = devm_kcalloc(dev, desc->npins, sizeof(*pins), GFP_KERNEL);
+> +	desc->npins = npins;
+> +
+> +	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+>  	if (!pins)
+>  		return ERR_PTR(-ENOMEM);
+>  
+
 
