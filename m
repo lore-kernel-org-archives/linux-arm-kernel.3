@@ -4,140 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14CCCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7730DCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CnLdbYlKvqXeoSVRc+dWln6FKCr6XWwv+SKfxMf9bjM=; b=y1gkbsbbbhz7Q7hxOVZriI1bX6
-	8MF+iXUOE5v8QrVehGvAXFJSx3IIjR/r8+P3FjLHkflO1CIKZ8DhbS85lJlJEURk2/+pLKYFCpbxd
-	hF05HHcVZdkUxWWPn+8OgciliM32Jo3Ve3aTEbDe+0v/qGBFOChdbfNa1CsDkbRl8hfXXQ2VaX9gP
-	a19xQOmh5iCgJa2d9Vdshm/+adtzU3kiZuUwnqEgRJAvcocnAFwtmPDkTe1MkqOg0pK3ftSWSTtLf
-	WuM4CZbTMtdLxbiqxegqA+2SZ4oLYUPuJFBtTs4T0bEqXZ+vjsC3caCHmW+7CAvV2AjYPfjpeiu3R
-	x0Qxr+TQ==;
+	bh=QHKD0TCiV5FgOYF1uVO9X3gA7dIJfpFlI7tnzN7DHOc=; b=wQ6wINSSOdmE9TdA7xnz2fSpqp
+	eiK+MCGMpAfJsjzi3yzrxveU/Cs2tEXixE120NHcpOzMKaxnE0DCnsxE5GmMy3PTyWUGTzzFzmfCQ
+	bbVQpgF+GhcAg+jWz7Sc6URed7FDa/O34W8zkUZT5ng4fm0huVi7SFNdAJbpaEeB9o4c+sIS/028V
+	HXJ6kCAbotaLe4c3kn4GVgtoNKGxdj52YXHzMYFIg8gSIexrpUBoVT6XjHRaBHhSuYGQ6umip7MnS
+	B20DvO2BNU8r/GAKVdzqeBRTQUbl29Ukyl4jmU8ktDdwhnoa8EVnlLGQq/78UXL9NRAXJBQkiE6JK
+	IYMbqo7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDz6p-00000000A9a-3ZWv;
-	Tue, 06 Oct 2026 06:57:07 +0000
-Received: from mail-westus3azon11010017.outbound.protection.outlook.com ([52.101.201.17] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1xDz7N-00000000AEb-03qQ;
+	Tue, 06 Oct 2026 06:57:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDz6l-00000000A8p-3fCh
+	id 1xDz7K-00000000ADa-04eg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 06:57:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MkpbjUz4tCQcJT6ABZ6l5caTY55T70SlW9zvqPjiH1hKLcZ7dorsKaYDO7IOovyfvARUr1xX51P2k1YqUO1Wm5mxrIkbP6KYGa9t3HAulE4fwcZkkppx2QYQICwH10Z3gmzBMObiGaaUZMOV2vnKmcYv7OErJauvUyXpccYkF8dxbqB1A0e+PTZ6zf7Ojw2S/azX+REeNKkVWfI+tOSFX0TAtS0uEDaqjD0/gl6uiWK3mHrZTJL2W7JC4uHQRQvG7DPzaE29HowZj1ddEhwEojVNVZLFpeoRsASnXGLQR+IE0dh74DbdJuwVOTxY2y4yZd7w+HcusfxZhXcaMU6D9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CnLdbYlKvqXeoSVRc+dWln6FKCr6XWwv+SKfxMf9bjM=;
- b=CPgPdw52THSNUF/NC9GpqYCgFihLfe51VtoL52wyBJCl1Kk5uiVJETE73DgJDVm/m1FFZ3we7WS/OOfblf3e4ebgJkEgpNg6ze7soUcaTf0Sg1SOSHo5FvyhqrHsu5zEUB8+PsqbiE48wuxs3WpqyBQz19z1GlkDROgs1hqJg3VimKiuVb9ZjnnXwYWo4rgiaCKapqpZN3I3oErKBIY2xIJaVQxlxmhVZigCvZqYJAqWW9S6hIGkt70dgTd2mUnZ7yqfHKOv4Qce7gTiZUyA/v6LWvGZ5eQSmGkvluVpIw7B9p25vl1UfUStqn/l8Iby2PCI0qWwku5AsXKqyZ3mjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CnLdbYlKvqXeoSVRc+dWln6FKCr6XWwv+SKfxMf9bjM=;
- b=yCjGiAcuFFnvAqBHRh6mg0yIAorN4NuDRS4KdMUxid/XDccz0/nmLlC0FCoxTU9e7hHhYLhWNOClv1tQjVVXoXP4UvszvjflTdNAFdZDWcCPYNw/RmoVFSH+GsuYFPKXtjxmc2W4i2Uw0A1LFSe4ikXJgUCUKQVSYbLp29D9YDg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CYYPR12MB8962.namprd12.prod.outlook.com (2603:10b6:930:c4::13)
- by PH8PR12MB7110.namprd12.prod.outlook.com (2603:10b6:510:22e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Tue, 6 Oct
- 2026 06:56:53 +0000
-Received: from CYYPR12MB8962.namprd12.prod.outlook.com
- ([fe80::2c04:6d3d:3291:a265]) by CYYPR12MB8962.namprd12.prod.outlook.com
- ([fe80::2c04:6d3d:3291:a265%6]) with mapi id 15.21.0472.015; Tue, 6 Oct 2026
- 06:56:53 +0000
-Message-ID: <9606582d-da34-42d7-b08b-32e1ccdb1323@amd.com>
-Date: Tue, 6 Oct 2026 12:26:44 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 2/2] net: phy: xilinx-gmii2rgmii: Restore PHY driver
- on remove
-To: netdev-bot+sashiko@kernel.org, vineeth.karumanchi@amd.com
-Cc: git@amd.com, netdev@vger.kernel.org, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- michal.simek@amd.com, f.fainelli@gmail.com, harini.katakam@amd.com,
- appanad@amd.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261001074718.3944521-3-vineeth.karumanchi@amd.com>
- <179118764380.434549.2031845358588611322@kernel.org>
-Content-Language: en-US
-From: "Karumanchi, Vineeth" <vineeth@amd.com>
-In-Reply-To: <179118764380.434549.2031845358588611322@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0069.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b7::13) To CYYPR12MB8962.namprd12.prod.outlook.com
- (2603:10b6:930:c4::13)
+	Tue, 06 Oct 2026 06:57:39 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6966eHAY3433089
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Oct 2026 06:57:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=QHKD0TCiV5FgOYF1uVO9X3gA
+	7dIJfpFlI7tnzN7DHOc=; b=ZRh0DRuagu10jXsr/2CwnPuZzfrGoEcM7LrYOcqw
+	RAEVUKsozM+B54RLojLSAaEM9QBuQOSlf3oF6ZUqg4ATlgw3RXjKKy/OCF5h9LaH
+	nu6K8m4RIPv1DW+Cg2RMZ77OXRmwQT3GytBKQgHTW/oDZUY5Mkjow6GfB22YlAWA
+	2XPSOUT2TBl1L+S+ORW+wKhb1jv6CPHUSHAAQyogjVVFSPrTF03vwTQ4jkSdgd/h
+	v5jzvAYquZdZXdB15aiJ5kurpDESGaf9qplvKnl2KPagAzp9AWfl1dIsoTpYFewU
+	ElSzbrywPLZgW3mfATZGFqC8mvsJF6ncM+RbRc/WEEJ3JQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h4cvnkgk6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 06:57:37 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92e82060977so404352285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 23:57:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791269856; x=1791874656; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QHKD0TCiV5FgOYF1uVO9X3gA7dIJfpFlI7tnzN7DHOc=;
+        b=Map5ApeJN1Kpn6tfvMislVO0oCZm3THJ5D2h8Lu1Ze1hUiTtHBIU+hkUsXl4ehxKhM
+         Kr6ONWpvQDstEprvv+u6XN4rxyKs/VM79CISUJJWWzlLDBJloei5l2EyATgzOY+QL33e
+         Pv28Z04+/m3NVufJla3EyU0nYmHNFC4fL0Sv5rgq5ZXYMX0/ocYEyg14nlmdmz8n/Mt+
+         TrewwRrnpdKeJmf6FaCVgJ0WtzCQgl7vcWNaMkPL6TVrpatkkOHcMp2I9avG4oQeEMRI
+         iUoRPSVBLFI56yp2yj3DmdoCT8jlqESMN2vengXe7PEhrHpXpTijYnymtu8GP6txv2te
+         lcJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791269856; x=1791874656;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QHKD0TCiV5FgOYF1uVO9X3gA7dIJfpFlI7tnzN7DHOc=;
+        b=B8XJ8l7MWp/BX9qoEOzRMsr/GbMv/iL8TFekBOFae793rdNZtrz9TDaCUHZbYm56sr
+         eYUtW+OftbvXa4OxlBiVOQRj7cGQ/tP4eu+f9ag2F4fP37vPCR3NIU9SQcscV4fgXFRr
+         N3UI2xyOYa4M0PjURn+wyiPEzV6Jd8CYFyIBtqVc10apcvQ003qRGn1BLZGKz6AKjk1+
+         s+DnKOVNEsdQhWoOYGDuh71t1au4wrJM5G8B564fJ/ATaghnUaPuNJ20KSUDVUb+SfRv
+         H+aDYxoghN/lDUoTLV4V9ADsA3c7unrygnJigNeauAiETtn16WOZ+us8rnN9ePJKA5Lx
+         yTgw==
+X-Forwarded-Encrypted: i=1; AKwUvByhhBskGPS4DmHJ14L8OCgF7BSeO4j4u1M1m9ZxpzZTlKZrbR+0iYTyRzaDuMh2jOUKdCyerE2ccxODVsmL4TCv@lists.infradead.org
+X-Gm-Message-State: AFuF++k2/PugJ4YdhAzsTLPyP9LTLZysb0nhvvpWQVnGCssCcbF9/Uxs
+	GQExdCzz4Hs6gZcRDg/LOnXVBzmqZD5v6suQQe1VAPkgarCpyJElSj519unfjess62zTZT76yvC
+	gG+G/5Gww/xxZADdPF+h5CKUtPG82Kt5Xm41NE7JLoyL+N+jsNQtmBBoOMM6Ktz+w+YaLvkYTh+
+	g+qw==
+X-Gm-Gg: AYBFou0nFp58f5mWBmboifHXbvZc8BQY3qc2SkpM8JcmItJX3UcTfrURcm8KEC2hJ85
+	d+Duk3TsKetCRNqj3FjuT9ccz3uaHempn5jrYFoNdUup3Jkp8pgL/3JPtiTqHg4+6xYJj2BTOK/
+	K2s5/vzii9VMLQ+zN7n7/YCAQrvzuSQyJekd4QLb28cBGJF153W7fg+qQ9niROngXL3rDYwTYg5
+	oNzhdAVDRd1cRkVtjjwMpdtzby99yku9G34dgWfomt9X2B6PbhrKMO65R7h4AXtUCVR6MIxiZ02
+	8iroofiJGIXqUKTzFk+0pROmDUkT9BF28MxWZ394eDIjWSTGHUglxcyfJXWDlYkjF+iQmBuaaV2
+	278UkgBVuqso0lQ==
+X-Received: by 2002:a05:620a:618a:b0:93c:6450:9cec with SMTP id af79cd13be357-93e85ff3d0emr344086585a.5.1791269855931;
+        Mon, 05 Oct 2026 23:57:35 -0700 (PDT)
+X-Received: by 2002:a05:620a:618a:b0:93c:6450:9cec with SMTP id af79cd13be357-93e85ff3d0emr344084485a.5.1791269855325;
+        Mon, 05 Oct 2026 23:57:35 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c6308481dsm9551366f8f.3.2026.10.05.23.57.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 23:57:34 -0700 (PDT)
+Date: Tue, 6 Oct 2026 08:57:33 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Drew Fustini <fustini@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+        linux-riscv@lists.infradead.org
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+Message-ID: <asSb3RNcityVg6ia@lore-desk>
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+ <asQcQIh56MV1OJur@lore-desk>
+ <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CYYPR12MB8962:EE_|PH8PR12MB7110:EE_
-X-MS-Office365-Filtering-Correlation-Id: a24ab7e6-c1d7-4c35-3798-08df2377009b
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|23010399003|376014|10067099003|18002099003|22082099003|56012099006|4143699003|5023799004|11063799006;
-X-Microsoft-Antispam-Message-Info: 9uvWc0BQ6UMBpvby8SCKWwYiDAUyxInRAnL/cY1CM3T8fr69oR46aDy1OwLVK9dDHAgkd/YKxOBnCDGVNyjcvdAaLn4R5oYL38VQAOZqIgscqXJaYJVaiXopBq0/rUISI8lzWcWMV2gtWp0g/eChopNxiqdjDE3Zh5okqMsu0rnEF3nFuxX2pxcRoiXWuanKBOqpc79WqNAiceC2/u8jupSV7A2Q9iiLNjArd4gq7N/tKWXUyFxMoiWaOcLSEkTG2V/WjzLSir2FF4flemDGVsfHX6pCDzTOW4hFGdJIhTrqzvFV/jx8REpnrfiPd705BlPhaYqD8T47mv4hK8ohd+YxvWWTOtAbNWMlSBS89m/gZwfBkxa4wY8SrdNyI7tAXhr5k1YsJYiWP64ChSGn8hm+TgOdxwJfO+/XI/B9H7Mlvq/BRyn6fhdXPo/U8wl9VURB+LBTiBriLjjDGn3J4pcbTqfDRrXoSU6OJo20En0mEtDJzEU40J+9bBnUICnoQkFleNDUWOpdRJbw6+CjYf2WRPI9gcSpTtcSqbAqKHYilfvAGqxccAwxe01VRXTWbUSoz1hukuNkXvW9o9J+7WbjTdQxwrpGTHf3ZqarYPtBg+q0qWJRKy/1hewYQc4X
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CYYPR12MB8962.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(23010399003)(376014)(10067099003)(18002099003)(22082099003)(56012099006)(4143699003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VUh5NFRkbWJYWGhIaklVd1VWWnlrQTcySi9YYWtlQU1NNVlJcnFJZjRtd01m?=
- =?utf-8?B?VEtqc0hUdThaZVhpODhpS2s4bzhGUUpvckY3NkNiZS9Rd0MweU9RUytPbDhq?=
- =?utf-8?B?SHVLMmpCR2pSeFozdkkzNXNodHJPZU5uVDFNNjN5dVh1NDBabjM3K3hFcVNG?=
- =?utf-8?B?WHlXTUNrK0hReDZ5NURIZXZVTm1DWXBIM0J6UFNsMnFORldETyt0bnd5bjIw?=
- =?utf-8?B?RTQyUVNuZkxrZm5BK3k3RXl1VFhiSDRXVmp2Z2RHNlNNOWJnSURuSnF2MXBV?=
- =?utf-8?B?ZThLOFdXZHdWYWczem1CaXd3aEszbUUydmFacFNkaWhXcHNCcStGaGlmMFds?=
- =?utf-8?B?Y3ZjU3dGbU8xdndkazZ3QXJXMDN2R1MzUExLelJOTERZcjFtaEU1b3FQTXZ5?=
- =?utf-8?B?K2pZSnNHVzByN000M1ZsaWFjSWNGRWxrb293cmg4VnlzdnAwbmFlOU03ZlhF?=
- =?utf-8?B?OHBOQkg1YTlKVGlHRTNOZ0E1d3ZlZEUrQk5jMDJkd3Z1eFJ6cnlOL0RQdVBB?=
- =?utf-8?B?MEJaK000VXllaDVqWSthTUJOQ2xtL0F6TFN3Z2hyQVp3Rm1PNU4xNTlBZjhO?=
- =?utf-8?B?alVQK1ZUanFaNG91ampXdFpNeVVYUUZXQ21tUC9idlUySUJ0cE1kSFc1Z080?=
- =?utf-8?B?WklJUUl6WDJSNGdZeXpUQ2cvYU9KVkcwangzZUEzdzBQQjU1b05QK2pUNnBK?=
- =?utf-8?B?V2FjYzFFR2E3bCtQRzBUN2FCdmp3NTN2VkRWZ1ozbTFQWGtFQlE0TEw3NGds?=
- =?utf-8?B?ZFZVZ2dsSmlXbXh1S2p0bERtRjA1MEtEVUZxMjJmY0d1YmtBYjRzRXZOUkh1?=
- =?utf-8?B?RHdEL0hvTmdUQlQ0NnArVEJzR3NCWTh5bkVUUkU2U1ZHaDJHcmtuRXR3cmtL?=
- =?utf-8?B?OFBZMHd4TlVUUUxtRWhiN2wwMHp0bWZvVGdta3dQamJaQ0RPY012Wk9heHYy?=
- =?utf-8?B?dVd2bTk5Um9JUzlZbnRhUEV5N29PaXpDdHYraENZcU5CbVdxUXMvWjBoUFRu?=
- =?utf-8?B?Zi9tSjIxNDNFRUxFTzFWUDlzV2VPL0xCQVp3c0xucDhISkE1bVJsNktwRXR0?=
- =?utf-8?B?cndXUUhLVWVKZThBR2dkZHg5ZVFZbmdzMGtFSHBpc3lyNmVjNmJ0ZlJPV3dl?=
- =?utf-8?B?ZjkrT05wS0F4ZUZrdjVxOFg0NDlaT0JzS3h5QnlFUW9MRW9tQS9UTmg2a2gr?=
- =?utf-8?B?QmV0dC9XSktiWUlXYTlwNExxeUY4MmNVYmRudG1oTVpCbndwVzNxRGowSVVk?=
- =?utf-8?B?RmYrK1ZyVnpQUWYyWEpIVzRiaU1GQStaaTZ6LzNPWmVscW9aRlkya0Ivc0c5?=
- =?utf-8?B?c3BmZXRJcm80WW9FTDNRVXAySGRGYThJb0dIWmgrM0hsZkJKVFdmT1Q3Y1Y1?=
- =?utf-8?B?ai9xYTlPcnpvUmE5WVcrT21zVlg1eTBrRmFEaXdkTC9Za0hXQmZnelBoeEZ0?=
- =?utf-8?B?NkkrZmZVenpvckRaWjJDUUJZZk9tMitVZmcxRSs4YkJOQUE5NHF4M3BZek9m?=
- =?utf-8?B?VXQrQmNKZnZOVDUxNW9tNVc1SFlBY2hqeTZKL2RVcHI1U1JXYzJlQXc1bTd2?=
- =?utf-8?B?bVgwby9mcG1ncnFtZms1R0EvdjNXdzB5bHF1TlE4dHJMZEd1Y2N3SVZzWTZh?=
- =?utf-8?B?OVBCcURJakhxOHI2K2sxSDVLb0xqdFBCTDgrZFRPSCtaQTlLS3ZyN2JXSmRT?=
- =?utf-8?B?b0Q2bElsbFR3dGpZa2J5MXA4SkxOeDlrMWdOY3BQMDI1WGpOdHFaZzFMV2pV?=
- =?utf-8?B?Rkt4Y2pBc3lxYXloTlE4Tkp0NnE3OXI3R2U3WUJoUG5WQnhYTmxFMjNUNHpw?=
- =?utf-8?B?VVZLVmpYdnJEYW8rMi9PYWxXWEhCMW03NE9nNm9CZFdQL1lxV1ZYQTd1RUJj?=
- =?utf-8?B?NlV0Zlp1LzF6bVdVQ3RiSmtCQURHV1ducFoxanBaTVpSamk1Zm5RdDNFYWFt?=
- =?utf-8?B?NGN5eHRrU0lsNWhFOVNhUWtxZElkTHNCRmtPZzFKeEUxNURLbWZadEdrNE0w?=
- =?utf-8?B?ZHpjQ3ZGT0N4VlBLczVtMmg0bmcyUFE2emJOc3pnVHhjY0x6dWxiYlU5SmE0?=
- =?utf-8?B?emN1YWdzMGRqOHdkMFVDcVFRTmhYVkZBcVhIVmlSZzlRRmFFV3VsWTIyOXF3?=
- =?utf-8?B?RzMzYy9KZkxESm1uV05JK2s0MjB6ZVU0OFJLamg5RlZhV3lENVdUTEIvMVNz?=
- =?utf-8?B?ZUhmK3FEYUp0R3dsNWNXbGpvVDRkQ0ZISTROTFU5SUNReGNwNWs5eEhSbmpF?=
- =?utf-8?B?NUZyWWoySkVOWWFObzhlZGh3OW1jL0IvY01QaHdHNG84N1VjcTVhMEFpNTIv?=
- =?utf-8?B?and1TnJTL0tZaldqNUZDSkZTak9DWlNVcU5JMXgvN3lQRzl4SXhJQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a24ab7e6-c1d7-4c35-3798-08df2377009b
-X-MS-Exchange-CrossTenant-AuthSource: CYYPR12MB8962.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 06:56:52.9985
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YQvSKRIfS1G0sTmD9w8TEt+t8/2bEYOVUvq73ZIDZgAQixcK2OVL0yuh7+ORDhdb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7110
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PY9H+lOa39O6BaT9"
+Content-Disposition: inline
+In-Reply-To: <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+X-Proofpoint-ORIG-GUID: sPzugd9E19tUwN_Afx26GHMD_NrY7xGo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDAyNyBTYWx0ZWRfXzQegdVA8DeT3
+ bC4OyI3o+ICBlLf1AC275WibfTUXNIRnz/GAqZZv7oyeIM/oEs1N0ELOAwKQCAy52YhuXYGtjOj
+ B4PUwbGXKDTH6hI5i41dMjwrL68QKVPcGGA1ix3k06JPTH0wdFY+mMfxZ4frp9I4OMaeDFXGn5f
+ FOPdoatbhEp+DFLH4xTs/xnZkBtTYQLUi5kPnzvqrhAnQEl4LylN81TUFoELKiIsJXmn8Vhh4lg
+ p4dCjlDsyaZRTGZqWk/INjzzUR06sdbATJ/MtWz0+kBNYaum8EBp6yDwUvzRRvgEqCMvZsVbLwM
+ 6AV0d16sGJm5PK+l/9pAohjLuLqojz4JJfXhSZCrEFT1ydbV1QS/TOFxfidyKLHabDESbWPq0rw
+ k7wbGz4WG3I1+x8ZWqnttFjaPBSv8m07nY7E6lRbfy/2+7wDyWO6uqCM+lPgcc92x020Ugr03BP
+ NTDDoRsrPNG/+Ui1wKw==
+X-Proofpoint-GUID: sPzugd9E19tUwN_Afx26GHMD_NrY7xGo
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDAyNyBTYWx0ZWRfXxQr94cqvOmyC
+ g71Lo7OFbodajKmQc4SbjJztRBc53rBtHKIl0mGiopCRQqBeEjh3LPBKIU4txpJR29/rgduUw+A
+ 5WiIi0Ba6smcyB/wIrIP/gawZVVGXoE=
+X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6ac49be1 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=7Ag77JHl3iOYbQ2bdk4A:9 a=QEXdDO2ut3YA:10
+ a=7pNlf7y_wykQaJU8uk8A:9 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-06_02,2026-10-05_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 malwarescore=0 bulkscore=0 impostorscore=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_235704_091730_373AB3B5 
-X-CRM114-Status: GOOD (  39.75  )
+X-CRM114-CacheID: sfid-20261005_235738_065248_B9B5E6B7 
+X-CRM114-Status: GOOD (  34.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,191 +161,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replying to Sashiko :
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261001074718.3944521-1-vineeth.karumanchi%40amd.com
+--PY9H+lOa39O6BaT9
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 10/5/2026 1:37 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 2 · Medium: 0 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] xgmiitorgmii_remove()
->   (drivers/net/phy/xilinx_gmii2rgmii.c:147-149) always writes the driver…
-> - [High] The fix relies on every reader of phydev->drv holding
->   phydev->lock, and that is not true.
-> 
-> --
-> 
-> net: phy: xilinx-gmii2rgmii: Restore PHY driver on remove
-> 
-> This adds a remove callback to the GMII-to-RGMII converter. The callback
-> restores the attached PHY's original phydev->drv under phydev->lock, so
-> phydev->drv no longer points at the devres-freed conv_phy_drv copy after
-> the converter is unbound. It also drops the device reference taken by
-> of_phy_find_device().
-> 
->> diff --git a/drivers/net/phy/xilinx_gmii2rgmii.c b/drivers/net/phy/xilinx_gmii2rgmii.c
->> index 61f71e977a574..b9aa5515577b5 100644
->> --- a/drivers/net/phy/xilinx_gmii2rgmii.c
->> +++ b/drivers/net/phy/xilinx_gmii2rgmii.c
->> @@ -128,10 +128,29 @@ static int xgmiitorgmii_probe(struct mdio_device *mdiodev)
-> 
-> [ ... ]
-> 
->> +static void xgmiitorgmii_remove(struct mdio_device *mdiodev)
->> +{
->> +	struct gmii2rgmii *priv = mdiodev_get_drvdata(mdiodev);
->> +
->> +	/*
->> +	 * The attached PHY is a separate, still-bound device whose state
->> +	 * machine keeps running and dispatches ->read_status / ->set_loopback
->> +	 * under phydev->lock. Restore its original driver under that lock so
->> +	 * the swap cannot race an in-flight dispatch; the restored driver is
->> +	 * the PHY's own static phy_driver, not the devres-freed conv_phy_drv.
->> +	 */
->> +	mutex_lock(&priv->phy_dev->lock);
->> +	priv->phy_dev->drv = priv->phy_drv;
-> 
-> [Severity: High]
-> Is it safe to write priv->phy_drv back here without first checking that
-> phydev->drv still points at &priv->conv_phy_drv?
-> 
-> The only thing the converter holds is the device reference from
-> of_phy_find_device(). There is no device link and no module reference on
-> the PHY driver. That means the PHY can be unbound or rebound while the
-> converter stays bound, and in that case phylib has already changed
-> phydev->drv:
-> 
-> drivers/net/phy/phy_device.c:phy_remove() {
->     ...
-> 	phydev->drv = NULL;
-> 
-> 	return 0;
-> }
-> 
-> A rebind does the same thing: phy_probe() installs a new driver with
-> phydev->drv = phydrv.
-> 
-> If the converter is unbound after that, xgmiitorgmii_remove() writes back
-> the stale pointer that xgmiitorgmii_probe() saved. Three outcomes look
-> possible.
-> 
-> First, an unbound PHY gets a non-NULL drv again. That passes the
-> "if (!phydev->drv)" guards in phy.c and phy_device.c. The old driver's
-> callbacks then run against a phydev->priv that devres already freed. If
-> the PHY driver module was unloaded, they run in freed module text.
-> 
-> Second, if the PHY was rebound to another driver (for example Generic
-> PHY), the old driver's ops get installed over the new binding. They then
-> see the new driver's phydev->priv.
-> 
-> Third, if the converter is probed again, it passes the
-> !priv->phy_dev->drv check in xgmiitorgmii_probe() and memcpy()s from the
-> stale driver struct.
-> 
-> The comment above assumes the PHY is still bound and that the restored
-> driver is the PHY's own phy_driver. Nothing seems to enforce either
-> assumption.
-> 
-> Would it be better to restore only when phydev->drv == &priv->conv_phy_drv,
-> and to tie the converter's lifetime to the PHY binding?
+> Hi Lorenzo,
+>=20
+> On Mon, Oct 5, 2026 at 4:53=E2=80=AFPM Lorenzo Bianconi
+> <lorenzo.bianconi@oss.qualcomm.com> wrote:
+> >
+> > > On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrote:
+> > > > stmmac_update_subsecond_increment() ignores the error returned by
+> > > > stmmac_config_addend(), and stmmac_init_tstamp_counter() discards t=
+he
+> > > > addend and system time programming errors, always returning success=
+=2E A
+> > > > failure to program the addend (PTP_TCR_TSADDREG) or to initialize t=
+he
+> > > > system time counter (PTP_TCR_TSINIT) is therefore silently swallowe=
+d,
+> > > > leaving the hardware timestamp counter in a non-running or partially
+> > > > configured state while the driver keeps operating as if timestamping
+> > > > were up. This matters for TAPRIO/EST offloading, which derives the =
+gate
+> > > > base time from the hardware timestamp counter.
+> > > >
+> > > > The same hooks are also called from the PHC callbacks: settime64 and
+> > > > adjfine drop the error and report success to clock_settime() and
+> > > > clock_adjtime(), so a dead PTP reference clock goes unnoticed by
+> > > > ptp4l/phc2sys.
+> > > >
+> > > > Return error codes from stmmac_update_subsecond_increment(),
+> > > > stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
+> > > > settime64/adjfine callbacks instead of silently returning success. =
+On
+> > > > failure, roll back the partially applied configuration so the hardw=
+are
+> > > > and the driver bookkeeping stay consistent, and report the reason
+> > > > through the devlink extack. Also guard against a zero sub-second
+> > > > increment, which would otherwise divide by zero when computing the
+> > > > addend.
+> > > >
+> > > > Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
+> > > > tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializ=
+ing
+> > > > timestamping, so a failed init does not leave TX/RX timestamping
+> > > > enabled on a counter that never started.
+> > > >
+> > > > Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to gen=
+eric HW Interface Helpers")
+> > > > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> > > > ---
+> > > > Changes in v3:
+> > > > - Do not run stmmac_config_addend() in
+> > > >   stmmac_update_subsecond_increment() error path.
+> > > > - Return error from stmmac_adjust_freq() and stmmac_set_time().
+> > > > - Reset hw ts configuration in stmmac_init_timestamping().
+> > > > - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-added-s=
+ystime-error-v2-1-beb2a6b5f866@oss.qualcomm.com
+> > > >
+> > > > Changes in v2:
+> > > > - Initialize sec_inc to 0 in stmmac_restore_subsecond_increment()
+> > > >   routine.
+> > > > - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-added-s=
+ystime-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
+> > > > ---
+> > > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++++++++=
+++++++------
+> > > >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
+> > > >  2 files changed, 84 insertions(+), 32 deletions(-)
+> > >
+> > > Hello, I'm noticing that after this patch was merged into linux-next,
+> > > boot seems to hang when ip=3Ddhcp is used because ethernet isn't work=
+ing
+> > > on the TH1520 Lichee Pi 4a. These lines get printed in a loop over and
+> > > over
+> > >
+> > > IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] thead-=
+dwmac ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > > f2 mtu 1500 DHCP
+> > > [   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmmac-0:01=
+] driver [RTL8211F Gigabit Ethernet] (irq=3DPOLL)
+> > > [   24.912780] dwmac1000: Master AXI performs any burst length
+> > > [   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety Featur=
+es support found
+> > > [   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init failed
+> > > SIOCSIFFLAGS: Connection timed out
+> >
+> > Hi Anirudh,
+> >
+> > based on the reported error, stmmac_init_tstamp_counter() fails with
+> > -ETIMEDOUT. In particular this can occurs if:
+> >
+> > stmmac_init_tstamp_counter()
+> >  -> stmmac_update_subsecond_increment() -> stmmac_config_addend() -> -E=
+TIMEDOUT
+> >  -> stmmac_init_systime() -> -ETIMEDOUT
+> >
+> > I guess we should understand which one is failing and why it is failing.
+>=20
+> It seems like both are timing out, both config_addend
+> (PTP_TCR_TSADDREG) and init_systime (PTP_TCR_TSINIT).
 
-OK thanks, I will update in v2.
+It seems hw timestamping has never worked on this board, it was just
+undiscovered since stmmac_init_tstamp_counter() was not reporting any
+error before (this is exactly the goal of this patch).
 
-> 
->> +	mutex_unlock(&priv->phy_dev->lock);
-> 
-> [Severity: High]
-> Does taking phydev->lock here actually prevent the use-after-free on
-> conv_phy_drv? The commit message says:
-> 
->     Restore the attached PHY's original driver while
->     holding phydev->lock so that the update cannot race with an active PHY
->     callback.
-> 
-> The lock only excludes readers that also hold phydev->lock, and not every
-> reader of phydev->drv does. Once xgmiitorgmii_remove() returns,
-> devres_release_all() frees priv, and conv_phy_drv along with it.
-> 
-> The state machine drops the lock before its suspend step:
-> 
-> drivers/net/phy/phy.c:phy_state_machine() {
->     ...
-> 	mutex_lock(&phydev->lock);
-> 	state_work = _phy_state_machine(phydev);
-> 	mutex_unlock(&phydev->lock);
-> 
-> 	_phy_state_machine_post_work(phydev, state_work);
-> }
-> 
-> phy_stop() does the same. _phy_state_machine_post_work() then calls
-> phy_suspend(), which copies phydev->drv into a local and dereferences it
-> with no lock held:
-> 
-> drivers/net/phy/phy_device.c:phy_suspend() {
->     ...
-> 	const struct phy_driver *phydrv = phydev->drv;
->     ...
-> 	if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
-> 		return -EBUSY;
-> 
-> 	if (!phydrv->suspend)
-> 		return 0;
-> 
-> 	ret = phydrv->suspend(phydev);
->     ...
-> }
-> 
-> phy_ethtool_get_sset_count() also dereferences the driver before it takes
-> the mutex. It is reachable from the ethtool ioctl through
-> ethtool_get_phy_stats_phydev():
-> 
-> drivers/net/phy/phy.c:phy_ethtool_get_sset_count() {
->     ...
-> 	if (phydev->drv->get_sset_count &&
-> 	    phydev->drv->get_strings &&
-> 	    phydev->drv->get_stats) {
-> 		mutex_lock(&phydev->lock);
->     ...
-> }
-> 
-> Could this sequence happen?
-> 
-> CPU0                                  CPU1
-> phy_suspend()
->   phydrv = &priv->conv_phy_drv
->                                       xgmiitorgmii_remove()
->                                         mutex_lock(&phydev->lock)
->                                         phydev->drv = priv->phy_drv
->                                         mutex_unlock(&phydev->lock)
->                                       devres_release_all()
->                                         kfree(priv)
->   phydrv->flags / phydrv->suspend
-> 
-> If so, CPU0 would read freed memory and might call through it. That is the
-> same kind of use-after-free this patch is meant to fix.
-> 
+What are the output for:
+- IEEE 1588-2002 Time Stamp
+- IEEE 1588-2008 Advanced Time Stamp
 
-I agree that phydev->lock does not cover all readers of phydev->drv, so
-the concurrent removal race you described remains possible.
+root@rb3-gen2:~# grep 'Time Stamp' /sys/kernel/debug/stmmaceth/eth0/dma_cap
+IEEE 1588-2002 Time Stamp: N
+IEEE 1588-2008 Advanced Time Stamp: Y
 
-The GMII2RGMII driver is unusual in that it substitutes a copied driver
-for a separate, still-bound PHY. Given that this behavior is specific to
-this converter, I would prefer to avoid introducing phylib changes
-solely to address its teardown.
+Regards,
+Lorenzo
 
+>=20
+> Regards
+> Anirudh Srinivasan
 
-Thanks,
--- 
-🙏 Vineeth
+--PY9H+lOa39O6BaT9
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
-pw-bot: cr
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasSb3QAKCRA6cBh0uS2t
+rCKbAQCmJebvx52SDrck5zSXUdLfieTjYBeBL6g808K3mRR84AD/aSk0GzNPwVbF
+/lg8BlYmykmbAcOk/AZYVZ286hVsugE=
+=Gf8I
+-----END PGP SIGNATURE-----
+
+--PY9H+lOa39O6BaT9--
 
