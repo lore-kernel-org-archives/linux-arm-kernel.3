@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09F6CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 10:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B5CCA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 10:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ze0pmdyjgRkCyKL63/qNmZFz4TXiGAoe0p+7PuTHRUA=; b=PqWoo7S6x3Hos/ets46P5hZ48v
-	Ozb8TaN6Zg8tTI3258zLWFZ8bFUH0f2QtI6pa7NK1EzQPn+n6sBnkoK0xYUIhOfOuxR8uip7HFc11
-	TpkJgMq+jxBoqqbr1c8X/95DtXfuM5MVAy7Iwznwv1J95MeV0agVIzH30KXwh0ojRzvb/+X+fvEHh
-	++uUMl1pHXErIVao+DrULJhTJO78UFycXnikciv6AqL9lJzgYzuok6vBBistPMjbbO4xwKc1A4WsJ
-	fUsE6242ytu1Wu/nKLFca19nvtMaWpW3G42JyvC8qQqKthSMNJ92apUVAqmPFnlw1Z7p8HOAXRh4+
-	XOk9Obyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7oup34LMQK44s5+r/PArwLKN+1YdH0CvlQSNY8m4+Yg=; b=UzOJucoTNdL03c6hcHiYwLUiZE
+	yjD4FHZ1Hxo70uhZXBqIf8VNa57dEZ3DDGC0o+CtlsrQR4VEv33OHmsc13iFpdKkguYsJQT5VLo4U
+	Ehcii01eVZT09tMyF5SmBw85rAxkb6H/YvUIVp0xN9WjrWd4Jd7zJaouSeeRvUKfakE4COJ/7qqcU
+	hQGhH2eGMWbJVBzKtXN8d4Zm81J23espbMQUdK7eUgRErCxPy0QR4agIqka6x8R1ODsGvOe5piveQ
+	Vv3MYd5NUuKbq7+QesNY3u4u59wB8k/odai5TmLAK7SLqbJJI/yj1IrxZDQNwc2sCaC3ljxanATy3
+	U4IW2ANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEOpb-000000029Ao-3iOX;
-	Wed, 07 Oct 2026 10:25:04 +0000
+	id 1xEOpn-000000029DS-1G3o;
+	Wed, 07 Oct 2026 10:25:15 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEOpO-0000000299R-0UBD
+	id 1xEOpd-000000029BQ-1sCp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 10:24:56 +0000
+	Wed, 07 Oct 2026 10:25:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68A6960210;
-	Wed,  7 Oct 2026 10:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDA311F0089B;
-	Wed,  7 Oct 2026 10:24:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD94C60218;
+	Wed,  7 Oct 2026 10:25:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C8D1F0089D;
+	Wed,  7 Oct 2026 10:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791368689;
-	bh=ze0pmdyjgRkCyKL63/qNmZFz4TXiGAoe0p+7PuTHRUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W1nGPu37lAD4iItWp6ybwSb8RRV+U7tivGsueqB9V/3uX0Yllqhr4pClwfJJom8Sx
-	 X6fnvOoz8cRWvl7/DcBQqiJK9EfwuVItkgiyQRfbPb4wkWoeYYnDo9D00uo+XQvBw5
-	 hUZTy1dETwUaOUi0S8VxNoOuFTCbs4AO5OAovQ+TqzS2JIF5xl/KB0k6Yj3cPPynqQ
-	 BsLMCaKOQRZL+sYj8VXFFKNz7OgCp+SpG+1AUaCjKEM4U3y5aTDft4vZJrAZHT7uck
-	 4qkEindwnin+landYxYv6CJqX/fDJiA0SDcA3zUGFc3O5edr5IfEmSVcm+jwtnuDVD
-	 l/GV+yrgFlFIQ==
-Date: Wed, 7 Oct 2026 11:24:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Thomas Bourgoin <thomas.bourgoin@foss.st.com>
-Subject: Re: [PATCH v2] dt-bindings: nvmem: st,stm32-romem: align
- patternProperties regex on nvmem-deprecated-cells.yaml
-Message-ID: <20261007-4fcf53de5de310d92affa63c@squawk>
-References: <20261006-stm32-romem-v2-1-f2e156f563c6@foss.st.com>
+	s=k20260515; t=1791368704;
+	bh=7oup34LMQK44s5+r/PArwLKN+1YdH0CvlQSNY8m4+Yg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ddGUB+PvBp/6ASSKJJLfA1NyxKGXNPcgBSh5J2NtpCIZx7OFuMYpTRt2uZtl2Qjhr
+	 jjx1vr14soDI9JoWs1yx+BCDjpw96/7qMwMhcb1bZSZX1Z+gPk7f4a7DnpzMsFgl3a
+	 AUo/EUuVQcfttuH3vayzdQBmq7mQlY/4DOXZIVVwu1VhKA3u5D7nCIHX4Eq456+SI6
+	 OT03AJbHh6UsUU5dvEYbQF9AVVoxLv1AVk4eBU6ypF/OEr90hE0TbnmwBKP2tq9lca
+	 cEtbLP3EsQYvGd7UxQmkV6HiuaCIHIGhFHV/yS1y9607Z34FgA2h36YspFv/NdsVoo
+	 iVR99KNebMstw==
+From: Mark Brown <broonie@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ cwweng@nuvoton.com
+In-Reply-To: <20261006063643.198830-1-cwweng.linux@gmail.com>
+References: <20261006063643.198830-1-cwweng.linux@gmail.com>
+Subject: Re: [PATCH] spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant
+ SPI example
+Message-Id: <179129615225.150114.3085056544164822355.b4-ty@b4>
+Date: Tue, 06 Oct 2026 16:15:52 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t/M3KmnA6P0SMj4E"
-Content-Disposition: inline
-In-Reply-To: <20261006-stm32-romem-v2-1-f2e156f563c6@foss.st.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1144; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=FEmwUBDcBGQL9iiPxzMr4lPkRI/RrXqtCEB1d2RtwqM=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhqxjsj9bj4RvlmLNui4hb5Lnqmn2dnZKfvRG9mNdj28Lf
+ 3zMVlHTyWjMwsDIxSArpsiy9lnGqvRwia3zH81/BTOIlQlkCgMXpwBMpOkN+z/rGPf6XRuF3HPk
+ 8i6sDU8QsznKpmLTJH1iw5QzUyU4DzT2NTOvYvD+4mh7Wa8kZrrHCls5y8Ju6ZpZspmqFaUMH93
+ 2bPC8k9WZf43/8V+NsxELjDKOLJn7b+m9YhuL1rjC08EM6bnGPxVeNfR98jjAESU/g/vikyksTP
+ 9+tG+w4NyVIxhtsuGO9hXNvdFlU7NfaT1TUpSvFvaKvGbf25gkrvXorLY7q6Yw20/fqJj+HwdD2
+ +qP14UyFhz2Eq5/e/xZ3aNrITEHG/P+/Mx6F7FxSfmqrd/Tll53Ox1gafLR7iBn+d/V2V7JzTsV
+ HjGdTVjL/jPW/KSVi1+SWJSWyIKG91sYlSR1a8UVD1sAAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---t/M3KmnA6P0SMj4E
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Tue, 06 Oct 2026 14:36:43 +0800, Chi-Wen Weng wrote:
+> spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant SPI example
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Applied to
 
---t/M3KmnA6P0SMj4E
-Content-Type: application/pgp-signature; name=signature.asc
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
------BEGIN PGP SIGNATURE-----
+Thanks!
 
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasYd7AAKCRB4tDGHoIJi
-0oD6AQDxIkvzHjhhwqIsfxRcu6JCKsbMB7R/GDV1eo6YJsPa7AEAyHY+0PgFGMxs
-66DEyMYgv6Yx6OHyapOhZAnnCygmIwU=
-=cNUN
------END PGP SIGNATURE-----
+[1/1] spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant SPI example
+      https://git.kernel.org/broonie/spi/c/921ecc459d4f
 
---t/M3KmnA6P0SMj4E--
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
