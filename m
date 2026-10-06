@@ -4,141 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC9ACA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8222ACA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=; b=RC/4Z4SpGxs42+kjmmGcfGHFY1
-	xt6gccSIeHH//jN4THnzqYCC0wPlKhlcBcQ1jXkdkbSJc2Z3spk3/CyzeAddvHZA0h0x/1AYUvWvp
-	7WqTTTWdxljPGwbMNgM3dbAM6JWDODsipaxMsA8K1tJapsy9ALvdA7k0sdK8pSnkv9HOQmI5Hoq3p
-	kbu3KdZHw9/RWQA7CDD7+vszDEpfYOJ3M+mZESQDLQ3WBBlY6sp9R6Bfm/nRbXodqBVXvEKWRimYu
-	anYocUGUqLkms3e01unSXA+PKTxZajqWdNSoldUaNj+mpsvpf/3RjJThnGidsV/j4va5cFpOcwtyb
-	gqAFM6nQ==;
+	bh=JXZcbfQ5R2pnW1rQGIme4m8Q+eJ1+fI6owtjAZk1BXE=; b=rRFrEeZzgNe7YLQoivJbayUASi
+	8CO6wzmirUwS+6P+lMmhM2fburC0Tt/+FkyrHv4QowjOtzizlkmNw7HHCrlQygs9hC8ktKSKsnyrT
+	CQMHBYnkFnF22ImBczvuIkPlclwcmMhMnVZTuIcHkP380JySf2mjrW+Bh4RNvqsNxzLQGYt3yNoeY
+	k5CrA6/JAv8Vg5w4xnTtn81N8KYD0jg4+WS5RrKVziQ24b+MbS1K63dRv63pK8ENcC/ZO1TWIBvF7
+	DVsUhHrrQHxx/YZUXOR/hgKJN/wwFMZl31n/Qfw179dmaHO/qoM3qBqh8GJs6ggB2d5fMCx22ZRTS
+	63e+gQ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4Rr-00000000mNv-0Z1c;
-	Tue, 06 Oct 2026 12:39:11 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xE4Vi-00000000me8-2qBn;
+	Tue, 06 Oct 2026 12:43:10 +0000
+Received: from mail-northeuropeazon11011037.outbound.protection.outlook.com ([52.101.65.37] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4Ro-00000000mNU-3Y8S
+	id 1xE4Ve-00000000mcC-10f2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 12:39:10 +0000
+	Tue, 06 Oct 2026 12:43:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I+rWs1PVYcQotA+1FmuhPta8aY6QW5eQ9ztvNLRy5ldnojhJQXMB2YOwYwvrmCGtJUvkLAOuBkwLloslZB3+oTLuOQ/VBjpc/fAO4LWsP/SBV4P2vwv3VifMbP2IK+OiCtY2HRK3jv0gEcBBpvvC1DLX3rbkxFf3hfWGkaxYJ5w4qwdKT7/HvNOrrM6kA7f+7TJFH+ZVmkWuHOgF7OPbGecYC9fgwunsMmTKmjQsiivPZ3xrLMPJzPa/Do3ld+MO1yHKNcbgdGExwQ6x3nOoHRVC0a6IyOX08RWl25hd3HbFOlCYuHM03V4KC1nJdgw1NlLxoE9mHEuEjIZn7A/8cw==
+ b=fM3itzYz2AZWQkP3DbjX8YGHnTHoPnKI+02sXETRLCmFlX1A8+66TgNS9/eapoApzJglUfFfNwzN0ROSWPKpmtcgs7GjB//jJma+Dy6wyHPImE9fqgicAvP3s8KyGQ50COJ4qyhDt+gX2CQ4XvFxJ1mIy8S2H7nW6g1PdMd0bImNGWm9KOEdAXtQ1gRArI9OhV0hlu3kLaPncqOu6O34XiGWYH2AEn/N+mV38BzKthjqz/RYz2FykCAri3QHiTz6on5nji42EIt/d8bvsdUCQEnXa/rWXAIyYQjbDYtIYLNBtnzYCDv/Awns1SBY8qjhOSNcZ3lWzUmTLRq7IFfUIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=;
- b=t1cetyWa0Qk2EzRKuSKADa/81TRvlpKtfuWINh8YsWvCoTfyEt5lcDkwjQFnHVZwk8fm3uYZeDRs3gAcX0azHiu4Hog5kZ2K+bZPDgrm80Ss4dEgCESar26HI8vzP0HmOcIZ5TpZwPA3NezpLrwMAKqJthDwIrqiQPpfcBb23u/bIS9BanjPnwyXrNe0CWg8mw/+HSwtEvNQIJe8vnbjuiPOyoRx0OyquvkaJMgMeSScEpD3nYbI9Md3swbQDtFr4nMMsWISucWA6NszqsTXuB/iynwDVJfQOsncIy+n9BBpWcaZ5YzU2XpI2QrXucIfvbmdbZ4yhj8Nzg2HTGxPeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=JXZcbfQ5R2pnW1rQGIme4m8Q+eJ1+fI6owtjAZk1BXE=;
+ b=alGokxrVMqohW9uG+EHuQOPkzrf8b5AguDLRI50xwpVMLSvi0VJNXZWziwVBgAMd1O7bhPb+QgnYdqS0GQDmo8Jf+Ck0qIsHi4cAwrLwr+Qwvxg88HZOPrPifDhDJDYLRTgZhLtQ3XkfJGDfMUyUWRRokGM63uncQ0XHtsQ4EuEa8MEBvjCFxfLQYD9v4OyEufP8p4djh0/03iUNrY9mlCKxzzDNLRSgpfabzlv9S5inwBfIJ97WmzHxaAqtZab9R0Q5xD2DZ1nFdufj3XDO03wHClcRQjnGGeZHU+DIRxKB/gY/cjYYRtBZ3cx9y1xXSJhDbkY0lmW1+IcHwQpcWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=chromium.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=;
- b=fPPDIFJnr7V7aiAWgGjpTgaBpipuMuEYFXx6he2VH3/YeAr671TsSl1Pd+V9yp484+Py77emzDwSzvzU0w5W9T2s2imlDdcqWLLNAdu2AKXLIsMiiG0OjsgYm7CesmbheVWs32GgAv4vySMrTub6Dan3eNkIevp142fi2b6qmZqs+/V+ALC90rWjj4HdfcM9+rJcaHOLwP0rYdNS3cMZ6+VjZklae4+iHEzPkTB2WwzSAReiYJpg6t9wSwlaLV5F5CVzw+yeDmjy+LkronxeZjWXFrc7/p7PVeZZydtb5PRlM7AYQAW3VdvtScxMcniXwL77/424eo8PB0TIp/V5mw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by MI9PR04MB480781.eurprd04.prod.outlook.com (2603:10a6:290:d3::18) with
+ bh=JXZcbfQ5R2pnW1rQGIme4m8Q+eJ1+fI6owtjAZk1BXE=;
+ b=ofH0KvjJp6pvf7JpNQO5Q4t78qNpiAd/g9ggutW06AnQATK9gAMi3Z8tn/eEqRvb45SWEtMeCTNSwYY5Qm0lX7pbmQXuoQr+7Fg0EKFHX6Drei7Z2sKXDZw9cfVKYjBMwbeAA1J9yIqTXscpRHPvLEE9HgPDX5/9vDKNea5PgtkYFf84oKg3dPxzcei8Ma72JiYxV1KjWrEq9hV71Hcmh0g6E86/UsgYuAZ0u19+BabYGReTg7yeapJOrWDmmiWXw+Pq/xchSXz4B5fetDYNhbIOHl1FTHQQjkLF7gFuXgi8mrtsJ+womxg4PWJSFFicH9OZ3qUBhLoZ+EpiBzmBvw==
+Received: from PR3P189CA0086.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:b4::31)
+ by GV4PR10MB002783.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:404::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 12:39:03 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Tue, 6 Oct 2026
- 12:39:03 +0000
-Date: Tue, 6 Oct 2026 20:43:34 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 0/9] gpio: mxc: bug fixes and probe cleanup
-Message-ID: <asTs9scYht+xg7v5@shlinux89>
-References: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
-X-ClientProxiedBy: SI1PR02CA0001.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+ 2026 12:42:59 +0000
+Received: from ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
+ (2603:10a6:102:b4:cafe::42) by PR3P189CA0086.outlook.office365.com
+ (2603:10a6:102:b4::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue, 6
+ Oct 2026 12:42:59 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ ZR1PEPF0000E6BC.mail.protection.outlook.com (10.167.241.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 12:42:59 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 14:48:58 +0200
+Received: from [10.252.27.219] (10.252.27.219) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 14:42:52 +0200
+Message-ID: <39d56818-922f-488e-842d-19a194654921@foss.st.com>
+Date: Tue, 6 Oct 2026 14:42:51 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] iio: adc: stm32-adc: Drop runtime_idle()
+To: Brian Norris <briannorris@chromium.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>
+CC: <linux-pm@vger.kernel.org>, <linux-iio@vger.kernel.org>, Andy Shevchenko
+	<andy@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	=?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+	<linux-stm32@st-md-mailman.stormreply.com>, Jonathan Cameron
+	<jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, <linux-kernel@vger.kernel.org>, Fabrice Gasnier
+	<fabrice.gasnier@st.com>, <linux-arm-kernel@lists.infradead.org>
+References: <20261002230714.507921-1-briannorris@chromium.org>
+ <20261002160309.5.Ica1e32ae51d7975844386684d2b6a097f3ca9122@changeid>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20261002160309.5.Ica1e32ae51d7975844386684d2b6a097f3ca9122@changeid>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.27.219]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MI9PR04MB480781:EE_
-X-MS-Office365-Filtering-Correlation-Id: dbb46a3e-84e6-4010-9c61-08df23a6cdab
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6BC:EE_|GV4PR10MB002783:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14bae2b7-1ba4-44af-ae8e-08df23a75a46
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|23010399003|376014|19092799006|56012099006|11063799006|18002099003|10067099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: adsSxmjO0tUND2oY66t8gHlTE3RVuwEfiNb3kF9z4hlnfORmyBmjpyfDPzfgbKiGX3Cx9M6Mibf2ydBUjOYibDgjlIIgKPcAqY77AHtkb0aQxQTsKWAG1aY//6X4xNwcJ4i8bkcCUvweYJ1WL/eERr6m0QW9UeH+QZCeY+kIqiPEQjJioAb2UFuWpuUiRq9es333XF1anEaPsmKejeMVQVf9Q+TVmY3QOkto5Efer8mf8PAvfWfLSKQeBszXu9hsmBPlE6uCN0Xz7UHSoFfY5hXe9hXP4QsR+EAR06TY2W8xPcuDTq45pEFfhs/J21aD4s6rH8+i/rSxc5uPhJqmgfEFLWcCKPmld2RjplXmMmU3Y2MkJcFG5Yun/VAPtvVqJ6oBfDz2MsSr6ERV82BjuITp/OaGpp2ndlyM+kd0lHDCNMpP31XAzY2giwDfrXALOlBsGvE1dEBcQRE7Ec/XRqB5uwuOBnUD66IkCp0NWFC6KeE34UjX5mV5XrCXkr54lYaUDMnzRxcZLI387O5xygYKWzQYfKUKZRWquDNdi85FukPij9WW5uF8SZZieD0RgKqp8Irz1JENs7wfLQm/wECvSdoGEDoVu8kP4XUB4SA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(23010399003)(376014)(19092799006)(56012099006)(11063799006)(18002099003)(10067099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|7416014|1800799024|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: h6E94C+Qe3Gmv2c1AZ6cdIRzcOoa57aXSF5xEw6JHM06tYsni0TpIZNjnQeuwOg9JxwwJ2k/Gl0w0tzwc9JPB4Yg0xAlTD4I3Y5L3uDaqCuu3WSsnF+OQ7ZlA5qpw3YdOviC9sBd4g3qonMuUoVtQgByKy/oNh3ziq88iptVvkHnT2Q9uyqzBtk+cpzYTa09WGOdP0tREbTMHNDWmBE/Gc4lCoX3ck5HpT41cnlXwkrOTEYkZ+O8mzDygOpyjxfka0UM//viT/ORrOng0RXcFG8OR3bayWEBbTbv6NtpvqFPM3CCJCnuHw31VjOPxiUb76xTaF0tf7MtV9NxLS7l0BCxlHap3U4nGRJ2tmUIojmhkCbOMKl97wb1lXdkqRrqqMtcTvSm4qMtNlSayWMcqd1gK9JRibWEcltY+ORwKBiG6KaRf7CwsGBzRZerfH5A//PByEoY1YzcUY2Mzf2KdmICuQetrtda2p3XbKgAH9xTXGP5TqFXnNtUmd40Ydy2KnEbm+Y4ITJ72PoaACEBykwPkO7Ro6i0aABVBQb7PSFjG4GTMdoxyIdEVqqgeLKDOnWkfkMeUO/TVswWf0fvq5Dsrm+e7niiZjYxBIv4aZCcpQXdQ1N8PJPfXIo1orTgIcOEwkbo1YJXJkrlJ2mdLWBd19bXP9a9+OYwo/tea8exhPDVdtXxtaYJ6EwzRuzr3Vq/A6RWZwIPa/YbC5av0A==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(7416014)(1800799024)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZkNQL3E2RXdUdXExeURzWFZTN0d4NE9aY3FUSGh2STRpSGZUYUZkR09RZWY5?=
- =?utf-8?B?OEJlRXpZdVNiSHVBTWNsdnRUckkxR1lTbzZZUDVPenNCSDRwS3BZQ1c2Tktt?=
- =?utf-8?B?d01iTzhoTVdKMy9US3M2ZW9HVzFaK0xSaHRKcjlnUjcwTitwL21jWDdUaFVQ?=
- =?utf-8?B?ekNCS2haTGRzREVLQXh1Ty8vd0EyWmxkc0U1MFhLc2JpK25yMnB5ditOVXZj?=
- =?utf-8?B?RnlDMU50dFc4a3Y1WnZOenpoei9rb0JFWnJOcVRGcDVFREtxRmpvOFpGQ2p4?=
- =?utf-8?B?WDRCZS9Xb1RHK3N3WUNBT0JkV3pLbW0yaGlEbUZHZGJUa2c5Y0U2TEJpQzVW?=
- =?utf-8?B?MDhVYVFEVFdGMkE4T2ZsNWdzNmVIOTcxSmtPYnpkOUNNNnM3cUxzWjhtam56?=
- =?utf-8?B?TGJYRUdnQUpoQmJYOFllVXU2SWVKYlBCM3lYYWhtdWE5YVlVQzIwanhnNHFq?=
- =?utf-8?B?eTB0aXdPRjd2TkFQNzl6V1dCYXcya0tadDBDRFZjOFBzTG1RcmdOclA5Rm02?=
- =?utf-8?B?KzVqWVV3YS9SK2tHckdIbFF5bStOQVJkZjQvMC82cGw2N1NJRTB6aHNpVGwr?=
- =?utf-8?B?QXFJNHloQlBpZEtvVVVQa28rYThDakozNTY1T2dCcm5YTlFJZGVnejMwTUZI?=
- =?utf-8?B?RjAxT0JtTG0vWm00YjBDYVoyVERSWXQvQ2FLOFJxdXNZeVYwa3ZBaysySXg1?=
- =?utf-8?B?dklHenQ0TE9CaS9UZFVUL21ad3VXQTZURGFkeURGVCtLMzlnbWxnQmNrWWNX?=
- =?utf-8?B?MTVRUVZSTnBDbTZDZitRdGFWcUw4bHlCcE1WUTg4ckpNRFR6TmNSNXhUQllB?=
- =?utf-8?B?VWRYODB0RDFtUk52TE43dGtVV1paS0hJa21sazU2UzFnMDlEZ21pUHVYdHRs?=
- =?utf-8?B?Y0pXa0N2OWRPMHRLWmp1OWE5bldQbTUxK3UvMllTT0x4ZXcxVFpCTmNVclJU?=
- =?utf-8?B?bTJ5bXFJY2IvZllVUWhDWmd4d3VRVGJZS2sxeHF6TUtVcEc0amhqKzZVWkhO?=
- =?utf-8?B?R3ZzYmR5OXl3c2cwc2xjYWE1dHJnOVk3R3VoK3RTWDZPb3ZLUzdTY2hvUlJ3?=
- =?utf-8?B?Yk0vZ2kxUk93MGFDblc4VCtOTXRLUGdacHNPeTlGZ0dvbCtrM2NjdUI1d2JG?=
- =?utf-8?B?SnFCTUFUM2NWQUNZNTVtV1J2V29yQVpESnRNOHJQcElFSWp4eDFRU1UwUTcy?=
- =?utf-8?B?SkE1Z054WFBLTmpLOVFMS2UxZWhpSkdiYmt6b01xN0hEZmd2M3VCMmZlakhM?=
- =?utf-8?B?bzBtM2hSWEs4dDZUWDFGYlloNCtvRmFiQWlyaHBsVVc3VzhzdjA5Ry9aUC85?=
- =?utf-8?B?ZXljcXRzVW5oL3BYaFFGeWwxNEFaNXk4eDRwc0duR0txWDJxWGtyV3E4WnQv?=
- =?utf-8?B?Y2RqcytMVFNuR2tLQmVwSTN1aGJNQ0hWSkJIYkhjRkFHS3NSR3R6Yzd4SXk1?=
- =?utf-8?B?c1I3VG1mNWtSRzRwRjZqdFlhY1lKYmpBWG9vdnJ2ZUFUWlltTUJhQ1NNeTJ0?=
- =?utf-8?B?VlhUSER3bXgyL0VDSEJnNFg3aTVpRUk0SVI2SkQ1UmpKSUpCbXVBbzNnTEgy?=
- =?utf-8?B?dmZKS1VSQVhRWGpnSWJzMDhTakhRZFhLeFA1VUY0QlY5Mjg0ckhOaUUvelBm?=
- =?utf-8?B?eWtPQUZWVGxSSWc4NUxpQTJLdk9lUUlVczUrQlp5bHlPdmZ5eUJpY3o3VXNy?=
- =?utf-8?B?Y2hsM3lhNDVlUzRyeER3ZWNOY2d2WVUvMmFSejZjckV0K1dWMk0xNkhyOExO?=
- =?utf-8?B?ZzFWM0lKTGEyODM0SkNQSU9LbjN6YTJVa3NPNklkeHREbkxQTE40MFhCbm9I?=
- =?utf-8?B?akx4eWxrbmJ2K0svekpIS3Rwb2krMEJVK25IL3ljTGUxckJ1cUZQZVJlRmkv?=
- =?utf-8?B?UHZqYXlGSlpCRlRHUnNyYVdleGMyS0lublVzYlMzQVY5V0RhaUxUUEQ2L2t4?=
- =?utf-8?B?Q1NnbDQ5MDNmWHcraHcyU1VNMm1sRy9IMW5SRzRlT3BGbmovcWpCTnJiK0hu?=
- =?utf-8?B?czl5aWNJWmZWYjQvTTVBUC9NRElveWdHSHZNckUyM3BQK0dNS2kxaU1OQXJw?=
- =?utf-8?B?NWZSajZPSGd5ZE0vaWVQZERiRGwyZ002S1FTc2lkbWJWOGgweTFQUG5xYkZx?=
- =?utf-8?B?ckpvSi8wbzI2c1pHc1E1Ulg3Q2ZqV2ZuU3J5QWdjbDJ5TXJOSUE2YVZaUnBK?=
- =?utf-8?B?V0NLNHVDSVNCNlRoY1VWNytmM0JOK3E1TXBLUUxzWEF4Y1d3WnNhMkFxMnZi?=
- =?utf-8?B?a1dzLzhoYWcvZFM2Z01hVkcvZFBITk9FTVJXTi9CaGljUjI1V0Vlbld1cWFC?=
- =?utf-8?B?T0Rxbm1udmdRT1Z4VzFsZkxkVTUrdThnMm9MbUxuN21WRnZ4VlppT2EyVnlE?=
- =?utf-8?Q?uaCGh60NGjIr11yYwU5GEa8eq9DrjcZWtKDVl?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbb46a3e-84e6-4010-9c61-08df23a6cdab
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:39:03.5115
+X-MS-Exchange-AntiSpam-MessageData-0: FWLOLvhxvEutvQBvRi2QcPrejuqfkQOZEVv4sONd1dFqN3js++QcL75Mj+s0y6GRduTMeDgLQKZw0EpQ1rSQkMfjuxv8Wq6xatU9b4P5IcQ7jMtopOp/RSg2RBbmKLDbiduoWDkgALARpYXS9rIKRYL1Y7yK74R2kq0fYUbL+CrTxts8kJ65HozyiZx7s8Bx6Eu0HPfp9jwzmG51bWadsGYLbKs2175b0dtKYPKG2xbAOuevNPs/JA9EjC1dLlhVPrHrT87PZjxmazWVk2jThK0EEoeGSiK0mTXLF8Dfl+O8cAK495A5ayM1t/OskpSXbhSMQFG229MYiR6YPOKmQdjYZOx8rflZNsQxtLzmZJsmWaZB+x6IVUdWinMNTtNw3xoUIneUu4jIdTLZzk1ugj1/QqJfufcjqTajmZwx8ONkXozLcMijuFZCLnJztMQz
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:42:59.0257
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: r9bIUsteGWiL+EFA/h1rMLmL1ZngZ3D+24uZtkbMDtKw9XxcXme0pkatmt+y0TgB3XoTc7DjXzOP4dJyqvEIVpgATdNfngLkMYxSFNREOpsSKCgs/hi0mS9yOyP/GWcj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB480781
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14bae2b7-1ba4-44af-ae8e-08df23a75a46
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR10MB002783
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_053908_891782_471AADFA 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20261006_054306_513944_DD300B80 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,100 +133,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ignore this V3 patchset. This is not a complete version.
+On 10/3/26 01:03, Brian Norris wrote:
+> This runtime_idle() implementation was added in commit c537d3457542 ("iio:
+> adc: stm32-adc: fix runtime autosuspend delay when slow polling"), to work
+> around a suboptimal behavior in the runtime PM core. It should no longer
+> be necessary as of "PM: runtime: Propagate last_busy from dependent to
+> dependency".
+> 
+> Cc: Jonathan Cameron <jic23@kernel.org>
+> Cc: Fabrice Gasnier <fabrice.gasnier@st.com>
+> Cc: Ulf Hansson <ulfh@kernel.org>
+> Signed-off-by: Brian Norris <briannorris@chromium.org>
+> ---
+> I do not have these devices to test. I have tested other drivers, and I've
+> verified this behavior in unit tests as well.
 
-Thanks
-Peng
+Hi Brian,
 
-On Tue, Oct 06, 2026 at 08:31:05PM +0800, Peng Fan (OSS) wrote:
->This series cleans up the gpio-mxc driver in several incremental steps:
->bug fixes, converting runtime state to static per-compatible data,
->modernizing resource management with devres, and cleaning up
->register access patterns.
->
->Patches 1-2 are bug fixes:
->  - Fix a race where the chained IRQ handler is installed before probe
->    completes, allowing interrupts to fire on a half-initialized port.
->  - Fix wakeup_pads bit operations that used wrong set_bit/clear_bit
->    logic, folding in the assign_bit() simplification from V1.
->
->Patches 3-4 replace runtime of_device_is_compatible() calls with static
->per-compatible hwdata flags, eliminating repeated string comparisons in
->the suspend/resume path.
->
->Patches 5-6 convert probe error handling to devres and dev_err_probe().
->
->Patches 7-9 are cosmetic cleanups: local dev variable, MXC_ICR macros
->with field_prep/field_get, and BIT() macro for single-bit shifts.
->
->Signed-off-by: Peng Fan <peng.fan@nxp.com>
->---
->Changes in v3:
->- Patch 5/8 ("gpio: mxc: convert probe error handling to devres"):
->  Replaced pm_runtime_get_noresume() with
->  devm_pm_runtime_get_noresume() to fix a PM usage counter leak on
->  probe error paths. The non-devm pm_runtime_get_noresume() was not
->  balanced by any devres action, so any probe failure after the PM
->  block (e.g. -EPROBE_DEFER from devm_gpiochip_add_data()) would
->  leave usage_count permanently elevated, preventing runtime suspend
->  on re-probe.
->  Dropped the explicit pm_runtime_put_noidle() on
->  devm_pm_runtime_set_active_enabled() failure - the devres
->  registered by devm_pm_runtime_get_noresume() handles the balance
->  automatically during probe unwind.
->- Patch 6/8 ("gpio: mxc: use local dev variable"):
->  Keep of_device_is_compatible(), only focus on switching &pdev->dev to
->  dev.
->- Link to v2: https://patch.msgid.link/20261005-gpio-mxc-cleanup-v2-0-bdc3afbb35e2@nxp.com
->
->Changes in V2:
->- Reworked compatible-string caching (V1 patch 3) from probe-time bools
->  in mxc_gpio_port to static hwdata flags with per-compatible data
->  instances.  Split into two patches: one introducing the flags scheme
->  with MXC_GPIO_HW_DATA_COMMON macro for power_off (patch 3), one
->  extending it to pad_wakeup and imx8qm (patch 4).  (Frank, bot review)
->- Replaced devm_pm_runtime_get_noresume() + pm_runtime_set_active() +
->  devm_pm_runtime_enable() with devm_pm_runtime_set_active_enabled().
->  Keep plain pm_runtime_get_noresume() (non-devm) for the probe-scoped
->  reference to avoid usage_count underflow on unbind.  (Frank, bot review)
->- Replaced irq_domain_create_legacy() + devm_add_action_or_reset() with
->  devm_irq_domain_instantiate().  Squashed with the PM runtime devres
->  conversion (V1 patches 4+5) into a single patch (patch 5), since the
->  goto labels cannot be removed until both resources are devres-managed.
->- Split dev_err_probe() conversion into its own patch (patch 6) for
->  bisectability — patch 5 uses bare returns with correct error values.
->- Folded gpio_set_wake_irq() assign_bit simplification (V1 patch 9) into
->  the wakeup_pads fix (patch 2) where it belongs.
->- Used 0x3U (unsigned) in MXC_ICR_MASK() to avoid implementation-defined
->  behavior when shifting by 30 bits.
->- Replaced linux/of.h with linux/property.h to match the
->  of_device_is_compatible() → device_is_compatible() API change (patch 7).
->- Added return-value checks for devm_pm_runtime_set_active_enabled().
->- Fixed stale error code returns after devm_irq_alloc_descs() and
->  devm_irq_domain_instantiate() in the devres conversion patch.
->- Link to v1: https://patch.msgid.link/20261003-gpio-mxc-cleanup-v1-0-dad728ce27f2@nxp.com
->
->---
->Peng Fan (9):
->      gpio: mxc: fix race between chained IRQ handler install and probe completion
->      gpio: mxc: fix wakeup_pads bit operations
->      gpio: mxc: replace of_device_is_compatible() with hwdata flags
->      gpio: mxc: convert pad wakeup compatible checks to hwdata flags
->      gpio: mxc: convert probe error handling to devres
->      gpio: mxc: switch probe error paths to dev_err_probe()
->      gpio: mxc: use local dev variable
->      gpio: mxc: introduce MXC_ICR macros and use field_prep/field_get
->      gpio: mxc: use BIT() macro for single-bit operations
->
-> drivers/gpio/gpio-mxc.c | 257 +++++++++++++++++++++++++++---------------------
-> 1 file changed, 145 insertions(+), 112 deletions(-)
->---
->base-commit: f0406245cb9855e6318335a8a223551354291a46
->change-id: 20261003-gpio-mxc-cleanup-e49cc626c51e
->
->Best regards,
->--  
->Peng Fan <peng.fan@nxp.com>
->
->
+I've been able to reproduce on stm32 earlier behavior by applying this patch only.
+With the full series, so far, everything seems fine from my point of view.
+
+I haven't deeply inspected all the series, at least for the stm32-adc driver, you can add my:
+
+Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+
+Thanks,
+Best Regards,
+Fabrice
+
+> 
+>  drivers/iio/adc/stm32-adc-core.c | 9 +--------
+>  1 file changed, 1 insertion(+), 8 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
+> index a42d82d61cb8..e9e113a46ccf 100644
+> --- a/drivers/iio/adc/stm32-adc-core.c
+> +++ b/drivers/iio/adc/stm32-adc-core.c
+> @@ -836,17 +836,10 @@ static int stm32_adc_core_runtime_resume(struct device *dev)
+>  	return stm32_adc_core_hw_start(dev);
+>  }
+>  
+> -static int stm32_adc_core_runtime_idle(struct device *dev)
+> -{
+> -	pm_runtime_mark_last_busy(dev);
+> -
+> -	return 0;
+> -}
+> -
+>  static DEFINE_RUNTIME_DEV_PM_OPS(stm32_adc_core_pm_ops,
+>  				stm32_adc_core_runtime_suspend,
+>  				stm32_adc_core_runtime_resume,
+> -				stm32_adc_core_runtime_idle);
+> +				NULL);
+>  
+>  static const struct stm32_adc_priv_cfg stm32f4_adc_priv_cfg = {
+>  	.regs = &stm32f4_adc_common_regs,
+
 
