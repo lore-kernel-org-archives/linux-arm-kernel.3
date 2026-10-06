@@ -4,154 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B364CCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57932CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 09:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6lZUkpVR2embVnE4gj43/nQGZnGE5UdHFQRo7taqeo=; b=doBGpFr8S64FzACJfkrMgkYKpj
-	M4WMqEVJT6vbGkg/S0rQhiic8Tm5qVq+U07+Zqy19ZauVR0S3GLgcnvM1BbnWqXkxv4Z252VKU//T
-	hshSCZncqGz7Ft3G3v6HPl3CtR967kfYZeysGFS+0E8IO51jZj8ayLXslImFD9fTURksfn4hMCKR3
-	zg3crayZLE//ph/qOQOr1TrjQePFBTPG0d2BhjP58CMRC1WS2Z1cMoQjVAXYoHcowRvzb+txJzplV
-	8qf6Ho2hHUtEEhVSgaMYIDTP8YfFKGymsVJW7jvUnabhz0UGOyAgJ1nq4zl46eZ+NXdEPBSkn9xvQ
-	45zAvcKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ze+lLseWVs2mwn8i3mDvQRLYjEW/WOQvepaH7D4cZ5M=; b=yuxL59R8bzdyx3FrI7PKTWcGct
+	u7PinETNKi7j+4IO/o+uk9wNUku0RBZa2zxjpgtY4JXhEy5E7wsy1YLSYgAxa96ADlwpFAkfv5KxD
+	CDsSOkU7F7VOpABnFYB/4mGG+ztmyJxVVg9Il9SgL9ZmcfnrRhD8upOm7+ix0PRZ0nyIR57dv5hnW
+	XOtJwVvmhJsnx9lsUkZmDeIF/uLrcOvAi0uWkpO9NywFHuKdzQnab/JTpr5VYrWgsKPD+jFPEsNuj
+	VoLV8sgNohL90ccnYhop4T7ItosWD2NKbZnANtjmSmwsYjPqfK3KtqhEWaRUhKORSR9QY/RmI/Tzh
+	IfqfcDtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1kE-00000000Q12-1uYO;
-	Tue, 06 Oct 2026 09:45:58 +0000
-Received: from mail-japanwestazon11010024.outbound.protection.outlook.com ([52.101.228.24] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1xE1lS-00000000QBh-06JG;
+	Tue, 06 Oct 2026 09:47:14 +0000
+Received: from mx0b-00128a01.pphosted.com ([148.163.139.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1kB-00000000Pzv-3NJ5
+	id 1xE1lP-00000000QAA-0VIA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 09:45:57 +0000
+	Tue, 06 Oct 2026 09:47:12 +0000
+Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6966c0xD1226319;
+	Tue, 6 Oct 2026 05:47:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vtelectron.com;
+	 h=cc:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	DKIM; bh=ze+lLseWVs2mwn8i3mDvQRLYjEW/WOQvepaH7D4cZ5M=; b=bccvL1L
+	Lz2J1wg+wDm/Xs1WMkrBzsumqUc2Q/vgzIGk5zMSO4TwCypVX1otAAqcsj0/aNHW
+	hGAWaaTyXZpWNga/HRBO6PO9WA15GnPUxME1V78Wz92VaOhbKPijr+bV+58nBN9a
+	EAUJvSMK6sRmZz7lJuR9nzZtlUq2V/iAYuamFsI+v2XVC4hrrZWq3LD0c0mW0Drc
+	0iHUUB3LtcB0KJZZQea+WncrRLvBb9/3JDNBsAfKZCvnH3aeYgA/az+9Llb2AD2Z
+	Hn8hg20U1/Wcu947FkR2Zcij6lQZwa7g8c4dVYVbPSfa2SZBj5ohI7Icwk6Y8J3R
+	NH/EuWKAt48+JTQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=ze+lL
+	seWVs2mwn8i3mDvQRLYjEW/WOQvepaH7D4cZ5M=; b=V30vn+AqEYWlabPvNYN10
+	Wcjgsrul5OQkp0GPh9IQmoYy1XElK+7DPd+NvXqVMmgtfcnupcI5SC7qTVAzcH0C
+	SGWwpU9kwMFv3ZdP4oaQdIXJ5wXQcBgyRdXVp4z7fk9CSoFkAo4dGp3kkxHR/wSZ
+	sfXBO4Eq6Jh2chu9yyKz6DVLLxbCpLKbzrAvkBQeOsAhBzMKkP5Q/OxggzDVsOd7
+	lqvfxqa5Z6UkCvBbHZ5tjJUbobjaQeYkobhQ9DJgcNhQjQSQGkatm50XFCk3bX42
+	9Aa5G6J2VQ4FunPfyUr5i/ytteIiGlh5fbln+5imeQGLeINiHGS5Uet/1h/unKjK
+	w==
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010000.outbound.protection.outlook.com [52.101.56.0])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4h4jvybgtw-2
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 06 Oct 2026 05:47:00 -0400 (EDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sILRUJKOQe3WRhhZyBjJp7LgDqb7w2O+kXc+kxavCfCokYIn+OL8e+bAkHvKq6hkhPajJ9p+kwoCOz1DhMAlhvtpZbKD9MpYEMkfIHhMsyErFrMZnFv0YAwxgMqKRsJhswF8WveCrYUFBYdutyyH/jSKSEsQ4SNlNaPvSpP+ZXcdMfOnypNnOtTLtPp+TJm6pdtpLthfBo8QfhRBRX+xZWWKYZOG9720cuvB7E3QOAfKbCsNYmaPINFtRmfiE6QkRLHsEPrURxs6k17xHySs/SXzOZRl9mcsenMbRNB7gFGaTtxHSnKLCYGJ9tYGVdsg5b+8RMuvTPqZR4SZIJzJuw==
+ b=RX8isepMjdVsEVX7YnEFRhMHW/w4WCFFeNEtw3CYuudz0QaWxEGYTU2F96niMBTKu4/qUq95cNewxfToWZUknr9Z/te2bMSklVC6V8bmAhaTwhBeY1Fk7gT/fGVtAbYEhRLArNd5BZEmwcXFOiHSmHLIDXMKNaeVkIATB+1+WeNlJbuZfcTvJK5Rw/YlbBBf+3hwioq9cF9IeOfvoX9HggUS6AUdYs6ErsSuzb8P0yXJMBvUYoD3BEDheww34ZkKBUvJJh2sGouLgBc9selHL3CSqTRz8N4IsWa3XpJakxxM8SdI7hwV3KU0lJMeYNDM2uRFMYpapiUtawDv+yk6GA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T6lZUkpVR2embVnE4gj43/nQGZnGE5UdHFQRo7taqeo=;
- b=eewA/9RVODE1X5L1UhHElgxo3HS4inTGt1+43U1G0eZD+IGftUhvtYtbFMHbLefVYO70VD2JGTs3CGqwEv5OnmTY9PyK28jpclP2bkkGjEIVb7MokWpP4ByYSoD5D1b1MI9cU2QHyiXMrPUEJ6Q7glaBT+G7bOs8XkBUBnXO0AyvyIfmQbqXe3u5wIXKxUKDFFYlGr42AZhcnuR1PiMMZzFbKhMTP/6+v7i5S67uvN3VjPGd4KuphGYKoJ1IZFg6k3aKnP4IZL/7kLx9U8X2g9ZpIOCWJpVPjZV3+0Bf1xakmImZIvAmOy6Gd7GkDolRfK3I9Oy4FtN8Mv8/cuJp4g==
+ bh=ze+lLseWVs2mwn8i3mDvQRLYjEW/WOQvepaH7D4cZ5M=;
+ b=HBjBJtohofD1nOCjNEsH3iw1sBg+7GdF2G1LVEKk9o1aiBK5fSrbdJgcNRWMeb0+ZYPoplMClJjWs/5/v3VtXgLN/7gJWFU1CXeUlFoJTSVLQRrV/rW1pDXkuDRGN0hb6khnNgc6ws3J3fyMuxoDXayqncROaQXtbDbJUOQ38tQNcQR5aokcJsgdG7kCUkF3NUqw8TEGyQqJ6/KSql8YTfdyW4tn7hZeShya3cRdbYPL1L6x9GSdQ+VYxLomN3nAO3NjFVv3Gvb+Y9DetOktZRjho4bQFf+sAKrBafgH3rgOjqypXXI7jzJJDVCZaZiNc1m0/DR0yktJFTJ2iCUHFQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T6lZUkpVR2embVnE4gj43/nQGZnGE5UdHFQRo7taqeo=;
- b=fnjRLcVwkjM/eiNXZbNg8QeX6hR7Hfgf8QNF4eDNzEBbVEAoEVrwZdZGpe2QRd6p+H21eiPfG+rYmuQv8jU/QzxpTnMlZCPnoa9xxidEWW8ZNJgbGNaqq6PIXMHJwuMCYHiYAO5yrZWZtoZP+684JIUt4QeYM4zEaoz08fi6miZqe/ArhPAv1YE9KNKsIT6sG6WCPGwBREOUaOU8gCSKNaC+xtXLwN5ZoHK8mXN03Ij/9XKjmGyMCrnlPD1X0R1ZD6/14iNXZjQNZfJTap7X7ieJbUGT9IxN/jQyBublFaOCEAPbiBHEjLEbYxv2x05gHfh48tuXuWuIj4ujomAloQ==
-Received: from TY7PR01MB15746.jpnprd01.prod.outlook.com (2603:1096:405:290::6)
- by TYCPR01MB8455.jpnprd01.prod.outlook.com (2603:1096:400:15d::13) with
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=analog.com;
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
+ by SJ0PR03MB5472.namprd03.prod.outlook.com (2603:10b6:a03:27a::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 09:45:50 +0000
-Received: from TY7PR01MB15746.jpnprd01.prod.outlook.com
- ([fe80::bc79:d427:b0a9:a793]) by TY7PR01MB15746.jpnprd01.prod.outlook.com
- ([fe80::bc79:d427:b0a9:a793%5]) with mapi id 15.21.0472.016; Tue, 6 Oct 2026
- 09:45:50 +0000
-From: "Tomohiro Misono (Fujitsu)" <misono.tomohiro@fujitsu.com>
-To: 'Mark Rutland' <mark.rutland@arm.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, "Kohei Enju
- (Fujitsu)" <enju.kohei@fujitsu.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-perf-users@vger.kernel.org"
-	<linux-perf-users@vger.kernel.org>
-Subject: RE: [PATCH 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
- Erratum E#030001
-Thread-Topic: [PATCH 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
- Erratum E#030001
-Thread-Index: AQHdUli6CS8L1/ubT06LulaRj+FfqbbqN4QAgAYQ06A=
-Date: Tue, 6 Oct 2026 09:45:46 +0000
-Deferred-Delivery: Tue, 6 Oct 2026 09:45:46 +0000
-Message-ID: <TY7PR01MB15746E4CA4B8681290E6E59E9E5952@TY7PR01MB15746.jpnprd01.prod.outlook.com>
-References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
- <20261002-monaka-fix-for-upstream-v1-2-4aec0b0cbe34@fujitsu.com>
- <ar-rGjVKB0vqB-Jx@J2N7QTR9R3.cambridge.arm.com>
-In-Reply-To: <ar-rGjVKB0vqB-Jx@J2N7QTR9R3.cambridge.arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=8d2c5c2c-bcdd-47e4-939b-ee5d29ff1bf0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2026-10-06T09:44:12Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Tag=10,
- 0, 1, 1;
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY7PR01MB15746:EE_|TYCPR01MB8455:EE_
-x-ms-office365-filtering-correlation-id: 662f0004-32a8-4176-aa7d-08df238e9b28
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|6133799003|10067099003|22082099003|18002099003|1580799027|3023799007|38070700021|4143699003|56012099006|11063799006;
-x-microsoft-antispam-message-info: v27I0o2VJljXpLa46oIhgpGPMoiv/7aMNfNkUIA2vWr82Vzlt08hMd0/t/0JxXpQwoyTGKzF/YcRpABs1t4KAeYca3PETwb7+ETCRgfsbrQoQGi/m2EtdeRuXPp92jSv2w3JJ7ZgFDiOi6prQ2Mz+pUUlGipnXKMe8/Q/4vpDIn0b1ZnqupToMKVd0f+gsMEI02CAtC1mbqC8ZgEZjG3D77pI5u+V8i/Xic0eu8qeVvpc1YojDrvuAoA6I1i5HRIRqn3bo9T4NZTiMN/W+2h3VXQyaSUpLaZc1biPKYbFbFInTzrPiZ2yXW373WK9oQIT2/a3GfsXfolre/fZ50n8MvzCl5BF4NoyPYa9XwHLHvVnVQw/YnDF4huthC9PcZgBASmSxe4u0dVBfkXp0IUWEUUnZtJackJbcP98lmQf4Ygw2HPKRzUOHUUzeRoiXhYu3ZOrrIN1NtOIl4NdVe6deIEp/aSX/8HhAR86iTLbLYwcAu+Y8M1M/yHC8+YjmkLaYI+0vUP0QbedkIxXB0Dx48mGCejnzGf0M+GMTrypqQrGlvWanpYva27bXSFnKDfNCZ6MO/G8SkZFDLERvMkyyP6kJC2/bsFYOTfuIufYHUCMj6kFKsp1OJ8/bGlPOA8fVJAQQ1A0lIG+1267ta0LmTIFVO31yByzsJHrfVOExEcLOL5auaxLz0tnepVrHxS7++2d0N2Nk9Jf6USLBxVlroH3+S8hkSEs0C62n0TpjJGooRiJ8v+tJAcUaN8rF33
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB15746.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(6133799003)(10067099003)(22082099003)(18002099003)(1580799027)(3023799007)(38070700021)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?Zi9jVFpudFo3aStOdHN5aVNNOHBoeTFsaG13bE5VM0ZGZkFaLzdueHdD?=
- =?iso-2022-jp?B?cFVsMVlYN3hoZ2t4c1IwdFpmY1laMjNmbzliazRvVUhXWE1SUlZSaGNz?=
- =?iso-2022-jp?B?TnNoRUUxdG15czFVUkovR3Rja0xndHNxUUNRai9OaHBETTM5U2lMZWpQ?=
- =?iso-2022-jp?B?Yk1ZNW03cGRKelBJenBWdEQwK2xBL3FxenRqa0tNcWxwdUVNUGRZQ2dw?=
- =?iso-2022-jp?B?ajFJcWt1M0o5UEQxeUM3UWJyZWtJM1pOZHVkSHhQTzBUTWUvVGUrTEVB?=
- =?iso-2022-jp?B?eG5WSEV5eTNUQVV2K3Z4cW0yRVNjdmNmMlh6c2ova1RlMmhCY0xIT0NV?=
- =?iso-2022-jp?B?b0RSQVp2OThJcGtvTmRrVi8vcHRhWGdZTGVaWUpYR1pDcGRvSkdrbFVa?=
- =?iso-2022-jp?B?TlJicjQvWHlrYkZmY0FwN0E4bGtac3phMk1QWWYzQXJVdFpvSjREdFVS?=
- =?iso-2022-jp?B?Q0o2UHB5ZG0vdVh0bktDSU9UeVZRelhpR3BCVjJ5RUM1YWZ3cG5HVEZr?=
- =?iso-2022-jp?B?N2NnSmhEM2U4clVoeGl0bWpuUXBORllWQjNSU1d2b0NlU1lRbGNLZXNW?=
- =?iso-2022-jp?B?M0V3R3NHWkJmaVJ5N05JREo2WnZyN1RSemI3WDd5ZlhlWVJwU3BDWE5i?=
- =?iso-2022-jp?B?ZFI1d3lqNEVScnR5T3hNVlZPTkpvdUxLNklmZzZNVis2ZzhkSzVPVC9m?=
- =?iso-2022-jp?B?TVh0RVFKa0RydmRXVEJXNkZaQS9NNkM5djRsa1RNYXorT1NRbG41RlVL?=
- =?iso-2022-jp?B?S0h4VzVOZXhtZEFRU1NzTmR5Y1p2SUVFUnF4Uk5qejB3T1B2OW5jUXFz?=
- =?iso-2022-jp?B?ZnhmWlVMdjA4VkthT0p5ZU9NbGp5a3RuRXZGR0dib20vWXNuanNYSWMx?=
- =?iso-2022-jp?B?OXZzcXMydjJpZlZDL1YxV0ZlNndiUUJmSjJOMzZnbHpoU25GWXpxcHF6?=
- =?iso-2022-jp?B?a0dwWEQ4MW01VHVzemlOODFwaTZjTlVicVNIeFgxalJPdXhpSDl4M1lm?=
- =?iso-2022-jp?B?QWFkQ0MvSTZrTVVqYVE1ei82ZUo4Q1ozNGNvM1krNFk0MUlRc2lpVG1E?=
- =?iso-2022-jp?B?cXdYeVRuU0lMa1kxVDRrUzZBTWkwYUd1bWdxa1BTVGk4MFBoOHpLd1hm?=
- =?iso-2022-jp?B?MzVReU5VMFczUGU0c2ZzZERUM2psQUFURFJabFdOeDdHdW9kN0MvWU5C?=
- =?iso-2022-jp?B?dGhuWXdkd0pKb1BTMWFReVRqVnRwM2lwQkN4Z3Q3UHJ6d0EzU2FjeWxx?=
- =?iso-2022-jp?B?S0pRY0xXSGJvSklnTGZNWDZwYzZVVEpkRkkzdUhDK3JwTWsxQ2tVOC9Y?=
- =?iso-2022-jp?B?ZVBRU3prRkpYV0pQTUp1bG1jZjBSRHB4MW45MCtXYVVzNU9HTXU2bjhv?=
- =?iso-2022-jp?B?WmNlOHBVaDZuSXhyeHRuSWZ0WWpuVDU1a3RyVkYrSkVXUlZBcGFFa2NR?=
- =?iso-2022-jp?B?TjlNK0dBSXdiZ0FiTm1JcnVOTHpkc25KSXZNSUdQVVVpckIwTE1uZC8w?=
- =?iso-2022-jp?B?clg2TlBZVDVYMk5TUkY3WXNkWHpoRTQ3QnNyTGVUZjQyTHFQdzlSNlRL?=
- =?iso-2022-jp?B?MldGWXl3UWQzNHpIQ2FlSmlPOHVvNy9iekQvalBDUm0ySlFQSERwVmpu?=
- =?iso-2022-jp?B?c3JCcWdnNU1ZN1lNYUVLMVBjZkJJZFBDRWh6WkxjSWVHb09nRlRWTnNp?=
- =?iso-2022-jp?B?cklCZkJ6OE1IMFBBZHVOMHJvMmNRNXh1Q0Ntb3pUV1U2ZC9uZ1RVYjk0?=
- =?iso-2022-jp?B?QjBwcFgvUVk1NmxyaWtlYVRDMEFScGIvSzMyOXEzbzBwWmMyYVExcklt?=
- =?iso-2022-jp?B?eUswWTQ4MlhwbzdTY0VNRExHcmtnSGxNUUFsT1FhVEFXdXppSmZCM3RH?=
- =?iso-2022-jp?B?a3d3ZEpSaTBmc3REbzVmdG43cGtYS1Vwb2pQcTlpUlZOWXdMVDBEVmVY?=
- =?iso-2022-jp?B?WnBsbERJWTRJZTJIeDEydEhzb2lwWktpZE1id3hzc21PdXduN2FLYnIr?=
- =?iso-2022-jp?B?TWFVTFQyQVdNZWVlMEJVcndMVi9Qa2lacGc0WHU4WkYyZFZIc1pyM3FJ?=
- =?iso-2022-jp?B?MGs3eW5TS1BJQXhPcHkyMGo0bGJUaUlHaVpwMUZuazREWng3MkMzenZp?=
- =?iso-2022-jp?B?NjhwbkthZTlPWTZCaEVtTVFZbVFjZHBrV0RyazV3QzI0THROb2c5V1RS?=
- =?iso-2022-jp?B?TVZFbnRsUmdCUGpRTWp1eW4wTWNYdW9JOGN4VjhpVnkzWHBQZDdlU3dt?=
- =?iso-2022-jp?B?WlhYWkk3dFl0alowRW13cTZjVnBVcW9OL0YyOWExajhxYUxSVEU4NkdN?=
- =?iso-2022-jp?B?RzFzS0RsTG5scHdMdmkrSVJkYWVJcC9GRmZFNTlZeERKZVM3U3NYejJm?=
- =?iso-2022-jp?B?eEFEOEtZUUlMV0cxTTM3RWdBVlQ0N3QrWFpJYVlFOGd1ZTBUeXpBaHF1?=
- =?iso-2022-jp?B?ZU52OGhDWVpDdUFVcHE0dGQyU2xJbHZvb3g5Z0gvZ0lBeFVLalhwTjlP?=
- =?iso-2022-jp?B?VGYzZ2hUaDIvSGNTOWFQTGxsaEN0QkFFUFV0RUZ0a3BDVHIzUExKTDVS?=
- =?iso-2022-jp?B?UytPd1pEST0=?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Tue, 6 Oct
+ 2026 09:46:55 +0000
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a%6]) with mapi id 15.21.0496.010; Tue, 6 Oct 2026
+ 09:46:54 +0000
+Date: Tue, 6 Oct 2026 10:47:57 +0100
+From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Nuno =?utf-8?B?U8Oh?= <noname.nuno@gmail.com>,
+        Andy Shevchenko <andriy.shevchenko@intel.com>,
+        Vinod Koul <vkoul@kernel.org>, linux-kernel@vger.kernel.org,
+        dmaengine@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+        linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+        Frank Li <Frank.Li@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+        Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+        =?utf-8?Q?Am=C3=A9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
+ new header
+Message-ID: <asTDTxneqrpFlZi-@nsa>
+References: <aqz1-OzFobOROuBw@nsa>
+ <aq18_TMNs4EJzgZO@parshuram>
+ <arDtEB0na9DxDWAS@nsa>
+ <arFXc0LqEpgWSS6m@SMW015318>
+ <ar-Il2qP_Qms3Qw1@nsa>
+ <ar-13p3a7ENGfMOF@SMW015318>
+ <asEWwIfO0LB27wj9@ashevche-desk.local>
+ <asGk4fj_HQ5HupB4@SMW015318>
+ <6f5dd1c1622adbaf0174a949ca91cb11872087ff.camel@gmail.com>
+ <asSqVEHe8EjkbcwW@SMW015318>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <asSqVEHe8EjkbcwW@SMW015318>
+X-ClientProxiedBy: MA3P292CA0063.ESPP292.PROD.OUTLOOK.COM
+ (2603:10a6:250:49::10) To SJ0PR03MB5469.namprd03.prod.outlook.com
+ (2603:10b6:a03:28a::17)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: 1arnFq+tkO1fNrdEysCFR6TMUqLFd8edjjSFm9YA9ItBVbQnQu5qR15D+zZHF2W2jO7nC9hAlJJwGScrX25eWwMn/PjZma4yOIkbLnjRmKBy41BaHwa02PMLVqgfK2EMKh3ufcNYJg+2n7mcYZhfYCkDPNS1VrS0eOJsiLqgOkCMjQLoEfy+n1UcmCkazqkzx2eKrA6TDdAFfcUsED+TWHSWCEtPBmxNNYiU4NuqWI917Qh8EC/AOHD3bmmcyFX9/8OpTzWxxmOfUlr0FKW1jDAZ0Y7Ju6pt9QD6ekkin6cs4/ycEr2G87HQlpYxGNexcpoKdPI/Cl+J0CxQsxA/Ug==
-X-OriginatorOrg: fujitsu.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|SJ0PR03MB5472:EE_
+X-MS-Office365-Filtering-Correlation-Id: cec89b45-b31a-40bc-4a17-08df238ec047
+X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: WhyvkeHNcuG7zYJIcUiBKnzb8qe4howdt7oTDeSeD3SBI/83+SqVDOOwqKDyDU2yo2MfBNqabiBcIPbzuBwYtCi7l4IJ8U711Ktm5w5NwVaVarqV2erpvCLN6JQtOoREoLmhKV+962IUbWsZXAZemPv55D99FDLF4qLLq8b362apYs2OrAlvW64N+kV3KO6psRGjKLyp7QDh+0ElPPxAsEZuN6H+27YvVI5KHBujqcgRBu4lCfTcaIudugYP//+KgqoyG27bHB/hBmzLspWPn7wAz11gDNas81XDwEALOitny4pn9wYvHAyn0z1Vsi6cssyxv/AiVJvhdYEcmd6QjTzHfPULn7cje+Dyx78ANXmRIbKk6f1SHeW4O9H4Jcfx4jr7yL2gIjU/DjLzP+MnT+4traF5oL3oPx7u+ZYLWs+7Qf09jIxtLhpBn7wsB9kfH0xZ16jwuOwq3MFb/27NT1v3ihHAXMTK9WZMvpvatFpbU8fYqJzfdd9E7I1bLlGANWMDWQNSLZRwYFW30GhiXePranlDXfN6WxZMo5dUt5KRM4BXEdX/nRQd/LQqdYGUJ61zzZMFBknW/+DNNrUgIQavHK8Mn0u0uttrt/rx3LXxWVHZ8PhoN2y0CYL3UPh3DGGkEZdnosF6ghn73qf3RGzwuy3/EAslCVG9/pnUpqQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aWswQmprdTJvMG1RLzVLRTl3ekpDc3dKbmM3V2NYb3pXUzZuc0RnMXZod0Uv?=
+ =?utf-8?B?cjZMYkl5eEZwY3hPOHFDY0M0blpDb21ZYmp3cmFSZjRoU2pkdGZUbG1LU0o1?=
+ =?utf-8?B?bTEzdWhSakJ2bVphSTFGbnZvTk5SY0ZEbVZZWTFjWEY4U0JTblQ5UGpCMFNC?=
+ =?utf-8?B?OFYrV1QwdklaQnEvUHNhVjNIOTlPTHExV0graGsxN1d5MGNyVTg2QTUrTmt3?=
+ =?utf-8?B?Rm4yUWtPY0RjMjlkU3pKLzJGTS9zTk5LVEtoSWZneENOSmVVVUJiVk82bXNS?=
+ =?utf-8?B?WW9MVjJFZjE4QUhubk84Z3dldGg4dnVJUWxQUzNCbi90V2FBUUUxc0pZWC9E?=
+ =?utf-8?B?R0djMXJCTDlhd044QkJyTVhJOWFVZFpoZW5naVVDcmcvakVaNjhSci85WmZQ?=
+ =?utf-8?B?UnVXYjRTTnMzblZ6S2VvVzVYWXdnTlJZYXVKempHb3A4M29IUE5sUGFxQy9s?=
+ =?utf-8?B?ZzZ2ZXRFMGZFRjFJK2Y1cDRpTURxMTRzR0ZBeHkvb0FBV2JJbVowYk5JbXhQ?=
+ =?utf-8?B?OEtDcUhLQ2VwaHA5a05UNVVla2tvRE00Q2pBRDh5eWQzeGZYSWszWkM4dnpy?=
+ =?utf-8?B?akZscHZhRmFmdVV5Qk41N0ZOYXhhVms5Ukh0K3N3amdSWkxmRXhGa0ZEWm1v?=
+ =?utf-8?B?cHBwQzluSGRnUmhJVytKRGJNVDdidytDek1jMUtFMURLd09qTWthaGJ2S1JI?=
+ =?utf-8?B?NVpBM3RxcG1sVDBEak9SZGg3a2JMWUtxSGp0ZjNIMXBPTDJRUGR1Rk9wQW1H?=
+ =?utf-8?B?bG5ZTkVPMG5ucFlsN3VSQXJ5NWpGeEpQdEZRUTU2amRiVUhqQUtRRWRhOTF5?=
+ =?utf-8?B?R21QV3N5MDlhN2luQ285MDc0VEd4WENqc21GUkdRc0pPcGYzWGxlMU91Z2lW?=
+ =?utf-8?B?N2dPTHJRT045OTZhMVBCNitVeEZjSlZtODkzVU5vOHJiQkZPeTZzVnh6U1ly?=
+ =?utf-8?B?SVdJQTJkRkJoN2RCS1RHb1Z2ck9zMVVJMFVyNTVnbTZyYlJRSysxeUtNbk1k?=
+ =?utf-8?B?WnJUVlplZDRzaFBlcklyNlFkY1QvL2k5MU0rWWY0OUROMnpzbVpXNCtRUFdN?=
+ =?utf-8?B?anF4UmVBaldIR1h1cWRHV3VpQmRSZncrZUlnc3VFQXpHOEl5MXlRY3hlcjMz?=
+ =?utf-8?B?UWRGa2w2N3IrNGxjMHZEZmhNK0NSUnY0STNMTjhOTEV2R1UvQmM5NDFzaHV6?=
+ =?utf-8?B?QktqaXB3SktHQVM2TGZJM0RCek9OYUszR3VmNWZsN3daN2k0dmFocEQ3Q1Fl?=
+ =?utf-8?B?dTJoSDdmV3BKL3NFZFZaS0llRFAvc2thOXNHTy84NDVFT2ZUVC9zUmJNazNC?=
+ =?utf-8?B?Z3J4YUhzV3pTZzQ3dUVPbDdZaC84RVpzOHlaZXMwNktVTFAxQUNoZDdaY1hi?=
+ =?utf-8?B?bnJ3NU00MmJEdXhiSllvVFgyM3ZVbU1Qemhhbjh2cmZ2N0RQOE81VkppL2Fx?=
+ =?utf-8?B?TjBHR3dzNzRmZ05QSGlaZGx3RmFEUnoyRW5BZUJVUVl1Z1BrN1lVakkxL2hW?=
+ =?utf-8?B?VTd5TUkxTWZqTzdTcGt0dEJGRXVFaTZGWHhnYUxqeVlRc3RnTTdyVlJQaTg0?=
+ =?utf-8?B?NVdOT0lhQXRuZHZ0QmFRUCs4Z0w1cC94SEVDUW1FVU9EVjY1TGJlNjhiMkVa?=
+ =?utf-8?B?MGlXSzNqbkNwYUJ1Umo0bFhxbkJHVkVrWnFIdXQzbmxrczY0dDdjck5NdlJy?=
+ =?utf-8?B?aGpLeWt1VXZEUVd0U0xJZUhlaHFRVHBVL2VQZG5JdVJxOE9xdWZCUC94NTZ6?=
+ =?utf-8?B?eE5IdDNLZGMzVjYrS2lvWmo0VlFVbm1CYk1jMjlORG1KblQxV2djUGVWRkly?=
+ =?utf-8?B?aCtRSU9HcGVNSy90OVkwellhZjNrV2RMVTNRRXY4RGJsV0RWMlM0bnJnODlL?=
+ =?utf-8?B?a3VCQXl2STYySm4xYTgzYnVhRHFJM2tDcUVoWkNwaDQ1Vk42RUVsUDkyMjM4?=
+ =?utf-8?B?OEMyWWNqL0MzWWhoS1R0N2hkdHYzQ1J4b2tVbE1RUzIvWDNQUmw2RUFLY0ZC?=
+ =?utf-8?B?ZWg5RU0raVY0SHhySDBYZzdySkhSd2J6M2J0bFUzQzQvVkJlRWZIVm9iZG02?=
+ =?utf-8?B?UjU5U0U5MksvVkJhTTZZcXdCc0JWUFE5VmxXVGtUR1BzUVJqZU9JdlE4RnNv?=
+ =?utf-8?B?b3huYk1oZ3NRZVNYbUY2YWVqSzVLYnJZYVhaL2tzLzRSWWVJdTZ5YVNzNHY0?=
+ =?utf-8?B?RDBIVURQSk1CUDYzM2dMV2R5Z01jRmxCbjBzSnpEdEEySVcrQWN2SFAzelRY?=
+ =?utf-8?B?aUhsWmJ2Sm1LRkdoTkNGZVdnSDhxWGdpelc5L0RNQnNnbTJoZWJ2YnlGbXAw?=
+ =?utf-8?B?L2F5aTY4OW5kTDl1aEJydGtCcytqdFNRQ24zV1NUQXI1azZ0Z2RmQT09?=
+X-Exchange-RoutingPolicyChecked: hJ57l0EgEWa5Rf/8rlNCCs0Ni/2SP6OQ/7q/Me2QCMNnLETGoW3hixhWnCaJIW/4XiU3c1kYJA++V4aUsfYg871VTAObQNS9w0zztwrCXL675jX1IjrPBxqvc3Pff9aRefPKcDhCrJJxuKngMQrtr5fQTUbg2gKbhUM9VE+x6gaI1jcIWI7xw1PshikP3jRVFsgX7PP+F7HvMflghKJ+FnCSagu73iaN2R87NDw76/pqXMESP6V+2oy3aexkAJOu9WJv33YZFya+E5EM8X25esSmYH9pW3GQMzEuShfNl1o6H4TxPVABeWcajIcJAWTnoMO56pHC53NEfl+xNqaTCg==
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cec89b45-b31a-40bc-4a17-08df238ec047
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB15746.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 662f0004-32a8-4176-aa7d-08df238e9b28
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Oct 2026 09:45:50.4733
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 09:46:54.6305
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: T3PCXBeZfjx7L1abmdLcv134zqxdz0A9Ghy8l03jj9MJPfNPTLF06Hc4CaX0pSoFXzhwFRphAuAG9c3xo8e9axpgACTQeXS7DJ2VkKyj534=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB8455
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rzlDt8JP4zKYNjo3IYAm5qSePgnDCXQkDf9eGRfd3iJbJmOYlhOCjaOJDDL55/+qYHgeA1nzklIB1qwE1xl37w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB5472
+X-Proofpoint-GUID: Cs_JP4ZhUCd4QQC_noe-Wls4AhDOcXb7
+X-Authority-Analysis: v=2.4 cv=J/8/fwnS c=1 sm=1 tr=0 ts=6ac4c394 cx=c_pps
+ a=EtrKi/+kAVY73poqiPL3VQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=M51BFTxLslgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=_jAD5XSDOtq9-5Nde2OG:22
+ a=lEG6OgNh-kvjCi_ktPIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: Cs_JP4ZhUCd4QQC_noe-Wls4AhDOcXb7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDAzOCBTYWx0ZWRfX4xq1xH/ZmVQA
+ DAwwSpD++6mrpHFDyY+Ai82Sy2owe7mvo8Wi9XwnUmRiaaB7YiFhpW6TzEL8gu+BnSmWoJNUzvg
+ IhRxhVp5VWMCEyTg0pYTXF1EZ1iVgcNdhRmIxs+mbuQsyc1UQa1YG0q6mPYRKG3heWASFwH1bkQ
+ 5c8hdyoL2aPAC0DnoU20FaBOPYYIMk5/wv8AChpIPVAqsTpc1bnhqIzTO8ahKBIGW8/9UqjickS
+ QdrZ7N1wv0EKLZNIGNQIf0b9ZxVz24hj7iOf4xlqGgnHnwOiETiLTNu27KeLN0mU+HhvQiK7Nn1
+ r+lacZ4LU7nBf0upIGzHBNLwiR/JpaXbhYZReI3Zc2sh4Dp8uchUPa9K3jgM/Qg3BFVD1RZBaQ0
+ HJAuR+wnR019Y2mVmKV+KkoxFxBb60B2DUTJFo2WRjYhew2XFQOGqh9QKWiX4sZAkJwOfEBWTiS
+ sd0k3UcsfNbDXVasRAw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDAzOCBTYWx0ZWRfX8rIshReY38Od
+ lD3HlzvrsNrwcF3lSMihDXogq6DQrzFc+SF2tuw6n72oLIVVfaQ6myS0fv2iIhME+ik12RazM2s
+ nDyEmwGEzGVYPh2z53t6lLs5C/kdsGcPSOxR9fps75ODX8LMYBW+
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-06_02,2026-10-05_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 suspectscore=0
+ spamscore=0 phishscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_024556_190281_799F6C2B 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20261006_024711_583981_4EBE3F89 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,240 +220,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Tue, Oct 06, 2026 at 02:59:16AM -0500, Frank Li wrote:
+> On Tue, Oct 06, 2026 at 07:36:06AM +0100, Nuno Sá wrote:
+> > On Sat, 2026-10-03 at 19:59 -0500, Frank Li wrote:
+> ...
+> > >
+> > > There are already include bitmap.h, and use
+> > >
+> > > typedef struct { DECLARE_BITMAP(bits, DMA_TX_TYPE_END); } dma_cap_mask_t;
+> > >
+> > > Suppose all DMA Engine consumer will use it to do some check. So I think
+> > > needn't split it as indivial version.
+> >
+> > Are we sure all consumers are making use of dma_cap_mask?
+> 
+> Some legacy user check it. Supposed needn't check it after get channel.
+> I am working new API to check it to avoid direct access it.
+> 
+> > In fact the only function
+> > depending on bitmap.h is the one clearing the cap_mask. But stepping a bit back,
+> > bitmap.h was the original proposal from Andy so the idea was to have the new
+> > widthmask (this one indeed heavily uses bitmaps) already as a split. And with it,
+> > came types.h given that the DMA enum needs to be used from both consumers and
+> > providers.
+> 
+> Supposed provider is super set, which can include consume part.
 
-> Subject: Re: [PATCH 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONA=
-KA Erratum E#030001
->=20
-> On Fri, Oct 02, 2026 at 07:26:50PM +0900, Tomohiro Misono wrote:
-> > FUJITSU-MONAKA Erratum E#030001 affects FUJITSU-MONAKA CPU
-> > when using 64k page size.
-> >
-> > On affected FUJITSU-MONAKA CPUs, range-based TLBI operations
-> > targeting a VA or IPA may fail to invalidate TLB entries when
-> > addr[34:29] =3D=3D all 1 && addr[28:0] =3D=3D 0 for 512MB mappings.
-> > The affected instructions are:
-> >   RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*.
->=20
-> How does this work when all of the following are true:
->=20
-> * The S1 translation granule is 4K.
-> * The S2 translation granule is 64K.
-> * S1 has a 1G block translating VA x to IPA y.
-> * S2 has a 512M block translating IPA y to PA z.
->=20
-> In that case, can a "512MB mapping" exist for VA x? I would expect so.
->=20
-> Assuming that is the case, the S1 translation granule doesn't matter,
-> and the S1 workaround cannot depend on PAGE_SIZE_64KB.
+Yes but also look the below note on the consumers.
 
-Your expectation is correct. I confirmed that this erratum could occur in=20
-that case as well (S1 1G block & S2 512M block). This is also affected by
-GPT size. Therefore, the PAGE_SIZE condition needs to be removed.
+> 
+> > And note that consumers might want the header without actually needing the
+> > bus width API so the separation kind of made sense to me.
+> > Then, as a follow up the idea was to also split the cap_mask API into it's own header
+> > with a backing include in the main consumer header.
+> >
+> > So if we all agree with the above, I guess the current series does not really has to
+> > change. I see 3 ways:
+> >
+> > * Just go back some versions before and have all of it in dmaengine.h
+> > * The current form
+> > * s/engine/consumer on the current proposal include/linux/dma/engine/*
+> 
+> I think we can put include/linux/dmaengine.h now. The split/move need more
+> work. I already sent some patches.
+> 
 
-> > Work around the erratum by issuing additional non-range
-> > TLBI instructions corresponding to the affected VA or IPA
-> > range-based TLBI operations.
-> >
-> > Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-> > ---
-> >  Documentation/arch/arm64/silicon-errata.rst |  2 ++
-> >  arch/arm64/Kconfig                          | 19 +++++++++++++++++
-> >  arch/arm64/include/asm/cpucaps.h            |  2 ++
-> >  arch/arm64/include/asm/tlbflush.h           | 33 +++++++++++++++++++++=
-++++++++
-> >  arch/arm64/kernel/cpu_errata.c              | 10 +++++++++
-> >  arch/arm64/tools/cpucaps                    |  1 +
-> >  6 files changed, 67 insertions(+)
-> >
-> > diff --git a/Documentation/arch/arm64/silicon-errata.rst
-> b/Documentation/arch/arm64/silicon-errata.rst
-> > index ac3248b9f2f3..8ab6284e3d10 100644
-> > --- a/Documentation/arch/arm64/silicon-errata.rst
-> > +++ b/Documentation/arch/arm64/silicon-errata.rst
-> > @@ -373,6 +373,8 @@ stable kernels.
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> >  | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM=
-_010001      |
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> > +| Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM=
-_030001      |
-> > ++----------------+-----------------+-----------------+----------------=
--------------+
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> >  | ASR            | ASR8601         | #8601001        | N/A            =
-             |
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index b5a51b0ef944..38248a31d5f1 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -1312,6 +1312,25 @@ config FUJITSU_ERRATUM_010001
-> >
-> >  	  If unsure, say Y.
-> >
-> > +config FUJITSU_ERRATUM_030001
-> > +	bool "FUJITSU-MONAKA erratum E#030001: Range TLBI may fail to invalid=
-ate some entries"
-> > +	depends on PAGE_SIZE_64KB
->=20
-> As above, I strongly suspect this depends on the conbiation of S1 and S2
-> sizes, and could happen regardless of whether S1 uses 64K.
->=20
-> > +	default y
-> > +	help
-> > +	  This option adds a workaround for FUJITSU-MONAKA erratum E#030001.
-> > +	  On affected FUJITSU-MONAKA CPUs, range-based TLBI operation
-> > +	  targeting a VA or IPA may fail to invalidate some TLB entries
-> > +	  for 512MB mappings. The affected instructions are RVA[L]E{1,2,3}*,
-> > +	  RVAA[L]E1*, and RIPAS2[L]E1*.
-> > +
-> > +	  Work around the erratum by issuing additional non-range TLBI
-> > +	  instructions corresponding to the affected VA or IPA range-based
-> > +	  TLBI operations.
-> > +
-> > +	  The erratum only affects the FUJITSU-MONAKA on 64k pagesize.
-> > +
-> > +	  If unsure, say Y.
-> > +
-> >  config HISILICON_ERRATUM_161600802
-> >  	bool "Hip07 161600802: Erroneous redistributor VLPI base"
-> >  	default y
-> > diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/=
-cpucaps.h
-> > index 76350b38f0d7..9220b917ec20 100644
-> > --- a/arch/arm64/include/asm/cpucaps.h
-> > +++ b/arch/arm64/include/asm/cpucaps.h
-> > @@ -66,6 +66,8 @@ cpucap_is_possible(const unsigned int cap)
-> >  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
-> >  	case ARM64_WORKAROUND_4193714:
-> >  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
-> > +	case ARM64_WORKAROUND_FUJITSU_030001:
-> > +		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
-> >  	case ARM64_MPAM:
-> >  		/*
-> >  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm=
-/tlbflush.h
-> > index 14a78ac0f800..0487daec1652 100644
-> > --- a/arch/arm64/include/asm/tlbflush.h
-> > +++ b/arch/arm64/include/asm/tlbflush.h
-> > @@ -487,6 +487,37 @@ static __always_inline void __tlbi_range(tlbi_op o=
-p, u64 addr,
-> >  	op(arg);
-> >  }
-> >
-> > +#ifdef CONFIG_FUJITSU_ERRATUM_030001
-> > +static inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end,=
- u16 asid)
-> > +{
-> > +	u64 addr;
-> > +
-> > +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030001))
-> > +		return;
-> > +
-> > +	/*
-> > +	 * The erratum fails to invalidate TLBI entries in the range when
-> > +	 * addr[34:29] =3D=3D all 1 && addr[28:0] =3D=3D all 0 for 512M hugep=
-age.
-> > +	 * However, since it cannot be determined reliably if the target
-> > +	 * entry is hugepage or not here, always assume hugepage is used.
-> > +	 * The workaround is to issue extra non-range TLBI ops corresponding
-> > +	 * to the affected VA or IPA range-based ops in the range.
-> > +	 */
-> > +	addr =3D (start & GENMASK_ULL(63, 35)) | GENMASK_ULL(34, 29);
-> > +	while (addr < end) {
-> > +		__tlbi_level_asid(lop, addr, TLBI_TTL_UNKNOWN, asid);
-> > +		if (addr + BIT_ULL(35) < addr)
-> > +			/* overflow */
-> > +			break;
-> > +		addr +=3D BIT_ULL(35);
-> > +	}
-> > +}
-> > +#else
-> > +static inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end,=
- u16 asid)
-> > +{
-> > +}
-> > +#endif /* CONFIG_FUJITSU_ERRATUM_030001 */
-> > +
-> >  static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op =
-rop,
-> >  						 u64 start, size_t pages,
-> >  						 u64 stride, u16 asid,
-> > @@ -518,6 +549,8 @@ static __always_inline void __flush_tlb_range_op(tl=
-bi_op lop, tlbi_op rop,
-> >  		__tlbi_level_asid(lop, addr, level, asid);
-> >  		addr +=3D stride;
-> >  	}
-> > +
-> > +	fujitsu_erratum_wa(lop, start, end, asid);
-> >  }
->=20
-> It would be much simpler to say range invalidation doesn't work on this
-> part.
+Ok, to be sure we're 100% on the same side, plan for now is to add the
+bus width API directly in include/linux/dmaengine.h?
 
-Disabling range operations on MONAKA CPUs would be another solution.=20
-We'd like to select the option that minimizes the performance impact.
-Since the PAGE_SIZE condition has changed, I will check the performance
-impact of this erratum (including on a 4k kernel).
+- Nuno Sá
 
->=20
+> Frank
+> 
 > >
-> >  #define __flush_s1_tlb_range_op(op, start, pages, stride, asid, tlb_le=
-vel) \
-> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_err=
-ata.c
-> > index 8ec47d89b45b..5b9dea3c761d 100644
-> > --- a/arch/arm64/kernel/cpu_errata.c
-> > +++ b/arch/arm64/kernel/cpu_errata.c
-> > @@ -1027,6 +1027,16 @@ const struct arm64_cpu_capabilities arm64_errata=
-[] =3D {
-> >  		.matches =3D has_impdef_pmuv3,
-> >  		.cpu_enable =3D cpu_enable_impdef_pmuv3_traps,
-> >  	},
-> > +#ifdef CONFIG_FUJITSU_ERRATUM_030001
-> > +	{
-> > +		.desc =3D "FUJITSU-MONAKA Erratum E#030001",
-> > +		.capability =3D ARM64_WORKAROUND_FUJITSU_030001,
-> > +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
-> > +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-> > +					{}
-> > +				})),
-> > +	},
->=20
-> Are you expecting to add other parts here?
->=20
-> Is there a (future?) revision of MONAKA with this fixed?
-
-There is currently no plan of fix for this part.
-
-Thanks for the review.
-Best Regards,
-Tomohiro Misono
-
->=20
-> Mark.
->=20
-> > +#endif
-> >  	{
-> >  		.desc =3D "Known broken GICv3 SEIS implementation",
-> >  		.capability =3D ARM64_WORKAROUND_GICv3_BROKEN_SEIS,
-> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > index 2775ba3359cf..50a9aa0e2bf0 100644
-> > --- a/arch/arm64/tools/cpucaps
-> > +++ b/arch/arm64/tools/cpucaps
-> > @@ -132,3 +132,4 @@ WORKAROUND_REPEAT_TLBI_SYNC
-> >  WORKAROUND_SPECULATIVE_AT
-> >  WORKAROUND_SPECULATIVE_SSBS
-> >  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> > +WORKAROUND_FUJITSU_030001
+> > - Nuno Sá
 > >
-> > --
-> > 2.43.0
-> >
+> > >
+> > > Frank
+> > >
+> > > > where it's indeed required. Besides bitmap.h there are might be more headers
+> > > > that "include half of the world" which should be avoided in every header file.
+> > > >
+> > > > --
+> > > > With Best Regards,
+> > > > Andy Shevchenko
+> > > >
+> > > >
 
