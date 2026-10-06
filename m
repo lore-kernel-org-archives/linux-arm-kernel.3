@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B432ACA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8B1CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0FbsqGz50RTBZJ+X3m8aEuHOl1lV5AL5kMONHKTMz8=; b=jgvasVaDvQ7cET+7sdMo7Zzp2w
-	cion+Ye805jupBrgfaJnbCnV2CkLgo7PFQjFwLsdzoOEYeF19pncoSunoREbUGMkLRhekKZNiq3HY
-	sxdljv7VpS/gPdWEFCvVhz6QGJR4qzkS0PdjcccMhhrD70sdBDrHDL4TQJwncicfP+HMItNGrxBZQ
-	Vm9A3hjEAeolV8YIHF1TWdZQ0oAI0HU22OuLkYTYIwbyNW16UWb8nCmuP73pXQOisMoPmNOWFd8Fe
-	L2zw9YSbtmMBDOtlyWw41czL47fJV4YKjm+yel8cOamTG4AoCfPw7KtKpj3R/vQMCZTDf5ltU3jKO
-	dT2id8yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BnBP/HW+HUs1c/9b1ViBv119RNME4VYKXi0TTo+Qf7k=; b=tH0iesRsoBC6mSqVwOjKSTFlxw
+	vIUVFT9ZVc/CaGbXq1GogyxNLHieMeikkbDk7TyaLraU7mq6J4h6qainGbdVQSURzR+n87x6WXhFG
+	w1Lb6ireHTK2r86XsOWmUPDTamaBjx2y5u4MeDaQetGmXEGDdBFni6zXDk6OoDMHWdN3PQm71Vibp
+	h0+Ly6BtxQJn3qHJVOMuykMCkhQCsaLscosasrgGd8cn/g+s/A0Y9OOiqcogncFnfXfhugbuwDkuO
+	9/G/qXjvpMtcjl2NsdS0EZPu55GGElqgZvlt0A16t2sY7boKr9QeoKshfp6Qjf3Ey8Ua6oNEf6tvf
+	+ovWvGyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6sK-00000001181-0L2d;
-	Tue, 06 Oct 2026 15:14:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6sF-0000000117X-1FuQ
+	id 1xE6sr-000000011Dk-25gM;
+	Tue, 06 Oct 2026 15:15:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE6sk-000000011Cy-3BBV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 15:14:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DED31516;
-	Tue,  6 Oct 2026 08:14:30 -0700 (PDT)
-Received: from [10.57.10.233] (unknown [10.57.10.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99A543F763;
-	Tue,  6 Oct 2026 08:14:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791299673; bh=ZmhMumn52cBVQaHkyzR0XIkkVAJp/l8twjtlqe6zjx8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=DGsSEVOWURmhvfqK1LRZ1Ng27xl1EsFRu6r6JfQaBf0tEQl3nESaa2L2g0Llyzd8i
-	 SJHUOrivH5wKaf0b6Z+TIOIKEcDyXCBFmvnPLuiLB8i6+sxMt29rrMz4izp8Gvdwrm
-	 vXNAxztKKB8E24738HK+TeNx2hx036YGrb5GeYyU=
-Message-ID: <1ab7e5c2-a492-4980-a50b-57c431b9d4e7@arm.com>
-Date: Tue, 6 Oct 2026 17:14:27 +0200
+	Tue, 06 Oct 2026 15:15:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD411602D4;
+	Tue,  6 Oct 2026 15:15:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 564701F0089B;
+	Tue,  6 Oct 2026 15:15:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791299705;
+	bh=BnBP/HW+HUs1c/9b1ViBv119RNME4VYKXi0TTo+Qf7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nqfULfyuDoHoQHq538OXt7Jhb10LG2xXPNzGwlBKoKIhClhVpttzTyTmWT4UnrzZl
+	 nkrg4MjFfBwMHdOJI7vpiWMq/hMRe+CUP0F5f+vBZifej8237GHiMjP2clxfwQpGsV
+	 ecwKBvLy0MRmZZySFAvQvgWp1+HT4cGsGOKCCQWO6SMFUtpawkdZ9PhFt7n+KdM3/J
+	 P2V3rSX8S7ICAu0UC/JQhkNzEj1r0VwzBa5OOUnR44ERV1kW43l0WA5FTGITUP+mJg
+	 aNarGGSCrcUyRPABxoaHGJU0VA9tP8EBDpYZ3Rt4QW0SpQEamPxaxsGcjmj4CqsA5w
+	 XIeAjt5547Ptw==
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id 55BFB172B9E2; Tue, 06 Oct 2026 16:15:01 +0100 (BST)
+Date: Tue, 6 Oct 2026 17:15:01 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Bill Roberts <bill.roberts@foss.arm.com>
+Subject: Re: [PATCH 0/2] arm64: gcs: Return -EPERM when changes are prevented
+ by locking
+Message-ID: <asUQdaTtMF1X_Hsa@sirena.org.uk>
+References: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
+ <asUIWgHk3hdaLEu5@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 11/23] KVM: arm64: Add VM specific callback for S2 MMU
- operations
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-12-suzuki.poulose@arm.com>
- <87a4or2nd5.wl-maz@kernel.org> <089e57c8-93ee-4384-a6d6-978bde917650@arm.com>
-In-Reply-To: <089e57c8-93ee-4384-a6d6-978bde917650@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_081437_525760_6FAA30C1 
-X-CRM114-Status: GOOD (  14.82  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0raDfj7qAX9drGKE"
+Content-Disposition: inline
+In-Reply-To: <asUIWgHk3hdaLEu5@arm.com>
+X-Cookie: Use the Force, Luke.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2026 11:36, Suzuki K Poulose wrote:
-> On 06/10/2026 10:24, Marc Zyngier wrote:
->> On Mon, 05 Oct 2026 10:07:42 +0100,
->> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>>
->>> Add VM type specific S2 MMU operation backends which can be 
->>> initialized per
->>> VM flavor, to keep the handling cleaner.
->>>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> ---
->>> Change since v21:
->>>   - Define all vm_s2_ops call back. All calls are mandatory.
->>>   - Define callback for each flavor, disjointing the non-protetcted 
->>> pKVM and
->>>     normal KVM (VHE & nVHE) and remove the KVM_PGT_FN() hacks.
->>
->> It is a bit annoying that we still have part of the operations being
->> indirected by kvm_vm_s2_ops, and others by KVM_PGT_FN(), which is
->> still there. I was hoping that we'd have only one indirection. after
->> this patch.
-> 
-> I agree and I did think about it. The issue is, some of these calls are
-> deep burried from the higher leve dispatcher callbacks (e.g.,
-> user_mem_abort->kvm_pgtable_stage2_map). We could go all in and remove
-> all of them if you are happy with that change. Also, some of the call
-> paths aren't valid for certain VM types, that adds quite a lot of dummy
-> callbacks (now that they all are mandatory. e.g., pVM or Realms).
-> 
 
-For the record, as discussed, there are callbacks that don't have a kvm
-instance available, e.g. kvm_pgtable_stage2_free_unlinked() where we
-only have a page and level. Further abstractions will be explored in a
-future series.
+--0raDfj7qAX9drGKE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Suzuki
+On Tue, Oct 06, 2026 at 03:40:26PM +0100, Catalin Marinas wrote:
+> On Thu, Sep 10, 2026 at 08:00:39PM +0100, Mark Brown wrote:
+> > When we refuse to change the GCS configuraiton due to locking we
+> > currently return -EBUSY which is an odd choice.  The only userspace I
+> > found that relies on this value at present is the kselftest and other
+> > architectures are using the more obvious -EPERM here let's switch.
 
-> 
-> Cheers
-> Suzuki
-> 
->>
->>     M.
->>
-> 
+> IIUC, riscv is returning -EINVAL. Should we get an overall consistent
+> value? Personally I find -EBUSY quite descriptive but I don't mind
+> aligning the architectures (before user space starts making use of the
+> return value).
 
+Yes, it's using -EINVAL though it differs in that it's interface for
+locking only allows locking a single enable bit in the enabled state
+rather than letting you lock unknown bits, or locking things off, so we
+need some changes there too.  I guess we could also go with -EPERM which
+would also distinguish the "I don't understand" from "This is blocked",
+but nobody uses that yet.
+
+I was intending to do something soon to pull more of this code out into
+some shared place since especially for RISC-V and arm64 where they're
+using the prctl() rather than arch_prctl() interface so there's less
+reason for things to be duplicated.
+
+--0raDfj7qAX9drGKE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrFEG4ACgkQJNaLcl1U
+h9D0awf/Xe86q6e11p+608ssP4aZxBI78PtAfpwBy8yVgJnLYFHp0KmKvwbBjcMs
+gIihJUx6WI+SQz3OGTYSQfuWf3t4bKxojv6RJG3i0NfJc2Me7OUBRSaIADDnVHgL
+aQEHX75BZZJZYVGTwaqp0lPHWzOQgaYwCvontiu/NgwzFzeDFwcy8CVNk7rcsUw8
+IvSyGad2KWYfb8aInSuFPzXCzKH0pjhjJDX0GC2WQ8ARaybpaNWe4HWd+QGd7oD1
+nMbaPhZYZyF2ePLcY3SUOR5Hx2DxLWjXmYn3o8woxdNSlgtsuOoQ0Jh7WXmucerZ
+5xxKWjpj6Xh4Wj/6z3X3ZvmaDtwayw==
+=TvPT
+-----END PGP SIGNATURE-----
+
+--0raDfj7qAX9drGKE--
 
