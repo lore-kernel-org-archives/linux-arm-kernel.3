@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43675CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 18:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B037ACA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 18:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnuOeuo/LodeBx6Sgln5fFHIlb9TcaUTmkgxnYAmmVo=; b=E0XXKuhvpWGVMBtWyRTfJKqISn
-	iWWkJTiLtD4e4FdFlw1eSu0/2Gk+bmosEUG3YypCmdYnah1/C1EHF8UOwfGvV96yZd3l1h7macLht
-	sXGCXZT2u7MZPoaGZGFyKZ19NTgpnVD8G3+Yu3ygREpMwXIl/PZJpRp8edWSK7qMrt02yYk9XOnqV
-	0+m11+Xjc1feu/43aLmCX9XKaWvj8AzD4PORT0dbLSGrwRYvR47Pc+T4kQYW/XI62HxP8Mnuxq1aJ
-	CnRtlSH783RHP4hnVesN1PgTOeNbWkQsR6VhkJhvXrVXJ7CssaGk9dZUlG55IBjmabmoMg/YPtC8X
-	T37+xqGA==;
+	bh=tXLSbpyUG31gTT+jrU2zP+FXGyzeEv4VmzVE/LaXxjY=; b=K2BnP9fIB0wslSus/gD7gxIJr1
+	LNPZs2QcekW8n8VBZodYAEBj6Jg4XdLvLWzGJadRIS1dmC0rnPTfq/D5HTURBZDzfD0Rg8DnLtJCD
+	lHhFAD7zV+3/ymWWReSEJf91bRAt/h1RTfAxuf8PiYvOgZhWxMzbbdtAJTjkGKutgC1ReqRn2weSN
+	jOFcVzUAD/pdRMt1JenljDO+v3jGYwsNd7FGh/91YzjSM3Wz/R2tB5dI59mJn1xBFA79RKXd9sEjI
+	m/IHJunDEO+kph9bFAb99ARE3j1ofCQqR+XriWKW5XP0F5dJXXapBz9aZNIbX9U4EVGeVKl4hB/9/
+	VZeFcxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEA4H-00000001HPE-1FfZ;
-	Tue, 06 Oct 2026 18:39:13 +0000
+	id 1xEAFO-00000001Hq7-0wYE;
+	Tue, 06 Oct 2026 18:50:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEA4G-00000001HP7-29S8
+	id 1xEAFN-00000001Hq1-1y6X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 18:39:12 +0000
+	Tue, 06 Oct 2026 18:50:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0A9C4065C;
-	Tue,  6 Oct 2026 18:39:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC881F0089B;
-	Tue,  6 Oct 2026 18:39:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E1A941A6E;
+	Tue,  6 Oct 2026 18:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 258821F0089B;
+	Tue,  6 Oct 2026 18:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791311951;
-	bh=YnuOeuo/LodeBx6Sgln5fFHIlb9TcaUTmkgxnYAmmVo=;
+	s=k20260515; t=1791312640;
+	bh=tXLSbpyUG31gTT+jrU2zP+FXGyzeEv4VmzVE/LaXxjY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gk6GjwcCcwF0BnSp+fwOsMz0okjMzU7Y/H0nrSZLiq3H85mI/+8VFmvi3VKF6fyoY
-	 xBCKO+AfsNCIyiZrJyvKwJ2Xjgg//Vo+gDM/ZiDDjDJqpcPoq5IHk5OQPGy4s+9HBE
-	 NYdVEAvQ0bTbspMPorb+92ddphVavQaAi2RaT4cduu2n+oGoZVnQu/ChThV8JbTPYm
-	 ZG5v6xaNhUuSefo2vtOiUTyzvwW+IxWn6UyyGeX+JzvBf2YKiQdy92Qk/Acb3A0Snw
-	 3qRPnljHIzJY07gIvWLxtyPGT2KUMim+rkeVEqIVSZYrb0QPORNVZE8dM6HaBYnwbD
-	 aLxOhdzU0sFRA==
-Date: Tue, 6 Oct 2026 13:39:10 -0500
+	b=nqVtH0PDsADZHitSsB9NWX6JfSdnbWpCkPis74u/0eQ63jKclvt5x9BouQeAL7kPr
+	 8ZusnzhuwxM4EYc3SKaoCz3/Qn3ZujK5jHZtdB3Smo+GYoy+pVIXJtUzesjicm7FC2
+	 MEmscX1QmXDyp9yR/DlINPPGfK6bwhEccUyN68rL4c+Nm9IBGK4MA69p/6wLDZGTdF
+	 nQXottDid1ozi9tFP6Jli6w//JVcmnFjNThZ5LaTmMuv+kwLLrjQW+bFTIZBRLgMWK
+	 WjclFiJq1gqZGf13rs3vSt7mU51/uVUG4sBUKYEnJEsmJfKiJf7KA2EerfDEQjyXOs
+	 ZRZJ0xUdNzSdA==
+Date: Tue, 6 Oct 2026 13:50:39 -0500
 From: Rob Herring <robh@kernel.org>
-To: Francesco Valla <francesco@valla.it>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mark Brown <broonie@kernel.org>,
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Michael Reeves <michael.reeves077@gmail.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	imx@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 08/12] dt-bindings: remoteproc: add remoteproc-virtio
-Message-ID: <20261006183910.GA2890477-robh@kernel.org>
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
- <arKhbxi3Snbt1_Mn@p14s>
- <arLZj2DxBazf3wMd@bywater>
+	Conor Dooley <conor+dt@kernel.org>,
+	Hector Martin <marcan@marcan.st>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, iommu@lists.linux.dev,
+	linux-input@vger.kernel.org, Julian Braha <julianbraha@gmail.com>,
+	Sasha Finkelstein <k@chaosmail.tech>
+Subject: Re: [PATCH v4 04/10] dt-bindings: input: apple: Add DockChannel HID
+ transport
+Message-ID: <20261006185039.GE2194299-robh@kernel.org>
+References: <20260925-apple-mtp-keyboard-final-v4-0-304c267518f4@gmail.com>
+ <20260925-apple-mtp-keyboard-final-v4-4-304c267518f4@gmail.com>
+ <20261006160049.GA2406717-robh@kernel.org>
+ <2687bc3e-b73a-415c-8c68-8249e1fe4e6b@cyberchaos.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arLZj2DxBazf3wMd@bywater>
+In-Reply-To: <2687bc3e-b73a-415c-8c68-8249e1fe4e6b@cyberchaos.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:44:20PM +0200, Francesco Valla wrote:
-> On Tue, Sep 22, 2026 at 09:40:31AM -0600, Mathieu Poirier wrote:
-> > On Wed, Sep 16, 2026 at 11:10:53PM +0200, Francesco Valla wrote:
-> > > Add a new binding to describe remoteproc-provided virtio devices; while
-> > > these are discovered through a resource table parsed by the remoteproc
-> > > infrastructure at runtime, their description can be needed to probe
-> > > non-discoverable buses (such as I2C) or to link consumers and suppliers.
-> > > 
-> > > Each vdev is described by a dedicated "group" node, which then includes
-> > > a virtio-device node, which binding is already existent and used by
-> > > virtio-mmio. Each vdev shall be stattically linked to a "group" node
-> > > using its index inside the resource table as the reg property of the
-> > > node; this permits to have multiple instances of the same type of
-> > > device.
-> > > 
-> > > The binding is intended to be generic and adopted by any remoteproc
-> > > provider.
-> > > 
-> > > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > > ---
-> > >  .../bindings/remoteproc/remoteproc-virtio.yaml     | 89 ++++++++++++++++++++++
-> > >  1 file changed, 89 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> > > new file mode 100644
-> > > index 000000000000..c4a0d84b1460
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> > > @@ -0,0 +1,89 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/remoteproc/remoteproc-virtio.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Virtio devices over remoteproc
-> > > +
-> > > +description: |
-> > > +  Virtio devices ("vdevs") can be exposed using the remoteproc infrastructure
-> > > +  and its resource table. For some of them, a device tree node might be needed
-> > > +  to describe remote undiscoverable hardware and/or connect consumers and
-> > > +  providers.
-> > > +
-> > > +maintainers:
-> > > +  - Francesco Valla <francesco@valla.it>
-> > > +
-> > > +properties:
-> > > +  virtio:
-> > > +    description: Contains a group of Virtio devices exposed by the remoteproc.
-> > > +
-> > > +    properties:
-> > > +      '#address-cells':
-> > > +        const: 1
-> > > +
-> > > +      '#size-cells':
-> > > +        const: 0
-> > > +
-> > > +    patternProperties:
-> > > +      "^vdev@[0-9a-f]+$":
-> > > +        type: object
-> > > +
-> > > +        properties:
-> > > +          reg:
-> > > +            description: Virtio device index inside the resource table.
-
-Who/what defines the resource table?
-
-> > > +            maxItems: 1
-> > > +
-> > > +        additionalProperties:
-> > > +          type: object
-> > > +          $ref: /schemas/virtio/virtio-device.yaml
-> > > +          maxItems: 1
-> > > +
-> > > +        required:
-> > > +          - reg
-> > > +
-> > > +    additionalProperties: false
-
-Preferred to put this before 'properties' in the indented cases. Easier 
-to see what level it belongs to.
-
-> > > +
-> > > +    required:
-> > > +      - '#address-cells'
-> > > +      - '#size-cells'
-> > > +
-> > > +additionalProperties: true
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    remoteproc-cm33 {
-> > > +      virtio {
-> > > +          #address-cells = <1>;
-> > > +          #size-cells = <0>;
-> > > +
-> > > +          vdev@0 {
-> > > +              reg = <0>;
-> > > +
-> > 
-> > Do we need the 'reg' since we already have vdev@X?  I'll let the DT people
-> > provide their input on this.
-> >
+On Tue, Oct 06, 2026 at 08:09:47PM +0200, Yureka Lilian wrote:
 > 
-> AFAIK yes, because the rproc_get_vdev_fwnode() helpers search for indexed
-> child nodes using the 'reg' property, not the node name. This I believe
-> is the preferred way of doing things.
+> On 10/6/26 18:00, Rob Herring wrote:
+> > On Fri, Sep 25, 2026 at 10:09:31PM +1000, Michael Reeves wrote:
+> > [...]
+> > > +
+> > > +  mboxes:
+> > > +    items:
+> > > +      - description: ASC mailbox used for RTKit control
+> > > +      - description: DockChannel FIFO mailbox used for HID packets
+> > > +
+> > > +  mbox-names:
+> > > +    items:
+> > > +      - const: asc
+> > > +      - const: dockchannel
+> > > +
+> > > +  iommus:
+> > > +    maxItems: 1
+> > > +
+> > > +  stm:
+> > > +    type: object
+> > > +    description:
+> > > +      STM interface providing the vendor, product and version identifiers
+> > > +      and serial number shared by the HID devices. When present, the host
+> > > +      must query this interface before registering the keyboard.
+> > > +    additionalProperties: false
+> > An empty node is unusual. Why can't you just query the STM interface and
+> > treat it not existing or having those properties the same as no 'stm'
+> > node.
+> 
+> The issue is there is no indicator for the stm *not* being present: We boot
+> the MTP coprocessor, and then receive a message when the stm is available.
+> In that case we know it's ready and we can proceed with obtaining the serial
+> numbers and registering the hid devices. But if there is no stm, we simply
+> do not get the stm ready message, and the hid devices are never registered
+> (this is the case in the original downstream Asahi dockchannel-hid). To make
+> the stm optional *without* taking the information from the device tree, this
+> would require some sort of timeout for waiting for the stm ready message. I
+> outlined the available options in this thread[1] and argued the empty stm
+> subnode makes sense, since this is describing a peripheral which may or may
+> not be present (and this information is useful to initialize the device
+> properly).
+> 
+> Link[1]: https://lore.kernel.org/asahi/bbaca769-312c-4a24-9524-16cb2b4f277f@cyberchaos.dev/
 
-It is either both unit-address and reg or neither. It's preferred to 
-have them unless you are just making up numbers.
+Okay, but you don't need a node here. Just an 'apple,has-stm' or similar 
+property will suffice.
 
 Rob
+
 
