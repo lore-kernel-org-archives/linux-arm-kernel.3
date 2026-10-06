@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D734DCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F246CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=My1PIJVgQpM5EU1o0KTJuSzA87j4uP83Hs1j1/0ESPw=; b=H6+GqLqad8SBp+hHxpxFOHIypp
-	Q31hLq7LmKcJzJkInyzB/T5Mzoj2qhgnWeuaGjrEfsRE6wcRAcp4t4zMb7c7aR4ZBmxxUOZGxPtSB
-	eepNjhe0drbHRgpGLz3EWtRd7C3tLeC01jeYZZTpHe0dgdMJmUa19TewEXgAAT7LfFiHCtavGhjdI
-	Cq6csd93b9Z405N9idc+M+m0wVBc+b7KiaG3atbL6GJG7nqYdvM20xY1q9biWfTUzRFLo2JEy+FVB
-	mQvGW1vxy+5zlFxWMR0Kq1VF1SEuKtrjk4+w7Gp52uetrQY/yL46FZqu30TQIKmpdtsO6kwcuiYWo
-	XA54VgSg==;
+	bh=HcianPOZJYcBmieDb1o4dWGCk/aX34XvMBlFCiEYCc4=; b=LfLy+eDqxGJO4XzOF9WoFFaa7c
+	eKW3u5DQSFJn3Txk5aC5JJf4sOrcbSpiMkzmzD63P+qUclUY6PdPsjBEVo1C6wpUNUkZ3xmCzYCF7
+	SUvzmd91bMoQUpbInUxm4YBwsxk1Ufo9xOXqcaiXTzfFKP9+FBRxNwCueUtXW/EThNQDkj8j8t6F+
+	iA32rRYMaebEbOkwbtm7EhM9XcSP+Yyi+EKkN9VVLHIKICXUI1AVBl+GFefUVLbu0M+hFkq3gWtRJ
+	3VfpNhRQIbhCKQNJd6LXJlbs0GJEEZxLjTN6vfjScOmjipwvx2wZWigydRZvfWJGFhuRxhpAkekpd
+	55YH4O5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyt9-0000000090l-0HOM;
-	Tue, 06 Oct 2026 06:42:59 +0000
-Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	id 1xDytM-0000000098J-1Er7;
+	Tue, 06 Oct 2026 06:43:12 +0000
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyt6-000000008yq-22kb
+	id 1xDytE-0000000093v-03JR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 06:42:57 +0000
-Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-34bb8b31647so4134112eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 23:42:56 -0700 (PDT)
+	Tue, 06 Oct 2026 06:43:11 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-3282db206d3so7825752eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 23:43:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791268976; x=1791873776; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791268983; x=1791873783; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=My1PIJVgQpM5EU1o0KTJuSzA87j4uP83Hs1j1/0ESPw=;
-        b=FKBcNmz1q2OWYstpNc5DBvtiK+EQapXRdDWSvtPWAk2nlfjnkTOUlszfJps3SkzLdi
-         OtidBj0zV0rxGHmoPlTeZ1fmme8hEby8cARNdT/yuBPkfciwABYc3D+j0SMyweivI2xG
-         /2+Xz2YHuW1wtgbj6dWkIr89hOhao1JQeLK6rzEqO/vR0bAK4mW/wHMYp6VLYbjketsA
-         u5d1pmkdAShbGYPJWVHxQffZyzINHywjPDgrf+BeLpGM7BnInU3vjwWTW0soh4rm23+V
-         XAB82GsQGpZQMpUxt5UsQsSobpLM5aX45jgeLhSpFDY4ec6TzKboMBj4H6qiTJCa530Y
-         xFOA==
+        bh=HcianPOZJYcBmieDb1o4dWGCk/aX34XvMBlFCiEYCc4=;
+        b=LgxkDnxPzTrGbOWORemefptzpoGMzsld1FfRbjP4jSxWoE+X9ksFwm+CHdUgVXIAOr
+         5muzy5dke6DZm4YypYw1qOczMmib0WXA7Z560QvxnfD09knFJ0+G2Zy1DHhggYySQm3v
+         UKUh9BJ8KMqXrJdM9Scfp5Xgw+bmcezi3aRRJdM6Np2K6XWCJM605F3afcgDG3lLpdn3
+         BSio31lFbXDylFPRqyh6LhS86aeES+JzkV7zih3eKlHJWC//G+Bj1UKy46w0rb4/ulgA
+         cLystYAwiteryPaxbK01bpdKpjEbgdObymHfDi5YSPa+5+1kh3Q5JraNq4lALS5Gfiru
+         kz/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791268976; x=1791873776;
+        d=1e100.net; s=20260707; t=1791268983; x=1791873783;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=My1PIJVgQpM5EU1o0KTJuSzA87j4uP83Hs1j1/0ESPw=;
-        b=VJ1Q2VQs2Ny/j1aQjN6mCHmAcMNqVrABROVzFGxciEIICWQR2+xXbEQAj0BBMnFXmN
-         NU3bqDvK57hRVKcAmjSh/VOyg/r+fjqxrfzN7cragfmeNws9gJD4XYi85pPegwLnGiYY
-         3FVmM2X3+QknG/zoXAgMNzjNPe8kqj4ISAPhAT/gfFNv79WLdvAjPHyIgFcCMZ1itdkS
-         Kax0GyaRTxcZMV9qiXQdDUlZUrFDBJ+Bz4sRJPr1UXagrZGTxY8soOkrGkJMrufzAUoD
-         PTDHntuZHjcWZ/xkDBrzrGKiZe3CIMHXHxYFAIL3lRpvejWp06FJLflxRbAw5Ipqpxuq
-         xPDA==
-X-Forwarded-Encrypted: i=1; AKwUvByf5TzwJH4Tio5BNC/eTO2mCJp5y401y4oBjb0RbZPn9CKGcM0kzcx/8EpeEnTS2r0hl0QWGBWSjv4ou3Ux+6Xl@lists.infradead.org
-X-Gm-Message-State: AFq9FYIZgImiycM+YcT8I4hGLIjkA+8qu/MLKPHuZUpNM7BpSrL2JhhC
-	2xk76Cpnj64wxEbGWW/N4i6/BbZ0m/WnXg98BfWNdVb3rkYgoZyIwdwx83Ol6xg1
-X-Gm-Gg: AYBFou0GWfFJKkEB0uulkqN7WtjEXO0NGipuXQ35jkk0zw8VhrVJvdVVmTk644jVEsO
-	Ml8K/2admi8Rb4aUvAW1MphoQjNc7q1mRBLbthyQx0q0yfkj9pWZiRkYCjIOe9db3gaJ0JxekVi
-	dJPg4QOcwx3HrKrPdRzPGAOhe0aSSvd4O8gJRwI+l4rTCtq+SJaQEUa4vnfkdcbXhCxMN2X/Ym6
-	Jxc1i2Lct9wCvy/EURHj5MpsyivdzRB9UUpqOjr/guPhmC6T5PNCY16jm54c/4sit+ADFm2wVcb
-	xg/BQ95vKaZn7J81Zs02DDRpsJ4ZnAwEIgGQEaUS7rCHmj+OWH6Ukfqv3dQH+C8Dnmj8zHvpNEg
-	HkEnILpE0tXTCNGzqUG7r3QMkX/Fn/tnb35Hq4hikjqP0O4e5XmysZOp5B/idMlw15AnATSy7Rr
-	h8pufOe99Vfi5iSIffNl4IT7Gh92idHdl32hZINTG0KVqmHA4AIcm3Sakkg2b9Sf6o9RZy5Rgur
-	lNV9CBT
-X-Received: by 2002:a05:693c:20cb:10b0:34a:c4e6:27c with SMTP id 5a478bee46e88-3514e2a5347mr444919eec.18.1791268975568;
-        Mon, 05 Oct 2026 23:42:55 -0700 (PDT)
+        bh=HcianPOZJYcBmieDb1o4dWGCk/aX34XvMBlFCiEYCc4=;
+        b=Q6GgjosQxHvDIPO6GCQKR6IayWK7S8ybwbDkyKgp16dCDsNA7S43BOq3c7Jq7xZ0UB
+         e/XfLdDYk2BztM46ufO7EBgw1dOVG5vRibpXCJRzdif2wRjcAqqXEf5Rpirs1vRom1OR
+         gIdF3uIaXGxWOx+E5m+buuAxYPtotB9J8YH7iXEeqLlznGsmdktOm66eCh60EhrEik6d
+         jWz4COh//KodCSr6x37VvOGfSqNzNDIU4QULVmuYINGSnT3IxJJnDvCUIb5uq8TfIKbi
+         nuiIH5GcYr5yM0h/uUku3rq4oC9KbU++yACj3PyAn1jFbI+kJX4IMoK6jOO/U8cNOPPD
+         8agQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxCjeWUf9VW4H5bt2s90dBcQ30xdKE55iUURaFM8PbcAXf/V2KwANFYOr6hz/hPDpouyG1pc83CCWjvoHWwlHOw@lists.infradead.org
+X-Gm-Message-State: AFq9FYKnD4vGRMmd0twqyKn7dh1zsU6nRhWau3p1T5lsxr8shJrr+/6r
+	PI+PELK2Inxu+QZZz/spnFhyPII7RMqg3RwzMJmXRhwChglD0G5nsMl4
+X-Gm-Gg: AYBFou06jzMus7fr3fNirBkeIUECzTDvjOPeKao+Ta3FJ9uiTLVSqUtWhNEwmuvyqLK
+	NdDVaTXowQi11IFK3FE7w/X5TINAHBsWCSShAKLobqo4gKbd5qPVcdvSKNG6yPSg5gwdFqKL6U8
+	Gi3wbUT1cQEDME0v1xqQVtBBrS3Do46bmLPKIFTuezNx8SbTG39blItT1rIcSRESNHFYZHEZv8A
+	doGDRQukdQYCBMC7qxvvKQZu5yx+6tpT3dD0OQ0LEGVRBQDL8A2Vl8aKBsapd2Z416j9k412H+W
+	T3oBcBEV3GSy9KTKO3/BN2wQjza7jd6t7w1PI6DGFq5jfcO9tyw9/QQFMR8Vnb9INIBNWCGV60o
+	SoKh9EWUZBH4WlWUWS8cxiC9XSYTqqjmyj9Dd34qeh9O6wDZ0s2qncvARODv16xfwpQOq2C9qtA
+	GkhmORFoT79FCDaZgVi+GpqAzYATUSGlQ43A+15NEt8SGS4tm87kyqmxiNgfRJ0q4ysHmNNikO3
+	WB8+zPY
+X-Received: by 2002:a05:7301:18a3:b0:34e:67d0:bbb9 with SMTP id 5a478bee46e88-351116caa62mr11416936eec.29.1791268983110;
+        Mon, 05 Oct 2026 23:43:03 -0700 (PDT)
 Received: from localhost.localdomain ([2a09:bac5:55f5:25c3::3c3:b])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146a2c991sm4617347eec.14.2026.10.05.23.42.48
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146a2c991sm4617347eec.14.2026.10.05.23.42.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 23:42:55 -0700 (PDT)
+        Mon, 05 Oct 2026 23:43:02 -0700 (PDT)
 From: Chuanhong Guo <gch981213@gmail.com>
-Date: Tue, 06 Oct 2026 14:42:23 +0800
-Subject: [PATCH 1/2] dt-bindings: clock: mediatek: mt7629: add RTC clock
- IDs
+Date: Tue, 06 Oct 2026 14:42:24 +0800
+Subject: [PATCH 2/2] clk: mediatek: mt7629: add RTC clock selection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-b4-mt7629-rtc-v1-1-e556386df816@gmail.com>
+Message-Id: <20261006-b4-mt7629-rtc-v1-2-e556386df816@gmail.com>
 References: <20261006-b4-mt7629-rtc-v1-0-e556386df816@gmail.com>
 In-Reply-To: <20261006-b4-mt7629-rtc-v1-0-e556386df816@gmail.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -92,8 +91,8 @@ Cc: linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, Chuanhong Guo <gch981213@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_234256_520039_103C1934 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20261005_234304_057490_3ACE794C 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,29 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the 40 MHz / 1221 RTC source and the RTC clock mux. Keep the
-existing CLK_TOP_RTC ID for the 40 MHz / 1024 source.
+CLK_MODE bits 3:2 select the RTC clock source. Selector 0 uses the
+40 MHz crystal divided by 1024, while selector 3 divides it by 1221
+to provide approximately 32.76 kHz. The integrated Wi-Fi needs this
+/1221 source.
+
+Add the /1221 fixed-factor clock and the RTC mux so device trees can
+select this source through assigned-clock-parents. Keep CLK_TOP_RTC
+for the existing /1024 source.
+
+Selector 1 is reserved. Selector 2 is documented as an approximately
+25 kHz PMU bandgap clock, but its source and control are not sufficiently
+described to model it here. Leave these entries unmodelled while
+preserving the hardware selector values.
 
 Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
 ---
- include/dt-bindings/clock/mt7629-clk.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/clk/mediatek/clk-mt7629.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/include/dt-bindings/clock/mt7629-clk.h b/include/dt-bindings/clock/mt7629-clk.h
-index ad8e6d7f0154..aa94a398ae05 100644
---- a/include/dt-bindings/clock/mt7629-clk.h
-+++ b/include/dt-bindings/clock/mt7629-clk.h
-@@ -115,7 +115,9 @@
- #define CLK_TOP_CRYPTO_SEL		105
- #define CLK_TOP_SGMII_REF_1_SEL		106
- #define CLK_TOP_10M_SEL			107
--#define CLK_TOP_NR_CLK			108
-+#define CLK_TOP_RTC_32K			108
-+#define CLK_TOP_RTC_SEL			109
-+#define CLK_TOP_NR_CLK			110
+diff --git a/drivers/clk/mediatek/clk-mt7629.c b/drivers/clk/mediatek/clk-mt7629.c
+index e154771b1b8b..6336f8c4167b 100644
+--- a/drivers/clk/mediatek/clk-mt7629.c
++++ b/drivers/clk/mediatek/clk-mt7629.c
+@@ -285,6 +285,10 @@ static const char * const infra_mux1_parents[] = {
+ 	"armpll"
+ };
  
- /* INFRACFG */
- #define CLK_INFRA_MUX1_SEL		0
++static const char * const rtc_parents[] = {
++	"rtc", "clk_null", "clk_null", "rtc_32k"
++};
++
+ static const struct mtk_gate_regs apmixed_cg_regs = {
+ 	.set_ofs = 0x8,
+ 	.clr_ofs = 0x8,
+@@ -367,6 +371,7 @@ static const struct mtk_fixed_factor top_divs[] = {
+ 	FACTOR(CLK_TOP_ETH_500M, "eth_500m", "eth1pll", 1, 1),
+ 	FACTOR(CLK_TOP_TXCLK_SRC_PRE, "txclk_src_pre", "sgmiipll_d2", 1, 1),
+ 	FACTOR(CLK_TOP_RTC, "rtc", "clkxtal", 1, 1024),
++	FACTOR(CLK_TOP_RTC_32K, "rtc_32k", "clkxtal", 1, 1221),
+ 	FACTOR(CLK_TOP_PWM_QTR_26M, "pwm_qtr_26m", "clkxtal", 1, 1),
+ 	FACTOR(CLK_TOP_CPUM_TCK_IN, "cpum_tck_in", "cpum_tck", 1, 1),
+ 	FACTOR(CLK_TOP_TO_USB3_DA_TOP, "to_usb3_da_top", "clkxtal", 1, 1),
+@@ -458,6 +463,8 @@ static struct mtk_composite infra_muxes[] = {
+ };
+ 
+ static struct mtk_composite top_muxes[] = {
++	/* CLK_MODE */
++	MUX(CLK_TOP_RTC_SEL, "rtc_sel", rtc_parents, 0x000, 2, 2),
+ 	/* CLK_CFG_0 */
+ 	MUX_GATE(CLK_TOP_AXI_SEL, "axi_sel", axi_parents,
+ 		 0x040, 0, 3, 7),
 
 -- 
 2.55.0
