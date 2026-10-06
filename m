@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3B1CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9AACA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 11:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+nio9Hhvbka7Ed6Pqah8EBJxLi2/eirIVfDib3AzpKE=; b=lCARy6v1a09yOX
-	x4h+W4WZQHY+30Ga9I9xS/5td5BY9cpN8gbXHEUNq6RIAbLqEOPXVurc7RR+KvLjsNqRU2Irz1c1H
-	yK/7Doa32LYnwMKc15xIgsJxC9CwYCK540cq8tj+3R4I6z+SXkrFUH+m7wM4Nj0z3oEWs6JM0/vvg
-	FHi/nkG9ilp8EaeQA8XloY6O3NxvKBhwEUA+16IQc1qHXucD83IQY0jKyM2y0o0puJo7IGrtuiaNU
-	dC+Q77fcdR91XJVCztbV3hrnxSrigSzjnWBmHEAYAkYSCrAr0AcdVqW5LdcUe4vHDFIQoqDN+P4VE
-	4NB37PdQtVuxZdC0TEPA==;
+	List-Owner; bh=dV0RSoFV6Y+3amLPhBXn9ZC7bZtBE6S7E5l+wTKLQOM=; b=qy2YdIf7/+Viei
+	VweB26/g4JMLjQcDcDNnnM7475E+Kw8rpBEqtpHaLhcJOdfzqTgtP+VhFSoLkEFgVG6sWR7+ROqY9
+	vsvmZZ5pvGX046SnFAz4tgM//BEp1FeYTR1I36tnm+QjPBoIrbUvnt6P8yFiTcjxm3sXuQF30fPhR
+	5vBzryIEV43M/7MZ6nGBfYAfVVBq26kX52WZb5wIB8Kn5ceJre6G07Ft1I6x4EOJ4suKWNkgeh5hN
+	NQDwzrNkvytdnaNFafAAA27f1nWs3GkQPw+fCrjZUE8F3OW4wboxMfzYIKzmzPMWKj0+Q2z5T4WHM
+	HJnBtU0wOkzOF8uzfFEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2tw-00000000Zwy-2Cln;
-	Tue, 06 Oct 2026 11:00:04 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xE2vT-00000000aF6-3fjT;
+	Tue, 06 Oct 2026 11:01:39 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2tt-00000000Zvq-11ec
+	id 1xE2vR-00000000aEG-18G1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 11:00:02 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48c5358fc28so1541711f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 04:00:00 -0700 (PDT)
+	Tue, 06 Oct 2026 11:01:38 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4980fe6b3beso3655975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 04:01:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791284399; x=1791889199; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1791284495; x=1791889295; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:organization:autocrypt
          :content-language:cc:to:reply-to:subject:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=+nio9Hhvbka7Ed6Pqah8EBJxLi2/eirIVfDib3AzpKE=;
-        b=tbf6wKg7IJ8YB/823jQ6/Wq8GTSgkGmOcLejPVWEzIFdlhXqhs7usRo92Tx2SRRuX1
-         I1ZTMgZHShmk9UKQ8+HuWwyPqjULKIL688CFcgwCAmmX2N5Qm21l28GJ7fKXw+bU6THM
-         6qYN/9pGs83TSBu8jooGM88DZrIHC36pk3PcHjyi/R9kzcuS9Rt/ACg8XbKxES1idu5S
-         vz3rn+/cOiDHqbELO67vXv0rCqLWGpKB5RcA7igq99NOV/NmaDVpzRHMhuKDnkn41k7a
-         eotZnbBzoLgaPYk1M9qXvat7Z4NHHYDhfa/UV+lh/9n+aOWi1YrLhHV1TkTgx1N3iBTh
-         8Lkg==
+        bh=dV0RSoFV6Y+3amLPhBXn9ZC7bZtBE6S7E5l+wTKLQOM=;
+        b=SL7OEwNJ4xyjHTi+Djz30MeK1izz6cGfBMCKAxztII48UadsBdtGmHZJy1HODP2cE5
+         G3MFRicJEnVrr7lATQKqRWhH4UL7cFZngArmj32sULEEnkCQcGnAeu7KPRdU/uHcIcJZ
+         blzHCepyGXgcOXv+uei5stom1MizWqa2JTsJjFj9b2w67VARDKT596IewBYN+gHSV6WU
+         AdwlcbswIj41nUO0xcXKu7MALQOveWOJPS3CfRa7eYzusQQVmNe8GY6mRBKeKBn5V5oP
+         V09Oza85lnqjSTVwwRHuZ6YRbMjiyWgQWFMq0ddwsCrzrmpLq1OhD5tMluc2nFfgLeDK
+         XjZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791284399; x=1791889199;
+        d=1e100.net; s=20260707; t=1791284495; x=1791889295;
         h=content-transfer-encoding:content-type:organization:autocrypt
          :content-language:cc:to:reply-to:subject:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=+nio9Hhvbka7Ed6Pqah8EBJxLi2/eirIVfDib3AzpKE=;
-        b=Nrkmet/fIlnp+V9OmSf8mumrnIiyv4febso8uwTapqHIRCwBnBWn65hmDmgvIKuGX5
-         6/ss1RDHhAEHJtsoSImv2Xn+61rGaRj7nt5yMMoae75wl2dAg+9cCCxlNNnKShwwzUBi
-         CqHXnD+A8AUOx5geX922ThY02AwZ+ITW3zfkzFTzWI6M0E9GOAW3jTq3ceOze/922/nm
-         jlT7eTr8az9ikquTDK9vFNJ8H49TkC6Xey6AEE169C3aEPKmOygFr0NQ7lHHsIZ1v3xk
-         mmzklOnXmuvKizvITvj8DwPz5Pe6Odbe3eSdCLkCAM+izOKisbl94zNlY4eTc/EyLhk5
-         2tnA==
-X-Forwarded-Encrypted: i=1; AKwUvByCBZezx9BJWC4AnnMJrRv4nCHdg/4kuM3pB/w2jaraAzaOxOaVSaJc4QS01AnxmjAJPCMwprobtQuVJZ2E/u8K@lists.infradead.org
-X-Gm-Message-State: AFq9FYLCyIsnboFv2O4KxmcJfJ2QWWxuCZ7jEQwuJBZl1nR5MM3Fw+oh
-	kKbipsY5/MdkcoigFQFKyFfbQxMQk206U1Vv/ZWw1M84+X88+CX7feFj0df0HHS0lu4=
-X-Gm-Gg: AYBFou3i6b0Ay3rgJD7e9LFlA1U4aK9MTCZKwkXP3lcCsMs1xKqZNu3x5ftyCFjO2UI
-	FJ0SR79Lk8qKtttlUFB+2DVutHfbMjfLnL+MX4KnoQ2Sswjo1ywaoj1n9dAg/NeaiKkUzUkfXGp
-	NK4hAHoKdsL08Tg+ZQPuZSVZpEFRbrqcH8XCCB19T9AKbF0C6ak4w1LsWYz76n1rCRPVr+Q7Sdg
-	IsgpuVboNmaixCkZ2YMTOPQprPtxnHE9lQlJSwudphM+hFWjVSsIoG7wfnC4H3oU3+KQ33A3Jca
-	xXwtYcac/dWvamZA9cWXEUb3WLsUp6AkaM4gmMw9KcxaCCsFvvLIDx7ZcfYf+oLoYm8YGhoIaFP
-	Hc47MSNm1x25h06YjPyQ/sKWvUHmlELgaWfK6WXqTvV9orUSqZKzCBP7uo+fS6gjWnWHB0xTPBj
-	2COrTU6NNYUGDpf/s1Nbahj/D8rQ4xjw1wQ7PTBelCwqXXuFo+r7uOaG+zp+sX1XdGibaASkwIs
-	fC72i38C34CN493XBz/s3sxxVNvrrQ=
-X-Received: by 2002:a5d:5d0d:0:b0:487:b4a:3f54 with SMTP id ffacd0b85a97d-48c4800336amr17791685f8f.29.1791284398668;
-        Tue, 06 Oct 2026 03:59:58 -0700 (PDT)
+        bh=dV0RSoFV6Y+3amLPhBXn9ZC7bZtBE6S7E5l+wTKLQOM=;
+        b=zPtNswbvDErAzYwv8bEDDeg4h3kDgy/e2WAIOwA0R7qkan0wT9mNq8hm+2QiFxgyU2
+         StIBnnjneWdxX9YOU6UNkoLMmXIoT/R2gExvMdF4P6L4Po770aQ5dJZ0cYMSMSBEkGpF
+         4JY7bhJ9QqTtMJiduJugXjUkulK96960Xt2eeEPZAB0kxm6R2Ghtg+6lTOU79EmRIrEl
+         4lG95I1msTDDwIGdPMoMrW+gY6/T6zRQdQL5FJtyBeyLOqblvYTxfSNKmWJmhB/2JePv
+         PZjbTpWHYZnNpLrav4cCM84pEkzLqKCwKxmiKdT5ukv41kDXt18jc5P7MQp7CTgGd24x
+         0syw==
+X-Forwarded-Encrypted: i=1; AKwUvBxUy/Ibo4N0md3Bt8zd020L5n61tk41gfFgfVAUKa2CgBqilrmeLRgnP9u2zZObfwvwoZcn/yIEc4htpKpjOSUN@lists.infradead.org
+X-Gm-Message-State: AFuF++nocXTgOoIn6Vgaw4dB9Ksz+C4WHxqEksQY6bUwr8grG1DlH4nS
+	haEZIE8AdgO5zRUk7Dnv7Q0eSyhDlFLGO+hUb8fLA7THQkRbZLtCOF7NlF/Htrx+mslGbcXbzmJ
+	2lO5AeI85eA==
+X-Gm-Gg: AYBFou3RF5oiffsbPwmBN4PSLncVm+H8v1Hhpj9yHboxOEMM2K+GFizDQkNBlkUdqXV
+	ik+1wiGN5m2geqRo6gXAK8XSr5/G/VaKcTPXPv964odTNQ9yM24j9Lckxgg12yf7pNbPZxjOcW5
+	4+UgUQzoD+hvyXCm8jCviJFT5vX36332iOdFZ1j+0L+csphgnW+n83pm30v22FeaIqlTPBdN5sm
+	1BIxcvr/c2JchslhbP2fpTkCiTZFxel5RUzX6n+eOlsMawAkWygxHvqoPEbRyMSCQpWTsC71xGg
+	K6A3l0iYzaMGuneSQdmqOCW5iKJ5/jpI6tua1ictnU0zwHDtSAFV1gyv3NiZZe5hQ+Saa7r6K8+
+	Cg+aMgedbuLVo8+WYPYVXl9LFCzbnnDbqDOzL+bRfe7EGKyImhI3FdQLnnnNGG/uSJeLQG8GYoO
+	NTYPbxnGDldMKEchOlrU9AgB8afqs3DZ9YHzLiB8DfjilChXQbAoFq3g487tmCWX8EO2eK9ZK3E
+	zE3s42VKNC7+9wJ/p0luhsV3DVmUkfN
+X-Received: by 2002:a05:600c:6046:b0:4a0:321:6dad with SMTP id 5b1f17b1804b1-4a178a396c1mr32243445e9.16.1791284495071;
+        Tue, 06 Oct 2026 04:01:35 -0700 (PDT)
 Received: from [192.168.151.96] (90-182-211-1.rcp.o2.cz. [90.182.211.1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c622907fesm10290942f8f.26.2026.10.06.03.59.57
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c6cd7c326sm2508351f8f.53.2026.10.06.04.01.30
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Oct 2026 03:59:57 -0700 (PDT)
-Message-ID: <8987c69f-5576-4358-92e4-e9e3b4f4f2dd@linaro.org>
-Date: Tue, 6 Oct 2026 12:59:55 +0200
+        Tue, 06 Oct 2026 04:01:33 -0700 (PDT)
+Message-ID: <a1f0aa7d-be6b-4229-8345-66595a47be74@linaro.org>
+Date: Tue, 6 Oct 2026 13:01:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [GIT PULL] amlogic ARM64 DT updates for v7.4
+Subject: [GIT PULL] Amlogic drivers updates for v7.4
 To: soc@kernel.org, arm@kernel.org
 Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Language: en-US, fr
@@ -109,8 +110,9 @@ Organization: Linaro
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_040001_302657_5AD142C3 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20261006_040137_339319_6C4112DC 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,10 +130,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Here's the Amlogic ARM64 DT changes for v7.4, containing spaces
-indentation fixes, MMC/I2C/MCU Fan features for the Amlogic T7
-based Khadas VIM4, clock measure nodes for Amlogic a4/a5/s7/s7d/s6/a9
-and finally changes to properly define the NOR flash on the Odroid HC4.
+Here's drivers updates for Amlogic SoCs for v7.4, mainly clock measure
+support for Amlogic a4/a5/s7/s7d/s6/a9.
 
 Thanks,
 Neil
@@ -142,58 +142,28 @@ The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
 are available in the Git repository at:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm64-dt-for-v7.4
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-drivers-for-v7.4
 
-for you to fetch changes up to b44e2be772f866985cafdf90355285069ea68495:
+for you to fetch changes up to a848d72aab71e19ea78180f2502ad7d12818723f:
 
-   arm64: dts: amlogic: meson-sm1-odroid-hc4: run the SPI NOR at 40 MHz (2026-10-02 21:30:26 +0200)
+   soc: amlogic: clk-measure: Optimize CLK_MSR_ID to reduce memory usage (2026-10-02 11:24:25 +0200)
 
 ----------------------------------------------------------------
-Amlogic ARM64 DT changes for v7.4:
-- Spaces indentation cleanups
-- Amlogic T7
-   - Pipeline Clock for the MMC controler
-   - I2C controller
-   - MCU node for FAN control for the VIM4
-- Clock Measure nodes for Amlogic a4/a5/s7/s7d/s6/a9
-- SPI NOR #hold/#WP and bus speed defining on the Odroid HC4
+Amlogic drivers for v7.4:
+- Clock measure bindings reorg
+- Clock measure support for Amlogic a4/a5/s7/s7d/s6/a9
+- Clock mesure memory optimization
 
 ----------------------------------------------------------------
 Chuan Liu (6):
-       arm64: dts: amlogic: a5: Add clk-measure controller node
-       arm64: dts: amlogic: a4: Add clk-measure controller node
-       arm64: dts: amlogic: s7: Add clk-measure controller node
-       arm64: dts: amlogic: s7d: Add clk-measure controller node
-       arm64: dts: amlogic: s6: Add clk-measure controller node
-       arm64: dts: amlogic: a9: Add clk-measure controller node
+       dt-bindings: soc: amlogic: Reordering compatible of clk-measure
+       dt-bindings: soc: amlogic: Add clk-measure compatible to support more SoCs
+       soc: amlogic: clk-measure: Support more measurement channels
+       soc: amlogic: clk-measure: Align compatible entries with DT bindings
+       soc: amlogic: clk-measure: Add support for more SoCs
+       soc: amlogic: clk-measure: Optimize CLK_MSR_ID to reduce memory usage
 
-Igor Velkov (2):
-       arm64: dts: amlogic: meson-sm1-odroid-hc4: mux the SPI NOR HOLD# and WP# pins
-       arm64: dts: amlogic: meson-sm1-odroid-hc4: run the SPI NOR at 40 MHz
-
-Krzysztof Kozlowski (1):
-       arm64: dts: amlogic: Replace spaces indentation with tabs
-
-Lucas Tanure (1):
-       arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
-
-Ronald Claveau (2):
-       arm64: dts: amlogic: t7: Add i2c controller node
-       arm64: dts: amlogic: t7: khadas-vim4: Add i2c MCU fan node
-
-  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  5 +++++
-  arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  5 +++++
-  arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        |  5 +++++
-  arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        |  5 +++++
-  arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        |  5 +++++
-  arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       |  5 +++++
-  .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 13 +++++++++++
-  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        | 25 ++++++++++++++++------
-  arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  |  9 ++++++++
-  .../dts/amlogic/meson-g12b-odroid-go-ultra.dts     |  2 +-
-  .../boot/dts/amlogic/meson-gxbb-nanopi-k2.dts      |  2 +-
-  arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |  2 +-
-  arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |  2 +-
-  .../boot/dts/amlogic/meson-sm1-odroid-hc4.dts      |  4 ++--
-  14 files changed, 77 insertions(+), 12 deletions(-)
+  .../soc/amlogic/amlogic,meson-gx-clk-measure.yaml  |  16 +-
+  drivers/soc/amlogic/meson-clk-measure.c            | 927 ++++++++++++++++++++-
+  2 files changed, 923 insertions(+), 20 deletions(-)
 
