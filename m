@@ -4,78 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09BECA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28D5CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=; b=i9g6GDX88e5g0TW64TUAKn3Iqs
-	6pJchnMplCh3Jx/HJRGmtp9tCg6zB43g93OyiK1plROkOyNTAP+xia09AJUHGEDR4Q30yFJ3SWZ/t
-	zdu2eg4Hx/D0yEXzQCN7xHQeyrcKQP/MNJtrG7kEwRVzbdWlBZZ92GXyiMr/F6VZiNNThs1bJxxcR
-	BVbNbrGqShV6wQL1ABT0qinZkU8JMleqAkVOVV9vJlikYsjCf0yCCn8YVpY05sa6kJdHd2CFFF1y+
-	CC6zsA6H/XMC5rLJ9zNgoCEytPtoSi7GTFA9xlveePK/hdBjlIwcDepnry+HuYAJKIN3tSHECZpgJ
-	oDIAWI0g==;
+	bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=; b=LSVqgwK47VjjsqhEKfUNwUg/CX
+	aynIPLie0wfK2xLcGFamGz/PoAJZVUTtqs86mIiUBd139FW2rWE1VEH2rES4eLi9I9CgY+uKwSPFx
+	2JZNBjZI9Uo8gNHzMRjIcLr5CproDT+3tKb3DzwCRl0OHCAW37IOpbkjBs2LXfwt7n8cKvsw6JbUH
+	gkY0CcprAcbkEU2P3u9kPbnuU5p3gw0o3ys/ci2gxNEiEEzMMS6sWNxYiRmBhBsqxEv4nvkIMxMW+
+	CeX5KNFdRIHf9jUAIQRPmwxLZL3sK6mNJNQu7anHcQcB8plRMThDJ6iOzXLrSL/FXr5icMNwvZLaH
+	9CQ4w37A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0TM-00000000HEz-2k3a;
-	Tue, 06 Oct 2026 08:24:28 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1xE0WS-00000000HMy-0P0t;
+	Tue, 06 Oct 2026 08:27:40 +0000
+Received: from mail-westeuropeazon11011020.outbound.protection.outlook.com ([52.101.70.20] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0TI-00000000HEd-4AbF
+	id 1xE0WP-00000000HMV-2bTG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 08:24:26 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1791275058;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=;
-	b=Ef4jOMuhmhoSFMKFG0YA+V7FibBdFdmjvO8xmHqtHDyuPnhG4nQ073ISZIF6WprthnNgEr
-	TaiKfTB18JScFG5iU9YW7N01zXVx0TLoLiOdJXZEp1ARTsCEmNOR6kHjMMAcgbxWb+1Q2t
-	lrecWJjebICUu/2e0favuozPuny81n/ScFIxOEkasul+3tZUpiljj9VLGpYoEHZfq8ZnXK
-	4AbsTWO0/uzf+LLKspG+zxRuKl106KR0woRnpuqr7a5527y8T9APXE1Dq3ZWZ64f+SfwTJ
-	Q/ZKOjFCpJZUqGCaedEJd0aTDoxy4jAXYdDoPbded4U1OupSplByd3G7gIq4MQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1791275058;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vr0ojwKxzexz1gExyMgKbrvTBCOsN+vgkQEaK1X+gfo=;
-	b=b3DPDroz9fgG0Wn+7bA4SyufMD4jrNVOnLCp0/8vX8KYsMRpd1f8g6oSJFQ8XZ+bJ9fY2l
-	T5hw9Yl6bLxfHIDQ==
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
- <edumazet@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
- <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>,
- Noor Azura Ahmad Tarmizi <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal
- Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
- <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] net: stmmac: Disable NAPI before stopping Tx
- queues in stmmac_xdp_release()
-In-Reply-To: <6bb85939-ff35-46e1-88cc-1bed0034e787@bootlin.com>
-References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
- <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
- <6bb85939-ff35-46e1-88cc-1bed0034e787@bootlin.com>
-Date: Tue, 06 Oct 2026 10:24:17 +0200
-Message-ID: <87tsmzjky6.fsf@jax.kurt.home>
+	Tue, 06 Oct 2026 08:27:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u40mECQCARlWV5T2ljnlHRJK8JMB1kJR38Fure66RPjDhZUwFXfurAUiLTGeFQXO/amq6hjfGOSktdxFZ1fmlYzfuCi1TJBNa6DxgigE2uEPr0QfKk7M2X/nKXVsbDwhHdkG49QR2r6Qfj7d1Ugpco0vHF4zLEHwuHQlKYqUlyQfvYmm5+frwBsDntT9VhcjUqN6susbgscrWz0doF3oNg4lpWfF6BRuu04fSUjobVWXKA97oeyrKc2lsbgxxEvfx0hqmDYDceMhz5Snc8Xho1qwd2srjfpATgPyhb72C0iM0glwKAvX7p9PNX+GzmIWCKHLymmlQj6jsKglFMFzvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=;
+ b=vVlt4zmnKZ6GO4VUQtO6NzUZLqaOH17TX+arj56ZbnKDLc31Heb7DLM6WYy5P+3E9B7RFKMT1XwFKhPG7VM5OUQWSFs0SsmoL8jjnSccdYZ0k7f0TUPiIPA/pkRqS6hzG0fuL9shpK4xWsslUp1cJ+yNtL6B4R57HQssEaxCSflTfiVtO4+20z/phLLsEyI4DWyTlDkvhQUTTSw/KC3PV3N26rSdDuiLefNcFqvL1QzyLh1eFAfptAbAH8AstdvneqY5qi/py83ENb5GnkK6Kh6829OdWmIrV43Z3nWpc24RZSqoHKPA2IF8yxD4gxw/0FL7jti1Tj2FOWLXm3NHfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=;
+ b=LJr3YWqviBcfFWm9+qjTk50HmzcuxO51QzVeQn0WlUNBSeIJYA5y1X6Nl7o7TplonetUHTU1W1G33xINK5ojHPYS+S6UvE7n94l/KO0UfeIBHZq+p82pDAvDxYg1CMaOAXlpLJLEAl9OD/bUyEh9Axx4fUDrm5PzZsUwgfbICdxFEWwp+xtnRvCo7eY0mtNVHvvJngZKRsztn3PJs0Bv7MG69yglscogPHqYnMDrPbREbvWUeyanytHcRnJCWu+huDmGV6sityIO9U8J36wPcKkdbzDJ/kpbaCkWG3M/Xlr5POeKhpGfjQPUi+4Xb/GwGGoYtOCg+xrg2JimfxoDJg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17) by AMZPR04MB185575.eurprd04.prod.outlook.com
+ (2603:10a6:20b:7c2::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
+ 2026 08:27:31 +0000
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0496.010; Tue, 6 Oct 2026
+ 08:27:30 +0000
+Date: Tue, 6 Oct 2026 11:27:26 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Josua Mayer <josua@solid-run.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Horia =?utf-8?B?R2VhbnTDhMKD?= <horia.geanta@nxp.com>, 
+	Pankaj Gupta <pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Yazan Shhady <yazan.shhady@solid-run.com>, 
+	Jon Nettleton <jon@solid-run.com>, linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-crypto@vger.kernel.org
+Subject: Re: [PATCH RFC net-next 2/3] crypto: caam/qi2 - skip isolated CPUs
+ when setting up queue pairs
+Message-ID: <cozavqeupdtr7cyn33nvtfqoqkw3sop5tffou6753vwg63hgwf@jr6gx236yblx>
+References: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
+ <20260930-dpaa2-isolcpus-v1-2-66c13f4fd75b@solid-run.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930-dpaa2-isolcpus-v1-2-66c13f4fd75b@solid-run.com>
+X-ClientProxiedBy: AS4P190CA0052.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:656::24) To MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|AMZPR04MB185575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64463fc6-f9e8-4958-e957-08df2383a9e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|23010399003|18002099003|22082099003|11063799006|4143699003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: m4GUHkkBIP9YohXJmdxBqzoS3X8t25JI46U8XcE/IOQZoXXcImY65+FNQ29/dZhUDNbsCedZmVBIDO9UzvEPu4osjo+gH7y5p80tMS+RAkqxRDKnBMqPBrzcwDvhMvuwPaAKv/q4es6P0TjnVdXpbUd+kq5B8W/zd4cueGvxu7ZyqpA8TJRQOvQdSj5Kigal1DCqL2o82VeYYnM9KUx7nb4cKo/3rhN7RhUnR23toqhgcx/S1rfhgzfdpUffPHU4vtujmVNAh0WxXY8/BdeZJ1T7VSb4EqbX3khCYsMaXKVW/RUzGceUOumHXWpq6Kch3GqhmKoLj49HDspjpfqOGqx3/hXDk8QU7QvK9pvtyoD9p5t9YpQWqJZLcOR5DiVKHzlxxEdVvHb3Lu8n9cniQnbAEK2MCWrcyRPMg19oNvtubKvXbffaRapQIHymKRVZBhRezrT034X7xfmYnDyiuyPM82arVTgEP+SUto0Hsu/JgiqL8IUPRDPyBb3WDMF2emywWu1ulLDzxllAqxo+IjtOh7tldRDnOyHQW4qdlJ+LwO4Hy6UBz3WADv6m3032x8KsREAgbHlzB+omrgEVagXgiWayZ2lI9sFeiihupRK3cIMZ+YELtlUl3yXkJepdJUtxKzrSiJJxNdm89Pf5ZKAeWxIjw7ksHg9PD28G0q4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(23010399003)(18002099003)(22082099003)(11063799006)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p9CmlnwljFndTQy/nrWXa1Ic/wTmyOY57TNbYFABAGbmDWRANr0SbCTy1KlY?=
+ =?us-ascii?Q?Ld04B6FfaCqidL521bOtmIOSf//d02D6FV7g6R7tZWpUzAyAncKqsmyndAZI?=
+ =?us-ascii?Q?tcs+xMK6ABMgimIdPpdvVIIileJCKNzuZ0OTb+pRi13rVkTCHfBhbvSIepFA?=
+ =?us-ascii?Q?zBIG7pTkwJeSTGGx72FX5zlBZkX3EI3OLVh7F6DUMWixpiKNEttNDL/jPwQK?=
+ =?us-ascii?Q?eGwGntlVqXGLBN8vEKlgJFFEwctSudC4EQ2lRc3dhrt4PHiHD9JzeyTqX9GR?=
+ =?us-ascii?Q?lIVl2rVHdhivsAEKPvpWsJHOcAMVj9tVSl7ks2e/IZOX6AKCw+oBfzCql4E5?=
+ =?us-ascii?Q?DcqCTY5Zh1jmPm03naVJTpYgJD0ozNRquL2kFDn7NO6dNUdRTV1gVUHfjBuF?=
+ =?us-ascii?Q?NCrO/1AZU8KvtdeXKfrVxseRZof5/uOgpUFtA4LnksNPWBaOw1qA8Jr0Vs16?=
+ =?us-ascii?Q?M6SNPWh0Yex7K8qi5PeDuy2twnB9LzohTNgSXZqvvojQtHCZe2uZmqoPHfnd?=
+ =?us-ascii?Q?/PKnp9aS5kFV/WbrP5C6F/uEsxnpmeON0XMwPidld9wDYhI3wGncWVRBvnpr?=
+ =?us-ascii?Q?Rl/2bhD9TXZzSChGPTLcF2yyCCuffJK2cIeqOmNds+Xpcgw6tJOaNgNS8ucD?=
+ =?us-ascii?Q?4Pe1UFMiYE4FHvy05gU4Fih1WBwxdQAD3BheUWJHhuAJlvz5E9gmX77ijcXI?=
+ =?us-ascii?Q?3vyTDyYraWg4aHUPH4CpevL7aZXpjI/EUduPaO2WDh/OrBLmvgTWqMghC6uz?=
+ =?us-ascii?Q?e1i6LjnkP5oe3bAytjCEAV4ZNXl4XUJpmoAYarN6aGisTwdVCy3Xxd+YEwBh?=
+ =?us-ascii?Q?1WzGvytnXUfJbrx/RuovCPecwPSqmWv8xg8m8SmsRvw32ywRjyEnP9msghar?=
+ =?us-ascii?Q?ndcaM5tZGfk0RYtVp+rQzowdLDeYJw5VAk9pOyw9xK7owLixyYvfLqoLy1Q1?=
+ =?us-ascii?Q?zC81YCi2TadqSWltXvWizAz+AiB+GSsvNJTBM4zdEGU7pLNSNV2sJlSgtvno?=
+ =?us-ascii?Q?jphYngcfmk0kjgMffzb9Y24CzzF7b0c7oEjQROpyvlEsXo7yAVxzCTEn0n+2?=
+ =?us-ascii?Q?vvfyYDNcBH6L4M6YC1kIXAgbtbu1quMvjot0wj2LM8FLyX37UyAXI12rKQLQ?=
+ =?us-ascii?Q?3NHsbeAucPyt22LN6BFX1R/45Og+rMOH5ZlQ74AcaDrzaOGTxavUBYyaBkz3?=
+ =?us-ascii?Q?UyDzWixTEh/BdLXFnkZZR3IEsM2xHIOCjGEPsP9ibx+wIAgn8LquoCWg7qPE?=
+ =?us-ascii?Q?QUeGNz5Vuez0rFISjlY8DVdrpY1vobx0YCfdyBpq0D+rxi8gJta1hVveC+1k?=
+ =?us-ascii?Q?QlJXSeHDHLMLtDn2mSNTteHrVLVOo84HfZlDdgzN8iHMjydkvTVcTXO+BOyU?=
+ =?us-ascii?Q?PVtVJCL8FpHMqS2pz9yklUW2i3FleS5AzALBK+fp6xDhALE+BT3s9UDGB4bJ?=
+ =?us-ascii?Q?4AoGGciqenxF3NCIG1SSuh7TA0fr9YSwoU5bwVmsrwW4toHQvZQmvfvW4Lgo?=
+ =?us-ascii?Q?1LeVM/iGp99h05JjCSS1zx9OQUb5Lrg7+UlVownkAVhy8Zgnb8d4HAMuTyDT?=
+ =?us-ascii?Q?Wh7JiRMpg7sNj/rIGrFqTC3U0fL/0A16wbnnmx4WOVz8kgOfbl25IYoQo0Ro?=
+ =?us-ascii?Q?qXiOk1t96QDS0W8WldXS5snai8KDprzQICy07FhzffU99QvBB1YbRYBlTqSR?=
+ =?us-ascii?Q?I0bO8P58tF3QmGr0f7BKujpB9kn+0kaHqdzQzy4/ZhrcZzE5vPeU64wv7R3K?=
+ =?us-ascii?Q?zU5vFrGf0g=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64463fc6-f9e8-4958-e957-08df2383a9e4
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 08:27:30.8651
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OJNW3OjYa4HV4GvI93c7R41Nwx4jD2ZtqF/yyxlg6dLVx0vdTuF/8LLNONnTlV67XBddymI8nAqjVkvoBoG22w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB185575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_012425_204089_72A4E30A 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20261006_012737_666250_4B80346D 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +142,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
+On Wed, Sep 30, 2026 at 06:54:59PM +0200, Josua Mayer wrote:
+> The driver looks up the affine DPIO and sets up one Rx/Tx queue pair for
+> each online CPU, up to the number of queues. Response notifications and
+> NAPI polling are handled on the DPIO object's assigned CPU. All online
+> may enqueue requests.
+> 
+> When isolcpus=managed_irq is used to reserve CPUs for latency-sensitive
+> applications, those CPUs are expected to be free of routine device
+> interrupts.
+> 
+> The DPIO driver assigns affine CPUs only from the HK_TYPE_MANAGED_IRQ
+> housekeeping mask, leaving isolated CPUs without an affine DPIO. This
+> defers caam qi2 probe indefinitely once DPIO setup reaches an isolated
+> CPU.
+> 
+> Restrict queue pairs, notifications and NAPI polling to the online CPUs
+> in the HK_TYPE_MANAGED_IRQ housekeeping mask, so that isolated CPUs are
+> skipped and don't defer probe. Isolated CPUs may still enqueue requests,
+> with responses handled on housekeeping CPUs.
 
-Hi Maxime,
 
-On Mon Oct 05 2026, Maxime Chevallier wrote:
-> On 10/5/26 09:09, Kurt Kanzenbach wrote:
->> Attaching an XDP program while Tx traffic is running results in kernel
->> crashes in stmmac_xmit() -> dwmac4_set_addr().
->>=20
->> Loading an XDP program tears down and reallocates all DMA resources via
->> stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
->> the Tx queues before disabling NAPI:
->>=20
->>  stmmac_xdp_release:
->>    netif_tx_disable
->>    stmmac_disable_all_queues
->>    ...
->>    free_dma_desc_resources
->>=20
->> A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
->> takes the Tx queue lock, reaps completed descriptors and wakes the queue
->> again when it observes it stopped with enough descriptors available.
->> Nothing stops the queue afterwards, so the Tx path resumes while
->> free_dma_desc_resources() releases the descriptor rings underneath it.
->>=20
->> On non-coherent platforms dma_free_coherent() tears down the vmalloc
->> mapping of the descriptors, so the subsequent stmmac_xmit() faults on an
->> unmapped address instead of corrupting memory silently.
->>=20
->> Disable NAPI first and stop the Tx queues afterwards, which is the order
->> already used by __stmmac_release().
->>=20
->> The issue can be easily reproduced by:
->>=20
->>  1. Run iperf
->>  2. Run application which opens an AF_XDP/ZC socket
->>=20
->> Assisted-by: Claude:claude-opus-5
->> Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in =
-stmmac_xdp_release()")
->> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
->
-> This now matches the non-xdp case, great :)
+Don't you need to also change the for_each_online_cpu() from
+dpaa2_dpseci_setup() to take into account only the housekeeping
+managed_irq cores?
 
-Thanks for the review! Yes, it does match now. We could also collapse
-the common teardown code between __stmmac_release() and
-stmmac_xdp_release() into a helper function now and reduce code
-duplication.
 
-Thanks,
-Kurt
+Something like:
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+--- a/drivers/crypto/caam/caamalg_qi2.c
++++ b/drivers/crypto/caam/caamalg_qi2.c
+@@ -5101,7 +5101,7 @@ static int __cold dpaa2_dpseci_setup(struct fsl_mc_device *ls_dev)
+        }
 
------BEGIN PGP SIGNATURE-----
+        i = 0;
+-       for_each_online_cpu(cpu) {
++       for_each_cpu_and(cpu, cpu_online_mask, hk_mask) {
+                u8 j;
 
-iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrEsDETHGt1cnRAbGlu
-dXRyb25peC5kZQAKCRDBk9HyqkZzgrM5EACSIYb78xr0ciukoJSgoO8fP1If2Enw
-ngrIFKLHJPoEehs4zxQzcdBscw9KwtDbn1J4E2fgh2oBRA0H2Nv3Q4LFMhBcU/5M
-mVgXmqnj1gLoag8cs685ZTB4J2w6pfLvth5iKx5dDXg3XL9B32sQBlDhuarXElBE
-GCxxAowpQ+f31D1lFINRgIXkxvPujvjFDHDDbYvKCC2w9Zz8UAV5nYElkdQkT9Ii
-NP9clvFTr1ydjR6qPF8PAd2zsvPp9yq97GtQ0eM04JZINSVD/vF1kslb1XziRMZ/
-5TPWFQi44ttkdFnJiiTltYkO6+KXEwHKU1+sbRdikXHHnN662pSvwyKBGuuF2pOt
-gCktw9KNbGmEpa5qzpa5LICsWBPfBOar5D2zXdt5PKszUKsYs10f8S5E6SZhsDQ7
-cQj++6A+gYhf9QT8jWWvlhQmTmOqXEvfT0c1uzM390avpjuS2wdKjj5gDjcZE2ow
-UWzxLEgBm+VGbnNgxtGoL8Jj4h489CTIIdjEhHJmQVjMvWw5q0wSNnnHRsEjCPGd
-cY4XTkVZqSD0dO7LV2ZUj79pBpMGI7a70ASHhpIekxwdMhfinAkZCnBUIt+/sMDH
-ILxZapVvLT5dES437m0FEFQBMgYrptMo+fDbpHa7uYpywYrS2BoLif2sF6sGmJSr
-YPglKi12wAOWgA==
-=O+RA
------END PGP SIGNATURE-----
---=-=-=--
+                j = i % priv->num_pairs;
+
+
+Ioana
 
