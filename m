@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF16CA5FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0363BCA5FED
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqZWknWAOmVqxPDKeV+BvtkD4EvaaTtCgX/WPhuPNUQ=; b=Qd8sICCYqfyxPb+0seL7k+zb5c
-	bGS6bc05FiQOPqWid+I2u66CsttoOV2Gs7jrMzqm63/uTQIXCx8TXqGGG9MTTQma7r8kPr/i4wpXp
-	3x9wdKT0cjD4aPpRtvYRNvVW3VC3iCVQF4LR+8j34U12YjV7PXcUFcbgDBl9glUob3EDZwbx7MAy/
-	jU/gin8X9rBxLVxY1gXYYcH5WUmTgwUowVwc7VsiAkxzOvirGo7iOTn+Tg6oYr05Y6gN2jH69xtO0
-	Ig7W6h7z8U05QHLLH+74ZYSKAG+uaJUGSMCbDRGZ1i1w4fqtE/sTFzLbzugr/FwVYkclX/KRg76xy
-	Elcay2Rw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uc9m3wRSAlib82ghVEr1AQYEZkIrEHkmPktf4kQ5tCw=; b=nuYRz3NvVY6B2nNJYSZZqn7qAN
+	2FvLiebgEvzsEE87tBdwyQVsD5ZjvOvO/QaH+EPYJ81do716caHlE/DAZ8HKcn2u8Xh6D7T0f+9W8
+	utdB+HWw9x/vcmUc5d01kYxjJm2XKzR5uhrunzOg4PzKPkZnNlbuLCfAJwdR//l65ugPJW3C630zJ
+	bVDvW7rGO4Hxa8oMZqTAVYxJTmPuAn7MKmbTMWXddpGhCNqv3mWDmrKF10I3d3gvjfj8hHG/thPfr
+	iEMQwWxg2wYnCqg/tuRqSZRRoxPHUYyUJ+dmwEa2NtCblcXHJbXO102mG/yrjh62+lwWeAv2W9z25
+	d3eityKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Ac-00000000r67-1td1;
+	id 1xE5Ac-00000000r6Q-2M4L;
 	Tue, 06 Oct 2026 13:25:26 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5AW-00000000r3s-1iH5
+	id 1xE5AW-00000000r3r-1inS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 13:25:22 +0000
+	Tue, 06 Oct 2026 13:25:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=JqZWknWAOmVqxPDKeV+BvtkD4EvaaTtCgX/WPhuPNUQ=; b=HtWD/aSsXW+Yf2sTqNvE2222BM
-	CMWScLqLRLvraGpGJpnl3xB1NmCP33fpSCHDiAVrHw7rwTut/1BXZDoYM+i8u9t+5D48DwPI/Z01F
-	arbSHiDk/qg3R2Udwwq2osRn8ObdaWgvtwOX4TmNlthkBhvsvMq9E9ejEgxp2K6/8bF12gUg2e9nz
-	I5cbkTohtBNKPgGPLkMF55ZRt2Pk3RId5NxcFQjAHi4K3zvlONQ/Je/wn2+Md7xkX2QuWkMFh89MZ
-	Fd4JvZcG+p8z5Fx6sntkNprdDLd1aA37/MCWfFnO5NBX2F4XHZjWExNMD9FpUSnAySH8DN2z1R6+9
-	M5FheZ9Q==;
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=Uc9m3wRSAlib82ghVEr1AQYEZkIrEHkmPktf4kQ5tCw=; b=GxHV3kf2rXH4IfVAZe9mg9sTDj
+	lQa8gXQKN+7CxupBPH3gESDrY5LB5bB6oLIDDNgmcAjQiLggJDGeKz39PeMPMqtl5lxf0bOjlVdhe
+	4K6vTXRBcv4c4NU0YBfDBCFAy4FJrI0hfUbYAg4URQrA19bOiUavW56DbBtMt3xjDU6ppSXGeypn8
+	zh19cZ9vc20H9DER6PC2ISYj2O6WibmtFCFth4Lw8cd1Ocbii102gRDfHU2n3NjEInSWabSGbk3/i
+	Dr1w2OXJEDVpR+ZgcJYLhrBYH95Gloi64nERPewCpBUNamYx8AaQWqRZvzLaKq/FyQLxUidiRlg0n
+	qr86Lisw==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE5AT-0009Tf-2S;
+	id 1xE5AT-0009TZ-1S;
 	Tue, 06 Oct 2026 15:25:17 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE5AT-0000rD-0L;
-	Tue, 06 Oct 2026 15:25:17 +0200
+	id 1xE5AS-0000rD-25;
+	Tue, 06 Oct 2026 15:25:16 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -65,18 +65,16 @@ Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH 2/3] arm64: dts: imx8mn-tqma8mqnl: restrict clock for SPI-NOR flash
-Date: Tue,  6 Oct 2026 15:25:10 +0200
-Message-ID: <20261006132512.2246196-2-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/3] arm64: dts: imx8mm-tqma8mqml: restrict clock for SPI-NOR flash
+Date: Tue,  6 Oct 2026 15:25:09 +0200
+Message-ID: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
-References: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28145/Tue Oct  6 08:26:12 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_062520_991030_D9B15F85 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20261006_062520_991750_CB54B9DC 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,14 +98,14 @@ data sheet.
 Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-index 48a687926aa1b..c88d83243097f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-@@ -63,7 +63,7 @@ &flexspi {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
+index 1b5ba3c47164f..48285bcbe9bbb 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
+@@ -60,7 +60,7 @@ &flexspi {
  	flash0: flash@0 {
  		compatible = "jedec,spi-nor";
  		reg = <0>;
