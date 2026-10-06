@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5DACA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B9BCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtXewEIARdqyNa+0KtGlyoZpihGzkV6HOi575K/RB5Q=; b=oPdlBK1VQ1G0f+haNRy5VZuhuZ
-	U1QWYHe1rIqw8V92EwcdR2P1g/KG/2nqdpAV+ppcN5RNC0nWyPirt2rX6zIQitxEhiQWcRiKD3yFm
-	HZxT/0Ei6BFlPX6Ogn46qgv3Wt/xGxn5wn/RjY5GmC9z1RifK5yAQaCV9+Ri8Gm4VfMLj+R/Qfxyw
-	ExHshE9ZrVMjIvHxILx/R32qnkPGqnv+dKFMAbVB/7f45XEmuIAyxlisbqq3eWNY2iCy1x6TdFBW8
-	buTUQP3xhiaeOGRz6+uBAqpJ1p0zPBg99NaVpHzzNUCwA0FLjsCj8w3zDmHwDUg5W6D40JncTJJmr
-	cAQIkBpA==;
+	bh=59tTbEd7XKwQNSi2VwG8oe01VNjOQRuofqVVGEih6F4=; b=mBovuiRRZUv4kBp0srqvv5Mhlo
+	ctuG+IkJSSlozVLNcEWdou/PFK35z9mL3HNTOdCVXr9tDma88+I12CktV57BrTGhMyWHswnSI2E4p
+	XVlzO/S35GJvUk/hLKC08kVsjDRMYk6QRsHgD/7Wpi/a4ka7OpBghYb6lCzU9bi11pDM1RpP5OkQq
+	P2D0Mt/GoVAstWuDZAveD5CUmf12Q93jiCB0P+YnvWGP0dKuiKz79vErjMzjveUMGBwIuPOI2Xbdi
+	UA6FbcM96HK216ekR9pGi4Csg7ds7xn8UftWdvY19+7kiGykmcIY/UJHJ3w97pUH624/8oJnFkMjd
+	agHgTj6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Yi-00000000tmC-31PO;
-	Tue, 06 Oct 2026 13:50:20 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1xE5Z8-00000000trT-3pCl;
+	Tue, 06 Oct 2026 13:50:46 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Ye-00000000tkr-01xY
+	id 1xE5Z3-00000000tpe-1g8h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 13:50:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=LtXewEIARdqyNa+0KtGlyoZpihGzkV6HOi575K/RB5Q=; b=WQmTZ+ZpkQpI5Io8Ikjpil6eSn
-	LzHhNYn2S/Iu02bFCzbzdd+EImJPzx82KivwCE5hAIIQR5oBJ0XkGgDvH8wzk0lC70rOCbok2w6vy
-	Cho8atTDDDc0WWZWkTOa02D99YNVZy7B+MVqKZvjdnPK47sHgWGHmmFMi41uZ85/+AhB0Z1p9ig1t
-	x2LpNPU/BdIugERqvDDmu8sezY6Dz5UFC3iZwoS6E8ProWWBsxRIIx3BNPxx1hdc/LzRzdzqvHTbV
-	0yXgVYpOhCFwhqFT4zga8K0MEqKVIs//62N9pATU15UnYbUDJbEOtUG0PWCNjGDUQpqalLlcwmG30
-	u6Ola9nw==;
-Received: from sslproxy05.your-server.de ([78.46.172.2])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE5Yb-000Fzm-38;
-	Tue, 06 Oct 2026 15:50:14 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xE5Ya-0008c2-1y;
-	Tue, 06 Oct 2026 15:50:13 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Markus Niebel <Markus.Niebel@ew.tq-group.com>, linux@ew.tq-group.com,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: imx8mn-tqma8mqnl: restrict clock for SPI-NOR
- flash
-Date: Tue, 06 Oct 2026 15:50:12 +0200
-Message-ID: <5021357.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <asT7yvlCeQl1rfrS@SMW015318>
-References: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
- <20261006132512.2246196-2-alexander.stein@ew.tq-group.com>
- <asT7yvlCeQl1rfrS@SMW015318>
+	Tue, 06 Oct 2026 13:50:42 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48b042c0728so235275f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 06:50:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1791294638; x=1791899438; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=59tTbEd7XKwQNSi2VwG8oe01VNjOQRuofqVVGEih6F4=;
+        b=Ql7hYE2tXVXQB/kasQvJ1Le0SVlvXDwMGoRvFqI2h1kMwK3EummzksT5FFkgKkQsNU
+         vaa2Oo119wBEzACwafgHGDdoMS8k/y0p1XTNVTXpTE6bQh/kQdkHNPAHltKqZggeMT+v
+         aWqrJrLSvoIwXVqiVQYyNmCumPPCEkoW9GMjcJFDcI0846op9eJhIhhT+Y2mOTgTpct2
+         /joFN8in1Obh3M0bbfDqlo4Y1FqgT04WhKKdGJhkOEPqwrtYM7ushMAJfi5PY4eb0L5B
+         /6U9ZQ2Oyioiq+SC+Bi3tKSTSb+a7vFw8TkbhycW0qiQ0Ftfl/BwuoTPAfssIu8S8zD6
+         WaCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791294638; x=1791899438;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=59tTbEd7XKwQNSi2VwG8oe01VNjOQRuofqVVGEih6F4=;
+        b=JSNIiW7Pj7vkUJXRp8Y2hSZwbZVdau0tOT4C2ZLAT5uo1Le2K2TV5xYf9IqEs/Uoha
+         BIapt66zElnkSiy5yKIFO6RITCORbDbEYD1lJu4oJbJ/vaSonIcT2OqdwAsp1E7gX0WE
+         VQa/PGD3smrAmmqfrhFaHTkFRLbpR/JQNTdxpSHMA2D1vvp6NXleqSouX+bTmz9JUEKy
+         QDzHl11TIkN/DJoHLpKNWuwOhVCeO43S7C2hjWgyFnZQbFCn0F2bGgsCtudusNCWlw4q
+         e4hoUsAqsGXq1LYO9z4Mm5AtXv5a3+6cQd7GoZFhucJBc4SJs6BwFlIVtm64fe26LKN0
+         /kNA==
+X-Forwarded-Encrypted: i=1; AKwUvBwP4TQpoWRwrQR86QPDb3xjdsWahYNMu8z8Ixm3Gr/pD0waUtd7ybaQQ0pQK5fieYuBFSHWlBfGQhnr6wjJ9c6J@lists.infradead.org
+X-Gm-Message-State: AFq9FYLDN22/0cZVm60LdD8bu4/wbtE3Lttc8Wnc1C4Elf50ID0Gu3dg
+	ho9lxxMNqnPOZkoVsUwUvsH9ykxegM7XBNSlT08vRsoTpEHWfzdmZfhwQFIKWpDk8Hk=
+X-Gm-Gg: AYBFou042/pe0+mhI0gyM7j9RDkNGJr2/KGCuCpDa5+n6hIGr3PFXfIhBUGocXPRmrQ
+	EDKF8zq1mgopa/lCY+50IBNj4lWQXG3W8LN50KrduARO95g/BWwt/T6ZYFOJvVOidPKEroMnwbr
+	mJj+R7ZdVUY356RTljdKWv1dWcKd7ZEoQCDMovoJqrW/8nJLiF8pv1oRSEJp9PzAsL0PHrSJRFi
+	EpYxp3ieE1BPXeeI8FLPUW3xZRe3XR5g5wGrhntHsME16zvOWMVt4KoBNv3PSyw8oy1f6RF8Cm8
+	k+eF1DXvf2c4I5VFQbtj0minO+8hpauUXiafqVONJ+6sOjjsoUxtLnwn3f9mQKi3DHrsFypFszU
+	m5fgbwEDZotEikzzbtYEqkCygOZcs+IbqKgLE0v/LQHYShsWZkJv8aC5TbaGmm5aXHT/2r2zd1v
+	JuNMTtdPZTmqlwz44dBV/iyDtj7gD6eGyOlKv27OXiROCNBaPgSrQXMYhxwx9mRZ3N1zr8BBvmb
+	rE8U5jX
+X-Received: by 2002:a05:6000:608:b0:48b:d17:139c with SMTP id ffacd0b85a97d-48c6d1aebfbmr2875717f8f.51.1791294637769;
+        Tue, 06 Oct 2026 06:50:37 -0700 (PDT)
+Received: from localhost ([195.94.147.179])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c714220e6sm204373f8f.3.2026.10.06.06.50.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 06:50:37 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 6 Oct 2026 15:54:22 +0200
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com,
+	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>,
+	Gary Guo <gary@garyguo.net>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH v12 0/2] Add RP1 PWM controller support
+Message-ID: <asT9ji8v8gw8XfcB@apocalypse>
+References: <cover.1790686331.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28145/Tue Oct  6 08:26:12 2026)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1790686331.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_065016_528464_95A1E929 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20261006_065041_454414_1DB4071D 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +112,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 6. Oktober 2026, 15:46:50 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Frank Li:
-> On Tue, Oct 06, 2026 at 03:25:10PM +0200, Alexander Stein wrote:
-> > From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> >
-> > The FlexSPI controller uses quad SPI with internal clock recovery.
-> > The clock is therefore restricted to 66.666666 MHz according to
-> > data sheet.
->=20
-> Which datasheet? I suppose NOR flash datasheet, can you provide link
-> here.
+Hi Uwe,
 
-The i.MX8M Nano data sheet Rev 5 09/2022 section 3.9.1.1 "SDR mode with
-=46lexSPIn_MCR0[RXCLKSRC] =3D 0x0, 0x1, 0x2" Table 55. "FlexSPI input timing
-in SDR mode where FlexSPIn_MCR0[RXCLKSRC] =3D 0x0" lists 66 Mhz maximum for
-"Frequency of operation".
+since all of the patches have received at least one Reviewed/Tested-By
+and Sashiko doesn't seem to complain anymore, could we go on with
+this patchset?
 
-Best regards
-Alexander
+Many thanks,
+Andrea
 
-> Frank
->=20
-> >
-> > Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi b/arch=
-/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-> > index 48a687926aa1b..c88d83243097f 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-> > @@ -63,7 +63,7 @@ &flexspi {
-> >  	flash0: flash@0 {
-> >  		compatible =3D "jedec,spi-nor";
-> >  		reg =3D <0>;
-> > -		spi-max-frequency =3D <84000000>;
-> > +		spi-max-frequency =3D <66666666>;
-> >  		spi-tx-bus-width =3D <1>;
-> >  		spi-rx-bus-width =3D <4>;
-> >  		vcc-supply =3D <&buck5_reg>;
-> > --
-> > 2.55.0
-> >
-> >
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-http://www.tq-group.com/
-
-
+On 15:02 Tue 29 Sep     , Andrea della Porta wrote:
+> This patchset adds support for the PWM controller found on the
+> Raspberry Pi RP1 southbridge. This is necessary to operate the
+> cooling fan connected to one of the PWM channels.
+> 
+> The tachometer pin for the fan speed is managed by the firmware 
+> running on the RP1's M-core. It uses the PHASE2 register
+> to report the RPM, which will be exported by this driver via
+> a function. A subsequent patch will add the function to read the
+> speed to this driver and a new device and driver to read the RPM
+> and export this value via hwmon.
+>  
+> Subsequent patches will also add the CPU thermal zone, which
+> acts as a consumer of the PWM device.
+> 
+> Best regards,
+> Andrea
+> 
+> 
+> CHANGES in V12:
+> 
+> - added a comment to better explain why we don't need to save and
+>   restore config registers upon suspend/resume, hopefully Sashiko
+>   will stop complaining about that.
+> - the RMW access to teh global control register is not synchronized
+>   via spinlock.
+> - patch 3 from previous release:
+>   "arm64: dts: broadcom: rpi-5: Add RP1 PWM node"
+>   has been dropped from this patchset since it's already applied
+>   to Florian's devicetre-arm64/next branch.
+> 
+> Link to V11:
+> https://lore.kernel.org/all/cover.1790606188.git.andrea.porta@suse.com/
+> 
+> 
+> Naushir Patuck (2):
+>   dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+>   pwm: rp1: Add RP1 PWM controller driver
+> 
+>  .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  66 +++
+>  drivers/pwm/Kconfig                           |   7 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-rp1.c                         | 428 ++++++++++++++++++
+>  4 files changed, 502 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+>  create mode 100644 drivers/pwm/pwm-rp1.c
+> 
+> -- 
+> 2.35.3
+> 
 
