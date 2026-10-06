@@ -4,67 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9930ACA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BF9CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 10:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3le0LRoIEqiKvYzrW3hqwYXLg+E5AHVO4iOgQS6Y7Y=; b=teWoQDJMhX2+PegEA6x3K0km71
-	5n3qZwYBJO3mtDtjXp0Wvm4kPBs5McMdQKsWDJ5dqq5fzzz3AoVLyv5AQMdoEEcX078EqyU3bECYF
-	uzsLpkb5/BxJSKQS6VAYV56shBxzaDwxHlT6yezD+OsuHMFO/smsGIVNCmpUWujvqqq/bEAsUS21i
-	YekpQtv9U2iZXRwiVh4Ua0LVHn23oPzPkfeectBWitHGoqZoRR6c1NCO7uUNOhzeVpLt+Nh/DwBEN
-	PqYBERvpNv2qRBgsuw0YWA+H4oJIrfjDjmSvYRTjZYhkiSExmzH/8x/wSNZAUEyPqDJDrT0QPF50l
-	HSAlbErg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qoB87xt/si/5SQ89z++VwfJlgKEBpZZ8oa5UH367RG0=; b=5DCwyibOU/xadK2xdVRlA0NDJt
+	kuDTKECHe9oL+i/Xe8vJuWNyyg19/wDCymf711zhDrDwS+lP2J+Dfg/irOb7FVwYEt2yhaOynUK1m
+	QbqW+0j/u1sE5Zm/3ik7bBInWo4nzxqB7rNzYuSWDToTc6aHW56zNuRDkaHVpaktOjehh7vDcnS8P
+	CugBmNHMdD0jfQXgPsh2CMfTUKQP8OQVE2VVyBgfChmPB5Z4VwhIJ38H2wKioGWXWG/wQHTOzVoWd
+	JWZ/h1+drMe6kr+kGBKZh5Zyk/kJEsYDFb/5ccPOIbms6zDnKuVx46blKZGDtP3KgCH1lLu9Te1vP
+	VjAY8g6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2Co-00000000TQR-0tD2;
-	Tue, 06 Oct 2026 10:15:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xE2Dk-00000000TaL-1tOt;
+	Tue, 06 Oct 2026 10:16:28 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE2Cg-00000000TON-0KpN
+	id 1xE2Dh-00000000TZQ-1NhL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 10:15:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 630356022A
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Oct 2026 10:15:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B5161F00893
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Oct 2026 10:15:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791281720;
-	bh=m3le0LRoIEqiKvYzrW3hqwYXLg+E5AHVO4iOgQS6Y7Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Dhf+YsEln3vVB4wzsSmjgpeVi3x2X4baGjRWCX/BAuNnzlmOVkT2NGlj2QOR3PvvA
-	 V6V5V41k8cFwlh+c2v6UMl0sjgu2TMkIgBP6FWD58e0qts+VqDsL0O1F69t6bGlyUu
-	 9jMSAvsQ6HVZ6Gwx+5Gcp1PQJ29VVHipPF2fVWN47aFmnpR8oN5moipOdAgBVH0aYz
-	 pAkx73sis9dtuJzAT0J36uXYFvHIHoZoNIlXZaJ0/ANLly980UoEhFcjRwBSlO9mGi
-	 FmD7cfazHfwmG7LBsKlxDNuLM/pcf2CI2ww0Ai6FWGC9zzZj4i6+rSxT81uzqXRcID
-	 q3oSmvuZ0Katg==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3a75f960be4so2996241fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:15:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwjPUdBqWVIyFysGjSsorSfhpgVSdX+GJq231MEDJs1SWhB/KVsAxLTTe9zAdiRM0t0vXCu6CXihuVwjuU2xxaq@lists.infradead.org
-X-Gm-Message-State: AFq9FYJGcHitJaW6TJbOpUmJayOi2vRZFSiqqIc5ZP3WKv3VFdyTaZGk
-	5XNr58NObxSwtHLwEyxhQGRHdBa6v8wAoLaJUkskl/ySmYWV76MHTT6m1nXhx7qPv8bivpTOSDa
-	6d75iZazmSD6+/gqGWzjRwTzNKAwTCOk=
-X-Received: by 2002:a05:6512:b94:b0:5bc:ca67:c338 with SMTP id
- 2adb3069b0e04-5bccc6f0982mr427514e87.18.1791281718870; Tue, 06 Oct 2026
- 03:15:18 -0700 (PDT)
+	Tue, 06 Oct 2026 10:16:27 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-88834d30002so280723b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 03:16:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791281784; x=1791886584; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qoB87xt/si/5SQ89z++VwfJlgKEBpZZ8oa5UH367RG0=;
+        b=eANorSAxRI3t9p056K3TxzoAGQgh9Kqzm2yvAzgRf2JHGuugK5isEoCHRUZmEX+6M1
+         hNrq522o30llh3QlmHIikUFkYXmHi2FCjlGjODgBE8PmCSAh+fZL1sJQNZnCMTRUI0ng
+         w0tKj2dHkIFtGPFJ6VTGWsd5VVzTBZvrd4CKSqjYlUJ8+HLrW6G9+oVEnCEOs+EuIiNn
+         bol0vQ1Wt4pD/2KkQ5nGfkBhB1zoZg2NC9xpm/xXVcaHT8qX6d5a6exLzTaUei0vqS0e
+         hCEaCqC2HrB7jabX0TfYpvBouGsjYjk6OhcH6lzf0KBwSlVMhZNgFtAInCzHYASWULvR
+         dlHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791281784; x=1791886584;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qoB87xt/si/5SQ89z++VwfJlgKEBpZZ8oa5UH367RG0=;
+        b=ikDiqBdlbdFt/XgZi4vvFK6uOEoRifWgZlxPcKibkUVqCGWECHz8MjEpbmynBbp1qR
+         B87reJMAbI9W80svetRJRorif7THV+vgiCfd11X/QEj5RIoz7QiA/L9pbKAuGziILQRi
+         28qn+dtDiEWKfX0PxUZTNX6Gq6tOdfIFfvszRN9Xq/OFsKagMcpu8x388K/KlQdKnu5b
+         DTH99XdE8gkeUK11unrt+YX3TosVmsj15TblVANqoSfX9LmvhAUArsWL1Ne21uJ3yM7l
+         XCArzFhF5pb/NHKZQLzLlfjqeIy7vlvVQP8LpUD2mEp0a4j2d8HDgd3jDrpmPNyirFia
+         hKUw==
+X-Forwarded-Encrypted: i=1; AKwUvBxWx2KLgvOcFuW7mV6KIVUL6b0SiXW20MuyYq0Jp4LfO/LvHPIck4sAfyVl0VyqyjuPcrkgRg/AxtTyf8RQvYhN@lists.infradead.org
+X-Gm-Message-State: AFuF++mvzbAreSpEPslG9C/MiPB6BQt1POPoeIV+s9swX8+dq/2mkSUP
+	UpQFjlzcgU17IgS6JLjGNzYEDZJBExrkFil6qGUYevaY9fK+n5cxjgbV
+X-Gm-Gg: AYBFou2//ESGV36t+vbunrZQef6Ww2b0rQr1dBs+1gIw0zTvSDhDEildsY3Y3G+6fG0
+	roPiuTyQZ3mkCCaZnK2hIhKg/ts/rR0lK5IlqKmGc9/LaCpjte5OojkARctufgX2nh49H3sDprJ
+	MeDM8WbH7yneZYLA55FxAQGVWhtPEVEbDv+rhGLHCQ/sNdYXnsTwhZ5bf2jM9MXYiDki5Wxu5rQ
+	a4D2M7F/DgJuBHIElavr4AFLH4mNIp31EZ4KIivAyN+GBjN86rX1+Qeprthu+AxVHUKX7wHn4K9
+	7FFKMESQP+1SFR8Q/er7WgjrZBcvgB7rYbJDLa5Hngq3FGyKrqiz/y0wwxCmb6/e8KVH3esxH0S
+	TIQI1dTGjs7CHedWC4N1ymCNZDWeI8MuQG5N1jBOjP1LWD0yTi78Bl4rxPZul+2mCJJN0dRO1cF
+	G86OVXAAYLKCdJ556NV9ZCH2pdezly+OP5ImbhAY1ksUE4LvMtDg20p4lEobY7b6wHc+JsguzJ/
+	nGHUtNU7W/rW/3UQ53N8ofq5YFkpPg+MAyiZ5qjPk9cqiadf8ARBl5Qj1XRPKN3bumtHkHfNtJZ
+	oLxME/8inD8fLFK47vzwLvP8
+X-Received: by 2002:a05:6a21:511:b0:3e0:da23:874a with SMTP id adf61e73a8af0-3e1246e1ec9mr796494637.18.1791281784146;
+        Tue, 06 Oct 2026 03:16:24 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-88b0d152432sm4547505b3a.53.2026.10.06.03.16.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 03:16:23 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Trevor Wu <trevor.wu@mediatek.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	cassiogabrielcontato@gmail.com,
+	Haotian Zhang <vulab@iscas.ac.cn>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Tuo Li <islituo@gmail.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Garlic Tseng <garlic.tseng@mediatek.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	Dan Carpenter <error27@gmail.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/4] ASoC: mediatek: Return 0 from FE startup on success
+Date: Tue,  6 Oct 2026 17:16:02 +0700
+Message-ID: <20261006101606.54079-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20261006055223.9299-1-kmehltretter@gmail.com>
-In-Reply-To: <20261006055223.9299-1-kmehltretter@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 6 Oct 2026 12:15:04 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmsvaNhEUM1e+zvk-s_r6s6h=b7dKn0k_kA3y=GVuBFfA@mail.gmail.com>
-X-Gm-Features: AclHuK9Kpq7WO3g2iO3espGL5Ug3bTlQit7RXbcEmcKP4KcWJvOiVVHvmmiRJnQ
-Message-ID: <CAD++jLmsvaNhEUM1e+zvk-s_r6s6h=b7dKn0k_kA3y=GVuBFfA@mail.gmail.com>
-Subject: Re: [PATCH] ARM: mm: compare ARM926 cache range sizes as unsigned
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_031625_371600_46E2598D 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2026 at 7:53=E2=80=AFAM Karl Mehltretter <kmehltretter@gmail=
-.com> wrote:
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-> arm926_flush_user_cache_range() uses BGT to compare end - start
-> with CACHE_DLIMIT. Sizes of 2 GiB or more are treated as negative
-> and take the cache-line loop instead of the whole-cache path.
->
-> Use BHI for an unsigned comparison, keeping the line-by-line path
-> at exactly CACHE_DLIMIT.
->
-> With the default 3G/1G split, unmapping an untouched 2 GiB
-> PROT_NONE mapping flushes the range through tlb_start_vma().
-> On a SAM9X75 Curiosity board, munmap() took about 1.3 seconds
-> unpatched and 20 ms patched.
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Hi all,
 
-Ooops!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Some FE startup callbacks may return a positive value from constraint 
+helpers, but ASoC expects 0 on success. This can cause .shutdown() to be 
+skipped during rollback.
 
-Make sure to put this into Russell's patch tracker!
+Return 0 explicitly on success.
 
-Yours,
-Linus Walleij
+Compile-tested only.
+
+Best regards,
+Phuc
+
+bui duc phuc (4):
+  ASoC: mediatek: common: return 0 from mtk_afe_fe_startup() on success
+  ASoC: mediatek: mt8188: return 0 from mt8188_afe_fe_startup() on
+    success
+  ASoC: mediatek: mt8189:return 0 from mt8189_fe_startup() on success
+  ASoC: mediatek: mt8365: return 0 from mt8365_afe_fe_startup() on
+    success
+
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c | 8 +++++---
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c | 5 ++++-
+ sound/soc/mediatek/mt8189/mt8189-afe-pcm.c | 8 +++++---
+ sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 7 +++++--
+ 4 files changed, 19 insertions(+), 9 deletions(-)
+
+-- 
+2.43.0
+
 
