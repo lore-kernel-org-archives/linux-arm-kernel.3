@@ -4,141 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6729DCA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D82CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X7+kEYLjZj3kFP5TrCIWr1sXoAmtaqkd+3y4t354s6I=; b=IdB/4VewAeYH6VsYu5RBvobhtc
-	mf8D4bc8WE8E/V6Y5iek23B3Dz86YYhKQ2L/CTCcEtEF8gUvaY2mN/fgoQv3z/cJPkaAKa/42gVei
-	QxZL5Ymt1JVf3onVTm+qTohTj2JJ5JrD/wqpUZEjaPxC27ViXYHv7DQZ+aYPOhsQbu6ud0iAUtKR2
-	ENVn/DynFQm6nmw0yikq7bM4LFBlEXZ9nsfoyYNZo7N/EqPR8wg5E7aQ1CVFYZEkWgRHHCqnYYx/+
-	snt18gA0rwQ7DE9qbY1QhNh+2AGT2nB53/2tP/cSwBlngy3J8sQyiSWKt9M3kabz5WSxrP1RopiIP
-	okXDnajA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/mhq+95raDf+UhtEe5bOyCKcwW4YD3MC/mW/GGLuh0=; b=Q6we8OZ6S3EnZ1NK+JNueMNj2T
+	DFxjySNwNbkHRiJUWJGX8anqJqwGTkQVV21EOzFRn5v9dd6/+54pk+DxNSLhXHb6aMM430UvpKE0S
+	FTwEOSuxEBfbf7cofOKxG5MaYnmDovxQ5hV9QF4LSxZVgKwhNqPHYqfIm+PHaRaKDANPPbUTPKV1+
+	POdqD19Yfei2/tkBMlvT1CU80ibXOHgJlEJQXo6NxkzGNMbqMtMt48F4WPrzN3wUoCi8YFdEqRiFZ
+	bFogugvPMc8ufyXCMTyDAzi9vOBNuvlI6wrgm2VpVc65u2W2U6el8JLihwgbFAA2O4d99Cb5vFoI7
+	2gkiwC6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4NG-00000000lmE-0t9s;
-	Tue, 06 Oct 2026 12:34:26 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4ND-00000000ljn-2tc1
+	id 1xE4Pj-00000000mFB-3akB;
+	Tue, 06 Oct 2026 12:36:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE4Pg-00000000mEI-22EY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 12:34:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eN6lRwJFU5KDiCBDM94PGXiJ4EdKfCaSrV2yVMJPrKVSjy6/XohW9xESyqOGImDnL2xLrAeMJqyBfVFRSlwPO5LBMxk+C+EiZpkdkboNIjTzeKI2UFDeuHIS46nqJ84kDbDJ3uGUUOXS9Wq58Fpjr6TTTCFVW+tQzNWHh1e1lm2aq2Zz9hMit+QGTyC0NkquTnnZ6gL7Ad9tceBdgkSDQNPndMfNsxABlAMkpySC6Ff7GX1e2VYhFvQqlrfHs6VArAnNR4aG389kl+piGUcY39+/tsifv7E4gL514hgVgASAVCQqTykA/x0s6iugukMyEIN4UzeCDr+8AjqD5qWhgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X7+kEYLjZj3kFP5TrCIWr1sXoAmtaqkd+3y4t354s6I=;
- b=OAantXXWE7MYvc/ZX/d6RfUdGilQYtMsM6UUx6bqzvONJ5sg2uWsQhDCK7iFDErlhsAXU4mi/v89gawu20/TB+sColKXNEC4fCZe0c9vJsdbUMRaFfewybyy4HmcFMmB7NLnjsz1yu/DDOBN47oJqh8BHjbNCWbVJJTs4zwduHLfg7+Ix8gBLP9OELwg417pKT5xu/VCT7XIIrBLnVjp/TTADw8W+GWgQfaXNWhuiwoek+c4Dj/xgSoXoexTZXO8EDyeb5valkt0MRJc9z9+Yd11vRfQk+c1zFP92JRxnKRZzbDrEtSIyBhUJXL/l24Ri55l7NW+peWD6hxuaKVQEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X7+kEYLjZj3kFP5TrCIWr1sXoAmtaqkd+3y4t354s6I=;
- b=u33M7bXgZ8O5gBiXDJ6Y+Wi8fQs/P1IlorgXziu+7HVEqZ9CJSd2NgiVufzYYuRuspA6EmYgKH4z44gaVcHew80EeKPEKLhLaus5MWak28bEMrWjq1MrI6vYP1eJO0yPk7FiG+bUDSl7XXolzAXo3cef6JiY2SMxC+wzJc2IQ8mWf3nxT4chfCpHvYQJGGgi/XgDYXl8ksJWLZiQqXkpaE2zYwI5yMKBU3FBYG5XU6WBT/pf3ykoH+kaqX8rsOp5NsdAD9t05820iEIdb9jnp4L4bgpagpbd8Vlk+Y4+J1VJE/KVwrD2iHEqTbI/T4tc9on4ll8WNW1JHg6dfBLhzQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by FRWPR04MB11246.eurprd04.prod.outlook.com (2603:10a6:d10:171::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 12:34:17 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Tue, 6 Oct 2026
- 12:34:17 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Tue, 06 Oct 2026 20:31:09 +0800
-Subject: [PATCH v3 4/9] gpio: mxc: convert pad wakeup compatible checks to
- hwdata flags
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-gpio-mxc-cleanup-v3-4-129f93302a90@nxp.com>
-References: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
-In-Reply-To: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
-To: Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: MA5PR01CA0202.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b0::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Tue, 06 Oct 2026 12:36:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFD51516;
+	Tue,  6 Oct 2026 05:36:51 -0700 (PDT)
+Received: from [10.57.10.233] (unknown [10.57.10.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86AD73F66F;
+	Tue,  6 Oct 2026 05:36:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791290215; bh=HEC1onotm9kW6QKrnzD0dawCfe6JSLioR7zbkY+XEdo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cmJHBHd/tPoaiaFDB+pHi4cdyG3iQqM8NNm9D0s0e54/KwUvvrB7GTB3RL6cbWQUN
+	 uoQM/Uh3rx22FzyshOZ6d1yBpYp3ImxJ5asGG1AEspVgFgpMXPSikCEiVc/7247Qbr
+	 RS8u+Ae3LpsMoBx8dZxP19enp8JguDuXyDk06wKg=
+Message-ID: <71ceb680-e168-450e-99e0-7a8cf4160bba@arm.com>
+Date: Tue, 6 Oct 2026 14:36:48 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|FRWPR04MB11246:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68e69075-d5d1-4341-e54f-08df23a62346
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|366016|7416014|376014|18002099003|22082099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 6rxivdAr8gg4ZJrhwi3OlzYo6bRZb9X55gJQQOFkHFVBzLZEkaaj23CM7EorcMpC5ydbf+bQKTTSSrSUf+22UfHEeLfow3k3I6AKXSfROTqtAfXZ/gLpbVolZChKVs/PkrCFsTsmvNokztmvFenO+yyu3rO1Bd8pYU3gBW0okPvTIyzRYtzR2Wtiz/6XDp9M6UdA7EWgy2CTHRhMnFZwOxJztTW154h/qhRz5zfpJVczRtFbRlc8R2U1JAuZEy1FOC5ipZ0LY+Kq5GeQqif3NJiqbOdv9vy2N3HVzQjx9fMbuzDt1xCWnhXNyreUKB3+1soNMClWelh/kZYY8UtBFDtF0dY5AHU5RNxSObkTzFHe/G1u6SeY04nEreVp+arPkE1jauKDXBEgw0NU5iQiU0nZwP605i8G7+XcJd7jP6Mbno8sYvFR6HW4Z/ylR7vwgatjyTPm+itCQKeLhwZS37Wlg/ZX3dRW856kZlwAV9oXQr3FI1QIEb7WEI/wN5weEBtVrPH/hL9ZZ9U1mCsrBaYwSK2dLrZcYrXCCISnDTJbzTrEymRoglASA0HixIhzxp6grtMStBq5sIXuhVFU0neBWt6xYuPVRMpeisNri962gacbZAJynNdS5J4eTIAE+hnSYYfENgthWw4ApDGPrsPI24Qop1QyVrg0OQWuGyg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(366016)(7416014)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Znc3MEZWeWQyZGJVdFo1Q0lrZ2NzVnNML0lJYkQwZ0ZWNmQ3N1dwU0VOZDdi?=
- =?utf-8?B?d0tlZmttbU0zbk9Sb2dyL1Y1by8ySnJyOHhPVThMUG1DbWM5M2xuTWlFbmNi?=
- =?utf-8?B?cStUdVJubk52WXludmNDQ0RRYTJoeUwrZTNGeC9LUkovMXlLcm15Vk01MWVM?=
- =?utf-8?B?UG4yanhtRHVGbld6WXkxdS9vVnBxcndxajhHb1dNR2puNmVVdElHREtkNklu?=
- =?utf-8?B?eXVkejlKalpKMW9CcjBnR0NYcFpDRnpXWWRhVGNRT0luRHJrUUh5UVFmOWxv?=
- =?utf-8?B?a1J3cEl5QkcvOFBBaXdzei8wcUwxQjJPcVBxYjZCNFN1RHpJRE12ZDVlRFJv?=
- =?utf-8?B?cWtkT3hPbGVSNGpQUTdXY2RXOWl1aGFyM2szcFcvNi9YL1lmQmFWcVJEVzVk?=
- =?utf-8?B?b011Ujd4WklLQ3E2bXVxUHJRTjg2NFBScmcyWW9hczZhY0M4REw3aE93RmlW?=
- =?utf-8?B?cXNabUxnMFJXMWEzREw2Nzk3Zk5POVd0aHFVcWVuNTJPTFoxNWVkdDJPcUZr?=
- =?utf-8?B?UjFubkQvK01RTE9KQnE1TEcyekNjbk0xTkR1WkdQVUZzU2J5bkxoMDZkS2V2?=
- =?utf-8?B?YWx5Q2Y5OEF2MzE4Ui9XVkJXVGNDb2VtbHNyTjhlbWJ4SG9GNFFDRnFKa3Fl?=
- =?utf-8?B?eDlLMGxRSHN0aWQwM21Ndk16a1FsODRKVVRyRDNta0RSTnBGTUJhenFFelFq?=
- =?utf-8?B?dzhtWFRsTXkrakFSOGhtNnZQSWFlaERTSnNNWjBjc0Q0aUlNYzI0Vk0vWE9k?=
- =?utf-8?B?aDk1aUM4Rkp3VEhITWttdHZ1MG5NR2MxU0hBTm9GY0dObmR4VEoyNEx2cFJZ?=
- =?utf-8?B?VHJBck1iSmJzMm15SnVKY1VDQXlpN05IdGplaGx3eFV6ODdIbDlxYXZFTlFV?=
- =?utf-8?B?Yi93WkpONVlISHAxMUM0YWJqcm9SbWV5TjlNK2FHVjJZekFTbzgyVWV6eEZv?=
- =?utf-8?B?elBqQ0hWdzkrN2hYd011RlA1U0NZSCsrN0NScklUUWpNU1dqZ243NkoyS0dD?=
- =?utf-8?B?NmhsdmZCdXhIQzN5UlF0eVUzL3NuRnZ2YTg0MmdXUXdMK3BabXlRWTYzNXV3?=
- =?utf-8?B?QkNydEpwTDR2NzhZM3NBSVlEdXVoV0xkb2JsQjkrc3ZGYUlMZjQ3WHNHOEZj?=
- =?utf-8?B?S1RhOG5IajRxMS9KUDdsNEtybHFubWxqRGVmSUFLNXZyd1Z3ZWlTMFBzUHRm?=
- =?utf-8?B?UUtsSERyWHJXZzRTZ3U0bkVkTWpjeDl0MTI0WmpRcEhlUTU0bnU2d1BzYXZM?=
- =?utf-8?B?ZUVtVWdScE1wY1JVaUNDUndUUGRDdlltUExxRmJON0hKU2p1WEJwZ2NMQ2pj?=
- =?utf-8?B?cnUyWDdkMExOTnhSMVh6OXB1V0J4Q2U4T21HZmFVQTNaRmFVQTkxVDZzL2NE?=
- =?utf-8?B?cFljREE1VWFYVStJb3V0NERQeVYrYmRzYkM1cFhram1DSU04clZTcEFDSi83?=
- =?utf-8?B?YVlsRHdsTktGeUF0L2lTRHhsK3N4b0ZjSWtuVDBoWTFZL3lDM3FZeEpVejk1?=
- =?utf-8?B?cDdHeDN1NnowNGFWSnFCTHY1UmdsRHI3RiswK2dEOEI4b1p2UkF2a2NEN3cy?=
- =?utf-8?B?czB0Q0I1ck9MQ0ZQcUlkT25ROU05NnhSa1ZtQmp2a1Q5VCtyUU9ZNGhzMFpG?=
- =?utf-8?B?WVFjd1VsRlpRUFZHR3NZL2w0MlIyby9DTGt3V2JydVF0a0pJcEF4MkFXQytp?=
- =?utf-8?B?TnhZSUtENy9lbDF4TlBSTnlyUDdEalhIbE55REVvWm8rM0hEaTBPR3hjQXpo?=
- =?utf-8?B?TkJvMWFoT0laNHhXeGg4U0tWUEVMbi81MnFqMTVOZDN6MEhIbnJqMTdjQ2x3?=
- =?utf-8?B?MG56R3k5RUhEV3dhQ1Fob2pVUjFQOFFFTmlpa2dINkI2Uk56S2N5R1pucTYr?=
- =?utf-8?B?dmx3aWJaNHRBajAxMkxFMnJoV0pCSHVSWVhaSVp1Z2lwMHZ3V1NTMlg2ZjZF?=
- =?utf-8?B?b2lTMUJrMUpla1o5M25OWGRVZkUydC9GTng5YklSOGw3RHJKT1U5SHRrU0Mr?=
- =?utf-8?B?OVlyaGZKTmVvTkRkZFc5dW5zVFNHdVdZTGlzTnQrRXZDRjNhS2dpU1lqbEtS?=
- =?utf-8?B?NlFEa0sxY3VpOVp1aExlTVEwWGxpSU1TNmNWeVBBcGphc2xnMFRsNHVBY1cv?=
- =?utf-8?B?ODh4TFhMN3E5RzNpbW13bVlVM2cwQnVFTUFCd2hMamd0Q3piR3lTKy9GNWt2?=
- =?utf-8?B?L0FxdHFOU2QvZGw4SXIvYll4bzRwMVNwTno4c1B0M0pNNDVVREpJeDZsRzQ3?=
- =?utf-8?B?S09YZFpQRm1ZL3NIRHNIOU1HN3pLT21wckczRVc1cStLTFRVeHlEbnQ3V3Bq?=
- =?utf-8?B?aSt1SG5QdVZJa2JwbklSbU12clB4VE4wVTJITVJhbVJEcTZnSVlMcnV1amV4?=
- =?utf-8?Q?zdhXwLTvLN7hqdcITRg4wtUWxou+nS7MYw/T2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68e69075-d5d1-4341-e54f-08df23a62346
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:34:17.5977
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K6sGDvJJc2m0+0UYnhQ6rHnbRsWcO3fbVcDlXzGuas0no1f+6SIEi/b5Gqg/bwOVNbSgvOExyEqdw/R9gYBxvbFKQiGBYsgVP3X0pPRIby9/KfpQ1OQ2lprUnLMxbGUT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11246
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 23/23] KVM: arm64: CCA: Control user register access
+ for Realms
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+ <20261005090754.2140522-24-suzuki.poulose@arm.com>
+ <52e3e45a-751e-40b2-8dd3-3db589ddebee@redhat.com>
+ <7b6ed626-eca4-41f2-ae56-0af59a931b29@arm.com>
+ <6bd785aa-4693-407d-b70a-39b1d0eda63e@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <6bd785aa-4693-407d-b70a-39b1d0eda63e@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_053423_735570_744C0448 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20261006_053656_605274_144EDA17 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,124 +82,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 06/10/2026 07:16, Gavin Shan wrote:
+> On 10/6/26 4:01 PM, Suzuki K Poulose wrote:
+>> On 06/10/2026 06:47, Gavin Shan wrote:
+>>> On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
+>>>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>>>>
+>>>> The RMM restricts the access to the register states that the host can
+>>>> read/modify for a given Realm.
+>>>>
+>>>> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
+>>>>        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
+>>>>        requests.
+>>>>        MMIO emulation in the unprotected space.
+>>>>
+>>>> Additionally we use the sysreg configuration to advertise/configure the
+>>>> following Realm parameters, which are required before the Realm 
+>>>> Descriptor
+>>>> is created:
+>>>>   - SVE Vector Length
+>>>>   - Number of HW Breakpoints/Watchpoints
+>>>>   - PMU Counters.
+>>>>
+>>>> Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and 
+>>>> SVE_VLS for
+>>>> the configuration of Realm creation parameters. We don't support 
+>>>> PMUs for
+>>>> the Realm VMs yet, so PMCR is not exposed.
+>>>>
+>>>> The RMM makes similar restrictions for reading of the guest's registers
+>>>> (this is *confidential* compute after all), however we don't impose the
+>>>> restriction here. This allows the VMM to read (stale) values from the
+>>>> registers which might be useful to read back the initial values even if
+>>>> the RMM doesn't provide the latest version. For migration of a realm 
+>>>> VM,
+>>>> a new interface will be needed so that the VMM can receive an
+>>>> (encrypted) blob of the VM's state.
+>>>>
+>>>> Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
+>>
+>>>>   static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, 
+>>>> u64 off)
+>>>>   {
+>>>>       int size;
+>>>> @@ -553,6 +572,9 @@ static int copy_core_reg_indices(const struct 
+>>>> kvm_vcpu *vcpu,
+>>>>           u64 reg = KVM_REG_ARM64 | KVM_REG_ARM_CORE | i;
+>>>>           int size = core_reg_size_from_offset(vcpu, i);
+>>>> +        if (vcpu_is_rec(vcpu) && !kvm_realm_validate_core_reg(i))
+>>>> +            continue;
+>>>> +
+>>>>           if (size < 0)
+>>>>               continue;
+>>>> @@ -598,6 +620,9 @@ static unsigned long num_sve_regs(const struct 
+>>>> kvm_vcpu *vcpu)
+>>>>       if (!vcpu_has_sve(vcpu))
+>>>>           return 0;
+>>>> +    if (kvm_vm_is_realm(vcpu->kvm))
+>>>> +        return 1; /* KVM_REG_ARM64_SVE_VLS */
+>>>> +
 
-mxc_gpio_generic_config() and mxc_gpio_set_pad_wakeup() call
-of_device_is_compatible() on every invocation to determine pad wakeup
-capability and i.MX8QM-specific behavior.  These properties are
-invariant for the lifetime of the device.
+This could be vcpu_is_rec().
+>>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>>>>           return 1; /* KVM_REG_ARM64_SVE_VLS */
+>>>>
+>>>
+>>> Aren't above two checks conflicting to each other?
+>>
+>> Do they? We allow SVE_VLS only for the Realms and we allow that
+>> before the vCPUs are finalized. For normal VMs, depending on
+>> whether the vcpus are finalized, we either send 1 or the full list.
+>>
+> 
+> num_sve_regs() can be called for 3 cases: (a) non-finalized RECs; (b) 
+> finalized
+> RECs; (c) Other finalized vCPUs, correct? "if (kvm_vm_is_realm(vcpu- 
+>  >kvm))", which
+> would be "if (vcpu_is_rec(vcpu))", covers (a) and (b). We needn't the 
+> excessive
+> check "if (!kvm_arm_vcpu_sve_finalized(vcpu))". So the check would be 
+> something
+> as below after this series is applied:
+> 
+>      /*
+>       * KVM_REG_ARM64_SVE_VLS is visible on realm vCPU no matter if it
+>       * has been finalized.
+>       */
+>      if (vcpu_is_rec(vcpu))
+>          return 1;
+> 
+> This check "if (vcpu_is_rec(vcpu))" belongs to PATCH[22]. Hope I make 
+> myself
+> clear this time :)
 
-Extend the hwdata flags scheme introduced in the previous commit with
-MXC_GPIO_HAS_PAD_WAKEUP and MXC_GPIO_IS_IMX8QM, adding dedicated
-hwdata instances for imx8qm and imx8qxp (also used by imx8dxl).
-This replaces the repeated device tree string comparisons in the
-suspend/resume path with simple flag tests on static per-compatible
-data.
+Sure, these two patches are closely related and may be even could be
+folded in. I split it out to make it easier to review.
 
-While at it, clean up mxc_gpio_generic_config() to use a local ret
-variable for clarity instead of the == 0 comparison.
+22: Allow exposing SVE_VLS for unfinalized VCPU RECs
+23: Control register accesses includingthe SVE_VLS, but prevent
+everything else
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/gpio/gpio-mxc.c | 46 ++++++++++++++++++++++++++++++++++------------
- 1 file changed, 34 insertions(+), 12 deletions(-)
+Does it help ?
 
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 5fbbfcebaa8f..1bd9f5beae4a 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -34,6 +34,8 @@
- #define IMX_SCU_WAKEUP_HIGH_LVL		7
- 
- #define MXC_GPIO_HAS_POWER_OFF		BIT(0)
-+#define MXC_GPIO_HAS_PAD_WAKEUP		BIT(1)
-+#define MXC_GPIO_IS_IMX8QM		BIT(2)
- 
- /* device type dependent stuff */
- struct mxc_gpio_hwdata {
-@@ -132,6 +134,26 @@ static struct mxc_gpio_hwdata imx7d_gpio_hwdata = {
- 	.flags = MXC_GPIO_HAS_POWER_OFF,
- };
- 
-+static struct mxc_gpio_hwdata imx8qm_gpio_hwdata = {
-+	MXC_GPIO_HW_DATA_COMMON,
-+	.flags = MXC_GPIO_IS_IMX8QM | MXC_GPIO_HAS_PAD_WAKEUP,
-+};
-+
-+static struct mxc_gpio_hwdata imx8qxp_gpio_hwdata = {
-+	MXC_GPIO_HW_DATA_COMMON,
-+	.flags = MXC_GPIO_HAS_PAD_WAKEUP,
-+};
-+
-+static inline bool mxc_gpio_is_imx8qm(struct mxc_gpio_port *port)
-+{
-+	return port->hwdata->flags & MXC_GPIO_IS_IMX8QM;
-+}
-+
-+static inline bool mxc_gpio_has_pad_wakeup(struct mxc_gpio_port *port)
-+{
-+	return port->hwdata->flags & MXC_GPIO_HAS_PAD_WAKEUP;
-+}
-+
- static inline bool mxc_gpio_has_power_off(struct mxc_gpio_port *port)
- {
- 	return port->hwdata->flags & MXC_GPIO_HAS_POWER_OFF;
-@@ -158,9 +180,9 @@ static const struct of_device_id mxc_gpio_dt_ids[] = {
- 	{ .compatible = "fsl,imx31-gpio", .data = &imx31_gpio_hwdata },
- 	{ .compatible = "fsl,imx35-gpio", .data = &imx35_gpio_hwdata },
- 	{ .compatible = "fsl,imx7d-gpio", .data = &imx7d_gpio_hwdata },
--	{ .compatible = "fsl,imx8dxl-gpio", .data = &imx35_gpio_hwdata },
--	{ .compatible = "fsl,imx8qm-gpio", .data = &imx35_gpio_hwdata },
--	{ .compatible = "fsl,imx8qxp-gpio", .data = &imx35_gpio_hwdata },
-+	{ .compatible = "fsl,imx8dxl-gpio", .data = &imx8qxp_gpio_hwdata },
-+	{ .compatible = "fsl,imx8qm-gpio", .data = &imx8qm_gpio_hwdata },
-+	{ .compatible = "fsl,imx8qxp-gpio", .data = &imx8qxp_gpio_hwdata },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mxc_gpio_dt_ids);
-@@ -576,15 +598,16 @@ static void mxc_gpio_restore_regs(struct mxc_gpio_port *port)
- static bool mxc_gpio_generic_config(struct mxc_gpio_port *port,
- 		unsigned int offset, unsigned long conf)
- {
--	struct device_node *np = port->dev->of_node;
-+	int ret;
-+
-+	if (!mxc_gpio_has_pad_wakeup(port))
-+		return false;
- 
--	if (of_device_is_compatible(np, "fsl,imx8dxl-gpio") ||
--	    of_device_is_compatible(np, "fsl,imx8qxp-gpio") ||
--	    of_device_is_compatible(np, "fsl,imx8qm-gpio"))
--		return (gpiochip_generic_config(&port->gen_gc.gc,
--						offset, conf) == 0);
-+	ret = gpiochip_generic_config(&port->gen_gc.gc, offset, conf);
-+	if (ret)
-+		return false;
- 
--	return false;
-+	return true;
- }
- 
- static bool mxc_gpio_set_pad_wakeup(struct mxc_gpio_port *port, bool enable)
-@@ -592,7 +615,6 @@ static bool mxc_gpio_set_pad_wakeup(struct mxc_gpio_port *port, bool enable)
- 	unsigned long config;
- 	bool ret = false;
- 	int i, type;
--	bool is_imx8qm = of_device_is_compatible(port->dev->of_node, "fsl,imx8qm-gpio");
- 
- 	static const u32 pad_type_map[] = {
- 		IMX_SCU_WAKEUP_OFF,		/* 0 */
-@@ -613,7 +635,7 @@ static bool mxc_gpio_set_pad_wakeup(struct mxc_gpio_port *port, bool enable)
- 		else
- 			config = IMX_SCU_WAKEUP_OFF;
- 
--		if (is_imx8qm && config == IMX_SCU_WAKEUP_FALL_EDGE) {
-+		if (mxc_gpio_is_imx8qm(port) && config == IMX_SCU_WAKEUP_FALL_EDGE) {
- 			dev_warn_once(port->dev,
- 				      "No falling-edge support for wakeup on i.MX8QM\n");
- 			config = IMX_SCU_WAKEUP_OFF;
+Cheers
+Suzuki
 
--- 
-2.51.0
+
+> 
+>>>
+>>>> @@ -625,6 +650,10 @@ static int copy_sve_reg_indices(const struct 
+>>>> kvm_vcpu *vcpu,
+>>>>           return -EFAULT;
+>>>>       ++num_regs;
+>>>> +    /* For Realms only support SVE_VLS */
+>>>> +    if (kvm_vm_is_realm(vcpu->kvm))
+>>>> +        return num_regs;
+>>>> +
+>>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>>>>           return num_regs;
+>>>
+>>> Same question here.
+>>
+>> As above.
+>>
+>> Suzuki
+> 
+> Thanks,
+> Gavin
+> 
 
 
