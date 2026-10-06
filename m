@@ -4,108 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31A2CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 00:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE7BCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 01:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dKXjEUftIgp77OKHDO3ncsIawS7cJdjkrLy6a3G9XM=; b=yjiMKTV/OQP1oELA+HAd9XPLfb
-	G3iQ9Xc7N88TtvRsSbsW75PIQCwaO1Dik3waJdKem1GX2Zn+SCqELb3HhAE+DC6KliwESVEuA3lYx
-	6HkYpVr/yaPDVVdNGk0jCCAweqveEVuSN2EUV3XX6NdZIcYcWTtb0qiwpyotHTsGbKquGoZc0U+Cm
-	MJsxwnorEIkqBId/w0NiS12kATisUBAhm22stThRHgRONX/TsC5Gi3gFbXC3K1FLYAINaGoNAbiuG
-	uJpBGECF4NWr6JdmjsDveIztRO2SJa1Pj9eIsmjhKv2YOcbAhe3Ju5JZzTJAZunvAWEzpyPvuyCRl
-	gs2vA/SA==;
+	bh=fmSHdEOjLyNe+GHx6L6yhQrxZwZE1u9619dhybyCLx8=; b=i8j/0dw8PDR0UA6AiI5HMg7xQu
+	5ea7s1aKPLKMxvid8g0qThaRayoCVFN3BOlM7eoHb5gko1XJOOMSABugoLcMCvy4lc8i/dV3leG95
+	kNt/bDeC7iUy5GWhKGtJf9sgZju6z2ge57Gzi8P+RB+FEjx2eIVpNXpQldCFM3dP/goMlvwg3ubwn
+	rHXeJ+dICRFG54e5xcw3nAyRp5SaC3dcdG4ul/B5OudU8UjmucK3G5EdnFgg9qSQV7BNzm+qWD5vn
+	0o+r72DypiBW8cX5W5/mCzTBRRuSQjLtuPmWkZahResUhrkMICs/jbeSnbt0IZP393pY5ejTqZtXg
+	41GY8WaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDt3j-0000000HOEH-2105;
-	Tue, 06 Oct 2026 00:29:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xDtXO-0000000HRIg-1eDW;
+	Tue, 06 Oct 2026 01:00:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDt3f-0000000HODs-1A66
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 00:29:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791246566;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2dKXjEUftIgp77OKHDO3ncsIawS7cJdjkrLy6a3G9XM=;
-	b=LkWT9i0XgMwl+x5AbkeNxSWWhVpz05KjOpYwYdTenv/6EXXHhnQFioDZ7sRl+d2bwIwBJB
-	D5LTZmDgn5Pl2y/I4yxU48i2is05q90hunQAzhhRd26yiGed61gBkwEW1JmokkzhxVPihE
-	xf6DdUf6kx8xqungsUGPoymOMaW9VMk=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-184-w16IPM6APz6mpUBRjapN9A-1; Mon, 05 Oct 2026 20:29:24 -0400
-X-MC-Unique: w16IPM6APz6mpUBRjapN9A-1
-X-Mimecast-MFC-AGG-ID: w16IPM6APz6mpUBRjapN9A_1791246563
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3a7ab1ca9f4so1955688a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 17:29:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791246563; x=1791851363;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2dKXjEUftIgp77OKHDO3ncsIawS7cJdjkrLy6a3G9XM=;
-        b=urhxIUlhkF+8QM+qZitkumFd9BtCZG+n18bNDNYhdW5h7J8xONJcE/QrMmQifc7v7x
-         GayuubL/FxeI+x05yW+lUdUXalS/TZk8+dJalQv/3xcFYbn+nugckT4x07q4+/aiy2a2
-         3ohNqszD1sj6ZgFs2EYFud3Fuml7Mogw6J1kM9pZAz9uWygfu29DVAkj2XJTpKqN/cbK
-         PInsB+piI9YIpnwiwnorTm2NT2DSdQAgJnja/lkTyfyhoK9VIeat02tFUHJrl+oahoK9
-         jDqx4/WEpuLJiczZLQdcaMradHwyQsi9nJ3TPQr5uIOoG7x/mA1I4Jo9j0Gs6LUqq4FI
-         moxQ==
-X-Forwarded-Encrypted: i=1; AKwUvByq03ajKUUfce5gs7iO2wXhHSewW7o+TWEDErGnh/Zo+1UjpVipRPtQXMdcsbyqGJBPOVzjpP2GKBIviXqDURQo@lists.infradead.org
-X-Gm-Message-State: AFq9FYI2JbKCVPr7t/vlP5MOZG93bZ4pOF6NOt9huT5paJiPmAGp5vIj
-	Y5bNfoBE14+uHMW69w3obm48mdTphCrhcQ+IGALnSKO85tJr2Km+/torQlSrWlPaPBhxaHkqbbN
-	srKTA889ci3nkoR3FxfBz1XTqt/LnBPF2eB8/MbAxAToItqSSh73T0iXHa5zOUhOUX8L/geW8Dw
-	7M
-X-Gm-Gg: AYBFou34ASPPnSsrgqEB4c9zEdx22wMxBL8a5XGIWQWJKbgE1E9AjMQMVSQHWLqck8L
-	nJYw2ytYlFoLLVJW19BRP3fT8Wlv+7WyX0LevMs4nWOatfOwXOvcEk4Mz/LGD+xc0yArE/F07na
-	ppbdVxUjo/tFtVpb6no3vddiOOELzjTg5JtrdDMdoH866EQI0rkkX/hygnJm1gVhpmMi9nSbXOj
-	6IMmvuv7pmBfoGFF7kS666h9Hdj3B/YiISbcP0AUq67/tJ9sAHSSFL9vWPDR8hdTRQJPbGdt3A8
-	n1CXYxvFiFcwdvjWT80ZXzR9eYnaSzkmtqUe9N548ZpKjmq8XoVDVteu8UZOwtOSbszhBbM9t8V
-	KNwSoUXU2Z89ffzuRtbwLr5awbIlq1NoS1z8eFpdPuQ==
-X-Received: by 2002:a17:90b:164d:b0:3a8:163b:b06b with SMTP id 98e67ed59e1d1-3a8163bb193mr3223730a91.57.1791246563181;
-        Mon, 05 Oct 2026 17:29:23 -0700 (PDT)
-X-Received: by 2002:a17:90b:164d:b0:3a8:163b:b06b with SMTP id 98e67ed59e1d1-3a8163bb193mr3223706a91.57.1791246562693;
-        Mon, 05 Oct 2026 17:29:22 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8533abe0asm1954324a91.1.2026.10.05.17.29.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 17:29:22 -0700 (PDT)
-Message-ID: <9536a477-3d66-471b-b58a-b941e4a372fc@redhat.com>
-Date: Tue, 6 Oct 2026 10:29:13 +1000
+	id 1xDtXM-0000000HRIR-273E;
+	Tue, 06 Oct 2026 01:00:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 185F7601F1;
+	Tue,  6 Oct 2026 01:00:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8417C1F000FF;
+	Tue,  6 Oct 2026 01:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791248406;
+	bh=fmSHdEOjLyNe+GHx6L6yhQrxZwZE1u9619dhybyCLx8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=AZ4hZHttCyXm7ZE36P8yA6Hr+o+dgADV1/ZWhB8sAPBr2wTczj2cJ7F2hsNeAf5YX
+	 RuvsdPE7lP9Uy+DxyR3JuC7kweFufqpJI7EcWnPm/hJdR2VDOsdke+IaUDeWyNC/e5
+	 lhUdltCi4wZngBz1AcKPMNUniLR4V4bnOKhAS1BLdcV6UMJoZKxbzxG0zb+qnECT3Z
+	 +1ErjRqIvmx1dHxd6s8X3EZheMZmOpUVIfSBgWbhX1y5saTR8ufp9rp/EUtEZ4eVdr
+	 psM/lzeTKjgFU/aLhruA29ALhzTFwD15HNGDe1Vs25O6FijtYusrSZ/Oz/E3n/rhks
+	 SiWbNHzhLinBg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77382392667F;
+	Tue,  6 Oct 2026 01:00:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 06/23] KVM: arm64: Don't call vcpu_set_pauth_traps for
- pKVM host
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-7-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-7-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: wyGxAfPzWHCLH5yRqsHxJeBSicVe79v6kA2eq0L48Mg_1791246563
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_172927_400305_870E0A34 
-X-CRM114-Status: GOOD (  12.89  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v6] net: airoha: Add retry mechanism to
+ airoha_qdma_set_trtcm_param()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179124840530.1963510.8749215756359738246.git-patchwork-notify@kernel.org>
+Date: Tue, 06 Oct 2026 01:00:05 +0000
+References: <20260930065855.46171-1-ansuelsmth@gmail.com>
+In-Reply-To: <20260930065855.46171-1-ansuelsmth@gmail.com>
+To: Christian Marangi (Ansuel) <ansuelsmth@gmail.com>
+Cc: lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Leto.Liu@airoha.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,25 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> vcpu_set_pauth_traps() bails out and does nothing for pKVM hosts.
-> Clean this up by moving the is_protected_kvm_enabled() check to the
-> caller, in preparation for adding VM specific vcpu load/put callbacks.
-> 
-> While at it, do an early return if the vcpu doesn't have ptrauth.
-> 
-> No functional changes
-> 
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v19:
->   - New patch, since addition of this to the Refactoring patch makes it a bit
->     more bigger and harder to review
-> ---
->   arch/arm64/kvm/arm.c | 52 +++++++++++++++++++++++---------------------
->   1 file changed, 27 insertions(+), 25 deletions(-)
-> 
+Hello:
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 30 Sep 2026 08:58:48 +0200 you wrote:
+> From: Leto Liu (刘涛) <Leto.Liu@airoha.com>
+> 
+> CPU accesses QDMA via the bus. When multiple modules are using the bus
+> simultaneously, CPU access to QDMA may encounter bus timeouts and fails,
+> resulting in QDMA configuration failures and potentially causing packet
+> transmission issues. In order to mitigate the issue, introduce a retry
+> mechanism to airoha_qdma_set_trtcm_param routine in order to ensure the
+> configuration is correctly applied to the hardware.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v6] net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
+    https://git.kernel.org/netdev/net/c/7e170da2edec
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
