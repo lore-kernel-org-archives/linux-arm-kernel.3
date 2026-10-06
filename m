@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59378CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6F4CA5FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NLjBEqzF3bLvG463L+dBKbw7TfCoymi8l+jbKvUBXR4=; b=YG0iBnx8OxmcDPAopPe63B1nKq
-	bU5DPsQFB37WndKkck+gVEKFcfAi2SBzIDc3/rnegoMmW81cb7l0waop0BUvk5QTLoHmzodcp1XZe
-	CyX/od6XvjkTWje5Oh7ZZT2P5BnAQ8i+aCYWYJFU43/r326+W13ySEiDFjABpsUkINqd4bKj6qh3Y
-	ZKl01zbBtO0sI7nfTB7WGTUJ/vJxHVEydWS/rzE9Mjv8WIGVFGU7fRU4ilqsGPzL4XHzuIf3V2VST
-	T1ltbVKo1+bgwsoTiivN9iVV8Lwx8rC9fDKgyAjpbX8tmjew/kLo04sMN7lvahqeTrtzlluIPPkwn
-	m3+P75wg==;
+	bh=kHj1RXYmclP68lBct4KNIr5BPd6z8PeEquooINbDID8=; b=UgyL7jkOTQDW8z7sXS2SQEJWoK
+	PLusZT9EsDUNGh0HSMwnDsVyzFpuGx8AH+H/roL1JCy68k65ETiquRbreuMWbZtqmNu4CuGxROjup
+	Z8d7Pl0HwGqE3uGuUHqPZz7DyFgiPMWEZTluCQ+oVcAnbD5xTivUwl0Va+gofR8tsdvDtW54S2++j
+	RrbQJj06P39Abfw3gJCN5Am7466YW1LHHyY2L1wCcmvVfnxFnxYOW8dU+AnVhE8GUJssMNyyZX54P
+	JK1QGMjWPdzrirYjJpr1KaeqRmTJ19oSgLHxKqLQrMxHNsdKXA+tq0Ej73ycvr9flq1TcVlP6jGI+
+	pgoAn18A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvZe-0000000HXyo-1H7B;
-	Tue, 06 Oct 2026 03:10:38 +0000
+	id 1xDvbB-0000000HY9S-2DNG;
+	Tue, 06 Oct 2026 03:12:13 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvZc-0000000HXyE-1AKS
+	id 1xDvb8-0000000HY8x-481d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 03:10:37 +0000
+	Tue, 06 Oct 2026 03:12:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791256235;
+	s=mimecast20190719; t=1791256330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=NLjBEqzF3bLvG463L+dBKbw7TfCoymi8l+jbKvUBXR4=;
-	b=MUixmHbJkEDXWFHhlYwcq7PDTdRuyWMlJamV3E6ACNXXXcJIDgXNzEbQed5JvBRHcNVnJ0
-	4VssfWEA98/OCYSmobH2SUUIFBSkV3CmBkN3kB+OdOIr5c8jkL+Ak90ZuTOypqpNJNXxus
-	jDfwbqfRKUZE0cRTjdqaG0TgjoJoCDI=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=kHj1RXYmclP68lBct4KNIr5BPd6z8PeEquooINbDID8=;
+	b=L102RUeGzVNINNC5Gsrw4AWaBjhFHve2mcymjKz1tROfX/rf0DzoFOKoWT7Kanb9lvK0Vy
+	KEJrU5/3X03v2P+//9cQn1GcQEVtwqiFNndWPK2rUd15DU39CCKyhGvHmlKX/u5YncKDyY
+	5O81NeOjJgaO23Eq29dzn+dKNrrhSSs=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-43-6ZtxzBoWPYeYtvXDazN-Zg-1; Mon, 05 Oct 2026 23:10:32 -0400
-X-MC-Unique: 6ZtxzBoWPYeYtvXDazN-Zg-1
-X-Mimecast-MFC-AGG-ID: 6ZtxzBoWPYeYtvXDazN-Zg_1791256225
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-385d2703b64so400379a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:10:25 -0700 (PDT)
+ us-mta-663-mER8q74kOGuCOnqLYd5N_Q-1; Mon, 05 Oct 2026 23:12:08 -0400
+X-MC-Unique: mER8q74kOGuCOnqLYd5N_Q-1
+X-Mimecast-MFC-AGG-ID: mER8q74kOGuCOnqLYd5N_Q_1791256327
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3a7fa5e0442so2361369a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:12:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791256225; x=1791861025;
+        d=1e100.net; s=20260707; t=1791256327; x=1791861127;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NLjBEqzF3bLvG463L+dBKbw7TfCoymi8l+jbKvUBXR4=;
-        b=Hat4gEd1pbESkFTHgUu9A53P3etQmoM4FJKkv8TPbKIa6OK7a0gsX9IXQkkiuqusXY
-         OCgCFyA4ievJJukkcBigSUAwjvTsFiAYrbCHIGt3f6UKQhbPWZqiGFkN20TFo1MAJ4wO
-         hi0KSkFdSqkHZ7QUQcwCY7zqWk8iXYs+P1YxjYZToXJZwlB7MAKK3o2HOZIBBrWMgS4h
-         c+H2qAYWd8LU+lEimxE4u8qpfdGgYus6U6cPOgJJcX4UeK/cJ5V9n4MZUQy9ZGI405xr
-         78JWsgqMZlIUFcviuGOmr/sq3B2IzIIgyQebbsZYqlgCnAany1TzMLIdMVUaFPWrrfFP
-         /kcA==
-X-Forwarded-Encrypted: i=1; AKwUvBxhYVWWUVx/659Rk4br7KyYHkjUsrNnnfHRp+VldB7hsQPR1dn1Y4gPXMdG+5bxOTTUtYMAnLNTObgIFQ7XP8M8@lists.infradead.org
-X-Gm-Message-State: AFq9FYK7V2EJlF+ifCwq2MGvmtex/h4H85xyfuzKo14d4eZlm60rAGhE
-	U4i/xAl91KGwJTVSvsUms6jDszFcpTIN3ZkHmiIxsKgmzDx0daS8dBXD1hGSXuR4B+uIJ+nSl7c
-	g63M98Tc3DdxfLRbEnxWWHXKxVr++NenmEtzTuhLLLSVz78hTwM6uEkpOQ0UOvcFUbYvL4ofHcw
-	3E
-X-Gm-Gg: AYBFou1Ad/SXoEl8/6qmgOb3udBUSsvSWRfUoAz2isIZC2WOavbGBn2rjteLfkj5Odp
-	41P9PQKCPPsSxXdr0sbu8sQqTjPNBTnbiJXrmRYlM++bLJei2Qeydq0utNNkZ3F9grNbRmEXD5n
-	2ZhqcrHv48yCk2oguWNGzvys5+MaBtw6klVwlvSLOxIULgm2lSgUHPTFXGWyeLT0VkDBoU871+K
-	pg//GtGdQb0dNOdFbtK118ezTpcrE5MDtusK8DJgVHoLkdnNZhtzS4FaxFSjtrPC//rUpFx97pk
-	hggQTrX9eBPf96MUMVSLqzrNCV4B0+rxgujz/xvYp1U7q3TxKf7+aVC8mwtDtdjMXoEQPCQIVTZ
-	pKNcwj1l4+JF8f2gaeUrFP1EthSSqy2nZ/G1X3M43CQ==
-X-Received: by 2002:a17:90a:d64b:b0:3a6:d2ac:74ce with SMTP id 98e67ed59e1d1-3a87368d0admr19233a91.19.1791256224567;
-        Mon, 05 Oct 2026 20:10:24 -0700 (PDT)
-X-Received: by 2002:a17:90a:d64b:b0:3a6:d2ac:74ce with SMTP id 98e67ed59e1d1-3a87368d0admr19217a91.19.1791256224127;
-        Mon, 05 Oct 2026 20:10:24 -0700 (PDT)
+        bh=kHj1RXYmclP68lBct4KNIr5BPd6z8PeEquooINbDID8=;
+        b=h9o0ZVk8Fmx7PXM+kvZqPy2feCdCgyIJlq0NsMLHbHH4m+wVAVuGQik1SUxML+uaU7
+         vpEUBTK4Vn8WKbOxbAcQcrcihpW1zW7chP7jcEDu6blhfhqodBja/kqF6O72xtD+lEo2
+         He83HeZducP6a98OE4a7zUacSeQ5llNO+6o4zoV+IGNuMMTsPdZwIERncjmPItCoMGaM
+         YFK9z1h85LS/S+Uk5UlqiTptTNcY53rFmSUkmk0XviZY4FasMFQyRo1ksP/4/9OmDne1
+         JDVYgxeCoMhxmfEembl5c0Zp0gQhvyEnaASkHsvpGIntHTxK27EZLORfClQnT3QNSVmy
+         Ux+g==
+X-Forwarded-Encrypted: i=1; AKwUvBzoLw0mNIka9+9Y3vbbKlUp/mK4cFTBAj+30iu7FwvA1kgs7iGClwWqg1taWlR1TKAxG1GJ34t+kSQaQFmKyUOg@lists.infradead.org
+X-Gm-Message-State: AFq9FYJBDC9c1ll5kd4JjsWOeTF6ua3H2w0wxklPeXcP4sEa4SqJMQKt
+	KWo0QT5AAbE65OZxmmleypeKf3XpIjRdeebk55KOhiPdNR6AFksKS1tGKFsA50xFTNDwbQqi8Cv
+	QTuSjlZiuhGdp1dxVZ3wIv+KZerh99cG27navvAxAwvyHj5/5PnQVBN2VWfsfXo+DuqKW4Nxgw2
+	fH
+X-Gm-Gg: AYBFou0fXPDCgbgl6gkV96RdpK3vNstwQG7XD0HS+sVeKRC+Qlri34HL2FzvJpZwcvR
+	u/2cVH2ieuGzPPu7p2I7w/gJFcC12+eFanwxnUP1IODUmDroB4T72gsTmT5e2DEN/kA+TFykgN5
+	t6bdFLDRLLKzKC9AX85RmrFyWOKBdZp3M6MeAVVdsCrN96xJr0+hE9PHW/OWivEqGDGXhcycern
+	Vqzf3UKLPwSBXubdo4dO3k3N+FUVrY2vzCVNaXSyQDBX2a9vv6tH54B1jQXDsCRKRAkpd+0pBEc
+	XOPHCuD7k8fGd3XRx1MG3c80nsWhSOFn4fJ2Vvo/8mMMvzz3cXhoVZsqF1n19oiBo7ApaGBfu8I
+	3uCFQz517zdvLqolSlKwfuezIGS9aBhQkTHYRPsEXKw==
+X-Received: by 2002:a17:90b:2e0b:b0:3a7:8c68:6446 with SMTP id 98e67ed59e1d1-3a8737a34cdmr26438a91.63.1791256327294;
+        Mon, 05 Oct 2026 20:12:07 -0700 (PDT)
+X-Received: by 2002:a17:90b:2e0b:b0:3a7:8c68:6446 with SMTP id 98e67ed59e1d1-3a8737a34cdmr26405a91.63.1791256326616;
+        Mon, 05 Oct 2026 20:12:06 -0700 (PDT)
 Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8543b0c1fsm3110944a91.14.2026.10.05.20.10.15
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e5a5ee97f3sm15210795ad.66.2026.10.05.20.11.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 20:10:23 -0700 (PDT)
-Message-ID: <9f9575f0-be48-4dd0-ba1f-98d8dd39f10c@redhat.com>
-Date: Tue, 6 Oct 2026 13:10:13 +1000
+        Mon, 05 Oct 2026 20:12:06 -0700 (PDT)
+Message-ID: <6d290cbf-5dee-40ff-9ca9-af544fdee791@redhat.com>
+Date: Tue, 6 Oct 2026 13:11:56 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 14/23] KVM: arm64: Mandate VGIC v3 for pKVM VMs and
- Realms
+Subject: Re: [PATCH v22 15/23] KVM: arm64: CCA: Add a new mode for supporting
+ Realm guests
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
@@ -92,21 +92,21 @@ Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
  linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
  sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
  WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Fuad Tabba <fuad.tabba@linux.dev>
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
 References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-15-suzuki.poulose@arm.com>
+ <20261005090754.2140522-16-suzuki.poulose@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-15-suzuki.poulose@arm.com>
+In-Reply-To: <20261005090754.2140522-16-suzuki.poulose@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vGAO8AjWDaCsOdUTy0PO3VdNCjsDGDF0mHxMrye3cBM_1791256225
+X-Mimecast-MFC-PROC-ID: kNFrfG9IaG1ScKcMo7h-XuxsgSgCnRBYa-jDUSHPIws_1791256327
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_201036_396124_FBC0B115 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20261005_201211_121087_90803781 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,24 +122,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> pKVM does not trust the host. Realm VMs follow a similar trust model, with
-> the Realm Management Monitor owning the protected state instead of the
-> host. Add a helper to identify VMs that run under a host-distrusting
-> hypervisor.
-> 
-> Use this for blocking ioremap of vgic-v2 into stage2 and prevent creation
-> of VGIC other than v3.
+> Add an explicit mode to support Arm CCA guests.
 > 
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Tested-by: Gavin Shan <gshan@redhat.com>
 > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->   arch/arm64/include/asm/kvm_host.h | 4 ++++
->   arch/arm64/kvm/mmu.c              | 2 +-
->   arch/arm64/kvm/vgic/vgic-init.c   | 2 ++
->   3 files changed, 7 insertions(+), 1 deletion(-)
+>   Documentation/admin-guide/kernel-parameters.txt | 3 +++
+>   arch/arm64/include/asm/kvm_host.h               | 1 +
+>   arch/arm64/kvm/arm.c                            | 5 +++++
+>   3 files changed, 9 insertions(+)
 > 
+
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
