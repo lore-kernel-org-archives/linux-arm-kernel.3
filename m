@@ -4,106 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2C4CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92DDCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXACSYhLXtVOS9sONVQPPWY9uQYglM+Zmt4FkOCBx3E=; b=USx6TaZPVg5ApHfC2UNAg1/NgW
-	rC6WwJg1Nu0zCbKT5f9S0dTdcb9qfweJ7dEnZ1YwspjmmfsDLzsfjN3n3E1AZSevCSExZKJy4gBtZ
-	nvoxwFIOovJ0aj+0X+UEw6JWW92hIScamqfM3u/MHcS8MdWKjJmxock5Kd4Dfkxgf4UKkUeFi+pvm
-	PqQRRsoKFDAxvHDYRvG3pkWWYsgKhexKujhzwaOJZbmxsRTI9F5wviRc5CQ+eaJocKetxLw927YDs
-	Jdk8y+ZpJeCcx7aeDQk9wXVFU7F7lAYjwXIOLQ7Ltms58emqfxeIUMlf5zgpAB/l/+2d+NOJvq41e
-	Wjgb7V5A==;
+	bh=mtMVlOhfl7dVywIUmoTG/iwD9ZKg/EsOsz1i8lgIOSU=; b=TNooFO3rsWwczNmIr81lCKIul1
+	jzogm7NOMBuc/2fjG4QLk8NrmLMjrJ+KJNCKNIC4TM/VGtbjyt1mf+InZe3JP5LFb6FGirNqxmV5z
+	3F2fN7IyU+XafWzWtl+GXel08yNqE8sjdTguMyFZoMFUPwXUn17PBkif3qwwcGZboG7iInzU59Xg9
+	Bu4ix/wDhQ5DJfOeDA7+pX+nC48meW7W+lQ6flBgPpR+MITe3ttP897RW4oHW1jxZdF2GAceaCm3h
+	Ytm3tDn2Gf3CrbHCXE2oLlAxIgHNTNl1oLi4zpJufe6ng4mlQ81JOL0o9DJlplxqC68OqpJfUJZRH
+	iuqVmEmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6n4-000000010Ga-2V1n;
-	Tue, 06 Oct 2026 15:09:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xE6qI-000000010nD-3pmJ;
+	Tue, 06 Oct 2026 15:12:35 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6n3-000000010Fy-0eV6;
-	Tue, 06 Oct 2026 15:09:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 99D82601E4;
-	Tue,  6 Oct 2026 15:09:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C4F1F0089B;
-	Tue,  6 Oct 2026 15:09:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791299352;
-	bh=TXACSYhLXtVOS9sONVQPPWY9uQYglM+Zmt4FkOCBx3E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oeD9QMK/tXxY4ZxQ0+Gmxg5aPRwX8W4X1AsK0sM2/mcxH5WLbLIqfNtfXKgb//leF
-	 XSP48glRRhnj3pQa1VCq6PUqbetMprs1Ae1hsidFDVuXLj8C5jyU+QvHptSuSxkQfE
-	 OLjdV7BpPGqd7FFkWefViFpHPP966uaE8UsT1h3MUaiHorajeVhPBIeWZQmBY2K+cl
-	 OsoIa3GrOv8mEummzhMcMh6UXe19qhig9gh4u0Z0tqjxFK3uuzBls/sZGPruZopO6V
-	 gZab5ew9dzEGQqga0VIjn5fWAV8Olsicn1jGw5NFyHA+7kLvJVBwxbRdYKVdchrNiA
-	 4DV5zTUQMDIKA==
-Message-ID: <2639e56d-1fcd-4f20-b065-0066a6d841a4@kernel.org>
-Date: Tue, 6 Oct 2026 17:09:06 +0200
+	id 1xE6qD-000000010ld-0n87
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 15:12:33 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-8ac4806e210so9427837b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 08:12:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791299548; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Mtu7GNLDJcBl44TA+2m1WChRGX7c52wIs4ah9xhplOGc25aGZcy8Z5iU5o7Ce+2u1Q
+         XiZ05hZfvc1+QOmR6T5y4d07F9x6hSIgkcfjDtZUsUa35zGit0prG+SPn14AqbGGkxRu
+         5KT9zm055Y6+IwDToT2ST5HEgnsblU4gxOVQdMlWJTwT3Ih72dNkQpxHL6qD7qfsGmiN
+         3ZDhRG2dQL1sC1GhweraNMHryqB2HnTmmBOm/kE34pWKE8oP0tKW7oUN3ZPQaU60ELps
+         lY2jUz+6gYLc9WrD2lqMXohz02A0dLOzaCZ9IzroQdd+FGuG6GfkZY1UNQgeHVfjkgM2
+         SIpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mtMVlOhfl7dVywIUmoTG/iwD9ZKg/EsOsz1i8lgIOSU=;
+        fh=NSd5IWYx/xYkQ3E6WUeQ9a36PcKjJweYvNUzGCi+hxk=;
+        b=OUOMTZ9Ma67YYvUbpyzDDS1RhQ++QDK8CFHrFiEF7YXWvoG+iG/SmEvDHOqa8NlHYf
+         o7e6Hmn1+/K7P85Q6clApbxY1X52xVT/hN1d8v4rz7kZ0+FWw0w9HggIj9L+6WRZ2n1G
+         2uWoGpEwed70wu+E4MW7z5Lw6WOxNMmowk7vTKel8MDzI1sJQ6Idd4Y4wAEGzt6oOydI
+         Xaa1e+m17o8DaqLWKfI8q+UpVbjjCg154SIfPoHsKh58Hmb5hxyeleMZZYo2+cCW1TJ+
+         SLgsJblw/eoE/3RoLL5DBTMslq1ljq0P4HRyFEfxUEQ/l6a5vM/3Rdj1vz0WCOgMHG7P
+         FxoA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1791299548; x=1791904348; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mtMVlOhfl7dVywIUmoTG/iwD9ZKg/EsOsz1i8lgIOSU=;
+        b=PP5Iph8YRRjp8kd4VZrbA+DUJa7YhxK2b6eSeJCJB//qHcdQigHd8zhj6s99qN4jmW
+         pEjsi6xx2i/fxqaM0C0myP7thHFz9jX0aB74+t2ywObgHxlkkz3ic7IyLsrjAig9XusK
+         a+lsDzZFBoqcsJVngiQQszwKk2FGlPyzHeriH7fd6yabt5tNxwJNHEFmUfSzmv18ODWu
+         nW6BDzf2AW+8BF8nLCQjTH0nXNg5X5P9dD3M9df6nE90naaHCHl4gxOvj9k/rzHdnxR5
+         ynbr1ZHK0N81JraQn0e3FALlW9eY/mMt279wfbSdJw3wHcg1Pac99DBnVviCo6owVNtw
+         Y5Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791299548; x=1791904348;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mtMVlOhfl7dVywIUmoTG/iwD9ZKg/EsOsz1i8lgIOSU=;
+        b=TS5m/cB7lz2ttaXJF8YjKROfesieaQMKiKETWcvZ880FC4cLbyankkimyxGVyF0vXf
+         IbLJKbvc1Q3UC5TxsY7rv5T0tbcdxeA7sYKR4Hwt+83YjYU7hb4GWUEAShKTU5MBY5WG
+         ZnSbxLz64dJoA4TVBn4mnBU9rVCsiTnx6jFbu5AKvrB2/dDpLcVnd49FthWU6mOGNpOb
+         ryC5DsIJrsbFH+jiKmDHJmqK73vkzUmjHjMLfopqzgwzCkdf+DgdpliLJFwur+RmqglG
+         Z9hBigmiO1Eht4l1qRv9nAPu1jsIDWGvWOWb7u6C0OCIKQqfCVZqswMXA3CfCl/mUnCm
+         0zig==
+X-Forwarded-Encrypted: i=1; AKwUvBw8DbitIGIc5L8mDroSf9xl+Q1Kky+ecUa49Urso72zD01tw6d43qQ8WtglGNnavxeNx6U09HZFcdNHpE/TTPQA@lists.infradead.org
+X-Gm-Message-State: AFq9FYKpWNp1ATrvqRHQtDkI+7i5OSon5ZvZJv1pbbhUFQuXfrPqWmS2
+	X6JbHGKxhyo+Uc1uIpdiuAFQJzp/ezgg+haj4/sEMzFaxYcMHAtAtoj8TFrkLhlzlWvYdgULUqI
+	lzx1F01bX4rdijIUvwdrlRY64qt773uvgWE+n8PiLiw==
+X-Gm-Gg: AYBFou2SoCr3VNEzTMqHOER2g0NkVy7vHdzV2+y7xboXu4N0tCfM0brmw8ruMlIAT75
+	TtnJUAgZS6tGBDNEMDh90JU4f8rQYEKByQUAhrFZDeCioEeyb6Yz5P82r64q6zr4ZdnKlxBdD1P
+	B/EILUN6kbygnoRdSrN1lg+r1WAVPgd2eQPGa6nK765qGhdFLkFytTDvLBwPHfujwbSRGK/EuSI
+	6pmMqfA7IipVQg5Oo7cYYE7yI/bo3GZ7SLtUwmnuhqbQgvFSn/2G9Htl2GqMR1FcZHoQssce7eA
+	e8+hi6qTAJCtmnxVcV5GMpg4lr0RfTd4SNYACtW+/GLb/J5YNKGw/oCLlURm59lsU8fZViZVd8N
+	DaxqhnLjVJ5xJEwJFE2xL
+X-Received: by 2002:a05:690c:85:b0:883:768:7432 with SMTP id
+ 00721157ae682-8b04f441f91mr9459587b3.49.1791299547459; Tue, 06 Oct 2026
+ 08:12:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: soc: rockchip: add boot ROM download
- boot mode
-To: Alexey Charkov <alchark@flipper.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel <sre@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, Shawn Lin <shawn.lin@rock-chips.com>
-References: <20260929-b4-rk3576-reboot-mode-v2-0-5a34ca72065a@flipper.net>
- <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+ <asQcQIh56MV1OJur@lore-desk> <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+ <asSb3RNcityVg6ia@lore-desk> <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
+ <asUGoxyJWVcsYBWG@lore-desk>
+In-Reply-To: <asUGoxyJWVcsYBWG@lore-desk>
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Date: Tue, 6 Oct 2026 10:12:16 -0500
+X-Gm-Features: AclHuK-RCm43_jlNT_lFUhdrwLSuRNyZQs6NCda3layOtVwA4kmc3GhgcBuqpZ4
+Message-ID: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Jose Abreu <Jose.Abreu@synopsys.com>, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_081231_183986_295ED0BE 
+X-CRM114-Status: GOOD (  33.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,19 +129,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 12:28, Alexey Charkov wrote:
-> Rockchip boot ROMs enter USB download mode, commonly known as maskrom,
-> when they find 0xef08a53c in the register they take the boot mode from.
-> Add the magic under the name U-Boot already uses for it, so that boards
-> able to request it can do so symbolically.
-> 
-> Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
+Helo Lorenzo,
 
-This is a fake test, you cannot test bindings how we understand Linux
-kernel testing. Please drop such blanket-fake test tags from all patches
-where this is not relevant.
+On Tue, Oct 6, 2026 at 9:33=E2=80=AFAM Lorenzo Bianconi
+<lorenzo.bianconi@oss.qualcomm.com> wrote:
+>
+> On Oct 06, Anirudh Srinivasan wrote:
+> > Hi Lorenzo,
+> >
+> > On Tue, Oct 6, 2026 at 1:57=E2=80=AFAM Lorenzo Bianconi
+> > <lorenzo.bianconi@oss.qualcomm.com> wrote:
+> > >
+> > > > Hi Lorenzo,
+> > > >
+> > > > On Mon, Oct 5, 2026 at 4:53=E2=80=AFPM Lorenzo Bianconi
+> > > > <lorenzo.bianconi@oss.qualcomm.com> wrote:
+> > > > >
+> > > > > > On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrot=
+e:
+> > > > > > > stmmac_update_subsecond_increment() ignores the error returne=
+d by
+> > > > > > > stmmac_config_addend(), and stmmac_init_tstamp_counter() disc=
+ards the
+> > > > > > > addend and system time programming errors, always returning s=
+uccess. A
+> > > > > > > failure to program the addend (PTP_TCR_TSADDREG) or to initia=
+lize the
+> > > > > > > system time counter (PTP_TCR_TSINIT) is therefore silently sw=
+allowed,
+> > > > > > > leaving the hardware timestamp counter in a non-running or pa=
+rtially
+> > > > > > > configured state while the driver keeps operating as if times=
+tamping
+> > > > > > > were up. This matters for TAPRIO/EST offloading, which derive=
+s the gate
+> > > > > > > base time from the hardware timestamp counter.
+> > > > > > >
+> > > > > > > The same hooks are also called from the PHC callbacks: settim=
+e64 and
+> > > > > > > adjfine drop the error and report success to clock_settime() =
+and
+> > > > > > > clock_adjtime(), so a dead PTP reference clock goes unnoticed=
+ by
+> > > > > > > ptp4l/phc2sys.
+> > > > > > >
+> > > > > > > Return error codes from stmmac_update_subsecond_increment(),
+> > > > > > > stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and t=
+he
+> > > > > > > settime64/adjfine callbacks instead of silently returning suc=
+cess. On
+> > > > > > > failure, roll back the partially applied configuration so the=
+ hardware
+> > > > > > > and the driver bookkeeping stay consistent, and report the re=
+ason
+> > > > > > > through the devlink extack. Also guard against a zero sub-sec=
+ond
+> > > > > > > increment, which would otherwise divide by zero when computin=
+g the
+> > > > > > > addend.
+> > > > > > >
+> > > > > > > Reset the persistent timestamping state (hwts_tx_en, hwts_rx_=
+en,
+> > > > > > > tstamp_config, systime_flags and tsfupdt_coarse) when (re)ini=
+tializing
+> > > > > > > timestamping, so a failed init does not leave TX/RX timestamp=
+ing
+> > > > > > > enabled on a counter that never started.
+> > > > > > >
+> > > > > > > Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp =
+to generic HW Interface Helpers")
+> > > > > > > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcom=
+m.com>
+> > > > > > > ---
+> > > > > > > Changes in v3:
+> > > > > > > - Do not run stmmac_config_addend() in
+> > > > > > >   stmmac_update_subsecond_increment() error path.
+> > > > > > > - Return error from stmmac_adjust_freq() and stmmac_set_time(=
+).
+> > > > > > > - Reset hw ts configuration in stmmac_init_timestamping().
+> > > > > > > - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-a=
+dded-systime-error-v2-1-beb2a6b5f866@oss.qualcomm.com
+> > > > > > >
+> > > > > > > Changes in v2:
+> > > > > > > - Initialize sec_inc to 0 in stmmac_restore_subsecond_increme=
+nt()
+> > > > > > >   routine.
+> > > > > > > - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-a=
+dded-systime-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
+> > > > > > > ---
+> > > > > > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++=
+++++++++++++------
+> > > > > > >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
+> > > > > > >  2 files changed, 84 insertions(+), 32 deletions(-)
+> > > > > >
+> > > > > > Hello, I'm noticing that after this patch was merged into linux=
+-next,
+> > > > > > boot seems to hang when ip=3Ddhcp is used because ethernet isn'=
+t working
+> > > > > > on the TH1520 Lichee Pi 4a. These lines get printed in a loop o=
+ver and
+> > > > > > over
+> > > > > >
+> > > > > > IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] =
+thead-dwmac ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > > > > > f2 mtu 1500 DHCP
+> > > > > > [   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmma=
+c-0:01] driver [RTL8211F Gigabit Ethernet] (irq=3DPOLL)
+> > > > > > [   24.912780] dwmac1000: Master AXI performs any burst length
+> > > > > > [   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety =
+Features support found
+> > > > > > [   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init f=
+ailed
+> > > > > > SIOCSIFFLAGS: Connection timed out
+> > > > >
+> > > > > Hi Anirudh,
+> > > > >
+> > > > > based on the reported error, stmmac_init_tstamp_counter() fails w=
+ith
+> > > > > -ETIMEDOUT. In particular this can occurs if:
+> > > > >
+> > > > > stmmac_init_tstamp_counter()
+> > > > >  -> stmmac_update_subsecond_increment() -> stmmac_config_addend()=
+ -> -ETIMEDOUT
+> > > > >  -> stmmac_init_systime() -> -ETIMEDOUT
+> > > > >
+> > > > > I guess we should understand which one is failing and why it is f=
+ailing.
+> > > >
+> > > > It seems like both are timing out, both config_addend
+> > > > (PTP_TCR_TSADDREG) and init_systime (PTP_TCR_TSINIT).
+> > >
+> > > It seems hw timestamping has never worked on this board, it was just
+> > > undiscovered since stmmac_init_tstamp_counter() was not reporting any
+> > > error before (this is exactly the goal of this patch).
+> > >
+> > > What are the output for:
+> > > - IEEE 1588-2002 Time Stamp
+> > > - IEEE 1588-2008 Advanced Time Stamp
+> > >
+> > > root@rb3-gen2:~# grep 'Time Stamp' /sys/kernel/debug/stmmaceth/eth0/d=
+ma_cap
+> > > IEEE 1588-2002 Time Stamp: N
+> > > IEEE 1588-2008 Advanced Time Stamp: Y
+> >
+> > This is what I see
+> >
+> > root@debian-trixie-riscv64:/# grep 'Time Stamp'
+> > /sys/kernel/debug/stmmaceth/end0/dma_cap
+> > IEEE 1588-2002 Time Stamp: N
+> > IEEE 1588-2008 Advanced Time Stamp: Y
+>
+> Unfortunately I do not have this board for debugging. The first idea
+> I got is maybe 100ms is too small for this SoC? Can you please try to
+> increase it to like 500ms?
 
+That doesn't help either.
 
-Best regards,
-Krzysztof
+Maybe someone more familiar with this board/has used PTP on it before
+can help out understanding why this is happening. Maybe this is some
+issue to do with clocks.
+
+Regards
+Anirudh
 
