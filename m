@@ -4,75 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C6CCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985E8CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iTiEXRkkRUyq0OdUcDn74SXOWzYdu5OFlD5dkwH2Xo=; b=cLkAuz9tWcqx4z9idYG7k98iqg
-	4q0qe7erXn2jgmZox99B4M+4uaSepcmGxkCtdIll+DuM5oAkWBhNQXmSY2IZEgSoUsIF59RN5Iuq4
-	v5Aw/U3IW7yWGoDWTut8e4U7aabOC/FGokEyRWSacErG0N2+1LEtDG1AvIdG6UQkkHC3Ukis/FxfU
-	dNcYlrwm4eVHhS48NGCkFb090knmQj0mckwrSqUn0gz7ZQdtEIMpPgUU+HuD2UKMQ7HeukJm2otxU
-	0NUpEw9iKGgOQNyWpdnfRUwy6EGxIN/HeGZ5G7S/QHwxlx5ju55MzVsZNHFNtKLqpvg4D8FphZnGr
-	JyDeT9mA==;
+	bh=kKP6/yp0P7AgIYEvTJ/q9LUGXP7+ecdzNHuLMGR8ad8=; b=pC736jQ5WcchsIR/SYXRbNzepr
+	ztpcIPrvz2C26hkKd8LKoCCXoBKRgCQYygbqvgQJjgKgBlWFWnY7M7luX8R+VWtfTEC5VPh4osFQm
+	m6SjmI+wJP8Wxnd5Fvgbr7QNduAp056ViNTxg2wBz4tu8w3QXXY+Uzckft+G0bBwkZmFL0KoWJ+DE
+	4U4BLR+14ETTmSn3MWGcV4+IEWr9a52Mt+wpEEGNqIqqI+5Q76SlkmjxMxYm5jd41+l4KUaU/QkQX
+	hpOkQBGPchIAB5iehelakHK1plLKa+CAO3KJ2XI1x8Jp+PxDrwmwHJ1UClpFWsExiSu5dbnL/YeT6
+	RCF2RATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7JT-000000013VB-3Oyd;
-	Tue, 06 Oct 2026 15:42:43 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1xE7Pv-0000000144p-1ZaK;
+	Tue, 06 Oct 2026 15:49:23 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7JQ-000000013U5-2rYW
+	id 1xE7Pr-0000000143l-4A2p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 15:42:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
-	Content-Type; bh=2iTiEXRkkRUyq0OdUcDn74SXOWzYdu5OFlD5dkwH2Xo=;
-	b=ch5PuzuPbxD6P1KR+X5hPHTZme482fmkNqk+TFMnBlKONUcsgjVo0xX1IxzXG4
-	Rod8h4CsiRPCxmEgLiqb9l5epYesrsPKS72FFb17DjB96UXIbK8fodMeJYVr+R7V
-	gUzvQfKFr9JDCpXDKYPM9Hcyh1ybo3T6itvGhIGum7LTQ=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDHErmrFsVqBJiCCw--.47147S2;
-	Tue, 06 Oct 2026 23:41:45 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	dinghui1111@163.com,
-	dinghui@lixiang.com,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	liuxuanjun@lixiang.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com
-Subject: Re:Re: [PATCH net v4] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
-Date: Tue,  6 Oct 2026 23:41:31 +0800
-Message-Id: <20261006154131.2576226-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179117229846.434549.8891935731909166889@kernel.org>
-References: <179117229846.434549.8891935731909166889@kernel.org>
+	Tue, 06 Oct 2026 15:49:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kZOeNWJmKLMXAW08iGGHkDaI5h0OQzl7ksfMWf1M0q0QLEP4+M6OXaETlXagiVVTOpXVpzu2aH9c2A75F6FAkhPzSF/uTo+pE0hf3jpCpLJ85lGuEhfq2sioBQuAE84fBxwV47ddwYGKEXv0YqWzTUecB+8S+v2qMU+tL3Cag+QHn8m7sRPdmglPvFQ/QaT5kau5z9gbGdesei5E1qPQOJZOOEisvb64DUlUsRWhv112NSBXE9H9ukidUQkHxC36Dv2O/Vm+QNTaWCnBl99qIzqHt3CVb8gYHacT/txB8ohTkzDTxVAnsdjDvmyvvpXvDhchEBcG7dfLZvuwYFxsXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kKP6/yp0P7AgIYEvTJ/q9LUGXP7+ecdzNHuLMGR8ad8=;
+ b=XB5PQO/72y4gSh3SlI2vGVJM52mO2CBlZzeVNZeO4EIXPTOwTEEyA/7j9/UeeV2+SxGoc7lm/9jIeNctJfmaIMrby44SyTK9gDtcDpbeyRV80AofaoaLEJnjvUoIlUQ+xf6Gv+yA5cOi42FPf9+EsSWCqU4iIew+8zWYmLWKjNs8yjrSwACpg2PjXOcK5koOMb5YKPgs5x1iN1AyrzE1r6d9aVfoZZ4PiEAz9E+uPi/xwtH7XRd5c1tWC0reX/YINBPXZEu9bAP8Qw5zje6smb3f2q0+Oz0ZT+NjoisMWDuyLjlQTw0S1ih4HkCd8YKs/uT36b9OdLRlblHhURdQLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kKP6/yp0P7AgIYEvTJ/q9LUGXP7+ecdzNHuLMGR8ad8=;
+ b=In0cGU2xkQtmJJoGwHhGw8yFVrnZgCj4AnK/g9p4Z+umCWm5/Ph1t4nkXqalgQDNVitrIMQDvQDCvI55wuJuwVctwk4Xu63m0FFqMjmw/zn2VxSLOir+cDmvJBb4rghCsYSwDnoxeB0xQE3dpFrq7bjVtUathrKPZBEKXXh9K/VKGiTZ9xsaV6zhEb/sgC5GZokkgVWQEC2oj24gCvBxOLULsK2rDQPTWsWMdr0SD5B1ILnRdrRGPYiTordlccXnr973b991xt+GLVEwniUBm5k9xV2hxTJL2yPgJX2VR6Z5nn5GE47mKEk9eDME0YZAbgbWwIe72OJ/XLbUzHoROw==
+Received: from PA7P264CA0299.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:370::10)
+ by AS2PR10MB7602.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:545::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Tue, 6 Oct
+ 2026 15:49:10 +0000
+Received: from MAD0EPF000008A9.eurprd04.prod.outlook.com
+ (2603:10a6:102:370:cafe::92) by PA7P264CA0299.outlook.office365.com
+ (2603:10a6:102:370::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.21 via Frontend Transport; Tue, 6
+ Oct 2026 15:49:10 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MAD0EPF000008A9.mail.protection.outlook.com (10.167.241.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 15:49:09 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 17:55:55 +0200
+Received: from [10.252.29.133] (10.252.29.133) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 17:49:08 +0200
+Message-ID: <57322a17-7fae-434a-b60a-f879855cbb2b@foss.st.com>
+Date: Tue, 6 Oct 2026 17:48:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDHErmrFsVqBJiCCw--.47147S2
-X-Coremail-Antispam: 1Uf129KBjvAXoW3tFWrtry5GF15ZF4rJFyrZwb_yoW8Ar4DXo
-	WruF1ktw1rtw15ur1ktFWxGrW3GFn3u3WfXrWDur4rAFZ7ZFW5u34rX3WrJFW3JrWjgayD
-	ua4kta9FvFW3Jr1rn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTRQZ2TUUUUU
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0hq-62rFFro-3AAA38
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+ <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ <20261002-pragmatic-smart-piculet-cacb3e@quoll>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20261002-pragmatic-smart-piculet-cacb3e@quoll>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.29.133]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008A9:EE_|AS2PR10MB7602:EE_
+X-MS-Office365-Filtering-Correlation-Id: f79f09a2-a5f8-4bf8-e059-08df23c15cb7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|36860700016|82310400026|7416014|22082099003|18002099003|13003099007|56012099006|4143699003|6133799003|3023799007|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info: OFCDU9WASux/X97I2Szx7dcj5yWhK11tFcE7qcpQtENc3fKDQxyJ3lRg6mFz1fqV08IFSaknrYhxPv7Ni5F3Jpba/8M2fGgt7F55YmCn5HIQ2goCk7Dm2WTNzHVj6xeF/Vzfao5M5J7idAUhYTY8uhA6LjqqzIt4lZBkag2lat7kX/+N4eqm1XsAUhaWZGADcWKmi0Tb9zZqT9Dq64oGrxurSYSWis/WWt005zuWgSiQZqv0UG+DycOmG2Vvq6ATLpt1i4G5Y2r01HgOQgXLq2EXBO54trNyIE+m+8IC0WGQ0IvbdDb0ac8zoytyYRHSRp+XwAfXAf9KE63TlI71Y7tXN18TS9cGJSaLTuQndpz+4AIdLwjp6L6huPGwiFGjvAOyFRRpCJjJvfqrlNak8oKFYdkrnDUlMod+bUrIux/4FwQBtISI7o4UPxNxLCd9w8y0RzQRL0BGHUAYbwhKEcfYtgvVDLRwDT7K5NtHDyx+PxoJRbszAV+iOi1WRGoIylk/ysVWrRbXWklO07zoXTiF3bozOGcgWqthdzF9Y3khlHZBtQSp22KH59o4HExejspsA1wGVOKuaRBMapwPQChO7dFqareBfwoxqnc7gAsr50n0qdKntlU4AwT9N4TPFlQh3wW94ZlaQ2z6RYvRHg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(36860700016)(82310400026)(7416014)(22082099003)(18002099003)(13003099007)(56012099006)(4143699003)(6133799003)(3023799007)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4znojw9G7pgG4StyXNxRJWEYSM7f74as0//8VIXgJQ8G7vNtsN1gSqU548ZiagR4H4lm08c+56LNx3J6axxc2hgz3bENknpTgQB4wWFw7Ru1RgW9NPVGp0I1aEMNNdTnjaop/5PPQfArVacTRUiWZd4kufPAHKTl6Qu6qeyDQqrnpUY5xB5f8XOPClmXCzO4u4KG1gaVJ2uQJ+CRlbBWcfW8Dugc2CxiOUvQqaMGjA3ZA5RA1kLoMdt3RXlOXnllRCR/WH1MjaM2m4KJ0Y+salpHPLtzrX5RkiB7qQUjiqLH49GUgFCxzs6pe8XnW9Fz7n6Nw7t80WK4mj6FDG4OF6cQ86YolU++ttCmisNfav9/9g96ooICK35oBv7/dt6k4fA39aKDRTqHDOnJdnFD4prOcM+ZWyb6qC8xf44rGbp096wpkFdSXJ2IXkZryQ1v
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 15:49:09.9960
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f79f09a2-a5f8-4bf8-e059-08df23c15cb7
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008A9.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_084241_163395_EB629BCC 
-X-CRM114-Status: GOOD (  42.36  )
+X-CRM114-CacheID: sfid-20261006_084920_408506_382A8470 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,459 +135,427 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for the detailed review. 
+Hi Krzysztof,
 
-At 2026-10-05 11:51:38, netdev-bot+sashiko@kernel.org wrote:
->Thank you for your contribution! Sashiko AI review found 4 potential
->issue(s) to consider.
->
->Critical: 0 · High: 0 (4) · Medium: 2 · Low: 2
->
->If you believe none of the issues are legitimate, please reply to each
->issue of Medium severity or higher and explain why the AI is wrong.
->If any of them are legitimate and you plan to respin, please let patchwork
->know by including "pw-bot: cr" as a separate line at the end of your reply
->(one such reply per series is enough).
->
->- [Medium] The patch's new 'freed pointers are NULL' invariant is only
->  written into the dma_conf object passed to…
->- [Medium] stmmac_rings_status_show() takes no lock (no rtnl, no
->  priv->lock).
->- [Low] The commit describes and fixes real, user-visible defects but has
->  no Fixes: trailer.
->- [Low] The commit message says the stmmac_rings_status_show() change
->  keeps 'the rings sysfs entry' from dereferencing a NULL pointer.
->
->Pre-existing issues:
->- [High] This problem wasn't introduced by this patch, but
->  stmmac_enable_rx_queue() and stmmac_enable_tx_queue()…
->- [High] This problem wasn't introduced by this patch, but
->  stmmac_xdp_set_prog() (stmmac_xdp.c:134-140) calls…
->- [High] This problem wasn't introduced by this patch, but after a failed
->  stmmac_xdp_open() inside stmmac_xdp_set_prog() (return value ignored),…
->- [High] This problem wasn't introduced by this patch, but in
->  stmmac_xdp_open() the irq_error path runs after the MAC RX/TX has been…
->
->--
->
->net: stmmac: fix error path cleanup in DMA descriptor ring allocation
->
->This patch makes __alloc_dma_rx_desc_resources() and
->__alloc_dma_tx_desc_resources() undo their own allocations on failure. It
->also adds NULL checks in the RX/TX buffer free helpers and clears the freed
->pointers in __free_dma_{rx,tx}_desc_resources(). Finally, it frees the RX
->resources when the TX allocation fails in alloc_dma_desc_resources(), and
->skips unallocated rings in stmmac_rings_status_show().
->
->> And skip queues whose descriptor rings are not allocated
->> in stmmac_rings_status_show() so reading the rings sysfs entry will
->> never dereference a NULL pointer.
->
->[Severity: Low]
->This isn't a bug, but stmmac_rings_status_show() backs a debugfs file, not
->a sysfs entry:
->
->stmmac_init_fs() {
->    ...
->	debugfs_create_file("descriptors_status", 0444, priv->dbgfs_dir, dev,
->			    &stmmac_rings_status_fops);
->    ...
->}
->
->Could the commit message also explain how the rings end up unallocated
->while IFF_UP is set? As far as I can tell, this only happens after one of
->two ignored failures:
->
->  - stmmac_xdp_open() failing inside stmmac_xdp_set_prog()
->  - a per-queue re-allocation failing in stmmac_enable_rx_queue() or
->    stmmac_enable_tx_queue()
->
->In both cases the guard hides the symptom of a half-torn-down interface.
->
-The rings can indeed be unallocated while IFF_UP remains set
-after an reconfiguration tears down the existing resources and
-the subsequent re-open or re-allocation fails.
+Thank you for the review.
 
-Besides the two XDP paths mentioned above, this can also happen when:
+On 10/2/26 11:22, Krzysztof Kozlowski wrote:
+> On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
+>> Add bindings that describes STM32 MDF settings to support
+>> digital filtering for Pulse Density Modulation (PDM) microphones
+>> and analog sigma delta modulators.
+> 
+> You already received review, so a few things on top to spare you one
+> more cycle:
+> 
+> A nit, subject: drop second/last, redundant "bindings for". The
+> "dt-bindings" prefix is already stating that these are bindings.
+> See also:
+> https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+> 
 
-  - an MTU change releases the current configuration and the internal
-    __stmmac_open() fails;
+Done
 
-  - an ethtool ring parameter update releases the current configuration
-    and stmmac_open() fails; or
+>>
+>> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+>> ---
+>>   .../bindings/iio/adc/st,stm32-mdf-adc.yaml    | 383 ++++++++++++++++++
+>>   1 file changed, 383 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
+>> new file mode 100644
+>> index 000000000000..f2fbc3e150e8
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
+> 
+> Filename follows compatible, so st,stm32mp23-mdf
+> 
 
-  - an ethtool RX/TX channel-count update releases the current
-    configuration and stmmac_open() fails.
+stmp32mp25 is the main SoC, while stm32mp23 is a variant.
+file renamed st,stm32mp25-mdf.yaml
 
-These are all pre-existing error recovery issues. In particular, the
-XDP paths do not propagate re-open or per-queue allocation failures, and
-the MTU/ethtool reconfiguration paths leave the netdev marked
-up when their re-open fails.
-
-The descriptors_status change is only defensive: it prevents a debugfs
-read from dereferencing a released or unallocated descriptor ring while
-diagnosing one of these failed reconfiguration states. It is not intended
-to hides the symptom of a half-torn-down interface.
-
-I will update the commit message to describe descriptors_status as a
-debugfs entry, and avoid describing the guard as a complete
-recovery mechanism. The error propagation and recovery-state handling
-will be fixed in follow-up patches.
-
->> Signed-off-by: Ding Hui <dinghui@lixiang.com>
->
->[Severity: Low]
->Should this have Fixes: tags? The patch fixes two separate problems:
->
->  - a NULL dereference of rx_q->buf_pool[i] or tx_q->tx_skbuff_dma[i] in
->    dma_free_rx_skbufs() and dma_free_tx_skbufs() after a failed
->    kzalloc_objs()
->  - a leak of the RX page_pools, buf_pools and coherent rings when
->    alloc_dma_tx_desc_resources() fails
->
->Before this patch, stmmac_setup_dma_desc() only did kfree(dma_conf) under
->alloc_error, and the dma_desc_error label in stmmac_xdp_open() just
->returns.
->
->These problems seem to come from different commits, so more than one
->Fixes: tag may be needed for net and stable backports.
->
-The 'Fixes:' tags are intentionally omitted. During the earlier review,
-the maintainer requested that this series target net-next rather than
-net, since the allocation-failure scenario is not suitable for stable
-routing. I will keep the series targeted at net-next.
-
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> index ec62fa7418f41..07176750a0c48 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->
->[ ... ]
->
->> @@ -2161,13 +2173,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
->>  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
->>  
->>  	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
->> +	rx_q->dma_erx = NULL;
->> +	rx_q->dma_rx = NULL;
->> +	rx_q->dma_rx_phy = 0;
->
->[Severity: Medium]
->Do these NULL stores ever reach priv->dma_conf on the __stmmac_open()
->failure paths?
->
->__stmmac_open() copies the heap dma_conf into priv->dma_conf before the
->steps that can fail:
->
->__stmmac_open() {
->    ...
->	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
->    ...
->}
->
->If stmmac_hw_setup() or stmmac_request_irq() fails after that, the callers
->free the temporary copy and not priv->dma_conf:
->
->stmmac_change_mtu() {
->    ...
->		ret = __stmmac_open(dev, dma_conf);
->		if (ret) {
->			free_dma_desc_resources(priv, dma_conf);
->			kfree(dma_conf);
->    ...
->}
->
->stmmac_open() follows the same pattern under err_dma_resources.
->
->So the new NULL stores to dma_rx, buf_pool, page_pool, tx_skbuff and
->tx_skbuff_dma all land in memory that is kfree()d right away. Meanwhile
->priv->dma_conf keeps non-NULL pointers to the freed coherent rings and
->arrays.
->
->After a failed MTU change the netdev stays IFF_UP. The new
->"if (!rx_q->dma_rx)" guards in stmmac_rings_status_show() then pass, and
->sysfs_display_ring() reads memory that was already released with
->dma_free_coherent().
->
->The commit message says clearing the pointers makes "the NULL guards in
->the free helpers hold reliably when the long-lived priv->dma_conf is
->reused". Does that invariant actually hold for priv->dma_conf on these
->paths?
->
-You're right. __stmmac_open() copies the temporary dma_conf into
-priv->dma_conf before the later setup steps, so freeing the temporary
-copy in the caller does not update the long-lived copy.
-
-In v5,  resource ownership transfers to priv->dma_conf after that copy,
-__stmmac_open() will release priv->dma_conf on its failure paths, while
-the callers only free the temporary dma_conf container after an
-__stmmac_open() failure. Failures before calling __stmmac_open() still
-release the temporary dma_conf and its resources.
-
->The aliasing itself predates this patch. Also, after this failure, a later
->"ip link set down" makes __stmmac_release() call napi_disable() on NAPI
->instances that are already disabled. That spins under the rtnl lock, so a
->second free_dma_desc_resources() on priv->dma_conf is not reached on that
->path.
->
->[ ... ]
->
-Agreed. If stmmac_xdp_open() fails after stmmac_xdp_release() has
-disabled the NAPI instances, stmmac_xdp_set_prog() currently ignores the
-failure and leaves the device in an inconsistent partially torn-down
-state. A subsequent ndo_stop can then attempt to disable the same NAPI
-instances again before it reaches the normal resource cleanup path.
-
-This is a pre-existing XDP reconfiguration error-handling issue. The
-pointer aliasing between the temporary dma_conf and priv->dma_conf also
-predates this series. I will only make the ownership boundary explicit by
-having __stmmac_open() clean up priv->dma_conf after the copy in v5.
-
-The proper fix needs to propagate the stmmac_xdp_open() error and leave
-the device in a consistent state, including the NAPI, IRQ, DMA and TX
-queue state. This is broader than the DMA resource cleanup in this
-series, so it's better to fix it in a follow-up patch rather than add a
-partial recovery here.
-
->> @@ -2209,9 +2228,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
->>  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
->>  
->>  	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
->> +	tx_q->dma_etx = NULL;
->> +	tx_q->dma_entx = NULL;
->> +	tx_q->dma_tx = NULL;
->> +	tx_q->dma_tx_phy = 0;
->
->[Severity: High]
->This is a pre-existing issue, but is the hardware still pointed at these
->rings when they are freed on the stmmac_xdp_open() error path?
->
->stmmac_xdp_open() {
->    ...
->	stmmac_mac_set(priv, priv->ioaddr, true);
->
->	/* Start Rx & Tx DMA Channels */
->	stmmac_start_all_dma(priv);
->
->	ret = stmmac_request_irq(dev);
->	if (ret)
->		goto irq_error;
->    ...
->irq_error:
->	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
->		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
->
->init_error:
->	free_dma_desc_resources(priv, &priv->dma_conf);
->    ...
->}
->
->If stmmac_request_irq() fails, the rings are freed with dma_free_coherent()
->and the RX pages go back to the page pool. Unlike stmmac_xdp_release(),
->this path never calls stmmac_stop_all_dma() or
->stmmac_mac_set(..., false).
->
->Can the DMA engine keep fetching descriptors from freed memory and writing
->received frames into freed pages?
->
->__stmmac_open() looks similar. stmmac_hw_setup() enables the MAC and starts
->DMA, and the irq_error/init_error path leaves both running before the
->caller frees the rings.
->
->Setting dma_rx_phy and dma_tx_phy to 0 makes the software state look
->clean, but the channel registers still hold the old bus addresses.
->
->[ ... ]
->
->> @@ -2298,10 +2328,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->>  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
->>  	if (ret) {
->>  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
->> -		return -EINVAL;
->> +		goto err_free_dma;
->>  	}
->>  
->>  	return 0;
+>> @@ -0,0 +1,383 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >> +
->> +err_free_dma:
->> +	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
->> +	rx_q->dma_erx = NULL;
->> +	rx_q->dma_rx = NULL;
->> +err_free_buf_pool:
->> +	kfree(rx_q->buf_pool);
->> +	rx_q->buf_pool = NULL;
->> +err_destroy_pool:
->> +	page_pool_destroy(rx_q->page_pool);
->> +	rx_q->page_pool = NULL;
->> +	return ret;
->>  }
->
->[Severity: High]
->This isn't a bug introduced by this patch, but what happens on the XSK
->pool enable path when this unwind runs?
->
->stmmac_enable_rx_queue() and stmmac_enable_tx_queue() return void and only
->log the failure:
->
->stmmac_enable_rx_queue() {
->    ...
->	ret = __alloc_dma_rx_desc_resources(priv, &priv->dma_conf, queue);
->	if (ret) {
->		netdev_err(priv->dev, "Failed to alloc RX desc.\n");
->		return;
->	}
->    ...
->}
->
->stmmac_xdp_enable_pool() then carries on regardless:
->
->	if (need_update) {
->		stmmac_enable_rx_queue(priv, queue);
->		stmmac_enable_tx_queue(priv, queue);
->		napi_enable(&ch->rxtx_napi);
->
->		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
->
->With this patch, the earlier stmmac_disable_rx_queue() and the new unwind
->leave rx_q->dma_rx, dma_erx and buf_pool NULL, and tx_q->dma_tx and
->tx_skbuff_dma NULL as well.
->
->The rxtx NAPI can still be scheduled, either by stmmac_xsk_wakeup() (which
->is also ndo_xsk_wakeup) or by a TX DMA IRQ. Could that reach
->stmmac_napi_poll_rxtx()->stmmac_rx_zc(), which uses &rx_q->buf_pool[entry]
->and stmmac_get_rx_desc() on the NULL ring?
->
->stmmac_xdp_disable_pool() also re-enables rx_napi and tx_napi after an
->enable that may have failed.
->
->Before this patch the same path was a use-after-free of the freed ring,
->and the hardware channel still points at that freed ring.
->
->[ ... ]
->
->> @@ -2413,6 +2463,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
->>  		return ret;
->>  
->>  	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
->> +	if (ret)
->> +		free_dma_rx_desc_resources(priv, dma_conf);
->>  
->>  	return ret;
->>  }
->
->[Severity: High]
->This is a pre-existing issue, but stmmac_xdp_open() is one of the callers
->of alloc_dma_desc_resources(), and stmmac_xdp_set_prog() ignores its
->failure:
->
->stmmac_xdp_set_prog() {
->    ...
->	if (if_running && need_update)
->		stmmac_xdp_open(dev);
->
->	if (prog)
->		xdp_features_set_redirect_target(dev, false);
->
->	return 0;
->}
->
->By this point stmmac_xdp_release() has disabled all NAPI instances, freed
->the IRQs, stopped DMA and freed the rings.
->
->stmmac_xdp_open() can fail in alloc_dma_desc_resources(),
->init_dma_desc_rings() or stmmac_request_irq(). If it does, userspace still
->gets success. The netdev stays IFF_UP with NAPI disabled, no IRQs, and
->(with this patch) NULL ring pointers.
->
->Would the next ndo_stop or XDP toggle then call napi_disable() on an
->already-disabled NAPI through stmmac_disable_all_queues()?
->
->napi_disable_locked() waits for NAPIF_STATE_SCHED to clear, which only
->happens on napi_enable(). That looks like a hang while holding the
->rtnl/netdev lock. stmmac_free_irq() would also run a second time.
->
->[Severity: High]
->This is a pre-existing issue, but after the failed stmmac_xdp_open()
->described above, the device is still advertised as an XDP redirect
->target. xdp_features_set_redirect_target() runs whenever prog is set,
->even if the reopen failed.
->
->stmmac_xdp_xmit() is only gated on STMMAC_DOWN, and neither
->stmmac_xdp_release() nor the failed open sets that bit:
->
->stmmac_xdp_xmit() {
->    ...
->	if (unlikely(test_bit(STMMAC_DOWN, &priv->state)))
->		return -ENETDOWN;
->    ...
->}
->
->Can a devmap or bpf_redirect from another interface then reach
->stmmac_xdp_xmit_xdpf()? That function:
->
->  - computes tx_desc with stmmac_get_tx_desc()
->  - writes tx_q->tx_skbuff_dma[entry] through stmmac_set_tx_dma_entry()
->  - stores tx_q->xdpf[entry] = xdpf
->
->With this patch these become NULL-pointer writes. Before it, they were
->writes into freed memory.
->
->[ ... ]
->
-These are valid pre-existing issues. So I plan to fix them in follow-up
-patches rather than expand this resource cleanup patch further.
-
->> @@ -6570,10 +6622,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
->>  		seq_printf(seq, "RX Queue %d:\n", queue);
->>  
->>  		if (priv->extend_desc) {
->> +			if (!rx_q->dma_erx) {
->> +				seq_puts(seq, "Extended descriptor ring not allocated\n");
->> +				continue;
->> +			}
+>> +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
 >> +
->>  			seq_printf(seq, "Extended descriptor ring:\n");
->>  			sysfs_display_ring((void *)rx_q->dma_erx,
->>  					   priv->dma_conf.dma_rx_size, 1, seq, rx_q->dma_rx_phy);
->
->[Severity: Medium]
->Is this check enough without any locking against the teardown paths?
->
->stmmac_rings_status_show() takes neither rtnl nor priv->lock. It loads the
->pointer for the NULL test, calls seq_printf(), and then loads the field
->again for sysfs_display_ring().
->
->Several teardown paths free the rings under rtnl only:
->
->  - ndo_stop (IFF_UP is cleared only after ndo_stop returns)
->  - stmmac_xdp_release() (IFF_UP stays set)
->  - MTU and ring size changes
->  - XSK queue disable
->
->With this patch, __free_dma_rx_desc_resources() now does:
->
->	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
->	rx_q->dma_erx = NULL;
->	rx_q->dma_rx = NULL;
->
->A reader that already passed the check can then pass NULL to
->sysfs_display_ring() with dma_rx_size > 0 and dereference p->des0. If the
->second load happens before the NULL store, it reads freed coherent memory
->instead.
->
->The use-after-free read predates this patch. The NULL dereference does
->not, and it contradicts the commit message claim that reading the entry
->"will never dereference a NULL pointer". The same pattern applies to the
->dma_rx branch and to both TX branches.
->
->[ ... ]
->
->-- 
-The NULL checks alone do not prevent a teardown between the
-check and the descriptor read. The v5 will hold RTNL while reading
-`descriptors_status`, which serializes the debugfs reader with the
-control-plane resource teardown paths.
+>> +maintainers:
+>> +  - Olivier Moysan <olivier.moysan@foss.st.com>
+>> +
+>> +description: |
+>> +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
+>> +  interface external sigma delta modulators to STM32 micro controllers.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - st,stm32mp25-mdf
+>> +      - st,stm32mp23-mdf
+> 
+> Why reversed order?
+> 
 
-pw-bot: cr
+Ok. Reordered alphabetically
 
+>> +  ranges: true
+>> +
+>> +  clock-ranges: true
+> 
+> Do you need it here?
+
+clock-ranges property is used to allow the filter child nodes to inherit 
+the MDF kernel clock from the parent node.
+
+> 
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>> +  reset-names:
+>> +    items:
+>> +      - const: mdf
+> 
+> Drop
+> 
+
+reset-names removed.
+
+>> +
+>> +  access-controllers:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description: |
+>> +      Phandle to the rifsc device to check access right.
+> 
+> Look at other code how this is done. Don't come with own stuff.
+> 
+
+Replaced by:
+   access-controllers:
+     maxItems: 1
+
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  st,interleave:
+>> +    description: |
+>> +      List of phandles of interleaved filters. The indexes of interleaved filters must be
+>> +      consecutives starting from 0 (i.e in range [0..N]). The samples from interleaved filters
+>> +      are muxed in a single channel and retrieved through the device associated to the filter 0.
+>> +      The filters 1..N have to be enabled, but inherit their configuration from filter 0.
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - ranges
+>> +  - clocks
+>> +  - clock-names
+>> +  - clock-ranges
+>> +  - "#address-cells"
+>> +  - "#size-cells"
+>> +
+>> +additionalProperties: false
+>> +
+>> +patternProperties:
+> 
+> And this has odd order. Please look at example-schema.
+> 
+
+ok. Reordered.
+
+>> +  "^sitf@[0-9]+$":
+>> +    type: object
+>> +    description: Serial interface child node
+>> +
+>> +    properties:
+>> +      compatible:
+>> +        enum:
+>> +          - st,stm32mp25-sitf-mdf
+>> +
+>> +      reg:
+>> +        description: Specify the SITF serial interface instance
+>> +        maxItems: 1
+>> +
+>> +      clocks:
+>> +        description: |
+>> +          Serial interface clock (optional depending on interface mode)
+>> +        maxItems: 1
+>> +
+>> +      st,sitf-mode:
+>> +        description: |
+>> +          Select serial interface protocol
+>> +          - spi: SPI mode
+>> +          - lf_spi: low frequency SPI mode for low power applications
+>> +        $ref: /schemas/types.yaml#/definitions/string
+>> +        enum:
+>> +          - spi
+>> +          - lf_spi
+>> +
+>> +    required:
+>> +      - reg
+>> +      - st,sitf-mode
+>> +
+>> +    additionalProperties: false
+>> +
+>> +  "^filter@[0-9]+$":
+>> +    type: object
+>> +    description: Digital filter path child node
+>> +
+>> +    properties:
+>> +      compatible:
+>> +        enum:
+>> +          - st,stm32mp25-mdf-dmic
+>> +          - st,stm32mp25-mdf-adc
+>> +
+>> +      reg:
+>> +        description: Specify the MDF filter instance
+>> +        maxItems: 1
+>> +
+>> +      interrupts:
+>> +        maxItems: 1
+>> +
+>> +      clocks:
+>> +        minItems: 1
+> 
+> Heh? so here min? Is there any logic in your choices of code style?
+> 
+
+As the filter node always use the kernel clock from parent node we can 
+remove "clocks" item. "clocks" is not relevant here as the filter is not 
+supposed to use another reference.
+clocks & clock-names removed
+
+>> +        description: Internal clock used for MDF digital processing and control blocks.
+>> +
+>> +      clock-names:
+>> +        items:
+>> +          - const: ker_ck
+>> +
+>> +      dmas:
+>> +        maxItems: 1
+>> +
+>> +      dma-names:
+>> +        items:
+>> +          - const: rx
+>> +
+>> +      "#io-channel-cells":
+>> +        const: 1
+>> +
+>> +      '#address-cells':
+>> +        const: 1
+>> +
+>> +      '#size-cells':
+>> +        const: 0
+>> +
+>> +      st,cic-mode:
+>> +        description: |
+>> +          Cascaded-integrator-comb (CIC) filter configuration
+>> +          - 0: MCIC & ACIC filters in FastSinc mode
+>> +          - [1-3]: MCIC & ACIC filters in Sinc mode order 1 to 3
+>> +          - [4-5]: Single CIC filter in Sinc mode order 4 to 5
+>> +          For audio purpose it is recommended to use CIC Sinc4 or Sinc5
+>> +          This property is mandatory for filter 0 or filters not used in interleave mode.
+>> +        $ref: /schemas/types.yaml#/definitions/uint32
+>> +        minimum: 0
+>> +        maximum: 5
+>> +
+>> +      st,delay:
+>> +        description: Filter delay in samples
+>> +        $ref: /schemas/types.yaml#/definitions/uint32
+>> +        maximum: 127
+>> +
+>> +      st,rs-filter-bypass:
+>> +        description: Bypass RSFLT reshaping filter.
+>> +        $ref: /schemas/types.yaml#/definitions/flag
+>> +
+>> +      st,hpf-filter-cutoff-bp:
+>> +        description: |
+>> +          High Pass Filter (HPF) cut-off frequency expressed as a fraction of the PCM sampling rate.
+>> +          Cut-off frequency = st,hpf-filter-cutoff-bp x Fpcm / 10000.
+>> +          If this property is not defined the HPF is disabled.
+>> +        enum: [625, 1250, 2500, 9500]
+>> +
+>> +      st,sync:
+>> +        description:
+>> +          Synchronize to another filter.
+>> +          Must contain the phandle of the filter providing the synchronization.
+>> +        allOf:
+>> +          - $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +          - maxItems: 1
+>> +
+>> +      st,sitf:
+>> +        $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +        items:
+>> +          - items:
+>> +              - description: Phandle of the serial interface connected to the digital filter
+>> +              - description: |
+>> +                  The phandle's argument selects the bitstream on the falling or rising edge
+>> +                  of the serial interface clock:
+>> +                  - 0: rising edge
+>> +                  - 1: falling edge
+>> +                enum: [0, 1]
+>> +                default: 0
+>> +        description:
+>> +          Should be phandle/bitstream pair.
+>> +
+>> +    required:
+>> +      - compatible
+>> +      - reg
+>> +      - interrupts
+>> +      - dmas
+>> +      - dma-names
+>> +      - "#io-channel-cells"
+>> +      - "#address-cells"
+>> +      - "#size-cells"
+>> +      - st,sitf
+>> +
+>> +    unevaluatedProperties: false
+>> +
+>> +    patternProperties:
+>> +      "^channel@([0-7])$":
+>> +        type: object
+>> +        $ref: adc.yaml
+>> +        description: Represents the external channel which is connected to the MDF.
+>> +
+>> +        properties:
+>> +          reg:
+>> +            maximum: 7
+>> +
+>> +          io-backends:
+>> +            description:
+>> +              Used to pipe external sigma delta modulator or internal ADC backend to MDF
+>> +              channel.
+>> +            maxItems: 1
+>> +
+>> +        required:
+>> +          - reg
+>> +
+>> +        unevaluatedProperties: false
+>> +
+>> +    allOf:
+>> +      - if:
+>> +          properties:
+>> +            compatible:
+>> +              contains:
+>> +                const: st,stm32mp25-mdf-adc
+>> +
+>> +        then:
+>> +          patternProperties:
+>> +            "^channel@[0-7]$":
+>> +              required:
+>> +                - io-backends
+>> +
+>> +      - if:
+>> +          properties:
+>> +            compatible:
+>> +              contains:
+>> +                const: st,stm32mp25-mdf-dmic
+>> +
+>> +        then:
+>> +          patternProperties:
+>> +            "^mdf-dai+$":
+> 
+> This makes no sense. Why is this a pattern and why mdf-daiiiii is
+> correct name?
+> 
+
+"^mdf-dai$" is intended here
+
+> Not mentioning that your are not supposed to define properties in if
+> block (do you see any code like that?). Mixing addressable and
+> non-addressable children is another odd thing.
+> 
+
+This binding is inspired by the one already adopted for the DFSDM
+https://www.kernel.org/doc/Documentation/devicetree/bindings/iio/adc/st,stm32-dfsdm-adc.yaml
+
+I assume can move the mdf-dai node definition outside the conditional 
+branch easily.
+However, it seems to me more complicated to avoid mixing addressable and 
+non-addressable nodes here. Can we keep this binding aligned with the 
+DFSDM model? Or would you have another suggestion?
+
+> This entire schema is quite chaotic and overcomplicated.
+> 
+>> +              type: object
+>> +              description: child node
+>> +
+>> +              properties:
+>> +                compatible:
+>> +                  enum:
+>> +                    - st,stm32mp25-mdf-dai
+>> +
+>> +                "#sound-dai-cells":
+>> +                  const: 0
+>> +
+>> +                io-channels:
+>> +                  description:
+>> +                    From common IIO binding. Used to pipe external sigma delta
+>> +                    modulator or internal ADC output to MDF channel.
+>> +
+>> +                power-domains:
+>> +                  maxItems: 1
+>> +
+>> +                port:
+>> +                  $ref: /schemas/sound/audio-graph-port.yaml#
+>> +                  unevaluatedProperties: false
+>> +
+>> +              required:
+>> +                - compatible
+>> +                - "#sound-dai-cells"
+>> +                - io-channels
+>> +
+>> +              additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    mdf1: mdf@504d0000 {
+> 
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> If you cannot find a name matching your device, please check in kernel
+> sources for similar cases or you can grow the spec (via pull request to
+> DT spec repo).
+> 
+> And drop unused labels.
+> 
+
+The MDF is a digital filter for sigma-delta bitstreams, rather than the 
+analog-to-digital converter itself. So "adc" would not be adapted. I did 
+not find "filter", that probably would be the more relevant generic name.
+The closest similar case is the DFSDM peripheral, which already uses a 
+specific naming:
+     dfsdm: dfsdm@4400d000 { ...
+https://www.kernel.org/doc/Documentation/devicetree/bindings/iio/adc/st,stm32-dfsdm-adc.yaml
+
+What is your recommendation: keep the naming "mdf" or make a pull 
+request to add "filter" or another more appropriate name ?
+
+>> +      compatible = "st,stm32mp25-mdf";
+>> +      ranges = <0 0x504d0000 0x1000>;
+>> +      reg = <0x504d0000 0x8>, <0x504d0ff0 0x10>;
+> 
+> Address ranges of 2 and 4 words?
+> 
+
+These two sections correspond to MDF common registers managed by the core
+- Control registers: 2 x 32 bits registers
+- Identification registers: 4 x 32 bits registers
+The other registers are managed by filter and serial interface driver
+
+> Best regards,
+> Krzysztof
+> 
+
+Best regards
+Olivier
 
