@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050DDCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 05:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3769CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNs60SJpJtqpfUw9qxL1psBs3PClUQFKZz8XwPnciJI=; b=ANMFskLqXWoIrbPjRiHPTR8oq7
-	fm7sGypVOkI5QKfJHsN5WYLdV5h0lqQkHPkDo8fNA0hWDVrbeqd8qcsNI0vuUW4VSp998lEhkADgJ
-	XrIGt7nelGFmAkPWm7CrdUYkCOEim447AZbfuP7UuBzoPFlp+vGHUqnblX/+kMLLyWgxVA3AHzng9
-	1Er7bJ4CC8TnuTolAi7O06WeyXiMpzcOwdzCv/ahkOjSJtkHg37/D4eotFw9tMearuaf6gxj1tUY7
-	/SqBd1wOh0Q5wnhkehcqIYX3VPi2iD8gVMX8eS29IoeZ5cA6WOLmcPea2pit2/9qamT2jM4Glk3Kp
-	pgRZjcfw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SS1ERV4sWn7hoBzl0f2aOYvZXShJQi98daPhEwG/R1I=; b=yoRABil9D0PCHJ3YkjHd60ERmz
+	rrnHRso933TCekQ01haZ6X5rnYH+bv4t1t8U1E58Q2LzDrrSBmpCKPBmJAy5Jq0+l88GhD92/WlrM
+	Jz+20u41j3/AA7k3O2MbbJb27BU9N4dn1Uj6gc/bxztYOUL0wvaEX6GZv32su6oIAfPhHezPl2Euv
+	2yojbs0JiihJYJgJ+mPHGOGUTNCmsS0l9JjxHm0OKk8ql+HdF2Al1zwFtmTnfotokHehhDhE/2609
+	BaXH/77aOAmk4r052P+j0tCMvBqvacfvngH6tiBnZ8AtkAokAf8psz4as8CoaC6OiFD0CObeD80zn
+	fhAH+4mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyBI-000000005hK-0mFr;
-	Tue, 06 Oct 2026 05:57:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyBF-000000005gx-1faQ
+	id 1xDyFC-000000005wG-3Umh;
+	Tue, 06 Oct 2026 06:01:42 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xDyFA-000000005vi-16LE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 05:57:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0858A1595;
-	Mon,  5 Oct 2026 22:57:31 -0700 (PDT)
-Received: from [10.57.10.233] (unknown [10.57.10.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69C1D3F763;
-	Mon,  5 Oct 2026 22:57:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791266254; bh=mY5dNyqjj3br9SOO3XZOQmiarMlcRMC/CJGcY/zLdVk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SUBLZgBNGh9cG49hV544gkFDVzImp+/Bo8EO4Tc4cw/6lo4+DpOmv9+FKW8EFOaXn
-	 S9oF/tyki6HGE3MWROWnATyny7c/gDLLZsN9nrlguXxhQtNYcHyKtXyWdsJCzVT/nO
-	 EICoNlRRCYq62u9exRhacXu/QzuN9Z0xoxnNb2r8=
-Message-ID: <8f2d69ba-b66f-46ab-8ba2-96e4e618e284@arm.com>
-Date: Tue, 6 Oct 2026 07:57:28 +0200
+	Tue, 06 Oct 2026 06:01:41 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-15ea896ddc8so279030c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 23:01:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791266499; x=1791871299; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SS1ERV4sWn7hoBzl0f2aOYvZXShJQi98daPhEwG/R1I=;
+        b=WpHJuDo4GDiR/TVdq3R6sh8EY7bDLcbtOTnIs3LAdEcJGypyiHVfseKUwh3XvxB+3m
+         cUlZRSBJPTBHxlhH9fg8bI4tFVv9V5lDgVnm1LXfTE7Yp/EClNjLd2FYQyiTwEvnSZOc
+         gHK8t1meS6NsUqcyzcfZrsxIM9ZV3Ez3DSVaqZDn1fI81EgsCmdhbvMrqqoAetJzmkp6
+         uinTFxJ+0Vu7/QcgW/hhdyEgjODRKt3ntvkYq5JKfXV8O1ENI566PrknGf57UkOdHZ9A
+         fb4g9RqzRJsfKOd7F47fGJpoZog9ukmOwKrrfbrK0xu4E2IB/t7TULFgNFQgFDaPRqyN
+         DYyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791266499; x=1791871299;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SS1ERV4sWn7hoBzl0f2aOYvZXShJQi98daPhEwG/R1I=;
+        b=hk5cx2Uq5yATJwmiCarDw3w8wOoLRqYo/NV04Kz6eqseF7nW1tRQD/bgsBtb9DMmzH
+         gG8XRqNqQfAvbMRH41Yl5zKVvIajcJRrfxZPzG590nLtcN/bxhbbOA25FahToriA0RSd
+         8MTXG2e3oSR9Dbr5uJAVEm5CNG+bhIqVJnnHxQZRJx/PoUXfBnau4yvwjl+6IwgrB5S+
+         ls2eeaIYPCZihuYuQinqDATucqlFFttL6MDNunCmY1zgJwaSNy7aEUJh5t3OjQyvy7ce
+         B8ZPcpgn0WIevbcNOze0KPIgXQbTV2zV7th9hXkA9QUWr1iovtJTKwQ8ws7OinOtYQs8
+         9lCg==
+X-Forwarded-Encrypted: i=1; AKwUvBzeIcTx3BM1pzfEVcaaJqxkgr3GVEyd9Da3d9tuNa+8CF474/i0nWqQ6VQhYMYf90pzKBLwNj0rkq1o1rHdtK/r@lists.infradead.org
+X-Gm-Message-State: AFuF++k3IEC1jPEoYwMjmIlNmFHLPyNQvckfoFPd+t5e42kBJoDurchP
+	T4//nQ8l7/8XeDkPK/s7JJNBsm5rbknP6DwJRYgMSE8DZKrlmMYl5Ir+
+X-Gm-Gg: AYBFou36UKKXfjYyLwF/F7auwAF/I+6VqoRK9Do8heYoNhzZ5yHwEnLLD6zmk1J9ltc
+	yYJylvJzdimbqz5ZONafYlQkhSBHDjLyxiBF7n4riIi3V7T2lW8H57RuNbOE+7pddoA51PasClm
+	Nvaip6xUypL7rYNMEKHC2XDBFofgiLGd2l6aAygqYtGumsjQcgXqbw8oPkK8xfiuX8OkFMT06V7
+	2xLy4J3/4YDTlwWlREyWM4B6Mrn9FbrlzHW0WAcGFwZK4UVGK4w6VtsTcfT28Y+MkUwEOrXe1Lv
+	EH5V9nJesV5W6zKWaqQaNrWAhfkM+pM1qrY8JR6Ut0W10J8mR/p9LCkacbvKjfETaZjPriFDMfr
+	pp8cedYvY8vYa66v3gnzrENOd25kXIFoitsLigNVb9EOPjp+wvTc8AKK3+lOpxo7hFIA1N7uRvZ
+	nUnSNEsD50oy4c64vTuydA9tqXxv/SNDx93QwAQ0gB48D7rkFE1V1+JEfqtvQPk5I4xL9OAYzTR
+	Yu2YAiX3XC6G4WZqMXacQMTJswk00Ggmw==
+X-Received: by 2002:a05:7022:f512:b0:143:8865:cca with SMTP id a92af1059eb24-15eca63fcd0mr601967c88.22.1791266498776;
+        Mon, 05 Oct 2026 23:01:38 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-15d819cbed6sm7682867c88.4.2026.10.05.23.01.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 23:01:38 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: imx: fix typo "interupt" in comment
+Date: Tue,  6 Oct 2026 11:31:31 +0530
+Message-ID: <20261006060133.43320-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 22/23] KVM: arm64: CCA: Expose SVE VL register before
- VCPU finalization
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-23-suzuki.poulose@arm.com>
- <d330fe17-d9a4-4c6c-9d6c-f47162bbfd14@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <d330fe17-d9a4-4c6c-9d6c-f47162bbfd14@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_225737_517132_1C8DB173 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20261005_230140_304793_0D9CD097 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,122 +101,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2026 06:35, Gavin Shan wrote:
-> On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
->> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
->>
->> Userspace must configure the SVE vector length before the Realm is 
->> created
->> (as it is part of the parameter for Realm creation), but the Realm VCPUs
->> cannot be finalized until after the Realm Descriptor has been created.
->>
->> KVM_GET_REG_LIST currently rejects the unfinalized VCPUs, which prevents
->> the userspace from discovering and configuring the VLs for  the Realm.
->>
->> Allow KVM_GET_REG_LIST for unfinalized RECs and make the SVE register
->> enumeration handle the unfinalized case explicitly. i.e., only expose
->> KVM_REG_ARM64_SVE_VLS before SVE is finalized.
->>
->> One adverse side effect of this change is that a KVM_GET_REG_LIST call 
->> that
->> only probes for the array size will now succeed even if SVE is not
->> finalized, but that seems harmless since the following KVM_GET_REG_LIST
->> with the full array will fail.
->>
->> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   arch/arm64/kvm/arm.c   | 15 ++++++++++++++-
->>   arch/arm64/kvm/guest.c | 10 +++++-----
->>   2 files changed, 19 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index fe707a0c47308..d99e7818f5894 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -2004,6 +2004,19 @@ static int kvm_arm_vcpu_set_events(struct 
->> kvm_vcpu *vcpu,
->>       return __kvm_arm_vcpu_set_events(vcpu, events);
->>   }
->> +/*
->> + * Realm VCPUs can be finalized only after the Realm descriptor is 
->> created.
->> + * But in order to seal the SVE VL, we need to allow the userspace to 
->> read/write
->> + * to the SVE_VL, before everything is finalized.
->> + * Allow the register list for RECs before the VCPUs are finalized.
->> + */
->> +static bool kvm_arm_vcpu_reg_list_allowed(struct kvm_vcpu *vcpu)
->> +{
->> +    if (kvm_arm_vcpu_is_finalized(vcpu))
->> +        return true;
->> +    return vcpu_is_rec(vcpu);
->> +}
->> +
-> 
-> Needn't to keep this helper, and the code can be integrated to 
-> kvm_arch_vcpu_ioctl(),
-> see below.
-> 
->>   long kvm_arch_vcpu_ioctl(struct file *filp,
->>                unsigned int ioctl, unsigned long arg)
->>   {
->> @@ -2059,7 +2072,7 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
->>               break;
->>           r = -EPERM;
->> -        if (!kvm_arm_vcpu_is_finalized(vcpu))
->> +        if (!kvm_arm_vcpu_reg_list_allowed(vcpu))
->>               break;
-> 
-> Needn't to keep the helper kvm_arm_vcpu_reg_list_allowed() after its 
-> logic is
-> combined to kvm_arch_vcpu_ioctl().
-> 
->          /*
->           * Realm vCPUs can be finalized only after the Realm descriptor 
-> is created.
->           * We need to allow access KVM_REG_ARM64_SVE_VLS before that so 
-> that the
->           * register can be sealed.
->           */
->          if (!(vcpu_is_rec(vcpu) || kvm_arm_vcpu_is_finalized(vcpu))
->              break;
+Fix a typo in a comment, reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only a comment is touched,
+there is no code change.
 
+Assisted-by: LLM
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
 
-Wanted to keep the ioctl handling section cleaner and easier to read.
-Hence the wrapper. The name is intuitive enough and compiler can do
-away with inlining.
+Notes (v2):
+    v2:
+     - Split the single "ARM: fix typos in comments" patch up per platform,
+       so that each one can be picked up by its own maintainer.
+    
+    v1: https://lore.kernel.org/all/20260907064849.23086-1-hemanth.selam@gmail.com/
 
-> 
->>           r = -EFAULT;
->> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
->> index b01d6622b8720..c3ca369882273 100644
->> --- a/arch/arm64/kvm/guest.c
->> +++ b/arch/arm64/kvm/guest.c
->> @@ -598,8 +598,8 @@ static unsigned long num_sve_regs(const struct 
->> kvm_vcpu *vcpu)
->>       if (!vcpu_has_sve(vcpu))
->>           return 0;
->> -    /* Policed by KVM_GET_REG_LIST: */
->> -    WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
->> +    if (!kvm_arm_vcpu_sve_finalized(vcpu))
->> +        return 1; /* KVM_REG_ARM64_SVE_VLS */
-> 
-> Question: After a (Rec) vCPU is finalized, the returned number of 
-> registers won't
-> be 1. Is this expected? Otherwise, we need to use vcpu_is_rec() here.
-> 
->      /*
->       * KVM_REG_ARM64_SVE_VLS is visible for realm vCPUs no matter if
->       * they have been finalized.
->       */
->      if (vcpu_is_rec(vcpu))
->          return 1;
+ arch/arm/mach-imx/suspend-imx6.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This is addressed in the next patch.
-
-Cheers
-Suzuki
+diff --git a/arch/arm/mach-imx/suspend-imx6.S b/arch/arm/mach-imx/suspend-imx6.S
+index 63ccc2d0e920..3f8670296358 100644
+--- a/arch/arm/mach-imx/suspend-imx6.S
++++ b/arch/arm/mach-imx/suspend-imx6.S
+@@ -234,7 +234,7 @@ set_mmdc_io_lpm_done:
+ 	 * mask all GPC interrupts before
+ 	 * enabling the RBC counters to
+ 	 * avoid the counter starting too
+-	 * early if an interupt is already
++	 * early if an interrupt is already
+ 	 * pending.
+ 	 */
+ 	ldr	r11, [r0, #PM_INFO_MX6Q_GPC_V_OFFSET]
+-- 
+2.47.3
 
 
