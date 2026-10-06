@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817A3CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27DCCA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 02:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pnA79/yMUobrP+H+M+1462+fcHHeEWmkC7DmTbPe43Y=; b=2q5IjvbDyZH6YVlBa8ZjuBpBkv
-	VMNyZrP7vTXh88w5f3WZbYRiXTQ/1U7ys8hfOVqsPH0xH4Om8pd0DaPZyfGBnn/h3+McHDagI44qD
-	LEyFJZ/QTj8UNTuMj9VIP8RJZxQ0IMp03gS6VLlceY9fP8yCsK5sOCvcGWVPtjUCMc5vixaAxAM/g
-	7S4677j5J5vqvSr4vApAUcky+JxF+JVKhq+Ru8v04R48J60QSeUYlGpDKF0ER8vkRbHz1ofy9Xqg/
-	rq39DEtGNYFSmq0cvrB3y6aJg+vg9iIUVSr6wYJ1OPT/C9TP+v3bwljse9yyJoiQWr361Qh4DuHs5
-	p6kv60dA==;
+	bh=ZXccH/uLNX7ZgrQRFa+ieo0ROVdM0e/r75c6TtCZDII=; b=hp9XtBM91nW7m3jY5pUGTuR+8z
+	Y7pyQFHdZgk3oEN8M2hpjOjDpgcg/rXdQVRfSRPFXVWMAHWL0siNYUq/l4edinjJSuC1nV3KhRDoz
+	xFPnf44mymJtZTq8+ZSHZHdoSC1zzgYEQNuAVKiWRWH/S0s8uyuJIw4DsR9RvueIqdLxc9YJSdCHc
+	4Ijv1cSu8qQsEuj+VJ3cZ6zcHCtlBsV9GunES7oDw/RgWYJdmCDqzHo+HmWOGoRp+UIadbqbwa/Bv
+	c9GR++w52Bj1nWvwU8GtYoEzg784SUJevLIL25BRUrzlIBXMLRZs1eQlHNCTVY8rF/vAH8ghzQJ29
+	0N2vDjtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvJQ-0000000HWgP-0OJY;
-	Tue, 06 Oct 2026 02:53:52 +0000
+	id 1xDvJv-0000000HWnc-1DWN;
+	Tue, 06 Oct 2026 02:54:23 +0000
 Received: from mail.haxxors.com ([85.14.200.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvJM-0000000HWfa-148x;
-	Tue, 06 Oct 2026 02:53:49 +0000
+	id 1xDvJt-0000000HWmg-2TTH;
+	Tue, 06 Oct 2026 02:54:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
-	t=1791255225; bh=n6BEXt7OYkjTFNdfwFEm8H3uUmWyU4uREug1p7Xp2Ig=;
+	t=1791255259; bh=tTOUIlrN6RXi5iGSd9bnj5mNskIjB/wDmRMr+3djGVk=;
 	h=From:To:Cc:Subject:Date:From;
-	b=IpbGy6nT9XalwC+s4hIvwnobAp+w3EdPb4RYSf8pVolG/uQ3Y4h1BEQGBeEE5i2hT
-	 KVJUkNJagXZMYOz76g3NPi40FZItps/P1Xbd2Evh0DCZCQEy+STqopbsY8ebU7jSVh
-	 H7jjoP7/sYeZF1Iw389C76T/LfdTxr/Il6X6j3SM=
+	b=suSJjezqeXNCIBcgKZ0GGsLcYFyre/yi20ddEgorXFaffQAAETVqUQUkYZsikL6GM
+	 qwtTxFMKaQNVGpFQtONNLaDA06NoGaWYFX4dDGEyrpfMHJ+9xogdQ7FbzeU6rMJmJc
+	 9EszNO8S5fR3IHJ7KHwMK0lnOyk1tVd3V0aHkukE=
 Received: from localhost (localhost [127.0.0.1])
-	by mail.haxxors.com (Postfix) with ESMTP id 37FF953061;
-	Tue, 06 Oct 2026 04:53:45 +0200 (CEST)
+	by mail.haxxors.com (Postfix) with ESMTP id 5058C530C0;
+	Tue, 06 Oct 2026 04:54:19 +0200 (CEST)
 X-Virus-Scanned: Debian amavis at mail.haxxors.com
 Received: from mail.haxxors.com ([127.0.0.1])
  by localhost (mail.haxxors.com [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 4vRzOVYAH2xc; Tue,  6 Oct 2026 04:53:43 +0200 (CEST)
+ id XP-CvpgDBQc0; Tue,  6 Oct 2026 04:54:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=buechner.me; s=mail;
-	t=1791255223; bh=n6BEXt7OYkjTFNdfwFEm8H3uUmWyU4uREug1p7Xp2Ig=;
+	t=1791255257; bh=tTOUIlrN6RXi5iGSd9bnj5mNskIjB/wDmRMr+3djGVk=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Lh7MOB+DA/gLdxJT+fsE/Tpoh0SiKYi3MW+Oz+rxHNh0/JQpsmAAmRb3hrxqI7/JE
-	 GHpydLHOFqIoyhiiW8BsUcPggeNhqJlc4YcljDds4X5rLQwM/qaq5DzWKcxtm1+g2u
-	 PWzOqcKcT7IVgVOeRCaSgbzaEa9kuIy+cisFpFgQ=
+	b=XUSX/tNNPDs2rJdDKK7kz4edg5Yx6lMF5KIWCKtEVFjg+UaXry4sWIKZisBvj7FWk
+	 0WlgjkpLxHATmtLc1r/RIE5LCMRuKFwff4YPechiAWrlQ/QDJENkoihi2V9AU0epnK
+	 UKG+yeOirEA8Rc927TSN+gh/uUFtRlPQDgh8xs4o=
 Received: from esports.myloc.de (p200300ee8f09a300264bfefffe4ffb4b.dip0.t-ipconnect.de [IPv6:2003:ee:8f09:a300:264b:feff:fe4f:fb4b])
 	(Authenticated sender: nils@buechner.me)
-	by mail.haxxors.com (Postfix) with ESMTPSA id 3C5A0530B1;
-	Tue, 06 Oct 2026 04:53:43 +0200 (CEST)
+	by mail.haxxors.com (Postfix) with ESMTPSA id 7F9AC530B9;
+	Tue, 06 Oct 2026 04:54:17 +0200 (CEST)
 From: =?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>
-To: Ulf Hansson <ulfh@kernel.org>,
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pm@vger.kernel.org,
+Cc: Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	=?UTF-8?q?Nils=20B=C3=BCchner?= <nils@buechner.me>
-Subject: [PATCH] pmdomain: mediatek: Don't power off default-off domains in probe cleanup
-Date: Tue,  6 Oct 2026 04:53:18 +0200
-Message-ID: <20261006025318.503422-1-nils@buechner.me>
+Subject: [PATCH 0/2] mediatek: Make SVS work on MT8183
+Date: Tue,  6 Oct 2026 04:54:08 +0200
+Message-ID: <20261006025410.506443-1-nils@buechner.me>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_195348_647077_56FCE651 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20261005_195421_767209_E2BDBFCF 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scpsys_remove_one_domain() runs the power-off sequence for every domain
-that reads back as on. Domains with MTK_SCPD_KEEP_DEFAULT_OFF are
-registered with genpd as off and are never powered on by the driver
-before the provider is added, so their clocks are not enabled. When the
-bootloader left such a domain on and scpsys_probe() fails (typically
--EPROBE_DEFER) after it was added, the cleanup disables those clocks
-anyway, triggering "already disabled"/"already unprepared" warnings from
-the clock core.
+On MT8183 mtk-svs does not probe with mainline, so the SoC never gets
+its calibrated voltages and runs at the default OPP voltages. Two
+independent problems stand in the way:
 
-Seen on MT8183 Juniper once the audio domain is KEEP_DEFAULT_OFF: six
-clk_core_disable/unprepare WARNs with backtraces on every boot.
+1. auxadc_thermal registers only thermal zone 0 (the hottest sensor),
+   while mtk-svs looks up the "gpu-thermal" zone that the MT8183
+   devicetree describes:
 
-Skip the power-off sequence for these domains; only drop the clock
-references.
+     SVSB_GPU: cannot get "gpu-thermal" thermal zone
+     mtk-svs 1100bc00.svs: error -ENODEV: svs bank resource setup fail
 
-Runtime-tested on an Acer Chromebook Spin 311 (MT8183, juniper) with a
-7.0-based kernel (the hardware is not set up to boot mainline);
-build-tested on mainline with W=1. On the device with the audio
-domain marked MTK_SCPD_KEEP_DEFAULT_OFF: the six clk core warnings on
-the deferred first probe are gone and audio still works.
+   Patch 1 registers every sensor that has a devicetree zone.
 
-The change and this changelog were drafted with an AI coding assistant
-during a debugging session on the hardware; they were reviewed and
-tested by the submitter.
+2. With that zone available, init01 requires each bank's buck to read
+   back vboot immediately after the bank was moved to its vboot OPP.
+   The GPU buck follows devfreq, which has not acted yet when the GPU
+   is idle, so the whole probe fails with -EPERM:
 
-Fixes: c1f3163d8ff3 ("soc: mediatek: pm-domains: Add default power off flag")
-Assisted-by: Claude Opus 5.5
-Signed-off-by: Nils Büchner <nils@buechner.me>
----
+     SVSB_GPU: buck voltage: 700000uV, expected vboot: 800000uV
+     mtk-svs 1100bc00.svs: error -EPERM: svs start fail
 
-This is a follow-up to "pmdomain: mediatek: mt8183: Fix silent audio
-from premature sync_state" (sent 2026-10-05), which marks the MT8183
-audio domain MTK_SCPD_KEEP_DEFAULT_OFF. With that applied, the firmware
-leaves the audio domain on at boot, so a deferred first probe of
-scpsys runs into this cleanup path on every boot. The fix itself is
-independent and applies on its own.
+   Patch 2 polls for up to 500ms and, failing that, skips only the
+   affected bank instead of all of them.
 
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+With both applied, all four banks (CPU little, CPU big, CCI, GPU)
+calibrate at boot on an Acer Chromebook Spin 311 (juniper), e.g. CPU
+little at 1.99 GHz goes from 1050 to 1000 mV and the GPU runs 800 MHz at
+775 mV, stable under sustained full load.
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index f0fa79e01..2b41bb8ed 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -1100,6 +1100,16 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
- 			"failed to remove domain '%s' : %d - state may be inconsistent\n",
- 			pd->genpd.name, ret);
- 
-+	/*
-+	 * Domains with MTK_SCPD_KEEP_DEFAULT_OFF are registered as off and were
-+	 * never powered on by this driver (nothing can use them before the
-+	 * provider is added), so their clocks were never enabled. If the
-+	 * bootloader left one on, running the power-off sequence here would
-+	 * disable clocks that are not enabled.
-+	 */
-+	if (MTK_SCPD_CAPS(pd, MTK_SCPD_KEEP_DEFAULT_OFF))
-+		goto put_clocks;
-+
- 	if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER) {
- 		if (scpsys_hwv_domain_is_enable_done(pd))
- 			scpsys_hwv_power_off_internal(pd);
-@@ -1108,6 +1118,7 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
- 			scpsys_power_off_internal(pd);
- 	}
- 
-+put_clocks:
- 	clk_bulk_put(pd->num_clks, pd->clks);
- 	clk_bulk_put(pd->num_subsys_clks, pd->subsys_clks);
- }
+Testing: runtime-tested on the device with a 7.0-based kernel (the
+hardware is not set up to boot mainline); build-tested on mainline with
+W=1. Only MT8183 was available for testing.
+
+The patches touch different subsystems (thermal, MediaTek SoC) and do
+not depend on each other to build; patch 2 only matters on MT8183 once
+patch 1 provides the zone.
+
+Both patches were developed with an AI coding assistant while debugging
+on the hardware (see the Assisted-by tags); I reviewed and tested them.
+
+Nils Büchner (2):
+  thermal/drivers/mediatek/auxadc: Register per-sensor thermal zones
+  soc: mediatek: mtk-svs: Don't fail init01 on a bank whose buck is not
+    at vboot yet
+
+ drivers/soc/mediatek/mtk-svs.c            | 34 ++++++++--
+ drivers/thermal/mediatek/auxadc_thermal.c | 80 ++++++++++++++++++++++-
+ 2 files changed, 106 insertions(+), 8 deletions(-)
+
 -- 
 2.53.0
 
