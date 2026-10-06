@@ -4,142 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0F2CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149D6CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uj8o6HC3AwzR1Ak/ZrTdXDzWyx3IS3PV8qhJ9+6bhdo=; b=NKATIYPP3QSBTxyWb/mdf/4swM
-	1mRjFQvqW50LSDTFabPN51g+kdwdX4aYJdNoWI9Y037n04QVszEg+354Li32402YintRzN8cX+jGQ
-	olkMiZgU0a660K6YsO2P6tnwtnZ13ZYBIt+e5lVRygPHwlBYmVBmyqvvbAM/5YucMo/w09iAN/tsY
-	5sVa/9giG9ZYlOqnQ4vKynNhHQR4BB3gmdYnJdn1NzwYE78wveVzbG7nf5hdlQvwT6+fpVDMFykvA
-	z46dCRnrkeoAbx88eD8trSvF66a1OvhUtDDhn2vzfyXETD2yKSX+lnYWBjE6vjUrCe8l5wQiE10EW
-	WtXOe9Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6mRAar8A5zoWXqwxMPK1DtCLWJSNZRfuY3ezL85azHQ=; b=IWNuVY+6vFjKml
+	zu1KX3Dj80yMU1exl2zORID+v5kwGK91mQPEUH+VLMswG8QCCeg5H8KbRWZrJldqSPmSQpUEJOV6U
+	phGxRfYuXujaUPZcbKUFq5EfWvjokFhRI8uXr2DxYmMsgud3DQtwec78/VT6sNAXhBXZqfKCgeAgO
+	Flns7asS8kYSY27xV/lRxP3BWa8dhFGnDyzIZT1qzg9A4tYa6W9aQSjPTy0u1/Vy09GgkZ/Maj43i
+	etbqWViE7g3RHVZ5tfarK6/6SseJJ0RkroTIwvTKPBOxNL0oVhubQR7/TEpcl+sue0r0uBJNZy5hN
+	shQEE7Qv5Yj4HGX7Do1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4ak-00000000nYN-0SUw;
-	Tue, 06 Oct 2026 12:48:22 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xE4jN-00000000oMK-2G3z;
+	Tue, 06 Oct 2026 12:57:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4ad-00000000nVj-23JI
+	id 1xE4jI-00000000oL6-3rm8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 12:48:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ovSGcKmUJyI9XdoEDXy/M1G8oIQNPy3R+VvYZPFc8Wo3dWY5xShQhuOizcheI+vxQe/OJwLqPedamUhX1Ti/uPpYqKpNFqLnsD2XHcGNAm8g7umBCmujxefeHI83Ur5mDI9GnS70j74uE/aFBxpNwFz3I6IXEUpopnnWb9pt4aebrx0xcOWkbOYyePZM/3FaP+/50W0rskBSId8U/MYM4n7BBdR/xkZxxfJhVGopntdBnVgz+B6/xEXtIVf3ZZDvzO6onT+PuCYss2EVxPsX1+vhrQQ4pSX2+WowB3tikrm6bYN2SPXBVaiqLZgUxR9irEKc5JUaZvJNKrsINNUKnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uj8o6HC3AwzR1Ak/ZrTdXDzWyx3IS3PV8qhJ9+6bhdo=;
- b=siK0JIUdGaKxWp1oI1izzYQIpZbRi96n46NErENZ21bD2HKmlHjEQK1fO8OBhUcG1HhOvJbh2Ypa6yZxK59Cq1eSJeQ4KzK+sqykz9sR4p+s9YBQ891VszFEI+y4I8mUxsh/UYYpL+a+w0m6JSQMcdzUwYCBHG0o/bX6y92eDNZwfUgGDFG43ikn0u8KG+qk6yaa2BNItLJA3O4qr3aSyjZFFSlpgWajWk5SlIOCeAfUARAmn7Y5qC9dvgelQsro8/xkAggEWI7put+ULznk268fKJi2mSP6hohONDgzMEr1IbXZ+1PkWlRzcCX40pj2gYq3TwByztLSI5TbthufkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uj8o6HC3AwzR1Ak/ZrTdXDzWyx3IS3PV8qhJ9+6bhdo=;
- b=QfNrfvrI1Ktrzf88AGz5GUJMBHQiBzqadQ5RxAJV5TXMrtdePwH2ljzzsMT94mK//yP4CIXNxIi6UU5tIJcZdGI4xtGZj79vPBhVU0xAHmstZkebSJCVRuQuj04SSaOtTnRLs9KygqPaRkbVE9HYDPGFs/miPaSFfjNfUHo8wv16o4pRj45lPWgJUZvWvNgDVNdrySZUrN/8Glx+Wr2F6D6NZHhfd6ze3s1H50mtgcRPZ2lRBskm+IlVUIEN95Y4PoZe4lIEwuz4i0ELMORcPzQVOv8+SLQUfTj15wNBZedHylmvbCIHDUQb3iPYt5VroU69nlF14Vc8YlDhGHMWOQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AS1PR04MB9700.eurprd04.prod.outlook.com (2603:10a6:20b:473::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Tue, 6 Oct
- 2026 12:48:08 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Tue, 6 Oct 2026
- 12:48:08 +0000
-Date: Tue, 6 Oct 2026 20:52:38 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 2/9] gpio: mxc: fix wakeup_pads bit operations
-Message-ID: <asTvFjwJ3f1FbnJ0@shlinux89>
-References: <20261005-gpio-mxc-cleanup-v2-0-bdc3afbb35e2@nxp.com>
- <20261005-gpio-mxc-cleanup-v2-2-bdc3afbb35e2@nxp.com>
- <CAHp75Ve+p6TMr7MwQw0orGdjxLgNBN8gfTw2SY+EKBBgCyYXgA@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHp75Ve+p6TMr7MwQw0orGdjxLgNBN8gfTw2SY+EKBBgCyYXgA@mail.gmail.com>
-X-ClientProxiedBy: MA0PR01CA0085.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ae::6) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Tue, 06 Oct 2026 12:57:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791291432; x=1822827432;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=cC3V0/pX1MGQHaQL3/2zjT6wMupt2ITWzQZDAVfxVf0=;
+  b=FFE2TOSiGgyF2DXfoiDcIUyzOKrTZiVv63Nbe3kHeUH8p+i4qNf+2vPq
+   G+JLN7+b8ZSG5Ijc/oojPvEmnBVKsTVP7aQTqBZptpOolli51sYxGzhU8
+   UMOhFV/N105B48daVFbNZOoBwqjzVqR+1FaTUadDGDn+OSple8IQ3qjN8
+   upGye8iIgxvHTv9Qz9YCFjrPDmDgXygfi3Pey6xYTMLc5+XSPBQV80Sw4
+   DZyqlO/MY9T1UtxxfQivZQ8PQOuKlsZkDCZOgTNDyyqmp7DnkGCuR/EJn
+   6c4njIegDSvUjX9n+Pyqx8qRljiTuHdL6iILfE6ohr0m9S+HotZ9PftHs
+   w==;
+X-CSE-ConnectionGUID: Jdv3J9axSG2H9yYBsabhPw==
+X-CSE-MsgGUID: M9Jp7LnMTI+cS22yFgKRHg==
+X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
+   d="scan'208";a="231739343"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 05:57:10 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Tue, 6 Oct 2026 05:57:10 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 6 Oct 2026 05:57:05 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Subject: [PATCH v9 0/5] drm/microchip: add GFX2D support for SAM9X60 and
+ SAM9X75
+Date: Tue, 6 Oct 2026 14:56:32 +0200
+Message-ID: <20261006-cpitchen-mainline_gfx2d-v9-0-74bd3df2e183@microchip.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS1PR04MB9700:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3b7f2e1e-bc10-4ea2-9808-08df23a812a3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|19092799006|366016|23010399003|376014|4143699003|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: QKieAmyuHdMSXXPVKCciPFDIjpvARfRnpYQeFayqyi25B5Pe6mC0A+p5qvzB6fHNelBaURj1UE65ER/s0DkX4tXhtkyX4H45RmFOiiUK80vwcKlfIwkOcsnCcT9Z6Pk/on9xZRm7yNYCzWkXSn3q5tvcET1mUqhyOFsAKsovX2WLvWK9LCCzzYdMEzeu5fOmqE/qUD2/3lQyTGdgDGhW1bG0UiVCPoxpZiX0bm/2p1Ay0bfsAq4C0J73GX9AJHyWkcvkUctAE6dkQ/HycDRVZM9k16HiteQWtctVvmnvGgbrqeGzGS+48xgfDEQtp4du9XksD/t0QJpEEXbFxLNg+Jd+HE5zZd1degV+eNnQEms38zHB8V82dZ8bbly2uvSe3JvFKvfH8Z6vk8hipEfarN+M8BwOUSKp+lO9u2QkbRUC+ul+RZ/umXzkdUibQC2YwVF+NZI4gHqAlsmEXl4NYDrNK+eCiogkmYwyCY0rgPhj2IEPlAmOupzhvrq6xuP0M03P4QU847Z3pQ60ECoDJ2sDicw9Nh0NdlzyUKo9kC27nEXPePWTBCME1ZIAhASwooFf3LQTz0YAp5C8ULPV2Esg/NRlhBHnQpOlqvotF1MEQx0yjXUpogWPYB8N/ICpskq8PtF7vwcKWP0vNsJoyupdBaaHRUuH//1pnBRlIkU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(19092799006)(366016)(23010399003)(376014)(4143699003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2M2QU9kalBmem5ldmd1SUVsWWNDMlpGenhRSmRrTmV6N3BsZTkxVFh3K2J0?=
- =?utf-8?B?VFRkYzVTTmNLTHJpL3ArUm9PcUZFRmZJUWVhUy9SVTArMTNGL2hYelRHSUVV?=
- =?utf-8?B?M1AvcjNrQjJyUHdGbThqUFhDK0xwTko1a3lYR3JCRjVRSDA4TWEwLzk1QVAr?=
- =?utf-8?B?S2FSWnhpc3NsejVjQ0t3ZE9mbEp5R3p0R3kyY2FYQUVuTnJta25oT2o5ZXF3?=
- =?utf-8?B?SWttQ01iMG1Ibm1vQUZRSHB2V2lnU1IxUVRTQmxCRHhUU1JqME84VFJUZCs0?=
- =?utf-8?B?TWxaVzBsbGxwZEhsa2Zia0lkUGwrU1J4dmI5ZmNtYTJYdnAyMklUSUNxMEc4?=
- =?utf-8?B?RmhCcVJwVlc4TmwxNm9lclBPQXc3YWdnVk1JWFZNeGN0OWhlV1FmdUV0b0JL?=
- =?utf-8?B?TjJ0Nm0yVVVaclkxQzE2RHBlR3pkV2JjMXZ6QzRBRmZtM0J5dXZvVlBGTDZw?=
- =?utf-8?B?VmJrNmliVVhCNlowTW42NXFEK1EzamNmRGViUk9tOS9kWWh3RnJhRXV1VzZK?=
- =?utf-8?B?UDkweXJSUXJNT2l2MnZuamVTZkZ6Ym8xVWNJaFdYV3ZCZEF5Z2xpUHZsbHow?=
- =?utf-8?B?MDVJeTJtU0RNdm1PZXQyTnk4aGlJb2h3QU9oN1ZTZDJSeS9EaG5hdjJBa1hQ?=
- =?utf-8?B?OU1KS2tkY2d1V01QOFRJYjhmc0lUd0x6RHZzZW9GUCtSbnBldFZMWHo2bGlH?=
- =?utf-8?B?L25Wa2RKRGl6NWxFVmIwU25vcnR3eFlkQnFPVGp6Titid1hOVkpMNnFWQW00?=
- =?utf-8?B?dWlSNkN3Yk9tdE83d211OVdqdlk2cDJpRGtXSFZJekNNYStwNzJhUThaTUZq?=
- =?utf-8?B?NStrRzdZdG0vbWZvT0RJSThaVjIxQ1JzcWxPZXhhak1IRkhFOXEycGZYc3NB?=
- =?utf-8?B?VnFOQ1dQYzZsbjdXUmhBMWlVdWRNeEoycjk1blRpamFGOFhDWlMxQmtka2Z6?=
- =?utf-8?B?NHo2ZUJRRGVBSzFhdGNoUWdwRFdpcjA5cVQwUFc3bnRqS045RnlFM2pxSmY4?=
- =?utf-8?B?R3BKM3pkbmFvOVBRTS9NV3o5c2ZJNWpwdUxDV1IvZWNFdUZXR0NPY3hyQmNq?=
- =?utf-8?B?RW1IY1FmZ1pxT1VzV21OTmxnR25kUDRKQ3lWVVp2RFhKdU51YVpuUEhMZGZX?=
- =?utf-8?B?cEN2ZVlFekVacm5ud1hHaHA3SVd5VEpDS0piT2JnQWx5ZGFUSk1QMGd2MExH?=
- =?utf-8?B?N0tOL0F1MGVFdTFVMStXUTFQTDljV3NYRXpDTDdSL0FVTTl4WjRPMXR2aXFw?=
- =?utf-8?B?dk1oc2NyOVQzdWJtbXFKQkZLbW9tSkN5YzNCNGRpT3ZrUkRHUWUrRGt0NXd3?=
- =?utf-8?B?NFpiRG41S0RJZ0xkaFg2VkFyaTZRcTN0UmczSE1kSklNeWl4aDFyVmtrWkVV?=
- =?utf-8?B?UUtBT3NhTWlzNFhTMTdpNGR5RGhXall1OCtKY2QzV1NtZ3JpNTRUNEhxUXpJ?=
- =?utf-8?B?QXByQWtzYzRDazRKZk03VmpEK1ZIaEhOOGZiVCsyYVFwbm84cnA1a29uTlhp?=
- =?utf-8?B?TjkxWFFiZHJtOXduUXRHa0psUDZPK3llVnAzWi9MU21HbVpNK29zNHZhSjZB?=
- =?utf-8?B?NzhJTGNHNTFZZU9WNHlrRnN3eXZmeG0zVURBSmNDVHoxRndTUndOVEpHSjQy?=
- =?utf-8?B?TmRjdy93SkRKQVdGaThqZExGZys5QUJmbTY1dVdhL2FaWWorelRvZksyYjRy?=
- =?utf-8?B?YStjNW1mU00rK3l1YkVmU0h2RjJSRkNSemxwZDAzMHIzYlMzd21NK2IwMmJI?=
- =?utf-8?B?Z3MyeFJMa3FQczMramVoVHZVTnRidkYzWExvZncrNW1JU0duYmVOUXM1ODJp?=
- =?utf-8?B?SnpFU1hVTFVwYTRZa1V5U09rdWhlcFhXZlFmWndpMEhNcGZhWk1sTTEyajU1?=
- =?utf-8?B?N1hDL3FPTGtoUUdoeThPMVlTcjlmWFNjNWlKU3JCZVpWK1NNQndoUU81SjYx?=
- =?utf-8?B?a1dvZGZyV09nNlZmdEk1NjQwd3ZRRHpUUlNXTkU3bkJqdjBoZFRjSko2ay9a?=
- =?utf-8?B?Y2JZbHJJMjUwRHBiYUVlbG5ZbFlwa1E5ZDQ5MXdOUmRHSVZrRVhKUENwV2g1?=
- =?utf-8?B?YjFzMjByT1hpc1JhM1hqWm5QWVJ2aVJkRE9sZTN1TUhDR2VVTytkSzNHWHZF?=
- =?utf-8?B?M2pZU21oOHUzQVZjMVcyclo5L2VUSjRmTXdRSFY3T0JudkFidkxiT2xXQ2JV?=
- =?utf-8?B?TXAzczJORTJ5RUV5UktNclozWlFNbGZWRVZVdk1YaDJBcEZKRXh4QlBlODJo?=
- =?utf-8?B?cHJCcnNNaDJZZDNZbktjbS8yS1Y2NExHY0dzTkZ5UEZXdDArVmRyaHpiaHhG?=
- =?utf-8?B?N2JFdldsSEtrTzYrcHJuM2I0WkE4WXhtc0l4cGdLT1piT3ZMSnlKOGlpbXp6?=
- =?utf-8?Q?o7h6QiBoXa9zYBxqIVuabDXRc7N/4Va3oTr53?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b7f2e1e-bc10-4ea2-9808-08df23a812a3
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:48:08.6271
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2VZudObtC8vpcRSr7Fbsm4JuJv1RAkorAt1vQYmkDFlR2YkJxkVMj78nO7EYXXIBFuj0rBboUSTT69HeTMUgVLLr5RtfnOihGxkK2gTHq8b1KCdap3cutlJ33dflBGUo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9700
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XR20rDQBAG4Fcpe21kZvbcK99DRDZ7aBZsEpISK
+ iXv7qagDZjo5T8w3z8wNzbGIceRHQ83NsQpj7lrS7BPB+Yb155ilUPJjIAkWMTK9/nim9hWZ5f
+ bj9zG91O6UqiU4hgtl+SSZmW7H2LK17v8+lZyk8dLN3zeiyZcpv+bE1ZQBZ1cjY4bjPHlnP3Q+
+ Sb3z747s8WdaG2ZfYuKpXxy3gapFNKWxX8sRBL7Fl8s0Ml4AZqM2rLEt6WgYPuWKFYiBBDoAhd
+ 8y5Jri+9bsljWB1eb5JS19ZalVhbBvqWKhQ6VDxg01GbL0g+LwO5buljgkaISDqyELcs8LEN//
+ NEUi2vDtZDSav7rrnmevwAUGt6E1gIAAA==
+X-Change-ID: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Manikandan Muralidharan
+	<manikandan.m@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9009;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=cC3V0/pX1MGQHaQL3/2zjT6wMupt2ITWzQZDAVfxVf0=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ9aRD5IKNw4d3/3A/cmv79PrsnRC7gsn1V6/dzDRJLKnN
+ 2mJ8qSlHaUsDGJcDLJiiiyH3mztzTz+6rHdK1EpmDmsTCBDGLg4BWAiLisYGY7LHS9w6lufdHj9
+ 25yFcz6q9sbm9c3gi14n8mtfS1RevzQjwzE7zvjouoerjCV8chv+XFdInKR8Xmii3rlJhhutizI
+ e8AAA
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_054816_085014_356865F8 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20261006_055713_039503_B2AB577A 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,103 +108,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-On Tue, Oct 06, 2026 at 11:36:15AM +0300, Andy Shevchenko wrote:
->On Mon, Oct 5, 2026 at 5:24 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->>
->> From: Peng Fan <peng.fan@nxp.com>
->>
->> gpio_set_wake_irq() can be called concurrently for different pins on
->> the same port, so need to use atomic bitops when modifying wakeup_pads.
->
->so we need
->
->> Since wakeup_pads is u32 but assign_bit() operate on unsigned long
->
->operates
->
->> pointers.
->
->This sentence doesn't sound like it's finished.
->
->> On 64-bit platforms this causes an 8-byte read-modify-write
->> on a 4-byte field, corrupting the adjacent is_pad_wakeup member.
->> Change wakeup_pads to unsigned long and reorder to avoid the overlap.
+Hi all,
 
-wakeup_pads is a u32, while assign_bit() operates on unsigned long
-pointers. On 64-bit platforms, this causes an 8-byte read-modify-write
-on a 4-byte field, corrupting the adjacent is_pad_wakeup member.
-So change wakeup_pads to unsigned long and reorder to avoid the overlap.
+This series of patches adds GFX2D support.
+The GFX2D is a 2D GPU embedded in some Microchip SoCs such as the
+SAM9X60 and SAM9X75.
 
->>
->> And the enable/disable path unconditionally sets/clears the wakeup_pads
->> bit even when enable_irq_wake()/disable_irq_wake() fails. Only update
->> the bit on success.
->>
->> While at here, simplify the logic by consolidating into a single
->> irq_set_irq_wake() call based on the enable parameter.
->
->...
->
->> +       if (port->irq_high && (gpio_idx >= 16))
->> +               ret = irq_set_irq_wake(port->irq_high, enable);
->> +       else
->> +               ret = irq_set_irq_wake(port->irq, enable);
->>
->
->This blank line may be removed.
+Patches have been developped on top the 'linux-6.12-mchp' branch of the
+https://github.com/linux4microchip/linux.git repository and tested on
+mainly on a sam9x75-curiosity board and also on a sam9x60-ek board.
 
-sure.
+Later, the patches have also been rebased on the 'linux-6.18-mchp'
+branch of the https://github.com/linux4microchip/linux.git repository
+then tested on a sam9x75-curiosity board.
 
->
->> -       return ret;
->> +       if (ret)
->> +               return ret;
->
->...
->
->> -       for (i = 0; i < 32; i++) {
->> -               if ((port->wakeup_pads & (1 << i))) {
->> -                       type = port->pad_type[i];
->> -                       if (enable)
->> -                               config = pad_type_map[type];
->> -                       else
->> -                               config = IMX_SCU_WAKEUP_OFF;
->> -
->> -                       if (is_imx8qm && config == IMX_SCU_WAKEUP_FALL_EDGE) {
->> -                               dev_warn_once(port->dev,
->> -                                             "No falling-edge support for wakeup on i.MX8QM\n");
->> -                               config = IMX_SCU_WAKEUP_OFF;
->> -                       }
->> +       for_each_set_bit(i, &port->wakeup_pads, 32) {
->
->This change can be done later, can it?
->(I mean in a separate patch)
+Finally, they have been rebased on top of the 'drm-misc-next' branch
+of the https://gitlab.freedesktop.org/drm/misc/kernel.git repository
+for mainlining. Hence, they have been tested on a sam9x75-curiosity
+board running a linux4microchip 26.04 image where the kernel + DTB
+have been replaced with the new kernel compiled from the 'drm-misc-next'
+branch (currently based on linux 7.3.0-rc4).
 
-ok to use a separate patch for switching to use for_each_set_bit.
+About the tests, the GFX2D driver was used with the M2D (Multi 2D)
+library: https://github.com/linux4sam/libm2d
 
-Thanks
-Peng
+This is an open source library that abstracts 2D GPUs like the Microchip
+GFX2D and the Vivante GC520UL, providing graphics applications or
+libraries with a unified API, inspired from OpenGL but focused on 2D GPUs.
+The libm2d library itself relies on the libdrm library to send commands to
+the relevant DRM driver in the Linux kernel.
+The libm2d library has not been designed to be thread-safe. Indeed, it is
+intended to be used by a single thread for better performances.
 
->
->> +               type = port->pad_type[i];
->> +               if (enable)
->> +                       config = pad_type_map[type];
->> +               else
->> +                       config = IMX_SCU_WAKEUP_OFF;
->>
->> -                       ret |= mxc_gpio_generic_config(port, i, config);
->> +               if (is_imx8qm && config == IMX_SCU_WAKEUP_FALL_EDGE) {
->> +                       dev_warn_once(port->dev,
->> +                                     "No falling-edge support for wakeup on i.MX8QM\n");
->> +                       config = IMX_SCU_WAKEUP_OFF;
->>                 }
->> +
->> +               ret |= mxc_gpio_generic_config(port, i, config);
->>         }
->
->-- 
->With Best Regards,
->Andy Shevchenko
->
+M2D comes with a m2d_test program to run basic unitary tests.
+In addition, libm2d has been integrated to two graphics frameworks:
+- EGT: https://github.com/linux4sam/egt
+- LVGL: https://github.com/lvgl/lvgl/pull/8729
+
+Tested the system suspend with the 'systemctl suspend' command.
+Tested the runtime pm with the 'egt_boards' application.
+
+BR,
+
+Cyrille
+
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+Changes in v9:
+- Rebased onto the 'drm-misc-next' branch on 2026-10-06.
+- Reworked patch 2 mainly based on sashiko comments:
+  + Used 'struct drm_gem_dma_object' as the new base for 'struct
+    mchp_gfx2d_gem_object'.
+  + Removed useless initialization of 'ret' in mchp_gfx2d_schedule().
+  + Changed type of 'struct drm_mchp_gfx2d_submit.num_rectangles' from
+    '__kernel_size_t' to '__u32'.
+  + Added missing support of special blend functions in blend commands.
+  + Added helper functions to {en,de}queue commands in the running list.
+  + Enabled the EXEND interrupt when partial or pending commands are
+    scheduled to make sure such commands can actually progress.
+  + Replaced pm_runtime_resume_and_get() with pm_runtime_get_noresume()
+    in mchp_gfx2d_thread().
+  + Added a comment about the 'BLEND_SREG' GPU internal register that
+    could be overwritten on SAM9X60 SoCs.
+  + Fixed integer truncation of the ROP mode in
+    mchp_gfx2d_set_rop_params() to prevent userspace from bypassing mask
+    validation.
+  + Added upper bound check for the number of rectangles in SUBMIT ioctl.
+  + Fixed mchp_gfx2d_cleanup_command_queue() to access hardware
+    registers only if the peripheral clock is enabled.
+  + Fixed potential corrumption of 'priv->wlist' by concurrent WAIT ioctls
+    on the same GEM object.
+  + Kept imported surface metadata immutable after first import.
+  + Changed type of 'next_id' from 'static uint32_t' to 'static
+    atomic_t' to avoid potential races.
+  + Replaced atomic_dec() with atomic_dec_return() in
+    mchp_gfx2d_gem_unref().
+  + Fixed potential corruption of the shared per-file 'rectangles' buffer
+    by concurrent SUBMIT ioctls on the same file descriptor.
+  + Fixed the potential Use-After-Free of GEM object in
+    mchp_gfx2d_ioctl_alloc_buffer().
+  + Made mchp_gfx2d_ioctl_sync_for_cpu() invalidate the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_cpu().
+  + Made mchp_gfx2d_ioctl_sync_for_gpu() clean the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_device().
+  + Replaced flush_cache_range() with flush_cache_mm() in
+    mchp_gfx2d_ioctl_sync_for_gpu() to manage the cache aliasing issue
+    on SAM9 (ARM926) without copying a 'struct vm_area_struct'.
+- Link to v8: https://lore.kernel.org/r/20260828-cpitchen-mainline_gfx2d-v8-0-378374559738@microchip.com
+
+Changes in v8:
+- Rebased onto the 'drm-misc-next' branch on 2026-08-28.
+- Collected Reviewed-by tags from Manikandan Muralidharan on patches 3
+  and 4
+- Replaced kzalloc() with kzalloc_obj() in patch 2 as suggested by
+  checkpatch.pl.
+- Link to v7: https://lore.kernel.org/r/20260209-cpitchen-mainline_gfx2d-v7-0-0c12e64a0950@microchip.com
+
+Changes in v7:
+- Rebased onto the 'drm-misc-next' branch on 2026-02-09.
+- Rewored patch 2:
+  + Reworked the former valid_pixel_format() function into the new
+    mchp_gfx2d_valid_buffer_params() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and now checks
+    the `width` and `stride` parameters in addition to the `format` one.
+  + Added the mchp_gfx2d_valid_size() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and checks
+    (`stride` * `height`) against `size` as suggested by Daniel Stone.
+- Link to v6: https://lore.kernel.org/r/20260120-cpitchen-mainline_gfx2d-v6-0-1a16cd1d70b8@microchip.com
+
+Changes in v6:
+- Shrank the size of the register set in the device tree from 0x4000
+  down to 0x100 (patches 1, 3 and 4).
+- Collected Reviewed-by and Acked-by tags from Nicolas Ferre on patches
+  1 and 5.
+- Rebased onto the 'drm-misc-next' branch on 2026-01-20.
+- Link to v5: https://lore.kernel.org/r/20260113-cpitchen-mainline_gfx2d-v5-0-9cdab8fa699b@microchip.com
+
+Changes in v5:
+- Fixed compilation issues in patch 2:
+  + Included <drm/drm_print.h> from mchp_gfx2d_cmd.c, mchp_gfx2d_drv.c
+    and mchp_gfx2d_gem.c.
+  + Replaced '.remove_new' with '.remove' in definition of 'struct
+    platform_driver mchp_gfx2d_platform_driver' to match the latest
+    definition of 'struct platform_driver'.
+  + Removed the '.date' member from the definition of 'struct drm_driver
+    mchp_gfx2d_drm_driver' since this 'date' member has been removed from
+    'struct drm_driver'.
+- Fixed typos in doxygen documentations of two functions:
+  + mchp_gfx2d_process_completed_commands()
+  + mchp_gfx2d_init_command_queue()
+- Link to v4: https://lore.kernel.org/r/20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com
+
+Changes in v4:
+- Rebased onto the 'drm-misc-next' branch on 2026-01-12.
+- Link to v3: https://lore.kernel.org/r/20251124-cpitchen-mainline_gfx2d-v3-0-607f8c407286@microchip.com
+
+Changes in v3:
+- Collected Acked-by tag from Conor Dooley on patch 1
+- Rebased onto the 'drm-misc-next' branch on 2025-11-24.
+- Link to v2: https://lore.kernel.org/r/20250918-cpitchen-mainline_gfx2d-v2-0-6cfac9d56612@microchip.com
+
+Changes in v2:
+- Renamed microchip,gfx2d.yaml into microchip,sam9x60-gfx2d.yaml.
+- Removed the 'clock-names' property from the DT bindings.
+- Renamed the GPU node from 'gfx2d' to 'gpu' in sam9x{60,7}.dtsi files.
+- Link to v1: https://lore.kernel.org/r/20250911-cpitchen-mainline_gfx2d-v1-0-d7fab1a381ee@microchip.com
+
+---
+Cyrille Pitchen (5):
+      dt-bindings: gpu: add bindings for the Microchip GFX2D GPU
+      drm/microchip: add a driver for the Microchip GFX2D GPU
+      ARM: dts: microchip: sam9x60: Add GFX2D GPU
+      ARM: dts: microchip: sam9x7: Add GFX2D GPU
+      ARM: configs: at91_dt_defconfig: enable GFX2D driver
+
+ .../bindings/gpu/microchip,sam9x60-gfx2d.yaml      |   46 +
+ MAINTAINERS                                        |   10 +
+ arch/arm/boot/dts/microchip/sam9x60.dtsi           |    8 +
+ arch/arm/boot/dts/microchip/sam9x7.dtsi            |    8 +
+ arch/arm/configs/at91_dt_defconfig                 |    1 +
+ drivers/gpu/drm/Kconfig                            |    1 +
+ drivers/gpu/drm/Makefile                           |    1 +
+ drivers/gpu/drm/microchip/Kconfig                  |   22 +
+ drivers/gpu/drm/microchip/Makefile                 |    8 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c         | 1925 ++++++++++++++++++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.h         |  181 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.c         |  363 ++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.h         |  134 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.c         |  178 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.h         |   78 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.c       |  334 ++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.h       |   17 +
+ include/uapi/drm/microchip_drm.h                   |  286 +++
+ 18 files changed, 3601 insertions(+)
+---
+base-commit: 4f2fb106c459e6b96ddfa542de40e517b5274c44
+change-id: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+
+Best regards,
+-- 
+Cyrille Pitchen <cyrille.pitchen@microchip.com>
+
 
