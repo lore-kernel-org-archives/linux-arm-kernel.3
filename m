@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D507CA6006
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 20:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94EFCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 20:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7d8+d8Jg6e4zgR7b55B5I4HUSkrjz23uBlGgAf5rGA=; b=tfN4Fwywc6dFRIY7l29YznTIYk
-	tRxISbp1FZPR1kWxtv5kEg4SJ8tUvBn6W9D5VnN1tiufKN1lGcUeWZ/umMsrox+OJUkq6vSVeD0Vi
-	6Q30t9IZSt3LfFBg0DEy5nsDrVxCfOShMMvPvZqRQk/5iF5X9DGFIG+O5M4FqckCReGMm7/2sMb31
-	9BEOFloy4WZj54fNtl24S/rgknWv9hCAeCds/jYI2i3GmZcfiAOtR5ZaFzsW+mNCrHl4eKoRMRaz8
-	WefQxRQlVUX9TERwY4a2WnEj+Ys2pLoZG01yKrCEe1HMkot0x0WqYxLqVr48ZjCCC7Z7ZwDFc018E
-	85IdVeVg==;
+	bh=R+ILfk0/yu3AcCYfzlStmh4VnAqvAHjplZrGY6KB/T8=; b=Of16ZDZv6V0RtMJKHyPH+fbcOi
+	vziZTXp35wW4i5/AcFK9MrDJ2X/yDoCgZ1JNkEi7IDmwD11r2Kf4hcvbz6Qi5VJt62dS5IB7W+0Sr
+	fO2oClpmNMfdKE0+FLmyw8rvzRbUhvV7yALcQUImE/OJKPWQxDDLUBwyJ5TxjDmJzz0lVDh7MXn1O
+	lDUTUnpMmk6EVWPOFR9+Y9L5mDBBT53St6rxrh5qbvFJoEJtZIOmlCK1y1DKKYS25aiTYq39yIGAK
+	VVcAXqPxvsJHf6FavxANoHfuIBIHyrdFVw7BibZlMIfZxsIp2DhOf9808fAkQHJwos9T9ZDWJ9TFf
+	rkDvYg/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEBjP-00000001MMk-3Ej1;
-	Tue, 06 Oct 2026 20:25:47 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1xEBja-00000001MSe-0zUe;
+	Tue, 06 Oct 2026 20:25:58 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEBjM-00000001ML9-2whD
+	id 1xEBjS-00000001MNk-3bT5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 20:25:46 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6dd4f3f696aso518397eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 13:25:44 -0700 (PDT)
+	Tue, 06 Oct 2026 20:25:52 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6cf995766a3so824957eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 13:25:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791318344; x=1791923144; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1791318350; x=1791923150; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=B7d8+d8Jg6e4zgR7b55B5I4HUSkrjz23uBlGgAf5rGA=;
-        b=ahWTMuqDOYu/NAOs+1m8dBwTk+gBJIJhRQaNOkGTTJEb1Uojqz/VKRRO6Wt5+FV4P4
-         k9dU5rlJqkcWCsJP4CBvyk58Uhct0Ev0MYP1yza6vv+8QwV30RXTeANF+nXk6TDKsMvx
-         ymyCl+bZAOGxwkYLFkmciGeIyGLRH7JbewHAyakSX9SxdrRe9kGuhp+++Xuf6ZYLYhiO
-         8HlroZ+5ENgDjg79lboUzA1HE+tlsLqS5/6umB5d7VOKF3rEOpyNn6aEfKc01G+1rdYr
-         v/5RTHhTPtm5mPezMVR7PGO0I/MVlGHCmiad1V0gJo1hRb4qCiuT7bhQrhAOouNBK4q8
-         eHrw==
+        bh=R+ILfk0/yu3AcCYfzlStmh4VnAqvAHjplZrGY6KB/T8=;
+        b=jTvu4fa8X5hSTr1CqEAyDwWuBQqbBaOeVK3bUlXQrkwfwtXhchx+BGL0v13WPK6jX2
+         4Z92FEZM/iURFvorSl/B2KyXtBJ+4yvrwReb/2JCBpM0Hhh0ozThsEDKmkLhJCDXjMso
+         VBqGNkB6QkanSIhAgdazyfA9w3zYWkyvcbSLjnqzq3en5SGQ6fdQnSPiNzuDOx4VgPCm
+         zX0Bri4a9yR66pXLkb19IL1AQzkPEnxEGwBGkQ8Ufvr+rpMm2iVRqx/dWWKkpSV27iSQ
+         JVyatLjAHc/6/T1kPImdBs8vVFyoTYRPLXrfOuC1JyBtn7q10KpV0OTP8qs/cgrIzEmD
+         5QYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791318344; x=1791923144;
+        d=1e100.net; s=20260707; t=1791318350; x=1791923150;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=B7d8+d8Jg6e4zgR7b55B5I4HUSkrjz23uBlGgAf5rGA=;
-        b=qdRuspTuMkmdRdjYggMF44Im1Hsci/UF9KgrV6ThnfwQKOPMKXQUjh6rbwG2Ze1mBB
-         vAbrx3GtBrnmLKomOs1mOxJhBv7cl0DGJ1cnwB3AfG3pF3jvd3VIotnDhUO286Iw3bw7
-         w4Bceuwi4XQNwT/jNyg0psx8g6h7y5uv+EJE8i+jWSzYhfAKaplejKMQhYi1Aai3xjGI
-         Wb5sWmL6mXx/sYARpsZfIgqRjBk2Rc4W5puLOwiRMhcc4OemLuHLswbW9ZfT9GjuSE38
-         j/SNxUgQNJataqzF2iNtVPVWEpCTCaQflpv20seQxGp4HLYyJPE+uUl2u6yp0YiqN1A8
-         qSFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx6Kso456d4Ir2I1yaa2o6AlPacA4TO6c0j0enWgJsYPGgUQ5tfDojDLwurZ0PIz57ERak5tSEwTSmjnSQcYRJ7@lists.infradead.org
-X-Gm-Message-State: AFuF++kKOprEZJw5RdZFjw0SeFqf1aqABpnyyc3w6fyOqW8UJokyRr7z
-	nC2Klv98aFCj7YIhggKo1WCB6K0FwKgRf+ZAPeZ6XD2LQFL56Hsqs6RkYuBYMgXE33g=
-X-Gm-Gg: AYBFou3/bhHvYsyFWsURYH/VcGQaR6Iz9BEbckw4sxMrm/ZytLFxjscQeX1U14/hgXH
-	Xn4XLfqPfaKvl2eqIccrgR+OSjY6FSWU0X2MqGGaUjoceuv4nvcTthvsR1OUdKuF1R9Zo04c1NF
-	RHlM/O1kn3VH//qfa+IO9l3tAIAdDH4FGWjwRYsA0hPoCp/5xm6+n4omOK0mz2SQP94GwvD73lQ
-	WsOyT0zDNbOLcUVJMQYFhAid5tCdFS5sB+KyJyuaye/ZOayITNHdR78Q6UHKx77pFqMhKZUb4tp
-	ukOSDT0uMGNA1r1dCZh1LOirNqAwSQoPmoWwyi9J7QFycYArFdHVAG06494L0L2MFi0phvTCM6j
-	yVcC1hTkIShfgju96vwFFAjinzjGU/ZtbebCcnZiQeFwHc09qZN2rYsfRYIHRE8yOpINtuWfesw
-	/l0HiXUn9yHssH1j/GtSQziUJzpfTtvyz1NFdI/3eZbYIN+JKdio6btQhatKRDG5AdgnOwvYvb9
-	as=
-X-Received: by 2002:a05:6820:c89:b0:6e0:8fc2:84a3 with SMTP id 006d021491bc7-6e7a9125036mr295388eaf.39.1791318343680;
-        Tue, 06 Oct 2026 13:25:43 -0700 (PDT)
+        bh=R+ILfk0/yu3AcCYfzlStmh4VnAqvAHjplZrGY6KB/T8=;
+        b=Ug1ir4L2OiFefIDdaHLbGXoEoeo4QxKv0qt1mcJdywDYtpU/o6z4YyahFxK27lqmYO
+         vwAFIGEsRLB6KnbTnOG8OQOb0gjThWZmAAl6UB3815P+X8TY1yljSwIBrK/GRip0ls8f
+         e9YIOPbqftbdeG55QgywFR6XtCaxTSHgyGeI/WBFM/0pgnQ5pSkFyXzPBfj9O6PQNXLG
+         QZiAGr1/btK/DZTiKLshmsY10F834tgsdOnp5jchGQBzDb/xehhWGVrk7SqYI/ffk0sH
+         3ghGsdQPz0uM9fc4v3Hxu7BUPaj65kYFMNhZEMpcrV+eQvyu8IxVftFdnIVh0eV8/0ov
+         TfCg==
+X-Forwarded-Encrypted: i=1; AKwUvBxoX93/tZBB4Jm1wnsa6LlrDbEDsNSKW5GN8RDVaQJZaT7lB3fgaMsmAOfIgjMGqGkgrEc5lStEOVWUGsRV0CeF@lists.infradead.org
+X-Gm-Message-State: AFuF++mmmrUCl2HD2aZkltmcDuL90IE9ej5jCFtfqIfSlwWG2UHw1m8S
+	rlYBJ2ahPYqaV/vYc7Cn4mx3lirrzkZY/9i72h0EfjKCPy4EDIoAM2zlai8HZFMhe1Q=
+X-Gm-Gg: AYBFou2fV/CLmgwhgv8ZCs7sCQpJAbjKyuHavbd/+2U8mS5tBZ+0XCcyqWUVyMNnn4H
+	SMbKv4oCR05JL1b8foT3MwGt4hfurCzapGZg4kJfkuNwFCZFwbYD6rd1mIu6ljMlTJ7M4XCeDGK
+	NX5Q+zHfiU5rM5zdntGFHL51QuoZkkVZtEDyBv6oWcs9UsFWm4PX/XGgOHjCplzA44ZPRHoADID
+	0211MvIhX/jG2qUod8w3CUgmYqw423dGS+rSy2E+pQQnOmmBlM9gFWW6kyGa+Es6o1kT7/i8rd4
+	pOE9xcz1FzgtKN0mSHROb538suH280G9aTudRM/w267uo0pQi4l6Juh9vu7GBZYHuwby9ZcQSjW
+	UNatZWeRu3NxaSBihNqlfCvLldJgJLztdLcVUOMpnoW/0TDWFgBNvH+s18wu2XHtN59jJ8IMS8X
+	jsraTiW108MNIIHtEHxjAWjmBz5tACrh7/eTe4PVlPLbpj3N8GBYfSQMkx9yJBkH+cYeCKak30o
+	w==
+X-Received: by 2002:a05:6820:4c07:b0:6d7:c2d2:3bb6 with SMTP id 006d021491bc7-6e7a825d4a2mr306044eaf.74.1791318349916;
+        Tue, 06 Oct 2026 13:25:49 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:500:372:3180:ce34:1fe7])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6e793f68bf6sm463442eaf.8.2026.10.06.13.25.41
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6e793f68bf6sm463442eaf.8.2026.10.06.13.25.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 13:25:43 -0700 (PDT)
+        Tue, 06 Oct 2026 13:25:48 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Tue, 06 Oct 2026 15:25:01 -0500
-Subject: [PATCH 1/4] dt-bindings: display: panel: himax,hx8279: add
- vddp-supply
+Date: Tue, 06 Oct 2026 15:25:04 -0500
+Subject: [PATCH 4/4] arm64: dts: mediatek: mt8395-genio-common: fix the
+ panel supplies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-panel-himax-hx8279-vddp-v1-1-50d884b42aae@baylibre.com>
+Message-Id: <20261006-panel-himax-hx8279-vddp-v1-4-50d884b42aae@baylibre.com>
 References: <20261006-panel-himax-hx8279-vddp-v1-0-50d884b42aae@baylibre.com>
 In-Reply-To: <20261006-panel-himax-hx8279-vddp-v1-0-50d884b42aae@baylibre.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -94,20 +94,20 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, David Lechner <dlechner@baylibre.com>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2205; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=+6mowQPvO5/qbWu07+JM4tpqCNNR0Oy6FVUyr6NCfh4=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqxVklqqKz9ZZ5EYTPs3b/ghtQnZoefwxQSM+W0
- GisMCHkGeSJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCasVZJQAKCRDCzCAB/wGP
- wOHSCACcvVmVgg5xUxBOP/pHIgPMZ2Lhcfg4VZwwLRNcQLQE+uS/SQ4GV4kNd5pon4GVAyGLWMA
- hluJJJ+r7f4HXO+LMEXHe4siAm4FrOxhHWzzfvdZbpAes5TzM2ZzBI35cytFG01QQjODNLk31Ju
- ok2s6QEW3pyKLzVkkCJX1n4NCk4D0Tpcxu+wDjeWatZ49EPobpXz/MDhRyCL5eucimvRxWQkN+c
- q+XA6vMhr3/TSrVZwvozFK8v9/O75FHHxwIqe3DrzkJYxxRzxfNfE1s3Vh2BidaQN4hdgc0/qc3
- 88m33Uam4PLXxnMeUHzrcdShGxwdILR/UCB3o87IYotFEd3M
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2385; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=EOMVP3YQwkcIyqlWrQGFAqi7cRnWf4pYZmNhfVKctYk=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqxVk6xsdsb38h2XMoZmyUXwDh+TV2jSd63sKWb
+ LEAsaeGN0yJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCasVZOgAKCRDCzCAB/wGP
+ wOTwB/9qpjbVdEYGrVDi0toIg94lEZMC2rKuCDdP4g4DkG41TRMX0aSRt+zR3KkDxJ79JtVyIeK
+ S+MIMyG8ojRbQ0JtT2MpPwX99fFJ44xH9o102h6vWagCYrVTTW/foDhJcKWL1r/LSZ3R2e+hdZF
+ GWoHtZXRpEuqx1H8Du8FXvgPvATmIBKjVn1zNuKGT8xczC5l7VctkvrZ1m+TgdrzpvIVbWkCYV0
+ i7jqtJ1kRXwdmsfY8j22vgm4OSBFZnW7fTwIpWgyiFu3ZpRg6n4ROXFI6k7A36VAL/MH9B7txNx
+ pmagYP8bpZRWIwZGRsYixjEAafiGDg+mkOSiHsMiIg9lXTLf
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_132544_776256_54DD9636 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20261006_132551_309077_D418E00E 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,68 +122,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a vddp-supply property and make it required for the Startek
-KD070FHFID078 panel.
+Point each supply of the Startek KD070FHFID078 panel at the rail that
+feeds it on the Genio 1200 EVK, and add the vddp-supply that the
+himax,hx8279 binding now requires.
 
-The Startek KD070FHFID078 panel has a separate VDDP power input, which
-feeds its DC-DC converter, in addition to VDD and IOVCC. On the MediaTek
-Genio 520 and 720 EVKs, VDDP is switched by its own GPIO-controlled
-regulator, and on the Genio 1200 EVK it comes from its own PMIC LDO.
-In both cases it is separate from the other two supplies, so it needs to
-be described to power the panel.
+The Genio 1200 EVK is wired as follows:
+- VDD (backlight LED power) comes from VSYS through a switch enabled by
+  GPIO47. That is the regulator previously described as lcm0_iovcc, so
+  rename it to lcm0_vdd and feed it from VSYS.
+- IOVCC comes directly from MT6360 LDO2.
+- VDDP comes directly from MT6360 LDO1. The lcm0_vddp regulator only
+  passed LDO1 through, so drop it.
 
-Making it required means existing device trees with this panel without
-it no longer validate. This is ok since the Linux driver will still work
-with them because the regulator core uses a dummy regulator for any
-missing supply. And anyone who sees the warning about the missing
-supply should add it to their device tree.
-
-It stays optional for the Aoly SL101PM1794FOG-V15 panel, as it is not
-known whether that panel has a VDDP input.
+The previous description pointed vdd-supply at the VDDP rail and used
+the VDD switch as the IOVCC regulator. It worked only because the driver
+enables all the supplies together.
 
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
- .../devicetree/bindings/display/panel/himax,hx8279.yaml     | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../boot/dts/mediatek/mt8395-genio-common.dtsi      | 21 ++++++++-------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/panel/himax,hx8279.yaml b/Documentation/devicetree/bindings/display/panel/himax,hx8279.yaml
-index f619aea82bdf..c79056c39037 100644
---- a/Documentation/devicetree/bindings/display/panel/himax,hx8279.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/himax,hx8279.yaml
-@@ -37,6 +37,9 @@ properties:
-   vdd-supply:
-     description: Panel power supply
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
+index aef908df530e..f415b6f71653 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
+@@ -175,22 +175,16 @@ button-volume-up {
+ 		};
+ 	};
  
-+  vddp-supply:
-+    description: Panel DC-DC converter power supply (VDDP)
-+
- required:
-   - compatible
-   - reg
-@@ -45,6 +48,15 @@ required:
-   - iovcc-supply
-   - vdd-supply
+-	lcm0_iovcc: regulator-vio18-lcm0 {
++	lcm0_vdd: regulator-vsys-lcm0 {
+ 		compatible = "regulator-fixed";
+-		regulator-name = "vio18_lcm0";
++		regulator-name = "vsys_lcm0";
++		regulator-min-microvolt = <4200000>;
++		regulator-max-microvolt = <4200000>;
+ 		enable-active-high;
+ 		gpio = <&pio 47 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&dsi0_vreg_en_pins>;
+-		vin-supply = <&mt6360_ldo2>;
+-	};
+-
+-	lcm0_vddp: regulator-vsys-lcm0 {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vsys_lcm0";
+-		regulator-always-on;
+-		regulator-boot-on;
+-		vin-supply = <&mt6360_ldo1>;
++		vin-supply = <&reg_vsys>;
+ 	};
  
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: startek,kd070fhfid078
-+then:
-+  required:
-+    - vddp-supply
-+
- unevaluatedProperties: false
+ 	wifi_fixed_3v3: regulator-2 {
+@@ -303,8 +297,9 @@ panel@0 {
+ 		backlight = <&backlight_lcm0>;
+ 		enable-gpios = <&pio 48 GPIO_ACTIVE_HIGH>;
+ 		reset-gpios = <&pio 108 GPIO_ACTIVE_HIGH>;
+-		iovcc-supply = <&lcm0_iovcc>;
+-		vdd-supply = <&lcm0_vddp>;
++		iovcc-supply = <&mt6360_ldo2>;
++		vdd-supply = <&lcm0_vdd>;
++		vddp-supply = <&mt6360_ldo1>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&panel_default_pins>;
  
- examples:
-@@ -63,6 +75,7 @@ examples:
-             reset-gpios = <&pio 45 GPIO_ACTIVE_HIGH>;
-             iovcc-supply = <&vreg_lcm_vio>;
-             vdd-supply = <&vreg_lcm_vdd>;
-+            vddp-supply = <&vreg_lcm_vddp>;
- 
-             port {
-                 panel_in: endpoint {
 
 -- 
 2.53.0
