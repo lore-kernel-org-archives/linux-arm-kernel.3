@@ -4,74 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA80CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 04:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4022CA5FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 04:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jQG5vK2UCDNa2+MUWxkHKyhLg18zr07/48YnlkA7sic=; b=nJqlY+vJUkcds676tAoteAabz4
-	eopZBZkKIkB6dyulGONgY4ThKsRWWOI1ElNNscTlxyEYDwI7XfsSYNCUlLmnhcihjSI6TYafAYVM1
-	lJSlkEHlHVi/jFtCvg9b66ZevgDpulSOOUEHvUMlXEGvXcL4YOMj0pLpdVRYKq8HxOeEnA7Jt/ikk
-	5fyJcZUnEQkPiQxy3bXWS3MXczaN9/Filgx3AgS1VnCSrV7GnVzojpGuZZXO4a28Vi9Vogn0/4WEE
-	J1PTXRut1K7fuEx/lPLLA+Qubg7M8HH3duWVTm65jYo98+IThpGtFdi8IabKg8ibXkHDwKyLQMlz2
-	K2WLggGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3xmwhtVAOTYHUjmcRz00UOuxKG7KIIGgmFuc28vNIW8=; b=Ct90fVOpi1dIeG2Wx4FgNtdoTv
+	mh86l2DpPKhS4XndzOrf/9lu16sVt9tzcHJOFJroulIsjX5yd0NaOHoCB11xE6wQvvcReXMo5HQrO
+	dQfcGTj+AeRTFW9/B8qemJs/EC8Flbb+LPsLdLxlLmhFmX4BKRA5oHDQq9JrORkZcEbfhejNS2NUv
+	ZfibTuc2MKeDoZudtHXKKQpuosn4ba9DpjRMfJQ+d1/chEVogG80R3gk1NkMirkPv+IFqQUT4THss
+	Mds643J4xsVlKsxo4CY7onfzPgTFGT+/+M8rngRReUNn1FDRCBI++dls0hK7aOxFX94dppUXtFr1P
+	GLWLB6Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDx6v-000000002Ry-04NP;
-	Tue, 06 Oct 2026 04:49:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDxFt-000000002qh-40Lb;
+	Tue, 06 Oct 2026 04:58:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDx6t-000000002Rp-3moj;
-	Tue, 06 Oct 2026 04:49:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3003343668;
-	Tue,  6 Oct 2026 04:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 001D4C4AF0B;
-	Tue,  6 Oct 2026 04:49:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791262141;
-	bh=k10XiJLWnHpFsNMiWX4Pai7y/jGhozADPMYq2+PHjNM=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=AI5uQ8RsFf4OYn9th+afVr2VW9OQiPkAVNI5WDVvq8j5SWkXSeGhwNaiflinUv3Tw
-	 Wv5uFdUBg8kdzLuTn+Gm9VuXFc6hndrDhcnU+8Q0NFUraX5GT6HPJw/BoqGyMA0jQ5
-	 v1LW79+LAFZvzR9yrWyYwrYpSeEnwAOpp3vsPR33DENIGiDpM4DQu1ZzC9fJUBoYe0
-	 p3VnzKd8tENcJ/NgCxdMsjG09cq6OuVJFijtiAOtRE0++FzeakiJsUR8T4InIqoWIz
-	 OnYv6Ziy4WkLZYF2jBGjqI/8vfEQ2VQnXFQlj11O68bfa0z0Qgffs/FfDiE1QvyQAI
-	 vh5BIbFcQVjYQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFEF9CA5FFE;
-	Tue,  6 Oct 2026 04:49:00 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Tue, 06 Oct 2026 07:48:58 +0300
-Subject: [PATCH] arm64: dts: rockchip: Add the fan tachometers to Kobol
- Helios64
+	id 1xDxFr-000000002qI-1Ssi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Oct 2026 04:58:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1791262697;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3xmwhtVAOTYHUjmcRz00UOuxKG7KIIGgmFuc28vNIW8=;
+	b=VQq8jpJfEOzWvQUNrshD2pmtd92ou2oNAxhZFY/n+OfNZ6XJFNBhcxKcWfsVmsssaHXb96
+	jyJbavZNu4+eRygGJ97VFOldoN7HK0xP/tuk1MFtRQd1D0OEJMAs868w/qZpS4iC7aktMD
+	HAoi39kB3Bol8juMj+vN/4WVvHTH+4Q=
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
+ [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-465-2rMTu-v6Mnyan_ytzPGUzA-1; Tue, 06 Oct 2026 00:58:16 -0400
+X-MC-Unique: 2rMTu-v6Mnyan_ytzPGUzA-1
+X-Mimecast-MFC-AGG-ID: 2rMTu-v6Mnyan_ytzPGUzA_1791262695
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-395543dc382so2465727a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 21:58:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791262695; x=1791867495;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3xmwhtVAOTYHUjmcRz00UOuxKG7KIIGgmFuc28vNIW8=;
+        b=xgl6lneaWX0OjKbKM23e6wu43UiLeEv/+NPOfpD/NRagvVfvscDfWqYGWSSZ/GBzDo
+         PA7XtxIZrSWsf3erDU/yhzg/m8DQu5lFc6QnbPfDwi4+gv5hreG0hFap6l8VlTXppRY+
+         U1RnTYDlTo9uRrim+KLyIZX10qctPQxEnMh9aoalLKPHpyWeGbcgey8ioFhyeCin9+sx
+         pfaoyz93MHCKkspMGCAHLtyA4pLzP0+zHBxR2mEsBfGWU34Ypu/V8H4vnNh3LouodVpP
+         tH9R5cwCK8yW95QDVtBYYw4ehfGXOEOm5aqp8arIbA2+HFsDKBIzJ+cCMpwlGkidC7rP
+         TFpQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxOASsDTDwadY/kVyLDhV4fnqUKoB8tyjCSXW8q6aPbOmLdhsEHYi8JHCmJMbr+P1j/w8oaeNILMGQ9nMQMDNQC@lists.infradead.org
+X-Gm-Message-State: AFq9FYILw4Mmhh9f6TBEWw2lhxL0ikGQFuQWSdBIEZf1NCYPSnlZCJPR
+	Sr/0C/VkArpDWH10B4z5NewzlIToBlr+Fm2GqjNfaaRMFiMn0qiFS3Tf1iin2O8Ai0xO4w0SqRf
+	BPbtr2Q64y7mpRGn41FMofNz5j6hdehad1M1wS7IELXeLhnY3S6EjTqD3R12NEOZz4o/62O9l5c
+	dY
+X-Gm-Gg: AYBFou3gw0o01cu2FroRa4BgV4g5Gb/B7t4nOuQyHmToccLRIof1bDlYUWX91OakmQZ
+	WOB+FXZmrKcQhuwdq/2VzCLAaLvjIuS6Q8n7RjbttYeHe7/bKJVEFtKK85LYvP/6K/ZlcE4Bf+4
+	8BxmMlJ2HqdFY5YcT1cEy/06jMCXIKaCLrvXv1gCWxRzE6ROzEfTnAMhhZLbJttNhmaAi+28vNy
+	RB34DmMMNOmGgV25hnKZjqF1d8genSoOpLSS75jq8Jvuu5V/7YmVL4BW0pZ2fs1unLTnXOpNZ8O
+	SroLmeDA/eTmR1+K6zGGm14zd3xN/8i3iXgC+XTqVlUqEsGrOfafBjSMUMvJaAik5tyfzw4J0vZ
+	E9G/N9ulLzmqK43zB1PyAuqb/SPNxAdHBLbVG11m9Xg==
+X-Received: by 2002:a17:90b:288c:b0:3a4:b0a1:c7ed with SMTP id 98e67ed59e1d1-3a87350ab48mr128905a91.13.1791262694829;
+        Mon, 05 Oct 2026 21:58:14 -0700 (PDT)
+X-Received: by 2002:a17:90b:288c:b0:3a4:b0a1:c7ed with SMTP id 98e67ed59e1d1-3a87350ab48mr128872a91.13.1791262694226;
+        Mon, 05 Oct 2026 21:58:14 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a853d0261csm2783924a91.17.2026.10.05.21.58.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Oct 2026 21:58:13 -0700 (PDT)
+Message-ID: <b8c965a4-7b89-4938-ba40-35d06b7c8419@redhat.com>
+Date: Tue, 6 Oct 2026 14:58:04 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 19/23] KVM: arm64: CCA: Don't expose unsupported
+ capabilities for realm guests
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+ <20261005090754.2140522-20-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20261005090754.2140522-20-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CPC7loqrzb6lcyVaQHjCnR4yZMuaezs4wIBqb8Arpm0_1791262695
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-helios64-fan-tach-v1-1-1c87e72d42b2@iav.lv>
-X-B4-Tracking: v=1; b=H4sIALl9xGoC/x3MQQqAIBBA0avErBvQyVx0lWihNeZAWGhEEN09a
- fkW/z9QOAsXGJoHMl9SZE8Vum1gji6tjLJUAymyWimLkTfZizUYXMLTzRFp8WS87kirHmp3ZA5
- y/89xet8PxiNwOmMAAAA=
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2185; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=UqldmxTMEF3J34R8VW6EVq9SH4TMYUR5K/t8pdza0BQ=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFlHanenbA14+VvTLSX709oLufKqi4QL2zzLT2+9INujO
- XPmyZezO0pZGMS4GGTFFFkmHNK4lbHk6l9/D/MHMHNYmUCGMHBxCsBEuMQY/oqYdqsrn5zZyfWU
- +afFrQKxgtd/fevNxdIzeGrWMihqqDH8Zo9YYGChJHJtnVGn6ozQxDmVIQ8PLrH99l9nwtK5Jy0
- jWQE=
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_215819_498472_118F5074 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,82 +117,192 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Igor Velkov <iav@iav.lv>
+On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
+> Limit the capabilities that are allowed for Realm VMs. Similarly block
+> the vm_ioctls backed by the capabilities.
+> 
+> Repurpose the kvm_pkvm_ioctl_allowed() to support both pKVM and Realm
+> ioctls. Rename the helper to kvm_vm_ioctl_allowed() and move it
+> into arch/arm64/kvm/arm.c. Also add a generic kvm_vm_ext_allowed()
+> to handle pKVM and Realm capability filtering and route them accordingly.
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v21:
+>   - Drop WARN_ON_ONCE() from kvm_vm_ioctl_allowed to synchronise with
+>     what is in -rc5 and make the conflict resolution easier.
+> ---
+>   arch/arm64/include/asm/kvm_pkvm.h | 19 ------------
+>   arch/arm64/include/asm/kvm_rmi.h  | 24 +++++++++++++++
+>   arch/arm64/kvm/arm.c              | 49 +++++++++++++++++++++++++++++--
+>   3 files changed, 70 insertions(+), 22 deletions(-)
+> 
 
-The tachometer outputs of both fan connectors reach the SoC through
-open-drain buffers, on GPIO4_C5 for P7 and GPIO4_C7 for P6, but the fan
-nodes do not describe them. pwm-fan therefore registers no fan1_input.
+One nitpick below. In either way:
 
-Describe each line as the fan's interrupt. The board pulls both lines
-up, so configure the pins without internal bias.
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Tested on 7.3-rc6: fan1_input reads 0 with the fans stopped and rises
-with the duty cycle, to about 3500 rpm at full speed on both fans.
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 2addc37c500e1..b833abb1be9c7 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -53,25 +53,6 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+>   	}
+>   }
+>   
+> -/*
+> - * Check whether the KVM VM IOCTL is allowed in pKVM.
+> - *
+> - * Certain features are allowed only for non-protected VMs in pKVM, which is why
+> - * this takes the VM (kvm) as a parameter.
+> - */
+> -static inline bool kvm_pkvm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
+> -{
+> -	long ext;
+> -	int r;
+> -
+> -	r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
+> -
+> -	if (WARN_ON_ONCE(r < 0))
+> -		return false;
+> -
+> -	return kvm_pkvm_ext_allowed(kvm, ext);
+> -}
+> -
+>   extern struct memblock_region kvm_nvhe_sym(hyp_memory)[];
+>   extern unsigned int kvm_nvhe_sym(hyp_memblock_nr);
+>   
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 44f5c75a27b5b..ea1450e0c8619 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -6,6 +6,8 @@
+>   #ifndef __ASM_KVM_RMI_H
+>   #define __ASM_KVM_RMI_H
+>   
+> +#include <linux/kvm.h>
+> +
+>   /**
+>    * enum realm_state - State of a Realm
+>    *
+> @@ -58,4 +60,26 @@ struct realm {
+>   
+>   void kvm_init_rmi(void);
+>   
+> +static inline bool kvm_realm_ext_allowed(long ext)
+> +{
+> +	switch (ext) {
+> +	case KVM_CAP_IRQCHIP:
+> +	case KVM_CAP_ARM_PSCI:
+> +	case KVM_CAP_ARM_PSCI_0_2:
+> +	case KVM_CAP_DEVICE_CTRL:
+> +	case KVM_CAP_NR_VCPUS:
+> +	case KVM_CAP_MAX_VCPUS:
+> +	case KVM_CAP_MAX_VCPU_ID:
+> +	case KVM_CAP_MSI_DEVID:
+> +	case KVM_CAP_ARM_VM_IPA_SIZE:
+> +	case KVM_CAP_ARM_SVE:
+> +	case KVM_CAP_ONE_REG:
+> +	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+> +	case KVM_CAP_ARM_PTRAUTH_GENERIC:
+> +	case KVM_CAP_SYNC_MMU:
+> +		return true;
+> +	}
+> +	return false;
+> +}
+> +
+>   #endif /* __ASM_KVM_RMI_H */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 37ef2ba4e43e2..fe707a0c47308 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -136,6 +136,49 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>   	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
+>   }
+>   
+> +static inline bool kvm_vm_ext_allowed(struct kvm *kvm, long ext)
+> +{
+> +	/*
+> +	 * We could be called with kvm as NULL, so can't use kvm_vm_* for pKVM
+> +	 * flavors
+> +	 */
+> +	if (is_protected_kvm_enabled())
+> +		return kvm_pkvm_ext_allowed(kvm, ext);
+> +	else if (kvm && kvm_vm_is_realm(kvm))
+> +		return kvm_realm_ext_allowed(ext);
+> +	else
+> +		return true;
+> +}
+> +
+> +/*
+> + * Check whether the KVM VM IOCTL is allowed. For pKVM and Realm VMs, certain
+> + * ioctls are not allowed. Further, certain features are allowed only for
+> + * non-protected VMs in pKVM.
+> + */
+> +static inline bool kvm_vm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
+> +{
+> +	long ext;
+> +	int r;
 
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Schematic, sheets 30 and 36:
-https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
----
- arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+	long ext, r;
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-index d146e5075b4f..63ad79b4c8ac 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-@@ -74,6 +74,10 @@ fan1 {
- 		compatible = "pwm-fan";
- 		pwms = <&pwm0 0 40000 0>;
- 		cooling-levels = <0 80 170 255>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PC5 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&fan1_sense>;
- 	};
- 
- 	fan2 {
-@@ -81,6 +85,10 @@ fan2 {
- 		compatible = "pwm-fan";
- 		pwms = <&pwm1 0 40000 0>;
- 		cooling-levels = <0 80 170 255>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PC7 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&fan2_sense>;
- 	};
- 
- 	gpio-keys {
-@@ -493,6 +501,16 @@ user1_btn: user1-btn {
- 		};
- 	};
- 
-+	fan {
-+		fan1_sense: fan1-sense {
-+			rockchip,pins = <4 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		fan2_sense: fan2-sense {
-+			rockchip,pins = <4 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	gmac {
- 		gphy_reset: gphy-reset {
- 			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_output_low>;
+	kvm_get_cap_for_kvm_ioctl() returns 'long' instead of 'int' value.
 
----
-base-commit: 1892b1ccccb9d546903ad6a61ffb9e388acdec80
-change-id: 20261006-helios64-fan-tach-2db24b132105
+> +
+> +	/*
+> +	 * We are guaranteed to be called with a valid kvm instance, as the
+> +	 * only caller is kvm_arch_vm_ioctl(). Catch any deviations, as we
+> +	 * rely on the kvm instance below.
+> +	 */
+> +	if (WARN_ON_ONCE(!kvm))
+> +		return false;
+> +
+> +	/* Cover both pKVM host and Realm VMs */
+> +	if (!kvm_vm_hyp_is_distrusting(kvm))
+> +		return true;
+> +
+> +	r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
+> +	if (r < 0)
+> +		return false;
+> +
+> +	return kvm_vm_ext_allowed(kvm, ext);
+> +}
+> +
+>   int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   			    struct kvm_enable_cap *cap)
+>   {
+> @@ -144,7 +187,7 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   	if (cap->flags)
+>   		return -EINVAL;
+>   
+> -	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, cap->cap))
+> +	if (!kvm_vm_ext_allowed(kvm, cap->cap))
+>   		return -EINVAL;
+>   
+>   	switch (cap->cap) {
+> @@ -403,7 +446,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   {
+>   	int r;
+>   
+> -	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, ext))
+> +	if (!kvm_vm_ext_allowed(kvm, ext))
+>   		return 0;
+>   
+>   	switch (ext) {
+> @@ -2146,7 +2189,7 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>   	void __user *argp = (void __user *)arg;
+>   	struct kvm_device_attr attr;
+>   
+> -	if (is_protected_kvm_enabled() && !kvm_pkvm_ioctl_allowed(kvm, ioctl))
+> +	if (!kvm_vm_ioctl_allowed(kvm, ioctl))
+>   		return -EINVAL;
+>   
+>   	switch (ioctl) {
 
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
+Thanks,
+Gavin
 
 
