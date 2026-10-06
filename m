@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48BDCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 22:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D54CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 22:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLALOZmXVKC/7v6S/3QtsQXA+nJltuNJa18BiD2mBk4=; b=GPXVlLdE1AM6pCUKQATQxLIGvQ
-	Qo6p3TBWZtb1kYzin0yeUv4758XBVIJmh/ZD6DTwzU0du0M6uWM91woraCd2q9GiKfWa28UfaGmZz
-	wUfvulUm3NDyOyjdAGUKjQkUT5oH3AJB2lFpeWno65BKVjNy2E35GT3uMBMZxH2R+gQGGAMIKDGSd
-	+cSF5E+ZiBjdk7C9XpvOrfItV8+UtaXJeM3aPzh1kETMgE4yTsxH9n/uucx7n8zmC/ayVCA6OZszQ
-	NwalDszho8etkXWR2X+ZmxRmK1oX9RwRsSYNzIW+ahPdr5sAstMtpgX3M9ieMhcR5U9shH1qESRho
-	m+8jobnw==;
+	bh=MCuQaoXj0hcWw23Lh2oI//3+ZLscBQiubkOExb+nDsc=; b=TiEht2LEK/y0Hg4LnO5PNwM8lv
+	HBP3WFkhWRnS0X7zBXjxRwyIw+7D7aWyU0TXZtM1+SghuXWMnZqznfj0Ij8+kKv0mKMVTy6R1UfQw
+	WDml6BLlfL9vMdFAz6vnksjdabt67eT5BuYdNGiKgjV8SKlBE+IDSkmt3I+LeyeRqwJNNR6e7Qa45
+	hsHgnKbGc9SDf7QhaTeS1rtPI7G6UlcuuZ6i3OXXzxUlegtQkjal8+vLKq98C/Zh3WtqPZDWN8tFs
+	X3LyY6A3t8UTemRm752efycB7P/qmbMqta2sazx9v5m4+p59sdxXNuADoMmzf1PEkxsS5OVMjhukI
+	QkVZvZgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEE1D-00000001T4D-0TSH;
-	Tue, 06 Oct 2026 22:52:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEE1B-00000001T43-03h3
+	id 1xEE52-00000001TI3-2PSJ;
+	Tue, 06 Oct 2026 22:56:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEE4v-00000001THa-2jpM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 22:52:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9781640D94;
-	Tue,  6 Oct 2026 22:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E03F1F0089B;
-	Tue,  6 Oct 2026 22:52:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791327135;
-	bh=hLALOZmXVKC/7v6S/3QtsQXA+nJltuNJa18BiD2mBk4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=c86XRavdi6mixAcbFn60iQqJKDNxvlC3R4NG1MoXRR1iUrisAwx77o5A5KU3tVk5r
-	 CIkd5H8KxVw5MZeoxLUiWWPwEblA+YnA/3wUM4gTRWfPB/xKNQlfyD4bWQdO7Yg28k
-	 XU0c14TSLwvXjMhU70PI4CjxPlwxuswuTm+c4i7bRXtrqAhIX1YCCkngZogcUOo+AR
-	 r6WazXMScCoJKzNeUnlpFYjjz8nHhiEcYSDcEgY28sZ08dgq85U5RrcPZ754GIw6T9
-	 qsYlBOpZCFK+Ho4QQL/HHtV4TRU7Zey7t320/IkWT4nVttQtQuWxoKhviIUGMhKx9u
-	 4hPoKnz/kq3LQ==
-Date: Tue, 6 Oct 2026 15:52:14 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev-bot+sinfo@kernel.org, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Nicolai Buchwitz <nb@tipi-net.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety
- IRQ request failure
-Message-ID: <20261006155214.63c5cb5b@kernel.org>
-In-Reply-To: <CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
-References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
-	<179127056620.2231598.8882282421523696709@kernel.org>
-	<CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
+	Tue, 06 Oct 2026 22:56:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 065872F;
+	Tue,  6 Oct 2026 15:56:04 -0700 (PDT)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF9E03F86F;
+	Tue,  6 Oct 2026 15:56:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791327367; bh=7UBz5hm4+Ztn+y6F1mrEQVJwXm2+jD7d0OgQGQel3M8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vie5/HRmRA7/bz1eVq6A8FpUOLkGx7RZCPjAi/sam0LddUZSWyN4eDFryxqzKTmbu
+	 QpXtBAzHViyWNBe86qrVv1W86tePrHZGPsdU6IR4byDvf3sO98OW66uvGeAeiG+xVn
+	 qZFJHpwjhxlc/yCO/pEu959K1pttkZElAO+X3T40=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: Bill Roberts <bill.roberts@foss.arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Extend gcs-locking to cover cases where enable is unlocked
+Date: Tue,  6 Oct 2026 23:56:00 +0100
+Message-ID: <179132735991.1339931.2590712297330967589.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260901-arm64-test-gcs-locking-no-enable-v1-1-8335dacb1587@kernel.org>
+References: <20260901-arm64-test-gcs-locking-no-enable-v1-1-8335dacb1587@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_155609_755239_3B3BDB36 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026 01:14:52 -0600 James Hilliard wrote:
-> > Please do not repost the series just to address the above. Instead,
-> > reply to this email with the missing information, so that reviewers
-> > can take it into account. If the series needs another revision for
-> > other reasons, please include the information in the commit messages
-> > then.
+On Tue, 01 Sep 2026 18:27:06 +0100, Mark Brown wrote:
+> The gcs-locking test case currently only covers locking combinations of
+> the various flags that can be set for GCS (enable, write and push) where
+> enable is included in the locked bits. Since it is valid to only lock a
+> combination of write and push while leaving enable user controllable we
+> should also cover those cases, add coverage for them. The new cases pass
+> as expected.
+> 
+> [...]
 
-Please make sure you read this paragraph, to the end.
+Applied to arm64 (for-next/kselftest), thanks!
+
+[1/1] kselftest/arm64: Extend gcs-locking to cover cases where enable is unlocked
+      https://git.kernel.org/arm64/c/a3fcb14f5673
 
