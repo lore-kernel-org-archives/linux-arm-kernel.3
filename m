@@ -4,110 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94326CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71D9CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cWiG6eJGXgBSN4c8Xoej81PdjyTj8pUWGToWroZ4W4=; b=JWi5Ko99VbegZIxRbd8cucuZF1
-	Ha1GfZePgAEKKG3NjoSBT92PJLVX1BCE9zvRB527QNPnNZ5eVVlOeolIKxj096fTn7UDi4TNzkwEK
-	8SvPLUxYOiF/hVf5Vd5PGjYXmVZ0cM/oxNikKlwYJt8Daz/TZ4Z43KBCz4XqJX86j4tzmEyWrGFOf
-	5fw8vTcwxCwszibBNM4xcd8hekaSEpD8H6K//qxcESVtXiYJ9u9O0m2F9j5bZWJwTdab1eUKR9SyA
-	9BVyzBlscFYNQOa+1TvYqqAx7WW1OJlu30DFTxFfpo8c/tIvIPaAy3R/PL22LZlUmJHbI8UwRux4S
-	GTneA4ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HT4hgzsRMKonUz0r7afTuTXPpo+Txgw6N/Uo97ww8Bg=; b=CZNyI9KvAzEbYAJpDNflCfytYx
+	CHc1s+pTurACiiPUYPwtQAH3v/zwflu3l9xhOtgoyCVQ8FxDPyAHIuA/SA9E/EmBmAURy2i2Ou8/J
+	jm16N55y2NX7GQJkmsFl4mxOIpRzkf5rQDBLATQs/IbfKHAW88ixwNGy9LfEq3H8fcYSUoDBpzj/+
+	hdQoQcVUMCzKYdTZ7H6Azeiem0OL8ZX+CBmuN9uh8lvG+poHfYmzizkmzW2I21Vd4KXuksAzjrjYW
+	VL4TYt/iMC2/V26H3uIG3lXhKhINv2Im2aNVXvRxPwZoFMiaWD2VrC54vpHbm5z3xQXmn3775bLsc
+	n8/SanLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvRa-0000000HXTs-0A1P;
-	Tue, 06 Oct 2026 03:02:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xDvWr-0000000HXfc-2ku0;
+	Tue, 06 Oct 2026 03:07:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDvRX-0000000HXTM-3MVA
+	id 1xDvWn-0000000HXfS-1J4u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 03:02:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791255734;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5cWiG6eJGXgBSN4c8Xoej81PdjyTj8pUWGToWroZ4W4=;
-	b=i94iBIAdIBNYVuEJbFWbCmtJ7Ig9rtyVJaZiyETW5Pe/cDjEJY7TiVYabIPsFkvM47+lVL
-	gNVz+eQxmdW8SUbaMV7uRciALvVxHxeKxp2cmRcjH5btk+KRopoyTwV5lsLB0aR5ODK798
-	TvaBZDVHVlFFn9VWk4kjAiXNC4k+D1s=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-231-F6t_hZg1NKO5-gtekvunGw-1; Mon, 05 Oct 2026 23:02:12 -0400
-X-MC-Unique: F6t_hZg1NKO5-gtekvunGw-1
-X-Mimecast-MFC-AGG-ID: F6t_hZg1NKO5-gtekvunGw_1791255731
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3a47a81e70bso2523206a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:02:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791255731; x=1791860531;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5cWiG6eJGXgBSN4c8Xoej81PdjyTj8pUWGToWroZ4W4=;
-        b=sAo73UKk/KXlKah3ukHTUvsGC46coOh3KE5WKQBe8VNJyC2OWMiNdzjfzkVAIN4M7e
-         8G0dqktp5Oh0IVpxgAkmxPdjbBuOyKsas/y9N9UAJ+URa9kppS+szXRROygX4hsE1lSx
-         uH4z06xMhLPvLFE5s0F5wv05ZyLrq2h8nxA/ENbUipnAvg36qKPYe7EaR5tom8Qlnc1l
-         sjAJItBfIX7GvS/71Ko1wM5u08tYyFjmcq/EFtFbd65PfDBnskPdDF+q+Is/ftVkxQoH
-         8DTRDdDupLpDh+udwLL/8wkay76xgeAkyO6yr9FahrTGWD2+Ms7PIfYkkYFbbr/kiP7Q
-         y5fg==
-X-Forwarded-Encrypted: i=1; AKwUvBzP58aYL9Tm4AEbG2vWI1eyUnf051a1qAOnUdKGf47aBdaAXtPikCfWTPFAGVAp4zeBG6vP7pOT1w9wXnJLPxI8@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ66+uuVkzn/ocFNIio2Trqp5I9HDXzbFG5n1xdVL4DWYW1QJhC
-	kyoXZs54AA17K96Ymw3iwvYFnQbER4G2McuDRf0PTfRxwl9cEHKknoxuUVqlEUfopWsHPtgf/7b
-	UJRFs1yBKA7deQPCxDF76WvWBFz1cjjQyS2IKupRtOS5doaag2wbfdPDgqU6N1nf4OS2m/4jzTe
-	YA
-X-Gm-Gg: AYBFou2ef3mFjbEZlOXuMHvrhNJlLWGUawWwzjLsfd81JJDoQV4fTHPaLeLR2dGlFs5
-	+G2GjbwIonIv8MMz0ly7hSkGR/1tTVpYHw4ZS1mpQ7Tot5BlwhghKSC/JZ9okWjm/KqyLEHhOvx
-	SbrF+HulO8n4nTbbYftjqrZA2DGr5ORKPcaznGUFq1egz9STJ1ntnNdFSQa9w/mgqREeI8yn4SH
-	hh665AkBOeLUTUO7pMAHBqqyl3Z9MhyEprnzPtlzxAe3MxeG0wwrmf3VAMAjnpPdFwKdhaTx35N
-	smTEV6VlCzn8pvJVp981pJs0shf0BKxiUbDxsJCDUIVmf246RY+si9/wCB2ppcfh2kWWvi2BG6v
-	Iy/NuRRWDlyHpGqBHpbNw4PpEGI6RR1F2YTb6mze7Cw==
-X-Received: by 2002:a17:90b:5483:b0:39e:345b:3322 with SMTP id 98e67ed59e1d1-3a873515234mr14419a91.23.1791255731424;
-        Mon, 05 Oct 2026 20:02:11 -0700 (PDT)
-X-Received: by 2002:a17:90b:5483:b0:39e:345b:3322 with SMTP id 98e67ed59e1d1-3a873515234mr14387a91.23.1791255730940;
-        Mon, 05 Oct 2026 20:02:10 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a851630206sm2440345a91.0.2026.10.05.20.02.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 20:02:10 -0700 (PDT)
-Message-ID: <7a9f554c-f39a-4423-a84e-a4766c7223ff@redhat.com>
-Date: Tue, 6 Oct 2026 13:02:00 +1000
+	Tue, 06 Oct 2026 03:07:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF9B041FB0;
+	Tue,  6 Oct 2026 03:07:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A291F000FF;
+	Tue,  6 Oct 2026 03:07:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791256060;
+	bh=HT4hgzsRMKonUz0r7afTuTXPpo+Txgw6N/Uo97ww8Bg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E54qJJP28qC99NMZ0qdbLZhIg9vlRfrTPOR4d7Cb6K1eiSttfjFpIbEZJkioPJLyQ
+	 q7IDB6EDOVNlYQDXr12O3myoiSIGc7B1BZED5b2/Ee/WoNkHcYNCDeTwm/chRL1OJW
+	 oDuLTqzx7Kv1sk6k56EZ+X70uK9ENLVZEzY3hZ1NKBvJZ5GIeQ75ymDGvCO2zqb3oU
+	 3OSvSRbu9vRoZdzW1mlxKzwXeVBZ0uNA7p8FGeuiNuIO6g07kqlMl6viI2Wengv3Bc
+	 FhnmWHa2F8MayuOMNOs55uow6joWJzqCEnv767UbJlGDaZicYCNxi8kVvRn55z5xCr
+	 75MR4aTQI4xYA==
+Date: Mon, 5 Oct 2026 22:07:39 -0500
+From: Rob Herring <robh@kernel.org>
+To: Shenwei Wang <shenwei.wang@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	b-padhi@ti.com, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v16 2/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Message-ID: <20261006030739.GA3457522-robh@kernel.org>
+References: <20260923184255.299034-1-shenwei.wang@oss.nxp.com>
+ <20260923184255.299034-3-shenwei.wang@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 12/23] KVM: arm64: Use a local kvm pointer in
- kvm_handle_guest_abort()
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Fuad Tabba <fuad.tabba@linux.dev>
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-13-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-13-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UPH08ga0UPpN5NA8qI81XI3MbOlk6Ta9Tuy3jjsUaew_1791255731
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_200215_913252_A8884149 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923184255.299034-3-shenwei.wang@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,21 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> kvm_handle_guest_abort() repeatedly obtains the VM from vcpu->kvm.
+On Wed, Sep 23, 2026 at 01:42:29PM -0500, Shenwei Wang wrote:
+> From: Shenwei Wang <shenwei.wang@nxp.com>
 > 
-> Introduce a local kvm pointer and use it throughout the function. While
-> touching the code, fix the missing whitespace in the
-> kvm_is_nested_s2_mmu() call.
+> Remote processors may announce multiple GPIO controllers over an RPMSG
+> channel. These GPIO controllers may require corresponding device tree
+> nodes, especially when acting as providers, to supply phandles for their
+> consumers.
 > 
-> Suggested-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   arch/arm64/kvm/mmu.c | 13 +++++++------
->   1 file changed, 7 insertions(+), 6 deletions(-)
-> 
+> Define an RPMSG node to work as a container for a group of RPMSG channels
+> under the imx_rproc node. Each subnode within "rpmsg" represents an
+> individual RPMSG channel. The name of each subnode corresponds to the
+> channel name as defined by the remote processor.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Sorry, but DT defines the names of nodes. If it's a gpio-controller, 
+then 'gpio'.
 
+I still don't understand where the unit address gets defined. 0 and 1 
+look a bit made up. I'm sure you explained it before, but *this patch* 
+needs to explain it. When you define a second protocol, the 0 and 1 
+addresses are taken already, so you can't have 'clock-controller@0' for 
+example.
+
+Rob
 
