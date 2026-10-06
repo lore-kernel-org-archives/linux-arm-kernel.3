@@ -4,107 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC65CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B56CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ciyrU+oMiPwGK5aZ+ysyOdFUKDXGXj8SaQGvfUaxVI=; b=EMbQ98raKKu/oDs9cQN4R2243+
-	H57wb/IuLxCWrfzRD3BAiJ2vU4tGrW1LvOqO8WjzNyVae2blgTVcgtEmrj7bB5YLs5ipI0haQeDqK
-	lXCS/LYVzpu0wDVfGdPaWAAYupwQ/82YkdS9GtD9+fO1zrRX2caa3Je5XU8t+j0oNGsCsj1+B503s
-	NcOw5NQR/pqbrUMJc81MvNhYLgk1xfOxEDzNup0gOylVbBpTqaNl0GqVMXF/bSaTbbQjbyYdjShAD
-	EmfBgXlCapjEMpnavUncQti3SBDh6vFvbL3ivgqHhy9gtxWzx2qFXVfRpJ1aNg9iSwjupPa0ldPrR
-	Ost+Pm0A==;
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=; b=VwLsHQJWGxPYMF/HG0mXKz91D9
+	TiGwwN3yoJ9WIdqiTZuUlK4rhTv6v22DLHSjEQQSYBw44lYbOfApdNTfF5jeQ7ivAuz32JlirWch9
+	eNcb/Jzm9PAs4gi+qO5YIIvlRxcL0atXxP06koYFLEUmK+VkkWKfvShWbC0Wgny/KkNPN9B/T2chx
+	O1BIJKZ4atwdiG0JqTGLCMuUygAZWPJ0FI9J3HWyMN0fuWSUirZ9jdyYjtL5b9x3Mr9Nn397q+c4U
+	GIM1+eoJ1lR311RP/FnoEnPbIcoNgeDv1Zc9sOKxO8YU61Z5rqSq40u97uc4R4+N/xYpPlU3icppP
+	KDUykmRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDw4t-0000000HZxS-2NqF;
-	Tue, 06 Oct 2026 03:42:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xDw7M-0000000HaFl-3Qyr;
+	Tue, 06 Oct 2026 03:45:28 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDw4q-0000000HZx1-3tsV
+	id 1xDw7J-0000000HaF6-0riR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 03:42:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791258171;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6ciyrU+oMiPwGK5aZ+ysyOdFUKDXGXj8SaQGvfUaxVI=;
-	b=AZ0fYpwwZqfq6uVilETtwIEiPgxuUuo7LWxdYLMUhGT07eYZXth0txqp+QQcNMwg/jZSEZ
-	KDR6br2ASrgv9hTorNXxTjbZvf+51FSCGwnnBkVP3ygZ1bxo5v3C3/dv8ohg5ZN92e8aKC
-	nH1o3wgjR3UDmPy2QUcwGmnBDETbPNo=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-561-IYUTnCX7P3yOwwDY03CGUA-1; Mon, 05 Oct 2026 23:42:50 -0400
-X-MC-Unique: IYUTnCX7P3yOwwDY03CGUA-1
-X-Mimecast-MFC-AGG-ID: IYUTnCX7P3yOwwDY03CGUA_1791258170
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38dbf293831so4343863a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:42:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791258169; x=1791862969;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Tue, 06 Oct 2026 03:45:27 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5b2b92065ffso1120211e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:45:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791258322; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Tg/tJxoDXJQlqXYtNO5gH1AdTjlXPcyyNehMuIkbxM25Nlpu14bRatG1PDc1rvBZ65
+         2trmyQC4HXlTyndoXKGg018IctWDZ6InL66t/oSYJGIkkCyIY8Y5wvQHWewLo8fE1N6A
+         L4lz0BYzL1xnmrdfXUudBZSPhw5ivBONxLpB6c41ZDzplTrXiBbIR4k9XX2liBYbD90m
+         oznxINAsc/6n93MEdC0xL70LytMr2UBNkIhBXfLNQKSpQeD5q0WHNNSh9GEyVGvce0w/
+         8qxjFWMhxVKPd7E0mpVc7sjcV/PUqBXeMq0NlViXcaU588QVw8vtSzGEqExLjuRmx1bZ
+         +iMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
+        fh=hq6358dI6OdcuJhyCPxUEyD4wAcbEJtaMxKoDSqbnBA=;
+        b=qcsCutQVCybRbNw6mBo7LMSBidUHqZZYBXKOc1iI8O+pWy2dZ9gSWLYOuxtWnw/3oJ
+         WTx0ipNnbJ0ueqOPOMqyB59bW6x8E89rYnl9XV6FFbaEpwWkdu9P6nruGnk+b/4Wtpku
+         sYrAs8FygAMC8sQkEeOzZu5yQyS8v5JKZTNLACt85BllLixtC2Bocryq9rOOXPzTIXxy
+         1o/0lffBEoP4+Tiq8SJi0Vu9DCDE7oE68bmFs9sek0LRVjzgua1ZUzpj6NApHuVVgfms
+         Nqs4lJEVt/TFSUZz+mtZvsrXv8MTgdzQtNsYoq0MvmxH8XCHyg99gTZ1kp6IT5KVQ3Rk
+         Z68g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791258322; x=1791863122; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :from:in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6ciyrU+oMiPwGK5aZ+ysyOdFUKDXGXj8SaQGvfUaxVI=;
-        b=NNwStg8eNpjq9dA7b5cHPW5I/gJ7MmnXRVbqYVVKdQ3qtXBqwQvpOK3FpB5M5UhRyN
-         54ge7Vub2JOwLt9UxIlclkdZdNZWhCxIF5L8p0IuCF6neJ0gV+jN/e7oR9JMw5kJgJxo
-         w0H+8mnJ4llC2P6aVIZpy+BUkXuGi2Tyu3Qw2fB7x+c0Sy4OYAIqi96hgc8O3J/lEgyP
-         EYKg554nSx6jgri1c/q/EmQS58VcDiO9RxPgnqbF5HaBTW5YiXQM2hG1dTJT8TJ/YN8v
-         IEGKuEVh2TjrhhP8Tgk7/EJEePF2oYkl091DAHCl9QuuvE/42Kq1hZ5dfKQBrpkYkUO4
-         /Rcg==
-X-Forwarded-Encrypted: i=1; AKwUvBwQACX9usgjNhNRKegoPTNlIe/gmLdlf6IaHUvo1JmXISh4fkuKIIkmP3hat9/nOcAvo3bv+h0rB8oATHXDTpQ/@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWjdNgRIFpvzYI1vdsiBLTGq26BdVCZedio4r7PnYZZ4A3SAd3
-	WDsDo9bc3dOqgyPowlbyG1I1OptZ49ywgyKqJxZfyZo5AWYt2a/wUF2Q5WjlPrG3Xk7fVjXmUTr
-	oH4OgEIjLEQPVH/2hKLYJxpurecCIADC9B003cShwrvV1XNE/CDZqgBaEgjdRLrowInUqwRjfY0
-	2h
-X-Gm-Gg: AYBFou1PTwSiOBX5HfAEBNv8FYNqPcDrILXC3hzdXCDV+ipyUtvN6SOJruItC/WZl/Q
-	pZ6lYlSWddJ2uLcTuwFVDhiqb7x2TiLZMiSwNc2hxcGJPPwBLc3R8LGesFyB0Y09pjl64IurMXb
-	Z6ppiPeWqgB+45oR9TC6me6V5rwLi7SQyHfZsC0Fh9mMrD7yhbNiRZqWLKE89EU3hDjOR2cMRxs
-	vap4G8yd6ZTgNcPA9K0jVoBcT42I94wnk0d8l6QeDDQu/8TDuv7TRlGZ3kT+1hejSt9/aORzbpT
-	nCM3Y+/WrUeUHTMKSXMvoDDa86hNN7BbO/qxZYpKnLbPbyDD1/1eVg1oTxrXr+z3rfl/7SHfOto
-	2TOXFDDixgEdA7Fmw/7ApiF4NrhnDZZe7SSkpQa7O9Q==
-X-Received: by 2002:a17:90b:2886:b0:3a8:2c7e:8986 with SMTP id 98e67ed59e1d1-3a82c7e90c0mr3024694a91.17.1791258169460;
-        Mon, 05 Oct 2026 20:42:49 -0700 (PDT)
-X-Received: by 2002:a17:90b:2886:b0:3a8:2c7e:8986 with SMTP id 98e67ed59e1d1-3a82c7e90c0mr3024671a91.17.1791258168948;
-        Mon, 05 Oct 2026 20:42:48 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a7e4b00de6sm5567281a91.1.2026.10.05.20.42.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2026 20:42:47 -0700 (PDT)
-Message-ID: <9bbb3b3c-522f-4deb-9f32-0fcf731dd0bb@redhat.com>
-Date: Tue, 6 Oct 2026 13:42:38 +1000
+        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
+        b=Rk6bYKUh8b0aTd8YnH8SI3lv9CxyGpH3VJkJNLKLYyIxOG94WQ0Yy0S4B7ZxmGFpit
+         HZhWT8HvhYiiGiu1coRwmhmoDlPsJoydpkBndJkxs1dT4jfOiVsS0+NrF66xP7UJmmTO
+         JXlW9qFQmt5lEWb2dx2JWTIScdvl+613Qf13UpbW8vtaquKOdsFCRr3IG4IzCO2LCDnF
+         g4GNnLXkaNzZkCAU3XKIg8lIYR3H8bap0Kd/PZPAd98cCu/4iKD3rJDo1TSjXw7l6vFj
+         lt8YcGcA0oY5CXakuwyoO3SiSeGjaXpqLRtsoRxwW5M467h91mWPNBixEdy9ucy/QeIP
+         FNSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791258322; x=1791863122;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :from:in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
+        b=Ym4WNWEPp4latDRDLVBlUk5/qqICVyzCo+Y5u0oyN9w3YeozC4BZf7n+OUte5u1cMy
+         mbo4gEup+poCbwDPFxDeekwbTvZUgkAXL1lTJDm4KgNqh/1cLhsTN+nszI3dJjb7F8Rl
+         a4ZzcWCfbNNRG0zhbBVIXt385/vPPPyVzYMC0EpcmOqQuo1KsnojJ6tmzLJ7PKDJcR9T
+         kjvhrxuo1qqik1OaqIWpazbrMLzpA9KCjfaqU7A/Cs0xdxPDbRRaCDU90ZtEdnRVsSg4
+         VaRvqjVPYmVdVtAxblT9HLegwacd7CUWNT0n8rMQdTanXXedpE33u+5gBn5QsKx+foBE
+         KkIg==
+X-Forwarded-Encrypted: i=1; AKwUvBx9f4WtLUvqYgYjstD/AOg/9iLtuubKa2oA1J4jmx8Jch79EJbSejWq2uboNuvqdpSChZuQ2oAkOhsCs+dALvAY@lists.infradead.org
+X-Gm-Message-State: AFq9FYKcQBS2RrSC/rAu11/9jgxO9PPcm1TS9fB18nB+syq5QB45AIeD
+	XWwoQdLnKDHO0ON8MoSTqag8i5PV5jaSPHDavlRAnECZpF04jV0SagHs6v+0fFOs2LBDPeD8kGW
+	rOQf9x2PB9JZsHcloeOwo8/kD5sHZ69c=
+X-Gm-Gg: AYBFou38l0YJgHFEZ648TZAuphjwKVgfhLP4zmd5yo78k1HbuPtOLav6V/WOVGAZ1MN
+	VZ/HzlTTnQxnY+wkzTKwQlimdD9tsQcVecGsERtGp8gEJnxV0VHNdn/NouFBHrV36u8efDE1gYL
+	9IPCvSstr/h9Yl5/NhySAKcT3EE3qJcSeHYDTgNrOXDDFtGBkvgi2gCJten40QjWr7SyOuZygIb
+	rvpqpQ5PPbBnJaASXnv/Si5IibaGNyknNw2R8NZbvBPRiv0I6mzb192hoGpyLOSvZ3To4zMpPHs
+	X0NIi+lgY8KBMK//WrP5PkS0hXjb7M0yVIJO0kPA5iHnTQpEKL016w==
+X-Received: by 2002:a05:6512:3991:b0:5bb:7829:741c with SMTP id
+ 2adb3069b0e04-5bccc6b594cmr64148e87.1.1791258321918; Mon, 05 Oct 2026
+ 20:45:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 18/23] KVM: arm64: CCA: Introduce Realms
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-19-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261005090754.2140522-19-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Qq48fCz8uX09p6zCKiOCwcG3bBm8agvkLImQOdpVqIM_1791258170
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261004083759.1016519-1-maimon.sagi@gmail.com> <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
+In-Reply-To: <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
+From: Sagi Maimon <maimon.sagi@gmail.com>
+Date: Tue, 6 Oct 2026 06:44:55 +0300
+X-Gm-Features: AclHuK9PN1lCiJLlPnCC7s8Qa_5To1aOEypzViWt-JVLXj9lXdRlnfiN5UevbJ0
+Message-ID: <CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
+To: Joe Damato <joe@dama.to>, Sagi Maimon <maimon.sagi@gmail.com>, netdev@vger.kernel.org, 
+	radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	daniel@iogearbox.net, jacob.e.keller@intel.com, suraj.gupta2@amd.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_204253_124292_EF8E0F6A 
-X-CRM114-Status: GOOD (  40.13  )
+X-CRM114-CacheID: sfid-20261005_204525_278201_E2C7ABFA 
+X-CRM114-Status: GOOD (  31.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,308 +118,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
-> 
-> Add foundational work for supporting Realms.
->   - Add a new VM flavor.
->   - At KVM init, check if the KVM can support Realms (though not functional
->     yet) and will be advertised by static key kvm_rmi_is_available. This
->     will be turned on in a later patches, once we have all the bits and
->     pieces ready. For now check if we are blessed with KVM_MODE_RMM.
->   - Add realm specific tracking in kvm_arch. Since Realm and protected pKVM
->     states are mutually exclusive, move them into a union.
-> 
-> Please note that we cannot create Realm VMs yet. This requires further
-> changes to the UABI and core RMI driver support, which will come later.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   arch/arm64/include/asm/kvm_emulate.h | 16 ++++++++
->   arch/arm64/include/asm/kvm_host.h    | 19 ++++++---
->   arch/arm64/include/asm/kvm_rmi.h     | 61 ++++++++++++++++++++++++++++
->   arch/arm64/include/asm/virt.h        |  1 +
->   arch/arm64/kvm/Makefile              |  2 +-
->   arch/arm64/kvm/arm.c                 |  6 +++
->   arch/arm64/kvm/mmu.c                 |  1 +
->   arch/arm64/kvm/rmi.c                 | 18 ++++++++
->   8 files changed, 118 insertions(+), 6 deletions(-)
->   create mode 100644 arch/arm64/include/asm/kvm_rmi.h
->   create mode 100644 arch/arm64/kvm/rmi.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index a3c1928bdf743..d360a8b05b8bf 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -793,4 +793,20 @@ static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
->   	vcpu_set_reg(vcpu, 0, reset_state->r0);
->   }
->   
-> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
-> +{
-> +	return READ_ONCE(kvm->arch.realm.state);
-> +}
-> +
-> +static inline void kvm_set_realm_state(struct kvm *kvm,
-> +				       enum realm_state new_state)
-> +{
-> +	WRITE_ONCE(kvm->arch.realm.state, new_state);
-> +}
-> +
-> +static inline bool kvm_realm_is_created(struct kvm *kvm)
-> +{
-> +	return kvm_vm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
-> +}
-> +
->   #endif /* __ARM64_KVM_EMULATE_H__ */
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index dfa9d4ec61a76..3debffef638a4 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -27,6 +27,7 @@
->   #include <asm/fpsimd.h>
->   #include <asm/kvm.h>
->   #include <asm/kvm_asm.h>
-> +#include <asm/kvm_rmi.h>
->   #include <asm/vncr_mapping.h>
->   
->   #define __KVM_HAVE_ARCH_INTC_INITIALIZED
-> @@ -334,6 +335,7 @@ enum kvm_arm_vm_flavor {
->   	VM_PKVM,		/* Normal guests on pKVM */
->   	MARKER(__VM_PROTECTED),
->   	VM_PROTECTED_PKVM,	/* Protected VM */
-> +	VM_REALM,		/* CCA */
->   	VM_FLAVOR_MAX
->   };
->   
-> @@ -450,11 +452,14 @@ struct kvm_arch {
->   	/* Count the number of VNCR_EL2 TLBs */
->   	atomic_t vncr_tlb_count;
->   
-> -	/*
-> -	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
-> -	 * the associated pKVM instance in the hypervisor.
-> -	 */
-> -	struct kvm_protected_vm pkvm;
-> +	union {
-> +		/*
-> +		 * For an untrusted host VM, 'pkvm.handle' is used to lookup
-> +		 * the associated pKVM instance in the hypervisor.
-> +		 */
-> +		struct kvm_protected_vm pkvm;
-> +		struct realm realm;
-> +	};
->   
->   #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
->   	/* Nested virtualization info */
-> @@ -1565,6 +1570,10 @@ struct kvm *kvm_arch_alloc_vm(void);
->   		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
->   	})
->   
-> +
-> +#define kvm_vm_is_realm(kvm)		((kvm)->arch.vm_flavor == VM_REALM)
-> +#define vcpu_is_rec(vcpu)		kvm_vm_is_realm((vcpu)->kvm)
-> +
+On Tue, Oct 6, 2026 at 2:41=E2=80=AFAM Joe Damato <joe@dama.to> wrote:
+>
+> On Sun, Oct 04, 2026 at 11:37:59AM +0300, Sagi Maimon wrote:
+> > axienet_dma_bd_release() walks the RX ring to unmap and free every
+> > receive buffer before releasing it, but frees the TX descriptor ring
+> > with dma_free_coherent() alone.  Any descriptor that
+> > axienet_free_tx_chain() had not yet reclaimed still holds its skb and
+> > its streaming DMA mapping, and both are lost.
+> >
+> > axienet_stop() disables TX NAPI and stops the DMA engine before calling
+> > it, so nothing reclaims those descriptors afterwards.  Bringing the
+> > interface down while frames are in flight therefore leaks up to
+> > lp->tx_bd_num skbs and mappings each time.
+> >
+> > Walk the TX ring the way axienet_dma_err_handler() already does: unmap
+> > every descriptor whose cntrl is still set - axienet_free_tx_chain()
+> > clears it on reclaim - and free any skb still attached, as a drop.
+> > This relies on axienet_stop() having stopped the DMA engine first, as
+> > the RX walk in the same function already does.
+>
+> [...]
+>
+> > Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Eth=
+ernet driver")
+> > Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> > Assisted-by: LLM sparse
+> > Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+> > ---
+> >
+> > Notes:
+> >     Changes in v3:
+> >     - Clear tx_bd_v and rx_bd_v after freeing the rings.  v2 only caugh=
+t a
+> >       NULL tx_bd_v from a first open; after a close followed by a faile=
+d
+> >       reset the walk would have read the freed ring (Sashiko).
+> >     - Reword the comment on the skb free: a descriptor can complete aft=
+er
+> >       TX NAPI was disabled, so "never transmitted" was not always true
+> >       (Sashiko).
+> >     - Say in the commit message which hardware the test ran on.
+> >     - Kept Jacob's Reviewed-by, as the changes are small; please say if
+> >       that is not OK.
+> >     - The hardware test is v1's.  The changes since only affect the
+> >       failed-reset paths, which it did not exercise, and how the freed =
+skbs
+> >       are accounted.
+> >     - v2: https://lore.kernel.org/netdev/20260930133851.663023-1-maimon=
+.sagi@gmail.com/
+>
+> [...]
+>
+> >
+> >  .../net/ethernet/xilinx/xilinx_axienet_main.c | 26 ++++++++++++++++++-
+> >  1 file changed, 25 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/driver=
+s/net/ethernet/xilinx/xilinx_axienet_main.c
+> > index 09443623a3e2..c88c671f8b2d 100644
+> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > @@ -186,11 +186,34 @@ static void axienet_dma_bd_release(struct net_dev=
+ice *ndev)
+>
+> [...]
+>
+> > +     lp->tx_bd_v =3D NULL;
+> >
+> >       if (!lp->rx_bd_v)
+> >               return;
+> > @@ -221,6 +244,7 @@ static void axienet_dma_bd_release(struct net_devic=
+e *ndev)
+> >                         sizeof(*lp->rx_bd_v) * lp->rx_bd_num,
+> >                         lp->rx_bd_v,
+> >                         lp->rx_bd_p);
+> > +     lp->rx_bd_v =3D NULL;
+> >  }
+>
+> The added null writes makes me think that centralizing this code and usin=
+g it
+> from both axienet_dma_err_handler and axienet_dma_bd_release (instead of
+> repeating it) is a good idea like I mentioned in the last post.
+>
+> The code seems right tho even tho I don't like duplicating the logic.
+>
+> Reviewed-by: Joe Damato <joe@dama.to>
 
-vcpu_is_rec() isn't safely called in nVHE hyp stub. So do we need add something
-similiar to what we had for vcpu_is_protected(vcpu) in PATCH[05]?
-
-#ifdef __KVM_NVHE_HYPERVISOR__
-/* vcpu_is_rec() isn't expected to called in nVHE hyp stub */
-#define vcpu_is_rec(vcpu)	BUILD_BUG_ON(1)
-#else
-#define vcpu_is_rec(vcpu)	kvm_vm_is_realm((vcpu)->kvm)
-#endif
-
-
->   #define kvm_vm_hyp_is_distrusting(kvm)	((kvm)->arch.vm_flavor >= __VM_DISTRUSTING_HYP)
->   
->   int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> new file mode 100644
-> index 0000000000000..44f5c75a27b5b
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -0,0 +1,61 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2023-2026 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_KVM_RMI_H
-> +#define __ASM_KVM_RMI_H
-> +
-> +/**
-> + * enum realm_state - State of a Realm
-> + *
-> + * Mirrors the RMM's Realm lifecycle states where they are meaningful to KVM,
-> + * with REALM_STATE_DYING being a KVM-internal state used to prevent further
-> + * requests while teardown is in progress. KVM does not track REALM_SYSTEM_OFF
-> + * or REALM_ZOMBIE separately as they naturally lead to teardown.
-> + */
-> +enum realm_state {
-> +	/**
-> +	 * @REALM_STATE_NONE:
-> +	 *      Realm has not yet been created. rmi_realm_create() has not
-> +	 *      yet been called.
-> +	 */
-> +	REALM_STATE_NONE,
-> +	/**
-> +	 * @REALM_STATE_NEW:
-> +	 *      Realm is under construction, rmi_realm_create() has been
-> +	 *      called, but it is not yet activated. Pages may be populated.
-                                                      ^^^^^
-Granule instead of page is the term applicable to RMM. Lets use a generic
-term 'memory' here. Also, lets mention the name of the function used to
-populate the memory (granules), which is consistent to the comments for
-REALM_STATE_ACTIVE.
-
-	Memory may be populated by rmi_rtt_data_map_init().
-
-
-> +	 */
-> +	REALM_STATE_NEW,
-> +	/**
-> +	 * @REALM_STATE_ACTIVE:
-> +	 *      Realm has been created and is eligible for execution with
-> +	 *      rmi_rec_enter(). Pages may no longer be populated with
-> +	 *      rmi_data_create().
-> +	 */
-> +	REALM_STATE_ACTIVE,
-
-rmi_data_create() is an invalid function name.
-
-	Memory can't longer be populated using rmi_rtt_data_map_init().
-
-> +	/**
-> +	 * @REALM_STATE_DYING:
-> +	 *      Realm is in the process of being destroyed or has already been
-> +	 *      destroyed.
-> +	 */
-> +	REALM_STATE_DYING,
-> +	/**
-> +	 * @REALM_STATE_DEAD:
-> +	 *      Realm has been destroyed.
-> +	 */
-> +	REALM_STATE_DEAD
-> +};
-> +
-> +/**
-> + * struct realm - Additional per VM data for a Realm
-> + *
-> + * @state: The lifetime state machine for the realm
-> + */
-> +struct realm {
-> +	enum realm_state state;
-> +};
-> +
-> +void kvm_init_rmi(void);
-> +
-> +#endif /* __ASM_KVM_RMI_H */
-> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-> index b546703c3ab9a..92cec42952f42 100644
-> --- a/arch/arm64/include/asm/virt.h
-> +++ b/arch/arm64/include/asm/virt.h
-> @@ -87,6 +87,7 @@ void __hyp_reset_vectors(void);
->   bool is_kvm_arm_initialised(void);
->   
->   DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
-> +DECLARE_STATIC_KEY_FALSE(kvm_rmi_is_available);
->   
->   static inline bool is_pkvm_initialized(void)
->   {
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 59612d2f277c1..ed3cf30eb06e7 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
->   kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->   	 inject_fault.o va_layout.o handle_exit.o config.o \
->   	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
-> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
-> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
->   	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
->   	 vgic/vgic.o vgic/vgic-init.o \
->   	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 294cea4cc8271..37ef2ba4e43e2 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -42,6 +42,7 @@
->   #include <asm/kvm_nested.h>
->   #include <asm/kvm_pkvm.h>
->   #include <asm/kvm_ptrauth.h>
-> +#include <asm/kvm_rmi.h>
->   #include <asm/sections.h>
->   #include <asm/stacktrace/nvhe.h>
->   
-> @@ -112,6 +113,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
->   	return -EINVAL;
->   }
->   
-> +DEFINE_STATIC_KEY_FALSE(kvm_rmi_is_available);
-> +
->   DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
->   
->   DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
-> @@ -2239,6 +2242,7 @@ static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
->   	KVM_VCPU_OPS(VM_VHE, vhe_vcpu_ops),
->   	KVM_VCPU_OPS(VM_PKVM, pkvm_vcpu_ops),
->   	KVM_VCPU_OPS(VM_PROTECTED_PKVM, pkvm_vcpu_ops),
-> +	KVM_VCPU_OPS(VM_REALM, realm_vcpu_ops),
->   };
->   
->   static void kvm_init_vcpu_ops(struct kvm_vcpu *vcpu)
-> @@ -3192,6 +3196,8 @@ static __init int kvm_arm_init(void)
->   
->   	in_hyp_mode = is_kernel_in_hyp_mode();
->   
-> +	kvm_init_rmi();
-> +
->   	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
->   	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
->   		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 58bc6a85f48b4..697f1ba6667a9 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2927,6 +2927,7 @@ static const struct kvm_vm_s2_ops *arm64_vm_s2_ops[] = {
->   	KVM_VM_S2_OPS(VM_NVHE, kvm_default_vm_s2_ops),
->   	KVM_VM_S2_OPS(VM_PKVM, pkvm_vm_s2_ops),
->   	KVM_VM_S2_OPS(VM_PROTECTED_PKVM, protected_pkvm_vm_s2_ops),
-> +	KVM_VM_S2_OPS(VM_REALM, realm_vm_s2_ops),
->   };
->   
->   static int kvm_vm_init_vm_s2_ops(struct kvm *kvm)
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> new file mode 100644
-> index 0000000000000..5ecc8b3498698
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -0,0 +1,18 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2026 ARM Ltd.
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +
-> +#include <asm/virt.h>
-> +
-> +void kvm_init_rmi(void)
-> +{
-> +	if (kvm_get_mode() != KVM_MODE_RMM)
-> +		return;
-> +
-> +	/* TODO: Check if the RMI is available */
-> +
-> +	/* Future patch will enable static branch kvm_rmi_is_available */
-> +}
-
+Thanks for the review, Joe.
+Agreed on the helper.  As on v2, I kept the fix minimal for net, and
+will send the helper to net-next once this has reached it, with both
+axienet_dma_bd_release() and axienet_dma_err_handler() using it.
 Thanks,
-Gavin
-
+Sagi
 
