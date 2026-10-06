@@ -4,122 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841A5CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1D4CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=; b=ZGNiBqJi/Dls/HZq9cJAkXQKdU
-	AYowwR0FeJqUiTGsHh6dHdmgcNv2qA/Awu7urVQ4RB+D8AYnVLfyZZibFdaC1IDJvBLkRCX371TJj
-	uzEGo65UXAfbv9OpCHi17xq6Xfz/bo7zlfx9OKkcqWiH7TS/JC/DaDBHW8jpTbvwUxCB5tWgrxRmH
-	e5q+3bES21EaH7g79/j2AjatSver3QeWp42fbSmE7b48Lef+xAtpp8kN80IWULHgqoT+nbEv2LY3I
-	RdF2UAblfuxA02kOqnUmlt+Jyy3gA8boxCllpcv4n9X7ulgIKzBceQi+XbiSOuiP4T4aO/TjnH9Wq
-	hYVJIo8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=txP3ruVYCLkbMDGy07Vcni7w37L1LO/1WObGN9fDR6g=; b=OAOz1TEY+Yh6qQGf/qr3rO6oZo
+	6ydaGxmmaUyLjwq7LVGQJlAiNyJRU+ZFEFWdcoc3CBVxUwu6PJNa3++OdNzN0nlNusvw2pMV9XoYE
+	5iuGmhnCgWt7lD2xKcMvlOACL2NAU0+FfhVeJK4Q/J/uK+Jr05CrFMmCwlU0kb8e9OXuOnVzPd6uS
+	uF3kv4pIL2jjEZo6N3YNwDKFyZyzkn+njDaCt12aPrLXOdLLtT8qBgddR6nUw/30l0f5PR3Kdnjf+
+	axu6DWfz5J27q7MwBEcchSmkMT+cXGvgUKuBZnAQDRbtFe12VXpitU7Aecu8MMSg2Es4tCEUIiFDO
+	iTQNWIIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7eH-000000016kS-2qAl;
-	Tue, 06 Oct 2026 16:04:13 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xE7np-000000017KD-2iU6;
+	Tue, 06 Oct 2026 16:14:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7eE-000000016hx-1G0m
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:04:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RWtk8HfMOdrNklQhbeOota/Xm/dfxq4xSEvto+tBkhsu9V5gomh6+keI9b6zDan/cTdqFoDLiILUIDI5sXyY9HmdyjhPyE1GkUoNtN+9lZqRk/V/VHbN6kNe9qicnPGzwhxkYLF/rDpfvCXO0CD3Bxz2PCO6xMb0setlki4A5lFdmZNNbtQMmDEDreMISd/zUqmQMv72r0C/OqdlE86gGh9qK2rovzvQCHUHBfsWp17nHnBwmyOuhGxhuSeVjSsJlNdrKB4Z0Az4X7SlmZu5arJS4pOziRRRf0JS/Pgm500+ajnhsTA0n2yMrMJLrxQDJM+VrabxHo3fR6ovnBdHOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=;
- b=WK90WhrduTpDA8xMofsl4Ld+uGsHV/+mWP/LhdYF/OZGdqfRHr6d3RzV/mWO+rO8vE+35PlVFGyb3PUQrBu7++15qt/z8zOzJknsjOyuJRFKC4ETgRu7169/7c8ZmKiE5L/Q1ErYsP+k0EpoT7EU12JLVreGwIxrdFTyE/J+j3SWqEgxSCD1jxjpER99T9eEKWs6SX3RBK3ZCE2tJv1oFMGdNj26BA/WyjKJmwbUPE5O7Fl3bRXvn/CBvlXDt5cPC+FJXBvb8ls76c1JIUFkROMVGVX9F2LkdIVfyq0bgwWkFA94CmTg7C0ohnF55HbssGVTxhMGKSt7L6pCpCvxOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=;
- b=RFwVQFr/6ia4tfQIW6Sy/TUKV+UodUuIPH21JWcf00bRwzGCVx+AiJU4upWL57W7LApvYUS8DJw9A3HrDPkkNCEhO3dvUPZBWjJtdOHuKMF0lReWGys26HUQfru7jLkrhHCyLe37+TyXMA1mNxlkHrBO6LxILGCKDQguZin7cDgj2JEG5+FSb/Xa04Htf6wrgKK1PSFLnGvKxail/fAp4osaxP7pjahfK/Ip92B0sBAO4i3KUCwSiZDCwwicdduDUSS7czDmwuDGEJ3gNIRip7M437NH3QRmh0Exh1DJcLRGZmhLeMCQTh81b85vPYqREMIUhlalxpz9iPU9gVCaFw==
-Received: from GV3PEPF0001DBF8.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:400::309) by DU0PR10MB6932.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:10:417::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 6 Oct
- 2026 16:04:04 +0000
-Received: from WA1PEPF000099CF.eurprd04.prod.outlook.com (2603:10a6:1d8::167)
- by GV3PEPF0001DBF8.outlook.office365.com (2603:10a6:158:400::309) with
- Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
- 15.21.382.12 via Frontend Transport; Tue, 6 Oct 2026 16:04:04 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- WA1PEPF000099CF.mail.protection.outlook.com (10.167.242.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 16:04:03 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
- 2026 18:10:07 +0200
-Received: from [10.252.29.133] (10.252.29.133) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
- 2026 18:04:02 +0200
-Message-ID: <9bdf2258-9310-48ee-b3c5-226ce5fb76e1@foss.st.com>
-Date: Tue, 6 Oct 2026 18:04:01 +0200
+	id 1xE7np-000000017K1-0Fxr;
+	Tue, 06 Oct 2026 16:14:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F94E43CC4;
+	Tue,  6 Oct 2026 16:14:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 330131F0089B;
+	Tue,  6 Oct 2026 16:14:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791303244;
+	bh=txP3ruVYCLkbMDGy07Vcni7w37L1LO/1WObGN9fDR6g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=g1xdCTZWc+2keXIczvFXqEioig8hAdmMVgPi0UUdiJ1jt/m+HcLtmBHFVGhNbyH6P
+	 v2CxRkYvuRtEcGfObj3btZB08LnhgnVJ4OtTSNV/kFLzcMOjhTei9WhhWVKT7ISpBk
+	 5v0UuzTVRln7IpACNwOxWxRIAAc/E3SjyElDIZCE08/xHh8WV2Y5rfiCUf3sEAIFzA
+	 imIC8VzpHbrfCc+he7/NinmJ5gUcaF8GlEStOrKf0l4hE3lq9XwUOwaEkaSUfGZf16
+	 DuHsrWUkTS3a3pUwLA8mSPPsir6UiTFxPUXw4sAG3y0j0+9TkgmXJsDkO9ZQJWDXTH
+	 /rHc88pYFlhhQ==
+Date: Tue, 6 Oct 2026 11:14:03 -0500
+From: Rob Herring <robh@kernel.org>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Coia Prant <coiaprant@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v12 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
+ selection for RK3568
+Message-ID: <20261006161403.GA2469169-robh@kernel.org>
+References: <20261006074749.2010233-1-coiaprant@gmail.com>
+ <20261006074749.2010233-3-coiaprant@gmail.com>
+ <08736f4d-a728-4b1e-a28e-882648a412e0@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261002-observant-gleaming-koel-4dc04c@quoll>
-Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <20261002-observant-gleaming-koel-4dc04c@quoll>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.29.133]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA1PEPF000099CF:EE_|DU0PR10MB6932:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2ac9b37-a188-4d79-f9e8-08df23c37187
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|1800799024|36860700016|376014|82310400026|10067099003|11063799006|3023799007|56012099006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1Oul3/8hFN9e7TosB8RxBWkKq6BqAyJ6bjiQAq5u4rRZFIn66alOjBd4guG3vzDeTa+X8zEoVccbIYFqAP+Qg3BA1a/y5cgCZzMWqIU+HB/2L9APsdxmOFiD3IV+VtJ5j/6akYNbFAQLgifaXCh6HIRgF7melhmlnwaj7dBH7ZkFBHNagMCyTX6yIu0OMfcOW2nQxVwnOj6sGdHCArX5bKmfzxNB9gf9p7R8dUG6/G6WSW1ELIs+EVZ3nMiF6WZRXh9pyv0ynpOBxUJEnRiRIt50O2wGg3rIJo8UgQu2oSH63O/jEbwREfWfax+8g23PI4ymE4N/l8tnIGYmQHTmfkJfvX7+87+fz0wY+OAOJOPUMUbBGnBSMvJm8ftwUJDgxFoM4EjUnXBSY9PVIgapYNRjvIze0CJ81RFXs/3U+nhZnd036epZCSj/5L8CRfnx2LmjwfFhFhbvXelJ/D+I1ve9vi62zL0dO1nVLQmBpPaRKRi4ydZ+Jel7G8U3o9wWYfeF49hlCciLBJlPxDK1c6RABrNbm7SPE5RY1UNPqttHOo4fvNHYeXat8LlA3E3Tgz2B615/3sT5IkWvBJ40pXf6yROD040XLHfqF9aywXc5YuSegpuLdACWFUEVzn7Qy9LxLiS08yftxbRx8lAtVxS+0h4N7D5X4JuhS69MxviyAa9zt022HyoRYF/cxN31NSaLCkYIgZcfDwzzeHd2Cg==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(1800799024)(36860700016)(376014)(82310400026)(10067099003)(11063799006)(3023799007)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 2MkjSoMONRlB5zmisfMLxzub6ktNFEMlHhHUxUL5pSmQr+rPsQ/pXGtYu11Ei3c3LX58cX4/QP1T2+rryUibfY+F4XlRtThwj+Go2bJhy54LXLsJgqVdABbZYJxsuTyu3bGMhKKv4XrBCInxw59goDt9EVOJ2SIo4Y2BK5qmnz9SlUtKpIQcANLDVAEQtUopGmusthL6pwuNN+GSfZNMLLll7Z1jRKwBsSQMiLLm+TlOcwdzhcgdKj6E0wvOkOe020Hm9JQaNGuWWr+l82361T5eoI+xwCmQ22J4eiIDJzX3gYiXCD7RJowx+jg8DEcujFNR/7bip6TdNZv6bphEkNPwNZKWdQ1Wynhx3OQoFMecn2BRrpB0riv/nvddMXMDglntWR88RR5pADcgh1V4qtRddFWz2eHbH3ihD/UWNZLw2GoKCoiQuH/hIr8+mI6Q
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 16:04:03.9203
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2ac9b37-a188-4d79-f9e8-08df23c37187
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CF.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6932
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_090410_813824_0D7E4C8D 
-X-CRM114-Status: GOOD (  14.56  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <08736f4d-a728-4b1e-a28e-882648a412e0@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,58 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, Oct 06, 2026 at 10:53:22PM +0800, Shawn Lin wrote:
+> Hi Coia
+> 
+> 在 2026/10/06 星期二 15:47, Coia Prant 写道:
+> > On RK3568, the SGMII interface can be routed to either GMAC0 or
+> > GMAC1 via the GRF register pipe_sgmii_mac_sel.
+> > 
+> > Add support for this selection by introducing
+> > the "rockchip,sgmii-mac-sel" DT property.
+> > 
+> >  From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
+> > bit 1 (pipe_sgmii_mac_sel) is defined as:
+> > 
+> >      0: SGMII routed to GMAC0
+> >      1: SGMII routed to GMAC1
+> > 
+> > The hardware reset value is 1 (GMAC1). If the property is set to 0,
+> > the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
+> > remains at GMAC1.
+> > 
+> 
+> Thanks for your patch. I have a question below, please have a look.
+> 
+> > This is necessary for boards such as the Ariaboard Photonicat, which
+> > uses the SGMII interface connected to GMAC0.
+> > 
+> > Out-of-range values are rejected by dtschema, so the driver does not
+> > duplicate the range check.
+> > 
+> > Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
+> > Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> > ---
+> >   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 8 ++++++++
+> >   1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > index 7843356a4dd47..7b867e7520064 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > @@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
+> >   	struct combphy_reg pipe_xpcs_phy_ready;
+> >   	struct combphy_reg pipe_pcie1l0_sel;
+> >   	struct combphy_reg pipe_pcie1l1_sel;
+> > +	struct combphy_reg pipe_sgmii_mac_sel;
+> >   	struct combphy_reg u3otg0_port_en;
+> >   	struct combphy_reg u3otg1_port_en;
+> >   };
+> > @@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
+> >   	bool enable_ssc;
+> >   	bool ext_refclk;
+> >   	struct clk *refclk;
+> > +	u32 sgmii_mac_sel;
+> >   };
+> >   static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
+> > @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+> >   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+> > +	priv->sgmii_mac_sel = 1;
+> 
+> Before this patch, SGMMI was routed to GMACX depends on bootloader(if
+> setting), or routed to GMAC1 by chip default. Without knowing any
+> potential candidates setting it via bootloader, you might not force any
+> DTS files without "rockchip,sgmii-mac-sel" to pick GMAC1 as fallback.
+> 
+> Maybe you could just keep the SGMII route as-it if the property is not
+> present. Meanwhile, should validate rockchip,sgmii-mac-sel is a valid
+> value passing from DT.
 
-On 10/2/26 11:34, Krzysztof Kozlowski wrote:
-> On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
->> +  clock-output-names:
->> +    description: |
->> +      CCK0 and CCK1 are optional output clocks, which share the same clock frequency,
->> +      but can be gated independently to save power.
->> +    minItems: 1
->> +    maxItems: 2
->> +    oneOf:
->> +      - items:
->> +          - const: cck0
->> +      - items:
->> +          - const: cck1
->> +      - items:
->> +          - const: cck0
->> +          - const: cck1
-> 
-> Use simpler notation:
-> minItems: 1
-> items:
->    - enum
->    - const
-> 
->> +
->> +  clock-frequency:
->> +    description: |
-> 
-> Drop | when not needed.
-> 
->> +      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
->> +      The frequency must be a multiple of the "ker_ck" clock frequency.
->> +    maximum: 25000000
-> 
-> So here is the clock-frequency. No, these are output clocks as written
-> above, so consumer sets it, not the provider. Or use existing assigned
-> properties. This is even mentioned on DTS101 slides, really...
-> 
+That is the typical way tri-state properties work (as opposed to using a 
+boolean). In that case, no 'default' in the schema would then be 
+appropriate.
 
-We expect the clock frequency to be defined statically for a given board 
-So, using assigned-clocks properties looks the right choice.
-What bothers me about this solution, is that the frequency will be 
-defined in each consumer, whereas a single rate can be defined for the 
-provider. This may looks a bit strange, but I will implement it this way 
-if there is no other mean to set the provider frequency.
-
-
-> Best regards,
-> Krzysztof
-> 
-
-Best regards
-Olivier
+Rob
 
