@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AD8CA6004
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 18:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1ACCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 18:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zn1cf/2G1XAfRKst7JuV3s2fqRbOiLvk8GIPBUJjUtg=; b=oFTbgncPueAX+C158JiwugSesI
-	cFkTv82rQuqeDXwreBMYY/zo/vF2DtAD03l21qxoTDZOKWvRMrjk4ddqWGeMxxloXSLEtLHyRcYwh
-	e6MD3V1E4cZqrAELp1q+V35d/OhRjLKBTKO7CFEbMDrRj0FvqFOx7W1DxBclJH1dFnSKShR5CC34y
-	rjDLZh2JM9LkN8rdOxbJF2VuAnTNAxOXQD+GFx/SxMrGQ07krS968cGqDN148W4UU96Bi8LEf9EEi
-	ZSTEfAZcBI1OLrNBN4pGRu4j1VrIwjfq/zQ4X3e0AFGVCjikLQmkd481CrJV7K0q/QTofxo9czRvh
-	y70H1m6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RZ7Zbdj+yKYKNXrBaPGB9zhpgSXQIaPLXdeU1VEC/2g=; b=r2zTT+8uy8eG4xMrLamxpRCHmP
+	ncHAKI7IU9IvYB257fTiKKaQXB2ovIHNGpV4XqM6iy/hicxsFp23R15laBSbfvyt+9/tkR58eoURQ
+	+1bJvDM0X/mItaTaRLnSRIqMUW/+0x6M/C93K+EXoxXoKv7EjIVB3lQRE5WjEtO2ZW5RYf6WeraQT
+	ygikXpMAbTGvTeIKU/fdq7UrbjlpAepyiF0+jkrq5xVqrdl2RVQXvCe4udxfMKuSMu7Ax/qDoaaGe
+	sXsP1g1qeiWyBb84MmgsdQmsKD4wj6FcAEXYo8NyHMPthRzbWT4M/kK1dLcehpXZBQGE1GPQ8k3Hy
+	DW/fuBrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE9Ut-00000001EvN-3Acp;
-	Tue, 06 Oct 2026 18:02:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xE9c4-00000001F9g-3Ala;
+	Tue, 06 Oct 2026 18:10:04 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE9Un-00000001Euw-3NmF
+	id 1xE9c1-00000001F8w-1K3B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 18:02:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43B8143C13;
-	Tue,  6 Oct 2026 18:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE90D1F0089C;
-	Tue,  6 Oct 2026 18:02:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791309753;
-	bh=zn1cf/2G1XAfRKst7JuV3s2fqRbOiLvk8GIPBUJjUtg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BA52giKoyHfyhpCln4903eug87nhQVCKX/PDe97zkg8DEB4R5rpHLlYnmv0t2GvBO
-	 14OnGPEbXZhitW8AiOs3NBNAXGkyrR3coRIEnc9SJ9CL52M1rpG/OexOUUbFfjTF7M
-	 3z+i8ewsimtJ/aThbzYtD00P/7xe8Vb4qgOJNLjZjG/NomsjxRgUtG2D+OlJja2ZAx
-	 KGncZp8F7gyG/kHT3iRDTjhTlPGI0Y7sj6yUCdHMqc0llXONhqGoNJtO+GApmyFKKW
-	 3uCKz6TB/SYBLBZj8q/8KQD+X9vdXVzmmO3fm0gq3BPnNKV7ssoeJBLfwlfUtDXc5K
-	 5gxBj0lUizHKw==
-Date: Tue, 6 Oct 2026 13:02:32 -0500
-From: Rob Herring <robh@kernel.org>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Shenwei Wang <shenwei.wang@oss.nxp.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	b-padhi@ti.com, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v16 2/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
- subnode support
-Message-ID: <20261006180047.GD2194299-robh@kernel.org>
-References: <20260923184255.299034-1-shenwei.wang@oss.nxp.com>
- <20260923184255.299034-3-shenwei.wang@oss.nxp.com>
- <20261006030739.GA3457522-robh@kernel.org>
- <CANLsYkzcqapDYvKAEa2ZjA=q07iO=RM4TVNUbSqDrB0EmjeKyQ@mail.gmail.com>
+	Tue, 06 Oct 2026 18:10:02 +0000
+Message-ID: <2687bc3e-b73a-415c-8c68-8249e1fe4e6b@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1791310194;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RZ7Zbdj+yKYKNXrBaPGB9zhpgSXQIaPLXdeU1VEC/2g=;
+	b=sOtzM009DrBMvU9D6riKuu1ASNyS2/4w4Xm0K/Nx+RPjC8cIbI0xqFpo2urN42HF0elFcX
+	kQXqcZ42s6Tso4JvM6tsYw8uZ07FnJyagBKCKbiD05AJaHZGX7Q+L/y4LH6G6CRxjPHLkf
+	Hj0a26GpymZcg0YKSUBZ1aFuQeBitN8=
+Date: Tue, 6 Oct 2026 20:09:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANLsYkzcqapDYvKAEa2ZjA=q07iO=RM4TVNUbSqDrB0EmjeKyQ@mail.gmail.com>
+Subject: Re: [PATCH v4 04/10] dt-bindings: input: apple: Add DockChannel HID
+ transport
+To: Rob Herring <robh@kernel.org>,
+ Michael Reeves <michael.reeves077@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, iommu@lists.linux.dev,
+ linux-input@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>,
+ Julian Braha <julianbraha@gmail.com>, Sasha Finkelstein <k@chaosmail.tech>
+References: <20260925-apple-mtp-keyboard-final-v4-0-304c267518f4@gmail.com>
+ <20260925-apple-mtp-keyboard-final-v4-4-304c267518f4@gmail.com>
+ <20261006160049.GA2406717-robh@kernel.org>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <20261006160049.GA2406717-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_111001_623510_A6118599 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 09:18:23AM -0600, Mathieu Poirier wrote:
-> On Mon, 5 Oct 2026 at 21:07, Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Wed, Sep 23, 2026 at 01:42:29PM -0500, Shenwei Wang wrote:
-> > > From: Shenwei Wang <shenwei.wang@nxp.com>
-> > >
-> > > Remote processors may announce multiple GPIO controllers over an RPMSG
-> > > channel. These GPIO controllers may require corresponding device tree
-> > > nodes, especially when acting as providers, to supply phandles for their
-> > > consumers.
-> > >
-> > > Define an RPMSG node to work as a container for a group of RPMSG channels
-> > > under the imx_rproc node. Each subnode within "rpmsg" represents an
-> > > individual RPMSG channel. The name of each subnode corresponds to the
-> > > channel name as defined by the remote processor.
-> >
-> > Sorry, but DT defines the names of nodes. If it's a gpio-controller,
-> > then 'gpio'.
-> >
-> > I still don't understand where the unit address gets defined. 0 and 1
-> > look a bit made up. I'm sure you explained it before, but *this patch*
-> > needs to explain it. When you define a second protocol, the 0 and 1
-> > addresses are taken already, so you can't have 'clock-controller@0' for
-> > example.
-> >
-> 
-> I had a conversation with Krzysztof about this here in Prague.  We
-> have decided to adopt the bindings proposed by Francesco in this
-> thread [1].
 
-Same question applies there. Where do the 0 and 1 addresses come from?  
-Will reply on that thread.
+On 10/6/26 18:00, Rob Herring wrote:
+> On Fri, Sep 25, 2026 at 10:09:31PM +1000, Michael Reeves wrote:
+> [...]
+>> +
+>> +  mboxes:
+>> +    items:
+>> +      - description: ASC mailbox used for RTKit control
+>> +      - description: DockChannel FIFO mailbox used for HID packets
+>> +
+>> +  mbox-names:
+>> +    items:
+>> +      - const: asc
+>> +      - const: dockchannel
+>> +
+>> +  iommus:
+>> +    maxItems: 1
+>> +
+>> +  stm:
+>> +    type: object
+>> +    description:
+>> +      STM interface providing the vendor, product and version identifiers
+>> +      and serial number shared by the HID devices. When present, the host
+>> +      must query this interface before registering the keyboard.
+>> +    additionalProperties: false
+> An empty node is unusual. Why can't you just query the STM interface and
+> treat it not existing or having those properties the same as no 'stm'
+> node.
 
-Rob
+The issue is there is no indicator for the stm *not* being present: We 
+boot the MTP coprocessor, and then receive a message when the stm is 
+available. In that case we know it's ready and we can proceed with 
+obtaining the serial numbers and registering the hid devices. But if 
+there is no stm, we simply do not get the stm ready message, and the hid 
+devices are never registered (this is the case in the original 
+downstream Asahi dockchannel-hid). To make the stm optional *without* 
+taking the information from the device tree, this would require some 
+sort of timeout for waiting for the stm ready message. I outlined the 
+available options in this thread[1] and argued the empty stm subnode 
+makes sense, since this is describing a peripheral which may or may not 
+be present (and this information is useful to initialize the device 
+properly).
 
-> 
-> [1].  https://lore.kernel.org/all/20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it/
-> 
-> > Rob
+Link[1]: 
+https://lore.kernel.org/asahi/bbaca769-312c-4a24-9524-16cb2b4f277f@cyberchaos.dev/
+
+
+Thanks,
+
+- Yureka
+
+
 
