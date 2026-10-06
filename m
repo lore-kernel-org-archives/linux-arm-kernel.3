@@ -4,130 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28D5CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD92CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 08:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=; b=LSVqgwK47VjjsqhEKfUNwUg/CX
-	aynIPLie0wfK2xLcGFamGz/PoAJZVUTtqs86mIiUBd139FW2rWE1VEH2rES4eLi9I9CgY+uKwSPFx
-	2JZNBjZI9Uo8gNHzMRjIcLr5CproDT+3tKb3DzwCRl0OHCAW37IOpbkjBs2LXfwt7n8cKvsw6JbUH
-	gkY0CcprAcbkEU2P3u9kPbnuU5p3gw0o3ys/ci2gxNEiEEzMMS6sWNxYiRmBhBsqxEv4nvkIMxMW+
-	CeX5KNFdRIHf9jUAIQRPmwxLZL3sK6mNJNQu7anHcQcB8plRMThDJ6iOzXLrSL/FXr5icMNwvZLaH
-	9CQ4w37A==;
+	bh=ezI8UiBBWAdumn89F3u9bJA9IULMvyJf/Nv4niiHgUs=; b=fYb9JasHys0oelhmSp9gInA2jo
+	1egN/p7XIF6yOdjYZuyqOXL+TsdFwPBtlCWo+AZvw1DYnbenzI/5+gpwS/FXDSI5iXwZO8PgOaXmM
+	0hkRGv/2PF1CLbssdgMZWiN9MdkxvH/Ytk9oa50MODvALfwkrGyEwk6s24IXsmmfNums4vHsaJB3m
+	1o9Q2/QNgjWcS6XRjPvHyCNHKDg4JPdNy+NqANHyr3nZelrH3oK1HaAWxJIQb5s5v4qtPxRvHffqJ
+	/D96g+YXy1sd0iYOIXJ5AVhJLhTgAxDPRk2SELDA06cP2m1iVcrIW6YuxcTP5yC6CyoBG+zANX457
+	eTEI2lrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0WS-00000000HMy-0P0t;
-	Tue, 06 Oct 2026 08:27:40 +0000
-Received: from mail-westeuropeazon11011020.outbound.protection.outlook.com ([52.101.70.20] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xE0ZM-00000000HeA-0ck0;
+	Tue, 06 Oct 2026 08:30:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0WP-00000000HMV-2bTG
+	id 1xE0ZJ-00000000Hdl-07uj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 08:27:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u40mECQCARlWV5T2ljnlHRJK8JMB1kJR38Fure66RPjDhZUwFXfurAUiLTGeFQXO/amq6hjfGOSktdxFZ1fmlYzfuCi1TJBNa6DxgigE2uEPr0QfKk7M2X/nKXVsbDwhHdkG49QR2r6Qfj7d1Ugpco0vHF4zLEHwuHQlKYqUlyQfvYmm5+frwBsDntT9VhcjUqN6susbgscrWz0doF3oNg4lpWfF6BRuu04fSUjobVWXKA97oeyrKc2lsbgxxEvfx0hqmDYDceMhz5Snc8Xho1qwd2srjfpATgPyhb72C0iM0glwKAvX7p9PNX+GzmIWCKHLymmlQj6jsKglFMFzvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=;
- b=vVlt4zmnKZ6GO4VUQtO6NzUZLqaOH17TX+arj56ZbnKDLc31Heb7DLM6WYy5P+3E9B7RFKMT1XwFKhPG7VM5OUQWSFs0SsmoL8jjnSccdYZ0k7f0TUPiIPA/pkRqS6hzG0fuL9shpK4xWsslUp1cJ+yNtL6B4R57HQssEaxCSflTfiVtO4+20z/phLLsEyI4DWyTlDkvhQUTTSw/KC3PV3N26rSdDuiLefNcFqvL1QzyLh1eFAfptAbAH8AstdvneqY5qi/py83ENb5GnkK6Kh6829OdWmIrV43Z3nWpc24RZSqoHKPA2IF8yxD4gxw/0FL7jti1Tj2FOWLXm3NHfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R6UX9FOCxnPERDtfE34v2HJ4irAhAvrxNHsdogmE14I=;
- b=LJr3YWqviBcfFWm9+qjTk50HmzcuxO51QzVeQn0WlUNBSeIJYA5y1X6Nl7o7TplonetUHTU1W1G33xINK5ojHPYS+S6UvE7n94l/KO0UfeIBHZq+p82pDAvDxYg1CMaOAXlpLJLEAl9OD/bUyEh9Axx4fUDrm5PzZsUwgfbICdxFEWwp+xtnRvCo7eY0mtNVHvvJngZKRsztn3PJs0Bv7MG69yglscogPHqYnMDrPbREbvWUeyanytHcRnJCWu+huDmGV6sityIO9U8J36wPcKkdbzDJ/kpbaCkWG3M/Xlr5POeKhpGfjQPUi+4Xb/GwGGoYtOCg+xrg2JimfxoDJg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
- (2603:10a6:290:d3::17) by AMZPR04MB185575.eurprd04.prod.outlook.com
- (2603:10a6:20b:7c2::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 08:27:31 +0000
-Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
- ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
- ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0496.010; Tue, 6 Oct 2026
- 08:27:30 +0000
-Date: Tue, 6 Oct 2026 11:27:26 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Josua Mayer <josua@solid-run.com>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Horia =?utf-8?B?R2VhbnTDhMKD?= <horia.geanta@nxp.com>, 
-	Pankaj Gupta <pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Yazan Shhady <yazan.shhady@solid-run.com>, 
-	Jon Nettleton <jon@solid-run.com>, linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-crypto@vger.kernel.org
-Subject: Re: [PATCH RFC net-next 2/3] crypto: caam/qi2 - skip isolated CPUs
- when setting up queue pairs
-Message-ID: <cozavqeupdtr7cyn33nvtfqoqkw3sop5tffou6753vwg63hgwf@jr6gx236yblx>
-References: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
- <20260930-dpaa2-isolcpus-v1-2-66c13f4fd75b@solid-run.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930-dpaa2-isolcpus-v1-2-66c13f4fd75b@solid-run.com>
-X-ClientProxiedBy: AS4P190CA0052.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::24) To MI9PR04MB019273.eurprd04.prod.outlook.com
- (2603:10a6:290:d3::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|AMZPR04MB185575:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64463fc6-f9e8-4958-e957-08df2383a9e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|23010399003|18002099003|22082099003|11063799006|4143699003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: m4GUHkkBIP9YohXJmdxBqzoS3X8t25JI46U8XcE/IOQZoXXcImY65+FNQ29/dZhUDNbsCedZmVBIDO9UzvEPu4osjo+gH7y5p80tMS+RAkqxRDKnBMqPBrzcwDvhMvuwPaAKv/q4es6P0TjnVdXpbUd+kq5B8W/zd4cueGvxu7ZyqpA8TJRQOvQdSj5Kigal1DCqL2o82VeYYnM9KUx7nb4cKo/3rhN7RhUnR23toqhgcx/S1rfhgzfdpUffPHU4vtujmVNAh0WxXY8/BdeZJ1T7VSb4EqbX3khCYsMaXKVW/RUzGceUOumHXWpq6Kch3GqhmKoLj49HDspjpfqOGqx3/hXDk8QU7QvK9pvtyoD9p5t9YpQWqJZLcOR5DiVKHzlxxEdVvHb3Lu8n9cniQnbAEK2MCWrcyRPMg19oNvtubKvXbffaRapQIHymKRVZBhRezrT034X7xfmYnDyiuyPM82arVTgEP+SUto0Hsu/JgiqL8IUPRDPyBb3WDMF2emywWu1ulLDzxllAqxo+IjtOh7tldRDnOyHQW4qdlJ+LwO4Hy6UBz3WADv6m3032x8KsREAgbHlzB+omrgEVagXgiWayZ2lI9sFeiihupRK3cIMZ+YELtlUl3yXkJepdJUtxKzrSiJJxNdm89Pf5ZKAeWxIjw7ksHg9PD28G0q4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(23010399003)(18002099003)(22082099003)(11063799006)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p9CmlnwljFndTQy/nrWXa1Ic/wTmyOY57TNbYFABAGbmDWRANr0SbCTy1KlY?=
- =?us-ascii?Q?Ld04B6FfaCqidL521bOtmIOSf//d02D6FV7g6R7tZWpUzAyAncKqsmyndAZI?=
- =?us-ascii?Q?tcs+xMK6ABMgimIdPpdvVIIileJCKNzuZ0OTb+pRi13rVkTCHfBhbvSIepFA?=
- =?us-ascii?Q?zBIG7pTkwJeSTGGx72FX5zlBZkX3EI3OLVh7F6DUMWixpiKNEttNDL/jPwQK?=
- =?us-ascii?Q?eGwGntlVqXGLBN8vEKlgJFFEwctSudC4EQ2lRc3dhrt4PHiHD9JzeyTqX9GR?=
- =?us-ascii?Q?lIVl2rVHdhivsAEKPvpWsJHOcAMVj9tVSl7ks2e/IZOX6AKCw+oBfzCql4E5?=
- =?us-ascii?Q?DcqCTY5Zh1jmPm03naVJTpYgJD0ozNRquL2kFDn7NO6dNUdRTV1gVUHfjBuF?=
- =?us-ascii?Q?NCrO/1AZU8KvtdeXKfrVxseRZof5/uOgpUFtA4LnksNPWBaOw1qA8Jr0Vs16?=
- =?us-ascii?Q?M6SNPWh0Yex7K8qi5PeDuy2twnB9LzohTNgSXZqvvojQtHCZe2uZmqoPHfnd?=
- =?us-ascii?Q?/PKnp9aS5kFV/WbrP5C6F/uEsxnpmeON0XMwPidld9wDYhI3wGncWVRBvnpr?=
- =?us-ascii?Q?Rl/2bhD9TXZzSChGPTLcF2yyCCuffJK2cIeqOmNds+Xpcgw6tJOaNgNS8ucD?=
- =?us-ascii?Q?4Pe1UFMiYE4FHvy05gU4Fih1WBwxdQAD3BheUWJHhuAJlvz5E9gmX77ijcXI?=
- =?us-ascii?Q?3vyTDyYraWg4aHUPH4CpevL7aZXpjI/EUduPaO2WDh/OrBLmvgTWqMghC6uz?=
- =?us-ascii?Q?e1i6LjnkP5oe3bAytjCEAV4ZNXl4XUJpmoAYarN6aGisTwdVCy3Xxd+YEwBh?=
- =?us-ascii?Q?1WzGvytnXUfJbrx/RuovCPecwPSqmWv8xg8m8SmsRvw32ywRjyEnP9msghar?=
- =?us-ascii?Q?ndcaM5tZGfk0RYtVp+rQzowdLDeYJw5VAk9pOyw9xK7owLixyYvfLqoLy1Q1?=
- =?us-ascii?Q?zC81YCi2TadqSWltXvWizAz+AiB+GSsvNJTBM4zdEGU7pLNSNV2sJlSgtvno?=
- =?us-ascii?Q?jphYngcfmk0kjgMffzb9Y24CzzF7b0c7oEjQROpyvlEsXo7yAVxzCTEn0n+2?=
- =?us-ascii?Q?vvfyYDNcBH6L4M6YC1kIXAgbtbu1quMvjot0wj2LM8FLyX37UyAXI12rKQLQ?=
- =?us-ascii?Q?3NHsbeAucPyt22LN6BFX1R/45Og+rMOH5ZlQ74AcaDrzaOGTxavUBYyaBkz3?=
- =?us-ascii?Q?UyDzWixTEh/BdLXFnkZZR3IEsM2xHIOCjGEPsP9ibx+wIAgn8LquoCWg7qPE?=
- =?us-ascii?Q?QUeGNz5Vuez0rFISjlY8DVdrpY1vobx0YCfdyBpq0D+rxi8gJta1hVveC+1k?=
- =?us-ascii?Q?QlJXSeHDHLMLtDn2mSNTteHrVLVOo84HfZlDdgzN8iHMjydkvTVcTXO+BOyU?=
- =?us-ascii?Q?PVtVJCL8FpHMqS2pz9yklUW2i3FleS5AzALBK+fp6xDhALE+BT3s9UDGB4bJ?=
- =?us-ascii?Q?4AoGGciqenxF3NCIG1SSuh7TA0fr9YSwoU5bwVmsrwW4toHQvZQmvfvW4Lgo?=
- =?us-ascii?Q?1LeVM/iGp99h05JjCSS1zx9OQUb5Lrg7+UlVownkAVhy8Zgnb8d4HAMuTyDT?=
- =?us-ascii?Q?Wh7JiRMpg7sNj/rIGrFqTC3U0fL/0A16wbnnmx4WOVz8kgOfbl25IYoQo0Ro?=
- =?us-ascii?Q?qXiOk1t96QDS0W8WldXS5snai8KDprzQICy07FhzffU99QvBB1YbRYBlTqSR?=
- =?us-ascii?Q?I0bO8P58tF3QmGr0f7BKujpB9kn+0kaHqdzQzy4/ZhrcZzE5vPeU64wv7R3K?=
- =?us-ascii?Q?zU5vFrGf0g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64463fc6-f9e8-4958-e957-08df2383a9e4
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 08:27:30.8651
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OJNW3OjYa4HV4GvI93c7R41Nwx4jD2ZtqF/yyxlg6dLVx0vdTuF/8LLNONnTlV67XBddymI8nAqjVkvoBoG22w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB185575
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_012737_666250_4B80346D 
-X-CRM114-Status: GOOD (  14.64  )
+	Tue, 06 Oct 2026 08:30:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0602140305;
+	Tue,  6 Oct 2026 08:30:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D111F000FF;
+	Tue,  6 Oct 2026 08:30:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791275435;
+	bh=ezI8UiBBWAdumn89F3u9bJA9IULMvyJf/Nv4niiHgUs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LG0K2CBhlcbzq74ehpntcnmQwYNzuCCtfG+S7uiSuMlqrCskcf1ruTLjEnZaz4X6S
+	 whbuXKS0axRYVR2GNMEHt2ede3C6LSO1PJ8oajSdnoJtYGOzcHdJHT7CMEghiecNoO
+	 d3ejR3sDbl8CK8v8Bj7LkBM493PrlFJ3BXyN+HvCLsX8RNaVIAzTBylD0JJW1DmXgN
+	 srl5le4e32gBvHR/72yX9/bDldGG/cQVZgKMGpHtbXaZ0oxJK7bjaNlqoMaRbCHuBE
+	 sVQYVu/Qcsbz05wIv7TB/KMWF1ZS2tKWrk2ct+I49euc+5QexvJ7OkpdwnbsT7jrKp
+	 k4vWQ1UZQgDXg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xE0ZE-0000000HLLe-26HQ;
+	Tue, 06 Oct 2026 08:30:33 +0000
+Date: Tue, 06 Oct 2026 09:33:39 +0100
+Message-ID: <87cxtn2pp8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v22 05/23] KVM: arm64: Track the type of VM in kvm_arch
+In-Reply-To: <20261005090754.2140522-6-suzuki.poulose@arm.com>
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+	<20261005090754.2140522-6-suzuki.poulose@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,46 +102,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 06:54:59PM +0200, Josua Mayer wrote:
-> The driver looks up the affine DPIO and sets up one Rx/Tx queue pair for
-> each online CPU, up to the number of queues. Response notifications and
-> NAPI polling are handled on the DPIO object's assigned CPU. All online
-> may enqueue requests.
+On Mon, 05 Oct 2026 10:07:36 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> When isolcpus=managed_irq is used to reserve CPUs for latency-sensitive
-> applications, those CPUs are expected to be free of routine device
-> interrupts.
+> KVM arm64 has different types of VMs with all the different modes in which
+> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
+> protected VM and normal VMs with pKVM. We might soon add other types,
+> e.g., Arm CCA Realm. So in an effort to make the handling of these
+> different types of VMs a bit more friendly to the eyes, add a VM flavor to
+> the kvm_arch and we could then add handlers for different operations based
+> on the VM type.
 > 
-> The DPIO driver assigns affine CPUs only from the HK_TYPE_MANAGED_IRQ
-> housekeeping mask, leaving isolated CPUs without an affine DPIO. This
-> defers caam qi2 probe indefinitely once DPIO setup reaches an isolated
-> CPU.
+> Keep the flavor initialisation at the beginning to allow for the detection
+> early enough and fail out on any unsupported requests.
 > 
-> Restrict queue pairs, notifications and NAPI polling to the online CPUs
-> in the HK_TYPE_MANAGED_IRQ housekeeping mask, so that isolated CPUs are
-> skipped and don't defer probe. Isolated CPUs may still enqueue requests,
-> with responses handled on housekeeping CPUs.
+> With that, add wrappers for checking the "type" of a VM and replace the
+> existing users with the new wrappers.
+> 
+> Given we already have the construct of "kvm_vm_is_protected" in the core
+> KVM code, use that for all confidential compute guests including Realms
+> that we are about to add. Adds __VM_PROTECTED marker vm flavor to draw the
+> boundary for "protected VMs". In later patches, we would add Realm VMs,
+>  which would also be classified as protected.
+> 
+> Add a explicit helper to detect if a given VM is a "protected" VM under pKVM.
+> Change the existing users that precisely want to check the VM type. These
+> include :
+>   - kvm_arch_prepare_memory_region - For preventing memslot changes after
+>     pVM creation.
+> 
+> All the others are retained as a wider check for confidential guest VMs.
+> These are:
+>  - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
+>    configuration
+>  - io_mem_abort for dabt handling without valid syndrome information
+> 
+> Both of which are true for Realms too.
+> 
+> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
+> checks in the pkvm hyp specific code doesn't need to change, as the only
+> protected guests it deals with is "protected pKVM" guests. To tighten this
+> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
+> supports.
+> 
+> vcpu_is_protected() usage from nVHE hyp code is tricky, as we need to
+> convert the vcpu->kvm to the HYP VA before checking the flavor. This
+> involves kern_hyp_va() usage in asm/kvm_host.h. To avoid build breaks,
+> include asm/kvm_mmu.h to arm64/kvm/mmio.c.
+> 
+> While at it move the psci_version around to keep the structure packed.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v21:
+>  - Drop kern_hyp_va() and restrict nvhe code to always use vcpu_is_protected_pkvm()
+>  - Drop kvm_vm_is_unprotected_pkvm() and open code the check
+>  - Move psci_version field in kvm_arch around to keep the structure packed
+> ---
+>  arch/arm64/include/asm/kvm_host.h      | 42 +++++++++++++++++++++++---
+>  arch/arm64/include/asm/kvm_pkvm.h      |  4 +--
+>  arch/arm64/kvm/arm.c                   | 33 ++++++++++++++++----
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c         |  6 +++-
+>  arch/arm64/kvm/hyp/nvhe/switch.c       |  4 +--
+>  arch/arm64/kvm/hyp/nvhe/timer-sr.c     |  2 +-
+>  arch/arm64/kvm/mmio.c                  |  1 +
+>  arch/arm64/kvm/mmu.c                   |  2 +-
+>  arch/arm64/kvm/pkvm.c                  |  6 ++--
+>  10 files changed, 79 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 286489a69dff5..dedb5df15a803 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
+>  	pkvm_handle_t handle;
+>  	struct kvm_hyp_memcache teardown_mc;
+>  	struct kvm_hyp_memcache stage2_teardown_mc;
+> -	bool is_protected;
+>  	bool is_created;
+>  
+>  	/*
+> @@ -306,9 +305,22 @@ enum fgt_group_id {
+>  	__NR_FGT_GROUP_IDS__
+>  };
+>  
+> +enum kvm_arm_vm_flavor {
+> +	VM_NVHE,
+> +	VM_VHE,
+> +	VM_PKVM,		/* Normal guests on pKVM */
+> +	MARKER(__VM_PROTECTED),
+> +	VM_PROTECTED_PKVM,	/* Protected VM */
+> +	VM_FLAVOR_MAX
+> +};
+> +
+>  struct kvm_arch {
+>  	struct kvm_s2_mmu mmu;
+>  
+> +	enum kvm_arm_vm_flavor vm_flavor;
+> +	/* Mandated version of PSCI */
+> +	u32 psci_version;
+> +
+>  	/*
+>  	 * Fine-Grained UNDEF, mimicking the FGT layout defined by the
+>  	 * architecture. We track them globally, as we present the
+> @@ -332,9 +344,6 @@ struct kvm_arch {
+>  	/* Timers */
+>  	struct arch_timer_vm_data timer_data;
+>  
+> -	/* Mandated version of PSCI */
+> -	u32 psci_version;
+> -
+>  	/* Protects VM-scoped configuration data */
+>  	struct mutex config_lock;
+>  
+> @@ -1504,9 +1513,32 @@ struct kvm *kvm_arch_alloc_vm(void);
+>  
+>  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>  
+> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+>  
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +/*
+> + * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
+> + * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
+> + * which is populated correctly. Always vcpu_is_protected_pkvm(), which is
+
+Always *use*?
+
+> + * gated on is_protected_kvm_enabled().
+> + */
+> +#define vcpu_is_protected(vcpu)		BUILD_BUG_ON(1)
+> +#else
+>  #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+> +#endif
+> +
+> +#define kvm_vm_is_protected_pkvm(kvm)					\
+> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> +/*
+> + * Rely on is_protected_kvm_enabled() check in kvm_vm_is_protected_pkvm() to
+> + * make sure the vcpu->kvm is always valid VA in the context
+> + */
+> +#define vcpu_is_protected_pkvm(vcpu)					\
+> +	({								\
+> +		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+> +									\
+> +		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
+> +	})
+
+But why do we have to have this pkvm-specific stuff? I thought we had
+established it is not necessary in [1].
+
+I really want to avoid any backend-specific helper, as it really gets
+in the way of maintainability.
+
+	M.
+
+[1] https://lore.kernel.org/r/86pkxs2npx.wl-maz@kernel.org
 
 
-Don't you need to also change the for_each_online_cpu() from
-dpaa2_dpseci_setup() to take into account only the housekeeping
-managed_irq cores?
-
-
-Something like:
-
---- a/drivers/crypto/caam/caamalg_qi2.c
-+++ b/drivers/crypto/caam/caamalg_qi2.c
-@@ -5101,7 +5101,7 @@ static int __cold dpaa2_dpseci_setup(struct fsl_mc_device *ls_dev)
-        }
-
-        i = 0;
--       for_each_online_cpu(cpu) {
-+       for_each_cpu_and(cpu, cpu_online_mask, hk_mask) {
-                u8 j;
-
-                j = i % priv->num_pairs;
-
-
-Ioana
+-- 
+Jazz isn't dead. It just smells funny.
 
