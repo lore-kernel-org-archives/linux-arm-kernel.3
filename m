@@ -4,111 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CF3CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841A5CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pag7ec08sf7H4imvEPV/grARicGzKhyFVyc+ZIA/s7A=; b=3dxy26AUpVqAPg21ypgZuGwnGn
-	B5RUjtNXWAenLEYAHRqgfBUJ1EERbdcKDSDIAIAIkhxapbAfktUjLq3z/5Z5oqarVuhOoxlyE1qll
-	gINhgr8u8zk+2j5VGJy/ahR6YZtM7Vwfg80Nwqq+UWNTZM2z3raojOzNlrLFkGOS1lWEjkP5n7Op+
-	+iScxM58ZY18mJu62Ejvud6jMRBGEjRabWRisGqFnMOF/4ju1AcHpnu2xfGaH1r1j49ZtjgODVOK1
-	LszJRSgo0iraMqDQOCXj4fuwx9WP7obI3joLgS3OwpF6ynwqawHXJb5G6ab8A0G+VNLeD7R8lcoBe
-	wTa23VUA==;
+	bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=; b=ZGNiBqJi/Dls/HZq9cJAkXQKdU
+	AYowwR0FeJqUiTGsHh6dHdmgcNv2qA/Awu7urVQ4RB+D8AYnVLfyZZibFdaC1IDJvBLkRCX371TJj
+	uzEGo65UXAfbv9OpCHi17xq6Xfz/bo7zlfx9OKkcqWiH7TS/JC/DaDBHW8jpTbvwUxCB5tWgrxRmH
+	e5q+3bES21EaH7g79/j2AjatSver3QeWp42fbSmE7b48Lef+xAtpp8kN80IWULHgqoT+nbEv2LY3I
+	RdF2UAblfuxA02kOqnUmlt+Jyy3gA8boxCllpcv4n9X7ulgIKzBceQi+XbiSOuiP4T4aO/TjnH9Wq
+	hYVJIo8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7de-000000016Ln-2qZk;
-	Tue, 06 Oct 2026 16:03:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xE7eH-000000016kS-2qAl;
+	Tue, 06 Oct 2026 16:04:13 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7dV-000000016Eq-3tBU
+	id 1xE7eE-000000016hx-1G0m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:03:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4B868602D3;
-	Tue,  6 Oct 2026 16:03:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2281F0089E;
-	Tue,  6 Oct 2026 16:03:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791302605;
-	bh=pag7ec08sf7H4imvEPV/grARicGzKhyFVyc+ZIA/s7A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=cI6f48k21Pos7Jebeyj6Y1mcBgrcdPoLlVktj3nLKqxukD8+NpbAMUtC+OwcDRRyi
-	 w+Ppq8nXgoGGAsx1KGLqf9O999FSB+xVcMG3IwsmQC0wKcWPzUVmWcdR1R7yteAG/K
-	 EDnKmfvU2/ShyLxSXq1eE0bKQJ/ku0maSLqD+ptg6MzgVzSDtibHoF+Sxzcl5DC5O1
-	 J/UrkGYw128fohHMODMKVqQRg7W6JhP2SMNcqUq7gfWwivY6bHQ4CQK58kXV6L487l
-	 CiY2BLl+Wwc2M4Zk/tyWYlIhv80UuWGTVld4rDrS2uKEVolRftW1e0cQeYhaMGd6cg
-	 5ppkHzEvnYgxA==
-Message-ID: <f7d0ef63-3d8c-4e1b-b346-81500ee64046@kernel.org>
-Date: Tue, 6 Oct 2026 18:03:17 +0200
+	Tue, 06 Oct 2026 16:04:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RWtk8HfMOdrNklQhbeOota/Xm/dfxq4xSEvto+tBkhsu9V5gomh6+keI9b6zDan/cTdqFoDLiILUIDI5sXyY9HmdyjhPyE1GkUoNtN+9lZqRk/V/VHbN6kNe9qicnPGzwhxkYLF/rDpfvCXO0CD3Bxz2PCO6xMb0setlki4A5lFdmZNNbtQMmDEDreMISd/zUqmQMv72r0C/OqdlE86gGh9qK2rovzvQCHUHBfsWp17nHnBwmyOuhGxhuSeVjSsJlNdrKB4Z0Az4X7SlmZu5arJS4pOziRRRf0JS/Pgm500+ajnhsTA0n2yMrMJLrxQDJM+VrabxHo3fR6ovnBdHOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=;
+ b=WK90WhrduTpDA8xMofsl4Ld+uGsHV/+mWP/LhdYF/OZGdqfRHr6d3RzV/mWO+rO8vE+35PlVFGyb3PUQrBu7++15qt/z8zOzJknsjOyuJRFKC4ETgRu7169/7c8ZmKiE5L/Q1ErYsP+k0EpoT7EU12JLVreGwIxrdFTyE/J+j3SWqEgxSCD1jxjpER99T9eEKWs6SX3RBK3ZCE2tJv1oFMGdNj26BA/WyjKJmwbUPE5O7Fl3bRXvn/CBvlXDt5cPC+FJXBvb8ls76c1JIUFkROMVGVX9F2LkdIVfyq0bgwWkFA94CmTg7C0ohnF55HbssGVTxhMGKSt7L6pCpCvxOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j0P6GAC4ZRUUwwT50gnm38AeYR23IigAKOUQaXFu2Fo=;
+ b=RFwVQFr/6ia4tfQIW6Sy/TUKV+UodUuIPH21JWcf00bRwzGCVx+AiJU4upWL57W7LApvYUS8DJw9A3HrDPkkNCEhO3dvUPZBWjJtdOHuKMF0lReWGys26HUQfru7jLkrhHCyLe37+TyXMA1mNxlkHrBO6LxILGCKDQguZin7cDgj2JEG5+FSb/Xa04Htf6wrgKK1PSFLnGvKxail/fAp4osaxP7pjahfK/Ip92B0sBAO4i3KUCwSiZDCwwicdduDUSS7czDmwuDGEJ3gNIRip7M437NH3QRmh0Exh1DJcLRGZmhLeMCQTh81b85vPYqREMIUhlalxpz9iPU9gVCaFw==
+Received: from GV3PEPF0001DBF8.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:400::309) by DU0PR10MB6932.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:10:417::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 6 Oct
+ 2026 16:04:04 +0000
+Received: from WA1PEPF000099CF.eurprd04.prod.outlook.com (2603:10a6:1d8::167)
+ by GV3PEPF0001DBF8.outlook.office365.com (2603:10a6:158:400::309) with
+ Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+ 15.21.382.12 via Frontend Transport; Tue, 6 Oct 2026 16:04:04 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ WA1PEPF000099CF.mail.protection.outlook.com (10.167.242.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Tue, 6 Oct 2026 16:04:03 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 18:10:07 +0200
+Received: from [10.252.29.133] (10.252.29.133) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 6 Oct
+ 2026 18:04:02 +0200
+Message-ID: <9bdf2258-9310-48ee-b3c5-226ce5fb76e1@foss.st.com>
+Date: Tue, 6 Oct 2026 18:04:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
- CCU clock controller
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <20260925225112.14081-1-andre.przywara@arm.com>
- <20260925225112.14081-3-andre.przywara@arm.com>
- <20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
- <20261005005036.7fd5e60e@ryzen.lan>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+ <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ <20261002-observant-gleaming-koel-4dc04c@quoll>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261005005036.7fd5e60e@ryzen.lan>
-Content-Type: text/plain; charset=UTF-8
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20261002-observant-gleaming-koel-4dc04c@quoll>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.29.133]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: WA1PEPF000099CF:EE_|DU0PR10MB6932:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2ac9b37-a188-4d79-f9e8-08df23c37187
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|1800799024|36860700016|376014|82310400026|10067099003|11063799006|3023799007|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 1Oul3/8hFN9e7TosB8RxBWkKq6BqAyJ6bjiQAq5u4rRZFIn66alOjBd4guG3vzDeTa+X8zEoVccbIYFqAP+Qg3BA1a/y5cgCZzMWqIU+HB/2L9APsdxmOFiD3IV+VtJ5j/6akYNbFAQLgifaXCh6HIRgF7melhmlnwaj7dBH7ZkFBHNagMCyTX6yIu0OMfcOW2nQxVwnOj6sGdHCArX5bKmfzxNB9gf9p7R8dUG6/G6WSW1ELIs+EVZ3nMiF6WZRXh9pyv0ynpOBxUJEnRiRIt50O2wGg3rIJo8UgQu2oSH63O/jEbwREfWfax+8g23PI4ymE4N/l8tnIGYmQHTmfkJfvX7+87+fz0wY+OAOJOPUMUbBGnBSMvJm8ftwUJDgxFoM4EjUnXBSY9PVIgapYNRjvIze0CJ81RFXs/3U+nhZnd036epZCSj/5L8CRfnx2LmjwfFhFhbvXelJ/D+I1ve9vi62zL0dO1nVLQmBpPaRKRi4ydZ+Jel7G8U3o9wWYfeF49hlCciLBJlPxDK1c6RABrNbm7SPE5RY1UNPqttHOo4fvNHYeXat8LlA3E3Tgz2B615/3sT5IkWvBJ40pXf6yROD040XLHfqF9aywXc5YuSegpuLdACWFUEVzn7Qy9LxLiS08yftxbRx8lAtVxS+0h4N7D5X4JuhS69MxviyAa9zt022HyoRYF/cxN31NSaLCkYIgZcfDwzzeHd2Cg==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(1800799024)(36860700016)(376014)(82310400026)(10067099003)(11063799006)(3023799007)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2MkjSoMONRlB5zmisfMLxzub6ktNFEMlHhHUxUL5pSmQr+rPsQ/pXGtYu11Ei3c3LX58cX4/QP1T2+rryUibfY+F4XlRtThwj+Go2bJhy54LXLsJgqVdABbZYJxsuTyu3bGMhKKv4XrBCInxw59goDt9EVOJ2SIo4Y2BK5qmnz9SlUtKpIQcANLDVAEQtUopGmusthL6pwuNN+GSfZNMLLll7Z1jRKwBsSQMiLLm+TlOcwdzhcgdKj6E0wvOkOe020Hm9JQaNGuWWr+l82361T5eoI+xwCmQ22J4eiIDJzX3gYiXCD7RJowx+jg8DEcujFNR/7bip6TdNZv6bphEkNPwNZKWdQ1Wynhx3OQoFMecn2BRrpB0riv/nvddMXMDglntWR88RR5pADcgh1V4qtRddFWz2eHbH3ihD/UWNZLw2GoKCoiQuH/hIr8+mI6Q
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 16:04:03.9203
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2ac9b37-a188-4d79-f9e8-08df23c37187
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CF.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6932
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_090410_813824_0D7E4C8D 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,143 +134,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/10/2026 00:50, Andre Przywara wrote:
-> On Tue, 29 Sep 2026 10:42:29 +0200
-> Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
-> Hi Krzysztof,
-> 
-> thanks for the review!
-> 
->> On Sat, Sep 26, 2026 at 12:51:10AM +0200, Andre Przywara wrote:
->>> There are four clock controllers in the A523 SoC, but only three are
->>> described in the DT binding so far.
->>>
->>> Add a description for the CPU CCU, which provides separate clocks for
->>> the two CPU clusters and the DSU interconnect.
->>>
->>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>> ---
->>>  .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
->>>  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
->>>  2 files changed, 50 insertions(+), 1 deletion(-)
->>>  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
->>>
->>> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
->>> index 58be701a720ea..8d5481fb63ae8 100644
->>> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
->>> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
->>> @@ -19,6 +19,7 @@ properties:
->>>    compatible:
->>>      enum:
->>>        - allwinner,sun55i-a523-ccu
->>> +      - allwinner,sun55i-a523-cpu-ccu
->>>        - allwinner,sun55i-a523-mcu-ccu
->>>        - allwinner,sun55i-a523-r-ccu
->>>  
->>> @@ -35,12 +36,23 @@ properties:
->>>  
->>>  required:
->>>    - "#clock-cells"
->>> -  - "#reset-cells"
->>>    - compatible
->>>    - reg
->>>    - clocks
->>>    - clock-names
->>>  
->>> +if:
->>
->> This goes to the allOf block.
-> 
-> OK.
-> 
->>> +  properties:
->>> +    compatible:
->>> +      contains:
->>> +        const: allwinner,sun55i-a523-cpu-ccu
->>> +then:
->>> +  properties:
->>> +    "#reset-cells": false
->>> +else:
->>> +  required:
->>> +    - "#reset-cells"
->>> +
->>>  allOf:
->>>    - if:
->>>        properties:
->>> @@ -64,6 +76,30 @@ allOf:
->>>              - const: iosc
->>>              - const: losc-fanout
->>>  
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          enum:
->>> +            - allwinner,sun55i-a523-cpu-ccu
->>> +
->>> +    then:
->>> +      properties:
->>> +        clocks:
->>> +          items:
->>> +            - description: High Frequency Oscillator (usually at 24MHz)
->>> +            - description: Low Frequency Oscillator (usually at 32kHz)
->>> +            - description: Internal Oscillator
->>> +            - description: Peripherals PLL 0 (1200 MHz output)
->>> +            - description: Peripherals PLL 0 (600 MHz output)
->>> +
->>> +        clock-names:
->>> +          items:
->>> +            - const: hosc
->>> +            - const: losc
->>> +            - const: iosc
->>> +            - const: pll-periph0-2x
->>> +            - const: pll-periph0-600m
->>> +
->>>    - if:
->>>        properties:
->>>          compatible:
->>> diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
->>> new file mode 100644
->>> index 0000000000000..042f2310f64de
->>> --- /dev/null
->>> +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
->>
->> Filename should match compatible.
-> 
-> Is that a new requirement? We never did this for the Allwinner clock or
-> reset bindings, all headers are named like sun<x>i-<soc>-<name>-ccu.h.
+Hi Krzysztof,
 
-I say EXACTLY the same thing for ~4 years, so yes. New requirement since
-4 years. Allwinner for sure received same feedback already.
-
-> And I think especially since we have sun55i-a523-mcu-ccu.h and
-> sun55i-a523-r-ccu.h, I think we should stay consistent, at least for
-> the existing SoCs.
+On 10/2/26 11:34, Krzysztof Kozlowski wrote:
+> On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
+>> +  clock-output-names:
+>> +    description: |
+>> +      CCK0 and CCK1 are optional output clocks, which share the same clock frequency,
+>> +      but can be gated independently to save power.
+>> +    minItems: 1
+>> +    maxItems: 2
+>> +    oneOf:
+>> +      - items:
+>> +          - const: cck0
+>> +      - items:
+>> +          - const: cck1
+>> +      - items:
+>> +          - const: cck0
+>> +          - const: cck1
 > 
->>> @@ -0,0 +1,13 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
->>> +/*
->>> + * Copyright 2025 Arm Ltd.
->>> + */
->>> +
->>> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
->>> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
->>> +
->>> +#define CLK_CPU_L		7
->>
->> Indices start from 0 or 1
+> Use simpler notation:
+> minItems: 1
+> items:
+>    - enum
+>    - const
 > 
-> This is also something very common for Allwinner clocks: the CCU has
-> clocks that are not exposed to the DT, because they are internal
-> clocks we need to model the clock tree. We number them logically,
+>> +
+>> +  clock-frequency:
+>> +    description: |
+> 
+> Drop | when not needed.
+> 
+>> +      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
+>> +      The frequency must be a multiple of the "ker_ck" clock frequency.
+>> +    maximum: 25000000
+> 
+> So here is the clock-frequency. No, these are output clocks as written
+> above, so consumer sets it, not the provider. Or use existing assigned
+> properties. This is even mentioned on DTS101 slides, really...
+> 
 
-They are not ABI thus do not create impression they should be and you
-prepare some placeholder for them.
+We expect the clock frequency to be defined statically for a given board 
+So, using assigned-clocks properties looks the right choice.
+What bothers me about this solution, is that the frequency will be 
+defined in each consumer, whereas a single rate can be defined for the 
+provider. This may looks a bit strange, but I will implement it this way 
+if there is no other mean to set the provider frequency.
 
-These are not IDs of your clocks in the hardware. This is only the ABI.
 
-Again, same feedback I repeat for 4 years.
+> Best regards,
+> Krzysztof
+> 
 
-Best regards,
-Krzysztof
+Best regards
+Olivier
 
