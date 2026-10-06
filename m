@@ -4,76 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F57CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FF3CA5FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 13:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aORWrrYiau9nBiAET4qmNmZF/ZrjtguWjgS7RHqdzes=; b=No+NVkz1dtm7fWZN42FmC2PxCz
-	kDm09ffcV7Oytgy6cfo41B0Q3wBFiFMIjwj+f6KGWZv1AZs/vkw/T18BYGOlShFMXrkpzXo15PC9U
-	1wfhA/7ZC2DQtyBulFRDGYvOyZHVgj/nZjjNrZFTfJpO3C/ufqfjMlxrKaeRCvCL7UnGG7ui0OnUD
-	rDTgPS0ykAjPPXq7XEmapIFweFn/bByA90c/741YD0COhxBwhg3nRcXfGsg1cmvTH/MHeVZR5xcrx
-	WH0OCjuySDPPj667hdnVq14/sClZiuZH0olSRV4CJG9DSXyngk25zQDPEDC6qX25wyvPa99ZfnUO4
-	Td4RuoBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Jwq2QTDrmq5atWwosgRrokgPC2wDfHBEMzGkLf8Eos=; b=hgu8Q7/F4ZTbQMYkLjg0E8QgdC
+	cRbFus47FcJbmhY5W2kW+wkvxpKZCjtcXw42/oj9HngKbHOrDvYX7HKAcGpALrr2OjfVDDXCTRTUN
+	gWQ9gJce197QwuY7p63zIkrdHRKuKkQzDWucZbYENzD3hClz0bV6dNjNwsjByLLR0qhsfsDJlYTIp
+	YzU3ASz1CCXyaW2j6dDHW4D8lm+MnILS4B3uFgrWYzw5SGmerou/f/aON47BJchQRMfvleOjWRl8L
+	W8FqayiVKUD5e7YycC+rSU+pr+K4Vue1ZQVh6lMZdDKkOfn5Wiq5vjpZ00J3uxafEdbesKH4xI3VJ
+	sGPSzEzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5a3-00000000u6o-48Pd;
-	Tue, 06 Oct 2026 13:51:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xE5dv-00000000ucu-0tcz;
+	Tue, 06 Oct 2026 13:55:43 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE5Zt-00000000u1K-2wWC
+	id 1xE5ds-00000000uc2-13tv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 13:51:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791294699; x=1822830699;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=sfZW1sp/+I/X2jnKWVibfJmwwHPDxWZL6ZF8X8ic0SU=;
-  b=cvnOvA3+wBFztEXGT013t0iRKrLZxmxykvGw71No2eWQQbKjo6IIAgWV
-   BIbgJE+NicgmVrzMdpauwlUiBYxHs/VyRzoBqlaMjAj3jHbzycbDge0EO
-   bYvzhNoBJdkLYMcPfF1+KpkZV7w1ntG/WvhCG7PcDV+v+60Tf96E7qyv9
-   XdkEqx9sFd/8fsZnINno+hbD57LnWKbz7d1IvTRFnSdjTQBV+GSGThKQn
-   ljBoSL2TXZrvtKiLNlGQTnuyqDBF47peOg//2c94HHDy5u5zI4ByXfO+7
-   IPAvjWSzMae6++THtYVlw7g/2GgyfS5Wwdy5uYawYWm28/KN7RbGzOwyd
-   Q==;
-X-CSE-ConnectionGUID: hewJWGQTS5O9xXPqEvEXHA==
-X-CSE-MsgGUID: fnNPlealSr+r/KCqDWew/A==
-X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="64936505"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Oct 2026 06:51:38 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 6 Oct 2026 06:51:32 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 6 Oct 2026 06:51:29 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Tue, 6 Oct 2026 15:51:08 +0200
-Subject: [PATCH net-next 3/3] net: sparx5: Add TAS offload support
+	Tue, 06 Oct 2026 13:55:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qo6Ni2o6uPC7sW4Gy2Lm4s17XrKavvR7O4zobJURP+GhmnZmF6kMuYU4GgoTXqoIcSa9DJ4HsrRzU+Iqnx/mSc72CtRpdI9odqhqOReGLhiYNWmxgkNWYhsQOLF0FaHk+Fz0272JogDl2YyyhjzL6CpGaUvQIR22pq2MeUhvX0m3L1O2PSikjVIU4p9Kp50p62Dj8vcCAglHffzbVaepQ4w+QnwgOELKd/v2zMaMPKiC8eULzu8OBhsOX2aI6Ob7lWOqzOsq/IRIbZG0SSJo+DCG6wk+A2OaYfhb6KVCq3BWFMwMwcVxp732tk+YRNOuApPUjafZaqW+uJVOb6Gn5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Jwq2QTDrmq5atWwosgRrokgPC2wDfHBEMzGkLf8Eos=;
+ b=yhKO2YEIzASFtW85un0oy1JK8rngsz3CV26voBBl4RjWUL/yZO51CESCGbrw39xLfhd+x1VKa9WnUhnRTanT2Q21swBw3qLI3XJKjBTDn6toHO8YEulgETiffIe7XihWu2AlLXH19n2lrH/gz3zpS1gzn5emh0WdPubo356AzyT8oY3VSsPmlWELTLJS4x+tAnn8yjrO+WtlSsaSDzgHTNgWmsc0BXc8D8oJpQtXm65UnkJd2+XxcldYISDHhyFS+5RY9stf6tlOs8C6fpS4zmelqGW79BjuQALRCMbFm0DB+tqVFAT1xawoxYZDOMWFvuTc6pyV5xZSr4xW9sPjnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/Jwq2QTDrmq5atWwosgRrokgPC2wDfHBEMzGkLf8Eos=;
+ b=LvxE3/+CyJ/Vacc9Fd3rAHBYM+U3sJ5Xh9DMGcSskqJEHTnVw/QusP01y+zmfVZ5gltAzNDj/PtcKdu5qq9LEbXTj7vgwlUpcNjxJxC0OGrd9grDFpUcykzWnrniNA0mZHVA+NuBSthLX69VGKbuDVsqXRHuy7N7bS1/LaEZpWL+izU5JZQFVfEDAIwMC2n1rUbGbHUSIMwFg7iBzaldb8UbzXQAmH34wGMp2k7j/DO7u2sl4pICZVwg7FMMnSsDy7ArvMHbQYv8yD+AmBZECF7UBsLAWsYsGkXwWqWI2wjiFhQro0OvjSOVYHqpkz7jSDbi7IsfXda5xzYc1MT2Lg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9244.eurprd04.prod.outlook.com (2603:10a6:20b:4e3::9)
+ by GV2PR04MB11238.eurprd04.prod.outlook.com (2603:10a6:150:27c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
+ 2026 13:55:28 +0000
+Received: from AS4PR04MB9244.eurprd04.prod.outlook.com
+ ([fe80::adaf:805c:51c5:9538]) by AS4PR04MB9244.eurprd04.prod.outlook.com
+ ([fe80::adaf:805c:51c5:9538%6]) with mapi id 15.21.0472.016; Tue, 6 Oct 2026
+ 13:55:28 +0000
+Message-ID: <577b34a1-4c2f-487d-a4fa-e7ede2b60091@nxp.com>
+Date: Tue, 6 Oct 2026 16:55:25 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: Re: [RFC PATCH 6/8] media: i2c: ov2312: add Omnivison OV2312
+ driver
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, tomi.valkeinen@ideasonboard.com,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com, kristo@kernel.org,
+ mripard@kernel.org, jai.luthra@linux.dev, jai.luthra@ideasonboard.com,
+ devarsht@ti.com, y-abhilashchandra@ti.com, laurent.pinchart@ideasonboard.com
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
+ <20260925133001.2780868-7-r-donadkar@ti.com>
+ <e469d168-39f9-448c-a7ab-5d02b79d8cb8@nxp.com>
+ <asSk9KW-lzuiUJa3@kekkonen.localdomain>
+Content-Language: en-US
+From: Mirela Rabulea <mirela.rabulea@nxp.com>
+In-Reply-To: <asSk9KW-lzuiUJa3@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM8P189CA0030.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:218::35) To AS4PR04MB9244.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e3::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261006-sparx5-tas-v1-3-5eef1126dfd5@microchip.com>
-References: <20261006-sparx5-tas-v1-0-5eef1126dfd5@microchip.com>
-In-Reply-To: <20261006-sparx5-tas-v1-0-5eef1126dfd5@microchip.com>
-To: Daniel Machon <daniel.machon@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Richard Cochran <richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9244:EE_|GV2PR04MB11238:EE_
+X-MS-Office365-Filtering-Correlation-Id: 380be23b-02da-4a3a-c33a-08df23b17a84
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|19092799006|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 3GNkR0ngHhF7Y2UvUrdLQxMN4Aw7XNvGtNN7HEzL8vMnVbh8i5a7aqGfAflRve72p+T60FcMQvkskLUfdBoGvMLLUe75gXUtLsEk8fGWRWkvilXSf9wvfHupGAv3uiWq9tTZf8j/d4qlRKcOst4olCGr6V5RByZ4KG3v6SlstFVOervjVyRYOjYGmsxmn8QEkmiyY1HEvMkxwy3H6sUHHbZPr6uFcnaQ3hMggN4FZ/Q3GREyH9yfxhuo2f8jkglCaGmBeWkknWjaxPWQByw3Pmmdvo5YlCjDaENMogOWp/kY0Ts07iO1cjT5pHWLmWaGu9XPmn7M7m10YYMofF2MzEj8Etw4QUhUuOmSAfG0o5DB6nwdd5LK2aqoVNBDNcKhu9EGJZKx0fW5yI+mu4EXMFJ9gGZRZkI1MgjjLNlhN1jOE9dcpFOMMpmahsKAiN6i01qSdchfsN31WlyWp6a6sIWXnNqAfJLW6ZKIa6mmp+ijsA9WbVijvwvpjCTEwOiMFoedDv90INwiRdjcuyMPiCm0YdQsolFQWBOZhfEetvKHHJF93pZp0DghUbmMUdZjh+ceNH6XZfW5IQKm05L4dJOoaYvOODgY9hxSrGhG4fZ2C/663Ui9ztp1qTeBQcuXDFsEdi8nzcm83dzPrKiE6Zf/6m2CXvWHygOaX8HEgg8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9244.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(19092799006)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TlVHTm1iV1pvUUwrdGMzSFk1b0RBdDFObHNEU2hmeW0vYkdxN2hjb3pVUjg4?=
+ =?utf-8?B?NUtESjlzWUZoRWNXRU9mRTFXbWZ1dzA3VXo4ZFNmRG9Vb2FFb2E5b2xDOWNB?=
+ =?utf-8?B?S3FyeHlERHZGOS84L0hnNS94RDZXbXk3MnhmY2U3VzUwYitUOFR2VG9qVk1w?=
+ =?utf-8?B?Y0djVWUrNlEySnE0TFNQVFM0U3plY29hb29ZcDhsSFVoRmE3SThHWmhwU2ln?=
+ =?utf-8?B?SVVkdVRBZ2ZDRnBjeDVuMC8zZUlNTlRiTGttMzJwVFpSYXV6OGpWWWFZaWNl?=
+ =?utf-8?B?a05aRGIvU3IxMHlLbGsvRjNKSWpmYVFSQzl5QVk3QmFHMUxxWlBQQlRRaUhv?=
+ =?utf-8?B?dEQxUFZDSXp1Y3pBZEc1bFdqSXVCZVdPZnorQjRFcGhUL2RGMFlVbXFxalEr?=
+ =?utf-8?B?dWI0QW11aWFUb1pkMWhpeXZBMVRTZk42dmUyaUJFTUNvZ2VYTkNGZmFPQmN6?=
+ =?utf-8?B?dnEwZGtCS0M1Q0YyRmpMVzdFSTJzNXRJaVJnNmpsS2l5MGZycSt2WlA1cEJ3?=
+ =?utf-8?B?eHVjMTdtYzVVL3J1WmpSTXFwYjFlSlZYcjNydHJFa09GMkFJRHIxWE1VOWUr?=
+ =?utf-8?B?cWZDOE9FU1ppK2R2Zmd3cWIxS1I2d0V3NWdXUDVCZmZWVWlVa3h2YzVTa3J2?=
+ =?utf-8?B?ZXNKYk43OVRyVlNHM0dxWWQ4NlQvS2dGQWZ2NVFXTHN2dGUyRkJzcnRXOCtL?=
+ =?utf-8?B?eVl2amRnaEIrVHI1TGRIa1ZVUDZaL1QwZks5VW9wRTVlMm1JSytiSWRqU2VK?=
+ =?utf-8?B?MDBOWHpZOVlYTExhOTZIOVNZN0w2N0pSSWVIZ0c4dmhvNUt4eVhWcmw2T0Mw?=
+ =?utf-8?B?LzlUTUticVpNcEtJZWRIYWtCVjIwYTdTUmh4Y2F0NWU1TmV1NFo5czlRT0FZ?=
+ =?utf-8?B?TXFWZEZ6UVBXVFNtWXdUQldHWW51UmNxWlpQbEZkck9KdTMxNWw0NHJZUzZL?=
+ =?utf-8?B?anNNbE5WSWtrT21Id1JHN3hyMkJmRXJLSWh4ckhnZGRVNWUwajFXNy9vKzdm?=
+ =?utf-8?B?ZkpQMkRNRnhUNHZYMXNheVdHVnNNSGwybUpUc2hpc0NNYlZQMHllSDE3ZWZ4?=
+ =?utf-8?B?SzZ0SkdRRkwyMUdrb1pNQzdFWVBlUjBUMEFsazR1dENXU3liMG96akh0MWdJ?=
+ =?utf-8?B?L29Ickt5R3ZvTmEwSm8wcVJ6NlRCL0t0WENOUlRTdHZWVGFCSlkrS1pMNEYz?=
+ =?utf-8?B?TTJYWUV6Nis4djlqU1lkQlI4MXJwUGlHbFBrVlgzckFSWTJ5dkdoU1hQYmd1?=
+ =?utf-8?B?Z1pMRHVKSU5ibXJkZFV0Yk16SVZ1amI3ZUNSdi9BaG1qdEVIRVFmNFM1UlZY?=
+ =?utf-8?B?WlcrSmZKaDBQaG1PN0xMY3JJRTVxMGRITzlucnd4WFprcnRUek9SZ250ZG1N?=
+ =?utf-8?B?UkRaZ1VzWVdmOFBmcTJzSUJkRlpvclcwM3l5UnlVQzNTQU9JQWVIbjBzLzZu?=
+ =?utf-8?B?cHVhOFViM0FtT1REWXpXOHFLZXFvUDlrR1NUYW51OW9rZkRHbjVJazEwb3JP?=
+ =?utf-8?B?bXBLNG9IbWVHQ0dET0d0OWN3VExEeG5GSjZ3YWpFZDNxSWRQVFBsZUg5dlJ2?=
+ =?utf-8?B?MmdDcGE5VUhKMEpOZXBuMGd2RzhNbk9nQ1Y4b2pPYlh1QnNreWNiY3VhUnNV?=
+ =?utf-8?B?VjdKdjc2UU1rRHlScjgxdFVEQXI3RHdmRXhoZzZPbzdiaWhmZ2FBRmk5bHdi?=
+ =?utf-8?B?SjkrQlBBN3V2WXhKWisyZzd4T1hrZTJFbCtwQ0JscVd4cVlyNjZocnhFb3hm?=
+ =?utf-8?B?L0dTYlpRcGhEcGdLb1U1ZDRodWxhNGMxZ2RBbFdVNGk4RkVZT0YrSkJjeXFU?=
+ =?utf-8?B?NUtJU0JJK0ozanhienZJcFlZTXFpOEIwMmVrTDlNRkQxS2xJUEsvaW9GRVdK?=
+ =?utf-8?B?WW5aSFNhNEZTbVM2d3AwR1UvSFAxclArSDczTlVNZmkxRHdMR3lmT1NYR25w?=
+ =?utf-8?B?akFHZnl4anc4ekpEZXNOeSttVDdnNUFXTmRENGd3UlhUQzFFU24vbmF4ZzVh?=
+ =?utf-8?B?Mktzb0tIRGdYWjdqcGxxZlVlbU9yZ3dIaWY2M20zM2I4M0hyYlU4WFZQaWF5?=
+ =?utf-8?B?b1lMRys4Qm84RnZCY24rRjd5RDZ4aW44QkpqNElHRHhyVUpKdUFaVHc3cklD?=
+ =?utf-8?B?djcrNnc1anQ0cHRTZThvbEV5MCtkejZYcUJGU1BkRjZ4cE9SakJPVk8xUUVZ?=
+ =?utf-8?B?SGR5MGt1RHZyVTNZQXlYbHhRdCtDRWJka0RYbUdWelBFLytFY2UzaWZaQTNI?=
+ =?utf-8?B?QXJtc1NTQXNrT1M4SklXeXhoWjJjTHdsZlp2YmdnVUdZQW1wWGtLcnZBOTJs?=
+ =?utf-8?B?cEptR1IwUWlNNWJvRlhtaitQYTFaVVdzOUVGbkwyazRoMWRHWnFpZz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 380be23b-02da-4a3a-c33a-08df23b17a84
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9244.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 13:55:28.5201
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nqF0WK5lDIQjq5wa9lbXsQ8j1BqwFGSJOYzoZjz/QBu8R20yVDerxcWxI5upN4AxDtqyWb2WNZ5tknSXAl/3/g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_065134_226918_EB9F71F7 
-X-CRM114-Status: GOOD (  39.98  )
+X-CRM114-CacheID: sfid-20261006_065541_278211_328EC52B 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,946 +154,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Time Aware Shaper (TAS, IEEE 802.1Qbv) opens and closes the gates
-of a port's egress queues according to a repeating schedule, so that
-traffic classes are only sent in their own time windows.
+Hi Sakari,
 
-In hardware, a schedule is run by a TAS list, which steps through gate
-control list (GCL) entries taken from a pool shared by all ports. A
-list is started with a base time, and it can stop another list when it
-takes over, which allows a schedule to be replaced without a gap.
+On 10/6/26 10:36, Sakari Ailus wrote:
+> Hi Mirela,
+>
+> On Fri, Oct 02, 2026 at 07:16:11PM +0300, Mirela Rabulea wrote:
+>> Laurent, Hans, Sakari,
+>>
+>> did you encounter similar situations? Any comments or proposals? The concern
+>> here, to summarize, is: v4l2 control cannot be committed to sensor registers
+>> right away (even when streaming) and we are also unsure when the right
+>> moment to perform the register access may come.
+> In practice there's little the kernel overall can do about this: the timing
+> of everything is handled by the userspace. Drivers that aren't directly in
+> control of the data path don't even have frame timing information and even
+> if we did pass that to drivers, I²C writes always have some uncertainty
+> (system scheduling, I²C access failures etc.), so one needs to be prepared
+> to failing to do the writes in time, which would further complicate the
+> UAPI.
 
-Add TAS offload for sparx5 and lan969x, configured through tc-taprio.
-Use two TAS lists per port, so that a new schedule can be programmed in
-one list while the other is operating. Allocate the GCL entries of a
-schedule from the shared pool, and free them once their list is back
-in ADMIN. On lan969x, program the GCL as a linked list and address its
-entries by absolute index rather than relative to the list base.
+On the kerne side, what would help would be a way to make an atomic 
+operation out of an i2c read (the status register to determine the 
+active context) plus a group hold update (a few i2c register writes). I 
+don't know if that is possible.
 
-sparx5 has 128 TAS lists for 65 ports, so with every port present the
-last port gets no TAS offload.
+On the v4l2 API side, I believe the current expectation is that upon 
+s_ctrl, if the value was accepted by the kernel, it will return success, 
+but user-space should not assume frames will immediately reflect the new 
+values.
 
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   2 +
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |   2 +
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  25 +
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |   4 +
- drivers/net/ethernet/microchip/sparx5/sparx5_tas.c | 750 +++++++++++++++++++++
- drivers/net/ethernet/microchip/sparx5/sparx5_tc.c  |  17 +
- 6 files changed, 800 insertions(+)
+Traditionally, with drivers I have seen so far, if s_ctrl is applied 
+while streaming, it is applied immediately (but fail in case of i2c 
+access failure). Upon success, captured frames will reflect the values 
+after N+1 or N+2.
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-index f3a9c71bea36..c02499d1b297 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-@@ -318,6 +318,8 @@ static const struct sparx5_consts lan969x_consts = {
- 	.n_gates             = 256,
- 	.n_sdlbs             = 496,
- 	.n_dsm_cal_taxis     = 5,
-+	.n_tas_gcl           = 3000,
-+	.n_tas_lists         = 60,
- 	.buf_size            = 1572864,
- 	.qres_max_prio_idx   = 315,
- 	.qres_max_colour_idx = 323,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index b530fb6d3d0c..e039f5369b95 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -1064,6 +1064,8 @@ static const struct sparx5_consts sparx5_consts = {
- 	.n_gates             = 1024,
- 	.n_sdlbs             = 4096,
- 	.n_dsm_cal_taxis     = 8,
-+	.n_tas_gcl           = 10000,
-+	.n_tas_lists         = 128,
- 	.buf_size            = 4194280,
- 	.qres_max_prio_idx   = 630,
- 	.qres_max_colour_idx = 638,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index 41e0597a8d48..8dc3a500c1c9 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -108,6 +108,7 @@ enum sparx5_feature {
- #define SPX5_PRIOS             8     /* Number of priority queues */
- #define SPX5_BUFFER_CELL_SZ    184   /* Cell size  */
- #define SPX5_BUFFER_MEMORY     4194280 /* 22795 words * 184 bytes */
-+#define SPX5_TAS_ENTRIES_PER_PORT 2 /* TAS lists per port */
- 
- #define XTR_QUEUE     0
- #define INJ_QUEUE     0
-@@ -236,6 +237,11 @@ struct sparx5_port {
- 	struct sk_buff_head tx_skbs;
- 	bool is_mrouter;
- 	struct list_head tc_templates; /* list of TC templates on this port */
-+	/* TAS GCL entries owned by each of the port's two TAS lists. */
-+	struct {
-+		int gcl_base;
-+		int gcl_count;
-+	} tas_lists[SPX5_TAS_ENTRIES_PER_PORT];
- };
- 
- enum sparx5_core_clockfreq {
-@@ -316,6 +322,8 @@ struct sparx5_consts {
- 	u32 n_gates;             /* Number of PSFP gates */
- 	u32 n_sdlbs;             /* Number of service dual leaky buckets */
- 	u32 n_dsm_cal_taxis;     /* Number of DSM calendar taxis */
-+	u32 n_tas_gcl;           /* Number of TAS gate control list entries */
-+	u32 n_tas_lists;         /* Number of TAS lists */
- 	u32 buf_size;            /* Amount of QLIM watermark memory */
- 	u32 qres_max_prio_idx;   /* Maximum QRES prio index */
- 	u32 qres_max_colour_idx; /* Maximum QRES colour index */
-@@ -374,6 +382,8 @@ struct sparx5 {
- 	void __iomem *regs[NUM_TARGETS];
- 	int port_count;
- 	struct mutex lock; /* MAC reg lock */
-+	struct mutex tas_lock; /* Time Aware Shaper lock */
-+	unsigned long *tas_gcl_bitmap; /* Allocated TAS GCL entries */
- 	/* port structures are in net device */
- 	struct sparx5_port *ports[SPX5_PORTS];
- 	enum sparx5_core_clockfreq coreclock;
-@@ -708,6 +718,21 @@ void sparx5_new_base_time(struct sparx5 *sparx5, const u32 cycle_time,
- 			  const ktime_t org_base_time, ktime_t *new_base_time);
- 
- /* sparx5_tas.c */
-+/* TAS list states, mirrors the HSCH_TAS_LIST_STATE_LIST_STATE HW field */
-+enum sparx5_tas_state {
-+	SPX5_TAS_STATE_ADMIN,
-+	SPX5_TAS_STATE_ADVANCING,
-+	SPX5_TAS_STATE_PENDING,
-+	SPX5_TAS_STATE_OPERATING,
-+	SPX5_TAS_STATE_TERMINATING,
-+	SPX5_NUM_TAS_STATE,
-+};
-+
-+int sparx5_tas_init(struct sparx5 *sparx5);
-+struct tc_taprio_qopt_offload;
-+int sparx5_tas_enable(struct sparx5_port *port,
-+		      struct tc_taprio_qopt_offload *qopt);
-+int sparx5_tas_disable(struct sparx5_port *port);
- void sparx5_tas_speed(struct sparx5_port *port, int speed);
- 
- /* sparx5_mirror.c */
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-index e580670f3992..7370533243b6 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-@@ -457,6 +457,10 @@ int sparx5_qos_init(struct sparx5 *sparx5)
- 	if (ret < 0)
- 		return ret;
- 
-+	ret = sparx5_tas_init(sparx5);
-+	if (ret)
-+		return ret;
-+
- 	sparx5_psfp_init(sparx5);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-index 3637d4b48ad6..ec80bc69371a 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
-@@ -4,7 +4,10 @@
-  * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
-  */
- 
-+#include <net/pkt_sched.h>
-+
- #include "sparx5_main.h"
-+#include "sparx5_qos.h"
- 
- enum sparx5_tas_link_speed {
- 	TAS_SPEED_NO_GB,
-@@ -17,6 +20,753 @@ enum sparx5_tas_link_speed {
- 	TAS_SPEED_25000,
- };
- 
-+/* Maximum time in milliseconds to wait for TAS state transitions. */
-+#define TAS_TIMEOUT_MS 2000
-+
-+/* Minimum supported cycle time in nanoseconds */
-+#define TAS_MIN_CYCLE_TIME_NS (1 * NSEC_PER_USEC) /* 1 usec */
-+
-+/* Maximum supported cycle time in nanoseconds */
-+#define TAS_MAX_CYCLE_TIME_NS ((1 * NSEC_PER_SEC) - 1) /* 999.999.999 nsec */
-+
-+/* STARTUP_TIME in units of 256 ns, must be non-zero for a list to start */
-+#define TAS_STARTUP_TIME_DEFAULT 8
-+
-+/* We use 2 TAS lists per present port, as far as the chip has lists:
-+ * num_tas_lists = min(port_count * SPX5_TAS_ENTRIES_PER_PORT, n_tas_lists);
-+ *
-+ * The index for the 2 entries of the n'th present port is calculated as:
-+ * index_1 = n * SPX5_TAS_ENTRIES_PER_PORT;
-+ * index_2 = index_1 + 1;
-+ *
-+ * GCL entries are allocated from a bitmap shared by all ports and sized to the
-+ * chip's GCL pool. Each list records the range it owns. The range is freed
-+ * once hardware reports the list back in ADMIN, which for a list obsoleted by
-+ * a replace happens some time after the replace itself. Entry 0 is reserved:
-+ * unwritten NEXT_GCL fields read as 0, so a list must never own it.
-+ *
-+ * We use 1 TAS profile per port, shared by both of its lists:
-+ * index = portno;
-+ *
-+ * We do not yet support frame preemption and the default guard band
-+ * of 1536 bytes is always used on all queues.
-+ *
-+ * The gate mask of each entry is written as is to the port's 8 queues,
-+ * where bit n gates queue (QoS class) n. The mqprio parameters of the
-+ * taprio qdisc (prio_tc_map, queue ranges) are not used, so a schedule
-+ * must use 8 traffic classes mapped 1:1 to the queues, as with the
-+ * mqprio offload. Other values of num_tc are rejected.
-+ *
-+ * These are the possible combinations of states for the two TAS lists in a
-+ * running system.
-+ *
-+ * ADMIN/ADMIN: No schedules are currently operating or pending.
-+ *
-+ * ADMIN/PENDING: No schedule is currently operating but one is pending and
-+ * when current time exceeds the configured base time it will automatically
-+ * enter the OPERATING state. The state is now ADMIN/OPERATING.
-+ *
-+ * ADMIN/OPERATING: A schedule is currently operating and will run until it is
-+ * terminated manually.
-+ *
-+ * OPERATING/PENDING: A schedule is currently operating and another is
-+ * pending. When current time exceeds the configured base time for the
-+ * pending schedule it will automatically stop the operating schedule and
-+ * enter the OPERATING state. The state is now ADMIN/OPERATING.
-+ *
-+ * When we want to disable TAS on a port, we must stop schedules that are in
-+ * state PENDING or OPERATING.
-+ * Pending schedules are stopped first and then operating schedules.
-+ * The gate state for the port must be restored to "all-queues-open" manually
-+ * in case the schedule was stopped with one or more of the queues closed.
-+ *
-+ * When we add a schedule we always use a base time in the future, where base
-+ * time is at least current time + (2 * cycle time). This is a requirement
-+ * from the hardware. This means that a schedule will always start in state
-+ * PENDING. It also means that we always use the new schedule to stop an
-+ * eventually operating schedule.
-+ *
-+ * When we want to add a new schedule we must consider the current state of
-+ * the two TAS list entries:
-+ *
-+ * ADMIN/ADMIN: Just add the new schedule in one of the TAS lists.
-+ *
-+ * ADMIN/PENDING: Stop the current pending schedule and add the new one.
-+ *
-+ * ADMIN/OPERATING: Add the new schedule in the TAS list that is currently in
-+ * admin state and configure it to stop the currently operating schedule when
-+ * current time exceeds the configured base time in the new schedule.
-+ *
-+ * OPERATING/PENDING: Stop the current pending schedule, add the new one and
-+ * configure it to stop the currently operating schedule when
-+ * current time exceeds the configured base time in the new schedule.
-+ */
-+
-+/* Scheduler element index (HSCH_POS) for this port's per-port TAS gate,
-+ * i.e. its position at the layer-2 boundary of the scheduling hierarchy.
-+ */
-+static int sparx5_tas_scheduler_get(struct sparx5 *sparx5, int portno)
-+{
-+	if (is_sparx5(sparx5))
-+		return SPX5_HSCH_L0_SE_CNT + SPX5_HSCH_L1_SE_CNT + portno;
-+	else
-+		return 1120 + portno;
-+}
-+
-+static int sparx5_tas_list_index(struct sparx5_port *port, u8 tas_entry)
-+{
-+	const struct sparx5_consts *consts = port->sparx5->data->consts;
-+	int portno, pidx = 0;
-+
-+	/* Limit the index to available ports: the n'th present port uses
-+	 * lists 2n and 2n + 1, so the lists of all ports fit in
-+	 * port_count * SPX5_TAS_ENTRIES_PER_PORT.
-+	 */
-+	for (portno = 0; portno < consts->n_ports; ++portno) {
-+		if (portno == port->portno)
-+			return (pidx * SPX5_TAS_ENTRIES_PER_PORT) + tas_entry;
-+		if (port->sparx5->ports[portno])
-+			pidx++;
-+	}
-+
-+	return 0;
-+}
-+
-+/* Number of TAS lists in use: two per present port, as far as the chip has
-+ * lists for. A port whose lists fall outside this range has no TAS.
-+ */
-+static int sparx5_tas_num_lists(struct sparx5 *sparx5)
-+{
-+	return min_t(int, sparx5->port_count * SPX5_TAS_ENTRIES_PER_PORT,
-+		     sparx5->data->consts->n_tas_lists);
-+}
-+
-+static bool sparx5_tas_port_has_lists(struct sparx5_port *port)
-+{
-+	return sparx5_tas_list_index(port, SPX5_TAS_ENTRIES_PER_PORT - 1) <
-+	       sparx5_tas_num_lists(port->sparx5);
-+}
-+
-+static const char *sparx5_tas_state_to_str(int state)
-+{
-+	switch (state) {
-+	case SPX5_TAS_STATE_ADMIN:
-+		return "ADMIN";
-+	case SPX5_TAS_STATE_ADVANCING:
-+		return "ADVANCING";
-+	case SPX5_TAS_STATE_PENDING:
-+		return "PENDING";
-+	case SPX5_TAS_STATE_OPERATING:
-+		return "OPERATING";
-+	case SPX5_TAS_STATE_TERMINATING:
-+		return "TERMINATING";
-+	default:
-+		return "??";
-+	}
-+}
-+
-+static void sparx5_tas_select_list(struct sparx5 *sparx5, int list)
-+{
-+	spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_SET(list),
-+		 HSCH_TAS_CFG_CTRL_LIST_NUM,
-+		 sparx5,
-+		 HSCH_TAS_CFG_CTRL);
-+}
-+
-+static int sparx5_tas_list_state_get(struct sparx5 *sparx5)
-+{
-+	return HSCH_TAS_LIST_STATE_LIST_STATE_GET(spx5_rd(sparx5,
-+							  HSCH_TAS_LIST_STATE));
-+}
-+
-+static int sparx5_tas_gcl_alloc(struct sparx5 *sparx5, int count)
-+{
-+	u32 n_gcl = sparx5->data->consts->n_tas_gcl;
-+	unsigned long base;
-+
-+	base = bitmap_find_next_zero_area(sparx5->tas_gcl_bitmap,
-+					  n_gcl,
-+					  0,
-+					  count,
-+					  0);
-+	if (base >= n_gcl)
-+		return -ENOSPC;
-+
-+	bitmap_set(sparx5->tas_gcl_bitmap, base, count);
-+
-+	return base;
-+}
-+
-+static void sparx5_tas_gcl_free(struct sparx5_port *port, int slot)
-+{
-+	if (port->tas_lists[slot].gcl_count)
-+		bitmap_clear(port->sparx5->tas_gcl_bitmap,
-+			     port->tas_lists[slot].gcl_base,
-+			     port->tas_lists[slot].gcl_count);
-+
-+	port->tas_lists[slot].gcl_base = 0;
-+	port->tas_lists[slot].gcl_count = 0;
-+}
-+
-+/* Free the GCL entries of every list that hardware has returned to ADMIN */
-+static void sparx5_tas_gcl_flush(struct sparx5 *sparx5)
-+{
-+	struct sparx5_port *port;
-+	int i, j;
-+
-+	lockdep_assert_held(&sparx5->tas_lock);
-+
-+	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
-+		port = sparx5->ports[i];
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < SPX5_TAS_ENTRIES_PER_PORT; j++) {
-+			if (!port->tas_lists[j].gcl_count)
-+				continue;
-+
-+			sparx5_tas_select_list(sparx5,
-+					       sparx5_tas_list_index(port, j));
-+			if (sparx5_tas_list_state_get(sparx5) ==
-+			    SPX5_TAS_STATE_ADMIN)
-+				sparx5_tas_gcl_free(port, j);
-+		}
-+	}
-+}
-+
-+/* Request state 'req' (or only wait if 'req' < 0) on the selected list until
-+ * it reaches a state in the 'done' mask.
-+ */
-+static int sparx5_tas_list_state_wait(struct sparx5_port *port, int list,
-+				      int req, u32 done)
-+{
-+	struct sparx5 *sparx5 = port->sparx5;
-+	unsigned long end;
-+	int state;
-+
-+	/* Do not wait forever for the state change */
-+	end = jiffies + msecs_to_jiffies(TAS_TIMEOUT_MS);
-+	do {
-+		if (req >= 0)
-+			spx5_rmw(HSCH_TAS_LIST_STATE_LIST_STATE_SET(req),
-+				 HSCH_TAS_LIST_STATE_LIST_STATE,
-+				 sparx5,
-+				 HSCH_TAS_LIST_STATE);
-+
-+		state = sparx5_tas_list_state_get(sparx5);
-+		if (BIT(state) & done)
-+			return 0;
-+
-+		cond_resched();
-+	} while (!time_after(jiffies, end));
-+
-+	netdev_err(port->ndev, "Timeout switching TAS state %s in list %d\n",
-+		   sparx5_tas_state_to_str(state), list);
-+
-+	return -ETIME;
-+}
-+
-+/* Wait for hardware to bring the selected list back to ADMIN */
-+static int sparx5_tas_wait_admin(struct sparx5_port *port, int list)
-+{
-+	return sparx5_tas_list_state_wait(port, list, -1,
-+					  BIT(SPX5_TAS_STATE_ADMIN));
-+}
-+
-+static int sparx5_tas_shutdown_pending(struct sparx5_port *port)
-+{
-+	struct sparx5 *sparx5 = port->sparx5;
-+	int i, list, state, err;
-+
-+	for (i = 0; i < SPX5_TAS_ENTRIES_PER_PORT; i++) {
-+		list = sparx5_tas_list_index(port, i);
-+		spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_SET(list),
-+			 HSCH_TAS_CFG_CTRL_LIST_NUM,
-+			 sparx5,
-+			 HSCH_TAS_CFG_CTRL);
-+
-+		state = sparx5_tas_list_state_get(sparx5);
-+		if (state != SPX5_TAS_STATE_ADVANCING &&
-+		    state != SPX5_TAS_STATE_PENDING)
-+			continue;
-+
-+		err = sparx5_tas_list_state_wait(port, list,
-+						 SPX5_TAS_STATE_ADMIN,
-+						 BIT(SPX5_TAS_STATE_ADMIN));
-+		if (err)
-+			return err;
-+
-+		sparx5_tas_gcl_free(port, i);
-+	}
-+
-+	return 0;
-+}
-+
-+static int sparx5_tas_shutdown_operating(struct sparx5_port *port)
-+{
-+	struct sparx5 *sparx5 = port->sparx5;
-+	int i, list, state, err = 0;
-+	u32 sched;
-+
-+	sched = sparx5_tas_scheduler_get(sparx5, port->portno);
-+
-+	for (i = 0; i < SPX5_TAS_ENTRIES_PER_PORT; i++) {
-+		list = sparx5_tas_list_index(port, i);
-+		spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_SET(list),
-+			 HSCH_TAS_CFG_CTRL_LIST_NUM,
-+			 sparx5,
-+			 HSCH_TAS_CFG_CTRL);
-+
-+		/* A list being stopped still runs its gate operations until
-+		 * the end of its cycle, so wait for it before opening the
-+		 * gates.
-+		 */
-+		state = sparx5_tas_list_state_get(sparx5);
-+		if (state != SPX5_TAS_STATE_OPERATING &&
-+		    state != SPX5_TAS_STATE_TERMINATING)
-+			continue;
-+
-+		if (state == SPX5_TAS_STATE_OPERATING &&
-+		    sparx5_tas_list_state_wait(port, list,
-+					       SPX5_TAS_STATE_TERMINATING,
-+					       BIT(SPX5_TAS_STATE_TERMINATING) |
-+					       BIT(SPX5_TAS_STATE_ADMIN))) {
-+			err = -ETIME;
-+			continue;
-+		}
-+
-+		if (sparx5_tas_wait_admin(port, list)) {
-+			err = -ETIME;
-+			continue;
-+		}
-+
-+		sparx5_tas_gcl_free(port, i);
-+	}
-+
-+	/* Restore gate state to "all-queues-open". */
-+
-+	/* Select port n on layer 2 of Hierarchical Scheduler */
-+	spx5_wr(HSCH_TAS_GATE_STATE_CTRL_HSCH_POS_SET(sched),
-+		sparx5,
-+		HSCH_TAS_GATE_STATE_CTRL);
-+
-+	/* Set gate state to "all-queues-open" */
-+	spx5_wr(HSCH_TAS_GATE_STATE_TAS_GATE_STATE_SET(0xff),
-+		sparx5,
-+		HSCH_TAS_GATE_STATE);
-+
-+	return err;
-+}
-+
-+/* Find an ADMIN list for a new schedule, after stopping a pending one. An
-+ * operating list is returned in obsolete, to be stopped by the new list.
-+ */
-+static int sparx5_tas_list_find(struct sparx5_port *port, int *new,
-+				int *obsolete)
-+{
-+	int i, err, oper = -1, state_cnt[SPX5_NUM_TAS_STATE] = {0};
-+	struct sparx5 *sparx5 = port->sparx5;
-+	int state[SPX5_TAS_ENTRIES_PER_PORT];
-+	int list[SPX5_TAS_ENTRIES_PER_PORT];
-+	bool valid = false;
-+
-+	err = sparx5_tas_shutdown_pending(port);
-+	if (err)
-+		return err;
-+
-+	for (i = 0; i < SPX5_TAS_ENTRIES_PER_PORT; i++) {
-+		list[i] = sparx5_tas_list_index(port, i);
-+		spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_SET(list[i]),
-+			 HSCH_TAS_CFG_CTRL_LIST_NUM,
-+			 sparx5,
-+			 HSCH_TAS_CFG_CTRL);
-+
-+		state[i] = sparx5_tas_list_state_get(sparx5);
-+
-+		if (state[i] == SPX5_TAS_STATE_TERMINATING) {
-+			err = sparx5_tas_wait_admin(port, list[i]);
-+			if (err)
-+				return err;
-+			state[i] = SPX5_TAS_STATE_ADMIN;
-+		}
-+
-+		if (state[i] >= SPX5_NUM_TAS_STATE) {
-+			netdev_err(port->ndev,
-+				   "Invalid tas list state %u %u %d\n",
-+				   state[i], port->portno, i);
-+			return -EINVAL;
-+		}
-+
-+		if (state[i] == SPX5_TAS_STATE_OPERATING)
-+			oper = list[i];
-+
-+		state_cnt[state[i]]++;
-+	}
-+
-+	if (state_cnt[SPX5_TAS_STATE_ADMIN] == 2)
-+		valid = true;
-+
-+	if (state_cnt[SPX5_TAS_STATE_ADMIN] == 1 &&
-+	    state_cnt[SPX5_TAS_STATE_OPERATING] == 1)
-+		valid = true;
-+
-+	if (!valid) {
-+		netdev_err(port->ndev,
-+			   "Invalid tas state combination: %d %d %d %d %d\n",
-+			   state_cnt[SPX5_TAS_STATE_ADMIN],
-+			   state_cnt[SPX5_TAS_STATE_ADVANCING],
-+			   state_cnt[SPX5_TAS_STATE_PENDING],
-+			   state_cnt[SPX5_TAS_STATE_OPERATING],
-+			   state_cnt[SPX5_TAS_STATE_TERMINATING]);
-+
-+		return -EINVAL;
-+	}
-+
-+	for (i = 0; i < SPX5_TAS_ENTRIES_PER_PORT; i++) {
-+		if (state[i] == SPX5_TAS_STATE_ADMIN) {
-+			*new = list[i];
-+			*obsolete = (oper == -1) ? *new : oper;
-+			return 0;
-+		}
-+	}
-+
-+	return -EBUSY; /* No suitable list found */
-+}
-+
-+/* Program the list and its GCL entries [base, base + num_entries) */
-+static void sparx5_tas_gcl_setup(struct sparx5_port *port, int list, int base,
-+				 struct tc_taprio_qopt_offload *qopt)
-+{
-+	struct sparx5 *sparx5 = port->sparx5;
-+	u32 sched, entry, prof;
-+	int i;
-+
-+	sched = sparx5_tas_scheduler_get(sparx5, port->portno);
-+	/* Each port uses the TAS profile of its own number */
-+	prof = port->portno;
-+
-+	/* Program only the chosen list; the sibling slot stays in ADMIN. */
-+	sparx5_tas_select_list(sparx5, list);
-+
-+	spx5_rmw(HSCH_TAS_LIST_CFG_LIST_BASE_ADDR_SET(base),
-+		 HSCH_TAS_LIST_CFG_LIST_BASE_ADDR,
-+		 sparx5,
-+		 HSCH_TAS_LIST_CFG);
-+
-+	if (is_sparx5(sparx5)) {
-+		spx5_rmw(HSCH_TAS_LIST_CFG_LIST_LENGTH_SET(qopt->num_entries),
-+			 HSCH_TAS_LIST_CFG_LIST_LENGTH,
-+			 sparx5,
-+			 HSCH_TAS_LIST_CFG);
-+	} else {
-+		/* Associate TAS list with physical port number and
-+		 * scheduler element.
-+		 */
-+		spx5_rmw(HSCH_TAS_LIST_CFG_LIST_PORT_NUM_SET(port->portno),
-+			 HSCH_TAS_LIST_CFG_LIST_PORT_NUM, sparx5,
-+			 HSCH_TAS_LIST_CFG);
-+		spx5_rmw(HSCH_TAS_LIST_CFG_LIST_HSCH_POS_SET(sched),
-+			 HSCH_TAS_LIST_CFG_LIST_HSCH_POS, sparx5,
-+			 HSCH_TAS_LIST_CFG);
-+	}
-+
-+	for (i = 0; i < qopt->num_entries; i++) {
-+		u32 gcl_next = (i >= qopt->num_entries - 1) ? base :
-+							       base + i + 1;
-+		u32 gate_mask = qopt->entries[i].gate_mask;
-+
-+		/* On sparx5 GCL_ENTRY_NUM is relative to the list's BASE_ADDR.
-+		 * On lan969x the GCL is a linked list and GCL_ENTRY_NUM is an
-+		 * absolute index into the pool, as is NEXT_GCL.
-+		 */
-+		entry = is_sparx5(sparx5) ? i : base + i;
-+
-+		spx5_rmw(HSCH_TAS_CFG_CTRL_GCL_ENTRY_NUM_SET(entry),
-+			 HSCH_TAS_CFG_CTRL_GCL_ENTRY_NUM,
-+			 sparx5,
-+			 HSCH_TAS_CFG_CTRL);
-+
-+		/* Set gate states for this GCL */
-+		spx5_rmw(HSCH_TAS_GCL_CTRL_CFG_GATE_STATE_SET(gate_mask),
-+			 HSCH_TAS_GCL_CTRL_CFG_GATE_STATE, sparx5,
-+			 HSCH_TAS_GCL_CTRL_CFG);
-+
-+		if (is_sparx5(sparx5)) {
-+			spx5_rmw(HSCH_TAS_GCL_CTRL_CFG_HSCH_POS_SET(sched) |
-+				 HSCH_TAS_GCL_CTRL_CFG_PORT_PROFILE_SET(prof),
-+				 HSCH_TAS_GCL_CTRL_CFG_HSCH_POS |
-+				 HSCH_TAS_GCL_CTRL_CFG_PORT_PROFILE, sparx5,
-+				 HSCH_TAS_GCL_CTRL_CFG);
-+		} else {
-+			/* The GCL list is a linked list on lan969x */
-+			spx5_wr(HSCH_TAS_GCL_CTRL_CFG2_NEXT_GCL_SET(gcl_next),
-+				sparx5, HSCH_TAS_GCL_CTRL_CFG2);
-+		}
-+
-+		spx5_wr(qopt->entries[i].interval,
-+			sparx5,
-+			HSCH_TAS_GCL_TIME_CFG);
-+	}
-+}
-+
-+int sparx5_tas_enable(struct sparx5_port *port,
-+		      struct tc_taprio_qopt_offload *qopt)
-+{
-+	u64 cycle_time = qopt->cycle_time, calculated_cycle_time = 0;
-+	int i, err, base, slot, state, new_list = -1, obsolete = -1;
-+	struct sparx5 *sparx5 = port->sparx5;
-+	struct timespec64 ts;
-+	ktime_t base_time;
-+	unsigned long end;
-+	u32 startup, val;
-+
-+	if (qopt->cycle_time_extension) {
-+		netdev_err(port->ndev,
-+			   "cycle_time_extension is not supported\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	/* The base time is taken from the PTP clock */
-+	if (!sparx5->ptp)
-+		return -EOPNOTSUPP;
-+
-+	if (qopt->base_time < 0) {
-+		netdev_err(port->ndev, "Invalid base_time %lld\n",
-+			   qopt->base_time);
-+		return -EINVAL;
-+	}
-+
-+	if (!sparx5_tas_port_has_lists(port)) {
-+		netdev_err(port->ndev, "No TAS lists left for this port\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (qopt->mqprio.qopt.num_tc != SPX5_PRIOS) {
-+		netdev_err(port->ndev, "Only %d traffic classes supported\n",
-+			   SPX5_PRIOS);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	for (i = 0; i < qopt->num_entries; i++) {
-+		if (qopt->entries[i].command != TC_TAPRIO_CMD_SET_GATES) {
-+			netdev_err(port->ndev, "Unsupported GCL command: %d\n",
-+				   qopt->entries[i].command);
-+			return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	mutex_lock(&sparx5->tas_lock);
-+
-+	sparx5_tas_gcl_flush(sparx5);
-+
-+	if (cycle_time > TAS_MAX_CYCLE_TIME_NS) {
-+		netdev_err(port->ndev, "Invalid cycle_time %llu\n", cycle_time);
-+		err = -EINVAL;
-+		goto out;
-+	}
-+
-+	for (i = 0; i < qopt->num_entries; i++) {
-+		u32 interval = qopt->entries[i].interval;
-+
-+		if (interval < TAS_MIN_CYCLE_TIME_NS) {
-+			netdev_err(port->ndev,
-+				   "Invalid minimum cycle time %u\n", interval);
-+			err = -EINVAL;
-+			goto out;
-+		}
-+
-+		if (interval > TAS_MAX_CYCLE_TIME_NS) {
-+			netdev_err(port->ndev,
-+				   "Invalid maximum cycle time %u\n", interval);
-+			err = -EINVAL;
-+			goto out;
-+		}
-+
-+		calculated_cycle_time += interval;
-+	}
-+
-+	if (calculated_cycle_time > TAS_MAX_CYCLE_TIME_NS ||
-+	    cycle_time < calculated_cycle_time) {
-+		netdev_err(port->ndev, "Invalid cycle_time %llu\n", cycle_time);
-+		err = -EINVAL;
-+		goto out;
-+	}
-+
-+	sparx5_new_base_time(sparx5, cycle_time, qopt->base_time, &base_time);
-+
-+	/* Allocate before sparx5_tas_list_find() stops a pending schedule, so
-+	 * running out of GCL entries fails the replace without touching
-+	 * hardware.
-+	 */
-+	base = sparx5_tas_gcl_alloc(sparx5, qopt->num_entries);
-+	if (base < 0) {
-+		netdev_err(port->ndev, "No room for %zu GCL entries\n",
-+			   qopt->num_entries);
-+		err = base;
-+		goto out;
-+	}
-+
-+	/* Select an appropriate entry to use */
-+	err = sparx5_tas_list_find(port, &new_list, &obsolete);
-+	if (err) {
-+		bitmap_clear(sparx5->tas_gcl_bitmap, base, qopt->num_entries);
-+		goto out;
-+	}
-+
-+	/* The new list is in ADMIN, so a range it still owns can go */
-+	slot = new_list - sparx5_tas_list_index(port, 0);
-+	sparx5_tas_gcl_free(port, slot);
-+
-+	sparx5_tas_gcl_setup(port, new_list, base, qopt);
-+
-+	/* The obsolete list keeps its entries until it reaches ADMIN */
-+	port->tas_lists[slot].gcl_base = base;
-+	port->tas_lists[slot].gcl_count = qopt->num_entries;
-+
-+	/* Setup TAS list */
-+	ts = ktime_to_timespec64(base_time);
-+	spx5_wr(HSCH_TAS_BASE_TIME_NSEC_BASE_TIME_NSEC_SET(ts.tv_nsec),
-+		sparx5,
-+		HSCH_TAS_BASE_TIME_NSEC);
-+
-+	spx5_wr((ts.tv_sec & GENMASK(31, 0)),
-+		sparx5,
-+		HSCH_TAS_BASE_TIME_SEC_LSB);
-+
-+	val = ts.tv_sec >> 32;
-+	spx5_wr(HSCH_TAS_BASE_TIME_SEC_MSB_BASE_TIME_SEC_MSB_SET(val),
-+		sparx5,
-+		HSCH_TAS_BASE_TIME_SEC_MSB);
-+
-+	spx5_wr(cycle_time,
-+		sparx5,
-+		HSCH_TAS_CYCLE_TIME_CFG);
-+
-+	/* Full write, to also clear a sticky STARTUP_ERROR from a previous use
-+	 * of this list.
-+	 */
-+	spx5_wr(HSCH_TAS_STARTUP_CFG_OBSOLETE_IDX_SET(obsolete) |
-+		HSCH_TAS_STARTUP_CFG_STARTUP_TIME_SET(TAS_STARTUP_TIME_DEFAULT),
-+		sparx5,
-+		HSCH_TAS_STARTUP_CFG);
-+
-+	/* Start list processing */
-+	spx5_rmw(HSCH_TAS_LIST_STATE_LIST_STATE_SET(SPX5_TAS_STATE_ADVANCING),
-+		 HSCH_TAS_LIST_STATE_LIST_STATE,
-+		 sparx5,
-+		 HSCH_TAS_LIST_STATE);
-+
-+	/* Do not wait forever for the startup error flag to be reported */
-+	end = jiffies + msecs_to_jiffies(TAS_TIMEOUT_MS);
-+	do {
-+		/* Read the state first, so an error that ended ADVANCING is
-+		 * already latched when STARTUP_CFG is read.
-+		 */
-+		val = spx5_rd(sparx5, HSCH_TAS_LIST_STATE);
-+		state = HSCH_TAS_LIST_STATE_LIST_STATE_GET(val);
-+		startup = spx5_rd(sparx5, HSCH_TAS_STARTUP_CFG);
-+		if (HSCH_TAS_STARTUP_CFG_STARTUP_ERROR_GET(startup) ||
-+		    state != SPX5_TAS_STATE_ADVANCING)
-+			break;
-+
-+		cond_resched();
-+	} while (!time_after(jiffies, end));
-+
-+	if (HSCH_TAS_STARTUP_CFG_STARTUP_ERROR_GET(startup)) {
-+		netdev_err(port->ndev, "TAS startup error in list %d\n",
-+			   new_list);
-+		err = -EIO;
-+	} else if (state == SPX5_TAS_STATE_ADVANCING) {
-+		netdev_err(port->ndev, "Timeout starting TAS list %d\n",
-+			   new_list);
-+		err = -ETIME;
-+	}
-+
-+	/* taprio sends no DESTROY for a failed offload, so do not leave a
-+	 * list behind that may still start.
-+	 */
-+	if (err)
-+		sparx5_tas_shutdown_pending(port);
-+
-+out:
-+	mutex_unlock(&sparx5->tas_lock);
-+	return err;
-+}
-+
-+int sparx5_tas_disable(struct sparx5_port *port)
-+{
-+	int err, ret;
-+
-+	/* Nothing was offloaded on a port without lists */
-+	if (!sparx5_tas_port_has_lists(port))
-+		return 0;
-+
-+	mutex_lock(&port->sparx5->tas_lock);
-+
-+	sparx5_tas_gcl_flush(port->sparx5);
-+
-+	/* Stop the operating list and restore the gates even if a pending list
-+	 * could not be stopped, as taprio does not retry a failed destroy.
-+	 */
-+	err = sparx5_tas_shutdown_pending(port);
-+	ret = sparx5_tas_shutdown_operating(port);
-+	if (!err)
-+		err = ret;
-+
-+	mutex_unlock(&port->sparx5->tas_lock);
-+
-+	return err;
-+}
-+
-+int sparx5_tas_init(struct sparx5 *sparx5)
-+{
-+	const struct sparx5_consts *consts = sparx5->data->consts;
-+	int i, num_ports, list_num_max;
-+
-+	/* There are only 128 (sparx5) / 60 (lan969x) TAS lists, not enough
-+	 * for the whole port range. LIST_NUM_MAX is the highest list index
-+	 * processed, and the datasheet gives 24 as its minimum value.
-+	 */
-+	num_ports = consts->n_ports;
-+	list_num_max = max(sparx5_tas_num_lists(sparx5) - 1, 24);
-+
-+	sparx5->tas_gcl_bitmap = devm_bitmap_zalloc(sparx5->dev,
-+						    consts->n_tas_gcl,
-+						    GFP_KERNEL);
-+	if (!sparx5->tas_gcl_bitmap)
-+		return -ENOMEM;
-+
-+	/* Unwritten NEXT_GCL fields read as 0, so no list may own entry 0 */
-+	bitmap_set(sparx5->tas_gcl_bitmap, 0, 1);
-+
-+	mutex_init(&sparx5->tas_lock);
-+
-+	/* Apply the guard band to gate closes of all traffic classes, not only
-+	 * the classes not marked as scheduled in SCH_TRAFFIC_QUEUES.
-+	 */
-+	spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_MAX_SET(list_num_max) |
-+		 HSCH_TAS_CFG_CTRL_ALWAYS_GUARD_BAND_SCH_Q_SET(1),
-+		 HSCH_TAS_CFG_CTRL_LIST_NUM_MAX |
-+		 HSCH_TAS_CFG_CTRL_ALWAYS_GUARD_BAND_SCH_Q,
-+		 sparx5,
-+		 HSCH_TAS_CFG_CTRL);
-+
-+	/* Associate profile with port (profile idx = port on lan969x) */
-+	if (is_sparx5(sparx5)) {
-+		for (i = 0; i < num_ports; i++) {
-+			if (!sparx5->ports[i])
-+				continue;
-+
-+			spx5_rmw(HSCH_TAS_PROFILE_CONFIG_PORT_NUM_SET(i),
-+				 HSCH_TAS_PROFILE_CONFIG_PORT_NUM,
-+				 sparx5,
-+				 HSCH_TAS_PROFILE_CONFIG(i));
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- void sparx5_tas_speed(struct sparx5_port *port, int speed)
- {
- 	struct sparx5 *sparx5 = port->sparx5;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-index 28b2514c8330..30da5db57ef3 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-@@ -154,6 +154,21 @@ static int sparx5_tc_setup_qdisc_ets(struct net_device *ndev,
- 	return -EOPNOTSUPP;
- }
- 
-+static int sparx5_tc_setup_qdisc_taprio(struct net_device *ndev,
-+					struct tc_taprio_qopt_offload *qopt)
-+{
-+	struct sparx5_port *port = netdev_priv(ndev);
-+
-+	switch (qopt->cmd) {
-+	case TAPRIO_CMD_REPLACE:
-+		return sparx5_tas_enable(port, qopt);
-+	case TAPRIO_CMD_DESTROY:
-+		return sparx5_tas_disable(port);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
- int sparx5_port_setup_tc(struct net_device *ndev, enum tc_setup_type type,
- 			 void *type_data)
- {
-@@ -166,6 +181,8 @@ int sparx5_port_setup_tc(struct net_device *ndev, enum tc_setup_type type,
- 		return sparx5_tc_setup_qdisc_tbf(ndev, type_data);
- 	case TC_SETUP_QDISC_ETS:
- 		return sparx5_tc_setup_qdisc_ets(ndev, type_data);
-+	case TC_SETUP_QDISC_TAPRIO:
-+		return sparx5_tc_setup_qdisc_taprio(ndev, type_data);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
+>
+> Do you have libcamera in userspace or something else?
 
--- 
-2.34.1
+Yes, we experienced with libcamera. I can also reproduce the unwanted 
+behavior with v4l2-ctl streaming + i2ctranfer script that stress the 
+group hold writes.
 
+If we were to place the responsibility on userspace/libcamera, than 
+libcamera should be able to handle this:
+
+- after a successful s_ctrl, captured frames will reflect the values 
+after not N+2 but  X+N+2, where X can be anything because we do not know 
+when we catch the right context to do the group hold access
+
+- do not expect s_ctrl to fail, unless the value was not accepted; i2c 
+access failures cannot be catched, because we cannot apply the control 
+value instantly
+
+- a control value may get accidentally applied to the wrong stream; 
+because VC takes effect at frame N+1 and exposure and gain settings take 
+effect at frame N+2, if the group write timing is improper, these may 
+get out of sync; so user-space may see frames optimized for RGB on the 
+stream that was supposed to be optimized for Ir or vice-versa, as 
+confirmed by RishiKesh and Jai on ov2312.
+
+- embedded data information may help identify what settings were 
+actually applied for a particular captured frame (if embedded data is 
+available reliably)
+
+Regards,
+
+Mirela
+
+>
+> --
+> Kind regards,
+>
+> Sakari Ailus
 
