@@ -4,117 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272D6CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CF3CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFmPMHLkzQ2v2gUtJGa7P11ujTnCxcTV6HWX7PibVsQ=; b=XhQSvC3+G6/LcKswslSSPXeHt9
-	kOdkqMWGRBz/rfhjZzkGC/KtFvf889TZiJO+Uc5l16fqRNIB7zwgFfQnLK8AwX1HgWo3DoGYp7aZv
-	df5D8Ft38Av7viajCLvqUw0EUaCx9uMzNrI837m2vCdsh3wlMVascgI2/rvCPyB3++g4xVVrIW7YP
-	mnBzeZEnCGf7eO9LvjmN5/7pTArwML38ag0n1VCa2paYOozq7nR1kYf3mLSiDepFHpGq+geInl5iZ
-	AcH8H/YNGDKVtTGz3IR6VcfXXFs2DFRYULIzgL8xclnRZuywaDv0U8KHl4or3Q5FGwkoHC5I3AlJh
-	ooR61HOw==;
+	bh=pag7ec08sf7H4imvEPV/grARicGzKhyFVyc+ZIA/s7A=; b=3dxy26AUpVqAPg21ypgZuGwnGn
+	B5RUjtNXWAenLEYAHRqgfBUJ1EERbdcKDSDIAIAIkhxapbAfktUjLq3z/5Z5oqarVuhOoxlyE1qll
+	gINhgr8u8zk+2j5VGJy/ahR6YZtM7Vwfg80Nwqq+UWNTZM2z3raojOzNlrLFkGOS1lWEjkP5n7Op+
+	+iScxM58ZY18mJu62Ejvud6jMRBGEjRabWRisGqFnMOF/4ju1AcHpnu2xfGaH1r1j49ZtjgODVOK1
+	LszJRSgo0iraMqDQOCXj4fuwx9WP7obI3joLgS3OwpF6ynwqawHXJb5G6ab8A0G+VNLeD7R8lcoBe
+	wTa23VUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7de-000000016Kq-0kuI;
+	id 1xE7de-000000016Ln-2qZk;
 	Tue, 06 Oct 2026 16:03:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7dC-0000000168U-3AQS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 06 Oct 2026 16:03:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=kFmPMHLkzQ2v2gUtJGa7P11ujTnCxcTV6HWX7PibVsQ=; b=X0vE35aO4R4DZj7+PrIIT/gn2b
-	+Z5qo776L/66FmRlgHDQ7Lmeaj50gez2YyCYNII0hdshyWKoxEZ7VYtLRBNZUhnNvJhQdqgJ0gY5b
-	gi91E01izBEAY+yX0koF+C6jMcIKLtkgGfrqhYK4bRQNEDACmZgj8Q6e85GLJpYD8XUv2wlKm4Qqz
-	blfMy+kU4gY0W/QcnHnr/P8s7aw98oDJzM69/4USLz/8Cccf1RdJ98PJB/uq4W9CxEzcEaR4c/thV
-	zK8BnIbrcNAR1zcUCUDg2O/KnbNzKZ6uTnyMR3xZqUnOAq+ntyTYvc6wvdhE7pZqYHFBEi5mzuFxG
-	U9gWw5Sg==;
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xE7d8-00000008qWc-2cmc
+	id 1xE7dV-000000016Eq-3tBU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 16:03:05 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48b0584ad71so714557f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 09:03:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1791302580; x=1791907380; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kFmPMHLkzQ2v2gUtJGa7P11ujTnCxcTV6HWX7PibVsQ=;
-        b=C6EhHkeXj/2gctVtXT1smQL8beqVz3Jwtc/dRo2PR6Y0aMp9AeBBprTOxf/Dpg4tcH
-         BQkgp4A39vcfVzeKJbf0ayjWmGw520VCGlJtLD8NbJy6+qg2TY0HT/xmEUCfVf4IKoI3
-         6124ypOWRDpnpFf1PdaBql9kJvrD586At2NPtAKpex5q+NtR1mBRPzn+w2aZhZveq2O0
-         7sj58k4VeylxFIrJTEkobAsbkuj2HxmLPSb623AsGLw5nFlT3JfH0yDcxi1YkbqnVS+k
-         Yrz80GO4Gwhwqp6dYuGPgU1SzktEGJ9lKgHVS2LDkmhC40fVr5LOhwVHahi+EhiPB1Fz
-         rsMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791302580; x=1791907380;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kFmPMHLkzQ2v2gUtJGa7P11ujTnCxcTV6HWX7PibVsQ=;
-        b=LHpRqOii1W2haqsX/coYtsBXFLOz5lET02JPFZgU2ASVHXzyet9LThZKYYUiD59rw4
-         vCSwWbrZvnHXlrup6XeKVI5j6GOdxEibh5ZU1+jMq1gO2zzWRz7sprNEn9Q9yIZD5qcB
-         bkPz+mEpe9+B5DwJRefhZSEXyp+YmDdTU6GXV5I6EAl+4xgNANYSRHS4DK7MrgZqbR2t
-         ZvlzPJDd91S+MjigKRSuWwKPVky4K6/MzcA1q52MYoVy+ATuid5E4BhEsvNamNinV9c9
-         /8krQK49Yz+FYaQFYfNm+NgaQaIectB5zrmMtlsylHHMLafcAIkTKVqdlMhRK2Ym7iQQ
-         21Zg==
-X-Forwarded-Encrypted: i=1; AKwUvByYf+CmASPROGrdBU6bJ8yoVTHEcuvsv7JduaHCht0DdQ/Ju8H/Pnw5E1ZJJzh+NwVnp72jI6ZRsOtvb1ewpndv@lists.infradead.org
-X-Gm-Message-State: AFq9FYL18tjbdgoCPmNfrDN4VOS2jvEordGyhQqNefy6GOjnmgSFU6R/
-	UL80Wn+RhjoxksYcW84fNbCMe8CNYPPdxQkXI03cedjcBIqpvWLg2Bcaah4SPaJOeVk=
-X-Gm-Gg: AYBFou1WqvJJmKYsrEfa6UsCgCXnkXnWkmq2ybkfqTVXiDKHU6rWVAymD5Wm7Sva4ze
-	6o3Nb0JfKyJDdojQYtktgl4ONQt1RLBFSN6pZdBfcgGT5LYo/+JEtl3tP9J4jmN5gHX0XW0f8Bh
-	YxDWbS/Ho10qM9ULOSZB6RSGrPvVGQKdYgJ2t190lp+rt2rUYl6q7A+xw4AfSAYH3hHHu06MQpI
-	k7lvCG0HYS4TALq5Rvk7vbfumwIXZt4vTgWZNIHW5iW7S6K8yTwwUyET8kwp8lp6uQy5HoNYaqV
-	e+zazesT1PJA8WT7ucpJcyCVwey53vfxf+NXPL9xIbyo88HdeAI6QOm7JC/+t/l8pQ0b7teL+WC
-	CtUzYD/3MzALf142isEsyMTp9xIBwILaFZy7ocJZgranru61ImwYBwi3/H13d625tCCgFJoLrvO
-	DKhnXqhgQ1yJ5MW45Nmjz2hvCBw/Id0lTEx0e3tDMKpvKc1RBRgU3PxpgR7gSl03nBLhQWjK5fo
-	kz18+jb8/S6M82Lfw==
-X-Received: by 2002:a05:6000:1868:b0:48b:1b1:af12 with SMTP id ffacd0b85a97d-48c6d1b289cmr3246959f8f.56.1791302580197;
-        Tue, 06 Oct 2026 09:03:00 -0700 (PDT)
-Received: from alchark-surface.localdomain ([193.85.242.110])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d2014asm369641f8f.38.2026.10.06.09.02.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 09:02:59 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Tue, 06 Oct 2026 20:02:41 +0400
-Subject: [PATCH v3 3/5] power: reset: syscon-reboot-mode: enable supplies
- for the next stage
+	Tue, 06 Oct 2026 16:03:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B868602D3;
+	Tue,  6 Oct 2026 16:03:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2281F0089E;
+	Tue,  6 Oct 2026 16:03:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791302605;
+	bh=pag7ec08sf7H4imvEPV/grARicGzKhyFVyc+ZIA/s7A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=cI6f48k21Pos7Jebeyj6Y1mcBgrcdPoLlVktj3nLKqxukD8+NpbAMUtC+OwcDRRyi
+	 w+Ppq8nXgoGGAsx1KGLqf9O999FSB+xVcMG3IwsmQC0wKcWPzUVmWcdR1R7yteAG/K
+	 EDnKmfvU2/ShyLxSXq1eE0bKQJ/ku0maSLqD+ptg6MzgVzSDtibHoF+Sxzcl5DC5O1
+	 J/UrkGYw128fohHMODMKVqQRg7W6JhP2SMNcqUq7gfWwivY6bHQ4CQK58kXV6L487l
+	 CiY2BLl+Wwc2M4Zk/tyWYlIhv80UuWGTVld4rDrS2uKEVolRftW1e0cQeYhaMGd6cg
+	 5ppkHzEvnYgxA==
+Message-ID: <f7d0ef63-3d8c-4e1b-b346-81500ee64046@kernel.org>
+Date: Tue, 6 Oct 2026 18:03:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
+ CCU clock controller
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <20260925225112.14081-1-andre.przywara@arm.com>
+ <20260925225112.14081-3-andre.przywara@arm.com>
+ <20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
+ <20261005005036.7fd5e60e@ryzen.lan>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261005005036.7fd5e60e@ryzen.lan>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261006-b4-rk3576-reboot-mode-v3-3-6edba064693b@flipper.net>
-References: <20261006-b4-rk3576-reboot-mode-v3-0-6edba064693b@flipper.net>
-In-Reply-To: <20261006-b4-rk3576-reboot-mode-v3-0-6edba064693b@flipper.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sre@kernel.org>
-Cc: Alexey Charkov <alchark@flipper.net>, 
- Shawn Lin <shawn.lin@rock-chips.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4150; i=alchark@flipper.net;
- h=from:subject:message-id; bh=0e6tYFYX4RQShFvq6ANsw1VBCkVay04TpNqpD+jAhLg=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQdlV6dmFi/P2DCg2L+uH3PrBfJ8925eMmo71bowYTPB
- +w1bVeu6pjIwiDGxWAppsgy99sS26lGfLN2eXh8hZnDygQyRFqkgQEIWBj4chPzSo10jPRMtQ31
- DI10jHWMGLg4BWCqH/5nZFiU9lPx6e+jf3wi1h681HXUY2HK4e8zbOJfqMVeMLj0rDaQkeFWWZR
- QnENJ8uWYz7/q9nPtv7y+ZfbpojXXJ/Qf/TBPyI8FAA==
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_170302_834404_DEEFCF68 
-X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,117 +123,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Requesting a boot mode on some SoCs such as the Rockchip RK3576 hands the
-request to the boot ROM in a register that a full reset would clear, so
-any reset that carries it has to leave the PMIC untouched. This means that
-the regulators stay in whichever power state the running OS left them,
-which may be unsuitable for the early boot code. E.g. on RK3576 the DDR
-initialization blob runs on the way back and accesses registers which
-Linux normally leaves powered down, resulting in an unrecoverable abort.
+On 05/10/2026 00:50, Andre Przywara wrote:
+> On Tue, 29 Sep 2026 10:42:29 +0200
+> Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+> Hi Krzysztof,
+> 
+> thanks for the review!
+> 
+>> On Sat, Sep 26, 2026 at 12:51:10AM +0200, Andre Przywara wrote:
+>>> There are four clock controllers in the A523 SoC, but only three are
+>>> described in the DT binding so far.
+>>>
+>>> Add a description for the CPU CCU, which provides separate clocks for
+>>> the two CPU clusters and the DSU interconnect.
+>>>
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>> ---
+>>>  .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
+>>>  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
+>>>  2 files changed, 50 insertions(+), 1 deletion(-)
+>>>  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+>>> index 58be701a720ea..8d5481fb63ae8 100644
+>>> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+>>> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+>>> @@ -19,6 +19,7 @@ properties:
+>>>    compatible:
+>>>      enum:
+>>>        - allwinner,sun55i-a523-ccu
+>>> +      - allwinner,sun55i-a523-cpu-ccu
+>>>        - allwinner,sun55i-a523-mcu-ccu
+>>>        - allwinner,sun55i-a523-r-ccu
+>>>  
+>>> @@ -35,12 +36,23 @@ properties:
+>>>  
+>>>  required:
+>>>    - "#clock-cells"
+>>> -  - "#reset-cells"
+>>>    - compatible
+>>>    - reg
+>>>    - clocks
+>>>    - clock-names
+>>>  
+>>> +if:
+>>
+>> This goes to the allOf block.
+> 
+> OK.
+> 
+>>> +  properties:
+>>> +    compatible:
+>>> +      contains:
+>>> +        const: allwinner,sun55i-a523-cpu-ccu
+>>> +then:
+>>> +  properties:
+>>> +    "#reset-cells": false
+>>> +else:
+>>> +  required:
+>>> +    - "#reset-cells"
+>>> +
+>>>  allOf:
+>>>    - if:
+>>>        properties:
+>>> @@ -64,6 +76,30 @@ allOf:
+>>>              - const: iosc
+>>>              - const: losc-fanout
+>>>  
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          enum:
+>>> +            - allwinner,sun55i-a523-cpu-ccu
+>>> +
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          items:
+>>> +            - description: High Frequency Oscillator (usually at 24MHz)
+>>> +            - description: Low Frequency Oscillator (usually at 32kHz)
+>>> +            - description: Internal Oscillator
+>>> +            - description: Peripherals PLL 0 (1200 MHz output)
+>>> +            - description: Peripherals PLL 0 (600 MHz output)
+>>> +
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: hosc
+>>> +            - const: losc
+>>> +            - const: iosc
+>>> +            - const: pll-periph0-2x
+>>> +            - const: pll-periph0-600m
+>>> +
+>>>    - if:
+>>>        properties:
+>>>          compatible:
+>>> diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+>>> new file mode 100644
+>>> index 0000000000000..042f2310f64de
+>>> --- /dev/null
+>>> +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+>>
+>> Filename should match compatible.
+> 
+> Is that a new requirement? We never did this for the Allwinner clock or
+> reset bindings, all headers are named like sun<x>i-<soc>-<name>-ccu.h.
 
-Get every supply named in the reboot mode node and enable it when a mode
-is written, which is when a mode is being requested. The supplies are
-deliberately left enabled afterwards: the system is on its way down, and
-what runs next cannot turn them on.
+I say EXACTLY the same thing for ~4 years, so yes. New requirement since
+4 years. Allwinner for sure received same feedback already.
 
-Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> And I think especially since we have sun55i-a523-mcu-ccu.h and
+> sun55i-a523-r-ccu.h, I think we should stay consistent, at least for
+> the existing SoCs.
+> 
+>>> @@ -0,0 +1,13 @@
+>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+>>> +/*
+>>> + * Copyright 2025 Arm Ltd.
+>>> + */
+>>> +
+>>> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+>>> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+>>> +
+>>> +#define CLK_CPU_L		7
+>>
+>> Indices start from 0 or 1
+> 
+> This is also something very common for Allwinner clocks: the CCU has
+> clocks that are not exposed to the DT, because they are internal
+> clocks we need to model the clock tree. We number them logically,
 
-------
+They are not ABI thus do not create impression they should be and you
+prepare some placeholder for them.
 
-Current implementation of of_regulator_bulk_get_all() never writes the
-supply names, instead leaving them uninitialized, while the regulator
-core uses the field in error paths to provide meaningful error messages
-to the user. This has been highlighted by Sashiko on v1, and is addressed
-separately in [1]
+These are not IDs of your clocks in the hardware. This is only the ABI.
 
-[1] https://lore.kernel.org/all/20260929-regulator-get-all-v1-1-e887c66a47f1@flipper.net/
----
- drivers/power/reset/syscon-reboot-mode.c | 41 ++++++++++++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
+Again, same feedback I repeat for 4 years.
 
-diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/reset/syscon-reboot-mode.c
-index e0772c9f70f7..5ef882d81816 100644
---- a/drivers/power/reset/syscon-reboot-mode.c
-+++ b/drivers/power/reset/syscon-reboot-mode.c
-@@ -10,6 +10,8 @@
- #include <linux/platform_device.h>
- #include <linux/reboot.h>
- #include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/slab.h>
- #include <linux/mfd/syscon.h>
- #include <linux/reboot-mode.h>
- 
-@@ -18,6 +20,8 @@ struct syscon_reboot_mode {
- 	struct reboot_mode_driver reboot;
- 	u32 offset;
- 	u32 mask;
-+	struct regulator_bulk_data *supplies;
-+	int num_supplies;
- };
- 
- static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot,
-@@ -28,6 +32,20 @@ static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot,
- 
- 	syscon_rbm = container_of(reboot, struct syscon_reboot_mode, reboot);
- 
-+	/*
-+	 * Whatever acts on the mode (e.g. boot ROM) runs before the operating
-+	 * system, and may need supplies that the running system had powered
-+	 * down. Enable them here, and deliberately leave them enabled: the
-+	 * system is on its way down, and what runs next may not know how to
-+	 * turn them on.
-+	 */
-+	if (syscon_rbm->num_supplies) {
-+		ret = regulator_bulk_enable(syscon_rbm->num_supplies,
-+					    syscon_rbm->supplies);
-+		if (ret < 0)
-+			dev_err(reboot->dev, "enabling reboot mode supplies failed\n");
-+	}
-+
- 	ret = regmap_update_bits(syscon_rbm->map, syscon_rbm->offset,
- 				 syscon_rbm->mask, magic);
- 	if (ret < 0)
-@@ -36,6 +54,14 @@ static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot,
- 	return ret;
- }
- 
-+static void syscon_reboot_mode_put_supplies(void *data)
-+{
-+	struct syscon_reboot_mode *syscon_rbm = data;
-+
-+	regulator_bulk_free(syscon_rbm->num_supplies, syscon_rbm->supplies);
-+	kfree(syscon_rbm->supplies);
-+}
-+
- static int syscon_reboot_mode_probe(struct platform_device *pdev)
- {
- 	int ret;
-@@ -59,6 +85,21 @@ static int syscon_reboot_mode_probe(struct platform_device *pdev)
- 
- 	of_property_read_u32(pdev->dev.of_node, "mask", &syscon_rbm->mask);
- 
-+	ret = of_regulator_bulk_get_all(&pdev->dev, pdev->dev.of_node,
-+					&syscon_rbm->supplies);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't get reboot mode supplies\n");
-+
-+	syscon_rbm->num_supplies = ret;
-+	if (syscon_rbm->num_supplies) {
-+		ret = devm_add_action_or_reset(&pdev->dev,
-+					       syscon_reboot_mode_put_supplies,
-+					       syscon_rbm);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = devm_reboot_mode_register(&pdev->dev, &syscon_rbm->reboot);
- 	if (ret)
- 		dev_err(&pdev->dev, "can't register reboot mode\n");
-
--- 
-2.55.0
-
+Best regards,
+Krzysztof
 
