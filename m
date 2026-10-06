@@ -4,61 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA71ECA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 15:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08FCCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 16:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X4n4JwE8v4Mr3QVDSwzWaKWzZRaoqi7g005C+Lh3qQo=; b=TISa13SI6fiZ668t4+gwF3dLrr
-	7RPatmAagPxFAhKSjOVSzFoXvKjtDmk2qntVs0dRMg344wxoY1MG3yy77w9HSFN3b68Yb/del1jla
-	3e3oe02ixoWITeXY4J/62mcfAbKE1rzWsZ1kf9xGQyFZmXjbx6KfnURikTNnNxWzHmcCPTf1h9vVV
-	s8384s8dChr5AjcFA8JwsxmcQEgWMbId+7qsNuqcJFt+lwql/u99514qo88RrdkAFeNKM2faUKdyW
-	5IpZcEDtb8Ifd1QQL5tRdD9n6PpTjbQSykQsnYMzSr2vrSosYBQL1KmTBVH+q8hN1hGwGFiInwoqx
-	XqQcBp1g==;
+	bh=SOExgyoOJDUbBxw57Jd8DLtCxRntAzBWatUantBFvdo=; b=JX/pOXDT2GNCgiR983iaPu00W6
+	fjUGnsVcTVt6y134nsuBQu08GYdIh5N18YbqlVt75vayal25tZK5Xv4X/WNY1fiXbi6mgCo3eUREK
+	gVuYod0F65ISSEWjsnRif5S9gSDlyvxklDBO/3eysc4d4OiEmQ5v+uNZfJNqOSnn/eJOwOV/Av/pe
+	iVWBjqtCNEVCXC+isOkkzqJu0UmKp1ZYCc8DfaubdlmMkR20khiuDFWrdLZULvHu1pUh3UI84L5I1
+	T/qiNWM7GxlL4d2c1Bxt5V6iLOB400k8XRljZsNiEGx21kGWtq78ZtQD41J+bDoJ9wlHUeqzbd+t7
+	/Zn/tNZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7YC-000000015NJ-0yub;
-	Tue, 06 Oct 2026 15:57:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7Y8-000000015MZ-3Tti
+	id 1xE7c9-000000015kn-3pPq;
+	Tue, 06 Oct 2026 16:02:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE7Zg-000000015Uo-2LI7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 15:57:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E58C143D;
-	Tue,  6 Oct 2026 08:57:46 -0700 (PDT)
-Received: from [10.211.55.7] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49FB73F763;
-	Tue,  6 Oct 2026 08:57:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=foss.arm.com; s=main;
-	t=1791302269; bh=Pf8EPNhq9IaFtueugyD5BlO9dMOI/Pc1XaecLXQ+tQA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OfTYXDfmzBiGrhfZhBz5ssW0iPG9mWbR1eLtqv7qX8rqBIlDxgSv4FtiebdjSuMbP
-	 S/USuq7SI9SmGJiB5G05+vtV08D5otClWwBakLiB4zlhLaan2cpXO4N7EZO8x8P+7W
-	 4ExllblFVwsIuHyb0gMfWd81yVsoom4Xp5jK7aTY=
-Message-ID: <8c425dac-11f0-4267-8745-d23d6391a6b1@foss.arm.com>
-Date: Thu, 24 Sep 2026 15:49:14 -0500
+	Tue, 06 Oct 2026 15:59:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CDA0060234;
+	Tue,  6 Oct 2026 15:59:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9EE51F0089D;
+	Tue,  6 Oct 2026 15:59:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791302367;
+	bh=SOExgyoOJDUbBxw57Jd8DLtCxRntAzBWatUantBFvdo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gj/ThtFM5d7BGT74qtbUMWUFB/5E8RvPRhphS+iJILnsq69ho4u078xsWhGo0Zhfb
+	 Z50+tZCQzdFBhllFWAxd2oqD0AAK5Q/EC8Dh5+7fMHAgf08UWvBjQ2o1c8zJ0iRUIb
+	 I2ik5/F/E1LevbG9Z7WGQxlbluqkG9GITJdjJ8OpH3+E2I8A1mCi3abd5N2g4Fmo9p
+	 QCzCQtPmliZsJ8OswH4zFiC6CxZqIT29RqRAfm7Mg6nC5swdDYbfCN5QdCl+BJ9Iee
+	 jannwXfaWD3UAaLB23T/80pV2GsAB5c7OmMFZzaM11Zv46Q4o5/INRKwXaFXv0oGxB
+	 ZrYO5b5oKAPFQ==
+Message-ID: <1aace5d9-82c5-419a-a916-756312afe599@kernel.org>
+Date: Tue, 6 Oct 2026 17:59:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: gcs: Return -EPERM when changes are prevented
- by locking
-To: Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
- <asUIWgHk3hdaLEu5@arm.com> <asUQdaTtMF1X_Hsa@sirena.org.uk>
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+To: Olivier MOYSAN <olivier.moysan@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+ <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ <20261002-pragmatic-smart-piculet-cacb3e@quoll>
+ <57322a17-7fae-434a-b60a-f879855cbb2b@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Bill Roberts <bill.roberts@foss.arm.com>
-In-Reply-To: <asUQdaTtMF1X_Hsa@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <57322a17-7fae-434a-b60a-f879855cbb2b@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_085753_020903_7DC96C29 
-X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +123,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 06/10/2026 17:48, Olivier MOYSAN wrote:
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
+>>> new file mode 100644
+>>> index 000000000000..f2fbc3e150e8
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
+>>
+>> Filename follows compatible, so st,stm32mp23-mdf
+>>
+> 
+> stmp32mp25 is the main SoC, while stm32mp23 is a variant.
+> file renamed st,stm32mp25-mdf.yaml
 
-On 10/6/26 10:15 AM, Mark Brown wrote:
-> On Tue, Oct 06, 2026 at 03:40:26PM +0100, Catalin Marinas wrote:
->> On Thu, Sep 10, 2026 at 08:00:39PM +0100, Mark Brown wrote:
->>> When we refuse to change the GCS configuraiton due to locking we
->>> currently return -EBUSY which is an odd choice.  The only userspace I
->>> found that relies on this value at present is the kselftest and other
->>> architectures are using the more obvious -EPERM here let's switch.
->> IIUC, riscv is returning -EINVAL. Should we get an overall consistent
->> value? Personally I find -EBUSY quite descriptive but I don't mind
->> aligning the architectures (before user space starts making use of the
->> return value).
-> Yes, it's using -EINVAL though it differs in that it's interface for
-> locking only allows locking a single enable bit in the enabled state
-> rather than letting you lock unknown bits, or locking things off, so we
-> need some changes there too.  I guess we could also go with -EPERM which
-> would also distinguish the "I don't understand" from "This is blocked",
-> but nobody uses that yet.
->
-> I was intending to do something soon to pull more of this code out into
-> some shared place since especially for RISC-V and arm64 where they're
-> using the prctl() rather than arch_prctl() interface so there's less
-> reason for things to be duplicated.
-Bear in mind that I do have patches out there, for x86 that enable prctl
-for them as well. I looked into doing the lock check in the prctl call 
-path before
-it gets dispatched to the arch specific backend, it does require a 
-common interface
-into the threads feature bits that each arch would need to, trivially, 
-implement.
+Sure, that's fine.
+
+> 
+>>> @@ -0,0 +1,383 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
+>>> +
+>>> +maintainers:
+>>> +  - Olivier Moysan <olivier.moysan@foss.st.com>
+>>> +
+>>> +description: |
+>>> +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
+>>> +  interface external sigma delta modulators to STM32 micro controllers.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - st,stm32mp25-mdf
+>>> +      - st,stm32mp23-mdf
+>>
+>> Why reversed order?
+>>
+> 
+> Ok. Reordered alphabetically
+> 
+>>> +  ranges: true
+>>> +
+>>> +  clock-ranges: true
+>>
+>> Do you need it here?
+> 
+> clock-ranges property is used to allow the filter child nodes to inherit 
+> the MDF kernel clock from the parent node.
+
+You answered why you need it in DTS. I question why do you need it in
+the binding? Do you see a warning?
+
+> 
+>>
+>>> +
+>>> +  resets:
+>>> +    maxItems: 1
+>>> +
+>>> +  reset-names:
+>>> +    items:
+>>> +      - const: mdf
+
+
+>>> +        then:
+>>> +          patternProperties:
+>>> +            "^channel@[0-7]$":
+>>> +              required:
+>>> +                - io-backends
+>>> +
+>>> +      - if:
+>>> +          properties:
+>>> +            compatible:
+>>> +              contains:
+>>> +                const: st,stm32mp25-mdf-dmic
+>>> +
+>>> +        then:
+>>> +          patternProperties:
+>>> +            "^mdf-dai+$":
+>>
+>> This makes no sense. Why is this a pattern and why mdf-daiiiii is
+>> correct name?
+>>
+> 
+> "^mdf-dai$" is intended here
+> 
+>> Not mentioning that your are not supposed to define properties in if
+>> block (do you see any code like that?). Mixing addressable and
+>> non-addressable children is another odd thing.
+>>
+> 
+> This binding is inspired by the one already adopted for the DFSDM
+> https://www.kernel.org/doc/Documentation/devicetree/bindings/iio/adc/st,stm32-dfsdm-adc.yaml
+> 
+> I assume can move the mdf-dai node definition outside the conditional 
+> branch easily.
+> However, it seems to me more complicated to avoid mixing addressable and 
+> non-addressable nodes here. Can we keep this binding aligned with the 
+> DFSDM model? Or would you have another suggestion?
+
+Why was this model chosen in that dfsdm? The child has no resources, so
+it should never been made a separate node.
+
+
+> 
+>> This entire schema is quite chaotic and overcomplicated.
+>>
+>>> +              type: object
+>>> +              description: child node
+>>> +
+>>> +              properties:
+>>> +                compatible:
+>>> +                  enum:
+>>> +                    - st,stm32mp25-mdf-dai
+>>> +
+>>> +                "#sound-dai-cells":
+>>> +                  const: 0
+>>> +
+>>> +                io-channels:
+>>> +                  description:
+>>> +                    From common IIO binding. Used to pipe external sigma delta
+>>> +                    modulator or internal ADC output to MDF channel.
+>>> +
+>>> +                power-domains:
+>>> +                  maxItems: 1
+>>> +
+>>> +                port:
+>>> +                  $ref: /schemas/sound/audio-graph-port.yaml#
+>>> +                  unevaluatedProperties: false
+>>> +
+>>> +              required:
+>>> +                - compatible
+>>> +                - "#sound-dai-cells"
+>>> +                - io-channels
+>>> +
+>>> +              additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +    mdf1: mdf@504d0000 {
+>>
+>> Node names should be generic. See also an explanation and list of
+>> examples (not exhaustive) in DT specification:
+>> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+>> If you cannot find a name matching your device, please check in kernel
+>> sources for similar cases or you can grow the spec (via pull request to
+>> DT spec repo).
+>>
+>> And drop unused labels.
+>>
+> 
+> The MDF is a digital filter for sigma-delta bitstreams, rather than the 
+> analog-to-digital converter itself. So "adc" would not be adapted. I did 
+> not find "filter", that probably would be the more relevant generic name.
+> The closest similar case is the DFSDM peripheral, which already uses a 
+> specific naming:
+>      dfsdm: dfsdm@4400d000 { ...
+> https://www.kernel.org/doc/Documentation/devicetree/bindings/iio/adc/st,stm32-dfsdm-adc.yaml
+> 
+> What is your recommendation: keep the naming "mdf" or make a pull 
+> request to add "filter" or another more appropriate name ?
+> 
+>>> +      compatible = "st,stm32mp25-mdf";
+>>> +      ranges = <0 0x504d0000 0x1000>;
+>>> +      reg = <0x504d0000 0x8>, <0x504d0ff0 0x10>;
+>>
+>> Address ranges of 2 and 4 words?
+>>
+> 
+> These two sections correspond to MDF common registers managed by the core
+> - Control registers: 2 x 32 bits registers
+> - Identification registers: 4 x 32 bits registers
+> The other registers are managed by filter and serial interface driver
+> 
+
+
+Unfortunately this leaves impression of incomplete DT or too granular
+split of devices to match your driver model.
+
+Best regards,
+Krzysztof
 
