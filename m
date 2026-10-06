@@ -4,106 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B56CA5FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC4FCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 03:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=; b=VwLsHQJWGxPYMF/HG0mXKz91D9
-	TiGwwN3yoJ9WIdqiTZuUlK4rhTv6v22DLHSjEQQSYBw44lYbOfApdNTfF5jeQ7ivAuz32JlirWch9
-	eNcb/Jzm9PAs4gi+qO5YIIvlRxcL0atXxP06koYFLEUmK+VkkWKfvShWbC0Wgny/KkNPN9B/T2chx
-	O1BIJKZ4atwdiG0JqTGLCMuUygAZWPJ0FI9J3HWyMN0fuWSUirZ9jdyYjtL5b9x3Mr9Nn397q+c4U
-	GIM1+eoJ1lR311RP/FnoEnPbIcoNgeDv1Zc9sOKxO8YU61Z5rqSq40u97uc4R4+N/xYpPlU3icppP
-	KDUykmRg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ikmq0G2vWuzS8RQjLvE7O0ZgTT2QCtc6oU8WM5b+mQo=; b=pWMdvqp3ET6KCjncN/50bCWrZl
+	VHY1SA3q7x6O1GpxS1k9e/AkCIgWqaXNr1lcUYAT+hV++XFmatO6N+ufbtFSt/gVyC7fTpPFduz9w
+	xOMpAC1AL/mQtEowlGvPTnVd83Hr3ezf+a6W55oFodmcbE5jqsGDX2nZnBnRcL0WNgO+p8nXrJ+6z
+	zT4CmN7SQT26RpGjF4UlKAY7E09m+HMX7lwzwaRqs0DVGqHhCSzFQpUYdC9vxsk3wNVe9TRoXTpW6
+	l7x47H7Na28zQcjVJveZuIIKdigQgaqlJzgl7jgt1JX//yPGh9eJfidOEteTJn/JXIB9g6eo8ccUX
+	xqoL+6TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDw7M-0000000HaFl-3Qyr;
-	Tue, 06 Oct 2026 03:45:28 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1xDwBk-0000000HaWu-1eme;
+	Tue, 06 Oct 2026 03:50:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDw7J-0000000HaF6-0riR
+	id 1xDwBh-0000000HaWX-1VZB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 03:45:27 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5b2b92065ffso1120211e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:45:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791258322; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Tg/tJxoDXJQlqXYtNO5gH1AdTjlXPcyyNehMuIkbxM25Nlpu14bRatG1PDc1rvBZ65
-         2trmyQC4HXlTyndoXKGg018IctWDZ6InL66t/oSYJGIkkCyIY8Y5wvQHWewLo8fE1N6A
-         L4lz0BYzL1xnmrdfXUudBZSPhw5ivBONxLpB6c41ZDzplTrXiBbIR4k9XX2liBYbD90m
-         oznxINAsc/6n93MEdC0xL70LytMr2UBNkIhBXfLNQKSpQeD5q0WHNNSh9GEyVGvce0w/
-         8qxjFWMhxVKPd7E0mpVc7sjcV/PUqBXeMq0NlViXcaU588QVw8vtSzGEqExLjuRmx1bZ
-         +iMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
-        fh=hq6358dI6OdcuJhyCPxUEyD4wAcbEJtaMxKoDSqbnBA=;
-        b=qcsCutQVCybRbNw6mBo7LMSBidUHqZZYBXKOc1iI8O+pWy2dZ9gSWLYOuxtWnw/3oJ
-         WTx0ipNnbJ0ueqOPOMqyB59bW6x8E89rYnl9XV6FFbaEpwWkdu9P6nruGnk+b/4Wtpku
-         sYrAs8FygAMC8sQkEeOzZu5yQyS8v5JKZTNLACt85BllLixtC2Bocryq9rOOXPzTIXxy
-         1o/0lffBEoP4+Tiq8SJi0Vu9DCDE7oE68bmFs9sek0LRVjzgua1ZUzpj6NApHuVVgfms
-         Nqs4lJEVt/TFSUZz+mtZvsrXv8MTgdzQtNsYoq0MvmxH8XCHyg99gTZ1kp6IT5KVQ3Rk
-         Z68g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791258322; x=1791863122; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
-        b=Rk6bYKUh8b0aTd8YnH8SI3lv9CxyGpH3VJkJNLKLYyIxOG94WQ0Yy0S4B7ZxmGFpit
-         HZhWT8HvhYiiGiu1coRwmhmoDlPsJoydpkBndJkxs1dT4jfOiVsS0+NrF66xP7UJmmTO
-         JXlW9qFQmt5lEWb2dx2JWTIScdvl+613Qf13UpbW8vtaquKOdsFCRr3IG4IzCO2LCDnF
-         g4GNnLXkaNzZkCAU3XKIg8lIYR3H8bap0Kd/PZPAd98cCu/4iKD3rJDo1TSjXw7l6vFj
-         lt8YcGcA0oY5CXakuwyoO3SiSeGjaXpqLRtsoRxwW5M467h91mWPNBixEdy9ucy/QeIP
-         FNSA==
+	Tue, 06 Oct 2026 03:49:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1791258596;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ikmq0G2vWuzS8RQjLvE7O0ZgTT2QCtc6oU8WM5b+mQo=;
+	b=J2HpYpQSWabE5hCCNcWkVmNof2kEkc+FlyIH13yLTgbyqOzmD+MpZxadC0yj3/n+aWiBBF
+	Xu7U+cSWobZW8PP9irvkXLYSEp83E63HIHeCLigx735LM83wMyUDf/Rjt3ySwgyrv0aUF2
+	sIXB8q4E1yqtnmeaoAUmVUZPZLJLBfE=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-656-B9n1QovQO5SQMZuvRthkHw-1; Mon, 05 Oct 2026 23:49:54 -0400
+X-MC-Unique: B9n1QovQO5SQMZuvRthkHw-1
+X-Mimecast-MFC-AGG-ID: B9n1QovQO5SQMZuvRthkHw_1791258593
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3a813204f87so1335212a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 20:49:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791258322; x=1791863122;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b2CWcYPdL0RmTHJYZikl61tiiXDfBQjGyNirYnlHw3o=;
-        b=Ym4WNWEPp4latDRDLVBlUk5/qqICVyzCo+Y5u0oyN9w3YeozC4BZf7n+OUte5u1cMy
-         mbo4gEup+poCbwDPFxDeekwbTvZUgkAXL1lTJDm4KgNqh/1cLhsTN+nszI3dJjb7F8Rl
-         a4ZzcWCfbNNRG0zhbBVIXt385/vPPPyVzYMC0EpcmOqQuo1KsnojJ6tmzLJ7PKDJcR9T
-         kjvhrxuo1qqik1OaqIWpazbrMLzpA9KCjfaqU7A/Cs0xdxPDbRRaCDU90ZtEdnRVsSg4
-         VaRvqjVPYmVdVtAxblT9HLegwacd7CUWNT0n8rMQdTanXXedpE33u+5gBn5QsKx+foBE
-         KkIg==
-X-Forwarded-Encrypted: i=1; AKwUvBx9f4WtLUvqYgYjstD/AOg/9iLtuubKa2oA1J4jmx8Jch79EJbSejWq2uboNuvqdpSChZuQ2oAkOhsCs+dALvAY@lists.infradead.org
-X-Gm-Message-State: AFq9FYKcQBS2RrSC/rAu11/9jgxO9PPcm1TS9fB18nB+syq5QB45AIeD
-	XWwoQdLnKDHO0ON8MoSTqag8i5PV5jaSPHDavlRAnECZpF04jV0SagHs6v+0fFOs2LBDPeD8kGW
-	rOQf9x2PB9JZsHcloeOwo8/kD5sHZ69c=
-X-Gm-Gg: AYBFou38l0YJgHFEZ648TZAuphjwKVgfhLP4zmd5yo78k1HbuPtOLav6V/WOVGAZ1MN
-	VZ/HzlTTnQxnY+wkzTKwQlimdD9tsQcVecGsERtGp8gEJnxV0VHNdn/NouFBHrV36u8efDE1gYL
-	9IPCvSstr/h9Yl5/NhySAKcT3EE3qJcSeHYDTgNrOXDDFtGBkvgi2gCJten40QjWr7SyOuZygIb
-	rvpqpQ5PPbBnJaASXnv/Si5IibaGNyknNw2R8NZbvBPRiv0I6mzb192hoGpyLOSvZ3To4zMpPHs
-	X0NIi+lgY8KBMK//WrP5PkS0hXjb7M0yVIJO0kPA5iHnTQpEKL016w==
-X-Received: by 2002:a05:6512:3991:b0:5bb:7829:741c with SMTP id
- 2adb3069b0e04-5bccc6b594cmr64148e87.1.1791258321918; Mon, 05 Oct 2026
- 20:45:21 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791258593; x=1791863393;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ikmq0G2vWuzS8RQjLvE7O0ZgTT2QCtc6oU8WM5b+mQo=;
+        b=ACJXmmphhIwScQ1apUKj/cG3S9Wm3ZHNYDiZWX6gzi0Vkax1O4m/YbE1gnQzoOMGjQ
+         9GOTc7BFIG5FZ6aXuazDPxKFU9tkyVFiXjQJ/AsoGZxh19tUdRxaAtHWMeK7TxHfdBM8
+         h4xj/HaDk/Z54v8bjIw+gBRiDukNYa8pyF4PCIv8y5MIEZv2RSZRzAFAjrR1oNO/5lp5
+         SyHDtShAmNrhtZIFy/PAiD+TTmWlQyIFn4uCSshgST+JwLNGNOZVdhrkajh2Z6ylTchg
+         9+X+o1wM/u+j5zayYtEe2I0H5+zNtDzjKvNTDNxPdUqO3MuGhpUa0KRReTFg5ujZKiqZ
+         cvHg==
+X-Forwarded-Encrypted: i=1; AKwUvBwQ5pTQRsbmVFnBTpp7pVPS6jksU5i5bPN1yEr3ZwjfM2B96Yd1BkOFnlS+hj3Lqp3NlEf2kTUv8AwemCwFbPCh@lists.infradead.org
+X-Gm-Message-State: AFq9FYJxdHc2u0+4rZuTmadePd82J1Ok3o1YdRa9DswMS8SyOvVIChKz
+	r4yW3tzil22gOCrlJ0khYcFu6OCCeqyI7hHMi/PbnSldIceR5J1LHK7fZZqjEVeJd+pgonhCKh6
+	d5Nir7hf77Jye8H9TQ7mLCiMwQegzQCCy7lX9tBfxKOy77GSqr/duoby0z/yBDNAjQcfFQ1ZwzE
+	9t
+X-Gm-Gg: AYBFou1AbI7Dyjn2oOC447EVMIpXVKpRAOFcQsFg8R3XJnTHE0MRKIT5v277iL5qWHg
+	sX1lXBFSw7JmEAGAA+Bn6sA985gOS9GV22MojV4AuTVidfO5QnJSxJLyXKgDi/GG1RzWmOmSgv4
+	iyp7TVBvkQkk4ZV4OzT7anhpQcnLnJympqJxIvh0bfQkUcfZAfg/sHNVFLAPziwael3g5qLDihS
+	5D4U+p+ItcSTvMng0ggUWBUOMhr8kQwBG9rcgil9YyNsyRmeNaKFZof0Z3Uh+XdXaZXEEh7HYkd
+	aYrjvMlBxzskoMbuOiwexvd2NJ1S3BVRUbu20NJ7tjdCoXSEiACiQFGAtRIVpN6SCpshm5YCwdS
+	hmhyVx9X0naWVLtq8BImLS/TFvildXf0r3E/ubyiGjg==
+X-Received: by 2002:a17:90b:2e45:b0:3a8:1745:6c01 with SMTP id 98e67ed59e1d1-3a873697b75mr93382a91.35.1791258593268;
+        Mon, 05 Oct 2026 20:49:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:2e45:b0:3a8:1745:6c01 with SMTP id 98e67ed59e1d1-3a873697b75mr93373a91.35.1791258592828;
+        Mon, 05 Oct 2026 20:49:52 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a853889667sm2507543a91.1.2026.10.05.20.49.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Oct 2026 20:49:52 -0700 (PDT)
+Message-ID: <2e83d025-2edb-43bb-a9fe-cdc09ac2320a@redhat.com>
+Date: Tue, 6 Oct 2026 13:49:42 +1000
 MIME-Version: 1.0
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com> <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
-In-Reply-To: <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
-From: Sagi Maimon <maimon.sagi@gmail.com>
-Date: Tue, 6 Oct 2026 06:44:55 +0300
-X-Gm-Features: AclHuK9PN1lCiJLlPnCC7s8Qa_5To1aOEypzViWt-JVLXj9lXdRlnfiN5UevbJ0
-Message-ID: <CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
-Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
-To: Joe Damato <joe@dama.to>, Sagi Maimon <maimon.sagi@gmail.com>, netdev@vger.kernel.org, 
-	radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	daniel@iogearbox.net, jacob.e.keller@intel.com, suraj.gupta2@amd.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 20/23] KVM: arm64: CCA: WARN on injected undef
+ exceptions
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
+ <20261005090754.2140522-21-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20261005090754.2140522-21-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: q-MKKlTKPXXWdtMz6hWSKfwSp-c7N5p0SIWJfidaRqg_1791258593
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_204525_278201_E2C7ABFA 
-X-CRM114-Status: GOOD (  31.52  )
+X-CRM114-CacheID: sfid-20261005_204957_480048_7D7C0544 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,97 +121,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2026 at 2:41=E2=80=AFAM Joe Damato <joe@dama.to> wrote:
->
-> On Sun, Oct 04, 2026 at 11:37:59AM +0300, Sagi Maimon wrote:
-> > axienet_dma_bd_release() walks the RX ring to unmap and free every
-> > receive buffer before releasing it, but frees the TX descriptor ring
-> > with dma_free_coherent() alone.  Any descriptor that
-> > axienet_free_tx_chain() had not yet reclaimed still holds its skb and
-> > its streaming DMA mapping, and both are lost.
-> >
-> > axienet_stop() disables TX NAPI and stops the DMA engine before calling
-> > it, so nothing reclaims those descriptors afterwards.  Bringing the
-> > interface down while frames are in flight therefore leaks up to
-> > lp->tx_bd_num skbs and mappings each time.
-> >
-> > Walk the TX ring the way axienet_dma_err_handler() already does: unmap
-> > every descriptor whose cntrl is still set - axienet_free_tx_chain()
-> > clears it on reclaim - and free any skb still attached, as a drop.
-> > This relies on axienet_stop() having stopped the DMA engine first, as
-> > the RX walk in the same function already does.
->
-> [...]
->
-> > Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Eth=
-ernet driver")
-> > Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> > Assisted-by: LLM sparse
-> > Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
-> > ---
-> >
-> > Notes:
-> >     Changes in v3:
-> >     - Clear tx_bd_v and rx_bd_v after freeing the rings.  v2 only caugh=
-t a
-> >       NULL tx_bd_v from a first open; after a close followed by a faile=
-d
-> >       reset the walk would have read the freed ring (Sashiko).
-> >     - Reword the comment on the skb free: a descriptor can complete aft=
-er
-> >       TX NAPI was disabled, so "never transmitted" was not always true
-> >       (Sashiko).
-> >     - Say in the commit message which hardware the test ran on.
-> >     - Kept Jacob's Reviewed-by, as the changes are small; please say if
-> >       that is not OK.
-> >     - The hardware test is v1's.  The changes since only affect the
-> >       failed-reset paths, which it did not exercise, and how the freed =
-skbs
-> >       are accounted.
-> >     - v2: https://lore.kernel.org/netdev/20260930133851.663023-1-maimon=
-.sagi@gmail.com/
->
-> [...]
->
-> >
-> >  .../net/ethernet/xilinx/xilinx_axienet_main.c | 26 ++++++++++++++++++-
-> >  1 file changed, 25 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/driver=
-s/net/ethernet/xilinx/xilinx_axienet_main.c
-> > index 09443623a3e2..c88c671f8b2d 100644
-> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > @@ -186,11 +186,34 @@ static void axienet_dma_bd_release(struct net_dev=
-ice *ndev)
->
-> [...]
->
-> > +     lp->tx_bd_v =3D NULL;
-> >
-> >       if (!lp->rx_bd_v)
-> >               return;
-> > @@ -221,6 +244,7 @@ static void axienet_dma_bd_release(struct net_devic=
-e *ndev)
-> >                         sizeof(*lp->rx_bd_v) * lp->rx_bd_num,
-> >                         lp->rx_bd_v,
-> >                         lp->rx_bd_p);
-> > +     lp->rx_bd_v =3D NULL;
-> >  }
->
-> The added null writes makes me think that centralizing this code and usin=
-g it
-> from both axienet_dma_err_handler and axienet_dma_bd_release (instead of
-> repeating it) is a good idea like I mentioned in the last post.
->
-> The code seems right tho even tho I don't like duplicating the logic.
->
-> Reviewed-by: Joe Damato <joe@dama.to>
+On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
+> 
+> The RMM doesn't allow injection of a undefined exception into a realm
+> guest. Add a WARN to catch if this ever happens.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>   arch/arm64/kvm/inject_fault.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Thanks for the review, Joe.
-Agreed on the helper.  As on v2, I kept the fix minimal for net, and
-will send the helper to net-next once this has reached it, with both
-axienet_dma_bd_release() and axienet_dma_err_handler() using it.
-Thanks,
-Sagi
 
