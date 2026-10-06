@@ -4,70 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D82CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC9ACA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 12:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/mhq+95raDf+UhtEe5bOyCKcwW4YD3MC/mW/GGLuh0=; b=Q6we8OZ6S3EnZ1NK+JNueMNj2T
-	DFxjySNwNbkHRiJUWJGX8anqJqwGTkQVV21EOzFRn5v9dd6/+54pk+DxNSLhXHb6aMM430UvpKE0S
-	FTwEOSuxEBfbf7cofOKxG5MaYnmDovxQ5hV9QF4LSxZVgKwhNqPHYqfIm+PHaRaKDANPPbUTPKV1+
-	POdqD19Yfei2/tkBMlvT1CU80ibXOHgJlEJQXo6NxkzGNMbqMtMt48F4WPrzN3wUoCi8YFdEqRiFZ
-	bFogugvPMc8ufyXCMTyDAzi9vOBNuvlI6wrgm2VpVc65u2W2U6el8JLihwgbFAA2O4d99Cb5vFoI7
-	2gkiwC6g==;
+	bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=; b=RC/4Z4SpGxs42+kjmmGcfGHFY1
+	xt6gccSIeHH//jN4THnzqYCC0wPlKhlcBcQ1jXkdkbSJc2Z3spk3/CyzeAddvHZA0h0x/1AYUvWvp
+	7WqTTTWdxljPGwbMNgM3dbAM6JWDODsipaxMsA8K1tJapsy9ALvdA7k0sdK8pSnkv9HOQmI5Hoq3p
+	kbu3KdZHw9/RWQA7CDD7+vszDEpfYOJ3M+mZESQDLQ3WBBlY6sp9R6Bfm/nRbXodqBVXvEKWRimYu
+	anYocUGUqLkms3e01unSXA+PKTxZajqWdNSoldUaNj+mpsvpf/3RjJThnGidsV/j4va5cFpOcwtyb
+	gqAFM6nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4Pj-00000000mFB-3akB;
-	Tue, 06 Oct 2026 12:36:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE4Pg-00000000mEI-22EY
+	id 1xE4Rr-00000000mNv-0Z1c;
+	Tue, 06 Oct 2026 12:39:11 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xE4Ro-00000000mNU-3Y8S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 12:36:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFD51516;
-	Tue,  6 Oct 2026 05:36:51 -0700 (PDT)
-Received: from [10.57.10.233] (unknown [10.57.10.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86AD73F66F;
-	Tue,  6 Oct 2026 05:36:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791290215; bh=HEC1onotm9kW6QKrnzD0dawCfe6JSLioR7zbkY+XEdo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cmJHBHd/tPoaiaFDB+pHi4cdyG3iQqM8NNm9D0s0e54/KwUvvrB7GTB3RL6cbWQUN
-	 uoQM/Uh3rx22FzyshOZ6d1yBpYp3ImxJ5asGG1AEspVgFgpMXPSikCEiVc/7247Qbr
-	 RS8u+Ae3LpsMoBx8dZxP19enp8JguDuXyDk06wKg=
-Message-ID: <71ceb680-e168-450e-99e0-7a8cf4160bba@arm.com>
-Date: Tue, 6 Oct 2026 14:36:48 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 23/23] KVM: arm64: CCA: Control user register access
- for Realms
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>
-References: <20261005090754.2140522-1-suzuki.poulose@arm.com>
- <20261005090754.2140522-24-suzuki.poulose@arm.com>
- <52e3e45a-751e-40b2-8dd3-3db589ddebee@redhat.com>
- <7b6ed626-eca4-41f2-ae56-0af59a931b29@arm.com>
- <6bd785aa-4693-407d-b70a-39b1d0eda63e@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <6bd785aa-4693-407d-b70a-39b1d0eda63e@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Tue, 06 Oct 2026 12:39:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I+rWs1PVYcQotA+1FmuhPta8aY6QW5eQ9ztvNLRy5ldnojhJQXMB2YOwYwvrmCGtJUvkLAOuBkwLloslZB3+oTLuOQ/VBjpc/fAO4LWsP/SBV4P2vwv3VifMbP2IK+OiCtY2HRK3jv0gEcBBpvvC1DLX3rbkxFf3hfWGkaxYJ5w4qwdKT7/HvNOrrM6kA7f+7TJFH+ZVmkWuHOgF7OPbGecYC9fgwunsMmTKmjQsiivPZ3xrLMPJzPa/Do3ld+MO1yHKNcbgdGExwQ6x3nOoHRVC0a6IyOX08RWl25hd3HbFOlCYuHM03V4KC1nJdgw1NlLxoE9mHEuEjIZn7A/8cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=;
+ b=t1cetyWa0Qk2EzRKuSKADa/81TRvlpKtfuWINh8YsWvCoTfyEt5lcDkwjQFnHVZwk8fm3uYZeDRs3gAcX0azHiu4Hog5kZ2K+bZPDgrm80Ss4dEgCESar26HI8vzP0HmOcIZ5TpZwPA3NezpLrwMAKqJthDwIrqiQPpfcBb23u/bIS9BanjPnwyXrNe0CWg8mw/+HSwtEvNQIJe8vnbjuiPOyoRx0OyquvkaJMgMeSScEpD3nYbI9Md3swbQDtFr4nMMsWISucWA6NszqsTXuB/iynwDVJfQOsncIy+n9BBpWcaZ5YzU2XpI2QrXucIfvbmdbZ4yhj8Nzg2HTGxPeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qOszpBL7aL9HZ+PxN77VGSprrG1hzLxuzp2r1pkDNlY=;
+ b=fPPDIFJnr7V7aiAWgGjpTgaBpipuMuEYFXx6he2VH3/YeAr671TsSl1Pd+V9yp484+Py77emzDwSzvzU0w5W9T2s2imlDdcqWLLNAdu2AKXLIsMiiG0OjsgYm7CesmbheVWs32GgAv4vySMrTub6Dan3eNkIevp142fi2b6qmZqs+/V+ALC90rWjj4HdfcM9+rJcaHOLwP0rYdNS3cMZ6+VjZklae4+iHEzPkTB2WwzSAReiYJpg6t9wSwlaLV5F5CVzw+yeDmjy+LkronxeZjWXFrc7/p7PVeZZydtb5PRlM7AYQAW3VdvtScxMcniXwL77/424eo8PB0TIp/V5mw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by MI9PR04MB480781.eurprd04.prod.outlook.com (2603:10a6:290:d3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
+ 2026 12:39:03 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Tue, 6 Oct 2026
+ 12:39:03 +0000
+Date: Tue, 6 Oct 2026 20:43:34 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 0/9] gpio: mxc: bug fixes and probe cleanup
+Message-ID: <asTs9scYht+xg7v5@shlinux89>
+References: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261006-gpio-mxc-cleanup-v3-0-129f93302a90@nxp.com>
+X-ClientProxiedBy: SI1PR02CA0001.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MI9PR04MB480781:EE_
+X-MS-Office365-Filtering-Correlation-Id: dbb46a3e-84e6-4010-9c61-08df23a6cdab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|23010399003|376014|19092799006|56012099006|11063799006|18002099003|10067099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: adsSxmjO0tUND2oY66t8gHlTE3RVuwEfiNb3kF9z4hlnfORmyBmjpyfDPzfgbKiGX3Cx9M6Mibf2ydBUjOYibDgjlIIgKPcAqY77AHtkb0aQxQTsKWAG1aY//6X4xNwcJ4i8bkcCUvweYJ1WL/eERr6m0QW9UeH+QZCeY+kIqiPEQjJioAb2UFuWpuUiRq9es333XF1anEaPsmKejeMVQVf9Q+TVmY3QOkto5Efer8mf8PAvfWfLSKQeBszXu9hsmBPlE6uCN0Xz7UHSoFfY5hXe9hXP4QsR+EAR06TY2W8xPcuDTq45pEFfhs/J21aD4s6rH8+i/rSxc5uPhJqmgfEFLWcCKPmld2RjplXmMmU3Y2MkJcFG5Yun/VAPtvVqJ6oBfDz2MsSr6ERV82BjuITp/OaGpp2ndlyM+kd0lHDCNMpP31XAzY2giwDfrXALOlBsGvE1dEBcQRE7Ec/XRqB5uwuOBnUD66IkCp0NWFC6KeE34UjX5mV5XrCXkr54lYaUDMnzRxcZLI387O5xygYKWzQYfKUKZRWquDNdi85FukPij9WW5uF8SZZieD0RgKqp8Irz1JENs7wfLQm/wECvSdoGEDoVu8kP4XUB4SA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(23010399003)(376014)(19092799006)(56012099006)(11063799006)(18002099003)(10067099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZkNQL3E2RXdUdXExeURzWFZTN0d4NE9aY3FUSGh2STRpSGZUYUZkR09RZWY5?=
+ =?utf-8?B?OEJlRXpZdVNiSHVBTWNsdnRUckkxR1lTbzZZUDVPenNCSDRwS3BZQ1c2Tktt?=
+ =?utf-8?B?d01iTzhoTVdKMy9US3M2ZW9HVzFaK0xSaHRKcjlnUjcwTitwL21jWDdUaFVQ?=
+ =?utf-8?B?ekNCS2haTGRzREVLQXh1Ty8vd0EyWmxkc0U1MFhLc2JpK25yMnB5ditOVXZj?=
+ =?utf-8?B?RnlDMU50dFc4a3Y1WnZOenpoei9rb0JFWnJOcVRGcDVFREtxRmpvOFpGQ2p4?=
+ =?utf-8?B?WDRCZS9Xb1RHK3N3WUNBT0JkV3pLbW0yaGlEbUZHZGJUa2c5Y0U2TEJpQzVW?=
+ =?utf-8?B?MDhVYVFEVFdGMkE4T2ZsNWdzNmVIOTcxSmtPYnpkOUNNNnM3cUxzWjhtam56?=
+ =?utf-8?B?TGJYRUdnQUpoQmJYOFllVXU2SWVKYlBCM3lYYWhtdWE5YVlVQzIwanhnNHFq?=
+ =?utf-8?B?eTB0aXdPRjd2TkFQNzl6V1dCYXcya0tadDBDRFZjOFBzTG1RcmdOclA5Rm02?=
+ =?utf-8?B?KzVqWVV3YS9SK2tHckdIbFF5bStOQVJkZjQvMC82cGw2N1NJRTB6aHNpVGwr?=
+ =?utf-8?B?QXFJNHloQlBpZEtvVVVQa28rYThDakozNTY1T2dCcm5YTlFJZGVnejMwTUZI?=
+ =?utf-8?B?RjAxT0JtTG0vWm00YjBDYVoyVERSWXQvQ2FLOFJxdXNZeVYwa3ZBaysySXg1?=
+ =?utf-8?B?dklHenQ0TE9CaS9UZFVUL21ad3VXQTZURGFkeURGVCtLMzlnbWxnQmNrWWNX?=
+ =?utf-8?B?MTVRUVZSTnBDbTZDZitRdGFWcUw4bHlCcE1WUTg4ckpNRFR6TmNSNXhUQllB?=
+ =?utf-8?B?VWRYODB0RDFtUk52TE43dGtVV1paS0hJa21sazU2UzFnMDlEZ21pUHVYdHRs?=
+ =?utf-8?B?Y0pXa0N2OWRPMHRLWmp1OWE5bldQbTUxK3UvMllTT0x4ZXcxVFpCTmNVclJU?=
+ =?utf-8?B?bTJ5bXFJY2IvZllVUWhDWmd4d3VRVGJZS2sxeHF6TUtVcEc0amhqKzZVWkhO?=
+ =?utf-8?B?R3ZzYmR5OXl3c2cwc2xjYWE1dHJnOVk3R3VoK3RTWDZPb3ZLUzdTY2hvUlJ3?=
+ =?utf-8?B?Yk0vZ2kxUk93MGFDblc4VCtOTXRLUGdacHNPeTlGZ0dvbCtrM2NjdUI1d2JG?=
+ =?utf-8?B?SnFCTUFUM2NWQUNZNTVtV1J2V29yQVpESnRNOHJQcElFSWp4eDFRU1UwUTcy?=
+ =?utf-8?B?SkE1Z054WFBLTmpLOVFMS2UxZWhpSkdiYmt6b01xN0hEZmd2M3VCMmZlakhM?=
+ =?utf-8?B?bzBtM2hSWEs4dDZUWDFGYlloNCtvRmFiQWlyaHBsVVc3VzhzdjA5Ry9aUC85?=
+ =?utf-8?B?ZXljcXRzVW5oL3BYaFFGeWwxNEFaNXk4eDRwc0duR0txWDJxWGtyV3E4WnQv?=
+ =?utf-8?B?Y2RqcytMVFNuR2tLQmVwSTN1aGJNQ0hWSkJIYkhjRkFHS3NSR3R6Yzd4SXk1?=
+ =?utf-8?B?c1I3VG1mNWtSRzRwRjZqdFlhY1lKYmpBWG9vdnJ2ZUFUWlltTUJhQ1NNeTJ0?=
+ =?utf-8?B?VlhUSER3bXgyL0VDSEJnNFg3aTVpRUk0SVI2SkQ1UmpKSUpCbXVBbzNnTEgy?=
+ =?utf-8?B?dmZKS1VSQVhRWGpnSWJzMDhTakhRZFhLeFA1VUY0QlY5Mjg0ckhOaUUvelBm?=
+ =?utf-8?B?eWtPQUZWVGxSSWc4NUxpQTJLdk9lUUlVczUrQlp5bHlPdmZ5eUJpY3o3VXNy?=
+ =?utf-8?B?Y2hsM3lhNDVlUzRyeER3ZWNOY2d2WVUvMmFSejZjckV0K1dWMk0xNkhyOExO?=
+ =?utf-8?B?ZzFWM0lKTGEyODM0SkNQSU9LbjN6YTJVa3NPNklkeHREbkxQTE40MFhCbm9I?=
+ =?utf-8?B?akx4eWxrbmJ2K0svekpIS3Rwb2krMEJVK25IL3ljTGUxckJ1cUZQZVJlRmkv?=
+ =?utf-8?B?UHZqYXlGSlpCRlRHUnNyYVdleGMyS0lublVzYlMzQVY5V0RhaUxUUEQ2L2t4?=
+ =?utf-8?B?Q1NnbDQ5MDNmWHcraHcyU1VNMm1sRy9IMW5SRzRlT3BGbmovcWpCTnJiK0hu?=
+ =?utf-8?B?czl5aWNJWmZWYjQvTTVBUC9NRElveWdHSHZNckUyM3BQK0dNS2kxaU1OQXJw?=
+ =?utf-8?B?NWZSajZPSGd5ZE0vaWVQZERiRGwyZ002S1FTc2lkbWJWOGgweTFQUG5xYkZx?=
+ =?utf-8?B?ckpvSi8wbzI2c1pHc1E1Ulg3Q2ZqV2ZuU3J5QWdjbDJ5TXJOSUE2YVZaUnBK?=
+ =?utf-8?B?V0NLNHVDSVNCNlRoY1VWNytmM0JOK3E1TXBLUUxzWEF4Y1d3WnNhMkFxMnZi?=
+ =?utf-8?B?a1dzLzhoYWcvZFM2Z01hVkcvZFBITk9FTVJXTi9CaGljUjI1V0Vlbld1cWFC?=
+ =?utf-8?B?T0Rxbm1udmdRT1Z4VzFsZkxkVTUrdThnMm9MbUxuN21WRnZ4VlppT2EyVnlE?=
+ =?utf-8?Q?uaCGh60NGjIr11yYwU5GEa8eq9DrjcZWtKDVl?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dbb46a3e-84e6-4010-9c61-08df23a6cdab
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 12:39:03.5115
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r9bIUsteGWiL+EFA/h1rMLmL1ZngZ3D+24uZtkbMDtKw9XxcXme0pkatmt+y0TgB3XoTc7DjXzOP4dJyqvEIVpgATdNfngLkMYxSFNREOpsSKCgs/hi0mS9yOyP/GWcj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB480781
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_053656_605274_144EDA17 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20261006_053908_891782_471AADFA 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,133 +153,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2026 07:16, Gavin Shan wrote:
-> On 10/6/26 4:01 PM, Suzuki K Poulose wrote:
->> On 06/10/2026 06:47, Gavin Shan wrote:
->>> On 10/5/26 7:07 PM, Suzuki K Poulose wrote:
->>>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
->>>>
->>>> The RMM restricts the access to the register states that the host can
->>>> read/modify for a given Realm.
->>>>
->>>> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
->>>>        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
->>>>        requests.
->>>>        MMIO emulation in the unprotected space.
->>>>
->>>> Additionally we use the sysreg configuration to advertise/configure the
->>>> following Realm parameters, which are required before the Realm 
->>>> Descriptor
->>>> is created:
->>>>   - SVE Vector Length
->>>>   - Number of HW Breakpoints/Watchpoints
->>>>   - PMU Counters.
->>>>
->>>> Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and 
->>>> SVE_VLS for
->>>> the configuration of Realm creation parameters. We don't support 
->>>> PMUs for
->>>> the Realm VMs yet, so PMCR is not exposed.
->>>>
->>>> The RMM makes similar restrictions for reading of the guest's registers
->>>> (this is *confidential* compute after all), however we don't impose the
->>>> restriction here. This allows the VMM to read (stale) values from the
->>>> registers which might be useful to read back the initial values even if
->>>> the RMM doesn't provide the latest version. For migration of a realm 
->>>> VM,
->>>> a new interface will be needed so that the VMM can receive an
->>>> (encrypted) blob of the VM's state.
->>>>
->>>> Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
->>
->>>>   static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, 
->>>> u64 off)
->>>>   {
->>>>       int size;
->>>> @@ -553,6 +572,9 @@ static int copy_core_reg_indices(const struct 
->>>> kvm_vcpu *vcpu,
->>>>           u64 reg = KVM_REG_ARM64 | KVM_REG_ARM_CORE | i;
->>>>           int size = core_reg_size_from_offset(vcpu, i);
->>>> +        if (vcpu_is_rec(vcpu) && !kvm_realm_validate_core_reg(i))
->>>> +            continue;
->>>> +
->>>>           if (size < 0)
->>>>               continue;
->>>> @@ -598,6 +620,9 @@ static unsigned long num_sve_regs(const struct 
->>>> kvm_vcpu *vcpu)
->>>>       if (!vcpu_has_sve(vcpu))
->>>>           return 0;
->>>> +    if (kvm_vm_is_realm(vcpu->kvm))
->>>> +        return 1; /* KVM_REG_ARM64_SVE_VLS */
->>>> +
+Ignore this V3 patchset. This is not a complete version.
 
-This could be vcpu_is_rec().
->>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
->>>>           return 1; /* KVM_REG_ARM64_SVE_VLS */
->>>>
->>>
->>> Aren't above two checks conflicting to each other?
->>
->> Do they? We allow SVE_VLS only for the Realms and we allow that
->> before the vCPUs are finalized. For normal VMs, depending on
->> whether the vcpus are finalized, we either send 1 or the full list.
->>
-> 
-> num_sve_regs() can be called for 3 cases: (a) non-finalized RECs; (b) 
-> finalized
-> RECs; (c) Other finalized vCPUs, correct? "if (kvm_vm_is_realm(vcpu- 
->  >kvm))", which
-> would be "if (vcpu_is_rec(vcpu))", covers (a) and (b). We needn't the 
-> excessive
-> check "if (!kvm_arm_vcpu_sve_finalized(vcpu))". So the check would be 
-> something
-> as below after this series is applied:
-> 
->      /*
->       * KVM_REG_ARM64_SVE_VLS is visible on realm vCPU no matter if it
->       * has been finalized.
->       */
->      if (vcpu_is_rec(vcpu))
->          return 1;
-> 
-> This check "if (vcpu_is_rec(vcpu))" belongs to PATCH[22]. Hope I make 
-> myself
-> clear this time :)
+Thanks
+Peng
 
-Sure, these two patches are closely related and may be even could be
-folded in. I split it out to make it easier to review.
-
-22: Allow exposing SVE_VLS for unfinalized VCPU RECs
-23: Control register accesses includingthe SVE_VLS, but prevent
-everything else
-
-Does it help ?
-
-Cheers
-Suzuki
-
-
-> 
->>>
->>>> @@ -625,6 +650,10 @@ static int copy_sve_reg_indices(const struct 
->>>> kvm_vcpu *vcpu,
->>>>           return -EFAULT;
->>>>       ++num_regs;
->>>> +    /* For Realms only support SVE_VLS */
->>>> +    if (kvm_vm_is_realm(vcpu->kvm))
->>>> +        return num_regs;
->>>> +
->>>>       if (!kvm_arm_vcpu_sve_finalized(vcpu))
->>>>           return num_regs;
->>>
->>> Same question here.
->>
->> As above.
->>
->> Suzuki
-> 
-> Thanks,
-> Gavin
-> 
-
+On Tue, Oct 06, 2026 at 08:31:05PM +0800, Peng Fan (OSS) wrote:
+>This series cleans up the gpio-mxc driver in several incremental steps:
+>bug fixes, converting runtime state to static per-compatible data,
+>modernizing resource management with devres, and cleaning up
+>register access patterns.
+>
+>Patches 1-2 are bug fixes:
+>  - Fix a race where the chained IRQ handler is installed before probe
+>    completes, allowing interrupts to fire on a half-initialized port.
+>  - Fix wakeup_pads bit operations that used wrong set_bit/clear_bit
+>    logic, folding in the assign_bit() simplification from V1.
+>
+>Patches 3-4 replace runtime of_device_is_compatible() calls with static
+>per-compatible hwdata flags, eliminating repeated string comparisons in
+>the suspend/resume path.
+>
+>Patches 5-6 convert probe error handling to devres and dev_err_probe().
+>
+>Patches 7-9 are cosmetic cleanups: local dev variable, MXC_ICR macros
+>with field_prep/field_get, and BIT() macro for single-bit shifts.
+>
+>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>---
+>Changes in v3:
+>- Patch 5/8 ("gpio: mxc: convert probe error handling to devres"):
+>  Replaced pm_runtime_get_noresume() with
+>  devm_pm_runtime_get_noresume() to fix a PM usage counter leak on
+>  probe error paths. The non-devm pm_runtime_get_noresume() was not
+>  balanced by any devres action, so any probe failure after the PM
+>  block (e.g. -EPROBE_DEFER from devm_gpiochip_add_data()) would
+>  leave usage_count permanently elevated, preventing runtime suspend
+>  on re-probe.
+>  Dropped the explicit pm_runtime_put_noidle() on
+>  devm_pm_runtime_set_active_enabled() failure - the devres
+>  registered by devm_pm_runtime_get_noresume() handles the balance
+>  automatically during probe unwind.
+>- Patch 6/8 ("gpio: mxc: use local dev variable"):
+>  Keep of_device_is_compatible(), only focus on switching &pdev->dev to
+>  dev.
+>- Link to v2: https://patch.msgid.link/20261005-gpio-mxc-cleanup-v2-0-bdc3afbb35e2@nxp.com
+>
+>Changes in V2:
+>- Reworked compatible-string caching (V1 patch 3) from probe-time bools
+>  in mxc_gpio_port to static hwdata flags with per-compatible data
+>  instances.  Split into two patches: one introducing the flags scheme
+>  with MXC_GPIO_HW_DATA_COMMON macro for power_off (patch 3), one
+>  extending it to pad_wakeup and imx8qm (patch 4).  (Frank, bot review)
+>- Replaced devm_pm_runtime_get_noresume() + pm_runtime_set_active() +
+>  devm_pm_runtime_enable() with devm_pm_runtime_set_active_enabled().
+>  Keep plain pm_runtime_get_noresume() (non-devm) for the probe-scoped
+>  reference to avoid usage_count underflow on unbind.  (Frank, bot review)
+>- Replaced irq_domain_create_legacy() + devm_add_action_or_reset() with
+>  devm_irq_domain_instantiate().  Squashed with the PM runtime devres
+>  conversion (V1 patches 4+5) into a single patch (patch 5), since the
+>  goto labels cannot be removed until both resources are devres-managed.
+>- Split dev_err_probe() conversion into its own patch (patch 6) for
+>  bisectability — patch 5 uses bare returns with correct error values.
+>- Folded gpio_set_wake_irq() assign_bit simplification (V1 patch 9) into
+>  the wakeup_pads fix (patch 2) where it belongs.
+>- Used 0x3U (unsigned) in MXC_ICR_MASK() to avoid implementation-defined
+>  behavior when shifting by 30 bits.
+>- Replaced linux/of.h with linux/property.h to match the
+>  of_device_is_compatible() → device_is_compatible() API change (patch 7).
+>- Added return-value checks for devm_pm_runtime_set_active_enabled().
+>- Fixed stale error code returns after devm_irq_alloc_descs() and
+>  devm_irq_domain_instantiate() in the devres conversion patch.
+>- Link to v1: https://patch.msgid.link/20261003-gpio-mxc-cleanup-v1-0-dad728ce27f2@nxp.com
+>
+>---
+>Peng Fan (9):
+>      gpio: mxc: fix race between chained IRQ handler install and probe completion
+>      gpio: mxc: fix wakeup_pads bit operations
+>      gpio: mxc: replace of_device_is_compatible() with hwdata flags
+>      gpio: mxc: convert pad wakeup compatible checks to hwdata flags
+>      gpio: mxc: convert probe error handling to devres
+>      gpio: mxc: switch probe error paths to dev_err_probe()
+>      gpio: mxc: use local dev variable
+>      gpio: mxc: introduce MXC_ICR macros and use field_prep/field_get
+>      gpio: mxc: use BIT() macro for single-bit operations
+>
+> drivers/gpio/gpio-mxc.c | 257 +++++++++++++++++++++++++++---------------------
+> 1 file changed, 145 insertions(+), 112 deletions(-)
+>---
+>base-commit: f0406245cb9855e6318335a8a223551354291a46
+>change-id: 20261003-gpio-mxc-cleanup-e49cc626c51e
+>
+>Best regards,
+>--  
+>Peng Fan <peng.fan@nxp.com>
+>
+>
 
