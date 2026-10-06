@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B037ACA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 18:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C05CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 19:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXLSbpyUG31gTT+jrU2zP+FXGyzeEv4VmzVE/LaXxjY=; b=K2BnP9fIB0wslSus/gD7gxIJr1
-	LNPZs2QcekW8n8VBZodYAEBj6Jg4XdLvLWzGJadRIS1dmC0rnPTfq/D5HTURBZDzfD0Rg8DnLtJCD
-	lHhFAD7zV+3/ymWWReSEJf91bRAt/h1RTfAxuf8PiYvOgZhWxMzbbdtAJTjkGKutgC1ReqRn2weSN
-	jOFcVzUAD/pdRMt1JenljDO+v3jGYwsNd7FGh/91YzjSM3Wz/R2tB5dI59mJn1xBFA79RKXd9sEjI
-	m/IHJunDEO+kph9bFAb99ARE3j1ofCQqR+XriWKW5XP0F5dJXXapBz9aZNIbX9U4EVGeVKl4hB/9/
-	VZeFcxVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1qBitEhmQ0nRXsqFbRoBV52/x56ftA0tXFJqTD+1+Bg=; b=Kx5rtUYzCYYzzLaAsXOQOGNbvU
+	k1Ia+ZWvmel1eEYeVsvHZ7T1P9p8L30eNNtrIoVgk0aKb2aSeUIkCadVJsu+xSwMFAJq0APK9uDCL
+	zXx5ZB827XNdNAbkkGAjpLZYxAkPM+LWOzeZj0uIJiILG8xdxjySHJET+qwytQdbri4QV/DwSaXce
+	0WEr9wN6zwxlAXwI+trh0FIPE0KLgXnE9Nan4t744jfCj/JDiPJgaiFQutlOGHr9dhl4CQaKg/Viw
+	FTXtGJlbmho4wMetKN5RjQF4b2cJNvKS8Dqk6DcmL538jmSjHe0/Rfnmv9mZ+vhP7LmxmhNJOv3en
+	tORmffJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEAFO-00000001Hq7-0wYE;
-	Tue, 06 Oct 2026 18:50:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEArX-00000001Jlp-1isE;
+	Tue, 06 Oct 2026 19:30:07 +0000
+Received: from mail-4325.protonmail.ch ([185.70.43.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEAFN-00000001Hq1-1y6X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 18:50:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E1A941A6E;
-	Tue,  6 Oct 2026 18:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 258821F0089B;
-	Tue,  6 Oct 2026 18:50:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791312640;
-	bh=tXLSbpyUG31gTT+jrU2zP+FXGyzeEv4VmzVE/LaXxjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nqVtH0PDsADZHitSsB9NWX6JfSdnbWpCkPis74u/0eQ63jKclvt5x9BouQeAL7kPr
-	 8ZusnzhuwxM4EYc3SKaoCz3/Qn3ZujK5jHZtdB3Smo+GYoy+pVIXJtUzesjicm7FC2
-	 MEmscX1QmXDyp9yR/DlINPPGfK6bwhEccUyN68rL4c+Nm9IBGK4MA69p/6wLDZGTdF
-	 nQXottDid1ozi9tFP6Jli6w//JVcmnFjNThZ5LaTmMuv+kwLLrjQW+bFTIZBRLgMWK
-	 WjclFiJq1gqZGf13rs3vSt7mU51/uVUG4sBUKYEnJEsmJfKiJf7KA2EerfDEQjyXOs
-	 ZRZJ0xUdNzSdA==
-Date: Tue, 6 Oct 2026 13:50:39 -0500
-From: Rob Herring <robh@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Michael Reeves <michael.reeves077@gmail.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, iommu@lists.linux.dev,
-	linux-input@vger.kernel.org, Julian Braha <julianbraha@gmail.com>,
-	Sasha Finkelstein <k@chaosmail.tech>
-Subject: Re: [PATCH v4 04/10] dt-bindings: input: apple: Add DockChannel HID
- transport
-Message-ID: <20261006185039.GE2194299-robh@kernel.org>
-References: <20260925-apple-mtp-keyboard-final-v4-0-304c267518f4@gmail.com>
- <20260925-apple-mtp-keyboard-final-v4-4-304c267518f4@gmail.com>
- <20261006160049.GA2406717-robh@kernel.org>
- <2687bc3e-b73a-415c-8c68-8249e1fe4e6b@cyberchaos.dev>
+	id 1xEArT-00000001JkQ-1DwM;
+	Tue, 06 Oct 2026 19:30:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1791314996; x=1791574196;
+	bh=1qBitEhmQ0nRXsqFbRoBV52/x56ftA0tXFJqTD+1+Bg=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=ODfamKOlMrd/svk2N3xAryTpWMoBSxgYAPPwkYwb/0eKSjCXnjVUZqpWhxScYZNWB
+	 58XC6whD0CzUO7YKaqbV3ZM+x6o5EEkMpEAcModPXCC30POBiq3n18F9XopFL6PAFI
+	 PXji54w/i0RCzudx1GTj8elNBmBNvyX7ZjO+XxEuaGx46wwsWpqZG3Sqdw6KWKdZJ2
+	 Zbslz5qkM0RU8zmsKGoxkqjBF0h70rJPxjdN0Qfo1iSsBMtvlMePjN3GBsoKKLw/6i
+	 fZ+1h0XWOKzJEstjlXja/pXtOO5uP6nKY36aDtfOFylDT9Ixhmg6oBN4r/GLo2D9DW
+	 uLh0UyllLGKdw==
+Date: Tue, 06 Oct 2026 19:29:50 +0000
+To: Linus Walleij <linusw@kernel.org>
+From: Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Teng <andy.teng@mediatek.com>, linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 0/6] MediaTek pinctrl DT binding cleanup and MT6735 pinctrl support
+Message-ID: <oiGrAevSu8pKA28tZnLYomTYf7Ox9GgRiITPUpJnRqzFsusm9sE3GXOED7sBHn-oTLk0rfD5bqwABV7rQdkHBuTTGaqiuzgY1m7QxFIKxCk=@protonmail.com>
+In-Reply-To: <CAD++jLnJZBqQVkh51QGWuv0SQVNoxdy4fw3xOSOdCVSpSkkXww@mail.gmail.com>
+References: <20260925-mt6735-pinctrl-v9-v9-0-bfb19d8bb87c@protonmail.com> <CAD++jLnJZBqQVkh51QGWuv0SQVNoxdy4fw3xOSOdCVSpSkkXww@mail.gmail.com>
+Feedback-ID: 6882736:user:proton
+X-Pm-Message-ID: 496c99386a9184e561265d3356b401c0b7c518a6
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2687bc3e-b73a-415c-8c68-8249e1fe4e6b@cyberchaos.dev>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_123003_493997_282CC7A2 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +69,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 08:09:47PM +0200, Yureka Lilian wrote:
-> 
-> On 10/6/26 18:00, Rob Herring wrote:
-> > On Fri, Sep 25, 2026 at 10:09:31PM +1000, Michael Reeves wrote:
-> > [...]
-> > > +
-> > > +  mboxes:
-> > > +    items:
-> > > +      - description: ASC mailbox used for RTKit control
-> > > +      - description: DockChannel FIFO mailbox used for HID packets
-> > > +
-> > > +  mbox-names:
-> > > +    items:
-> > > +      - const: asc
-> > > +      - const: dockchannel
-> > > +
-> > > +  iommus:
-> > > +    maxItems: 1
-> > > +
-> > > +  stm:
-> > > +    type: object
-> > > +    description:
-> > > +      STM interface providing the vendor, product and version identifiers
-> > > +      and serial number shared by the HID devices. When present, the host
-> > > +      must query this interface before registering the keyboard.
-> > > +    additionalProperties: false
-> > An empty node is unusual. Why can't you just query the STM interface and
-> > treat it not existing or having those properties the same as no 'stm'
-> > node.
-> 
-> The issue is there is no indicator for the stm *not* being present: We boot
-> the MTP coprocessor, and then receive a message when the stm is available.
-> In that case we know it's ready and we can proceed with obtaining the serial
-> numbers and registering the hid devices. But if there is no stm, we simply
-> do not get the stm ready message, and the hid devices are never registered
-> (this is the case in the original downstream Asahi dockchannel-hid). To make
-> the stm optional *without* taking the information from the device tree, this
-> would require some sort of timeout for waiting for the stm ready message. I
-> outlined the available options in this thread[1] and argued the empty stm
-> subnode makes sense, since this is describing a peripheral which may or may
-> not be present (and this information is useful to initialize the device
-> properly).
-> 
-> Link[1]: https://lore.kernel.org/asahi/bbaca769-312c-4a24-9524-16cb2b4f277f@cyberchaos.dev/
+On Thursday, October 1st, 2026 at 9:07 AM, Linus Walleij <linusw@kernel.org=
+> wrote:
 
-Okay, but you don't need a node here. Just an 'apple,has-stm' or similar 
-property will suffice.
+> On Fri, Sep 25, 2026 at 5:46=E2=80=AFPM Yassine Oudjana
+> <y.oudjana@protonmail.com> wrote:
+>=20
+> > These patches are part of a larger effort to support the MT6735 SoC fam=
+ily in
+> > mainline Linux. More patches (unsent or sent and pending review or revi=
+sion) can
+> > be found here[1].
+>=20
+> Waiting for a DT maintainer ACK on patch 3 otherwise this looks good.
 
-Rob
+I sent a v10 [1] addressing some additional comments by Sashiko and the DT =
+patch there got a Reviewed-By already. Please make sure you pick that rathe=
+r than the v9.
 
+Thanks!
+Yassine
+
+[1] https://patchwork.kernel.org/project/linux-mediatek/list/?series=3D1173=
+988
 
