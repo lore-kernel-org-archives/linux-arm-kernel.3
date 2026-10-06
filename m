@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AABCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DA5CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Oct 2026 06:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WIXWXKVD7GsrdCHKFaXi1XwMsOECWaVXag6r6s+wajM=; b=0+Imm1MvrR8rKDIbR2Iyz/O7zk
-	lWjmatxRNOe/16MCGIKm81UgxgyMkhq/UNAKEbzsjZNRzt41+tPhjrq/YKF0PmQFWsDwAVBcXyEtJ
-	IB6RTFJP34WGqa5kUikaQwjOtXWI6B67t+TcyPj3jzO7EKxzzRlBdMlChXB45e0I59G/c40CuXu7/
-	xLGjqBORZbk5MWr33Wh5HJvBZpNdEQ8tUqZ+Ghg2HcFk1W20+dHnrrEexPd9iTxHJ5ocNSoGadiQJ
-	2LUajFszMSSoUn1TEiS2uMKq4AkkxJV8eeCVenzjVCD1OKzpKu4yx6eEJkIwFSWE7cXwRCLxDTP4Q
-	Xzv8AyuA==;
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QEqiKEHKarFBBNj7EInhCi1Qac+F8ajzAZ5Uck5ighE=; b=YifIz+SLA+WKiq8544+7f1InWC
+	gU3zsB/WOwMjjfKVnQcDF8NuvWUZS6dNS4is90wUajRxpu6AvWgHMcE5beCZYYqnWzTTBufBQY7kI
+	bIfw1AX/xyTQuRuBAQSWhC+XuG/Si3z4T5lMeWqjhR+BxB3lhAEfk5c6Jhv6B2IWuos0IW4kOJOuQ
+	wWpffnZ2m1lOLESIgBPF2Wk/ZNAm95Srs/gw8rb3xNwT/RoBO6QjNC4/bNm/eB1mkxuq9RN3EBj6W
+	p1j37yP7x+EaSjJLe+oqsXi9wltOsX3Xur2BMXWnLsUjznmYwx+8NwBRYe4+fkJnjjLlnifT6CpFU
+	egiAJ/Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyNV-000000006db-3ykj;
-	Tue, 06 Oct 2026 06:10:17 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1xDyOd-000000006jU-0Y5a;
+	Tue, 06 Oct 2026 06:11:27 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDyNT-000000006dA-1xzF
+	id 1xDyOa-000000006iN-0eaU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Oct 2026 06:10:16 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-917a97b39e8so4012116d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Oct 2026 23:10:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791267014; x=1791871814; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WIXWXKVD7GsrdCHKFaXi1XwMsOECWaVXag6r6s+wajM=;
-        b=rgOg75Kx4lvziQLfL9Z1jM17YvXeuMR/7Uaz+cud6yGoyFiWdl16Kks7JIytvFddez
-         egGRzOms6RSrmSJaAjppRjV/S54TmbLLUQ2N4Ey0mtzmZT4winh19T0Eoay04fO5cvvo
-         0g2a9r4MzMEpJtbT/fMOnL6VBWkuUVysvBXzHi5wA5L76I/pfHq1nOcHgzjertxCDAsO
-         rEvtxpzH+DGwuXI/9GIj3/4VPIGV8G4LqocaM4n1LDpypjtqpU3sCjqDp6Xe2/QQnSWg
-         WIaDhn4YvW73/rISPLTHlZ7wUZr9xmAiaDQEDvyhIxTFQlnC6jkIaw3jSLstieyHQMA4
-         u0rA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791267014; x=1791871814;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WIXWXKVD7GsrdCHKFaXi1XwMsOECWaVXag6r6s+wajM=;
-        b=CtN2OqW5amx4JX1YjR3BmtwW0yy9VVdISMg1O7wQWTVRBXjXYd0Ub5CxuRCAPUQn3t
-         5yrhzApdZFt8Q7EaoVwYjn/cFCxoxUC6SdytnCFermJNG5ntVGu6CDpml/N1YLPnrTy7
-         PhPOLdTrDv2mjJhy2ycXG8OEi4mAOmPV+3PcgFjC7FAqymI1OrsCWqRiBa/Cle0KBUdX
-         dF+XZhLtG36nEIsKoWu0ZcGvoVU+1bUMplIeBFk1vBj2pQWDNUYn44XMdTPwNb/DEn+O
-         0DeqKbjCYT03GotsHASXrIfkY8b2bvh15TRH9i7tD4JxvbcwzU8bXU/uautxe+UL2lJ+
-         Uudg==
-X-Gm-Message-State: AFq9FYIpz+CEaiXkmM+i+vdkCVf6JeJyLJy10vGXk2L4FDBURxyegDOP
-	YrRxC+rnfXGpEBSwl8YJwUPBLb7UKGfF0D5gW/CT663RaNwFeJaYWvGpLFLhC3ON
-X-Gm-Gg: AYBFou1fEZ2tYGA/18aGbsivUMwcv3MqNIjeusO1blThhhkXDqnSsql41kC9XFQS+Xi
-	xbo+Olt2eeuvvSx3Kaym/8nv09r1LxEUVTb6j3k9j6pYzZlWnsBRt/YYa1+KGD9jrsUlZSPO7Da
-	K4Jgc674EX1P61ffM0pYzOWLzrulgGzdu6lHgs2kR6FM9Da8uXy9MV32deuBkzunx/UTYF91pjI
-	ZV+b0FvhplBSWNmWMc8g8hvEmCzApVDa/2Lv3ZT9So8upcuiCiV2HU6Fx5LNmBR2UhjDXD6O9sU
-	ZcBK5Ad5zl2LHo2B4vO1Vg01TR/j2kmvUHvhXcILstQKxcTcAeYO2GFK29RcgFphn4XDqvc8GUK
-	pbUtOQ87C22R7BGrGwel+cCkGD6skSNITsesfDCBC2qolreTg0JYSeLojM3mVL1w9KfbubGEXbi
-	7SuLvXXeWX2RtHznUCUa4Vp7PG60U+QaLlm+RKgV2fuo+OWdzI31MDl3slvZ/3bcdVyUDEar+1w
-	edWklL5RFR6TBes8FP5h/M=
-X-Received: by 2002:a05:693c:639c:10b0:351:1272:e21f with SMTP id 5a478bee46e88-3514e2b0177mr353517eec.28.1791266514578;
-        Mon, 05 Oct 2026 23:01:54 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-351469f73fcsm4442054eec.10.2026.10.05.23.01.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 23:01:54 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ARM: tegra: fix typo "fuction" in comment
-Date: Tue,  6 Oct 2026 11:31:48 +0530
-Message-ID: <20261006060149.44677-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Tue, 06 Oct 2026 06:11:25 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 68368A012B;
+	Tue,  6 Oct 2026 08:11:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1791267073; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=QEqiKEHKarFBBNj7EInhCi1Qac+F8ajzAZ5Uck5ighE=;
+	b=Ie5wANbwdKEGXszo8EQjyZgNwM1u745GFqrntFnuP7l+Yz7JEb0hGCv/uycRvxYKMoIRZz
+	khoIhFvpMCPrLAbYmCe/YBv7qcNRzMN+VUe2yAIny4KBZ0+flg6y8EBNVnzz3lYNfhiI5c
+	CtHeIfb55a7rArfJ+Ud1pan81doBUoQOqNWXIPMWxN0F9/EHLdVwLvEsjpwkx3H++AkavQ
+	fTv5hYlMUJQvTEpR1UuP4gggaGP/TLjYnnk8dPymZurry6fuAXNzAzq+BAld5ure9T5CO6
+	zftsrhjIGkjxYzJyCtdbsnt7TcOJAsc2RiIZCizacET5pEgkiQCf2g6Ot0TFng==
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Tue, 06 Oct 2026 08:11:11 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski
+ <kuba@kernel.org>, Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Christian Marangi <ansuelsmth@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: leave the datapath running for
+ normal-size MTU changes
+In-Reply-To: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
+References: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
+Message-ID: <f0cbb31213093859821d467971d604a9@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_231015_536917_2A52333E 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20261005_231124_356966_005B5C01 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a typo in a comment, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only a comment is touched,
-there is no code change.
+Hi James
 
-Assisted-by: LLM
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
+On 1.10.2026 06:39, James Hilliard wrote:
+> When both MTUs are at most ETH_DATA_LEN, the receive buffer size and 
+> MAC
+> receive limit do not change. Update the MTU without restarting the
+> datapath.
+> 
+> This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
+> rejects jumbo MTUs, so all supported XDP MTU changes take this path.
+> Jumbo transitions remain on the reopen path until the rollback change.
+> 
+> Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU 
+> change with interface up")
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c 
+> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 3f34d491c959..03cd14d10356 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6161,7 +6161,12 @@ static int stmmac_change_mtu(struct net_device 
+> *dev, int new_mtu)
+>  	if ((txfifosz < new_mtu) || (new_mtu > BUF_SIZE_16KiB))
+>  		return -EINVAL;
+> 
+> -	if (netif_running(dev)) {
+> +	/* Normal-size frames use the same buffers and MAC receive limits.
+> +	 * In particular, do not disturb a live AF_XDP pool: XDP does not
+> +	 * support jumbo frames, so it never needs the ring replacement 
+> below.
+> +	 */
+> +	if (netif_running(dev) &&
+> +	    (dev->mtu > ETH_DATA_LEN || mtu > ETH_DATA_LEN)) {
+>  		netdev_dbg(priv->dev, "restarting interface to change its MTU\n");
+>  		/* Try to allocate the new DMA conf with the new mtu */
+>  		dma_conf = stmmac_setup_dma_desc(priv, mtu);
+> 
+> ---
+> base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
+> change-id: 20260930-stmmac-mtu-fastpath-68813ead3b90
+> 
+> Best regards,
+> --
+> James Hilliard <james.hilliard1@gmail.com>
 
-Notes (v2):
-    v2:
-     - Split the single "ARM: fix typos in comments" patch up per platform,
-       so that each one can be picked up by its own maintainer.
-    
-    v1: https://lore.kernel.org/all/20260907064849.23086-1-hemanth.selam@gmail.com/
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
- arch/arm/mach-tegra/pm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/mach-tegra/pm.c b/arch/arm/mach-tegra/pm.c
-index b21f51b8e19e..d7bc21bdb519 100644
---- a/arch/arm/mach-tegra/pm.c
-+++ b/arch/arm/mach-tegra/pm.c
-@@ -257,7 +257,7 @@ static int tegra_sleep_core(unsigned long v2p)
-  * tegra_lp1_iram_hook
-  *
-  * Hooking the address of LP1 reset vector and SDRAM self-refresh code in
-- * SDRAM. These codes not be copied to IRAM in this fuction. We need to
-+ * SDRAM. These codes not be copied to IRAM in this function. We need to
-  * copy these code to IRAM before LP0/LP1 suspend and restore the content
-  * of IRAM after resume.
-  */
--- 
-2.47.3
-
+Thanks,
+Nicolai
 
