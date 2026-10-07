@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32D0CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 19:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C94CA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 20:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vM4MEwdHs570z1trHR1waD0+VoMhgMGlPDSlu4CvcM=; b=3/s+gGg0J5wutL09cTXqxJ97Jz
-	VV9wArvJdLrAURNuDcIqtA8HLMSRV/tOFE7jHUmsWymoSFRj5qcSQb61L9ugXItVfYu5a6BWdDpp1
-	kSR2zvWb0S8p0+P+Bc2srF69NtvmbOcd7CjCk/nCnG4oto4VCHkSQbQhdvvxxcK9Xapy+2mJVNKlX
-	J1SN5rbUmq5DXB9hc0POqlmwEJSIJCmJMXYtXiEH/ESZ2l82yYwVO7ko41WUzvbNc1HT2hjhsMPDb
-	VgTHD2o8f463Ae2FdwsO8Iv/PiFl/kvos1ZWRzXK2l5nHZsNqLen2+kZLcfFiT41yO192HVcqXaTD
-	hMVT55+g==;
+	bh=ddzayZHJwQWYdGnrPkex4Zp4YlGJrbGVoz3iRXkBQ0o=; b=yN3s/x/MOL+cx13aI6MAdgX6j7
+	nD4tPRNOop16dv2nMxIsE/+o2Ormihy3BrrZRFqYEtGuim2dqbdabk6jUKw4+oHNHbyPZf5rGoc3Z
+	NiCLRQfNOqQ2pV6WlsW1qB8uDonQjpHBrZ+eVJjwFRgcFr3XPBiz5un7Jxojq00uByqGWyxQVF1Wd
+	I4kf0Se9WL/9HILRCjUhrQrLuFygPyJQc7x3u8uDolt0siXGwExdO9mxPCASWY0M7tdLP4VB7BElI
+	Xs5GBavUV2A44eA+VYdgJbIrOb64VCG1gMa0R8wHmm6C3Jj0cibDgL49YXEzmH+/eWNFm9pzuBBIr
+	uvdRyOsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEXP8-000000032hL-2Z24;
-	Wed, 07 Oct 2026 19:34:18 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xEY0d-000000036vm-23ph;
+	Wed, 07 Oct 2026 20:13:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEXP5-000000032gp-2Ty7
+	id 1xEY0c-000000036vF-2U5q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 19:34:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=2vM4MEwdHs570z1trHR1waD0+VoMhgMGlPDSlu4CvcM=; b=DbS60WIGzG3WiDfzoqQEcENQmb
-	bevs6cpS5TOuX+NfNXHngSavpXHo+JHSjIC5Tg2lXeYBbOJFVPiAOYEcwm+RrI9OiiiqJBMQEniJQ
-	gmKrEO+aAiHUzjTJUnemKPvkfQg4bIGRnUWs/eH0KcABlYn/H2FRBJ0FGl6mLY5JjSl8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xEXOt-009VZv-PH; Wed, 07 Oct 2026 21:34:03 +0200
-Date: Wed, 7 Oct 2026 21:34:03 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, netdev-bot+sinfo@kernel.org,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety
- IRQ request failure
-Message-ID: <8cd651e5-d240-4663-8361-c3b939d664e9@lunn.ch>
-References: <179127056620.2231598.8882282421523696709@kernel.org>
- <CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
- <20261006155214.63c5cb5b@kernel.org>
- <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
- <e7fea95d-1ce2-4c5a-891d-5e5899931329@lunn.ch>
- <CADvTj4pm8fbgGDiyXVHubnM93qOey7o18O+MDU68MSisXVvHtw@mail.gmail.com>
- <f304ee6d-bbc2-4f76-964a-998c3febb8dc@lunn.ch>
- <CADvTj4pniuLUzsHP_kv03rFUkUD87PD9yVZ=HnW0CsZX78OxLQ@mail.gmail.com>
- <98a7f952-37cd-4886-acb2-e87743e51fba@lunn.ch>
- <CADvTj4ozfxA3E13g5sV2tPogDk=S+VOyf_PAXZVQyaozoe3O0w@mail.gmail.com>
+	Wed, 07 Oct 2026 20:13:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AC78447EE;
+	Wed,  7 Oct 2026 20:13:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF381F000FF;
+	Wed,  7 Oct 2026 20:13:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791403981;
+	bh=ddzayZHJwQWYdGnrPkex4Zp4YlGJrbGVoz3iRXkBQ0o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=U9QFQG2UDxUWQEfPXl8CJS5VeoxdxOao3ZhrD5wufv1SWNFdKOcmzZ/xHKpp5snFC
+	 NS/vRCHTeYc3CXA2+CihxOE2lF5DxRronKLPDS/tqZt4OUOXADxq+/ULI9sZg3Vdir
+	 eS1z/oMCv4sbhzyCDmlXmpI1NJ/UoU0BiySnxAzjurmS3O43zdWerdGUDf7YrZmMmA
+	 wGgVmgGslR0wDx+jxF62NMsdiYIcZAUXntJ2PNAEwR7VPJgJW4ENg1J067diOtlmrR
+	 uvoFfvNfQCVPuZnMRnRB4EjgEgwaXuCCOHEcmyLMIistXCAaKiDSPlt2paH5jQTYuw
+	 wr7QJoSgGyAzg==
+Subject: Re: [PATCH net v2] net: stmmac: serialize PTP timestamping
+ configuration with priv->lock
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, kory.maincent@bootlin.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Wed, 07 Oct 2026 20:13:00 +0000
+Message-ID: <179140398033.434549.9800494190352310717@kernel.org>
+In-Reply-To: <20261005-stmmac-hwtstamp-missing-lock-v2-1-3b3bf4fe3f45@oss.qualcomm.com>
+References: <20261005-stmmac-hwtstamp-missing-lock-v2-1-3b3bf4fe3f45@oss.qualcomm.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CADvTj4ozfxA3E13g5sV2tPogDk=S+VOyf_PAXZVQyaozoe3O0w@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_123415_650147_A8988110 
-X-CRM114-Status: UNSURE (   7.19  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,13 +74,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Should I re-spin this on net-next with the fixes tag dropped? Or does
-> this apply as-is on net-next?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-You should respin.
+Critical: 0 · High: 1 (1) · Medium: 0 (2) · Low: 1
 
-We get hundreds of patches a day. Maintainers have no time to see if
-is applies cleanly, compiles and passes basic smoke tests on hardware.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-   Andrew
+- [High] The fix is incomplete: the devlink path can still race with an
+  RTNL-only path on the timestamping state.
+- [Low] In stmmac_hwtstamp_set(), the patch moves the
+  '!(priv->dma_cap.time_stamp || priv->adv_ts)' -EOPNOTSUPP check after…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  stmmac_dl_ts_coarse_set() does PTP register MMIO with no…
+- [Medium] This problem wasn't introduced by this patch, but the PHC
+  clock callbacks in stmmac_ptp.c still touch the same PTP registers and…
+- [Medium] This problem wasn't introduced by this patch, but the kernel-
+  doc of stmmac_init_tstamp_counter() says it 'Will be rerun after…
+
+--
+
+net: stmmac: serialize PTP timestamping configuration with priv->lock
+
+This patch takes priv->lock in both stmmac_dl_ts_coarse_set() and
+stmmac_hwtstamp_set(). The goal is to stop the devlink phc_coarse_adj
+handler and the SIOCSHWTSTAMP handler from racing on systime_flags,
+tsfupdt_coarse and the PTP_TCR programming. It also moves the hardware
+capability check in stmmac_hwtstamp_set() under the new lock.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 9741f97fa37a2..a6793054a1796 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -685,14 +685,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
+>  	u32 snap_type_sel = 0;
+>  	u32 ts_master_en = 0;
+>  	u32 ts_event_en = 0;
+> -
+> -	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
+> -		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping");
+> -		priv->hwts_tx_en = 0;
+> -		priv->hwts_rx_en = 0;
+> -
+> -		return -EOPNOTSUPP;
+> -	}
+> +	int ret = 0;
+>  
+>  	if (!netif_running(dev)) {
+>  		NL_SET_ERR_MSG_MOD(extack,
+> @@ -700,13 +693,23 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
+>  		return -ENODEV;
+>  	}
+>  
+> -	netdev_dbg(priv->dev, "%s config flags:0x%x, tx_type:0x%x, rx_filter:0x%x\n",
+> -		   __func__, config->flags, config->tx_type, config->rx_filter);
+> -
+>  	if (config->tx_type != HWTSTAMP_TX_OFF &&
+>  	    config->tx_type != HWTSTAMP_TX_ON)
+>  		return -ERANGE;
+>  
+> +	netdev_dbg(priv->dev, "%s config flags:0x%x, tx_type:0x%x, rx_filter:0x%x\n",
+> +		   __func__, config->flags, config->tx_type, config->rx_filter);
+> +
+> +	mutex_lock(&priv->lock);
+> +
+> +	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
+> +		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping");
+> +		priv->hwts_tx_en = 0;
+> +		priv->hwts_rx_en = 0;
+> +		ret = -EOPNOTSUPP;
+> +		goto unlock;
+> +	}
+
+[Severity: Low]
+Was the capability check meant to move after the netif_running() and
+tx_type checks? The commit message does not mention this change.
+
+Before this patch, hardware without timestamping support always got
+-EOPNOTSUPP with "No support for HW time stamping".
+
+Now, if the interface is down on such hardware, it gets -ENODEV with
+"Cannot change timestamping configuration while down". A tx_type other
+than OFF/ON gets -ERANGE. HWTSTAMP_TX_ONESTEP_SYNC is one example, and
+net_hwtstamp_validate() accepts it.
+
+dev_set_hwtstamp() only checks netif_device_present() before calling into
+the driver, so userspace will see the different errno.
+
+The new locking does not seem to need this reordering. Could the
+capability check stay first?
+
+[ ... ]
+
+> @@ -859,8 +863,10 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
+>  	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
+
+[Severity: Medium]
+This is a pre-existing issue, but the PHC callbacks in stmmac_ptp.c touch
+the same PTP_TCR register and fields under a different lock,
+priv->ptp_lock. Taking priv->lock here does not serialize against them.
+
+Three callbacks do a readl/modify/writel of PTP_TCR to set TSADDREG,
+TSUPDT or TSINIT:
+
+stmmac_adjust_freq()->config_addend()
+stmmac_adjust_time()->adjust_systime()
+stmmac_set_time()->init_systime()
+
+For example, config_addend() does:
+
+	value = readl(ioaddr + PTP_TCR);
+	value |= PTP_TCR_TSADDREG;
+	writel(value, ioaddr + PTP_TCR);
+
+config_hw_tstamping() also does a read-modify-write of PTP_TCR, under
+priv->lock only. It is called here and from
+stmmac_dl_ts_coarse_set()->stmmac_update_subsecond_increment():
+
+	u32 regval = readl(ioaddr + PTP_TCR);
+
+	regval &= ~STMMAC_HWTS_CFG_MASK;
+	regval |= data;
+
+	writel(regval, ioaddr + PTP_TCR);
+
+Suppose a PHC op reads PTP_TCR before this write and writes it back after.
+Can that bring back old mode bits such as TSCFUPDT?
+
+If so, config_sub_second_increment() would pick SSIR from the reverted
+TCR. The hardware would then no longer match priv->systime_flags and
+tsfupdt_coarse.
+
+There are two related unlocked reads:
+
+- stmmac_adjust_freq() reads priv->default_addend with no lock.
+- stmmac_enable(PTP_CLK_REQ_PEROUT) reads priv->sub_second_inc and
+  priv->systime_flags under ptp_lock, while the writers hold priv->lock.
+
+Can stmmac_enable() see a sub_second_inc and systime_flags pair that do
+not match?
+
+>  
+>  	priv->tstamp_config = *config;
+
+[Severity: Medium]
+This is a pre-existing issue, but the kernel-doc of
+stmmac_init_tstamp_counter() says:
+
+ * Will be rerun after resuming from suspend, case in which the timestamping
+ * flags updated by stmmac_hwtstamp_set() also need to be restored.
+
+Is that still accurate? stmmac_resume() calls stmmac_init_timestamping().
+That function resets the state before it calls
+stmmac_init_tstamp_counter():
+
+	memset(&priv->tstamp_config, 0, sizeof(priv->tstamp_config));
+	priv->systime_flags = STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT;
+	priv->tsfupdt_coarse = false;
+
+hwts_tx_en and hwts_rx_en are cleared too. That means the configuration
+stored here is lost across suspend/resume, and so is the devlink
+phc_coarse_adj setting. Devlink get then reports false.
+
+The reset was added on purpose by commit 232d49dd4b40 ("net: stmmac:
+propagate PTP addend and system time programming errors"). Even before
+that, systime_flags was overwritten on reinit.
+
+Should the comment or the resume behavior be updated?
+
+> +unlock:
+> +	mutex_unlock(&priv->lock);
+>  
+> -	return 0;
+> +	return ret;
+>  }
+>  
+>  /**
+> @@ -7753,9 +7759,12 @@ static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
+>  {
+>  	struct stmmac_devlink_priv *dl_priv = devlink_priv(dl);
+>  	struct stmmac_priv *priv = dl_priv->stmmac_priv;
+> -	u32 systime_flags = priv->systime_flags;
+> +	u32 systime_flags;
+>  	int ret;
+>  
+> +	mutex_lock(&priv->lock);
+> +
+> +	systime_flags = priv->systime_flags;
+
+[Severity: High]
+Does this fully close the race described in the commit message?
+
+The devlink set handler holds devl_lock and priv->lock, but not RTNL. The
+open path updates the same state while holding only RTNL:
+
+stmmac_open() / stmmac_change_mtu()
+  __stmmac_open()
+    stmmac_setup_ptp()
+      stmmac_init_timestamping()
+        stmmac_init_tstamp_counter()
+          stmmac_update_subsecond_increment()
+
+stmmac_init_timestamping() does:
+
+	priv->systime_flags = STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT;
+	priv->tsfupdt_coarse = false;
+
+It also resets hwts_tx_en, hwts_rx_en and tstamp_config, then programs
+PTP_TCR, PTP_SSIR and PTP_TAR. None of this takes priv->lock.
+
+Could this interleaving happen?
+
+CPU0 (devlink phc_coarse_adj=true)
+stmmac_dl_ts_coarse_set()
+  systime_flags = priv->systime_flags;
+  stmmac_update_subsecond_increment()   /* coarse TCR/SSIR/TAR */
+
+CPU1 (ip link set up, or an MTU change)
+stmmac_init_timestamping()
+  priv->systime_flags = STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT;
+  priv->tsfupdt_coarse = false;
+  stmmac_init_tstamp_counter()          /* fine mode */
+
+CPU0
+  priv->tsfupdt_coarse = ctx->val.vbool;
+  priv->systime_flags = systime_flags;
+
+The hardware is then in fine mode, while priv->systime_flags and devlink
+get both say coarse. Other orderings can leave sub_second_inc and
+default_addend out of step with PTP_TCR.
+
+The commit message says the configuration "is updated under a single
+lock", but the open and MTU change paths never take priv->lock. Should
+the open path's timestamping reinit also take priv->lock? Another option
+is to serialize the devlink setter with RTNL.
+
+>  	if (ctx->val.vbool)
+>  		systime_flags &= ~PTP_TCR_TSCFUPDT;
+>  	else
+> @@ -7768,13 +7777,15 @@ static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
+>  	if (ret) {
+>  		NL_SET_ERR_MSG_MOD(extack,
+>  				   "failed to reconfigure PTP adjustment");
+> -		return ret;
+> +		goto unlock;
+>  	}
+
+[Severity: High]
+This is a pre-existing issue, but can stmmac_dl_ts_coarse_set() do PTP
+register MMIO while the device clocks are gated?
+
+The devlink param is registered at probe through stmmac_register_devlink(),
+and probe ends with pm_runtime_put(). stmmac_release() also calls
+pm_runtime_put(), after stmmac_release_ptp() has disabled clk_ptp_ref.
+stmmac_runtime_suspend() then gates stmmac_clk and pclk through
+stmmac_bus_clks_config(priv, false).
+
+The devlink path has no netif_running() check and no
+pm_runtime_resume_and_get(). So with the interface down, or never opened,
+this path runs:
+
+devlink dev param set ... name phc_coarse_adj value true cmode runtime
+  stmmac_dl_ts_coarse_set()
+    stmmac_update_subsecond_increment()
+      config_hw_tstamping()
+        readl(ioaddr + PTP_TCR)
+
+On many ARM SoCs, could this trigger an external abort or a bus hang?
+
+On platforms where the access does not fault, the TSADDREG handshake can
+busy-wait in readl_poll_timeout_atomic() for up to 100 ms. With this patch
+that wait happens while holding priv->lock.
+
+stmmac_hwtstamp_set() refuses to run while the interface is down. The MDIO
+accessors take a runtime PM reference before doing MMIO. Should the
+devlink setter do one of these too?
+
+This goes back to commit 6920fa0c764d, and the added priv->lock does not
+change it.
+
+>  
+>  	priv->tsfupdt_coarse = ctx->val.vbool;
+>  	priv->systime_flags = systime_flags;
+> +unlock:
+> +	mutex_unlock(&priv->lock);
+>  
+> -	return 0;
+> +	return ret;
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261005-stmmac-hwtstamp-missing-lock-v2-1-3b3bf4fe3f45%40oss.qualcomm.com
 
