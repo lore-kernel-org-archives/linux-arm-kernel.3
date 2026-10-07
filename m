@@ -4,111 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80290CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D73CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6pA0UCaHovGcyxtuarmqmXJupW57jUc87NPA1SduJA=; b=oF6cai8c535DVr6VYW662Y0050
-	LiWZp/KBJSKZ39VFEkmEwmvMxantBefA362Mf45UovQ4g6Z5LTmkd3zZftRboljcIs2dlYG2zUZAr
-	e1eFjWmZkt9mJ5gtpYuUnTZZ9vmH+17tUnz3IdoeccPn0F/KSebblPMPdAHiMT1hA35ZYVrnXWYu8
-	SoKT4e+tBc4NxeSPcYbz9v876B64N8PAsyy7muS+OP0iwG5j4ZRW7AfYdZCLBwdNLoicBlfL83KiF
-	CWEzfysXoDfE0StTVqbDj2mqE/mng6Bd1ICcXP3s4eTVQADJNzFdAbQo/d83eCvFMp71k+rA4SYDN
-	fDKyok5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5tPW28u/y25LsoprSZgjrTYuNMeOHBtCHRS1PxOld3s=; b=TExTLimaFP+lOI1KDOVKZLeAl4
+	0jJIOeQNEn07uVFVJwRNhFWCLk1iOcWy86y0+f/U+Ws79zf4kODnBc/iKBpg84fd2JbYgSY5p5j9W
+	RW4puC9udpmPHDaHUZycoHv7Y+Et9vD9gzRpMoPMVGgQjnx5PnkIL1so8TMMk/fzTCUQ9+DjAUDFe
+	CVjhC1tFUO2WiG4u4BiY7xaUgdR8wM9rcg2dKb0kQamuY+k15cgrCgKcGsJiBzuCKl1ZJdFFuWzdH
+	y60K/T+6Gk2SppIWNtSHQdpv+x0TqR6k6RoWJ7BvU+oB+YqzmpLujLcHjcrNZ2IR0JafCMkjfE1kN
+	Oo3wmHcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPUv-00000002Gdg-0u51;
-	Wed, 07 Oct 2026 11:07:45 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1xEPWi-00000002Gq5-1qvG;
+	Wed, 07 Oct 2026 11:09:36 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPUs-00000002Gct-3a43
+	id 1xEPWg-00000002GpO-19RT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:07:44 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5bcc04c71f5so7551e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:07:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791371259; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aH7b80qlKwvRwSwTuPA/oj/PNdAEzJC6qwNruAntUy7drc4y8ZQ0G/3CjK8h5f8E3Q
-         zNh7irUFt5zurKEydaz0NvHRzP6ukuGjRyQS30dVMYxUjZ8LL+kVpP6YKRMVM0V91i8E
-         SAUXbBF0eOHCLMnO76akCj4mu96Wudx+c3zyDT/zDsaJs9m24ZwiBfuptmpXq02gLkAS
-         LSRjy7S/SqlKenidONzU5m4OAxUcZ1FnEEzQrNMcQO7xKV8CF7Ul3hcL/OCuCqc47785
-         Jp9/c/M9wECzTQnmzref2RBDnBWs8XA5MHvhrup5Dl1qIbU3XOTJPYmFjB8o/nHvjjv4
-         n/BQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=n6pA0UCaHovGcyxtuarmqmXJupW57jUc87NPA1SduJA=;
-        fh=SShcY1WV2BoLAIjGtzsxGCYwqHez+CL9mABg9qoJ5F8=;
-        b=NpK/QkbuK4HLHBANDSBhaG6x4z5WkKqqwh7J2+xkcEbxDfwS4LocyP4fR9uDZuC2mX
-         6ianp3haHpG1RhpHhkqC5k2IJSOtZgjFVaqZwrqpj6rJ5KbTLWxMRySFLK5lLl0DjzCZ
-         LbhR/69cDLFTUrzYVuzNJ1T6FWD+3xP/Trk/pvdvhtUQO2aH1qWSDt080rZkLoDbagY5
-         5RA2P1ry05eHe+o6s/L7xGKPzjRpjokUZTJ/iqZuQkSw4YQRulNjPOXoPZ/+ea4S1ICb
-         dgJlfuNr8tJTTZJXavug9zmC+Zhm7hH0ArtLthDrHZHSK2AF4STsGC3vbojf3F4Chdoz
-         qHZA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 07 Oct 2026 11:09:35 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3a8a2df4f93so381761a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:09:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791371259; x=1791976059; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=n6pA0UCaHovGcyxtuarmqmXJupW57jUc87NPA1SduJA=;
-        b=VIeqxTNl1OHlTdbtKp1+2qtVMOhj8ZHO6Q7ZQTK4B2J0hri23mox1O2dLA4sdai0hL
-         96dKSncNBi6fT2avzjEc7LZa5uGe9nAtK4qnE2L4Qi3q19dUc3uYCpdvBK08u2Q5LqkO
-         Rk4tWYGmmO23NAPf4p6OJQdjviFo9u4BIUVJx8yc2hGhKJHdbVNX1NDKbZm8w5vZ4OGz
-         AO9MECrcCT+fcSlxr5bfDlfZPB2OowRsKcIlbDpYhRy2VA9vvNn7uWTnx+54uAuYOYnc
-         r+m1IR49GGZe1zkZi2VZpymBuvDF5rd0AHV20975//ygL709IHtpo2ZyFThqQpTQrib4
-         IFMg==
+        d=gmail.com; s=20251104; t=1791371373; x=1791976173; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5tPW28u/y25LsoprSZgjrTYuNMeOHBtCHRS1PxOld3s=;
+        b=YIPqDshDp6P/yFXbAZ+pCrDNrLNJqUH140CTEHOK5h7pO2oMp2MxMnOH/wtqJoE+Gb
+         ODn1qAfQEjryWDiyTYjMaANuhIH8ICb9YSqzscijEWWNk7urq4LElZu9nKRhXj1VZ4EU
+         OGDcdFP4w083cmUzrXy+MEdTw7LR6ExDUFvU/KBNv8+utXZr+ZXvw5gMUzZRgCtsaDdt
+         YsZBBymRtnYNgUdNFEdWgYxWiY+oPdSuUZSlM4zxhul32MW5kqYpBIAaO58txPgGEDOI
+         mZXEuP/DFncVwzoAwfSI5nPP0CHECPDbeWN5bJdnmtgBg3895gjQTT7EsY/yh3tB70fN
+         7Bhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791371259; x=1791976059;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=n6pA0UCaHovGcyxtuarmqmXJupW57jUc87NPA1SduJA=;
-        b=146ckYPGQiUaFYM9qlxFP43UwluIpouJebNhi7iY/E79biTi5StUMaSWxxdJriYYCu
-         2RMAsGgnEZm6eLsyHxy/uZi0C5WfKNWZK7tMJawKy768EOPYmT8eqasZArhcx/UcCxlJ
-         3Z8ekrjZ7YrmpI12pEV8/jh+9lDGVGEZzIPfnhhVaBmFxQ7O8Dn5QIz6bujTexzE8vcp
-         UTkLJQTQxsVqQTra2DGv35OQdsmIHhTXXdbs+e0e6gu+Pm2q0ib8r0fjyiZwq8vpFnKp
-         Jb8GE6HdKoenm/HXA/NntyJsgmKEXKWS2X+IwduG+x1OY0jc6/PFdp3IYqejSch8AcZp
-         hshQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxeSJ1sWbEwzMa8umomWRIzOs7nswwKGIu380vE9smx+s8frtHEF+DqheUaAvgbQwZUMMz0sc4dpcPr5smSozbX@lists.infradead.org
-X-Gm-Message-State: AFq9FYJepLBPExiBDqFMIZQanS1PjtlJFKHZFa+v1tb03CQHtMH+T8vW
-	7jYseF5C/Z1jhSvVgKPwrZOrkQhC7UdayPW4qeQ7Xa0QoSXmAgQdVB2qLSBDbYbtf4JXxYKebUE
-	NczwxADPfHFbJoj9NqChWK9GnmaEykVc9wHWRqjaBO8fC0Uj/kBo7ZWJEEzni/g==
-X-Gm-Gg: AYBFou32HCcSAiVsgoH0hbAvgVbf7D5at6rqLtEDlWiccPnpsAQlIEv3DXAlnkm6BHU
-	tHDkZ/koCykWh4niCTGeT6HHJYCEcVvROWgkCgGjiOAFitduRE/gxMaHDA3ccX4JGvo1Swqtbf6
-	EgDScYD9hwEd835LxmHn/76XYZjo/Q+hK0N1CGQJqSKQzGWHOkOLtoqBLl0ZSTOlTBJ9Ke8mn2a
-	+UBaTTwG6h1/wdsLaIuxb+tIvGZHe13G1b+o2pHtd+4cwMaS3DcjPyKXTxpyCSZa4r21YWie0vl
-	KSR1PlaU8Mny4SklfJOYh3ohU/WulkD8XYjJrXszc9DInYnitVj9xtk=
-X-Received: by 2002:a05:6512:1189:b0:5ba:3534:fb8f with SMTP id
- 2adb3069b0e04-5bcca674bb8mr331538e87.15.1791371258668; Wed, 07 Oct 2026
- 04:07:38 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791371373; x=1791976173;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5tPW28u/y25LsoprSZgjrTYuNMeOHBtCHRS1PxOld3s=;
+        b=MPFoQ1Cnohwoae+Gf7mK10LL+JoLf/3j+Otb+NDhb7oU9HvFGwamVUzw/SucEljqdi
+         h2tAie0o9hrJXmTxZvRVmbxLg1JDzaT9yU/wbQM9HgSZ5WKO3J0sO5HkqnRPM7qTA61k
+         PqjzddVPqeuUGdzfJTAwFFHtdco5nYKsFBOk8otEmSLZCd6fPJ+KyoiZukjuKyCLhNu/
+         kx83Ixv4cgQpbCjfDKontFLFi9Flu5jjoD41S3KYfI94skGIxeSE0smxPeZUGzgH+dKn
+         W3+Hkmmvu9OE/HKfL8r2Cw1WFuzZZou91AIhU9EvlO5+5HoUzbmba8L+gkKNVn0OPcvj
+         bJVg==
+X-Forwarded-Encrypted: i=1; AKwUvBw4cNHthXgxEIKwrCy4byID+g41Yp+YRK7pC4qCyQa0qD2UbkAW5qYpZHUYEfrZ4CpWiW0lLRbdkF3D0sRg/3XH@lists.infradead.org
+X-Gm-Message-State: AFq9FYJEeXz15ylEvqE/KkKXGf0kZAkG7kefCdLKo2LDLWRo4iZYeXf0
+	xvNF+IGSCgRRb+rnoVrbXI6HbstYPX7RtrMopAVP7Yd/oByaHXE7OX6T
+X-Gm-Gg: AYBFou2rZ5L8gWPXZ4xP74KG0s2G2BNoXdhY7FwHdsvYZtVYwsblrH0F1yRRQqNGUgE
+	inbGjqDHAAeO0hvFxioHseL3ajZaGgsJbBLw7Dz4Yh8b7GOYOgZOlquM1S1PGN3w1zL+EimDGUd
+	ZNfMlqmlmsIN7nhNcVhvHix2k+J3bwK0U3XqcEPNGkDXC1mP8yBjmpo8B1q35ki6aI/bhSJe/5J
+	NNQUd9w+HqEs3Lm0nVWiXjCMhNfaomu5oXeyyWQU3bqmAlm7Z9LqnC2o0ix0T8bO0WNw+ncqkzl
+	rre5cKYgS9Wilsi1Qqy7t2a8CCFBQyVQZ0re+JQ8eQc+XZPtf1znGgXROPLvInThqO+f09Ac/19
+	/ru/stCVodDxDKVWgS4P6X00PudFdddIihLsk1O4VONc91t9QC3UKgTv+iWeTaQFTS+lig26Off
+	FMwUSX6a41v8XUaFquQ/7GHYAXv2YoGG7bOaH3nqTrPDIOn2kJw5OQH91BEX0TIhphdpwy8ynjE
+	FriaKPi7e3YrGjSMaBNCBXS5J7wVDZm1KkxdjVjtqaJ7e4nOp6xExc2fBQRdd4bfZq9O1KQK3Vq
+	DONLy3BDjmyJSQ==
+X-Received: by 2002:a17:90b:2246:b0:3a7:aeb4:e6eb with SMTP id 98e67ed59e1d1-3a8a1ceeb73mr1617868a91.67.1791371373155;
+        Wed, 07 Oct 2026 04:09:33 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8a5ec70dbsm1328745a91.2.2026.10.07.04.09.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 04:09:32 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Trevor Wu <trevor.wu@mediatek.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	cassiogabrielcontato@gmail.com,
+	Haotian Zhang <vulab@iscas.ac.cn>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Tuo Li <islituo@gmail.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Garlic Tseng <garlic.tseng@mediatek.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	Dan Carpenter <error27@gmail.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 0/4] ASoC: mediatek: Handle constraint return value in FE startup
+Date: Wed,  7 Oct 2026 18:08:54 +0700
+Message-ID: <20261007110858.509341-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <20261007073537.2454351-7-suzuki.poulose@arm.com>
-In-Reply-To: <20261007073537.2454351-7-suzuki.poulose@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 7 Oct 2026 13:07:01 +0200
-X-Gm-Features: AclHuK_51tZ4nsMn3i-NEL4Otzbz7dcWMCHjhG-tWBC19X6nKIZVcoWjuDrLVic
-Message-ID: <CA+EHjTw=9e4xv8SmUggCgHBM+uQ2v7dWSOf9PeBufMUofYPMwQ@mail.gmail.com>
-Subject: Re: [PATCH v23 06/14] KVM: arm64: Don't call vcpu_set_pauth_traps for
- pKVM host
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
-	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
-	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
-	jonathan.cameron@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_040742_942931_16A4E0F6 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20261007_040934_326081_4F703767 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +117,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Oct 2026 at 09:36, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
-> vcpu_set_pauth_traps() bails out and does nothing for pKVM hosts.
-> Clean this up by moving the is_protected_kvm_enabled() check to the
-> caller, in preparation for adding VM specific vcpu load/put callbacks.
->
-> While at it, do an early return if the vcpu doesn't have ptrauth.
->
-> No functional changes
->
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Hi all,
 
-Cheers,
-/fuad
+Some FE startup callbacks may return a positive value from constraint 
+helpers, but ASoC expects 0 on success. This can cause .shutdown() to be 
+skipped during rollback.
+
+Return 0 explicitly on success.
+
+Compile-tested only.
+
+Changes in v2:
+ - Rename the patch subject.
+ - Simplify the code change as suggested by Cezary. 
+
+Best regards,
+Phuc
+
+bui duc phuc (4):
+  ASoC: mediatek: common: Handle constraint return value in FE startup
+  ASoC: mediatek: mt8188: Handle constraint return value in FE startup
+  ASoC: mediatek: mt8189: Handle constraint return value in FE startup
+  ASoC: mediatek: mt8365: Handle constraint return value in FE startup
+
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c | 8 +++++---
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c | 3 +++
+ sound/soc/mediatek/mt8189/mt8189-afe-pcm.c | 8 +++++---
+ sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 7 +++++--
+ 4 files changed, 18 insertions(+), 8 deletions(-)
+
+-- 
+2.43.0
+
 
