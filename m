@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32309CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7933CCA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhAC6vwrbP7VGLTK/9G9G2MtlzV6M2abfE82QUXAgPw=; b=VEj3mgHRn0k54t15yTrLJ8DD+C
-	Wap50g4T1qzdMEe+/flNsBMtuDBawcKONDWHfU2f6ZrVjms/wO2P/WBiUczwYQyMX6kyL1XDYMQ9c
-	zRTNdx+jv5qbyWZtq820JkclLPaO9fDG6pi50DmhtErRLcziP5evezLi8igu2yNhkRNOpka91jk3G
-	ebXDsTbAlsXy0Yw59osQpppEGErPjLbV+RbZXqTuZTVs3h+zRkGuxH9+nIqpzNoeXjzeDJESJcTbL
-	GwDS/Q0rdXS4dJX5F8ARDUltLvWGYEKAz/G4fBt3BTNQaUvLrhMW4ke6zfY/AZsr6Jo6iGZeipBez
-	rHXUpzIA==;
+	bh=csPIWgh2vjj2d+64o9x9jlg+4Kf6s3JJFOXj1yDjO7g=; b=2MrQZsgMQ2QlpUNocZUStKv649
+	fLbXrPsed1bF4SoHW3pb5zTwfaQbuETmgcLHrZhefYOJUDT3Xye6lwP56Pjg0xKR/nvoN3BbpeUR/
+	JOKhOFCd8MDnV2v9kpCB66KIdZepAmSuY/dwJv4jaFYEh5hFt3ROTM6wDMTr4vhjfZWQUrkaQqtmh
+	/NqEpPSAZ9j0CNq4/yYTJEHLDi478ZbWSJemC0LAcxZygLC3AOJNIqxT9h6xqQXQoL/+bPuC3HWTN
+	F55IMggITe364+5KB4+hUttRivRRgKeQEPZF0Ux9mH0BmbV11G+coANyzj4ibUl679OsekiuY7unH
+	0t94pCcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPuX-00000002KbZ-3wed;
-	Wed, 07 Oct 2026 11:34:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEPvP-00000002KsF-24XW;
+	Wed, 07 Oct 2026 11:35:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPuW-00000002Kau-2sf1
+	id 1xEPvN-00000002Krj-3eba
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:34:12 +0000
+	Wed, 07 Oct 2026 11:35:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5976C447B2
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:34:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD0F1F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:34:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F7E443EB7
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:35:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63C2A1F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791372852;
-	bh=JhAC6vwrbP7VGLTK/9G9G2MtlzV6M2abfE82QUXAgPw=;
+	s=k20260515; t=1791372905;
+	bh=csPIWgh2vjj2d+64o9x9jlg+4Kf6s3JJFOXj1yDjO7g=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Co4LiB0Qo545jXjZZYzYeuApMCYtVHJRvoXNDSd/X54JCkcQeT+VZDRNE1N80ETUT
-	 EyUiklwwkvhN8U87NzfNIJSm4eI5SRkEGQQMIFFvzY5g1XbBSkT9sZ01nr6PWLi/v6
-	 DrGSIkjjufKdXaumhknA4po+MeRpibZOT7FillaCPCOdmLw5jovpK9OEkq0T+qlds3
-	 Oe1E6WyEE5+k+G3t7s5+oiByMF8cjc3t6BNNWxSpQXStIBKC5qUPGagPVvExVww8rU
-	 RNlvjQQ9zzaQfOrhoTYKEzw70YFSOSWwkWO3eyGS9Qj7uCyC19Nif4/8o1RahiW1Vr
-	 qlFDQMUdoKNDg==
-Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-49e1dbfe15eso787457fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:34:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwEn9VzQoToy+hs5+OMsOPk91H6ANUbOFaWUj75VOokdRJ0IrHRjkkJiWrP2xe4Yy203NpMdI9/9gGEfMuuZeed@lists.infradead.org
-X-Gm-Message-State: AFuF++nETrZ9Rsa7RHJ2aEtpXLwppGpdfTzgUsYKgt6bX1twrKvJkQfz
-	rL0eGB50dGtpUSaA0avAdpFqhxPm5A8eId7LCdem17o2UnyJpWZcCd/xziLb2wtp4TPcOLFZSoQ
-	fXA1LjY4k09xAHCB+SCT+OSlrGmiyAFE=
-X-Received: by 2002:a05:6870:1425:b0:49e:691c:1bdb with SMTP id
- 586e51a60fabf-4a259412f13mr2063730fac.32.1791372850535; Wed, 07 Oct 2026
- 04:34:10 -0700 (PDT)
+	b=F1w1Uushn0CK2fctUMMwIBX9Q/AryAYvJosGMRW7lT+tJUc+G+RkL2hgCuE4F8xLJ
+	 AzkTRul5lzF1AZdpVmSk6RIXiRaseePmVRvnbNbKOazQornNUUGym2LsrYuWbrmQqt
+	 Ui/l1ZqWPO/wHMckVv90XMgsxI4/Nvpk9qhd3MlK58CeM9PKiblqEP4MQUvetI+aM+
+	 VSSvqp0p0bFH6sXh1ae6H8SQ2sx+b6d1AfFxqs2RRAstrmI5v1Cksf3gHQfaFz/Gc5
+	 mJxpSY96KehYo4SzmKUJgM1Q9ODYmy8hlM46gyORv2EymfskrSdaDPw2xwxvmv8dno
+	 eLkcCgBAbkcXA==
+Received: by mail-oa1-f41.google.com with SMTP id 586e51a60fabf-48e9476e26aso548988fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:35:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwTCIt3lWdpctD9yHdXDF0N2iVw/Yl2Zirglo2YHtbzzO5kmBAazxif+DMPUBT+c/1i7q39DFGIuwS/L+7MIsKU@lists.infradead.org
+X-Gm-Message-State: AFuF++lFpD5nN09swDVJnemJwUlVgM60MgdfG7AyDJkU0swfJc6KX2rR
+	W7cgmqENdDb68XcQpYaCcWMggL9Sp+mbCgG5errpWe5jdYXdw0DVD6WVm0Bz60vJVLPcmQMKpXj
+	9PlrwvLZHs0M+pzx8/KOfkE4zL9TmzZY=
+X-Received: by 2002:a05:6870:15cc:b0:48f:e0e5:a1dc with SMTP id
+ 586e51a60fabf-4a2598087c4mr1786465fac.49.1791372904792; Wed, 07 Oct 2026
+ 04:35:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260925-mt6735-pinctrl-v9-v10-4-cc042983c565@protonmail.com>
-In-Reply-To: <20260925-mt6735-pinctrl-v9-v10-4-cc042983c565@protonmail.com>
+References: <20260925-mt6735-pinctrl-v9-v10-5-cc042983c565@protonmail.com>
+In-Reply-To: <20260925-mt6735-pinctrl-v9-v10-5-cc042983c565@protonmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 13:33:55 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkqvPxNSx6jsVjXLAvMnpPDPTeUKn4hRK7KUi=PtEysZA@mail.gmail.com>
-X-Gm-Features: AclHuK8XHQwc9XkY5CTAgsRDVLTJbfqcvgGYIDV5p-RXsb_N5_WlBlXLH17W7OE
-Message-ID: <CAD++jLkqvPxNSx6jsVjXLAvMnpPDPTeUKn4hRK7KUi=PtEysZA@mail.gmail.com>
-Subject: Re: [PATCH v10 4/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl:
- Document MT6765 pin controller
+Date: Wed, 7 Oct 2026 13:34:46 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn5gm9iR9cJO5DnLjozhm9MgRpmmdemFZyTcGeL_sz0Uw@mail.gmail.com>
+X-Gm-Features: AclHuK8GVwt3n3_Tf9yHLVWOERk-G9rrExeh-m6C4ooGn236qBT253lfkigNGlc
+Message-ID: <CAD++jLn5gm9iR9cJO5DnLjozhm9MgRpmmdemFZyTcGeL_sz0Uw@mail.gmail.com>
+Subject: Re: [PATCH v10 5/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl:
+ Add bindings for MT6735 pin controller
 To: Yassine Oudjana <y.oudjana@protonmail.com>
 Cc: Sean Wang <sean.wang@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -88,13 +88,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Sep 25, 2026 at 8:53=E2=80=AFPM Yassine Oudjana
 <y.oudjana@protonmail.com> wrote:
 
-> The MT6765 pin controller has had a driver for a while, but DT
-> bindings were never documented for it.
+> Add DT bindings for the MT6735 pin controller.
 >
 > Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 Patch applied!
 
