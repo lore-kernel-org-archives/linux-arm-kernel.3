@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA0CCA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD122CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMEyrnTZMfezx6Qzd8H4nHlvTgUCaj9Fp8iF5f9liUo=; b=TMLTinl9MxsKG7GKWB79qZaR6r
-	V+/FUrf4mdNTdtcpNkJveWDJxCyvgw0DkEJAm6FsH+1xvzb9U10y7rxR/0GcqpGAq/q7ha3w/Svhq
-	rBiQ4j9HlO9PB5X6cpsfSyiew/iSGaPBEbK/Gv0Eb7MRzCG1V4luDnijksIeiR3yiLQpAU5zZtlVf
-	pu8RXN05Pq1EBs9T34QCBXSKnbovRSUOvV96GFjkW7lr8HKA3CT/oj8KFy53/cAD0Z2oPX5pmHjzr
-	QzjiyA4ZoUJddblT9YbbFXTrrOklgICUzhQHG4fc6NGp6Rmf8mvzro1V1pc/UtU9SpnQG0K3VvPjr
-	m5E3td0A==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rn1eKAfyNOMlixLxNdxchSlE+Wvx2RSkMxMi5RbHIiY=; b=ic/qfr2S1++Dq9m162aq8dPAHX
+	bW8yBV/xqSCQeUqtUBUBVlGx3pW05T9IR7swMaWlEyCeGxWybKnkgLiBJ4CKrxQ6dp0sYI/zRSzZd
+	e7I6v6usEzT1dzKRt9mXV72sX9HSQmihlty/53Y6Lk44nJY7/9cPKpm/1mbeOid35+UPC7btCA2SW
+	m2HBUqyxuUvxm+t9QVshRoAq+FG88x47jHxhPDkpqlFV7b5uuKydXrDp2XozZq/1SuN8+Y1TPHNQd
+	uQ30Y2JnzSmuk+ivpgdHdLIhA0voCjaWQvay0V85jAt9YNz+j04UlEAEC38XxkUx2PFtE/I5DTTz6
+	p9b5sJSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELWk-00000001oYT-3eGF;
-	Wed, 07 Oct 2026 06:53:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELWi-00000001oY6-0bTN
+	id 1xELfO-00000001osr-3QRA;
+	Wed, 07 Oct 2026 07:02:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xELfL-00000001osV-2MvF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:53:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5218A152B;
-	Tue,  6 Oct 2026 23:53:15 -0700 (PDT)
-Received: from [192.168.11.117] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D4C73F86F;
-	Tue,  6 Oct 2026 23:53:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791355998; bh=BeZyRv5V+EawynYY/vTt+PSDdo/4ZnBflwZeO/+9/qU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qkGdW+M3xHFPeuX/sxx88Ud/nuOCPPoXGAFLhsD4SUj7XeXlCSaOO+dPHq73FDPI+
-	 WIPY4/67LH/lhDwn6zzvVC3+MLuKnx+PNFBBlNiwrtJLZxjFLNCYtdf11Thow7fiyC
-	 CzHGgv+yinka9pBnoLZvPt0LLxKPttV/CSQHsToE=
-Message-ID: <f0acf203-2cb4-4cda-8e12-c45d02d7499e@arm.com>
-Date: Wed, 7 Oct 2026 07:53:18 +0100
+	Wed, 07 Oct 2026 07:02:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1791356532;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Rn1eKAfyNOMlixLxNdxchSlE+Wvx2RSkMxMi5RbHIiY=;
+	b=XFSd3s7hwXNesrncAEpCQ8wv1USgHpOiDzS0Q6/fQuIv2SCsWx5m5H7Cv6Ms74pfOHyL5u
+	Rtbx4Q1DqepYSII2pv2DOsF0GR+NwtBtMXTUnULDJ7dcnQl3TxtncfqSgCKfLGbfgWn3Tn
+	5zx1lJWtSyOxCEDIdTcF4koEVz2Dur8=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-8-B7fii6jVNtm_rYNUzGeVBA-1; Wed, 7
+ Oct 2026 07:02:08 +0000
+X-MC-Unique: B7fii6jVNtm_rYNUzGeVBA-1
+X-Mimecast-MFC-AGG-ID: B7fii6jVNtm_rYNUzGeVBA_1791356527
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C97B41800623;
+	Wed,  7 Oct 2026 07:02:06 +0000 (UTC)
+Received: from [172.20.64.251] (unknown [10.30.44.73])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 145B1180057E;
+	Wed,  7 Oct 2026 07:02:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.3.0-rc6,
+ upstream-arm-next, 71c3e540)
+Date: Wed, 07 Oct 2026 07:02:04 -0000
+To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] arm64: insn: operate on MSR/MRS sysreg field via
- defines
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
- <vsethi@nvidia.com>, Tejun Heo <tj@kernel.org>,
- Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- Lucas Wei <lucaswei@google.com>, Barry Song <baohua@kernel.org>,
- Oliver Upton <oupton@kernel.org>
-References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
- <20260928133034.243541-6-ada.coupriediaz@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260928133034.243541-6-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <51099.126100703020800336@us-mta-8.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Lj-y3vmm5jM7lYZZ_wAm0qcoT9tAIm4i10PJyuNx7Ak_1791356527
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_235320_318565_66859D2F 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20261007_000215_716477_AE0DD9C0 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ada,
+Hi, we tested your kernel and here are the results:
 
-On 9/28/26 14:30, Ada Couprie Diaz wrote:
-> Replace the few instances of hard-coded system register offset and masks
-> used to operate on MSR/MRS instructions with defines.
-> This will allow re-use in future commits while making the connection
-> between those values more explicit.
-> 
-> While we are here, mark `aarch64_insn_extract_system_reg()` `noinstr`
-> so it can be safe to use in alternative pacthing callbacks.
-> 
-> Changing the mask used in `aarch64_insn_gen_mrs()` to exclude
-> the lower bits does not change behaviour,
-> as `aarch64_insn_encode_register()` already clears the bits
-> used to encode the target register.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/insn.h | 3 +++
->  arch/arm64/lib/insn.c         | 8 ++++----
->  2 files changed, 7 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 40f13d28a5fd7..03620f67a3e47 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -753,6 +753,9 @@ static __always_inline u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
->  	return insn;
->  }
->  
-> +#define AARCH64_INSN_SYSREG_OFFSET	5
-> +#define AARCH64_INSN_SYSREG_MASK	GENMASK(19, 5)
-> +
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Sashiko has raised comment [1]
+Tested-by: CKI Project <cki-project@redhat.com>
 
-| Does this mask unintentionally exclude bit 20?
-| The previous hardcoded mask was 0x1FFFE0, which is equivalent to
-| GENMASK(20, 5) and includes 16 bits. Defining it as GENMASK(19, 5) yields
-| a 15-bit mask.
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
-[1] https://sashiko.dev/#/patchset/20260928133034.243541-1-ada.coupriediaz%40arm.com
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2919920705
 
-Cheers
-Vladimir
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
