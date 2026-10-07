@@ -4,106 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2504CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0B6CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=; b=vmxaCjKhWHGopaRHsyei3av6oj
-	N+96r4pRdy3rltKifyAAJOdhlSkZQbjqqho6o/qv9TgMkvg8E82e9j/Q12rYuAOAZlxrfkMuyzNJa
-	0z028fzKlrGIZ2i6BYWOglznOdhKD5aW9L3uLr3OthNG/Nx7F3vUuEcEK7f4fIPZTVxTobuFR0Tbo
-	WgU5dR1CR3/wIrqVeu9NNsE54yaE9mRa90pR3a3Ta77sLhLrpftuXnktTm+ZpE8BfQyk4NGAz/ZKJ
-	xB0yByVT71FY0iVeM+tG6DBMfbQ4JXMArBjbzI611+Et6dN8gRUd+KHoTeK2MNU+zJXNZEYnpofpE
-	VBnA6yHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e6LiwQHe9JStXBgqo8euqJ3iQ3N1ssekSUFRPrSC/aU=; b=uX8vfSFR+yeDg1mj8xxFVP+kCX
+	8WjWY2yIEnTWyUdMsVVlZOhPR5RL5MRCfE6hAZ7TNRkHsWewbGifeFn3E+SeaXo7XHf+TMdBPEvOx
+	chMC5H99MSCYvyiQy69+O+jjajl1NpAnFz833r2tsqv/Rt6pRfD9agSk7To0wUBRnXAOqwvLxODpM
+	rX5r+0OmygfhjOc5rIsMo75nNVn5Bhm2Rk/+61OnPoql/pV0vRhmI+3iAMlc+0g83SbL5rFNcEqWp
+	DVAYiDH5Xw5G8E79/TpKilboq9zatn+EbSkyEPaEa2AbCzOpekI9C/55VGia5KOhilqOLNBs3BtY+
+	X773ZOow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFy4-00000001YWb-0xSV;
-	Wed, 07 Oct 2026 00:57:12 +0000
-Received: from mail-oa2-x0a.google.com ([2607:f8b0:4864:30::a])
+	id 1xEFyD-00000001YZy-2lBP;
+	Wed, 07 Oct 2026 00:57:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFy1-00000001YWE-0c8I
+	id 1xEFyC-00000001YYM-0wRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 00:57:10 +0000
-Received: by mail-oa2-x0a.google.com with SMTP id 586e51a60fabf-4753ef5108aso1563619fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 17:57:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791334627; x=1791939427; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=;
-        b=KAOwcUniKzLuowaWv/7cRGK8TnIVVk6/Wp1OvL3XqmvTzZdsrJTvskcNuAxr5U2644
-         vp5V3sSJZgEhyJdu8MToGveyh3kDnLiRGZQ21zNqFr13MFk5K4T/8y6ScCvKXq7rLGsJ
-         TZ79TAT2BwBFktqIFEgNTvY5sD4HFQpd2HtTELe9/6oYeT8szNA09aj+BE1HvgqzRRMb
-         fIGq55LSajZnD2wQRDiTloIOxxef/PHoDjahAo0gvmsTJjLK+c8Zvx3iSC8XeHBphWrm
-         0O0N4R1GmJ3nnaCSbxh3L4z+Kk7lcGXIbV8fTxdhD4K8iHR7MeuSI8Q5JB2rbXcj9TQe
-         u75A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791334627; x=1791939427;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=;
-        b=Wbf6+YP3Dx/TZfRqeAHnH08UpZwI24dHXdhtLhC72bgHgJYp16wsrZeYwa9MU7pr8A
-         ls8U6j/mjkO3yd6m8a8AQc8Uc7Ex0B+ll34TfrK8cGV8KxUvxRRfHBQnfUFlH2RcauKY
-         MUBYyeEBzbhV+GP/UORGBAO3XO2Z1dTX6N+MJWLQtgBanKFGAwYLiPznfMNkMR1JS4V5
-         Jy7joQ3IP4NJUld8p2seYKSsMNDjPkYqEJR8CZ9Dkb56RbZmqA6XJDpMlS7uvTiJ6TXT
-         BL7va5sjWCaYVqc6iP66x7FdTGNhZljd7KiXInoPzHbfp2XL2qWzwDkONDKMLqI8j5QD
-         WwTQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzD+Be+nb9CDpBGplL4EkSt3/8bAJW27Fqi7cb6C8xlQB7lfD5AM2K/AHRzK+6W6wM88L63zupFgkFTmH39VUjx@lists.infradead.org
-X-Gm-Message-State: AFuF++mMmTt65DnCmR3Dmxa3a3SdNgBodvkYkdx+yVH1vR2tY3iXukE4
-	iWM+iPXjvVZGRcRInvpl6KIF8v+zxLh68a+sXtxoPI/C5EBKsGpNl7id
-X-Gm-Gg: AYBFou09WjZhs8h9YnySVNF/JlRUyydqVu/tW/2dN1gQUu7cZqJVX510HIijATA+iEu
-	cXs0C4zHlgXFGQ0okevNOQDJFIQyTWF9TCWmvoSTAK/wi4Yri1Q7/FgLE6/1Pbp4NHfnJJlsSkp
-	e5chUQ00JS68ArHgR/bM4i5jLwZhUeIWd6gx1BCkX4EL874lgHwL069BQZRf+tx06s9/c2r8kDC
-	tmZVz652uBaVewqLvvGP4doPZe9Ce0XXjV6LbnSQlla0AQ2J5UTkwuofpd35fVXGeCwXF1zRw4X
-	f+6naW671C2M2Q6qDye2bOlFaqSwBeYUMaxP++vkPUxi0b9P3rsqmOqvlY/oUjpcaqXLgf7fGRf
-	Vp5kHm0ojQmYmXElBbiVgwHpVWUul9NC4YT5vaWz/2pAT+DUn3/X7rE/RQ+dOlLykSW9yFl3SAS
-	eOTGfc6ULzn/j3AWLmB011yal1MZvRCJ68D4+FmLZaTWtks1rAYdEq5D8XyxLIpp16U9Pd703Yy
-	ApANaMu1sUwN9TwAm13TYnQSYpx3UIhLnosnGK8CkZEsyOHC+Al
-X-Received: by 2002:a4a:e90d:0:b0:6dc:e1c3:b2d5 with SMTP id 006d021491bc7-6e7a913602amr915341eaf.75.1791334627605;
-        Tue, 06 Oct 2026 17:57:07 -0700 (PDT)
-Received: from ?IPV6:2600:100b:b034:8212:4cd5:c80f:ba72:80cb? ([2600:100b:b034:8212:4cd5:c80f:ba72:80cb])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a25722e3d8sm1005183fac.15.2026.10.06.17.57.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Oct 2026 17:57:04 -0700 (PDT)
-Message-ID: <d3d3e7b3-eb8b-456d-9a2c-116334e86c14@gmail.com>
-Date: Tue, 6 Oct 2026 19:57:01 -0500
+	Wed, 07 Oct 2026 00:57:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=e6LiwQHe9JStXBgqo8euqJ3iQ3N1ssekSUFRPrSC/aU=; b=Ek
+	wM3ffr8MAZY7fcx1NpeRA1p4M5PrHgtGCUTiuD4JPWsc/OThoxXyB/UQoHkWdhltdMiib0vZIiy80
+	1w9iW3QOkwZ986gZKJTO2W7gntOcJV7REuqEnTybJ8+DwB11HEjamYoVzD/e54N9zo8JOtRgG6d49
+	G4sG6WUP1qYRMKY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xEFxv-009NLU-DH; Wed, 07 Oct 2026 02:57:03 +0200
+Date: Wed, 7 Oct 2026 02:57:03 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, netdev-bot+sinfo@kernel.org,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety
+ IRQ request failure
+Message-ID: <e7fea95d-1ce2-4c5a-891d-5e5899931329@lunn.ch>
+References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
+ <179127056620.2231598.8882282421523696709@kernel.org>
+ <CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
+ <20261006155214.63c5cb5b@kernel.org>
+ <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
- pinctrl regmap
-To: Chen-Yu Tsai <wenst@chromium.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Mark Brown <broonie@kernel.org>, Lee Jones <lee@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Clark Williams
- <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Yingjoe Chen <yingjoe.chen@mediatek.com>,
- Chaotian Jing <chaotian.jing@mediatek.com>,
- Hongzhou Yang <hongzhou.yang@mediatek.com>,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rt-devel@lists.linux.dev, mfd@lists.linux.dev
-References: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
- <20260930080609.dnK1-Uta@linutronix.de>
- <CAGXv+5FssQL3Go3VDFbLAT6HP12RS3U3OgxhYOeapzs64QTdUw@mail.gmail.com>
-Content-Language: en-US
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-In-Reply-To: <CAGXv+5FssQL3Go3VDFbLAT6HP12RS3U3OgxhYOeapzs64QTdUw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_175709_219546_40F54363 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20261006_175720_267077_BCCA9D26 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,35 +83,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu and Sebastian,
+On Tue, Oct 06, 2026 at 05:17:20PM -0600, James Hilliard wrote:
+> On Tue, Oct 6, 2026 at 4:52 PM Jakub Kicinski <kuba@kernel.org> wrote:
+> >
+> > On Tue, 6 Oct 2026 01:14:52 -0600 James Hilliard wrote:
+> > > > Please do not repost the series just to address the above. Instead,
+> > > > reply to this email with the missing information, so that reviewers
+> > > > can take it into account. If the series needs another revision for
+> > > > other reasons, please include the information in the commit messages
+> > > > then.
+> >
+> > Please make sure you read this paragraph, to the end.
+> 
+> How much detail should I be including?
 
-Thanks for looking at this.
+We want to decide should the patch go to net, because it is a real
+problem which bothers somebody. Or is it a theoretical problem which
+will never happen, so we might want net-next, or maybe /dev/null.
 
-On 9/30/26 3:17 AM, Chen-Yu Tsai wrote:
-> The syscon node is the provider of the regmap. You need to fix it there,
-> not duplicate it in the consumer.
+Sometimes it is really obvious, things like a:
 
-Unless I'm misunderstanding, no driver binds to that node, so its regmap 
-comes from the generic syscon code, and changing it there would affect 
-every syscon. Lee, Arnd, Mark, would that be acceptable?
+Reported-by:
+Tested-by: 
 
-These are the options I see. Please let me know if there's a better one:
+from the same person, makes it clear it should go to net, and it
+probably is correct.
 
-- Do what Sebastian suggested and make syscon use a raw spinlock, except 
-when the node has a clock, since regmap-mmio calls clk_enable() under 
-the lock. Off PREEMPT_RT, nothing changes. On RT the lock would no 
-longer be preemptible for most syscons, including across bulk writes. 
-Most syscon users that do bulk writes only write a few registers, but 
-enabling the Amlogic G12A PCIe PLL writes a sequence with 40 us of 
-udelay() under the lock.
-- Have the pinctrl ioremap() the node a second time alongside syscon's 
-mapping and read the input register (DIN) with readl(). That read is the 
-only access the EINT code makes in raw context. This would go around the 
-syscon, and it requires that DIN never be written in a multi-step 
-sequence, which is currently the case.
+If not, a statement like:
 
-I'd like to know the best approach before sending out a v2.
+Tested on real hardware, regression solved, no other regressions
+found.
 
-Best regards,
-Ryan Brue
+or
+
+amd64 Compile tested only, probably broken, RFT.
+
+or
+
+New feature tested on real hardware.
+
+Put yourself in our position. You are the Maintainer, what would you
+want to read to know it is going to the correct tree.
+
+     Andrew
+
+
 
