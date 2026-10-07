@@ -4,108 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BB2CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 08:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07999CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 08:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rz1uNP1/6zGDpEzl8JcWI5dNkU1Wh/FOy/3g1YXciIM=; b=pJWcrQVqY52ef5X1NRtGAWCsdq
-	AAXUawzY9b8TwZJdsUyJl5hiLijh3PQNF5o+bPSbkyPYoaE+anGGyO9f2O3eMZ7Ag7nSWTKbHd6pu
-	sy+tqHqO6aziiiqbxMhWNkOlxE5wEni3ZKr4079H/KHPU2kJTx6XGajZBVMXzWvm41VnOT8tEqtEI
-	jFOnq/c/1szVldry6Lh3HBQ8jFCk8sLSKD/xG25rWLoPTVLCX1RC3BjLb00fUsDKMoUob0PfgFjiT
-	hSJKboD6T1KeJFKnd9e8YkfFXspvYJVrklP4/NFUqXkiQacBpQrbN+9YPyEXeb2Aplhu07vv6YRPJ
-	hxx48MWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k2LWVlEbO4mtlO7zkAsTCCHDAZ0eNseSbBPcM0qvM7c=; b=2HlWbeyn+ayY5Y/Gp2NfCCQSSS
+	hlvcwHq1diYFl8tahCG7c1Dzyl1ugyE1hqM6kxN5yhsUaiLqnfCHK6dOH3CZvEg+Keva0hjI/ltR4
+	CcMe4EJZiFSUgMja9xkgjHKqhxS+3s5UWF9ealr/sgMTivEmThs3+2EtM9l0q+geqrZ+BeI7nHnv8
+	YuRMv97BeZz+9lzVZEAY2xRkmfjSSicpMxltcYaYqMeeBNxqD3AZh0lZCa5g5Oa/21iHJeXjzKoUh
+	vqRUt6QDFLt0+hDqR/i7S2Lw+A2xB9cgAZGXQTQaNH2jGP9RTXyS7gxI1PdgIXqvB2fCIEFUjAccY
+	RJlxsggw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMz7-00000001wdI-1us5;
-	Wed, 07 Oct 2026 08:26:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xEN6R-00000001xiY-2h2n;
+	Wed, 07 Oct 2026 08:34:19 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMz2-00000001wXM-288e
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 07 Oct 2026 08:26:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=rz1uNP1/6zGDpEzl8JcWI5dNkU1Wh/FOy/3g1YXciIM=; b=IG7LQJsF5QmhlCwpEUk/jMo72O
-	XeMWo1kpkDJCoihOimanIzBqjL5OwjpfksATLiZYLNESQ03nL+4c1dneVo7j00ybMnwCk81y46k1F
-	hhWCC8KCCpmByuFG3dTsE7aqX8vH5/EfId76DSn6LKsjk8YjQo5sUrHGDGhUkoIkPBHEMcn4uCWYk
-	KUr3YEIXqn4LC9DqLeuiCJZdND0DUtqDhFJwZvzwrJaLL4DfSMLu5CnBdMtBbbUxFlNsKGqEulthg
-	itghY6bDXAeWVTJ8RvUN8f72loHKWf9zv8HViM3SW74gPeHMX49pztpiOdZbFddoGbwqXh0opUapO
-	gdyyPxKQ==;
-Received: from mail-wr1-f46.google.com ([209.85.221.46])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xEMyy-00000009L1b-02Cu
+	id 1xEN6O-00000001xhq-3zvI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 08:26:38 +0000
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48b02a2359aso1442212f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 01:26:35 -0700 (PDT)
+	Wed, 07 Oct 2026 08:34:18 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48c4649b35bso3787871f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 01:34:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1791362055; x=1791966855; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k2LWVlEbO4mtlO7zkAsTCCHDAZ0eNseSbBPcM0qvM7c=;
+        b=JeaEDWOdo8M++NX7JD0la9Q/+zBHTcT0/qo6q24YufNTtcPu9uzsHNKNeH353D8kdS
+         LnFSRkGAtyU5HNsF0h68lx76cKDhLYwhmcJWPszO1yzaD+9YYNwalTdjSGwU6uOTj8N9
+         TrN/Kn3O2vsL4ENSgkwvpI+/Fk+aksGG4+9vwkc3yasqNesy2A9GbMNCVh15OVkjG5WD
+         rfqIINV3Q/q6sSWo3jui18rY2gqz1bEmsPdjgFMi2aG0FbAir4+2hYcNwkjBkFpt5wNL
+         2RUTbNwrkVTY6yVSBUL2yMEsy0UPjKRy05X/baA6Nq+jCurbNsrzgJCRA4qnbgddu2P8
+         f+1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791361595; x=1791966395;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rz1uNP1/6zGDpEzl8JcWI5dNkU1Wh/FOy/3g1YXciIM=;
-        b=V4r0SsyucKvZSiphLVzdoV/D8K4F4swStZ0L07Pd/KRxadpf2LSFakumNk3cD14hqD
-         Wl4qln17068kScrs8iAl07e6+YWA6ZC3F76R8Gy6MJrVZ9nBrudTb1TveRHjHM0rlvFD
-         bTadnBwCRknG8zhOyUiSHKhd+/Z/lZ2Tact6Zn1mTwX3jryT4omVifTgJ5+HUwh14OcS
-         SoA8/9C+Yk+g0Qcyq4SbL1Xk4tkWKBrwShoRID23Juj22/xhQOlm45oaYdFFFX/hE4TN
-         Ii20iD83e3JkrW6a1FLHieTxCnHYW3/n6vK1DL2IplXzFUHf64VgZb4TKbLT2VP033kt
-         2FZw==
-X-Forwarded-Encrypted: i=1; AKwUvBzSHXl3JThz3Y4xtGPL3/URgqt64vf4ShRAzDFMQAkj8D4uBzZy89HAzKCPGywrYfnEr3qBTMT1+yPP5GCIXnHK@lists.infradead.org
-X-Gm-Message-State: AFq9FYJauwj8Hzr4CUibJNELGkSp5G3khe9WHCBHos6gCRwuAswQeund
-	I+zll3mCYvRzncl2iyfhka+us5xxKiQq0pThKBSY3iiz+bEP5x97FBPI
-X-Gm-Gg: AYBFou3vkd6rDIn+B1brNjKeKY0wxt5BCeB9M/AOuVmsBZfHSPy4+/23qewI7rm/vND
-	9/b/VP8NHNZAeUiWZ2J+ePwkaTdTTELYovaYvRlGiflsvfjO15B/jtPNes+FQ/a1AJBYfMztV7n
-	lqu1m8BGKwSc/M88VhwdJBUEez8SlCaL7xIpzqYaAxbVceNdDq6VVM8CsZRfoIvnUbqQou1zSGp
-	hcsiQrqKO2K4XyFCjX86EAZ2JBA+vmPQZVW/rf3PxTDdqVatAJ3RMRjUyNkS9yvVbL6k5/XYCF1
-	1DrElpTAug9KbOrcwExpVdbbyMrqntRlvor4XJ2TaRF44TLh1knPgks0jBDsb8wP10UQCktFewp
-	7Ovw3p+9w989dD1QAWt2FI5IzOoChZ7D3VTBGVYNRdqa7KsSfhZgNuTn8nIoQ0v2HXyHu90VN/g
-	pMWyHDlNouNMf1CvB9djsUYy54cNnFCJpJXjiprG7ZLAOeOg3lEHKHaDVkg5vgr9ZDRrcwnoxOr
-	eQbvR+mNxSGQt6pk/bx9jN29ydrBNaGRs4=
-X-Received: by 2002:a05:6000:454f:b0:488:7892:1932 with SMTP id ffacd0b85a97d-48c7256fa0bmr2028288f8f.0.1791361594943;
-        Wed, 07 Oct 2026 01:26:34 -0700 (PDT)
-Received: from threads.localdomain ([84.70.176.222])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d3b502sm4251370f8f.52.2026.10.07.01.26.34
+        d=1e100.net; s=20260707; t=1791362055; x=1791966855;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=k2LWVlEbO4mtlO7zkAsTCCHDAZ0eNseSbBPcM0qvM7c=;
+        b=j1SJ2eUFwPkd/nWflhCRuS0VI+3IJIA3y0umwxBZ5+ApYaBCy2Px3t6VJCo/WOTmK9
+         b2A7/5j/SCiNIOMP0xRjCppWHmRKwkuGyQ8Fpm+Ctb2NiZmqtJjl8Q3uYOW4sQUZM6q4
+         YLeB4z/9fZysixgvWhNqCFig0pCBK/qzLN6mOU0sCoB/38SSOQsxEZIReC+HR4cBn6LS
+         CIfIBmt8tKu0LPwGTplk9e+HbBIUkV0VDDiZhqvUi4Y26pLAP5X15QGZ3aO1onrZcWZl
+         eCU6BsPRLGR9Y1FRZXY7LLaDkNRLQudJV1+azSu/+M9Sx7I2//3Lq8G0a17QZjx1HbWc
+         s7WQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz2JR2kERVEW076mPejp+LsHrtdheKeZSIy0kzYFqdwM5H4wqj1kXjf1llmv3Mo9uoTTfKps/tlB1jg5qjOxxPb@lists.infradead.org
+X-Gm-Message-State: AFuF++mm6K2z+6SEs+AL9dacyDxpRJNXc9JINyCduDHsb8+gxtW4y40G
+	dV5hVsaWJR0oKTQ6pVSlOV20bYLfGbeXc8BOi+MfDMyFvDzvnJTN/HOqwWajRlSJVtg=
+X-Gm-Gg: AYBFou3PU0qYSHRojZJZcwG0voNeoDPzhIgh30S3QYfwAUChuEr69aX+4Yr0Y+peI3T
+	fc4IArZYI5CNaXCRu/87ctIq05l3LWb7QlaxvD8dNBaA6beo4dPFw8xpF/Nx3NbTe8KAUg929Nu
+	MsiwVKgr70j4utuT+XZTARnUpdM5OYoKLWcBVRqUw5CrYpsnp6lMvFA/Alv02TvVnUbrVEAoOPn
+	QcoVtTbAmhVmRdryy2BPC39d6luJEMAEVCt75HjV0cynZN6Ukz0eGzRTWOVbXUzX7ycDAG/KKTy
+	RlsDaPm3RKxqOT2PtErROuTM9wTU86y7IqyhB8t1sAJGq2vkz21vLtylZZMqRhMr+Xp8plLVIQb
+	69uOvA2zAex/8AB3sbnGHvsdEHQV06tLtjOYtvhlX2R+9YOIuZco6O1INA1SqhPfEN61WRl6QdV
+	zvooTGIYdeqcFBTzbHLMfBHfQ/5K/VfKBChACkFJAqpfgfj01tfOxM4cCZYXg3YO535vdgVXV1/
+	3cBo6iLtzSLqUSMnQSM28i3DA==
+X-Received: by 2002:a05:600c:5254:b0:49f:c1a1:5222 with SMTP id 5b1f17b1804b1-4a180679d9dmr19886705e9.33.1791362055220;
+        Wed, 07 Oct 2026 01:34:15 -0700 (PDT)
+Received: from localhost (90-182-211-1.rcp.o2.cz. [90.182.211.1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a17f493761sm79454375e9.2.2026.10.07.01.34.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 01:26:34 -0700 (PDT)
-From: Lucas Tanure <tanure@linux.com>
-To: xianwei.zhao@amlogic.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 7/7] arm64: dts: amlogic: t7: khadas-vim4: enable the ethernet port
-Date: Wed,  7 Oct 2026 09:26:27 +0100
-Message-ID: <20261007082627.63807-8-tanure@linux.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261007082627.63807-1-tanure@linux.com>
-References: <20261007082627.63807-1-tanure@linux.com>
+        Wed, 07 Oct 2026 01:34:14 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Valerio Setti <vsetti@baylibre.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin
+ Hilman <khilman@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Valerio Setti <vsetti@baylibre.com>
+Subject: Re: [PATCH v4 2/7] ASoC: meson: build gx-formatter as a separate
+ module
+In-Reply-To: <20261001-audin-v4-2-2476646118b5@baylibre.com>
+References: <20261001-audin-v4-0-2476646118b5@baylibre.com>
+ <20261001-audin-v4-2-2476646118b5@baylibre.com>
+Date: Wed, 07 Oct 2026 10:34:14 +0200
+Message-ID: <1j8q49zz7d.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_092636_594453_86758A92 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20261007_013417_091987_AAE8FA32 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,66 +108,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board carries a Realtek RTL8211F gigabit PHY on the external
-management bus, connected to the MAC over RGMII.
+On Thu 01 Oct 2026 at 18:06, Valerio Setti <vsetti@baylibre.com> wrote:
 
-Enable the controller, hand it the ethernet pins and point it at the
-PHY. RGMII needs a delay on each of its two clocks, and on this board
-both come from inside the chips, not from the board tracks. The PHY
-adds the one on receive. Its transmit delay does not work here, so the
-controller adds that one.
+> Instead of including it in 'snd-soc-meson-aiu', create a separate module
+> for it. This way it can be independently selected by either AIU or the
+> (upcoming) AUDIN.
+>
+> Signed-off-by: Valerio Setti <vsetti@baylibre.com>
 
-The PHY interrupt output is wired to GPIOH_6, so link changes are
-reported instead of polled. The PHY reset is an RC network on the
-board, not a SoC pin, so there is no reset line to describe.
-
-Assisted-by: LLM
-Signed-off-by: Lucas Tanure <tanure@linux.com>
----
- .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index 0fa83362b417..4a2b0b563655 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -14,6 +14,7 @@ / {
- 	compatible = "khadas,vim4", "amlogic,a311d2", "amlogic,t7";
- 
- 	aliases {
-+		ethernet0 = &ethmac;
- 		serial0 = &uart_a;
- 		mmc0 = &sd_emmc_c;
- 		mmc1 = &sd_emmc_b;
-@@ -256,6 +257,27 @@ xtal: xtal-clk {
- 	};
- };
- 
-+&ethmac {
-+	status = "okay";
-+	pinctrl-0 = <&eth_pins>, <&eth_rgmii_pins>;
-+	pinctrl-names = "default";
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&external_phy>;
-+	tx-internal-delay-ps = <2000>;
-+};
-+
-+&ext_mdio {
-+	external_phy: ethernet-phy@0 {
-+		/* Realtek RTL8211FD-CG */
-+		reg = <0>;
-+		max-speed = <1000>;
-+
-+		interrupt-parent = <&gpio_intc>;
-+		/* RGMII_INT on GPIOH_6 */
-+		interrupts = <154 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
- &i2c_m_ao_a {
- 	status = "okay";
- 	pinctrl-0 = <&i2c0_ao_d_pins>;
--- 
-2.56.0
-
+Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
 
