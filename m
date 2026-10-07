@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA1FCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3076CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7R3ym81WdAEtexE6jWnwa4vea2N/jeqsSvQGrEvEZOo=; b=dd0Jz1VoJYh85sFZdV7iXZx3YD
-	vP4QAd0u+neWXhoi80cZcHuE8X8nbhZLq9mwczGm+8v/CyuSnpOEq7EECvNwjH87hV3iq6EAc5Dhb
-	L3ro4yWhr9eMc9KVOelr6NYG3JRs3VSi/PMlBEXtiHppoOO1L29YZAOS5gZPe3qs5MNrHU4upLKBE
-	mhUcoxEH81gm3xyvTKTFizdKy6gyntcJrMsw8KUhNT7LRYT7VQ930SYODNEbwf4DHrEKc86APICge
-	TRNFT7CqeUIU0F6vfJNhEHcv59cKm6d/EL7Q70AdU+bNJCHzJvVTkKS746ylqp1OeY2wkAm57IOeO
-	weV/8UIA==;
+	bh=EOLf8afyt5b6SOANC3rqCkf69jr4nV59FAjYhwNBzS4=; b=qLtZNe+asoD8pGZ6iDrdwwgNHA
+	6FIFfzNmODCJ76Syjt/S+U87J8b25eK9ZoxBKy6c4QQtXQacVQnnMUn93Oi0f6JfD4dKDYUrk1ALt
+	hliEqRLcpRs+X/Ns2Hdj89jlSyORbHC7FN56SRXJ2tj6MNSBUVKVtpo4gKhCvEpg8+EYHMUZc6WIj
+	RFeyOdrAoU1oZbRVZed8ZQE+saZTZ/AatgzhKCZ8R+CYSvw6772X6WYKZI0tqJ+1TI1UNFUou2aXv
+	Nn3mcyB6mo1pf65zcEqcuq8bwPnJQkGjiZ1TbCSBe2HIfO47L/z5c/oUxOC1RpR1VmoroFQVOF/++
+	Zxo4gkSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERxw-00000002YKO-3cL0;
-	Wed, 07 Oct 2026 13:45:52 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1xERyS-00000002YP0-0LJw;
+	Wed, 07 Oct 2026 13:46:24 +0000
+Received: from out-198.mta0.migadu.com ([2001:41d0:1004:224b::c6] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERxr-00000002YJb-0uNk
+	id 1xERyO-00000002YOD-3QVc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 13:45:49 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5bcc04c71f5so8728e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 06:45:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791380745; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JpJk5e9cT1nhQw31CXyrCk+y/oM86bD9ajgSluS6VylNK+aWBTYnu37dxQ2E29QP35
-         B6vU76lf+QBALQXR5BonhCv8ODfGpBHdzzGf95gXHRFU3EwoVEK3Q7nYg+M43oZVIZnC
-         p1jGEl65REJTDiK2BLDE/V8GKnzVMNkMWROuH6DZEchCO0add9lcmRBpn6J/9JY+6NX8
-         +/5g2v+vDHkNUl+x1W48UiQQENd09DvmUttqgJDSgsXCAcLCr9gCZwEb+3jtDrqga5/F
-         FY9GdKA8c0BVbdL8ymhLoJC7oAnWYZ/oL+BJ/CoUd1douQ/uI8uMHhS3/vLzaGlHdnTI
-         5HkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=7R3ym81WdAEtexE6jWnwa4vea2N/jeqsSvQGrEvEZOo=;
-        fh=OT6rjTpsRDzTjHWAtF9m39Kd6oGBGk0m4wb/pJKvfGE=;
-        b=oHdSCBHHwwc5rg74O4IJWF13h76KNgAAYWha9pRXQKMg617h7W+ela1ZNWlpRy8CWf
-         06i/kPoHXqDlgH9cOdJdXgZODyHidMwOsTkvVx3veTu9wm5hUvwMVew2ddaq+VaBF/wj
-         Zh3Yr8kSsArvxMRg+PVK+VPtgZl9pnpHxmuto1zBVCpNiTnAfJQZMCr9p4QnznxD9YKC
-         st79/b6IFN0FPJqBW7SQ3KueGCSWoC6j2DaKLirP4flW8iqhHHXflNqRXZB/xhjXcNrV
-         3CTtqt0+CKsrsaU9f6FSGvpp6Mn7UJjxAwqxZNRUuO0Zr6EtLrRLuq9RB0Jp9u8Z2Bcr
-         xy5w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791380745; x=1791985545; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7R3ym81WdAEtexE6jWnwa4vea2N/jeqsSvQGrEvEZOo=;
-        b=K2PvVTalZuPRXRPoaGh3Ml2O8LSY4yemNXkS4MWU6yIsofQgNY87WxunG6o0x7kX6E
-         Hi72pxuSrPHEWlgcI8echETfKouOtR+NSLNQfL8/itdlzSK5+4kzEODSlhOjDDJ1qjTU
-         S3sxG/anINLa3vrTkiMZJsxTr4X/12eKu3CJZIM/XuAb+rIO23W75A101eKX9EdGsYXE
-         kBDFWhSqFy5915GJ6L/XHUIWbxTQej9dTrGxVqsVyZH+tEcatOiNFlwntTf3D1uXrHKK
-         WDC1p1T0LAqyiGX0LYnn7a3NsKDQ4DjQz0K+CWWTZ2FgwRLFAh3surc9H8iuZypYjE37
-         bJNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791380745; x=1791985545;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=7R3ym81WdAEtexE6jWnwa4vea2N/jeqsSvQGrEvEZOo=;
-        b=Fb50PBK+5NMtOMNmTZcOkRIBGFddLl2t2oKPESF5lUYGfEdnFLY4TDeCcJ2+gansUw
-         zRdzGNIZG6ysluWdG/9eFA3bzvBtT14kxWuHX4UHqqqmSfkBSL53Oi0Rd00Fzeapz+9l
-         EFmYnIRfi0Ks9GiWSLmLSsTqWuMTXcGwK2RzeMuXH0lBtpkLA+Vayn7/IagK2nw0Ht8q
-         EMB/RfHWRoyQ5qPUqB+zdSVLzW+uOgzOnoJdDzO9DJmuOEx01h0wK97PklhVgWXpirrN
-         GyL70Aq38pBJr17U+pxb1gzC3i/dQt1cGIFAirTr8h+CiPqLJ/Z+o0wuiXc1m1hx1TRN
-         Uy+w==
-X-Forwarded-Encrypted: i=1; AKwUvByxWoUb+qvD6BJa/0k7crqz8G/DL1reJSMT0yx2w421ZxM+OHgA86LfkfXymzrYYJWQAGR1OT2HMLs/V5y7WNiG@lists.infradead.org
-X-Gm-Message-State: AFq9FYIos2BBiFzk1EhQD2KnZNxDcgTh0tLHbsQ7TfHz33Y+YdxCRnfu
-	IzeZV8GamJNNp3sUmNmUS/Aq9rBbmvvTobGAinYsHxyGqvHlYLGEnY9UrOr2bc+kM4z91OsCAjr
-	JdNjzy2OktncGYr42pXhjkmwG/TRYStINEUDRgTEC
-X-Gm-Gg: AYBFou3Zwd6zmPIYby70zTjJtO9tZ2TBjIFenTr5zyNyRKEZzWFVDFvrngqk84K2xg5
-	aweqNtcetGSMkaUB1YlOk5MJVc5onSZwUZeZ0YMsRnpDDYhqi7EixkICAaGB6VX3QWvz9CkQte8
-	gEv5QQKSXczT+4s9NCpPVmEK6dd7AX2BDgOQM4q5SJubugurweo7uwvmhhG3CTSH9QhMx6Z3Sjw
-	hRERhYnkoJC6PNtG9E3QHxBmdVRoug1+0feIX2939TBol1HmoCNsP6zPSjzaLvWNWumKrmeA/GT
-	9VRWwHLJvedRtYCseAQ8kV4d5RykO13Q9jRfyKB4SAOuC4N4yu7CqH0n
-X-Received: by 2002:a05:6512:33d3:b0:5bb:ff6f:b4bd with SMTP id
- 2adb3069b0e04-5bcca66e395mr320554e87.14.1791380744549; Wed, 07 Oct 2026
- 06:45:44 -0700 (PDT)
+	Wed, 07 Oct 2026 13:46:22 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=EOLf8afyt5b6SOANC3rqCkf69jr4nV59FAjYhwNBzS4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791380777; v=1; x=1791985577;
+ b=pMaIfFjLufpE3dLK3ghIVpudyLQIxDW6wRaz/lwJASUL87maSvpBCgLzbRNhDDhRyGD/T6bL
+ QcEkuEFjf2BtXqEfLoeiO8qt2RQZfSoc8aPzT6xDgVPPv5Dglb4bLU/9WqsAgpzATyhF4t+2U6e
+ uwwQo9K8v0baKZ9xmsmVL8Gs=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6f1eda9f8b5f66e8;
+	Wed, 07 Oct 2026 13:46:17 +0000
+X-Mizu-Trace-ID: 6f1eda9f8b5f66e8
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so9220e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 06:46:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzEJwemyJ0XuJCv3Ax1IboS2eGS4YG+XXKIVIep602giYaCrEYVF9UTCkKZ6jYUTvM03GxF3yhVvfu1nV8AxX+k@lists.infradead.org
+X-Gm-Message-State: AFq9FYK/I/C1xcOPmnXTsKU1E/QMut6oSDTGb+5QTZdGmCwhKbjiM0bE
+	6ibj7a6NZd4KbOhj4ABFLc8PmtLtd4/sA/iIa4x9QYgUbaHuw1MeINhIZIETODUicg8yrxeluT7
+	/0TOx3A1v9Nr8qycnMdTWjMM/EUoHR9b8r97O6M7I
+X-Received: by 2002:a05:6512:a83:b0:5bc:b531:51ea with SMTP id
+ 2adb3069b0e04-5bcca86c249mr304368e87.13.1791380772866; Wed, 07 Oct 2026
+ 06:46:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <20261007073537.2454351-13-suzuki.poulose@arm.com>
-In-Reply-To: <20261007073537.2454351-13-suzuki.poulose@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 7 Oct 2026 15:45:07 +0200
-X-Gm-Features: AclHuK9NBZeYXTKdDsAbHTEgR4p43Lr3P06clWDgtHoGILzFBEkx0SOT-Ggr9gA
-Message-ID: <CA+EHjTxuAh1zegQGA0-dNAjDBnXUc036WhoGxoUvVmMW1BxdXg@mail.gmail.com>
-Subject: Re: [PATCH v23 12/14] KVM: arm64: Abstract out memory abort handling
+References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <20261007073537.2454351-14-suzuki.poulose@arm.com>
+In-Reply-To: <20261007073537.2454351-14-suzuki.poulose@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 7 Oct 2026 15:45:36 +0200
+X-Gmail-Original-Message-ID: <CA+EHjTy_1EekD472UH=CDSpC7oksdy3eS8AP0rPxKkhQ_PyXdg@mail.gmail.com>
+X-Gm-Features: AclHuK_J8GmFTVM33wX7R0VP_JP-fZesKaU03j7TLtkYQU0t9fz-B9AOXRmoM04
+Message-ID: <CA+EHjTy_1EekD472UH=CDSpC7oksdy3eS8AP0rPxKkhQ_PyXdg@mail.gmail.com>
+Subject: Re: [PATCH v23 13/14] KVM: arm64: Mandate VGIC v3 for pKVM VMs and Realms
 To: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
 	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
@@ -106,9 +70,8 @@ Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
 	jonathan.cameron@oss.qualcomm.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_064547_751778_EBBA742F 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261007_064621_285376_42986952 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,15 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Oct 2026 at 09:36, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
-> Move the memory abort handling under VM specific s2 operation.
->
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Hi Suzuki,
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+On Wed, 07 Oct 2026 08:35:36 +0100, Suzuki K Poulose
+<suzuki.poulose@arm.com> wrote:
+> pKVM does not trust the host. Realm VMs follow a similar trust model, with
+> the Realm Management Monitor owning the protected state instead of the
+> host. Add a helper to identify VMs that run under a host-distrusting
+> hypervisor.
+
+When I reviewed this in v21, the Realm patches that use this came
+later in the same series. Without them, kvm_vm_hyp_is_distrusting() is
+true exactly when is_protected_kvm_enabled() is, and protected mode
+already doesn't register a GICv2, so this patch doesn't change
+anything on its own. Should it move to the series that adds Realms?
 
 Cheers,
 /fuad
