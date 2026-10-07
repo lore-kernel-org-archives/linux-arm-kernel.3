@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4DCCA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6B2CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=; b=rDLGXZXR1ZuhVZRzdtRIDbjy9R
-	NpHuo8Sf9Mo87HXrI7uTR9ptKlRcHoy81cWsHcUmLSUB76DQ30vUVvJV4dlTd7aSRLPTL5VN5waXn
-	CvQdoz+Jid6xvWNeZtDtsInKurd7Y7TkPeqI030XlQLI+kj1YmHXUFhLog570W/nK0zqKjbJUg5LH
-	8pTX1Tes1GvOO0IUv8DDrOOiRK2D+Geez6GxNG8BGeBO4lVYR6ZMBPGhyvFivd1Nv84n3r9BjKxjh
-	Y9KG/n60PqHp0wfaWhwoa6iJSlROBGkCR5u9Pk1Jl9YOjT545++v3ZZ8YcXdjlWOwWoPFENd7C/JP
-	boKFvGLA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HbXOOT9nl+uysOcJBeZgbpa3FnxAvhWN1MIEa8mVsQA=; b=K5kZ/KK4dohQmuVpTN2fLQFBFA
+	9xpSVdj+YzSWgzwBPyXPrLEmGdVt3FVsyXqiUqTA/QimYjasYeIxc0+3fgoG3wBtSuSXOBFd2wd84
+	LzWi3kcdSmcZk7nElOMnENVX0Kb4rYxoWujIaGuVoPY8eW9DNEN9D2IyRKsNVOgu8LhKczEtROaDq
+	ixYpMAzHiYspAuoIvLv9r6eHaBK6uw1e/QWiKqeo8lNJLNGnZNFJDSLAbcMvVPQw9/eTWqXiP3nIi
+	NvJsoHq+Ik3/x0oK/+kGbQ9goTKvIs+ip7cTaeE3j55IRC9nynMfqcQdjX5T7hwDpyzaSoAgJjMBx
+	TmLd0HhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ3p-00000002Mgt-0hrA;
-	Wed, 07 Oct 2026 11:43:49 +0000
-Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
+	id 1xEQ3r-00000002Mi0-19j8;
+	Wed, 07 Oct 2026 11:43:51 +0000
+Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ3m-00000002Mfn-2Dac
+	id 1xEQ3o-00000002MgB-1b4O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:43:47 +0000
-Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d55d8cd938so59308735ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:43:45 -0700 (PDT)
+	Wed, 07 Oct 2026 11:43:49 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cd0b795aa8cso467715a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:43:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791373424; x=1791978224; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=;
-        b=LO89s205CyLGMkrtCn/5LTMwqCzWw/48LmgyPaniKGYLBqNgVyqi0/dln3sTgx9slG
-         wNciMG8l6h4GTSaUOn8q5z4879wJam8egYP4dvJTjq4QTeMq4YPed7VZ0QgZRlytz5G+
-         xeqAp3lzb/H6vc4HlEPyqofUO9ooIuirqTmawPjT37rc9m+CVLGQTfkvy2LI4oCLnUxI
-         XUG8bZgsNj5+o3I0qN5TW6cHzd45Dj1meE94pkoPaparROORh6fB/ujsK2jNUaQ5bdQ3
-         L85quqZaOyYgqro97hr3ZUB+Kpdowocu08BuE4F3s/uV0G0SMYu9PvF653mNJ1BLJDBo
-         Zs5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791373424; x=1791978224;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1791373427; x=1791978227; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=;
-        b=1xHFMl1OmZlggpX/oZzL+l8Jh6I0q+RIBCMOZjCTUeJoVKF1iC94URhwa+bngRVYvf
-         pSm7CmcTcOqHdwSIhvXA7N3wO99+7n+wgWTcKNUoEB5EALiQgnX2eRcZDkpM4evcmyAN
-         fct7VZeCdIcXPDndZAb9dAEemiAkG6ZUy3WRMNSBUL3CzoHcWx0dZ4yroHVqdaDnL9Xo
-         XWeHksqrHMevKc7wjtPeiOpAZc2QNo8Txk6LslKoKqXIZlyewyAPDFp37xwCwE2nSi63
-         5gu1dzp8/2JuqOBCMAkNYexSC5eW1gsL2s1/u2c9kozrMewR/DT8JQceBYuW0pi1dMfn
-         zdFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx9Rq6+KofLQnAY/ROg7M+C09vFlGysaSPUg6tIAOz0etLD0ink6FdsPNQYv8SUmpkQJbukZyu3Id/oaVZuft7g@lists.infradead.org
-X-Gm-Message-State: AFq9FYK1Nuru0wxVzAO4G5zD+S7E4rgjkOM5IXNKqOVVKJ6bkFpXvj60
-	MpWsuC5XlqbBRfIOXXmDM9WPChA1guPQrKYJgSLEd43M0RqqBYp0yTPRqoB8EqfJ5oimKTGISsQ
-	m5zhsm43gkCaKrK/gfbwDih/Nrg==
-X-Received: from plnq15.prod.google.com ([2002:a17:902:f78f:b0:2e2:d223:8126])
+        bh=HbXOOT9nl+uysOcJBeZgbpa3FnxAvhWN1MIEa8mVsQA=;
+        b=JS0Rc5F7HR1UqyUkX5RQ4L2EARp8/UQKht7hWqgJGrf124YLD6fEfxLgiNHMGviDap
+         L8yrXKECa7wFeVthak3ZrN2yf//OqJ+CP5eeUdPXfHIkfkMa4f5XhKdyK3CzWQUXP6o8
+         05oW8Age3X/1EK3VkPYBzWxCNlkd1ZCmZM6E93zmIhdEjIIRfd5lpglXJmfXBMnWoi2l
+         Hr9cwikh15ud0ixBNn1ZYZC8h6hBvKHo3zcx3wTk7kFzCjTVERzGAErBLdmjusYeu1fk
+         r2hrytLs0PAzpY/9O4dR04wVdMpeupk9cv687cS+aFpzS2k1j7W134/H+vCqbeTFeItx
+         HVlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791373427; x=1791978227;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HbXOOT9nl+uysOcJBeZgbpa3FnxAvhWN1MIEa8mVsQA=;
+        b=c1Y3PNcWn9whKJEvWzJ0c9Cal+5E/0Hd//yIdWuW3jxxTpGAt6Ga2aLSlFHfyMLQaF
+         Dh1mWRwBfUon0GNN6GMkBr0v62HOhWtXSR3zRRuvnYDnz6ewoRJV9pR+eKdE7kSPoe8P
+         wBus30caMpvGU4xmzoTpX+UAZzXlfKTcjvK5T151qCmI69ncOGhVe0T3s0NoMguEaqyN
+         ffHgBuF41rlkfare+220qFoU8FUkPDKsvv8QWR6jvcmAWucjKGSSWRGTE0Z5UFE8G5g7
+         D/Lm44muk4nxysOPVKqL9CHbdcmQr2IW2ByuttsTr5XojJ8yjzO2jN0zSoTwWZRndZwi
+         sLzA==
+X-Forwarded-Encrypted: i=1; AKwUvBzuu6vxDfE6beAyYEKlxxo1u5Cw/iOCE4lLddp9mf+MhOIM3qSrT0K6FchAeMZ69dFZiApkRn/NcPr6aJOzg0Yo@lists.infradead.org
+X-Gm-Message-State: AFq9FYLaIVvEJLgxWwFKNYzu629iRAT017t4TxSjOFvh34VX53uOl/qe
+	Lt5KkAt16IrvVGQI0YYxZsZo4T+NF6TNayeze3G9+ujhchbb0MC5itDuU27dVQp4/TUszV1cOil
+	OzgIUpDlivvz+krJedZFK6m35Sw==
+X-Received: from plbjb20.prod.google.com ([2002:a17:903:2594:b0:2e2:f517:75b])
  (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:ce07:b0:2dd:c100:9433 with SMTP id d9443c01a7336-2e600548a4bmr18840995ad.49.1791373424109;
- Wed, 07 Oct 2026 04:43:44 -0700 (PDT)
-Date: Wed,  7 Oct 2026 11:43:24 +0000
+ 2002:a17:902:ced1:b0:2e2:c94f:25f7 with SMTP id d9443c01a7336-2e5c4f13ec9mr34857265ad.5.1791373426997;
+ Wed, 07 Oct 2026 04:43:46 -0700 (PDT)
+Date: Wed,  7 Oct 2026 11:43:25 +0000
+In-Reply-To: <20261007114335.440322-1-dylanbhatch@google.com>
 Mime-Version: 1.0
+References: <20261007114335.440322-1-dylanbhatch@google.com>
 X-Mailer: git-send-email 2.56.0.360.g66cac248cb-goog
-Message-ID: <20261007114335.440322-1-dylanbhatch@google.com>
-Subject: [PATCH v8 00/11] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20261007114335.440322-2-dylanbhatch@google.com>
+Subject: [PATCH v8 01/11] arm64, unwind: build kernel with sframe V3 info
 From: Dylan Hatch <dylanbhatch@google.com>
 To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
 	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
@@ -80,8 +83,8 @@ Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.micro
 	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_044346_602647_4E07DD4F 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20261007_044348_437611_21F3C7A0 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,135 +99,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement a generic kernel sframe-based [1] unwinder. The main goal is
-to improve reliable stacktrace on arm64 by unwinding across exception
-boundaries.
+To generate a .sframe section, build with -Wa,--gsframe-3 flags. Also,
+add unwind-table options to ensure the necessary CFI directives are
+emitted by the compiler, but discard .eh_frame unless
+CONFIG_UNWIND_TABLES is explicitly enabled.
 
-On x86, the ORC unwinder provides reliable stacktrace through similar
-methodology, but arm64 lacks the necessary support from objtool to
-create ORC unwind tables.
+This will be used for in-kernel reliable stacktrace in
+cases where the frame pointer alone is insufficient.
 
-Currently, there is a sframe unwinder proposed for userspace [2], along
-with an RFC for an .eh_frame unwinder [5]. This patch series implements
-a similar SFrame lookup library to [2], but with many simplifications to
-account for the fact that user access is not necessary. The intent here
-is to continue to leave the door open for common usage of definitions
-and algorithms between kernel and user unwind in the future, while at
-the same time keeping these patches strictly constrained the minimal set
-of features necessary for arm64 kernel unwind.
+Currently, the sframe format only supports arm64, x86_64 and s390x
+architectures.
 
-Unlike past versions of this series, these patches apply directly to
-v7.3-rc3 rather than depending upon [2]. To make this possible, I've
-adopted a number of patches from [2] with significant squashes and
-changes made in order to coherently suit the kernel unwind use case.
-I've done my best to maintain appropriate authorship on these changes,
-and have added 'Co-developed-by' trailers to attribute shared authorship
-as accurately as possible. Please let me know if you see any
-discrepencies in my work here.
-
-Currently, only GNU Binutils support sframe. This series relies on the
-Sframe V3 format, which is supported in binutils 2.46.
-
-This full series is available on github: [4].
-
-Ref:
-[1]: https://sourceware.org/binutils/docs/sframe-spec.html
-[2]: https://lore.kernel.org/all/20260505121718.3572346-1-jremus@linux.ibm.com/
-[3]: https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git/log/?h=sframe/core
-[4]: https://github.com/dylanbhatch/linux/tree/sframe-v7
-[5]: https://lore.kernel.org/all/20260821195259.2688377-1-jremus@linux.ibm.com/
-
+Co-developed-by: Weinan Liu <wnliu@google.com>
+Signed-off-by: Weinan Liu <wnliu@google.com>
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 ---
+ MAINTAINERS                         |  3 ++-
+ Makefile                            |  8 ++++++++
+ arch/Kconfig                        | 31 +++++++++++++++++++++++++++++
+ arch/arm64/Kconfig                  |  1 +
+ arch/arm64/Makefile                 |  2 +-
+ arch/arm64/include/asm/module.lds.h |  2 ++
+ arch/arm64/kernel/vdso/Makefile     |  2 +-
+ arch/arm64/kernel/vmlinux.lds.S     | 12 +++++++++++
+ include/asm-generic/sections.h      |  4 ++++
+ include/asm-generic/vmlinux.lds.h   | 15 ++++++++++++++
+ 10 files changed, 77 insertions(+), 3 deletions(-)
 
-Summary of changes since v7:
- - (sashiko): Put .cfi_startproc right after SYM_START to account for
-   potential alignment bytes ahead of the actual function symbol.
- - (sashiko) Use __always_inline for IP validation helper.
- - (sashiko) Move .sframe module init and sframe section fields to arch
-   generic code.
- - (sashiko) Make sframe_find() noinstr.
- - (sashiko) Add preempt_notrace and instrumentation to
-   __sframe_module_find() code path.
- - (sashiko) Block tracing and kprobe on the sframe_find code path.
- - (shashiko) remove KCOV, KCSAN, and KASAN instrumentation from
-   sframe.o (copying over ORC's shoulder).
-
-Dylan Hatch (6):
-  arm64, unwind: build kernel with sframe V3 info
-  module, sframe: Add sframe support for modules
-  arm64/sframe: Validate IP addresses
-  sframe: Add debug helpers with object name
-  arm64, crypto/lib: Annotate leaf functions with CFI info
-  unwind: arm64: Use sframe to unwind interrupt frames
-
-Jens Remus (1):
-  sframe: Separate reading of FRE from reading of FRE data words
-
-Josh Poimboeuf (3):
-  arm64/sframe: Read vmlinux .sframe header
-  sframe: Add support for reading vmlinux .sframe contents
-  sframe: Add .sframe validation option
-
-Weinan Liu (1):
-  arm64: entry: add unwind info for call_on_irq_stack()
-
- MAINTAINERS                            |   4 +-
- Makefile                               |   8 +
- arch/Kconfig                           |  49 ++
- arch/arm64/Kconfig                     |   1 +
- arch/arm64/Makefile                    |   2 +-
- arch/arm64/crypto/aes-ce-ccm-core.S    |  12 +-
- arch/arm64/crypto/aes-neonbs-core.S    |  16 +-
- arch/arm64/crypto/ghash-ce-core.S      |  12 +-
- arch/arm64/crypto/sm4-ce-ccm-core.S    |  16 +-
- arch/arm64/crypto/sm4-ce-cipher-core.S |   4 +-
- arch/arm64/crypto/sm4-ce-core.S        |  44 +-
- arch/arm64/crypto/sm4-ce-gcm-core.S    |  16 +-
- arch/arm64/crypto/sm4-neon-core.S      |  12 +-
- arch/arm64/include/asm/linkage.h       |  32 ++
- arch/arm64/include/asm/module.h        |   1 +
- arch/arm64/include/asm/module.lds.h    |   2 +
- arch/arm64/include/asm/sections.h      |   1 +
- arch/arm64/include/asm/unwind_sframe.h |  32 ++
- arch/arm64/kernel/entry.S              |  14 +
- arch/arm64/kernel/setup.c              |   2 +
- arch/arm64/kernel/stacktrace.c         | 184 ++++++-
- arch/arm64/kernel/vdso/Makefile        |   2 +-
- arch/arm64/kernel/vmlinux.lds.S        |  14 +
- arch/arm64/lib/clear_page.S            |   4 +-
- arch/arm64/lib/clear_user.S            |   4 +-
- arch/arm64/lib/copy_from_user.S        |   4 +-
- arch/arm64/lib/copy_page.S             |   4 +-
- arch/arm64/lib/copy_to_user.S          |   4 +-
- arch/arm64/lib/memchr.S                |   4 +-
- arch/arm64/lib/memcmp.S                |   4 +-
- arch/arm64/lib/memcpy.S                |   8 +-
- arch/arm64/lib/memset.S                |   8 +-
- arch/arm64/lib/mte.S                   |  28 +-
- arch/arm64/lib/strchr.S                |   4 +-
- arch/arm64/lib/strcmp.S                |   4 +-
- arch/arm64/lib/strlen.S                |   4 +-
- arch/arm64/lib/strncmp.S               |   4 +-
- arch/arm64/lib/strnlen.S               |   4 +-
- arch/arm64/lib/tishift.S               |  12 +-
- include/asm-generic/sections.h         |   4 +
- include/asm-generic/vmlinux.lds.h      |  15 +
- include/linux/module.h                 |   5 +
- include/linux/sframe.h                 |  43 ++
- include/linux/unwind_types.h           |  34 ++
- kernel/module/main.c                   |  21 +
- kernel/unwind/Makefile                 |   5 +-
- kernel/unwind/sframe.c                 | 710 +++++++++++++++++++++++++
- kernel/unwind/sframe.h                 |  79 +++
- kernel/unwind/sframe_debug.h           |  34 ++
- 49 files changed, 1401 insertions(+), 133 deletions(-)
- create mode 100644 arch/arm64/include/asm/unwind_sframe.h
- create mode 100644 include/linux/sframe.h
- create mode 100644 include/linux/unwind_types.h
- create mode 100644 kernel/unwind/sframe.c
- create mode 100644 kernel/unwind/sframe.h
- create mode 100644 kernel/unwind/sframe_debug.h
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 65e8a4b5c90b1..36d7ee1f6ea5e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -28537,10 +28537,11 @@ F:	Documentation/driver-api/uio-howto.rst
+ F:	drivers/uio/
+ F:	include/linux/uio_driver.h
+ 
+-USERSPACE STACK UNWINDING
++STACK UNWINDING
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+ M:	Steven Rostedt <rostedt@goodmis.org>
+ S:	Maintained
++F:	arch/*/include/asm/unwind_sframe.h
+ F:	include/linux/unwind*.h
+ F:	kernel/unwind/
+ 
+diff --git a/Makefile b/Makefile
+index 7c855e6fe5448..5c2ca98a86786 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1197,6 +1197,14 @@ CFLAGS_GCOV	+= $(call try-run,\
+ endif
+ export CFLAGS_GCOV
+ 
++# build with sframe table
++ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++CC_FLAGS_SFRAME := -Wa,--gsframe-3
++KBUILD_CFLAGS	+= $(CC_FLAGS_SFRAME)
++KBUILD_AFLAGS	+= $(CC_FLAGS_SFRAME)
++export CC_FLAGS_SFRAME
++endif
++
+ # change __FILE__ to the relative path to the source directory
+ ifdef building_out_of_srctree
+ KBUILD_CPPFLAGS += -fmacro-prefix-map=$(srcroot)/=
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 45c6577723623..cc59a5da80915 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -507,6 +507,37 @@ config HAVE_UNWIND_USER_FP
+ 	bool
+ 	select UNWIND_USER
+ 
++config AS_SFRAME
++	bool
++
++config AS_SFRAME3
++	def_bool $(as-instr,.cfi_startproc\n.cfi_endproc,-Wa$(comma)--gsframe-3)
++	select AS_SFRAME
++
++config UNWIND_SFRAME_LOOKUP
++	bool
++
++config ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
++	bool
++	help
++	  An architecture can select this if it enables the SFrame (Simple
++	  Frame) unwinder for unwinding kernel stack traces. It uses an unwind
++	  table that is directly generated by the toolchain based on DWARF CFI
++	  information.
++
++config HAVE_UNWIND_KERNEL_SFRAME
++	bool "Sframe unwinder"
++	depends on AS_SFRAME3
++	depends on 64BIT
++	depends on ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
++	select UNWIND_SFRAME_LOOKUP
++	help
++	  This option enables the SFrame (Simple Frame) unwinder for unwinding
++	  kernel stack traces. It uses an unwind table that is directly
++	  generated by the toolchain based on DWARF CFI information. In
++	  practice, this can provide more reliable stacktrace results than
++	  unwinding with frame pointers alone.
++
+ config HAVE_PERF_REGS
+ 	bool
+ 	help
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index cab741a695f52..b438d04044486 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -87,6 +87,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_SCHED_SMT
+ 	select ARCH_SUPPORTS_SCHED_CLUSTER
+ 	select ARCH_SUPPORTS_SCHED_MC
++	select ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
+ 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+ 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+ 	select ARCH_WANT_DEFAULT_BPF_JIT
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef706..ae1c23579ad2f 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -55,7 +55,7 @@ KBUILD_CFLAGS	+= $(call cc-option,-mabi=lp64)
+ KBUILD_AFLAGS	+= $(call cc-option,-mabi=lp64)
+ 
+ # Avoid generating .eh_frame* sections.
+-ifneq ($(CONFIG_UNWIND_TABLES),y)
++ifeq ($(filter y, $(CONFIG_UNWIND_TABLES) $(CONFIG_HAVE_UNWIND_KERNEL_SFRAME)),)
+ KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables -fno-unwind-tables
+ KBUILD_AFLAGS	+= -fno-asynchronous-unwind-tables -fno-unwind-tables
+ KBUILD_RUSTFLAGS += -Cforce-unwind-tables=n
+diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
+index 603f92a8a73ed..034cb635e8bcc 100644
+--- a/arch/arm64/include/asm/module.lds.h
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -10,5 +10,7 @@ SECTIONS {
+ 	 * put it into the .init allocation.
+ 	 */
+ 	.init.eh_frame 0 : { *(.eh_frame) }
++#elif defined(CONFIG_HAVE_UNWIND_KERNEL_SFRAME)
++	/DISCARD/ : { *(.eh_frame) }
+ #endif
+ }
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index f6619e1cb2ce7..f6d1f59fb11c3 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -38,7 +38,7 @@ ccflags-y += -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+ 			$(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \
+ 			$(GCC_PLUGINS_CFLAGS) \
+-			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
++			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRAME) \
+ 			-Wmissing-prototypes -Wmissing-declarations
+ 
+ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index af1d720209764..eb1f54829503c 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -145,14 +145,25 @@ jiffies = jiffies_64;
+ #endif
+ 
+ #ifdef CONFIG_UNWIND_TABLES
++
+ #define UNWIND_DATA_SECTIONS				\
+ 	.eh_frame : {					\
+ 		__pi___eh_frame_start = .;		\
+ 		*(.eh_frame)				\
+ 		__pi___eh_frame_end = .;		\
+ 	}
++#define SFRAME_DISCARDS
++
++#elif defined(CONFIG_HAVE_UNWIND_KERNEL_SFRAME)
++
++#define UNWIND_DATA_SECTIONS
++#define SFRAME_DISCARDS *(.eh_frame)
++
+ #else
++
+ #define UNWIND_DATA_SECTIONS
++#define SFRAME_DISCARDS
++
+ #endif
+ 
+ /*
+@@ -184,6 +195,7 @@ SECTIONS
+ 		*(.interp .dynamic)
+ 		*(.dynsym .dynstr .hash .gnu.hash)
+ 		*(.ARM.attributes)
++		SFRAME_DISCARDS
+ 	}
+ 
+ 	. = KIMAGE_VADDR;
+diff --git a/include/asm-generic/sections.h b/include/asm-generic/sections.h
+index 0755bc39b0d80..336d27011a580 100644
+--- a/include/asm-generic/sections.h
++++ b/include/asm-generic/sections.h
+@@ -31,6 +31,7 @@
+  *	__irqentry_text_start, __irqentry_text_end
+  *	__softirqentry_text_start, __softirqentry_text_end
+  *	__start_opd, __end_opd
++ *	__start_sframe, __end_sframe
+  */
+ extern char _text[], _stext[], _etext[];
+ extern char _data[], _sdata[], _edata[];
+@@ -53,6 +54,9 @@ extern char __ctors_start[], __ctors_end[];
+ /* Start and end of .opd section - used for function descriptors. */
+ extern char __start_opd[], __end_opd[];
+ 
++/* Start and end of .sframe section - used for stack unwinding. */
++extern char __start_sframe[], __end_sframe[];
++
+ /* Start and end of instrumentation protected text section */
+ extern char __noinstr_text_start[], __noinstr_text_end[];
+ 
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index b2988aa12f664..278f5764d990d 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -491,6 +491,8 @@
+ 		*(.rodata1)						\
+ 	}								\
+ 									\
++	SFRAME								\
++									\
+ 	/* PCI quirks */						\
+ 	.pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {	\
+ 		BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_early,  __start, __end) \
+@@ -912,6 +914,19 @@
+ #define TRACEDATA
+ #endif
+ 
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++#define SFRAME							\
++	/* sframe */						\
++	.sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {		\
++		__start_sframe = .;			\
++		KEEP(*(.sframe))				\
++		KEEP(*(.init.sframe))				\
++		__end_sframe = .;			\
++	}
++#else
++#define SFRAME
++#endif
++
+ #ifdef CONFIG_PRINTK_INDEX
+ #define PRINTK_INDEX							\
+ 	.printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {		\
 -- 
 2.56.0.360.g66cac248cb-goog
 
