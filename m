@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3A2CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB39FCA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnVpOMa/A/9KOxtJhbCxt7dzW/Oxp49fSXL9sK+W888=; b=x7rOX/OZ8wrVXJeb2HDBAvlVEU
-	os5q+eedU1zCi9XZcEJermouu1AFC6Ifxyr3mzpqRrugIa2N+M01n/Hahv0q6IeiM2xwZ+zSRyLVH
-	HiunJPqpk2NSYqwg1KRW5hsuV6Yoc0qTE2fepC/MfGkdYxqAOLu7O1DaADRwNXV3z80lhUy+q/usw
-	OVGzZYmB8aJ3kMOkvTIBFQi1HjJphi2VZFWBslJF/yOnRo/jKvA1B193OXYUxFF4sh9Ov3hT9pEig
-	k5bsFOqIL7/v/+RhhK8TLe0DM/3OlGW/afL3YYVE1e6x47OzhKpnI2pRs/9e8WlPXC54N3nUDI/PM
-	qWuvi4IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IIr/Aoc1Hs3lvHLCFBiOMQidFB5bfl16umvco5XedmY=; b=eH/euTlBpjlRdEfWEaPhwaiM1i
+	XKNDD5m84aZRkdb1VANTsjeYcfaSdJRXK6QmbqqeqBX1VOhzHZuoVfXsIq2qJILr4AjpblHZUGM1u
+	CYilzr3s8j0pESxMii/jA3A1B/SvZE7n/lr9PYk0EfrN0dtPHRI5LEMtRk3o3jOpuhI2ax5V6d568
+	z1KkaBo0dphKs3dLdGoFF/9Mq++Z7EblsBPTbZ9rQJ4G5agz2r+qAIL19vATwuttvRjkZkyKil2Ye
+	hZ2F8j8Hsfnu7lV/tq09xgD4S7eNF+lCTU7yZQ/g7/WWe4rWf3Z/t9DdOjEjWrU/tuYhGstg34/KR
+	eh+gsGtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEShq-00000002ceA-2ZxS;
-	Wed, 07 Oct 2026 14:33:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xESkT-00000002cvP-3iPb;
+	Wed, 07 Oct 2026 14:36:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEShp-00000002cdw-1GN8;
-	Wed, 07 Oct 2026 14:33:17 +0000
+	id 1xESkS-00000002cvF-3reJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Oct 2026 14:36:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8B9C41180;
-	Wed,  7 Oct 2026 14:33:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022DE1F0089B;
-	Wed,  7 Oct 2026 14:33:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39EF6406FD;
+	Wed,  7 Oct 2026 14:36:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC5A1F0089B;
+	Wed,  7 Oct 2026 14:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791383596;
-	bh=MnVpOMa/A/9KOxtJhbCxt7dzW/Oxp49fSXL9sK+W888=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Wp5yiz7FSnXP8YbANW2fUpYkIKtiRhCjxpqevHsX0ptzxDUNeLOv/aykt3RMVAuG3
-	 sPoohRkX2WfRPLR4Omwn16wK9xzd+uYZj7al/rldsar6v9wmWINKiKx3v3amwYSGXP
-	 +vtKj94f/lABqBmdsij0UaMPfcTVSJJHFbNoFnPGC4/j0PY4/WWgrl+yjxiZXUPb/C
-	 o/4L0laXeNaQzLHS4+wFYM8FjE8UrtIabUkiNo8/p5frr7yR+cukrXD2d+mR40KdKE
-	 dKMhWg+aIiNIdAyCXOncGsR38IuJkILritikd7fTdvKHte+oFKIzsB3SLG2S44jp5M
-	 U/7sRmBMITIaA==
-Date: Wed, 7 Oct 2026 15:33:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v13 1/2] dt-bindings: phy: rockchip: naneng-combphy: add
- rockchip,sgmii-mac-sel property
-Message-ID: <20261007-9753b5de7344a15472337c6d@squawk>
-References: <20261006162807.2843858-1-coiaprant@gmail.com>
- <20261006162807.2843858-2-coiaprant@gmail.com>
+	s=k20260515; t=1791383760;
+	bh=IIr/Aoc1Hs3lvHLCFBiOMQidFB5bfl16umvco5XedmY=;
+	h=Date:From:To:Cc:Subject;
+	b=GBLPmq5rt9Jn/3UM0qjTFoHmGIKVO532Wu6JkLg3615fh9nHVSEPk+MkSaXxFpQMZ
+	 niiv33Fbo7mrpHbhn1LSTWtELRUAdNfJALbn8ek6oMSfKXjLgTFt6u/9sBIl/x6WfS
+	 PNjRpTjG4Erv8axilgxq43+f+ngulcAw0WouGa+Yrz+e0nJ+1awAwtJfxS8WzTgYFB
+	 Bax1oYRSWQJWbhcEN3LupYcNA52XudAni4hRKJ3tiJvJLpfd9Rq9W1RYI5iuPYqbWN
+	 S3nNhf0mee8BbhNJoQdllOOZVgpDOwsnpK+I/hxL4cR+cQVUfW1W0xel73SmaH8KQA
+	 ongfBcoZ3PJ3w==
+Date: Wed, 7 Oct 2026 22:35:55 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Jerome Brunet <jbrunet@baylibre.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: [GIT PULL] Allwinner Clock Changes for 7.4
+Message-ID: <asZYyy4D2PkhjE3q@home.wens.tw>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bYpco44aYbz7Qmdh"
+	protocol="application/pgp-signature"; boundary="1oyjFqg1TWnhEdcA"
 Content-Disposition: inline
-In-Reply-To: <20261006162807.2843858-2-coiaprant@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +69,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---bYpco44aYbz7Qmdh
+
+--1oyjFqg1TWnhEdcA
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Oct 07, 2026 at 12:28:05AM +0800, Coia Prant wrote:
-> On RK3568, the SGMII interface can be routed to either GMAC0 or
-> GMAC1 via the pipe_sgmii_mac_sel bit in the pipe GRF registers.
->=20
-> Add the optional "rockchip,sgmii-mac-sel" property to allow the
-> device tree to select which GMAC controller is used for SGMII.
->=20
-> The property takes a value of 0 (GMAC0) or 1 (GMAC1). The hardware
-> reset value is 1 (GMAC1), but this can be overridden by setting the
-> property to 0 for boards where SGMII is connected to GMAC0.
->=20
-> If this property is absent, the driver leaves the routing unchanged.
->=20
-> This is necessary for boards such as the Ariaboard Photonicat, where
-> the SGMII interface is connected to GMAC0 and needs to be explicitly
-> configured.
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-I've written about 3 responses to this and deleted them all.
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-This feels like something that should be set by some existing mechanism,
-like the phys property, or by the mac driver when it realises it is in
-sgmii mode - but I think neither actually fits here? The latter doesn't
-work since you need to differentiate between instances there anyway,
-which requires some info, and the former doesn't work with phy-cells
-being 1, since that 1 cell is needed for the phy mode itself.
-The other thing is pinctrl, while there's no "pin" here, it's
-determining routing within the soc which is the realm of pinctrl,
-probably pinctrl-single. But I think that's just really way
-over-complicating everything... Plus, Rob didn't yell about this aspect
-of things when he yelled about the other things you were doing, so
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+are available in the Git repository at:
 
-Thanks,
-Conor.
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-clk-for-7.4
 
->=20
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->  .../bindings/phy/phy-rockchip-naneng-combphy.yaml   | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-co=
-mbphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-comb=
-phy.yaml
-> index 379b08bd9e97a..442a1df193ad2 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.y=
-aml
-> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.y=
-aml
-> @@ -80,6 +80,15 @@ properties:
->      description:
->        Some additional pipe settings are accessed through GRF regs.
-> =20
-> +  rockchip,sgmii-mac-sel:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    description:
-> +      Select gmac0 or gmac1 to be used as SGMII controller.
-> +      Set this to 0 to route SGMII to GMAC0.
-> +      Set this to 1 to route SGMII to GMAC1.
-> +      If this property is absent, the driver leaves the routing unchange=
-d.
-> +
->    "#phy-cells":
->      const: 1
-> =20
-> @@ -105,6 +114,10 @@ allOf:
->            maxItems: 1
->          reset-names:
->            maxItems: 1
-> +        rockchip,sgmii-mac-sel: true
-> +    else:
-> +      properties:
-> +        rockchip,sgmii-mac-sel: false
->    - if:
->        properties:
->          compatible:
-> --=20
-> 2.47.3
->=20
+for you to fetch changes up to 9ef62592b80c7ffb8cd987d889f659c1dc4f9f16:
 
---bYpco44aYbz7Qmdh
-Content-Type: application/pgp-signature; name=signature.asc
+  clk: sunxi-ng: ccu_common: Use readl_relaxed_poll_timeout_atomic for PLL lock (2026-09-20 17:32:54 +0800)
+
+----------------------------------------------------------------
+Allwinner Clock Changes for 7.4
+
+Allwinner sunxi-ng clk library's single divider clk type gained support
+for the update bit, and various single divider clks in the A523 driver
+are converted to correctly use the single divider type.
+
+The "wait for lock" helper is changed to use atomic MMIO polling, as it
+could be used when timekeeping is not available yet, and *sleep() doesn't
+work correctly
+
+----------------------------------------------------------------
+Alastair D'Silva (1):
+      clk: sunxi-ng: ccu_common: Use readl_relaxed_poll_timeout_atomic for PLL lock
+
+Junhui Liu (4):
+      clk: sunxi-ng: div: Add feature support to M clock macro
+      clk: sunxi-ng: sun55i-a523-ccu: Use M-only clocks for MBUS, IOMMU and DRAM
+      clk: sunxi-ng: sun55i-a523-ccu: Use P-only clocks for high-speed timers
+      clk: sunxi-ng: sun55i-a523-r-ccu: Use P-only clocks for timers
+
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c |  37 ++++-----
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c   | 128 ++++++++++++++-----------------
+ drivers/clk/sunxi-ng/ccu_common.c        |   2 +-
+ drivers/clk/sunxi-ng/ccu_div.h           |  18 ++++-
+ 4 files changed, 89 insertions(+), 96 deletions(-)
+
+--1oyjFqg1TWnhEdcA
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasZYGgAKCRB4tDGHoIJi
-0i7pAQCEHLUbeUseRijomPdK42ASMNkHPbzWqVbVEJD+RePnsAEAsqjwg12DjFm0
-FP34Zhrf7NpGU/snBsueFHKAd/JzuwU=
-=7ky/
+iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmrGWMsACgkQOJpUIZwP
+JDC4ohAAissvzueqOTIR//65cJgKfRBNeqoxHplC0NeBFOUgYJqSPasSkstRD1I5
+kCKz+00sKtPE+PCUB3PO3QzjOVv8BgeX0qDxjlvWc7GilD/Lz8dUXeHO8S12Gs6J
+Cnvy9hg0i9frMxclrBfKzSP7uLCpcqI0qHEnKdbNgzLTTEm2MtPBXKhn8su7jI22
+yORwt+ZhXFUztAQusXZ4d5P5xBTkJDE2ad63Mi9o7LgyFmawOu/lsDJV1090szLg
+HEWpKg0SgcEoFGhRs2OA1ZVkOUl0rt9r/I/NxvX5XUbfPOF5T+hRmNtB3m4XxG0C
+62UgGCseWIkVdyC4OFogJcG4iMHtWMtUZeWIVisfGRdehrlzljVittCjJrT2J2sS
+jKdgFwNHEe/NYEQnHrwlN62Jm7pF8r+h2o69ZN8p3nOsYwhHhioSPhy0ksOqYvDT
+o94pbMQOxaCBMWez0MoarttrDnSCQFDnNBIaVvEZSunI3LQHDSzx5XzO+jaH5rUH
+LHwiZwJfat0fTDk3T6jmfNK5SE2xO0JwmLZhTav+hO8J6ND73zEmplpRU2AG2n89
+Gs07Ah/YMRWD5GWOUqtSc9eQyM0tQln5RpFPIWrclIJEjXf5yHA/rOQb7v3dF7rl
+G8Wq8w1nGo3q4Ew6iReWbxhtpVuPnQflIIat6JlL3rKBeniFMCs=
+=R13c
 -----END PGP SIGNATURE-----
 
---bYpco44aYbz7Qmdh--
+--1oyjFqg1TWnhEdcA--
 
