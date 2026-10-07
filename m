@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CD9CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 15:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3E9CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 15:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IVrx7T4/vrI8KI74E9jyOtkR9pHzDOzupXTVhYrmKwk=; b=gBY26Qn+dzkYTAsSO25x0Nk7jg
-	0UWapbJLXq1XOdYfuc1pg2amCJxTg956S1NkrtKHdfDUv3VpBEQrq1QN+W1VVZuoKIj6YaVKwD4l4
-	YM88DSvHbN/Rwh10bIyXQi92wMFs21QzkjagLOGx/bKcaM7T3cw9mYOHxHV8w3G2k+QhgcDukeaw7
-	HNOrSUfiKTK4fEYW2Wy+bLMWEUxNaQwqImjwD33U7fhz60StVEd7XDN5ju6Izw/EiUTk83hZm3ifN
-	C/nxw7nLxoMwG+M4i3X2+kCFUV5MCQ9iXHONUxv6TritrqxJnAhkxo/RDGXRtm1YkJgKZ4fn5xBRy
-	lmd+N6lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OgSnC18Dz3quxUXIwZxhZ5WsitMjATqUzKSpKj/iUwM=; b=cEYflKY/Pd1VK9aFkDuLMNhYyB
+	hbt7YZtnnBcUW7tw1yf80FaSTmDlz/yjTkgZYpDA5UpVFm3hwnaQzCSu/m7DmFn2o1wYwf96jB88G
+	zkQFIjtlNu8b2s6dB60nxVXZ5LW3LxHFKWDjuJ4IeCorwaAUOfGF0ZWvLqhZqxQWeSZzpgsVp277A
+	8ZWYn+bUxN5KUjHySgNZoHuARmZWJtwAVJZCVhkidHfuvC2AoioXrki2cULtH9qzgrxICZEnAIKqN
+	QgMlolSTR1jfUr3e461YAbTt6r3nrl5iGfU2+aOc3UDvH9NBdoYUTrDIy0F6bjHUplb0rW0LYTUb7
+	SpV82b6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETBG-00000002fvh-29FE;
+	id 1xETBG-00000002fv8-08gc;
 	Wed, 07 Oct 2026 15:03:42 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETB9-00000002frF-0Qcu
+	id 1xETB9-00000002frZ-31In
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 15:03:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791385415; x=1822921415;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=bRxyAyeMyuT8X1aAIHRubCtQCl/UpGFQpunpCnzKtNs=;
-  b=s5LZjJfep9gYJmCfCYP343cSgr8xJ2oo9eZHBt0j1pYTvTdg/wXCcb3c
-   GLV+9rSA6a2Ya4inN5MWyEoQEUntsRYqGWkfYAX1KN7o60/N1BpX5eLF3
-   Xx0P/0V8ip9Z+eu1ovVRbTWK3gHGKRR+HtNVkw24vIjawtvB0yDzNuNhK
-   QdvexdFl0XonJj0KSc6HkpHiAYw7kytXRhh8MFvPSMsoOu075sp3/Xrp7
-   OLDNo0qx2CN4x0TOpTp4xLXO6pJupG5bHICOepnYu9Nv6YYTFCO+6o2Kl
-   gesLVfcWBmkOPnnSnVUSxDoWsXQWGDo1OzIGhRnwEVryfHYEvcv9kexb8
-   g==;
-X-CSE-ConnectionGUID: lFivHuwqSOyVpuk07g+c1A==
-X-CSE-MsgGUID: s4qJiHJATZuOqn//qTJG4g==
-X-IronPort-AV: E=Sophos;i="6.27,144,1787036400"; 
-   d="scan'208";a="296120675"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Oct 2026 08:03:33 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 7 Oct 2026 08:03:32 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 7 Oct 2026 08:03:30 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Wed, 7 Oct 2026 17:03:15 +0200
-Subject: [PATCH net] net: sparx5: free the matchall entry on destroy
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337@microchip.com>
-X-B4-Tracking: v=1; b=H4sIADNfxmoC/x2MSwqEQAwFryJZG2h1/OBVxEV00hrUVtIignj3C
- bMsXr16ILIKR2iTB5QvibIHgyxNYJwpTIzyNYbc5VXmXI3xIL1L3Oi0fV1x8cqMgU8kT8M4FL4
- qmw/Y/1D2cv/bHZgA/fv+AI1UnnFwAAAA
-X-Change-ID: 20261007-sparx5-matchall-kfree-net-afabcb3f6584
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>
-X-Mailer: b4 0.14.3
+	Wed, 07 Oct 2026 15:03:37 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-49fcc575709so41482515e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 08:03:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791385413; x=1791990213; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OgSnC18Dz3quxUXIwZxhZ5WsitMjATqUzKSpKj/iUwM=;
+        b=T6MOrJlH4Ddh60jRgpshoU54mNJ33b8YvT+O4QrfdcyZA1T9HMbK4CG0JV8HC3rcVT
+         LFKEVpuWh82E8n38BcP2MYiuAh+IuxPPbWibop/3UACHs8oD1t9h+xQJfrLUlIALfHzI
+         YzBxZfYSA0HUa6ZN3HrGNAdCuBp6uG3f27gy+aPIi6yXVuLKp3Gi86B4Wy/ZrKNdTViB
+         hTD+vS7I3GlOUGAuSjkQTPmQM4Lj/DvZMgqBqDsKOHFCtp7vctaDsWWgvshaXAc3Tuzz
+         MYeMMI9Q9eO5FlBDtBPjsDog9/DiHrcLibi+DWpjKU3peMxcTvuaqdS0+RTCxf/XzOEM
+         6O/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791385413; x=1791990213;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OgSnC18Dz3quxUXIwZxhZ5WsitMjATqUzKSpKj/iUwM=;
+        b=omIPEu+tZhoOS47xg7CSk9wQqaQSFLyZvclkyS8IWRYEgULUEPj1H63zS/FZmfJB4i
+         p55ir9480Jy7HWhqTkr85fATpt7bC7YfyPFwm6lCjSuzk7qYxBD0AZENnBkeU3PaNJto
+         yk43Yj3QpFbNchqVuWB6YB4BNJ2ofHG2iXPS33q2tF6q6D4s09Ztx/2N272ZGLDqkBAP
+         8Wmeyw241HBY5MMP7ptfI4Kvp0OXa9tSyLYDwb7VDjCJK+DOso1I2AZqHOVztnL0SbJM
+         XBGoLMlApiGJeCcxVcLdeFt06+ZOGxEAy9CwQzHwdtQVgh4k39r3cR3WUYMZDyknmkJ+
+         u5nw==
+X-Forwarded-Encrypted: i=1; AKwUvBwpfJ6Ju/M6xHzY4zzn7kFGCOtn0+MmM0wCDcv1qPqFOSnXz3tJ8UkXpvTawgreaSSKmxI0vW1C9tPBaxmac9VT@lists.infradead.org
+X-Gm-Message-State: AFuF++nIl5CuJwGir6Flu8gpZBoE106edlCoRPLb3ECiNFp1fT7ic7ff
+	rz8jFpQ//8UCgEBHH1t4uJ47cDIbHmLlZz61iV2ScXkZc2COeIdVKSdHlLbivEOyi6ZhcAHbfu3
+	C0EGlHBJF7itoxZQhdmbOPQ==
+X-Received: from wmbil21.prod.google.com ([2002:a05:600c:a595:b0:4a1:82c4:6b15])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:64c6:b0:49f:fe90:de63 with SMTP id 5b1f17b1804b1-4a180455e85mr45957945e9.28.1791385412933;
+ Wed, 07 Oct 2026 08:03:32 -0700 (PDT)
+Date: Wed,  7 Oct 2026 16:02:54 +0100
+In-Reply-To: <20261007150255.1648849-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20261007150255.1648849-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261007150255.1648849-5-vdonnefort@google.com>
+Subject: [PATCH 4/5] drivers/virt: pkvm: Handle a granule larger than
+ PAGE_SIZE for MMIO_GUARD
+From: Vincent Donnefort <vdonnefort@google.com>
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_080335_219937_2E9FDA72 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20261007_080335_804878_40ACA036 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +92,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sparx5_tc_matchall_replace() allocates a struct sparx5_mall_entry for
-every offloaded matchall filter and adds it to sparx5->mall_entries.
-sparx5_tc_matchall_destroy() removes the entry from the list, but never
-frees it, so the entry of every deleted mirror and goto matchall filter
-is leaked.
+In preparation for allowing protected VMs to run on a system where the
+granule is bigger than their PAGE_SIZE, allow MMIO_GUARD requests to
+overshoot.
 
-Free the entry after unlinking it.
+Validate the memory regions are aligned with the hypervisor granule
+before enabling the MMIO_GUARD support. If aligned, then the MMIO
+regions are and overshooting is safe as MMIO_GUARD is solely here to
+indicate to the hypervisor where the MMIO regions are.
 
-The leak was discovered by an AI code review agent, and reproduced with
-kmemleak on a lan969x EV board (EV23X71A) by repeatedly adding and
-deleting matchall mirror and goto filters. With the fix, kmemleak no
-longer reports the leak.
+It is possible to add new memory regions with memory hotplug later.
+However the alignment requirement is way more conservative than the
+maximum granule size of 64K. Nonetheless, add a test to document the
+limitation.
 
-Fixes: 1ede4acf045c ("net: sparx5: add bookkeeping code for matchall rules")
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c | 51 ++++++++++++++++---
+ 1 file changed, 43 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
-index 702257979462..146d7f28e8f3 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
-@@ -160,6 +160,7 @@ static int sparx5_tc_matchall_destroy(struct net_device *ndev,
+diff --git a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
+index 98b1026cf68b..3852be6bd16b 100644
+--- a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
++++ b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
+@@ -12,6 +12,8 @@
+ #include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/mem_encrypt.h>
++#include <linux/memblock.h>
++#include <linux/memory.h>
+ #include <linux/mm.h>
+ #include <linux/pgtable.h>
+ 
+@@ -70,17 +72,50 @@ static int mmio_guard_ioremap_hook(phys_addr_t phys, size_t size,
+ 	if (protval != PROT_DEVICE_nGnRE && protval != PROT_DEVICE_nGnRnE)
+ 		return 0;
+ 
+-	end = PAGE_ALIGN(phys + size);
+-	phys = PAGE_ALIGN_DOWN(phys);
++	/*
++	 * It is fine to overshoot MMIO_GUARD requests. Its sole purpose is to
++	 * indicate to the hypervisor where the MMIO regions are and we have
++	 * validated the alignment of the memory regions beforehand.
++	 */
++	end = ALIGN(phys + size, max(pkvm_granule, PAGE_SIZE));
++	phys = ALIGN_DOWN(phys, max(pkvm_granule, PAGE_SIZE));
+ 
+-	while (phys < end) {
+-		const int func_id = ARM_SMCCC_VENDOR_HYP_KVM_MMIO_GUARD_FUNC_ID;
++	WARN_ON_ONCE(arm_smccc_do_range(ARM_SMCCC_VENDOR_HYP_KVM_MMIO_GUARD_FUNC_ID,
++					phys, end - phys));
++	return 0;
++}
+ 
+-		WARN_ON_ONCE(arm_smccc_do_range(func_id, phys, PAGE_SIZE));
+-		phys += PAGE_SIZE;
++/*
++ * Return true if the MMIO_GUARD service is available and if overshooting is
++ * safe, which it is if the memory regions are aligned with pkvm_granule.
++ */
++static bool __init mmio_guard_available(void)
++{
++	struct memblock_region *region;
++	phys_addr_t prev_end = 0;
++
++	if (!kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_MMIO_GUARD))
++		return false;
++
++	if (pkvm_granule <= PAGE_SIZE)
++		return true;
++
++	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG) &&
++	    pkvm_granule > memory_block_size_bytes())
++		return false;
++
++	for_each_mem_region(region) {
++		if (prev_end == region->base)
++			goto contiguous;
++
++		if (!IS_ALIGNED(prev_end | region->base, pkvm_granule))
++			return false;
++
++contiguous:
++		prev_end = region->base + region->size;
  	}
  
- 	list_del(&entry->list);
-+	kfree(entry);
- 
- 	return err;
+-	return 0;
++	return IS_ALIGNED(prev_end, pkvm_granule);
  }
-
----
-base-commit: 23609bce9e1de525d1d0e73fc68c6e7971d0b49e
-change-id: 20261007-sparx5-matchall-kfree-net-afabcb3f6584
-
-Best regards,
+ 
+ void __init pkvm_init_hyp_services(void)
+@@ -108,7 +143,7 @@ void __init pkvm_init_hyp_services(void)
+ 		pr_info("pKVM: sharing memory in %zu-byte granules\n", pkvm_granule);
+ 	arm64_mem_crypt_ops_register(&pkvm_crypt_ops);
+ 
+-	if (kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_MMIO_GUARD))
++	if (mmio_guard_available())
+ 		arm64_ioremap_prot_hook_register(&mmio_guard_ioremap_hook);
+ 
+ 	static_branch_enable(&pkvm_guest);
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.56.0.rc1.315.gc6ed9934b7-goog
 
 
