@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B06ACA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1976CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9E5douEvnl79iHjWkyFm82J2TQ2sXA9KpzAuoqF4t4M=; b=K8kVfgpl7aUE7gfkfyWPFSah5L
-	sWkR2BZJVm6yJU9Af4hB8c4o6IUdQoBy0vckrIvf4GUwmwq/V2JmdoH2iNoXXtIgLWsCo9ohHtcaG
-	a7/g9kchD+vYqAQhkdqt7qVe/3/0rHb2emn9XFusMzxtm11LXGvA/mTCL4Imhykyys70fcCefn5+h
-	0DPEz+qUT6Ki94Btte+xLRM/f3q4dpjIv1pY2fuSNWAvjtsBIFehiI4mY92HaJ29HWaX96EFjRUt1
-	j+YishZp5bd2k+eo0B2zyVyd8bgz9I3jhupsKPNDhYGh9Dcur4jIeYmygaJcwyi9AcTOC4fa7v6n/
-	XrF0shSw==;
+	bh=4UyXA6Kbx2RrlHyZTfn8yf8h54TNQENLjWNQqtxe20s=; b=rUETpglMXPHvPGGXcjFg78P3dR
+	f93tpL5E6lGh4lw5cd6SHxPTAxZYziJTxc5dpL2GZlTmURTF9f5g/KOrGdprBYQ/gBZyQoIjgQ8Hi
+	G9Bl5hpj6MJZiahisVqfyXtjtSYfLNR8K9WJ4DrErdMXSUzg9eMRzYy749mSZr4a5JgqVUGG8yubY
+	7cduK0b/fM83B5TCaYNqqAlP0LZ78ocRDMnIlWpPrcXHsi4VqjT2mpvH3pJpnmoJVL0kjJ3Iqv3rG
+	PjmKyxTEKOaUshc4zokXlSEaWt1175Zn18xfl65a8izvEYkurkZBh6fZMNe7IL6lH9ronKzD6VNq2
+	+9VtytCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESU6-00000002bKk-2bYh;
-	Wed, 07 Oct 2026 14:19:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xESVX-00000002bUK-0Qc4;
+	Wed, 07 Oct 2026 14:20:35 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESU5-00000002bKO-3Eqw
+	id 1xESVU-00000002bTV-03LN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 14:19:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB995601FF;
-	Wed,  7 Oct 2026 14:19:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 831641F0089B;
-	Wed,  7 Oct 2026 14:19:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791382744;
-	bh=9E5douEvnl79iHjWkyFm82J2TQ2sXA9KpzAuoqF4t4M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gk4XJlTjQoSq2o6hSxLhwTu84JOe9R3yg1stHfUIJNJs/ZoJOFA12d714OGlTfGJT
-	 DbsyPQWsprKRYM4S1xW10HiR8XUmxWsxjz5fOwDxgDD/M/RiuyHcTqIWwPA5cA9TAN
-	 kgSlr3kASKMNNPzfDHSqn9qAp8QbUqYJ4joEbzZD/9Cryt+gqfCSDB8ex7J54r9F0T
-	 3NrXBEf3rSYAs0DdccebCaBy/hFuP2drjuWD9Y4bqtdIOE9pXE0RF4HV8f1W+wJoYl
-	 R9yIpzNuPeQlUQXHHKX76UnsroY6SyEVWpSzqEzOXWYTWLel1DB3FoCMumRMMJmPOB
-	 TbposgSKGkAhA==
-Date: Wed, 7 Oct 2026 15:18:59 +0100
-From: Will Deacon <will@kernel.org>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-smmuv3: Propagate errors from optional IRQ
- lookup
-Message-ID: <asZU0waS4-lKy8uQ@willie-the-truck>
-References: <20260811041934.7609-1-phucduc.bui@gmail.com>
- <ar_fLAeFU4rmrwiH@willie-the-truck>
- <CAABR9nGqwTGcrr6bKsV5+0GYwkQoP0s_Tu6aTJrhJJW_ZRqFYg@mail.gmail.com>
- <asCyI2_CNSoDJy1w@willie-the-truck>
- <CAABR9nH3pkFB-htyrD-Z+iBBcYoVX4Z-hFa_binWCXg9_cHU6A@mail.gmail.com>
- <asISGdljsG86gUwb@willie-the-truck>
- <CAABR9nFMR+D0j5kYR+HwLBOHG4WF7PUDrqjE4Bt0-VTUacxmBg@mail.gmail.com>
- <asJlxV06xzDIgqW4@willie-the-truck>
- <CAABR9nFz65Yt-SeHAx-Gxe18c4i3Sb3b_H-zsr7d+wwK5gB=CQ@mail.gmail.com>
+	Wed, 07 Oct 2026 14:20:33 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5ba40832934so7325e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 07:20:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791382830; cv=none;
+        d=google.com; s=arc-20260327;
+        b=e4vjtTG4VDzrxJOZxlyZmnk2Hmvi1GIJSryEuMwBbaYw/viy1fT0XH+ojyMRTTJAO+
+         B3AGkV5KxoHh9HYaOL4Jnlqxm5WEnHWG+dFCKzMLIJPpkuPS25348psmtctHZ2tc2S0w
+         c76S00reE8kMUktuQ4iaXV518pbNQd3fSSKsK5K90wb1SizCTXpz6ZVpHqzkxCR7maHg
+         SfBJL3UIBGcgNzOybXhsaEMhL/af9hOB3VYd4okHzHOHKKyLR+5rfOtTdPGOq3sEl12K
+         4rS34vsEYvv5/3SoYkRieekaFKQSCagiCxANapXztkyvlSerYnQFo7k1Po0y5/NKoqhX
+         logg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=4UyXA6Kbx2RrlHyZTfn8yf8h54TNQENLjWNQqtxe20s=;
+        fh=YgPkraICJI0ARAMcK36kV6LqR9e94WKtxcMD9H/k+/U=;
+        b=egjJ2j/8Fd9E31QILVEYded9UmzbFEc54nV67cVQY1z+J9zuh1DNOXPvWOby6+iouE
+         US2hTbphqIYBKXp/OeUncbGvY4WX5Y9hrxfAIoqlCvF5zmQOELA+7HdV6w1MOLqVzzz1
+         YtQDxS/SwnMplXsAHKfPSeT43D/Z8PV6xeCg0tp/Pi/vo9G8VfzvMbdxlPN0Dy5CfDKn
+         PqJHJniPDqsSArU8PEhS828FJJJJXh2F12eZlP+Lw82sThGF39HPEutKeFUmNUYU6BtS
+         f7z4Cj68oQbORZCRNdBI9KAb1WjnJ5N3yATgO3rGchYDQ2sep7zB9ZkeKUwrruQgAE0i
+         hrnw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791382830; x=1791987630; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4UyXA6Kbx2RrlHyZTfn8yf8h54TNQENLjWNQqtxe20s=;
+        b=Y2junUCuzDMR4P52/yciceRdjilvB+ntB67EhYtDj9qvTr2GyDZuVtdKUHoyiGs0RZ
+         bz0+w9EYyBUbf9WajYeQhvZzJ2wzNADLGG+XhXGnbqJrJVV3e6Al1Pjotytb1Km+4VVm
+         5+hDqwpbKHgTMhlw8JcTGQ/A0L7AqrpVTMDld7jOBWSExHxx208Hv0F5+fcvdPnD4RNN
+         DmqWO+K8Z7g08WCB+eR+fYsJDDUJSp6y6dFYdLwEr9y6IsFMit7mmGVMqvwIRHBR434Q
+         T2TLOPkN7lU6QwVfwe2FJGKwu2qP0lqXeDg4PxZs+bItUEghaXWdRZm+7EvMV0QDetXM
+         zfAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791382830; x=1791987630;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=4UyXA6Kbx2RrlHyZTfn8yf8h54TNQENLjWNQqtxe20s=;
+        b=Tz8UHtgMGO3DGrmdDR1PHY9dpZVX9/8PEyLz0Z4Yc6ChxiptnVk8VtcuuVcC7h76w3
+         1Eadd2ytxMx1XNqkj7x2UmDnYDlAON6UP3kQKr5q73uJAdy1pW5FCFCFlnKmtvqu1KyJ
+         Vlwwg9nriedxUnxcU07gAyvSCsb8k5uXx92tUsDsWlszqRqeZfL/hqsUC1YJ8EJ+Lc3v
+         Tx7AonAa2Hsz4RogBfTMOUuUVSmcjkQyqLutG5hgdLw8hu4cdYqaQaHIplmfSYRT+cRA
+         ITP1sCOKvGUCCxRBfxfXpkBOdCtIxyNoBwAJSU85cXqvJiDUDMzAhbzZkZiT8Wl/hqB5
+         bLtw==
+X-Forwarded-Encrypted: i=1; AKwUvByCUqR7yEMY7QF3zbkcSgqnEXvZmesv7L0AN8L7uDQiH0YBRfGFErj/YMz3En3b4yRuZhAQyf5+jGW67PgpoQ6/@lists.infradead.org
+X-Gm-Message-State: AFq9FYIFG/wWYlzrNbnAQ6EKNdewBLhtfyzLMynu4lhLPNI7UhNG5Ptu
+	qLbg3cWoXMaGNw7/P7TECfBk6yT3UXGkguc84vzmuz2R231Y+Ug0LHb8Ddx5kQdYzk+cLUPe1iZ
+	UmHrZSpnPV35AJETCEqnjAhKjXHEi9+sIqbCkKZ4k
+X-Gm-Gg: AYBFou1FKYHGMh8cNaf+1WPeJF0HnwDLS4UaN/LvI62CbSJqh6FH9n1zV1ChqtGy790
+	NbJhjXr3REB6C7/7QT49bJUgrifZm/RPSxa3Z3psUwXPC9fD8a7CmEKHmgkprYvT9hEvPyKzYdp
+	GjzBH9d9qPad1UCSUoK8TxYYjxbWCiRpB2bSx26A8jLO5T+GsuOHfwRTI9ddYgH90qsv5XIE4e+
+	URHZWAxbmTytCdr7thIiYujMGELjkGvkoW/inq69FjOGRHbur6oB04f+U53HGMmB0iqj+0WVWjp
+	TgBvHB/hj4yCbJnl/71ZOboUNG45JMZw8YNZSHObniDX0spEG8ud6ht+
+X-Received: by 2002:a05:6512:1555:b0:5b8:ebf3:3370 with SMTP id
+ 2adb3069b0e04-5bcca158f5emr347184e87.5.1791382829437; Wed, 07 Oct 2026
+ 07:20:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAABR9nFz65Yt-SeHAx-Gxe18c4i3Sb3b_H-zsr7d+wwK5gB=CQ@mail.gmail.com>
+References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <20261007073537.2454351-15-suzuki.poulose@arm.com>
+In-Reply-To: <20261007073537.2454351-15-suzuki.poulose@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 7 Oct 2026 16:19:53 +0200
+X-Gm-Features: AclHuK_RXJYhqf_nHqmpzWADAUDPbDkHCi_xcSBTNQ3epFkbXZUQQ8UXgywpORk
+Message-ID: <CA+EHjTx-niYPnnRDvAAiY3MXLpSYau_PhiBTCiE9mOYUChASPQ@mail.gmail.com>
+Subject: Re: [PATCH v23 14/14] KVM: arm64: Prevent unsupported vcpu features
+ for VM types
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
+	jonathan.cameron@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_072032_316013_FB086344 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 03:02:29PM +0700, Bui Duc Phuc wrote:
-> > > > Sorry, but how is failing the probe possibly better than continuing without
-> > > > the optional interrupt? Add a diagnostic if you like, but aborting the probe
-> > > > feels completely unnecessary to me.
-> > > >
-> > >
-> > > My understanding is that the driver is designed to be generic and
-> > > support various hardware configurations, some with this resource (IRQ,
-> > > GPIO, clock, ...) and some without.
-> > >
-> > > If a configuration describes the resource, it means the board is
-> > > designed to use it. For that hardware the "optional" nature of the
-> > > driver no longer applies, so if we fail to get the resource the error
-> > > should be returned.
-> > >
-> > > A log alone is easy to miss, and the root cause still has to be found
-> > > and fixed later anyway. Failing the probe makes the problem visible
-> > > right away, when the board is being brought up.
-> >
-> > If you're doing bring-up, you should probably pay attention to the logs.
-> 
-> OK. Then we should probably write it as:
-> -------------------------------------------------------------------------
-> irq = platform_get_irq_optional(pdev, 0);
-> if (irq < 0 && irq != -ENXIO)
->         return dev_err_probe(pdev, irq, "failed to get irq\n");
+Hi Suzuki,
 
-Won't this bail on errors != ENXIO and != EPROBE_DEFER? I think we should
-only bail on EPROBE_DEFER. That's also more robust to changes in the error
-codes that platform_get_irq_optional() can return.
+On Wed, 07 Oct 2026 08:35:37 +0100, Suzuki K Poulose
+<suzuki.poulose@arm.com> wrote:
+[...]
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 4d0e6bd2009ac..97089c81d6428 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -42,6 +42,13 @@
+>  #define KVM_VCPU_MAX_FEATURES 10
+>  #define KVM_VCPU_VALID_FEATURES        (BIT(KVM_VCPU_MAX_FEATURES) - 1)
+>
+> +/* As dictated by kvm_pkvm_ext_allowed() */
+> +#define KVM_PROTECTED_VCPU_VALID_FEATURES              \
+> +       (BIT(KVM_ARM_VCPU_POWER_OFF)            |       \
+> +        BIT(KVM_ARM_VCPU_PSCI_0_2)             |       \
+> +        BIT(KVM_ARM_VCPU_PTRAUTH_ADDRESS)      |       \
+> +        BIT(KVM_ARM_VCPU_PTRAUTH_GENERIC))
 
-> -------------------------------------------------------------------------
-> 
-> > If you're trying to use the device, you probably don't care about the
-> > interrupt.
-> 
-> If we're worried about returning an error here because it might cause
-> the device probe to fail, then shouldn't we hide errors from all
-> the other functions in probe() as well? :-)
+kvmarm/next already restricts protected VM features through
+kvm_pkvm_vcpu_allowed_features(), shared with EL2 (0b7d843ef3bf).
+Could you rebase on that and drop the protected half of this patch,
+rather than add a second list?
 
-Not really. Only the irq is optional; we really can't continue if something
-like ioremap() fails.
 
-Will
+Cheers,
+/fuad
 
