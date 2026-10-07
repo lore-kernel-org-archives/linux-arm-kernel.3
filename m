@@ -4,121 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77031CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 23:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7034BCA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 23:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMZVVQ/LJS8PeSIGqjsk1G9U28SxGNTkNXsIRPwEAtg=; b=NkgSNQhfqApspSvPfzk4JHT3Nc
-	92RewmiVLRxuSS7q0QezOReUbvem/OaTYs3WErg0H7uxJL7JS3jlaSpNTbLgtiPZRa2ujT5vyAczN
-	B9K0q4gnsrgBqYG9MSsriOjwhghFYL/T7WBQNASQzY+9hUGMNP0F8jK0+VnSz/ksZfOzCiIWxSS0o
-	jknOBRlXpZ42VgfFlbYYXD7lBvouvTOeRmY2dn5UNxhBWV8csxraeG0XbzZ0p3biIc1pZTkTAIx8q
-	I9gFIUnF/4nWPftaM6esNgcUbyjPkTwNqMeZeO8QkUpeNnOvuseFBU6LLQeJQaNjtSSPu2RBq3COs
-	0UH5xcxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=veAoBh3gQ8yvmCMTC76V//pPu6pB67Slyg/Ya+dLB2A=; b=VceI8Of9rvEok3T1nHhXTCmTtn
+	WA9GPC/Kv8tPMGCtU/5snVV2aBnCkB0kWiQ4dg7YcUWjG9AUKDOct8nkCnNiWkhdtzSIf7tBdfRzy
+	EWIYLqt3DXP4G+RnGX5EI04z8YlyHg7bF70sWUZiscK1SRzGdJjJ1HnRFzNj4vlv8vFgOcMTcYw81
+	N1DC9UAs0gKXSKiom5CxXCxD78sj9eRTwxbtcFvQG5VTUazbPSlpwO5wKfBaTaWaVJeLtU7HwuCCY
+	FeahtaaOsOoGWnIZsS0rtw1NPBpFYYgnhsXkN3FSowYdhVlubMedF8rFYOydUjJypaa/S3iu0Tg+r
+	efX7fI6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEatm-00000003H90-2Trl;
-	Wed, 07 Oct 2026 23:18:10 +0000
-Received: from mail-westus3azon11010023.outbound.protection.outlook.com ([52.101.201.23] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1xEbFA-00000003HwE-0wyB;
+	Wed, 07 Oct 2026 23:40:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEatk-00000003H8Z-23e1
+	id 1xEbF8-00000003Hw2-0vl8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 23:18:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OHFJgRGcZE6/zZi9xQnIQO8IidkmEKeyLRh+6eOntCy6TCwlevXrG6lPgWpqGFeiROhW46fwP6pgmbTlhVue3EjvgSQzDkB1SZPExdT2EElaiATzaXnUuj3hJxq9Kq1VzhflYDLPrwz36a4tUe+ViobN7q7P4ZaUqWjOxOfxxXmEyW8LZvHABggcddmucrZfh5u6LFmZDN/Ua182Uo/Izh6AWhweWUxuHD7tPEL3SyTF4h0MClSYv0/gF5f+LxlRdes3Fx5SZi6g1xnCCNUPKUbf83aZFyaiFbnKhezJjBK+jz6JgNgLdEHQLYgR2G/4GTPHLNpEEKBOdjhWpBJtTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KMZVVQ/LJS8PeSIGqjsk1G9U28SxGNTkNXsIRPwEAtg=;
- b=u1nk1aa0qwjDmeMBNQzycmmrbDEfWbiLJ0mt+ewXHGXUWAFDP+56tLcivGxLUfBOiecmcBRG5qvo/bqbd9Z/6iUXbXad+TTrpKQoLZimYAn9J7+TNWr7WNlh5QSVvENhjbl4Kyybv0sU1Nlo7J5nAQ4BXkIyu60i6mGS8/8odndJHXYB+goO6VucZc5dg5QLdnrf73A70hAxhPUFlGR2gWH51MZYKZv/Jek0mArwEgTxoPoMovRYreWaTbnNya/iPR/rKiU0bW+rQo0QOkHL9huYBvetjGAjxejRtKb4o6gmYdiTTc2aIdXgiGZbgBLyCLgJ2h42E3JX+uxtHBdjEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KMZVVQ/LJS8PeSIGqjsk1G9U28SxGNTkNXsIRPwEAtg=;
- b=t3CLCYPTPYSSjoMIU5fcNX31eR9dVKzMTErODYEH/id/Y4y0UK+UBHRlRJUJujJ55UpqeZTVsnK69SFEtV4Iia8RYnIqdkjypMCxeL51KtgdAs31wKKjh4GIIFidORnu4lVQo80frVeKun7pJp5jF9Y+5zVCbbeyP1pMwoJHRhM2XlhVyqvvQByh4YDTk4pQXFeA64uVKlQNVxGN8d09JA19TKkGWPyMSSRHRD+1yvrn0MrgPKJdbULWXLpDtkCbRlzw57v4oOdsWCH/3YE6HXKLsik39pBwhthEh1wIjGSsYs/G6gTB3DQDF11ruUD7ZzWaqeH3BKYDXhUmRenWnw==
-Received: from CH0PR03CA0327.namprd03.prod.outlook.com (2603:10b6:610:118::20)
- by DS2PR12MB9664.namprd12.prod.outlook.com (2603:10b6:8:27b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Wed, 7 Oct
- 2026 23:18:00 +0000
-Received: from CH01EPF000BE946.namprd02.prod.outlook.com
- (2603:10b6:610:118:cafe::40) by CH0PR03CA0327.outlook.office365.com
- (2603:10b6:610:118::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 7
- Oct 2026 23:17:59 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH01EPF000BE946.mail.protection.outlook.com (10.167.244.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 23:17:59 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 16:17:41 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 16:17:40 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Wed, 7 Oct 2026 16:17:39 -0700
-Date: Wed, 7 Oct 2026 16:17:36 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Peng Fan
-	<peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v5 2/6] iommu/arm-smmu-v3: Allocate streams
- individually
-Message-ID: <asbTEPMJvm9T00c+@nvidia.com>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-2-169a59c671d3@nxp.com>
+	Wed, 07 Oct 2026 23:40:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2770643F9F;
+	Wed,  7 Oct 2026 23:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D221F000FF;
+	Wed,  7 Oct 2026 23:40:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791416413;
+	bh=veAoBh3gQ8yvmCMTC76V//pPu6pB67Slyg/Ya+dLB2A=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=EnWFo7Sip49zS96xjYBGPOxN+Jnn4yG3VER4DKafy0fsQXy11YWSXJpw5x4qFZNTu
+	 V0Vn2gA1t072tznEN8Gj7ixFEOyTKFPI53BUoNQhUPW0UMA37nwvrg+KvvTXM5Jch0
+	 W1wrVd8wOn1GwbnnAlC2anxXCmiZJF09MirdS7TQXmCJWCAaNC3MwK6Z56zAtgqDzV
+	 UuJdudVmvTVWnHwMi5QREPS6Or4Z6Z0oNe7Nh2pwFpXt8RsE724O1/J2rtQ1z4wWSy
+	 tu+cgOAEoCDLctFCGr73IOhJbAm8cF/KNa2HOqKqHjG/XTzd7H+O48bTjDn9j9CK6J
+	 LpOAc3jwtkmew==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F18593809A08;
+	Wed,  7 Oct 2026 23:40:12 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261006-smmu-shared-sid-v5-2-169a59c671d3@nxp.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH01EPF000BE946:EE_|DS2PR12MB9664:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f202701-aaca-483a-13e2-08df24c93a87
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|36860700016|82310400026|13003099007|11063799006|4143699003|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: n+QVLMzH9lqrz8g+rRRuFKyecrwvjwu8VB9wiqry2/HQrM7MtQBVD927Fh6YMMF2+aMmoib7en0Xa/4xeKvRenkWs+yJ59fn6cVhER23AfQWuvlB9VjV6Us9WXxxS1dJH0f48e1uDb8Xtlc/wt4/GyT5zllPi+qVUfk+TgW3j6Ku0hITmrVlLw2LfEKrGrsnRpKrAOl6fBxd7hbIll7X/UuAS+lK+FpQ5dy4onpMcOA/RQe5GlD3vknVAG7c5s9hh3pjAj5+SvqVK2nhFtbuImIN0aTqDVPu8LwnXWs9y0FW1J4pW2Cghuikbws1wKjjiQivnSdIFuAC+if9wWg9Q8eoXudZpjVHeeQ7QAU6wZ6JgJX6Fa0F3KczI6eOwjaQEnCJr6I23p6a8yKdMMsDT2Fs3YK5R1Ejaio9b6/PICZW2RTbk8Wpf+C+OVBgQatQGkZrkHMGuh2H9lF/JK5W6jSpjdoL4fP5pUlSgNSR5ZPjbAIEWr8MFMfByikdUCXLL/HbOBB2H+CSQhraO3KWgxuSkbOeD9z0/x9jUvE0GS7GJd/dTCrY4Cbise78/vgmWU8Ppu55XuUlSHMkP+E3T2YsRS5B5eALZe1bx58t0hPetvlXubR+nwExX/Z2TN39aB8ZA5QlbZG9Q/EDbil52uw55hU5RA1e3hBH+iBoQAvgcouM5nd9UkeYZSyCO35Hs9SA4/YJK8purbYxQBpzHA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(13003099007)(11063799006)(4143699003)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dTsRkFot3jtUFSQgD5+v2IqhWMoSfSkfEAc13iuZDmHc8W9+SvrQNNSi/hSMcsGdt7t+R4AVO5UoAT59PQM7GBwu/luetuncPMSmvJ6YH+mYhC2fOYme0POP2yWapGQ8rN6iFXHgJslZTQKE16Zg8Z2xON64xDyiefV5hV6kRRJbmTFJChkUyi/oEcocFVXGMBO7DsPCc63fj18V5kdwRfgAWUCC6iykQfQGVNK5sSJuau58OFMPoXkeHgdDjE2zoD0oRvf3uHY3Z56qaNykSQSMwAfSvFT0Yu1ft6fY+bd3oeENEcUJqTlQMAJfp9y5IGJvA5dOvU5pOOQ1kuibl+vpDkOtIDDa/VKXCK1dUznE2RFHShPeD6P1g229OGUMRuxEClI8j5anw+d3y1M+HEroIHUC3be9R1rGtkTLLKjMfP1ybRcjfFWZ+/t9ObBh
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 23:17:59.7053
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f202701-aaca-483a-13e2-08df24c93a87
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH01EPF000BE946.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9664
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_161808_553828_C20D94F4 
-X-CRM114-Status: GOOD (  15.08  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v4 0/2] net: stmmac: introduce XDP multi-buff
+ support for TX path
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179141641178.3735789.348400294857878106.git-patchwork-notify@kernel.org>
+Date: Wed, 07 Oct 2026 23:40:11 +0000
+References: <20261001-b4-stmmac-xmit-mb-v4-0-664e0c3eb289@oss.qualcomm.com>
+In-Reply-To: <20261001-b4-stmmac-xmit-mb-v4-0-664e0c3eb289@oss.qualcomm.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, boon.leong.ong@intel.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,47 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 08:19:08PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 01 Oct 2026 11:26:11 +0200 you wrote:
+> Extend stmmac_xdp_xmit_xdpf() to transmit XDP frames with fragments.
+> Fix TX coalesce race and div-by-zero in XDP/legacy path
 > 
-> Change master->streams from an embedded array of struct arm_smmu_stream
-> to an array of pointers, with each stream individually allocated.
+> ---
+> Changes in v4:
+> - Add patch 1/2 to fix theoretical division by zero issue in xdp/legacy
+>   tx path.
+> - Link to v3: https://lore.kernel.org/r/20260925-b4-stmmac-xmit-mb-v3-1-ca08f029e81c@oss.qualcomm.com
 > 
-> Prepare for shared-SID support where multiple masters will point to the
-> same stream object. With embedded structs, sharing requires duplicating
-> stream state and manually keeping fields like ste_installed in sync.
-> With individually allocated streams, a sharing master can simply point to
-> the existing stream.
-> 
-> The sort comparator is updated to dereference the pointer indirection.
-> 
-> No functional change.
-> 
-> Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Link: https://lore.kernel.org/linux-iommu/arG6hmng3NddGEHm@nvidia.com/
-> Assisted-by: LLM
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> [...]
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Here is the summary with links:
+  - [net-next,v4,1/2] net: stmmac: fix TX coalesce race and div-by-zero in XDP/legacy path
+    https://git.kernel.org/netdev/net-next/c/237782c3d416
+  - [net-next,v4,2/2] net: stmmac: add XDP multi-buff support for TX side
+    https://git.kernel.org/netdev/net-next/c/74c553648fb8
 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> index 6644075c1431e..bc62a3d5a63f9 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> @@ -1257,7 +1257,7 @@ static int tegra241_vintf_init_vsid(struct iommufd_vdevice *vdev)
->  	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
->  	struct tegra241_vintf *vintf = viommu_to_vintf(vdev->viommu);
->  	struct tegra241_vintf_sid *vsid = vdev_to_vsid(vdev);
-> -	struct arm_smmu_stream *stream = &master->streams[0];
-> +	struct arm_smmu_stream *stream = master->streams[0];
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Sashiko raised a concern of an out-of-bounds pointer dereference.
 
-Though it's practically not possible, probably it would be safer
-to move this behind the check:
-
-	if (master->num_streams != 1)
-		return -EOPNOTSUPP;
-
-Nicolin
 
