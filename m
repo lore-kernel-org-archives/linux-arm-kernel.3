@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674FECA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E64CA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O691HEb1i0PbxPa/8NUD4nwZxk8xL+VfyRsy8lod+UA=; b=MKfDLB9esmtC0sjRu3kUJTRQvc
-	rby5ymo7wsrAs4gREYda0+0SLr/zTlilgVQwH3uh1ri/MnEcAUiG3uv1isauOQfaoIRxzwrzGDrb/
-	yLO0SrBf7ATW8Bu1f5H1x5ew+cECGzJSMrYCzo0DZsoCntG4/A0cFgIaT3q4qN5DYDOcaWqstd5S/
-	1uHOD99nzu5E5yV0G/FRV/BF9h/A41emzcZ2m93d+wLWJhh3Rvsm8Lycuqg3ze1u1m8gwnobUY4pP
-	K5bXdjzGPMIq1vFKsO2Aw9g23t4EM17RPCIxav4kb1kkr2L4sBCWFoca3JBOqM0L77PhtnILjmsRm
-	iqwb2Jhg==;
+	bh=tZHgvot9XBR6NDc7d2O3La8Sy9kro5TUOFUC8aNnoG0=; b=EIPMiXJ6wpCR6nerqDP/0YIIIm
+	xtOL1JN5bWkknujOZi7v1LoedCXSvRmXJ5LWS8vlmsNAQPctBrigBDoTc2Txb6kbiUgog3IZo8+py
+	ZktUI8iuCs1BSlJNiY/ct16SlAVQH98qJH1icBKfdyHBdqe+EK5UEnW0DGSDX5jhotZzcrfhKNmir
+	raY7vzqmVCE03/hUaZsGjA+8D6EuerD5JKwt5PrKjXK8MSt3LssZ0VzwT9tCG0XjcWGIA3AEWYw2h
+	vBNiDNMueMYDPDVzXjqmu5gdeYIcmIEkzgT6Wa37jSqZutqH/r1XseLqdNpToLwcyuK7DzWT0pDe+
+	gsON1NRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnC2-00000004LFk-3KKe;
-	Thu, 08 Oct 2026 12:25:50 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1xEnR2-00000004Nfb-1FyF;
+	Thu, 08 Oct 2026 12:41:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnBz-00000004LEO-15Lx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 12:25:49 +0000
-X-QQ-mid: esmtpgz12t1791462286t3d3cebb7
-X-QQ-Originating-IP: dntKYlK6rW/Wxi0Fnkt8GxWBxdeEbJ3cwn8ue03XfWU=
-Received: from [192.168.21.56] ( [111.8.45.130])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 08 Oct 2026 20:24:44 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13193396850255337370
-EX-QQ-RecipientCnt: 10
-Message-ID: <5C3461E42FDA1F15+836b6b0d-e24f-47e2-bf04-59d02ca35a1b@kylinsec.com.cn>
-Date: Thu, 8 Oct 2026 20:24:44 +0800
+	id 1xEnR0-00000004NfO-2Hrj;
+	Thu, 08 Oct 2026 12:41:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E96CD41A68;
+	Thu,  8 Oct 2026 12:41:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24AD81F00893;
+	Thu,  8 Oct 2026 12:41:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791463277;
+	bh=tZHgvot9XBR6NDc7d2O3La8Sy9kro5TUOFUC8aNnoG0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=HDEhTpZZ6Ki0QKgJWh1sFFKBgqbKYoVJSWGWHgrHE48O8aKf1aBLavbl4dtrHiX4s
+	 co0a7Tg7igbIDeaHR+6kBeCzyW1i81CjMQBsRrrfWvTxegUskgGRQYYmc5Jub8GHez
+	 QQvpqWUOalJPBN7GMzQZZYvDnSnApcXI+hS3ItYjUJaQgihX/b9/SDnZ3sMDdjQJwP
+	 5CtHZ+dmROCZNCjIlb93PZDYpKLGV2NmWxFGzqWG5lFA6McOfFLHeACA2/4OqWibxM
+	 jb/lVsyunUQkulu5N1PQ1SEY548tETp36fIqHEmAi2AVKfXBoDw/hv+7qnINpSHhgs
+	 huaW9xcnz9x8w==
+From: Mark Brown <broonie@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ cassiogabrielcontato@gmail.com, Haotian Zhang <vulab@iscas.ac.cn>, 
+ Christian Marangi <ansuelsmth@gmail.com>, 
+ Cezary Rojewski <cezary.rojewski@intel.com>, 
+ Cyril Chao <Cyril.Chao@mediatek.com>, Tuo Li <islituo@gmail.com>, 
+ Rosen Penev <rosenp@gmail.com>, Garlic Tseng <garlic.tseng@mediatek.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Dan Carpenter <error27@gmail.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261007110858.509341-1-phucduc.bui@gmail.com>
+References: <20261007110858.509341-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v2 0/4] ASoC: mediatek: Handle constraint return value
+ in FE startup
+Message-Id: <179138999054.2423942.10212092263791353501.b4-ty@b4>
+Date: Wed, 07 Oct 2026 18:19:50 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtc: ftrtc010: fix negative offset handling and smatch
- warning
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Dan Carpenter <error27@gmail.com>,
- Hans Ulli Kroll <ulli.kroll@googlemail.com>,
- Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Deng Yingchao <dengyingchao@kylinsec.com.cn>,
- Qin Yungao <qinyungao@kylinsec.com.cn>, Luo Qiu <luoqiu@kylinsec.com.cn>
-References: <0C8AEB5636132B0C+20261008113732.581825-1-liudalin@kylinsec.com.cn>
- <20261008115913bfd12cb4@mail.local>
-Content-Language: en-US
-From: liudalin <liudalin@kylinsec.com.cn>
-In-Reply-To: <20261008115913bfd12cb4@mail.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M3ziZXKDk+iOECg/2pUDzdLQDWA0HgClOpH5zmO/sr1ExRZq5zw+Orat
-	o3Du0leuo3jrgq8zCMg8ZuK0g00jQVJ1JhDRk2MaIuuxMj8TP8Yt4sK5ZFm4FfOcNFUd9fa
-	Rmtctit4atjCCma3muISqnJllepfxRO0Izmw7Kn0awXJWQwQOX2s7oEf8a8YM2grPiwvtGo
-	BTyee9Ub9FEwkewYYO05sMzfT0cZVqcSHOrWeQfGYWM6XXtNAfC+vwFIwDxzgg3J8daUECk
-	6yZt5Rw3Ze2jrn2OvkApEj30qVEgRpy5iUNefTjdTG1J+PR1nLeq6AyjowS1DXmfZc8xmZV
-	05cXXk3GvZicH7ReFf0z72wu45QITxckBHYxz29DGPBFGsNfXig7hW9jcDuo4oZG409v1iN
-	OhLK51eUsgaS3xsfH7LMvX5VVG4KgYSk3rt3k/JPn6t9qdDL05zfwZrnxg/qLYl/tnrsvOU
-	ifOZpMGDGVSN+cWBoHSRXkKTOTIwIRnyEDcaqhMYhKgHYd5TYRwI7VAxcbVCdLFrIznam28
-	cglMuM7YmRW5HUCksQhYNX4C8aymylcF85H3EK+G/Vzd/GjkxPXdDwtG2+iPra3AY4N0WZ0
-	kuv4mEI8T5zZKlJo9g/HYLu3JNG48J61VlGC3bwkAlySAGEKt02d2YSMweiRwlKxH5HEoXg
-	9v8JW5LLOz0lty8bvu+CJuQ/cko7IsDjyP2o5lQgP55a/BsDnnu6E9GrbgEv0Go8ku5X5S4
-	alh0TfWAMmly5S+r2736/j3ixuyUAA2Xepx/VVkx5SPtIv4OdijhUsPgIUPfsRuV0q0dQ8v
-	DQ8/xeWoHPqN7cP/YN8zvTTDxgwR6otBYQTX6gaLjqd67fltXNaGW1KZvuuOkSLr55hEOtW
-	fxs8kwe0bH1HhO9yPoNeM1yASDOnKPEusO5PfGF2ItQP/qUSwbTW3iX9TS2S0mXq7lAVxzg
-	X6/6dYfsMqBNYNLl2mui/ni8QSGEKfCQGzTXFoG3+zykTBMo9zB7OqWMkpSCiijOd82YpmY
-	F+hoqBU9UDKFnDfXsuvziw2vkzW4FzMJhF+oQOKFChMY78FWOzie7JvmhEmnxM8lvGxarnC
-	A==
-X-QQ-XMRINFO: NS+P29fieYNwYjjdscdc6tBlmgA8e/Wkkg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_052547_694435_25B1C8C3 
-X-CRM114-Status: GOOD (  11.81  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1819; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=QY1B/YC/9U9/25uIL41mpvndoi/nxHgNpTP3ZhxQnAM=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLKO96cePxj5zcWdP2KJU6/bh/aeNrGQWcZnFykf3s+w7
+ FhJRe3RjhIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEyEaxbDf8flor88Uh4aMP1e
+ Z/720qbwgs/RDMu/8/bzXy9te7M5ezfDj8nl+t94tNdbcbXlhvSptN2tCrt05c+SpP4p91ozriq
+ xAQA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +89,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 07 Oct 2026 18:08:54 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: Handle constraint return value in FE startup
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> Some FE startup callbacks may return a positive value from constraint
+> helpers, but ASoC expects 0 on success. This can cause .shutdown() to be
+> skipped during rollback.
+> 
+> [...]
 
-在 2026/10/8 19:59, Alexandre Belloni 写道:
-> On 08/10/2026 19:37:32+0800, Liu Dalin wrote:
->> A prior attempted to fix the 32-bit arithmetic overflow by turning
->> the implicit u32-to-timeu64_t cast into an explicit one. However,
->> all calculations still happen in u32, inheriting the existing
->> negative offset sign-extension bug, and the explicit cast triggers
->> smatch "cast after binop" warning.
->>
-> AI is lying to you, offset will never ever be negative.
+Applied to
 
-Agreed, Thanks for review!!
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-with rtc_dev->range_min = (u64)days * 86400 + hour * 3600 + min * 60 + sec;
-         rtc_dev->range_max = U32_MAX + rtc_dev->range_min;
+Thanks!
 
-offset will never ever be negative.
+[1/4] ASoC: mediatek: common: Handle constraint return value in FE startup
+      https://git.kernel.org/broonie/sound/c/5fcdb40a4776
+[2/4] ASoC: mediatek: mt8188: Handle constraint return value in FE startup
+      https://git.kernel.org/broonie/sound/c/71253751586b
+[3/4] ASoC: mediatek: mt8189: Handle constraint return value in FE startup
+      https://git.kernel.org/broonie/sound/c/1f234d33e42e
+[4/4] ASoC: mediatek: mt8365: Handle constraint return value in FE startup
+      https://git.kernel.org/broonie/sound/c/8de3f4e8e811
 
->
->> The FTRTC010 RECORD register stores a signed 32-bit two's complement
->> offset exposed through readl() as a u32. Casting the whole u32
->> expression result to timeu64_t performs zero extension, so negative
->> offsets become huge positive values.
->>
->> Fix it by casting offset to s32 first to correctly interpret the
->> two's complement sign, then promote all operands to timeu64_t so all
->> calculations are done in 64-bit space. days/hour/min/sec are
->> non-negative hardware counters, so promoting them directly to
->> timeu64_t is safe.
->>
->> Fixes: 1d61d2592c1f ("rtc: gemini/ftrtc010: rename driver and symbols")
->>
->> Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
->> ---
->>   drivers/rtc/rtc-ftrtc010.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
->> index b29c96be40f4..65fe1e872239 100644
->> --- a/drivers/rtc/rtc-ftrtc010.c
->> +++ b/drivers/rtc/rtc-ftrtc010.c
->> @@ -72,7 +72,8 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
->>   	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
->>   	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
->>   
->> -	time = (timeu64_t)(offset + days * 86400 + hour * 3600 + min * 60 + sec);
->> +	time = (timeu64_t)(s32)offset + (timeu64_t)days * 86400 +
->> +	       (timeu64_t)hour * 3600 + (timeu64_t)min * 60 + (timeu64_t)sec;
->>   
->>   	rtc_time64_to_tm(time, tm);
->>   
->> -- 
->> 2.43.0
->>
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
