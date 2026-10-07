@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E49CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B72CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKOCvjoNQtwRqFI066qdcmZWGjZbp8jaY+FDxN7dTcc=; b=PwXDR9WO0eCxpLju+0OXaoe29A
-	+JI0qeY/7wCNS1zA62qgr+et4n6UM+o8sDxjaNETLVJTHcAsxMsTs1Jt+HQCGLFz6B7pggA2xG7iD
-	+UxH8xU86nXX8MeTwr16MXCa9FDjh2cRNcY+f5Z60/K7+TSxGGha6gQFIX6x9Mc5LWd8aIr+QtZQN
-	oEY5e4AOgx2G9DVJIo+qPQ/aCNeuurHFkKM2LvgBId7RHdpTBDqh3x6inE4Vn5HqVfLiaJrr/sQY2
-	OuVetmB8eTAIzhzDit/j3hcN+EKl21IH0BFoSQS83RSwxQ43vv8DK49k3rY4IMr+l54ZKxxGmVw6+
-	ObrcFgfw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1S+23ZtOjWwrYVTwNmNORRFxt1wYzNyVlF7uFakN9wo=; b=Ro7bIlZhNmxIf4sOTk8hTcEd/O
+	awyL7oH4VkJILWjqObQHEAjpJr8FNAtTtXx3fm70fuHSzQotp+J2U8iqonHOWJsRngPO/1BvRwrYw
+	IpVRhuy/FJZYK5ag8T/m4onnXUnghnnp1d5jPm6DhwOflqziRXRHZnZcJjoNSZDQqtJVYFTemw4p/
+	FNWCWVBBx1f7godhpvl/s+6n9b0AXsZMCdyQfKLgZJF1YYJ0Hr+e+05EUzO91qBdkn7ZHOTCRdSls
+	zq+YVBVxsYFvAFU15yLk2SBnF6vlNXcF6WQB3R/FiIVes296jQwnzrn2osWFeXftwxpKmO+YtX1Cx
+	bJZ3CyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ0Y-00000002LnH-2Dak;
-	Wed, 07 Oct 2026 11:40:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEQ0v-00000002Lsa-2sfD;
+	Wed, 07 Oct 2026 11:40:49 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ0X-00000002Lmw-2JXF
+	id 1xEQ0t-00000002LrY-314R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:40:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6A1243482
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:40:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F43F1F008A0
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:40:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791373224;
-	bh=fKOCvjoNQtwRqFI066qdcmZWGjZbp8jaY+FDxN7dTcc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=i25gWA+/BKLg3TJBUNxM9g1wPMz2Jd2k0rRtVH5gzvl0N+WAoLKmZgmomQI5MUIqM
-	 QjhKugvm02ZHL4j71MoW/sn/NAtHgybdhk7vxmgchTSLfSrE8jSyX+I1RZfKlDj10v
-	 jS7thfqmx0ZAh+FSeiez7fkJWNde5unlCkg18ttSR050jBqcvekEX7aeL8Ly4JXnkQ
-	 A0cxXKUwk0X8WHPJ44sn6g3hI8HPMk9K6wEzTpBJAv8toRWbABUsd3j5exzGC/xWJP
-	 2hCiKXjyoVxSoTIFIhvrSomoRqYtY3xdcVGOSApBa7BJJ0vnHRgKtJgmQCeaCwg/ST
-	 SgEqv+I5eeTpg==
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-6df0b02fe91so1342233eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:40:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByw+BtKMRSzKkOyfS3ftYShXUO7ZOuG/els3GmXTK+SrbIvpwlkJHlKSvbknJXCV/Hag/lK3etFj7+5397gd4Kv@lists.infradead.org
-X-Gm-Message-State: AFuF++mKmK/gZSxYpI3TnrS/9Kbv7E3hab0YjbjSVMhj0g/JpMBw/YFr
-	wplA1Dm6evoHzj8p/V2pJzaRP7L/Mh0/UsqZPCjLPHItJ8TXgVDcB50wFgHtk0vGSOQTwwqUZO6
-	E633ySjL5+z8HZoSiej9BBIoQ90Mdb6A=
-X-Received: by 2002:a05:6820:200d:b0:6dd:7f2c:2bb6 with SMTP id
- 006d021491bc7-6e4a7e43471mr4207285eaf.57.1791373223883; Wed, 07 Oct 2026
- 04:40:23 -0700 (PDT)
+	Wed, 07 Oct 2026 11:40:48 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3a4b9732d5aso1685311a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:40:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791373247; x=1791978047; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1S+23ZtOjWwrYVTwNmNORRFxt1wYzNyVlF7uFakN9wo=;
+        b=hDu0XaR1gBU0A0H024k5C8Qxj2/clcOuj3h0hxXZNZp2XP6mAMubUh4EcKqkp4HqOp
+         l4TCYqwAs6HaohQra7567+a0RwYOivV6K6oWBx8LRT1p7RPiWpB+XyvGISXdITkqdnfq
+         sBs3Z8HXajdKhK/eV9/Fv82vATPDHAkFPzZIYSLzkyLXp6e5O1PcyIqFYHBF3+wxcrir
+         DNcqMcl9RE12huBZKgjSOwmlSpDh41sMAqBP1wg4N6Ckfm/7xmZXDqhHxMBKTZVm6LG2
+         SU3FmIyxe0M7RUJwm4LVp4Ouzu1rdRcxLU0sJ+6KH0rq/XAEvK8BIIr/mtzh243Lkw53
+         oLYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791373247; x=1791978047;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1S+23ZtOjWwrYVTwNmNORRFxt1wYzNyVlF7uFakN9wo=;
+        b=XVAxNT/Dlz/+MX4F6TBGaniD0lE0orl4VSsXgK63cfSFj+7hd9fUwL0vyAGP+H7Rpt
+         9XIfDXawUGL2lXPAbMwXc8SfqW3YkZaYfF7rFI1iRZH+t0deYlWYP3dYFFx9/JMVrgbN
+         qOBeuoijhVLntLrhD7RKlT5QO4CwVRaS1M5txCyUUIUGxDPaCUf4w1bNwDoQlGUgQsSJ
+         olc3vcr++3PG0aPMd0PUTVtmI1lNKUzPoTxt33+glwpVCCz8hb/x8OBWaqg7q5A+fhkQ
+         hUipuvzO+DaE8fcofBcFZa/uHPEwfgygOwN8eNTdBaBovllEI6/GHTSyn8loP0A42KQR
+         mt7A==
+X-Forwarded-Encrypted: i=1; AKwUvBy/LRKZ+GwO1VmFJBHz9k4PsG2HSE7HVEjq6wuXSj/cWe5nT4XDW0UKNoVKpj4JkjKc3609HkDY9cb7Py2jNE+p@lists.infradead.org
+X-Gm-Message-State: AFq9FYK+ptqSZOP2RiIaIf6+FRoMovNzP+LHnfPDOn21t/ps6fLlZPWj
+	YIvfiB9AJCTM1wMBxNAeX+8CGPVJXug78n529wKAE9NPtlp/xzU3Hpc9
+X-Gm-Gg: AYBFou3LanURZgHuwIwkGR7swKeVBJBW2Pj59qXXoP5aqev2qHZLcUXifnGwqVAWUBf
+	309aD26NxbIRUwi7Qjzkyt7iyKZ8JdqWVWAsg9fj9JeRo/88hm1FsWzZvA6ZnbxOx/dyUxWRuEO
+	yzZ6wAMFyDeeJBDnPSWvEMGRCM/Au2WijQPJmbOAToYHLue4q/tfKEkMOkvS5j/a/fBKTtji66C
+	JnXJgqEbkpIo0Mg/070lFL3XjMMMVedHwcXcOU1NM0zi+xLJKhk/5IX5LHFrvSQhvmbzxRgRNxz
+	d6td8txQOqAwZfFl8myiqc7pfK9+P1esNVASnTwGlHt4K/obK4/yixqrwahWrK2H1QEZCiojAVy
+	VPmxVArk+thgtxWNsL/jylaLFTaK/hfJvq0qrtuFn8COP7MJudcPzeeqc8ayl8sOBtsyw8Ygmwl
+	GZz0ZK0SMwJOHpzE27ziQZ1WCbMruWzJX9rR3ceXdY5XlDQZwbQRdyhg==
+X-Received: by 2002:a17:90b:384d:b0:39e:6c68:c787 with SMTP id 98e67ed59e1d1-3a8a1553dedmr1695567a91.61.1791373246732;
+        Wed, 07 Oct 2026 04:40:46 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::8534])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a89b5c5d9asm4127072a91.11.2026.10.07.04.40.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 04:40:46 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Sinan Kaya <okaya@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] dmaengine: qcom: hidma_mgmt: fix autosuspend cleanup on probe failure
+Date: Wed,  7 Oct 2026 19:38:36 +0800
+Message-ID: <20261007113836.115774-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20261006-b4-cs75xx-v2-0-b7d6e1e24d44@gmail.com> <20261006-b4-cs75xx-v2-4-b7d6e1e24d44@gmail.com>
-In-Reply-To: <20261006-b4-cs75xx-v2-4-b7d6e1e24d44@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 13:40:06 +0200
-X-Gmail-Original-Message-ID: <CAD++jLn74bT_Fyr_Og-4UCHzesesgzDUe9UiFWNX2zQrJ92-gg@mail.gmail.com>
-X-Gm-Features: AclHuK-Qje_8nYjYN9tMFCPYQzKct6wydoO2oDonV_Y-5ca_xI58bQphqW6iRzQ
-Message-ID: <CAD++jLn74bT_Fyr_Og-4UCHzesesgzDUe9UiFWNX2zQrJ92-gg@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 04/10] ARM: goldengate: Add support for the CS75xx
- SoC family
-To: filipp.dunsky@gmail.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	Jason Li <jason.li@cortina-access.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_044047_761008_B75B0EE2 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2026 at 8:17=E2=80=AFPM Fil Dunsky via B4 Relay
-<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
+hidma_mgmt_probe() calls pm_runtime_use_autosuspend() during probe, but
+the probe failure path does not call the matching
+pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
->
-> The Cortina Systems CS75xx ("Goldengate G2") are network processors
-> with two Cortex-A9 cores, an SCU, GIC, the Cortex-A9 global and private
-> timers and a PL310 L2 cache controller. The family includes at least
-> the CS7522 and the CS7542; the CS7542 is used, among others, in the
-> Securifi Almond+ router.
->
-> Apart from the vendor this has little in common with the Cortina
-> Systems Gemini (SL3516/CS3516) supported by mach-gemini: Gemini is a
-> single ARMv4 FA526 with Faraday peripherals (FTINTC010, FTTMR010,
-> FTGPIO010, a 16550 UART) built for ARCH_MULTI_V4, while the CS75xx is
-> an ARMv7 MPCore whose UART, GPIO, interrupt controller and NAND
-> controller are different blocks. It therefore gets its own directory,
-> named after the Goldengate codename like in the vendor kernel. The
-> Kconfig symbol, ARCH_CORTINA_ACCESS, covers the whole family and is
-> named after Cortina Access, which last sold these chips and also makes
-> the newer 64-bit parts.
->
-> The generic DT machine is sufficient for the platform, so only the SMP
-> bring-up needs code: the bootloader parks the secondary core in a WFE
-> loop that polls a global software register, so boot it by writing the
-> physical address of secondary_startup to the register named by the
-> cpu-release-addr property and issuing SEV.
->
-> The CPU is a Cortex-A9 r2p1, so select the errata workarounds that apply
-> to that revision and can be enabled on a multiplatform kernel. The PL310
-> is r3p2 and needs none of the PL310 workarounds.
->
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+Add the missing pm_runtime_dont_use_autosuspend() call to the probe
+failure path before pm_runtime_disable() so that the autosuspend
+setting is properly undone during cleanup.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+This issue was found by manual code inspection.
 
-Yours,
-Linus Walleij
+Fixes: 7f8f209fd6e0 ("dmaengine: add Qualcomm Technologies HIDMA management driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/dma/qcom/hidma_mgmt.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/dma/qcom/hidma_mgmt.c b/drivers/dma/qcom/hidma_mgmt.c
+index 4805ce390ffa..d8c56af5882d 100644
+--- a/drivers/dma/qcom/hidma_mgmt.c
++++ b/drivers/dma/qcom/hidma_mgmt.c
+@@ -310,6 +310,7 @@ static int hidma_mgmt_probe(struct platform_device *pdev)
+ 	return 0;
+ out:
+ 	pm_runtime_put_sync_suspend(&pdev->dev);
++	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 	return rc;
+ }
+-- 
+2.43.0
+
 
