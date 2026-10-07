@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88F6CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2504CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uv0E972XvkHZpc86P2YGE1FsEYyLKJDTtXbuIBu+qC0=; b=jeJx/3aqjSbxH0XdyeMBe8lTaX
-	lXSZWA78yZ9ku2Gq43nB9LB9CarZQOH49SAu8VBmXp1boyH5tRVZBxbl7EpAyj4E9mcPClw4QlOkX
-	zo0J6uPonbX2ouVOdW087QqhV7vEsSpmaq+j2xIBTKINAsvGYfG96qrMzdLxEnWYO1SofBM5xel0g
-	c7uKU0rTd93i0GA2PQrbyuw2kYdxinlpKHE5KH45BrSDfREUuRNccXuFp9X12g25FBEakk4dCDd6D
-	dAqew5pXfiNRp12e044dNC+uiIrZMciS1H7ZqV1RWr1SMvuQ/UcpUfHVwWZHRNjI3oGgOi20M9stb
-	MV83qjXQ==;
+	bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=; b=vmxaCjKhWHGopaRHsyei3av6oj
+	N+96r4pRdy3rltKifyAAJOdhlSkZQbjqqho6o/qv9TgMkvg8E82e9j/Q12rYuAOAZlxrfkMuyzNJa
+	0z028fzKlrGIZ2i6BYWOglznOdhKD5aW9L3uLr3OthNG/Nx7F3vUuEcEK7f4fIPZTVxTobuFR0Tbo
+	WgU5dR1CR3/wIrqVeu9NNsE54yaE9mRa90pR3a3Ta77sLhLrpftuXnktTm+ZpE8BfQyk4NGAz/ZKJ
+	xB0yByVT71FY0iVeM+tG6DBMfbQ4JXMArBjbzI611+Et6dN8gRUd+KHoTeK2MNU+zJXNZEYnpofpE
+	VBnA6yHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFuV-00000001YLO-1FYJ;
-	Wed, 07 Oct 2026 00:53:31 +0000
-Received: from mail-m8314.xmail.ntesmail.com ([156.224.83.14])
+	id 1xEFy4-00000001YWb-0xSV;
+	Wed, 07 Oct 2026 00:57:12 +0000
+Received: from mail-oa2-x0a.google.com ([2607:f8b0:4864:30::a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFuS-00000001YJr-0k0Z;
-	Wed, 07 Oct 2026 00:53:30 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 501f3a86f;
-	Wed, 7 Oct 2026 08:53:17 +0800 (GMT+08:00)
-Message-ID: <ac2a4e80-6d35-457a-bdc5-ee8511198bec@rock-chips.com>
-Date: Wed, 7 Oct 2026 08:53:16 +0800
+	id 1xEFy1-00000001YWE-0c8I
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Oct 2026 00:57:10 +0000
+Received: by mail-oa2-x0a.google.com with SMTP id 586e51a60fabf-4753ef5108aso1563619fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 17:57:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791334627; x=1791939427; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=;
+        b=KAOwcUniKzLuowaWv/7cRGK8TnIVVk6/Wp1OvL3XqmvTzZdsrJTvskcNuAxr5U2644
+         vp5V3sSJZgEhyJdu8MToGveyh3kDnLiRGZQ21zNqFr13MFk5K4T/8y6ScCvKXq7rLGsJ
+         TZ79TAT2BwBFktqIFEgNTvY5sD4HFQpd2HtTELe9/6oYeT8szNA09aj+BE1HvgqzRRMb
+         fIGq55LSajZnD2wQRDiTloIOxxef/PHoDjahAo0gvmsTJjLK+c8Zvx3iSC8XeHBphWrm
+         0O0N4R1GmJ3nnaCSbxh3L4z+Kk7lcGXIbV8fTxdhD4K8iHR7MeuSI8Q5JB2rbXcj9TQe
+         u75A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791334627; x=1791939427;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TAIWhhMv3PYHKISI/ix1jVDueQPVFVtzNluL37GORz0=;
+        b=Wbf6+YP3Dx/TZfRqeAHnH08UpZwI24dHXdhtLhC72bgHgJYp16wsrZeYwa9MU7pr8A
+         ls8U6j/mjkO3yd6m8a8AQc8Uc7Ex0B+ll34TfrK8cGV8KxUvxRRfHBQnfUFlH2RcauKY
+         MUBYyeEBzbhV+GP/UORGBAO3XO2Z1dTX6N+MJWLQtgBanKFGAwYLiPznfMNkMR1JS4V5
+         Jy7joQ3IP4NJUld8p2seYKSsMNDjPkYqEJR8CZ9Dkb56RbZmqA6XJDpMlS7uvTiJ6TXT
+         BL7va5sjWCaYVqc6iP66x7FdTGNhZljd7KiXInoPzHbfp2XL2qWzwDkONDKMLqI8j5QD
+         WwTQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzD+Be+nb9CDpBGplL4EkSt3/8bAJW27Fqi7cb6C8xlQB7lfD5AM2K/AHRzK+6W6wM88L63zupFgkFTmH39VUjx@lists.infradead.org
+X-Gm-Message-State: AFuF++mMmTt65DnCmR3Dmxa3a3SdNgBodvkYkdx+yVH1vR2tY3iXukE4
+	iWM+iPXjvVZGRcRInvpl6KIF8v+zxLh68a+sXtxoPI/C5EBKsGpNl7id
+X-Gm-Gg: AYBFou09WjZhs8h9YnySVNF/JlRUyydqVu/tW/2dN1gQUu7cZqJVX510HIijATA+iEu
+	cXs0C4zHlgXFGQ0okevNOQDJFIQyTWF9TCWmvoSTAK/wi4Yri1Q7/FgLE6/1Pbp4NHfnJJlsSkp
+	e5chUQ00JS68ArHgR/bM4i5jLwZhUeIWd6gx1BCkX4EL874lgHwL069BQZRf+tx06s9/c2r8kDC
+	tmZVz652uBaVewqLvvGP4doPZe9Ce0XXjV6LbnSQlla0AQ2J5UTkwuofpd35fVXGeCwXF1zRw4X
+	f+6naW671C2M2Q6qDye2bOlFaqSwBeYUMaxP++vkPUxi0b9P3rsqmOqvlY/oUjpcaqXLgf7fGRf
+	Vp5kHm0ojQmYmXElBbiVgwHpVWUul9NC4YT5vaWz/2pAT+DUn3/X7rE/RQ+dOlLykSW9yFl3SAS
+	eOTGfc6ULzn/j3AWLmB011yal1MZvRCJ68D4+FmLZaTWtks1rAYdEq5D8XyxLIpp16U9Pd703Yy
+	ApANaMu1sUwN9TwAm13TYnQSYpx3UIhLnosnGK8CkZEsyOHC+Al
+X-Received: by 2002:a4a:e90d:0:b0:6dc:e1c3:b2d5 with SMTP id 006d021491bc7-6e7a913602amr915341eaf.75.1791334627605;
+        Tue, 06 Oct 2026 17:57:07 -0700 (PDT)
+Received: from ?IPV6:2600:100b:b034:8212:4cd5:c80f:ba72:80cb? ([2600:100b:b034:8212:4cd5:c80f:ba72:80cb])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a25722e3d8sm1005183fac.15.2026.10.06.17.57.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Oct 2026 17:57:04 -0700 (PDT)
+Message-ID: <d3d3e7b3-eb8b-456d-9a2c-116334e86c14@gmail.com>
+Date: Tue, 6 Oct 2026 19:57:01 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH v13 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
- selection for RK3568
-To: Coia Prant <coiaprant@gmail.com>
-References: <20261006162807.2843858-1-coiaprant@gmail.com>
- <20261006162807.2843858-3-coiaprant@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261006162807.2843858-3-coiaprant@gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
+ pinctrl regmap
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Mark Brown <broonie@kernel.org>, Lee Jones <lee@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Sean Wang <sean.wang@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, Clark Williams
+ <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Yingjoe Chen <yingjoe.chen@mediatek.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Hongzhou Yang <hongzhou.yang@mediatek.com>,
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rt-devel@lists.linux.dev, mfd@lists.linux.dev
+References: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
+ <20260930080609.dnK1-Uta@linutronix.de>
+ <CAGXv+5FssQL3Go3VDFbLAT6HP12RS3U3OgxhYOeapzs64QTdUw@mail.gmail.com>
+Content-Language: en-US
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+In-Reply-To: <CAGXv+5FssQL3Go3VDFbLAT6HP12RS3U3OgxhYOeapzs64QTdUw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa113d9b55103a4kunm37190398c7e909
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTEIaVh8aGEtLSEkYGR9NSFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=LVXOYYrg7BT+nd5C/HPHiD661/6mZnPBVItwHAXs7TdiTEyAuM3iLBra6IVsJdrjJ82lOVy7sh81k/sLLbiXE7mKJnpYVoMe7Klk0SO+0VL/aPI8EkBunY4XUJKgouHCq8i+TfqLFVpPZnGA1OXmhuEjQEwYQq5jPrStu/tXl+4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=uv0E972XvkHZpc86P2YGE1FsEYyLKJDTtXbuIBu+qC0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_175329_008646_A494E5C1 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20261006_175709_219546_40F54363 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,166 +118,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/10/07 星期三 0:28, Coia Prant 写道:
-> On RK3568, the SGMII interface can be routed to either GMAC0 or
-> GMAC1 via the GRF register pipe_sgmii_mac_sel.
-> 
-> Add support for this selection by introducing the
-> "rockchip,sgmii-mac-sel" DT property.
-> 
->  From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
-> bit 1 (pipe_sgmii_mac_sel) is defined as:
-> 
->      0: SGMII routed to GMAC0
->      1: SGMII routed to GMAC1
-> 
-> The hardware reset value is 1 (GMAC1). If the property is set to 0,
-> the driver routes SGMII to GMAC0; if set to 1, it routes to GMAC1.
-> If the property is absent, the driver leaves the routing unchanged,
-> so the effective value is whatever the bootloader or hardware reset
-> left.
-> 
-> The driver validates the value and rejects anything other than 0 or 1.
-> 
-> This is necessary for boards such as the Ariaboard Photonicat, which
-> uses the SGMII interface connected to GMAC0.
-> 
-> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->   .../rockchip/phy-rockchip-naneng-combphy.c    | 42 +++++++++++++++++++
->   1 file changed, 42 insertions(+)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 7843356a4dd47..f76b48009673d 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
->   	struct combphy_reg pipe_xpcs_phy_ready;
->   	struct combphy_reg pipe_pcie1l0_sel;
->   	struct combphy_reg pipe_pcie1l1_sel;
-> +	struct combphy_reg pipe_sgmii_mac_sel;
->   	struct combphy_reg u3otg0_port_en;
->   	struct combphy_reg u3otg1_port_en;
->   };
-> @@ -212,6 +213,8 @@ struct rockchip_combphy_priv {
->   	bool enable_ssc;
->   	bool ext_refclk;
->   	struct clk *refclk;
-> +	bool sgmii_mac_sel_present;
-> +	u32 sgmii_mac_sel;
->   };
->   
->   static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
-> @@ -341,6 +344,7 @@ static struct phy *rockchip_combphy_xlate(struct device *dev, const struct of_ph
->   static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy_priv *priv)
->   {
->   	int i;
-> +	int ret;
->   
->   	priv->num_clks = devm_clk_bulk_get_all(dev, &priv->clks);
->   	if (priv->num_clks < 1)
-> @@ -375,6 +379,16 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
->   
->   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->   
-> +	if (device_property_present(dev, "rockchip,sgmii-mac-sel")) {
-> +		ret = device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
-> +		if (ret) {
-> +			dev_err(dev, "failed to read sgmii-mac-sel property\n");
-> +			return ret;
-> +		}
-> +
+Hi Chen-Yu and Sebastian,
 
-device_property_read_u32() should return non-zero value if it's absent.
-How about this:
+Thanks for looking at this.
 
-	struct rockchip_combphy_priv {
-		int sgmii_mac_sel;
-	}
+On 9/30/26 3:17 AM, Chen-Yu Tsai wrote:
+> The syscon node is the provider of the regmap. You need to fix it there,
+> not duplicate it in the consumer.
 
-static int rockchip_combphy_parse_dt:
-	u32 val;
+Unless I'm misunderstanding, no driver binds to that node, so its regmap 
+comes from the generic syscon code, and changing it there would affect 
+every syscon. Lee, Arnd, Mark, would that be acceptable?
 
-         priv->sgmii_mac_sel = -1;
-         if (!device_property_read_u32(dev, "rockchip,sgmii-mac-sel", 
-&val)) {
-                 if (val > 1)
-                         return dev_err_probe(dev, -EINVAL,
-                                              "invalid sgmii-mac-sel 
-%u\n", val);
-                 priv->sgmii_mac_sel = val;
-         }
+These are the options I see. Please let me know if there's a better one:
 
+- Do what Sebastian suggested and make syscon use a raw spinlock, except 
+when the node has a clock, since regmap-mmio calls clk_enable() under 
+the lock. Off PREEMPT_RT, nothing changes. On RT the lock would no 
+longer be preemptible for most syscons, including across bulk writes. 
+Most syscon users that do bulk writes only write a few registers, but 
+enabling the Amlogic G12A PCIe PLL writes a sequence with 40 us of 
+udelay() under the lock.
+- Have the pinctrl ioremap() the node a second time alongside syscon's 
+mapping and read the input register (DIN) with readl(). That read is the 
+only access the EINT code makes in raw context. This would go around the 
+syscon, and it requires that DIN never be written in a multi-step 
+sequence, which is currently the case.
 
-static int rk3568_combphy_cfg:
-         case PHY_TYPE_SGMII:
-                 if (priv->sgmii_mac_sel >= 0)
-                         rockchip_combphy_param_write(priv->pipe_grf,
-  
-&cfg->pipe_sgmii_mac_sel,
-  
-priv->sgmii_mac_sel > 0);
+I'd like to know the best approach before sending out a v2.
 
-> +		priv->sgmii_mac_sel_present = true;
-> +	}
-> +
->   	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
->   	/* fallback to old behaviour */
->   	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-> @@ -803,11 +817,34 @@ static const struct rockchip_combphy_cfg rk3562_combphy_cfgs = {
->   	.combphy_cfg	= rk3562_combphy_cfg,
->   };
->   
-> +static int rk3568_combphy_select_sgmii_mac(struct rockchip_combphy_priv *priv)
-> +{
-> +	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-> +
-> +	if (!priv->sgmii_mac_sel_present)
-> +		return 0;
-> +
-> +	switch (priv->sgmii_mac_sel) {
-> +	case 0:
-> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel, false);
-> +		break;
-> +	case 1:
-> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel, true);
-> +		break;
-> +	default:
-> +		dev_err(priv->dev, "invalid sgmii-mac-sel value %u\n", priv->sgmii_mac_sel);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
->   {
->   	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
->   	unsigned long rate;
->   	u32 val;
-> +	int ret;
->   
->   	switch (priv->type) {
->   	case PHY_TYPE_PCIE:
-> @@ -873,6 +910,10 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
->   		break;
->   
->   	case PHY_TYPE_SGMII:
-> +		ret = rk3568_combphy_select_sgmii_mac(priv);
-> +		if (ret)
-> +			return ret;
-> +
->   		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
->   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
->   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-> @@ -984,6 +1025,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
->   	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
->   	/* pipe-grf */
->   	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
-> +	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
->   	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
->   	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
->   	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
-
+Best regards,
+Ryan Brue
 
