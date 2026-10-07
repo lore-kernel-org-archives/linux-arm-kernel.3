@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D533CA5FFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794A3CA600A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQAfS1Y3ULopvyVEBVb32/Ls4LJ8FM9G8Dx9HM2vKHU=; b=2xJ6Pq8qaNA1AQ8oqtJm4OCxK7
-	GiaGCYQDTthcI1i6uVAE8gXzzz7Wy8eNWaxfliAX+ZTePVSfTDP8HfH89Z64pi9L9WdvnHWqMoVrU
-	6DB4w3INPlPvHTZBw40AJ9NK8nKz9Ku7vlbXqry5TTIQkyMhv38LHUEvVf+q29SkV+owonZXYkh2t
-	cIFm0py0urefVKaYwry6Vilhz54NoqUlPsRoV2As6xkRFtjt5SKnGW0s+TGDqRyhDjav7xRm7KWN7
-	sMQZX2eP8NbRJ7wY0biIps+DfDRNz78PHKHzsX3u1qMLVcD0bdO3AYEszJ/Ef4l8AY8ug10daEUZ0
-	ezuThzCQ==;
+	bh=sUommAG5lsJ+16x4lcgQqCqYeiYuN6zqvHFBWRI5pcg=; b=wKImQ9yGFB5MY315jgwH9cGWDo
+	whsCNl3TY7g+FHNzeVwGoZPFmmsKYeDsY63aKq64BKFQkp1S4rBKOXobWD0TyJf5Fn+QJ5y5hv+Su
+	E5Tk8yPJUE5AEMKlthB4UwMJc8aDWd+VvfA7tLVCVQygRUvdMNajKwl1VCNxMp1U1OdbxFR6RGNR3
+	JRGoIcpzulFcxCcwiuqdQ+bOJziP3MstLrIoCWyz2Z6du3QwBtxhq05sAvVFAb8FsKFAEQnsiJbuC
+	MD3YAvzlC7VpMDcgLOuDbNS5pSdpJBalK7H2CTrfYK36o2OZaOwBMlclgBuzyu2S+0h/6OCQJz8Jb
+	YjTYYxYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKuP-00000001l19-458P;
-	Wed, 07 Oct 2026 06:13:46 +0000
+	id 1xEKuP-00000001l0C-2q5b;
+	Wed, 07 Oct 2026 06:13:45 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKuM-00000001kor-1pcO
+	id 1xEKuI-00000001kor-0AcT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:13:43 +0000
+	Wed, 07 Oct 2026 06:13:40 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 7 Oct
@@ -35,12 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 7 Oct 2026 14:13:20 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 7 Oct 2026 14:13:25 +0800
-Subject: [PATCH v5 8/9] EDAC/aspeed: Add AST2700 support
+Date: Wed, 7 Oct 2026 14:13:23 +0800
+Subject: [PATCH v5 6/9] EDAC/aspeed: Replace regmap with direct register
+ access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261007-edac-v5-8-5c31fc5df4cf@aspeedtech.com>
+Message-ID: <20261007-edac-v5-6-5c31fc5df4cf@aspeedtech.com>
 References: <20261007-edac-v5-0-5c31fc5df4cf@aspeedtech.com>
 In-Reply-To: <20261007-edac-v5-0-5c31fc5df4cf@aspeedtech.com>
 To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
@@ -52,16 +53,16 @@ CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
 	<ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791353599; l=11841;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791353599; l=9681;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=fXKdiG1xe87JqN+7enIkhdLap4XxCCo/n8ZJs/sBYs8=;
- b=DdkOTtPI81neVI+GWpn9faS7pHoJJxPGZXvaxVPvF3qyJEnmEGZdNO5WHqpNvdwBSsXSIw+oG
- 0ziJtvXmXVwCQDrKDB6nKQQZft+bKF8kHdgD8/49U8YRrfCgzaC4p5O
+ bh=oFjGnnCssZS/8AJsH1u265M7x4e5khDOe+l3OP2w46E=;
+ b=IHnUIzdxzHAtfsO824tzMkTuP+tvVLgk0hFnarVcIL3r16PyGtbos6mQNXs7QEsP5sgw+0sob
+ Y40ZI1nlCbiDPyWU5qgqxnHlA2M/qwD8lOvYnjyxN+kmRD2rCfnQNcB
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_231342_494419_E08F4101 
-X-CRM114-Status: GOOD (  34.02  )
+X-CRM114-CacheID: sfid-20261006_231339_102477_B97C27C2 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,337 +77,281 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SDRAM ECC reporting for the Aspeed AST2700. Its DRAMC has a different
-register layout, a split interrupt status/clear/mask scheme, DDR4/DDR5
-memory and interrupt registers that are not key-protected.
+The driver instantiates its own regmap purely as an MMIO wrapper: it has
+no register cache, uses custom .reg_read()/.reg_write() callbacks, and is
+not shared as a syscon with other drivers. So it brings nothing here
+beyond the spinlock that regmap takes around each access when fast_io is
+set.
 
-Its interrupt status/clear and enable sequences differ from the earlier
-SoCs, so add per-chip isr() and set_irq() hooks and route the
-devm_request_irq() and enable/disable paths through them, keeping the
-existing AST2400/2500/2600 behaviour under the shared
-aspeed_mcr_isr()/aspeed_set_irq().
+Drop the regmap and access the registers directly with readl()/writel()
+under an explicit raw spinlock, held across the whole read-modify-write so
+the controller is unlocked once around the grouped writes rather than on
+every register write.
 
-Unlike the earlier SoCs it records a single failure address shared by
-both error types, so extend the shared count_rec()/count_un_rec()
-helpers with a have_addr flag to report an error without an address
-(existing SoCs pass have_addr = true, unchanged) and widen their address
-argument to phys_addr_t as the AST2700 address can exceed 32 bits.
-
-Tested on an AST2700: A correctable error was injected from the console by
-unlocking the controller and writing its ECC error inject test register:
-
-  # mw 12c00000 1688a8a8
-  # mw 12c00080 31
-  EDAC MC0: 1 CE on mc#0csrow#0channel#0 (csrow:0 channel:0 page:0x40f6da offset:0xdb0 grain:16 syndrome:0x0)
+Annotate the register base with __guarded_by() so that, under
+CONFIG_WARN_CONTEXT_ANALYSIS, the compiler checks at build time that every
+hardware register access is performed while holding the lock.
 
 Assisted-by: Claude:claude-opus-4-8
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 
 ---
-Changes in v5:
-- Follow patch 2 in using request_irq().
-
-Changes in v3:
-- Write the AST2700 interrupt mask register outright rather than
-  read-modify-write: mask every source and unmask only the ECC ones.
-  The driver owns the line exclusively, so it should establish the
-  mask itself instead of deriving it from the register's contents.
-- Mask the interrupts before requesting them rather than after, so the
-  mask is established before the handler can run.
-
 Changes in v2:
-- Return IRQ_NONE from ast2700_dramc_isr() when no ECC interrupt status
-  bit is set. The handler clears only the ECC bits, so unconditionally
-  claiming the interrupt could livelock the level-triggered line if
-  another DRAMC source was left unmasked.
-- Add AST2700_INT_ECC for the pair of ECC interrupt bits, now used by both
-  the handler and the enable path.
-- Expand the enable/disable ternary in ast2700_set_irq() into if/else,
-  matching the shape of aspeed_set_irq().
-- Pass struct aspeed_edac to the set_irq() hooks instead of
-  struct mem_ctl_info, which the callees only used to reach pvt_info.
+- Take the register lock with the irqsave variant in init_csrows() and in
+  aspeed_probe(); the interrupt handler takes the same lock in hardirq
+  context.
+- Move the dev_dbg() of the interrupt status register out of the
+  raw_spinlock critical section in the interrupt handler.
+- Opt aspeed_edac.o into context analysis in drivers/edac/Makefile, so
+  that the __guarded_by() annotation is actually checked.
+- Note in the interrupt handler that the counter and interrupt flag
+  fields are read-only, so writing back the read value is harmless.
 ---
- drivers/edac/aspeed_edac.c | 161 +++++++++++++++++++++++++++++++++++++--------
- 1 file changed, 135 insertions(+), 26 deletions(-)
+ drivers/edac/Makefile      |   1 +
+ drivers/edac/aspeed_edac.c | 131 +++++++++++++++++----------------------------
+ 2 files changed, 51 insertions(+), 81 deletions(-)
 
+diff --git a/drivers/edac/Makefile b/drivers/edac/Makefile
+index a37534300ab9..9215dd0bb835 100644
+--- a/drivers/edac/Makefile
++++ b/drivers/edac/Makefile
+@@ -82,6 +82,7 @@ obj-$(CONFIG_EDAC_SYNOPSYS)		+= synopsys_edac.o
+ obj-$(CONFIG_EDAC_XGENE)		+= xgene_edac.o
+ obj-$(CONFIG_EDAC_TI)			+= ti_edac.o
+ obj-$(CONFIG_EDAC_QCOM)			+= qcom_edac.o
++CONTEXT_ANALYSIS_aspeed_edac.o		:= y
+ obj-$(CONFIG_EDAC_ASPEED)		+= aspeed_edac.o
+ obj-$(CONFIG_EDAC_BLUEFIELD)		+= bluefield_edac.o
+ obj-$(CONFIG_EDAC_DMC520)		+= dmc520_edac.o
 diff --git a/drivers/edac/aspeed_edac.c b/drivers/edac/aspeed_edac.c
-index 58cc32e65d8b..b11fb90a701a 100644
+index 610da8aa2a22..124e8a39eaab 100644
 --- a/drivers/edac/aspeed_edac.c
 +++ b/drivers/edac/aspeed_edac.c
-@@ -32,6 +32,24 @@
+@@ -3,6 +3,7 @@
+  * Copyright 2018, 2019 Cisco Systems
+  */
+ 
++#include <linux/cleanup.h>
+ #include <linux/edac.h>
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
+@@ -10,7 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/of_address.h>
+ #include <linux/platform_device.h>
+-#include <linux/regmap.h>
++#include <linux/spinlock.h>
+ #include "edac_module.h"
+ 
+ #define DRV_NAME "aspeed-edac"
+@@ -20,7 +21,6 @@
+ #define ASPEED_MCR_INTR_CTRL   0x50 /* interrupt control/status register */
+ #define ASPEED_MCR_ADDR_UNREC  0x58 /* address of first un-recoverable error */
+ #define ASPEED_MCR_ADDR_REC    0x5c /* address of last recoverable error */
+-#define ASPEED_MCR_LAST        ASPEED_MCR_ADDR_REC
+ 
+ #define ASPEED_MCR_PROT_PASSWD          0xfc600309
+ #define ASPEED_MCR_CONF_DRAM_TYPE       BIT(4)
+@@ -30,57 +30,10 @@
  #define ASPEED_MCR_INTR_CTRL_CNT_UNREC  GENMASK(15, 12)
  #define ASPEED_MCR_INTR_CTRL_ENABLE     (BIT(0) | BIT(1))
  
-+#define AST2700_INT_STS			0x04
-+#define AST2700_INT_CLR			0x08
-+#define AST2700_INT_MASK		0x0c
-+#define   AST2700_INT_ECC_RECOVERABLE	BIT(5)
-+#define   AST2700_INT_ECC_UNRECOVERABLE	BIT(4)
-+#define   AST2700_INT_ECC		(AST2700_INT_ECC_RECOVERABLE | \
-+					 AST2700_INT_ECC_UNRECOVERABLE)
-+#define   AST2700_INT_ALL		GENMASK(16, 0)
-+#define AST2700_MCFG			0x10
-+#define   AST2700_MCFG_ECC		BIT(6)
-+#define   AST2700_MCFG_DRAM_TYPE	BIT(0) /* 0=DDR4, 1=DDR5 */
-+#define AST2700_ECC_STS			0x78
-+#define   AST2700_ECC_REC_CNT		GENMASK(15, 8)
-+#define   AST2700_ECC_UNREC_CNT		GENMASK(7, 0)
-+#define AST2700_ECC_FAIL_ADDR		0x7c
-+
-+struct aspeed_edac;
-+
- struct aspeed_edac_chip {
- 	unsigned int conf_reg;
- 	u32 conf_ecc;
-@@ -40,6 +58,8 @@ struct aspeed_edac_chip {
- 	unsigned long mtype_cap;
- 	unsigned int prot_reg;
- 	u32 prot_key;
-+	irqreturn_t (*isr)(int irq, void *arg);
-+	void (*set_irq)(struct aspeed_edac *priv, bool enable);
- };
+-static struct regmap *aspeed_regmap;
++static DEFINE_RAW_SPINLOCK(aspeed_lock);
++static void __iomem *aspeed_regs __guarded_by(&aspeed_lock);
+ static int aspeed_irq;
  
- struct aspeed_edac {
-@@ -50,26 +70,34 @@ struct aspeed_edac {
- 	int irq;
- };
- 
--static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, u32 rec_addr)
-+static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, phys_addr_t rec_addr,
-+		      bool have_addr)
+-static int regmap_reg_write(void *context, unsigned int reg, unsigned int val)
+-{
+-	void __iomem *regs = (void __iomem *)context;
+-
+-	/* enable write to MCR register set */
+-	writel(ASPEED_MCR_PROT_PASSWD, regs + ASPEED_MCR_PROT);
+-
+-	writel(val, regs + reg);
+-
+-	/* disable write to MCR register set */
+-	writel(~ASPEED_MCR_PROT_PASSWD, regs + ASPEED_MCR_PROT);
+-
+-	return 0;
+-}
+-
+-static int regmap_reg_read(void *context, unsigned int reg, unsigned int *val)
+-{
+-	void __iomem *regs = (void __iomem *)context;
+-
+-	*val = readl(regs + reg);
+-
+-	return 0;
+-}
+-
+-static bool regmap_is_volatile(struct device *dev, unsigned int reg)
+-{
+-	switch (reg) {
+-	case ASPEED_MCR_PROT:
+-	case ASPEED_MCR_INTR_CTRL:
+-	case ASPEED_MCR_ADDR_UNREC:
+-	case ASPEED_MCR_ADDR_REC:
+-		return true;
+-	default:
+-		return false;
+-	}
+-}
+-
+-static const struct regmap_config aspeed_regmap_config = {
+-	.reg_bits = 32,
+-	.val_bits = 32,
+-	.reg_stride = 4,
+-	.max_register = ASPEED_MCR_LAST,
+-	.reg_write = regmap_reg_write,
+-	.reg_read = regmap_reg_read,
+-	.volatile_reg = regmap_is_volatile,
+-	.fast_io = true,
+-};
+-
+ static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, u32 rec_addr)
  {
  	struct csrow_info *csrow = mci->csrows[0];
--	u32 page, offset, syndrome;
-+	unsigned long page, offset, syndrome;
- 
- 	if (!rec_cnt)
- 		return;
- 
--	/* report first few errors (if there are) */
--	/* note: no addresses are recorded */
--	if (rec_cnt > 1) {
-+	/*
-+	 * Report the errors whose address is not recorded: all of them when
-+	 * no address is available, otherwise all but the last one (reported
-+	 * with its address below).
-+	 */
-+	if (rec_cnt > 1 || !have_addr) {
- 		/* page, offset and syndrome are not available */
- 		page = 0;
- 		offset = 0;
- 		syndrome = 0;
--		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, mci, rec_cnt-1,
-+		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, mci,
-+				     have_addr ? rec_cnt - 1 : rec_cnt,
- 				     page, offset, syndrome, 0, 0, -1,
- 				     "address(es) not available", "");
- 	}
- 
-+	if (!have_addr)
-+		return;
-+
- 	/* report last error */
- 	/* note: rec_addr is the last recoverable error addr */
- 	page = rec_addr >> PAGE_SHIFT;
-@@ -82,32 +110,34 @@ static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, u32 rec_addr)
- }
- 
- static void count_un_rec(struct mem_ctl_info *mci, u8 un_rec_cnt,
--			 u32 un_rec_addr)
-+			 phys_addr_t un_rec_addr, bool have_addr)
+@@ -148,10 +101,27 @@ static irqreturn_t mcr_isr(int irq, void *arg)
  {
- 	struct csrow_info *csrow = mci->csrows[0];
--	u32 page, offset, syndrome;
-+	unsigned long page, offset, syndrome;
- 
- 	if (!un_rec_cnt)
- 		return;
- 
--	/* report 1. error */
--	/* note: un_rec_addr is the first unrecoverable error addr */
--	page = un_rec_addr >> PAGE_SHIFT;
--	offset = un_rec_addr & ~PAGE_MASK;
--	/* syndrome is not available */
--	syndrome = 0;
--	edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, mci, 1,
--			     csrow->first_page + page, offset, syndrome,
--			     0, 0, -1, "", "");
-+	/* report the first error with its address when one is available */
-+	if (have_addr) {
-+		/* note: un_rec_addr is the first unrecoverable error addr */
-+		page = un_rec_addr >> PAGE_SHIFT;
-+		offset = un_rec_addr & ~PAGE_MASK;
-+		/* syndrome is not available */
-+		syndrome = 0;
-+		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, mci, 1,
-+				     csrow->first_page + page, offset, syndrome,
-+				     0, 0, -1, "", "");
+ 	struct mem_ctl_info *mci = arg;
+ 	u32 rec_addr, un_rec_addr;
+-	u32 reg50, reg5c, reg58;
+-	u8  rec_cnt, un_rec_cnt;
++	u8 rec_cnt, un_rec_cnt;
++	u32 reg50;
++
++	scoped_guard(raw_spinlock, &aspeed_lock) {
++		reg50 = readl(aspeed_regs + ASPEED_MCR_INTR_CTRL);
++		un_rec_addr = readl(aspeed_regs + ASPEED_MCR_ADDR_UNREC);
++		rec_addr = readl(aspeed_regs + ASPEED_MCR_ADDR_REC);
++
++		/*
++		 * Clearing the counters needs a set-then-clear of CLEAR. The
++		 * counter and interrupt flag fields are read-only, so writing
++		 * back the values read above leaves them unaffected.
++		 */
++		writel(ASPEED_MCR_PROT_PASSWD, aspeed_regs + ASPEED_MCR_PROT);
++		writel(reg50 | ASPEED_MCR_INTR_CTRL_CLEAR,
++		       aspeed_regs + ASPEED_MCR_INTR_CTRL);
++		writel(reg50 & ~ASPEED_MCR_INTR_CTRL_CLEAR,
++		       aspeed_regs + ASPEED_MCR_INTR_CTRL);
++		writel(~ASPEED_MCR_PROT_PASSWD, aspeed_regs + ASPEED_MCR_PROT);
 +	}
  
--	/* report further errors (if there are) */
--	/* note: no addresses are recorded */
--	if (un_rec_cnt > 1) {
-+	/* report the remaining errors without a recorded address */
-+	if (un_rec_cnt > 1 || !have_addr) {
- 		/* page, offset and syndrome are not available */
- 		page = 0;
- 		offset = 0;
- 		syndrome = 0;
--		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, mci, un_rec_cnt-1,
-+		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, mci,
-+				     have_addr ? un_rec_cnt - 1 : un_rec_cnt,
- 				     page, offset, syndrome, 0, 0, -1,
- 				     "address(es) not available", "");
- 	}
-@@ -166,8 +196,8 @@ static irqreturn_t aspeed_mcr_isr(int irq, void *arg)
+-	regmap_read(aspeed_regmap, ASPEED_MCR_INTR_CTRL, &reg50);
+ 	dev_dbg(mci->pdev, "received edac interrupt w/ mcr register 50: 0x%x\n",
+ 		reg50);
+ 
+@@ -162,20 +132,6 @@ static irqreturn_t mcr_isr(int irq, void *arg)
+ 	dev_dbg(mci->pdev, "%d recoverable interrupts and %d unrecoverable interrupts\n",
  		rec_cnt, un_rec_cnt);
  
+-	regmap_read(aspeed_regmap, ASPEED_MCR_ADDR_UNREC, &reg58);
+-	un_rec_addr = reg58;
+-
+-	regmap_read(aspeed_regmap, ASPEED_MCR_ADDR_REC, &reg5c);
+-	rec_addr = reg5c;
+-
+-	/* clear interrupt flags and error counters: */
+-	regmap_update_bits(aspeed_regmap, ASPEED_MCR_INTR_CTRL,
+-			   ASPEED_MCR_INTR_CTRL_CLEAR,
+-			   ASPEED_MCR_INTR_CTRL_CLEAR);
+-
+-	regmap_update_bits(aspeed_regmap, ASPEED_MCR_INTR_CTRL,
+-			   ASPEED_MCR_INTR_CTRL_CLEAR, 0);
+-
  	/* process recoverable and unrecoverable errors */
--	count_rec(mci, rec_cnt, rec_addr);
--	count_un_rec(mci, un_rec_cnt, un_rec_addr);
-+	count_rec(mci, rec_cnt, rec_addr, true);
-+	count_un_rec(mci, un_rec_cnt, un_rec_addr, true);
- 
+ 	count_rec(mci, rec_cnt, rec_addr);
+ 	count_un_rec(mci, un_rec_cnt, un_rec_addr);
+@@ -183,13 +139,31 @@ static irqreturn_t mcr_isr(int irq, void *arg)
  	if (!rec_cnt && !un_rec_cnt)
- 		dev_dbg_ratelimited(mci->pdev, "received edac interrupt, but did not find any ECC counters\n");
-@@ -180,6 +210,54 @@ static irqreturn_t aspeed_mcr_isr(int irq, void *arg)
+ 		dev_dbg(mci->pdev, "received edac interrupt, but did not find any ECC counters\n");
+ 
+-	regmap_read(aspeed_regmap, ASPEED_MCR_INTR_CTRL, &reg50);
++	scoped_guard(raw_spinlock, &aspeed_lock)
++		reg50 = readl(aspeed_regs + ASPEED_MCR_INTR_CTRL);
+ 	dev_dbg(mci->pdev, "edac interrupt handled. mcr reg 50 is now: 0x%x\n",
+ 		reg50);
+ 
  	return IRQ_HANDLED;
  }
  
-+static irqreturn_t ast2700_dramc_isr(int irq, void *arg)
++static void aspeed_set_irq(bool enable)
 +{
-+	u32 int_sts, ecc_sts, fail_addr;
-+	struct mem_ctl_info *mci = arg;
-+	struct aspeed_edac *priv;
-+	u8 rec_cnt, un_rec_cnt;
-+	phys_addr_t addr;
++	u32 val;
 +
-+	priv = mci->pvt_info;
++	guard(raw_spinlock_irqsave)(&aspeed_lock);
 +
-+	scoped_guard(raw_spinlock, &priv->lock) {
-+		int_sts = readl(priv->regs + AST2700_INT_STS);
-+		if (!(int_sts & AST2700_INT_ECC))
-+			return IRQ_NONE;
-+
-+		ecc_sts = readl(priv->regs + AST2700_ECC_STS);
-+		fail_addr = readl(priv->regs + AST2700_ECC_FAIL_ADDR);
-+
-+		/* the interrupt registers are not key-protected; clear only ECC */
-+		writel(int_sts & AST2700_INT_ECC, priv->regs + AST2700_INT_CLR);
-+	}
-+
-+	rec_cnt = FIELD_GET(AST2700_ECC_REC_CNT, ecc_sts);
-+	un_rec_cnt = FIELD_GET(AST2700_ECC_UNREC_CNT, ecc_sts);
-+
-+	/* the register holds address bits [35:4], in units of 16 bytes */
-+	addr = (phys_addr_t)fail_addr << 4;
-+
-+	/*
-+	 * The controller records only the address of the latest failure,
-+	 * shared by both error types. When only one type occurred it owns
-+	 * that address; when both occurred attribute it to the uncorrectable
-+	 * error and report the corrected ones without an address.
-+	 */
-+	if (un_rec_cnt && !rec_cnt) {
-+		count_un_rec(mci, un_rec_cnt, addr, true);
-+	} else if (!un_rec_cnt && rec_cnt) {
-+		count_rec(mci, rec_cnt, addr, true);
-+	} else if (un_rec_cnt && rec_cnt) {
-+		count_un_rec(mci, un_rec_cnt, addr, true);
-+		count_rec(mci, rec_cnt, 0, false);
-+	} else {
-+		dev_dbg_ratelimited(mci->pdev, "received interrupt with no ECC counters set\n");
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
- static void aspeed_set_irq(struct aspeed_edac *priv, bool enable)
- {
- 	u32 val;
-@@ -197,6 +275,19 @@ static void aspeed_set_irq(struct aspeed_edac *priv, bool enable)
- 	aspeed_mcr_irq_update_exit(priv);
- }
- 
-+static void ast2700_set_irq(struct aspeed_edac *priv, bool enable)
-+{
-+	u32 val = AST2700_INT_ALL;
-+
-+	guard(raw_spinlock_irqsave)(&priv->lock);
-+
-+	/* interrupts are enabled by clearing their mask bits */
++	val = readl(aspeed_regs + ASPEED_MCR_INTR_CTRL);
 +	if (enable)
-+		val &= ~AST2700_INT_ECC;
++		val |= ASPEED_MCR_INTR_CTRL_ENABLE;
++	else
++		val &= ~ASPEED_MCR_INTR_CTRL_ENABLE;
 +
-+	writel(val, priv->regs + AST2700_INT_MASK);
++	writel(ASPEED_MCR_PROT_PASSWD, aspeed_regs + ASPEED_MCR_PROT);
++	writel(val, aspeed_regs + ASPEED_MCR_INTR_CTRL);
++	writel(~ASPEED_MCR_PROT_PASSWD, aspeed_regs + ASPEED_MCR_PROT);
 +}
 +
- static int config_irq(struct mem_ctl_info *mci, struct platform_device *pdev)
+ static int config_irq(void *ctx, struct platform_device *pdev)
  {
- 	struct aspeed_edac *priv = mci->pvt_info;
-@@ -209,14 +300,16 @@ static int config_irq(struct mem_ctl_info *mci, struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
--	rc = request_irq(irq, aspeed_mcr_isr, IRQF_TRIGGER_HIGH, DRV_NAME, mci);
-+	priv->chip->set_irq(priv, false);
-+
-+	rc = request_irq(irq, priv->chip->isr, IRQF_TRIGGER_HIGH, DRV_NAME, mci);
- 	if (rc)
- 		return rc;
- 
- 	priv->irq = irq;
+ 	int irq;
+@@ -208,9 +182,7 @@ static int config_irq(void *ctx, struct platform_device *pdev)
+ 	aspeed_irq = irq;
  
  	/* enable interrupts */
--	aspeed_set_irq(priv, true);
-+	priv->chip->set_irq(priv, true);
+-	regmap_update_bits(aspeed_regmap, ASPEED_MCR_INTR_CTRL,
+-			   ASPEED_MCR_INTR_CTRL_ENABLE,
+-			   ASPEED_MCR_INTR_CTRL_ENABLE);
++	aspeed_set_irq(true);
  
  	return 0;
  }
-@@ -364,7 +457,7 @@ static void aspeed_remove(struct platform_device *pdev)
- 	struct aspeed_edac *priv = mci->pvt_info;
+@@ -248,7 +220,8 @@ static int init_csrows(struct mem_ctl_info *mci)
+ 	nr_pages = resource_size(&r) >> PAGE_SHIFT;
+ 	csrow->last_page = csrow->first_page + nr_pages - 1;
+ 
+-	regmap_read(aspeed_regmap, ASPEED_MCR_CONF, &reg04);
++	scoped_guard(raw_spinlock_irqsave, &aspeed_lock)
++		reg04 = readl(aspeed_regs + ASPEED_MCR_CONF);
+ 	dram_type = (reg04 & ASPEED_MCR_CONF_DRAM_TYPE) ? MEM_DDR4 : MEM_DDR3;
+ 
+ 	dimm = csrow->channels[0]->dimm;
+@@ -265,7 +238,6 @@ static int init_csrows(struct mem_ctl_info *mci)
+ 
+ static int aspeed_probe(struct platform_device *pdev)
+ {
+-	struct device *dev = &pdev->dev;
+ 	struct edac_mc_layer layers[2];
+ 	struct mem_ctl_info *mci;
+ 	void __iomem *regs;
+@@ -276,13 +248,11 @@ static int aspeed_probe(struct platform_device *pdev)
+ 	if (IS_ERR(regs))
+ 		return PTR_ERR(regs);
+ 
+-	aspeed_regmap = devm_regmap_init(dev, NULL, (__force void *)regs,
+-					 &aspeed_regmap_config);
+-	if (IS_ERR(aspeed_regmap))
+-		return PTR_ERR(aspeed_regmap);
++	scoped_guard(raw_spinlock_irqsave, &aspeed_lock)
++		aspeed_regs = regs;
+ 
+ 	/* bail out if ECC mode is not configured */
+-	regmap_read(aspeed_regmap, ASPEED_MCR_CONF, &reg04);
++	reg04 = readl(regs + ASPEED_MCR_CONF);
+ 	if (!(reg04 & ASPEED_MCR_CONF_ECC)) {
+ 		dev_err(&pdev->dev, "ECC mode is not configured in u-boot\n");
+ 		return -EPERM;
+@@ -348,8 +318,7 @@ static void aspeed_remove(struct platform_device *pdev)
+ 	struct mem_ctl_info *mci = platform_get_drvdata(pdev);
  
  	/* disable interrupts */
--	aspeed_set_irq(priv, false);
-+	priv->chip->set_irq(priv, false);
+-	regmap_update_bits(aspeed_regmap, ASPEED_MCR_INTR_CTRL,
+-			   ASPEED_MCR_INTR_CTRL_ENABLE, 0);
++	aspeed_set_irq(false);
  
- 	free_irq(priv->irq, mci);
- 
-@@ -381,6 +474,8 @@ static const struct aspeed_edac_chip ast2400_edac = {
- 	.mtype_cap = MEM_FLAG_DDR3 | MEM_FLAG_DDR4,
- 	.prot_reg = ASPEED_MCR_PROT,
- 	.prot_key = ASPEED_MCR_PROT_PASSWD,
-+	.isr = aspeed_mcr_isr,
-+	.set_irq = aspeed_set_irq,
- };
- 
- /* The AST2600 does not key-protect the interrupt control register (MCR50). */
-@@ -390,12 +485,26 @@ static const struct aspeed_edac_chip ast2600_edac = {
- 	.conf_dram_type = ASPEED_MCR_CONF_DRAM_TYPE,
- 	.dram_type = { MEM_DDR3, MEM_DDR4 },
- 	.mtype_cap = MEM_FLAG_DDR3 | MEM_FLAG_DDR4,
-+	.isr = aspeed_mcr_isr,
-+	.set_irq = aspeed_set_irq,
-+};
-+
-+/* The AST2700 interrupt registers are not key-protected either. */
-+static const struct aspeed_edac_chip ast2700_edac = {
-+	.conf_reg = AST2700_MCFG,
-+	.conf_ecc = AST2700_MCFG_ECC,
-+	.conf_dram_type = AST2700_MCFG_DRAM_TYPE,
-+	.dram_type = { MEM_DDR4, MEM_DDR5 },
-+	.mtype_cap = MEM_FLAG_DDR4 | MEM_FLAG_DDR5,
-+	.isr = ast2700_dramc_isr,
-+	.set_irq = ast2700_set_irq,
- };
- 
- static const struct of_device_id aspeed_of_match[] = {
- 	{ .compatible = "aspeed,ast2400-sdram-edac", .data = &ast2400_edac },
- 	{ .compatible = "aspeed,ast2500-sdram-edac", .data = &ast2400_edac },
- 	{ .compatible = "aspeed,ast2600-sdram-edac", .data = &ast2600_edac },
-+	{ .compatible = "aspeed,ast2700-sdram-edac", .data = &ast2700_edac },
- 	{},
- };
+ 	free_irq(aspeed_irq, mci);
  
 
 -- 
