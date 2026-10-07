@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D464ECA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F1BCA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ODCTZAb7yCutEAg61KAN127W0Xr4Uf0HpQFO8eWY668=; b=y/74fJO4uOwAtGlaKOpYgdtqlt
-	z7Z8rXqadNShJwFCyhClezxgiOOAwVmNCHhu5nU0hJl7m+X4v3PUnFRr8XOO45jCl63/o+TJyCs79
-	5Y6hN86IgEOxHeGEY7CW1qhU79XkiTASH0OfNAXAqDLoxDn8xrDpkSTd++wybxOaj5euRKxIG+Ha/
-	iqlwtPsyEkzyFIq8UJDObXPt5ahmVxkKu46C3M9cYeqa5MJerQeMImZFlQ2v0kYoLlPsiH+cDZVX8
-	3p7RyYIVOzwpyiJ0aiZwuYx7RYYRSYFCzH3AnQRMwgipyBtJDjVFe9lxjK0ihEBAO8RJrUFQ8tX5u
-	dls4tX8w==;
+	bh=Kx0k0qBNIHathxhkLOSlyTa1tARm1WFDT7yHCpSRGUI=; b=xhnTdrYgYbEQV+sbbFHh8Yo2Ma
+	YpQo0FCL6BtrgAeNFtT8Mq3VEDORdKAYPoJfYzYkkAT/fITQrPXO01KWBCZ+YtjXYwrg/1UgTMYzm
+	tT9r1e98+I+STN5ofvO+Qe7nSoS1ATZNkDgcUBraugUC1M6E1tOcMtsrP2vcjfip5s7pdkLBgTp7j
+	LVAz0v8yM17ruCGhaxTF/YWyuwm4dHyUakdz/6vMu4Ar2i/Q0xY0oKI+4GXJ1Do6HYkZdr6MjEOnN
+	Qbes4K54OISDVmyDyYFY3Skv+4WS+wGM78IICiSMb1W2Ub+9yUxabnv7rbGMXRh68QoXQlA6vFzOo
+	WhjxhDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERRx-00000002Vyi-2s2N;
-	Wed, 07 Oct 2026 13:12:49 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xERS8-00000002W24-00aT;
+	Wed, 07 Oct 2026 13:13:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERRu-00000002Vxz-2Sju;
-	Wed, 07 Oct 2026 13:12:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ODCTZAb7yCutEAg61KAN127W0Xr4Uf0HpQFO8eWY668=; b=EGjnEmdNwKR/iAlHfjQRl3D4w6
-	2P/GYhl77uLT3erz810QPl4qjUPMgpF94TcGVojUJDsMV3NI41WuvWZShnxo/ZVbriNUdhwTjEZ3H
-	e7IMpCOXb6qXzJaP21s/6O/CdOMw0qVrireAA9PMhUNSqYBGwWneJ/ffwtYRDwMo7zn0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xERRg-009SjM-M0; Wed, 07 Oct 2026 15:12:32 +0200
-Date: Wed, 7 Oct 2026 15:12:32 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lucas Tanure <tanure@linux.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	id 1xERS7-00000002W1m-2VdV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Oct 2026 13:12:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0665429F7;
+	Wed,  7 Oct 2026 13:12:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A55B1F0089B;
+	Wed,  7 Oct 2026 13:12:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791378778;
+	bh=Kx0k0qBNIHathxhkLOSlyTa1tARm1WFDT7yHCpSRGUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LU06ATxcWZ2nWDafWFzvHCTpqlZDNGYrgTM/9BfTYacfaHUaSdcRboiBWnknYb8OK
+	 cuCgntqyg++QhcV6DyyT1YHcJ+6IlFq4bFOU5tdsIPwBpE6qtyn7eJ5BY8P2ICM5NS
+	 G9hLDDZl2anudh01fba11n0ynTqfUQSbVOvqJWQmPGRV2uLtV/++SrGgcCDlQYzaMF
+	 TZmfD3CO05G3kLtpWEyE1v7M7ww+krCg3CcPz9t+3+E5r3S9sPmp8Af2C3Y3wqhP01
+	 mMuKeQtwR5jOUXyZlzsBaD7cCH4H4VoF76LBuvKVKOAJbr56fQ50mxmHifAwYXJ0QV
+	 Ty22q3xU6pPHg==
+Date: Wed, 7 Oct 2026 14:12:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Ying Liu <victor.liu@nxp.com>, Frank Li <frank.li@oss.nxp.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 6/7] arm64: dts: amlogic: t7: add the ethernet
- controller
-Message-ID: <c1764303-9f18-4487-ba93-06173cd8a53f@lunn.ch>
-References: <20261007082627.63807-1-tanure@linux.com>
- <20261007082627.63807-7-tanure@linux.com>
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 6/9] dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb
+ child node
+Message-ID: <20261007-cb2d638508f306f3385c3799@squawk>
+References: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
+ <20261006-dcif-upstreaming-v10-6-bcfb28de0aae@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Z8+zZt/nTc0Rfe8E"
 Content-Disposition: inline
-In-Reply-To: <20261007082627.63807-7-tanure@linux.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_061246_628813_28CC9A3C 
-X-CRM114-Status: GOOD (  12.15  )
+In-Reply-To: <20261006-dcif-upstreaming-v10-6-bcfb28de0aae@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +84,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 09:26:26AM +0100, Lucas Tanure wrote:
-> The SoC has a Synopsys gigabit MAC, a block of glue registers that
-> selects the interface type and trims the clock timing, and a
-> multiplexer that points the management bus at the on-chip 100M PHY
+--Z8+zZt/nTc0Rfe8E
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Tue, Oct 06, 2026 at 12:22:01PM +0000, Laurentiu Palcu wrote:
+> Since the BLK CTL registers, like the LVDS CSR, can be used to control the
+> LVDS Display Bridge controllers, add 'ldb' child node to handle
+> these use cases.
+>=20
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> ---
+>  .../bindings/clock/nxp,imx95-blk-ctl.yaml          | 24 ++++++++++++++++=
++++++-
+>  1 file changed, 23 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.ya=
+ml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> index fbbf1b3f17904..97fe816a38f94 100644
+> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> @@ -51,6 +51,10 @@ patternProperties:
+>      $ref: /schemas/media/fsl,imx95-csi-formatter.yaml#
+>      unevaluatedProperties: false
+> =20
+> +  '^ldb@[0-9a-f]+$':
+> +    type: object
+> +    $ref: /schemas/display/bridge/fsl,ldb.yaml#
 
-> +					internal_ephy: ethernet-phy@8 {
-> +						compatible = "ethernet-phy-id0180.3301",
-> +							     "ethernet-phy-ieee802.3-c22";
-> +						interrupts = <GIC_SPI 340 IRQ_TYPE_LEVEL_HIGH>;
-> +						reg = <8>;
-> +						max-speed = <100>;
+The class of device is bridge, why not use that here?
 
-It is a 100M PHY. What supported speeds does it report in its
-registers?
+Thanks,
+Conor.
 
-You should only need max-speed when the PHY is broken, says it can do
-more than it actually can do, or when a 1G PHY only has two of the
-four pairs connected to the outside world etc.
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -63,7 +67,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: nxp,imx95-camera-csr
+> +            enum:
+> +              - nxp,imx94-lvds-csr
+> +              - nxp,imx95-camera-csr
+>      then:
+>        required:
+>          - '#address-cells'
+> @@ -72,8 +78,24 @@ allOf:
+>        properties:
+>          '#address-cells': false
+>          '#size-cells': false
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          not:
+> +            contains:
+> +              const: nxp,imx95-camera-csr
+> +    then:
+>        patternProperties:
+>          '^formatter@[0-9a-f]+$': false
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          not:
+> +            contains:
+> +              const: nxp,imx94-lvds-csr
+> +    then:
+> +      patternProperties:
+> +        '^ldb@[0-9a-f]+$': false
+> =20
+>  additionalProperties: false
+> =20
+>=20
+> --=20
+> 2.53.0
 
-	Andrew
+--Z8+zZt/nTc0Rfe8E
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasZFVAAKCRB4tDGHoIJi
+0vuvAQCMuGFOHoyiVgxFDEw2VPLnr+yYh971SizxwVmIa7EqBQD/ZJ0Jk4MloW93
+GfboWxtLy42RdX35LKACHj+5/AC6Hg0=
+=kUg8
+-----END PGP SIGNATURE-----
+
+--Z8+zZt/nTc0Rfe8E--
 
