@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D42CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA0CCA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OexaRCcgt6XYkDM8a+OmC5h/6OPxo9ybl1gjEFZyPZY=; b=SX/FE/9YFIhoMvYfGFmAM+Klrw
-	nEjNAtZP2rgL9ysr6JaNkBzz9nychcZruB/oXSC11hXL0YeWTDwtV9PNx2Atd/Nt7KhAkkXQNZjbX
-	YW3P4+gNmCJfBerb7RpSTLxwvzkNJjs23VCuTTxf+JRrz5RAxP/YxCHJMekOqSF8jlQeyXxCfh1g+
-	snsy4eACKBUadodA1lRa5YBbd1BGrGXf+VwrH4S6FI6VZNo0QOlM9VGsT9DYMyxZQ06VCCOloWJjA
-	P/z057cicCBi2m05S4KnJY+akKftxT79nGyg/eZw5ZFT9aq0XzbcedQ4AFLQfLxEomvy+Sy56+6UH
-	ytUEPuCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MMEyrnTZMfezx6Qzd8H4nHlvTgUCaj9Fp8iF5f9liUo=; b=TMLTinl9MxsKG7GKWB79qZaR6r
+	V+/FUrf4mdNTdtcpNkJveWDJxCyvgw0DkEJAm6FsH+1xvzb9U10y7rxR/0GcqpGAq/q7ha3w/Svhq
+	rBiQ4j9HlO9PB5X6cpsfSyiew/iSGaPBEbK/Gv0Eb7MRzCG1V4luDnijksIeiR3yiLQpAU5zZtlVf
+	pu8RXN05Pq1EBs9T34QCBXSKnbovRSUOvV96GFjkW7lr8HKA3CT/oj8KFy53/cAD0Z2oPX5pmHjzr
+	QzjiyA4ZoUJddblT9YbbFXTrrOklgICUzhQHG4fc6NGp6Rmf8mvzro1V1pc/UtU9SpnQG0K3VvPjr
+	m5E3td0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELVh-00000001oQA-2o3C;
-	Wed, 07 Oct 2026 06:52:17 +0000
-Received: from www537.your-server.de ([188.40.3.216])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELVe-00000001oPa-3FxJ
+	id 1xELWk-00000001oYT-3eGF;
+	Wed, 07 Oct 2026 06:53:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xELWi-00000001oY6-0bTN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=OexaRCcgt6XYkDM8a+OmC5h/6OPxo9ybl1gjEFZyPZY=; b=q/j60Yb13/I9m6w0+nIy5uqC3r
-	AOYolLvel59Eq9GOidlv2e+1esaRmd1CyZRrut7gT2ANNsVk+AP+6Ui9tdLH6kLIpEPrQO4Oe3uhX
-	Sx0wdJQrI2HS8Lk9oZFCM/WICPTAOTOvenLSlTzEeBgZdR9mYxflW2t53TqwejP+Q5DYsavgmIEz0
-	k26N7WP4QsnKjHKOcg+Hib/LNWCLoIPqLTTz9lMM4w90fxDt7PFf7LVS02bkZZv3Bwoo7k4wDIhAG
-	ohfMTcxE97n8Ijg1cLxTg/9qGS0f1ce9Bf/SS8vXgZFE1tZbWYq1/3/fvYLPZK6oQDOqFMeofJSyM
-	1qzK2n4A==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xELVc-0008ir-0L;
-	Wed, 07 Oct 2026 08:52:12 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xELVc-000II6-0d;
-	Wed, 07 Oct 2026 08:52:11 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Markus Niebel <Markus.Niebel@ew.tq-group.com>, linux@ew.tq-group.com,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: imx8mn-tqma8mqnl: restrict clock for SPI-NOR
- flash
-Date: Wed, 07 Oct 2026 08:52:09 +0200
-Message-ID: <8205013.DvuYhMxLoT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <CAOMZO5AJiSoFb5Fy-LR4=MDqQqhJPvtzLT+-18es8j_HvYqt6w@mail.gmail.com>
-References: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
- <5021357.mvXUDI8C0e@steina-w>
- <CAOMZO5AJiSoFb5Fy-LR4=MDqQqhJPvtzLT+-18es8j_HvYqt6w@mail.gmail.com>
+	Wed, 07 Oct 2026 06:53:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5218A152B;
+	Tue,  6 Oct 2026 23:53:15 -0700 (PDT)
+Received: from [192.168.11.117] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D4C73F86F;
+	Tue,  6 Oct 2026 23:53:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791355998; bh=BeZyRv5V+EawynYY/vTt+PSDdo/4ZnBflwZeO/+9/qU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qkGdW+M3xHFPeuX/sxx88Ud/nuOCPPoXGAFLhsD4SUj7XeXlCSaOO+dPHq73FDPI+
+	 WIPY4/67LH/lhDwn6zzvVC3+MLuKnx+PNFBBlNiwrtJLZxjFLNCYtdf11Thow7fiyC
+	 CzHGgv+yinka9pBnoLZvPt0LLxKPttV/CSQHsToE=
+Message-ID: <f0acf203-2cb4-4cda-8e12-c45d02d7499e@arm.com>
+Date: Wed, 7 Oct 2026 07:53:18 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28145/Tue Oct  6 08:26:12 2026)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] arm64: insn: operate on MSR/MRS sysreg field via
+ defines
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
+ <vsethi@nvidia.com>, Tejun Heo <tj@kernel.org>,
+ Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Lucas Wei <lucaswei@google.com>, Barry Song <baohua@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
+ <20260928133034.243541-6-ada.coupriediaz@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260928133034.243541-6-ada.coupriediaz@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_235214_928095_CDD40AFC 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20261006_235320_318565_66859D2F 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +80,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio,
+Hi Ada,
 
-Am Dienstag, 6. Oktober 2026, 15:59:22 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Fabio Estevam:
-> Hi Alexander,
->=20
-> On Tue, Oct 6, 2026 at 10:50=E2=80=AFAM Alexander Stein
-> <alexander.stein@ew.tq-group.com> wrote:
-> >
-> > Am Dienstag, 6. Oktober 2026, 15:46:50 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Frank Li:
-> > > On Tue, Oct 06, 2026 at 03:25:10PM +0200, Alexander Stein wrote:
-> > > > From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> > > >
-> > > > The FlexSPI controller uses quad SPI with internal clock recovery.
-> > > > The clock is therefore restricted to 66.666666 MHz according to
-> > > > data sheet.
-> > >
-> > > Which datasheet? I suppose NOR flash datasheet, can you provide link
-> > > here.
-> >
-> > The i.MX8M Nano data sheet Rev 5 09/2022 section 3.9.1.1 "SDR mode with
-> > FlexSPIn_MCR0[RXCLKSRC] =3D 0x0, 0x1, 0x2" Table 55. "FlexSPI input tim=
-ing
-> > in SDR mode where FlexSPIn_MCR0[RXCLKSRC] =3D 0x0" lists 66 Mhz maximum=
- for
-> > "Frequency of operation".
->=20
-> From the commit log, I also got the impression you were referring to
-> the SPI NOR datasheet.
->=20
-> Please clarify that in v2.
->=20
-> Also, shouldn't all patches in the series contain a Fixes: tag?
+On 9/28/26 14:30, Ada Couprie Diaz wrote:
+> Replace the few instances of hard-coded system register offset and masks
+> used to operate on MSR/MRS instructions with defines.
+> This will allow re-use in future commits while making the connection
+> between those values more explicit.
+> 
+> While we are here, mark `aarch64_insn_extract_system_reg()` `noinstr`
+> so it can be safe to use in alternative pacthing callbacks.
+> 
+> Changing the mask used in `aarch64_insn_gen_mrs()` to exclude
+> the lower bits does not change behaviour,
+> as `aarch64_insn_encode_register()` already clears the bits
+> used to encode the target register.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/insn.h | 3 +++
+>  arch/arm64/lib/insn.c         | 8 ++++----
+>  2 files changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 40f13d28a5fd7..03620f67a3e47 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -753,6 +753,9 @@ static __always_inline u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
+>  	return insn;
+>  }
+>  
+> +#define AARCH64_INSN_SYSREG_OFFSET	5
+> +#define AARCH64_INSN_SYSREG_MASK	GENMASK(19, 5)
+> +
 
-Thanks for the feedback, I'll adjust the commit message in v2 and
-add a Fixes: tag as well.
+Sashiko has raised comment [1]
 
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-http://www.tq-group.com/
+| Does this mask unintentionally exclude bit 20?
+| The previous hardcoded mask was 0x1FFFE0, which is equivalent to
+| GENMASK(20, 5) and includes 16 bits. Defining it as GENMASK(19, 5) yields
+| a 15-bit mask.
 
+[1] https://sashiko.dev/#/patchset/20260928133034.243541-1-ada.coupriediaz%40arm.com
 
+Cheers
+Vladimir
 
