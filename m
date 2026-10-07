@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD05CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13968CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1X3LlIHJruQKaNzsK8lWJClmqoctmUlCA0inW+28JjU=; b=kbvMbTgBSbY4SHV3nHfo7GfFRu
-	Vywi7fp+NWFqsUfMzaVN0jb/A4ktq+xAhHCajWoewfl+/JPY2+5MeOipCUxjpyISfGv7RX3O9b/YC
-	79g5iuanYatBMAjjCpDVyD/+oiqJzV+sUIzxlsUkXgGOUROq9fDRzVqgvkG9d24sR/ZB0a+43zmqF
-	u9i9B83M8hxcN8/ZQV+8wxpua035M/nmHzXGzpPC69WSr/5qk6jGPzndTDUBMnJviSbF8HFUxbXCj
-	su1DnDZdKK5TlEGP5taMuZ4CCvAXVNdvrDFXLpD6g5o6Wt2wb4ID4L1Le89nH1zLBtZmuBEMD8UWb
-	Lpk0H62g==;
+	bh=yguBw+NCE5EBddLbSggqfD770lhl8HWF3MI8cQQkQbs=; b=WpFSjE5bnAy5bvB1JS3Dl7nTy/
+	Q4OUFycczlUr/rtxySfHJhPJHIrerkD/WgDLtIyTpyv3RAS7DJUKdc6Cs1SRYhFjA/lQA05q0kBeZ
+	zVCXwKxUAF0O7yfSAdRB43Ae5RFE1yQKNRveWfucjE/ZT1S9nYjCaVJ0uxR2m6xO1/+7RC6qbPeBO
+	ltbJwmI8G12HpweBZqO2DO/wvsLKMKgjLX5fLpitW+07G8dKZ5RGgTf1GZr+JKsn2n8VYxrMszfw6
+	+M1NeyAMlh56L1jpLV/I09RdyRpTi426RbpohFSksTP0lnanGIW994ccudLWw/tXmZuSgbQ266WHt
+	CgMzYlbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMCP-00000001r9K-3j8R;
-	Wed, 07 Oct 2026 07:36:28 +0000
+	id 1xEMCP-00000001r8t-2pf7;
+	Wed, 07 Oct 2026 07:36:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMCM-00000001r74-2Mnk
+	id 1xEMCH-00000001r32-0UEp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 07:36:23 +0000
+	Wed, 07 Oct 2026 07:36:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23DF51595;
-	Wed,  7 Oct 2026 00:36:17 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C82A152B;
+	Wed,  7 Oct 2026 00:36:13 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EB0063F763;
-	Wed,  7 Oct 2026 00:36:16 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 107BD3F763;
+	Wed,  7 Oct 2026 00:36:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791358580; bh=IJ2xiJyI7E9l7tjQtX42toIMjTcrCaRT+M46zYL2qHA=;
+	t=1791358576; bh=BicQ2agMF8WddKiPdc29R77aPK6mes59v7ybLPMSnVA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cu7SXkF/x2M9ZIwX5AqT3AL9wRKEeS9TIF4MBD8Y4zA26CMPyTluJGEMhOzl0cxSh
-	 kw0xLqas0gdrHSCjlqMEhozWt64A7pFqkuuAtdnWDIjoVXZl2UUxqYqy+kCsG52kZw
-	 pPtZVdBlHFER7rb8qcMkC+J8aV4yagNPmcSjY7Bk=
+	b=LvnvSq9Lm2tJ0+LPMLPr1nBtGK0MvJGpsa+gYHtWmTq7D67Iu8+2GLAqcGtziUEkO
+	 FrS7O6IXhWEnBVbb+cGPItoyrHldNrF1hhTTRUmjipFHuWKp6yIOjA7/OA7zsk81DW
+	 LULAMa+4ocjaIbgh1ntE98pZPa702HOrkcCdx/CM=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -65,17 +65,17 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v23 08/14] KVM: arm64: Add vcpu load/put call backs for flavors
-Date: Wed,  7 Oct 2026 08:35:31 +0100
-Message-ID: <20261007073537.2454351-9-suzuki.poulose@arm.com>
+Subject: [PATCH v23 07/14] KVM: arm64: Refactor the vcpu_load to allow for VM specific callbacks
+Date: Wed,  7 Oct 2026 08:35:30 +0100
+Message-ID: <20261007073537.2454351-8-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261007073537.2454351-1-suzuki.poulose@arm.com>
 References: <20261007073537.2454351-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_003622_707486_6216E543 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20261007_003618_860409_EB2C3EB4 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,252 +90,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add VM flavor specific handlers for VCPU load/put, in an effort to make it
-easier to follow the code. pauth traps were removed from VMs running PKVM
-as it is a no-op for them.
+To keep the VCPU load/put handling cleaner with the different kinds of VM
+types, we are about to introduce VM specific callbacks to do just the right
+thing. In preparation for that, make some refactoring to add the change
+easier by mainly feature specific configurations to individual wrappers,
+so that different callbacks could reuse the helpers.
 
-Based on a patch by Marc Zyngier
+Adds vcpu_prepare_mmu()/vcpu_put_mmu() wrappers to load/put MMU related
+configurations for !pKVM guests. Additionally makes it explicit that
+kvm_arm_vmid_clear_active() is not required for pKVM host.
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
+Add vcpu_load_pvtime(), vcpu_set_wfx_traps() wrappers for handling the
+corresponding configurations.
+
+While at it, also make it clear that the timer loading constraints only
+apply for the VHE.
+
+No functional changes intended. Based on a work by Marc Zyngier.
+
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-Changes since v21:
- - Add '&' into the KVM_VCPU_OPS() macro
+Changes since v19:
+ - Add vcpu_put_mmu() to pair with the vcpu_prepare_mmu() and make the
+   call conditional on !is_protected_kvm_enabled(). Preparing the path
+   for per-flavor callbacks
+ - Update the timer load constraints comment to reflect that it only applies
+   for VHE
+ - Wrap kvm_arm_vmid_clear_active() to vcpu_put_mmu() to compliement
+   with the vcpu_prepare_mmu(). Also only clear the VMID for non-pKVM
+   guests
 ---
- arch/arm64/include/asm/kvm_host.h |   6 ++
- arch/arm64/kvm/arm.c              | 138 +++++++++++++++++++++++-------
- 2 files changed, 114 insertions(+), 30 deletions(-)
+ arch/arm64/kvm/arm.c | 59 ++++++++++++++++++++++++++++++--------------
+ 1 file changed, 40 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 1df0cb2b76e93..7e0d2d4fcf834 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -150,6 +150,11 @@ struct kvm_vmid {
- 	atomic64_t id;
- };
- 
-+struct kvm_vcpu_ops {
-+	void (*vcpu_load)(struct kvm_vcpu *vcpu);
-+	void (*vcpu_put)(struct kvm_vcpu *vcpu);
-+};
-+
- struct kvm_s2_mmu {
- 	struct kvm_vmid vmid;
- 
-@@ -855,6 +860,7 @@ struct vncr_tlb;
- 
- struct kvm_vcpu_arch {
- 	struct kvm_cpu_context ctxt;
-+	const struct kvm_vcpu_ops *vcpu_ops;
- 
- 	/*
- 	 * Guest floating point state
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 24800809b4a96..f31d31fa27ad9 100644
+index 50b84065ead1a..24800809b4a96 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -93,6 +93,7 @@ static const struct kvm_ioctl_cap_map vm_ioctl_caps[] = {
- 	{ KVM_ARM_PREFERRED_TARGET, KVM_CAP_ARM_BASIC },
- };
- 
-+static void kvm_init_vcpu_ops(struct kvm_vcpu *vcpu);
- /*
-  * Set *ext to the capability.
-  * Return 0 if found, or -EINVAL if no IOCTL matches.
-@@ -569,6 +570,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	mutex_unlock(&vcpu->mutex);
- #endif
- 
-+	kvm_init_vcpu_ops(vcpu);
-+
- 	/* Force users to call KVM_ARM_VCPU_INIT */
- 	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
- 
-@@ -744,12 +747,9 @@ static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
- 		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+@@ -684,14 +684,11 @@ static bool kvm_vcpu_should_clear_twe(struct kvm_vcpu *vcpu)
+ 	return single_task_running();
  }
  
 -void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-+static void vhe_vcpu_load(struct kvm_vcpu *vcpu)
++static void vcpu_prepare_mmu(struct kvm_vcpu *vcpu)
  {
--	vcpu->cpu = cpu;
+ 	struct kvm_s2_mmu *mmu;
+ 	int *last_ran;
+ 
+-	if (is_protected_kvm_enabled())
+-		goto nommu;
 -
--	if (!is_protected_kvm_enabled())
--		vcpu_prepare_mmu(vcpu);
-+	vcpu_prepare_mmu(vcpu);
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_load_hw_mmu(vcpu);
+ 
+@@ -721,34 +718,56 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 		kvm_call_hyp(__kvm_flush_cpu_context, mmu);
+ 		*last_ran = vcpu->vcpu_idx;
+ 	}
++}
+ 
+-nommu:
++static void vcpu_put_mmu(struct kvm_vcpu *vcpu)
++{
++	kvm_arm_vmid_clear_active();
++}
++
++static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
++{
++	if (kvm_vcpu_should_clear_twe(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWE;
++	else
++		vcpu->arch.hcr_el2 |= HCR_TWE;
++
++	if (kvm_vcpu_should_clear_twi(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWI;
++	else
++		vcpu->arch.hcr_el2 |= HCR_TWI;
++}
++
++static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
++{
++	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
++		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
++}
++
++void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++{
+ 	vcpu->cpu = cpu;
+ 
++	if (!is_protected_kvm_enabled())
++		vcpu_prepare_mmu(vcpu);
  	/*
- 	 * For VHE, the timer must be loaded before the vgic to correctly
- 	 * set up physical interrupt deactivation in nested state (e.g. timer
-@@ -759,26 +759,53 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+-	 * The timer must be loaded before the vgic to correctly set up physical
+-	 * interrupt deactivation in nested state (e.g. timer interrupt).
++	 * For VHE, the timer must be loaded before the vgic to correctly
++	 * set up physical interrupt deactivation in nested state (e.g. timer
++	 * interrupt).
+ 	 */
+ 	kvm_timer_vcpu_load(vcpu);
  	kvm_vgic_load(vcpu);
  	kvm_vcpu_load_debug(vcpu);
  	kvm_vcpu_load_fgt(vcpu);
-+	kvm_vcpu_load_vhe(vcpu);
-+	kvm_arch_vcpu_load_fp(vcpu);
-+	kvm_vcpu_pmu_restore_guest(vcpu);
 +
-+	vcpu_load_pvtime(vcpu);
-+	vcpu_set_wfx_traps(vcpu);
-+	vcpu_set_pauth_traps(vcpu);
-+}
- 
--	if (has_vhe())
--		kvm_vcpu_load_vhe(vcpu);
-+static void nvhe_vcpu_load(struct kvm_vcpu *vcpu)
-+{
-+	vcpu_prepare_mmu(vcpu);
-+	kvm_timer_vcpu_load(vcpu);
-+	kvm_vgic_load(vcpu);
-+	kvm_vcpu_load_debug(vcpu);
-+	kvm_vcpu_load_fgt(vcpu);
-+	kvm_arch_vcpu_load_fp(vcpu);
-+	kvm_vcpu_pmu_restore_guest(vcpu);
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
 +
-+	vcpu_load_pvtime(vcpu);
-+	vcpu_set_wfx_traps(vcpu);
-+	vcpu_set_pauth_traps(vcpu);
-+}
- 
-+static void pkvm_vcpu_load(struct kvm_vcpu *vcpu)
-+{
-+	kvm_timer_vcpu_load(vcpu);
-+	kvm_vgic_load(vcpu);
-+	kvm_vcpu_load_debug(vcpu);
-+	kvm_vcpu_load_fgt(vcpu);
  	kvm_arch_vcpu_load_fp(vcpu);
  	kvm_vcpu_pmu_restore_guest(vcpu);
+-	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+-		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
  
- 	vcpu_load_pvtime(vcpu);
- 	vcpu_set_wfx_traps(vcpu);
- 
--	if (!is_protected_kvm_enabled())
--		vcpu_set_pauth_traps(vcpu);
-+	kvm_call_hyp_nvhe(__pkvm_vcpu_load,
-+			  vcpu->kvm->arch.pkvm.handle,
-+			  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
-+	kvm_call_hyp_nvhe(__vgic_v3_restore_vmcr_aprs,
-+			  &vcpu->arch.vgic_cpu.vgic_v3);
-+}
- 
--	if (is_protected_kvm_enabled()) {
--		kvm_call_hyp_nvhe(__pkvm_vcpu_load,
--				  vcpu->kvm->arch.pkvm.handle,
--				  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
--		kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
--			     &vcpu->arch.vgic_cpu.vgic_v3);
--	}
-+void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-+{
-+	vcpu->cpu = cpu;
-+	vcpu->arch.vcpu_ops->vcpu_load(vcpu);
- 
- 	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
- 		vcpu_set_on_unsupported_cpu(vcpu);
-@@ -786,30 +813,50 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	vcpu->arch.pid = pid_nr(vcpu->pid);
- }
- 
--void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-+static void vhe_vcpu_put(struct kvm_vcpu *vcpu)
- {
--	if (is_protected_kvm_enabled()) {
--		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
--		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+-	if (kvm_vcpu_should_clear_twe(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWE;
 -
--		/* __pkvm_vcpu_put implies a sync of the state */
--		if (vcpu->kvm->arch.vm_flavor == VM_PKVM)
--			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
--	}
--
- 	kvm_vcpu_put_debug(vcpu);
- 	kvm_arch_vcpu_put_fp(vcpu);
--	if (has_vhe())
--		kvm_vcpu_put_vhe(vcpu);
-+	kvm_vcpu_put_vhe(vcpu);
- 	kvm_timer_vcpu_put(vcpu);
- 	kvm_vgic_put(vcpu);
+-	if (kvm_vcpu_should_clear_twi(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWI;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWI;
++	vcpu_load_pvtime(vcpu);
++	vcpu_set_wfx_traps(vcpu);
+ 
+ 	if (!is_protected_kvm_enabled())
+ 		vcpu_set_pauth_traps(vcpu);
+@@ -787,7 +806,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
  	kvm_vcpu_pmu_restore_host(vcpu);
-+
  	if (vcpu_has_nv(vcpu))
  		kvm_vcpu_put_hw_mmu(vcpu);
+-	kvm_arm_vmid_clear_active();
++
++	if (!is_protected_kvm_enabled())
++		vcpu_put_mmu(vcpu);
  
--	if (!is_protected_kvm_enabled())
--		vcpu_put_mmu(vcpu);
-+	vcpu_put_mmu(vcpu);
-+}
- 
-+static void nvhe_vcpu_put(struct kvm_vcpu *vcpu)
-+{
-+	kvm_vcpu_put_debug(vcpu);
-+	kvm_arch_vcpu_put_fp(vcpu);
-+	kvm_timer_vcpu_put(vcpu);
-+	kvm_vgic_put(vcpu);
-+	kvm_vcpu_pmu_restore_host(vcpu);
-+	vcpu_put_mmu(vcpu);
-+}
-+
-+static void pkvm_vcpu_put(struct kvm_vcpu *vcpu)
-+{
-+	kvm_call_hyp_nvhe(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
-+	kvm_call_hyp_nvhe(__pkvm_vcpu_put);
-+
-+	/* __pkvm_vcpu_put implies a sync of the state */
-+	if (vcpu->kvm->arch.vm_flavor == VM_PKVM)
-+		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-+
-+	kvm_vcpu_put_debug(vcpu);
-+	kvm_arch_vcpu_put_fp(vcpu);
-+	kvm_timer_vcpu_put(vcpu);
-+	kvm_vgic_put(vcpu);
-+	kvm_vcpu_pmu_restore_host(vcpu);
-+}
-+
-+void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.vcpu_ops->vcpu_put(vcpu);
  	vcpu_clear_on_unsupported_cpu(vcpu);
  	vcpu->cpu = -1;
- }
-@@ -2149,6 +2196,37 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 	}
- }
- 
-+static const struct kvm_vcpu_ops vhe_vcpu_ops = {
-+	.vcpu_load = vhe_vcpu_load,
-+	.vcpu_put = vhe_vcpu_put,
-+};
-+
-+static const struct kvm_vcpu_ops nvhe_vcpu_ops = {
-+	.vcpu_load = nvhe_vcpu_load,
-+	.vcpu_put = nvhe_vcpu_put,
-+};
-+
-+static const struct kvm_vcpu_ops pkvm_vcpu_ops = {
-+	.vcpu_load = pkvm_vcpu_load,
-+	.vcpu_put = pkvm_vcpu_put,
-+};
-+
-+#define KVM_VCPU_OPS(flavor, ops)		\
-+	[(flavor)] = &(ops)
-+
-+static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
-+	KVM_VCPU_OPS(VM_NVHE, nvhe_vcpu_ops),
-+	KVM_VCPU_OPS(VM_VHE, vhe_vcpu_ops),
-+	KVM_VCPU_OPS(VM_PKVM, pkvm_vcpu_ops),
-+	KVM_VCPU_OPS(VM_PROTECTED_PKVM, pkvm_vcpu_ops),
-+};
-+
-+static void kvm_init_vcpu_ops(struct kvm_vcpu *vcpu)
-+{
-+	BUILD_BUG_ON(ARRAY_SIZE(arm64_vcpu_ops) != VM_FLAVOR_MAX);
-+	vcpu->arch.vcpu_ops = arm64_vcpu_ops[vcpu->kvm->arch.vm_flavor];
-+}
-+
- static unsigned long nvhe_percpu_size(void)
- {
- 	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
 -- 
 2.43.0
 
