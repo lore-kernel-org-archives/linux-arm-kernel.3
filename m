@@ -4,164 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B59DCA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E79CCA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ae3cOtnz6wBJkPdiqJ3cU1XJvU2ohuv/uw5ndGjtWE=; b=FpuFq6QdZdXPafudcEA7cPQCe1
-	c4rmPFskAWVPJpbdcS3BTMRaU913AyY1gcJTNVRc/z2IBVhZX5jMOkCIa+2oaP2Gfr9//iPLcShYM
-	+IHrwmpCILGNBWpfS86GEbSkxRp/rZyJTlRUeH2ZbT94r7mWij17VB/+rkqrFpOkzH/Cb6xQCGoNw
-	5aJ5zo2ZCk9+MnpNxUOuRcMZH/nsrBoWvEm75e7Vw2vPwNv+zeK3yX7ceGTK5KyKSKMbcnYX5e3EG
-	l29OS83qZtqK+UxwRXUymZKHlDiOIua350gnzGUcOXJIZehpcBg8mFnfszMEG+Moc9odPOyqDMDF1
-	hO83WU0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIWEluHy4olmpdCKhHecoCjRfu/n7+ylkyhpZgJoDQY=; b=yjS7v3to6RTy9nkJFDhGKdQicd
+	zjpL00F02SUe8gmP4e84S951/BTZ26FcU15mrXWsNthB4yKegrCn+eNqw4Yotx6XJgs6vJkhOwFeV
+	y9lwI0zSozo7wmOflYn1/RzglJL3Qtw2gVzRc82msew1ZSbmO2mbuc53xauzCgaaBjrkn72TllIoh
+	ri73SwmKkYqOHK0U9ZKacGWJdrQOr1t1InQZ+GHfHQrQ4IX52IzdSaIg26PkS/NfA0HnUf09Rm60j
+	+AhIJPFioAvkBjxiJQFk6q/W2KlC8mDEXTkfKjdFL87T8YJZ7A79mBI8oS0xwjoPk3pMGhykyrQ1P
+	EU/CSrbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiLC-00000003iUr-1Ouf;
-	Thu, 08 Oct 2026 07:14:58 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xEiOt-00000003j69-1QRf;
+	Thu, 08 Oct 2026 07:18:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiL9-00000003iEV-35IM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:14:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QTd6Jz8S9pCNqJFN7dy8qhiKZRdBXARKHEQHaBgmirihsYp6/mls0d+JiHkyXyQwRdf4+iTWlIER+SUnz1Hg9hMB6mpSw39M00TUuswcR/TVkDlOfT+1b3UZaCGm9JPsKEvxp7ZZ2ltD4XSrxvLLuz4N8klexz6APldgVVupypZYsJyIG/fJEO70E7KD5VkLg+Oyqol62bbAzojGikKR0EbHAuJnRIe4VidP8fCC0N+9t94/0HsUBj9etx0ywSy+B+pZt1vbJ3uwtfANJ8lf3tYc+JhVqserUDcE4FxBuDGaWiYAXRQ0QDo6WJyDgLBgvj3JmzAHd8wc0pZcoKtzRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0ae3cOtnz6wBJkPdiqJ3cU1XJvU2ohuv/uw5ndGjtWE=;
- b=YVaPU1HPuhrf/ybuIIr7hFNHu/PsuA2dbk/bU2SJqqAeVZ95kzR6weVkJ2QhGoPoLvDiRPsJfS9GrPmIKfxS1kozmlX++YqZkVTuIEcwbIhe60MB2qLibJz6FTdY5pcdbqlTPR+Ip8QhEylWiwZs4MsAIqL/E0LwG3cjnfLmdaeiQydqlDh2t2Eh8yNDqAmCsjwvj3bT7wYAlEGOzyLZNGvwZM0QBKIJhmiIS9Qj5R6louUBhOWOPksPLmJGNazDnWXcBMywL9og3+orfqs2tBD8/0eWWPScuPyEGBzk/bMgMo0Ja5FyJIXzPZzf+wbaesV5gQlNwLIbHpHpuScBbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0ae3cOtnz6wBJkPdiqJ3cU1XJvU2ohuv/uw5ndGjtWE=;
- b=JA9o+QLrLSuT9CNVzmKIFCbTw3rVSXBXdi0PQLJsgFMLkxkIaA1+5DQlKTzrmmQdYoK1dQfa7LQyvXRd2W4NrS1DDD2Bm+dSVCrUjjeriyZFRINkTjP9nHXGh4ixETagYP3eSO/go43/55cP/Nbyhr6JWXZPbnPW0j3QjKWaREC0tXSCl7mEYCjWog0LTEAhwVZgohVhlooHKEHcHyCud0f+z+1ud1rp+UpyIPCl+vZTMGRxhjan+ZFBVX9DN7kseQY0qX2Apd1dH6AwF7lWyVeC2exXNlkTpA3gmOMVo/t35dt+8hzFnJLra7sKD7fF35NZoZ+IVWv6Fd4fjZSS1Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by PAWPR04MB10054.eurprd04.prod.outlook.com (2603:10a6:102:38b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Thu, 8 Oct
- 2026 07:14:42 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 07:14:42 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>,
-	Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>
-Cc: Alberto Ruiz <aruizrui@redhat.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	devicetree@vger.kernel.org,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH 3/3] arm64: dts: s32g: map SIUL2 EIRQ register window in pinctrl node
-Date: Thu,  8 Oct 2026 09:14:36 +0200
-Message-Id: <20261008071436.596651-4-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR3P281CA0120.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a3::18) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	id 1xEiOs-00000003j5w-13it;
+	Thu, 08 Oct 2026 07:18:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A38360252;
+	Thu,  8 Oct 2026 07:18:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D248C1F000FF;
+	Thu,  8 Oct 2026 07:18:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791443925;
+	bh=bIWEluHy4olmpdCKhHecoCjRfu/n7+ylkyhpZgJoDQY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=YhNZ3kZYbA2kvqgVMOMv1chucJFUmlxb6iMyG/JWhON8FRL30yewBlVwIse4ouIOP
+	 6Lt9Yk8AeEZSdwsiSgZcBvbge+5Acgn9YMzhJXkxGxtI6UQMU2+P90beYGkXAfeyMD
+	 oZuRtxQGMSdCX+ny7/7pM92hPtB5PIwnUnMnJFKRJ434oSt/99MzPUQvzQWLDjeojF
+	 sUfVokpjAqJs9jUYhK+wYGNKe3+7Gu+izo3P2Xg/5HIoM4Y8c+6RN/wxwP5Zus9olb
+	 wdmY3D8+CarQ7pQqHp+XuD/nOC8mUgNk/DbCnZq+w2z9Rvo/amruLJ2ZZSvAZ3pBJs
+	 vsKzgNGPFBJqA==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ phucduc.bui@gmail.com
+Cc: Sugar Zhang <sugar.zhang@rock-chips.com>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+In-Reply-To: <20260903112739.373621-1-phucduc.bui@gmail.com>
+References: <20260903112739.373621-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 1/2] ASoC: rockchip: rockchip_sai: Handle runtime PM
+ resume failures in set_fmt
+Message-Id: <179137153110.2423942.4793821974137109884.b4-ty@b4>
+Date: Wed, 07 Oct 2026 13:12:11 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PAWPR04MB10054:EE_
-X-MS-Office365-Filtering-Correlation-Id: be254694-4f3c-466b-7927-08df250bd313
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|23010399003|22082099003|18002099003|11063799006|56012099006|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: 89YwKxPWnAUQuQUFBhOCHhqH4SLuUjR68OB2wS0tetgn+gmNetWiaLqgFgmu7ws+K9Cx7rL/UJtkT6of/kbGgmZZ5Yv8qVWYHc7zzSOnTIgmukYj1zBVbp3HAeqOWxCGDlzjG+BZYqAG4DqFpfnFQcUb0ylHVvsQtDf84zt0gHw+g61koMyqM7suOy+psow7uXop4uFPP7pnwynC964WrfdB6POy+ltJWvYRRAD7b2hOjJXY/eKh7B3P2fzJNDPXEaX1Wg/6CApesp812XIqZuAk5HVpRxPBoqw/yewkojvb3gcUWw7hj1O9BEDOjmutYcRwoDEElRZWo2GIQO2qSucCUOfZshotd5B+wdfihiCjfngfKbnXD2WPaxWYv9GAGMAO7EvvuqGfhLCKS6Q1EXvKmRfG1maaI6ZkEhCFO1J9y5hSfAxl9jHjhv5Y1GCjiObkAdWgpY6yBi1k/oeHvcDwyX7vFDHS5jwh3yWbgwIoXJcb437IZoAGAN7uQnpzjrpAsIJ/ht8jvZvjvqZy30g3zSyVwpNAMDuh9bvVmlUnwmvyMnC1FekxAmfCn2x2P9UCktEVpJbf6gZTHfyMtOxWAV+ZaO1OBdGbj0oz3heWpgXgeFvgizwb4yKSp1U41er/bxSe5VnlMXTgrOhHZBW52MwH9o3W/OCM4wvjog0ZIP4ztTromwUg7/OFDWUs+zss5gF3QzsICrbu8JLGkQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(23010399003)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RFFtUTZFTnV2SmFaMTQvN05XbDFPV091QUp5b0prYjVUalM4V0IzNjFTZDJY?=
- =?utf-8?B?TE5RVTB0UlgwOVBpOTFyeEhhQ2p5NDY2NmFjV3hVMVN6ek5GT21CSFh2R1JH?=
- =?utf-8?B?YXJVYzVac1d3OTRZQTdpTzJiZ0NtVnhyM3IyaFVWU096Ni9WdGVweUNHeGFu?=
- =?utf-8?B?WVNjMmNvNHJYQmx4ZElLYUt2R3dZeFhlL1Azc3IxYllzZUw5QjBrd2ZhekM5?=
- =?utf-8?B?SUZzZFM2ZEJTZVl1dVV5dy9zcy9FeWFEM2lDOGVXRjN4SGg4NU54b1ZvQlNN?=
- =?utf-8?B?MERGaGR3cjFiWHRLS1BMSHc0QVg0UTN5bFV2d1RWbEdKcS92MEkwM1grbmlB?=
- =?utf-8?B?OVNEYlh6NjdrellPZUtFQmxsRkp3V1VoY2cwRFM5UTA0TGhyNXcrdlJhVzVU?=
- =?utf-8?B?QTliTzVHUE9mMjI2MmNsZlU1T3UxRTB3OFZnZG9SMHV2WmplTnE2V3RXaGR6?=
- =?utf-8?B?RG9jTkdlWkxNcXNZeCt0UVE2b3Bpcmo4NGtlc0FjVGdjOUN1RXlzR2NvNXNS?=
- =?utf-8?B?ZE1KNVI5OTNLMWFKN2ZGZEZoUG85SjFmeExwUHZlOHZDZm92elVRb3I0QnEz?=
- =?utf-8?B?N1JYbUVrdk5KTTVxa2ZHUDQrMkd1ZXpJK0NmUmFORGNycDdwUUdmT2ZxMWJV?=
- =?utf-8?B?eURkL1ora2lFVzJlNzk5TlJDdU9wWXZ6cE1FNGxFczcrV1lDdUEvRkVpSFBK?=
- =?utf-8?B?U3FRQ1c4TXBMMWEyd29xd094UFlJWnNRbnZPRCtqL3FnK01ETm4yQ0pMelRq?=
- =?utf-8?B?azZXSG1HcndnaVdUbmN2MkFxTC9CTmRJZjNzZ1pqUktqdFBHSHVFbXZUQlJY?=
- =?utf-8?B?VVFzRjRXTzNMMitSRnVBSlF1TEhMN3RuLzdsQituWFFNZU9PRVNhN0JCbFll?=
- =?utf-8?B?eER2VllxS1ZIeERuOFd6OUxFT1R1czJPREk5ZkcrRHF5R1hUMko3dHNuWlJi?=
- =?utf-8?B?cVVsZDVOK0xDNWZwZnlQNkdPNXkvUmpXT09WWGsrNEhrTDZrZFRuVERWcVNy?=
- =?utf-8?B?UUkyY3M3cU9CUTlaU01oRDZBeEhheHdVVVltb1NieXlFd2NCbWI3Q3pFamhx?=
- =?utf-8?B?b3hwYkZpL0Y2WTRxT1VOaDhmNDF4OVkxejRaREN1UC9GYjVBcnN1VWFsNjhG?=
- =?utf-8?B?SEZQRGdrMGJTRHZ2dTMvalJlT1VMQ0JPUXA4bHFJeXRuMlVmOFZMTHJmVGFN?=
- =?utf-8?B?RmVZd1N0NzBOQnd0aFZLUzl6SVVqOU9YeVRxS24wc25LNmhxTXNmcnN3UVdU?=
- =?utf-8?B?V0FubFZGRUtTcjV3OEF1STVQMU9rajdWV0Jwb2lTYi9sbEprcXU5dUVjU255?=
- =?utf-8?B?M1ZNYXAvcnRsMWZYMGc1bHJrK0c2UmpXbmxzZ0N6VWIzeDdoWWdLT0ZYL0E5?=
- =?utf-8?B?Vm43Y0FmbFliYjdvM1paeEZRTHZLblN1aVF3cnNxUFlManZob1lHVVFKZyt3?=
- =?utf-8?B?a0s3UUtBUWxXVUh1QXN3ODR2L0xZSEwvY1VUVG9FK0diVVBMK0h0UmRhZ1Z2?=
- =?utf-8?B?U3lmM29qUTdPeTBQR1RGMmFRM1JPVmwySWNJMDBEaDlDbDNZaUx2SVN1Y1NZ?=
- =?utf-8?B?WG9icVVzUFFaZkFSSkY3Z0drRUJXRldSL2NLOGl2YTVLeXlYUTc5V3hmc0Vq?=
- =?utf-8?B?WHd0WG94Z0tJczdKRmhORHUyZVEwM3FXeHVHOS9jb25jWW5hUDZtMVZncDRt?=
- =?utf-8?B?ZHJudFF1VWRJc2R6c3pMbXJYdU9ZQmg2N2NyRWo2MUt4US9oRGFRSHNQYW00?=
- =?utf-8?B?NVNNSmtIUHZlSVpRa0NNbWlXdmN0NDRkTTNocHM5c3VCNHlJbklPSWwyank1?=
- =?utf-8?B?bVJ6OHpRRFdRY0hidWZxck0vWGJPN0pDUVRSVC9EK2xEcWtzQVVBeWxrRXJu?=
- =?utf-8?B?YXhjRTFaYUY0MUJzL3R2NXlzc3hGWDIrMEpUbG5uejRKa1JtYUpzVUxZRzh6?=
- =?utf-8?B?MUozUmk3UjYyZWtOZmxSRzljd0l3TklOQXUyc3lvcGJQUHFtbjdVbThVcGVv?=
- =?utf-8?B?S24wOFJUSkJ5OG9UUmd0dE9BS2tQWFNjRnVTU0dMYlAya0NGWWRZRmN0OFlD?=
- =?utf-8?B?MytEbkhNVVhZS3l4dUZ4Vm9RbC9McHpRdGt0RXJCUTQzNHZRWFJEeE5veFk2?=
- =?utf-8?B?a3VzQ1lQcE5xWG4xbEh6d01lMXlOczZkYkl3d1ZEZENkNXBNTVFHQm9qbjE3?=
- =?utf-8?B?UFhGK05rUWg3T2N6NTJZZVdWZk9tQ3prQUhpKzdCQ2QwdHpaeEhUc0V0Q0xC?=
- =?utf-8?B?VHdxQ2RKekZ4QW5WeUtsUDROUksvT1lVN3A1YVR2Z1g1eUZqWVc3ekNkKzVt?=
- =?utf-8?B?QkhnRDE4d2dYS1FYek10azlTNzV2dmFsZGxpQkcyRXl3WDVtVTJvMTBIZ2hS?=
- =?utf-8?Q?Z/UxHxVGiZ3FeHUF4+9SBjFO9gXddQN5/TvaA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be254694-4f3c-466b-7927-08df250bd313
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 07:14:42.7564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7b1w9mOlFLOlVoE9zLSZEEOnkzk8+U13wvmVUnMIFXli3s4BWKe1u1rIRoAyExi+bbIdefbID0cNsgBfkee6ZA3pp+MxXjP+NczyueWnuIPcFE1yBtIoSLwktM9rtoJT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10054
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_001455_782046_1EFB0435 
-X-CRM114-Status: GOOD (  11.60  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1316; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=jkEvlhNrGy4+zr/Kw7j1aPz+pb88B7Nghlwg5R4mxEw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqx0PQHvrXauKfqKrTsbBnSOe4rrtmP4OQWk+1H
+ oVnsF8TNgOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasdD0AAKCRAk1otyXVSH
+ 0GeNB/oDhu8wDi9UdXa53rTKeQkmHe1JGb4K1econGzifJVtnAH+WpdnOAHqNocd973sKbYrYJK
+ b6aH18ARbId20iOkmNImVSYBMOXDJSc0sxRM4gzN0FqrIEDXs/7kULaF4e1xMSl0tEk4SSQ/GTH
+ fgf//KIHHsHB90pm/nqN3ZOC5tq+o5o8Gde+ATJ3jH9DL49ldBE4cxvOh2FjqgRuzf7Kyz3Bx43
+ ZPiriQ1KqDKBqp9HhSMI5bzVXcyjEUdTTgUbIyXNYJlKrsBYMlgrL0c7MnFjdSiCw08qAfuslU0
+ +5X7q8X0N3jGNPZUVFh1CtWaePdr8Xr5X+sf06c6USIVyuPv
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,47 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the SIUL2_1 pinctrl reg list to cover the EIRQ input-mux IMCR
-window so the EIRQ source-select (SSS) registers used to route a pad
-to an external interrupt line are reachable by the driver.
+On Thu, 03 Sep 2026 18:27:38 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: rockchip: rockchip_sai: Handle runtime PM resume failures in set_fmt
 
-This adds the IMCR398..IMCR429 region (<0x44011078 0x80>), which holds
-the EIRQ0..EIRQ31 input multiplexers. Without it the pad-to-EIRQ
-routing write falls in an unmapped gap and the interrupt never fires.
+Applied to
 
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 2 ++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 2 ++
- 2 files changed, 4 insertions(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 996494e34593..53213057120e 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -139,6 +139,8 @@ pinctrl: pinctrl@4009c240 {
- 			      <0x4009ca40 0x150>,
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
-+				/* IMCR398-IMCR429 (EIRQ input mux) on siul2_1 */
-+			      <0x44011078 0x80>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
- 			      <0x440110f8 0x108>,
- 				/* PGPDO registers on siul2_0 */
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index 31f7aad00b76..fda827fd3eee 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -197,6 +197,8 @@ pinctrl: pinctrl@4009c240 {
- 			      <0x4009ca40 0x150>,
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
-+				/* IMCR398-IMCR429 (EIRQ input mux) on siul2_1 */
-+			      <0x44011078 0x80>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
- 			      <0x440110f8 0x108>,
- 				/* PGPDO registers on siul2_0 */
--- 
-2.34.1
+Thanks!
+
+[1/2] ASoC: rockchip: rockchip_sai: Handle runtime PM resume failures in set_fmt
+      https://git.kernel.org/broonie/sound/c/39205bb7ed4f
+[2/2] ASoC: rockchip: rockchip_i2s: Handle runtime PM resume failures in set_fmt
+      https://git.kernel.org/broonie/sound/c/e9eb1854d161
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
