@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEE3CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 03:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006C0CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 05:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZsRuBkhBUg+LwbJLoNuYgv5+8GqPNF2cVHjSy/4rFo=; b=wADixwuFNNnf3DH0UfLvQgc3cI
-	6SutX5qcDKMEdD3E/XLUEbKFsNmf/7XYVqYAankutfUqeFk2DybROiFWaRP2MLWs+irPMPa6OBdja
-	VCTeD73Xe1xliDxdO3kpEOylovtyIgZZYIlGehLQcLrv4lslFWig8CX5z71P0V1QdrYMV5RWYIWB4
-	Nlkpjzv95RJdypEBVs7I2U373X7RQ9yO+cOBCUaUUSPCRWC+GZ+fzHYL77J4Ijmz+OTpCulIz5jNQ
-	zO4rY6i/LDFkn1A6yxTyByn1YFM7H+GkdMaNaclVTKq1Zm95mcdAbXvdOVMukDMGm05GGPlUN7oC3
-	+mFEvI6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Dyc9g6hm+u1fbOixSigXH4Af3yMCOZ4cRXPlAMvT7Ho=; b=iLEczQvI0/E1/f
+	8rW0stLZ3K3QUW72JMMkAgiRTNjLxGiUFbhtU62iDZe22XqfgXTL4yXjyAVIEGrF/QHErLol3/SNJ
+	B39xSNPQEQJdfktozdSPt+cNNhOej0vLKgv45fPAnwxEvLObnG47rYAP4Y/U8aTbYUSXf2evk+Ate
+	GLo9ZIVAMib1wyJuSd9WHXfFWCuCE1z+qR9n3F3zHFF3J49ejNUbLXNS40BT6sQ078XrEORL8wg+I
+	v3a6uBNjNrGOTmhx4uRVNtwOc8DqNQu6L6KuQdvCsTyUjf7JonJnnXbuk+IUD4q5QY8CjaXjP/tNb
+	2w6bDzwnpBKhIwTzcViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIbu-00000001gL2-3XAp;
-	Wed, 07 Oct 2026 03:46:30 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xEK4E-00000001iNy-0Xpp;
+	Wed, 07 Oct 2026 05:19:50 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIbs-00000001gKf-0m3Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 03:46:29 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so40136265e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 20:46:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791344786; x=1791949586; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2ZsRuBkhBUg+LwbJLoNuYgv5+8GqPNF2cVHjSy/4rFo=;
-        b=dL8ZCsmJX3s6BbTElLyvaK5/xQ+RmQHqQYoinOr2Ja+jXv5QBfszyBVystwBzoZfE3
-         DLHt8eyR+LaJVFDSXtfTE+rTsfE1/0/keFnU/EaJvZt2R9qtfAAFBoToHEKUcmBBZs3d
-         2PYpsBlHGcVfnuOPRLF/EVTfzA67L10URDlQXfd1zfAwXhI2wkhdc6EuFphymY9+4TPn
-         AJ4gECAS/ZzAbBWP38n1bQx31c8c96XkD7PU0ljJkFPQjOp+lwiO9PNb+D8r5T3Yjp4n
-         Flaj6iok5eRW7r5z06LMlRUkKA5ca+VaqyRme75CHOeF8thA+8Ip7iUP2/T5isOIKma4
-         iN3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791344786; x=1791949586;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2ZsRuBkhBUg+LwbJLoNuYgv5+8GqPNF2cVHjSy/4rFo=;
-        b=t0yliZgmG3+ww7qk9OIwaFnJTkAVi5NT8LASlJTJmMITfvVr2CZYCivB+sHyHyv9lz
-         EAlNk+4/GOsF1jKmOj2InmSXQ6erVNrOnOOBfXEAzQ/y4RVk+PMRD2GF+iGzLbZ4awcl
-         nd03YceI0BWBjB6lbJ3dZkSj9DoaF5jMfCHpMaoanbMgRIBRXweVG4b0qnRGCGgRI73h
-         TwOcE6h9hcLlvNFv91HNixC85JnTP8JxtQkWW+PTH7S9u8jK2Tzh51mEv3d01YY8sCZG
-         pd4+j0k40ZCO5H9sO3qP53LThpYKrzTf4HXkxLraqdLknxHPqL8DFbvEgelqBaIihToC
-         aHXw==
-X-Forwarded-Encrypted: i=1; AKwUvByxuLU1Tf8veJe+x+CVZOw9YAGlA3GaZkOnZbW+yp1e9PaHYf1Nab8aZibuzYwyBAQxaBZZ0UmYQ7gikMMGUIOZ@lists.infradead.org
-X-Gm-Message-State: AFuF++mRSpB4Bekn/M418wnqzAjilzMHOd1I4lihz8mz1Uk45A02n5ZV
-	QIz1cG9HH3yN2+wFo/jBlp7k+Zoq4Vi1csyEkl3KF5Tol218DpfCo075
-X-Gm-Gg: AYBFou1xQ5IRHos/B3dwOYWIiYgq2ggxK/ERN5uoM4z+dihvXxD4EY22CdZlh4pBDk2
-	UuMD9P1qGakEEYukjvTUjen5JFyvXaFDCfyZDmUAF/T+TwxrN61DyVD4xTfIbdVBp95kSh058oH
-	hwfsC/lV6ivO1wgEAsIoX4llvVaXMMUf9lYKzgEjcOiSS0AxeSNlTuHxwHrGKa1sWotnmYzfsjJ
-	ZKi8EQze5CGM7e2hCy+gummRaAQAUgWjsgJOTRIV737dhQBl+6XnGGBzQlGbFD1fpMKXRb/EWyJ
-	Ckbr7G99DwoCemICKsSanNs5JodfPU6HeNcH4REuc5Lx+PU4vM7qOlKxf/8KuK6B8k3tEbjDYTa
-	Phn8mKETH6JJEm6PcdnfMgf0DuG2Bfxj3bBY4ontMw6EpRz0J063psTLdiNcyb9yBCkq0gTaMiP
-	MmXCaF9WiB8FfUEpNQAVdQuj8TeHwNnt00sJAn4lbq8UCJRFe9j4VZr0tP7GBeKTLopyf8xj+6K
-	CjhiR/M9jHmMI8NxoQcxFMYCiURa9nQNPakPNd1
-X-Received: by 2002:a05:600c:c165:b0:49c:ffab:551f with SMTP id 5b1f17b1804b1-4a181b33928mr731065e9.22.1791344785546;
-        Tue, 06 Oct 2026 20:46:25 -0700 (PDT)
-Received: from fedora-tap.advaoptical.com ([82.166.23.19])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d1ffbcsm2763573f8f.36.2026.10.06.20.46.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 20:46:24 -0700 (PDT)
-From: Sagi Maimon <maimon.sagi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: radhey.shyam.pandey@amd.com,
-	michal.simek@amd.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	daniel@iogearbox.net,
-	jacob.e.keller@intel.com,
-	joe@dama.to,
-	suraj.gupta2@amd.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sagi Maimon <maimon.sagi@gmail.com>
-Subject: [PATCH net v4] net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
-Date: Wed,  7 Oct 2026 06:46:20 +0300
-Message-ID: <20261007034620.1360542-1-maimon.sagi@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20261004083759.1016519-1-maimon.sagi@gmail.com>
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
+	id 1xEK48-00000001iLy-0e5q;
+	Wed, 07 Oct 2026 05:19:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version:
+	Content-Type:To; bh=Dyc9g6hm+u1fbOixSigXH4Af3yMCOZ4cRXPlAMvT7Ho=;
+	b=Lcjtol5ZM+L6zxXLrGFcUVl0KWH152HdIdakwhc2x8jndes4HKeHqyWV4YW6Yc
+	HnSv9Uu3Rdgtna9X7WGX8aZcG1qJwMaxz/MOExM3E7JH2iKQolJTVUGYyW7u3Bfi
+	BdcmjxOtR3JEbR9XyuUVuptGpeZlPRTwC2JfCbIk/Uyxg=
+Received: from 4F-GAME.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD332Ba1sVq7JaEDA--.27297S2;
+	Wed, 07 Oct 2026 13:19:23 +0800 (CST)
+From: Bob Hui <bg9oxa@163.com>
+Subject: [PATCH v8 0/2] arm64: dts: rockchip: Add ALIENTEK QuarkPi-CA2
+Date: Wed, 07 Oct 2026 13:18:13 +0800
+Message-Id: <20261007-quarkpi-ca2-v8-0-b83192bed07b@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABXWxWoC/1WNwQ6CMBBEf4Xs2ZpSoKAn/8NwqNtFViPFFoiG8
+ O9SjAeTubxk5s0MgTxTgGMyg6eJA7tuhWqXALamu5JguzIoqXQqZS6eo/H3ngUaJVRqlSkOWEj
+ MYF30nhp+bbZz/eUwXm6EQ1TERsthcP693U1l7P3M5Z95KmOkMFWO2hZWU6NPqc726B5QL8vyA
+ aUOt4S5AAAA
+X-Change-ID: 20261004-quarkpi-ca2-21d2a59c50c3
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Bob Hui <bg9oxa@163.com>, 
+ sashiko-bot <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID: _____wD332Ba1sVq7JaEDA--.27297S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3WFWxWF4rJw43JFWxWr4fuFg_yoWfWrWDpF
+	Z8Xrs8Jr4DGr1Ikan7Ca17u34rZa1rJw4Ygr1vq34Fva15ZF18Ar4S9r45Xa4jkr95K3Wj
+	qrsxWa4kKa4DZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pREApUUUUUU=
+X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC3h3YRmrF1l0jqAAA3y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_204628_288860_906B91B9 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20261006_221944_890404_280C6AD1 
+X-CRM114-Status: GOOD (  30.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,195 +77,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_dma_bd_release() walks the RX ring to unmap and free every
-receive buffer before releasing it, but frees the TX descriptor ring
-with dma_free_coherent() alone.  Any descriptor that
-axienet_free_tx_chain() had not yet reclaimed still holds its skb and
-its streaming DMA mapping, and both are lost.
+This series adds support for the ALIENTEK QuarkPi-CA2, an RK3588S based
+single board computer. The binding patch documents the board, the DTS
+patch describes the hardware.
 
-axienet_stop() disables TX NAPI and stops the DMA engine before calling
-it, so nothing reclaims those descriptors afterwards.  Bringing the
-interface down while frames are in flight therefore leaks up to
-lp->tx_bd_num skbs and mappings each time.
+The DTS was rebuilt from scratch against the vendor 5.10 BSP device tree
+and then translated to current mainline bindings, so that every node and
+property has a vendor-side or schematic origin instead of being carried
+over from the earlier revisions.
 
-axienet_dma_err_handler() already walks the TX ring this way before it
-restarts the DMA engine: it unmaps every descriptor whose cntrl is still
-set - axienet_free_tx_chain() clears it on reclaim - frees any skb still
-attached, and clears the descriptor.  Move that loop into a helper,
-axienet_free_tx_bufs(), and call it from axienet_dma_bd_release() too.
-This relies on axienet_stop() having stopped the DMA engine first, as
-the RX walk in the same function already does.  The helper frees the
-skbs with dev_kfree_skb_any(), as drops: in the error handler, which
-runs from a workqueue, that frees them directly rather than deferring
-them to softirq as dev_kfree_skb_irq() did.
+Changes in v8:
+- SD card: add the missing enable-active-high to the SD card power switch
+  (vcc_3v3_sd_s0).  Without it of_gpio_quirk_polarity() forces
+  OF_GPIO_ACTIVE_LOW onto the GPIO descriptor, so enabling the regulator
+  switched the rail off instead of on and the card lost its power.
+  Reported by the sashiko review; verified on hardware, the board now
+  boots from an SD card:
+  https://lore.kernel.org/all/sashiko-outbox-162297@kernel.org/
+- SPI0: describe the two chip selects as GPIOs (cs-gpios) instead of
+  muxing the dedicated SPI0_CS0_M3 / SPI0_CS1_M3 pins, so that both chip
+  select lines stay usable from the 40-pin header.  Verified on hardware:
+  both lines are claimed by the SPI core.
+- Link to v7:
+  https://lore.kernel.org/all/20261007-quarkpi-ca2-v7-v7-0-a84c6d5d6ef6@163.com/
 
-The walk must not run on a ring that is not there.  axienet_open() does
-not check the result of the reset that runs axienet_dma_bd_init(), so
-when that reset fails tx_bd_v is either still NULL or, after an earlier
-close, points at the ring that close freed.  Clear tx_bd_v and rx_bd_v
-once their rings are freed, and skip the walk when tx_bd_v is NULL.
-That also ends the second dma_free_coherent() of a stale ring which the
-same path already did.  On the axienet_dma_bd_init() error path the TX
-ring has just been allocated zeroed, so the walk does nothing.
+Changes in v7:
+- Rebuilt the board DTS from the vendor 5.10 BSP device tree.
+- USB-C: the connector now describes data-role "dual" with role-switch and
+  DP-altmode endpoints, the dwc3 uses usb-role-switch, and the VBUS switch
+  is marked enable-active-high.  v5 had set data-role "host", following the
+  vendor configuration; the port is a dual-role connector and the tested
+  behaviour is host mode with DP altmode on an attached display.
+  https://lore.kernel.org/all/20261001140429.1710C1F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260927140406.5C3381F000FF@smtp.kernel.org/
+- GbE: the RGMII delays are now documented as PHY-side only, matching
+  "rgmii-id" in the DTS; re-measured with this setting, a 500 MB transfer
+  completed with zero retransmissions.
+  https://lore.kernel.org/all/80eceb66-b573-463a-a577-30ba5793dbc4@lunn.ch/
+  https://lore.kernel.org/all/20261001153113.E4B131F000FF@smtp.kernel.org/
+- Audio: both the codec and the amplifier paths to the jack are kept,
+  with the hardware evidence in the patch description.
+  https://lore.kernel.org/all/20261001140429.1710C1F000FF@smtp.kernel.org/
+- Codec: the compatible list is "everest,es8388", "everest,es8328".
+  https://lore.kernel.org/all/20260927125456.4D5501F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260927140406.5C3381F000FF@smtp.kernel.org/
+- Microphone wiring matches the board schematic: the microphone signal
+  (HP_MIC) is on LINPUT1 and its reference (HP_MIC_GND) on RINPUT1.
+- rk806 DVS1 pin names, node names, indentation, blank lines and
+  regulator prefixes cleaned up to match the mainline style.
+  https://lore.kernel.org/all/20260927125456.4D5501F000FF@smtp.kernel.org/
+  https://lore.kernel.org/all/20260929-analytic-cocky-magpie-afefcc@quoll/
+- Recipients collected with "b4 prep --auto-to-cc".
+  https://lore.kernel.org/all/20260929-ambitious-festive-orca-b59ffe@quoll/
+- Link to v6:
+  https://lore.kernel.org/all/20261002-b4-quarkpi-ca2-v6-0-9fc33f27ebb9@163.com/
 
-This was reported by the Sashiko AI review bot.
+Changes in v6:
+- My oversight, sorry for the noise: when I switched phy-mode to "rgmii-id"
+  in v5 I forgot to update the commit message of patch 2/2 at the same time,
+  so the message still described the v3/v4 approach (delays applied on the
+  MAC side) while the code had moved to the PHY-side delays.  The message now
+  describes what the code does: the PHY adds the delays internally and the
+  MAC adds none, so nothing is applied twice.  The device tree is not touched
+  by this change; the compiled .dtb is byte-for-byte identical to the one in
+  v5 (verified).
+- Keep the headphone routing as in v5.  On this board the 3.5 mm jack needs
+  the direct codec output routes: describing only the amplifier path gives
+  no output at the jack, which I verified on hardware with a test tone and
+  with music playback.  So the parallel routes are intentional here and
+  were not changed.
+- Link to v5: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077620.html
 
-Tested on the AXI Ethernet MAC of an ADVA TimeCard X2 (PCIe card, with
-the built-in AXI DMA): traffic passes, and after each of ten down/up
-cycles and five module reloads, all made with traffic running and each
-running axienet_dma_bd_release(), traffic resumes and nothing is logged.
-The leak itself was not measured, and neither the failed-reset paths nor
-axienet_dma_err_handler() were exercised.
+Changes in v5:
+- Use phy-mode = "rgmii-id" and let the PHY add the RGMII delays, instead of
+  "rgmii" with the delay applied on the MAC side, as pointed out by Andrew
+  Lunn.  The MAC adds no delay in this mode, so nothing is applied twice;
+  see the GbE note above for the details and the measurements.
+- Move the Makefile entry so that the list stays in alphabetical order.
+- Rename the headphone amplifier node to the generic name "audio-amplifier";
+  the labels are unchanged, so no reference is affected.  The audio routing
+  itself is unchanged, see the note above.
+- Set the Type-C connector data-role to "host".  The XHCI controller is
+  host-only on this board (dr_mode = "host" and no usb-role-switch), and
+  the vendor DT lists "dual" only because the vendor configures that
+  controller as OTG.  The power role stays "dual", as the board can be
+  powered over Type-C.
+- Link to v4: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077616.html
 
-Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-Reviewed-by: Joe Damato <joe@dama.to>
-Assisted-by: LLM sparse
-Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+Changes in v4:
+- Add the missing blank line between the include block and the root node.
+- Fix the node indentation in a few places.  That cleanup is whitespace only;
+  the compiled .dtb is unchanged by it (verified byte-for-byte).
+- Rename the Type-C controller node to the generic name "typec-port", as the
+  other boards using this part do, and drop its redundant status property.
+- Give the fixed regulator nodes the "regulator-" name prefix, as the other
+  boards do; the labels are unchanged, so no reference is affected.
+- Route the Type-C SuperSpeed lanes through the USBDP PHY, as the other
+  RK3588 boards do, so that the PHY does the orientation muxing.
+- Feed the headphone amplifier from one codec output pair only; that is what
+  the other ES8388 boards do.
+- Cc the people and lists reported by scripts/get_maintainer.pl.
+- Link to v3: https://lists.infradead.org/pipermail/linux-rockchip/2026-October/077611.html
+
+Changes in v3:
+- Rebase onto current mainline and re-run dtbs_check.
+- Drop the explanatory device tree comments, as requested.  The rationale
+  that was in them is in this cover letter instead; the compiled .dtb is
+  unchanged by that cleanup (verified byte-for-byte).
+- Use phy-mode = "rgmii" with the RGMII delay applied on the MAC side
+  instead of "rgmii-rxid", as pointed out by Andrew Lunn: phy-mode
+  describes the PCB wiring, and only one side should add the delay.
+- Rename the fixed regulators that used a different naming scheme so that
+  all of them follow the same style, and use generic node names.
+- Drop two redundant "status = \"okay\"" properties (rga3_core0 and
+  rga3_core1 are already enabled in rk3588-base.dtsi).
+- Add the missing "enable-active-high" to the Type-C VBUS regulator.
+- Use the binding-documented codec compatible pair and drop the
+  "clock-names" property, which everest,es8328.yaml does not allow; the
+  codec node now passes dtbs_check.
+- Drop the phy-supply of u2phy0_otg, the USB 2.0 PHY of the USB-C OTG
+  port.  That rail is the Type-C VBUS and is already owned by the TCPC;
+  while the PHY held it enabled as well, VBUS was powered from boot, the
+  TCPM state machine never saw a VBUS-off event, and the port could not
+  finish a source attach, so DisplayPort altmode never came up (the
+  monitor had power but no picture).  Verified on hardware: the port now
+  attaches at boot and the monitor gets a picture.
+- Add the LED color so the work LED is exposed as "green:heartbeat".
+- Drop the camera sensor and its regulator: camera modules are plug-in
+  devices, and enabling the CSI-2 receiver without a sensor attached makes
+  the driver fail to find its endpoint at probe.  Following the vendor
+  tree, camera and panel descriptions belong in overlays.
+
+Changes in v2:
+- Fix the RK806 DVS1 pin configuration: dvs1-null-pins used
+  "gpio_pwrctrl2" instead of "gpio_pwrctrl1", as reported by the
+  sashiko review.
+- Translate all device tree comments to English, and drop a stale
+  comment that no longer matched the Type-C / USB3 nodes.  Comment
+  changes only: the code is otherwise byte-for-byte identical to v1.
+
+Please review.
+
 ---
+Bob Hui (2):
+      dt-bindings: arm: rockchip: Add ALIENTEK QuarkPi-CA2
+      arm64: dts: rockchip: Add ALIENTEK QuarkPi-CA2
 
-Notes:
-    Changes in v4:
-    - Move the TX ring walk of axienet_dma_err_handler() into a helper,
-      axienet_free_tx_bufs(), and use it from axienet_dma_bd_release()
-      instead of a second copy (Joe, Jakub).  The error handler now frees
-      the skbs with dev_kfree_skb_any() instead of dev_kfree_skb_irq().
-    - Kept Joe's Reviewed-by, as the helper is what he asked for; dropped
-      Jacob's, as the error handler changes too.  Jacob, Joe: please take
-      another look and say if either tag should change.
-    - v3: https://lore.kernel.org/netdev/20261004083759.1016519-1-maimon.sagi@gmail.com/
-    
-    Changes in v3:
-    - Clear tx_bd_v and rx_bd_v after freeing the rings.  v2 only caught a
-      NULL tx_bd_v from a first open; after a close followed by a failed
-      reset the walk would have read the freed ring (Sashiko).
-    - Reword the comment on the skb free: a descriptor can complete after
-      TX NAPI was disabled, so "never transmitted" was not always true
-      (Sashiko).
-    - Say in the commit message which hardware the test ran on.
-    - v2: https://lore.kernel.org/netdev/20260930133851.663023-1-maimon.sagi@gmail.com/
-    
-    Changes in v2:
-    - Skip the TX walk when tx_bd_v is NULL (Sashiko).
-    - Free the skbs with dev_kfree_skb_any(), so they count as drops as in
-      axienet_dma_err_handler() (Sashiko).
-    - v1: https://lore.kernel.org/netdev/20260927081034.350422-1-maimon.sagi@gmail.com/
+ .../devicetree/bindings/arm/rockchip.yaml          |    5 +
+ arch/arm64/boot/dts/rockchip/Makefile              |    1 +
+ .../boot/dts/rockchip/rk3588s-quarkpi-ca2.dts      | 1207 ++++++++++++++++++++
+ 3 files changed, 1213 insertions(+)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20261004-quarkpi-ca2-21d2a59c50c3
 
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 74 +++++++++++++------
- 1 file changed, 50 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 09443623a3e2..318ff03b04e6 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -173,6 +173,46 @@ static dma_addr_t desc_get_phys_addr(struct axienet_local *lp,
- 	return ret;
- }
- 
-+/**
-+ * axienet_free_tx_bufs - Release the buffers still held by the TX ring
-+ * @lp:		Pointer to the axienet_local structure
-+ *
-+ * Unmap every descriptor whose mapping is still live, free any skb still
-+ * attached, and clear the descriptor for reuse.  axienet_free_tx_chain()
-+ * clears cntrl when it reclaims a descriptor, so a non-zero value means
-+ * the mapping is live.  The DMA engine must be stopped.
-+ */
-+static void axienet_free_tx_bufs(struct axienet_local *lp)
-+{
-+	struct axidma_bd *cur_p;
-+	u32 i;
-+
-+	for (i = 0; i < lp->tx_bd_num; i++) {
-+		cur_p = &lp->tx_bd_v[i];
-+		if (cur_p->cntrl) {
-+			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
-+
-+			dma_unmap_single(lp->dev, addr,
-+					 (cur_p->cntrl &
-+					  XAXIDMA_BD_CTRL_LENGTH_MASK),
-+					 DMA_TO_DEVICE);
-+		}
-+		/* not reclaimed by axienet_free_tx_chain(), so a drop */
-+		if (cur_p->skb)
-+			dev_kfree_skb_any(cur_p->skb);
-+		cur_p->phys = 0;
-+		cur_p->phys_msb = 0;
-+		cur_p->cntrl = 0;
-+		cur_p->status = 0;
-+		cur_p->app0 = 0;
-+		cur_p->app1 = 0;
-+		cur_p->app2 = 0;
-+		cur_p->app3 = 0;
-+		cur_p->app4 = 0;
-+		cur_p->skb = NULL;
-+	}
-+}
-+
- /**
-  * axienet_dma_bd_release - Release buffer descriptor rings
-  * @ndev:	Pointer to the net_device structure
-@@ -186,11 +226,18 @@ static void axienet_dma_bd_release(struct net_device *ndev)
- 	int i;
- 	struct axienet_local *lp = netdev_priv(ndev);
- 
--	/* If we end up here, tx_bd_v must have been DMA allocated. */
-+	/* tx_bd_v is NULL if axienet_dma_bd_init() did not get as far as
-+	 * allocating it, and is cleared below once the ring is freed;
-+	 * dma_free_coherent() accepts NULL.
-+	 */
-+	if (lp->tx_bd_v)
-+		axienet_free_tx_bufs(lp);
-+
- 	dma_free_coherent(lp->dev,
- 			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
- 			  lp->tx_bd_v,
- 			  lp->tx_bd_p);
-+	lp->tx_bd_v = NULL;
- 
- 	if (!lp->rx_bd_v)
- 		return;
-@@ -221,6 +268,7 @@ static void axienet_dma_bd_release(struct net_device *ndev)
- 			  sizeof(*lp->rx_bd_v) * lp->rx_bd_num,
- 			  lp->rx_bd_v,
- 			  lp->rx_bd_p);
-+	lp->rx_bd_v = NULL;
- }
- 
- static u64 axienet_dma_rate(struct axienet_local *lp)
-@@ -2749,29 +2797,7 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 	axienet_dma_stop(lp);
- 	netdev_reset_queue(ndev);
- 
--	for (i = 0; i < lp->tx_bd_num; i++) {
--		cur_p = &lp->tx_bd_v[i];
--		if (cur_p->cntrl) {
--			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
--
--			dma_unmap_single(lp->dev, addr,
--					 (cur_p->cntrl &
--					  XAXIDMA_BD_CTRL_LENGTH_MASK),
--					 DMA_TO_DEVICE);
--		}
--		if (cur_p->skb)
--			dev_kfree_skb_irq(cur_p->skb);
--		cur_p->phys = 0;
--		cur_p->phys_msb = 0;
--		cur_p->cntrl = 0;
--		cur_p->status = 0;
--		cur_p->app0 = 0;
--		cur_p->app1 = 0;
--		cur_p->app2 = 0;
--		cur_p->app3 = 0;
--		cur_p->app4 = 0;
--		cur_p->skb = NULL;
--	}
-+	axienet_free_tx_bufs(lp);
- 
- 	for (i = 0; i < lp->rx_bd_num; i++) {
- 		cur_p = &lp->rx_bd_v[i];
-
-base-commit: 23609bce9e1de525d1d0e73fc68c6e7971d0b49e
--- 
-2.47.0
+Best regards,
+--  
+Bob Hui <bg9oxa@163.com>
 
 
