@@ -4,149 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCB4CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C26CCA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVpUwU22uEKD7W4M4o2CONa/iooL55EIQZsHgPp6kK0=; b=Xv565hOdwWFgQ10Su3Fg2CB4SB
-	wGuEBG10ZrvyXMFUiQJg+KzcW81euaOKG/1akjuwhUD7RHnf2umYBCH7B6ONkuE7fcNnL48TnLNGi
-	m9aMWk8pTuXn2IJh8XE/FfwTvdS1Z15zVBFooUUFLS+eqtoSckcUIN8if9EVfDwqG28Iw7zkeJZmK
-	EXsqfwzlQjO7zxkOSa+yBORJaq/e4lbhho4cL0RokRfi7sgz2ahMCOInF7bFXokumyCrP+sRuICNV
-	b7LxCBscKfgiK2ZYhSOw8CZ5B3nM0Ks7CeCdUEm1CVGo1hgwYRWYrYLTfv4OlDKvZJNMoFr4P9YH7
-	lpNe3iNQ==;
+	bh=1Zq8NlPwkeL9howQ0mnjaivcphRCiBVQ8OhdmA2H/pU=; b=2Ulol48XyG7EotfSXaMYhiNSEO
+	Ys6DiC9ZUg8SkstOasbGBwMa4v8/nxmzz81l9pPA4qPZptWpXTex3qEPKZ0sradKvPPmukFx4wdxy
+	hiwUfSxrhCOpwdXjsalqlTt2jdTEnowzRIwO9ITg6nzPw8EqEpidhhodQTitEtNzpnd16ofwXwV1n
+	oiEp9CGfll2BscHLH8SdNMRoEbmcoRiiHVchJS+2QyrFPC8ghJlcaKoQgE+YR8rUgzXJLZo+QziLT
+	FSv2DM3mniqkFaI0W2XBM3KMWtkPfU86e9wR+8A+uZSpWAXvcgei5h+e5KY82CDWEUAPkKalPA5Ck
+	nZ/uXuxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEM1G-00000001psY-3BMp;
-	Wed, 07 Oct 2026 07:24:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xEM4V-00000001q77-2HxO;
+	Wed, 07 Oct 2026 07:28:15 +0000
+Received: from mail-ed2-x08.google.com ([2a00:1450:4864:33::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEM1E-00000001ps6-16px
+	id 1xEM4O-00000001q5W-2W1x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 07:24:53 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6975Nu881567054
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Oct 2026 07:24:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AVpUwU22uEKD7W4M4o2CONa/iooL55EIQZsHgPp6kK0=; b=NWfS0D0eVGD8Ok+a
-	ItVMICbFmN4Pa8s0NHvUUl+KV7E4pFyLF8xMcW5GyJuzewPKBPrg34y/X9dB4Vox
-	6LjMoR1/CZxdK7XNeIJ/Q9wyIfLfqkDQ4BzVfJElSE441HhIhQfEq5/AT8FBFKe1
-	VkUrztA0mujGiZ7CW2EipTQtypQ2sIWyt9rye4od28rD43d4pkC/BszGocZtyXGN
-	z9o3QKZgX71bCK5MfynKya07QL366faaCEVHSAdm5O0xJeKj2IAw3w+LtvdKHGZO
-	M+Te//uEWi7n6ScQO74BAKIP7G6gHPiMdXCLWMWD9UXvR9Vqhr8vd/Je8FUZysMs
-	g7wpLg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5fw8rbqg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 07:24:50 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso2693392a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 00:24:50 -0700 (PDT)
+	Wed, 07 Oct 2026 07:28:13 +0000
+Received: by mail-ed2-x08.google.com with SMTP id 4fb4d7f45d1cf-6ad83f018e0so2101199a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 00:28:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791358085; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DPDqQKygPEUBm72VecF10rfzXPAKklCyp7SoM4e+uP7jFDR3S6XzYPZxBtFcZnXug6
+         Nf7cW9I4YQLo+/nQKso3sF7kzWvCeERJZPCHM8+qRRPrCdELw1nMUwlsSr9tBaQVfKVp
+         of63UjhYtUHaiJ2tg4ynE5orSRuWQzhUriFkIJXmNOhG2bDpnokPseg25QJ4vcdmMElD
+         +omfYCJLC+/4+7UXieH9CGDvLezIwQS6KahyUr2QZLe6EbOm3Y6ghk3gXMeqpoNfU8fs
+         3xaNgXF5DiHhWMiHmYUYGwUry7OC0axpgG48ASDVe3rcQDcTttyB4S5b0BWLT/5PPnfF
+         yOnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1Zq8NlPwkeL9howQ0mnjaivcphRCiBVQ8OhdmA2H/pU=;
+        fh=ojbHc2xRfbkpeyRRDEtvABJmjxk6D31niXMEccmuRG4=;
+        b=i+PVVK9kDNeYlGNMsWi90EOuZLrFewv0BkbNpZosVrvqaE83RPmowZH3q8G1Nob7Bg
+         4t91tffkPZhRB1e00OTlAyEuHEuqgZtgYVZ/xTFwAAk+2X0/wp2FmxkUny8O5ZQDRVX6
+         ASCp/b7HCttUG1PCPmyNPdX+2byuY11WCdL/JDso8AXPaFuaj0zOi9Av6X0E7JdQLqHw
+         eb6qhNey8Bwi/HC9W827DjVdCx7cXTtTqnbxTwu7F2VfaxURnDMT+GQS2JUGUnp8HxKk
+         5nKXGgz2aR3oMvz+so7Wc8s83n/Gpj0CjyabkPdJGW0lOIMDp4lmL6+kUMFFm8lO03oj
+         2bSA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791357890; x=1791962690; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AVpUwU22uEKD7W4M4o2CONa/iooL55EIQZsHgPp6kK0=;
-        b=Oj3drKqRzsDCcsdhncuLNbq+/iiiaM6EvP1KVFNN1J7r4j3RDhcCMLupw5xs2TcaBi
-         FyCoM4MN208o5wdcHrPg/EMqUAx0EenCT0Me53KI8DovpqcIAceaQq0NgomQWWVIZ9XD
-         a1NU48lDVoAks8/MvhLR9nvBAQCYjur28GPPGs6vob0495n+9j+CO0e4fVrtgKw9OpBP
-         AqRubZvmK0c8rKLvncg8EX7RDcvAS0qQfpPrHas3y5D/dsC+al3Zf2uTJ86FW9W3z2ek
-         eqt/xijKDhRAEd42sH51LQ6bMftqPn0NUlh4DKjaq/8oSucCFD6jIJOQQp/227EtYH8r
-         vosQ==
+        d=gmail.com; s=20251104; t=1791358085; x=1791962885; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1Zq8NlPwkeL9howQ0mnjaivcphRCiBVQ8OhdmA2H/pU=;
+        b=iGYUnG8aJh3vxv5OtugzmR89CGfMXVF2izEFB+quEagKHXK507lbsjd4/MtqqQ2O01
+         Qf1e2AjcZItBQqTP0thE9+W+btkzukG6CLolZ5J6BuzFryxtfkOQyFiEVlsUrMU0uqBK
+         vPdFnWarC5uYdIeBuRi7RuX2D+jnJ7bOhbhSko/mokJNQu8Vk3tdtx6CwTnBLCX81SQ9
+         I4gfmu+TgvT1yW/kfa/Rds0Q5236CDnsf/QEfRDhiOMBOY567ezD4mAr73EvC8yM5ANZ
+         d4/eH7HAA3JAaYqcHfxBHYc8W5D3c9f7XfbV4nWTrieOd7alRoIB/NPkid9QBBHnaf6s
+         fwMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791357890; x=1791962690;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AVpUwU22uEKD7W4M4o2CONa/iooL55EIQZsHgPp6kK0=;
-        b=W53sczG+2Ayij7xjUF/qyJcXfREpXbWz/47GjLT8I3IWVOowGUJgJfe0TF76M9Y3ME
-         d9jbvc8fCKmEm5J1sXwuyBBjblscENWeQQRczWCwAzqUXfZaOu17GUcCczIeYBWUUWhp
-         8iT3RyzRmjdmlsB4K/g/519sgt8FLoM7sQuYo8jTF46NFDrvuyyBknOI1VM9VPDO0dRG
-         ZTe8+nBuIvDMcftWd6YHVEH6r0oHGfOeCqOu6kBNdQCvdIEm415Eyhe21PRZxbLz/CuR
-         Jmf6U3/xDGZlE2d0b70isahijCSdZ9nyK05EkZ9PRvh8LZSvJ3DxLGC3K5zwxXy6o56A
-         gW9A==
-X-Forwarded-Encrypted: i=1; AKwUvBygGyUBbJ+cSZNdeJDZ3mryEG++lHO0PVduAl+GfT0AKYeX/nfo14AkqPrpvHa3m7YDSO2nQZ69joPvR3NFxlBB@lists.infradead.org
-X-Gm-Message-State: AFuF++m2DpVxx8aQ3Fv/9WHF9xWpU4CyZWUdNlk70rAKCEMkKJJx83gh
-	AeXF7ZMLTanRrQD21v//F277tJBFuKEKZlyHTiTwIXOiR+gE5EsgxaSrfaL2CeZv0bewJz6E3Bh
-	cN7vbfEn2X9dKuZr/9+U46iCRbhQs66ADhhXnHc5/RYjZIaaB7kJuXeu3fNCZtEXziLrKjtN9Bf
-	xJdA==
-X-Gm-Gg: AYBFou11MG6oqAURMRB4U9QEwMt8l7scixgi7ZWMd7itKJ+y8BazdiI+8XxOLbbhDhp
-	3fUmFQ7bbERqpgjkQ1lOVargNrlB51j5tqv6Psxb1dsEIZQcu+DFMSal9A80UiojNXlWqVObknF
-	+hh7ni3Gxc7PxCXxQ0QWYjriQ006lihtahUGyyKr49/7iX6hkd9MHbohRrKmX+TzhLuggZwQjAx
-	j0JkCyUS8wUQkTWG54D/PVAh4WrmlwwnDXOpZfq9paTQTOkGmOLnD/mhWcwXfnZOMZNVR3j0lz8
-	nNKTkAoSVdDYleY/uU6QDF74Z4MAaUlEMCTxbdmUssxgPMCP03dQ7XB8Np/HaU5N6HNPta4sdQ/
-	aJCWYKoLdKuT9UDVXN/5kXW2fJbDxISq0qQ==
-X-Received: by 2002:a05:6a20:918b:b0:3dd:85a8:4c56 with SMTP id adf61e73a8af0-3e134051f3amr991004637.29.1791357889586;
-        Wed, 07 Oct 2026 00:24:49 -0700 (PDT)
-X-Received: by 2002:a05:6a20:918b:b0:3dd:85a8:4c56 with SMTP id adf61e73a8af0-3e134051f3amr990973637.29.1791357889108;
-        Wed, 07 Oct 2026 00:24:49 -0700 (PDT)
-Received: from [10.217.219.98] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89188a0d6d7sm954172b3a.12.2026.10.07.00.24.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 Oct 2026 00:24:48 -0700 (PDT)
-Message-ID: <0f113c6e-b868-4540-9f57-75b3530181f1@oss.qualcomm.com>
-Date: Wed, 7 Oct 2026 12:54:38 +0530
+        d=1e100.net; s=20260707; t=1791358085; x=1791962885;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1Zq8NlPwkeL9howQ0mnjaivcphRCiBVQ8OhdmA2H/pU=;
+        b=WNv3PnhU3ruV/xmrDfoMf+dahbVB883IFgkdfpUOlOEzwkT9uBs31PWdCUKEZ8rIJw
+         QkvHXJgevrYCnBl6oubp0R+7u9WZey4KZb1T6hWa/nqOIbDCozS3lnEIPlY9VZlY1z4Y
+         6sSN/EHudQdF7+kBRU3crFn7DK2fW0KqZ4EndX57G+jfi9DQCMcUYSqoFjZiIFakiY9e
+         Z9a6SJmrsd+WEdjGJT2zF8WezdOMLxkcoyace0BTh6eHoB17QHoS7T18JtVoAyXDUvrL
+         oHUomU/lyh5VeyrqLTZaMYHTk5jckgel9BT9SVcs7UkcTWjLVF0gJMC+piAlLwt6bc+Z
+         Z2LQ==
+X-Forwarded-Encrypted: i=1; AKwUvByU0BjYZlsggs6V7NNjlXzvBn0kL2QUv45Wnjrsg9EPeb2z7Mtdugkn529WqeIZWjFwmA0n4dLbnyT25kybMmFl@lists.infradead.org
+X-Gm-Message-State: AFuF++l9g9YpVOlcnDIOz/XIveIa+TQJmdV/wg765vYU3Ygy4Sdms2Nf
+	lFHyvr04SH2FASEsetJyIBV8fy+rr90eX+xBgvi56x7ZLwc/fZmsL2uH9HseZ5YAp+tByaGj7cx
+	EmJTZLBjsMdlnvCuy+VUGh2W4i7xtA1k=
+X-Gm-Gg: AYBFou33i5nnMqIcztNqLfMKQAcyCAVSD/Sld/LhFbNJxd0mDESmLHVh0x6jLaFwUQT
+	0d41tzTM7/CvWTGSrFETePc6SWHM2PTMw0dDem+XTfbFXbeIoSl0Hn3wSz7BosSuf53LLWvJGMT
+	Fb3XZsMUVNRAUgju5GWLhfzRXl94tHcqOS32yujoRP3tR5Z6Dt8YdY8J6tDvSZHq6pG+eqg3WU0
+	ZwHmW2dQOacQJwe3GFEzfwJlTNcFcmmNe/FqHA/etY6V1TGW+S2Qw8K3Pqro922Qn8ypze8J8oU
+	ijQNVkKDN/GEBTNtMZmW6pssGk54Z8lNALjqUFRpOLMK0cX9V/r/8vxBGL1vRVVn3esJ
+X-Received: by 2002:a17:907:6ea8:b0:c29:659e:2fd2 with SMTP id
+ a640c23a62f3a-c317bdfe7aamr131010766b.27.1791358085108; Wed, 07 Oct 2026
+ 00:28:05 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/9] soc: qcom: geni-se: Populate clk_perf_tbl with SE
- source clock frequencies from perf OPP table
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
-        linux-i2c@vger.kernel.org
-References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
- <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-2-091697dbeb02@oss.qualcomm.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-2-091697dbeb02@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA3MDAyOCBTYWx0ZWRfX1DJ+cgv23WhO
- vxFg126QRW38jRap6Nz5vR7pv0FExMP3gj3oGYUCvY8vnor/sognkcF8MVUrrmAh+HV7eVz0MpP
- zcUzhdRjSinXk/zH/6gzsgt85Zr1QW8=
-X-Proofpoint-ORIG-GUID: 1_64mTjTlFkEQOV83i5aWb68t6tnDoAQ
-X-Proofpoint-GUID: 1_64mTjTlFkEQOV83i5aWb68t6tnDoAQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA3MDAyOCBTYWx0ZWRfX/rnoBviSWWDK
- 56E5z33Lxe97P/Kw5+iqWtN2ESTZOewcLoPG+EdIQXrLvMQWGIuDORzopa5VRRLaNzPmkrR3J8u
- CD4+B7ul/cnAQSLEUVxpiRz2EEp9EA+S4j0cScPLOE9efCYLXTNBCExB0SwmzpZXVksI50kkVUZ
- 0FQT5T553mD8ZLMAw0AbQVJj+w/7Dd7GuOQit2jUHVkZEBtdk2AfeFQ0QPjua/KTQMervtVxY/Z
- 2x856PTVPQIJN01TYRhnkURWBXNou+XjC5jFjYRa3DVZzFBOofklelYT1+JAXUK/OCqGwrzHa3k
- 03a3zeF1TcafpWwCEfu/yBdf/X/NqTcg+C+lbkY6iB1eawgvJEIfcD/5StZ7h9yMN1lf9DvyiBn
- fh8xvS6jyLsZ0DsQFFt3b1xU+lq+Q5jUFphbEKFVP3jqF1xukiZODM1YZfORqB/JGAMjViNsJkN
- Agb9ZUVftMGV61qgsyw==
-X-Authority-Analysis: v=2.4 cv=Af0kjHXG c=1 sm=1 tr=0 ts=6ac5f3c2 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=Kq5vhQSCjsUw4Kr_5AcA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-07_02,2026-10-06_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- adultscore=0 priorityscore=1501 spamscore=0 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610070028
+References: <20261006162807.2843858-1-coiaprant@gmail.com> <20261006162807.2843858-3-coiaprant@gmail.com>
+ <ac2a4e80-6d35-457a-bdc5-ee8511198bec@rock-chips.com>
+In-Reply-To: <ac2a4e80-6d35-457a-bdc5-ee8511198bec@rock-chips.com>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Wed, 7 Oct 2026 15:27:54 +0800
+X-Gm-Features: AclHuK9-vNcZxKo1OhLsfKqvuLHm0D_pklXBR5Ny7XJ7B7WuohnKFrZGwSHbsF8
+Message-ID: <CALj3r0gQ_U2ZUJkRgF4NdB1Gd3A8ZT3T6qjLhwGZPg=VUXLsrQ@mail.gmail.com>
+Subject: Re: [PATCH v13 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
+ selection for RK3568
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_002452_399532_391AE11C 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20261007_002808_678404_7FAD2D87 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,50 +122,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Shawn Lin <shawn.lin@rock-chips.com> =E4=BA=8E2026=E5=B9=B410=E6=9C=887=E6=
+=97=A5=E5=91=A8=E4=B8=89 08:53=E5=86=99=E9=81=93=EF=BC=9A
+>
+> =E5=9C=A8 2026/10/07 =E6=98=9F=E6=9C=9F=E4=B8=89 0:28, Coia Prant =E5=86=
+=99=E9=81=93:
+> > On RK3568, the SGMII interface can be routed to either GMAC0 or
+> > GMAC1 via the GRF register pipe_sgmii_mac_sel.
+> >
+> > Add support for this selection by introducing the
+> > "rockchip,sgmii-mac-sel" DT property.
+> >
+> >  From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
+> > bit 1 (pipe_sgmii_mac_sel) is defined as:
+> >
+> >      0: SGMII routed to GMAC0
+> >      1: SGMII routed to GMAC1
+> >
+> > The hardware reset value is 1 (GMAC1). If the property is set to 0,
+> > the driver routes SGMII to GMAC0; if set to 1, it routes to GMAC1.
+> > If the property is absent, the driver leaves the routing unchanged,
+> > so the effective value is whatever the bootloader or hardware reset
+> > left.
+> >
+> > The driver validates the value and rejects anything other than 0 or 1.
+> >
+> > This is necessary for boards such as the Ariaboard Photonicat, which
+> > uses the SGMII interface connected to GMAC0.
+> >
+> > Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20=
+TRM%20Part1%20V1.1-20210301.pdf (Page 229)
+> > Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> > ---
+> >   .../rockchip/phy-rockchip-naneng-combphy.c    | 42 ++++++++++++++++++=
++
+> >   1 file changed, 42 insertions(+)
+> >
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drive=
+rs/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > index 7843356a4dd47..f76b48009673d 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > @@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
+> >       struct combphy_reg pipe_xpcs_phy_ready;
+> >       struct combphy_reg pipe_pcie1l0_sel;
+> >       struct combphy_reg pipe_pcie1l1_sel;
+> > +     struct combphy_reg pipe_sgmii_mac_sel;
+> >       struct combphy_reg u3otg0_port_en;
+> >       struct combphy_reg u3otg1_port_en;
+> >   };
+> > @@ -212,6 +213,8 @@ struct rockchip_combphy_priv {
+> >       bool enable_ssc;
+> >       bool ext_refclk;
+> >       struct clk *refclk;
+> > +     bool sgmii_mac_sel_present;
+> > +     u32 sgmii_mac_sel;
+> >   };
+> >
+> >   static void rockchip_combphy_updatel(struct rockchip_combphy_priv *pr=
+iv,
+> > @@ -341,6 +344,7 @@ static struct phy *rockchip_combphy_xlate(struct de=
+vice *dev, const struct of_ph
+> >   static int rockchip_combphy_parse_dt(struct device *dev, struct rockc=
+hip_combphy_priv *priv)
+> >   {
+> >       int i;
+> > +     int ret;
+> >
+> >       priv->num_clks =3D devm_clk_bulk_get_all(dev, &priv->clks);
+> >       if (priv->num_clks < 1)
+> > @@ -375,6 +379,16 @@ static int rockchip_combphy_parse_dt(struct device=
+ *dev, struct rockchip_combphy
+> >
+> >       priv->ext_refclk =3D device_property_present(dev, "rockchip,ext-r=
+efclk");
+> >
+> > +     if (device_property_present(dev, "rockchip,sgmii-mac-sel")) {
+> > +             ret =3D device_property_read_u32(dev, "rockchip,sgmii-mac=
+-sel", &priv->sgmii_mac_sel);
+> > +             if (ret) {
+> > +                     dev_err(dev, "failed to read sgmii-mac-sel proper=
+ty\n");
+> > +                     return ret;
+> > +             }
+> > +
+>
+> device_property_read_u32() should return non-zero value if it's absent.
+> How about this:
+>
+>         struct rockchip_combphy_priv {
+>                 int sgmii_mac_sel;
+>         }
+>
+> static int rockchip_combphy_parse_dt:
+>         u32 val;
+>
+>          priv->sgmii_mac_sel =3D -1;
+>          if (!device_property_read_u32(dev, "rockchip,sgmii-mac-sel",
+> &val)) {
+>                  if (val > 1)
+>                          return dev_err_probe(dev, -EINVAL,
+>                                               "invalid sgmii-mac-sel
+> %u\n", val);
+>                  priv->sgmii_mac_sel =3D val;
+>          }
+>
+>
+> static int rk3568_combphy_cfg:
+>          case PHY_TYPE_SGMII:
+>                  if (priv->sgmii_mac_sel >=3D 0)
+>                          rockchip_combphy_param_write(priv->pipe_grf,
+>
+> &cfg->pipe_sgmii_mac_sel,
+>
+> priv->sgmii_mac_sel > 0);
 
+Hi,
 
-On 8/27/2026 11:29 PM, Praveen Talari wrote:
+Thanks for the suggestion. I'd prefer to keep the current form, because
+it keeps "missing" and "malformed" as two distinct cases.
 
-[...]
+Current logic:
 
-> @@ -1175,6 +1181,31 @@ int geni_se_domain_attach(struct geni_se *se)
->   	else if (ret < 0)
->   		return ret;
->   
-> +	perf_dev = se->pd_list->pd_devs[DOMAIN_IDX_PERF];
-> +
-> +	num_opps = dev_pm_opp_get_opp_count(perf_dev);
-> +	if (num_opps < 0)
-> +		return num_opps;
-> +	if (num_opps == 0)
-> +		return -ENODEV;
-> +
-Let's combine both in a line.
-if (num_opps <= 0)
-	return num_opps ? num_opps: -ENODEV;
+if (device_property_present(dev, "rockchip,sgmii-mac-sel")) {
+    ret =3D device_property_read_u32(dev, "rockchip,sgmii-mac-sel",
+                &priv->sgmii_mac_sel);
+    if (ret)
+        return ret;
+    priv->sgmii_mac_sel_present =3D true;
+}
 
+- device_property_present() checks whether the property exists.
+- If it exists, device_property_read_u32() reads it. A non-integer value
+  (e.g. a string) returns an error, which is propagated -- it is not
+  silently treated as "absent".
+- The range check is done later, in rk3568_combphy_cfg's SGMII case, so
+  a bad value only fails when SGMII is actually used. That keeps non-SGMII
+  users (PCIe, SATA) working, and leaves room for future SoCs that may
+  support a different set of MACs.
 
-> +	se->clk_perf_tbl = devm_kcalloc(se->dev, num_opps,
-> +					sizeof(*se->clk_perf_tbl),
-> +					GFP_KERNEL);
-> +	if (!se->clk_perf_tbl)
-> +		return -ENOMEM;
-> +
-Non functional to Simplify, keep level = 0 outside and increment level 
-within loop> +	for (i = 0, level = 0; i < num_opps; i++, level++) {
-> +		opp = dev_pm_opp_find_level_ceil(perf_dev, &level);
-> +		if (IS_ERR(opp))
-> +			return PTR_ERR(opp);
-> +
-> +		se->clk_perf_tbl[i] = level;
-> +		dev_pm_opp_put(opp);
-> +	}
-> +	se->num_clk_levels = num_opps;
-> +	se->has_opp = true;
-> +
-level++;>   	return 0;
->   }
->   EXPORT_SYMBOL_GPL(geni_se_domain_attach);
-> 
+With int + -1 as the "absent" sentinel, a DT value like 0xFFFFFFFF would
+wrap to -1 and be mistaken for "absent", bypassing the range check. The
+u32 + present flag avoids that ambiguity.
 
+So I'd like to keep v13 as-is. Let me know if you still feel strongly
+about it.
+
+Thanks,
+Coia
 
