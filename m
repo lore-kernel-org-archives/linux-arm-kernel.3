@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A2ACA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88F6CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aNKeIlua+JayoelHkZCjyJRAYpDffnOMiZGr6BfxirU=; b=mLQV+qwCDcOpwUNHISZV7/XVZD
-	i7LQg7Oa7O+niVL/EkkwtEuBE4bKL9qG6acXQ3AJrsrnYwzFwFrWPDds7G+juaRbsvVrNFmbDIbVv
-	J5GbS2CqQt7P90OeMnV52VNJMCX0eABHilD12mdihlu63KqtVQjvu/FoiBBqVzb3vBFPjWC+Wiyxo
-	wPHbaJwgYGJKmnCekPFF6Qu4yO3JsQpasvfuUtmMm4Hyn2DtI4E6Brat//zP2Fh5DkAoXeNpPkSRE
-	5yxCGVHDPdGdihu+/3zbBaMj9jeLfRGFFbkqVq/0QOxOqectdjs0hmzW51MbUoFvNPT00avFbSHJB
-	HGdqO4bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uv0E972XvkHZpc86P2YGE1FsEYyLKJDTtXbuIBu+qC0=; b=jeJx/3aqjSbxH0XdyeMBe8lTaX
+	lXSZWA78yZ9ku2Gq43nB9LB9CarZQOH49SAu8VBmXp1boyH5tRVZBxbl7EpAyj4E9mcPClw4QlOkX
+	zo0J6uPonbX2ouVOdW087QqhV7vEsSpmaq+j2xIBTKINAsvGYfG96qrMzdLxEnWYO1SofBM5xel0g
+	c7uKU0rTd93i0GA2PQrbyuw2kYdxinlpKHE5KH45BrSDfREUuRNccXuFp9X12g25FBEakk4dCDd6D
+	dAqew5pXfiNRp12e044dNC+uiIrZMciS1H7ZqV1RWr1SMvuQ/UcpUfHVwWZHRNjI3oGgOi20M9stb
+	MV83qjXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFtB-00000001YBO-01sr;
-	Wed, 07 Oct 2026 00:52:09 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1xEFuV-00000001YLO-1FYJ;
+	Wed, 07 Oct 2026 00:53:31 +0000
+Received: from mail-m8314.xmail.ntesmail.com ([156.224.83.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFt7-00000001YAz-3YqI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 00:52:07 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6af9befd04cso4855292a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 17:52:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791334324; cv=none;
-        d=google.com; s=arc-20260327;
-        b=U91GGVz8AopXb5l1GAn8Nk8g2TMVEX0icYXTxNns9IIZbKoumIq/xC5UF0vGOnjijF
-         VnfkIroUE1jdLP8zWv//IRJb1t8oowbdGm2WtsAEhZ8pmsFw7ek4wUUvtUjCpiCsha81
-         5bh+bRKZhJaRtv5PGmcJOvHrZtY4DTg2AUnqk/SiFYBsYvgjPBPickg/z0dVvuJO1PnB
-         npdWqqeM2Q5Mrb7UdJz0YlSw0kxJZ2ktU+wlQhToR9B5wg3wU2zGF7suCiV+VpqWp6kM
-         UeYIYkvqggJf+ef2eiBrLQvWUT6zMkx0jBU7OlYzKmpr2TF3lXrzXyz8OsDUF2DsrKzK
-         ki0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aNKeIlua+JayoelHkZCjyJRAYpDffnOMiZGr6BfxirU=;
-        fh=bJw1m0v31YDt1QEAphnuKUJi2liv1jl6jp8/G4lmqGg=;
-        b=USbGv0hRspGuBH9d8WfQX7ZCHrzc0TRAjYXlcurrJLlzTJzKywWDMo1FhDOW/aN8wP
-         qWKrNcD53pqp48VHwXmL3K3J+XEh75qfttq1L4kAG/PqecKpbe8b288lHhLmdKZdeq20
-         r8C8UpCvJ09rEXW+EEaHNzMoDNCEBGWZtPBg7/lSpbwepyiM9we+3YqgqBI6zlmgs1aE
-         TfvX+yoIRwBiVuRkZhFYKY+UVww6nlslRr8z60+yEliQE0LZlUoZ8S9fepfh4Plxk6Sm
-         NtnboxIEDCc7gb4psYLpXqDvAZv41h9AvXfsj1lwJna9a3nj/2+d2gjhAXDgnrfGVtdg
-         Eysg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791334324; x=1791939124; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aNKeIlua+JayoelHkZCjyJRAYpDffnOMiZGr6BfxirU=;
-        b=ogvGVsmg3rQih8kfNJNdl+73c+ps3i5yhfak53+K5cG4xyUdKMxykT4QVYFsgoTPPY
-         s5nCRAexNxA9UrK6WI029c2Il1Xpgnv3KjK3OQWBG4/IQjaqI6D50m8Or+bZyitc3aAB
-         4brXbkD/IfKLwGqjFvR5AS6EVozNZEDXVsjsSmNxnkV5XsiOyReXp7ohyWAnHtNFKLu0
-         cuK3jYx2HpBrICYQzbuYat3RcAU3K0fGGGC/mgy3VgX/J/wBBfV4hWR+Z7sq+2a7F7Vg
-         7N3XtfYiE/ZL0oqDy26qKU9Z/Tt2RXzDri+LNTIMDtLIVpx21ngDKoNTdwWI42x4oOzU
-         L8yA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791334324; x=1791939124;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aNKeIlua+JayoelHkZCjyJRAYpDffnOMiZGr6BfxirU=;
-        b=kT/T+0DeMnNN1v7mN3PrYg7SfwD9DjyLTgqahe8s6u+OO6k144M4PUdwYstYzDnfmP
-         RZd59YTEauorVJeQXteXPheGHN2otJPg9lLBJYhjEhl1kwevJUxzdkYXaq2mDuETQXGl
-         qnCHcaFXVSBA7Mkr+u4rJeOTcVECNJte4NGIEbjhZWHMd84CotRby77T2ocHM0wGCGVZ
-         yilTvMA3lCI7wbYEFFRW94dd7DM8o72w9gcRpykwnmG2+uvULjibK91jQQTsCAIVbhaw
-         JFEvjH9wjPHSCGk5B4cqRBao4UKi/OWHpZtkT55NKgybSQqS9uyCMT0HVVuvl65gPVZQ
-         1m8A==
-X-Forwarded-Encrypted: i=1; AKwUvBxt3pf0iB9onPfTS5PnHjIP8OJ7ubAegFkpsRa3ppDZuIR0bmkWjm1i2ixxnBFteqpdKVhlf70dhPOVIQqhiF1l@lists.infradead.org
-X-Gm-Message-State: AFq9FYIUgBef6QCKQinzJ0NgQql4Ap8ueYoltJ2HUDTj6yWV4CY8ZwM1
-	kIk4NalgJysgnAQcHw4dyLNrTPqdbtNU7Qc5+wLbyQFIcKieT71YCpc1oy6brJ9O7wQJk49GFzp
-	0idj4aV15ddNZ2q8YmrK2fcGXbwGGRKXEFFk/5MlViQ==
-X-Gm-Gg: AYBFou0DTmZrBgRxpIkW4jMaPGhzLva9vZzDGJT3mgCaSzlqHNHhpAQVwMYum3+/sHS
-	pdOJl4gSURE5ZVuXxRuoqe4eBWZAuvuAXfBvYK92K/Ndvdn923cubbGHdpp9y0AX+8c1hqvdFlQ
-	9Nn3PBhpP2B9DNbhlKeW7dl0NYX8F7gZRXAi6aW32pNlswzVIlt1Owv6rUQWE9mNdRRroe4pf5B
-	n11blF9LL+JZF+ha2CmrtNP39lDcdu43OY9lSNNYVP/bi30Vd3vIVWL1PAxX1tdHGFlYm+/Casl
-	91H9fcI/1NL0MsVhy0KfhtcVZ3Xuo2YR56ZbFqETv4UVsRHS/VQpiQ==
-X-Received: by 2002:a05:6402:455a:b0:6ac:73f8:2e50 with SMTP id
- 4fb4d7f45d1cf-6aff29b8a9dmr558035a12.43.1791334323774; Tue, 06 Oct 2026
- 17:52:03 -0700 (PDT)
+	id 1xEFuS-00000001YJr-0k0Z;
+	Wed, 07 Oct 2026 00:53:30 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 501f3a86f;
+	Wed, 7 Oct 2026 08:53:17 +0800 (GMT+08:00)
+Message-ID: <ac2a4e80-6d35-457a-bdc5-ee8511198bec@rock-chips.com>
+Date: Wed, 7 Oct 2026 08:53:16 +0800
 MIME-Version: 1.0
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
- <arKhbxi3Snbt1_Mn@p14s> <arLZj2DxBazf3wMd@bywater> <20261006183910.GA2890477-robh@kernel.org>
-In-Reply-To: <20261006183910.GA2890477-robh@kernel.org>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Tue, 6 Oct 2026 18:51:52 -0600
-X-Gm-Features: AclHuK8OpBmmKBzqQvP8CWwB7vUNA7khdkA2Xv5tnX4fcSWpzyBVTx2EHup08IU
-Message-ID: <CANLsYkwhrqk0nQNFuP_5aMYQCLGsLrzm-z9YP+Fvv-C1Ug8trg@mail.gmail.com>
-Subject: Re: [PATCH RFC 08/12] dt-bindings: remoteproc: add remoteproc-virtio
-To: Rob Herring <robh@kernel.org>
-Cc: Francesco Valla <francesco@valla.it>, Bjorn Andersson <andersson@kernel.org>, 
-	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-remoteproc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v13 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
+ selection for RK3568
+To: Coia Prant <coiaprant@gmail.com>
+References: <20261006162807.2843858-1-coiaprant@gmail.com>
+ <20261006162807.2843858-3-coiaprant@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20261006162807.2843858-3-coiaprant@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa113d9b55103a4kunm37190398c7e909
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTEIaVh8aGEtLSEkYGR9NSFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=LVXOYYrg7BT+nd5C/HPHiD661/6mZnPBVItwHAXs7TdiTEyAuM3iLBra6IVsJdrjJ82lOVy7sh81k/sLLbiXE7mKJnpYVoMe7Klk0SO+0VL/aPI8EkBunY4XUJKgouHCq8i+TfqLFVpPZnGA1OXmhuEjQEwYQq5jPrStu/tXl+4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=uv0E972XvkHZpc86P2YGE1FsEYyLKJDTtXbuIBu+qC0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_175205_965299_89EED15D 
-X-CRM114-Status: GOOD (  36.48  )
+X-CRM114-CacheID: sfid-20261006_175329_008646_A494E5C1 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,140 +76,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026 at 12:39, Rob Herring <robh@kernel.org> wrote:
->
-> On Tue, Sep 22, 2026 at 09:44:20PM +0200, Francesco Valla wrote:
-> > On Tue, Sep 22, 2026 at 09:40:31AM -0600, Mathieu Poirier wrote:
-> > > On Wed, Sep 16, 2026 at 11:10:53PM +0200, Francesco Valla wrote:
-> > > > Add a new binding to describe remoteproc-provided virtio devices; while
-> > > > these are discovered through a resource table parsed by the remoteproc
-> > > > infrastructure at runtime, their description can be needed to probe
-> > > > non-discoverable buses (such as I2C) or to link consumers and suppliers.
-> > > >
-> > > > Each vdev is described by a dedicated "group" node, which then includes
-> > > > a virtio-device node, which binding is already existent and used by
-> > > > virtio-mmio. Each vdev shall be stattically linked to a "group" node
-> > > > using its index inside the resource table as the reg property of the
-> > > > node; this permits to have multiple instances of the same type of
-> > > > device.
-> > > >
-> > > > The binding is intended to be generic and adopted by any remoteproc
-> > > > provider.
-> > > >
-> > > > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > > > ---
-> > > >  .../bindings/remoteproc/remoteproc-virtio.yaml     | 89 ++++++++++++++++++++++
-> > > >  1 file changed, 89 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..c4a0d84b1460
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> > > > @@ -0,0 +1,89 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/remoteproc/remoteproc-virtio.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: Virtio devices over remoteproc
-> > > > +
-> > > > +description: |
-> > > > +  Virtio devices ("vdevs") can be exposed using the remoteproc infrastructure
-> > > > +  and its resource table. For some of them, a device tree node might be needed
-> > > > +  to describe remote undiscoverable hardware and/or connect consumers and
-> > > > +  providers.
-> > > > +
-> > > > +maintainers:
-> > > > +  - Francesco Valla <francesco@valla.it>
-> > > > +
-> > > > +properties:
-> > > > +  virtio:
-> > > > +    description: Contains a group of Virtio devices exposed by the remoteproc.
-> > > > +
-> > > > +    properties:
-> > > > +      '#address-cells':
-> > > > +        const: 1
-> > > > +
-> > > > +      '#size-cells':
-> > > > +        const: 0
-> > > > +
-> > > > +    patternProperties:
-> > > > +      "^vdev@[0-9a-f]+$":
-> > > > +        type: object
-> > > > +
-> > > > +        properties:
-> > > > +          reg:
-> > > > +            description: Virtio device index inside the resource table.
->
+在 2026/10/07 星期三 0:28, Coia Prant 写道:
+> On RK3568, the SGMII interface can be routed to either GMAC0 or
+> GMAC1 via the GRF register pipe_sgmii_mac_sel.
+> 
+> Add support for this selection by introducing the
+> "rockchip,sgmii-mac-sel" DT property.
+> 
+>  From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
+> bit 1 (pipe_sgmii_mac_sel) is defined as:
+> 
+>      0: SGMII routed to GMAC0
+>      1: SGMII routed to GMAC1
+> 
+> The hardware reset value is 1 (GMAC1). If the property is set to 0,
+> the driver routes SGMII to GMAC0; if set to 1, it routes to GMAC1.
+> If the property is absent, the driver leaves the routing unchanged,
+> so the effective value is whatever the bootloader or hardware reset
+> left.
+> 
+> The driver validates the value and rejects anything other than 0 or 1.
+> 
+> This is necessary for boards such as the Ariaboard Photonicat, which
+> uses the SGMII interface connected to GMAC0.
+> 
+> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> ---
+>   .../rockchip/phy-rockchip-naneng-combphy.c    | 42 +++++++++++++++++++
+>   1 file changed, 42 insertions(+)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index 7843356a4dd47..f76b48009673d 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> @@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
+>   	struct combphy_reg pipe_xpcs_phy_ready;
+>   	struct combphy_reg pipe_pcie1l0_sel;
+>   	struct combphy_reg pipe_pcie1l1_sel;
+> +	struct combphy_reg pipe_sgmii_mac_sel;
+>   	struct combphy_reg u3otg0_port_en;
+>   	struct combphy_reg u3otg1_port_en;
+>   };
+> @@ -212,6 +213,8 @@ struct rockchip_combphy_priv {
+>   	bool enable_ssc;
+>   	bool ext_refclk;
+>   	struct clk *refclk;
+> +	bool sgmii_mac_sel_present;
+> +	u32 sgmii_mac_sel;
+>   };
+>   
+>   static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
+> @@ -341,6 +344,7 @@ static struct phy *rockchip_combphy_xlate(struct device *dev, const struct of_ph
+>   static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy_priv *priv)
+>   {
+>   	int i;
+> +	int ret;
+>   
+>   	priv->num_clks = devm_clk_bulk_get_all(dev, &priv->clks);
+>   	if (priv->num_clks < 1)
+> @@ -375,6 +379,16 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+>   
+>   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+>   
+> +	if (device_property_present(dev, "rockchip,sgmii-mac-sel")) {
+> +		ret = device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+> +		if (ret) {
+> +			dev_err(dev, "failed to read sgmii-mac-sel property\n");
+> +			return ret;
+> +		}
+> +
 
-There are 2 configurations we need to account for: (1) each device
-located behind the remote processor gets its own set of virtqueues and
-adheres to the virtio specifications.  This is the configuration
-targeted by this thread.  The other configuration (2), discussed in
-the other thread, involves virtio piggy-backed over RPMSG.  The hope
-is to represent both configurations using the same bindings.  For (1),
-virtio devices will be advertised in the resource table and for (2),
-virtio devices will be announced via the existing remoteproc namespace
-service.
+device_property_read_u32() should return non-zero value if it's absent.
+How about this:
 
-> Who/what defines the resource table?
+	struct rockchip_combphy_priv {
+		int sgmii_mac_sel;
+	}
 
-The resource table is part of the firmware image and is parsed by the
-remoteproc core.  For (1), as presented in this set, "reg" links the
-entry in the resource table with the device definition in the DT.  For
-(2), the definition is also a device index, but said index is
-communicated to the remoteproc core using a namespace announcement
-rather than the resource table.
+static int rockchip_combphy_parse_dt:
+	u32 val;
 
-I hope to establish bindings for configuration (1) and merge that work
-first.  Once that is done we can extend it to cover (2).
+         priv->sgmii_mac_sel = -1;
+         if (!device_property_read_u32(dev, "rockchip,sgmii-mac-sel", 
+&val)) {
+                 if (val > 1)
+                         return dev_err_probe(dev, -EINVAL,
+                                              "invalid sgmii-mac-sel 
+%u\n", val);
+                 priv->sgmii_mac_sel = val;
+         }
 
->
-> > > > +            maxItems: 1
-> > > > +
-> > > > +        additionalProperties:
-> > > > +          type: object
-> > > > +          $ref: /schemas/virtio/virtio-device.yaml
-> > > > +          maxItems: 1
-> > > > +
-> > > > +        required:
-> > > > +          - reg
-> > > > +
-> > > > +    additionalProperties: false
->
-> Preferred to put this before 'properties' in the indented cases. Easier
-> to see what level it belongs to.
->
-> > > > +
-> > > > +    required:
-> > > > +      - '#address-cells'
-> > > > +      - '#size-cells'
-> > > > +
-> > > > +additionalProperties: true
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    remoteproc-cm33 {
-> > > > +      virtio {
-> > > > +          #address-cells = <1>;
-> > > > +          #size-cells = <0>;
-> > > > +
-> > > > +          vdev@0 {
-> > > > +              reg = <0>;
-> > > > +
-> > >
-> > > Do we need the 'reg' since we already have vdev@X?  I'll let the DT people
-> > > provide their input on this.
-> > >
-> >
-> > AFAIK yes, because the rproc_get_vdev_fwnode() helpers search for indexed
-> > child nodes using the 'reg' property, not the node name. This I believe
-> > is the preferred way of doing things.
->
-> It is either both unit-address and reg or neither. It's preferred to
-> have them unless you are just making up numbers.
->
-> Rob
+
+static int rk3568_combphy_cfg:
+         case PHY_TYPE_SGMII:
+                 if (priv->sgmii_mac_sel >= 0)
+                         rockchip_combphy_param_write(priv->pipe_grf,
+  
+&cfg->pipe_sgmii_mac_sel,
+  
+priv->sgmii_mac_sel > 0);
+
+> +		priv->sgmii_mac_sel_present = true;
+> +	}
+> +
+>   	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
+>   	/* fallback to old behaviour */
+>   	if (PTR_ERR(priv->phy_rst) == -ENOENT)
+> @@ -803,11 +817,34 @@ static const struct rockchip_combphy_cfg rk3562_combphy_cfgs = {
+>   	.combphy_cfg	= rk3562_combphy_cfg,
+>   };
+>   
+> +static int rk3568_combphy_select_sgmii_mac(struct rockchip_combphy_priv *priv)
+> +{
+> +	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
+> +
+> +	if (!priv->sgmii_mac_sel_present)
+> +		return 0;
+> +
+> +	switch (priv->sgmii_mac_sel) {
+> +	case 0:
+> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel, false);
+> +		break;
+> +	case 1:
+> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel, true);
+> +		break;
+> +	default:
+> +		dev_err(priv->dev, "invalid sgmii-mac-sel value %u\n", priv->sgmii_mac_sel);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+>   {
+>   	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
+>   	unsigned long rate;
+>   	u32 val;
+> +	int ret;
+>   
+>   	switch (priv->type) {
+>   	case PHY_TYPE_PCIE:
+> @@ -873,6 +910,10 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+>   		break;
+>   
+>   	case PHY_TYPE_SGMII:
+> +		ret = rk3568_combphy_select_sgmii_mac(priv);
+> +		if (ret)
+> +			return ret;
+> +
+>   		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
+>   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
+>   		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
+> @@ -984,6 +1025,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
+>   	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
+>   	/* pipe-grf */
+>   	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
+> +	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
+>   	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
+>   	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
+>   	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
+
 
