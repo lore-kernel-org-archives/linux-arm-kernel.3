@@ -4,125 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD16CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 16:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469ECCA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 16:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayY1qntB3Q0I9nj9GwC4lUQQG2QMB776/yGYyhijWr8=; b=kPS9kEIUJKlF5K07QQ0oTJ65mq
-	AUsvuiG4WI0DXmLXARpUICNLFdLnSKl0DvxvIGY9GyZSP9LOyPJGCrjYttRamU3aUMM7SuF6j9J7H
-	F1WKkaRrbBBHSTevI2IRLKqq1tEaH5oBL89loyv8m8ic4sshMqiSLWERMt7ZWKocwu7HsBwCa1pEw
-	u+B7glfICAsNEuyIPqYBcxUXbRqRYZJq7WawrceaW6V4DSulQY/VITbPvjESQi+tSxa7nH5bI0QcT
-	MfIwDbw61p+4v5YH9NSBT34pWwYYKauHm/RNPkqhde0BIjwbKMPe4G/vVmq1wGT67F/hm32bbtjr5
-	MnVQtfVA==;
+	bh=zlMIijXg4iz/VjoqoLtJH7VuKTZAs1I1kQSEBn3X8VY=; b=Cwy0AzwdEWwLDgwsRhwyoEBnGJ
+	0iCCHA9y82qcKYbLPFQBFmDOKflNUTtp4P6LjRQ0W4umR1NxLGw7A5unkWhWy1Qu85+c6lVjzJhcZ
+	eXJi/oAjuF2/qU4DjfaKLer+suAsK026MotkBO/SF36ELIIIXx5APaAfSSALxubZdDxBpnjpbfQWo
+	AfVrUZKYRNPVA6cB4n6Wj6YO7m7hqzZBRRXjHhfG+nD8bxzRcAklPyOpwh9xKG9ANgJeK8kqwPA0l
+	LqkggGQ/5APTq3dcQxEEr6FKIIvqR/Z9J5MW63O5h1QW5Js0O3FPO2l0861Ot1GLPUWkpfDg1v129
+	THTt/KTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEU6j-00000002kQu-2yJk;
-	Wed, 07 Oct 2026 16:03:05 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xEUKe-00000002l3I-2CmJ;
+	Wed, 07 Oct 2026 16:17:28 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEU6g-00000002kQS-0vdO
+	id 1xEUKb-00000002l2Z-1RQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 16:03:04 +0000
+	Wed, 07 Oct 2026 16:17:27 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 697Ewq9C1587989;
+	Wed, 7 Oct 2026 11:17:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=zlMIijXg4iz/VjoqoLtJH7VuKTZAs1I1kQSEBn3X8
+	VY=; b=IRBoWRyriHI4Rj0rAGSDKHSWiAKX4j3iq+2JIftVZ8qyeW+glOkaOvBX9
+	JFSeH6wrC5n2kEgr4J9BcB98pk/aLHd0o4HGIseC2yYJD61Mnw7VvLijkjUj0RFj
+	iFyhmkopRLEiBTfgNc7Rxg1bhUaxKPUIxwvUqF5ScGNrQHU30SSdgtC7fzqNpXOG
+	0wmsZ6DjMrBoH0JlmO17gs13MXGmXhSseMgW7zMgJCeh4+IrqeFtwDTn2FL5sY+0
+	9H1aUK6HwEcQ9UHAj35QdPyC2TlAbHj3i2qI02L8iYnprE4ZmjlAZ/xZP2j1FTQX
+	kvGZzw6I3W0kzKbaU1vJ3aCNoHSZA==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012042.outbound.protection.outlook.com [52.101.43.42])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h5hw7anf9-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 07 Oct 2026 11:17:16 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pkC0zxGl1558EMpo/JIN+kK3n4eo8ZYUOn4NF4a8c8cbOaWZGJci158mpLJ/XY3w9QvEBgvyOiIo/5sdcs2csipXNNDlB7RnCedNfFKXKnng2bf3NsY5uhz1MuDs/8wUE11/NWSjVUUqp8JCynyOof0KiRThkpxA5xgMuNn5rjCBgsMBdiXN5ciSYWPl8GjIr1y0k63xmhc18RLyaYyvO9dYnAkBsvCVarZtKrvvDVYd9f/gd50R9LX6U7q179OIlB0wdlHc8+ZdUycOPYY0vY0oELe0C1cxLCR71UZoUfGxpVZ8l3+Is15QHc7dS8u1RdVpo5UUIv6sVwYDrvn0cQ==
+ b=S+5Q6YpCQ3sS9W3srb+x7QkGqZ0mE5n+eql1lBpbmi/ayD1IdUecBZzzBTJoHdqpn6cAQtNJJ4y5fcfgNRRdkAzhWxs+YvnGsQyQkX8yvORmjOJLmCDWAXrXIt7InE6+mnDG18GQUzZmoVfH9zvCJlIcNnQy2JEtB1D3ecGdm9wmiA4pCDQVsLKDc3VN0piT7JPAcjvcO+RH7pCk1v4UXOtTyHRNl55iQFa+Qr9YvHh6X0QC/xpMART74hS/48DMUqaDtV3Z7+ZQGKzHt/4skHIA0zwEsb87i9xO9jffziDvBTN2EFEMTPf1i0zrd+RpRLNineTF6Dja7NirU+babw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ayY1qntB3Q0I9nj9GwC4lUQQG2QMB776/yGYyhijWr8=;
- b=KgCnqbN3vyQ1z5L3pTP5iqfwV7pkIM3iV4sxWuxx9pr4gIfJAYmnYiN1NTZ1VI+mo7uPhwA+rcOJOkHWdiuCDsndrJF48Q6l/28SbT+eln4UP7RuzQ+8cec0vuP6nfv4VImhRppMdpJDSJ19PlXw1HbL7/FTMcEsBx9EKdLnjqNPOzrBPvwacRkmkAAqg3CnsJGyplUckSLX35Vx+vb5H6scWCgH+SHTnDyJ8eGC9+SF4VWTGt0yC9jWL3l4YA9pmN9/P7wGF1jicJrG/ENBqXvbpGDR2r/hDhmW0VAsyGI6UC4q2ddlS+oifg+tCLmU1lJyVN9ZtwT8O3om2igELQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ bh=zlMIijXg4iz/VjoqoLtJH7VuKTZAs1I1kQSEBn3X8VY=;
+ b=XiUKv1EcwH4du3IjBBpvfQ76+m9JYx4COOthCCJhMM1agz6ENklWydlpoO+OfUnLVkwU5efHHBIlXH5TCLaHGwrcK3iJrWHmKK+tUNIAV9uP1sqN5f2t14InmNcTtsyu0XNL7JbjnUaZkDF7QSTFXTnCjYW8C2eOBiBZyUjoj8lNIJxkZHQLjKppTQkuhkdrsydi/kuz60MmSBnXXBRjzg1fCQUfH7RWdRV7W86i2BY4OzQS0ArLAZUn8aU2gOShCKvDSMv4KGDLak/JB/56GOR8gdAlfMM8ajkQ2LbiVVAP8AD3vuA6xdny1jTM937nZDeURDlEh6GKCUD5zw9bFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ayY1qntB3Q0I9nj9GwC4lUQQG2QMB776/yGYyhijWr8=;
- b=gCuqMHDMxlwEi6E8jS5VTll5sgahnP10ZgoEQyveXVKoYH8+N3nQjwLYGU+F/4h1F65zarhz/Zx8ZNtxZhQd2cu8lRdunFxxr4QSydzNFl0oQYvQjMbrN1G9nPWjXJLgGt6JfDp3G7+6FmElgV6t4J7krgAZafYl7ImDz+iwnmW7MY/kg5VJlm2bcC7Hq8ceb6rIWdFb/6hgGIzzbEbArNRd3Ls1U461CRyz4dMgOYkfsKvZZEOSxuhFFwtcFzmpBsJIOtIe/Fj2GFsbEIZamBqXai+yEe9qHLjn2L28bz4Ja8b016Ry7NTUQzWiY6t7jL8wj9bN6uzQoFt/XXw59g==
-Received: from DUZPR01CA0064.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c2::17) by AM7PR10MB3479.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:139::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Wed, 7 Oct
- 2026 16:02:53 +0000
-Received: from DB1PEPF000509F1.eurprd03.prod.outlook.com
- (2603:10a6:10:3c2:cafe::1) by DUZPR01CA0064.outlook.office365.com
- (2603:10a6:10:3c2::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 7
- Oct 2026 16:02:52 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F1.mail.protection.outlook.com (10.167.242.75) with Microsoft
+ bh=zlMIijXg4iz/VjoqoLtJH7VuKTZAs1I1kQSEBn3X8VY=;
+ b=lxYXY/LdMA8TTXnB2cjFfKF6od9DVH+/pAm2SeWi8oEmigH8AQ/KgM15pslULjSX/zAKkVWAKKNp81brTrYYNkcnZJRxofm68RQ9FErNQ83o8ULFWhll56NQtaXfdW/5tcncv64flpMm70FuQCpqyOvw3HJJkJCM8L84LCi6Dds=
+Received: from CH2PR18CA0006.namprd18.prod.outlook.com (2603:10b6:610:4f::16)
+ by CH0PR10MB7437.namprd10.prod.outlook.com (2603:10b6:610:193::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.14; Wed, 7 Oct
+ 2026 16:17:06 +0000
+Received: from CH01EPF000BE943.namprd02.prod.outlook.com
+ (2603:10b6:610:4f:cafe::10) by CH2PR18CA0006.outlook.office365.com
+ (2603:10b6:610:4f::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed, 7
+ Oct 2026 16:17:02 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CH01EPF000BE943.mail.protection.outlook.com (10.167.244.135) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 16:02:52 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 7 Oct
- 2026 18:09:38 +0200
-Received: from [10.252.29.133] (10.252.29.133) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 7 Oct
- 2026 18:02:51 +0200
-Message-ID: <7cfb5d1e-b79a-4f95-9724-70818c82b379@foss.st.com>
-Date: Wed, 7 Oct 2026 18:02:49 +0200
+ 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 16:17:02 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 7 Oct
+ 2026 11:16:34 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 7 Oct
+ 2026 11:16:34 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 7 Oct 2026 11:16:34 -0500
+Received: from [10.249.32.48] ([10.249.32.48])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 697GGXGW532431;
+	Wed, 7 Oct 2026 11:16:34 -0500
+Message-ID: <e3806199-9c9f-4cb5-99c3-25e9518853f5@ti.com>
+Date: Wed, 7 Oct 2026 11:16:33 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-To: Rob Herring <robh@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
-	<nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261001-tribesman-gauze-862e1ef0cdd8@spud>
- <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
- <20261007134750.GC2792240-robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62-mcu: Add power-domains property
+ for M4FSS
+To: Sidd <sid9.karanam@gmail.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260922171942.201947-1-sid9.karanam@gmail.com>
+ <8cb23b44-027d-4d81-b342-7eaca0248f63@ti.com>
+ <CABM86pxDca--BxNFUjdZy3Z_t7qpd8a9A8FpnYc9r=VGag9bXQ@mail.gmail.com>
 Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <20261007134750.GC2792240-robh@kernel.org>
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <CABM86pxDca--BxNFUjdZy3Z_t7qpd8a9A8FpnYc9r=VGag9bXQ@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.29.133]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
+Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F1:EE_|AM7PR10MB3479:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04b1921b-9e0a-4343-1223-08df248c714f
+X-MS-TrafficTypeDiagnostic: CH01EPF000BE943:EE_|CH0PR10MB7437:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63cc698c-0ad1-4d2a-f5ca-08df248e6c04
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|376014|82310400026|7416014|13003099007|4143699003|11063799006|3023799007|10067099003|56012099006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: Eiv1BBSP8d0TEKtTCs2T5VNg1WKbpCIRnAXH30mgBmIHtGfOdoCxodAko8FZ3nVHdcladtX/Cp2AUFhZIVlms+a+wHukTn+PfSn6uODexiyhlcPobzt3/siIpiGcICs//p7oqGj9bqR/okEhcHx7uY084bxFa4JBGoyLGV1rLhs+4hhqno6Dj4YPVQL499ogbMF6/TEsub4nhehAxj4D5r/Yg4reXZWfAIwjrpY739D0el49rq/bCD7toQM60bcWfoxhAGhIgz1Zl1edaTsPdFAYS1UZzi2KhG6/yV2+PR5cJr3BKnfiQLx0KgcBnEHqtfBQdGpKQ+myR+Es9Fs7wA10EsUlddTrAqnxKDyY5U2uSQWWivGmB4ElKtfqlAmu4h1qU4KOnMTBmlzHZ5UOtqhe9VmVgMveCHx9ogTIIWeWv5AFeoFAui82hZ5LrVeCGyHigprERwUsnxA4hgSstCGV9LVVFGpQfNhd1VoKfRwlur55UW94bStKQb438PTXdUzJV1Vc6/ImucyHPLlKwZy+vS/Bk88bEFL5nYKcU6DuxtWYy6bg7ZgewBdGjWn78kWSVK3DOxsfNrtFE82oM1eNmvD5+1KFhGkeif8kTwP8Aq1bj/m6mhePuicFQ95NQ1HwoyJvPlhwrgy4DYsdyw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(376014)(82310400026)(7416014)(13003099007)(4143699003)(11063799006)(3023799007)(10067099003)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|10067099003|56012099006|4143699003|6133799003|13003099007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: GQuiBGMGvF6j9JSmTuwuPuQJwzkt5qEpzKwfwbzFXunMS7GXlyr7+L30IjM54Wc1HTOYTJWvRQY2DJFrPVVKxjcUo2RqOLRhPvOohB9CMNnHSzvNrhTt/psvbKGAVG/06cG65MmmbcTAkJrmIUfzEWgpl9wDw7RUnI0UlbPJD+0CjHUDOCO7sNZgpSKxapVE36me4eYmnPmmqIRkObUErtQuO3jc4mYXfuT4yTSb0SDttpopI4gg9J3qWPl26sMiVlvRFZow0TM/y1nE0eRPGVvcS4222PeLtyWrhdIOdzrVPkdRAerrF8GVyAocLrkoic8/sjqt10gwD5kVmQZ8FHH+sU2G3Qip4urqQfKZRpR+ZZfD0e4kjIWuuoHXMikFVjK4ZUUnkvHIhPW6rfvoqrUrD//JZhfluo4GsLQPwljjAAmUu9krtHMzkiwrHUABrV0YRJQ5yCj+0JPzsYlkKEkLnw9c/MYL42WIZth8gmRWA/306QmeVo574EkQnoPKRpSb9NMBNJ9XxpNMde7zpywehUVqGn2uipIkPkv/99VaPb7Cdr7TB4UeSWQQEHWE1jfLg7sC2e/UvDes+Pe0ZI5+mMoRGvakhdyHszPbAGhdApfj5T0sY5Scujvt09FMKNK4Ne9ao8ogfHrxytF6gg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(10067099003)(56012099006)(4143699003)(6133799003)(13003099007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: u4mbWDaC63UoaWqfNrQBoPhmgU06MyILkPKrwbtS1u/duCWZnDJK4AlbpRCGSQHbxgQKIhEP9CwsZ8Nrmrd3CAvxV/S+VYDQggIusiDiMTEDRsQbKEEZwCTtQC/KXsi/w0w/K/cMmqDrgwUVSxG0od5E9W5jesSxc1GN8NVcU8k+y7lq2gjQyRS2iOkIDWXE0b9oVNHQCq0X8UTTAvvxOJKbgGzunFsZd4sZ6k+24S4DIJgm0kKpTaSOJ+tDWmQ5LmEc0FOciw2V29O6z/9ssWtb1I0Edd8SRIVLaQL21CEln6e5ZUiNGM+R8dwdfvXe/MDRiskkV+5LLYOkGzWj4O7pR8yqaCVi0xbFxSPQiACDr1d1iuwEwUFGB5UPwNdKiGhU9/nJTYuOJTcUynVzFsnHMH7otRI/AvIy6ocSyts0BrIlYIHKj9+tNGH1QIFF
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 16:02:52.3716
+X-MS-Exchange-AntiSpam-MessageData-0: abamYXFsLKlWH8GiVmF9OM7XLMkVNej4JjzDn7zXvxzX6Vs3nfRhdWDC+LrAUSSNn3ORnm1o0R7ZgPt7d1DCjAPRPDvAIqwcMQlMAp8t9gCQJqCE3Z3WPwAW0sqpGamxNVuzydCyui19bRGGMv9ySmk/Zq32O2KoeesA5QUo1GRb1FLlwUJWIbTokocu/M3AU4w5+sboi0LSp0ejV6VNV1UIynEBDi1P0L1ZGWynGZpyFKFX1hQ+pEiJfmUkX/cpykcSxoXKbhTR+8iIjJh6T7hvbiRE1jxkY/0rB4pbVp31BhGuuerMR2lqvA0/MfExWErU2oBrViUANUQcDMJLWh+Z8G4zZ2q380U7ZKGbl3updKpp3EJKDTSMct0iGgOynfisKn5zR+yslv0XyWVoprIP0iIpYjaQoHIG/IImSOlXMSvxa7s57MilCQ+h26RU
+X-Exchange-RoutingPolicyChecked: PHDthqwop/rv3zP0GDCaSB4xWoNDHgp+1pJB4L4SHNZhrhtLSJxlHjca1ZqYEzmDP3Hwy2Sw8LwOt8/bzsBenVwh04ch61nHnllR2WU0H5SkyRmA+7p7UlLVfITl6q5Kx86WAPaygiCvLyeNuSMhsYe9WSmY2TBJdPk5lyy0vnpPqh73+ojSL8/ZYRNGE6X+DeZ8XyPtWtfukyvH9Vi46T63b4R37iC1nuxuFaDwzRR8negoO+0fealY3uZe3C8xtwXpRMvc6HTW8V08bPpvbR0dV0l409+R6oM8bZdjKc7BEvZ9l9xfmmCnGui6LEwMD7qC7O4a92Q2gYzdd67Opg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 16:17:02.5137
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04b1921b-9e0a-4343-1223-08df248c714f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F1.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63cc698c-0ad1-4d2a-f5ca-08df248e6c04
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH01EPF000BE943.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3479
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB7437
+X-Authority-Analysis: v=2.4 cv=as8nmiZV c=1 sm=1 tr=0 ts=6ac6708c cx=c_pps
+ a=vwzr6GK/qOZR+/kkcyjBFA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=9AdMxfjQAAAA:20
+ a=sozttTNsAAAA:8 a=pGLkceISAAAA:8 a=vYBDPz2uy0ReE4h6JmsA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=bn7x_FpfJtc3yKQXRW3z:22 a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA3MDA2NCBTYWx0ZWRfX0gHUvBdzFRCL
+ 23K+1K5kkYpHV9MAmBR41BqEagyq3QvRPieqrUX7V484Hh0TTjvdoh+bd0wJ7IjXZERw8DnjBnE
+ M4eFqCWB4744CsJmDWfERi1f30reJt8=
+X-Proofpoint-ORIG-GUID: hSfS5IiDVPfmHrf-wdTphxyMs0bAobEn
+X-Proofpoint-GUID: hSfS5IiDVPfmHrf-wdTphxyMs0bAobEn
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA3MDA2NCBTYWx0ZWRfX/t2ukLZBhy2Z
+ cwNlVoYQ9WgBMiTaxHC6UQJVmDtZc9QyIiTu9m6+/zPhtxChQPFESMhrXRHIUaIE20/5A5YnVZu
+ 2gZEEb5say6EETyR6V/zZXB+5vCzSLhEeO/+Ykdi9cFMTjEFZBjYdnTvXQ99mxyp9f5Ury17J6F
+ cjL3KBfqLxlBCcfBsXNAMbArTByoY63uaGuL/kKjXleMY43dRCwuGpXNLh/BhmG+hlwOW96KL0v
+ l+m35NMGYADOEKCttqWQ7+pqb9ZXdDOqXILyuFqY7vxtGofpA6r1W84P30xCeA9XA95tW0xq3Bx
+ VrJwGZwx/hdfYFS+FsxqhsJq/NnITFowzmDVms5OHk3SniGzUoF87zdw8yOfoXcvtar1yHx3hmT
+ f4lUb1dvS2j3fdEO/ZW7Jja5EV+g88U1I/LADDqcTsZQMRCv6LxkPG6ivHyXIC2jyJKtM2PISaR
+ ZBcIlySWnnLIDN3W90A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-07_05,2026-10-06_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 suspectscore=0 adultscore=0 malwarescore=0
+ priorityscore=1501 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610070064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_090302_492511_53E77E24 
-X-CRM114-Status: GOOD (  30.07  )
+X-CRM114-CacheID: sfid-20261007_091725_531805_314EDFB6 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,179 +181,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On 10/7/26 15:47, Rob Herring wrote:
-> On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
->> Hi Conor,
->>
->> Thanks for the review
->>
->> On 10/1/26 20:32, Conor Dooley wrote:
->>> On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
->>>> Add bindings that describes STM32 MDF settings to support
->>>> digital filtering for Pulse Density Modulation (PDM) microphones
->>>> and analog sigma delta modulators.
->>>>
->>>> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
->>>> ---
->>>>    .../bindings/iio/adc/st,stm32-mdf-adc.yaml    | 383 ++++++++++++++++++
->>>>    1 file changed, 383 insertions(+)
->>>>    create mode 100644 Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
->>>> new file mode 100644
->>>> index 000000000000..f2fbc3e150e8
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
->>>> @@ -0,0 +1,383 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
->>>> +
->>>> +maintainers:
->>>> +  - Olivier Moysan <olivier.moysan@foss.st.com>
->>>> +
->>>> +description: |
->>>> +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
->>>> +  interface external sigma delta modulators to STM32 micro controllers.
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    enum:
->>>> +      - st,stm32mp25-mdf
->>>> +      - st,stm32mp23-mdf
->>>> +
->>>> +  reg:
->>>> +    minItems: 1
->>>> +    maxItems: 2
->>>
->>> This needs an items list here. The size of the regions seems like crap
->>> to begin with...
->>>
->>>> +
->>>> +  clocks:
->>>> +    maxItems: 1
->>>> +
->>>> +  clock-names:
->>>> +    description: Internal clock used for MDF digital processing.
->>>> +    items:
->>>> +      - const: ker_ck
->>>
->>> This is pointless when you only have one.
->>>
->>
->> I agree that it could be dropped. However, it is useful for using
->> devm_regmap_init_mmio_clk.
+On 10/4/26 10:39 AM, Sidd wrote:
+>> Anyway, the reason we don't use the normal "power-domains", and instead manage
+>> the power using `ti,sci-dev-id`, is because the normal power domain framework
+>> has a nasty habit of unconditionally powering up devices before the driver can
+>> probe. Which in the case of remoteprocs can cause the core to start running
+>> and executing random data.
 > 
-> I don't know what that function is/does, but that's not justification
-> for bindings. Maybe you need a helper that handles a single clock. Or
-> that function could take a NULL string for single clock?
+> Oh I was not aware of this issue, seemed logical and a straightforward
+> issue to me, I'll drop this patch then.
+> I also figured this would in turn nicely move into wrapping all ti sci
+> handle's device ops through pmruntime (such as get_device and
+> put_device functions) but I believe that won't work as well.
+
+I think factoring out the TI-SCI handle ops is still a good idea,
+just not using pmruntime functions yet. We are discussing internally
+about how we might enhance the PM framework to allow for marking
+these devices so they are not auto-started but still allow manually
+powering them using the normal PM functions. Will keep you posted,
+or feel free to think up and suggest any better ideas.
+
+Andrew
+
 > 
-
-Ok. I will drop this clock, and use a helper to replace 
-devm_regmap_init_mmio_clk api calls.
-
+>    > * Power up subsystem
+>    > * Set reset line for core
+>    > * Power up the core
+>    > * Setup the core (load firmware and set boot address)
+>    > * Release reset line for core to start it running
+> 
+> Right, I see, thanks for the input :)
+> 
+> Thanks,
+> Siddharth Karanam
+> 
+> On Tue, Sep 29, 2026 at 10:09 PM Andrew Davis <afd@ti.com> wrote:
 >>
->>>> +
->>>> +  "#clock-cells":
->>>> +    enum: [0, 1]
+>> On 9/22/26 12:19 PM, Siddharth Karanam wrote:
+>>> Assign the power domain to the MCU M4FSS (Cortex-M4F) node by following
+>>> the device ids info published in TI-SCI public documentation.
 >>>
->>> Why is this not fixed? Also why are parts of your own device consuming
->>> the clocks?
+>>> This will be useful in future patches that will attempt at abstracting
+>>> ti_sci_dev_ops's calls such as get_device and put_device via pm_runtime
+>>> calls.
 >>>
->>>> +
->>>> +  clock-output-names:
->>>> +    description: |
->>>> +      CCK0 and CCK1 are optional output clocks, which share the same clock frequency,
->>>> +      but can be gated independently to save power.
->>>> +    minItems: 1
->>>> +    maxItems: 2
->>>> +    oneOf:
->>>> +      - items:
->>>> +          - const: cck0
->>>> +      - items:
->>>> +          - const: cck1
->>>> +      - items:
->>>> +          - const: cck0
->>>> +          - const: cck1
->>>> +
->>>> +  clock-frequency:
->>>> +    description: |
->>>> +      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
->>>> +      The frequency must be a multiple of the "ker_ck" clock frequency.
->>>> +    maximum: 25000000
+>>> Signed-off-by: Siddharth Karanam <sid9.karanam@gmail.com>
+>>> ---
+>>>    arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi | 1 +
+>>>    1 file changed, 1 insertion(+)
 >>>
->>> Should not be needed, the consumers request what they need.
->>>
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+>>> index 68e906796aefe..1ae0870893c16 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+>>> +++ b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+>>> @@ -181,6 +181,7 @@ mcu_m4fss: m4fss@5000000 {
+>>>                      <0x00 0x5040000 0x00 0x10000>;
+>>>                reg-names = "iram", "dram";
+>>>                resets = <&k3_reset 9 1>;
+>>> +             power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
 >>
->> The CCKx clock frequency depends on the maximum rate supported by the sigma
->> delta converters (for instance a digital mic) and the expected decimation
->> ratio on the bitstream. Typically this determines the frequency on the SPI
->> bus.
->> This rate is defined statically and shared by the CCKx clocks. So IMHO, as
->> this rate is unique, it can look strange to let the consumer define it.
->> Moreover, it seems to me that clock-frequency is already used to configure
->> the frequency of a provider in some other bindings.
->> For instance: Documentation/devicetree/bindings/clock/silabs,si570.yaml
->> So, it's not clear for me, what is the restriction on clock-frequency
->> property.
+>> The surrounding M4 subsystem's power domain is 7, but the core's power domain number
+>> is 9 (see below in `ti,sci-dev-id`). Enabling 9 should also enable 7 as it is a
+>> dependency. We probably should have modeled the M4 in DT the way we did the R5[0].
+>> With the core being a subnode of the subsystem. Then 7 goes in subsystem and 9
+>> goes in the core's subnode.
+>>
+>> Anyway, the reason we don't use the normal "power-domains", and instead manage
+>> the power using `ti,sci-dev-id`, is because the normal power domain framework
+>> has a nasty habit of unconditionally powering up devices before the driver can
+>> probe. Which in the case of remoteprocs can cause the core to start running
+>> and executing random data. We have to do things in order,
+>>
+>>    * Power up subsystem
+>>    * Set reset line for core
+>>    * Power up the core
+>>    * Setup the core (load firmware and set boot address)
+>>    * Release reset line for core to start it running
+>>
+>> Andrew
+>>
+>> [0] https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi#L178
+>>
+>>>                firmware-name = "am62-mcu-m4f0_0-fw";
+>>>                ti,sci = <&dmsc>;
+>>>                ti,sci-dev-id = <9>;
+>>
 
-Would you have any feedback regarding clock-frequency property usage ?
-
->>>> +
->>>> +  ranges: true
->>>> +
->>>> +  clock-ranges: true
->>>> +
->>>> +  resets:
->>>> +    maxItems: 1
->>>> +
->>>> +  reset-names:
->>>> +    items:
->>>> +      - const: mdf
->>>> +
->>>> +  access-controllers:
->>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->>>> +    description: |
->>>> +      Phandle to the rifsc device to check access right.
->>>> +
->>>> +  power-domains:
->>>> +    maxItems: 1
->>>> +
->>>> +  st,interleave:
->>>> +    description: |
->>>> +      List of phandles of interleaved filters. The indexes of interleaved filters must be
->>>> +      consecutives starting from 0 (i.e in range [0..N]). The samples from interleaved filters
->>>> +      are muxed in a single channel and retrieved through the device associated to the filter 0.
->>>> +      The filters 1..N have to be enabled, but inherit their configuration from filter 0.
->>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->>>
->>> No idea what these even are, but this is probably not the right way to
->>> represent the relationship between devices. They're apparently ADCs, but
->>> this is also an ADC so I'm not sure what's going on here at all.
-> 
-> I don't under it either, but regardless phandle-array needs constraints
-> on the items. It's really a matrix with array of phandle+args arrays.
-> 
-
-What is expected for this property is a list of phandles (from 2 to 8)
-For instance: st,interleave = <&filter0 &filter1>;
-
-So, if I just consider the missing constraints, I need to add
-     minItems: 2
-     maxItems: 8
-     items:
-       maxItems: 1
-
-Is this correct ?
-
-> Rob
-
-Best regards
-Olivier
 
