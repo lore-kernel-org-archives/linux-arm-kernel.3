@@ -4,104 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BA1CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE565CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Wtfk6Lo3EsHBs+T8tzPIBV8ntCV/DDfwOlEBXJdzuvY=; b=FJ3gylRRj578MpSXZUlKUo9mwO
-	c0hiGBVoPdcuYi2OILHgDvRn+IOyF0jb1+sur0l9Wpn/mOCT0b68GgDfp7Gs6cL7T99FU+gPXukHE
-	KzULfBPLUw1Fc4olkVpG3ZG0WjMcTAdPFcMxXd+EmUx2JgxFMhvghFKJ2NvucxiVPG3+LoeEwpvCo
-	1qsEiEqdAfXd7vaCupijtHngkcsFN2jKfyLq0dKZdRpMTSz+6dWP3YIxAsnQHgTpe1/DpI2nIVJD/
-	kEDLhtUBjVv8nT8VvEnusttdUthvcZqIAvkAQaHuGqharPquIhk57F5YoHvAJhPXwvKpnIr/9aKv/
-	x7c3n6iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dM8Ub3SEr1kn1ORAaVqDqRmpkV1kv8aYkI640BFSIsY=; b=lni9SdGjuG+/7otgh+9WhoZszL
+	1Hv7jKfpVQiDegNKXZvalD2mjNslI7nUaF6iGcDq9hiMm3GCu62moGGg2Kpz5O6Kiac6N2tjgozO1
+	/xBRJKBbgI7YJThlpSw71zC+zUftiwQnM7LNv5pGV3SzdDuUASKo1oRSWRrVrvG/wtCqm1qdBAJ7Z
+	fZPkzWdWPjOC08Wf6Je/HaG6PU7NtAQc+CmM4BrVKvN27G3cIoPMviGfxZWcF/GnN1X048lDZwsmL
+	VUnM5GCxi6mCHUIxdvoajcYJvJOVYQ+LOzszdwYsKTLjAPwe95zM+TjGxdvZz7GI4DA6O5dMaVwAE
+	8A8Mx3hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERJg-00000002V57-3XmT;
-	Wed, 07 Oct 2026 13:04:16 +0000
-Received: from mail-wm2-x06.google.com ([2a00:1450:4864:31::6])
+	id 1xERLc-00000002VJw-1iuU;
+	Wed, 07 Oct 2026 13:06:16 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERJc-00000002V3t-46Z2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 13:04:15 +0000
-Received: by mail-wm2-x06.google.com with SMTP id 5b1f17b1804b1-4a01c6c0f64so8303345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 06:04:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791378250; x=1791983050; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wtfk6Lo3EsHBs+T8tzPIBV8ntCV/DDfwOlEBXJdzuvY=;
-        b=A1ZX8WTv9L6+02YEKab8qnbyDlUslN/2PXJIQR+Ap8ZF2d9tlEKZ7UfoA9WmAgMBQc
-         KdHV4FgG+sbZ+fBD+bAFFnk0nKM1+qOxGh10ndJ18qw3C3Cti8iKVBDleYjO8ldU/OJf
-         MIjNejpOqNeBWbfP0AkUFrU64usnC+emVhs20untlPKmST1ocBwri4fokfHmywd+3Itq
-         SoSQFLpUqlB2Q+OpvRAjYob6zu0KyBUZihIrNLDtjuWkOEZzpFCKbRfHhumJjHqBDGym
-         bYSVvD/UkRRH7gTN6quSfdgJCEonrWDPy9wdnIIRAGfOKFQo+U6WwrV3VWZ4sAbDJ7UV
-         CUCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791378250; x=1791983050;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Wtfk6Lo3EsHBs+T8tzPIBV8ntCV/DDfwOlEBXJdzuvY=;
-        b=ZdZ23phtHrEgfmiKwZEW2+3KQkhcyh5z9ofZ6EqxKXzAdpYh6SWzM+nrgQ6w56W4uE
-         latr2p/kSBhxMtyp/IMzRxwZ4XHPjxFsYSVdVn5rNELmhq4JqlUO4RRWZTvKsm9k2Mvw
-         n73gS1v+6r5EEOH/7spni6QU1UkC56BqJeQstDZn+x8jCbjDJMCknCcHJDAur7FuOx6C
-         Bm17zdZ50gxwsGJSS6zaB1mVkcpXzZfS1p5MSzp2MM+WWMQ9g8skG2ZgesvLear8F4s3
-         7nr+00CYrJJ8t02b0E2pETyqGpnoDBQgkHbT9JcbJ4lh9gEM6Uw+b1M/X32hHabKGuIp
-         AMdQ==
-X-Forwarded-Encrypted: i=1; AKwUvByZ98J+snaijJX53YkOAD41K/u8H7G5LQS2XXNO/rQ2WbMM1szUdQuLXVPGYpexRzgzAlzkHXHw2EPCqMAFPJlm@lists.infradead.org
-X-Gm-Message-State: AFuF++lzNdS3FMh2nzTweXKZZhk0iGfs5PmeQpjNkx+EhWh0rutPiugC
-	Y5yOS36z3b+ahv1+BhQCaQATE7bDtEM+Wx716d3VIEDWbrwoTmXVOARd
-X-Gm-Gg: AYBFou1XoucZjyVb7uLcGPfGf/WHfh4nodRqC8LYl4h5QnD7/qMQtKFYhfbSTHgLP7A
-	oYVtnrqhTuJJD8IWq/9ncLJiXfoozoChm2b80Uvz/LcfdNtG31KDyvsSRysK62nU8cLmLSfY4BU
-	A/p7XxfPhGBvfkgfySiANgqlQBJgwTHG0Nuyp9ejoXMnLj1xzbGkzaVq414WPj7auE5cgJjueO4
-	yQs5FSQNr651/+MqpuHOmFAzOZYbtsuapaTBL9DjAnqXapqBU07VKTfqMyDLpGCQOEVmcO7LjBa
-	1KEAXvdNDV2FUD80OWwVPeXitCJIbudPjj9qrydR9Ytbex06dCBBPQYO5/ZVVRyriYVPf/kFiMz
-	4XHWEdGAo4QEomx0chSjOAjjcApvohjGDGX1mbZGP4xHxLqYs4IDKTxgTNJNqUtxfOW5LOYxv6W
-	JpAh4y3uZLKM9QXhO2p8zc+BIFoLO0RpV/7pdCJT5wzOqkxYP4yuGsD8/mkzo8Ccg3FZ9mwuo83
-	RCBimEhfuDCOY9S
-X-Received: by 2002:a05:600c:c166:b0:49f:ce73:5e94 with SMTP id 5b1f17b1804b1-4a18065ab85mr38007345e9.34.1791378249855;
-        Wed, 07 Oct 2026 06:04:09 -0700 (PDT)
-Received: from localhost.localdomain ([78.40.184.2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a17f4482c4sm120825195e9.0.2026.10.07.06.04.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 06:04:07 -0700 (PDT)
-From: Roman Demidov <roman.demidov.nn@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Roman Demidov <roman.demidov.nn@gmail.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Zi Shen Lim <zlim.lnx@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>,
-	Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
+	id 1xERLa-00000002VIa-07wk;
+	Wed, 07 Oct 2026 13:06:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=dM8Ub3SEr1kn1ORAaVqDqRmpkV1kv8aYkI640BFSIsY=; b=vxCdmjaO7QZi+Fum3RHxWGGW/O
+	f3nVrVz45O9O7GHhJuuD1yk6uNnxxTwSBzklwEg/niuUSTt0Ipxes2p8OYbLsTbhbWG2Z1ANWpMsH
+	1JZ9L3YdexYCnlV9dajqVdpTLndChmSFUBehbecdg8sNwAbYViijrq6DaqpPNE7+LVPs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xERLO-009Scc-Ku; Wed, 07 Oct 2026 15:06:02 +0200
+Date: Wed, 7 Oct 2026 15:06:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.10/5.15] bpf, arm64: Fix off-by-one in check_imm signed range check
-Date: Wed,  7 Oct 2026 16:03:54 +0300
-Message-ID: <20261007130355.119579-1-roman.demidov.nn@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 3/7] dt-bindings: net: amlogic,meson-dwmac: add
+ amlogic,t7-dwmac
+Message-ID: <ba762ae7-db95-41da-bb77-b72b85b68334@lunn.ch>
+References: <20261007082627.63807-1-tanure@linux.com>
+ <20261007082627.63807-4-tanure@linux.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261007082627.63807-4-tanure@linux.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_060413_214177_A6649103 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20261007_060614_193554_2BE597F5 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,56 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Borkmann <daniel@iogearbox.net>
+On Wed, Oct 07, 2026 at 09:26:23AM +0100, Lucas Tanure wrote:
+> The T7 has the same ethernet glue as the G12A, but the controller
+> reaches memory through a pipeline stage that this SoC inserts in the
+> bus path. That stage has a gate of its own, which no other member of
+> the family has, and nothing else in Linux claims it. It is therefore
+> switched off as unused, and the port can then no longer finish a
+> transfer.
+> 
+> Describing it needs a fourth clock, and the fourth clock of the
+> existing list drives the timing adjustment logic, which the T7 never
+> uses. So the T7 gets a list of its own with the gate in that place,
+> under the name the SD and eMMC controllers already use.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>  .../bindings/net/amlogic,meson-dwmac.yaml     | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> index 90ef79161ab1..96118b4d1560 100644
+> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> @@ -23,6 +23,7 @@ select:
+>            - amlogic,meson-gxbb-dwmac
+>            - amlogic,meson-axg-dwmac
+>            - amlogic,meson-g12a-dwmac
+> +          - amlogic,t7-dwmac
 
-commit 1dd8be4ec722ce54e4cace59f3a4ba658111b3ec upstream.
+Since you are adding a new compatible, lets cleanly fix up the RGMII
+delay mess for this compatible. Skip all the existing code touching
+RGMII delays and add new code which is invoked when this compatible is
+seen.
 
-check_imm(bits, imm) is used in the arm64 BPF JIT to verify that
-a branch displacement (in arm64 instruction units) fits into the
-signed N-bit immediate field of a B, B.cond or CBZ/CBNZ encoding
-before it is handed to the encoder. The macro currently tests for
-(imm > 0 && imm >> bits) || (imm < 0 && ~imm >> bits) which admits
-values in [-2^N, 2^N) — effectively a signed (N+1)-bit range. A
-signed N-bit field only holds [-2^(N-1), 2^(N-1)), so the check
-admits one extra bit of range on each side.
-
-In particular, for check_imm19(), values in [2^18, 2^19) slip past
-the check but do not fit into the 19-bit signed imm19 field of
-B.cond. aarch64_insn_encode_immediate() then masks the raw value
-into the 19-bit field, setting bit 18 (the sign bit) and flipping
-a forward branch into a backward one. Same class of issue exists
-for check_imm26() and the B/BL encoding. Shift by (bits - 1)
-instead of bits so the actual signed N-bit range is enforced.
-
-Fixes: e54bcde3d69d ("arm64: eBPF JIT compiler")
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-Reviewed-by: Puranjay Mohan <puranjay@kernel.org>
-Link: https://lore.kernel.org/r/20260415121403.639619-2-daniel@iogearbox.net
-Signed-off-by: Alexei Starovoitov <ast@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-Signed-off-by: Roman Demidov <roman.demidov.nn@gmail.com>
----
-Backport fix for CVE-2026-53036
-
- arch/arm64/net/bpf_jit_comp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index e98fe8c006cc..b67764f8a5f1 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -494,8 +494,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	int ret;
- 
- #define check_imm(bits, imm) do {				\
--	if ((((imm) > 0) && ((imm) >> (bits))) ||		\
--	    (((imm) < 0) && (~(imm) >> (bits)))) {		\
-+	if ((((imm) > 0) && ((imm) >> ((bits) - 1))) ||		\
-+	    (((imm) < 0) && (~(imm) >> ((bits) - 1)))) {	\
- 		pr_info("[%2d] imm=%d(0x%x) out of range\n",	\
- 			i, imm, imm);				\
- 		return -EINVAL;					\
--- 
-2.53.0
-
+	Andrew
 
