@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E25CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4E0CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 07:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lf1HukSMAjE1dMsnIEQmLErcMzYBlSGfITSXIYoNLso=; b=CR99cSQ7ZZ7GuHWLVrWd4lK+3u
-	29yczzqm++LhB7S/8hPe9T0ryseul/7OKIRgdXaiUUz5UzJ1uVoAaRLVO9mqQUDooQtR75SRRMlYY
-	WbrDsW9xvwLHSy2LL7mQoBp9iMAgi1JTkpWDGjoR6haxuW3BLH7EJozQyxz5KPjB721o6Ij2ad86N
-	Cwjg5sXC6g1u5Atkd8yO9+emSPaUYXVis6/7afyGeJ1R1PneqeyYuWEmsTI6igJT2AMgpeIZdIjJH
-	knYROSzXsKxF5lpXgZ7GZfy0rQ+T6v5I9mrwqRnHdPB1zO+PzH5/8x12nTHwQhCZtrrkd2LPjTseM
-	oQZcTb6A==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BOt8WXidMcA/3vdws/pbowopZJuQh2QH9PqXo0bIoD8=; b=YxF6ewhyFOQtMfUpJYVfNo5llB
+	4NBGZbtERfvMnlbRil66/SnftZYaPbtMYHQaNeLEr5tmwQw2MPnFhJLldujLbVNIdaUThzOyLC7GH
+	/PopbCYpByqDaSVGZrRS7QDrJZWe2MdA8GOxLrSrIEWr6J6vS/vt8NTWnskgkvv7eng53StdqLD7K
+	uNSlxSBlEaNxypzdmhQrOtGmzEtKjZnk+dnyY9HAMFfomQli/uzZt2CzRr/6tXpWEyXSCHnvmT75z
+	13qpexiJKOQLX59xqQjp0C0OA4sdBNkY8erDDsod3qD0anNS4ALz/qnAuAb+qPyz9eiHK08STEdLf
+	UqNs060A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMJi-00000001sln-2CLy;
-	Wed, 07 Oct 2026 07:43:58 +0000
-Received: from out-248.mta1.migadu.com ([2001:41d0:203:375::f8] helo=mta1.migadu.com)
+	id 1xEMJo-00000001sp9-1zQW;
+	Wed, 07 Oct 2026 07:44:04 +0000
+Received: from out-234.mta0.migadu.com ([2001:41d0:1004:224b::ea] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMJZ-00000001sil-3aP2
+	id 1xEMJj-00000001slO-08vk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 07:43:56 +0000
+	Wed, 07 Oct 2026 07:44:03 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=o5+OZlVLtUCueg4cXgDkgvR3WZIRFrS7EESmuvL0q6I=;
+DKIM-Signature: a=rsa-sha256; bh=DEbyYnw/QNFLD6hov3Wk8Emu00bFpjJHBWq6l30twn8=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791359027; v=1; x=1791963827;
- b=jFoRxIDLTBHOp3gb9k4AfT6yEHQOHSMPWbGZgr8nPg6agkQDu5LMdHqTv51cUQii7xIvIs4B
- v/NBvUBll+jKYn1MkrrKq39QIgAEso9afRmjf8xbHUhkjnTKGxAvmrpbRG3Wt4VpWfnhmpd4lLX
- uAbffj2QLLlEKW0fHMUMXc/4=
+ t=1791359037; v=1; x=1791963837;
+ b=aGPFpe5P2U1a2h5r0OF0MkW5Gu+NyzjGqTEcYXVPnD1iJnlN3MPpEqMtzbiQcDoYtcgpbD+Q
+ Nn1lPFaUInJdTJD1pih9WHXMLkwTLZMvtFdPX8YZ0+lPC3Q/bFRN8SQlNx/tG7yUDuvwL3DSz8Q
+ 6zmEtAaCc3kvI4de2msa+ZpM=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 781d49e7d095f2d5;
-	Wed, 07 Oct 2026 07:43:47 +0000
-X-Mizu-Trace-ID: 781d49e7d095f2d5
+Received: by smtp.migadu.com with ESMTPS id e4f7af71e98e56d0;
+	Wed, 07 Oct 2026 07:43:56 +0000
+X-Mizu-Trace-ID: e4f7af71e98e56d0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -56,15 +56,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v2 0/3] KVM: arm64: timers: Program CVAL from the current count when the hardware won't apply the offset
-Date: Wed,  7 Oct 2026 08:43:40 +0100
-Message-Id: <20261007074343.324269-1-fuad.tabba@linux.dev>
+Subject: [PATCH v2 2/3] KVM: arm64: nv: Read a guest hypervisor's CNTV_CVAL_EL0 from memory on x1e
+Date: Wed,  7 Oct 2026 08:43:42 +0100
+Message-Id: <20261007074343.324269-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261007074343.324269-1-fuad.tabba@linux.dev>
+References: <20261007074343.324269-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_004350_036234_2AB3E998 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20261007_004359_329281_1A350CE0 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,79 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+On x1e KVM keeps CNTVOFF_EL2 at zero, traps the virtual timer whenever
+it has an offset and programs the hardware with the offset applied.
+kvm_hyp_handle_timer() returns that hardware value for a VHE guest
+hypervisor's read of its own CNTV_CVAL_EL0, instead of the CVAL it
+wrote. Its writes trap to the kernel and land in CNTHV_CVAL_EL2, so
+return that, as the physical timer's read does without CNTPOFF_EL2.
 
-Changes since v1 [1]:
-  - Patch 3 programs the new case's CVAL as an absolute value near the
-    wrap instead of a negative TVAL, so a host stall between the
-    counter and timer writes can't make it fire. (Sashiko)
+Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/vhe/switch.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-A guest timer can fail to fire, or fire early, once the guest's counter
-is far enough from the host's. Where the hardware won't apply the
-offset itself (the physical timer without CNTPOFF_EL2, a CNTPOFF_EL2
-host while TGE is set, the virtual timer on x1e), KVM adds it to CVAL
-and lets the hardware compare the sum against the raw counter. The
-timer condition is an unsigned compare, and adding the offset to both
-sides of it preserves it only while both sums wrap or neither does: a
-guest whose counter is ahead of the host's by more than CVAL has an
-expired timer that never fires, and one behind it can have a far-future
-timer fire at once.
-
-Patch 1 computes the programmed value from the current count instead,
-and returns a guest hypervisor's own physical CVAL from memory where it
-used to subtract the offset from the hardware value. Patch 2 does the
-same for the virtual CVAL read on x1e, which has returned CVAL + offset
-since the workaround landed. Patch 3 adds the second case, a guest
-behind the host with a far-future timer, to arch_timer_edge_cases.
-
-So far it has only shown up in the selftest, which moves the guest
-counter half its range away from the host's. On a VHE host without
-CNTPOFF_EL2 arch_timer_edge_cases hangs in its physical cval = 0 cases
-until the vCPU is next loaded, which is what Zenghui saw on a
-Kunpeng920 [2]. On a CNTPOFF_EL2 host (QEMU, here) the same cases
-livelock instead. Both go away with patch 1. The arithmetic is wrong
-for any offset once one sum wraps and the other doesn't, and the fix
-for the selftest's case should be the fix for all of them.
-
-Tested with arch_timer_edge_cases on QEMU with [3], which has since been
-merged, under VHE, nVHE and pKVM, and under VHE with CNTPOFF_EL2 removed
-by id_aa64mmfr0.ecv=1, the host class Zenghui hit. Under VHE with patch
-1 reverted the new case fails. QEMU's TCG had a separate bug with the
-same offsets, which [3] fixes. Without it the test stalls under nVHE and
-pKVM as well, where KVM emulates the physical timer and patch 1 changes
-nothing. Not exercised here: patch 1's x1e paths in timer_save_state()
-and timer_restore_state() and all of patch 2, since nothing here runs on
-an x1e, and patch 1's CNTP_CVAL_EL0 read in kvm_hyp_handle_timer(),
-which only a guest hypervisor with a physical offset on a host without
-CNTPOFF_EL2 reaches.
-
-Patch 1 carries Cc: stable for the hang and the livelock.
-
-Based on Linux 7.3-rc3 (fd73f4a665989; also applies to kvmarm/next
-f91b534e81f23).
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260921140427.2211373-1-fuad.tabba@linux.dev/
-[2] https://lore.kernel.org/r/460258be-0102-e922-c342-4e87cd94b9e5@huawei.com
-[3] https://lore.kernel.org/r/20260921074451.3158645-1-fuad.tabba@linux.dev
-
-Fuad Tabba (3):
-  KVM: arm64: timers: Compute an offset-applied CVAL from the current
-    count
-  KVM: arm64: nv: Read a guest hypervisor's CNTV_CVAL_EL0 from memory on
-    x1e
-  KVM: arm64: selftests: Test a timer set past the counter's wrap
-
- arch/arm64/kvm/arch_timer.c                   | 27 +++++++++----------
- arch/arm64/kvm/hyp/vhe/switch.c               | 21 +++++++++------
- include/kvm/arm_arch_timer.h                  | 15 +++++++++++
- .../kvm/arm64/arch_timer_edge_cases.c         | 25 +++++++++++++++++
- 4 files changed, 65 insertions(+), 23 deletions(-)
-
-
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 14aada311bac4..4c965f9b1e1de 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -322,10 +322,14 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 		val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
+ 		break;
+ 	case SYS_CNTV_CVAL_EL0:
+-		if (vcpu_el2_e2h_is_set(vcpu))
+-			val = read_sysreg_el0(SYS_CNTV_CVAL);
+-		else
++		if (vcpu_el2_e2h_is_set(vcpu)) {
++			if (has_broken_cntvoff() && timer_get_offset(vcpu_hvtimer(vcpu)))
++				val = __vcpu_sys_reg(vcpu, CNTHV_CVAL_EL2);
++			else
++				val = read_sysreg_el0(SYS_CNTV_CVAL);
++		} else {
+ 			val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
++		}
+ 		break;
+ 	case SYS_CNTVCT_EL0:
+ 	case SYS_CNTVCTSS_EL0:
 -- 
 2.39.5
 
