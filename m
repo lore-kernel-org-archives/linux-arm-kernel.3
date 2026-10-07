@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B73FCA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 18:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0A7CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 18:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SDkbcKEg56Hg163LutOTCLb1IktY/aVEl/Io7G5PV78=; b=V06/dSP9h8xgMy
-	6Nix7rcHZHtkMuoVfMJySt+CTIS3XSS2zPr2cTInCKHjllC/m+pymWJNpOD00n1PRK4Wmb8xe3ZLB
-	9d472oG+VoW+HVkiiHARi+nNYYsH1XzPxB34EC2yhVfpA+/pGztKBGz19lhmNF1Txklm4X+bCdYtX
-	9NVmKzEAK4JQWrD/CcgxRrstvwMOnzfwbvK8bDyyC7/AEdi78d1rettpJJBVnepJXC62LnbF9Tbmi
-	f0e1DFhlFMBUS52V5HZmKL5IBxwZZC/EO33o3XsdF0zJ2W5Z+y+VHDt+aQStsAMoMQ+56K744XfRR
-	1zWM0Q8nVeveaVzEiibw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mpp+rwnsNyKfxHdHUlAB8nvSuXAVIMHmY8/y4443xPI=; b=ogcPNFWGFoYukf/x6jqgPOfAi2
+	LaUD/VcSW7qd6glHwkaxHbNMq6haNfQxpK7vrSpsSUdJBgzcNuIZtKL6dwskVLturFaDzqPt9bBrg
+	6P4yDy/epymlQImLei8iKsWIoxngEcx3wrGm/WsN+pCLHYGtKrJjqqKHgDJTY+8t+fbO7qjziPbW4
+	gkSC1XyUubbWgXEvqIYAw506yYaqr2ylxCCxbby00PBiyC7IT34aSnhnM9mlET0FX0pZ7n5Ze1Ff9
+	4utMCz5BBnTtKVil6Q1cvZNFMd9KdbKSF/xipP/fR0rfHxPPn9L9Kiw/fhahHsBT8Cg8zqVMtw2uI
+	O7R7Rt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOh-00000002wth-1LPC;
-	Wed, 07 Oct 2026 18:29:47 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1xEWOj-00000002wuX-2iMQ;
+	Wed, 07 Oct 2026 18:29:49 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOd-00000002wsE-2khb
+	id 1xEWOe-00000002wsM-3jBF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 18:29:45 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A7906A05A5;
-	Wed,  7 Oct 2026 20:29:28 +0200 (CEST)
+	Wed, 07 Oct 2026 18:29:46 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4EC5A154D;
+	Wed,  7 Oct 2026 20:29:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791397776; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=SDkbcKEg56Hg163LutOTCLb1IktY/aVEl/Io7G5PV78=;
-	b=uyz4eUp9ohF/ZZk0czJGYV9mwV2vkj6EBQeljHKPvD6HA+Xq8NffbjfykVavvpW7xGvAlS
-	prXUHs9fygmzq0JEzpdYTKF9NOIGeyR9DDD7c9aFBqtmXfFCMQwaf81BfqPCrH4IHQXAAX
-	5N+NaDGU8xnLCMtzqHSsNkR93PHDrkIBB6kEZ3E9vY/Ry8lmVg8iX9vKzF3UujXI5wi+D7
-	hS+J38JK/VeQNUWZ0EHOWAheD9l/pStKfQBAWW4vMEoeM8TBSdbRfKTjXJ7od6FFkK1dbz
-	0kt2cqhepQIjIadJe4Fy0vy2pf7VJEhG3ECJUlLtl3FZioIIb+I9MNAygW5+ZQ==
+	t=1791397780; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Mpp+rwnsNyKfxHdHUlAB8nvSuXAVIMHmY8/y4443xPI=;
+	b=doV851CbkIgU/9FY1AehSM+L+Mv7bINiYDMomw8Ltq8sN+80RWajOMQTojDScGN6Ny+Qmf
+	AXcMJyoO6dHh6hvsN5IjvVZ/SnXrC2K73CfwigpQhfK4UE2GZXhv9nQplOogwP5b4aAofz
+	Iun6OocKTMBuQQUfYlFVrqYyZg8Jzw6QnRxvZ5VWWRXdOs8jqr7YS3t84ICnNffECh6pEz
+	T0qPZNy7nMlB8aU8KbFOZ878kIitGZQ1zutkiqG9mB+MJ551XnkGQcyZYnbscVYgXGIDnQ
+	0iLhyPJtEBBhmuGr9pdsaoMmkG7k+d930mP2N2IheFIydxjJfQtKuw5exh11dw==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Subject: [PATCH net-next 0/3] net: use skb_share_check() in loopback
- selftest hooks
-Date: Wed, 07 Oct 2026 20:29:21 +0200
-Message-Id: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+Date: Wed, 07 Oct 2026 20:29:23 +0200
+Subject: [PATCH net-next 2/3] net: stmmac: selftests: use skb_share_check()
+ in the loopback receive hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM2wrCMBBEf6Xss4Ek4vVXpA9NMrErsko2SqH03
- 03r25yZ4cykKAylazdTwZeVX9LA7TqK4yB3GE6NyVt/dNaejAQjqEbxzBXawjgUpK07+32KF4d
- 0CJma4F2QedrkN1oPgqlS/1/0Ex6IdXXTsvwAFEg6IIgAAAA=
-X-Change-ID: 20261007-nb-net-selftest-shared-net-823dc91ed5bf
+Message-Id: <20261007-nb-net-selftest-shared-net-v1-2-458369bfa1ba@tipi-net.de>
+References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
 To: "David S. Miller" <davem@davemloft.net>, 
  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
  Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
@@ -68,9 +67,8 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_112944_440843_3B68E12E 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261007_112945_232050_29CC0CEB 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The loopback selftest hooks can get a shared skb when another handler
-is bound to the device. Linearizing a non-linear frame then hits
-BUG_ON(skb_shared()) in pskb_expand_head().
+The loopback hook gets a shared skb when another ETH_P_IP handler is
+bound to the device. skb_unshare() does not unshare it, so
+skb_linearize() on a non-linear frame hits BUG_ON(skb_shared()).
 
-Stumbled over this on RPi CM4 (bcmgenet, with jumbo series applied +
-WIP selftest patches) with a packet socket open at the same time as
-running ethtool -t.
+Use skb_share_check() instead.
 
-stmmac and mlx5 seem to have the same pattern, xgbe already handles
-shared skbs. Patches 2 and 3 are compile tested only.
-
-As the impact is pretty limited and doesn't seem to bother anyone in
-the wild, I've chosen net-next, but kept the Fixes tags. That matches
-what Paolo suggested during the LPC track.
-
+Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
-Nicolai Buchwitz (3):
-      net: selftests: use skb_share_check() in the loopback receive hook
-      net: stmmac: selftests: use skb_share_check() in the loopback receive hook
-      net/mlx5e: use skb_share_check() in the loopback selftest hook
-
- drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c  | 4 ++++
  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 2 +-
- net/core/selftests.c                                   | 2 +-
- 3 files changed, 6 insertions(+), 2 deletions(-)
----
-base-commit: 45ad84d2800e4a092fb8d96006a533b2d0ab13f6
-change-id: 20261007-nb-net-selftest-shared-net-823dc91ed5bf
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
---  
-Nicolai Buchwitz <nb@tipi-net.de>
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index 6097f312fce4..c910675a9d9b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -244,7 +244,7 @@ static int stmmac_test_loopback_validate(struct sk_buff *skb,
+ 	struct tcphdr *thdr;
+ 	struct iphdr *ihdr;
+ 
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_share_check(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		goto out;
+ 
+
+-- 
+2.53.0
 
 
