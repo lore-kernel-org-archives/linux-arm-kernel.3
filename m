@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C306DCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11170CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/gWD4+uF+hshf4jV8IFeriarw2p1293YxmuUXLDiuE=; b=P+EFQGS1yVaERkpWzYLW5/N7sM
-	kOLpXSbyznQX6a4jx91W/RKZT8JXcfVzi/kKOMjveYzvTeN22duvHM3PDmMVZCd1zBIwvIhCXWTg3
-	yhhg67lTbR0+JJv0Ugbx737P7O7rC80CPBgPICh9yCDNt6+PftdxN9hFUoY49jTYkm7BExFgo90QH
-	mWiEB+Z1ke/0o5T+ObiXUeEWliHOrTqdhPTMEoxDoLez9M6zn3x4WR8DeXOtbxD5HQgYbRGwfIGjc
-	GE160+FTyksQ6wVPbzNxjph2lf/7Hhx6Q1XazbxAIW2i5FRLApNTQQoEOn/13V5sn1Jxc8dRz4ILK
-	dn9hAHyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZA9NOgmrvX40bJArbpwfW7XATqFagxk7+begPN1XXr4=; b=oGJCP4KVkgZ3qBNoyAgSgfdf7S
+	eP9EBXqeGbXdyx22qPUjseEmlHBj7TASfv9tIW5gcJWyhYcNAR7ekLjc5u49bST+QYWTZrrIlmQSx
+	ODi4T3XEt3axeEA6uYUXiPj5SoFYrDx4nXzECgJgowcisfACrhVMIik92f/C29+rFAkGzksw64l2H
+	i6sxH3hiejUrvCOomLI06oCqtxIaN4YDssl7UziBeWo+F7ALmY0l9ZtH5Igvo4ClAhWVhyakYJ/2a
+	1dB6265tFG3XM4WC1ZaeNzCSY2ZbBGjhEIK1FXahubEQN23iwjHoTO7e0f2nUc3uz5Y36YmXFol8n
+	GZ3+LzXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ1w-00000002MAN-2Fw9;
-	Wed, 07 Oct 2026 11:41:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEQ2I-00000002MFn-2tll;
+	Wed, 07 Oct 2026 11:42:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ1v-00000002MA4-0KzI
+	id 1xEQ2I-00000002MFW-0Mzh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:41:51 +0000
+	Wed, 07 Oct 2026 11:42:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id A5458417AA;
-	Wed,  7 Oct 2026 11:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D78F21F0089B;
-	Wed,  7 Oct 2026 11:41:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54C22601FF
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:42:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2A71F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791373310;
-	bh=U/gWD4+uF+hshf4jV8IFeriarw2p1293YxmuUXLDiuE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y5Op3kvtuJhamiHNZudiMXfK5YZx3gWK24uFJyq8TF70getuQtSg/aOgceLbur8K0
-	 mgGEo/ux/z2YL+24acrUdnT/LqmNb0IZm7+4iDyvjT1+rIdJOzD0QLPXnXHQ/ZTcR8
-	 5T/kmnrijB9xTFl46C6LY+C1BiEOxJIDsukaNvgnhMSv59ijD0CVWWYeZ6dlLR3q5k
-	 R0O84vEb8WuTwgcrVusvhyJCMWyW/lTkQ2vEH84Uz5/AuCwtH11pXNRy3xXZNhen3+
-	 XM0LZftPYS1fKHEVnMDY2Y1tiHIxDfJTnyQYZyxB0rQuVEJ3VL+G6aOq9dlNMHWu9P
-	 ErLxua++imRQQ==
-Date: Wed, 7 Oct 2026 13:41:46 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
-Cc: michal.simek@amd.com, tglx@kernel.org, daniel.lezcano@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, git@amd.com, 
-	linux-pwm@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH 4/5] pwm: cadence: Add TTC PWM driver
-Message-ID: <asYvE-ThtZeYSEyk@monoceros>
-References: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
- <20261007-cadence-ttc-pwm-v1-4-52a95a8d98b1@amd.com>
+	s=k20260515; t=1791373333;
+	bh=ZA9NOgmrvX40bJArbpwfW7XATqFagxk7+begPN1XXr4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=coPLoxwiHy/rhvSGNptLPSOdnfM5FeL9O7GZwjRhdIyKzpAauG0qxwlNYpBn/tr5/
+	 fm0HPfKqb7ugfFYuZG4xlmj26ljHAfBmiDpnl1e14Cqqge3pTBey2ta9thqud+4Csk
+	 WCC4jdYpWsTvHteeHz9HwedTM5t3yUBwnp8bIvzSCaZZzxQDRev/VJrPIODBSDspGb
+	 KuiVc1p9s3OUIo6jIt49yWoTJtth7343U3cBglgZXb4nBl1Lx3fPLoP7Q/UtgTwyBr
+	 1BPZ7v5O2yUb2D0BPWG7fa4gg4W7Ae+wl+its76AxpjBhBeW6ZRs+DOzjUhn35z3IW
+	 JpxQbwGtnnC4w==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5bb7c6980f1so1423166e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:42:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy1xWzsHz+z7SJQCAyX98mV/QveobdCRVSJVdwTPbTOdiAUPo1O+5pc5Rjl9PnAxj7HYPqMQvIjpX26wmAlf9nW@lists.infradead.org
+X-Gm-Message-State: AFq9FYKvdL1KoYDXx7IGv/5l4cO7oup1mZssIiUdtNqfsoi1d0oydbHD
+	uyOiqg+ttHA897HYDD01EBWPp6AG6rChWrPsNq7i1UKDOsyc7DmZzkXdPoYMf0GhAbCR06ntI6s
+	27AkyRs7ztdcqibab1WmKKXVBVxjzl80=
+X-Received: by 2002:a05:6512:6d0:b0:5b8:f3b2:429b with SMTP id
+ 2adb3069b0e04-5bcd0739e4emr797570e87.52.1791373331700; Wed, 07 Oct 2026
+ 04:42:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="liwzd3daugmfm5cv"
-Content-Disposition: inline
-In-Reply-To: <20261007-cadence-ttc-pwm-v1-4-52a95a8d98b1@amd.com>
+References: <20261006-b4-cs75xx-v2-0-b7d6e1e24d44@gmail.com> <20261006-b4-cs75xx-v2-8-b7d6e1e24d44@gmail.com>
+In-Reply-To: <20261006-b4-cs75xx-v2-8-b7d6e1e24d44@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 7 Oct 2026 13:41:59 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmnhSoEoXRZWTwFXmH=5rXXj2-LVZEtXNnEGK1W=BJhCQ@mail.gmail.com>
+X-Gm-Features: AclHuK-cGfMV3wC_JnZ2yidK3ahYmAJBUguZTaFkKK4-5UvxJ1sv8QtWH9lA1fg
+Message-ID: <CAD++jLmnhSoEoXRZWTwFXmH=5rXXj2-LVZEtXNnEGK1W=BJhCQ@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 08/10] ARM: dts: cortina: Add CS7542 SoC and
+ Securifi Almond+ board
+To: filipp.dunsky@gmail.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	Jason Li <jason.li@cortina-access.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +86,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 6, 2026 at 8:17=E2=80=AFPM Fil Dunsky via B4 Relay
+<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
 
---liwzd3daugmfm5cv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 4/5] pwm: cadence: Add TTC PWM driver
-MIME-Version: 1.0
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
+>
+> Add a minimal description of the Cortina Systems CS7542 SoC: the two
+> Cortex-A9 cores, SCU, GIC, global timer, private timer and watchdog,
+> PL310 L2 cache controller and the four on-chip UARTs.
+>
+> The peripheral clock (APB) runs at 100, 150 or 170 MHz depending on the
+> boot strap pins. Until there is a driver for the global control block
+> that reads the straps, model it as a fixed clock whose rate is provided
+> by the board.
+>
+> The Securifi Almond+ is a touchscreen Wi-Fi router with 512 MiB of DDR3,
+> 512 MiB of NAND flash, a QCA8337 switch, QCA9880 and AR9580 Wi-Fi and an
+> ASM1042 USB 3.0 controller behind the SoC PCIe root ports. For now,
+> describe the memory, the console UART and a ramoops region, and reserve
+> the top 64 MiB of RAM which the vendor firmware hands to the packet
+> engine queue manager.
+>
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Hello,
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-On Wed, Oct 07, 2026 at 02:37:02PM +0530, Meher Thanmaiee wrote:
-> +static const struct pwm_ops cdns_ttc_pwm_ops = {
-> +	.apply = cdns_ttc_pwm_apply,
-> +	.get_state = cdns_ttc_pwm_get_state,
-> +};
-
-Just a very quick review: I won't take any new drivers using .apply().
-Please use the waveform stuff. And also note that there is Rust support
-for PWMs, so if you're adventurous try that. (The reference in that case
-would be drivers/pwm/pwm_th1520.rs.)
-
-Best regards
-Uwe
-
---liwzd3daugmfm5cv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrGL+8ACgkQj4D7WH0S
-/k7WbQf+IdxlXDGnofnNGYSJgNSQuykiiXyUxguphS+V2ZA4vtCi3WPVyShJmJFn
-QReubs0MCHoik/W77Aoga7xjD+yAOhark7Qyt5bvBmWnBZVqZ1sdZSxfOibA2PRs
-TRrzjc1jtzHuLakyMmVOlgrxVVATfm5TrpR4v69m9AMX5K6gtdvvZY5TScE6X118
-l9GXS7XRuu4gTIuudT/NAMOnK2p1ghbX1LFcGQ6fY0wAlayLeoVeC3koTYHG0UQA
-9NNkJRpZizPsC2huOWeCCz3+C79L6pa+Wz9Mh8cM6v6dQEIOe4WcnKomw4hW+GDZ
-IUFGtSO4+my35wClptMOrsLNs8fXPg==
-=KvDE
------END PGP SIGNATURE-----
-
---liwzd3daugmfm5cv--
+Yours,
+Linus Walleij
 
