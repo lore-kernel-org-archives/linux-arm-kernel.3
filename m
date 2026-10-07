@@ -4,68 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBF3CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF548CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLfXra5Jo90UbwTBsB9NGQ3f0bIBVXsiTTgt1LOnb6s=; b=EJUcpLSW6AihfoqRUTrGQfuz71
-	xJFCj80p+MGLiQsewZIMp9CYWIjQu/rMxOLebITB2QibRulgxGng9ce2M3c7I222CiD0uuy8GEe22
-	lOra+o/yOD8BRq5yng9k7dmepjjmBN2VlhhKiV6G7EzT76TU6lHO7+S1rGTRwDrabL1MgZhTEidb7
-	HYQmMoX4W4qzFkKhQ/Jy85B7xaXJ39FGq7YEc/IDSZ4XmuZjH4Xec2CqqDlu+vEiq7361qxTQnXZZ
-	HZioeJHeVLj7Gf6ayEzxEGXY0XpK/xgO+GQRPrmbeFQQV6vUvzitZ3d5oRXWyUkXSWuYdMRrTVguy
-	m88dVMjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:Message-ID:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SkQ7J4HiIfhy5GjsiFNBhrW02z8RN1b9lERk9Mw2U7k=; b=nFmhLyAjvYNdx36bSmFBAyjf8C
+	IzlsOH0hjxcL5r6HIHsfvdfVvT0kECCHhvDIqcAF/U9bO0seXpd+enIbhBEc/TKKUMAmbLcDXrjae
+	gPsR2cisixXNdUajwg181D+T8OiZRmf0krgO2FFzLI9lJCV+cLZ5RV9O8Wy5HSpj9S7YBUny8/0O2
+	pb744LQwnYoRiS/461WtAwGCnx2ubsY6ug1Mj0AYPyVew1kaPeYRRrxC0hMnD1sUvuPqUwSF07GNd
+	p2cfpsGNP2ufphLpKQLuVtwexijtrDZaKyjUAw5zrUQyk5++v29Slmr2sp8ZoKTEFbdWed4eQwc20
+	KxlGvCdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVfc-00000002op9-1NlY;
-	Wed, 07 Oct 2026 17:43:12 +0000
-Received: from smtp6-g21.free.fr ([2a01:e0c:1:1599::15])
+	id 1xEVi5-00000002ovr-2l69;
+	Wed, 07 Oct 2026 17:45:45 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVfY-00000002ooO-22tL
+	id 1xEVi3-00000002ovW-00EO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 17:43:10 +0000
-Received: from L30177.local (unknown [78.242.246.191])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp6-g21.free.fr (Postfix) with ESMTPSA id 1B23B780505;
-	Wed,  7 Oct 2026 19:42:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1791394985;
-	bh=pLfXra5Jo90UbwTBsB9NGQ3f0bIBVXsiTTgt1LOnb6s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eGySEcTvLGf1K4n+0/B5s8ni5lHAHsIVa8gSTFnQpWZoKM2Bu0g3wom+bNh55IjmH
-	 i3PPKg+dy5xd6+1NpM3E2cpVDUw7jxHsi86+3I3Ipez3E42KgssjqmXE5ggf2IBwvu
-	 D4D+vWa/TKg2wKFm61IQrLQlpjkyaPhpFiaqCdcr4e0dMNf0Dcp85Cmnx3KrSQf3HQ
-	 fjLB1VzTmpLeK47WFQPOivfQRUetQLqfl66Wm7NIplwAIzhv5SDwPPFlcC6I6GtZzB
-	 1IIiMLM0TzkX0nZiYEvyWYDozke9WLCWoqoOAW8zqR4uX1xZ/lH0AdZqaWIemBeQKg
-	 4F+zBWY+mrDLA==
-Date: Wed, 7 Oct 2026 19:42:45 +0200
-From: Vincent Jardin <vjardin@free.fr>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Carlos Song <carlos.song@nxp.com>,
-	Haobin Jiang <lemonoutput@foxmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
-Message-ID: <asaElUqBu5ht6amB@L30177.local>
-References: <20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr>
- <apcYp0Zc7CrJMiOh@lizhi-Precision-Tower-5810>
- <aqO9SMvI89rqoEGb@L23803.iliad.fr>
- <arMUxCW5ZTzLT3VN@L30177.local>
- <arw0mVbacAXv_1H7@L30177.local>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arw0mVbacAXv_1H7@L30177.local>
+	Wed, 07 Oct 2026 17:45:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=Subject:Date:Message-ID:To:From; t=1791395136; bh=SkQ7J4HiIfhy5GjsiFNBhrW
+	02z8RN1b9lERk9Mw2U7k=; b=kWFdxRr9VSO3G2dy8wPeBCVWP7MbuBCH549r5/0KHTwr2XBKb5
+	rk6b/t1XVuSVnG5mqIAFGvEZXD3BFGK903ducAW5aq3HbIeH7asK11E+SskL8OzOOsx/Gk8TZLs
+	5QnJylE501BpHi/K81vx0+wsLZhazq5KRoP84gzk8YEH2f1NFb7ffPZv/Fm5KAorWmHnwsub5K0
+	weyFI4cH2EoCaXj2+DFcubOdDPaGffIJDnOdvGmpWq1oEILeu8GFbiwbfbVkMvutBO1RBnJKjkJ
+	tbxphcolfOO+Ef9yXvhHaJo6FuEdwttim7e1k0b6e0Fcs9HQYf3TVXE6xNmKJBtvzBA==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=Subject:Date:Message-ID:To:From; t=1791395136; bh=SkQ7J4HiIfhy5GjsiFNBhrW
+	02z8RN1b9lERk9Mw2U7k=; b=USJ5AV2n589YtAUYrSVhS8CziHjElDlwgCxLplG8cOEF8hYQoQ
+	j/vSimlDpu+jvJpIcr2ljIyyq+KKlzfeb6Ag==;
+From: Bradley Morgan <brads@mainlining.org>
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, brads@mainlining.org
+Message-ID: <20261007175231.1.mte-tmp2@mainlining.org>
+Date: Wed, 7 Oct 2026 17:45:01 +0000
+Subject: [PATCH] arm64: entry: drop the unused tmp2 argument of
+ mte_set_kernel_gcr()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_104308_709355_79BA3060 
-X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-CacheID: sfid-20261007_104543_312428_63B55227 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,17 +63,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
+mte_set_kernel_gcr() takes a tmp2 argument the macro never uses. It
+used to, the body passed \tmp and \tmp2 to mte_set_gcr, then
+commit 82868247897b ("arm64: kasan: mte: use a constant kernel
+GCR_EL1 value") swapped that for
 
-Sorry for the noise and resending again: with v7.3-rc7 due this Sunday if
-I am correct, could you take this patch into i2c/i2c-next for v7.4 ?
+    mov     \tmp, KERNEL_GCR_EL1
 
-It carries Carlos Song's Acked-by and Frank Li's Reviewed-by and it
-still applies cleanly on today's i2c/i2c-next.
+and tmp2 stayed in the declaration and in the one caller, which
+passes x23 for it.
 
-Haobin Jiang's "i2c: imx: honour I2C_M_IGNORE_NAK" v3 still depends on it.
+Drop it, both places.
 
-If anything needs to change, tell me and I will send a v3 right away.
+Signed-off-by: Bradley Morgan <brads@mainlining.org>
 
-Best regards,
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index 0e1d9c3c6a93..2baefe7a82d3 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -171,7 +171,7 @@
+ #endif
+ 	.endm
+
+-	.macro mte_set_kernel_gcr, tmp, tmp2
++	.macro mte_set_kernel_gcr, tmp
+ #ifdef CONFIG_KASAN_HW_TAGS
+ alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
+ 	b	1f
+@@ -258,7 +258,7 @@
+
+ 	apply_ssbd 1, x22, x23
+
+-	mte_set_kernel_gcr x22, x23
++	mte_set_kernel_gcr x22
+
+ 	/*
+ 	 * Any non-self-synchronizing system register updates required for
+---
+ arch/arm64/kernel/entry.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index f63049ac32dc..c3106dee61e1 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -171,7 +171,7 @@ alternative_else_nop_endif
+ #endif
+ 	.endm
+ 
+-	.macro mte_set_kernel_gcr, tmp, tmp2
++	.macro mte_set_kernel_gcr, tmp
+ #ifdef CONFIG_KASAN_HW_TAGS
+ alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
+ 	b	1f
+@@ -258,7 +258,7 @@ alternative_else_nop_endif
+ 
+ 	apply_ssbd 1, x22, x23
+ 
+-	mte_set_kernel_gcr x22, x23
++	mte_set_kernel_gcr x22
+ 
+ 	/*
+ 	 * Any non-self-synchronizing system register updates required for
+-- 
+2.53.0
 
