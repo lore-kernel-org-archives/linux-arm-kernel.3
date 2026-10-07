@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E79CCA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EB6CA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIWEluHy4olmpdCKhHecoCjRfu/n7+ylkyhpZgJoDQY=; b=yjS7v3to6RTy9nkJFDhGKdQicd
-	zjpL00F02SUe8gmP4e84S951/BTZ26FcU15mrXWsNthB4yKegrCn+eNqw4Yotx6XJgs6vJkhOwFeV
-	y9lwI0zSozo7wmOflYn1/RzglJL3Qtw2gVzRc82msew1ZSbmO2mbuc53xauzCgaaBjrkn72TllIoh
-	ri73SwmKkYqOHK0U9ZKacGWJdrQOr1t1InQZ+GHfHQrQ4IX52IzdSaIg26PkS/NfA0HnUf09Rm60j
-	+AhIJPFioAvkBjxiJQFk6q/W2KlC8mDEXTkfKjdFL87T8YJZ7A79mBI8oS0xwjoPk3pMGhykyrQ1P
-	EU/CSrbw==;
+	bh=LSxPZEPR5SziIXhK2HrZDL72qyLOyeEGstZGusBKpNM=; b=3NRUlOGAMS7es7RK3YNEH5NjU8
+	c97Runy4F2oiA0O4El5BT/+nvbqw9RlwEOJhYcuiJJ8t2lGdcPIkxZLHT/QLo9X3n5NkCgHFqP8yw
+	FDDxWbWxFxLHzrGd8Hdd2EkWwQig/DhPbyLrfdMeJSbUM1pd5UudbWD8RepOozq73ZOR4dGApvb4o
+	oiCtLGrH9PaMxAN2ybZf3iuq4ADa8aZ5dxBy2zRpeq4uobv3dfxfZmUQsgr0A6vN64+7tDvq7lD9m
+	Lg0o82aBM2I/vF71ClqwAE+doR9sKlhcf+Ux6pqjJAOHm2N0vyPPrwvRjatDesTkM+7Ohc5cKQlaB
+	9K8uTWgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiOt-00000003j69-1QRf;
-	Thu, 08 Oct 2026 07:18:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xEiPK-00000003jDx-3TeP;
+	Thu, 08 Oct 2026 07:19:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiOs-00000003j5w-13it;
-	Thu, 08 Oct 2026 07:18:46 +0000
+	id 1xEiPJ-00000003jDa-0H9s
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 07:19:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A38360252;
-	Thu,  8 Oct 2026 07:18:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D248C1F000FF;
-	Thu,  8 Oct 2026 07:18:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AA1274404B;
+	Thu,  8 Oct 2026 07:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1F241F00893;
+	Thu,  8 Oct 2026 07:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791443925;
-	bh=bIWEluHy4olmpdCKhHecoCjRfu/n7+ylkyhpZgJoDQY=;
+	s=k20260515; t=1791443952;
+	bh=LSxPZEPR5SziIXhK2HrZDL72qyLOyeEGstZGusBKpNM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YhNZ3kZYbA2kvqgVMOMv1chucJFUmlxb6iMyG/JWhON8FRL30yewBlVwIse4ouIOP
-	 6Lt9Yk8AeEZSdwsiSgZcBvbge+5Acgn9YMzhJXkxGxtI6UQMU2+P90beYGkXAfeyMD
-	 oZuRtxQGMSdCX+ny7/7pM92hPtB5PIwnUnMnJFKRJ434oSt/99MzPUQvzQWLDjeojF
-	 sUfVokpjAqJs9jUYhK+wYGNKe3+7Gu+izo3P2Xg/5HIoM4Y8c+6RN/wxwP5Zus9olb
-	 wdmY3D8+CarQ7pQqHp+XuD/nOC8mUgNk/DbCnZq+w2z9Rvo/amruLJ2ZZSvAZ3pBJs
-	 vsKzgNGPFBJqA==
+	b=LQsfXGtdDAq5hxoRYFNW5Bc7NQI+wkUEG7tOAvMv450ED0QbJr+NjFOIOEW0tqXCg
+	 0JFra5nKNM5H+TIHlvq0la45Xz/b8+3jCWG6mvZZp9QcYX/zCYhD20jHfcC36J/4KH
+	 Rvn1vvl3UwijR664CP0qb0Z/wlAdkgd6lrDEP2wi3wNubzBNZzfYb/mwRYgk7XVT1c
+	 x+9/O6+fzwKtxkw7NMV49CBCUS+YGoGmnl39/KsFBRyO/9Xpp4GGUGJOqJdnZtHwy8
+	 SlCE3MO+FMBUjLy5X6Bnzhc9MU3biOun1q7E4QKy7JEz/5OSKvJjTsFs2AqcUfNV1v
+	 YBk27Mf8I7bRA==
 From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- phucduc.bui@gmail.com
-Cc: Sugar Zhang <sugar.zhang@rock-chips.com>, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-In-Reply-To: <20260903112739.373621-1-phucduc.bui@gmail.com>
-References: <20260903112739.373621-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH 1/2] ASoC: rockchip: rockchip_sai: Handle runtime PM
- resume failures in set_fmt
-Message-Id: <179137153110.2423942.4793821974137109884.b4-ty@b4>
-Date: Wed, 07 Oct 2026 13:12:11 +0200
+To: Alain Volmat <alain.volmat@foss.st.com>, 
+ Pin-Hao Chen <billy920225@gmail.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+ linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20261005220528.7199-1-billy920225@gmail.com>
+References: <20261005220528.7199-1-billy920225@gmail.com>
+Subject: Re: [PATCH] spi: stm32: fix double free of SRAM buffer on MDMA
+ fallback
+Message-Id: <179138619954.2423942.17574965828667602495.b4-ty@b4>
+Date: Wed, 07 Oct 2026 17:16:39 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1316; i=broonie@kernel.org;
- h=from:subject:message-id; bh=jkEvlhNrGy4+zr/Kw7j1aPz+pb88B7Nghlwg5R4mxEw=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqx0PQHvrXauKfqKrTsbBnSOe4rrtmP4OQWk+1H
- oVnsF8TNgOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasdD0AAKCRAk1otyXVSH
- 0GeNB/oDhu8wDi9UdXa53rTKeQkmHe1JGb4K1econGzifJVtnAH+WpdnOAHqNocd973sKbYrYJK
- b6aH18ARbId20iOkmNImVSYBMOXDJSc0sxRM4gzN0FqrIEDXs/7kULaF4e1xMSl0tEk4SSQ/GTH
- fgf//KIHHsHB90pm/nqN3ZOC5tq+o5o8Gde+ATJ3jH9DL49ldBE4cxvOh2FjqgRuzf7Kyz3Bx43
- ZPiriQ1KqDKBqp9HhSMI5bzVXcyjEUdTTgUbIyXNYJlKrsBYMlgrL0c7MnFjdSiCw08qAfuslU0
- +5X7q8X0N3jGNPZUVFh1CtWaePdr8Xr5X+sf06c6USIVyuPv
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1132; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=8RaKJJa88G/U43Om9GWKyuM7R61X/xlktmHdGJHrtew=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqx0PqnniUR/n8Cc0GizO4cmryq7XxHYvsVWhR2
+ Isr9QXQfHmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCasdD6gAKCRAk1otyXVSH
+ 0PEMB/9jChwCIe3aM1b6h8T/3EjY6c0rCpzb8LBIjBXSH+I3C5muPF31tDmpJbZlA2rInp3S+54
+ rrA2HswRABIZY0iAnIXZVh5efFl219B4cVRO7IuAfbKdl81A/do86DIal7ucBKyojoKV8w9CX77
+ F4EvzTeWzGD+N4pqlHYl5lOzdOeSmBuuw4QZAaEV/Y7gXuYKAio9Dd5xS5VHUP1ZrsuF0hQOfHI
+ rdyALx0PiErmOjBiUuqIXk9eDY1EvWzkjSExiKNZDlAnYbULFwnb3KYa5UrnSaVtPoIC4tgCyOr
+ cdsb7teB6Dzj8b5TqPgDmJ23v8//S2LQLYeHBHxtiyIVuYMK
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,19 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Sep 2026 18:27:38 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: rockchip: rockchip_sai: Handle runtime PM resume failures in set_fmt
+On Tue, 06 Oct 2026 06:05:28 +0800, Pin-Hao Chen wrote:
+> spi: stm32: fix double free of SRAM buffer on MDMA fallback
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
 Thanks!
 
-[1/2] ASoC: rockchip: rockchip_sai: Handle runtime PM resume failures in set_fmt
-      https://git.kernel.org/broonie/sound/c/39205bb7ed4f
-[2/2] ASoC: rockchip: rockchip_i2s: Handle runtime PM resume failures in set_fmt
-      https://git.kernel.org/broonie/sound/c/e9eb1854d161
+[1/1] spi: stm32: fix double free of SRAM buffer on MDMA fallback
+      https://git.kernel.org/broonie/spi/c/0c5b0c3eb1d6
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
