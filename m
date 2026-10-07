@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692F4CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D42CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVXuH7H4PDcskImrivyP/VtzUO54yTkMmhV+cSg/PdA=; b=BL/gOHrncHplI4V0TwPWPiuJsF
-	pq97DSFqyJixRZ+jpVcfgiY0r7cBcERW+ms+ZouvY4zlFulvB0s46FVSZkgn74VUFzZHhj/vQmguB
-	4xGBXpc9WP6WRmi2+SPSpqY9hs6yE3KthtSFfTw+HW2qvYrAMC6xJwkDIgOJMtfB5mf4YPcPjmfFi
-	MkJL1MFyu75YJxoqnMEQscjCgvTlG821ShNp3Gjr1qq6Fyvbl4Mw0Uh4efqb8LxreTWb6Ts9rldlA
-	Kl7maHZ7fJaf4USHX5xXmUDDB0ErT4koGRf4x5fvnmk7aXVPxgVy/ajRQJS6FVJuyM17OixR48Pek
-	2DdVsmtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OexaRCcgt6XYkDM8a+OmC5h/6OPxo9ybl1gjEFZyPZY=; b=SX/FE/9YFIhoMvYfGFmAM+Klrw
+	nEjNAtZP2rgL9ysr6JaNkBzz9nychcZruB/oXSC11hXL0YeWTDwtV9PNx2Atd/Nt7KhAkkXQNZjbX
+	YW3P4+gNmCJfBerb7RpSTLxwvzkNJjs23VCuTTxf+JRrz5RAxP/YxCHJMekOqSF8jlQeyXxCfh1g+
+	snsy4eACKBUadodA1lRa5YBbd1BGrGXf+VwrH4S6FI6VZNo0QOlM9VGsT9DYMyxZQ06VCCOloWJjA
+	P/z057cicCBi2m05S4KnJY+akKftxT79nGyg/eZw5ZFT9aq0XzbcedQ4AFLQfLxEomvy+Sy56+6UH
+	ytUEPuCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELSj-00000001o80-0m01;
-	Wed, 07 Oct 2026 06:49:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xELVh-00000001oQA-2o3C;
+	Wed, 07 Oct 2026 06:52:17 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELSi-00000001o7o-1gop
+	id 1xELVe-00000001oPa-3FxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:49:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C0B7601FF
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 06:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060391F0089F
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 06:49:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791355751;
-	bh=kVXuH7H4PDcskImrivyP/VtzUO54yTkMmhV+cSg/PdA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=dg/APZQ9ejy4HmKPDmWJ49DQjYI8eWTCX2U9HoU5cpY3x9Rp89PIqyA8NLJL0FwtJ
-	 GMzK4tUOwWk49yYln+oGbbud0wd+E1ne0Fmx4u/kimPS1vwfpbRml7GQ+ixnK3WLy5
-	 adZ7iVP2QncNkxmIKC3Dhq6N3u2YYx+tYwo97iXjIw81UJ7iupGbyvfRCJaeqOgE3+
-	 VTVO/i9lEVYeS//KnuemuoJQ9Bhbgdxg47sJreGtLXkIMBl+Vr5niUOqlFYNtkozg9
-	 mGCFqSQyXN8Tou3REIxsoHqM2zX/h5J9SJoWUqMbRVurUKh76v8oQHNBpM1OPIMfQC
-	 G4LuA1C3AaIVA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bcb6faf862so3099366e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 23:49:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx1EW/WLLW7KUj1NntMzU9HN2MZt3eTn5U2TKu0/0GhgutcvFaNQYoCdHc74fzlpLlvVJBbelJnlWZe+ZU2RVe9@lists.infradead.org
-X-Gm-Message-State: AFq9FYJHZ6CfX1ZfujV9n/at+TFas4d03NHPXqzth6zl0Ouuqdt46Ryw
-	v9KkdMI21doEwci/6t9Ca+NkSXb3E6Jn+IfQokPXQ9BgKw5Age0abm6Zlre1VsjoVvJFjq1z+we
-	jLDiO5Chl9MeDNbrg4uakqlT6cMu4SuA=
-X-Received: by 2002:ac2:51cb:0:b0:5ba:3443:aa2e with SMTP id
- 2adb3069b0e04-5bcd06dde9emr392580e87.21.1791355749772; Tue, 06 Oct 2026
- 23:49:09 -0700 (PDT)
+	Wed, 07 Oct 2026 06:52:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=OexaRCcgt6XYkDM8a+OmC5h/6OPxo9ybl1gjEFZyPZY=; b=q/j60Yb13/I9m6w0+nIy5uqC3r
+	AOYolLvel59Eq9GOidlv2e+1esaRmd1CyZRrut7gT2ANNsVk+AP+6Ui9tdLH6kLIpEPrQO4Oe3uhX
+	Sx0wdJQrI2HS8Lk9oZFCM/WICPTAOTOvenLSlTzEeBgZdR9mYxflW2t53TqwejP+Q5DYsavgmIEz0
+	k26N7WP4QsnKjHKOcg+Hib/LNWCLoIPqLTTz9lMM4w90fxDt7PFf7LVS02bkZZv3Bwoo7k4wDIhAG
+	ohfMTcxE97n8Ijg1cLxTg/9qGS0f1ce9Bf/SS8vXgZFE1tZbWYq1/3/fvYLPZK6oQDOqFMeofJSyM
+	1qzK2n4A==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xELVc-0008ir-0L;
+	Wed, 07 Oct 2026 08:52:12 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xELVc-000II6-0d;
+	Wed, 07 Oct 2026 08:52:11 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.li@oss.nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Markus Niebel <Markus.Niebel@ew.tq-group.com>, linux@ew.tq-group.com,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: dts: imx8mn-tqma8mqnl: restrict clock for SPI-NOR
+ flash
+Date: Wed, 07 Oct 2026 08:52:09 +0200
+Message-ID: <8205013.DvuYhMxLoT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <CAOMZO5AJiSoFb5Fy-LR4=MDqQqhJPvtzLT+-18es8j_HvYqt6w@mail.gmail.com>
+References: <20261006132512.2246196-1-alexander.stein@ew.tq-group.com>
+ <5021357.mvXUDI8C0e@steina-w>
+ <CAOMZO5AJiSoFb5Fy-LR4=MDqQqhJPvtzLT+-18es8j_HvYqt6w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
-In-Reply-To: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 08:48:56 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkgBKDvbxsnhsBE_Qqs6TA8how4J2jvKm=tdpx4P+4JdA@mail.gmail.com>
-X-Gm-Features: AclHuK9LebUk8FXXJTxUAdYqh6ANC6YbZR1Kg-AkYL0dvrplEgSlwXOq9S4AtEE
-Message-ID: <CAD++jLkgBKDvbxsnhsBE_Qqs6TA8how4J2jvKm=tdpx4P+4JdA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] pinctrl: scmi: Replace get function and group info
- with generic callbacks
-To: Alex Tran <alex.tran@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28145/Tue Oct  6 08:26:12 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_235214_928095_CDD40AFC 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 12:56=E2=80=AFAM Alex Tran <alex.tran@oss.qualcomm.=
-com> wrote:
+Hi Fabio,
 
-> This series refactors the SCMI pinctrl driver to eliminate metadata
-> getter callbacks to be replaced with pinctrl and pinmux generics
-> provided by the pinctrl core.
->
-> Previously, the driver implemented its own get_functions_count,
-> get_function_name, get_function_groups, get_groups_count,
-> get_group_name, and get_group_pins callbacks, which required
-> maintaining driver metadata like the functions and count.
->
-> The pinctrl core already has support to store and manage this
-> topology in the pinctrl_dev via its own internal radix trees.
-> By registering functions and groups at probe time using
-> pinmux_generic_add_function and pinctrl_generic_add_group, the
-> driver can delegate group and function metadata management to
-> the core.
->
-> Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
+Am Dienstag, 6. Oktober 2026, 15:59:22 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Fabio Estevam:
+> Hi Alexander,
+>=20
+> On Tue, Oct 6, 2026 at 10:50=E2=80=AFAM Alexander Stein
+> <alexander.stein@ew.tq-group.com> wrote:
+> >
+> > Am Dienstag, 6. Oktober 2026, 15:46:50 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Frank Li:
+> > > On Tue, Oct 06, 2026 at 03:25:10PM +0200, Alexander Stein wrote:
+> > > > From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> > > >
+> > > > The FlexSPI controller uses quad SPI with internal clock recovery.
+> > > > The clock is therefore restricted to 66.666666 MHz according to
+> > > > data sheet.
+> > >
+> > > Which datasheet? I suppose NOR flash datasheet, can you provide link
+> > > here.
+> >
+> > The i.MX8M Nano data sheet Rev 5 09/2022 section 3.9.1.1 "SDR mode with
+> > FlexSPIn_MCR0[RXCLKSRC] =3D 0x0, 0x1, 0x2" Table 55. "FlexSPI input tim=
+ing
+> > in SDR mode where FlexSPIn_MCR0[RXCLKSRC] =3D 0x0" lists 66 Mhz maximum=
+ for
+> > "Frequency of operation".
+>=20
+> From the commit log, I also got the impression you were referring to
+> the SPI NOR datasheet.
+>=20
+> Please clarify that in v2.
+>=20
+> Also, shouldn't all patches in the series contain a Fixes: tag?
 
-Patches applied!
+Thanks for the feedback, I'll adjust the commit message in v2 and
+add a Fixes: tag as well.
 
-Yours,
-Linus Walleij
+Best regards
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+http://www.tq-group.com/
+
+
 
