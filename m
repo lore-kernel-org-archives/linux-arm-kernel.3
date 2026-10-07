@@ -4,50 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF548CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744DCCA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:Message-ID:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SkQ7J4HiIfhy5GjsiFNBhrW02z8RN1b9lERk9Mw2U7k=; b=nFmhLyAjvYNdx36bSmFBAyjf8C
-	IzlsOH0hjxcL5r6HIHsfvdfVvT0kECCHhvDIqcAF/U9bO0seXpd+enIbhBEc/TKKUMAmbLcDXrjae
-	gPsR2cisixXNdUajwg181D+T8OiZRmf0krgO2FFzLI9lJCV+cLZ5RV9O8Wy5HSpj9S7YBUny8/0O2
-	pb744LQwnYoRiS/461WtAwGCnx2ubsY6ug1Mj0AYPyVew1kaPeYRRrxC0hMnD1sUvuPqUwSF07GNd
-	p2cfpsGNP2ufphLpKQLuVtwexijtrDZaKyjUAw5zrUQyk5++v29Slmr2sp8ZoKTEFbdWed4eQwc20
-	KxlGvCdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qx2Cu25I5sjT0OS3Laf9tgymyNlqPnrQKyFNkKz8hR0=; b=iR5VW0RHp5z/TEwJY4vA6hhY8y
+	FfXW74rnx3Hd/+lY34Nn5PdCk3R+WMpYvfVlrO4oQBmsUYuI9LbyqrMFzjUkyahY0VnacAmJpOFbO
+	up4t0Hi+meu1HWkEUPYCxLMNebvbfm5sQCSRc7KrGsMvruwsQGLsvoXxuNI9FVfBOGQcCz2Dgh83F
+	j63mpAS820FFvXjBZqTXpsJBWOoAvJrBqQHV4HuTdLc/+vyy2mtk0Lbb24YLBD2htHCWluoIYdnLy
+	oa3brDi2Wq5+wvkxNjobyuj7hsC65Cs3TxIxjNhTs7ZWyrpFEBiBmXG49ruulTzZNoUz66WVZO6K5
+	0pBeWExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVi5-00000002ovr-2l69;
-	Wed, 07 Oct 2026 17:45:45 +0000
+	id 1xEVji-00000002p48-01fP;
+	Wed, 07 Oct 2026 17:47:26 +0000
 Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVi3-00000002ovW-00EO
+	id 1xEVje-00000002p3n-2Ne9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 17:45:44 +0000
+	Wed, 07 Oct 2026 17:47:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Subject:Date:Message-ID:To:From; t=1791395136; bh=SkQ7J4HiIfhy5GjsiFNBhrW
-	02z8RN1b9lERk9Mw2U7k=; b=kWFdxRr9VSO3G2dy8wPeBCVWP7MbuBCH549r5/0KHTwr2XBKb5
-	rk6b/t1XVuSVnG5mqIAFGvEZXD3BFGK903ducAW5aq3HbIeH7asK11E+SskL8OzOOsx/Gk8TZLs
-	5QnJylE501BpHi/K81vx0+wsLZhazq5KRoP84gzk8YEH2f1NFb7ffPZv/Fm5KAorWmHnwsub5K0
-	weyFI4cH2EoCaXj2+DFcubOdDPaGffIJDnOdvGmpWq1oEILeu8GFbiwbfbVkMvutBO1RBnJKjkJ
-	tbxphcolfOO+Ef9yXvhHaJo6FuEdwttim7e1k0b6e0Fcs9HQYf3TVXE6xNmKJBtvzBA==;
+	h=Message-ID:Subject:To:From:Date; t=1791395240; bh=Qx2Cu25I5sjT0OS3Laf9tgy
+	myNlqPnrQKyFNkKz8hR0=; b=BCcSMRoOiaMRXN37pk17F9CJuD81V9NKcfClIQP5roSEHLf/YL
+	DN+MG0FgUdyjX+O6vhMZWrF9QfxMTZfggz+Rr97M/joZedAgNqVmUno4GThBzLEAg8AuQYzlT3+
+	zdcMom89GRbHlhqlcT24MMn69GC/TIXFoRCWO50XYN1jYneGyKRKCgylkkcwTEi8hUJH93BQSqX
+	iZe2+OOYL9l+FTzjDr+KDqwthbs+LKs8NgN+Rg96nTlfA3hlObdSC2Txp/9rU2E2PxsCV/4u9HL
+	YpK5NfXNYfBYIrFdDe/Rb9pJ9OTQcG2O4eZf9KSwgIJFldcY7+/ps7qIib49pG34qQA==;
 DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Subject:Date:Message-ID:To:From; t=1791395136; bh=SkQ7J4HiIfhy5GjsiFNBhrW
-	02z8RN1b9lERk9Mw2U7k=; b=USJ5AV2n589YtAUYrSVhS8CziHjElDlwgCxLplG8cOEF8hYQoQ
-	j/vSimlDpu+jvJpIcr2ljIyyq+KKlzfeb6Ag==;
+	h=Message-ID:Subject:To:From:Date; t=1791395240; bh=Qx2Cu25I5sjT0OS3Laf9tgy
+	myNlqPnrQKyFNkKz8hR0=; b=i1TDMQTJfLEviP0Fq2yU35+M3ye3HyQ+UjO6AvhTdR/zDqmxou
+	2mHJGQ4t9aM7xOcaB10bjZxtO3wUC37Zh3CA==;
+Date: Wed, 07 Oct 2026 18:47:21 +0100
 From: Bradley Morgan <brads@mainlining.org>
 To: catalin.marinas@arm.com, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, brads@mainlining.org
-Message-ID: <20261007175231.1.mte-tmp2@mainlining.org>
-Date: Wed, 7 Oct 2026 17:45:01 +0000
-Subject: [PATCH] arm64: entry: drop the unused tmp2 argument of
- mte_set_kernel_gcr()
+CC: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_arm64=3A_entry=3A_drop_the_unus?=
+ =?US-ASCII?Q?ed_tmp2_argument_of_mte=5Fset=5Fkernel=5Fgcr=28=29?=
+In-Reply-To: <20261007175231.1.mte-tmp2@mainlining.org>
+References: <20261007175231.1.mte-tmp2@mainlining.org>
+Message-ID: <EA0C88FF-9778-4645-B744-F65DFE1D1B9B@mainlining.org>
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_104543_312428_63B55227 
-X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-CacheID: sfid-20261007_104722_755363_2D7B5058 
+X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -63,68 +70,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mte_set_kernel_gcr() takes a tmp2 argument the macro never uses. It
-used to, the body passed \tmp and \tmp2 to mte_set_gcr, then
-commit 82868247897b ("arm64: kasan: mte: use a constant kernel
-GCR_EL1 value") swapped that for
+On 7 October 2026 18:45:01 BST, Bradley Morgan <brads@mainlining.org>
+wrote:
+>mte_set_kernel_gcr() takes a tmp2 argument the macro never uses. It
+>used to, the body passed \tmp and \tmp2 to mte_set_gcr, then
+>commit 82868247897b ("arm64: kasan: mte: use a constant kernel
+>GCR_EL1 value") swapped that for
+>
+>    mov     \tmp, KERNEL_GCR_EL1
+>
+>and tmp2 stayed in the declaration and in the one caller, which
+>passes x23 for it.
+>
+>Drop it, both places.
+>
+>Signed-off-by: Bradley Morgan <brads@mainlining.org>
+>
+>diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+>index 0e1d9c3c6a93..2baefe7a82d3 100644
+>--- a/arch/arm64/kernel/entry.S
+>+++ b/arch/arm64/kernel/entry.S
+>@@ -171,7 +171,7 @@
+> #endif
+> 	.endm
+>
+>-	.macro mte_set_kernel_gcr, tmp, tmp2
+>+	.macro mte_set_kernel_gcr, tmp
+> #ifdef CONFIG_KASAN_HW_TAGS
+> alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
+> 	b	1f
+>@@ -258,7 +258,7 @@
+>
+> 	apply_ssbd 1, x22, x23
+>
+>-	mte_set_kernel_gcr x22, x23
+>+	mte_set_kernel_gcr x22
+>
+> 	/*
+> 	 * Any non-self-synchronizing system register updates required for
+>---
 
-    mov     \tmp, KERNEL_GCR_EL1
+AHH. What happened here, ugh! Why was it sent twice, stupid me man. Let me
+go resend it PROPERLY, god sake Bradley..
 
-and tmp2 stayed in the declaration and in the one caller, which
-passes x23 for it.
+> arch/arm64/kernel/entry.S | 4 ++--
+> 1 file changed, 2 insertions(+), 2 deletions(-)
+>
+>diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+>index f63049ac32dc..c3106dee61e1 100644
+>--- a/arch/arm64/kernel/entry.S
+>+++ b/arch/arm64/kernel/entry.S
+>@@ -171,7 +171,7 @@ alternative_else_nop_endif
+> #endif
+> 	.endm
+> 
+>-	.macro mte_set_kernel_gcr, tmp, tmp2
+>+	.macro mte_set_kernel_gcr, tmp
+> #ifdef CONFIG_KASAN_HW_TAGS
+> alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
+> 	b	1f
+>@@ -258,7 +258,7 @@ alternative_else_nop_endif
+> 
+> 	apply_ssbd 1, x22, x23
+> 
+>-	mte_set_kernel_gcr x22, x23
+>+	mte_set_kernel_gcr x22
+> 
+> 	/*
+> 	 * Any non-self-synchronizing system register updates required for
+>
 
-Drop it, both places.
-
-Signed-off-by: Bradley Morgan <brads@mainlining.org>
-
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 0e1d9c3c6a93..2baefe7a82d3 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -171,7 +171,7 @@
- #endif
- 	.endm
-
--	.macro mte_set_kernel_gcr, tmp, tmp2
-+	.macro mte_set_kernel_gcr, tmp
- #ifdef CONFIG_KASAN_HW_TAGS
- alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
- 	b	1f
-@@ -258,7 +258,7 @@
-
- 	apply_ssbd 1, x22, x23
-
--	mte_set_kernel_gcr x22, x23
-+	mte_set_kernel_gcr x22
-
- 	/*
- 	 * Any non-self-synchronizing system register updates required for
----
- arch/arm64/kernel/entry.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index f63049ac32dc..c3106dee61e1 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -171,7 +171,7 @@ alternative_else_nop_endif
- #endif
- 	.endm
- 
--	.macro mte_set_kernel_gcr, tmp, tmp2
-+	.macro mte_set_kernel_gcr, tmp
- #ifdef CONFIG_KASAN_HW_TAGS
- alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
- 	b	1f
-@@ -258,7 +258,7 @@ alternative_else_nop_endif
- 
- 	apply_ssbd 1, x22, x23
- 
--	mte_set_kernel_gcr x22, x23
-+	mte_set_kernel_gcr x22
- 
- 	/*
- 	 * Any non-self-synchronizing system register updates required for
--- 
-2.53.0
+--- Thanks!
+"I'm not a very positive person" - Linus torvalds
 
