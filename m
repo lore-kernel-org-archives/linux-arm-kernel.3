@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CFDCA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B013CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g6P+spmMmmlUm27GqFei7PSvg2i8zHuoJmMtTND1pM0=; b=b0t4L8jKpyyTYLCXdL5OJ5cAEd
-	WlBy6GIkqLfKQ3XE2jLlAIZwqTmCmvPUEg5RwlOS+EwONzdacTk3+iCdDoAtY/9v3R7RqGCcv8nF8
-	+VAhEs6ErHj+//6rxObo+2booeO6DN+8KjtImLrZstXzWZc/k9IccOOCpNOiLJspnS4T7NcBJRRIU
-	bkTmhoi9puVBSneKLWRpz3h9ihZ56+LSM4rA/V8yS3Caw7pG/KTyfUowusdqWsnxMR+Us9WQsOa+u
-	wjT2thjYFIK3+U8Sjjah5gg9SHQ9YG/TtUAjBaJjSo3e9Z9z/udw+yj8/GFf5k2joe+A7gTD7M9Zm
-	M/OUUxMw==;
+	bh=yuI1908oM85XvyraVfGo7n/valCJHZAHziFtWu1aTus=; b=GtPxHwbr/xdTl8RVDs1TxQgBWg
+	9w+UX/YWKGCIeRV7RuFaAL6qTHs5hqgDUqw1LteHCK7H86bd8sH6XlPDoyMr9+/Km163OPFW69L4V
+	mSfSqTgGsOzSKDiqw5KCANFpHjmgwqrK0Otc+jOeeDH5bnGs08vn8WIzltfyB0QEdLaJ9eC4rxXwA
+	o1a6n0nRvSh1akXEEnYTfiNLG6HcnHYVO1zX2sQKC0cswSzFcYbb/CTVPVRdC3kIZPQgdJR/Uthiv
+	hkmLEZqAY0aHYqw+CsAmHFywEn4ONOE33cSCAsZUwy4yAkgtdYHziJPR2rvO9T5XnZsLSjkQDQekM
+	E5alyS/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPs8-00000002JvM-26Mt;
-	Wed, 07 Oct 2026 11:31:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEPsp-00000002KAJ-2xBy;
+	Wed, 07 Oct 2026 11:32:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPs7-00000002JuJ-1ykY
+	id 1xEPso-00000002K9m-3efA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:31:43 +0000
+	Wed, 07 Oct 2026 11:32:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 984DD60219
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F4801F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:31:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FB4843E8A
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85DA81F008A5
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791372702;
-	bh=g6P+spmMmmlUm27GqFei7PSvg2i8zHuoJmMtTND1pM0=;
+	s=k20260515; t=1791372746;
+	bh=yuI1908oM85XvyraVfGo7n/valCJHZAHziFtWu1aTus=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jC6/zyQh9ODKwfOcpqoO4mtMRkqQMCJucyGcR6GXptshw+GURUSMyeBn4lWmiWa2U
-	 BrNgESCGY3cr2zlNEAYXcMTZYJrHqNr8puETHH2U10uupAiL2xaNUQPxsilMLUrFH8
-	 fK9Lle9Cz/efba9vdUYtTMM8+jXYxJcisfNF0CX4IlMgfOLYOHa4QhFjJ8f+BgObXh
-	 N/GAfqt6dKc8Fcd24DzzHIhf8ymAvi1a0Xol2sg2z3m2GS+fLkSdxbeUCtGAyXQItN
-	 twPEegs6RvVfhosT4JI4Mxg6Gr7EmB35d/FYY/fy8jLVkOJkTuJSUfAyTOXCuKJhub
-	 CYEDbfTkKX84w==
-Received: by mail-oa1-f41.google.com with SMTP id 586e51a60fabf-46556b9e02cso1351914fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:31:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxz/UxHXi9xuCf3/rRS+SwCDJ1EmiZ092tqw5bcGs0XAEt4fBRCqHO0mitQ/fbQkbYbQX0U8DcAgTxPTXRhffML@lists.infradead.org
-X-Gm-Message-State: AFq9FYJyGVIXLNTTqjRoUA+6EzxF5u8+Dhx6uOeMDIe31H39XznhwL85
-	iKX1v98Sg5XS56s+ngbqeRQdmair8ztTNQKoYhLuNouCv7x7OQOiZgNVRTdb3lskRcTI8WGsrSe
-	1xyFC5IUVd1hvhhd3v8LaDHahUntaFog=
-X-Received: by 2002:a05:6871:7d8f:b0:48f:e0f6:bd4e with SMTP id
- 586e51a60fabf-49f4f0b8d3dmr3544055fac.35.1791372701659; Wed, 07 Oct 2026
- 04:31:41 -0700 (PDT)
+	b=P0mNovaHcJCuq7f36kaX0J4ZDTJhGRrywGpCU5Zcnim+FIYlrOyEZ6JcLqzV1rC9g
+	 LgEtEwlV+c0A9Z+qnE76YT75b2Nhr3TdtMrbwFj9+7/dxDNThFXOtHzM+oUfHgXQ+N
+	 F0b2NLu3XIqIBx8Sr0cVsYSl4Ai6gM5r0BnR41nKNic5LOXgl1tU8LKfV95dnxKWN8
+	 yW1qZ0Z9gpe04Cjn8YkcWlXECuzJWqZmFzn4G2aL9qcwoURb3FRhu4YVssq8kxZhsZ
+	 xWGGKzShwWH8dMI4WAOIYvsoIalHwieuBZ4WIRvX6ssNdMC6xGejArYGWz6MeORdxP
+	 jA7L6tvrp2uaA==
+Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-6d821901872so1464528eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:32:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBymyAVVtj4u+rXOy0uv4hCC/+j3vJUIakwZ3Zz4vKblypwHUpstT/uTHiYYRqJxy7RWJpzMEVp2R0twZyGupHaO@lists.infradead.org
+X-Gm-Message-State: AFuF++n+gef0OWvPHUlROqcN0dG/Qi4rAX8J9GqpJ+KWBAFvugU53o1k
+	7XViOhcpdvPAofegcgqpyEb4bd7lph4CT0dJdYIWsT8l6QBx5QQpY9TRaxHKkZhPF5K0NhBrLS/
+	kRwQvmqnykeX/FOupG4GtGJp5CT8WnyQ=
+X-Received: by 2002:a05:6820:f008:b0:6b6:aee6:c81f with SMTP id
+ 006d021491bc7-6e4a6e2049cmr4508804eaf.36.1791372745840; Wed, 07 Oct 2026
+ 04:32:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260925-mt6735-pinctrl-v9-v10-2-cc042983c565@protonmail.com>
-In-Reply-To: <20260925-mt6735-pinctrl-v9-v10-2-cc042983c565@protonmail.com>
+References: <20260925-mt6735-pinctrl-v9-v10-2-cc042983c565@protonmail.com> <20260928132131.GA3950360-robh@kernel.org>
+In-Reply-To: <20260928132131.GA3950360-robh@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 13:31:26 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=Lf5NQh1s543XS6ZMTuV6dKD1ebVJYcHcQjvLN2sv8jQ@mail.gmail.com>
-X-Gm-Features: AclHuK91yzMdnow7AVBRSKC7FQKTFDXkxwc5yS2wNsCnGspgKIcoIoO9YB0evBI
-Message-ID: <CAD++jL=Lf5NQh1s543XS6ZMTuV6dKD1ebVJYcHcQjvLN2sv8jQ@mail.gmail.com>
+Date: Wed, 7 Oct 2026 13:32:06 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmUyYc2LBgM6R9mx2=d9Ez7kF26f2fiCuVomdYHq6msFA@mail.gmail.com>
+X-Gm-Features: AclHuK_cStZXxjDqaDn0NagMxIvgseHdySzJ25Pb7f5b3rzrUHjwiDYhKF_LOik
+Message-ID: <CAD++jLmUyYc2LBgM6R9mx2=d9Ez7kF26f2fiCuVomdYHq6msFA@mail.gmail.com>
 Subject: Re: [PATCH v10 2/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl:
  Improve pinctrl subnode and property descriptions
-To: Yassine Oudjana <y.oudjana@protonmail.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Rob Herring <robh@kernel.org>, 
+To: Rob Herring <robh@kernel.org>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>, Sean Wang <sean.wang@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -85,21 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 8:53=E2=80=AFPM Yassine Oudjana
-<y.oudjana@protonmail.com> wrote:
+On Mon, Sep 28, 2026 at 3:21=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
+:
+> On Fri, Sep 25, 2026 at 06:52:57PM +0000, Yassine Oudjana wrote:
 
-> Change "subnodes" to "subnode" in subnode description for better
-> grammatical accuracy, wrap all descriptions at 80 characters, and remove
-> literal style indicators from descriptions that don't need their new line=
-s
-> preserved.
+> > Change "subnodes" to "subnode" in subnode description for better
+> > grammatical accuracy, wrap all descriptions at 80 characters, and remov=
+e
+> > literal style indicators from descriptions that don't need their new li=
+nes
+> > preserved.
+> >
+> > Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> > Acked-by: Rob Herring <robh@kernel.org>
+> > ---
+> >  .../bindings/pinctrl/mediatek,mt6779-pinctrl.yaml         | 15 +++++++=
++-------
+> >  1 file changed, 8 insertions(+), 7 deletions(-)
 >
-> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Acked-by: Rob Herring <robh@kernel.org>
+> The threading is broken for this series...
 
-Patch applied.
+Yeah I noticed, I just apply one at a time, such happens.
+
+Yassine: look into using b4.
 
 Yours,
 Linus Walleij
