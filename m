@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC87CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4DCCA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivEueNLxHk2vH0nhb5BeLMWpDwc53kCrNP3a0jUDX2E=; b=SjWQoieSZ8CrUYK/5CgnLHSaJX
-	TOTRlnUuMmZGOzC3UzcTXeeljH6xzxSH1SPGTnS5GcAHHeohi0nReKEUd/sQ/0eVwsikPXlj9GlPp
-	0dnSM07hbs8x4mT+g+I19EWFZm0e1244wnZl/DluvT7NiINOfnjKLM6zPU5MU09zhP4w9cIlxgjA8
-	MbKVsT27rRGDFdYTRD3u0QotURwrJycvI+jJbk3RZ/MRmDP38sk3AyL6B8JWGOhKYTJ8L8na1SbJZ
-	Fp5o07PcRo/5xvQ7nNVaWwIq+OxVY1kGfViykk7nL+1Mjfdr9fjJ1bYx1IZKmnd2iSTsbO+Yfk/9r
-	ZuTCcosw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=; b=rDLGXZXR1ZuhVZRzdtRIDbjy9R
+	NpHuo8Sf9Mo87HXrI7uTR9ptKlRcHoy81cWsHcUmLSUB76DQ30vUVvJV4dlTd7aSRLPTL5VN5waXn
+	CvQdoz+Jid6xvWNeZtDtsInKurd7Y7TkPeqI030XlQLI+kj1YmHXUFhLog570W/nK0zqKjbJUg5LH
+	8pTX1Tes1GvOO0IUv8DDrOOiRK2D+Geez6GxNG8BGeBO4lVYR6ZMBPGhyvFivd1Nv84n3r9BjKxjh
+	Y9KG/n60PqHp0wfaWhwoa6iJSlROBGkCR5u9Pk1Jl9YOjT545++v3ZZ8YcXdjlWOwWoPFENd7C/JP
+	boKFvGLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ2z-00000002MTu-01uO;
-	Wed, 07 Oct 2026 11:42:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEQ3p-00000002Mgt-0hrA;
+	Wed, 07 Oct 2026 11:43:49 +0000
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQ2y-00000002MTh-0Mpw
+	id 1xEQ3m-00000002Mfn-2Dac
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:42:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D57A4444F7
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:42:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B83521F008A4
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:42:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791373375;
-	bh=ivEueNLxHk2vH0nhb5BeLMWpDwc53kCrNP3a0jUDX2E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Absiup7ECYSXtrMLN/bQJldHdg5wxZGDLix0U8l7vCt6iJ5wXNpBZmIZqT7C+5lHq
-	 27PTTD4MsUwJmOOuo3mI9KClXBNcemGkTqBc75zSm8ywK/a1kOT8bsCzs9DKtNh5fq
-	 ulv+K8+ZCyA3qODDwnMeU8aaH4vpY6oT5LIGLvRN/rfTLyPIOVGbXtcV8z8mecRZ3b
-	 +t8oiIH+2V3L1ciu9oGJQvQIFIyV1XLMKbkeB0NBcTea0TaPuafymBDujnjZ9wrKIs
-	 084xhaNxwgT7ZmQwakmkMkT1vmNxyUsFFF4UPjTNLsHFKPbdnSC68reF373N4Nyy7r
-	 uCIZ2h73YJHwQ==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5ba3ac592faso4631839e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:42:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzDINcPAJeKNurgRl+hry4CWketw9nf6AOrZk2oygGZozxyeeW6WClqfFBKFrOYt6MBEqPafZB8jrXqsTgDiUYx@lists.infradead.org
-X-Gm-Message-State: AFq9FYJXXOuSjY7jyfzG8dT3GHmtE4I01ITyjXpDet4zOSCFUyUBgdcE
-	cjgTS4KgDBe/2yUGvlmlM+kwV+uDsnaKPVlyotZb2PjaDm5T2FP/JbQ2R6Fpb+V+PNV7ysFfxcw
-	KBdYAmOrC7M1jKVuaozH0FefHbN+Lq7g=
-X-Received: by 2002:a05:6512:10d6:b0:5b8:eb3a:759b with SMTP id
- 2adb3069b0e04-5bcd071739fmr695555e87.42.1791373374528; Wed, 07 Oct 2026
- 04:42:54 -0700 (PDT)
-MIME-Version: 1.0
-References: <20261006-b4-cs75xx-v2-0-b7d6e1e24d44@gmail.com> <20261006-b4-cs75xx-v2-10-b7d6e1e24d44@gmail.com>
-In-Reply-To: <20261006-b4-cs75xx-v2-10-b7d6e1e24d44@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 13:42:41 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnnRQtkM70jJG4+a399jAoGTX14uQVV0VRi-xqUeA9xXw@mail.gmail.com>
-X-Gm-Features: AclHuK8nAoHDN1ANkg2tOlHkE-yX--9Ilsr5akWlC4NL-_UZZlci4TouPpcsIFE
-Message-ID: <CAD++jLnnRQtkM70jJG4+a399jAoGTX14uQVV0VRi-xqUeA9xXw@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 10/10] MAINTAINERS: Add entry for Cortina Systems CS75xx
-To: filipp.dunsky@gmail.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	Jason Li <jason.li@cortina-access.com>
+	Wed, 07 Oct 2026 11:43:47 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d55d8cd938so59308735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:43:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791373424; x=1791978224; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=;
+        b=LO89s205CyLGMkrtCn/5LTMwqCzWw/48LmgyPaniKGYLBqNgVyqi0/dln3sTgx9slG
+         wNciMG8l6h4GTSaUOn8q5z4879wJam8egYP4dvJTjq4QTeMq4YPed7VZ0QgZRlytz5G+
+         xeqAp3lzb/H6vc4HlEPyqofUO9ooIuirqTmawPjT37rc9m+CVLGQTfkvy2LI4oCLnUxI
+         XUG8bZgsNj5+o3I0qN5TW6cHzd45Dj1meE94pkoPaparROORh6fB/ujsK2jNUaQ5bdQ3
+         L85quqZaOyYgqro97hr3ZUB+Kpdowocu08BuE4F3s/uV0G0SMYu9PvF653mNJ1BLJDBo
+         Zs5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791373424; x=1791978224;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3BiabrC81I6q/hu88iG0Po7W2aHkc1H1GfO6iXoWDeM=;
+        b=1xHFMl1OmZlggpX/oZzL+l8Jh6I0q+RIBCMOZjCTUeJoVKF1iC94URhwa+bngRVYvf
+         pSm7CmcTcOqHdwSIhvXA7N3wO99+7n+wgWTcKNUoEB5EALiQgnX2eRcZDkpM4evcmyAN
+         fct7VZeCdIcXPDndZAb9dAEemiAkG6ZUy3WRMNSBUL3CzoHcWx0dZ4yroHVqdaDnL9Xo
+         XWeHksqrHMevKc7wjtPeiOpAZc2QNo8Txk6LslKoKqXIZlyewyAPDFp37xwCwE2nSi63
+         5gu1dzp8/2JuqOBCMAkNYexSC5eW1gsL2s1/u2c9kozrMewR/DT8JQceBYuW0pi1dMfn
+         zdFQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx9Rq6+KofLQnAY/ROg7M+C09vFlGysaSPUg6tIAOz0etLD0ink6FdsPNQYv8SUmpkQJbukZyu3Id/oaVZuft7g@lists.infradead.org
+X-Gm-Message-State: AFq9FYK1Nuru0wxVzAO4G5zD+S7E4rgjkOM5IXNKqOVVKJ6bkFpXvj60
+	MpWsuC5XlqbBRfIOXXmDM9WPChA1guPQrKYJgSLEd43M0RqqBYp0yTPRqoB8EqfJ5oimKTGISsQ
+	m5zhsm43gkCaKrK/gfbwDih/Nrg==
+X-Received: from plnq15.prod.google.com ([2002:a17:902:f78f:b0:2e2:d223:8126])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:ce07:b0:2dd:c100:9433 with SMTP id d9443c01a7336-2e600548a4bmr18840995ad.49.1791373424109;
+ Wed, 07 Oct 2026 04:43:44 -0700 (PDT)
+Date: Wed,  7 Oct 2026 11:43:24 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.360.g66cac248cb-goog
+Message-ID: <20261007114335.440322-1-dylanbhatch@google.com>
+Subject: [PATCH v8 00/11] unwind, arm64: add sframe unwinder for kernel
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Randy Dunlap <rdunlap@infradead.org>, Mostafa Saleh <smostafa@google.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_044346_602647_4E07DD4F 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,18 +96,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2026 at 8:17=E2=80=AFPM Fil Dunsky via B4 Relay
-<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
+Implement a generic kernel sframe-based [1] unwinder. The main goal is
+to improve reliable stacktrace on arm64 by unwinding across exception
+boundaries.
 
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
->
-> Add an entry covering the Cortina Systems CS75xx platform code, device
-> trees, bindings and UART driver.
->
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+On x86, the ORC unwinder provides reliable stacktrace through similar
+methodology, but arm64 lacks the necessary support from objtool to
+create ORC unwind tables.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Currently, there is a sframe unwinder proposed for userspace [2], along
+with an RFC for an .eh_frame unwinder [5]. This patch series implements
+a similar SFrame lookup library to [2], but with many simplifications to
+account for the fact that user access is not necessary. The intent here
+is to continue to leave the door open for common usage of definitions
+and algorithms between kernel and user unwind in the future, while at
+the same time keeping these patches strictly constrained the minimal set
+of features necessary for arm64 kernel unwind.
 
-Yours,
-Linus Walleij
+Unlike past versions of this series, these patches apply directly to
+v7.3-rc3 rather than depending upon [2]. To make this possible, I've
+adopted a number of patches from [2] with significant squashes and
+changes made in order to coherently suit the kernel unwind use case.
+I've done my best to maintain appropriate authorship on these changes,
+and have added 'Co-developed-by' trailers to attribute shared authorship
+as accurately as possible. Please let me know if you see any
+discrepencies in my work here.
+
+Currently, only GNU Binutils support sframe. This series relies on the
+Sframe V3 format, which is supported in binutils 2.46.
+
+This full series is available on github: [4].
+
+Ref:
+[1]: https://sourceware.org/binutils/docs/sframe-spec.html
+[2]: https://lore.kernel.org/all/20260505121718.3572346-1-jremus@linux.ibm.com/
+[3]: https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git/log/?h=sframe/core
+[4]: https://github.com/dylanbhatch/linux/tree/sframe-v7
+[5]: https://lore.kernel.org/all/20260821195259.2688377-1-jremus@linux.ibm.com/
+
+---
+
+Summary of changes since v7:
+ - (sashiko): Put .cfi_startproc right after SYM_START to account for
+   potential alignment bytes ahead of the actual function symbol.
+ - (sashiko) Use __always_inline for IP validation helper.
+ - (sashiko) Move .sframe module init and sframe section fields to arch
+   generic code.
+ - (sashiko) Make sframe_find() noinstr.
+ - (sashiko) Add preempt_notrace and instrumentation to
+   __sframe_module_find() code path.
+ - (sashiko) Block tracing and kprobe on the sframe_find code path.
+ - (shashiko) remove KCOV, KCSAN, and KASAN instrumentation from
+   sframe.o (copying over ORC's shoulder).
+
+Dylan Hatch (6):
+  arm64, unwind: build kernel with sframe V3 info
+  module, sframe: Add sframe support for modules
+  arm64/sframe: Validate IP addresses
+  sframe: Add debug helpers with object name
+  arm64, crypto/lib: Annotate leaf functions with CFI info
+  unwind: arm64: Use sframe to unwind interrupt frames
+
+Jens Remus (1):
+  sframe: Separate reading of FRE from reading of FRE data words
+
+Josh Poimboeuf (3):
+  arm64/sframe: Read vmlinux .sframe header
+  sframe: Add support for reading vmlinux .sframe contents
+  sframe: Add .sframe validation option
+
+Weinan Liu (1):
+  arm64: entry: add unwind info for call_on_irq_stack()
+
+ MAINTAINERS                            |   4 +-
+ Makefile                               |   8 +
+ arch/Kconfig                           |  49 ++
+ arch/arm64/Kconfig                     |   1 +
+ arch/arm64/Makefile                    |   2 +-
+ arch/arm64/crypto/aes-ce-ccm-core.S    |  12 +-
+ arch/arm64/crypto/aes-neonbs-core.S    |  16 +-
+ arch/arm64/crypto/ghash-ce-core.S      |  12 +-
+ arch/arm64/crypto/sm4-ce-ccm-core.S    |  16 +-
+ arch/arm64/crypto/sm4-ce-cipher-core.S |   4 +-
+ arch/arm64/crypto/sm4-ce-core.S        |  44 +-
+ arch/arm64/crypto/sm4-ce-gcm-core.S    |  16 +-
+ arch/arm64/crypto/sm4-neon-core.S      |  12 +-
+ arch/arm64/include/asm/linkage.h       |  32 ++
+ arch/arm64/include/asm/module.h        |   1 +
+ arch/arm64/include/asm/module.lds.h    |   2 +
+ arch/arm64/include/asm/sections.h      |   1 +
+ arch/arm64/include/asm/unwind_sframe.h |  32 ++
+ arch/arm64/kernel/entry.S              |  14 +
+ arch/arm64/kernel/setup.c              |   2 +
+ arch/arm64/kernel/stacktrace.c         | 184 ++++++-
+ arch/arm64/kernel/vdso/Makefile        |   2 +-
+ arch/arm64/kernel/vmlinux.lds.S        |  14 +
+ arch/arm64/lib/clear_page.S            |   4 +-
+ arch/arm64/lib/clear_user.S            |   4 +-
+ arch/arm64/lib/copy_from_user.S        |   4 +-
+ arch/arm64/lib/copy_page.S             |   4 +-
+ arch/arm64/lib/copy_to_user.S          |   4 +-
+ arch/arm64/lib/memchr.S                |   4 +-
+ arch/arm64/lib/memcmp.S                |   4 +-
+ arch/arm64/lib/memcpy.S                |   8 +-
+ arch/arm64/lib/memset.S                |   8 +-
+ arch/arm64/lib/mte.S                   |  28 +-
+ arch/arm64/lib/strchr.S                |   4 +-
+ arch/arm64/lib/strcmp.S                |   4 +-
+ arch/arm64/lib/strlen.S                |   4 +-
+ arch/arm64/lib/strncmp.S               |   4 +-
+ arch/arm64/lib/strnlen.S               |   4 +-
+ arch/arm64/lib/tishift.S               |  12 +-
+ include/asm-generic/sections.h         |   4 +
+ include/asm-generic/vmlinux.lds.h      |  15 +
+ include/linux/module.h                 |   5 +
+ include/linux/sframe.h                 |  43 ++
+ include/linux/unwind_types.h           |  34 ++
+ kernel/module/main.c                   |  21 +
+ kernel/unwind/Makefile                 |   5 +-
+ kernel/unwind/sframe.c                 | 710 +++++++++++++++++++++++++
+ kernel/unwind/sframe.h                 |  79 +++
+ kernel/unwind/sframe_debug.h           |  34 ++
+ 49 files changed, 1401 insertions(+), 133 deletions(-)
+ create mode 100644 arch/arm64/include/asm/unwind_sframe.h
+ create mode 100644 include/linux/sframe.h
+ create mode 100644 include/linux/unwind_types.h
+ create mode 100644 kernel/unwind/sframe.c
+ create mode 100644 kernel/unwind/sframe.h
+ create mode 100644 kernel/unwind/sframe_debug.h
+
+-- 
+2.56.0.360.g66cac248cb-goog
+
 
