@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0B6CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 00:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59597CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 01:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6LiwQHe9JStXBgqo8euqJ3iQ3N1ssekSUFRPrSC/aU=; b=uX8vfSFR+yeDg1mj8xxFVP+kCX
-	8WjWY2yIEnTWyUdMsVVlZOhPR5RL5MRCfE6hAZ7TNRkHsWewbGifeFn3E+SeaXo7XHf+TMdBPEvOx
-	chMC5H99MSCYvyiQy69+O+jjajl1NpAnFz833r2tsqv/Rt6pRfD9agSk7To0wUBRnXAOqwvLxODpM
-	rX5r+0OmygfhjOc5rIsMo75nNVn5Bhm2Rk/+61OnPoql/pV0vRhmI+3iAMlc+0g83SbL5rFNcEqWp
-	DVAYiDH5Xw5G8E79/TpKilboq9zatn+EbSkyEPaEa2AbCzOpekI9C/55VGia5KOhilqOLNBs3BtY+
-	X773ZOow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lIYw+68tQBShUC14SvVeLSwO6mPbK9HrG575Az8p2gU=; b=he+2H/jCqelvEHDGppUcLUPTM6
+	9kRSzwhA9npLtGu43DdNi8qz7iLktO1itGOcFolTNYelrbYs8Z80l3wCv2nk2WEKCDbXivW3QQbN+
+	FcIy1gXKLbKUfeH8LBWSEFS2JWxutMyrIxWY9RQS8DwkMa/L/k/cbfK0GRY9LR1AjdDMrFVvTwIhY
+	S+XIE4ojR4g2LLAwZkFVG3N0jtED47xzEgPtZSLPJFfYVO9RoOONjNOGp9iJj/Y5e6V3JN6W7uoZ4
+	etA7sW5MV7TtbGCqyz6gyTCVPHXYJlqBO0d/skvSE/xF5nUmcdQceXt/CvuranD2pu7nvYtQ8SJu2
+	OQ8Z0btw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFyD-00000001YZy-2lBP;
-	Wed, 07 Oct 2026 00:57:21 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xEG2x-00000001YpX-0uYv;
+	Wed, 07 Oct 2026 01:02:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEFyC-00000001YYM-0wRQ
+	id 1xEG2v-00000001YpP-2qVU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 00:57:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=e6LiwQHe9JStXBgqo8euqJ3iQ3N1ssekSUFRPrSC/aU=; b=Ek
-	wM3ffr8MAZY7fcx1NpeRA1p4M5PrHgtGCUTiuD4JPWsc/OThoxXyB/UQoHkWdhltdMiib0vZIiy80
-	1w9iW3QOkwZ986gZKJTO2W7gntOcJV7REuqEnTybJ8+DwB11HEjamYoVzD/e54N9zo8JOtRgG6d49
-	G4sG6WUP1qYRMKY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xEFxv-009NLU-DH; Wed, 07 Oct 2026 02:57:03 +0200
-Date: Wed, 7 Oct 2026 02:57:03 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, netdev-bot+sinfo@kernel.org,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety
- IRQ request failure
-Message-ID: <e7fea95d-1ce2-4c5a-891d-5e5899931329@lunn.ch>
-References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
- <179127056620.2231598.8882282421523696709@kernel.org>
- <CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
- <20261006155214.63c5cb5b@kernel.org>
- <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
+	Wed, 07 Oct 2026 01:02:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D81B601FE;
+	Wed,  7 Oct 2026 01:02:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CD21F0089B;
+	Wed,  7 Oct 2026 01:02:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791334931;
+	bh=lIYw+68tQBShUC14SvVeLSwO6mPbK9HrG575Az8p2gU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Kp4PDKnqo0J/23bLkqvFzfL2HTVDM+J0OhbzRkl6j4JFVXuGpPZl2qDYtJNFP0E3V
+	 elaZYc4UVq8kPA7aqfl+O+zxL7FGKx39ifPnVWV5u30r/ZK4hUbNLjBEBNlnD89G5x
+	 UCc0ku32G9WCAlbz4IFvufJ4PxBDtBrkpwOg4Qfpa9FkNCQy2HiYvGi6/b3zFSdOLN
+	 BBe2VPTrZRtJ0iAw27nBYi7DDr3Ru/YUo1CejoXZzFLSk45YWGMV1kGUSlAf7vd9em
+	 Bv10bBQJixf3jRerI0oVvge40ctZfZVWcLBAFsHO+gbss9MQyYNHGy08Z4Z6Ksigj8
+	 f0pEiw5W6xIqg==
+Date: Tue, 6 Oct 2026 18:02:10 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Sagi Maimon <maimon.sagi@gmail.com>
+Cc: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
+ radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ daniel@iogearbox.net, jacob.e.keller@intel.com, suraj.gupta2@amd.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in
+ axienet_dma_bd_release()
+Message-ID: <20261006180210.03a15e52@kernel.org>
+In-Reply-To: <CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
+References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
+	<asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
+	<CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_175720_267077_BCCA9D26 
-X-CRM114-Status: GOOD (  17.88  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +74,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 05:17:20PM -0600, James Hilliard wrote:
-> On Tue, Oct 6, 2026 at 4:52 PM Jakub Kicinski <kuba@kernel.org> wrote:
-> >
-> > On Tue, 6 Oct 2026 01:14:52 -0600 James Hilliard wrote:
-> > > > Please do not repost the series just to address the above. Instead,
-> > > > reply to this email with the missing information, so that reviewers
-> > > > can take it into account. If the series needs another revision for
-> > > > other reasons, please include the information in the commit messages
-> > > > then.
-> >
-> > Please make sure you read this paragraph, to the end.
-> 
-> How much detail should I be including?
+On Tue, 6 Oct 2026 06:44:55 +0300 Sagi Maimon wrote:
+> Agreed on the helper.  As on v2, I kept the fix minimal for net, and
+> will send the helper to net-next once this has reached it, with both
+> axienet_dma_bd_release() and axienet_dma_err_handler() using it.
 
-We want to decide should the patch go to net, because it is a real
-problem which bothers somebody. Or is it a theoretical problem which
-will never happen, so we might want net-next, or maybe /dev/null.
-
-Sometimes it is really obvious, things like a:
-
-Reported-by:
-Tested-by: 
-
-from the same person, makes it clear it should go to net, and it
-probably is correct.
-
-If not, a statement like:
-
-Tested on real hardware, regression solved, no other regressions
-found.
-
-or
-
-amd64 Compile tested only, probably broken, RFT.
-
-or
-
-New feature tested on real hardware.
-
-Put yourself in our position. You are the Maintainer, what would you
-want to read to know it is going to the correct tree.
-
-     Andrew
-
-
+Let's do this now, trying to keep fixes small is a bit of 
+an anti-pattern
 
