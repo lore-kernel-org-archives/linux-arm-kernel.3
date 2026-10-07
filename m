@@ -4,122 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBE1CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 09:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0963ACA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 09:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=T2fDTeShml4o5tRtUIxHrb5fxi9zBJPnQi14MfVcMQQ=; b=dFyZCXSFasw3us
-	fznC7W451kcTcQJB5z4fm/9gYUsvhj8KELwjAvjTwO8VcK7Zfcb8En8ZvJVu1aw/YFtqbkuPonZhW
-	RINT43oNivXxm8wB2/F82Qc3wTTl/dCpPyKqw8GYV5rwD5MEI1lWDSpctdckiMsi2y9NiIcQxCyPv
-	dO3WPRpHhq50IzJ2WO8yj8+oUAxgAGdFi68/Rq+kx3IgSIEbJ3M0hckQ09QNmLJ5GjZ6IaKOvp1aK
-	p11eZhIvLEnE5UXTSrpGJZcLC6S0IKJhxqpWZ44fFbILwEFQOr2TEkH4BIYeBlEkjV/QLG81y8MRP
-	nxR7yKKTrVJiEI0g/pKw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=; b=cm9TBVZ+OP8xTAKOf3cg5wV5FS
+	M4dzDmSmIR3ufS51wIoK3eHuSmEMw1ULTE6OpsuF8zsFRlye1tyUqyW1YQlwiXGicKgLIzvGAIAwo
+	4pHSrYHwKAVebXP7xs3ArsUGjlmXtfyCY5zwHrncqx7j5Km6JlwyG9GxeTEoixHz5bf0G7LmWQy05
+	GCgpOwzOWgkxiT7G4qKuC/IW3+BrrEe2jmSQLx/BjiP+AliP/oPfAyNAGBwuw28+9zPETZCKQ3ZyG
+	bASkV9q2+akIV32SyE8BaElMGrYcgpVdFW2ByUTj2Xuh0054D71Vd1ovXPyYcAm/YgYxnw7JH0esO
+	KI1F+N8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENcp-000000021RP-2ttP;
-	Wed, 07 Oct 2026 09:07:47 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xENcq-000000021Rk-3Mh5;
+	Wed, 07 Oct 2026 09:07:48 +0000
+Received: from mail-westusazon11010065.outbound.protection.outlook.com ([52.101.85.65] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENcl-000000021QW-0a7a
+	id 1xENcm-000000021R0-3YHl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 09:07:45 +0000
+	Wed, 07 Oct 2026 09:07:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T2j4UXjllq4dTOwpt2lQkO5OIG02BI70tlDa60hkJpRKcT4PUrl28SoP+xWYIl1kyvE2FbRKTGFaOvOTE0bXqRCNCapGLDfvTRK9Ocis8Uq94hRnpGw6JLs7TFrCuB5ynWQtSu7CYD2/dSybrYDXeuJD3Ka4RePSdcQ/q5bSbIsLTxYgStnKwzii8opyP/eLYEk6s40YpJc3iib9MUkJCcLqi6cz+B4ckSXpjl2FBMfXtVWKQ2nvQR+3FaIq7fN7bw5SNLGbdmEhvNt7+cxGS5iOj88JhWqHFiN30eil6LDG5j2Pvr64YCOyRKkEjlQ2e5zw7vGpaI7b44u7+tkzYA==
+ b=oyKlUVLqYbnZYNJ/3WCnxVNTFie87Eic3dugMrdQ9yUMp1pEL6igKttTe0jNw/WGmjG+GtpCqQrdzJ0zcZaRWPicAeSRldqbUV0BhJanPBA6GWesG5kEFIImVN4fMeJ0kTd7i555emRbmIacZgCmm3e8yO8QgwZPIRnACU5WGHgFyHRps24PvZWT1zi+h+0sfTTofdq37bcV2XfOtRzz+0vTNoWHctbIMG1sS/qqkm36njVluMBDPgCxd434vbRBBm4LUsyduHCvOefxJ2s2Yxd8R2l2Vz4Zrt6jDj8A0usRapUySKEz4GVzhdQYp0oD0kWZJjonxv8uvhjgzFppeQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T2fDTeShml4o5tRtUIxHrb5fxi9zBJPnQi14MfVcMQQ=;
- b=xs2ZB5ksbeLlg9ZH7WLeao9jQ4lg3gLBzS5cU+6tPvmLvtmpr3xRSSTCWlec/NYgdV4mfs6KL3tcBeIM7p5N4XF29L+JNoH2PMEa0l2Cg22n8hsLHU0Q0bozLW29sir1U3gKPVP5IFdmyhAJke8gyfSMgGDdgpzYJeRYrbY0GBJA7Cjbl3RD/EqCjeZE3HhLDl2Qke4rNpYLnQwD+Zc45N/tX76VBFI5fwXjiPI8EPRbG3tZP4DCgRuxHzEuReXpfzUn7s3l5egDVFQI1jNYVHUnwlUccszILpFCmyrA8qB7mA8vi9TWs5NIA7EWA+LRLddaM4O1sOeM5MS663lQ0Q==
+ bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=;
+ b=eBz8rd0nGggs0E+QmBucHYv6cboFt5vZXyX6u2w6uDah3ff5gn7n6/4ABfI2uKrrFVQNEofANn4ldiO+WU5cil9hkFJ7At7K872JOKFddcy4cBxiWE2KxwUOnOhE5Kf8KOKg4UtpD2hWHggHeUyzwd45TAf2RxooebNPXhCDQlgW2pIWoDXXJ6mQPDxxo/GRa/EMSKIX7sAKXgLuXCbkS+t6Uhg3NGvfn9aHqwpAJ/i+MIaPYz0NRE+JFWdISofcTDoXnuWvco0DknoQf1t1dXJa0b7Qt79uATDPYO4Ew3IgC+L9op69PQnETEumkBBs8/JF2Z6+qNyARpOTaNdhxw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T2fDTeShml4o5tRtUIxHrb5fxi9zBJPnQi14MfVcMQQ=;
- b=psm+kdWeUh9FK3OdPHe+lXRt0LjZepexps7AuJful03vzmlXw15lWUOoylhdF3oF0L5PPhmIJb6kqFjPzMZGDach0gKnb1Sg7a9OzD4+eR9ipcge/P4E8V3pMVRNSAnCCVjRAHJD/c0bKBksLrTbNR1Py449H1sD3nGANF6xTEU=
-Received: from MN0P223CA0028.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::17)
- by SN7PR12MB7370.namprd12.prod.outlook.com (2603:10b6:806:299::11) with
+ bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=;
+ b=K4lTfmIpuvYqRAczimFExl8Xpl/sSCd64+DDqg2Zcs7PI+01V0qGIorIUsmg9vympKQApTLiIPLQHmbLunz+ndIRg732feVzh2M9cGxX+Bb0b7NigGTlCHpKkXswimufmOltz5Jm2zPk5ApmwNY9p96qcAVzdI1HEJWkHAOoh0Y=
+Received: from SJ0PR05CA0127.namprd05.prod.outlook.com (2603:10b6:a03:33d::12)
+ by PH8PR12MB8431.namprd12.prod.outlook.com (2603:10b6:510:25a::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Wed, 7 Oct
- 2026 09:07:38 +0000
-Received: from MN1PEPF000793FE.namprd05.prod.outlook.com
- (2603:10b6:208:52b:cafe::1d) by MN0P223CA0028.outlook.office365.com
- (2603:10b6:208:52b::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed, 7
- Oct 2026 09:07:37 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.19; Wed, 7 Oct
+ 2026 09:07:35 +0000
+Received: from SJ1PEPF00002323.namprd03.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::36) by SJ0PR05CA0127.outlook.office365.com
+ (2603:10b6:a03:33d::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 7
+ Oct 2026 09:07:35 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- MN1PEPF000793FE.mail.protection.outlook.com (10.167.249.202) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF00002323.mail.protection.outlook.com (10.167.242.85) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 09:07:37 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 09:07:35 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 04:07:26 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:07:34 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 04:07:25 -0500
+ 2026 04:07:33 -0500
 Received: from xhdtunimkar40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Wed, 7 Oct 2026 04:07:23 -0500
+ Transport; Wed, 7 Oct 2026 04:07:31 -0500
 From: Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
-Subject: [PATCH 0/5] Add PWM support for Cadence TTC
-Date: Wed, 7 Oct 2026 14:36:58 +0530
-Message-ID: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
+Date: Wed, 7 Oct 2026 14:37:01 +0530
+Subject: [PATCH 3/5] clocksource: timer-cadence-ttc: Refactor common TTC
+ resource setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALMLxmoC/yXMQQqDMBBA0avIrB2IoQ3qVYqLZBzbEUwliVYQ7
- 26qy7f4f4fIQThCW+wQeJUoX59RlQXQx/o3o/TZoJU2lVJPJNuzJ8aUCOffhJqGpnYPMo1xkKs
- 58CDbdXx1t+PiRqb038BxnNLW8pVzAAAA
-X-Change-ID: 20261005-cadence-ttc-pwm-2cf98b4c696b
+Message-ID: <20261007-cadence-ttc-pwm-v1-3-52a95a8d98b1@amd.com>
+References: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
+In-Reply-To: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
 To: <michal.simek@amd.com>, <tglx@kernel.org>, <ukleinek@kernel.org>,
 	<daniel.lezcano@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<git@amd.com>, <meherthanmaiee.vanukuri@amd.com>, <linux-pwm@vger.kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791364043; l=2920;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791364043; l=4708;
  i=meherthanmaiee.vanukuri@amd.com; s=20261007; h=from:subject:message-id;
- bh=3bFuESyt7Y6Lw8Zx3mHhhIeQqH12xxtHz2ZXk8hUNeQ=;
- b=3MgJb28bmZ2OQY8JRvIHo7KAv+S1NECKz5++dz1h2pA+BykNXSk3AahH9Uoof1V07FDL87GnL
- qCFKp8sE7CuAj/ABFF71cvGaqEpVpPxC0LAV9zGj9/zO7Jid6c5OcV8
+ bh=rGz0hFZ+YZaMg2frX2Dy21gTIZBcxBh6XPqxSZIv9AI=;
+ b=bBI7O0x3zrbd8rSqYfrFoeBvu9n5Qbwyku7qQtoej03DP0m16HXARe7ubz/ifbzByoSbNtdwQ
+ qXP/oQmakqUAzS7Vj594mRpuyBzYwcAs/zBJ8HDKHia1vBkfQ/B0VA4
 X-Developer-Key: i=meherthanmaiee.vanukuri@amd.com; a=ed25519;
  pk=m/+ON8/+ewj5VLb55p7J9gAopkLKj2mp7iobBZdhi0Y=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF000793FE:EE_|SN7PR12MB7370:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27beb301-c77e-41d7-aaaa-08df24526ef6
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002323:EE_|PH8PR12MB8431:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d874c53-d4c0-44e2-892a-08df24526db0
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|56012099006|10067099003|11063799006|6133799003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: YAmN1fFIsGdHwVCRwY8REPpmKVHAptqLj5ay6dpon04aj7YQBTCU81jHTMQQGJSuexCJQYda/WsxY4YumVUA3jemgT/VDvIjqebyDQc5l3IOOC1SPNlEkDjxxr+0HhUJzsV0kZMo8lhe1t7NU3J61kIgXAtsFcJkz5y/4g/BMGeN1+wSBuzCT6XQEbp9A1L0jz+8CRv5u+I7cSqUi8RKHgKbEEsYOcSlQe4WbH+D2Kwi0JmxcfhlFg+COPTQLpn31tcqGH0KBt3KbTdlm9F9w47yRmAtn18XXXos/wuThITmGpUTR/fX51g2WGzGiDa/ltEMH5CiOjDWi/SAxF0XR52QgOPSYbnQIp6Y9gqhEZeQYnXLijn1sp7l3oR42dXDuxitERL9G9mkO+z5GJqg6JhU+3vClizbgOGF5DqQTlHadbiRHhq+bfCQuEIBDIXTYg+BSvl5lM1C2BVh3WCoJjAcjmUOBZulWZrLqSbxH03fPjWMGZPUqQa/6IccBPatlWfjW/A0sgL2XDtG487j7sqLfGOyrqIiGhAkcpjqibSTPBZd4XahRi9IG+BTUW41IX+f8qtButRUtNBzenD47/AWGWAqi6FbcR5ss/3RCqVPg/oI1e90oREfWlwSMrztPcfgcTox2SljWQxgtZKyCOai+5fh5T25LgYiVPe65odOH64Q0sVvp4wbK2IYqrRwMci5Jnuf9IgsY42GjwNfoQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(56012099006)(10067099003)(11063799006)(6133799003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|82310400026|23010399003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: AWHafP9aEnZFmDqAN6c0z0Bk8B3pfU4wxy8bBZhf6lr2EZjqm+WRGCJJx+LQG6yGNcHCOFB4wmrhgYImOiADMxaMZGRBohl88HXqCq76Mm+hFCrRuf439bZ+Z+F0LL0wfpZuC6wUJF8vnrD4Yqqw+8/fBBAyXdNcWxGNEPM4/FhHL83kkSeZcI4ZBYilUXWxFwe3OBFTg6vDGp/XwmY10iA9gSf803Iz5KCMVUG4LHNkWOJxtot/IRoJ539oV9PZPsxFswpDPssgYtqo+jvjO0gVtVg3eWDnokr0hqfiKjXoFrJwEJwKe3/Oh6DbgWE5z47HMCTmtvKb31cSY8KfHTSjDfzC0yjHr6v3Sw1KeiC7ffSa5xqCwqrQiYFsAuMIqNNYXgnkwTa96Q+Nrow/7oCznSwr1WIiPp8m67faMZ7588Rl2CgZ6ZRMJRFchM0TbVVQVDihvUzTgvMRbeQ10CWKgIlYLLenEwOe6B2ODWwWgtrkjALO9D/hj6azF+rA+uH7krcWBNiaFtjNbBNWMRRxQW471NerLytU6pSNQ77aglKETbYfTlNdAcpQqnYUyjzoTKx0NpeNQcTS600QeZ8lLjB/n265Fo177ctTCPS88Yp9Xxq9/tTxmHq74EBoRIO8K0z1Vh8c5hbKAzzvwgw3PWurx1cwn9Pg9MKdtwYmHtFTCUC4E9xDZbGPsqItpe/oXoUQZciVBFkv33/YDg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(82310400026)(23010399003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iKKB+kuTKQw7JKdPGFnp5TRAsFxgELK/OCBWCe4P60ltMjATEJDAm+3I/OdgL00Fqiw/Y/W+iIphN4X/ra9oGG/bG4FcVcUToNcBxSvDqMXqFlLPoR+87ikszt1Fl4CLjnaL/ZppjEAUxiCy38LR6bUrn9LlKQ3glPViwq8C3koxv7+onbBiy4wKAWZRVYcXuO8ovdA4RxcC6/+T0qgqpUcsojf2e3pzMbfxVlxA7665EWXnx5Xb5yEHZ4hivR9IY/A/8WIYo1gAkE/z1oIVlJZs17VBw0Mf5K42y9Sia8oPm9LFPObZa1lKs1XygASsVRnLBeZi8lvBYZ7AZRtrlw5VKxPLpfFkverSvXFsuJS/mQzPOBOBFCEhm3xo2D+oV0N1jiF8+MwyrM7AVaunDmzxWgJLc2Ye4qSZhi9sDAdi/anNd5I+OLP79ZlJMlWw
+X-MS-Exchange-AntiSpam-MessageData-0: eBFmT389oXGGOC0/QyphK3oac/I8QfrPiiE4qzjUQPb753lT9GkgTgeYufzA8FjlInAgEFhqvxkXJANXXHFFPlc01va0N44Qe93BJJigV3XDt5IiKBDLqCPyGEvumu9NixeaRrTGsmT+kAxd4d5WRyqrMtDx3+IF2B0GoUENEFA3SDocNoMHcIysSSzC4DlLFCU0pQjctlHQBl/iNS31h9qSXLONrIOpzsdLHb/12ilh9PNRIffOvHhOYsRCxdQ1TP4FOP8XlwkEwwpRrEZLtsXj96Pur5pZLd8l16nB2q3mx1GTk+DWMZYmQKM4jIdTY2Tso6xLdtep/Cwms0gcXIaWRRmfk1mkrM2xt42oFbMrFFUlpW30ItDPSdstQHmWtNRUbzWXte/BYkv2sQXHKCQkO+lWKAmafc1aj976KmDYSuwW0J5JaOSUq4dHkMck
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 09:07:37.7026
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 09:07:35.5366
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27beb301-c77e-41d7-aaaa-08df24526ef6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d874c53-d4c0-44e2-892a-08df24526db0
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF000793FE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002323.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7370
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB8431
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_020743_460262_EAFB9F68 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20261007_020744_920627_FE5A73A4 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,63 +133,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cadence Triple Timer Counter (TTC) IP found on Xilinx Zynq,
-ZynqMP, and Versal SoCs provides three timer channels per instance.
-The existing TTC driver supports clocksource and clockevent use.
-This series adds support for using a TTC instance as a three-channel
-PWM controller, with the interval counter defining the period and
-the match counter defining the duty cycle.
+Factor the TTC MMIO mapping and timer-width parsing in the timer probe
+path into a helper.
 
-For TTC nodes containing #pwm-cells, the timer driver creates an
-auxiliary-bus child device instead of registering the instance as a
-clocksource/clockevent device. A separate PWM driver binds to the
-child and exposes the three channels through the PWM framework.
-This reuses the existing "cdns,ttc" compatible and #pwm-cells
-binding. Nodes without #pwm-cells continue to use the timer path.
+As part of the refactor, switch the timer probe path from
+devm_of_iomap() to devm_platform_ioremap_resource(). This is safe
+because each Cadence TTC device tree node has a dedicated,
+non-overlapping MMIO resource.
 
-This reworks the earlier TTC PWM series by Mubin Sayyed [1] and
-is submitted as a new series because the driver integration has
-been redesigned. The earlier series called PWM probe code directly
-from the timer driver under a CONFIG_PWM_CADENCE guard, coupling
-the timer and PWM paths inside a single probe flow instead of
-using separate device binding. During review of that series, an
-auxiliary-bus device was suggested to separate the timer and PWM
-drivers. This series implements that approach.
+Also replace the hardcoded default timer width and channel stride with
+TTC_DEFAULT_TIMER_WIDTH and TTC_CH_OFFSET, and switch to
+device_property_read_u32() when reading timer-width.
 
-The first three patches prepare the TTC timer driver by moving shared
-register definitions into a common header, allowing deferred probing,
-and factoring out MMIO mapping and timer-width parsing. The remaining
-patches add the PWM driver and timer-side auxiliary-device support.
-
-PWM support is limited to TTC instances whose channels use the
-shared internal/reference clock. Instances configured to use an
-external channel clock are rejected at probe time.
-
-[1] https://lore.kernel.org/all/20250115113556.2832282-1-mubin.sayyed@amd.com/
+This prepares the timer driver for later reuse of the common resource
+setup by the PWM auxiliary-device path.
 
 Signed-off-by: Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
 ---
-Meher Thanmaiee (5):
-      clocksource: timer-cadence-ttc: Move register definitions to shared header
-      clocksource: timer-cadence-ttc: Allow deferred probing
-      clocksource: timer-cadence-ttc: Refactor common TTC resource setup
-      pwm: cadence: Add TTC PWM driver
-      clocksource: timer-cadence-ttc: Add PWM auxiliary-device support
+ drivers/clocksource/timer-cadence-ttc.c | 49 ++++++++++++++++++---------------
+ include/linux/timer-cadence-ttc.h       |  5 ++++
+ 2 files changed, 32 insertions(+), 22 deletions(-)
 
- MAINTAINERS                             |   2 +
- drivers/clocksource/Kconfig             |   5 +
- drivers/clocksource/timer-cadence-ttc.c | 208 +++++++++++++++++++++-------
- drivers/pwm/Kconfig                     |  13 ++
- drivers/pwm/Makefile                    |   1 +
- drivers/pwm/pwm-cadence.c               | 231 ++++++++++++++++++++++++++++++++
- include/linux/timer-cadence-ttc.h       |  74 ++++++++++
- 7 files changed, 487 insertions(+), 47 deletions(-)
----
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-change-id: 20261005-cadence-ttc-pwm-2cf98b4c696b
+diff --git a/drivers/clocksource/timer-cadence-ttc.c b/drivers/clocksource/timer-cadence-ttc.c
+index 75bc0af1fa9e..954a9b85a958 100644
+--- a/drivers/clocksource/timer-cadence-ttc.c
++++ b/drivers/clocksource/timer-cadence-ttc.c
+@@ -8,16 +8,16 @@
+  */
+ 
+ #include <linux/clk.h>
+-#include <linux/interrupt.h>
+ #include <linux/clockchips.h>
+ #include <linux/clocksource.h>
+-#include <linux/of_address.h>
++#include <linux/interrupt.h>
++#include <linux/module.h>
+ #include <linux/of_irq.h>
++#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+-#include <linux/slab.h>
++#include <linux/property.h>
+ #include <linux/sched_clock.h>
+-#include <linux/module.h>
+-#include <linux/of_platform.h>
++#include <linux/slab.h>
+ #include <linux/timer-cadence-ttc.h>
+ 
+ /*
+@@ -463,29 +463,36 @@ static int ttc_setup_clockevent(struct clk *clk,
+ 	return err;
+ }
+ 
++static int ttc_init_common(struct platform_device *pdev,
++			   void __iomem **base, u32 *timer_width)
++{
++	*base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(*base))
++		return PTR_ERR(*base);
++
++	*timer_width = TTC_DEFAULT_TIMER_WIDTH;
++	device_property_read_u32(&pdev->dev, "timer-width", timer_width);
++
++	return 0;
++}
++
+ static int ttc_timer_probe(struct platform_device *pdev)
+ {
+-	unsigned int irq;
++	struct device_node *timer = pdev->dev.of_node;
+ 	void __iomem *timer_baseaddr;
+ 	struct clk *clk_cs, *clk_ce;
+ 	static int initialized;
++	unsigned int irq;
++	u32 timer_width;
+ 	int clksel, ret;
+-	u32 timer_width = 16;
+-	struct device_node *timer = pdev->dev.of_node;
+ 
+ 	if (initialized)
+ 		return 0;
+ 
+-	/*
+-	 * Get the 1st Triple Timer Counter (TTC) block from the device tree
+-	 * and use it. Note that the event timer uses the interrupt and it's the
+-	 * 2nd TTC hence the irq_of_parse_and_map(,1)
+-	 */
+-	timer_baseaddr = devm_of_iomap(&pdev->dev, timer, 0, NULL);
+-	if (IS_ERR(timer_baseaddr)) {
+-		pr_err("ERROR: invalid timer base address\n");
+-		return PTR_ERR(timer_baseaddr);
+-	}
++	ret = ttc_init_common(pdev, &timer_baseaddr, &timer_width);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to map timer registers\n");
+ 
+ 	irq = irq_of_parse_and_map(timer, 1);
+ 	if (irq <= 0) {
+@@ -493,8 +500,6 @@ static int ttc_timer_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
+ 
+-	of_property_read_u32(timer, "timer-width", &timer_width);
+-
+ 	clksel = readl_relaxed(timer_baseaddr + TTC_CLK_CNTRL_OFFSET);
+ 	clksel = !!(clksel & TTC_CLK_CNTRL_CSRC_MASK);
+ 	clk_cs = of_clk_get(timer, clksel);
+@@ -503,7 +508,7 @@ static int ttc_timer_probe(struct platform_device *pdev)
+ 		return PTR_ERR(clk_cs);
+ 	}
+ 
+-	clksel = readl_relaxed(timer_baseaddr + 4 + TTC_CLK_CNTRL_OFFSET);
++	clksel = readl_relaxed(timer_baseaddr + TTC_CH_OFFSET + TTC_CLK_CNTRL_OFFSET);
+ 	clksel = !!(clksel & TTC_CLK_CNTRL_CSRC_MASK);
+ 	clk_ce = of_clk_get(timer, clksel);
+ 	if (IS_ERR(clk_ce)) {
+@@ -516,7 +521,7 @@ static int ttc_timer_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto put_clk_ce;
+ 
+-	ret = ttc_setup_clockevent(clk_ce, timer_baseaddr + 4, irq);
++	ret = ttc_setup_clockevent(clk_ce, timer_baseaddr + TTC_CH_OFFSET, irq);
+ 	if (ret)
+ 		goto put_clk_ce;
+ 
+diff --git a/include/linux/timer-cadence-ttc.h b/include/linux/timer-cadence-ttc.h
+index 4f2b85e0ff78..37ac775d6d50 100644
+--- a/include/linux/timer-cadence-ttc.h
++++ b/include/linux/timer-cadence-ttc.h
+@@ -11,6 +11,11 @@
+ 
+ #include <linux/bits.h>
+ 
++#define TTC_DEFAULT_TIMER_WIDTH		16
++
++/* Per-channel register offset stride */
++#define TTC_CH_OFFSET			0x04
++
+ /* Timer Register Offset Definitions of Timer 1 */
+ #define TTC_CLK_CNTRL_OFFSET		0x00 /* Clock Control Reg, RW */
+ #define TTC_CNT_CNTRL_OFFSET		0x0C /* Counter Control Reg, RW */
 
-Best regards,
---  
-Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
+-- 
+2.34.1
 
 
