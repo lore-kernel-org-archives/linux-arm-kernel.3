@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D20CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 05:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6BBCA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 05:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKQlVwwiWI0tGfKruqdXrGvRyIZNfww1lnbEpkXN5DA=; b=oQRD5+sMeAi+u/gsJpltCPDPHL
-	mqMFu55hTjv64TqW3IckJvTPsSJFKSH7sQ3Z1qTSuHnyW84x/YKXCoTRwGffeVnCvyAvFaxoU3pXL
-	mc+2tsJTEuRk3Uj9ekqY93j320iiis1Tj356GaF5Y3A+IpKDpGLKZApGlGLsCWJ0265VfCrz/ZSNM
-	+VqaJzPOfyMyot79+dDHw6sIcwqaaQB3kaI6KlWmUIFHipWXLDKmr7FGd4XJuQ0W4Dm3tbssYkuOP
-	pUrt3d5waXXc1YjUpWXWoQncLsHAmq8y7PgaDIY/tBIZobMrx0mvZHe98H6TDHOziOn07V47nW012
-	7YteociQ==;
+	bh=vSzNi4EvVutdnMmQvgPasnsayTAsAXITzEa7HikOenI=; b=UT9JbvzgbUPjkRVz/IMwynCcVL
+	JQm/kuEWrimmDF25Yq97bNaiA9hj0TaZmKJJpvbCsxh+WeKSNcHdwlHtEs0BhkOImJpDRacuRH++S
+	v4Xv/uXRjYEh8CynmdZBCSgvSrxb1lWNnuz/TjbPIbvC+ZAW0eESh08RrNhH1z5KSTIollM+zSrNY
+	QICY3UBR3PDzFSEiOzQHXW65VM9os4idVkHUuPk/En+NUrzSMCfHPMPC3qke7GCvC/iiPMXTd5/mx
+	9oxnNuglF9dfskr/vahePeSwZ9ytsh0x1HQ7uccRcibFvgrcHjK8jKH351n9NoeillQUnQdaq7zVI
+	euRbcY1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKWg-00000001jay-2lpp;
-	Wed, 07 Oct 2026 05:49:14 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1xEKWj-00000001jby-3b3C;
+	Wed, 07 Oct 2026 05:49:17 +0000
+Received: from mail-eastusazon11012050.outbound.protection.outlook.com ([52.101.53.50] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKWc-00000001jaF-3H3Y
+	id 1xEKWg-00000001jaw-41bD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 05:49:13 +0000
+	Wed, 07 Oct 2026 05:49:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tKRFf4Sot5Hab5BYs82mhUjRf+U1e1uFwNkQYm1HCBK/Yu8bj/+LE5WcgYXfE8fu7BM0eqJyEXAoTNm6bV8htFuPB4lBVYBWAvptGRnTyiAAXiKdOBd2rMi3ye9z5/58w36HB272XOQNJ5FrhcWuv0w1uLuJP91CVu73oIFku/iFES4J8OTyOhRAmG5JaVmsZBu1dsFrrVgsIH70hz1TJsfa5FL4Ru7GzwVZSjg/1fBGwd3dhB5Jkl8JXWosCwYj3D11gyxdEo2sJyZibwqAPXuWxKzVM3wANLl7CEogNJJDqGfZIbPUIhAS4jmjMh3U6+/bUUVgkEdQBmVH5PQm7g==
+ b=Wd+xRBcTSUpZT19I/np8CCeI6/ivnBHqSQaL0lWhqCgJyX+pgksBlKR8MECusXwd/o6Pg3G3mBUqVtKv9n6cQjSIwVNIByrrv5Ojnn0hURkWVobYAh2sKprqNNbQwZ7nSRb+C2k3HUKPzTARQHiP44dGarsDo4xHOg7+efpH5bPjBVyCBQ533sQzwntZYhU2HnqhAtnDQuJuVWanFELkbP+fIUL0rPimdq+Btl9TogOgYxFjYmxyDzwH2aePssAilKbuRJE8i+Mm0QuwoIyCJhNfRKfs5wb9MAJN+oPhXSYFues2NiZ8XJwkTPVm9YBta//seQcfLMck7bs0vH9FAQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KKQlVwwiWI0tGfKruqdXrGvRyIZNfww1lnbEpkXN5DA=;
- b=kEaWKzpddJRELmewSeKTSwOiZ9RE29jwgk86WLupFHuM69/bgCi3RLcmDvouUZ8WUPT5GUS05qzJFdO2ojWGjNDKEiG+ywBdVjjML/Ouosmy/k/yeVk94GGyqO6PBl4P2T4cvvkgReHdlVrrPQyFTX4GGjJr/C3aIz2HPMT14xxjIBg3FVJFH96gBmdPLla+DcHiSIzSEf3my5BEi419lpAo8hjQAOKAMYPXW5JkaFt6S2b8ecGV2orsOFYbSPjW3oO2DCfuWX0TTwftCX0OJN1adEJ/mOYHaxFTScfqAjblbauze25LE1J4Laj+POXzwuVtxrQC63WwsU0lzraoTQ==
+ bh=vSzNi4EvVutdnMmQvgPasnsayTAsAXITzEa7HikOenI=;
+ b=UsYmSWs1NCa+cdxZT0YGUdYS5p0Mtv6niM1TPeeg+e2iPlWyCeafeBd2k6Y5GxjLawX2u1YvgJluLD/ZtZFsI5zSDLGtLc5g6cuLKoF0HLrQPVIHIWEkqCW//gRdfPvm8BviOzt6nwjdstM/6YzCWo272BcXoTlj/tXhXx2+lzu0EvLvtXX7ICCclugI/eDWgLY5u0tnuRDTh+GhS/j23wEck+Ma+wH1u6xVmpohotCPeB3iPic3VQKQdQcYmt3VXorGBJasl0egk7+blsJiHlKnDRNvmmHqYEk7SmDmulehToLhEXtU2dhJeLMaUdoJwb1FLhuUC0f3xND/jD+8ww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KKQlVwwiWI0tGfKruqdXrGvRyIZNfww1lnbEpkXN5DA=;
- b=NS8TpbFbAvOpKVax5MRfLYt46X0Ne2xMAk9cMmdx+1vssdwrOzdTRdESrdRYsC5sY/rv1nSX3RstmNs4RIYyb9ce4z4+9fArk8NAg+uTOIUrZ8s+wF3kpEI7TCQyF1Cyie8GCiZM1mVz2Z4Znfy2pVMzGmn0YDPKpyd6AJvXY8I=
-Received: from BN9P223CA0010.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::15)
- by SJ0PR12MB6830.namprd12.prod.outlook.com (2603:10b6:a03:47c::22) with
+ bh=vSzNi4EvVutdnMmQvgPasnsayTAsAXITzEa7HikOenI=;
+ b=cyQZr/mBEZHC2s33AznneNhHcKEkCQ1mWhTmyZMC5NaFQ5tVap6+gp8ZxQz1tAtQoIVQ6AjrNHJoblbo9124Q1qHgHkYppg3rW6xtaFLtSKXn1s2U+YN7V0f/WvFu5wdEwR7c9qogYrfrTo7tMOFECRG5Me2wlFJhGjvroIrf7o=
+Received: from BN9P223CA0012.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::17)
+ by MN0PR12MB6248.namprd12.prod.outlook.com (2603:10b6:208:3c0::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Wed, 7 Oct
- 2026 05:49:01 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Wed, 7 Oct
+ 2026 05:49:04 +0000
 Received: from BN1PEPF00004685.namprd03.prod.outlook.com
- (2603:10b6:408:10b:cafe::70) by BN9P223CA0010.outlook.office365.com
- (2603:10b6:408:10b::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 7
- Oct 2026 05:49:00 +0000
+ (2603:10b6:408:10b:cafe::62) by BN9P223CA0012.outlook.office365.com
+ (2603:10b6:408:10b::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed, 7
+ Oct 2026 05:49:04 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,18 +61,18 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  BN1PEPF00004685.mail.protection.outlook.com (10.167.243.86) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 05:48:59 +0000
+ 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 05:49:04 +0000
 Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 00:48:58 -0500
+ 2026 00:49:03 -0500
 Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
  (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 00:48:57 -0500
+ 2026 00:49:02 -0500
 Received: from xhdvineethc40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Wed, 7 Oct 2026 00:48:53 -0500
+ Transport; Wed, 7 Oct 2026 00:48:58 -0500
 From: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	Russell King <linux@armlinux.org.uk>, "David S. Miller"
@@ -82,9 +82,9 @@ To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
  Fainelli" <f.fainelli@gmail.com>, Kedareswara rao Appana <appanad@xilinx.com>
 CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <vineeth.karumanchi@amd.com>, <git@amd.com>
-Subject: [PATCH net v2 1/2] net: phy: xilinx-gmii2rgmii: Avoid overwriting PHY drvdata
-Date: Wed, 7 Oct 2026 11:18:43 +0530
-Message-ID: <20261007054844.529363-2-vineeth.karumanchi@amd.com>
+Subject: [PATCH net v2 2/2] net: phy: xilinx-gmii2rgmii: Restore PHY driver on remove
+Date: Wed, 7 Oct 2026 11:18:44 +0530
+Message-ID: <20261007054844.529363-3-vineeth.karumanchi@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261007054844.529363-1-vineeth.karumanchi@amd.com>
 References: <20261007054844.529363-1-vineeth.karumanchi@amd.com>
@@ -93,28 +93,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004685:EE_|SJ0PR12MB6830:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9656044-02e9-405d-e71a-08df2436af47
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004685:EE_|MN0PR12MB6248:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cc702be-5a26-46c5-647c-08df2436b20f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|23010399003|7416014|1800799024|36860700016|22082099003|18002099003|10067099003|921020|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: TmSAdQIBkNMy6UOR4BbFVd58P4Yvp/dQh0BAX0F+Cc6bBUfBDGOdr8q8FH3p1tcH6DPyBcEZ3YfObVATT6mey932y1ltyYdMUrwy63T1FOrDNchEwETR4gGHjwrcds/o4TFUQGyAg9tz0uK+5AuzR6n0iL2LGxxQq43ORcTRjM6xXHfz8YlDzSQCJ60p2oCl7TiKOGOipF52Y9gezu+GcsYn8q+WyYPNeTegq/uRVFJEBLZbflpiYKNrK1ClhOfcTotgLAtG6/Mt15JHpmV2+Id4nj79O+X7WlY05rh/+n9Up95So44qHQpP+HXT24OUCW7kzZtVd586WVCEG8b8CsN9cX63naqJeGkbGtr9mB7cL7guSreewwhrUuU29iFTyVGtYOdeYi0WSqzYjfshRnFRlZ1Umix30mTQVtM88FeX7exyEvPhEq+izerPPMHmEDUa/HvDpKCLzCIb3RUpYI4surIKzp6bm9Pgkv4sXYu0nYy0qo+6swwKhnMyuIvYWSAqSwu+Ne7QbutHpfjrHZ0hYBCj7Fqf+QKwZTNOj/XEyt4A2vZz3Guidf1t3BeDc10NcGVzMN42x/YulqGW3QJrCREy0dXg3k99QWJ6HeMRlY/LWvJMz4Xb1h0ZX1rZUpbzub67SFEV9Qi5MdCe2FeMaeNVO39+bJa3Q+/jhDy46ExbQLUAixIMEId6X0co5WwpLBF/Tr+OqXGezmg6T0n/B6JjlfXZTBqt0hYQDDszQZgEA+q+U55tgoOluiUF
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(23010399003)(7416014)(1800799024)(36860700016)(22082099003)(18002099003)(10067099003)(921020)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|82310400026|36860700016|1800799024|921020|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: uSQDJEabm3A2qQzhgC4I6+moeo1r4O3fkSVcBw+ws6MI72DmGOcaeNb0VgL4fy+vG/jZpiqsc1nMukP/BUG/TuwwFo1UznEz0kfsNCuVJs3G6DM6IOsnSQtMv3L7I1qV0Vn3qCLaPYUedXzVhDHd5CxGzoCHMODxqprgQvjHlBYpBt+tmryWTXkW6OrxIPChYRBY68OjbaypycnM2tOwDf5qNW95nszXmp6KtotaeoGSETvcHOox8dQuCqNMqf4hhf2Vp563VG/qfZGoWHip90GrvQWAbygpp3eQIxNz+1i7VdJ4EQiStXNI2FZQ+Ev2kdVWARGsBbvSzVycu1VXSovBKum9i8JIxL5f38c6YSMzJ/uxJozkZG11oUvuvKURGgbq9AnSyWW1Et0/vbE/Ef8dRvZmuaIuKa8Ff7+qBKst4fy8nHFiYNsDQb3cfc4w9kyZUJwHei5ETHg2Tmvc/CgdjSUT2mZqgXwpY3heGv+R927IBFO2OTo5oZ9EiX3L1j/Hv/7oCn/paTy2jHQAzRK2z11DFtAEMfO6bXsPnmuplLUvAfHK5xzK7LZ2lkwrHOA16WNz9NRg0ZxVfZXuM6D6Dm18Vn28Wt/pKprqpU70Aez9gheRDUYstcr2/dS1FzhMI5VHC9NOUrZbWqQxVXRJ2YMkB+ktQ6fqanZ7PyQR1F2hc+93m8GpubpQDVCpTNhGZHngK4942dNSgv1AFg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(82310400026)(36860700016)(1800799024)(921020)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BFhRhxxS8U5RLi0nwB53xeC17p2ySyaNZZOrBSa9UnN+cCX6yGtVYrE4d5s6c/hgn0scwWmRyc36ycyYzpUeWIulElxy2Qc6BW6ocbJkbV4JNL6FfMOOqJflXYVe0USjscKvWSz3U9KiCv3+eUarGFJ4vylEQXIkIcuTkQq1y7D9IFZY99nDBZkprESCcQtIFZHtKRM2pyzX9xJ5oNdvQ7Rcls7XJemViONHwr9SaM4ye7MjrLUsHdS9Dx/91Z0fKF655gCbiPPuDmua4hHqZUYAvnQqY09r0TIcOMdJ+bVkrQCC5IYFbWpPKTs1qLeI5mZ6+qsHmF8QWGtFIMHpM9GDyze5W+cBvg4xdtcsq2KvYHA+VXo2/UZlbSBMYClMw0nSwFNMjnLo92y/4QrYOR27m58wnFswaICYSGAfR5AhDoJZArX2YJb5JbJc414T
+X-MS-Exchange-AntiSpam-MessageData-0: 1BAKOIkZ/NIbHNMg7ku5X2UMyaILeA+k+PxS9HrCRhgyKVXZu0SN+Ks/jS/64dXnSCJotU9asxYWOakNDWra1tvhU1Dg6GtsDM2JodBlCySqAEdfxSQ48B7Z35h+zqsFZjOs5y2kXTKGartVqwXfHGttFm+Ly8do6GN/oMDhvFWVF+9K+QUrR3NO17sFNn9018wNTaSVA4NyY5/CGWSvBBuSrJexXjwM1pVGxAqPTSSu5paD9X/QPGvQ4IulQKR1qq02HP0P+fKgDkBO05SI5p59CSlHLwQ2DzY9jA4AyHophzGCQJZi5LHhWwoTlSalo1n0M083d8VFzK7mXgkmmXauVEztGbWqfG6u6j1nmZ+ZucmoEi13CB+KdOGrWVroMWl4n09IrbEP0kWin2ztUfj4nNMpLiH5LW1jrSI+kswbxCOhluUOGN8nu8ixzEPn
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 05:48:59.7039
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 05:49:04.3661
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9656044-02e9-405d-e71a-08df2436af47
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cc702be-5a26-46c5-647c-08df2436b20f
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004685.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6830
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6248
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_224910_824727_2F543873 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20261006_224915_005669_006DA426 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,72 +129,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMII-to-RGMII converter wraps the attached PHY driver by copying
-its phy_driver structure and replacing the read_status and set_loopback
-callbacks.
+The GMII-to-RGMII converter replaces phydev->drv with a modified copy
+of the attached PHY driver. This copied driver is embedded in the
+converter's private data and is released when the converter is
+removed.
 
-To access the converter private data from these callbacks, the driver
-currently stores it in the attached PHY's MDIO driver-data field. This
-field belongs to the underlying PHY driver and may already contain its
-private data. Overwriting it can therefore cause the PHY driver to
-retrieve an unexpected pointer and behave incorrectly.
+Without a remove callback, phydev->drv continues to point to the freed
+copy after the converter is unbound. A subsequent PHY operation can
+dereference this stale pointer and result in a use-after-free.
 
-The converter-specific phy_driver is embedded in struct gmii2rgmii and
-installed as phydev->drv. Use container_of_const() to retrieve the
-enclosing gmii2rgmii structure from phydev->drv instead of using the
-PHY's driver-data field.
+With Generic KASAN enabled, unbinding only the converter while the
+external PHY remains active produces the following report (abridged):
 
-Update xgmiitorgmii_configure() to accept a const pointer accordingly.
+  BUG: KASAN: slab-use-after-free in phy_check_link_status+0x2d8/0x338
+  Read of size 8 at addr ffff000006c359b0 by task kworker/2:0/27
+  Workqueue: events_power_efficient phy_state_machine
+  Call trace:
+   phy_check_link_status+0x2d8/0x338
+   _phy_state_machine+0xdc/0xa4c
+   phy_state_machine+0x2c/0x70
+   process_one_work+0x554/0xe44
+   worker_thread+0x6d0/0x1180
+   kthread+0x2e8/0x5d4
+   ret_from_fork+0x10/0x20
 
-Fixes: 168f7a161608 ("net: phy: gmii2rgmii: Dont use priv field in phy device")
+  Allocated by task 55:
+   ...
+   devm_kmalloc+0xac/0x2ac
+   xgmiitorgmii_probe+0xa0/0x37c
+   mdio_probe+0x68/0xb4
+   ...
+
+  Freed by task 642:
+   ...
+   kfree+0x14c/0x38c
+   release_nodes+0xb4/0x1e0
+   devres_release_all+0x140/0x1f4
+   device_unbind_cleanup+0x20/0x190
+   device_release_driver_internal+0x344/0x460
+   device_driver_detach+0x3c/0x54
+   unbind_store+0xe0/0xf8
+   ...
+
+Store the converter private data in its own MDIO device and add a
+remove callback. Restore the attached PHY's original driver only if
+phydev->drv still points to the converter's copy. Hold phydev->lock to
+serialize the restore against PHY callbacks that take that mutex.
+
+Also release the device reference acquired by of_phy_find_device().
+
+Fixes: f411a6160bd4 ("net: phy: Add gmiitorgmii converter support")
 Signed-off-by: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
 ---
- drivers/net/phy/xilinx_gmii2rgmii.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+Changes in v2:
+- Restore the original PHY driver only if phydev->drv still points to
+  the converter's copy.
+- Update the comment and commit message to describe serialization against
+  PHY callbacks that hold phydev->lock.
+
+Link to v1: https://lore.kernel.org/netdev/20261001074718.3944521-1-vineeth.karumanchi@amd.com/
+
+ drivers/net/phy/xilinx_gmii2rgmii.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
 diff --git a/drivers/net/phy/xilinx_gmii2rgmii.c b/drivers/net/phy/xilinx_gmii2rgmii.c
-index 2024d8ef36d9..61f71e977a57 100644
+index 61f71e977a57..9dcdb91cd441 100644
 --- a/drivers/net/phy/xilinx_gmii2rgmii.c
 +++ b/drivers/net/phy/xilinx_gmii2rgmii.c
-@@ -28,7 +28,7 @@ struct gmii2rgmii {
- 	struct mdio_device *mdio;
- };
- 
--static void xgmiitorgmii_configure(struct gmii2rgmii *priv, int speed)
-+static void xgmiitorgmii_configure(const struct gmii2rgmii *priv, int speed)
- {
- 	struct mii_bus *bus = priv->mdio->bus;
- 	int addr = priv->mdio->addr;
-@@ -49,7 +49,9 @@ static void xgmiitorgmii_configure(struct gmii2rgmii *priv, int speed)
- 
- static int xgmiitorgmii_read_status(struct phy_device *phydev)
- {
--	struct gmii2rgmii *priv = mdiodev_get_drvdata(&phydev->mdio);
-+	const struct gmii2rgmii *priv = container_of_const(phydev->drv,
-+							   struct gmii2rgmii,
-+							   conv_phy_drv);
- 	int err;
- 
- 	if (priv->phy_drv->read_status)
-@@ -67,7 +69,9 @@ static int xgmiitorgmii_read_status(struct phy_device *phydev)
- static int xgmiitorgmii_set_loopback(struct phy_device *phydev, bool enable,
- 				     int speed)
- {
--	struct gmii2rgmii *priv = mdiodev_get_drvdata(&phydev->mdio);
-+	const struct gmii2rgmii *priv = container_of_const(phydev->drv,
-+							   struct gmii2rgmii,
-+							   conv_phy_drv);
- 	int err;
- 
- 	if (priv->phy_drv->set_loopback)
-@@ -123,7 +127,6 @@ static int xgmiitorgmii_probe(struct mdio_device *mdiodev)
- 	       sizeof(struct phy_driver));
+@@ -128,10 +128,27 @@ static int xgmiitorgmii_probe(struct mdio_device *mdiodev)
  	priv->conv_phy_drv.read_status = xgmiitorgmii_read_status;
  	priv->conv_phy_drv.set_loopback = xgmiitorgmii_set_loopback;
--	mdiodev_set_drvdata(&priv->phy_dev->mdio, priv);
  	priv->phy_dev->drv = &priv->conv_phy_drv;
++	mdiodev_set_drvdata(mdiodev, priv);
  
  	return 0;
+ }
+ 
++static void xgmiitorgmii_remove(struct mdio_device *mdiodev)
++{
++	struct gmii2rgmii *priv = mdiodev_get_drvdata(mdiodev);
++
++	/*
++	 * Restore the original driver only if the converter's copy is still
++	 * installed. Serialize against PHY callbacks that hold phydev->lock.
++	 */
++	mutex_lock(&priv->phy_dev->lock);
++	if (priv->phy_dev->drv == &priv->conv_phy_drv)
++		priv->phy_dev->drv = priv->phy_drv;
++	mutex_unlock(&priv->phy_dev->lock);
++
++	put_device(&priv->phy_dev->mdio.dev);
++}
++
+ static const struct of_device_id xgmiitorgmii_of_match[] = {
+ 	{ .compatible = "xlnx,gmii-to-rgmii-1.0" },
+ 	{},
+@@ -140,6 +157,7 @@ MODULE_DEVICE_TABLE(of, xgmiitorgmii_of_match);
+ 
+ static struct mdio_driver xgmiitorgmii_driver = {
+ 	.probe	= xgmiitorgmii_probe,
++	.remove	= xgmiitorgmii_remove,
+ 	.mdiodrv.driver = {
+ 		.name = "xgmiitorgmii",
+ 		.of_match_table = xgmiitorgmii_of_match,
 -- 
 2.43.0
 
