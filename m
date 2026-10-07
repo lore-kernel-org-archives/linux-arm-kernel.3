@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078F4CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 18:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65390CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 18:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xdjR4cIqCHUalaWjA8soq/724MM3zNfgUxqkTZB9L0=; b=kN+QdaXohDwD5R1IW52LmyxVqh
-	W0VtICstnDcwsta6LEFjc9Gf6zoMxU0ka3OdCVIghCU064vZvafA5c36xuoh3mniZiQDuQol9uMZJ
-	/qRVKWChkzIFUyP+ApS0Hsz3mVIteEjbL0A6i0nnCwdu5/UFFHv1pE8KVZjDuulFhUYf/jd+FYkJp
-	9CNM2qbpaMOYD7D1SMlyCzlLs3irPbKBHJDiMd+4i+CvBTARPHjcBE+Rg6Ey6Y8MoqRJ6b632SBtA
-	AmV3ijpOfMT9PhKLkDtWNrPurUa9y7YPnUC5vTf6pRnXb7E+SQNTMuD35w/RbH9eJ+hsRRV2f2BTQ
-	wUbi2Wsw==;
+	bh=+vwzImBllyc3KkMfgkhrOwCBUwVrLqdZ+ruuZlAUn4g=; b=f9Bp12xvPei2YFvtU1xQHBPtG3
+	vwSqLt0MG1XE9VTdI65H0dayH3Bj/AhuFa3JDKMUZXYCWZREH4QrAuctO9i0lmv/dhD5/7TsFMvFQ
+	tzMq6wo+3TgxkKYvVE4Ebpnjr0PCatwPAupE1R2I3rbJED+gUEnMcA0m/8W3VwcYKag/nwI9P/fsw
+	glyAj9HT9mVVBt9nIwRZipijqd8UgR701hXZqnVssmldoJeYmSOqVULrOpq9RPhc6IoWpB3l+/kOf
+	czGwEiqd62ka8DhbJI+VcKSlObmmt7v4QE/dYjm5/8GmZ7zgfiBxP0VY5MRnWXX9pzbiB9PAyG6WV
+	LUmrjcZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOj-00000002wuH-1vkX;
+	id 1xEWOj-00000002wui-3XpM;
 	Wed, 07 Oct 2026 18:29:49 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOd-00000002wsG-2tGI
+	id 1xEWOe-00000002wsN-3q8G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 18:29:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7A38BA0EC1;
-	Wed,  7 Oct 2026 20:29:36 +0200 (CEST)
+	Wed, 07 Oct 2026 18:29:47 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2101EA154E;
+	Wed,  7 Oct 2026 20:29:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791397778; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1791397783; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=6xdjR4cIqCHUalaWjA8soq/724MM3zNfgUxqkTZB9L0=;
-	b=mUu1OA0bVsQB0Nr20IUq4JJQ/eDF6KI5F+miE8dM3w1NlglPiK4PGIfwiNdNbhttbJwjag
-	eRfz3sUgD5PQfyCeLqHcZY3RUBCuA9kVNlAH91sxfbNNPCAXB+rKM/wl/RIh43mARbziJ1
-	udke/3gOtdFk3+LyfKtRRW+bu7nVz0QfF92OCYuk9+IKKwh+G6pqy2weX/UN7DFg3ceirE
-	q8drULbl/kFwDvMwSIEAMywAA3wNqnV1eRok9zEUQAexqiaJNqYOdo2CZpE7sygN1F25tP
-	h53hokc0S0Z0CeRR8UgadSxa2AJz9Bf0FlOAM1tUQEbadBAVf3GfJB2LWFFUbA==
+	bh=+vwzImBllyc3KkMfgkhrOwCBUwVrLqdZ+ruuZlAUn4g=;
+	b=LwzuGWoNsgTkxuu+VoKQ2EDZKSS4AXl1JK/uAQ7DmkdAgXNErOy9H2t1+mSO6fqWGwzesb
+	hlfHio3Lolq8R69IG/jBZEAF8jgRHBktf1HHA31KxMti4X+vyc+3arr2OmYKrfRB3/iM5I
+	Gh+Y1j3gRBrbWuaPf64nqp5XInEiYy/7eK0sUVkNkIJPz9MLspsQCj2sDOm4V0CLUV732N
+	YiyLxnvWcLLlN67YRiHSbRyReJnAH5fZESJcandycRY63SKtPl1C9r2ECzvU6WVJ3aDf9g
+	f0t6PoCh+T4CHtcBTmHU+vsBHpsLeCIdk30ZuSqAV/7XnH6UXI96+nY0BMIh6g==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Wed, 07 Oct 2026 20:29:22 +0200
-Subject: [PATCH net-next 1/3] net: selftests: use skb_share_check() in the
- loopback receive hook
+Date: Wed, 07 Oct 2026 20:29:24 +0200
+Subject: [PATCH net-next 3/3] net/mlx5e: use skb_share_check() in the
+ loopback selftest hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
+Message-Id: <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
 References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
 In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
 To: "David S. Miller" <davem@davemloft.net>, 
@@ -67,8 +67,9 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_112944_440819_7816CC4F 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20261007_112945_244539_9C1A0B75 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +85,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The loopback hook gets a shared skb when another ETH_P_IP handler is
-bound to the device. skb_unshare() does not unshare it, so
-skb_linearize() on a non-linear frame hits BUG_ON(skb_shared()).
+bound to the device. skb_linearize() on a non-linear frame then hits
+BUG_ON(skb_shared()).
 
-Use skb_share_check() instead.
+Call skb_share_check() before linearizing the skb.
 
-Fixes: 3e1e58d64c3d ("net: add generic selftest support")
+Fixes: 95b9606b15bb ("net/mlx5: Extend Ethtool loopback selftest to support non-linear SKB")
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- net/core/selftests.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/net/core/selftests.c b/net/core/selftests.c
-index 36b949ae520b..80029a67b2d2 100644
---- a/net/core/selftests.c
-+++ b/net/core/selftests.c
-@@ -170,7 +170,7 @@ static int net_test_loopback_validate(struct sk_buff *skb,
- 	struct tcphdr *thdr;
- 	struct iphdr *ihdr;
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
+index 1dcdb86690bb..8eb9a9469549 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
+@@ -166,6 +166,10 @@ mlx5e_test_loopback_validate(struct sk_buff *skb,
+ 	struct udphdr *udph;
+ 	struct iphdr *iph;
  
--	skb = skb_unshare(skb, GFP_ATOMIC);
 +	skb = skb_share_check(skb, GFP_ATOMIC);
- 	if (!skb)
++	if (!skb)
++		goto out;
++
+ 	if (skb_linearize(skb))
  		goto out;
  
 
