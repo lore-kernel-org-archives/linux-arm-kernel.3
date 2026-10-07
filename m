@@ -4,90 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DBECCA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 12:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564D0CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 12:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BhdLoXtc9kkNzHYF4QrrqBcMnO9w0fLSquEWS/rnbxY=; b=qf9pLqrfSo24s7CB5nW0aXcWQ5
-	MH1aiZLIzaxnRbVQK+8MFxWZo7em2WgUL5DAb6vtxiHxk+ZclcpOSyvqAjxkSxgJO02MEzltYZntB
-	dnI2hh+BYEyBxeKQGmAlUp4h2ips653WrK8m2UVU0tgaYNZ24BqRdcjUVcGbcprrMuHDA61ydhgHO
-	rNFn7Jvxi8yFRLg2qH5sVT+9TTBMVqQuKHOnk8joLzt44a7bcOd8GsIsGiRhN+7kqrb6UDR/lJRyZ
-	86n93J+ue5hIWD8pMuNaB3QbTQ3W6BGepeHQ1OFV6qJAzDuqDORtqUNCzeffRzKY38GwcuyIeiRhx
-	ElhCrS+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sto7ylfghKrxF0yVdAjf8Y/DDquUXT6FEKrppsRxI2o=; b=F/LfYIewWQz0nZYDU5C+2pssHJ
+	roQ1MV6y/3BdbZnw4DqDdPhN7EYJXLd8J1gUiuTi+5slVrF1M118JHiNirP0sW1gEWQE3oziTTipc
+	m7mSSbuoWwGp2nq0fqY8y09TKQoP7rZ64hoD5zPLqdtlLCfhTgzG7K9cdAj1BDMWZ1/7RtW+vlbfA
+	UUY8LgTPvKIlfijTT7HI8zRzqq62U0Vrl3/B7fnVaA5BMssP8zgBLzv5KkjpCtZAz1Vzm6sSjajVC
+	RXOHb3KE9WNAUQ5jlRVwh6geLqRz77ZUOPvi2o6vcda76YNszctfXQHcupJuH7j8UEXlbWgNFgQd6
+	X4yR4Z2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQkL-00000002RNw-0V9f;
-	Wed, 07 Oct 2026 12:27:45 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1xEQpv-00000002S8t-0Ba6;
+	Wed, 07 Oct 2026 12:33:31 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQkI-00000002RNI-2jNB
+	id 1xEQps-00000002S7o-3GFs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 12:27:43 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3a89d1ca907so772867a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 05:27:42 -0700 (PDT)
+	Wed, 07 Oct 2026 12:33:30 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48b02a2359aso1659893f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 05:33:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791376062; x=1791980862; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BhdLoXtc9kkNzHYF4QrrqBcMnO9w0fLSquEWS/rnbxY=;
-        b=LCo/ZnAJJ27k26wegxgkKGesnF+UwpzlLIkDbwywr59559CVbOddCtVmyCLlWUfcCY
-         shAMfEhaoz4vofB9k4pGo6WZItXatZ9PIOoQ8Oz3iAoz2KnofIOkacg7JZIfQSDI9v6L
-         XUwfMqGh8LYFk3hvDVHA6WF0cMqL7a1gcdw7tu25NYZBkEsfBfG5RWsy3Xrwe05YVhxo
-         7ZZrTLkOi65liaD4crr1togscwhUkg7dvOiCtXMJKi+tXb57aaGKqYgmtglyPPGfYpNa
-         gkA3ZqOGAcZmx2jN+XauV3o7d3qgcY4wvQfXsg2kydKYdIslvhDDLAHxdBgGvT421ExE
-         BXRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791376062; x=1791980862;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1791376407; x=1791981207; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BhdLoXtc9kkNzHYF4QrrqBcMnO9w0fLSquEWS/rnbxY=;
-        b=q2SeSdsLsDMFuKChF5gV6Q0qwL1LOR8/JERIgqQw4OOn+knn9ji12p0HmaDNonTowv
-         1qmMfsTbElMFJ/C5tkLIUTZwQwzryre2VQ8yJqpghU4Tr7TBcdIoODt3PLAyAE3mA75m
-         YSPlN1uf2axR2ICdH0lAmdvBNpy1RUyekqbIg3dMdKpeMlio857t/j5xfWpZga2cHtpV
-         egCXJm+mktDBrJI5NSEeGktMNclc2UOSUxkrqvsb76omVkV7x59iQxxSi0v4iHuWIpq2
-         RHo+luLf0lOHcLgo7XKNIDAXOPTf7Cu/kM62TbIR24iqVYh0E41GlO8WxnULpSYK1jHG
-         hKYg==
-X-Forwarded-Encrypted: i=1; AKwUvBwQIPuqz7/i8Lb1XmWYdxbH1Yn5oMidFuvPysa5y3Kfeoj+nTxZi3Qo1OJDD/jLtJc0haRiOp2W+Z7N3cjJ9Qj8@lists.infradead.org
-X-Gm-Message-State: AFq9FYI2PinMGsBY2z2CtaM8w19BHhtSGxUP06odp9rUTIZUOdTNhR3t
-	bpzxQG/RnByWM+LYZS78m6HaxCw7UgVqRW4iWpTEhDTWcwkPJz050d57
-X-Gm-Gg: AYBFou1TYtcSkFaYfSLzPWqwM9onZFTEMTZ6gNd31bpexJRpgrLLXCk6f9CYx2ilInt
-	gy4FZJb06y98JJN9ialiB5Il3v9sFNCNHV9DjsmqLU/hFM15On5zSIsmPCDDaMbCBG9oOVjzaCz
-	XHhTlogEvGd4Ji5TRxgGbtZwOrHFEVpf8syFXw3IR5Ca2Nc2GQFqzaIP65xfOULNRmg35C+CwhU
-	UZviDhXOHqKPHB8RBObuXaJJSJAFF+w/BpjjxX4Srml1jLdDmYGpNxlpsV/tNh4A8BNSGxDlsTY
-	hTnyqbChKIAH5EwzUjhUsAfHIcvV+lnP1UkYutgPjQa0rcGnDm8munMnfakR2L5XjVJKzw+7SUc
-	y+ST60PKxUtXzVsb15m3reY/ilKl3rXrwrfTjB3JhGDS5H/oxwYRb0B7Pep9BBioNqIkiu1DWyd
-	B3nzc1arfNPjGNUkIb6NF6kFbtPJPO5lv7KzsJ19JtxsEbi3Ec9XNf3N0=
-X-Received: by 2002:a17:90b:2884:b0:3a5:364:dfd with SMTP id 98e67ed59e1d1-3a8a0cd1a2dmr1992504a91.31.1791376061688;
-        Wed, 07 Oct 2026 05:27:41 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1000::8534])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a88eff2146sm6384956a91.10.2026.10.07.05.27.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 05:27:41 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Sinan Kaya <okaya@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] dmaengine: qcom: hidma_mgmt: fix autosuspend cleanup on probe failure
-Date: Wed,  7 Oct 2026 20:25:34 +0800
-Message-ID: <20261007122534.194286-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=Sto7ylfghKrxF0yVdAjf8Y/DDquUXT6FEKrppsRxI2o=;
+        b=Kx9inlzqs80UXUu77gi2aGOjMNdauNcXq4Xg+SWCPAS2SEv3J+76bozaHmTsjSWoIa
+         LB8nZLx7vlF/igHP76i+YUZBaxrCl4SzmOHmYF58ffk2O26rogHocpip18nvIHfglAvM
+         83xIWcVQEUrubfCh9sAa1FMP56xx9M3ztkROKM/kiv008+ju0aqyesUsQFf1zq8mVD7y
+         2VOkA2PriOMneDCo8OEslXG2gUvyciALxwrsLz/zoWbofl51TDY47THWcvPVX/bQlmLu
+         asHyep2Nm6Gs9ro91pNxTuJbS9DuvJzyCDyt/4rOO1UPUNXaI6DeOfILNa3t+DI2r8L1
+         vofg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791376407; x=1791981207;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Sto7ylfghKrxF0yVdAjf8Y/DDquUXT6FEKrppsRxI2o=;
+        b=qRVnka+D4BiYTqkUNAnnip51zmY441R8DL+Ob2j/ofncMMbflfxzy5hxJUNxF7X+Pu
+         NfU0AjemRucfWWL7lc+x88X5AvNyW59cf4/DHkIeVLoXTrep1rWSbxJYps6fTbIi5jfq
+         OgE6jlmo8adHcWQfuev594xhr6+FogH3zXPPsPw3vrG1HEcRui3Yt47pkwVucUVamTsI
+         dXnsfKt5nQK/9TAq3VA2t8xSU7rSbbQyUgTHSmHn/Ouo9u2vV+Z5nL0SgJwL+2AHb7Rp
+         jWHAjULSmJZAuCHi2QZP3bIF+pK9SQEpI0OrPMhtJ70iHpSBmyk+sSaNS0SB/dzrmd5L
+         46tA==
+X-Forwarded-Encrypted: i=1; AKwUvBzba7gmhtj9SyJsUEXdiJCRURPzTEnC37BonBQATxyAhW4WuYlO8p9JZFVhEu7qvf+pJRFYPhlXjBLbCopx6G97@lists.infradead.org
+X-Gm-Message-State: AFq9FYKEGYEBTwoarxFV+dp3aTUmA0HD2nMDxvjc59+0ekMfzG0NSvUf
+	oBXigrC+scBdbVtvTi98wh7SlsOFd8nJE2ZJSq0yO92aZopO3uwC1oefsApV6PPCkRo=
+X-Gm-Gg: AYBFou3Zt2WJDIt+HVhN93OOA6V80nr8MGBvDAECYdM+VbQKq+7f0AyqD+Xm34vK1Ls
+	QhNvh5xp6z/PaOEgWV3vriAWj2CyyXmeWYgxynSFDkLKz6SvW3mqq7n2pnSbrV9iaj2bG4mDtbP
+	0hQNR+cN+yuUg0DKFVWBXrxLfxEsgGn3nZoDotR1F/Pg5lXLkYfQ4FJPcBvIhJfDecOGlChlgFb
+	yZq/iTAl4+o/hzVCnUjfZCazTb+Lk0/Jq96MQtk0iy9thsc8quaaum646dvOUwqaiUemiooIkTB
+	h9Q+/XZSxORs7pJPIew5yIvM0vQ/Zs+trkCGNQ+lI8meOlSaNSn8wriI22CvGm8XVJ97z3ft3RC
+	ZILNHXQGQnyYRpzZKV9R5tMMUjQWv//2dPibC5GYXYz/urcJFWNNGP8zQvmdVBh1WEHZ9woYxcy
+	YgWw215UxAk4d9hDF2DwRvMLPcwcvCCBBzrnRjzItARdMd/+32FBYJGtqS67uDbV6dG4Q96TNDh
+	Noix6c39EYsIHOumc9qym3uDY0lIeUX
+X-Received: by 2002:a5d:6184:0:b0:48c:54ec:ea3 with SMTP id ffacd0b85a97d-48c688c031amr8414035f8f.13.1791376405104;
+        Wed, 07 Oct 2026 05:33:25 -0700 (PDT)
+Received: from [192.168.151.46] (90-182-211-1.rcp.o2.cz. [90.182.211.1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d3d3eesm5973138f8f.53.2026.10.07.05.33.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Oct 2026 05:33:24 -0700 (PDT)
+Message-ID: <15a6f5d5-fdf2-43e2-94bc-3e87c4eea122@linaro.org>
+Date: Wed, 7 Oct 2026 14:33:20 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2] arm64: dts: amlogic: meson-sm1-odroid-hc4: add the fan
+ tachometer
+To: iav@iav.lv, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Christian Hewitt <christianshewitt@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261006-hc4-fan-tach-v2-1-e27ad96e92a2@iav.lv>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261006-hc4-fan-tach-v2-1-e27ad96e92a2@iav.lv>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_052742_732170_7FA8C9B8 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20261007_053328_840219_3D9F389E 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +131,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hidma_mgmt_probe() calls pm_runtime_use_autosuspend() during probe, but
-the probe failure path does not call the matching
-pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On 10/6/26 18:36, Igor Velkov via B4 Relay wrote:
+> From: Igor Velkov <iav@iav.lv>
+> 
+> The fan connector routes the fan's tachometer output to GPIOX_7, but
+> the fan node does not describe it. pwm-fan therefore registers no
+> fan1_input, and the fan speed cannot be read.
+> 
+> Describe the line as the fan's interrupt, and mux the pin as a GPIO
+> input without bias: R109 on the board pulls the line up to VDDAO_3V3
+> (schematic rev1.0, sheet 31).
+> 
+> Tested on ODROID-HC4: fan1_input reads 0 with the fan stopped and
+> rises with the duty cycle, to about 4200 rpm at full speed.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+> ---
+> Changes in v2:
+> - Mux GPIOX_7 as a GPIO input without bias (Neil).
+> - Link to v1: https://lore.kernel.org/r/20261006-hc4-fan-tach-v1-1-4e7cecf0b45b@iav.lv
+> ---
+>   arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 15 +++++++++++++++
+>   1 file changed, 15 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> index 5f15c2299509..64602aff1d81 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> @@ -21,6 +21,10 @@ fan0: pwm-fan {
+>   		#cooling-cells = <2>;
+>   		cooling-levels = <0 120 170 220>;
+>   		pwms = <&pwm_cd 1 40000 0>;
+> +		interrupt-parent = <&gpio_intc>;
+> +		interrupts = <IRQID_GPIOX_7 IRQ_TYPE_EDGE_FALLING>;
+> +		pinctrl-0 = <&fan_tach_pins>;
+> +		pinctrl-names = "default";
+>   	};
+>   
+>   	leds {
+> @@ -114,6 +118,17 @@ &pcie {
+>   	reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
+>   };
+>   
+> +&periphs_pinctrl {
+> +	fan_tach_pins: fan-tach {
+> +		mux {
+> +			groups = "GPIOX_7";
+> +			function = "gpio_periphs";
+> +			bias-disable;
+> +			output-disable;
+> +		};
+> +	};
+> +};
+> +
+>   &pwm_cd {
+>   	status = "okay";
+>   	pinctrl-names = "default";
+> 
+> ---
+> base-commit: b44e2be772f866985cafdf90355285069ea68495
+> change-id: 20261006-hc4-fan-tach-440c1b874a04
+> 
+> Best regards,
 
-Add the missing pm_runtime_dont_use_autosuspend() call to the probe
-failure path before pm_runtime_disable() so that the autosuspend
-setting is properly undone during cleanup.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-This issue was found by manual code inspection.
-
-Fixes: 7f8f209fd6e0 ("dmaengine: add Qualcomm Technologies HIDMA management driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
-v3:
-  - Add the missing changelog.
-
-v2:
-  - Keep pm_runtime_enable() and explicitly add the missing
-    pm_runtime_dont_use_autosuspend() call in the probe failure path
-    instead of switching to devm_pm_runtime_enable().
-  - Update the commit message to match the actual change.
-
- drivers/dma/qcom/hidma_mgmt.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/dma/qcom/hidma_mgmt.c b/drivers/dma/qcom/hidma_mgmt.c
-index 4805ce390ffa..d8c56af5882d 100644
---- a/drivers/dma/qcom/hidma_mgmt.c
-+++ b/drivers/dma/qcom/hidma_mgmt.c
-@@ -310,6 +310,7 @@ static int hidma_mgmt_probe(struct platform_device *pdev)
- 	return 0;
- out:
- 	pm_runtime_put_sync_suspend(&pdev->dev);
-+	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
- 	return rc;
- }
--- 
-2.43.0
-
+Thanks,
+Neil
 
