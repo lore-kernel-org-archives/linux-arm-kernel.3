@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074C3CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692F4CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3Wf62xC5r7GPaaJsND27Q/x6Q226FUTfzXzF0+A+bo=; b=e3VH8FqQ3b54elqeWD8L/YxcF4
-	ohMmjarzbMYi94hfpHOz64qXPXqIkGbE1ZtQXTg885BvKjA13oQQK2qGcaMLLub2LojBCqmZ5VfuL
-	0rr8tCuNHs1q3F40RNQ1NiiAMdQvZzPXvojfERgDqbyVZ/8WJwvOjp5HQGOttV2zuZv3vte6JR6rK
-	RZ1maKLeySCy88PhErp054c3/XCmUccQ5chsJIzYtTsD8OIxelZL9xXMuFhNrlK7pu6hmX90NnBBU
-	j3zgyT2OIxXSlPB387wsKt5kx63Hmz3gow9szYTodt87ZCexst/s7gDxJqFHMmqy6ndaTuZQH4nbs
-	A8ZR5d7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kVXuH7H4PDcskImrivyP/VtzUO54yTkMmhV+cSg/PdA=; b=BL/gOHrncHplI4V0TwPWPiuJsF
+	pq97DSFqyJixRZ+jpVcfgiY0r7cBcERW+ms+ZouvY4zlFulvB0s46FVSZkgn74VUFzZHhj/vQmguB
+	4xGBXpc9WP6WRmi2+SPSpqY9hs6yE3KthtSFfTw+HW2qvYrAMC6xJwkDIgOJMtfB5mf4YPcPjmfFi
+	MkJL1MFyu75YJxoqnMEQscjCgvTlG821ShNp3Gjr1qq6Fyvbl4Mw0Uh4efqb8LxreTWb6Ts9rldlA
+	Kl7maHZ7fJaf4USHX5xXmUDDB0ErT4koGRf4x5fvnmk7aXVPxgVy/ajRQJS6FVJuyM17OixR48Pek
+	2DdVsmtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELQD-00000001ngG-3bjh;
-	Wed, 07 Oct 2026 06:46:37 +0000
-Received: from out-175.mta0.migadu.com ([2001:41d0:1004:224b::af] helo=mta0.migadu.com)
+	id 1xELSj-00000001o80-0m01;
+	Wed, 07 Oct 2026 06:49:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xELQ0-00000001nc0-1ixC
+	id 1xELSi-00000001o7o-1gop
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:46:36 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=U3Wf62xC5r7GPaaJsND27Q/x6Q226FUTfzXzF0+A+bo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791355582; v=1; x=1791960382;
- b=ICf/7zlamBQ8MkrqNSJjc31FwQLqOC30gBZi5ABILt94lp3RWOktaxZhU45mHLL6QLp6mKFk
- DzY+VzyJhHzAydwIWZUudkOb0EO7j4+xJBYxA3ORpmN5EpZnH86bidVF84mJqcQARWtYVzpUVGd
- 2+ZfGVkdLnXQ2GCN9SR7e6TY=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9b2ce8694fef50c9;
-	Wed, 07 Oct 2026 03:25:47 +0000
-X-Mizu-Trace-ID: 9b2ce8694fef50c9
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5ba40832934so2866e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 20:25:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzThVLHeq0PaZK0MUqyeM1aRw6pBEHZXMOJ2ek+QXnApNbdDngXV/GMYUJmMNdopERnPMuGDFuQf9Z/jv/CGTAZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ2ePG4vUQTaMMJc8rEtl0rhDSevw/nPHiHsAGzDC9OK+tTMtWr
-	OoH0vy+5FO06ipxBZJ9qHLHFrGXXM2GR3rPfXwIo0KAKuKG66SwQFTFuwyieATlqZTm6KaIV7Go
-	GDSCJQz38th2F3cJXsG8D4IC/03SL9mIeJq8xgEbJ
-X-Received: by 2002:a05:6512:ba4:b0:5bb:661:7db4 with SMTP id
- 2adb3069b0e04-5bcca011cc1mr293031e87.0.1791343542819; Tue, 06 Oct 2026
- 20:25:42 -0700 (PDT)
+	Wed, 07 Oct 2026 06:49:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C0B7601FF
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 06:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060391F0089F
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 06:49:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791355751;
+	bh=kVXuH7H4PDcskImrivyP/VtzUO54yTkMmhV+cSg/PdA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=dg/APZQ9ejy4HmKPDmWJ49DQjYI8eWTCX2U9HoU5cpY3x9Rp89PIqyA8NLJL0FwtJ
+	 GMzK4tUOwWk49yYln+oGbbud0wd+E1ne0Fmx4u/kimPS1vwfpbRml7GQ+ixnK3WLy5
+	 adZ7iVP2QncNkxmIKC3Dhq6N3u2YYx+tYwo97iXjIw81UJ7iupGbyvfRCJaeqOgE3+
+	 VTVO/i9lEVYeS//KnuemuoJQ9Bhbgdxg47sJreGtLXkIMBl+Vr5niUOqlFYNtkozg9
+	 mGCFqSQyXN8Tou3REIxsoHqM2zX/h5J9SJoWUqMbRVurUKh76v8oQHNBpM1OPIMfQC
+	 G4LuA1C3AaIVA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bcb6faf862so3099366e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 23:49:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBx1EW/WLLW7KUj1NntMzU9HN2MZt3eTn5U2TKu0/0GhgutcvFaNQYoCdHc74fzlpLlvVJBbelJnlWZe+ZU2RVe9@lists.infradead.org
+X-Gm-Message-State: AFq9FYJHZ6CfX1ZfujV9n/at+TFas4d03NHPXqzth6zl0Ouuqdt46Ryw
+	v9KkdMI21doEwci/6t9Ca+NkSXb3E6Jn+IfQokPXQ9BgKw5Age0abm6Zlre1VsjoVvJFjq1z+we
+	jLDiO5Chl9MeDNbrg4uakqlT6cMu4SuA=
+X-Received: by 2002:ac2:51cb:0:b0:5ba:3443:aa2e with SMTP id
+ 2adb3069b0e04-5bcd06dde9emr392580e87.21.1791355749772; Tue, 06 Oct 2026
+ 23:49:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260924165329.1684155-1-fuad.tabba@linux.dev> <05714056-53b7-46ce-86eb-fdb7d2afe1fa@arm.com>
-In-Reply-To: <05714056-53b7-46ce-86eb-fdb7d2afe1fa@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 7 Oct 2026 05:25:06 +0200
-X-Gmail-Original-Message-ID: <CA+EHjTzde+d7UFowKCeBnpD+8mFPcuUn1m2gLsDm9ViEgPfsQg@mail.gmail.com>
-X-Gm-Features: AclHuK9K0Yw9pVF-s7nnkYWE_sJH6hYt2igpYcN7bP3h2C7iBW5sGaqUNJ48r1k
-Message-ID: <CA+EHjTzde+d7UFowKCeBnpD+8mFPcuUn1m2gLsDm9ViEgPfsQg@mail.gmail.com>
-Subject: Re: [PATCH v4] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-To: Ben Horgan <ben.horgan@arm.com>, Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>, 
-	Yuan Yao <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
+In-Reply-To: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 7 Oct 2026 08:48:56 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkgBKDvbxsnhsBE_Qqs6TA8how4J2jvKm=tdpx4P+4JdA@mail.gmail.com>
+X-Gm-Features: AclHuK9LebUk8FXXJTxUAdYqh6ANC6YbZR1Kg-AkYL0dvrplEgSlwXOq9S4AtEE
+Message-ID: <CAD++jLkgBKDvbxsnhsBE_Qqs6TA8how4J2jvKm=tdpx4P+4JdA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] pinctrl: scmi: Replace get function and group info
+ with generic callbacks
+To: Alex Tran <alex.tran@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_234632_582890_03180927 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,18 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On Fri, Sep 18, 2026 at 12:56=E2=80=AFAM Alex Tran <alex.tran@oss.qualcomm.=
+com> wrote:
 
-On Fri, 25 Sep 2026 10:22:00 +0100, Ben Horgan <ben.horgan@arm.com> wrote:
-[...]
-> IIUC, this patch also covers the mismatched system case where EL3 f/w may set MPAMEN for cpus that
-> support MPAM but system_supports_mpam() returns false.
+> This series refactors the SCMI pinctrl driver to eliminate metadata
+> getter callbacks to be replaced with pinctrl and pinmux generics
+> provided by the pinctrl core.
+>
+> Previously, the driver implemented its own get_functions_count,
+> get_function_name, get_function_groups, get_groups_count,
+> get_group_name, and get_group_pins callbacks, which required
+> maintaining driver metadata like the functions and count.
+>
+> The pinctrl core already has support to store and manage this
+> topology in the pinctrl_dev via its own internal radix trees.
+> By registering functions and groups at probe time using
+> pinmux_generic_add_function and pinctrl_generic_add_group, the
+> driver can delegate group and function metadata management to
+> the core.
+>
+> Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
 
-Yes. HAS_MPAM is set per CPU from that CPU's own ID registers, so the
-traps depend on neither system_supports_mpam() nor MPAMEN.
+Patches applied!
 
-Oliver, gentle ping on this one too :)
-
-Thanks,
-/fuad
+Yours,
+Linus Walleij
 
