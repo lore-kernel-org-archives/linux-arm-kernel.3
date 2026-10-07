@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B5CCA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 10:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2A4CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 10:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oup34LMQK44s5+r/PArwLKN+1YdH0CvlQSNY8m4+Yg=; b=UzOJucoTNdL03c6hcHiYwLUiZE
-	yjD4FHZ1Hxo70uhZXBqIf8VNa57dEZ3DDGC0o+CtlsrQR4VEv33OHmsc13iFpdKkguYsJQT5VLo4U
-	Ehcii01eVZT09tMyF5SmBw85rAxkb6H/YvUIVp0xN9WjrWd4Jd7zJaouSeeRvUKfakE4COJ/7qqcU
-	hQGhH2eGMWbJVBzKtXN8d4Zm81J23espbMQUdK7eUgRErCxPy0QR4agIqka6x8R1ODsGvOe5piveQ
-	Vv3MYd5NUuKbq7+QesNY3u4u59wB8k/odai5TmLAK7SLqbJJI/yj1IrxZDQNwc2sCaC3ljxanATy3
-	U4IW2ANA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lTL0TETi6wov8+6DSxxvFjg0nJ80CdLa2nOZg+tVLAE=; b=Y2Unv9Ynj5rbuPEkspNgObdOmg
+	4LKY1RThxh8x+tvhLFf+woAiSwB0u3XWxj90Y1pyrk3ME55W/4uWO+VOCu2LMrHoMj6ks7jMLEOW6
+	ae+a8dr4orrGn4fjrluxbQ6coXLtnpBTZTgJM7YMRDxAIOWHa3B2Z0Xe0/aiHE2X/CBSaGhbFpOdG
+	2KkDKka3zXVBZ06NWEUlDugsCP4Vu+kKiuaG/1w6KraYaj3NGXMIZIoJsvWemTYFHZx2Hh/Y2P2If
+	x6goTMYzV7uv3C/0s4dJB8IuL6YUJhq1SLM6dB1t5FS3XlUU7rnykSqh1mxOIW5PewPlLJU9w8z7u
+	mqYoavGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEOpn-000000029DS-1G3o;
-	Wed, 07 Oct 2026 10:25:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEOsu-000000029Up-0T3y;
+	Wed, 07 Oct 2026 10:28:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEOpd-000000029BQ-1sCp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 10:25:07 +0000
+	id 1xEOst-000000029Ud-0z0u;
+	Wed, 07 Oct 2026 10:28:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD94C60218;
-	Wed,  7 Oct 2026 10:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C8D1F0089D;
-	Wed,  7 Oct 2026 10:25:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8BC043AFD;
+	Wed,  7 Oct 2026 10:28:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABCB41F0089B;
+	Wed,  7 Oct 2026 10:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791368704;
-	bh=7oup34LMQK44s5+r/PArwLKN+1YdH0CvlQSNY8m4+Yg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ddGUB+PvBp/6ASSKJJLfA1NyxKGXNPcgBSh5J2NtpCIZx7OFuMYpTRt2uZtl2Qjhr
-	 jjx1vr14soDI9JoWs1yx+BCDjpw96/7qMwMhcb1bZSZX1Z+gPk7f4a7DnpzMsFgl3a
-	 AUo/EUuVQcfttuH3vayzdQBmq7mQlY/4DOXZIVVwu1VhKA3u5D7nCIHX4Eq456+SI6
-	 OT03AJbHh6UsUU5dvEYbQF9AVVoxLv1AVk4eBU6ypF/OEr90hE0TbnmwBKP2tq9lca
-	 cEtbLP3EsQYvGd7UxQmkV6HiuaCIHIGhFHV/yS1y9607Z34FgA2h36YspFv/NdsVoo
-	 iVR99KNebMstw==
-From: Mark Brown <broonie@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- cwweng@nuvoton.com
-In-Reply-To: <20261006063643.198830-1-cwweng.linux@gmail.com>
-References: <20261006063643.198830-1-cwweng.linux@gmail.com>
-Subject: Re: [PATCH] spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant
- SPI example
-Message-Id: <179129615225.150114.3085056544164822355.b4-ty@b4>
-Date: Tue, 06 Oct 2026 16:15:52 +0200
+	s=k20260515; t=1791368906;
+	bh=lTL0TETi6wov8+6DSxxvFjg0nJ80CdLa2nOZg+tVLAE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SOXb73hCTRuSHIAJ72hkQiFKZEpX+WBJt7tordjKDFEXlItLFDM4M39jauirdGgBu
+	 5Ig8ZZ7tFAthJBWZgfBcTe4mO4+T/m+Df5Wyl5a3SxRK58gwOzOuSqYhbZMYqE89Nm
+	 UbgdMw8kHZjwD4b/tj8nw/N+crp5BaBAhwKKcDCsQZthV3ZCbTco0g0IgH+LErURS7
+	 9nUTFrwhkwQWgp7zY+AxXzvnuUQOi1GjUu3ZB51tmoSzaeETfVjN9PRXxOCpBg6Q7i
+	 JXE1ts/2tcByzlEjeWpziuxtrW9P4IEkRNdY3he1nBpoivM1YnQiCdEOXZLM6V8MOt
+	 3xwH30eb5F45Q==
+Date: Wed, 7 Oct 2026 11:28:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chuanhong Guo <gch981213@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: clock: mediatek: mt7629: add RTC clock
+ IDs
+Message-ID: <20261007-fd52cb4e1451642185a6589f@squawk>
+References: <20261006-b4-mt7629-rtc-v1-0-e556386df816@gmail.com>
+ <20261006-b4-mt7629-rtc-v1-1-e556386df816@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1144; i=broonie@kernel.org;
- h=from:subject:message-id; bh=FEmwUBDcBGQL9iiPxzMr4lPkRI/RrXqtCEB1d2RtwqM=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhqxjsj9bj4RvlmLNui4hb5Lnqmn2dnZKfvRG9mNdj28Lf
- 3zMVlHTyWjMwsDIxSArpsiy9lnGqvRwia3zH81/BTOIlQlkCgMXpwBMpOkN+z/rGPf6XRuF3HPk
- 8i6sDU8QsznKpmLTJH1iw5QzUyU4DzT2NTOvYvD+4mh7Wa8kZrrHCls5y8Ju6ZpZspmqFaUMH93
- 2bPC8k9WZf43/8V+NsxELjDKOLJn7b+m9YhuL1rjC08EM6bnGPxVeNfR98jjAESU/g/vikyksTP
- 9+tG+w4NyVIxhtsuGO9hXNvdFlU7NfaT1TUpSvFvaKvGbf25gkrvXorLY7q6Yw20/fqJj+HwdD2
- +qP14UyFhz2Eq5/e/xZ3aNrITEHG/P+/Mx6F7FxSfmqrd/Tll53Ox1gafLR7iBn+d/V2V7JzTsV
- HjGdTVjL/jPW/KSVi1+SWJSWyIKG91sYlSR1a8UVD1sAAA==
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s4wIikCK1FzuJJqu"
+Content-Disposition: inline
+In-Reply-To: <20261006-b4-mt7629-rtc-v1-1-e556386df816@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Oct 2026 14:36:43 +0800, Chi-Wen Weng wrote:
-> spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant SPI example
+--s4wIikCK1FzuJJqu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied to
+On Tue, Oct 06, 2026 at 02:42:23PM +0800, Chuanhong Guo wrote:
+> Expose the 40 MHz / 1221 RTC source and the RTC clock mux. Keep the
+> existing CLK_TOP_RTC ID for the 40 MHz / 1024 source.
+>=20
+> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+> ---
+>  include/dt-bindings/clock/mt7629-clk.h | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/include/dt-bindings/clock/mt7629-clk.h b/include/dt-bindings=
+/clock/mt7629-clk.h
+> index ad8e6d7f0154..aa94a398ae05 100644
+> --- a/include/dt-bindings/clock/mt7629-clk.h
+> +++ b/include/dt-bindings/clock/mt7629-clk.h
+> @@ -115,7 +115,9 @@
+>  #define CLK_TOP_CRYPTO_SEL		105
+>  #define CLK_TOP_SGMII_REF_1_SEL		106
+>  #define CLK_TOP_10M_SEL			107
+> -#define CLK_TOP_NR_CLK			108
+> +#define CLK_TOP_RTC_32K			108
+> +#define CLK_TOP_RTC_SEL			109
+> +#define CLK_TOP_NR_CLK			110
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
+Since you can change NR_CLK, its not a binding.
+Please remove it, and put it in a driver or w/e uses it.
 
-Thanks!
-
-[1/1] spi: dt-bindings: nuvoton,ma35d1-qspi: Drop redundant SPI example
-      https://git.kernel.org/broonie/spi/c/921ecc459d4f
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+pw-bot: changes-requested
 
 Thanks,
-Mark
+Conor.
 
+> =20
+>  /* INFRACFG */
+>  #define CLK_INFRA_MUX1_SEL		0
+>=20
+> --=20
+> 2.55.0
+>=20
+
+--s4wIikCK1FzuJJqu
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasYexQAKCRB4tDGHoIJi
+0gzPAQDCkxgZs1Pry9OFkFX1+k2jkE9trqoJYE7GdRSabNdexwD/dtbqGFDDuYqS
+8F5IjTUa7gRFcntcEi5/OLTRiGCg4Qo=
+=bYV2
+-----END PGP SIGNATURE-----
+
+--s4wIikCK1FzuJJqu--
 
