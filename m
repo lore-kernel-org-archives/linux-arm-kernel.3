@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E89CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 21:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1062ECA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 21:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IVYMqtKHxu96uoD6/LMPh8YyKZYkylDuLrOfkixS8w=; b=4/f79njcpMEjbMx23lsSxasDHk
-	xe+QRAkNopwucPpZJjgHxLFAmE+MldJI5bv/DRiDJuaLvKrMdq13j8dk+/r9kgxCtdW5FUOGVgbvz
-	Sl7YuLJrmHIF44XacCP9n7afSS0B4H3b3qXLvnAJpFkMzIWoCrx6gpaf532L6niYHD+eL6FvxS9He
-	mttqsA1lFNG7kapvZpoDa5DVXTKhiYxvkyW+7CFJNaOCGQtK/2ol+ajH+/JBc4VwYUv1bEMpgsMyz
-	8+t00SC8wBiZMxo7JE8uE8SVWvW2MbTNuy8lvZhfkNHvTVOYHbzzc0HeIFGriOmfEphM8CxlsvQg4
-	wzSwQXQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xz6buXav5QfaxJzEdzND6uCBc83XGDCGlVkDtt0fjUI=; b=Q66/+s+r4i9DOl/tC5DTi0Ufwq
+	iRaRW5pOl76b4ViZcNHsGCNvBFiC9UNbDPyJGBB0Ob4CY3YAXycUAWfWy3v/exFNdmpqEisZxcNJR
+	ZY0qibEDje+rZjw5vhrHXz/wUBeiRMkRxxwaOrXR6XyyuF0qG7YoVj2Dm2pj1hfwduQO3L93R/Si+
+	w8obTzCLHcPc47Nio/3wlDWA4E8Ja0E1T4r8RmNYQ4Jz7an47FwDHExzkAx6NqcG6qjErJ7NxZCYC
+	HKutX/Y0Gr74qSCM6g8SKAyCpkhiuxMiw1V9Vvptp9YcwAEn5e4RUkgrQuYnQzIY2WIFfb38QPaT1
+	P2AAsG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEYqV-00000003Agk-2fAC;
-	Wed, 07 Oct 2026 21:06:39 +0000
-Received: from sender-op-o17.zoho.eu ([136.143.169.17])
+	id 1xEZ0K-00000003B7b-3ZIV;
+	Wed, 07 Oct 2026 21:16:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEYqS-00000003Afp-46D0;
-	Wed, 07 Oct 2026 21:06:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791407187; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=YX7Vu4/jgW15llxosNuC6hNEUR5ce4IaDj3sXJPihNyzrxd3E4OWgVCQYOCgNJt3ywLue+rW7Uqpp/9ALnJ4jgLE2kNWNw05aD+c1RMoZZiX7VJ1Ug7ACvAn9JdkI5L7Sg4NMbRfo1xMKe5moG36f2vEvEOnP/2uE36fNHWSIlM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1791407187; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4IVYMqtKHxu96uoD6/LMPh8YyKZYkylDuLrOfkixS8w=; 
-	b=FmIY7qZQXxnzh/JY5D5XzcggDmBUxokqseenxNoXKkERDGKoeKoSjfYVcm8EUW8zTQhmXhYMd3sBOspTYDKM+OGPW9BTjyidDJC15cc5rk6qIwXO+sfCuyIIxq21ECZ9z7z9Sf+65IdhzTvoSiOZR68Zk6ZKczdvQA+4Mq4T1OI=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791407187;
-	s=zoho; d=iav.lv; i=iav@iav.lv;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:Date:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=4IVYMqtKHxu96uoD6/LMPh8YyKZYkylDuLrOfkixS8w=;
-	b=B76ge9EWdGLH2Ptmuz/xdysPq9CJEHrkOfEIv5YQBh3GDMaBNqxgz/ZxGuuFcdCP
-	bMudmmXQtwMMmgTp3tE1wawTeSXjSQsdGywAPhc7GZSBQ4xAZhDFvtGNlSx190egYo0
-	GB1osx1W/XG1qINXvRUMncKowIGkLgWNuJn5kLiM=
-Received: by smtp.zoho.eu with SMTPS id 1791407184521227.33749622375103;
-	Wed, 7 Oct 2026 23:06:24 +0200 (CEST)
-From: Igor Velkov <iav@iav.lv>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Christian Hewitt <christianshewitt@gmail.com>,
- Dongjin Kim <tobetter@gmail.com>,
- Eric Neulight <Eric.Neulight@linuxdev.slmail.me>,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-sm1-odroid: let the SD card be
- powered down
-In-Reply-To: <179100548183.3372253.2014593916926884551@iav.lv>
-References: <20261003-hc4-sd-power-off-v1-1-f7ffba01b348@iav.lv>
- <179100548183.3372253.2014593916926884551@iav.lv>
-Date: Thu, 08 Oct 2026 00:05:50 +0300
-Message-ID: <179140715034.293470.4459182430175564610@iav.lv>
+	id 1xEZ0I-00000003B7A-42tz
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Oct 2026 21:16:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 21FDC60A93;
+	Wed,  7 Oct 2026 21:16:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A55531F00893;
+	Wed,  7 Oct 2026 21:16:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791407805;
+	bh=Xz6buXav5QfaxJzEdzND6uCBc83XGDCGlVkDtt0fjUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CEiJ2dcqsFhbZiLoaLAl684SkYwbahdW2iaeXPSNiXij9shN8TPl+4RxSg6Zgpv4j
+	 AbkwUkKqxD9rDGSece4d8LvdYMzJmkzsFbNedRngVhAVQEeDFNe15HIqZJxAb16m7H
+	 qV2YnAG1U/hYy+TDTdxr7+hZ0I48eg0R3GRtVtqYRV1VmYXF1GuaARCe3BLcXIO0ok
+	 3bXbXgU5bWy5sMRU7pUUs1BJL6oWxvvdHes+VH5wV8NfvMbLgPeOFb2CBTfZrZp/FF
+	 AMFyQdu1Wmwlh3AW74dHTIJJDyvlyYwJIoR1AbbaTbblYlphHr/3gOlVG2PY4Ytmy6
+	 k0buwOexwssOg==
+Date: Wed, 7 Oct 2026 16:16:44 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Pablo Mazzini <pmazzini@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>, linux-sunxi@lists.linux.dev,
+	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 05/11] dt-bindings: rtc: sun6i-a31: add Allwinner B288
+Message-ID: <179140780417.373527.14543472932668244444.robh@kernel.org>
+References: <20261005202731.153971-1-pmazzini@gmail.com>
+ <20261005202731.153971-6-pmazzini@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_140637_299051_0C3AE4C7 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261005202731.153971-6-pmazzini@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Follow-up to the dropped patch.
 
-An out-of-tree restart handler [1] power-cycles the card: it drives
-TFLASH_VDD and both tf_io lines low for 100 ms, then releases them and
-the card is powered again. With the SPI flash erased, ODROID-HC4 boots
-from SD after a warm reboot 5/5 on 6.18, 7.2 and 7.3-rc5. Without the
-handler the boot stalls in the ROM or in U-Boot.
+On Mon, 05 Oct 2026 21:27:25 +0100, Pablo Mazzini wrote:
+> The B288 RTC wires one alarm interrupt, not two.
+> 
+> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> ---
+>  .../devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml       | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
 
-Where should this live upstream: the mmc core on restart, meson-gx-mmc,
-or a board driver like this one?
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-[1] https://github.com/armbian/build/blob/main/patch/kernel/archive/meson64-7.3/meson64-reboot-02-port-to-gpiod.patch
-
---
-Igor Velkov
 
