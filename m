@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA531CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10FACA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 14:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOAv0R3ZhwJIJUgI99yXwYkreNKP5pjHIRNnaTrY9Pc=; b=bD4HQdTsPGLqaiSWkhb14ial15
-	l302/v6eWoeSHjkidRUQSOp4zm+FXCSSkcWzogl85hHAr7xh11GnFbgG9WFWTr8HmQOC8gkcwUS0D
-	jyvbvO7wpqgTWlqvbBhRLxuecROihW++mbgL0yeT3/QGDexmGabyPqzJtdCJiP7zCxtwL+jA6W6kJ
-	tzWeNJmrnQ2ywyZk3SAXYwbhpDsqeWexfR8DYxlR2O+GSOrMP45ivrXG7fC5krDVo+czNPwi6u+gk
-	/Y5tjOQ051y7ZJnUBoj0+Wwx9QBdggX/tfuOL+6xfbAPbfeEJ9aENTCXYYPaDKGcTbMo3cEjZXk/V
-	9nYr2fsQ==;
+	bh=subN9fXal1rbbDmCoh2wFon5oJy0bFXUYgWzXB4tIwo=; b=pCyoJh812IzLtW2Wqe3yD5cveS
+	7CDN3lgdi7EWhVUcPns6XtCWQ8y9q53bdCShmWG9ZBOLohvBoyluAwIzs43v2f+EMRY2oZJ6o4MHA
+	IqYzIASlG8Gqbhb6U98BGUG/lTY+b8phki6PXLCQAerAy3IwwBSx2H7MAVmaw9L7d4xTT5/C+3O7w
+	LkQWD2UUpKg0QQSN8MAQI7NuOrjR/iZXX45F28XPTetxgYBU1izd7qfU0grLJpvzlLago8o5fovQ1
+	RJmZGcDuHtvYyj+45eJgV7oLk5/0nsPR0OJzUpmLn5Ndl8NAj6g//RsUKPLv+Mg5ODwgWNV7hJMAM
+	A8fsXU4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESIy-00000002aHb-2N3Q;
-	Wed, 07 Oct 2026 14:07:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xESJ4-00000002aJU-3HiE;
+	Wed, 07 Oct 2026 14:07:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESIx-00000002aHD-0dTr
+	id 1xESJ2-00000002aIo-2Npr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 14:07:35 +0000
+	Wed, 07 Oct 2026 14:07:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E355C43275;
-	Wed,  7 Oct 2026 14:07:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384B91F0089B;
-	Wed,  7 Oct 2026 14:07:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E937060219;
+	Wed,  7 Oct 2026 14:07:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB9A1F0089C;
+	Wed,  7 Oct 2026 14:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791382054;
-	bh=bOAv0R3ZhwJIJUgI99yXwYkreNKP5pjHIRNnaTrY9Pc=;
+	s=k20260515; t=1791382059;
+	bh=subN9fXal1rbbDmCoh2wFon5oJy0bFXUYgWzXB4tIwo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eyFCCcBJRgoHWtSILSChmLCTdptTF0dqOismLghOMQPjOc86+n6D6Y5a0QK8wLk6H
-	 /zj/LHEGXw1LO6uai8bKNky2WbsUxJ1FqboclhLZhHSWtqIUXZMRuXcNSmVK3UolcI
-	 c2aYHTrSXa58igX39CvzUfTEoJH2tzQr8nlmDsoXYRCOXAuFAHgq1J6kZwvQTK9CdD
-	 A5ASMCTRmuHjXFaTNmxeqHj1wivmBY2fUg7dXgK3iylM9LhGKTaJ4LIyFIOxSpQ1qS
-	 Jc7t9M7ZBcj/Ds2ee8WrL0cYaM1vvCX75V4xXcHhlrBpAIz/S8wndPXQdaZ6rKgr93
-	 oOvKrAvpQhq+w==
-Date: Wed, 7 Oct 2026 15:07:28 +0100
-From: Will Deacon <will@kernel.org>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
-	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v11 10/16] iommu/arm-smmu-v3: Factor out
- arm_smmu_handle_gerror()
-Message-ID: <asZSIFKz-x-C_tJh@willie-the-truck>
-References: <20260929034510.2023173-1-praan@google.com>
- <20260929034510.2023173-11-praan@google.com>
+	b=blYtoeyNV3/0KC1wurnpUt2DCoYu3fxIn9aMCH+z9nKODfOpQRjOix7iZaOGfvYIq
+	 TJOJZQJ/H06Irbjva+P5UEz0e66sLmHqJAQuuuPd6/hhflaDk9UCDtYXxsBuumpUoU
+	 h/S54ogAvU1G3LwFn1y3/KHFY14s82dvB4kOX9vxE7t+eyeQUcOOHlRZ9JQgjcmmks
+	 eFbvWkYXfg6xvRuiwLDpjKd99YoIR8orx6cki3sD5prRXHyguYOpWUuGQlyWGQL4Ro
+	 X7qYtgq/zmtzg4ibEwJT54EgoyaqbFfHTz7Z4jtdwJwOf++V8eWm8/O7WfN3IRKAan
+	 lUnNCUNHbBenw==
+Date: Wed, 7 Oct 2026 15:07:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Pufan Jin <2254650260@qq.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, andrew@lunn.ch
+Subject: Re: [PATCH v2 2/3] dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+Message-ID: <20261007-f8618331a33d736d9343c7cb@squawk>
+References: <20261005173308.710986-1-2254650260@qq.com>
+ <tencent_7F0804BD55E49660DCDB095C80B5330DC50A@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BJUr87kyRYlZiMEn"
 Content-Disposition: inline
-In-Reply-To: <20260929034510.2023173-11-praan@google.com>
+In-Reply-To: <tencent_7F0804BD55E49660DCDB095C80B5330DC50A@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +73,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 03:45:04AM +0000, Pranjal Shrivastava wrote:
-> The GERROR register's state might be lost when the SMMU is powered down
-> during runtime suspend, requiring the suspend sequence to handle any
-> pending errors before the hardware state is lost.
-> 
-> Refactor the gerror handling logic into a helper function. Subsequent
-> patches will invoke it from the runtime suspend callback after disabling
-> the SMMU, ensuring that any late-breaking gerrors are logged and ack'ed
-> before the hardware state is lost.
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+--BJUr87kyRYlZiMEn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Oct 06, 2026 at 01:33:07AM +0800, Pufan Jin wrote:
+> Document the ALINX EdgeBoard FZ3A compatible.
+>=20
+> Signed-off-by: Pufan Jin <2254650260@qq.com>
+
+Modulo the prefix being acceptable,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 7347d3ecdae8..a123810fac57 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2406,10 +2406,10 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
->  
->  static int arm_smmu_device_disable(struct arm_smmu_device *smmu);
->  
-> -static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
-> +/* Lockless; must ensure that there are no concurrent callers */
+>  Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml b/D=
+ocumentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+> index c9f99e0df..ad7c71f9b 100644
+> --- a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+> @@ -46,6 +46,7 @@ properties:
+> =20
+>        - items:
+>            - enum:
+> +              - alinx,edgeboard-fz3a
+>                - xlnx,zynqmp-zc1751
+>            - const: xlnx,zynqmp
+> =20
+> --=20
+> 2.55.0
+>=20
 
-This comment doesn't add an awful lot imo. You could probably say the same
-about many kernel functions and this isn't exposed outside of the file...
+--BJUr87kyRYlZiMEn
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
->  {
->  	u32 gerror, gerrorn, active;
-> -	struct arm_smmu_device *smmu = dev;
->  
->  	gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
->  	gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-> @@ -2452,6 +2452,13 @@ static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
->  	return IRQ_HANDLED;
->  }
+-----BEGIN PGP SIGNATURE-----
 
-I think it's a bit weird to return an irqreturn_t from a function that
-is now going to be called outside of irq context. Also, it looks like
-you end up calling this later on after you have drained the cmdq, which
-makes me a little worried about the case when we can end up calling
-__arm_smmu_cmdq_skip_err().
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasZSJgAKCRB4tDGHoIJi
+0iRYAQCwrSeFH3fkrrAHzKa+WPeGX9Iu7b19J5us6aluCRhOrwD/fMeQwAnSnjOW
+7RxEefWTd+r0Ra6ku1RJUFIMFNAmbQo=
+=9TV2
+-----END PGP SIGNATURE-----
 
-Will
+--BJUr87kyRYlZiMEn--
 
