@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59597CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 01:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DE8CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 01:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIYw+68tQBShUC14SvVeLSwO6mPbK9HrG575Az8p2gU=; b=he+2H/jCqelvEHDGppUcLUPTM6
-	9kRSzwhA9npLtGu43DdNi8qz7iLktO1itGOcFolTNYelrbYs8Z80l3wCv2nk2WEKCDbXivW3QQbN+
-	FcIy1gXKLbKUfeH8LBWSEFS2JWxutMyrIxWY9RQS8DwkMa/L/k/cbfK0GRY9LR1AjdDMrFVvTwIhY
-	S+XIE4ojR4g2LLAwZkFVG3N0jtED47xzEgPtZSLPJFfYVO9RoOONjNOGp9iJj/Y5e6V3JN6W7uoZ4
-	etA7sW5MV7TtbGCqyz6gyTCVPHXYJlqBO0d/skvSE/xF5nUmcdQceXt/CvuranD2pu7nvYtQ8SJu2
-	OQ8Z0btw==;
+	bh=74b5fbEAIa4ZR39VRG/iTMgUBsDcbZMPv3K1PI+Hn7U=; b=Xwplfo4KlqFgoGaOy4om4nwLQ3
+	2pj1gFQFcq91uDXLQ0V30Fm8aXryyJtljL3R2cuavQJw884NTPRvanE0ytHPnjbWIrLwbl8IMI5c/
+	0UVktI51gdiPieMoVXxmZVl0tmRa+rWA1MvocMdUo8jw29dZFHD88/Blh9TA6kTnqOCjYiNnjxRia
+	h6O3L2gIOWvyWaOqrGEz71Tgr7DPc9W+opcM81dmgFvKWxVzmHvzpPqjK4TNSLjcK7wzBkCTCnmZ8
+	+7iQF+YAG4z+3D5WFrQnCK0SpZfFFJHKUH3t81M44xbX24UOJpbRPSyN/7y10jsQbRVS0mD7dVgbL
+	2HkINXAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEG2x-00000001YpX-0uYv;
-	Wed, 07 Oct 2026 01:02:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEGAe-00000001Z8E-49NI;
+	Wed, 07 Oct 2026 01:10:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEG2v-00000001YpP-2qVU
+	id 1xEGAd-00000001Z82-3Kx7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 01:02:13 +0000
+	Wed, 07 Oct 2026 01:10:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D81B601FE;
-	Wed,  7 Oct 2026 01:02:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CD21F0089B;
-	Wed,  7 Oct 2026 01:02:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A23543EB1;
+	Wed,  7 Oct 2026 01:10:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DD081F0089C;
+	Wed,  7 Oct 2026 01:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791334931;
-	bh=lIYw+68tQBShUC14SvVeLSwO6mPbK9HrG575Az8p2gU=;
+	s=k20260515; t=1791335411;
+	bh=74b5fbEAIa4ZR39VRG/iTMgUBsDcbZMPv3K1PI+Hn7U=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Kp4PDKnqo0J/23bLkqvFzfL2HTVDM+J0OhbzRkl6j4JFVXuGpPZl2qDYtJNFP0E3V
-	 elaZYc4UVq8kPA7aqfl+O+zxL7FGKx39ifPnVWV5u30r/ZK4hUbNLjBEBNlnD89G5x
-	 UCc0ku32G9WCAlbz4IFvufJ4PxBDtBrkpwOg4Qfpa9FkNCQy2HiYvGi6/b3zFSdOLN
-	 BBe2VPTrZRtJ0iAw27nBYi7DDr3Ru/YUo1CejoXZzFLSk45YWGMV1kGUSlAf7vd9em
-	 Bv10bBQJixf3jRerI0oVvge40ctZfZVWcLBAFsHO+gbss9MQyYNHGy08Z4Z6Ksigj8
-	 f0pEiw5W6xIqg==
-Date: Tue, 6 Oct 2026 18:02:10 -0700
+	b=BLi7npim/kWoNScJTpdEj/6A8XXQf8BBwBlw6fcB0DfulqlB4/q+zve7r3B43deuX
+	 m2fhWv8JRuXxAGIlmg5y/EUHPjobvbLI/iP9FhK3rLKKqzRbpXeNgFLiwx20KmjXUe
+	 5vaqZBGk0+TLEMsyPDVFbLSrLMN2Zkjy4vQqguvn+u/WwPIlIfsKHAJ35yvmDXeeMa
+	 B49GJx7afCkW8I+MAZoQ04NVA4TcrLDDFQOXkLscFuAq9AQQU1zvUD4B1rRCuWdv8H
+	 HDsG8sG69N7Zq9Rl0QUdnoO49dZU1XEr3kb3WqfnhsoxS3afImILWtBRBmKOlcrlPS
+	 jzTI8vThUNdNw==
+Date: Tue, 6 Oct 2026 18:10:09 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: Sagi Maimon <maimon.sagi@gmail.com>
-Cc: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
- radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- daniel@iogearbox.net, jacob.e.keller@intel.com, suraj.gupta2@amd.com,
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev-bot+sinfo@kernel.org, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Nicolai Buchwitz <nb@tipi-net.de>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-Message-ID: <20261006180210.03a15e52@kernel.org>
-In-Reply-To: <CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
-	<asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
-	<CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: stmmac: unwind the WoL IRQ after a safety
+ IRQ request failure
+Message-ID: <20261006181009.5c4fe5b5@kernel.org>
+In-Reply-To: <CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
+References: <20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com>
+	<179127056620.2231598.8882282421523696709@kernel.org>
+	<CADvTj4orth=RYtb78ND1rdiYh2yb6d+TjZt5ohK_-+1mnVpqfQ@mail.gmail.com>
+	<20261006155214.63c5cb5b@kernel.org>
+	<CADvTj4obBNgR4w3BW4-gCU-=LUxesQdTRN=EdWTcx7VznFi4kA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
@@ -74,11 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026 06:44:55 +0300 Sagi Maimon wrote:
-> Agreed on the helper.  As on v2, I kept the fix minimal for net, and
-> will send the helper to net-next once this has reached it, with both
-> axienet_dma_bd_release() and axienet_dma_err_handler() using it.
+On Tue, 6 Oct 2026 17:17:20 -0600 James Hilliard wrote:
+> > Please make sure you read this paragraph, to the end.  
+> 
+> How much detail should I be including? I had previously been told to try
+> and keep commit message more terse[0] and this info didn't seem particularly
+> useful.
 
-Let's do this now, trying to keep fixes small is a bit of 
-an anti-pattern
+Not sure how to answer this. Just think for a second -
+if the information was not particularly useful, would we be asking 
+for it over and over?
+
+> Should I put this info below the --- separator so it doesn't end up in the
+> final commit or something like that?
+
+In the commit message, please, it will also be very useful
+to people backporting from upstream to various downstream kernels.
 
