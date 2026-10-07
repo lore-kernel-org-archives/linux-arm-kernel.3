@@ -4,144 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C2BCA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 03:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042ECCA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 03:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KA48W7VRQ3uJFaVC9VZEckxeCX/Ro12c18oCYgFj9fI=; b=wA+T2U3sbejM0+3zTlsIlUD2n6
-	yffYBDbrD3j5gKpu3QiLu3FgEjeW8kPq6DPUM4fkisXVQkiQ1IdLWB7loqnUuH///vQAU+v0lE4aj
-	9Q/vCGHkreedfoCR0s44QKJ+7ULK7W2KGPPidNMp+0tUBrhcf5ygOXZaeN5ik1Z1Al/TVy2NTVL1w
-	1DcokbNGuokwwsBPfiVxIJtFkElwxPy3qG7RouowFaNI1EdTRKtxU7tLweoBHtNL6ONVf3qxrwtCo
-	YjI6YrtLcRGdIHGs2WrQnuz5SRNqgPhBEFhAOQj15uWWLTL45/ODbvAOooTcWReO/coma7YVaCEvU
-	seLrav8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7EEv66TfkkqDC0vBD6k5R4XJT1WUveDu+xqFWjFMwS8=; b=zsjyytS/ewDcqglGR1Qv7vv4X+
+	TJ6EIYRuqPxH4ihx8ZRb75oXO36Y/1wjU0bQhizHhTU+xr48wNLfPct6lLrXF5QTGYhsviQ6Xwf0E
+	cVFn56R+mOCVDDJ3HTEpRVEh+syA9aqFAel9BYG/6gKK1/ReZbdY7Wa/LhvJ7xs4P+25MUo1Syeoa
+	LIXE/LT5+A35cbM1iHjchfoW0mxyFLkVm+6nhCQCM2jNlxobZzjX8iL3y3rnyT8K4VuKUgTOc/efO
+	drNz0fi8JzLiP2T7S4YTrW79znsUSh91lDSR8thLAw0mBBqsvEgqxZdettxqQZi/U2i2rLbPZ2Lge
+	HUO3JwhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIFp-00000001fTK-2svS;
-	Wed, 07 Oct 2026 03:23:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xEIRF-00000001fyD-2wpU;
+	Wed, 07 Oct 2026 03:35:29 +0000
+Received: from sender6-op-o12.zoho.com ([165.173.180.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIFn-00000001fSs-1zOi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 03:23:40 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6971HLiQ2136088
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Oct 2026 03:23:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=KA48W7VRQ3uJFaVC9VZEckxe
-	CX/Ro12c18oCYgFj9fI=; b=AOKk/AKTQqwVwdqwJ4RHXf+UEx/9Grw0PuLX/Bh/
-	fl7qmVTYUXmKbu/7NT7+v/CcdcMsB1xLUIf3kOnGjtU69HCbuajma6LhoYQstI7b
-	+/StMXc+dK5ASKTn5EvU0nXazkyeC3FzioFavxTKdJ21ZkvOQ5ijNyEzWjLcLol9
-	HzYY1UlnJP+B2uwJp6/oSPjKpqBQ9Q9uEjZDssBxyOxW/NbqGrT3pLSdtIrhcNjv
-	4iprMdmBfYjVS7wyH9Bn573mYa8s4vDzrlvk1CbQpUtj1UeNEU9bTw2iH0lwRWZ6
-	ojdvncwWq3r3pOx1FR7EIz+qe7rXf/SPy/yro6ssnwx9pQ==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5c678cst-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 03:23:35 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso7148752eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Oct 2026 20:23:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791343414; x=1791948214; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KA48W7VRQ3uJFaVC9VZEckxeCX/Ro12c18oCYgFj9fI=;
-        b=hMv8Zznfg3sD4qN7LglyJzs1Rh/qISgbrlwLWvPxhjqt8X4FL/s+y7B0Es+HHWbwze
-         5X+mXJZ1LO6etfbTQOG1zTsqJLozpsXnINWtLdnLJQ153VEEclhNuaooPYtVX9dE7fFq
-         eSPXVvEUKu7ZnhyTzqABiFuuNXR7e4V6MVnCJwZlX5TV2naIaefU19HNNY8qM7BYgKo5
-         6irC/lhcR3TQUjA7Bg7YjSSJgKUFAdTid5mpY60gAyqbvju4foSeTy66yeDLgCO84+XD
-         P17zimy0Lmerp08h1OVijFZuo94OMX5JJZNoavdD9ClPFCSdIrSxtmwnHhiRR0LpIxqs
-         Owog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791343414; x=1791948214;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KA48W7VRQ3uJFaVC9VZEckxeCX/Ro12c18oCYgFj9fI=;
-        b=Bg9J42FS4Apc+dQXqpehxiA6+zo9cNthX2sehx1V1qZmfaiOkEAnN9C2HCrvWTjVZ6
-         ehRdA8icHiz8FbP+TmIlGFLvmmzKW0Tlw7ukieT/AOhon9vErEAXUFc9DDnqcdIRNhAh
-         L9Up8nCaWrp9P2Yz7+HDroOYOf0Qsxe9QjvNwH4WllhW6T3E+2MqOBtI6VCspHbLSPsS
-         G1tZuTWzmtjnx6D+odrIqpfIE3pl8IiCG/VcMU4twBk4UvGTkYb2QaaXKJj/u0x6nMOm
-         7vG2To2ZJsN3Tk9Klyqm5qYqnU3srLTfPzh/BVco1Lea9//2nFXcFZge2ybTqdXhG6RR
-         BgFw==
-X-Forwarded-Encrypted: i=1; AKwUvBw5FGr1IrP2yO8OBlZnbQx+Rbyx/t39euvpBHUM022IaKdiFH+Sb3Oc03jO8zU+ezD0Js9CVIesmxx+vTZ6RWuW@lists.infradead.org
-X-Gm-Message-State: AFuF++ns5dJVEciKEjJiqxLyJCWcaQqpHPkjSn5d8KbIzRkjb6kYl1Ep
-	X/d7PAMfwluTrufi4DT7T+l2qnjOD+GTSkpTKmkjwj7bhHS8yHgKxs6PyGz1NdzabbwUlH7YpHY
-	1Es/NjHYuBKiZpHtijeMswxLzfke0bzIVHab11T+aXK3UEirkCC0cFD7dhyDmio0ScuZz8V9GUM
-	Ngbw==
-X-Gm-Gg: AYBFou0ReV8jIJ99Q5tKNPJ8tckuX8rFJLmUBzyu/gIW2umTsqKxs1JUmJIrXZjnkJf
-	b/WOaRlW8M8NX8L0+XI2gZUWV3/4f1d5h691zlDyUEmdHKJRveMmDMB6f5tkCu16Pts+Q2KNRCT
-	IsKTnR6c0FLLFCyR3grqxnuM8wOg8dH/uexlcGo+hr60Hcx4wN1QEEmu0Idx8rDaCd2vsEpGxCB
-	6WbeXGvZLTlz5Ky3DH2PmEqI9Smt/NFyGPUOpDwjFGMzmKvqbgtChGvrvBOYe2TmZfHw+re9X03
-	AAYYF/LO3ryZTUlvmV4jkYZjKVqjERcRUUkLEnWRalkHVgyZ6uiuq2GlZEDDs45M+noZLex4As5
-	NxGRhzF0jkWpeIJoflWaykQs1kgACTYm1hpUHk8xisQ==
-X-Received: by 2002:a05:7300:c00e:10b0:34e:caae:20f5 with SMTP id 5a478bee46e88-3515de2686cmr822507eec.30.1791343413985;
-        Tue, 06 Oct 2026 20:23:33 -0700 (PDT)
-X-Received: by 2002:a05:7300:c00e:10b0:34e:caae:20f5 with SMTP id 5a478bee46e88-3515de2686cmr822477eec.30.1791343413469;
-        Tue, 06 Oct 2026 20:23:33 -0700 (PDT)
-Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3515b03da93sm2702320eec.29.2026.10.06.20.23.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Oct 2026 20:23:32 -0700 (PDT)
-Date: Wed, 7 Oct 2026 11:23:25 +0800
-From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, mark.rutland@arm.com, kernel-team@android.com,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: Document Adreno SMMU for Nord
- SoC
-Message-ID: <asW7Lay9i_hiuTcP@QCOM-aGQu4IUr3Y>
-References: <20260902013858.130887-1-shengchao.guo@oss.qualcomm.com>
- <179095635040.2123203.12001281676860626455.b4-ty@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179095635040.2123203.12001281676860626455.b4-ty@kernel.org>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA3MDAxMiBTYWx0ZWRfXxK29O7nSOnUZ
- 5w+lFR0lADTtq3qO6C/TL4IPwUYIdQqR61BhuWZFnTk4BrmMKj317FQBP0YBYgn8VTdBw1EHUMK
- 0Hz+ZhiNbM+1fJz5GMeZtlRow2QlY5s=
-X-Proofpoint-ORIG-GUID: e7VjgV-e4R1h_zxstq8KO2D0oGoYRgm7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA3MDAxMiBTYWx0ZWRfX6UcWRzbsXoOp
- 9qnNM0hlv8amxnzAl5KnLW1vgc0OqyATh56IRi0gflDa68iW3SGZ+SjzZxfReukje8VbmdUSn0N
- DkkJrGwlFEsV5lijh6oSF7R5XvNknL6kx/VZpDfpTc24tAuXe4V1gTxZyCj3wYYMuXEa87u4KfX
- ot6w09iXd8ArE2OiIxtNn4F3m+n/d2QZOva18uJH9n1ULkNUnE1DAklSDtVt+dvic/vy6B1zxNe
- j22H1oicic1NVZ5yDGwjcZpz/pxJuXjCDOiktiOlLOUYoILOU8RBGLXgBsC36d5mX/Ypw038p4W
- SXpl8s+DPN376qsqhUM/+BXci+oZV9pN48N98fh7+WL7yOio0Tn1WgDyRAS7KtRVol48OL4IrWZ
- wly7Q5YhDH4OugbzOmcSEkScE1RvoqA5NS1KV7+vafEZbNePNV4Ogtri0HPcv4eGBGmbKkgBi2t
- 79983P1IxghmmuPNPYA==
-X-Authority-Analysis: v=2.4 cv=OfcNnRTY c=1 sm=1 tr=0 ts=6ac5bb37 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=362RFuTrwy6jnSdmp1cA:9 a=CjuIK1q_8ugA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-GUID: e7VjgV-e4R1h_zxstq8KO2D0oGoYRgm7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-07_01,2026-10-06_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 malwarescore=0 bulkscore=0 clxscore=1015
- adultscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2610070012
+	id 1xEIRC-00000001fxp-2TqK;
+	Wed, 07 Oct 2026 03:35:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791344101; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EMt2HxZjGxKqN3KMja356Ejlm4RJ3ba7GuoEX6EUHQ11KKvVi/AlTLXrVwZkxPQFoHXC2LwGWUjI5cwh53QZConfu700rGSNok0yINxejDfgC4WPDw5S0pJqMo6zSdJiN0CpO7ReMGrXY/KVAefrmvMEFgrCdz1MsMrReBIMc90=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791344101; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7EEv66TfkkqDC0vBD6k5R4XJT1WUveDu+xqFWjFMwS8=; 
+	b=l09IKvPiFoQMX2AX3F1fOIWVtTXZREcVQyzldMWz0+tZ8xOSQYyblRiDWkWmxg4EZ5zBLoXBv3b9B0s6Z0q2Fny0MWidmzBKZsDWz4s/sdjCyBYR5a6VNIQn40ecbW82JoQ9oCDbnNvyOF0d5ymxtqwYHoXTK3mqdQn+11WsUOo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791344101;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:In-Reply-To:Reply-To;
+	bh=7EEv66TfkkqDC0vBD6k5R4XJT1WUveDu+xqFWjFMwS8=;
+	b=ngjjKCMToI6FGmexYDJ/b1KiQmPlOSMsEgTrZ1Bj27Cu5QVcCjFprimUKNkf1sYU
+	A5Bksc5nvWbdRiJ5nUGNCEssIHzFQgZ9YVyrNw6nk+G1S4Q6xuauG+CvM6kkgkftsNq
+	RzjUMpRmbx+tDp0XBw4HCwVTxhtGOhNEnUh06Anw=
+Received: by smtp.zohomail.com with SMTPS id 1791344099855931.7368458013717;
+	Tue, 6 Oct 2026 20:34:59 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 07 Oct 2026 11:34:49 +0800
+Message-Id: <DLYAHDTH3129.3AYF0OSHL8RJ8@pigmoral.tech>
+To: "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>, "Enzo
+ Adriano" <enzo.adriano.code@gmail.com>, "Andre Przywara"
+ <andre.przywara@arm.com>, "Norman Herms" <dockseed@proton.me>
+Subject: Re: [PATCH v5 3/8] clk: sunxi-ng: a733: Add PRCM CCU
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.22.0
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+ <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
+ <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
+In-Reply-To: <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_202339_655606_782742D1 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20261006_203527_079458_891ED8F7 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,21 +93,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 05:46:40PM +0100, Will Deacon wrote:
-> On Wed, 02 Sep 2026 09:38:58 +0800, Shawn Guo wrote:
-> > Add specific compatible string to document the GPU SMMU present on
-> > Nord SoC, and constrain it to the single HLOS vote clock.
-> > 
-> > 
-> 
-> Applied to iommu (arm/smmu/bindings), thanks!
-> 
-> [1/1] dt-bindings: arm-smmu: Document Adreno SMMU for Nord SoC
->       https://git.kernel.org/iommu/c/e9da5ec4a1d6
+Hi Vinicius,
 
-Hi Will,
+Thanks for testing.
 
-Could we get this into linux-next please?
+On Tue Oct 6, 2026 at 2:30 AM CST, Vinicius Pedrosa wrote:
+> Hi Junhui,
+>
+> On Wed Sep 30, 2026 at 1:26 AM CST, Junhui Liu wrote:
+>> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.c=
+ommon.hw, 0x17c, BIT(0), 0);
+>
+> [...]
+>
+>> +static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.co=
+mmon.hw,
+>> +			 0x21c, BIT(0), 0);
+>
+> I'm bringing up mainline on a Radxa Cubie A7Z (PCB V1.11, 1 GiB). With
+> 7.3-rc6, this series and a local common-DT integration, PSCI reboot and
+> power-off hang once unused clocks are disabled. The boot chain uses
+> vendor boot0/BL31 and source-built SCP/U-Boot.
+>
+> Keeping both of these gates enabled fixes reboot; either alone still
+> hangs. With only these two marked CLK_IS_CRITICAL, reboot returns to
+> boot0 and power-off drops DCDC1 from 3.3 V to 0.7 V and turns off the
+> green LED with power still connected. I haven't checked whether each
+> gate is needed for power-off on its own.
+>
+> My guess is that BL31 talks to the SCP for these, but I haven't traced
+> it, and it may be specific to the vendor firmware.
 
-Shawn
+Yes, it appears that the vendor SCP firmware runs on the E902 core
+instead of the ARISC OR100 core on the A733. Disabling either
+bus-r-riscv or bus-r-msgbox breaks the SCPI communication path between
+TF-A and the SCP firmware.
+
+>
+> Would it make sense to mark them CLK_IS_CRITICAL, like bus-r-cpucfg
+> already is? I can test the next revision on this board either way.
+
+Mainline TF-A uses native PSCI for reboot and power-off on the NCAT2
+family. Even if Crust is ported to the A733 in the future, I would
+expect it to run on the ARISC OR100 core rather than the E902 core.
+
+(Also see discussion in [1].)
+
+The E902 may also be supported by the Linux remoteproc and mailbox
+drivers in the future. In that case, bus-r-riscv and bus-r-msgbox
+should be managed by their respective drivers instead of being kept
+enabled globally.
+
+I don't know if marking these clocks as CLK_IS_CRITICAL just for the
+vendor SCP firmware is a good idea...
+
+[1] https://lore.kernel.org/linux-sunxi/556cd32394062960a3ea4af0011155cfa83=
+ae91f.camel@d-silva.org/T/#u
+
+>
+> Thanks,
+> Vinicius
+
+--=20
+Best regards,
+Junhui Liu
 
