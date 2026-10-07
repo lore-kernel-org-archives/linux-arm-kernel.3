@@ -4,68 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CB9CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39AECA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 11:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+I06WX6uvgXsj2pG0cG7jPbgC7g2G/YZnXLAPs63BA=; b=JYFULfpI5jstxPnWvATfrSzkKd
-	ABvRPT2RGjkpUtpvbqbgUEkoWDBgLRBkmntLi6UqrLj8jSi46zYxIhXCcmvvvtuaYHWzHeuv4Bjs0
-	DeSuXQJ+xyWQZEdR5/3Rt//lUswzOuWVZbf4Tt2cr+6I/YSEp/Avcu8rr2cUppOv0mWGEWS9RXBMt
-	P7HGTESmViT2MvZV0uv5+dvzvcKZcDmIxwPFQGQjVOUYzMf/fI9O/7LtYEl8oUcQgm7H68C87EIej
-	cQJTOC66LPv2A4HO7zIoj/Ra1V6wraDW23Mj4GZ4ruuXoq2bgthfWITlEq80H1h1QNEzGWaAiGiYK
-	iN/TPi0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e6PnbIvoXOZFv6pPRVmqWiNMYIregQMXJAxqLvuHzdE=; b=r8umLZikpLnxOF2BDYv+GxhS9k
+	Vq8+fAH3ebAlEEP88x+6rGsdbL7oZi90n9nzPNIFScxut+tuRm9fqoiBJ8abgZ3ic9N0yMVUD3szP
+	MR95MbQLWTpIheLLXOy+tO93K0HMFGyDsvYgWFXg0dNqF3N9eu4gF5Ia3mfI2xi0wyWHYkQmFPLz/
+	gx6b3pVjqcbot3vmTB5u3mKMPH1Eah80ZPv69lMSyggnX+s1fHUwSrYjc3Dt+orunyKWT0bcoUyNS
+	B0HPoVt9b0u7jGdQCbI5yTGyPRBlB7v2o+6TOpf3fO7t8shftsHQlhw1Hq5CvL2X3iI5DIYgndH2E
+	TKubWwzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPhF-00000002ITf-3qAc;
-	Wed, 07 Oct 2026 11:20:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEPlH-00000002IqB-3kg8;
+	Wed, 07 Oct 2026 11:24:39 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPhE-00000002ITY-0FDB
+	id 1xEPlF-00000002Ipe-3RPM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 11:20:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD0FA43DE5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:20:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1A9F1F008A0
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 11:20:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791372027;
-	bh=N+I06WX6uvgXsj2pG0cG7jPbgC7g2G/YZnXLAPs63BA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HI+ikhRSvKZku8MmsDlBqzGNw59T4jYp0Jw8nQ5X18KF4HbdJTeNTaWRKI3tTduXn
-	 Uqe2vdMzX7bS2HxqXqxuZnK2M5TPsBueP0MvVMcrixJJuMKZ8D/lgZJK8d00s3f2IE
-	 8LAamNwTHuqqpE5Z87nKexMVjxFrIy29OQeRRuKAf8Z5lCyT78P3StKOK9PgPD4rT2
-	 sar/t9oM3Wt88ftfEgtrxWuWbeYguninBqBW2yVTZ10ieTpzjcoz5BfB/bZ/LDEz6n
-	 xnAZ/BMmCnDRa/cW+g6C5Sa20b82hECP1D+R0yeHw2sIYNz3Fl6hZSZr0HdcLSqrji
-	 Nwh3OuthhwqUg==
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-475920b9ca2so515616fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:20:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByDk0Tgkhft+SFHbSjnncaDjh8MEdrBSTz7o9s+GmlRnLldt3NT986vNBeOCzMUShUd79KB4hHUto0+DQpbFtin@lists.infradead.org
-X-Gm-Message-State: AFq9FYI6oWGo9zFAFjdqfv1QRc4XYYKPieAY/q7q3ceUe7kGYSq7V+Fk
-	J25/E03XiEHK0ZN/u/92BsPQbgUwkLsjmVtmznubDUThS95bF5mceDemH7vn4uCWUhzRruGIHcv
-	bA58j6mfzUGNK4aCEFuu2TW6uKwJH6mM=
-X-Received: by 2002:a05:6870:912c:b0:494:5ad9:dd0e with SMTP id
- 586e51a60fabf-4a2591cc842mr1730209fac.3.1791372027081; Wed, 07 Oct 2026
- 04:20:27 -0700 (PDT)
+	Wed, 07 Oct 2026 11:24:39 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so8054e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 04:24:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791372276; cv=none;
+        d=google.com; s=arc-20260327;
+        b=k2zU8N970oh/yE5GNncoBT7j8eFzZBzdM2xFb7CGJRSA/MAgG9FGBpjU3fs1vXvy+D
+         cwV/lZDYnYLlCigM6EoodCi57peU7PLUTA5WLlqW7yglaKHt+GARBaHmsc7mr35xy0/3
+         moy4qOw7R/j0zAzSM+g5g+58GReN7+KgdBMvdiUU3zC8uZ4bXsTehOaTZZfDDB8B2WYd
+         SapLBXVcFi1PT8hKTp9CbbbNA/bzYala/hteWnwuCzZEW7PiHPmZ2ilJFlqP/JJXHopG
+         LHlb9mtGRd/9fOSqCwf62ZMvt6Y85VU2mTruaeme4W3RWkGySdy4czRtYVKaq2q/lY2e
+         znCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=e6PnbIvoXOZFv6pPRVmqWiNMYIregQMXJAxqLvuHzdE=;
+        fh=4XL6VI3wLx1RO5a2FmYUlKKQKh/IP4Uls4/kk84zRHA=;
+        b=cQy+3WU6be+b6FTt2m3xsEUn7NpB2XOOLfRitKfM9KOppMxBv5ffnyf/YJ69MdCa2j
+         xvMTZetiJHiD4UVAAKkI4RQB4qRYLl3URfjmO4n6vjJcEoLDh7vhZwQ+dNYWJHu2CMNx
+         3AVU+HBaTpxS/8RQyNxABXSa7jQkkWlai9pLD3L6ZOtd2CPF7/jhagtipQ0gKgcxnXs4
+         z0WubtklFL1H0ZchkdwHMdoEYZAYRgAVgkUqabxYOgRcKU5TDP/6vj8MxJ8ElgwmdrNV
+         /kvuqjJTaQWMISro1VYIn+vQbXxjeBw4gDi7Ss1BaYB2dhbYHEbtgYXLIQkilKKpKiEV
+         RGXA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791372276; x=1791977076; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=e6PnbIvoXOZFv6pPRVmqWiNMYIregQMXJAxqLvuHzdE=;
+        b=cEadAdqZzFPlwTg/VU2zyrcu9HoRy+jlJkAXwivpj0/hVz7PinBqiMF0e7tcnc+eQ0
+         EBaBZtTfXKyNE87MZl0T4Ld7SS7IwNAEIHseSqgcSOWLGJg4r2WK673OxbCHxoINraLW
+         PND7FQF5rsKQTikVXAd0nS86rWwY75ejjAeJkHpQMO4sT88jO50y/At4TvSFyZO+b9F+
+         NZmBSbDhCbT1Rxz8FQJqlsi/GUeQg7wBmFMECUebhbjHPYakP5vdnHY5MdPMOyQcv2Pz
+         MZPHl9W00e6thSecrUNwWXWqVwO7d4Y1ArJjHW2HRR+5br8nP/nc21gRGCJBlQ+oGwpo
+         E21g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791372276; x=1791977076;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=e6PnbIvoXOZFv6pPRVmqWiNMYIregQMXJAxqLvuHzdE=;
+        b=DfBr94NaaAUw9IKaEl0Inx24VOwrT+ZACnO1fk8NTsnSwxhoKoXJFaAchZIyx6zFuC
+         KD6Wr3vIYiHmHW8+NrFKA4lg+SdPJseukZoA0Xcv2ATApXARQ/oKb0LCTpFVh+j+Y4kZ
+         6bcMZ9TZ54WXcCD+VvjrhyQ+vi+5fRxrri10WjkfLKAzv8a7WZwY9Il7kx5iRD19YbGN
+         iIHx7ZbC+2PjAVYPyUy0zeZcMVwH/1Rg/J/B6y20GHskEwqLqux54aFuGXDaaNHUtJjN
+         ettEYEZwmdYjpStZnwmISExhJfQeRl04fEhxCVRHu0bVvZiDPlIUYr7xBXTse9L/NoqR
+         nyMQ==
+X-Forwarded-Encrypted: i=1; AKwUvByvcqsHE95sJwFSe4yl8mFdoXFS6cJSohk+JpGpuSVpEqvHAGG9XOtJoUR/dptDZ6OhGEiqVCMiVs2gkYLvo0Uc@lists.infradead.org
+X-Gm-Message-State: AFq9FYJg5a/Gy9Fnuanu7KxDcm83AI5NncTr7x8DvbgpEnMIMijAZWPo
+	mvPStbVGn0QZ998++q5iW0/qeoPKHjX1tzeo7wsjvsSRDLWYlwKi5dhg/v9pPCAvcHhyMR1HUZd
+	zJKvBq7PI3rj0rEbp6W+KOcpIKhXJobGkBMsAgYg9
+X-Gm-Gg: AYBFou2M/w2m1E8wiZTSoDhC1Fwbzw1TEtyvHl6DeYNod5ftqYWz+HRWO6XVhZ8azzu
+	TAOsfNEi9fzUulm7p8fDcN0V+/C7ZN7rCApz7ZXO5dQIqFgKt1cgy4jLIxJzrnBeYehiDpk5MFX
+	10BcHYAZZdMfe+sizD17zKCOtvscdya3EXgFPGyUKiGDc7AbqoZmeIwZg/4q95XlfFj7O42Z1Rn
+	7Wg5U2sBLp9bg5u8SRm7adyEvkvArJdWuLRw9XQMc7GQ5VKtyrixjtCOtvv1m7q6bpfjOav3hBi
+	Dwk1+ScJbfn2gc1bFWM2hCBzUmOwSqTOUCLV6pXM1v0FAr6z/G+MhQ==
+X-Received: by 2002:a05:6512:3f0d:b0:5ae:cf5f:4a88 with SMTP id
+ 2adb3069b0e04-5bcca857470mr320723e87.8.1791372275119; Wed, 07 Oct 2026
+ 04:24:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261005111502.159855-1-alexandre.belloni@bootlin.com>
-In-Reply-To: <20261005111502.159855-1-alexandre.belloni@bootlin.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 7 Oct 2026 13:20:10 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnuk5Lb+peZu=njvqCMkZ7Kskog6-KC6CPF4TWZ20UA2Q@mail.gmail.com>
-X-Gm-Features: AclHuK9m5JjEJQsk3_xr16bnFnuTamplu6auBCr5yRDhyUtfMaO-VORIR7NkSHA
-Message-ID: <CAD++jLnuk5Lb+peZu=njvqCMkZ7Kskog6-KC6CPF4TWZ20UA2Q@mail.gmail.com>
-Subject: Re: [PATCH v2] rtc: ftrtc010: fix cast
-To: alexandre.belloni@bootlin.com
-Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>, Dan Carpenter <error27@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <20261007073537.2454351-10-suzuki.poulose@arm.com>
+In-Reply-To: <20261007073537.2454351-10-suzuki.poulose@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 7 Oct 2026 13:23:58 +0200
+X-Gm-Features: AclHuK-AkPhTBNuRx-Nil52s88bZX1XXziZHk8i7cIYK8SeGo6JUTxyL14CKqt4
+Message-ID: <CA+EHjTwHBasTofGE5YQj0WfyN3v-uHykPxRL57AWJGhAO5Pojg@mail.gmail.com>
+Subject: Re: [PATCH v23 09/14] KVM: arm64: Consolidate stage2 unmap range into kvm_stage2_unmap_range
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, 
+	jonathan.cameron@oss.qualcomm.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_042437_881646_782D6C97 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 5, 2026 at 1:15=E2=80=AFPM <alexandre.belloni@bootlin.com> wrot=
-e:
-
-> From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+On Wed, 7 Oct 2026 at 09:36, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 >
-> The hour and minute registers will rollover before the multiplication to
-> convert to a number of seconds can exceed an 32bit integer, there is no
-> need to cast them.
+> In preparation for adding VM specific backends for stage2 operations,
+> nuke __unmap_stage2_range() and fold the logic into
+> kvm_stage2_unmap_range(). Also, make kvm_unmap_gfn_range(), the only other
+> user of the __unmap_stage2_range() call the kvm_stage2_unmap_range(). Also,
+> while at it fix the comment to make it clear that mmu_lock must always be
+> held while unmapping. The code already mandates that and the two call paths
+> do have the write mmu_lock held.
 >
-> Reported-by: Dan Carpenter <error27@gmail.com>
-> Link: https://patch.msgid.link/20261002105946.8rdteIpO7uWGEcTlS65F8iSi4gs=
-RoXi2kgq8FTSaDPA@z/
-> Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Later we would replace the logic in kvm_stage2_unmap_range() with VM
+> specific backends.
+>
+> No functional changes intended.
+>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Thanks for fixing this Alexandre!
-
-Yours,
-Linus Walleij
+Cheers,
+/fuad
 
