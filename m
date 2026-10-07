@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0A7CA5FFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078F4CA6002
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 18:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mpp+rwnsNyKfxHdHUlAB8nvSuXAVIMHmY8/y4443xPI=; b=ogcPNFWGFoYukf/x6jqgPOfAi2
-	LaUD/VcSW7qd6glHwkaxHbNMq6haNfQxpK7vrSpsSUdJBgzcNuIZtKL6dwskVLturFaDzqPt9bBrg
-	6P4yDy/epymlQImLei8iKsWIoxngEcx3wrGm/WsN+pCLHYGtKrJjqqKHgDJTY+8t+fbO7qjziPbW4
-	gkSC1XyUubbWgXEvqIYAw506yYaqr2ylxCCxbby00PBiyC7IT34aSnhnM9mlET0FX0pZ7n5Ze1Ff9
-	4utMCz5BBnTtKVil6Q1cvZNFMd9KdbKSF/xipP/fR0rfHxPPn9L9Kiw/fhahHsBT8Cg8zqVMtw2uI
-	O7R7Rt4g==;
+	bh=6xdjR4cIqCHUalaWjA8soq/724MM3zNfgUxqkTZB9L0=; b=kN+QdaXohDwD5R1IW52LmyxVqh
+	W0VtICstnDcwsta6LEFjc9Gf6zoMxU0ka3OdCVIghCU064vZvafA5c36xuoh3mniZiQDuQol9uMZJ
+	/qRVKWChkzIFUyP+ApS0Hsz3mVIteEjbL0A6i0nnCwdu5/UFFHv1pE8KVZjDuulFhUYf/jd+FYkJp
+	9CNM2qbpaMOYD7D1SMlyCzlLs3irPbKBHJDiMd+4i+CvBTARPHjcBE+Rg6Ey6Y8MoqRJ6b632SBtA
+	AmV3ijpOfMT9PhKLkDtWNrPurUa9y7YPnUC5vTf6pRnXb7E+SQNTMuD35w/RbH9eJ+hsRRV2f2BTQ
+	wUbi2Wsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOj-00000002wuX-2iMQ;
+	id 1xEWOj-00000002wuH-1vkX;
 	Wed, 07 Oct 2026 18:29:49 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEWOe-00000002wsM-3jBF
+	id 1xEWOd-00000002wsG-2tGI
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 07 Oct 2026 18:29:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4EC5A154D;
-	Wed,  7 Oct 2026 20:29:38 +0200 (CEST)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7A38BA0EC1;
+	Wed,  7 Oct 2026 20:29:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791397780; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1791397778; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Mpp+rwnsNyKfxHdHUlAB8nvSuXAVIMHmY8/y4443xPI=;
-	b=doV851CbkIgU/9FY1AehSM+L+Mv7bINiYDMomw8Ltq8sN+80RWajOMQTojDScGN6Ny+Qmf
-	AXcMJyoO6dHh6hvsN5IjvVZ/SnXrC2K73CfwigpQhfK4UE2GZXhv9nQplOogwP5b4aAofz
-	Iun6OocKTMBuQQUfYlFVrqYyZg8Jzw6QnRxvZ5VWWRXdOs8jqr7YS3t84ICnNffECh6pEz
-	T0qPZNy7nMlB8aU8KbFOZ878kIitGZQ1zutkiqG9mB+MJ551XnkGQcyZYnbscVYgXGIDnQ
-	0iLhyPJtEBBhmuGr9pdsaoMmkG7k+d930mP2N2IheFIydxjJfQtKuw5exh11dw==
+	bh=6xdjR4cIqCHUalaWjA8soq/724MM3zNfgUxqkTZB9L0=;
+	b=mUu1OA0bVsQB0Nr20IUq4JJQ/eDF6KI5F+miE8dM3w1NlglPiK4PGIfwiNdNbhttbJwjag
+	eRfz3sUgD5PQfyCeLqHcZY3RUBCuA9kVNlAH91sxfbNNPCAXB+rKM/wl/RIh43mARbziJ1
+	udke/3gOtdFk3+LyfKtRRW+bu7nVz0QfF92OCYuk9+IKKwh+G6pqy2weX/UN7DFg3ceirE
+	q8drULbl/kFwDvMwSIEAMywAA3wNqnV1eRok9zEUQAexqiaJNqYOdo2CZpE7sygN1F25tP
+	h53hokc0S0Z0CeRR8UgadSxa2AJz9Bf0FlOAM1tUQEbadBAVf3GfJB2LWFFUbA==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Wed, 07 Oct 2026 20:29:23 +0200
-Subject: [PATCH net-next 2/3] net: stmmac: selftests: use skb_share_check()
- in the loopback receive hook
+Date: Wed, 07 Oct 2026 20:29:22 +0200
+Subject: [PATCH net-next 1/3] net: selftests: use skb_share_check() in the
+ loopback receive hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261007-nb-net-selftest-shared-net-v1-2-458369bfa1ba@tipi-net.de>
+Message-Id: <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
 References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
 In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
 To: "David S. Miller" <davem@davemloft.net>, 
@@ -67,8 +67,8 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_112945_232050_29CC0CEB 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20261007_112944_440819_7816CC4F 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,17 +89,17 @@ skb_linearize() on a non-linear frame hits BUG_ON(skb_shared()).
 
 Use skb_share_check() instead.
 
-Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+Fixes: 3e1e58d64c3d ("net: add generic selftest support")
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 2 +-
+ net/core/selftests.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 6097f312fce4..c910675a9d9b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -244,7 +244,7 @@ static int stmmac_test_loopback_validate(struct sk_buff *skb,
+diff --git a/net/core/selftests.c b/net/core/selftests.c
+index 36b949ae520b..80029a67b2d2 100644
+--- a/net/core/selftests.c
++++ b/net/core/selftests.c
+@@ -170,7 +170,7 @@ static int net_test_loopback_validate(struct sk_buff *skb,
  	struct tcphdr *thdr;
  	struct iphdr *ihdr;
  
