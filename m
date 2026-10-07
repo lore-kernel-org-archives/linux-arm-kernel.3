@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0963ACA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 09:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A79CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 09:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=; b=cm9TBVZ+OP8xTAKOf3cg5wV5FS
-	M4dzDmSmIR3ufS51wIoK3eHuSmEMw1ULTE6OpsuF8zsFRlye1tyUqyW1YQlwiXGicKgLIzvGAIAwo
-	4pHSrYHwKAVebXP7xs3ArsUGjlmXtfyCY5zwHrncqx7j5Km6JlwyG9GxeTEoixHz5bf0G7LmWQy05
-	GCgpOwzOWgkxiT7G4qKuC/IW3+BrrEe2jmSQLx/BjiP+AliP/oPfAyNAGBwuw28+9zPETZCKQ3ZyG
-	bASkV9q2+akIV32SyE8BaElMGrYcgpVdFW2ByUTj2Xuh0054D71Vd1ovXPyYcAm/YgYxnw7JH0esO
-	KI1F+N8Q==;
+	bh=Q+w2phfdtLcCJLHaAE+n2Zq3g9XTdzkYs9l7f80JIWI=; b=kv70oxO9vPSTyMEPMJMtHA5bao
+	CyymsbO0CR6eCpEjFSfklVup7x5FceHgRTWEK93Jr1OjUcPMdSu0bCuu1VZtu8URe0FQ8e40gWvMV
+	28pwoqyB4JfX28C+ygfYK9WyiTl5dqUHGWAz3DXmSvAUdl4s/o3uW9zR6lm2pW9UFLkURuYfIjuRn
+	vkA0EI5d2uSiyK4UYPMW+rV4ZosXck+joQ+2gPz1LPGjBPFHKu0SHd5LIq+q+yFUKtfLj37Wfv47+
+	kYpDs7F/DDvGoalgrYJbBFL1HGirSeKwqym26K2JYirle+K/qvfnRicOaKXQ9KxvYQOVmZBWt8OtO
+	Rtx2l1Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENcq-000000021Rk-3Mh5;
-	Wed, 07 Oct 2026 09:07:48 +0000
-Received: from mail-westusazon11010065.outbound.protection.outlook.com ([52.101.85.65] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xENcu-000000021UH-0Ham;
+	Wed, 07 Oct 2026 09:07:52 +0000
+Received: from mail-eastus2azon11010047.outbound.protection.outlook.com ([52.101.56.47] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENcm-000000021R0-3YHl
+	id 1xENcq-000000021RQ-3r59
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 09:07:46 +0000
+	Wed, 07 Oct 2026 09:07:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oyKlUVLqYbnZYNJ/3WCnxVNTFie87Eic3dugMrdQ9yUMp1pEL6igKttTe0jNw/WGmjG+GtpCqQrdzJ0zcZaRWPicAeSRldqbUV0BhJanPBA6GWesG5kEFIImVN4fMeJ0kTd7i555emRbmIacZgCmm3e8yO8QgwZPIRnACU5WGHgFyHRps24PvZWT1zi+h+0sfTTofdq37bcV2XfOtRzz+0vTNoWHctbIMG1sS/qqkm36njVluMBDPgCxd434vbRBBm4LUsyduHCvOefxJ2s2Yxd8R2l2Vz4Zrt6jDj8A0usRapUySKEz4GVzhdQYp0oD0kWZJjonxv8uvhjgzFppeQ==
+ b=KK1d3r624jzx5GZ6OudRawKCUu0wa5yLDBnJswJf7a7oQOQFXAxntgMIzIZgkDr1iPpx+vHjd76cLp3bFxDCfh9UL1fhjRxVZlbTIwYlb+Vc66W+HMgLxlI85h9qDbZRqpzXE8CXflCJqTZrXW3HkhLSDiNRdP+LNtQMJHKN9Kg+erLFiBjXdLQ5APpSbi3xXYcObfLA/255suqEzB4b2RWNvHStV33sP79X4WGOp9BNHAj4bvn9SGt4ex9h78PFfZ4suCNAg8+vWCHqUqaYByRxz3eIExgqpIGYKAXNC3xzKfnxteAgGDXwDGfeOEKeyrKRG/nw80fedWFCwQBLFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=;
- b=eBz8rd0nGggs0E+QmBucHYv6cboFt5vZXyX6u2w6uDah3ff5gn7n6/4ABfI2uKrrFVQNEofANn4ldiO+WU5cil9hkFJ7At7K872JOKFddcy4cBxiWE2KxwUOnOhE5Kf8KOKg4UtpD2hWHggHeUyzwd45TAf2RxooebNPXhCDQlgW2pIWoDXXJ6mQPDxxo/GRa/EMSKIX7sAKXgLuXCbkS+t6Uhg3NGvfn9aHqwpAJ/i+MIaPYz0NRE+JFWdISofcTDoXnuWvco0DknoQf1t1dXJa0b7Qt79uATDPYO4Ew3IgC+L9op69PQnETEumkBBs8/JF2Z6+qNyARpOTaNdhxw==
+ bh=Q+w2phfdtLcCJLHaAE+n2Zq3g9XTdzkYs9l7f80JIWI=;
+ b=w68hDazkJ/smFRWj1Mkk1EDeTnbo0asjdCwDc7elbbq6pr6EvR80v5g5+hvwC/FwTVkifUvxPNzSZKys7emZXM2vvWqxHbGeIf79M4IX04fHIUJVo771TDHw+92HdFw2JsKM6WRxnvLLL49anMZu0bn99tTvErikqGhzRFBu1wZQZfk9JQTBW2YlM1YCiPrbacohxtauC+564vFHPSMq/OTEjPMMUaHNn55Wzm98S0rgFlSy39PTQODJnd8m2IJKyrw3G9ZAnOoig7yFOsdCAbNPk7GTNpL+hDRCtZ/w6DrbVNaOeldOGWuuzcBY6ij2CXT4kbeqWUXFcDMZ86H8rg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5AWAeAl5STl96JUdtyZrMoj3nuwBD0WNQoqVDvu4120=;
- b=K4lTfmIpuvYqRAczimFExl8Xpl/sSCd64+DDqg2Zcs7PI+01V0qGIorIUsmg9vympKQApTLiIPLQHmbLunz+ndIRg732feVzh2M9cGxX+Bb0b7NigGTlCHpKkXswimufmOltz5Jm2zPk5ApmwNY9p96qcAVzdI1HEJWkHAOoh0Y=
-Received: from SJ0PR05CA0127.namprd05.prod.outlook.com (2603:10b6:a03:33d::12)
- by PH8PR12MB8431.namprd12.prod.outlook.com (2603:10b6:510:25a::9) with
+ bh=Q+w2phfdtLcCJLHaAE+n2Zq3g9XTdzkYs9l7f80JIWI=;
+ b=V6tX+OYYESNYLLtcVikooCB/tirJWevv9WPcgTlAwNZKjcZ+k7s8ubyA8elN0HL/qG7zFollIi2mb6EMvSEB7N1X6DNDWQMyOTVe8TzFNUdk1ir1B+wSUtSL3i17F7XZuM1/5ZPZMAd/QzAlvwdOlrgBwV2PuVoXLL6hRj4kBBA=
+Received: from MN2PR18CA0014.namprd18.prod.outlook.com (2603:10b6:208:23c::19)
+ by CY3PR12MB9629.namprd12.prod.outlook.com (2603:10b6:930:101::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.19; Wed, 7 Oct
- 2026 09:07:35 +0000
-Received: from SJ1PEPF00002323.namprd03.prod.outlook.com
- (2603:10b6:a03:33d:cafe::36) by SJ0PR05CA0127.outlook.office365.com
- (2603:10b6:a03:33d::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 7
- Oct 2026 09:07:35 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Wed, 7 Oct
+ 2026 09:07:42 +0000
+Received: from MN1PEPF000793FB.namprd05.prod.outlook.com
+ (2603:10b6:208:23c:cafe::8b) by MN2PR18CA0014.outlook.office365.com
+ (2603:10b6:208:23c::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed, 7
+ Oct 2026 09:07:41 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF00002323.mail.protection.outlook.com (10.167.242.85) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MN1PEPF000793FB.mail.protection.outlook.com (10.167.249.198) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 09:07:35 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.496.14 via Frontend Transport; Wed, 7 Oct 2026 09:07:41 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 04:07:34 -0500
+ 2026 04:07:37 -0500
 Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
  (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 04:07:33 -0500
+ 2026 04:07:36 -0500
 Received: from xhdtunimkar40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Wed, 7 Oct 2026 04:07:31 -0500
+ Transport; Wed, 7 Oct 2026 04:07:34 -0500
 From: Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
-Date: Wed, 7 Oct 2026 14:37:01 +0530
-Subject: [PATCH 3/5] clocksource: timer-cadence-ttc: Refactor common TTC
- resource setup
+Date: Wed, 7 Oct 2026 14:37:02 +0530
+Subject: [PATCH 4/5] pwm: cadence: Add TTC PWM driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261007-cadence-ttc-pwm-v1-3-52a95a8d98b1@amd.com>
+Message-ID: <20261007-cadence-ttc-pwm-v1-4-52a95a8d98b1@amd.com>
 References: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
 In-Reply-To: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
 To: <michal.simek@amd.com>, <tglx@kernel.org>, <ukleinek@kernel.org>,
@@ -88,37 +87,37 @@ To: <michal.simek@amd.com>, <tglx@kernel.org>, <ukleinek@kernel.org>,
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<git@amd.com>, <meherthanmaiee.vanukuri@amd.com>, <linux-pwm@vger.kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791364043; l=4708;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791364043; l=12289;
  i=meherthanmaiee.vanukuri@amd.com; s=20261007; h=from:subject:message-id;
- bh=rGz0hFZ+YZaMg2frX2Dy21gTIZBcxBh6XPqxSZIv9AI=;
- b=bBI7O0x3zrbd8rSqYfrFoeBvu9n5Qbwyku7qQtoej03DP0m16HXARe7ubz/ifbzByoSbNtdwQ
- qXP/oQmakqUAzS7Vj594mRpuyBzYwcAs/zBJ8HDKHia1vBkfQ/B0VA4
+ bh=rToWPD5wwETIobBg0yof37gHpuAtOC+KPohxLMhFP0o=;
+ b=F+Wqdx0tfZ7pa4vtkTRzp9RVzaR41Dk1W6zY0+kq0OP6f3uaA9he3hFNcIpenDI4T4ENfNfCb
+ dkGq1UoyRsaChClfNq0bifWnJ4ru+FwcHeloy/+WWbqyNAhk6btm5hM
 X-Developer-Key: i=meherthanmaiee.vanukuri@amd.com; a=ed25519;
  pk=m/+ON8/+ewj5VLb55p7J9gAopkLKj2mp7iobBZdhi0Y=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002323:EE_|PH8PR12MB8431:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d874c53-d4c0-44e2-892a-08df24526db0
+X-MS-TrafficTypeDiagnostic: MN1PEPF000793FB:EE_|CY3PR12MB9629:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3831c74c-251b-401c-36a5-08df24527154
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|82310400026|23010399003|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: AWHafP9aEnZFmDqAN6c0z0Bk8B3pfU4wxy8bBZhf6lr2EZjqm+WRGCJJx+LQG6yGNcHCOFB4wmrhgYImOiADMxaMZGRBohl88HXqCq76Mm+hFCrRuf439bZ+Z+F0LL0wfpZuC6wUJF8vnrD4Yqqw+8/fBBAyXdNcWxGNEPM4/FhHL83kkSeZcI4ZBYilUXWxFwe3OBFTg6vDGp/XwmY10iA9gSf803Iz5KCMVUG4LHNkWOJxtot/IRoJ539oV9PZPsxFswpDPssgYtqo+jvjO0gVtVg3eWDnokr0hqfiKjXoFrJwEJwKe3/Oh6DbgWE5z47HMCTmtvKb31cSY8KfHTSjDfzC0yjHr6v3Sw1KeiC7ffSa5xqCwqrQiYFsAuMIqNNYXgnkwTa96Q+Nrow/7oCznSwr1WIiPp8m67faMZ7588Rl2CgZ6ZRMJRFchM0TbVVQVDihvUzTgvMRbeQ10CWKgIlYLLenEwOe6B2ODWwWgtrkjALO9D/hj6azF+rA+uH7krcWBNiaFtjNbBNWMRRxQW471NerLytU6pSNQ77aglKETbYfTlNdAcpQqnYUyjzoTKx0NpeNQcTS600QeZ8lLjB/n265Fo177ctTCPS88Yp9Xxq9/tTxmHq74EBoRIO8K0z1Vh8c5hbKAzzvwgw3PWurx1cwn9Pg9MKdtwYmHtFTCUC4E9xDZbGPsqItpe/oXoUQZciVBFkv33/YDg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(82310400026)(23010399003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|23010399003|22082099003|18002099003|11063799006|3023799007|6133799003|10067099003|56012099006|5023799004;
+X-Microsoft-Antispam-Message-Info: Y5cyumZgv7cxfcZ+z/aE+jQa07Rk0jEDmVn/wyLpqAq2EkdS45lLtLosjelXW2ZqETzXfs4Ccmnx7oYFB/LkN9okCDN5czrhjGOkSHYyFnrElCQ4zx/hy+awhNj2LYNYFG8+Yq3HzwDRFPp6depwJgjrT+21T24Imavy3M51PcRR0Prp6zlJdbVlliL1XIuYZ/5w8oBTv0hCipjDEpqzQAdIwHf+PNPsMSp76EEEvahSUzsmZmG4dcXwOfZz/5kRrUJIkQ8O+5vgbiFvYSnDcnXbY/CX+N8ooEYM9A2vxmoZ4e791YQSq98yO5n0rZm49V0jOn3bXZ/xeB0TD6ubOrC1ffjelj56za+hkkzPovku8a/yYrtMIJs8f/Ti1LLKNdQu9MyytU6pFfvjyFPtBLNptddFhppkFhFnQ0H2LcCK8dER739JbF9EPOi2Hj+7LwwTaTR/Xq9qxqyE9pe+6Zwg605TkY/WyYGKt8cv4sHToDnS4J//kPNrW8Ddpxft825/Jm6vCIDx1Z+8g23a4SSSZq7Mmyw5O2ZygbKYRaaD8AJxWvfh9qFNsP7xZnyPpLqqTKcCFwlM9yKI2A2Be4x8Dicilun6y+9XQ8/lz3LppeOtNZY05aWwUBiebx+WPTd769AThreYZESVkj4N2bI2EzQamY3ViOmdkj/Wjc/0ruKmhRCYGZ8FNu3LBCmp/7SUiiTmO7Vuh3PepILXeA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(23010399003)(22082099003)(18002099003)(11063799006)(3023799007)(6133799003)(10067099003)(56012099006)(5023799004);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: eBFmT389oXGGOC0/QyphK3oac/I8QfrPiiE4qzjUQPb753lT9GkgTgeYufzA8FjlInAgEFhqvxkXJANXXHFFPlc01va0N44Qe93BJJigV3XDt5IiKBDLqCPyGEvumu9NixeaRrTGsmT+kAxd4d5WRyqrMtDx3+IF2B0GoUENEFA3SDocNoMHcIysSSzC4DlLFCU0pQjctlHQBl/iNS31h9qSXLONrIOpzsdLHb/12ilh9PNRIffOvHhOYsRCxdQ1TP4FOP8XlwkEwwpRrEZLtsXj96Pur5pZLd8l16nB2q3mx1GTk+DWMZYmQKM4jIdTY2Tso6xLdtep/Cwms0gcXIaWRRmfk1mkrM2xt42oFbMrFFUlpW30ItDPSdstQHmWtNRUbzWXte/BYkv2sQXHKCQkO+lWKAmafc1aj976KmDYSuwW0J5JaOSUq4dHkMck
+X-MS-Exchange-AntiSpam-MessageData-0: XXLApFMV8zh8G8OAdyWfu/JtEXBk4LQbzQE0gu9OUNkswDV6uS9wRsU50H/drG3vpzLOG9phfxqS1SUNFM7CeaNyx5O9JYOnFHObTWBBFZ86jrzVHpd8l5ZPknggIJESx7j9EboQlYSApgLF7FzP4KjfVXqC+uSCjkfCTqzXy+0PK2J1Ls4+nYpV2pOcMb8vlqfq7QG5tTyJawJbQkQRhwHd2dp+VIi/CMBLAEwmHv7BIWZ59apHjANx2wdFEQcKo1JX1om1Z0Y9uvc5JjU/HxvmFdrdVIujrfYWvBTEzlgkKBNTaeB1BXDp9Ie8FZBhvRG2HeQhz4nddWU2bVtd6w7ts0P0RrKNC8P54Dhi4Hcn+Dga4JEuM8b8ekCp7MSmRJUz88f9BQo6D0EvZgBtEYYK8aZrdJOCoBuhosRAO6ePDl7xE63vTF1cysrLr2IM
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 09:07:35.5366
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 09:07:41.6731
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d874c53-d4c0-44e2-892a-08df24526db0
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3831c74c-251b-401c-36a5-08df24527154
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002323.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF000793FB.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB8431
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_020744_920627_FE5A73A4 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20261007_020749_075974_82F2DBD3 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,146 +132,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Factor the TTC MMIO mapping and timer-width parsing in the timer probe
-path into a helper.
+Add a PWM driver for the Cadence Triple Timer Counter (TTC) IP found
+on Xilinx Zynq, ZynqMP, and Versal SoCs.
 
-As part of the refactor, switch the timer probe path from
-devm_of_iomap() to devm_platform_ioremap_resource(). This is safe
-because each Cadence TTC device tree node has a dedicated,
-non-overlapping MMIO resource.
+The driver binds to auxiliary-bus devices created by the TTC timer
+driver when #pwm-cells is present in the device tree, and exposes the
+three TTC channels as PWM outputs. The PWM period is programmed
+through the interval counter and the duty cycle through the match
+counter.
 
-Also replace the hardcoded default timer width and channel stride with
-TTC_DEFAULT_TIMER_WIDTH and TTC_CH_OFFSET, and switch to
-device_property_read_u32() when reading timer-width.
+Add the PWM-specific TTC register definitions, shared data structure,
+and per-channel access helpers to the shared TTC header so the driver
+can access the parent-provided MMIO base, clock, rate, and timer width.
 
-This prepares the timer driver for later reuse of the common resource
-setup by the PWM auxiliary-device path.
-
+Co-developed-by: Mubin Sayyed <mubin.sayyed@amd.com>
+Signed-off-by: Mubin Sayyed <mubin.sayyed@amd.com>
 Signed-off-by: Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>
 ---
- drivers/clocksource/timer-cadence-ttc.c | 49 ++++++++++++++++++---------------
- include/linux/timer-cadence-ttc.h       |  5 ++++
- 2 files changed, 32 insertions(+), 22 deletions(-)
+ MAINTAINERS                       |   1 +
+ drivers/pwm/Kconfig               |  13 +++
+ drivers/pwm/Makefile              |   1 +
+ drivers/pwm/pwm-cadence.c         | 231 ++++++++++++++++++++++++++++++++++++++
+ include/linux/timer-cadence-ttc.h |  40 +++++++
+ 5 files changed, 286 insertions(+)
 
-diff --git a/drivers/clocksource/timer-cadence-ttc.c b/drivers/clocksource/timer-cadence-ttc.c
-index 75bc0af1fa9e..954a9b85a958 100644
---- a/drivers/clocksource/timer-cadence-ttc.c
-+++ b/drivers/clocksource/timer-cadence-ttc.c
-@@ -8,16 +8,16 @@
-  */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b25ad0c18ffd..071290662523 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3922,6 +3922,7 @@ F:	drivers/edac/synopsys_edac.c
+ F:	drivers/i2c/busses/i2c-cadence.c
+ F:	drivers/i2c/busses/i2c-xiic.c
+ F:	drivers/mmc/host/sdhci-of-arasan.c
++F:	drivers/pwm/pwm-cadence.c
+ F:	include/linux/timer-cadence-ttc.h
+ N:	zynq
+ N:	xilinx
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 729776086879..a267a15a9685 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -196,6 +196,19 @@ config PWM_BRCMSTB
+ 	  To compile this driver as a module, choose M Here: the module
+ 	  will be called pwm-brcmstb.c.
  
- #include <linux/clk.h>
--#include <linux/interrupt.h>
- #include <linux/clockchips.h>
- #include <linux/clocksource.h>
--#include <linux/of_address.h>
-+#include <linux/interrupt.h>
-+#include <linux/module.h>
- #include <linux/of_irq.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
--#include <linux/slab.h>
-+#include <linux/property.h>
- #include <linux/sched_clock.h>
--#include <linux/module.h>
--#include <linux/of_platform.h>
-+#include <linux/slab.h>
- #include <linux/timer-cadence-ttc.h>
- 
- /*
-@@ -463,29 +463,36 @@ static int ttc_setup_clockevent(struct clk *clk,
- 	return err;
- }
- 
-+static int ttc_init_common(struct platform_device *pdev,
-+			   void __iomem **base, u32 *timer_width)
-+{
-+	*base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(*base))
-+		return PTR_ERR(*base);
++config PWM_CADENCE
++	tristate "Cadence TTC PWM support"
++	depends on CADENCE_TTC_TIMER
++	help
++	  PWM framework driver for the Cadence TTC IP found on Xilinx
++	  Zynq/ZynqMP/Versal SoCs. Binds to auxiliary-bus devices
++	  created by the TTC clocksource driver when a TTC node
++	  contains the #pwm-cells property. Each TTC provides up to
++	  3 PWM channels.
 +
-+	*timer_width = TTC_DEFAULT_TIMER_WIDTH;
-+	device_property_read_u32(&pdev->dev, "timer-width", timer_width);
++	  To compile this driver as a module, choose M here: the
++	  module will be called pwm-cadence.
++
+ config PWM_CLK
+ 	tristate "Clock based PWM support"
+ 	depends on HAVE_CLK || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 5630a521a7cf..f116b9629eee 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -14,6 +14,7 @@ obj-$(CONFIG_PWM_BCM_IPROC)	+= pwm-bcm-iproc.o
+ obj-$(CONFIG_PWM_BCM_KONA)	+= pwm-bcm-kona.o
+ obj-$(CONFIG_PWM_BERLIN)	+= pwm-berlin.o
+ obj-$(CONFIG_PWM_BRCMSTB)	+= pwm-brcmstb.o
++obj-$(CONFIG_PWM_CADENCE)	+= pwm-cadence.o
+ obj-$(CONFIG_PWM_CLK)		+= pwm-clk.o
+ obj-$(CONFIG_PWM_CLPS711X)	+= pwm-clps711x.o
+ obj-$(CONFIG_PWM_CRC)		+= pwm-crc.o
+diff --git a/drivers/pwm/pwm-cadence.c b/drivers/pwm/pwm-cadence.c
+new file mode 100644
+index 000000000000..f02f37ccb741
+--- /dev/null
++++ b/drivers/pwm/pwm-cadence.c
+@@ -0,0 +1,231 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Cadence TTC PWM driver
++ *
++ * Configures Cadence Triple Timer Counter channels as PWM outputs.
++ * Binds to auxiliary-bus devices created by the TTC clocksource driver.
++ *
++ * Limitations:
++ * - When PWM is stopped, timer counter gets stopped immediately. This
++ *   doesn't allow the current PWM period to complete and stops abruptly.
++ * - Disabled PWM emits inactive level.
++ * - When user requests a change in any parameter of PWM (period/duty cycle/polarity)
++ *   while PWM is in enabled state:
++ *	- PWM is stopped abruptly.
++ *	- Requested parameter is changed.
++ *	- Fresh PWM cycle is started.
++ *
++ * Copyright (C) 2026, Advanced Micro Devices, Inc.
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/log2.h>
++#include <linux/math64.h>
++#include <linux/module.h>
++#include <linux/pwm.h>
++#include <linux/timer-cadence-ttc.h>
++
++struct cdns_ttc_pwm {
++	const struct ttc_shared_data	*sd;
++	u32				max_count;
++};
++
++static inline struct cdns_ttc_pwm *to_cdns_ttc_pwm(struct pwm_chip *chip)
++{
++	return pwmchip_get_drvdata(chip);
++}
++
++static void cdns_ttc_pwm_enable(struct cdns_ttc_pwm *priv, unsigned int hwpwm)
++{
++	u32 ctrl;
++
++	ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET);
++	ctrl |= TTC_CNT_CNTRL_INT | TTC_CNT_CNTRL_MATCH | TTC_CNT_CNTRL_RST;
++	ctrl &= ~(TTC_CNT_CNTRL_DISABLE_MASK | TTC_CNT_CNTRL_WAVE_EN);
++	ttc_ch_writel(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl);
++}
++
++static void cdns_ttc_pwm_disable(struct cdns_ttc_pwm *priv, unsigned int hwpwm)
++{
++	u32 ctrl;
++
++	ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET);
++	ctrl |= TTC_CNT_CNTRL_DISABLE_MASK;
++	ttc_ch_writel(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl);
++}
++
++static int cdns_ttc_pwm_apply(struct pwm_chip *chip,
++			      struct pwm_device *pwm,
++			      const struct pwm_state *state)
++{
++	struct cdns_ttc_pwm *priv = to_cdns_ttc_pwm(chip);
++	unsigned long rate = priv->sd->rate;
++	unsigned int hwpwm = pwm->hwpwm;
++	u64 period_cycles, duty_cycles;
++	bool use_prescaler = false;
++	u32 ctrl, psv;
++
++	if (!state->enabled) {
++		cdns_ttc_pwm_disable(priv, hwpwm);
++		return 0;
++	}
++
++	period_cycles = mul_u64_u64_div_u64(state->period, rate, NSEC_PER_SEC);
++
++	if (period_cycles > priv->max_count) {
++		unsigned int shift;
++
++		/*
++		 * Prescaler divides input clock by 2^(psv+1).
++		 * Calculate required shift and derive PSV register value.
++		 */
++		shift = order_base_2(DIV_ROUND_UP_ULL(period_cycles,
++						      priv->max_count));
++		if (shift > TTC_CLK_CNTRL_PSV_MAX + 1)
++			return -ERANGE;
++
++		use_prescaler = true;
++		psv = shift - 1;
++
++		period_cycles = mul_u64_u64_div_u64(state->period, rate,
++						    (u64)NSEC_PER_SEC << shift);
++	}
++
++	if (!period_cycles)
++		return -EINVAL;
++
++	cdns_ttc_pwm_disable(priv, hwpwm);
++
++	ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET);
++	if (state->polarity == PWM_POLARITY_NORMAL)
++		ctrl |= TTC_CNT_CNTRL_WAVE_POL;
++	else
++		ctrl &= ~TTC_CNT_CNTRL_WAVE_POL;
++	ttc_ch_writel(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl);
++
++	if (use_prescaler) {
++		duty_cycles = mul_u64_u64_div_u64(state->duty_cycle, rate,
++						  (u64)NSEC_PER_SEC << (psv + 1));
++	} else {
++		duty_cycles = mul_u64_u64_div_u64(state->duty_cycle, rate,
++						  NSEC_PER_SEC);
++	}
++
++	ttc_ch_writel(priv->sd, hwpwm, TTC_INTR_VAL_OFFSET, (u32)period_cycles);
++	ttc_ch_writel(priv->sd, hwpwm, TTC_MATCH_CNT_VAL_OFFSET, (u32)duty_cycles);
++
++	ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CLK_CNTRL_OFFSET);
++	if (use_prescaler) {
++		ctrl &= ~TTC_CLK_CNTRL_PSV_MASK;
++		ctrl |= FIELD_PREP(TTC_CLK_CNTRL_PSV_MASK, psv);
++		ctrl |= TTC_CLK_CNTRL_PS_EN;
++	} else {
++		ctrl &= ~TTC_CLK_CNTRL_PS_EN;
++	}
++	ttc_ch_writel(priv->sd, hwpwm, TTC_CLK_CNTRL_OFFSET, ctrl);
++
++	cdns_ttc_pwm_enable(priv, hwpwm);
 +
 +	return 0;
 +}
 +
- static int ttc_timer_probe(struct platform_device *pdev)
- {
--	unsigned int irq;
-+	struct device_node *timer = pdev->dev.of_node;
- 	void __iomem *timer_baseaddr;
- 	struct clk *clk_cs, *clk_ce;
- 	static int initialized;
-+	unsigned int irq;
-+	u32 timer_width;
- 	int clksel, ret;
--	u32 timer_width = 16;
--	struct device_node *timer = pdev->dev.of_node;
- 
- 	if (initialized)
- 		return 0;
- 
--	/*
--	 * Get the 1st Triple Timer Counter (TTC) block from the device tree
--	 * and use it. Note that the event timer uses the interrupt and it's the
--	 * 2nd TTC hence the irq_of_parse_and_map(,1)
--	 */
--	timer_baseaddr = devm_of_iomap(&pdev->dev, timer, 0, NULL);
--	if (IS_ERR(timer_baseaddr)) {
--		pr_err("ERROR: invalid timer base address\n");
--		return PTR_ERR(timer_baseaddr);
--	}
-+	ret = ttc_init_common(pdev, &timer_baseaddr, &timer_width);
++static int cdns_ttc_pwm_get_state(struct pwm_chip *chip,
++				  struct pwm_device *pwm,
++				  struct pwm_state *state)
++{
++	struct cdns_ttc_pwm *priv = to_cdns_ttc_pwm(chip);
++	unsigned long rate = priv->sd->rate;
++	unsigned int hwpwm = pwm->hwpwm;
++	u32 ctrl, clk_ctrl, pres;
++	u64 tmp;
++
++	ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CNT_CNTRL_OFFSET);
++
++	state->polarity = (ctrl & TTC_CNT_CNTRL_WAVE_POL) ?
++			  PWM_POLARITY_NORMAL : PWM_POLARITY_INVERSED;
++
++	if (ctrl & TTC_CNT_CNTRL_DISABLE_MASK) {
++		state->enabled = false;
++		state->period = 0;
++		state->duty_cycle = 0;
++		return 0;
++	}
++
++	state->enabled = true;
++
++	clk_ctrl = ttc_ch_readl(priv->sd, hwpwm, TTC_CLK_CNTRL_OFFSET);
++	pres = 0;
++	if (clk_ctrl & TTC_CLK_CNTRL_PS_EN)
++		pres = FIELD_GET(TTC_CLK_CNTRL_PSV_MASK, clk_ctrl) + 1;
++
++	tmp = (u64)ttc_ch_readl(priv->sd, hwpwm, TTC_INTR_VAL_OFFSET) << pres;
++	state->period = mul_u64_u64_div_u64(tmp, NSEC_PER_SEC, rate);
++	if (mul_u64_u64_div_u64(state->period, rate, NSEC_PER_SEC) < tmp)
++		state->period++;
++
++	tmp = (u64)ttc_ch_readl(priv->sd, hwpwm, TTC_MATCH_CNT_VAL_OFFSET) << pres;
++	state->duty_cycle = mul_u64_u64_div_u64(tmp, NSEC_PER_SEC, rate);
++	if (mul_u64_u64_div_u64(state->duty_cycle, rate, NSEC_PER_SEC) < tmp)
++		state->duty_cycle++;
++
++	return 0;
++}
++
++static const struct pwm_ops cdns_ttc_pwm_ops = {
++	.apply = cdns_ttc_pwm_apply,
++	.get_state = cdns_ttc_pwm_get_state,
++};
++
++static int cdns_ttc_pwm_probe(struct auxiliary_device *auxdev,
++			      const struct auxiliary_device_id *id)
++{
++	const struct ttc_shared_data *sd = dev_get_platdata(&auxdev->dev);
++	struct device *dev = &auxdev->dev;
++	struct cdns_ttc_pwm *priv;
++	struct pwm_chip *chip;
++	int ret;
++
++	if (!sd)
++		return -EINVAL;
++
++	chip = devm_pwmchip_alloc(dev, TTC_NUM_CHANNELS, sizeof(*priv));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++
++	priv = to_cdns_ttc_pwm(chip);
++	priv->sd = sd;
++	priv->max_count = BIT_ULL(sd->timer_width) - 1;
++
++	ret = devm_clk_rate_exclusive_get(dev, sd->clk);
 +	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to map timer registers\n");
- 
- 	irq = irq_of_parse_and_map(timer, 1);
- 	if (irq <= 0) {
-@@ -493,8 +500,6 @@ static int ttc_timer_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
--	of_property_read_u32(timer, "timer-width", &timer_width);
--
- 	clksel = readl_relaxed(timer_baseaddr + TTC_CLK_CNTRL_OFFSET);
- 	clksel = !!(clksel & TTC_CLK_CNTRL_CSRC_MASK);
- 	clk_cs = of_clk_get(timer, clksel);
-@@ -503,7 +508,7 @@ static int ttc_timer_probe(struct platform_device *pdev)
- 		return PTR_ERR(clk_cs);
- 	}
- 
--	clksel = readl_relaxed(timer_baseaddr + 4 + TTC_CLK_CNTRL_OFFSET);
-+	clksel = readl_relaxed(timer_baseaddr + TTC_CH_OFFSET + TTC_CLK_CNTRL_OFFSET);
- 	clksel = !!(clksel & TTC_CLK_CNTRL_CSRC_MASK);
- 	clk_ce = of_clk_get(timer, clksel);
- 	if (IS_ERR(clk_ce)) {
-@@ -516,7 +521,7 @@ static int ttc_timer_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto put_clk_ce;
- 
--	ret = ttc_setup_clockevent(clk_ce, timer_baseaddr + 4, irq);
-+	ret = ttc_setup_clockevent(clk_ce, timer_baseaddr + TTC_CH_OFFSET, irq);
- 	if (ret)
- 		goto put_clk_ce;
- 
++		return dev_err_probe(dev, ret,
++				     "failed to lock clock rate\n");
++
++	chip->ops = &cdns_ttc_pwm_ops;
++
++	ret = devm_pwmchip_add(dev, chip);
++	if (ret)
++		return dev_err_probe(dev, ret, "could not register PWM chip\n");
++
++	return 0;
++}
++
++static const struct auxiliary_device_id cdns_ttc_pwm_id_table[] = {
++	{ .name = "timer_cadence_ttc.pwm" },
++	{},
++};
++MODULE_DEVICE_TABLE(auxiliary, cdns_ttc_pwm_id_table);
++
++static struct auxiliary_driver cdns_ttc_pwm_driver = {
++	.name     = "cdns_ttc_pwm",
++	.probe    = cdns_ttc_pwm_probe,
++	.id_table = cdns_ttc_pwm_id_table,
++};
++module_auxiliary_driver(cdns_ttc_pwm_driver);
++
++MODULE_AUTHOR("Mubin Sayyed <mubin.sayyed@amd.com>");
++MODULE_AUTHOR("Meher Thanmaiee <meherthanmaiee.vanukuri@amd.com>");
++MODULE_DESCRIPTION("Cadence TTC PWM driver");
++MODULE_LICENSE("GPL");
 diff --git a/include/linux/timer-cadence-ttc.h b/include/linux/timer-cadence-ttc.h
-index 4f2b85e0ff78..37ac775d6d50 100644
+index 37ac775d6d50..05b7edd88626 100644
 --- a/include/linux/timer-cadence-ttc.h
 +++ b/include/linux/timer-cadence-ttc.h
-@@ -11,6 +11,11 @@
+@@ -10,24 +10,64 @@
+ #define _LINUX_TIMER_CADENCE_TTC_H
  
  #include <linux/bits.h>
- 
-+#define TTC_DEFAULT_TIMER_WIDTH		16
++#include <linux/io.h>
++#include <linux/types.h>
 +
-+/* Per-channel register offset stride */
-+#define TTC_CH_OFFSET			0x04
++struct clk;
+ 
+ #define TTC_DEFAULT_TIMER_WIDTH		16
+ 
+ /* Per-channel register offset stride */
+ #define TTC_CH_OFFSET			0x04
+ 
++#define TTC_NUM_CHANNELS		3
 +
  /* Timer Register Offset Definitions of Timer 1 */
  #define TTC_CLK_CNTRL_OFFSET		0x00 /* Clock Control Reg, RW */
  #define TTC_CNT_CNTRL_OFFSET		0x0C /* Counter Control Reg, RW */
+ #define TTC_COUNT_VAL_OFFSET		0x18 /* Counter Value Reg, RO */
+ #define TTC_INTR_VAL_OFFSET		0x24 /* Interval Count Reg, RW */
++#define TTC_MATCH_CNT_VAL_OFFSET	0x30 /* Match 1 Count Reg, RW */
+ #define TTC_ISR_OFFSET			0x54 /* Interrupt Status Reg, RO */
+ #define TTC_IER_OFFSET			0x60 /* Interrupt Enable Reg, RW */
+ 
+ #define TTC_CNT_CNTRL_DISABLE_MASK	BIT(0)
++#define TTC_CNT_CNTRL_INT		BIT(1)
++#define TTC_CNT_CNTRL_MATCH		BIT(3)
++#define TTC_CNT_CNTRL_RST		BIT(4)
++#define TTC_CNT_CNTRL_WAVE_EN		BIT(5)
++#define TTC_CNT_CNTRL_WAVE_POL		BIT(6)
+ 
++#define TTC_CLK_CNTRL_PS_EN		BIT(0)
+ #define TTC_CLK_CNTRL_CSRC_MASK		BIT(5) /* clock source */
+ #define TTC_CLK_CNTRL_PSV_MASK		GENMASK(4, 1)
+ #define TTC_CLK_CNTRL_PSV_SHIFT		1
++#define TTC_CLK_CNTRL_PSV_MAX		15 /* 4-bit prescaler field */
++
++/**
++ * struct ttc_shared_data - Data passed from parent to auxiliary device
++ * @base:		MMIO base address
++ * @clk:		Input clock
++ * @rate:		Input clock rate in Hz
++ * @timer_width:	Counter width in bits (16 or 32)
++ */
++struct ttc_shared_data {
++	void __iomem		*base;
++	struct clk		*clk;
++	unsigned long		rate;
++	u32			timer_width;
++};
++
++static inline u32 ttc_ch_readl(const struct ttc_shared_data *sd,
++			       unsigned int ch, u32 reg)
++{
++	return readl_relaxed(sd->base + reg + TTC_CH_OFFSET * ch);
++}
++
++static inline void ttc_ch_writel(const struct ttc_shared_data *sd,
++				 unsigned int ch, u32 reg, u32 val)
++{
++	writel_relaxed(val, sd->base + reg + TTC_CH_OFFSET * ch);
++}
+ 
+ #endif /* _LINUX_TIMER_CADENCE_TTC_H */
 
 -- 
 2.34.1
