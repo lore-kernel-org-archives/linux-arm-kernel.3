@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CA6CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26086CA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 17:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zQGPq189HE48WkQvYtrciapEnC8NRjhdY792aMmbyWM=; b=Zk8xg6A4uKr7m2
-	+JqcqvVsj/gFxVtn5LyLJYzfbK2Xb+aBwkasLF03PIJ/u5SmSZFzvacwjxm71nVM4cOtPGkE4tic9
-	y4F99+Tvc9q9r5r76acdyPP15I/UiNPaKVjsnB6sirgIM14g6janUWO2QSEwOYD/Kt8GBBMPVqAHs
-	BPju2+RkQLvC6VEwzGPGMRBHA6fbYOeQzi8RsGooo0lFK1sqfW2c0ZSle7bZMIB24vbwQzZ0UVkrW
-	GZOcGcohsirJ7exjdQjcbeEpJWVS3HLjYFFGC4d9+xEcJ+s0LR+P66zQGcLhZsDe/cShW6nOXB5bH
-	fgcA9c7Hu3Ie5Qvqsp/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EvxKkeCz4r8K1OufXCLJN0cStPAlgS10ILxM3oLPg8w=; b=Rb1nNBJMqCyooTAm+QhIAgu8po
+	oxtaCMdROWAU1mUKUWnKEuZRKUqmOKaBEXvy8inGY1PcoMPonpouhMiNvCqHeROIII5NkAx8etUDt
+	wM5k8HYmtksSjZCdn/Fzwi2kCdqmB2pNNWta3s8bQMruqb320jwOueixT1VL560F2babI++NScMkp
+	Uab31nDruqY2k3MpM+ft7oceq4eyUexJmo85F/rn5dxRJbmZHLj2zjp2+eBtprO4sIquflnS/E0jc
+	C8JLbcsU9J0KYpJGRiQDxKkk12X7g/vL8CUNwPcTJR0fXWrAjMsNIug3MtLnE7NaGvuQnSiCNKVDJ
+	3MhiuCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEV5a-00000002nIR-2J7s;
-	Wed, 07 Oct 2026 17:05:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEV5U-00000002nHX-0lZ8
+	id 1xEVZS-00000002o7B-3f8p;
+	Wed, 07 Oct 2026 17:36:50 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.50])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEVZO-00000002o6D-1vDC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 17:05:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9D731595;
-	Wed,  7 Oct 2026 10:05:45 -0700 (PDT)
-Received: from [10.57.11.235] (unknown [10.57.11.235])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ABFE3F66F;
-	Wed,  7 Oct 2026 10:05:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791392749; bh=+I+0SFertOGocBXbHO8C/0KLe1ocRECU8mzB+rkvX3I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cwW8njiPTkESF4hylZTsP81jjqRypdnGW+THdDzfGOiT+TSds1VFYlW2uWK4EWLf1
-	 CM1j+CjR2LT5+tB36GAMufAyO1A/DYYbL2BULQEQmpVc/8HQfWwogQYrr2kVhJjcbF
-	 GL57bksJw5VMbCs+FuTZ/VzsGlxuQt/Q557M3qH8=
-Message-ID: <a163f846-dbc3-4077-ab9c-a17d31656af2@arm.com>
-Date: Wed, 7 Oct 2026 18:05:43 +0100
+	Wed, 07 Oct 2026 17:36:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791394598; bh=EvxKkeCz4r8K1OufXCLJN0cStPAlgS10ILxM3oLPg8w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nFZx0bowzRByiagFkvuunYFpjAlCClGKPaWDv8spGd3txFewhBw3uIWoyjFAZM4Os
+	 fiT9fT68CfmQY7zDu5ul9hL5vTL9mzd+ALg9LMpwvFzzD8D/1kFCTqcXNxl5OymQXF
+	 8aKg6bekDw9oRWJjT2WCVgB/hathsnkI14oGP5bI=
+Received: from [198.18.0.1] ([220.171.158.107])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 923AF8DB; Thu, 08 Oct 2026 01:36:35 +0800
+X-QQ-mid: xmsmtpt1791394595t3k5iaf9j
+Message-ID: <tencent_67DE4800018C924922E62488AF02AF24E405@qq.com>
+X-QQ-XMAILINFO: MSHuecu5THA/PZQZruFFagj5YL2w1LBX6SzgVknt85gnzJKeQQfIA4kfm0Q29W
+	 FHE0j0AtcY9h9jrQOpyZp+JcBOYJyqNC1B7dmm0gX6szGuLCCSWNYI51+t4o+TnXp6xi/44R7WQE
+	 SFHgWvyRCnelJeHEGwv3JRthuo83pWWBhtVahWYezFpqjQxl0rlkOa9/tc/U28rGjh5spGjr2fae
+	 pGAeArZBqzqLp93HO6CRHt9SwgtDt9r1PdPku/td+hqdxFWHQSaTuQ/TqdzUB71fzXa5OU5XDWwI
+	 mvmmFBKlqs4IjSU6evGlwE+boI9OEi0QEswDj6LhhoDhszTflpNjDM2OyKubdL6RcFsU+EKxQ3xY
+	 jopSr1WC4hgpy33xx/icybqxgzm8V0fJxAZr3tOamZqvJqK1SRL1ITgV+ACGTQS0nbHb9shobb2W
+	 tlFjaf2SqApYssTU2xY8w2PTnU4Ynwm3Wy3RhFks1quTRcOIjfaPZTlEnULdCHdMSh6ZQqxBh05D
+	 ghPrDixwoSd4DruO4sprShqu+DK5Hp/XTinqibNfxIcg2MBWuQWRFdlC3ill2SzgcTbmtbj25k6T
+	 doDuxWBQ48tJK/tjF5myaILtYMuF0eddscjsFCmYrO4xpPhlpsofrBhJihu9LI1V0TStBwoiuVlX
+	 4XSS8fh7HcUTYJs56UCNnZ+Z9j7cDZPkbxh29iB4O9UGEXMyGQeYbIH196r4I4B71bAnA5GIuTCr
+	 8ei5/QvC4AldG5ibx/XLPK7b+gGkEuTk+HCJrTOYxevJhUa09oOD9RddSW9ThoFZDfrlL82BFVnG
+	 62S94e9Ct2lVFvOYP1S3H21Ms9WDpG9IFmPxVTHR9butYyeOGfRXbF7wvU7ZwKgtDRGsT3M61pho
+	 uyi32EblD7pMsAoE3hCGjLzFY0waUHUc77XYlYl1ZSM043fDlbSwgJWVbfeq2stxhf2q7aFQWdE9
+	 CZ+7EcsGSKnMe3jWXYstgloAfAiH5we75uEE1MIfyOuzmrxP0YIMR2Cwws1OISiZ0jV2IW8Og12c
+	 CGE1X6ubLNkREy4zIdrqwF7fCGNqwP+BbLsN0Z5R0bozbuztKJfeYqCw4qZeg=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-OQ-MSGID: <8ee39555-cad7-4b01-bb65-7441acb3f282@qq.com>
+Date: Thu, 8 Oct 2026 01:36:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] arm64: insn: remove deprecated memory barrier types
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
- <20260928133034.243541-2-ada.coupriediaz@arm.com>
- <dc663e58-b366-4f97-a260-0aff278f2f6f@arm.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <dc663e58-b366-4f97-a260-0aff278f2f6f@arm.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add ALINX vendor
+ prefix
+To: Conor Dooley <conor@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, andrew@lunn.ch
+References: <20261005173308.710986-1-2254650260@qq.com>
+ <tencent_0512BDFB22810AB03126E3189320800AF607@qq.com>
+ <20261007-92e855de534df44fbf665e4f@squawk>
+Content-Language: en-US
+From: Pufan Jin <2254650260@qq.com>
+In-Reply-To: <20261007-92e855de534df44fbf665e4f@squawk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_100552_345957_E6F69953 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20261007_103646_811043_A9C1105B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,100 +87,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Barry Song <baohua@kernel.org>, Oliver Upton <oupton@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, James Morse <james.morse@arm.com>, Andre Przywara <andre.przywara@arm.com>, Tejun Heo <tj@kernel.org>, Lucas Wei <lucaswei@google.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
 
-On 07/10/2026 07:21, Vladimir Murzin wrote:
-> Hi Ada,
+On 2026/10/7 18:35, Conor Dooley wrote:
+> On Tue, Oct 06, 2026 at 01:33:06AM +0800, Pufan Jin wrote:
+>> Add vendor prefix for ALINX (Shanghai Xin'yi Electronics Technology
+>> Co., Ltd.).
+> Where does this ALINX come from? Website url?
 >
-> On 9/28/26 14:30, Ada Couprie Diaz wrote:
->> Arm ARM DDI 0487 version M.c[0] deprecated a number of types
->> used as options for the DMB and DSB instructions, with no change
->> in behaviour.
->> The deprecated types are not used in the kernel, so remove them
->> from our instruction generation framework and add the missing
->> `AARCH64_INSN_MB_OSH` case in `__get_barrier_crm_val()`.
->>
-> Arm ARM says that OSH has the same behaviour as SY, so I'd assume
-> any user of OSH should be fine to upgrade to SY, no?
-
-As you mention below, OSH is _technically_ not deprecated for DSB, so I think
-it would make sense to add it for completion.
-Though, given that it is indeed equivalent I can see the argument for leaving it.
-
-I initially wanted to silently convert deprecated encodings to SY and co.,
-Mark was against the idea but I guess it could be OK just not providing them.
-
->> This simplifies the switch-case and now covers all the enum types,
->> which allows for making the DSB and DMB generation non instrumentable
->> in a follow-up commit.
->>
->> [0]: https://support.arm.com/documentation/ddi0487/mc/
->>       (See C6.2.150, C6.2.152)
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Pufan Jin <2254650260@qq.com>
 >> ---
->>   arch/arm64/include/asm/insn.h |  6 ------
->>   arch/arm64/lib/insn.c         | 10 ++--------
->>   2 files changed, 2 insertions(+), 14 deletions(-)
+>>   Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>>   1 file changed, 2 insertions(+)
 >>
->> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
->> index 1ce75a4426387..8ec9d86cc575c 100644
->> --- a/arch/arm64/include/asm/insn.h
->> +++ b/arch/arm64/include/asm/insn.h
->> @@ -302,14 +302,8 @@ enum aarch64_insn_mb_type {
->>   	AARCH64_INSN_MB_ST,
->>   	AARCH64_INSN_MB_LD,
->>   	AARCH64_INSN_MB_ISH,
->> -	AARCH64_INSN_MB_ISHST,
->> -	AARCH64_INSN_MB_ISHLD,
->>   	AARCH64_INSN_MB_NSH,
->> -	AARCH64_INSN_MB_NSHST,
->> -	AARCH64_INSN_MB_NSHLD,
->>   	AARCH64_INSN_MB_OSH,
->> -	AARCH64_INSN_MB_OSHST,
->> -	AARCH64_INSN_MB_OSHLD,
->>   };
->>   
->>   #define	__AARCH64_INSN_FUNCS(abbr, mask, val)				\
->> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
->> index e70ac02385153..c70820d65805f 100644
->> --- a/arch/arm64/lib/insn.c
->> +++ b/arch/arm64/lib/insn.c
->> @@ -1572,16 +1572,10 @@ static u32 __get_barrier_crm_val(enum aarch64_insn_mb_type type)
->>   		return 0xd;
->>   	case AARCH64_INSN_MB_ISH:
->>   		return 0xb;
->> -	case AARCH64_INSN_MB_ISHST:
->> -		return 0xa;
->> -	case AARCH64_INSN_MB_ISHLD:
->> -		return 0x9;
->>   	case AARCH64_INSN_MB_NSH:
->>   		return 0x7;
->> -	case AARCH64_INSN_MB_NSHST:
->> -		return 0x6;
->> -	case AARCH64_INSN_MB_NSHLD:
->> -		return 0x5;
->> +	case AARCH64_INSN_MB_OSH:
->> +		return 0x3;
->>   	default:
->>   		pr_err("%s: unknown barrier type %d\n", __func__, type);
->>   		return AARCH64_BREAK_FAULT;
->> -- 2.43.0
->>
-> It looks like NSH, ISH and OSH applies to DSB and deprecated in case of DMB
-> which is slightly confusing. Given that we drop bunch of encodings perhaps we
-> can inline logic in aarch64_insn_gen_d{m,s}b()?
+>> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> index ba2002969..97e7ef340 100644
+>> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> @@ -90,6 +90,8 @@ patternProperties:
+>>       description: AlgolTek, Inc.
+>>     "^alientek,.*":
+>>       description: Guangzhou Xingyi Intelligent Technology Co., Ltd.
+>> +  "^alinx,.*":
+>> +    description: Shanghai Xin'yi Electronics Technology Co., Ltd. (ALINX)
+>>     "^allegro,.*":
+>>       description: Allegro DVT
+>>     "^allegromicro,.*":
+>> -- 
+>> 2.55.0
 
-Yeah I can see an argument for that, I'm not against it and it probably makes
-the error handling in patch 2 a bit cleaner...
+Hi Conor,
 
-> Cheers
-> Vladimir
-Thanks for the comments !
-Kind regards,
-Ada
+ALINX is the brand of Xinyi Electronic Technology (Shanghai) Co., Ltd.
+(芯驿电子科技（上海）有限公司), https://www.alinx.com/ - an FPGA/SoC
+company and official partner of AMD Xilinx, Unisoc and Baidu.
+
+The board is not in the alinx.com shop because ALINX describes EdgeBoard
+as a customisation done for Baidu: Baidu owns the EdgeBoard brand and the
+sales channel, while ALINX designs and manufactures the hardware. From
+ALINX's own product documentation [1]:
+
+"...as a Baidu AI partner, it has customized the Edgeboard series edge
+  devices of the domestic AI flying paddle system for Baidu."
+
+The FZ3A hardware manual and the schematics are authored by ALINX - the
+manual cover carries the ALINX logo, www.alinx.com and the legal name
+above, and every schematic sheet has the same ALINX title block.
+
+Since ALINX is the hardware designer, I used "alinx" as the prefix
+instead of "baidu". Happy to switch if you prefer the marketing brand.
+
+[1] 
+https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html
+
+For v3:
+   - Fix the v2 description mistransliteration of the legal name:
+       "^alinx,.*":
+         description: Xinyi Electronic Technology (Shanghai) Co., Ltd. 
+(ALINX)
+   - Put the website URL in the commit message.
+
+Thanks for the ack on patch 2/3, I will carry it into v3.
+
+Best regards,
+Pufan Jin
+
+
 
