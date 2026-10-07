@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF533CA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 20:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D092CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 21:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBnT7QbK9u0Gs8c95AjLx+P8e034rEiTzbi8S3Cwpwc=; b=gBQqXxw3vHnixkcgRJKW60wwVp
-	ICXwKmKJ7V+ZEFlRpQUawVCw7ph4lkXjy6OlvmvARKMo2dbvolvncDwO3AUOhPZycDGWWxemGVl+m
-	SI5FdBMNJXbNvdwe+hkCE6F/bwwrRawWdUVmbOSfEKU/FsHmKLsOjIS5SrVZouiisBXSosDKHR/Tu
-	/41UpUniQTYe8LcrYQj+hfySdo0CB1lsdVLEr994Wb2iFVHtmaSgNn8baMysug5yBooi1ocw26TrP
-	OWNBnQmyvELk8XU9gqva/26tZ88xpAc5mRq3nh6e5/Hgcn+VFcwTbV5ipcOPp6nVmI/LZEWGbaS0o
-	AoVJ4TIg==;
+	bh=TbYPg3uQU1P6rMt+WuOLQFicMNfbSJBbie5yCmhoZc0=; b=p/SlEfXcCmaRth9RLLT01nEr0v
+	HPyRwOihUpQOe9rKKKl1HsaNJkzvmMpQBq34YqRfsoLbHO3UwkeQwh61ZscRhm+8yuumeloGSOvJc
+	iMETGn6Cwp5z5HAgqta4EipIJYFEkEKcg4RlWcAt+3oIL/ptHEehRxO+Y80Rpjs8FE4bFxYnUmsg0
+	PmlU/7wxJyqnp4MA7t74A9hGzFuKodFVwtiNk8R/pchHZDDONa6VX3GnGJwMtpvZYC9k2RJqF9TIN
+	jDmp8guB3w6xjRVV1Rm26daG5KRzo0Rsh7rHwctLE7/8St3yyCopW8A7c+AVXFyML3+wG+0BNfamP
+	5TjcG5Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEYMn-000000038iR-49HZ;
-	Wed, 07 Oct 2026 20:35:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEYl4-00000003APg-04Mr;
+	Wed, 07 Oct 2026 21:01:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEYMn-000000038iJ-0raA
+	id 1xEYl2-00000003AP5-1tRb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 20:35:57 +0000
+	Wed, 07 Oct 2026 21:01:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94F4643435;
-	Wed,  7 Oct 2026 20:35:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BAFC1F000FF;
-	Wed,  7 Oct 2026 20:35:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFBC260A53;
+	Wed,  7 Oct 2026 21:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5168D1F000FF;
+	Wed,  7 Oct 2026 21:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791405356;
-	bh=iBnT7QbK9u0Gs8c95AjLx+P8e034rEiTzbi8S3Cwpwc=;
+	s=k20260515; t=1791406859;
+	bh=TbYPg3uQU1P6rMt+WuOLQFicMNfbSJBbie5yCmhoZc0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EAnTrrZ9FBxijRk+eVs2T8pzlvv92TXfyUbTV4OOYhJre5ukKSsgV9PDEl3ZM+B/D
-	 UohnG4dEbUub4MM3HZ38Jz8NzciIgVZ3pdUwgnYDSHNfCyok4rFESVz8jIPMAOt+lm
-	 dLJi2vVZjTU6/qHvBm1tgWJ5EH9e6YdQCeJgHq57YAs7cqBq9Bu2WMWUiaYh+CFRoj
-	 kDX9aClQniHp9CYj9DR1YS1/4rwJcuF7H5sDiaNL3ZG/MiyEpfTNQBayP8HMjRxGEP
-	 VTC5XO9OIp2tx4YpIPk5+pAQ737aGag1CtbkztZTAz3ll2Rl2Z/egQvBmn+7T+ZbIy
-	 XKqbZAf0OIRNw==
-Date: Wed, 7 Oct 2026 15:35:55 -0500
+	b=DlA7fxezfe1z+1SnRn5LXiq7eRXTf4Wa/Mg0y9+59eWKxQT4DgzFaWCEpnRqIVNQE
+	 gN0SXj6ZmBT5Rmm3TdrmyP14EHopZyd9r0EXpEOSaFPU2vKvQToybCkN2NK3HbCHMg
+	 ST58deOjUKDl3/uZ571L1lEeLRQO0IDXxaHtEMP4+1vE+svI74ZMqDvCPm8P1tx2wK
+	 /KWbLmIpzeWWtGHiDJGBuB5wdNR2jq/xcBk7NAtcrpllfvReO7QYQQ9PEhvPB2d2UU
+	 w+Mu56IlWXzOVzF+rGDRuhrSUVAYTHRJs2lQKVfRGyK7rS/F41uzXfWm5bzzsnTD4W
+	 RHjzI02XRHE6g==
+Date: Wed, 7 Oct 2026 16:00:58 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Jani Nikula <jani.nikula@intel.com>, Hanjun Guo <guohanjun@huawei.com>,
+	Mukesh Rathor <mrathor@linux.microsoft.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
-	Josua Mayer <josua@solid-run.com>,
-	Eric Dumazet <edumazet@google.com>, Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	pierluigi.p@variscite.com, Sascha Hauer <s.hauer@pengutronix.de>,
-	Joseph Guo <qijian.guo@nxp.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>
-Subject: Re: [PATCH v4 05/13] dt-bindings: net: micrel: Fix RMII clock select
- property type
-Message-ID: <179140535486.208329.1445143309084105314.robh@kernel.org>
-References: <cover.1790693249.git.stefano.r@variscite.com>
- <9a0f70dc168278a484bb336835bf2e419a9d089d.1790693249.git.stefano.r@variscite.com>
+	Karthikeyan KS <karthiproffesional@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>, openbmc@lists.ozlabs.org,
+	devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Dan Williams <djbw@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Dave Penkler <dpenkler@gmail.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	James Morse <james.morse@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>, linux-doc@vger.kernel.org,
+	Alexandra Winter <wintera@linux.ibm.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>, Breno Leitao <leitao@debian.org>,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Chia-Wei Wang <chiawei_wang@aspeedtech.com>,
+	Julian Braha <julianbraha@gmail.com>,
+	Alexander Usyskin <alexander.usyskin@intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Oskar Senft <osk@google.com>, Vitaly Lubart <lubvital@gmail.com>
+Subject: Re: [PATCH v3 3/4] dt-bindings: soc: starfive: Add StarFive JHB100
+ UART routing
+Message-ID: <179140685827.281341.11055156225840359821.robh@kernel.org>
+References: <20260925050947.9900-1-changhuang.liang@starfivetech.com>
+ <20260925050947.9900-4-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9a0f70dc168278a484bb336835bf2e419a9d089d.1790693249.git.stefano.r@variscite.com>
+In-Reply-To: <20260925050947.9900-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,25 +97,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 29 Sep 2026 17:17:32 +0200, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
+On Thu, 24 Sep 2026 22:09:46 -0700, Changhuang Liang wrote:
+> Add device tree binding for the StarFive JHB100 UART routing controller.
+> This controller allows dynamic routing of inputs between built-in UARTs
+> and physical serial I/O ports, enabling use cases such as Host <-> BMC
+> communication via UARTs.
 > 
-> The binding describes micrel,rmii-reference-clock-select-25-mhz as a
-> boolean. dt-schema requires properties ending in -mhz to contain an
-> unsigned integer value. A bare property therefore produces a
-> property-units.yaml type warning.
+> The clocks property exists in the hardware, but the driver does not use
+> it.
 > 
-> Describe 25 MHz selection as <1> and keep the property restricted to
-> KSZ8021, KSZ8031, KSZ8081 and KSZ8091 PHYs, which have the RMII
-> reference clock select bit. The driver checks only for the property
-> presence, so this does not change runtime behavior.
-> 
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  .../devicetree/bindings/net/micrel.yaml       | 27 ++++++++++++++-----
->  1 file changed, 20 insertions(+), 7 deletions(-)
+>  .../soc/starfive/starfive,uart-routing.yaml   | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
