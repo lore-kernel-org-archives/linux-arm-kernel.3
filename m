@@ -4,69 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E2ECA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85387CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 13:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EndcDYuYZFPo86frFhMu07n5NOlKZELpWsp9/YTTj4w=; b=IrUWUAyns7nFNxE1XF04iwN+g/
-	xvahPSG9jNZavQba2+pufHa54PAm16iA5eUrXF7MY4UC/Mr8bC7U53dQBg5VRt/HghLZK20BBB1pH
-	zrVDRuXgQ6HL5MYVjaP0a05Ij4lVczLvDG/lJc1G7iDlWNHl6jlTx+4oQoBoQerhCp73Q+SFpb4hQ
-	8g/wvAoMFICMiMQ+dokD00qN5+m9mIWNrF/V/zupvEgPn/VyX5Qhrsv8OJxro3ev50MZ49TziDBVz
-	dLmYzEZMrFavG9d2N5g96JJgGc0x2QpbpndUazDDz8KfeygBdw4XLZ9yMqZKqQHipSabb6WYkXGl/
-	CayqQnrQ==;
+	bh=k9V3db5fReji9umAIytJxndQ4RbtwZVeS5wxSrOevUg=; b=W0ncOnxADgID2QRmo1pUqzkhX6
+	biL/Oo55UYf4ysfG0T3VwuF5Y4hgR/XAWCAn40aSDrGGJejyL/xS4fVPL9zQm/YuEexPamsArryuu
+	FtgofnHWtKOKRebbEV636irM1EDRduUn2v10qPVE0DUmiMXyQ/Urx3UDzS0fix3xLvFFreAvPXq4W
+	EnUw/XNWMFqn13LXykR7Jb77EqQRZE/qsvJGH9AK1Gkqf7DUfnGdnLx3A1Ritt06tzhcxiAn1CzLd
+	jndYb57xG++v/RFQagNZXbzOtwufoq2g/HOZInNspjMWTT/5xNfnc8vU/fgL8AIMOt9lVf2pRkaGH
+	inq1csTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERzw-00000002Yfg-2M8u;
-	Wed, 07 Oct 2026 13:47:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xES9o-00000002ZNn-2Eje;
+	Wed, 07 Oct 2026 13:58:10 +0000
+Received: from mail-francesouthazon11011033.outbound.protection.outlook.com ([40.107.130.33] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xERzs-00000002YfF-0T1x
+	id 1xES9l-00000002ZNL-2tpu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 13:47:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8231460233;
-	Wed,  7 Oct 2026 13:47:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA331F0089B;
-	Wed,  7 Oct 2026 13:47:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791380871;
-	bh=EndcDYuYZFPo86frFhMu07n5NOlKZELpWsp9/YTTj4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O6HZBQ85bkZge2ZxJ5Fkhm/XMPYaxwbFiJsHQGs/JekNTNOHejiB5sTbxsdF8AQHA
-	 aBFFYFjOeu6gsfYbmsRtgwRSlcE8lVeOn5N4xbvlIH9lVYmPwrzbAdUu3Mie+iG1Rn
-	 ZD1EnlEYqSam5RIy51DCFG5p+0Qzjxg2FYB5xg0xRFIiy191eWnIkIPWKD413cqBg/
-	 45SLo6ZDABFCsX2ZgW7WhMOWHBFXhsjMjd2ktEGbXWPRHIdjutEaPKs0hyYoTm2zB4
-	 D4vobXc8ps3/MEgCAprmWV3iu+KrcKHLWDy44c8VdRMcwyewiEYZbEBmuy/+pI4+v4
-	 z+9+d1PugI2Ng==
-Date: Wed, 7 Oct 2026 08:47:50 -0500
-From: Rob Herring <robh@kernel.org>
-To: Olivier MOYSAN <olivier.moysan@foss.st.com>
-Cc: Conor Dooley <conor@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-Message-ID: <20261007134750.GC2792240-robh@kernel.org>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261001-tribesman-gauze-862e1ef0cdd8@spud>
- <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
-MIME-Version: 1.0
+	Wed, 07 Oct 2026 13:58:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b0mZ7DMO5xPeuO+cWyrvfxJC869YQeV9/dA4+joXExKhir9TQgPPvECZx4QvcH7PlUAJ5A9r2bj/yrz8aDosOspnkBlsGoRz377ZZcLM/OUKdzIkwBBkU8nDOHZvgebNvyfiSRPQItq10i8gUC31zG0mszC9hi1uzhot7r5YpP8dyLKMAmxHkm47Iw/hFufHz6oPHXnXu2CKBHChNrEPV1yPzBhmhi1fVPmhtzuHTVCm47P7V7vXI6yheX9+9sWtdcbB8mqYBo0vQADFswMS04VqS5qXpskY4SmbQ14XAJJH5y63KcdvMcLzhGwJANPQPJuLUKjgF/qmVtVfJ4E/hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k9V3db5fReji9umAIytJxndQ4RbtwZVeS5wxSrOevUg=;
+ b=mysoM0bHa4L+Uji7i06j9JsDA25od5Ya4xQkBFTOyniSd8MIG5Yzui5s48Avbs2mpy4ETTf891fcB4qdac6FtMYuLrWXk7rGmrszia66nvgct+vN6UnJj8HahJ720Y7/IRmv2fdKXJes3XZNrdNsiWLhvZGKOpCpici4oqUD1GKpbLAGvPGKHHlR4OrdqaR+q5kgTBaT/7lVZx5StzPTNpB0OvrZrlR0BtRV0o74/le3U/DoAfV7KHEfDq8t79IlqpeWZo5D7ohK1hMMWPpIf7Dsh5F4xL1G1TZrHGtyWKB/rl3f1+ZD9nBPU+juHQV6Qhu1nkjjSYqNtzpgtrToAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k9V3db5fReji9umAIytJxndQ4RbtwZVeS5wxSrOevUg=;
+ b=PgDeiUji6fEjW0oZ5xQtgoXaMOOqCcqx+W+epHJgtC8fNCfThs8MoIxMXJsY7Yc5txjvSYF5OKK1dOB59hX/nWSpkSdOy4Imc5dYblebxKnr+Z3wdxHgjkDwe/loslSDygIrcYeacvZfEk+P0WlWpjgt4vHnfK/FZva2hxLvXSr4q+nhjthxSaz4Ig9DDbeq+TbKbkTEuRgKhfNTCFMiLzlAMd+hl+OWMaYRSnl2XCXzr/iI6s5UQjMIsbc9CW6SYANkYow693IoYdNielnZT0EOPQE+M9ck8jnlufMp63H5ehNq9A7iwp8vc62EzeVQOEkUK3bEYTXIeEDHtOMhMg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by OSKPR04MB11343.eurprd04.prod.outlook.com
+ (2603:10a6:e10:95::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Wed, 7 Oct
+ 2026 13:57:51 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0496.010; Wed, 7 Oct 2026
+ 13:57:51 +0000
+Date: Wed, 7 Oct 2026 16:57:45 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Ying Liu <victor.liu@nxp.com>, Frank Li <frank.li@oss.nxp.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 6/9] dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb
+ child node
+Message-ID: <jr7zy2oxsuzfjrp4d74tl6gxiz5kg3pxl4qgigbbmtzyvjliwp@xaidoy4qvrdh>
+References: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
+ <20261006-dcif-upstreaming-v10-6-bcfb28de0aae@oss.nxp.com>
+ <20261007-cb2d638508f306f3385c3799@squawk>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+In-Reply-To: <20261007-cb2d638508f306f3385c3799@squawk>
+X-ClientProxiedBy: FR0P281CA0111.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a8::12) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|OSKPR04MB11343:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5392795b-a113-4e24-1eae-08df247afa04
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|23010399003|11063799006|3023799007|10067099003|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: +YKc/bSxo2TezryxigbomLbg4aUMN1bSw+ukJw8bERx9GpEUiwDZU5tw8MZZVgc0TxyS87gr2O19759zDAjwjO+qOArZQRXmE82VGRr63pmt28JxtljmLtI5M1JxljCrPzdu8Iuaokc4NI0dguj3KH7AykUxF9JVH6CK5ifzS3+nLSoMdAiSI6z6TPEGrnq3wSLrF+XQWnU0QyB2uYHnsFvpGj73fnpNC9eD78A3dDZ1BofGcDL8rsUFiR0t0C5xcn2t7YL9JmKf3XDgPs0z2bEvnTrHEzobppOA2VfVXYSRUN6OARE4RCPzaRSLNwT5Wk3HDjzqNrGSsuT1xwrvp0czNx4RGGr0hx/HFQq/1LnwQ0BSpbUwHvnkPairp1l22lDx5AGoTQlmhr7+CP8QL0ht4NrCkemh5FHLMKWg1LUsNmlMxb4oN6zVToYsDIzzmWFKhJjgidBQ8dqxYHnakWDt+MlZr2cY/VLLp0qDVvVZNkiiE23MVlf6/kiV8ibjaqX4A+r+elR/1/JHi6ppSILwvAuAGBagQzv11bAdnFCaLtIVQgBOjEzAhSdD9QKLUG1/qyTMd9Ww8HC7f/dtGgUCBYxNchYbO2ZBlLABs/jmecI6G1f2yTMQq4m0mxd4eyCg4IK3LxVYw0HqQUvMPqnUwnmogDq/zm/4Y36Ch+g=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(23010399003)(11063799006)(3023799007)(10067099003)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?28LqNc0SJzUGS5BPebcRCn2Tf4eFMLLqgBt9pPK8vXJLLmOXy9VvF8s/oOLN?=
+ =?us-ascii?Q?DcLC+FCneF5RAW1ZhVYNu8cU3AcAT7bR1dVti2QPiZrOM2Xr/owpr8rbv3ba?=
+ =?us-ascii?Q?uSx/gkPMrXVBBPuJpp5nhNfSkFoRpThREOi//MgGaTHQQqoEzVtjJCzulqu7?=
+ =?us-ascii?Q?lsXRKNbP+zjUPctR/XzVuxeyay5WY3IRw4W/uvxd0ng1J3ooTqvPSxOxX5yJ?=
+ =?us-ascii?Q?OhOl1WpeQ+3EWXeUY3ihh+u85yYhPWXWa5Jz2/llxzXdmPdRUp6qCz73qiHp?=
+ =?us-ascii?Q?HSbuDctyeaK4NZncvTuyoqOwWHsNyjQZxyzkpG3/kEgcN27tq7PlZgM/1Rlm?=
+ =?us-ascii?Q?GBi0do1axj7+7nAJJOGYuz2kANQic6KUVrYcRMGmkSh4YSQrI8ZbZsMXdTqd?=
+ =?us-ascii?Q?iOsahEaB/5zd7w/88L6XfSQuYqhCv0ZFg3xdXCcO2Eh3RFYo5O4mwUYDDzHu?=
+ =?us-ascii?Q?UPhKS4b/I95b3PYA56Nx87o+NIuIkCMJOTd4v/t16+MarxrZLVB2QJcsPbaw?=
+ =?us-ascii?Q?Ix/UfuTFEK38yrhRNPDAaEVVY41ITlSLNN/PnDO12jWYk9rbItbp1mqjX/Xj?=
+ =?us-ascii?Q?kN4jQ9OFy6JqoAj8ujqZJJ3FBVlZmlcwEC0H0YVPgjjPyMClIC+IkrPWrcKN?=
+ =?us-ascii?Q?8D6Ctb0Y50QfwaCtxyajkZkwYVpffaY3Vx2Psb+VMSMpCiii+dhx8+V88Nul?=
+ =?us-ascii?Q?/Fe2PtSt93bZv2g4y6dGBEvJfB8gQJY2258FetHFyVci8jM/vmm7zMsxj+Ev?=
+ =?us-ascii?Q?AX4k5cIlHgzAD8XRPh4b/gcwjhD0XptnaDHgyCTIAGDLMli2Vz6c7AkCWiOg?=
+ =?us-ascii?Q?GumLY4/8EerZLdVOrNQdG7mb/1nMTSP8/r8SyIoA49fFut7pBjrc6HJ0IHgw?=
+ =?us-ascii?Q?BB7zhcflYCbsYpChv/3jWTvD6NqcOvNfOer/K5Y85LswZ5lhR+VMacI+H3u5?=
+ =?us-ascii?Q?s7TBR7SJ8+9fNZvgTLEq9QN1mICLzRLClkpDvCGU3lhD7gLKrkmxZfNdX96a?=
+ =?us-ascii?Q?NCh8F1KBYM/uSMrMJgzXTeYfMDpsAdy7JRkMpMQvyLJdi4ARKu9u/4wpuav0?=
+ =?us-ascii?Q?BHSzAz+H0RBWtcXqfNRQJfsrK7t9dKHOxG5U2OV864pYBHgs9qJyVZDYF866?=
+ =?us-ascii?Q?8o/2bLT83KpAxOe4w4dmiFBAUwKzI8lwbqGV8hnqS7IhYHjJpRt6DIpLPoIN?=
+ =?us-ascii?Q?Dl1zWPRkhw33Ir4IE3UDqFDK9f+IZ7F65VkvxUOPB569LM2ZMlHq61AbFJr/?=
+ =?us-ascii?Q?D0gKXrf/62qPq8LnQgiqJAA0tQDBi3yAKR3Xkm9W18VGrsfZ0qk1h7JzOcQT?=
+ =?us-ascii?Q?hUcgwwCgkSizzklAYEIJzhLz3SZd0Ui49ITGElV4mlNxdAEXQ3M/VmHvgG3j?=
+ =?us-ascii?Q?F5Etpl12Q35RZA39miLuI0oZ0Fcs+gN351uyt7pGlEp3SYjaLikoAF9Rkpdg?=
+ =?us-ascii?Q?EoF+QR0JjcGQGYEcnQHvKD0M/5JjtaoW7WNrnUDTl1MtL9N08UTI0K0tohTx?=
+ =?us-ascii?Q?6a87/LFwFvMvDYrx6lFT6TQ6BACUawxFF0xEkZ/IZfmm6iyvydzra/A7ZYx3?=
+ =?us-ascii?Q?jhpa9vJb7rrb2etO/6AlTYa7Yj/V0nQpwTnhJnL/nLx/+lel9lVkqa/nAsES?=
+ =?us-ascii?Q?0zGYw6tGt0MnEP06IsnYB+Y8jvs7VRWpo1CeItzPobsdZkBlZGyLDNaQZSHc?=
+ =?us-ascii?Q?gegUxdXRgsPezbk/y81Th7nUPa4T2AhgNMlS5+wbT+CRXSevpTynzjPDmSv8?=
+ =?us-ascii?Q?S8kIVF3/ItnelFWLiyrwHTPIEgPXhdQ=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5392795b-a113-4e24-1eae-08df247afa04
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2026 13:57:51.1038
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rKMF7v2D2MSv9sIW0mIJJQaPk7ILghXLL5T8XpCOLdIw7BB0P9gLhFD4ZQjtx/N4nu+9ZeclCZSWLjgDJDD7LA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11343
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_065805_784662_E63CB97F 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,154 +147,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
-> Hi Conor,
-> 
-> Thanks for the review
-> 
-> On 10/1/26 20:32, Conor Dooley wrote:
-> > On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
-> > > Add bindings that describes STM32 MDF settings to support
-> > > digital filtering for Pulse Density Modulation (PDM) microphones
-> > > and analog sigma delta modulators.
-> > > 
-> > > Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> > > ---
-> > >   .../bindings/iio/adc/st,stm32-mdf-adc.yaml    | 383 ++++++++++++++++++
-> > >   1 file changed, 383 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-> > > new file mode 100644
-> > > index 000000000000..f2fbc3e150e8
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-> > > @@ -0,0 +1,383 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
-> > > +
-> > > +maintainers:
-> > > +  - Olivier Moysan <olivier.moysan@foss.st.com>
-> > > +
-> > > +description: |
-> > > +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
-> > > +  interface external sigma delta modulators to STM32 micro controllers.
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    enum:
-> > > +      - st,stm32mp25-mdf
-> > > +      - st,stm32mp23-mdf
-> > > +
-> > > +  reg:
-> > > +    minItems: 1
-> > > +    maxItems: 2
-> > 
-> > This needs an items list here. The size of the regions seems like crap
-> > to begin with...
-> > 
-> > > +
-> > > +  clocks:
-> > > +    maxItems: 1
-> > > +
-> > > +  clock-names:
-> > > +    description: Internal clock used for MDF digital processing.
-> > > +    items:
-> > > +      - const: ker_ck
-> > 
-> > This is pointless when you only have one.
-> > 
-> 
-> I agree that it could be dropped. However, it is useful for using
-> devm_regmap_init_mmio_clk.
+Hi Conor,
 
-I don't know what that function is/does, but that's not justification 
-for bindings. Maybe you need a helper that handles a single clock. Or 
-that function could take a NULL string for single clock? 
-
+On Wed, Oct 07, 2026 at 02:12:52PM +0100, Conor Dooley wrote:
+> On Tue, Oct 06, 2026 at 12:22:01PM +0000, Laurentiu Palcu wrote:
+> > Since the BLK CTL registers, like the LVDS CSR, can be used to control the
+> > LVDS Display Bridge controllers, add 'ldb' child node to handle
+> > these use cases.
+> > 
+> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > ---
+> >  .../bindings/clock/nxp,imx95-blk-ctl.yaml          | 24 +++++++++++++++++++++-
+> >  1 file changed, 23 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> > index fbbf1b3f17904..97fe816a38f94 100644
+> > --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> > @@ -51,6 +51,10 @@ patternProperties:
+> >      $ref: /schemas/media/fsl,imx95-csi-formatter.yaml#
+> >      unevaluatedProperties: false
+> >  
+> > +  '^ldb@[0-9a-f]+$':
+> > +    type: object
+> > +    $ref: /schemas/display/bridge/fsl,ldb.yaml#
 > 
-> > > +
-> > > +  "#clock-cells":
-> > > +    enum: [0, 1]
-> > 
-> > Why is this not fixed? Also why are parts of your own device consuming
-> > the clocks?
-> > 
-> > > +
-> > > +  clock-output-names:
-> > > +    description: |
-> > > +      CCK0 and CCK1 are optional output clocks, which share the same clock frequency,
-> > > +      but can be gated independently to save power.
-> > > +    minItems: 1
-> > > +    maxItems: 2
-> > > +    oneOf:
-> > > +      - items:
-> > > +          - const: cck0
-> > > +      - items:
-> > > +          - const: cck1
-> > > +      - items:
-> > > +          - const: cck0
-> > > +          - const: cck1
-> > > +
-> > > +  clock-frequency:
-> > > +    description: |
-> > > +      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
-> > > +      The frequency must be a multiple of the "ker_ck" clock frequency.
-> > > +    maximum: 25000000
-> > 
-> > Should not be needed, the consumers request what they need.
-> > 
-> 
-> The CCKx clock frequency depends on the maximum rate supported by the sigma
-> delta converters (for instance a digital mic) and the expected decimation
-> ratio on the bitstream. Typically this determines the frequency on the SPI
-> bus.
-> This rate is defined statically and shared by the CCKx clocks. So IMHO, as
-> this rate is unique, it can look strange to let the consumer define it.
-> Moreover, it seems to me that clock-frequency is already used to configure
-> the frequency of a provider in some other bindings.
-> For instance: Documentation/devicetree/bindings/clock/silabs,si570.yaml
-> So, it's not clear for me, what is the restriction on clock-frequency
-> property.
-> > > +
-> > > +  ranges: true
-> > > +
-> > > +  clock-ranges: true
-> > > +
-> > > +  resets:
-> > > +    maxItems: 1
-> > > +
-> > > +  reset-names:
-> > > +    items:
-> > > +      - const: mdf
-> > > +
-> > > +  access-controllers:
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> > > +    description: |
-> > > +      Phandle to the rifsc device to check access right.
-> > > +
-> > > +  power-domains:
-> > > +    maxItems: 1
-> > > +
-> > > +  st,interleave:
-> > > +    description: |
-> > > +      List of phandles of interleaved filters. The indexes of interleaved filters must be
-> > > +      consecutives starting from 0 (i.e in range [0..N]). The samples from interleaved filters
-> > > +      are muxed in a single channel and retrieved through the device associated to the filter 0.
-> > > +      The filters 1..N have to be enabled, but inherit their configuration from filter 0.
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> > 
-> > No idea what these even are, but this is probably not the right way to
-> > represent the relationship between devices. They're apparently ADCs, but
-> > this is also an ADC so I'm not sure what's going on here at all.
+> The class of device is bridge, why not use that here?
 
-I don't under it either, but regardless phandle-array needs constraints 
-on the items. It's really a matrix with array of phandle+args arrays.
+I'm sorry, your question is a bit vague... Are you referring to renaming
+the pattern to '^bridge@[0-9a-f]+$'? If yes, I don't have strong
+opinions against it. I can do it in the next iteration.
 
-Rob
+-- 
+Thanks,
+Laurentiu
 
