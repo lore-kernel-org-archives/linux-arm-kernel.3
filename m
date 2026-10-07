@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA85CA5FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 08:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFB8CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 08:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B1Uiwh5jX0BC4w6e0wMBFDp0eTMeyg7ke9kUoqxSZi0=; b=pFly+RhiX4z60u6DqmYep/QvkU
-	aTQBl8F/SsUtO24HpB2K7N08ZcZx9jORkvcv9iZcDtwmd/2oyHkOaHRaD2WY/d3a6rdY8aDeNgkG4
-	+r96bERCyk/SwBAmDx1KyFdJIH49Bsb5E4fRj9m2sVurVys/EgWWggJNvvwl1KtdxndvoBDcOPTd5
-	+LfbeuH6gX8ZlZ8u72Y6QPw6+LuabmzmmebmLQ6dIq4ypMtnhNTT19kreV/eQRY7mr8FpEJow8z4B
-	0jJPBAJ0zo3Fbvkh4IF+rRiGunMQ6ek7xaataERrXf6nMDSdon6e5J2Yoh4OhqwmTlgnzgL5CH1y+
-	YsLHEdDQ==;
+	bh=+tRvYPXoN+7/ZzFMbu9CMAZ1Cq5cwCvkdJCdn+ymaiM=; b=hoajvrmyZFpv+mQ9Oy+uL+YS/F
+	/40j+jsXetU/lXqHEVfvzWjagrluQP0r2R9MlCN/4ghha5xv4IJG9uLGgJ3V/iDMmZ+rrnAgmN4PW
+	sXSqb/KdoP4EWFAQlacm7XnNI2moDyfF1FjoKOwWwHSoLjMMuzM62HvA030kOFN3ArVrx/8pI0D0C
+	RjY1gZQ8/M4TLywL1wyz0xtuh0apoOh5qadBS+xrurjeWYql4QXaVO8m5NnOv8uvvMzy5FMD++n2o
+	DmqbvCcuUGfGCdETFMiByimxdj95FtCozn0bTLYbtWBCv4dYskllUePWjWK9KhdB0V00fzWz7kRg2
+	nlaAJkag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMin-00000001vZo-3Edn;
-	Wed, 07 Oct 2026 08:09:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEMil-00000001vZC-1Ijo
+	id 1xEMqP-00000001vve-2Xa7;
+	Wed, 07 Oct 2026 08:17:45 +0000
+Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEMqJ-00000001vv9-32yC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 08:09:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FAFD1477;
-	Wed,  7 Oct 2026 01:09:45 -0700 (PDT)
-Received: from NH27D9T0LF (unknown [10.57.10.243])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 613683F86F;
-	Wed,  7 Oct 2026 01:09:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791360588; bh=XkR9yeNdMSFEwvPlpk4SbHA8XMyXCGDkACApJUQd+iE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eG5BO9Flg7nSzjbWy5bqmKFKgAHlOCOJlq2tABAMJWVnr/aRSBRa28JtcMNCyyeqW
-	 L+w+oytM08OB3NUR7Q0vZuiCxVworucaLfx7Gl44JfOHnZsKOe6OQAPHyFm0cmebfY
-	 whZMe1g0GAvtVEubvL+paqu6vV/2PJFTlSlZdG60=
-Date: Wed, 7 Oct 2026 10:09:37 +0200
-From: Emanuele Rocca <emanuele.rocca@arm.com>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
-	linux-modules@vger.kernel.org, broonie@kernel.org,
-	jpoimboe@kernel.org, nathan@kernel.org, nsc@kernel.org,
-	mcgrof@kernel.org, petr.pavlu@suse.com, da.gomez@kernel.org,
-	samitolvanen@google.com, atomlin@atomlin.com,
-	ndesaulniers@google.com, mark.rutland@arm.com, will@kernel.org,
-	catalin.marinas@arm.com, ardb@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC 0/3]  kbuild: modules: Fixup arm64 BTI relocations
-Message-ID: <asX-QZPtpUG5UdBU@NH27D9T0LF>
-References: <20261006221815.2823252-1-jeremy.linton@arm.com>
+	Wed, 07 Oct 2026 08:17:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1791361059; x=1822897059;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MyqC3h/MCGtGNFcHgQdVBKkmwX4hPvWFwf5yZpwYALk=;
+  b=ruv7TuZpfcWfv9p2BXioIX57xhst8ZokYCXAnlAkNKbw88LEqtIRL0Q7
+   7jsAyhka6Ns0ju/cInNbgYDhjBNvj6dVvt7lASS2qijX9HLRUzG0nHjzT
+   yMXCTiQGp5pTqe4jVM7Nd+SRMAPSK3fsgKSMp/ALKFetO+1BRTjpHnLUR
+   evphvUquSsCVO2GC1GWlefqsAGu66Fe8ciOU0ge2LGak7pa7OE+BRQ3mN
+   fHR3NR2JlQ4Jn698n6tKZtJQn7FABoKiT67ZRN1tsEgn6/5ycbLl64CVg
+   8Ox/73vwqIqFTF5yZnTgtOE2v3dxq+Vv+PkMHVoP4o39Wm8b5Qm1jS6rM
+   A==;
+X-CSE-ConnectionGUID: KjVNxBr5SceW2r8G88jllw==
+X-CSE-MsgGUID: qby6RJpkSHSbatu2EQAc8g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11927"; a="261335967"
+X-IronPort-AV: E=Sophos;i="6.27,144,1786978800"; 
+   d="scan'208";a="261335967"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Oct 2026 17:17:37 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 446CC42A325
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 08:17:37 +0000 (UTC)
+Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id EA7FFC012A9
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Oct 2026 08:17:36 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.51.148])
+	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 9AEAF2000AA7;
+	Wed,  7 Oct 2026 08:17:31 +0000 (UTC)
+Date: Wed, 7 Oct 2026 17:17:29 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA
+ erratum E#030003
+Message-ID: <asX5CiaDodoFrn0q@FCCLS0092175.localdomain>
+References: <20261002-monaka-fix-for-upstream-v1-0-4aec0b0cbe34@fujitsu.com>
+ <20261002-monaka-fix-for-upstream-v1-4-4aec0b0cbe34@fujitsu.com>
+ <86tsn42sqr.wl-maz@kernel.org>
+ <asS5r0WNCQpMIo4p@FCCLS0092175.localdomain>
+ <878q4b2mj5.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261006221815.2823252-1-jeremy.linton@arm.com>
+In-Reply-To: <878q4b2mj5.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_010951_440544_C2D80B69 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20261007_011741_448357_C12E7175 
+X-CRM114-Status: GOOD (  38.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +101,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-06 05:18, Jeremy Linton wrote:
-> The kernel module loader, the arm64 ABI, GCC/Clang, and the static
-> linkers operate with slightly different assumptions about which
-> functions require BTI landing pads.
-> 
-> A static function called only directly does not normally need a BTI
-> landing pad, so compilers omit it. A static linker producing an ET_REL
-> module treats R_AARCH64_CALL26 as a direct branch and leaves the
-> relocation for the module loader or later link pass. It does not know
-> the final distance between sections or whether the loader will later
-> require an indirect branch fixup.
-> 
-> This matters when a caller and callee are placed in different sections,
-> for example by __init. The arm64 module loader may replace such a
-> CALL26 relocation with a fixup containing an indirect branch, making an
-> otherwise direct only function a BTI target. Ftrace makes this more
-> likely because its entry NOP can replace a PAC instruction that would
-> otherwise be a valid BTI landing pad.
-> 
-> A linker could conservatively add veneers to affected cross section
-> calls, but that would require knowledge of arm64 module loader fixup
-> semantics and is not part of the generic relocatable link contract.
-> 
-> Lets fix this by handling the module specific transformation during
-> the kernel build. Scan cross section calls and, when the target lacks
-> a BTI compatible landing pad, place a veneer in the target section,
-> redirect the relocation to the veneer, and branch directly from the
-> veneer to the original function entry.
-> 
-> Jeremy Linton (3):
->   kbuild: modules: Add arm64 BTI fixup utility
->   kbuild: modules: Build and trigger BTI scanner for arm64
->   arm64: bti: Drop compiler specific BTI checks
+Hi Marc,
 
-Tested as follows on BTI-capable hardware:
+On 10/06 10:42, Marc Zyngier wrote:
+> On Tue, 06 Oct 2026 10:08:19 +0100,
+> Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> > 
+> > On 10/02 13:26, Marc Zyngier wrote:
+> > > On Fri, 02 Oct 2026 11:26:52 +0100,
+> > > Tomohiro Misono <misono.tomohiro@fujitsu.com> wrote:
+> > > > 
+> > > > From: Kohei Enju <enju.kohei@fujitsu.com>
+> > > > 
+> > > > On affected FUJITSU-MONAKA CPUs, an SGI generated by writing to
+> > > > ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1 may be lost if the
+> > > > operation races with CPU interface processing triggered by the arrival
+> > > > of a higher-priority interrupt, an update to a pending interrupt, or a
+> > > > transition of the PE to the Sleep state. When this occurs, the system
+> > > > register write does not complete, causing the issuing core to hang.
+> > > >
+> > > 
+> > > Is the SGI lost? Or is the sender core hanging?
+> > 
+> > Both: the SGI is lost, and the sysreg write does not complete, causing
+> > the sending core to hang.
+> 
+> I don't think the two are distinguishable. You might want to simplify
+> the commit message to simply say that the CPU hangs.
+> 
+> [...]
+> 
+> > > > +		 */
+> > > > +		for_each_cpu(cpu, mask)
+> > > > +			gic_send_sgi_via_rdist(cpu, d->hwirq);
+> > > > +
+> > > > +		/* Force the above writes to GICR_ISPENDR0 to be executed */
+> > > > +		dsb(st);
+> > > 
+> > > This doesn't force things to be executed. This is about completion of
+> > > the access, and with an nGnRE mapping, it doesn't enforce that the
+> > > stores actually reach the RDs, only an arbitrary point in the memory
+> > > subsystem.  The only way to guarantee this is to perform a read-back.
+> > 
+> > Understood.
+> > 
+> > I hadn't considered this when writing v1, but on further reflection, I
+> > don't think gic_ipi_send_mask() needs to wait for the target CPUs to
+> > handle the IPIs.
+> 
+> It's not about the target CPU handling the IPI, that'd be crazy. It is
+> about making sure that the IPI request has been observed by the HW and
+> that it is not going to race with something else.
+> 
+> > Given that the GICv2 driver does not wait for MMIO
+> > write completion either, I don't think we need to ensure completion of
+> > these writes before returning.
+> 
+> GICv2 has different architectural requirements (i.e. none). GICv3 is a
+> bit clearer, see the requirements at the end of 12.1.3 in IHI0069H.b.
+> 
+> > 
+> > If my understanding is correct, I'll remove the dsb(st) in v2.
+> >
+> 
+> As indicated in the spec, you either need nGnRnE+DSB, or a read-back.
+> Given that Linux uses nGnRE for all device mappings, read-back is the
+> only option here.
 
-- Built a kernel with these patches and CONFIG_ARM64_BTI_KERNEL=y
-- Verified that a test kernel module can successfully branch indirectly
-  to a valid 'bti c' landing pad
-- The same test kernel module triggers an Oops - BTI if branching
-  indirectly to a nop
+I understand that section 12.1.3 describes how software can guarantee
+completion of a memory-mapped GIC write. With an nGnRE mapping, if the
+GICR_ISPENDR0 writes must complete before gic_ipi_send_mask() returns, a
+read-back from each target Redistributor is needed.
 
-  Internal error: Oops - BTI: 0000000036000002 [#1]  SMP
-  Modules linked in: bti_probe(OE+) binfmt_misc nls_iso8859_1 aes_ce_blk [...]
-  
-  [...]
-  
-  pc : bti_bad+0x1c/0x28 [bti_probe]
-  lr : bti_bad+0x14/0x28 [bti_probe]
-  sp : ffff800083933a40
-  x29: ffff800083933a40 x28: 000000000000000c x27: 0000000000000000
-  x26: 0000000000000000 x25: ffff800083933c90 x24: ffffaaa7c52c7058
-  x23: ffffaaa7567d1040 x22: 0000000000000000 x21: 0000000000000000
-  x20: ffff0000d11cd100 x19: 0000000000000001 x18: ffff800083795058
-  x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-  x14: ffffffffffffffff x13: 7465677261742049 x12: 54422064696c6176
-  x11: 6e6920676e697265 x10: 0000000000000000 x9 : 0000000000000000
-  x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-  x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
-  x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffaaa7567cf044
-  Call trace:
-   bti_bad+0x1c/0x28 [bti_probe] (P)
-   bti_probe_init+0x78/0xff8 [bti_probe]
+What I am trying to understand is whether completion at this point is an
+architectural requirement for this particular write, or a requirement of
+Linux's ipi_send_mask() interface.
 
-No Oops was hit, as expected, booting the kernel with arm64.nobti.
-Other than that, the system works fine under regular workloads.
+I could not find an explicit completion requirement for ipi_send_mask()
+itself. The normal GICv3 path also appears to return after an ISB,
+without the DSB described in section 12.1.6 as necessary to guarantee
+that the associated Redistributor has observed the write. This is why I
+am unsure what completion guarantee is required here.
 
-Tested-By: Emanuele Rocca <emanuele.rocca@arm.com>
+More specifically, I would like to understand:
+- What could an outstanding IPI request race with?
+- Which component must have observed the request before
+  gic_ipi_send_mask() returns: the CPU interface, the sending PE's
+  Redistributor, or the target Redistributor?
+
+A pointer to the relevant architectural requirement or an example of
+such a race in Linux would help me understand why completion is needed
+here.
+
+Thanks,
+Kohei
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
