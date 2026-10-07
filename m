@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26668CA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C75CA5FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 06:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1SrZOwOpPGvr682qtQj7v10hg9Xb/9XHviTt5U6/kQE=; b=Xq0PkdZjoQ+4lzlzny0EUawS+1
-	WEXoo2q1+G9pVME8VDIGCOwwkPKLYD8DVHQzb2xhIXxyPT0E0UOEjybCkw/6cFD40hmJ2p1Zys4c4
-	1yS6gLRYCUNorCcTsJ5qSeXERWTpYMXMuZoTg5Vh1i5OWcgFN/qmcZI2PPUo9FU1PtKVZN65mUmna
-	11I2P7D6SXTA4/H8vK8toHCUw9eJ6utkWl1lxksAsOVSU4/aZ1IAQ+8f7woh89U88NNoyfZNwPSF4
-	DQMo2ImAE3c7vXA3ax86TsVgSVQ0vwOWgGXD+vWqS1eg9QbkXbrKViXuC1U3V/ZUbs08ghVgDsrpo
-	1hFBsDPw==;
+	bh=h6mC5gouCVbnPpIWH6PvssVvG14mUbdc3x26LBB0I8I=; b=HN+BE7cl76HmZ8ViDDdjLLROs7
+	KUFWsnHp/5yykIjXBrewbSyAbAT8NPOivtg5/uVjxtiCLTaPyqEsmyOS0p3LexttNOyT0sUtm3ks8
+	jHbvow1YE6Xp1i5AKVdPMgOXhVrwzuAHR6sBAS03LIGDXFoywR1QWcribuNBLKHnsragdCm1o3609
+	QDNFXWP8AV24e5on3DvPqBGHfGrQMqpEiBVoC3XlZldr+57Omb26929P2btc3KoKT/ZipMrHN+STQ
+	s5UYu6tWLndqx9YHGYA3X4KU36ge0guAd5LHX/VwfrCkyqWdsylCzBa3ZcXmqRMG3Nvr9D+Kcyprj
+	eKdJy3bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKuY-00000001l8I-17d0;
-	Wed, 07 Oct 2026 06:13:54 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEKuO-00000001kor-06mw
+	id 1xEL2N-00000001liQ-13Dj;
+	Wed, 07 Oct 2026 06:21:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEL2K-00000001li0-0Lwe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 06:13:45 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 7 Oct
- 2026 14:13:20 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 7 Oct 2026 14:13:20 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 7 Oct 2026 14:13:26 +0800
-Subject: [PATCH v5 9/9] MAINTAINERS: Step down as Aspeed AST2500 EDAC
- driver maintainer
+	Wed, 07 Oct 2026 06:21:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67C64152B;
+	Tue,  6 Oct 2026 23:21:48 -0700 (PDT)
+Received: from [192.168.11.117] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2348C3F86F;
+	Tue,  6 Oct 2026 23:21:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791354111; bh=8ZNP+eN6vCrL+iGyOoR1uaih4obSA7WOGz3y1ZjVqYk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oMrbqgGBmgkJgSFy4CRZB9AV/JtK3odhZMstMmzY1xcH06SyUlfPhpJvm4nY+tgX3
+	 IHnFLy17JY6p0V+Dla5NJfTbIaGQJ0F5/+tCjTog+IJZTMR+OGSaBRUmJQYvfHSJH6
+	 FXBcV1Y9iGxlFKaGY81JU08On6duXZGPwO1KkqlY=
+Message-ID: <dc663e58-b366-4f97-a260-0aff278f2f6f@arm.com>
+Date: Wed, 7 Oct 2026 07:21:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] arm64: insn: remove deprecated memory barrier types
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
+ <vsethi@nvidia.com>, Tejun Heo <tj@kernel.org>,
+ Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Lucas Wei <lucaswei@google.com>, Barry Song <baohua@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
+ <20260928133034.243541-2-ada.coupriediaz@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260928133034.243541-2-ada.coupriediaz@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261007-edac-v5-9-5c31fc5df4cf@aspeedtech.com>
-References: <20261007-edac-v5-0-5c31fc5df4cf@aspeedtech.com>
-In-Reply-To: <20261007-edac-v5-0-5c31fc5df4cf@aspeedtech.com>
-To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
-	<ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791353599; l=2899;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=bDs78TovOiEla5SjPmAGjuluwjR862LQa8Dvh1qFJ6U=;
- b=iJI5S86hmwv4qvKvUcIM3lFjKMoRFbkmbTC2kFDjUIulT0PBF8xF1sV49SVSv08vAZ9PmmVP+
- 5Nm+nCS9sPIAUF/ABG/Z5sbzekLvbhwQ9gaP8Kk7CIUAeIc4goTPUz9
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_231344_086312_9008907C 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20261006_232156_418629_6DE33F3F 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +79,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan M Schaeckeler <sschaeck@cisco.com>
+Hi Ada,
 
-I am stepping down as a maintainer for drivers/edac/aspeed_edac.c and
-Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
+On 9/28/26 14:30, Ada Couprie Diaz wrote:
+> Arm ARM DDI 0487 version M.c[0] deprecated a number of types
+> used as options for the DMB and DSB instructions, with no change
+> in behaviour.
+> The deprecated types are not used in the kernel, so remove them
+> from our instruction generation framework and add the missing
+> `AARCH64_INSN_MB_OSH` case in `__get_barrier_crm_val()`.
+> 
 
-Move my entry from the MAINTAINERS file to CREDITS to reflect my past
-contributions.
+Arm ARM says that OSH has the same behaviour as SY, so I'd assume
+any user of OSH should be fine to upgrade to SY, no?
 
-[ ryan: keep the EDAC-AST2500 entry and list myself as its reviewer
-  rather than removing it, and take over the binding's maintainers
-  field ]
+> This simplifies the switch-case and now covers all the enum types,
+> which allows for making the DSB and DMB generation non instrumentable
+> in a follow-up commit.
+> 
+> [0]: https://support.arm.com/documentation/ddi0487/mc/
+>      (See C6.2.150, C6.2.152)
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/insn.h |  6 ------
+>  arch/arm64/lib/insn.c         | 10 ++--------
+>  2 files changed, 2 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 1ce75a4426387..8ec9d86cc575c 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -302,14 +302,8 @@ enum aarch64_insn_mb_type {
+>  	AARCH64_INSN_MB_ST,
+>  	AARCH64_INSN_MB_LD,
+>  	AARCH64_INSN_MB_ISH,
+> -	AARCH64_INSN_MB_ISHST,
+> -	AARCH64_INSN_MB_ISHLD,
+>  	AARCH64_INSN_MB_NSH,
+> -	AARCH64_INSN_MB_NSHST,
+> -	AARCH64_INSN_MB_NSHLD,
+>  	AARCH64_INSN_MB_OSH,
+> -	AARCH64_INSN_MB_OSHST,
+> -	AARCH64_INSN_MB_OSHLD,
+>  };
+>  
+>  #define	__AARCH64_INSN_FUNCS(abbr, mask, val)				\
+> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+> index e70ac02385153..c70820d65805f 100644
+> --- a/arch/arm64/lib/insn.c
+> +++ b/arch/arm64/lib/insn.c
+> @@ -1572,16 +1572,10 @@ static u32 __get_barrier_crm_val(enum aarch64_insn_mb_type type)
+>  		return 0xd;
+>  	case AARCH64_INSN_MB_ISH:
+>  		return 0xb;
+> -	case AARCH64_INSN_MB_ISHST:
+> -		return 0xa;
+> -	case AARCH64_INSN_MB_ISHLD:
+> -		return 0x9;
+>  	case AARCH64_INSN_MB_NSH:
+>  		return 0x7;
+> -	case AARCH64_INSN_MB_NSHST:
+> -		return 0x6;
+> -	case AARCH64_INSN_MB_NSHLD:
+> -		return 0x5;
+> +	case AARCH64_INSN_MB_OSH:
+> +		return 0x3;
+>  	default:
+>  		pr_err("%s: unknown barrier type %d\n", __func__, type);
+>  		return AARCH64_BREAK_FAULT;
+> -- 2.43.0
+> 
 
-Signed-off-by: Stefan M Schaeckeler <sschaeck@cisco.com>
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Link: https://lore.kernel.org/r/20260920225846.4039017-1-sschaeck@cisco.com
+It looks like NSH, ISH and OSH applies to DSB and deprecated in case of DMB
+which is slightly confusing. Given that we drop bunch of encodings perhaps we
+can inline logic in aarch64_insn_gen_d{m,s}b()?
 
----
-Changes in v5:
-- Also hand over the maintainers field inside the binding, which
-  get_maintainer.pl reads directly for .yaml files.
-
-Changes in v4:
-- Merge Stefan's step-down patch into this one, keeping the MAINTAINERS
-  entry alive with a reviewer instead of removing it.
-
-Changes in v3:
-- New patch.
----
- CREDITS                                                           | 8 ++++++++
- .../devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml       | 2 +-
- MAINTAINERS                                                       | 2 +-
- 3 files changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/CREDITS b/CREDITS
-index 091412875a66..28e5b274bc28 100644
---- a/CREDITS
-+++ b/CREDITS
-@@ -3655,6 +3655,14 @@ D: I2O kernel layer (config, block, core, pci, net). I2O disk support for LILO
- D: XScale (IOP, IXP) porting and other random ARM bits
- S: Portland, OR
- 
-+N: Stefan Schaeckeler
-+E: sschaeck@cisco.com
-+E: schaecsn@gmx.net
-+D: Author and initial maintainer of the Aspeed AST2500 EDAC driver
-+S: 2253 Anna Dr.
-+S: Santa Clara, CA 95050
-+S: USA
-+
- N: Eric Schenk
- E: Eric.Schenk@dna.lth.se
- D: Random kernel debugging.
-diff --git a/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml b/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
-index 685b6815f293..971d4c862fe7 100644
---- a/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
-+++ b/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
-@@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Aspeed BMC SoC SDRAM EDAC controller
- 
- maintainers:
--  - Stefan Schaeckeler <sschaeck@cisco.com>
-+  - Ryan Chen <ryan_chen@aspeedtech.com>
- 
- description: >
-   The Aspeed BMC SoCs support DDR memory with and without ECC (error
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d413dac5c8b3..2001466fd6da 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9283,7 +9283,7 @@ F:	Documentation/devicetree/bindings/memory-controllers/marvell,mvebu-sdram-cont
- F:	drivers/edac/armada_xp_*
- 
- EDAC-AST2500
--M:	Stefan Schaeckeler <sschaeck@cisco.com>
-+R:	Ryan Chen <ryan_chen@aspeedtech.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
- F:	drivers/edac/aspeed_edac.c
-
--- 
-2.34.1
-
+Cheers
+Vladimir
 
