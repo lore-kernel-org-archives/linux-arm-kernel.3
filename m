@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBA2CA5FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 16:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D243CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Oct 2026 16:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1IfjdTXTeMtFvfYmSgHgSWxseH4ny8bXUP4IkA9zAgQ=; b=3gKhjQYX9a1YP/n8z+JeU5uAny
-	FsmvBT2pdhwE5d3NRqVCLIAVuqmryW9sARSYQF31sgCc/jZuBpO27UZEb3uEyT/BDHMNSFnyxqfe5
-	53nuZ+LNV06gDT5PW66moilWNWwEzBlBO7UkAjGQo6iZEaAaQM978AAh/hGFHjbIP8Ne5JlKEd/cR
-	cb4x/53F4icMWPmdXENHUSSIuLRPMKfMn9k5W/rEDkyIugEsskRwlnogBDz5hbsDt54g492rMuvaF
-	18Bmf7NvmrRFZW3L6n/z9ic01t3l6OfgvnlDLsicXxeHtciDj45ercyNFF870ElKgL7nJyOUB9hhH
-	Rk+vCaYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dn31MxcyFp9XgkThfp9ufR5XFYUM2dKIRC6JYuSpzj4=; b=ENXldODJdTLtMw
+	xZGyo7rvz45dlDafTS13EnV4CBHNUNsTyO9Xvk7WmYOQMWSup4EVHOjIxgEJSEkgT9DIhjI+wS4Mj
+	8l8CiRYXJrHl8eOTJnnaIWIb0VSiYrrQqzLfjKWSP6BeOFfGJri3By4fYz/3cXvHMoHlynb3LTRib
+	gaNjfIhY3npU7GbIE7MIWVMJKDp16HLgwlkT+ynVPmv2R0GJCmuePz61HUIIjyW5XJfMmw1kEe75o
+	DPVwfT2bAZ7rkm/oLUH7jQCn3dJh8BI8Sg+og1TnW/HOHa9F3v+q/nM7rjwbALNEgudFGk2MPcVgr
+	6ElKipDZmL7Wdx48qdLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEURE-00000002lE3-2bAe;
-	Wed, 07 Oct 2026 16:24:16 +0000
+	id 1xEUYh-00000002lbz-1ytW;
+	Wed, 07 Oct 2026 16:31:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEURB-00000002lDb-10St
+	id 1xEUYd-00000002lbE-2DFg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Oct 2026 16:24:14 +0000
+	Wed, 07 Oct 2026 16:31:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC3C31595;
-	Wed,  7 Oct 2026 09:24:05 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ED823F763;
-	Wed,  7 Oct 2026 09:24:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98DFC1595;
+	Wed,  7 Oct 2026 09:31:50 -0700 (PDT)
+Received: from [10.57.11.235] (unknown [10.57.11.235])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 647273F763;
+	Wed,  7 Oct 2026 09:31:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791390249; bh=yjjIU+Tw4JjtanQbUdQJJ1qJuMR0XZ51UjxvYTHvYtQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SALH/rlhsuECLnfRoBi+9Im5qe3uBK7HtkricsHfkXsuI6HZBVSorEjoSjXHhUWmH
-	 XZGHhBf4+xmnKy8w8Ko3xjrl7bfy1AWctHvs7Mb5rplMip6eUnodLdhEqt7ZV1WZpq
-	 ywmVgf9rDHrGwOxpI6uUu1+9aOjvLy+7d+cGrX/M=
-Date: Wed, 7 Oct 2026 17:24:06 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Amir Ayupov <aaupov@fb.com>
-Cc: James Clark <james.clark@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] coresight: etm4x: Report whether the PMU counts
- external output 1
-Message-ID: <20261007162406.GA26205@e132581.arm.com>
-References: <20261001063744.2143819-1-aaupov@fb.com>
+	t=1791390713; bh=BKmQs0frWfzLNLKvPXEu9ewnuTjVNZlrRybFpOUsIo0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GHnZvmElMYfQYElQtrt7FTImmNt+fZZeGqi6u62M4ldc7hmf68TBivzdNe3yc06b7
+	 8dCeEU3FzHk+njLersdC0C3YroNLXRHt/ZzdqXtnXKJE7NpYtBOD0gZDpuAFeyZIvF
+	 izjY/tvbz/b7ecREHPY8UMI4PGebMAqCTwPJIK3E=
+Message-ID: <76f25bff-4f5c-4234-ab8b-c5f96deea9c2@arm.com>
+Date: Wed, 7 Oct 2026 17:31:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001063744.2143819-1-aaupov@fb.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] arm64: insn: operate on MSR/MRS sysreg field via
+ defines
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
+ <20260928133034.243541-6-ada.coupriediaz@arm.com>
+ <f0acf203-2cb4-4cda-8e12-c45d02d7499e@arm.com>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US, en-GB, fr
+Organization: Arm Ltd.
+In-Reply-To: <f0acf203-2cb4-4cda-8e12-c45d02d7499e@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_092413_452331_CCF83255 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20261007_093156_937268_DDC09AA9 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,107 +70,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Barry Song <baohua@kernel.org>, Oliver Upton <oupton@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, James Morse <james.morse@arm.com>, Andre Przywara <andre.przywara@arm.com>, Tejun Heo <tj@kernel.org>, Lucas Wei <lucaswei@google.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amir,
+Hi Vladimir,
 
-Thanks for the patch. I have a few initial comments below. We may have
-further feedback after our internal review.
+On 07/10/2026 07:53, Vladimir Murzin wrote:
+> Hi Ada,
+>
+> On 9/28/26 14:30, Ada Couprie Diaz wrote:
+>> Replace the few instances of hard-coded system register offset and masks
+>> used to operate on MSR/MRS instructions with defines.
+>> This will allow re-use in future commits while making the connection
+>> between those values more explicit.
+>>
+>> While we are here, mark `aarch64_insn_extract_system_reg()` `noinstr`
+>> so it can be safe to use in alternative pacthing callbacks.
+>>
+>> Changing the mask used in `aarch64_insn_gen_mrs()` to exclude
+>> the lower bits does not change behaviour,
+>> as `aarch64_insn_encode_register()` already clears the bits
+>> used to encode the target register.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> ---
+>>   arch/arm64/include/asm/insn.h | 3 +++
+>>   arch/arm64/lib/insn.c         | 8 ++++----
+>>   2 files changed, 7 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+>> index 40f13d28a5fd7..03620f67a3e47 100644
+>> --- a/arch/arm64/include/asm/insn.h
+>> +++ b/arch/arm64/include/asm/insn.h
+>> @@ -753,6 +753,9 @@ static __always_inline u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
+>>   	return insn;
+>>   }
+>>   
+>> +#define AARCH64_INSN_SYSREG_OFFSET	5
+>> +#define AARCH64_INSN_SYSREG_MASK	GENMASK(19, 5)
+>> +
+> Sashiko has raised comment [1]
+>
+> | Does this mask unintentionally exclude bit 20?
+> | The previous hardcoded mask was 0x1FFFE0, which is equivalent to
+> | GENMASK(20, 5) and includes 16 bits. Defining it as GENMASK(19, 5) yields
+> | a 15-bit mask.
+>
+> [1] https://sashiko.dev/#/patchset/20260928133034.243541-1-ada.coupriediaz%40arm.com
+>
+> Cheers
+> Vladimir
 
-On Wed, Sep 30, 2026 at 11:37:43PM -0700, Amir Ayupov wrote:
+Thanks for bringing the report up, it does raise an interesting issue.
 
-[...]
+This does change the mask used and does indeed change the returned value,
+potentially breaking comparisons to the return value of `aarch64_insn_extract_system_reg()`. However, the existing mask is 
+incorrect as far as I can tell : the function is supposed to extract the 
+Op and CR corresponding to the system registers of the MSR/MRS 
+instructions. Those fields are encoded in bits 19-5, which corresponds 
+to the GENMASK I used. I think it would make more sense to fix the `enum 
+aarch64_insn_special_register` values to represent the registers 
+properly and drop bit 20, which is 1 in all cases anyway... I would be 
+happy to send a quick v2 with this change ! Thanks for bringing it up, 
+Kind regards Ada
 
->  #define CS_CFG_MATCH_CLASS_SRC_ALL	0x0001	/* match any source */
->  #define CS_CFG_MATCH_CLASS_SRC_ETM4	0x0002	/* match any ETMv4 device */
-> +/* ETM external output 1 is countable by the PMU as TRCEXTOUT1 */
-> +#define CS_CFG_MATCH_CAP_PMU_EXTOUT1	0x0004
-
-Do we need to tie this capability to TRCEXTOUT1? For example, Neoverse
-V2 exposes TRCEXTOUT0 through TRCEXTOUT3 as PMU events.
-
->  /* flags defining device instance matching - used in config match desc data. */
->  #define CS_CFG_MATCH_INST_ANY		0x80000000 /* any instance of a class */
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index e1a59b4345052..2847d2d7f7bed 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -174,9 +174,14 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
->  
->  int etm4_cscfg_register(struct coresight_device *csdev)
->  {
-> +	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->  	struct cscfg_csdev_feat_ops ops;
-> +	u32 match_flags = CS_CFG_ETM4_MATCH_FLAGS;
->  
->  	ops.load_feat = &etm4_cfg_load_feature;
->  
-> -	return cscfg_register_csdev(csdev, CS_CFG_ETM4_MATCH_FLAGS, &ops);
-> +	if (drvdata->pmu_extout1)
-> +		match_flags |= CS_CFG_MATCH_CAP_PMU_EXTOUT1;
-> +
-> +	return cscfg_register_csdev(csdev, match_flags, &ops);
-
-The current matching logic succeeds if a device and feature share any
-flag bit. If the feature sets both CS_CFG_MATCH_CLASS_SRC_ETM4 and
-CS_CFG_MATCH_CAP_PMU_EXTOUT1, it will still load on an ETM4 device that
-lacks the capability.
-
-Could we check the capability separately when loading the feature,
-perhaps in cscfg_load_feat_csdev(), and skip it on unsupported devices?
-
-> +static bool etm4_pmu_has_extout1(struct etmv4_drvdata *drvdata)
-> +{
-> +	int pmuver = read_pmuver();
-> +
-> +	if (!is_midr_in_range_list(etm4_pmu_extout1_cpus))
-> +		return false;
-
-Based on specific CPU variant, we should already have identified
-TRCEXTOUT has supported.
-
-So either we only base on MIDR list or we can figure out a reliable
-way to detect the feature dynamically.
-
-> +
-> +	/* PMCEID0_EL0[63:32] describe events 0x4000-0x401f from PMUv3p1 */
-> +	if (!pmuv3_implemented(pmuver) || pmuver < ID_AA64DFR0_EL1_PMUVer_V3P1)
-> +		return false;
-> +	if (!(read_pmceid0() & BIT_ULL(32 + ARMV8_PMUV3_PERFCTR_TRCEXTOUT1 -
-> +				       ARMV8_PMUV3_EXT_COMMON_EVENT_BASE)))
-> +		return false;
-> +
-> +	/* nr_event is TRCIDR0.NUMEVENT, the number of events minus one */
-> +	return drvdata->nr_event >= 1;
-> +}
-
-[...]
-
-> @@ -1116,6 +1116,13 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
->  
->  		if (err)
->  			cscfg_config_desc_put(config_desc);
-> +	} else {
-> +		/*
-> +		 * The configuration is active but was not loaded on this
-> +		 * device, for example because the device lacks a capability
-> +		 * its features require. Fail rather than trace without it.
-> +		 */
-> +		err = -EINVAL;
->  	}
-
-This fixes a pre-existing issue. It is worther to put it in a separate
-patch with fixes tag:
-
-An early return would also avoid the normal enable path's indentation:
-
-	if (!config_csdev_active)
-		return -EINVAL;
-
-	err = cscfg_csdev_enable_config(config_csdev_active, preset);
-	...
-
-Thanks,
-Leo
 
