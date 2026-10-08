@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0C0CA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 18:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E4BCA6011
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 18:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FHQR9Zwf35cHXjGhBIMoGCp+MRKmr8i0WuLxV25XgE=; b=eWmOrqr03VgxgecjtOYcS5zo5E
-	ygipN2NzVxi8Tvmj9s3drsZxwWxynm7jOcYtC6ddP85tZ/X91TfiMTM0Wx3V6yvvB6okfRjW3vai9
-	YCvlY5PoFh/0ONhJSv4iT4E8GmcLr/w46bmtXZEVeVApi3xRXLGxazcZhWrBjlb5NoKC3gfGumW8Z
-	QiXAPGEkLBCvLt8+MTssayuT/6cB7qFXPf3IqDFaFmofcAUwXQieJlFDFrnHvti63hWJmyK4LgSOi
-	L8q5593NmtP3qo6PwJkCM4do/Eak6zjSer75yg4SHC6uCxOTMmfhwh4RB2pZXbHAXsDgL1jffQpF7
-	SPgO4NSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4z66aqJo1l1YspH17oLJxoIeFufDzkwqCpOg6u8MQ6g=; b=1YbKkIgo1BDRM8EZ0aeTxMUijL
+	Lz4F7i7egcMSRpRWlB07/NWStYvBl1VUplZW8sAHm8nUeaUHNCNg8YecmTeCRf8CGnxWdmmfvoVgR
+	p44buEoD/nI1jiDZIpxzs80dmdNOsXOENROxkylPBFR9BiPJsbUm38MjYHwLdPokT8o5KU0LQDWXj
+	gjl9Nl6yS3KfiwDzdv5sLORbFtdgNDGWdQJFx2c9l3hlfPaXaxyBJoIykWB/pTGzyqNvOspYO6JBS
+	ACqu7ZBOwU5NTXiEUYFy0mbLQI4uMfqsaj51PwRe09aPBRozK5q8DMGHkvONl6wKA1yEk6AwT5wRq
+	/Cm3HBCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEsPZ-00000004pfe-2RbN;
-	Thu, 08 Oct 2026 18:00:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEsY7-00000004qJ1-1JXw;
+	Thu, 08 Oct 2026 18:08:59 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEsPY-00000004pfV-49ys
+	id 1xEsY5-00000004qIe-2cKs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 18:00:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70CD243B04;
-	Thu,  8 Oct 2026 18:00:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 448DE1F00893;
-	Thu,  8 Oct 2026 18:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791482408;
-	bh=6FHQR9Zwf35cHXjGhBIMoGCp+MRKmr8i0WuLxV25XgE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=jQEp47nVYgsRS9GxV/SJEdNj91RLBkpMq72EVXSWlqh3oFQX9tjvEd/oIcnxjT9e1
-	 OfOTyfq/mb5pwJT99oHjQvg2VxN62KQxzi3JZ71dILUjMXoD0yZ9uadGeX3y2yQpeX
-	 /F9orb3Oh9EEgRzaOjbk6AC6suy16sdgzHwMwozm05hSvKF2b3/jB1Enpju9AMd1D+
-	 /QypKOk1RGcqLIC0l435n0PCTpUmY9kNOj8VzVanAThIeigiePr2PjKMD9nLqQxAmT
-	 5XfWzSTKFGiti3kxl5ngaNejdXCmKATLGW/ysZY48UcET0+aedKoaG6b3TdQTDSmY9
-	 TncHHn7+tTrlQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A321380CEC8;
-	Thu,  8 Oct 2026 18:00:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 08 Oct 2026 18:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=4z66aqJo1l1YspH17oLJxoIeFufDzkwqCpOg6u8MQ6g=; b=YndwBeLg1/XhS/cOGCFIDVErsf
+	uClpxm+fDnQeNi4DJdF1+dvHOinXuPM5a0IzRMQRLdYyMqTfz0PnHJDM7egQh0mlL1TC96vkzHlkg
+	KpsDYcU62MfU5vR/piMMcFM2lGQPVPKEZxAo6ewpkRaqLiklUIvEN1cq/6BlehjCoUgA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xEsXu-009fjF-Gf; Thu, 08 Oct 2026 20:08:46 +0200
+Date: Thu, 8 Oct 2026 20:08:46 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Haotian Zhang <vulab@iscas.ac.cn>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	Jason Cooper <jason@lakedaemon.net>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: mvebu: mvebu-soc-id: fix missing clk_put() on error
+ path
+Message-ID: <1d32e115-17c4-4bd2-9689-907ac8f324df@lunn.ch>
+References: <20261008171410.2717704-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: sparx5: free the matchall entry on destroy
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179148240704.372666.16255779189495351496.git-patchwork-notify@kernel.org>
-Date: Thu, 08 Oct 2026 18:00:07 +0000
-References: <20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337@microchip.com>
-In-Reply-To: <20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337@microchip.com>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kees@kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261008171410.2717704-1-vulab@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_110857_668827_1F4E42DD 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +71,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Fri, Oct 09, 2026 at 01:14:10AM +0800, Haotian Zhang wrote:
+> get_soc_id_by_pci() takes a reference on the PCIe clock with
+> of_clk_get_by_name(), but when clk_prepare_enable() fails it jumps to
+> the clk_err label, which only drops the device node references and never
+> calls clk_put(). The struct clk and the clock core reference it holds
+> are leaked on that error path.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+	/*
+	 * If the PCIe unit is actually enabled and we have PCI
+	 * support in the kernel, we intentionally do not release the
+	 * reference to the clock.
+...
 
-On Wed, 7 Oct 2026 17:03:15 +0200 you wrote:
-> sparx5_tc_matchall_replace() allocates a struct sparx5_mall_entry for
-> every offloaded matchall filter and adds it to sparx5->mall_entries.
-> sparx5_tc_matchall_destroy() removes the entry from the list, but never
-> frees it, so the entry of every deleted mirror and goto matchall filter
-> is leaked.
-> 
-> Free the entry after unlinking it.
-> 
-> [...]
+Given this comment, you need more detail in the commit message to
+explain how your change and this comment goes together.
 
-Here is the summary with links:
-  - [net] net: sparx5: free the matchall entry on destroy
-    https://git.kernel.org/netdev/net/c/2b82e16d6084
+    Andrew
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+---
+pw-bot: cr
 
