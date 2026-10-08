@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E64CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509EECA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZHgvot9XBR6NDc7d2O3La8Sy9kro5TUOFUC8aNnoG0=; b=EIPMiXJ6wpCR6nerqDP/0YIIIm
-	xtOL1JN5bWkknujOZi7v1LoedCXSvRmXJ5LWS8vlmsNAQPctBrigBDoTc2Txb6kbiUgog3IZo8+py
-	ZktUI8iuCs1BSlJNiY/ct16SlAVQH98qJH1icBKfdyHBdqe+EK5UEnW0DGSDX5jhotZzcrfhKNmir
-	raY7vzqmVCE03/hUaZsGjA+8D6EuerD5JKwt5PrKjXK8MSt3LssZ0VzwT9tCG0XjcWGIA3AEWYw2h
-	vBNiDNMueMYDPDVzXjqmu5gdeYIcmIEkzgT6Wa37jSqZutqH/r1XseLqdNpToLwcyuK7DzWT0pDe+
-	gsON1NRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jOqoPweHeHU1lzpTjcc24eUYqvraMAoKGPRqZIsy8v8=; b=MLq81WyZ7Ag+obUGBmapTarylr
+	RZKmx6a6a2ORkVHMDLcvWrfqI6xOsK2/iTPkCpao8wZYxqdhq1jbuSnUpkyAr0vgjANRWjm7aRRG9
+	DtlFTs/8emcCQU5dxbYwQw5VPFx4OLNCmyEBxWEPPDIo4q9pomOD9JxbIj0+s/MLihAKsMt5XynyD
+	kLKHdDJVvb406gdEiN3O9AZjPS5kzkKbKMCNk7tOvhP45Uui/MBowqD+MbAySBoKAqYlrI7Z/ioC4
+	OGIFP0SomA68Ay/9nQnfq+vdi6M9bHXxPuCpqVowqoahXhqTzsT8QmUkBso8S6plxRW002q2tqpn1
+	UhZJoRHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnR2-00000004Nfb-1FyF;
-	Thu, 08 Oct 2026 12:41:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEnWu-00000004O9W-02NU;
+	Thu, 08 Oct 2026 12:47:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnR0-00000004NfO-2Hrj;
-	Thu, 08 Oct 2026 12:41:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E96CD41A68;
-	Thu,  8 Oct 2026 12:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24AD81F00893;
-	Thu,  8 Oct 2026 12:41:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791463277;
-	bh=tZHgvot9XBR6NDc7d2O3La8Sy9kro5TUOFUC8aNnoG0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=HDEhTpZZ6Ki0QKgJWh1sFFKBgqbKYoVJSWGWHgrHE48O8aKf1aBLavbl4dtrHiX4s
-	 co0a7Tg7igbIDeaHR+6kBeCzyW1i81CjMQBsRrrfWvTxegUskgGRQYYmc5Jub8GHez
-	 QQvpqWUOalJPBN7GMzQZZYvDnSnApcXI+hS3ItYjUJaQgihX/b9/SDnZ3sMDdjQJwP
-	 5CtHZ+dmROCZNCjIlb93PZDYpKLGV2NmWxFGzqWG5lFA6McOfFLHeACA2/4OqWibxM
-	 jb/lVsyunUQkulu5N1PQ1SEY548tETp36fIqHEmAi2AVKfXBoDw/hv+7qnINpSHhgs
-	 huaW9xcnz9x8w==
-From: Mark Brown <broonie@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Trevor Wu <trevor.wu@mediatek.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- cassiogabrielcontato@gmail.com, Haotian Zhang <vulab@iscas.ac.cn>, 
- Christian Marangi <ansuelsmth@gmail.com>, 
- Cezary Rojewski <cezary.rojewski@intel.com>, 
- Cyril Chao <Cyril.Chao@mediatek.com>, Tuo Li <islituo@gmail.com>, 
- Rosen Penev <rosenp@gmail.com>, Garlic Tseng <garlic.tseng@mediatek.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Dan Carpenter <error27@gmail.com>, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261007110858.509341-1-phucduc.bui@gmail.com>
-References: <20261007110858.509341-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH v2 0/4] ASoC: mediatek: Handle constraint return value
- in FE startup
-Message-Id: <179138999054.2423942.10212092263791353501.b4-ty@b4>
-Date: Wed, 07 Oct 2026 18:19:50 +0200
+	id 1xEnWq-00000004O8k-3pCa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 12:47:22 +0000
+From: Kurt Kanzenbach <kurt@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1791463635;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jOqoPweHeHU1lzpTjcc24eUYqvraMAoKGPRqZIsy8v8=;
+	b=ehWPA0KonNAcuwT7BaWe+3b8O4Tw8YQgX2VztU2/E21SPkgtgdRtoY8cNnaeINNLYYLd8R
+	akBpRugjKdAu3nD7ymzBPAh+Jm3i00yC812Rc6XAb8j55zElnIHbT1UYRDu6Pd/25Qmg5X
+	yvMGfXrDpamcTHgTRGcTvsDtPfaTR0DCglWSfemDdqI1g4cnT31wOEngpeprQxkkBM59SI
+	C5nsP6h9s+lSckBEejksFi1oxQ0DGOldHHInDiIW6mkA7y+kWwRq8eEc6kXxqjtlVyjE6X
+	JsqXphRLvigBFiBUclHxuk7BiFLHf1yYQ1DbuI83rpDrCgUYv95wAecZ7UEpBg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1791463635;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jOqoPweHeHU1lzpTjcc24eUYqvraMAoKGPRqZIsy8v8=;
+	b=Y5ApUaRkm0XMX/e6BXMBb1nMYxVNmT9Xk+7F4kEJIcZIKtt0gdIJdWuodcmDqfM0bDLRmJ
+	yZYNkalCPVwDngBQ==
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
+ <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Song Yoong Siang
+ <yoong.siang.song@intel.com>, Noor Azura Ahmad Tarmizi
+ <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal Abdul Rahim
+ <faizal.abdul.rahim@intel.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v2 2/2] net: stmmac: Stop Tx queue when
+ (en|dis)abling XSK pools
+In-Reply-To: <377d56dbc9be2874af7369112d9e49b9@tipi-net.de>
+References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
+ <20261005-stmmac_xsk_crashes-v2-2-46c60cba6421@linutronix.de>
+ <377d56dbc9be2874af7369112d9e49b9@tipi-net.de>
+Date: Thu, 08 Oct 2026 14:47:13 +0200
+Message-ID: <877bjsqrzi.fsf@jax.kurt.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1819; i=broonie@kernel.org;
- h=from:subject:message-id; bh=QY1B/YC/9U9/25uIL41mpvndoi/nxHgNpTP3ZhxQnAM=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLKO96cePxj5zcWdP2KJU6/bh/aeNrGQWcZnFykf3s+w7
- FhJRe3RjhIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEyEaxbDf8flor88Uh4aMP1e
- Z/720qbwgs/RDMu/8/bzXy9te7M5ezfDj8nl+t94tNdbcbXlhvSptN2tCrt05c+SpP4p91ozriq
- xAQA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_054721_109848_F2F8A09B 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +90,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 Oct 2026 18:08:54 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: mediatek: Handle constraint return value in FE startup
-> 
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Hi all,
-> 
-> Some FE startup callbacks may return a positive value from constraint
-> helpers, but ASoC expects 0 on success. This can cause .shutdown() to be
-> skipped during rollback.
-> 
-> [...]
+--=-=-=
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
 
-Applied to
+Hi Nicolai,
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+On Thu Oct 08 2026, Nicolai Buchwitz wrote:
+> On 5.10.2026 09:09, Kurt Kanzenbach wrote:
+>> When enabling or disabling XSK pools in parallel to Tx traffic, kernel
+>> crashes occur. For VLAN tagged frames that happens in stmmac_xmit() ->
+>> dwmac4_set_vlan_tag() and for normal frames in stmmac_xmit() ->
+>> dwmac4_set_addr(). Both of these functions access the Tx DMA=20
+>> descriptors.
+>>=20
+>> The XDP pool (en|dis)ablement frees and reallocates the Tx DMA=20
+>> resources:
+>>=20
+>>  stmmac_disable_tx_queue:
+>>    __free_dma_tx_desc_resources
+>>=20
+>>  stmmac_enable_tx_queue:
+>>    __alloc_dma_tx_desc_resources
+>>    __init_dma_tx_desc_rings
+>>=20
+>> NAPI is disabled during that allocation window, but the Tx queue is not
+>> stopped. Therefore, add the stopping of the Tx queue during the=20
+>> enabling
+>> and disabling of XSK pools. Update trans_start when stopping the queue
+>> to avoid spurious watchdog timeouts.
+>>=20
+>> The issue can be easily reproduced by:
+>>=20
+>>  1. Run iperf
+>>  2. Run application which opens an AF_XDP/ZC socket
+>>=20
+>> Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
+>> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+>> ---
+>>  drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c | 14 ++++++++++++++
+>>  1 file changed, 14 insertions(+)
+>>=20
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c=20
+>> b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> index d7e4db7224b0..883bd3fe8089 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> @@ -6,6 +6,16 @@
+>>  #include "stmmac.h"
+>>  #include "stmmac_xdp.h"
+>>=20
+>> +static void stmmac_xdp_stop_tx_queue(struct stmmac_priv *priv, u16=20
+>> queue)
+>> +{
+>> +	struct netdev_queue *nq =3D netdev_get_tx_queue(priv->dev, queue);
+>> +
+>> +	__netif_tx_lock_bh(nq);
+>> +	txq_trans_cond_update(nq);
+>> +	netif_tx_stop_queue(nq);
+>> +	__netif_tx_unlock_bh(nq);
+>> +}
+>> +
+>>  static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+>>  				  struct xsk_buff_pool *pool, u16 queue)
+>>  {
+>> @@ -36,6 +46,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv=20
+>> *priv,
+>>  	if (need_update) {
+>>  		napi_disable(&ch->rx_napi);
+>>  		napi_disable(&ch->tx_napi);
+>> +		stmmac_xdp_stop_tx_queue(priv, queue);
+>
+> Unfortunately XDP_TX and ndo_xdp_xmit() ignore the stopped queue and=20
+> still
+> hit the freed ring. I can reproduce this on STM32MP215 with a veth=20
+> redirect
+> into the port while toggling the pool:
+>
+>    pc : dwmac4_set_addr+0x8/0x18
+>    lr : stmmac_xdp_xmit_xdpf+0x1d0/0x3f0
+>     stmmac_xdp_xmit+0xe4/0x1a8
+>     bq_xmit_all+0xa0/0x208
+>     __dev_flush+0x60/0xc0
+>     xdp_do_flush+0x134/0x198
+>     veth_poll+0x258/0x340
+>
+> Both go through stmmac_xdp_xmit_xdpf() with the queue lock held, so this
+> fixes it for me:
+>
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+>        dma_addr_t dma_addr;
+>        bool set_ic;
+>
+> +     /* Ring may be torn down for an XSK pool switch */
+> +     if (netif_tx_queue_stopped(netdev_get_tx_queue(priv->dev, queue)))
+> +             return STMMAC_XDP_CONSUMED;
+> +
+>        if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
+>                return STMMAC_XDP_CONSUMED;
+>
+> This is older than your patch, but could you fold it in / add a oatch?
 
-Thanks!
-
-[1/4] ASoC: mediatek: common: Handle constraint return value in FE startup
-      https://git.kernel.org/broonie/sound/c/5fcdb40a4776
-[2/4] ASoC: mediatek: mt8188: Handle constraint return value in FE startup
-      https://git.kernel.org/broonie/sound/c/71253751586b
-[3/4] ASoC: mediatek: mt8189: Handle constraint return value in FE startup
-      https://git.kernel.org/broonie/sound/c/1f234d33e42e
-[4/4] ASoC: mediatek: mt8365: Handle constraint return value in FE startup
-      https://git.kernel.org/broonie/sound/c/8de3f4e8e811
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Thanks a lot for testing! I'll fold it in for next version.
 
 Thanks,
-Mark
+Kurt
 
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrHkNETHGt1cnRAbGlu
+dXRyb25peC5kZQAKCRDBk9HyqkZzgoDpEACZJagFhrsS0hj0gQ84dwHsvaFENP/j
+VGQai03xKJ56zto1rCuy7MRYXYAVuvbDAbOHv0l2Yw6g9Edm+/f4F7HK2BiypVBl
+TicFgwfl1WodVjT8LqHFjinP3+lDLfV7cAEyBXfMp25PdNUJ6HuTjvxoxvCV+yZB
+9dmzUF5mdKhufO2LedIb4mlB6nrWbCrN/4Ozuvox7VhD7IGF2zzmABPnCazEwpjS
+UMFMSOYioKvqOgW0pGlaUQVXhK2jo5KQVvOYLTl82usQwMtRYOO3h0wfqeLbQOwg
+syNJ8MvoKQN0heQpoekGoVD4uxzjfR3uJpDAC8RaF7eTKQpEWbiPnLyrSDOLTiaD
+ncsdGCe2ohs6mnN1doD88hdQzD+lYHrSUXuWnR/2bWxcfcNPZLAEksW0g9o60Wpz
+Up+ZQVoezU5u245BqwUpHSqfIWanjrWjQTYI4/IiJWvrPww8yq01KlMu94BrmB8v
+zlhcS3GKmDnK3fIUiXhTdBOLiY6zo0fGvDaVrcsc1Xl/ePvYGExqfOyISCTtEo9V
+QDnpe6bvOe9qh5lwKhu6ACK2fmihxnqIJ8r064fv6zx5Z2aWb8NONCVB3HjPSzpx
+j3hdwrHFsiA3ebLp35ycnRpWeUyzjDBRZh3iG4F5PXyreEAInJI0qjaXF+60YHJR
+7DvaKXwxOgFPog==
+=dl4i
+-----END PGP SIGNATURE-----
+--=-=-=--
 
