@@ -4,101 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BE6CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E702DCA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tpp/l8x0FFNoRUazKgX/VoKBSK9SpVfGhmopGIzKydQ=; b=grwILoF+wawBK7QMe80WmlDJ7o
-	0XcI8v+XGbLi+YhmIQvv3c2F+kTj8/Zy5t0LB3YM4EVEvGknP8qxC4dxN+oLkvTcKDjtzELs5pVnk
-	jXcsIiRWdJvZMXZneVOanmG+/t5TRRK/TUG2/y4HnWp3nQFVUOn/4enVBOnCSRDf7akaYqrp/an5g
-	4nx0Ujze3MXnNoLpiWbrWo9vKKpVWjmaKu7S4yarkT0MbMtOKWOBLxpBCkJ17GD8u/9svIDisCTLd
-	ajvi2EqYVvvbYDiXp5D/gpGOkFBqA6wzB79cXV2kLwB4PiaVaAY5+B2DAiuuf8sSu/VEyvJoB7keE
-	8Xd0vFOw==;
+	bh=RLa/JHNXfr18gNmyy6T2VPCPOXnWuKMxuMPJcaRk978=; b=LxpiYm1aCXFnQMl+AjFqzkaMUk
+	KsuaEgE9qywKbM3XttzsMJll6xpV7O38BAj/VoRdWeQP4tbpKj2sRr/wxxZfb4LnhygMEYyVBalKr
+	1No3Tg4z6aI7qiovKpOma4a7j8cdsc8cuoax2BwgaRo4hJ2neF2+XELcH+fI57kb/Q4pIOKlbNtBr
+	HQ+xqF0zl0ajyY4IDhWzFaT6vDSctFkZmhvoQWerbruNFx+gv/+EF5CyOMpEVpkNFM15WUHLctXlV
+	lTTNHtMQnar6ljUpMg7ZNHCQ3KQYTnPnuB6WJRDi8bsLeJeY8N6dBWOk3Fg+reTFO14keiOfsths8
+	MBy7thlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhHN-00000003cAP-12og;
-	Thu, 08 Oct 2026 06:06:57 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xEhT3-00000003d0I-2az3;
+	Thu, 08 Oct 2026 06:19:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhHJ-00000003c7c-2rTG
+	id 1xEhT0-00000003czf-3MBi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:06:56 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3a89d1ca907so1549182a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:06:53 -0700 (PDT)
+	Thu, 08 Oct 2026 06:18:59 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BUDm2774937
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 06:18:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RLa/JHNXfr18gNmyy6T2VPCPOXnWuKMxuMPJcaRk978=; b=gW2v5S5e5sa5Yb41
+	tkhYl/JefCzIgByxIoWKayWoEjlGs+o7BxGfrdi5I7/DQBHO9fG/857kGsp/r1YG
+	3dcOPYIdnm9yYD2D+CYaipsNYW5Wd6uz3BsA1OyD8k4iR63P7/QXLahXZFslPUif
+	njCLrDG6P92+PnIhXv5A12ld6WEU1WbDSOL6kpb024dAZWUVl/UCdIh3h6o58+bh
+	xPVyr1w2O5hzt4QBVMektOkw201yAfcWMR0otA3TeQJv73CghMsXwfKgh+ZYMZJA
+	X/2hKzAhZXUj728/QTUQzACXEP9sl3gQLK4qqHr/n8Qg025FhQ2/TO8PE86Vq4Y+
+	sUrjgA==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe69ebh-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:18:58 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2e617b5e9b3so8310865ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:18:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791439613; x=1792044413; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Tpp/l8x0FFNoRUazKgX/VoKBSK9SpVfGhmopGIzKydQ=;
-        b=QEhfeGZ0zt6SO612r3cl9i54HAWNijyaE2VGL5xgs3xKWZJUbiIH2KzsOcu7kSIJg6
-         2+xaxFkyjKq1/2xPY3vzn+NGRhrXwkg4F6QpQKS8phKtz8fV5ZesX+d/42F/poRSRRJh
-         OMfaRzBWYkKNb6GfGCiyKyKvcnszG+4wQcILigHy4JGdTgaoC5VbezbPPTyFDuaVYO82
-         nvTI0Oo+AFRTqkN/gmSgVJuMPbRUGV170fUpYWmeImJoHkR6jMoQPgGORVBHUOg9OEvC
-         ORkr3JQKK5VsGNQk2H9WDR5NPjcuiGwT0k8VeAGGlDOjuqRo76U7Q8yUs9ABsMhueOfs
-         armA==
+        d=oss.qualcomm.com; s=google; t=1791440335; x=1792045135; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RLa/JHNXfr18gNmyy6T2VPCPOXnWuKMxuMPJcaRk978=;
+        b=RTsGNeDas70t/AKXx9V2ELmJX01/loUsQyBFRip/IcvqzP9LYmV6y/AHDDdraBnWJQ
+         m+UrosrSMHyReoYpSDUwY9s2MbDXf7y5Pkgm9Wv1cxiNeTMY7mAhUE73mvsiLoBOqBR1
+         DKQPYD0FgTmGWud6Kcw+aCRUODLKWVNvqXq/q8FWgSsq7Gci2DzOQm/vFpsQ8/15brmc
+         PDsir5WdcXZFE4wjN7TfaTbtRrSPHenRKlp6dStcGFMmSLU2rCT0XZueurR3k+T/NhMe
+         cY0Cf1qUnu/o3rATrwoxyhmM9RlE4JNIYQHtNLVEh1BySF0g92fRFXs+ECUqIeFOTVik
+         6sAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791439613; x=1792044413;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Tpp/l8x0FFNoRUazKgX/VoKBSK9SpVfGhmopGIzKydQ=;
-        b=lE+NiBeeXMaF/yoZxoU9WFGLB9xsE4OmOCl5oGq3W2XNzXAqBmpe+UN9EdeTgb6abI
-         1ko/DdR4driN6/twzor3mA01Os9ApjT2Qidjwt1wsslTycck2poO9hSN1GnP4ddG7OsA
-         dnqGDyy5sg9b4mP4ABa48J+/+PpcChwDEZmVwQQnZ1TozWK5m+pGIbOuHwgm4Eh/hsUo
-         lARonZM6WLhxSDHcRR3W/PRVmCVZfm6Lp+MNo6oT06bWLor36y8onL+8xGWgFXP6rlGf
-         9mmF0tHkhHWbydaxdswbNSFSY6ESOfreCqsbaIzEVbKk4LYoR7bdAXScJgiLXlRjF0Uk
-         jYmQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzLlFtjNPUYGQCs5pRs6FYkyhUFnD7i1Hp7SplaKiNBcJGQfAK0rrbux8oKXA6Xb9Hd5GLn/lqwdRico+TyrpR/@lists.infradead.org
-X-Gm-Message-State: AFq9FYKTjo/DuUqupxaPtR/IA4EJ5xXHNoWbOQU+P4fQzgXuJn38/aVe
-	N+HoUE3yNir+r9XZvCrzjzS202PBINZ7hUvSCg/M5G08F6n1VSLvXqF1
-X-Gm-Gg: AYBFou1kHbGE/dgVu+AfSdtFOyLdK3CEUcJCkJD2gjznw92OJNFbQWiATajbDRNJBBO
-	tzixOiVewFK37izS6s4h3YwvNqwC1UEJliAz9ULDCQ8zaFOHCSo6BJ4ZUyfbSbwkzWdZ0Wz5bNS
-	im2SRMKYzWiVlXVU7MiFmCw+SqolNzqA7pq5XksQF1aQEEJKPjdICi/G10/2rzGOIGXBpPOcFC/
-	+H8GVYNM6RtOBwZI+T8QT2C49xAqq0JW8qEj5hwkWW8V6rVUohyrqs5vaQtvfqyPtIuUALwTfve
-	VEk16GZrqeBtxpTc/4WkQeyfIX4cpucmR8eCte8FbFzb6QrdGQGquj6ldzzBdQhffKFxiZ29lQf
-	oMCKPoMHXiyhVAnEnhw/L+ogOl/JmOA8WZPmLK1zckL4O7Ja5DO1Mk1Knc3PLBR4PCDNnXQ7BZH
-	MPxam54CzFbCqEGGzQLyyACt9nLF+djZUb7nDS1ybVmyJokSzOCMdVo0jAufDgFIDZCEENX3N5R
-	DdyMd51tJ/iikTLCVxIY2xXNowlAC0n502EItBSsLTQewtspONQUG2rj2kQAls=
-X-Received: by 2002:a17:90a:d2c8:b0:3a8:185:cf40 with SMTP id 98e67ed59e1d1-3a8a072a966mr3904946a91.10.1791439612496;
-        Wed, 07 Oct 2026 23:06:52 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3aa0cbccea3sm2632203a91.15.2026.10.07.23.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 23:06:52 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Hui-Ping Chen <hpchen0nvt@gmail.com>,
-	Joey Lu <yclu4@nuvoton.com>,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v7 4/4] phy: nuvoton: phy-ma35d1-usb2: extend to dual-port with OTG support
-Date: Thu,  8 Oct 2026 14:06:29 +0800
-Message-ID: <20261008060629.2736806-5-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261008060629.2736806-1-a0987203069@gmail.com>
-References: <20261008060629.2736806-1-a0987203069@gmail.com>
+        d=1e100.net; s=20260707; t=1791440335; x=1792045135;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RLa/JHNXfr18gNmyy6T2VPCPOXnWuKMxuMPJcaRk978=;
+        b=VrEZAaCwgYWmoIxfwY3QFNGsjppltVYmmJsd+7dpqM2S4seOOKao3mM/Exb4ook3Ju
+         4tPZvEF3yymCfJtf0sKatcxfvjTKlNeMx9vBCJST53Qs38G3PwR4ggwhhCx25hp+LNCi
+         /dfmEmAtQGIu6Q7hGqimLvTojoacm5Jfg4FK12JmRByXFR+mKBKd93IBmb6oKLlsGAC+
+         fba+U199on3rFH469tmWUfiKa0/LjWwiHKIC/Zqbae3LH/91FWGYklW5dA9WkrC+7j4O
+         2DXF5pSYPE/+DCpbCzDxwEvpgG+WQDI5Cd7QbtLVMy2Zxdt/UL88h5oom48dock0K8MA
+         iT8g==
+X-Forwarded-Encrypted: i=1; AKwUvBzLjUEy56rOnakYcn8v8E/DbyRfyCirrE30hmYsDG/pHd2znrlcuzet5yKwDN4lhf2FDtOZZNcjHtJ963WGKaBM@lists.infradead.org
+X-Gm-Message-State: AFq9FYLq2hHTidJsYKoUCMSV189GtchY78jP/vldXMY+dOgQeTfoXk85
+	d6PDd47FwMA5+qf0s7MfO69HJnB8inEFALQPenseMv4LhCV0Nu2EjdFnw36P0MFE7Sp4vtOaiH6
+	6Q9VdledTi1FWgLOtZ9j/9yftJ7JN4a9TU/sXtkhzDOxmVLi9TjyXD1aReRncE9HDovOxiZ4VlK
+	oVzQ==
+X-Gm-Gg: AYBFou35SdmVHycGKfgjilAy5Kc3wz88zLdgkmBhBOgcTG8NUwEWYFkwFtgMHJma/iA
+	d20apU5QWI7ZNPNEbnptHw0NIjItciO09+UgjRl/HTHzZsA/ubpzV3/2LJJAqVMviz4l13m6NUL
+	IARA53HeByd1dtnNFCWb4+Eio6b+tKRxB7E9g4nkDFKCTvoL7uuGBkfhuPxATdElHGKYXXlYkLB
+	gQ92qOOmaWCaLXjTYnsNY4vOqfcnxADGh31IRB4eIiN36lSlxJjxQ3w1D/8bFDMdz34CmXLPvVb
+	bJcGKnC3ByoP5sBqwdV48Xr73KghFQf4hdqo8VVrXrlP454tQ8/5RFdcEzJPQoTB+uGj4W9bAN8
+	8VnJuStGCtwUu+x7B8ZArXVPrTKg=
+X-Received: by 2002:a17:903:2445:b0:2e3:1bb4:6121 with SMTP id d9443c01a7336-2e600510556mr38285705ad.49.1791440335504;
+        Wed, 07 Oct 2026 23:18:55 -0700 (PDT)
+X-Received: by 2002:a17:903:2445:b0:2e3:1bb4:6121 with SMTP id d9443c01a7336-2e600510556mr38285425ad.49.1791440335008;
+        Wed, 07 Oct 2026 23:18:55 -0700 (PDT)
+Received: from [10.218.18.193] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e606da8fc6sm19674205ad.58.2026.10.07.23.18.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Oct 2026 23:18:54 -0700 (PDT)
+Message-ID: <41c5a595-7f40-4505-99a3-5041641fb025@oss.qualcomm.com>
+Date: Thu, 8 Oct 2026 11:48:43 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/21] arm64: dts: apple: t8103-j45x: Add headset jack
+ nodes
+To: James Calligeros <jcalligeros99@gmail.com>,
+        David Rhodes <david.rhodes@cirrus.com>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+        Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+        Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+        Neal Gompa <neal@gompa.dev>, ajay.nandam@oss.qualcomm.com
+Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org,
+        patches@opensource.cirrus.com, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-13-7b47ed6335a8@gmail.com>
+Content-Language: en-US
+From: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+In-Reply-To: <20261004-macaudio-v2-13-7b47ed6335a8@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 8IBzh1ilUqHzrzG6xDOJYXB2JwQ6wHYT
+X-Authority-Analysis: v=2.4 cv=HcWB3SE8 c=1 sm=1 tr=0 ts=6ac735d2 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=pGLkceISAAAA:8 a=UesLP-FnXeQSrw_j-0AA:9 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-GUID: 8IBzh1ilUqHzrzG6xDOJYXB2JwQ6wHYT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyNCBTYWx0ZWRfXxTXMDHrIHqUc
+ QFG315U87u9GKw8C5axADvArF3qutNNNSG0mtfcC4W+RYLGv+vyYPQmc+jedRUwPxFQLgC0B7ee
+ braSEMh3xoi9+Myptkk/EcPYuMqkRA7glHv/oFqmzhV84EYyM/nSwbLdOVxCczr8vVl2Z8OtxDP
+ hc51knSS1mPTs2ttw4xVaoTqN6uSwwepgeCbRFULaYpBqxaCfmkaVvfnlTuoO+UFut+ARQlWJjL
+ Rvw2oXc+qNnjtZPUMTY71BqMtwB6WCt9Sqv2SxoIQ72QZI3tt/OlsWCYIKWdfwm7Jqii8PMKxDf
+ u8HTAu4jtiI9DehaAuyVdWf2iLjgdvP5h+e4J7Kru0UuHExG/SJLyN9ZzPAFRYBCB/m7ee7gVHT
+ +BgbNFLOdpQI0+YaiUh7ASeaZe+NKAgDULZhYaTy3Q9PhrJ82KZKD1xBMvhEL1x2ZdrmE4D/RS1
+ bqe0ZyoHFSsWQexqeNA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyNCBTYWx0ZWRfX2e3N19cr6UZo
+ HJxx2gMZlsDSTzK3OJHxMJs5EHoWz2FvDKtL4Wl1eIkmBDqHhvuameFKPDbLXlsrEFIU3tQR6Eh
+ NFGssGIIhCQkJQvHtjZlpWFwBffex0M=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-08_02,2026-10-06_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 spamscore=0 bulkscore=0 adultscore=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610020000
+ definitions=main-2610080024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_230653_746949_99DC0108 
-X-CRM114-Status: GOOD (  27.98  )
+X-CRM114-CacheID: sfid-20261007_231858_843092_04A182EE 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,397 +168,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PHY0 and PHY1 use the same power-on/reset sequence in USBPMISCR, with
-PHY1 control bits shifted 16 positions relative to PHY0.  A separate
-driver for PHY1 would duplicate this logic, so the existing driver is
-extended to manage both ports.
 
-The original driver polled only DEVCKSTB after releasing PHY0 from
-reset.  When USB0 operates in host mode (USB ID pin floating or tied
-high) only HSTCKSTB and CK12MSTB assert; DEVCKSTB never sets.  Polling
-exclusively for DEVCKSTB in host mode causes a 1 ms timeout on every
-phy_init() call from the EHCI driver.  The init callback is changed to
-accept either host-mode or device-mode clock stability, whichever
-asserts first.
 
-The power_on and power_off callbacks are replaced by a single init
-callback that handles PHY reset and clock-stable polling, because
-there is no PHY-specific clock gate on MA35D1; the PHY analog block
-derives its reference from the HXT crystal.
+On 10/4/2026 11:33 AM, James Calligeros wrote:
+> The M1 iMacs integrate Apple-specific variants of the TI TAS2770
+> and Cirrus CS42L42. Since it is not yet safe to expose the speakers
+> on these machines, add the headset jack nodes and advertise them
+> to the machine driver via the sound node.
+> 
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> ---
+>   arch/arm64/boot/dts/apple/t8103-j456.dts | 38 +++++++++++++++++++++++++
+>   arch/arm64/boot/dts/apple/t8103-j457.dts | 38 +++++++++++++++++++++++++
+>   2 files changed, 76 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/apple/t8103-j456.dts b/arch/arm64/boot/dts/apple/t8103-j456.dts
+> index 090c97bb781b..1fc74ebf9ab2 100644
+> --- a/arch/arm64/boot/dts/apple/t8103-j456.dts
+> +++ b/arch/arm64/boot/dts/apple/t8103-j456.dts
+> @@ -88,3 +88,41 @@ &pcie0_dart_1 {
+>   &pcie0_dart_2 {
+>   	status = "okay";
+>   };
+> +
+> +&i2c1 {
+> +	status = "okay";
+> +
+> +	jack_codec: codec@48 {
+> +		compatible = "cirrus,cs42l83";
+> +		reg = <0x48>;
+> +		interrupts-extended = <&pinctrl_ap 183 IRQ_TYPE_LEVEL_LOW>;
+> +		reset-gpios = <&pinctrl_nub 11 GPIO_ACTIVE_HIGH>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "Jack";
+> +		cirrus,ts-inv = <1>;
+> +	};
+> +};
+> +
+> +/ {
+> +	sound: sound {
+> +		compatible = "apple,j456-macaudio";
+> +		model = "iMac J456";
+> +
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		dai-link@1 {
+> +			reg = <1>;
+> +
+> +			link-name = "Headphone Jack";
+> +
+> +			codec {
+> +				sound-dai = <&jack_codec>;
+> +			};
+> +
+> +			cpu {
+> +				sound-dai = <&mca 2>;
+> +			};
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/apple/t8103-j457.dts b/arch/arm64/boot/dts/apple/t8103-j457.dts
+> index ebddde75455c..d8ea6bb53b3f 100644
+> --- a/arch/arm64/boot/dts/apple/t8103-j457.dts
+> +++ b/arch/arm64/boot/dts/apple/t8103-j457.dts
+> @@ -69,3 +69,41 @@ ethernet0: ethernet@0,0 {
+>   &pcie0_dart_2 {
+>   	status = "okay";
+>   };
+> +
+> +&i2c1 {
+> +	status = "okay";
+> +
+> +	jack_codec: codec@48 {
+> +		compatible = "cirrus,cs42l83";
+> +		reg = <0x48>;
+> +		interrupts-extended = <&pinctrl_ap 183 IRQ_TYPE_LEVEL_LOW>;
+> +		reset-gpios = <&pinctrl_nub 11 GPIO_ACTIVE_HIGH>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "Jack";
+> +		cirrus,ts-inv = <1>;
+> +	};
+> +};
+> +
+> +/ {
+> +	sound: sound {
+> +		compatible = "apple,j457-macaudio";
+> +		model = "iMac J457";
+> +
 
-A read-only USB role switch is registered for PHY0 to expose the USB0
-role to userspace via the standard role-switch sysfs interface.  The
-.set callback returns -EOPNOTSUPP because the hardware mux is fully
-automatic with no software override path.  When CONFIG_USB_ROLE_SWITCH
-is not enabled, the registration returns -ENODEV and the driver skips
-the role switch gracefully without failing probe.
+I don't see 'apple,j457-macaudio' in the macaudio driver's OF match 
+table.The driver comment instead says J457 is compatible with
+'apple,j456-macaudio'.
 
-Two new optional device-tree properties are implemented:
-  - nuvoton,rcalcode: writes per-port 4-bit resistor calibration trim
-    codes to the RCALCODE field in USBPMISCR.
-  - nuvoton,oc-active-high: sets the UHOVRCURH bit in MISCFCR0 to treat
-    the over-current detect input as active-high.
+Should this node use a fallback compatible,
 
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
- drivers/phy/nuvoton/phy-ma35d1-usb2.c | 285 +++++++++++++++++++-------
- 1 file changed, 211 insertions(+), 74 deletions(-)
+e.g.
+   compatible = "apple,j457-macaudio", "apple,j456-macaudio";
 
-diff --git a/drivers/phy/nuvoton/phy-ma35d1-usb2.c b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-index 0b9976fb15c1..25bd0a7a1314 100644
---- a/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-+++ b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-@@ -1,6 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Copyright (C) 2024 Nuvoton Technology Corp.
-+ * Nuvoton MA35D1 USB 2.0 PHY driver
-+ *
-+ * Supports PHY0 (USB0 OTG port, shared between DWC2 gadget and EHCI0/OHCI0)
-+ * and PHY1 (USB1 host-only port, used by EHCI1/OHCI1). The hardware mux on
-+ * PHY0 switches automatically via the USB ID pin.
-+ *
-+ * Copyright (C) 2024-2026 Nuvoton Technology Corp.
-  */
- #include <linux/bitfield.h>
- #include <linux/clk.h>
-@@ -12,131 +18,262 @@
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-+#include <linux/usb/role.h>
- 
--/* USB PHY Miscellaneous Control Register */
--#define MA35_SYS_REG_USBPMISCR	0x60
--#define PHY0POR			BIT(0)  /* PHY Power-On Reset Control Bit */
--#define PHY0SUSPEND			BIT(1)  /* PHY Suspend; 0: suspend, 1: operaion */
--#define PHY0COMN			BIT(2)  /* PHY Common Block Power-Down Control */
--#define PHY0DEVCKSTB			BIT(10) /* PHY 60 MHz UTMI clock stable bit */
-+#define MA35_SYS_PWRONOTP		0x04
-+#define PWRONOTP_USBP0ID		BIT(16)
-+
-+#define MA35_SYS_USBPMISCR		0x60
-+#define USBPMISCR_PHY_POR(n)		BIT(0  + (n) * 16)
-+#define USBPMISCR_PHY_SUSPEND(n)	BIT(1  + (n) * 16)
-+#define USBPMISCR_PHY_COMN(n)		BIT(2  + (n) * 16)
-+#define USBPMISCR_PHY_HSTCKSTB(n)	BIT(8  + (n) * 16)
-+#define USBPMISCR_PHY_CK12MSTB(n)	BIT(9  + (n) * 16)
-+#define USBPMISCR_PHY_DEVCKSTB(n)	BIT(10 + (n) * 16)
-+/* Mask for control bits (POR, SUSPEND, COMN) */
-+#define USBPMISCR_PHY_CTL_MASK(n)	(0x7u << ((n) * 16))
-+/* Host-mode ready */
-+#define USBPMISCR_PHY_HOST_READY(n)	(USBPMISCR_PHY_SUSPEND(n)  | \
-+					 USBPMISCR_PHY_HSTCKSTB(n) | \
-+					 USBPMISCR_PHY_CK12MSTB(n))
-+/* Device-mode ready */
-+#define USBPMISCR_PHY_DEV_READY(n)	(USBPMISCR_PHY_SUSPEND(n)  | \
-+					 USBPMISCR_PHY_DEVCKSTB(n))
-+/* RCALCODE: 4-bit resistor trim */
-+#define USBPMISCR_RCAL_SHIFT(n)		(12 + (n) * 16)
-+#define USBPMISCR_RCAL_MASK(n)		GENMASK(USBPMISCR_RCAL_SHIFT(n) + 3, \
-+						USBPMISCR_RCAL_SHIFT(n))
-+
-+#define MA35_SYS_MISCFCR0		0x70
-+/* USB host over-current detect polarity (shared, both ports) */
-+#define MISCFCR0_UHOVRCURH		BIT(12)
-+
-+#define MA35_PHY_NUM			2
-+
-+struct ma35_phy_port {
-+	struct phy *phy;
-+	unsigned int idx;
-+};
- 
- struct ma35_usb_phy {
--	struct clk *clk;
- 	struct device *dev;
- 	struct regmap *sysreg;
-+	struct ma35_phy_port port[MA35_PHY_NUM];
-+	struct usb_role_switch *role_sw;
- };
- 
--static int ma35_usb_phy_power_on(struct phy *phy)
-+static int ma35_usb_phy_init(struct phy *phy)
- {
--	struct ma35_usb_phy *p_phy = phy_get_drvdata(phy);
-+	struct ma35_phy_port *port = phy_get_drvdata(phy);
-+	struct ma35_usb_phy *p = container_of(port - port->idx,
-+					      struct ma35_usb_phy, port[0]);
-+	unsigned int n = port->idx;
- 	unsigned int val;
- 	int ret;
- 
--	ret = clk_prepare_enable(p_phy->clk);
--	if (ret < 0) {
--		dev_err(p_phy->dev, "Failed to enable PHY clock: %d\n", ret);
--		return ret;
-+	regmap_read(p->sysreg, MA35_SYS_USBPMISCR, &val);
-+
-+	if (!(val & USBPMISCR_PHY_SUSPEND(n))) {
-+		regmap_update_bits(p->sysreg, MA35_SYS_USBPMISCR,
-+				   USBPMISCR_PHY_CTL_MASK(n),
-+				   USBPMISCR_PHY_POR(n) | USBPMISCR_PHY_SUSPEND(n));
-+		udelay(20);
-+
-+		regmap_update_bits(p->sysreg, MA35_SYS_USBPMISCR,
-+				   USBPMISCR_PHY_CTL_MASK(n),
-+				   USBPMISCR_PHY_SUSPEND(n));
- 	}
- 
--	regmap_read(p_phy->sysreg, MA35_SYS_REG_USBPMISCR, &val);
--	if (val & PHY0SUSPEND) {
--		/*
--		 * USB PHY0 is in operation mode already
--		 * make sure USB PHY 60 MHz UTMI Interface Clock ready
--		 */
--		ret = regmap_read_poll_timeout(p_phy->sysreg, MA35_SYS_REG_USBPMISCR, val,
--						val & PHY0DEVCKSTB, 10, 1000);
--		if (ret == 0)
--			return 0;
-+	if (n == 0) {
-+		ret = regmap_read_poll_timeout(p->sysreg, MA35_SYS_USBPMISCR,
-+					       val,
-+					       ((val & USBPMISCR_PHY_HOST_READY(0)) ==
-+						USBPMISCR_PHY_HOST_READY(0)) ||
-+					       ((val & USBPMISCR_PHY_DEV_READY(0)) ==
-+						USBPMISCR_PHY_DEV_READY(0)),
-+					       10, 1000);
-+	} else {
-+		ret = regmap_read_poll_timeout(p->sysreg, MA35_SYS_USBPMISCR,
-+					       val,
-+					       (val & USBPMISCR_PHY_HOST_READY(n)) ==
-+					       USBPMISCR_PHY_HOST_READY(n),
-+					       10, 1000);
- 	}
- 
--	/*
--	 * reset USB PHY0.
--	 * wait until USB PHY0 60 MHz UTMI Interface Clock ready
--	 */
--	regmap_update_bits(p_phy->sysreg, MA35_SYS_REG_USBPMISCR, 0x7, (PHY0POR | PHY0SUSPEND));
--	udelay(20);
--
--	/* make USB PHY0 enter operation mode */
--	regmap_update_bits(p_phy->sysreg, MA35_SYS_REG_USBPMISCR, 0x7, PHY0SUSPEND);
--
--	/* make sure USB PHY 60 MHz UTMI Interface Clock ready */
--	ret = regmap_read_poll_timeout(p_phy->sysreg, MA35_SYS_REG_USBPMISCR, val,
--					val & PHY0DEVCKSTB, 10, 1000);
--	if (ret == -ETIMEDOUT) {
--		dev_err(p_phy->dev, "Check PHY clock, Timeout: %d\n", ret);
--		clk_disable_unprepare(p_phy->clk);
-+	if (ret) {
-+		dev_err(p->dev, "USB PHY%u clock not stable (USBPMISCR=0x%08x)\n",
-+			n, val);
- 		return ret;
- 	}
- 
- 	return 0;
- }
- 
--static int ma35_usb_phy_power_off(struct phy *phy)
-+static const struct phy_ops ma35_usb_phy_ops = {
-+	.init		= ma35_usb_phy_init,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int ma35_role_sw_set(struct usb_role_switch *sw, enum usb_role role)
- {
--	struct ma35_usb_phy *p_phy = phy_get_drvdata(phy);
-+	return -EOPNOTSUPP;
-+}
-+
-+static enum usb_role ma35_role_sw_get(struct usb_role_switch *sw)
-+{
-+	struct ma35_usb_phy *p = usb_role_switch_get_drvdata(sw);
-+	u32 val;
-+
-+	regmap_read(p->sysreg, MA35_SYS_PWRONOTP, &val);
-+
-+	return (val & PWRONOTP_USBP0ID) ? USB_ROLE_HOST : USB_ROLE_DEVICE;
-+}
-+
-+static int ma35_role_switch_init(struct platform_device *pdev,
-+				 struct ma35_usb_phy *p)
-+{
-+	struct usb_role_switch_desc sw_desc = {0};
-+
-+	sw_desc.set = ma35_role_sw_set;
-+	sw_desc.get = ma35_role_sw_get;
-+	sw_desc.allow_userspace_control = true;
-+	sw_desc.driver_data = p;
-+	sw_desc.fwnode = dev_fwnode(&pdev->dev);
-+
-+	p->role_sw = usb_role_switch_register(&pdev->dev, &sw_desc);
-+	if (IS_ERR(p->role_sw)) {
-+		if (PTR_ERR(p->role_sw) == -ENODEV) {
-+			p->role_sw = NULL;
-+			return 0;
-+		}
-+		return dev_err_probe(&pdev->dev, PTR_ERR(p->role_sw),
-+				     "failed to register role switch\n");
-+	}
- 
--	clk_disable_unprepare(p_phy->clk);
- 	return 0;
- }
- 
--static const struct phy_ops ma35_usb_phy_ops = {
--	.power_on = ma35_usb_phy_power_on,
--	.power_off = ma35_usb_phy_power_off,
--	.owner = THIS_MODULE,
--};
-+static void ma35_role_switch_exit(struct ma35_usb_phy *p)
-+{
-+	if (p->role_sw) {
-+		usb_role_switch_unregister(p->role_sw);
-+		p->role_sw = NULL;
-+	}
-+}
-+
-+static struct phy *ma35_usb_phy_xlate(struct device *dev,
-+				      const struct of_phandle_args *args)
-+{
-+	struct ma35_usb_phy *p = dev_get_drvdata(dev);
-+	unsigned int idx;
-+
-+	if (args->args_count == 0)
-+		idx = 0;
-+	else
-+		idx = args->args[0];
-+
-+	if (idx >= MA35_PHY_NUM)
-+		return ERR_PTR(-EINVAL);
-+
-+	return p->port[idx].phy;
-+}
- 
- static int ma35_usb_phy_probe(struct platform_device *pdev)
- {
- 	struct phy_provider *provider;
--	struct ma35_usb_phy *p_phy;
--	struct phy *phy;
-+	struct ma35_usb_phy *p;
-+	struct clk *clk;
-+	int n, ret;
-+	u32 code;
- 
--	p_phy = devm_kzalloc(&pdev->dev, sizeof(*p_phy), GFP_KERNEL);
--	if (!p_phy)
-+	p = devm_kzalloc(&pdev->dev, sizeof(*p), GFP_KERNEL);
-+	if (!p)
- 		return -ENOMEM;
- 
--	p_phy->dev = &pdev->dev;
--	platform_set_drvdata(pdev, p_phy);
-+	p->dev = &pdev->dev;
-+	platform_set_drvdata(pdev, p);
-+
-+	p->sysreg = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+						     "nuvoton,sys");
-+	if (IS_ERR(p->sysreg))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(p->sysreg),
-+				     "failed to get SYS regmap\n");
- 
--	p_phy->sysreg = syscon_regmap_lookup_by_phandle(pdev->dev.of_node, "nuvoton,sys");
--	if (IS_ERR(p_phy->sysreg))
--		return dev_err_probe(&pdev->dev, PTR_ERR(p_phy->sysreg),
--				     "Failed to get SYS registers\n");
-+	clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk),
-+				     "failed to get clock\n");
- 
--	p_phy->clk = of_clk_get(pdev->dev.of_node, 0);
--	if (IS_ERR(p_phy->clk))
--		return dev_err_probe(&pdev->dev, PTR_ERR(p_phy->clk),
--				     "failed to find usb_phy clock\n");
-+	for (n = 0; n < MA35_PHY_NUM; n++) {
-+		if (of_property_read_u32_index(pdev->dev.of_node,
-+					       "nuvoton,rcalcode", n, &code))
-+			continue;
- 
--	phy = devm_phy_create(&pdev->dev, NULL, &ma35_usb_phy_ops);
--	if (IS_ERR(phy))
--		return dev_err_probe(&pdev->dev, PTR_ERR(phy), "Failed to create PHY\n");
-+		if (code > 15)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+					     "rcalcode[%d] %u out of range (0-15)\n",
-+					     n, code);
- 
--	phy_set_drvdata(phy, p_phy);
-+		regmap_update_bits(p->sysreg, MA35_SYS_USBPMISCR,
-+				   USBPMISCR_RCAL_MASK(n),
-+				   code << USBPMISCR_RCAL_SHIFT(n));
-+	}
- 
--	provider = devm_of_phy_provider_register(&pdev->dev, of_phy_simple_xlate);
--	if (IS_ERR(provider))
-+	regmap_update_bits(p->sysreg, MA35_SYS_MISCFCR0, MISCFCR0_UHOVRCURH,
-+			   of_property_read_bool(pdev->dev.of_node,
-+						 "nuvoton,oc-active-high") ?
-+			   MISCFCR0_UHOVRCURH : 0);
-+
-+	for (n = 0; n < MA35_PHY_NUM; n++) {
-+		p->port[n].idx = n;
-+
-+		p->port[n].phy = devm_phy_create(&pdev->dev, pdev->dev.of_node,
-+						 &ma35_usb_phy_ops);
-+		if (IS_ERR(p->port[n].phy))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(p->port[n].phy),
-+					     "failed to create PHY%d\n", n);
-+
-+		phy_set_drvdata(p->port[n].phy, &p->port[n]);
-+	}
-+
-+	ret = ma35_role_switch_init(pdev, p);
-+	if (ret)
-+		return ret;
-+
-+	provider = devm_of_phy_provider_register(&pdev->dev, ma35_usb_phy_xlate);
-+	if (IS_ERR(provider)) {
-+		ma35_role_switch_exit(p);
- 		return dev_err_probe(&pdev->dev, PTR_ERR(provider),
--				     "Failed to register PHY provider\n");
-+				     "failed to register PHY provider\n");
-+	}
-+
- 	return 0;
- }
- 
-+static void ma35_usb_phy_remove(struct platform_device *pdev)
-+{
-+	struct ma35_usb_phy *p = platform_get_drvdata(pdev);
-+
-+	ma35_role_switch_exit(p);
-+}
-+
- static const struct of_device_id ma35_usb_phy_of_match[] = {
--	{ .compatible = "nuvoton,ma35d1-usb2-phy", },
--	{ },
-+	{ .compatible = "nuvoton,ma35d1-usb2-phy" },
-+	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, ma35_usb_phy_of_match);
- 
- static struct platform_driver ma35_usb_phy_driver = {
- 	.probe		= ma35_usb_phy_probe,
--	.driver	= {
--		.name	= "ma35d1-usb2-phy",
--		.of_match_table = ma35_usb_phy_of_match,
-+	.remove		= ma35_usb_phy_remove,
-+	.driver		= {
-+		.name		= "ma35d1-usb2-phy",
-+		.of_match_table	= ma35_usb_phy_of_match,
- 	},
- };
- module_platform_driver(ma35_usb_phy_driver);
- 
- MODULE_DESCRIPTION("Nuvoton ma35d1 USB2.0 PHY driver");
- MODULE_AUTHOR("Hui-Ping Chen <hpchen0nvt@gmail.com>");
-+MODULE_AUTHOR("Joey Lu <a0987203069@gmail.com>");
- MODULE_LICENSE("GPL");
--- 
-2.43.0
+or should the driver add an explicit `apple,j457-macaudio` match entry?
+
+
+Thanks
+Ajay Kumar Nandam
+
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		dai-link@1 {
+> +			reg = <1>;
+> +
+> +			link-name = "Headphone Jack";
+> +
+> +			codec {
+> +				sound-dai = <&jack_codec>;
+> +			};
+> +
+> +			cpu {
+> +				sound-dai = <&mca 2>;
+> +			};
+> +		};
+> +	};
+> +};
+> 
 
 
