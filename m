@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C43CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D324ACA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QA4a4/0qY83QQNCueloKQP2TPYFXj/uUC4YZjubeRHI=; b=ycDLljTyQd4nWAvtnOa6y/Nnt3
-	0Npke9zbH4C/ByFRy29V7GzKrKtVEec1EM8es8mVgzmG48H1K/eBRuKjVOc+nhlFuVf/18ocdF6cI
-	9bS0ZYybkVnsRvETFW3srlMqPtKKRtnaWWZUsXaeW0vehPMwKQxT8vglgkGMwpe/FQS+XbCDsjs/J
-	x9wGWj7PL9mteoHnYN5fEcdmWtxpMGjzI+A1SMy3CgbA5hhU50taCS9jjlj5+sCq95LWm0xT//rTq
-	/yTSkpfRE6DDh9rqYyGjlYfzBinHHoHoxmLK7iZfUSabcO4rPbqH/IbFUgL52ydOusUHTS7CPTekg
-	V8cJ+83A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0QYn9TXvnmJ4ZihqcEGo9v58p4Zetixq26bjUvNxJos=; b=mEuBcAtgxbSWta
+	gUp5+PiN94hqTknA8mBgLfAoRK6Sw6rodNFgn9EoB24OQerbGfSrbDnRGhuc5wRn+aAaBqPJv5ZYC
+	2IhxW6LXQJggQIS/eZu2F1w1//zIn/TR91MACOEle4mWj2AcwMIL9fA6usftoaY5uH39vciuw2mNV
+	8iT9iGtJBx0tk9wJCWT4CCBbRVhG9c8YnBVeJzheOoRH1vYuaIyZO4/XcBWVLJiyeTHib0R0SepSF
+	4VIpbzPvJAYWFHnkiF4l4WjAZ/823mIqffjkzDpOua+qBsjI0sBEE7SdA3lxwLxnqrfw3ofohk5Sg
+	b6kRBx4ObJH67htxybMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmXd-00000004HBr-2XFG;
-	Thu, 08 Oct 2026 11:44:05 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1xEmbk-00000004HXp-0Xin;
+	Thu, 08 Oct 2026 11:48:20 +0000
+Received: from [113.46.200.217] (helo=canpmsgout02.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmXb-00000004HB1-1YQR
+	id 1xEmbg-00000004HVK-3j4H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 11:44:04 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 69B1C240101
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 13:43:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1791459837;
-	bh=QA4a4/0qY83QQNCueloKQP2TPYFXj/uUC4YZjubeRHI=;
-	h=MIME-Version:Date:From:To:Cc:Subject:Message-ID:Content-Type:
-	 Content-Transfer-Encoding:From;
-	b=cphJCRxPquv5vT62es7asTSu3dFCCXplZYii8lZ1hCkMRsOjSLW87+8ufdG+M/0Te
-	 U77+zlgHzBFXs7bzLELYs5Hp/k/QjycwA8tSEovzyqs2Byf8Uwsc4XxZ9ZPLM8IHK1
-	 1Kz+qiNz476D8JBmGKgMrEgT6f5cueC9F5nM7Qfcpl/rCmrZ100V53qNPo6OK+mWwV
-	 uhKb3ln48oZabYtOmktnob0Fwc76oNKZLtbqfyBhNp7eUVQ5WrfjwA+s3m51fWfD85
-	 lBh1u5mx2ynlyO4J1jZYQWGzPM8O8YrKRcyUyQBC2D4JymDlHvQLc0vrxBvFdjuQt+
-	 sqQjdTruvD2pw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4j0p6h1JRTz6ty0;
-	Thu,  8 Oct 2026 13:43:55 +0200 (CEST)
+	Thu, 08 Oct 2026 11:48:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=0QYn9TXvnmJ4ZihqcEGo9v58p4Zetixq26bjUvNxJos=;
+	b=epsrYwIqbsZtAf2q67DL1OD8YbBNT0T4RjAKv2Adjwz6rLW7tIc6PXsn99Q9IaW/8iu+v4U6D
+	Ie69N6BsAU6M+/UJn/b6BPeDu5ErqLWKQgP39ZKB10lluoi0C4B5znT6oeNDDxvoyDcWVDniiYK
+	ciSKLlVuTOR8n0x4EG5ILck=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4j0nxZ074qzcb3w;
+	Thu,  8 Oct 2026 19:36:02 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id D0B0C4058C;
+	Thu,  8 Oct 2026 19:47:53 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
+ 2026 19:47:52 +0800
+Message-ID: <e0c85b38-7d5c-48e6-a7d2-9843ef08f53d@huawei.com>
+Date: Thu, 8 Oct 2026 19:47:51 +0800
 MIME-Version: 1.0
-Date: Thu, 08 Oct 2026 11:43:56 +0000
-From: mateusz.nowicki@posteo.net
-To: Patrick DELAUNAY <patrick.delaunay@foss.st.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: st: mark main supplies always-on on
- stm32mp257f-dk
-In-Reply-To: <aaedc962-63ab-431b-8b27-b4ac9c11d16e@foss.st.com>
-References: <20261004112421.47158-1-mateusz.nowicki@posteo.net>
- <aaedc962-63ab-431b-8b27-b4ac9c11d16e@foss.st.com>
-Message-ID: <1baaa8cb024104ee6d201d55467f6718@posteo.net>
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 16/21] arm64: entry: Implement EL1t exception handlers
+ for overflow stack
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260918161407.2300-1-will@kernel.org>
+ <20260918161407.2300-17-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260918161407.2300-17-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_044403_562517_9C3FEDE7 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261008_044817_584956_2F3B5C20 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +74,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrick,
 
-On 07.10.2026 11:22, Patrick DELAUNAY wrote:
-> For STMicroelectronics boards, the STPMIC always-on regulator are
-> managed on SCMI server side in OP-TEE.
->=20
-> So no need to manage this constraint in Linux device tree.
->=20
-> This always-on=C2=A0 regulator are exposed only for information or to be
-> used are supply for some IP.
 
-Thanks, that makes sense. OP-TEE keeps these rails on no matter what
-Linux asks for, and the board keeps running fine.
+在 2026/9/19 0:14, Will Deacon 写道:
+> In preparation for using EL1t to handle exceptions taken whilst running
+> on the overflow stack, implement some simple wrappers around the EL1h
+> handlers which perform a best-effort stack overflow check before
+> proceeding.
+> 
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kernel/entry-common.c | 43 +++++++++++++++++++++++++++++---
+>  1 file changed, 39 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 72c03ccea59f..9738142780df 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -327,10 +327,45 @@ static void debug_exception_exit(struct pt_regs *regs)
+>  }
+>  NOKPROBE_SYMBOL(debug_exception_exit);
+>  
+> -UNHANDLED(el1t, 64, sync)
+> -UNHANDLED(el1t, 64, irq)
+> -UNHANDLED(el1t, 64, fiq)
+> -UNHANDLED(el1t, 64, error)
+> +static void noinstr el1t_64_check_overflow_stack(struct pt_regs *regs)
+> +{
+> +	unsigned long sp = kernel_stack_pointer(regs) - sizeof(*regs);
+> +	unsigned long ovf_stack = (unsigned long)this_cpu_ptr(overflow_stack);
+> +
+> +	/*
+> +	 * We're in big trouble if we've overflowed the overflow stack
+> +	 * so perform a best-effort check before we proceed. If our SP
+> +	 * is outside of the overflow stack for this CPU then presumably
+> +	 * we're already corrupting memory, so park ourselves here in an
+> +	 * attempt to contain the damage.
+> +	 */
+> +	if (sp < ovf_stack || sp > ovf_stack + OVERFLOW_STACK_SIZE)
+> +		cpu_park_loop();
 
-The part I found confusing is what Linux reports. Since nothing in
-Linux uses these regulators, the regulator core turns them off about
-30 seconds after boot:
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-    [   31.713597] v1v8: disabling
-    [   31.716454] v3v3: disabling
+> +}
+> +
+> +asmlinkage void noinstr el1t_64_sync_handler(struct pt_regs *regs)
+> +{
+> +	el1t_64_check_overflow_stack(regs);
+> +	el1h_64_sync_handler(regs);
+> +}
+> +
+> +asmlinkage void noinstr el1t_64_irq_handler(struct pt_regs *regs)
+> +{
+> +	el1t_64_check_overflow_stack(regs);
+> +	el1h_64_irq_handler(regs);
+> +}
+> +
+> +asmlinkage void noinstr el1t_64_fiq_handler(struct pt_regs *regs)
+> +{
+> +	el1t_64_check_overflow_stack(regs);
+> +	el1h_64_fiq_handler(regs);
+> +}
+> +
+> +asmlinkage void noinstr el1t_64_error_handler(struct pt_regs *regs)
+> +{
+> +	el1t_64_check_overflow_stack(regs);
+> +	el1h_64_error_handler(regs);
+> +}
+>  
+>  static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
+>  {
 
-The SCMI call succeeds, so from then on regulator_summary shows
-vddcore, v1v8 and v3v3 with a use count of 0, as if they were off.
-In reality they are still powered.
+-- 
+Best regards,
+Jinjie
 
-With regulator-always-on, what Linux shows matches the hardware.
-Would you still prefer to keep it out of the board DT? If so, I'm
-happy to drop the patch.
-
-Thanks,
-Mateusz
 
