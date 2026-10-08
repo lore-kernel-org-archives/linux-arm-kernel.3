@@ -4,75 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52EECA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22700CA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mdRZrJtN9FgdZCPO3nME/34pN1D6OmSnqjEe0tYXdVE=; b=l+VcnNpdZ9koEr8ukbMDoVYIcq
-	VyvbhZHMxptmfU/d7AuMfsulyhSPm36HikLAJAnp1NBEQ0a+iGynEhuTMPz6ojrMQ1GX2281E445f
-	3JL+nhIJ2hd5eZEDlsxnhRUiroqAPWTuXHnBImpxgp5u36i+amqiFZOzo3ddclEOiy4LP6COioej/
-	rJt33o0MTQKrW4gyBAFbP5djtMR+C4KUtt1XaMdYOTnVisH/KdmEJLhlK9GNMFUm1ZuxQnhT4EC8u
-	AZgtFNxq4t0tVwCbjOnQn+DkQxtahhbI1S6KnbOKMmqLptjEPPF4nJvqzXRenLESA8WwZ3w1E3IbD
-	j8LJDoAQ==;
+	bh=EnmV+GF5F+3o4WuN9B2P/gYsWL8ntjLMdxMPioE157g=; b=VE5Ssc81GU6+XS90KEfUKpSKup
+	hL2j6/BpRS3iFK9qaHjvqquYcGUOWtizsXbPuee9Kfv4bpBQnLjzPq2T9ZKC3/kSN7n+BIpGv0td6
+	gfGU9UXyi8UvLIuRs7Z9Tdz1bsuFw5y79xq5Dvh4vSY5H+zbiFacBrnEf28OAcX8cfEaOLPPIHD6c
+	4Tg/Rc2HBW+enw3j+5SszlIO8hXtcYk7cb3xNk7rlMYmDhgrQthQR05hROTJuKS3zjyl3P/cp7NBf
+	BC+ZxMZB0g/Of+yJAInFbkytbU+SrBZJn+d+GtZ3YHPlRyhuy47bWpXGoR1a9DL6RzicnnVRDznf5
+	AHEqIdPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEl9G-000000044vv-0vTY;
-	Thu, 08 Oct 2026 10:14:50 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xElBH-00000004597-2g2L;
+	Thu, 08 Oct 2026 10:16:55 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEl9C-000000044v0-29m2
+	id 1xElBF-0000000458S-2tza
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 10:14:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 32D551A1196;
-	Thu,  8 Oct 2026 10:14:42 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EFE5B60341;
-	Thu,  8 Oct 2026 10:14:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C50410333874;
-	Thu,  8 Oct 2026 12:14:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791454480; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=mdRZrJtN9FgdZCPO3nME/34pN1D6OmSnqjEe0tYXdVE=;
-	b=DmDHRn5CPrt/BbOThmCBjnAmlKyqU3XDz6zCOs0/WG5jeiwuZRNwtdARLhor8mGpKXY/xy
-	UUdQUvpw8i8nR+GfitrKZkypI3S1FlaPf9x9cijrs89n7nfMQLLTchQA25kw/uxI2aenOp
-	8Mafjhf8QH0ka1ZPYz/sS6lsGUge9/VF8dpF3CV1Qj+HnrbWdTkRzpzyBJD0WFvv/IBO18
-	dJuFjfmteEw2F1O59bnMnh/gBUQ0BRwX/1wcYV9lKujGo8WbUv/rxruhLC3ay5kmzcWqu4
-	eu06kzZl+6x4o4N10U896lHWeQ3wgdtyI0xNs2SPDB3iNmAFh1PEYXYG7LGRtg==
-Message-ID: <bea80b7e-3d44-4662-b3b2-e97a7f903aa9@bootlin.com>
-Date: Thu, 8 Oct 2026 12:14:31 +0200
+	Thu, 08 Oct 2026 10:16:54 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a01933b584so25797685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 03:16:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1791454612; x=1792059412; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EnmV+GF5F+3o4WuN9B2P/gYsWL8ntjLMdxMPioE157g=;
+        b=zapGh0QmdEY6iAouAxnjBjUOSGyolN8QnYSxbLwGKacDq7k+rWd7zlGodqMWAcbzmo
+         DhfTXxaxS835DTmIpeRIOLX6izZnFIkD5g5dbV+o4+EStTqJ4Qjy+Avg6givO5Px/ZZb
+         Xd+pJ3I/H+ZAwRUH/6tcUwmyJJVC9RMFfw8Nu4J44dFqdODSIiTYsz7s0rBQ+s1qwPlk
+         P3gWL8Grpc2SkVTtuxgxyyuN6wQqGweB2NT311oY3gOnX5VwxVisKSulums84Nycc+Rk
+         hx9ZG7KM00YfSzqk8Fc0qos4sNXmXk/baaHB79MjcEoAOroO+zpnsvCZnejSpAjk3awJ
+         GtzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791454612; x=1792059412;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EnmV+GF5F+3o4WuN9B2P/gYsWL8ntjLMdxMPioE157g=;
+        b=iZwDGSbWJNVHBsapD1dcWTQf+ZDkRFw+rnhEy3/pqeggbWrGyH93XYdaT5LM/L9YlG
+         bjBJYcvAV7Y8Ue+nmWrdYHmIYhQ42FfuOFenMgVIL54la1CUbASlx8DsEIA16GmVzo2g
+         Ee51n9IEyGPh+3rw5E/n3VTEngP5Z3M2vNs2AeZvkqVm/0FRY5tM3niV+88Yn2MnDVBM
+         OM37Mj+Mjk2nNJGHZA5U1hEhiXXA4xTRyqH/7uoukZxkp5FRvnKhq/4+nQ0P0UP35V2Q
+         D1HwlVrnHvJ1/KAIAMGZpdxVR1KGn8wSiID+f1J0+Sd2mktK/nuR4SfRg4K73dxXycYm
+         mtgA==
+X-Forwarded-Encrypted: i=1; AKwUvBxxssHpf8V9gvRaFpdppew+8dQUnmtRqwMebnmSYewVMS+undJCgQxnwYs2RBtDhCBFcKGxZszeVsMGmM+1xKCl@lists.infradead.org
+X-Gm-Message-State: AFuF++mWeoCOyeRoeHww3pwJOxADoyx8sfHZ6CrJLYalYefnj2HfsH9I
+	iVGblUvFXgp01kdqIT3IQl0u8+aCbYliQ55gYNKArSCD2DLXRDRGrmUkmBFJxoslm2o=
+X-Gm-Gg: AYBFou2okjS4jnjhqfCx7+MgZKmQtSzbl6jJXV1ze40FAc/lDPjDv6sIJ2oqlE9MYlF
+	y3cqDq9tZuBL8CY99iIdS4iuadFmB9NWpU1zIIdOdErFmpr3lT2T75DKy6Fgreq4aHOtxEheIQR
+	bQpXsdf8B7KgjqqAS60+tIJKY5iEOLEQf5rP4p/8kAn8O7fXt86dJFA7yUg/CLJIE9Rud0XLep7
+	BbafUe6pJUdAqyzptNn0KBSHS2eSl2xGA3JDmdbKXrOyn4we2XJu2NP4K5AEFwyLHdkVzRoUuYi
+	0omwyOxvg7VxwNH2BOWVXYE4LHE6C87MlnmLBWd6MWzb5AT3R1kEthadlWv3rJ+MmPfzbxeNfQs
+	oEBPxLQrjY3pKwmo90saAI0P9yGGj3WDVEpx9lsTwgDauv/HTgJzdvH5RBteJkUblPmFzJx5wHq
+	yY2Xlrum02F3jSuWLwyweqT4HrvCV6BOZMWHfaEcKsj/utXEOSjSzid/Wk1wBLpNPmxjh/7DqEa
+	iY=
+X-Received: by 2002:a05:600c:820d:b0:49f:fe39:5bc8 with SMTP id 5b1f17b1804b1-4a180423b6bmr85575205e9.12.1791454611842;
+        Thu, 08 Oct 2026 03:16:51 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1842abdb9sm57441605e9.6.2026.10.08.03.16.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Oct 2026 03:16:51 -0700 (PDT)
+Message-ID: <a8373961-8ca5-4e8f-9f81-69d099bcaf3c@linaro.org>
+Date: Thu, 8 Oct 2026 11:16:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: stmmac: dwxgmac2: enable L2 split header
- support
-To: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
- Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
- Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-References: <20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com>
+Subject: Re: [PATCH v2 03/14] perf cs-etm: Turn on context packet timestamps
+ in per-thread mode
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@arm.com>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+ Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
+ coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-doc@vger.kernel.org
+References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
+ <20260821-james-cs-unformatted-per-thread-fix-v2-3-00c4fd0701b4@linaro.org>
+ <20260826153648.GK8904@e132581.arm.com>
 Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260826153648.GK8904@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_031446_844935_E0BC3991 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20261008_031653_768980_4496EC5B 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,129 +119,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 10/7/26 20:39, Sagar Cheluvegowda wrote:
-> XGMAC2 doesn't program the MAC extended configuration registers
-> needed for L2 header splitting when split-header mode is enabled,
-> so tagged AV packets can't use the split-header path. Configure
-> split mode (SPLM) and header saving (SAVE_EN) in XGMAC_EXT_CFG1,
-> extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
-> stmmac: Programming sequence for VLAN packets with split header")
-> to XGMAC2.
-> 
-> Also fix the RX header-length calculation for split-header
-> descriptors. Per the XGMAC2 descriptor format, RDES3's L34T and
-> L2T fields are only valid on the last descriptor (LD set); on a
-> non-last descriptor they can hold stale write-back data from a
-> previous packet. Read the header length from RDES2[9:0] directly
-> for non-last descriptors, and only consult L34T/L2T on the last
-> descriptor: RDES2[9:0] for IP packets (L34T set) and RDES2[9:2]
-> for non-IP packets (L2T set).
-> 
-> Finally, disable the variable-length preamble when L2 splitting
-> is enabled. A variable-length preamble shifts the position of the
-> Ethernet header, making the L2 split offset non-deterministic.
-> 
-> Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-> Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-> Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-> Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-> Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-> ---
-> v2:
->   - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
-> v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com/
-> 
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       |  8 ++++++++
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 12 +++++++++++-
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 ++++++++++
->  3 files changed, 29 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> index f8ab347f7b5b..fb29dd489714 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> @@ -167,6 +167,12 @@
->  #define XGMAC_HW_FEATURE4		0x0000012c
->  #define XGMAC_HWFEAT_EASP		BIT(4)
->  #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
-> +#define XGMAC_EXT_CFG0			0x140
 
-Let's keep it coherent and use 0x00000140
+On 26/08/2026 16:36, Leo Yan wrote:
+> On Fri, Aug 21, 2026 at 10:49:01AM +0100, James Clark wrote:
+> 
+>> @@ -453,13 +453,22 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+>>   	 */
+>>   	evsel__set_sample_bit(cs_etm_evsel, CPU);
+>>   
+>> -	/*
+>> -	 * Also the case of per-cpu mmaps, need the contextID in order to be notified
+>> -	 * when a context switch happened.
+>> -	 */
+>>   	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
+>> +		/*
+>> +		 * Timestamps are required to interleave samples from different
+>> +		 * CPUs.
+>> +		 */
+>>   		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
+>> +		/* Context IDs are required to associate trace to a process */
+>>   		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
+>> +	} else {
+>> +		/*
+>> +		 * Enable context packet timestamps only (no periodic
+> 
+>> +		 * timestamps). Even in per-thread mode with a single process we
+>> +		 * still need to correlate trace to a specific mmap around
+>> +		 * execs, which can be done with just context packet timestamps.
+> 
+> Could we use terminology that is aligned with the ETM spec?
+> 
+>    "Disable periodic timestamps but generate timestamps for trace
+>     synchronization  ... to a specific mmap around execs, which
+>     can be done with just timestamps of trace synchronization."
+> 
 
-> +#define XGMAC_EXT_CFG0_VPRE		BIT(8)
-> +#define XGMAC_EXT_CFG1			0x00000144
-> +#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
-> +#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
-> +#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
->  #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
->  #define XGMAC_MAC_FSM_CONTROL		0x00000158
->  #define XGMAC_PRTYEN			BIT(1)
-> @@ -434,6 +440,7 @@
->  #define XGMAC_RDES2_L4FM		BIT(28)
->  #define XGMAC_RDES2_L3FM		BIT(27)
->  #define XGMAC_RDES2_HL			GENMASK(9, 0)
-> +#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
->  #define XGMAC_RDES3_OWN			BIT(31)
->  #define XGMAC_RDES3_CTXT		BIT(30)
->  #define XGMAC_RDES3_IOC			BIT(30)
-> @@ -441,6 +448,7 @@
->  #define XGMAC_RDES3_CDA			BIT(27)
->  #define XGMAC_RDES3_RSV			BIT(26)
->  #define XGMAC_RDES3_L34T		GENMASK(23, 20)
-> +#define XGMAC_RDES3_L2T			GENMASK(19, 16)
->  #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
->  #define XGMAC_L34T_IP4TCP		0x1
->  #define XGMAC_L34T_IP4UDP		0x2
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> index 6719ac6e395b..65ac5403ec58 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> @@ -292,8 +292,18 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
->  
->  static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
->  {
-> -	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
-> +	u32 rdes3 = le32_to_cpu(p->des3);
-> +
-> +	/* when FD=1 and LD=0, HL is RDES2[9:0] */
-> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
-> +		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-> +		return;
-> +	}
-> +
-> +	if (rdes3 & XGMAC_RDES3_L34T)
->  		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-> +	else if (rdes3 & XGMAC_RDES3_L2T)
-> +		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
->  }
->  
->  static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> index ff83858ebc1f..0a9c787305a4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> @@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
->  	value |= XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
->  	writel(value, ioaddr + XGMAC_RX_CONFIG);
->  
-> +	value = readl(ioaddr + XGMAC_EXT_CFG1);
-> +	value |= XGMAC_CONFIG1_SPLM(1);
-> +	value |= XGMAC_CONFIG1_SAVE_EN;
-> +	writel(value, ioaddr + XGMAC_EXT_CFG1);
-> +
-> +	/* Disable variable preambles to keep the L2 split offset deterministic. */
-> +	value = readl(ioaddr + XGMAC_EXT_CFG0);
-> +	value &= ~XGMAC_EXT_CFG0_VPRE;
-> +	writel(value, ioaddr + XGMAC_EXT_CFG0);
-> +
->  	value = readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
->  	if (en)
->  		value |= XGMAC_SPH;
+Done.
 
-The rest looks good to me :)
+>> +		 */
+>> +		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", UINT64_MAX);
+> 
+> It seems this will eventually convert UINT64_MAX to 0xf for the
+> timestamp bit field. Why not use 0xf directly to avoid confusion?
+> 
 
-Maxime
+Then it wouldn't support the size of the field changing. I thought that 
+was the point of the kernel publishing the fields dynamically. Hard 
+coding widths and positions in userspace only caused issues in the past.
+
+I don't think "...MAX" is confusing for what the intention is, but maybe 
+a comment would be better than hard coding it?
+
+>>   	}
+>>   
+>>   	/*
+>>
+>> -- 
+>> 2.43.0
+>>
 
 
