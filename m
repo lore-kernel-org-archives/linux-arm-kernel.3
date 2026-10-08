@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DBDCA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9837CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MnmVjZXbloiXD13bi5Te/e9b6sNe1bfKH6W2BzMMJ30=; b=gy4DsEaAJkkCp42eZfuDQ5YwCe
-	yREziQ2f/5qla+K052q851+gTex6hJ6S7oVXJcpUSJcDFLpxcT9Yzbf9UqlapctANgh2uezi1TUZq
-	rnXSu/rQS4FxaEQxCtP0AtKkMq6v+yiERSeem/VI4ZqkDsYqwh/9dn3iiAtXsN6KcaZWmy11GOIpz
-	S1wo4zoq6xg9xeJNrSclrLtuMP7GH07xJOOH0nf6OeZ/SE4vxiqC82pdT48SJUl3lxq/VyAGXVvyZ
-	cZ0rTO3W6p465hzPBaEA4JLIa+hS1aSQnwVhsaCe1Jfuqa5pO7LzLjjBRxleVxzG2bKQ0hZAX6aV/
-	BbkjO5CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=; b=ESr5UHWm5cLKSCq7ZrlUKqPUYw
+	vX2IObWL6hIu4RVd0bDiuMNRrOJc5hlpkZIROOdWZT3oBsH4vD5RyKzJy8vK6xETStlpcWygVgdm0
+	63EYlrEOjvMEWByvMSEt5hGgUU4r/zNyMwpvRK+xz8W6fWCM81YNbz1qQIJNiyOILbtEd8dCfW6w2
+	+OXICYj42MXBk/4V7ylg5+TDhE5jxlbYS5a9FM89Fv6ncXMsG2adfGWKeOEGEY9Xkf8IciBEWQH79
+	rkg/RV3s3kn0kr7qPvE2NetO8klGFv+dwhWR8xBDzCarAHEUkP9Dd4UDnZBkS8hybGSTxWkCssTWw
+	1fjQb/tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnXt-00000004OJr-1XUn;
-	Thu, 08 Oct 2026 12:48:25 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1xEnb5-00000004OgM-3J45;
+	Thu, 08 Oct 2026 12:51:43 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnXp-00000004OGE-3J8Q;
-	Thu, 08 Oct 2026 12:48:23 +0000
-X-QQ-mid: esmtpgz15t1791463629t4e1849e3
-X-QQ-Originating-IP: D49zdi3bDNOz75fs7R+qoy9z0CVMFXcIwDBYsnUcMzg=
-Received: from localhost.localdomain ( [111.8.45.130])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 08 Oct 2026 20:47:06 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 475378674027703517
-EX-QQ-RecipientCnt: 11
-From: Hongjian Dai <daihongjian@kylinsec.com.cn>
-To: broonie@kernel.org,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com
-Cc: jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	xianwei.zhao@amlogic.com,
-	Hongjian Dai <daihongjian@kylinsec.com.cn>
-Subject: [PATCH] spi: meson-spicc: fix invalid DMA unmap on mapping failure
-Date: Thu,  8 Oct 2026 20:47:04 +0800
-Message-ID: <35143466F2F5166F+20261008124704.87708-1-daihongjian@kylinsec.com.cn>
-X-Mailer: git-send-email 2.43.0
+	id 1xEnb2-00000004OfX-30rT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 12:51:42 +0000
+From: Kurt Kanzenbach <kurt@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1791463896;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=;
+	b=oqlV/79ErOldFxJBOdcaqgayLC1WO3eZpEN29TjkzEPG9yeDcs8gdtjc9MkzQWX1rpGAWk
+	5vi1xpgk3Vu29SzvFR/YejSai7+xU+PeowDuSFokRn7V/m9fbPhEE8aD+5s7FuhungAkLX
+	HbMeJzHdfeFwKXAwhxM9oFyIg9qr6KkOXcTYSQrNU0lGd9Oti6U/PMz4VlLFd7hZ73XuGI
+	82EUKS5Vy66VsQFjY+IbiWKRR0dUJir3mAfeslMBlFvb8dnf93cctKMh7opMm7fNgSu+ME
+	kQ9P8AjA8Gnw9mHgh0AlA1WbZXK+0MVp25/90RaD4W2RFUdz+FXaeyBjC8xmjQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1791463896;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=;
+	b=66s1G752KnxZk6pqlIIlWCpoYLU30j4kYu9SQMwYjN5bZI5zizQmsN1mZI+ECsY0yN9TCZ
+	GNos/tFHRSHOzTDQ==
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
+ <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Song Yoong Siang
+ <yoong.siang.song@intel.com>, Noor Azura Ahmad Tarmizi
+ <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal Abdul Rahim
+ <faizal.abdul.rahim@intel.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v2 2/2] net: stmmac: Stop Tx queue when
+ (en|dis)abling XSK pools
+In-Reply-To: <asdcORsu7HNfAZBb@boxer>
+References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
+ <20261005-stmmac_xsk_crashes-v2-2-46c60cba6421@linutronix.de>
+ <asdcORsu7HNfAZBb@boxer>
+Date: Thu, 08 Oct 2026 14:51:35 +0200
+Message-ID: <8733ugqrs8.fsf@jax.kurt.home>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:kylinsec.com.cn:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: M5Uz2rwrqRnRkXxbF8lUn0xOq/KhjrRrws5M6+79FTLRgAKyqfqxr9s2
-	HZIHFVXrh7V2GAUsmCnCd6aYU/aCSUPbQXWb00s3RA5OeveQLs27GoJ8UhltSZBZnll2V+1
-	rss00IUxQAtlmT1GQK5P9VZU6r5/BtKVW9W3uankcwdlnog1OTANmNsGqpzW6RUJ5daSN3L
-	3dcvSsKg8Gg/AtWBS/gvyN3YvXHkXMJ/Lsh7mChADqHOTBu/U6b+MjuDnoyiz135jIYQMXd
-	2J39tNmaGVCu0mIEdNcAL+PmLUFcXVevQ6dKzJ1rfsiZgXwvPMDtEYuR023r9YY1QxxYwvr
-	WNbkOsvuZO20LgNR9ekgQmt5UJgEtLgH9542XeQIicR7Ske7KGyX20Ckv5AZJSmPVDsgqdO
-	1VuUWKgyXihSvulKgQ2VrfhwPpkFrZM2nexJAU3b317vzhZiollB/c47Iebw+7/4Xh0/xSK
-	i0rhHquOA+K1I4urTuwSXdaXgJAMttggQkSN2cCk0yn3EPeNsh/c7C3hwNgUg6minvY4w8a
-	BNjZv/g4IxqhwTCpbe4ZdrI5Hbhew06lbLKHCQkDTi3I+LZfiQH1FkvXyaynTYYpThWgCTM
-	bPcpl0RmePfF+R90v5qs6i3FexbHgaVoYRHUrtxjY66uzAGWNMIiyeB1xNcS33SpOj7Zzgq
-	wqFknYJHkvEIDDxFo2vh+FX+u02ZeApMqwvM7PvMyVT2pjNvRMn71DccwP2t7upGARBXF1z
-	hm6wtzJXxkhLUpbLtbho6118WY4xm0Yjw8AZyu9Xgu/cs4JeRVcmStzVXQ3kkdUo90MMC4i
-	y98u/QeiLo6uKGB5AkQJtCcEKfuxKf5+yaTYJa+D6bn6bt9nXkMt3Lo75ME+SXpPNsObsVj
-	tEWByBFBZvAPRtKcWgetXsps4/2IRnsbY1OvfYHkz7NCPNxxebV2v0vkq5WisxMSCgjESzE
-	GvYpJEK+ltcygu4GssI4bakZVScqFR5SQHaSKEbk16peEdx5tCsYFiVD81TXQIjPaHU164W
-	/WQjLsxP4051mdfSyQjPTDzKwbrCI=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_054822_323208_FDB976DA 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20261008_055140_900332_5FA73B82 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +90,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-meson_spicc_dma_unmap() decided whether a buffer had to be unmapped by
-testing its DMA address for non-zero. On a mapping failure
-dma_map_single() returns DMA_MAPPING_ERROR (typically non-zero), so the
-error path in meson_spicc_transfer_one() passed that error value to
-dma_unmap_single(), unmapping an address which was never mapped. The
-same happened for t->rx_dma on TX mapping failure, which is not written
-at all.
+--=-=-=
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
 
-Initialize both addresses to DMA_MAPPING_ERROR before mapping and use
-dma_mapping_error() to decide, so only buffers which were actually
-mapped are unmapped.
+Hi Maciej,
 
-Fixes: 18197e98353d ("spi: meson-spicc: add DMA support")
-Signed-off-by: Hongjian Dai <daihongjian@kylinsec.com.cn>
----
- drivers/spi/spi-meson-spicc.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+On Thu Oct 08 2026, Maciej Fijalkowski wrote:
+> On Mon, Oct 05, 2026 at 09:09:33AM +0200, Kurt Kanzenbach wrote:
+>> When enabling or disabling XSK pools in parallel to Tx traffic, kernel
+>> crashes occur. For VLAN tagged frames that happens in stmmac_xmit() ->
+>> dwmac4_set_vlan_tag() and for normal frames in stmmac_xmit() ->
+>> dwmac4_set_addr(). Both of these functions access the Tx DMA descriptors.
+>>=20
+>> The XDP pool (en|dis)ablement frees and reallocates the Tx DMA resources:
+>>=20
+>>  stmmac_disable_tx_queue:
+>>    __free_dma_tx_desc_resources
+>>=20
+>>  stmmac_enable_tx_queue:
+>>    __alloc_dma_tx_desc_resources
+>>    __init_dma_tx_desc_rings
+>>=20
+>> NAPI is disabled during that allocation window, but the Tx queue is not
+>> stopped. Therefore, add the stopping of the Tx queue during the enabling
+>> and disabling of XSK pools. Update trans_start when stopping the queue
+>> to avoid spurious watchdog timeouts.
+>>=20
+>> The issue can be easily reproduced by:
+>>=20
+>>  1. Run iperf
+>>  2. Run application which opens an AF_XDP/ZC socket
+>>=20
+>> Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
+>> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+>> ---
+>>  drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c | 14 ++++++++++++++
+>>  1 file changed, 14 insertions(+)
+>>=20
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> index d7e4db7224b0..883bd3fe8089 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+>> @@ -6,6 +6,16 @@
+>>  #include "stmmac.h"
+>>  #include "stmmac_xdp.h"
+>>=20=20
+>> +static void stmmac_xdp_stop_tx_queue(struct stmmac_priv *priv, u16 queu=
+e)
+>> +{
+>> +	struct netdev_queue *nq =3D netdev_get_tx_queue(priv->dev, queue);
+>> +
+>> +	__netif_tx_lock_bh(nq);
+>> +	txq_trans_cond_update(nq);
+>> +	netif_tx_stop_queue(nq);
+>> +	__netif_tx_unlock_bh(nq);
+>> +}
+>> +
+>>  static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+>>  				  struct xsk_buff_pool *pool, u16 queue)
+>>  {
+>> @@ -36,6 +46,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *=
+priv,
+>>  	if (need_update) {
+>>  		napi_disable(&ch->rx_napi);
+>>  		napi_disable(&ch->tx_napi);
+>> +		stmmac_xdp_stop_tx_queue(priv, queue);
+>
+> FWIW you can look at what I did at ice driver (ice_qp_dis()) where I used
+> a bigger hammer here; I think updating trans_start is kinda a workaround.
+>
+> https://lore.kernel.org/netdev/20240708221416.625850-1-anthony.l.nguyen@i=
+ntel.com/
+>
 
-diff --git a/drivers/spi/spi-meson-spicc.c b/drivers/spi/spi-meson-spicc.c
-index fa2d2db2d6e7..b1f8c823d5d0 100644
---- a/drivers/spi/spi-meson-spicc.c
-+++ b/drivers/spi/spi-meson-spicc.c
-@@ -235,6 +235,13 @@ static int meson_spicc_dma_map(struct meson_spicc_device *spicc,
- {
- 	struct device *dev = spicc->host->dev.parent;
- 
-+	/*
-+	 * Mark the DMA addresses as invalid so that meson_spicc_dma_unmap()
-+	 * will not try to unmap a buffer which was not (successfully) mapped.
-+	 */
-+	t->tx_dma = DMA_MAPPING_ERROR;
-+	t->rx_dma = DMA_MAPPING_ERROR;
-+
- 	if (!(t->tx_buf && t->rx_buf))
- 		return -EINVAL;
- 
-@@ -257,9 +264,9 @@ static void meson_spicc_dma_unmap(struct meson_spicc_device *spicc,
- {
- 	struct device *dev = spicc->host->dev.parent;
- 
--	if (t->tx_dma)
-+	if (!dma_mapping_error(dev, t->tx_dma))
- 		dma_unmap_single(dev, t->tx_dma, t->len, DMA_TO_DEVICE);
--	if (t->rx_dma)
-+	if (!dma_mapping_error(dev, t->rx_dma))
- 		dma_unmap_single(dev, t->rx_dma, t->len, DMA_FROM_DEVICE);
- }
- 
--- 
-2.43.0
+Actually, trans_start is already updated by netif_tx_stop_queue(). I'd
+just remove txq_trans_cond_update() for next version.
 
+Thanks,
+Kurt
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrHkdcTHGt1cnRAbGlu
+dXRyb25peC5kZQAKCRDBk9HyqkZzgmJBD/oCmsRqLOaLWkOVSVG1QP9cmCBH00WQ
+LRmmxbFk4UDutQJxHN4bezt5EZ6eJqvCf5WM/uI9WkyMlA65QMEm96UbHmGYhY/O
+2fdXL7X5W2wpY31IcZ15svH39ow99M+z+Qa7bOaZVMrZxaWWvyHEhv+qUESR4ot/
+lYvobo99/AorlX8Urfb/e+x3r1NCOXZJz5IIXq+9L4sAby16gJdQtvfvDdmfdN8Y
+Fr8DxMII4MoRHHcPjvMYxbYaAaGSDaK/H61e6DODTrRMCHE4322KkjMSqx/KxCBH
+zvXeMsqkWlnSTM0srBGuszFy/9kfOKWyk68q44fhuefGOaBv2xB8ZBGt8Xoz4aqq
+Mip7UslQqXVVjZCJfbUnH+zwcaJBIJA3QOQT0HebM5unR7YZDCPPc/oCL6q66G0Q
+Z61H3lzDorpXGBUUindVQvB4XLWkO6xOagPLN0Nu3fuHDIqirxrPYpSko3K3xKg/
+AsLDTMAGIKG29OoSOjlikRm+6gbkXtiH4E82IJWem/IWiQsrtXj27FHPkoWivHKJ
+oLhS9/3kWsoqO0VExHQLlh6/HTIH8358JForUyGvFLJzJxGGQVpjzmlKRfXplF9W
+th4/Y3yHhPZ16SPgDUFl6oKAQPXlUjbamJqkdbvHCUJ4zKtj2j3x6fDeYh3xN/Bk
+8c5IpCJvzgpfJQ==
+=3nkW
+-----END PGP SIGNATURE-----
+--=-=-=--
 
