@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C3CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4F8CA600E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aLfGTPUcUWb9l5deLpoGs8ct/J5SWokbi6MEeKK6Nzo=; b=DTTuBJhX0Hnucxs2jdeBKWbZqo
-	IUuSIxKB7OCYymohbx4LHNKLMjeLYuFXFQ4iAFfMV7EFMMjUq7mQyJG/aKbwFSOHEBv5ZGjvod18o
-	qaSnlNejUvAk9CKE2ZmaVvzclQdKm5ETpAwWpgoVq1R+8HyAccj7RygV4hQS85265ZuPvEbLiGh/j
-	gIefUmrIGo+TOAUhLsEovklYg+aTx+YOu46How3CCCN5zp27qtW8jSezXFp4n3KcIgEVmJ74V+lUs
-	jQgb8P13GxhC9Wl5idCmCUleE5GcWgPIuvKeUQ0deAWdii3Ae77Es+kWH7z2UU05ndRqXYM9S2Pdb
-	vTqHj29Q==;
+	bh=yw+/KyODhQGlE9PVW/UB15lvPyjHuqtv5OR4/2DWzv4=; b=nVa9zJA3mbDyCOwcLsajVlaQo6
+	ewlmL+4RdHfi44CJbASXHFBBsgPN8+5LDeP0YjgWoDjIIvCi94zVLXE7WXJjPGEuivuDTXFLdftL9
+	Yw9oejeuQk5so0liRWJIHLup/tqiqk/yi2ymEXLFX2ZiGGayKLRP/zFSRoa9gZcA7V9Q4/mUjAc68
+	fzyhs48HrT3acko+LDiJG4SM3exulvjcxhODkXX7R75gAwDamjNVS3UDbFFrh1rlP9Hh1rKBUHcvG
+	jxhx7wsZ5li+VPf89hQEWPLIvSVFxKO/HjcbqaCE6oU6JR3SjhKaDEMwVqf/tU2uU0zeNr88mJo2w
+	tsY6FoSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElW2-0000000497q-3AQt;
-	Thu, 08 Oct 2026 10:38:22 +0000
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
+	id 1xElaN-00000004AXJ-0NOh;
+	Thu, 08 Oct 2026 10:42:51 +0000
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElVz-0000000497T-0ESN
+	id 1xElaK-00000004AVF-0sUX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 10:38:21 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-398a0a87595so3177773a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 03:38:18 -0700 (PDT)
+	Thu, 08 Oct 2026 10:42:50 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a0761224e1so47517345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 03:42:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20251104.gappssmtp.com; s=20251104; t=1791455897; x=1792060697; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aLfGTPUcUWb9l5deLpoGs8ct/J5SWokbi6MEeKK6Nzo=;
-        b=cke/5R3hy8xBe1vgPBmL0jGlaqidouAC6Gg2S8dp1uCd53Bc3U91e5VN70sho7mpzr
-         F7qSNuzb5tKeOhtH5JJO2eMzYrGZjyHd2Di9Ip10FZUQ8Kkga90kR7bBQv79PoMBdjvJ
-         GSmLvpMQDAh7uakSviY95b91ZpGTrTzfSju5ZLrx0Hu+Wzh0/ucNrIuBSpzb0Db7QF54
-         HNui7yBb0oE7tgj0BIjHMVTS10dahTcRqyH5dc1OoIuo6SXFKBd4kPKXzpDAXGHVFbPW
-         BFi3hk8aV5oOJgyIWXo7CBJsUR3q6uSsDDpJ50j2qyrhc4cgqjg6eCL70aOPeOIBvr56
-         kgoA==
+        d=google.com; s=20251104; t=1791456165; x=1792060965; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yw+/KyODhQGlE9PVW/UB15lvPyjHuqtv5OR4/2DWzv4=;
+        b=JUaX40AqOU7QZyxfKGtr+CmdD1VEOJraPEJJ0iwNUK1TD84BB2IuFMSffxifiBtsCF
+         YI2dziWG8UFMPTp9PQvFbWOBWCF82fpLkLL9uuEFHXhwIEeELUUphHF+dnHRnNd8KZJe
+         tDekYOCosm5l7/nj5dBSIvQkpcOOEOo1o7b3ECUnd6IiPF7Mu5R/Ye24SWZsnEAOgEEc
+         eWhOzfOmUtiazmCWNsauozjELZsuaAb9EJBoOSRrlvPc/yAnoFQzgMRwppddlUoCCSBV
+         D3pxrwIrIXmYqcsEPZPsJBzz/ZPpTSolYNE1+Z4k4WT9CdxVxRtLi1ctEO7s7J9VJmRY
+         7aWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791455897; x=1792060697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aLfGTPUcUWb9l5deLpoGs8ct/J5SWokbi6MEeKK6Nzo=;
-        b=T7tZY73anCdYfq4FLnt1mj/YX6+rICVk+2NiDMisQIRYBVwklslJ2/l/xcakc/tyxm
-         TgxrRd2MY41wagQG9VrU5+coWng8zB2LTPcPS7NltZPgtPGSkOj3tjU6KxDxWj36E6JY
-         U5ku6SO1CzJ37dLSBg2nW8/FY29TJ7lb2Iv/GJKq/GUbVPMUhrfGbtXWk8zdmm28p8pp
-         6fPCUHwGms4d+8CCOQXY2W2zHrrbY+KinQ1Gg19OinSG4395pY2Huzk1vag0aZg07zDO
-         jFgI7dkKC5xMyBgbA/EKdCzTx5wHfWf9r4kNbGjPtyKzXoS2DJbxBFdEqBiXB5aVX8kS
-         YBrw==
-X-Forwarded-Encrypted: i=1; AKwUvBwI0Go3IHfXTA9/Evqpc3LDbFtIRlGYdmByl1pYoHK76lEmxx+C9R2y6nPbM85Lo9m+V2Z+qw7cO3WcF/VCmZOK@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ6+mL9pyymVpvVUfWFMU/zHcFJOKnLP0wANQA5KyJrfXWnEEGX
-	lds9rKcHWTiJv4bUbFGGsWdJsn+eIlHia7FCgf/Mq7c6sxk8awRZ5jw3hrkl1z1RbQ==
-X-Gm-Gg: AYBFou2KKXg43dVrHTrSmu04+ormk7BbB5phHsi6y9THwxU84LE5NngkcI0iXxk/55T
-	UeN4qX+YTaRdLtafMC21wRJKMFRrOaQpvu+mKjy/C6vOU8nNkwqInQMfFTBYfL+1S4tP8aHp8hX
-	EIts5IRpw5VjU4PY6msMvnbb6fcR0inCSUdA3ddjzmSD+VZZCJ3PMXh/cXXNDsLDX5MaoHEtnHw
-	+29z9Ph/9v+i/TKa5gcSyo6Qdl9xm+Ln3nzwLxbQR8WNP9q+xqubb2rYAKTAOjLpWP5tMKpx82I
-	OKE9yiQSt/bkuE89TySNEobqfcZ9LfApbytQTvj8iF9YFc1Ij2NWEMDk1L0TvaBG/8DmUTPAUX6
-	OzQOal8duLziyyiJqznaKGTeBPQDqmdCXjBrSco37E0z+CQ2HrGLg9tMQSr/AuRQikQ6WDNvBib
-	rnCN33+z4FcdFSwjQsklWVkX9PGsnIZI8jtXTDnFqcXWGjYHcJ8L1EMDXWaFfotA==
-X-Received: by 2002:a17:90b:4a8f:b0:39e:6a82:afda with SMTP id 98e67ed59e1d1-3a8a1b3206emr4398317a91.44.1791455897384;
-        Thu, 08 Oct 2026 03:38:17 -0700 (PDT)
-Received: from cantal.lan ([58.136.72.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab0458bce8sm1008070a91.3.2026.10.08.03.38.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 03:38:16 -0700 (PDT)
-From: James Clark <jjc@jclark.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Miroslav Lichvar <mlichvar@redhat.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2] net: stmmac: ptp: switch to gettimex64() interface
-Date: Thu,  8 Oct 2026 17:38:09 +0700
-Message-ID: <20261008103809.1848255-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20260707; t=1791456165; x=1792060965;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yw+/KyODhQGlE9PVW/UB15lvPyjHuqtv5OR4/2DWzv4=;
+        b=oO7SUHaxBipoQzjH3GbyT7ImogrZb9h7kbwZdoPuQZx0z7FEeSMdxAHScU9HYjglaL
+         Vd4vrnu0r51rzs4ST1T0HUDSDsinhugHC/GSq59JAFEMtva/PgRejyVZUONW3gxWrxbY
+         a1rJMrZwCBZpHmYZ9wVodzT59joE8sDpSSIgS64IjV82PWtJ1EJ7ZiKMxbgN2RY4oyNL
+         T8iR0puoIHctI1Hkj4+LdSYVvOLoFNNzCptaoCgmN/vOXekj/1JX8G91GALft+SB77K6
+         gZKAAOXsVtE8c6KzovWzSZ1/WssOwK3PgcPUQS1TWzaATKZi/L2uhan87Z7I0SSqSBmv
+         Pu1w==
+X-Forwarded-Encrypted: i=1; AKwUvByfjAxShgcHPWMXOBS56CRZbUkxxw87Ie23yzXP9GvbudPFRsqdjW0Ekp8JBzRjTYd0R4ICjUyNVZzh+TJGzv30@lists.infradead.org
+X-Gm-Message-State: AFuF++mGjnAZRi2lKpGlskANQ0ZiCFduwnxqJl8zPpMnA/xPS5qbgIAx
+	qWAw3OvjuFPxpxHMFbphHRoAImGNrh6gXfdcH9Avs6CEJdgYMAk4/vkHoR9zSo6rnKjWAaYr2oX
+	axmxg6ZTTPZVqlxoySIm+Cw==
+X-Received: from wmpd9.prod.google.com ([2002:a05:600c:4c09:b0:49f:e58b:90d5])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:46c4:b0:4a0:eae0:769a with SMTP id 5b1f17b1804b1-4a180660fc7mr81234745e9.28.1791456165231;
+ Thu, 08 Oct 2026 03:42:45 -0700 (PDT)
+Date: Thu,  8 Oct 2026 11:42:10 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.360.g66cac248cb-goog
+Message-ID: <20261008104212.3134550-1-vdonnefort@google.com>
+Subject: [PATCH v1 0/2] KVM: arm64: Fixes for hyp_trace
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_033819_387741_66E97CC2 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20261008_034248_251672_F8FCB5ED 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,201 +91,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmmac PTP support currently implements the gettime64 callback to
-retrieve the hardware clock time. Update the implementation to provide
-the gettimex64 callback instead, adding support for the
-PTP_SYS_OFFSET_EXTENDED ioctl.
+Here's a couple of fixes for hyp_trace:
 
-The system clock readings are taken around the read of the nanoseconds
-register in get_systime(), so get_systime() gains a ptp_system_timestamp
-argument.
+The first one fixes a potential 64 bits overflow in the hypervisor trace
+clock.
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Assisted-by: LLM
-Signed-off-by: James Clark <jjc@jclark.com>
----
-Changes in v2:
-- Read PTP_STNSR with readl() and drop the two rmb() calls
-  (Nicolai Buchwitz, Maxime Chevallier)
-- Fix the kernel-doc of stmmac_get_timex() and an over-long line
-  in stmmac_adjust_time() (netdev CI)
-- Link to v1: https://lore.kernel.org/netdev/20261006103610.98277-1-jjc@jclark.com/
+The second may prevent tracing loading for certain buffer_size_kb
+configuration. This one depends on the allocator, so I have based the
+series on kvmarm/next.
 
-Tested on a Radxa ZERO 3E (RK3566, DWMAC 4/5) running net-next.
-Width of the interval between the two system clock readings
-bracketing each PHC read (2000 calls of 25 samples each):
+Vincent Donnefort (2):
+  KVM: arm64: Prevent 64-bit overflow when computing hyp clock rate
+  KVM: arm64: Fix bpages backing allocation size in hyp_trace
 
-                                         min      median
-Before patch (PTP_SYS_OFFSET):           875 ns   1167 ns
-After patch (PTP_SYS_OFFSET_EXTENDED):   291 ns    583 ns
+ arch/arm64/kvm/hyp_trace.c | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-On this board the 24 MHz arch timer counter advances in steps of 7
-(~292 ns), so all intervals are multiples of that.
 
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  5 ++++-
- .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c |  7 +++++--
- .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 21 ++++++++++---------
- .../stmicro/stmmac/stmmac_selftests.c         |  4 ++--
- .../net/ethernet/stmicro/stmmac/stmmac_tc.c   |  3 ++-
- 5 files changed, 24 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index a8a5c8fdd5e..6efbfe50102 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -493,6 +493,8 @@ struct stmmac_ops {
- #define stmmac_fpe_map_preemption_class(__priv, __args...) \
- 	stmmac_do_callback(__priv, mac, fpe_map_preemption_class, __args)
- 
-+struct ptp_system_timestamp;
-+
- /* PTP and HW Timer helpers */
- struct stmmac_hwtimestamp {
- 	void (*config_hw_tstamping) (void __iomem *ioaddr, u32 data);
-@@ -502,7 +504,8 @@ struct stmmac_hwtimestamp {
- 	int (*config_addend) (void __iomem *ioaddr, u32 addend);
- 	int (*adjust_systime) (void __iomem *ioaddr, u32 sec, u32 nsec,
- 			       int add_sub, int gmac4);
--	void (*get_systime) (void __iomem *ioaddr, u64 *systime);
-+	void (*get_systime)(void __iomem *ioaddr, u64 *systime,
-+			    struct ptp_system_timestamp *sts);
- 	void (*get_ptptime)(void __iomem *ioaddr, u64 *ptp_time);
- 	void (*timestamp_interrupt)(struct stmmac_priv *priv);
- 	void (*hwtstamp_correct_latency)(struct stmmac_priv *priv);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-index b9a985fa772..870c740b4a5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-@@ -183,7 +183,8 @@ static int adjust_systime(void __iomem *ioaddr, u32 sec, u32 nsec,
- 					 10, 100000);
- }
- 
--static void get_systime(void __iomem *ioaddr, u64 *systime)
-+static void get_systime(void __iomem *ioaddr, u64 *systime,
-+			struct ptp_system_timestamp *sts)
- {
- 	u64 ns, sec0, sec1;
- 
-@@ -191,8 +192,10 @@ static void get_systime(void __iomem *ioaddr, u64 *systime)
- 	sec1 = readl_relaxed(ioaddr + PTP_STSR);
- 	do {
- 		sec0 = sec1;
-+		ptp_read_system_prets(sts);
- 		/* Get the TSSS value */
--		ns = readl_relaxed(ioaddr + PTP_STNSR);
-+		ns = readl(ioaddr + PTP_STNSR);
-+		ptp_read_system_postts(sts);
- 		/* Get the TSS value */
- 		sec1 = readl_relaxed(ioaddr + PTP_STSR);
- 	} while (sec0 != sec1);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 3bfcc9760dc..e54a3c88782 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -89,7 +89,8 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- 		u64 cycle_time;
- 
- 		mutex_lock(&priv->est_lock);
--		priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-+		priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops,
-+					       &current_time, NULL);
- 		current_time_ns = timespec64_to_ktime(current_time);
- 		time.tv_nsec = priv->est->btr_reserve[0];
- 		time.tv_sec = priv->est->btr_reserve[1];
-@@ -114,15 +115,15 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- }
- 
- /**
-- * stmmac_get_time
-- *
-+ * stmmac_get_timex - read the PTP clock, with system timestamps if requested
-  * @ptp: pointer to ptp_clock_info structure
-  * @ts: pointer to hold time/result
-+ * @sts: pointer to hold system timestamps around the read, or NULL
-  *
-- * Description: this function will read the current time from the
-- * hardware clock and store it in @ts.
-+ * Return: 0
-  */
--static int stmmac_get_time(struct ptp_clock_info *ptp, struct timespec64 *ts)
-+static int stmmac_get_timex(struct ptp_clock_info *ptp, struct timespec64 *ts,
-+			    struct ptp_system_timestamp *sts)
- {
- 	struct stmmac_priv *priv =
- 	    container_of(ptp, struct stmmac_priv, ptp_clock_ops);
-@@ -130,7 +131,7 @@ static int stmmac_get_time(struct ptp_clock_info *ptp, struct timespec64 *ts)
- 	u64 ns = 0;
- 
- 	read_lock_irqsave(&priv->ptp_lock, flags);
--	stmmac_get_systime(priv, priv->ptpaddr, &ns);
-+	stmmac_get_systime(priv, priv->ptpaddr, &ns, sts);
- 	read_unlock_irqrestore(&priv->ptp_lock, flags);
- 
- 	*ts = ns_to_timespec64(ns);
-@@ -200,7 +201,7 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
- 
- 		target_ns = cfg->start.tv_nsec + ((u64)cfg->start.tv_sec * NSEC_PER_SEC);
- 
--		stmmac_get_systime(priv, priv->ptpaddr, &ns);
-+		stmmac_get_systime(priv, priv->ptpaddr, &ns, NULL);
- 		if (ns > TIME64_MAX - PTP_SAFE_TIME_OFFSET_NS)
- 			return -EINVAL;
- 
-@@ -304,7 +305,7 @@ const struct ptp_clock_info stmmac_ptp_clock_ops = {
- 	.pps = 0,
- 	.adjfine = stmmac_adjust_freq,
- 	.adjtime = stmmac_adjust_time,
--	.gettime64 = stmmac_get_time,
-+	.gettimex64 = stmmac_get_timex,
- 	.settime64 = stmmac_set_time,
- 	.enable = stmmac_enable,
- };
-@@ -321,7 +322,7 @@ const struct ptp_clock_info dwmac1000_ptp_clock_ops = {
- 	.pps = 0,
- 	.adjfine = stmmac_adjust_freq,
- 	.adjtime = stmmac_adjust_time,
--	.gettime64 = stmmac_get_time,
-+	.gettimex64 = stmmac_get_timex,
- 	.settime64 = stmmac_set_time,
- 	.enable = dwmac1000_ptp_enable,
- };
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 6097f312fce..2ae4f0e760c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -1778,7 +1778,7 @@ static int stmmac_test_tbs(struct stmmac_priv *priv)
- 		return ret;
- 
- 	read_lock_irqsave(&priv->ptp_lock, flags);
--	stmmac_get_systime(priv, priv->ptpaddr, &curr_time);
-+	stmmac_get_systime(priv, priv->ptpaddr, &curr_time, NULL);
- 	read_unlock_irqrestore(&priv->ptp_lock, flags);
- 
- 	if (!curr_time) {
-@@ -1800,7 +1800,7 @@ static int stmmac_test_tbs(struct stmmac_priv *priv)
- 
- 	/* Check if expected time has elapsed */
- 	read_lock_irqsave(&priv->ptp_lock, flags);
--	stmmac_get_systime(priv, priv->ptpaddr, &curr_time);
-+	stmmac_get_systime(priv, priv->ptpaddr, &curr_time, NULL);
- 	read_unlock_irqrestore(&priv->ptp_lock, flags);
- 
- 	if ((curr_time - start_time) < STMMAC_TBS_LT_OFFSET)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 42a00446e9b..57ebeb2c19c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -1070,7 +1070,8 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 
- 	mutex_lock(&priv->est_lock);
- 	/* Adjust for real system time */
--	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-+	priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops, &current_time,
-+				       NULL);
- 	current_time_ns = timespec64_to_ktime(current_time);
- 	time = stmmac_calc_tas_basetime(qopt->base_time, current_time_ns,
- 					qopt->cycle_time);
+base-commit: 8ed245078003cc5f61ca4c8f9920374086f2515c
 -- 
-2.56.0
+2.56.0.360.g66cac248cb-goog
 
 
