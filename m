@@ -4,149 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93EECA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E897FCA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6/W734l20vSRm7iGS5nauwlAEkH0I0vAYkP+aZ0uIg=; b=0hAeelAwHxKs3CWLB3M4SQKSlZ
-	0gIPK3kQo9zMVu6W3V3JZ0k9UUTMg5aMdMH8d067SbRRSKBpT+LhkdDyX3qxkRHli1jrfHfrPuHEI
-	R1EX0GVBQYbcWl3tI67QyI5tz4JKCMcQMqaW8Xf1EPA7ZNIw4YaHP3At0P6yPTF0LN68K4gQjdvjG
-	tRtcyE+tzJI35J7FekXW0g8AsdjGf0jL/s1e4A53n/5YcmIH5A6lAwcM/NMDwHh5YI0hZgnD9yGSD
-	qlJoDnR+P2RE9SECB2VLqkQ20bZfOMvD2nPyG424x8QRhG32TY7t2clD5pEkcUZM3WvhIUcN+PVVY
-	ih09GbEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zIIIBNZEG4EYad1vmHbD/D7jSqDeHQoRh0K9YrKhhjQ=; b=vnCXvys47bl5vP
+	vuphjRysJJwQF2bZfocuLhhbZaaRDFu4NpBUnKrBmBFGDqOf2sAhjOnOTMI3YoFrx/TYm1JHPIKti
+	FGUPRGrb/8LZlqkrbZt3Pn+HxMs7l8RJ2EWXRqIJHLnKgP3qGpXRuF4orPETKRFk4lPT+8HcESVRW
+	wSwZd/YGk7YceEW5M6cNSxajy/MFlG/zKFUB+tZZp4PUygvqf2iGNb99RnDefvsnog48G1yVit3iM
+	jGzRwmbp1IvIRrjDc57f6duq8xkBOwTSN945MfxzyDeU9flEmV8te69xEZgGvct6VY4GT1l+bRga4
+	uCUU/NMu7hNZKoW1LWiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk7d-00000003y72-0K6X;
-	Thu, 08 Oct 2026 09:09:05 +0000
-Received: from mail-uksouthazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c205::5] helo=LO0P265CU003.outbound.protection.outlook.com)
+	id 1xEkEa-00000003z7l-0ght;
+	Thu, 08 Oct 2026 09:16:16 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk7a-00000003y6d-3RgH
+	id 1xEkEW-00000003z6A-2keg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 09:09:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=prsQtAixPqDQRwzRAr9K5g2u3VbiI7AmZs3XCXcZf8q1Gsrffdj+GQw82b7dQpWkzSPqrFVJ+L/qvsJl5dM9/i3r/64zw5JAk4Pzikg1i84WcQxdvD99ZLvcec8A7BjnL5Hx07vYWyjzmRig6iu6ctyyyy8ELSD+d8kYCpGb+65St67PirVeGNgLiaWYCK30Du/Z+C88R7CNOE37XhzdEq5nmVZsTVIWV8KJwTYvRWoXrlbq7o6hpCq3dG8CuiMuW++sy2bQR62CKKs6d8B3HLkvVomyFnlGajaNyGh/Z8yKU5TYhBUmWFAKZ2TdSlDlVeqGotjNWvCu0ZTLO1RUkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b6/W734l20vSRm7iGS5nauwlAEkH0I0vAYkP+aZ0uIg=;
- b=GJwLHEmiKHLQ3BvykT0NXtBKbVhgHyJWQZW7TS6tpfc2hBcB4blL7uneUJk1WdgVfoU+NlrhgToH2shFCvUs0Ru6zTcdb+/OGbsKT5M2kqCgLRm+8jkkIkVjm/Oh5bMmYAN+boAgMS7th2qA9Rcpv1A4tztgv4MmG/j00f+GSh43cmcXhg+/6ssdsA1ig5b08o3MV7DaeA7bjfq8PyYxIKkIEm89P12nwCBnvWjjuEZ+zt/ZAbd4dceUdmOnFhnr1eaIuqfl9PzmmYqH0FtFInNdeGeBb0gDo/C9fxKeHusw0JEQzeBJWlg3Vt+JtiHyRKRcBqi+iojcuZhnbSyMkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b6/W734l20vSRm7iGS5nauwlAEkH0I0vAYkP+aZ0uIg=;
- b=If/oS1UHdTys3jo5HTFRqEszJKrIdaaeOfOAn8UjzwEa4lGXklOYpIkHG+Q4L+UciCuqz0h/NEoCYIQhma0LcvJ3RnMneMg+tW2+VBHnpS5dUR342EJSLzYZBNCSCsZdVUDG101aVvDWn5j3+hFMHQ1Q+2EGe27I3TQ++pBg+mE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
- by LO4P265MB6089.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:293::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 09:08:56 +0000
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 09:08:55 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 08 Oct 2026 11:08:52 +0200
-Message-Id: <DLZC7PFV4O75.VPMF8KDNW8JY@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Arnd Bergmann" <arnd@arndb.de>, "Linus Walleij"
- <linusw@kernel.org>, "Christian Schrefl" <chrisi.schrefl@gmail.com>,
- "Bradley Morgan" <brads@mainlining.org>, "Paul E . McKenney"
- <paulmck@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>,
- <linux-arm-kernel@lists.infradead.org>, <rust-for-linux@vger.kernel.org>,
- <llvm@lists.linux.dev>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 5/6] ARM: rust: Enable Rust support for ARMv4T
-From: "Gary Guo" <gary@garyguo.net>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>, "Russell King"
- <linux@armlinux.org.uk>, "Miguel Ojeda" <ojeda@kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20261008053746.49631-1-kmehltretter@gmail.com>
- <20261008053746.49631-6-kmehltretter@gmail.com>
-In-Reply-To: <20261008053746.49631-6-kmehltretter@gmail.com>
-X-ClientProxiedBy: BE1P281CA0174.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:66::20) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:4ab::19)
+	Thu, 08 Oct 2026 09:16:14 +0000
+Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:4b01:1e0e:d42d:4ec8:33b2])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B734D2004FC;
+	Thu, 08 Oct 2026 11:16:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791450968;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zIIIBNZEG4EYad1vmHbD/D7jSqDeHQoRh0K9YrKhhjQ=;
+	b=US6sD5XVw7wOJGTpw1O8kjg56uxtS6LlwtEikiY0mZwIEfaAVetDNPTylHlGLjmfGkM5YG
+	8ybNLZUKfGMAuImt8Sv4viOVzVDCKYm0zhdH8ELMV4wH2LhsAMmijhOxSlvZI4xsdG3k5q
+	gTkRCwsDReG+ZeNlLTKVkV8AAr1UQQ1HxxaHigvE2oHcvPinfFYzrj5H2r1FJN7bntE8Iz
+	Qex6tYMQ7EcOS8qRQjFSMkDKFdanpwBIizxGbU1bOuMr5JFalsv25zbLjqpeURGQY53CZU
+	D7Tmg+uuFe3IDWngwIkHyzHIaEbEJV/FbB+4sjH52re4JCrZZMARadMYOGTTQQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791450969; a=rsa-sha256;
+	cv=none;
+	b=WSQ8kP/NYanC0etRlqTPSwVD6pBi84VlMI8Dvp1qUOad6CxtAi/9BXK9ComBeOaZktapLa
+	+HlHALf6WcM5T9Rhv1uv10DN/oSQULJuxFVzqK/aW1ceHHXf2KOFND2Y3bWab8y2P5skaB
+	SRJ9zWiAtmyTUIU70vcaVhNhUHsbMkpDdbYtxU/okP3dsX1FfebVCCPvWn/XuGnh2LTAr4
+	s+8bfb8VFEnrS5XRIZRNnFI3LUAoNfVQ2ykvnQMin+dT2ca9V6dxV1e+HsmrVVq2zcM4bD
+	AN+7tjsKayC4e5TZSWwdpNErAbzLTAfFekB8bT4Uwq5eIZ/FxMUCSLfphUs8dQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791450968;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zIIIBNZEG4EYad1vmHbD/D7jSqDeHQoRh0K9YrKhhjQ=;
+	b=Z95BCJiTtM+fyQpFm3XAiDB3v+sDhmcxeYk8vBYF3+3sYBqEJBde1VAKwJfmb1uHL79k+U
+	wnBv/lVxkv9WBB/H4qY8L4a2Fw0RjZz0JrwDQuu+qu+kMh7HmLegMgvpGp1M34Lutn1iJC
+	fTSe8dAqADCQ+47LVVgSQS8BMmx5SCreHpZ4Od1iqd8j1CGBbqwpr5irZoRrZRXVvupo9f
+	OUPNZGdv+WzIMUMgLWpCYEGDgE1F/izs1Tqrp8nM6LtaaC+KFIJGEmU8cZ5yDj8cS2Hict
+	CCEmedD3nyT5dVPmrZSw6moYHoykGHKIaVURsoEZJXmxPJ6WSMRm+Linvga7ww==
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: [PATCH v9 0/3] arm64: dts: imx8mp-skov: add new 7" variant
+Date: Thu, 08 Oct 2026 11:15:58 +0200
+Message-Id: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|LO4P265MB6089:EE_
-X-MS-Office365-Filtering-Correlation-Id: eaeb9e78-3b02-47c4-94a0-08df251bc7e5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|6133799003|18002099003|22082099003|10067099003|3023799007|4143699003|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: isCRE0MZbKpsU7LaFZLzkqBBk3PFGA7ZB/HeOfHW0tJyWNRnZ6AnJYslcDYRyFXd++jD/EjUG6Aby9GZ149qQ19S2AmshWNWP1qVkcGKa/Ulkv9d+Zs7ECU+dOy0WdV8GaotrNTFwdyjsWOh1C7AiFv021Bvv6jg+FktD4ausezTvkKx6hz4r33UIYrbK3dae5BPvg3iOziN2SA6nBNGzcIgjiAuthTsV+PcHe0lK+vooodUg/sQc+xex4aR3ki/s6OPLKdm4Jny8VWlakZFHRLs2qwP7ZZSa63cnysJxP4G+Qa5GI8hoBfCl4YutyqxBf1xjUZnWZYUOErgmMq6ooa+jK5397F+iaU99PUHiq295544ZFFLKU61WHIMQ2MvvYKfHeiUvSJY/eM1CzuOL1kwFrdwnWqZq0J0kjsP0nR6CN7aCDXCj3G8JZ6vKSY3TuJ2Oj/2VpvTxTThhaqnyDuSDwju2L5xOu2hJYZPECldt5qQ7HQAn5mDHjuM3vWUHeBea4XZUGOCJ+150ZOmcC7F/VS3Sj5anDNZHyGgnqar1kEimi1lu/5PRZVx5/VkcBepd8SDSZdiLTdQT8eAHIXQbCz87CBN10LZWu6REizcEnxWsVjlnrXpmRO0KBnQ3Zbk2dWiPgJNj4YOJ2IUS/xAQy5z8pqkTHcOaBewLkY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(22082099003)(10067099003)(3023799007)(4143699003)(5023799004)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFR5NzhqaWN2QXJzNmJoYW5yeEFaSkIyWGxsdnlhQStiY3FCbHlJclQxTjRX?=
- =?utf-8?B?Yy9aSlZnRHQ1QjgxVnprQTNrUm9ZdDZnTEgrV2xRakZxK1NnaytpM25sUVhm?=
- =?utf-8?B?OVhhZWhrOGNoQUJxamYrdjdOR2RnVks3WGJ6M3NGbzJ3eDZacDl1cThmRlV1?=
- =?utf-8?B?UVZUY1VFSUdKZEhpVUo3ZmdZZVNYZTZLVGZudHJPSjdEM05nNTFFUzZVWlpW?=
- =?utf-8?B?MFkySjNYeTI4NDl5ekhTcEpiR3JNMW9rSWhsVTJ5VXFDVVpTZUx1eW5adVJl?=
- =?utf-8?B?VmNXRFVqVlgrSUNTbjhDZGRGcUFjYjVpMU00T3psSkpHV2UrMW1KeW14VllT?=
- =?utf-8?B?ZUFoa3RNTklTYkkvTlZEK1c5amJFREV0NE81RnNzMndkck8wNktVZWgwL0Fn?=
- =?utf-8?B?MHUwdWJ1NTdwTVREQXJoL0Mrb09XV0VQRTBiRWJkYzJBNHp4emFIc0Zlei93?=
- =?utf-8?B?c3ZJb2tYRzRCOHZqVENoZGV5UzBpdlhLV2VEKzJ1WDdMNUVsQzd3T0dtcU12?=
- =?utf-8?B?VnA3MjFzc0g0aEE1MU1lQlkrcVNkYkxSaTJyMmZTaVZrODdKUmJFZzMvaUZp?=
- =?utf-8?B?SzkwcXZwQTVBalR3a2Q0aEptazFPOXFOUTdCMEYxT2k0bVpXd2ptOW93THB2?=
- =?utf-8?B?VGQwMGJSelM2K3QvRG9lTjBjSmFMTG1yNEpQUUpUZDZXL2NLZG5KUmlFY0s1?=
- =?utf-8?B?c0c5dytzdEdiWFFhYW9NL0RBQmVqQ2Z4dkg5V09zTmtmU3EzZ0xwUEV6Vmgr?=
- =?utf-8?B?RTlCckJBbElBcTN0M1IvRDdKemYxQTczNGZES3AycFBtUEhMZGpEMElvaEk0?=
- =?utf-8?B?SHRNdjBQYUpGVGNBc2lHdGlRTWtlbzVCRDc2aUZacXUrTXJXMW9VTmk0QXha?=
- =?utf-8?B?eHo5OUFNbGplSmV2aTJYOC9jRDN2V1BIVDgyYmFkanFTWmxUTmRzdVZSUDRl?=
- =?utf-8?B?S254ZGQzUjlVOE1aanh4cENLVTdqZTB6MzF3MS9Qckx5MlNOSlNsK0hyckNX?=
- =?utf-8?B?QnhkOXEycll4TjBlL1BaalhNakVtNGROSVVLeDhQUng5K0duQ3Jqa1VGZ1N5?=
- =?utf-8?B?RFRRNWlMYjVOSWprMFY1U3RzQTdFUFEwQ0J6Q2YwZ2l2QWlVbEZtQ3BaVmJu?=
- =?utf-8?B?K3JSWjZPaHIvV2Fpai9LbElRcHVtODEwYWFqVmt4MExVOUdJWFBoMHRKVmNS?=
- =?utf-8?B?cEJwNlNYZ000bzU0RC81OFYwVkV0eno3ck5VMGlWcDcxV0N0V0dxdzl6T2Rl?=
- =?utf-8?B?YUg0dzZaeDVSWXE4eHdpcjVWOGFLOGVzVmFrWFF0NVAxajJsTEtwL2VZYm8w?=
- =?utf-8?B?SUZxS1dFL2oyTHVvNjNpZUlFVnJZRGlnNUZaR1RGNmFmY28vM2tMSUpyMUxN?=
- =?utf-8?B?MUJXdGVvZkFnNHcrZUdlOHdxME4vbyttNWo4SlFxVFd6Y1ZzOEdaaFVjekVX?=
- =?utf-8?B?bURzT0lSNnpWU3Z3K2xmejJYVXNEOGFhQmRhYUNONGo4R0RNN2xyL1F1TU1Z?=
- =?utf-8?B?K0YxallONFBNRk1KQkduMFNxZE1PaTg1N0ZzUGFPbmRjUXhFVzgvQU1lZnVH?=
- =?utf-8?B?NXc2SXBqcnlXL3FsckZ6eE1BUEdiblRrN1dBQlNJeVhmTWZ3MWtNRDlWUkJn?=
- =?utf-8?B?VW1uUUl1a0pwL0pneGtDVmE5aG1BVGg4bUF5ellBVW5QV05MWkxpWlFpU0hM?=
- =?utf-8?B?OVFaZGRaK1ppWEdXRnF3YjlZRnpDUnlaNmFnTlhuUU52YjJnVGtKdHpKbDhs?=
- =?utf-8?B?UmtCQkVjSnY1aGdLQkpzQmN2a1RPSGMrdzlKTGVDRVliVTcvaWZhcHNRdEdX?=
- =?utf-8?B?YlAycndxdUJCQ2k4aFJHWmgvYjUycXlUc0RwaWorSGZVUTNzdnRiL1Zjb3Rw?=
- =?utf-8?B?blQrVVdnbDdDTk5oc3QweDZTVUlEdlV3VDE1L2NNUWViNm42RGd1ejAwOWxo?=
- =?utf-8?B?RGU1VnBwZmpncUMvdVNqM3M2ZXkwTEFubVpUelRITkF3MmN1bkwvYmdoeVBE?=
- =?utf-8?B?Q2R1MDF1VEpIb0pyZUIvbldtVWthQ29WTjgvQkU4YXc0Qkxwb2tFVWNmYzlM?=
- =?utf-8?B?Rk9RWmJDK2t5WWkrTEcyS2NSbGV0cDFvRFpJTmRySUcyaGZTYzdabUdIeW9E?=
- =?utf-8?B?R2lzQSt4VVZGUGxNcmNuckNENHA2bDVKcEswV1h0Y0twZENDZ0tCejdhemdL?=
- =?utf-8?B?VXhxZWFlVHd6QjA1aFM3WGc3L2VSclFObUJSTjN6d01PSG1IWlBadEloSjVQ?=
- =?utf-8?B?RUxaSTdTM1pSbVpqd3d2dkVVOGlMMzBxczJjVi84UjJDdk9sdUE4Vmo3UWFa?=
- =?utf-8?B?aWw3YVEvajdVVklEYXlJdHV5MEd0NDI4WWtHZVVXek9lS2ZxUERFdz09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: eaeb9e78-3b02-47c4-94a0-08df251bc7e5
-X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 09:08:55.8875
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YuX1oJNLI0BiR9qjmt6h8RlAYg3j55qm35vmW7gB3cwZ6z/Ek6Yw8ycNBu5ENCCWiWN4BD4fXzlygE9fM1T5NA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6089
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/53SPU/DMBAG4L9SecbIPn+GCcTCyMCGGBzn3LioS
+ RQnUVHV/44ThlYiS7pYOuvVc/64M0nYR0zkaXcmPU4xxbbJRfGwI752zR5prHJNgIFmAhSdDGV
+ 0aLvoaTye7LGj6budaDUkehiHdvQ1NbHJq6hKX0rFnCg8yVzXY4inpdUneX/5eH0jX3/baSwP6
+ Ie5zRysYxra/mc50sSX+PbuE89BzkCpCoSWonjusNmPQ9828fRY4dJ7gqsuwWzQIQcRSlMEDxn
+ nq7q46obxDbrIwcrIYFAEC4VY1eWtrjfoctaDZ95aMJ7Bqq5u9E0vo3JQm+CcQmRl0Ku6vlfXO
+ RicDYbnGygdVnVzrz4HvbOOSam51m5Vt1fdii2/apeZQS2UVFC6/xN5uVx+AaVxd5+QAwAA
+X-Change-ID: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
+ =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3380;
+ i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
+ bh=jd/pc1OWjyiywuvg4Cn5RWmjvoXoOOrzbGiGfZnRFSo=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bx+HAb7u6whJPrp1x/tv6fb1C779xTyk8Ejsg/4mTrF
+ T084WFXRykLgxgXg6yYIovKwgo+UY8PnpHTRLhg5rAygQxh4OIUgIlwWTD8U5RRYor5a/PphEHd
+ hoVf5riX9j154JzztMnt866/H2//+8/IcFG1ZPrLjZbL33J6H3E9HjvnuUMgm62Op8vaco6pt+U
+ N2AE=
+X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
+ fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_020902_868273_18E5A24D 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20261008_021612_853197_F28056C5 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,84 +114,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Oct 8, 2026 at 7:37 AM CEST, Karl Mehltretter wrote:
-> The armv5te target emits clz and blx, which ARMv4T lacks. Kernels that
-> contain an ARMv4T CPU are excluded from Rust for that reason.
->
-> Nothing else in the Rust code depends on ARMv5. Use rustc's
-> armv4t-unknown-linux-gnueabi target for these kernels. Like the C code,
-> the Rust code of a combined ARMv4T and ARMv5 kernel is then built for
-> ARMv4T.
->
-> ARMv4 (StrongARM, FA526) stays excluded. It has no bx and rustc has no
-> target for it.
->
-> Tested in QEMU sx1 (OMAP310, ARM925T) with omap1_defconfig. The Rust
-> samples, all Rust KUnit suites and the doctests pass with the current
-> and with the minimum tool versions.
->
-> at91_dt_defconfig combines ARMv4T and ARMv5 and is built for ARMv4T.
-> That kernel passes the same tests on a Microchip SAM9X75 Curiosity
-> board (ARM926EJ-S).
->
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  Documentation/rust/arch-support.rst | 8 ++++----
->  arch/arm/Kconfig                    | 2 +-
->  arch/arm/Makefile                   | 1 +
->  3 files changed, 6 insertions(+), 5 deletions(-)
->
-> diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arc=
-h-support.rst
-> index d6d1bef44c8f..3f39cf55b6f4 100644
-> --- a/Documentation/rust/arch-support.rst
-> +++ b/Documentation/rust/arch-support.rst
-> @@ -12,15 +12,15 @@ which uses ``libclang``.
->  Below is a general summary of architectures that currently work. Level o=
-f
->  support corresponds to ``S`` values in the ``MAINTAINERS`` file.
-> =20
-> -=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->  Architecture   Level of support  Constraints
-> -=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> -``arm``        Maintained        ARMv5TE, ARMv6K and ARMv7, Little Endia=
-n only.
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +``arm``        Maintained        ARMv4T, ARMv5TE, ARMv6K and ARMv7, Litt=
-le Endian only.
+Add a new board variant for the Skov i.MX8MP based family of boards.
 
-Can we say "ARMv4T or above" or something similar?
+This variant uses a different 7" panel than the existing ones.
+As the already upstream boards and this new one are almost identical,
+convert the other device trees to a base devicetree and apply the touch
+controllers and panels via overlays.
 
-Best,
-Gary
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+---
+Changes in v9:
+- fix dtbscheck error
+- squash new compatible into 7" devicetree patch
+- Link to v8: https://patch.msgid.link/20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de
 
->  ``arm64``      Maintained        Little Endian only.
->  ``loongarch``  Maintained        \-
->  ``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
->  ``s390``       Maintained        ``CONFIG_EXPOLINE`` must be disabled.
->  ``um``         Maintained        \-
->  ``x86``        Maintained        ``x86_64`` only.
-> -=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Changes in v8:
+- add #address-cells and #size-cells to i2c2
+- fix touchscreen resolution
+- add missing binding includes
+- Link to v7: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v7-0-ca8a0446166a@pengutronix.de
+
+Changes in v7:
+- address more of sashikos rightful feedback
+- Link to v6: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de
+
+Changes in v6:
+- address sashikos rightful feedback
+- Link to v5: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de
+
+Changes in v5:
+- convert to overlays
+- Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
+
+Changes in v4:
+- fix Makefile sort order
+- add touchscreen fallback compatible
+- fix lvds_bridge comment
+- Link to v3: https://patch.msgid.link/20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de
+
+Changes in v3:
+- rebase to v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260427-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v2-0-e2b79fc24391@pengutronix.de
+
+Changes in v2:
+- rebase to v7.1-rc1
+- Link to v1: https://patch.msgid.link/20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: Søren Andersen <san@skov.dk>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Steffen Trumtrar (3):
+      arm64: dts: freescale: imx8mp: skov: fix sort order
+      arm64: dts: imx8mp-skov-revc: convert to overlays
+      arm64: dts: imx8mp-skov: support new 7inch panel board
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |  2 +
+ arch/arm64/boot/dts/freescale/Makefile             | 10 ++-
+ .../imx8mp-skov-revc-jutouch-jt070tm041.dtso       | 38 ++++++++++
+ .../imx8mp-skov-revc-jutouch-jt101tm023.dtso       | 38 ++++++++++
+ .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ----------------------
+ .../freescale/imx8mp-skov-revc-tian-g07017.dtso    | 40 +++++++++++
+ ...h-jt101tm023.dts => imx8mp-skov-revc-touch.dts} | 26 +++----
+ 7 files changed, 135 insertions(+), 100 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+
+Best regards,
+--  
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
 
