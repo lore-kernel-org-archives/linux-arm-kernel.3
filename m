@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1FECA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89F5CA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QMxcDy++DYkjJXJYZyvIubChEwATxZs066mDelscVg=; b=oNK6I33ASXtBZgNE2QHqF3J2OD
-	mQvSGZs1fhOiE+GW3CFRcx/ejj5bfdy3xuPu0upmm09c5+lL0941zX2/wLo+ehqOd9SDuBfsozaAq
-	HE8zh5C38YFac/18whQDQ3TfCMp7qzrLoXffCeW49QShOunhXMB4sA2++Gcc+YAaRGgt1AyCXdhye
-	Ray/M60Bt0CnVlnEOzXojyY0EuMaotAFbtpJVz1Gwu9sDLPIwtA6kZ7Mu1V3UAuPgm+vYZ3i1ZlwQ
-	cRz5MJWhntsQOtz7GJMYMlTBf7n3fq9Jk/BCGGxnqj4fdg6ntl5VBY989W+xSmyn8wHhKayHuuWV+
-	459L/hpQ==;
+	bh=j8n6g3nvcngcoPNN0SShwUlJQijtEN4srpNypdC6xYc=; b=yD0q++X6kAq9L9jbBlbotE1f/9
+	E/yv0ljH7m+OQMct2hTjTF/FaMnuA2rHwQWJ14xh54vE9kaYPZbBgXvUTXd1A6FZhmHgZZzSlsPe8
+	ijP9tNzaaVbm3B1VFiQ1WEAbM1topepWxz8X9dmCx8MW0B/3Nlth4R/7Nesb7AgPPE0QEy4SCkhhK
+	rJ4Lm8e7zvyR7cajtXEmfoFqJ5Mi1YuTMo6/x88+7+AdqIOhpYkVjxYqOjEufQIoKlBq6TqGbuWKe
+	Cs6+LK7Ss/rhH2AlFmZIFoPr5dP/wuYv4SQqjxs/MQTMRWR/xrewXU+cTNUTaKRpokd3BlE4KjZif
+	BEYOlLuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhBC-00000003aKV-3YHN;
-	Thu, 08 Oct 2026 06:00:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEhBM-00000003aPR-40qa;
+	Thu, 08 Oct 2026 06:00:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhBB-00000003aJt-1AwC
+	id 1xEhBL-00000003aOo-0bIt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:00:33 +0000
+	Thu, 08 Oct 2026 06:00:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CBD743C65;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C74140875;
+	Thu,  8 Oct 2026 06:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 831EA1F00893;
 	Thu,  8 Oct 2026 06:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124841F000FF;
-	Thu,  8 Oct 2026 06:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791439232;
-	bh=5QMxcDy++DYkjJXJYZyvIubChEwATxZs066mDelscVg=;
+	s=k20260515; t=1791439242;
+	bh=j8n6g3nvcngcoPNN0SShwUlJQijtEN4srpNypdC6xYc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KQ0uCr3L3qdrwU76AqE7Yax2GKQ5TBVNbUqKyWl6e11lgT1BRT+w9mFT1WZsiMpJA
-	 iFdb1B7BMWnXopu7JN0QzFAZm3QT51V8USyWK/hdQt4RpD3RlCoc3ESjolneLIT+py
-	 a0l2Cla6XReu0i+VXbj0sQlaWfyj2HVcqgk9vPDYed7yuYtXS281pwpXO52SAv+1uk
-	 +qQhkCcu9PQ58JhKpqZfIVUNp1QrSU4x8NRaEIJLHUdfRBnmIFclD0KmSBHfPY+XUy
-	 CDxdJxBeBW1KCjoKx+J30KMJy3wVHEBaou6v+l6mrxZIPDjo4wilkf7KpWwehb1aO3
-	 FfklXGdLqGCeg==
+	b=K2Ch799HZwbqwWIM+wx6F/RkeqpyhwFzaBY98zxVNueSZvM0YFzvM2WiyZlkZ0Q+i
+	 cISPlJQDEvZGRQ5buwJTP3Pj5hLQpWId9+xIIiItTEtEEXQEik5hzAe19Z08mSGTd+
+	 JXY4I5fNMJOxZYmRKCKZKUUlW22H+r2+zBKroijjqkmmN+UBjRd8zyps0e7e8BYKU5
+	 9If/PocKm+Zor/sx7e6ev7lJhuWCKMWStWEA4v4HWse+1R+61wx527b/pVOVh4PN8j
+	 8W/iaE+w4TrhR3eqdRezxjPSISwcjWICSFUCQFsiILAPdvXql0N1NNqDQelkfFCOuc
+	 srll11Lo2kzMQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev
 Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
@@ -77,9 +77,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Sean Christopherson <seanjc@google.com>,
 	Janosch Frank <frankja@linux.ibm.com>
-Subject: [PATCH v7 02/16] KVM: Add file back-pointer to struct kvm
-Date: Thu,  8 Oct 2026 11:29:41 +0530
-Message-ID: <20261008055955.4014342-3-aneesh.kumar@kernel.org>
+Subject: [PATCH v7 03/16] KVM: x86: Use file_to_kvm_x86() in SEV
+Date: Thu,  8 Oct 2026 11:29:42 +0530
+Message-ID: <20261008055955.4014342-4-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
 References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
@@ -101,60 +101,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steffen Eiden <seiden@linux.ibm.com>
 
-Add kvm->file as a no-reference back-pointer to the VM file in struct
-kvm. The pointer is set at VM creation time and cleared under
-WRITE_ONCE() in kvm_vm_release() before the file is freed.
-Callers storing the file must take their own reference.
+Use the new arch-namespaced helper instead of open-coding the file check
+and private_data cast separately.
 
-Co-developed-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 Acked-by: Sean Christopherson <seanjc@google.com>
 Acked-by: Janosch Frank <frankja@linux.ibm.com>
 ---
- include/linux/kvm_host.h | 6 ++++++
- virt/kvm/kvm_main.c      | 4 ++++
- 2 files changed, 10 insertions(+)
+ arch/x86/kvm/svm/sev.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index bc3abfde8393..3c5a389361c6 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -784,6 +784,12 @@ struct kvm {
- 	 * kvm_swap_active_memslots().
- 	 */
- 	struct mutex slots_arch_lock;
-+	/*
-+	 * Back-reference to the VM file for subsystems (e.g., VFIO). Holds no
-+	 * reference to avoid pinning the VM. Callers storing the file must
-+	 * take their own reference.
-+	 */
-+	struct file *file;
- 	struct mm_struct *mm; /* userspace tied to this vm */
- 	unsigned long nr_memslot_pages;
- 	/* The two memslot sets - active and inactive (per address space) */
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 07fc874a38e1..8e49ea809528 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1352,6 +1352,8 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index 63eb2155a774..db7ed11e9056 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -2151,10 +2151,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+ 	if (fd_empty(f))
+ 		return -EBADF;
  
- 	kvm_irqfd_release(kvm);
+-	if (!file_is_kvm(fd_file(f)))
++	source_kvm = file_to_kvm_x86(fd_file(f));
++	if (!source_kvm)
+ 		return -EBADF;
  
-+	WRITE_ONCE(kvm->file, NULL);
-+
- 	kvm_put_kvm(kvm);
- 	return 0;
- }
-@@ -5555,6 +5557,8 @@ static int kvm_dev_ioctl_create_vm(unsigned long type)
- 		goto put_kvm;
- 	}
+-	source_kvm = fd_file(f)->private_data;
+ 	ret = sev_lock_two_vms(kvm, source_kvm);
+ 	if (ret)
+ 		return ret;
+@@ -2876,10 +2876,10 @@ int sev_vm_copy_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+ 	if (fd_empty(f))
+ 		return -EBADF;
  
-+	kvm->file = file;
-+
- 	/*
- 	 * Don't call kvm_put_kvm anymore at this point; file->f_op is
- 	 * already set, with ->release() being kvm_vm_release().  In error
+-	if (!file_is_kvm(fd_file(f)))
++	source_kvm = file_to_kvm_x86(fd_file(f));
++	if (!source_kvm)
+ 		return -EBADF;
+ 
+-	source_kvm = fd_file(f)->private_data;
+ 	ret = sev_lock_two_vms(kvm, source_kvm);
+ 	if (ret)
+ 		return ret;
 -- 
 2.43.0
 
