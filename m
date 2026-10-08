@@ -4,59 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA741CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E2FCA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppeChgaMvunB6XgC1qGnigzxCgeUt+TprCEG6p5AB3g=; b=A1SDx5DVdeKWjAZqsDqRmgBOz8
-	mvr8aGc7xkn2YEm/b4tfCoRpItuBjqAM4EiL6SRAW/6Pynup6YJs5JOJ2VWoluoXgxC2+v8AxB+VB
-	YBTkQGskCqR2wX60Y8jSjGLdmeUdXmdXOLUoP7PlqGuarjgVVMT5ic67tIfBjDhxHT3H2egR9zH43
-	qVhIXSd2ODGQL5GBu4i0N8lAxbA1Xm8rjvODXxFV4xoZM1oM3ALB3CA+6KQu+0/qwgC6zYjMoGnt+
-	T0R3yRShChAIThjPVfgAFdvOa3iajg75dFyS8P4LTsF3a3Frliym/gJVNRwD5BTQU+3BtLrh53FYC
-	VPKtDdCg==;
+	bh=a4OCygi/joWx6DjLuA9OUYrYHSJp+m8L1CHtdZMcIlE=; b=TYd/e0vdhNVH+iq+qXeIzp1DPT
+	c5QYkWQizAbALnYzKD2nm3tL053uY7wO7/kQr2cLIdpFZB9fEHM/Bx0zhNBeqXh/p9EZG3witn89H
+	BDUyz5KalRcpJzP4vBh+REniDR+dXbFJdzfIGyjB0U/7w5LrC8OWgbd/a0LFAW0CW9lZol1E4+7oQ
+	0DEf9XvKgJE65WM6/zvxtfAo33o6VSSvIFlcm/iPZvTZ0nXI5H2ekBo1URQI31SDQgErLv6e4BdGN
+	/ffWfhRjvx3RgN9FSD1FRprkIkqWZioHwWvxYf1suhd3MFeHrgCQGC8qzvs4ZHWUQHTFwT1K5NTlZ
+	h7EC5p5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElc2-00000004BNf-27iT;
-	Thu, 08 Oct 2026 10:44:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xElh4-00000004CBA-1Yib;
+	Thu, 08 Oct 2026 10:49:46 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElc1-00000004BMY-0dGD;
-	Thu, 08 Oct 2026 10:44:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 391FF601DB;
-	Thu,  8 Oct 2026 10:44:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FD61F000FF;
-	Thu,  8 Oct 2026 10:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791456271;
-	bh=ppeChgaMvunB6XgC1qGnigzxCgeUt+TprCEG6p5AB3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eETlY2kfse6I2eGjGA24SQVia+0ytpI+iYCoTyt07EMIonZpZYRpIWHF0qg2xfgz9
-	 6hJsFUHK+AIKpdbMDdO302AoQ8/iYGEAj6Ui7FlC/cz2DopM4xu5H7yCBQJLmKlm5S
-	 Mh/KjmObXnBkehSoG+22wvg8kZ8+NDBv1+VvpMnuFODKJy+bHHpl8mLsXGU1vqLOC9
-	 kAUMrOuiTW0zBnL8rhWTPzJHQv9mPhtjTYBo5RQOncSaL5sdGPS12mn3Afj3iGHvES
-	 ECnIl7Pwt89D0ykj9E/h3OXzR26p2KwSUW/fyyPxS7pQp6sIbq5taqofBH4vJN7IVY
-	 NnFG9PMTb6cHQ==
-Date: Thu, 8 Oct 2026 12:44:29 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: SAYANTAN NANDY <sayantann11@gmail.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, bread.hsu@airoha.com,
-	sayantan.nandy@airoha.com
-Subject: Re: [PATCH net] net: airoha: keep PPE offload when NPU refuses flow
- stats
-Message-ID: <asd0DfMSLLGu_vbK@lore-desk>
-References: <20261008094828.15458-1-sayantann11@gmail.com>
+	id 1xElh2-00000004CAG-20MH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 10:49:45 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6ae27f06c2fso8148886a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 03:49:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791456582; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bxdMHZmn00GKGKfgvXC8KUjmWSiUJRHFnxvi6goek8RltLu62/rGB1mv5xWx4z3eZR
+         IgMiEJkuuOvNnQoxCpfhUYZxwbF56KWQ/Fkl4DpjgxE6WI2j5BnEWsp9y/QXQSs2Qr27
+         fDjYoA8XMbfcCT4IXYlf8HjJR3JlEu3JHiOrMgviGnn+EkkG8Cz+q4aMw7KJaLkudNxN
+         Geb3Nw9r7off9s8wPU02FoLM4rw4aAWi/+8Y4ZX5BFI5Ix+1K3COCd0cgeMz3HpUkrpm
+         x42qo7u38ZBkXdV92eO7XXM3KSreFMrKWuHb24aO2L7YQiVIb3oux6UJzl4cK0VlOT2i
+         sWSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=a4OCygi/joWx6DjLuA9OUYrYHSJp+m8L1CHtdZMcIlE=;
+        fh=moaK9CuiS3l45lwYF5BjRhJY/qbb0EeKnoPRCBJUdvk=;
+        b=C3TI66kLHOwsHV8uV28INmYRXCBCIsKnJo727Iw3U/ojNsKM8/6QL1bDng1O0yd0vo
+         +9btobuDR8hupe/Svgal9r9uOj36v4fSp1r3ReKoejPzXcMIKO4+OtXBROH01GfkS3UZ
+         3kNrG+IxXgdIQsehbNkgTM/Ys+KzDymMf/vwXLY3fqoE/CSIXu1sal1Skk88A3WPs/3Q
+         mXCNW7xe3nqa37rlh7FQuNiST/iXvQmEn1XmQCwTrXgrRtQfVn7z81uLEqsqUP64EPsp
+         Yp7mdbPase4wJTIuDTnJkPFrYqCh2XiQSpArPM4rdN5u+vadtWhXoWSioMZ8M6G/iv2b
+         66Gw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791456582; x=1792061382; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a4OCygi/joWx6DjLuA9OUYrYHSJp+m8L1CHtdZMcIlE=;
+        b=dbwnyQFhtjQ5c8ZbvqkPdhp5wC7OCFX0Ripk8Horpeo3041b0wscL2TWkV9/oi2Tt8
+         ule1AFKfuCr43Nq2lbeiA5+KH7LAQTOnMcWlB4j98caE9oIUtcUtB0a7i4gpYl60GW5p
+         wpAxdhGThyGSdYjt0vnjifVRx4QAO00iK0QAK3tW/Mrfc3Bg/uGlRzMZzQHuWUnBDwTe
+         1y8Zs6RfX+8wflv98hi0DR4tfXiMi7QT2Cnj68GZ9cxLiQKC+n4KPDFJvKW2Hf7C44Fp
+         l213KsOxipW7r2wSbcns2f7ZowruMbpGS3LfST2hyr4R8dbbjCK7lg+AErw8SCk3J6Ff
+         49hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791456582; x=1792061382;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=a4OCygi/joWx6DjLuA9OUYrYHSJp+m8L1CHtdZMcIlE=;
+        b=WdsaT2+Z+L1FrnIro57RQKMvCW+ELZeWkGdtasbNGx+R9UMXWVGGmdIhmtV/Z7cFUq
+         qqk5yNFu+dlTZjQJPThbDiU9XP+fHygdNHvppujyYbwlbSACcm20pM3l01fNc9OeaAxW
+         qGArZiPH1I0iTm0zRkruvB16fflmzh+17ui8TFFd9BBInOcVkPnXOeIYTw998qptLYxN
+         QFQfMjolo5nE7pMdIEDDpUGZk2gwG2IvGJqiGTgwbivMN7OYhYHeh077IwQbMVgoH2sS
+         uvMcCglwElyLyyfkii5TH+jxW0+Vxa9E7DDoMSGuZN4ZbO/nU4B1mJq40sh2tTgGtMIa
+         mnaw==
+X-Forwarded-Encrypted: i=1; AKwUvBy/+VsEL8lTGh7LPy3A6D8EqL3GgyfsqJiORX/bUC8McaQsoUib7fFHzODZ2WJiNbZoUfPxRV3qRSpGURAb/GGC@lists.infradead.org
+X-Gm-Message-State: AFq9FYKKz+sp57iarMCCWFBzFEj9FdtClOvQtk0MgeEhA3/FzADxZeIF
+	R9n6HZ0b4LlApEWcQqQGd2uEdeTMLqPsNATULbyvTfhwawWyS6D9BCukwrZVQUFCuFMMCuzR6Di
+	xDcz27XKFj4ezH9wqA3qY4DIva4MaNE0=
+X-Gm-Gg: AYBFou1SH8j3aiGod4HApt99Dhwgs/YF3ZgCoJ8oFUONlviu1XE+jjQsN4fGZE3TgX6
+	5SudUTiF5UasXaJCE4Fi1kzMwNGSD5uzOvn/Q3Ad8oaxJp2Rh/o5ydyUtu1gHJPcDyD+gvKtArc
+	UU8vP5RztCup6N38c0lMWC1x4vV9+UjmsEaSI9+h5RtQF6IVUR2VFSu15kRx8AszGG64fkO1f6V
+	r3ad6alhdBkVk4ombXRd5NLOsqPn6WHeKPTGjpU6/YhpfyublRhReLUeSZoC8rMC6aLV6+/Cqg9
+	MV8TGG+q3QF4xhseC4GVKg6Gm+g1hiIBjdSOpCoRH08YfiEU66ytvxCZcy0fcR8pc97dTwk+Czd
+	VHsElIpwhQh0ys77ASL+XRl0yLltblY4DCYQH6DeDIZ0PXNT7Q8NhTPGd7hsr0up5s2M=
+X-Received: by 2002:a05:6402:4019:b0:6ac:afa3:6f72 with SMTP id
+ 4fb4d7f45d1cf-6aff3756d74mr4800849a12.5.1791456582185; Thu, 08 Oct 2026
+ 03:49:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="L4dpZ7G5dt+qFFf/"
-Content-Disposition: inline
-In-Reply-To: <20261008094828.15458-1-sayantann11@gmail.com>
+References: <20261007110858.509341-1-phucduc.bui@gmail.com> <d00880e3-01b6-476a-93f5-79ea6e536a1c@intel.com>
+In-Reply-To: <d00880e3-01b6-476a-93f5-79ea6e536a1c@intel.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 8 Oct 2026 17:49:28 +0700
+X-Gm-Features: AclHuK_fTTXIpKAwLFkuMWapY1wvxwZhKpPugkOpZYUioKYV77e-gJQAnEgFPDk
+Message-ID: <CAABR9nEOBf18aC3yUx9-d4TdUYdpdoxuXeNSu76Y3B1HYXytJg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] ASoC: mediatek: Handle constraint return value in
+ FE startup
+To: Cezary Rojewski <cezary.rojewski@intel.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, cassiogabrielcontato@gmail.com, 
+	Haotian Zhang <vulab@iscas.ac.cn>, Christian Marangi <ansuelsmth@gmail.com>, 
+	Cyril Chao <Cyril.Chao@mediatek.com>, Tuo Li <islituo@gmail.com>, 
+	Rosen Penev <rosenp@gmail.com>, Garlic Tseng <garlic.tseng@mediatek.com>, 
+	Alexandre Mergnat <amergnat@baylibre.com>, Dan Carpenter <error27@gmail.com>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Trevor Wu <trevor.wu@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_034944_532973_2E038451 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,184 +126,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---L4dpZ7G5dt+qFFf/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Cezary.
 
-On Oct 08, SAYANTAN NANDY wrote:
-> From: Chad Monroe <chad@monroe.io>
->=20
-> With flow stats enabled, PPE offload setup requests flow statistics
-> from the NPU. If the running NPU firmware does not support flow
-> counters, the request fails and the current setup path aborts PPE
-> offload.
->=20
-> Treat flow statistics as an optional capability so that a failure to
-> set up the counters does not prevent normal PPE offload. Record
-> whether flow statistics are available and continue PPE initialization
-> when the NPU refuses the flow-statistics request.
->=20
-> Also treat a zero NPU statistics address returned by the firmware as a
-> refusal. A zero address does not provide a usable counter region and
-> must not be passed to the address mapping path.
->=20
-> When flow statistics are unavailable, PPE continues to operate
-> without NPU flow counters while retaining normal offload functionality.
->=20
-> This combines the original SmartRG/Airoha fixes for:
-> - keeping PPE offload active when the NPU refuses flow statistics
-> - treating a zero NPU statistics address as a flow-statistics refusal
->=20
-> Based on the original SmartRG/Airoha work by Chad Monroe:
-> 5ce96ab ("SDG-9458: keep PPE offload when NPU refuses flow stats")
-> 0ad8528 ("SDG-9458: airoha: treat a zero NPU stats address as a refusal")
-> Fixes: b81e0f2b58be ("net: airoha: Add FLOW_CLS_STATS callback support")
-> Signed-off-by: Chad Monroe <chad@monroe.io>
-> Signed-off-by: SAYANTAN NANDY <sayantann11@gmail.com>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
->  drivers/net/ethernet/airoha/airoha_npu.c  |  8 ++++++++
->  drivers/net/ethernet/airoha/airoha_ppe.c  | 20 +++++++++++++-------
->  drivers/net/ethernet/airoha/airoha_regs.h |  2 ++
->  4 files changed, 24 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 8277c1c87bb3..bd5a94fce843 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -617,6 +617,7 @@ struct airoha_ppe {
-> =20
->  	void *foe;
->  	dma_addr_t foe_dma;
-> +	bool flow_stats;
+Thank you for the review.
 
-I agree naming is hard, but I guess we could a more meaningful name, like f=
-low_stats_cap. What do you think?
+> Thank you for the update. The snd_pcm_hw_constraint_xxx() finding is a
+> good catch.
+>
+> Reviewed-by: Cezary Rojewski <cezary.rojewski@intel.com>
 
-> =20
->  	struct rhashtable l2_flows;
-> =20
-> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
-net/airoha/airoha_npu.c
-> index 4d3195eb00f7..b32a01dbe06b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_npu.c
-> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> @@ -450,6 +450,14 @@ static int airoha_npu_ppe_stats_setup(struct airoha_=
-npu *npu,
->  	if (err)
->  		goto out;
-> =20
-> +	/* The firmware reports success with a zero address when its SRAM
-> +	 * pool has no room left for the counters.
-> +	 */
-> +	if (!ppe_data->stats_info.npu_stats_addr) {
+I actually found this issue thanks to Mark's review in another thread,
+where he pointed out a subtle issue with the return value.
 
-can it really happen? I guess dmam_alloc_coherent() in airoha_ppe_init()
-should fail in this case, right?
-
-> +		err =3D -ENOSPC;
-> +		goto out;
-> +	}
-> +
->  	npu->stats =3D devm_ioremap(npu->dev,
->  				  ppe_data->stats_info.npu_stats_addr,
->  				  size);
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 92611802801e..fbc200614de3 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -37,10 +37,7 @@ static const struct rhashtable_params airoha_l2_flow_t=
-able_params =3D {
-> =20
->  static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe)
->  {
-> -	if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
-> -		return -EOPNOTSUPP;
-> -
-> -	if (airoha_is_7583(ppe->eth))
-> +	if (!ppe->flow_stats)
->  		return -EOPNOTSUPP;
-> =20
->  	return PPE_STATS_NUM_ENTRIES;
-> @@ -144,6 +141,10 @@ static void airoha_ppe_hw_init(struct airoha_ppe *pp=
-e)
->  	sram_ppe_num_data_entries =3D
->  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
-> =20
-> +	if (ppe->flow_stats)
-> +		airoha_fe_rmw(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS,
-> +			      FIELD_PREP(PSE_PORT6_SHARE_DIS, 0));
-
-can you please provide more details about it, why is it needed?
-Moreover, I guess you could use airoha_fe_clear() here.
-
-> +
->  	for (i =3D 0; i < eth->soc->num_ppe; i++) {
->  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
->  			     ppe->foe_dma + sram_tb_size);
-> @@ -1456,10 +1457,13 @@ static int airoha_ppe_offload_setup(struct airoha=
-_eth *eth)
->  	if (ppe_num_stats_entries > 0) {
->  		err =3D npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
->  					      ppe_num_stats_entries);
-> -		if (err)
-> -			goto error_npu_put;
-> +		if (err) {
-> +			dev_warn(eth->dev,
-> +				 "NPU firmware refused flow stats setup (%d), offload runs without f=
-low counters\n",
-> +				 err);
-
-can you please try to respect the 79 column width? (I still have old habits=
- :))
-
-> +			ppe->flow_stats =3D false;
-> +		}
->  	}
-> -
->  	airoha_ppe_hw_init(ppe);
->  	airoha_ppe_foe_flow_stats_reset(ppe, npu);
-> =20
-> @@ -1608,6 +1612,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
->  	ppe->dev.priv =3D ppe;
->  	ppe->eth =3D eth;
->  	eth->ppe =3D ppe;
-> +	ppe->flow_stats =3D IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS) &&
-> +			  !airoha_is_7583(eth);
-> =20
->  	ppe_num_entries =3D airoha_ppe_get_total_num_entries(ppe);
->  	foe_size =3D ppe_num_entries * sizeof(struct airoha_foe_entry);
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 442b48c9b991..aee06c058586 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -72,6 +72,8 @@
->  #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
-> =20
->  #define PSE_FQ_CFG			0x008c
-> +#define PSE_FC_CFG			0x0098
-> +#define PSE_PORT6_SHARE_DIS		BIT(22)
->  #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
-> =20
->  #define REG_FE_PSE_BUF_SET		0x0090
-> --=20
-> 2.43.0
->=20
-
---L4dpZ7G5dt+qFFf/
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasd0DQAKCRA6cBh0uS2t
-rI3DAQCJEYqwZbG09imlqcP8csRXcbM0x1oms2fJsLLPEpWlJgEAxlcAuv/T0Mt7
-o5uxomI18N33uhxLEDUgzJWR/SMHfAs=
-=MHTr
------END PGP SIGNATURE-----
-
---L4dpZ7G5dt+qFFf/--
+Best regards,
+Phuc
 
