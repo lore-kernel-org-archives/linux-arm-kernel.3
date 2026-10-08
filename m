@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BA2CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FDCCA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FG99HlWhyZXcqOdGeYv6wixfX5/qOmpG/GGY4yf80rg=; b=lVuAmi+QooD8OH0oCQzDJnSQTa
-	/ifb3+rxttDbIIS5T2+X32vrwL4PuSBRlT2CKTqPsKwH7Yece3wJINuU3Iz6Rob3eGLOL2w4oF/1T
-	Wvirv3X6Srz7AvSSnu4OvRdttbpBeTgrAGM6NPMk4pAhNwvfKJE1XcAKS4wIZLOjQEPd7b0tACFBh
-	HoioeJ+D8vsYc3osDoc4mwpf5UjzTCL2UKBZcWiMCG+dfw4yS05ul6D4Jf4ofrqZ3JIS85XdtSYyw
-	8VrrnOZURtEe+sM/QmJv5n/8w3Quywz34PtgHIMPx4o/SCq0zLhv6hdYBb+pu1rhofkYWEFfO/kNY
-	qaeFE8VQ==;
+	bh=AMdVmFlU6LYwgavWx4TLB5/FyI1q6mdp7tce8URgStc=; b=loabYH/YC83G91kuYIFJGapT90
+	q0U5z1NZMr2/OijnpOqlMut+9h0lS8HlGEc8IHXGywXQ17wA30lo5BB/0kj5F8FI1g/hLESOFm8Zk
+	G9Kmpv5UWYAlUoL6vOgJeOhl3B3Yj3R9Me0WEgu8HA3CpIHBc11Hump8cswZollJGM6M5Zl3G01Qs
+	974x/8pRWTuRqP5DPla+r9/8KARqQasnQRwLM/aZ2RRSW5M6ESvxcRtvytngOEIkltktrMe5+Xgav
+	sYQVVLGInexhTZrMwx3f1pjqoDnprwrOUYW90ZZztJI40oo1ww93JYaIMkQYE82Xq60GwJWUf0brC
+	8x39b9Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnex-00000004P3p-2U2a;
-	Thu, 08 Oct 2026 12:55:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnev-00000004P3U-0lrT
+	id 1xEnqV-00000004Pl9-2xYL;
+	Thu, 08 Oct 2026 13:07:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEnqU-00000004Pki-1fTg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 12:55:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3DB71477;
-	Thu,  8 Oct 2026 05:55:36 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5E043F66F;
-	Thu,  8 Oct 2026 05:55:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791464140; bh=3QdpwgfvX6sQmV3QX7F2pJoLE3Y/GJ9239PkdjVkR/k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DkXEzDU31uC0dYxOkRVh+wR9Y2Jsc46vC/kxrGo9RjXZjwEVDiYzU1xr8xcMcb7HV
-	 FcvEyng6+7pjkY1QBhYL6ix+o9Tmk0LkIzWjtkZbQ3xjf1pFB4LwNx3dzurE928/VL
-	 mGwWqUTkZOKmjHIvDoQ6Z0W/PCTOx1yxeyykH3DE=
-Message-ID: <d0e80505-b36f-40a9-a45f-957fff428c2a@arm.com>
-Date: Thu, 8 Oct 2026 13:55:36 +0100
+	Thu, 08 Oct 2026 13:07:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3652F601DB
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 13:07:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E48231F00893
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 13:07:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791464856;
+	bh=AMdVmFlU6LYwgavWx4TLB5/FyI1q6mdp7tce8URgStc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fe4dGY8yxNTjXnYOrABGJ87oRC2NUkNmgz5RCcrDiL+qaUxknisUy/2JxcJBOYycu
+	 PyKnl5AfHgFPfnNfrBz+1bkmLLVZzpdAn1f1SQWKkLcnvUxfe9OdGBO8H8Ii/2LKlq
+	 g9jOmg6GqMbiDfNq3wZc4IBv/F4O0G87nC74GQ9yu11mYb+HbhXDwijVM8gePB7+In
+	 WxD23+pwOGXPJhcpSM1UaLQLV8jU0SwbRYFwoJdoYNbuufNYwXh+DZK0xeFfFbfc7I
+	 PDYtoeDy/6do5k2/J6cYQjhtfiWLFJVTUQ0bU24ynhi428g9wC8xaHqk8dL+27O4W8
+	 wsgD8sbsu5vmg==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5bb7c6980f1so2556836e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:07:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxNRYzzmbY2Mg1UnvB4NzC1bzxrAS14Nrc4vTJZcDAtYTRKMNGsQxCy1lhCZ7mxnLfqN5dTlG3Uy+XTZRLVOPd0@lists.infradead.org
+X-Gm-Message-State: AFq9FYLh/pkw8kAqmmxZv95rDp0gOfe1JONJMqOhHO1YQ/TgwEHjd6AR
+	OrTabFuak4TDzRJHksfT0lR+UzBYUfrlvbmP9JJJOUCaKYzCCFOFirRj4GPImldXvQ3iCWp5/X9
+	Oi2/IW5Bm6vINhzerMii+K5vlPf/5xEU=
+X-Received: by 2002:a05:6512:4023:b0:5ba:429b:c5bf with SMTP id
+ 2adb3069b0e04-5bcd0736ea8mr1945906e87.51.1791464855540; Thu, 08 Oct 2026
+ 06:07:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v5 3/6] iommu/arm-smmu-v3: Delay stream allocation to
- inside the mutex
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Will Deacon <will@kernel.org>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
- Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-3-169a59c671d3@nxp.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261006-smmu-shared-sid-v5-3-169a59c671d3@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_055541_348078_4CFFBEEF 
-X-CRM114-Status: GOOD (  26.95  )
+References: <0C8AEB5636132B0C+20261008113732.581825-1-liudalin@kylinsec.com.cn>
+ <20261008115913bfd12cb4@mail.local>
+In-Reply-To: <20261008115913bfd12cb4@mail.local>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 8 Oct 2026 15:07:23 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkshbEFS0-H__3AFJiRMeS0hA5F8PoqUjB7kyG_cvRkTw@mail.gmail.com>
+X-Gm-Features: AclHuK9kaR_Kf0jFHcJeAlcfmC3e3ti8r1xCTi6blXcRAoYHPTBq140hETtS8v4
+Message-ID: <CAD++jLkshbEFS0-H__3AFJiRMeS0hA5F8PoqUjB7kyG_cvRkTw@mail.gmail.com>
+Subject: Re: [PATCH] rtc: ftrtc010: fix negative offset handling and smatch warning
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Liu Dalin <liudalin@kylinsec.com.cn>, Dan Carpenter <error27@gmail.com>, 
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Deng Yingchao <dengyingchao@kylinsec.com.cn>, Qin Yungao <qinyungao@kylinsec.com.cn>, 
+	Luo Qiu <luoqiu@kylinsec.com.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,199 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2026 1:19 pm, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Move arm_smmu_stream allocation from upfront (before the mutex) into
-> the mutex-protected loop in arm_smmu_insert_master(). Instead of
-> pre-allocating all stream objects and then inserting them into the RB
-> tree, first look up whether the SID already exists in the tree. Only
-> allocate and insert a new stream when no existing entry is found, then
-> avoid unnecessary allocations when bridged PCI devices produce duplicated
-> IDs. Prepare the code for a subsequent patch that will reuse existing
-> streams when stream IDs are shared across masters.
-> 
-> The sort is also moved after the mutex section, since streams are now
-> populated inside the loop rather than beforehand.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 102 +++++++++++++++-------------
->   1 file changed, 53 insertions(+), 49 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 9d34eac196a65..69c2c3596b06a 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4110,52 +4110,29 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->   		return -ENOMEM;
->   	}
->   
-> -	for (i = 0; i < fwspec->num_ids; i++) {
-> -		struct arm_smmu_stream *new_stream;
-> -
-> -		new_stream = kzalloc_obj(*new_stream, GFP_KERNEL);
-> -		if (!new_stream) {
-> -			ret = -ENOMEM;
-> -			goto out_free_streams;
-> -		}
-> -		new_stream->id = fwspec->ids[i];
-> -		new_stream->master = master;
-> -		master->streams[i] = new_stream;
-> -	}
-> -
-> -	/* Put the ids into order for sorted to_merge/to_unref arrays */
-> -	sort(master->streams, master->num_streams,
-> -	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
-> -	     NULL);
-> -
-> -	/*
-> -	 * Clear after sorting: RB_CLEAR_NODE() records the node's own address,
-> -	 * which sort_nonatomic() invalidates by relocating the entries.
-> -	 */
-> -	for (i = 0; i < fwspec->num_ids; i++)
-> -		RB_CLEAR_NODE(&master->streams[i]->node);
-> -
->   	mutex_lock(&smmu->streams_mutex);
->   	for (i = 0; i < fwspec->num_ids; i++) {
-> -		struct arm_smmu_stream *new_stream = master->streams[i];
-> +		struct arm_smmu_stream *stream;
->   		struct rb_node *existing;
-> -		u32 sid = new_stream->id;
-> +		u32 sid = fwspec->ids[i];
->   
->   		ret = arm_smmu_init_sid_strtab(smmu, sid);
->   		if (ret)
->   			break;
->   
-> -		/* Insert into SID tree */
-> -		existing = rb_find_add(&new_stream->node, &smmu->streams,
-> -				       arm_smmu_streams_cmp_node);
-> +		existing = rb_find(&sid, &smmu->streams,
-> +				   arm_smmu_streams_cmp_key);
->   		if (existing) {
->   			struct arm_smmu_master *existing_master =
->   				rb_entry(existing, struct arm_smmu_stream, node)
->   					->master;
->   
->   			/* Bridged PCI devices may end up with duplicated IDs */
-> -			if (existing_master == master)
-> +			if (existing_master == master) {
-> +				master->streams[i] = rb_entry(existing,
-> +					struct arm_smmu_stream, node);
+On Thu, Oct 8, 2026 at 1:59=E2=80=AFPM Alexandre Belloni
+<alexandre.belloni@bootlin.com> wrote:
+> On 08/10/2026 19:37:32+0800, Liu Dalin wrote:
 
-If we're now making the whole stream allocation and tracking business 
-more dynamic anyway, could we not just skip inserting duplicate entries 
-entirely, and save all the hassle elsewhere?
+> > A prior attempted to fix the 32-bit arithmetic overflow by turning
+> > the implicit u32-to-timeu64_t cast into an explicit one. However,
+> > all calculations still happen in u32, inheriting the existing
+> > negative offset sign-extension bug, and the explicit cast triggers
+> > smatch "cast after binop" warning.
+> >
+>
+> AI is lying to you, offset will never ever be negative.
 
-IIRC, the only real reason for not actively deduplicating originally in
-563b5cbe334e ("iommu/arm-smmu-v3: Cope with duplicated Stream IDs") was 
-to keep it to the simplest fix that was easier to backport, and at the 
-time it was easy to get away with since it only mattered at that one 
-particular point. If we have to start copying the double-loop bodge 
-around to multiple places, it rather stops looking like the neatest 
-option...
+This looks like something that warrants a clause in:
+https://github.com/masoncl/review-prompts/tree/main/kernel/subsystem
+in a new rtc.md
 
-Thanks,
-Robin.
+I added a file for gpio after some insane review ideas
+from Sashiko, hopefully it takes effect.
 
->   				continue;
-> +			}
->   
->   			dev_warn(master->dev,
->   				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
-> @@ -4163,45 +4140,72 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->   			ret = -ENODEV;
->   			break;
->   		}
-> +
-> +		stream = kzalloc_obj(*stream, GFP_KERNEL);
-> +		if (!stream) {
-> +			ret = -ENOMEM;
-> +			break;
-> +		}
-> +		stream->id = sid;
-> +		stream->master = master;
-> +
-> +		rb_find_add(&stream->node, &smmu->streams,
-> +			    arm_smmu_streams_cmp_node);
-> +		master->streams[i] = stream;
->   	}
->   
->   	if (ret) {
-> -		for (i--; i >= 0; i--)
-> -			if (!RB_EMPTY_NODE(&master->streams[i]->node))
-> -				rb_erase(&master->streams[i]->node,
-> -					 &smmu->streams);
-> +		for (i--; i >= 0; i--) {
-> +			int j;
-> +
-> +			if (!master->streams[i])
-> +				continue;
-> +			/* Skip duplicated SID pointers already freed */
-> +			for (j = 0; j < i; j++)
-> +				if (master->streams[j] == master->streams[i])
-> +					break;
-> +			if (j < i)
-> +				continue;
-> +			rb_erase(&master->streams[i]->node, &smmu->streams);
-> +			kfree(master->streams[i]);
-> +		}
->   		mutex_unlock(&smmu->streams_mutex);
-> -		goto out_free_streams;
-> +		kfree(master->streams);
-> +		kfree(master->build_invs);
-> +		return ret;
->   	}
->   	mutex_unlock(&smmu->streams_mutex);
->   
-> -	return 0;
-> +	/* Put the ids into order for sorted to_merge/to_unref arrays */
-> +	sort(master->streams, master->num_streams,
-> +	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
-> +	     NULL);
->   
-> -out_free_streams:
-> -	for (i = 0; i < master->num_streams; i++)
-> -		kfree(master->streams[i]);
-> -	kfree(master->streams);
-> -	kfree(master->build_invs);
-> -	return ret;
-> +	return 0;
->   }
->   
->   static void arm_smmu_remove_master(struct arm_smmu_master *master)
->   {
->   	int i;
->   	struct arm_smmu_device *smmu = master->smmu;
-> -	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
->   
->   	if (!smmu || !master->streams)
->   		return;
->   
->   	mutex_lock(&smmu->streams_mutex);
-> -	for (i = 0; i < fwspec->num_ids; i++)
-> -		if (!RB_EMPTY_NODE(&master->streams[i]->node))
-> -			rb_erase(&master->streams[i]->node, &smmu->streams);
-> -	mutex_unlock(&smmu->streams_mutex);
-> +	for (i = 0; i < master->num_streams; i++) {
-> +		int j;
->   
-> -	for (i = 0; i < master->num_streams; i++)
-> +		/* Skip duplicated SID pointers already freed */
-> +		for (j = 0; j < i; j++)
-> +			if (master->streams[j] == master->streams[i])
-> +				break;
-> +		if (j < i)
-> +			continue;
-> +		rb_erase(&master->streams[i]->node, &smmu->streams);
->   		kfree(master->streams[i]);
-> +	}
-> +	mutex_unlock(&smmu->streams_mutex);
->   
->   	kfree(master->streams);
->   	kfree(master->build_invs);
-> 
-
+Yours,
+Linus Walleij
 
