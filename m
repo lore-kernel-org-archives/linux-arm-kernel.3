@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC37CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E99CCA600E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dSnC/p/+SqebYb5ikYjr8qnUSvI5a0Pua5cHHXDTyjM=; b=X8s93YdqaCNFhT
-	SoZ2f1dBv9Gvtvb8L8Pfq7MDmGtpNOROsemWPiTZDfUQZ7NUhXXFLL7RqBmxYpw2/iKLSRtkCDfSP
-	Rks2I2JwpKI+JvKKris5PtaGZJ2wI/yko6Hv6fa3WIBmcU5UgzOMc3eUkO/rq6XkTJJEDl0zpwaXz
-	5rlk2s5yL6Wzf5QiA8eSvRPWGxq4FVgI7D/z/BpCDTtpNx9OpGXEw3kGcq7/3xpw28uWTkK2+GfL1
-	4XFbio/wStj0c09vZcfSOXzK/N37IajGNn83UTsHxLYm7X0bcRfKTA/5MA36i8nQWXNJdOVakMkJk
-	XtJ18J0x+49ULqpA4ksg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e3+40ytroZd8UkOtxyfq7brsgjnTd3IzZPXyHWOv+eU=; b=44l6jk2mJ+QRilvp1TzLxzqdgS
+	WdXEEAdzVjSm54m0HY8rO+d9fTxksrWFWmanZiWdQDCA09o0qzuwpIyYsdzc6ny1tQTDE//Qheh4S
+	P4I3inURT0LUydFTl/WfE7RVNWvRNfqOj2TfX0Z77+4FvDkNo4A0Fg4Uhc3jAvpp5855gfWK1tVJw
+	NHd1jjcXJTfiNqcqFUF0Ghgjj+0EQRdD3P5FwOmSZ0KFLvG/+uU7i46wJFB/zzAOtTxeAfL4WUraQ
+	ljJJYlexrZ8cs52fseuoj6CQr4P7zflJfkznIT812pE4czZGXTooLkQCt2obT29KnLCp25vm7kvly
+	1nOYTgbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjGf-00000003qEb-1hOH;
-	Thu, 08 Oct 2026 08:14:21 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1xEjN7-00000003qqF-0Xqr;
+	Thu, 08 Oct 2026 08:21:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjGd-00000003qE5-0h9a
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:14:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=dSnC/p/+SqebYb5ikYjr8qnUSvI5a0Pua5cHHXDTyjM=;
-	b=h5MEJMC62bNhgr2cdgxykONMPR87RFdA9d51LZY+eVjDarwlIXSkjLvHt1hTndjchLwZadqaQ
-	qtFg91SNVPRoQSS+WkFLUR7QVS7/j/qiQdEZHnIM042b0XyWttL911syL3OPR1bxHIYG6Fh7Ilc
-	2hY4ozAjd0sbHjZ6ZfNk9jA=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4j0jBX0ggHz1T4Lb;
-	Thu,  8 Oct 2026 16:01:56 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id D70AD40591;
-	Thu,  8 Oct 2026 16:14:08 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
- 2026 16:14:08 +0800
-Message-ID: <382db58f-a145-4c8c-861a-24907d305a77@huawei.com>
-Date: Thu, 8 Oct 2026 16:14:06 +0800
+	id 1xEjN6-00000003qpd-0mKG;
+	Thu, 08 Oct 2026 08:21:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9268041AF5;
+	Thu,  8 Oct 2026 08:20:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E6871F000FF;
+	Thu,  8 Oct 2026 08:20:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791447659;
+	bh=e3+40ytroZd8UkOtxyfq7brsgjnTd3IzZPXyHWOv+eU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Z6LASO2RSL2hx+ABfURA5fGHZFeuRNItRy0/zGQ9LJJpOlkcX5+gXvQkqauZewCPE
+	 VdFiPylQJv4SCSRkUF8UsWuGNYIRTIfuDeYxOWgGG8ruXu56BWocM1IsOEsxsc2ds4
+	 qYw7csuoULn/Ib4acBLfAvIhNbfN9046W1oKT4HwHkGU0cVbcsod27RCnIWqPsr01l
+	 vSPRNUnly+i/vuci6Yo5FXgcJK/EgrqgZiFM3IrCATo10U2Q7IImerqQfEJItzONtZ
+	 6bU0ykRP2j9CRxK42a8gUd9I+lNRAwIo7AQwsrYI2GDS1lm5Eu1w2pfE6tBQvegg8c
+	 pvaWxgBLxPBZA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 06E611AC57CE; Thu, 08 Oct 2026 09:20:57 +0100 (BST)
+Date: Thu, 8 Oct 2026 10:20:56 +0200
+From: Mark Brown <broonie@kernel.org>
+To: =?utf-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Trevor Wu <trevor.wu@mediatek.com>, linux-sound@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] ASoC: mediatek: Don't keep a freed topology name in
+ the static card
+Message-ID: <asdSaDwahA5srEqn@sirena.co.uk>
+References: <20261003194501.832558-1-michal@nozomi.space>
+ <20261003194501.832558-3-michal@nozomi.space>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/21] arm64: percpu: Annotate __kern_my_cpu_offset()
- as '__always_inline'
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-12-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260918161407.2300-12-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_011419_357724_866BE5D6 
-X-CRM114-Status: GOOD (  12.52  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6i3hVWD2P/PaIFQB"
+Content-Disposition: inline
+In-Reply-To: <20261003194501.832558-3-michal@nozomi.space>
+X-Cookie: You will forget that you ever knew me.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +78,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--6i3hVWD2P/PaIFQB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-在 2026/9/19 0:13, Will Deacon 写道:
-> Allow the use of per-cpu variables from noinstr functions by marking
-> __kern_my_cpu_offset() as '__always_inline'. This will later be relied
-> upon to detect stack overflow of the overflow stack from noinstr C code.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/percpu.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index 3dc7291b16e9..cb9ae8a1ae87 100644
-> --- a/arch/arm64/include/asm/percpu.h
-> +++ b/arch/arm64/include/asm/percpu.h
-> @@ -21,7 +21,7 @@ static inline unsigned long __hyp_my_cpu_offset(void)
->  	return read_sysreg(tpidr_el2);
->  }
->  
-> -static inline unsigned long __kern_my_cpu_offset(void)
-> +static __always_inline unsigned long __kern_my_cpu_offset(void)
+On Sat, Oct 03, 2026 at 09:44:59PM +0200, Micha=C5=82 Kope=C4=87 wrote:
+> The machine drivers pass a static snd_soc_card, which outlives any one
+> probe. With SOF, mtk_soundcard_common_probe() calls
+> snd_soc_card_set_topology_name(), which devm-allocates "sof-<name>",
+> stores it in card->topology_shortname and points card->name at it.
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+=2E..
 
->  {
->  	unsigned long off;
->  
+> Save the original name before setting the topology name, and restore it
+> from a devm action that runs before the string is freed.
 
--- 
-Best regards,
-Jinjie
+This is valid, but it doesn't feel like this is Mediatek specific - we
+should probably move this into the core code.
 
+--6i3hVWD2P/PaIFQB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCasdSPQAKCRAv73Ows9A4
+iWjyAQCQ5EpsU2uUq6FAFEaxSaDmJrgpBXNidaTsw8CM7GmvIAD+Nq8nai9tUtVC
+zgkZwIFH4nOACSEmWBUyknlThZRmXQc=
+=71nn
+-----END PGP SIGNATURE-----
+
+--6i3hVWD2P/PaIFQB--
 
