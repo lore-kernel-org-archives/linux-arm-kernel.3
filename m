@@ -4,124 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DC3CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 04:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC458CA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 05:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ZlRUeJahORB5NAv0kJj9MobL9g2eNCQw2HB/rShhyI=; b=VVs0k8XR3GPKAEP8kf+bIREO5y
-	sU0r89k+FeF3T+MU7QAmO2w8tCmsAw8EZnsW9wkRSFLX0jxCN6jqA22OOzi0qWJFy0H+PYynyXyGz
-	CDV9iTR84RN1XX8UZ870C5/kQiNiluAzy23RHCooTlLyp/tYTNZsK45fq0QK0mrVqcce9Ancak7rC
-	jOElX+6GziZi//f1eIVjpBVqUbuZBsScTXsvwVKVW8f4gzIaVd/IrcfILAWyzyV9kR8vA6rX/zA+h
-	to5ABxssVPgx+O8yp5L+ZGWzUESMBWCqdq+5hhjNfxm+iTmsJv+IHet43rcramiBXqQfUTyUMEzyR
-	MQPU/vXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=; b=n5R5FQbx7wBCeU3RYzXIGJlQbo
+	MNVKry8FdxLGJmKeGVAhy/+RILRoB1WABHmaSfxz3D7QWU1o7DN0whEzLKaA12T6yFrX5TNvM6AxZ
+	qM01YDLl2WCT1L3P+s1OkTlObNKMLvfHnj0wzYbQHl7Sy5tjrLf9qjpUAW1QmWJC4dAZyilLh4U1R
+	m3iF7wb6micDTMqtJMjiWGQtIepjvr9ScXPC+i5gIufA9NjrzsAvzW/rQjUCqiMHaN2XHMYh9Criy
+	EG12Iu9X5pmRcD4jP5yYTwuEMlyklwLr6eZCxakInedMb7GW+MMMbOKPCRoho7jFbdLcuAqJ2C0gu
+	tENkF8vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEg3B-00000003WgW-3doL;
-	Thu, 08 Oct 2026 04:48:13 +0000
-Received: from mail-centralusazon11020097.outbound.protection.outlook.com ([52.101.61.97] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1xEgK3-00000003X9b-1Hnq;
+	Thu, 08 Oct 2026 05:05:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEg39-00000003Wfo-0e6q
+	id 1xEgK0-00000003X92-16Ub
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 04:48:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YIYpjie45PRY4bWUjkNskaajevyFJjGgSZaN+NquCH7YXmP2Gvs1MFtWe4uM/PZCzbReXBb3aclrdKVqzAnPFo/S73jN36GO6TDwh+8apAw7T9Seba+ZgLnAD7dlE2u2OgsLXyQ1K7Mr4Np7RX/HrL7nrDdmFgRnATEdIPKuPhy2KCTejH94Oy5KOqd8BiztWXPn3P0+R9wgreOXqJiR4gyfpMSeCT2oqtkb/DLq436mytOYOD0f+v/HqBte/lZpM7RNCOPVIlj3CDAsxUZP3b9EzdmDwB6dK7kfMTRKVLQnnucSIP97jZMpG/Ieai7r5EGHJWVnV7bIyDNj6Zwccw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5ZlRUeJahORB5NAv0kJj9MobL9g2eNCQw2HB/rShhyI=;
- b=X3PPLATQjXMhQcUxPQ0LiRAwqL9FjQxCjyaDUa1QoVBxGSLAyW4GDz6ZjYFjqpNwuuXuXDIqW/WTdcx197srG3Lf9GZZw+cSRoEvBr6eEcVWpFlEoiAx05r4jUXhYw02+GQsAx7b4ABMgjTLWsTT1LS5KU2hUqq3vqhSbiVeak4DFZHb/5AkVdhKIB53fcxWVWtJ8MalXkP0tF3+GGTh22KFr90RkqkVmQz+2sp/HYENrYLgAWYBzwe4qEzTn7t3qXsFUg8pqf0gAH8oKlBTK3hSlE4pZBGRPa/+U14QfJNoWuXUYSsnEacpABY58Z2dB1c87oV8jGPLnqCzKjKKJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Thu, 08 Oct 2026 05:05:37 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BVaO1775356
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 05:05:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=; b=bSVN6W3xVa3Sz4qX
+	c3SSDNvSwbExIIJAp3kqhcBF9Cgit24uSAyrZVjVhQUihmjoCXse6f7fgNqsCqOr
+	Vdsm2XIvw9TQ1IM/ulMvk21CA2o1x1B1Lkuz0/Iy/iay8LI2WzVdSyUJjMucuqUN
+	5zmMQq40di2qTgMPvBMPpmWFL2pXi17nmjLioNS+eNsezstjl4JYBDx9+Ab4DhSn
+	8XfG+nGn2AclO6juaFAqupxRYhJROqSMKfcj1hSL2O849rw0+MjUrlZUcjVy14sP
+	nOV43rUTDd5gTcVdlwheSxDeyjcsriQyeVD0Woi946OBryiJnRFKkkY5XIEqkXmS
+	fXAROw==
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe394x4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 05:05:35 +0000 (GMT)
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67697e6dfdcso10227684d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 22:05:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791435932; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nOTTFhU4rOXihLiYbWUyMBVDfTNNbQEbk/c0lAjGvR/UFaYME/cUCi+Ow3Vbib7+7d
+         Y870VeB1erLDV/8KvBoLxe7T1PuC2AJCBd0fis/mH7AVZJ5qDFa/D1dE5ZgaStbx1I2R
+         rB0k1eHQob/TBbf5DAlCKgNHvrfNPG0yuVlkDmbYyYeJjJgKbbPtdgwd9W1J73uvYZLS
+         V8r9tP316LgXHUmwG9MmjZglr5iMSzK9Eorz3PnlJYLwBpdi0GNKDJw111IaTT8lW632
+         6u/dslDJXnI9lBlZnyVYzotkYekm/J5avTfkWFy4eC6ekuJWJLDGh1fsq75B4Z+cKGPB
+         ySPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
+        fh=jMYlSCT/+CYz9e/sePTcS9QRmD759vrW4IBO2Wk4hrQ=;
+        b=FVNlzn7BConRNQc0niXVfFi9SiWk6sD/lQt7OptAa861OSKMH08CKoKcVV3GTtFg8D
+         gjdSzmCYnYBfMpm1VgqKaOWrDe1bbhuBfpa4wlC4lwHTHinil7ZQ6h7sIUu3qG2UJ+nc
+         wTBGSukoibOUv7otmW7DftyeJB12I13hJB6qLeEfb7pJxeBEW1wy7HAVGzz5KiCV+RFw
+         EOk7kuY4MZau3Quq+Jlke9XVAna8b0ci7hJJbjFVzgVaAqZKi0JkG1q6QNoqm3bo9U5T
+         w3Dxf96t54sw/gUZG9WJ3PAOBOlrclaHImlG1MA0AxrJLkUfUY3+uHlFteA71GBqKu7y
+         OUgg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5ZlRUeJahORB5NAv0kJj9MobL9g2eNCQw2HB/rShhyI=;
- b=dQHSK4IG75tYfTc2qLf1WAR9XMIKj2e0OqpCZnX/P71VNCW052TwX+ils11WZGQSt5INg5lLejLW7Bm+bA2RqJ/Ud4IQ8JQi1qxrbW61NcGGmp1pszAhIH1W7J3z8uYpP6wmb77t4dtBYjxwsEzznukKqa3EDncMBL2GAleNsdo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH3PR01MB488663.prod.exchangelabs.com (2603:10b6:610:34b::13)
- by PH9PR01MB226616.prod.exchangelabs.com (2603:10b6:510:3e6::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 04:47:21 +0000
-Received: from CH3PR01MB488663.prod.exchangelabs.com
- ([fe80::117d:9e02:c9e7:5973]) by CH3PR01MB488663.prod.exchangelabs.com
- ([fe80::117d:9e02:c9e7:5973%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 04:47:20 +0000
-Date: Wed, 7 Oct 2026 21:47:17 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3] perf/arm_cspmu: Add Arm system PMU
-In-Reply-To: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
-Message-ID: <d77d92fa-76ad-0692-2968-915e559fc849@os.amperecomputing.com>
-References: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR04CA0280.namprd04.prod.outlook.com
- (2603:10b6:303:89::15) To CH3PR01MB488663.prod.exchangelabs.com
- (2603:10b6:610:34b::13)
+        d=oss.qualcomm.com; s=google; t=1791435932; x=1792040732; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
+        b=g4Cm/Lrf1VgWN2CCFMlTsr7CJhsvpxfOupUx2hIf3s5HKT93/eR5vgD+TB83P3Nw46
+         JxtqB6bdmSIR2Bh22XTMMCjZCnyoXAN3O8nyR2Y+ZuGjUGH5RT8XM8dy38ee077DkDrG
+         YcTiU/1xz/LMvZx4e7o6VnnySW0048sPD/o69h1R42LHPSJWyEbbl8jTJ86g4yfKX7Py
+         Hj4rrdRNbE9762NSM/nlW5iJgqrqvT7QAYLJHX9MTpgE2zJT1v7y7hKqzt/9z9QFqkno
+         esZCvoi9Hr5K+6g2gKQdkHB5JSQk0a8hFyIHUAV2+cPk/TNbpRJW1Uz3TMuroPSYC27g
+         i7JA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791435932; x=1792040732;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
+        b=MDKsUQ/+VzgWtY56DHyI9vm2AYDOxTpNJvqHXtWnRwazgX0ZhQ6qXg+St8KUXyJIp5
+         +TJO+7AfgwS9b3rKtUjK7Bbk/YWaRZgR9ulqNEee32pMUVJqRFYPyiiMRc/mfTDAJLnz
+         jUZzkzOuolcLpoXGL6GH+4IO88NKDKRQXlNvLyaP2UG0OnUHb150DRDmKMkMusX2DDxV
+         HDxvqo56VYsphGv9da3uH4fdFMjN4gMBnSP3qgbMip+IvBGlG+vagEMtX7Egloc0sLQV
+         UHXxS/SHasMjYEcBzR2blUJro0O3GPVZ/waagCBZk3WnV669gbq6W8QWgeQBI0Onwdtt
+         Z5fw==
+X-Forwarded-Encrypted: i=1; AKwUvBza+JJessC/Yff91KGUfC5EgrqUH+59moWHiSORCs+6fqLoJlwYYfEkwxrySLa2nedbzEds0F3wQD4OShwpn5TG@lists.infradead.org
+X-Gm-Message-State: AFq9FYIkbHadvFIStjV9qkHVBSQhqImwyCHmgwaa4HSa7F1u8+OnitZZ
+	TtCkBtYaYqwFVLtIsBd9SruzZiw5MLm0t6fzxgZNgi8qfiWVQ/1J5m3UAv+cc2QKbAVElFw85YP
+	tlnSK4jYnznq5RQ23pDZ3Jg++IWOTOj1zHk2sICpJfoOXK/wIpCfTUI3bsBvAqru9SuBQ+Hi7Sh
+	Pw6M6Cy23Ilfz+mTyiLbqhlLSRa3j8EuOBxoUcp1H99VS3MRsCoZmc
+X-Gm-Gg: AYBFou3jzaVl+oAoUz3bmjByEr56mAhn46M0jDiPf6XRNzKJFHA5ELdcBnZtRcXJs9/
+	YehWIntMiIudPSEAN6E9BJSi0blkJOU9aJ55HY1NSWgRsmcr+KnNwBJjdq8fZNnJfih78VxbaEP
+	EMMWly73qaeCdFWzZy54JOyljZPA7NooeIQDmazTAJaFzGS/8HkVqoHXIwrA==
+X-Received: by 2002:a05:690e:bc1:b0:675:37b1:931a with SMTP id 956f58d0204a3-6790a0c3183mr2138145d50.12.1791435931780;
+        Wed, 07 Oct 2026 22:05:31 -0700 (PDT)
+X-Received: by 2002:a05:690e:bc1:b0:675:37b1:931a with SMTP id
+ 956f58d0204a3-6790a0c3183mr2138134d50.12.1791435931363; Wed, 07 Oct 2026
+ 22:05:31 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR01MB488663:EE_|PH9PR01MB226616:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52af19f5-93c3-4fbf-51a2-08df24f73ce8
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|55112099003|18002099003|22082099003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: ARCAxtoObIyrP/xNpUhL7Rs1AYRDVXKTJ1NlQLc1GypmuskKDWqStob6XhABGRXwVwyjRoxN8GhC4N+DcxdaLvimXIJAnYXIjn6DqOLv0uHeepgzyZLB4f63mDh7HqhVvVDtQo8fCRLU290PNgk1b5ywlCaeyrR+kj7LT4oXBeME46D5nCoUQPJIs5KOFuI6KlMEigKLo2wXzLRX/An0GXBxJ/iQQ5z9hEGxv8a4Oy0AyZzkdgOLRzcUVpck5Z64Q3K4JnoFwOWxYqLZAA6fgh4mCPA9NAv1+bQpHSKZOh6JPAo9h+akCOXvV8WvkY8ay57HmFgRjzdqo6gUJrTCzNBGjg1bgxtBBV1PFdVWF34k/Ho6jxUeAA0goRrEHSs0F5fkw1W26NHczYTVfYAnd3Lp2iNxUSLkFcr9j8I/h68CLraXI6Nq2E6Si1wFifHva3ZmpFV4q6SWx4Fu74B7zHcYeobTkH8az3KoLYxj0cE2OgweQc+A70gGL4DCeuKQJzuG1VxcUiuChaysIua5M8OEsvX8lxK1ZOw4fglQloBFTBKkACosMHg1NIsf+oNZWzd0Y26wXpBE0xc2LAdNLMkvy51lONV4rkSP+ByRbAbbzf6iuNCCKPGhlJ15tNSD+cQRpZqxejts4EbvXuzDhnPakTA/KEBo/nUMBbudyuM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR01MB488663.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(55112099003)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8Wv0SvS/j9YKZbWFxRzdnrJ22HTD12/o15LXFI/LWS/NV6fmR7IQJwqGgXJt?=
- =?us-ascii?Q?cyy4DVw0ix9gUfa7xzTaqLB20drkY1iT10tnK5yoxpfGJ4C9baK/V2nRpCDg?=
- =?us-ascii?Q?XHii8TY6xsOifW0fvAW7/2jAWsnQCBserfIP53n/GN9+GY+QsPm60cGeTcHz?=
- =?us-ascii?Q?6aZDfhd6nJejQb/W7sMvT7GJGewGZzpUsjPSuNUR+6Wyh/YaUsUhqyZZuLAM?=
- =?us-ascii?Q?Qhb6v9hmzbYF+UdlnbK+RaKcwQf1NCZ+cmjSXxK0Cr9U9nEZszwgdP9xAZhg?=
- =?us-ascii?Q?mjJkP1EWjdMqLOdqFVpyZG1jctoeMrMMmfH+mMDtbDBLAuCc5Gb+M7fN4sqD?=
- =?us-ascii?Q?vBSEVOQyyqdAPanDNf86+YYle9B6iuQS6HQLv2hPw6fsSbmb4uviWbmqfdbo?=
- =?us-ascii?Q?0/POtCPh9vwbQgZbT8vTZ4KG7ug1NiYbMd+YZfmXo1Dm27rYqeXwVVnnfJJs?=
- =?us-ascii?Q?ej/ROqGkrlkf9wSLrFRL0EsB7mw585z4Foym/0b3mG+qXvIEcsq1fQBrjWfr?=
- =?us-ascii?Q?tlTPwgL02AjX07VAytTlRjJd7GPBE6qhrY3ebIV1u6qetkJt3hnSuk1Spc8w?=
- =?us-ascii?Q?TwaE/NeLoX9U0Y0UC3UHr559dorI7vywrQLINZKmMuLz0qBxg79oYxq013K9?=
- =?us-ascii?Q?sVRd+jvQghX0TzZVN313ZKRINf700tXWVRtKHGCCjElkB1Oj1v7Sq7A7a1Jx?=
- =?us-ascii?Q?E9R3cRyyIYEBUOVi6f9TBg0KV52qY4n96rCzqmViJf0N33Y5k1Iu4IdgGv7R?=
- =?us-ascii?Q?L3n8Gs2zcEOuFm4Eu1u2tOvjYAAZNEBWGAavhQfXg4OHOlwbhW2cln22e1Rj?=
- =?us-ascii?Q?HUqgMrHy5I8olWCeRaVbz8lMs9aO0k4Luwim5qfwbSedmnDTQTAPpOLhQpAr?=
- =?us-ascii?Q?b3hYuSLQ42HdzkO4nn9FC2L+DkL3Jfl9b8pCOfxpvdtAy1TEJcdWrJwFnwd3?=
- =?us-ascii?Q?2CeETVyX/N59Mgeziw7eZgtDc3nsY1H2o2vQFVDcHwNBgb0nJ3PHWSbhCw6L?=
- =?us-ascii?Q?eAQ9dF/M2MFQkHB6mxJ9OjLJXijk5p6GbRBMLT3CH3GD/DgxsMywf+pltcNY?=
- =?us-ascii?Q?6P8D2yMGMhyFfKZQfEbfVKFWdpPPrWoxVTVd+Hn3RLOZZYRAbxCfp+H52bnI?=
- =?us-ascii?Q?W8DpzQVu/eSAJW0c15R6g9cWtUJNBYU+gZsRCGONYe1YQllea5J5/9gx3OT3?=
- =?us-ascii?Q?QNCKPfiaL/AiIyNda7pFVq0XH4s6qItJKgBQ2fES8qzu3KlC6EprFFSJE/yi?=
- =?us-ascii?Q?kgkL3PULpHNgHFnrIjbwb/m0SbR8urazKTLc3l7CvXweHvdy8BIY7Q2sOc5Y?=
- =?us-ascii?Q?xJsKD4Ejq5gn6mkDxhNsmyQu/hWldgMYc2dSsrMHWKGhuxnpvZziNO8xO/Mo?=
- =?us-ascii?Q?wEINzkpt96eguh99exFMOXSQkSvMXKhEOKyENGlMJg3vOfXwn/OWrqoCS4NA?=
- =?us-ascii?Q?yLkMi0SuLSFCwzImA1FA3p4wl0Td2fjAt/INLMhku4wmvRbI/NjLA893AHQS?=
- =?us-ascii?Q?1xkjJTz2ntb/G4HzGuOkyJtTDQTum2P8oxLTjGD8OEVeKiGAP88mSlEyvwwY?=
- =?us-ascii?Q?pR3i4EIGdIeLs1bfJVtND8fyB6Niz1PJkwzvY6nmZCn0lUewQdONpkiIRmUk?=
- =?us-ascii?Q?i7LQk7p3T5GtXgaGES6M+T/ZcsvYPrggxXpQzXLiUDBOnpnlGekMRDt3cVpz?=
- =?us-ascii?Q?maktKp7gYNeDoDCcT7qW9/MYuJOjUtkZp2UHQc2RxPhTQtDiGiqSPxodamHW?=
- =?us-ascii?Q?aM6j7iKHR9dTeXK8Oo0oqrEH/UT9RcY=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52af19f5-93c3-4fbf-51a2-08df24f73ce8
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR01MB488663.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 04:47:20.8378
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jZVQsonTbPdBGMCQ3Pu9IIuv+h8UYM7yQ1jGybnJbTsLvrFrL2Ois+2sMa2w/JHGyDsNJeu/4LVoyPqpAKQjZQ69rERhzV2a9p1Do+C0bq1YywDNqq3czNaJkSg99TWM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH9PR01MB226616
+References: <20260922130653.357615-1-andersson@kernel.org> <04be768e-7c38-4ca6-a721-d716947b8708@app.fastmail.com>
+In-Reply-To: <04be768e-7c38-4ca6-a721-d716947b8708@app.fastmail.com>
+From: Sumit Garg <sumit.garg@oss.qualcomm.com>
+Date: Thu, 8 Oct 2026 10:35:20 +0530
+X-Gm-Features: AclHuK8ljan6yYkSfeVW4C8TVoEvGkyXaktUQeB7YpkfdtcH9wriLsHpMlMeAII
+Message-ID: <CAGptzHOaNfXhDf7pZ0v=nKGXE6UjwOaw4pacPA4y9Lop8yP37g@mail.gmail.com>
+Subject: Re: [GIT PULL] Qualcomm driver fixes for v7.3
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Bjorn Andersson <andersson@kernel.org>, arm <arm@kernel.org>,
+        soc@kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=J4s/fwnS c=1 sm=1 tr=0 ts=6ac7249f cx=c_pps
+ a=J+5FMm3BkXb42VdG8aMU9w==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=9s7x0yUzlkJ0pj1vzNoA:9 a=QEXdDO2ut3YA:10
+ a=Epx66wHExT0cjJnnR-oj:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyMCBTYWx0ZWRfXzOknpnsKlkMY
+ OnL8Rp/sMJQ+j8dGum/ZiiOKgboAWVwEA4WYjHkvoz3YLcR2H0YZ2L3Eb+cDAZLSUjt9OtFB521
+ 6OgpfwM3EfDklbS0TdezthfK/mSjcCw=
+X-Proofpoint-GUID: tF9HkQkhZVndf7UpLOp8lf6ei0mjHqw-
+X-Proofpoint-ORIG-GUID: tF9HkQkhZVndf7UpLOp8lf6ei0mjHqw-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyMCBTYWx0ZWRfX+lDcbhJCj9tO
+ u5g6ozwc5FkOs1e5bg6XNXJkPURlAtqMpaqpyEOZBgYLA45AaU2gnFrwCMsrqyGtnd/wt2NKFys
+ hhW8IohZVKPMvdJvPhQ0LUDE6eC6lRegdmef8ZNoWwrpKE5JFrbtioVxrdknDtjO4KyjGADej+y
+ MujctiWPVhRh27yNoWr1DVqRKIQq61CVbuAnvnYbu/VEpAdorIJXkPqs/sf3hS9pTldy6pt5pCK
+ UFQoTuVi2Kbiq91qEozZax5hWOvI9uwds7Tl86l2yX/67z3EJbsQidkqoJenZ1FR0Rr1SlAM9dj
+ /NTRtS1WOhFsF1NLd3m/3jWboE1QvCzOahsb3m5xPMKgAsks8GMx7uyWnT3Asm+GDbyJlayBGw8
+ SJ/BPO3R+uTmVXP04WpNNflXUdhbZVpHRG6/lRdVyE34llVpusuzzpa+2GeVG/SvpZ+dbH0zv5x
+ FULzBzWzakkN86p3uqg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-08_02,2026-10-06_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_214811_214777_FB52DC51 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20261007_220536_314955_33E40274 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,164 +162,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Arnd,
 
-On Mon, 5 Oct 2026, Robin Murphy wrote:
-> Arm's latest Compute Subsystems and SoCs are using a common PMU block
-> in various places which can mostly just be driven as a generic 64-bit
-> CoreSight PMU, but does have an IMP-DEF register for additional
-> filtering. The details of event and filter encodings depend on the
-> particular PMU instance, so are left to the higher level Arm Telemetry
-> Solution tooling.
->
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Coming back to work today after vacation.
 
-Looks good to me,
+On Sat, Oct 3, 2026 at 3:07=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> On Tue, Sep 22, 2026, at 15:06, Bjorn Andersson wrote:
+> > The following changes since commit cee9395acd8043be0644b25c34bfa86623f2=
+b935:
+> > ----------------------------------------------------------------
+> > Qualcomm driver fixes for v7.3
+> >
+> > All clients was migrated from the Qualcomm SCM PAS API to the Qualcomm
+> > PAS API in v7.3, remove the now unused direct API.
+> >
+> > ----------------------------------------------------------------
+> > Sumit Garg (1):
+> >       firmware: qcom_scm: Remove SCM PAS wrappers
+>
+> Hi Bjorn and Sumit,
+>
+> I was running a little behind on the fixes merges, sorry about that.
+>
+> As it's getting a little late for 7.3, I would suggest skipping this
+> one patch as it is a bit large and is a cleanup rather than a fix.
+>
+> I would instead merge this directly for 7.4 but still take the other
+> ones for 7.3. Let me know if there is some reason I missed why this
+> needs to be in 7.3 after all.
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+I agree it's pretty late for v7.3. I am fine for v7.4 if Bjorn is able
+to keep the dependencies sorted.
 
-
-> ---
->
-> v3: Fix 32-bit COMPILE_TEST to match arm_cspmu.c
->
-> drivers/perf/arm_cspmu/Kconfig      |  7 +++
-> drivers/perf/arm_cspmu/Makefile     |  1 +
-> drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
-> drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
-> drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
-> 5 files changed, 83 insertions(+)
-> create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
->
-> diff --git a/drivers/perf/arm_cspmu/Kconfig b/drivers/perf/arm_cspmu/Kconfig
-> index 6f4e28fc84a2..25bd55f036a4 100644
-> --- a/drivers/perf/arm_cspmu/Kconfig
-> +++ b/drivers/perf/arm_cspmu/Kconfig
-> @@ -27,3 +27,10 @@ config AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU
->
-> 	  In the first phase, the driver enables support on MCU PMU used in
-> 	  AmpereOne SoC family.
-> +
-> +config ARM_SYSTEM_PMU
-> +	tristate "Arm System PMU"
-> +	depends on ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU
-> +	help
-> +	  Support additional event filtering attributes for the CoreSight-based
-> +	  PMU blocks found in various parts of Arm Compute Subsystems and SoCs.
-> diff --git a/drivers/perf/arm_cspmu/Makefile b/drivers/perf/arm_cspmu/Makefile
-> index 220a734efd54..90c3cd710157 100644
-> --- a/drivers/perf/arm_cspmu/Makefile
-> +++ b/drivers/perf/arm_cspmu/Makefile
-> @@ -8,3 +8,4 @@ arm_cspmu_module-y := arm_cspmu.o
->
-> obj-$(CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += nvidia_cspmu.o
-> obj-$(CONFIG_AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += ampere_cspmu.o
-> +obj-$(CONFIG_ARM_SYSTEM_PMU) += arm_syspmu.o
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-> index 912f03ce3ef5..9f298ea1a974 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -358,6 +358,13 @@ static struct arm_cspmu_impl_match impl_match[] = {
-> 		.module		= NULL,
-> 		.impl_init_ops	= NULL,
-> 	},
-> +	{
-> +		.module_name	= "arm_syspmu",
-> +		.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
-> +		.pmiidr_mask	= PMIIDR_IMPLEMENTER,
-> +		.module		= NULL,
-> +		.impl_init_ops	= NULL,
-> +	},
-> 	{
-> 		.module_name	= "ampere_cspmu",
-> 		.pmiidr_val	= ARM_CSPMU_IMPL_ID_AMPERE,
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
-> index c4058d602477..03e34692a965 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.h
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-> @@ -149,6 +149,7 @@
->
-> /* JEDEC-assigned JEP106 identification code */
-> #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
-> +#define ARM_CSPMU_IMPL_ID_ARM		0x43B
-> #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
->
-> /* PMDEVARCH */
-> diff --git a/drivers/perf/arm_cspmu/arm_syspmu.c b/drivers/perf/arm_cspmu/arm_syspmu.c
-> new file mode 100644
-> index 000000000000..2f5ceda5c4d1
-> --- /dev/null
-> +++ b/drivers/perf/arm_cspmu/arm_syspmu.c
-> @@ -0,0 +1,67 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +#include <linux/io-64-nonatomic-lo-hi.h>
-> +#include <linux/module.h>
-> +
-> +#include "arm_cspmu.h"
-> +
-> +#define PMEVFILT3R	0x200
-> +
-> +static struct attribute *arm_syspmu_format_attrs[] = {
-> +	ARM_CSPMU_FORMAT_EVENT_ATTR,
-> +	ARM_CSPMU_FORMAT_FILTER_ATTR,
-> +	ARM_CSPMU_FORMAT_FILTER2_ATTR,
-> +	ARM_CSPMU_FORMAT_ATTR(filter3, "config3:0-63"),
-> +	NULL,
-> +};
-> +
-> +static struct attribute **arm_syspmu_get_format_attrs(const struct arm_cspmu *cspmu)
-> +{
-> +	return devm_kmemdup(cspmu->dev, arm_syspmu_format_attrs,
-> +			    sizeof(arm_syspmu_format_attrs), GFP_KERNEL);
-> +}
-> +
-> +static void arm_syspmu_set_ev_filter(struct arm_cspmu *cspmu,
-> +				     const struct perf_event *event)
-> +{
-> +	u32 offset = 8 * event->hw.idx;
-> +
-> +	writeq(event->attr.config1, cspmu->base0 + PMEVFILTR + offset);
-> +	writeq(event->attr.config2, cspmu->base0 + PMEVFILT2R + offset);
-> +	writeq(event->attr.config3, cspmu->base0 + PMEVFILT3R + offset);
-> +}
-> +
-> +static int arm_syspmu_init_ops(struct arm_cspmu *cspmu)
-> +{
-> +	switch (FIELD_GET(PMIIDR_PRODUCTID, cspmu->impl.pmiidr)) {
-> +	case 0x9c3:
-> +		cspmu->impl.ops.set_ev_filter = arm_syspmu_set_ev_filter;
-> +		cspmu->impl.ops.get_format_attrs = arm_syspmu_get_format_attrs;
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +	return 0;
-> +}
-> +
-> +static const struct arm_cspmu_impl_match arm_syspmu_param = {
-> +	.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
-> +	.module		= THIS_MODULE,
-> +	.impl_init_ops	= arm_syspmu_init_ops
-> +};
-> +
-> +static int __init arm_syspmu_init(void)
-> +{
-> +	return arm_cspmu_impl_register(&arm_syspmu_param);
-> +}
-> +
-> +static void __exit arm_syspmu_exit(void)
-> +{
-> +	arm_cspmu_impl_unregister(&arm_syspmu_param);
-> +}
-> +
-> +module_init(arm_syspmu_init);
-> +module_exit(arm_syspmu_exit);
-> +
-> +MODULE_DESCRIPTION("Arm System PMU Driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.54.0.dirty
->
->
->
+-Sumit
 
