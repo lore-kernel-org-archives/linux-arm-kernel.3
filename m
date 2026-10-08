@@ -4,89 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149BBCA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E17CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7xX55VUfzLKlrT3hfK4oyi6LOjpzbgNl+xyMCeoTYMs=; b=joBaQGDut2av2A4ioELJ1f9HN6
-	YF1egwi31eZHaXcW4PNFte9Z93Qw1Um5KCKh9BXFjf6rldrjgqRn6OqLHiRXlL4CHUWHc2W/i5XLm
-	Vw0k1kH19EZ9XhNe147MHZoJy5aJCRgnwNXyOivZr4JC7T1tBGBNg9YhKM/Hyu60DMZUoPKdO045S
-	MsZxJK1PE/G/VUVI3jcPURv+RNTALgiSWhmqFbjAwOysxE8E5OPukZkf0asK7zFf1ys8L6Lpt5Id/
-	GfHgGsRRcr5NVyywlBrBKJ/VBeuVh0MTxdpM2Eaqjl7tt0qZrnZSmODolnWmfbAhwgcDgULVvzKfz
-	0HMix4uw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NHzdCrzB5CwJNMDm2rJXhCb7qWjOLhdrunIo0lH9wqU=; b=UF+T6Zh09ZnRmmkQ+FChEFNsr9
+	uOh7pt0ru7u5u68yyhgW6vFTDlNdKo+0sAXxEaj4A3R/eL+xPM3s02d1fPR3FYDBT2mD7iUA63i2+
+	2RwrWE9z9ZbZ91S60Mek5VgPgT9O8VWvJORPV43U+2/J4iTQDiHFXEIPUSjuuOScnu6UwSRtiT4+w
+	zoYf6Lw6O2w3sAiS9mH5ehWP1Jjb6hn09XIg/iSPs8Vg+O0LsLamha9Psfu11odt1K7EMhl3Myjnf
+	Io+1r/hLwYLsO+SuEOAP++eKzoq7f9iP6FKcDD7crzkGvFHtvtWJrXjutmyQX3XhfjGo0HUeJ8lIn
+	cLsBN/Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkjx-000000042BK-3wBL;
-	Thu, 08 Oct 2026 09:48:41 +0000
-Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
+	id 1xEkWT-000000040jW-1EK4;
+	Thu, 08 Oct 2026 09:34:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkjw-000000042Ac-0Qid
+	id 1xEkWQ-000000040in-3fz9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 09:48:41 +0000
-Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-141395927feso4464509c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 02:48:39 -0700 (PDT)
+	Thu, 08 Oct 2026 09:34:44 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6987K9v32560095
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 09:34:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NHzdCrzB5CwJNMDm2rJXhCb7qWjOLhdrunIo0lH9wqU=; b=ewtkd9Vv03MTGYw1
+	yJqi99u4KX64v67wjKlDurhKecn+nlTJlKHFcpY5y9zKLUqGTl4KIP4IuYJhZvbQ
+	Z+SSJ8secrzcFE5ePquEgmOE6RI1mYGzT8Ajq4yfHkXl9nK6/BWEdzgVQGzQllYY
+	QY6pUoLYeiM2d2kIsho1zEJuFiRBDNNYfHSXgy3XfjVJFZnfv96iBGEZ+upHW9XH
+	jS2TzYBehdQzEg38TBKCKBieMi8kOLnuNCpYll2XysIdx7+0L2PD5d2U6oEkUiWC
+	YPftL/TO3NGVF9qkSSZpuzxQRrBwtiUR3d5uZr0lyTfwXDkf1JCEJeCvinFWQPvL
+	giRHng==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe825gk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 09:34:41 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-39e3c10ac70so6772233a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 02:34:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791452919; x=1792057719; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7xX55VUfzLKlrT3hfK4oyi6LOjpzbgNl+xyMCeoTYMs=;
-        b=J2oAA4WzS/WJ0Wiv93Og1ZoQqrIH6ZOfGsQ38k9ryInWWZfsoiqUdl4lnXtHoGsabm
-         0KO0x4NXT0BnGKrSV6GZcrLdtVoiV/C87t9CLssV8yrWyt+4W4I2JKs3v6ySjn3aoZZa
-         cFdzR0vmreLZRyDkDXdQtNDX8oPS4Imj6mrv/ahVq/b1USvgv41HdHyXMtc0NhNV2AdL
-         DPCxXngVlqOXAr7G9Tc4OLQ92nUlS1yFonwcqPxSAGmCbgZ+hqkPazI3zi3wov4sR7zw
-         ecY0qHCeXXUANOdABiIahYx/+9YR4t1lkNBBbbiSXJZA0ZJbAOUfiWwLBbbh0eQAyJbj
-         z8OQ==
+        d=oss.qualcomm.com; s=google; t=1791452081; x=1792056881; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NHzdCrzB5CwJNMDm2rJXhCb7qWjOLhdrunIo0lH9wqU=;
+        b=GZPwNQEZrgLSz7aLqIy9HTYmxu+jiIIc1148X2rkvVKZHEKC347uByOMwqoMGSfWT8
+         qP2vvGg700688wx2ZDvwkPRtzggDGPjy6AcTown44J9mPDidL338PvjPUopxrBDSlxSv
+         Rn4zfXcrNbLa1tPvu6qVVQ2vXBKRB9Pg9LL9RGpWdwLQlVFsreianJ+mUKzWni9gguyK
+         vZKEeegdMtVSIH65YH8bDm856bJ64HoM8G2r3Y7jkStH4TPR89gq0TpWM44ts7DvFA2D
+         svPrigTxMR6/m4vpfnej3zfME4+Isn3CvnkLD/CM7ic60D0ArUbvmVmDpKoV7+S05HOk
+         +rgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791452919; x=1792057719;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1791452081; x=1792056881;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7xX55VUfzLKlrT3hfK4oyi6LOjpzbgNl+xyMCeoTYMs=;
-        b=rGB6P+zbqBXRzur1X52gGHNLUED5t5AE0hNG++BWL8KTInTc5bgQyZG4I54C5AlG2D
-         ugEdMg4qIVaH3htfhQhlszJmar06ujwz3A7s+OCbey2DXtnmFSxSc3QFlnxu1Ylq449c
-         mGfvXXmjWUDVF2OX/1aqMBnU6Y3yE8w5+alohkQzCgGk4XEBkQRG2fsQ0shAWIJTFNmA
-         uzdsIq/juOaBYkIsTTDwyj3+SoKfzBeAzks3GydmwE70gOAUq9+cgyzAQ5vVyWDMSktt
-         Y33uWnYvySwfbGueTqUQlCk20myyqTvoVgQywyesgqdKAp1pkBmqqrLFmIdPLSsw8/S1
-         Y5gg==
-X-Forwarded-Encrypted: i=1; AKwUvBw76i+MiMjAZ1E6yBx2tlAl+WvoTdW/1kcGxcIxg4faL0kxVJPxf0zKS9eMgXuKqOztOLBo4pdTlEVpjRvOhN1p@lists.infradead.org
-X-Gm-Message-State: AFuF++kB7PtC9DCpAt2jgID558rDJd/aaPeirBjeRa/EyFT/WZhWmZQF
-	awQ0AMb7peaaly8SknYg9Uw53baL3HxjSFVbSz/0PorsaL7gA7QvV6s1Cu8W8oCd
-X-Gm-Gg: AYBFou3IjpkuGYxlY+Kx3BRdram4FZ7ZynPrc5TLvsjlUlNYdggh3egCIAASqCVcis/
-	o6A0HthR7vQlGrKKppk8F8Wa3O53IGcihr247d0WwLgXOOMb12+EPnh+J8YzaN7aq3WPxWcF3K6
-	0wMGqpVB22EPLCvp1F9jvE/SDQYKaNcuIiLJi67y8vF87pHdF8dua/nHNt79uq+5pzriCAQvlYy
-	a8haLpUO2Ex9r4G7lDbyk8d2zcgYesTEg9tsPZhjOa2ogTtneKljhNXTk93wLU1dAdaTSCeSOnt
-	2Y1hUMUVxwVk07RHP0lHuaYtk2jJiOIaE2ZzixKCtCfYYi9FntmOjGl0P2niQZeddlPwJCGXUT3
-	qj3xjt1AEd7UEi2iRlCBVtj1E00mP7eQ8QUh6QXp5R1D5t3Rs1Aqf8Ohp2hXDU0qWOBsDBI/FR9
-	ieG6ME4Us8tCcPmVq4HS/PWqi4tSkNiZ8lNMXZ4iucts5Dub8TrkW4Q54g28NgVZ69o5dPOJr/9
-	ZEsroUsRnelCy3cJYhU7DA3H33RFhsTd0WS2OScAMVP0wVrfg==
-X-Received: by 2002:a05:7022:3d10:b0:143:297c:82e0 with SMTP id a92af1059eb24-16206c267aamr7410634c88.32.1791452918834;
-        Thu, 08 Oct 2026 02:48:38 -0700 (PDT)
-Received: from nbai25050026.. ([2403:8600:2090:6f:26c1:d3cd:9bcc:c4d3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1616a49546fsm13107565c88.18.2026.10.08.02.48.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 02:48:38 -0700 (PDT)
-From: SAYANTAN NANDY <sayantann11@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org,
-	andrew+netdev@lunn.ch,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	bread.hsu@airoha.com,
-	sayantan.nandy@airoha.com,
-	SAYANTAN NANDY <sayantann11@gmail.com>
-Subject: [PATCH net] net: airoha: keep PPE offload when NPU refuses flow stats
-Date: Thu,  8 Oct 2026 15:18:28 +0530
-Message-ID: <20261008094828.15458-1-sayantann11@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=NHzdCrzB5CwJNMDm2rJXhCb7qWjOLhdrunIo0lH9wqU=;
+        b=OD6+TosCzffJ50CCBHDg4hpJUKwKZUmEeUXQ5xWL9p+TeusFkugNuNV6BvVQKFxjCi
+         PQHmpBe9s5WZmXzz0uo+n59ErOPL+MKs5W93rhly3r6HeMPfkvYxKqC6N637hO0eSD+m
+         nu0Ed6Iv2RSRr7LuHR1hHyFHse/63yYdrqA3XUuw6FdoXDlC3YTZY8Yzmk6xpm6c16BF
+         a8CkYswI2f0EKWnMmtPXZDHXsHtBkK8S8uS7jJajo/OCSBfyrC+3nrfH7b2TOF/89iv6
+         PGBshtuR5Hh1613b2fs5GH6cYCp+oaDir6DSv4YNUKx8Ly5ZXGLmspghXKXuZlMH0xz6
+         /cAw==
+X-Forwarded-Encrypted: i=1; AKwUvBzytcq80q4EqZBLF9HE1lZihUSCbiuP3qU3jWbsEmyoIOQ8P1VApjjXu6WCGXKTTdXBtdR99BgpNLMvyQkSeS9B@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ3GTXIBULSIMeYx2x0b5UvPwDUrHYfJZyPuv8AEz7eBJFThxTp
+	3xXMrk6kLLROyt7TkFyvAwC/IjDwTFPLIpXT5Nc//RyS74p1Kp9DcA8b0JNuUTKGwTD4cqobkVT
+	2oUnL1MrDjMnvcKMDb6ijcRkXsBDXVuX02zGobh/wLXQAKeYZlJXGa3RPSYfPuQ/4G8oBB9SHEE
+	bI3w==
+X-Gm-Gg: AYBFou3XJ97psHbSE8X0k053wuVks38FfhN1reeMBf9UDJ/FIeDGF9pDPugpSUqChW1
+	DbIHWdfhdW/Z+2g5l8eLl5Ewd47dmNGMrPT73Poa80bCo4xF+JUSbdEp9TOWADzSIzyXX8uy2hl
+	b33799M4petfEPWJrEU7XIcNmFGrbJO+coi9ktxRfeaIgJxvDT4Sj8/Snrep2Fogj/VxYCZhB3M
+	d0oaalrKlmkSnuaQYrNXX17IJDO4jdw1CAEIgqjEjpEy+lmy8NmhcA1JRaZTlXUN4QQ7x4BX7KY
+	gBNYMK3m7p7hPYAqZtVWC+t5qAJESfYh36u8N55BkR/QfcFyBRIjN1FYZ8PxoWvCFYTmINMBR5h
+	jlEs435JxkSm6KGmRM1+4ZNkUbZ0=
+X-Received: by 2002:a17:903:3504:b0:2e1:35f0:6822 with SMTP id d9443c01a7336-2e5ffa150bemr49850915ad.2.1791452080642;
+        Thu, 08 Oct 2026 02:34:40 -0700 (PDT)
+X-Received: by 2002:a17:903:3504:b0:2e1:35f0:6822 with SMTP id d9443c01a7336-2e5ffa150bemr49850655ad.2.1791452080181;
+        Thu, 08 Oct 2026 02:34:40 -0700 (PDT)
+Received: from [10.218.18.193] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e604a46604sm22029495ad.72.2026.10.08.02.34.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Oct 2026 02:34:39 -0700 (PDT)
+Message-ID: <041edb78-acc2-4832-8500-28db58db1529@oss.qualcomm.com>
+Date: Thu, 8 Oct 2026 15:04:30 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/21] arm64: dts: apple: t8103-j313: Add
+ speaker/headset jack nodes
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: David Rhodes <david.rhodes@cirrus.com>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+        Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+        Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+        Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
+        linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-11-7b47ed6335a8@gmail.com>
+ <31d91f44-3f16-4a4c-916c-f4d8107d371e@oss.qualcomm.com>
+ <CAHgNfTy-h8m-XBBzW6jSNBz0dVe=vXL6nJ3VOqgMjCbsK_t6gA@mail.gmail.com>
+Content-Language: en-US
+From: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+In-Reply-To: <CAHgNfTy-h8m-XBBzW6jSNBz0dVe=vXL6nJ3VOqgMjCbsK_t6gA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAzNyBTYWx0ZWRfX1p0wCZcLk/XQ
+ OJd2dM888kijJrynxbOLX0cW86CXOKtLuw7j8DDBdTOLJNkk99YirsumRVH4wiahFUD2ZeLtNE1
+ nH4nEAcTwWPOHZuOxE4Pt5/8OhZ7RqPLAJUUe6Lh9hvGfcR28AxQmwhmzBMqPIBkn0hswv3lYCJ
+ rmgE1kthRJ8XtkyOXqkFcG5Gc2GA/V47pqHrDfaoCh0NO1T1HdJYAdg0FNdf6e4hE80za01YI3E
+ NS6wxwLU7HpW/xyAR4vp9TsmZAz9dKTLfus84+XJoEzJzTAOBoSGMyAcCKRt3TX1SGQJ+MreHYO
+ kqFnMQ2WShpQXZFSxjdzdOVXoazgSDlfYag1KFE0i2fk0shwU9XsfGDr/4Ho8wVhEX96EX0CE3L
+ JHMKhaxo1ZNV5WJxMvZwcajYwgWmdyI3SAMRMrokIMUGr1uxNJxCmsaPxcXETB0ah7iDYTuzwDe
+ khy7Z08NTjvEkHpj1aQ==
+X-Proofpoint-GUID: 7DT_mwlUXd0CDw42bHIZ74e_lDxAhl3t
+X-Proofpoint-ORIG-GUID: 7DT_mwlUXd0CDw42bHIZ74e_lDxAhl3t
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAzNyBTYWx0ZWRfX6t/Sw+VF0Ehe
+ yTmLhB56VJJTjQOMZp+kr5BFTa64Odcm1pwpNAuKIsljrPOxacUkQJBt6gYl6r9mYRkBU3mNRQD
+ enpJ69OwtK6TOloJxOh+EmZzPgkej0U=
+X-Authority-Analysis: v=2.4 cv=MPT1C8Zl c=1 sm=1 tr=0 ts=6ac763b1 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=k_whtCd4PG3F-9RvoSsA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-08_03,2026-10-06_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 adultscore=0 priorityscore=1501 suspectscore=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_024840_150256_C555704D 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20261008_023443_023303_8EFDD109 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,140 +169,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chad Monroe <chad@monroe.io>
 
-With flow stats enabled, PPE offload setup requests flow statistics
-from the NPU. If the running NPU firmware does not support flow
-counters, the request fails and the current setup path aborts PPE
-offload.
 
-Treat flow statistics as an optional capability so that a failure to
-set up the counters does not prevent normal PPE offload. Record
-whether flow statistics are available and continue PPE initialization
-when the NPU refuses the flow-statistics request.
+On 10/8/2026 2:16 PM, James Calligeros wrote:
+> On Thu, Oct 8, 2026 at 4:33 AM Ajay Kumar Nandam
+> <ajay.nandam@oss.qualcomm.com> wrote:
+>>
+>>
+>>
+>> On 10/4/2026 11:33 AM, James Calligeros wrote:
+>>> +&i2c3 {
+>>> +     status = "okay";
+>>> +
+>>> +     speaker_right: codec@34 {
+>>> +             compatible = "ti,tas5770l";
+>>> +             reg = <0x34>;
+>>> +             interrupts-extended = <&pinctrl_ap 182 IRQ_TYPE_LEVEL_LOW>;
+>>> +             shutdown-gpios = <&pinctrl_ap 181 GPIO_ACTIVE_HIGH>;
+>>> +             #sound-dai-cells = <0>;
+>>
+>> Both speaker codec nodes reference the same shutdown GPIO. Is that
+>> intentional for this board?
+>>
+>> The TAS2770 driver requests 'shutdown-gpios' per codec instance, and
+>> GPIO requests are exclusive by default. So I would expect only one codec
+>> instance to own this line, while the other appears to fall back to the
+>> register-only path after the GPIO request fails.
+>>
+>> If GPIO181 is a shared physical shutdown line for both amps, how is the
+>> power/reset ordering expected to work across probe, suspend, and resume
+>> when only one of the two codec driver instances controls that line?
+> 
+> We use the new(ish) shared GPIO proxy stuff[1] and it all Just Works.
+> 
+> [1] https://lore.kernel.org/asahi/20260831-apple-shared-gpio-v1-0-e855b12e18ce@gmail.com/
 
-Also treat a zero NPU statistics address returned by the firmware as a
-refusal. A zero address does not provide a usable counter region and
-must not be passed to the address mapping path.
+Thanks for pointing that out. I missed the shared GPIO proxy dependency
+when looking at the DTS nodes.
 
-When flow statistics are unavailable, PPE continues to operate
-without NPU flow counters while retaining normal offload functionality.
+That addresses my concern about the shared shutdown line.
 
-This combines the original SmartRG/Airoha fixes for:
-- keeping PPE offload active when the NPU refuses flow statistics
-- treating a zero NPU statistics address as a flow-statistics refusal
-
-Based on the original SmartRG/Airoha work by Chad Monroe:
-5ce96ab ("SDG-9458: keep PPE offload when NPU refuses flow stats")
-0ad8528 ("SDG-9458: airoha: treat a zero NPU stats address as a refusal")
-Fixes: b81e0f2b58be ("net: airoha: Add FLOW_CLS_STATS callback support")
-Signed-off-by: Chad Monroe <chad@monroe.io>
-Signed-off-by: SAYANTAN NANDY <sayantann11@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
- drivers/net/ethernet/airoha/airoha_npu.c  |  8 ++++++++
- drivers/net/ethernet/airoha/airoha_ppe.c  | 20 +++++++++++++-------
- drivers/net/ethernet/airoha/airoha_regs.h |  2 ++
- 4 files changed, 24 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 8277c1c87bb3..bd5a94fce843 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -617,6 +617,7 @@ struct airoha_ppe {
- 
- 	void *foe;
- 	dma_addr_t foe_dma;
-+	bool flow_stats;
- 
- 	struct rhashtable l2_flows;
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 4d3195eb00f7..b32a01dbe06b 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -450,6 +450,14 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
- 	if (err)
- 		goto out;
- 
-+	/* The firmware reports success with a zero address when its SRAM
-+	 * pool has no room left for the counters.
-+	 */
-+	if (!ppe_data->stats_info.npu_stats_addr) {
-+		err = -ENOSPC;
-+		goto out;
-+	}
-+
- 	npu->stats = devm_ioremap(npu->dev,
- 				  ppe_data->stats_info.npu_stats_addr,
- 				  size);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 92611802801e..fbc200614de3 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -37,10 +37,7 @@ static const struct rhashtable_params airoha_l2_flow_table_params = {
- 
- static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe)
- {
--	if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
--		return -EOPNOTSUPP;
--
--	if (airoha_is_7583(ppe->eth))
-+	if (!ppe->flow_stats)
- 		return -EOPNOTSUPP;
- 
- 	return PPE_STATS_NUM_ENTRIES;
-@@ -144,6 +141,10 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
- 	sram_ppe_num_data_entries =
- 		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
- 
-+	if (ppe->flow_stats)
-+		airoha_fe_rmw(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS,
-+			      FIELD_PREP(PSE_PORT6_SHARE_DIS, 0));
-+
- 	for (i = 0; i < eth->soc->num_ppe; i++) {
- 		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
- 			     ppe->foe_dma + sram_tb_size);
-@@ -1456,10 +1457,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
- 	if (ppe_num_stats_entries > 0) {
- 		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
- 					      ppe_num_stats_entries);
--		if (err)
--			goto error_npu_put;
-+		if (err) {
-+			dev_warn(eth->dev,
-+				 "NPU firmware refused flow stats setup (%d), offload runs without flow counters\n",
-+				 err);
-+			ppe->flow_stats = false;
-+		}
- 	}
--
- 	airoha_ppe_hw_init(ppe);
- 	airoha_ppe_foe_flow_stats_reset(ppe, npu);
- 
-@@ -1608,6 +1612,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
- 	ppe->dev.priv = ppe;
- 	ppe->eth = eth;
- 	eth->ppe = ppe;
-+	ppe->flow_stats = IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS) &&
-+			  !airoha_is_7583(eth);
- 
- 	ppe_num_entries = airoha_ppe_get_total_num_entries(ppe);
- 	foe_size = ppe_num_entries * sizeof(struct airoha_foe_entry);
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 442b48c9b991..aee06c058586 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -72,6 +72,8 @@
- #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
- 
- #define PSE_FQ_CFG			0x008c
-+#define PSE_FC_CFG			0x0098
-+#define PSE_PORT6_SHARE_DIS		BIT(22)
- #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
- 
- #define REG_FE_PSE_BUF_SET		0x0090
--- 
-2.43.0
+Thanks
+Ajay Kumar Nandam
 
 
