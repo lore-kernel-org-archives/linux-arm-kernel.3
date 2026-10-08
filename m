@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495FACA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F18FCA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XrSmR91whuk08N644eAwBFjzDz11AL82MPhnOqBAPZ8=; b=IQ7ZNADbVTFTJy
-	ghLjromWGc1JligMePyr9oiEAe6ICKiPWB3ZhFP8Cig2ByGjFrhqfaPYg75bsc45ktYXXalJfN2UU
-	jFshRNQQye41Uo8SgYekA9kSRKaPsj7oYRzhAW2KiwHxeb9QuAvTu0yw9kT//GNonlbbIzbKsn4Sn
-	1XxwA8d/MmzZnCy7iMGR4mV8PnFIPrU/Ap7nb/05nMudTDI/2OfB15lFRj7GXOpCWpNLbGUc85OI2
-	l6ilPEH33ZX/JQyVBWEwKeKtHQt9BfHMYZOQgOkiw1wLfiS8t9bwBB2aXbxTUgaZRV517B+QfzLXu
-	nDkjZ1Xqa3CGDziihpKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tbC8FkGuCmX23W5lQsFHQNsR0b/h1CWXM40cX33mshg=; b=dLXFzMenuwFEo5QRTlu97XVSmO
+	fiLHshOckVFcS98P+oN+Y22cWL+st+OQrrhqS5eUX4WU2TEHHy3WDtcMGSN7ASdhQ9eMG0/J68EeG
+	h/0uaeWCCZbicPvTE/+45V45FKsNFcVfIgyWg8FINZg0xMoQcRw+gH6WaORi5UtA8/N3pKMdIwVu6
+	GOOJVdkK963bjlgPV7effETiz/6UbyhXS8GEvQSr6FuH0h62k7sienCYjHGN8evoXzmWytG4FZ/wF
+	sOIC6F4QAruDh00xbVkyZBVMAxiSbuBCzTCYfnIkOt+xSKspW9fImHmjpmvGzfQ8EIkxZFCI/PIp6
+	b5mk/TEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjst-00000003vkn-21Sp;
-	Thu, 08 Oct 2026 08:53:51 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1xEjzy-00000003wep-21lH;
+	Thu, 08 Oct 2026 09:01:10 +0000
+Received: from smtp6-g21.free.fr ([2a01:e0c:1:1599::15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjso-00000003vfc-1xVW
+	id 1xEjzv-00000003we3-1SFn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:53:48 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=XrSmR91whuk08N644eAwBFjzDz11AL82MPhnOqBAPZ8=;
-	b=2O08l0oeep6LTqg6atyOJge8tnPzdgqdxkfeQyYM9prGQusXxeTpmDu4bPCmvQW4yDixvHhMK
-	TqVRN8TgFheshklaoiC9UePcklih1SFdiqGqsXgvxtCyX7q50VDE1ax691/+OYsjWIYsZT9bxPn
-	UkqJowGBMbe1S6Qa421sm6k=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4j0k422MQGz1prLc;
-	Thu,  8 Oct 2026 16:41:22 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6CA4040579;
-	Thu,  8 Oct 2026 16:53:38 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
- 2026 16:53:37 +0800
-Message-ID: <f35a662d-07b0-4cc5-bd5e-14fcdff2f161@huawei.com>
-Date: Thu, 8 Oct 2026 16:53:36 +0800
+	Thu, 08 Oct 2026 09:01:08 +0000
+Received: from L30177.local (unknown [213.36.7.12])
+	(Authenticated sender: vjardin@free.fr)
+	by smtp6-g21.free.fr (Postfix) with ESMTPSA id 3FEF4780502;
+	Thu,  8 Oct 2026 11:00:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1791450064;
+	bh=4F03o97iXSlmGOeJsrP5FuGxw5vNoZtKjrawKFd6mQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rZDzBkfRvSyiwKF5K42MielqdUUkE1C2gmHhhap35L/GORwrBU2l71Xl8FTU2RGdE
+	 Zj4F/Q/xipQZ1CBnDytQM9ZnADLjNyuQxy16WuOTThMKR8ayJcFO7sDTsCnb+KgVlk
+	 ZLYAuBiH+n7rV6id6vSfZ/JcIMK9I+LgNm6GuPNu91HGEhQlXjUMn7mAHqzolO6EcQ
+	 wyJPf/EJfAxyuLPq4E6D46uTMc4QJFxsR22UOvN/RFESwJigwvSVSfwwdxhvqB9/R2
+	 oT9Qlwqy9rW0uNGStUl+kUFDJw4dpp8hHvh5k6g0xyIvoAFsqAi+1qHuPz0RW0C4tk
+	 rAc/VxzUeXXNA==
+Date: Thu, 8 Oct 2026 11:00:48 +0200
+From: Vincent Jardin <vjardin@free.fr>
+To: Carlos Song <carlos.song@oss.nxp.com>
+Cc: Haobin Jiang <lemonoutput@foxmail.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Carlos Song <carlos.song@nxp.com>, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
+Message-ID: <asdbv4ZWwJ72ObNn@L30177.local>
+References: <20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr>
+ <apcYp0Zc7CrJMiOh@lizhi-Precision-Tower-5810>
+ <aqO9SMvI89rqoEGb@L23803.iliad.fr>
+ <arMUxCW5ZTzLT3VN@L30177.local>
+ <arw0mVbacAXv_1H7@L30177.local>
+ <asaElUqBu5ht6amB@L30177.local>
+ <c72e3cfa-26f3-4557-858a-2a919bf68986@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 18/21] arm64: entry: Split up kernel_ventry macro into
- separate helper macros
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-19-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260918161407.2300-19-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c72e3cfa-26f3-4557-858a-2a919bf68986@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_015347_136915_367E315F 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20261008_020107_546627_1BD94DEE 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +81,17 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Carlos,
 
+> This patch is a new feature, so I think it will be merged until v7.4 at
+> least.
 
-在 2026/9/19 0:14, Will Deacon 写道:
-> Handling entry from EL0, EL1h and EL1t in the 'kernel_ventry' assembly
-> macro is getting a bit unwieldy as the control flow becomes increasingly
-> dependent on the macro arguments.
-> 
-> Split 'kernel_ventry' into three leaf helper macros for EL0, EL1h and
-> EL1t, which are then dispatched by simple wrappers.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/entry.S | 29 +++++++++++++++++++----------
->  1 file changed, 19 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-> index b4df2f23ebe7..38f9327e6a0a 100644
-> --- a/arch/arm64/kernel/entry.S
-> +++ b/arch/arm64/kernel/entry.S
-> @@ -36,10 +36,7 @@
->  	.endr
->  	.endm
->  
-> -	.macro kernel_ventry, el:req, ht:req, regsize:req, label:req
-> -	.align 7
-> -.Lventry_start\@:
-> -	.if	\el == 0
-> +	.macro kernel_ventry_el0, ht:req, regsize:req, label:req
->  	/*
->  	 * This must be the first instruction of the EL0 vector entries. It is
->  	 * skipped by the trampoline vectors, to trigger the cleanup.
-> @@ -52,8 +49,10 @@
->  	.endif
->  .Lskip_tramp_vectors_cleanup\@:
->  	sub	sp, sp, #PT_REGS_SIZE
-> -	.else	/* \el == 1 */
-> -	.ifc	\ht, h
-> +	b	el0\ht\()_\regsize\()_\label
-> +	.endm
-> +
-> +	.macro kernel_ventry_el1h, regsize:req, label:req
->  	sub	sp, sp, #PT_REGS_SIZE
->  
->  	/*
-> @@ -66,13 +65,23 @@
->  	tbnz	x0, #THREAD_SHIFT, __bad_stack
->  	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
->  	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
-> -	.else	/* EL1t */
-> +	b	el1h_\regsize\()_\label
-> +	.endm
-> +
-> +	.macro kernel_ventry_el1t, regsize:req, label:req
->  	msr	spsel, #0			// Stay on the overflow stack
->  	sub	sp, sp, #PT_REGS_SIZE
-> -	.endif
-> -	.endif
-> +	b	el1t_\regsize\()_\label
-> +	.endm
->  
-> -	b	el\el\ht\()_\regsize\()_\label
-> +	.macro kernel_ventry, el:req, ht:req, regsize:req, label:req
-> +	.align 7
-> +.Lventry_start\@:
-> +	.if	\el == 0
-> +	kernel_ventry_el0	\ht, \regsize, \label
-> +	.else
-> +	kernel_ventry_el1\ht	\regsize, \label
-> +	.endif
->  .org .Lventry_start\@ + 128	// Did we overflow the ventry slot?
+ok, understood. I'll wait and if needed a I can/will resend
+an updated patch based on a rebased with v7.4
 
-Looks much clearer now.
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  	.endm
->  
-
--- 
-Best regards,
-Jinjie
-
+best regards,
+  Vincent
 
