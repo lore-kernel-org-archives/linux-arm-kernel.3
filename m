@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B76CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B604CCA6016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D8C27EcH29KADxDXBSHLLYoAGv2CUc8rXpBFE4lHgp4=; b=em8FKCD7SpuyjSmBCMb6cJIU+e
-	ME1+dSL96VJLWnbxyrhuORe5HOWyO7hPqYTk8a6xtNgOjksRoRyutgnyQh9QQKqfaDPGJLG6rSMFq
-	FVY1tB0rFPSheglY2Il3tjVtQANh4bC6yHEUB4VzTDedMqtrj46k/v8N+IyUk0rGKR1uLvoeB4+P6
-	lioIn8YDvf2vEh8DgNdxPOIKj/uvstkWRrvLGDR+kwnGNNbIszlSTWF9FNLJtL59ky5+KVivoFNGp
-	hDyo54yjjcZlCTF6N8Bu2bHBRuB8+m4DtWcardzKRJrQcbpxe+Yf3ZLo7Er4SBDGbLS5EV09YObI8
-	YIz7Xa6g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E96pTT6XTnNNfP+DWw90hC0+rjXeIZxMXNYz9L3ZLME=; b=Rn6mnmALpe9J2gu4LOwhWkkmrI
+	2FKcp32LY6wJ919bIcf+2Il5cSdTgjzDunZ13yxCl80iIcWOMwJaVIaLRlB235F1BE1tNbKA1Ms6j
+	GfTOA6z3eS1LXkanSLmg9i85pE8SjI09Qgjpk10V+RjAwQFn2LMw34fduLGffJEF+GJoRRTGV/67w
+	wq3eWxjeXnQ6hTmhCknDMKqTKlaAshrtW/+8XLu7XuXJf4tdsbO0uWiCu9Usr7aFGB/wd4NGZ0OUY
+	nVELP9yOL38vZj9bZydo8tLBzjG9rIwalmVouPSHfatAxvsoYHXpNEPqxSmRwBDXJyO/JuufhQQFY
+	nG023RPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvff-000000054Sj-0c5E;
-	Thu, 08 Oct 2026 21:28:59 +0000
+	id 1xEvfm-000000054Uk-1wPT;
+	Thu, 08 Oct 2026 21:29:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvfc-000000054SJ-3bQx
+	id 1xEvfj-000000054Te-1Qpz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 21:28:58 +0000
+	Thu, 08 Oct 2026 21:29:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D57B1477;
-	Thu,  8 Oct 2026 14:28:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02FA51595;
+	Thu,  8 Oct 2026 14:28:59 -0700 (PDT)
 Received: from e127648.arm.com (unknown [10.57.87.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 973403F763;
-	Thu,  8 Oct 2026 14:28:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 13BD63F763;
+	Thu,  8 Oct 2026 14:28:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791494933; bh=DRL3fpOafRSkxxllvLGIoUiKklaEafR6458OmgjKk88=;
-	h=From:To:Cc:Subject:Date:From;
-	b=T+vRViT8zVrpxXP2flAbT8UDGmMuWjnRQLBXijj9tJbOMaRa5Ulwwur/YZq3K8xc5
-	 GDaMD7s5/+5WQIm0rVctB2i5V3Emx4ndYxAvnJ25du6RPvkQEJ+Cr8MFaDv5sAoMim
-	 5SqERzB9S5T23key9FycNsTwNH/QJ52hTYkNjkFU=
+	t=1791494942; bh=HSK1pjVm9ehxmlooMYhWq3cd6qmvmv5av3882DG5p+Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WVtS6XoPTlc6ehGJgMPUQGYfT9yGQM/L72Qy8L7R61KWMkezxJHb47n4u/wS+Ci/u
+	 L/SmOLhKjO+Jor9ai0YuPDg+ersouu9gCUye0R/m+PJMZk95p64yYYQ+Ybo8L7CiQM
+	 UIyL8yRdBAxKl2fTYlROGJUvMHUnQEtX/FjWtU38=
 From: Christian Loehle <christian.loehle@arm.com>
 To: rafael@kernel.org
 Cc: zhenglifeng1@huawei.com,
@@ -63,15 +63,17 @@ Cc: zhenglifeng1@huawei.com,
 	jonathanh@nvidia.com,
 	zhanjie9@hisilicon.com,
 	Christian Loehle <christian.loehle@arm.com>
-Subject: [PATCH 0/2] MAINTAINERS: Update CPPC responsibilities
-Date: Thu,  8 Oct 2026 22:28:30 +0100
-Message-Id: <20261008212832.354382-1-christian.loehle@arm.com>
+Subject: [PATCH 1/2] MAINTAINERS: cpufreq: Replace CPPC reviewer
+Date: Thu,  8 Oct 2026 22:28:31 +0100
+Message-Id: <20261008212832.354382-2-christian.loehle@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261008212832.354382-1-christian.loehle@arm.com>
+References: <20261008212832.354382-1-christian.loehle@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_142857_082212_DDD51DF7 
-X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-CacheID: sfid-20261008_142903_431095_3AB17005 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,25 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rafael,
+Take over CPPC cpufreq review duties from Pierre Gondois. Thanks to
+Pierre for his reviews and contributions to the driver.
 
-This series replaces Pierre with me as a reviewer for cppc_cpufreq and
-adds a dedicated ACPI CPPC entry with you and me as maintainers.
+Signed-off-by: Christian Loehle <christian.loehle@arm.com>
+---
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The separate entry should help direct CPPC changes to people familiar
-with its performance control semantics, register access mechanisms and
-the platforms implementing it.
-
-Thanks to Pierre for his work on CPPC.
-
-Thanks,
-Christian
-
-Christian Loehle (2):
-  MAINTAINERS: cpufreq: Replace CPPC reviewer
-  MAINTAINERS: ACPI: Add a separate CPPC entry
-
- MAINTAINERS | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 65e8a4b5c90b..3064942ef05c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6765,7 +6765,7 @@ M:	"Rafael J. Wysocki" <rafael@kernel.org>
+ M:	Viresh Kumar <viresh.kumar@linaro.org>
+ R:	Jie Zhan <zhanjie9@hisilicon.com>
+ R:	Lifeng Zheng <zhenglifeng1@huawei.com>
+-R:	Pierre Gondois <pierre.gondois@arm.com>
++R:	Christian Loehle <christian.loehle@arm.com>
+ R:	Sumit Gupta <sumitg@nvidia.com>
+ L:	linux-pm@vger.kernel.org
+ S:	Maintained
 
