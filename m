@@ -4,134 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BB8CA600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED43DCA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vNcHKfQkJv8VoJoO5WlHmPbl6malqjflPS+to4/dOw=; b=vvb85N87vCSE+3sCybmO+0pHPS
-	U4l53r3BoQjg3CpUUe5ppBsSIrXJpfhsEgt5aGMcrbkxP7z0s/VHGl+BNj16yWUKIJu/uhRzAgMvd
-	4Vxw9NfOZ2s9sdHFBOSWO/PgTDPD8pOV38ND5d4eVyOftj/PW4HrVU1TaLGspMQdWr4rZjxWJgyjm
-	d6QZVLbYimVU+9Bk2tjpwRK3kQy5nKL0cxPUbbZsaWE//VQ9wgljfHJWQtyB4psxmKUSsD9UGpC7m
-	AfacwCP/32nVUDNxlL3mDsz7QIknOjvR/P3cRxQPQmMPUUyqQ0no9SCmpChtPIeKxkdSo2HJ8ybE0
-	C1NvoKXw==;
+	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=; b=DRuez+I8fcpIVkbyItdRlmbHT0
+	dpyCcnqgH8jRwexk4bUTNXCtBMaoca51pFOQEQoHMtB/atHgoKjV18gXEN7HTTKKHe6NgmHCDOQEB
+	P5mi3MlwQNYXEBh/dO6s1LVD2q2/WUYrpblQZxFFEA/+t1p5u7wLGEyvO+s/xYOggUEb/XQ2ZK0WX
+	y+MJtPPtYsiXlSDg9m6nhmlzMLZ5COnIkWk4dRwn64d9xMw34FbqFK1AyRdmCdsM83DNMj1yO5Akr
+	nKfNZsv0iYgGKSu1nbCkO1K6kEBDPtx24HcJfy7wx3N3CsOjpPaMQg/ZztDTmCKoFO8LcyOFVzhUE
+	YI3eAB5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEohu-00000004VZv-48Tx;
-	Thu, 08 Oct 2026 14:02:50 +0000
-Received: from mail-francecentralazon11013069.outbound.protection.outlook.com ([40.107.162.69] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xEoyh-00000004Woj-20tr;
+	Thu, 08 Oct 2026 14:20:11 +0000
+Received: from sender-op-o15.zoho.eu ([136.143.169.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEoht-00000004VZB-0ldP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 14:02:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q0NtHlfckNxDfHXGXdx2rK0yO6L4T1kE6BlRyaIkK2lu17XUyfGcFzL0HxE+tOy68FuHOtG35183BdIuzFyYCfAyoLzmmL/nVU4bWBMVzl5BzrOhDP+vFs3ffa1vr48BWoRduyF83pDigzY5+qoK5+8eYW1x+r9V3RhYU/0AJdNZ0FMxU0KKS1rlU6XoC0v7/jhgQyY1DwpgoZLX1AGwjlfyZ5cG8ytPt022caO6hM8CGPbvjdLhFm9CNhEv5hseP1drEjHwUAP4YgbNpDJoc/pzVhzhQoSD4Q4YKMxyH8fM/c8I6znmkXKph5kRqXYXKrrmxDruZTxEsjQEYdDJvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6vNcHKfQkJv8VoJoO5WlHmPbl6malqjflPS+to4/dOw=;
- b=akD9XX0Icmrmb1vod9+q+JF9FSmywcFcRqKMpr8lgD2IUD67yDQEHlb3IKkt8U/tcVlNLleePfkX6rr+HTgvTuZMkTyj3qxyarYLMl5yocEzMx/V9VobmiS0BsnrNUBwPFCcshXT9PglEXfc3RwMzNmYjtVrHbI3Ix7LkLoavx3pbhZmdzAGB5DcM10xhZ2aGa2/lRwR3JASTrAZwr0a0Q4XIsm9K2sfg6QkYaFXuQmAYMgnTie8O+Eug/dHt2Q9fL0v5q048dcH2DgODLC16/Up6d5NH25ccfep5t08VgwYNrrfMDzobuMoj0NJ/IK2VQCmuy7sO3EK78lOZx11SQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6vNcHKfQkJv8VoJoO5WlHmPbl6malqjflPS+to4/dOw=;
- b=eoQnRMJiwz1i9cEjvL7c1ujWmaBy2HJ9MtruTfOsnmYtzAUiz2kmOHW1OtI/Vz6QBcxnQI07FjXBKdAnMZzbTjH1cjs+N2EZqt+ZG747rGkJczihOxdvmq8Y5XrzH/+m0ERbJCpAV8QL7uUD9wIJQP6OS0n2aANJSx0/GrzpFyYGwfT2IK3fCfcv8JZcFoD7sWWQcz2JZWd07Qft4byUkQAv6bwlCHNe5RONwQ7hznUVCRzHo9/UtToFZzjk65unXBSTKHPp99DiM6E544vIPdSAVBkMwralPvxH3gbfwhJwsabOQOry4ZBQ40TBTB3iapZ1SgiGNZPPi30qtIS5Sw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PAXPR04MB8733.eurprd04.prod.outlook.com (2603:10a6:102:21d::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 14:02:41 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.010; Thu, 8 Oct 2026
- 14:02:41 +0000
-Date: Thu, 8 Oct 2026 22:07:13 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v5 4/6] iommu/arm-smmu-v3: Support shared SIDs in
- insert/remove_master
-Message-ID: <asejkRrL1osIhIGR@shlinux89>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-4-169a59c671d3@nxp.com>
- <asbrixWURytrZgfx@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <asbrixWURytrZgfx@nvidia.com>
-X-ClientProxiedBy: MA0PR01CA0008.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:80::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	id 1xEoye-00000004Wnw-2WQL;
+	Thu, 08 Oct 2026 14:20:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791469199; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=B9eUFbUFWwy+2EylRYhJhGUtWUmB8HuyzXWW0t6BvoWrSKpDj1lgBTy/WOJoyy0dclVDPeyKiwtvUFT8Kk0kc3WbGwheHcHfcAiD6vXUktcDDPbpUM+9tOYxhesMzB7yKULBDZbKfAgNGFvzLtE0N+keg/qqnAXXvdlL5/PJhe8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1791469199; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=; 
+	b=fpfGEzomxY5Qk7S8L75uDxyhpCXzletoUou2RkZ+uAmi5yDgow/Wlne75r2uXzGrmMbaSPwguXRQo/PQGSe45/THWial4zGM4rx8SLt+YiWTiqDv83+1awd8x4SWJu6hKR35jjnZ4sWWABqWTyIFypzbq8GSOcWbu406R49Z3p4=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791469199;
+	s=zoho; d=iav.lv; i=iav@iav.lv;
+	h=Date:Date:Message-ID:From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=;
+	b=PWfaoUeh8JsfEE2VS9gnSMNZgcBJuy0C8d6EJrBqI1DjFTk4lyxYG4Hk1KKAB/xz
+	IWUyL4reb45QH+TTHeV1JPQx11dbrbixSf6Hq8ca0OYuO/xab5LgIO+joINrUcVgpQI
+	Y5fIxXl9rDD0/GnvDx1P4pFcvcvlFV9/BWjiRCr4=
+Received: by smtp.zoho.eu with SMTPS id 1791469196359881.6653594573447;
+	Thu, 8 Oct 2026 16:19:56 +0200 (CEST)
+Date: Thu, 08 Oct 2026 17:19:54 +0300
+Message-ID: <a12a6d283cd8382311117c6b95bfee23.iav@iav.lv>
+From: Igor Velkov <iav@iav.lv>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, iav@iav.lv
+Subject: Re: [PATCH] irqchip/meson-gpio: Allow the GPIO interrupts to wake the system
+In-Reply-To: <70897195-0ffc-4d80-80d4-e60f87c6101e@linaro.org>
+References: <20261008-meson-gpio-wake-v1-1-b0af1598d469@iav.lv> <70897195-0ffc-4d80-80d4-e60f87c6101e@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PAXPR04MB8733:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6adf5160-18d7-42f4-be53-08df2544d191
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|23010399003|366016|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: fM8QuOAxRr5dccjoh1ZH+vcsub2d1nkPv6JvT7Ci8bhUMtCViXg7N/U5NEEZQtzUXiGbNloFpxjITxFcWeuRxwT4PAPWA0JUlkUVGuOPnOEi6MVQDjOWQ0XqKMsxIw+DD98jHgcB0Zb0t3wA6VnKfdyeMfgaAYv6pmCKCSefeL/EZ4GF+sLTBgFtU7D1Bzt3ups3VpJYiSJ/My1XWo732mA3PTet8NdgFekWVn1YwYNKacYcaIDiBetkZ7njqIr1Gx0ZUmaI0VIl0+TZXZREGsiVHHrU/aUGJwTbcHmNntfYC2YP+HgWrHhEonQhQkfmCE8UbFLvtj1UiUFDvVMDKddTX7fhBpPANjBjekRlDEuftd5IMhLc5/gmZKW5Y07jkSXFkRPACdzsHsB/BmIXmy7OICYqpR1bHEU959HUhc+T6NbEWUfHXyn8g/WBQKlIb5Zpb/+Kk7Zoxrlv2JVTuiQ9XFFMSZzTlpx+H0uVpywzXbSGbvT53O3dVkxdwdkQJDrO7Gy2vgfxwxNZCzF9PyNuT9U6V0lAd34yXX5FK+UbVOds0vvynwijNHuerDCNyB9d4xX9APubLqccx3xgQHm3m9Ilf9t9WlEgzwebXXGOt7u/A41W7mOEe7vGt9jXk8lKDK+Qg6pvaulsfMqlCT6/omb4D9eJVWbQOTGK/Nk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(23010399003)(366016)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sui+Lcx2TF6Up4CQxFNetKBsAR/bONjZGLMKDoR18JDkIJLooApw0i6kWD6e?=
- =?us-ascii?Q?1ZI3CHQZ85sIria626MAvD9kib61oHQBO1g6A9hOShK1nMNCrqR6zOnfq4jy?=
- =?us-ascii?Q?r/lzIVHraWF+yEzPrSm+b0P5aFhWIg5AtoT0uVMWW/8rVDnIt7XI9PrSQ9kF?=
- =?us-ascii?Q?Os06IMAieAQm/MWOxYQE5BLLub6P7/fful63xD2kef4brhZwqrau5ji8DJVg?=
- =?us-ascii?Q?HLZcYIUn4B03XL8snksIoE7DFe64Xh7OX/0LUUhZssJb46hZw+3m2EhPFyJC?=
- =?us-ascii?Q?rIhPC9siWOFO3YOCZMj4Ul2K6jHWkeBwuH1wVuhZqsTlWDzEOQUE7U9aubXV?=
- =?us-ascii?Q?dVas8b3Yp4xZhcorGhUN3ivuXQs0Psoupb7nJSZpTsKVU8/s4mQvwQ5LWLNL?=
- =?us-ascii?Q?ZCgt7yTMOWt8GF589IuZzGthZhT0x0XC0S6H+NpUj3w2oY+N2M5k715legDc?=
- =?us-ascii?Q?nmUDAVz3hRDnOpphlyzwIB19y3qKV2nVB/0iFDMXUIhkHLiCPsGMlddNf8sL?=
- =?us-ascii?Q?d7mED+2nWjkXgIsnARAFC5NM3rZPOI7Bu+nWpCjDt18lxyti+tZKgfn42SWN?=
- =?us-ascii?Q?TGvBSQHY45z873VImfflWoieVNhptsf3e7xUmrCTQnUMI4trok/vE1qx/6Jv?=
- =?us-ascii?Q?QWy7TYqYWq3nh04/8dTYX16wpv2y2wTTC2gczWjZzu4dn+zboT/KaPP5Fyhr?=
- =?us-ascii?Q?k7RGupbGYSmmmiu/nrhp8s0WzaGUWgQe5ALvfX7DsT8UEgX3my0LhxtowWn5?=
- =?us-ascii?Q?i7rtX3q7Pv+pblzHAFaSz/ekOABHJPtQFJ3kSB3cgp6oZVGJgjfb6qTYWcLv?=
- =?us-ascii?Q?XEWXfexbanZ/52YF8OtVYTYmfOgaI2g2Ch3GArsR/uAxOCbC32UBjGxSH8uh?=
- =?us-ascii?Q?uaqYLWFyRiH4ZOMb1LGpYpDLKckbMKtvofA63DiD12j60kk77+6YTf5Z69k1?=
- =?us-ascii?Q?/Dc9rdYw9dCTZs0esBgSCyYk15aJ9fElsiwG08Qtd00ohDRvwXFUwpEvYmwe?=
- =?us-ascii?Q?MiaDShiLPa3N0LYDOPQtXaiNkrWrUxSEqmoJ1llrlkipZuOws3cklWf4ixV/?=
- =?us-ascii?Q?t0yx3Qm0He0GrhT3dnxTmk45VZ2hnjSXALpvZ8jTtYCVp6UJE0JafC3yOmyP?=
- =?us-ascii?Q?bSgIJVm+7ZAcBmtpP5wop4tkg61C4Oi8EYN7PbL+GUxbHuY8/uQi1SzWWPPH?=
- =?us-ascii?Q?wrQCGLULDB5f4zLDlaXcEUKSaF0cCo1ZD5FEWhaM1z3i+w8HihigV75DQrha?=
- =?us-ascii?Q?IYITD4tVUwvDRKyrfns4V7zrI6pv6OGisCGjjZWSYTb2bCcO3jv6PEW33f5V?=
- =?us-ascii?Q?hn8eDGRiF8CzsSZCXmUUtTjbgrNNIRDpgi+J+gvsYP0kgTvDXYNJp8pGHNki?=
- =?us-ascii?Q?UDEca/eO27eD6rJ1n2cifJi/okQ/+04eslvGsKrps4szu4L1/FS03iqgDYRS?=
- =?us-ascii?Q?sAoI1xmJdxK07CTxr/ij8o/CQvshM4f1IoT2SBDYWKANdvfKCKb1IO3Kz3sh?=
- =?us-ascii?Q?VeE/1wRFKrlFDTiisPpv0U+7jNU9ZCQuGTP9Ya3tEX0s1l7jiPWPeKPGa4wY?=
- =?us-ascii?Q?BjpAOry9j7NsBO+fTvIpS48XlswBwgxt3jdbvBzWzYCNYirmKB0lOz2t3uoM?=
- =?us-ascii?Q?MwNeNIWLyDxs1nnjJgsDqbisSu19LuvtCxI0TLouTdwswmrtpchfTPY+B0ZE?=
- =?us-ascii?Q?mTv2QoNd2qyVYEMBiaEMDOgjLlBaM3GI8UyXxR+r+ypZH4dDfTA/TEd6ONzs?=
- =?us-ascii?Q?JQIdN+OISSzbbu9rbKjURY/B7nktjkTsekhpQll91cxcALEoUMQY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6adf5160-18d7-42f4-be53-08df2544d191
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 14:02:41.6164
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fpStMH9y5t3ezqM+ggTN0RTeVkXgrAAQpLXRPZ2PS0h1TTRWbuNWONe4dJUJWxPugJGfYJZb0jHjeuJ1evLBSxMwNhfr3Fez77ae1zl9HeQ9Faud8jQ7p890UFwzIezM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8733
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_070249_246243_157B030F 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20261008_072008_922797_BF922093 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,59 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 06:02:03PM -0700, Nicolin Chen wrote:
->On Tue, Oct 06, 2026 at 08:19:10PM +0800, Peng Fan (OSS) wrote:
->> @@ -4193,17 +4213,31 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
->>  		return;
->>  
->>  	mutex_lock(&smmu->streams_mutex);
->> -	for (i = 0; i < master->num_streams; i++) {
->> -		int j;
->> +	if (!list_empty(&master->shared_masters_elm)) {
->> +		struct arm_smmu_stream *stream = master->streams[0];
->>  
->> -		/* Skip duplicated SID pointers already freed */
->> -		for (j = 0; j < i; j++)
->> -			if (master->streams[j] == master->streams[i])
->> -				break;
->> -		if (j < i)
->> -			continue;
->> -		rb_erase(&master->streams[i]->node, &smmu->streams);
->> -		kfree(master->streams[i]);
->> +		list_del_init(&master->shared_masters_elm);
->> +		if (list_is_singular(&stream->shared_masters)) {
->> +			struct arm_smmu_master *last;
->> +
->> +			last = list_first_entry(&stream->shared_masters,
->> +					struct arm_smmu_master,
->> +					shared_masters_elm);
->> +			list_del_init(&last->shared_masters_elm);
->> +		}
->
->This doesn't look right: it still needs the for loop and also needs
->to compare master with stream->master:
+On 08.10.2026 10:36, Neil Armstrong wrote:
+> The code sound valid but the this paragraph means nothing, adding or removing
+> IRQCHIP_SKIP_SET_WAKE should not change the fact PCF8563 would wake up the ODROID-HC4
+> since the BL301 firmware hardcodes which gpio can wakeup.
 
-My bad. Thanks for sharing the code. I will take care in V6.
+The test was suspend-to-idle, not mem. The SoC never enters the firmware
+suspend there, so BL301 does not pick the wakeup source: the CPUs sit in
+cpuidle and any interrupt left enabled in the GIC brings them out.
 
-Thanks
-Peng
->
->		if (!list_empty(&stream->shared_masters)) {
->			struct arm_smmu_master *next;
->
->			list_del_init(&master->shared_masters_elm);
->			next = list_first_entry(&stream->shared_masters,
->						struct arm_smmu_master,
->						shared_masters_elm);
->			if (stream->master == master)
->				stream->master = next;
->			if (list_is_singular(&stream->shared_masters))
->				list_del_init(&next->shared_masters_elm);
->			continue;
->		}
->		rb_erase(&stream->node, &smmu->streams);
->		kfree(stream);
->
->Nicolin
->
+Whether that wakes the *system* is decided by genirq. suspend_device_irqs()
+keeps an interrupt enabled only when irqd_is_wakeup_set(), and that is what
+enable_irq_wake() sets. Without the flag enable_irq_wake() fails with
+-ENXIO, the interrupt is suspended, and when it fires the flow handler
+masks it (irq_can_handle_actions(): irqd_irq_disabled -> IRQS_PENDING,
+mask_irq()). The alarm fires once, nothing calls pm_system_irq_wakeup(),
+s2idle carries on and the board stays asleep until a power cycle. With the
+flag the interrupt is armed, pm_system_irq_wakeup() ends s2idle, and
+/sys/power/pm_wakeup_irq shows the alarm. That is the 4/4 against 0/1.
+
+> I guess this flag simply removes an error when setting the gpio as wakeup source
+> which means nothing in this platform anyway. So please rephrase.
+
+For mem you are right: the firmware chooses the wakeup sources and this
+flag changes nothing there. v2 will say s2idle explicitly and describe the
+mechanism above.
+
+Igor
 
