@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BAE7CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0110ECA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZatjWyYpzWno/oJhpn1a9fOMDTmp8fJRPbr6FECUuF8=; b=VVFgi3O0Dd0i1KM68O4TDMRXa9
-	aHASqfpyUa4ra+XBB0yrVk2hsDlae3TKHqXFhJDf26Zzt4k2HFf5ZOE0CmfD7OZJB4slrQ+DPEiJp
-	FtkTBjov48IisbRgwQ746fI5mABcGYad86Ix4uG9qvxyYenQNg87vdbNWBDPVRXAGWaLX2DINWtmN
-	8fACum5dUWkQvI9UNzEPVY0Ya4uVq7PQNgQVQyLWqVMXWfxjyFajjmQsCsCnqtun6K+fI3ZJr78vm
-	8/HdEB+P9REdkZ62AZVBmxVsB3J3v+927yUXTdhBCbpzTVgg8wasxQ1m3dGBKtFgKXRNlWp99b5lr
-	qjsvuU6g==;
+	bh=R+zl3nAXL+EyGLgki8rh3fu7i1/takcs2cpm2L+B+co=; b=3aoFFIi7Ttl912ZQMafllQRH5a
+	JMFcnOhBNYhDsaQixo/JfocTuR9ncO4z5pGW5DMUaSv/pqFHEI3lEZufTVfQ9HiGpLEFSpRoYoWt1
+	F5Rt/UkKrvAuGJYFzGdzRbcX34je6EJgeKw3xZyyksVDOeWHE6Z2I0B3kwIfEaY+GZ18RCtVyKJEq
+	sRVmUd/aHA80H4Hdg8Vmooe5tPuwuUh4zSBUtIJn7X3LIbKaFD+r78+GYB5vHgBxMQpolg8UuvBpA
+	QZnc4o3Z/X01Cjtv8o3TrbmFRM3fQFlR2P9HZhC/Jic5wJVk/FHn0Jmt27CcPWHfjbu3xS6QrWrV/
+	KUPUBL5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhBf-00000003aZd-1z3N;
-	Thu, 08 Oct 2026 06:01:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEhBo-00000003aeX-2W3E;
+	Thu, 08 Oct 2026 06:01:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhBe-00000003aYw-0bzZ
+	id 1xEhBn-00000003adu-2m1x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:01:02 +0000
+	Thu, 08 Oct 2026 06:01:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0C26405BF;
-	Thu,  8 Oct 2026 06:01:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E74E81F000FF;
-	Thu,  8 Oct 2026 06:00:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6126841525;
+	Thu,  8 Oct 2026 06:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 630801F00893;
+	Thu,  8 Oct 2026 06:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791439261;
-	bh=ZatjWyYpzWno/oJhpn1a9fOMDTmp8fJRPbr6FECUuF8=;
+	s=k20260515; t=1791439271;
+	bh=R+zl3nAXL+EyGLgki8rh3fu7i1/takcs2cpm2L+B+co=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Xj/nVBp/6TYRNHO2bxXIrIzVxTJas36sUS2jESk6cCH03ZXTOV/8jLMjU/mlxlOzC
-	 L9AJYD7OKIWaRxh4SR1DaTN2Y6DGUHWz7p9BX491wlwL22VgNW+l1dwT5uIGRZu0En
-	 doQcxXp7zW98Lh7afYiuvmJVKKIBhLPkuPspnUWEMnDoUl4oPPkzygkoYBKyXcP4ka
-	 WWq7MRVCrigC2Zs9wCUPecObW5Wd1uJw2F18Rx3lcjyd+JOTXj3bIsLA+NKAvTGulZ
-	 BTAUXQ1KeSTH2YQjymQG/4idE/7x7froUwpLFs3ZdtDRq579A9FAecsobbN2Os0wGH
-	 V6sOxPGv04aGA==
+	b=T3g3JYtcIyBzdvox31W6b+TsIRQL1hsZajFPo0wk+e5Ez2Uk4c/I/aSrDkEQ+X5qv
+	 v9PcUI4v5JKBa7U/wFj/It3xCdQmnWopj/IzLoL1MxBq79y5FJl/ZmQ8Qa3++dFUCF
+	 QIEsTfyOn3W+BPzPEv4tJ/r+mJOUZLnHDqhDRVR5fqHWVS1Iqy6tDtWfgLpUKZd+z/
+	 962CdnQJOKy3D+WEjgwsW/4iOclbCZlsjFTpz285RE4nH/Ko/Cx3HglLE+0DaHuPHy
+	 7vnST6tv4jkCH/7hJJyIbhwpOELZmEpsSN3tHQg6fZISxcpJ7pFthofbMjD1Eb+w1z
+	 aw9F427KJ0jvQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev
 Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
@@ -77,9 +77,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Sean Christopherson <seanjc@google.com>,
 	Janosch Frank <frankja@linux.ibm.com>
-Subject: [PATCH v7 05/16] KVM: Restrict kvm_get_kvm/kvm_put_kvm export to internal KVM modules
-Date: Thu,  8 Oct 2026 11:29:44 +0530
-Message-ID: <20261008055955.4014342-6-aneesh.kumar@kernel.org>
+Subject: [PATCH v7 06/16] KVM: Remove unused file_is_kvm
+Date: Thu,  8 Oct 2026 11:29:45 +0530
+Message-ID: <20261008055955.4014342-7-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
 References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
@@ -101,67 +101,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steffen Eiden <seiden@linux.ibm.com>
 
-Switch kvm_get_kvm, kvm_get_kvm_safe, and kvm_put_kvm from
-EXPORT_SYMBOL_GPL to EXPORT_SYMBOL_FOR_KVM_INTERNAL. These symbols are
-now only used within KVM itself. No external module needs them now that
-VFIO uses file-based reference counting. Remove the corresponding
-exemptions from the x86 KVM Makefile exports check.
+Remove the now unused file_is_kvm function.
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 Acked-by: Sean Christopherson <seanjc@google.com>
 Acked-by: Janosch Frank <frankja@linux.ibm.com>
 ---
- arch/x86/kvm/Makefile | 5 +----
- virt/kvm/kvm_main.c   | 6 +++---
- 2 files changed, 4 insertions(+), 7 deletions(-)
+ include/linux/kvm_host.h | 1 -
+ virt/kvm/kvm_main.c      | 6 ------
+ 2 files changed, 7 deletions(-)
 
-diff --git a/arch/x86/kvm/Makefile b/arch/x86/kvm/Makefile
-index e6d395ede9e2..c6bf463f5032 100644
---- a/arch/x86/kvm/Makefile
-+++ b/arch/x86/kvm/Makefile
-@@ -61,10 +61,7 @@ exports_grep_trailer := --include='*.[ch]' -nrw $(srctree)/virt/kvm $(srctree)/a
- 				-e kvm_page_track_unregister_notifier \
- 				-e kvm_write_track_add_gfn \
- 				-e kvm_write_track_remove_gfn \
--				-e kvm_file_to_kvm_fn \
--				-e kvm_get_kvm \
--				-e kvm_get_kvm_safe \
--				-e kvm_put_kvm
-+				-e kvm_file_to_kvm_fn
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 3c5a389361c6..586f6e8bb81b 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1087,7 +1087,6 @@ void kvm_exit(void);
+ void kvm_get_kvm(struct kvm *kvm);
+ bool kvm_get_kvm_safe(struct kvm *kvm);
+ void kvm_put_kvm(struct kvm *kvm);
+-bool file_is_kvm(struct file *file);
  
- # Force grep to emit a goofy group separator that can in turn be replaced with
- # the above newline macro (newlines in Make are a nightmare).  Note, grep only
+ /*
+  * Architectures define kvm_file_to_kvm_arch to <arch>
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 8e49ea809528..ff4fab9753ca 100644
+index ff4fab9753ca..60e614795a36 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -1314,7 +1314,7 @@ void kvm_get_kvm(struct kvm *kvm)
- {
- 	refcount_inc(&kvm->users_count);
- }
--EXPORT_SYMBOL_GPL(kvm_get_kvm);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_get_kvm);
+@@ -5515,12 +5515,6 @@ static struct file_operations kvm_vm_fops = {
+ 	KVM_COMPAT(kvm_vm_compat_ioctl),
+ };
  
- /*
-  * Make sure the vm is not during destruction, which is a safe version of
-@@ -1324,14 +1324,14 @@ bool kvm_get_kvm_safe(struct kvm *kvm)
+-bool file_is_kvm(struct file *file)
+-{
+-	return file && file->f_op == &kvm_vm_fops;
+-}
+-EXPORT_SYMBOL_FOR_KVM_INTERNAL(file_is_kvm);
+-
+ #ifdef kvm_file_to_kvm_arch
+ struct kvm *kvm_file_to_kvm_fn(struct file *file)
  {
- 	return refcount_inc_not_zero(&kvm->users_count);
- }
--EXPORT_SYMBOL_GPL(kvm_get_kvm_safe);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_get_kvm_safe);
- 
- void kvm_put_kvm(struct kvm *kvm)
- {
- 	if (refcount_dec_and_test(&kvm->users_count))
- 		kvm_destroy_vm(kvm);
- }
--EXPORT_SYMBOL_GPL(kvm_put_kvm);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_put_kvm);
- 
- /*
-  * Used to put a reference that was taken on behalf of an object associated
 -- 
 2.43.0
 
