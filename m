@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3DFCA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA01CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IOlVfgfP6cReZbjYOfgC3BBrEq2xqxmMoSO9wrismZA=; b=KnET/JcyyKKbRtci/778iwHYLr
-	wqah5W4IDfVtxZLefOz7HVf1lPnILFIqAjEyeFA1Fsx/nR5GPm7fUql+JhJCBbeIaNc5H19wldqD/
-	qikdTI0uOeurgZh+VKQOGqwOeIYYtGAIad3Yuvs13VYw5LaMdKF08n9PKd3gD4/1aklPoc/WoXSTU
-	5M8H4tc8Y6WVNhOqqKOmeTkg5NRfKmJvUoHZszCcSMFCzLkZw4Z/nEDxMFhy01zGSFFGv5cI5G2Jt
-	t7Xllu6cSXSMoksR14QfhBXCkNL3Zl0WjaW1UJ9oZzSZULxquyONbS+fhBCqOCeU49+q7XKUtjl79
-	6h2d7SAg==;
+	bh=brFSUkDZTDolZhcUeIbGihgytnqOaPKAtMS5WiZeM3U=; b=uzO8jVKFpEd7Bn58VbMZUMzWEn
+	u3egPlidWeNK+WNlIH3wQQ1oCXZ66319T2Vn40XAiVkqSvGlXujP7zpN0gWPXMl80SmR+JU7q1L/E
+	f0n0AndC1R0GCkBgYm7n8XWNFu1jCtsOUA3yloyUXJIFCl2Xk2WgYQmwwq3oL8CbMduGhNIBgC6XN
+	JIpLJGciCU0Slhq1SsDNhvNuJ4PIjGdn9xZq/TRk4f2sQ59fmVcd8ePjZ7utHKiKOGKMNMOqE/pEO
+	BkCvX56HreaFrCTc8sUBlUBrzHOyYl9WAX2ZuXvfWGDJKeESU7G4PiKfts4+5nsMvH1L7AxaVVdWa
+	rrSN1Wfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEitZ-00000003nMe-0jwu;
-	Thu, 08 Oct 2026 07:50:29 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEitU-00000003nM5-2Yq2
+	id 1xEiu3-00000003nRr-1Uax;
+	Thu, 08 Oct 2026 07:50:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEitz-00000003nQK-3aW2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:50:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECF85A05A6;
-	Thu,  8 Oct 2026 09:50:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791445821; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IOlVfgfP6cReZbjYOfgC3BBrEq2xqxmMoSO9wrismZA=;
-	b=g3P/M1+mF5kD6hBkOKBHZoxyAkWBu+lPEehfpH8Rfpa8IeuT01zbhtt2OIcMvlGT98DBTJ
-	mzKrkXcSERT8siNk7rc7F/R0nFwU+bUw0mqwCpGPbF4nQlYQkhO21ikv+5CCgIkO+DchRz
-	lYjBWRCRkysI/X54d24qzdZTcCBC6Q646g9JGx4cia9H5nqCzPT9Sw17PM3w4JvLrd+oqL
-	fHqI27x30xOdrFnmUxzAs/QJnVrexuuFVGmTRnNzAnrrL+wbGn/GcPiBkXElSE0KCh9R0g
-	IX1a8v3l7+Ss2INEO/rpI7uGMu+ll3P9r1gyx9p2q+LK0jzDf9X1msBmi0cREQ==
+	Thu, 08 Oct 2026 07:50:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 906B61516;
+	Thu,  8 Oct 2026 00:50:47 -0700 (PDT)
+Received: from [192.168.178.72] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 919353F959;
+	Thu,  8 Oct 2026 00:50:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791445850; bh=M7FNo7bgBUiaWI/HcaQdIdCBXfKJLk20mb3qyz9nUno=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WruXY8bopBSNctghFvI9GjTqI11dUVfJNNXm7mmPDtfD+stzVxn15wyrJqYoJoAbM
+	 dc4UCzdiloByiV4ihV+DpAtpow+9tmDOHN1OmU15LZfRMWAy3cv/FyXuqNNgmC33Af
+	 38uGRqrsjRkL7XEBmLtEKfw5g8VV96G9cwXmkj/U=
+Message-ID: <6bb97a9e-cc9c-48c0-bf6d-3a1c6e8048f2@arm.com>
+Date: Thu, 8 Oct 2026 09:50:46 +0200
 MIME-Version: 1.0
-Date: Thu, 08 Oct 2026 09:50:19 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Kurt Kanzenbach <kurt@linutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
- <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
- Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Song Yoong Siang
- <yoong.siang.song@intel.com>, Noor Azura Ahmad Tarmizi
- <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal Abdul Rahim
- <faizal.abdul.rahim@intel.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] net: stmmac: Disable NAPI before stopping Tx
- queues in stmmac_xdp_release()
-In-Reply-To: <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
-References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
- <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
-Message-ID: <bd26a838deb15b560419d1e4a33d838b@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/11] dt-bindings: pinctrl: sun4i-a10: add Allwinner
+ B288
+To: Rob Herring <robh@kernel.org>, Pablo Mazzini <pmazzini@gmail.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+References: <20261005202731.153971-1-pmazzini@gmail.com>
+ <20261005202731.153971-4-pmazzini@gmail.com>
+ <20261007211626.GA338242-robh@kernel.org>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20261007211626.GA338242-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_005024_805859_A8DBE203 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20261008_005056_055893_57E9CFDE 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kurt
+Hi,
 
-On 5.10.2026 09:09, Kurt Kanzenbach wrote:
-> Attaching an XDP program while Tx traffic is running results in kernel
-> crashes in stmmac_xmit() -> dwmac4_set_addr().
+On 10/7/26 23:16, Rob Herring wrote:
+> On Mon, Oct 05, 2026 at 09:27:23PM +0100, Pablo Mazzini wrote:
+>> The B288 driver takes its mux values from the DT, so allwinner,pinmux
+>> becomes an allowed property here, required for this compatible only.
+>>
+>> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+>> ---
+>>   .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 22 +++++++++++++++++++
+>>   1 file changed, 22 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
+>> index 45b7a0b6c626..b1f093d218f5 100644
+>> --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
+>> +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
+>> @@ -39,6 +39,7 @@ properties:
+>>         - allwinner,sun8i-a33-pinctrl
+>>         - allwinner,sun8i-a83t-pinctrl
+>>         - allwinner,sun8i-a83t-r-pinctrl
+>> +      - allwinner,sun8i-b288-pinctrl
+>>         - allwinner,sun8i-h3-pinctrl
+>>         - allwinner,sun8i-h3-r-pinctrl
+>>         - allwinner,sun8i-r40-pinctrl
+>> @@ -120,6 +121,15 @@ patternProperties:
+>>           $ref: /schemas/types.yaml#/definitions/uint32
+>>           enum: [10, 20, 30, 40]
+>>   
+>> +      allwinner,pinmux:
+>> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +        description:
+>> +          Pinmux selector value, for each pin. Only used by SoCs whose
+>> +          driver takes the mux values from the DT instead of an in-driver
+>> +          table. Almost every time this value is the same for all pins, so
+>> +          any array shorter than the number of pins will repeat the last
+>> +          value, to allow just specifying a single cell, for all cells.
 > 
-> Loading an XDP program tears down and reallocates all DMA resources via
-> stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
-> the Tx queues before disabling NAPI:
-> 
->  stmmac_xdp_release:
->    netif_tx_disable
->    stmmac_disable_all_queues
->    ...
->    free_dma_desc_resources
-> 
-> A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
-> takes the Tx queue lock, reaps completed descriptors and wakes the 
-> queue
-> again when it observes it stopped with enough descriptors available.
-> Nothing stops the queue afterwards, so the Tx path resumes while
-> free_dma_desc_resources() releases the descriptor rings underneath it.
-> 
-> On non-coherent platforms dma_free_coherent() tears down the vmalloc
-> mapping of the descriptors, so the subsequent stmmac_xmit() faults on 
-> an
-> unmapped address instead of corrupting memory silently.
-> 
-> Disable NAPI first and stop the Tx queues afterwards, which is the 
-> order
-> already used by __stmmac_release().
-> 
-> The issue can be easily reproduced by:
-> 
->  1. Run iperf
->  2. Run application which opens an AF_XDP/ZC socket
-> 
-> Assisted-by: Claude:claude-opus-5
-> Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in 
-> stmmac_xdp_release()")
-> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+> Perhaps new platforms should move to the common 'pinmux' property?
 
-> [...]
+If you mean to just drop the allwinner prefix: this has been discussed, 
+but NAKed, because the generic property carries a different semantic. 
+And implementing that generic behaviour in the existing sunxi pinctrl 
+driver would be quite some effort (read: a rewrite), without any obvious 
+win, so we decided back then to not boil the ocean here, and just go 
+with a special property.
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Tested-by: Nicolai Buchwitz <nb@tipi-net.de> # stm32mp215
+Cheers,
+Andre
 
-Thanks,
-Nicolai
 
