@@ -4,143 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD9ECA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA653CA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fM/NbUuCcz+NgvMURmV1EbbFKSjz9HBGBfgCogf+hI=; b=FSTa5ayY8LjkfaCSdeqXY3o2r6
-	L640zjR3A27R9Lb3HO4o9/K48UwwkEcMkcdurhqaKiceznUE20txeS+lcgtyxRC4mLvBb/S9EDZG/
-	IHZP0RGsBda/dI+o4Vijn0KW0/x6JXIH7fyBo/DDc4YFtLRQ70vLqFbmPhdVXWxg2J1ZrMIFdiqD2
-	MFTvz9mNOXD78JiYvymcgC+aBFB9iL91TQAmlG/fmCr7CXnQfaqunPK/J2SVe0hQOrJ/3FwVrU396
-	czMbEenrPIYsk/M4TiSWfWIdnGcA2+OIQ8h2re+hmpbuyyqlt+71smqv/TvHrDufmughw8XtIs6S6
-	yhIwaikA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q86C4+wQJqBq95W/ZrCF57RUMIh12mIvymieYtRqSKQ=; b=XM1vzewOgnYSo8
+	PSw8Qde5Tr+8FEBi5JKWkA8Uxf/8oHwa7Rd9jgVNbdhA7R0Q53uno/7Gbs7PdBwmEUFUGK1w0DMUl
+	RVkVKpb3c84tEI24ATdCKpQuKFH/KW2omxMjHvBTzMt0ySfLuhrvJ3+bEr7IoKmJF3VvvZOWvbDHj
+	FV3SIdfSavoaCw7GSVrr0OUT4YB+b3qadbeN3AcNcjhso/p9Mkxd3CD0FaN04lQ+z8O+Hmj218sXW
+	eL2hiHGxi1/aik+vL6bnnar40UjtFBKaaZl4sl3ueHsnRPxp5XFwS+IMBg5xw37hFuAP1xpJlkQiG
+	mbobblh3VaSSlNtmN13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjBw-00000003paT-1WdV;
-	Thu, 08 Oct 2026 08:09:28 +0000
-Received: from mail-norwayeastazon11013047.outbound.protection.outlook.com ([40.107.159.47] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xEjF3-00000003pzp-0DHf;
+	Thu, 08 Oct 2026 08:12:41 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjBu-00000003pZd-1FAP
+	id 1xEjF0-00000003pyy-1L75
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:09:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i2PN4OPw0WjVRad607cOcLcBfe9rEeZtR4nggzM9Df0BO5P+pC/7eTQfkFksZNhWaoCAPStVspCExapAwKg5gUIQyu89dNhdOJOxjhUch6Qwz8+1mKAPU4FtfWoaEp1qBMy+nxDhetCGnKqjOrdnEujRDIZNcqjS6ODyvVGKMQFKbPRssYbcg5VHKEcxl+twBh9kSdi5XctnPKs3reqcgTtn2tVP4aDDJoipjSntBoeO13xVkA0cxn7Sw8vVoAN68BHzUp7GhWwQZK0hBO39mLP/JfupC6q/6njI24JShMNzrWji4fzYXiRo+vEWF7pRUa4S9WUlY8nJ+87cDhwXuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1fM/NbUuCcz+NgvMURmV1EbbFKSjz9HBGBfgCogf+hI=;
- b=WCmuInje1gKzwQpELLAHffmR3qGf6D8Y8DC/cGyNnGKb1HHLA1v+bFIK0bzXSm2+Z0Cw1ZH0676Y+jfCsJ5cPxnd3yfmCseld+xGWqp0dG9cxFx5PYKuLMGq/SGzTs7FZvo/V1TR1ZuJnEC649WPi8ZXd9CLhbc0YlShyTQyKiNZfY8FDPlFO5RqJ/QTd2Moot+iGc2ZCsFHcz8l+xBk14XEmxTZQjieQ8htXCEatTFs7XZJ3lRw3UvLePmZbHblAynGVbHyAmmSHvWhkuseKSL388TWTYSXlbj8o6vCKxdyWfgh2SkS3Whwe3y6d4odsZLJwI1xsFJCHmgfHNSsKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1fM/NbUuCcz+NgvMURmV1EbbFKSjz9HBGBfgCogf+hI=;
- b=PVEztD2BmPzvL3FVsQiaJF5WRUaXEHDAvjAYvF06G3DCo4qhFC2yTDi4B4pUd0rupRnwKYuSlm/lPPvjcmmd03kwkGhaFTzAbaDHB+Nr0ru3vvTJ0UsBY+s9NKaiuWoB3bJtNs1WNOA+eiCTBahC+lKaxKPdaw74ViBrA4RIDhv23FEl1gbYCpvcbZUARizrLhBongnxv3ProDml+VZ1USTdUahgVxwHrBSqDgdrT+5gDaysIyew1tFgnXPMRicoajb+8e+EJTUMYtYI8JvoCn3yH6KhO3p6ViY1jZpjY9Q9FF2lANlV6Sa5dc6VQK5nhL7czbE9oOJLKvJfhYiXvA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by MI9PR04MB210814.eurprd04.prod.outlook.com (2603:10a6:290:c0::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 08:09:22 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 08:09:22 +0000
-Message-ID: <ccde4ec9-ec40-4715-93a0-3801c57809ee@oss.nxp.com>
-Date: Thu, 8 Oct 2026 16:09:12 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] i2c: imx-lpi2c: remove dmaengine_desc_free()
-To: Frank.Li@oss.nxp.com, Dong Aisheng <aisheng.dong@nxp.com>,
- Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:FREESCALE IMX LPI2C DRIVER" <linux-i2c@vger.kernel.org>,
- "open list:FREESCALE IMX LPI2C DRIVER" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..."
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: vkoul@kernel.org
-References: <20260929190605.3516147-1-Frank.Li@oss.nxp.com>
-From: Carlos Song <carlos.song@oss.nxp.com>
-In-Reply-To: <20260929190605.3516147-1-Frank.Li@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0262.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1f1::16) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	Thu, 08 Oct 2026 08:12:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=q86C4+wQJqBq95W/ZrCF57RUMIh12mIvymieYtRqSKQ=;
+	b=xCpcy42SMFyqW7jHMGgAWk06lsLb/UlmWRgB+83TmvKYhzr4SdacsZzbKANEUKz0fzyvs5oio
+	Xo3zYe3f7oHQ0q34P2OjFQ4JBdls2XsZdH6ScQgWrTVhoa/0rYbAOu5Nr9E2cHMgdsa19IB3lYh
+	dqUDAB8djimDU0sjgT9Ejyw=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4j0j8z0XDDznTbJ;
+	Thu,  8 Oct 2026 16:00:35 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id D3D3F40578;
+	Thu,  8 Oct 2026 16:12:30 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
+ 2026 16:12:30 +0800
+Message-ID: <aefc8c70-9423-446f-9e07-163c975cc00b@huawei.com>
+Date: Thu, 8 Oct 2026 16:12:28 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|MI9PR04MB210814:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ba52355-3038-4ff2-8fdc-08df25137574
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|23010399003|366016|22082099003|18002099003|10067099003|921020|11063799006|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: ncR3v0maBl0WZ/nvCPEGx2wWcCAN/vVTguemJo9fQNyY8fPYh5e/FqgrojFSkmtSN7G7LbSHuOqROVC0ADZVP2IFEThaTJeeugPSK5JnKhOXRa0uepwC3yQhVcKaFOXH87oRq+n+wu88A9Y3z4+vY+HSeic8enCowJ7XrVEmbWp0j/ZTU070K1n5Ccx7lqCNaAKHpyV0jQDRfpSadzG2kXT2aGmTseFeTntKWtujWXADt4K3w/px67Emiho6kmMCPcBfdM+BrzSwIoP0XIvxr6g8Y/X5GqxaRo6WzybkUdfKPm3dRYGdqvJdkNEA8TtOu1VkEy/t/tFf8DsTh8eGUTzJvM295SngpH+BqlgRYnBFMgHRzv7MRhfFwgmQAQWLPlCb4yiawlmug32cZE0R05FaJ8ySwo16YV5p40afgPN9whiwGFgiAFykusThNop18emsnWPqvPdSba5HK7oRTGYW/Mo7Don/7408cQg3NoISTTRc5R2sXnEgNfsRvzNpbSN2Rqk+xuIrDeDmeoMcTtYPT+xyxcXFVOa4NYWdBTCDwVqKbxVkBLY7jEXFzjjERxUBBppeNosqcGogF8yeCcQRyxnRwvVettdqM/cCPghWR06f2bn8gwk/OUSG+awLPmQxhOwO6O1nGJXN10MGglJ+HJpf7sWrkkmVXjGmtkhT/WRDvboLimYpQuxEAJkuy/ZnFahWSDY/l15/0c/XaA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(23010399003)(366016)(22082099003)(18002099003)(10067099003)(921020)(11063799006)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OVB0RDduV1Bpeit5WTgwQytjaU05MlFxN0w3VThnRGN3U0JCcnJKZzVHNUI2?=
- =?utf-8?B?OURIVUVtdnluajBlL1RldTZaT3NiSjVEZ3E3bldJWDNwRXYvbHQrL3l4R3Ft?=
- =?utf-8?B?ZmJaa0ppVHZncStiek42ZGw2dzlXY0FUL3R0KzBhWFdxY3NTb1RMbzdWVW5R?=
- =?utf-8?B?NkpML2tZZlFEY0cxYVkzVUxEYXJ0cW1CUEJzMUNzaVFtUkxqdE5CSFNSUVdq?=
- =?utf-8?B?MmgrTGJ2d05HSDVKcWF3NDgzTEtCOGJ0SzBUc0sxQ0dBbkMxQ0U0dXJwU2Ex?=
- =?utf-8?B?d3E1dVY5eUFpWStNemlnek9BVzNXRENtZS90RDY3Z05KVVVKSERVUVg5N3R4?=
- =?utf-8?B?eC80SkdvYncwVkZEcFVZdHgxbE4yckJYV1JiRGY2bElxV0FtaGM0Zk5iSGRK?=
- =?utf-8?B?UXFsbnRhdXJzczJFTlptVXAraWsrVU9iWUxjNWRqT3EyRkVwV2JqTDJYR0c0?=
- =?utf-8?B?NHk2YTQ3OVVlNS9IM3BDc1BKUERGdnM5S2VycnBoU0lWek9zaG9vVlNpU0RF?=
- =?utf-8?B?aC84OGhlbExzY0RoYkNnbHpNTTV2am54aFdIaDBCVXc0T0ZqdUp6ODJKbnk4?=
- =?utf-8?B?dXJlTXlIREFaS1dockM0YzlvSnkwVm9DSmRiZG8xb1NIV2ZxVHZ3eFNDL0Uw?=
- =?utf-8?B?Q1AvSmJnUUVVU3B0cDRqdzdiUFJFdW5Ma0FuNXFteDkraTgrcU5PWk9iVWRJ?=
- =?utf-8?B?OHRMYnlvdlYvZTRlOEt2K2NHSHpRbS9uUjlwK0xVUUZ3MlEvekNsenowYlhY?=
- =?utf-8?B?SEtBa1YyYVRQdE1HZXFTWHE1bnZCVnpXRU16OGcrQjJJTE1PelJLWHlmbEVX?=
- =?utf-8?B?Tk5lVGFXTWFlUFBtb0hWU1lPRDh1TlFCMEVVZkJxeS91em5jRGhaM3JyUDc1?=
- =?utf-8?B?eXMyS2djZ0RlSDA4MmUyM0hhUUVtbmVJL2FhS2w2bUhlQ1Z3RUgrcDlxcyt1?=
- =?utf-8?B?MUdtN3dNRURuUjl1d0Y3S3g0MnI4TW96WFFCS1FsUllJY29FVGhHQjg0TDY4?=
- =?utf-8?B?d291Z0xXRDBQTklXTDlidmgvSEEzeS9KYUJRQTVlTlpsYXJSelJWc0FuajdQ?=
- =?utf-8?B?VkhlU1hTRGNvNWpEcUdlek1SaHBGMmtJKzNYMVlubDU5Q1dzYXNPdUlJb01p?=
- =?utf-8?B?L3dWV2F2L3JVR25ldUFFSFZPUzJEdmtnVEpXdFJlQkdIUWI2bHE4di9JYnBp?=
- =?utf-8?B?K01USkpqUnV1eFVWK0xacy9wRUNxY01nR2hCa0FGajJUUEZ6YjJoeUNFY2JD?=
- =?utf-8?B?ZEY5dm5CeVhCcUVBQ1FPM2crYzFlM2ZaUmJzTTJ4WFJiakkrQzBPK0NyTElU?=
- =?utf-8?B?blgrNzB0VGl0V2JpQ244S1MzWUcyWENZdldYV1ZGSWNCbmRvN2lQdk1vK1ll?=
- =?utf-8?B?Tmd6VEFwVk1NeDlHSmhkNndpelp1N0UyRU1oN2JYNGZZc1NzYUpQWVU2bUY0?=
- =?utf-8?B?dzZxeStRaktITnczY1h1emhxTDlvSlZLZ0R6RnZrOFVaanhvS2YybDFnTlZC?=
- =?utf-8?B?NHhiaHFFRUwvYWdnejNFRmRjZXF3VzlNNEx6ZVQza2tmWFZSZk5jTklDVzJQ?=
- =?utf-8?B?RmFZa0xhMndEU1hzcWRvMVpJb3JDUWx0dWlLTDRGL0UxdDlsdnNFZEdTci9s?=
- =?utf-8?B?eEtqKzR4NGMzYVBvVFY3M0xrZGJDcFZMeXZURWVaTG1WdzdTYlVxVC9YV0VE?=
- =?utf-8?B?VXJUaGNqRVdJUCswcFE1UlJIQVg0WTVyTURSc2Fhd1NuVmRNa0tiSVhSMDBx?=
- =?utf-8?B?OTBBeDY0dmU2cGFvczNuUFZiZUNuZ0gxODZEMlpLVlllWmNURHV5dk9aOEJB?=
- =?utf-8?B?NWlGeTdNbXo4Rm9pcnI5RjZ6YjJnSU9jaUpVK0x3ZHIvQ2xMOGx5anVuaFRF?=
- =?utf-8?B?RVJqNmtVcStuYkpzYlFPbFpmVkYxN2wzK01aa2dKOUpJWjJtN3h3TWpDS3o1?=
- =?utf-8?B?elJjQ1N1eUVYRnBtK3ozQm1BMmtnckFQTis0c3VWZ2hLVGgyWlpRUlExWnda?=
- =?utf-8?B?VmNLUFAzOW1zR1NLM1VaamlmclFwZUxNVk9hU2xOZW1IcHVsbnUxb2VQakhB?=
- =?utf-8?B?ODdHY0NwTjJFN0hvbWxNTG9MczRBaUUzY1p2SW80dDRLRWk5T3hyQ0RPbVh1?=
- =?utf-8?B?U0xkekFWN0luaEZXK3kwd3pvZWRMSzlTYUhLQWR6ODdvSDJyS2R6TktrQVVV?=
- =?utf-8?B?YTBlSjhGQ29jZ2dZeGNURHE2VG1XU1RReWNwdHYyQWg3Q1hoM0txWHlmeXZi?=
- =?utf-8?B?U1FXb3duN1ZUL0o0cC9TY0c1c3pma2V1SFM0S0xNUTY5clRPNUhnaUlkVVFz?=
- =?utf-8?B?YnRsY1hkakMwdkR2T0tqdWFvQjRyV0FyamNnQjd4OTdIeTZQVVVQQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ba52355-3038-4ff2-8fdc-08df25137574
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 08:09:22.0384
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dSijm5TXbcHP8V8uAKucvlZVYI5yEET8oRbVsw/07rmenXmE4NCOmVaOe8vBYwiWtY1k1+hhR29lAreUDjUZkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB210814
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/21] arm64: percpu: Specialise set_my_cpu_offset()
+ for the primary CPU
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260918161407.2300-1-will@kernel.org>
+ <20260918161407.2300-11-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260918161407.2300-11-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_010926_341064_C8DAA6CA 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20261008_011238_974933_513869A8 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,60 +74,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-
-
-
-
-> From: Frank Li <Frank.Li@nxp.com>
+在 2026/9/19 0:13, Will Deacon 写道:
+> set_my_cpu_offset() is only called from smp_prepare_boot_cpu() which
+> runs once on the primary CPU and before alternatives have been applied.
 > 
-> dmaengine_desc_free() is designed for DMA_CTRL_REUSE. If DMA_CTRL_REUSE
-> is not set, dmaengine_desc_free() will return -EPERM.
+> Rework the function so that it operates only on the boot CPU offset,
+> drop the unused alternative code sequence and internalise it into smp.c
+> alongside its only caller.
 > 
-> 	if (!dmaengine_desc_test_reuse(desc))
-> 		return -EPERM;
-> 
-> So calling dmaengine_desc_free() does nothing. dmaengine_terminate_(a)sync()
-> will free all already allocated descriptors.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
 > ---
->  drivers/i2c/busses/i2c-imx-lpi2c.c | 2 --
->  1 file changed, 2 deletions(-)
+>  arch/arm64/include/asm/percpu.h | 8 --------
+>  arch/arm64/kernel/smp.c         | 8 +++++++-
+>  2 files changed, 7 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> index 49aabef7f115c..d6f266e2d6bea 100644
-> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> @@ -851,7 +851,6 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->  submit_err_exit:
->  	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
->  			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
-> -	dmaengine_desc_free(rx_cmd_desc);
->  	return -EINVAL;
+> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> index b57b2bb00967..3dc7291b16e9 100644
+> --- a/arch/arm64/include/asm/percpu.h
+> +++ b/arch/arm64/include/asm/percpu.h
+> @@ -12,14 +12,6 @@
+>  #include <asm/stack_pointer.h>
+>  #include <asm/sysreg.h>
+>  
+> -static inline void set_my_cpu_offset(unsigned long off)
+> -{
+> -	asm volatile(ALTERNATIVE("msr tpidr_el1, %0",
+> -				 "msr tpidr_el2, %0",
+> -				 ARM64_HAS_VIRT_HOST_EXTN)
+> -			:: "r" (off) : "memory");
+> -}
+> -
+>  static inline unsigned long __hyp_my_cpu_offset(void)
+>  {
+>  	/*
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index a61dc3016a11..702dee8d0db5 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -446,6 +446,12 @@ void __init smp_cpus_done(unsigned int max_cpus)
+>  	mark_linear_text_alias_ro();
 >  }
 >  
-> @@ -910,7 +909,6 @@ static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
+> +static void __init set_boot_cpu_offset(void)
+> +{
+> +	asm volatile("msr tpidr_el1, %0"
+> +			:: "r" (per_cpu_offset(0)) : "memory");
+> +}
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +
+>  void __init smp_prepare_boot_cpu(void)
+>  {
+>  	/*
+> @@ -453,7 +459,7 @@ void __init smp_prepare_boot_cpu(void)
+>  	 * setup_per_cpu_areas(), and CPU0's boot time per-cpu area will be
+>  	 * freed shortly, so we must move over to the runtime per-cpu area.
+>  	 */
+> -	set_my_cpu_offset(per_cpu_offset(smp_processor_id()));
+> +	set_boot_cpu_offset();
 >  
->  submit_err_exit:
->  	lpi2c_dma_unmap(dma);
-> -	dmaengine_desc_free(desc);
->  	return -EINVAL;
->  }
->  
-
-Hi, Frank
-
-LGTM.
-
-Reviewed-by: Carlos Song <carlos.song@nxp.com>
+>  	cpuinfo_store_boot_cpu();
+>  	setup_boot_cpu_features();
 
 -- 
-Best Regards,
-Carlos
+Best regards,
+Jinjie
 
 
