@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A564CA600E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D398CA600D
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 19:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3V/KESF44OWIlxoBBD4DKvOD0PQK3Y0aOYvdpaZuhdA=; b=LTL4F5y71h0+Ag016pnWlHn7kg
-	KxktIRj3PtigT/BxQ5LyutzLK8+9sOD8Vra5JUqS4tmNtEOpDwo4T1iEYWrDctFHthv2efwL+DrNU
-	2u+OWWWI2/14cYf3NCRkSuIygY0lvW84/bFswRXkneagy4XAwSQxYEnmNjRBSI1lhYmtWc4YaDin+
-	q40I17AgPwY3G2/jQWn9Zt0Ds7LzHStn3g7AhigE/wZgfb4X6ODom6wBuNN0jLNjrcZRG8fTW0vIq
-	THLAZo4JM1m7GsZSB4LfPcYcEVwrOpBMevTo0BNzWFMPi1Fh6BNyF0+MChynZ1Zbk8n62oLnkoeDW
-	gj9i+tYA==;
+	bh=Jf168IjSFgOfzHnEoVof5QzOtPwLIXW0PLzbFbqRkiE=; b=PKokubHMIV9L5IQ8R8iYHbupqW
+	UqNnjumeIzjpd/BlsoyyHQF3+esNI04cThBDPhjhY8Iw6hXdhf9z5g3zc1Oo99ss/RxRJJtRox6mE
+	nQP9HZCabGv1y5GDdPE56cWrQbKWz/Ag+nrzJAapycLdTT7E0QkB59OWmc3T5NlEToZuMlrkpITvm
+	NB3UNeot5WbeYDisXCa3lm+8g3y+5NRg3QZrG3KHzNjNrU5hGjuwvu3TsJ/62e4NGO5NB7Hl1DPz/
+	iW0XYlAQc6MFpiYSXM/MxFb663LPiuveE/brJtzNv96eRPLwI9U9ZRWkEy35+KViBj00ul8AuRvb2
+	CL7vRSxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtyh-00000004wb6-21BM;
-	Thu, 08 Oct 2026 19:40:31 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xEtyX-00000004wTq-3Zzc;
+	Thu, 08 Oct 2026 19:40:21 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtyb-00000004wVW-3AUs
+	id 1xEtyU-00000004wST-0XlU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 19:40:26 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a17baef589so25909435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:25 -0700 (PDT)
+	Thu, 08 Oct 2026 19:40:20 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a0286c981dso51394455e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791488424; x=1792093224; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791488416; x=1792093216; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3V/KESF44OWIlxoBBD4DKvOD0PQK3Y0aOYvdpaZuhdA=;
-        b=OdX3HK1Ob+3TLu54s1LOW7L67vdUbNhnbmEsKt/qTK2o30Jcnp5fi9D2+sbAvBU8WB
-         cCAwJmAzsCk0XwcesnZ7Dc2srr1m6WhkcFlbVNxNxLqtAjJA69KJBfat4Q0UMeKeapmH
-         Ej6rOiRIBvHIppYcT94P/wogVG/XQtW38jkkcjAt9G8+4mAWg8Tfym2+eE9+fk4on1uF
-         CPMns+++/tblh6Y/ULgxeYY512yymw4s/xYHTkBh8aRocDeuxRCMHOdN6DBKyzLxWnC6
-         2+1hNGtoUtBTMDbI8TvaxOZh9QbziclBfjYZ+wbMC9j8j+3R4m0Wc6swZqFagZN6Ftot
-         IpfQ==
+        bh=Jf168IjSFgOfzHnEoVof5QzOtPwLIXW0PLzbFbqRkiE=;
+        b=fqKxgJzZTco3EKLSLPTGCXPYyBBT6Xy0AK7aKK86qJIOavcLeYjKUWQEomcaQGum4i
+         t3CRaExe12xkMXVO7unmKVp8hXvVaEHJEoM26KGtpYFjKH4vJnXtoCgNtLNFuxNQS4Vb
+         Zla24EPlramM7nJqLIvWNCEa7ob2cffil3+8VVoOSNI910XG8gd4BGxpq9P4mCgoaQJt
+         5YvYa/rWdSG0nwHsr13yhPYZu2UBnGtWoNcdjewJduzmW7DAUyo0Ub6hF2SCbyFH0ebY
+         /I67vHzVUMdezoUg+lRtYP278z4+aPDAc5MZkE2c3RR8h3mgHQOQF9yfZXcTmllW6Jxl
+         YGrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791488424; x=1792093224;
+        d=1e100.net; s=20260707; t=1791488416; x=1792093216;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3V/KESF44OWIlxoBBD4DKvOD0PQK3Y0aOYvdpaZuhdA=;
-        b=U1ouXQ0Z0VeqleaOtNg4xCUuVrzHYv/bEpJzsdOFaiHI9jrElPl33wj6Ej7tvjs7gy
-         Fw/05pdK/Uc9QvxQaNp4ZpgiU280N7tsEE/1hAZEK3xopwhBfMYcEJoNFTYxTMtFjoHY
-         OkzEBZJqDVa6eAR4lfGp6DW96xrtMexvIgCZvQ0RbNAJIH1VpDdnZ3yFSG88kljzAHD6
-         yo14tDoxWGgcmGoFxXfvfKOaPiPQV/3wMZvRwQLVAOI+zqUFmif8kgRiA5noWwHyAFaF
-         p3l1qVpflOMTvwBPXhaq3eP/S1Tny51UurQuDufm6TqQeZAkRr2NGFh8AV1giHVz0uIP
-         leBw==
-X-Forwarded-Encrypted: i=1; AKwUvBwlIo5hZqPgSaqX5pZY6MVqIdHs9aTqgLvPGKPiznzDa+ij1MqTHtIJqXYqNyei5GIAJSgL0Kz+Z7YCemhdnAsV@lists.infradead.org
-X-Gm-Message-State: AFuF++mwmgVamEk1ssExLZgsiVVjpFU0Q2yIuvpLOxzwWtLjKsTJdyVI
-	FwlOEQYE247UHV4E2FyCtJYUTeMDJNr6srmyfsLLdV+82MdoihmTYEue
-X-Gm-Gg: AYBFou1ry2WEMLD871LQ1AsOwUNEncsI9b4uQwcEUsSAyhANIhMJ88Qk02xyV/2iNzK
-	rKZPyupFY9AHO1r+RtEJNhAmGrDfvt8OrwyVNNvNxlJPjGyFky6C7JAQjRG7Sjb/d6rl1Tq6a2F
-	1l3uZ71BPNgJyktV3fup5dvzhPmfp/Zr3o5UNbga+DwpZdjGOxguwM1ujT5gpD6AFyqtdNS+TWt
-	a5bh5/+0AJG4J3CsSiBquPseI4wEdr/hAykhF5xtwS999q3Pprnd1e0xAXeZjYJLBeUk9Rl6Nzp
-	0XOPgBns+GGD0ErYGBs47lFYFB7I8TR0jZ0AGs7a5/CWCr3BgD3z/lvbIr1wsCN/i7FMbCw/fnu
-	EJTcnnlsqjYZEqIgTjB66NzWuTqKSkXSKLlcqW7KOfvdi/jKISNk9NgLLtmE2ij1qO9dlsZy0tC
-	FHDcdRmZFcLTIBzGd359RgaS5SAVYzsM25rhzS89flTV/FEiLlYzk4CjCBHBgWci0R2rzyQoKQu
-	uFU+fx+kktaFn+XjSPfcqWKdITbG4R+01Y09lzG5lci1GMfjAdkv7mR+6mjHQ/Aj1ZePC1txtLP
-	tTd5kn7UwUwkxEmmoTLM7Q==
-X-Received: by 2002:a05:600c:8b51:b0:4a1:7d56:663b with SMTP id 5b1f17b1804b1-4a18066ca69mr110758385e9.24.1791488423759;
-        Thu, 08 Oct 2026 12:40:23 -0700 (PDT)
+        bh=Jf168IjSFgOfzHnEoVof5QzOtPwLIXW0PLzbFbqRkiE=;
+        b=YDkim4RzBKCcDNDd16UF7iHCIhZk8cO94mnjW9bg4/OQnxW1UzI64qoew9ErSlrzf6
+         vvkF4WAASvCGLx6dejTR8Z7lZ0XluaOSmT7i1+WMOTXoVtHFsyGCBWXZSs39V6MDu61P
+         +OEUwH0e6Y+lzGWHooqbfyNNzAQFYUffm3YPoiT0RiiaTMzd8VpyjRqB++mnfV/cAbiV
+         59ZTUcNCv8xnRMnWtXDOW8KSohVTxEQ5hhxm8kpApcAGEXNO6uh+jOI31x0kzCDF4HXe
+         W5XN9hZZmdusvDt80nI7D3CcGymkVZBUqRICqvkk1fhMymWTNFAPZiDLJJdcTnjxAuBG
+         iz0A==
+X-Forwarded-Encrypted: i=1; AKwUvBw5VrnyE49nk2bug25Sn+NbbyjHKR9lnBjC8Q8OYSIADO7ZQbB7E7OUxSCsJ0ezieDTjvvxsz8xgLQmWaotTc2R@lists.infradead.org
+X-Gm-Message-State: AFuF++nbIdKCD8k62rtO/feoVxC70+2+i/1NIL2zAy/t8KTMVsrtcLyK
+	T2Ftc8qiyH7x5F+sHgBYolDhPlm3U15oQz4m+/FT/Q8rwcUOZlrBNZRl
+X-Gm-Gg: AYBFou2lyYgTZ5rPmRRbZETJrHHP/rsCeL0hascdc6XahZzewFVVz6oQPzhmCDb8yUl
+	zqQFxAryPnMu2AUKLNpZvbWAPAkLKzQKFOdakrUOlUF33W8rllD7CpufVD+0MNX6zpZd8vcOVC0
+	VaL6iT+VbMSCzME+pBQvy7XWNTMeu3L1zjrT0IDbnZfA7S7K1kEJX0iRnqN0vCeJlNeGJX6kkf+
+	urF5/ZPIVy7rigBMVsbnbbW8ddAmY8Zswz0LMEBL08piPH8yeXRn0y9fbF5lQZy98r/JEed7C5m
+	MiR1cbxGADYNmGYwSkliQTEF6C6pcnz9yhzgAvwj4GVLt0+tg4QuFNYyKeN4vH/3DvgaUTD9wgk
+	UjkDGpELbBo3EMlZwoHN6YwrfO5/jAQ+gS0mICFrY95LRbq1IThMygYPc2bNo95g/hZnUPeO4pn
+	xfjwBRRoFt2n94L3qE5VxTSGcwJaYrGJF01FXYDZox+0RCd7qc8I+hHLfQVgadOrHIwGC3HQ/8E
+	qnaIKkuak72lhxLN8UaqzNPwMkFT5ccM00x36RDlKqZbzO8YU57AmT0ZrFskZLtba+7kEW3AbKY
+	vhPtnuPXK8T9Kbf+OPVyuQ==
+X-Received: by 2002:a05:600c:8b09:b0:4a1:7ce1:2eaf with SMTP id 5b1f17b1804b1-4a180682d24mr123505435e9.34.1791488415898;
+        Thu, 08 Oct 2026 12:40:15 -0700 (PDT)
 Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 12:40:22 -0700 (PDT)
+        Thu, 08 Oct 2026 12:40:15 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -103,18 +103,19 @@ Cc: pierluigi.p@variscite.com,
 	Maud Spierings <maudspierings@gocontroll.com>,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
 	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v5 05/13] dt-bindings: net: micrel: Fix RMII clock select property type
-Date: Thu,  8 Oct 2026 21:37:45 +0200
-Message-ID: <759d62ee229f0cbb83a51cacbb70ed7dacf4ea3b.1791487179.git.stefano.r@variscite.com>
+	netdev@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v5 01/13] dt-bindings: arm: fsl: Add Variscite i.MX6UL board variants
+Date: Thu,  8 Oct 2026 21:37:41 +0200
+Message-ID: <4ea26fb755799e279e195b3f8b8669c394a7f7b1.1791487179.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1791487179.git.stefano.r@variscite.com>
 References: <cover.1791487179.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_124025_818484_97AA87DC 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20261008_124018_203768_AAB1BA8D 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,77 +132,81 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The binding describes micrel,rmii-reference-clock-select-25-mhz as a
-boolean. dt-schema requires properties ending in -mhz to contain an
-unsigned integer value. A bare property therefore produces a
-property-units.yaml type warning.
+Document new VAR-SOM-6UL configurations on the already supported
+Concerto carrier while retaining its legacy compatible. Add
+VAR-SOM-6UL variants on Symphony and DART-6UL variants on
+VAR-6ULCustomBoard.
 
-Describe 25 MHz selection as <1> and keep the property restricted to
-KSZ8021, KSZ8031, KSZ8081 and KSZ8091 PHYs, which have the RMII
-reference clock select bit. The driver checks only for the property
-presence, so this does not change runtime behavior.
+The new compatibles identify the SoM storage, wireless and audio
+options followed by the carrier, module and SoC compatibles.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v4->v5:
- - Collect Rob Herring's Acked-by; no binding changes.
+ - Collect Krzysztof Kozlowski's Reviewed-by; no binding changes.
 
- .../devicetree/bindings/net/micrel.yaml       | 27 ++++++++++++++-----
- 1 file changed, 20 insertions(+), 7 deletions(-)
+v3->v4:
+ - Split the board binding by SoC, extend the existing VAR-SOM-6UL
+   entry with new Concerto and Symphony variants, and add DART-6UL.
+ - Drop the redundant -board suffix from the new carrier compatibles
+   and use sorted items/enum lists.
 
-diff --git a/Documentation/devicetree/bindings/net/micrel.yaml b/Documentation/devicetree/bindings/net/micrel.yaml
-index 6fa568057b92..a1f876dc00de 100644
---- a/Documentation/devicetree/bindings/net/micrel.yaml
-+++ b/Documentation/devicetree/bindings/net/micrel.yaml
-@@ -63,6 +63,14 @@ properties:
-     minimum: 0
-     maximum: 3
+ .../devicetree/bindings/arm/fsl.yaml          | 39 ++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index c8290a83205b..f044f6fce51f 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -689,9 +689,46 @@ properties:
+           - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
+           - const: fsl,imx6ul
  
-+  micrel,rmii-reference-clock-select-25-mhz:
-+    enum: [ 1 ]
-+    description: |
-+      RMII Reference Clock Select bit selects 25 MHz mode.
++      - description: i.MX6UL Variscite DART-6UL board variants
++        items:
++          - enum:
++              - variscite,dart-6ul-imx6ul-emmc-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-emmc-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-emmc-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-emmc-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-emmc-wifi-iw61x-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-nand-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-nand-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-nand-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-nand-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ul-nand-wifi-iw61x-6ulcustomboard
++          - const: variscite,dart-6ul-imx6ul
++          - const: fsl,imx6ul
 +
-+      Setting the RMII Reference Clock Select bit enables 25 MHz rather
-+      than 50 MHz clock mode.
-+
- allOf:
-   - $ref: ethernet-phy.yaml#
-   - if:
-@@ -90,6 +98,18 @@ allOf:
-     then:
-       properties:
-         micrel,led-mode: false
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - ethernet-phy-id0022.1555
-+                - ethernet-phy-id0022.1556
-+                - ethernet-phy-id0022.1560
-+    then:
-+      properties:
-+        micrel,rmii-reference-clock-select-25-mhz: false
-   - if:
-       properties:
-         compatible:
-@@ -105,13 +125,6 @@ allOf:
-           description:
-             The RMII reference input clock. Used to determine the XI input
-             clock.
--        micrel,rmii-reference-clock-select-25-mhz:
--          type: boolean
--          description: |
--            RMII Reference Clock Select bit selects 25 MHz mode
--
--            Setting the RMII Reference Clock Select bit enables 25 MHz rather
--            than 50 MHz clock mode.
+       - description: i.MX6UL Variscite VAR-SOM-6UL Boards
+         items:
+-          - const: variscite,mx6ulconcerto
++          - enum:
++              - variscite,mx6ulconcerto
++              - variscite,var-som-imx6ul-emmc-sd-card-concerto
++              - variscite,var-som-imx6ul-emmc-sd-card-symphony
++              - variscite,var-som-imx6ul-emmc-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ul-emmc-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ul-emmc-wifi-brcm-concerto
++              - variscite,var-som-imx6ul-emmc-wifi-brcm-symphony
++              - variscite,var-som-imx6ul-emmc-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ul-emmc-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ul-emmc-wifi-iw61x-concerto
++              - variscite,var-som-imx6ul-emmc-wifi-iw61x-symphony
++              - variscite,var-som-imx6ul-nand-sd-card-concerto
++              - variscite,var-som-imx6ul-nand-sd-card-symphony
++              - variscite,var-som-imx6ul-nand-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ul-nand-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ul-nand-wifi-brcm-concerto
++              - variscite,var-som-imx6ul-nand-wifi-brcm-symphony
++              - variscite,var-som-imx6ul-nand-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ul-nand-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ul-nand-wifi-iw61x-concerto
++              - variscite,var-som-imx6ul-nand-wifi-iw61x-symphony
+           - const: variscite,var-som-imx6ul
+           - const: fsl,imx6ul
  
- dependentRequired:
-   micrel,rmii-reference-clock-select-25-mhz: [ clock-names ]
 -- 
 2.47.3
 
