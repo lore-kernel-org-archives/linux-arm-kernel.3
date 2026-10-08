@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB38CA6018
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E016CA6016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X529MLugTqxfwTe5adGPF/N2sMvvH1fFwubETAK5fsw=; b=LHCIFWBEqVXtO2/Caw36RE/2Ix
-	T9N5S71yNyHvKKS9WMuAdGYVSTAAdUEap0HqgwvvqtrN7e4QF0uEpjTeRNKi+SfaIEwl3E6dfaTLw
-	XBknmFJDJwQcTCqxG72Bg0jY6fz6BfgGuHKqqZzPD9f7LGfkm3mSQnIXKMiDFSwOjxaOLIYN+cKZx
-	NB8hvH5VM/zfQctzCx8QjWrU3yp/Ir2xq1Y0Zzn7q9IbSevddNBKyOOgARczcTGVz0/N0deJzBqtK
-	ddKYxigHFn4tyNFUvywg310NbhHekRaVmvlWYdu2y6PUKQJq0z82azJ1lKGoeNa3Yat6ccbM0dtTW
-	16h8Mrgw==;
+	bh=7gwI1dcyam2yk5wsB6eHTvF/ZEiZ3eztVF1fLP049Xs=; b=SpIyyoyllmJYjggnQO901M3FEy
+	uTsstG4eJXwjOQGt/F7w0YMvFjFKdGluZt6ZA9dNNvEvCEidxbKK7FL5dkLr8GEMYVqVusl90eWUU
+	+8y5fPWC9xTICDzORtYc4iG4Vgv1FLN4DqmF7rZ2keh2clU35khuaB793XyyyT0Lm2KzRTo0r58G9
+	LvQzE/1Lmw8lkInfLknXr29Lf247QtU9ps2d49TwxoTxkerGm0ku50uaYLFctRfC935dBAIeXdEA1
+	tZgOC8TaSvTG3VGKDmCMAJwBdIqr2AmvQOQlroWDlWw5FfbdJbW4a8NSg6c77WNNIbobTG633fT/4
+	Wej+do4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEviG-000000054yR-1Typ;
-	Thu, 08 Oct 2026 21:31:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEvr1-000000055s9-1FtS;
+	Thu, 08 Oct 2026 21:40:43 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEviB-000000054wv-06sm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 21:31:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7727E60DA9;
-	Thu,  8 Oct 2026 21:31:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10EE31F00893;
-	Thu,  8 Oct 2026 21:31:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791495094;
-	bh=X529MLugTqxfwTe5adGPF/N2sMvvH1fFwubETAK5fsw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=elNMaz5JzoBEBzmBz7exLuPwXTDmDkr+bNTn2FqHxNhLXeOv11+09hWRnrjdHrFoM
-	 uoxwWXPmh307G7pFi/go/qFLbmJzcknBndKTd2WMRerNPHocadMG+VCOwM7zgdxhPH
-	 pmcfHJSoej5TwA4a2kl/1sjQHg2MbDt8yxCtNxYWp4flDE8gQS7JK/FH2FfeXz3UsM
-	 Otd+jEqUsxVee/u75wK8LWLgFUs9Szxt6bm5ZIuch1NVr+J2ffYmj49EdRYAZpwox2
-	 SX5ZbLSlFHuawDFL9VmUsUCEB2vQJUzleETZf8Pxh1hqwQLfXTS9CG51ZHZF7h00ai
-	 enMAo9MP0wFHA==
-Subject: Re: [PATCH net-next 3/3] net/mlx5e: use skb_share_check() in the
- loopback selftest hook
-From: netdev-bot+sashiko@kernel.org
-To: nb@tipi-net.de
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, o.rempel@pengutronix.de,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Jose.Abreu@synopsys.com, saeedm@nvidia.com, tariqt@nvidia.com,
- mbloch@nvidia.com, leon@kernel.org, dtatulea@nvidia.com, alazar@nvidia.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
-Date: Thu, 08 Oct 2026 21:31:32 +0000
-Message-ID: <179149509264.434549.15492783775949444420@kernel.org>
-In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
-References: <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xEvqw-000000055rK-1CUa;
+	Thu, 08 Oct 2026 21:40:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791495638; x=1823031638;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FonD0lPwatSwc9CLF+o0pnMjNadWk+XyTpxVZVqKIGE=;
+  b=R1Pl+eUdAAsiLmhkT4CcHlyJcBtoFOhpnFb1AR2qVweEcRMf839wEujN
+   vg3v3AbjUa0mKrUFfSpeHnojB8NY1fZzzHvT8xth8zn5jDHdPKRSg7jLJ
+   dI22AEx/pC9RI0Z6brXn6NyksTze1PzJrkKg8wNgYeLCPpXBz/XuGYWJd
+   BcP39bRmcyoAfNasTfaJaXFcpNkcbnlQnbkU4Km3XOqCtjSxabZEQbrsm
+   ibiV/qAabZz7K/bPxwf+hPO2Bj/JBzK2s6JQMDvsktyjTzkPqbXSAQUsD
+   P6AClyglC9nQyUHB7ho0k+UHOk/Z6eXuE89QlK5KoYiRe7aY4NZzCRSg6
+   A==;
+X-CSE-ConnectionGUID: s8ZrwzEySf6ShAs0UecnZQ==
+X-CSE-MsgGUID: 1o7rcKVORYuesR6dbqlspg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11929"; a="194299"
+X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
+   d="scan'208";a="194299"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Oct 2026 14:40:35 -0700
+X-CSE-ConnectionGUID: xGEQVSFmQsOKbtW/QJ+sDQ==
+X-CSE-MsgGUID: ozfbqNP5R/C4UprFnJ9UQA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
+   d="scan'208";a="1959551"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa012.fm.intel.com with ESMTP; 08 Oct 2026 14:40:32 -0700
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xEvqm-000000004vU-2wDG;
+	Thu, 08 Oct 2026 21:40:28 +0000
+Date: Fri, 9 Oct 2026 05:40:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jacky Chou <jacky_chou@aspeedtech.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jacky Chou <jacky_chou@aspeedtech.com>
+Subject: Re: [PATCH 2/3] phy: aspeed: Add ASPEED PCIe PHY driver
+Message-ID: <202610090555.gWYlVYEL-lkp@intel.com>
+References: <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_144039_946999_6CB13B20 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +96,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi Jacky,
 
-Low priority / nit picks for your consideration:
+kernel test robot noticed the following build errors:
 
-- [Low] In mlx5e_test_loopback_validate()
-  (drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c), the comment…
+[auto build test ERROR on ea01f446f0682a5e7bd7a275889a890b7e0c6e02]
 
-Pre-existing issues:
-- [Low] This problem wasn't introduced by this patch, but
-  mlx5e_test_loopback_validate()…
+url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-phy-aspeed-Add-ASPEED-PCIe-PHY/20261008-192819
+base:   ea01f446f0682a5e7bd7a275889a890b7e0c6e02
+patch link:    https://lore.kernel.org/r/20261008-aspeed_pcie_phy-v1-2-96764937aef0%40aspeedtech.com
+patch subject: [PATCH 2/3] phy: aspeed: Add ASPEED PCIe PHY driver
+config: csky-randconfig-1000-20261009 (https://download.01.org/0day-ci/archive/20261009/202610090555.gWYlVYEL-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261009/202610090555.gWYlVYEL-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610090555.gWYlVYEL-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/io.h:12,
+                    from include/linux/irq.h:20,
+                    from include/asm-generic/hardirq.h:17,
+                    from ./arch/csky/include/generated/asm/hardirq.h:1,
+                    from include/linux/hardirq.h:11,
+                    from include/linux/interrupt.h:11,
+                    from include/linux/kernel_stat.h:8,
+                    from include/linux/cgroup.h:27,
+                    from include/linux/memcontrol.h:13,
+                    from include/linux/swap.h:9,
+                    from include/linux/suspend.h:5,
+                    from include/linux/regulator/consumer.h:35,
+                    from include/linux/phy/phy.h:17,
+                    from drivers/phy/aspeed/phy-aspeed-pcie.c:11:
+   drivers/phy/aspeed/phy-aspeed-pcie.c: In function 'ast2600_phy_set_mode':
+>> drivers/phy/aspeed/phy-aspeed-pcie.c:16:41: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      16 | #define  AST2600_PORT_TYPE(x)           FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
+         |                                         ^~~~~~~~~~
+   arch/csky/include/asm/io.h:31:59: note: in definition of macro 'writel'
+      31 | #define writel(v,c)             ({ wmb(); writel_relaxed((v),(c)); mb(); })
+         |                                                           ^
+   drivers/phy/aspeed/phy-aspeed-pcie.c:94:24: note: in expansion of macro 'AST2600_PORT_TYPE'
+      94 |                 writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
+         |                        ^~~~~~~~~~~~~~~~~
+   drivers/phy/aspeed/phy-aspeed-pcie.c: In function 'ast2700_phy_set_mode':
+>> drivers/phy/aspeed/phy-aspeed-pcie.c:144:17: error: implicit declaration of function 'FIELD_MODIFY' [-Wimplicit-function-declaration]
+     144 |                 FIELD_MODIFY(AST2700_PORT_TYPE_MASK, &cfg_val,
+         |                 ^~~~~~~~~~~~
+
+
+vim +/FIELD_PREP +16 drivers/phy/aspeed/phy-aspeed-pcie.c
+
+    12	
+    13	/* AST2600 PCIe Host Controller Registers */
+    14	#define PEHR_GLOBAL		0x30
+    15	#define  AST2600_PORT_TYPE_MASK		GENMASK(5, 4)
+  > 16	#define  AST2600_PORT_TYPE(x)		FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
+    17	#define PEHR_LOCK		0x7c
+    18	#define  PCIE_UNLOCK			0xa8
+    19	
+    20	/* AST2700 PEHR */
+    21	#define PEHR_MISC_58		0x58
+    22	#define  LOCAL_SCALE_SUP		BIT(0)
+    23	#define PEHR_MISC_5C		0x5c
+    24	#define  CONFIG_RC_DEVICE		BIT(30)
+    25	#define PEHR_MISC_60		0x60
+    26	#define  AST2700_PORT_TYPE_MASK		GENMASK(7, 4)
+    27	#define  PORT_TYPE_ROOT			0x4
+    28	#define PEHR_MISC_70		0x70
+    29	#define  POSTED_DATA_CREDITS(x)		FIELD_PREP(GENMASK(15, 0), x)
+    30	#define  POSTED_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
+    31	#define PEHR_MISC_78		0x78
+    32	#define  COMPLETION_DATA_CREDITS(x)	FIELD_PREP(GENMASK(15, 0), x)
+    33	#define  COMPLETION_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
+    34	#define PEHR_MISC_278		0x278
+    35	#define  SET_TO_DOWNSTREAM		BIT(22)
+    36	#define  ASSERT_INTERNAL_RESET		BIT(31)
+    37	#define PEHR_MISC_280		0x280
+    38	#define  SEL_INTERNAL_RESET		BIT(0)
+    39	
+    40	/**
+    41	 * struct aspeed_pcie_phy - PCIe PHY information
+    42	 * @dev: pointer to device structure
+    43	 * @reg: PCIe host register base address
+    44	 * @clk: PCIe reference clock
+    45	 * @phy: pointer to PHY structure
+    46	 * @platform: platform specific information
+    47	 */
+    48	struct aspeed_pcie_phy {
+    49		struct device *dev;
+    50		void __iomem *reg;
+    51		struct clk *clk;
+    52		struct phy *phy;
+    53		const struct aspeed_pcie_phy_platform *platform;
+    54	};
+    55	
+    56	/**
+    57	 * struct aspeed_pcie_phy_platform - Platform information
+    58	 * @phy_ops: phy operations
+    59	 */
+    60	struct aspeed_pcie_phy_platform {
+    61		const struct phy_ops *phy_ops;
+    62	};
+    63	
+    64	static int ast2600_phy_init(struct phy *phy)
+    65	{
+    66		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+    67		int ret;
+    68	
+    69		ret = clk_prepare_enable(pcie_phy->clk);
+    70		if (ret)
+    71			return ret;
+    72	
+    73		writel(PCIE_UNLOCK, pcie_phy->reg + PEHR_LOCK);
+    74	
+    75		return 0;
+    76	}
+    77	
+    78	static int ast2600_phy_exit(struct phy *phy)
+    79	{
+    80		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+    81	
+    82		clk_disable_unprepare(pcie_phy->clk);
+    83	
+    84		return 0;
+    85	}
+    86	
+    87	static int ast2600_phy_set_mode(struct phy *phy, enum phy_mode mode,
+    88					int submode)
+    89	{
+    90		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+    91	
+    92		switch (submode) {
+    93		case PHY_MODE_PCIE_RC:
+    94			writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
+    95			break;
+    96		default:
+    97			dev_err(&phy->dev, "Unsupported submode %d\n", submode);
+    98			return -EINVAL;
+    99		}
+   100	
+   101		return 0;
+   102	}
+   103	
+   104	static const struct phy_ops ast2600_phy_ops = {
+   105		.init		= ast2600_phy_init,
+   106		.exit		= ast2600_phy_exit,
+   107		.set_mode	= ast2600_phy_set_mode,
+   108		.owner		= THIS_MODULE,
+   109	};
+   110	
+   111	static int ast2700_phy_init(struct phy *phy)
+   112	{
+   113		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+   114	
+   115		return clk_prepare_enable(pcie_phy->clk);
+   116	}
+   117	
+   118	static int ast2700_phy_exit(struct phy *phy)
+   119	{
+   120		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+   121	
+   122		clk_disable_unprepare(pcie_phy->clk);
+   123	
+   124		return 0;
+   125	}
+   126	
+   127	static int ast2700_phy_set_mode(struct phy *phy, enum phy_mode mode,
+   128					int submode)
+   129	{
+   130		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
+   131		u32 cfg_val;
+   132	
+   133		switch (submode) {
+   134		case PHY_MODE_PCIE_RC:
+   135			writel(0, pcie_phy->reg + PEHR_MISC_278);
+   136			writel(SEL_INTERNAL_RESET, pcie_phy->reg + PEHR_MISC_280);
+   137			writel(POSTED_DATA_CREDITS(0xc0) | POSTED_HEADER_CREDITS(0xa),
+   138			       pcie_phy->reg + PEHR_MISC_70);
+   139			writel(COMPLETION_DATA_CREDITS(0x30) | COMPLETION_HEADER_CREDITS(0x8),
+   140			       pcie_phy->reg + PEHR_MISC_78);
+   141			writel(LOCAL_SCALE_SUP, pcie_phy->reg + PEHR_MISC_58);
+   142			writel(CONFIG_RC_DEVICE, pcie_phy->reg + PEHR_MISC_5C);
+   143			cfg_val = readl(pcie_phy->reg + PEHR_MISC_60);
+ > 144			FIELD_MODIFY(AST2700_PORT_TYPE_MASK, &cfg_val,
+   145				     PORT_TYPE_ROOT);
+   146			writel(cfg_val, pcie_phy->reg + PEHR_MISC_60);
+   147			writel(ASSERT_INTERNAL_RESET | SET_TO_DOWNSTREAM,
+   148			       pcie_phy->reg + PEHR_MISC_278);
+   149			break;
+   150		default:
+   151			dev_err(&phy->dev, "Unsupported submode %d\n", submode);
+   152			return -EINVAL;
+   153		}
+   154	
+   155		return 0;
+   156	}
+   157	
 
 --
-
-net/mlx5e: use skb_share_check() in the loopback selftest hook
-
-This commit adds a skb_share_check() call in
-mlx5e_test_loopback_validate() ahead of skb_linearize(). With it, the
-loopback selftest hook no longer linearizes an skb that another
-ETH_P_IP handler bound to the device also holds.
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
-> index 1dcdb86690bb7..8eb9a9469549d 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
-> @@ -166,6 +166,10 @@ mlx5e_test_loopback_validate(struct sk_buff *skb,
->  	struct udphdr *udph;
->  	struct iphdr *iph;
->  
-> +	skb = skb_share_check(skb, GFP_ATOMIC);
-> +	if (!skb)
-> +		goto out;
-> +
->  	if (skb_linearize(skb))
->  		goto out;
->  
-
-[Severity: Low]
-This isn't a bug, but the comment just below this hunk in
-mlx5e_test_loopback_validate() now contradicts the new code:
-
-	if (skb_linearize(skb))
-		goto out;
-
-	/* We are only going to peek, no need to clone the SKB */
-	if (MLX5E_TEST_PKT_SIZE - ETH_HLEN > skb_headlen(skb))
-		goto out;
-
-skb_share_check() calls skb_clone() whenever the skb is shared. After
-that, skb_linearize() can modify or reallocate the skb head.
-
-Should this comment be dropped or reworded? A later reader could take
-"no need to clone" at face value and remove the skb_share_check().
-stmmac_test_loopback_validate() uses the same skb_share_check() +
-skb_linearize() sequence and has no such comment.
-
-The commit message also says:
-
-  skb_linearize() on a non-linear frame then hits BUG_ON(skb_shared()).
-
-Is this accurate for mlx5 in general? __pskb_pull_tail() only calls
-pskb_expand_head(), which holds the BUG_ON(skb_shared()), under this
-condition:
-
-	if (eat > 0 || skb_cloned(skb)) {
-		if (pskb_expand_head(skb, 0, eat > 0 ? eat + 128 : 0,
-				     GFP_ATOMIC))
-
-Both mlx5 non-linear RX builders seem to leave enough tailroom for this
-small test frame's frags. Without XDP,
-mlx5e_skb_from_cqe_mpwrq_nonlinear() uses
-napi_alloc_skb(ALIGN(MLX5E_RX_MAX_HEAD)). With XDP it uses
-MLX5_SKB_FRAG_SZ(XDP_PACKET_HEADROOM + MLX5E_RX_MAX_HEAD).
-
-So on mlx5 the BUG_ON seems to need an skb that is both shared and
-cloned. Could the commit message state the triggering condition more
-precisely? The fix itself looks correct, since users == 1 after
-skb_share_check().
-
-[Severity: Low]
-This is a pre-existing issue and was not introduced by this patch.
-Further down in mlx5e_test_loopback_validate(), the UDP header is
-located using iph->ihl, which comes from the packet and is never
-checked:
-
-	/* Don't assume skb_transport_header() was set */
-	udph = (struct udphdr *)((u8 *)iph + 4 * iph->ihl);
-	if (udph->dest != htons(9))
-		goto out;
-
-	mlxh = (struct mlx5ehdr *)((char *)udph + sizeof(*udph));
-	if (mlxh->magic != cpu_to_be64(MLX5E_TEST_MAGIC))
-
-The only length check is this one:
-
-	if (MLX5E_TEST_PKT_SIZE - ETH_HLEN > skb_headlen(skb))
-		goto out;
-
-That guarantees 44 bytes: 20 for IP, 8 for UDP, and 16 for struct
-mlx5ehdr, which includes the padding before magic.
-
-The hook is registered with dev_add_pack() for every ETH_P_IP frame on
-priv->netdev. While the loopback test is running, could an external UDP
-frame sent to the port MAC with ihl up to 15 make this code read
-udph->dest and mlxh->magic up to 40 bytes past skb_headlen()?
-
-Those bytes stay inside the skb head allocation, in the tailroom or
-skb_shared_info, and they are only compared against constants. The
-result could be a spurious selftest outcome or a KMSAN uninit-value
-report. Would it make sense to check 4 * iph->ihl against skb_headlen()
-before using it?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba%40tipi-net.de
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
