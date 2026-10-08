@@ -4,150 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC458CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 05:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2796DCA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 05:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=; b=n5R5FQbx7wBCeU3RYzXIGJlQbo
-	MNVKry8FdxLGJmKeGVAhy/+RILRoB1WABHmaSfxz3D7QWU1o7DN0whEzLKaA12T6yFrX5TNvM6AxZ
-	qM01YDLl2WCT1L3P+s1OkTlObNKMLvfHnj0wzYbQHl7Sy5tjrLf9qjpUAW1QmWJC4dAZyilLh4U1R
-	m3iF7wb6micDTMqtJMjiWGQtIepjvr9ScXPC+i5gIufA9NjrzsAvzW/rQjUCqiMHaN2XHMYh9Criy
-	EG12Iu9X5pmRcD4jP5yYTwuEMlyklwLr6eZCxakInedMb7GW+MMMbOKPCRoho7jFbdLcuAqJ2C0gu
-	tENkF8vQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zY5H8Ld+yTEStTJ845AFIVQiXLDAAM2/XkAD8HwKJ8I=; b=XG5i3e2xATzDb4U6eIcmjL+oYF
+	rEQ4TlLLmvE4FNxd+A519ySTiUUespAy6NYBWdOTWmXafV0BcHzcPifGUPl6qnBTO6M8mQMxy4dPB
+	02RvyF9QJ0WKuGMfM2NhPJl/4jBI0TE0uROSEHLkgHxFSWKZDDA/WqaG81aXO/TPt0cjbEHSyNmwd
+	tDTmdrc30VT+arEIq6jCb068nexEGS87ulwilEvWKFV51YPNwjXrP80gojQ1DTSSq2UKqQF/0DLq3
+	joP37N8AzlFsP8MS6YlrHfqzD7ZXoNGjR6pXRDEz50osd7L2xhxnMOe/VSmbZcUfwVtS6IyzL/6yv
+	UBJjX3tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEgK3-00000003X9b-1Hnq;
-	Thu, 08 Oct 2026 05:05:39 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xEgpL-00000003YSn-04MO;
+	Thu, 08 Oct 2026 05:37:59 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEgK0-00000003X92-16Ub
+	id 1xEgpI-00000003YS9-3HLh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 05:05:37 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BVaO1775356
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 05:05:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=; b=bSVN6W3xVa3Sz4qX
-	c3SSDNvSwbExIIJAp3kqhcBF9Cgit24uSAyrZVjVhQUihmjoCXse6f7fgNqsCqOr
-	Vdsm2XIvw9TQ1IM/ulMvk21CA2o1x1B1Lkuz0/Iy/iay8LI2WzVdSyUJjMucuqUN
-	5zmMQq40di2qTgMPvBMPpmWFL2pXi17nmjLioNS+eNsezstjl4JYBDx9+Ab4DhSn
-	8XfG+nGn2AclO6juaFAqupxRYhJROqSMKfcj1hSL2O849rw0+MjUrlZUcjVy14sP
-	nOV43rUTDd5gTcVdlwheSxDeyjcsriQyeVD0Woi946OBryiJnRFKkkY5XIEqkXmS
-	fXAROw==
-Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe394x4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 05:05:35 +0000 (GMT)
-Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67697e6dfdcso10227684d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 22:05:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791435932; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nOTTFhU4rOXihLiYbWUyMBVDfTNNbQEbk/c0lAjGvR/UFaYME/cUCi+Ow3Vbib7+7d
-         Y870VeB1erLDV/8KvBoLxe7T1PuC2AJCBd0fis/mH7AVZJ5qDFa/D1dE5ZgaStbx1I2R
-         rB0k1eHQob/TBbf5DAlCKgNHvrfNPG0yuVlkDmbYyYeJjJgKbbPtdgwd9W1J73uvYZLS
-         V8r9tP316LgXHUmwG9MmjZglr5iMSzK9Eorz3PnlJYLwBpdi0GNKDJw111IaTT8lW632
-         6u/dslDJXnI9lBlZnyVYzotkYekm/J5avTfkWFy4eC6ekuJWJLDGh1fsq75B4Z+cKGPB
-         ySPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
-        fh=jMYlSCT/+CYz9e/sePTcS9QRmD759vrW4IBO2Wk4hrQ=;
-        b=FVNlzn7BConRNQc0niXVfFi9SiWk6sD/lQt7OptAa861OSKMH08CKoKcVV3GTtFg8D
-         gjdSzmCYnYBfMpm1VgqKaOWrDe1bbhuBfpa4wlC4lwHTHinil7ZQ6h7sIUu3qG2UJ+nc
-         wTBGSukoibOUv7otmW7DftyeJB12I13hJB6qLeEfb7pJxeBEW1wy7HAVGzz5KiCV+RFw
-         EOk7kuY4MZau3Quq+Jlke9XVAna8b0ci7hJJbjFVzgVaAqZKi0JkG1q6QNoqm3bo9U5T
-         w3Dxf96t54sw/gUZG9WJ3PAOBOlrclaHImlG1MA0AxrJLkUfUY3+uHlFteA71GBqKu7y
-         OUgg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 08 Oct 2026 05:37:58 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48b03f23305so4051874f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 22:37:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791435932; x=1792040732; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
-        b=g4Cm/Lrf1VgWN2CCFMlTsr7CJhsvpxfOupUx2hIf3s5HKT93/eR5vgD+TB83P3Nw46
-         JxtqB6bdmSIR2Bh22XTMMCjZCnyoXAN3O8nyR2Y+ZuGjUGH5RT8XM8dy38ee077DkDrG
-         YcTiU/1xz/LMvZx4e7o6VnnySW0048sPD/o69h1R42LHPSJWyEbbl8jTJ86g4yfKX7Py
-         Hj4rrdRNbE9762NSM/nlW5iJgqrqvT7QAYLJHX9MTpgE2zJT1v7y7hKqzt/9z9QFqkno
-         esZCvoi9Hr5K+6g2gKQdkHB5JSQk0a8hFyIHUAV2+cPk/TNbpRJW1Uz3TMuroPSYC27g
-         i7JA==
+        d=gmail.com; s=20251104; t=1791437875; x=1792042675; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zY5H8Ld+yTEStTJ845AFIVQiXLDAAM2/XkAD8HwKJ8I=;
+        b=UEXQP1nixHm6pftpHSr5tMPBCNo+JgyY+m483cw3yPd8Z0wmYI5BWKsARFPmC6951Q
+         klnKD1+XeJk7vMpeHUNl2R+XK3o8nw1Q0bMafF/3eCWlBi/VJmUy2q8v+BYNJKmA4jhT
+         AGLAMhoSZGTLq7ZKOVYSOKOBNeuc/lHj9l0hnCNyhG7UevCR/zRccGDhDtsehx4ARrV5
+         jDSCXJnOz5PYR/L9JQpIBz3m/46S0VMc5FyVPAbz42ob0Fnm5ckeQ3CVs1lYDCAu0h1J
+         zE8m5HRSyW9YUCLhmhvARL9Y4UYXO8ndzMSHii9sgFdTrIQcLW+gsuuWXRCcPg78MkoV
+         X9GA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791435932; x=1792040732;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bQqu3dtqoyr6aDyhzeQ4CWAqsjF3txIOH6IaJS+CEvQ=;
-        b=MDKsUQ/+VzgWtY56DHyI9vm2AYDOxTpNJvqHXtWnRwazgX0ZhQ6qXg+St8KUXyJIp5
-         +TJO+7AfgwS9b3rKtUjK7Bbk/YWaRZgR9ulqNEee32pMUVJqRFYPyiiMRc/mfTDAJLnz
-         jUZzkzOuolcLpoXGL6GH+4IO88NKDKRQXlNvLyaP2UG0OnUHb150DRDmKMkMusX2DDxV
-         HDxvqo56VYsphGv9da3uH4fdFMjN4gMBnSP3qgbMip+IvBGlG+vagEMtX7Egloc0sLQV
-         UHXxS/SHasMjYEcBzR2blUJro0O3GPVZ/waagCBZk3WnV669gbq6W8QWgeQBI0Onwdtt
-         Z5fw==
-X-Forwarded-Encrypted: i=1; AKwUvBza+JJessC/Yff91KGUfC5EgrqUH+59moWHiSORCs+6fqLoJlwYYfEkwxrySLa2nedbzEds0F3wQD4OShwpn5TG@lists.infradead.org
-X-Gm-Message-State: AFq9FYIkbHadvFIStjV9qkHVBSQhqImwyCHmgwaa4HSa7F1u8+OnitZZ
-	TtCkBtYaYqwFVLtIsBd9SruzZiw5MLm0t6fzxgZNgi8qfiWVQ/1J5m3UAv+cc2QKbAVElFw85YP
-	tlnSK4jYnznq5RQ23pDZ3Jg++IWOTOj1zHk2sICpJfoOXK/wIpCfTUI3bsBvAqru9SuBQ+Hi7Sh
-	Pw6M6Cy23Ilfz+mTyiLbqhlLSRa3j8EuOBxoUcp1H99VS3MRsCoZmc
-X-Gm-Gg: AYBFou3jzaVl+oAoUz3bmjByEr56mAhn46M0jDiPf6XRNzKJFHA5ELdcBnZtRcXJs9/
-	YehWIntMiIudPSEAN6E9BJSi0blkJOU9aJ55HY1NSWgRsmcr+KnNwBJjdq8fZNnJfih78VxbaEP
-	EMMWly73qaeCdFWzZy54JOyljZPA7NooeIQDmazTAJaFzGS/8HkVqoHXIwrA==
-X-Received: by 2002:a05:690e:bc1:b0:675:37b1:931a with SMTP id 956f58d0204a3-6790a0c3183mr2138145d50.12.1791435931780;
-        Wed, 07 Oct 2026 22:05:31 -0700 (PDT)
-X-Received: by 2002:a05:690e:bc1:b0:675:37b1:931a with SMTP id
- 956f58d0204a3-6790a0c3183mr2138134d50.12.1791435931363; Wed, 07 Oct 2026
- 22:05:31 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791437875; x=1792042675;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zY5H8Ld+yTEStTJ845AFIVQiXLDAAM2/XkAD8HwKJ8I=;
+        b=VyEx4q7nDh+7ClOV0hoLuqn8bFJ4W90KJeOMpq+NWCMrj0bZWXFVfpYPU5JZhEEjJl
+         cYoQ/2P7Z5lnSXjluzooDIcKlbEiuXpfKDvFStGma5ztjpLW+gjSWrwx0tepRBN7pddb
+         DMXDMOHabQYfJUXyQASGfQsEpdgfjXreqd12DnoYeqdlynB7bFLRQBHXCpV2tDUsOuUj
+         DNgUu7TiOtsl5RXVLYW/CymP3fInQY2tT8rgvcecc5BXQHuiyZVSYGVocQVEt/hQT3rQ
+         I3QFF6IHRosOGj8mmwz0SEPMYw34VhRAxhYdIxmB6LCKkOrITRxWjmT5BZMC3odDIcU6
+         J6lw==
+X-Forwarded-Encrypted: i=1; AKwUvBxYUvR+xQvLYNJFxPC4jXTphO5Zvms1zroCWsdTLrpwa7yKd6gDlOY7xiiZ7Df2yySes337RLbm2PTLBV8pp2C8@lists.infradead.org
+X-Gm-Message-State: AFq9FYIeJa2tcJhzLWIFa4snz31iUjLUfdKyyLT5CPmnTF+q400yF7NE
+	BoWuaz4Tmw46sq2wZYeyiA7b/XepMeBOOT17+ejtIL2MaqHJXxyZcILI
+X-Gm-Gg: AYBFou3qB/jN8QdKGXhkaDhb528ltzc0wvJIJVGNqSzCE45wS3AzVplUwzd/zW9accI
+	h4fEsQVePbVdBRtrVPlQA9f+XAOKEQwUXJEGB+hC0DNixCJRNUVGXhXCKzn9U9UldmFm8/FkqVN
+	P6tUiHvDUA4ly17NMhbBW45P2EyKh7ESdVP3MjsLrNgygb238PnktzINR6+GQjIpkJMANXxr2GQ
+	3iEl/Kx279rC6OU2NPrznRcP2V9vHb8ZyAlYjdjfcn40f17KpgQwlPko1on1DOW8bCTir3rH7R+
+	9Vbu3xqbU6lIQBXtJJB5SIuomgqk3pyRbKScgXj7YpXC+yuo1xUoxZx46RIqvHgjhCHvyrGdw/b
+	xds693U7rXra8P7nJPAhrP0ML5YnyCBFjGuJ7pZ+QxmqLd4PNxvu/chcXbT8ta7b+LuYUgviurp
+	dgGyWCUxjXwMLDhch9C7kJX7PdJbKB/TwUdQCJK5SZOD0wJ8NheUBGxiBTkVIWun21huXnfQ/h6
+	CCSOVrqEoUxkb67SlvvhvpvQSFiziclQ8xcyW4eQjQUJnRElgJwW4+unpPNVXPJITYfBs7kAzv4
+	hFjSlhqceQOkjBkKLYNhemZgv2dw5TFM0+6GJiIpixv7FCfXhsZ9JMC3c7sHiviyh/+WFQtvNdN
+	6UIdh3Eo=
+X-Received: by 2002:adf:f001:0:b0:48a:fbcf:6f43 with SMTP id ffacd0b85a97d-48c72897157mr6171337f8f.54.1791437874320;
+        Wed, 07 Oct 2026 22:37:54 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad61-5a01-743c-891f-b33c-cae7.310.pool.telefonica.de. [2a02:3100:ad61:5a01:743c:891f:b33c:cae7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d1f8fbsm8458219f8f.33.2026.10.07.22.37.52
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 07 Oct 2026 22:37:53 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Miguel Ojeda <ojeda@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linusw@kernel.org>,
+	Christian Schrefl <chrisi.schrefl@gmail.com>,
+	Bradley Morgan <brads@mainlining.org>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	rust-for-linux@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/6] ARM: rust: Enable Rust support for ARMv4T, ARMv5TE and ARMv6K
+Date: Thu,  8 Oct 2026 07:37:40 +0200
+Message-Id: <20261008053746.49631-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-References: <20260922130653.357615-1-andersson@kernel.org> <04be768e-7c38-4ca6-a721-d716947b8708@app.fastmail.com>
-In-Reply-To: <04be768e-7c38-4ca6-a721-d716947b8708@app.fastmail.com>
-From: Sumit Garg <sumit.garg@oss.qualcomm.com>
-Date: Thu, 8 Oct 2026 10:35:20 +0530
-X-Gm-Features: AclHuK8ljan6yYkSfeVW4C8TVoEvGkyXaktUQeB7YpkfdtcH9wriLsHpMlMeAII
-Message-ID: <CAGptzHOaNfXhDf7pZ0v=nKGXE6UjwOaw4pacPA4y9Lop8yP37g@mail.gmail.com>
-Subject: Re: [GIT PULL] Qualcomm driver fixes for v7.3
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Bjorn Andersson <andersson@kernel.org>, arm <arm@kernel.org>,
-        soc@kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=J4s/fwnS c=1 sm=1 tr=0 ts=6ac7249f cx=c_pps
- a=J+5FMm3BkXb42VdG8aMU9w==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=9s7x0yUzlkJ0pj1vzNoA:9 a=QEXdDO2ut3YA:10
- a=Epx66wHExT0cjJnnR-oj:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyMCBTYWx0ZWRfXzOknpnsKlkMY
- OnL8Rp/sMJQ+j8dGum/ZiiOKgboAWVwEA4WYjHkvoz3YLcR2H0YZ2L3Eb+cDAZLSUjt9OtFB521
- 6OgpfwM3EfDklbS0TdezthfK/mSjcCw=
-X-Proofpoint-GUID: tF9HkQkhZVndf7UpLOp8lf6ei0mjHqw-
-X-Proofpoint-ORIG-GUID: tF9HkQkhZVndf7UpLOp8lf6ei0mjHqw-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyMCBTYWx0ZWRfX+lDcbhJCj9tO
- u5g6ozwc5FkOs1e5bg6XNXJkPURlAtqMpaqpyEOZBgYLA45AaU2gnFrwCMsrqyGtnd/wt2NKFys
- hhW8IohZVKPMvdJvPhQ0LUDE6eC6lRegdmef8ZNoWwrpKE5JFrbtioVxrdknDtjO4KyjGADej+y
- MujctiWPVhRh27yNoWr1DVqRKIQq61CVbuAnvnYbu/VEpAdorIJXkPqs/sf3hS9pTldy6pt5pCK
- UFQoTuVi2Kbiq91qEozZax5hWOvI9uwds7Tl86l2yX/67z3EJbsQidkqoJenZ1FR0Rr1SlAM9dj
- /NTRtS1WOhFsF1NLd3m/3jWboE1QvCzOahsb3m5xPMKgAsks8GMx7uyWnT3Asm+GDbyJlayBGw8
- SJ/BPO3R+uTmVXP04WpNNflXUdhbZVpHRG6/lRdVyE34llVpusuzzpa+2GeVG/SvpZ+dbH0zv5x
- FULzBzWzakkN86p3uqg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-08_02,2026-10-06_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
- adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080020
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_220536_314955_33E40274 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20261007_223756_857009_E476B9B9 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,38 +124,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Rust on 32-bit ARM is limited to kernels that contain an ARMv7 CPU.
+This series extends it to ARMv6K-only, ARMv5TE and ARMv4T kernels.
+Based on v7.3-rc1.
 
-Coming back to work today after vacation.
+Linus Walleij asked for older ARM cores during review of the ARMv7
+support [1]. Christian Schrefl's earlier ARMv5 attempt [2] hit atomic
+and ABI problems. The kernel crate now uses C atomic helpers, and the
+*-linux-gnueabi targets used here keep the Linux EABI.
 
-On Sat, Oct 3, 2026 at 3:07=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Tue, Sep 22, 2026, at 15:06, Bjorn Andersson wrote:
-> > The following changes since commit cee9395acd8043be0644b25c34bfa86623f2=
-b935:
-> > ----------------------------------------------------------------
-> > Qualcomm driver fixes for v7.3
-> >
-> > All clients was migrated from the Qualcomm SCM PAS API to the Qualcomm
-> > PAS API in v7.3, remove the now unused direct API.
-> >
-> > ----------------------------------------------------------------
-> > Sumit Garg (1):
-> >       firmware: qcom_scm: Remove SCM PAS wrappers
->
-> Hi Bjorn and Sumit,
->
-> I was running a little behind on the fixes merges, sorry about that.
->
-> As it's getting a little late for 7.3, I would suggest skipping this
-> one patch as it is a bit large and is a cleanup rather than a fix.
->
-> I would instead merge this directly for 7.4 but still take the other
-> ones for 7.3. Let me know if there is some reason I missed why this
-> needs to be in 7.3 after all.
+Patch 1 fixes a Rust build failure with gcc 8.1.0 and
+CC_OPTIMIZE_FOR_SIZE on ARMv7, without the rest of this series. It can
+be merged separately and is tagged for stable.
 
-I agree it's pretty late for v7.3. I am fine for v7.4 if Bjorn is able
-to keep the dependencies sorted.
+Patches 4 and 5 depend on patch 2 for 16-bit xchg() on pre-ARMv6 CPUs.
+Patch 6 switches ARMv7 kernels to the ARMv7 Rust target and can be left
+out. Combined ARMv6K and ARMv7 kernels keep the generic ARMv6 target.
 
--Sumit
+Arnd suggested -Ctarget-cpu with arm-unknown-linux-gnueabi. Its explicit
++v6 remains in effect with -Ctarget-cpu=arm926ej-s, so libcore contains
+ARMv6 instructions. Disabling +v6 produces ARMv5TE code but warns about
+an unstable target feature. The ARMv4T and ARMv5TE targets also declare
+32-bit atomics rather than 64-bit. The series selects the target next
+to -march.
+
+ARMv4 without Thumb, ARMv7-M and plain ARMv6 (ARM1136r0) stay excluded.
+
+The Rust samples, Rust KUnit suites and doctests passed in the following
+ARM-mode kernels on v7.3-rc1.
+
+QEMU:
+
+- ARMv4T: sx1 (OMAP310, ARM925T), omap1_defconfig, 360 doctests.
+  CPU_DCACHE_WRITETHROUGH was disabled because QEMU does not implement
+  the CP15 register it writes.
+- ARMv5TE: versatilepb (ARM926EJ-S), versatile_defconfig, 355 doctests.
+- ARMv6K: raspi0 (ARM1176), bcm2835_defconfig without ARCH_MULTI_V7,
+  368 doctests.
+- ARMv7: virt (Cortex-A15), 371 doctests. With clang 22.1.8, Rust
+  modules also loaded, including the PCI and DMA samples on pci-testdev.
+
+The ARMv4T, ARMv5TE and ARMv6K QEMU runs used these toolchains:
+
+- clang 22.1.8, rustc 1.99.0, bindgen 0.73.2
+- gcc 15.2.0, rustc 1.98.0, bindgen 0.72.1
+- minimum LLVM 17.0.1, rustc 1.85.0, bindgen 0.71.1
+- minimum gcc 8.1.0, binutils 2.30, rustc 1.85.0, bindgen 0.71.1
+
+ARMv7 virt also passed with both minimum toolchains. No additional
+toolchain requirement was found.
+
+Hardware:
+
+- Microchip SAM9X75 Curiosity (ARM926EJ-S), clang 22.1.8, 356 doctests.
+  Tested with an ARMv5-only config and with at91_dt_defconfig, which is
+  built for ARMv4T. Rust sample modules loaded and unloaded.
+- Raspberry Pi 400 (Cortex-A72), 32-bit LPAE kernel, 371 doctests.
+  Both ARMv6 and ARMv7 Rust targets were tested with clang 22.1.8 and
+  with gcc 8.1.0 at CC_OPTIMIZE_FOR_SIZE. With the ARMv7 target and both
+  compilers, Rust sample modules loaded and unloaded. rnull read and
+  write tests passed, and Rust cpufreq-dt switched between 600 MHz and
+  1.8 GHz.
+
+The optional panic QR renderer was disabled for the GCC build with the
+ARMv7 Rust target. With rustc 1.85.0 and size optimization, its object
+references __aeabi_uldivmod, which the ARM kernel does not provide.
+An unpatched v7.3-rc1 QR object has the same reference.
+
+ARMv6K has been tested in QEMU only.
+
+Built-in Rust code ran on Thumb-2 kernels on the Pi 400 and in QEMU,
+with both ARMv6 and ARMv7 Rust targets. Tested Rust modules failed with
+"unsupported interworking call (ARM -> Thumb)", also on unpatched
+v7.3-rc1. One open question is whether HAVE_RUST should exclude
+THUMB2_KERNEL && MODULES or leave module loading to a follow-up.
+
+I plan to submit the enablement patches through Russell's patch system
+unless the ARM and Rust maintainers agree on another route.
+
+Changes in v2:
+- Select the rustc target next to -march and explain why -Ctarget-cpu
+  on the generic target is not enough (Arnd).
+- Add ARMv4T and ARMv6K-only support (Arnd).
+- Add optional patch 6 for the ARMv7 Rust target (Arnd).
+- Keep ARMv7-M and plain ARMv6 excluded (Arnd, Bradley).
+- Test Thumb-2 kernels and document the Rust module failure (Arnd).
+- Test gcc and the minimum tool versions (Miguel).
+- Add patch 1 for the build failure found with gcc 8.1.0.
+- Patch 2: unchanged code, collected Arnd's Acked-by and Reviewed-by
+  tags from Linus Walleij and Bradley Morgan, and explained the plain
+  ARMv6 exclusion (Arnd).
+- Update the atomic-helper architecture lists and architecture table.
+
+v1: https://lore.kernel.org/rust-for-linux/20261003093827.77857-1-kmehltretter@gmail.com/
+
+[1] https://lore.kernel.org/rust-for-linux/CACRpkdYF0sVB2-qgy=GzETSR3+2sagVQPGdunDQDJrn8KqJorA@mail.gmail.com/
+[2] https://lore.kernel.org/rust-for-linux/b13d37bd-ec68-4713-94e5-e9ed4d6a6354@gmail.com/
+
+Karl Mehltretter (6):
+  ARM: cmpxchg: always inline __arch_xchg() and __cmpxchg()
+  ARM: cmpxchg: support 2-byte xchg() on pre-ARMv6 CPUs
+  ARM: rust: Enable Rust support for ARMv6K-only kernels
+  ARM: rust: Enable Rust support for ARMv5TE
+  ARM: rust: Enable Rust support for ARMv4T
+  ARM: rust: Build Rust code for ARMv7 on ARMv7 kernels
+
+ Documentation/rust/arch-support.rst |  8 ++++----
+ arch/arm/Kconfig                    |  8 +++++++-
+ arch/arm/Makefile                   | 10 +++++++++-
+ arch/arm/include/asm/cmpxchg.h      | 26 +++++++++++++++++---------
+ rust/helpers/atomic_ext.c           |  4 ++--
+ 5 files changed, 39 insertions(+), 17 deletions(-)
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.39.5 (Apple Git-154)
+
 
