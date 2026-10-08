@@ -4,118 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50878CA9ECE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 22:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D6ECA9ECA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 23:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbb/AEzxbWb1wH79cWu6esvVp0pjm+0ygNJUrbpwYnI=; b=rNxR8qPfw6R+N/oldrN3HDwmD5
-	CAu7PQi6Yal6iYa76m73crusNInoCAHPkMgTM7h3OBxdq9J55scJBL47eruR3ZiwuT/ute0AuNEMY
-	MPpFma7ULC5vPebIxc8vS5CDcmsPlKMleWHb/VlVG0a7j8Mp4R58bQmnfrd1qTQT70dsvrfrMgnI7
-	UgEv3a8oUe1u+b+286O74o2k3ZT+/wkFLK1x/HmO+suIuY0Znz275PwX19SvkkAX1jI8rvCGLGEN+
-	B8dD3ngwNEhoCYi0oR+DEMgRpTkXgnSYkmZZJ6wkTvRzcMNoPjmx4kzKuAXpH3CYzUxij84gh4bRs
-	pGcH94Qw==;
+	bh=OojGyMZ5eh41Y2wVjeI/8ZXJHmHbXooHvcwTpVEfMY8=; b=nYom8qlLoj4OKZOxpKGcbGLEbE
+	U8XwbyOOodzA+4Ffh67IqzV8WPexRDOGeJ9HYz39Z/gASKRWfEdjFWJlKjnF+tHSJgrdOF56yYqSA
+	tXfAnvr9jOqSaSMFVjVJgkajqHhj1jfz225w4V4xsluGreanWCiGnO4mbTiUP5H3HOM0BIVchJecv
+	9zkiQLg+k3kmb/6Q/PIEXsTrdKt1HWXlQHEt7FipFjf7kWu+DTueYzJkyci2krV8BkeckDgv1Cy02
+	sGqWxhgHKlNnydvxeNIi/eD0EjVDEhHzaWNaL7bZYyhNcPWgP3nxjHHUf6EbGODCI3wBvHFYrbyXY
+	4CbEVs9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFfo7-00000008Vga-0Pz7;
-	Sat, 10 Oct 2026 22:44:47 +0000
-Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	id 1xFg8B-00000008WTP-2koU;
+	Sat, 10 Oct 2026 23:05:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFfo3-00000008Vfn-3rhI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 22:44:45 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-6767d92cde6so599537d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 15:44:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791672282; cv=none;
-        d=google.com; s=arc-20260327;
-        b=d65iJ2F3G0Dafdtf+jvDivVrLV2w76IUj4L+02iAeystao3QMSdrjtE81irMwJnvGN
-         wJKHt5xM5NPhEFlDZP43D+Fb+dBlwHM7yYMl+F0ADszL4P4HqrrtMs/AGtJwtA8vAUwi
-         BH+8/6OAxf7KfwSBzQq8LuRCatFnwBYfPtTO3gHkRU1uNiKXxo940INe4nj2I180x4hL
-         Gq1FuSqY+HWAK9H9/HzQOrFSXoe2/z5rWNxNI9TDwo3zFYIYB5hO+bVKKj1OH8v2YtbK
-         8bkDx7J8EBOcNaPeRNdYORun2qUCrpNI6CfYACVbz1VoSoavnSZDhW7h1zRK1xR7aYYd
-         pfiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nbb/AEzxbWb1wH79cWu6esvVp0pjm+0ygNJUrbpwYnI=;
-        fh=XOdkBGnYKNsxGb3dGL8eUJNtn+gFvJuxz0hYHBDxG3Y=;
-        b=lb9Xgy3nkzgd3t6aMYLrGKfq4r4AUcJEsrvFj/HtUw1JL7Pr5WSHOE1XsG/gijtrJh
-         kuHFan1oBXo4GukczxflIX6n7O1xvofAzDy4J758zCMMhl88LCO84rkMUm+tcSWNYCJA
-         6tn3fkP8CqCmLDxvDWz4gPlZS/Zsp3+gGyd+tVL7HiuH86xia9c1W1NfcGt/yw/zYwA9
-         GbtvOOvK7ItkpoIfTxfojxy/OzBLvm/YmG98d4npUSc1ILJ11H/3r1+Nty/7pYEyp6BZ
-         i7xZxXZMwydllr8hX9VhuqRVuQe3g+kDOeUrSeJ5Wr9yScmmvVPPSfLgyGESUH8ifGfK
-         +WyQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1791672282; x=1792277082; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nbb/AEzxbWb1wH79cWu6esvVp0pjm+0ygNJUrbpwYnI=;
-        b=YVJRvZ3sK1QBhYPRgc5y8nhAe4ehznY/h2Se+BF3rVHlhPk+FRrrkJfl3p2J+x2Eq4
-         qjuHQ+b/bTIedQKk+m7enZDVM+BV1XCCHcgHQqNok8Eib/QEtmFmuy191I/juYEOST6l
-         4jvTRN08vTROD6WtPBS6w0s4aI3gtEN289pDzkwa31Y7q3r8Dw4eG8hTDIkoYpzATYyx
-         nSW9EIR26fCNKXCK7R333vNgflJy0GXHQA827ovTVDFJa/XMFWeBTpmKEWXFNekaH4nJ
-         Z3WWw3Z5tbM01rFOeih7Fxf6sivQnsOPzv/a0NUGCRhRM8lYTfJoBFTYwKkBtjzMnY/k
-         9g2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791672282; x=1792277082;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nbb/AEzxbWb1wH79cWu6esvVp0pjm+0ygNJUrbpwYnI=;
-        b=KrIIx2CI0eDiStKx+TV/lFDWE4fQiqoWkcDAUv3+brVMfGLGe3hdSWVN+96fjGFNtz
-         W6O4UNagwexIBQpubbffiK5KMc78Jl8PM0eOmvRQaIm1WBcMP5wLgp1dt8t+FRqjAgNc
-         AItsmMxum34LA1gaAlvBmOw/oDYGcxkQm7zQw+9I4ovuyhLefnVkqKhrsRT1rcWlGIQV
-         DKUaTaivjWcNIC+az5nvP51cV56+sRVUwDt2j5gtiWKViqpw7gcqXtJQ5eYhFhI0VC2+
-         tBk2XG1anEfK/2YG/lRhOJVlCp1Irh2opWftJlYV9HIIGKfcCBJkpK5YTrK+Lpb73CPt
-         yWRQ==
-X-Forwarded-Encrypted: i=1; AKwUvByss4bifaMV8YhCxAPeohjBloel4ldAxH9AX/xcXfgWy7f4NlGzqQkZJPrv+XO1xyd9/qPyqSaXU7BRhYlpp0JP@lists.infradead.org
-X-Gm-Message-State: AFq9FYLdijGuYVhyYGz3CqNG8SjLnDbVvyREBLuDqB1sqbPKegRKWWL9
-	3hNaZ8mTIiYK0ajp8+sCPGRfyVoTlHHxFyIBBw9sFQSnHNGO6JyzBHTxI8n2mCV5mZE4g9CsKc5
-	VZzEr27GQgyBBCuocUiZ3mnKhcdGl/fE=
-X-Gm-Gg: AYBFou3Wtm7O6BSBdZG7CFbbwuWgAU9M5YSr/YaQnqcLHZJ9bBihO0WxjDT+ZfKqD/q
-	7kxYVaTdwLZxx4tyVNer15rosBFuDHl3w9lyrAdsLb+y9665rfdy+Zj43OB8btWDZ4n6gm/Ai4U
-	9X7iEU811Tj7HYiMse/moxj1xboJTxW+33+RfBn9SK3+yfLd+TZlt+ltihXNiUvwSn3TCUoJS8y
-	NyRn7a7brwU11+S/qlFOCV68dP7nXTQzsFM/t6OSoSKl41nPJojQYfodgkzBpLVsneDsCuh+oDH
-	oPiZztWQMLpyLDb1mYEZskJxCt39Osxm650cJHyXgcrUuzZ9gUJbVHeubpEhKaE+tv+zdui8cQH
-	lHW6cdvwQwOU7
-X-Received: by 2002:a05:690e:4144:b0:676:8c58:c607 with SMTP id
- 956f58d0204a3-6793606970emr2386943d50.27.1791672281835; Sat, 10 Oct 2026
- 15:44:41 -0700 (PDT)
+	id 1xFg88-00000008WSu-0X2p;
+	Sat, 10 Oct 2026 23:05:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FFE543D6D;
+	Sat, 10 Oct 2026 23:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59CFA1F000FF;
+	Sat, 10 Oct 2026 23:05:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791673527;
+	bh=OojGyMZ5eh41Y2wVjeI/8ZXJHmHbXooHvcwTpVEfMY8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Fe2EET7SHdaqMd1W61PeWl35EcW5wn+4JI9PrtrnUxODYxC+1A30Gt70bNQs3wVg2
+	 fgtDalH5d5vLtiTYBt7gc6odL3nbgJT8YDzpyC4ktGJ5vJzgsCF13gFg5ZbTtJJroz
+	 M7ZaZea/XQH69mvO/McxN6FovtgeKSEakFAwneMr4e15U6P5oicG23UGIsyXaAYGo2
+	 60SOq0NKEJvmhwKT7iTYCT3dETbjOiA9nLDeWomAi4fAv7MXLY+A0afLQIL5RByZTJ
+	 DKH63nHIx1km0tEQijmu2uNiJtBfNckPWPvUcx7VDJNqP3yqUUstq1c2PK3m+BP1CP
+	 DaqQdRid7h4Tg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ =?utf-8?q?Micha=C5=82_Kope=C4=87?= <michal@nozomi.space>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, linux-sound@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261003194501.832558-1-michal@nozomi.space>
+References: <20261003194501.832558-1-michal@nozomi.space>
+Subject: Re: [PATCH 0/4] ASoC: Fixes for the MT8188 sound card
+Message-Id: <179144745270.2423942.8477245951213091576.b4-ty@b4>
+Date: Thu, 08 Oct 2026 10:17:32 +0200
 MIME-Version: 1.0
-References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com> <20261009-msm-dp-hdr10-v2-2-1835d4966da3@radxa.com>
-In-Reply-To: <20261009-msm-dp-hdr10-v2-2-1835d4966da3@radxa.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 11 Oct 2026 00:44:31 +0200
-X-Gm-Features: AclHuK9SzxfYbidbXHkCFy5EESOculWVRi3ikF-IkFS2nFcOSocjCQZtavNl1aY
-Message-ID: <CAFBinCDtwrEpLY7W-VKn=ekCPbwAeq63nDX9y-nuV_TviHFJAA@mail.gmail.com>
-Subject: Re: [PATCH v2 02/20] drm/connector: Drop early state allocation for
- max bpc registration
-To: Xilin Wu <sophon@radxa.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, dragon@radxa.com, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_154443_991217_2431FFEA 
-X-CRM114-Status: GOOD (  11.11  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2081; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=85ePqdUrxlAKgImhGQeGtnMz7AsH4S3r8BPV51Rup88=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJOHVnNq7Sgxkxn0kXlROMs8axFJtOnia1umrJecIfpX
+ E3piidxHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjIo3kMf0VvL+2fOKnwTtVC
+ Pqv3nbbT11uW1DBMnLcwd4u5oNnh7cKMDDcWbva5+O/JZvEnn7e9yihSW61TLfaL48+xWY5PT/+
+ R5GMEAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,19 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 9, 2026 at 5:17=E2=80=AFAM Xilin Wu <sophon@radxa.com> wrote:
->
-> The max bpc property can now be attached before connector state exists,
-> and the atomic state helper restores its default when creating state.
-> Remove the early state allocation that was only needed to satisfy the
-> old property attachment requirement in the HDMI connector helper, Meson
-> and DW HDMI.
->
-> Update the HDMI connector tests to check bit-depth defaults after the
-> normal mode configuration reset, and check that property registration
-> itself no longer allocates state.
->
-> Assisted-by: LLM
-> Signed-off-by: Xilin Wu <sophon@radxa.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+On Sat, 03 Oct 2026 21:44:57 +0200, Michał Kopeć wrote:
+> ASoC: Fixes for the MT8188 sound card
+> 
+> These patches fix problems found while bringing up audio with SOF on
+> the Lenovo Chromebook Duet Gen 9 (Ciri, MT8188) on a mainline kernel.
+> 
+> The first two fix the common MediaTek sound card probe when the card
+> cannot be bound on the first attempt. A missing component made the
+> card fail its rebind because the codec references were already
+> released, and a deferred or failed probe left the static card with a
+> topology name that devm had freed, so the card registered with a
+> garbage name and UCM found no profile for it.
+> 
+> [...]
+
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+
+Thanks!
+
+[1/4] ASoC: mediatek: common: Keep codec references until the card is bound
+      https://git.kernel.org/broonie/sound/c/6cb1f09e1f69
+[2/4] ASoC: mediatek: Don't keep a freed topology name in the static card
+      https://git.kernel.org/broonie/sound/c/50c5d7f3a9b4
+[3/4] ASoC: mediatek: mt8188: Constrain UL8 FE to its back end's capabilities
+      https://git.kernel.org/broonie/sound/c/76775717c4ad
+[4/4] ASoC: hdmi-codec: Don't parse an empty ELD on startup
+      https://git.kernel.org/broonie/sound/c/d0b9e91b87c9
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
