@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B48CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356C9CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JWzImz3cqI9tgDnTW/KJeshwK980DTvrUuQf1fLz0B8=; b=Z6mUaLKLxKi/Xw
-	kTOQoe3Jt3r875tC0pek6V8ZeZX/QhCm01FaT/mKDojK63L5l6GiUdkNMhtjRZnjJvXE+wVr+bEKf
-	mcOJnn8ZqiYB2Ea98UxPW3SxsBYowpKvjgm1fUx3fJYKaA0Gb4cx2/Rt8c/K/qd6RU65cNJUvUXTT
-	KUHJRKE8nPxH7MQubFydjmDpOWjVL2uTujok1THehRXLmoIDxTG4SnWL9ATpeFQHXQGgx1/1buYOp
-	cFL0IwaMtVllpw0r7ojah9x1mPLxcFE4TDKHPDHFWhiJBX6BGqHayqmNQx/UpI55PRfqO9OreIJpk
-	v+1lRVC9WBbon9qoUwEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOvhPlTL7QJhMatKQPnVADUYiOtOm0sxgZCmK5Js7YI=; b=r3f3sV6YJi6SKzjh+EpTxZ+tTN
+	QLUrET1ZM7VRg+Jz5EO8Fl27EZgnGEPruhNi15AtEqfSwy75sLEEAF3Rl43ZsOId8qE2/SKmVwZlo
+	QGlZZiTtN006NcWc9Ms2ETuACSwTMs4NOTQpw6JgbU+JA2hTJA7n2rqPw1H8HY4as2hvem62xr5hH
+	448W1bsNsYttcT6NWL1K0D6xQL5PMetJ/pPQyliWbICJVfutbfkUmmHlZN2gxgxqGKik57ycjSu7G
+	mMMUvqjgKjeEbZdLLmjxz1bkSKp3/fnlKBTT8UdlbIUfX9fcCfv7xtJf5uQTxfD3q83es946uxgv6
+	oWR7aR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmCe-00000004EEW-2nJi;
-	Thu, 08 Oct 2026 11:22:24 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1xEmCo-00000004EH2-3DHq;
+	Thu, 08 Oct 2026 11:22:34 +0000
+Received: from out-78.mta1.migadu.com ([2001:41d0:203:375::4e] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmCb-00000004EE4-1Ins
+	id 1xEmCl-00000004EG2-2qb9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 11:22:23 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=JWzImz3cqI9tgDnTW/KJeshwK980DTvrUuQf1fLz0B8=;
-	b=1guiT3+soDEy4fmsY9M99q//qZRaIRuHJyzq5fEef8Qj3/w3AObA6dzEdSHb1IH0K3gEyW1ki
-	7b/18QDVL2913rqtbHY4tnf+G7FmqnLzt7s+l+k+TFkEb8TkP51OSDKncSIwZJlIVdomWQbEy95
-	k3S0KHgMiyPny9mFdpg/qmo=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4j0nMq2f15z12LHj;
-	Thu,  8 Oct 2026 19:10:15 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id CA15340561;
-	Thu,  8 Oct 2026 19:22:12 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
- 2026 19:22:11 +0800
-Message-ID: <169e4e90-2802-4034-a45a-dc7fcc6cdea7@huawei.com>
-Date: Thu, 8 Oct 2026 19:22:10 +0800
+	Thu, 08 Oct 2026 11:22:32 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=pOvhPlTL7QJhMatKQPnVADUYiOtOm0sxgZCmK5Js7YI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791458549; v=1; x=1792063349;
+ b=F2Jh0IOZhYy+e/4hbN6N8cJgAnEhHE45sptBCucCyOvVnTKPVwyOWSLmiURY+xeW3GVzNOlR
+ yr7Td8lyyXH1y0VIiSVIrgM1aKbyK599nf/ziQfSe5La9b6i1e0TTI7TCPILjnzX6/0HE10qLIy
+ a2/IJbIA5MygS/vOSgeTqbjQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 1112542ead686838;
+	Thu, 08 Oct 2026 11:22:29 +0000
+X-Mizu-Trace-ID: 1112542ead686838
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so5967e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 04:22:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByDogkBW2oUcL7wyhg3eyO4/s/dkS9P7DgjXS87RQAHNiLBkbJOnyRCYGQEGzhiH41qBhv1w1CAK3UV0SoeEqyc@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGAKrfanhr23GirdkDhsVK4eE1YYVHUbJuB+5FtmpjgK1sPula
+	pGO0vKwEW7Wuyp1zwl5PKz5h6OC/6TqwPhl18FMxCNN/TGz8H+HxfzHTKYZSHPnJlTwTuE7PS6P
+	8jAsuUPtL8Fl6Tzk+fDa5/3MQufwntKsjRWosKRS9
+X-Received: by 2002:a05:6512:3f18:b0:5b8:c932:f056 with SMTP id
+ 2adb3069b0e04-5bcd5883333mr108768e87.7.1791458544264; Thu, 08 Oct 2026
+ 04:22:24 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/21] arm64: entry: Point SP_EL0 at the overflow stack
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-16-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260918161407.2300-16-will@kernel.org>
+References: <20261007150255.1648849-1-vdonnefort@google.com> <20261007150255.1648849-6-vdonnefort@google.com>
+In-Reply-To: <20261007150255.1648849-6-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 8 Oct 2026 13:21:47 +0200
+X-Gmail-Original-Message-ID: <CA+EHjTwfzp3PdsNe+BU572rvnR5y90D9y1x0DvkzE69Tycvpmg@mail.gmail.com>
+X-Gm-Features: AclHuK-DqSoZ843rAUwPyVhb3bRlvEHte3k5TB9Sea6c7VQ_YeL5anSwTJMWhnI
+Message-ID: <CA+EHjTwfzp3PdsNe+BU572rvnR5y90D9y1x0DvkzE69Tycvpmg@mail.gmail.com>
+Subject: Re: [PATCH 5/5] drivers/virt: pkvm: Allow granule larger than PAGE_SIZE
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_042221_980926_8A9DA1AC 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20261008_042231_858072_3EBC7FA4 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +78,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vincent,
 
+On Wed, 07 Oct 2026 16:02:55 +0100, Vincent Donnefort
+<vdonnefort@google.com> wrote:
+> Both MEM_SHARE and MMIO_GUARD now support a PAGE_SIZE smaller than the
+> hypervisor granule. We can relax this restriction.
 
-在 2026/9/19 0:13, Will Deacon 写道:
-> With SP_EL0 now available for use in the kernel, point it at the
-> overflow stack so that exception entry from EL1h will later be able to
-> switch to the overflow stack by writing to SPSel.
-> 
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/entry.S |  2 ++
->  arch/arm64/kernel/head.S  |  3 +++
->  arch/arm64/kernel/smp.c   | 12 ++++++++++--
->  3 files changed, 15 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-> index a45be0a837c8..6958ee238649 100644
-> --- a/arch/arm64/kernel/entry.S
-> +++ b/arch/arm64/kernel/entry.S
-> @@ -227,6 +227,8 @@ alternative_cb_end
->  	mrs	x21, sp_el0
->  	ldr_this_cpu	tsk, __entry_task, x20
->  	msr	tpidrro_el0, tsk
-> +	adr_this_cpu	x19, overflow_stack + OVERFLOW_STACK_SIZE, x20
-> +	msr	sp_el0, x19
->  
->  	/*
->  	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
-> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-> index c33551ee6572..27a19e1a0ee6 100644
-> --- a/arch/arm64/kernel/head.S
-> +++ b/arch/arm64/kernel/head.S
-> @@ -210,6 +210,9 @@ SYM_CODE_END(preserve_boot_args)
->  	ldr	w\tmp2, [\tsk, #TSK_TI_CPU]
->  	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
->  	set_this_cpu_offset \tmp1
-> +
-> +	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
-> +	msr	sp_el0, \tmp1
->  	.endm
->  
->  /*
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 702dee8d0db5..4c122d6598de 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -51,6 +51,7 @@
->  #include <asm/processor.h>
->  #include <asm/smp_plat.h>
->  #include <asm/sections.h>
-> +#include <asm/stacktrace.h>
->  #include <asm/tlbflush.h>
->  #include <asm/ptrace.h>
->  #include <asm/virt.h>
-> @@ -448,8 +449,15 @@ void __init smp_cpus_done(unsigned int max_cpus)
->  
->  static void __init set_boot_cpu_offset(void)
->  {
-> -	asm volatile("msr tpidr_el1, %0"
-> -			:: "r" (per_cpu_offset(0)) : "memory");
-> +	u64 ovf_sp = (u64)raw_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
-> +
-> +	asm volatile(
-> +	"	msr	tpidr_el1, %1\n"
-> +	"	add	%0, %0, %1\n"
-> +	"	msr	sp_el0, %0" /* Update the overflow stack pointer */
-> +	: "+r" (ovf_sp)
-> +	: "r" (per_cpu_offset(0))
-> +	: "memory");
+nit: it would help to name the restriction, i.e., the res.a0 >
+PAGE_SIZE check in pkvm_init_hyp_services().
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
->  }
->  
->  void __init smp_prepare_boot_cpu(void)
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 
--- 
-Best regards,
-Jinjie
-
+Cheers,
+/fuad
 
