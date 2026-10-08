@@ -4,133 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373E0CA600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 20:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DDACA600E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 20:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7xlQn9VqPCa0QEammaErAeYXmO8mbMfLW7eKnz0Ak0=; b=GILtmUXMLFpEVjBGoLB/U+v9ub
-	QXmZIkTy2UEN7zU4Bp5iVMFVR4phEA8pPM6OLs3dzDCD4468nLLw51LAnDB4KqRGHRuQOx3qzvubt
-	bd2yj+TyOXjstO0Zm1J/5wOEDATyArcvOPXG+ncVJU4DTq6LUvy8Hkf4OhoZ4Q2zPKjK0q/+Qp6rE
-	5QcIMyVYN7LzTZjhjkqPLbJqPytSVzPsOZfx+SqNBND2pRNRJy8luLUYv9OqhDepK2H9fqd+g3bGJ
-	pKXwT9WDMIatKHymTrU5kRhjpI18eNz5u3NcQls6HcgJ1tD7A60PLIH8X51dKbm7IFoAwbREv+b+e
-	5DPvQ88A==;
+	bh=AXqdN5NM/wlg2F8eFqzzica7nKQ60DQkM32wCrMgOZM=; b=TDOOAeeBTeHp5QAxGRLd2hkwV4
+	2RskvTtTNHGLeNhr6qU9cqBl+eL9jBcJmne6PKV13WwV8rhvoiaiO1JMKdB1DdlWpgobTzCFzGGRD
+	XaRqMUYmn4Oh96LsYXxib5QX4n3clihOwl+ELXk9mPk7Ucm74iMWOg0X6QEMuWH9F+sn8Dn+jQTSI
+	c+X8jknvhi6yLzgO/+8W5nlUEQqO+9mKx8zZubN1pWJto0FjsF7J9/plVRhGN/AJ12EQXsjpaLEnS
+	ZCyuQj1lVOB1aejktnXyi4xNmIhAehkgaNmBcRjrqA8jXQ119TdRCkpIDfzuCZ/zsEIEBKqtC8Dy4
+	MDGhQRhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEuhV-000000050o0-45Cs;
-	Thu, 08 Oct 2026 20:26:49 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xEujG-0000000513W-0Igl;
+	Thu, 08 Oct 2026 20:28:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEuhQ-000000050nb-3NOj
+	id 1xEujE-00000005130-20s4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 20:26:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LTYx2zYjEkVkh3v871xfQc2gFHyhZWoOgzna6nYIvvH9gHbUloI3ELCxL+SyKAJph4USki0ri5Mn0RPh+1zvmt5BdNqU8iYJGxubvIpRkip7BWysZKdH97Kow3tpQS/Xl1W25bOE0QBCb6DCPSDLwNGaRmqLCgbsOxT5+qOaLGlwwMaNlVlJa6JgrDEWez6LWTlJQR0qbMS8qUoROSxyPfW4T7c4whvQ3rpzuSISmLw7euC5BgAoUI0SJqhjMjH0Ra4PAqfzv0UsJkI41MvM52y8OnKFRiXuwUZaaOe7SLuHIhilbnRPw6mq9XBIiM1E7JlPwkU9EUnT4PAmTce8tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n7xlQn9VqPCa0QEammaErAeYXmO8mbMfLW7eKnz0Ak0=;
- b=xb0XkRAhi0+mDdUOkYtoNBdBiFzNf6PB+PkKiTV52uEcplyqBZWct9wcBgci+IqKNpjkYwGDJJHrLmGebiuEvIbgCZ+nx7rycUTaM2jn/T/YZ4IPjyUqVS8JiOAeGQA6d7J+dVfWCVLZ+UsImnog6FmhjyRHObOMAVbEQ3lwdIRtly47erIhnrjafgLZQSfx3S87APcD9ElU3Rp+/MxUg7LbSgR/5VEDyklqI5GP/CC3rxEx2eeoerb4CxRq/G3gicQ0TG6MRcojsUggEhdhTRM81vqYPLoYj2u4WasgVvkM3OdmBpZMl85egSReuRF8ArUR/BZwD5IzjoiVOFBl8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n7xlQn9VqPCa0QEammaErAeYXmO8mbMfLW7eKnz0Ak0=;
- b=Ns6Dfbh288rX5ClbByzfKmThzSL8ho3oy9oBh9Cek+g5jE3pMXkvjM05v2OawS8tcLk9GoQxugLxEyZNXdBxgk5vcWA/4G09vwrBx3nHy2cH4CWQT8AU58MyRNBeaoRm35HJ20DW2kawP9iPfreLYSN3+xuuL9lxeUXYcBfno2SvCJZ6yNWEwNwl+JC/wnQp50XUskUdeDrhswSEzUV9g+mKyBqBXdnZhX51OQVUmLnDffYd03mP/YUitGOahXIttbkujAKpn/F8ED22FNKlIM+Vbr7KlxuOiuhVNZIgpIKIvMKQ/Vh5m+BOHLw6umz4TmB8VsoIUNZzaaikXFEm8g==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8876.eurprd04.prod.outlook.com (2603:10a6:20b:40b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 20:26:38 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 20:26:38 +0000
-Date: Thu, 8 Oct 2026 15:26:34 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4 10/10] gpio: mxc: use BIT() macro for single-bit
- operations
-Message-ID: <asf8en4oGzQ0_oPy@SMW015318>
-References: <20261007-gpio-mxc-cleanup-v4-0-c9f5a8b50df9@nxp.com>
- <20261007-gpio-mxc-cleanup-v4-10-c9f5a8b50df9@nxp.com>
+	Thu, 08 Oct 2026 20:28:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB0BA4329B;
+	Thu,  8 Oct 2026 20:28:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B8D1F000FF;
+	Thu,  8 Oct 2026 20:28:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791491315;
+	bh=AXqdN5NM/wlg2F8eFqzzica7nKQ60DQkM32wCrMgOZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P1WnOMAzhX0r0p+dRbQm5BeoFyfpcd3NetZ23g75J+5tUE1LIbd/YHCWDvGgCLu6N
+	 aG9Aa9SVdpmPs6FlZ9wGBTsAb6Zn+ywHdgimkOcCc3CWfTitu7olMeRlHNptNgu3E4
+	 EejlmpRyIMyaQBw8iKqJog0witsYLYjMjhvd0tQKHeEGdxOQO49izGp8nO6XqUNcPi
+	 M/k+AuanHknCantAAJUaqzb0o7OJwMtl1sV8WzsEeljdv0Pz7N2Xw2CJCIouqpI2Pp
+	 wWl2j2Ah6juGjj2KsaObFAt5EA2mBKpED6pwg4qx4tWX+cV/fF9VksSVXl9I+lOJ6M
+	 UdzIbVXDQOZLw==
+Date: Thu, 8 Oct 2026 13:28:30 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yuchao Zhang <ndaugoing@gmail.com>
+Subject: Re: [PATCH v2 0/7] KVM: arm64: vgic-v3: Make LPI disabling robust
+ (and more)
+Message-ID: <asf87i2RDh-WksL-@kernel.org>
+References: <20260929093548.3598547-1-maz@kernel.org>
+ <CA+EHjTybnn2jgVKxCO0WXdGXWJ-=2p4k98CHfh3CrhJopvPDFQ@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261007-gpio-mxc-cleanup-v4-10-c9f5a8b50df9@nxp.com>
-X-ClientProxiedBy: AM0P309CA0010.EURP309.PROD.OUTLOOK.COM
- (2603:10a6:20b:28f::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8876:EE_
-X-MS-Office365-Filtering-Correlation-Id: cad19d98-d3e7-4180-aa6b-08df257a746a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|19092799006|6133799003|22082099003|18002099003|10067099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Ntvwbxw5R5aIg02DxYTMQEAS0Y8nOV/MOwVjMW3Sb455E+5IrYT9rWZnrefOcElGcHUs5m0kDbhYq5LUXWxMifRUq5vBbhwKX5NVLwDrwRnJ5aFmcwXitdbglYpylhMJipiNGFaCGiZG2IeRuRzKhjEK1yftf50jwcPWx2pxaPVwV7gPcXjPU0qL5ajeg7wE3Rvs9ouEykisdRbQzxqxWsekIs+2xykelfnSPPnkIabF+QZ8Chm/TLuOjgv8f/rbFR0SlGCqgBNznWiGXPzS7vr4vfOfK2JNGPqO3UTWKckLY0hjfy2Bc1clh7akI8BVHGrbDAWAh6f2n9/4p/fvTuyYqNWd2ZV+PWIvOBAZ++wgDSJmJGh4UVOsvLzFcjs7XAyC6vFjQ6+5/S1Gm5WXNZy/DrwQQvJ1XT1QM9XNCu4HGFGnAoKvpcsCj3jGikm5GA6OO2m0I7/gC5tWrcfNGhOP0kOODJp4BFMAfRrJIQ27mwLwPek4PqHpPbYF8ZAF/+NfBfPX9VbJidSQe2Ea3tmIYbkYT9IFoB4oDuDRnObZmFV2aJz8SilGuv4SGGXD4r7EDmovDABvgfwMv+56erNPS/JE60VN2NhZds3qfEMuSlb0Y6RzW5VCM4OFrFEo2sBfIfPMG0SPNxSY8HGYbppxgtFCxVWLk/P07E17jBM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(19092799006)(6133799003)(22082099003)(18002099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6YtkOu8pheqOCEQga6WDxom1vX0ADJFK+as+dzFq9ehfqD7UI5P9cLfCdZ6i?=
- =?us-ascii?Q?JcsaMqA8rZ5y8wVIxGq1OyE9g3RXUA8lowdlRuEAqUSaenFVVLDThQWyTYVr?=
- =?us-ascii?Q?kitQpcLt17qPQsOEKteW56qs4nDoD3jEW6KCTA73nQKnpzgdiXKLKsR+MvwN?=
- =?us-ascii?Q?E1F+8Iyp5IM1N6qiD0qu71+0NPTVXsYnmwmAIQrBk1LQWppku2Sa+1VQU+bC?=
- =?us-ascii?Q?2/0gVx1539K50DF2y6vfZilvgF5cGzJ8+B1ZFO3E+iZxK7dDm0r7TI0iIjYg?=
- =?us-ascii?Q?E4iuwlw9pUpaPgFbOcd7JI5GMU8zfGiLU/yy672r/c6lI20KC3HUQi9w2lOn?=
- =?us-ascii?Q?cdZhMfZKaC+eRcyksWe++VU5G6hK0NeBf2M0EWy6jmG4WIDLgaD2TLYpEw2Z?=
- =?us-ascii?Q?NwuSynZ1/wIqR8vbCUdTDiam8JyyHszWV50l50gJfVq0psjaJJWE1orOgqmm?=
- =?us-ascii?Q?ExAV2lNh1y8+dZvzRJSb/gEQKl+P7GytCLlfk+WdZIwvl2BBaykxLH2cUiX5?=
- =?us-ascii?Q?x/e0T2BSsE1lwcjoGWYkjDI0d+3e4IGVx0iMReUynOWFk1qRfJMesR4y+Iab?=
- =?us-ascii?Q?A8meOdTqm4pEe3i+RUtl8/XoaaU5HB7wH5p79rNJQs+ZgSDSZS8u82zz1L6D?=
- =?us-ascii?Q?02x8iYqPd6fZXKrdw98utvJ2I3Brea8d9nTsS+7udk9vU8euWFoUMKVgjaCi?=
- =?us-ascii?Q?lik3z6QX8PhmLMqszMxfDESrrheqZaQTN244Dt3n4NBf5oU0cTm0M0E16BY5?=
- =?us-ascii?Q?XfwadcQ3MCdnyLcZmYH2Jhz21bO+izWoQL1G0qoqVgHhMEX08ToKc7+q3u1S?=
- =?us-ascii?Q?b74l216iZEjkSAROBcBIDaLst4qUHbsNP0Bsi58rVPaZlggrGZ0yspXDQyck?=
- =?us-ascii?Q?WPHF8XC14yHc4G61/ON3E5jgpR/bQUg3oH7yqH/V07dku4FhU/GzoReDhBo8?=
- =?us-ascii?Q?Yb5890L12XJWT850n68v1n91ViX4hwX0nBI6rgoU2DhSWK04c6FyEV9ZSkQf?=
- =?us-ascii?Q?L5kseN/HPHj9GqaY9407cMNk+r38aHdMHeaYfKmvmfdYJ/Zl+f/iW5Uh6zkb?=
- =?us-ascii?Q?elFW0AjQbt6ne61L3B6y5wxYd9/gkNubaVK/Kb1uFg8bus6oHdKurAtiC2ig?=
- =?us-ascii?Q?lEnmjW5tLs0K7nwBZ4j1KPqflw6Fa3tBk0LbHNE8mV+4xJalI8/C3+ZkfhQS?=
- =?us-ascii?Q?x3BnKXrx+1ZWhBa1n+PmkHBg/Jq98FMm5PA/DHOyodBeWJzrG1PLiAbZtKbF?=
- =?us-ascii?Q?k+wRABb/dOi74Rv+guJKp78LBf6Iih1oLA/Kjmf9qgGmI0d/73l2YviPCi9+?=
- =?us-ascii?Q?Gt5YBu8FrUrxvk1bfcwiW+F0h/NtzimyGXX1N/OSMxdaQO+yJOq9cb/d5ZL+?=
- =?us-ascii?Q?A90Wd3R/yh7wwbu7Ut3AuPa9gs0t0U9JpQRfSVVel0EuzWBGBxjpeKYr2Cgw?=
- =?us-ascii?Q?cCF0gnjlwTra7REJYdXR7EHc6qIT7VfV1txAz5xaD5EvQqqS9PvpeOMoF+hn?=
- =?us-ascii?Q?g+ufJ39zKjaaXQNAgG+onpxoDyIF5We1WkyGh7Lq06MEz0vh2SfrYiWLdDDa?=
- =?us-ascii?Q?UlmHfYEcuTS5szxVIOqukB6T5BQ389iuWLSa3ISac1s4Mm9JYjDg2RSfcl8g?=
- =?us-ascii?Q?tX1Q61X/tbrq5sqFqc8ZmgTWxy1WG19RCSrRc/oWIXLV6ZkXFQsJ1LIOHoG5?=
- =?us-ascii?Q?5y1zry0fGdCs9CKrBA8zAcEUbY9xexCDUHo/IF5QSkqrti1ebnCVaQxq8Fn6?=
- =?us-ascii?Q?/JdZ+wKQ4WkUQJ44JJmAHXUNFHCW4n7mj4mb7tiowXeAHp1zU6Q4?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cad19d98-d3e7-4180-aa6b-08df257a746a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 20:26:38.0943
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QAoGFdperjGEXgbWVTn6qQGdkeiFPw67+ShUmCH3LYg7PBOkZCwc4k8oaUGQkoh/NMvWEgu1nQUlvbXB7M6Df6PQT3WE+ISZC52wPYUHBQsBGoUgUknuRwHwHsXbLOAj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8876
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_132647_968726_6C9FEB3F 
-X-CRM114-Status: GOOD (  17.93  )
+In-Reply-To: <CA+EHjTybnn2jgVKxCO0WXdGXWJ-=2p4k98CHfh3CrhJopvPDFQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,87 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 06:44:25PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Replace open-coded '1 << n' shifts with the BIT() macro throughout
-> the driver for consistency and to avoid potential signed-shift issues
-> when the bit index is 31 (1 << 31 is implementation-defined for
-> signed int).
->
-> No functional change.
->
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+Hi Fuad,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Thu, Oct 08, 2026 at 07:15:46PM +0100, Fuad Tabba wrote:
+> Hi Marc,
+> 
+> On Tue, 29 Sep 2026 10:35:41 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > Address the two issues in one go, by actively taking a refcount on all
+> > IRQs referenced by last_lr_irq, and making sure that disabling LPIs
+> > force all vcpus to be paused, making it safe.
+> 
+> I'm triaging Sashiko's pre-existing bug database, and I ran into
+> something that I think this series doesn't cover.
+> 
+> vgic_its_inject_cached_translation() doesn't check vgic_lpis_enabled()
+> (the slow path, vgic_its_resolve_lpi(), does), and pausing the vCPUs
+> doesn't stop an MSI coming in through irqfd or KVM_SIGNAL_MSI. So an
+> MSI that hits the translation cache between vgic_flush_pending_lpis()
+> and vgic_its_invalidate_all_caches() can still end up on the ap_list
+> of a vCPU whose LPIs are being disabled, after the flush.
+> 
+> Could the cached path check vgic_lpis_enabled() on the target vCPU, or
+> am I missing something?
 
->  drivers/gpio/gpio-mxc.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-> index 39de616cd434..ad50b602c4a1 100644
-> --- a/drivers/gpio/gpio-mxc.c
-> +++ b/drivers/gpio/gpio-mxc.c
-> @@ -209,7 +209,7 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
->  	int edge;
->  	void __iomem *reg = port->base;
->
-> -	port->both_edges &= ~(1 << gpio_idx);
-> +	port->both_edges &= ~BIT(gpio_idx);
->  	switch (type) {
->  	case IRQ_TYPE_EDGE_RISING:
->  		edge = GPIO_INT_RISE_EDGE;
-> @@ -229,7 +229,7 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
->  				edge = GPIO_INT_HIGH_LEV;
->  				pr_debug("mxc: set GPIO %d to high trigger\n", gpio_idx);
->  			}
-> -			port->both_edges |= 1 << gpio_idx;
-> +			port->both_edges |= BIT(gpio_idx);
->  		}
->  		break;
->  	case IRQ_TYPE_LEVEL_LOW:
-> @@ -246,10 +246,10 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
->  		if (GPIO_EDGE_SEL >= 0) {
->  			val = readl(port->base + GPIO_EDGE_SEL);
->  			if (edge == GPIO_INT_BOTH_EDGES)
-> -				writel(val | (1 << gpio_idx),
-> +				writel(val | BIT(gpio_idx),
->  				       port->base + GPIO_EDGE_SEL);
->  			else
-> -				writel(val & ~(1 << gpio_idx),
-> +				writel(val & ~BIT(gpio_idx),
->  				       port->base + GPIO_EDGE_SEL);
->  		}
->
-> @@ -259,7 +259,7 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
->  			writel(val | field_prep(MXC_ICR_MASK(gpio_idx), edge), reg);
->  		}
->
-> -		writel(1 << gpio_idx, port->base + GPIO_ISR);
-> +		writel(BIT(gpio_idx), port->base + GPIO_ISR);
->  		port->pad_type[gpio_idx] = type;
->  	}
->
-> @@ -298,12 +298,12 @@ static void mxc_gpio_irq_handler(struct mxc_gpio_port *port, u32 irq_stat)
->  	while (irq_stat != 0) {
->  		int irqoffset = fls(irq_stat) - 1;
->
-> -		if (port->both_edges & (1 << irqoffset))
-> +		if (port->both_edges & BIT(irqoffset))
->  			mxc_flip_edge(port, irqoffset);
->
->  		generic_handle_domain_irq(port->domain, irqoffset);
->
-> -		irq_stat &= ~(1 << irqoffset);
-> +		irq_stat &= ~BIT(irqoffset);
->  	}
->  }
->
->
-> --
-> 2.51.0
->
->
+Hmm, since there's no parent lock between disabling LPIs and translation
+cache fills I believe there's still a chance for this to race. We could
+have vgic_target_oracle() return NULL if LPIs are disabled at the
+redistributor, then the rest of the AP list machinery will "just work"
+for injections that slip between the cracks.
+
+If only Arm went a bit further than "strongly recommends" on migrating
+LPIs _before_ flipping the bit...
+
+Thanks,
+Oliver
 
