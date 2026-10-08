@@ -4,84 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5143CA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 19:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96749CA600E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 19:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+63oyHFpVlKLm2fFB+eRfZfb7Yox0WTva56stGfeC/M=; b=uaaqgCd515ysr1UDEsNAQZZBwy
-	tjFEuSP0/Ls/47Q9pRR26d8W2EDavsb4pzIDCEOfFjvvBEgALLJvHXoIA10aD4+/F1PMMGJ/NywwW
-	A61GNYVnIWhFYyUyVuhfHtr2QXeO9Ei4BOUd5ktCrWvzSxN5KtmSnMSXOh0MQCxSXGPMLzHzCQsYV
-	uXr+JYeFbCH/Sa7dqGNZ1L21Y313IVjUKV/+T3FIMkpgAz6aNcV2slH5ZmlSRfHQkWka1HTskGoOf
-	ZRyx22SzM2Gdg0A1E1Wh7RMXBAEPlDC89vTzFa9htgUyJl1lXuED2YQz6thda1fuOF83VsQyTFBfg
-	GchK+gbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23uKYxmoySlp6REJxlYJvE+Uk9Vl3V7y8fMNqG3cHos=; b=wp3ZaYJavvm8cP33RFjn7H7kXF
+	W/QdYZino3QsD2qQS36/1L2gaMP0+IHyWh5pAHf6k4zRh/vtZqK7UQ00MjHXR9VFEh8f5UEhTwXlq
+	8M9knApgG0xicQi028FLVdCXVvOjSdxkqLAqZlnhmcoj52zIC8jT8MdwLyh8yl1zCgXH0yXwYJVS4
+	MEZfwqR9XUa91mb+XOLQvEUMjioSvspa0E3N509mu56kfUkcEAVShsZKhhmGnKcuEoZDiB0uGrsr5
+	CEsOjchL0Dwg2NihNIXAxtw+onk/X8yCJQ6wWJNfF+wwAy0Y6qE06Oy1Esm39FG8m5FEWFrrPQHKQ
+	BMbD8wWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtgm-00000004vNb-0Jg0;
-	Thu, 08 Oct 2026 19:22:00 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1xEtyc-00000004wWq-0qAk;
+	Thu, 08 Oct 2026 19:40:26 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtgj-00000004vN7-21WQ
+	id 1xEtyX-00000004wTU-3cLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 19:21:58 +0000
-Date: Thu, 8 Oct 2026 21:21:17 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1791487313;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+63oyHFpVlKLm2fFB+eRfZfb7Yox0WTva56stGfeC/M=;
-	b=3NiQg1KM/RxrWv3Es8saISg/XEX0a7lyhAveiP9Hacs4na48cGEdg7ueZ1y22mY3KnoMyU
-	jcvyh81zOjXYkNaa2mXRBXgDBEGBbADfkvOOxhfHxWRyINmeqWf6GGE8B6SGP6air25VHU
-	9UuUkjEbbXEGmJTMP3+N4KmRJYmgd60xG4O0cdc0CTC65f+SMWWQHkDqnMqvxPBQ1Ses3r
-	PN7v0XLiJtAk5G/z3itnHA4lbVcrKIKbQ4WqSbQLmSXDUwx0gWJgo4Iu1bbCuiPpPPpdDB
-	l2wzUjmSbwTefo1Y7dNvDZSu4ZF4HGeUciWM85uoo1cz97dT38k75mzXtuTyqw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1791487313;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+63oyHFpVlKLm2fFB+eRfZfb7Yox0WTva56stGfeC/M=;
-	b=BVMxivl8vZ4TUv3H5NJDMo+/BPW5ck32et6AZKG7cYAm1fHunVmkFylJ54M2+v26uqsj6S
-	TKtEAhN0jmgfFyDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Waiman Long <longman@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
+	Thu, 08 Oct 2026 19:40:23 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so65008575e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791488420; x=1792093220; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=23uKYxmoySlp6REJxlYJvE+Uk9Vl3V7y8fMNqG3cHos=;
+        b=U4+FUZHh2emqAF7XNGNPIM3o7CNKdCrm1vbTFvsX0n1KnlSYspfHbvVbJRUU3v68eR
+         VpwAKCguUg+h1S59dS6qGq9iSsK+MC9IP9fEp3G5KSaAOyp9woOOau6rmuoL5xWkdJt6
+         3THD6pL8dpE2p1SkuB8P5CPfP6brtyUhP5qzIUH7Or95RFjfe8t54HH2XXtszJ3YZUjq
+         KGJgf+0dcRas/V1P4OgpvddVADbU3YuUDWyQhjL9XZqnPHSavo015vLTLIBkoq2JHyuC
+         VC51/leBcl9ysOZt/4DZzdsNXVB7nCoRpBOwQmFYuGifLSgL7QJ88PDFQHKpFnCyduk9
+         T21g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791488420; x=1792093220;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=23uKYxmoySlp6REJxlYJvE+Uk9Vl3V7y8fMNqG3cHos=;
+        b=MvxMvXU+s6uljlbtB7vDbwbpYjgLhKZ/3CAGrQPeffDgu34GYIonBI9MMb7TY8FfYA
+         KWc+jg/jeC0MNWykIr/KecAn9/m7NLYLvSy3xZ/S/pVMlgADTvIAXaeh6vW4y6WdwWlB
+         C9EaveJ2PPVWkKA+H9s2U1qM9OKAwhOr4ehNbiYtxo5ogrNdoNrSrQg0bUHVItHCXhLM
+         0pj0Ds67u+97Z48rPZHDALQ+C9o6LnhI7+H2Q+Bkm/fOL2+B4/XYay1NmCwjKrKgklKQ
+         RfkhAuUZH1fza5jfs2PJagLje8u/XEcrZGa5YKQeJpu8TRZjJX08mkcu9ITCZKp4oNuL
+         6Riw==
+X-Forwarded-Encrypted: i=1; AKwUvBxNmTUeklVul4u6ymariXn81LZkTy1kMWnOCd81U0uH2PYIdcO7/Ov8FWC3H5qPZPF9uxr0E6Qm2ejTrZ1Jl8WQ@lists.infradead.org
+X-Gm-Message-State: AFuF++k7xCwrnQ6QEbQ5UXIOJ0kV387NxnvzSb4ryvIJV54a6BpJb9A5
+	NDiGRYx+F1bkHS03ZIh9rOnakN4DhoF3UD5GkXwXIhIfuhtM2d7Emuuv
+X-Gm-Gg: AYBFou3YmtVtz8R7i29TlLFCjkWT4SoxImVrx01dONsBryHw5e3r3AKQlvb9CJqsZJN
+	MSy8fncbZyL3Z+jYWERd1Pfhej745g3dv9dP4XDmReH9lrJ/3GsBJs7XBTPY4RWL4/Arspk1VOh
+	7Y/RDAu/3UtO6ltQpiIeLDY688S45LOO/H+Db5OznqEvJgAo9GSRXrVtQIf7j6p3IMUkAE1lIo5
+	Fws6SE7JwbzTtT/sFHYlhGBalSec8JPNvBlNcjONUT0fAlkYJMCdQSyW1HcNQUV8nGvLh2TdyUh
+	cMugwI5ZWTZU5Rsy5t6xRky7YfSDnmMnzUxQDkVbSaKBn8BDKs1CAhxkpgkf1MSc/A8Bef2XfhP
+	7N4+uN038mLoQjxAszVzILnxLPtc8sVT19mErIOYMV2D+xR8n2Yed4W56XjwMguP5DnUGyEsMxG
+	0SGP6SxJ0w3SGQoZStpkEuaBFn4V8Iu8wp4rSODY7Vay6PbYJGLq9b6BKfjjQqKpzwQM69kwzv/
+	NriGfebHN3mvjXW0aO8DBWbt4cczoCMYwNag76ZHgIWekYvlomk/MqdJc6AYl3kAjXEVi8Gubhl
+	FeLAVL/3QRChkZ0EIOrhT8G+I8sxMm0JjQ==
+X-Received: by 2002:a05:600c:609a:b0:4a0:2540:b46 with SMTP id 5b1f17b1804b1-4a18031130emr114964675e9.12.1791488419663;
+        Thu, 08 Oct 2026 12:40:19 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Oct 2026 12:40:19 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
-	WANG Xuerui <kernel@xen0n.name>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH v3] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP
- notification to task_work()
-Message-ID: <20261008192117.ZIKKU3Yh@linutronix.de>
-References: <20261001143516.Ew8C97WS@linutronix.de>
- <fd405cda-51bd-4b1c-803c-f2597b2b128e@arm.com>
+	Shawn Guo <shawnguo@kernel.org>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH v5 03/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULZ board variants
+Date: Thu,  8 Oct 2026 21:37:43 +0200
+Message-ID: <cb2311ceda0efe83d2a05d2d0488d547043b1d47.1791487179.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1791487179.git.stefano.r@variscite.com>
+References: <cover.1791487179.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <fd405cda-51bd-4b1c-803c-f2597b2b128e@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_122157_680699_154283C9 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20261008_124021_948476_6EE5885A 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +129,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-06 18:17:52 [+0100], Ada Couprie Diaz wrote:
-> Hi Sebastian,
-Hi Ada,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-> I find the function names a bit counter-intuitive, compared to the other
-> arch-specific perf functions.
-> Given the name `perf_arch_...`, I would have expected them to be defined
-> in arch code, rather than in the generic perf code.
-> From what I can see, usually perf functions calling an arch-specific
-> function lack the `_arch_` infix of their `arch_` counterpart.
-> 
-> I do not know very well what we expect in perf, so I might be off-base,
-> but would calling them `perf_hwbp_send_sig()` and `perf_hwbp_notify()`
-> make sense ?
+Document VAR-SOM-6UL configurations on the Concerto and Symphony
+carriers and DART-6UL configurations on VAR-6ULCustomBoard with
+i.MX6ULZ.
 
-Thanks for looking at this. I renamed them as:
-- perf_arch_hwbp_notify() -> perf_hwbp_notify() (generic)
-- arch_hwbp_send_sig() -> perf_arch_hwbp_send_sig() (arch specific)
-- perf_arch_hwbp_send_sig() -> perf_hwbp_send_sig() (generic)
+The compatibles identify the SoM storage, wireless and audio options
+followed by the carrier, module and SoC compatibles.
 
-> Otherwise, it looks good to me on the arm64 side !
-> I had a look on the arm side as well, given the debug handling architecture
-> is similar, and I think it is OK on there as well, though I wouldn't mind
-> a more experienced arm review :)
-> 
-> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> I also tested the patch with pNMI and CONFIG_PREEMPT_RT on arm64 : I can
-> confirm that the atomic sleep warning is gone and everything works
-> as expected !
-> 
-> Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com> (arm64)
-> 
-> Thanks a lot for looking into this, combined with[0] the hardware debug
-> handling should be much cleaner ! :)
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+v4->v5:
+ - Put fsl,imx6ulz before the fsl,imx6ull fallback in the new Variscite
+   entries. Leave the existing EVK and BSH compatible order unchanged.
 
-great.
+v3->v4:
+ - Split the board binding by SoC and add separate VAR-SOM-6UL and
+   DART-6UL entries for i.MX6ULZ.
+ - Drop the redundant -board suffix from new Concerto and Symphony
+   compatibles and use sorted items/enum lists.
 
-> Kind regards,
-> Ada
+ .../devicetree/bindings/arm/fsl.yaml          | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-Sebastian
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index ca6778b8777f..d75a08cc11cf 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -945,6 +945,50 @@ properties:
+           - const: fsl,imx6ull # This seems odd. Should be last?
+           - const: fsl,imx6ulz
+ 
++      - description: i.MX6ULZ Variscite DART-6UL board variants
++        items:
++          - enum:
++              - variscite,dart-6ul-imx6ulz-emmc-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-emmc-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-emmc-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-emmc-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-emmc-wifi-iw61x-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-nand-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-nand-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-nand-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-nand-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ulz-nand-wifi-iw61x-6ulcustomboard
++          - const: variscite,dart-6ul-imx6ulz
++          - const: fsl,imx6ulz
++          - const: fsl,imx6ull
++
++      - description: i.MX6ULZ Variscite VAR-SOM-6UL board variants
++        items:
++          - enum:
++              - variscite,var-som-imx6ulz-emmc-sd-card-concerto
++              - variscite,var-som-imx6ulz-emmc-sd-card-symphony
++              - variscite,var-som-imx6ulz-emmc-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ulz-emmc-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ulz-emmc-wifi-brcm-concerto
++              - variscite,var-som-imx6ulz-emmc-wifi-brcm-symphony
++              - variscite,var-som-imx6ulz-emmc-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ulz-emmc-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ulz-emmc-wifi-iw61x-concerto
++              - variscite,var-som-imx6ulz-emmc-wifi-iw61x-symphony
++              - variscite,var-som-imx6ulz-nand-sd-card-concerto
++              - variscite,var-som-imx6ulz-nand-sd-card-symphony
++              - variscite,var-som-imx6ulz-nand-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ulz-nand-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ulz-nand-wifi-brcm-concerto
++              - variscite,var-som-imx6ulz-nand-wifi-brcm-symphony
++              - variscite,var-som-imx6ulz-nand-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ulz-nand-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ulz-nand-wifi-iw61x-concerto
++              - variscite,var-som-imx6ulz-nand-wifi-iw61x-symphony
++          - const: variscite,var-som-imx6ulz
++          - const: fsl,imx6ulz
++          - const: fsl,imx6ull
++
+       - description: i.MX7S based Boards
+         items:
+           - enum:
+-- 
+2.47.3
+
 
