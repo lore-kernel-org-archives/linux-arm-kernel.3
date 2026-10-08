@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7948CA600F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736DDCA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 11:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J0lKCE3RmRvCGQ3yXVZPn/3i5EvH6SPYE4vOGbYePsM=; b=rS8WLDac9k4cYk
-	zT7GC6KKxtmlwQYz36Wmnuf+vPwBWmU6UdcxQq92JJBRdcdtjCmPeJ2eYm2EwpAQwue2XUi+vQt48
-	Cq9cUN3CXngJoijZVa3hxfCwzldd1kWvcsU0R6jte5GFhziQpZDnZ2hT/MpODNbTfRYHadDgRhog2
-	E+/ldDlwW0khNrUMOZHsmKGnXLTYun31PS7FKsaKk9L2Q8MtK6MREodvKRfsmdKMZm/QKPwYXGijT
-	/YlXnq52wlBO5xPQDYHUwILq0DeohoE+IsWle+W+YXxL28UhygJdD9ybnAvyfiAnX5WFLpXzFsteB
-	ReJI2CP+7p1HMltKZWkw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i4oGaJQV3XJqsm/hWoRJNMCRGKUS59OxQJLz4fnNv00=; b=UqHG2XBmT3tH8kGnm3R2jBxsiq
+	R9FG76yDVbyS4p5UxL0CUwjMa74PmzCoZIGqHcolxW9CISqoH2vsl1ziNxQ2KoM1Hw38yGp/YT7fn
+	BPD5Hf+G/hmHya9buglQe5N5VhIicSAeQEupas00DjVj18rlPN4PcVsqCfxzpIEKR6zWlh/SuGsvp
+	qcEDUwmFuy4MFEHgWhmXuPGRR2sqPBVAp6zdNaI2G+ZRE4/B8EShF3g6Wk6VdpUjE3SLcbVDJWZ0D
+	qSSJBKq9wQJkC4RbnKt/sS68GMWUd6fd0kiQz8VeLi2+h0G9qbd0OgjTXTg6cYpwg9lz73suOgNpt
+	Xs5YELaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmIk-00000004Ezh-1laO;
-	Thu, 08 Oct 2026 11:28:42 +0000
+	id 1xEmIt-00000004F5U-16rl;
+	Thu, 08 Oct 2026 11:28:51 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmIh-00000004Eyu-0xi3;
-	Thu, 08 Oct 2026 11:28:40 +0000
+	id 1xEmIm-00000004Eyu-3yLE;
+	Thu, 08 Oct 2026 11:28:46 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 8 Oct
@@ -34,16 +34,14 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Thu, 8 Oct 2026 19:28:28 +0800
 From: Jacky Chou <jacky_chou@aspeedtech.com>
-Subject: [PATCH 0/3] phy: aspeed: Add ASPEED PCIe PHY support
-Date: Thu, 8 Oct 2026 19:28:18 +0800
-Message-ID: <20261008-aspeed_pcie_phy-v1-0-96764937aef0@aspeedtech.com>
+Date: Thu, 8 Oct 2026 19:28:21 +0800
+Subject: [PATCH 3/3] MAINTAINERS: Add ASPEED PCIe PHY driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFJ+x2oC/x3MSwqAIBRG4a3EHSf4CIm2EiGmf3UnJQpRRHtPG
- n6Dcx4qyIxCQ/NQxsmFj71CtQ2Fze8rBMdq0lJbaY0UviQguhQYLm23MJ2yapamtwZUq5Sx8PU
- fx+l9P07DBk1hAAAA
-X-Change-ID: 20260630-aspeed_pcie_phy-34161b03863e
+Message-ID: <20261008-aspeed_pcie_phy-v1-3-96764937aef0@aspeedtech.com>
+References: <20261008-aspeed_pcie_phy-v1-0-96764937aef0@aspeedtech.com>
+In-Reply-To: <20261008-aspeed_pcie_phy-v1-0-96764937aef0@aspeedtech.com>
 To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
@@ -54,16 +52,16 @@ CC: <linux-aspeed@lists.ozlabs.org>, <linux-phy@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791458908; l=1483;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791458908; l=878;
  i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=iu4Zl2XLhk1c2sygQvsZ6Yp6z//xHF44lf3a3D+enh0=;
- b=WEva4gZIureOwV8wbKrsmtAfd2JtufHc6mn7kCstj8/nqIh8PqvVumxtDKzG2pskx3VXMDz6L
- iHViDNsxYxrADPJ3jP7f1HmbExdLIosqCQl8al7SFuRz5mUjoDKKNM/
+ bh=YHD/I/0JKp9KeOT+Xzp15SjhKbuwAUqqCo+GFOfkoDI=;
+ b=GCJ1DAkF3dtg0StyLJYn2Lu/VzaT7HCKTM8mzTXwp5k942BVdvTflXXUroYQt0WOwGHTKAlqK
+ o1YRyouBCddBUUGxJUaunwhpIpwZQiAcFqefBaNbn79+q1OYswjPzb8
 X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
  pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_042839_273545_D1F2CE6A 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20261008_042845_035247_B004A964 
+X-CRM114-Status: UNSURE (   7.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,39 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ASPEED PCIe PHY binding and driver for AST2600 and AST2700
-SoCs. The PHY provides the physical layer used by the PCIe controller
-when it is configured to run in root complex mode.
-
-The driver registers an ASPEED PCIe PHY provider through the generic PHY
-framework and programs the SoC-specific PEHR registers from set_mode().
-For AST2600 this selects the root complex port type. For AST2700 this
-also configures the posted/completion credit values, local scaling,
-device type, internal reset selection, and downstream port setting
-needed by the controller.
-
-This series also adds the devicetree binding for the PHY provider and a
-MAINTAINERS entry for the ASPEED PCIe PHY driver.
+Add maintainer entry for ASPEED PCIe PHY driver.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
-Jacky Chou (3):
-      dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
-      phy: aspeed: Add ASPEED PCIe PHY driver
-      MAINTAINERS: Add ASPEED PCIe PHY driver
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- .../bindings/phy/aspeed,ast2600-pcie-phy.yaml      |  49 +++++
- MAINTAINERS                                        |   8 +
- drivers/phy/aspeed/Kconfig                         |  12 +-
- drivers/phy/aspeed/Makefile                        |   1 +
- drivers/phy/aspeed/phy-aspeed-pcie.c               | 237 +++++++++++++++++++++
- 5 files changed, 306 insertions(+), 1 deletion(-)
----
-base-commit: ea01f446f0682a5e7bd7a275889a890b7e0c6e02
-change-id: 20260630-aspeed_pcie_phy-34161b03863e
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0570815ee980..33a0336110a7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4044,6 +4044,14 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/crypto/aspeed,*
+ F:	drivers/crypto/aspeed/
+ 
++ASPEED PCIE PHY DRIVER
++M:	Jacky Chou <jacky_chou@aspeedtech.com>
++L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
++L:	linux-phy@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
++F:	drivers/phy/aspeed/phy-aspeed-pcie.c
++
+ ASPEED PECI CONTROLLER
+ M:	Iwona Winiarska <iwona.winiarska@intel.com>
+ L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
 
-Best regards,
 -- 
-Jacky Chou <jacky_chou@aspeedtech.com>
+2.34.1
 
 
