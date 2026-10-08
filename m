@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846A5CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1FECA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=09vdsORecMf9R07NLZLGzvSGWUHz+vByZgriB/KkWl8=; b=qc2HoMcd7GPiRbxgqv/DKl83lz
-	AlKELaILuaryZqQ5fcf3RObrQTfewieB0j2oIkcUh0nrZjB9W4BVJ1x9k+dG2N2TageCcO9delKzh
-	ZExxhPsetAHL4XiffbJraN7gKtt9OqqFy89ku/nwuv32I3FWWslrQWqqjjgic8SNtILPdhLniJUSI
-	KgTyXoFfmzrSzRsMSMleKjVrpW9NxP9IzjQl2NAdxPuOunzEnlI4zDwRFn2vDzT/IivOKZIp/6Hrq
-	H6NfCJdMOG8Mm8ICPoD8b/QKHmnpoo+xZ4kJW4YOqSSP/8+YIko23LzZX67BvFIva99f6E6CoF0i+
-	lIOp7ouA==;
+	bh=5QMxcDy++DYkjJXJYZyvIubChEwATxZs066mDelscVg=; b=oNK6I33ASXtBZgNE2QHqF3J2OD
+	mQvSGZs1fhOiE+GW3CFRcx/ejj5bfdy3xuPu0upmm09c5+lL0941zX2/wLo+ehqOd9SDuBfsozaAq
+	HE8zh5C38YFac/18whQDQ3TfCMp7qzrLoXffCeW49QShOunhXMB4sA2++Gcc+YAaRGgt1AyCXdhye
+	Ray/M60Bt0CnVlnEOzXojyY0EuMaotAFbtpJVz1Gwu9sDLPIwtA6kZ7Mu1V3UAuPgm+vYZ3i1ZlwQ
+	cRz5MJWhntsQOtz7GJMYMlTBf7n3fq9Jk/BCGGxnqj4fdg6ntl5VBY989W+xSmyn8wHhKayHuuWV+
+	459L/hpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhB3-00000003aGf-2nYb;
-	Thu, 08 Oct 2026 06:00:25 +0000
+	id 1xEhBC-00000003aKV-3YHN;
+	Thu, 08 Oct 2026 06:00:34 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhB2-00000003aGG-0suM
+	id 1xEhBB-00000003aJt-1AwC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:00:24 +0000
+	Thu, 08 Oct 2026 06:00:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9085341801;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CBD743C65;
+	Thu,  8 Oct 2026 06:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124841F000FF;
 	Thu,  8 Oct 2026 06:00:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94E8F1F00893;
-	Thu,  8 Oct 2026 06:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791439223;
-	bh=09vdsORecMf9R07NLZLGzvSGWUHz+vByZgriB/KkWl8=;
+	s=k20260515; t=1791439232;
+	bh=5QMxcDy++DYkjJXJYZyvIubChEwATxZs066mDelscVg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P9UImMUkB6ZBa0F624VUITeS94cpMKfiMuu5EaO3MED3RxVnqOLaVwp7WKx7GQwDZ
-	 4xjbA3wxek8XKsktpGJQhwYBDUh9wxHXfgcImpQWcYQyBfOEGMn5Wl5EzrqIPWHnnM
-	 kflInl1v/KR6ZELgOsVxBTwE7o4opHWHGsEcaW8NdyAWA3D+bPWE3gsRD4bqg974Rs
-	 j+A8lIytq+lK6vBh/izbBj+Z6UReMVMYwJWXkUzazqs9doPCl8rAEmHFbImtD8SbBe
-	 dd42fX0NRnY93iRcSV0pR4PVXDuz2E+5CNfB69KuYL8xLkgxVhOPaR+nZNq3GlK++B
-	 IKAE5PneqHjpA==
+	b=KQ0uCr3L3qdrwU76AqE7Yax2GKQ5TBVNbUqKyWl6e11lgT1BRT+w9mFT1WZsiMpJA
+	 iFdb1B7BMWnXopu7JN0QzFAZm3QT51V8USyWK/hdQt4RpD3RlCoc3ESjolneLIT+py
+	 a0l2Cla6XReu0i+VXbj0sQlaWfyj2HVcqgk9vPDYed7yuYtXS281pwpXO52SAv+1uk
+	 +qQhkCcu9PQ58JhKpqZfIVUNp1QrSU4x8NRaEIJLHUdfRBnmIFclD0KmSBHfPY+XUy
+	 CDxdJxBeBW1KCjoKx+J30KMJy3wVHEBaou6v+l6mrxZIPDjo4wilkf7KpWwehb1aO3
+	 FfklXGdLqGCeg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev
 Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
@@ -77,9 +77,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Sean Christopherson <seanjc@google.com>,
 	Janosch Frank <frankja@linux.ibm.com>
-Subject: [PATCH v7 01/16] KVM: Introduce file_to_kvm_<arch>() infrastructure
-Date: Thu,  8 Oct 2026 11:29:40 +0530
-Message-ID: <20261008055955.4014342-2-aneesh.kumar@kernel.org>
+Subject: [PATCH v7 02/16] KVM: Add file back-pointer to struct kvm
+Date: Thu,  8 Oct 2026 11:29:41 +0530
+Message-ID: <20261008055955.4014342-3-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
 References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
@@ -101,107 +101,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steffen Eiden <seiden@linux.ibm.com>
 
-Add a macro mechanism that generates an opt-in and arch-namespaced
-file_to_kvm_<arch>() to convert a file reference to a kvm object if the
-file handle represents a kvm handle.
+Add kvm->file as a no-reference back-pointer to the VM file in struct
+kvm. The pointer is set at VM creation time and cleared under
+WRITE_ONCE() in kvm_vm_release() before the file is freed.
+Callers storing the file must take their own reference.
 
-Activate for x86 and for s390 (native KVM only).
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 Acked-by: Sean Christopherson <seanjc@google.com>
 Acked-by: Janosch Frank <frankja@linux.ibm.com>
 ---
- arch/s390/include/asm/kvm_host_s390.h |  2 ++
- arch/x86/include/asm/kvm_host.h       |  2 ++
- arch/x86/kvm/Makefile                 |  1 +
- include/linux/kvm_host.h              | 12 ++++++++++++
- virt/kvm/kvm_main.c                   | 11 +++++++++++
- 5 files changed, 28 insertions(+)
+ include/linux/kvm_host.h | 6 ++++++
+ virt/kvm/kvm_main.c      | 4 ++++
+ 2 files changed, 10 insertions(+)
 
-diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-index cd692f8fb764..8a7eed5847e1 100644
---- a/arch/s390/include/asm/kvm_host_s390.h
-+++ b/arch/s390/include/asm/kvm_host_s390.h
-@@ -27,6 +27,8 @@
- #include <asm/isc.h>
- #include <asm/guarded_storage.h>
- 
-+#define kvm_file_to_kvm_arch s390
-+
- #define KVM_HAVE_MMU_RWLOCK
- #define KVM_MAX_VCPUS 255
- 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 683bb8bf43a9..e460073ff176 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -44,6 +44,8 @@
- 
- #include <hyperv/hvhdk.h>
- 
-+#define kvm_file_to_kvm_arch x86
-+
- #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
- 
- /*
-diff --git a/arch/x86/kvm/Makefile b/arch/x86/kvm/Makefile
-index 0474604ab8a1..e6d395ede9e2 100644
---- a/arch/x86/kvm/Makefile
-+++ b/arch/x86/kvm/Makefile
-@@ -61,6 +61,7 @@ exports_grep_trailer := --include='*.[ch]' -nrw $(srctree)/virt/kvm $(srctree)/a
- 				-e kvm_page_track_unregister_notifier \
- 				-e kvm_write_track_add_gfn \
- 				-e kvm_write_track_remove_gfn \
-+				-e kvm_file_to_kvm_fn \
- 				-e kvm_get_kvm \
- 				-e kvm_get_kvm_safe \
- 				-e kvm_put_kvm
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index cf7fe835c4ad..bc3abfde8393 100644
+index bc3abfde8393..3c5a389361c6 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -1082,6 +1082,18 @@ void kvm_get_kvm(struct kvm *kvm);
- bool kvm_get_kvm_safe(struct kvm *kvm);
- void kvm_put_kvm(struct kvm *kvm);
- bool file_is_kvm(struct file *file);
-+
-+/*
-+ * Architectures define kvm_file_to_kvm_arch to <arch>
-+ * to get a typed, arch-namespaced helper:
-+ *
-+ *   struct kvm *file_to_kvm_<arch>(struct file *file)
-+ */
-+#ifdef kvm_file_to_kvm_arch
-+#define kvm_file_to_kvm_fn CONCATENATE(file_to_kvm_, kvm_file_to_kvm_arch)
-+struct kvm *kvm_file_to_kvm_fn(struct file *file);
-+#endif /* kvm_file_to_kvm_arch */
-+
- void kvm_put_kvm_no_destroy(struct kvm *kvm);
- 
- static inline struct kvm_memslots *__kvm_memslots(struct kvm *kvm, int as_id)
+@@ -784,6 +784,12 @@ struct kvm {
+ 	 * kvm_swap_active_memslots().
+ 	 */
+ 	struct mutex slots_arch_lock;
++	/*
++	 * Back-reference to the VM file for subsystems (e.g., VFIO). Holds no
++	 * reference to avoid pinning the VM. Callers storing the file must
++	 * take their own reference.
++	 */
++	struct file *file;
+ 	struct mm_struct *mm; /* userspace tied to this vm */
+ 	unsigned long nr_memslot_pages;
+ 	/* The two memslot sets - active and inactive (per address space) */
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 85f42289748d..07fc874a38e1 100644
+index 07fc874a38e1..8e49ea809528 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -5519,6 +5519,17 @@ bool file_is_kvm(struct file *file)
- }
- EXPORT_SYMBOL_FOR_KVM_INTERNAL(file_is_kvm);
+@@ -1352,6 +1352,8 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
  
-+#ifdef kvm_file_to_kvm_arch
-+struct kvm *kvm_file_to_kvm_fn(struct file *file)
-+{
-+	if (!file || file->f_op != &kvm_vm_fops)
-+		return NULL;
+ 	kvm_irqfd_release(kvm);
+ 
++	WRITE_ONCE(kvm->file, NULL);
 +
-+	return file->private_data;
-+}
-+EXPORT_SYMBOL_GPL(kvm_file_to_kvm_fn);
-+#endif
+ 	kvm_put_kvm(kvm);
+ 	return 0;
+ }
+@@ -5555,6 +5557,8 @@ static int kvm_dev_ioctl_create_vm(unsigned long type)
+ 		goto put_kvm;
+ 	}
+ 
++	kvm->file = file;
 +
- static int kvm_dev_ioctl_create_vm(unsigned long type)
- {
- 	char fdname[ITOA_MAX_LEN + 1];
+ 	/*
+ 	 * Don't call kvm_put_kvm anymore at this point; file->f_op is
+ 	 * already set, with ->release() being kvm_vm_release().  In error
 -- 
 2.43.0
 
