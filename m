@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9393CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D7ECA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRpIXXch9ORQvuMM32Uo3H+Arh+KSndx0M1M1TwYHmY=; b=y64g1AVMihiY/8uu+veroYzLCK
-	GX5spikox/f+wp/LGP12huatcosQwlhUGNRVKtB8FZNGQAWBRpQ0/jzKtxN0+r+lyhTqTotDXdw/J
-	ARBi1ERb7d3hW7QoQbOeJ/ipzQgxxktDG61FoaPmRfsfhM6UXLLHLeuF07OliLfNNmXWlDJYtHC9V
-	SErwKon22LStiDTqyxAfrdLuqEs3I1MpT0PjJQ53CynFs+0BZp4Y+oRAZ4GiN4DmbAKpf0Mj+pMCe
-	NkdwP85LDPWJ1v3hMHfYq1f2wlGaekgQoj6ZEvGfl87dnIY0FmI2CBC008rLwJVXMqn9TGROWr8vu
-	Lqq5Y0UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ijn+ih/Q433KYekDPNI73gbzpi5KW6K1yDdb5JKu9Cw=; b=2XYb+uK8+9SotdhxgLvjbOdedw
+	C7TZwMdjJ5ES5kkF97nuBs2US7lydrLNSVg4lbImM50PZtrfb0HdrkKcBllY/PZ2fUf/wmfxfQI/B
+	iROAlraYvg6hUbcyrYq0TDPgCkdDhQ9opMbt141yvsQttSHOg9rbu/OoKI8pptdi/yo1HYsUwb0ye
+	DFhQIJlzqFwlXQr3rjoya/a+DVRTwtWhU5dipH77aovy9N8reWgjJh0RYATumTCU8kI8AwZHm4uM/
+	iuN2qFFKLDZdC6Dhbd2Y0hScSYtgjXX+4pxPmZ8I0JpSBPRiL5t8k2Cwqp4eE64X06JlkoNtxc6mb
+	Bweb28rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEo2M-00000004RfG-2jyt;
-	Thu, 08 Oct 2026 13:19:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEo2U-00000004RkA-3D7b;
+	Thu, 08 Oct 2026 13:20:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEo2L-00000004Re6-2h6b
+	id 1xEo2R-00000004Ri6-2jHp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 13:19:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00F8540732;
-	Thu,  8 Oct 2026 13:19:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D318D1F00893;
-	Thu,  8 Oct 2026 13:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791465592;
-	bh=nRpIXXch9ORQvuMM32Uo3H+Arh+KSndx0M1M1TwYHmY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=VCNagyWkpdc/kZY1NXXy8RKIG2UiqEzSGeTtBxTaWA7fGJJDTRv04PeuwS9qkfGY1
-	 4dt3v0L11ublrsxPjdn4YXd+ZdZe4XVJL1knvLkNegcuTU/hK66V4H5UjDry4PcVHk
-	 g96rBvrPiC1GQl603/yaNg34+GyDnp1PVb0COBrg7tW5PDzcWOpHyu0S58lMFuEcrx
-	 ReKALCyq4nuyOnO2K+u1ZhuIZB14KExlAvUmjprpmm1a8v0rjP9HfV73AOKw2u3Fbk
-	 c59/9lTc06+UwbWfWmg7/9EQXg7p4cOSjeWsMkLo1OevnzSb2vnjZ9nra6tRVdu1CE
-	 7ZMhy4kmw/4zw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xEo2I-00000000dqq-0E5U;
-	Thu, 08 Oct 2026 13:19:50 +0000
-Date: Thu, 08 Oct 2026 14:19:49 +0100
-Message-ID: <86cxtk2utm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: michael.reeves077@gmail.com
-Cc: Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Myria Sarvay <myrialsarvay@gmail.com>,
-	Yureka Lilian <yureka@cyberchaos.dev>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	asahi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: Apply existing Apple CPU workarounds to M3 and M4
-In-Reply-To: <20261008-apple-m3-m4-kvm-v1-2-7bb4cbf3d63b@gmail.com>
-References: <20261008-apple-m3-m4-kvm-v1-0-7bb4cbf3d63b@gmail.com>
-	<20261008-apple-m3-m4-kvm-v1-2-7bb4cbf3d63b@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: michael.reeves077@gmail.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, myrialsarvay@gmail.com, yureka@cyberchaos.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, sven@kernel.org, j@jannau.net, neal@gompa.dev, asahi@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 08 Oct 2026 13:20:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791465599; x=1823001599;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=+u2grcbCdhxCd975l0htRzcuvftDxE2QAvyE3v3OQ9Y=;
+  b=u+b7roC39+gJzxR1uPHHXttbloXnkYaavhBC4FzEMwz3PCb+VZSuduoO
+   iJF5Ey4/53b+8Ew+zlfC9bvUbxN2qRH8CN6mm0cyrPWghD7fd2fEp12EU
+   dY+R5WUuIgS3r1CaNC1IHGPv+gbPbQ2v1ERyYSCDemQQo3YR2uK3Jxh3f
+   b8Ngp+x9zW1ls9fWtaQJl+pDyr4IFoPPpETYrb7ZD4qMrvOlgxVKnHkmR
+   6/GAbmnzfCUNcN7JOrmv/LldqJ5UgLJMC1iWPD1nbwVU5a9rdMsqdoWh1
+   ldy9rRtSl40xC9BfM7JBGZ48Ig6qD/JXRKPhye3dQHkgwEdMjXefctLdG
+   A==;
+X-CSE-ConnectionGUID: L6K/bHZ6TFaHAjy0vIlGwA==
+X-CSE-MsgGUID: UGxlOntCQYisPTRiN9YAqA==
+X-IronPort-AV: E=Sophos;i="6.27,146,1787036400"; 
+   d="scan'208";a="65038497"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Oct 2026 06:19:59 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 8 Oct 2026 06:19:38 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 8 Oct 2026 06:19:34 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Date: Thu, 8 Oct 2026 15:19:03 +0200
+Subject: [PATCH v10 3/5] ARM: dts: microchip: sam9x60: Add GFX2D GPU
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261008-cpitchen-mainline_gfx2d-v10-3-67ca2477b3d5@microchip.com>
+References: <20261008-cpitchen-mainline_gfx2d-v10-0-67ca2477b3d5@microchip.com>
+In-Reply-To: <20261008-cpitchen-mainline_gfx2d-v10-0-67ca2477b3d5@microchip.com>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>, Manikandan Muralidharan
+	<manikandan.m@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=993;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=+u2grcbCdhxCd975l0htRzcuvftDxE2QAvyE3v3OQ9Y=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ9bxGaFzTv35OaNl3weNoxJKm7n8+x7ItC48OTWg5McDs
+ VN2dbeLO0pZGMS4GGTFFFkOvdnam3n81WO7V6JSMHNYmUCGMHBxCsBE3FUZ/qdKnMly+1gZyLiH
+ ySIj8D6Df8WJpxkHFj/ccuvVp5LTU1kZ/kdcuXeem+fOvruLr/MWTrq/suH/pml855a8Ynj4WPt
+ iwyR2AA==
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_061959_754870_DBEED28A 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+Add support for the GFX2D GPU.
 
-On Thu, 08 Oct 2026 13:15:41 +0100,
-Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org> wrote:
-> 
-> From: Michael Reeves <michael.reeves077@gmail.com>
-> 
-> Add M3, M3 Pro, M3 Max and base M4 to apple_cpus so they receive the
-> existing PMU trap and broken SEIS workarounds needed by KVM.
->
+Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sam9x60.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-How have you established that these CPUs suffer from the same SEIS
-erratum? I'm all for working around bugs, but I'd like to make sure
-the new fancy stuff is indeed just as broken as the old shit...
-
-For the record, the EDKII build in the QEMU EFI package that was in
-part of Debian Bullseye was able to trigger the bug semi reliably
-(series of writes to ICC_EOIR1_EL1 for interrupts that were never
-active). This happens on handover to the guest kernel.
-
-I can provide the binary (and a few scripts) to test this easily.
-
-Should they have been fixed, we can always create a second
-implementation list to cover the PMU.
-
-Thanks,
-
-	M.
+diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+index e708b3df4ccd..1155f4f997f8 100644
+--- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+@@ -351,6 +351,14 @@ AT91_XDMAC_DT_PERID(26))>,
+ 				status = "disabled";
+ 			};
+ 
++			gpu: gpu@f0018000 {
++				compatible = "microchip,sam9x60-gfx2d";
++				reg = <0xf0018000 0x100>;
++				interrupts = <36 IRQ_TYPE_LEVEL_HIGH 0>;
++				clocks = <&pmc PMC_TYPE_PERIPHERAL 36>;
++				status = "disabled";
++			};
++
+ 			i2s: i2s@f001c000 {
+ 				compatible = "microchip,sam9x60-i2smcc";
+ 				reg = <0xf001c000 0x100>;
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.53.0
+
 
