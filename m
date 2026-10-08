@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A4ACA6011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0395CCA600D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5i+jUBNJvJIFB5HiIYZuQDmQj7HbLmugYNNn4gZkj88=; b=UyT3baVuy5S8w0/mqIDURsLFcE
-	lUKiTEEfemUIXiySl6R9vAs34LpZy2+JeOD/JHN5Y4kX4hSgxBm6S/JA3uAN6fbva10zgddbtunuk
-	a28Cn3s0uLopZE/Cvn9t7sXESxBLxNLW1aURErA/rFrz7KmiFHAT+4DCw4VpDI2AtYpOOXfCO63MR
-	mM49qD2SJ2rL8LI2EmntvDCzl7LSrN3mLae0nPp0q0syYRGCadTKwP7cKF73zzuf/x6K6ERmrSZFb
-	xycQMD74unuVgEHGjsz3kVn1A3HvJroCjDAxs8VTeu2BboZ6tWZTQ6n9utb1jmaxc5Uth95Zovhl5
-	72gevOYQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1/kWln4aguinhSKJL+sRTc11ExP8I158//lpEFf0hFk=; b=3V4tFmHK4CIh37p1BHo4xl79Dx
+	GOn/KduZIF5bSPUiqipmee+JmyS8xC+TYIOjzGbRjsGtPe2ghk8x2rJKWYGYXoAepVBHP3WlX8RLq
+	6MIj2oWFvh/KwltQtdm/N2Fu3TGjX4/l7lIgfiAB0ZQXb6nLL+GaosgccbAc/5ZJnBx7wUHAtDxgO
+	QkuyjFaL7BkUtpvpMyRuDYDKviYSYHk64n6KnvJzn0STb/kIRky9bZM0r5fZfvgwtJ0mg5tP3pVGZ
+	Hr+rIkQBXoMLO+YkrDUJei8EKN8l3ueExGHW8924C6PodmsMD7BjyaE52nyrdaZDiDzy1BVgu8pLs
+	EbbivOIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEs7d-00000004nrN-47MA;
-	Thu, 08 Oct 2026 17:41:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEsAC-00000004o8R-13tL;
+	Thu, 08 Oct 2026 17:44:16 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEs7b-00000004nr9-2g50
+	id 1xEsA8-00000004o82-33SX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 17:41:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9567C44779
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 17:41:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79F681F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 17:41:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791481294;
-	bh=5i+jUBNJvJIFB5HiIYZuQDmQj7HbLmugYNNn4gZkj88=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=QfpLiDo+ScFtGJGP/5JODLI0pv8v5KZVTe3aJRCgmwNneXmkgfhJBnTBTYaSE+lTT
-	 +nZwnnkZq3F682cP6EqkDvLOAmz6rEvskLWzPF+Qz6cUZHR0oqmArJVkOL8+ypYJBJ
-	 tEksKTJ7nr5OGgwE6kEJKpEbyJsSfseOrtKGq+gqPa9EanBqd8g0deddbYDuBD2Vpw
-	 2B2piO9VomrzAyAoubg5+a+CsmEO/iy++UgxqNVbbWCyoDlpbRyUxxgi0pepT48rF0
-	 ve7ESnP+YoqLfYBd8ZdS7lxCAlp4v+SEG48ztNI+pTxA0/FHwnqlItwIJ3uXrn452X
-	 pcIwYkuYyQ83w==
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c2e5e090746so324942466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 10:41:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwZbm3drFyHXEin5JHHnQuyC5e90uc1NN4zeWWf5ULCgLRbPJP9gDQ7kmipIpUw7bNhgNNKoYg6LCOATOnRkhJ1@lists.infradead.org
-X-Gm-Message-State: AFuF++l7IXDPCw1s7iZOEhjYS9w+6zjn8g3bKm7I3gRrSzxD1k32hQdF
-	MSNKJiqbpzuxTn0p3VQdchNewgHoSmOY8Fi+aXb36Vqeonljb2rCtvUTqFcAoFffMHSoIjs82FM
-	us4f5vhLWpWOWObpz5xtMZr0btkcN6A==
-X-Received: by 2002:a17:907:961e:b0:c2a:34fe:ea4d with SMTP id
- a640c23a62f3a-c317c0b85e3mr582174866b.25.1791481292967; Thu, 08 Oct 2026
- 10:41:32 -0700 (PDT)
+	Thu, 08 Oct 2026 17:44:14 +0000
+Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowADX3Dpp1sdqpZYPCg--.13859S2;
+	Fri, 09 Oct 2026 01:44:10 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] irqchip/mchp-eic: fix clk reference leak on probe error paths
+Date: Fri,  9 Oct 2026 01:44:12 +0800
+Message-Id: <20261008174412.2740045-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org> <20260921-ux500-power-domains-v7-1-v3-5-9352be6b86b1@kernel.org>
-In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-5-9352be6b86b1@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 8 Oct 2026 12:41:21 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+1O+os8=YGUoKg6zCm-r0gQ35baKX=z65uTQNB0i=RVQ@mail.gmail.com>
-X-Gm-Features: AclHuK9f1ZliBZPCj2LPLQU47t9EaM2IftpsDD1GQ_Z1aWMRTo5dRurMLb5PWy0
-Message-ID: <CAL_Jsq+1O+os8=YGUoKg6zCm-r0gQ35baKX=z65uTQNB0i=RVQ@mail.gmail.com>
-Subject: Re: [PATCH v3 05/18] dt-bindings: display: ste,mcde: Allow power domains
-To: Linus Walleij <linusw@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowADX3Dpp1sdqpZYPCg--.13859S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFykCw1ktryrXr4fKrWUXFb_yoW8Wr1xpF
+	W7Ja9avFZ7GFWF9r4DJw4kZry5Kw4ayFWxG3yfC3ZFqwnxJryjyFWFya4DZr45AFWxG3WU
+	Gws0qFykAFyDZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWU
+	twCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
+	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij
+	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr
+	0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF
+	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jrManUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAAOA2rHpfVxuQAAs0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_104413_157058_8BC2612A 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026 at 5:48=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
-rote:
->
-> Document the MCDE power domain.
->
-> Keep the legacy EPOD regulator binding unchanged for now.
->
-> Assisted-by: LLM
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
->  Documentation/devicetree/bindings/display/ste,mcde.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/ste,mcde.yaml b/Do=
-cumentation/devicetree/bindings/display/ste,mcde.yaml
-> index 7a12d0b817e6..05e7e4ebc882 100644
-> --- a/Documentation/devicetree/bindings/display/ste,mcde.yaml
-> +++ b/Documentation/devicetree/bindings/display/ste,mcde.yaml
-> @@ -35,6 +35,9 @@ properties:
->    resets:
->      maxItems: 1
->
-> +  power-domains:
-> +    maxItems: 1
-> +
->    epod-supply:
->      description: a phandle to the EPOD regulator
->
-> @@ -109,6 +112,7 @@ examples:
->    - |
->      #include <dt-bindings/interrupt-controller/irq.h>
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/arm/ux500_pm_domains.h>
->      #include <dt-bindings/mfd/dbx500-prcmu.h>
->      #include <dt-bindings/gpio/gpio.h>
->
-> @@ -116,6 +120,7 @@ examples:
->        compatible =3D "ste,mcde";
->        reg =3D <0xa0350000 0x1000>;
->        interrupts =3D <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
-> +      power-domains =3D <&pm_domains DOMAIN_B2R2_MCDE>;
+mchp_eic_probe() acquires the peripheral clock with
+of_clk_get_by_name(), which takes a reference on the underlying struct
+clk, but the error paths only call clk_disable_unprepare() and never
+clk_put(). When clk_prepare_enable() fails, or when of_irq_parse_one(),
+the IRQ argument validation or irq_domain_create_hierarchy() fails, the
+probe function jumps to the cleanup labels, frees the private data and
+returns with the clock reference still held.
 
-This patch is in next, but the define is not breaking dt_binding_check.
+Release the clock reference with clk_put() on all error paths that occur
+after the clock has been successfully looked up.
 
-Rob
+Fixes: 00fa3461c86d ("irqchip/mchp-eic: Add support for the Microchip EIC")
+Assisted-by: DeepSeek-V4.1-Flash
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/irqchip/irq-mchp-eic.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-mchp-eic.c b/drivers/irqchip/irq-mchp-eic.c
+index be007d325e67..5250e6baff63 100644
+--- a/drivers/irqchip/irq-mchp-eic.c
++++ b/drivers/irqchip/irq-mchp-eic.c
+@@ -233,7 +233,7 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
+ 
+ 	ret = clk_prepare_enable(eic->clk);
+ 	if (ret)
+-		goto unmap;
++		goto clk_put;
+ 
+ 	for (i = 0; i < MCHP_EIC_NIRQ; i++) {
+ 		struct of_phandle_args irq;
+@@ -270,6 +270,8 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
+ 
+ clk_unprepare:
+ 	clk_disable_unprepare(eic->clk);
++clk_put:
++	clk_put(eic->clk);
+ unmap:
+ 	iounmap(eic->base);
+ free:
+-- 
+2.25.1
+
 
