@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9299ECA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FEBCA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I19BJzOlrTy3rbIT0DbZIyhSdbAvJz2UH8bWTicEpME=; b=K7HusGedIoaaTq1GiWRaNrJgy4
-	aXc/hSVT3xuwYe1rzHZFfcI/PAwI1a7Iuy/s+EXIw+W1XOE0Wr+w419MjN6OBY8qbDpDOGNiyNF45
-	sDFLQZSnRvWEaswzMaiHk4/VaOaJZTedPS/8LiiXVIgCTmqvlqQK4gQritMnbNpesnAzSXLJ/Vt4G
-	C13cGXsfNaKOZdt7t/AzIogh71FvRnGMQMq0DRnjHGNuEI8Cuq4KPV7nMTi+3Tq5//N8c2j4Sv8M3
-	xbMX+V22twplRYoRmvyxyuh9Yo3pljCkyvmsVM7dcJWCHYcAoSRmmD+tigcrNjJ2XIXcuhog7N41P
-	IY6DkR2g==;
+	bh=bZAo94LpO2B0yElRNSLGBz0NRZ8kLHR1Iz17jxI1zUg=; b=s+3d1A3ICs/+4tWwZXWWblxd2T
+	eadJjrskOFiEa6siq6fUa1K1BbFD5v9gg6J7mvrGwbzyEfSDA8OcUlH/+En+TVGIdXHgXEQgHNHZE
+	Uda6Pm+QRxm3tRDyou5cfKCWYxYef8FyP9k/RnO2vxLHC2XF6PHGaaIAUoj2EKvmMBku2c6wHgTGx
+	WnlCxFzemmEC13ZK611RTHhmBpD21VrW13VTEnQVi+YpGbgngyJgNKiBdR5rFKqkq44cR9nUjjj6w
+	+vk8cXegMGjVU1F6HCISPrkw63IqT6+x/i+UMwo3IX1mVpAfy/+86Vc1obFjkXb/P05zqw0BwPKkF
+	MZnFy/xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmxo-00000004KHo-23Mi;
-	Thu, 08 Oct 2026 12:11:08 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1xEn1Z-00000004KVy-1CHz;
+	Thu, 08 Oct 2026 12:15:01 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmxk-00000004KGJ-45an;
-	Thu, 08 Oct 2026 12:11:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=I19BJzOlrTy3rbIT0DbZIyhSdbAvJz2UH8bWTicEpME=;
-	b=vCpXiLZT8xamRpJDaL2SNiNrsqQj4WNMGZnDX+KfBzHt/y3W1laRffiIIFYcZDIQZX2ByKx+P
-	Z6Y+HBwhu3opo8ObKKkoIAlCQbgqaiAFsOrOdjWUqRBVm9rsecFweIt7SBrTR7+5KVViaWZK4BZ
-	SGbZghZUcgFQgJdDTS0JPq8=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4j0pRk0dC3zRhXL;
-	Thu,  8 Oct 2026 19:58:42 +0800 (CST)
-Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
-	by mail.maildlp.com (Postfix) with ESMTPS id 04AA6202E6;
-	Thu,  8 Oct 2026 20:10:53 +0800 (CST)
-Received: from [10.67.121.233] (10.67.121.233) by
- kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 8 Oct 2026 20:10:51 +0800
-Message-ID: <66755d59-c6e5-4815-ae67-faf8ec0f6198@huawei.com>
-Date: Thu, 8 Oct 2026 20:10:51 +0800
+	id 1xEn1V-00000004KUY-2i2o;
+	Thu, 08 Oct 2026 12:14:59 +0000
+Received: from PC-202605011814.localdomain (unknown [222.191.246.242])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 504fceb6b;
+	Thu, 8 Oct 2026 20:14:40 +0800 (GMT+08:00)
+From: Runyu Xiao <runyu.xiao@seu.edu.cn>
+To: Tiffany Lin <tiffany.lin@mediatek.com>
+Cc: Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org,
+	Jianhao Xu <jianhao.xu@seu.edu.cn>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>
+Subject: [PATCH v2] media: mediatek: vcodec: Initialize context lock before firmware setup
+Date: Thu,  8 Oct 2026 20:14:34 +0800
+Message-Id: <20261008121434.946927-1-runyu.xiao@seu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260830144827.2701887-1-runyu.xiao@seu.edu.cn>
+References: <20260830144827.2701887-1-runyu.xiao@seu.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <shaojijie@huawei.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam
-	<mani@kernel.org>, Ciprian Regus <ciprian.regus@analog.com>, Andreas Larsson
-	<andreas@gaisler.com>, Jian Shen <shenjian15@huawei.com>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Parthiban Veerasooran
-	<parthiban.veerasooran@microchip.com>, MD Danish Anwar <danishanwar@ti.com>,
-	Parvathi Pudi <parvathi@couthit.com>, Roger Quadros <rogerq@kernel.org>,
-	Mohan Reddy Putluru <pmohan@couthit.com>, Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Simon Horman <horms@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>,
-	Stanislav Fomichev <sdf@fomichev.me>, Nicolai Buchwitz <nb@tipi-net.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-actions@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net 00/10] net: Move setting of netops to fix crash
-To: David Yang <mmyangfl@gmail.com>, <netdev@vger.kernel.org>
-References: <20261008022656.3592191-1-mmyangfl@gmail.com>
-From: Jijie Shao <shaojijie@huawei.com>
-In-Reply-To: <20261008022656.3592191-1-mmyangfl@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.233]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemo500018.china.huawei.com (7.202.195.199)
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa11b6fe35d03a1kunmde41a01640d4ff
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQ09NVh0eT0NMHRpLHx8ZTFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUlVSkJKVUlPTVVJT0lZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pPSExVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=mpuap6vTn5/8zckoWW8m1AHNs9/lrcC5dOJcyxI7o3wqlyxDpZbUynix5R3jV5E4QP1TlxqiCAxXdXkKBLNY9VZXCngNlD9zOFScb1XilepNqRMu5m94NNs+MR9yEckFVuS8w+HDfSmfLLLg6nrgKxqKO7TSfvVKra+weDvEtzU=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
+	bh=bZAo94LpO2B0yElRNSLGBz0NRZ8kLHR1Iz17jxI1zUg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_051105_680131_900E1DDC 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20261008_051458_365777_9E94E0FA 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The normal encoder open path cannot take dev_ctx_lock before
+video_register_device(), but there is another path during probe.
 
-on 2026/10/8 10:26, David Yang wrote:
-> Commit ded86da4bbb7 ("net: ethtool: relax ethnl_req_get_phydev()
-> locking assertion") put a netdev_need_ops_lock() check on the
-> phy_attach_direct() path, in phy_link_topo_add_phy(). With
-> CONFIG_NET_SHAPER enabled netdev_need_ops_lock() reads
-> dev->netdev_ops->net_shaper_ops, so any driver that connects a PHY
-> before assigning ndev->netdev_ops now dies with a NULL pointer
-> dereference at probe time. The breakage showed up in v7.3-rc1.
->
-> ibm/emac was hit first and fixed by commit 7c9f391ec89c ("net: emac:
-> move setting of netops to fix crash"). These ten patches apply the
-> same one-line move to the remaining in-tree drivers whose probe path
-> attaches a PHY before filling in netdev_ops:
->
->    1. hisilicon/hisi_femac   (crash reproduced on hardware)
->    2. hisilicon/hip04
->    3. actions/owl-emac
->    4. adi/adin1140
->    5. marvell/mv643xx_eth
->    6. amd/au1000_eth
->    7. ethoc
->    8. aeroflex/greth
->    9. ti/icssm-prueth
->   10. microchip/lan865x      (attach happens inside oa_tc6_init())
->
-> Only patch 1 was reproduced and verified on hardware; patches 2-10
-> were found by source inspection and are neither build nor boot
-> tested.
->
-> Note that ti/netcp_ethss and cavium/thunder_bgx attach a PHY to
-> netdevs that never get a netdev_ops at all (dummy netdevs), so they
-> cannot be fixed by reordering and are not addressed here.
->
-> David Yang (10):
->    net: hisilicon: hisi_femac: Move setting of netops to fix crash
->    net: hisilicon: hip04_eth: Move setting of netops to fix crash
->    net: ethernet: actions: Move setting of netops to fix crash
->    net: ethernet: adi: Move setting of netops to fix crash
->    net: mv643xx: move setting of netops to fix crash
->    net: au1000: move setting of netops to fix crash
->    net: ethoc: move setting of netops to fix crash
->    net: ethernet: aeroflex: move setting of netops to fix crash
->    net: ti: icssm-prueth: Move setting of netops to fix crash
->    microchip: lan865x: move setting of netops to fix crash
+On VPU-backed devices, mtk_vcodec_probe() selects firmware before it
+initializes dev_ctx_lock. VPU firmware setup registers the encoder watchdog
+callback during this selection. A watchdog timeout on the shared VPU
+queues reset work, which invokes the registered callbacks. If it runs
+before spin_lock_init(), the encoder callback takes the uninitialized lock.
 
-Why isn't the subject of the last patch "net: microchip: lan865x..."
-But overall, it's okay.
+With CONFIG_DEBUG_SPINLOCK=y, an x86_64 QEMU test used a zeroed lock,
+initialized an empty context list, and invoked a callback with matching
+lock and list operations. It reported:
 
-Reviewed-by: Jijie Shao <shaojijie@huawei.com>
+    [    1.761312] BUG: spinlock bad magic on CPU#0, busybox/58
 
+The lock dump showed .magic: 00000000.
 
->
->   drivers/net/ethernet/actions/owl-emac.c          | 3 ++-
->   drivers/net/ethernet/adi/adin1140.c              | 3 ++-
->   drivers/net/ethernet/aeroflex/greth.c            | 3 ++-
->   drivers/net/ethernet/amd/au1000_eth.c            | 3 ++-
->   drivers/net/ethernet/ethoc.c                     | 3 ++-
->   drivers/net/ethernet/hisilicon/hip04_eth.c       | 3 ++-
->   drivers/net/ethernet/hisilicon/hisi_femac.c      | 3 ++-
->   drivers/net/ethernet/marvell/mv643xx_eth.c       | 4 ++--
->   drivers/net/ethernet/microchip/lan865x/lan865x.c | 3 ++-
->   drivers/net/ethernet/ti/icssm/icssm_prueth.c     | 3 ++-
->   10 files changed, 20 insertions(+), 11 deletions(-)
->
+The test reproduces the debug lock diagnostic, not a real VPU watchdog
+timeout or its timing during probe. The context list is initialized but
+remains empty until video registration, so this shows invalid lock use, not
+list corruption or a user-visible failure.
+
+Initialize dev_ctx_lock before firmware setup registers the callback.
+
+Fixes: afaaf3a0f647 ("media: mediatek: vcodec: adding lock to protect encoder context list")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
+---
+ .../media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+index 4e4541b2f..e6cd3817a 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+@@ -255,6 +255,7 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
+ 
+ 	INIT_LIST_HEAD(&dev->ctx_list);
+ 	dev->plat_dev = pdev;
++	spin_lock_init(&dev->dev_ctx_lock);
+ 
+ 	if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vpu",
+ 				  &rproc_phandle)) {
+@@ -308,7 +309,6 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
+ 
+ 	mutex_init(&dev->enc_mutex);
+ 	mutex_init(&dev->dev_mutex);
+-	spin_lock_init(&dev->dev_ctx_lock);
+ 	spin_lock_init(&dev->irqlock);
+ 
+ 	snprintf(dev->v4l2_dev.name, sizeof(dev->v4l2_dev.name), "%s",
+-- 
+2.34.1
 
