@@ -4,131 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F8CCA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3760CA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBX5PEpOUG9f/ZtfwwOKPTI4tk+94k8hqW4pxy9kT9k=; b=uLIbSVdd4evV9aQU4Tw2L1WWzS
-	UtnhMxEWILefaoUl9S05MJWuHMUkESYlaHuDfSqlCm2Fj2ymKcOq+ANo0GPoEMCXOlOAQg1FBnbJr
-	RUWJwm7Lzv1kdHcA3aC09jhjG9/P8Wzcqpq7bGLwOQo2yMpOkwQseNYIeAk4OX5fiS7lGT443+3hP
-	wW4bSirz0+8NFprRPZtZWOgzcZCKQ5CEJuF/G8Fu1Lsio0eWWaiskD6q9wwSIfsskJXllYrC3sEFQ
-	1nwJiPVdNWdyJvHnKf5skTRYx6n1opmK73i+QkzUk5IHH2spzyoHoT2fIOcCjFDwZS44CryQWVUJ7
-	X0fXfe2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xxECxQ++O9X0OKyJZXgkZtO03GupF5npmg5sevhbrog=; b=14VZkpW6jyOZSKFYTLLU4pvPyl
+	XlpOYTkxWYlzhPNO0+/bJwnTUYcf6iDcXSqO3tTEOLzQfngogEff50j6PKQrtFs9h3sPUyfjbofGX
+	6TkuI8XIu8fIgyWU6PifR0jUsD8Xdv1YcvYXb9m+cffSivqc2k4vQOO+mCP0uVo4YnkS1Dm+1CLct
+	y3jqerzx5WG8dHTMaS7g4fVJnMpWXh2HvzyuZiktmqJT1HVBNuMuGYEpgxWbMCUFjVD7hLsge4vmh
+	lo7IWFZIgRy2AF06B2sMpVd+3EKTfILruvVXpF09pzh7M8chYwMxWbK7jtfELj6++qJtP89jUSkhW
+	kdc4u9Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjVt-00000003s0r-33Ld;
-	Thu, 08 Oct 2026 08:30:05 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xEjWM-00000003s8D-3zUq;
+	Thu, 08 Oct 2026 08:30:34 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjVr-00000003rzY-0GIM
+	id 1xEjWK-00000003s75-02QB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:30:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wflM5wu3cnc7eGFXuQ2UrPECcJwPabW8gV7+xNfA/yssuewpBrAB9NGmrDKOX12TLWk6OLA8K+B51dCiKM6kQ4iPt3fPU6nttcx+M236r58mx+0QcJp2AcdZH/OdbICN/pJzyRG6sXPFn/QaD2CCIRM6xbo0SUlc8dKSMVj4GfM1+azipIhmgNXwmrNj9k3op5u1vCRockIJxFDbfQ2CO2tQyvvTucBP13od9SsnSQNNFa2CNa0lYPPqtNTlySkZAxBvUgn1F+YHqbSy2VG3bBvaB9X6V3q2G0hbIKYvWl61Wsz2nM0ROkbj1CehA6JKrMwe5QDl/nH57Rfwo8sYhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZBX5PEpOUG9f/ZtfwwOKPTI4tk+94k8hqW4pxy9kT9k=;
- b=BY2MXwlL73uK1QZVl6RI9Eb9ENlZxIB7L7poJj+yWr2KgbAmMPnrLJ0dZgT9YUSmOrK7G/HAgwWejzjYeVOwtBTZLVWe67WfPhbEcA8EMPrWZnrhSY2frljRYJ1IOfREhPRRfwYEQUD6CNf2wLmHvxxsWvY3M3DSUmBs3p9qP9GWXXeTLV168x28CrNCXeV2iaWI8Y6iVFCCr0Y6vQzNvIDuImT0oreySPQTRXrF7PNzHIloTZ2skMOsSPjnFMga+24cT6KYY2CbjBVdT2Kaqj9519A6qmgukZIFrDNKO6PbKdJSnYODYQc+77Av6E+E7D9DfsJ7mOcX6NasVH9D5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZBX5PEpOUG9f/ZtfwwOKPTI4tk+94k8hqW4pxy9kT9k=;
- b=bnB1vOB2ReeaZ7Nknvarbp5Zgq7hoPAMdJ0/e56SherbUSgw4fZoNG0ZjQArTpSElT+gOAx2XLeaNu6UJPgfFcNX3If/i+SdjPk+VnBMUmkNEkGUgMEncdvs/G2++mnPFaIJ5G5snIA1gnjs5IzVDvDEgMllnXZyg/ZyAibpGOwsuK3A8jYHaLAl+ObSpa/uQ6Mx5PHpYkBL3bQslsGVp1Iq9XxJxdyJzfGDCAcOr/wvNUzlV5ujrNAkXpNVxczTimg6lTps1Zjw3YtDYs+EypETCkmu5EOyvKyofRNDHHP6tAK5nx+csIyQ+6Rz8x74q3w2KWWKsC9rQmj0yjpzmA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22) by MI3PR04MB392005.eurprd04.prod.outlook.com
- (2603:10a6:290:9b::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 08:29:55 +0000
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2%7]) with mapi id 15.21.0496.010; Thu, 8 Oct 2026
- 08:29:55 +0000
-Date: Thu, 8 Oct 2026 16:34:27 +0800
-From: Bough Chen <haibo.chen@oss.nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	linux@ew.tq-group.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] arm64: dts: imx8mm-tqma8mqml: restrict clock for
- SPI-NOR flash
-Message-ID: <20261008083427.33iide6apbktyv6p@shlinux89>
-References: <20261007072017.2311818-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261007072017.2311818-1-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: SI2PR01CA0042.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::23) To PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22)
+	Thu, 08 Oct 2026 08:30:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id F19634E41176;
+	Thu,  8 Oct 2026 08:30:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C3FEC60341;
+	Thu,  8 Oct 2026 08:30:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B0D4810333850;
+	Thu,  8 Oct 2026 10:30:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791448226; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=xxECxQ++O9X0OKyJZXgkZtO03GupF5npmg5sevhbrog=;
+	b=2VH/QRrUho2xFw/tBmEw9RjXx/KeuK4roNPFgZM78+4XHVP4W2OQzheGIGq3728PvD02yt
+	C2Gb8SokhmGuvHzU/vj3D+zMCFZWPASBe11zuv36fSDGdjRE2TS/gzxPjO5BnMmZ5OsfWE
+	jA2r3Ad2tEPK5yjme2raaU1kZBfJdHUMGj3SJqIHsZFroLdXUeQLWkuPYsWPvO8Ri5BYhn
+	Gnh9dED8kgmEjiIMkPX7Zx52ki6WeGTsMPTR8gdk/EuMyGwBDgnVnv8FqWANPelltfgxMq
+	rQb7snen7yxmwPmLztfLmullzXxqsrEryAaHzasSoZC423QjI8DhPOkHUeoJ3A==
+Message-ID: <b44d36a0-43a1-4399-8c79-29d1f57984cd@bootlin.com>
+Date: Thu, 8 Oct 2026 10:30:20 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|MI3PR04MB392005:EE_
-X-MS-Office365-Filtering-Correlation-Id: e11d681e-cf81-4b9b-1a66-08df25165457
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|19092799006|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: +DXBm6oGZLli0Lk9IlHnZC455ZFrp8P1mJkd4gv2OxtJylM/h97dNTTxLTspNPUc0EGTEEi2RMXjvxuNzuCPnQM5Y755reA3bVtnoDgXBIWS2tLbNEhSmyqPsZ2NsFfbc8/YyJ2YMU5U+70DGCZxHVsJhMPMWFySf7tiTYL5QsQKw5FuKfdTuseax+2JffmanzrKi2SIgquPZduIvRkgv+ydZN8OfvFlshLIA6DwmAoq6Nx+jg/0IY5/JQ/xNrH38Ji08a7PcPsyv8T94HX/nz2iuxIYxBs98U8VQGARCx/o3lJ7Y/7XscOMglGKzZ0eE4Shj2nT7xiOa8NsjjAADeNQw3kq/Yc30I2HjsjleJGe+I/FE0DbAQLitNPm+wwJfGhKILa67oE8Eqr7+6y1H/LWJ8kqqAJTdZRASam62ETMZaLKUYeMlZntwzj/+g68P9AwUo/KRDVnj0lWQ+FWLHehFlk9Jw20Ge4+WIZZHMu+JVn5x6ixyi4eJBgfRMt8kwW1y6Ia/OR9xp+651cozhBEZb/TE5GvdjFPL6KQb01vr+z6I3bnaXeqSL/0O3vmTtakKzM9W0gvPODMDqLeZDKqz37PaSrpNfejhgpnjg9rpSR6V4E62e0gc3HpSYAH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(19092799006)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1dxO1GagASMDIDWe7gZWzDHDVnwmpKKWiRMKNs4mDPnr8d/O1s3ajBd+iNcR?=
- =?us-ascii?Q?6mA2lY9b8HiW53BcR9dZ5JPlb+RrcVUma8D5tWg+5zu3SIrpUUXxoNPes7+H?=
- =?us-ascii?Q?7GXH7DZ1Kr3pnvhIfomOS5MDKzrN2qeBOr116GgmdunthET3O1t4/3/1mM92?=
- =?us-ascii?Q?D6ye0mzEuFDcTROAy+ljQPM2IKtwzOUa92Dc6bmALpF41JdzNPl1NkmEmgXc?=
- =?us-ascii?Q?pOuULl+wq6mxR19Qw1rjA5DnnfjMQU5EK+2+mPd/y7L4iJzAldCW1F6k4H0Y?=
- =?us-ascii?Q?GdGMyvQXdeeYixk2yBeC47rtZOpglPUgU0eZCrJtuDhxUtHuT2Mec0paPfVN?=
- =?us-ascii?Q?Hh3zN5Zxy9R5AlKag6T7dBXU4OKGplV9OBOr2rzVsmdbo4saC1ZP5RXxPe83?=
- =?us-ascii?Q?sDI5tmEygIomUS6zEs1BCBdt0bkCyfgfa2hK4llDdX/Y3ZGDTKqSHk2twfV3?=
- =?us-ascii?Q?2WYfmIiyEb2zZKnfOyckI5M+LJOEHIZzrq3XsjGlmX1OX58ilonMGx31Fb0D?=
- =?us-ascii?Q?q/KHbEWY9VOz08iKanbF54atL4ZmpOIEoXYMYfakl3PW01mTamlUruAomMm7?=
- =?us-ascii?Q?AMRsaRuW/RlqvSSFekD6oTfx+bYlCar+GLgEVABFLYuX37U/flDS5+NLcxgx?=
- =?us-ascii?Q?TVKbx40zVct1bI5waJljFjHkOfITYvEl9yNvC0IzaHWoORXXkCTpLFLfJuIx?=
- =?us-ascii?Q?qhswx+K8OdjjM+ujejcFA357S5uR6mNLxAQTnq06diYbyQefP9bdHXohqyqD?=
- =?us-ascii?Q?IxRWH/NW+pyp1EwAhTgxwV3V7NaKzcH+M6J4lZLP1D2yUcJpegsZ7i6DEZir?=
- =?us-ascii?Q?tHPgYUQz6ipImeHtIvtbRnI/1dKNiguJ+Sttsgena6eEIN7iPs7UbbhEQVru?=
- =?us-ascii?Q?9/t9zVfcvFuLFeN0t7fAL00Rk10SH1Ksuje1d9oj8Rt2EdCzORcurk7hbBAH?=
- =?us-ascii?Q?hzvn9SqcbDdDWFgv8pu3Mg3/vA8EYhDzyk42BeclM/chYbz61vpJyD4AYtpc?=
- =?us-ascii?Q?A+vE1lvpEJjPMgntObpqALXQ/p1MrsEA6QTggqClR34g5zgsvLVVLTYzTa06?=
- =?us-ascii?Q?wQMDqITrBtg0XSURTbpXOFcX8+qkiQkpPYwVDYrOlpVdvJi5JqRCnJVqO+Gf?=
- =?us-ascii?Q?suydt4Q6igt4VK75vCwnzZmW6Q0qIIs9jw66dXmDzWRCVTk5QwEr5wOWUPHf?=
- =?us-ascii?Q?C/yyTV1nF3chy+B9PL+WaELanTqbyiOGW2LfkwGfB7+3h40pEWzCOXZykXRI?=
- =?us-ascii?Q?nJcyiTG9zFMn9GAum+TdFgSPHxAWo2SY02hUiOTnrRQi3DdwJl68TuRVakk9?=
- =?us-ascii?Q?QByRvdzHcchp4Adj31p8GRSfynXl/C40+PeOYhOQ4gJmc1fOHR1rCEkVK1mT?=
- =?us-ascii?Q?OUIXtI8JrCmlw4IuSjYYZoL/UElGe1PZRfpHdIg7jv09JOMJ4UmFOiJg8cEW?=
- =?us-ascii?Q?rZTUZVYelO+/5tugIzMesjWy+l+B79NZjqOD1e30j0PSkBbIxfGaOhBgz3M3?=
- =?us-ascii?Q?SUSy1xYqNtOYfg0Dsg9ZiRsHBKjb6eCedGyc45Jz1B63INnma3rAdK5JYuft?=
- =?us-ascii?Q?Gcz7PhCS0EiWwu6sn5y1Tl+F6UVNGVgW85iwoqxuRmxnYUc7tHIWzigX/HXn?=
- =?us-ascii?Q?3kZs9M+KyB2msZ7cQX49aQMUcUbgXJ9jJAiYDDkZjXR2ZUInuSLq+zt/dPBu?=
- =?us-ascii?Q?qPojh76nSAJMSIcbMgTmt3nttKWAzfEJunB1dmzQ3C4QKuOEx3BIExhaoqIR?=
- =?us-ascii?Q?TkrewToW66wIZ7dIm1mejXtSOqq2cjup4ebe9Yrj8R7PfNaBR1y1?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e11d681e-cf81-4b9b-1a66-08df25165457
-X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 08:29:55.0728
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3UXzH/qEZjycVkYgz5afdsj16I6O3XUNoojXo/LAIJkIYAle2AFJgr6h6NoHtn7MKG9QU76RyewRptLjeAzPch1cmPbK9jT8YOqiVFHkc3ij87dskx/vWl2lBEPD8M3B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB392005
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 03/10] net: ethernet: actions: Move setting of netops
+ to fix crash
+To: David Yang <mmyangfl@gmail.com>, netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <mani@kernel.org>, Stanislav Fomichev
+ <sdf@fomichev.me>, Nicolai Buchwitz <nb@tipi-net.de>,
+ Jacob Keller <jacob.e.keller@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261008022656.3592191-1-mmyangfl@gmail.com>
+ <20261008022656.3592191-4-mmyangfl@gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261008022656.3592191-4-mmyangfl@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_013003_119223_0DD1030F 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20261008_013032_195934_0D22D211 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,48 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 09:20:13AM +0200, Alexander Stein wrote:
-> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+
+
+On 10/8/26 04:26, David Yang wrote:
+> owl_emac_probe() calls owl_emac_phy_init(), which connects the PHY,
+> before netdev->netdev_ops is assigned. phy_attach_direct() ->
+> phy_link_topo_add_phy() reads dev->netdev_ops through
+> netdev_need_ops_lock() since the commit in question, so probing crashes
+> with a NULL pointer dereference when CONFIG_NET_SHAPER is enabled.
 > 
-> The FlexSPI controller uses quad SPI with internal clock recovery.
-> The i.MX 8M Mini Applications Processor Datasheet for Industrial Products,
-> Rev. 2, 11/2022 lists a maximum FlexSPI frequency of 66.666666 MHz for
-> that mode.
+> Assign netdev_ops before the PHY attach, as was done for emac in commit
+> 7c9f391ec89c ("net: emac: move setting of netops to fix crash").
 > 
-> Fixes: dfcd1b6f7620 ("arm64: dts: freescale: add initial device tree for TQMa8MQML with i.MX8MM")
+> Fixes: ded86da4bbb7 ("net: ethtool: relax ethnl_req_get_phydev() locking assertion")
+> Signed-off-by: David Yang <mmyangfl@gmail.com>
 
-There is already one patch to limit the clock rate based on SoCs, refer to:
-https://patch.msgid.link/20260728-fspi-clock-v2-1-dbe786a4a6eb@nxp.com
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I think the max frequency in the DTS flash node should describe only the
-SPI NOR device limitation, not the host limitation.
+Thanks,
 
-Regards
-Haibo Chen
-> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Maxime
+
 > ---
-> Changes in v2:
-> * Clarify which datasheet is referred to
-> * Add Fixes tag
+>  drivers/net/ethernet/actions/owl-emac.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
->  arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
-> index 1b5ba3c47164f..48285bcbe9bbb 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml.dtsi
-> @@ -60,7 +60,7 @@ &flexspi {
->  	flash0: flash@0 {
->  		compatible = "jedec,spi-nor";
->  		reg = <0>;
-> -		spi-max-frequency = <84000000>;
-> +		spi-max-frequency = <66666666>;
->  		spi-tx-bus-width = <1>;
->  		spi-rx-bus-width = <4>;
->  		vcc-supply = <&buck5_reg>;
-> -- 
-> 2.55.0
-> 
+> diff --git a/drivers/net/ethernet/actions/owl-emac.c b/drivers/net/ethernet/actions/owl-emac.c
+> index 0a08da799255..2538275a1e57 100644
+> --- a/drivers/net/ethernet/actions/owl-emac.c
+> +++ b/drivers/net/ethernet/actions/owl-emac.c
+> @@ -1552,6 +1552,8 @@ static int owl_emac_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	netdev->netdev_ops = &owl_emac_netdev_ops;
+> +
+>  	ret = owl_emac_phy_init(netdev);
+>  	if (ret) {
+>  		dev_err(dev, "failed to initialize PHY\n");
+> @@ -1563,7 +1565,6 @@ static int owl_emac_probe(struct platform_device *pdev)
+>  	netdev->min_mtu = OWL_EMAC_MTU_MIN;
+>  	netdev->max_mtu = OWL_EMAC_MTU_MAX;
+>  	netdev->watchdog_timeo = OWL_EMAC_TX_TIMEOUT;
+> -	netdev->netdev_ops = &owl_emac_netdev_ops;
+>  	netdev->ethtool_ops = &owl_emac_ethtool_ops;
+>  	netif_napi_add(netdev, &priv->napi, owl_emac_poll);
+>  
+
 
