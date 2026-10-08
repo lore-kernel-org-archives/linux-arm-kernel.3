@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70C5CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448E7CA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQTa5Kkb8XeLSocE2zOp6wk6MhNg7GTY2or4PgZPt2Y=; b=mlMyMSGMoJNTFoGtgsXcTvG++L
-	rnns9fPwg0ToNF/UsCVD7e0zLs/AQSifiJMaiizqJdPvyuVKSvkn/dDoPRhnAgznJW+cwGnssSYRT
-	tF4BSIibIT+oFhYUahOovQi24wNSujletwgyf681yIlIGS6s9h0KPrLnUZIjJf4lFHWk4NgjY0pAX
-	SRCzmc/eEyHfzEGen54UaKuqi4TZHzC7Pq6wSURZOLgAPUKzs5y3MCqEyMtwifZnOsGvT+gtrzZzb
-	WcG2JRRfowy5YWzbrLX2JA0hrtfrjvB3gv2lp6xprhBpplX+6t2njzJmZHYIjfDuiuEKDeDzz5mEN
-	RNTi6Hsw==;
+	bh=mtciI2dXuSRKP7znBi6/ImEi5cWqof1ckcMtFCHtuf8=; b=GQNMFaAFbsD+II/kWGwq5uNE9j
+	IprMM+zkVt6BP8FLZ9ojDX60+9CrBfJD76VLVVl+pu0HhrUtEWeDiSfP0I8V8wLnj6XQp3dUHVUZL
+	TeZ2Z06xqIe9KSEmnymhDJpAe2abaZBk4TMRGCMXohwLWNMe2M1h8ygu8YIupCmP3uBH7J5H0b3Qo
+	0A8RaNVKsQejb004m30gZJZQBIM4k/Q8UElnVmBVmBzN54lAmT/Nj1wDUjeCDG6K/yZWEWB2kQLAv
+	RPlkiz5HeQ/07da4D0f84v/FDmvTDhSBAx31ElfLzwl2nSdffpDnkBHo5T+wBn6v8Ji1bfGYyJHK2
+	ArnbZI9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhuZ-00000003esQ-2sl7;
-	Thu, 08 Oct 2026 06:47:27 +0000
+	id 1xEhuh-00000003evi-3KcO;
+	Thu, 08 Oct 2026 06:47:35 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhuX-00000003erg-3XFr
+	id 1xEhuf-00000003eus-3QuS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:47:26 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BZfM313879
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 06:47:25 GMT
+	Thu, 08 Oct 2026 06:47:35 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BXJn1157823
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 06:47:33 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zQTa5Kkb8XeLSocE2zOp6wk6MhNg7GTY2or4PgZPt2Y=; b=J3gOwE0UxVt5ASCJ
-	avXMitw3WNXtFM4PLC3UgIHCLMy4gVBVfgn0X/tin784mXgNi+QH24Xhfj8OJzEo
-	YDEIyOJo/qU+mocS6gbCUT3oNo2o3ueIduFJEUhFG1Q7cN8/aJB+hNYYZka/+a8P
-	Y774p77QyQvQGQeDVzpSBh3qN/kcTXfL9Z7XKdSedlIADYftOlScDeqzjGrXGQKC
-	9NVB3u/Fn8VvoQhukIPISNKgTNazPMv9V8Soi9dfSWShGL85KvhnbRyirAWHIIp+
-	WF781xLXhQl89nIm92/Rj4Cero5M6Dw92eZz6cFUgLZDDIupYyPUXtlf74SvtM2i
-	1I0KmQ==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe31fyd-1
+	mtciI2dXuSRKP7znBi6/ImEi5cWqof1ckcMtFCHtuf8=; b=pck4sEtouPHply+j
+	N4rqGchia3wA0pQadXpMbBUeZqsKdaVnQXkpJiq7/Uhvogo/0VbIcNACedUfB3tY
+	1zGnNcXUNnE7hYFbKU+HCyw+p8q5VhpWb6+KylcZHGpKTquJwDl//J6q/CmN5C8N
+	49s3yh6IrwMhqJcXgptFn96A2sP7uA3XLWU3C0roLx5R2AtiXLajIrVKrEj1HVhw
+	h/gO178lgx6HTI5EaG/460XCHqcgWx/bCATgEYHWItlDttz4CONRtfoh13wuAyXl
+	5DvBHmCQv6XXr4FXRCiGisUgfKiod9UPpqVyUDUlOBjvG35XOzWUebJPkmBMhKg3
+	yZmGlA==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe51het-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:47:25 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-39e3c10ac70so6608081a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:47:25 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:47:33 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3823dcc1647so3946937a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:47:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791442045; x=1792046845; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791442053; x=1792046853; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zQTa5Kkb8XeLSocE2zOp6wk6MhNg7GTY2or4PgZPt2Y=;
-        b=OQ62WU5KD9zeTOAFZOpiItT9zGRpCQdopbNHCI5NlSD5J2i1SfNvtYFJTasGPzeCRR
-         mOzgqBIOU0Hs1+JuvXmca+K7/aEZBDyhl23K0YM4R/CoHM++kiZTkebKQkjXUtkwZLLO
-         fDoV5VwEUtCMapdNVbJRfyZIGfTYRHlKYv2pU6g3G0j2VPSScw2a0xckTRdTyNFMx2+4
-         Lt+P3rdUbkaTJNb7rQGF3/T4FHzEPGYdJK5qno7ZhChh+eYnJzKZI+4HITef/4KYaTC0
-         G/cTGfpmqA2sgGLl92cJBlaJ50LrJIw67oHfrnbC7cG4ATsNA698G8uPUAx957M3GeFW
-         SuiA==
+        bh=mtciI2dXuSRKP7znBi6/ImEi5cWqof1ckcMtFCHtuf8=;
+        b=VZ9V+GSaQ+9D7CHJAxBeMZ4d1CqdLUQsmlx+jANY+OM2fMNhKjBzhTbxGlYS8mYimv
+         K6CnmKgfipubg6mulbFNFKwk8hAnInZLGwp0osOsIYh54n4CxtYw0+o50OSPxpw2jrcE
+         gZDd2pqEB48a0+Cc651ITnFKqx2NS+OOpyKdaKQLv+7gDxPM8IrV6TX/E2M3uvpAiqE3
+         eHR3gRp4Pogu2/fVmZ/KelcCgmoNC9CgyeGF+FdkXmgPgWSzejDDhK85Wyl/Y3Y0s0kG
+         gv1QS7u4roBX2bA9qlRHjVJubVPL2EgWubnsFXWZxgIuNoVNZ4pvw+RefqUSVbt2Ko9S
+         uPbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791442045; x=1792046845;
+        d=1e100.net; s=20260707; t=1791442053; x=1792046853;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zQTa5Kkb8XeLSocE2zOp6wk6MhNg7GTY2or4PgZPt2Y=;
-        b=241G0h5XmkXbmvc6CSpKnQjxMdJohU86fvoO2Nxs0jr7km7xKHS6glrzCI19+5wtaY
-         5Gh7k+zcl6PQeCgz0IXOraqf5RQPiS2yqJvEEoDCALtwaZAzHPtYBTy30cF14+AvGUxu
-         vhAzn4DSwYCA/+wFE6HaN0auH8mxpJGsqFquyuaZE7QGCEVjDYnGwIhrsmjrFSfBAt99
-         i78q53qwA+MIGzK5Cnhy8CS0iHOzMICBrL3RXLbRrJ+6imJcHX6rtL2oxY2Eek+2HuBs
-         RONOvb/joFfh6VVicollUDVInHOgaSXmQUFGghBP55Xv+YtFowjeEOc9x8oy8J5jZ/KG
-         GLlQ==
-X-Forwarded-Encrypted: i=1; AKwUvByshmW8oDHgAJtWTFXeDE2A1RPDa/KVVrIT3h2fP/Mmf7K9Mg1jqzP7V8DuxFeu8pzmRA/VKeJWtfOYl75hcpqi@lists.infradead.org
-X-Gm-Message-State: AFq9FYLtmwYWVngZxeXd/aU7F0TZiSdp+JOc7c7EM0dG/cubCTrqFvIf
-	RTrc7Tjs3WiDwAtYdfQneyLqatkc/Mbb+m4xoS7WD1EM2KcehZmkwuO9+dW+oVRPQheoL8mJPHK
-	/eRlUsoKawo4/Rt/pbhrSZdGs59023APm6QEC9Ef7LG4zQk5O425OKnJCsYh4LRSgHG4NClJ50e
-	ThUA==
-X-Gm-Gg: AYBFou04poFEYYaSrj5Z6ZSHLwbz+7Kni4cfcKM3qTMdvv8e3bZ1TcUW8Coz9QzpVTf
-	heUPbXiufJJeF5Cyt7yzBBPaI6cZIzWoSJ9eB0MEHNLPbXP7FFo/HUiPQ4AzkkKqJF5QVkB2y1r
-	/jZuCbORD0EeiieVRINDAzCm05lOJnFj6La5rqYH1HBezRVamK4SZNGIp1g30bWEsnKt78bzAcS
-	Hon8NVZYC2Y2IKs0R9DT5X7kYwEqlN3uMc7AIHTmCNSZnHLJkX9kGIplZvNPcLNoKrezwb66iPD
-	izodONP2uMRCoLPlzmiOWuzr9/3eunlKIcGxAVNdTqPLn4S5KbWeOJGFGMLeoG2oefvF/92pbt0
-	z40Cfw80dHo3sijDINngNNQFAcD4npsdlWDu35ZFBV7b94BTzm7NGhbE=
-X-Received: by 2002:a17:90b:4a8f:b0:39e:6a82:afda with SMTP id 98e67ed59e1d1-3a8a1b3206emr4010046a91.44.1791442044459;
-        Wed, 07 Oct 2026 23:47:24 -0700 (PDT)
-X-Received: by 2002:a17:90b:4a8f:b0:39e:6a82:afda with SMTP id 98e67ed59e1d1-3a8a1b3206emr4010023a91.44.1791442043924;
-        Wed, 07 Oct 2026 23:47:23 -0700 (PDT)
+        bh=mtciI2dXuSRKP7znBi6/ImEi5cWqof1ckcMtFCHtuf8=;
+        b=mUXG8pHLxfJ9pQgPfivv/1TU2XUbdHD2nHpKmaxnuGK7WHixdertWB5YllAEd221hJ
+         JrvsAU7cbHj6C4Moch2o1WemNjUiXVV5Hqcjyghpv87vQTH+imAyv47iqyeJ2w+PZb/g
+         ppqampHpPF8Aqlnkdo6M7iyX4ZjaY4g43c38W/6qs2XwAQsW3mmD/lIKNv82QiQw0sYP
+         9jA96eWS1OCQoC7BO0LeOX8h3obUPaHVhZyu2ZVGIFzUfwrDtSbI5f6EJkQlbHYBuzvt
+         Zl1jWOSvJi4OC3Kg9ZPWKXN+DKb8gwb4b1IcDTFpN50nk2P5vVIBFY6297EkDdnACSSR
+         E+pw==
+X-Forwarded-Encrypted: i=1; AKwUvBxHg+jHWf1/tjnQ5i3BXctgLRSOwMdXy8tU5LPWkunx/kylXFZ+BxzmHipO5o+gGadJPsryQ6i1dZ1MCKA4n/Ja@lists.infradead.org
+X-Gm-Message-State: AFq9FYLd7EMyTHuXeH5oSH/rHfnm41qi1Le8hyZJJyVwBKcXmU2qd4xk
+	2Ngq/+yScj68Xr9Wpd4jF1tgHXh/wWM1Ra+XXnBChpzUMretz6R8P7q2aHD+h0tE88L93Z9oaMn
+	986JscNtUI44YvGPZRE/rZOJ2AqF1fZnXVgfEkdYDMuGg4DhGFVrxu9fd19GucWZF26E9euBZXf
+	iPZA==
+X-Gm-Gg: AYBFou0LLMrxjpkqniZDU7/V7gYQ/hfrZMIUERBKv6Ys5aa15Ei7y1Hgpx4it2s9Gh0
+	7DpKY7w87omITcK0bk3ujlwpFFrCDc0gu0vVQ6BYWCa1reVtSSYYTReDuSo0UAbTaLK03pYla3w
+	KGGBRKI1Qc5X1acsn0cubgtQnBcVWgtn+kDK3e+vUij5Z1+3gHHe7X6upuExGw7j3M0ZFz5VHt0
+	LIaAVrPFZnzSPvz/f9UG+LJFYyCKzIt6SbwRm/MHyrQk65ZcbRq9+J5U94QDjU4POWQYaKBWLyJ
+	MR7qh65DfZZRaxpXm9SKKaYB1SHkNqrcCXsWmVSdcsSTfhn5RSBJVdThE4rfNmcHpfs/xYb7PGc
+	MP9BuA5e4AJnYUPVf80iBYaJtEz86OFZmWImVlBfGDK7HSrcozDxPyXY=
+X-Received: by 2002:a17:90b:4fc5:b0:3a6:dc2f:f07f with SMTP id 98e67ed59e1d1-3a8a1982a7fmr4138298a91.10.1791442052710;
+        Wed, 07 Oct 2026 23:47:32 -0700 (PDT)
+X-Received: by 2002:a17:90b:4fc5:b0:3a6:dc2f:f07f with SMTP id 98e67ed59e1d1-3a8a1982a7fmr4138265a91.10.1791442052227;
+        Wed, 07 Oct 2026 23:47:32 -0700 (PDT)
 Received: from yli42-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a9f1a254b3sm3313925a91.2.2026.10.07.23.47.16
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a9f1a254b3sm3313925a91.2.2026.10.07.23.47.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 23:47:23 -0700 (PDT)
+        Wed, 07 Oct 2026 23:47:31 -0700 (PDT)
 From: Yin Li <yin.li@oss.qualcomm.com>
-Date: Thu, 08 Oct 2026 14:41:10 +0800
-Subject: [PATCH v3 1/8] arm_mpam: Fix the RIS index range check in
- mpam_ris_create_locked
+Date: Thu, 08 Oct 2026 14:41:11 +0800
+Subject: [PATCH v3 2/8] arm_mpam: Fix MSC MMIO window size off-by-one with
+ resource_size()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261008-mpam-resctrl-dt-knp-support-v3-1-35196c2b43bf@oss.qualcomm.com>
+Message-Id: <20261008-mpam-resctrl-dt-knp-support-v3-2-35196c2b43bf@oss.qualcomm.com>
 References: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
 In-Reply-To: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
 To: James Morse <james.morse@arm.com>, Rob Herring <robh@kernel.org>,
@@ -123,45 +123,46 @@ Cc: Yin Li <yin.li@oss.qualcomm.com>, Andre Przywara <andre.przywara@arm.com>,
         Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
         linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-        devicetree@vger.kernel.org
+        devicetree@vger.kernel.org, kernel test robot <lkp@intel.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791442020; l=1130;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791442021; l=1748;
  i=yin.li@oss.qualcomm.com; s=20260811; h=from:subject:message-id;
- bh=j/XQEZw3nTBBHy2V5OGs1jS7fvptWPEoH7KwUYRkTCA=;
- b=X7a/wNFXtXcHebbMyKYDrN8Yycqni6KgyknrSkGsyJg9T0nph6PauXToSrX6n1ceCcY99Tnog
- YgErdd+Gx+vDaDYSZ7/BJDwI+zlMJv4B/SL2IWm+SqL0ZqPRgAJk8S6
+ bh=1/dwipsmDrfzLit921IQVdk2VPlf3+aUAoUuV6A273g=;
+ b=+oEui8TWP9g+43keyW0RGKQR6one1M7JZqzaByeLJ26nfwJu/nWDLI2OcGMGJDG+gftRieh+t
+ 2ePmuc/bBELDbzzZnDigIUCwoY0oUrx1oo5x6KBw/akurJKSrEEEgwy
 X-Developer-Key: i=yin.li@oss.qualcomm.com; a=ed25519;
  pk=e/2LM97aSWGBMrxY240URBi9Zi8/kL5hXgB+VHkYvW0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX6/yo7xy6f6IG
- LQ2YZ8bEht00UKr35HXGBkevj+xr6VP52g6n+NdZjz/SHi3FNo27KKxu6yAUzivgTdA/x/PRE+V
- dCUzjbOSIXRxp5DHQn42zwA8qYOLNg0w5q9balyNc9H3DmVZjZITO97Nt6i/3b2T3fbCWQgARvv
- 3GJw9BrAXpEaMabp3Ytus8UBRsrjApt5JcOzW0XxaoYK30CGh1DER3bg8E4fG7xjVyxbTm8/9gl
- QyZC2l4IV8wBx35OFl0HIKlki1zQOtm7JkEbixoM8tQOtSn1oZx51MEbvp0FHkkkuQd5BrPOr3C
- Jx5k6lCQSRxCYmjZh5Yk44cWfIfZqmJP/o42d34E/OZiO/izYk/sHnXVSyjkSfIusRI5la1hxQe
- i0p5QXk7nHcDm1oMS/euNFANa9q7Eeez5qxO7BxJ7V9KRcv9WkBnV1qTVHvtk9J0FXcC//d668F
- rxLP+h7y0eZhFvkuj8A==
-X-Proofpoint-ORIG-GUID: AU-OL15CdRmMl98kkYRI_ngl9zHDijws
-X-Proofpoint-GUID: AU-OL15CdRmMl98kkYRI_ngl9zHDijws
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX9qOiRwF7cpzL
- 2HSl6KdSvpQ3bPKEWS0GTLh2CEu7h8hCBK/XxNt3xwcP+CJrWoSYiw8KwMCpqSL/xEuGK6nrOkK
- Ysx+JlmBzj7W2oTQLhrLp27vkLRBO30=
-X-Authority-Analysis: v=2.4 cv=KcdHIgYD c=1 sm=1 tr=0 ts=6ac73c7d cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-ORIG-GUID: RuaP29hWX7eRSgCdK8SwlMoQjc_urh_Z
+X-Authority-Analysis: v=2.4 cv=E4dYNqdl c=1 sm=1 tr=0 ts=6ac73c85 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=cxiLKowE09Ysm4E8lmYA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8
+ a=s3E7sL18FQBPR4dFS-QA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX+TZ7F0oPJJKQ
+ NJMFzYh+DXEN7L+oefB08QMUOMJkQcw682hEwnNFNQkWgfvtxYOaQYodwIUCtSIwQbwnG9cqFeM
+ cgtCpSbrZWaLAvifdlvdxbTeVfmosow=
+X-Proofpoint-GUID: RuaP29hWX7eRSgCdK8SwlMoQjc_urh_Z
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfXxAoI6HUFsTfd
+ U9WXSRu3dl640XoanZMQxy64brmF3VNIkut8GgEd+yBJdUl1J4TfqGDjTiCjfYOgyPuqs2CpeeU
+ A1oi0C59fRZWGVq3v7JBnG31sivoVSwdGKaiHi0aOKyAlzBniL7AB84d7BBr/FngLDn8t5FQWTf
+ tBFL95KTwayEs7SQwOZF2i3452jeyCx7LVkG0+JkK14ciXwm7wcsNOsyx6R1kAC6g3ZEwlJ49ru
+ rGNYirtnZVvt9zQ5dM1kNxzqPAHdcUvEbFWRFA+e13lysWPTVfkPQCNJ2Ij6Jc97739lpP3VgiB
+ L5aB1KdczCJgmzXrwT1CpeJqUUgDKHlJVR1h1Pea1NYpNC+Zkm7fBCBekeYryzMJlM7YPLTK9Nw
+ lRmeWxJVeRKfr4uATu0W7AbDOamIlsToW3RDM8p6PDr99yC6gE3Y4RZ45Imem9dX20CcnGL8PcM
+ //g0CE/eQZuLYbSPjXQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-08_02,2026-10-06_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0
- phishscore=0 priorityscore=1501 clxscore=1015 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 phishscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 priorityscore=1501 bulkscore=0 suspectscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_234725_894862_A34B3F0E 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20261007_234733_870842_C59CAA86 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,12 +177,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RIS selector field is defined as MPAMCFG_PART_SEL_RIS (bits 27:24),
-which is 4 bits wide and gives valid indices 0..15. MPAM_MSC_MAX_NUM_RIS
-is defined as 16, so the check should use >= to reject index 16 and
-above. The previous > check incorrectly accepted index 16 as valid.
+struct resource uses an inclusive end address, so the window size is
+end - start + 1. do_mpam_msc_drv_probe() computed it as end - start,
+which is one byte too small.
 
-Fixes: 01fb4b822472 ("arm_mpam: Add the class and component structures for firmware described ris")
+mapped_hwpage_sz is used by the register access bounds checks, which
+have the form "offset + width > mapped_hwpage_sz". With the size one
+byte too small, an access to the last register in the window is
+incorrectly flagged as out of bounds: for a 0x1000 window, a 4-byte
+access at offset 0xFFC (bytes 0xFFC..0xFFF, legal) computes
+0xFFC + 4 = 0x1000 > 0xFFF and falsely warns.
+
+Use resource_size() so the size is correct. The ">" bounds checks are
+correct as-is once the size is accurate and are left unchanged.
+
+Fixes: f04046f2577a ("arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202609030809.ObirDhR3-lkp@intel.com/
 Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
 Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 Reviewed-by: Ben Horgan <ben.horgan@arm.com>
@@ -190,18 +202,18 @@ Reviewed-by: Ben Horgan <ben.horgan@arm.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index dd422c56fbb1..6da217abf689 100644
+index 6da217abf689..c68135ee0ffc 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -552,7 +552,7 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
- 
- 	lockdep_assert_held(&mpam_list_lock);
- 
--	if (ris_idx > MPAM_MSC_MAX_NUM_RIS)
-+	if (ris_idx >= MPAM_MSC_MAX_NUM_RIS)
- 		return -EINVAL;
- 
- 	if (test_and_set_bit(ris_idx, &msc->ris_idxs))
+@@ -2095,7 +2095,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+ 			dev_err_once(dev, "Failed to map MSC base address\n");
+ 			return ERR_CAST(io);
+ 		}
+-		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
++		msc->mapped_hwpage_sz = resource_size(msc_res);
+ 		msc->mapped_hwpage = io;
+ 	} else {
+ 		return ERR_PTR(-EINVAL);
 
 -- 
 2.34.1
