@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7101CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0359CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fe3v0gUYbBBMBNCPc4Rqjw+lQuh6LCbM/R2FTCITKuI=; b=nUT0uXxdCYET8TDvazM1OFfP/n
-	C7PrD6jPH5qeQX/zqxNXPpmVGUHFWxHmKA1GgXRUxzdAPOENo1B5bxufPY6FykbxwvFMvR476Ty4d
-	g3XdTsVe59EFo3f5k6uX4HS2x+mQ4iOkysJuJ/llzZH2Phe9js/ijK0VSiZiom6Zb64XDTGGYZVqY
-	OZOcWhdRgrkS3XF4Z1t8I9X3BzVwa5gURbPrJf4eTm6azhjN6+7X1uP/dIYoDYwsdd2kqdZma/USO
-	oajHrul8BfqoMtp5bHLvOjbo7sv4OHtjFKSZOnVhQbvepBjID6mXfWymVofGaz5y1V6p8U03V+9uR
-	VGRhpz1Q==;
+	bh=y4cj17IQX9ex0gxY1gB4xSmsTgXgcoGUQ6ol3KePE94=; b=RvDLTm54cIW3HiXpTKbUHmQgEf
+	fjwT2B+Q6611g6+OLQ2vzDyof+MTmXJDBsuhPV3v2yjrxaDj7geCSyPMaFdR2rsv+kWm2WJUlEF92
+	ZH7cJsRDAemlKgSG9DrCNymxOiPtJj71j9W6zIJLxcFg7uL8YqapeayTSatakAaJmZX7GLVmjPc8s
+	YoB9DRpo5leqAS1JAfpmyOGbq7HtWZjuthb04izR/OGDnwii4VJG1J5CYT0wwQ3Hly6QtnTUUhqLx
+	xSIvQTjY+nRN7X2wpZxomi2T00F32fcrQf+5jKMGk7qrJ786ZP8e60wlv54mbo6Q2lI+tb7o9oDZ3
+	rNi9EyJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhvG-00000003fE4-2dVt;
-	Thu, 08 Oct 2026 06:48:10 +0000
+	id 1xEhvM-00000003fI7-3H8g;
+	Thu, 08 Oct 2026 06:48:16 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhvC-00000003fBA-2Er2
+	id 1xEhvK-00000003fGo-2PEN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:48:08 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BUr52895417
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 06:48:06 GMT
+	Thu, 08 Oct 2026 06:48:15 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6984BTdI928474
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 8 Oct 2026 06:48:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Fe3v0gUYbBBMBNCPc4Rqjw+lQuh6LCbM/R2FTCITKuI=; b=loTaOGp4bx+GSRMA
-	SUqbvQaP20bIMXVOvndQH1hMXClnypRT5w6UPdhSaWGRCS1QT9P2h7gQMI7jbLwD
-	5ULwANBh7apTGOSc9bLOB5gyJIf5lIc+AVK0rdhHh0qiF4034yDdf7wIuUauwpRa
-	S5FAufFnwy4XjKV8w3jzc0dro+wkW+NcPRGCI/ifz2ldfjW/Dy00aa9JQC6Y8SR0
-	rE6yLUvvBSFCElpr0WDz/gJu9XqdQ+0pqtlyTctNGBmAtZDCdiN0jYhC3hAT+3gv
-	Ug/vR72vXyGca6RnJk119s7f9nKoYHIlJ3d36QoehOsXmpy0vQuqnTCy3PcuoZrf
-	2yFwWQ==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h60sg93qr-1
+	y4cj17IQX9ex0gxY1gB4xSmsTgXgcoGUQ6ol3KePE94=; b=A91KisAzL9Ic6XEs
+	T1O3BK9fJAUCSmhrtkEql5NNbRwhtWpydIAQo/6oo8FMalBBEabWIGoT3k/IQfpI
+	pSzzV0gClBEHnrgxDARbRn+Ajz4SF5JJbolRiJ5TE9WJo9BhbRMer/mDMlarl8i6
+	DaRyyPBQL+2ls+CrNlQFtnKQGNKIrkwNkj65wY5r4vPzbvLWLi2NNOWLhiEbzPMe
+	BLp3zJg1u3X/6aQ3fJPYMG7aKSqe/oWXd6lgJu7s1uDf39238/zVwgRQhKjZxadq
+	RE2RKFygOyq4OfgxFp0wDaFK9b74zHTPRYUtDk/A2+WqmaS2fGA3G5ByWfWnU82l
+	CHaSDA==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe2shhu-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:48:05 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3a470ead068so4577717a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:48:05 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 06:48:13 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2e6188d1e51so14640485ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:48:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791442085; x=1792046885; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791442093; x=1792046893; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fe3v0gUYbBBMBNCPc4Rqjw+lQuh6LCbM/R2FTCITKuI=;
-        b=I5Y67Kdmks0wLpBTZWxpYhteI+Qr0KSXkyhMY+Um23FCsGL6dB8Ks8NJWGxXze7WS5
-         eKhK0D7a++1OxrAL6bcIKPYVAb5tBC/RVEEB7jnMmP8rBXHiqQw2271jOisXRe4cFqfZ
-         1VkTX8RHXKS8KAIMRiJm4vtQcewPueOHz1fHUUtu50Cxeg8N3bZLL1uve0rv0cVqdZM8
-         yiwMNQQt/pSlGELOBc9g9bA+EPvyHIlp1pYO42f5zB6K5ba0Si3gYXcsiToygniNPmo1
-         4GCsKltw0mVMBXcxmoncx2zL+vZBTXPmw90lXe9qa0/XcS1d8A4np7KO1qFa/4A10029
-         jUaA==
+        bh=y4cj17IQX9ex0gxY1gB4xSmsTgXgcoGUQ6ol3KePE94=;
+        b=JVoVswFMb88r+FLwFLkPHfdCauyCqkqGtf8T+D6Et/G4lzkiDpvxXhxkZdrrOTAkjj
+         WuvE98KsLugzpH2O8NDoBNQCmAsXGtrx2u1Hhy/yHMQS2qtJ1bop9/rDvfX7dyIxKzu+
+         CuUvDC9Sz+8tri+bA2sEy4q1EdjaLi92HCiH9uiMHYSqcH73ScQ155LrHAAkhl3SbWwW
+         vOX9VviMhaqvPvfDwWxsrKwqOjnWANHDv4+mWZGodKzBcdupQQoKk8PpC+TSRsLuieI/
+         TOddTgs1d7C0hslGuo8V1IhmcPVRmJWXB/i8cKQ1JoRFYRa9m42vNFzDYW6WKAgmHJCI
+         Oxrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791442085; x=1792046885;
+        d=1e100.net; s=20260707; t=1791442093; x=1792046893;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Fe3v0gUYbBBMBNCPc4Rqjw+lQuh6LCbM/R2FTCITKuI=;
-        b=vxSHwq+iC3Nb2qcofye+BkC0Slp3WjrDrb49ZgXaLihP5bP1a6kt0y16VUUjhE9qpL
-         7jUbgBOW8207f8Zzlehejpns9x5vo3Xj4tSa/n942GwsYrmcovPvCsm0yZl5vGeeos+Q
-         x2X8Lzs06/EN02VMsRMjgZCvhHnb2WsAeZ/C+UcvlmdX5Q1wUkE6pO1NF4Pg+wQhOGex
-         rlM4svjvVaUAE1dhHGHy3Zsaxk+6rHnVYfF2d8DkzqB9YLY32QE0klwrrvzq1d8Ihyff
-         TwNOLI1Xtn53z+H08YdADus+U/LXO6B2iiosTPRJQ7p5PbxOb1Q/NceUe6tD3uDFLU9r
-         YL3w==
-X-Forwarded-Encrypted: i=1; AKwUvBxZov4P3CvvPnLzVShDYLZl5swE5eSAlYnllG8uvLxfAnBBxY6uvjaN/YJvCCf0oP3b+8kiPgsXDzF/zkGggD5n@lists.infradead.org
-X-Gm-Message-State: AFq9FYI1/PGsDzoY4Z+HC4pk3pa50lh8D/j+kupn+607mClpPdJqyZ5E
-	z4fyqNysCbLLbCZUlzO0h5luVWM2bVZi81Ms5tET8qT6qOLtzVlEdwS2fCsPWTqw+pAyBWfYY98
-	kVVDcQLtPIZNa1KnmC/bI8RNmZu08T6gRsdA5b2CY0yYyztFpnMJv+vnUIHYw1LxeqtYGc2qIvj
-	9ydQ==
-X-Gm-Gg: AYBFou27OlI6n/xDkZAves662hh+IHUEKuty+QjYVwGmJ1gZy8sCyZHoCzgyLSmqoxH
-	7BSE01gxFCLvZW44thD6ThXhgnFsf5DoxxyFGst2TMAO+LR/+kORqKYYQGdwDpae09b2MvfL/t/
-	t0qmRfHWatHQRld1DzYeemE1xQmNmPVXxZTHSrLzenb5FCxm9QVV6IyLliMmQuVELsgNYOW0dbT
-	JNJ3IlhikxmhWkLUbvNtcJ/jGd+OZ1deVbRCYGbE/QCoIWwS6av9Gaf0wcT4HkiyyAfNzB6Rf/p
-	iyveR+UsLZ/K9kaJnYQWJ6Po8z9DUtZPErWmETFlVqtz9iIHpKvmLM3Azy2Sa7JJNes0lh4dMpo
-	5+XwX0io9XJypCQmojtceZB7jBgWe+kB6ws0sYKiLgm9eJcbgpPWu+OM=
-X-Received: by 2002:a17:90b:288c:b0:3a7:eb0:119f with SMTP id 98e67ed59e1d1-3a8a0f259a5mr3337635a91.43.1791442085038;
-        Wed, 07 Oct 2026 23:48:05 -0700 (PDT)
-X-Received: by 2002:a17:90b:288c:b0:3a7:eb0:119f with SMTP id 98e67ed59e1d1-3a8a0f259a5mr3337594a91.43.1791442084504;
-        Wed, 07 Oct 2026 23:48:04 -0700 (PDT)
+        bh=y4cj17IQX9ex0gxY1gB4xSmsTgXgcoGUQ6ol3KePE94=;
+        b=QsY0BqZcf+UXuLiBOfimwirvG0chUGGVmYecEHVf9VCvex6JpIhGVhLM+IzliVDr1d
+         a1SIHAe816gkQmYZNtYiBp52OIAaQQLqbNDL0HJR4gXMPgiJL0jWWUqwL1/wgSOKszWE
+         faqG1obx+guRiuBFePKKNiYjWKrgUy2h8/SVK5aVRtBctOC2fvnMyxxzdANOOjvJCgMf
+         bQ5RONyUxCIsJ8RkQsvTZfEAoxeqz/Hk6VlvztiuReitDRkkge0tUFvKGmnUuwSAzfXl
+         VeUZnaVlpo8KSczM59odrn9e7Mu7SwG2dNEwTm9AMRSeOlTOSh1bZfyRhWy3jaPKUK0/
+         VQ1A==
+X-Forwarded-Encrypted: i=1; AKwUvBzhvgUFqfD6sbUrvl2JJ3BAYX273MBtd8A5okpet4HdJzej+Lyt9zKbrmdksZqcQt2bCGmqJkK7o5DtG1nHlx6k@lists.infradead.org
+X-Gm-Message-State: AFq9FYLFWKKA3lnZHmBBoETcUW18Gyo9cdIxU8OtlPSVUlldbB5KeHjK
+	Io2Dw0jxbvkPas2wxffkpPDemOnlA36pVLrR6xIibD+P7L+7RuftfXgcn8A94Mtf2cSvwRi0xrI
+	ZPnxrqjZDU7FpBhMzaKe6heMyAPL1KQKRKYttMFxN27kd+3U2pwzGuxBNMZ6KBwFYPjs33YYWJU
+	TmAg==
+X-Gm-Gg: AYBFou1T1i1WQkjHNuGPukQgoCDUQpTSSZTCNZz9RRIYue79aK34i1xN3iOo4gCepNY
+	UnI7//Wzz5eKcHk4ocyg3/8EStd376lIt2ypIzNOW+2sMlueGJfvjyjwxwK77TJU8qReZvX0y7/
+	DHAwuSu8uVk9W9VDnik6cz/fm5ergKe1QARInWjj1iSFySJkvYK0Wh2h/pPp4xqykEVQw5G0HGi
+	XReoYT7hS/hRWG1aS2OmUSkEzWOaS8aPNqgYOKTkI8uEJynqn83zffEM2/dtnVHUlYpsOvq/s3Q
+	kBBqSoAErbzI8nWKLVasHEoj8xgiKfxpniMty2y/pmna7B0IhIAY2IxlPtwAWchXsq4CP+Y+nng
+	/pzcPwdPfg0p3YmpLj/2PvOY5O/xkfmqjjZnBlZHMPUM2nPMID5EZnzo=
+X-Received: by 2002:a17:90b:4d:b0:3a4:c52e:8126 with SMTP id 98e67ed59e1d1-3a8a1b5f732mr3689934a91.40.1791442093029;
+        Wed, 07 Oct 2026 23:48:13 -0700 (PDT)
+X-Received: by 2002:a17:90b:4d:b0:3a4:c52e:8126 with SMTP id 98e67ed59e1d1-3a8a1b5f732mr3689923a91.40.1791442092528;
+        Wed, 07 Oct 2026 23:48:12 -0700 (PDT)
 Received: from yli42-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a9f1a254b3sm3313925a91.2.2026.10.07.23.47.56
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a9f1a254b3sm3313925a91.2.2026.10.07.23.48.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 23:48:04 -0700 (PDT)
+        Wed, 07 Oct 2026 23:48:12 -0700 (PDT)
 From: Yin Li <yin.li@oss.qualcomm.com>
-Date: Thu, 08 Oct 2026 14:41:15 +0800
-Subject: [PATCH v3 6/8] arm_mpam: Add support for memory controller MSC on
- DT platforms
+Date: Thu, 08 Oct 2026 14:41:16 +0800
+Subject: [PATCH v3 7/8] arm_mpam: Support MSC accessibility derivation from
+ RIS nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261008-mpam-resctrl-dt-knp-support-v3-6-35196c2b43bf@oss.qualcomm.com>
+Message-Id: <20261008-mpam-resctrl-dt-knp-support-v3-7-35196c2b43bf@oss.qualcomm.com>
 References: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
 In-Reply-To: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
 To: James Morse <james.morse@arm.com>, Rob Herring <robh@kernel.org>,
@@ -125,43 +125,43 @@ Cc: Yin Li <yin.li@oss.qualcomm.com>, Andre Przywara <andre.przywara@arm.com>,
         linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
         devicetree@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791442025; l=4057;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791442026; l=6269;
  i=yin.li@oss.qualcomm.com; s=20260811; h=from:subject:message-id;
- bh=IyjCt9e2HWnLpXHhmvzVNYem5pb2CZCxUbGNx8XbqAM=;
- b=AbRTdccivHdzG1PG5LEspniMT8sWNpqFZ3ke2ws2IwfWLlLEzGZ0uItRckFXz01pJZNhCd96T
- Qyy1ZPJVHLJAafN0YoLbiByqNGfBfH+Ema7zrFZkTpDEK/kZNEeguTc
+ bh=GSIRP3BmhQS7xYPGeQGpseQQlGc9u4TA3Qjw1cKATeU=;
+ b=pSl8/bn/WvXEY9gArvtq+8Qd8w/Wt21IFdtyi1T8yoyytSv7O7alTH6LoIlk1qgFoHuKki4TF
+ 6YzLk24JMNMApzvcekAGDjpj5g1Acg1hbG9TYdHhAfXVOWF15GLvzRm
 X-Developer-Key: i=yin.li@oss.qualcomm.com; a=ed25519;
  pk=e/2LM97aSWGBMrxY240URBi9Zi8/kL5hXgB+VHkYvW0=
-X-Proofpoint-GUID: 7D1hZZrSj_UdcTPZXpepSmmivXgOB_9h
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX2gSE7F8ld9dX
- V2+ndwF6O7OHSq+e4pjvg1y1ku4vB077UM5TPp/7Q/fbAFbnTddNdE8L2QVmrQ1hBEKOx0ql7p9
- SiM0V85erxfd/+LkbxuiSeoR6Ufa9vk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX6RgAaJO9AzH4
- UffonQ6PIEYC2gw6EAZvW+rkoUfxzgS5Z4yvvi29hqZGV0qIui6vW4swnQ83FvM8PpAGWsm92Xx
- UwYHhl79WWdjpFR99xCFgdtYJvxq28Z+VJU+qxU/yBhRR1wccLVjKf3w3Ov3ZJCU44GBJSuFM4+
- oNeLMewRjRblbWkcZuMwrHjSssB7+8pFj/rp6WY8S0ufwCM359V3U29IIJtI0tZDAf5RLZHhM0o
- e7UVXG/yuKKpAaRE4lVTn0KkMiDKze4eNpb3OVqxRPmrHwhGqfE+YHM9K4LwgNjMZZv3MYq/6AW
- +TMXfYf3WChFd3021c4osCmvz8MBBAfutcAo8WgT25MImKWc6AXzoHJL2/+ooTUD/hANomZ2bbD
- qb+Umjpp6j7TF7rQIPYzvAXGlUL8wWdtySH0do03zRxDOAtaO2V6Gt0+PD2kJ3MM9DmVOicn8NY
- gET3W0xbwOif0yR37oQ==
-X-Authority-Analysis: v=2.4 cv=DfWCOftW c=1 sm=1 tr=0 ts=6ac73ca6 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX83NF05bA8rlW
+ SX6rGUvnqrnyWi6VNY0Xdjm078fIF0Lw0HtfSDumUQUJoQS9AB54z6lCIZA9HW6qaYq/OCO/I/F
+ mTtZFoHba3X0wu8RdYwUkYDKWaPAFfo=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAyNiBTYWx0ZWRfX8nyL4/Wodaic
+ yY0B65Pg0D6DcX2G0zqHytnaG/K42eYvy3aWtvaKPpn5BnhlbOVQ4ZYUIhjSr/6leta7c/M0l/q
+ /TtgmnUDqNlX0r3BSjJW68XblbS12TlOiEDGhgVK1ewrmzZJEbJRnDEmdqZtFv/Qzyio3EueJPU
+ Us9KKWS+eagAWvsmRoRWetuHeGepJ/dnV0vwUahBRc/T4qEiULy9h61mbiXeiIAp7edp3MWIAL+
+ ru1I+6WzE3zY6L2GtVXtBJpIl9lx4PzciemvLb1oiCKfFKwOB7VYTKvxgMtL9Niq4Brvm7znjz5
+ cC3AJq3Q6nerKa/TkM4bFDjnvHE0ej3sBb5vAqVaIRXK2iTLYEuJiP/FK2YXUzqeYRXm5nrBv9h
+ vgCzgN+N0Oce0dHucXVs9Nfee9baCRrF8VwBa8i56RIq+yRupOoT+MhzXyi780ARht/JEWweF5j
+ B1IGeIC0C6+BUD4ApFQ==
+X-Proofpoint-ORIG-GUID: aTu2lC2iZFqfAa7gPG1ZAVo5lbFCrDNf
+X-Proofpoint-GUID: aTu2lC2iZFqfAa7gPG1ZAVo5lbFCrDNf
+X-Authority-Analysis: v=2.4 cv=CIm/zhrD c=1 sm=1 tr=0 ts=6ac73cae cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=Ikd4Dj_1AAAA:8 a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=YM9RNYZJZtWq5EK5GGEA:9
- a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: 7D1hZZrSj_UdcTPZXpepSmmivXgOB_9h
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=DmVZOekaPyhSFRrspXcA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-08_02,2026-10-06_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 bulkscore=0 phishscore=0 clxscore=1015
- priorityscore=1501 suspectscore=0 spamscore=0 impostorscore=0 adultscore=0
+ phishscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0 adultscore=0
+ spamscore=0 priorityscore=1501 suspectscore=0 clxscore=1015 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_234806_626776_79E34EE4 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20261007_234814_633989_61F11692 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,116 +176,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shanker Donthineni <sdonthineni@nvidia.com>
+The DT accessibility derivation only handled MSCs whose parent node is
+a cache or memory device. When the MSC is placed under a generic
+container (e.g. directly under /soc), the parent gives no affinity hint
+and there is no fallback.
 
-The MPAM DT path only handles cache MSCs. Memory-controller MSCs
-cannot be probed yet.
+Add a per-RIS fallback path for when the parent node is not a
+recognised cache or memory device. For each available RIS child node,
+affinity is resolved in two steps: first from an explicit 'cpus'
+phandle-array on the RIS node, then from the 'arm,mpam-device' phandle.
+The final accessibility mask is the union of all RIS masks; if any RIS
+fails to resolve, the mask is cleared and the MSC fails to probe rather
+than come up with a partial affinity.
 
-Add support to discover memory-controller MSCs from the device tree:
-derive the component id from the NUMA node and create a 'memory' class
-RIS, and treat a memory parent as accessible from all CPUs.
+Factor the DT-specific logic into mpam_dt_update_msc_accessibility() so
+that update_msc_accessibility() dispatches cleanly between ACPI and DT
+paths.
 
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-[ morse: split out of a bigger patch, added affinity piece ]
-Signed-off-by: James Morse <james.morse@arm.com>
-[ Yin Li: fix context offset conflicts; use of_node_get() for the memory
-  parent to avoid a refcount underflow; use u32 instead of unsigned long
-  for component_id and compare against ~0U ]
+Co-developed-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
+Signed-off-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
 Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
 ---
- drivers/resctrl/mpam_devices.c | 55 ++++++++++++++++++++++++++++++------------
- 1 file changed, 40 insertions(+), 15 deletions(-)
+ drivers/resctrl/mpam_devices.c | 146 ++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 131 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 0640690eae2c..048d32e69f55 100644
+index 048d32e69f55..80157b819c3d 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -263,10 +263,12 @@ static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
- 				  u8 ris_idx)
- {
- 	int err = 0;
--	u32 level = 0;
--	u32 cache_id;
-+	u32 class_id = 0;
-+	u32 component_id = 0;
- 	struct device *dev = &msc->pdev->dev;
-+	enum mpam_class_types type = MPAM_CLASS_UNKNOWN;
- 	struct device_node *cache __free(device_node) = NULL;
-+	struct device_node *memory __free(device_node) = NULL;
- 	struct device_node *parent __free(device_node) = of_get_parent(np);
- 
- 	if (of_device_is_compatible(np, "arm,mpam-cache")) {
-@@ -275,27 +277,48 @@ static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
- 			dev_err_once(dev, "Failed to read phandle\n");
- 			return -EINVAL;
- 		}
-+		type = MPAM_CLASS_CACHE;
-+
- 	} else if (of_device_is_compatible(parent, "cache")) {
- 		cache = of_node_get(parent);
-+		type = MPAM_CLASS_CACHE;
-+	} else if (of_device_is_compatible(np, "arm,mpam-memory")) {
-+		memory = of_parse_phandle(np, "arm,mpam-device", 0);
-+		if (!memory) {
-+			dev_err_once(dev, "Failed to read phandle\n");
-+			return -EINVAL;
-+		}
-+		type = MPAM_CLASS_MEMORY;
-+	} else if (of_device_is_compatible(np, "arm,mpam-memory-controller-msc")) {
-+		memory = of_node_get(parent);
-+		type = MPAM_CLASS_MEMORY;
- 	} else {
--		/* For now, only caches are supported */
--		cache = NULL;
--		return err;
--	}
--
--	err = of_property_read_u32(cache, "cache-level", &level);
--	if (err) {
--		dev_err_once(dev, "Failed to read cache-level\n");
-+		/*
-+		 * For now, only caches and memory controllers are
-+		 * supported.
-+		 */
- 		return err;
- 	}
- 
--	cache_id = cache_of_calculate_id(cache);
--	if (cache_id == ~0U) {
--		dev_err_once(dev, "Failed to calculate cache-id\n");
--		return -ENOENT;
-+	/* Determine the class and component ids, based on type. */
-+	if (type == MPAM_CLASS_CACHE) {
-+		err = of_property_read_u32(cache, "cache-level", &class_id);
-+		if (err) {
-+			dev_err_once(dev, "Failed to read cache-level\n");
-+			return err;
-+		}
-+		component_id = cache_of_calculate_id(cache);
-+		if (component_id == ~0U) {
-+			dev_err_once(dev, "Failed to calculate cache-id\n");
-+			return -ENOENT;
-+		}
-+	} else if (type == MPAM_CLASS_MEMORY) {
-+		err = of_node_to_nid(np);
-+		component_id = (err == NUMA_NO_NODE) ? 0 : err;
-+		class_id = MPAM_CLASS_ID_DEFAULT;
- 	}
- 
--	return mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level, cache_id);
-+	return mpam_ris_create(msc, ris_idx, type, class_id, component_id);
+@@ -2159,6 +2159,136 @@ static int mpam_msc_setup_error_irq(struct mpam_msc *msc)
+ 	return 0;
  }
  
- static int mpam_dt_parse_resources(struct mpam_msc *msc, void *ignored)
-@@ -2169,6 +2192,8 @@ static void update_msc_accessibility(struct mpam_msc *msc)
- 	} else {
- 		if (of_device_is_compatible(parent, "cache"))
- 			get_cpumask_from_cache(parent, &msc->accessibility);
-+		else if (of_device_is_compatible(parent, "memory"))
-+			cpumask_copy(&msc->accessibility, cpu_possible_mask);
- 		else
- 			dev_err_once(dev, "Cannot determine accessibility of MSC.\n");
++/*
++ * Resolve a RIS to its CPU affinity from its 'cpus' phandle-array.
++ * Returns -ENODEV when 'cpus' is absent (the caller may use another source),
++ * -EINVAL when any phandle is invalid, or 0 on full success.
++ */
++static int get_cpumask_from_ris_cpus(struct device_node *ris_np,
++				     cpumask_t *affinity)
++{
++	int i, cpu_phandle_count;
++
++	cpu_phandle_count = of_count_phandle_with_args(ris_np, "cpus", NULL);
++	if (cpu_phandle_count <= 0)
++		return -ENODEV;
++
++	for (i = 0; i < cpu_phandle_count; i++) {
++		struct device_node *phandle_np __free(device_node) =
++			of_parse_phandle(ris_np, "cpus", i);
++		int cpu, matched = -1;
++
++		if (phandle_np) {
++			for_each_possible_cpu(cpu) {
++				struct device_node *cpu_node __free(device_node) =
++					of_get_cpu_node(cpu, NULL);
++
++				if (phandle_np == cpu_node) {
++					matched = cpu;
++					break;
++				}
++			}
++		}
++
++		if (matched < 0) {
++			pr_warn("MPAM: RIS %pOF cpus[%d] (%pOF) is not a possible CPU\n",
++				ris_np, i, phandle_np);
++			return -EINVAL;
++		}
++
++		cpumask_set_cpu(matched, affinity);
++	}
++
++	return 0;
++}
++
++/*
++ * Resolve a RIS to its CPU affinity from its 'arm,mpam-device' phandle.
++ * Returns -EINVAL when 'arm,mpam-device' is absent or the phandle is invalid.
++ * 0 on full success.
++ */
++static int get_cpumask_from_ris_phandle(struct device_node *ris,
++					cpumask_t *affinity)
++{
++	struct device_node *mpam_device __free(device_node) =
++		of_parse_phandle(ris, "arm,mpam-device", 0);
++
++	if (!mpam_device) {
++		pr_warn("MPAM: RIS %pOF has neither 'cpus' nor 'arm,mpam-device'\n",
++			ris);
++		return -EINVAL;
++	}
++
++	if (of_device_is_compatible(mpam_device, "cache"))
++		return get_cpumask_from_cache(mpam_device, affinity);
++
++	if (of_device_is_compatible(mpam_device, "memory")) {
++		cpumask_or(affinity, affinity, cpu_possible_mask);
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
++static int get_cpumask_from_ris(struct device_node *ris, cpumask_t *affinity)
++{
++	int err;
++
++	err = get_cpumask_from_ris_cpus(ris, affinity);
++	if (err != -ENODEV)
++		return err;
++
++	return get_cpumask_from_ris_phandle(ris, affinity);
++}
++
++/*
++ * Returns -ENODEV when the parent is just a container (not a recognised device),
++ * so the caller falls back to the per-RIS description.
++ */
++static int get_cpumask_from_parent(struct mpam_msc *msc, cpumask_t *affinity)
++{
++	struct device_node *parent __free(device_node) =
++		of_get_parent(msc->pdev->dev.of_node);
++
++	if (parent == of_root) {
++		cpumask_copy(affinity, cpu_possible_mask);
++		return 0;
++	}
++
++	if (of_device_is_compatible(parent, "cache"))
++		return get_cpumask_from_cache(parent, affinity);
++
++	if (of_device_is_compatible(parent, "memory")) {
++		cpumask_copy(affinity, cpu_possible_mask);
++		return 0;
++	}
++
++	return -ENODEV;
++}
++
++/*
++ * An MSC's CPU affinity is described either by its parent node or, when the
++ * parent is just a container, per-RIS inside the MSC. In the per-RIS case the
++ * accessibility is the union of the RIS affinities: every RIS must resolve, so
++ * a single failure clears the mask and stops and the MSC fails to probe rather
++ * than come up with a partial affinity.
++ */
++static void mpam_dt_update_msc_accessibility(struct mpam_msc *msc)
++{
++	cpumask_t *affinity = &msc->accessibility;
++
++	cpumask_clear(affinity);
++
++	if (get_cpumask_from_parent(msc, affinity) == -ENODEV) {
++		for_each_available_child_of_node_scoped(msc->pdev->dev.of_node, ris) {
++			if (get_cpumask_from_ris(ris, affinity)) {
++				cpumask_clear(affinity);
++				break;
++			}
++		}
++	}
++}
++
+ /*
+  * An MSC can control traffic from a set of CPUs, but may only be accessible
+  * from a (hopefully wider) set of CPUs. The common reason for this is power
+@@ -2168,8 +2298,6 @@ static int mpam_msc_setup_error_irq(struct mpam_msc *msc)
+  */
+ static void update_msc_accessibility(struct mpam_msc *msc)
+ {
+-	struct device *dev = &msc->pdev->dev;
+-	struct device_node *parent;
+ 	u32 affinity_id;
+ 	int err;
+ 
+@@ -2185,19 +2313,7 @@ static void update_msc_accessibility(struct mpam_msc *msc)
+ 		return;
  	}
+ 
+-	/* Where an MSC can be accessed from depends on the path to of_node. */
+-	parent = of_get_parent(msc->pdev->dev.of_node);
+-	if (parent == of_root) {
+-		cpumask_copy(&msc->accessibility, cpu_possible_mask);
+-	} else {
+-		if (of_device_is_compatible(parent, "cache"))
+-			get_cpumask_from_cache(parent, &msc->accessibility);
+-		else if (of_device_is_compatible(parent, "memory"))
+-			cpumask_copy(&msc->accessibility, cpu_possible_mask);
+-		else
+-			dev_err_once(dev, "Cannot determine accessibility of MSC.\n");
+-	}
+-	of_node_put(parent);
++	mpam_dt_update_msc_accessibility(msc);
+ }
+ 
+ /*
 
 -- 
 2.34.1
