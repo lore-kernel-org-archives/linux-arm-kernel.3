@@ -4,150 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 735F9CA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D372ECA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ouOAMQyWVowsJM1zyurKGDRQXpGvt5Pel5QcyYczK60=; b=FfJ46H9j81XrUxvvNlglpqf19n
-	1M0OXjl3/t15X/9pwA52pHcR+IN2DTKVZcSaCpdL2n2/pVe5v3/VurGUyLzEf65lE2K64Q/duZGXA
-	+8xrBoxHmo1a72Krc5X6UbKc++JffoCvP8iKR1PgfH9lh89d2qXzz9SCxAkQCY8cIsaekOOZoiCX3
-	HCLqLelN+ZfB8YeaCBlHhfuRkAHE1TwNToarhEb5b3v7cqu1VmTxmfdogBo7MKj5UyMQqPp30Wr0Y
-	T3U/hP1MMHOyof60cg8o+5z85vbn4sFRYWtyMug5nej5Ld3/ZztY34BrXxUbJLY+PecFjLmGhXoY5
-	3EN261hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UzQfDTRTmS+gaX7dqM9/WJ8Qsplgm21FfSEcaEcN9j4=; b=FLMLwYQ24lTzGF037Xa3xS+uWu
+	rilTj2HbL3oeK3IS1x4UOCALORriNiMeLkBeRrDl+XMnX55eoaNHBUZp+XWdmQ7oKmei1klGJNVjN
+	fOnK1KCMgT9kh2xbH/8Om+25RzB3o9BRRSnp1Nl4GJP11uD3Ky/5JoiRNIpt4hrl5+LFaJ+t1cd/6
+	ZFjiwkTQfW2o1lKRdw25kVgX6ky9BNqv9nXm62NvJxkm0D85wYxiiiAkvxCtY8ESF702Iv/gzCpX9
+	E/WzsQXMMnWKtWInZJi+GtN0qHj2El5eKem77EUjIrOyYwLP7sAM0KSFSUnrclRXMJz3DjPgMsxNn
+	bG/xS+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk0Y-00000003wlL-32hU;
-	Thu, 08 Oct 2026 09:01:46 +0000
-Received: from mail-ukwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c206::1] helo=CWXP265CU008.outbound.protection.outlook.com)
+	id 1xEk1s-00000003wuW-29hh;
+	Thu, 08 Oct 2026 09:03:08 +0000
+Received: from mail-westeuropeazon11013033.outbound.protection.outlook.com ([52.101.72.33] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk0V-00000003wkH-23jt
+	id 1xEk1p-00000003wtK-2tmr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 09:01:44 +0000
+	Thu, 08 Oct 2026 09:03:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gu2Rr8FWyNVEIEJVl2hSSEm3BnBBe7dHfRKi8Q3uRajdjrcZ2v66hgbXKx53F+RmYty3wiFvaMJeAYMxXSvsPBYHr+Cm8CZ6vfBrco8BBWXvlSeOrwjYRZi9+sJKqj2Jb/spjWFWPxUbDJ2cmqQ0fOHxsP6I6JbQiL3k6r0M/zGt3Jywioj0T3ZGd18aa3sAIL9ipfFUEKsSUrD57y2pe70ayDQ5DQSpDDNePkRFsuu0LEJ5SD5EZFRigrnN7QjwqIXIOeRn/PTVRNDOZKy2+/E3MKn2Vw1Xgs9ArHA+0gFe4FOxvEZeMuxPTHeep6yby22QwWW+ARDPEdjFMeP+Ww==
+ b=xEZT/uivIxkEwSjLFUUyaxyz0NBMqRPnfiw6HXgGCMyTMT3qWQkUuL1JlX71k5j6R5Am3Hr5QpUbcB2d9gB0/jj46TR5SJChtrvu6wNtaiwTQdLf/I+OJ6uvk5kvj7Q1Uk/TzPUXwd/w6ogpZyXZQ3VVJkXkw4taTZIvrjwCnHIkL4T8cMfLE27SaskfUgHOB45ifge+K5qu2sDbvJez/XadimsmwVkSs/Atfz82S4yw91hCh9HUmzH4hjaAoJC4js/Qq8uBrCh+UVnRv9mJYBUds0AbuQZy1VsXuWMEoGMIkb2bmW4EiwsOvRdkjKEHGbKVggPpmSyDQAiyDtOgAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ouOAMQyWVowsJM1zyurKGDRQXpGvt5Pel5QcyYczK60=;
- b=PHCI+ll5MBIoInN+uckV+62H6RMNnbkh7l1fEcT3bqwp4tPquNyvfLXJVT12Azf+dhmGFJklpOU3d9um4Jbmo0qgA8GhBQ62yQCjT5cRw2OuGvOTrUTNnKtfPzawNRKYbTxxCGzug0SD6gtX2nr504JcZ3bmsTBFDjzjn6FUNNMPUCNbYreXMa3QrtpMi+XAOgqyI1eXrg06gZ/wx96pTKHD/DbosNBxQk6dVeWUQrf+v/D5DJms1n5DMSqkm9tOmUvmfsl3QMDK8L4kH2GwTdDqEwUdE7QJd+wpNR1XpFesmEjd26IPfQrx28XqDxfgRetQzN7bvIzGozaXPCDUhA==
+ bh=UzQfDTRTmS+gaX7dqM9/WJ8Qsplgm21FfSEcaEcN9j4=;
+ b=Dhw7HP+tCHJBBf2I83D7mY0EdyoeinarF3sQM0WZK7ykU5yuiwoUgwEEVHZ4DAd5nIJp9V1CJNGeh9M8XU4j3wYuXfxX4QG+QZryFPvFGE13AN954eVmDbOt7eoI/9VioC0AUduYNocEnEb26D5IaUHnbK88WoBK19/8Kltc/f8q5tHQ7WFyu5eQpIWWpa4YEZYsNazFWOhyX7NJP1X3Z17Y1swYEpQdjTFWm0gWC4wpkd/7rberINTXBABSfN0zDMDhl5vMBCQJTUwDclau93+frBhxjqL4mEEAV+4lnum7uFMkoHyYRHg/a4Wc4P474fgNk/38R8Q3nEktSOn5cw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ouOAMQyWVowsJM1zyurKGDRQXpGvt5Pel5QcyYczK60=;
- b=vqVNxh6N/MzvuxrfFoAZvidRzS/TwtpCZr4LXY2IaqJAeqZH43cNSgbRQixzkwHdOzoPD2rnMg3gWYlvgT/0uOphpNWjA74rByuQUVjHCrmIeDKuqKFgv+M8NBd2OQaat9Li+Rg/h4athMSOX5THtad7braW9QAxbTLuc8EEmPw=
+ bh=UzQfDTRTmS+gaX7dqM9/WJ8Qsplgm21FfSEcaEcN9j4=;
+ b=cWS0ZIbB4QpM6WlgQNV8JPY/TFM/2mLy0rtTa0Tl32OvJWDSGbrNCDoKOGY4gPnNxrIMHBATpdd0n70BX23CRxz24eAtjOx3hGkmUXQZLwCo9RViMNCWDvCCmoxupGC5mBNVTzBHnaAYeGQvbTHTRMiiEzvTJoGIYhJhNqF6NOlYVgfJiVIamvriX7MDyCtptFUga6YkU4I0JqlyLEM2AZVNCiyO/zcWfM8LgqcmrgC+0o8wH6BXmrCEdNerFQNYXw5xykLM+C+4VhNvV+ZI57R+4x2Nycn0rYUZWRYDSV57gG9GVyw93OoVlEHSAF69nKrG8s2NC+XtrnyA2UzMig==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
- by LO3P265MB1946.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:10b::12) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
+ by PA1PR04MB10099.eurprd04.prod.outlook.com (2603:10a6:102:45d::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 09:01:35 +0000
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
- 09:01:35 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 08 Oct 2026 11:01:32 +0200
-Message-Id: <DLZC239PAA53.3S5GIQRJNU1V2@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Arnd Bergmann" <arnd@arndb.de>, "Linus Walleij"
- <linusw@kernel.org>, "Christian Schrefl" <chrisi.schrefl@gmail.com>,
- "Bradley Morgan" <brads@mainlining.org>, "Paul E . McKenney"
- <paulmck@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>,
- <linux-arm-kernel@lists.infradead.org>, <rust-for-linux@vger.kernel.org>,
- <llvm@lists.linux.dev>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/6] ARM: cmpxchg: always inline __arch_xchg() and
- __cmpxchg()
-From: "Gary Guo" <gary@garyguo.net>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>, "Russell King"
- <linux@armlinux.org.uk>, "Miguel Ojeda" <ojeda@kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20261008053746.49631-1-kmehltretter@gmail.com>
- <20261008053746.49631-2-kmehltretter@gmail.com>
-In-Reply-To: <20261008053746.49631-2-kmehltretter@gmail.com>
-X-ClientProxiedBy: VE1PR03CA0011.eurprd03.prod.outlook.com
- (2603:10a6:802:a0::23) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:4ab::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Thu, 8 Oct
+ 2026 09:03:03 +0000
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 09:03:03 +0000
+From: Zhipeng.wang_1@oss.nxp.com
+To: Thomas Gleixner <tglx@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Radu Rendec <radu@rendec.net>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>,
+	xuegang.liu@nxp.com,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 1/9] irqchip/imx-irqsteer: Call chained_irq_exit() on the handler error path
+Date: Thu,  8 Oct 2026 18:02:23 +0900
+Message-Id: <20261008090231.796511-2-Zhipeng.wang_1@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0052.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::20) To DB8PR04MB6858.eurprd04.prod.outlook.com
+ (2603:10a6:10:113::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|LO3P265MB1946:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9308408-0403-44d8-822d-08df251ac180
+X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|PA1PR04MB10099:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2dd6085f-db37-4109-f3fd-08df251af5fb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|56012099006|4143699003|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: mbJc6wZrlT4rRciVXa/i7rS3+QTAsl9E4m+FuEbsfGdvPZpguy+oQjoHp5HkGNrVeJ5IrKU6lnP+QP8az7M84m7dTvzJ4Zpqm57i8RvgfqwUKlIOwFx+2iTbYBKY4ynEJ072E0D31ezTPwXWjeXH8m6Zz331ODOqqcNT9vZJzwuNmpNEXVHyNQZ1zuRRWDWMoYrb69bztoun4b1IQ5FBcK/4DSVowtF71v5IF74UVp350EtRxstC6cHarYjJmFfdN/U3DKFIpIdHvuBBbjlPDz7gL+akv2nv9f+Zs+vqhfQSdwP0eGeCVMsG2OluKkq7kY76kHEsYPIQP2GyeHOlQ7jHHYg7UFojvyZ8eNYnNHj+128yeMDid4k5U1Nl8luzLHRrj8nUvIty5IkUD0qLonrCFGZ+CgrUOgWVT1FAcogSuWI2pguQdyiSp/1yQA+KUzvWENNRoi9kdky2i2x0CnFVPyjNXzxC2mCRbs/LCJ0NKZ2aiv7c1uzjCS6FkzqnYbXOC3fvmXLb4OIG7q21lCVXyc6gsp1N7/RnXn3I0Pspb7AiAjEV1iHO4Vj78/AjLN3mQKSNibdA0hm2ZbiBQ3Z5Hih0b51tOonpg028hCwLSGBcJXVvSUbe66pGrQzy2Kl9WFgL3ipPZ8aX+E7Nf86/pCeUbWxoKFamxsqpWzk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|19092799006|1800799024|366016|11063799006|6133799003|10067099003|56012099006|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: CkO7Aaa6tTY9ikKWjamvJAKW2UedSi4JJVZYsKBc7StGIhaXUygzcpkwquHsp4YRyMvaJkFUuKmOIdx7PhFx0yOqe0hko8SAuh+BfLxbxoJweqDzt/Lo7VzxpwxFRq20icPQ/F9lUGEm+Tc5viqWF5n8JEQ6Gci7lMFffJsAQGt2Ij6xsPD3PIt/Ob8DE5s9y4E/+oehot2c8SbhNF6GG0fCSZuAYGYO7aBhZJG4YM9YWBw2U1YGdX/JvXZsy9ZBipQ6WxjMaCvHnCGZJsHm1KFcKvbwwrk4vNWS8zfs/eKCRNJjb5xbiDER+0vBrGX7jwlMz2wA3kLzsfu0R5QNoWkVeJ1IoWLnRgsi+TD2aG/N9UO3d8Hcr3sRrVgjxF1yq4U/X+TIDU2u49c6eTVblznwdMO7rWctMCIeSN8iKWbObCDIFsc9AvtOMaC8YxXSyaAGXVZYkhYfyrYY6baEkWLlZMlKoR4lFqPRScQGVzEHEnGhApwlV6QPSOqO9mUrYpHUx0nA4neSUEWxTBSC5EoiZ+PpAdK6+8O7TN5pIh4p4f3jDntpp2wqO9x+EHQOxeGrh3vBRrpB/oLLUpSLUZRXpLfJVAUwdDCnIa6eFgXLj/QVOqsJNNN9X+EDmxUfnwm7Pnec0qEmv/8lKizpkqky/8ydRfASNFXzbKAN+RM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(19092799006)(1800799024)(366016)(11063799006)(6133799003)(10067099003)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VG03eCs1bU10OEJEbnJwb0lVYmRuSEluck9aZXgwL1lYZEhVRmZKQjRpaVhU?=
- =?utf-8?B?aS9JaVpLN1d0cFVhOVBIb1RuM29mZTBSTS81UURZSzhwRTJxQVZXTFZRNjcv?=
- =?utf-8?B?Y2hmZFJpTFh4a1VRdVZkNnRvQkVUZ3VSOTVlMURKMVkzQ3ZGTEtlbWcrc0wv?=
- =?utf-8?B?bzZSYVdBYXZFWEhDSFl5anp3VHJIMW00dnpLYjNRMUFYM1NKUkNxUHRodUx3?=
- =?utf-8?B?L29nU3lTbk9oTlJjam9vUitmakpuaW8rK3JnNFZoZm1ONFphcHdGVXY4aTNr?=
- =?utf-8?B?a1ZjeVFFcitDREpJYmxTVVY1aW5iR2p6dy9pTTBBUnVSMUQ3UytXSXMydzVF?=
- =?utf-8?B?c2Ivd3AvVFFNQ096ZnNzZ3M2RW5YcGV1K0hhTWkwZVkyNG4rSE83SWVaa1R3?=
- =?utf-8?B?QjlpSFpKUi9RSmNFVXJSQjU5RHZJcyt1d3l5czhqWjlHZFVPdVBOQlNDbWNF?=
- =?utf-8?B?WlVQa2Z5WjhHUFBjYWx0b2psdFJURFhYRlM5RTJLVm96ZXBxdXV4Und0QlJO?=
- =?utf-8?B?VjNjNytQcllOK2NaU1FjTlh3b3dDM3hQUHVzb1lHQXZzZ2RvN0VmeUxacmpt?=
- =?utf-8?B?bDhKV1VUcDExRUo0Nlc1MjdmY2xBN2kvcXpEV2FsOW1UbmtCeVhwNWpoWGZH?=
- =?utf-8?B?SktzVytQT1RNTmZYbWU3WWphQm9OOTdsSEthWjhXMzZGdkZkWEhPYzdGNDlG?=
- =?utf-8?B?cTFtOWRFdDNNMDZwTURRSFpxRStjalg0eGNUWUJEcWtCZmN0N0V6dUZBOXpz?=
- =?utf-8?B?RUhsWU11THZRcFNhSXA5R0NWejlGc2pVeTNnR3d6VlNWQVlMdk5IeWpsRGx1?=
- =?utf-8?B?QnVBVjgxbFdCSWdaK2RTdlM5cWxMTnZWVXdNaGYxRDNmNXRkRklUTU1yNHYy?=
- =?utf-8?B?VVZKNEJCQTA3Ylp3Sk5iYjZKNGlPcEo0R0hSc2pWeXFMR0RCQUJDUE9YMmsw?=
- =?utf-8?B?OG9NMFVsMHVJNDlyOEpqaUxtczNidjZuTkIwRWkrcmprQmhYbEgrUnVNekEw?=
- =?utf-8?B?bFlKdXZ0aUdycS9EMzMvMjRSdmlWSk51dE1NQXNVY3kyZkkyTXV6OGwvVE1h?=
- =?utf-8?B?S25TRlJpTjJoek5zMkR0TVFxQ29WYzczUktJVStDTEMxVEtjNTZvUDcvdDJi?=
- =?utf-8?B?Q3BzZWREdkJoUmtCRzc5U1daR3pMQ3hxNXRGTTVoSXp6Y2h3engyNkNTSUlR?=
- =?utf-8?B?ZUxrcWErSGNCZ09ySEFHVkliRWJwcHF5UXRyNyszc1lRb2ppenJuaFlueUJ3?=
- =?utf-8?B?UHhBWDFwZEp3cFQrZG5KZWtlOGpReDZZNnVPanV5WkxNY0VSaVBhdnZ0dzFF?=
- =?utf-8?B?QlhaMDR0M1Bxa0FKWm5mRW4zOG1zOHRFbjdFZEY4WWdnNVA3aFIzZlVQNTFQ?=
- =?utf-8?B?di9UdnI5SUJNb1JMZVhYRTh4cEcvaFZCZHlINkJKMlM3eHYxS1FBaXQ4RWtN?=
- =?utf-8?B?QXc3K1NMZkFsSEd3dHAxZFdtSHNjYnRBYnJyek5RRFl1VkNtNjZNcmNOTm9v?=
- =?utf-8?B?aUdBaDMyNlBiMWQ3SVNQdG9hcks1TlVCMzhGNS9vVlhJWmVkcUhUcmJ3Ymxt?=
- =?utf-8?B?TUt2UXN0OHYwOHlWbXRwcVh6Ly9tU05mK3pxMjNFWUdhc0tHTnozczhTRnVE?=
- =?utf-8?B?cENQN2dIQlJ6dTJJR1hUcFZFYjYxUEFBNHRsUmVhbU5ZbVdrU2hoVUQ5cFVz?=
- =?utf-8?B?Z01MUUxRUmx5T3ZENlR6TkNnNzdnZWJqV0x1NEFOUC9WeCtSSmMwazM0UTZa?=
- =?utf-8?B?T0hxczNMRW1NYkVRNDlNNnp1c3cvbzUweTk5Z0ZtSTlIS3l1YmdHcjVFV3lo?=
- =?utf-8?B?aXUxdDJjM2tjTlc5SUE2N3VMTitXNmZzL2ZYWXVqNVFLZHNRYW1abmQ2ZEtX?=
- =?utf-8?B?aUFNRk51WGZ3cVE2WHZjNFhwWUY3UGlJbWswR2lLNGJEVnFIcHU1b0xyNmhz?=
- =?utf-8?B?SmtxK2dwZGZEVDgwVjF1bVlhbjFhVlRmWFY5OXBvV3daSkZ0eVhHaDNRWVlV?=
- =?utf-8?B?aXhPNy9kdVJsWlNBbXlEaXNPTUhGMTFsMDFtVXQ2MndSQlg4dXp3bkNPMG5G?=
- =?utf-8?B?NGhKcUVCSXZxOUJsZGt4clowV2JER004VmJ2MGpXcUxrMEUraEorWE9wZU5H?=
- =?utf-8?B?WmM0WjY2WVhCOVM3NGZNWDdjcFlKU092UmJpcFYvUlRsTnJkMldaLzNySktm?=
- =?utf-8?B?MksyK0E3bnRBOVhIWTRKY0JtT2lDU09KdC9NKzhId1YrWVJPbjRIdDZuZUhn?=
- =?utf-8?B?YVhnVWZ4L2hkVEI0aVpHSWJ2RUJKRGpncFptODN3aHpwZGw3dGlJSFBZUThs?=
- =?utf-8?Q?g5CO58ASKMUL68whJx?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9308408-0403-44d8-822d-08df251ac180
-X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RcM59absz9X2XEr6J9BUGb1dRbjwh29bZR58F6a62SSM+2JxWrR/+5CYdReY?=
+ =?us-ascii?Q?j4r6AO+XJH27ZvQhmMoG/M0w9IzQ6AUMaVvuvnfKQ1kfPxuZcNGQrKg2VAS2?=
+ =?us-ascii?Q?aHJK79CRI3UXOb4HDimbmwRi7yaI0/NaN8ZNY+GTNJGaoNchSa7u5wYoPlFQ?=
+ =?us-ascii?Q?bREY1h7mlL/UsQb8HbbVvSfZtzzmco4FpJi32HK+aLdZZsAGtL1EX+uVkvEO?=
+ =?us-ascii?Q?C+NfpL0OQjXgH7LmWaCuFqeDCQFppq8R9PVbX1Qz2vrQOWgPnXjBcBYyg4E7?=
+ =?us-ascii?Q?0iBxFhsSZneQTIKPlbbbaiOC1lf+qu9HebCrep5aGOjWwF5/ddJg+pbj0hFB?=
+ =?us-ascii?Q?BttmdSPD3An14cNcU4ESny6ZSvpLN+1f3HSvgWFUwkkykyFneuXTZVRPyL1n?=
+ =?us-ascii?Q?Mu3p/eSnS9fnll5meT3V6jNlXmZ8kgRbnwSlpY/nQMwNZ0M0PXItHXF7flSL?=
+ =?us-ascii?Q?yQAOj7gpa+cg2mHCiuuSzvEuyPQfCF04F3synyrp32TwrZV9Y9vc86LegMte?=
+ =?us-ascii?Q?ci46ZTcUdii/6lO/7XRSUs+g1M22IB0fwXiGKTcptJQsX+WP71k5fbvRr67g?=
+ =?us-ascii?Q?glVvWKcdWGlmgBQSr7A/3B98MPs5UbyNgyMqVjprZdfFqf69pifnQKAl3v//?=
+ =?us-ascii?Q?UWwxeIxRIDLZCqTITanlC5WM3gTeFh4RsjMK/qnkkzuJuP5BkVk9ihruTOW/?=
+ =?us-ascii?Q?DLMvbYs1Yk7I8+CM/MyWIJRJL+9ukDRgM0ZEopm6nOYBj3QTMDgU73uT4Mi2?=
+ =?us-ascii?Q?WIUqKqoJxwWUTSEDJes4jKAxfNQ6zZmO4QFPD3xEYbbQ/9v/6beFX7udAgDh?=
+ =?us-ascii?Q?8bBfNEFIyiI9HiXtlHp8bqZPKVhabxicBwJX2WCLBFqZa+/xruyXZAeLWQzD?=
+ =?us-ascii?Q?qZbIQN5QTGAXa2W+tdkWh+x0HvTugOeKW1hr/5vVmZzv6Ax5Wepzb8kxuLHa?=
+ =?us-ascii?Q?s0r7JhOFGNlnckA/XqE9uXhoUqCZLFRYTmtVIhN31eowvI5AGcwZ2POq+SD0?=
+ =?us-ascii?Q?6ITx9gx4PH0LYVjh5LRZganPeAz5QTp3o77yuWAuRf8vlb+5MJVLCP+ujhrZ?=
+ =?us-ascii?Q?R2TO/5WghrclT/whDpqg4F1rL+RGpn4E5qr0o1vZSnJypjD8RTYva7SaL3H1?=
+ =?us-ascii?Q?NR//tAGoa4/0Rz05kgRtsN5qG/mvur3W6AYXVzH/QLOxheCr80ekGughS87J?=
+ =?us-ascii?Q?y4FWJUiQ/YErHD/UP6/OXZkrLKvyDnn67sX/Y9dljpNgqIvvfBWdwxotv8Eb?=
+ =?us-ascii?Q?VnFsERxzPYqWywUu2y/FKVr2sgidbXP1+45T5UgrSgyvCYfAFneVmBdGLOkf?=
+ =?us-ascii?Q?nSbpKKTDIotrARpM52rzSG3iVIpsH70K+PUvdk2u1UStNfZP7Odcew1F9tCN?=
+ =?us-ascii?Q?38yTDojxlp16s331bHTL2wRMLt9aPXfXM8i86ozIIuAw2Nc2UIeofc6K9dSP?=
+ =?us-ascii?Q?GJk60tm/DjJFAPIxKK0EjqzHmu2xII7x+J1xuAD/eBwHK9LmGWMv+niuw5kg?=
+ =?us-ascii?Q?vu9p6pQgyCUJDT7VWNl5isLsvIZ62WJSuJa5fWl3LuE5gOLh9lWObHXvENJx?=
+ =?us-ascii?Q?vDFY83N4kA22sVpbbthf57U/+WStUTTnupldlThVfgJk9djU0xb1TT72lUQ+?=
+ =?us-ascii?Q?sZt6ok7a4BelawbO7NqC+ju3nEzKjyxRPo2Jfa0tOnTx3ByUiN0HeBcSN2sV?=
+ =?us-ascii?Q?MMo2weCRaSH//Er91gdZGuX0fDyIrNGNQpZOrJBCAEG8odornMmFaFI3/a3W?=
+ =?us-ascii?Q?78O1WybI+sE13yftPWAx68NNb979XWMdNU3YC26tC+ZTmvrxYuAJ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2dd6085f-db37-4109-f3fd-08df251af5fb
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 09:01:35.6942
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 09:03:03.8083
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mq1Q/ESfZZktgYqc7J/tKLiZehI78vsynsC15xAAK4fdrBzr1md5BeX4lXLlDnqGCNosE1G4+ib8oAkIPas68Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO3P265MB1946
+X-MS-Exchange-CrossTenant-UserPrincipalName: EfUPUJohmeHeTlyeSEcw4f7/1zjwfiHsUhCfG50aNyCfhnQwMQr3X6DQwyhIjbS6WdVjR23EJ0nI90hH1GiPAwdTvyDIo8VtNGV7HpiQtoVzjal/2pTH6dImH9/DMjah
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_020143_548303_07D8C8E7 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20261008_020305_731911_47565E89 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,101 +145,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Oct 8, 2026 at 7:37 AM CEST, Karl Mehltretter wrote:
-> __arch_xchg(), __cmpxchg() and __cmpxchg_local() end in a default case
-> that calls an undefined function. That turns an unsupported size into a
-> link error. It relies on the functions being inlined, so that the
-> compiler can drop the default case for a constant size.
->
-> They are only marked inline. gcc 8.1.0 with CC_OPTIMIZE_FOR_SIZE does
-> not inline them in rust/helpers/helpers.c, which calls xchg() and
-> cmpxchg() from many small helpers. The out-of-line copies keep the
-> default case and the link fails.
->
->   helpers.c:(.text+0x424): undefined reference to `__bad_xchg'
->   helpers.c:(.text+0x4ac): undefined reference to `__bad_cmpxchg'
->
-> Seen with bcm2835_defconfig and CONFIG_RUST=3Dy on v7.3-rc1. The same
-> config links with CONFIG_RUST=3Dn. It also links with gcc 15.2.0 and
-> with clang.
->
-> v6.19 links. Commit ab717dd98bee ("rust: helpers: Add i8/i16 atomic
-> xchg_acquire helpers") in v7.0 triggers __bad_xchg. Commit
-> ac8f06ade38a ("rust: sync: atomic: Add Atomic<*{mut,const} T> support")
-> in v7.1 also triggers __bad_cmpxchg.
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 
-I think the issue is that when you get multiple function calls in a functio=
-n,
-GCC starts to think that not inlining can result in code deduplication wher=
-e
-that is not actually true.
+A chained handler must pair every chained_irq_enter() with a
+chained_irq_exit() before returning, so that the parent interrupt's flow
+control is completed (EOI for fasteoi parents, unmask for level-triggered
+parents). Skipping it leaves the parent interrupt unacknowledged, blocking
+further interrupts multiplexed through that line.
 
-But I am surprised that it hasn't been seen in the past, perhaps there're o=
-nly
-calls with single size from any translation unit previously?
+When imx_irqsteer_get_hwirq_base() fails, the handler returned early
+without calling chained_irq_exit(). Route the error path through the
+existing chained_irq_exit() so the parent interrupt is always completed
+before returning.
 
-The fix LGTM, but Sashiko's report is worth looking into.
+Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts support")
+Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Radu Rendec <radu@rendec.net>
+---
+ drivers/irqchip/irq-imx-irqsteer.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Best,
-Gary
-
->
-> Mark the functions __always_inline.
->
-> Fixes: ab717dd98bee ("rust: helpers: Add i8/i16 atomic xchg_acquire helpe=
-rs")
-> Fixes: ac8f06ade38a ("rust: sync: atomic: Add Atomic<*{mut,const} T> supp=
-ort")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  arch/arm/include/asm/cmpxchg.h | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/arm/include/asm/cmpxchg.h b/arch/arm/include/asm/cmpxch=
-g.h
-> index 9beb64d30586..0ce5225af442 100644
-> --- a/arch/arm/include/asm/cmpxchg.h
-> +++ b/arch/arm/include/asm/cmpxchg.h
-> @@ -26,7 +26,7 @@
->  #define swp_is_buggy
->  #endif
-> =20
-> -static inline unsigned long
-> +static __always_inline unsigned long
->  __arch_xchg(unsigned long x, volatile void *ptr, int size)
->  {
->  	extern void __bad_xchg(volatile void *, int);
-> @@ -155,8 +155,8 @@ extern void __bad_cmpxchg(volatile void *ptr, int siz=
-e);
->   * cmpxchg only support 32-bits operands on ARMv6.
->   */
-> =20
-> -static inline unsigned long __cmpxchg(volatile void *ptr, unsigned long =
-old,
-> -				      unsigned long new, int size)
-> +static __always_inline unsigned long
-> +__cmpxchg(volatile void *ptr, unsigned long old, unsigned long new, int =
-size)
->  {
->  	unsigned long oldval, res;
-> =20
-> @@ -220,9 +220,9 @@ static inline unsigned long __cmpxchg(volatile void *=
-ptr, unsigned long old,
->  				      sizeof(*(ptr)));			\
->  })
-> =20
-> -static inline unsigned long __cmpxchg_local(volatile void *ptr,
-> -					    unsigned long old,
-> -					    unsigned long new, int size)
-> +static __always_inline unsigned long
-> +__cmpxchg_local(volatile void *ptr, unsigned long old, unsigned long new=
-,
-> +		int size)
->  {
->  	unsigned long ret;
-> =20
-
+diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+index 87b07f517be3..1b8d0c8eedb9 100644
+--- a/drivers/irqchip/irq-imx-irqsteer.c
++++ b/drivers/irqchip/irq-imx-irqsteer.c
+@@ -154,7 +154,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc *desc)
+ 	if (hwirq < 0) {
+ 		pr_warn("%s: unable to get hwirq base for irq %d\n",
+ 			__func__, irq);
+-		return;
++		goto out;
+ 	}
+ 
+ 	for (i = 0; i < 2; i++, hwirq += 32) {
+@@ -172,6 +172,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc *desc)
+ 			generic_handle_domain_irq(data->domain, pos + hwirq);
+ 	}
+ 
++out:
+ 	chained_irq_exit(irq_desc_get_chip(desc), desc);
+ }
+ 
+-- 
+2.34.1
 
 
