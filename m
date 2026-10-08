@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CC2CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E09DCA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hmRkJrFy7UYNSRUq22nOk7LyP+X+ALUnS3ucJY6ilFU=; b=YuB9yvjfPhReyPW+jOTtt4VQJF
-	bQvgXT/9BrEAjRN8YTfMkzwc2Yp4KWvwzJM/FVo7vRiHc9A0cctbveLmMKxg8GJEbbQOSWKIXeJ60
-	x2MhqXvvlyHeBxYVQh0aW9rNXr2ajRuRIwiQw+E3QFIhSfa1I5Net/+/WdnnLkSgBJhJHVFKkbLos
-	/e996yY6dursF65Grd1a0+5LccQr0uaJ686tLLhsNd/PRD1bvhmhsdUzpgoQGXGtecwUkaEVolKEc
-	xwkiXpaMiQYMtJpyURsPsdVf1IwK49GNJ8R/jxWsdWYa0DYDPiyRBbn5xEeD12ck20RDd3OBmvCzv
-	IUekoO3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=; b=B3li/9McPFzq6+P6lQhD0/7+6q
+	AF8NnpBX5KOE3f+pTcVxLum0EOJmIh3hAOK/kfIWKvS8pndDV/rRtUrhdL9KMjFCFsujDKjQOuIHJ
+	Jy/llx8K1l+HlNc/pW21d3PBKkX0Qgegyr4hFsDWSjPzBrYSnCjlM3lRhtzRMWb0+wKfd6qT2hG/m
+	1Bgz+OA8rt7JO7HfoUbZBk2ZgOEw5dbhjvrYETrcjhndj3i64OuOqouruGyY6S7U40u3ndZEtKV23
+	9zCYvKfNZ7983CECVE7gyxgDR5m0KFv2ICzUNN0k/bZsHc7RxFf58RCAEOM3xxgIWPGiXGUYZ4J02
+	Q7mvcfyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEq5r-00000004c29-0yzn;
-	Thu, 08 Oct 2026 15:31:39 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1xEqB4-00000004cVr-3xNT;
+	Thu, 08 Oct 2026 15:37:02 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEq5o-00000004c1h-2RzA
+	id 1xEqB1-00000004cVW-2qDe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 15:31:38 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-487049569b6so2249305f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 08:31:35 -0700 (PDT)
+	Thu, 08 Oct 2026 15:37:00 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-ccca948203aso1865656a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 08:36:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1791473494; x=1792078294; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hmRkJrFy7UYNSRUq22nOk7LyP+X+ALUnS3ucJY6ilFU=;
-        b=e/mxm2ojxcBuCTxrjC3kgWnOevFyT6fXKyEiZzZjxM4oARNlHDQ9OlP+psMQAmCVB6
-         E49v/BDQ13Usq7fbTpycuKSr1L0TnbqLaH5YXOBu86GEngnlNLEJCJ+dYPqOMus3oJ6e
-         E67gCyssqcLCB4SiytjqkoQQKvw+HyeDdzFhV6iJfvg1fM7EPNwDTv7OGH8FZfvcbqJ2
-         LTZmgxzXbgAd2YYFLh4KldCg4yrmqCryZEFjeZWe/QeUTMfJVXhKidTCMI9N8ukaijnI
-         hSp1II65/mERDtESodBR6hbd4krNstDe7BnFke1+ebousguqIeuGxO3Gyy2dU1gI8IGx
-         YG0w==
+        d=gmail.com; s=20251104; t=1791473818; x=1792078618; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=;
+        b=RFyLzfoJx7R7lzeHuAyTqXajbn2PuPiofxjcVMSwtLOWXyG8QUM/INwrZH5V1NeeWK
+         vWgZpK3iiDa8IY6a1/kplxDtoTM+SV6GgNk2AaRoSIx0WI304b1yQJNdTrn+UM5Lk4eg
+         Qo5kz/do5gykt8SfHADU9TTNT2o+8WnBI70VAFrHvSSU+blzYFWj2ilY9UGNTYytKG3y
+         EQeqeU7XNOQbToR6sYS1ovaQx48ELD/zDlRwTZGNTSzbiJFaA9M+50W4WHlFYFxc0nFp
+         dYt6a4R5+lUqxajYHQhpZa3RqxBTRpPphSN24qsmKknvdTHm0xgkRPXhrEMFFGb9SQu5
+         uVeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791473494; x=1792078294;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hmRkJrFy7UYNSRUq22nOk7LyP+X+ALUnS3ucJY6ilFU=;
-        b=i2nF9XCx/I9QEN4Z3hHZybDS1o+fuhts5AvY6YSUMF2sIMPZVLKnPAPa57oaV8IfeO
-         1itwYpqhQ0NBxeYeCrsT4OWMFJK4+skfz+WH7gN7wY5XMGkLlyqzP/4qaTgysvCEAoE7
-         Z/yEYlB2fFH6oSDLnZE8yohMCiriZX5VshlUA1Czq19oMbUBzk0QIWNGc03oskhrh79a
-         BrW5T/xn9zAuoXAZG1IREn4TIWv3IkGeFpGm6LbgqyZzCI1B1HesvxMyEoVyPMHMRaUL
-         2dAnx0XxgcpI+0PEVWrstadnY4NRMdDzkprM+srOBqVeX0KCXFNaFoCkUHr4lvXVQVuF
-         TSjQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz6hc1Nfkoa9BFc97tgJ8f36IIpofr9lKvGvCetoZXuzHlchRms+5pFJNJJh079TTP54HYnIua0UU4uPX4GzR+R@lists.infradead.org
-X-Gm-Message-State: AFuF++m788XBqXFRLdmx4JVPqnLV/8HwxF/HgC9SZr6FM/3GmEqkiJIe
-	OPd1i3warCJBzdDE6oKwVX628wnxNTs3B8nCA0Uu+BtEEHVS+LpWivyuKBgF/j7QxTw=
-X-Gm-Gg: AYBFou3x6mXMw90yeomlFvxYpe0aBGIbETPrNFvlPenVob/6w2COk77yIFw0DpnziCH
-	CMxiAMal/eha5yCa/Wb7beSkjO4V2dc5G9iUf92Byz8lr2H9pn6ASgggAVFvoexmW738TsulYRZ
-	7OsuJexkHKmmqBNU7kSBEhfD95aBCpyMCkoVPofAdE4vWg2nYzuZwYxu1SkTSY80uurJf941Kk4
-	BhFvJfgFxVCWLd49B1J3ANole3KvUnmvixw+yrSq5O9q+GxaA78D1+24E1om8oHbZMIcaTlcrGL
-	qW2RVH4Jvrejiiqq7+NCfMJmGoZtAZsmcBdZJh4p89Od1xjy4v+CCPALKschDGm1B6Q5kgsO+cj
-	cLtzMUOKN2G8REQH6sRVMIwdfQkuZH4j42LGEE+/XPDpCBz7iylx6+gbgbPpDKzR2bXvaMx/dcm
-	3vJeJmPkpJzXuNGvnjDZ+7qWAfbDd+/qIYSyDXPibOIAwWlmeYynw6BVEoDZ6Vh3eJB62Dhb8qv
-	YUNvlTefLBUI44ul56hHGxiORvhCZulsdUMgHM87CnaXkj1Y7XS55vbSPnFs0cEhUUZCOoXcmS5
-	NqYU2D1gxi+ckXpgbr++sFjiKMgAAZpKAJ0HsUxuqO/9bMNsIX9uB5ALDWc=
-X-Received: by 2002:a05:600c:810c:b0:4a1:7e76:d02f with SMTP id 5b1f17b1804b1-4a180424680mr108117585e9.14.1791473493755;
-        Thu, 08 Oct 2026 08:31:33 -0700 (PDT)
-Received: from aspen.lan (aztw-33-b2-v4wan-169864-cust3247.vm26.cable.virginm.net. [92.239.204.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1842abfbdsm74991645e9.4.2026.10.08.08.31.32
+        d=1e100.net; s=20260707; t=1791473818; x=1792078618;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=;
+        b=vmnSuFknG+Zb5fe6iNG6YUJxJs1hT7hGGNcWwnq/vVyOsiG0mMAHW9y8u7G7VzWDYy
+         S1yXpskVHnp8B2Wypdw6XQDzdNPn840++WkfkJy1ORsmz56uIA8Kj/0XdTInhKLd5dyH
+         c1jZlMSeVNOHaESXot7kSOMBo2ZKnZpXECXmxeeaN56z+qY7GwksYxPZWZHS0IlwgrJD
+         EnHPAeAehrxpOW0FtmY2ZrK/TCrikJKi2YY2ZCLlxvn/8hITRbVY1C7Wjnom69gYt0Ot
+         fcwWUCJvWy9dLraoS3GR3I3LqdkoUrKLvrnN4cIbEpzLU0ugi6HsdJEyPB0WhSAYOTLR
+         mLAg==
+X-Forwarded-Encrypted: i=1; AKwUvBxwK5TbeUaFIEnj4FliqI2wfAZ7nBW+nGhwdxqLtOmhgw5aYVtxoj9+NOeAVAWqy5ck9XtBrvFP3Gpy/ierHspB@lists.infradead.org
+X-Gm-Message-State: AFuF++mGzwo8v3ZtmkhNRL5TN6pU3DzuzgG0A5w4wX0XuW+4KAVC9wa5
+	k6jFxE9NXPrpV8VQ5uqcVBhWNLSOPwGFoAfHH7aE7U/GtIH80X/CgK95
+X-Gm-Gg: AYBFou1TSYi9zUIkVGwWB8cg+IG8AAVP7ZoXvuMk/5J82aNc7dsIBgMyCWjt+U4CSe3
+	iAPWMkpeOvkAteffa8bzPL+XeLIxH3WyZOOycgdM+VY0y1mK+y4uRXVlBJwWRKnlwf5I4slws7q
+	JfULf7TMLCy5yXwhVo0RW/dO8qSNHLY52w/HkT/9RS6DXKVcE/1KJVi9PnMpc1RYl7oD3TZP33l
+	tEkKwnXBWEVokvQ+NaPEABevSei5XPQZpSV0NHsq25tKuwmqzsITdjRe9UouCSJQawTRLYltiEj
+	dcMHiwSOsVEIgFq/VnewcRwmlE1SyXbPAcdVlbPdA0WbceWBRBhekCh7yP/BBo5+GZtrZ9pwLKF
+	C2J14WvLrjdSUEMg3CcdEI1SzXRVIDaJfIQhtUQ6zvA5q9AZg1DqKEuKm7A8yvhBYfAYNpOrQDY
+	OGMAsrfgoQR42icljZvOE09SGiX/ZOVqZ61E8aF7bN0+f4CF01HeKLz7AHrZwIlCBLo5UPeYq8C
+	CatIaq23nOdI8bchA==
+X-Received: by 2002:a05:6a21:608a:b0:3dd:85a8:4c57 with SMTP id adf61e73a8af0-3e1340542b4mr4754282637.30.1791473818297;
+        Thu, 08 Oct 2026 08:36:58 -0700 (PDT)
+Received: from arch.localdomain ([161.33.202.10])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd35736f232sm263479a12.26.2026.10.08.08.36.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 08:31:33 -0700 (PDT)
-Date: Thu, 8 Oct 2026 16:31:30 +0100
-From: Daniel Thompson <daniel@riscstar.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        Thu, 08 Oct 2026 08:36:57 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Jun Yan <jerrysteve1101@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Davide Caratti <dcaratti@redhat.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: add tc mqprio hw queue
- priority offload
-Message-ID: <ase3UrUehtLY6b_5@aspen.lan>
-References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
- <20261006-stmmac-mqprio-prio-offload-v5-3-d7da93419784@oss.qualcomm.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Add dma-names to RK356x UART nodes
+Date: Thu,  8 Oct 2026 23:36:16 +0800
+Message-ID: <20261008153620.238580-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261006-stmmac-mqprio-prio-offload-v5-3-d7da93419784@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_083136_906312_59AA9ADA 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20261008_083659_743319_17F61D30 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +102,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 12:46:27PM +0200, Lorenzo Bianconi wrote:
-> Implement the offload of the tc mqprio hw queue priority in the stmmac
-> driver. When the mqprio qdisc is configured in channel mode, the MTL TX
-> scheduler is switched to strict priority, and the PSTQX/PSTC priority
-> bitmask of each TX queue is programmed from the set of frame priorities
-> mapped to the owning traffic class (qopt->prio_tc_map).
->
-> The channel mode offload requires the DCB hw feature and a 1:1 TC to TX
-> queue mapping, with a single queue per TC. Configurations with AVB queues
-> are rejected, since forcing strict priority conflicts with the CBS
-> algorithm. The CBS offload is refused while the strict-priority scheduler
-> is active, and so is a channel count change that would enable an AVB
-> queue.
+The RK356x UART nodes define a dmas property but omit the matching
+dma-names property, so the 8250 driver fails to request a DMA channel
+and falls back to PIO, logging:
 
-I don't think these CBS offload checks are necessary. It's quite reasonable
-to mix strict priority on low priority queues with CBS on higher
-priority queues.
+  of_dma_request_slave_channel: dma-names property of node
+  '/serial@fe650000' missing or empty
 
-In fact on the hardware I have (TC956x) the lower priority queues don't
-implement CBS so mixing AVB and DCB queuing (whether SP or ETS) isn't
-just reasonable, it's pretty much unavoidable when using CBS!
+Add the missing dma-names = "tx", "rx" to uart0 through uart9,
+matching other Rockchip SoCs such as the RK3308.
 
-As a concrete example of combining mqprio and CBS, the following works well on
-TC956x (when I tested an older version of your patch):
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
---- cut here ---
-tc qdisc replace dev eth0 handle 100 parent root mqprio num_tc 4 \
-    map  0  0  0  0  0  1  2  3  0  0  0  0  0  0  0  0 \
-    queues 1@0 1@1 1@2 1@3 mode channel hw 1
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index a5832895bd39..098493c04ecc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -443,6 +443,7 @@ uart0: serial@fdd50000 {
+ 		clocks = <&pmucru SCLK_UART0>, <&pmucru PCLK_UART0>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 0>, <&dmac0 1>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1449,6 +1450,7 @@ uart1: serial@fe650000 {
+ 		clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 2>, <&dmac0 3>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart1m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1463,6 +1465,7 @@ uart2: serial@fe660000 {
+ 		clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 4>, <&dmac0 5>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart2m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1477,6 +1480,7 @@ uart3: serial@fe670000 {
+ 		clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 6>, <&dmac0 7>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart3m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1491,6 +1495,7 @@ uart4: serial@fe680000 {
+ 		clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 8>, <&dmac0 9>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart4m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1505,6 +1510,7 @@ uart5: serial@fe690000 {
+ 		clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 10>, <&dmac0 11>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart5m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1519,6 +1525,7 @@ uart6: serial@fe6a0000 {
+ 		clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 12>, <&dmac0 13>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart6m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1533,6 +1540,7 @@ uart7: serial@fe6b0000 {
+ 		clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 14>, <&dmac0 15>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart7m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1547,6 +1555,7 @@ uart8: serial@fe6c0000 {
+ 		clocks = <&cru SCLK_UART8>, <&cru PCLK_UART8>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 16>, <&dmac0 17>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart8m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+@@ -1561,6 +1570,7 @@ uart9: serial@fe6d0000 {
+ 		clocks = <&cru SCLK_UART9>, <&cru PCLK_UART9>;
+ 		clock-names = "baudclk", "apb_pclk";
+ 		dmas = <&dmac0 18>, <&dmac0 19>;
++		dma-names = "tx", "rx";
+ 		pinctrl-0 = <&uart9m0_xfer>;
+ 		pinctrl-names = "default";
+ 		reg-io-width = <4>;
+-- 
+2.56.0
 
-# No CBS for TxQ1 means we can't offload this (h/ware stays in SP mode)
-tc qdisc replace dev eth0 parent 100:2 handle 102: cbs \
-    idleslope 800000 sendslope -1700000 hicredit 494 locredit -1049 \
-    offload 0
-
-tc qdisc replace dev eth0 parent 100:3 handle 103: cbs \
-    idleslope 400000 sendslope -2100000 hicredit 247 locredit -1296 \
-    offload 1
-
-tc qdisc replace dev eth0 parent 100:4 handle 104: cbs \
-    idleslope 200000 sendslope -2300000 hicredit 124 locredit -1419 \
-    offload 1
---- cut here ---
-
-
-Daniel.
 
