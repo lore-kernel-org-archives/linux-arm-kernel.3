@@ -4,98 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB437CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E0ACA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CuEDhaX34U8xOIhszihEIt8O7F9LQYHVFpCJreLp60=; b=CxW6StfaRi+skQUwLOpeQVOL+1
-	/vPjyJi1ZqOegHiRBgwr+zxXKGy5Evc5RC3PAMUr2XbfcQm11CyQB7wx2daDTFBSJjJvCBkI33p5m
-	pig9YPFQvGoo+0HSLopYe9himBxg8HErjsuLBGXfy4GEAOnOpZwxUf43501JB9PzqY1F9B+hZTIs/
-	WkK3uuSYUT0n9W3xEK3oAi5xV199qpOSbqbjytp9eD6HfWmQ9QN+Jhmo/m2Obx0kuut9MuTsstG7+
-	0nr3TwStSvssuCqSyvWc7XLx3vQHuXeDziuaWIuTWWT1nlQzBM/7LBpcP3B8oxQ68R1F6lVmC8fNB
-	jid/q/LQ==;
+	bh=fhGDVCOgQLncQuplToj/mW7JvsPvLFBB1CNf9MUb7AU=; b=JFsJAsVwyLcwjmfuM8NkStataA
+	Rq9UN2T8wtFur8hoh6+6Y1DY0GARDvpNkuCdeV2WhRavsZMfobR6eOn/aYhDWCWR/etnQwkZr0/FO
+	hVpCF1ah9aeSLXZheDAYIY5dbxI1YZbgWEdpKdlKL2MX+ORCFpUoM7X61TaXHF9K2W0T21G9V0BF1
+	3QcaiRigVBjswrBNL5YHDHSHcs0RQuQakQ+mQCXUiqLULTuruGyKqHKRF5bjJ1iyU0fHDk8WSiwMH
+	1pqWgyo9FsUQii33i2jQAkI3BrQDswhhkkdQvY+dgM9tcoZ0hpwiOSu9MQgxXh/k5Q3Vg2a6+ZeFl
+	fzGGxoFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjeU-00000003u3e-2EQJ;
-	Thu, 08 Oct 2026 08:38:58 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xEjmA-00000003ugX-1dj3;
+	Thu, 08 Oct 2026 08:46:54 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjeS-00000003u37-1A0V
+	id 1xEjm6-00000003ufZ-45cy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:38:57 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48b001cd92bso2595923f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 01:38:55 -0700 (PDT)
+	Thu, 08 Oct 2026 08:46:53 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-823b938464fso3819669a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 01:46:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791449209; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CcJhFzf5cquLVxRRzvdB+P/iIG94LoDwrqLli+QjBn7M3NJ4lXRZpNBuV9QkHFxzf8
+         I09USTkAfsjEKiTBFL87QL0pTB7PREME+xr3QJeKA9YaNNHCK1Y1oEiitpckQLHvpehz
+         8DCthTZxWnk7OdXm3NU786up+Ej8PqtVpnnIbnFQCHayhs0Q6R0m2LlFkEfnCTYlq2BZ
+         GsKmLuBsWnyOAqDAHGr7DHVwE1V3QuhCsaxIbn3PvLhlRrxatYCmf1LaOvAD4cRlDN8L
+         KM/ZaaWb0TA/fDno+q3ZZRHtKCabvs6PyX/0gPZrgtgQBTUfA5A4vxSDvINsTQtBavEY
+         od/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fhGDVCOgQLncQuplToj/mW7JvsPvLFBB1CNf9MUb7AU=;
+        fh=LHHzG0eJnpWjvTlq3njw3wJJKYKPCBaB87LCTq7kIvY=;
+        b=Ut8hKutMS5EYJlrVFMO2YzHkUekz69uOe5ORuOmICSbzqAz3voHi9LRB+OFFovkwow
+         1UgQgNs8IyF61c7IqlNeO3MWbH4v7CTGcISfDAqpcEj/8P9hRacIZ3ZBkOSOSh4jV9m9
+         lQ1cIfFhUKucJYBw4IotcUlKDdUrm6kSqJMGy33nZuqFhCk4MBH9eizYQ4enHDVDJUS3
+         ZKtvyAFj+3y7jLEWmDaDyYN0ErD/lHcjgFvcpt/M8yxMYqDRPhEZE6dgH1e7ffd13Qfk
+         JkkWn6fPFS1xp9xoin12Ozf6pVl2b+Ux0IHcSOKl5IEyajnKgGbMbFg0+F8u+PyhhVQS
+         Rsaw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791448734; x=1792053534; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3CuEDhaX34U8xOIhszihEIt8O7F9LQYHVFpCJreLp60=;
-        b=jYLA0B2VwJNBCW7HS0Q5++JF1uBypSNExwsF06ciOpHqp4JXliRd4fpw11KsbqIDPq
-         9X9dlxj28q82pBgTObatQaYuzvg2EIbQlIQPJWss8coryUKdiMv1l2mGJH1g2XgW4ROw
-         nOT+ryMkzr4qVVE7VjJ+8d8AfLAgpe71xh6di3HDzIEs++wnzG03InhPD/BxbzGe2PaA
-         Hdm8ifrawuQpo807Lx2QLgrbgAOFsqpw1Ce4i3LJ+IA2cXfkvQxtLR+EhUzITn70BTEF
-         VAdbwSHpBdchpJJBuvWKuaSxi74WG24GeS4rESGgnk1Se9X3FSYa8OyzRXuHh861DvWD
-         AQhw==
+        d=gmail.com; s=20251104; t=1791449209; x=1792054009; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fhGDVCOgQLncQuplToj/mW7JvsPvLFBB1CNf9MUb7AU=;
+        b=Uh/xuvCi+PUZ7PI9bakU6wsN1PeCC6jqVe1K8ptS6LdfIBLp4IEDloM4Jwz8bHVF3S
+         0tBQwQB8U2IPMGvhjD5mC9VNXuz5w2LJCUWNS2VFg6F/I/wsFpTgVqMTY84kkrhtUyZY
+         DjB8G8mpsXlgzkjllEYxdw8wYQYDeK8NY5JLpB3KhvY+gKWNsEYhLw3n6Ta5Ks9el0X/
+         bNjWJO8Kml3ACm/MRU2wHCJabpscVOrwUwx3ytDYpbdY1TNNeB/SGhk1KgFySJHQwHjs
+         kHoZfy1t/kkC4OZc1gv/dIo585+3kIKobka26I2AHVUGeNeaMbQ2hCTjDtxJPqFr2yMG
+         5fbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791448734; x=1792053534;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3CuEDhaX34U8xOIhszihEIt8O7F9LQYHVFpCJreLp60=;
-        b=zYbxlvHS9BIqOpyreJLpdsd8m6bF4pxTigb/2VsJ9Maloh1MJJ3u50u0BwK9kl13sD
-         rM88as03zw2Sfgz36tNYnOovhftJfiWmTChD/GSOjW2nfbp1ecKsYLYmu+ufm7jxramC
-         mPE0cipVD9L3Kp9qDtvi5DhfEHIquy2f0mDGyEmPWMjarP4YT+C54EfuySOUnkrdXFFT
-         0WQ1xi5Egi42W0aGsVyIoMYooKpWe7Yx6z0DW+2yQBlbTR7I6DcwGqowqXFkMookM7S6
-         702ThJcYUp68mEO2zHqmXYQ99vPDGmyB3xqOR8m7fE18RNJBPUAU5ND3d4fpA+3dO4si
-         8CkA==
-X-Forwarded-Encrypted: i=1; AKwUvBwVB9+zbKibXAbsi8ronR2P3IlmrGFrgbgR+ahzEcoHR8JGJJNiY7Sj6QADH1uc4JDCsE1kiaw6qpgrqYcMSi+V@lists.infradead.org
-X-Gm-Message-State: AFq9FYJRW6c2aTN8DxX1VjNR6GCPH1Q8gZzvk1jAAJYr0X+/q/Fxiei7
-	ggXwoS4UOyuLIFXfpEDZ1JIzmccOHd+HsXoMDIQOtrl/XudECS0PyGWbTJ7Dcb8U5aY=
-X-Gm-Gg: AYBFou03a/pw0w3Bu/80tjyuppGhLzOf2Fd+K6lCi5EP0eya4tNS5dchJ4kMCoYuHzT
-	+M0SXX6N8+rqMuMYbfbp1w+QRdcluAzzEFbI77tl6ilcpbIlNSlRmRgOfnsT5rMiCIWn6nZF8F3
-	fhClt/yLP3FjloPH+UlGdbQcFk7nLQfIVkJaB3gciOSqnYRivcPbfopwcf3nj1Bgz6m6MfQfzYl
-	/wzdodK9vYTzaKij9mC9LlrmvFItiQmcYG5zgYtf+wPQau2txSKRiIoWTyLPFe2Df32DK7TYQ3L
-	mT39r28euYpD1UM2ZwJvOe6Au4UnKhiMYvTCCzT83yD23nY0OxGDpgNE8Z0UqK01Vy0Q+1sRQoT
-	HTiOL7qe/T+q6fEVDMPbld5Dxbkbd5zz9CGIkXuWW1+sI2945rioMQAu5HbgGyGGzkbivE2fD4X
-	m8QSha2LDRe1foPjzO517SxY9vBq721+ougxJDBmGVn8JhibjslFFaxLKdjnRhNiwxtldr5Xibi
-	QA=
-X-Received: by 2002:adf:f001:0:b0:48a:fbcf:6f43 with SMTP id ffacd0b85a97d-48c72897157mr6861745f8f.54.1791448734070;
-        Thu, 08 Oct 2026 01:38:54 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d04c0fsm9919121f8f.10.2026.10.08.01.38.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Oct 2026 01:38:53 -0700 (PDT)
-Message-ID: <ca62f18f-8fa6-4ba1-aae1-59c2db242ab0@linaro.org>
-Date: Thu, 8 Oct 2026 09:38:52 +0100
+        d=1e100.net; s=20260707; t=1791449209; x=1792054009;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fhGDVCOgQLncQuplToj/mW7JvsPvLFBB1CNf9MUb7AU=;
+        b=eWjVlHisj+mzdfNvOMG/WBl+ECiBpKFCzRn8l9NwfqC//Abej7Kv+zwYIHUFrJz77v
+         Fi1pEyQbU/VNackT+it+N7yHsjZ1onJtZk9gqPtOe80FvFUuyFMALDl+chZ+yRpK3lbu
+         X40shZwwlxuC72Hf2NfS/mM8gL0EjAaSS00+qb5HJVTIIR6rvRTeCsmjL2z8lTpcilal
+         GIqRpQxwHqbcDAeK1avgsYGv3gnXNik59AxGYtvHZGvmL5B6GwgxQbwSRxR8hOcTdrL1
+         i72rMx3PjsgxmG1d/wIowILo/ed+jr2QNp4JHSJSUj2FO2zYipCFQs/rTkCLE1H8g8sr
+         HnIQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw1o7QPfGOtba5TwNOdKCCB3GNhttzVo0wmlOnV+pkIB+zP9imHDoka/wHdX89VIPAgDqB/1kv2zJbd+clLttVJ@lists.infradead.org
+X-Gm-Message-State: AFuF++mIQELYRNaAEn5IX3n4qHlPljyIpYQTx9V+TI1c+om+/AW+bP+V
+	I35G6RnJ7hTxhEcac4xZWOU85si1HLV/X6X4W8K9VC3ORrlrQYERNpyNRuuL6sDny4xdTanEMNr
+	I3zWQ6jvmiNH5fKOExJDyGLCoUh6OL4I=
+X-Gm-Gg: AYBFou3T8Se9BOzzv8jjFSXNDQvAk3OzOzm0Jb5dH5J0XEIOXWxK1Nq5DPYF7C8MiR/
+	fCVqcXW5RdWz+QwhSp+4sh5LI1oFOBuwNu21jTEYjjVXhyoC35JF6N6OGT6WSnTl271FlKU9X46
+	Ph1GaHe6TI12NTAeyGvP7b4ff+YWkEZOwPh7180Lb67T9e9i89nY5v0qZrVyPqdn93pwCUbBvvU
+	2FErgFfYy61yaGaAky4mmlrymqvQ+sjIaP1IfjZgXzilX5bxDgbE2AocL+jcmYPUr+sHv0CKIfI
+	1r51RtBSQrmYTdbl0XGuemFsgGK7oSFi0p7FSBcPWH6dcV76ZSPCkg/C5cBVyPvet0RdLveDasv
+	oWpjmOojqbhMKtm2ntEJx56+fyyZFVf59krgxtJPnNA8eJ7JeoddqbcBeLw9rWdOd4ifKc6zEs/
+	lf4hZDxa8niAZ0sL6qfL6/m2MKkBucIotkqn1XnuHi8xS0BAOL/Zo=
+X-Received: by 2002:a05:6808:2e43:b0:4f3:36ff:e521 with SMTP id
+ 5614622812f47-4fc46c92bc4mr4767586b6e.58.1791449209535; Thu, 08 Oct 2026
+ 01:46:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] coresight: etm4x: Report whether the PMU counts
- external output 1
-To: Leo Yan <leo.yan@arm.com>, Amir Ayupov <aaupov@fb.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261001063744.2143819-1-aaupov@fb.com>
- <20261007162406.GA26205@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261007162406.GA26205@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-11-7b47ed6335a8@gmail.com> <31d91f44-3f16-4a4c-916c-f4d8107d371e@oss.qualcomm.com>
+In-Reply-To: <31d91f44-3f16-4a4c-916c-f4d8107d371e@oss.qualcomm.com>
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Thu, 8 Oct 2026 18:46:37 +1000
+X-Gm-Features: AclHuK9CHquST79ZWASmiEF-eCVAGlz1SqIt2DEtZen9lPzYSl_ASrQBijUe-o4
+Message-ID: <CAHgNfTy-h8m-XBBzW6jSNBz0dVe=vXL6nJ3VOqgMjCbsK_t6gA@mail.gmail.com>
+Subject: Re: [PATCH v2 11/21] arm64: dts: apple: t8103-j313: Add
+ speaker/headset jack nodes
+To: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+Cc: David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	=?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
+	patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_013856_353434_976D0DEE 
-X-CRM114-Status: GOOD (  36.23  )
+X-CRM114-CacheID: sfid-20261008_014651_011792_60A924EB 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,144 +132,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 8, 2026 at 4:33=E2=80=AFAM Ajay Kumar Nandam
+<ajay.nandam@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 10/4/2026 11:33 AM, James Calligeros wrote:
+> > +&i2c3 {
+> > +     status =3D "okay";
+> > +
+> > +     speaker_right: codec@34 {
+> > +             compatible =3D "ti,tas5770l";
+> > +             reg =3D <0x34>;
+> > +             interrupts-extended =3D <&pinctrl_ap 182 IRQ_TYPE_LEVEL_L=
+OW>;
+> > +             shutdown-gpios =3D <&pinctrl_ap 181 GPIO_ACTIVE_HIGH>;
+> > +             #sound-dai-cells =3D <0>;
+>
+> Both speaker codec nodes reference the same shutdown GPIO. Is that
+> intentional for this board?
+>
+> The TAS2770 driver requests 'shutdown-gpios' per codec instance, and
+> GPIO requests are exclusive by default. So I would expect only one codec
+> instance to own this line, while the other appears to fall back to the
+> register-only path after the GPIO request fails.
+>
+> If GPIO181 is a shared physical shutdown line for both amps, how is the
+> power/reset ordering expected to work across probe, suspend, and resume
+> when only one of the two codec driver instances controls that line?
 
+We use the new(ish) shared GPIO proxy stuff[1] and it all Just Works.
 
-On 07/10/2026 17:24, Leo Yan wrote:
-> Hi Amir,
-> 
-> Thanks for the patch. I have a few initial comments below. We may have
-> further feedback after our internal review.
-> 
-> On Wed, Sep 30, 2026 at 11:37:43PM -0700, Amir Ayupov wrote:
-> 
-> [...]
-> 
->>   #define CS_CFG_MATCH_CLASS_SRC_ALL	0x0001	/* match any source */
->>   #define CS_CFG_MATCH_CLASS_SRC_ETM4	0x0002	/* match any ETMv4 device */
->> +/* ETM external output 1 is countable by the PMU as TRCEXTOUT1 */
->> +#define CS_CFG_MATCH_CAP_PMU_EXTOUT1	0x0004
-> 
-> Do we need to tie this capability to TRCEXTOUT1? For example, Neoverse
-> V2 exposes TRCEXTOUT0 through TRCEXTOUT3 as PMU events.
-> 
-
-Shouldn't we also use TRCEXTOUT0 instead of 1? Isn't 1 for devices that 
-have two external outputs, but some devices might only have 1 output so 
-only have TRCEXTOUT0?
-
->>   /* flags defining device instance matching - used in config match desc data. */
->>   #define CS_CFG_MATCH_INST_ANY		0x80000000 /* any instance of a class */
->> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->> index e1a59b4345052..2847d2d7f7bed 100644
->> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->> @@ -174,9 +174,14 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
->>   
->>   int etm4_cscfg_register(struct coresight_device *csdev)
->>   {
->> +	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>   	struct cscfg_csdev_feat_ops ops;
->> +	u32 match_flags = CS_CFG_ETM4_MATCH_FLAGS;
->>   
->>   	ops.load_feat = &etm4_cfg_load_feature;
->>   
->> -	return cscfg_register_csdev(csdev, CS_CFG_ETM4_MATCH_FLAGS, &ops);
->> +	if (drvdata->pmu_extout1)
->> +		match_flags |= CS_CFG_MATCH_CAP_PMU_EXTOUT1;
->> +
->> +	return cscfg_register_csdev(csdev, match_flags, &ops);
-> 
-> The current matching logic succeeds if a device and feature share any
-> flag bit. If the feature sets both CS_CFG_MATCH_CLASS_SRC_ETM4 and
-> CS_CFG_MATCH_CAP_PMU_EXTOUT1, it will still load on an ETM4 device that
-> lacks the capability.
-> 
-> Could we check the capability separately when loading the feature,
-> perhaps in cscfg_load_feat_csdev(), and skip it on unsupported devices?
-> 
->> +static bool etm4_pmu_has_extout1(struct etmv4_drvdata *drvdata)
->> +{
->> +	int pmuver = read_pmuver();
->> +
->> +	if (!is_midr_in_range_list(etm4_pmu_extout1_cpus))
->> +		return false;
-> 
-> Based on specific CPU variant, we should already have identified
-> TRCEXTOUT has supported.
-> 
-> So either we only base on MIDR list or we can figure out a reliable
-> way to detect the feature dynamically.
-> 
-
-At least with ETE the ARM says:
-
-  D4.6.12  External Outputs
-
-  SRBKWBThe   TRCIDR0.NUMEVENT field shows how many ETEEvents are
-              for the particular implementation
-
-  0x4011, TRCEXTOUT1, Trace unit external output 1
-
-
-  D14 PMU Event Descriptions
-
-  The counter counts each event signaled by the trace unit on external
-  event 1.
-
-  It is IMPLEMENTATION DEFINED whether this event is available as an
-  external input to the ETE.
-
-  PMCEID0_EL0[49] reads as 1 if this event is implemented and 0
-  otherwise.
-
-The number of outputs and the PMU event are both discoverable. It 
-specifically says that only the external input is implementation 
-defined, implying that if it's available it's always connected as an output.
-
-We could leave the MIDR list to only support errata when the external 
-output isn't connected to the PMU event.
-
-
-
->> +
->> +	/* PMCEID0_EL0[63:32] describe events 0x4000-0x401f from PMUv3p1 */
->> +	if (!pmuv3_implemented(pmuver) || pmuver < ID_AA64DFR0_EL1_PMUVer_V3P1)
->> +		return false;
->> +	if (!(read_pmceid0() & BIT_ULL(32 + ARMV8_PMUV3_PERFCTR_TRCEXTOUT1 -
->> +				       ARMV8_PMUV3_EXT_COMMON_EVENT_BASE)))
->> +		return false;
->> +
->> +	/* nr_event is TRCIDR0.NUMEVENT, the number of events minus one */
->> +	return drvdata->nr_event >= 1;
->> +}
-> 
-> [...]
-> 
->> @@ -1116,6 +1116,13 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
->>   
->>   		if (err)
->>   			cscfg_config_desc_put(config_desc);
->> +	} else {
->> +		/*
->> +		 * The configuration is active but was not loaded on this
->> +		 * device, for example because the device lacks a capability
->> +		 * its features require. Fail rather than trace without it.
->> +		 */
->> +		err = -EINVAL;
->>   	}
-> 
-> This fixes a pre-existing issue. It is worther to put it in a separate
-> patch with fixes tag:
-> 
-> An early return would also avoid the normal enable path's indentation:
-> 
-> 	if (!config_csdev_active)
-> 		return -EINVAL;
-> 
-> 	err = cscfg_csdev_enable_config(config_csdev_active, preset);
-> 	...
-> 
-> Thanks,
-> Leo
-
+[1] https://lore.kernel.org/asahi/20260831-apple-shared-gpio-v1-0-e855b12e1=
+8ce@gmail.com/
 
