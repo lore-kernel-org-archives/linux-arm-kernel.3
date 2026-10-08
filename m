@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9837CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33DBCA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=; b=ESr5UHWm5cLKSCq7ZrlUKqPUYw
-	vX2IObWL6hIu4RVd0bDiuMNRrOJc5hlpkZIROOdWZT3oBsH4vD5RyKzJy8vK6xETStlpcWygVgdm0
-	63EYlrEOjvMEWByvMSEt5hGgUU4r/zNyMwpvRK+xz8W6fWCM81YNbz1qQIJNiyOILbtEd8dCfW6w2
-	+OXICYj42MXBk/4V7ylg5+TDhE5jxlbYS5a9FM89Fv6ncXMsG2adfGWKeOEGEY9Xkf8IciBEWQH79
-	rkg/RV3s3kn0kr7qPvE2NetO8klGFv+dwhWR8xBDzCarAHEUkP9Dd4UDnZBkS8hybGSTxWkCssTWw
-	1fjQb/tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=; b=spkgvMn6MnIpNGZs7VIhnXBlLS
+	34Af4AMkUPdgykp77e4R7zLeNoQJ6nTc/6uT5gKKnetJbP6/UkHxsSPszOzt9MExpYTHKdc5OjyEY
+	cnBzLofjuY+nmSEa1YYQRZjkiWRtUswLSe7k2PGkKZK/WWeCEc8rwSF+sNt8lHkqmrnnjO7yRpn66
+	Hk77cQvDSdHob8nyme5bE2P/WDUk5Qv6GAEbUIm2I5Vt5imqbmqtOKoNXWeYyN7E0wuYZ1uZy5PEv
+	c+YonNFArucS2OJwpyvO2Qxu0TKs/XHm2h0KQfuzGCDaiZAE5ys33fxsHCSM5mdNvqffQNj0hxKBT
+	zDdFyS1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnb5-00000004OgM-3J45;
+	id 1xEnb5-00000004OgQ-3ic6;
 	Thu, 08 Oct 2026 12:51:43 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnb2-00000004OfX-30rT
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xEnb4-00000004OgA-0x3I
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 08 Oct 2026 12:51:42 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1791463896;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=;
-	b=oqlV/79ErOldFxJBOdcaqgayLC1WO3eZpEN29TjkzEPG9yeDcs8gdtjc9MkzQWX1rpGAWk
-	5vi1xpgk3Vu29SzvFR/YejSai7+xU+PeowDuSFokRn7V/m9fbPhEE8aD+5s7FuhungAkLX
-	HbMeJzHdfeFwKXAwhxM9oFyIg9qr6KkOXcTYSQrNU0lGd9Oti6U/PMz4VlLFd7hZ73XuGI
-	82EUKS5Vy66VsQFjY+IbiWKRR0dUJir3mAfeslMBlFvb8dnf93cctKMh7opMm7fNgSu+ME
-	kQ9P8AjA8Gnw9mHgh0AlA1WbZXK+0MVp25/90RaD4W2RFUdz+FXaeyBjC8xmjQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1791463896;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MZHTc2XGNHdP9T9wX+Y/zZCgi5wtLXlmsEo+S/aR7wI=;
-	b=66s1G752KnxZk6pqlIIlWCpoYLU30j4kYu9SQMwYjN5bZI5zizQmsN1mZI+ECsY0yN9TCZ
-	GNos/tFHRSHOzTDQ==
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
- <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
- Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Song Yoong Siang
- <yoong.siang.song@intel.com>, Noor Azura Ahmad Tarmizi
- <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal Abdul Rahim
- <faizal.abdul.rahim@intel.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v2 2/2] net: stmmac: Stop Tx queue when
- (en|dis)abling XSK pools
-In-Reply-To: <asdcORsu7HNfAZBb@boxer>
-References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
- <20261005-stmmac_xsk_crashes-v2-2-46c60cba6421@linutronix.de>
- <asdcORsu7HNfAZBb@boxer>
-Date: Thu, 08 Oct 2026 14:51:35 +0200
-Message-ID: <8733ugqrs8.fsf@jax.kurt.home>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=; b=Wm0mec4PE2hnToMjQyrpBsFYaU
+	kqhaiX3/m1AmRjpJ5DIdf+msbBF+xSqvqLewI37ogMnZ6dBJFQQRA1Rl557Mq7wSSPLkvM7Vyov0b
+	M7StxmEcOiavTQdm0lX4HdlZWMQ9D8/SnYbEgf7JVSjasIKwNKUUO3ORi3TuQCZetGRpL/ZZKZbfr
+	Mw1hpp7SYycBkHG6IWl8JTOX+b7Mb4/zpgDJrkUVVfSF42n5+C7TT3YNmMIWEJ5xTr+OoglgaQZwp
+	xzjE9jpJimmYv12jSdFVYHeVNFihaMIvybFnqXDzgUJ9UVeARbQnmI9K2SLZZUfGSu9zJXwtBdyzR
+	2L4ln/wg==;
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xEnb0-0000000ANfi-3864
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 12:51:41 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=;
+	b=cdcy/2djDSiUkkPO0QEaErPKpvMVBP3ghfWe4K54nsje1g/e2wppO6EK36bXKK/gC6SPjDq4g
+	MZl/77my+iIk6VNg+ZZFh79SQu/VJt3dHA4IRb8SwoYyBKsiP07Lho2A92wcK2rcpEL/skRCsex
+	VlU74hvEOtmS6lwk0qd+HOg=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4j0qKy1bMLz1T4JM;
+	Thu,  8 Oct 2026 20:38:46 +0800 (CST)
+Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4B1004057F;
+	Thu,  8 Oct 2026 20:50:59 +0800 (CST)
+Received: from [10.174.185.234] (10.174.185.234) by
+ dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 8 Oct 2026 20:50:58 +0800
+Message-ID: <6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
+Date: Thu, 8 Oct 2026 20:50:57 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration
+ optimization
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<fuad.tabba@linux.dev>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <mark.rutland@arm.com>,
+	<zhengchuan@huawei.com>, <jiangjiacheng@huawei.com>, <yize_w1110@163.com>
+References: <20260918081930.4014735-1-wangyize7@huawei.com>
+ <861paq69te.wl-maz@kernel.org>
+ <f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
+ <86ece63kes.wl-maz@kernel.org>
+From: Yize Wang <wangyize7@huawei.com>
+In-Reply-To: <86ece63kes.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.185.234]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemr200003.china.huawei.com (7.185.36.25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_055140_900332_5FA73B82 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20261008_135139_505469_BFADB08C 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,106 +99,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
 
-Hi Maciej,
-
-On Thu Oct 08 2026, Maciej Fijalkowski wrote:
-> On Mon, Oct 05, 2026 at 09:09:33AM +0200, Kurt Kanzenbach wrote:
->> When enabling or disabling XSK pools in parallel to Tx traffic, kernel
->> crashes occur. For VLAN tagged frames that happens in stmmac_xmit() ->
->> dwmac4_set_vlan_tag() and for normal frames in stmmac_xmit() ->
->> dwmac4_set_addr(). Both of these functions access the Tx DMA descriptors.
->>=20
->> The XDP pool (en|dis)ablement frees and reallocates the Tx DMA resources:
->>=20
->>  stmmac_disable_tx_queue:
->>    __free_dma_tx_desc_resources
->>=20
->>  stmmac_enable_tx_queue:
->>    __alloc_dma_tx_desc_resources
->>    __init_dma_tx_desc_rings
->>=20
->> NAPI is disabled during that allocation window, but the Tx queue is not
->> stopped. Therefore, add the stopping of the Tx queue during the enabling
->> and disabling of XSK pools. Update trans_start when stopping the queue
->> to avoid spurious watchdog timeouts.
->>=20
->> The issue can be easily reproduced by:
->>=20
->>  1. Run iperf
->>  2. Run application which opens an AF_XDP/ZC socket
->>=20
->> Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
->> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
->> ---
->>  drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c | 14 ++++++++++++++
->>  1 file changed, 14 insertions(+)
->>=20
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_xdp.c
->> index d7e4db7224b0..883bd3fe8089 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
->> @@ -6,6 +6,16 @@
->>  #include "stmmac.h"
->>  #include "stmmac_xdp.h"
->>=20=20
->> +static void stmmac_xdp_stop_tx_queue(struct stmmac_priv *priv, u16 queu=
-e)
->> +{
->> +	struct netdev_queue *nq =3D netdev_get_tx_queue(priv->dev, queue);
->> +
->> +	__netif_tx_lock_bh(nq);
->> +	txq_trans_cond_update(nq);
->> +	netif_tx_stop_queue(nq);
->> +	__netif_tx_unlock_bh(nq);
->> +}
->> +
->>  static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
->>  				  struct xsk_buff_pool *pool, u16 queue)
->>  {
->> @@ -36,6 +46,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *=
-priv,
->>  	if (need_update) {
->>  		napi_disable(&ch->rx_napi);
->>  		napi_disable(&ch->tx_napi);
->> +		stmmac_xdp_stop_tx_queue(priv, queue);
+在 2026/10/3 22:53, Marc Zyngier 写道:
+> On Sun, 20 Sep 2026 10:15:25 +0100,
+> Yize Wang <wangyize7@huawei.com> wrote:
+>> 在 2026/9/18 20:08, Marc Zyngier 写道:
+>>> On Fri, 18 Sep 2026 09:18:13 +0100,
+>>> Yize Wang<wangyize7@huawei.com> wrote:
+>>>> This series adds batch register access support to KVM/arm64 to reduce
+>>>> syscall overhead during VM live migration.
+>>>>
+>>>> Currently, QEMU issues one ioctl per register when saving/restoring VGIC
+>>>> state. On large VM configurations this means tens of thousands of syscalls,
+>>>> where lock acquisition and context switch overhead dominates migration
+>>>> downtime. Thus, we provide a batch register method to allow userspace
+>>>> read/write multiple distributor and redistributor registers in a single call.
+>>>> In this way, we can significantly reduce syscalls and migration downtime.
+>>>>
+>>>> Test the VM migration time under pressure conditions.
+>>>> The VM specifications for migration are as follows:
+>>>> - VM use 4-K page;
+>>>> - the number of VCPU is 160;
+>>>> - the total memory is 320Gigabit;
+>>>> - use 'Redis SET-benchmark' to pressurize VM;
+>>>>
+>>>> Performance results (3-run average, ms):
+>>>>       | Metric              | Without patch | With patch | Improvement |
+>>>>       |---------------------|---------------|------------|-------------|
+>>>>       | Migration downtime  |        536    |     321    |     40%     |
+>>>>       | Source (total)      |        344    |     230    |     33%     |
+>>>>       |   - VGIC put        |        158    |      40    |     75%     |
+>>>>       |   - VGIC get        |        120    |      19    |     84%     |
+>>>>       | Destination (total) |        192    |      91    |     53%     |
+>>>>       |   - VGIC put        |        132    |      27    |     80%     |
+>>>>
+>>>> Yize Wang (2):
+>>>>     KVM: arm64: Add batch group constant and data structure to UAPI header
+>>>>     KVM: arm64: Add VGIC v3 batch register access implementation
+>>> Questions:
+>>>
+>>> - Why only the MMIO registers?
+>>>
+>>> - Why not the sysregs?
+>>>
+>>> - Why only the GIC?
+>>>
+>>> - Why not all of the state?
+>>>
+>>> - Where is the corresponding userspace code?
+>>>
+>>> More importantly, since this is about batching system calls:
+>>>
+>>> - Why can't this be done with io_uring instead?
+>>>
+>>> 	M.
+>>
+>> Hi, Marc! Thank you for the review.
+>>
+>>    These patches focus on optimizing GICv3 register access during live
+>> migration. We found that there are a large number of locks (kvm->lock,
+>> vcpus, config_lock) in the GIC, these lock operations wil cost large
+>> time waste. The batches of sysreg for vcpu optimization will come in
+>> follow as a separate series. And let me address these questions one by
+>> one.
+> All these locks should be non-blocking by the time you save anything
+> related to the GIC, because:
 >
-> FWIW you can look at what I did at ice driver (ice_qp_dis()) where I used
-> a bigger hammer here; I think updating trans_start is kinda a workaround.
+> - none of the vcpu can be running
 >
-> https://lore.kernel.org/netdev/20240708221416.625850-1-anthony.l.nguyen@i=
-ntel.com/
+> - this must be a single threaded operation
 >
+> So if you are seeing anything contended, this is either the sign of a
+> bad KVM bug, or an indication that you are violating the above
+> requirements.
+>
+> 	M.
 
-Actually, trans_start is already updated by netif_tx_stop_queue(). I'd
-just remove txq_trans_cond_update() for next version.
 
-Thanks,
-Kurt
+Hi, Marc! Thanks for your review.
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+You are right that when saving the GIC state during live migration process, all vCPUs are not running and it is a single threaded operation. Our patches process the packaged register states from the userspace under the same lock. These operations only aim to reduce the lock opreation downtime and do not involve lock contention.
 
------BEGIN PGP SIGNATURE-----
+In addition, these patches focus on reducing the syscalls of ioctl. Now, every register requires an ioctl, resulting in (num_cpu * registers_per_cpu) system calls. This will cost lots of time during the large-scale VM  migration. Our patches batch registers by category in qemu and then send them to kernel in batches. This operations significantly reduce the number of ioctl syscalls and save a great amount of downtime.
 
-iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrHkdcTHGt1cnRAbGlu
-dXRyb25peC5kZQAKCRDBk9HyqkZzgmJBD/oCmsRqLOaLWkOVSVG1QP9cmCBH00WQ
-LRmmxbFk4UDutQJxHN4bezt5EZ6eJqvCf5WM/uI9WkyMlA65QMEm96UbHmGYhY/O
-2fdXL7X5W2wpY31IcZ15svH39ow99M+z+Qa7bOaZVMrZxaWWvyHEhv+qUESR4ot/
-lYvobo99/AorlX8Urfb/e+x3r1NCOXZJz5IIXq+9L4sAby16gJdQtvfvDdmfdN8Y
-Fr8DxMII4MoRHHcPjvMYxbYaAaGSDaK/H61e6DODTrRMCHE4322KkjMSqx/KxCBH
-zvXeMsqkWlnSTM0srBGuszFy/9kfOKWyk68q44fhuefGOaBv2xB8ZBGt8Xoz4aqq
-Mip7UslQqXVVjZCJfbUnH+zwcaJBIJA3QOQT0HebM5unR7YZDCPPc/oCL6q66G0Q
-Z61H3lzDorpXGBUUindVQvB4XLWkO6xOagPLN0Nu3fuHDIqirxrPYpSko3K3xKg/
-AsLDTMAGIKG29OoSOjlikRm+6gbkXtiH4E82IJWem/IWiQsrtXj27FHPkoWivHKJ
-oLhS9/3kWsoqO0VExHQLlh6/HTIH8358JForUyGvFLJzJxGGQVpjzmlKRfXplF9W
-th4/Y3yHhPZ16SPgDUFl6oKAQPXlUjbamJqkdbvHCUJ4zKtj2j3x6fDeYh3xN/Bk
-8c5IpCJvzgpfJQ==
-=3nkW
------END PGP SIGNATURE-----
---=-=-=--
+The comparison is as follow:
+BEFORE:
+
+        QEMU (Userspace)                  Kernel (Kernelspace)
+   +------------------------+        +----------------------------+
+   |                        |        |                            |
+   |  kvm_arm_gicv3_get()   |        |  vgic_v3_attr_regs_access  |
+   |                        |        |                            |
+   |  for ncpu in num_cpu:  |        |                            |
+   |    for each register:  |        |                            |
+   |                        |        |                            |
+   |  GICR_CTLR             | ioctl->|  mutex_lock(&kvm->lock)    |
+   |                        |        |  kvm_trylock_all_vcpus     |
+   |                        |        |  mutex_lock(&config_lock)  |
+   |                        | <-val  |  read/write register       |
+   |                        |        |  mutex_unlock              |
+   |                        |        |  kvm_unlock_all_vcpus      |
+   |                        |        |  mutex_unlock(&kvm->lock)  |
+   |                        |        |                            |
+   |  GICR_STATUSR          | ioctl->|  (repeat lock/read         |
+   |                        | <-val  |   -> unlock)               |
+   |  ...                   |        |                            |
+   |                        |        |                            |
+   |  GICR_WAKER            | ioctl->|  (repeat lock/read         |
+   |                        | <-val  |   -> unlock)               |
+   |  ...                   |        |                            |
+   |                        |        |                            |
+   |  ICC_SRE_EL1           | ioctl->|  (repeat lock/read         |
+   |                        | <-val  |   -> unlock)               |
+   |  ...                   |        |                            |
+   |                        |        |                            |
+   +------------------------+        +----------------------------+
+
+
+AFTER:
+
+        QEMU (Userspace)                  Kernel (Kernelspace)
+   +------------------------+        +----------------------------+
+   |                        |        |                            |
+   |  kvm_arm_gicv3_get()   |        |  vgic_v3_batch_access      |
+   |                        |        |                            |
+   |  Collect Phase:        |        |                            |
+   |    add(GICR_CTLR)      |        |                            |
+   |    add(GICR_STATUSR)   |        |                            |
+   |    add(GICR_WAKER)     |        |                            |
+   |    add(GICR_IGROUPR0)  |        |                            |
+   |    ...                 |        |                            |
+   |    add(ICC_SRE_EL1)    |        |                            |
+   |    ...                 |        |                            |
+   |                        |        |                            |
+   |  Commit Phase:         | BATCH->|  copy_from_user            |
+   |    batch_commit()      |        |  mutex_lock(&kvm->lock)    |
+   |                        |        |  kvm_trylock_all_vcpus     |
+   |                        |        |  mutex_lock(&config_lock)  |
+   |                        |        |                            |
+   |                        |        |  Process Each Entry:       |
+   |                        |        |    entry[0]: GICR_CTLR     |
+   |                        |        |    entry[1]: GICR_STATUSR  |
+   |                        |        |    entry[2]: GICR_WAKER    |
+   |                        |        |    ...                     |
+   |                        |        |    entry[N]: ICC_SRE       |
+   |                        |        |    FLAG_LOCKED: skip       |
+   |                        |        |                            |
+   |  Unpack Phase:         |<-result|  mutex_unlock              |
+   |    Write back          |        |  kvm_unlock_all_vcpus      |
+   |    Post-process:       |        |  mutex_unlock(&kvm->lock)  |
+   |      unshuffle,split   |        |  copy_to_user              |
+   |                        |        |                            |
+   +------------------------+        +----------------------------+
+
+
+
 
