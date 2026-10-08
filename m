@@ -4,122 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E6CCA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7344ACA600D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8u8H4QYJiarOEqRZ8ZbXOONzxSr4hNvAmbzJoELjm0=; b=XRafCHhZJ/H7cQEOz8O2xcDuTI
-	7k8sHFlOi3DUNIiN82h7DDcdSbanNuV/n/hpIVygOnmeafoQrxxkXpYIecfgPJsZ0tMSjXrw6x7eq
-	7tQrsWk7ifqHhzLHvxzh0KoSIwzuQKzGn2z91E0ExpY8YbSeazScVk1sfQnckabHK+IW68gTBHiH2
-	xVuTdc0/ZkuH6JZQIDb2KJHgTGTfVONSCAHZLN8azbpbcjh8v6Qo2jUupE7SZ8wZFtFrHQTsVsimC
-	aT+JRErxhFeGo1QDrN4/G9FR0MTQvkt4c/vAoPuB0e7XpC877wrV/2tY8Vc38aDUpnA8FxvPLZMGp
-	OgUWmdyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uuuba5t+YtdcDz6Zi5QWHUjilxWah0Ylx+Le7ktzXNQ=; b=YU1H/w5IZ4i0E8XRux2Pq41OH7
+	BBIyunTsJTrAc1GqxvVgg2ZV7Bdau3wTE1t5LpmxPK9l6U6BloI1c4qbhj+1ZBlm1014ElW801cPX
+	2M6usP/YFTDerV79oTE6k+hQfAOpdmGJx6lSRk3NrY2qkst/zc1YYoxLBfk8QTHqbVjWHn/TzzXFP
+	eF4RCp+8q+fOT8uFYsXvrvJ7PJndrI3mxYRVOccVlBx6Ln04Mv/jzfGpojInhwVlJkNMKYZMfht2X
+	NRPYcDVUakXysEogjwEf9MbzDOEjq4+74d1e+wfZocb54X34fC9xJX5EbMxEdnwrRdIBJ5VlrtFGx
+	cbfvCu9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xErzR-00000004mxc-2AL3;
-	Thu, 08 Oct 2026 17:33:09 +0000
-Received: from mail-southcentralusazon11013066.outbound.protection.outlook.com ([40.93.196.66] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xEs2I-00000004nGT-4532;
+	Thu, 08 Oct 2026 17:36:06 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xErzN-00000004mwk-3wEN
+	id 1xEs2G-00000004nFx-1qXv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 17:33:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kdtdBvuyGBkekygsoWH+GXCkfKa/rq8YEQAuOzjXySEBxpvsbae7mvo4q4H8ARqY6GRYmoh2uKMzqZSMb86iA0XYf3xEJcCSzUmcm0Toqu4myuOTgCwZHOlb4UcA57yRbkeMn1duOkgFPXewTgZAh5aeaAx2Mxpy9xay9pyooc5uwAIURp3cdOVodf01HMfcrKVBod7nrV4iHDpXOPgaHEi0fsBGUtV/KkCuRIppE1uYz4VYFayc+po7MHkZroZ7RknsWK4FKwmC354soZFzUMk9Gib5ir90JQjoBICn5vVNfZUmxJMsrJ3RrrqEeunr8ZdxNDxtJ4b1ZFVALd3Hug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d8u8H4QYJiarOEqRZ8ZbXOONzxSr4hNvAmbzJoELjm0=;
- b=nP7QZ9IyP2nXQB4Njdls2XvwH/HTfwySHDqen6TL8375KHrnRAhmlNdM6KDWLcDktd0AeBh+xQ9A4mxieMOccaQu2qV0bQmdMX8I0CjGUGgJQhQ958y2Zk9kCI28iX0wTA8pIvnJEWTL2iVRSN9IlKRcif15b6MufBk8Mksz6ODMtCo+3zrDEdcphfyPZ7pkKQ5Fwp2891NGYB0RcIL0efTHg6HEX/tEzX2qDMcu18sLOHsueN62pSNM24vJkMet2nfBuHDzHa978AlvOa9elvLFNLGLoZIA7mET5shhsa2dnct41SGMzeSio7ukRzgNt63RB22UE6NKfGkPMFioYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d8u8H4QYJiarOEqRZ8ZbXOONzxSr4hNvAmbzJoELjm0=;
- b=Xj7vw/WM+BmjotnO6HFyxzHGCxuul5S2WTImFKNX4l9EHwCwpsOxM0glaH5o2fIva/ceMk3sfVLj/vJH5Y7oMc0H5+wSzZlTbWcK9CPUIO2xyfbPo9WZuQUS9N20AaYVyySLHt7ahx2B/WQxcoJqQWMYu828FPTkFxCP21Afc4OIXPQI+jUeoXA9JGwcupocC26jMhdxSywWeBm8oagLvxFqa5znaljX+GrkjlYXMx4AtYHf21aqSMrRsm9ekiKavIocaxxPmrY0j7WriyGTwMydY+YZvyV+zWieeLpcsuq9mghEFzri5JjM6bq5oZ5AJVzSokpp60S6Hbg+UUw+AQ==
-Received: from MN2PR06CA0007.namprd06.prod.outlook.com (2603:10b6:208:23d::12)
- by DM4PR12MB6206.namprd12.prod.outlook.com (2603:10b6:8:a7::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.20; Thu, 8 Oct 2026 17:32:55 +0000
-Received: from BN2PEPF0000A991.namprd04.prod.outlook.com
- (2603:10b6:208:23d:cafe::18) by MN2PR06CA0007.outlook.office365.com
- (2603:10b6:208:23d::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Thu, 8
- Oct 2026 17:32:55 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF0000A991.mail.protection.outlook.com (10.167.248.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Thu, 8 Oct 2026 17:32:55 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 8 Oct
- 2026 10:32:28 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 8 Oct
- 2026 10:32:27 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Thu, 8 Oct 2026 10:32:25 -0700
-Date: Thu, 8 Oct 2026 10:32:23 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-CC: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Will Deacon <will@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker
-	<jpb@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding
-	<thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Jonathan
- Hunter" <jonathanh@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v5 2/6] iommu/arm-smmu-v3: Allocate streams
- individually
-Message-ID: <asfTp0KxWIyxmcnz@nvidia.com>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-2-169a59c671d3@nxp.com>
- <asbTEPMJvm9T00c+@nvidia.com>
- <7626c1be-305e-478a-a017-548341d25419@arm.com>
+	Thu, 08 Oct 2026 17:36:06 +0000
+Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowABHTTuB1MdqNlQPCg--.12561S2;
+	Fri, 09 Oct 2026 01:36:02 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>
+Cc: linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] clocksource/drivers/timer-imx-gpt: fix resource leak on init error paths
+Date: Fri,  9 Oct 2026 01:36:04 +0800
+Message-Id: <20261008173604.2733975-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7626c1be-305e-478a-a017-548341d25419@arm.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A991:EE_|DM4PR12MB6206:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a4f6afc-e8a3-4ba0-bab4-08df2562302c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|23010399003|82310400026|1800799024|4143699003|11063799006|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: p+jLB/3ZkFpni6t04v3S4LLHD9AxzXZcKBy72q+dnoN1tw2MNUkopiSE1xIH2rowXsIfxZ+GCZApPFVazZgMXWkRlc5oV7Sdol+Ezwx2iUVxRiPQKW2Qnzt35nL7I1Pdf7VFo4tjicE2qcQ9RSFnzwR0/u5/+Qi+TIwxVEZnJLgZK7eOiRlzl76HGeW631f2xxHjKCJSUdkFAYIjjq/f7dG5eplKgDLE+u+Ukc8/ZCNwMTiCC6u/usn02xatRRO5Z1eRapB+dDw0KCNeH/jaS3kCWAJNCUNos4HXa10mv4synkBQ7uF6d8eZ+jKhhcGbknGPgCW9V+YBZv4cjseuPKzVnxZ+necBz+LSO6NEdKRlcf+6JPdzPW7vO8I3mTAZEakXqcAwkO/agMIPvUZehi4kQA7SfGKRu4sjUs7C72K4XQdAvWOu2PzUFGxfmujcdBTiGwAoSQPgM3rpwDjAP4AwyOv1b4hYhkomukFzdOIEFSVxzXBBwHQmRIufGuyZioDKRq84jfNjwrmZ/21t0rqGF7NkliK5PPaRMYJw7GZyjIWSbk0SlMhIrkRiwLWErIUhbEE4fBnEY0N0UOxlfgG3UhnQbgnAQyt3xjiSEnlWhitTCNCKDsaqJCeMdFiPaLTcj67WRyJOsNRNWTe5bCsU/TWXB3wm5Niz/O3hAvHSasB/rnZzQBapsb+8jWiDlRoXN9Roh6XM5Oe9RR4Npg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(23010399003)(82310400026)(1800799024)(4143699003)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: T9Ua8oRnqjyMJR0UEoEIZmwLc27Z4hkekcuqtEVR1ApwyxOkcfav2weeIbioXt8hqqeoodNk0reUJOH/E+Ces7P5Kfgrah8itsISuuKxoakt2Iw1nV1aPJDoqf0R89DSNF2y7iTOBm7xvYQKxFUVfGvm2zhJonIz65z/43I0qxtGtFk+LGiqJwf6pr0Kho9mBpZ6IQqL5mtpnZWnC43FuJLi/8gY4vdN5MjsOdws7gpYgUPjfpD5OmU3Xwt8ydDXV0kSi3uVSTpRhS9UznigHcXvh+QBfG1qE4Iu1POZMC2I/odls082ptziL+M8QhoTl1GcrkHA6IyZ+kGo3UqYZc2N68CIl8zsGcKM6tD6PJrVU3G45YaFMykxwaVzFmURDgzRCbNUHL5++w5ifI/Lca95wOlPWVbutsLLwaDe3qUm0kwq0ZAXp5znY+j+QpV5
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 17:32:55.3171
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a4f6afc-e8a3-4ba0-bab4-08df2562302c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000A991.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6206
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowABHTTuB1MdqNlQPCg--.12561S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Wry3ZFW7WryrJr43Xw47Arb_yoW8Ar1rpa
+	1xu345tF17WwsagF47tr4qvF95ua1SkFy8GFWfG39FyFn8ur1jqFyjyFyUXFy3CFWrZ3W7
+	tr4rJrs5uFyDur7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvKb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kI
+	c2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
+	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
+	67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42
+	IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF
+	0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxh
+	VjvjDU0xZFpf9x07b52NNUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgYOA2rHo1N7kwAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_103305_983463_17CED270 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20261008_103604_845699_9825A0D7 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,39 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 08, 2026 at 02:21:43PM +0100, Robin Murphy wrote:
-> On 08/10/2026 12:17 am, Nicolin Chen wrote:
-> > On Tue, Oct 06, 2026 at 08:19:08PM +0800, Peng Fan (OSS) wrote:
-> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> > > index 6644075c1431e..bc62a3d5a63f9 100644
-> > > --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> > > +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> > > @@ -1257,7 +1257,7 @@ static int tegra241_vintf_init_vsid(struct iommufd_vdevice *vdev)
-> > >   	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> > >   	struct tegra241_vintf *vintf = viommu_to_vintf(vdev->viommu);
-> > >   	struct tegra241_vintf_sid *vsid = vdev_to_vsid(vdev);
-> > > -	struct arm_smmu_stream *stream = &master->streams[0];
-> > > +	struct arm_smmu_stream *stream = master->streams[0];
-> > 
-> > Sashiko raised a concern of an out-of-bounds pointer dereference.
-> > 
-> > Though it's practically not possible, probably it would be safer
-> > to move this behind the check:
-> > 
-> > 	if (master->num_streams != 1)
-> > 		return -EOPNOTSUPP;
-> 
-> The IORT path unconditionally adds 1 ID via acpi_iommu_fwspec_init(), so
-> num_streams==0 could only potentially happen with DT if a fwspec was parsed
-> using #iommu-cells==0, except arm_smmu_device_dt_probe() would refuse to
-> probe the entire SMMU if that was anything other than 1, so no, this
-> definitely cannot ever be out of bounds.
+mxc_timer_init_dt() maps the timer registers with of_iomap() and obtains
+the ipg and per clocks with of_clk_get_by_name(), but every error path
+jumps to err_kfree, which only frees the imx_timer structure.  The
+ioremap'd mapping and the clock references are therefore leaked when
+irq_of_parse_and_map() or _mxc_timer_init() fails.
 
-Yea, it's unreachable. So, either way is fine.
+Unmap the I/O region and release the clocks on those error paths.
 
-The num_streams guard is already there: doing a dereference after
-the guard is a common practice anyway. And that drops the Sashiko
-false positive.
+Fixes: 8051a993ce22 ("clocksource/drivers/timer-imx-gpt: Fix potential memory leak")
+Assisted-by: DeepSeek-V4.1-Flash
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/clocksource/timer-imx-gpt.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-Nicolin
+diff --git a/drivers/clocksource/timer-imx-gpt.c b/drivers/clocksource/timer-imx-gpt.c
+index 8335bd7f8c6c..b8005054b30a 100644
+--- a/drivers/clocksource/timer-imx-gpt.c
++++ b/drivers/clocksource/timer-imx-gpt.c
+@@ -441,7 +441,7 @@ static int __init mxc_timer_init_dt(struct device_node *np,  enum imx_gpt_type t
+ 	imxtm->irq = irq_of_parse_and_map(np, 0);
+ 	if (imxtm->irq <= 0) {
+ 		ret = -EINVAL;
+-		goto err_kfree;
++		goto err_unmap;
+ 	}
+ 
+ 	imxtm->clk_ipg = of_clk_get_by_name(np, "ipg");
+@@ -455,12 +455,19 @@ static int __init mxc_timer_init_dt(struct device_node *np,  enum imx_gpt_type t
+ 
+ 	ret = _mxc_timer_init(imxtm);
+ 	if (ret)
+-		goto err_kfree;
++		goto err_clk_put;
+ 
+ 	initialized = 1;
+ 
+ 	return 0;
+ 
++err_clk_put:
++	if (!IS_ERR_OR_NULL(imxtm->clk_per))
++		clk_put(imxtm->clk_per);
++	if (!IS_ERR_OR_NULL(imxtm->clk_ipg))
++		clk_put(imxtm->clk_ipg);
++err_unmap:
++	iounmap(imxtm->base);
+ err_kfree:
+ 	kfree(imxtm);
+ 	return ret;
+-- 
+2.25.1
+
 
