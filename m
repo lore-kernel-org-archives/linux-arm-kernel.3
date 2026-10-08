@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252FBCA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2492CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4OdqquRkr6UmIvev0wHEbWO3nZAjp+PtnezGPRgzOo=; b=R4MW2ab6W0tRUH4GhG0XyhXkuO
-	w29KfRzDsPcFPQ8mRhL0mLWvMSJUi/LXV0c+xa8hEEMogvj5pqz+Lu7vCgalnteDONxT/0uGgdlYh
-	XbyJzzUBKiJop362I4t5vEygKbX3cvbdqtD4xFbUh3zn8kTI0wYzj+oLJyMf3jkv2OshUb0tbp6R2
-	Xg+IkdDsg0fvLawE/xixmVEZL91iUpmJ+BIfdCeYFNVBAb8o7d4NzYprl7C+lUqkifcQfEC2LlztJ
-	K/JXY5vm9HKAmXIF/bc7tS0bbO6z+aYoxm7XLlq9TyFchGGAe49mxwmo4djUfEO22gnAR5imCQekh
-	mzXbwDFw==;
+	bh=fM1yGExHkWGnxydfWImGDRX8LWpcyzHG4sbNS/MAMrc=; b=AmuIv4j1EKGvUez/g5vr8UOEai
+	ZnhxFqm1IXpoVzapYwXhvz0jFYir2yySvWjMKDRA3X4GZxJ8qXzLI7g6myi9iObaORVDJO54uISRT
+	FwDb3ZTg/Lwm1FS5LV5fu+feZdRnSobs3E0CmYoixKWQPUetKzUMMQ/sTp4gvvionkwjn+OxaYp2R
+	74trNqAatzoDiOfT4+MP1WWtBvaU2IeSlgUp+5nN2kaCom7/GxHN2frvzllD4+TCMu2uuvytMuYsf
+	8ufU/qLJuxCrUk9eFlZoRu5dVxJqUvEC6ny3X6O+XvnHakmS3yjN0sWpKEM0A6H8/6Zq0E+l1cMEB
+	vRo0juuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkEa-00000003z7S-0GMQ;
-	Thu, 08 Oct 2026 09:16:16 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkEW-00000003z6C-2dLY
+	id 1xEkG8-00000003zRi-2oo3;
+	Thu, 08 Oct 2026 09:17:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEkG5-00000003zRN-2dUW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 09:16:14 +0000
-Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:4b01:1e0e:d42d:4ec8:33b2])
-	(Authenticated sender: str@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0FCCF200582;
-	Thu, 08 Oct 2026 11:16:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791450969;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=G4OdqquRkr6UmIvev0wHEbWO3nZAjp+PtnezGPRgzOo=;
-	b=Y1Yiio78FKUWT5PqDICsj87JHuQ/9IUnAOENLD8AkAIwceLaYGhz1uf77oxWXPiGydupND
-	o4PsYIdxkslPktgcEdnE7+rUjJblLJ5/v49kaJlUZiG4nKuXULLKyusnQPxz+Nhp1apwMM
-	sTf/mCeaalA3zdvlpXRbs8KE8AiLpeMQs71ywfRBoGNnW8lbFgajeAvtSxB7ZYc3EVgNZ0
-	wW4F/mccUsN6omzQHmvYwVc2WNrMls9xjMUsxzs8wJm1SjMgW6z9ESG685YfIcDMk2HoBl
-	xSKWFPfcUMiu5W/E+ovdvAmGFTPf1N7iImeLD1IATOiQFAOFjkrfx86ww+TXnw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791450969; a=rsa-sha256;
-	cv=none;
-	b=Avj3vfltkwy+Q+7x3yRblRREjCIDnO9u0mmbfW5a5zH+f1tHTv2adixSIGvHVnFqK0ZI8R
-	ihSFPjYJQh5xKUGoH+/0TcHV6S4apbUn0SPDRE0Wzq689LevOCY7ZrI3CiX7BaiNSnIi5+
-	2B0ZNyI/aQIwyKOi2b/sE+94YLyj1wRYt/Nv5AN42cQyo0Qe9nqxWaKvM1RK78TrC9USyx
-	I+p6dq+fBzl8FVayPBSX9P/YrSn5o+41WjmM5DTyysajLOfhoMd+kTqMqrdIedaZf/mgsP
-	bfbq8F0uHibOks5YQHJf69kvI3eaa4azIXyQNaA4Hfnqk9hr//h7JAj662cRKg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791450969;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=G4OdqquRkr6UmIvev0wHEbWO3nZAjp+PtnezGPRgzOo=;
-	b=C8SABDphPBj+iChaaeaXgJjbtLHdbJLTgHUOkmp2jSL5boWe256V6ucUtBPrmgiqGHBBdF
-	+Vy1LTR8naog7qtI5bCj2EhUtu+DxcQ6OlbOtCbxhdaR48+9nb8aYMzVTJ9XttvhkWo0z8
-	7KipReyEJg3KlAaLCvTXzBmtMv8Z/kD4Mha2G5NtMFP7svxic/F93fdbYimIoDGDsvRAZu
-	5s7Bi9hnJw1lfwaNWp08gK8KF/+g7xvEIoEkfSxkXx76SRFkNWeqRuiNUaVAsu0ECawlNO
-	HW0bWEwM1si1fdZirFZZ0BqWdjSUeL/zF5EthW0Hlp1+VVGzq8JyGXi6Z2JKow==
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Thu, 08 Oct 2026 11:15:59 +0200
-Subject: [PATCH v9 1/3] arm64: dts: freescale: imx8mp: skov: fix sort order
+	Thu, 08 Oct 2026 09:17:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A3121477;
+	Thu,  8 Oct 2026 02:17:42 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.55.7])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DDD83F959;
+	Thu,  8 Oct 2026 02:17:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791451065; bh=BythzgJZcCsED2Q0dVtAj8TkAWAh4Q0vRRYNVZq7wi8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=C4HJQnHZA+/S0SAYFkSRCDzEWC0XS1yVIvox5ZhV0zkchd1+inr9I9jZSEyjrQZrP
+	 2Kaa1b8L1T7/yFaJ2sPVT3jKJqDcLhQTf5PkJgj1Tp38m/fjOWckzEbz3WIBPZeBMk
+	 lqfnAo95OEYylCQitjOkr5e03w61sDRZ8hr7ZMoc=
+Message-ID: <7490d5e6-ac9b-4f23-b58d-60eec2882e60@arm.com>
+Date: Thu, 8 Oct 2026 10:17:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH] arm_mpam: make the mon_sel guard conditional only
+To: Sasha Levin <sashal@kernel.org>, James Morse <james.morse@arm.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+ Andre Przywara <andre.przywara@arm.com>, Gavin Shan <gshan@redhat.com>
+Cc: "kernelci.org bot" <bot@kernelci.org>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Nick Desaulniers <ndesaulniers@google.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev
+References: <20261003121251.3942666-1-sashal@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261003121251.3942666-1-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-1-11fa90f531fc@pengutronix.de>
-References: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de>
-In-Reply-To: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
- =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1163;
- i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=8fA+PcBqCWGEj0dJDDjO6qBFZFaRQnYFP6vrrHwXRlE=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bx+AhVi/dbsy9Ffe9eaz5rafz7H/m3lJ5Vzfzv2Zl93
- yag0Xd5RykLgxgXg6yYIovKwgo+UY8PnpHTRLhg5rAygQxh4OIUgIlwWDL8s37seuJmg7uTo46j
- 8HplY/0oZdfiXZevztwwt7tIfP4ybYa/ckuX3tji6f50esDpHV0/U3Sv3/x9qthp4pYtBn+ur3j
- zlBsA
-X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
- fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_021612_840058_7E706493 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261008_021749_783752_E73A898D 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx8mp-skov-revc-jutouch should be alphabetically before the
-imx8mp-skov-revc-tian variant.
+Hi Sasha,
 
-Sort the entries in the correct order.
+Thanks for the report and fix.
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 03/10/2026 13:12, Sasha Levin wrote:
+> Building arm64 allmodconfig with clang fails:
+> 
+>   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
+>   of function declared with 'warn_unused_result' attribute
+>   [-Werror,-Wunused-result]
+>     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> 
+> mpam_mon_sel_lock() is __must_check and can fail: for an MSC accessed
+> through the MPAM-Fb firmware interface it returns false when called
+> from a context that cannot sleep. The mon_sel guard was defined with
+> DEFINE_GUARD(), which calls it unconditionally and discards the
+> result, so a guard(mon_sel) user would carry on without the lock and
+> release it on scope exit. The unconditional guard only exists as the
+> base for the conditional mon_sel_lock variant, which is the one
+> actually used.
+> 
+> Define mon_sel_lock directly as a conditional guard class instead, as
+> posix-timers does for lock_timer: the constructor returns NULL when
+> the lock cannot be taken, and the destructor only releases a lock
+> that was taken. ACQUIRE(mon_sel_lock, ...) works as before, including
+> ACQUIRE_ERR() returning -EBUSY on failure, and there is no
+> unconditional variant left to misuse.
+> 
+> Reported-by: kernelci.org bot <bot@kernelci.org>
+> Closes: https://d.kernelci.org/i/maestro:66f869ecbbb5b8592562ffd89f049c5ddf682547
+> Closes: https://d.kernelci.org/i/maestro:647269216758644837afcaac8e67d8dbe713a0e2
+> Fixes: 0db1715e4c9c ("arm_mpam: propagate MSC access errors for hw_probe functions")
+> Assisted-by: LLM
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+>  drivers/resctrl/mpam_internal.h | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index ee7c3953a9b6c..be1795b29aca2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -203,9 +203,10 @@ static inline int mpam_mon_sel_lock_init(struct device *dev,
+>  	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+>  }
+>  
+> -DEFINE_GUARD(mon_sel, struct mpam_msc *,
+> -	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> -DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
+> +DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
+> +	     _T ? mpam_mon_sel_unlock(_T) : (void)0,
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 95ae85ab4adf5..49025ae465f22 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -475,8 +475,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
--dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
+Could this line be an if statement? That looks to be common in other
+users of DEFINE_CLASS().
 
--- 
-2.51.0
+if (_T) mpam_mon_sel_unlock(_T)
+
+Thanks,
+
+Ben
+
+> +	     mpam_mon_sel_lock(msc) ? msc : NULL, struct mpam_msc *msc);
+> +DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
+>  
+>  /* Bits for mpam features bitmaps */
+>  enum mpam_device_features {
 
 
