@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED43DCA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28413CA6014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=; b=DRuez+I8fcpIVkbyItdRlmbHT0
-	dpyCcnqgH8jRwexk4bUTNXCtBMaoca51pFOQEQoHMtB/atHgoKjV18gXEN7HTTKKHe6NgmHCDOQEB
-	P5mi3MlwQNYXEBh/dO6s1LVD2q2/WUYrpblQZxFFEA/+t1p5u7wLGEyvO+s/xYOggUEb/XQ2ZK0WX
-	y+MJtPPtYsiXlSDg9m6nhmlzMLZ5COnIkWk4dRwn64d9xMw34FbqFK1AyRdmCdsM83DNMj1yO5Akr
-	nKfNZsv0iYgGKSu1nbCkO1K6kEBDPtx24HcJfy7wx3N3CsOjpPaMQg/ZztDTmCKoFO8LcyOFVzhUE
-	YI3eAB5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vqP7yOjt/h73cYqrSH+BvswKcxakjUUiEEXb4Y5z0Fo=; b=sHZUY7+xnYWQS1ztHkUKJ2wUkI
+	9kEz6xBA1lNkbctu9rG4JV5KddeKAwOTXM841+wqzFhha1hhYOtNe1sm9uxRU1PORb9XHHqj2IElm
+	OyAHhPh6e9dsTbNF4oc1iE823+E45VfG+U5SIqHfKWRGfW1mhQeGHxjScYBD2FsFAQYPcSOKr3Mhr
+	X7LeFJK+QvDwNCNmPQZxVAIp6TJJUzyEq1dgoO8+Qm+IQccLZ4KaZJdovfizMpS7RsfJqBwGC8ING
+	DL+XvUwQkDGkTQ172VBsUkPRlbYCIeBd+WDopaD6JKxGGpGm6z2fJJVRa/bPkbHD+2MyRJkFxDYhh
+	CA12sHiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEoyh-00000004Woj-20tr;
-	Thu, 08 Oct 2026 14:20:11 +0000
-Received: from sender-op-o15.zoho.eu ([136.143.169.15])
+	id 1xEp6P-00000004X9O-3OHn;
+	Thu, 08 Oct 2026 14:28:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEoye-00000004Wnw-2WQL;
-	Thu, 08 Oct 2026 14:20:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791469199; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=B9eUFbUFWwy+2EylRYhJhGUtWUmB8HuyzXWW0t6BvoWrSKpDj1lgBTy/WOJoyy0dclVDPeyKiwtvUFT8Kk0kc3WbGwheHcHfcAiD6vXUktcDDPbpUM+9tOYxhesMzB7yKULBDZbKfAgNGFvzLtE0N+keg/qqnAXXvdlL5/PJhe8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1791469199; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=; 
-	b=fpfGEzomxY5Qk7S8L75uDxyhpCXzletoUou2RkZ+uAmi5yDgow/Wlne75r2uXzGrmMbaSPwguXRQo/PQGSe45/THWial4zGM4rx8SLt+YiWTiqDv83+1awd8x4SWJu6hKR35jjnZ4sWWABqWTyIFypzbq8GSOcWbu406R49Z3p4=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791469199;
-	s=zoho; d=iav.lv; i=iav@iav.lv;
-	h=Date:Date:Message-ID:From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=7H7GHV2tpd9DQz0mx8nIagNiDC6A1GJJbocolPx7T98=;
-	b=PWfaoUeh8JsfEE2VS9gnSMNZgcBJuy0C8d6EJrBqI1DjFTk4lyxYG4Hk1KKAB/xz
-	IWUyL4reb45QH+TTHeV1JPQx11dbrbixSf6Hq8ca0OYuO/xab5LgIO+joINrUcVgpQI
-	Y5fIxXl9rDD0/GnvDx1P4pFcvcvlFV9/BWjiRCr4=
-Received: by smtp.zoho.eu with SMTPS id 1791469196359881.6653594573447;
-	Thu, 8 Oct 2026 16:19:56 +0200 (CEST)
-Date: Thu, 08 Oct 2026 17:19:54 +0300
-Message-ID: <a12a6d283cd8382311117c6b95bfee23.iav@iav.lv>
-From: Igor Velkov <iav@iav.lv>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, iav@iav.lv
-Subject: Re: [PATCH] irqchip/meson-gpio: Allow the GPIO interrupts to wake the system
-In-Reply-To: <70897195-0ffc-4d80-80d4-e60f87c6101e@linaro.org>
-References: <20261008-meson-gpio-wake-v1-1-b0af1598d469@iav.lv> <70897195-0ffc-4d80-80d4-e60f87c6101e@linaro.org>
+	id 1xEp6N-00000004X80-3bG2;
+	Thu, 08 Oct 2026 14:28:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F05E260252;
+	Thu,  8 Oct 2026 14:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 952C6C2BCFA;
+	Thu,  8 Oct 2026 14:28:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791469686;
+	bh=0BZYLrNFBwg45qvb6sXGySgXpuTKSUmXxmurAKjoavM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=aIFmI6tqXID7JRrjnd+FEOkElFxbMQ0lxFEdFA3vivdDQogaAcYVhRlz/uM1xxOX3
+	 /mu5FaD7zOMw+66StmA5UXUT/QQE1i7dINnDKtzQLItZhPlUV2lGsDHOgcyQWOF6+v
+	 5t4opkI2f+i+QVzGp4fWSHgQ6L1acM/EoneAvW2VOx4G7lMfpuaDoKNhXThqJkoP7s
+	 DYeMnrlCX/6C249BH78fpAm7A4SCpYDFpBHsaIHO3rTQdKFCk0LSpQog9EiAdIjv9N
+	 oAyexUXCzQYrZOzZuNtwGu4DEjoE9MPD48YGuwpU7IkNs4caApyUDhSFKWJmLQS1eK
+	 dWcWa/Tdaf2kg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C880CA600C;
+	Thu,  8 Oct 2026 14:28:06 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Thu, 08 Oct 2026 14:27:59 +0000
+Subject: [PATCH v2 1/3] mmc: meson-gx: name the limit of the CMD_CFG
+ timeout field
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_072008_922797_BF922093 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261008-meson-gx-busy-timeout-v2-1-8bde1adfb5b4@iav.lv>
+References: <20261008-meson-gx-busy-timeout-v2-0-8bde1adfb5b4@iav.lv>
+In-Reply-To: <20261008-meson-gx-busy-timeout-v2-0-8bde1adfb5b4@iav.lv>
+To: Ulf Hansson <ulfh@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-mmc@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1222; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=8VC1yXn3jZKERenMCKphBxv2rNREe/7oQ7Z39r7TC8Y=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFnHVxS/lpXrZpr3YWW7AsfU2PN3bn/w/x3R8aCpNEchf
+ loU87SmjlIWBjEuBlkxRZYJhzRuZSy5+tffw/wBzBxWJpAhDFycAjCRlVMY/sfIHk3XMp7l/c/m
+ uPSdA3+jNK28/YN2NvFKrXhzOGKpjAgjw+G1fHwT0ooXXucSUK3O4b/1Nzf6oodyS6PPAyVhGSY
+ 9LgA=
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +84,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08.10.2026 10:36, Neil Armstrong wrote:
-> The code sound valid but the this paragraph means nothing, adding or removing
-> IRQCHIP_SKIP_SET_WAKE should not change the fact PCF8563 would wake up the ODROID-HC4
-> since the BL301 firmware hardcodes which gpio can wakeup.
+From: Igor Velkov <iav@iav.lv>
 
-The test was suspend-to-idle, not mem. The SoC never enters the firmware
-suspend there, so BL301 does not pick the wakeup source: the CPUs sit in
-cpuidle and any interrupt left enabled in the GIC brings them out.
+The data timeout is capped at a literal 32768 ms with a comment next to
+it. Give the limit a name beside the other timeout constants.
 
-Whether that wakes the *system* is decided by genirq. suspend_device_irqs()
-keeps an interrupt enabled only when irqd_is_wakeup_set(), and that is what
-enable_irq_wake() sets. Without the flag enable_irq_wake() fails with
--ENXIO, the interrupt is suspended, and when it fires the flow handler
-masks it (irq_can_handle_actions(): irqd_irq_disabled -> IRQS_PENDING,
-mask_irq()). The alarm fires once, nothing calls pm_system_irq_wakeup(),
-s2idle carries on and the board stays asleep until a power cycle. With the
-flag the interrupt is armed, pm_system_irq_wakeup() ends s2idle, and
-/sys/power/pm_wakeup_irq shows the alarm. That is the 4/4 against 0/1.
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+ drivers/mmc/host/meson-gx-mmc.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> I guess this flag simply removes an error when setting the gpio as wakeup source
-> which means nothing in this platform anyway. So please rephrase.
+diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-mmc.c
+index 7ef16d7c03cb..06479ba38525 100644
+--- a/drivers/mmc/host/meson-gx-mmc.c
++++ b/drivers/mmc/host/meson-gx-mmc.c
+@@ -125,6 +125,7 @@
+ #define SD_EMMC_CFG_RESP_TIMEOUT 256 /* in clock cycles */
+ #define SD_EMMC_CMD_TIMEOUT 1024 /* in ms */
+ #define SD_EMMC_CMD_TIMEOUT_DATA 4096 /* in ms */
++#define SD_EMMC_CMD_TIMEOUT_MAX 32768 /* in ms, 2^15: limit of CMD_CFG_TIMEOUT_MASK */
+ #define SD_EMMC_CFG_CMD_GAP 16 /* in clock cycles */
+ #define SD_EMMC_DESC_BUF_LEN PAGE_SIZE
+ 
+@@ -212,7 +213,7 @@ static unsigned int meson_mmc_get_timeout_msecs(struct mmc_data *data)
+ 
+ 	timeout = roundup_pow_of_two(timeout);
+ 
+-	return min(timeout, 32768U); /* max. 2^15 ms */
++	return min_t(unsigned int, timeout, SD_EMMC_CMD_TIMEOUT_MAX);
+ }
+ 
+ static struct mmc_command *meson_mmc_get_next_command(struct mmc_command *cmd)
 
-For mem you are right: the firmware chooses the wakeup sources and this
-flag changes nothing there. v2 will say s2idle explicitly and describe the
-mechanism above.
+-- 
+2.43.0
 
-Igor
+
 
