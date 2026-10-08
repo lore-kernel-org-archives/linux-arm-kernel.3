@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60948CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D31CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBqNPMfAHd4kXYVw0IlxjFhPFtYWD0YbSv7I3OmUVeE=; b=QNKOI1ONXNV4lKIOXrkkYzP1ET
-	g/yssb89Z0IOOpfZ9e36jOvroIt3TClYu0T1VPW9xpczYaFNCh1pC49GgYQIiDcYHKBFX97/xxvCT
-	kfy09wuyYgPOVO5KnX9Lcn04nye5HJXIAHa8MC1gN+eTF8nH46KuFLiXTkZ5bQCcHbaHAYGGp4a/M
-	oOdMXncoAc/7RznRhiSkYCM5C3UrZP4eNJV0uUwGAbWUr+hciUgII7CO5/rIhvaft1kvL30T0nVRF
-	CcZzoPDe/NV42imxfvMR20UfgWlN/lrn2YF5jOxN+FbEbgrcf4Nr6KbLZ+OlfMiizO3GZNzdu4EpU
-	rdKWtNcA==;
+	bh=/mfZx2zinbwawb2SikdYr4parys9Z5tteYIz1sprlF4=; b=RvgkomWb8YowUJm5AAC/h5mAJq
+	yQVyQ23P7Wa79pQ1DpP2VsxBjx6fmLbkRM+EBi7v3GRugQtzRS8Ok4SmgNz/6YFoXKl2QzgRqLVwr
+	nCuWExAkGcsST6CaDxgEfW9vg6y0XzlnPa+qhNX1fOw7RNdpVWz+qyqdqFmdXYA6C/I2LcnK/d2nD
+	0+6rMYwU0n6IGgVJU16sm6JQ7RtM+Ss8xBYX/QkbHRZMfunPHrmrdwqWUis507PvJtJoboIueII92
+	4ARARYbi8ytnTgDSyVHcqPWqFXQKsqVGxN5PtUWikYjlymUcceiqTnk3SgIlB+j2zDfyoYAJJtKjD
+	FiQrwz8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjYr-00000003swC-466U;
-	Thu, 08 Oct 2026 08:33:09 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1xEjZ1-00000003sz6-0PZw;
+	Thu, 08 Oct 2026 08:33:19 +0000
+Received: from out-96.mta0.migadu.com ([2001:41d0:1004:224b::60] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjYo-00000003suF-25Df
+	id 1xEjYy-00000003sxX-3Ms6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:33:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=JBqNPMfAHd4kXYVw0IlxjFhPFtYWD0YbSv7I3OmUVeE=;
-	b=6wBubGHCcQwyJdjCK4XXhFfiW6bCiv1EvWbTOVKqYilIF9NpyPazN/1+lQA3dKgOAz5we/Xyg
-	+UZguQ6PAi+fvBJ3LSetlii2DGjCbpSFbJCKPF05sZV1AugF3CUxi9WznP9644mmcUblnrKVfsV
-	E8YAutmEp6HiwTi5DKBAVYo=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4j0jc745ltzmV8H;
-	Thu,  8 Oct 2026 16:20:39 +0800 (CST)
-Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5EE1E40578;
-	Thu,  8 Oct 2026 16:32:53 +0800 (CST)
-Received: from [10.174.185.234] (10.174.185.234) by
- dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 8 Oct 2026 16:32:52 +0800
-Message-ID: <77a9ab65-2997-47f8-8e99-04c4467df7b8@huawei.com>
-Date: Thu, 8 Oct 2026 16:32:51 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Batch register access for live migration optimization
-To: Marc Zyngier <maz@kernel.org>
-CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<fuad.tabba@linux.dev>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <mark.rutland@arm.com>,
-	<zhengchuan@huawei.com>, <jiangjiacheng@huawei.com>, <yize_w1110@163.com>
-References: <20260918081930.4014735-1-wangyize7@huawei.com>
- <861paq69te.wl-maz@kernel.org>
- <f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
- <86ece63kes.wl-maz@kernel.org>
-From: Yize Wang <wangyize7@huawei.com>
-In-Reply-To: <86ece63kes.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.185.234]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemr200003.china.huawei.com (7.185.36.25)
+	Thu, 08 Oct 2026 08:33:18 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=HyGwwSVmXvhmOZPb5rYhVyPJ+UvfVubhGgu9kDF0uic=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791448393; v=1; x=1792053193;
+ b=BJaTmY9Q2AcNcg0Ibm4M/yFMd0jOkbvaF9GOOHOQC2F0NG/5vtTQRpNkUTdl7umzZkowp+Zg
+ saCqstM8QnCXhqR6BV3oExuPa4vjItORXe5J2PfzMk0ZL5l8xXlY7kZNQe2GdUuhgcJlYN7Wbb3
+ gFKgnhcpnbQTV25OLuzBl/PM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id f276eb58ea604195;
+	Thu, 08 Oct 2026 08:33:13 +0000
+X-Mizu-Trace-ID: f276eb58ea604195
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
+Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
+ tables
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261008073021.2512665-2-songmuchun@bytedance.com>
+Date: Thu, 8 Oct 2026 10:32:58 +0200
+Cc: akpm@linux-foundation.org,
+ linux-mm@kvack.org,
+ stable@vger.kernel.org,
+ david@kernel.org,
+ osalvador@suse.de,
+ dave.hansen@linux.intel.com,
+ luto@kernel.org,
+ peterz@infradead.org,
+ tglx@kernel.org,
+ mingo@redhat.com,
+ bp@alien8.de,
+ x86@kernel.org,
+ hpa@zytor.com,
+ catalin.marinas@arm.com,
+ will@kernel.org,
+ mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org,
+ pjw@kernel.org,
+ palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,
+ alex@ghiti.fr,
+ linux-riscv@lists.infradead.org,
+ agordeev@linux.ibm.com,
+ kevin.brodsky@arm.com,
+ bjorn@rivosinc.com,
+ apopple@nvidia.com,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
+References: <20261008073021.2512665-1-songmuchun@bytedance.com>
+ <20261008073021.2512665-2-songmuchun@bytedance.com>
+To: Muchun Song <songmuchun@bytedance.com>
+X-Mailer: Apple Mail (2.3901.100.1.1.12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_013307_153668_A5705031 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20261008_013317_048829_56532FCE 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,217 +99,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-在 2026/10/3 22:53, Marc Zyngier 写道:
-> On Sun, 20 Sep 2026 10:15:25 +0100,
-> Yize Wang <wangyize7@huawei.com> wrote:
->> 在 2026/9/18 20:08, Marc Zyngier 写道:
->>> On Fri, 18 Sep 2026 09:18:13 +0100,
->>> Yize Wang<wangyize7@huawei.com> wrote:
->>>> This series adds batch register access support to KVM/arm64 to reduce
->>>> syscall overhead during VM live migration.
->>>>
->>>> Currently, QEMU issues one ioctl per register when saving/restoring VGIC
->>>> state. On large VM configurations this means tens of thousands of syscalls,
->>>> where lock acquisition and context switch overhead dominates migration
->>>> downtime. Thus, we provide a batch register method to allow userspace
->>>> read/write multiple distributor and redistributor registers in a single call.
->>>> In this way, we can significantly reduce syscalls and migration downtime.
->>>>
->>>> Test the VM migration time under pressure conditions.
->>>> The VM specifications for migration are as follows:
->>>> - VM use 4-K page;
->>>> - the number of VCPU is 160;
->>>> - the total memory is 320Gigabit;
->>>> - use 'Redis SET-benchmark' to pressurize VM;
->>>>
->>>> Performance results (3-run average, ms):
->>>>       | Metric              | Without patch | With patch | Improvement |
->>>>       |---------------------|---------------|------------|-------------|
->>>>       | Migration downtime  |        536    |     321    |     40%     |
->>>>       | Source (total)      |        344    |     230    |     33%     |
->>>>       |   - VGIC put        |        158    |      40    |     75%     |
->>>>       |   - VGIC get        |        120    |      19    |     84%     |
->>>>       | Destination (total) |        192    |      91    |     53%     |
->>>>       |   - VGIC put        |        132    |      27    |     80%     |
->>>>
->>>> Yize Wang (2):
->>>>     KVM: arm64: Add batch group constant and data structure to UAPI header
->>>>     KVM: arm64: Add VGIC v3 batch register access implementation
->>> Questions:
->>>
->>> - Why only the MMIO registers?
->>>
->>> - Why not the sysregs?
->>>
->>> - Why only the GIC?
->>>
->>> - Why not all of the state?
->>>
->>> - Where is the corresponding userspace code?
->>>
->>> More importantly, since this is about batching system calls:
->>>
->>> - Why can't this be done with io_uring instead?
->>>
->>> 	M.
->>
->> Hi, Marc! Thank you for the review.
->>
->>    These patches focus on optimizing GICv3 register access during live
->> migration. We found that there are a large number of locks (kvm->lock,
->> vcpus, config_lock) in the GIC, these lock operations wil cost large
->> time waste. The batches of sysreg for vcpu optimization will come in
->> follow as a separate series. And let me address these questions one by
->> one.
-> All these locks should be non-blocking by the time you save anything
-> related to the GIC, because:
->
-> - none of the vcpu can be running
->
-> - this must be a single threaded operation
->
-> So if you are seeing anything contended, this is either the sign of a
-> bad KVM bug, or an indication that you are violating the above
-> requirements.
->
-> 	M.
 
-
-Hi, Marc! Thanks for your review.
-
-You are right that when saving the GIC state during live migration 
-process, all vCPUs are not running and it is a single threaded 
-operation. Our patches process the packaged register states from the 
-userspace under the same lock. These operations only aim to reduce the 
-lock opreation downtime and do not involve lock contention.
-
-In addition, these patches focus on reducing the syscalls of ioctl. Now, 
-every register requires an ioctl, resulting in (num_cpu * 
-registers_per_cpu) system calls. This will cost lots of time during the 
-large-scale VM migration. Our patches batch registers by category in 
-qemu and then send them to kernel in batches. This operations 
-significantly reduce the number of ioctl syscalls and save a great 
-amount of downtime.
-
-The comparison is as follow:
-
-BEFORE:
-
-QEMU (Userspace)Kernel (Kernelspace)
-
-+--------------------------++------------------------------+
-
-||||
-
-|kvm_arm_gicv3_get()||vgic_v3_attr_regs_access()|
-
-||||
-
-|for ncpu in num_cpu:|||
-
-|+--------------+|||
-
-|| GICR_CTLR|----|--- ioctl ------> |mutex_lock(&kvm->lock)|
-
-|+--------------+ <--|--- val --------- |kvm_trylock_all_vcpus()|
-
-|+--------------+||mutex_lock(&config_lock)|
-
-|| GICR_STATUSR |----|--- ioctl ------> ||
-
-|+--------------+ <--|--- val --------- |read/write single register|
-
-|+--------------+|||
-
-|| GICR_WAKER|----|--- ioctl ------> |mutex_unlock(&config_lock)|
-
-|+--------------+ <--|--- val --------- |kvm_unlock_all_vcpus()|
-
-|...||mutex_unlock(&kvm->lock)|
-
-|+--------------+|||
-
-|| ICC_SRE_EL1|----|--- ioctl ------> |(repeat lock -> read -> unlock
-
-|+--------------+ <--|--- val --------- |for each register)|
-
-|...|||
-
-||||
-
-+--------------------------++------------------------------+
-
-
-AFTER:
-
-QEMU (Userspace)Kernel (Kernelspace)
-
-+----------------------------++--------------------------------+
-
-||||
-
-|kvm_arm_gicv3_get()||vgic_v3_batch_access()|
-
-|||        |
-
-|+- Collect Phase ----+|||
-
-||| |||
-
-|| batch_add(GICR_CTLR)| |||
-
-|| batch_add(GICR_STATUSR) |||
-
-|| batch_add(GICR_WAKER)||||
-
-|| batch_add(GICR_IGROUPR0)| ||
-
-|| ...||||
-
-|| batch_add(ICC_SRE_EL1)  |||
-
-|| ...||||
-
-|+---------------------+ |||
-
-||1 ioctl|copy_from_user(entries)|
-
-|+- Commit Phase -----+|||
-
-||| --- ioctl(BATCH)---> |mutex_lock(&kvm->lock)|
-
-||batch_commit()| ||kvm_trylock_all_vcpus()|
-
-|||||mutex_lock(&config_lock)|
-
-||||||
-
-|+---------------------+ ||+-- Process Each Entry --+|
-
-||||||
-
-|+- Unpack Phase -----+|||entry[0]: read GICR_CTLR|  |
-
-||| <---batch result ---||entry[1]: read GICR_STATUSR|
-
-||Write back to QEMU | | ||entry[2]: read GICR_WAKER| |
-
-||state||||...||
-
-||(post-process:| | ||entry[N]: read ICC_SRE | |
-
-||unshuffle, split| | ||| |
-
-||bytes, etc.)| |||* FLAG_LOCKED: skip||
-
-||| | ||locking (already held)|  |
-
-|+---------------------+ ||+-------------------------+ |
-
-|||  |
-
-+----------------------------++--------------------------------+
-
-
+> On Oct 8, 2026, at 09:30, Muchun Song <songmuchun@bytedance.com> =
+wrote:
+>=20
+> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+> tables.
+>=20
+> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when =
+splitting
+> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
+> table, so a later memory hot-remove eventually frees that table =
+through
+> free_pagetable(). That path currently calls pagetable_free() directly
+> without decrementing NR_PAGETABLE.
+>=20
+> Use PageTable() to identify constructor-backed tables and run the
+> matching destructor before freeing them. Keep reserved and
+> constructor-free tables on their existing paths. This also prepares
+> vmemmap teardown for generic runtime allocations through the normal
+> pgalloc helpers.
+>=20
+> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> ---
+> arch/x86/mm/init_64.c | 2 ++
+> 1 file changed, 2 insertions(+)
+>=20
+> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
+> index 70e682180291..a3ea627157ab 100644
+> --- a/arch/x86/mm/init_64.c
+> +++ b/arch/x86/mm/init_64.c
+> @@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page =
+*page)
+> {
+> 	if (PageReserved(page))
+> 		free_reserved_page(page);
+> + 	else if (PageTable(page))
+> + 		pagetable_dtor_free(page_ptdesc(page));
+
+Sashiko mentioned that kernel page table pages and vmemmap pages are
+freed to the buddy allocator before their parent entries are cleared
+and before the TLB is flushed, creating a dangling pointer window.
+
+That's a a real but pre-existing issue, I will not fix that in this
+series.
+
+> 	else
+> 		pagetable_free(page_ptdesc(page));
+> }
+> --=20
+> 2.54.0
+>=20
 
 
