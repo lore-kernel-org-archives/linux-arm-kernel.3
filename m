@@ -4,122 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A296CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 01:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB038CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 02:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joVq/SLGYIR7p+H9WE/4a22MFuUDNP6W4nL5Y06B5A8=; b=Gkx9tlQnbz/Mn0bqdBkIXiaaq5
-	pivZsQyZ9XzQE+oK8cFsUdhX0QdAlbblh9HgEaMY59AsfSagES2RSeGEW3eFRC0VyIbb/rSrJEXf4
-	mmSpbstbo9q6lrCwcx7O5D8FZ86K3lPKX+PP/xErvRC1DLrU6If3A7y83SH4jDmokuBU/DLd0BSKc
-	eWTdu6gMFPc2M8VMok9tionDmd7NTvWbKJegQQ6YMQABq2dYR6w7zq++LElC+Zj094j1HmYgbkM1U
-	YYQ+TFNNZsh6xsbXHgrc74IX3yZU6DhqWvcer3O7ME2jxlZTn5nrWR+GtC1zv9fF1l5buEFJhaS5m
-	ELm3xxhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GqXWTnU0i8aCQecR5ZtVuo6GsZFDzAdTtDFyNU7NBqM=; b=gh4vmhxDM4YJZXMhyTz4iqJss7
+	Z+BsOo03OBu03j9KRzkrWy33j08Tb+HPt4WTU+t7cLwopn51b9CbUZiev2Qy/rcEOYkUUBukktKMH
+	GAV5Y8E+/fJ6xU5xDz8wauntgb3z73K4AQTDGE70QwReZeo/HV9VG5pn6E7hJd0PQKwuXrXCBgTbp
+	nEVYrPiQRlu6yR5yHEdpCWGEDPqOBV6yWsytMn8QCVIjmV5kKPsvIGBy1Opi0133Qf0eBdBX6ByMm
+	PfijDb/RTCYROvR0fktJCrRPpZWz0JjDEtKGjwO8F/V6sDtcF5A/ZIT/HNc66hlDxMh2OUG0M4e67
+	wO15WJVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEcxf-00000003MQD-18cb;
-	Thu, 08 Oct 2026 01:30:19 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1xEdf7-00000003O8x-0vsi;
+	Thu, 08 Oct 2026 02:15:13 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEcxd-00000003MPp-0745
+	id 1xEdf4-00000003O7i-0LMR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 01:30:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D2DHWzd9WCIgASBvEqbC4Y6+cUkj0OPYBNy/zOwXVWxXbIausxfU0R/JmrBxsczboq53kOQmi3990GKW35lwVhNYW43fZndj3FNmgwtujdQoIMz4F12QwySK5nN1xGMkS7It2fgjssRJqjUr4r7zY/zwm7zlpfkcAbs0dGtgvTw2CI/yTory1/Q3DW6C+IgP2luFc0gu/jfbpyzAwfMILceh+X3Exb3KDGGIRdkAj6aFP5+IpD35LUf4ZYKgQ98sNTwrzAywu9eZAVXq1Aq32k7ymw32gPPTArBfo8KWaUFP2KsIX/Lotr1XLC3UP/odT8P+ehjcgghZtcrMZ6nWsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=joVq/SLGYIR7p+H9WE/4a22MFuUDNP6W4nL5Y06B5A8=;
- b=AJHTf2MWsjbttFMK5yT8NCZIj+Bi25Bkg+Wb1evAg95y6kS8C+uy8QCWJtnczwb6oj8BqP0Zfzi2pHIIMg057XrE7P5YDl4g8/KMqJv0BpdbpGkkbiFsoaAM68Ph8lrjMk+ORaY+FXqO7B0njU3cV0NvgZoLF0DM1g4hQGyHojex4jPla1glHn5rXWCIDnB56axKpGqFtj7SC8cgqngFTAUDPuCAtwocG3/0OhfEIKCTRIip9iu4YHlyBzdkC+YyaNQsi8ATzg4WjobaJRbIQgEiqz/holWWRCpE2qJ3+MnGDfhCwq+Vy1V3WFqAVTccOegyYAuoy0RDQ8qDU9MGbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=joVq/SLGYIR7p+H9WE/4a22MFuUDNP6W4nL5Y06B5A8=;
- b=P9zZ7qXvOVOm59NAOOXYlIrT3kfPZQ8gFyviY9guztf+FkWz9NALX/TksCTVFeiRRRNTsrEcd9+svR90GnPTfWwS8zd2nzqd9uXzc+PqvxLes4O8t0X59s8VT0vr1bOxgOGyHfGPC7EpW5FUrBk6tl7DHKq8iaW1C06FENf7d2KoUUpKGsAh1N2CwItK1h8cSu5t8abGWoPTdzwzUpIOcPJ1OMKJGw2C9fdyKEkWEw9T78BKS6s58Q1IoQ3dH80LNEGjN+2SJTLmi5RdoWCKKdBX4Ic55STguOGx9ZRPZfAVtJTOdYhn1a5Pr+feND9zWbxgui5myGDU5xB7InJAyQ==
-Received: from SJ0PR13CA0005.namprd13.prod.outlook.com (2603:10b6:a03:2c0::10)
- by DS0PR12MB7777.namprd12.prod.outlook.com (2603:10b6:8:153::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 8 Oct
- 2026 01:30:08 +0000
-Received: from MWH0EPF000C618B.namprd02.prod.outlook.com
- (2603:10b6:a03:2c0:cafe::14) by SJ0PR13CA0005.outlook.office365.com
- (2603:10b6:a03:2c0::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Thu, 8
- Oct 2026 01:30:07 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- MWH0EPF000C618B.mail.protection.outlook.com (10.167.249.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.14 via Frontend Transport; Thu, 8 Oct 2026 01:30:07 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 18:29:53 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
- 2026 18:29:53 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Wed, 7 Oct 2026 18:29:51 -0700
-Date: Wed, 7 Oct 2026 18:29:49 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Peng Fan
-	<peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v5 6/6] iommu/arm-smmu-v3: Wire up shared-SID STE
- ordering and feature gating
-Message-ID: <asbyDdO5dInAkm63@nvidia.com>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-6-169a59c671d3@nxp.com>
+	Thu, 08 Oct 2026 02:15:12 +0000
+X-QQ-mid: zesmtpsz8t1791425421ta6791c8b
+X-QQ-Originating-IP: IXZlWfjKmnhqV177wfA04QR2kDyYKaDIy/hBHC2ii5A=
+Received: from [10.20.30.18] ( [175.0.204.93])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 08 Oct 2026 10:10:19 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2114240786538988262
+EX-QQ-RecipientCnt: 10
+Message-ID: <9E75D1C8DDA4BAA5+4b72ad33-bf45-4cd1-b164-9da615b3dc31@kylinsec.com.cn>
+Date: Thu, 8 Oct 2026 10:10:17 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261006-smmu-shared-sid-v5-6-169a59c671d3@nxp.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C618B:EE_|DS0PR12MB7777:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5142d6f0-5127-4eb8-1149-08df24dbafe5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|7416014|376014|1800799024|10067099003|56012099006|11063799006|4143699003|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: DpX4cpkh6zL8N4Blnb80iU2Oe8tCBzdCdUhnl7JdP7L+RI6aVLeaF0rZs0NAyUmLvZtP7RCjt0QTWo4FgIXmebfTEHKIAvonmHj9mz45gAUf2C2kqt5pFG/mAVS8/ICHxWLX6PlFwXqnlUYK0HIrcO2BUMiw/koV/XSFLjBH7mOojWabs99tdzZ29rYaXriklY1+zjt8ii1gINhMFjyi9OyKoDdGu7M6S9puTQLvRvP5IZFnC16+0TY0mSkrRtb2IQrv4YfwAM6pzO7TsBwJGgtkFFXvr7dxk88s+LRodsDj64hZZqKXKt1+5oDp6YiD0P1B0c/qxhPvI49tZMKwis7CQM29vr2774BnEHO2hxRE49CDfYBidGPZ0tt8izQTE473kY5BYugkltNErYWRidYjO+2BbMweor6lawO17frmK+TEnOY5pAOo1j5bvRdwNlwMJGf1eFJXvr7XbnTvb0gaY8bswK6zncJ+rV3as4/SqcUi5GicPsddUHLRc+DhhgyENvNLtWoc8rEFHgAgBAfmzSVH3rPUBXelhQSkG/tmNyhl7YMQfjB5LHAvKKUs/MZ7wnJMKJkJKVOQuI+j/roFn8wu24muuwH5FLUHXtdGNvWazFHbxzEn6gL0Pz5BW1ryTAWGOsvDIdC3FYHtxo6lZlZzlE6/QCXoiD+/vSIDItPb8RalFLZXFmvb1T3SIUvWURjHZidbGNO7jdMtdA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(7416014)(376014)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 38BZNsELOLzUKEImALIA4TEkKVzmJxSucTzixo67kihIDmRdhBX+MRhR6MUaOehT3zuTSbETP4q4qRelHrC36Fo8Qu3VcFl3d/ooczovrpdQDd4ClZMFr8TVYECKBQ5vYHdImQALP32G8CrxDUltr0YOlfn0EbpDhOTTFeJlA9uwCYIe6spT5BUfU2vrz/ITov3IokHRDOhrEUvh+7sanw+ObXiwybnvWgcAq/zPLHE29yCZhUc3L5LVyjNOZfA+7U8fDL0D2WRyyMVDTgA+u846Yqhv8UR89I90EbXxxyOKoAKVuHb3V74DdrtSNstt+PjOeoF23pVgwgeQlgquZpRDB9N8nuoFTRhIw5HQ1Pvg0KvFBJMl9b4APwc8shn5vQNuipCInEmvnVNSAc364Wbf/vzUJz/SWOenmwZmPytOit7RxcRKyBgpwxAjWSxF
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 01:30:07.6360
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5142d6f0-5127-4eb8-1149-08df24dbafe5
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7777
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] rtc: ftrtc010: fix integer overflow in time
+ calculation
+To: Dan Carpenter <error27@gmail.com>,
+ Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Deng Yingchao <dengyingchao@kylinsec.com.cn>,
+ Qin Yungao <qinyungao@kylinsec.com.cn>, Luo Qiu <luoqiu@kylinsec.com.cn>
+References: <42C8FBD59AA34EA9+20260827080320.3351155-4-liudalin@kylinsec.com.cn>
+From: Liu Dalin <liudalin@kylinsec.com.cn>
+In-Reply-To: <42C8FBD59AA34EA9+20260827080320.3351155-4-liudalin@kylinsec.com.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MbZKagI4fS0NwOlZH/Kf+TTIsXuXXPD0dwIhp3k3+S4iuQBAVONZeuut
+	o6+dBkC1BQeElBOxNyXyU5eLukJlky6e/8Ohmh+KknV/AK2GDc5+rDGQM4exWzZ55DVe3fj
+	YVTNSkzu3AemDHqBLohL0AO5A0gvNqBUN9PB1ixOwJ9otp6eiEa0U7lQQ98QFNWGUYkcEyU
+	PrZ3iwPCNDxVwY0rjTIDM9d7JGOyXnmCKlYFqs28mG0CL+cxjMNg3bqmKf/9vWRNvgRCAQh
+	zczFClBg6dE4UZKEY+me45OjqPXqj5f7pwaehA5u0HmcyyCitoLsVdfRbWBe9k3DTkZ6P5+
+	xhGFM5UlnL2htpwHQhJvzmyoofIf8/XjmBWy8bxU6fb64F6/Rrjbd/eUU45QJls0YjjSb+5
+	4BVnoKJ75DfHGsFsjzO3bWIneWIPdTFcXluaERVguaOoy5myCyVYKEeoZ6j9Gf/c3YBhj/C
+	6wkMrQXX14tySvDMch7qNRQydxVNAJfooQtEoYOV5HiNXQHPBVY2StlyhRiuFRfiYaVxTbl
+	YbFyb7ERlJSwOcWhXIrkF7p/qwRB3KAOfNUDswXs6csH/JBnrNuIrcPDFphUnT7dEApxvu6
+	jH9F4jvQk68C1GZShRCFljEAe40pT53E+CuNsyaBIgU1ak5YZdarnxSU3ETnvquet8jVfMm
+	1UibuDJmFDhRWrzN1PpdgHleBi7sYnDbdLcoHgOkSrMp7XXcLKSJ/nHR6in3cuumv6a0Ztk
+	YPo9uyByErc7FwNSfV+TAzQRdqxBo0UVp9xOt2sICWF/OrStWk2DlmSgoaxAeVJ2Q2VjRN2
+	0363sMsTNhh1mwXgFQy7XbFQUOUiDdyuHN+M1HFvTmdIIhUH8jChNqRDdNf9VbDh+77idVk
+	WlSrQPunBH6ZmJ22l0b5K2UXvElHs40Ar2M4fadTKtdCs05iU3uU4b5h74rM6hWE/OhtWHa
+	WUm987ltnZ7XsYthngjEUT8IwogJxH8AZeHHfCKL/dx5p0bxrmZD/drjE78ZGamVuhdOk8a
+	8lMsoVQKx2Ay/b2Ui35+Vetp4dUAMeuUo6EPUuRKnSuxIFHIAC3wo2yMknKrka0Ta2ghUaY
+	Oo5s5ACxFgLncpZsI4yXDhguSDrtTzNBA==
+X-QQ-XMRINFO: Nq+8W0+stu50EVyYsz6qPxhg8vxGPZA2FA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_183017_098874_90315B8C 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261007_191510_637906_B96A9692 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,32 +92,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 08:19:12PM +0800, Peng Fan (OSS) wrote:
-> +static bool arm_smmu_is_shared_sid(struct arm_smmu_master *master)
-> +{
-> +	return !list_empty(&master->shared_masters_elm);
-> +}
-> +
-> +static bool arm_smmu_skip_shared_ste(struct arm_smmu_device *smmu,
-> +				     u32 sid, bool is_abort)
-> +{
-> +	struct arm_smmu_stream *stream;
-> +
-> +	lockdep_assert_held(&smmu->streams_mutex);
-> +
-> +	stream = arm_smmu_find_stream(smmu, sid);
-> +	if (!stream || list_empty(&stream->shared_masters))
-> +		return false;
-> +
-> +	if (is_abort)
-> +		return true;
-> +	if (stream->ste_installed)
-> +		return true;
-> +	stream->ste_installed = true;
-> +	return false;
 
-There is some issue here; check sashiko report:
-https://sashiko.dev/#/patchset/20261006-smmu-shared-sid-v5-0-169a59c671d3%40nxp.com
+在 2026/10/2 18:59, Dan Carpenter 写道:
+> Commit 8ef8e9839a23 ("rtc: ftrtc010: fix integer overflow in time
+> calculation") from Aug 27, 2026 (linux-next), leads to the following
+> Smatch static checker warning:
+>
+> 	drivers/rtc/rtc-ftrtc010.c:75 ftrtc010_rtc_read_time()
+> 	warn: cast after binop
+>
+> On Thu, 27 Aug 2026 16:03:20 +0800 Liu Dalin <liudalin@kylinsec.com.cn> wrote:
+>> In ftrtc010_rtc_read_time() and ftrtc010_rtc_set_time(), all
+>> variables (offset, days, hour, min, sec) are u32. The expression
+>> "days * 86400 + hour * 3600 + min * 60 + sec" is evaluated in
+>> 32-bit arithmetic, which silently wraps around for dates beyond
+>> approximately year 2106 (U32_MAX / 86400 ≈ 49710 days).
+>>
+>> In ftrtc010_rtc_read_time(), perform the addition in 32-bit
+>> arithmetic first to preserve two's complement wrapping for negative
+>> offsets, then cast the result to timeu64_t. In
+>> ftrtc010_rtc_set_time(), cast individual u32 operands to timeu64_t
+>> before multiplication to prevent overflow in the right-hand side
+>> of the offset calculation.
+>>
+>> Fixes: 1d61d2592c1f ("rtc: ftrtc010: Rename to Faraday FTRTC010")
+>> Assisted-by: Sashiko AI [static analysis]
+>> Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
+>> ---
+>>   drivers/rtc/rtc-ftrtc010.c | 5 +++--
+>>   1 file changed, 3 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
+>> index 19e6333bfbab..b29c96be40f4 100644
+>> --- a/drivers/rtc/rtc-ftrtc010.c
+>> +++ b/drivers/rtc/rtc-ftrtc010.c
+>> @@ -72,7 +72,7 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
+>>   	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
+>>   	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
+>>   
+>> -	time = offset + days * 86400 + hour * 3600 + min * 60 + sec;
+>> +	time = (timeu64_t)(offset + days * 86400 + hour * 3600 + min * 60 + sec);
+> There isn't any point in doing the cast outside the parentheses.  The
+> other chunk probably does it correctly.
+>
+> regards,
+> dan carpenter
+Thanks Dan for review and catching this issue.
 
-Nicolin
+Commit 8ef8e9839a23 is now in Alexandre Belloni's rtc subsystem tree
+(https://git.kernel.org/abelloni/c/8ef8e9839a23), not yet in linux‑next 
+or mainline.
+
+You are right, the original commit 8ef8e9839a23 only tried to preserve u32
+wrap‑around for the RECORD offset but had two problems:
+1. It triggers smatch "cast after binop" warning.
+2. More importantly, casting the wrapped u32 value to timeu64_t does zero
+extension instead of sign extension, so negative offsets become large
+positive values and break time calculation.
+
+I will send a separate fixup patch addressing both issues: cast raw RECORD
+u32 value to s32 for proper two's complement interpretation, then perform
+all calculations in timeu64_t to avoid 32‑bit overflow.
+
+Regards,
+Liu Dalin
+>>   
+>>   	rtc_time64_to_tm(time, tm);
+>>   
+>> @@ -92,7 +92,8 @@ static int ftrtc010_rtc_set_time(struct device *dev, struct rtc_time *tm)
+>>   	hour = readl(rtc->rtc_base + FTRTC010_RTC_HOUR);
+>>   	day = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
+>>   
+>> -	offset = time - (day * 86400 + hour * 3600 + min * 60 + sec);
+>> +	offset = time - ((timeu64_t)day * 86400 + (timeu64_t)hour * 3600 +
+>> +			 (timeu64_t)min * 60 + (timeu64_t)sec);
+>>   
+>>   	writel(offset, rtc->rtc_base + FTRTC010_RTC_RECORD);
+>>   	writel(0x01, rtc->rtc_base + FTRTC010_RTC_CR);
+>> -- 
+>> 2.43.0
+>>
+>>
 
