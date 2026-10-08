@@ -4,117 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB184CA600E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 20:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D0ACA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 20:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32knc5yptOaSTzPqRswLQEdRMbmmyBGuNbQZiUAho2s=; b=jlUWUdvqvgpS6gBZcFHShEBJnN
-	bGT/2jHtHcQtcBZj9DPQW57ZpBtQAo8yx3vUiyMUKjBW8fza7vSFN5rGDEVO9Ils5TcEddvGkPmK1
-	iBKBTEDvJM/Tf2QTEcou0yMILlXahb3V6IwJsN7RZ3Yk2+OUOXqN2wn2pY1BFHhP23h+g+RZHAQk2
-	Zt+TQE40BSBVT1dXoRrPdP1tDA+7dnV3/Hpd5WAZis12g1jSyKDxdKRWt6Q/8vkgJQIzjaITFjklr
-	oAly/ZSECiDizlDlM9C9vaWrdky2SRnfbT0XVGojFWvY/Y4xC/DaLW/s7NPAP7kggQ7Y5jXx/zYDq
-	i0WDywbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UgxL4mPfxJ7k1OKudGnOoRopHHF/iVpoQcXGyofftQ=; b=hugq4dwIk/IbFM4vGCBWEVLWVn
+	fxgY9FN2S8AqnB7xDqzS8yLfxbW9WZcRj0set4ASsyRIgJVVS7Ox99aycDnHMTVmDRKgcJXVyb5Dl
+	bV2xXrBfjhUqSsEs8uGpZsey9fqFnvNvTx+qxk3bmRJLyPHTQI9PerTJaLkv+wb8TK7JW8y61CfgA
+	TEE1Lm0Y5/7bhLDCY/muaIVBeU69aupEwlvIhU+SUEwk5yvlu/5sGrQAcRvLYfrfRkTUawXCVxAII
+	TdhpzCobelW9RUyKcPZNMcCzKnqabhYNRamWorxAjamTMFAju5LjwNoD0syZcfz+exgLx0QPLfBEi
+	ZejObf+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtz6-00000004wum-3kmf;
-	Thu, 08 Oct 2026 19:40:56 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xEupE-000000051Wz-33Vl;
+	Thu, 08 Oct 2026 20:34:48 +0000
+Received: from mail-westeuropeazon11013027.outbound.protection.outlook.com ([52.101.72.27] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtys-00000004wiF-0E72
+	id 1xEupB-000000051WO-2M5U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 19:40:47 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a16af2a232so29368305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791488440; x=1792093240; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=32knc5yptOaSTzPqRswLQEdRMbmmyBGuNbQZiUAho2s=;
-        b=J1Q8RTF/cM5Hmg0z96BnKpC4M+IgIhvJKrtlhpFQemVrNMeDn8w50xJZLG6hSr58wk
-         UZEfiCX3G8Naw4YQqflleOSFieomrj9qizHxiMIdbu2cljOxZZvxlRytQ22qNqWvriIE
-         yeW4YTfu/h/GYH+K9lS/jQ4MhaLNwbkSUo/2sVxzfwQaPzgCY1Hop8uHMoCSvMRvhKyc
-         Gc59Ixcw8VDopnD+tLeiuMqFSzJXH9co8LCAbMEu9pOfaR+tT1mOPmPmWz7f2a1W8dYa
-         vOS/XLz8XSpU6tGtvz5ggMiJZRRsS7Yr+STxf8tAOp6kirO0BRavG66d5+9lPr5x6Pul
-         2bfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791488440; x=1792093240;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=32knc5yptOaSTzPqRswLQEdRMbmmyBGuNbQZiUAho2s=;
-        b=AlXP9EKbN1+LY2X6NUMKxAg542SEvAEJ+sNTW7WE8AqIbNIEwRZq7ufIX4j8bOfYP6
-         yI1v9QmadeHwbgxfDyKTwnZQ7HEUVjcKbxf3c2NNab6NAZeV+59GkpYWcV+TEkmCJuoP
-         hd1pW6x01hL+k7i3yC6rxYIEdWKkYCuOM4CAkJUdb5/J/HwV12Le7wfSRG2JAXt6ih67
-         l6jQGcCfTeqwttZniQFA10rw7NU0ZKM6LXyEAToj1tkjm3WtBtGeAGmYHO5ydxRx/v9S
-         B/pvX3Ry4Ebq8aNpLe1qAuA9P6sGPfWCjbSXL2EXNwqN4POSvieeLcDL63UTpc+m/VlV
-         0KoA==
-X-Forwarded-Encrypted: i=1; AKwUvBxirgSiBi34SHXC71QgIhDv9y42vfc+UUM3rmUkxuPyWwSL/2i9YQrLiUL0oeX3IcNzh7FokEtKqRoWsY705blQ@lists.infradead.org
-X-Gm-Message-State: AFuF++l6cTkSFg6MmeU70OP+bGgStR8U7DcdZ6rinz6uiab3Xt1Ghoii
-	jkNU01CFsPXlXBf5k80O3yY8DLkoC0v9i65Qd74VdObVfW9s9lSfe615
-X-Gm-Gg: AYBFou2rPVtE6ZYtfnppc30lSk7wiQ/8PRgUACjOT193Q/qeptVLE+BXsi0NYy94mOi
-	JCs+3QPoQVJcjCfyv5NkTu08IjVtJRuID3v5N0aujAoz0F2HjnjayLA/4p0Gauf7OkzozJPEmLm
-	yvgdds8ijCDvbQeqs8VQWcrjHrJMnsiY51mHsaGDbGQV7mu3Cz6npw96K7Urb4vlnsCSS2FOqja
-	BNhxK0j4+HdeV9W/zDWVqk0iS3i8pU3wF9L6MzPI/RmVp6t5EmnYxMdRdARsU1jKn2g3phtIg59
-	sMOruUW/3wHSBECRoq46TEmz033YaLrq7rtAp24ndePSBPxwa+EIpdhMEyXkBp0xiFCZrPRrHbG
-	MBaheRJ3nw8q6JClXOTN8Jf52MqmGWGgZb7FEC0CxYeRfNvPIiXUv4q1/D2v6787dqDx7uOd0Qi
-	MCrhgsAnKQmTqEeS1MZfSQtKf1sQCIPHiepWcdIgkaNe5xD6aBMkZ3XmnFoREq4+Lp0SdNY9MZU
-	az+AmfS1cLcp3MW23d6tAt3osIPggmho4xPU8U5rsA7nAfYxlZzUNLdUvQa6otrFw0lG6g7vzS9
-	+8KXvo6a69EplcFN20i5bg==
-X-Received: by 2002:a05:600c:3b8d:b0:49f:fbad:29c1 with SMTP id 5b1f17b1804b1-4a1806611acmr136284345e9.33.1791488439940;
-        Thu, 08 Oct 2026 12:40:39 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 12:40:37 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Thu, 08 Oct 2026 20:34:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V10aj/FQy0Ex4KuMU5YF+cmUmKIQ2qAdB2mQR8urpTvx4LWFumPzClHjqrHI6jrSWPKGhOl8eLD0XWtZmynu2X4QRJLbFeDCTn9pJBk4YZcigLEWjidAWYDAichdrgjU4086Wu943JWUD+EHHFAlXyiFJper8D8PHWlsQi5mVGpG8HPyoeHW+gaDolGuImpsnadeB4ycUDKVvbxkAAxiG+XTF+9MxxugXORmRl8TUferBPMuAvun7XWFYFVku3xkgdXJWk9qE/O94kKFfg3N60lKVMsO4Uz9lM5dkiP0LIZjNmvYPZx0ZUUKX9UiBBABfKbfwWfLFzGG4fOOusYVHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3UgxL4mPfxJ7k1OKudGnOoRopHHF/iVpoQcXGyofftQ=;
+ b=X0Ka5n3kGIYAsru8GiNb0jlJGuI1H1Pil4iZKWSFzjj2+XDpUIVge3Ix1MaUZOSb/ucuJwr1/4cw7xDQU7jL5IYrY9jfDM969TlAIiIU7hJYdY7qkobGzv71mavwfRImsC84u2/lvRT3b/afTvQY95o/UZK3IakAPSHyr9ppj+vf5hAfGrP2kxvhbd14xze8AbRR9yMsslq2C1wS+Yj2DR5ogtF4k9RgVKBliC4/OfGOhNItIJ6ZMzWEGj4ZgF5xYuvC5XJiWqBMrolObNBHCqxfce3fehVoy0dXftwovMgUrics2xGHogYH6wBvFCNHjOoOa2KKIQBtjETLmouIxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3UgxL4mPfxJ7k1OKudGnOoRopHHF/iVpoQcXGyofftQ=;
+ b=Qzg2giW1tJf9Ixo2Yjr8gXkPDTapoqnzF5aJ3e7XvTg2Db5wv3w6pRLNaEC14erq5aBRKs1kA7VoiuRjprIfXVVD7i+YTjxjpAB/nyuastBU4evQ9lJ7Oa5+2niU3sOIT79ylqFenUgqm5JVmQl1d/au32bqbM51E/2YW2FOQzdpQJmKLJ1K50w5yfpa245DyX0f3PR2z4z9GTHozl3dlzltsNIQkmkJbP4F9el4+GoU2Ct4EEgxRcQFJ7Oo5m1cmnlRrPRDA0QfyFu/1AC3gqBi9u1uaq6JVLWRa6g5cCieuL3XLxWakxR9xQViMJBxE23FWpPwRbLMRFN3nViMyQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8876.eurprd04.prod.outlook.com (2603:10a6:20b:40b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
+ 2026 20:34:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 20:34:42 +0000
+Date: Thu, 8 Oct 2026 15:34:38 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Joseph Guo <qijian.guo@nxp.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v5 10/13] ARM: dts: imx6ul: Share Variscite PHY clock and update PHY options
-Date: Thu,  8 Oct 2026 21:37:50 +0200
-Message-ID: <3d7cd1dc732ff0dcb378ba8f41d06a06eaf1a850.1791487179.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1791487179.git.stefano.r@variscite.com>
-References: <cover.1791487179.git.stefano.r@variscite.com>
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	=?iso-8859-1?Q?S=F8ren?= Andersen <san@skov.dk>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 2/3] arm64: dts: imx8mp-skov-revc: convert to overlays
+Message-ID: <asf-XrI8a-M2m-Fl@SMW015318>
+References: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de>
+ <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-2-11fa90f531fc@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-2-11fa90f531fc@pengutronix.de>
+X-ClientProxiedBy: FR3P281CA0137.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:95::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8876:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b522a5a-ef59-4d29-92ed-08df257b94c5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|23010399003|366016|1800799024|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: SyLXkyURuoRTXNNZBOMPBMl05pz0lnI73BeX3UNxrCwrTBtE8bO3FHyGpGBiB8M0iBVpa7bXsB+PMmCJ3l/J5grqxW/9xmFwPOzR54tQQQtGwhiABUMr00/VW5b1ogLAVQgbp3Y/7EFjSnj8e9FtWpqFkc4TUBj3k8S+2jaQiC37NIh0UImMKS2+cVV2QpuNFNrCFOBdqVzeolg/wto3S5UPHTX/s73uCBPcTVnBbqoV9OC7sdUE70VPp1fZ75DGtnf8CiFaBbZMPUoilulNrBZdlPCLYHWHzjPwb8zAE0xJ8fEFVMN52mQP3dVkgrS6LTnpeHThhkT2TLa8oii6fXU0uMUoANFmpHx/SD5RECEKh0VfHTQfLmtRmExxNTMwtjtkkqauwbKsOu4uPrpfueFg0oUVZxwAjK7CnfX/sTAHZhVGYELUNpwWtoC6cdcR7ohH9jyBiZeMNK5uubZbrCYEbhdt1/Jvvp+Wi00QKQiVGJBn9ebBuonLZM3BQI00KIcNMsjDDmLQhI5seIaKop1SafLtaRdW/5S/f+6emSWJLECQuLjQKYWgYTLEVdSC/nBBR4iZhwJwTrbnykqGYddrXGLZ1y2uwf2sBGNdV3p1THdo+tDiDNVmHigVc/z9vuNjzs88R10HkoNI30lmFKhpw3taXJ07WWy8fzB98bo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(23010399003)(366016)(1800799024)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/l0EHNW5F7TjncI6ZXh+WnOs54f943qZ7pveX+sJmbpovviAllij7VljipZp?=
+ =?us-ascii?Q?6XA3QHUcFUXWWekelsPSzxeK7xsQjwLoy6tFxYyvaHJMUBS39a+XWSFWdcmV?=
+ =?us-ascii?Q?lMww+LzdNoCuOqv+tkVe+kBWQlkE1uSw2JsP+d9DX8rr/zIiiugQ5t5l8mos?=
+ =?us-ascii?Q?eCYy+gbLr42j7ItIR4Zr63xMRJBITNJiLQ8aQWltNAb5TGV5t8dteBHDvA2M?=
+ =?us-ascii?Q?Zdf6WcJx07gs3EpRgUOtFFWFIG0jIzjkU+csFtx7y+cwGi/9IGJOJHNJQzcI?=
+ =?us-ascii?Q?RviD6Chf8ug4jXX/aJE4suDAujIdwSGIFp4WxypIhZMIkhrQE+j8gu2YZ87t?=
+ =?us-ascii?Q?4Vt0y2OMhphfE2hEeQ1xCRT/yFkYdU6kWaaTkMKZxB2AUFuQU/7c2d9vYUNK?=
+ =?us-ascii?Q?PBlSjCydyeghzL9AVeFV+c4eXGEQl5EdxJxlh6EdLBCM4wmPrGy0fNDL3Odj?=
+ =?us-ascii?Q?C7pQcHwnCD16UCjjAinxgpebcc1Fr7GZuqeRQ2ASMPQT1J+yb/yrvXsPV9j8?=
+ =?us-ascii?Q?p2N4WJiX9Lb50w4KwGD4iD7BTTPy29C8dwzTIogGUHilOzMRqX/JukbWcNoi?=
+ =?us-ascii?Q?EgWI5uqzrkKcTtpjXP4QcJByrcfv1F9RTS7UG/Yo1TGGkI9vpt3815jAr0op?=
+ =?us-ascii?Q?P5qN52S71ZqCpk4+WpfDcCBJIj4uIarFNtdX4fhRqrPmjPn56Rnfzt7iuQmz?=
+ =?us-ascii?Q?sCHeJ6uddqw5X1RnIK7V2YRNSS7d/Fnfh+MJ5ZbGg+2BYiKGKcQvRYvs5Wwx?=
+ =?us-ascii?Q?glBPCnhVqjAhuo3j6GBaJCIMjVmVDPkfwKdAvm9iaZbwpPDsKC0uM0AAN0eR?=
+ =?us-ascii?Q?WD7+RvxYX7DmHfDsKUf2w+vysvyLmygfj8Ims7EnrPZCarQVhvzNwTVHnz3b?=
+ =?us-ascii?Q?D6hghgh95N4lIRfalwdyX8a6mobK+OjUSEx/Ahc2zlI2p8K6H8fcqx05Yxti?=
+ =?us-ascii?Q?ZqmVuC07i8JylnxEiiym1JyvK03T1Dr4BavZ4X23zcm5ZDC7GG2/DU2/jLtW?=
+ =?us-ascii?Q?DL2SkN2fv3VQv+e++Nx7F8VbmED8lantn1+T9yhSIsrAmOgTEaeUi+V4JODZ?=
+ =?us-ascii?Q?JqQm4X4Gf/YaUcqr/S9ISNGj7jr03WzwUza7TxTN8aPpQ9uwEZpYxKrYUbUF?=
+ =?us-ascii?Q?ZRBkwGjXvnapuH+wjcgR0PTbUqdPoD+mNWcRtB0ugDCWawYmCJgRPncI0SAe?=
+ =?us-ascii?Q?7jBdpWPfB/TlKoWa8s53onE39tfbI51mbMFmGi3HYBaI1iRjThns5OeR+t4p?=
+ =?us-ascii?Q?zOvF2+ebFNI3RvkrAiqtAKIwGaqnDHyw2RvrncvKGy2Modv18EfYqm9Qqzi5?=
+ =?us-ascii?Q?t22WEQoyiYsgkKRgLnbZd39ndxjJcoRsgPmeD3B8vAF9u5r2b6X0dWoN2966?=
+ =?us-ascii?Q?GDpgdnBcDeDg/AWUWjJjvunsbPMXb6yIZydmb6iHGQZgvxlGm5BuacIskB+z?=
+ =?us-ascii?Q?A5MRw/E6ZuGRFmh3tIra7z++xezVd7nolb7lNFSObhjBI5tq3be52mcuRgRx?=
+ =?us-ascii?Q?i1Vugov8vuSSkpv1w48GB+KgWFOpUByGUZyKxgKDBROqOib3g3tsk38P5h7G?=
+ =?us-ascii?Q?JVaXjGYF7BuvwQervSsRCCfS6L/M8CqIK1CpfMFYZJCUfWnl0Hez0/G0CTqb?=
+ =?us-ascii?Q?nU8RHcluxMn7B72r6VYtx8sSSb4BWHXkCJEirLkiBxAVYjfccjAITQbppika?=
+ =?us-ascii?Q?JWNx8QyKFGM1jRjStcXw3o7WQuvCI2uunilFRT31WgbYt8kpjrqhc20ZQxSt?=
+ =?us-ascii?Q?azwdsgSsR+E4LkjcPnXMBtSUX55iFkKrK0tfyF8Y8QcpttE44/AI?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b522a5a-ef59-4d29-92ed-08df257b94c5
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 20:34:41.8840
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: um5oEiw8Ki1IujAykv849sMuOJuT7nazhRpsWs37wzQOp9X/Kt0kvt7zJvKaLniZrsPyi+ee9UkaQIKuDzFTVI3lnInZN3LwVSZQF2GMyBYbeHi/sJSko0jZfhm4JU2Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8876
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_124046_031401_CA75C05A 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20261008_133445_777733_757F97E6 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,135 +142,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Thu, Oct 08, 2026 at 11:16:00AM +0200, Steffen Trumtrar wrote:
+> The i.MX8MP Skov RevC jutouch 10" and Tian 7" variants are pretty
+> similar, apart from the Display and touch controller.
+>
+> Move the common bindings to imx8mp-skov-revc-touch.dts and convert both
+> variants to use overlays applied on this base version.
+>
+> Add a compatible for revC-based Skov boards with a touch panel for the
+> common dts.
+>
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml     |  1 +
 
-Move rmii_ref_clk from the ENET2 file to the VAR-SOM-6UL common
-file. Symphony needs the same clock but must not include the
-Concerto FEC2/MDIO configuration to obtain it.
+Binding change need seperate patch. This is v9.
+Does rebase cause problem?
 
-Encode the Micrel RMII clock selection as <1> to match the updated
-binding.
+Frank
 
-The existing Concerto descriptions hold PHY reset for 100 ms but
-do not specify a delay after releasing it. Use the reset timing
-validated by Variscite: assert reset for 10 ms and wait 100 ms
-after deassertion before accessing the PHY. Apply this timing
-through the shared Ethernet files to both the existing Concerto
-boards and the new variants.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v4->v5:
- - Replace the broad Concerto conversion patch with a focused Ethernet
-   update. Move the audio, storage and carrier consumer updates into
-   patches 7-9 alongside the corresponding shared-file changes.
- - Retain the existing ENET1 and ENET2 option files and move the PHY
-   reference clock into the module common file for Symphony to reuse.
- - Encode the Micrel clock-selection property as <1> and apply the
-   validated 10 ms assert / 100 ms post-deassert timing through the
-   shared Ethernet files, including the existing Concerto boards.
-
-v2->v3:
- - Use the shared storage and wireless option DTSI files.
-
-v1->v2:
- - Use the shared WM8904 codec DTSI in the existing Concerto boards.
-
- .../dts/nxp/imx/imx6ul-var-som-common.dtsi    |  8 ++++++++
- .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  6 ++++--
- .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     | 19 ++++++-------------
- 3 files changed, 18 insertions(+), 15 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-index d2a9877344ce..ef838ae07297 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-@@ -20,6 +20,14 @@ memory@80000000 {
- 		reg = <0x80000000 0x20000000>;
- 	};
- 
-+	/* ref_clk for micrel ethernet phy */
-+	rmii_ref_clk: rmii-ref-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+		clock-output-names = "rmii-ref";
-+	};
-+
- 	reg_3p3v: regulator-3p3v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "3P3V";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
-index 6b1e34347bec..ace6d9f35b87 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
-@@ -5,6 +5,7 @@
-  *
-  * Copyright 2019-2024 Variscite Ltd.
-  * Copyright 2026 Dimonoff
-+ * Copyright (C) 2026 Variscite Ltd.
-  */
- 
- &fec1 {
-@@ -37,8 +38,9 @@ ethphy0: ethernet-phy@1 {
- 		clocks = <&rmii_ref_clk>;
- 		clock-names = "rmii-ref";
- 		reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
--		reset-assert-us = <100000>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
- 		micrel,led-mode = <1>;
--		micrel,rmii-reference-clock-select-25-mhz;
-+		micrel,rmii-reference-clock-select-25-mhz = <1>;
- 	};
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-index f0ed71798617..a207a720bd30 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-@@ -7,15 +7,6 @@
-  * Copyright (C) 2026 Variscite Ltd.
-  */
- 
--/ {
--	rmii_ref_clk: rmii-ref-clk {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <25000000>;
--		clock-output-names = "rmii-ref";
--	};
--};
--
- &fec2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_enet2>, <&pinctrl_enet2_gpio>, <&pinctrl_enet2_mdio>;
-@@ -33,9 +24,10 @@ ethphy0: ethernet-phy@1 {
- 			clocks = <&rmii_ref_clk>;
- 			clock-names = "rmii-ref";
- 			reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <100000>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <100000>;
- 			micrel,led-mode = <1>;
--			micrel,rmii-reference-clock-select-25-mhz;
-+			micrel,rmii-reference-clock-select-25-mhz = <1>;
- 		};
- 
- 		ethphy1: ethernet-phy@3 {
-@@ -44,9 +36,10 @@ ethphy1: ethernet-phy@3 {
- 			clocks = <&rmii_ref_clk>;
- 			clock-names = "rmii-ref";
- 			reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <100000>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <100000>;
- 			micrel,led-mode = <0>;
--			micrel,rmii-reference-clock-select-25-mhz;
-+			micrel,rmii-reference-clock-select-25-mhz = <1>;
- 		};
- 	};
- };
--- 
-2.47.3
-
+>  arch/arm64/boot/dts/freescale/Makefile             |  5 ++
+>  .../imx8mp-skov-revc-jutouch-jt101tm023.dtso       | 38 ++++++++++
+>  .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ----------------------
+>  .../freescale/imx8mp-skov-revc-tian-g07017.dtso    | 40 +++++++++++
+>  ...h-jt101tm023.dts => imx8mp-skov-revc-touch.dts} | 26 +++----
+>  6 files changed, 92 insertions(+), 99 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index 656f2596e1d53..5599e45ffdcec 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1155,6 +1155,7 @@ properties:
+>                - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
+>                - skov,imx8mp-skov-revc-jutouch-jt101tm023 # SKOV i.MX8MP climate control with 10" JuTouch panel
+>                - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
+> +              - skov,imx8mp-skov-revc-touch # SKOV i.MX8MP climate control revision C with touch panel
+>                - ultratronik,imx8mp-ultra-mach-sbc # Ultratronik SBC i.MX8MP based board
+>                - ysoft,imx8mp-iota2-lumpy  # Y Soft i.MX8MP IOTA2 Lumpy Board
+>            - const: fsl,imx8mp
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 49025ae465f22..d706290b8dd02 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -475,6 +475,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
+> +
+> +imx8mp-skov-revc-jutouch-jt101tm023-dtbs += imx8mp-skov-revc-touch.dtb \
+> +	imx8mp-skov-revc-jutouch-jt101tm023.dtbo
+> +imx8mp-skov-revc-tian-g07017-dtbs += imx8mp-skov-revc-touch.dtb \
+> +	imx8mp-skov-revc-tian-g07017.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso
+> new file mode 100644
+> index 0000000000000..33ddd08a7adb5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso
+> @@ -0,0 +1,38 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +&{/} {
+> +	model = "SKOV IMX8MP CPU revC - JuTouch JT101TM023";
+> +	compatible = "skov,imx8mp-skov-revc-jutouch-jt101tm023", "fsl,imx8mp";
+> +};
+> +
+> +&{/panel} {
+> +	compatible = "jutouch,jt101tm023";
+> +};
+> +
+> +&i2c2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@2a {
+> +		compatible = "eeti,exc81w32", "eeti,exc80h84";
+> +		reg = <0x2a>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_touchscreen>;
+> +		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
+> +		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
+> +		touchscreen-size-x = <1280>;
+> +		touchscreen-size-y = <800>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +};
+> +
+> +&lvds_bridge {
+> +	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
+> +	assigned-clock-rates = <0>, <506800000>;
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
+> deleted file mode 100644
+> index 9a562c011f2c2..0000000000000
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
+> +++ /dev/null
+> @@ -1,81 +0,0 @@
+> -// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> -
+> -/dts-v1/;
+> -
+> -#include "imx8mp-skov-reva.dtsi"
+> -
+> -/ {
+> -	model = "SKOV IMX8MP CPU revC - TIAN G07017";
+> -	compatible = "skov,imx8mp-skov-revc-tian-g07017", "fsl,imx8mp";
+> -
+> -	panel {
+> -		compatible = "topland,tian-g07017-01";
+> -		backlight = <&backlight>;
+> -		power-supply = <&reg_tft_vcom>;
+> -
+> -		port {
+> -			in_lvds0: endpoint {
+> -				remote-endpoint = <&ldb_lvds_ch0>;
+> -			};
+> -		};
+> -	};
+> -};
+> -
+> -&backlight {
+> -	status = "okay";
+> -};
+> -
+> -&i2c2 {
+> -	clock-frequency = <100000>;
+> -	status = "okay";
+> -
+> -	touchscreen@38 {
+> -		compatible = "edt,edt-ft5506";
+> -		reg = <0x38>;
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_touchscreen>;
+> -		interrupts-extended = <&gpio4 28 IRQ_TYPE_EDGE_FALLING>;
+> -		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
+> -		touchscreen-size-x = <1024>;
+> -		touchscreen-size-y = <600>;
+> -		vcc-supply = <&reg_vdd_3v3>;
+> -		iovcc-supply = <&reg_vdd_3v3>;
+> -		wakeup-source;
+> -	};
+> -};
+> -
+> -&lcdif2 {
+> -	status = "okay";
+> -};
+> -
+> -&lvds_bridge {
+> -	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
+> -				 <&clk IMX8MP_VIDEO_PLL1>;
+> -	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
+> -	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
+> -	assigned-clock-rates = <0>, <358400000>;
+> -	status = "okay";
+> -
+> -	ports {
+> -		port@1 {
+> -			ldb_lvds_ch0: endpoint {
+> -				remote-endpoint = <&in_lvds0>;
+> -			};
+> -		};
+> -	};
+> -};
+> -
+> -&pwm4 {
+> -	status = "okay";
+> -};
+> -
+> -&pwm1 {
+> -	status = "okay";
+> -};
+> -
+> -&reg_tft_vcom {
+> -	regulator-min-microvolt = <3160000>;
+> -	regulator-max-microvolt = <3160000>;
+> -	voltage-table = <3160000 73>;
+> -	status = "okay";
+> -};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dtso b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dtso
+> new file mode 100644
+> index 0000000000000..b9781a418e4d5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dtso
+> @@ -0,0 +1,40 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +&{/} {
+> +	model = "SKOV IMX8MP CPU revC - TIAN G07017";
+> +	compatible = "skov,imx8mp-skov-revc-tian-g07017", "fsl,imx8mp";
+> +};
+> +
+> +&{/panel} {
+> +	compatible = "topland,tian-g07017-01";
+> +};
+> +
+> +&i2c2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@38 {
+> +		compatible = "edt,edt-ft5506";
+> +		reg = <0x38>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_touchscreen>;
+> +		interrupts-extended = <&gpio4 28 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
+> +		touchscreen-size-x = <1024>;
+> +		touchscreen-size-y = <600>;
+> +		vcc-supply = <&reg_vdd_3v3>;
+> +		iovcc-supply = <&reg_vdd_3v3>;
+> +		wakeup-source;
+> +	};
+> +};
+> +
+> +&lvds_bridge {
+> +	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
+> +	assigned-clock-rates = <0>, <358400000>;
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-touch.dts
+> similarity index 56%
+> rename from arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
+> rename to arch/arm64/boot/dts/freescale/imx8mp-skov-revc-touch.dts
+> index 3e320d6dea3a2..c830f3ca8cb45 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-touch.dts
+> @@ -5,11 +5,10 @@
+>  #include "imx8mp-skov-reva.dtsi"
+>
+>  / {
+> -	model = "SKOV IMX8MP CPU revC - JuTouch JT101TM023";
+> -	compatible = "skov,imx8mp-skov-revc-jutouch-jt101tm023", "fsl,imx8mp";
+> +	model = "SKOV IMX8MP CPU revC";
+> +	compatible = "skov,imx8mp-skov-revc-touch", "fsl,imx8mp";
+>
+>  	panel {
+> -		compatible = "jutouch,jt101tm023";
+>  		backlight = <&backlight>;
+>  		power-supply = <&reg_tft_vcom>;
+>
+> @@ -28,18 +27,6 @@ &backlight {
+>  &i2c2 {
+>  	clock-frequency = <100000>;
+>  	status = "okay";
+> -
+> -	touchscreen@2a {
+> -		compatible = "eeti,exc81w32", "eeti,exc80h84";
+> -		reg = <0x2a>;
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_touchscreen>;
+> -		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
+> -		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
+> -		touchscreen-size-x = <1280>;
+> -		touchscreen-size-y = <800>;
+> -		vdd-supply = <&reg_vdd_3v3>;
+> -	};
+>  };
+>
+>  &lcdif2 {
+> @@ -48,14 +35,17 @@ &lcdif2 {
+>
+>  &lvds_bridge {
+>  	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
+> -				 <&clk IMX8MP_VIDEO_PLL1>;
+> +			  <&clk IMX8MP_VIDEO_PLL1>;
+>  	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
+> -	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
+> -	assigned-clock-rates = <0>, <506800000>;
+>  	status = "okay";
+>
+>  	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+>  		port@1 {
+> +			reg = <1>;
+> +
+>  			ldb_lvds_ch0: endpoint {
+>  				remote-endpoint = <&in_lvds0>;
+>  			};
+>
+> --
+> 2.51.0
+>
+>
 
