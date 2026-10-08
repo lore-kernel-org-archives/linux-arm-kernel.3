@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D745BCA600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 16:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEDFCA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 16:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P5QqN91oq5UQdWOAGLusHuKZASEgHmUyhsRnptvmHmQ=; b=hIU5ml+2Bwe0+FkalEvtAlP5Oa
-	2OLPz5XZICKcMbxy3UIPsdjthHLmybxKfDFqcwPhIDvrKmpJR8eFpSy5Qfk/8rdyOewi/3qZTJjN9
-	MKdC5a+dODnHMrxovG68M7/Esh1Nspie7bFHCsMS4I23stn6gOUArzvpwv4tzBEyOiwJ1DHVLluvT
-	IddI+tecEmp9eNtTGqenTT5ySIU7jX5bUedZYDm14kzP1cLoKd/olTTojqYprPjQdFuenP1hAh1Pb
-	CAGZxkNKJZGUHbmGFZsUyfmKc0JlYPAW8iW908XGY+PJMaSW5JmV/v4YQcvfaypcalahVkytEFxM8
-	odM3lCVw==;
+	bh=SBm05BjzYrqNU0OmxlHtZZ2AEdVmEJ8+If4Os62zFsE=; b=fFpDEGHIvhA8xE3yO/mMBBtKzs
+	Iu6WwT10QPGgvm05awlkBAxWmr8dxVGVceFLL9xuQkojRP4XFMkpKADFo2zgoB3vqkrpxMzX9deBo
+	2Dj+k1Xb9dTqSA+/sZhvX+bUFJXHFTz3MLAe+2jQZw92QJCshUo8AxtS1yYR+xdEyRTDlpTK8w6Qa
+	lWnMSAGBu6FLUvHSJfYD2xiwFWOTZWfTYrMXJFdS5Pn1VXbnc2f1D+NIzQj2nC+SDWDlJCfklLHLb
+	vQS886o7oCgcj37I/OrNEjvpLxf53eCXgLiYBbCCGBJ4GqrFKZmvp8T8+yYuqJJpNWp5As0tDqH7W
+	3azvuznQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xErHO-00000004j68-0Fuc;
-	Thu, 08 Oct 2026 16:47:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xErI3-00000004jCr-1FGB;
+	Thu, 08 Oct 2026 16:48:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xErHN-00000004j5j-0ksb
+	id 1xErI2-00000004jCX-37Fd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 16:47:37 +0000
+	Thu, 08 Oct 2026 16:48:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9203E43502
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 16:47:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2841F1F000FF;
-	Thu,  8 Oct 2026 16:47:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD92260A6D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 16:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 225011F000FF;
+	Thu,  8 Oct 2026 16:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791478056;
-	bh=P5QqN91oq5UQdWOAGLusHuKZASEgHmUyhsRnptvmHmQ=;
+	s=k20260515; t=1791478097;
+	bh=SBm05BjzYrqNU0OmxlHtZZ2AEdVmEJ8+If4Os62zFsE=;
 	h=From:To:Cc:Subject:Date;
-	b=ACPbM7F6MN1iZ8oNQ6xEzcyA5gR0Z2PehoZz+TkD1YJmcOc7mf+7dStRzhXapDwie
-	 KlpLbCqjGp1Cjht/TULoaKmI0MqflCUbyCAE3UVtomJmlYAe/rF/r5Xr27Q03Qacyb
-	 DwW3GUT726l9P7JysogKeO+00K208oNMn5QoZ1mwsB/ECks26AFcWk+Yexib+OaXaX
-	 +x8XHDZCSEEFoRlB0pDRdwUckKG+wOW+DSMHSlHiIjh4mhNHtyXF6/SIMaXvAyognu
-	 mh7dFEjZGBhvjXVUSYQKIlpjFX94apkQEYbVJdYkep5yhwP/gjONVJSbrFCzV2dl90
-	 Yb2MAqw240bHQ==
+	b=oEf1nVafDbrNUTJblhgy6rb3IVEd3KTUDbav0dTwLqqgBzWUAhv9NO1gUR7+x+FQs
+	 1h+eXp+C0vXWRUHjmz9HcTQIMGF2dL95ewdITQ9I89JfXEcfd4XeS0VJHq9odqbNBO
+	 1Du9RZpbrDc0Ji7aRRBWdIJ3aVJ80dG0AI7XnKQlISGoV+5UOKgnbH+bPHgRR3PBrG
+	 fkxjj2r32MdbtTlsxFJSy0IdqU23gN9x8O5TVBQNvWbXJm8uAbwNMGhFCCTXpJR3iS
+	 6NQY7CWNADSyb/VMJQmNWmfbkE046TeX5/20tcv8KOq8Y3zEv4M6INpe+faJu6ZTu/
+	 IRtAj+Et7dfUw==
 From: Dinh Nguyen <dinguyen@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	soc@lists.linux.dev
 Cc: dinguyen@kernel.org,
 	devicetree@vger.kernel.org
-Subject: [GIT PULL 1/2] SoCFPGA DTS updates for v7.4
-Date: Thu,  8 Oct 2026 11:47:35 -0500
-Message-ID: <20261008164735.566333-1-dinguyen@kernel.org>
+Subject: [GIT PULL 2/2] MAINTAINERS: socfpga: update for v7.4
+Date: Thu,  8 Oct 2026 11:48:16 -0500
+Message-ID: <20261008164816.566624-1-dinguyen@kernel.org>
 X-Mailer: git-send-email 2.42.0.411.g813d9a9188
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -73,92 +73,21 @@ The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v7.4
+  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_maintainer_update_for_v7.4
 
-for you to fetch changes up to 1c4d22949a77d82505188bf36a4bcae0cbdf699e:
+for you to fetch changes up to 96e948e9811dcb68f513e1d6445e22999f8d099b:
 
-  arm64: dts: altera: Move all SoCFPGA files to dts/altera (2026-10-08 11:25:18 -0500)
-
-----------------------------------------------------------------
-SoCFPGA DTS updates for v7.4
-dt-bindings:
-- Add the SOCDK eMMC and TSN config2 boards based on Agilex5
-- Update the interrupts spec for the Stratix10 Service Layer
-dts:
-- Agilex5
-   - Add FPGA manager, region, and USB3.1 node in the base DTSI
-   - Add SD/eMMC on the SoCDK OOBE card
-   - Add the SoCDK eMMC daughter board
-   - Add support for the debug daughter card
-   - Add support for the  SoCDK TSN Config2 board
-- Add SDM interrupts for Agilex and Stratix10
-- Move all Altera SoCFPGA dts files to dts/altera
+  MAINTAINERS: Drop arm64 dts/intel path from ARM/SOCFPGA ARCHITECTURE (2026-10-05 10:13:13 -0500)
 
 ----------------------------------------------------------------
-Adrian Ng Ho Yin (3):
-      arm64: dts: intel: agilex5: add USB3.1 controller node
-      arm64: dts: intel: agilex5: remove usb0 in Agilex5 SoCDK
-      arm64: dts: agilex5: add support for debug daughter card
+SoCFPGA MAINTAINERS update for for v7.4
+- Drop the arm64/boot/dts/intel from Dinh Nguyen's entry since
+  all Altera's SoCFPGA files have been moved to dts/altera
 
-Dinh Nguyen (3):
-      arm64: dts: socfpga: agilex5: add FPGA manager and region nodes
-      arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2 board
-      arm64: dts: altera: Move all SoCFPGA files to dts/altera
+----------------------------------------------------------------
+Chiam, Evon (1):
+      MAINTAINERS: Drop arm64 dts/intel path from ARM/SOCFPGA ARCHITECTURE
 
-Mahesh Rao (3):
-      dt-bindings: firmware: Add interrupt specification for Intel Stratix 10 Service Layer
-      dts: stratix10: Add support for SDM mailbox interrupt for Intel Stratix10 SoCFPGA
-      dts: agilex: Add support for SDM mailbox interrupt for Intel Agilex SoCFPGA
-
-Nazim Amirul (1):
-      dt-bindings: arm: altera: Add Agilex5 SoCDK TSN Config2 board
-
-Tanmay Kathpalia (4):
-      arm64: dts: agilex5: add SD/eMMC host controller
-      arm64: dts: agilex5: enable SD card on SOCDK OOBE card
-      dt-bindings: arm: altera: add Agilex5 SOCDK eMMC board variant
-      arm64: dts: agilex5: add SOCDK eMMC daughter board
-
- Documentation/devicetree/bindings/arm/altera.yaml  |   2 +
- .../bindings/firmware/intel,stratix10-svc.yaml     |  10 ++
- arch/arm64/boot/dts/altera/Makefile                |  14 +-
- .../boot/dts/{intel => altera}/socfpga_agilex.dtsi |   2 +
- .../{intel => altera}/socfpga_agilex3_socdk.dts    |   0
- .../dts/{intel => altera}/socfpga_agilex5.dtsi     |  61 +++++++++
- .../boot/dts/altera/socfpga_agilex5_socdk.dts      | 146 +++++++++++++++++++++
- .../socfpga_agilex5_socdk_013b.dts                 |   0
- .../dts/altera/socfpga_agilex5_socdk_debug.dts     | 121 +++++++++++++++++
- .../boot/dts/altera/socfpga_agilex5_socdk_emmc.dts | 123 +++++++++++++++++
- .../socfpga_agilex5_socdk_modular.dts              |   0
- .../socfpga_agilex5_socdk_nand.dts                 |   0
- .../socfpga_agilex5_socdk_tsn_cfg2.dts}            |  40 ++++--
- .../dts/{intel => altera}/socfpga_agilex72.dtsi    |   0
- .../{intel => altera}/socfpga_agilex72_socdk.dts   |   0
- .../{intel => altera}/socfpga_agilex7m_socdk.dts   |   0
- .../dts/{intel => altera}/socfpga_agilex_n6000.dts |   0
- .../dts/{intel => altera}/socfpga_agilex_socdk.dts |   0
- .../socfpga_agilex_socdk_emmc.dts                  |   0
- .../socfpga_agilex_socdk_nand.dts                  |   0
- .../dts/{intel => altera}/socfpga_n5x_socdk.dts    |   0
- arch/arm64/boot/dts/altera/socfpga_stratix10.dtsi  |   4 +
- arch/arm64/boot/dts/intel/Makefile                 |  12 --
- 23 files changed, 510 insertions(+), 25 deletions(-)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex.dtsi (99%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex3_socdk.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex5.dtsi (93%)
- create mode 100644 arch/arm64/boot/dts/altera/socfpga_agilex5_socdk.dts
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex5_socdk_013b.dts (100%)
- create mode 100644 arch/arm64/boot/dts/altera/socfpga_agilex5_socdk_debug.dts
- create mode 100644 arch/arm64/boot/dts/altera/socfpga_agilex5_socdk_emmc.dts
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex5_socdk_modular.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex5_socdk_nand.dts (100%)
- rename arch/arm64/boot/dts/{intel/socfpga_agilex5_socdk.dts => altera/socfpga_agilex5_socdk_tsn_cfg2.dts} (73%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex72.dtsi (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex72_socdk.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex7m_socdk.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex_n6000.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex_socdk.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex_socdk_emmc.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_agilex_socdk_nand.dts (100%)
- rename arch/arm64/boot/dts/{intel => altera}/socfpga_n5x_socdk.dts (100%)
+ MAINTAINERS | 1 -
+ 1 file changed, 1 deletion(-)
 
