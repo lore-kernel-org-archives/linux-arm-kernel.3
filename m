@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9E4CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE53CA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vZ8Ejj8aZrBU856Cgb+Aq9cC3Vyu+mZba06VVhY2u0=; b=tCdmNQB9xVGbSjWnWzBVxMDr8R
-	ia2HnjWymBKbxkmBwFaJ2zJk9oLrxd8ti+MVufZWVGhJ+5Crg/ED1yOwuh/E/fD3//8dBxZGizt12
-	+F8fxp/dQLw/gtkVeRhYlEf+wIj0wrRYaAQSIJucYChUnJDFZ2LAi2ntz9ClHeS9ensYk4AVnofZB
-	M6l4ehhjmTZ6tRuss2wl8wtaS5kWKapbLRCvH5CjDe1xeQbFQ60Uh6gX6wHE7G5r6F/1GZO9CAvjx
-	hi8bNVZxEHdrdRwYN4XtPouVhapYOHKhUfJd1kF+oFdkOFwV6cULb39qvUzrZGgAQ6y0MoA0NYyZU
-	7DDAzQyQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3eh+eqPsqcE5YvVl5FSV9uki97nCFfIXkAkKL28Dxc=; b=GyBk2M/BDUns7SdKLaIOdy570i
+	heT7I1VGTGnWVaWdsoQbfdgtTpdnVgRSGI9jlGRsZX2m3EmmF/osIZdfpDrIXd0moBMp6R2UEngnp
+	hkxyNPMP1g30OK9OPu5CBUo//5kRhiOHD1CvPYJ4x3o7onzI12s86j/BThluA6XrQ1DhRp+05U6bi
+	ZM71Cglx9fC8w6VdcnONnVYCPMJUtThzULNLOgkXy5eGf6DZSh7xOGTsGwqJrV/DU93pxr3pIKAlz
+	jgf06X6ocXb/1WumPJVKbQfKmovzbvw41xvsdmRDnGTku99/3au/xPEJw3xUyEhH4tZFdZCWarUOF
+	MoocB4EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEodS-00000004UkD-2TBb;
-	Thu, 08 Oct 2026 13:58:14 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEodQ-00000004UjQ-0LKe
+	id 1xEph3-00000004aME-1cCX;
+	Thu, 08 Oct 2026 15:06:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEph2-00000004aM8-2pbF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 13:58:13 +0000
-Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.167.115.14])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E381620B7166;
-	Thu,  8 Oct 2026 06:57:10 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E381620B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1791467832;
-	bh=6vZ8Ejj8aZrBU856Cgb+Aq9cC3Vyu+mZba06VVhY2u0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N2MldErZ7BuYtSeyaXTL/+JFoAjR43/8BqyXcXYCQCRU7mBNoqNY7iCRa66+DhoJX
-	 rFz+UuSy554Glphg6bl8DrPa++tx9SgytfynLo4JgRkwm+R9oDAJDTHXXPDjmikCuz
-	 cuG6NT1cQr9USDmP+24a9RJLxq2CC5ohAg4F2O/I=
-From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-To: linux-pci@vger.kernel.org
-Cc: Frank.Li@nxp.com,
-	minghuan.Lian@nxp.com,
-	mingkai.hu@nxp.com,
-	roy.zang@nxp.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	Zhiqiang.Hou@nxp.com,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] Revert "PCI: layerscape: Change default error response behavior"
-Date: Thu,  8 Oct 2026 09:57:47 -0400
-Message-ID: <20261008135747.76755-1-jeffbarnes@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
-References: <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
+	Thu, 08 Oct 2026 15:06:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E7B340250
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 15:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821B31F000FF
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 15:05:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791471959;
+	bh=M3eh+eqPsqcE5YvVl5FSV9uki97nCFfIXkAkKL28Dxc=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=JZye8FHsMGO+Vhak768IyEeJ7EKz1SQUH8yovlQE0RC+CJfM6kyzx7gtXKzSUDJtT
+	 lw2phsBV2qzm/emoM9GUXUs1ZAz47wNKvWCR2GPMGq4q5G1j7j+UakCqBZp99h0gNk
+	 Ta6y2LRBQCiAoWgMqMl5iCXq3ajFAEhyuxLRkLtpeYqaK4gYaLaaGEcr399vTsDbl8
+	 O9n9wvIoLO2y6U7CA5G5enfSsELTRPH/H3wVyeDgK9UMyLU2WK6jGLe0auIXpE09PM
+	 lctSvIo87BT3yzTrAzGAfD6rKrK3J3LQI8OX7NX7UaWwdncf50p2bDlEO8oR8pwO5G
+	 vgWtxHHI6waVQ==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3a9787a156eso23887331fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 08:05:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByjx9Ujd4uYxw7azrfturndEe4WbGKhqpi1ukQUmbhEvQqhXnvKPoCaPjaxM7XxVbi8wYQFaAs8YarjAZ6ajt46@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ3JtxhFuc1am7FD3qs78YGPeiurbxJWPNEayOnU0X3uuKy10dO
+	U0caZp82xIYEZaG82ptzYD4qncfCuKDpqPGV8gwQ/ujkffWxAUBQ6pZ2etshnnJ/nCog0jcRZjc
+	Mw9pqFYfNCdHzSudVk9x6fCkeWcui+++oeYNJ+YPQnQ==
+X-Received: by 2002:a2e:b8c9:0:b0:3a6:95a:52a6 with SMTP id
+ 38308e7fff4ca-3a9a2d0dc0cmr14079951fa.20.1791471958269; Thu, 08 Oct 2026
+ 08:05:58 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 8 Oct 2026 17:05:56 +0200
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 8 Oct 2026 17:05:56 +0200
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAD++jLkPeEQN07Qk9RrmxkRf5EbMmnuwdq2yBFccwM_QpvjsLw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_065812_173989_16DE924B 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+References: <20260929-kuno-soc-support-v7-0-530f62dc4020@oss.qualcomm.com>
+ <5555b1ee-1355-429f-b3de-f0926e4c30d6@oss.qualcomm.com> <CAD++jLkPeEQN07Qk9RrmxkRf5EbMmnuwdq2yBFccwM_QpvjsLw@mail.gmail.com>
+Date: Thu, 8 Oct 2026 17:05:56 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MdTYic6qG+gnnOExXWhfgbjygi-hR0Rr-FKVAhBkw1C8w@mail.gmail.com>
+X-Gm-Features: AclHuK_vfKWdSTRB1YkJ3uHKdqAfTiQySmCCqB7eRtdQW3xirznTZ4Z9gYURvgY
+Message-ID: <CAMRc=MdTYic6qG+gnnOExXWhfgbjygi-hR0Rr-FKVAhBkw1C8w@mail.gmail.com>
+Subject: Re: [PATCH v7 0/2] Add initial support for Qualcomm Kuno SoC
+To: Linus Walleij <linusw@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>, 
+	Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>, Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,11 +89,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 8 Oct 2026 15:11:31 +0200, Linus Walleij <linusw@kernel.org> said:
+> On Thu, Oct 8, 2026 at 5:12=E2=80=AFAM Hardeep Sharma
+> <hardeep.sharma@oss.qualcomm.com> wrote:
+>
+>> Hello All,
+>>
+>> Both of the following patches are ready to be picked:
+>>
+>> [PATCH v7 1/2] dt-bindings: soc: qcom,geni-se: Allow 1 or 2 address and
+>> size cells
+>> [PATCH v7 2/2] ARM: dts: qcom: Add initial device tree for Kuno SoC
+>>
+>> Could you please pick them ?
+>
+> Missing from the To: header of your mail: Bartosz, who actually maintains
+> Qualcomm pin control.
+>
+> This is likely why it has not been picked.
+>
 
-Gentle ping on this fix. Please let me know if any additional changes
-or testing are needed.
+Devicetree sources are Bjorn's territory. DT bindings should have probably
+been sent separately though. In any case, we're at rc6 now, so that ship ha=
+s
+sailed. Please resend after v7.4-rc1 is tagged.
 
-Thanks,
-Jeff
+Bartosz
 
