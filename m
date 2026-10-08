@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AC9CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C55CA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/jTRzZld+L3TVjWQHhoQ9AM2EZ0IICu5bCyhuVoUrj8=; b=ShZmmOV9tLrqy0GR2pdWB/xUem
-	dB1FedzXY3skTRTREld/qCmsVsxd2vXGYCtsXh28r/ApXKxz5OK5ZC717tJ+07YK9oz1E2WwIL4GQ
-	Nr4Tfm7mOYU3N1Rye2tZQzJr9Lim3RAKaOhCYica300nWbF8iV0rNJSNp2IVqp7QMzb6S+x3QgSp4
-	YYzGewE/jb7Wue5/NxhkQXQaSP1cQy8ZUbDBOGCZcoas2rBiOleK3pcBWpr21jLUb4v+zbDgOxTb+
-	m3GEXC7IgDBoQA80+0psTKaoR4V0bOHhndqmqqDQq5FuTbN0y7+1Zp46oLV0rRyDm/MhJ04ecBCMS
-	863NOGVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JgMaUazBcpqvux2KQDW+vhUXwrg8xsyRivF3+Hr/oNo=; b=hwQ6YlDVCG59PM
+	cgtEuv/jUgnqyzQlveshAy8gUqn31ub2Wesxtf71qRJ9QFKsAkXOlCEYJlLCmoSgKFkcIz3lpVqYn
+	E8u7rE2I+0puM5RUGniW7LR6Qyq8mpPvkqthpdJzoOyhlJC2jPM5W01iJiVyU7C0GqQYoN0GG1CYX
+	E43Y6pt5gcnKju2iWHqGLqGeeQo9l/rDlXzd8QZo2RYbbTaVl/hVosYRgL6T/3AigUHCuUbS77oOx
+	wCXIiYrNlZYbg3MWpZnNMqXzdgeoQvQ4eQ/e7D69vTbkWDXFS3/ZeHnMykW6oDJ30jupVjRorJbOh
+	zdgGnBGP0RVQyXc55Hrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEinX-00000003mcR-0L9E;
-	Thu, 08 Oct 2026 07:44:15 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1xEior-00000003mtS-2ora;
+	Thu, 08 Oct 2026 07:45:37 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEinT-00000003maN-3nlx
+	id 1xEioo-00000003msh-2tyF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:44:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F233A1418;
-	Thu,  8 Oct 2026 09:44:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791445446; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=/jTRzZld+L3TVjWQHhoQ9AM2EZ0IICu5bCyhuVoUrj8=;
-	b=1/MMmLmALJZD+WS3tBRbEf0yJDQPDUcz7/mfaWcur61dQI7LIViZlr5GoLtWOZ6sex3OS2
-	pzKpBgppNv4nMRBwwwYuFN8G4MCI+MKiemvqEEVN4ieWYNB8O6K7AUjQUg60+vKlLNzBch
-	rtppaiuhLHO24m2ysY+zpHfQFi/2dn73aei24Vz+oX3828j3BVbXa0gkgMKHLWOfJZ6ci3
-	NUxjAnbtoG0fpUEMT4EL+bGYyQ6qXdq5cSM2HYgPzuD+x19kHQNr3uJgB4uUcum4k8IyaR
-	9rklWYT3nlKJkfuIFqh3JniUnNP1rvoIcKwrOx6dpgB3gRHlhhMR+llcFk6NeQ==
+	Thu, 08 Oct 2026 07:45:36 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=JgMaUazBcpqvux2KQDW+vhUXwrg8xsyRivF3+Hr/oNo=;
+	b=Sgvf7B59ydpF9D5jY+B+heyPb50E82OAtETzIJuBlsByFUHSTjmArd7xNCixSIXjb0p2MggUx
+	WFV/UHdLl+c/mjnY4tQiOubY8pSnKYKq9W23opyxq2rRwEJ9jqATT3O/gCpI9ICn9RGuJQ3YfiR
+	oAhr8bQc9hfeeO7iDVRzG8g=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4j0hYl4FHDznTVd;
+	Thu,  8 Oct 2026 15:33:31 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 63B504055B;
+	Thu,  8 Oct 2026 15:45:27 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
+ 2026 15:45:26 +0800
+Message-ID: <fcecf50e-6b0d-4441-a188-31074c8b099a@huawei.com>
+Date: Thu, 8 Oct 2026 15:45:25 +0800
 MIME-Version: 1.0
-Date: Thu, 08 Oct 2026 09:44:03 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: James Clark <jjc@jclark.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran
- <richardcochran@gmail.com>, Miroslav Lichvar <mlichvar@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: stmmac: ptp: switch to gettimex64()
- interface
-In-Reply-To: <20261006103610.98277-1-jjc@jclark.com>
-References: <20261006103610.98277-1-jjc@jclark.com>
-Message-ID: <573ab838519f1fcfc19b5c03c23aa72f@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/21] KVM: arm64: Protect TPIDRRO_EL0 across guest
+ entry/exit
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260918161407.2300-1-will@kernel.org>
+ <20260918161407.2300-6-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260918161407.2300-6-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_004412_690205_C4F0F30D 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20261008_004535_353653_FAC6423B 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,70 +74,135 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James
 
-On 6.10.2026 12:36, James Clark wrote:
-> The stmmac PTP support currently implements the gettime64 callback to
-> retrieve the hardware clock time. Update the implementation to provide
-> the gettimex64 callback instead, adding support for the
-> PTP_SYS_OFFSET_EXTENDED ioctl.
+
+在 2026/9/19 0:13, Will Deacon 写道:
+> From: Mostafa Saleh <smostafa@google.com>
 > 
-> The system clock readings are taken around the read of the nanoseconds
-> register in get_systime(), so get_systime() gains a 
-> ptp_system_timestamp
-> argument. rmb() is used to ensure proper ordering on weakly ordered
-> architectures.
+> To prepare for using TPIDRRO_EL0 to hold 'current' and repurposing
+> SP_EL0 as an overflow stack pointer, eagerly switch both registers when
+> entering and exiting the guest.
 > 
-> Assisted-by: LLM
-> Signed-off-by: James Clark <jjc@jclark.com>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
 > ---
-> Tested on a Radxa ZERO 3E (RK3566, DWMAC 4/5) running net-next.
-> Width of the interval between the two system clock readings
-> bracketing each PHC read (2000 calls of 25 samples each):
+>  arch/arm64/include/asm/kvm_asm.h           | 10 ++++++++++
+>  arch/arm64/kernel/asm-offsets.c            |  1 +
+>  arch/arm64/kvm/hyp/entry.S                 | 12 ++++++++----
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |  2 --
+>  4 files changed, 19 insertions(+), 6 deletions(-)
 > 
->                                          min      median
-> Before patch (PTP_SYS_OFFSET):           875 ns   1167 ns
-> After patch (PTP_SYS_OFFSET_EXTENDED):   291 ns    584 ns
-> 
-> On this board the 24 MHz arch timer counter advances in steps of 7
-> (~292 ns), so all intervals are multiples of that.
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index e5b92ac09e69..1cfe9216a2ff 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -408,6 +408,16 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
+>  	msr	sp_el0, \tmp
+>  .endm
+>  
+> +.macro save_tpidrro_el0 ctxt, tmp
+> +	mrs	\tmp,	tpidrro_el0
+> +	str	\tmp,	[\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
+> +.endm
+> +
+> +.macro restore_tpidrro_el0 ctxt, tmp
+> +	ldr	\tmp,	  [\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
+> +	msr	tpidrro_el0, \tmp
+> +.endm
+> +
+>  #endif
+>  
+>  #endif /* __ARM_KVM_ASM_H__ */
+> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+> index 6038ab3beb25..cb8448cc5f51 100644
+> --- a/arch/arm64/kernel/asm-offsets.c
+> +++ b/arch/arm64/kernel/asm-offsets.c
+> @@ -108,6 +108,7 @@ int main(void)
+>    DEFINE(VCPU_HCR_EL2,		offsetof(struct kvm_vcpu, arch.hcr_el2));
+>    DEFINE(CPU_USER_PT_REGS,	offsetof(struct kvm_cpu_context, regs));
+>    DEFINE(CPU_ELR_EL2,		offsetof(struct kvm_cpu_context, sys_regs[ELR_EL2]));
+> +  DEFINE(CPU_TPIDRRO_EL0_OFFSET, offsetof(struct kvm_cpu_context, sys_regs[TPIDRRO_EL0]));
+>    DEFINE(CPU_RGSR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[RGSR_EL1]));
+>    DEFINE(CPU_GCR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[GCR_EL1]));
+>    DEFINE(CPU_APIAKEYLO_EL1,	offsetof(struct kvm_cpu_context, sys_regs[APIAKEYLO_EL1]));
+> diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
+> index 308100ed25de..4c89931a6a92 100644
+> --- a/arch/arm64/kvm/hyp/entry.S
+> +++ b/arch/arm64/kvm/hyp/entry.S
+> @@ -30,8 +30,9 @@ SYM_FUNC_START(__guest_enter)
+>  	// Store the hyp regs
+>  	save_callee_saved_regs x1
+>  
+> -	// Save hyp's sp_el0
+> +	// Save hyp's sp_el0 and tpidrro_el0
+>  	save_sp_el0	x1, x2
+> +	save_tpidrro_el0 x1, x2
+>  
+>  	// Now the hyp state is stored if we have a pending RAS SError it must
+>  	// affect the host or hyp. If any asynchronous exception is pending we
+> @@ -66,8 +67,9 @@ alternative_else_nop_endif
+>  	// when this feature is enabled for kernel code.
+>  	ptrauth_switch_to_guest x29, x0, x1, x2
+>  
+> -	// Restore the guest's sp_el0
+> +	// Restore the guest's sp_el0 and tpidrro_el0
+>  	restore_sp_el0 x29, x0
+> +	restore_tpidrro_el0 x29, x0
+>  
+>  	// Restore guest regs x0-x17
+>  	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
+> @@ -146,8 +148,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
+>  	// Store the guest regs x18-x29, lr
+>  	save_callee_saved_regs x1
+>  
+> -	// Store the guest's sp_el0
+> +	// Store the guest's sp_el0 and tpidrro_el0
+>  	save_sp_el0	x1, x2
+> +	save_tpidrro_el0 x1, x2
+>  
+>  	adr_this_cpu x2, kvm_hyp_ctxt, x3
+>  
+> @@ -161,8 +164,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
+>  	// mte_switch_to_hyp(g_ctxt, h_ctxt, reg1)
+>  	mte_switch_to_hyp x1, x2, x3
+>  
+> -	// Restore hyp's sp_el0
+> +	// Restore hyp's sp_el0 and tpidrro_el0
+>  	restore_sp_el0 x2, x3
+> +	restore_tpidrro_el0 x2, x3
 
-> [...]
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c 
-> b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+>  
+>  	// Now restore the hyp regs
+>  	restore_callee_saved_regs x2
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> index c382848d3194..b5f7ef8e6371 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> @@ -66,7 +66,6 @@ static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
+>  static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>  	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
+> -	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
+>  }
+>  
+>  static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
+> @@ -209,7 +208,6 @@ static inline void __sysreg_restore_common_state(struct kvm_cpu_context *ctxt)
+>  static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>  	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
+> -	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
+>  }
+>  
+>  static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
 
-> [...]
+-- 
+Best regards,
+Jinjie
 
-> @@ -191,8 +192,14 @@ static void get_systime(void __iomem *ioaddr, u64 
-> *systime)
->  	sec1 = readl_relaxed(ioaddr + PTP_STSR);
->  	do {
->  		sec0 = sec1;
-> +		ptp_read_system_prets(sts);
-> +		if (sts)
-> +			rmb();
->  		/* Get the TSSS value */
->  		ns = readl_relaxed(ioaddr + PTP_STNSR);
-> +		if (sts)
-> +			rmb();
-> +		ptp_read_system_postts(sts);
-
-Additional thought while testing on my stm32mp2:
-
-Would a plain readl() for PTP_STNSR be enough? readl() completes before
-a following delay loop, which is the counter read postts does. That 
-would
-drop both barriers, like igb/ice/bnxt. Fine either way though, macb has
-the same rmb() pattern.
-
-Maxime (Chevallier), what do you think?
-
-> [...]
-
-Thanks,
-Nicolai
 
