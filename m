@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06755CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60948CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKhOUStc32yyJJh2yPmsAjtT0L8xYwJmDHCV2AfoKVk=; b=YOT0qszslrZkiDRHsJx1YfoSeb
-	KIdz1ytl98UqDjfK2e3Y37rI5TdmhLqDeKDktSakCSU4U0n7DP3YdVZQRe9cB+ukxuUMEatHzn3eV
-	k+VjuMSpU5reuxn1kJResgb7+GJ0TK446U0e2aehg0TVaoHvnWxjbqrSIxsTB6QKt3fHYq5oyxi53
-	zQoHjkdNx3uJg8nUXqPiruLPY9dkIm4Y775VF9fuuZVg+a5pGicr7B7Wed8rw6HjlfyQDQP6dLlLt
-	QSUNwHcf1O9PdPo5foKv2W6zYMo27LQpfleEHZbfzZMXRfh1eIk/LTdcG6YKW21BqjwmKil9KoGst
-	2hNltkAQ==;
+	bh=JBqNPMfAHd4kXYVw0IlxjFhPFtYWD0YbSv7I3OmUVeE=; b=QNKOI1ONXNV4lKIOXrkkYzP1ET
+	g/yssb89Z0IOOpfZ9e36jOvroIt3TClYu0T1VPW9xpczYaFNCh1pC49GgYQIiDcYHKBFX97/xxvCT
+	kfy09wuyYgPOVO5KnX9Lcn04nye5HJXIAHa8MC1gN+eTF8nH46KuFLiXTkZ5bQCcHbaHAYGGp4a/M
+	oOdMXncoAc/7RznRhiSkYCM5C3UrZP4eNJV0uUwGAbWUr+hciUgII7CO5/rIhvaft1kvL30T0nVRF
+	CcZzoPDe/NV42imxfvMR20UfgWlN/lrn2YF5jOxN+FbEbgrcf4Nr6KbLZ+OlfMiizO3GZNzdu4EpU
+	rdKWtNcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjY3-00000003sjr-2ax0;
-	Thu, 08 Oct 2026 08:32:19 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xEjYr-00000003swC-466U;
+	Thu, 08 Oct 2026 08:33:09 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjY0-00000003shr-0rJg
+	id 1xEjYo-00000003suF-25Df
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:32:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AD05B4E41176;
-	Thu,  8 Oct 2026 08:32:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8189360341;
-	Thu,  8 Oct 2026 08:32:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A1E6E10333850;
-	Thu,  8 Oct 2026 10:32:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791448333; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=DKhOUStc32yyJJh2yPmsAjtT0L8xYwJmDHCV2AfoKVk=;
-	b=yyHoI/oxSfdhJNEDv3/CTjikWXWJLcVViQRDKXaycfcuAlZd406+P127DWOfiugd/D3kPT
-	es+l7ZPrDzzrxVzEGCjdfBHqn7srcDW5pvXitk5X0S/rgaiyKfa/KIOglKufZH+/7Jcr/1
-	iVlNRIJpJJSsJfTI9eA979l45dSzZr5V3SYh7GgA44kO6BrtmjUaBJaLQ+CW6/DU1jaS8l
-	4midyiJUTxJjAnIt/t7/7RoKpo8VHigd7tpdij5H1ztJ9DZHdjDjqdsI5py7gbVE8Tf4eF
-	2MUU0LmXwD+78xuwBWZ2abmo8JXhrmrhTcsfEXOgsygxxCmHje1udtX2G7+HxA==
-Message-ID: <85184f37-32d8-42ce-90db-46cde769ecf5@bootlin.com>
-Date: Thu, 8 Oct 2026 10:32:05 +0200
+	Thu, 08 Oct 2026 08:33:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=JBqNPMfAHd4kXYVw0IlxjFhPFtYWD0YbSv7I3OmUVeE=;
+	b=6wBubGHCcQwyJdjCK4XXhFfiW6bCiv1EvWbTOVKqYilIF9NpyPazN/1+lQA3dKgOAz5we/Xyg
+	+UZguQ6PAi+fvBJ3LSetlii2DGjCbpSFbJCKPF05sZV1AugF3CUxi9WznP9644mmcUblnrKVfsV
+	E8YAutmEp6HiwTi5DKBAVYo=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4j0jc745ltzmV8H;
+	Thu,  8 Oct 2026 16:20:39 +0800 (CST)
+Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5EE1E40578;
+	Thu,  8 Oct 2026 16:32:53 +0800 (CST)
+Received: from [10.174.185.234] (10.174.185.234) by
+ dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 8 Oct 2026 16:32:52 +0800
+Message-ID: <77a9ab65-2997-47f8-8e99-04c4467df7b8@huawei.com>
+Date: Thu, 8 Oct 2026 16:32:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 09/10] net: ti: icssm-prueth: Move setting of netops
- to fix crash
-To: David Yang <mmyangfl@gmail.com>, netdev@vger.kernel.org
-Cc: MD Danish Anwar <danishanwar@ti.com>, Parvathi Pudi
- <parvathi@couthit.com>, Roger Quadros <rogerq@kernel.org>,
- Mohan Reddy Putluru <pmohan@couthit.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Jacob Keller <jacob.e.keller@intel.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Nicolai Buchwitz <nb@tipi-net.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261008022656.3592191-1-mmyangfl@gmail.com>
- <20261008022656.3592191-10-mmyangfl@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261008022656.3592191-10-mmyangfl@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH 0/2] Batch register access for live migration optimization
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<fuad.tabba@linux.dev>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <mark.rutland@arm.com>,
+	<zhengchuan@huawei.com>, <jiangjiacheng@huawei.com>, <yize_w1110@163.com>
+References: <20260918081930.4014735-1-wangyize7@huawei.com>
+ <861paq69te.wl-maz@kernel.org>
+ <f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
+ <86ece63kes.wl-maz@kernel.org>
+From: Yize Wang <wangyize7@huawei.com>
+In-Reply-To: <86ece63kes.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.185.234]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemr200003.china.huawei.com (7.185.36.25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_013216_409038_166555AF 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20261008_013307_153668_A5705031 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +84,217 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+在 2026/10/3 22:53, Marc Zyngier 写道:
+> On Sun, 20 Sep 2026 10:15:25 +0100,
+> Yize Wang <wangyize7@huawei.com> wrote:
+>> 在 2026/9/18 20:08, Marc Zyngier 写道:
+>>> On Fri, 18 Sep 2026 09:18:13 +0100,
+>>> Yize Wang<wangyize7@huawei.com> wrote:
+>>>> This series adds batch register access support to KVM/arm64 to reduce
+>>>> syscall overhead during VM live migration.
+>>>>
+>>>> Currently, QEMU issues one ioctl per register when saving/restoring VGIC
+>>>> state. On large VM configurations this means tens of thousands of syscalls,
+>>>> where lock acquisition and context switch overhead dominates migration
+>>>> downtime. Thus, we provide a batch register method to allow userspace
+>>>> read/write multiple distributor and redistributor registers in a single call.
+>>>> In this way, we can significantly reduce syscalls and migration downtime.
+>>>>
+>>>> Test the VM migration time under pressure conditions.
+>>>> The VM specifications for migration are as follows:
+>>>> - VM use 4-K page;
+>>>> - the number of VCPU is 160;
+>>>> - the total memory is 320Gigabit;
+>>>> - use 'Redis SET-benchmark' to pressurize VM;
+>>>>
+>>>> Performance results (3-run average, ms):
+>>>>       | Metric              | Without patch | With patch | Improvement |
+>>>>       |---------------------|---------------|------------|-------------|
+>>>>       | Migration downtime  |        536    |     321    |     40%     |
+>>>>       | Source (total)      |        344    |     230    |     33%     |
+>>>>       |   - VGIC put        |        158    |      40    |     75%     |
+>>>>       |   - VGIC get        |        120    |      19    |     84%     |
+>>>>       | Destination (total) |        192    |      91    |     53%     |
+>>>>       |   - VGIC put        |        132    |      27    |     80%     |
+>>>>
+>>>> Yize Wang (2):
+>>>>     KVM: arm64: Add batch group constant and data structure to UAPI header
+>>>>     KVM: arm64: Add VGIC v3 batch register access implementation
+>>> Questions:
+>>>
+>>> - Why only the MMIO registers?
+>>>
+>>> - Why not the sysregs?
+>>>
+>>> - Why only the GIC?
+>>>
+>>> - Why not all of the state?
+>>>
+>>> - Where is the corresponding userspace code?
+>>>
+>>> More importantly, since this is about batching system calls:
+>>>
+>>> - Why can't this be done with io_uring instead?
+>>>
+>>> 	M.
+>>
+>> Hi, Marc! Thank you for the review.
+>>
+>>    These patches focus on optimizing GICv3 register access during live
+>> migration. We found that there are a large number of locks (kvm->lock,
+>> vcpus, config_lock) in the GIC, these lock operations wil cost large
+>> time waste. The batches of sysreg for vcpu optimization will come in
+>> follow as a separate series. And let me address these questions one by
+>> one.
+> All these locks should be non-blocking by the time you save anything
+> related to the GIC, because:
+>
+> - none of the vcpu can be running
+>
+> - this must be a single threaded operation
+>
+> So if you are seeing anything contended, this is either the sign of a
+> bad KVM bug, or an indication that you are violating the above
+> requirements.
+>
+> 	M.
 
-On 10/8/26 04:26, David Yang wrote:
-> icssm_prueth_netdev_init() calls of_phy_get_and_connect() before
-> ndev->netdev_ops is assigned. phy_attach_direct() ->
-> phy_link_topo_add_phy() reads dev->netdev_ops through
-> netdev_need_ops_lock() since the commit in question, so probing crashes
-> with a NULL pointer dereference when CONFIG_NET_SHAPER is enabled.
-> 
-> Assign netdev_ops before the PHY attach, as was done for emac in commit
-> 7c9f391ec89c ("net: emac: move setting of netops to fix crash").
-> 
-> Fixes: ded86da4bbb7 ("net: ethtool: relax ethnl_req_get_phydev() locking assertion")
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Hi, Marc! Thanks for your review.
 
-Thanks,
+You are right that when saving the GIC state during live migration 
+process, all vCPUs are not running and it is a single threaded 
+operation. Our patches process the packaged register states from the 
+userspace under the same lock. These operations only aim to reduce the 
+lock opreation downtime and do not involve lock contention.
 
-Maxime
+In addition, these patches focus on reducing the syscalls of ioctl. Now, 
+every register requires an ioctl, resulting in (num_cpu * 
+registers_per_cpu) system calls. This will cost lots of time during the 
+large-scale VM migration. Our patches batch registers by category in 
+qemu and then send them to kernel in batches. This operations 
+significantly reduce the number of ioctl syscalls and save a great 
+amount of downtime.
 
-> ---
->  drivers/net/ethernet/ti/icssm/icssm_prueth.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> index b7e94244355a..b42c98e861e0 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> @@ -1563,6 +1563,8 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
->  	}
->  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->  
-> +	ndev->netdev_ops = &emac_netdev_ops;
-> +
->  	/* connect PHY */
->  	emac->phydev = of_phy_get_and_connect(ndev, eth_node,
->  					      icssm_emac_adjust_link);
-> @@ -1590,7 +1592,6 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
->  	}
->  
->  	ndev->dev.of_node = eth_node;
-> -	ndev->netdev_ops = &emac_netdev_ops;
->  
->  	netif_napi_add(ndev, &emac->napi, icssm_emac_napi_poll);
->  
+The comparison is as follow:
+
+BEFORE:
+
+QEMU (Userspace)Kernel (Kernelspace)
+
++--------------------------++------------------------------+
+
+||||
+
+|kvm_arm_gicv3_get()||vgic_v3_attr_regs_access()|
+
+||||
+
+|for ncpu in num_cpu:|||
+
+|+--------------+|||
+
+|| GICR_CTLR|----|--- ioctl ------> |mutex_lock(&kvm->lock)|
+
+|+--------------+ <--|--- val --------- |kvm_trylock_all_vcpus()|
+
+|+--------------+||mutex_lock(&config_lock)|
+
+|| GICR_STATUSR |----|--- ioctl ------> ||
+
+|+--------------+ <--|--- val --------- |read/write single register|
+
+|+--------------+|||
+
+|| GICR_WAKER|----|--- ioctl ------> |mutex_unlock(&config_lock)|
+
+|+--------------+ <--|--- val --------- |kvm_unlock_all_vcpus()|
+
+|...||mutex_unlock(&kvm->lock)|
+
+|+--------------+|||
+
+|| ICC_SRE_EL1|----|--- ioctl ------> |(repeat lock -> read -> unlock
+
+|+--------------+ <--|--- val --------- |for each register)|
+
+|...|||
+
+||||
+
++--------------------------++------------------------------+
+
+
+AFTER:
+
+QEMU (Userspace)Kernel (Kernelspace)
+
++----------------------------++--------------------------------+
+
+||||
+
+|kvm_arm_gicv3_get()||vgic_v3_batch_access()|
+
+|||        |
+
+|+- Collect Phase ----+|||
+
+||| |||
+
+|| batch_add(GICR_CTLR)| |||
+
+|| batch_add(GICR_STATUSR) |||
+
+|| batch_add(GICR_WAKER)||||
+
+|| batch_add(GICR_IGROUPR0)| ||
+
+|| ...||||
+
+|| batch_add(ICC_SRE_EL1)  |||
+
+|| ...||||
+
+|+---------------------+ |||
+
+||1 ioctl|copy_from_user(entries)|
+
+|+- Commit Phase -----+|||
+
+||| --- ioctl(BATCH)---> |mutex_lock(&kvm->lock)|
+
+||batch_commit()| ||kvm_trylock_all_vcpus()|
+
+|||||mutex_lock(&config_lock)|
+
+||||||
+
+|+---------------------+ ||+-- Process Each Entry --+|
+
+||||||
+
+|+- Unpack Phase -----+|||entry[0]: read GICR_CTLR|  |
+
+||| <---batch result ---||entry[1]: read GICR_STATUSR|
+
+||Write back to QEMU | | ||entry[2]: read GICR_WAKER| |
+
+||state||||...||
+
+||(post-process:| | ||entry[N]: read ICC_SRE | |
+
+||unshuffle, split| | ||| |
+
+||bytes, etc.)| |||* FLAG_LOCKED: skip||
+
+||| | ||locking (already held)|  |
+
+|+---------------------+ ||+-------------------------+ |
+
+|||  |
+
++----------------------------++--------------------------------+
+
+
 
 
