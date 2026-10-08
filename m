@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84F3CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63234CA600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLHGBhvDV8qZHfsFbqepqUNO/3HZNejgQir9vBHeCG0=; b=w83ilrkbixPAc0y01MYOlhk5m9
-	6ihqOgzMK/+kk5vrXvtz7urLnyMOAiM90e3ZGewCr2jZEmbf7sx94d5g6V4SSdXn6h6YpHNwNglKP
-	YgR9cyf6u6H3vnioUv/pb//3TNTHWHgry6Qt8tmrx/vBJJmzi2b1OTKhH4iAKrx/E6zYMqOfO9KRW
-	/yMmSUJzJCtr0Bhr4NxtM2S82OsxfMVfrEpVfn9h1W4owmAbac9gIofqk9iD0ewds7PZbSpUPiqU1
-	L90Rgr1Z8HdjYc97XdrF8WjJTiEoTpW3hTDlf3HCJsowyf36kNaSpyBTZlOW3tMTm9jRetk22cQrm
-	9Yg13ioA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5h4RUDwLl6q6NNkyyXSv+HLvqprnezmOD4oTYZHfjVs=; b=Q5ZGcFwhqzg2Xz
+	P4C7JmRC+Gt9QqIjpKHoigX2uI4ff9+aR+asbwrFjx93JiUBcDqwSMNTf6L7YSfVE+0I4iQIaAibr
+	IDbAgkJWApLJ+ZAHFXzErtE73Q+MVSyU/Iq+/i3w3jniWzIuDYfLp/8lETWtlfkDG5/tKg8WFEyyO
+	zbgbIIuveIBs3qlM0UjdV8mUuMyhxQt+Nmq78dB9GXgpy1Ydw7UtCRcN9huqrmSsyRsYPatQIoEop
+	5ZJwdmivemUDpHmO4zLVeoqFXiyRlaifUbKSCl2XNOul2+7hzcKguOhyPodVKi8VXrrcmWupLSgpt
+	ZpIcIoIHQJw7rtY2RiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiVM-00000003jtI-3HtF;
-	Thu, 08 Oct 2026 07:25:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEiZd-00000003kNM-31vt;
+	Thu, 08 Oct 2026 07:29:53 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiVK-00000003jtC-42Tl
+	id 1xEiZZ-00000003kM4-0aEG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:25:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74E1A401F7;
-	Thu,  8 Oct 2026 07:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADF441F000FF;
-	Thu,  8 Oct 2026 07:25:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791444326;
-	bh=aLHGBhvDV8qZHfsFbqepqUNO/3HZNejgQir9vBHeCG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q7ZHmSIxEFOoAXcgQz5DBH5VsanvHmmKRNfpcwCFoVrn6rpPU/Bf/WR/oIdQ2FwoT
-	 F66OuDSPmmLN4ZhJZ8zfnhd0b0r8bPF4KW8ZU+VJxT8FuFbbHjzp1OBfav6FArpWCi
-	 yssI65aEy7mooJQHzhkDVRYF9KOPdM/UM063jm7sV0VC7i5EixlJkifRsvr9CmtYY0
-	 FZuOkacVN39UKq7YEMmEPHxqY+QgIyhjVLK/oOYiwGr0LzJb4Ajct/h7h0qwuSDee/
-	 JtnyjPt9axmgDoPflJJCH9cXZ0ez5MXoSrqGsWv5LuGgmVw58z+zNRSots9KJSLoy4
-	 9ogywKa0sheDA==
-Date: Thu, 8 Oct 2026 08:25:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Pufan Jin <2254650260@qq.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, andrew@lunn.ch
-Subject: Re: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add ALINX vendor
- prefix
-Message-ID: <20261008-ca435fedee2986fd4ae35087@squawk>
-References: <20261005173308.710986-1-2254650260@qq.com>
- <tencent_0512BDFB22810AB03126E3189320800AF607@qq.com>
- <20261007-92e855de534df44fbf665e4f@squawk>
- <tencent_67DE4800018C924922E62488AF02AF24E405@qq.com>
+	Thu, 08 Oct 2026 07:29:52 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5h4RUDwLl6q6NNkyyXSv+HLvqprnezmOD4oTYZHfjVs=;
+	b=5AJw1kpaY19uBNgU1HPv2tYu+t0ne/hllqei+jqs0d+IN/XkgZ6fVg1HF+3dffPywB61qacDM
+	HNlsE6amyfLO1+CQWp7+sz4OYb3/wJvqXhHLeqsx2uXeCtamXXYUibYg43k96Hpw1yex/ohIf2n
+	MaP9lBvw6ANs85/Ruk9h4gM=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4j0hCZ1mzXz12LHh;
+	Thu,  8 Oct 2026 15:17:46 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id C37B040575;
+	Thu,  8 Oct 2026 15:29:43 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
+ 2026 15:29:42 +0800
+Message-ID: <479c4658-3c29-4a65-8c5b-36aad0bbb568@huawei.com>
+Date: Thu, 8 Oct 2026 15:29:41 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7NoPOEN9tB3HHmhZ"
-Content-Disposition: inline
-In-Reply-To: <tencent_67DE4800018C924922E62488AF02AF24E405@qq.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/21] arm64: Store 'current' in TPIDRRO_EL0 instead of
+ SP_EL0
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260918161407.2300-1-will@kernel.org>
+ <20260918161407.2300-7-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260918161407.2300-7-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_002949_803521_0A98D2B0 
+X-CRM114-Status: GOOD (  30.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,105 +74,221 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---7NoPOEN9tB3HHmhZ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 08, 2026 at 01:36:35AM +0800, Pufan Jin wrote:
->=20
-> On 2026/10/7 18:35, Conor Dooley wrote:
-> > On Tue, Oct 06, 2026 at 01:33:06AM +0800, Pufan Jin wrote:
-> > > Add vendor prefix for ALINX (Shanghai Xin'yi Electronics Technology
-> > > Co., Ltd.).
-> > Where does this ALINX come from? Website url?
-> >=20
-> > > Signed-off-by: Pufan Jin <2254650260@qq.com>
-> > > ---
-> > >   Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> > >   1 file changed, 2 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b=
-/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > index ba2002969..97e7ef340 100644
-> > > --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > @@ -90,6 +90,8 @@ patternProperties:
-> > >       description: AlgolTek, Inc.
-> > >     "^alientek,.*":
-> > >       description: Guangzhou Xingyi Intelligent Technology Co., Ltd.
-> > > +  "^alinx,.*":
-> > > +    description: Shanghai Xin'yi Electronics Technology Co., Ltd. (A=
-LINX)
-> > >     "^allegro,.*":
-> > >       description: Allegro DVT
-> > >     "^allegromicro,.*":
-> > > --=20
-> > > 2.55.0
->=20
-> Hi Conor,
->=20
-> ALINX is the brand of Xinyi Electronic Technology (Shanghai) Co., Ltd.
-> (=E8=8A=AF=E9=A9=BF=E7=94=B5=E5=AD=90=E7=A7=91=E6=8A=80=EF=BC=88=E4=B8=8A=
-=E6=B5=B7=EF=BC=89=E6=9C=89=E9=99=90=E5=85=AC=E5=8F=B8), https://www.alinx.=
-com/ - an FPGA/SoC
-> company and official partner of AMD Xilinx, Unisoc and Baidu.
 
-In that case,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-Link: https://www.alinx.com/
+在 2026/9/19 0:13, Will Deacon 写道:
+> To make SP_EL0 available to point at the per-cpu kernel overflow stack,
+> we must relocate 'current' elsewhere. With TPIDRRO_EL0 now restored late
+> in the return-to-user path, we can otherwise use it to hold 'current'
+> and update the various accessors accordingly.
+> 
+> Move 'current' from SP_EL0 to TPIDRRO_EL0.
+> 
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/assembler.h |  2 +-
+>  arch/arm64/include/asm/current.h   |  6 +++---
+>  arch/arm64/kernel/entry.S          | 20 ++++++++++----------
+>  arch/arm64/kernel/head.S           |  2 +-
+>  arch/arm64/kernel/process.c        |  5 +++--
+>  arch/arm64/mm/proc.S               |  6 +++++-
+>  arch/arm64/net/bpf_jit_comp.c      |  4 ++--
+>  7 files changed, 25 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index 0b58b550e8dc..fd1ae5337935 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -587,7 +587,7 @@ alternative_else_nop_endif
+>   * Return the current task_struct.
+>   */
+>  	.macro	get_current_task, rd
+> -	mrs	\rd, sp_el0
+> +	mrs	\rd, tpidrro_el0
+>  	.endm
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/current.h b/arch/arm64/include/asm/current.h
+> index c92912eaf186..8c7efac05394 100644
+> --- a/arch/arm64/include/asm/current.h
+> +++ b/arch/arm64/include/asm/current.h
+> @@ -14,11 +14,11 @@ struct task_struct;
+>   */
+>  static __always_inline struct task_struct *get_current(void)
+>  {
+> -	unsigned long sp_el0;
+> +	unsigned long tpidrro_el0;
+>  
+> -	asm ("mrs %0, sp_el0" : "=r" (sp_el0));
+> +	asm ("mrs %0, tpidrro_el0" : "=r" (tpidrro_el0));
+>  
+> -	return (struct task_struct *)sp_el0;
+> +	return (struct task_struct *)tpidrro_el0;
+>  }
+>  
+>  #define current get_current()
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index b5d8277f608a..a45be0a837c8 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -81,9 +81,9 @@
+>  	/* Stash the original SP (minus PT_REGS_SIZE) in tpidr_el0. */
+>  	msr	tpidr_el0, x0
+>  
+> -	/* Recover the original x0 value and stash it in tpidrro_el0 */
+> +	/* Recover the original x0 value and stash it in sp_el0 */
+>  	sub	x0, sp, x0
+> -	msr	tpidrro_el0, x0
+> +	msr	sp_el0, x0
+>  
+>  	/* Switch to the overflow stack */
+>  	adr_this_cpu sp, overflow_stack + OVERFLOW_STACK_SIZE, x0
+> @@ -99,7 +99,7 @@
+>  
+>  	/* We were already on the overflow stack. Restore sp/x0 and carry on. */
+>  	sub	sp, sp, x0
+> -	mrs	x0, tpidrro_el0
+> +	mrs	x0, sp_el0
+>  	b	el\el\ht\()_\regsize\()_\label
+>  	.endif
+>  .org .Lventry_start\@ + 128	// Did we overflow the ventry slot?
+> @@ -226,7 +226,7 @@ alternative_cb_end
+>  	clear_gp_regs
+>  	mrs	x21, sp_el0
+>  	ldr_this_cpu	tsk, __entry_task, x20
+> -	msr	sp_el0, tsk
+> +	msr	tpidrro_el0, tsk
+>  
+>  	/*
+>  	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
+> @@ -548,7 +548,7 @@ SYM_CODE_START_LOCAL(__bad_stack)
+>  	 */
+>  
+>  	/* Restore the original x0 value */
+> -	mrs	x0, tpidrro_el0
+> +	mrs	x0, sp_el0
+>  
+>  	/*
+>  	 * Store the original GPRs to the new stack. The orginal SP (minus
+> @@ -843,7 +843,7 @@ SYM_FUNC_START(cpu_switch_to)
+>  	ldp	x29, x9, [x8], #16
+>  	ldr	lr, [x8]
+>  	mov	sp, x9
+> -	msr	sp_el0, x1
+> +	msr	tpidrro_el0, x1
+>  	ptrauth_keys_install_kernel x1, x8, x9, x10
+>  	scs_save x0
+>  	scs_load_current
+> @@ -1031,11 +1031,11 @@ SYM_CODE_START(__sdei_asm_handler)
+>  
+>  	/*
+>  	 * We may have interrupted userspace, or a guest, or exit-from or
+> -	 * return-to either of these. We can't trust sp_el0, restore it.
+> +	 * return-to either of these. We can't trust tpidrro_el0, restore it.
+>  	 */
+> -	mrs	x28, sp_el0
+> +	mrs	x28, tpidrro_el0
+>  	ldr_this_cpu	dst=x0, sym=__entry_task, tmp=x1
+> -	msr	sp_el0, x0
+> +	msr	tpidrro_el0, x0
+>  
+>  	/* If we interrupted the kernel point to the previous stack/frame. */
+>  	and     x0, x3, #0xc
+> @@ -1051,7 +1051,7 @@ SYM_CODE_START(__sdei_asm_handler)
+>  	mov	x1, x19
+>  	bl	__sdei_handler
+>  
+> -	msr	sp_el0, x28
+> +	msr	tpidrro_el0, x28
+>  	/* restore regs >x17 that we clobbered */
+>  	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+>  	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 87a822e5c4ca..c33551ee6572 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -193,7 +193,7 @@ SYM_CODE_END(preserve_boot_args)
+>  	 * for consistency with user tasks and kthreads.
+>  	 */
+>  	.macro	init_cpu_task tsk, tmp1, tmp2
+> -	msr	sp_el0, \tsk
+> +	msr	tpidrro_el0, \tsk
+>  
+>  	ldr	\tmp1, [\tsk, #TSK_STACK]
+>  	add	sp, \tmp1, #THREAD_SIZE
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index bfdc12166895..79a19be88ced 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -551,8 +551,9 @@ static void ssbs_thread_switch(struct task_struct *next)
+>  }
+>  
+>  /*
+> - * We store our current task in sp_el0, which is clobbered by userspace. Keep a
+> - * shadow copy so that we can restore this upon entry from userspace.
+> + * We store our current task in tpidrro_el0, which is clobbered when returning
+> + * to userspace. Keep a shadow copy so that we can restore this upon entry from
+> + * userspace.
+>   *
+>   * This is *only* for exception entry from EL0, and is not valid until we
+>   * __switch_to() a user task.
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index 12aacc74f764..ad4965d34978 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -129,6 +129,10 @@ SYM_FUNC_START(cpu_do_resume)
+>  	ldp	x9, x10, [x0, #48]
+>  	ldp	x11, x12, [x0, #64]
+>  	ldp	x13, x14, [x0, #80]
+> +
+> +	/* Move 'current' somewhere safe */
+> +	mov	x15, x3
+> +
+>  	/*
+>  	 * Restore x18, as it may be used as a platform register, and clear
+>  	 * the buffer to minimize the risk of exposure when used for shadow
+> @@ -176,7 +180,7 @@ alternative_if ARM64_HAS_GIC_PRIO_MASKING
+>  alternative_else_nop_endif
+>  #endif
+>  
+> -	ptrauth_keys_install_kernel_nosync x14, x1, x2, x3
+> +	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
+>  	isb
+>  	ret
+>  SYM_FUNC_END(cpu_do_resume)
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index c18e005a41db..51d853b92443 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -1694,7 +1694,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+>  		if (insn->src_reg == 0 && insn->imm == BPF_FUNC_get_smp_processor_id) {
+>  			cpu_offset = offsetof(struct thread_info, cpu);
+>  
+> -			emit(A64_MRS_SP_EL0(tmp), ctx);
+> +			emit(A64_MRS_TPIDRRO_EL0(tmp), ctx);
+>  			if (is_lsi_offset(cpu_offset, 2)) {
+>  				emit(A64_LDR32I(r0, tmp, cpu_offset), ctx);
+>  			} else {
+> @@ -1707,7 +1707,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+>  		/* Implement helper call to bpf_get_current_task/_btf() inline */
+>  		if (insn->src_reg == 0 && (insn->imm == BPF_FUNC_get_current_task ||
+>  					   insn->imm == BPF_FUNC_get_current_task_btf)) {
+> -			emit(A64_MRS_SP_EL0(r0), ctx);
+> +			emit(A64_MRS_TPIDRRO_EL0(r0), ctx);
 
-Thanks,
-Conor.
+Since A64_MRS_SP_EL0 is no longer used after this, can it be removed?
 
->=20
-> The board is not in the alinx.com shop because ALINX describes EdgeBoard
-> as a customisation done for Baidu: Baidu owns the EdgeBoard brand and the
-> sales channel, while ALINX designs and manufactures the hardware. From
-> ALINX's own product documentation [1]:
->=20
-> "...as a Baidu AI partner, it has customized the Edgeboard series edge
-> =C2=A0devices of the domestic AI flying paddle system for Baidu."
->=20
-> The FZ3A hardware manual and the schematics are authored by ALINX - the
-> manual cover carries the ALINX logo, www.alinx.com and the legal name
-> above, and every schematic sheet has the same ALINX title block.
->=20
-> Since ALINX is the hardware designer, I used "alinx" as the prefix
-> instead of "baidu". Happy to switch if you prefer the marketing brand.
->=20
-> [1] https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument=
-_EN/00_aboutALINX_EN.html
->=20
-> For v3:
-> =C2=A0 - Fix the v2 description mistransliteration of the legal name:
-> =C2=A0 =C2=A0 =C2=A0 "^alinx,.*":
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 description: Xinyi Electronic Technology (Sha=
-nghai) Co., Ltd.
-> (ALINX)
-> =C2=A0 - Put the website URL in the commit message.
->=20
-> Thanks for the ack on patch 2/3, I will carry it into v3.
->=20
-> Best regards,
-> Pufan Jin
->=20
->=20
+>  			break;
+>  		}
+>  
 
---7NoPOEN9tB3HHmhZ
-Content-Type: application/pgp-signature; name=signature.asc
+-- 
+Best regards,
+Jinjie
 
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasdFYgAKCRB4tDGHoIJi
-0lxeAQCLYZVyUowY42l+9LTBvHVoIUXZ+KnaWz+tHxxqNQxBOgEAoMvdJwCLWqgC
-QFh0byuhggVNSNWwcj0pVi5+LoWXfgI=
-=pEKw
------END PGP SIGNATURE-----
-
---7NoPOEN9tB3HHmhZ--
 
