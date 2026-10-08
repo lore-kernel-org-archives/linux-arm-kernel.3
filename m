@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5799ACA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1C9CA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHpzv6iAx3FY+i4Ey0PY1RHcS/I7ApyfzhqLqWfAGOY=; b=cLOnBBpmZz6L7GgY+QkYmEBztJ
-	SeoBrSOvL2u1bixG/NjpXQ/XzRmstbD9wJY+Sc++iflbXpceTokVErYi/BJMYT0I+l6U8zOZlmaMj
-	2Vv/yaDdC+gnV+QL5f0s1nJGjCdQbIBv+N++EpjKdy1wUNhfaiBWrk8uFATHu0uD5aEaZPBFYJI5i
-	chWVJUkS3NsS9xJYlHdGsjRA4ITuTbEp1aJWabxsRC2tKMRjD5IGsajaJh5daQO7qr1l3IHeAiTo9
-	D2L5NcKQUHaMgckve4rWoz/5TtQpK/+8l6rKCUl04QOzKc/LZ1MueX7MqoG7irq1/TXrZEpHX5Xp6
-	FrGj8r7Q==;
+	bh=FWzAyf83sJMqlpcdExg7TKJ622UXmHtaI+HggcOSlVw=; b=VbVOodfQ83p2z+BMebsMiHluyx
+	XXGAVLJt2HKXfrjhXjZbEaCnFr/40q6S9Wbh8gk5HD0rMrMXXp3R5CKS2aM6tJRB88LMhdz6KQH/a
+	zwchNIYUyGVcMg53WnWV8dfrLcyzb/fgkkl20ZvAxyivOtD4uy99wD3AqBPWPPB1zt9lzHbSopfj6
+	LjcMMx1RjGwp+OZChzAChdevINa8U3yVW/6/f0JU5HOdqOr8EX+l5rkD4pKcrzyX3iPKshTc6tgyo
+	5DIwNf7KkEgsRaV2GGQ/dWQbmdJgoawVbMGpCgktqwdZSuBttzoK+uMZaIe1+PRq1r8RDJnlDx4CL
+	aiKbisww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEpnC-00000004aeB-2zLD;
-	Thu, 08 Oct 2026 15:12:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xEptw-00000004b02-2WIa;
+	Thu, 08 Oct 2026 15:19:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEpn9-00000004adF-30Vk;
-	Thu, 08 Oct 2026 15:12:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=vHpzv6iAx3FY+i4Ey0PY1RHcS/I7ApyfzhqLqWfAGOY=; b=Ch6IyZgKlEU0gTStzX8o3mvkYX
-	ZnFzoheKscaDqzQ0XsbGFK8M0tbsMJbzj1AWxBVYyt+APc+k60NaUiklWo186+ETVUXpcdBrDFSGg
-	yY3NpoVhuagYGmZIt9AZMnfBMevJXT/g5bn+a1j919jX/Uaa2twRkYpf7QVqALfOIcyh3RQ7M5OqT
-	fVjzWC5hn+X/fbhvNlb+dPWUL4NnF+omS4K1vl62NG0gzEeqJMEU/1M0iR23KPyeCXayHT2EqvTaz
-	9wQ4F9mvEVFUJnBiKaoQNpZSsE/GC8uOF9PKWlS6T6hFO0xxsVH+w6+MHOEeonOPKrhUN1xatIvvv
-	tma/MDcw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1xEptv-00000004azw-2llF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 15:19:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CFC141A6E;
+	Thu,  8 Oct 2026 15:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 630CB1F000FF;
+	Thu,  8 Oct 2026 15:19:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791472758;
+	bh=FWzAyf83sJMqlpcdExg7TKJ622UXmHtaI+HggcOSlVw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=VaSSgG/e1OFEOZeoSjyLzNDhrgxw/efV48ECagVYuF+B+AwcGwD/iOuhbngCe8xKs
+	 RbCzaFH3yZc1hT6N9KR9NOkQiGJR1VOfRLsGic46eV6Q5OPgrw0ZdqqBwXZHFX1SAU
+	 5pL8i42Dv/GJ1sRFL4tHw50cXg3tLdwm+XwQVmUs8ITyUg0AI2UGOA++UEv0u0yQxG
+	 oGaIpg4cn+xAnLJnB6llSH+YRYICMZMdB7L+/Wsw7vP76zgC8MgnolanOyEjhM18nV
+	 flGH8PsR3kZYSYbLJhfq1BK8SIsDpcPpz4K+H3/S1zUx7enXkG00FEDnEHM0r7A9Ap
+	 JZ5oqB8EPzbiQ==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>
+Cc: mark.rutland@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	kasan-dev@googlegroups.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: fix adc button voltage on Radxa E52C
-Date: Thu,  8 Oct 2026 17:12:02 +0200
-Message-ID: <179147232048.3420474.12269525015262029428.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: irq: exclude the softirq stack switch from KCOV
+Date: Thu,  8 Oct 2026 16:19:10 +0100
+Message-ID: <179136595191.1063015.6426776896396499376.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260808100000.1518466-1-amadeus@jmu.edu.cn>
-References: <20260808100000.1518466-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260926191325.79047-1-kmehltretter@gmail.com>
+References: <20260926191325.79047-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_081219_942437_2895E951 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 08 Aug 2026 18:00:00 +0800, Chukun Pan wrote:
-> The ADC button voltage should be around 1.8 V, not 18 mV.
+On Sat, 26 Sep 2026 21:13:25 +0200, Karl Mehltretter wrote:
+> On IRQ exit, __irq_exit_rcu() drops HARDIRQ_OFFSET before calling
+> invoke_softirq(). The arm64 do_softirq_own_stack() wrapper and its
+> ____do_softirq() trampoline run before __do_softirq() establishes
+> softirq context, so KCOV records their PCs in the interrupted task's
+> coverage buffer. They also run outside softirq accounting when
+> local_bh_enable() reaches do_softirq().
 > 
-> 
+> [...]
 
-Applied, thanks!
+Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: dts: rockchip: fix adc button voltage on Radxa E52C
-      commit: 682baba589548b8f8df05e0a330b2ad2b8ada3e3
+[1/1] arm64: irq: exclude the softirq stack switch from KCOV
+      https://git.kernel.org/arm64/c/a9cd14bfb0c1
 
-Best regards,
+Cheers,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
