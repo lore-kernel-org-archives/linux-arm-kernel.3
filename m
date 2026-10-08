@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE53CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34740CA600D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3eh+eqPsqcE5YvVl5FSV9uki97nCFfIXkAkKL28Dxc=; b=GyBk2M/BDUns7SdKLaIOdy570i
-	heT7I1VGTGnWVaWdsoQbfdgtTpdnVgRSGI9jlGRsZX2m3EmmF/osIZdfpDrIXd0moBMp6R2UEngnp
-	hkxyNPMP1g30OK9OPu5CBUo//5kRhiOHD1CvPYJ4x3o7onzI12s86j/BThluA6XrQ1DhRp+05U6bi
-	ZM71Cglx9fC8w6VdcnONnVYCPMJUtThzULNLOgkXy5eGf6DZSh7xOGTsGwqJrV/DU93pxr3pIKAlz
-	jgf06X6ocXb/1WumPJVKbQfKmovzbvw41xvsdmRDnGTku99/3au/xPEJw3xUyEhH4tZFdZCWarUOF
-	MoocB4EQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3B0mHhf+tucMipCoCNuU/qvaCcnXfH+FNicCEU1fu9I=; b=YTZCVc/FU9NwxEL8BhVivXAx4u
+	zQTzFTOeaZgXfESV+6+VOVljKJgj0OP29GAEV964XRUgv7MP77RSPTZS35YOY65lmAFXBKGIKfkM0
+	F18u0XirbkJ1TPK06EV4iASz/HER5aYHYX7vWxRRG692ATx+qaO0oVwSyYnNehsXc9+D9vagkcBev
+	9HFwoX5mgBCxsnIoSvxhyB+PYld0xFACIyiZn8sO0II7F7crENbpf4r1rJqzUcmmvcoUJ7g7HmSPA
+	oqOxmcEtbb4gq9MOM5CM4+4xCy9sFPQVdKvg0AyY6TWKgxy+CSiy8dKiLF4dqbRakvL3WR9greprO
+	rVt0zBBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEph3-00000004aME-1cCX;
-	Thu, 08 Oct 2026 15:06:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEpnC-00000004adx-2WFg;
+	Thu, 08 Oct 2026 15:12:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEph2-00000004aM8-2pbF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 15:06:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E7B340250
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 15:05:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821B31F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Oct 2026 15:05:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791471959;
-	bh=M3eh+eqPsqcE5YvVl5FSV9uki97nCFfIXkAkKL28Dxc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=JZye8FHsMGO+Vhak768IyEeJ7EKz1SQUH8yovlQE0RC+CJfM6kyzx7gtXKzSUDJtT
-	 lw2phsBV2qzm/emoM9GUXUs1ZAz47wNKvWCR2GPMGq4q5G1j7j+UakCqBZp99h0gNk
-	 Ta6y2LRBQCiAoWgMqMl5iCXq3ajFAEhyuxLRkLtpeYqaK4gYaLaaGEcr399vTsDbl8
-	 O9n9wvIoLO2y6U7CA5G5enfSsELTRPH/H3wVyeDgK9UMyLU2WK6jGLe0auIXpE09PM
-	 lctSvIo87BT3yzTrAzGAfD6rKrK3J3LQI8OX7NX7UaWwdncf50p2bDlEO8oR8pwO5G
-	 vgWtxHHI6waVQ==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3a9787a156eso23887331fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 08:05:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByjx9Ujd4uYxw7azrfturndEe4WbGKhqpi1ukQUmbhEvQqhXnvKPoCaPjaxM7XxVbi8wYQFaAs8YarjAZ6ajt46@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ3JtxhFuc1am7FD3qs78YGPeiurbxJWPNEayOnU0X3uuKy10dO
-	U0caZp82xIYEZaG82ptzYD4qncfCuKDpqPGV8gwQ/ujkffWxAUBQ6pZ2etshnnJ/nCog0jcRZjc
-	Mw9pqFYfNCdHzSudVk9x6fCkeWcui+++oeYNJ+YPQnQ==
-X-Received: by 2002:a2e:b8c9:0:b0:3a6:95a:52a6 with SMTP id
- 38308e7fff4ca-3a9a2d0dc0cmr14079951fa.20.1791471958269; Thu, 08 Oct 2026
- 08:05:58 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 8 Oct 2026 17:05:56 +0200
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 8 Oct 2026 17:05:56 +0200
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAD++jLkPeEQN07Qk9RrmxkRf5EbMmnuwdq2yBFccwM_QpvjsLw@mail.gmail.com>
+	id 1xEpn9-00000004adG-3112;
+	Thu, 08 Oct 2026 15:12:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=3B0mHhf+tucMipCoCNuU/qvaCcnXfH+FNicCEU1fu9I=; b=ht6FEC96ux3DhnPn+54IleZF35
+	q5tWEsykFh52f4T4XIXpbFttQUGTX/GDw94gNpEFvly/t8iL2Jrqfv7gzUW4YFMLdRVYvBxA3Uq/v
+	gVuPy0lV1sBKZqhjkJanmkgVbIilQefu3SixoA4fGOjPyG4jQ/3jcbscgsbjdp6UhGXo0luIOkW58
+	2roBm0QRP13NwEsP/zbF75REF5I+Iq8+45Z/99IPTvh1Qkl1V3XE6s9M+SNMWGLCtWgbOoDMeilBa
+	RYIFpLOfGFMpncpMiviECCwZbpB7Fuh7Y26w0LEeAB61r5i3cyRvGmo4gAe1KEHC7n+o+voBRpQhX
+	GmkxAvXg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: enable NPU on Radxa E52C
+Date: Thu,  8 Oct 2026 17:12:03 +0200
+Message-ID: <179147232047.3420474.6626937665444807668.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260816100000.3707339-1-amadeus@jmu.edu.cn>
+References: <20260816100000.3707339-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-References: <20260929-kuno-soc-support-v7-0-530f62dc4020@oss.qualcomm.com>
- <5555b1ee-1355-429f-b3de-f0926e4c30d6@oss.qualcomm.com> <CAD++jLkPeEQN07Qk9RrmxkRf5EbMmnuwdq2yBFccwM_QpvjsLw@mail.gmail.com>
-Date: Thu, 8 Oct 2026 17:05:56 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdTYic6qG+gnnOExXWhfgbjygi-hR0Rr-FKVAhBkw1C8w@mail.gmail.com>
-X-Gm-Features: AclHuK_vfKWdSTRB1YkJ3uHKdqAfTiQySmCCqB7eRtdQW3xirznTZ4Z9gYURvgY
-Message-ID: <CAMRc=MdTYic6qG+gnnOExXWhfgbjygi-hR0Rr-FKVAhBkw1C8w@mail.gmail.com>
-Subject: Re: [PATCH v7 0/2] Add initial support for Qualcomm Kuno SoC
-To: Linus Walleij <linusw@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>, 
-	Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>, Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_081219_942708_AF2ED865 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,30 +72,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 Oct 2026 15:11:31 +0200, Linus Walleij <linusw@kernel.org> said:
-> On Thu, Oct 8, 2026 at 5:12=E2=80=AFAM Hardeep Sharma
-> <hardeep.sharma@oss.qualcomm.com> wrote:
->
->> Hello All,
->>
->> Both of the following patches are ready to be picked:
->>
->> [PATCH v7 1/2] dt-bindings: soc: qcom,geni-se: Allow 1 or 2 address and
->> size cells
->> [PATCH v7 2/2] ARM: dts: qcom: Add initial device tree for Kuno SoC
->>
->> Could you please pick them ?
->
-> Missing from the To: header of your mail: Bartosz, who actually maintains
-> Qualcomm pin control.
->
-> This is likely why it has not been picked.
->
 
-Devicetree sources are Bjorn's territory. DT bindings should have probably
-been sent separately though. In any case, we're at rc6 now, so that ship ha=
-s
-sailed. Please resend after v7.4-rc1 is tagged.
+On Sun, 16 Aug 2026 18:00:00 +0800, Chukun Pan wrote:
+> Like the RK3588, the RK3582 has NPUs. Enable the NPU cores and their
+> MMUs, and connect the regulators. Remove always-on and boot-on from
+> the regulator because it is connected to the NPU power domain.
+> 
+> 
 
-Bartosz
+Applied, thanks!
+
+[1/1] arm64: dts: rockchip: enable NPU on Radxa E52C
+      commit: f204f28bd1fa9b4cf3e47488ba3ba25251aba18a
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
