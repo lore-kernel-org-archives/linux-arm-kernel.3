@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DCECA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 19:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B84CA600D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 19:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUKnHWhbwjMVr4mKYh743dRcYI9pzvORcI6HHWVVZSU=; b=1nuRaVG8aeNjq34fTCYp84TJrI
-	dXhKD2C8WSf8fpb8aGTGc2YRJ1RFi3bRuQfuEVMLWonDGGWo5qLDU4ZFSaMheUOlqLC0hmlwolnwt
-	q+fnFd0TjH4MizcAlViFHbL7Z6p4ETKlpgdqukwWm+8mgDaImc1MMFYxxqKBmQKI1JePf5J/FzVZ8
-	e3hAZhdSpfW04ZKQXYpfHI4eXCrUtmUfgyz1JfUJca0nQeDQ0nx1TfOW0ycsDK4d9a9XBsgBSP+4R
-	oIF9Wwly03gqFyK0Aw03ZBj1jHNA3QFEU0/XuwuPIT53/OW17iaLZ/qVqZBOlwIeARWsm0ctelgh/
-	4DxfEc4Q==;
+	bh=1ne6jQNHZSute3MOl6uhvR02t4ZAiYz3hjPWK7wQg7Q=; b=MYhBJEa1Y8lL4+vIfHt8bxit0/
+	lj96jbpTodSvjrk+ga1zzp1GpudBOE2cWYZgplQUr4pSdA+Hm90dGyDrhUKU6koVOhXuIWQfFK42t
+	MrbZ5ofdCemooFyX2qo0Q0cKi1BoS4T5jBMoSpoV3XjQi4JVz2WmVU7mM0hWNZpOeQdX5sgLY+o80
+	LwXe2joDn3a+56TFEw7v4oPFk8WrrJRfHJBjOaPj93/Z2PJbtjUyneOx7h5d2J4Sz6N8TS6wpk+0n
+	af8Rtzj+avdjI/4HztzFjpWOzlnnFY9Lm6br9GtKmWsArmI/9K/rzedxQtSiyICJZwiRLhnFohOwe
+	GcaFOFyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtyc-00000004wWz-1KzR;
+	id 1xEtyc-00000004wWc-0Osc;
 	Thu, 08 Oct 2026 19:40:26 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEtyZ-00000004wUM-2hzn
+	id 1xEtyW-00000004wT0-0TVO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 19:40:24 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49ff680331aso62241835e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:23 -0700 (PDT)
+	Thu, 08 Oct 2026 19:40:21 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a1635f7c89so58799405e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 12:40:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791488422; x=1792093222; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791488418; x=1792093218; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aUKnHWhbwjMVr4mKYh743dRcYI9pzvORcI6HHWVVZSU=;
-        b=XkwYgOuGP4XYj2VOnStn0v1k3FUv1H3G1D6gg37+QfTwP4zJzJwNYUizzWjdvGM6Mn
-         RkevOY0SXeh/ESTDcTnYwaPvL8ZEXvu5DcrIzFrE/ZPXeu9U+8FeIZulgWLO3kSJA+Cg
-         KosF/Q2TIDlElP5C6Ka0kXB6zZUjNZQzWykjpaxhhVRVstpFAYfK3DW/LG4wo+IdS9e3
-         5qxrjcuw7gqpSzYu7ro7oJaftINgI1kUSb23q9th8HQvQuCDvR7XQfqFsHJmqNRsF24h
-         FmgOgzSncNohxbJ0jM2Gz3wAE/JdyI5qyUijhew2qzDB6XjpJcik4hyLXZEJNVLcBbix
-         7ZTg==
+        bh=1ne6jQNHZSute3MOl6uhvR02t4ZAiYz3hjPWK7wQg7Q=;
+        b=VYAENyaQkUe+3KSYjUU5ay4jrw8mXJ2UAN6YallyZeEY/ttkyBBnSzhnw8wZUCRo8u
+         rPz/kRSjiuBMWiYzUMEkSrviz7IxMDRYxWZU+frHvJhi86CH2aynRr6ZUWs9zjvs9Kjh
+         w1i8wZwGU2ZxePQBe9LRSu6BlRPKhfMC/K3ozeXUjwiePzIPeDMNn9kI4g4pX/9SwGB0
+         3455s+TCJWEI9Rb/nC9z7D0XB/z8t29X1yjr0WHXtT3n/f5tQxhvy0lTPcZT774cvD9l
+         JchNORT2jHBWPnJDKzNkomcadZvjrhWtTqV1kKpVtT7GE2TBM5l930m7mVBl6JUpkwgE
+         tbkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791488422; x=1792093222;
+        d=1e100.net; s=20260707; t=1791488418; x=1792093218;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aUKnHWhbwjMVr4mKYh743dRcYI9pzvORcI6HHWVVZSU=;
-        b=QEnCIcaA3azjl36Qo+jYlt5TuRN7hQ+edu3VlzCu2wXUNaOfeSyiw2xjGw3aDwYBos
-         L4RPUbkpTpfsI3y5pKOQwiplCs2+zxCcE5P03KjWjRraEjGyCamIvdIzIuDc+1U0bFZH
-         5+4JEyxVgnxsC7emHTgaJQlUBpjaEgDlpD8WeSvrIZZn7eboNUdtxr2PPk+ampfx+ovP
-         VBm6cdd8PuDJroCi1cB6FkuWPatnR8xGnu9g8zZ1kY3YR5EeYN9VfQuKy3WyrKRvbhHD
-         X39/ZTno2TARSk88iAlTQq87L4pWWdox98ie0hYmSSJVxJiJl1JCGqk0wlii+awcQcWK
-         YYdg==
-X-Forwarded-Encrypted: i=1; AKwUvBz+qWdzzE+luYBGukPqBG/Y4MbFltEPvJPGj6W/bzWuf8OiGwnZ1Of3w7moJzI4yGLnH0Xt0gpeiTfAHg639rT6@lists.infradead.org
-X-Gm-Message-State: AFuF++mMfB+RwuThqlecm/RB1+lDdklruNAESTzs6hEda11R+7ojbPwF
-	Ort4LpEvxhSRe3D9DG0FQ0WwHFU9HfUegBlWOn1QYU4vzNQidf4bqIf5
-X-Gm-Gg: AYBFou3xuJq/12E7tVpa/lgIto79kfZudHbzvsTx5aKhBzys3Lbke82vX8IaW/gBMNC
-	EB193paGR3b1sce0S4SONm5bdM5No76N3OU0RzhRi5avR0bGDjZrrTybev+nHGarl/fwsCw/2tP
-	J39gJfxPZGBGjJJNOmD9Uaj2Y6uHUzsfBa5gjxPITIHDesAP5eSqiCmAZK5uTz376Ep0X4kYEp/
-	2kU57L6nHZBDfk0YFyCUyG6NX2hSLuXqneI9ljsVcUWtoHRl5T1pzcdH985IZNJGJMKEQZd3D2O
-	0w28YiRwtJJV5LBkjA0BoMtsuCa0p09XIgRDF4pe3I9SefxBirg0ULVCfOQPAevEcDmDbalQaFZ
-	8RxTb/IzbimrO+ERHzJOXb9KL4xqNlzMjPdBvRYO+YoHoiBh+RzgWUXna0Q+kgnMgHxyZVxFYlm
-	8zCOyIogCHogyrwbsuVugVP/XAmJYVS15OBQ2kDHvhYksOYM2qkE39OXDAI/JV9BnvOXtSvTUV4
-	P8BZkEtnJFloaiTgXMKtBavVnmbJ5m02Qe7OV/igO9/O8w+maXeg6cr9iEgs4XVNKhnD6vD/7QY
-	jEbIFUfvOsaHGl4vekzaKQ==
-X-Received: by 2002:a05:600c:5252:b0:4a0:4a8:d444 with SMTP id 5b1f17b1804b1-4a1806878c3mr107026915e9.33.1791488421519;
-        Thu, 08 Oct 2026 12:40:21 -0700 (PDT)
+        bh=1ne6jQNHZSute3MOl6uhvR02t4ZAiYz3hjPWK7wQg7Q=;
+        b=xkAQBVBeTkhC8lRymEEq+Rcj96b7LP7Jh0Kkzn6S8HzXWf9cVpg/87Rx6pqSQ4RYr9
+         8KcZSNeBoi/WSjsJRWNlf2t60UjvdvkPOv4uHpcf3P4DKW5+/EqI0VvtS+TSIOjQ0MHo
+         LivMiMPO58cm8rZMRGeYJv3C7I2xItlX47xIuD+iY/wL48N5qxyY7eIo1/KCpSJIQewb
+         C3qH5HCFipo3mM+K3d/JU+vIw+0Zg6b9iWtCRpfcVixrSDw8JtKsMsDCpA/s6FRsHerm
+         bsL1mebrh9qyIeXJ6koJAmprt6Qp4NCjHP/XvmJfvgnO1c8R3H4KV4ZcLstpr8PqN7X/
+         h49g==
+X-Forwarded-Encrypted: i=1; AKwUvBwFEKSsjlHOE1gsS6Dr6IihV48IUmqbEs4fkSYbLuQNxFUT9JiR5/6Azg80q9oroq6eCtKUhg1cweermPcVPXsT@lists.infradead.org
+X-Gm-Message-State: AFuF++lADgjwnuyEt2esPxvqTvZWt/U9AUP6npZEtYS7dOLzndwMabZJ
+	m0TNFVu3/7+RydJf/Hm01qZ2P58BiB0ur8H2njn8VzToMCBB4zQ0RFl1
+X-Gm-Gg: AYBFou3dOt2fQm+rjTTsWkZhzsEMWMbo2Ig7KDpsPtcY3HLH1DHwpoMVPa19VGUlPvB
+	/V9kCAxO27uoXfi9GZsV9wagmCuYrnYXZvz56MrzDFp8KkcrEPe4VRTungoUic8aUVrFkZlO2YQ
+	DhY2VGiePlQOpvracZAtM/uLgCCygh0T3PVpI7lBtk7ZiDHuVbZJWbqa1aGovVFW7UQvnOIG4Ip
+	0VB0W28o5M+oLcDpoiu8m6srjPHDDq6NYJbaallweB4D6yHh2kTbfXaf+toBErbDWWjfjZ72AqI
+	nAAEXYdRQvldCWXKh5mU94l/Kl2k+hCRJMVO4zo2/WcR2zAq4utCZfjVgHgoYg8DoVB1+oAwJz/
+	bPju6pbSilBk1Y/jC0b62uiWq3+oEBjBnoLb5XJ97MoUdtNG5WHzN3/oLEpdh5Qps6YigQJzYSr
+	YJOJZPICp2X9l4sCHra9UVzqdHIyzkf+4vkrEpmphN9p+EJ5z1PVtHVNM9wD+VyfI6+1AIgga44
+	tCrIXN4IwnooRbV7QGr1HgXO0gRLF0/CQ6EMmnCaAuDejPvkZW4TMU+938SV9KpXClkJjd5cw5z
+	qTyZ5DpyivKoBP15SiUROQ==
+X-Received: by 2002:a05:600c:5391:b0:49f:cbf1:e77b with SMTP id 5b1f17b1804b1-4a1802eab67mr140228155e9.10.1791488417829;
+        Thu, 08 Oct 2026 12:40:17 -0700 (PDT)
 Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm1419065e9.0.2026.10.08.12.40.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 12:40:21 -0700 (PDT)
+        Thu, 08 Oct 2026 12:40:17 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -103,18 +103,19 @@ Cc: pierluigi.p@variscite.com,
 	Maud Spierings <maudspierings@gocontroll.com>,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
 	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v5 04/13] net: phy: micrel: Check RMII clock select property presence
-Date: Thu,  8 Oct 2026 21:37:44 +0200
-Message-ID: <6271eea14eb6ef93031921cedc12d87cf5e25595.1791487179.git.stefano.r@variscite.com>
+	netdev@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v5 02/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULL board variants
+Date: Thu,  8 Oct 2026 21:37:42 +0200
+Message-ID: <e5f0dc2bdf5574c907c0efdc8b5b9974a32e2cbf.1791487179.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1791487179.git.stefano.r@variscite.com>
 References: <cover.1791487179.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_124023_723120_C4A9964C 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20261008_124020_184195_6C3B57CF 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,40 +132,81 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The micrel,rmii-reference-clock-select-25-mhz property is tested
-for presence, but of_property_read_bool() warns when the property
-has a value. Encoding it as <1> to satisfy the DT schema unit check
-would therefore produce a warning at PHY probe.
+Document new VAR-SOM-6UL configurations on the already supported
+Concerto carrier while retaining its legacy compatible. Add
+VAR-SOM-6UL variants on Symphony and DART-6UL variants on
+VAR-6ULCustomBoard.
 
-Use of_property_present() for the presence test. It accepts both
-existing empty properties and the new numeric form without changing
-the RMII clock selection.
+The new compatibles identify the SoM storage, wireless and audio
+options followed by the carrier, module and SoC compatibles.
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v4->v5:
- - No changes.
+ - Collect Krzysztof Kozlowski's Reviewed-by; no binding changes.
 
-v2->v3:
- - New patch: use of_property_present() for the RMII clock select
-   property so its numeric form does not warn during PHY probe.
+v3->v4:
+ - Split the board binding by SoC, extend the existing VAR-SOM-6UL
+   entry with new Concerto and Symphony variants, and add DART-6UL.
+ - Drop the redundant -board suffix from the new carrier compatibles
+   and use sorted items/enum lists.
 
- drivers/net/phy/micrel.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../devicetree/bindings/arm/fsl.yaml          | 39 ++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/phy/micrel.c b/drivers/net/phy/micrel.c
-index ae830781824b..acb481a29c25 100644
---- a/drivers/net/phy/micrel.c
-+++ b/drivers/net/phy/micrel.c
-@@ -2791,7 +2791,7 @@ static int kszphy_probe(struct phy_device *phydev)
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index f044f6fce51f..ca6778b8777f 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -835,9 +835,46 @@ properties:
+           - const: phytec,imx6ull-pcl063        # PHYTEC phyCORE-i.MX 6ULL
+           - const: fsl,imx6ull
  
- 		if (type)
- 			priv->rmii_ref_clk_sel = type->has_rmii_ref_clk_sel;
--		rmii_ref_clk_sel_25_mhz = of_property_read_bool(np,
-+		rmii_ref_clk_sel_25_mhz = of_property_present(np,
- 				"micrel,rmii-reference-clock-select-25-mhz");
++      - description: i.MX6ULL Variscite DART-6UL board variants
++        items:
++          - enum:
++              - variscite,dart-6ul-imx6ull-emmc-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-iw61x-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-iw61x-6ulcustomboard
++          - const: variscite,dart-6ul-imx6ull
++          - const: fsl,imx6ull
++
+       - description: i.MX6ULL Variscite VAR-SOM-6UL Boards
+         items:
+-          - const: variscite,mx6ullconcerto  # Variscite VAR-SOM-6UL dev kit board
++          - enum:
++              - variscite,mx6ullconcerto  # Variscite VAR-SOM-6UL dev kit board
++              - variscite,var-som-imx6ull-emmc-sd-card-concerto
++              - variscite,var-som-imx6ull-emmc-sd-card-symphony
++              - variscite,var-som-imx6ull-emmc-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ull-emmc-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-iw61x-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-iw61x-symphony
++              - variscite,var-som-imx6ull-nand-sd-card-concerto
++              - variscite,var-som-imx6ull-nand-sd-card-symphony
++              - variscite,var-som-imx6ull-nand-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ull-nand-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ull-nand-wifi-brcm-concerto
++              - variscite,var-som-imx6ull-nand-wifi-brcm-symphony
++              - variscite,var-som-imx6ull-nand-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ull-nand-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ull-nand-wifi-iw61x-concerto
++              - variscite,var-som-imx6ull-nand-wifi-iw61x-symphony
+           - const: variscite,var-som-imx6ull # Variscite VAR-SOM-6UL SoM (6ULL variant)
+           - const: fsl,imx6ull
  
- 		if (rate > 24500000 && rate < 25500000) {
 -- 
 2.47.3
 
