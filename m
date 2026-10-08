@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E09DCA600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A6ECA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 15:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=; b=B3li/9McPFzq6+P6lQhD0/7+6q
-	AF8NnpBX5KOE3f+pTcVxLum0EOJmIh3hAOK/kfIWKvS8pndDV/rRtUrhdL9KMjFCFsujDKjQOuIHJ
-	Jy/llx8K1l+HlNc/pW21d3PBKkX0Qgegyr4hFsDWSjPzBrYSnCjlM3lRhtzRMWb0+wKfd6qT2hG/m
-	1Bgz+OA8rt7JO7HfoUbZBk2ZgOEw5dbhjvrYETrcjhndj3i64OuOqouruGyY6S7U40u3ndZEtKV23
-	9zCYvKfNZ7983CECVE7gyxgDR5m0KFv2ICzUNN0k/bZsHc7RxFf58RCAEOM3xxgIWPGiXGUYZ4J02
-	Q7mvcfyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZJYDfNAj0KDl7mxejEI6hnmQ6v31S1CH9lSfUhIOadA=; b=RMNfjIG5M0FJztr/jItDG0a0hG
+	/q/bHEEl1O9IM5TbaxrCXjl4/HAXx+Ruwmj6simm1CFCqEIuWe6+6P1tv7R1b15gR4G0qpFlpQmij
+	2R09oz5StCTc7LEejrzILew0d/abmY0zA+YMFEGn6eZGCW5EL5k/FnGVTrshCSvo552OgXYu0ddZk
+	I7+qKaCEk+1Oh+owazSmyeWFnsf7V/K40oQfrTcb+lcKLeqqomUuqJZULS4dVYGSBVnMZH9zYJpQR
+	I6tZCj/p65vsGlyQ4XJf3dMldZFdl3cuCzyGDjEbLKIh6JfdsKBVYAxnqo6LDswt4w79x3TxiupJ4
+	I6AseErQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEqB4-00000004cVr-3xNT;
-	Thu, 08 Oct 2026 15:37:02 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1xEqLU-00000004dMD-0yFa;
+	Thu, 08 Oct 2026 15:47:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEqB1-00000004cVW-2qDe
+	id 1xEqLS-00000004dLw-3jTS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 15:37:00 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-ccca948203aso1865656a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 08:36:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791473818; x=1792078618; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=;
-        b=RFyLzfoJx7R7lzeHuAyTqXajbn2PuPiofxjcVMSwtLOWXyG8QUM/INwrZH5V1NeeWK
-         vWgZpK3iiDa8IY6a1/kplxDtoTM+SV6GgNk2AaRoSIx0WI304b1yQJNdTrn+UM5Lk4eg
-         Qo5kz/do5gykt8SfHADU9TTNT2o+8WnBI70VAFrHvSSU+blzYFWj2ilY9UGNTYytKG3y
-         EQeqeU7XNOQbToR6sYS1ovaQx48ELD/zDlRwTZGNTSzbiJFaA9M+50W4WHlFYFxc0nFp
-         dYt6a4R5+lUqxajYHQhpZa3RqxBTRpPphSN24qsmKknvdTHm0xgkRPXhrEMFFGb9SQu5
-         uVeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791473818; x=1792078618;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=q0g5RUJYsTuTINK7t/PSk6wKRYNvtbwpJDwV+1FAvsQ=;
-        b=vmnSuFknG+Zb5fe6iNG6YUJxJs1hT7hGGNcWwnq/vVyOsiG0mMAHW9y8u7G7VzWDYy
-         S1yXpskVHnp8B2Wypdw6XQDzdNPn840++WkfkJy1ORsmz56uIA8Kj/0XdTInhKLd5dyH
-         c1jZlMSeVNOHaESXot7kSOMBo2ZKnZpXECXmxeeaN56z+qY7GwksYxPZWZHS0IlwgrJD
-         EnHPAeAehrxpOW0FtmY2ZrK/TCrikJKi2YY2ZCLlxvn/8hITRbVY1C7Wjnom69gYt0Ot
-         fcwWUCJvWy9dLraoS3GR3I3LqdkoUrKLvrnN4cIbEpzLU0ugi6HsdJEyPB0WhSAYOTLR
-         mLAg==
-X-Forwarded-Encrypted: i=1; AKwUvBxwK5TbeUaFIEnj4FliqI2wfAZ7nBW+nGhwdxqLtOmhgw5aYVtxoj9+NOeAVAWqy5ck9XtBrvFP3Gpy/ierHspB@lists.infradead.org
-X-Gm-Message-State: AFuF++mGzwo8v3ZtmkhNRL5TN6pU3DzuzgG0A5w4wX0XuW+4KAVC9wa5
-	k6jFxE9NXPrpV8VQ5uqcVBhWNLSOPwGFoAfHH7aE7U/GtIH80X/CgK95
-X-Gm-Gg: AYBFou1TSYi9zUIkVGwWB8cg+IG8AAVP7ZoXvuMk/5J82aNc7dsIBgMyCWjt+U4CSe3
-	iAPWMkpeOvkAteffa8bzPL+XeLIxH3WyZOOycgdM+VY0y1mK+y4uRXVlBJwWRKnlwf5I4slws7q
-	JfULf7TMLCy5yXwhVo0RW/dO8qSNHLY52w/HkT/9RS6DXKVcE/1KJVi9PnMpc1RYl7oD3TZP33l
-	tEkKwnXBWEVokvQ+NaPEABevSei5XPQZpSV0NHsq25tKuwmqzsITdjRe9UouCSJQawTRLYltiEj
-	dcMHiwSOsVEIgFq/VnewcRwmlE1SyXbPAcdVlbPdA0WbceWBRBhekCh7yP/BBo5+GZtrZ9pwLKF
-	C2J14WvLrjdSUEMg3CcdEI1SzXRVIDaJfIQhtUQ6zvA5q9AZg1DqKEuKm7A8yvhBYfAYNpOrQDY
-	OGMAsrfgoQR42icljZvOE09SGiX/ZOVqZ61E8aF7bN0+f4CF01HeKLz7AHrZwIlCBLo5UPeYq8C
-	CatIaq23nOdI8bchA==
-X-Received: by 2002:a05:6a21:608a:b0:3dd:85a8:4c57 with SMTP id adf61e73a8af0-3e1340542b4mr4754282637.30.1791473818297;
-        Thu, 08 Oct 2026 08:36:58 -0700 (PDT)
-Received: from arch.localdomain ([161.33.202.10])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd35736f232sm263479a12.26.2026.10.08.08.36.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 08:36:57 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Jun Yan <jerrysteve1101@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Add dma-names to RK356x UART nodes
-Date: Thu,  8 Oct 2026 23:36:16 +0800
-Message-ID: <20261008153620.238580-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.56.0
-MIME-Version: 1.0
+	Thu, 08 Oct 2026 15:47:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F9AF43B0B;
+	Thu,  8 Oct 2026 15:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A4021F000FF;
+	Thu,  8 Oct 2026 15:47:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791474466;
+	bh=ZJYDfNAj0KDl7mxejEI6hnmQ6v31S1CH9lSfUhIOadA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GcY6q5A837cFkxa//lxOz/7TgBJMZnedILQeLoZveHMG7XuMCQNCjTUGy/cyvxCel
+	 F4f7xDDMzR6aN9A3uNN7ncFaPME1seGMvua7k8y0hLcVgLRheROrAhLBP73pAylDHc
+	 Ha6nXPJy2l6HxDRnrhCQ+ULkHWCnF/u3bNioF9LYacYPcQDcXN5l0jt8eEESkSOsTP
+	 CIU+exSw1diQILV4SVqpz5M5bLPRtO49osLfY2oQtSUkx39iu2YfF48oFXFds2r9yz
+	 9bC0r1IHZTJzu54yN1c1LFU4W63D+PDHL83cEBt3hIdlrAECI6D4o2dZjVVhf5YH12
+	 dBF0h4jMD+HDQ==
+Subject: Re: [PATCH net v4] net: axienet: free outstanding TX buffers in
+ axienet_dma_bd_release()
+From: netdev-bot+sashiko@kernel.org
+To: maimon.sagi@gmail.com
+Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, daniel@iogearbox.net,
+ jacob.e.keller@intel.com, joe@dama.to, suraj.gupta2@amd.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 08 Oct 2026 15:47:44 +0000
+Message-ID: <179147446494.434549.11428994399896260897@kernel.org>
+In-Reply-To: <20261007034620.1360542-1-maimon.sagi@gmail.com>
+References: <20261007034620.1360542-1-maimon.sagi@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_083659_743319_17F61D30 
-X-CRM114-Status: GOOD (  10.54  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,106 +73,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK356x UART nodes define a dmas property but omit the matching
-dma-names property, so the 8250 driver fails to request a DMA channel
-and falls back to PIO, logging:
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-  of_dma_request_slave_channel: dma-names property of node
-  '/serial@fe650000' missing or empty
+Critical: 0 · High: 1 (3) · Medium: 1 (3) · Low: 2
 
-Add the missing dma-names = "tx", "rx" to uart0 through uart9,
-matching other Rockchip SoCs such as the RK3308.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+- [High] net: axienet: RX buffer leak in axienet_dma_bd_release
+- [Medium] axienet_free_tx_bufs() loops over the current lp->tx_bd_num
+  entries of lp->tx_bd_v, reading cntrl/skb and storing zeros into every…
+- [Low] axienet_free_tx_bufs() walks the TX ring in index order
+  0..tx_bd_num-1 and, at each descriptor that has an skb attached, frees…
+- [Low] axienet_dma_stop() ignores both the timeouts of its HALT polls
+  and the return value of __axienet_device_reset(), which is -ETIMEDOUT…
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index a5832895bd39..098493c04ecc 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -443,6 +443,7 @@ uart0: serial@fdd50000 {
- 		clocks = <&pmucru SCLK_UART0>, <&pmucru PCLK_UART0>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 0>, <&dmac0 1>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1449,6 +1450,7 @@ uart1: serial@fe650000 {
- 		clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 2>, <&dmac0 3>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart1m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1463,6 +1465,7 @@ uart2: serial@fe660000 {
- 		clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 4>, <&dmac0 5>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart2m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1477,6 +1480,7 @@ uart3: serial@fe670000 {
- 		clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 6>, <&dmac0 7>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart3m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1491,6 +1495,7 @@ uart4: serial@fe680000 {
- 		clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 8>, <&dmac0 9>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart4m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1505,6 +1510,7 @@ uart5: serial@fe690000 {
- 		clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 10>, <&dmac0 11>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart5m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1519,6 +1525,7 @@ uart6: serial@fe6a0000 {
- 		clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 12>, <&dmac0 13>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart6m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1533,6 +1540,7 @@ uart7: serial@fe6b0000 {
- 		clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 14>, <&dmac0 15>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart7m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1547,6 +1555,7 @@ uart8: serial@fe6c0000 {
- 		clocks = <&cru SCLK_UART8>, <&cru PCLK_UART8>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 16>, <&dmac0 17>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart8m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
-@@ -1561,6 +1570,7 @@ uart9: serial@fe6d0000 {
- 		clocks = <&cru SCLK_UART9>, <&cru PCLK_UART9>;
- 		clock-names = "baudclk", "apb_pclk";
- 		dmas = <&dmac0 18>, <&dmac0 19>;
-+		dma-names = "tx", "rx";
- 		pinctrl-0 = <&uart9m0_xfer>;
- 		pinctrl-names = "default";
- 		reg-io-width = <4>;
+Pre-existing issues:
+- [High] axienet_open() ignores the result of axienet_device_reset().
+- [High] In the RX walk of axienet_dma_bd_release(), each RX skb is freed
+  with dev_kfree_skb() (line 254) before its DMA_FROM_DEVICE streaming…
+- [High] axienet_dma_err_handler() runs from a workqueue and does not
+  stop or lock the TX queue: there is no netif_tx_disable(),…
+- [Medium] In the sibling Xilinx driver ll_temac, temac_dma_bd_release()
+  unmaps and frees the RX skbs but frees the TX descriptor ring with…
+- [Medium] The RX walk in axienet_dma_bd_release() stops (`break`) at the
+  first descriptor with a NULL skb, on the assumption in its comment…
+- [Medium] If phylink_of_phy_connect() or axienet_init_legacy_dma() fails
+  after axienet_device_reset() has succeeded, axienet_open() returns…
+
+--
+
+net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
+
+This patch moves the TX ring walk out of axienet_dma_err_handler() into a
+new helper, axienet_free_tx_bufs(). axienet_dma_bd_release() now calls it,
+so TX skbs still in flight and their DMA mappings are freed when the
+interface goes down. The patch also clears tx_bd_v and rx_bd_v once their
+rings are freed, skips the TX walk when tx_bd_v is NULL, and frees skbs
+with dev_kfree_skb_any() instead of dev_kfree_skb_irq().
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 09443623a3e2a..318ff03b04e69 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -173,6 +173,46 @@ static dma_addr_t desc_get_phys_addr(struct axienet_local *lp,
+
+[ ... ]
+
+> +static void axienet_free_tx_bufs(struct axienet_local *lp)
+> +{
+> +	struct axidma_bd *cur_p;
+> +	u32 i;
+> +
+> +	for (i = 0; i < lp->tx_bd_num; i++) {
+> +		cur_p = &lp->tx_bd_v[i];
+
+[Severity: Medium]
+Can this loop run past the end of the allocated ring? The loop bound is
+the current lp->tx_bd_num. The only guard in axienet_dma_bd_release() is
+the NULL check on lp->tx_bd_v, and that says nothing about how many
+entries the ring was allocated with.
+
+This sequence seems to reach that state:
+
+axienet_open()
+  axienet_device_reset() succeeds, axienet_dma_bd_init() allocates N entries
+  phylink_of_phy_connect() or axienet_init_legacy_dma() fails
+  returns without axienet_dma_bd_release(), so tx_bd_v stays non-NULL
+
+axienet_ethtools_set_ringparam()
+  the interface is down, so lp->tx_bd_num = M with M > N is accepted
+
+axienet_open()
+  __axienet_device_reset() times out and axienet_dma_bd_init() is skipped
+  the failure is ignored and open returns 0
+
+axienet_stop()->axienet_dma_bd_release()->axienet_free_tx_bufs()
+  walks M entries of an N-entry ring
+
+For i >= N, the loop reads cntrl and skb from beyond the coherent buffer.
+It may call dma_unmap_single() or dev_kfree_skb_any() on garbage values,
+and it writes zeros past the end of the allocation.
+
+On this path the following dma_free_coherent() already passes the wrong
+size, so the path itself isn't new. The walk adds out-of-bounds writes to
+it. Fixing the unchecked reset and the missing unwind in axienet_open()
+would cover this too.
+
+> +		if (cur_p->cntrl) {
+> +			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
+> +
+> +			dma_unmap_single(lp->dev, addr,
+> +					 (cur_p->cntrl &
+> +					  XAXIDMA_BD_CTRL_LENGTH_MASK),
+> +					 DMA_TO_DEVICE);
+> +		}
+> +		/* not reclaimed by axienet_free_tx_chain(), so a drop */
+> +		if (cur_p->skb)
+> +			dev_kfree_skb_any(cur_p->skb);
+
+[Severity: Low]
+Is the skb freed here before all of its mappings have been unmapped?
+
+axienet_start_xmit() puts the head at orig_tail_ptr and the fragments at
+the following indices, wrapping to 0. Only the last descriptor gets
+cur_p->skb:
+
+	for (ii = 0; ii < num_frag; ii++) {
+		if (++new_tail_ptr >= lp->tx_bd_num)
+			new_tail_ptr = 0;
+	...
+	cur_p->skb = skb;
+
+Take an in-flight packet whose head is at tx_bd_num - 1 and whose last
+fragment wrapped to index 0. This loop frees the skb at index 0. It only
+calls dma_unmap_single() on the head and fragment descriptors at the top
+of the ring later in the walk.
+
+With DMA_TO_DEVICE and the engine stopped there may be no visible effect.
+Would unmapping every descriptor first and then freeing the skbs, or
+walking from tx_bd_ci in chain order, keep the usual unmap-before-free
+order? The error handler loop had the same order, and this patch adds it
+to normal teardown.
+
+> +		cur_p->phys = 0;
+
+[ ... ]
+
+> @@ -186,11 +226,18 @@ static void axienet_dma_bd_release(struct net_device *ndev)
+>  	int i;
+>  	struct axienet_local *lp = netdev_priv(ndev);
+>  
+> -	/* If we end up here, tx_bd_v must have been DMA allocated. */
+> +	/* tx_bd_v is NULL if axienet_dma_bd_init() did not get as far as
+> +	 * allocating it, and is cleared below once the ring is freed;
+> +	 * dma_free_coherent() accepts NULL.
+> +	 */
+> +	if (lp->tx_bd_v)
+> +		axienet_free_tx_bufs(lp);
+
+[Severity: Low]
+This code assumes the DMA engine has stopped. axienet_dma_stop() ignores
+the HALT poll timeouts and also the return value of the reset:
+
+	/* Do a reset to ensure DMA is really stopped */
+	axienet_lock_mii(lp);
+	__axienet_device_reset(lp);
+	axienet_unlock_mii(lp);
+
+Suppose __axienet_device_reset() returns -ETIMEDOUT ("DMA reset timeout!")
+while an AXI read is still outstanding. Could the device then read TX
+buffers after they were unmapped and freed here, for example causing an
+IOMMU fault?
+
+axienet_stop() clears TXEN before this point, so freed data shouldn't
+reach the wire, and teardown has to proceed anyway. This is more a
+hardening question about faulty hardware.
+
+> +
+>  	dma_free_coherent(lp->dev,
+>  			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
+>  			  lp->tx_bd_v,
+>  			  lp->tx_bd_p);
+> +	lp->tx_bd_v = NULL;
+
+[Severity: High]
+This isn't a bug introduced by this patch. The commit message notes that
+axienet_open() does not check the reset result, and the transmit path
+still uses the ring when the reset fails:
+
+axienet_open() {
+	...
+	ret = axienet_device_reset(ndev);
+	axienet_unlock_mii(lp);
+
+	ret = phylink_of_phy_connect(lp->phylink, lp->dev->of_node, 0);
+	...
+}
+
+The reset can fail in two ways: __axienet_device_reset() times out, or
+axienet_dma_bd_init() fails with -ENOMEM and calls
+axienet_dma_bd_release(). Either way, open still runs
+axienet_init_legacy_dma() and returns 0 with no TX or RX ring.
+
+The first transmit then does this:
+
+axienet_start_xmit()
+	cur_p = &lp->tx_bd_v[orig_tail_ptr];
+	...
+axienet_check_tx_bd_space()
+	cur_p = &lp->tx_bd_v[(READ_ONCE(lp->tx_bd_tail) + num_frag) %
+			     lp->tx_bd_num];
+	if (cur_p->cntrl)
+
+Now that this patch clears tx_bd_v, that is a NULL pointer dereference.
+Before the patch, after an earlier close, it was a write into the freed
+coherent ring.
+
+axienet_dma_err_handler() also calls axienet_free_tx_bufs() and walks
+rx_bd_v, without the NULL check that axienet_dma_bd_release() now has.
+
+Should axienet_open() check the result of axienet_device_reset() and
+unwind on failure?
+
+[Severity: Medium]
+This is a pre-existing issue. The axienet_open() error exits that come
+after a successful reset never release the rings or stop the DMA engine:
+
+	ret = phylink_of_phy_connect(lp->phylink, lp->dev->of_node, 0);
+	if (ret) {
+		dev_err(lp->dev, "phylink_of_phy_connect() failed: %d\n", ret);
+		return ret;
+	}
+
+The err_phy path, taken when axienet_init_legacy_dma() fails, does the
+same.
+
+By that point axienet_dma_bd_init() has allocated both coherent rings,
+allocated and mapped rx_bd_num RX skbs, and started the DMA engine. Do
+these leak, with the DMA engine still running?
+
+The next open's axienet_dma_bd_init() then overwrites tx_bd_v and rx_bd_v
+without freeing the old allocations.
+
+>  
+>  	if (!lp->rx_bd_v)
+>  		return;
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the RX walk just below
+leaks in the same way the TX side did. It stops at the first
+descriptor with a NULL skb:
+
+	if (!lp->rx_bd_v[i].skb)
+		break;
+
+That only works if the populated descriptors form a prefix of the
+ring. That holds on the axienet_dma_bd_init() error path, but not once
+the ring has been running.
+
+axienet_rx_poll() takes the skb from a completed descriptor and sets
+cur_p->skb to NULL before refilling it. If napi_alloc_skb() or
+dma_map_single() then fails, the poll loop breaks. That leaves a NULL
+slot at rx_bd_ci in the middle of an otherwise populated ring.
+
+If the interface is closed before a later poll refills that slot,
+axienet_stop()->axienet_dma_bd_release() stops there. The skb and
+DMA_FROM_DEVICE mapping of every descriptor after it are then leaked.
+Depending on where rx_bd_ci sits, that can be most of the ring. A
+system under memory pressure is the one most likely to hit this.
+
+It also contradicts the commit message, which says this walk frees
+every receive buffer.
+
+Would continue instead of break be enough? A slot emptied by
+axienet_rx_poll() still has a non-zero cntrl, and its phys points at
+the buffer that was already unmapped. So the skip has to cover the
+unmap as well, which a continue at that point does. The zeroed,
+never-filled slots on the axienet_dma_bd_init() error path would be
+skipped the same way.
+
+This patch is about making axienet_dma_bd_release() release everything
+the rings still hold. Could the RX side be fixed here as well, or in a
+separate patch?
+
+[Severity: High]
+This isn't a bug introduced by this patch. The RX walk below frees each
+skb before it unmaps the skb's DMA_FROM_DEVICE mapping:
+
+		dev_kfree_skb(lp->rx_bd_v[i].skb);
+		...
+		if (lp->rx_bd_v[i].cntrl) {
+			phys = desc_get_phys_addr(lp, &lp->rx_bd_v[i]);
+			dma_unmap_single(lp->dev, phys,
+					 lp->max_frm_size, DMA_FROM_DEVICE);
+		}
+
+With swiotlb bouncing, can the unmap copy up to max_frm_size bytes back
+into the skb data that was just freed? On non-coherent platforms the
+unmap also invalidates cache lines of memory that may already belong to a
+new owner.
+
+Bouncing looks realistic here. Probe uses a 32-bit DMA mask unless 64-bit
+DMA is detected, so a 32-bit AXI DMA on a host with RAM above 4 GiB would
+bounce, as could the PCIe card from the commit message.
+
+The new TX helper unmaps before it frees. Would swapping the order in
+this loop make the two walks consistent?
+
+[Severity: Medium]
+This is also pre-existing. The same RX walk stops at the first NULL skb:
+
+		/* A NULL skb means this descriptor has not been initialised
+		 * at all.
+		 */
+		if (!lp->rx_bd_v[i].skb)
+			break;
+
+axienet_rx_poll() sets cur_p->skb = NULL and exits its loop if
+napi_alloc_skb() or dma_map_single() fails. That leaves a NULL slot at
+rx_bd_ci in the middle of a populated ring.
+
+Would a close after such a refill failure leak every RX skb and mapping
+after that slot? That would also contradict the commit message, which
+says the RX walk frees "every receive buffer".
+
+> @@ -221,6 +268,7 @@ static void axienet_dma_bd_release(struct net_device *ndev)
+>  			  sizeof(*lp->rx_bd_v) * lp->rx_bd_num,
+>  			  lp->rx_bd_v,
+>  			  lp->rx_bd_p);
+> +	lp->rx_bd_v = NULL;
+>  }
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but the sibling ll_temac
+driver seems to have the same TX leak. temac_dma_bd_release() in
+drivers/net/ethernet/xilinx/ll_temac_main.c frees only the TX ring:
+
+	if (lp->tx_bd_v)
+		dma_free_coherent(ndev->dev.parent,
+				  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
+				  lp->tx_bd_v, lp->tx_bd_p);
+
+temac_start_xmit() attaches the skb to the last TX BD via ptr_to_txbd(),
+and only temac_start_xmit_done() reclaims it.
+
+Does temac_stop()->temac_dma_bd_release() leak in-flight TX skbs and
+their DMA_TO_DEVICE mappings? It may be worth a separate fix.
+
+[ ... ]
+
+> @@ -2749,29 +2797,7 @@ static void axienet_dma_err_handler(struct work_struct *work)
+>  	axienet_dma_stop(lp);
+>  	netdev_reset_queue(ndev);
+>  
+> -	for (i = 0; i < lp->tx_bd_num; i++) {
+
+[ ... ]
+
+> -	}
+> +	axienet_free_tx_bufs(lp);
+
+[Severity: High]
+This is a pre-existing issue, since the loop was moved rather than newly
+written. What stops axienet_start_xmit() from running at the same time as
+this code?
+
+axienet_dma_err_handler() runs from a workqueue. It disables NAPI, the
+MAC TX/RX enables and the DMA engine, but it never calls
+netif_tx_disable(), netif_tx_lock() or netif_stop_queue(). The TX queue
+stays awake for the up to ~250 ms spent in axienet_dma_stop().
+
+Meanwhile, on another CPU:
+
+axienet_start_xmit()
+	cur_p->skb = skb;
+	...
+	WRITE_ONCE(lp->tx_bd_tail, new_tail_ptr);
+	netdev_sent_queue(ndev, skb->len);
+
+If axienet_free_tx_bufs() frees that skb between the store and the read
+of skb->len, can start_xmit read a freed skb?
+
+The two paths also race on tx_bd_tail, which the handler later resets to
+0, on BQL state (netdev_reset_queue() against netdev_sent_queue()), and
+on descriptor contents. The restarted DMA could therefore fetch zeroed
+descriptors.
+
+dev_kfree_skb_irq() deferred the free to NET_TX softirq. With
+dev_kfree_skb_any(), this process-context worker now frees the skb
+immediately, so the freed memory can be reused sooner.
+
+The helper's kernel-doc lists only "The DMA engine must be stopped" as a
+precondition. Should it also require the TX queue to be quiesced?
+
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261007034620.1360542-1-maimon.sagi%40gmail.com
 
