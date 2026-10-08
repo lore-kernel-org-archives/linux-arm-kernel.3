@@ -4,75 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02721CA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 04:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0DACA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 04:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qj5vpULuWvyoFLr03KrrERImzaH+YWyCFuhZARH5BUw=; b=R43SNxI45amByncSULwtBcc6eM
-	Wtf78BJERrbVErERuW6BtJS+6inphyd0ioVVWU2dlDO+ymVRWth6bTOAVIgmEdZbnS4qNTpBOC1y1
-	ulW9Yaw2MXhoMTYe0HOq6lykd6xHXtA5hpowDGYOftzH27YgHnxSsRH2VN5l2BE5cAH6RK6Zr7smg
-	7a1a1sgUQoKo1+WZJG86TKDaVeEHI9393lSirSCK/f10j2/WnzNc8GLZyXJjVsFn6/OIaNWnro2Py
-	mJe1VUd2y1S9dcleGAKN+NPhQn3xDtP5ZUJJVuX2qKX0mTOF9X4D3t+WvJOv5cGFMh/CKNB5wZh3e
-	YcbCjbZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L1x1tT2C7dcnUZxqDXtNetbkh7Q/xV6PiDmYcoW5QKg=; b=pwvbugqhNvP4We1RtE7mIAPU6f
+	iHQzIDWoUqGKdbUiTkor/3jBKU63Pli0PGtinVOU/4MKr3o958QV/qzJfsh2dmrkOtnJ3+SgAHdzd
+	PVb4mO6KFVKgv7LNhzlPIzPn/qFG5JWUMUvWQsUXNTztLweaAwRsGxXZP8tqis6jjdhHIDYSkXcFF
+	DNaBMvpt6jpUNfTDkUg9WPGo0RYY1FyOduQNCjEkLpEHyPDqRezNkCp8Lcq8wQHQHWclDJZk9Jyz5
+	UO4//AeW2PP/Ej52DsLwFrCqEyXixJSG7oWyO4nPFZBuy8YEhQP5/A6dM/JCKtOcGXBhMpPjO89VD
+	b+V5O19w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEfif-00000003VEo-4182;
-	Thu, 08 Oct 2026 04:27:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEfmd-00000003VYC-1V1K;
+	Thu, 08 Oct 2026 04:31:07 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEfie-00000003VEL-2jSr;
-	Thu, 08 Oct 2026 04:27:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DF6640C3C;
-	Thu,  8 Oct 2026 04:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E3D3EC2BCF5;
-	Thu,  8 Oct 2026 04:26:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791433620;
-	bh=l27bWrfddOJK7P2yJT5xwUQcpylWpGnEOKiwyAdUIkU=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=cCcCRqfvfa/h3DRWRyaPgsZmk6wWeTvf/yEDFpzxIypnWX/GJJSLtR8VHmxuYpECy
-	 nHbtD1pWuMiS0+m27dBbRCA3CENC5D7XLv5nHbWOGxsSSDvYnx8lOIzT0oKR4jIpfz
-	 AjW7qB0HzmkQrATgkRNu0N8HRako5tJshcPPKVQnF+uLt+B3fBovdiNg0sRlunK9Or
-	 6wcXO1gBaonR+W3m/8soG1GSl22VjaQ36afbj2TBmKiN7iQZ7shUkunP6mDPEH0deC
-	 +y8/ss28nrHOW7qr8V5jQyNyhwV5FEqQSP6bwN+Ik0q3YRaGTThDuNEbGTZZGd6Jjh
-	 0cYWVhfR4fE4w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5EA0CA6002;
-	Thu,  8 Oct 2026 04:26:59 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Thu, 08 Oct 2026 07:26:56 +0300
-Subject: [PATCH] mmc: meson-gx: honour the busy timeout for R1b commands
+	id 1xEfma-00000003VXi-3xHZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 04:31:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vR80hbC4wn37Ddf7HcTidwvzFw2YJ3qdMUBksfyTZhgtRu7oT49OA2tSidsb6d/wa3BSjAJ6QcPlwHMvVGSkGkIlKQs+8e7a+EI4b1T68S6ChNmQV9GFQHYYdpJ6hZpIi3FJrV0Rj2T9Mk7fTb2lIIsGTgD1GNrVz0bjnIiKy6iwsqATZhxyb9u9nvmFXDbgyU+TR0BQ7naOUgxe2Py0LFgNynCzN229Y6K580JvwSBbmb+473QU6FUHM8j2yhSLIGlKdjNApRDndX5lC6BRRu4ePBY48ZP5xs4tvL/ae02q8ABQPktqeUvZNKdPtcxK5IgWcVGDbOY1tDfS9++vWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L1x1tT2C7dcnUZxqDXtNetbkh7Q/xV6PiDmYcoW5QKg=;
+ b=v78ALcFoiMXHzodb4rH4aFSDEQVNyHVH5zMEMBl/E0EuaciuLjGCQWaj/V1yXtnQk9JfgeL9/OpYDAR+lCWlJDF3pQ5C5Ak5A2rfakpAnUcggG5IBqEoOR9ApmmEamqcuFV2jJeYt6DZ7q20PsoHCCasHfVyKLxR+C/Ybm26M7JpwU+p0Wv3kMuh7QU8BThQZU9YoAuHa9Nl8Dx3v76XqGnwNzAlVCcSz/bYMI/rr3k5AzQ4/VEI6/yQ2yLMMZ91VhgsC3vT+/o8vF7bMMddSc5hInP0usso14ap1jtLA23BNnm2fXZ4ayPXq8hsKMsYLSYhUYpbWHciwok1OGv2nQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L1x1tT2C7dcnUZxqDXtNetbkh7Q/xV6PiDmYcoW5QKg=;
+ b=PRL+KSAonOK5a2o6A9arGgUBBko5+mdUQxYsBCurnV62fPsZiGJjPsVBBGUrUAR0idbhoqPgBKgAhkfRyEv5uyyfJkNw3UZNr7b+4d9FiApIUdu4fHM29flJYxKF29S+SyCn206iCE+r1MstHk6CNZQUwpGD8roIwtyTZxKdC9Go6UhSpp76Fx7nn5fhFXeVFUhno9JIErwWTfcDTiYxXOOhT2SWMBTH0TdNEwPhV69pHh386xHxHmqA8orIq2jPk2RjFbVLKKZhvx2IuhzGSB251ynj91d+ABcj2CLn00Hfthj3rItbxeYNFfsMbjA2m8qSoh9HqdbFEcQwVUMWKA==
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ (2603:1096:405:338::19) by TYYPR01MB13098.jpnprd01.prod.outlook.com
+ (2603:1096:405:1c3::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Thu, 8 Oct
+ 2026 04:30:54 +0000
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 04:30:54 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: "James Morse <james.morse@arm.com>" <james.morse@arm.com>, Zeng Heng
+	<zengheng4@huawei.com>, "ben.horgan@arm.com" <ben.horgan@arm.com>,
+	"Dave.Martin@arm.com" <Dave.Martin@arm.com>, "reinette.chatre@intel.com"
+	<reinette.chatre@intel.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"tglx@kernel.org" <tglx@kernel.org>, "will@kernel.org" <will@kernel.org>,
+	"hpa@zytor.com" <hpa@zytor.com>, "bp@alien8.de" <bp@alien8.de>,
+	"babu.moger@amd.com" <babu.moger@amd.com>, "dave.hansen@linux.intel.com"
+	<dave.hansen@linux.intel.com>, "mingo@redhat.com" <mingo@redhat.com>,
+	"tony.luck@intel.com" <tony.luck@intel.com>, "gshan@redhat.com"
+	<gshan@redhat.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>
+Subject: Re: Re: [PATCH v8 next 04/10] arm_mpam: Refactor rmid to
+ reqPARTID/PMG mapping
+Thread-Topic: Re: [PATCH v8 next 04/10] arm_mpam: Refactor rmid to
+ reqPARTID/PMG mapping
+Thread-Index: AQHc1rtLDSUJd3RIZkOjfouw4AqEwLYN2rSAgObFTnQ=
+Date: Thu, 8 Oct 2026 04:30:54 +0000
+Message-ID: <TY4PR01MB169308CED201FDC318438FAAE8B932@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+References: <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
+In-Reply-To: <2944b506-a462-42f8-95cf-404241fb27f0@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-10-08T04:30:52.478Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|TYYPR01MB13098:EE_
+x-ms-office365-filtering-correlation-id: dfd0e023-de01-4176-4dd2-08df24f4f0ef
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|10067099003|56012099006|11063799006|1580799027|22082099003|18002099003|38070700021|921020;
+x-microsoft-antispam-message-info: YoLDFlK/PmXWHrz6npgImF5DiDNYKsZXHPsMRGRPQR4xs8M+eQXIpl8zAnKe70haAxLoR3qF3XVbRmpBNvYkxLmMbSag812yLjNn0D+vuA3dB+0XuD/c12LVfgFLv8HkjqUuU//Kxb0/eTIJKk7lXOtn/TlSSKWbsjd7lkUis5QlvFRwSVVevHHzpz87MwyFjfIkVD04YJJd78hVUe9cYJZ30YK1AXd+7bHoyp6g4fXpPDugx/kVanxnNF9V/K0IMucPuNmL1KI+IMZ1jZxnVIBWvmZ0osoyHmGmolS1t2xtcFfK/le3G7dnLZHggziZgazczzI6mBM0dqWVNkBjA4+ehP1Q/vqXPe7UlMcxYhkPPPZZsYT24QTPLkTVRzGI1FaSp/PtO15/OhaoBM5+2D21JdiAl0l5l+xi9u3hJpk5mQSrN0Gms/z5726nlEYD0zGPrc4TocClaKcfiXEhaeUusYJ0i3+KRZb6fwzhOXGAsx8HubZzPaC0gtEmC9+Um2uncNFurNVfDmDSfCodwj2cC3x+Nd46hGnjrK9mVOwaRU2CUFC0LCLeg1+qY41UisRNEjtqJMqOEVt0sXwzy3J56Xzal7ym6hZeOBz5TkBLKomezYeimYPcoWsZ7nIQsI0PZxMR1k4+h9yTSpuTgC63nJX7aLgfYG6sXT6bKeqsIHHxWRrNXG3cL021aVnSvG54Md5mhPCDgyQwiDY/coAVHQhzknF4sk0V50uGaFBOZosIZSdj14hD+6n8gcnmdRcBYgc+xLzWctIjooq7Zw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(10067099003)(56012099006)(11063799006)(1580799027)(22082099003)(18002099003)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?UUdITlU0M211dzdqdXJrR0JpTmdUdTBRcFJUZkx0S211WHVVb0ZyeWpL?=
+ =?iso-2022-jp?B?RHFSN1ZMUlk4MHI5Z1JmaWZNRWJ5akRhZHFlRjdWNTlwL1JzUGlyMFow?=
+ =?iso-2022-jp?B?ejlabWdZMTJNOVdNYmViSHg2VG8xV1lEV1dUK1JPN3hrczh3MHBFWnBZ?=
+ =?iso-2022-jp?B?djN0T3I0NXdNNzNGekptTkhCN3I0NlpSUURkdElTUWg0Wi9BaWhxWFJV?=
+ =?iso-2022-jp?B?bHdyd21OemZveExBcFRiTVIwTlZJL2lqRW1RM05rWExkbSswY3hQMEJB?=
+ =?iso-2022-jp?B?ZWpqazJEZGNmQ2k0T0MyUEpGZDNJcnhnTHM2aVVhNXoyN3BQdTVRdDRF?=
+ =?iso-2022-jp?B?YXRHbVBvekE4OEttWXRXRDNyeXphZVR1bXRlM3EvM0ZKMUc5U05BS0Q4?=
+ =?iso-2022-jp?B?ZGlIUDBSOVlyR1pPQStxT3ZDbXdXcVpnY25mYzl4OU9hV0FuY29ESXZV?=
+ =?iso-2022-jp?B?Tk1sYmpqMVg3NTIyeFZiaFhESUk3K21SMXluTDgvcVhpQzNHUUZnYXhL?=
+ =?iso-2022-jp?B?TG5vcit4YTA4VVV6RWl5M1pqYVJKQTA4SW0zaGVkamNqNlM1ZE9Wem5L?=
+ =?iso-2022-jp?B?Sy83MWorWWRCcHRHZTJ5emlnK0NscnY5RDBLRUUzZ3BuOFh3ckduaHJ3?=
+ =?iso-2022-jp?B?Ryt4U2JYaFFrR3BaZ21sb0d1MytwOURacWJqM0txdXoyWXdoMEhBNE5W?=
+ =?iso-2022-jp?B?Ui9Vb1ljaktibGYrZnRRb0ZLUjdLaHlXSUVLcWNidXFGbW9Qc2VYb0Nl?=
+ =?iso-2022-jp?B?dDFVRjBucjFHRUJZSlFRUnFYMWNyanZ4UXl4WVY3UklqY1g2M1Q5ZHhw?=
+ =?iso-2022-jp?B?WnlLWXR5dDZoMytmQWRxMFNzbmhUUFl1UVJqWmxoZllFdmhjQmNic2FT?=
+ =?iso-2022-jp?B?SE5ZYURVaFZUQmQ3TWtVRGdrMVd2MTl4SXRRem4zNENkRHIrZ2hTaHA0?=
+ =?iso-2022-jp?B?YXdKVndVWFNtRE4zUWJlcnVmOUFzVEs4V1ptZnEzMjE0WDNQMEdhMnZu?=
+ =?iso-2022-jp?B?elRTL2tBb3NYL2NkaDdqSnRrMS9PaVBDOVU3M2VCYlFDRENzZkpXTENr?=
+ =?iso-2022-jp?B?aVlxV0JzNEVUQUp0MDRERnY5QXBGZm9zOFVHWnRXck1QREExUHhiS2Q1?=
+ =?iso-2022-jp?B?Vlh0M2EvWXZJN0R1SnJIdE1OTHdEVzBJaVgwc3Vjenk5OFl0eVphcnlx?=
+ =?iso-2022-jp?B?RGZmazV6VXkwRHFpN25OTFJHNFVxYis1WVBOdDh0M0l0eGVrWVVaTnV6?=
+ =?iso-2022-jp?B?eEJkTGVmK04wdG9MbnhCU2hXOStuUGdQcndHS0lTb2c3SGhEU25kVXNX?=
+ =?iso-2022-jp?B?N0NMcHVKaGo5TXFhelNLUndVeU0yL1gxQlVYOFB5ZnNqSGpISUQvZzBG?=
+ =?iso-2022-jp?B?MTlLT3JjZ3NxKzl6V1hNZlVRSDliTnYzSmdTZ1lST0luU3RoWjBzc2N3?=
+ =?iso-2022-jp?B?K3BSbjRnUVZvcVp6eFZUYkM3bFJmVG1qU1pJdDRHZ1d5OWZmSkVHWkp5?=
+ =?iso-2022-jp?B?cDFPbFo2bG93VE9VUG5YOUJFUEJIUktFQnRSakNEbVRYK1NaTnN5S3Ar?=
+ =?iso-2022-jp?B?ZExpSkRVL0hkTFNnVFB2cCtPcjR5THhhREhpUFVTd01NZUUza25mTDZs?=
+ =?iso-2022-jp?B?dGNLa1VSZUszM0Ewb256RnJqV3QyckVpQkxpSWpONk5Sa2VoK01rak1E?=
+ =?iso-2022-jp?B?Y2ZES250MzBVN0J3SFU2MXY3MFRIVEtka2FsOUhCeCtFRjhQSEFwTVB2?=
+ =?iso-2022-jp?B?cVBaWkhUVkV6cjI3Sm15VDN3UGNrYzA3ZE5qcm5rVStWOTZhMExQeGh3?=
+ =?iso-2022-jp?B?RVUrQVd2Q3VxOFhFK3pxdkNvVWJZaWxWUU8zak9uMGlCVnhXeFdyNHlY?=
+ =?iso-2022-jp?B?d3prSmkvaHhtcEc2bjdBUFk3MWh0bkdHdXhIN0FaTkE5OE5tVUtsZ0Ju?=
+ =?iso-2022-jp?B?eVNwK2YvU1N0RmFhRHN1bGE4RTAxVk5IdlFoWHhDZ09QaFRLMDRhdVJv?=
+ =?iso-2022-jp?B?elcyd29hNzh3S3U2ZkxlVVB5a2lCU0VHL3lKVmhUM0RvVVNkbmhUeVdQ?=
+ =?iso-2022-jp?B?VXFoenN4UXhQWU5hY2R3Vm5DSjE3NXRwbEV3QVZyVnpMWEgzczJNUXBD?=
+ =?iso-2022-jp?B?RHBNczJiRFpuYU14SjN4M09hTlIzVU1NcUlCbFhqL1haM2NLelUvWkRX?=
+ =?iso-2022-jp?B?NmdmTEdFZWZwTHhWQUE2dWZrVDcrb1ZyRGU1NXVtYVl0cmVHNWJNZGFN?=
+ =?iso-2022-jp?B?aVpNOXlOeEFZWFZzZS91a1NVdzY1VDNNaERCSXV3Szl6T2JKa3FMZWdl?=
+ =?iso-2022-jp?B?dEZFTXFoTTZJYXlIZTFFTktoTVdqSGh2U3NHODdoRkZjS1Z6TXM2Y3Qv?=
+ =?iso-2022-jp?B?Z0dyRmpGZVI5Nkk4Q0Y1Ym4yd09ITTVvV1NyQUYxT0duRGx5RSs1QW1X?=
+ =?iso-2022-jp?B?ZTdLSVMyNjdaRUNpSUpWM1lPTzRITXA4MTRKUmRQdEQzbHpVSTg4NEJx?=
+ =?iso-2022-jp?B?QkM5MDZkWVRud0NPQ3RlcTc4amVmOUFLa2JOdz09?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261008-meson-gx-busy-timeout-v1-1-d92f3c68c409@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAI8bx2oC/x3MSwqEMBBF0a1IjS2IhtamtyIO/Dy1BiaSMqKIe
- +/g8AzuvUkRBEq/7KaAQ1S8SyjyjIalczNYxmQqTVkVxnx4hXrH88l91It3WeHjzjW+sNM49Ba
- WUrsFTHK+36Z9nj8F1fTsZwAAAA==
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-mmc@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3870; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=T7oobr9NpP0BRx9jjcdEGQ9sD4psJISkXHbN62KiO2U=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFnHpSe9NV/Q+DxiwluPyffc47acXirLP3tx2Rl21gdl6
- TPWBr237ShlYRDjYpAVU2SZcEjjVsaSq3/9PcwfwMxhZQIZwsDFKQATufaAkeFG2p0pt2wvqLDX
- LL+q6Ne3cYG+pnV6ecrBjpcvpDwmRnMw/A9nsoy8N+dx0Dpukd91x6dIz9w7hdvgxC4rxU32+84
- 9duEEAA==
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+X-Exchange-RoutingPolicyChecked: wJZkrAZKm2KAe4RjKTUUQrmfCXjZqEi029cGgma+Z0mgXBApXlQIvqUq81/3qZQe1jKNtHtoUf63oOpQTM296GqExZa83qNbmZQhMIuRUNnx0Aw+Gp+jLg/ET3Oeq9uZT6ChPGsxAWeUOwd2LwJuUX8IdhVkvwLugW2NN0df3YDs6nJcCz4xBkufvf2TZO8MuCn23B6R580pQO82xR6uBNvCtJGXxXqZH2M6ZX7T4gAvtAi8BpsBNPAbAJLUUw8ZUi47RQe5LV9jExLxW6R6bzHKZAZxMBrY3/LqZVw5Fol0hyj9zof++aPC1c6aruM65b1WuxKDT0C2YQ/LqJbB7Q==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dfd0e023-de01-4176-4dd2-08df24f4f0ef
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Oct 2026 04:30:54.2693
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WG+fiFrxf31lI3ErcSx0w3jAexd1+pvTIzOcQHbFQRs6LBRT6q7DUaz+dBlTDt/McfVbjqSGS3ITaK3LvUvAadtMrgsjTqdj3e2VGd2uCTU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB13098
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_213105_218134_D5EA4C88 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,104 +162,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Igor Velkov <iav@iav.lv>
-
-For a command without data the driver programs a fixed 1024 ms into the
-CMD_CFG timeout field, and for R1b the controller waits for the card to
-release busy within that time. The driver does not set max_busy_timeout,
-so the core sends erase and cache flush as R1b with busy timeouts of up
-to 60 s and 30 s, and the controller gives up after one second:
-
-  mmc_erase: erase error -110, status 0x0
-  mmc1: cache flush error -110
-
-Program the timeout from cmd->busy_timeout, rounded up to a power of
-two and kept within 1024..32768 ms, and report 32768 ms, the largest
-value the field holds, as max_busy_timeout. The core then sizes discards
-to fit and, for a longer wait, sends R1 and polls for busy itself.
-sdhci takes its command timeout from cmd->busy_timeout in the same way.
-
-Fixes: 51c5d8447bd7 ("MMC: meson: initial support for GX platforms")
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on ODROID-N2+ (S922X), 256 GB eMMC, btrfs root with discard=async, Armbian builds in docker as load.
-Without the patch (7.3-rc6): 262 errors in 3 h and 68 in 2.5 h in two runs; the first came 4 and 43 min into the build.
-With the patch (7.3-rc6): 0 in 2.4 h.
-On 7.1 with the previous eMMC module, a synthetic test (20 GiB write + fstrim) gave 48 errors without the patch, 0 and 0 with it.
-
-The timeout is rounded up to a power of two: the field holds powers of two only, and the timeout is a lower bound.
-MMC_CAP_WAIT_WHILE_BUSY is not set: I have not checked that the controller waits for busy on every R1b command, HS400 switches included.
----
- drivers/mmc/host/meson-gx-mmc.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-mmc.c
-index 7ef16d7c03cb..8de3eb65ccb0 100644
---- a/drivers/mmc/host/meson-gx-mmc.c
-+++ b/drivers/mmc/host/meson-gx-mmc.c
-@@ -125,6 +125,7 @@
- #define SD_EMMC_CFG_RESP_TIMEOUT 256 /* in clock cycles */
- #define SD_EMMC_CMD_TIMEOUT 1024 /* in ms */
- #define SD_EMMC_CMD_TIMEOUT_DATA 4096 /* in ms */
-+#define SD_EMMC_CMD_TIMEOUT_MAX 32768 /* in ms, 2^15: limit of CMD_CFG_TIMEOUT_MASK */
- #define SD_EMMC_CFG_CMD_GAP 16 /* in clock cycles */
- #define SD_EMMC_DESC_BUF_LEN PAGE_SIZE
- 
-@@ -212,7 +213,21 @@ static unsigned int meson_mmc_get_timeout_msecs(struct mmc_data *data)
- 
- 	timeout = roundup_pow_of_two(timeout);
- 
--	return min(timeout, 32768U); /* max. 2^15 ms */
-+	return min_t(unsigned int, timeout, SD_EMMC_CMD_TIMEOUT_MAX);
-+}
-+
-+/* For R1b the controller waits for busy to be released within this timeout. */
-+static unsigned int meson_mmc_get_cmd_timeout_msecs(struct mmc_command *cmd)
-+{
-+	unsigned int timeout = cmd->busy_timeout;
-+
-+	if (!timeout)
-+		return SD_EMMC_CMD_TIMEOUT;
-+
-+	timeout = roundup_pow_of_two(timeout);
-+
-+	return clamp_t(unsigned int, timeout, SD_EMMC_CMD_TIMEOUT,
-+		       SD_EMMC_CMD_TIMEOUT_MAX);
- }
- 
- static struct mmc_command *meson_mmc_get_next_command(struct mmc_command *cmd)
-@@ -841,7 +856,7 @@ static void meson_mmc_start_cmd(struct mmc_host *mmc, struct mmc_command *cmd)
- 		cmd_data = host->bounce_dma_addr & CMD_DATA_MASK;
- 	} else {
- 		cmd_cfg |= FIELD_PREP(CMD_CFG_TIMEOUT_MASK,
--				      ilog2(SD_EMMC_CMD_TIMEOUT));
-+				      ilog2(meson_mmc_get_cmd_timeout_msecs(cmd)));
- 	}
- 
- 	/* Last descriptor */
-@@ -1168,6 +1183,9 @@ static int meson_mmc_probe(struct platform_device *pdev)
- 
- 	mmc->caps |= MMC_CAP_CMD23;
- 
-+	/* The longest busy wait the CMD_CFG timeout field can hold. */
-+	mmc->max_busy_timeout = SD_EMMC_CMD_TIMEOUT_MAX;
-+
- 	if (mmc->caps & MMC_CAP_SDIO_IRQ)
- 		mmc->caps2 |= MMC_CAP2_SDIO_IRQ_NOTHREAD;
- 
-
----
-base-commit: fd9af27f6c2319713bb23832066585f8a59a1771
-change-id: 20261005-meson-gx-busy-timeout-7e8e3fdcb3e3
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
-
+Hello Zeng,=0A=
+=0A=
+> The reason of using base_partid as MPARTID_lo is to keep base_partid=0A=
+> contiguous and CLOSIDs are allocated contiguously. This does mean=0A=
+> MPARTIDs under the same CPARTID won't be contiguous, but that's=0A=
+> inherently difficult to guarantee with dynamic allocation anyway.=0A=
+> =0A=
+> =0A=
+> The control path uses CLOSID alone (CPARTID), and the monitor path uses=
+=0A=
+> RMID alone (the (MPARTID, PMG) pair). This definition also aligns=0A=
+> closely with the native resctrl concepts: CLOSID (Class of Service ID,=0A=
+> corresponding to CPARTID) and RMID (Resource Monitor ID, corresponding=0A=
+> to the (MPARTID, PMG) pair).=0A=
+> =0A=
+> =0A=
+> In the end, the number of control groups is determined by the number of=
+=0A=
+> CPARTIDs. Both of these ID translation schemes support multiple control=
+=0A=
+> groups.=0A=
+> =0A=
+> Could you please help outline the pros and cons of each approach?=0A=
+> This will determine which direction I take for subsequent iterations.=0A=
+=0A=
+I think the fundamental difference between these two approaches =0A=
+lies in whether the  allocation is static or dynamic. =0A=
+I proposed a similar idea to James and Dave about two years ago.=0A=
+I agree that your proposal for dynamic allocation is excellent=0A=
+in terms of flexibility and resource utilization.=0A=
+=0A=
+However, dynamically assigning MPARTID_hi and MPARTID_lo upon =0A=
+the creation or deletion of a control/monitoring group would likely =0A=
+require extensive modifications to the resctrl core code.=0A=
+In particular, with the integration of PARTID Narrowing occurring =0A=
+alongside major changes to the resctrl interface, =0A=
+there is a risk that these modifications might interfere with=0A=
+each other and lead to complications.=0A=
+=0A=
+To ensure a smooth and timely merge, would it be better to proceed=0A=
+in stages - first implementing static allocation and then =0A=
+transitioning to dynamic allocation afterward? =0A=
+What do you think?=0A=
+=0A=
+Best regards,=0A=
+Shaopeng TAN =
 
