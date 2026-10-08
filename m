@@ -4,71 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03AB5CA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5A7CA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 09:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nZE5AyB6dfBQs8CS7mr3Fvb05uXEMPU3WMOtaMF71eU=; b=PmYz1rP4I/DxyPgEJpMDwGV1gq
-	70J0ZNIRagD7joBM2zvnFe63y4wa0nunvc3RjEFfjXcdfk8pq6D6kjYPdkIUgQNm3aXCao3rhDpYM
-	9rXn6VN+25b1AxkIB8K6nURjApTdYT9j1QvXtV0iSqVEYSL3JJToFy0uhobcOidcn/7iIxgmhlOXG
-	VLoDagDQCIDWuzxKqIPoRwI+dyUzVlXIf/GhAxcdhAQRmvlPj/yuS8fT4aTIXvw6QFtKBjYNYF1eL
-	B/lMD1EnxGGPMh8FufvRsYji2g7ScwNZBO49zCwArs25EVku5ks/h7uoOMs+dv0RkEk3Vv3ZR/E+e
-	4zOc1AbQ==;
+	bh=HY4zLrJDYEWAnzylnIDGmuMGGMa03zInz6lhsAvzXZM=; b=ywjLnqZEjMUV/r/aefhik0GmCF
+	DleIx0OwAzg/HOyr5vpzyLMigqRpRuyihbHsfhRESlIPorEmn+CvQ6rLlIRBgwroAnQzrqPGizOwK
+	ACory43XouzpUX3RgRj0BPdnZS3t5kCANYt5CMh/UMZ4yvUUzhOEsXPNuU6VofQPLDKylvxLyDu6h
+	2aMnQDB16XVfqGAyIvno7XuAO/44Qpr8Wdb/HjLvG6rwcV5S5WQLjARUTwmWOo1r/842EfT7+/1CQ
+	Oms1Fis9GN9VrQfygSQEmK2gafzKc4X8uZR4iYQmVYHdb8PyGDDs0X+PfGtAj+jASVhm8lA6834Rk
+	D/l7usgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk3J-00000003xdR-0Rlb;
-	Thu, 08 Oct 2026 09:04:37 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1xEk3T-00000003xiP-0zeV;
+	Thu, 08 Oct 2026 09:04:47 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEk3F-00000003xZ3-2gNm
+	id 1xEk3Q-00000003xgK-3915
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 09:04:35 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=nZE5AyB6dfBQs8CS7mr3Fvb05uXEMPU3WMOtaMF71eU=;
-	b=VlSde2ZNOTBpzEllPbG5HUJgfQJ8E0gJkCy6Trswx4G+wVthH2Cr0HWMXhaAjbjNfpc0NmCl5
-	WQaLIr0pg9xJTdN/G4zcptmQnIgE93CTJ0vTlZUYZLbI12uJLhfc2xHybPSX7PbjD+tT7ghGklm
-	T5L6SoBGVzKxEB6MRiiedp4=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4j0kJT0g8fzRhQs;
-	Thu,  8 Oct 2026 16:52:09 +0800 (CST)
-Received: from kwepemk200006.china.huawei.com (unknown [7.202.194.72])
-	by mail.maildlp.com (Postfix) with ESMTPS id E6B2740538;
-	Thu,  8 Oct 2026 17:04:19 +0800 (CST)
-Received: from [10.67.112.178] (10.67.112.178) by
- kwepemk200006.china.huawei.com (7.202.194.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 8 Oct 2026 17:04:19 +0800
-Message-ID: <6AC75C92.9090409@hisilicon.com>
-Date: Thu, 8 Oct 2026 17:04:18 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
-MIME-Version: 1.0
-To: Linus Walleij <linusw@kernel.org>, <longzhao@ambarella.com>, Chanho Min
-	<chanho.min@lge.com>
-CC: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>, Bartosz Golaszewski
-	<brgl@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, Long Zhao <zl020895@163.com>,
-	<linux-gpio@vger.kernel.org>
-Subject: Re: [PATCH v8 10/18] gpio: pl061: convert register access to regmap
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com> <20260921-cv75-v5-v8-10-282ff5d98dda@ambarella.com> <CAD++jLm8fWyAFY=Uv-O3-9joU+HiKjMAzmd0s6Hc=QEu51wCGA@mail.gmail.com>
-In-Reply-To: <CAD++jLm8fWyAFY=Uv-O3-9joU+HiKjMAzmd0s6Hc=QEu51wCGA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 08 Oct 2026 09:04:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G0D/cexRpf/ZoWXLiNXA+aWJGXMn3oQRBKo72IXHEEhwmz2spMe3dho43wtxD9z8xkw4w1CQL46EU+CGZzAhJOKruE8do0iJTl1yrt7ZZ/KyVWAR8cytzCoWu6cWXRZb2WtQOGHleXOThSuf6XfTM1iY6cla6dBgen8JkcqwFLd5NzTKI+uWkPABS3xXQdkWyBMbsUn38M2iXVsd7/4IJZnf2H/HOLjBVc0IZfmQokzNT4xlXXpXZwd+px2k18AWT/gxtXS9Lyg6zCbCd14l8WDF8YSORIycw/KYRAM3TVRqcO8BaczAOGmk4wUaRtTW4wX8zTkbHYaPCg7ayI8JSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HY4zLrJDYEWAnzylnIDGmuMGGMa03zInz6lhsAvzXZM=;
+ b=t6jPUZXAEmqT7c6FpYQ3/cjlhoqAVzOPNHe1Hd/DrLqjNzS+JhMshWN+DnM5DmcsUgVyZs9WTfPRS+tbtmdQluBw4ANV//LCLJqunBYSiJIcsH1VR8gt+SGC7I7eA4VrAnYMcj3OXSm/9m3gl4NZ6yCM+RngCmmKGb1yP0/wL1il45DB2bC+EKmqTpBjQASKqNo5fPbtNHfM4yJ68P3sa1LQLpwP22ZTm8FxBqWvgw+vkbLQLZzl4dMpTNK6yPukC0qlCqiThFQfT6rVwCiz+nrM9tuqfred5+SS+t6gTux0S8N4jJmsmbH52vonjhMr+/NS1+lAKRBEOI2IYR2grQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HY4zLrJDYEWAnzylnIDGmuMGGMa03zInz6lhsAvzXZM=;
+ b=DnZKmm7a6zsTfWKB5iRl0Drymjn6v9sXOzy9dyfo+6nhVJo87SOXSAVpUna7n8UveyleP7w+ZZptDg6NmUYSZx22O1vzXjChYa3ICuGpCn7GA0I6QboymJmsFSVNuYov+mLXr5RgN12mY3+vq3LaCRG8DDU+tylTcsWI35Ljyq575r10BhJuBjZn4es9ZKu9R0Btaz1ZQEMilL9Js/Y4De1csqTA/R2ALuO27WYvNVEhMDyA0hTgbWKHLLcWKDjNKa3xPsJx7FeiuAxT58xBRI5nmyBwdeTA0kQnFYDPj8yhagWizziOrJ6j4iUpztJh+3XQDfhWIIeN2yCykmt9Lw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
+ by AM8PR04MB7459.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 8 Oct
+ 2026 09:04:40 +0000
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 09:04:40 +0000
+From: Zhipeng.wang_1@oss.nxp.com
+To: Thomas Gleixner <tglx@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Radu Rendec <radu@rendec.net>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>,
+	xuegang.liu@nxp.com,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 8/9] genirq/irqdomain: Add devm_irq_domain_create_linear()
+Date: Thu,  8 Oct 2026 18:02:30 +0900
+Message-Id: <20261008090231.796511-9-Zhipeng.wang_1@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.112.178]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200006.china.huawei.com (7.202.194.72)
+Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0134.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d5::11) To DB8PR04MB6858.eurprd04.prod.outlook.com
+ (2603:10a6:10:113::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|AM8PR04MB7459:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5d31e9c-4c25-4e50-15ba-08df251b2f9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|23010399003|11063799006|18002099003|10067099003|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: F01XYQTDuD28kDPagC7SO7PU9bLFvPBFTcMFj31/O2vpX46DhzjAD0q8jiqFudvU7z9xL9bcEhelby/hyk+QxTI5OOlBCpRkINT7JNYk6JX7qpmvzw+9MqulJe7Yb1727gYS7inyNJFBCHFYz3eyUTZFoexQkh6BijpR9BHFMMRehH0DCU9f8uJXKqczKzQOaO1Ehv79geDiZB06vbSgac7D/MfKM9M5M9EWiCyEt+oRhUt6azuAiwpJGKh5ub2BNlTk6/NRt1MyviO9PexhtXclDpOouSGCII6nOqzylDhlXJv+ANneX8X9+rJ5oECA1sgqsJrHYaypW1be843P/p4oczqw3jeaMzw4xBAK8nEJ73gt7HwldE9K/KxH/XfqNCb+Diiu9CBdeFu2Ve3iyfSZh/O/dOceH+hknDkMnTnys7m7rXR1lNDf56EukibXHEV7OPwYOWPAaumiB8d+TYuxt6OkB5Sc4jFKYmbBcFjx5vrkhhv7clidiT5If+k8EUUDge3ZKHHQK8ohLH3sMsFlzH4B0fw2BEX4JO9nnnME0MBU4SbeuIdnEWgfrRpFGErpKE1yhbI8Ta5wS/UlPSVnqcsH2TuzkSIYoU1nnJfEuJ+ecqwsKP7QGxvKRO8WcDoFQcaTD8FOSao0u19dMZWlW0Zcr6YeX22R8ypbYZI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(23010399003)(11063799006)(18002099003)(10067099003)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OZbmNMua6O019znWvz7yED6nUeUNG0qegVO+Rehhd5823v5o3VxlgnCnJ7AV?=
+ =?us-ascii?Q?g1QScMST4ia7m2YeYiTjBEDRBtkL+yiaKKt3J2B1BPahjh7CTv6sbKFMBSYg?=
+ =?us-ascii?Q?H8OZx1NuJqXJPCmolksN4xvaJ4omTO78aJD9ASxfhTeiozwdYPw3rJHxd/PH?=
+ =?us-ascii?Q?0vK7QiHed7KDkPWHPC7QqmncyyCoD2gnDNxkV2k/83dt1hxe/G46Axo6IJ0X?=
+ =?us-ascii?Q?vRgvBiRgumv6jyjEbIcTHAezJb0PZBhiWlOEhmXs6bCMYClk3Of7L9KDXs2m?=
+ =?us-ascii?Q?LBk2t40IqAxE4TkWb2j8v5ynW8mT3pPmJ6ABU5tjTCcSw8Ixb2Kfv7b2sXxw?=
+ =?us-ascii?Q?vEaaNipDbsbHdGWwHZIq7NUbvQlisYF6rvjyHsz3WR7R3U+F/XOX3pnl+Axc?=
+ =?us-ascii?Q?an8b9jNPU9IJs2Q0+Tx2tOWiYyRqz9Yi6IqyIYomSMyNKvtRtRRBNT+d1gWg?=
+ =?us-ascii?Q?jjXEzD+AAMIWQ+GHVxSdHrmPPLxuXJ6K41gH+yAiMQBxSl21nmUqxXs2Oz3g?=
+ =?us-ascii?Q?rVuJSrjKPmufgII8O8EzsdLMRCCvI5MR7LcUYS530/rW9fQhjweZEfbH7ABe?=
+ =?us-ascii?Q?q+FiUJtYMA1LQfsRFYTcG+dL0FjUT0EdegGgzCIKB/ZWvh8RRInRLOo93Cfc?=
+ =?us-ascii?Q?BAD/IaMieq6JHJvbor2UYjI3eFObGPV8Sf86YKnW8S4gAqnfrT86kiTJF39f?=
+ =?us-ascii?Q?FKEmUL/3jckVCAgY7O+OQCnpaAXWT+YLibs9zXdj6a6Q99dnAGjT25BG7ojm?=
+ =?us-ascii?Q?ABX8usKxTy/vZ0Z7tgwNcQ+o8P2dfKsMkIBNu8/Hm+re1J4Lm0tsGu/MTaku?=
+ =?us-ascii?Q?CHrm5SZGwDWsp5GCrPghjeVbs/+rPY8zjtIHI4XqftWi5Zb1KSEJ+9saGpNx?=
+ =?us-ascii?Q?rEHc937Ztwap3AW1DpGzw5Nb9Wky9xVKXXNu6d53mcRNh5vX5Y1sJMQ4U8yK?=
+ =?us-ascii?Q?iNQ6XT/3iW+55i3cpERsRoJO4Sh+GcvSwDvfZJArgvmWDRD4fRNqI0D+PS8s?=
+ =?us-ascii?Q?XUyHmfa53x36OIXEyJyKtQKrTshQOB3s9SfRI7z96p4gh3z+8vQ1JheBc201?=
+ =?us-ascii?Q?5SSROBxuvGCJdL3HrxWoRqIs+fVUs57iOcMxezTcHxGV4TD+WhZneC1L4LQU?=
+ =?us-ascii?Q?t7S/8rW6ztD8szb0yhINuFgyT0tvjgYLhyLbxlcc2syHAfeSjy2GcKJBoQHm?=
+ =?us-ascii?Q?cNCbMmz6zUyinqlk148ISpd7yGL4ozH/IURr0mri8QYTRo2bFenUHCt/ZTvF?=
+ =?us-ascii?Q?CRi62LbY6s9iQBiXs1858DuNjsTAm+bMwnnM2ailxg3TVtX7KmNa0aN0gJsm?=
+ =?us-ascii?Q?Kea/ATBcir2PrMvKISuiagNFamwnXjwoETNnnBDuyNnFwj/6IL/tIRCc+D/C?=
+ =?us-ascii?Q?AHze307dwwhzb0x6ljhVZMFb1/SI7FelvRW0eW8SDtNYGhM2ZXax33DV4A9c?=
+ =?us-ascii?Q?zRtdwOxPoU0nRyfvyb3eKUSKV9xVwaZihJ4ZZHsI3YO3oxvK02cDf3azH0H6?=
+ =?us-ascii?Q?XKWB/7LTu/9AwRYZKSpbHTz/1KGuoBnvkVEV5jZMxl2uZHFnaltKHtNstHhE?=
+ =?us-ascii?Q?5JAyPDf5cmGYrXZ4GSQmY4ZZS+A2iaeFQPrFfKEQ7SsgpvOwRk2R4X9jw2+5?=
+ =?us-ascii?Q?b6yT7WNiEz3tMduNahWhqDCvt89GUyvGRwZxMvwjRq4KLy9pTuLGPRwLdla3?=
+ =?us-ascii?Q?j+i4kQ+2DS6753JsecHfMAQBnuLvw5ZtT8s8lFOZwm43aMYVyqKaxYyT1nyK?=
+ =?us-ascii?Q?X5HFINJP52yARLbTF0nJ6yXwrknQxgGswFbq+5O2ofhgjrxlzBJH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5d31e9c-4c25-4e50-15ba-08df251b2f9b
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 09:04:40.4220
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kc/ZIojCfN8xObAO6T4HLzxzxMoo5czYnnzNRF5Qh8Jj5l4WR8LaMZX/giX31QeR2Jx9h2BnbAiC6oiRFAN9po1zpJ4vV7CjY/EH7p5E4+4Qvsu8jLGIFtckUJ0CDrlp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_020434_176679_BEC7B3F6 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20261008_020444_791047_3E52C940 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +145,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus and Andy,
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 
-On 2026/9/22 15:23, Linus Walleij wrote:
-> On Mon, Sep 21, 2026 at 6:23 AM Long Zhao via B4 Relay
-> <devnull+longzhao.ambarella.com@kernel.org> wrote:
-> 
->> From: Long Zhao <longzhao@ambarella.com>
->>
->> Replace readb()/writeb() with a MMIO regmap while keeping the existing
->> gpio_chip and girq irqchip. Use a raw spinlock so irq_ack() can run
->> under the irq descriptor lock.
->>
->> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> 
-> It would be good if some critical users of the PL061 could
-> test this patch.
-> 
-> Wei, can you test this on HiSilicon?
+irq_domain_create_linear() has no devres-managed counterpart, so a
+driver that wants a linear revmap domain tied to the device lifetime has
+to open-code an irq_domain_info and call devm_irq_domain_instantiate()
+directly.
 
-Sorry for the late reply!
-I did not get the HiKey boards these past days.
-But I test the v9 patchset on the qemu sbsa-ref machine to verify the 
-gpio powerdown and it works after resolved some trivial merge conflicts.
+Add devm_irq_domain_create_linear() as the devres-managed sibling of
+irq_domain_create_linear(): it builds the same linear-revmap
+irq_domain_info and hands it to devm_irq_domain_instantiate(), so the
+domain is removed when the owning device is unbound. The return
+convention matches irq_domain_create_linear() (NULL on failure).
 
-The detail could be found at below link:
-https://github.com/hisilicon/kernel-dev/commits/topic-test-pl061/ 
+Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+---
+ include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-Best Regards,
-Wei
+diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+index 73c25d40846c..b6b360cb6525 100644
+--- a/include/linux/irqdomain.h
++++ b/include/linux/irqdomain.h
+@@ -457,6 +457,36 @@ static inline struct irq_domain *irq_domain_create_linear(struct fwnode_handle *
+ 	return IS_ERR(d) ? NULL : d;
+ }
+ 
++/**
++ * devm_irq_domain_create_linear - Allocate and register a linear revmap
++ *				   irq_domain tied to the device lifetime.
++ * @dev:	Device that owns the domain. The domain is removed via devres
++ *		when the device is unbound.
++ * @fwnode:	pointer to interrupt controller's FW node.
++ * @size:	Number of interrupts in the domain.
++ * @ops:	map/unmap domain callbacks
++ * @host_data:	Controller private data pointer
++ *
++ * Returns: Newly created irq_domain, or NULL on failure.
++ */
++static inline struct irq_domain *devm_irq_domain_create_linear(struct device *dev,
++							       struct fwnode_handle *fwnode,
++							       unsigned int size,
++							       const struct irq_domain_ops *ops,
++							       void *host_data)
++{
++	const struct irq_domain_info info = {
++		.fwnode		= fwnode,
++		.size		= size,
++		.hwirq_max	= size,
++		.ops		= ops,
++		.host_data	= host_data,
++	};
++	struct irq_domain *d = devm_irq_domain_instantiate(dev, &info);
++
++	return IS_ERR(d) ? NULL : d;
++}
++
+ static inline struct irq_domain *irq_domain_create_tree(struct fwnode_handle *fwnode,
+ 							const struct irq_domain_ops *ops,
+ 							void *host_data)
+-- 
+2.34.1
 
-> 
-> Chanho, can you test on LGE hardware?
-> 
-> but it looks good!
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> 
-> Yours,
-> Linus Walleij
-> .
-> 
 
