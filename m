@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBDACA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89113CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q++wsWtVbwXkEf71+CgUoMe/MxicdoF4EDB7F0Rp1rg=; b=o81ZYB0M3ojho+2ru70xil9RNh
-	2BgW/m6WyluKKTsZ27yYOmlCE5rkbTmv/clm6ItCUA8uLdQcszG/l+TaSRVEd4UF1LqtuAply1ETy
-	Qh+eDNB0DyKt+enVD3LtjUZ2d6YEV7ulS+ezhCzyDS+509i++G31+DuvFHgmuv2itaPhI9Ky0VqL6
-	PsVyd7GsXjKSx83h1cGnwZGlMaOSx5UnSUavnkyVKHd2js/fCSCuTZ0tpY+Mm6Xn3P+iFdAYmsyW5
-	Bis1MoWcUSuZ7otlyb6MnuJZJ3TPNb+N/uvyWh8jyHZ7+FMS4q5ROelzr3ZvPeB3F8+WfPzraeDrE
-	/PDFtWow==;
+	bh=yTQQuV4psRKvxDzTdLOJZ4uuToh0Wf4kSUXnRgYJ2U0=; b=2VveNbg4VjaiDHReq2BaqH51QR
+	USEpbR1sH+fPuPITgMbP8uEPXgPSQ6Bn6sO67IfYT92DNAR5nkIDy1HwYaEgeFYtQcTJe5eHL00K+
+	ibKe1s0SuQJ6uQZH+g+53fnzZdJyFCnFVyPRpGi7sMu3YFw37AL93a2ywiaOB/6pH9QgpvZbeTDEn
+	TfOhHkd/h47Jn/wJ3bRpI9W0oduuXOXD0lGuE47B/46Fhnv0aVqaEYoIn+b6fDDn9NKcTwvTk3UWv
+	oqmG8nNv1qqAmjxuXWO0HTZfh1TefbuIgbcQtZTQtjaVW9P0/Xet1ZVRS2L8rrMuoxQLsolthrDzM
+	Zc4x4J9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhC6-00000003aox-3Wl6;
-	Thu, 08 Oct 2026 06:01:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xEhCG-00000003atN-00FN;
+	Thu, 08 Oct 2026 06:01:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhC5-00000003aoS-3HT2
+	id 1xEhCE-00000003asg-38On
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:01:29 +0000
+	Thu, 08 Oct 2026 06:01:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F3D9601EF;
+	by tor.source.kernel.org (Postfix) with ESMTP id EF0AB6025A;
+	Thu,  8 Oct 2026 06:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A9B31F00893;
 	Thu,  8 Oct 2026 06:01:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8361F0089A;
-	Thu,  8 Oct 2026 06:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791439289;
-	bh=q++wsWtVbwXkEf71+CgUoMe/MxicdoF4EDB7F0Rp1rg=;
+	s=k20260515; t=1791439297;
+	bh=yTQQuV4psRKvxDzTdLOJZ4uuToh0Wf4kSUXnRgYJ2U0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KRAhwlSAONJX2U/yDNASgdvntqtI3qacT3zhQQ0xU0IpW4Mbz8Ev7QzdzVkdfXLhM
-	 gW3N8z97HqXtyeiMCr6SG9IVpz/iNGz+HGPFk/tMxK0HPuVFdlySwrtOqo8xb85/R3
-	 rZdwnRtHkPIZ4GxrYwYJ0zugeg2LjA9Q4lGRPvrrNbLhuxYQ5yDT1ekT0h4FBr0roE
-	 ay+lXJf1FbwKMAOOEzrZQj3QVHtmqno/lp8DpE9kCrVKlpU1axPjUKddVl9VlS1Js/
-	 /qEPSj0cmFEkXus4NaQvI0zuXpGxZgORArPtPRvsqeXLeLkf24A+eqh4u1uksESTDA
-	 XT4mDbzyq62cw==
+	b=DIqCJia77E1xwebKyTUEfNu5o1GRv3n6EjQP/mTqcVZMaMmZwPXF1cKbiFsq746ar
+	 EiHkTqLWyb7yC7LuYx63O+hFO1Xffql/3qNAtg1T9g4MmwWA7+gBCYnsMov0Y15oYm
+	 W25HgD6qvVEQ0pjEMvl+x1RZ+d5WofEDNT7j9uMCiwS4u56NRcpOh6OXK7jXhvxJF5
+	 c1xBlvXpYh9v8EgHRbIBoiUeYHCgrxpqL6Cgb1anryjErZSF7FWxNKLbdLu8h3TE39
+	 28bEemiip6lnOivD4nPZjpdEur0KirrtpyMjz677wUIpOahlOsWTbnDgYs/jidk+1R
+	 /nwxRcCoD4eyA==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev
 Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
@@ -74,9 +74,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-tegra@vger.kernel.org
-Subject: [PATCH v7 08/16] iommufd/viommu: Keep a reference to the KVM file
-Date: Thu,  8 Oct 2026 11:29:47 +0530
-Message-ID: <20261008055955.4014342-9-aneesh.kumar@kernel.org>
+Subject: [PATCH v7 09/16] tsm: Remove the device from lookup before PCI teardown
+Date: Thu,  8 Oct 2026 11:29:48 +0530
+Message-ID: <20261008055955.4014342-10-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
 References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
@@ -96,73 +96,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolin Chen <nicolinc@nvidia.com>
+PCI connect looks up a TSM by ID under pci_tsm_rwsem. Previously,
+tsm_unregister() released that lock after tearing down PCI state while
+the TSM was still in the class lookup. A racing connect could then
+attach a new PCI context that the teardown would never see.
 
-The TSM vDevice operations need access to the KVM associated with the
-device's vIOMMU. Save the device's KVM file in the iommufd_viommu when the
-vIOMMU is allocated, and take a file reference so it remains valid for the
-lifetime of the vIOMMU.
+Remove the device from the class lookup first, then take the PCI write
+lock to drain in-flight operations and destroy their contexts. Drop the
+device reference only after PCI teardown completes.
 
-Release the reference when the vIOMMU is destroyed.
-
-Based on an original patch by
-Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-
-[nicolinc: hold kvm's users_count]
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-[aneesh.kumar: Switch to use kvm_file]
-Cc: jgg@ziepe.ca
-Cc: kevin.tian@intel.com
-Cc: joro@8bytes.org
-Cc: will@kernel.org
-Cc: robin.murphy@arm.com
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/iommu/iommufd/viommu.c | 5 +++++
- include/linux/iommufd.h        | 1 +
- 2 files changed, 6 insertions(+)
+ drivers/virt/coco/tsm-core.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-index f7951057a1e5..b7489ed259bd 100644
---- a/drivers/iommu/iommufd/viommu.c
-+++ b/drivers/iommu/iommufd/viommu.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /* Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES
-  */
-+#include <linux/file.h>
- #include "iommufd_private.h"
- 
- void iommufd_viommu_destroy(struct iommufd_object *obj)
-@@ -11,6 +12,8 @@ void iommufd_viommu_destroy(struct iommufd_object *obj)
- 	if (viommu->ops && viommu->ops->destroy)
- 		viommu->ops->destroy(viommu);
- 	refcount_dec(&viommu->hwpt->common.obj.users);
-+	if (viommu->kvm_file)
-+		fput(viommu->kvm_file);
- 	xa_destroy(&viommu->vdevs);
+diff --git a/drivers/virt/coco/tsm-core.c b/drivers/virt/coco/tsm-core.c
+index e784993353d8..f79135986102 100644
+--- a/drivers/virt/coco/tsm-core.c
++++ b/drivers/virt/coco/tsm-core.c
+@@ -56,26 +56,25 @@ static struct tsm_dev *alloc_tsm_dev(struct device *parent)
+ 	return no_free_ptr(tsm_dev);
  }
  
-@@ -82,6 +85,8 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+-static struct tsm_dev *tsm_register_pci_or_reset(struct tsm_dev *tsm_dev,
+-						 struct pci_tsm_ops *pci_ops)
++static int tsm_register_pci(struct tsm_dev *tsm_dev, struct pci_tsm_ops *pci_ops)
+ {
+ 	int rc;
+ 
+ 	if (!pci_ops)
+-		return tsm_dev;
++		return 0;
+ 
+ 	tsm_dev->pci_ops = pci_ops;
+ 	rc = pci_tsm_register(tsm_dev);
+ 	if (rc) {
++		tsm_dev->pci_ops = NULL;
+ 		dev_err(tsm_dev->dev.parent,
+ 			"PCI/TSM registration failure: %d\n", rc);
+-		device_unregister(&tsm_dev->dev);
+-		return ERR_PTR(rc);
++		return rc;
  	}
  
- 	xa_init(&viommu->vdevs);
-+	if (idev->kvm_file)
-+		viommu->kvm_file = get_file(idev->kvm_file);
- 	viommu->type = cmd->type;
- 	viommu->ictx = ucmd->ictx;
- 	viommu->hwpt = hwpt_paging;
-diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-index 0a0bb4abfbd2..3267717f676d 100644
---- a/include/linux/iommufd.h
-+++ b/include/linux/iommufd.h
-@@ -103,6 +103,7 @@ struct iommufd_viommu {
- 	struct iommufd_ctx *ictx;
- 	struct iommu_device *iommu_dev;
- 	struct iommufd_hwpt_paging *hwpt;
-+	struct file *kvm_file;
+ 	/* Notify TSM userspace that PCI/TSM operations are now possible */
+ 	kobject_uevent(&tsm_dev->dev.kobj, KOBJ_CHANGE);
+-	return tsm_dev;
++	return 0;
+ }
  
- 	const struct iommufd_viommu_ops *ops;
+ struct tsm_dev *tsm_register(struct device *parent, struct pci_tsm_ops *pci_ops)
+@@ -96,15 +95,22 @@ struct tsm_dev *tsm_register(struct device *parent, struct pci_tsm_ops *pci_ops)
+ 	if (rc)
+ 		return ERR_PTR(rc);
+ 
+-	return tsm_register_pci_or_reset(no_free_ptr(tsm_dev), pci_ops);
++	rc = tsm_register_pci(tsm_dev, pci_ops);
++	if (rc) {
++		device_del(dev);
++		return ERR_PTR(rc);
++	}
++	return no_free_ptr(tsm_dev);
+ }
+ EXPORT_SYMBOL_GPL(tsm_register);
+ 
+ void tsm_unregister(struct tsm_dev *tsm_dev)
+ {
++	/* Remove the class lookup first. */
++	device_del(&tsm_dev->dev);
+ 	if (tsm_dev->pci_ops)
+ 		pci_tsm_unregister(tsm_dev);
+-	device_unregister(&tsm_dev->dev);
++	put_device(&tsm_dev->dev);
+ }
+ EXPORT_SYMBOL_GPL(tsm_unregister);
  
 -- 
 2.43.0
