@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470ACCA600E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52EECA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VU/Np+wB8etPxkYmPTBEJfmjJxyb6x7JDDbUNcQhFVk=; b=1qU1T37dktzZ/UqYySA/JYI/Uj
-	bmUmCw3jWhVWdHJNQRh46HKFBeQILGIeeEDuuY1991xJR+fjnlEHADH2bhJdTXpomhP5UiDePbiIX
-	Tw7HrhMs3rt31EE55T7xowNbKW/vjNMM3oXtPBRYLLWi7MFUimRNoB+tTyvEaS5QOxQ/eSmiAYfAz
-	z414+pa1abTa/YnaULajZrGKxf8WS5qKyoqHg0EkWZd0UFqKbVFXCYUZyJpE1OMMHje9OmmMYIYbh
-	442kvtOPyRFjMw+HbM0cjAwHeyXkQK6tiRb8gZaFFY0jhsB9VfcqNt2hZZKTGHSVCPbMp+bFodGg1
-	ECLX2ppg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mdRZrJtN9FgdZCPO3nME/34pN1D6OmSnqjEe0tYXdVE=; b=l+VcnNpdZ9koEr8ukbMDoVYIcq
+	VyvbhZHMxptmfU/d7AuMfsulyhSPm36HikLAJAnp1NBEQ0a+iGynEhuTMPz6ojrMQ1GX2281E445f
+	3JL+nhIJ2hd5eZEDlsxnhRUiroqAPWTuXHnBImpxgp5u36i+amqiFZOzo3ddclEOiy4LP6COioej/
+	rJt33o0MTQKrW4gyBAFbP5djtMR+C4KUtt1XaMdYOTnVisH/KdmEJLhlK9GNMFUm1ZuxQnhT4EC8u
+	AZgtFNxq4t0tVwCbjOnQn+DkQxtahhbI1S6KnbOKMmqLptjEPPF4nJvqzXRenLESA8WwZ3w1E3IbD
+	j8LJDoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEl5o-000000044HH-3oG4;
-	Thu, 08 Oct 2026 10:11:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEl9G-000000044vv-0vTY;
+	Thu, 08 Oct 2026 10:14:50 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEl5n-000000044H7-3xPG
+	id 1xEl9C-000000044v0-29m2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 10:11:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B1F242B97;
-	Thu,  8 Oct 2026 10:11:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64CD11F000FF;
-	Thu,  8 Oct 2026 10:11:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791454275;
-	bh=VU/Np+wB8etPxkYmPTBEJfmjJxyb6x7JDDbUNcQhFVk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gnOxrNvLK/4QSIW9CVXQqxIJaUul01dkZ6ExN6Nwqy6lHAOlPbgs+MXNst92Kvfl4
-	 9CvRRvSbgubejBK7/NAMI946JqANoxDfWhZzPc3tlO4dxly1MuiMjNAk+HiC51C5Je
-	 8VNYDmNnc0NoZZ+q5koN9uAJ268/hx9//C79bJy1WNZ4cKciowqNuB6gaKnyE8ojx0
-	 FcukaXzeU7RIUDXdB5MCDjVLGy+iHBh3OzoS6es7q5Zm603EwG5/6V2/0/OqWfBjE7
-	 cfnRK5/34lJdWade/mKw05nfvwtmqiuuO8fNBfSVi1Za+ex7JJs+dGA2TS6/upz+Og
-	 Bjouz89Jg2FIA==
-Date: Thu, 8 Oct 2026 11:11:09 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Olivier MOYSAN <olivier.moysan@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-Message-ID: <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261001-tribesman-gauze-862e1ef0cdd8@spud>
- <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+	Thu, 08 Oct 2026 10:14:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 32D551A1196;
+	Thu,  8 Oct 2026 10:14:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EFE5B60341;
+	Thu,  8 Oct 2026 10:14:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C50410333874;
+	Thu,  8 Oct 2026 12:14:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791454480; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=mdRZrJtN9FgdZCPO3nME/34pN1D6OmSnqjEe0tYXdVE=;
+	b=DmDHRn5CPrt/BbOThmCBjnAmlKyqU3XDz6zCOs0/WG5jeiwuZRNwtdARLhor8mGpKXY/xy
+	UUdQUvpw8i8nR+GfitrKZkypI3S1FlaPf9x9cijrs89n7nfMQLLTchQA25kw/uxI2aenOp
+	8Mafjhf8QH0ka1ZPYz/sS6lsGUge9/VF8dpF3CV1Qj+HnrbWdTkRzpzyBJD0WFvv/IBO18
+	dJuFjfmteEw2F1O59bnMnh/gBUQ0BRwX/1wcYV9lKujGo8WbUv/rxruhLC3ay5kmzcWqu4
+	eu06kzZl+6x4o4N10U896lHWeQ3wgdtyI0xNs2SPDB3iNmAFh1PEYXYG7LGRtg==
+Message-ID: <bea80b7e-3d44-4662-b3b2-e97a7f903aa9@bootlin.com>
+Date: Thu, 8 Oct 2026 12:14:31 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q4LeJaUPiLqeoRBN"
-Content-Disposition: inline
-In-Reply-To: <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: stmmac: dwxgmac2: enable L2 split header
+ support
+To: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
+ Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
+ Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+References: <20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_031446_844935_E0BC3991 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,607 +87,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---q4LeJaUPiLqeoRBN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
-> Hi Conor,
->=20
-> Thanks for the review
->=20
-> On 10/1/26 20:32, Conor Dooley wrote:
-> > On Thu, Oct 01, 2026 at 04:56:45PM +0200, Olivier Moysan wrote:
-> > > Add bindings that describes STM32 MDF settings to support
-> > > digital filtering for Pulse Density Modulation (PDM) microphones
-> > > and analog sigma delta modulators.
-> > >=20
-> > > Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> > > ---
-> > >   .../bindings/iio/adc/st,stm32-mdf-adc.yaml    | 383 +++++++++++++++=
-+++
-> > >   1 file changed, 383 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/iio/adc/st,stm=
-32-mdf-adc.yaml
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-a=
-dc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-> > > new file mode 100644
-> > > index 000000000000..f2fbc3e150e8
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-> > > @@ -0,0 +1,383 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) =
-ADC
-> > > +
-> > > +maintainers:
-> > > +  - Olivier Moysan <olivier.moysan@foss.st.com>
-> > > +
-> > > +description: |
-> > > +  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicat=
-ed to
-> > > +  interface external sigma delta modulators to STM32 micro controlle=
-rs.
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    enum:
-> > > +      - st,stm32mp25-mdf
-> > > +      - st,stm32mp23-mdf
-> > > +
-> > > +  reg:
-> > > +    minItems: 1
-> > > +    maxItems: 2
-> >=20
-> > This needs an items list here. The size of the regions seems like crap
-> > to begin with...
-> >=20
-> > > +
-> > > +  clocks:
-> > > +    maxItems: 1
-> > > +
-> > > +  clock-names:
-> > > +    description: Internal clock used for MDF digital processing.
-> > > +    items:
-> > > +      - const: ker_ck
-> >=20
-> > This is pointless when you only have one.
-> >=20
->=20
-> I agree that it could be dropped. However, it is useful for using
-> devm_regmap_init_mmio_clk.
+On 10/7/26 20:39, Sagar Cheluvegowda wrote:
+> XGMAC2 doesn't program the MAC extended configuration registers
+> needed for L2 header splitting when split-header mode is enabled,
+> so tagged AV packets can't use the split-header path. Configure
+> split mode (SPLM) and header saving (SAVE_EN) in XGMAC_EXT_CFG1,
+> extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
+> stmmac: Programming sequence for VLAN packets with split header")
+> to XGMAC2.
+> 
+> Also fix the RX header-length calculation for split-header
+> descriptors. Per the XGMAC2 descriptor format, RDES3's L34T and
+> L2T fields are only valid on the last descriptor (LD set); on a
+> non-last descriptor they can hold stale write-back data from a
+> previous packet. Read the header length from RDES2[9:0] directly
+> for non-last descriptors, and only consult L34T/L2T on the last
+> descriptor: RDES2[9:0] for IP packets (L34T set) and RDES2[9:2]
+> for non-IP packets (L2T set).
+> 
+> Finally, disable the variable-length preamble when L2 splitting
+> is enabled. A variable-length preamble shifts the position of the
+> Ethernet header, making the L2 split offset non-deterministic.
+> 
+> Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+> Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+> Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+> Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+> Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+> ---
+> v2:
+>   - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
+> v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com/
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       |  8 ++++++++
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 12 +++++++++++-
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 ++++++++++
+>  3 files changed, 29 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> index f8ab347f7b5b..fb29dd489714 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> @@ -167,6 +167,12 @@
+>  #define XGMAC_HW_FEATURE4		0x0000012c
+>  #define XGMAC_HWFEAT_EASP		BIT(4)
+>  #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+> +#define XGMAC_EXT_CFG0			0x140
 
-Ah, because that function if you pass NULL to it, it doesn't mean no
-string, it means no clock.
+Let's keep it coherent and use 0x00000140
 
->=20
-> > > +
-> > > +  "#clock-cells":
-> > > +    enum: [0, 1]
-> >=20
-> > Why is this not fixed? Also why are parts of your own device consuming
-> > the clocks?
+> +#define XGMAC_EXT_CFG0_VPRE		BIT(8)
+> +#define XGMAC_EXT_CFG1			0x00000144
+> +#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
+> +#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
+> +#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
+>  #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+>  #define XGMAC_MAC_FSM_CONTROL		0x00000158
+>  #define XGMAC_PRTYEN			BIT(1)
+> @@ -434,6 +440,7 @@
+>  #define XGMAC_RDES2_L4FM		BIT(28)
+>  #define XGMAC_RDES2_L3FM		BIT(27)
+>  #define XGMAC_RDES2_HL			GENMASK(9, 0)
+> +#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
+>  #define XGMAC_RDES3_OWN			BIT(31)
+>  #define XGMAC_RDES3_CTXT		BIT(30)
+>  #define XGMAC_RDES3_IOC			BIT(30)
+> @@ -441,6 +448,7 @@
+>  #define XGMAC_RDES3_CDA			BIT(27)
+>  #define XGMAC_RDES3_RSV			BIT(26)
+>  #define XGMAC_RDES3_L34T		GENMASK(23, 20)
+> +#define XGMAC_RDES3_L2T			GENMASK(19, 16)
+>  #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
+>  #define XGMAC_L34T_IP4TCP		0x1
+>  #define XGMAC_L34T_IP4UDP		0x2
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> index 6719ac6e395b..65ac5403ec58 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> @@ -292,8 +292,18 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+>  
+>  static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+>  {
+> -	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
+> +	u32 rdes3 = le32_to_cpu(p->des3);
+> +
+> +	/* when FD=1 and LD=0, HL is RDES2[9:0] */
+> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
+> +		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +		return;
+> +	}
+> +
+> +	if (rdes3 & XGMAC_RDES3_L34T)
+>  		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +	else if (rdes3 & XGMAC_RDES3_L2T)
+> +		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
+>  }
+>  
+>  static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> index ff83858ebc1f..0a9c787305a4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> @@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  	value |= XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
+>  	writel(value, ioaddr + XGMAC_RX_CONFIG);
+>  
+> +	value = readl(ioaddr + XGMAC_EXT_CFG1);
+> +	value |= XGMAC_CONFIG1_SPLM(1);
+> +	value |= XGMAC_CONFIG1_SAVE_EN;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG1);
+> +
+> +	/* Disable variable preambles to keep the L2 split offset deterministic. */
+> +	value = readl(ioaddr + XGMAC_EXT_CFG0);
+> +	value &= ~XGMAC_EXT_CFG0_VPRE;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG0);
+> +
+>  	value = readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
+>  	if (en)
+>  		value |= XGMAC_SPH;
 
-Reading the docs, this has to be 1, you have two clocks?
+The rest looks good to me :)
 
-Not sure why you skipped this and skipped explaining why you are
-consuming your own clocks.
+Maxime
 
-> > > +  clock-output-names:
-> > > +    description: |
-> > > +      CCK0 and CCK1 are optional output clocks, which share the same=
- clock frequency,
-> > > +      but can be gated independently to save power.
-> > > +    minItems: 1
-> > > +    maxItems: 2
-> > > +    oneOf:
-> > > +      - items:
-> > > +          - const: cck0
-> > > +      - items:
-> > > +          - const: cck1
-> > > +      - items:
-> > > +          - const: cck0
-> > > +          - const: cck1
-> > > +
-> > > +  clock-frequency:
-> > > +    description: |
-> > > +      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
-> > > +      The frequency must be a multiple of the "ker_ck" clock frequen=
-cy.
-> > > +    maximum: 25000000
-> >=20
-> > Should not be needed, the consumers request what they need.
-> >=20
->=20
-> The CCKx clock frequency depends on the maximum rate supported by the sig=
-ma
-> delta converters (for instance a digital mic) and the expected decimation
-> ratio on the bitstream. Typically this determines the frequency on the SPI
-> bus.
-> This rate is defined statically and shared by the CCKx clocks. So IMHO, as
-> this rate is unique, it can look strange to let the consumer define it.
-> Moreover, it seems to me that clock-frequency is already used to configure
-> the frequency of a provider in some other bindings.
-> For instance: Documentation/devicetree/bindings/clock/silabs,si570.yaml
-
-This is a binding from the age of antiquity, using it to justify your
-use is actually harming your argument rather than helping. Your clock
-consumers should be providing the information about what the rate should
-be, and if you need to do this in dt you can use assigned-clock-rates.
-
-> So, it's not clear for me, what is the restriction on clock-frequency
-> property.
-> > > +
-> > > +  ranges: true
-> > > +
-> > > +  clock-ranges: true
-> > > +
-> > > +  resets:
-> > > +    maxItems: 1
-> > > +
-> > > +  reset-names:
-> > > +    items:
-> > > +      - const: mdf
-
-Same applies here as to the clock names fwiw.
-
-> > > +
-> > > +  access-controllers:
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> > > +    description: |
-> > > +      Phandle to the rifsc device to check access right.
-> > > +
-> > > +  power-domains:
-> > > +    maxItems: 1
-> > > +
-> > > +  st,interleave:
-> > > +    description: |
-> > > +      List of phandles of interleaved filters. The indexes of interl=
-eaved filters must be
-> > > +      consecutives starting from 0 (i.e in range [0..N]). The sample=
-s from interleaved filters
-> > > +      are muxed in a single channel and retrieved through the device=
- associated to the filter 0.
-> > > +      The filters 1..N have to be enabled, but inherit their configu=
-ration from filter 0.
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> >=20
-> > No idea what these even are, but this is probably not the right way to
-> > represent the relationship between devices. They're apparently ADCs, but
-> > this is also an ADC so I'm not sure what's going on here at all.
-
-Yeah, after more thought this should not be done like this at all,
-especially if these filters the phandle point to are part of this device
-itself, which I suspect they are. If that's the case, you don't need
-phandles to even do this, you just need an int that says what N is.
-
-> >=20
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - ranges
-> > > +  - clocks
-> > > +  - clock-names
-> > > +  - clock-ranges
-> > > +  - "#address-cells"
-> > > +  - "#size-cells"
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +patternProperties:
-> > > +  "^sitf@[0-9]+$":
-> > > +    type: object
-> > > +    description: Serial interface child node
-> >=20
-> > Why is this a child node at all?
-> > Probably not worth reviewing more without a link to the docs for this
-> > device so I can figure out what on earth is going on!
-> >=20
->=20
-> The MDF is a digital filter for sigma-delta bitstreams, rather than the
-> analog-to-digital converter itself.
->=20
-> Here is the link to STM32MP25 reference manuel
-> https://www.st.com/resource/en/reference_manual/rm0457-stm32mp2325xx-adva=
-nced-armbased-3264bit-mpus-stmicroelectronics.pdf
-> Chapter 45: Multi-function digital filter (MDF)
->=20
-> On STMP32MP25 SoC, the MDF provides 8 serial interfaces (SITF) and 8 digi=
-tal
-> filters (DFLT) which can be connected through a multiplexer.
->=20
-> Below is a schematic view of typical applications targeted by this
-> peripheral
->=20
->=20
-> Audio use case:
->=20
-> 		mdf
->             +-------------------------------------+
-> +------+    | +------+    +------+    +------+    |
-> | dmic | -> | | sitf | -> | mux  | -> | dflt | -- | -> audio device
-> +------+    | +------+    +------+    +------+    |
->             +-------------------------------------+
->=20
-> For instance, in an audio use case the serial interface can be configured=
- to
-> provide the clock to the digital microphone (cck0, cck1 or both) at a com=
-mon
-> predefined rate, and to retrieve the PDM samples.
-> The serial interface provides this samples to a digital filter, which
-> delivers PCM samples on its output.
->=20
->=20
-> Analog use case:
->=20
-> 		mdf
->               +-------------------------------------+
-> +--------+    | +------+    +------+    +------+    |
-> | sd adc | -> | | sitf | -> | mux  | -> | dflt | -- | -> iio device
-> +--------+    | +------+    +------+    +------+    |
->               +-------------------------------------+
-
-
-So, looking at the docs and a brief chat with Jonathan about this
-device, I believe you've got things backwards and this is actually the back=
-end,
-and the adc should be the one populating the io-backends property
-pointing to this device. You should have io-backend-cells, and I assume
-that there should be a cell for the adc to select which dlft it is connected
-to.
-
-I think all of these child nodes should just get deleted - all your
-devices here seem completely fake, since you've got stuff that's only a
-single word wide. With that, you could also throw away these mickey
-mouse nodes with sound-dai-cels of 0, and use 1 instead, with that cell
-again determining which dlft is in use.
-
-The only child node I can really thing of any justification for here is
-channels - albeit not adc channels since this is not an adc - so that
-you can individually configure a dlft using those channel nodes.
-
-These serial inputs, what is the source for the data that is ever
-actually sent there? I am assuming it's effectively another IIO device,
-just not the onboard adc? Are the outputs exposed on pins on the
-package?
-
-I would encourage you to remodel this system, where this device is the
-backend and also try to get rid of as much of the consuming your own
-clock as possible. Certainly consuming ker_clk should never be required.
-It's hard to reason about what should happen with the serial interface
-clocks, when I have no idea what the input/data source device actually
-is in those cases. Being a clock controller does make sense, because the
-device exposes CCK0/1 to the outside world, it's the internal routing to
-the SITF blocks that I am not sure how to deal with. A ouroboros device
-that is consuming a clock it provides is not really a done thing,
-hopefully the IIO guys can tell you how these kinds of things are
-typically done here, since I'm sure there's plenty of other devices
-that have some sort of ability to change the clock source for a channel.
-
-Probably you need to add two optional input clocks to this device, since
-mdf_cck0/1 can be inputs too?
-
-Let me know if any of this feedback is intractable stuff, and maybe hang
-on for someone like David or Jonathan to provide some review before
-going about a significant rework. It's worth bearing in mind that I am a
-binding reviewer and not a domain expert in ADCs etc.
-
-Thanks,
-Conor.
-
-> > > +
-> > > +    properties:
-> > > +      compatible:
-> > > +        enum:
-> > > +          - st,stm32mp25-sitf-mdf
-> > > +
-> > > +      reg:
-> > > +        description: Specify the SITF serial interface instance
-> > > +        maxItems: 1
-> > > +
-> > > +      clocks:
-> > > +        description: |
-> > > +          Serial interface clock (optional depending on interface mo=
-de)
-> > > +        maxItems: 1
-> > > +
-> > > +      st,sitf-mode:
-> > > +        description: |
-> > > +          Select serial interface protocol
-> > > +          - spi: SPI mode
-> > > +          - lf_spi: low frequency SPI mode for low power applications
-> > > +        $ref: /schemas/types.yaml#/definitions/string
-> > > +        enum:
-> > > +          - spi
-> > > +          - lf_spi
-> > > +
-> > > +    required:
-> > > +      - reg
-> > > +      - st,sitf-mode
-> > > +
-> > > +    additionalProperties: false
-> > > +
-> > > +  "^filter@[0-9]+$":
-> > > +    type: object
-> > > +    description: Digital filter path child node
-> > > +
-> > > +    properties:
-> > > +      compatible:
-> > > +        enum:
-> > > +          - st,stm32mp25-mdf-dmic
-> > > +          - st,stm32mp25-mdf-adc
-> > > +
-> > > +      reg:
-> > > +        description: Specify the MDF filter instance
-> > > +        maxItems: 1
-> > > +
-> > > +      interrupts:
-> > > +        maxItems: 1
-> > > +
-> > > +      clocks:
-> > > +        minItems: 1
-> > > +        description: Internal clock used for MDF digital processing =
-and control blocks.
-> > > +
-> > > +      clock-names:
-> > > +        items:
-> > > +          - const: ker_ck
-> > > +
-> > > +      dmas:
-> > > +        maxItems: 1
-> > > +
-> > > +      dma-names:
-> > > +        items:
-> > > +          - const: rx
-> > > +
-> > > +      "#io-channel-cells":
-> > > +        const: 1
-> > > +
-> > > +      '#address-cells':
-> > > +        const: 1
-> > > +
-> > > +      '#size-cells':
-> > > +        const: 0
-> > > +
-> > > +      st,cic-mode:
-> > > +        description: |
-> > > +          Cascaded-integrator-comb (CIC) filter configuration
-> > > +          - 0: MCIC & ACIC filters in FastSinc mode
-> > > +          - [1-3]: MCIC & ACIC filters in Sinc mode order 1 to 3
-> > > +          - [4-5]: Single CIC filter in Sinc mode order 4 to 5
-> > > +          For audio purpose it is recommended to use CIC Sinc4 or Si=
-nc5
-> > > +          This property is mandatory for filter 0 or filters not use=
-d in interleave mode.
-> > > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > > +        minimum: 0
-> > > +        maximum: 5
-> > > +
-> > > +      st,delay:
-> > > +        description: Filter delay in samples
-> > > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > > +        maximum: 127
-> > > +
-> > > +      st,rs-filter-bypass:
-> > > +        description: Bypass RSFLT reshaping filter.
-> > > +        $ref: /schemas/types.yaml#/definitions/flag
-> > > +
-> > > +      st,hpf-filter-cutoff-bp:
-> > > +        description: |
-> > > +          High Pass Filter (HPF) cut-off frequency expressed as a fr=
-action of the PCM sampling rate.
-> > > +          Cut-off frequency =3D st,hpf-filter-cutoff-bp x Fpcm / 100=
-00.
-> > > +          If this property is not defined the HPF is disabled.
-> > > +        enum: [625, 1250, 2500, 9500]
-> > > +
-> > > +      st,sync:
-> > > +        description:
-> > > +          Synchronize to another filter.
-> > > +          Must contain the phandle of the filter providing the synch=
-ronization.
-> > > +        allOf:
-> > > +          - $ref: /schemas/types.yaml#/definitions/phandle-array
-> > > +          - maxItems: 1
-> > > +
-> > > +      st,sitf:
-> > > +        $ref: /schemas/types.yaml#/definitions/phandle-array
-> > > +        items:
-> > > +          - items:
-> > > +              - description: Phandle of the serial interface connect=
-ed to the digital filter
-> > > +              - description: |
-> > > +                  The phandle's argument selects the bitstream on th=
-e falling or rising edge
-> > > +                  of the serial interface clock:
-> > > +                  - 0: rising edge
-> > > +                  - 1: falling edge
-> > > +                enum: [0, 1]
-> > > +                default: 0
-> > > +        description:
-> > > +          Should be phandle/bitstream pair.
-> > > +
-> > > +    required:
-> > > +      - compatible
-> > > +      - reg
-> > > +      - interrupts
-> > > +      - dmas
-> > > +      - dma-names
-> > > +      - "#io-channel-cells"
-> > > +      - "#address-cells"
-> > > +      - "#size-cells"
-> > > +      - st,sitf
-> > > +
-> > > +    unevaluatedProperties: false
-> > > +
-> > > +    patternProperties:
-> > > +      "^channel@([0-7])$":
-> > > +        type: object
-> > > +        $ref: adc.yaml
-> > > +        description: Represents the external channel which is connec=
-ted to the MDF.
-> > > +
-> > > +        properties:
-> > > +          reg:
-> > > +            maximum: 7
-> > > +
-> > > +          io-backends:
-> > > +            description:
-> > > +              Used to pipe external sigma delta modulator or interna=
-l ADC backend to MDF
-> > > +              channel.
-> > > +            maxItems: 1
-
-> > > +
-> > > +        required:
-> > > +          - reg
-> > > +
-> > > +        unevaluatedProperties: false
-> > > +
-> > > +    allOf:
-> > > +      - if:
-> > > +          properties:
-> > > +            compatible:
-> > > +              contains:
-> > > +                const: st,stm32mp25-mdf-adc
-> > > +
-> > > +        then:
-> > > +          patternProperties:
-> > > +            "^channel@[0-7]$":
-> > > +              required:
-> > > +                - io-backends
-> > > +
-> > > +      - if:
-> > > +          properties:
-> > > +            compatible:
-> > > +              contains:
-> > > +                const: st,stm32mp25-mdf-dmic
-> > > +
-> > > +        then:
-> > > +          patternProperties:
-> > > +            "^mdf-dai+$":
-> > > +              type: object
-> > > +              description: child node
-> > > +
-> > > +              properties:
-> > > +                compatible:
-> > > +                  enum:
-> > > +                    - st,stm32mp25-mdf-dai
-> > > +
-> > > +                "#sound-dai-cells":
-> > > +                  const: 0
-> > > +
-> > > +                io-channels:
-> > > +                  description:
-> > > +                    From common IIO binding. Used to pipe external s=
-igma delta
-> > > +                    modulator or internal ADC output to MDF channel.
-> > > +
-> > > +                power-domains:
-> > > +                  maxItems: 1
-> > > +
-> > > +                port:
-> > > +                  $ref: /schemas/sound/audio-graph-port.yaml#
-> > > +                  unevaluatedProperties: false
-> > > +
-> > > +              required:
-> > > +                - compatible
-> > > +                - "#sound-dai-cells"
-> > > +                - io-channels
-> > > +
-> > > +              additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> > > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +    mdf1: mdf@504d0000 {
-> > > +      compatible =3D "st,stm32mp25-mdf";
-> > > +      ranges =3D <0 0x504d0000 0x1000>;
-> > > +      reg =3D <0x504d0000 0x8>, <0x504d0ff0 0x10>;
-> > > +      #address-cells =3D <1>;
-> > > +      #size-cells =3D <1>;
-> > > +      clocks =3D <&rcc CK_KER_MDF1>;
-> > > +      clock-names =3D "ker_ck";
-> > > +      clock-ranges;
-> > > +      #clock-cells =3D <1>;
-> > > +      clock-output-names =3D "cck0", "cck1";
-> > > +      clock-frequency =3D <2048000>;
-> > > +
-> > > +      sitf5: sitf@300 {
-> > > +        compatible =3D "st,stm32mp25-sitf-mdf";
-> > > +        reg =3D <0x300 0x4>;
-> > > +        st,sitf-mode =3D "spi";
-> > > +        clocks =3D <&mdf1 0>;
-> > > +      };
-> > > +
-> > > +      filter0: filter@84 {
-> > > +        compatible =3D "st,stm32mp25-mdf-dmic";
-> > > +        reg =3D <0x84 0x70>;
-> > > +        #io-channel-cells =3D <1>;
-> > > +        interrupts =3D <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        dmas =3D <&hpdma 63 0x63 0x12 0>;
-> > > +        dma-names =3D "rx";
-> > > +        st,cic-mode =3D <5>;
-> > > +        st,sitf =3D <&sitf5 0>;
-> > > +        #address-cells =3D <1>;
-> > > +        #size-cells =3D <0>;
-> > > +
-> > > +        channel@0 {
-> > > +          reg =3D <0>;
-> > > +        };
-> > > +
-> > > +        asoc_pdm0: mdf-dai {
-> > > +          compatible =3D "st,stm32mp25-mdf-dai";
-> > > +          #sound-dai-cells =3D <0>;
-> > > +          io-channels =3D <&filter0 0>;
-> > > +        };
-> > > +      };
-> > > +
-> > > +      filter1: filter@104  {
-> > > +        compatible =3D "st,stm32mp25-mdf-adc";
-> > > +        reg =3D <0x104 0x70>;
-> > > +        #io-channel-cells =3D <1>;
-> > > +        interrupts =3D <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        dmas =3D <&hpdma 64 0x63 0x12 0>;
-> > > +        dma-names =3D "rx";
-> > > +        st,cic-mode =3D <2>;
-> > > +        st,sitf =3D <&sitf5 1>;
-> > > +        #address-cells =3D <1>;
-> > > +        #size-cells =3D <0>;
-> > > +
-> > > +        channel@1 {
-> > > +          reg =3D <1>;
-> > > +          settling-time-us =3D <1000>;
-> > > +          io-backends =3D <&sd_adc1>;
-> > > +        };
-> > > +      };
-> > > +    };
-> > > +
-> > > +...
-> > > --=20
-> > > 2.43.0
-> > >=20
->=20
-
---q4LeJaUPiLqeoRBN
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasdsMQAKCRB4tDGHoIJi
-0vO8AQCMM8zCsGGHNp3qd9YMBUFySBwzrZiZ1Seuw2pNukGB8QD+Niuo85LvQ7HS
-sXFD2/oDPPpwhcg4tu0Y3miHCak/ugA=
-=Gc/J
------END PGP SIGNATURE-----
-
---q4LeJaUPiLqeoRBN--
 
