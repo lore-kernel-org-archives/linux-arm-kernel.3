@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EC3CA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C0FCA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C4HbqLovK92A6TAwb6P9llvvE6m7BStHvYxN8zYGpyw=; b=Je4rN5hSqRTE6X
-	encLUMvYqKRqgQ0/tHzfDPR1gTGAMw65eWUdpkIuKUcmF23KQuRAxN5hrO+fEhIE2eNR3sUzdYWL4
-	QX8K+TAyx19h0WRBLERccSx4x/tshWQRVcQbBzMcEaohvR3CSWeUYrLy/OnG28eCXbZmNybmVwL0s
-	+1a1hmGca5kAOHWOlf2EKyAnEM6mJfqPWeMt0a0krpvVShuSgfc9taUoBNygPx9FZOv32xtzlf6gE
-	oZgDq/sYNcSFadSsdilLYhIGQoLUELf2Yg5NAfIozQd6XVlLtvgqUtG1r+sBosjXACj41U5x8O5kW
-	dekwi9sCeQAnM9+GHC6g==;
+	List-Owner; bh=VV97U+fI+2BU63oSyzjtBz89NKgr2GCnmm8FLfD0RyY=; b=a7Aq3ibxuxcoNw
+	LazMZ7rmJR0QdfX/ufp4dc6q42yGdQm7lfexyO+Kcnzgf4gyoqyUamTPlsxx4uMnYEGq6Z6qG75rs
+	cs5ZVgxxhy1u5fuCVJbu/2UjTVlAolrq6wrhRG/kLgPY9u/LXLe5CPMgIKAuydzF9E7tHEwh5Etx1
+	1iVjIl/455CVCOkS/88SEG8NIlgLxR3mYt47ug1g+PfRN+vpmK5OZ908aHj7JDlXJ6ulHuUm1Oodr
+	gLphEffyqa/ltXwZdtXQ5LEClNSHbgFacZLPbqySQmwBAFjBwkYcjPWcGgvltCKJTjpB122EJp7zm
+	SMmlbJADvak/KGlKgPnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEizq-00000003o9R-1bjI;
-	Thu, 08 Oct 2026 07:56:58 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1xEj17-00000003oLj-2YAI;
+	Thu, 08 Oct 2026 07:58:17 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEizn-00000003o8r-2J38
+	id 1xEj14-00000003oL5-3mwk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:56:57 +0000
+	Thu, 08 Oct 2026 07:58:16 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=C4HbqLovK92A6TAwb6P9llvvE6m7BStHvYxN8zYGpyw=;
-	b=qv9HfR3QrszT10UTjPpYwRDXkRXy6+IUUZu1DdDU9d47C5a8siP68NwU2ZltaChZlMwVNvN4e
-	KC3GtRwt4NOQRzhUPjsF06rPBjU36zSnCgsvQM7gHQgXCAixv6WM0DRyqxnUAU4u/0wXNhRv5Ae
-	nY6lpLYIMKWJQM38y9fVd10=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4j0hpS1F12z1K9D2;
-	Thu,  8 Oct 2026 15:44:32 +0800 (CST)
+	bh=VV97U+fI+2BU63oSyzjtBz89NKgr2GCnmm8FLfD0RyY=;
+	b=JJ9PrRuNTyQACbAsJpgBXsMOj+ibz4H/Bw2cZG2xFX16XmzWjQxGuGI1RhEnJlSSSUlnKLxQg
+	VkMRieu4gxl0qYqDMLs0PVbXOHBpIEYS+fr3Jh+nuzm+/yjQsnhmJ77BbGRAF5YtGtnrG+e4t7e
+	VJh27x1ulFNNLg1rg3cnDwY=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4j0hr02Rrcz1T4MQ;
+	Thu,  8 Oct 2026 15:45:52 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id E0B524048B;
-	Thu,  8 Oct 2026 15:56:46 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 1C3DE203C1;
+	Thu,  8 Oct 2026 15:58:05 +0800 (CST)
 Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
- 2026 15:56:46 +0800
-Message-ID: <da4bae65-7dbf-4f47-877a-be1b6bd5f533@huawei.com>
-Date: Thu, 8 Oct 2026 15:56:44 +0800
+ 2026 15:58:04 +0800
+Message-ID: <37913984-3cf0-4bfb-8adf-f87ec65c8b75@huawei.com>
+Date: Thu, 8 Oct 2026 15:58:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/21] scripts/gdb: arm64: Use TPIDRRO_EL0 instead of
- SP_EL0 for 'current'
+Subject: Re: [PATCH v2 09/21] arm64: stackprotector: Re-enable per-task
+ stackprotector
 To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
 References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-9-will@kernel.org>
+ <20260918161407.2300-10-will@kernel.org>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260918161407.2300-9-will@kernel.org>
+In-Reply-To: <20260918161407.2300-10-will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.67.110.68]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_005655_737435_8966B47D 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20261008_005815_273771_EDB749BC 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +81,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 在 2026/9/19 0:13, Will Deacon 写道:
-> The current task pointer now lives in TPIDRRO_EL0 instead of SP_EL0, so
-> update the gdb 'cpus.py' helper script with the new register allocation.
+> Now that 'current' resides in TPIDRRO_EL0, update the per-task
+> stackprotector compiler invocation to use the new register.
+> 
+> Note that this requires a very recent build of clang [1], as (unlike
+> GCC), it historically rejected all registers other than SP_EL0.
 > 
 > Cc: Mark Rutland <mark.rutland@arm.com>
+> Link: https://github.com/llvm/llvm-project/pull/188054 [1]
 > Signed-off-by: Will Deacon <will@kernel.org>
 > ---
->  scripts/gdb/linux/cpus.py | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm64/Kconfig  | 3 +--
+>  arch/arm64/Makefile | 2 +-
+>  2 files changed, 2 insertions(+), 3 deletions(-)
 > 
-> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
-> index 6edf4ef61636..547a623280ae 100644
-> --- a/scripts/gdb/linux/cpus.py
-> +++ b/scripts/gdb/linux/cpus.py
-> @@ -185,7 +185,7 @@ def get_current_task(cpu):
->              var_ptr = gdb.parse_and_eval("&current_task")
->              return per_cpu(var_ptr, cpu).dereference()
->      elif utils.is_target_arch("aarch64"):
-> -        current_task_addr = gdb.parse_and_eval("(unsigned long)$SP_EL0")
-> +        current_task_addr = gdb.parse_and_eval("(unsigned long)$TPIDRRO_EL0")
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b8270b301809..020fcaf36b1b 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2450,12 +2450,11 @@ config RANDOMIZE_MODULE_REGION_FULL
+>  	  exhaustion, modules might be able to fall back to a larger 2GB area.
+>  
+>  config CC_HAVE_STACKPROTECTOR_SYSREG
+> -	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=0)
+> +	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=tpidrro_el0 -mstack-protector-guard-offset=0)
+>  
+>  config STACKPROTECTOR_PER_TASK
+>  	def_bool y
+>  	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_SYSREG
+> -	depends on BROKEN
+>  
+>  config UNWIND_PATCH_PAC_INTO_SCS
+>  	bool "Enable shadow call stack dynamically using code patching"
+> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> index 6b005c8fef70..a293ab67818f 100644
+> --- a/arch/arm64/Makefile
+> +++ b/arch/arm64/Makefile
+> @@ -72,7 +72,7 @@ ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+>  prepare: stack_protector_prepare
+>  stack_protector_prepare: prepare0
+>  	$(eval KBUILD_CFLAGS += -mstack-protector-guard=sysreg		  \
+> -				-mstack-protector-guard-reg=sp_el0	  \
+> +				-mstack-protector-guard-reg=tpidrro_el0	  \
 
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
->          if (current_task_addr >> 63) != 0:
->              current_task = current_task_addr.cast(task_ptr_type)
->              return current_task.dereference()
+>  				-mstack-protector-guard-offset=$(shell	  \
+>  			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
+>  				$(objtree)/include/generated/asm-offsets.h))
 
 -- 
 Best regards,
