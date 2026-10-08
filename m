@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C55CA600A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3DFCA600A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 07:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JgMaUazBcpqvux2KQDW+vhUXwrg8xsyRivF3+Hr/oNo=; b=hwQ6YlDVCG59PM
-	cgtEuv/jUgnqyzQlveshAy8gUqn31ub2Wesxtf71qRJ9QFKsAkXOlCEYJlLCmoSgKFkcIz3lpVqYn
-	E8u7rE2I+0puM5RUGniW7LR6Qyq8mpPvkqthpdJzoOyhlJC2jPM5W01iJiVyU7C0GqQYoN0GG1CYX
-	E43Y6pt5gcnKju2iWHqGLqGeeQo9l/rDlXzd8QZo2RYbbTaVl/hVosYRgL6T/3AigUHCuUbS77oOx
-	wCXIiYrNlZYbg3MWpZnNMqXzdgeoQvQ4eQ/e7D69vTbkWDXFS3/ZeHnMykW6oDJ30jupVjRorJbOh
-	zdgGnBGP0RVQyXc55Hrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOlVfgfP6cReZbjYOfgC3BBrEq2xqxmMoSO9wrismZA=; b=KnET/JcyyKKbRtci/778iwHYLr
+	wqah5W4IDfVtxZLefOz7HVf1lPnILFIqAjEyeFA1Fsx/nR5GPm7fUql+JhJCBbeIaNc5H19wldqD/
+	qikdTI0uOeurgZh+VKQOGqwOeIYYtGAIad3Yuvs13VYw5LaMdKF08n9PKd3gD4/1aklPoc/WoXSTU
+	5M8H4tc8Y6WVNhOqqKOmeTkg5NRfKmJvUoHZszCcSMFCzLkZw4Z/nEDxMFhy01zGSFFGv5cI5G2Jt
+	t7Xllu6cSXSMoksR14QfhBXCkNL3Zl0WjaW1UJ9oZzSZULxquyONbS+fhBCqOCeU49+q7XKUtjl79
+	6h2d7SAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEior-00000003mtS-2ora;
-	Thu, 08 Oct 2026 07:45:37 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1xEitZ-00000003nMe-0jwu;
+	Thu, 08 Oct 2026 07:50:29 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEioo-00000003msh-2tyF
+	id 1xEitU-00000003nM5-2Yq2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 07:45:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=JgMaUazBcpqvux2KQDW+vhUXwrg8xsyRivF3+Hr/oNo=;
-	b=Sgvf7B59ydpF9D5jY+B+heyPb50E82OAtETzIJuBlsByFUHSTjmArd7xNCixSIXjb0p2MggUx
-	WFV/UHdLl+c/mjnY4tQiOubY8pSnKYKq9W23opyxq2rRwEJ9jqATT3O/gCpI9ICn9RGuJQ3YfiR
-	oAhr8bQc9hfeeO7iDVRzG8g=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4j0hYl4FHDznTVd;
-	Thu,  8 Oct 2026 15:33:31 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 63B504055B;
-	Thu,  8 Oct 2026 15:45:27 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 8 Oct
- 2026 15:45:26 +0800
-Message-ID: <fcecf50e-6b0d-4441-a188-31074c8b099a@huawei.com>
-Date: Thu, 8 Oct 2026 15:45:25 +0800
+	Thu, 08 Oct 2026 07:50:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECF85A05A6;
+	Thu,  8 Oct 2026 09:50:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1791445821; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=IOlVfgfP6cReZbjYOfgC3BBrEq2xqxmMoSO9wrismZA=;
+	b=g3P/M1+mF5kD6hBkOKBHZoxyAkWBu+lPEehfpH8Rfpa8IeuT01zbhtt2OIcMvlGT98DBTJ
+	mzKrkXcSERT8siNk7rc7F/R0nFwU+bUw0mqwCpGPbF4nQlYQkhO21ikv+5CCgIkO+DchRz
+	lYjBWRCRkysI/X54d24qzdZTcCBC6Q646g9JGx4cia9H5nqCzPT9Sw17PM3w4JvLrd+oqL
+	fHqI27x30xOdrFnmUxzAs/QJnVrexuuFVGmTRnNzAnrrL+wbGn/GcPiBkXElSE0KCh9R0g
+	IX1a8v3l7+Ss2INEO/rpI7uGMu+ll3P9r1gyx9p2q+LK0jzDf9X1msBmi0cREQ==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/21] KVM: arm64: Protect TPIDRRO_EL0 across guest
- entry/exit
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-6-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260918161407.2300-6-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Date: Thu, 08 Oct 2026 09:50:19 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Kurt Kanzenbach <kurt@linutronix.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
+ <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Song Yoong Siang
+ <yoong.siang.song@intel.com>, Noor Azura Ahmad Tarmizi
+ <noor.azura.ahmad.tarmizi@intel.com>, Mohd Faizal Abdul Rahim
+ <faizal.abdul.rahim@intel.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Disable NAPI before stopping Tx
+ queues in stmmac_xdp_release()
+In-Reply-To: <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
+References: <20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de>
+ <20261005-stmmac_xsk_crashes-v2-1-46c60cba6421@linutronix.de>
+Message-ID: <bd26a838deb15b560419d1e4a33d838b@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_004535_353653_FAC6423B 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20261008_005024_805859_A8DBE203 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,135 +81,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kurt
 
-
-在 2026/9/19 0:13, Will Deacon 写道:
-> From: Mostafa Saleh <smostafa@google.com>
+On 5.10.2026 09:09, Kurt Kanzenbach wrote:
+> Attaching an XDP program while Tx traffic is running results in kernel
+> crashes in stmmac_xmit() -> dwmac4_set_addr().
 > 
-> To prepare for using TPIDRRO_EL0 to hold 'current' and repurposing
-> SP_EL0 as an overflow stack pointer, eagerly switch both registers when
-> entering and exiting the guest.
+> Loading an XDP program tears down and reallocates all DMA resources via
+> stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
+> the Tx queues before disabling NAPI:
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_asm.h           | 10 ++++++++++
->  arch/arm64/kernel/asm-offsets.c            |  1 +
->  arch/arm64/kvm/hyp/entry.S                 | 12 ++++++++----
->  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |  2 --
->  4 files changed, 19 insertions(+), 6 deletions(-)
+>  stmmac_xdp_release:
+>    netif_tx_disable
+>    stmmac_disable_all_queues
+>    ...
+>    free_dma_desc_resources
 > 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index e5b92ac09e69..1cfe9216a2ff 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -408,6 +408,16 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
->  	msr	sp_el0, \tmp
->  .endm
->  
-> +.macro save_tpidrro_el0 ctxt, tmp
-> +	mrs	\tmp,	tpidrro_el0
-> +	str	\tmp,	[\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
-> +.endm
-> +
-> +.macro restore_tpidrro_el0 ctxt, tmp
-> +	ldr	\tmp,	  [\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
-> +	msr	tpidrro_el0, \tmp
-> +.endm
-> +
->  #endif
->  
->  #endif /* __ARM_KVM_ASM_H__ */
-> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-> index 6038ab3beb25..cb8448cc5f51 100644
-> --- a/arch/arm64/kernel/asm-offsets.c
-> +++ b/arch/arm64/kernel/asm-offsets.c
-> @@ -108,6 +108,7 @@ int main(void)
->    DEFINE(VCPU_HCR_EL2,		offsetof(struct kvm_vcpu, arch.hcr_el2));
->    DEFINE(CPU_USER_PT_REGS,	offsetof(struct kvm_cpu_context, regs));
->    DEFINE(CPU_ELR_EL2,		offsetof(struct kvm_cpu_context, sys_regs[ELR_EL2]));
-> +  DEFINE(CPU_TPIDRRO_EL0_OFFSET, offsetof(struct kvm_cpu_context, sys_regs[TPIDRRO_EL0]));
->    DEFINE(CPU_RGSR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[RGSR_EL1]));
->    DEFINE(CPU_GCR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[GCR_EL1]));
->    DEFINE(CPU_APIAKEYLO_EL1,	offsetof(struct kvm_cpu_context, sys_regs[APIAKEYLO_EL1]));
-> diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-> index 308100ed25de..4c89931a6a92 100644
-> --- a/arch/arm64/kvm/hyp/entry.S
-> +++ b/arch/arm64/kvm/hyp/entry.S
-> @@ -30,8 +30,9 @@ SYM_FUNC_START(__guest_enter)
->  	// Store the hyp regs
->  	save_callee_saved_regs x1
->  
-> -	// Save hyp's sp_el0
-> +	// Save hyp's sp_el0 and tpidrro_el0
->  	save_sp_el0	x1, x2
-> +	save_tpidrro_el0 x1, x2
->  
->  	// Now the hyp state is stored if we have a pending RAS SError it must
->  	// affect the host or hyp. If any asynchronous exception is pending we
-> @@ -66,8 +67,9 @@ alternative_else_nop_endif
->  	// when this feature is enabled for kernel code.
->  	ptrauth_switch_to_guest x29, x0, x1, x2
->  
-> -	// Restore the guest's sp_el0
-> +	// Restore the guest's sp_el0 and tpidrro_el0
->  	restore_sp_el0 x29, x0
-> +	restore_tpidrro_el0 x29, x0
->  
->  	// Restore guest regs x0-x17
->  	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
-> @@ -146,8 +148,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
->  	// Store the guest regs x18-x29, lr
->  	save_callee_saved_regs x1
->  
-> -	// Store the guest's sp_el0
-> +	// Store the guest's sp_el0 and tpidrro_el0
->  	save_sp_el0	x1, x2
-> +	save_tpidrro_el0 x1, x2
->  
->  	adr_this_cpu x2, kvm_hyp_ctxt, x3
->  
-> @@ -161,8 +164,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
->  	// mte_switch_to_hyp(g_ctxt, h_ctxt, reg1)
->  	mte_switch_to_hyp x1, x2, x3
->  
-> -	// Restore hyp's sp_el0
-> +	// Restore hyp's sp_el0 and tpidrro_el0
->  	restore_sp_el0 x2, x3
-> +	restore_tpidrro_el0 x2, x3
+> A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
+> takes the Tx queue lock, reaps completed descriptors and wakes the 
+> queue
+> again when it observes it stopped with enough descriptors available.
+> Nothing stops the queue afterwards, so the Tx path resumes while
+> free_dma_desc_resources() releases the descriptor rings underneath it.
+> 
+> On non-coherent platforms dma_free_coherent() tears down the vmalloc
+> mapping of the descriptors, so the subsequent stmmac_xmit() faults on 
+> an
+> unmapped address instead of corrupting memory silently.
+> 
+> Disable NAPI first and stop the Tx queues afterwards, which is the 
+> order
+> already used by __stmmac_release().
+> 
+> The issue can be easily reproduced by:
+> 
+>  1. Run iperf
+>  2. Run application which opens an AF_XDP/ZC socket
+> 
+> Assisted-by: Claude:claude-opus-5
+> Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in 
+> stmmac_xdp_release()")
+> Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> [...]
 
->  
->  	// Now restore the hyp regs
->  	restore_callee_saved_regs x2
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-> index c382848d3194..b5f7ef8e6371 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-> @@ -66,7 +66,6 @@ static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
->  static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
->  {
->  	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
-> -	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
->  }
->  
->  static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
-> @@ -209,7 +208,6 @@ static inline void __sysreg_restore_common_state(struct kvm_cpu_context *ctxt)
->  static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
->  {
->  	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
-> -	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
->  }
->  
->  static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Tested-by: Nicolai Buchwitz <nb@tipi-net.de> # stm32mp215
 
--- 
-Best regards,
-Jinjie
-
+Thanks,
+Nicolai
 
