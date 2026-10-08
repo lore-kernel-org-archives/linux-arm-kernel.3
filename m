@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9A8CA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 16:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B2ACA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 16:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=85BR7qHH4G0CBb5vxlCQpLUFJ3RuaLjxlde617uk3v4=; b=StLdI90Aud3KkhgjDWji78blnF
-	GNGEmd/NjOoa+558jda6BwvOOEojKUg8hEIN6u1Q69o2kf1nrzL1RiagS/AHbo4tWJATib3eCr4j3
-	AUkIyZOup4TSHOAcgi/m3IXuRtXPrcPjFc+9E7COr6td1Wm1VwzpdVJUoR+6PNC/SHIsAb6z9CVq8
-	M5zLgJ/vjStJzT5WhgGdvS2RF8r6yGZxh1L+9YKRUDQukdWvz2uJCj8oiUZnLASag3iuC7lEzYx30
-	d8/ZCkZmWZm6iRcYpvPTFYTgfNlqiPWRHGtQfFOo3zWgMbfM4AincrvA0P6HUOmHKeoUzCuIzlkyb
-	+uY4iEaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OT87uIWBaiF7LwPjhtu9+NdFm7Rda6rLBPon7Dlb4XE=; b=j5T/wlU66RYJU7FPVRwzPNxvgJ
+	ZAirv6WT758QR51PFPkSy+Mjk872iVl9BA0Y5bfM2QweaZoqw/xbWoUq2l5MZO3X7n2Od2emUTDX+
+	35Kh2+aAOgBo1HIZ1OkaplENYt4m25e77gGZaYKP02NvlG7OmZyyVfnhDTwTk5oXfxW0DCPXM7EbG
+	ykfehuU12tRNZxwxfpJdE9XRFZHkFnAzO3SF3DdvJTkZTdeEXpkbaMphuuXITDgxl3hRfOe+ka3tP
+	mXXF55X/vQ0IpjPbKTkzOsg4xEzgXibEVaENj9Wkhy2Uu8J7Y1LX1NTj+p3e1hELfkOZodl5yyv60
+	t72FiX8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEqZy-00000004e9n-3Lsk;
-	Thu, 08 Oct 2026 16:02:46 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1xEr1J-00000004h77-0j3s;
+	Thu, 08 Oct 2026 16:31:01 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEqZv-00000004e9K-44Ly
+	id 1xEr1G-00000004h6G-0Dcd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 16:02:45 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2e836252e1dso1349685ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 09:02:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1791475362; x=1792080162; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=85BR7qHH4G0CBb5vxlCQpLUFJ3RuaLjxlde617uk3v4=;
-        b=Mz4bqRvuVbkQ9hHzbnQEv6RWzlGo80i/4VMpFA2yGnExStuxrZ7hBmm+szAtsrHE2c
-         BnCm3tXJzGNrh9sFTGqhvnIM8XYconIpUk5pSXhKfbFQe9uk3jj2fw9LtGSGjWbitWOF
-         YApoiQn1uS6cPqyT9fAXyFwbmtYRKdbZHBShLe+3Rxk+zojgO+ZWOj53tWFkqzoE116Y
-         I+GU50WKQ9uCcztRCsa+9wUzWmJjgp2fKPgCrNbmn3XkqGZANIYhoeCCmBaZcfsupyD7
-         +Z8oFLNHXCRoedLGH3pTmm95j15Q4lgJarTbsPt+DA0xJKvXKU292nc7yfBwtFOlggau
-         3zpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791475362; x=1792080162;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=85BR7qHH4G0CBb5vxlCQpLUFJ3RuaLjxlde617uk3v4=;
-        b=LZ0izXVqor/X3kyvcIEIT/OFDV735tsHA5FwjXPnphV+tiywF8mY7m5i97/sqx516J
-         k2iXcLrk5Ne/A8gWSbcKASLFlQxOrQRnVBL+jck/kPMa+uZqt9UihXchX7OMwDoLfYI+
-         rhKjJGRZMv7Hd09o2p4MsQNBDxxc2ADzoADLGBq0ojyH37Ftqy6gntQoNikRrxI7OKMj
-         Rd+guIs9k+WY3cjO0ZdnweyF9A+vFSLl2ZArhVlYTd9bQ+0RfSPtBc4Jx8PviO4u8BB2
-         LFKv3788pE5aiD3PTqR/u+rotrTdtb4WVIhEyNpUuiD284VusPvv/gb+5CcWKV5LXEBH
-         vdkw==
-X-Gm-Message-State: AFq9FYJ3M5m+Ht8MWuO1oZbfgIzZm3CsbbbgLDyn86y5priOWxTbRldJ
-	zoN6+2hbfNLXMCi9DpD01zy/OmcZTbsFRWFKnntOBiJlFgXEQKaKthsSe9yLfk+Rkzo4UPQiNYf
-	g7DiKhlQ=
-X-Gm-Gg: AYBFou3/vpupqWMwvwP3CKV+Esk1VLvI+RickRECxLNZbfIBPwihEtzGgSMv1335ekD
-	EDdjhTqwzUpS84TlyIAULZpbZ7lWYTunhKwMBhRy5JRnFy2klkwxG4wG9VSGXX4FRv4tb1zqS/b
-	X9/OEilHll3ygp3k3b8AUZ/8+ia0wfi8y05TiCUbwcV8WmEKFb3m0s6T0a+pJR45xt+E4nnn1jd
-	bWLruePCwgitm0CFbaHERWdYnD2Dt9/aL/VloMXqHKE+Oz3cYJPObEKIaKOHPHc5ryIQr6+r3Ho
-	u9eiwnO2RvG+duqwjhCXKvC3yzX0WNbjnUmo16hyC9ZKP9OcMKkiwr+NpCDUS3veWvUzuk0WIwU
-	ZIlfksA9+6qfMl+C2yD6j9KnPGMBOFPS6/A0SjtBra3HBYjFQejwYb0RYDbcSIgrDGJHbuAaWk0
-	8ju590nl7HGbneIQByS9/qcIuhGEWnPsXN0yFH8fC9hYcAOuAX91YIuqBL4GshB0Xjb4+GlzuxR
-	A==
-X-Received: by 2002:a17:903:2a84:b0:2e3:980:dfd6 with SMTP id d9443c01a7336-2e6004e9e7fmr50032605ad.38.1791475362381;
-        Thu, 08 Oct 2026 09:02:42 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e60494c323sm27461895ad.69.2026.10.08.09.02.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 09:02:41 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Thu, 08 Oct 2026 09:02:38 -0700
-Subject: [PATCH] i2c: xiic: NACK the last byte of an SMBus block read
+	Thu, 08 Oct 2026 16:31:00 +0000
+Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowACXljQ5xcdqciAOCg--.38966S2;
+	Fri, 09 Oct 2026 00:30:49 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: at91: fix device node reference leak in at91sam9x5_sckc_register()
+Date: Fri,  9 Oct 2026 00:30:52 +0800
+Message-Id: <20261008163052.2685401-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261008-i2c-xiic-block-read-nack-v1-1-94882af6e598@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrDsQIyr0KtJFMjPW0RIl0SKId
- 2+0u/ct3n9AkqiS4FkcEOWrSeeQUT4KoMGFt6ByNlhjm9KYFtUS7qqE/jPThFEcY3B5sfVtVXv
- HzBXk+xKl1/1Od6+/0+ZHofXqwXn+AHNvzQZ8AAAA
-X-Change-ID: 20261007-i2c-xiic-block-read-nack-d2b735baddd3
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Siddarth Chilukuri <siddarth@nexthop.ai>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791475360; l=4822;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=1I3B0zE9Jl3k4SV939nOeTDGmvV7FCqaULnQQve9RFk=;
- b=WCxGw45Y+qEC2HCOsv+UZ77Ta8l/WlwVssXmZA2am4P0cqqr8eMPr1NWWN5yHOfRg+bHusd3a
- 4omlow0Y9A9BczNCaat7wN3FVEnQikLdXd1ANff9FGIVbAKr2Elz5GB
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowACXljQ5xcdqciAOCg--.38966S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF4Utry5Ar45WFyDCF4DJwb_yoW8uF15pF
+	4UCry5AFs5Xr4UuFW2yF97XFyY9a92gFW8ur1xCwnI9rn5tFyxtrWjgFykXF15AFWrGay3
+	Jw4jq3W7Zr45AF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkSb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl
+	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
+	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
+	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
+	6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUqVcEUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgAOA2rHo1NcQAAAsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_090244_035480_042A719B 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20261008_093058_493879_863A934A 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,112 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit e6fe3ea04f01 ("i2c: xiic: defer RX_FULL until all trailing bytes
-are in FIFO") raised the Rx FIFO threshold for an SMBus block read whose
-trailing bytes fit in the FIFO, so that the drain takes xiic_read_rx()'s
-bytes_rem == 0 path. That path skips the bytes_rem == 1 branch, the only
-place that sets NO_ACK, so every trailing byte is now ACKed. Having had
-its last byte ACKed, the target goes on to drive the next one, and the
-STOP that follows lands in the middle of it.
+at91sam9x5_sckc_register() calls of_get_compatible_child() to look up the
+"atmel,at91sam9x5-clk-slow-osc" and "atmel,at91sam9x5-clk-slow" legacy
+child nodes during DT backward compatibility handling. Both calls return a
+device node with its reference count incremented, but neither reference is
+ever dropped: the first is simply overwritten when the second lookup
+reassigns child, and the second is leaked on every return path, including
+the unregister_slow_* cleanup labels. of_clk_add_hw_provider() takes its
+own reference and does not consume the caller's.
 
-Some targets ride this out; others are left wedged until the next
-transactions clock them free. A TDK FS1412 fails the two transfers that
-follow any block read, so it never probes: pmbus reads MFR_ID as a block
-and then VOUT_MODE as a byte. A Renesas RAA228246 and one RAA228244 on
-the same controller show the same pattern.
+Drop the slow-osc reference once it has been used and release the remaining
+child reference on both the success and error paths.
 
-Program the threshold so that RX_FULL fires with one trailing byte still
-to come, letting xiic_read_rx() set NO_ACK for it on the bytes_rem == 1
-path, and set NO_ACK straight away when only one trailing byte remains.
-
-Twenty rounds per device of a block read and a PEC block read of MFR_ID,
-each followed by a byte read:
-
-               before                      after
-            block  PEC   byte after     block  PEC   byte after
-  FS1412    20/20  0/20  20/40 fail     20/20 20/20   0/40 fail
-  RAA228246  0/20 20/20  20/40 fail     20/20 20/20   0/40 fail
-  RAA228244  0/20 20/20  20/40 fail     20/20 20/20   0/40 fail
-
-A second RAA228244 and an Infineon XDPE1A2G5B passed every round before
-and after. PEC block reads, which that commit fixed, still pass.
-
-Fixes: e6fe3ea04f01 ("i2c: xiic: defer RX_FULL until all trailing bytes are in FIFO")
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: stable@vger.kernel.org # v6.3+
+Fixes: 45b5ec8498ff ("clk: at91: modernize sckc binding")
+Assisted-by: DeepSeek-V4.1-Flash
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 ---
-A follow-up to my xiic block-read series, now in 7.3-rc as
-b7e6df2f52ed, e6fe3ea04f01 and 840d8acc8792. The second of those
-stopped NACKing the final byte of a block read that fits in the Rx
-FIFO, which leaves some PMBus targets wedged for the next couple of
-transfers.
+ drivers/clk/at91/sckc.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Tested on a 6.12 kernel carrying that series, against an AXI IIC
-controller with an FS1412, RAA228244/RAA228246 and XDPE1A2G5B behind
-it, using plain and PEC block reads and the byte reads that follow.
-
-The same happens on a second board, where two of four ISL68225s behind
-the same AXI IIC core fail plain block reads and the two transfers
-after them. A capture of SCL/SDA taken inside the FPGA shows the
-mechanism: after the last byte of an MFR_ID block read the master
-drives ACK, the target starts on the next byte with SDA low, and the
-STOP the master then attempts never appears, leaving SDA held low. With
-this change the last byte is NACKed and the STOP is clean, and all four
-pass.
-
-With this change a block read ends with a NACK, and so with TX_ERROR,
-like any other read. That puts it in the window Siddarth's patch closes,
-where xiic_process() sees TX_ERROR before RX_FULL and resets the core
-even though the data is already in the Rx FIFO:
-
-  https://lore.kernel.org/linux-i2c/20261005-i2c-xiic-rx-fifo-v1-1-0177ac5f72d7@nexthop.ai/
-
-The two touch different functions and apply cleanly to v7.3-rc6 in
-either order.
----
- drivers/i2c/busses/i2c-xiic.c | 20 ++++++++++++++++----
- 1 file changed, 16 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 5e397a7e63f6..2714fd2231b4 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -568,12 +568,24 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
- 			i2c->rx_msg->len = SMBUS_BLOCK_READ_MIN_LEN;
- 			i2c->smbus_actual_len = 1 + rxmsg_len + pec_len;
- 		} else {
-+			unsigned int tail = rxmsg_len + pec_len;
-+
- 			/*
--			 * All trailing bytes fit in the Rx FIFO. Defer RX_FULL
--			 * until every one of them is buffered, so the drain
--			 * takes xiic_read_rx()'s bytes_rem == 0 path.
-+			 * All trailing bytes fit in the Rx FIFO. The last one
-+			 * must be NACKed or the slave keeps driving SDA into
-+			 * the STOP. With one byte left, NACK it now; otherwise
-+			 * fire RX_FULL with one byte still to come so
-+			 * xiic_read_rx() sets NACK in its bytes_rem == 1 path.
- 			 */
--			rfd_set = rxmsg_len + pec_len - 1;
-+			if (tail == 1) {
-+				u8 cr = xiic_getreg8(i2c, XIIC_CR_REG_OFFSET);
-+
-+				xiic_setreg8(i2c, XIIC_CR_REG_OFFSET,
-+					     cr | XIIC_CR_NO_ACK_MASK);
-+				rfd_set = 0;
-+			} else {
-+				rfd_set = tail - 2;
-+			}
- 			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
- 		}
- 		xiic_setreg8(i2c, XIIC_RFD_REG_OFFSET, rfd_set);
-
----
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-change-id: 20261007-i2c-xiic-block-read-nack-d2b735baddd3
-
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+diff --git a/drivers/clk/at91/sckc.c b/drivers/clk/at91/sckc.c
+index 776118f14867..bdf6897a98e3 100644
+--- a/drivers/clk/at91/sckc.c
++++ b/drivers/clk/at91/sckc.c
+@@ -398,8 +398,9 @@ static void __init at91sam9x5_sckc_register(struct device_node *np,
+ 
+ 		xtal_name = of_clk_get_parent_name(child, 0);
+ 		bypass = of_property_read_bool(child, "atmel,osc-bypass");
++		of_node_put(child);
+ 
+-		child =  of_get_compatible_child(np, "atmel,at91sam9x5-clk-slow");
++		child = of_get_compatible_child(np, "atmel,at91sam9x5-clk-slow");
+ 	} else {
+ 		bypass = of_property_read_bool(np, "atmel,osc-bypass");
+ 	}
+@@ -431,6 +432,7 @@ static void __init at91sam9x5_sckc_register(struct device_node *np,
+ 	if (WARN_ON(ret))
+ 		goto unregister_slowck;
+ 
++	of_node_put(child);
+ 	return;
+ 
+ unregister_slowck:
+@@ -439,6 +441,7 @@ static void __init at91sam9x5_sckc_register(struct device_node *np,
+ 	at91_clk_unregister_slow_osc(slow_osc);
+ unregister_slow_rc:
+ 	at91_clk_unregister_slow_rc_osc(slow_rc);
++	of_node_put(child);
+ }
+ 
+ static const struct clk_slow_bits at91sam9x5_bits = {
+-- 
+2.25.1
 
 
