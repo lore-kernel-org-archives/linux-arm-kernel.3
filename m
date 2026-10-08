@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CF0CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA741CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 10:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oH70FUhurooAXv+FJjlFmRSK6+rEukgPzA7I0tFRZ8=; b=bNkmk31OTxmImbkjl/o79jyVcC
-	iAHDAADiJtN2Hoi5uYEIe0+Onqi2lwnTn2XPHep6V/5E45sRuNGH0Ui3bpZmr00KOUo9LvLyOlu5K
-	MvQ1R4e0UZZRhz8Uekg3+E3bADnpZykgBxOg5W954U8clZ0ZCkWrOwuURveOgv46Wh1v2wSCaNsMc
-	EyMZhTDdLuXhxDpqb0Ayih5dAxiuHJwzeCQG//gRt1KklGpm18ZFBj3nwUVMalj1vsqM334SPTDYI
-	VGVlBNQJD+XzwwUeVbwIoli8eDJIu7jJ8M3u+7OM7/myyzYG2ppWxoEMvo/NQVALulI4ncAft/Hf+
-	sieK1l6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ppeChgaMvunB6XgC1qGnigzxCgeUt+TprCEG6p5AB3g=; b=A1SDx5DVdeKWjAZqsDqRmgBOz8
+	mvr8aGc7xkn2YEm/b4tfCoRpItuBjqAM4EiL6SRAW/6Pynup6YJs5JOJ2VWoluoXgxC2+v8AxB+VB
+	YBTkQGskCqR2wX60Y8jSjGLdmeUdXmdXOLUoP7PlqGuarjgVVMT5ic67tIfBjDhxHT3H2egR9zH43
+	qVhIXSd2ODGQL5GBu4i0N8lAxbA1Xm8rjvODXxFV4xoZM1oM3ALB3CA+6KQu+0/qwgC6zYjMoGnt+
+	T0R3yRShChAIThjPVfgAFdvOa3iajg75dFyS8P4LTsF3a3Frliym/gJVNRwD5BTQU+3BtLrh53FYC
+	VPKtDdCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElbB-00000004B1e-1YdX;
-	Thu, 08 Oct 2026 10:43:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xElb7-00000004Ayl-1kWk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 10:43:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2BD31477;
-	Thu,  8 Oct 2026 03:43:30 -0700 (PDT)
-Received: from [10.164.19.54] (unknown [10.164.19.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F18733F763;
-	Thu,  8 Oct 2026 03:43:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791456214; bh=T1jAqfIwowtrRpbeSKznwNXaX6VAkYHfAylhGBiLNqM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c6lbfw7BRGiHAsotaazKMSDqa7nfF1pbMeub5xVs9+6i/0D/qjKph1DkIM3I85eFx
-	 8iiGTsONeKOr8+3zBI66ryFcEAtnfUI+6MVDuvEsOuutmWyXcAaVtR3szW5dlkMD2r
-	 P9o31AX7oelqTLFdse90tnM69G7GIhzbwwwh7Jz8=
-Message-ID: <7c35e399-bc64-43c3-9588-672200758ea5@arm.com>
-Date: Thu, 8 Oct 2026 16:13:27 +0530
+	id 1xElc2-00000004BNf-27iT;
+	Thu, 08 Oct 2026 10:44:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xElc1-00000004BMY-0dGD;
+	Thu, 08 Oct 2026 10:44:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 391FF601DB;
+	Thu,  8 Oct 2026 10:44:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FD61F000FF;
+	Thu,  8 Oct 2026 10:44:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791456271;
+	bh=ppeChgaMvunB6XgC1qGnigzxCgeUt+TprCEG6p5AB3g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eETlY2kfse6I2eGjGA24SQVia+0ytpI+iYCoTyt07EMIonZpZYRpIWHF0qg2xfgz9
+	 6hJsFUHK+AIKpdbMDdO302AoQ8/iYGEAj6Ui7FlC/cz2DopM4xu5H7yCBQJLmKlm5S
+	 Mh/KjmObXnBkehSoG+22wvg8kZ8+NDBv1+VvpMnuFODKJy+bHHpl8mLsXGU1vqLOC9
+	 kAUMrOuiTW0zBnL8rhWTPzJHQv9mPhtjTYBo5RQOncSaL5sdGPS12mn3Afj3iGHvES
+	 ECnIl7Pwt89D0ykj9E/h3OXzR26p2KwSUW/fyyPxS7pQp6sIbq5taqofBH4vJN7IVY
+	 NnFG9PMTb6cHQ==
+Date: Thu, 8 Oct 2026 12:44:29 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: SAYANTAN NANDY <sayantann11@gmail.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, bread.hsu@airoha.com,
+	sayantan.nandy@airoha.com
+Subject: Re: [PATCH net] net: airoha: keep PPE offload when NPU refuses flow
+ stats
+Message-ID: <asd0DfMSLLGu_vbK@lore-desk>
+References: <20261008094828.15458-1-sayantann11@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
-To: Leo Yan <leo.yan@arm.com>, Will Deacon <will@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Michiel van Tol <michiel.vantol@arm.com>,
- David Hildenbrand <david@kernel.org>, Yabin Cui <yabinc@google.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
- <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
- <annp-BdTviQoH6vy@willie-the-truck> <20260810174159.GC15499@e132581.arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260810174159.GC15499@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_034337_545125_307A18AD 
-X-CRM114-Status: GOOD (  21.93  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="L4dpZ7G5dt+qFFf/"
+Content-Disposition: inline
+In-Reply-To: <20261008094828.15458-1-sayantann11@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +71,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--L4dpZ7G5dt+qFFf/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Oct 08, SAYANTAN NANDY wrote:
+> From: Chad Monroe <chad@monroe.io>
+>=20
+> With flow stats enabled, PPE offload setup requests flow statistics
+> from the NPU. If the running NPU firmware does not support flow
+> counters, the request fails and the current setup path aborts PPE
+> offload.
+>=20
+> Treat flow statistics as an optional capability so that a failure to
+> set up the counters does not prevent normal PPE offload. Record
+> whether flow statistics are available and continue PPE initialization
+> when the NPU refuses the flow-statistics request.
+>=20
+> Also treat a zero NPU statistics address returned by the firmware as a
+> refusal. A zero address does not provide a usable counter region and
+> must not be passed to the address mapping path.
+>=20
+> When flow statistics are unavailable, PPE continues to operate
+> without NPU flow counters while retaining normal offload functionality.
+>=20
+> This combines the original SmartRG/Airoha fixes for:
+> - keeping PPE offload active when the NPU refuses flow statistics
+> - treating a zero NPU statistics address as a flow-statistics refusal
+>=20
+> Based on the original SmartRG/Airoha work by Chad Monroe:
+> 5ce96ab ("SDG-9458: keep PPE offload when NPU refuses flow stats")
+> 0ad8528 ("SDG-9458: airoha: treat a zero NPU stats address as a refusal")
+> Fixes: b81e0f2b58be ("net: airoha: Add FLOW_CLS_STATS callback support")
+> Signed-off-by: Chad Monroe <chad@monroe.io>
+> Signed-off-by: SAYANTAN NANDY <sayantann11@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
+>  drivers/net/ethernet/airoha/airoha_npu.c  |  8 ++++++++
+>  drivers/net/ethernet/airoha/airoha_ppe.c  | 20 +++++++++++++-------
+>  drivers/net/ethernet/airoha/airoha_regs.h |  2 ++
+>  4 files changed, 24 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 8277c1c87bb3..bd5a94fce843 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -617,6 +617,7 @@ struct airoha_ppe {
+> =20
+>  	void *foe;
+>  	dma_addr_t foe_dma;
+> +	bool flow_stats;
 
-On 10/08/26 11:11 pm, Leo Yan wrote:
-> On Mon, Aug 10, 2026 at 04:10:48PM +0100, Will Deacon wrote:
->> On Mon, Aug 10, 2026 at 03:44:42PM +0100, Leo Yan wrote:
->>> Commit 18049c8cff9c ("perf/aux: Allocate non-contiguous AUX pages by
->>> default") made the AUX allocator use order-0 pages by default unless a
->>> PMU explicitly asks for contiguous allocations.
->>
->> But that commit specifically calls out SPE as benefitting from
->> non-contiguous pages:
->>
->>   "For instance, ARM SPE and TRBE operate with virtual pages, and
->>    Coresight ETR allocates a separate buffer. For these PMUs,
->>    allocating contiguous AUX pages unnecessarily exacerbates memory
->>    fragmentation. This fragmentation can prevent their use on
->>    long-running devices."
->>
->> so why doesn't passing PERF_PMU_CAP_AUX_PREFER_LARGE reintroduce the
->> problems that 18049c8cff9c was trying to solve?
-> 
-> The question is how "allocating contiguous AUX pages unnecessarily
-> exacerbates memory fragmentation." The relevant information I could find
-> is [1]:
-> 
->  "On Android, we collect ETM data periodically on internal user devices
->   for AutoFDO optimization (for both userspace libraries and the
->   kernel). Allocating a large chunk of contiguous AUX pages (4M for each
->   CPU) periodically is almost unbearable. The kernel may need to kill
->   many processes to fulfill the request. It affects user experience even
->   after using PMU."
-> 
-> We might have missed chance to clarify how the fragmentation issue
-> occurs in the first place. Let's say, a phone with 8 CPUs, allocating
-> 4MB per CPU requires 32MB in total, which is a relatively small
-> portion of 4GiB or 8GiB of RAM commonly found in phones. Moreover, once
-> contiguous pages are freed, the buddy allocator can coalesce them
-> again into buddy list. It is not obvious to me that PREFER_LARGE
-> directly causes fragmentation.
-> 
-> One case where AUX allocation could exacerbate fragmentation is when the
-> system is already fragmented. If a high-order allocation fails and the
-> allocator falls back to smaller-order blocks, those allocations may
-> consume free blocks scattered across different buddy regions and make
-> subsequent high-order allocations more difficult.
-> 
-> If this is the main concern, I'd suggest using a smaller AUX buffer
-> (e.g. 1MB or even 512KB) for TRBE/SPE to reduce memory pressure.
-> Snapshot mode '-S' could also be considered, as it allows the buffer to
-> be allocated once and reused for subsequent recordings by signals.
-> 
-> OTOH, using only order-0 pages can significantly increase TTW overhead
-> on the trace path and lead to overflows, we observe this causes huge
-> trace discontinuity. In the end, we need to trace-off the fragmentation
-> concern against the trace discontinuity.
-> 
-> Thanks,
-> Leo
+I agree naming is hard, but I guess we could a more meaningful name, like f=
+low_stats_cap. What do you think?
 
-I don't have the full context here (can look in detail later) so drive-by comment:
+> =20
+>  	struct rhashtable l2_flows;
+> =20
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
+net/airoha/airoha_npu.c
+> index 4d3195eb00f7..b32a01dbe06b 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -450,6 +450,14 @@ static int airoha_npu_ppe_stats_setup(struct airoha_=
+npu *npu,
+>  	if (err)
+>  		goto out;
+> =20
+> +	/* The firmware reports success with a zero address when its SRAM
+> +	 * pool has no room left for the counters.
+> +	 */
+> +	if (!ppe_data->stats_info.npu_stats_addr) {
 
-In general, doing large order allocations should *reduce* fragmentation. If you allocate
-16 order-0 pages as opposed to an order-4 compound page, you may end up spreading your
-allocations across different blocks, thus preventing them from merging later.
+can it really happen? I guess dmam_alloc_coherent() in airoha_ppe_init()
+should fail in this case, right?
 
-A recent example can be found in vmalloc [1].
+> +		err =3D -ENOSPC;
+> +		goto out;
+> +	}
+> +
+>  	npu->stats =3D devm_ioremap(npu->dev,
+>  				  ppe_data->stats_info.npu_stats_addr,
+>  				  size);
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 92611802801e..fbc200614de3 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -37,10 +37,7 @@ static const struct rhashtable_params airoha_l2_flow_t=
+able_params =3D {
+> =20
+>  static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe)
+>  {
+> -	if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
+> -		return -EOPNOTSUPP;
+> -
+> -	if (airoha_is_7583(ppe->eth))
+> +	if (!ppe->flow_stats)
+>  		return -EOPNOTSUPP;
+> =20
+>  	return PPE_STATS_NUM_ENTRIES;
+> @@ -144,6 +141,10 @@ static void airoha_ppe_hw_init(struct airoha_ppe *pp=
+e)
+>  	sram_ppe_num_data_entries =3D
+>  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
+> =20
+> +	if (ppe->flow_stats)
+> +		airoha_fe_rmw(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS,
+> +			      FIELD_PREP(PSE_PORT6_SHARE_DIS, 0));
 
-[1] https://lore.kernel.org/all/aPjrRkjiIt6HmXmT@casper.infradead.org/
+can you please provide more details about it, why is it needed?
+Moreover, I guess you could use airoha_fe_clear() here.
 
+> +
+>  	for (i =3D 0; i < eth->soc->num_ppe; i++) {
+>  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
+>  			     ppe->foe_dma + sram_tb_size);
+> @@ -1456,10 +1457,13 @@ static int airoha_ppe_offload_setup(struct airoha=
+_eth *eth)
+>  	if (ppe_num_stats_entries > 0) {
+>  		err =3D npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
+>  					      ppe_num_stats_entries);
+> -		if (err)
+> -			goto error_npu_put;
+> +		if (err) {
+> +			dev_warn(eth->dev,
+> +				 "NPU firmware refused flow stats setup (%d), offload runs without f=
+low counters\n",
+> +				 err);
 
-> 
-> [1] https://lore.kernel.org/lkml/CALJ9ZPNLgEBxOmDim-vztUknEETwdL-Z2gJ8K9s44TiPgKZgHg@mail.gmail.com/
+can you please try to respect the 79 column width? (I still have old habits=
+ :))
 
+> +			ppe->flow_stats =3D false;
+> +		}
+>  	}
+> -
+>  	airoha_ppe_hw_init(ppe);
+>  	airoha_ppe_foe_flow_stats_reset(ppe, npu);
+> =20
+> @@ -1608,6 +1612,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
+>  	ppe->dev.priv =3D ppe;
+>  	ppe->eth =3D eth;
+>  	eth->ppe =3D ppe;
+> +	ppe->flow_stats =3D IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS) &&
+> +			  !airoha_is_7583(eth);
+> =20
+>  	ppe_num_entries =3D airoha_ppe_get_total_num_entries(ppe);
+>  	foe_size =3D ppe_num_entries * sizeof(struct airoha_foe_entry);
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
+rnet/airoha/airoha_regs.h
+> index 442b48c9b991..aee06c058586 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -72,6 +72,8 @@
+>  #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
+> =20
+>  #define PSE_FQ_CFG			0x008c
+> +#define PSE_FC_CFG			0x0098
+> +#define PSE_PORT6_SHARE_DIS		BIT(22)
+>  #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
+> =20
+>  #define REG_FE_PSE_BUF_SET		0x0090
+> --=20
+> 2.43.0
+>=20
+
+--L4dpZ7G5dt+qFFf/
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasd0DQAKCRA6cBh0uS2t
+rI3DAQCJEYqwZbG09imlqcP8csRXcbM0x1oms2fJsLLPEpWlJgEAxlcAuv/T0Mt7
+o5uxomI18N33uhxLEDUgzJWR/SMHfAs=
+=MHTr
+-----END PGP SIGNATURE-----
+
+--L4dpZ7G5dt+qFFf/--
 
