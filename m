@@ -4,82 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF42DCA6016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58A5CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wNkFP7ef8kESWjXFB8a6H8v6I9TvDNhblU/gkA5sfQw=; b=mRYSNijHPvyry2wQevguDg6qE6
-	rQTbgAzPGnomygFf5De8tlAmGwdCsXHp4CLihgQXIdM6OXHycTnKpC0KVO+IZVyjFqkCTlYDkpayK
-	OyXFnWob5wJa9XZuiazVUm3Jlo7GT2gN4TOeLLMrzmScX4SfN4A6lt6eJS1OshqDSe7wwSkyo5Sfm
-	/5IzlJZo0dppBpExovzk1qZ/NYunvBDpQeDhXr+1uObJYgXixRbrj32pNf9YEckeTMbH5b8yF3ouv
-	S+Tv1G2aN2+bPKOo63A5qgZLBP+mN/1FFMiWCihmpu/Bbw5LKjL8wVAfi6qVt+1vf9/czGXJLt32H
-	LlszLjRA==;
+	bh=1/JfaI5yVX7fEGnudnWaBS/Gu5RDDSQ5DA8UJMIAKls=; b=SVr5uBjJHK5Ae281t8SRAN/xuI
+	iKWzQKXJBnvP5pxnZVp6AMCUSmQeWB4J7/1iNkzpea3W1HtkkPccO5I6pJvkRQ3VQNzZXUEVvlvrF
+	1Dh1CitdzoBy+6aTj97W/XG1hjiXLS9Crcz2uXV62rqgR4ppDXKOSo+19EnSw/sqR/QccI53uo8n4
+	5XiqDASDyDIpnbeFUlcYIlMaPrg4ecY9vWI2KeOeDsvUO26u05oWrd4wp5ELLbsvlD55dAbJZTz6e
+	dmM0Yb6PnI1X/2Qj+mEHLYJAQgGJtFXabYRSRhLlHE4DlyKcJlncxZ3eEmD2jK5MZC97U4IZX5oqG
+	lwV8xJvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvDk-000000053Fu-20Ql;
-	Thu, 08 Oct 2026 21:00:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xEvEs-000000053Qf-2qgk;
+	Thu, 08 Oct 2026 21:01:18 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvDj-000000053Fb-0Arc
+	id 1xEvEp-000000053Px-1fVK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 21:00:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B0EA600CB;
-	Thu,  8 Oct 2026 21:00:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 945371F00893;
-	Thu,  8 Oct 2026 21:00:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791493205;
-	bh=wNkFP7ef8kESWjXFB8a6H8v6I9TvDNhblU/gkA5sfQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eGFVnejgzlFtkHtMAC9R8bNKY8H55YyB8NxBVCFtUM+pizxiUAVPNUOyzg+YoekQ1
-	 qo7GVHBOB+I5JkV6TkAozA8cYyBO2efX8ZB6Z7KFNfDoxW/rO5Q+oGVYk+ZxjD4rvS
-	 Q5LxxwaDJqTDOJwPjW8RUJCBBDBAlsVq/6kwnOgdXhwm+nFWAiaAzSzNUiwCK1zoRe
-	 Ga/cY51CV967MiV7nfm71qvMkA2M14OTBAMJ9x633psEFcWmtaPhxTEcFwEyNTYhKS
-	 A7s8449IafPMv0Wh40DfS1EoTE4xot/ci6NlWUpuN9AqKqEZAX5sk5DN/PalunDY2+
-	 rqrbZ/gRSKJoA==
-Date: Thu, 8 Oct 2026 16:00:04 -0500
-From: Rob Herring <robh@kernel.org>
-To: Yin Li <yin.li@oss.qualcomm.com>
-Cc: James Morse <james.morse@arm.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Gavin Shan <gshan@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	trilok.soni@oss.qualcomm.com, aiqun.yu@oss.qualcomm.com,
-	ganapatrao.kulkarni@oss.qualcomm.com,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH DNM v3 8/8] arm64: dts: qcom: kaanapali: Add MPAM MSC
- nodes for the L2 caches
-Message-ID: <20261008210004.GA1318789-robh@kernel.org>
-References: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
- <20261008-mpam-resctrl-dt-knp-support-v3-8-35196c2b43bf@oss.qualcomm.com>
-MIME-Version: 1.0
+	Thu, 08 Oct 2026 21:01:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=okX+fKw67P/crdtAhJnjxfI991IpZ8MSjcP3dra3zA0qTOdVtxVvs612CqEg0DLBjFSzh3NLqkmu6ONw6XxJpbCSHyoHGlw/YQXITdylw4ArlkLueWfv+gbKnp4+krRiTVXT0OVZKqK4Vy8qPnfaGqyskRktWgCFuy0RPrxnrWsBRBe4ewKlL+SZDgk7qw41CiAsJKEmDljw5cZU34l/cW8v1IYAnXXgXur6787XzBU7e6XZ+ooUwBP9rzMg9qmeNcZ5Bci06N7FxDEAP02rJizCkp9uICHXwnBntNfe4p8a++c4ftYgQ0a6HC3HTPjXL9qIzsnS3MkJFiEc6EzP5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1/JfaI5yVX7fEGnudnWaBS/Gu5RDDSQ5DA8UJMIAKls=;
+ b=NvdetTU/4gH0A4qLquyLqQ99qbG+fx3gksTQ56ypVTXCDbrsc80Qse3IwCh9j5eX8RLcIPcqTKyVrS+pA02FemKoDkXf/1wyN51nSu4Od0AZod4xVIkP9cosTWr1NEQg2fBo+F2HIawReyaP9dnGlKWH/Vnu3xB+lMnbFEJvA3MykyMfU0guXBYsc1CuGen5UhmfTRBpP2wNxdbumzvF9F95J8NelWv3YtQ5bAOiCk3tMCoHSO5S27ji1k+tBuoXUW4wllp0CUADJap3ZFv1uJ83iS/gukUEgT1zP+oNCYn5UR97AZ1rgbTiFprNao0r7g+QAjNaWRQ89NzL0s0saQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1/JfaI5yVX7fEGnudnWaBS/Gu5RDDSQ5DA8UJMIAKls=;
+ b=k6I0xLiSaJnBBRJ1iAgDTkgUwcdD4+U8G8nEoSymoQ9li/7LI68C0+50faFaSOOHEgoE9aF6rFJlpZLmxlRD/0nn/ns0V8+rCJkVgfUVh9XcTAVwIUvYi1eeP/w+/aIEPzf2yEcMpzLOjZuCRPcNEw5gi6oUtskGqdw/5JZYp7i61yGBmlmY7p/g9wTj0tKzesaQCsL8Cq3a2eflRYKRdJp41qtVOF93FxPslEQOb5TOa8NxJZRc6Cn66oSeZF1hUhpsgZzMqXxIygQSrLSB+1IDFkSacq5SOfPufgA8t6HBkNpfQc3Zd8Ntwcun5KFJl02+g6AOhD0ZywRtw4Yu8A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8273.eurprd04.prod.outlook.com (2603:10a6:20b:3e5::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
+ 2026 21:01:11 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 21:01:11 +0000
+Date: Thu, 8 Oct 2026 16:01:07 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Zhipeng.wang_1@oss.nxp.com
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Radu Rendec <radu@rendec.net>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>, xuegang.liu@nxp.com,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 9/9] irqchip/imx-irqsteer: Use
+ devm_irq_domain_create_linear()
+Message-ID: <asgEkzuozDh77hq5@SMW015318>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+ <20261008090231.796511-10-Zhipeng.wang_1@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261008-mpam-resctrl-dt-knp-support-v3-8-35196c2b43bf@oss.qualcomm.com>
+In-Reply-To: <20261008090231.796511-10-Zhipeng.wang_1@oss.nxp.com>
+X-ClientProxiedBy: FR5P281CA0042.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f3::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8273:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb19c73b-e631-4e77-509f-08df257f481e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|23010399003|366016|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: Lrg9pLeJ/WEz05AhpgJVp+/oDurk7szzxnc5of0aBnQw6TxfLjICVq/7Nnc2YJ3ORhmA1mj/yPXEoW2EMJ4hRgN03n4cqHDC47K45KaCx2dSswIH/+4UTwpcbkDcuGLSSrqwEHQPvYF7NOBXYVpZIQ3LDjMlPDSYpuTiixGQNB1GtD/iYARwxDzpxCgvA6W/H3dbIoVXB8nELICqd0xUCzaqUq7ZFVX7qxhn5LbvdTq+zlFMycC1JkDGvwaiUPKQCXw2+fI0YcaWdPIlnuhgU3Ut8ow+e+ALfKDYUgXDBUquTOXG7UdK8lbScRZEiXDOCu7NBvnXeCdf/IzsCI1d/yklRgJkWQXYXd8W4s2IZi0jeDOgz8tfLTWlkkoIN9cb/ed4OW0FtLvN6XgRiytM1GWqNYV7qFiQI9E9qWhMR9+/iiTxWlbvjFQ8PjYHJg1Dmd6EpYbvtecIPb5Z6Zv7/PwZ/kwZ/Ae6hscpAqATJZu0sMf7k+u/GnfCz1UWDUhvHs1ErICe6optQciDbKLETA+vKbAELRZ3YBod7zFBi7TYLTcsuJP6Ab1kfHWGAIztWlcqQu7YXGPqcqk8xT1EZLSSLwqb6Gex60wX20z+pVqK1UKSMutAqQZb9uoxnFBQ3KJ1OxKmjTFdZw03/cibHr3t7Kk1u3Q4vSMTg9AkSBc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(23010399003)(366016)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/Yjfdx/eXdW6l7B7WYcHCWQP93zsgJwTAKPqCRAJT3hVcd1j1bQUfAdhwOoB?=
+ =?us-ascii?Q?+TzXlBkQsdx5tgvhiplhbtoPGdaXtSWKM+8ABQdZJKL+SJzCpktZW6t1TaNy?=
+ =?us-ascii?Q?FQEYEj+p0ASsmqNhFJAFLcw63byEhQylkfdulSHfyFYztuD8v+x3br/jxP12?=
+ =?us-ascii?Q?923W1KMABg7j8KmNTEY8YVkW7vt16WySF0aj3gEp/uT+Ica01BN9NDmioqqm?=
+ =?us-ascii?Q?AcuH4EQora4LMR0LhXMWUv1HjQ0V1uwWBw3sPW4NSxxRySxzbCx32BY2+UZg?=
+ =?us-ascii?Q?ibihCfs3O94S/J5tSc6STV+LOWjuEa87+l6RN9HBaBfUnPk+6GUEutz9LAR3?=
+ =?us-ascii?Q?xaBFa+W3jzZr7EpZeYBBDojFntzEVQFfMCP03T6gkzYBNSu5uoCXXYLLrtfl?=
+ =?us-ascii?Q?gYkGwhKUxsSbXTkIuqBGpy3BL9JAFdmZ5BF77hNdba2O7ihZwn9e3K9a6zKX?=
+ =?us-ascii?Q?UgOdjhNld6R8rLhoulriHkXOqzT1wJ1J1Algc9lT9MMXgRjUblH2FzqJPIgZ?=
+ =?us-ascii?Q?d0DgVq+XIm3ON7Na6S/yIVSmPztFKk5AHp64aihboAmD5cO1O3s94yEcDgfS?=
+ =?us-ascii?Q?gaPugQpCyiYaHv5wcmodtXUx2ui6P5WXnUCSQHKlbZplvc+yIyqNxIdVO3+b?=
+ =?us-ascii?Q?lEM+uhBNTwRyWWKpaED+CvRLIQRyyiacJtTpf4FB8cW9+UbRMv/7VjQ6Is+n?=
+ =?us-ascii?Q?+GLL4+DZWb5zA+xeatzmSnt8DOEdzPLPyL+oQjJvgWvIOHkXg1wQxRwm7tag?=
+ =?us-ascii?Q?rDWMU4gpFU5ZMDpKiNGptXEFglmvASnBwcaJK/xWKO2fhD75YQeyBGnFHmpI?=
+ =?us-ascii?Q?CmwEvR8sOvLGoNvlAyQCKhQY8U9S3Jx4Mh67K3LufpYzP2PJonQtJg3OxGB2?=
+ =?us-ascii?Q?qBtwyGGEJKSo32AIm36m/XgUnhxcS/csBdIw4XkvpOU6ZYms6SoiRF0T5kJ3?=
+ =?us-ascii?Q?95bPdfO8SWldNc2ICgCowowJRU3tDd2PFKr8V83B7AuUkyl75bMYJ037epQ8?=
+ =?us-ascii?Q?KHdnZiuLgtpqfPPfDAgb06Gc1GS2LDemGcjmhYAMZnhT1PeZuyI9ZlEi42EN?=
+ =?us-ascii?Q?lb7IcWsgwOwha2A+UL8DuBnFK8ypQDJMavTDq6BcShDk0aBIVEBkwLLcNlld?=
+ =?us-ascii?Q?laoQEAZT/KYoB69GhJ+7dltG60yOY8RwZnO1NODfKpmPbjQK5RRIvSs28Ng6?=
+ =?us-ascii?Q?lbtqKN9jlwCBML21civ3853Af9V1q5O7wePeJqujIwpf5UG1u6roqGkjewI7?=
+ =?us-ascii?Q?hjtsZwi289NTQAACjQt2Yuc18LtmLFr2RH+ovW6P4vQz4y8MX11ObpILbexR?=
+ =?us-ascii?Q?lW3bAZ5Szh6uiHG0RtTtH1040usIOW7FGKOocpczqQ3GV/NcKP3CannSM6Pb?=
+ =?us-ascii?Q?SOmynZjtcTTNLy09PeIfzilBiHql9xvSSxaIzW6mZp+sR4dJBMqHLRLnKfIG?=
+ =?us-ascii?Q?o4UKJS9Ej1w4IzBiohXEAmaUxCasrCgjntdlwuuth9CBslvwdLlTHnKiPlQy?=
+ =?us-ascii?Q?Q9mbRbOVyxvxAH+twoNptVj6KYgL0zhWhgAZekntUeNSq9mcycxMyWcj+lHu?=
+ =?us-ascii?Q?Khfw/pDT8keMLse6LCk2WF3E6qbbyib428R24a8LQ4y0N/LSrCTszKbf4R+D?=
+ =?us-ascii?Q?9gaQum9tKi1uD5gdpPO/rVlUPgFOCSTNf58w8K00/8DgJZuauUVE2kBLbFJW?=
+ =?us-ascii?Q?AFp/J+d8CGIqXpNyAjEZcOmRRfoMwPxTFLKJJIpco4g5SapD9ZR0kRRhws6X?=
+ =?us-ascii?Q?TtRkRWboP4l11xOajTLPWS8IJVavCASHo2IcVejceDyQPlfwxg0N?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb19c73b-e631-4e77-509f-08df257f481e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 21:01:11.2468
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M9hMiFNxgc9E8bX4LRnjanBHChVIIRHA0iGwaSQwJTggN8Uii8K8abY56pfrTW6J76mR5OUVJ2teyEqRTlC9csHFLedRr07oTweWCyz1MzpeXt4icpiuY4+oexwngEOO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8273
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_140116_531754_23B74677 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,96 +143,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 08, 2026 at 02:41:17PM +0800, Yin Li wrote:
-> Add an MPAM MSC device node for each L2 cache. Each MSC is nested
-> directly under its L2 cache node so that the cache node is the MSC's
-> parent device and its CPU affinity is derived from that cache.
-> 
-> The L2 cache nodes are placed directly under the root node. The root is
-> the root of the physical address space, so each cache node only needs an
-> identity 'ranges' property for its nested MSC's 'reg' to be resolved to
-> a physical address. The two caches use distinct node names (l2-cache-0
-> and l2-cache-1) since a cache node has no MMIO unit-address of its own.
-> 
-> The nodes are disabled by default. Production firmware does not expose
-> MSC register access to the OS, so these nodes can only be enabled on a
-> local test setup where firmware permits direct MMIO access to the MSCs.
-> This DTS is therefore only an example for other platform DT authors and
-> is not intended to be merged.
-> 
-> Co-developed-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
-> Signed-off-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
-> Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
+On Thu, Oct 08, 2026 at 06:02:31PM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+> From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+>
+> The driver open-codes an irq_domain_info and calls
+> devm_irq_domain_instantiate() only to get a linear revmap domain tied to
+
+Miss match actual code change.
+
+Frank
+
+> the device lifetime. Use the new devm_irq_domain_create_linear() helper
+> instead. No functional change.
+>
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 > ---
->  arch/arm64/boot/dts/qcom/kaanapali.dtsi | 50 +++++++++++++++++++++++++--------
->  1 file changed, 38 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> index 131fd2a16c54..b1dcb1e9c570 100644
-> --- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> @@ -48,12 +48,6 @@ cpu0: cpu@0 {
->  			power-domains = <&cpu_pd0>, <&scmi_perf 0>;
->  			power-domain-names = "psci", "perf";
->  			#cooling-cells = <2>;
+>  drivers/irqchip/irq-imx-irqsteer.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+> index 85edd5e33ca9..f5601769d036 100644
+> --- a/drivers/irqchip/irq-imx-irqsteer.c
+> +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> @@ -246,8 +246,9 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>
+> -	data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), data->reg_num * 32,
+> -						&imx_irqsteer_domain_ops, data);
+> +	data->domain = devm_irq_domain_create_linear(&pdev->dev, dev_fwnode(&pdev->dev),
+> +						     data->reg_num * 32,
+> +						     &imx_irqsteer_domain_ops, data);
+>  	if (!data->domain) {
+>  		dev_err(&pdev->dev, "failed to create IRQ domain\n");
+>  		return -ENOMEM;
+> @@ -294,8 +295,6 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
+>  		irq_dispose_mapping(irqsteer_data->irq[i]);
+>  	}
+>
+> -	irq_domain_remove(irqsteer_data->domain);
 > -
-> -			l2_0: l2-cache {
-> -				compatible = "cache";
-> -				cache-level = <2>;
-> -				cache-unified;
-> -			};
->  		};
->  
->  		cpu1: cpu@100 {
-> @@ -120,12 +114,6 @@ cpu6: cpu@10000 {
->  			power-domains = <&cpu_pd6>, <&scmi_perf 1>;
->  			power-domain-names = "psci", "perf";
->  			#cooling-cells = <2>;
-> -
-> -			l2_1: l2-cache {
-> -				compatible = "cache";
-> -				cache-level = <2>;
-> -				cache-unified;
-> -			};
->  		};
->  
->  		cpu7: cpu@10100 {
-> @@ -531,6 +519,44 @@ soccp_smp2p_in: slave-kernel {
->  		};
->  	};
->  
-> +	l2_0: l2-cache-0 {
-
-cache@19870000
-
-> +		compatible = "cache";
-
-You need a specific compatible here for your implementation.
-
-> +		cache-level = <2>;
-> +		cache-unified;
-> +		cache-size = <0xc00000>;
-> +		ranges;
-
-Are there any other registers for the cache other than the MSC? If not, 
-then:
-
-ranges = <0x0 0x19870000 0x10000>;
-
-If there are, you need 'reg' here.
-
-> +
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-
-You don't need 64 bits of address and size here.
-
-> +
-> +		msc@19870000 {
-> +			compatible = "arm,mpam-msc";
-> +			reg = <0x0 0x19870000 0x0 0x10000>;
-
-The MPAM register length is 0x321C.
-
-Rob
+>  	if (ret >= 0)
+>  		pm_runtime_put_noidle(&pdev->dev);
+>  }
+> --
+> 2.34.1
+>
+>
 
