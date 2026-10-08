@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33DBCA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BA2CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 12:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=; b=spkgvMn6MnIpNGZs7VIhnXBlLS
-	34Af4AMkUPdgykp77e4R7zLeNoQJ6nTc/6uT5gKKnetJbP6/UkHxsSPszOzt9MExpYTHKdc5OjyEY
-	cnBzLofjuY+nmSEa1YYQRZjkiWRtUswLSe7k2PGkKZK/WWeCEc8rwSF+sNt8lHkqmrnnjO7yRpn66
-	Hk77cQvDSdHob8nyme5bE2P/WDUk5Qv6GAEbUIm2I5Vt5imqbmqtOKoNXWeYyN7E0wuYZ1uZy5PEv
-	c+YonNFArucS2OJwpyvO2Qxu0TKs/XHm2h0KQfuzGCDaiZAE5ys33fxsHCSM5mdNvqffQNj0hxKBT
-	zDdFyS1A==;
+	bh=FG99HlWhyZXcqOdGeYv6wixfX5/qOmpG/GGY4yf80rg=; b=lVuAmi+QooD8OH0oCQzDJnSQTa
+	/ifb3+rxttDbIIS5T2+X32vrwL4PuSBRlT2CKTqPsKwH7Yece3wJINuU3Iz6Rob3eGLOL2w4oF/1T
+	Wvirv3X6Srz7AvSSnu4OvRdttbpBeTgrAGM6NPMk4pAhNwvfKJE1XcAKS4wIZLOjQEPd7b0tACFBh
+	HoioeJ+D8vsYc3osDoc4mwpf5UjzTCL2UKBZcWiMCG+dfw4yS05ul6D4Jf4ofrqZ3JIS85XdtSYyw
+	8VrrnOZURtEe+sM/QmJv5n/8w3Quywz34PtgHIMPx4o/SCq0zLhv6hdYBb+pu1rhofkYWEFfO/kNY
+	qaeFE8VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnb5-00000004OgQ-3ic6;
-	Thu, 08 Oct 2026 12:51:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnb4-00000004OgA-0x3I
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 Oct 2026 12:51:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=; b=Wm0mec4PE2hnToMjQyrpBsFYaU
-	kqhaiX3/m1AmRjpJ5DIdf+msbBF+xSqvqLewI37ogMnZ6dBJFQQRA1Rl557Mq7wSSPLkvM7Vyov0b
-	M7StxmEcOiavTQdm0lX4HdlZWMQ9D8/SnYbEgf7JVSjasIKwNKUUO3ORi3TuQCZetGRpL/ZZKZbfr
-	Mw1hpp7SYycBkHG6IWl8JTOX+b7Mb4/zpgDJrkUVVfSF42n5+C7TT3YNmMIWEJ5xTr+OoglgaQZwp
-	xzjE9jpJimmYv12jSdFVYHeVNFihaMIvybFnqXDzgUJ9UVeARbQnmI9K2SLZZUfGSu9zJXwtBdyzR
-	2L4ln/wg==;
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xEnb0-0000000ANfi-3864
+	id 1xEnex-00000004P3p-2U2a;
+	Thu, 08 Oct 2026 12:55:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEnev-00000004P3U-0lrT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 12:51:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=azu39hy4sP9l9bRMcKId7i+KbDup1QkTOPoJ+2kNYCw=;
-	b=cdcy/2djDSiUkkPO0QEaErPKpvMVBP3ghfWe4K54nsje1g/e2wppO6EK36bXKK/gC6SPjDq4g
-	MZl/77my+iIk6VNg+ZZFh79SQu/VJt3dHA4IRb8SwoYyBKsiP07Lho2A92wcK2rcpEL/skRCsex
-	VlU74hvEOtmS6lwk0qd+HOg=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4j0qKy1bMLz1T4JM;
-	Thu,  8 Oct 2026 20:38:46 +0800 (CST)
-Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4B1004057F;
-	Thu,  8 Oct 2026 20:50:59 +0800 (CST)
-Received: from [10.174.185.234] (10.174.185.234) by
- dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 8 Oct 2026 20:50:58 +0800
-Message-ID: <6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
-Date: Thu, 8 Oct 2026 20:50:57 +0800
+	Thu, 08 Oct 2026 12:55:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3DB71477;
+	Thu,  8 Oct 2026 05:55:36 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5E043F66F;
+	Thu,  8 Oct 2026 05:55:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791464140; bh=3QdpwgfvX6sQmV3QX7F2pJoLE3Y/GJ9239PkdjVkR/k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DkXEzDU31uC0dYxOkRVh+wR9Y2Jsc46vC/kxrGo9RjXZjwEVDiYzU1xr8xcMcb7HV
+	 FcvEyng6+7pjkY1QBhYL6ix+o9Tmk0LkIzWjtkZbQ3xjf1pFB4LwNx3dzurE928/VL
+	 mGwWqUTkZOKmjHIvDoQ6Z0W/PCTOx1yxeyykH3DE=
+Message-ID: <d0e80505-b36f-40a9-a45f-957fff428c2a@arm.com>
+Date: Thu, 8 Oct 2026 13:55:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration
- optimization
-To: Marc Zyngier <maz@kernel.org>
-CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<fuad.tabba@linux.dev>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <mark.rutland@arm.com>,
-	<zhengchuan@huawei.com>, <jiangjiacheng@huawei.com>, <yize_w1110@163.com>
-References: <20260918081930.4014735-1-wangyize7@huawei.com>
- <861paq69te.wl-maz@kernel.org>
- <f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
- <86ece63kes.wl-maz@kernel.org>
-From: Yize Wang <wangyize7@huawei.com>
-In-Reply-To: <86ece63kes.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.185.234]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemr200003.china.huawei.com (7.185.36.25)
+Subject: Re: [PATCH RFC v5 3/6] iommu/arm-smmu-v3: Delay stream allocation to
+ inside the mutex
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Will Deacon <will@kernel.org>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
+ Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>
+References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
+ <20261006-smmu-shared-sid-v5-3-169a59c671d3@nxp.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261006-smmu-shared-sid-v5-3-169a59c671d3@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_135139_505469_BFADB08C 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20261008_055541_348078_4CFFBEEF 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,159 +77,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 06/10/2026 1:19 pm, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Move arm_smmu_stream allocation from upfront (before the mutex) into
+> the mutex-protected loop in arm_smmu_insert_master(). Instead of
+> pre-allocating all stream objects and then inserting them into the RB
+> tree, first look up whether the SID already exists in the tree. Only
+> allocate and insert a new stream when no existing entry is found, then
+> avoid unnecessary allocations when bridged PCI devices produce duplicated
+> IDs. Prepare the code for a subsequent patch that will reuse existing
+> streams when stream IDs are shared across masters.
+> 
+> The sort is also moved after the mutex section, since streams are now
+> populated inside the loop rather than beforehand.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 102 +++++++++++++++-------------
+>   1 file changed, 53 insertions(+), 49 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 9d34eac196a65..69c2c3596b06a 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4110,52 +4110,29 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>   		return -ENOMEM;
+>   	}
+>   
+> -	for (i = 0; i < fwspec->num_ids; i++) {
+> -		struct arm_smmu_stream *new_stream;
+> -
+> -		new_stream = kzalloc_obj(*new_stream, GFP_KERNEL);
+> -		if (!new_stream) {
+> -			ret = -ENOMEM;
+> -			goto out_free_streams;
+> -		}
+> -		new_stream->id = fwspec->ids[i];
+> -		new_stream->master = master;
+> -		master->streams[i] = new_stream;
+> -	}
+> -
+> -	/* Put the ids into order for sorted to_merge/to_unref arrays */
+> -	sort(master->streams, master->num_streams,
+> -	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+> -	     NULL);
+> -
+> -	/*
+> -	 * Clear after sorting: RB_CLEAR_NODE() records the node's own address,
+> -	 * which sort_nonatomic() invalidates by relocating the entries.
+> -	 */
+> -	for (i = 0; i < fwspec->num_ids; i++)
+> -		RB_CLEAR_NODE(&master->streams[i]->node);
+> -
+>   	mutex_lock(&smmu->streams_mutex);
+>   	for (i = 0; i < fwspec->num_ids; i++) {
+> -		struct arm_smmu_stream *new_stream = master->streams[i];
+> +		struct arm_smmu_stream *stream;
+>   		struct rb_node *existing;
+> -		u32 sid = new_stream->id;
+> +		u32 sid = fwspec->ids[i];
+>   
+>   		ret = arm_smmu_init_sid_strtab(smmu, sid);
+>   		if (ret)
+>   			break;
+>   
+> -		/* Insert into SID tree */
+> -		existing = rb_find_add(&new_stream->node, &smmu->streams,
+> -				       arm_smmu_streams_cmp_node);
+> +		existing = rb_find(&sid, &smmu->streams,
+> +				   arm_smmu_streams_cmp_key);
+>   		if (existing) {
+>   			struct arm_smmu_master *existing_master =
+>   				rb_entry(existing, struct arm_smmu_stream, node)
+>   					->master;
+>   
+>   			/* Bridged PCI devices may end up with duplicated IDs */
+> -			if (existing_master == master)
+> +			if (existing_master == master) {
+> +				master->streams[i] = rb_entry(existing,
+> +					struct arm_smmu_stream, node);
 
-在 2026/10/3 22:53, Marc Zyngier 写道:
-> On Sun, 20 Sep 2026 10:15:25 +0100,
-> Yize Wang <wangyize7@huawei.com> wrote:
->> 在 2026/9/18 20:08, Marc Zyngier 写道:
->>> On Fri, 18 Sep 2026 09:18:13 +0100,
->>> Yize Wang<wangyize7@huawei.com> wrote:
->>>> This series adds batch register access support to KVM/arm64 to reduce
->>>> syscall overhead during VM live migration.
->>>>
->>>> Currently, QEMU issues one ioctl per register when saving/restoring VGIC
->>>> state. On large VM configurations this means tens of thousands of syscalls,
->>>> where lock acquisition and context switch overhead dominates migration
->>>> downtime. Thus, we provide a batch register method to allow userspace
->>>> read/write multiple distributor and redistributor registers in a single call.
->>>> In this way, we can significantly reduce syscalls and migration downtime.
->>>>
->>>> Test the VM migration time under pressure conditions.
->>>> The VM specifications for migration are as follows:
->>>> - VM use 4-K page;
->>>> - the number of VCPU is 160;
->>>> - the total memory is 320Gigabit;
->>>> - use 'Redis SET-benchmark' to pressurize VM;
->>>>
->>>> Performance results (3-run average, ms):
->>>>       | Metric              | Without patch | With patch | Improvement |
->>>>       |---------------------|---------------|------------|-------------|
->>>>       | Migration downtime  |        536    |     321    |     40%     |
->>>>       | Source (total)      |        344    |     230    |     33%     |
->>>>       |   - VGIC put        |        158    |      40    |     75%     |
->>>>       |   - VGIC get        |        120    |      19    |     84%     |
->>>>       | Destination (total) |        192    |      91    |     53%     |
->>>>       |   - VGIC put        |        132    |      27    |     80%     |
->>>>
->>>> Yize Wang (2):
->>>>     KVM: arm64: Add batch group constant and data structure to UAPI header
->>>>     KVM: arm64: Add VGIC v3 batch register access implementation
->>> Questions:
->>>
->>> - Why only the MMIO registers?
->>>
->>> - Why not the sysregs?
->>>
->>> - Why only the GIC?
->>>
->>> - Why not all of the state?
->>>
->>> - Where is the corresponding userspace code?
->>>
->>> More importantly, since this is about batching system calls:
->>>
->>> - Why can't this be done with io_uring instead?
->>>
->>> 	M.
->>
->> Hi, Marc! Thank you for the review.
->>
->>    These patches focus on optimizing GICv3 register access during live
->> migration. We found that there are a large number of locks (kvm->lock,
->> vcpus, config_lock) in the GIC, these lock operations wil cost large
->> time waste. The batches of sysreg for vcpu optimization will come in
->> follow as a separate series. And let me address these questions one by
->> one.
-> All these locks should be non-blocking by the time you save anything
-> related to the GIC, because:
->
-> - none of the vcpu can be running
->
-> - this must be a single threaded operation
->
-> So if you are seeing anything contended, this is either the sign of a
-> bad KVM bug, or an indication that you are violating the above
-> requirements.
->
-> 	M.
+If we're now making the whole stream allocation and tracking business 
+more dynamic anyway, could we not just skip inserting duplicate entries 
+entirely, and save all the hassle elsewhere?
 
+IIRC, the only real reason for not actively deduplicating originally in
+563b5cbe334e ("iommu/arm-smmu-v3: Cope with duplicated Stream IDs") was 
+to keep it to the simplest fix that was easier to backport, and at the 
+time it was easy to get away with since it only mattered at that one 
+particular point. If we have to start copying the double-loop bodge 
+around to multiple places, it rather stops looking like the neatest 
+option...
 
-Hi, Marc! Thanks for your review.
+Thanks,
+Robin.
 
-You are right that when saving the GIC state during live migration process, all vCPUs are not running and it is a single threaded operation. Our patches process the packaged register states from the userspace under the same lock. These operations only aim to reduce the lock opreation downtime and do not involve lock contention.
-
-In addition, these patches focus on reducing the syscalls of ioctl. Now, every register requires an ioctl, resulting in (num_cpu * registers_per_cpu) system calls. This will cost lots of time during the large-scale VM  migration. Our patches batch registers by category in qemu and then send them to kernel in batches. This operations significantly reduce the number of ioctl syscalls and save a great amount of downtime.
-
-The comparison is as follow:
-BEFORE:
-
-        QEMU (Userspace)                  Kernel (Kernelspace)
-   +------------------------+        +----------------------------+
-   |                        |        |                            |
-   |  kvm_arm_gicv3_get()   |        |  vgic_v3_attr_regs_access  |
-   |                        |        |                            |
-   |  for ncpu in num_cpu:  |        |                            |
-   |    for each register:  |        |                            |
-   |                        |        |                            |
-   |  GICR_CTLR             | ioctl->|  mutex_lock(&kvm->lock)    |
-   |                        |        |  kvm_trylock_all_vcpus     |
-   |                        |        |  mutex_lock(&config_lock)  |
-   |                        | <-val  |  read/write register       |
-   |                        |        |  mutex_unlock              |
-   |                        |        |  kvm_unlock_all_vcpus      |
-   |                        |        |  mutex_unlock(&kvm->lock)  |
-   |                        |        |                            |
-   |  GICR_STATUSR          | ioctl->|  (repeat lock/read         |
-   |                        | <-val  |   -> unlock)               |
-   |  ...                   |        |                            |
-   |                        |        |                            |
-   |  GICR_WAKER            | ioctl->|  (repeat lock/read         |
-   |                        | <-val  |   -> unlock)               |
-   |  ...                   |        |                            |
-   |                        |        |                            |
-   |  ICC_SRE_EL1           | ioctl->|  (repeat lock/read         |
-   |                        | <-val  |   -> unlock)               |
-   |  ...                   |        |                            |
-   |                        |        |                            |
-   +------------------------+        +----------------------------+
-
-
-AFTER:
-
-        QEMU (Userspace)                  Kernel (Kernelspace)
-   +------------------------+        +----------------------------+
-   |                        |        |                            |
-   |  kvm_arm_gicv3_get()   |        |  vgic_v3_batch_access      |
-   |                        |        |                            |
-   |  Collect Phase:        |        |                            |
-   |    add(GICR_CTLR)      |        |                            |
-   |    add(GICR_STATUSR)   |        |                            |
-   |    add(GICR_WAKER)     |        |                            |
-   |    add(GICR_IGROUPR0)  |        |                            |
-   |    ...                 |        |                            |
-   |    add(ICC_SRE_EL1)    |        |                            |
-   |    ...                 |        |                            |
-   |                        |        |                            |
-   |  Commit Phase:         | BATCH->|  copy_from_user            |
-   |    batch_commit()      |        |  mutex_lock(&kvm->lock)    |
-   |                        |        |  kvm_trylock_all_vcpus     |
-   |                        |        |  mutex_lock(&config_lock)  |
-   |                        |        |                            |
-   |                        |        |  Process Each Entry:       |
-   |                        |        |    entry[0]: GICR_CTLR     |
-   |                        |        |    entry[1]: GICR_STATUSR  |
-   |                        |        |    entry[2]: GICR_WAKER    |
-   |                        |        |    ...                     |
-   |                        |        |    entry[N]: ICC_SRE       |
-   |                        |        |    FLAG_LOCKED: skip       |
-   |                        |        |                            |
-   |  Unpack Phase:         |<-result|  mutex_unlock              |
-   |    Write back          |        |  kvm_unlock_all_vcpus      |
-   |    Post-process:       |        |  mutex_unlock(&kvm->lock)  |
-   |      unshuffle,split   |        |  copy_to_user              |
-   |                        |        |                            |
-   +------------------------+        +----------------------------+
-
-
+>   				continue;
+> +			}
+>   
+>   			dev_warn(master->dev,
+>   				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
+> @@ -4163,45 +4140,72 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>   			ret = -ENODEV;
+>   			break;
+>   		}
+> +
+> +		stream = kzalloc_obj(*stream, GFP_KERNEL);
+> +		if (!stream) {
+> +			ret = -ENOMEM;
+> +			break;
+> +		}
+> +		stream->id = sid;
+> +		stream->master = master;
+> +
+> +		rb_find_add(&stream->node, &smmu->streams,
+> +			    arm_smmu_streams_cmp_node);
+> +		master->streams[i] = stream;
+>   	}
+>   
+>   	if (ret) {
+> -		for (i--; i >= 0; i--)
+> -			if (!RB_EMPTY_NODE(&master->streams[i]->node))
+> -				rb_erase(&master->streams[i]->node,
+> -					 &smmu->streams);
+> +		for (i--; i >= 0; i--) {
+> +			int j;
+> +
+> +			if (!master->streams[i])
+> +				continue;
+> +			/* Skip duplicated SID pointers already freed */
+> +			for (j = 0; j < i; j++)
+> +				if (master->streams[j] == master->streams[i])
+> +					break;
+> +			if (j < i)
+> +				continue;
+> +			rb_erase(&master->streams[i]->node, &smmu->streams);
+> +			kfree(master->streams[i]);
+> +		}
+>   		mutex_unlock(&smmu->streams_mutex);
+> -		goto out_free_streams;
+> +		kfree(master->streams);
+> +		kfree(master->build_invs);
+> +		return ret;
+>   	}
+>   	mutex_unlock(&smmu->streams_mutex);
+>   
+> -	return 0;
+> +	/* Put the ids into order for sorted to_merge/to_unref arrays */
+> +	sort(master->streams, master->num_streams,
+> +	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+> +	     NULL);
+>   
+> -out_free_streams:
+> -	for (i = 0; i < master->num_streams; i++)
+> -		kfree(master->streams[i]);
+> -	kfree(master->streams);
+> -	kfree(master->build_invs);
+> -	return ret;
+> +	return 0;
+>   }
+>   
+>   static void arm_smmu_remove_master(struct arm_smmu_master *master)
+>   {
+>   	int i;
+>   	struct arm_smmu_device *smmu = master->smmu;
+> -	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
+>   
+>   	if (!smmu || !master->streams)
+>   		return;
+>   
+>   	mutex_lock(&smmu->streams_mutex);
+> -	for (i = 0; i < fwspec->num_ids; i++)
+> -		if (!RB_EMPTY_NODE(&master->streams[i]->node))
+> -			rb_erase(&master->streams[i]->node, &smmu->streams);
+> -	mutex_unlock(&smmu->streams_mutex);
+> +	for (i = 0; i < master->num_streams; i++) {
+> +		int j;
+>   
+> -	for (i = 0; i < master->num_streams; i++)
+> +		/* Skip duplicated SID pointers already freed */
+> +		for (j = 0; j < i; j++)
+> +			if (master->streams[j] == master->streams[i])
+> +				break;
+> +		if (j < i)
+> +			continue;
+> +		rb_erase(&master->streams[i]->node, &smmu->streams);
+>   		kfree(master->streams[i]);
+> +	}
+> +	mutex_unlock(&smmu->streams_mutex);
+>   
+>   	kfree(master->streams);
+>   	kfree(master->build_invs);
+> 
 
 
