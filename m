@@ -4,80 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB038CA6004
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 02:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD1ECA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 02:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqXWTnU0i8aCQecR5ZtVuo6GsZFDzAdTtDFyNU7NBqM=; b=gh4vmhxDM4YJZXMhyTz4iqJss7
-	Z+BsOo03OBu03j9KRzkrWy33j08Tb+HPt4WTU+t7cLwopn51b9CbUZiev2Qy/rcEOYkUUBukktKMH
-	GAV5Y8E+/fJ6xU5xDz8wauntgb3z73K4AQTDGE70QwReZeo/HV9VG5pn6E7hJd0PQKwuXrXCBgTbp
-	nEVYrPiQRlu6yR5yHEdpCWGEDPqOBV6yWsytMn8QCVIjmV5kKPsvIGBy1Opi0133Qf0eBdBX6ByMm
-	PfijDb/RTCYROvR0fktJCrRPpZWz0JjDEtKGjwO8F/V6sDtcF5A/ZIT/HNc66hlDxMh2OUG0M4e67
-	wO15WJVQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MwahjYlmNg5Sb7TImh0bCwCphihNsrlCradydgL/hSk=; b=aUGnZYxll1vAK40EfFaZHoNgY/
+	RwWQG9OobOHHX1zuB+vjQ5Z8FYRwVBuZbf8KI7hQ2dt3+YcHNH2DhSFFoRXBQ15UGVHcjT6q3CZ4t
+	vtlSiadWMa9318A+rm4nfvAZyL2Pml2ZalcBY4ixBide6ErsqZ+cx0kidTVxrqquQiI+KKXlY10oY
+	UpsLWVL8PwZk2yFcoVtJQjuWQbSEW/4rneficHbZxbAiWXTVA6guT1T8wKPuELcuI/bRxUv34F5YK
+	C2nbcJcuGy4N56Z87OZghNxYrT26XUjjzsC+6gXY6rOUmaUj5pXvHsGRHWlxUAQe+pYXOgXkPrbnU
+	i0I88NRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEdf7-00000003O8x-0vsi;
-	Thu, 08 Oct 2026 02:15:13 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1xEdsG-00000003OTW-1JAo;
+	Thu, 08 Oct 2026 02:28:48 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEdf4-00000003O7i-0LMR
+	id 1xEdsA-00000003OSe-0xLS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 02:15:12 +0000
-X-QQ-mid: zesmtpsz8t1791425421ta6791c8b
-X-QQ-Originating-IP: IXZlWfjKmnhqV177wfA04QR2kDyYKaDIy/hBHC2ii5A=
-Received: from [10.20.30.18] ( [175.0.204.93])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 08 Oct 2026 10:10:19 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2114240786538988262
-EX-QQ-RecipientCnt: 10
-Message-ID: <9E75D1C8DDA4BAA5+4b72ad33-bf45-4cd1-b164-9da615b3dc31@kylinsec.com.cn>
-Date: Thu, 8 Oct 2026 10:10:17 +0800
+	Thu, 08 Oct 2026 02:28:46 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2db710396ffso1239815ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 19:28:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791426521; x=1792031321; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MwahjYlmNg5Sb7TImh0bCwCphihNsrlCradydgL/hSk=;
+        b=YG9nC32C0ON5AmRE2gtwvL+/jlxsj5LkLI4mFH3UWlcCxzDe0413L5M57D0Nd5x/wT
+         bC3mXh5CwB1Y2c+cOO0GZyndER20J7+JexV1GbgFf2fOTlE6u7vWZ0dnVwTfAgnd2YeR
+         arCXkhMquc8PUtyCsm+6xXMhuiOQdLjJOk7ehiuw0rvEVg1ZpXjPPGELJAs1kVXYOZ8i
+         fTDTebpZqBWPpLaEd/HDTSGp1SwrZcjhxFeyfKy5PIAvddesQ/oLt/cVliAMhx/7wXn8
+         KzPmQwmKSxbpxn1Sn+3Ojpp96bF1Is3CcGJAkXW3WUJi9CByiNIGiFsXq+LkbN3NUA0C
+         SRug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791426521; x=1792031321;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MwahjYlmNg5Sb7TImh0bCwCphihNsrlCradydgL/hSk=;
+        b=nE1KUOJdf9noAIMeB2SgRT2xrl1RFrcb7FhmNCCKLiJYc+KpIHJXm8PWU8ftSpfKsb
+         68BPc5b7UQlokjxvJrvUoSY047fbLJoz+376Kz6qf/q5VL1yzmU/grKD3VrssN+MboYu
+         Pw2ZFDh7fh3tZG7oacc91bG4RI+u4NuXvEGeE1LOa6KXWPtYdfoq825vn+4lF8xDWupn
+         H69wt6qxyIuQIBEpDyimNL+4OFIHWvPi0KJzXSGTmLGh+eH6iG4MFzbikKTYyIXbWKp8
+         XzcE4SUyypaDkOCTANLJYWcVlgMc7ErIfRRsRemu/SfOi/KEV3Quk4jof9gOJaiiZrG5
+         Qmiw==
+X-Forwarded-Encrypted: i=1; AKwUvBzIPSbX7ltMpg4t/cKajWnDV/4x5H+z93hjSE76wXKah3B9bZkxfGKOE5y9Yim+SaJJuy8bBNb1tKAFNqkKIg9D@lists.infradead.org
+X-Gm-Message-State: AFq9FYIe+IiF2XGygrC8FiGNve7iQF9mDIpo8QWM2wUxKpKg1LSlV23u
+	QwLu/0gu4c/BowkNkPln1EfER2duQPfIgd8c23e44zmsKPNZY+OzQPkx
+X-Gm-Gg: AYBFou0sJh/8iR5NgI0cfxi7vBOCF2D1Vyus83M8tQ+GJAurKr18Arlwnr1luSoy0aB
+	rpDmG1B9Jutok2+PaPAJnNJkvw74eLHWj6zXV/GJSSvX/tLOchyLrZWjhklI3WailzQJ3jc6tzm
+	+tbwnK8M8eitfn/K915qKCT/5qrlH3+8es79pUZFfmhOF5H8gspTk0MA6fQSwv7CD1rq615N30r
+	SQlAOIeutG1c+vqF40/zTfBWljGxwhA6MKEf6sPO+DxqSpVbJsUGmnB8JVVhZ2mb/IHZd8Exr4T
+	3H4TeRG5jo25kZX5yBuvwAoBzgYHxKo9XGBwHFDOCQ/26IqwHrS/MtUXW7cZaxuhuu4qCYb/RMn
+	xAFfCQj+ERdh9yO31hcNLTCxXfVzlO2NZHvqyBpqz1ptiMspOzjqY+aZi45Btnw0zjvOPUCECNf
+	l5v0qr5UrjmZkoLk9uKoHMeH6XgxEVvfPFuSNZrTOcO6pg5Psl2YcKx/DujSBTokCF2CYhuHV3h
+	/JE/KDOJNVgtQb498dUQPbzSA==
+X-Received: by 2002:a17:902:eb8d:b0:2df:375f:b7ee with SMTP id d9443c01a7336-2e7ffde9b3dmr5405065ad.18.1791426520826;
+        Wed, 07 Oct 2026 19:28:40 -0700 (PDT)
+Received: from d.home.yangfl.dn42 ([2a09:bac5:661c:1246::1d2:d1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e60482cab0sm18045865ad.50.2026.10.07.19.28.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 19:28:40 -0700 (PDT)
+From: David Yang <mmyangfl@gmail.com>
+To: netdev@vger.kernel.org
+Cc: David Yang <mmyangfl@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Ciprian Regus <ciprian.regus@analog.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Jian Shen <shenjian15@huawei.com>,
+	Jijie Shao <shaojijie@huawei.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Parthiban Veerasooran <parthiban.veerasooran@microchip.com>,
+	MD Danish Anwar <danishanwar@ti.com>,
+	Parvathi Pudi <parvathi@couthit.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Mohan Reddy Putluru <pmohan@couthit.com>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	Simon Horman <horms@kernel.org>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 00/10] net: Move setting of netops to fix crash
+Date: Thu,  8 Oct 2026 10:26:42 +0800
+Message-ID: <20261008022656.3592191-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] rtc: ftrtc010: fix integer overflow in time
- calculation
-To: Dan Carpenter <error27@gmail.com>,
- Hans Ulli Kroll <ulli.kroll@googlemail.com>,
- Linus Walleij <linusw@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Deng Yingchao <dengyingchao@kylinsec.com.cn>,
- Qin Yungao <qinyungao@kylinsec.com.cn>, Luo Qiu <luoqiu@kylinsec.com.cn>
-References: <42C8FBD59AA34EA9+20260827080320.3351155-4-liudalin@kylinsec.com.cn>
-From: Liu Dalin <liudalin@kylinsec.com.cn>
-In-Reply-To: <42C8FBD59AA34EA9+20260827080320.3351155-4-liudalin@kylinsec.com.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MbZKagI4fS0NwOlZH/Kf+TTIsXuXXPD0dwIhp3k3+S4iuQBAVONZeuut
-	o6+dBkC1BQeElBOxNyXyU5eLukJlky6e/8Ohmh+KknV/AK2GDc5+rDGQM4exWzZ55DVe3fj
-	YVTNSkzu3AemDHqBLohL0AO5A0gvNqBUN9PB1ixOwJ9otp6eiEa0U7lQQ98QFNWGUYkcEyU
-	PrZ3iwPCNDxVwY0rjTIDM9d7JGOyXnmCKlYFqs28mG0CL+cxjMNg3bqmKf/9vWRNvgRCAQh
-	zczFClBg6dE4UZKEY+me45OjqPXqj5f7pwaehA5u0HmcyyCitoLsVdfRbWBe9k3DTkZ6P5+
-	xhGFM5UlnL2htpwHQhJvzmyoofIf8/XjmBWy8bxU6fb64F6/Rrjbd/eUU45QJls0YjjSb+5
-	4BVnoKJ75DfHGsFsjzO3bWIneWIPdTFcXluaERVguaOoy5myCyVYKEeoZ6j9Gf/c3YBhj/C
-	6wkMrQXX14tySvDMch7qNRQydxVNAJfooQtEoYOV5HiNXQHPBVY2StlyhRiuFRfiYaVxTbl
-	YbFyb7ERlJSwOcWhXIrkF7p/qwRB3KAOfNUDswXs6csH/JBnrNuIrcPDFphUnT7dEApxvu6
-	jH9F4jvQk68C1GZShRCFljEAe40pT53E+CuNsyaBIgU1ak5YZdarnxSU3ETnvquet8jVfMm
-	1UibuDJmFDhRWrzN1PpdgHleBi7sYnDbdLcoHgOkSrMp7XXcLKSJ/nHR6in3cuumv6a0Ztk
-	YPo9uyByErc7FwNSfV+TAzQRdqxBo0UVp9xOt2sICWF/OrStWk2DlmSgoaxAeVJ2Q2VjRN2
-	0363sMsTNhh1mwXgFQy7XbFQUOUiDdyuHN+M1HFvTmdIIhUH8jChNqRDdNf9VbDh+77idVk
-	WlSrQPunBH6ZmJ22l0b5K2UXvElHs40Ar2M4fadTKtdCs05iU3uU4b5h74rM6hWE/OhtWHa
-	WUm987ltnZ7XsYthngjEUT8IwogJxH8AZeHHfCKL/dx5p0bxrmZD/drjE78ZGamVuhdOk8a
-	8lMsoVQKx2Ay/b2Ui35+Vetp4dUAMeuUo6EPUuRKnSuxIFHIAC3wo2yMknKrka0Ta2ghUaY
-	Oo5s5ACxFgLncpZsI4yXDhguSDrtTzNBA==
-X-QQ-XMRINFO: Nq+8W0+stu50EVyYsz6qPxhg8vxGPZA2FA==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_191510_637906_B96A9692 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20261007_192842_341624_B643F946 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +122,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit ded86da4bbb7 ("net: ethtool: relax ethnl_req_get_phydev()
+locking assertion") put a netdev_need_ops_lock() check on the
+phy_attach_direct() path, in phy_link_topo_add_phy(). With
+CONFIG_NET_SHAPER enabled netdev_need_ops_lock() reads
+dev->netdev_ops->net_shaper_ops, so any driver that connects a PHY
+before assigning ndev->netdev_ops now dies with a NULL pointer
+dereference at probe time. The breakage showed up in v7.3-rc1.
 
-在 2026/10/2 18:59, Dan Carpenter 写道:
-> Commit 8ef8e9839a23 ("rtc: ftrtc010: fix integer overflow in time
-> calculation") from Aug 27, 2026 (linux-next), leads to the following
-> Smatch static checker warning:
->
-> 	drivers/rtc/rtc-ftrtc010.c:75 ftrtc010_rtc_read_time()
-> 	warn: cast after binop
->
-> On Thu, 27 Aug 2026 16:03:20 +0800 Liu Dalin <liudalin@kylinsec.com.cn> wrote:
->> In ftrtc010_rtc_read_time() and ftrtc010_rtc_set_time(), all
->> variables (offset, days, hour, min, sec) are u32. The expression
->> "days * 86400 + hour * 3600 + min * 60 + sec" is evaluated in
->> 32-bit arithmetic, which silently wraps around for dates beyond
->> approximately year 2106 (U32_MAX / 86400 ≈ 49710 days).
->>
->> In ftrtc010_rtc_read_time(), perform the addition in 32-bit
->> arithmetic first to preserve two's complement wrapping for negative
->> offsets, then cast the result to timeu64_t. In
->> ftrtc010_rtc_set_time(), cast individual u32 operands to timeu64_t
->> before multiplication to prevent overflow in the right-hand side
->> of the offset calculation.
->>
->> Fixes: 1d61d2592c1f ("rtc: ftrtc010: Rename to Faraday FTRTC010")
->> Assisted-by: Sashiko AI [static analysis]
->> Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
->> ---
->>   drivers/rtc/rtc-ftrtc010.c | 5 +++--
->>   1 file changed, 3 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
->> index 19e6333bfbab..b29c96be40f4 100644
->> --- a/drivers/rtc/rtc-ftrtc010.c
->> +++ b/drivers/rtc/rtc-ftrtc010.c
->> @@ -72,7 +72,7 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
->>   	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
->>   	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
->>   
->> -	time = offset + days * 86400 + hour * 3600 + min * 60 + sec;
->> +	time = (timeu64_t)(offset + days * 86400 + hour * 3600 + min * 60 + sec);
-> There isn't any point in doing the cast outside the parentheses.  The
-> other chunk probably does it correctly.
->
-> regards,
-> dan carpenter
-Thanks Dan for review and catching this issue.
+ibm/emac was hit first and fixed by commit 7c9f391ec89c ("net: emac:
+move setting of netops to fix crash"). These ten patches apply the
+same one-line move to the remaining in-tree drivers whose probe path
+attaches a PHY before filling in netdev_ops:
 
-Commit 8ef8e9839a23 is now in Alexandre Belloni's rtc subsystem tree
-(https://git.kernel.org/abelloni/c/8ef8e9839a23), not yet in linux‑next 
-or mainline.
+  1. hisilicon/hisi_femac   (crash reproduced on hardware)
+  2. hisilicon/hip04
+  3. actions/owl-emac
+  4. adi/adin1140
+  5. marvell/mv643xx_eth
+  6. amd/au1000_eth
+  7. ethoc
+  8. aeroflex/greth
+  9. ti/icssm-prueth
+ 10. microchip/lan865x      (attach happens inside oa_tc6_init())
 
-You are right, the original commit 8ef8e9839a23 only tried to preserve u32
-wrap‑around for the RECORD offset but had two problems:
-1. It triggers smatch "cast after binop" warning.
-2. More importantly, casting the wrapped u32 value to timeu64_t does zero
-extension instead of sign extension, so negative offsets become large
-positive values and break time calculation.
+Only patch 1 was reproduced and verified on hardware; patches 2-10
+were found by source inspection and are neither build nor boot
+tested.
 
-I will send a separate fixup patch addressing both issues: cast raw RECORD
-u32 value to s32 for proper two's complement interpretation, then perform
-all calculations in timeu64_t to avoid 32‑bit overflow.
+Note that ti/netcp_ethss and cavium/thunder_bgx attach a PHY to
+netdevs that never get a netdev_ops at all (dummy netdevs), so they
+cannot be fixed by reordering and are not addressed here.
 
-Regards,
-Liu Dalin
->>   
->>   	rtc_time64_to_tm(time, tm);
->>   
->> @@ -92,7 +92,8 @@ static int ftrtc010_rtc_set_time(struct device *dev, struct rtc_time *tm)
->>   	hour = readl(rtc->rtc_base + FTRTC010_RTC_HOUR);
->>   	day = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
->>   
->> -	offset = time - (day * 86400 + hour * 3600 + min * 60 + sec);
->> +	offset = time - ((timeu64_t)day * 86400 + (timeu64_t)hour * 3600 +
->> +			 (timeu64_t)min * 60 + (timeu64_t)sec);
->>   
->>   	writel(offset, rtc->rtc_base + FTRTC010_RTC_RECORD);
->>   	writel(0x01, rtc->rtc_base + FTRTC010_RTC_CR);
->> -- 
->> 2.43.0
->>
->>
+David Yang (10):
+  net: hisilicon: hisi_femac: Move setting of netops to fix crash
+  net: hisilicon: hip04_eth: Move setting of netops to fix crash
+  net: ethernet: actions: Move setting of netops to fix crash
+  net: ethernet: adi: Move setting of netops to fix crash
+  net: mv643xx: move setting of netops to fix crash
+  net: au1000: move setting of netops to fix crash
+  net: ethoc: move setting of netops to fix crash
+  net: ethernet: aeroflex: move setting of netops to fix crash
+  net: ti: icssm-prueth: Move setting of netops to fix crash
+  microchip: lan865x: move setting of netops to fix crash
+
+ drivers/net/ethernet/actions/owl-emac.c          | 3 ++-
+ drivers/net/ethernet/adi/adin1140.c              | 3 ++-
+ drivers/net/ethernet/aeroflex/greth.c            | 3 ++-
+ drivers/net/ethernet/amd/au1000_eth.c            | 3 ++-
+ drivers/net/ethernet/ethoc.c                     | 3 ++-
+ drivers/net/ethernet/hisilicon/hip04_eth.c       | 3 ++-
+ drivers/net/ethernet/hisilicon/hisi_femac.c      | 3 ++-
+ drivers/net/ethernet/marvell/mv643xx_eth.c       | 4 ++--
+ drivers/net/ethernet/microchip/lan865x/lan865x.c | 3 ++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c     | 3 ++-
+ 10 files changed, 20 insertions(+), 11 deletions(-)
+
+-- 
+2.53.0
+
 
