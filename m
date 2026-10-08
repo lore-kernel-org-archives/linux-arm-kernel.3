@@ -4,85 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AC5CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293A2CA600D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PH2hucRXCaT23rZGCU5tNpw03+Q8jQ2iFx4qgOvu23A=; b=FmRkbcOPsUwEXXjZzfpUocQ2uF
-	Rb2hMDNXNsqDK98yc+hwxlbNTiXy+qJ0PNLSAucGHXFyjaNH/IJ5Q6+UwooyV8i/w7sC/dus+lyak
-	8ul2eWGtgjnu3+bOJ+JJSCQZQJcNfbfGPcVc5isIBGJ1saKsHpirXnsv0FwC72sa2+E/JDWf6MSte
-	0iChCYAWR+ECFbrQpAESGYGkB1DqM//ypu4Ow3w8NVvhNg/yJzRFm64Fr4i4dD9Tcpmp50oV+cmBa
-	QWUAZB/CajSTtPFHnb6vD8ndiuwVw/sKTmJQOHD6KNcGTtFltkTdn8kIVfN9cA9F3IvkqN1YHNwL3
-	s3UcOFtg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7yznlhzA/LCCyg8VcHmCAqbKM1iwate4R5ON9EtsImI=; b=t3UzqBtmRTwKR+H2lmDro/6l91
+	/ibAhSwxcSkayiBtkY4aWAJqgFFUt3mkmUCad6obLbveYSoSAS2nvGeTbSK6dXbuUiBqrKcrVlRU5
+	qRA/X8J8h94ycVEEJ7f1QHQUKTdd5rwSCqeScdJqAlN/6POk/ZbaggfacU+2KZVcNwi7m1MhQTEw7
+	qr7l+J25C+aLYmxz+J1LJRnTyIgQmZw4tBcCTBSQaDqA9OHcs5HvrNJLbDZDPt1mkzojvlMTolfCh
+	qcYtyfeIe9Q27gSwm93LhkU1Gf5bfbAq0RTH04WWch2I8TKljt37znY6TNrMc2/b4vCwReU5CiJPT
+	yjIoGDvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhDF-00000003bVk-39r9;
-	Thu, 08 Oct 2026 06:02:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEhH6-00000003byD-0ea3;
+	Thu, 08 Oct 2026 06:06:40 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhDE-00000003bVD-2Kf4
+	id 1xEhH3-00000003bxS-487L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:02:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04C9360A80;
-	Thu,  8 Oct 2026 06:02:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 594AF1F00893;
-	Thu,  8 Oct 2026 06:02:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791439359;
-	bh=PH2hucRXCaT23rZGCU5tNpw03+Q8jQ2iFx4qgOvu23A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HHiD2C3OAvKRh3kfhypdVp/Hmpje5WwTlaZeXzO2kFz7AheFFLwnxh+P797KsiWXD
-	 DJ12mWjsi3lVNLhe6HuwWbZUsS2Na/ICC6xurIhSKwbt2qZSnWBqdl6stAnHURLfjI
-	 7LrY4rBOlh4Uyyw2CVrX6NJNV5HAW6nBgEd4PAtzRIFMED7W3X8t1+vT3u/KR/5xs2
-	 Av41Y60Nc4qH1C2ecuSeXcx8Heu71xCPXradqxfhBZYvFH6hCHz4EC3Fp95glufOj0
-	 +N79s+fvnMcbbhyKUvnSOkwCjR4xpcqOLeVfNUGEq1DB4f/M3BRcFHU0a5tF6SDNQY
-	 c+qRuIFuR8mng==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Alex Williamson <alex@shazbot.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
+	Thu, 08 Oct 2026 06:06:39 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-cbedd5aece4so144142a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:06:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791439597; x=1792044397; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7yznlhzA/LCCyg8VcHmCAqbKM1iwate4R5ON9EtsImI=;
+        b=UfQHwrTTy0oetfi4E8FdC8rxuq8MIrn42dECOyKDkso3FsH2am2cqM/ztEoWiPbPYY
+         qzBJS8LkHRkUN427yn7kyR4VjUsl9inY6FiEVPQJGZI/xdUpmpVnYFz8nGRLwfC+MaCm
+         GR0vtpA/MP5kvJLksy1iplAZyIpHOffGTxfg8VcxqDerWPuUgktqO2NOFynQUghULGFs
+         r80YuSmeveYpF5F5NM6plis6/cTjPoPy97Ru2cg0WoiYp6yi2duMKj/dqpopOYiO/kIm
+         a+PSzZFVwgpk/LKaDTkre6GCt4ZQKENeLuxmOEAuWezH1h5T+XlLZAjloOu3/mbmKQMy
+         axgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791439597; x=1792044397;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7yznlhzA/LCCyg8VcHmCAqbKM1iwate4R5ON9EtsImI=;
+        b=HdFqs3RVa7TPwpvo1FL/wtUpLFtBF/u95fDfHSVM4CbPc1f4/kBsLC2gaZDjGfATXB
+         0+RqlcTM+pHc25BLG4al3qVz/A1HrA59m5FCHf4uJqwp/PrJeg9o9zlBhS84nuc33Z4r
+         d6vHiRc367U4pIzgmAo5qjVC41ivA8HIHPAJH1bB2DGFMJVnLOesbkbwFXL6aM94Td7F
+         eWrD1S/QAlIFvG8sdLlxYVb2T+9NqLb1v2S4czE9DC2Gjtngx5F9GEUDc5LINXsqoacj
+         tPFbho2aAEwGnpp2PCIjcZEgFB1d3fFN7ejXjB+jPCkOrFkzrPBF4itAEoslwK/taCc+
+         bPcw==
+X-Forwarded-Encrypted: i=1; AKwUvBxLUORzGU13d/+T69DZqfgxt5k6ONojov6vA40V5FibDJnsc9sgbOHJxN1HIpQVLxiVWXDS0tFLrZYFzfsl86G1@lists.infradead.org
+X-Gm-Message-State: AFq9FYIKuEGYhNyDe2cmw5E2GEEsDosvfnrsnoePjbi76U3ZINocBtBQ
+	hY4X/HzG5OLTGLvi3E3yDs0l/MxeIBpdKdtJ0rKzTXEdUuanctKtfuBr
+X-Gm-Gg: AYBFou1xUn1fRDpkhTv2KSnL0fa3I9VWXk3V7fAAH1E0TtiSC2qsZEKiM1w4FvQQ1s+
+	dicISzx4a+DLdz6fl3L5b2nYmmorCzYmraVP1ICvJNJXrzdUNwVXIksNxQrCrSXB3709qFzX6Mx
+	A4SeeHQVXTfaofklyWtEB8OtaAtlDjjQ88F6jR4O1zcccTAuS5Enc2wsYp4y/Ewc64h+mGldyiK
+	2WNtCHDuyAkboq91/w7AMQdzVu/VSeopoYy8UdTrMkd6uOR2h1ygZK1nJSkGLW+0aL1Z6wadj0s
+	mD8GAsYSF/BlvNhv2vPmQDQljf/sGXS7Lotu7UMXg4r02HTKc5fqpcrlqapEJ/DyRi0mrKrZJI4
+	VJ4iZcSHkG5B1IMMsceSGmYwCin5qg76U+KEvJkXhfNCHxi098zjYUTg/oWqdckRAQ3EwiQ+Jmj
+	FNE9atRnEHxjP/Zltwr2LGSJVDwDs+UnrddJJp5SPL9Z85IMLwXPVn584fdGWWMUntjKFFtivk9
+	WfulOTMBIC7p9RrAZTZWduaTyqDaQ83d5Nror8YOF/Z3TWA40RWog724sbVjSMV/m9AmEleCw==
+X-Received: by 2002:a17:90b:1347:b0:3a7:9ec3:ea0e with SMTP id 98e67ed59e1d1-3aaed7c10c2mr702874a91.22.1791439596767;
+        Wed, 07 Oct 2026 23:06:36 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3aa0cbccea3sm2632203a91.15.2026.10.07.23.06.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 23:06:36 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Steven Price <steven.price@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Vasant Hegde <vasant.hegde@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	kvm@vger.kernel.org,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Hui-Ping Chen <hpchen0nvt@gmail.com>,
+	Joey Lu <yclu4@nuvoton.com>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-coco@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v7 16/16] PCI/TSM: wait for vdevice contexts before removing a DSM
-Date: Thu,  8 Oct 2026 11:29:55 +0530
-Message-ID: <20261008055955.4014342-17-aneesh.kumar@kernel.org>
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v7 0/4] phy: nuvoton: extend MA35D1 USB2 PHY driver for dual-port OTG support
+Date: Thu,  8 Oct 2026 14:06:25 +0800
+Message-ID: <20261008060629.2736806-1-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
-References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_230638_024356_08F351BB 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,191 +110,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A PF0 DSM can be removed while a sibling function still has a vdevice.
-The context pins both the pci dev, but those references do not keep the
-PF0 DOE mailbox alive. Ignoring -EBUSY from link disconnect lets PCI
-continue to pci_doe_destroy(), leaving the vdevice with a stale mailbox
-pointer.
+The MA35D1 SoC has two USB PHY ports managed by a shared hardware block:
 
-This follows the VFIO PCI removal model: vfio_unregister_group_dev()
-prevents new userspace opens and waits for existing users to release the
-device before teardown proceeds. Likewise, DSM removal rejects new
-contexts and waits for existing vdevice contexts to drain before
-destroying the DOE mailbox.
+  - PHY0 (USB0): OTG port shared between the DWC2 gadget controller and
+    the EHCI0/OHCI0 host controllers.  A hardware mux automatically routes
+    USB0 signals to the correct controller based on the USB ID pin state.
 
-Mark the DSM as removing so no new contexts or subfunctions can attach.
-Wait for the last context to be released before disconnecting the link,
+  - PHY1 (USB1): dedicated host-only port for EHCI1/OHCI1.
 
-VFIO PCI also uses an eventfd to notify userspace that the device should
-be released. This patch does not add an equivalent notification for
-vdevice contexts; DSM removal waits for userspace to release them. Such
-a notification can be added later if required.
+This series extends the existing phy-ma35d1-usb2.c driver and its binding
+to cover both ports and add OTG role-switch support, while keeping full
+backward compatibility with existing device trees.
 
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Alexey Kardashevskiy <aik@amd.com>
-Cc: Xu Yilun <yilun.xu@linux.intel.com>
-Cc: Lukas Wunner <lukas@wunner.de>
-Cc: Samuel Ortiz <sameo@rivosinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Kevin Tian <kevin.tian@intel.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- drivers/pci/tsm.c       | 63 +++++++++++++++++++++++++++++++++++++++--
- include/linux/pci-tsm.h |  5 ++++
- 2 files changed, 65 insertions(+), 3 deletions(-)
+Changes since v6:
 
-diff --git a/drivers/pci/tsm.c b/drivers/pci/tsm.c
-index c8603867e09d..8aa74ba31932 100644
---- a/drivers/pci/tsm.c
-+++ b/drivers/pci/tsm.c
-@@ -10,10 +10,13 @@
- 
- #include <linux/bitfield.h>
- #include <linux/iommufd.h>
-+#include <linux/jiffies.h>
- #include <linux/module.h>
- #include <linux/pci.h>
- #include <linux/pci-doe.h>
- #include <linux/pci-tsm.h>
-+#include <linux/pid.h>
-+#include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/sysfs.h>
- #include <linux/tsm.h>
-@@ -354,6 +357,12 @@ struct pci_tsm_context *pci_tsm_context_get(struct pci_dev *pdev,
- 		return ERR_PTR(-ENOMEM);
- 
- 	guard(mutex)(&pf0->lock);
-+	if (pf0->removing) {
-+		kfree(context);
-+		return ERR_PTR(-ENODEV);
-+	}
-+	if (!pf0->context_users)
-+		reinit_completion(&pf0->contexts_drained);
- 	pf0->context_users++;
- 	context->pf0 = pf0;
- 	context->pdev = pci_dev_get(pdev);
-@@ -368,8 +377,11 @@ void pci_tsm_context_put(struct pci_tsm_context *context)
- 
- 	down_read(&pci_tsm_rwsem);
- 	mutex_lock(&pf0->lock);
--	if (!WARN_ON(!pf0->context_users))
--		pf0->context_users--;
-+	if (WARN_ON(!pf0->context_users))
-+		goto out_unlock;
-+	if (!--pf0->context_users)
-+		complete_all(&pf0->contexts_drained);
-+out_unlock:
- 	mutex_unlock(&pf0->lock);
- 	up_read(&pci_tsm_rwsem);
- 
-@@ -452,6 +464,9 @@ static ssize_t disconnect_store(struct device *dev,
- 	tsm_dev = pdev->tsm->tsm_dev;
- 	if (!sysfs_streq(buf, dev_name(&tsm_dev->dev)))
- 		return -EINVAL;
-+	if (is_link_tsm(tsm_dev) && is_pci_tsm_pf0(pdev) &&
-+	    to_pci_tsm_pf0(pdev->tsm)->removing)
-+		return -ENODEV;
- 
- 	rc = pci_tsm_disconnect(pdev);
- 	if (rc)
-@@ -663,6 +678,9 @@ int pci_tsm_pf0_constructor(struct pci_dev *pdev, struct pci_tsm_pf0 *tsm,
- 			    struct tsm_dev *tsm_dev)
- {
- 	mutex_init(&tsm->lock);
-+	init_completion(&tsm->contexts_drained);
-+	tsm->context_users = 0;
-+	tsm->removing = false;
- 	tsm->doe_mb = pci_find_doe_mailbox(pdev, PCI_VENDOR_ID_PCI_SIG,
- 					   PCI_DOE_FEATURE_CMA);
- 	if (!tsm->doe_mb) {
-@@ -751,8 +769,44 @@ static void __pci_tsm_destroy(struct pci_dev *pdev, struct tsm_dev *tsm_dev)
- 
- void pci_tsm_destroy(struct pci_dev *pdev)
- {
--	guard(rwsem_write)(&pci_tsm_rwsem);
-+	struct pci_tsm_pf0 *pf0 = NULL;
-+	struct completion *drained;
-+	bool interrupted = false;
-+	long rc;
-+
-+	down_write(&pci_tsm_rwsem);
-+	if (pdev->tsm && is_link_tsm(pdev->tsm->tsm_dev) &&
-+	    is_pci_tsm_pf0(pdev)) {
-+		pf0 = to_pci_tsm_pf0(pdev->tsm);
-+		drained = &pf0->contexts_drained;
-+		mutex_lock(&pf0->lock);
-+		pf0->removing = true;
-+		mutex_unlock(&pf0->lock);
-+
-+		/* An unused DSM may never have completed contexts_drained. */
-+		rc = pf0->context_users ?
-+			try_wait_for_completion(drained) : 1;
-+		/* Context release needs the read side of pci_tsm_rwsem. */
-+		up_write(&pci_tsm_rwsem);
-+		while (rc <= 0) {
-+			if (interrupted) {
-+				rc = wait_for_completion_timeout(drained, HZ * 10);
-+			} else {
-+				rc = wait_for_completion_interruptible_timeout(drained,
-+									       HZ * 10);
-+				if (rc < 0) {
-+					interrupted = true;
-+					pci_warn(pdev, "Task \"%s\" (%d) blocked until vdevices are released\n",
-+						 current->comm, task_pid_nr(current));
-+				}
-+			}
-+			if (!rc)
-+				pci_warn(pdev, "TSM connection is in use, waiting for vdevices\n");
-+		}
-+		down_write(&pci_tsm_rwsem);
-+	}
- 	__pci_tsm_destroy(pdev, NULL);
-+	up_write(&pci_tsm_rwsem);
- }
- 
- void pci_tsm_init(struct pci_dev *pdev)
-@@ -779,6 +833,9 @@ void pci_tsm_init(struct pci_dev *pdev)
- 		 */
- 		if (!dsm->tsm)
- 			return;
-+		if (is_link_tsm(dsm->tsm->tsm_dev) &&
-+		    to_pci_tsm_pf0(dsm->tsm)->removing)
-+			return;
- 
- 		probe_fn(pdev, dsm);
- 	}
-diff --git a/include/linux/pci-tsm.h b/include/linux/pci-tsm.h
-index b27f7cf99f22..3adc317d0f9b 100644
---- a/include/linux/pci-tsm.h
-+++ b/include/linux/pci-tsm.h
-@@ -1,6 +1,7 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef __PCI_TSM_H
- #define __PCI_TSM_H
-+#include <linux/completion.h>
- #include <linux/mutex.h>
- #include <linux/pci.h>
- 
-@@ -107,12 +108,16 @@ struct pci_tsm {
-  * @lock: mutual exclustion for pci_tsm_ops invocation
-  * @context_users: live per-function contexts on this PF0; a nonzero count
-  *	blocks link disconnect
-+ * @contexts_drained: completed when the last context is released
-+ * @removing: reject new contexts while the DSM is being removed
-  * @doe_mb: PCIe Data Object Exchange mailbox
-  */
- struct pci_tsm_pf0 {
- 	struct pci_tsm base_tsm;
- 	struct mutex lock;
- 	unsigned int context_users;
-+	struct completion contexts_drained;
-+	bool removing;
- 	struct pci_doe_mb *doe_mb;
- };
- 
+  - phy: update the copyright notice in the rewritten driver header to
+    "2024-2026" instead of "2026", preserving the original 2024 date
+    rather than dropping it.
+
+  - phy: split the unused linux/io.h removal out of patch 4 into its
+    own patch (3/4), since it's unrelated cleanup that predates this
+    series (the driver has never done direct MMIO access; all register
+    access goes through regmap via syscon_regmap_lookup_by_phandle()).
+    Placed immediately before patch 4 since that is the first patch in
+    the series to touch this file.
+
+Joey Lu (4):
+  dt-bindings: phy: nuvoton,ma35d1-usb2-phy: extend for dual-port and
+    OTG
+  arm64: dts: nuvoton: ma35d1: add USB controllers and dual-port PHY
+    node
+  phy: nuvoton: phy-ma35d1-usb2: remove unused linux/io.h include
+  phy: nuvoton: phy-ma35d1-usb2: extend to dual-port with OTG support
+
+ .../bindings/phy/nuvoton,ma35d1-usb2-phy.yaml |  44 ++-
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  36 +++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  36 +++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  65 ++++
+ drivers/phy/nuvoton/phy-ma35d1-usb2.c         | 286 +++++++++++++-----
+ 5 files changed, 390 insertions(+), 77 deletions(-)
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
 -- 
 2.43.0
 
