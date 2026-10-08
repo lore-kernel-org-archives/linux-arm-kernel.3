@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E016CA6016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 21:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0B4CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 22:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gwI1dcyam2yk5wsB6eHTvF/ZEiZ3eztVF1fLP049Xs=; b=SpIyyoyllmJYjggnQO901M3FEy
-	uTsstG4eJXwjOQGt/F7w0YMvFjFKdGluZt6ZA9dNNvEvCEidxbKK7FL5dkLr8GEMYVqVusl90eWUU
-	+8y5fPWC9xTICDzORtYc4iG4Vgv1FLN4DqmF7rZ2keh2clU35khuaB793XyyyT0Lm2KzRTo0r58G9
-	LvQzE/1Lmw8lkInfLknXr29Lf247QtU9ps2d49TwxoTxkerGm0ku50uaYLFctRfC935dBAIeXdEA1
-	tZgOC8TaSvTG3VGKDmCMAJwBdIqr2AmvQOQlroWDlWw5FfbdJbW4a8NSg6c77WNNIbobTG633fT/4
-	Wej+do4w==;
+	bh=M9TqBZxaUzksUyOlcNYVIPYjBwH9t5EqBxtLbuk/h/s=; b=iQ8eqpk3jAHiOFs2cpOiWSK/S9
+	jS1Y0kymG2PEAGSGerIpE+RTxFj6WNCrH3REqnIyj0CCb9gpYypWLhN7SGkm0qZG/Io/LlbQsz/8A
+	8P3O0/4VL4ys4bBzsiBb81YNR/iJA1+7bH/F8Ht5xLV+jzdgm1sBe+kYywuD4FvHuBIZJS2Yi8Pz/
+	JHOFrbbzuasWXEpqb/yD7OLL2Ov7Gsjy6HA7z2xUAoTu9rvlqazaHVYk7fmpj8FYczT4x8f9OpLQZ
+	SzBdhvK8qTzsEyDYSNNF6qySTnPlCBDIKVG+H9PbAQh8wC1e095gA19RH4IuG+BuroDRfOpvT6J9Y
+	Rk4S9+0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvr1-000000055s9-1FtS;
-	Thu, 08 Oct 2026 21:40:43 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1xEwDQ-000000056uf-42ed;
+	Thu, 08 Oct 2026 22:03:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEvqw-000000055rK-1CUa;
-	Thu, 08 Oct 2026 21:40:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791495638; x=1823031638;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FonD0lPwatSwc9CLF+o0pnMjNadWk+XyTpxVZVqKIGE=;
-  b=R1Pl+eUdAAsiLmhkT4CcHlyJcBtoFOhpnFb1AR2qVweEcRMf839wEujN
-   vg3v3AbjUa0mKrUFfSpeHnojB8NY1fZzzHvT8xth8zn5jDHdPKRSg7jLJ
-   dI22AEx/pC9RI0Z6brXn6NyksTze1PzJrkKg8wNgYeLCPpXBz/XuGYWJd
-   BcP39bRmcyoAfNasTfaJaXFcpNkcbnlQnbkU4Km3XOqCtjSxabZEQbrsm
-   ibiV/qAabZz7K/bPxwf+hPO2Bj/JBzK2s6JQMDvsktyjTzkPqbXSAQUsD
-   P6AClyglC9nQyUHB7ho0k+UHOk/Z6eXuE89QlK5KoYiRe7aY4NZzCRSg6
-   A==;
-X-CSE-ConnectionGUID: s8ZrwzEySf6ShAs0UecnZQ==
-X-CSE-MsgGUID: 1o7rcKVORYuesR6dbqlspg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11929"; a="194299"
-X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
-   d="scan'208";a="194299"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Oct 2026 14:40:35 -0700
-X-CSE-ConnectionGUID: xGEQVSFmQsOKbtW/QJ+sDQ==
-X-CSE-MsgGUID: ozfbqNP5R/C4UprFnJ9UQA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
-   d="scan'208";a="1959551"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa012.fm.intel.com with ESMTP; 08 Oct 2026 14:40:32 -0700
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xEvqm-000000004vU-2wDG;
-	Thu, 08 Oct 2026 21:40:28 +0000
-Date: Fri, 9 Oct 2026 05:40:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jacky Chou <jacky_chou@aspeedtech.com>
-Subject: Re: [PATCH 2/3] phy: aspeed: Add ASPEED PCIe PHY driver
-Message-ID: <202610090555.gWYlVYEL-lkp@intel.com>
-References: <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
+	id 1xEwDO-000000056uT-3mMI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Oct 2026 22:03:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DB5660D9A;
+	Thu,  8 Oct 2026 22:03:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C19631F000FF;
+	Thu,  8 Oct 2026 22:03:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791497029;
+	bh=M9TqBZxaUzksUyOlcNYVIPYjBwH9t5EqBxtLbuk/h/s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=kJShRurTZI0qoySyHOdc5/xqt7gNcTAUv+p67pWEltQh1qgfwx2glUECgE8rYDvbH
+	 i5Fu4DRx4MoXpvEANrncPzPsRn6SZBzDqjnSalIOyUad9FWuazlWAvaH7yd1uk5F9y
+	 VOxR+bXfCInDdgiJDMwiYANHBrcs60yV6eWbg1oZsc+S64QONqnWQ/YTeLUU7qIuN0
+	 JlwPGGAiqEjoQCop0d/ec5x1GVKtXAXi/Y8KUSxijPWMKMBjy6ihvjS0jxbF+OE7c7
+	 t0sDjoPl829SrM87I+2f4MVFxXBYCRz8pGBEvSsH+K3LIzW5nOil6ZA6wScYiipdAo
+	 kF2dbtEnkXEAw==
+Subject: Re: [PATCH net-next v4 1/2] net: stmmac: take ownership of saved RX
+ state at poll entry
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Thu, 08 Oct 2026 22:03:48 +0000
+Message-ID: <179149702833.434549.9158656960490952093@kernel.org>
+In-Reply-To: <20261006-stmmac-rx-mb-v4-1-efa4ca974e3d@oss.qualcomm.com>
+References: <20261006-stmmac-rx-mb-v4-1-efa4ca974e3d@oss.qualcomm.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_144039_946999_6CB13B20 
-X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,207 +75,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-kernel test robot noticed the following build errors:
+Critical: 0 · High: 1 · Medium: 0 (2) · Low: 1
 
-[auto build test ERROR on ea01f446f0682a5e7bd7a275889a890b7e0c6e02]
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-phy-aspeed-Add-ASPEED-PCIe-PHY/20261008-192819
-base:   ea01f446f0682a5e7bd7a275889a890b7e0c6e02
-patch link:    https://lore.kernel.org/r/20261008-aspeed_pcie_phy-v1-2-96764937aef0%40aspeedtech.com
-patch subject: [PATCH 2/3] phy: aspeed: Add ASPEED PCIe PHY driver
-config: csky-randconfig-1000-20261009 (https://download.01.org/0day-ci/archive/20261009/202610090555.gWYlVYEL-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261009/202610090555.gWYlVYEL-lkp@intel.com/reproduce)
+- [High] At this commit, stmmac_rx() handles an XDP non-PASS verdict
+  (STMMAC_XDP_CONSUMED, plus TX/REDIRECT) with `goto next` even when the…
+- [Low] The commit message suggests that releasing the saved partial skb
+  at teardown already existed.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202610090555.gWYlVYEL-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/io.h:12,
-                    from include/linux/irq.h:20,
-                    from include/asm-generic/hardirq.h:17,
-                    from ./arch/csky/include/generated/asm/hardirq.h:1,
-                    from include/linux/hardirq.h:11,
-                    from include/linux/interrupt.h:11,
-                    from include/linux/kernel_stat.h:8,
-                    from include/linux/cgroup.h:27,
-                    from include/linux/memcontrol.h:13,
-                    from include/linux/swap.h:9,
-                    from include/linux/suspend.h:5,
-                    from include/linux/regulator/consumer.h:35,
-                    from include/linux/phy/phy.h:17,
-                    from drivers/phy/aspeed/phy-aspeed-pcie.c:11:
-   drivers/phy/aspeed/phy-aspeed-pcie.c: In function 'ast2600_phy_set_mode':
->> drivers/phy/aspeed/phy-aspeed-pcie.c:16:41: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      16 | #define  AST2600_PORT_TYPE(x)           FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
-         |                                         ^~~~~~~~~~
-   arch/csky/include/asm/io.h:31:59: note: in definition of macro 'writel'
-      31 | #define writel(v,c)             ({ wmb(); writel_relaxed((v),(c)); mb(); })
-         |                                                           ^
-   drivers/phy/aspeed/phy-aspeed-pcie.c:94:24: note: in expansion of macro 'AST2600_PORT_TYPE'
-      94 |                 writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
-         |                        ^~~~~~~~~~~~~~~~~
-   drivers/phy/aspeed/phy-aspeed-pcie.c: In function 'ast2700_phy_set_mode':
->> drivers/phy/aspeed/phy-aspeed-pcie.c:144:17: error: implicit declaration of function 'FIELD_MODIFY' [-Wimplicit-function-declaration]
-     144 |                 FIELD_MODIFY(AST2700_PORT_TYPE_MASK, &cfg_val,
-         |                 ^~~~~~~~~~~~
-
-
-vim +/FIELD_PREP +16 drivers/phy/aspeed/phy-aspeed-pcie.c
-
-    12	
-    13	/* AST2600 PCIe Host Controller Registers */
-    14	#define PEHR_GLOBAL		0x30
-    15	#define  AST2600_PORT_TYPE_MASK		GENMASK(5, 4)
-  > 16	#define  AST2600_PORT_TYPE(x)		FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
-    17	#define PEHR_LOCK		0x7c
-    18	#define  PCIE_UNLOCK			0xa8
-    19	
-    20	/* AST2700 PEHR */
-    21	#define PEHR_MISC_58		0x58
-    22	#define  LOCAL_SCALE_SUP		BIT(0)
-    23	#define PEHR_MISC_5C		0x5c
-    24	#define  CONFIG_RC_DEVICE		BIT(30)
-    25	#define PEHR_MISC_60		0x60
-    26	#define  AST2700_PORT_TYPE_MASK		GENMASK(7, 4)
-    27	#define  PORT_TYPE_ROOT			0x4
-    28	#define PEHR_MISC_70		0x70
-    29	#define  POSTED_DATA_CREDITS(x)		FIELD_PREP(GENMASK(15, 0), x)
-    30	#define  POSTED_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
-    31	#define PEHR_MISC_78		0x78
-    32	#define  COMPLETION_DATA_CREDITS(x)	FIELD_PREP(GENMASK(15, 0), x)
-    33	#define  COMPLETION_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
-    34	#define PEHR_MISC_278		0x278
-    35	#define  SET_TO_DOWNSTREAM		BIT(22)
-    36	#define  ASSERT_INTERNAL_RESET		BIT(31)
-    37	#define PEHR_MISC_280		0x280
-    38	#define  SEL_INTERNAL_RESET		BIT(0)
-    39	
-    40	/**
-    41	 * struct aspeed_pcie_phy - PCIe PHY information
-    42	 * @dev: pointer to device structure
-    43	 * @reg: PCIe host register base address
-    44	 * @clk: PCIe reference clock
-    45	 * @phy: pointer to PHY structure
-    46	 * @platform: platform specific information
-    47	 */
-    48	struct aspeed_pcie_phy {
-    49		struct device *dev;
-    50		void __iomem *reg;
-    51		struct clk *clk;
-    52		struct phy *phy;
-    53		const struct aspeed_pcie_phy_platform *platform;
-    54	};
-    55	
-    56	/**
-    57	 * struct aspeed_pcie_phy_platform - Platform information
-    58	 * @phy_ops: phy operations
-    59	 */
-    60	struct aspeed_pcie_phy_platform {
-    61		const struct phy_ops *phy_ops;
-    62	};
-    63	
-    64	static int ast2600_phy_init(struct phy *phy)
-    65	{
-    66		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-    67		int ret;
-    68	
-    69		ret = clk_prepare_enable(pcie_phy->clk);
-    70		if (ret)
-    71			return ret;
-    72	
-    73		writel(PCIE_UNLOCK, pcie_phy->reg + PEHR_LOCK);
-    74	
-    75		return 0;
-    76	}
-    77	
-    78	static int ast2600_phy_exit(struct phy *phy)
-    79	{
-    80		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-    81	
-    82		clk_disable_unprepare(pcie_phy->clk);
-    83	
-    84		return 0;
-    85	}
-    86	
-    87	static int ast2600_phy_set_mode(struct phy *phy, enum phy_mode mode,
-    88					int submode)
-    89	{
-    90		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-    91	
-    92		switch (submode) {
-    93		case PHY_MODE_PCIE_RC:
-    94			writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
-    95			break;
-    96		default:
-    97			dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-    98			return -EINVAL;
-    99		}
-   100	
-   101		return 0;
-   102	}
-   103	
-   104	static const struct phy_ops ast2600_phy_ops = {
-   105		.init		= ast2600_phy_init,
-   106		.exit		= ast2600_phy_exit,
-   107		.set_mode	= ast2600_phy_set_mode,
-   108		.owner		= THIS_MODULE,
-   109	};
-   110	
-   111	static int ast2700_phy_init(struct phy *phy)
-   112	{
-   113		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-   114	
-   115		return clk_prepare_enable(pcie_phy->clk);
-   116	}
-   117	
-   118	static int ast2700_phy_exit(struct phy *phy)
-   119	{
-   120		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-   121	
-   122		clk_disable_unprepare(pcie_phy->clk);
-   123	
-   124		return 0;
-   125	}
-   126	
-   127	static int ast2700_phy_set_mode(struct phy *phy, enum phy_mode mode,
-   128					int submode)
-   129	{
-   130		struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-   131		u32 cfg_val;
-   132	
-   133		switch (submode) {
-   134		case PHY_MODE_PCIE_RC:
-   135			writel(0, pcie_phy->reg + PEHR_MISC_278);
-   136			writel(SEL_INTERNAL_RESET, pcie_phy->reg + PEHR_MISC_280);
-   137			writel(POSTED_DATA_CREDITS(0xc0) | POSTED_HEADER_CREDITS(0xa),
-   138			       pcie_phy->reg + PEHR_MISC_70);
-   139			writel(COMPLETION_DATA_CREDITS(0x30) | COMPLETION_HEADER_CREDITS(0x8),
-   140			       pcie_phy->reg + PEHR_MISC_78);
-   141			writel(LOCAL_SCALE_SUP, pcie_phy->reg + PEHR_MISC_58);
-   142			writel(CONFIG_RC_DEVICE, pcie_phy->reg + PEHR_MISC_5C);
-   143			cfg_val = readl(pcie_phy->reg + PEHR_MISC_60);
- > 144			FIELD_MODIFY(AST2700_PORT_TYPE_MASK, &cfg_val,
-   145				     PORT_TYPE_ROOT);
-   146			writel(cfg_val, pcie_phy->reg + PEHR_MISC_60);
-   147			writel(ASSERT_INTERNAL_RESET | SET_TO_DOWNSTREAM,
-   148			       pcie_phy->reg + PEHR_MISC_278);
-   149			break;
-   150		default:
-   151			dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-   152			return -EINVAL;
-   153		}
-   154	
-   155		return 0;
-   156	}
-   157	
+Pre-existing issues:
+- [Medium] In stmmac_rx_zc(), the 'XSK pool expects RX frame 1:1 mapped
+  to XSK buffer' branch handles a non-last descriptor (rx_not_ls) by…
+- [Medium] In stmmac_rx() at this commit, if napi_build_skb() fails on a
+  first descriptor that has rx_not_ls set, the code recycles the page,…
 
 --
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+net: stmmac: take ownership of saved RX state at poll entry
+
+This patch changes stmmac_rx() and stmmac_rx_zc() so that each poll takes
+the saved partial-frame state at entry and clears it right away. The state
+is saved again only if the frame is still incomplete. The saved skb is also
+freed, and state_saved cleared, in stmmac_reset_rx_queue() and
+__free_dma_rx_desc_resources().
+
+> The saved state is also dropped when the queue parameters are reset, not
+> only when the ring is destroyed: stmmac_reset_rx_queue() is reached from
+> __stmmac_open(), stmmac_xdp_open(), stmmac_resume() and
+> stmmac_enable_rx_queue(). Otherwise a partial frame saved before suspend
+> (or before a queue is disabled and re-enabled) survives while cur_rx and
+> dirty_rx are re-armed, and the first poll resumes that stale skb with
+> descriptors from the freshly initialized ring. Teardown still releases it
+> in __free_dma_rx_desc_resources().
+
+[Severity: Low]
+Is the last sentence accurate? Before this patch,
+__free_dma_rx_desc_resources() did not free rx_q->state.skb or clear
+rx_q->state_saved. Nothing outside stmmac_rx() referenced state.skb.
+
+The first hunk of this patch is what adds the teardown release:
+
++	dev_kfree_skb_any(rx_q->state.skb);
++	rx_q->state.skb = NULL;
++	rx_q->state_saved = false;
+
+That hunk seems to fix a separate problem. A partial skb leaked on close or
+MTU change. A stale state_saved/state.skb also survived
+stmmac_disable_rx_queue() and stmmac_enable_rx_queue() after the page_pool
+had been destroyed.
+
+Could the commit message describe this as part of the fix, rather than as
+existing behaviour?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 0cfd14d240022..28e9f8438f93f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -5665,6 +5672,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  
+>  		if (unlikely(error && (status & rx_not_ls)))
+>  			goto read_again;
+> +
+>  		if (unlikely(error)) {
+>  			count++;
+>  			continue;
+
+[Severity: Medium]
+This is a pre-existing issue, not one introduced by this patch. It is in
+the continuation handling this patch reworks. Just below, a non-last
+descriptor is handled like this:
+
+		/* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+		if (likely(status & rx_not_ls)) {
+			xsk_buff_free(buf->xdp);
+			buf->xdp = NULL;
+			dirty++;
+			count++;
+			goto read_again;
+		}
+
+This branch sets neither error nor len. Won't the last descriptor of the
+frame then pass both error checks with len still 0?
+
+In that case, stmmac_rx_buf1_len(priv, p, status, 0) returns
+min(dma_buf_sz, plen). For a multi-descriptor frame that is dma_buf_sz.
+The tail is then run through XDP and delivered as a complete frame,
+either by XDP_PASS through stmmac_dispatch_skb_zc() or by redirect to the
+XSK. That frame starts in the middle of the real frame and is padded with
+stale UMEM bytes.
+
+The same thing happens across polls. The save at the end of stmmac_rx_zc()
+records state.error = 0 and state.len = 0 for this continuation.
+
+Should the rest of this frame be marked for discard here?
+
+[ ... ]
+
+> @@ -5909,24 +5922,12 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  							   sync_len, true);
+>  					buf->page = NULL;
+>  					rx_dropped++;
+> -
+> -					/* Clear skb as it was set as
+> -					 * status by XDP program.
+> -					 */
+> -					skb = NULL;
+> -
+> -					if (unlikely((status & rx_not_ls)))
+> -						goto read_again;
+> -
+> -					count++;
+> -					continue;
+> +					goto next;
+
+[Severity: High]
+Before this change, an STMMAC_XDP_CONSUMED verdict on a descriptor with
+rx_not_ls set went back to read_again and kept the running len. Now it
+jumps to next:, which does this:
+
+next:
+		in_progress = false;
+		skb = NULL;
+		count++;
+
+The top of the loop then resets the length:
+
+		if (!in_progress) {
+			skb = NULL;
+			error = 0;
+			len = 0;
+		}
+
+Doesn't this make the remaining descriptors of the same hardware frame get
+parsed as a new frame? The STMMAC_XDP_TX/STMMAC_XDP_REDIRECT branch below
+also reaches next: in the same state.
+
+Here is an example on a core with buf2 (dwmac4/xgmac, dma_buf_sz = 1536,
+order-0 sec_page). Jumbo frames are accepted there because GMAC_CORE_INIT
+includes GMAC_CONFIG_JE. Take a 9000 byte frame whose first descriptor is
+dropped by XDP:
+
+  - The second descriptor is treated as a frame start, which leaves len at
+    3072.
+  - On the last descriptor, stmmac_rx_buf1_len() returns 1536.
+  - stmmac_rx_buf2_len() then returns 9000 - 4608 = 4392 from this line:
+
+	return plen > len ? plen - len : 0;
+
+Would skb_add_rx_frag() on buf->sec_page with 4392 bytes then cover more
+than the 4096 byte page? Only 1320 of those bytes are valid, so stale
+page_pool data would reach the stack.
+
+Mid-frame data would also go to XDP and to the stack as a separate frame.
+
+The follow-up commit "net: stmmac: rework stmmac_rx to support XDP rx
+multi-buff" seems to address this, since it runs XDP only after the last
+descriptor. This patch has Fixes: tags and could be backported on its own.
+Could the rx_not_ls continuation for the STMMAC_XDP_CONSUMED case be kept
+in this patch?
+
+[ ... ]
+
+> @@ -5983,10 +5984,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  		/* Remove FCS if needed */
+>  		if (!fcs_stripped && pskb_trim(skb, len)) {
+>  			dev_kfree_skb_any(skb);
+> -			skb = NULL;
+>  			rx_dropped++;
+> -			count++;
+> -			continue;
+> +			goto next;
+>  		}
+>  
+>  		stmmac_get_rx_hwtstamp(priv, p, np, skb);
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but there is a related frame
+boundary problem earlier in stmmac_rx(). Suppose napi_build_skb() fails on
+the first descriptor of a frame that has rx_not_ls set:
+
+			skb = napi_build_skb(page_address(buf->page),
+					     rx_q->napi_skb_frag_size);
+			if (!skb) {
+				page_pool_recycle_direct(rx_q->page_pool,
+							 buf->page);
+				buf->page = NULL;
+				rx_dropped++;
+				count++;
+				goto drain_data;
+			}
+	...
+drain_data:
+		if (likely(status & rx_not_ls))
+			goto read_again;
+
+When the code goes back to read_again, error is still 0 and skb is NULL.
+Won't the next descriptor of the same frame take the !skb path again? That
+would run XDP on mid-frame data and build a new skb from the remaining
+fragments.
+
+If that second allocation succeeds, a truncated frame is delivered. The
+pskb_trim(skb, len) check above doesn't catch it, because pskb_trim()
+returns 0 when len is larger than skb->len:
+
+	return (len < skb->len) ? __pskb_trim(skb, len) : 0;
+
+The follow-up commit "net: stmmac: rework stmmac_rx to support XDP rx
+multi-buff" removes this path. It calls stmmac_build_skb() only after the
+last descriptor and sends failures to error_free_frag.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261006-stmmac-rx-mb-v4-0-efa4ca974e3d%40oss.qualcomm.com
 
