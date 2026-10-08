@@ -4,138 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DBDCA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F676CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bFSrGAHxfe12cuM22n1Yde2HLJkpV8N+byWV3Faj3c=; b=cyqSPRzE/WCXvhRZuFazcTtFC8
-	pt+QCVL6J/xgoX6kkUVio3HfrwyWDyyEN0qija9eGrEZuIUK+5MLbaUGqbwN7JfrTo4xY1+mDpJsp
-	wFsgfB84k+HsMrXXGVY33y9/j9UFpqBJb11DN9fAJzFq8bro6gMkHLBGNIGg7IJjwrnhhNNSt/mRR
-	7i5DowOMG0PkrWBhPIv7yYFlKP+K60eIb0Hu1MJBUdet9ccgvUq+yjYbCwxbo+5mtB1qi4tlIN/9f
-	8pr5eXZ/tAFZPBGIoKLIiFJUTMl9B+7VFZG9IGkcYYCkC/z281u8w+j+MEWuA6y60IF7qPIMYIupr
-	1qpIGIlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9d541h5737fwBpxmGYiks5qiHlWs4YESOcZTZcNWERw=; b=eZdPkC8g3NSy2B
+	3ETjem5DUGHKyge2tnoj6wMtEBCk1d4fGMzI6xLHZNQ7zsW4w1bA9okVu8DFiiLNCaoilfCtDm677
+	xksC1PPZXM3eG1KvsN3oE3tMd+EWm4SSMsKvyHuLptCy3EAsQAEl+A8nGjDv7utz6UFGzJ6rvP2Jk
+	LiATitb5+xTXb5rn67LvMLapyp1bK8vvIQ0cNky9XPoLTeft0ATT0pTc+KpA+B7fycZVIXBWCTi4X
+	PcFICktoTDGpVBVv5t8dvfFkJ2woo2oWk2KdHp2J3oJ1XIjEhoEJb+Mw55m/mYgwsK9SJ4hNaH19c
+	mjB/nvVgqKdT5VOUo+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEo1a-00000004RM4-2wJF;
-	Thu, 08 Oct 2026 13:19:06 +0000
-Received: from mail-northeuropeazon11012014.outbound.protection.outlook.com ([52.101.66.14] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xEo1y-00000004RSg-3Rm0;
+	Thu, 08 Oct 2026 13:19:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEo1Y-00000004RLI-2OJg
+	id 1xEo1u-00000004RQt-0hZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 13:19:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iM0est+LNwdGJ3HvaGw3A1BTOlbONmuUgu1xHuhafK5Y2fy37w40YBs76JHkBpp42BWwS8iwMO7+eIKW7vhDQwxKMwnv3HyMoPHkgQeVimvN4kgAgyt5NIbirCOeuDVshh6JxUFL4GE8EJSMiVHzkTmk7pQRPb04s3j/sw6f4rrzo7Yv2eMOGwzGEayppFkzT66cK7X1y2/qDF947S44E1rM6dQ4Sp8blSEM3kG14QjhWMVO4mfZPPB7rqOAIVKqhZ61NKjPryL82BF1Ky0RUpFa4leS01yq7dg3Fr5l9x/+5aih8GmX3WmGcofD4Z/b8DI+9jVKQrWpl/gU1y3UqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/bFSrGAHxfe12cuM22n1Yde2HLJkpV8N+byWV3Faj3c=;
- b=HAWBAvYnd2NFedp3P0n8cnWmXF7UZf/ZfTagAgTCmU8KQ/IDSNmMFNEJc3K4Ux/5yiOM9qEsUacWTZIgywgobEVk+OuVCiYEBU7BtQubFFdWepQUTYwIjYfhEy+xkngH6d4Vf0orrISj0ZtYqi3Yd3bBjh9iJt7q9c+TcVovtxq9qNDC07ms46h0TqqkFHH10ue8Q2qbvX1x9rZjJGNFzdRPCNiitaqpmPyrLWsr+FzO9+8E/OheGIvIeHewbJmrbnwxD48Y3Sp6CIrbG3mfV+iDQOj7DhXRsWOypWg2Z/9FBz9pw/N63ydSyCeiWY4Lc6u/Gnm6ZB9sv4AyyHHI+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/bFSrGAHxfe12cuM22n1Yde2HLJkpV8N+byWV3Faj3c=;
- b=RFoDK36bDfnk8wJxP+NIJjXjpO0KjNw2nGdTIlT3kJfnV3jND7003B3htNBymZ2RGTsmwKAM9I9BWXybvZA/t4y1fWnkaV0mUeNwOpdRvvSE7fH6rnHtK/YYvlCKjLzbu+xbflBgzLBCmbD8IKb4XgU6DDOft7B8dQnZeAiBPLlsgMkl+RItXEXsXywchFKvOPNIXhCvg77EtfpcHtHzbhfauhX29qgr5YxG0T1RfUYyzBolJUy9srdq0kEyp9i1fai2pWLF7fHvvduxRkh6WdY6+og8dyZrBvwGYLYppDKULeNBavGrvfQ/5H9J8tDhkyZdCX6ECsqcslu7dUZQlQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by GV4PR04MB11824.eurprd04.prod.outlook.com (2603:10a6:150:2d7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Thu, 8 Oct
- 2026 13:18:59 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.010; Thu, 8 Oct 2026
- 13:18:59 +0000
-Date: Thu, 8 Oct 2026 21:23:31 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
- cache coherency issue
-Message-ID: <aseZUwi0CYTXuE/I@shlinux89>
-References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
- <asTZEhzMDs869r_n@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <asTZEhzMDs869r_n@arm.com>
-X-ClientProxiedBy: SI2PR02CA0042.apcprd02.prod.outlook.com
- (2603:1096:4:196::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Thu, 08 Oct 2026 13:19:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791465566; x=1823001566;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=MW9WmzhTWYzYoLfZk5DaAGqA9fErOL7UI+6BgbAU6g8=;
+  b=d+dVAUTwJ6neT8c2zOd6F1eljZxDFK9f3ehT9dg6IBAN7/YgWwaK53nV
+   5XeMhT5mot8Sx/m46d/vSwVR9BP4Zb0RlAfYZ/TNAzkYu8KVKZ9xEllf1
+   ndxPHr//tfeijm25DwKpJZ6Q6cvWSqgihUPGga9lcoQ8ZXHpbi1CLUbTM
+   jfXQPTNK6/4j3JaNuf0oP4oHdE+EpgoBkfK3JPvOijhVZIcMgkRKR4fP4
+   8hYJU60hLMjuMPAB1QSCnTLre7kYQVww0tZ5W7g2NchKKGUV5XVJiKQ8X
+   VyO2eTCJx5FBG9PpPgnyABwcNG6j1idspnDldI9+WSavidbkGP8Skl3Px
+   g==;
+X-CSE-ConnectionGUID: VAKxCKGGRwWFepKXGZ2u4g==
+X-CSE-MsgGUID: RdOeZ25uQWuZBHfbMIe6CA==
+X-IronPort-AV: E=Sophos;i="6.27,146,1787036400"; 
+   d="scan'208";a="231850008"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Oct 2026 06:19:24 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 8 Oct 2026 06:19:23 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 8 Oct 2026 06:19:19 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Subject: [PATCH v10 0/5] drm/microchip: add GFX2D support for SAM9X60 and
+ SAM9X75
+Date: Thu, 8 Oct 2026 15:19:00 +0200
+Message-ID: <20261008-cpitchen-mainline_gfx2d-v10-0-67ca2477b3d5@microchip.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GV4PR04MB11824:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39a11896-4f77-4994-b7e8-08df253eb692
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|23010399003|366016|6133799003|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: /gSbd0tZMqogKPPyXT0ypr5L8vKmWD2O1iNLcCCBtS3m64+7Iwq8hhWnIglV0/zc9kJOfOqZLgbNB8Qs+EJRN1GbiCYeA8jmEjp0v0hDUy1LB4FERMdyUKerPSIgVL+CuoqYwvx5Kmab0tKs/lEQaSbzvKBATksk18HyX8ExnSvZnaqWiK5G0tAf9RzzJTsn4qVDaGB/akv5KoP+b7AKaKOXcIVkVP4cmxIjdiIonW+06KZYfTOqSYkmSU0RM1+qBQgppaGjP0UIJXyWyCY9hWTS1impayjUkTQ32isTtn7G7hjp5d/6mpa88GFPcXMyroQ5GJMrbcv33v87ikEUYloeb65A8p/3O89OSmb9hktAs20D6Yuqj2Q3Jh4pQZa75yso57IF+XiWksD+Bu0dX27JS4gvmpWy9FlXbACBCX8pcyUhqlzSjoyQDFk5697OlkwMa0hYddbr/PZ4DQHpKgHSO/BPyQ3179iMTR6GZmCIeUGB7nKVgg8pbzXvQpbIve94noA2uaKKI8YiBfqs/SXT5NMd7KLBZ6cJiL+zbfmawS6shySACfOQn6CYcLJK/t8KSEksqe1JetjcWx6k3Lk80jTvBuN1Pmq79uGnV+CYBBQnD+1jzB01UcSJ7w4+qs8OtyfyxENR8ukGNPxxnNG617bOiuTsF+Xr6bvm7wY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eigUFtqqOcsVqtu9WPg8befdj3Hu1nYHMZBIbB2dtNZcsizfZUw9ZayKfAml?=
- =?us-ascii?Q?zE2pzuRI0WUp70+xjuntOn6wXxvXzLZbqMYJyk0yDnHzKItP9ssNUnSbaMjf?=
- =?us-ascii?Q?v4GpVScji0HxZjWdzq2uRSdO17dhavbl4QELopgAD4d9m5oVCAYQHVoe91aG?=
- =?us-ascii?Q?QukbpiGXQXE4VgCH7OVexv6JPKQsis512FjypCCGUHJHyBtbMaAE9c8V2iZg?=
- =?us-ascii?Q?HAktACMmDX+yoP8y/E9yAbtlZ3y7tBJoifiuWvLA1+RlTzA9qoyQiCqglnGT?=
- =?us-ascii?Q?KN0lYkdSRIpv92NRFArnvcpFJwk0PrhUbCfkop5h5WXYs3z+u5wgTHte8bB9?=
- =?us-ascii?Q?710tTBHQNd66hCniq/1mI25mdI88f/kYslSf53ekPd1I6TgohtzCfe9hzKJJ?=
- =?us-ascii?Q?4x4n2rJEz0fG1gTeIqa0wuTnyD566nA5ss/Fbh+GXcJHF3lIqi3Tn64e35S4?=
- =?us-ascii?Q?zenMRoP30XE4xgpwRLpytOBzIxlL4fTT4Gocxs1jVQLqSqyixiBt3TNFhIw/?=
- =?us-ascii?Q?6LoCCO9zT8+1NwwHfoq6oBBclThp8d6MpkPZFcIWL4yplhlDCsWM9CazDM6B?=
- =?us-ascii?Q?pa+DPYkj2GOm8h/xOEwSC9vXXPQUP2P90IdYPreUfITUs1l92GvakTwRCwK3?=
- =?us-ascii?Q?jQ7hNkJ6mfeLPqYqK4ybvliI+tITGRMl0UXlecIb9+GxrmUKF/zHdeiMSrCq?=
- =?us-ascii?Q?S+AQEGBQpU16L/DG6WHi7D65i+BE8qxyulGIElzmt8n6P0csh5GK2tcYNrZB?=
- =?us-ascii?Q?vzRNOYkymW6lohOD93U8J9lNbrJHVDq/OrkIjJxAduDApQd8ldJRkErMWF+w?=
- =?us-ascii?Q?HEoIi1ppVF3Y/mYTId4xOMnYg6uRGLrY5X5g9Bo9Mu3uJQFsAYV8kwJ3N/+m?=
- =?us-ascii?Q?x+I0iVqfAuIXeHRyV+zgOtiocUxW91h1uYAuxQZ4w+OFSdZDDU78NOZ7VJo7?=
- =?us-ascii?Q?dlYOx5V+3E8bXtt2uKtyLJlN+T6jQVaCoiRoAtQXaU6wusvKur/FgWH8rA5J?=
- =?us-ascii?Q?ksRh8ORnswGkJZfkYhCsN0tJEp89j3SKeqHL5c0ZdrHy8sRewrxvEZlcRkMR?=
- =?us-ascii?Q?FWToO+U5/36U5ZOw3stP9hgjNzlyqCvm7m/2PoIIn0HOGfn7O7fF9lrs0Y9h?=
- =?us-ascii?Q?1c5yE7N8oHRo/Xo9r9X5eGsrpb7+Ug7kO7OVayqzXzKktlQpnmZfj9Xc5Juq?=
- =?us-ascii?Q?Ds3+WiUi39xB9yErges8XtSXYo4Eyl/pPUK5Vxo2JlVlmI0Ztqy/JKQWJoUP?=
- =?us-ascii?Q?/FM1x1eo4aqsgWyXjj4ZMLv+qNbh6cLnjri8qK1Gu+jjbw1niBLhWxxJfj8Y?=
- =?us-ascii?Q?NFnTWFx16i36Aai6L8VtmySCE7SauMgfNoqhUEbYyGBxZH0/DuA95Kv+4fm9?=
- =?us-ascii?Q?RvuozkQlL+2Rq+futr95u4y8YVUxmOs1aYIiONrksnk6S03ExQoxElTD6JFA?=
- =?us-ascii?Q?np9RNWMuRqcrqh2zfxea+6LoEBicJTNaYjrOxgYI135pFUDe6F99bKBQ8DdC?=
- =?us-ascii?Q?Q/8vg9q4+U4eNMd0sjtqJ246vNgrU2fpu+tsOJRIBBwaCDQRmThpsefNCKfy?=
- =?us-ascii?Q?v+US/CbmyNU0qely0FJZwbfp9ERNPY2phduM3P9QfskO4WQ9hFCzRxpoTB+7?=
- =?us-ascii?Q?Gj+auun5phGEcYKSTajHUwzmpStxoxeD/Z1SvvGr7DQiDzkeJYZ9E1sbv73g?=
- =?us-ascii?Q?So45OQPGyMjp64OFzHea+1EwsC2u+IsnJB6U/53LvSZtScJGPOFBw4VUDJqC?=
- =?us-ascii?Q?+iK97tSKaulOjL5OAtNhtYYXgq05Ufd3zmqsGo8RxLdAf4vGmb48?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39a11896-4f77-4994-b7e8-08df253eb692
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 13:18:59.3757
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cc1v4wwmqhulu5NE2zc3gkZZolsxlZWKkKKF3q746+x3LiFi4rPF/fUBwe7N2MbJonaOcs3VMTihM6OGi3F+BxGQ76dBDtjQbao2SudZT/jjOGSJfp6tyGsvwAhPibtW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11824
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XR22rDMAwG4Fcpvl6GJJ93tfcYYzg+NIY1KUkJH
+ aXvPrewtjB7u9QP+iSkE1vinOPCXjYnNsc1L3kaS4HwtGF+cOM2djmUgBGQBIvY+X0++CGO3c7
+ l8TOP8WObjhQ6pThGyyW5pFnp3s8x5eOVfnsv9ZCXwzR/XSeteEn/N1fsoAs6uR4dNxjj6y77e
+ fJD3j/7accu7kqPlmlbVCzlk/M2SKWQaha/WYgk2ha/WKCT8QI0GVWzxI+loGBtSxQrEQIIdIE
+ LXrPko8XbliyW9cH1JjllbV+z1INF0LZUsdCh8gGDht7ULH23CGzb0sUCjxSVcGAl1Cxztwz98
+ UdTLK4N10JKq3l1L3uzyl1V27LF0qIPPCSKaH7d/nw+fwOA1Th3IwMAAA==
+X-Change-ID: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Manikandan Muralidharan
+	<manikandan.m@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9820;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=MW9WmzhTWYzYoLfZk5DaAGqA9fErOL7UI+6BgbAU6g8=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ9bxGd68W4/45f5e/+ptlY1GUOKnTItGtWuev55YTdd16
+ 6jonLOko5SFQYyLQVZMkeXQm629mcdfPbZ7JSoFM4eVCWQIAxenAEzEOpuR4eElH0umNY+mheSc
+ nfSl/+35vhsHF79Mr3XyWq/s69vWlMfI8O5zdO3D6+yPWcXmKu+L+JxTv/HUzLlL9Z9r/WpZV+U
+ bwAEA
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_061904_751559_ABD912E2 
-X-CRM114-Status: GOOD (  32.78  )
+X-CRM114-CacheID: sfid-20261008_061926_491887_46EBB2D2 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,216 +108,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+Hi all,
 
-On Tue, Oct 06, 2026 at 12:18:42PM +0100, Catalin Marinas wrote:
->Hi Peng,
->
->On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
->> suffers from a cache coherency issue (ERR050104). The upper bits, above
->> bit 35, of the ARADDR and ACADDR buses within the Arm A53 subsystem
->> have been incorrectly connected. This causes some TLBI and IC
->> maintenance operations exchanged between the A53 and A72 core clusters
->> to be corrupted.
->> 
->> The workaround requires:
->> 
->>   - Downgrading targeted TLBI operations to broadcast-all variants.
->>     Instead of patching the low-level __TLBI_1 macro (which interferes
->>     with the REPEAT_TLBI workaround and causes excessive over-
->>     invalidation), redirect high-level TLB flush functions
->>     (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
->>     __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
->> 
->>   - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
->>     invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
->>     in user_cache_maint_handler with SCTLR_EL1.UCI=0).
->> 
->>   - Disabling KVM since correct TLB maintenance cannot be guaranteed
->>     for guests.
->
->Do you need virtualisation on such platform? An alternative would be for
+This series of patches adds GFX2D support.
+The GFX2D is a 2D GPU embedded in some Microchip SoCs such as the
+SAM9X60 and SAM9X75.
 
-We not have KVM support in our software release for i.MX8QM.
+Patches have been developped on top the 'linux-6.12-mchp' branch of the
+https://github.com/linux4microchip/linux.git repository and tested on
+mainly on a sam9x75-curiosity board and also on a sam9x60-ek board.
 
->the guests to be aware of the erratum as well and use the right TLBI/IC
->ops. But you'd also need to upgrade the VMID-aware ops in KVM (unless
->the hardware can't work around stage 2 TLBI at all).
+Later, the patches have also been rebased on the 'linux-6.18-mchp'
+branch of the https://github.com/linux4microchip/linux.git repository
+then tested on a sam9x75-curiosity board.
 
-We not have test cases for this since KVM is not in our release scope. 
-Could we take this as a future enablement to avoid uneccessary churn
+Finally, they have been rebased on top of the 'drm-misc-next' branch
+of the https://gitlab.freedesktop.org/drm/misc/kernel.git repository
+for mainlining. Hence, they have been tested on a sam9x75-curiosity
+board running a linux4microchip 26.04 image where the kernel + DTB
+have been replaced with the new kernel compiled from the 'drm-misc-next'
+branch (currently based on linux 7.3.0-rc4).
 
->
->>   - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
->>     does not support broadcast TLB.
->> 
->> SoC detection uses devicetree compatible string "fsl,imx8qm" or
->> "fsl,imx8qp" since the boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0)
->> are not unique to this SoC.
->
->That's fine but I wonder whether your hardware implements the SoC ID
->SMCCC. That would come in handy if some future revision fixes the bug.
->The DT string doesn't tell you version/revision.
+About the tests, the GFX2D driver was used with the M2D (Multi 2D)
+library: https://github.com/linux4sam/libm2d
 
-Sadly no, we not have ARM SMCCC to get SoC ID, we only have vendor SIP
-for i.MX9 to get soc information.
+This is an open source library that abstracts 2D GPUs like the Microchip
+GFX2D and the Vivante GC520UL, providing graphics applications or
+libraries with a unified API, inspired from OpenGL but focused on 2D GPUs.
+The libm2d library itself relies on the libdrm library to send commands to
+the relevant DRM driver in the Linux kernel.
+The libm2d library has not been designed to be thread-safe. Indeed, it is
+intended to be used by a single thread for better performances.
 
->
->> @@ -580,23 +584,28 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->>  
->>  	asid = ASID(mm);
->>  
->>  }
-[...]
->>  
->> +#ifdef CONFIG_NXP_IMX8QM_ERRATUM_ERR050104
->> +static bool
->> +is_imx8qm_soc(const struct arm64_cpu_capabilities *entry, int scope)
->> +{
->> +	WARN_ON(preemptible());
->
->Not needed for a DT lookup.
+M2D comes with a m2d_test program to run basic unitary tests.
+In addition, libm2d has been integrated to two graphics frameworks:
+- EGT: https://github.com/linux4sam/egt
+- LVGL: https://github.com/lvgl/lvgl/pull/8729
 
-Will fix in V5.
+Tested the system suspend with the 'systemctl suspend' command.
+Tested the runtime pm with the 'egt_boards' application.
 
->
->> +
->> +	return of_machine_is_compatible("fsl,imx8qm") ||
->> +		of_machine_is_compatible("fsl,imx8qp");
->> +}
->> +
->> +static void
->> +cpu_enable_imx8qm_err050104(const struct arm64_cpu_capabilities *__unused)
->> +{
->> +	cpu_enable_cache_maint_trap(__unused);
->> +
->> +	/*
->> +	 * TLB maintenance cannot be guaranteed correct for guests, so
->> +	 * disable KVM as if kvm-arm.mode=none was passed on the command line.
->> +	 */
->> +	kvm_force_disabled();
->> +}
->> +#endif
->> +
->>  #define CAP_MIDR_RANGE(model, v_min, r_min, v_max, r_max)	\
->>  	.matches = is_affected_midr_range,			\
->>  	.midr_range = MIDR_RANGE(model, v_min, r_min, v_max, r_max)
->> @@ -1030,6 +1055,15 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->>  		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
->>  		.matches = has_broken_gic_v3_seis,
->>  	},
->> +#ifdef CONFIG_NXP_IMX8QM_ERRATUM_ERR050104
->> +	{
->> +		.desc = "NXP erratum ERR050104",
->> +		.capability = ARM64_WORKAROUND_NXP_ERR050104,
->> +		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
->> +		.matches = is_imx8qm_soc,
->> +		.cpu_enable = cpu_enable_imx8qm_err050104,
->> +	},
->> +#endif
->
->There's a precedent with 4311569 to wire up a SoC erratum into the CPU
->errata framework. That one is a system wide feature, so only probed once
->for the CPUs coming up at boot (though still probed for each late CPUs).
->For iMX, you need this turned on early, hence the boot probing. But
->calling it a strict boot CPU feature is a bit of a stretch. It also gets
->probed on every CPU, unnecessarily.
->
->I think we could do with something like below (maybe as a preparatory
->patch). We could also add it to 4311569 even if it changes its scope
->from system to boot CPU (the early param is available).
->
->Only compile-tested and haven't tried wiring up your workaround:
+BR,
 
-With type set to ARM64_CPUCAP_SOC_ERRATUM for i.MX8QM and your patch
-applied, I not see issues in my test.
+Cyrille
 
-Would you post it as a formal patch or need me to include your patch
-with i.MX8QM errata patch in a patchset?
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+Changes in v10:
+- Reworked patch 2 based on sashiko comments:
+  + Fixed mchp_gfx2d_cleanup_command_queue() to correctly release
+    resources from both the running and free command lists.
+  + Replaced pm_runtime_get_no_resume() with pm_runtime_resume_and_get()
+    in mchp_gfx2d_thread().
+  + Added locks to handle races between the IRQ handler/thread and the
+    suspend/resume/remove functions.
+  + Added a comment to explain why flush_cache_mm() is called from
+    mchp_gfx2d_ioctl_sync_for_gpu().
+  + Replaced enums with __u32 and added explicit padding fields in UAPI
+    structures.
+  + Called drm_gem_handle_delete() in all error paths within
+    mchp_gfx2d_ioctl_import_buffer().
+- Link to v9: https://lore.kernel.org/r/20261006-cpitchen-mainline_gfx2d-v9-0-74bd3df2e183@microchip.com
 
-Thanks
-Peng.
+Changes in v9:
+- Rebased onto the 'drm-misc-next' branch on 2026-10-06.
+- Reworked patch 2 mainly based on sashiko comments:
+  + Used 'struct drm_gem_dma_object' as the new base for 'struct
+    mchp_gfx2d_gem_object'.
+  + Removed useless initialization of 'ret' in mchp_gfx2d_schedule().
+  + Changed type of 'struct drm_mchp_gfx2d_submit.num_rectangles' from
+    '__kernel_size_t' to '__u32'.
+  + Added missing support of special blend functions in blend commands.
+  + Added helper functions to {en,de}queue commands in the running list.
+  + Enabled the EXEND interrupt when partial or pending commands are
+    scheduled to make sure such commands can actually progress.
+  + Replaced pm_runtime_resume_and_get() with pm_runtime_get_noresume()
+    in mchp_gfx2d_thread().
+  + Added a comment about the 'BLEND_SREG' GPU internal register that
+    could be overwritten on SAM9X60 SoCs.
+  + Fixed integer truncation of the ROP mode in
+    mchp_gfx2d_set_rop_params() to prevent userspace from bypassing mask
+    validation.
+  + Added upper bound check for the number of rectangles in SUBMIT ioctl.
+  + Fixed mchp_gfx2d_cleanup_command_queue() to access hardware
+    registers only if the peripheral clock is enabled.
+  + Fixed potential corrumption of 'priv->wlist' by concurrent WAIT ioctls
+    on the same GEM object.
+  + Kept imported surface metadata immutable after first import.
+  + Changed type of 'next_id' from 'static uint32_t' to 'static
+    atomic_t' to avoid potential races.
+  + Replaced atomic_dec() with atomic_dec_return() in
+    mchp_gfx2d_gem_unref().
+  + Fixed potential corruption of the shared per-file 'rectangles' buffer
+    by concurrent SUBMIT ioctls on the same file descriptor.
+  + Fixed the potential Use-After-Free of GEM object in
+    mchp_gfx2d_ioctl_alloc_buffer().
+  + Made mchp_gfx2d_ioctl_sync_for_cpu() invalidate the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_cpu().
+  + Made mchp_gfx2d_ioctl_sync_for_gpu() clean the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_device().
+  + Replaced flush_cache_range() with flush_cache_mm() in
+    mchp_gfx2d_ioctl_sync_for_gpu() to manage the cache aliasing issue
+    on SAM9 (ARM926) without copying a 'struct vm_area_struct'.
+- Link to v8: https://lore.kernel.org/r/20260828-cpitchen-mainline_gfx2d-v8-0-378374559738@microchip.com
 
->
->-------------------8<-----------------------
->diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->index 4f04ad82ea34..669f808e379e 100644
->--- a/arch/arm64/include/asm/cpufeature.h
->+++ b/arch/arm64/include/asm/cpufeature.h
->@@ -266,6 +266,13 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
-> #define SCOPE_BOOT_CPU				ARM64_CPUCAP_SCOPE_BOOT_CPU
-> #define SCOPE_ALL				ARM64_CPUCAP_SCOPE_MASK
-> 
->+/*
->+ * matches() is called only once, when the capability is detected, and the
->+ * result applies to all CPUs. Secondary and late CPUs are not checked for
->+ * conflicts but cpu_enable() is still called on each of them. It has no
->+ * effect on SCOPE_LOCAL_CPU capabilities.
->+ */
->+#define ARM64_CPUCAP_PROBE_ONCE			((u16)BIT(3))
-> /*
->  * Is it permitted for a late CPU to have this capability when system
->  * hasn't already enabled it ?
->@@ -293,6 +300,13 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
->  */
-> #define ARM64_CPUCAP_LOCAL_CPU_ERRATUM		\
-> 	(ARM64_CPUCAP_SCOPE_LOCAL_CPU | ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU)
->+/*
->+ * SoC (not CPU) errata workarounds. The erratum is probed once on the boot
->+ * CPU, before the secondary CPUs are brought up, and no secondary or late CPU
->+ * can conflict with it.
->+ */
->+#define ARM64_CPUCAP_SOC_ERRATUM			\
->+	(ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_PROBE_ONCE)
-> /*
->  * CPU feature detected at boot time based on system-wide value of a
->  * feature. It is safe for a late CPU to have this feature even though
->@@ -414,6 +428,12 @@ static inline bool cpucap_match_all_early_cpus(const struct arm64_cpu_capabiliti
-> 	return cap->type & ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS;
-> }
-> 
->+static inline bool cpucap_probe_once(const struct arm64_cpu_capabilities *cap)
->+{
->+	return (cap->type & ARM64_CPUCAP_PROBE_ONCE) &&
->+	       !(cap->type & ARM64_CPUCAP_SCOPE_LOCAL_CPU);
->+}
->+
-> /*
->  * Generic helper for handling capabilities with multiple (match,enable) pairs
->  * of call backs, sharing the same capability bit.
->diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->index e0c09402540c..a418e240ccce 100644
->--- a/arch/arm64/kernel/cpu_errata.c
->+++ b/arch/arm64/kernel/cpu_errata.c
->@@ -986,7 +986,7 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
-> #ifdef CONFIG_ARM64_ERRATUM_4311569
-> 	{
-> 		.capability = ARM64_WORKAROUND_4311569,
->-		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
->+		.type = ARM64_CPUCAP_SOC_ERRATUM,
-> 		.matches = need_arm_si_l1_workaround_4311569,
-> 	},
-> #endif
->diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->index 84053f0a8e01..0e4c3de78c1d 100644
->--- a/arch/arm64/kernel/cpufeature.c
->+++ b/arch/arm64/kernel/cpufeature.c
->@@ -3695,8 +3695,11 @@ static void verify_local_cpu_caps(u16 scope_mask)
-> 		if (!caps || !(caps->type & scope_mask))
-> 			continue;
-> 
->-		cpu_has_cap = caps->matches(caps, SCOPE_LOCAL_CPU);
-> 		system_has_cap = cpus_have_cap(caps->capability);
->+		if (cpucap_probe_once(caps))
->+			cpu_has_cap = system_has_cap;
->+		else
->+			cpu_has_cap = caps->matches(caps, SCOPE_LOCAL_CPU);
-> 
-> 		if (system_has_cap) {
-> 			/*
->
->
+Changes in v8:
+- Rebased onto the 'drm-misc-next' branch on 2026-08-28.
+- Collected Reviewed-by tags from Manikandan Muralidharan on patches 3
+  and 4
+- Replaced kzalloc() with kzalloc_obj() in patch 2 as suggested by
+  checkpatch.pl.
+- Link to v7: https://lore.kernel.org/r/20260209-cpitchen-mainline_gfx2d-v7-0-0c12e64a0950@microchip.com
+
+Changes in v7:
+- Rebased onto the 'drm-misc-next' branch on 2026-02-09.
+- Rewored patch 2:
+  + Reworked the former valid_pixel_format() function into the new
+    mchp_gfx2d_valid_buffer_params() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and now checks
+    the `width` and `stride` parameters in addition to the `format` one.
+  + Added the mchp_gfx2d_valid_size() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and checks
+    (`stride` * `height`) against `size` as suggested by Daniel Stone.
+- Link to v6: https://lore.kernel.org/r/20260120-cpitchen-mainline_gfx2d-v6-0-1a16cd1d70b8@microchip.com
+
+Changes in v6:
+- Shrank the size of the register set in the device tree from 0x4000
+  down to 0x100 (patches 1, 3 and 4).
+- Collected Reviewed-by and Acked-by tags from Nicolas Ferre on patches
+  1 and 5.
+- Rebased onto the 'drm-misc-next' branch on 2026-01-20.
+- Link to v5: https://lore.kernel.org/r/20260113-cpitchen-mainline_gfx2d-v5-0-9cdab8fa699b@microchip.com
+
+Changes in v5:
+- Fixed compilation issues in patch 2:
+  + Included <drm/drm_print.h> from mchp_gfx2d_cmd.c, mchp_gfx2d_drv.c
+    and mchp_gfx2d_gem.c.
+  + Replaced '.remove_new' with '.remove' in definition of 'struct
+    platform_driver mchp_gfx2d_platform_driver' to match the latest
+    definition of 'struct platform_driver'.
+  + Removed the '.date' member from the definition of 'struct drm_driver
+    mchp_gfx2d_drm_driver' since this 'date' member has been removed from
+    'struct drm_driver'.
+- Fixed typos in doxygen documentations of two functions:
+  + mchp_gfx2d_process_completed_commands()
+  + mchp_gfx2d_init_command_queue()
+- Link to v4: https://lore.kernel.org/r/20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com
+
+Changes in v4:
+- Rebased onto the 'drm-misc-next' branch on 2026-01-12.
+- Link to v3: https://lore.kernel.org/r/20251124-cpitchen-mainline_gfx2d-v3-0-607f8c407286@microchip.com
+
+Changes in v3:
+- Collected Acked-by tag from Conor Dooley on patch 1
+- Rebased onto the 'drm-misc-next' branch on 2025-11-24.
+- Link to v2: https://lore.kernel.org/r/20250918-cpitchen-mainline_gfx2d-v2-0-6cfac9d56612@microchip.com
+
+Changes in v2:
+- Renamed microchip,gfx2d.yaml into microchip,sam9x60-gfx2d.yaml.
+- Removed the 'clock-names' property from the DT bindings.
+- Renamed the GPU node from 'gfx2d' to 'gpu' in sam9x{60,7}.dtsi files.
+- Link to v1: https://lore.kernel.org/r/20250911-cpitchen-mainline_gfx2d-v1-0-d7fab1a381ee@microchip.com
+
+---
+Cyrille Pitchen (5):
+      dt-bindings: gpu: add bindings for the Microchip GFX2D GPU
+      drm/microchip: add a driver for the Microchip GFX2D GPU
+      ARM: dts: microchip: sam9x60: Add GFX2D GPU
+      ARM: dts: microchip: sam9x7: Add GFX2D GPU
+      ARM: configs: at91_dt_defconfig: enable GFX2D driver
+
+ .../bindings/gpu/microchip,sam9x60-gfx2d.yaml      |   46 +
+ MAINTAINERS                                        |   10 +
+ arch/arm/boot/dts/microchip/sam9x60.dtsi           |    8 +
+ arch/arm/boot/dts/microchip/sam9x7.dtsi            |    8 +
+ arch/arm/configs/at91_dt_defconfig                 |    1 +
+ drivers/gpu/drm/Kconfig                            |    1 +
+ drivers/gpu/drm/Makefile                           |    1 +
+ drivers/gpu/drm/microchip/Kconfig                  |   22 +
+ drivers/gpu/drm/microchip/Makefile                 |    8 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c         | 1924 ++++++++++++++++++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.h         |  181 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.c         |  425 +++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.h         |  152 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.c         |  178 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.h         |   78 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.c       |  346 ++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.h       |   17 +
+ include/uapi/drm/microchip_drm.h                   |  288 +++
+ 18 files changed, 3694 insertions(+)
+---
+base-commit: 4f2fb106c459e6b96ddfa542de40e517b5274c44
+change-id: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+
+Best regards,
+-- 
+Cyrille Pitchen <cyrille.pitchen@microchip.com>
+
 
