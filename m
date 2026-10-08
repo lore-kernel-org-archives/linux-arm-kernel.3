@@ -4,134 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8064DCA600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 13:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653B5CA600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 14:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MX72SXYd4THtPuUJES955yLGvALyUG5n+6Ipx8GtCrc=; b=06CZTtlCE8+O4m9prdm9AS4zvO
-	9nAP/BMkAI3nvOE8gq41B3YTit0BsNQMMjpAUWCnTjLCD0uH+dbucnAN+sxpZRbOEmxZHnhBRt40X
-	DcegclMRDJMlnDrUEMTyeK52IhvuArTaE3WhZe7Iqm+rGTOUsHkabIZMt4EYsIoR9woN/XL6ChyFn
-	spv/9YmfGTOESSOt+JF8HOa0rvoPYQ8izmPtFllym7wBu/LMWgbfnO5XliYdexD2PSl202cOVO0vH
-	jrhmfcTBNAZD4xCnR0kAQPKyrXtUn66uU6bsNr2SM08er+YDPY57WcS7zYXO2Ne0ZvzX4+tbTtpzf
-	ZKBfY4CA==;
+	bh=F9Nh5+DMSqtllKtgoyq4B2P0bzw2yMbsUyPt2F4ZETE=; b=EqJZXPFK0MXY5C084Z+SKYQcXY
+	Yx58LbrVsPtfMRvFKkM+vmQ0edBriL2SOaDWwaOtfB9NvoZkihPtgIjM3VMihJQqb0KyYD+vEKPZS
+	m8IUAsjUCnQ1Ep68rsQ88mE6GSBtWdvN58SDE4B7WURO0vXzkbbWgOlZ1DsIAGnhpaB+g0gBilox3
+	D5hEY3Vv80nthjNs0BspdXIaCOx4q/JdMeom/2zRdX7SDn3TVxFY6Dm/ia+F2nRIx4okfyO8U42Zc
+	MK3bmKmuLCWU71xVqOgzIBQO7STAB/zk966WI9PzslmoPasqNXaDUx9zt6UEd2qXoy+NuzRBCGTzE
+	iuIwIMaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEoS7-00000004U5S-2ACL;
-	Thu, 08 Oct 2026 13:46:31 +0000
-Received: from mail-westeuropeazon11011012.outbound.protection.outlook.com ([52.101.70.12] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xEoh0-00000004VQt-3Sh1;
+	Thu, 08 Oct 2026 14:01:54 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEoS5-00000004U4d-2BpD
+	id 1xEogy-00000004VPH-3OLO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 13:46:30 +0000
+	Thu, 08 Oct 2026 14:01:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pfd2xBxnq0XI7ti197q1wz5VG5aBYVWWKBl1L7Z9+yE603LX9rm3KejOU36V3T9qUcAeOj8m/eEP1ZDTytjABK8bWLUlohaYNIC+F/YozjKIw+DkuaXhS9ClICZ9PyceFCOTWW1M5ip567BYbH1zuEs+N661UCVZw+wPBYaVJghI24hsFGDT2DSUky5qAHB9pTVlHeTsDOBb05KkowFKGmgpMD8wSnd1XPl1jDMUSo2Y3ToYXt4/Tc0Q7e2yJyVu/wInJMoPAKVkA0uu05C3N9hpvICCvGSVQbqxmMz9QJ8f+l5LPstNFBonVKpAw0pthsNEHkwdFHkVF5UzV6xxnw==
+ b=A+fGWcrMsV7Jknj1luhXv7GHxBkb7D3es95zMYEm8svAD1WvDZfd5O9zPAn8BYZH/Cs0eqz2Glmv2aCWdnuPJVE9AvC/2JdUcZJGtSa+n6eIkdJflgUYhnP2BW0aPKFRrnK510/S2ftiZV3D46MCAmIRQCoHzoQjiTPAWx+S/VoBkt5uw+7iWD+DB0T/3FluKw9BLNPKtWf1LxZY6mpSa1ZTHyJC60RYZR/pXXrNUlH+PyoJZFqd0bNOTvC9rP3cg6XdIop9fBfMC12hUlCYPfsXfmJUlMeLSEyjd03tA1cBSHaw+fcrlvvPGlNZthe+My+wOOrUY7PmgTpUk7YiIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MX72SXYd4THtPuUJES955yLGvALyUG5n+6Ipx8GtCrc=;
- b=mSS/4rp/8WF9PEb9sW++MGzeYhTA+sp7CoHBaJVq6fPNktqFUQEXGA5lDG96SN6XRYL2YnQtZ8NjGBieVUKJ96Ro4d9XjQ3JbrRhivKycLk8140x5wMnc7y1FPWP6kKkC1MKNWQlNXt3nUEM5pC9+z1Eg5OYCvKv70pdSVY3h5RfXObU1C4v5+kKSZyHpKq2aArGT7FJmj75jcbnyC5cC2tLjWJN4Bs/JXKNYcMUzJ/6xHTyPDAlTB4hKqKAzThxbDnuLrhO8nWmss6lSxkEUE+7ESrFZVosRNhovAF2A7BB1VxBOGUJzRTziD3Km/7/CdEs+vtN3JFYyDAcrPl5HA==
+ bh=F9Nh5+DMSqtllKtgoyq4B2P0bzw2yMbsUyPt2F4ZETE=;
+ b=xQ/Jea+6sWJeft75kFePz4pJMCa2TXkj3FFfJ1f2maQY3XN/2jdWfj7yu0v4QhqQXT8Vl+N/9yiPBSqHryUNxdMplNeDtG3sUY0F99cbPAfqYIvhLi0EuLSPu/NNdinUHukw7R5rzhZl3GxQG3yP0M3Gs2hN0polmwWO1TVQTGOXJBc+IvLMofKKs9AKTNxGbCTtGlsO7RjQFYqEX04mE6V5aD4KsmP8MEsmrjsyJHnqpBC4fQJnqLvxW42wZROhXj0/Qb7Kd6iFvSDOiU3w1KDOSQvq7kS2AX5HHCvPsOneEjiJEGAkzsbGRkMCmgJXu+AcwvkKON6vGQj4O4wDuw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MX72SXYd4THtPuUJES955yLGvALyUG5n+6Ipx8GtCrc=;
- b=Z30OVrXWMxah6JnFskQgGqqG2PC+zdKMwzY3gC2nLXX592RuQ7vTFDsQeZwixIxoUhv3UFePmaaOF0U+cnr71t44n3sffJDxu8YMIxNCzge4jPDqwqk4LjKHoHyXkFW7yVgk82BR1MiM9Dy84K8m15cfOIbyZledqra/lLpBZ/WSI7RFwALh0UoF/qFv0XT4wh4LUXJRIKABHh8czIv/Bjcy1SWWbwTcjVfWnGoqUJsPZqSV0ZIZaGVRuOmi7dgmgTBf1rfcK0VdVBBvpRfI0amCO2CQrCMU7NAB/XxTAFCR+f0QUFnNtYB9QF63Ob5FseEhwcnj9bzgbVUb2E1+PA==
+ bh=F9Nh5+DMSqtllKtgoyq4B2P0bzw2yMbsUyPt2F4ZETE=;
+ b=k4PCedRWhCczF8PNj3CnTpyd+M3ty4m4XUlO+r39X/alU9rJJWnExO59vqg9GEndTlGz4Qa43HhUi7J65h4oIVN4+bfTQDWxAFDomQMNWsJ0iWttwv2UxluhqwOLkclWRS6uUnXkRmDR3Ao/XF+OaZBg5F5a4rj7GJsJMQKcNNNg/gsAGHBYtQ2JeXgfENb7Oar4Nuy6RzYIX65wo09nvo/HC1EW0LnfbH/UV3Yb0dVDnZ34g3EWsYI6mdcQZiXuM4eH8mLjI0Laa18gRVCbIndLtZn6gdUrMTa1dLhNrMSBxzcxtdp3xb8xg3o5S16MMj/sM8XrMaL7FJnD4L1lsQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AM7PR04MB7079.eurprd04.prod.outlook.com (2603:10a6:20b:11d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
- 2026 13:46:23 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.010; Thu, 8 Oct 2026
- 13:46:23 +0000
-Date: Thu, 8 Oct 2026 21:50:54 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v5 3/6] iommu/arm-smmu-v3: Delay stream allocation to
- inside the mutex
-Message-ID: <asefvnqThUeyAEHZ@shlinux89>
-References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
- <20261006-smmu-shared-sid-v5-3-169a59c671d3@nxp.com>
- <asbb+ffdovx+q6Rd@nvidia.com>
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17) by AM8PR04MB7796.eurprd04.prod.outlook.com
+ (2603:10a6:20b:243::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Thu, 8 Oct
+ 2026 14:01:46 +0000
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 14:01:45 +0000
+Date: Thu, 8 Oct 2026 17:01:41 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Josua Mayer <josua@solid-run.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Horia =?utf-8?B?R2VhbnTDg+KAng==?= <horia.geanta@nxp.com>, 
+	Pankaj Gupta <pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Yazan Shhady <yazan.shhady@solid-run.com>, 
+	Jon Nettleton <jon@solid-run.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>
+Subject: Re: [PATCH RFC net-next 2/3] crypto: caam/qi2 - skip isolated CPUs
+ when setting up queue pairs
+Message-ID: <kcyo2qvl5qnjydmsntrmk36rdp6e44ti7rijduh6qsor5avqxp@eyglumj7ib4f>
+References: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
+ <20260930-dpaa2-isolcpus-v1-2-66c13f4fd75b@solid-run.com>
+ <cozavqeupdtr7cyn33nvtfqoqkw3sop5tffou6753vwg63hgwf@jr6gx236yblx>
+ <6d6f2e02-afd3-4e24-8b54-68cb93ce8174@solid-run.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <asbb+ffdovx+q6Rd@nvidia.com>
-X-ClientProxiedBy: MA5PR01CA0229.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::8) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+In-Reply-To: <6d6f2e02-afd3-4e24-8b54-68cb93ce8174@solid-run.com>
+X-ClientProxiedBy: AS4PR09CA0020.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5d4::7) To MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AM7PR04MB7079:EE_
-X-MS-Office365-Filtering-Correlation-Id: dfa5cd41-b6d7-457a-e1bf-08df25428a6d
+X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|AM8PR04MB7796:EE_
+X-MS-Office365-Filtering-Correlation-Id: 22de3b17-5059-4e35-bcf3-08df2544b065
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|23010399003|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: uX8AvAQ6JeXrrpY9y3LmIFLpawHTGmFohx+5pjpzkyq7xxuiO4acPUJnWVqnsQGFsNDaLeyWWlghBgnjges6nAg/ilT4lfccfuH8LxBrVPUk5Kt8UYVUnfdUNSB0Nhjun/npxAOtPSnAot48cD8kp5BinWAX+0Bv/iJmAM+L70wAOkkzWF3nFRTHVxm4xOCEUWA0ZAN1msP3n7GAL+gjJJkhjWrzlkCBAHVZPD5CZ133jCqcc3tQLMSDbZtdyyMTVMBo6Q83eknGokD0xXDfLac9au7eyBCdhq0RdCz+aMRy3aYEXha5aGz9YYM0Dfs4iW3AymHBMNLgrnzmzawrHwpDBKklJ8/QLTBn+8tzx09LYFYs88bZpezTupV3bSLq+vPGVKhVs5mONIoo57TUbBKvQpCG7RLEj0kuzRj8MTRBy/QtJVujpjvUxYDaqcNkjp9vhkEHsXEx44BnmnuRp7uMW0lMXFqPENpD1ufwxI+ybBqd/B0ylprKxde9OWxkrtWVieeWdeWOU+YGbPJKIY0tMbr4DA0QM3S9E7lDW6G1tz+pdqa0P68uB3UJpuQgEKEagHgfBfKVlzka03fB5+6avSEWkmE9hHtExYHN+NgznwvWEBOI1leqgrC64i7X6bubvPPQJjS/Sl4IkI8cjco4rhLcAwf06oDRRpimDQo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(23010399003)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|23010399003|376014|18002099003|22082099003|4143699003|10067099003|11063799006|56012099006|5023799004;
+X-Microsoft-Antispam-Message-Info: uXPTUYJifgQQbGfTFrb6/2F+LjM85al0SLlpIsJYfvBMXAWiAWj/+4oHJiqS4uNrM5IlgATTlnorlerd1AAEdq8CKDYRcxrnzA27Bd2aTxyb7qWTo9WCrIZHkER349/saC9+qIkobjSyPqoXEk651HaLHbLFyS+lrIPxB6srUxs04WV/dnx3wldTSmOhg5bgE9pSXR2CR9X5VbCs7LUQ3N8Fc5n4rmi52xr6nVaouBV7q0QU1AucMpJFboWlsJYwAiHkn6tFRs1ea9dizZ2Vce6sODN3kKMjXD6qkDDEJrZ7R7OjZo1CQOtqHToKDdXLPYV0SJbMROlCWso/thRwQk8R7KYB05PjXx/4UILk6PM8Mu4xGBnDjKHMehLnrDcLTd+hB8txolIx2pGoJpDYWuqAbMrpS89p1HQj8JWcpqqPkI2mQ44J6rkgqJCCcuAcjYPoMa8/WIDEBFVr0HVLLbvqDmSDdYOEnK5L6nptJiFLM9NOFKNs3WfksXj5PJbsO/+zBo1Tqc/gyXDNUdryjNlpzw9ovEnuYIOcR9ML9F5mraQzTDM24h4hGxivTliQNdI+C9IJJKrSBErMx9UrIiZD+LzE4DV9VH82RCpUjfDNkHi+VHLHJYXTWczMYsprIwKynTmRfWA1836rR8VjjeGC5C12fu2ww3qXd/S3Pbo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(23010399003)(376014)(18002099003)(22082099003)(4143699003)(10067099003)(11063799006)(56012099006)(5023799004);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p/vLp8I+4laxhenM4tuPyA0k0goW1mZ3tHcR8ISA0e0uoDShwGxZtrsv/F02?=
- =?us-ascii?Q?dSXp9WIGwgly7YOwMEBEg/CVMlDSHLS1bGi2ESP2UVWtv4yIHuW5tjzOqM3K?=
- =?us-ascii?Q?R+xnPk0N/xMG+zqb7T7bEZiiM2Ezn5g7YJZFotW3lvNoWNy1rayq/RIKJAwX?=
- =?us-ascii?Q?wFTTHoB2VNTRQRX5ddBMBtn+hiW7gFPe9WpaqKWgNHNAFTfVaKZmbJPhwgoq?=
- =?us-ascii?Q?rySbdFseG3kDMMwNYPHv14cBg7M3whB41IhHUwpwhvY1Phd3VbV5kX3iGYtV?=
- =?us-ascii?Q?oqCgeNugx7P/rr4jKRRnV51gCBtfmLlHjPqvvnK1434y9AJtV2wsrdv76jKn?=
- =?us-ascii?Q?nBFDa0yqHftVu47SktmBDutaDsYlqE7yFGNhavdr54sdXrMpnAoNl0njXr/l?=
- =?us-ascii?Q?7aIdry204XLxBWMcZ6FWsdXnBk504tClOWWogOZE1/MYO3Tx+bQtIO3r9BX6?=
- =?us-ascii?Q?frW1fFJyaABjyJI1jzyx15vAWrsE++bwshCGeHLBZUuIoDj2YUtLgA5FjZPJ?=
- =?us-ascii?Q?IcLHN2FFaUpHyh1qliJLshCjJFmDZx1h57h8m56Xv23K+MB2UqTDH/Ylqzlh?=
- =?us-ascii?Q?NimC6RVQgLuIeeHAE6NA51Hj14YEovfXa9u0JxdN+kEvAZg/Xfon7puconrr?=
- =?us-ascii?Q?78HA0JbpnlomIUNw1iBfjpKdKKOcNqGB5MI+B8J7KnaO0cqW84GJqnhh7jX0?=
- =?us-ascii?Q?aCTvWq2OM/oTeSSYcL9ctT8/9oQFtD3HGnMuPPKd78RK3keY0CxW0V33oIf4?=
- =?us-ascii?Q?jrypuoe39FoqWjmVlqTtGJJvdRY4HHd/wOG9hT/JS/KLDR/+4m98P9sz1jsn?=
- =?us-ascii?Q?f5WbdttB3o4HvYQwYhkqId5VP+3WcBXw/6/ahyciWT9qSv4EL9qcb7fRYp6H?=
- =?us-ascii?Q?yeqFqBro0aNukJdkKcLG1tSd9Xr6BcoJyTO/zCiZAHglmNaR4YpKOGTITQHl?=
- =?us-ascii?Q?PBz9pb6Bkv8pXfhML0czS7/GZjAske/CkWW19OrZgIvKsjUJi/1tr/n8mocs?=
- =?us-ascii?Q?sGTV5LgTZZ5W0yUmzEplh0nLIWd/pnUpE/hxaxQiGrJhbLRZoXwJiPVZhYHX?=
- =?us-ascii?Q?DFmC4Gu5NqBw1ufntmbrg6WPYoIR6gghXQgGP0wfTv+sZ55uwFWeqB5xgkex?=
- =?us-ascii?Q?R4sYUil7jyxXiYFEosIDeCpevmFgAkHPV1+dFJXTCd9pKmbFto6YN5W5czSy?=
- =?us-ascii?Q?GXl/qh3Jt5X2YDncm3DneDnfaDJpckMangt21NXsjpC/VUDtA7G09SASuYkA?=
- =?us-ascii?Q?FX1HLoMmLrBHLzTvBn6JTo/wWVi+9u7RWMFxAjBH/qcnrxI0EyBKSQ9VA1rP?=
- =?us-ascii?Q?GQNNl5LB+Lfy6Dh4Gvydxh1BUQbSrwvU14y6uFs9gicP0JEB1RS25GlU0JJX?=
- =?us-ascii?Q?+rk6agLb22Xcy+YKSlPgrG3NIXgplVDPkhOeY1tZPoBsole0CzgtsauR0kG4?=
- =?us-ascii?Q?EhgBc9hZ7lRl4MsAb26t0ONjuD1nQPbov7BPDogAAuTkBDYLlQIucHLARxP0?=
- =?us-ascii?Q?4P2g5cKV1pmFxZP0lvCtt/haA8mPfN48OxKxR0qajpqtV4EJCNAoWVLnql/H?=
- =?us-ascii?Q?iNy6HhSxkhej1pVbsS2S/RqR19anpU/O92q+Te2OPHosShXnLGJ3yOB57dRk?=
- =?us-ascii?Q?mPrRLNmTfWtXVFHGdmSKzryuynPp7IxXdjNInpIvX2VkjPQLPKrOAwaPXujh?=
- =?us-ascii?Q?wNavsgJV+3HvqlXJQiDfKkKoF7dI6/9e/aAjO2b3M8utVFWAoM2yuzy9Bn0+?=
- =?us-ascii?Q?AVbbeCCX1fHjgLaWhBx30UmDy3GBtAsUMQ8YDUtplspcgK8lph7j?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dfa5cd41-b6d7-457a-e1bf-08df25428a6d
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dzlNfKAqnSk8aZEs3RtuQupN3jBkRqakOd0KgXLLu/WYv95GSQlV8bn3L9Yy?=
+ =?us-ascii?Q?2OoRXanXRSfofqRklFFgq3voRIjo8OwbWGpyIXmMpUCAhU7VO7ZwyQ5x2dNm?=
+ =?us-ascii?Q?POcM2bnBxW5F2HXUp6wMK69BYqTETEAis2RNKxyembgTqJowivUt8Szu9AqY?=
+ =?us-ascii?Q?glDE2dlINWqJZH/I4PdlV9iJg5WozNYnzLMhD7R4+8CZJTPhleDjXuPJFo92?=
+ =?us-ascii?Q?rXUQO96nSYOp+JWZtdMlMUubio9lLnD6I8FGN7KgFaXNLZmFNOlK6r8XedG8?=
+ =?us-ascii?Q?nWytaXceaswSDxHIKbkyDNctnHSDIJbugOaT0GxkRn5r3mxfOdwo8kV44/GX?=
+ =?us-ascii?Q?Y/ph8NByjFDxg3v1GEFNtFlh29CoKg4lrCePb1KKZEXuxglNj8rjPwKLxtMR?=
+ =?us-ascii?Q?p7ue2GCJJZldGqYlu503eyVu0SlHoUTM9DYvd5I8ZhZVImqRS/Ykyp3m2NaM?=
+ =?us-ascii?Q?+47bP2AbXnrc7WRNR0OZcYqiQVSjfROn+IyOh3l4wmUK5/74ALIHjoOyCGQ9?=
+ =?us-ascii?Q?etVEz7gWAgimO6SLCNBfk2mn0EcwkIPc5uC9/enmU2Cc1s03FhPZoIMofzSj?=
+ =?us-ascii?Q?FLLG9B2TrINP6vzOB492mgH8WpJCskQBi8I7majtOm+MIVLpeU0MWDWM5U7f?=
+ =?us-ascii?Q?5QcRQsGQSDLfU2hW3Y7NcnKh4DCvZYdEhT7BVEG7UPRqZL1v4nbA2AcvrU+T?=
+ =?us-ascii?Q?0vwpbY/bK61TSdHNW0yrHCDR99sxviF6G/SZs8OAej3OciwrlITYXU3FJL08?=
+ =?us-ascii?Q?3hiWX0IwnnzYjZVXHxrddbdJe3rSpim3V43WptuH5z++yCayU/i53qVFrRoA?=
+ =?us-ascii?Q?Wl+uJUB6LkBvIM583XjnU/vip07fuLSrpuQp2bcHhEX62zsj+BP3DPX7CU2M?=
+ =?us-ascii?Q?BvusQVttsDsqWjRH7sBf3PJ3ejvUWrvyVMIqZuNIPbweyCadSEoWeQbC1Gbz?=
+ =?us-ascii?Q?DxNNqL4Gm66mAR7TgszEZzxoGsTauyUkNnMjOkkTYA+UdO00Joz9/vbcIUYr?=
+ =?us-ascii?Q?YjpfBaB7H0amnuh6GO0IMA3tiyPHnl7WyMLDtrmqsTsBax6acfeCxjaJGDOv?=
+ =?us-ascii?Q?oT58lQHvXhqpONOfLf3AHYKwYtVT0AOQaWD5d7q8hn3EbCoYMdCUiuY87j0G?=
+ =?us-ascii?Q?hSQU/YrkeDBix08Dca5FgsyuY1OZKuoo6rmH7k+JoxoMxX5BxvJSu4txQPE9?=
+ =?us-ascii?Q?MRLJZTRiCEdtkvmglZPzvUw1s8bUCgEM/HQiJgZOhfXW0Vtrr2cRNX5eOpPG?=
+ =?us-ascii?Q?V/BI2QrLXWhUHSDSIz6msxcJcMOoQNsJX0q9eiUqUpl3shpG7vddyJAo9OrE?=
+ =?us-ascii?Q?nmQ57NPP8gsRn99TkhZGyar8UyeVWGNiT2VEBeNSUBQxqevm4zBFAtnhpTWy?=
+ =?us-ascii?Q?MNiZvWhq8mzssAY1X1NVi9nzdnszyhOawiYinkHFq5ZukGg6V1ydrfyyy6C9?=
+ =?us-ascii?Q?2iG8bJHZ9AmaWHC3EXWuqDRZ8+h3EPu13Bavqres3bQDuM9jneZc2J4rsprn?=
+ =?us-ascii?Q?b08BJ+/LbTLeico1veaaXUla/CRu7VpomjepoYmu59dr6YkiRiVVt7VyBQvG?=
+ =?us-ascii?Q?3BwGVcrvaxuOHCpXxh2rL1m5hNpBstTy30fZECzCpakuJ6ukjs57WS1FZcj9?=
+ =?us-ascii?Q?e0fTSFQRao8JTnOTAUifL0a81ZJhQQ/jknn2ty4r2o0n84QjmRUuy/Hi1w7i?=
+ =?us-ascii?Q?yYUI8mjaT7s7/j3hWvA61HU7napN81ZVcXAiwM6RSADCROCcaBaS+mlXAHLR?=
+ =?us-ascii?Q?xckvWyYJNQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22de3b17-5059-4e35-bcf3-08df2544b065
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 13:46:23.2673
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 14:01:45.8118
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +neoVyLKSJDJocY9cedT1615qyuAfYyYJdKeYECUWLk/WdPoccHl/E7dv+pVPjWmbPqA7b6SmR7adV4Os2ZLAUzKtqNpxZmRif2mdiH+cY4VNAGegT+VcepmQACWXR3V
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7079
+X-MS-Exchange-CrossTenant-UserPrincipalName: m3LrEOpwtNnca2IRtK665XY2qSP8PfDETpvC6JsPyLnZf1N4rgEWH8B9dlVlwL3dnTtAa9JUlP38CEGcJHVp3g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7796
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_064629_566686_A755062B 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20261008_070152_860324_3A8211C4 
+X-CRM114-Status: GOOD (  37.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,66 +146,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 04:55:37PM -0700, Nicolin Chen wrote:
->On Tue, Oct 06, 2026 at 08:19:09PM +0800, Peng Fan (OSS) wrote:
->> @@ -4110,52 +4110,29 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->[...]
->> -		/* Insert into SID tree */
->> -		existing = rb_find_add(&new_stream->node, &smmu->streams,
->> -				       arm_smmu_streams_cmp_node);
->> +		existing = rb_find(&sid, &smmu->streams,
->> +				   arm_smmu_streams_cmp_key);
->>  		if (existing) {
->>  			struct arm_smmu_master *existing_master =
->>  				rb_entry(existing, struct arm_smmu_stream, node)
->>  					->master;
->>  
->>  			/* Bridged PCI devices may end up with duplicated IDs */
->> -			if (existing_master == master)
->> +			if (existing_master == master) {
->> +				master->streams[i] = rb_entry(existing,
->> +					struct arm_smmu_stream, node);
->
->This can be cleaned a bit by moving the arm_smmu_find_stream()
->from PATCH-4 to this patch.
->
->>  	if (ret) {
+On Thu, Oct 08, 2026 at 10:49:57AM +0000, Josua Mayer wrote:
+> Hi Ioana,
+> 
+> Thank you for taking a look at my patch!
+> 
+> On 10/6/26 11:27, Ioana Ciornei wrote:
+> > On Wed, Sep 30, 2026 at 06:54:59PM +0200, Josua Mayer wrote:
+> >> The driver looks up the affine DPIO and sets up one Rx/Tx queue pair for
+> >> each online CPU, up to the number of queues. Response notifications and
+> >> NAPI polling are handled on the DPIO object's assigned CPU. All online
+> >> may enqueue requests.
+> >>
+> >> When isolcpus=managed_irq is used to reserve CPUs for latency-sensitive
+> >> applications, those CPUs are expected to be free of routine device
+> >> interrupts.
+> >>
+> >> The DPIO driver assigns affine CPUs only from the HK_TYPE_MANAGED_IRQ
+> >> housekeeping mask, leaving isolated CPUs without an affine DPIO. This
+> >> defers caam qi2 probe indefinitely once DPIO setup reaches an isolated
+> >> CPU.
+> >>
+> >> Restrict queue pairs, notifications and NAPI polling to the online CPUs
+> >> in the HK_TYPE_MANAGED_IRQ housekeeping mask, so that isolated CPUs are
+> >> skipped and don't defer probe. Isolated CPUs may still enqueue requests,
+> >> with responses handled on housekeeping CPUs.
+> >
+> > Don't you need to also change the for_each_online_cpu() from
+> > dpaa2_dpseci_setup() to take into account only the housekeeping
+> > managed_irq cores?
+> I initially thought no, because of the "Allow all cores to enqueue"
+> comment in code.
+> >
+> >
+> > Something like:
+> >
+> > --- a/drivers/crypto/caam/caamalg_qi2.c
+> > +++ b/drivers/crypto/caam/caamalg_qi2.c
+> > @@ -5101,7 +5101,7 @@ static int __cold dpaa2_dpseci_setup(struct fsl_mc_device *ls_dev)
+> >          }
+> >
+> >          i = 0;
+> > -       for_each_online_cpu(cpu) {
+> > +       for_each_cpu_and(cpu, cpu_online_mask, hk_mask) {
+> >                  u8 j;
+> >
+> >                  j = i % priv->num_pairs;
+> 
+> Correct.
+> 
+> The loop is doing two things in one: assign tx queue to each cpu,
+> and assign rx queue to each cpu.
+> 
+> Only rx side is an issue for isolcpus. Do you have any idea why each cpu
+> got a tx queue assigned, and if this may be changed?
+> 
+> 
+> Here is a copy of the complete loop, with inline comments on the
+> control flow:
+> 
+> > 	i = 0;
+> > 	for_each_online_cpu(cpu) {
+> > 		u8 j;
+> >
+> > 		j = i % priv->num_pairs;
+> >
+> > 		ppriv = per_cpu_ptr(priv->ppriv, cpu);
+> > 		ppriv->req_fqid = priv->tx_queue_attr[j].fqid;
+> Assigns a tx queue to the cpu, one tx queue may be assigned to
+> multiple cores due to modulo above (if i >= num_pairs).
+> > 		/*
+> > 		 * Allow all cores to enqueue, while only some of them
+> > 		 * will take part in dequeuing.
+> > 		 */
+> > 		if (++i > priv->num_pairs)
+> > 			continue;
+> After this i <= num_pairs.
+> > 		ppriv->rsp_fqid = priv->rx_queue_attr[j].fqid;
+> > 		ppriv->prio = j;
+> Assigns a rx queue to the cpu.
+> This is the case which causes issues with isolcpus, and it should
+> be avoided for non-housekeeping cpus.
+> > 		dev_dbg(dev, "pair %d: rx queue %d, tx queue %d\n", j,
+> > 			priv->rx_queue_attr[j].fqid,
+> > 			priv->tx_queue_attr[j].fqid);
+> >
+> > 		ppriv->net_dev = alloc_netdev_dummy(0);
+> > 		if (!ppriv->net_dev) {
+> > 			err = -ENOMEM;
+> > 			goto err_alloc_netdev;
+> > 		}
+> > 		cpumask_set_cpu(cpu, priv->clean_mask);
+> > 		ppriv->net_dev->dev = *dev;
+> >
+> > 		netif_napi_add_tx_weight(ppriv->net_dev, &ppriv->napi,
+> > 					 dpaa2_dpseci_poll,
+> > 					 DPAA2_CAAM_NAPI_WEIGHT);
+> > 	}
+> dpaa2_caam_enqueue unconditionally accesses ppriv->dpio per-cpu
+> and ppriv->req_fqid, not gated by any checks, percpu (any cpu).
+> 
+> This causes two issues:
+> 1. each cpu is still expected to have a dpio object
+> 2. each cpu is still expected to have an assigned tx queue
+> 
+> I don't quite understand how we get into dpaa2_caam_enqueue,
+> I suppose it can legitimately happen on any cpu core whatsoever?
 
-...
+I don't have any experience in the crypto area but from the looks of it,
+there is nothing limiting on what cpus crypto_aead_encrypt() could run on.
 
->> +		}
->
->Add a helper to share with arm_smmu_remove_master():
+For example, one of crypto_aead_encrypt() callers is the macsec software
+implementation. In that case, I would expect that the macsec's
+.ndo_start_xmit() callback could be run on a non-housekeeping, which in
+turn means that caam_qi2 needs to be prepared to run the enqueue() from
+any cpu.
 
-For both comments, I will address them in V6.
-
-Thanks
-Peng
-
->
->static void arm_smmu_free_master_streams(struct arm_smmu_master *master)
->{
->	struct arm_smmu_device *smmu = master->smmu;
->	int i;
->
->	lockdep_assert_held(&smmu->streams_mutex);
->
->	for (i = 0; i < master->num_streams; i++) {
->		int j;
->
->		if (!master->streams[i])
->			continue;
->		/* Skip duplicated SID pointers already freed */
->		for (j = 0; j < i; j++)
->			if (master->streams[j] == master->streams[i])
->				break;
->		if (j < i)
->			continue;
->		rb_erase(&master->streams[i]->node, &smmu->streams);
->		kfree(master->streams[i]);
->	}
->}
->
->Nicolin
->
+Ioana
 
