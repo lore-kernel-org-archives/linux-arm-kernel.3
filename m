@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDB6CA600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF846CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 06:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAIjG4ZIMr61qlNuyGnhP301Ha6G3tgAGGAQLhPz8L4=; b=a9Rp0EkGnNnSoyLh38YqD0V4DN
-	ZVhZyopzosuUNT+bp1wb7X1aq740XDzmMpf/sH9ieY8WjfHDC6RSkuBS0gxZadiN5Z0qxBq8WkCrE
-	JjF7KanhS7xu9h8FtJ3D4dE75yx5UP30zMJoZyza2c9u65Sf7WJk8KTLVU8ky4KjFMgL8APYl7Hxu
-	db7iK0YclGVW8vJM+2kDg92/MmHeCPV0NddUziAFA1ATfhnHxB8JqjULIHBX0Lsv6qjFTfg55BdSJ
-	nj9pzJ9X9KetExPeYcWOHQCOXL9A1pXCBpRvy4RpWsaYAWVIj9uC3jDrDUVPeHh0p4UcYBi5Ppww3
-	2bd0FJ4A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fc0gstyYmgIaHfuljpcbBQGo4KJCcL9Xqn1oZFmF6zM=; b=boG8SwxEQOvmJ4IjL/xFZrnhuw
+	+EwpFLZ0L5SdgHE7YweQVNfLSrwM1olI4BiNqcnafk7FJ6ZQCEc9vgOLarNwI0mzwt6TOhWrVX47F
+	SIF+L+q5UsZYjQvKa18MkeXQfQxIsN/Y5gGivpHmvWe0CQTnTZADP61EhaQKy8ZuDpznt3CC2CG8j
+	kV6NT7BiBu96xZib6g09h3/Y0LKZghU6FcNekTXrLpX6EvMP0kHWtFNs2LBmjOddPFdaIw0IwTIt9
+	jU9z7vLeeb/qnUzoyH3QhzFJAVly1L1Xx4wl7LSYgAwRUPG7/slAd4hmvMg7H8QfJNleqFd8To5tU
+	9v2Mvv5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhqp-00000003eRe-0NeT;
-	Thu, 08 Oct 2026 06:43:35 +0000
+	id 1xEhqm-00000003eR8-4AkX;
+	Thu, 08 Oct 2026 06:43:32 +0000
 Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEhqm-00000003eQr-1h1j
+	id 1xEhqk-00000003eQD-0sgH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 06:43:33 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e61f017091so6541095ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:43:32 -0700 (PDT)
+	Thu, 08 Oct 2026 06:43:31 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e81738d24eso1538945ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Oct 2026 23:43:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791441812; x=1792046612; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tAIjG4ZIMr61qlNuyGnhP301Ha6G3tgAGGAQLhPz8L4=;
-        b=imkCGY+z9yOWN5FTvcqAv+X9Jt4RZM6zYjcFk916Htr5vWQbf0YT9MXA1i2ao5fAcY
-         sfGST5enVufEjVs8/pY3CKJgvBvDZX51UdTm7XqvVgQNoXEgAGSX+YYwY9NIpfOBn2bX
-         beD4XGNwXQhLbF2HojwEmxVBfny9YYe80OCmIwiYc47HLbtXeUlg2sqfxfQ6dZ9zx0BP
-         naEeoHYOlUsZbRXymErhcZgkFISNBJ/4G+OhXyDRytvXFkulyWTOkDuXU0TYZngBD+qo
-         dPXss1LStAQbQnVXasdbS3LLcHSnwbbeUEtYtnKMD57VEL2q53RuZizveLetx8wnluvu
-         3Deg==
+        d=gmail.com; s=20251104; t=1791441809; x=1792046609; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Fc0gstyYmgIaHfuljpcbBQGo4KJCcL9Xqn1oZFmF6zM=;
+        b=B8r1HPDl1fDGfrkSZkmO/PPRwYY4bssaEZNReSjSVxw9LgB3UkkHacH46yLqedUeK6
+         FVVNtWIQKcRWrSCgsfuFyYdKNuDW2izHDesc54H5DLBqgZ3aEvpCRfAsdtj8hz5VHfJe
+         4z8ylfCg03IGQl+yl0Ugaq5hWpnK8mS/BW5qCqEtNJWuXobZ0E7pFFaZQ4GvSFnPboH5
+         Kld4+HVmsN73UwfwVypWCND5D3heFRVGdCmC5rCcvQtRdFGT+l9PISk9oOXnJsBo1Vsz
+         diUWOcDntVeSidH+EWsQ6cj9KjLxm336qn6ZiqSjSM7oLjN+dUxvkNBAS6dVt0U7Vi84
+         aw6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791441812; x=1792046612;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tAIjG4ZIMr61qlNuyGnhP301Ha6G3tgAGGAQLhPz8L4=;
-        b=fh1r/TlRLMm0NIX2B35RAysLCluRT3MYLawZM8FIaMU29dGCbCoEi1VlFm/k3tivEB
-         iBuXll8Wbzy/k+l2rwQbaT0kwpfppvWI5GQltEnpVdGPR2CqGUwa7repY+j2Nyy6QQO0
-         0EUZGAv6msckQr3Gy0kMcKifFq8pBLJW1qquSsRYbDC3e7jdwNb2hwyTY5iJLcoxmQL4
-         vVD8uDu7BhVTE9694ZOaItEEsGbXL0ZTPOi5iQIicfsXzAYshRX6QB8CqlZnaTLo+cY9
-         kGbimRz1c2PeHq2TGo3dW2l2dS13vlvxi5bxzzqiX8Rk/VOauuzSBG2kjdLw0wvP5028
-         a/zw==
-X-Forwarded-Encrypted: i=1; AKwUvByODVVH7620LJ8eZxIW9mftwqpJ0FoWvfgDijrLl5jyHHXkTxPIAmlgQPVumzMFzoUMm5rjbN4U+wyh/cZIi8dU@lists.infradead.org
-X-Gm-Message-State: AFq9FYIktjqloh2LlRKdzgRu6cp/bzpBuOLXFhxqUvyil2D6WfrTuEXs
-	5HQBoll19oRvCkw5gN127uK1azLn2/7Vbgq0TeCp6fnjugfog3vpnfua
-X-Gm-Gg: AYBFou2gINiMS6AWPXosutmX6djgDiq8IBvNVq4AmjqoI65GzzG0sJNP6LTyYiLrcu7
-	e4RGwEDVzdG3tO5eXPg2qC48Ju3/JBiaU6fhZACxAIKkbWEIk1EOg+XCj0H48fPmV/u4jJZXugp
-	e71PsT+4y+qWqK5nJD9q0AtBK95rKyUu3S85PplUKh5E5CTrYZkaW1sf5oFGRaSWXEv/PWoVv2m
-	N04RoGZzLIpHP+nMH58/n5e5vMT14QcAtVcBeSTUOEurKMk1SplmrfMfjYP/YlQcMjTxyfG2+vq
-	nbScGNulkMdY+Ce4Ng06oomDPQ1aoW1MvtGwOeY86LE2/bRU2E1ujDt/xqzChDjLsXLG45UVimi
-	yLIAd1E5Xwx1l0cBfuqqpc+9h6lm6db4JCzblvLiCzcT056D/SqRvg+rMxK5XtxT9UI+v1PqFY1
-	5ivt4pirgmCB1e1hwZwiIuu18iYsTu1mRxYQgNEIs6qWNN8iT7pW9cna1ajSE1m2QwUrjOuccWN
-	0YtjIktZzECNhg243jKGPA7zaXDRru539h7XfXZeXJIzc6xb/2zANuRYqiTRHw=
-X-Received: by 2002:a17:903:3c6e:b0:2e5:3451:565 with SMTP id d9443c01a7336-2e6004e63e6mr38271205ad.33.1791441811505;
-        Wed, 07 Oct 2026 23:43:31 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791441809; x=1792046609;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fc0gstyYmgIaHfuljpcbBQGo4KJCcL9Xqn1oZFmF6zM=;
+        b=AMx5hqRgtObzCpkrrzh0F14SLnRE3W/x+im1mLiMNEJaxHT5gg1mUYNOKKR6h7qq+w
+         MfQUWT8bT0Hi5rcClWSOBrwa3mhK8rMjnk2ZqfOOA84TjCVTgY88nxHbcTAzUuno5JZK
+         PSSjZWMk+QywnIepP1ZfO8PB7SZSc+Nrd4tNGpx5LmkOy41YBMrRCmBRaL1OUN8pBy7u
+         tO6XBuP/1Ijtg4iHREa+rrGYwSSODER2ggAe208CRf9ZufiIs5FXjZc7TKr9eXNolNAH
+         3tL33XhsyfHbehfshTdrwaQueF9t3K2/sno9X29gTkwEAIntVAqa/WaZueRKGxATFf82
+         3Hzg==
+X-Forwarded-Encrypted: i=1; AKwUvBxATbE2dq6765OGqdX/ZWJZ1TpdvjCcA6F55+b/W2sLsceW96Kt4gF2tWcbC9yF1g+DV7GZmyPw5FiZ5wHNc5MU@lists.infradead.org
+X-Gm-Message-State: AFq9FYLj+0DOpn86Z3JAmJHsWGZxg7m81MB7STxMRAmWevfAO61q9gGv
+	hBPRFp1OUIHsGcyJbgvgzx1rs7MoIMaSEZLaW2+vZnAfMg+kJknKnQn+
+X-Gm-Gg: AYBFou2rCJ6jCwfn3CltNdTCw6kOIjWHnGeCYPjpA0yUJ9XqTXai65Df9JI0oEO4bFA
+	455LRE15R6Z5I/35q1E5fxWBJru77FRL8d/j9K9WOX5cvsmtKKWhB7HDVN3LkEJYkK8b3gB+OqC
+	A+scMepG4OKTJYFkDGRSGsex4YptSEeDwp/7srVeZFJE8paklZx4aOWMIklWrKQZALF5EV/0czg
+	RWLEorsgGgLnA0aGTsNCWRantnHIbPL4calYumhO6pe0XFEjmNMBnYMBHmKL0PtzUJRBrShtVSS
+	Ba3IDT+3pLdyfpxEfjCoZenxlRkiIOPAyxulnZAzwO9+2GeLYBCYtFNkSemM0Ka7IjpOS6HUP8o
+	xqUX4KwidhYvF8xocQ4DG8rj3ccwnMBNRW/OBcSfm4DLm82t8lfV6HcLVlZFy+1sHRNGUJNSbrp
+	UGV+dvEMRReXxoqZQja4QO6VDZ1ppZq3qIuzc4vS018KN0ceqmhJCfybjm14ahbx35OpPgvcp8X
+	NsZ+13r1uK+OWABFKJCrGpeI55xF6cKFrkOe1JbeZ0lZzhKsYF+pclizC0fKtXvBPxmuonCdQ==
+X-Received: by 2002:a17:902:ce07:b0:2df:9eb0:761a with SMTP id d9443c01a7336-2e60024af5amr39693995ad.25.1791441808967;
+        Wed, 07 Oct 2026 23:43:28 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e6046feacdsm19997845ad.18.2026.10.07.23.43.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e6046feacdsm19997845ad.18.2026.10.07.23.43.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 23:43:31 -0700 (PDT)
+        Wed, 07 Oct 2026 23:43:28 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
 To: sboyd@kernel.org
 Cc: ychuang3@nuvoton.com,
@@ -81,17 +80,15 @@ Cc: ychuang3@nuvoton.com,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v2 1/1] clk: nuvoton: ma35d1-divider: use direct formula instead of divider table
-Date: Thu,  8 Oct 2026 14:43:07 +0800
-Message-ID: <20261008064307.2757324-2-a0987203069@gmail.com>
+Subject: [PATCH v2 0/1] clk: nuvoton: ma35d1-divider: use direct formula instead of divider table
+Date: Thu,  8 Oct 2026 14:43:06 +0800
+Message-ID: <20261008064307.2757324-1-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261008064307.2757324-1-a0987203069@gmail.com>
-References: <20261008064307.2757324-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_234332_472348_16DDED48 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20261007_234330_249818_5C66AB73 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,215 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ADC clock divider register implements rate = parent_rate / (2 * (N + 1)),
-which was previously modeled by building a clk_div_table with one entry per
-possible divider value (up to 2^width entries) and feeding it through the
-generic divider_recalc_rate()/divider_determine_rate()/divider_get_val()
-helpers. That is unnecessary overhead (a large table allocation and a
-linear scan on every rate lookup) for a relationship with a simple
-closed-form expression, so compute the rate directly instead.
+The MA35D1 ADC clock divider register implements a simple closed-form
+relation, rate = parent_rate / (2 * (N + 1)), but the driver models it
+by building a clk_div_table with one entry per possible divider value
+(up to 2^width entries) and feeding it through the generic
+divider_recalc_rate()/divider_determine_rate()/divider_get_val() helpers.
+Replace the table with direct arithmetic in recalc_rate()/determine_rate()/
+set_rate(), and drop the unused mask_bit mechanism, whose only call site
+passed a bitmask instead of a bit index, causing an out-of-range BIT()
+shift.
 
-Drop the mask_bit/mask mechanism as well. The previous code unconditionally
-OR'd an arbitrary bit into the divider register on every set_rate() call,
-and the one existing caller passed mask_bit as a bitmask value (0x1ffff)
-rather than a bit index, so BIT() shifted by an out-of-range amount, which
-is undefined behavior. The divider field write already clears and rewrites
-only its own bits, so no extra forced bit is needed.
+Changes in v2 (addressing the Sashiko AI review of v1):
+- Fix a possible division by zero: 2 * rate in determine_rate() and
+  set_rate() could overflow for very large requested rates, making the
+  divisor zero. Rates above parent_rate / 2 now short-circuit to a
+  divider of 1 before the multiplication.
+- Fix the mismatch between determine_rate() and set_rate(): both used
+  a ceiling to pick the divider, yet determine_rate() reported a
+  closest-rounded rate, so set_rate() could program a different divider
+  than the one promised. Both now use closest rounding, as the original
+  CLK_DIVIDER_ROUND_CLOSEST code did, via a single shared helper
+  (ma35d1_clkdiv_get_val()) that also clamps the divider to its valid
+  range.
+- Not changed: min_rate/max_rate are not checked in the driver, since
+  the clk core already applies them and the previous
+  divider_determine_rate() based code did not either.
 
-Select the divider with a single helper shared by determine_rate() and
-set_rate(), using closest rounding as before, so the rate promised by
-determine_rate() is the rate that set_rate() programs. The helper clamps
-the divider to the valid range and avoids overflowing 2 * rate for very
-large requested rates, which would otherwise lead to a division by zero.
-Reject a rate of 0 with -EINVAL.
+Joey Lu (1):
+  clk: nuvoton: ma35d1-divider: use direct formula instead of divider
+    table
 
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
  drivers/clk/nuvoton/clk-ma35d1-divider.c | 79 ++++++++++++------------
  drivers/clk/nuvoton/clk-ma35d1.c         |  2 +-
  drivers/clk/nuvoton/clk-ma35d1.h         |  2 +-
  3 files changed, 42 insertions(+), 41 deletions(-)
 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-divider.c b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-index e992e7c303419..12a946c989e97 100644
---- a/drivers/clk/nuvoton/clk-ma35d1-divider.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-@@ -16,8 +16,6 @@ struct ma35d1_adc_clk_div {
- 	void __iomem *reg;
- 	u8 shift;
- 	u8 width;
--	u32 mask;
--	const struct clk_div_table *table;
- 	/* protects concurrent access to clock divider registers */
- 	spinlock_t *lock;
- };
-@@ -29,44 +27,66 @@ static inline struct ma35d1_adc_clk_div *to_ma35d1_adc_clk_div(struct clk_hw *_h
- 
- static unsigned long ma35d1_clkdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
- {
--	unsigned int val;
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned int val;
- 
- 	val = readl_relaxed(dclk->reg) >> dclk->shift;
- 	val &= clk_div_mask(dclk->width);
--	val += 1;
--	return divider_recalc_rate(hw, parent_rate, val, dclk->table,
--				   CLK_DIVIDER_ROUND_CLOSEST, dclk->width);
-+
-+	return DIV_ROUND_CLOSEST_ULL((u64)parent_rate, 2 * (val + 1));
-+}
-+
-+static unsigned int ma35d1_clkdiv_get_val(struct ma35d1_adc_clk_div *dclk,
-+					  unsigned long parent_rate,
-+					  unsigned long rate)
-+{
-+	unsigned long max = clk_div_mask(dclk->width) + 1;
-+	unsigned long val;
-+
-+	if (rate > parent_rate / 2)
-+		return 1;
-+
-+	val = DIV_ROUND_CLOSEST_ULL((u64)parent_rate, 2 * rate);
-+
-+	return clamp(val, 1UL, max);
- }
- 
- static int ma35d1_clkdiv_determine_rate(struct clk_hw *hw,
- 					struct clk_rate_request *req)
- {
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned int val;
- 
--	return divider_determine_rate(hw, req, dclk->table, dclk->width,
--				      CLK_DIVIDER_ROUND_CLOSEST);
-+	if (!req->rate)
-+		return -EINVAL;
-+
-+	val = ma35d1_clkdiv_get_val(dclk, req->best_parent_rate, req->rate);
-+	req->rate = DIV_ROUND_CLOSEST_ULL((u64)req->best_parent_rate, 2 * val);
-+
-+	return 0;
- }
- 
- static int ma35d1_clkdiv_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
- {
--	int value;
--	unsigned long flags = 0;
--	u32 data;
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned long flags;
-+	unsigned int val;
-+	u32 data;
- 
--	value = divider_get_val(rate, parent_rate, dclk->table,
--				dclk->width, CLK_DIVIDER_ROUND_CLOSEST);
-+	if (!rate)
-+		return -EINVAL;
-+
-+	val = ma35d1_clkdiv_get_val(dclk, parent_rate, rate);
- 
- 	spin_lock_irqsave(dclk->lock, flags);
- 
- 	data = readl_relaxed(dclk->reg);
- 	data &= ~(clk_div_mask(dclk->width) << dclk->shift);
--	data |= (value - 1) << dclk->shift;
--	data |= dclk->mask;
-+	data |= (val - 1) << dclk->shift;
- 	writel_relaxed(data, dclk->reg);
- 
- 	spin_unlock_irqrestore(dclk->lock, flags);
-+
- 	return 0;
- }
- 
-@@ -79,39 +99,21 @@ static const struct clk_ops ma35d1_adc_clkdiv_ops = {
- struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 				     struct clk_hw *parent_hw, spinlock_t *lock,
- 				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit)
-+				     u8 shift, u8 width)
- {
--	struct ma35d1_adc_clk_div *div;
--	struct clk_init_data init;
--	struct clk_div_table *table;
- 	struct clk_parent_data pdata = { .index = 0 };
--	u32 max_div, min_div;
-+	struct ma35d1_adc_clk_div *div;
-+	struct clk_init_data init = {};
- 	struct clk_hw *hw;
- 	int ret;
--	int i;
- 
- 	div = devm_kzalloc(dev, sizeof(*div), GFP_KERNEL);
- 	if (!div)
- 		return ERR_PTR(-ENOMEM);
- 
--	max_div = clk_div_mask(width) + 1;
--	min_div = 1;
--
--	table = devm_kcalloc(dev, max_div + 1, sizeof(*table), GFP_KERNEL);
--	if (!table)
--		return ERR_PTR(-ENOMEM);
--
--	for (i = 0; i < max_div; i++) {
--		table[i].val = min_div + i;
--		table[i].div = 2 * table[i].val;
--	}
--	table[max_div].val = 0;
--	table[max_div].div = 0;
--
--	memset(&init, 0, sizeof(init));
- 	init.name = name;
- 	init.ops = &ma35d1_adc_clkdiv_ops;
--	init.flags |= flags;
-+	init.flags = flags;
- 	pdata.hw = parent_hw;
- 	init.parent_data = &pdata;
- 	init.num_parents = 1;
-@@ -119,15 +121,14 @@ struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 	div->reg = reg;
- 	div->shift = shift;
- 	div->width = width;
--	div->mask = mask_bit ? BIT(mask_bit) : 0;
- 	div->lock = lock;
- 	div->hw.init = &init;
--	div->table = table;
- 
- 	hw = &div->hw;
- 	ret = devm_clk_hw_register(dev, hw);
- 	if (ret)
- 		return ERR_PTR(ret);
-+
- 	return hw;
- }
- EXPORT_SYMBOL_GPL(ma35d1_reg_adc_clkdiv);
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
-index 9f65d0623517a..f91a8369a2bc7 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1.c
-@@ -1017,7 +1017,7 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[ADC_DIV] = ma35d1_reg_adc_clkdiv(dev, "adc_div", hws[PCLK0],
- 					     &ma35d1_lock, 0,
- 					     clk_base + REG_CLK_CLKDIV4,
--					     4, 17, 0x1ffff);
-+					     4, 17);
- 	hws[ADC_GATE] = ma35d1_clk_gate(dev, "adc_gate", "adc_div",
- 					clk_base + REG_CLK_APBCLK2, 24);
- 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.h b/drivers/clk/nuvoton/clk-ma35d1.h
-index 3adee440f60a3..1fdcd4658b5ff 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.h
-+++ b/drivers/clk/nuvoton/clk-ma35d1.h
-@@ -13,6 +13,6 @@ struct clk_hw *ma35d1_reg_clk_pll(struct device *dev, u32 id, u8 u8mode, const c
- struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 				     struct clk_hw *parent_hw, spinlock_t *lock,
- 				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit);
-+				     u8 shift, u8 width);
- 
- #endif /* __DRV_CLK_NUVOTON_MA35D1_H */
 -- 
 2.43.0
 
