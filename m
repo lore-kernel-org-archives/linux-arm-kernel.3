@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D31CA6007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96497CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 08:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/mfZx2zinbwawb2SikdYr4parys9Z5tteYIz1sprlF4=; b=RvgkomWb8YowUJm5AAC/h5mAJq
-	yQVyQ23P7Wa79pQ1DpP2VsxBjx6fmLbkRM+EBi7v3GRugQtzRS8Ok4SmgNz/6YFoXKl2QzgRqLVwr
-	nCuWExAkGcsST6CaDxgEfW9vg6y0XzlnPa+qhNX1fOw7RNdpVWz+qyqdqFmdXYA6C/I2LcnK/d2nD
-	0+6rMYwU0n6IGgVJU16sm6JQ7RtM+Ss8xBYX/QkbHRZMfunPHrmrdwqWUis507PvJtJoboIueII92
-	4ARARYbi8ytnTgDSyVHcqPWqFXQKsqVGxN5PtUWikYjlymUcceiqTnk3SgIlB+j2zDfyoYAJJtKjD
-	FiQrwz8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M7qvxvycRKUr3VRn/IAwsM25G2ry91n1nwMcSratYqU=; b=JgThkUNCOOgalCF0hxynPOa8il
+	X3RCsgl3J/8D4q4YjS6wH8f+u9vA4EH+/6a0XUVZASDHf+Ek0Tq4PABNZgmELvps8H++Zf1Vv34zG
+	l/swkpH3x0shx6TDL2isv+FBKEt82gvYZQlNa7hez6H6EijkJN7YxLdF7+btMGVl5wJsu6kAD+mti
+	nG3NyY2Hd6bhJwvl3/Gf77pGdHeQmImi9QqwSpndvJ1xF51glrvXQO0wn7fVbh/XsrsKmJYH/FhNJ
+	TCUhdSKXSPpNRhA6PRYDMWb1sXKsOwcdCTnfIO5aBJZUPfKX+RlfQOaazyxkPZOmGGpPItsPzXzqd
+	H6HRDWxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjZ1-00000003sz6-0PZw;
-	Thu, 08 Oct 2026 08:33:19 +0000
-Received: from out-96.mta0.migadu.com ([2001:41d0:1004:224b::60] helo=mta0.migadu.com)
+	id 1xEjZO-00000003t8p-1Ymr;
+	Thu, 08 Oct 2026 08:33:42 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEjYy-00000003sxX-3Ms6
+	id 1xEjZK-00000003t5P-3Eau
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 08:33:18 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=HyGwwSVmXvhmOZPb5rYhVyPJ+UvfVubhGgu9kDF0uic=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791448393; v=1; x=1792053193;
- b=BJaTmY9Q2AcNcg0Ibm4M/yFMd0jOkbvaF9GOOHOQC2F0NG/5vtTQRpNkUTdl7umzZkowp+Zg
- saCqstM8QnCXhqR6BV3oExuPa4vjItORXe5J2PfzMk0ZL5l8xXlY7kZNQe2GdUuhgcJlYN7Wbb3
- gFKgnhcpnbQTV25OLuzBl/PM=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f276eb58ea604195;
-	Thu, 08 Oct 2026 08:33:13 +0000
-X-Mizu-Trace-ID: f276eb58ea604195
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
- tables
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261008073021.2512665-2-songmuchun@bytedance.com>
-Date: Thu, 8 Oct 2026 10:32:58 +0200
-Cc: akpm@linux-foundation.org,
- linux-mm@kvack.org,
- stable@vger.kernel.org,
- david@kernel.org,
- osalvador@suse.de,
- dave.hansen@linux.intel.com,
- luto@kernel.org,
- peterz@infradead.org,
- tglx@kernel.org,
- mingo@redhat.com,
- bp@alien8.de,
- x86@kernel.org,
- hpa@zytor.com,
- catalin.marinas@arm.com,
- will@kernel.org,
- mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org,
- pjw@kernel.org,
- palmer@dabbelt.com,
- aou@eecs.berkeley.edu,
- alex@ghiti.fr,
- linux-riscv@lists.infradead.org,
- agordeev@linux.ibm.com,
- kevin.brodsky@arm.com,
- bjorn@rivosinc.com,
- apopple@nvidia.com,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-2-songmuchun@bytedance.com>
-To: Muchun Song <songmuchun@bytedance.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
+	Thu, 08 Oct 2026 08:33:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=M7qvxvycRKUr3VRn/IAwsM25G2ry91n1nwMcSratYqU=; 
+	b=HlfNLCPYtxyycidMuK5BooFkXup13eA5Jryh9Ix5r9xdMkKng3wDXiY7hssWnxy+UGZyjm6mCge
+	GHNXLBQiXB+FOmek0FDUXNHzkH8dzXDMMolsSAYPA2FKd9m7rWiH69MoTnTZ8950KPvUpGPhMXrv6
+	3w74ryOFxBXqM1tmIBVbCEszB7V3gazFuZf6nbztmmMWdVfP+W8WHQhvutHYOv2LI5ylrFZlBi7FU
+	XiEnSAEXfmxflYlEfDKWEHvTCSgQBQXudTQsLZO/Mv1WP2FdJRsFcvHGvlC8ZHdCQMJUXVBgkjMF+
+	eFNNLlwtlCVrSewCLm0V0xB9WiwFKqezDiWA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xEjZC-00000001o4n-497l;
+	Thu, 08 Oct 2026 16:33:32 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 08 Oct 2026 19:33:30 +1100
+Date: Thu, 8 Oct 2026 19:33:30 +1100
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Can Peng <pengcan@kylinos.cn>, Linus Walleij <linusw@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] hwrng: stm32 - use devm_platform_ioremap_resource() in
+ stm32_rng_probe()
+Message-ID: <asdVWtkRsWWnaV8H@gondor.apana.org.au>
+References: <20261002144839.51627-3-blum@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261002144839.51627-3-blum@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_013317_048829_56532FCE 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20261008_013339_158166_E250CEED 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Oct 8, 2026, at 09:30, Muchun Song <songmuchun@bytedance.com> =
-wrote:
->=20
-> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
-> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
-> tables.
->=20
-> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when =
-splitting
-> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
-> table, so a later memory hot-remove eventually frees that table =
-through
-> free_pagetable(). That path currently calls pagetable_free() directly
-> without decrementing NR_PAGETABLE.
->=20
-> Use PageTable() to identify constructor-backed tables and run the
-> matching destructor before freeing them. Keep reserved and
-> constructor-free tables on their existing paths. This also prepares
-> vmemmap teardown for generic runtime allocations through the normal
-> pgalloc helpers.
->=20
-> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+On Fri, Oct 02, 2026 at 04:48:38PM +0200, Thorsten Blum wrote:
+> The resource pointer is unused - use devm_platform_ioremap_resource()
+> and remove the unnecessary local variable.
+> 
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 > ---
-> arch/x86/mm/init_64.c | 2 ++
-> 1 file changed, 2 insertions(+)
->=20
-> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-> index 70e682180291..a3ea627157ab 100644
-> --- a/arch/x86/mm/init_64.c
-> +++ b/arch/x86/mm/init_64.c
-> @@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page =
-*page)
-> {
-> 	if (PageReserved(page))
-> 		free_reserved_page(page);
-> + 	else if (PageTable(page))
-> + 		pagetable_dtor_free(page_ptdesc(page));
+>  drivers/char/hw_random/stm32-rng.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 
-Sashiko mentioned that kernel page table pages and vmemmap pages are
-freed to the buddy allocator before their parent entries are cleared
-and before the TLB is flushed, creating a dangling pointer window.
-
-That's a a real but pre-existing issue, I will not fix that in this
-series.
-
-> 	else
-> 		pagetable_free(page_ptdesc(page));
-> }
-> --=20
-> 2.54.0
->=20
-
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
