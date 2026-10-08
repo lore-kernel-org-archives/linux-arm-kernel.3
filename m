@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0395CCA600D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA09CA6011
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 17:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1/kWln4aguinhSKJL+sRTc11ExP8I158//lpEFf0hFk=; b=3V4tFmHK4CIh37p1BHo4xl79Dx
-	GOn/KduZIF5bSPUiqipmee+JmyS8xC+TYIOjzGbRjsGtPe2ghk8x2rJKWYGYXoAepVBHP3WlX8RLq
-	6MIj2oWFvh/KwltQtdm/N2Fu3TGjX4/l7lIgfiAB0ZQXb6nLL+GaosgccbAc/5ZJnBx7wUHAtDxgO
-	QkuyjFaL7BkUtpvpMyRuDYDKviYSYHk64n6KnvJzn0STb/kIRky9bZM0r5fZfvgwtJ0mg5tP3pVGZ
-	Hr+rIkQBXoMLO+YkrDUJei8EKN8l3ueExGHW8924C6PodmsMD7BjyaE52nyrdaZDiDzy1BVgu8pLs
-	EbbivOIA==;
+	bh=9BwFMzvpnh5keZRavPMezlpByqLkrvmuKFAvrVdTgl0=; b=K49BrrBAFuxU/KTMfQmX2ZLepe
+	EiUGw+4oYeYiZRhgh+otQm4402f5Bx+tuF45I47hxaqMBlCq3kEM8yGL2hpX2zEY/e9Td2aQtzdI+
+	btxgvRSmj3bxYZG4MBh3av/HUF1AptxuJnZpMqMRqFa3uhbUcUdchn9uew535kNmX+DHUWYoJm7/6
+	ck0NAup72BfGd+vRSfzumuO6y5QRbphgyItXDDh0RXNTlLVGLX2aMk2cT4XsxUDYYQGhR+reW+ik/
+	JEVRGfDMiuNMlaAMW9prHUyC8HlT21KlfDK0SdyxoEH3srQHZVWksOSFghq83yXg/24VZZ83bpzLk
+	33Nk6t8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEsAC-00000004o8R-13tL;
-	Thu, 08 Oct 2026 17:44:16 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xEsIW-00000004obA-0Hsd;
+	Thu, 08 Oct 2026 17:52:52 +0000
+Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEsA8-00000004o82-33SX
+	id 1xEsIT-00000004oaM-2lBO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 17:44:14 +0000
-Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowADX3Dpp1sdqpZYPCg--.13859S2;
-	Fri, 09 Oct 2026 01:44:10 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] irqchip/mchp-eic: fix clk reference leak on probe error paths
-Date: Fri,  9 Oct 2026 01:44:12 +0800
-Message-Id: <20261008174412.2740045-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 08 Oct 2026 17:52:51 +0000
+Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-398a384b5f7so892739a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 10:52:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791481969; x=1792086769; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9BwFMzvpnh5keZRavPMezlpByqLkrvmuKFAvrVdTgl0=;
+        b=LKhrDLkM+OdDMzyo8I5+kmlTDm0coGkxUzwfIaM1gI89mP6O5WLr83pqqTuwaUKVqU
+         C4MPOx/v8GVg2IrTdQGdUmExFW93mql8cTt4wR+r5A0GkihWph+gWr9Wp6ppDDqwU4H2
+         OBVJAscOPQfSCdCDj4jEQ+ZaZuk+ZHPlWv8dgja8gTfsZO5wogk8/wGpARMalYhVOZ0u
+         glRd8FmMxtLqp1h7+JH3hi8sa/w2oi1fW8WsuE5Cnag2OeYlB1DpLN/oflVbn2xTj2il
+         ySfFis5Lf0bm+cVoGIU2ShbPMBz50fXekdlx5n9bTd7xSwcrbsinggI/Lqmv93zxpe93
+         2doA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791481969; x=1792086769;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9BwFMzvpnh5keZRavPMezlpByqLkrvmuKFAvrVdTgl0=;
+        b=gdONI5EN5Xbt9WTxHB2mtiJcDkUTRQP2jJSF6T3yZh/6iD/JWlaeEWgIsqRz5jRWxG
+         FPhHZK0srtmgD6W3RHEk7Gd0rRnWf2So7Lwqp32yl7xAJg6FthzwIISL+Q4eerJzO/bo
+         dfLB35vtkPKymEUmtOJ2XbabwAceRs/tPjM7UUVCwxREbGW1uCA9o8iDElxAfemYP3XZ
+         PWrkCVRWeFjiTN28ReXQ++sRD1xv8jaTGQJDBQLCoGDx6VNHA5UPRukbMmpQ+lqob4j1
+         84JNCElVEHlx+fPARDFqbs0FrZRBYN8G3+/OQ1w1TamYjQQQSkclx/07tV6+3hUHWSbh
+         OLMA==
+X-Forwarded-Encrypted: i=1; AKwUvBxIFyeVmGPZgWHdFgHtFSgX30jmyID15EtEAS4GvVsu/C08GyL6RDOKCcTgO6yCvnR8jClptF+zV3sqSOiVxtwy@lists.infradead.org
+X-Gm-Message-State: AFq9FYJJ2F1TmhyzUnYJT88eVy+ZUEKCfFe+e8koSm02Bd5pq3a0IX/a
+	kFsSrp/Cc7kusfKfaenYYPd+0AjQBwKFgDIFbMUFZtf8BByFVAKF0mqy
+X-Gm-Gg: AYBFou2Q8GqTafIIG5rfPP1cc4NWisqMwV6tfAxOiWyyVVegH5kwUYm0RSDOruso2uf
+	6m2wP4JMiWn1W2btbwOdsd2+u7JvXMJGSPCZbiDWq6uxbmGumWXrB+xlezbXVv05RRwvOjPt4FX
+	oCYAhNCor4omDJSKBWfA2PlAhLQj7DDcycaRDjHRo5NCGmxnJYsUvkpy0H8Ys6n73rgkd9n4X+n
+	xa3T8oL8jC09+6sGpKGD83zo/RlEnziBg26JgpHYE1hwDPJYUtHnqv6o7n+bDzwVv2fWR5x+74D
+	lvTsgcrDoTe5gE0QME8Ekdo588VICCWHfbY0n1UKlrANIGYDqZh1t24vdkbgYw3iTL+HpkgvTLq
+	2lzS4A2oyEEi1RHES0/GmgDaXGJbYzCe6j0Ky9f4eiKzsLBR1REpOD4DV3gOnIhQztrh233M2/S
+	I5mUTzs9SxtU92Upp0Ak5cI1S49DYupMkzsVN2Sqs5kNBNDKkewftXO3AKrmD5yYYVpXQS
+X-Received: by 2002:a17:90b:288c:b0:3a6:fec5:c186 with SMTP id 98e67ed59e1d1-3a8a0f3be3emr5184679a91.46.1791481968566;
+        Thu, 08 Oct 2026 10:52:48 -0700 (PDT)
+Received: from server.lan ([168.138.199.194])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab3277c459sm144332a91.16.2026.10.08.10.52.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Oct 2026 10:52:48 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	David Wu <david.wu@rock-chips.com>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: [PATCH net-next v11 0/6] net: pcs: add basic support for RK3568 XPCS
+Date: Fri,  9 Oct 2026 01:51:54 +0800
+Message-ID: <20261008175225.3375274-1-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADX3Dpp1sdqpZYPCg--.13859S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFykCw1ktryrXr4fKrWUXFb_yoW8Wr1xpF
-	W7Ja9avFZ7GFWF9r4DJw4kZry5Kw4ayFWxG3yfC3ZFqwnxJryjyFWFya4DZr45AFWxG3WU
-	Gws0qFykAFyDZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWU
-	twCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
-	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij
-	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr
-	0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF
-	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jrManUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAAOA2rHpfVxuQAAs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_104413_157058_8BC2612A 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20261008_105249_729897_2F64E4EF 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +115,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mchp_eic_probe() acquires the peripheral clock with
-of_clk_get_by_name(), which takes a reference on the underlying struct
-clk, but the error paths only call clk_disable_unprepare() and never
-clk_put(). When clk_prepare_enable() fails, or when of_irq_parse_one(),
-the IRQ argument validation or irq_domain_create_hierarchy() fails, the
-probe function jumps to the cleanup labels, frees the private data and
-returns with the clock reference still held.
+This series adds proper SGMII support for the Rockchip RK3568 SoC
+using the integrated Synopsys DesignWare XPCS, along with necessary
+fixes and refactoring in the stmmac core and XPCS driver.
 
-Release the clock reference with clk_put() on all error paths that occur
-after the clock has been successfully looked up.
+Motivation
+==========
+The RK3568 integrates a DW XPCS accessed via APB3 and connected to
+a Naneng Combo SerDes PHY.  Several boards (e.g., Ariaboard
+Photonicat) use this interface for Gigabit Ethernet.  However, the
+current upstream stmmac driver does not support this configuration,
+and the XPCS driver has issues in SGMII poll mode that cause the
+link to be reported incorrectly.
 
-Fixes: 00fa3461c86d ("irqchip/mchp-eic: Add support for the Microchip EIC")
-Assisted-by: DeepSeek-V4.1-Flash
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+This series addresses these issues by:
+- Adding ANRESTART support for SGMII link recovery
+- Adding a Rockchip XPCS platform glue driver and wiring it up in
+  dwmac-rk
+
+Series overview
+===============
+
+RK3568 XPCS/SGMII:
+  Patch 1: add ANRESTART support for SGMII link recovery
+  Patch 2: DT binding for Rockchip RK3568 XPCS
+  Patch 3: implement the Rockchip XPCS platform glue driver
+  Patch 4: DT binding for Rockchip DWMAC PCS
+  Patch 5: wire up SGMII support in dwmac-rk
+  Patch 6: update MAINTAINERS
+
+Dependencies
+============
+- Generic PM domain (genpd) changes:
+  https://lore.kernel.org/all/20260925041751.495818-1-coiaprant@gmail.com/
+- PHY binding+driver (Naneng Combo PHY SGMII MAC selection):
+  https://lore.kernel.org/all/20261006162807.2843858-1-coiaprant@gmail.com/
+- stmmac XPCS lifetime management fix:
+  https://lore.kernel.org/all/20261005221749.1104430-1-coiaprant@gmail.com/
+
+The DTS changes using the PHY property are sent separately to
+Heiko/linux-rockchip. There is no hard build dependency; the pieces
+can converge during the merge window.
+
+Changelog
+=========
+
+Changes since v10:
+
+- XPCS binding: drop the ethernet-pcs-mii child nodes and the phy-names
+  property. The MII port used by SGMII is derived from the MAC it is
+  routed to (GMAC0 -> port 0, GMAC1 -> port 1), so the ports do not need
+  to be described.
+
+- dwmac binding: require phy-mode for rockchip,rk3568-gmac, and require
+  pcs-handle only when phy-mode is "sgmii". Without the explicit
+  required: [ phy-mode ], the "if" would match even when phy-mode is
+  absent (Rob).
+
+- XPCS glue driver: use pdev->dev.links.status instead of
+  link->supplier->links.status, and drop the unused reg argument from
+  the read remapping helper.
+
+- dwmac-rk: document that the MII port passed to xpcs_rk_create() is the
+  GMAC id, matching the hardware routing. Rewrite the in-band vs
+  out-of-band section of the commit message to match the driver
+  behavior and the actual clock rates.
+
+- DTS: drop the ethernet-pcs-mii sub-nodes; pcs-handle now points at the
+  XPCS node itself.
+
+- Commit messages updated.
+
+Key design decisions
+====================
+- The stmmac core now delegates XPCS creation entirely to platform
+  drivers via pcs_init/pcs_exit.  This is necessary because the
+  generic XPCS creation logic would override any XPCS set up by the
+  platform driver.
+
+- The Rockchip XPCS driver creates a virtual MDIO bus over the APB3
+  registers and implements address remapping.  The generic XPCS core
+  handles all PCS configuration via phylink_pcs_ops.
+
+- On RK3568 in SGMII mode, the MAC clock is fixed at 125 MHz and
+  cannot be dynamically changed.  In-band mode is used, and the
+  generic stmmac set_clk_tx_rate callback is disabled to prevent
+  incorrect clock updates that would break RX.
+
+- The SerDes and power domain are attached to the XPCS device tree
+  node rather than the MAC node. This reflects the actual hardware
+  topology and simplifies the dwmac-rk driver by keeping all PCS-related
+  resources self-contained. It also prepares for possible future QSGMII
+  support, where a single SerDes serves multiple MACs and would be
+  more naturally managed under the XPCS node.
+
+Testing
+=======
+Board: Ariaboard Photonicat (RK3568)
+OS: Armbian (trixie)
+Kernel: 6.18 (backports)
+Result: The SGMII interface obtains an IP address, SSH works, and
+        ping traffic passes without loss.
+
+Notes
+=====
+- When testing out-band mode with set_clk_tx_rate, only 1000Mbps
+  works on both TX/RX; 10/100Mbps only works on TX side.
+
+Acknowledgments
+===============
+This work was inspired by and builds upon the excellent work of others:
+- Serge Semin's Synopsys DesignWare XPCS platform driver (pcs-xpcs-plat.c)
+- Clément Léger's Renesas MIIC driver (pcs-rzn1-miic.c)
+- The Rockchip TRM and downstream OEM drivers
+
+Thanks in advance,
+Coia Prant
 ---
- drivers/irqchip/irq-mchp-eic.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Coia Prant (6):
+  net: pcs: xpcs: add ANRESTART support for SGMII link recovery
+  dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+  net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+  dt-bindings: net: rockchip-dwmac: document pcs-handle
+  net: stmmac: dwmac-rk: add SGMII support for RK3568
+  MAINTAINERS: add entry for Rockchip XPCS driver
 
-diff --git a/drivers/irqchip/irq-mchp-eic.c b/drivers/irqchip/irq-mchp-eic.c
-index be007d325e67..5250e6baff63 100644
---- a/drivers/irqchip/irq-mchp-eic.c
-+++ b/drivers/irqchip/irq-mchp-eic.c
-@@ -233,7 +233,7 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
- 
- 	ret = clk_prepare_enable(eic->clk);
- 	if (ret)
--		goto unmap;
-+		goto clk_put;
- 
- 	for (i = 0; i < MCHP_EIC_NIRQ; i++) {
- 		struct of_phandle_args irq;
-@@ -270,6 +270,8 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
- 
- clk_unprepare:
- 	clk_disable_unprepare(eic->clk);
-+clk_put:
-+	clk_put(eic->clk);
- unmap:
- 	iounmap(eic->base);
- free:
+ .../net/pcs/rockchip,rk3568-xpcs.yaml         |  69 ++
+ .../bindings/net/rockchip-dwmac.yaml          |  27 +
+ MAINTAINERS                                   |   9 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 131 +++-
+ drivers/net/pcs/Kconfig                       |  25 +
+ drivers/net/pcs/Makefile                      |   5 +-
+ drivers/net/pcs/pcs-xpcs-rk.c                 | 598 ++++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.c                    |  35 +-
+ include/linux/pcs/pcs-xpcs-rk.h               |  11 +
+ 10 files changed, 883 insertions(+), 28 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+ create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
+ create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
+
 -- 
-2.25.1
+2.47.3
 
 
