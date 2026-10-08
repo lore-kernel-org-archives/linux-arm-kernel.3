@@ -4,63 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593D6CA6002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 00:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FD4CA6002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Oct 2026 01:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GA3OD8YP8kA43uRwiqGHMLv9THIO8ScV9l4ifw2Ty88=; b=z6rxBEDi5P0PjAbPV0860q5qYN
-	k0V8BJ8OS2MjXGCi/OcUo5STNxqz6/DzKHYKt6aOGEaFm5AZ10TKVHG2nEWt1vDka5r8YYg9Lut1G
-	jAAMo03Jbml1qJ1HN/8r4gggVs0u86Pp2kGKWch7t/ObbwemqyN+AIGslVxeLAP5xVEvHO3y8xCFY
-	vr9syiaz7An58rP0ayP/bSBQG43arHUu/S7hS87N4ic2gT6Nm1FmsDYTBQrG9tKzZsIEjJ+kcKKkD
-	IBsHFIY3HXDk2WFXfadVY4MBrAsLasxG7yrg6mHyYSOdWLGmUbqhoHl9HRLw7bGZRrzsLBQtrTHSR
-	M/6pDh0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aD7snWdFsYXwAVcEGUH/h+z/1UfPF825jPQAVGrAfas=; b=d/qnzrV2SxpjaqGVEOiiSwUTov
+	pEWYSmPBIRhWXAwjqzIKdepOxihYS7yavSHxbGj86+dNxFN+qh5pc3qooZFi3u9xS/vBc/atwNGGh
+	yXkAt8S7Iybl+/Kgj2SB0YeX96nJW2MycTsNP2s3nS4/VH+ohL62b816SLVme2kz8hunksCy3h7je
+	2uSXQ2xQA04nqGHUxRtwXxE9hpnpcbsweghbYoEZNC8XkL6opf/U3w1k+7exWftWxo+/EP5keix2O
+	CwMc46huzqTWfklGus3pF6w3XRY9SxsDI/DVRv2icw8aVka6E0tb+D6A1T7L+9UTqrYspBcuUvYrH
+	OLJubMsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEc92-00000003KwQ-3waq;
-	Thu, 08 Oct 2026 00:38:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEcWz-00000003LZP-2zeF;
+	Thu, 08 Oct 2026 01:02:45 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEc91-00000003KwH-48ty
+	id 1xEcWw-00000003LZ1-21CF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Oct 2026 00:38:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CCCE41325;
-	Thu,  8 Oct 2026 00:37:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08161F000FF;
-	Thu,  8 Oct 2026 00:37:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791419879;
-	bh=GA3OD8YP8kA43uRwiqGHMLv9THIO8ScV9l4ifw2Ty88=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DcuEBSXsTJX+9zy1cEQLUMpet8lqaNcY/S8RCIL5hsKXGOQDrK7kwdwv+GVaLuXAo
-	 NGN6f7q8/a+JjXUC0dgQ+QU6q4lu0oTJlezJ+mYOAgOjj9emrOMTa7xalxtWVJGeWv
-	 xmbls43Ayd8TOU6jFEZTC2u88MB6DpPbLvia7SG/OLg0T69qOkku/dLCKvEsTA5/sn
-	 aLVXUjrOv3YXBsH/MDdi9ckdsEYT9N67OKr1BdCdoaDl9MINnWYUWiTJIr3eoWXjCi
-	 y1yy9tUtr8Uon5xmsCicyq8fGN3hSAVvM/p13AYnCBCtP93MhV2y0H2D0ivh9f5qGZ
-	 scxb1a0hkfJJw==
-Date: Wed, 7 Oct 2026 17:37:58 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Maxime
- Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Christian Marangi <ansuelsmth@gmail.com>,
- "David S. Miller" <davem@davemloft.net>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: leave the datapath running for
- normal-size MTU changes
-Message-ID: <20261007173758.4e8687de@kernel.org>
-In-Reply-To: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
-References: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
+	Thu, 08 Oct 2026 01:02:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c0KUjU/im6KAsN5UxAWOg5N+ZfxHrjGK/9lEs1KKkrf/Gfrc2m0MHRjYyviH/JiezGAPlgdbU91MzomocpVZZmQouCwzBQtA79Clu1kyG0L8BW60oVMABi8tbA8juOvpzWMO4eJrH4QfO4sLoU3bf5BihZeb675iLrKAIfBv/0QrooPHBqjQ8BKl+49UidwcifHKM4WRQyiBUOIE2ItvkxxbQEgqZuMWJZ8mStLO2uTMbGs+8QeQQOVcC8mcLcOw5oRADMS5QD4MgX6a/W4P70vxaJiuTwtwNWWkX4/JEEDDuLOCGtYCCVbnbjh0EwelMkW/9v7dLInCJ3dqSe1Dhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aD7snWdFsYXwAVcEGUH/h+z/1UfPF825jPQAVGrAfas=;
+ b=s9KzLvwkEtuXDHDxE88q7qTC9ww2YUbXsjXQCnJGbyiJwDyaGd8Y9NZuuwFVONOF3M0WG4+FGVBIJhQiYF5FVCSvaFF0ZOZtv6UQopyPBbnfIIa2jVNgbhM8L9dIAzEzazBdFneNojA9VwhaHkoRVMr38Kx8ZLLBvVDqqrKsaXZZUAeP9aHwtZY+9crCLGkCiE6TqRV/dhhEJeISZ1YYoiob3UcfFY88y0oGlRFyR+8xmkK3VP8au8z2/1iAItqg7yt45GI5sXhT+APN+vMAf95u+Y917lXBUb8fR2cW+a0k8x5ZjTTbhu8LjI8B70LvRI+D5D6EQWjQEG+5QsfEjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aD7snWdFsYXwAVcEGUH/h+z/1UfPF825jPQAVGrAfas=;
+ b=Jp5SfSSfZoKwNEVwNP2bGTg4utwm+BCvixQwYeMPIQHTvRjftJJjMhyO006xyULriT+sQ4ULLg5u2/0pky9Q3E3tWriCODrChNFXdyA9xrMRP6KA3xxwx8hCUePKAWRndfFNMTUzWlduBOhJNLE7NJuoOtVFiwEXlEO+nmGE2SNEASpeo6Nl6T2jxWvzVtdwNbgr5wN4CCFzsw6GuTXHQDO58jsBryJQ/lcoS+BMKojpsfm32YA70O0v7tYXgvXMhUesSQVWhCqWTqwcGZLXX1S1hcU5U4BWUjlasPA1ZYUQDdVv2okQ9hVjQum7ADYu8Ak5s+Fb3RQMjyBqfAkARQ==
+Received: from SJ0PR03CA0061.namprd03.prod.outlook.com (2603:10b6:a03:331::6)
+ by CH3PR12MB9193.namprd12.prod.outlook.com (2603:10b6:610:195::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
+ 2026 01:02:33 +0000
+Received: from BY1PEPF0002696A.namprd05.prod.outlook.com
+ (2603:10b6:a03:331:cafe::21) by SJ0PR03CA0061.outlook.office365.com
+ (2603:10b6:a03:331::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Thu, 8
+ Oct 2026 01:02:33 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BY1PEPF0002696A.mail.protection.outlook.com (10.167.244.154) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.14 via Frontend Transport; Thu, 8 Oct 2026 01:02:33 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
+ 2026 18:02:08 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 7 Oct
+ 2026 18:02:06 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Wed, 7 Oct 2026 18:02:05 -0700
+Date: Wed, 7 Oct 2026 18:02:03 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Peng Fan
+	<peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v5 4/6] iommu/arm-smmu-v3: Support shared SIDs in
+ insert/remove_master
+Message-ID: <asbrixWURytrZgfx@nvidia.com>
+References: <20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com>
+ <20261006-smmu-shared-sid-v5-4-169a59c671d3@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261006-smmu-shared-sid-v5-4-169a59c671d3@nxp.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0002696A:EE_|CH3PR12MB9193:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99ad7c19-2290-4e6e-636b-08df24d7d5af
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|7416014|376014|1800799024|22082099003|18002099003|10067099003|4143699003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: /C+BGfE+0TpCytwSNcexX1hsMBHoJDHee0AMqXvmpnIs3xSFilRUQzzX3a7lxGYeVTBAM613RdR3cBdCUtggZ844kDty3zY/G685wMwfTwj6rdcqcR2jzV8qzZU9hk4cyHPMXTV/e5Nq2qQLoIOoXZAOoouRW8LZMV75ftsCX9HjGE5qOPApoOlSdDtl3tZYLKBvCsoDBpartR2dbbvlU2e5N26KQO2w8SyiICTN6YooDNMWgRqoXgaI+munARWsLWiR7ep0BbVKev6l8pACnsd9XPwhnVHBVBTsQzCbrdGjvA8mit33Na2926NlFHoOaVV61q6cS+21ujauJy9O/MZ1+VIIcguycauF0DqqoDAKe/Fn2jDvLCyOmauE9KwYYGb+4+4y9Em3LAtFRb1hxCf6SyqBz+W3qHJOfzyEK2DaPYGQ3suujJ9D4oq8FXt5Jw9MJ9t3ef+nxfOsP+wTA8O2iBAiedytSLwedIBW/b+DmP9Q6ayvHVPb43z0sKRkW7/0660xzSYI34h0xxbzmHnhSsbdReeQ2N/famBk+gE+Hd1GfqH5UT/qAZX+MaCUPzuzE73zgVWAWpOLiK+D/stH1oaVcD5UiBE/eG8JwCB5OzWBjiJayJRASCzqBXyHqMhRy8K5nBD2dPAUisLtuQR9TUm3uITG2U5QQwnFXRWC8s5abl/wK1MFSLUMBpLx9i5DkE3lOcdmoN/ZhA9CzA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(7416014)(376014)(1800799024)(22082099003)(18002099003)(10067099003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /asRt+RPY1VTKSlHS7CQMAWXs+Up3HH2TNOssDWjrxlTVCl7GgwpAY9A/2nPWS4zGQnyTPFmvfoQ462MvjinyNJtmc+LxHsduoHyTQqkmKXuEr3X0kUAkctZ5OYNHs26pBbGGYyoYv3ZaQKL3LU93MY8q3JGG5Mo87mT0LohivDG5ftCZ+6gosK8gD2C5nsuKjWdXPigU3zQ7GQYZPvf5RiORRFqreZQYK0lBmnqAB/xvllF+d7mJvjCpuNm4WmIApRSIWPWplBvmO34+3i9GFpc2ykAoM2EsCnmbQ9BHWaxbxdi7uJQm4iodwbgVCAwagUnAnDjx4jm1eL2Fu3rKptI3E0A2N1pkYVq7FMnS43yfjW8pem+w51L0I1Vp7vXlvDjxCJzQLhrhBtoyC7A01rL7CiXbz4+4/eo+6Y13QqeLtiGBTOZZpCso/1tl7Xb
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 01:02:33.0142
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99ad7c19-2290-4e6e-636b-08df24d7d5af
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0002696A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9193
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_180242_528916_8C8FE4FA 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +133,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Sep 2026 22:39:22 -0600 James Hilliard wrote:
-> When both MTUs are at most ETH_DATA_LEN, the receive buffer size and MAC
-> receive limit do not change. Update the MTU without restarting the
-> datapath.
-> 
-> This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
-> rejects jumbo MTUs, so all supported XDP MTU changes take this path.
-> Jumbo transitions remain on the reopen path until the rollback change.
-> 
-> Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
+On Tue, Oct 06, 2026 at 08:19:10PM +0800, Peng Fan (OSS) wrote:
+> @@ -4193,17 +4213,31 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+>  		return;
+>  
+>  	mutex_lock(&smmu->streams_mutex);
+> -	for (i = 0; i < master->num_streams; i++) {
+> -		int j;
+> +	if (!list_empty(&master->shared_masters_elm)) {
+> +		struct arm_smmu_stream *stream = master->streams[0];
+>  
+> -		/* Skip duplicated SID pointers already freed */
+> -		for (j = 0; j < i; j++)
+> -			if (master->streams[j] == master->streams[i])
+> -				break;
+> -		if (j < i)
+> -			continue;
+> -		rb_erase(&master->streams[i]->node, &smmu->streams);
+> -		kfree(master->streams[i]);
+> +		list_del_init(&master->shared_masters_elm);
+> +		if (list_is_singular(&stream->shared_masters)) {
+> +			struct arm_smmu_master *last;
+> +
+> +			last = list_first_entry(&stream->shared_masters,
+> +					struct arm_smmu_master,
+> +					shared_masters_elm);
+> +			list_del_init(&last->shared_masters_elm);
+> +		}
 
-Someone marked this as Changes Requested in patchwork, no idea who.
+This doesn't look right: it still needs the for loop and also needs
+to compare master with stream->master:
 
-Change seems good, but it's an optimization for net-next, no fixes tag
+		if (!list_empty(&stream->shared_masters)) {
+			struct arm_smmu_master *next;
+
+			list_del_init(&master->shared_masters_elm);
+			next = list_first_entry(&stream->shared_masters,
+						struct arm_smmu_master,
+						shared_masters_elm);
+			if (stream->master == master)
+				stream->master = next;
+			if (list_is_singular(&stream->shared_masters))
+				list_del_init(&next->shared_masters_elm);
+			continue;
+		}
+		rb_erase(&stream->node, &smmu->streams);
+		kfree(stream);
+
+Nicolin
 
