@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D36CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3EBCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcfVFuw8y4allRfA0r8LA1ajHlqXqDKvtUL3AcNI1VM=; b=sXamZxbBB/7IApy1IngdladxL7
-	DCb5NVG3k5iEPz53XLIVmXpf7s1alB3nMgh5CkjObx/Gx0Myc3z10qFguJKRZuACkhwTIFDqFIaLb
-	Fx0D+HmBQ/IeWLVtoGP31a7yzBb1St1BjO8kisgId6PESw8TrOrvnfD8n/cLwyoZ6IZPTge0Nfnaj
-	i+EYTnyYjjvhni8lDxP8eVeyDUnLKBq0tT34EKxkW3Ej/i1+t6jBiCVMp6cpYK9cPKhoJNwOmTrXl
-	CChcOud43yst2lnpt4RN7aHTpsWnuB0F44kzMQMJnu2prbXXgoLQ4XY+OFQ2h4FM2eEjzos/vmId8
-	4UrmP35g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIpPz1UpL3BQdxIYnLSMw5YshVJjbS8hyfzOYYSfnhE=; b=XhEnIo+wLkX2BwhYHapUBwpc7V
+	TobVY/fTgy1qUzs0iyXHGlgRUPJrAU692rX2eWBsB3Av4SypARaFGQgNuYV11CBUWy4I0g4EwB4Sm
+	eUGKM2ty1Ap8WrU4I+Nt4RGAXi1XT6V+ccmgIyacjl4j9W4w3AhDamZO9T3ntoLaGto5VjeVN3rm1
+	qdbuqln2acwt2nMbR22wL8qKiagPsJwlfmAAxObZHrZMrGIzTighxa7/dw0irIjW7+i4EH7JXbmEs
+	rCjhWkl9tz1URpzk75ZBlbeWMaAhJqIcF1O9FwjOSHrtFc8AtebIVO1ol9JTVf2XkVThD28CifzU6
+	Tga1Y7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7hO-0000000625d-2uWH;
-	Fri, 09 Oct 2026 10:19:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7hL-0000000624p-0FUN
+	id 1xF7jA-000000062LS-1Xau;
+	Fri, 09 Oct 2026 10:21:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF7j9-000000062LL-25P3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:19:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF611570;
-	Fri,  9 Oct 2026 03:19:25 -0700 (PDT)
-Received: from [10.0.152.148] (e121487-lin.cambridge.arm.com [10.0.152.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 175DA3F66F;
-	Fri,  9 Oct 2026 03:19:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791541168; bh=0uVZyrSFbnCmq47O9I86ihSpiigxgO/1CIG2YpZmSJo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oo1qP3xCOPVzdsZY5Bu3Nj7H0Fu17aqZj0jg5Q30YOLcT2xf+jNt2pkortidfLyJs
-	 Ggy36Voo+Y2Z6rPUjJ3ghqkXcOpqL/XbzVllM4n6g2U9cLILoJ7hn/wFgWAYcr0cfg
-	 FmeDxZ8JvqMbSLasm3Y5l53OENbRF5XOl6uyVrww=
-Message-ID: <cf5ad22c-31b2-4076-8d69-3be4fc4c72e5@arm.com>
-Date: Fri, 9 Oct 2026 11:19:23 +0100
+	Fri, 09 Oct 2026 10:21:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9A6B6053A;
+	Fri,  9 Oct 2026 10:21:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7654C1F000FF;
+	Fri,  9 Oct 2026 10:21:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791541282;
+	bh=YIpPz1UpL3BQdxIYnLSMw5YshVJjbS8hyfzOYYSfnhE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y5cvMEgLaLkeEj2DUK34+2bylqpEZVynN5T0cYRkzBCUfc+Rnd+eRFJ4QzX/4zdDz
+	 3A/LJdi/4FVwRQg5HoQrNJZyZepbdi4tCWvBz/4Wag+Hr85uEBMYdFUn9SqlaLibIl
+	 yicsJa0nQi4Qb9H1vMwpXrkODEDqdt4mWxbqjdgUwPKr8mHAHWjd5FiK+MEZWQ1iwO
+	 4E/SoDsM7dmXLmNiP2pU3gViTBVs2qWewhD6n4CuZPDEBG/CtRtBHfkGpgKvYZX525
+	 4uI0kFt9f7XX03G3YcM6fB6Q5vkKZ6+L1BnF+EWwy/5zvRXxBO6dlFpW0xwCHy0UQ5
+	 NS6Be/cluAiew==
+Date: Fri, 9 Oct 2026 12:21:18 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	=?utf-8?B?U8O4cmVu?= Andersen <san@skov.dk>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 1/3] arm64: dts: freescale: imx8mp: skov: fix sort
+ order
+Message-ID: <20261009-obedient-vulture-of-courtesy-6a061c@quoll>
+References: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de>
+ <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-1-11fa90f531fc@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] arm64: insn: remove deprecated memory barrier types
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
- <vsethi@nvidia.com>, Tejun Heo <tj@kernel.org>,
- Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- Lucas Wei <lucaswei@google.com>, Barry Song <baohua@kernel.org>,
- Oliver Upton <oupton@kernel.org>
-References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
- <20260928133034.243541-2-ada.coupriediaz@arm.com>
- <dc663e58-b366-4f97-a260-0aff278f2f6f@arm.com>
- <a163f846-dbc3-4077-ab9c-a17d31656af2@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <a163f846-dbc3-4077-ab9c-a17d31656af2@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_031931_323754_7B387CF0 
-X-CRM114-Status: GOOD (  22.99  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-1-11fa90f531fc@pengutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,108 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ada,
-
-On 10/7/26 18:05, Ada Couprie Diaz wrote:
-> Hi Vladimir,
+On Thu, Oct 08, 2026 at 11:15:59AM +0200, Steffen Trumtrar wrote:
+> The imx8mp-skov-revc-jutouch should be alphabetically before the
+> imx8mp-skov-revc-tian variant.
 > 
-> On 07/10/2026 07:21, Vladimir Murzin wrote:
->> Hi Ada,
->>
->> On 9/28/26 14:30, Ada Couprie Diaz wrote:
->>> Arm ARM DDI 0487 version M.c[0] deprecated a number of types
->>> used as options for the DMB and DSB instructions, with no change
->>> in behaviour.
->>> The deprecated types are not used in the kernel, so remove them
->>> from our instruction generation framework and add the missing
->>> `AARCH64_INSN_MB_OSH` case in `__get_barrier_crm_val()`.
->>>
->> Arm ARM says that OSH has the same behaviour as SY, so I'd assume
->> any user of OSH should be fine to upgrade to SY, no?
+> Sort the entries in the correct order.
 > 
-> As you mention below, OSH is _technically_ not deprecated for DSB, so I think
-> it would make sense to add it for completion.
-> Though, given that it is indeed equivalent I can see the argument for leaving it.
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 95ae85ab4adf5..49025ae465f22 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -475,8 +475,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
 
-Ahh, missed that. I think if we go for inlining barrier encodings into 
-aarch64_insn_gen_d{m,s}b() then we can keep OSH for completion.
+Odd diff hunk. Next has offset difference of 300 (!!!), thus this
+suggests you develop on some old tree.
 
-> I initially wanted to silently convert deprecated encodings to SY and co.,
-> Mark was against the idea but I guess it could be OK just not providing them.
-> 
->>> This simplifies the switch-case and now covers all the enum types,
->>> which allows for making the DSB and DMB generation non instrumentable
->>> in a follow-up commit.
->>>
->>> [0]: https://support.arm.com/documentation/ddi0487/mc/
->>>       (See C6.2.150, C6.2.152)
->>>
->>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>> ---
->>>   arch/arm64/include/asm/insn.h |  6 ------
->>>   arch/arm64/lib/insn.c         | 10 ++--------
->>>   2 files changed, 2 insertions(+), 14 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
->>> index 1ce75a4426387..8ec9d86cc575c 100644
->>> --- a/arch/arm64/include/asm/insn.h
->>> +++ b/arch/arm64/include/asm/insn.h
->>> @@ -302,14 +302,8 @@ enum aarch64_insn_mb_type {
->>>       AARCH64_INSN_MB_ST,
->>>       AARCH64_INSN_MB_LD,
->>>       AARCH64_INSN_MB_ISH,
->>> -    AARCH64_INSN_MB_ISHST,
->>> -    AARCH64_INSN_MB_ISHLD,
->>>       AARCH64_INSN_MB_NSH,
->>> -    AARCH64_INSN_MB_NSHST,
->>> -    AARCH64_INSN_MB_NSHLD,
->>>       AARCH64_INSN_MB_OSH,
->>> -    AARCH64_INSN_MB_OSHST,
->>> -    AARCH64_INSN_MB_OSHLD,
->>>   };
->>>     #define    __AARCH64_INSN_FUNCS(abbr, mask, val)                \
->>> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
->>> index e70ac02385153..c70820d65805f 100644
->>> --- a/arch/arm64/lib/insn.c
->>> +++ b/arch/arm64/lib/insn.c
->>> @@ -1572,16 +1572,10 @@ static u32 __get_barrier_crm_val(enum aarch64_insn_mb_type type)
->>>           return 0xd;
->>>       case AARCH64_INSN_MB_ISH:
->>>           return 0xb;
->>> -    case AARCH64_INSN_MB_ISHST:
->>> -        return 0xa;
->>> -    case AARCH64_INSN_MB_ISHLD:
->>> -        return 0x9;
->>>       case AARCH64_INSN_MB_NSH:
->>>           return 0x7;
->>> -    case AARCH64_INSN_MB_NSHST:
->>> -        return 0x6;
->>> -    case AARCH64_INSN_MB_NSHLD:
->>> -        return 0x5;
->>> +    case AARCH64_INSN_MB_OSH:
->>> +        return 0x3;
->>>       default:
->>>           pr_err("%s: unknown barrier type %d\n", __func__, type);
->>>           return AARCH64_BREAK_FAULT;
->>> -- 2.43.0
->>>
->> It looks like NSH, ISH and OSH applies to DSB and deprecated in case of DMB
->> which is slightly confusing. Given that we drop bunch of encodings perhaps we
->> can inline logic in aarch64_insn_gen_d{m,s}b()?
-> 
-> Yeah I can see an argument for that, I'm not against it and it probably makes
-> the error handling in patch 2 a bit cleaner...
-> 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Happy to take a look!
-
-Thanks!
-
->> Cheers
->> Vladimir
-> Thanks for the comments !
-> Kind regards,
-> Ada
+Best regards,
+Krzysztof
 
 
