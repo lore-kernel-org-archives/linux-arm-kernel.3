@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D296BCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02413CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GVEmKvoXyu8KBHCLnt2mchmD+Laaaz1j3SJenXEiVGs=; b=rJES1KS/ipClYIykWga/RsYALt
-	Rm3HOuUTXEujti0SEd6GR21YlK5Kp+GAdhFKzOWhXljI+r+Y3u+V337QF3afRFm9K8d2y3/HdNxyp
-	dVecgAq1yH2OUA3eiZFtTggLIr6VwXO0CDK/6e7QepsmWXhPO/70iipzgFKy0lnk/7bhXA14NaIW8
-	ISY/5BKR76zLN88CW+f792nowTVuHN57ydAPDQGspIpwdy0GtEa0gW5PztazYaYcmcz2ArXSa82LJ
-	U0MWyCQ0NInSsd6QywlQr4RSZBANjGQJuF8HT+OIlAADuDKRqcZ+fmIJSZIXs7FYtb9KVjKEhHHfj
-	DuIg9DDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=; b=Jy87t9HpWf8mJtyxWPsHVU6/1N
+	+QoW6AXCnXRhR5VCwvftE+QytPedOHJmm3dLjg6Q4gmOMEB9PBZG7aBabBxY0jCKJpzkdJjSfD7Q0
+	dwHYhxsMoaViMy/0C+xsZRlDBM7tyRgUQhIGA3CPlvoEqIy9ow/XS8rmOmZakvdB2bDPnzZXJWZsF
+	hUWkrT2te3H5M4eaLKTfMqAWHjkQFENGyj0v6u9lmnZgsQrsk/+rXUTpWBjmGVKb3KKbBoV19DsfF
+	yXK0Plyd2+iIgmxX1YrHzIHte/xQ2NJZ1+7NSIFhFr/mIf57UUOwtpVjAP3jGTy0tE8A+zMGerK+R
+	O4mSh/lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgiD-0000000Dm8s-0McA;
-	Tue, 13 Oct 2026 17:54:53 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xGgjF-0000000DmLG-2WFB;
+	Tue, 13 Oct 2026 17:55:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgi9-0000000Dm5o-1AN8
+	id 1xGgjF-0000000DmLA-0pwY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 13 Oct 2026 17:55:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=; b=hon0RSKUJrDDIIj46yaFAMjyYp
+	JgbYPnOOTtOuPjMDtHPL9RkwlJhBb/XydcEiVRs3i7VdeZ3vR4dq0rkdZVWtuzKCogBpwoMXOXGYD
+	Ij9NdJQy/cl35OsIspeyLl9+v9vFmoioDNyhM/GiiYehwViBKnZ7ow001Z0elJiHjTQvOvN7EMrxs
+	QrWYybCj7xiFVaPmST3IXJxOsAE1ZDPa6M9IYQmAFt/aDjTF27rp7qvB6Xqjj9uoUPup/K5oXmPhk
+	mWpsdhHXH3opqP01NH/+t2f9mXHq62GqPkCKkIzhzbTEw5Wn2q3ZV3AKyKk3nHLIvNZDG7F6BFBX8
+	0TEpxb7Q==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGgjC-0000000FtTo-1DHG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:54:51 +0000
-Received: from killaraus.ideasonboard.com (85-76-151-95-nat.elisa-mobile.fi [85.76.151.95])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9407919C;
-	Tue, 13 Oct 2026 19:52:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1791913962;
-	bh=ddKVGzWfBmOAVDerK2BUxx2wXfVDrBJEGGKCQ56psI0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k6j5BKT0EGOkJios12b3aB7nLoioDIoflPh/BsNditJsMk8lnPZQ35KHQDg7bUQZF
-	 J0DlrSGskS/Mp8coI10ndV8FlQJwi/j1VVJWJsF+WXwwSbl3KHRcLVO9MRonL2lw3C
-	 djKHXnwNfpWHu4kvN6jIaYH7wSZCOjnF6K/oRkhk=
-Date: Tue, 13 Oct 2026 19:54:38 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH v3 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
-Message-ID: <20261013175438.GL4214@killaraus.ideasonboard.com>
-References: <20260916204509.166633-1-marex@nabladev.com>
- <20260916204509.166633-2-marex@nabladev.com>
- <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
- <20261013132625.GA159927@killaraus.ideasonboard.com>
- <acdfefce-a7cd-4918-bcca-52357bcf182d@amd.com>
+	Tue, 13 Oct 2026 17:55:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1C134C653FA
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:56:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7A7726075C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:55:52 +0000 (UTC)
+Received: by mail.galae.net (Postcow, from userid 0)
+	id 01C7911D718C1; Tue, 13 Oct 2026 19:49:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791914152; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=;
+	b=Vctox5wWoeRxml3XUIb5H/SML7kLIV5LLbzjghzY54RfWBymoC+4xbARJqpByfO/nFmjBS
+	PIX49sW4FhlmriAGJqRwisbnDGfjuVxhu9bvYAIk/XKvOn78TrB8RZYyQCMRsfw6hczihM
+	qWkMbSMQYSETiEN7FYTcbyKQsB5XCdOttikiqFcIdlnIxZI291xzg6Gj23UHleznuZG3O6
+	ihCsdyYdoPU5jM6Q/JkQbZIEKZKTPtYmNhoqivi+3q95JHXuiHJvG6zZLrVsvhSOFiOFJy
+	PaZZruKyDgWRapgSowJaJpZwHPOTT43xUaYnJXcoIrVmbxa8NapCNG6PSAR8fQ==
+Authentication-Results: mail.galae.net;
+	none
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ arm@kernel.org, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] ARM: mvebu: dt for v7.4 (#1)
+In-Reply-To: <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
+References: <87o6d96w7w.fsf@BLaptop.bootlin.com>
+ <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
+ <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
+Date: Fri, 09 Oct 2026 16:35:15 +0200
+Message-ID: <87y0c754d8.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <acdfefce-a7cd-4918-bcca-52357bcf182d@amd.com>
+Content-Transfer-Encoding: quoted-printable
+X-TUID: TMJZZvMpmX7E
+X-Last-TLS-Session-Version: None
+X-Rspamd-Queue-Id: 01C7911D718C1
+X-Spamd-Result: default: False [1.49 / 30.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	DATE_IN_PAST(1.00)[99];
+	BAYES_HAM(-0.91)[79.82%];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	RCVD_COUNT_ZERO(0.00)[0];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
+	BCC(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[7];
+	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
+	NEURAL_HAM(-0.00)[-1.000];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	URIBL_BLOCKED(0.00)[BLaptop.bootlin.com:mid,bootlin.com:url,localhost:rdns,localhost:helo];
+	FREEMAIL_CC(0.00)[lunn.ch,gmail.com,lists.infradead.org];
+	MID_RHS_MATCH_FROMTLD(0.00)[];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_105449_475788_9E3C7DAB 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20261013_185554_404233_5B9A373A 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,78 +118,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CC'ing missing ARM64 SoC maintainers.
+Hello Krzysztof,
 
-On Tue, Oct 13, 2026 at 03:47:12PM +0200, Michal Simek wrote:
-> On 10/13/26 15:26, Laurent Pinchart wrote:
-> > On Tue, Oct 13, 2026 at 10:21:26AM +0200, Michal Simek wrote:
-> >> On 9/16/26 22:44, Marek Vasut wrote:
-> >>> Add support for ifm ZynqMP VHIP6 EvalBoard reference design.
-> >>> The board is populated with four ethernet ports, QSPI NOR,
-> >>> eMMC, UART and USB host interfaces.
-> >>>
-> >>> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> >>> ---
-> >>> Cc: Conor Dooley <conor+dt@kernel.org>
-> >>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> >>> Cc: Michal Simek <michal.simek@amd.com>
-> >>> Cc: Rob Herring <robh@kernel.org>
-> >>> Cc: devicetree@vger.kernel.org
-> >>> Cc: linux-arm-kernel@lists.infradead.org
-> >>> Cc: linux-kernel@vger.kernel.org
-> >>> ---
-> >>> NOTE: Checkpatch complains about ethernet-phy-id2000.a240 being
-> >>>         undocumented, but the TI DP83822I is generic C45 PHY that
-> >>>         is valided by Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> >>> ---
-> >>> V2: - Rename lm75 node to sensor@
-> >>>       - Use GPIO_ACTIVE_LOW macro
-> >>> V3: - Drop bogus clk_ignore_unused bootargs
-> >>>       - Drop gpio line names
-> >>> ---
-> >>>    arch/arm64/boot/dts/xilinx/Makefile           |   1 +
-> >>>    .../dts/xilinx/zynqmp-vhip6-evalboard.dts     | 300 ++++++++++++++++++
-> >>>    2 files changed, 301 insertions(+)
-> >>>    create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-vhip6-evalboard.dts
-> >>
-> >> I am not able to review or take this board support further without publicly
-> >> available hardware documentation for the platform (board-level and relevant
-> >> interface details). Please share public documentation links once available, and
-> >> I’ll be happy to revisit the patches.
-> > 
-> > There are plenty of boards that have no public documentation. Pretty
-> > much all phones and laptops are like that. We even have a whole
-> > architecture that only runs on a few machines in a single person's
-> > basement [*] :-) The kernel has never required public schematics for
-> > boards, SoCs or IP cores.
-> > 
-> > [*] A slight exageration possibly, but that's how I heard arch/alpha/
-> >      being described at the maintainers summit.
-> 
-> Pretty much every SOC with programmable logic or FPGA boards have unlimited 
-> amount of configurations and make no sense to describe all of them.
+> On 09/10/2026 09:21, Krzysztof Kozlowski wrote:
+>> On 04/10/2026 22:34, Gregory CLEMENT wrote:
+>>> ----------------------------------------------------------------
+>>> Krzysztof Kozlowski (1):
+>>>       ARM: dts: marvell: Replace spaces indentation with tabs
+>>>
+>>> Rosen Penev (10):
+>>>       ARM: dts: helios4: fix lm75 supply name
+>>>       ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
+>>>       ARM: dts: marvell: add missing SDHCI clock-names
+>>>       ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
+>>>       ARM: dts: armada-388-helios4: fix vmmc property name
+>>>       ARM: dts: helios4: fix vbus-supply for USB2 PHY
+>>>       ARM: dts: helios4: fix spi1 location
+>>>       ARM: dts: helios4: use national,lm75 compatible
+>>>       ARM: dts: helios4: add #phy-cells to USB nop phys
+>>>       ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
+>>=20
+>> Your pull introduces new warnings for undocumented compatibles:
+>>=20
+>> https://lore.kernel.org/all/202610021617.AlVUa9No-lkp@intel.com/
 
-As far as I understand, the dts describes the board only, there's no PL
-devices in there. The fact that the SoC has programmable logic doesn't
-seem relevant, unless I'm missing something. The situation is the same
-as with any other SoC. We have lots of device tree sources in upstream
-for all kind of boards, with or without schematics available, for
-development boards or for boards integrated in products, for easily
-available mass-market products or for specialized devices more costly to
-source.
+Is it OK to resubmitted a PR without the patch introducing the error ?
 
-Maybe I'm wrong about all this, so I've CC'ed all ARM64 SoC maintainers
-on this e-mail to get feedback on the overall mainline policy for
-upstreaming device tree sources.
+>>=20
+>
+> And I found the binding patch which is not right (which was pointed out
+> at v1 but never responded to), so neither is DTS change.
 
-> It means what make sense to describe are boards which people can look, check and 
-> compare that configuration against their custom design.
-> But if there is no public documentation what you want to use to compare against?
-> 
-> Can anybody even buy this board? (I expect you can buy that phones and laptops).
+I finally found what you refereed;
+https://lore.kernel.org/all/20260907-unnamable-geography-d04f61df0fe5@spud/
 
--- 
+I was not in CC for this one, and indeed when applying the patch I only
+checked that the driver supports the compatible string, I wrongly
+assumed that if the driver support it then the binding was already
+merged. Sorry for the mess.
+
 Regards,
 
-Laurent Pinchart
+Gregory
+
+>
+> Best regards,
+> Krzysztof
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
