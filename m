@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E325CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 15:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA9CCA601D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 15:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1YiuwOkmVmw2TR3U6ofYFBJqolf1+GepxpnmmNdj0A=; b=3lzZfFNF7Kbe4BpmErS8g/WEFZ
-	cWAh10wCMX6bRXAMu1RU7oCbcLC7EFksAdHWYTZxD7ltfnFRHojrKAxyOhVRuNf9hogDzdOXIQa+B
-	riEy/U26GxBdT2E2LZG3ctqFwBOVSFjZRurZ3G2JWT+Nid/t4E9CdYGRFlfhu/T8bdcXfIIqa39Qj
-	3KD1A9ruTA39zNEmX0ftdblqaxldZqt4Vk8FlwQSLBXRh/94j0ehkzeGwVXvuQdYWIK9yc50gbFC6
-	1rvr//NaxZBm7tHe+gh41eMStS27T+GUIW3oGSZ/qaEr80NeIv1os5iRT2ZHH5KoBoEozJGCg/FBW
-	1e3s81JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hW384t0h2Ph2SSnHhXZ7QohAhZBqm6VgljxUEN4wbHg=; b=SdLC/vilmemPrU37fb+XCtusMa
+	4+fyHB/ThEq1ujuVMLJ5vfn7VZI1v1YOUFGIJpPaSP86i5JbPgzd83QIIG+JQi1Mi+fbFB2iowUp0
+	CBElsVqCrG2uzDtED1dkNjFUwDm7daBPPtGW2HPSPn5Mw5dJGtGNaZi99TM++HHG3C4N/1AkwnSjI
+	h82RhV0uD8TRZfHI9HVvZYMQnZ7romLWi6uwj3xshjOnWnyvgUGgvwrs0q25sMdC1bbGkbJ7H3276
+	nRKnA7JNV/4Ocq+NMFjaglEhz2LkbrQvgT2FkFNdS/LHcx0qsx1O2N9dO0iqf1KMEbcn5iq7XKvz0
+	eouR4hPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFCbg-00000006XcI-3hcy;
-	Fri, 09 Oct 2026 15:34:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFCbS-00000006Xau-1Ag3
+	id 1xFCez-00000006Y03-0Jin;
+	Fri, 09 Oct 2026 15:37:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xFCew-00000006Xz3-0uHj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 15:33:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3029960098;
-	Fri,  9 Oct 2026 15:33:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE511F000FF;
-	Fri,  9 Oct 2026 15:33:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791560024;
-	bh=p1YiuwOkmVmw2TR3U6ofYFBJqolf1+GepxpnmmNdj0A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Wgd4EbRqsKHfqf2MAhNBuTTEeIXUShu+oxcLKEnC2crXixpIzqHuTgQiTwgLVKv6/
-	 Ny3pr4tzUQ8YyI89eFmpOZoWsWzdFzsevTbT1NVLuecAaQkhCGIdvPXP1sjbg5Vloe
-	 tql/dCSczJQnpSEdoqaVDfeEPqH9yg75ybcheoi9AaLzduQIn7/HR8eCl5lIZWC1a3
-	 Ua3BOsLawZl1KcEQ+WmESuvpIty+HbtpsFhsRvB3DXO6LiLgfU10rz6EHE/plIPj4u
-	 y8v3sHjrf6rC3Gqm5r52nFF4aKz3pChx/dw1md25cKkM1FMQ9FEroVu8EHuLHf/B4d
-	 TT4Xyarrgdn6A==
-Date: Fri, 9 Oct 2026 16:33:34 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Harini Katakam <harini.katakam@amd.com>,
-	Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, git@amd.com,
-	Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Subject: Re: [PATCH v4 4/6] dt-bindings: dma: xlnx,zynqmp-dma: Add Versal Net
- compatible support
-Message-ID: <20261009-adf9c30d2d6f7a25bb1dc041@squawk>
-References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
- <20261009-adma-pm-fix-and-per-channel-reset-v4-4-55f5fe409c55@amd.com>
+	Fri, 09 Oct 2026 15:37:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CE781476;
+	Fri,  9 Oct 2026 08:37:16 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C2383F763;
+	Fri,  9 Oct 2026 08:37:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791560239; bh=4TGnf+qefgabk6iF56KMINVP9Q/BF98PVmUp+DBTV3g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sChMW5DBFwMbrPOQZkTOJPaHM48w5+K+UZ8VdfXK6IkcLrLJtFoD2dYMhW2rxT0rA
+	 3vMKTV4yI4GFvRQxB0Se5tUyOkJgNWjrPcFVI5aIOxUeUbzRc5xnLrh2H5ZBH25WGa
+	 o6Q8WoExOZPOO14JHHOokMnr8Js3yNMG4xIYZMJ8=
+Message-ID: <52ba8a64-2d3d-4c3f-ae8f-54ab4f0f164d@arm.com>
+Date: Fri, 9 Oct 2026 16:37:08 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N9GlTL/oEVtyOx8o"
-Content-Disposition: inline
-In-Reply-To: <20261009-adma-pm-fix-and-per-channel-reset-v4-4-55f5fe409c55@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint
+ bit
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Daniel Mentz <danielmentz@google.com>
+Cc: Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
+ <20260924001502.GO1540250@ziepe.ca>
+ <CAE2F3rCVh0CmW6+a__PcCrBgsMJVompKJX_qYBdQ=exj3bYtCg@mail.gmail.com>
+ <20260924225340.GC16465@ziepe.ca>
+ <7ab6eab6-ec6e-47dc-b387-eb380e2e365c@oss.qualcomm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <7ab6eab6-ec6e-47dc-b387-eb380e2e365c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_083722_430893_4FD87444 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,150 +78,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---N9GlTL/oEVtyOx8o
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 09/10/2026 11:09 am, Vijayanand Jitta wrote:
+> 
+> 
+> On 9/25/2026 4:23 AM, Jason Gunthorpe wrote:
+>> On Thu, Sep 24, 2026 at 11:49:50AM -0700, Daniel Mentz wrote:
+>>> On Wed, Sep 23, 2026 at 5:15 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
+>>>>
+>>>> On Mon, Sep 21, 2026 at 04:44:07PM +0530, Vijayanand Jitta wrote:
+>>>>> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+>>>>>
+>>>>> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
+>>>>> When a set of consecutive PTEs map a naturally aligned contiguous block of
+>>>>> memory, set CONT on every descriptor in that group so the hardware can
+>>>>> combine translations and improve TLB reach.
+>>>>>
+>>>>> Advertise the supported CONT group sizes in pgsize_bitmap. Callers select
+>>>>> those sizes through the normal page-size selection path; io-pgtable-arm
+>>>>> then installs the corresponding tagged descriptors directly. A partial
+>>>>> unmap of a tagged CONT group is rejected before modifying any descriptor,
+>>>>> so a rejected request cannot leave the group partly unmapped.
+>>>>>
+>>>>> The IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT quirk allows SMMU drivers to disable
+>>>>> CONT support for hardware with implementation-specific errata.
+>>>>
+>>>> smmuv3 has this errata, it must be disabled there too. I didn't notice
+>>>> it in this patch?
+>>>
+>>> SMMU is an architecture specification. I am not aware of errors in
+>>> this architecture specification that would preclude the usage of the
+>>> contiguous bit. I understand that Arm MMU-700 has the following
+>>> erratum
+>>>
+>>> 3777127 Under invalidation in TBU possible when using contiguous page
+>>> table entries
+>>
+>> And a neoverse one too.
+>>
+>>> The recommended workaround is described as
+>>>
+>>> "Ensure that contiguous page tables are removed using a single range
+>>> invalidation. Arm recommends using range invalidations to remove
+>>> contiguous entries anyway for performance reasons."
+>>>
+>>> and I believe we are already doing this.
+>>
+>> No we aren't. Go read my fix on this:
+>>
+>> https://lore.kernel.org/linux-iommu/1-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com/
+>>
+>> I have another patch that fixes it for iommu domain mappings too.
+>>
+>> Jason
+> 
+> Sure , will disable it for smmuv3 for now.
 
-On Fri, Oct 09, 2026 at 09:30:13AM +0530, Golla Nagendra wrote:
-> From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
->=20
-> Introduce a new compatible string amd,versal-net-dma-1.0 for Versal Net
-> ZDMA. The new compatible requires xlnx,zynqmp-dma-1.0 as a fallback.
->=20
-> Add a reset property to describe the per-channel reset line exposed
-> on Versal Gen2 and Versal Net. Mark the resets property as required
-> for both Versal Gen2 and Versal Net, and not applicable for other
-> platforms.
->=20
-> Note that making resets required for Versal Gen2 and Versal Net results
-> in an ABI break, but this is unavoidable. While the driver works in many
-> scenarios when no other firmware has used the DMA prior to Linux boot,
-> there is no guarantee the channel is left in a clean state. In observed
-> error scenarios, a reset is necessary before Linux can reconfigure the IP
-> after previous use by other firmware components. Due to configuration
-> differences or the DMA being left in a bad state, DMA functionality fails
-> when sequential software components use the channel (e.g., firmware before
-> Linux boot). The channel can only be cleanly re-configured after a
-> per-channel reset, making it essential. This ABI break is only applied
-> to Versal Gen2 and Versal Net where the per-channel reset capability is
-> available.
->=20
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-> Co-developed-by: Golla Nagendra <nagendra.golla@amd.com>
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
->  .../bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml   | 34 ++++++++++++++++=
-+-----
->  1 file changed, 27 insertions(+), 7 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma=
--1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.=
-0.yaml
-> index 2da86037ad79..ff8c9a0e5559 100644
-> --- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.ya=
-ml
-> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.ya=
-ml
-> @@ -16,17 +16,17 @@ maintainers:
->    - Harini Katakam <harini.katakam@amd.com>
->    - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> =20
-> -allOf:
-> -  - $ref: ../dma-controller.yaml#
-> -
->  properties:
->    "#dma-cells":
->      const: 1
-> =20
->    compatible:
-> -    enum:
-> -      - amd,versal2-dma-1.0
-> -      - xlnx,zynqmp-dma-1.0
-
-This used to be an enum, so please preserve it as one.
-
-> +    oneOf:
-> +      - const: amd,versal2-dma-1.0
-> +      - const: xlnx,zynqmp-dma-1.0
-> +      - items:
-> +          - const: amd,versal-net-dma-1.0
-> +          - const: xlnx,zynqmp-dma-1.0
-> =20
->    reg:
->      description: memory map for gdma/adma module access
-> @@ -59,6 +59,9 @@ properties:
->    power-domains:
->      maxItems: 1
-> =20
-> +  resets:
-> +    maxItems: 1
-> +
->    dma-coherent: true
-> =20
->  required:
-> @@ -70,13 +73,29 @@ required:
->    - clock-names
->    - xlnx,bus-width
-> =20
-> +allOf:
-> +  - $ref: ../dma-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - amd,versal2-dma-1.0
-> +              - amd,versal-net-dma-1.0
-> +    then:
-> +      required:
-> +        - resets
-
-The change here for versal2 is an ABI break (new required property) and
-needs to be split out into a standalone patch. The new support can go on
-top.
-pw-bot: changes-requested
+I still can't see how that would be necessary. Sure SVA has to cope with 
+invalidating any old arbitarily-sized range that could have been a mix 
+of pages, blocks, cont, whatever - that's fair enough. But for 
+io-pgtable through the IOMMU API, a partial unmap of anyhthing which 
+could have been mapped as a cont range would already be invalid and 
+should fail. Thus for any unmap which could validly include any cont 
+ranges, iommu_pgsize() would have already picked a granularity that is 
+some multiple of the largest cont range size being unmapped, so even if 
+the total gathered size exceeds a single command, we still wouldn't 
+split it _within_ any single one of those ranges, only at a boundary 
+between two unrelated ones.
 
 Thanks,
-Conor.
-
-> +    else:
-> +      properties:
-> +        resets: false
-> +
->  additionalProperties: false
-> =20
->  examples:
->    - |
-> =20
->      fpd_dma_chan1: dma-controller@fd500000 {
-> -      compatible =3D "xlnx,zynqmp-dma-1.0";
-> +      compatible =3D "amd,versal-net-dma-1.0", "xlnx,zynqmp-dma-1.0";
->        reg =3D <0xfd500000 0x1000>;
->        interrupt-parent =3D <&gic>;
->        interrupts =3D <0 117 0x4>;
-> @@ -84,5 +103,6 @@ examples:
->        clock-names =3D "clk_main", "clk_apb";
->        clocks =3D <&zynqmp_clk 19>, <&zynqmp_clk 31>;
->        xlnx,bus-width =3D <128>;
-> +      resets =3D <&reset 0>;
->        dma-coherent;
->      };
->=20
-> --=20
-> 2.43.7
->=20
-
---N9GlTL/oEVtyOx8o
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaskJTgAKCRB4tDGHoIJi
-0nYQAQDoViJPC2UPwMN0oUIk0GyH01JuNpqn1aqCxqop8YyWBQD+I+ulv/qRdx5e
-yIcfLs5EJM8GnSliJPXOA0nAJDWMKQc=
-=cwYt
------END PGP SIGNATURE-----
-
---N9GlTL/oEVtyOx8o--
+Robin.
 
