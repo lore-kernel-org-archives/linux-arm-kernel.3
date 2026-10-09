@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55766CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C255CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=vO1vYg7tOZ8soEd5Xc1Itb7REC
-	ksQoQeZ277VVJ9DKlv8sRkK4RXACb/eGnv7Vt8ZDz1VM6d0Tfg2ysD0q0HLys01oRGpx0idm34Mdk
-	qcXhCNH07212D4Rwz56PXz9WYvtWl/dD1ekd4TEzhpliyvy8d7Lrr5/Pa+qQ7c4hJ4tg4jIqp+rw3
-	uUz74Ko7Ukz0oQFaB2a0aifGW3zyY2wEKTrUgzNH9ar2GP1YXkF59JRKpv/U+x+QHj5hYOQhGOIQV
-	B0oQRqs+86gGmcoed9Q9jVQG46jW4FsC4ANJaz88Bqjtcl7e5ZHDvjcGWSFgCr+WTtK0hGPmc8RJ7
-	PJWGqP8A==;
+	bh=g12nnmx2URm15ceIKI7TQ1hob+O8zuALvg+ycI7aBOQ=; b=CbnyRezvikqz0uQ/+DmC+5ODzg
+	UffLf5+Y0wSI974HDKnMf9+h8DUFk1AFHDsKfVdGDbR1hRIBgIrP904RafQoVcoZNHMTYKGqArb40
+	Hu1j/aKOSJ1Di+sZVXQx5E2jdkuHlNkhx2Zp/pit59TBk7KSGoxBiNM2JDQcsLCElrvSF6rQJfgVm
+	zT3jmfYXjRWe4ph8WvWLfAd5e0TMnxYr4FI1MZR21lGAMVDbtp64ajoTxKsrDsj/r3YkplkusFy2f
+	7YUAuwyLz/1iljbiBKrZRBGjpPbMoFBHVOXXWeEq4BchTcIruaKjjput2NugLu+ZluPvs7lMGO7Jb
+	jFE4B1Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7rv-000000064DD-3lFN;
-	Fri, 09 Oct 2026 10:30:27 +0000
+	id 1xF7sy-000000064Qu-0Eie;
+	Fri, 09 Oct 2026 10:31:32 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7ru-000000064C6-12l1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:30:26 +0000
+	id 1xF7su-000000064QT-3ryg;
+	Fri, 09 Oct 2026 10:31:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 760296053A;
-	Fri,  9 Oct 2026 10:30:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23CB71F000FF;
-	Fri,  9 Oct 2026 10:30:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D60860DBB;
+	Fri,  9 Oct 2026 10:31:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B30B1F000FF;
+	Fri,  9 Oct 2026 10:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791541825;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DJVRWBF//LTZ9A+Pw0aZTVccxYUuh3vpa/X0StCzB3z/L0c8lzEzWvgpK9SOoS4k9
-	 FrX4U8ErewvwMYftLDk2pdQADpDrB/nfgEUAF4uIB6rXLU44ifNwVIT0tLRRegRJkF
-	 rSCqc096EJ1a/iaHcEBrg8mI6PUMn3UnJkUms68jyxfNIgzQb5UkRwd7ebaT1zMOsr
-	 xg4iZ3ZAXCkp3IeoWWc3/Rn4uIrLssdjZ08SZE5gTpZFp7RPOAyt1pUB1Bmoaa64bm
-	 7yLgyCbBv+DQW9x2FZkwr64VYEuTTHm+AdulHtZQWYiTIORIoNjspoa+OF22aDyI4e
-	 4mRmRxuAtyDnA==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- James Hilliard <james.hilliard1@gmail.com>
-Subject: Re: [PATCH net-next v5 0/3] net: stmmac: introduce XDP rx multi-buff support
-Date: Fri, 09 Oct 2026 10:30:23 +0000
-Message-ID: <179154182368.2527009.383686573505818394@kernel.org>
-In-Reply-To: <20261009-stmmac-rx-mb-v5-0-c38fa4eaa138@oss.qualcomm.com>
-References: <20261009-stmmac-rx-mb-v5-0-c38fa4eaa138@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1791541888;
+	bh=g12nnmx2URm15ceIKI7TQ1hob+O8zuALvg+ycI7aBOQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K/kRAwFY9Q+MWWgCT3W+Q7iElzNrv5q3mGba5eAbc6Du5nrDbhqp/oigOYRxiacmj
+	 9z2DF366U6XE8r7IyKSUN7iRHmRpidMGrqBMCqyUP79gV62mJnezWlYkx+jyqL51WS
+	 6D4XUbh9TqgnTmejUj21EENabGH685/KDjgmrxURCp630//qOCi5V1ukDYraKdXFBb
+	 e5I44YFaI0srFzYCgEgsF1LQ4QMIZrIygxeU/nCEWr3Ma6e570+40g2DVFx85JOpNa
+	 tefA6Irn7hqOLqh4wO7bLvMM8XxrIvP6u2dzZcbB+bLAuO5GwoaD80UxkEjAddWmZc
+	 CzXcukw7iQ08w==
+Date: Fri, 9 Oct 2026 12:31:24 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>, 
+	Billy Tsai <billy_tsai@aspeedtech.com>, linux-aspeed@lists.ozlabs.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
+Message-ID: <20261009-vehement-mature-mackerel-f7bc87@quoll>
+References: <20261008-aspeed_pcie_phy-v1-0-96764937aef0@aspeedtech.com>
+ <20261008-aspeed_pcie_phy-v1-1-96764937aef0@aspeedtech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261008-aspeed_pcie_phy-v1-1-96764937aef0@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+On Thu, Oct 08, 2026 at 07:28:19PM +0800, Jacky Chou wrote:
+> Introduce device-binding for ASPEED AST2600/2700 PCIe PHY.
+> The PHY provides the physical layer used by the PCIe
+> controller when operating in root complex mode.
+> 
+> Describe the compatible strings, register range, clocks and
+> phy-cells value required by the PHY provider.
+> 
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  .../bindings/phy/aspeed,ast2600-pcie-phy.yaml      | 49 ++++++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
+> new file mode 100644
+> index 000000000000..686b2e3d9457
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+What? v9 here:
+https://lore.kernel.org/all/20260115-upstream_pcie_rc-v9-1-d6c82a1556a7@aspeedtech.com/
+from the same person, reviewed, but you ask us to do the same work
+second time? Really?
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Best regards,
+Krzysztof
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
 
