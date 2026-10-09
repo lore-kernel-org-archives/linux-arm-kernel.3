@@ -4,123 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1140CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8AECA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yx2WnKvEdS11l9IWSE6fv38e21+5iBA2wfNbqaEuCjE=; b=vBXP7RjWG25BHuEoeqaMAlELVI
-	oa07tjwGcjNMr2kgsSseTA9EHafMpf0xRqqI1aStGb1pZdX/eKOoWX8grbRkjwXyGnIVI55nhphmF
-	Ja7q0rsgmh7Fiy9gKqi/miMqV+aISKyL2Nx5CplQIw6oUslH65NVuGzSV892NugNU9ZI9fvmKugM4
-	kD5aPUORlD4q715UYt6AwLy30mja49RPsmGj/oINoLU8AU+GGRmcSe0rFDjCRLeWOVJxN8ZXQgTaT
-	KRJrFcaqCQXTu/lsKlBv0CHSJhem9631CpFAtalxiAdVDqBRoFZv2YqXaIpZ1ZqDZ6HnESOXf58Mf
-	DvAyCeYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CRIIxOajP0yzIY23BtbyoAhj2PBRdU9IpmRdYvRMNJ4=; b=fHLYNnbBjQH44S
+	44+4tW7eI5mjQmBOtXtDfqh0odMborrpmPqPf9HzoM2cr2QB4w9ZGyRk3xatUktka0w40AAbFXQ1K
+	ufpYpg2JJiz2Pys/qwlfOoXJqrxJBbXGvWUsHBhUlFTzeDZZ4Lv/HRDWd3e2ihPFqCrpuG2sHTRX2
+	eIy7dANTOqzYlGH2ooA8Q5ooGPDjQBwh9FL75jy3nkGq4wZYUTTpaRSTRCs+rW4ETgWu5xrtkJdYG
+	PPtX4sTZwJW9ns8Atf32SWON1w18G29DiE3bU/FvMz9Aq91yoSdpB/Df0+kTGx+knNTOZZpgniSWJ
+	6BRUPhrY0C4YadUEKh1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHVh-00000007Cna-0zHZ;
-	Fri, 09 Oct 2026 20:48:09 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1xFHaO-00000007D8x-3Ohr;
+	Fri, 09 Oct 2026 20:53:00 +0000
+Received: from mail-yw1-f177.google.com ([209.85.128.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHVe-00000007Cmw-3N3a;
-	Fri, 09 Oct 2026 20:48:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791578886; x=1823114886;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Yx2WnKvEdS11l9IWSE6fv38e21+5iBA2wfNbqaEuCjE=;
-  b=ZIyPwUO+XR4A2v4PCffFiYE4vFd+CWAhkxD8duLR5apdpC1+osLWZOiX
-   w2Tlq0YjDlwhT12pBSo8H3YYuEmuWenKy+upw8we5c2sjRS9459mTLUO7
-   1R+8gq7En4uyQNB6zS2ocN6855gUPVaa3C77aA4l1byAaOGkxntFdCC7l
-   4mW2kmOuaaVTiSyg2A/+EBbhV4mGq8yiKy5KAf6+WzoD6il+dATcpWBPt
-   x0C+CmdSrhNnTgRLjizIFryyRPlq92Cd/Rj2ewbRPA0fVj54s0u62T6oZ
-   jA7OZSXevJwBMNPtEgfHPE+Skch3eJ3UgZXniWHvjIAAof4mX3afF6GdK
-   Q==;
-X-CSE-ConnectionGUID: BgW/9DMXR6SQag4uaJE8PQ==
-X-CSE-MsgGUID: R6fRc3L1TlaGoeEPdPYF3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11930"; a="277920"
-X-IronPort-AV: E=Sophos;i="6.27,149,1787036400"; 
-   d="scan'208";a="277920"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:48:05 -0700
-X-CSE-ConnectionGUID: 2m33Y0liQmGGAODzyZB35A==
-X-CSE-MsgGUID: qiLxGGcPSTazmWfte8OiKQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,149,1787036400"; 
-   d="scan'208";a="722194"
-Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.84]) ([10.125.109.84])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:48:05 -0700
-Message-ID: <b62aa96d-6c83-476c-bc28-7c2057702063@intel.com>
-Date: Fri, 9 Oct 2026 13:48:04 -0700
+	id 1xFHaM-00000007D8N-07yt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 20:52:59 +0000
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8ab3d3c5761so760927b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 13:52:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791579176; x=1792183976;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CRIIxOajP0yzIY23BtbyoAhj2PBRdU9IpmRdYvRMNJ4=;
+        b=BMfIH5KCi2nO4kbuPZ8EI3XsjCXnWlefMlRcu9n/2+Cz4jvig3/N/UV4JaozQso1iZ
+         5RnMXxx5uVf5ZZeaWS/Rs+MugQkZnL3ohHzRK9vfv6gHnSGDyOzktbjRaNdl8SgrKA/z
+         s3x5CbtuKBTiSBHfd8iHyjgP66CP/JC6cX1sybmPNFNmwF1BvYhgXQ/5K4CyTY1s3QS7
+         VInLVeEwndufpMINLxrTAx+jQPmCKEc6TNTMKXLkxzg+UMvUFzBho30YQ0F/gORNpsna
+         QXxvRss3K9Auk3XPjyEgIwtqlY+jdWYm7WorxIVJgG4g/7p1W8FaPmcI/pgCjwT196n7
+         pxRw==
+X-Forwarded-Encrypted: i=1; AKwUvBy5Uo3fxf0+e49wJLeGqklSS0WowEjjrjhZHsdNml7VtMMG/BagHXWHT1WCdwBXKKjhxe5UlHMbyM8+2detdlWh@lists.infradead.org
+X-Gm-Message-State: AFq9FYIKDaxF+mT1T7rsNJ1qXZ9YOFTHOzJr8QA9a48FS9HLQoQu6BpT
+	eOS8gmaG+9Dn3a/H4C7Wmgcs3oQxVUXoSp0hNyCKtwvo2/1mRuUkYC1v4YYlizwJxRE=
+X-Gm-Gg: AYBFou1Waj7yU3SYlGqzHiZILraQiYqKNWZ7U72xOXNEZfZm2F1Q04f0THtlaICdyRP
+	rnCMdTlvCIPtEtMp4lR8lyseoupKdR6eAKguuCJJ1uQxZznF6deeQ0YAyX0Nrufs4UxtEZdIrSB
+	iGmYMVI6ScmyH6MGgiEJgpxH83C6n5RmGhZgOuvICC23LPtOkKjGdCzzhwvoTKHnfyb8meL5bwq
+	fEEZxqo+xwGrRI9LIsjPZ/Mnsi01gD8PCiGhwti+Ke1enZP1A9nY+GM6JUk16fIPusvvtJi7Hth
+	thrRi+mhZKK9zKsKFqcw4CWSQUIQz8gu0EfC7e1akrbg0oznsUk9KWdzN5mRf+3YXJJtxX5l2RB
+	RlX6xcfX7ctbnlNRisejHRj9fASmXNyjPLRckLat1A6orwZXKK/MKph1dQ1M4kCZ/oDwpatxb/j
+	FtUUdNq4br39WnqecK8q+qtv0Ap218sdsyy3xF7boniPzgPjE/pGBL6BLoRLd0ATWeOCHNDTy/I
+	MJqnjOBZwrFOS0cUGBV5albcFT+OpvdlUmaifLOS+sSFpMDVn43I+f3MHm6+naM9od9qrFlWygd
+	3A==
+X-Received: by 2002:a05:690c:e3c8:b0:8af:5053:5c96 with SMTP id 00721157ae682-8b07edc6594mr12187037b3.16.1791579176598;
+        Fri, 09 Oct 2026 13:52:56 -0700 (PDT)
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com. [209.85.128.171])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b07ee8a075sm12437457b3.5.2026.10.09.13.52.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Oct 2026 13:52:53 -0700 (PDT)
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8ad98c3fb15so642817b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 13:52:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByWyQ+WiS5chELGZKzqpAuHDRwypvDPErCLcwRegvbMW4+cYmbHys5DGA48qPTuSn6vyvOTlpVWAXTRT7sC53ag@lists.infradead.org
+X-Received: by 2002:a05:690e:440f:b0:677:d3d8:990 with SMTP id
+ 956f58d0204a3-67936768725mr589216d50.6.1791579173056; Fri, 09 Oct 2026
+ 13:52:53 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] mm: Fix page-table teardown during memory hot-remove
-To: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, stable@vger.kernel.org, david@kernel.org,
- osalvador@suse.de, dave.hansen@linux.intel.com, luto@kernel.org,
- peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
- x86@kernel.org, hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
- kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
- linux-kernel@vger.kernel.org, muchun.song@linux.dev
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20261008073021.2512665-1-songmuchun@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261007082627.63807-1-tanure@linux.com> <d23dfdf3-5837-459f-afd6-6c198a05c13c@lunn.ch>
+ <CAJX_Q+2au4x99kj=UBqn4joQCM3-D2kbaJ0zro9Y4RXka7ePvQ@mail.gmail.com> <3a037c87-e4c5-4a4e-9522-cf505e1c6399@lunn.ch>
+In-Reply-To: <3a037c87-e4c5-4a4e-9522-cf505e1c6399@lunn.ch>
+From: Lucas Tanure <tanure@linux.com>
+Date: Fri, 9 Oct 2026 21:52:41 +0100
+X-Gmail-Original-Message-ID: <CAJX_Q+22tckoRKsEt9_oakAsN=+cwHdX+WPcaGWR9_3EMqM5ow@mail.gmail.com>
+X-Gm-Features: AclHuK_m9bgs2ZxoWfD-m6qDBIuQp5RI_xHW6gmLTuflU7vtLwdOlVbkLA0qUf0
+Message-ID: <CAJX_Q+22tckoRKsEt9_oakAsN=+cwHdX+WPcaGWR9_3EMqM5ow@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 0/7] Add ethernet support for the Amlogic T7
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_134806_864298_0C725E12 
-X-CRM114-Status: UNSURE (   6.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_135258_102939_ACD9E55F 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,14 +105,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/8/26 00:30, Muchun Song wrote:
-> This series is limited to bug fixes for the existing teardown paths.
+On Fri, Oct 9, 2026 at 1:13=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Fri, Oct 09, 2026 at 06:59:49AM +0100, Lucas Tanure wrote:
+> > On Wed, Oct 7, 2026 at 2:01=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wro=
+te:
+> > >
+> > > On Wed, Oct 07, 2026 at 09:26:20AM +0100, Lucas Tanure wrote:
+> > > > The T7 pairs a Synopsys gigabit MAC with the same glue registers th=
+e
+> > > > G12A has, but nothing described it. This adds the binding, the driv=
+er
+> > > > support and the device tree nodes, and enables the port on the Khad=
+as
+> > > > VIM4.
+> > > >
+> > > > Unlike the G12A, the controller reaches DRAM through a pipeline sta=
+ge
+> > > > with a gate of its own, sys_ampipe_eth. Nothing else claims it, so
+> > > > clk_disable_unused switches it off and transfers stop.
+> > > >
+> > > > v2 changes the RGMII delays, after review. phy-mode describes the
+> > > > board, not which chip adds the delay, so this board is rgmii-id.
+> > > > dwmac-meson8b did the opposite, and ignored the *-internal-delay-ps
+> > > > properties. Patch 1 fixes that. The VIM4 needs it because the RTL82=
+11F
+> > > > transmit delay does not work here.
+> > >
+> > > What is special about the RTL8211F?
+> > Maybe nothing, it may be this board. I cannot tell from here.
+>
+> Yes, look at my other reply. The RTL8211F is very likely correct. It
+> is the MAC drivers handling of delays which is broken. You get to fix
+> it for this new device.
+>
+>    Andrew
 
-Why is this a series? Why not send the architectures independently? Is
-there some dependency where they all need to be applied at once? What do
-you want done with this series? Are you expecting it to be merged via
-the mm path or the individual arch maintainers?
+Doing exactly that. v3 leaves the existing delay code alone and adds a
+path used only by the T7 compatible, built on Maxime's
+phy_fix_phy_mode_for_mac_delays(). Testing it now, then I will send
+it.
+
+Thanks,
+Lucas
 
