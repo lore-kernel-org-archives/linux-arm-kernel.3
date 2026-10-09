@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187E2CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3D5CA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ochuzTWM4V34l70Ffd53HPtFv1TRtidFe+9vEvB6V0=; b=Ur5FL2/Nf7Bgcm9p8hN0/f8bmX
-	C71m1fFnu1IOKYoxj3nBJagQsPBFqfm+Zf+55cTpM4HhUVE+BjzwEKhw7su980nqpLFmuXLmbKJ3v
-	kgkJQNY/mXcPuOk0WsYcQTqutBvT3WXCs8xad3SGhkBr/a8BRvcgiuT/46GdacIqp6o1UrZaQrvHn
-	3SAr6r8Q8OArdKB8Lf34pqXFeDnJdZZrSAtdE0mHVRTouTOqopFitjvf1fPqQfjPb1gt5q4w5TCBt
-	GLvSWgJUXU612+mdCrJw5Qe4vpODSnXZ7Uwa6YQ2LxZ8j40pjxy+2xVERqq/XyMA/6CijuuUXAzaP
-	I1Eufe3Q==;
+	bh=/s3Lbiloemf0P5lVKd7CO+NXtdjl9lXaZ6C19RxmqW0=; b=RMIYFOBDGkqnY31vxYhFG+Guh/
+	xB5M3hvhravwhYOUcNv+em+5MR0yNrb/Ijk9S8ppMwjUP+1xZMb5u7tdMTeSAYeBZ8QvmCarZZl+T
+	aLmkRl/uWD8/J9uQzJP876XoOMIc9OJbUiAdkPZ/ymmY4O/XSWNhZtLb0epWVL7z1XU8GsUJbS7OD
+	pidtG3e2/I6a4MI6nv7qmFmhI6Y38YpDISYeYMvYSawnQNK4DP1IyGlfPZZ6NGJWyDgwPHAF2Qa8V
+	/NwiWF3CEUWdtG3zuNC1TadORWhAIoDGhvtUsrGy1RRMCFbmIgdQVPb+bssxO1WdgKMtdkY8kBS69
+	QyLL5EqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF51h-00000005isc-3PDv;
-	Fri, 09 Oct 2026 07:28:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xF539-00000005j0g-00wN;
+	Fri, 09 Oct 2026 07:29:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF51g-00000005isV-47TN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 07:28:21 +0000
+	id 1xF537-00000005j0T-2Ilw;
+	Fri, 09 Oct 2026 07:29:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F0EE42D78;
-	Fri,  9 Oct 2026 07:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABCA1F000FF;
-	Fri,  9 Oct 2026 07:28:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB1A8602C3;
+	Fri,  9 Oct 2026 07:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F6661F00893;
+	Fri,  9 Oct 2026 07:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791530900;
-	bh=3ochuzTWM4V34l70Ffd53HPtFv1TRtidFe+9vEvB6V0=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=fOdlqDsPNy/BOHDSsGrcvSUxzXDVEy/n91vALtajkpxrtSAipZRGdiMKP/Bl+5YuI
-	 B57rJT5WqiN4eOC3EqfHno8f6BMp7VHCq1z4KUzXx2ctONWpcEOjmK1z0GBcJp3HpZ
-	 sbhJMLQ3aYDYsa5r6wYi5FAYY6RjAmhbNkKTcJpW9k0pXdijvptIOmcmw8SFms820g
-	 GrQQWs25Du4xuHIZVXq8vcNM4akbG2+EibZpi3NU1qugWJpbDsWRF29w07ktSKgviK
-	 1ouDhCv8pIJuaVwajvMxkVmZZGrElHjja0nx/TBSr1zln+FR1cXaduKGFqkbKuk3xC
-	 W4cE/smVc36iA==
-Message-ID: <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
-Date: Fri, 9 Oct 2026 09:28:15 +0200
+	s=k20260515; t=1791530988;
+	bh=/s3Lbiloemf0P5lVKd7CO+NXtdjl9lXaZ6C19RxmqW0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ASsMTGOC32s6aRYigVMmUQeV7zp1Hf6b3fNWY7FBM2nbBfgHAMV0hvTq1FOMmt3uC
+	 AlDWrO9PdjPggh+EZRE0M0wnwCzlSwqWv6A1q3KAVnoVM9FXOzO+uIb4CQ6RL5QEd4
+	 XrMbkj9im5A5QvpbPvmNIvS4k84VdKLgVUU1zFHHhmngSXIS1uTz3nhM0dJlBPyHNr
+	 /oc97sd/SgVvE4L0LanE9bTeqVoBtrjgKWLhLHhYtgkttzsXUaZN38FtC23D2PeSyX
+	 oNrmADhUd8uxUReUGYyfjaLgQSq76RI4e+S4vkslAAqopjnFFKOxCtxHm4ZLt+RZ9L
+	 FX0q6iUolIGmg==
+Message-ID: <2d7acd00-0cb5-4002-9663-a39dc4e55ad3@kernel.org>
+Date: Fri, 9 Oct 2026 09:29:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ARM: mvebu: dt for v7.4 (#1)
+Subject: Re: [PATCH v2 05/21] ASoC: dt-bindings: Add binding for Apple Silicon
+ Mac audio
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: David Rhodes <david.rhodes@cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
+ linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-5-7b47ed6335a8@gmail.com>
+ <20261009-daring-objective-flounder-c0b66d@quoll>
+ <rT1KWd0SSiuQLd7MLQWREA@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>,
- Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-References: <87o6d96w7w.fsf@BLaptop.bootlin.com>
- <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -99,9 +112,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
+In-Reply-To: <rT1KWd0SSiuQLd7MLQWREA@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +129,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2026 09:21, Krzysztof Kozlowski wrote:
-> On 04/10/2026 22:34, Gregory CLEMENT wrote:
->> ----------------------------------------------------------------
->> Krzysztof Kozlowski (1):
->>       ARM: dts: marvell: Replace spaces indentation with tabs
+On 09/10/2026 09:21, James Calligeros wrote:
+> On Friday, 9 October 2026 5:17:53 pm Australian Eastern Standard Time 
+> Krzysztof Kozlowski wrote:
+>> On Sun, Oct 04, 2026 at 04:03:32PM +1000, James Calligeros wrote:
+>>> +examples:
+>>> +  - |
+>>> +    sound {
+>>> +      compatible = "apple,j416-macaudio", "apple,j316-macaudio";
+>>> +      model = "MacBook Pro J416";
+>>> +
+>>> +      #address-cells = <1>;
+>>> +      #size-cells = <0>;
+>>> +
+>>> +      dai-link@0 {
+>>> +        reg = <0>;
+>>> +        link-name = "Speakers";
+>>> +
+>>> +        dai-tdm-idle-mode-0 = "zero";
+>>> +        dai-tdm-idle-mode-3 = "zero";
+>>> +        dai-tdm-slot-tx-idle-mask-0 = <0xf0f0f0>;
+>>> +        dai-tdm-slot-tx-idle-mask-3 = <0x0f0f0f>;
+>>> +
+>>> +        codec {
+>>> +          sound-dai = <&speaker_left_woof1>,
+>>> +                      <&speaker_left_tweet>,
+>>> +                      <&speaker_left_woof2>,
+>>> +                      <&speaker_right_woof1>,
+>>> +                      <&speaker_right_tweet>,
+>>> +                      <&speaker_right_woof2>;
+>>> +        };
+>>> +
+>>> +        cpu {
+>>> +          sound-dai = <&mca 0>, <&mca 1>;
+>>> +        };
+>>> +      };
+>>> +
+>>> +      dai-link@1 {
+>>> +        reg = <1>;
+>>> +        link-name = "Headphone Jack";
+>>> +
+>>> +        codec {
+>>> +          sound-dai = <&jack_codec>;
+>>> +        };
+>>> +
+>>> +        cpu {
+>>> +          sound-dai = <&mca 2>;
 >>
->> Rosen Penev (10):
->>       ARM: dts: helios4: fix lm75 supply name
->>       ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
->>       ARM: dts: marvell: add missing SDHCI clock-names
->>       ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
->>       ARM: dts: armada-388-helios4: fix vmmc property name
->>       ARM: dts: helios4: fix vbus-supply for USB2 PHY
->>       ARM: dts: helios4: fix spi1 location
->>       ARM: dts: helios4: use national,lm75 compatible
->>       ARM: dts: helios4: add #phy-cells to USB nop phys
->>       ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
+>> Example looks incomplete, you miss TDM slot properties.
 > 
-> Your pull introduces new warnings for undocumented compatibles:
-> 
-> https://lore.kernel.org/all/202610021617.AlVUa9No-lkp@intel.com/
-> 
+> The machine driver generates the TDM slot assignments for the DAIs
+> and sets them at runtime.
 
-And I found the binding patch which is not right (which was pointed out
-at v1 but never responded to), so neither is DTS change.
+Ah, I found them in dai-link node, one level up.
 
 Best regards,
 Krzysztof
