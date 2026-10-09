@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2E2CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F7CCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JwBUaKiDw3DL4V1VblyqY4NlQUKc0x+WHZ55mtpZGk=; b=AIDy/2eZncosRq8ujqbc2EMoOX
-	GnAdVhBstvC+PkyispopG3ZqbCV1ssHb1APvGXMQanKSuGTRz5OSlYvVcVqXqJqbheymNLbzdT2jV
-	ZQ7/yhi57H9m7Rf+k9ELEb52C0akHEgYIpldJ0llvCejNUGKQ8ot/cuNvV6o0FnpQ/HEuEBkCNUm8
-	SSbU4GkwCDUnHPf8Mj6rZ8aYWwLoPfUQQIKUY0KvB5Wo0NF0BnLBDK7WQFVKstj0/mt7l+C3UM3wv
-	E8Gonu7FMxlAY+m/LKsCfKkMUgDvp1YyKV98bjDN6VUPx8XcyOMVcgI9+QW9RAKqnFdJ//qzKtH7K
-	Defg5i+A==;
+	bh=KxB3Cha/PsBtuyJk6VtBE2+Wy+Unuom6P88kKuk/PeA=; b=nudgw3lysnAAtOYrbZ8MBBrkky
+	WP/liYhfmYquU6sLCnDE3CvNw+JaIlvg89pWQALEnsEiCWk46gHf/dPTFkcRuAIIz1tnzVPeBNNDD
+	dmHVed3ZqDugEsZ5m6wfrZW5WpGOsg8DH7LpClUdMOZ7mU0Ny+1xbu6jt/oDEfH/osmJRlU0qnc+n
+	R2+ZDx/Ozz8GQ9zsRiFICDniKkYv9mkBxDXZZT4h89HqgxDqLBVTnWvCyZGhNk2ohgooY52ERQUcq
+	uqTNSox0NG+hCcKPVSSFjoASC5gSVjLTHLE+1tX6ipr4W6glxFTga+I4KpPrpB9IYA6gaoZjth3Fe
+	uITY/wtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5Tf-00000005loG-0aHu;
-	Fri, 09 Oct 2026 07:57:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xF5f9-00000005mkq-0v1c;
+	Fri, 09 Oct 2026 08:09:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5Td-00000005lnb-1SNO
+	id 1xF5f6-00000005mkk-1bdC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 09 Oct 2026 08:09:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KxB3Cha/PsBtuyJk6VtBE2+Wy+Unuom6P88kKuk/PeA=; b=MM6z1mzuP9oqiWyz0hpRSh2tYu
+	PHZb+l4RQHnCFl0iZU0XQg4wHVkGNdpNvFXQurbqaLhuv5VdD9evBO9czb0Sv3oHF/PkusS7EuF+a
+	1gs6vd8h40sfVCAluSSSVbS440CvY/nPgCFKPA68i1VqRps569LxNTmbdesPidO05RfCtK+mS/b7y
+	ot9mH/3NpffvoB6mvLPkg+6fnQNxLF/2CFe/SAo1N1tT2zCyxyNeAPtPisuXKEFIWeS+Z0RA1/Ikp
+	k4lA8C4aj+4BKnOILiHihE+B6uVQ7z3eMBDhxBsJCEHUUppI0BirhNfI4ya98zB+cDtZJFbNJ5aNT
+	TYnpZKXQ==;
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xF5f1-0000000B0zb-47Ge
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 07:57:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB35C602CC;
-	Fri,  9 Oct 2026 07:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888031F000FF;
-	Fri,  9 Oct 2026 07:57:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791532632;
-	bh=7JwBUaKiDw3DL4V1VblyqY4NlQUKc0x+WHZ55mtpZGk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iXBkcs1ozdItQ91Qzqsd9bSnGiaVHmmQXgWX31nAahFHARHVMlRC01fE/XmvxTcaB
-	 AxmiA9IBMQT1BEgvXWlPPqAKWJ1DK7wtvu/u33eqUlFHZ5HJ518T+j+TlvK48tFoO+
-	 vcoithhATsDmOJrOHoFlumiaZLTwOKF1O3v+Lusa8xnFhppIegGSvCTuXkY1zQ1Z+N
-	 sEAtMFWBHxxprOVTOQq9vwB98xCsb0zzQaYeZTpImM/zWsPiBhtxLWuBeTdah0I/Tv
-	 OcXDTvxQXr65PFPpvxoqiA5WZgehZIlTzQeKPoKAWYRsJm6Zpg939xRbs8gJnnBjV6
-	 IaytI+HxCZvKg==
-Date: Fri, 9 Oct 2026 09:57:02 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <asieTvinZ7c2QpQm@red-moon>
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arZDwutoadki7tiZ@ashevche-desk.local>
- <arZNL9BnTGK0Klwc@red-moon>
- <arZS4vwxps01dGb7@ashevche-desk.local>
- <arqSqcoWAkhy-8do@red-moon>
- <d1720b63-65bf-4019-bc19-1852555f7993@arm.com>
+	Fri, 09 Oct 2026 08:09:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791533339; x=1823069339;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YqCj2DI45rBAiCTfBWTa8ZEjISoBAV0jHOtCtO+LHRQ=;
+  b=UqPzd8aBy8NXZI+M86dO/gZUwhbF9gDnB9DsUx1TMEWM0OBd+yLYgm/r
+   n+arK2euNP7kK70kKngZPgkMP+EzxUuHV1xlX7QXdqG6oSLM0PizIOQgE
+   HQDRqU6AE5gPqv3FnRRlwCXALW/5SRY/jeRlg5e+RFm5wi7QbPPVpxZSJ
+   8m37APXdsvMos/dIVGCZg00FxdPqu1/8122DlF26+3nR0jDbhwEIrwjvG
+   6EYThRS1lKaHyK8FTzh9B0qLqyPqI24UxA5DZ2NogwZ6Nd0q/0OyOYCTg
+   nAmaHRkNB4rHSj1bUNCsPzWlbEE1Lg89Z5wLnqECtmxWQa0mM05U9nlMQ
+   Q==;
+X-CSE-ConnectionGUID: dIsZ+WLRTeKwVkIRWHtgXQ==
+X-CSE-MsgGUID: vZlShO7RSgiWPTorujsFvg==
+X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
+   d="scan'208";a="75117816"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 01:08:52 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Fri, 9 Oct 2026 01:08:51 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 9 Oct 2026 01:08:49 -0700
+Date: Fri, 9 Oct 2026 10:08:48 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Kusuma Vasana <kusuma.vasana@amd.com>
+CC: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>, <git@amd.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>
+Subject: Re: [PATCH net-next V4] net: axienet: Clear stale AXI DMA TX/RX
+ status before re-enabling interrupts
+Message-ID: <20261009080848.peze77mpvcub5wqv@DEN-DL-M70577.microsemi.net>
+References: <20261005090106.1594994-1-kusuma.vasana@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <d1720b63-65bf-4019-bc19-1852555f7993@arm.com>
+In-Reply-To: <20261005090106.1594994-1-kusuma.vasana@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_090901_122392_0E596EDB 
+X-CRM114-Status: GOOD (  33.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,169 +102,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 05:19:23PM +0100, Robin Murphy wrote:
-> On 28/09/2026 5:15 pm, Lorenzo Pieralisi wrote:
-> > On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
-> > > On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
-> > > > On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
-> > > > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
-> > > 
-> > > ...
-> > > 
-> > > > > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
-> > > > > > +						  const char *propname,
-> > > > > > +						  unsigned int index, u32 *value)
-> > > > > > +{
-> > > > > > +	u32 *values;
-> > > > > > +	int ret, count;
-> > > > > > +
-> > > > > > +	count = fwnode_property_count_u32(fwnode, propname);
-> > > > > > +	if (count < 0)
-> > > > > > +		return count;
-> > > > > > +
-> > > > > > +	if (index >= count)
-> > > > > > +		return -ENOENT;
-> > > > > > +
-> > > > > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
-> > > > > > +	if (!values)
-> > > > > > +		return -ENOMEM;
-> > > > > > +
-> > > > > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
-> > > > > > +	if (!ret)
-> > > > > > +		*value = values[index];
-> > > > > 
-> > > > > Use standard pattern, id est
-> > > > > 
-> > > > > 	if (ret)
-> > > > > 		...
-> > > > > 
-> > > > > > +	kfree(values);
-> > > > > 
-> > > > > You want to use __free()
-> > > > > 
-> > > > > > +	return ret;
-> > > > > > +}
-> > > > > 
-> > > > > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
-> > > > 
-> > > > Why what (that's what the irq_get() interface requires ?) I agree it is
-> > > > suboptimal - the whole point of the series is an RFC on using properties
-> > > > to store GSI number/flags, then how to read them we will optimize it
-> I>>> when/if we agree that's the approach to be taken.
-> > > 
-> > > Why to have indexed APIs. The callers usually do not want a single item from an
-> > > array, they want all of them or a big pile (exception is the array of strings,
-> > > but we have matching functions for that).
-> > > 
-> > > As per approach, this patch is against device property and I don't think we are
-> > > going to agree on the approach taken in *this* patch.
-> > 
-> > Coming back to this, what is needed here is a way to stash the GSI number,
-> > flags and name in stardard storage (like OF nodes IRQ properties, ACPI objects
-> > _CRS, etc).
-> > 
-> > To give you some background, I thought about adding an array of:
-> > 
-> > GSI [number, flags, name]
-> > 
-> > to the ACPI static fwnode itself. Then basically the irq_get() API has got
-> > all the information it needs from the primary fwnode; while doing that I
-> > thought that this might have been a bit like reinventing software nodes
-> > (granted, software node properties are ways more general that what I suggest
-> > above and I don't expect any other property to be ever added to static fwnodes)
-> > that's why I put together the series as it is, precisely to understand what's
-> > best.
-> > 
-> > When you say "against device property", what do you mean precisely ?
-> > 
-> > I suppose you mean that this approach goes against software node properties
-> > usage guidelines ?
-> > 
-> > Anyway, again, it is just to provide some context, we are talking about
-> > a bunch of platform devices, it is nice to have a generic solution but
-> > it has to be simple enough too given its scope, I understand very well
-> > your concern with this approach as-is - it is there to find a way
-> > forward together and show what the problem is.
+Hi Kusuma,
+
+A few comments:
+
+> The AXI DMA interrupt line is level-sensitive: it asserts whenever
+> the IOC (XAXIDMA_IRQ_IOC_MASK) or DELAY (XAXIDMA_IRQ_DELAY_MASK) bits
+> in the status register (XAXIDMA_TX_SR_OFFSET / XAXIDMA_RX_SR_OFFSET)
+> are set and their corresponding enable bits in the control register
+> are active.
 > 
-> I guess software node properties look inviting in theory since they're a
-> ready-made mechanism for effectively attaching arbitrary data to a fwnode,
-> however looking at patches 6-7 and the amount of boilerplate involved in the
-> reality, I'm inclined to think that a dedicated structure for static nodes
-> is probably the best and most efficient compromise here. The redundancy
-> argument rather falls apart once we end up creating copies of those
-> contentiously-made-up property name strings for every node, especially given
-> that any one of those alone is probably already more than the amount of
-> actual data we need per node...
+> During TX/RX, interrupts are disabled in the control register while
+> NAPI runs. Completions arriving in this window cause hardware to latch
+> IOC/DELAY into the status register regardless of the control register
+> mask state. After NAPI completion, re-enabling interrupts immediately
+> re-asserts the IRQ line due to these stale status register bits, even
+> when no new work is pending.
 > 
-> Perhaps the "purest" option might be to just store a function pointer in the
-> fwnode wrapper for each static table type to provide its own internal
-> irq_get() callback, so not stashing intermediate GSI data at all, but I
-> suspect that might end up being more work overall.
-
-Hi Rafael, Robin,
-
-I have not started prototyping it yet but I have got a question as a
-follow-up to our chat at LPC about crafting an ACPI device for the static
-table entries and sort out the probe dependencies using autodep.
-
-After spur of the moment reaction during the session, I now remember I
-thought about crafting an ACPI device for the static table entries and
-started digging then bumped into acpi_add_single_object() as you
-suggested.
-
-The point though is: what about the acpi_handle and the AML required to
-sort out the dependencies using the _CRS ? We have got the info to fill
-the _CRS coming from static table entries (MMIO, GSI) but I am not sure how I
-can form a full-fledged ACPI namespace object in the kernel, without
-that in place I am not sure how the autodep mechanism can possibly
-work.
-
-I need to have a deeper look into this next week but I wanted to ask first
-whether there was something I missed - most likely.
-
-Thanks !
-Lorenzo
-
+> This results in a stale interrupt and redundant NAPI poll cycle with
+> no new work pending, causing unnecessary CPU processing.
 > 
-> Cheers,
-> Robin.
+> In the initial driver, the status register was cleared after polling
+> all packets, which naturally consumed any status accumulated during
+> processing. In later versions of the driver, status register clearing
+> was moved to the ISR before polling begins, leaving no mechanism to
+> clear status bits that arrive during the NAPI poll window.
 > 
-> > 
-> > Thanks,
-> > Lorenzo
-> > 
-> > > > > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
-> > > > > array to retrieve a single element is simply wrong.
-> > > 
-> > > ...
-> > > 
-> > > > > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
-> > > > > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
-> > > > > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
-> > > > > 
-> > > > > Oh... This sounds like a big ugly hack.
-> > > > 
-> > > > That does not help much I am afraid.
-> > > > 
-> > > > What's a ugly hack ? Property names ? Using properties for this purpose ?
-> > > 
-> > > Yes, properties started with "linux," for some core functionality.
-> > > Yes, using properties for this also doesn't sound right. I think the problem
-> > > here is in the table specifications or somewhere that deep. That's why we
-> > > ended up in this series.
-> > > 
-> > > > Again, it is an RFC for this specific reason and I mentioned that in the
-> > > > cover letter, thank you for your inputs.
-> > > 
-> > > And here we have a discussion started :-)
-> > > 
-> > > P.S. Looks like I was too quick to jump into this thread. I will wait for
-> > > others to share their view on all this.
-> > > 
-> > > -- 
-> > > With Best Regards,
-> > > Andy Shevchenko
-> > > 
-> > > 
+> Clear the status register IOC/DELAY bits before re-enabling interrupts
+> and recheck the next BD to catch race-window completions. Both are
+> skipped on budget exhaustion. On the RX side, both are additionally
+> skipped on refill failure.
 > 
+> Signed-off-by: Kusuma Vasana <kusuma.vasana@amd.com>
+> ---
+> Changes in v4:
+> - Read back SR after W1C so the clear is posted before the BD recheck.
+> - Document that poll may return @budget on that recheck.
+> - Drop the incorrect "leave IRQ armed" wording for RX refill failure.
+> 
+> Changes in v3:
+> - Updated the commit description.
+> - Restricted TX/RX status-register clear and completion recheck to the
+>   NAPI completion path, with RX only when refill succeeds.
+> - Rechecked descriptor completion after status-register clear to handle
+>   race-window completions.
+> 
+> Changes in v2:
+> -Added net-next prefix in the subject
+> -Updated the commit description
+> 
+> ---
+>  .../net/ethernet/xilinx/xilinx_axienet_main.c | 29 +++++++++++++++++--
+>  1 file changed, 27 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index fcf517069d16..4d8169fc39cd 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -986,7 +986,8 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+>   * @napi:      Pointer to NAPI structure.
+>   * @budget:    Max number of TX packets to process.
+>   *
+> - * Return: Number of TX packets processed.
+> + * Return: Number of TX packets processed, or @budget to continue polling
+> + * after a post-clear completion recheck.
+>   *
+>   * This function is invoked from the NAPI processing to notify the completion
+>   * of transmit operation. It clears fields in the corresponding Tx BDs and
+> @@ -1018,6 +1019,17 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
+>                         netif_wake_queue(ndev);
+>         }
+> 
+> +       /* Clear stale IOC/DELAY bits, flush the clear, and re-check for
+> +        * race-window completions. Skipped on budget exhaustion.
+> +        */
+> +       if (packets < budget) {
+> +               axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
+> +                                 XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
+> +               axienet_dma_in32(lp, XAXIDMA_TX_SR_OFFSET);
+> +               if (lp->tx_bd_v[lp->tx_bd_ci].status & XAXIDMA_BD_STS_COMPLETE_MASK)
+> +                       return budget;
+> +       }
+> +
+
+The patch does not apply on my tree.
+
+This part was reworked in f9d58127380a ("net: axienet: do not report TX
+completions as NAPI work") to not return budget-sized work, it now just returns
+0.
+
+>         if (packets < budget && napi_complete_done(napi, packets)) {
+>                 /* Re-enable TX completion interrupts. This should
+>                  * cause an immediate interrupt if any TX packets are
+> @@ -1204,7 +1216,8 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+>   * @napi:      Pointer to NAPI structure.
+>   * @budget:    Max number of RX packets to process.
+>   *
+> - * Return: Number of RX packets processed.
+> + * Return: Number of RX packets processed, or @budget to continue polling
+> + * after a post-clear completion recheck.
+>   */
+>  static int axienet_rx_poll(struct napi_struct *napi, int budget)
+>  {
+> @@ -1301,6 +1314,18 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
+>         if (tail_p)
+>                 axienet_dma_out_addr(lp, XAXIDMA_RX_TDESC_OFFSET, tail_p);
+> 
+> +       /* Clear stale IOC/DELAY bits, flush the clear, and re-check for
+> +        * race-window completions. Skipped on budget exhaustion and on
+> +        * refill failure (cur_p->skb == NULL).
+> +        */
+> +       if (packets < budget && cur_p->skb) {
+> +               axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
+> +                                 XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
+> +               axienet_dma_in32(lp, XAXIDMA_RX_SR_OFFSET);
+> +               if (cur_p->status & XAXIDMA_BD_STS_COMPLETE_MASK)
+> +                       return budget;
+> +       }
+> +
+>         if (packets < budget && napi_complete_done(napi, packets)) {
+>                 if (READ_ONCE(lp->rx_dim_enabled)) {
+>
+
+I think the RX side looks good.
+
+>struct dim_sample sample = {
+> --
+> 2.43.0
+> 
+> 
+
+/Daniel
 
