@@ -4,59 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E369CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDC8CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 13:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NbVMXyUZ5inxdgY2SLFCR/wfTPMAAJ5LYcvDhvians=; b=C9sG+T7zZ8v/TZ25C/j8Yrqe+b
-	SmD4WOIGd5AqTlYQrzHETv4w+EDNXghjtxBDYEq5Bk4NoUCJIH8JEXxXzfj9GDv0nQsLFAz7EUsN8
-	slDMJarUUzMZUvnJfYpx0KbyAlVx9x0p3Bzh9cXDoCvv9iLqj4lO40HCK9god2z4t4sYEDUD6w+Cj
-	d6zKxM62wPphEC4AB7YzjjjlJSTtPKH5HvXjX4X7r1Eyl3qnjw7olzEtuSyowMbVC3D/aOCM/yYHn
-	7+J3LcEEFW6ZgLQAlfYnGZ9ZsVwLZ/+J13f9sy0BaV5lK7oqrbaOrM299gqkBlc/rTVicXrtaL/iw
-	XRNxZreA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=; b=XPtIcJFxfeNAl4BzES7/5ZGGbn
+	Z0Om95pZo2hfr2E2QpuYYFdT37HPnnJunZDUN91UQPLU5hw40HWnzSEg/1LlH0F1yWYEvHvURGSd2
+	Yy16W7OwJidqgHmMRNY1djXwbtGHQ6NL7EOPgebwGrOTpi8UOun3o5/ZKtHrGSpZeYq4V88EoqDgL
+	RpE8HGT4VgQe+yJvj5k72kgh6UmDDfxj243JdHg3SltrRg3zX5oRoamjwfL9rQEjkG/OoH5B3q92Q
+	DzYFePg0XV7E+r/9uGy7FIoawBEszcK1uJNA97BJTZmZeNVFyJ/G6p+318ZuEXP5G1ML47RXe3VlI
+	+brlEvPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFA7l-00000006LOn-0NXk;
-	Fri, 09 Oct 2026 12:54:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xFAFP-00000006Lxj-3emB;
+	Fri, 09 Oct 2026 13:02:51 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFA7j-00000006LO7-2Nmx
+	id 1xFAFN-00000006LxM-1Ur3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 12:54:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07B1260A55;
-	Fri,  9 Oct 2026 12:54:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B426D1F000FF;
-	Fri,  9 Oct 2026 12:54:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791550494;
-	bh=/NbVMXyUZ5inxdgY2SLFCR/wfTPMAAJ5LYcvDhvians=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fhhcVz2dcyR9Az8s/vN+8Z5V2P0Qh+R5tpwg5CFrNdL/J6N1au8J41Rh0mbhIJv//
-	 jouk4ElWrEEEF12aO/DNsj9kfTIJkzCyaAVmXls7gsOyIHEoBOXHJCCkTZOeTRO1Xj
-	 6N8G4qP5KTCleIUiD7wLOBWeTmgJANL0/zJcmcslTpzmptDTyNADOh5BqM0+Ndfisy
-	 9dFr1mKoJYDJLkahmT0g7rJvMjVC+f1yDF9Qm1RGjIuzyI/nnNr2YhObGntKNSFAcN
-	 eloItB4kmmzXLb0EK/uBriGfkTCyw8d9qcYtHzTnI4I3XlEZTmnN2IkNM9SRJSJRHk
-	 fruVls0en554w==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 2/2] lib/crypto: tests: Add Poly1305 split-update carry regression test
-Date: Fri,  9 Oct 2026 14:53:54 +0200
-Message-ID: <20261009125354.315476-3-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261009125354.315476-1-ebiggers@kernel.org>
-References: <20261009125354.315476-1-ebiggers@kernel.org>
+	Fri, 09 Oct 2026 13:02:50 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c2e69aa07c3so877507366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 06:02:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791550967; x=1792155767; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=;
+        b=kxdaMqgMtA71l4yKlxC7vldEEbSRr9vnWnKEUCJ1hcPYXfi76n1/2MxWqKvSOMzzL/
+         fbVOXlUjam3A7YNMmvTprU500gmZPETt508eIcT+0IB3NpEP493UBqc2Bi0WUsJGLCWb
+         MY7vgPHv1GztsHKRNv8z+lacvEtQtz4Qjb6Wq29ABARmQGf/yWAHiWHy/otzQNFLlmsK
+         xvb8S2A9XY9xXSPfD2lCQnZqUMK7yVxji+CnFRGHUCd+xG7DASdqoA0I0TByKkfaUxDd
+         Xgkh2tqyqVpMVWfET31hwI/sFY3UL0ju0X4oncSl+56rGMT4v2xCiX9PoUs1RrOa7Ok5
+         tRTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791550967; x=1792155767;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=;
+        b=oEjDZ+cHYuvQ8tc4VQUOzdrlsoDgkI0+1ErmCjB9ccjdoxXYfdEYVoxGGbM64Ck76f
+         13co6BAX1dC+Danp7Ci3aDHyn7kGI1uj3TdKmL0KoPHSdN9mknqM4ODlTyOnbbh2eV0o
+         Yuq13GHaHYYZDoyUy/Z2gg4Antzz+jbRjfWhj6r2VgjINMrR6YJwNFXNlyv7/bb0xyht
+         8VIikf1CIZkKuEB5VLdmehhMwe5PwH+WZtnYNnnX7hHgYcKjP/YOhQueFj0NTw4o1XAD
+         3qv+xGYiUpgR6V75yc/+nRVS/xkYLwkwnMKzXgLOrQP7g7iA+Y/bv5/O2yyv6UHWcnMC
+         Sugw==
+X-Forwarded-Encrypted: i=1; AKwUvBy2ow4NRwFmpzPb3spEYQOpttqbhv6BB3GWHjtpRSCh95fO1T4Jj1x9WTc1TaqrQazgxgkhnaZ9CI5uTeL/m4u6@lists.infradead.org
+X-Gm-Message-State: AFq9FYJMrteU2C7CW25g1YRMNk85Uepf+OFIFo4AFXLhuUvfp3rQ+NKD
+	ZNDmV1FzPafh0GM3tZuRW8mqQFgz3jnEfmC7coyf2x9uHmDD6ES1VD3KLY+3AfHivw==
+X-Gm-Gg: AYBFou3qyyeb/kPuquOiAa1tlh3UNwqo9+onWVRdmnFnqps1e96lbxzMIR9Sm2txLPd
+	dtyC+XKBnKLBb5J/mDnkHUhpURvNRMfuUlgJpAPWzAUq86Onf2hq2bJsphVYO342Bxd+hnwoyxc
+	FtgfhvJf1z70Fv8qjd5KD8ucX1UcmokbQSjEoAplxey+KIgLZhMHiheBJeLd8SSXBI8a0iBL4Im
+	xa2kpiib+0+dFSm3SbxOcZLpKqDRvHCrlUVTtSFIfh/Pv6POVSEjA+y19qgpL7vv1RC3/o6qu9Z
+	XMxw0aoZgrZWIWqy+suGkJ0PoVX1z7fZKbPJPwc9r4zH7PrYOK/nObfxAJ06vAzq3ZGHw8+KBpM
+	VxAQKE4tet8JRnOyZyOCRismypYZBK2fC2ba/QFMj2TZxRsg+QvR8lvldU+7lerURUVj9NesNEX
+	P2h20Qg7TyUS09PrSxMawtwMJKDc68J4k6PT4kyOMCoRemIRLDWnvc2cooWqka7QNtuBb51Ufx7
+	OGLHN0i8zKHnJBHxhZpETDYJQGeO6MriAdgeO3W4xgwliQp8rFa5w==
+X-Received: by 2002:a17:907:8687:b0:c16:4e5:944a with SMTP id a640c23a62f3a-c31aa02a1ebmr190818466b.21.1791550966562;
+        Fri, 09 Oct 2026 06:02:46 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9acdb6dsm3670054f8f.48.2026.10.09.06.02.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 06:02:45 -0700 (PDT)
+Date: Fri, 9 Oct 2026 14:02:41 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
+	qperret@google.com
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Add ESR class to the hyp_enter hyp
+ event
+Message-ID: <asjl8czHAD017Bha@google.com>
+References: <20261009084529.462577-1-vdonnefort@google.com>
+ <20261009084529.462577-2-vdonnefort@google.com>
+ <CA+EHjTwNTarWqSc_XVXGFT6mHUZD=QuTeVWrd087jUtexxCScg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwNTarWqSc_XVXGFT6mHUZD=QuTeVWrd087jUtexxCScg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_060249_737638_7785D3E0 
+X-CRM114-Status: GOOD (  37.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,140 +106,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test case which reproduces the bug fixed by commit f5602ce803dc
-("lib/crypto: arm64: Fix lost Poly1305 carry when resuming NEON state").
-It is written in a fairly general way, such that it should also be able
-to reproduce similar bugs in other implementations.
+On Fri, Oct 09, 2026 at 12:30:56PM +0100, Fuad Tabba wrote:
+> Hi Vincent,
+> 
+> On Fri, 09 Oct 2026 09:45:27 +0100, Vincent Donnefort
+> <vdonnefort@google.com> wrote:
+> 
+> [...]
+> > To distinguish between a trap from host and from guest, add a "from="
+> > field, which has 3 possibilities: "host", "vcpu" or "firmware". This
+> > value can be deducted based on the existing vcpu field.
+> 
+> nit: "deduced". Also, "firmware" comes from the reason rather than
+> from the vcpu field.
+> 
+> [...]
+> > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> 
+> [...]
+> > @@ -10,15 +10,10 @@
+> >  #ifndef __HYP_ENTER_EXIT_REASON
+> >  #define __HYP_ENTER_EXIT_REASON
+> >  enum hyp_enter_exit_reason {
+> > -        HYP_REASON_SMC,
+> > -        HYP_REASON_HVC,
+> > -        HYP_REASON_SYS,
+> > +        HYP_REASON_SMC = ESR_ELx_EC_MAX + 1,
+> 
+> This header now uses ESR_ELx_EC_MAX, so it should include <asm/esr.h>
+> rather than rely on its includers.
+> 
+> >          HYP_REASON_PSCI,
+> > -        HYP_REASON_HOST_ABORT,
+> > -        HYP_REASON_GUEST_EXIT,
+> > -        HYP_REASON_ERET_HOST,
+> > -        HYP_REASON_ERET_GUEST,
+> > -        HYP_REASON_UNKNOWN        /* Must be last */
+> > +        HYP_REASON_IRQ,
+> > +        HYP_REASON_ERET,
+> >  };
+> 
+> Aren't fixed trace points ABI? This changes the raw values of the
+> reason field (1 was hvc and is now WFx) and the strings it prints.
+> Keeping the old values and recording the EC in a new field would avoid
+> that.
 
-Update the comment on test_poly1305_allones_keys_and_message() to more
-accurately describe what it does and differentiate it from the new test.
+The event format is described precisely in events/hypervisor/hyp_enter/format.
+Any tooling should use that, so it doesn't seem like ABI to me. Also, this is
+behind NVHE_EL2_DEBUG. The only precedent I know is in kernel/sched/ where there
+are only tracepoints to avoid having trace events. 
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- lib/crypto/tests/poly1305_kunit.c | 97 ++++++++++++++++++++++++++++---
- 1 file changed, 88 insertions(+), 9 deletions(-)
+Finally, we do not expose (yet :)) the raw interface. So this part is definitely
+not ABI.
 
-diff --git a/lib/crypto/tests/poly1305_kunit.c b/lib/crypto/tests/poly1305_kunit.c
-index f3cb6245bc29..d065d8b6442f 100644
---- a/lib/crypto/tests/poly1305_kunit.c
-+++ b/lib/crypto/tests/poly1305_kunit.c
-@@ -55,16 +55,17 @@ static int poly1305_suite_init(struct kunit_suite *suite)
-  * - Using an all-one-bits r_key tests the key clamping.
-  * - Using an all-one-bits s_key tests carries in implementations of the
-  *   addition mod 2**128 during finalization.
-- * - Using all-one-bits message, and to a lesser extent r_key, tends to maximize
-- *   any intermediate accumulator values.  This increases the chance of
-- *   detecting bugs that occur only in rare cases where the accumulator values
-- *   get very large, for example the bug fixed by commit 678cce4019d746da
-- *   ("crypto: x86/poly1305 - fix overflow during partial reduction").
-+ * - Using all-one-bits message and r_key results in large values for the
-+ *   internal products of r_key by (accumulator + message block).  This
-+ *   increases the chance of detecting bugs that occur only in rare cases where
-+ *   the sum of these internal products is very large, for example the bug fixed
-+ *   by commit 678cce4019d746da ("crypto: x86/poly1305 - fix overflow during
-+ *   partial reduction").
-  *
-- * Accumulator overflow bugs may be specific to particular update lengths (in
-- * blocks) and/or particular values of the previous acculumator.  Note that the
-- * accumulator starts at 0 which gives the lowest chance of an overflow.  Thus,
-- * a single all-one-bits test vector may be insufficient.
-+ * Bugs with the handling of large internal product sums may be specific to
-+ * particular update lengths (in blocks) and/or require that the accumulator
-+ * also have a large value.  Note that the accumulator starts at 0.  Thus, a
-+ * single all-one-bits test vector may be insufficient.
-  *
-  * Considering that, do the following test: continuously update a single
-  * Poly1305 context with all-one-bits data of varying lengths (0, 16, 32, ...,
-@@ -141,10 +142,88 @@ static void test_poly1305_reduction_edge_cases(struct kunit *test)
- 	}
- }
- 
-+/*
-+ * Test that Poly1305 MACs are computed correctly when r_key=1, s_key=0, and the
-+ * message consists of all-ones blocks.
-+ *
-+ * With r_key=1 and s_key=0, Poly1305 degrades to the sum of the padded blocks
-+ * mod 2**130 - 5, then reduced mod 2**128.  A padded all-ones block maps to
-+ * 2**128 + (2**128 - 1) = 2**129 - 1.  Two such blocks sum to 2**130 - 2, which
-+ * is congruent to 3 mod 2**130 - 5.  Thus, the expected MAC is just 3 *
-+ * floor(nblocks / 2), minus 1 if nblocks is odd, then reduced mod 2**128.  If
-+ * nblocks == 1 this is 2**128 - 1, otherwise it's just a small integer.
-+ *
-+ * Inside the Poly1305 implementation in this case, the multiplication does
-+ * nothing and each block just adds 2**129 - 1 to the accumulator.  Without the
-+ * multiplication to mix things up, this results in some interesting values
-+ * being reached where the limbs are at or near their maximum values, even after
-+ * (lazy) reduction.  This can reproduce bugs that happen only in such cases.
-+ *
-+ * For example, this test case reproduces the bug fixed by commit f5602ce803dc
-+ * ("lib/crypto: arm64: Fix lost Poly1305 carry when resuming NEON state").
-+ *
-+ * However, reaching that bug required two consecutive updates: one with >= 8
-+ * blocks to cause NEON code to be used and leave the accumulator in base 2**26
-+ * with its limbs in a certain pattern, then one with an odd number of blocks >=
-+ * 9 to cause NEON to be used again, but first processing one block using scalar
-+ * code as a special case, triggering a conversion to base 2**64 where the carry
-+ * into the 2**128 bit was lost.  To cover this and other similar edge cases
-+ * that may exist in other Poly1305 implementations, just test all possible
-+ * block-aligned splits between three poly1305_update() calls.
-+ */
-+static void test_poly1305_split_update_carry(struct kunit *test)
-+{
-+	static const u8 key[POLY1305_KEY_SIZE] = { 1 }; /* r_key=1, s_key=0 */
-+	/*
-+	 * Use max_nblocks=66 so that it's a bit more than twice the AVX-512
-+	 * threshold of 32 blocks.
-+	 */
-+	const int max_nblocks = 66;
-+	u8 *data = alloc_buf(test, max_nblocks * POLY1305_BLOCK_SIZE);
-+	u8 expected_mac[POLY1305_DIGEST_SIZE];
-+	u8 actual_mac[POLY1305_DIGEST_SIZE];
-+	struct poly1305_desc_ctx ctx;
-+
-+	KUNIT_ASSERT_LE(test, 3 * (max_nblocks / 2), U8_MAX);
-+
-+	memset(data, 0xff, max_nblocks * POLY1305_BLOCK_SIZE);
-+
-+	for (int nblocks = 0; nblocks <= max_nblocks; nblocks++) {
-+		size_t len = nblocks * POLY1305_BLOCK_SIZE;
-+
-+		expected_mac[0] = 3 * (nblocks / 2) - (nblocks % 2);
-+		memset(&expected_mac[1], nblocks == 1 ? 0xff : 0,
-+		       POLY1305_DIGEST_SIZE - 1);
-+		for (size_t part1_len = 0; part1_len <= len;
-+		     part1_len += POLY1305_BLOCK_SIZE) {
-+			for (size_t part2_len = 0; part2_len <= len - part1_len;
-+			     part2_len += POLY1305_BLOCK_SIZE) {
-+				size_t part3_len = len - part1_len - part2_len;
-+
-+				poly1305_init(&ctx, key);
-+				poly1305_update(&ctx, data, part1_len);
-+				poly1305_update(&ctx, &data[part1_len],
-+						part2_len);
-+				poly1305_update(&ctx,
-+						&data[part1_len + part2_len],
-+						part3_len);
-+				poly1305_final(&ctx, actual_mac);
-+				KUNIT_ASSERT_MEMEQ_MSG(
-+					test, actual_mac, expected_mac,
-+					POLY1305_DIGEST_SIZE,
-+					"Failed with nblocks=%d, part1_len=%zu, part2_len=%zu, part3_len=%zu",
-+					nblocks, part1_len, part2_len,
-+					part3_len);
-+			}
-+		}
-+	}
-+}
-+
- static struct kunit_case poly1305_test_cases[] = {
- 	HASH_KUNIT_CASES,
- 	KUNIT_CASE(test_poly1305_allones_keys_and_message),
- 	KUNIT_CASE(test_poly1305_reduction_edge_cases),
-+	KUNIT_CASE(test_poly1305_split_update_carry),
- 	KUNIT_CASE(benchmark_hash),
- 	{},
- };
+I tried to avoid having the EC separately to keep the event as small as
+possible.
+
+> 
+> [...]
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+> [...]
+> > @@ -213,7 +213,7 @@ static void __noreturn __kvm_host_psci_cpu_entry(unsigned long pc, unsigned long
+> >          write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
+> >          write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+> >
+> > -        trace_hyp_exit(host_ctxt, HYP_REASON_PSCI);
+> > +        trace_hyp_exit(host_ctxt, HYP_REASON_ERET);
+> >          __host_enter(host_ctxt);
+> 
+> This also replaces the PSCI, ERET_HOST and ERET_GUEST exit reasons
+> with a single ERET, which the commit message doesn't mention.
+
+ERET_HOST is now "to=host reason=eret" and ERET_GUEST "to=guest reason=ERET".
+
+This one here could be considered a bug fix and I could make it a separate
+patch?
+
+> 
+> [...]
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> 
+> [...]
+> > @@ -324,13 +324,15 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+> >          __debug_switch_to_guest(vcpu);
+> >
+> >          do {
+> > -                trace_hyp_exit(host_ctxt, HYP_REASON_ERET_GUEST);
+> > +                trace_hyp_exit(host_ctxt, HYP_REASON_ERET);
+> >
+> >                  /* Jump in the fire! */
+> >                  exit_code = __guest_enter(vcpu);
+> >
+> >                  /* And we're baaack! */
+> > -                trace_hyp_enter(host_ctxt, HYP_REASON_GUEST_EXIT);
+> > +                trace_hyp_enter(host_ctxt,
+> > +                                ARM_EXCEPTION_CODE(exit_code) == ARM_EXCEPTION_IRQ ?
+> > +                                HYP_REASON_IRQ : ESR_ELx_EC(read_sysreg_el2(SYS_ESR)));
+> >          } while (fixup_guest_exit(vcpu, &exit_code));
+> 
+> Could ESR_EL2 be read only when the event is enabled? The read happens
+> even when tracing is disabled or compiled out, so every non-IRQ guest
+> exit now does an extra one: with NVHE_EL2_DEBUG=n, __kvm_vcpu_run()
+> goes from two reads of ESR_EL2 to three.
+
+Hum, that's a good point. I was thinking about having a HYP_REASON_ESR that when
+sent actually read the ESR. But then handle_trap() would read it twice, unless
+this one still gives the esr directly.
+
+Alternatively, I thought of moving the esr_el2 = read_sysreg_el2(SYS_ESR) out of
+__fixup_guest_exit(). But it didn't look nice.
+
+WDYS?
+
+> 
+> [...]
+> > diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> [...]
+> >  static const char *__hyp_enter_exit_reason_str(u8 reason)
+> >  {
+> [...]
+> > +        if (reason <= ESR_ELx_EC_MAX) {
+> > +                int i;
+> > +
+> > +                for (i = 0; i < ARRAY_SIZE(class); i++) {
+> > +                        if (class[i].mask == reason)
+> > +                                return class[i].name;
+> > +                }
+> > +
+> > +                return "UNKNOWN_ESR";
+> > +        }
+> 
+> Could this print the EC value when it isn't in the table?
+> kvm_arm_exception_class has no entry for ILL, BTI, SME or GCS among
+> others, so an ARM_EXCEPTION_IL exit (EC 0x0E) shows up as UNKNOWN_ESR.
+
+I can extend kvm_arm_exception_class. Having a dynamic format string is not
+possible here.
+
+> 
+> Cheers,
+> /fuad
+
 -- 
-2.56.0
-
+Vincent
 
