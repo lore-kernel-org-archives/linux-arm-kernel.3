@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FB8CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF6DCA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qI0teZcXrHycO5RdYnELojTgh/o+UFCV/n+9LzyZqFg=; b=3i6Q7tBarvia4vpqSI2coMhVzL
-	0qfbEZQBh9lm1s5diFSU6TQ9mV4w/iyBquMl2MWqQc7qAwnoJ9Rt5HM0XX8T+leGH1u26azb1ZPR+
-	MNMn5IotGinurAhsUiM9HHogSwgK4BBNmgWdt3S2SU5BKlgfGjdv9LdG3nTyLFUWYf47MvivYFPvv
-	99s7vAkCrD0Axy7HKywH9Xo2+RLz8RWgpeqKJD+KaX2x0JOmO384nA/ZWAjPIcUpi/orlR9VeezOY
-	9qYethw1zqJQ6IGX3BC8zsRleHMgLy0/UbUFraLQNvulJnJGYR6kLNvyTn2joCZQBzS04nVL00I7e
-	IDr7DZcA==;
+	bh=zFBRL4kBI14g6fXP2GAhg33nPv7jmDNqUCEmUpn6Yss=; b=tivdfHDd04fbCXhpMyudU3Y4Ig
+	n7roAMOvu7wTr6ecGZz+0W3FzMTb1l7Tfa3AbXhr//sSp5uXPtnhuav0swf6hi0ZOxvFxBqRZvrZS
+	3Rap23+daJpBKTTng0J490/yC+CqJ/mRvp9Nflu2eWKb1XcYtHDYS+rROe2ONrIjKElneKkp+Uh/b
+	w1o53yu788VFfEo92PEkL2e5p6G8yaCO9ZEwgw6S1U6wl4nrpEM1mIrmaH2rGz2Eo5D2+T3FzM6Ci
+	VfkkKoZ7NNxTiXjlhPROU7uTocYdiGxSzgT4CU1caIxmp9PzM3PS5Egtr0X0x594WBJz1vXOkQOD4
+	ATUhsp3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4lx-00000005hDd-09aI;
-	Fri, 09 Oct 2026 07:12:05 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1xF4nI-00000005hU5-0uzc;
+	Fri, 09 Oct 2026 07:13:28 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4ls-00000005hAP-2sN1
+	id 1xF4nG-00000005hTh-02ZC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 07:12:02 +0000
-Date: Fri, 9 Oct 2026 09:11:53 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1791529915;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qI0teZcXrHycO5RdYnELojTgh/o+UFCV/n+9LzyZqFg=;
-	b=X3sIV03mGRKoi7W8A8eLx21lFQPk9jNvzBAIVcDFgpTgkCEXR3BOBvxukpbzsI6qt4reRZ
-	u0U9jOaAH9hG4rsvdpa5JfYLRg6VRuPfnFUq7Yn7lOM4/Z6sGhlDTN0vKoiRGnt81Z+F+t
-	hdjl51it/uC+VSPkeIkGsx+iMqOV3+MNtthUdtUovz4Sl8emgaCgXLtCTygyaF16VvJbeL
-	oJlMBJtml6YpUkxWTRq88TIww9eXnU5zJsL2WMBK8asW+vZ3qAYVVSRVNUoOrmCIxiYBfT
-	khqmkEyZMoPwM6v2b9ZOnpwYdUPQdCp/VJfgwTy1ags17xJmfPS+WkjPsdU5/g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1791529915;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qI0teZcXrHycO5RdYnELojTgh/o+UFCV/n+9LzyZqFg=;
-	b=+soDEjPxyf7SrT/DzxVpdDu44pE7aWoLjRK7cUgf3pcfnbJ8WFq2o6tDuDmZbsjly7XNh0
-	ErnOHbhE1ujbCWBw==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Kamal Dasu <kamal.dasu@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mmc: sdhci-brcmstb: don't log an error for missing BOOT
- registers
-Message-ID: <cfhxi3zbkkhnslbocne3moqdm34zre7x2qjdizlrlpmurcl5hj@vdvp5aevi7gk>
-References: <20261009003201.68288-1-kmehltretter@gmail.com>
+	Fri, 09 Oct 2026 07:13:27 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6b1762fb68aso662448a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 00:13:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791530003; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lH/KYInsuR+qxArty9yavFRADWmW9YHPjYPT1LDB47axbYNLsk+7/KKxr7DbMOpSZl
+         BDcn0xfdw6bc7y2AM3JzBpItomS6Gjayi3cwwrFEmoo4lRS9Eo6GtzNu8Vc14TlCeSJi
+         yLdxVPjxUi7JZn6YnlSzWebEdBtnpmisb2iLkNaejzinfFVm83bG4WtDUF9/x++sJNnn
+         b56T9YSRl98RwEzXgsWTKiRfkRzuXdJx85IIImng366Q2J3RvNSWAZKj7IrvHko8XTR5
+         6Yut9WsiXeQ3izMB8wWac7zlCqDS83ig2mzB/0bQ7YVQWAA7YI9by7+eDj0YjonWSJsG
+         fZ1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zFBRL4kBI14g6fXP2GAhg33nPv7jmDNqUCEmUpn6Yss=;
+        fh=JTniqbk4c+uxf2aFM8j+addnL0Ij07+QGHh/Na7PMUc=;
+        b=Qmky52cewXzFeSmvOZ5NMyJj/DnoPTqFruY5I9C81m/Ww+JbfHGTnuiV/52ZFz97BN
+         JY1gyAfGuJBvykYC9Gu3nR87zoUAkNYTABzsvNpwD9ptqXb3IZutLC42uOtCcZfTFrSI
+         NqCwwCjpJPk8tCwnrSdKtWhnOx/IRwRr+d8DxHNWjhD3TkzkU2ljSstn40CalSa+Tzdh
+         ykxB8NPWAc+hiDuPt73P3wt9z7YDhzGQEqdPWFBix8/4qjm3R+6QuWbE2Rxcs848x/mR
+         gckEKPx2+ZKpZIeRX60FN/fNbXqlMgCkCXc4wisk6oRCqcIRo5DhAkXRSDcz8VbKgogy
+         YLgg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1791530003; x=1792134803; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zFBRL4kBI14g6fXP2GAhg33nPv7jmDNqUCEmUpn6Yss=;
+        b=aiaBwzYQZVoy5HGxzvhfpHhPuC7OyI/3CRV/ovvyhdriTDcBq6bsiB8+fFGw47pbJp
+         2c3x/l4XJ7+Y+4SyKGq3Qqg8p9TPrVj0vszBDpf2NEDncAiFlJhxtcwTCnnwik0FGX6s
+         J1NpnGeRGJOJqRGou++hQ1KaUkdbNkWTWl4kA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791530003; x=1792134803;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zFBRL4kBI14g6fXP2GAhg33nPv7jmDNqUCEmUpn6Yss=;
+        b=X1atlBPCPDBRGl2qdoZqQ71UtRRxTyZOunIDBKSaSEfaHl173hAaSrTr1RBk8wk1hp
+         0Fmyb4pSwNuMH6qNHR2vikicA61D9XKwCDSuhcuyXLJkWYRVsRA/nnWz2ww/b72MJWx5
+         kgjx3Ap+JrsmpZoVjdhnuB4FBG9Q7/KgX9MX/WyJHqjm9mSQo+O4yPFOp7Uo6q1pekz3
+         OTo7WC2W6I38bIw49Su0EUUqdxgOJ7y47mAAj5J4NvsYczlVwRMLXjPRQJE6yoD6+pEy
+         BII0WrYOQpjlfkxiI2z9I5hJAuIiX3sL+vf2Gswa8PRf/ro0B9pq0CPsne5iDhMDJLMA
+         iXTw==
+X-Forwarded-Encrypted: i=1; AKwUvBzxvuGDcqHZV0uyXOpz5BZuGg0YuNVBvwOloP2Qnx3AyWJ+p99cAuxe7GWOOazWF0hGszEWggfMf0cnN6tS7DsL@lists.infradead.org
+X-Gm-Message-State: AFq9FYJbJkXVjoBMGz6vf/GVCN4y9snjAk9fk8gdEHFu/k1qV1auUtBX
+	aLGabB+RH63JbC2BxNt0vn18E8cbKeygPVuSmiEyHbt5DSRx0NOwq9+UhAu/tP9YlTYKrfDAVmB
+	TOsw1io+NBpPQ98rxJO08rI2V5IImU4H8gkArC8m1
+X-Gm-Gg: AYBFou0ZnmMXTQ73J4vTS0TkKYjyNHD69gvbsZKn7eHmy3BH2ctxU6Q1iL+pKPKgyeE
+	OrSZd4MtKOjY6+fB8p+XWEOZ74wYd8z6CE8NRnOHyEQ845k375YXlq7w15RqxbwH8K5Dqbzqebm
+	8JN3XIlAYFLRNuJSZAWvLnZ90Sj9YJvgpIm3in7kZVTwqiCtXiycTc1VbL71ZBVt73NvYFm7g7L
+	phfX9Rwx5N/sY3Is99Xo8XT2iYGTP/YEXI2g5s7HUuZYip5yVRFTkDig6M3ZkAD76zFb1h/ogQe
+	7pMgOUHT0WrsZ4MUE1Qp5tCD9qrxCoHbgpk1hYyBYHotmOhg+gTllYs=
+X-Received: by 2002:a05:6402:46d9:b0:6a7:ee56:615d with SMTP id
+ 4fb4d7f45d1cf-6b17c276146mr572039a12.31.1791530003510; Fri, 09 Oct 2026
+ 00:13:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261009003201.68288-1-kmehltretter@gmail.com>
+References: <CA+NtrhQBK8uW32qO3dXxVxO1GSN-0EJfyJ16tnyx0o52T17WtQ@mail.gmail.com>
+In-Reply-To: <CA+NtrhQBK8uW32qO3dXxVxO1GSN-0EJfyJ16tnyx0o52T17WtQ@mail.gmail.com>
+From: Simon Glass <sjg@chromium.org>
+Date: Fri, 9 Oct 2026 08:13:11 +0100
+X-Gm-Features: AclHuK97DD2slZ-807kznn7SMmv5V6q7RzL29UzjsjXS6Bj9SaUc0QJ5rsx_GSA
+Message-ID: <CAFLszTjiX+oiDBsm7MccvZqhcMae=4Dh5x6ULHSLDRMQN8NwZQ@mail.gmail.com>
+Subject: Re: [PATCH] scripts/make_fit: Ignore schema checks when decomposing DTBs
+To: Ting-Han Hou <ue081723@gmail.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_001200_872490_2590D3FC 
-X-CRM114-Status: GOOD (  30.02  )
+X-CRM114-CacheID: sfid-20261009_001326_085115_26BAEC13 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +112,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, 
-
-On Fri, Oct 09, 2026 at 02:32:01AM +0200, Karl Mehltretter wrote:
-> The BOOT register range is optional: the probe function ignores a
-> failure to map it and the suspend/resume code checks for NULL. It is
-> mapped with devm_platform_get_and_ioremap_resource(), though, which
-> calls dev_err_probe() when the resource does not exist. Every
-> non-removable host without a third reg entry therefore logs an error
-> at probe time and then works normally.
-> 
-> The binding only describes the "host" and "cfg" ranges, so this is the
-> case for the in-tree users. On the Raspberry Pi 5 family (BCM2712),
-> where the SDIO host of the Wi-Fi module is non-removable, each boot
-> prints:
-> 
->   sdhci-brcmstb 1001100000.mmc: error -EINVAL: invalid resource (null)
-> 
-> Look the resource up with platform_get_resource() first and map it only
-> when it is present. Hosts that do have the range are mapped by the same
-> two calls as before.
-> 
-> Fixes: b7e614802e3f ("mmc: sdhci-brcmstb: save and restore registers during PM")
+On Tue, 6 Oct 2026 at 16:19, Ting-Han Hou <ue081723@gmail.com> wrote:
+>
+> With CHECK_DTBS enabled, Kbuild appends a schema validation command to
+> the fdtoverlay command saved in a composite DTB's .cmd file. When DTB
+> decomposition is requested, process_dtb() treats every word after -i as
+> an input file, including the semicolon and the validator arguments.
+> FIT generation then fails with FileNotFoundError while opening or
+> checking the size of those words as files.
+>
+> Limit the input list to the fdtoverlay command before extracting its
+> arguments. This preserves the base DTB and overlay order and ignores
+> the subsequent schema validation command.
+>
+> Fixes: 17c31aded9a1 ("scripts/make_fit: Support decomposing DTBs")
 > Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-Reviewed-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> Signed-off-by: Ting-Han Hou <ue081723@gmail.com>
 > ---
-> Tested on a Raspberry Pi 500+ with v7.3-rc4: the message is gone, the
-> SDIO card is detected as before and Wi-Fi works. Suspend/resume, the
-> only user of these registers, was not tested.
-I have seen this error a few times but newer looked into it. Thanks for the fix.
-> 
->  drivers/mmc/host/sdhci-brcmstb.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
-> index 1de2f05..7c17a3c 100644
-> --- a/drivers/mmc/host/sdhci-brcmstb.c
-> +++ b/drivers/mmc/host/sdhci-brcmstb.c
-> @@ -491,6 +491,7 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
->  	struct sdhci_brcmstb_priv *priv;
->  	u32 actual_clock_mhz;
->  	struct sdhci_host *host;
-> +	struct resource *boot_res;
->  	struct clk *clk;
->  	struct clk *base_clk = NULL;
->  	int res;
-> @@ -534,9 +535,13 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
->  
->  	/* map non-standard BOOT registers if present */
->  	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
-> -		priv->boot_regs = devm_platform_get_and_ioremap_resource(pdev, 2, NULL);
-> -		if (IS_ERR(priv->boot_regs))
-> -			priv->boot_regs = NULL;
-> +		boot_res = platform_get_resource(pdev, IORESOURCE_MEM, 2);
-> +		if (boot_res) {
-> +			priv->boot_regs = devm_ioremap_resource(&pdev->dev,
-> +								boot_res);
-> +			if (IS_ERR(priv->boot_regs))
-> +				priv->boot_regs = NULL;
-> +		}
->  	}
->  
->  	/*
-> 
-> base-commit: 6c377d19d4a5116d9bec5203aa3c6c11523e7898
+> Reproduced with DTBs and saved commands generated by the current Kbuild
+> rules. Verified uncompressed and gzip FIT payloads, shared-base reuse,
+> and the non-decomposed mode. The schema checker was a success-only
+> stub; no hardware boot tests were run.
+>
+>  scripts/make_fit.py | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+Reviewed-by: Simon Glass <sjg@chromium.org>
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
-
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+>
+> diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+> index 15ba269..9bd35aa 100755
+> --- a/scripts/make_fit.py
+> +++ b/scripts/make_fit.py
+> @@ -292,7 +292,8 @@ def process_dtb(fname, args):
+>
+>          if 'scripts/dtc/fdtoverlay' in cmd:
+>              # This depends on the structure of the composite DTB command
+> -            files = cmd.split()
+> +            # Ignore any subsequent commands, such as schema validation
+> +            files = cmd.split(';', 1)[0].split()
+>              files = files[files.index('-i') + 1:]
+>          else:
+>              files = [fname]
+>
+> base-commit: 69f80fef3153299d9c72c53d1d71eef6354b6926
+> --
+> 2.52.0.windows.1
 
