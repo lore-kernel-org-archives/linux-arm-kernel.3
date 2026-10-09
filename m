@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DEDCA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C228BCA9EBB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u1g0SvFtSgoEeipo5pslivKZoZ99W+lzQ5LbgYZ+mbE=; b=z1iSwSOSzhAHQObpOuvKtEAMF1
-	j7XhtaMfYyE+AdudhhobFhbOiuPu6le+uMZb9ea8gkaF1grGStnN0lR0nH/UCJ5FXuQjtrfsWhx9K
-	X7ToCbBx0xh3Tl21zZAahJm+rXMb2eQ0/vsgRkpJhZHBp5Z0aazMlfLEWTkf6iRh7Lmi80gMsYb5N
-	vPlCMwoqzQZqpDVvhsxLp8a2xN/FjQHVytNkfqlvRfZFLJt3G/UHTz7YS2e8sL0lbLH8XgbmWVh8z
-	MXCaVyFerplSvnQmEB1Eh1HaspG0+MvzYhPNb2XaAi7diF/Sftn4GQ5AL3Ay0NmXJiYkH/Rd5Jmed
-	DrpDWbog==;
+	bh=aWnreVv1JvFvXL8LlcobuwrybBro3mW0bQFXS2LDkB4=; b=MlRxtvUQrOpCzQrjI4MQqdTosO
+	10yfFu8KWwL6OTSVC+4L3bdGSpsi4DkD8qMsbbW7YWyf66ZAXWUbsINQAXDmL6PGxQdILYROlClW+
+	qS1TZKPG4sWCzz1Znxgfq3LY0ZrGvIC8djDQqKs4woOk4jEdN33uebe5Id9DIbh/TD+EdJVuDryhc
+	geNV1d1/fyody6QGOCVgcMwoPmixsPH8HXPsMdFnGzf8yadACqNZE2k8XVbWZwcf1HdzHTaSYT96b
+	V/0hALm7svgdTVLENEA44q9aiyyqzMkIQm1KBYYyBFbin/2MKh7ogTQL3wPH9hZkwo65n3NGF6Bnv
+	xTqhluJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHDp-000000079zf-3VK9;
-	Fri, 09 Oct 2026 20:29:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xFHHb-00000007AVX-223e;
+	Fri, 09 Oct 2026 20:33:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHDo-000000079zS-1sO2;
-	Fri, 09 Oct 2026 20:29:40 +0000
+	id 1xFHHa-00000007AVI-1Cnh;
+	Fri, 09 Oct 2026 20:33:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0B8240F01;
-	Fri,  9 Oct 2026 20:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 774BD1F000FF;
-	Fri,  9 Oct 2026 20:29:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DA9943CF0;
+	Fri,  9 Oct 2026 20:33:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283441F000FF;
+	Fri,  9 Oct 2026 20:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791577779;
-	bh=u1g0SvFtSgoEeipo5pslivKZoZ99W+lzQ5LbgYZ+mbE=;
+	s=k20260515; t=1791578013;
+	bh=aWnreVv1JvFvXL8LlcobuwrybBro3mW0bQFXS2LDkB4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=VWrw1TpLt7fsJsfUReaMK/xfbuUimAtU/wsqb4NmTXYGEMibdlTCMOjp4yLzx5bWw
-	 bYXFJ075+OS5qBU57lcr+O3mr1igWRZSgsgBqPR0EcyrFYU3BgDBfK+6B4paACiTWG
-	 9Mr37E76WBFvA4UFAftI4savVj105aeAQ+cet/DtVBRN1JnAoQ5gIpwcY5GXe3J+rf
-	 B7lzPr5P++51lX6doOqbwwqefTHSmzx6gKaQkWoo9RDxfZ9so/GkhNz5jBvwSOwHy4
-	 6ZRikiPr8fM30rFvSV+jwP9Edp1VDQIjbn4K2VW68pCpW/rNyaKpcSfveDIEQ56w51
-	 voBxssDX0NHOQ==
-Message-ID: <1a0f51d9-7931-45a3-ab36-e0642c199a37@kernel.org>
-Date: Fri, 9 Oct 2026 22:29:29 +0200
+	b=P9fDb5c8ZUCK3G53nUPYeOnWZCMIcbM8vk2VHvX+l5bTeZrPxUZYFohbmHv1zWTmk
+	 rX8S/tqjSEJygh17j0tdYOZL6sixizg8ly6+jfDc30Uei5aM7j/KKapi783xnm8Nyf
+	 dfWajST1ImDGiI62Q01/eIjJlTWpkUvQeye8+60Pktoi86SouECmyeL5hDKVb5QMni
+	 M/rHUeeuSao6t1O8LZP5dxIhkBc9fDi7ufELFg+EqUJ4BBZqwl/7Du0VnLsI4o/bB+
+	 3ckEdI09l3Td6rLBM8liiWkSc2kS05mnBiW9shA6tF5qqGJYMGDqXhVwoYRYfOW7+F
+	 wDhJVM9gZ+qRg==
+Message-ID: <b8769c67-1683-4d84-94c9-916c305dafc0@kernel.org>
+Date: Fri, 9 Oct 2026 22:33:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
  tables
-To: Muchun Song <muchun.song@linux.dev>,
- Muchun Song <songmuchun@bytedance.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, stable@vger.kernel.org,
- osalvador@suse.de, dave.hansen@linux.intel.com, luto@kernel.org,
- peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
- x86@kernel.org, hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
+To: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org
+Cc: linux-mm@kvack.org, stable@vger.kernel.org, osalvador@suse.de,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
+ hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
  mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
  kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, muchun.song@linux.dev
 References: <20261008073021.2512665-1-songmuchun@bytedance.com>
  <20261008073021.2512665-2-songmuchun@bytedance.com>
- <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -107,7 +105,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
+In-Reply-To: <20261008073021.2512665-2-songmuchun@bytedance.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,56 +122,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/8/26 10:32, Muchun Song wrote:
+On 10/8/26 09:30, Muchun Song wrote:
+> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+> tables.
 > 
+> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
+> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
+> table, so a later memory hot-remove eventually frees that table through
+> free_pagetable(). That path currently calls pagetable_free() directly
+> without decrementing NR_PAGETABLE.
 > 
->> On Oct 8, 2026, at 09:30, Muchun Song <songmuchun@bytedance.com> wrote:
->>
->> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
->> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
->> tables.
->>
->> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
->> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
->> table, so a later memory hot-remove eventually frees that table through
->> free_pagetable(). That path currently calls pagetable_free() directly
->> without decrementing NR_PAGETABLE.
->>
->> Use PageTable() to identify constructor-backed tables and run the
->> matching destructor before freeing them. Keep reserved and
->> constructor-free tables on their existing paths. This also prepares
->> vmemmap teardown for generic runtime allocations through the normal
->> pgalloc helpers.
->>
->> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
->> Cc: stable@vger.kernel.org
->> Assisted-by: LLM
->> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->> ---
->> arch/x86/mm/init_64.c | 2 ++
->> 1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
->> index 70e682180291..a3ea627157ab 100644
->> --- a/arch/x86/mm/init_64.c
->> +++ b/arch/x86/mm/init_64.c
->> @@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page *page)
->> {
->> 	if (PageReserved(page))
->> 		free_reserved_page(page);
->> + 	else if (PageTable(page))
->> + 		pagetable_dtor_free(page_ptdesc(page));
+> Use PageTable() to identify constructor-backed tables and run the
+> matching destructor before freeing them. Keep reserved and
+> constructor-free tables on their existing paths. This also prepares
+> vmemmap teardown for generic runtime allocations through the normal
+> pgalloc helpers.
 > 
-> Sashiko mentioned that kernel page table pages and vmemmap pages are
-> freed to the buddy allocator before their parent entries are cleared
-> and before the TLB is flushed, creating a dangling pointer window.
+> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> ---
+>  arch/x86/mm/init_64.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> That's a a real but pre-existing issue, I will not fix that in this
-> series.
+> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
+> index 70e682180291..a3ea627157ab 100644
+> --- a/arch/x86/mm/init_64.c
+> +++ b/arch/x86/mm/init_64.c
+> @@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page *page)
+>  {
+>  	if (PageReserved(page))
+>  		free_reserved_page(page);
+> +	else if (PageTable(page))
+> +		pagetable_dtor_free(page_ptdesc(page));
+>  	else
+>  		pagetable_free(page_ptdesc(page));
+>  }
 
-Memory is getting removed, concurrent access to directmap+vmemmap is not
-expected unless BUG I think. That should make this less critical I think ...
-(except speculation? not sure if that applies)
+pagetable_free() will do ptdesc_test_kernel(pt) -> pagetable_free_kernel(pt) ->
+pagetable_dtor_free().
+
+
+IIUC, pte_alloc_one_kernel() will set ptdesc_set_kernel(ptdesc);
 
 -- 
 Cheers,
