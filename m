@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9296CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D7CCA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DSl5opG1vGnvwklTn11CdgwFu8SczIEjmNSxqtCH0Uo=; b=QBnJtm3JTLy3nPS0PVPNL1yn1P
-	Y3NqXJbntoJsIw6uJTIWLI9trlBBwuaji6Oq5SF3KvFE1K7br6ypsJ10QhgYbljN2FtxhgCxcyjNZ
-	r2dIFH+5dRLUMpYUG34jqavsbHSYCb1vdHTzhSgJJZTMknK6gja4SI3xr15CzEFsJEUhKFeT5dwYj
-	PUr3o4G0Fe3yeBpaDNNRiDmMv62hlMNfqbqAusUYMoDr8G2j+2hPMU+84+ErbqDdJwNZA2J8LXVwL
-	Mh2WkdI9+P5Qt8XKteJ62MeDFuSvHt7ulKmGsoFvmFMbnDFmo150hOGsMaAJuXORilrnH6kipEz+F
-	bEKS2Nrw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VL+JsfKPh+UkUX1blYvor4RNDKUDnUCv/jDf6izFtiU=; b=DJ1Z18somxVWHF8t4JXN2TPZQk
+	WUAPWFpPYdMnSLZ00LbSnofyYpPZ6t/X+iRotflgOPjPTGy8I3WqN32EXUlFNlst4uDyjD8a/L40x
+	E/RzxQgzjtyfY8h2DCHb67aBldEKlxX75kIbrl1u/Ar80hgXrhw62llLr9l+VClNkXqxBhTueVuYD
+	ugr3WjjsLzIFX9JApuXqM+v0dX+RL3/5d7bUBjCH0YJPwch5ahqi8iUSSBA6ZBllTl53EV8wKwKqN
+	KhGzFwTmoi01fITEXcIxC1EuQ1bQY9q0hY3p0VdLRNkKIfQNuFkIWfG4klD0526R4Ez0jAEHyL19Q
+	GtOKZPyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFF8V-00000006uwb-1fQN;
-	Fri, 09 Oct 2026 18:16:03 +0000
+	id 1xFF8j-00000006v42-2Zes;
+	Fri, 09 Oct 2026 18:16:17 +0000
 Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFF8S-00000006uuP-1iCX
+	id 1xFF8d-00000006v0T-3hjY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 18:16:02 +0000
+	Fri, 09 Oct 2026 18:16:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
 	s=s31663417; t=1791569755; x=1792174555; i=wahrenst@gmx.net;
-	bh=DSl5opG1vGnvwklTn11CdgwFu8SczIEjmNSxqtCH0Uo=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
+	bh=VL+JsfKPh+UkUX1blYvor4RNDKUDnUCv/jDf6izFtiU=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=c73AyekHjMi4tJcJlpfCLNbYBXWCUPj1o5TWXlGTd2jthTIHk+9IKOw92eviktTZ
-	 GrhuVx+NFVipZZXqoVIKU8lrtORdIN25kK6RcT2bc6Myv+EUpOeAxgyiNT/mEy4Uq
-	 W6FvDNCMaFO+zn7r1+lnTf60MjVK7ex9XtwfFm/VzTqwKeSs/FpUG9OIvqeG5n5Xm
-	 deI8PuA4KVaLgPQV09fBD+cmiJqjRNfOXmE8tUMJgeuvbwdzrmMQY7w1PgBq4KfRO
-	 Se4kqKAzz0vl53UgFZq4k+oeEyXbnapTP8d+ycqQVFhGyWqEyzWgl4M3N2ZenJqiU
-	 EsL+WC+VbIYqhdH59g==
+	b=gx4QCzWqYLCiyaRP0N9S6G7KbLLXg8c6rkpVxl/h2H/3IL47N1yqoAZ4mOj0MAq3
+	 gnLcn5S4J32pNZuTtMsqTx7u9z4K7HJxFybvsbToZcFdE66eLgfkjkjGXefgiq4oo
+	 tmTiNeUeQWbYyqMPm6imtQ2s2mOr45yLKWdD6q8VMw1uKnxspAhbXXYCXlu7S/Aun
+	 VJwX3KUOxtNXAAyD+X5xAsYZm7YCRiqcHLsAUUhl7NqcD7ChwPv38Tw3mJAVdpAGK
+	 PCc0/2i53zjJdBtRxbIGqBq8MttDpVkXxFV29UjaHYLamZQUUKZ3pnVhDhOgZIb+V
+	 BVvMM+beEIpoKXydmA==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MStCe-1x5uey3xhm-00PsuA; Fri, 09
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MacSe-1weWTB2HYQ-00pMIo; Fri, 09
  Oct 2026 20:15:55 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Rob Herring <robh@kernel.org>,
@@ -55,22 +55,26 @@ To: Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH V6 0/2] arm64: dts: freescale: Add chargebyte Charge Control Y
-Date: Fri,  9 Oct 2026 20:15:49 +0200
-Message-ID: <20261009181551.6478-1-wahrenst@gmx.net>
+	Stefan Wahren <wahrenst@gmx.net>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH V6 1/2] dt-bindings: arm: fsl: Add chargebyte Charge Control Y
+Date: Fri,  9 Oct 2026 20:15:50 +0200
+Message-ID: <20261009181551.6478-2-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261009181551.6478-1-wahrenst@gmx.net>
+References: <20261009181551.6478-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:esvhwAYVbbgDT+q6Gcu44Ck6nQXTLc185E1fA/yvZkjn4eoDzkT
- S/FWrc5VX40NONGbuo2xzB8v/Jqq314qTaZiym654imUmprsJun0tdfzbyXsPVo/x4UtN1+
- +PCFHC1eQ55AWCu4FCaGN5SV3y5hsgci1WWAavqvuf2GbocaUIpnkvw1xS2+6VC1oTxPsgK
- GbFmJQlUVAu0Rgg0d5vMg==
-UI-OutboundReport: notjunk:1;M01:P0:LE4Jg8Xigbc=;pHvNNGxVGAcC49cJCDNe54sfHMI 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
+X-Provags-ID: V03:K1:uRQjVsosOF9a1WKLTAUNb14JbVL8uWQb7wmpuZ212GzB5scbVAO
+ QIxuJ1ZM8oBdGOKkTKcuB8RvWQnZi9JdUL+2KdYfCSnRly5xAmZqbclNTsUdHeZBUS7QruT
+ Gj8M+LRftCbx+8a9L6QfQq+7xfPRw0QAoerUWDaauIJOW9LPvtUPzzfISHiB8bO6onbPsuu
+ NPW60SeL9UOVSqsBykWaw==
+UI-OutboundReport: notjunk:1;M01:P0:9ieqDGLdc1s=;WxP5AGcK6NGJfRy25UBbmvmqWaQ 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 =
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_111600_818336_DBA93770 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20261009_111612_246835_6EFAED17 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the chargebyte Charge Control Y, which is
-an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
-Charging System) charging stations.
+Add device-tree bindings for chargebyte Charge Control Y board based on
+the PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
 
-sashiko reported in the first version of the series [1] that X_nRST_LAN
-is available via GPIO line names, but there is no reset mechanismn in the
-device tree. This finding is valid. Since the reset line feature isn't
-implemented for LAN8651 driver yet, I like to proceed with the current
-version. The LAN8651 handles reset via SPI commands and in rare cases
-we still have the possibility to control the reset from userspace.
-Btw the pin has a pull resistor in hardware, so it's not floating.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+=2D--
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-sashiko complained in the fourth version of the series [2] about the
-reset polarity of ethphy2 and the different drive strength across the
-data lines. Both is intended.
-
-[1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000E9=
-@smtp.kernel.org/
-[2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C1F000E9=
-@smtp.kernel.org/
-
-Changes in V6:
-- drop already applied binding patches
-- rebase on next-20261002
-
-Changes in V5:
-- fix delete-node for pinctrl_leds (reported by sashiko)
-- add Krzysztof's Reviewed-by
-
-Changes in V4:
-- prepend constrains fix for ti,tcan104x-can binding (reported by sashiko)
-
-Changes in V3:
-- add Acked-by's from Conor
-- add missing SD2_VSELECT to default pinctrl of SD interface (reported by =
-sashiko)
-- clarify LAN8651 GPIO usage in device tree (suggested by Frank Li)
-- move X_nRST_LAN into dedicated pinctrl group to make it more self-explai=
-ning
-
-Changes in V2:
-- drop phy-can-transceiver changes and make MCP2542 compatible to TI TCAN1=
-042
-  as suggested by Marc Kleine-Budde & Frank Li
-- implemented SD2_nRESET as vmmc supply for SD card interface
-  (reported by sashiko)
-- add UHS support for SD card interface
-- dropped downstream property ti,leds-polarity (reported by sashiko)
-- fix GPIO line name of X_LAN_nCS (reported by sashiko)
-- drop unconnected pins (X_TDI, X_TMS_SWDIO, X_TDO) from GPIO line names=
-=20
-
-Stefan Wahren (2):
-  dt-bindings: arm: fsl: Add chargebyte Charge Control Y
-  arm64: dts: freescale: Add chargebyte Charge Control Y
-
- .../devicetree/bindings/arm/fsl.yaml          |   1 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx93-charge-control-y.dts  | 438 ++++++++++++++++++
- .../boot/dts/freescale/imx93-phycore-som.dtsi |   2 +-
- 4 files changed, 441 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-charge-control-y.d=
-ts
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentatio=
+n/devicetree/bindings/arm/fsl.yaml
+index c8290a83205b..36e7a325af5a 100644
+=2D-- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1722,6 +1722,7 @@ properties:
+       - description: PHYTEC phyCORE-i.MX93 SoM based boards
+         items:
+           - enum:
++              - chargebyte,imx93-charge-control-y # chargebyte Charge Con=
+trol Y
+               - phytec,imx93-phyboard-nash  # phyBOARD-Nash-i.MX93
+               - phytec,imx93-phyboard-segin # phyBOARD-Segin with i.MX93
+           - const: phytec,imx93-phycore-som # phyCORE-i.MX93 SoM
 =2D-=20
 2.43.0
 
