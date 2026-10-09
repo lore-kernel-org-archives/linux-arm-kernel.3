@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52416CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FB2CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfHxhycY4c003LsMRsPy6F6Xh21xTwGQzv/lLDaJzCU=; b=xNBFwOylJsreoSlxzIjWHUaJ7b
-	bQkqXD/EmilQLTPB93wnwKZ6jdjh+3v3BiTV5W5JA907l1J0HvspQGKSyrFzkqc/WXK6zo9O0GOTT
-	6HUspgqmy+WwRlCNayG/4IDf47FjGm+eJwLazKVIZtvFTD6AuwLBQcOYKtd1Fgmsk3ukvLuD6Xphu
-	jYgfEj4yV5bqFJGYOlbeZjUw6WPwUYskf2vjUPQooVRqSHvEasykfyRT6TBQdNt94vaEG5YlbbdVF
-	o/6GEOhOLEr5g1gvp/d0nJSX4Pjs5TTtGLtnColDQ+JQs7xcocLauew1ZfiwzDZDyMtxT3UKwSiB/
-	41NEy8Aw==;
+	bh=yuatJsYuabYYvzPBBzh4zcG6HEJg4mE6fowtxZTSlU0=; b=WNJjsiBGnaC+Yb3JN3cf8r+x/1
+	tlZg8CMy5p6WGdLROv8r6bzC08rPXmcFBp3xBEaQYhi6LLaqEku34nkl2kV817YPohzu/GcKfp1kO
+	KFydRe/h4d56NkNUF2tzElUGdymctdDvIJCS8LgrmAF5Oed2BRe+p2OjrTYA9LoryB87Oi7Wg8ag8
+	xB7JneE66lHYBCO8VFnPoNWGnhIEar5SPjz10QOj5ZR4L9TyMZgAwrbs9/mGfDoiiF/rqOD8qgGJ8
+	cNSlSdeyo4o3Dl1ESIqt32Lk504sP4cwanvOtyr0pjlJAk4Gw1rSBKOCxbHI+06ckk/Xm4sgRZpv8
+	YVqExOxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7W8-00000005yrM-1OjB;
-	Fri, 09 Oct 2026 10:07:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xF7WD-00000005yu4-1xpB;
+	Fri, 09 Oct 2026 10:08:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7W7-00000005yqe-1YPL
+	id 1xF7WB-00000005ysu-1Rj5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:07:55 +0000
+	Fri, 09 Oct 2026 10:07:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C782343D05;
-	Fri,  9 Oct 2026 10:07:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76BAC1F00899;
-	Fri,  9 Oct 2026 10:07:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C7BFC60DC1;
+	Fri,  9 Oct 2026 10:07:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A9BC1F000FF;
+	Fri,  9 Oct 2026 10:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791540474;
-	bh=pfHxhycY4c003LsMRsPy6F6Xh21xTwGQzv/lLDaJzCU=;
+	s=k20260515; t=1791540478;
+	bh=yuatJsYuabYYvzPBBzh4zcG6HEJg4mE6fowtxZTSlU0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=In3kowbKxzi0zjMZuqzN80/iyK437ZerWuTZkRHz6Jyik7ekEn2cYLzTUoak3EWUd
-	 EjfkFJ9ZOzenPO/lmMhvKJlvq/Y/0tTyuLIUpaDWbf7hyWs5QacL9fDRzeZ1zkz3hq
-	 ClDcSUsA8cXXojGHySxdI7B0GCzCAkrjl2HDjG3zVCKGh6kQASybloEz4+HIcI3iw7
-	 8XzvEmG96MXY5TFBzKR7YEklflWXQiN+gIQZc9AdIBRpjRL3ig+Ih1OC0NERgxZvK6
-	 hSID8wHl5AQPNENRKy4yvp7Jo83XQuHjFY/r3TvDO+bHQdvRvoYs8+0ZUfwnAbMptz
-	 9LhUT8gZ//h+g==
+	b=cKfqshKBfJc3VMLlat94tBBi/MIBRn9tTRz6ntjL0YoKvrE54VlbPuaoR2rKbA0od
+	 lGLN9X1iEdgAL7xDZpl7/YUMUmTC7pP1NuY9KUh+D7B6DLY4oaqD51NSIF7AHh3poi
+	 9EA+tVVX7l6PXamV0hmZa4iwf72jvvUZV6QjAXWLRxKxBpzFYfD+F1816F6xLtyLSJ
+	 Aejflcc5vuMoUUz7KDGTSAYQLWy5YIK2a6ZtaAGaco5l8WuWP0VJsSGlyzGOof4XLM
+	 qhmdUPgiHS7yeNt9MZYOhfgSydjz2D2x4WqboyoKwsVnvwKwPJ+0IYPfhls+V8p9gm
+	 i0JPTqQSmJrJA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 02/23] cpu/hotplug: Avoid trying to bring up CPUs that are already online
-Date: Fri,  9 Oct 2026 11:07:13 +0100
-Message-ID: <20261009100738.31288-3-will@kernel.org>
+Subject: [PATCH v2 03/23] cpu/hotplug: Avoid busy-polling on archs where cpu_relax() is a no-op
+Date: Fri,  9 Oct 2026 11:07:14 +0100
+Message-ID: <20261009100738.31288-4-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261009100738.31288-1-will@kernel.org>
 References: <20261009100738.31288-1-will@kernel.org>
@@ -82,34 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's little point trying to bring up a CPU that is already online.
-Although _cpu_up() handles this case by doing nothing (because the
-target state has already been reached), it's wasted effort when we can
-easily elide the call to cpu_up() in the first place.
+On some architectures (such as arm64), cpu_relax() is effectively a NOP
+and so isn't particularly efficient when used in a tight polling loop
+such as the CPU state synchronisation in cpuhp_ap_sync_alive().
 
-Check that the target CPU isn't already online before invoking cpu_up()
-from cpuhp_bringup_mask().
+Once an incoming CPU has reached the SYNC_STATE_ALIVE state, we know
+that it is executing within the kernel and so we can use the more
+efficient polling mechanism provided by the atomic_cond_read* API,
+allowing the use of WFE on arm64 and Zawrs on RISC-V.
+
+Change cpuhp_ap_sync_alive() to poll using atomic_cond_read_relaxed()
+instead of cpu_relax(). No change on x86.
 
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- kernel/cpu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ kernel/cpu.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 198c929c452a..97a9bfe4edad 100644
+index 97a9bfe4edad..786c3191431c 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
-@@ -1769,7 +1769,8 @@ static void __init cpuhp_bringup_mask(const struct cpumask *mask, unsigned int n
- 	for_each_cpu(cpu, mask) {
- 		struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
+@@ -395,8 +395,7 @@ void cpuhp_ap_sync_alive(void)
+ 	cpuhp_ap_update_sync_state(SYNC_STATE_ALIVE);
  
--		if (cpu_up(cpu, target) && can_rollback_cpu(st)) {
-+		if (!cpu_online(cpu) && cpu_up(cpu, target) &&
-+		    can_rollback_cpu(st)) {
- 			/*
- 			 * If this failed then cpu_up() might have only
- 			 * rolled back to CPUHP_BP_KICK_AP for the final
+ 	/* Wait for the control CPU to release it. */
+-	while (atomic_read(st) != SYNC_STATE_SHOULD_ONLINE)
+-		cpu_relax();
++	atomic_cond_read_acquire(st, VAL == SYNC_STATE_SHOULD_ONLINE);
+ }
+ 
+ static bool cpuhp_can_boot_ap(unsigned int cpu)
 -- 
 2.56.0.385.gd3acb90ef8-goog
 
