@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99F2CA601C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE76CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dyEq6AztHdIBBOkiupS58UYnEU85W9CUNoQa+4uF6NE=; b=DhcZ3hBNvHx9e282YuoN+VP+Ik
-	2y37d4HtcRhbxjEEk8sVqb6x1boTb6L+6uqMgQZ8Gk4d5b8DymkC3KFCktTLB1qW36Xk+ow05ZahX
-	GLBkKYBIFRSM60bfZBzUpvaDVvbTsB17QB5TJKFbYg21ELR+dFglrO3Z+ItfNxZ6leT+5sWh/1uQw
-	g8NnVDn/ACO/kxQIwz8XRJQHboQdDjcSNaOQ9Woqj/HLspKu5UnAO7pLV0HTNoYu13vtA8iU2YWb3
-	paqr2UTRpwtqBH3fw63nBez4ovq/ZgZVx20PF32VW1UA867SkBwdhcqr8Mh/Hz7u+H4lrFnrKE8Gy
-	nwdnZPRQ==;
+	bh=pciEKS25dpug/ced4mPNEBtrY+PumTiiJQEVLgyrixs=; b=eU/hUQZw/oJL/D9GtbFEY+Q5Pm
+	TY2aks1Akmoj1SOs0yExAHXenXjrIzAd37RuRH5xhk7kHWEIzuJI0WKqfX3P9z/ZTTPWSB7bLFvFa
+	Y8pGY3D8Si8OIDMPeWNvj7E/ToXSjFRXwrqG9nTR6fE/ayLE7PlZTp31n9ta3MKLzQtuyo5RCD5Fr
+	76MFigxc2EdjmU+tByKPigmHleyJQvJTzDR7008H55sDJpEeJigREcqU38aLROHjz7KEMVJi6txVF
+	sJsvaO0iWAmh7Jcrd6kqgwa74u0vukNgSRSacvNm6uGx6Wbx0d/rinHTCEm7Vb7j93af/Y05XB5Q1
+	1Gt+8Pwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7WF-00000005yvx-3JDP;
-	Fri, 09 Oct 2026 10:08:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xF7WJ-00000005yys-45DS;
+	Fri, 09 Oct 2026 10:08:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7WF-00000005yvI-0lGE
+	id 1xF7WI-00000005yxx-21vd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:08:03 +0000
+	Fri, 09 Oct 2026 10:08:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C6A960DC2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D8EB444FB;
+	Fri,  9 Oct 2026 10:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2BBA1F00899;
 	Fri,  9 Oct 2026 10:08:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 199201F00893;
-	Fri,  9 Oct 2026 10:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791540482;
-	bh=dyEq6AztHdIBBOkiupS58UYnEU85W9CUNoQa+4uF6NE=;
+	s=k20260515; t=1791540486;
+	bh=pciEKS25dpug/ced4mPNEBtrY+PumTiiJQEVLgyrixs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JiqaNfIlAXBd+I/uQl+5h9SL0X/vdMYNY3SHk6oixZSSEhep02CsotnCUmJdMjy+I
-	 YzhCLpzLWKp9EvP+byIh4Uipe5ley7QIgPNVRVIYTZe9k7siLQw5KtCuwDKu0O/rqO
-	 8+avGMGVRDIEjG66uMKvVuUVFDqR10g+o+U6/P8Df3ls2Ku2JyeKVdWU7c3VQHX6lT
-	 xgdo/rQ/2X+7DylQIwskhHyom9R2nN41507UJEbmJfdkcDZk3IJ7DB/ojg3EcmD5mK
-	 q+EQ/9/3qDBMrEcgBDA1kezUpZpBtbV+qYZvkV4LZtwR2wJpsJd/pwXwQjKEYaxWwx
-	 4kepyE+SLYUHw==
+	b=jxtK2YNOYNF4/hdw/e5V1EzKrOZXefqN+Po/UfvZEj9/Bj42YX8PqHYhPAv2n2SAq
+	 RK2i77Os0W058P6t5x40DOVbgbRhM4extfOxyZD5Uoe+xYyW2MUZho7YUthi82eciE
+	 EfGUOHE6Pa5MTm0iCNoZNbIIi6o/MyPxtzckL7g8dj+Vt0kuA8RF2yOItAr5H92qNU
+	 PAHeMh9WaOoVj1hKNLs4epu/S/V1QpsLjupr3GFNGK6az5vHMFK4HjIKB7dbiShkOh
+	 4xsn7a3ZJnj/3GBsy9mf+qoTqiB3FLRS/l3Q6lLUIkCCBWZC+EpQCQ9yYOY8lrb7kF
+	 wXNB/Lyspnr7Q==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 04/23] cpu/hotplug: Propagate bring-up status to arch_cpuhp_cleanup_kick_cpu()
-Date: Fri,  9 Oct 2026 11:07:15 +0100
-Message-ID: <20261009100738.31288-5-will@kernel.org>
+Subject: [PATCH v2 05/23] arm64: cpufeature: Check arm64_ftr_regs[] before the first store
+Date: Fri,  9 Oct 2026 11:07:16 +0100
+Message-ID: <20261009100738.31288-6-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261009100738.31288-1-will@kernel.org>
 References: <20261009100738.31288-1-will@kernel.org>
@@ -82,76 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for enabling the generic CPU hotplug machinery on arm64,
-which has architecture-specific handling of early bringup failures,
-extend arch_cpuhp_cleanup_kick_cpu() to take an additional argument
-indicating whether or not the target AP reached the alive state.
+From: Fuad Tabba <fuad.tabba@linux.dev>
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+sort_ftr_regs() sorts nothing. It checks that arm64_ftr_regs[] is in
+sys_id order, which the binary search in get_arm64_ftr_reg() relies on,
+and that no register's fields overlap. It runs at the top of
+init_cpu_features(), after the boot CPU's __cpuinfo_store_cpu(). A
+subsequent patch makes __cpuinfo_store_cpu() look registers up in the
+table.
+
+Rename it validate_ftr_regs() and call it from smp_prepare_boot_cpu(),
+ahead of cpuinfo_store_boot_cpu().
+
+Suggested-by: Will Deacon <will@kernel.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/x86/kernel/smpboot.c  | 4 ++--
- include/linux/cpuhotplug.h | 2 +-
- kernel/cpu.c               | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/cpu.h   | 1 +
+ arch/arm64/kernel/cpufeature.c | 5 +----
+ arch/arm64/kernel/smp.c        | 2 ++
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index ba01a9e919b7..f10c64504244 100644
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -1074,7 +1074,7 @@ static int do_boot_cpu(u32 apicid, unsigned int cpu, struct task_struct *idle)
+diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
+index 3c008821219c..f332fbd8e46d 100644
+--- a/arch/arm64/include/asm/cpu.h
++++ b/arch/arm64/include/asm/cpu.h
+@@ -75,6 +75,7 @@ DECLARE_PER_CPU(struct cpuinfo_arm64, cpu_data);
+ void cpuinfo_store_cpu(void);
+ void __init cpuinfo_store_boot_cpu(void);
  
- 	/* If the wakeup mechanism failed, cleanup the warm reset vector */
- 	if (ret)
--		arch_cpuhp_cleanup_kick_cpu(cpu);
-+		arch_cpuhp_cleanup_kick_cpu(cpu, false);
++void __init validate_ftr_regs(void);
+ void __init init_cpu_features(struct cpuinfo_arm64 *info);
+ void update_cpu_features(int cpu, struct cpuinfo_arm64 *info,
+ 				 struct cpuinfo_arm64 *boot);
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 32102c3912fa..727e1665c987 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -962,7 +962,7 @@ s64 arm64_ftr_safe_value(const struct arm64_ftr_bits *ftrp, s64 new,
  	return ret;
  }
  
-@@ -1122,7 +1122,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
- 	return smp_ops.kick_ap_alive(cpu, tidle);
- }
- 
--void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu)
-+void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+-static void __init sort_ftr_regs(void)
++void __init validate_ftr_regs(void)
  {
- 	/* Cleanup possible dangling ends... */
- 	if (smp_ops.kick_ap_alive == native_kick_ap && x86_platform.legacy.warm_reset)
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index feb32949aeea..cbdcf1659d90 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -510,7 +510,7 @@ struct task_struct;
+ 	unsigned int i;
  
- void cpuhp_ap_sync_alive(void);
- void arch_cpuhp_sync_state_poll(void);
--void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
-+void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive);
- int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
- bool arch_cpuhp_init_parallel_bringup(void);
+@@ -1207,9 +1207,6 @@ bool gmid_el1_accessible(const struct cpuinfo_arm64 *info)
  
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 786c3191431c..df3b6bc4c86b 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -426,7 +426,7 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
- 	return true;
- }
+ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+ {
+-	/* Before we start using the tables, make sure it is sorted */
+-	sort_ftr_regs();
+-
+ 	init_cpu_ftr_reg(SYS_CTR_EL0, info->reg_ctr);
+ 	init_cpu_ftr_reg(SYS_DCZID_EL0, info->reg_dczid);
+ 	init_cpu_ftr_reg(SYS_CNTFRQ_EL0, info->reg_cntfrq);
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index a61dc3016a11..eac217b9ebf1 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -455,6 +455,8 @@ void __init smp_prepare_boot_cpu(void)
+ 	 */
+ 	set_my_cpu_offset(per_cpu_offset(smp_processor_id()));
  
--void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu) { }
-+void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive) { }
++	/* Check arm64_ftr_regs[] before anything looks registers up in it. */
++	validate_ftr_regs();
+ 	cpuinfo_store_boot_cpu();
+ 	setup_boot_cpu_features();
  
- /*
-  * Early CPU bringup synchronization point. Cannot use cpuhp_state::done_up
-@@ -445,7 +445,7 @@ static int cpuhp_bp_sync_alive(unsigned int cpu)
- 	}
- 
- 	/* Let the architecture cleanup the kick alive mechanics. */
--	arch_cpuhp_cleanup_kick_cpu(cpu);
-+	arch_cpuhp_cleanup_kick_cpu(cpu, !ret);
- 	return ret;
- }
- #else /* CONFIG_HOTPLUG_CORE_SYNC_FULL */
 -- 
 2.56.0.385.gd3acb90ef8-goog
 
