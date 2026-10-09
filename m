@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74A3CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE419CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vwniXr381W6emKfezuaY9WPq/wWMQModCMVYuaaZJ8=; b=QLwFrYXzYt7+z6y0BvYfmjIAna
-	mOY6MP7dkTdF1i4nz66RsvHYXt1NEX1eh2OLBE7vVAgmtVwJ5If9PwWb9lxWkn1Z672l21kRbHqnS
-	KNoCtwxdFqUJuh2C2/OQRpHYG81K+WQfgN+fG3v1pgstgH+HDC4k+UzX1EJtz0DJh2BVeEymZajYr
-	kvT1fRUftkv1H7uSqlqYdl+ev9/pEnYT7Nw+aRnpndx7dV2YkwkjjNLAtbKACizthk9CFJsD9FmWb
-	cgPOWiyzKL/2EypndVkLL5QHMhlQxjCDUekFkggfxn3pT70Hz9fAAdKfpnPkqvTWhAlCq0IxsvUXR
-	GjYBym1g==;
+	bh=GtbpD+/WiKl2LkSv9CHaFlhLEFCwiHOjk0JUa3wHC7M=; b=N8bAGmM00o0lcVUBrIIqFqBX40
+	3ZlXNvciLkgJaOqEKs0U/Mf7Vx4IZrlhwjpTZIv01rRmMPJfA7Qz0LaKBkYY1VhncBxqWZnU9QPU0
+	WNtjs/0JgSuK4rUT6gxrgXlBa+SN1b9x2JsLNNyHs56crpN14aeIvu2Bmf+GUjFIMIkzkTzR+/Bmi
+	lZeWrpKuixCNs43oTVnr3oc8uNdLAA1ZrV5933n/PTvXLab65+c/zG9EMd05+wOnns39nYov3UdCY
+	P+caUjXK08LFUI+vo5VUF97EDfQc+vjtNlTClNyj2f1BDDPSQXS+uU1hJxcXrxjI2YfaFZwf0OOWD
+	fC10846g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18g-00000005Kv0-1qHJ;
-	Fri, 09 Oct 2026 03:19:18 +0000
+	id 1xF18j-00000005Kxg-0RIF;
+	Fri, 09 Oct 2026 03:19:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18e-00000005KtD-22yU
+	id 1xF18f-00000005Kty-1d1G
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 03:19:16 +0000
+	Fri, 09 Oct 2026 03:19:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4vwniXr381W6emKfezuaY9WPq/wWMQModCMVYuaaZJ8=; b=Zl8QEJ5TX+0yQJQbzYb3BNcSVZ
-	efX94zrvtD7G9VoaXIMX5oy8FhMFp7uQ0HTD6RPIxJwjpyL+OmLv0+TGChbIhT0bmGOM/JPvqpinQ
-	kuFcoxyXVHBn1G6aLDLfH5ixzGZ83Lfd+DdcBCYUfUtmp8B9e3o2ZxXYeUlQGW55DSqe9J8OUnyWM
-	83xd2oCXEOaz38WP4Tkls0W9VKyh+3zQ7AYN1xx/V04bwcBjcAYhC9wjDimtzBbRAshYDKvKx3GkC
-	jOOZ5HNGGl4LiU+cwn+RnsBef+hddFbChhT/SeQhr1udII6lmVe9SfZTk0JleNRGLfu53bgeMi88z
-	xJJrLBcA==;
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	bh=GtbpD+/WiKl2LkSv9CHaFlhLEFCwiHOjk0JUa3wHC7M=; b=dZCpbWUfJRf9pPIzt+xj350YYE
+	RN8IVuZI2jdcUigH9u6PwQQ46qYfky/rHOGn9arQvKmCorw7edrhwWgGKp4x4kbgG0CcncHFAt1Ws
+	BESENYq2U6qNHKLNg55loQWn929PPq995L8TfxESdeal3IbMQ1htbMAShc6SXjLT6lOKabkGJyN2L
+	KlnHNAPrCLfhAhMyyFxfjeyLcvquEGO2lZu3O7UDnSMaXea5+sd/fqExRJOvqOnq2hS2Dx1popMHx
+	q2NeowzItS6dnJIqkzadc5BrO4R1et2T2i/FNh6qUhl1sUVIDBw2zAC6nAf/BXqQ27jrBMoOZKJnr
+	YiuqgnTA==;
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xF18V-0000000Aqp5-0bt4
+	id 1xF18Z-0000000Aqpa-0XEj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:19:12 +0000
-X-QQ-mid: zesmtpip2t1791515862t41d55fdb
-X-QQ-Originating-IP: 78gJAcIGUVSr0IWztGV4pGd7LvEMa0gC7Diilw8quLk=
+	Fri, 09 Oct 2026 03:19:16 +0000
+X-QQ-mid: zesmtpip2t1791515854tbee33f08
+X-QQ-Originating-IP: mZmBNt09oCAyCIS5AV787bFxJ0kbiYhVbHb5G7CrF0Q=
 Received: from [192.168.30.32] ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 11:17:39 +0800 (CST)
+	id ; Fri, 09 Oct 2026 11:17:31 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7530361477103805638
+X-BIZMAIL-ID: 2693331085856337013
 EX-QQ-RecipientCnt: 29
 From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 09 Oct 2026 11:16:02 +0800
-Subject: [PATCH v2 10/20] drm/msm/dp: Report stream enable failures through
- link status
+Date: Fri, 09 Oct 2026 11:16:00 +0800
+Subject: [PATCH v2 08/20] drm/msm/dp: Track PHY power ownership
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-msm-dp-hdr10-v2-10-1835d4966da3@radxa.com>
+Message-Id: <20261009-msm-dp-hdr10-v2-8-1835d4966da3@radxa.com>
 References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -81,38 +80,38 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
  linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6880; i=sophon@radxa.com;
- h=from:subject:message-id; bh=5ucLmD84+B3JGHJEDlBaULUVYEj81Nym/HMWEBfcJAg=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlZeivUsOv2vx/zYC8YDm9s6JW9t3GCoN6/EYFMG0
- 6R5+6bt7yhlYRDjYpAVU2RRiGeYy16Ze+2pWKkezBxWJpAhDFycAjCRHV8Y/in15hR7/RG6orVn
- han5289CDGKVqoY3FgQfSzfcc3ju/XaGfwo8R29fLZgZ9enGMzUPL21BsaWr9Jt3T829X3l2u8U
- EUU4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3920; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=CNhp1n10ypP2UBsGrSZeyY/HNqkOHXcwJsO9tkT9xVU=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlbeqS/ZnDDnWF/U+29GT/7FLYzmbz/4Yf+yRf7K7
+ 8x0Ku02dpSwMIhxMciKKbIoxDPMZa/MvfZUrFQPZg4rE8gQBi5OAZhIXAjDdw++CSzK5t8Fc09y
+ MBTHR7eYPBU+t3v+60ThgAXl000LGf5ZBObGrWxJP7z+9O+Wb3/3iiXMTXdp0mTSu6a59q9hw3p
+ GAA==
 X-Developer-Key: i=sophon@radxa.com; a=openpgp;
  fpr=205F009D07796DD6E516752E32C31567AD9E324E
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: NuvczPgZuLZZSnaOn+sMQWqJuKSpfTm4ZiBSd89ZhVPWtYKqWRxi+KMK
-	1n7vUTEJtI9BH/D07gDryDCwhKeUG5bDIPFVk6RFNtL/RIF6fjnUFBRHF1KKhmXGYgnmkkX
-	tvIOIEACDBwtsI8qOr4NUQQo3pKHUoWlRCZ3ZtMDQJ52eQcD8AvMABdwrBopQHUE+/WbRZH
-	UNw5ngxZpvlgx18aWjndOu9bG7iNt6DzqK/KYP0tS6kPXIpNbrWvyM78l8eYy5dO+oLl/FA
-	nBVv/GRBpNQTzZ+8VoZJAc5La7xqwYBiq+QHyQD5UVEX281PpUm3c9NYmQcK/taK22PkXTq
-	lnrfm7M/hdI/w7fz8ZQjSY0wwxJim58EibfcpuRw0xoO77p7rw3eLSDAmAD78reeDRasItA
-	WELUSi9hLVZmmsXxZ7d7Ke+0b/O/6P77NWwvoBEht7GJk8jt3x6hME1mB4ObShEEXST9Pcs
-	pCIvUuiUXSwvHrR3FRQOyovcmYV/GPC95VRjdzQedsaZxiRDvUsbluRR9T6fr83xLD6KXlx
-	HYqp4UUpcCnFVz3hszEhEFaVZNr7zrfEWzzb9tSz2XuYUk5MAvnQJDxUgODLj7IbKgNWV31
-	kD0UCMOSlTSOadcK6JHGgcRSAHHdmdkOjS1IAlgGaBG4kl540BuCqEfERs8APmc6ODOrDae
-	ATx27pvVOuizVdAPlapvJyahUdY+Nlz6WTI3QepzXfRXTU/Nalbn8lPix1mJioc8K8iopJo
-	KGyEJFnpWiT6b1mwUH1MX6m/hVyQpWTA6fMBEXYynMCR9/ItLV3SKa/RCg79yy1EedTuT8k
-	KNNQg/GGioUxfKOu3IAHM6lofeeTBtr9cs3oBWnwtChueI3bd3rFb9Q1e35r3Qz9nB3tuH/
-	IlF6X1+j2f+0Kr+y+6yoxH6blHoxIILSWkKMV+Hw6X8+DenJ1RQUbOASJ06xyx4o3mj5DmP
-	0FaGOtYdaNM7AtyZJWhT+L7HhtsLhDjo44P2V3UJKINxTDUTgtQYtw215106aNy7eIk87YQ
-	euywsf1Wa6wGp0gBDZhD4CXfm2fGTwgZiiC29uTH0Xc2Y41dRNyI/wvLmVl+Vn+kfH+Y2wr
-	kWoQO54bPxj
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-XMAILINFO: N+v2p8NjVRtQWo7+u09DgiQQ5PTb3wmvOZnk0vbZqkQbv0qOdNm4FpuH
+	4lpiC01Deks0N1v0WkYnONXCBdDFDTaappX2+wjRHME1C4Uea7pnEWQBpbZ0ko/y/hNWbkR
+	swyqA3ym/23neQPoX+1eAktaOiMgr3B/UjdnCnX/Bvb4BzVOuWgCBvGRhyIa6lMKNXEWQ9i
+	7zKVPTGdnnty7RYV/ZiwhA2s3QIjKJJpDKfMlW4Z/yiUXYbMBbP87wO9YOXNzzX90uGsVUy
+	OecBftq0LDfBW0AHV35skxQhqKrNttVsdu1kG/PXRgeHKKRzWkzCBa7TcKWz9PmyQo5qqJR
+	QX44UB6Z7lOhNOHBtYMR3hzXSzbBQLumRxo3mEnj17h2ogSeL6x3BJuaTMs+j1lcUvKo1wK
+	+fyRgd2VtAqq4Votv6U5FoHmaEDGFt3gSI2QHvHRbAbU9J0nuXrvuuVCcvaOYMdUcrzbRF2
+	k9S+F0J1+ZmNVy7UB/c10BfjnMwe2HlKH/O8a7BQStNtt1w96GZzcDusw/sZ++BkuQ5rtFX
+	WfQ+f44NXWpXUnlrPcXHP3xQH1Dz/lU3AaftUoAC3+Pi+i0Vx7yaaNqOGxmCOcqEzTYTjAg
+	mNHTFKF3tJHra2CX/1QYhAMZDr48SlUrHtjzFyM+1o61Vb1PTYFFziXdDX4y27W5beVAivz
+	NXQekAsyZaOnUVL0YZobMCIObTD1GRkpZ/Yl7hzUyOO8teCZjHVbhrKdNsLiNXFxcjIyK5I
+	kzj1QK+ZATHO+BhqHFF1AbvpEnH8je9o85ziQqqKYxzwqL9rZvp5QLzcHv4hKV7HhCS7RhA
+	sGa9XvkY57h2zk44N8iMBzFoRh/B49MA4dEJ8CNg4d4/W9xfW5ehOzNsXMhusqdh2Al+6vw
+	vH9kCAvRSsBJjQQjXFRvzXfQAC+SrDHAum6z57ZhloEBfFCGRKWT1h6cj1ddv6AsXmSjVMH
+	Y0+n7PYkTtfCq4wZd0tdjQlQFmChid3Xkp9OJEfLAJgs4XKR3y3h3ah+Up1wR/Bj7UT72G+
+	/AOLM8CYT6cKXpVHEbLG+JPpRMsVbiBHxzoJJBqDS3RW6VrJFDF/Gp7d4jKf8YW4JPNYjXn
+	A==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_041908_064536_98374282 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20261009_041914_721329_D759AFF0 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,194 +126,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Atomic bridge enable callbacks cannot return an error to userspace.
-After a failed enable, leaving link-status unchanged gives userspace
-no indication that it needs to retry the configuration.
+Mainlink restart and PHY test paths can power down the PHY before a later
+cleanup attempts to release it again. The PHY core counts each power-off
+call, so cleanup without an owned reference can underflow that count and
+prevent a subsequent enable from calling the hardware power-on operation.
 
-Mark the connector link status bad from a work item after unwinding
-the failed enable.
+Record successful PHY power acquisition in the controller and route all
+power-off paths through an ownership check. Keep the reference recorded
+when power-off fails and avoid acquiring a second reference while it is
+still held. Also skip releasing link clocks that are already disabled.
 
-Send one connector hotplug notification per failure episode. The
-notification also invokes the fbdev hotplug handler, which can retry
-the modeset synchronously. Since atomic enable callbacks cannot
-return errors, another stream enable failure can requeue this work
-without reporting a failed commit to fbdev. Notifying on every
-failure could therefore cause an unbounded retry loop.
-
-Subsequent failures still restore BAD after a retry sets link-status
-to GOOD, but suppress further notifications until a successful enable
-or an external sink connection change. Do not reset the notification
-latch during eDP's internal plug and unplug handling, which runs on
-every retry.
-
-Skip failures superseded by recovery or an external unplug before the
-worker checks the failure state. Protect the failure state with
-plugged_lock, then release it before calling
-drm_connector_set_link_status_property(). The helper takes the
-connection mutex, which precedes plugged_lock in atomic check's lock
-order. Send the notification after the helper releases the mutex.
-Recovery concurrent with the property update can cause an extra retry.
-
-Initialize the work at probe and cancel it before unbinding the
-display.
+The preceding stream serialization change protects these ownership
+checks against HPD PHY tests and link maintenance. Error propagation is
+left to the subsequent stream enable rollback change.
 
 Assisted-by: LLM
 Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- drivers/gpu/drm/msm/dp/dp_display.c | 61 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 58 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/msm/dp/dp_ctrl.c | 35 +++++++++++++++++++++++++++++------
+ 1 file changed, 29 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index b076d44b5118..816f2dc11aea 100644
---- a/drivers/gpu/drm/msm/dp/dp_display.c
-+++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -12,9 +12,11 @@
- #include <linux/phy/phy.h>
- #include <linux/delay.h>
- #include <linux/string_choices.h>
-+#include <linux/workqueue.h>
- #include <drm/display/drm_dp_aux_bus.h>
- #include <drm/display/drm_hdmi_audio_helper.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_probe_helper.h>
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+index 59070f399e2d..f005421630c6 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+@@ -136,6 +136,7 @@ struct msm_dp_ctrl_private {
  
- #include "msm_drv.h"
- #include "msm_kms.h"
-@@ -54,10 +56,14 @@ struct msm_dp_display_private {
- 	bool audio_supported;
- 	bool stream_pm_active;
- 	bool stream_link_attempted;
-+	struct work_struct link_status_work;
+ 	u32 hw_revision;
  
- 	/* Serializes HPD, stream and PSR operations while runtime active. */
- 	struct mutex plugged_lock;
- 	bool plugged;
-+	/* Protected by plugged_lock, including accesses from link_status_work. */
-+	bool link_failed;
-+	bool link_status_notified;
++	bool phy_powered;
+ 	bool core_clks_on;
+ 	bool link_clks_on;
+ 	bool stream_clks_on;
+@@ -1813,6 +1814,9 @@ static void msm_dp_ctrl_link_clk_disable(struct msm_dp_ctrl *msm_dp_ctrl)
  
- 	struct drm_device *drm_dev;
+ 	ctrl = container_of(msm_dp_ctrl, struct msm_dp_ctrl_private, msm_dp_ctrl);
  
-@@ -205,6 +211,39 @@ void msm_dp_display_signal_audio_complete(struct msm_dp *msm_dp_display)
- 	complete_all(&dp->audio_comp);
++	if (!ctrl->link_clks_on)
++		return;
++
+ 	clk_bulk_disable_unprepare(ctrl->num_link_clks, ctrl->link_clks);
+ 
+ 	ctrl->link_clks_on = false;
+@@ -1824,6 +1828,23 @@ static void msm_dp_ctrl_link_clk_disable(struct msm_dp_ctrl *msm_dp_ctrl)
+ 		   str_on_off(ctrl->core_clks_on));
  }
  
-+static void msm_dp_display_reset_link_status(struct msm_dp_display_private *dp)
++static int msm_dp_ctrl_phy_power_off(struct msm_dp_ctrl_private *ctrl)
 +{
-+	lockdep_assert_held(&dp->plugged_lock);
++	int ret;
 +
-+	dp->link_failed = false;
-+	dp->link_status_notified = false;
-+}
++	if (!ctrl->phy_powered)
++		return 0;
 +
-+static void msm_dp_display_link_status_work(struct work_struct *work)
-+{
-+	struct msm_dp_display_private *dp = container_of(work,
-+			struct msm_dp_display_private, link_status_work);
-+	struct drm_connector *connector = dp->msm_dp_display.connector;
-+	bool notify;
-+
-+	scoped_guard(mutex, &dp->plugged_lock) {
-+		/* Skip failures superseded before this work starts. */
-+		if (!dp->link_failed)
-+			return;
-+
-+		notify = !dp->link_status_notified;
-+		dp->link_status_notified = true;
++	ret = phy_power_off(ctrl->phy);
++	if (ret) {
++		DRM_ERROR("Failed to power off PHY: %d\n", ret);
++		return ret;
 +	}
 +
-+	/* The helper takes connection_mutex, so drop plugged_lock first. */
-+	drm_connector_set_link_status_property(connector,
-+					       DRM_MODE_LINK_STATUS_BAD);
-+
-+	/* fbdev can retry the modeset synchronously from this notification. */
-+	if (notify)
-+		drm_kms_helper_connector_hotplug_event(connector);
++	ctrl->phy_powered = false;
++	return 0;
 +}
 +
- static int msm_dp_display_bind(struct device *dev, struct device *master,
- 			   void *data)
+ static int msm_dp_ctrl_enable_mainlink_clocks(struct msm_dp_ctrl_private *ctrl,
+ 					      struct msm_dp_panel *panel)
  {
-@@ -235,6 +274,7 @@ static void msm_dp_display_unbind(struct device *dev, struct device *master,
- 	struct msm_dp_display_private *dp = dev_get_dp_display_private(dev);
- 	struct msm_drm_private *priv = dev_get_drvdata(master);
+@@ -1836,7 +1857,11 @@ static int msm_dp_ctrl_enable_mainlink_clocks(struct msm_dp_ctrl_private *ctrl,
+ 	ctrl->phy_opts.dp.ssc = drm_dp_max_downspread(dpcd);
  
-+	cancel_work_sync(&dp->link_status_work);
- 	of_dp_aux_depopulate_bus(dp->aux);
- 
- 	msm_dp_aux_unregister(dp->aux);
-@@ -424,6 +464,10 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 
- 	mutex_lock(&dp->plugged_lock);
- 
-+	/* eDP calls this for every enable, including automatic retries. */
-+	if (!dp->msm_dp_display.is_edp && !dp->plugged)
-+		msm_dp_display_reset_link_status(dp);
-+
- 	msm_dp_aux_enable_xfers(dp->aux, true);
- 
- 	ret = msm_dp_display_host_phy_init(dp);
-@@ -466,6 +510,9 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 
- 	mutex_lock(&dp->plugged_lock);
- 
-+	if (!dp->msm_dp_display.is_edp)
-+		msm_dp_display_reset_link_status(dp);
-+
- 	dp->panel->video_test = false;
- 
- 	msm_dp_aux_enable_xfers(dp->aux, false);
-@@ -529,10 +576,12 @@ static int msm_dp_irq_hpd_handle(struct msm_dp_display_private *dp)
- 	if (!rc) {
- 		sink_request = dp->link->sink_request;
- 		drm_dbg_dp(dp->drm_dev, "sink_request=%d\n", sink_request);
--		if (sink_request & DS_PORT_STATUS_CHANGED)
-+		if (sink_request & DS_PORT_STATUS_CHANGED) {
-+			msm_dp_display_reset_link_status(dp);
- 			rc = msm_dp_display_process_hpd_high(dp);
--		else
-+		} else {
- 			rc = msm_dp_display_handle_irq_hpd(dp);
-+		}
- 	}
- 
- 	drm_dbg_dp(dp->drm_dev, "After, type=%d, sink_count=%d\n",
-@@ -682,7 +731,6 @@ static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
- 	rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
- 	if (rc) {
- 		DRM_ERROR("Failed link training (rc=%d)\n", rc);
--		// TODO: schedule drm_connector_set_link_status_property()
- 		return rc;
- 	}
- 
-@@ -1278,6 +1326,7 @@ static int msm_dp_display_probe(struct platform_device *pdev)
- 	dp->hpd_isr_status = 0;
- 
- 	mutex_init(&dp->plugged_lock);
-+	INIT_WORK(&dp->link_status_work, msm_dp_display_link_status_work);
- 
- 	rc = msm_dp_display_get_io(dp);
- 	if (rc)
-@@ -1571,6 +1620,7 @@ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
- 		goto err;
- 	}
- 
-+	msm_dp_display_reset_link_status(dp);
- 	mutex_unlock(&dp->plugged_lock);
- 
- 	drm_dbg_dp(msm_dp_display->drm_dev, "type=%d Done\n", msm_dp_display->connector_type);
-@@ -1583,6 +1633,11 @@ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
- 	if (msm_dp_display->is_edp)
- 		msm_dp_hpd_unplug_handle(dp);
- 	msm_dp_display_unprepare(dp);
-+	scoped_guard(mutex, &dp->plugged_lock) {
-+		dp->link_failed = true;
-+		/* Keep reporting BAD, but notify only once until recovery. */
-+		schedule_work(&dp->link_status_work);
+ 	phy_configure(phy, &ctrl->phy_opts);
+-	phy_power_on(phy);
++	if (!ctrl->phy_powered) {
++		ret = phy_power_on(phy);
++		if (!ret)
++			ctrl->phy_powered = true;
 +	}
+ 
+ 	dev_pm_opp_set_rate(ctrl->dev, ctrl->link->link_params.rate * 1000);
+ 	ret = msm_dp_ctrl_link_clk_enable(&ctrl->msm_dp_ctrl);
+@@ -1996,7 +2021,7 @@ static int msm_dp_ctrl_reinitialize_mainlink(struct msm_dp_ctrl_private *ctrl,
+ 	 */
+ 	msm_dp_ctrl_link_clk_disable(&ctrl->msm_dp_ctrl);
+ 
+-	phy_power_off(phy);
++	msm_dp_ctrl_phy_power_off(ctrl);
+ 	/* hw recommended delay before re-enabling clocks */
+ 	msleep(20);
+ 
+@@ -2022,7 +2047,7 @@ static int msm_dp_ctrl_deinitialize_mainlink(struct msm_dp_ctrl_private *ctrl,
+ 
+ 	msm_dp_ctrl_link_clk_disable(&ctrl->msm_dp_ctrl);
+ 
+-	phy_power_off(phy);
++	msm_dp_ctrl_phy_power_off(ctrl);
+ 
+ 	/* aux channel down, reinit phy */
+ 	phy_exit(phy);
+@@ -2643,10 +2668,8 @@ void msm_dp_ctrl_off_link(struct msm_dp_ctrl *msm_dp_ctrl,
+ 			  struct msm_dp_panel *panel)
+ {
+ 	struct msm_dp_ctrl_private *ctrl;
+-	struct phy *phy;
+ 
+ 	ctrl = container_of(msm_dp_ctrl, struct msm_dp_ctrl_private, msm_dp_ctrl);
+-	phy = ctrl->phy;
+ 
+ 	msm_dp_panel_disable_vsc_sdp(panel);
+ 
+@@ -2656,7 +2679,7 @@ void msm_dp_ctrl_off_link(struct msm_dp_ctrl *msm_dp_ctrl,
+ 
+ 	msm_dp_ctrl_link_clk_disable(&ctrl->msm_dp_ctrl);
+ 
+-	phy_power_off(phy);
++	msm_dp_ctrl_phy_power_off(ctrl);
  }
  
- void msm_dp_display_atomic_disable(struct msm_dp *dp)
+ irqreturn_t msm_dp_ctrl_isr(struct msm_dp_ctrl *msm_dp_ctrl,
 
 -- 
 2.56.0
