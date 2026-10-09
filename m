@@ -4,183 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D11CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1801BCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBsVzpNhtQkj2g2E34XSnsFIgc3dqndUQQTnjxA8m3s=; b=3mbMwqxtZ+nlLU4AjCJE4WbCfj
-	52H3PO+bTMnXNyHsP+4h+thiTQ0MXQ42F92+tD2vPcbh0nOB2Jhbl5+XD7Mudonjrwdgc4gZF6HKT
-	0KAyyenpkCPr0qYMHV8nNDx6aeUtcu7BSfr5zBjMzqrqFXC8EETGFVqP//qBJ09Uf2W4tH0F72wsT
-	/GdMx6A2Jgiy5njeYxOd0cNbubGG4Kn6+gHQaZLGDH9mJh2QMBGp767IN8Uf7kOOgeRiCrvxtxdBZ
-	aDIKdtSeIvDGoh5O/oBB2MFAA1D29QCKsm3Ej6vaSN9KIxyoqM94S11xOBi++Wkc4aoflDvBDt0qv
-	r7+hBzXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=reZfXbmp6yLaHEWG8SUuHXTDZSJLk3XotPVTKdZ5Mp0=; b=wQD7gdUsb5SQrUs0vvf64d17jp
+	Fiv/xdzWDd0XOvelOJhuMwLyKdm0dgeq5jbfY2+9OOjy9irD7gbAZM1pMmaTr+MCxNiMUHoSZxShA
+	BU2OJ6jIKJnFesBsE0ubgAEBSPHJt8v1RpuHKeplD4jQgJCXp9txmOq+x0CkJ6Bsn3mnHM6YqpAlL
+	XCsAI74yHw2KpAoPrFi3UmF12lcrBV3tpe/EWEaHHLe9E81t8Jxq/1kvE2CH54ewggzZrJivCQftq
+	nt5Rv2eeYYVeqQ1P45rArf1Wl0NTyGFSeDTbfk2/LlXvjt7StCIrGdaZEnkZwr28xsH1JOteTmIaK
+	QB1V6WWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF99L-00000006Eat-1b0s;
-	Fri, 09 Oct 2026 11:52:31 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1xF9AF-00000006Eom-2lhO;
+	Fri, 09 Oct 2026 11:53:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF99H-00000006EaC-37Va;
-	Fri, 09 Oct 2026 11:52:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791546748; x=1823082748;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=+DnBTogc33iJWnHPJpF0KtE2Bm+3u1wHyYFNh9uMwPY=;
-  b=jJ1GIoNyQcvGv+tismZxY5fXbOIZyQFwr0fgBuZjwaiP3pNoVO927xLv
-   XX6yZmhw5seKJxKf+rFZY6cPYzxYE6grUusyed4BLwlJ+h/ymDtjzcyUl
-   E2JhQ9UavckA32/Esavqhiz8k8DdD0ct+/VceRxbnBM3hww8XvAhCtWO7
-   uFeRbzLsQjcfX6DFWXzeU2QX++qJeFNaTcqfjLwXJvcO+XPFXPuEsNVUt
-   fnmBF6jXODelXQ9yrPZdqmY5JdPfa5A5z2oQ1aeLY4Fe+99/ieHWN+JtS
-   lMfYCOunPbKxgxcIOVbOInHub2X1Khg//XdMKUpZPMd9qtXd7AiK4BYey
-   A==;
-X-CSE-ConnectionGUID: +nW1RG6jSJK/GCSNbqqZZQ==
-X-CSE-MsgGUID: sIawno05Qb+VSNDNIDHs9A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11929"; a="350909"
-X-IronPort-AV: E=Sophos;i="6.27,148,1787036400"; 
-   d="scan'208";a="350909"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 04:52:27 -0700
-X-CSE-ConnectionGUID: qS08SzRVSH2i97rHEDRxIg==
-X-CSE-MsgGUID: u/n9HAVgRYeWOEcA9IEE0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,148,1787036400"; 
-   d="scan'208";a="296414"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 04:52:26 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 9 Oct 2026 04:52:26 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Fri, 9 Oct 2026 04:52:26 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.37) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Fri, 9 Oct 2026 04:52:25 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d4enefriVbklbtODAdEusn8f6zNw0EYn7eRggzw2v39xIRC2TXV9vOKzdLoT89USogUcIOUrN0ORkY610uTF4/CsJL1wutN1jJ2XDTfxkQzYYE9kq2P/HHZ2rvyN1Zsuw5PY1vb4yYrLEyhqcU2ViNF386HdheC20FIMS3H8qAlJUwY5ZPqxEhLNKWtnplcn4xjJgk8taTgUxZR8ODNETEEGLFly/a059HX4a60SD62AjgYB/I2LPUENnSBSAkvckTGzVAOQZFSVIsoVt8XP2075TImwNFE3X4tl7d9UzpTIfh5aRVFIgV1FVvQ3G9iKScV/lz3ivvbVfcOSoq6kSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tBsVzpNhtQkj2g2E34XSnsFIgc3dqndUQQTnjxA8m3s=;
- b=hUg0WBubecl+3I524af28hfmjOukU/W+wkrbp9hsvZ/1R+CVU8xOZObjeRk0YzL1wS4ng5Vcc9n+d9MqVlLBFn4aX6yeLg5jhxWPdFQpkjqavrF5i9BTed4mxq38d0wR/jVbHm7oJogYMpFPO6DFbld/WQLw00h7xYYyR/+ALYHm2MiYzUylTiLH4jV2RaeIKE0EiodXlQkFEX0DVgNzX6CII5zBQw1ZbYd1bV227/WbweLzUoMwRG0+K0+2I+eykVrJJBpcOrH1W7tZ0RR3PET7lpmIF8ZU2Rxf8NQ7fhOO12dCjWv8ouSE3IoPnFJ4uXTf/EeL6yZcOHlOBXltqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH7PR11MB6006.namprd11.prod.outlook.com (2603:10b6:510:1e1::13)
- by EAYPR11MB838216.namprd11.prod.outlook.com (2603:10b6:303:2fa::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 11:52:18 +0000
-Received: from PH7PR11MB6006.namprd11.prod.outlook.com
- ([fe80::4e2d:28f0:ede9:73bd]) by PH7PR11MB6006.namprd11.prod.outlook.com
- ([fe80::4e2d:28f0:ede9:73bd%6]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
- 11:52:18 +0000
-Message-ID: <3698d260-13c5-4050-8f03-61f7b7185514@intel.com>
-Date: Fri, 9 Oct 2026 13:52:09 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/21] ASoC: apple: Add macaudio machine driver
-To: James Calligeros <jcalligeros99@gmail.com>
-CC: <asahi@lists.linux.dev>, <linux-sound@vger.kernel.org>,
-	<patches@opensource.cirrus.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Hector Martin <marcan@marcan.st>,
-	"Sasha Finkelstein" <k@chaosmail.tech>, David Rhodes
-	<david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>,
-	=?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, Liam Girdwood
-	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
-	<tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu
-	<baojun.xu@ti.com>, Sen Wang <sen@ti.com>, Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
-References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
- <20261004-macaudio-v2-9-7b47ed6335a8@gmail.com>
-Content-Language: en-US
-From: Cezary Rojewski <cezary.rojewski@intel.com>
-In-Reply-To: <20261004-macaudio-v2-9-7b47ed6335a8@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: WA2PEPF000008B4.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d8::68a) To PH7PR11MB6006.namprd11.prod.outlook.com
- (2603:10b6:510:1e1::13)
+	id 1xF9AC-00000006EoI-42TO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 11:53:26 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6998KHSR642387
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Oct 2026 11:53:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=reZfXbmp6yLaHEWG8SUuHXTDZSJLk3XotPV
+	TKdZ5Mp0=; b=NF/0yA8y72lafuLfRe+aIJVxJwV4iHDwA6XshihHLm0Gfa7fda2
+	gHhAthPpb2hG0jsu5b8t7N17UAD79tgft/5qU5A7//1cNGEpXF1syQeQfxk2Bk7i
+	G5yoRU53qSynPSQ1aIy8LhNCOjBq7HWgmtNrQRkQtOSZebd9qGkqmaXrYmShCZM6
+	KFXofxPNzKHLM8HXneo6uSCg5wFkiTR4/Jb5Rac+DVxyssj/40rJASnA8no/tRyi
+	wa5bENRBdOclPa1lTBVbJS6bRIEYb22lHkdM9N4h4jDS4Vpi+JxN+kZDt+3Pmxds
+	ZPGw6ElMx5sjYbrMagkuklfo+WeTizRfEFw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h6fxrudds-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 11:53:24 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93c5ab5c136so1064921885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 04:53:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791546803; x=1792151603; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=reZfXbmp6yLaHEWG8SUuHXTDZSJLk3XotPVTKdZ5Mp0=;
+        b=fPhrr1/kiG411Q6qx/2hzwZlVEMukyCANGGhFIUeZ4rxh+u2BjU9EVh26BqxvX6yYs
+         rK0zQFiBjxorsMmr95cD0ti4fnbwma+6xtedtYHvZuXzS0WGHsVjblH4sDNuW5aQ5ehG
+         DNZl0g8b87jWG1ur2UjiCT4pWvK+MgrK7TsEYwon7JQV2AqTzbHn7KyMz3o3acMZ/Uf/
+         ic6DpqxbRRF6IvWodlAauHPWXqN6vvnwDmHviudkvV+Po1cnFJ4Dsbje5SQGUhPPNGeA
+         +VO7vYfdwTBrg8isMLPtNB3nmvbPl+V7+BK1dIkUfQPAPD27OhVwVV71s/JjkSuQtISR
+         T7eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791546803; x=1792151603;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=reZfXbmp6yLaHEWG8SUuHXTDZSJLk3XotPVTKdZ5Mp0=;
+        b=U/sAJRMYG3N1GNrZmQZiM8xSHLVZpUBqmclLxto10CltkEV8E/vbkLrA2ML6o5RTNN
+         gCnn8a9LOsrzcrki+ldaBCEWc2ND+FCe7flLtF3E9U2/cMg3liVH1rQWyXHBb3V7sP+Y
+         Cqo9ve7r1465ac8b5tyWdKSARB/7eH7PH7C1JSTRMVVvHymwV+UjIuh7U3H4pLTD4bVQ
+         HnhF2kNazM2m7us14oi0+c4ry331XGdIqOdzz+59onr3RoWHSVdiSE/+MAeeeyDctOXx
+         mV3wpESHKPiggjPwmG2QAhzYSXJYFtU9zhBrKCFssmivPwJiRCU2bnhyzU5TMislIkeL
+         SKpQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxxKsF7cD1iuJRUpX8JkezPIzE+4JSq6zzF+qnm9v6EacwhkPHW3KuiFvwaHRo9y2lsl8BiO6eu2c9cIrU3wtLG@lists.infradead.org
+X-Gm-Message-State: AFuF++kI09d3DXdlZiRF18+AKMfJC9Gz0ZLo2vuJ1+fS5ztsMfKDMliO
+	IO6Bx3ISxbyC82/MuQ9MdRvCjJ2Lbtx9SROJ0dGxuTocUc/YS/oGc0ru8Xf/UCW8uiUVnTfsPDn
+	pz1ukbGRjPBREe/NvzFqkMKPH3+bQ20FNijUcDKl6CGOIqqwmHJ4uyrW5YiyAFM6TJ1ncO7ppkl
+	nsc9zQ+ZU5fA==
+X-Gm-Gg: AYBFou0dT6zg1sd6+pObG+sWV6/1K93kJVD+olAmsrM7yzjKoZdABqnXwtHklcEJhlV
+	LQRnx7xWIsDscfxcrYK2x7oTsBzTmKWsUzUkGuMGXsyYHxTiFsTi/J2eXtVHlOiGEowignIUtTm
+	WSsHUkSZUAUOSv6+is1z6n0BRlNwU9sNjoZosWJHw2zNDIzhRnINiIusOIt7FlU5PH4s/3p4Aq0
+	qccuc148/Ij3lNmbnIvgjXjoLiE/bA5upuO7STuKDpL+OhqdLyCMQixCI+usB1uh/McixOz6R34
+	lUR4s6L37UDI0QJQdGT5YV6qzyw7PtxPOseAz7EVq8Sv6knxeNEjy/Td/BYnbZtC8ZjE+2glg6E
+	SXlxuk3vbAXu0wjGOxlwO4spFoPNa0kVk3HZwu1Kzz69BvzmPcl1PraDBRA==
+X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr211379385a.3.1791546803138;
+        Fri, 09 Oct 2026 04:53:23 -0700 (PDT)
+X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr211376785a.3.1791546802609;
+        Fri, 09 Oct 2026 04:53:22 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31a9a7cfd8sm83244166b.44.2026.10.09.04.53.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 04:53:21 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+To: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Cc: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] pmdomain fixes for v7.3-rc7
+Date: Fri,  9 Oct 2026 13:53:17 +0200
+Message-ID: <20261009115317.14472-1-ulf.hansson@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR11MB6006:EE_|EAYPR11MB838216:EE_
-X-MS-Office365-Filtering-Correlation-Id: e99117aa-0aac-4e2b-4e0f-08df25fbc4c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|7416014|1800799024|56012099006|4143699003|11063799006|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: jys+9JVxc2YYP79Y0LAVn4h6oPVGEgXCmXRiKtSnuKIDLoTr2UedXMf9IdLSEHMTejouhx+saJ8KaAqv42h6jksQlNcIG7Argpmx6mZPq/ql1hF01gQrowq9xvCkHVBg1uIYIY0sPERYTk8Oq6JUgycdzrrJPOW/AShnzq5+wsXIVMvICSQnHqaUBR2/1VSxq3SNAQuYFHFi/QasTMrD5ny8qeVgkQLcnRSwIxYZ1orTUZZk9a3qLqFszU72wPwtZrBw/2q+nc9u90G012y1VcnSNJXfppREAF0R3khrePaIMRnV2L2cehTrqFAE9+3YKr6RVVpNdxYp9SFbDD8OnjvJfG8bNZR15o1umU6f4a/y7eppWpIHc+hJ6Fi91OGlXpmHVuTSt6jQ4pKC0SbGWw4oo7VPSSxxiPd6p4kQfXkS27DPs2WPJqME4u2Hr3/GHYOSpDY6epgUhmxaq+HKiVwumOEwaxZmup1dh7U3BhmukHm71hWsD/ioCX/Tcc72vHV2/5jsQk1Y0l/kFay7AgxqlLedY4JIvcrRI1/TVsNFCWcR8sltpW5AuC7QaeJjUcJ1EapiYLiyojFA7wteZkWgjA6wIkkFvLB5yUs0kSYIXjja6+6GeYfA7KzwfZLWsUzPbSfVHgZ/1xvaeQu8ZDG98jS9GHn4fWCtcLJhWaw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6006.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(7416014)(1800799024)(56012099006)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2NYbVhEcXhrYWlwTmx5RG9mNlIzRW5PL3Boa2RJaXJXSnJhYVJlby9PS2Va?=
- =?utf-8?B?clJUZlI3M3RjMmlDTEF2YlhGNW8vNlJQWllQRmhRUjZMeGNLZkdOenNWMW1j?=
- =?utf-8?B?cEFDUE9WcVRBZUN4Rkt1VThKRmdTWm5wanJmeUNKM0VnVVBTeEVEbTJWT2t0?=
- =?utf-8?B?TUkxVURPSWY4ZzZDbXBtZEhtZ0NDVkgzbnN3Vlg0V3NrcEJ4QWhxSnpjZzVC?=
- =?utf-8?B?WW5TdVRzOFR6dW1TTTNrdUJNREh4VU1TOXVBU01makRUL1VUTm1VTkpsQ2hE?=
- =?utf-8?B?bGcwK3BKOEpxdzkxMmdOb05zUWMwUUNINHQ4VHo5WDVlWEdab0NWNm95TzFn?=
- =?utf-8?B?QXU2VlpIS1loQVQ5REtoQU93ZWpoQ0lrZkpEbWNxR2Z3NWhrNFpsQ3lkWjZ6?=
- =?utf-8?B?czJGTDlPbkNNTHFBSEc4WGFXTTZXNEJXMEZiYTdKSFQwZFR1aGkxbUErQ2JG?=
- =?utf-8?B?U1crRUE1cmw5aEFlUDB6N0JLdmhZY254MlJlRTRTc1hkbXpENjREbUtxc0M2?=
- =?utf-8?B?N0tyam55TVFnWnplb1R2ejk4ODg1ZlNxRWMvKytkcGJBckpWK2tqcXBuc3Zt?=
- =?utf-8?B?eTJyZ09vU2tJWi91cVo2bU9oeUtJUXRxR0RqT1dGczBHRzAzSVdBM05iOEZJ?=
- =?utf-8?B?T2JXZ0I1WEpiU1pzQ1V2RC9CS3Z6WU03SFB6YzhEQmRDVXpMM3ZESVRoSjlW?=
- =?utf-8?B?blBxVTA1Qml5Kzc5QjhUNHlha2xFREhzU3hRdXZuMmZUZHBMUmpYeU5Vckts?=
- =?utf-8?B?UkNiaUt0WU1QMXR5K1JjL1h6S0xYcE1Pd2JtTXJlK1UxUWtYSElIUlo3MW5J?=
- =?utf-8?B?T1p0YVlPaUlNK2wvdzZmVkEwbUdKRmlTeWlxdDlKR2RPY0NYL3Z6QUNmeUZC?=
- =?utf-8?B?aEdLQXowODlrZVhoZ253ODBBZnRFbXJZY2xEWEV3UXR0OFBYVHExQzVlL1Av?=
- =?utf-8?B?NmN4azVQQnMwcHdSamFIV2tXVWNrbDFNRmhlYytUaURWSW15ZElhWEx1Uzg2?=
- =?utf-8?B?L2hacWtuRWxsMXMwaTRXS3RNRmE2NnlYdFY1Y210Ti9TUGR1MUZVcWNodjdr?=
- =?utf-8?B?aWZMTXkrM0c1T2pqUmdwamN6VkY4aWd2UzBDdnJrSzJtd2VxNU00SDkrTVlW?=
- =?utf-8?B?VldKSjgxbjF2TjlBNXEzaFMrekVRWkRlbnZOQUh2RG1tMnI2MFVsQUdBL2hV?=
- =?utf-8?B?N1dyay9TQVNPOVpMenQvZ0k0TlowaTlzUTFBVXdMUmdlMDF3VnZHc0JaenNj?=
- =?utf-8?B?MjFBQ2dGR0l1alN5OXMwaXUyME4vZWZwTUdNY1RpMERuc3JTeXNMRzRCZ0xs?=
- =?utf-8?B?ak1RclZFWE9ZUG0vYXZySm1lU0ZqaStGZS9DaFRyWFMra2hNTVEyK0RGNTQ3?=
- =?utf-8?B?M1hUanE4aXI2YkZvUE1RZXBIVFdDQUs2RDdnRVlQUlBWNEZhT01nUGtNcGll?=
- =?utf-8?B?aGtyRXRWd29ORGxvY2RmOE1jVG5sRGZ6VWhEbkFNNW9sRTY1Zi9NRHdHYmNl?=
- =?utf-8?B?aXZHczRFMTRNcG1SaFNXcWUzRnF6d29LL3FhTnVkcHdnSVllWXhmNmN4RDdw?=
- =?utf-8?B?V24zTnl6OFFqMEQ1OGNFYjlSSmY2a2xDRHhxa21scUp5TnJScy94dGF3c1VF?=
- =?utf-8?B?aGN0Qkt6bnRlZklMdkc0TmdjSFNvbEV5cjFBOURBa1ZMTEVrTTZmaytOMjNF?=
- =?utf-8?B?akpZdnZ1WFpjdWVtQjBXM0dpdXFXY0tkY3NVWTVVKy9FVFJoZDc0eStKUzdt?=
- =?utf-8?B?aTdQSWtVdndCWE5aQm5WanBqWFJWNFdCRGQxZXhmTElXY2FjMVMrcDRTenNB?=
- =?utf-8?B?NzV4NFk4NXpKUDRvc0xiU21XTS9Cc0FIYlFrS0lZQnFLMnJiQjFOMjVMc0d4?=
- =?utf-8?B?cXRaOVVUbitrdU1mT0FRZThoYzN3QVY1ek5RdERlQzkrWXNHVDV0cFNiRkt2?=
- =?utf-8?B?eTB0RHBsaU0vaE1IeDJHNytORlk2YnU3VUN5OE5WdE43L0Q1TEk5dG9ZandD?=
- =?utf-8?B?VWNVQkc1MFRlZXErU3FUMnc0dTJRcVJSNkR6RWpGQ05KL1FQTHh0a0wxditk?=
- =?utf-8?B?VytwbTI5VmY1S0JKdU1pc2hSdFEzeVY2UHpLWXA2WXFSeEVCMTFaajlqWEJa?=
- =?utf-8?B?L1lNcWhIaGE3SUJsdXFYczhoUk5SanJyWVFOMXBpVEp1WWJmV1Fab2tWdlJL?=
- =?utf-8?B?Z2E4YVhjYlA5elk3SkpzSks1TUdsZWlLa1ppcWQ4TDZqTXdvT2JlaHhiVGJY?=
- =?utf-8?B?M2c1clJ1R3Z2WGM2b3BIVVdzSnFBNmtrNUN0YlRoSlBHR3ZPdnhsK0Y4dXkz?=
- =?utf-8?B?UkdpMjEyeVJzWmRidE94SjZiZ2hBVUJpamErZW1hYXMrU2pvaTdLcHlYR2Y2?=
- =?utf-8?Q?BI2oQb18I4JRH6VE=3D?=
-X-Exchange-RoutingPolicyChecked: ECx6KQ5HBWLzMr6HZGac1xw5h90VStnRxmpYGxJU+5+IYnpVdqjTUVDR5U2CS+1LYfqp/JXkQ1nQcxtINkVC1a6LeAuzs6Sa28sHSX94Pzq3c6uxxLVI37rTt1npWQ+JiDm1+eXGUQ1C2tSjSXf6kzoRKihCzuK4YyD4SbulOVFgyk4+3R8SzRqCqLr83iw7jykTwxsNKNBhIFKVXx73bW6RPaZeBnbNwQjeWIqS/Bi/HTh+stzX/D9proGfJBqdRUT+QnoX3OLfKP1xxT8knoGbOrW/Tl0odHDlaDAfl9plxQ4tE2bUxeSj4WuOsfWp9Y8U8Rs1mSvUb2uniicKNg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: e99117aa-0aac-4e2b-4e0f-08df25fbc4c5
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6006.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 11:52:18.0519
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D4TaObi22jHD99kuk7eNYOfGrzR4bKdSpDGvVU0nowYAPsbqGfJeyRcskqYeLFIAnURAtCOinV3M4fGWFkvte0T8nkKtTyxar88Y+J1D1wo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR11MB838216
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=E+1YNqdl c=1 sm=1 tr=0 ts=6ac8d5b4 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8
+ a=0s-mVxdY99Q0NorlSv0A:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-GUID: d_ZwapmDZ21K_GWoBKHh6zC-87KL1Gu2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA5MDA0NyBTYWx0ZWRfX22xkH8VsDf3k
+ v31lT258hsPyPihfFLfjLXb/jT1WFPXZ100ikAiyFHG+C65ME83S2NUT8RvZkHuBefz9Cuc8dCq
+ UvjSFbFylEII+y4nUpDudVfU9JM5asrYmBWgCRdvCrogh7GD5Radi3cm2ae4OM0Fe6LVjJc0WZd
+ oLIUKr1a37gHcEEddpnI6AOKxPzIAtRORGGjsmkQOHuC8IMYU50gLYjVPsum2WEs32hFbBW6UvU
+ bFaD6FBvn4nzTBKm9yIteH3vR6LtfpbMmF62kEHDfYtiB0mIWw8AUA8RkPTg/oDal3PGlU1hvw0
+ CdZbUDYA6fzP9OtQG5hPvOhQZCz3mD91/NRGIq0VVbS+VGCpzTeJz1hFdGFTmCCEqNRaeBQhY4i
+ Y8Bwk1nL4y30KPRxAgyJHiWHgId5VmnuXT62FnwY9CiNrKjwXivFPLwxg/IeuCOp2hVWX5nwnRt
+ OLlil5sO/VxLZZxSPXw==
+X-Proofpoint-ORIG-GUID: d_ZwapmDZ21K_GWoBKHh6zC-87KL1Gu2
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA5MDA0NyBTYWx0ZWRfX0WYncg1E5mqQ
+ MrXkXhc8mBcopEtuApQerSuWX4zdr3WiACA+/0eSshxOetD3UJi7hqE6C4ZcxLcx98UNI867v7c
+ rqJYLxfIyX2ofYlruSvGs+fgabSmIzw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-09_03,2026-10-08_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0
+ phishscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610090047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_045227_829971_6FD1D364 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20261009_045325_003934_9BE8378A 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,140 +141,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/4/2026 8:03 AM, James Calligeros wrote:
-> From: Martin Povišer <povik+lin@cutebit.org>
-> 
-> Apple Silicon Macs have a complex audio subsystem consisting
-> of an I2S peripheral (MCA) and multiple codecs of various
-> models and capabilities. Some machines have a basic mono
-> speaker with hardware downmix, while others have a very
-> intricate stereo system consisting of multiple codecs and
-> drivers per L/R channel. Some machines report voice coil
-> voltage and current information back to the SoC, and others
-> do not. All machines have a headset jack.
-> 
-> Add an ASoC machine driver for this platform.
+Hi Linus,
 
-> +struct ma_codec_idle {
-> +	int idle_mode;
-> +	u32 idle_mask;
-> +};
-> +
-> +struct macaudio_snd_data {
-> +	struct snd_soc_card card;
-> +	struct snd_soc_jack jack;
+Here's a pull-request with a couple of pmdomain fixes intended for v7.3-rc7.
+Details about the highlights are as usual found in the signed tag.
 
-Hi,
+Please pull this in!
 
-Typically storing both card and jack heralds that the design is off.
-Especially when stored as fields. Looks to me as if you've made a one
-structure to catch them all.
-
-Let's start with the card. Below are the users - I'll skip dev_xxx()s as
-that's an easy fix:
-
-macaudio_dpcm_hw_params()
-macaudio_be_hw_free()
-	both can access the card from the substream/dai without
-	relying on the ma-context
-
-macaudio_parse_of()
-macaudio_parse_of_be_dai_link()
-	called in context which creates the very card
-
-macaudio_vlimit_enable_timeout()
-macaudio_vlimit_disable_timeout()
-macaudio_vlimit_update()
-	called in context of delayed part of the trigger() callback.
-	I'd need more information on the trigger() implementation of
-	yours to present a solution. See the comments below.
-
-Skipped macaudio_vlimit_unlock() as it's called in context of
-macaudio_vlimit_update() and macaudio_late_probe(). The latter has
-direct access to the card while the former is mentioned above.
+Kind regards
+Ulf Hansson
 
 
-> +	int jack_plugin_state;
-> +
-> +	const struct macaudio_platform_cfg *cfg;
-> +	bool has_speakers;
-> +	bool has_sense;
-> +	bool has_safety;
-> +	unsigned int max_channels;
-> +
-> +	struct macaudio_link_props {
-> +		/* frontend props */
-> +		unsigned int bclk_ratio;
-> +		bool is_sense;
-> +
-> +		/* backend props */
-> +		bool is_speakers;
-> +		bool is_headphones;
-> +		unsigned int tdm_mask;
-> +		struct ma_codec_idle *codecs;
-> +	} *link_props;
-> +
-> +	int speaker_sample_rate;
-> +	struct snd_kcontrol *speaker_sample_rate_kctl;
-> +
-> +	struct mutex be_link_mutex;
-> +
-> +	struct mutex volume_lock_mutex;
-> +	bool speaker_volume_unlocked;
-> +	bool speaker_volume_was_locked;
-> +	struct snd_kcontrol *speaker_lock_kctl;
-> +	u64 bes_active;
-> +	bool speaker_lock_timeout_enabled;
-> +	ktime_t speaker_lock_timeout;
-> +	ktime_t speaker_lock_remain;
-> +	struct delayed_work lock_timeout_work;
-> +	struct work_struct lock_update_work;
-> +
-> +};
+The following changes since commit df2908090cda368b01ff43709f51890076c56157:
 
-> +static int macaudio_be_trigger(struct snd_pcm_substream *substream, int cmd)
-> +{
-> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-> +	struct macaudio_snd_data *ma = snd_soc_card_get_drvdata(rtd->card);
-> +	struct macaudio_link_props *props = &ma->link_props[rtd->dai_link->id];
-> +
-> +	guard(mutex)(&ma->be_link_mutex);
+  Linux 7.3-rc2 (2026-09-06 15:07:20 -0700)
 
-As already pointed out by Ajay, there is no 'nonatomic' flag set and
-without such, you will hit a problem, eventually.
+are available in the Git repository at:
 
-> +	if (props->is_speakers && substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
-> +		switch (cmd) {
-> +		case SNDRV_PCM_TRIGGER_START:
-> +		case SNDRV_PCM_TRIGGER_RESUME:
-> +		case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-> +			ma->bes_active |= BIT(rtd->dai_link->id);
-> +			break;
-> +		case SNDRV_PCM_TRIGGER_SUSPEND:
-> +		case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-> +		case SNDRV_PCM_TRIGGER_STOP:
-> +			ma->bes_active &= ~BIT(rtd->dai_link->id);
-> +			break;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +
-> +		schedule_work(&ma->lock_update_work);
+  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.3-rc2
 
-trigger() should enable DMA work and/or signal other components
-participating in the streaming to start their tasks too.
+for you to fetch changes up to 4c66c423593e26273ea0d644906ed007630c6f6d:
 
-Please correct me if I'm wrong but it seems the scheduled work does
-speaker-volume operations only. Moreover, it seems that
-->lock_update_work may schedule a follow up work in form of
-->lock_timeout_work. Are you sure trigger() is the right place to do
-volume-control in delayed manner?
+  pmdomain: rockchip: don't ignore clock lookup errors on attach (2026-09-28 15:36:50 +0200)
 
-Once we clear the mist around the main structure and the trigger()
-callback, I can happily review the "easier" parts of the patch.
+----------------------------------------------------------------
+pmdomain providers:
+ - imx: Serialize power on/off across sibling domains for imx8m-blk-ctrl
+ - rockchip: Fix a couple of errors during probe
 
-> +	}
-> +
-> +	return 0;
-> +}
+----------------------------------------------------------------
+Ming Qian (1):
+      pmdomain: imx8m-blk-ctrl: Serialize power on/off across sibling domains
+
+Shawn Lin (3):
+      pmdomain: rockchip: propagate subdomain add errors
+      pmdomain: rockchip: fix clock leak on domain probe failure
+      pmdomain: rockchip: don't ignore clock lookup errors on attach
+
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c  | 15 +++++++++++++++
+ drivers/pmdomain/rockchip/pm-domains.c | 20 +++++++++++++++++---
+ 2 files changed, 32 insertions(+), 3 deletions(-)
 
