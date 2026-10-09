@@ -4,120 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32EBCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F341BCA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIY9sXiox0OrWKjcqsAFtnmmXR0CVVY2xRR67G48peU=; b=LSdBM5dxoEblGO/w2dAZ4JCNDv
-	P65ISXFdsFaJ1XuLE6VYfnywfnIMOJLdf0P2arY7M5m4pq1TvI3AbvYLt5vjmf42y/XGK72LK6461
-	T9dYswHJyaKfPi1ismSVx21QkakssPMsr89xl3/kZZX3Q14qycPTNCl0KIoFdMLlpLBQIejs4iOkB
-	S4wBy8w9uvjOQl1OXNxRn4SAzYiToRe7ylPQJqXtq6+u+blT3RGu2nNSUzkRFXB8YETTMX7qtcVij
-	0+E8BDvVFlxd1P9ts2S7+RhCIUgJ6gn+Egbyw33iw+EbLtv6o0LtHExQxVOGZSijQhbzcqlcCfRCA
-	PJQy86cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WuFFLmEf7awupKgp7ZiqAJ2JpB41ZMsTdfiLTF/VzAU=; b=QCJ/sT8ECC5ZGR1/dcEj1LQU7F
+	MWTBTTTUnYENO0km4e56jph3fG9+ecOII3UlnsjOAR6TaOBQwB2IpYl9Tk19R8746YQdm9CBtJtEi
+	vm7niyUJGwckXoaatfjfqArOVGneBt66keNL1wsooplIf3CqK4aVKPRBI5sKL+WEkqzwEhVPb0GN2
+	SNhofx+yeNtpsrKOkJJQ7yKBxBWNZfINjvcRRzKUlXXV2ixN40b9CqGnS0UGAFGqfaMwatv7tRGAk
+	oG2Pdfxfc8G7zsODFz2fjVUGPMJt8KyKlXDwPM/3nQp/9MRY45DFPutTeTGQdhlDUsBFomQ+dpL3N
+	coqJkqmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5nA-00000005ndT-172m;
-	Fri, 09 Oct 2026 08:17:24 +0000
-Received: from mail-northeuropeazon11010028.outbound.protection.outlook.com ([52.101.84.28] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xF5x4-00000005of7-1dSd;
+	Fri, 09 Oct 2026 08:27:38 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5n7-00000005nb6-1E4V
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 08:17:22 +0000
+	id 1xF5x1-00000005oe5-3yon;
+	Fri, 09 Oct 2026 08:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791534456; x=1823070456;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=L2bHCmJ7kVKCnsQb0xr7b6Efz7P+JsSKFXbJVKWhFM0=;
+  b=lp0XsswEpNQL69kxRrdMJmhaxFcp0HGgDFf/Hk9i7kv5K74ngzlPNz95
+   xibPFAlFVHQ7Deps/GmvX4l3dYDIg0mkWNGrjnzY/4wlWj0M4H55qqIxl
+   tUqpqdMd4sYgKN7gV2ZJ7QNSdv9gGItYfF8ShnjuyG/YZ0/67d7FTQ7SF
+   57FO2Bm5sf13pAD+A2ES2pcGApnpHZqtXF18BeiOUGXQ8fUgNFv5bk3GO
+   oGxk2U9MNuQThzvCWunW+404sgmvTclKaxanE2hMtjuJvOKfgWyjbwXvi
+   sf9I+VKt1aOPdq/1YP9PG2scwSxnJUVc9iFBj1tgGAHL4o2IQG9AFCj7z
+   A==;
+X-CSE-ConnectionGUID: XKNcZZuYSyyTdVDfpEeAwQ==
+X-CSE-MsgGUID: SlY4ZikLTLmoDU6zrWnSvQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11929"; a="335379"
+X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
+   d="scan'208";a="335379"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 01:27:35 -0700
+X-CSE-ConnectionGUID: cYC2/OKeT8q7ZWo3rGKhkg==
+X-CSE-MsgGUID: ORkWkIpkTVaUfoV1GYLAZQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,147,1787036400"; 
+   d="scan'208";a="250881"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 01:27:35 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Fri, 9 Oct 2026 01:27:33 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49 via Frontend Transport; Fri, 9 Oct 2026 01:27:33 -0700
+Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.37) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Fri, 9 Oct 2026 01:27:33 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zLOoVapCOphh2zKty6JgV0F7gPdnqGvsy0Tx6ScdJDmtTVVU9g//40J2BpIlWj4b2vD3/pwkb8UbjeRQq2nb277WCLPEhXkTe963Z9v6YnRfihQYMT6uA8bevBynIWWgwO/OX/vah7LPiNE5Ela/O4LB1EaMxt1ZhS45IbH80GcOYGX1T2xll8kOkOtWRU0MKhuCTeEj3uVdMRJ8WCaPPn+L0g0apK3cwrfdnRdepvGwWZZZbKF6ifz3BHcQZPcG1kmeT2cmuJtqvH2eMFG6B4QdeUgPbRts77Xc4srjuyng0WzFA1gXXQVyQux7MLJCGObrdIS1VgK79+QSwTnT8Q==
+ b=HlleQCU6sZ1K+ln4m5zrdaZhwH9WwcYvuu0SesQ6iNZg32H7WbU9UMjOZHmuKx/InyPmZbncSynq8zLgd5XhSYaTkL7rd8usVnr48h++FFCyevxsR8KfrvdNT4qhv2URwlXfd0Hiww6SnaQ6tzItD6r18I5kZabX2J1dRLAu76DADwSY1kVXaYv5LiVc7LJmv5hInwQ9vyanJN0ar298dc1Lck6ao2EzWtROmUY/fBrNj4+j5BGYNydT0hgk16pa+/pbA4NH8Z4OIOaTAwM6O0TSNTKFrefwkbqSmnFHZzc8uRxx2ToZVpj1SDQmkgd8yPECvCD7Tbrg6Db27W4xHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fIY9sXiox0OrWKjcqsAFtnmmXR0CVVY2xRR67G48peU=;
- b=xfLNy75v9X/GYiTo3L0dywteUnLJkOl3THv72stC7zMH1CXUrIQzyXePQnmRDlcMtEEiQk3ClNaYsaQeN14Qu9pBFcXudEI/hFkr3KCi0BQ8XReJGL4gb8ShhI7gtsnyrF1Aext/9cK8SrF4ZXXAxmlVDau1uWOHNeCeumK+MFCb9e/+c4ZGSNzhj/Q9S9niVG3QeznOYMbKmO5eBDLe1jA38URkd8vtOBkEVuE0GPzcKGbVEMC9eV3lburF1XQq4kK5d5x+Tk/szJSN4HGB2GqqT0Y50UCLtQFnXdraDWd2628sVkdPNmR5r57oPUNax1Ern/rz1UjKWfJp/FzuCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fIY9sXiox0OrWKjcqsAFtnmmXR0CVVY2xRR67G48peU=;
- b=Nij+6ImeRIbf/3ShclYJSC7QIN5TWw8AU5dR+4fzeVQ60yl09OEugRBTbv/CrHxWx6+QJk+PkobIGEXHrMHw0mBXq1wVy3FQEGvJZj+8rSELics06eLGFqeEMUNXjIUXBy76dXj1oBBIJUyvsSSCtoHDqA0Y4QUcpE3fdGVaQepmbiE0nO0OBL8z8yzhof5Hl8YvSPrj8l9odHwu6Qde6SZvtZtqZkyvXNp0uvJ/mcDNr12yABFIqT44MQ7FaF3UQREyPjcSU9yZYonKzLwWmpaYKdyBAu4y1Y4YuYIEnLzX22lYjuiPyeOyo32GLSY/YqJaK6s974yk+O8W94+UKw==
-Received: from FR5P281CA0034.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:f3::13)
- by AS2PR10MB6567.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:55e::15) with
+ bh=WuFFLmEf7awupKgp7ZiqAJ2JpB41ZMsTdfiLTF/VzAU=;
+ b=est8EbF0fXB4p1qWWQcw5THXoJdnIS1aAjHcA513s4ZWT5/tYBstiuXzGG4pDsA44lQY5cGoFHAqJH48S4jypJLgTsE7rnNIUZqKNqfWjsbHDBV2LuXuAA/Ruxb9DULzeuY+JsWZ1e6mbm12XNPz9JMtXFiSTf33RCSb8rfON+wHzVB0IE8eRvxLyv0LZt/WicNSSY4NvpG2IyH52PQOm5EtVMPhwR9GSQKqA0mmsm/JEiYE4rxzCtUPlqdpwvsDxTVrgAVUt9bqEd0sx8AMcStt11/6pbXx8yyCmuiTgrdEgsjvykzA1e4zbeByi7ykLBpiRewYBjbZ8v5vOHTQ5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com (2603:10b6:510:1e1::13)
+ by PH0PR11MB5190.namprd11.prod.outlook.com (2603:10b6:510:3c::24) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Fri, 9 Oct
- 2026 08:17:08 +0000
-Received: from ZR1PEPF0000E6B7.eurprd07.prod.outlook.com
- (2603:10a6:d10:f3:cafe::84) by FR5P281CA0034.outlook.office365.com
- (2603:10a6:d10:f3::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Fri, 9
- Oct 2026 08:17:08 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- ZR1PEPF0000E6B7.mail.protection.outlook.com (10.167.241.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Fri, 9 Oct 2026 08:17:08 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 9 Oct
- 2026 10:23:14 +0200
-Received: from [10.48.87.100] (10.48.87.100) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 9 Oct
- 2026 10:17:07 +0200
-Message-ID: <2b17d398-0581-4b15-8c3e-dd87883667c9@foss.st.com>
-Date: Fri, 9 Oct 2026 10:17:08 +0200
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Fri, 9 Oct
+ 2026 08:27:31 +0000
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd]) by PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd%6]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
+ 08:27:31 +0000
+Message-ID: <8b0a2ba8-d50b-409a-ae7a-86aa5032c131@intel.com>
+Date: Fri, 9 Oct 2026 10:27:22 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: st: mark main supplies always-on on
- stm32mp257f-dk
-To: <mateusz.nowicki@posteo.net>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261004112421.47158-1-mateusz.nowicki@posteo.net>
- <aaedc962-63ab-431b-8b27-b4ac9c11d16e@foss.st.com>
- <1baaa8cb024104ee6d201d55467f6718@posteo.net>
+Subject: Re: [PATCH v2 07/21] ASoC: ops: Introduce 'soc_set_enum_kctl'
+To: James Calligeros <jcalligeros99@gmail.com>
+CC: <asahi@lists.linux.dev>, <linux-sound@vger.kernel.org>,
+	<patches@opensource.cirrus.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	=?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+	<tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu
+	<baojun.xu@ti.com>, Sen Wang <sen@ti.com>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-7-7b47ed6335a8@gmail.com>
 Content-Language: en-US
-From: Patrick DELAUNAY <patrick.delaunay@foss.st.com>
-In-Reply-To: <1baaa8cb024104ee6d201d55467f6718@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Cezary Rojewski <cezary.rojewski@intel.com>
+In-Reply-To: <20261004-macaudio-v2-7-7b47ed6335a8@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.100]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: VI4PEPF0000013E.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:808:1::888) To PH7PR11MB6006.namprd11.prod.outlook.com
+ (2603:10b6:510:1e1::13)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6B7:EE_|AS2PR10MB6567:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a8230fb-f6f7-4808-7620-08df25ddb649
+X-MS-TrafficTypeDiagnostic: PH7PR11MB6006:EE_|PH0PR11MB5190:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ba04fe4-4aa5-4254-6e10-08df25df291d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|6133799003|10067099003|4143699003|11063799006|56012099006|5023799004|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: LmFNb+ZdSCZ2KHQPWtH0WXQxf/UeCLqTDrSumXoZOPLyMPPyqcRR4ZQU49PswBRIqDrQyxbttLVKLBUlBFhjAUnYg4MtJpC6f9Sr2vrDynobZMIvzUy0TFDQMv8ELwNh1zH/BjWkNts8x6uFRnPGmx5nXjWZnPIGj0bTQ7j38b/2OH/eyKczhzjf8iTVIzx75C5uighXl1ycXQtSHMUoVAYpVlz3UdkqoAS1ziY6l3Qqhoy2aD2GoX5xa0GKogD+09/LM20KnBqUvjgQaxwnplYhw52A5azZSJBz92sMZfaNPeB6inRv/RhmJvEcpyJmUkUxJn8ZNb+h0Y27MfqYME8wzc2M5Egx8ug3/5Hl/OmBAmeOrzIduP3yYCmGznDe/QGVoG5Jjx8xMwn63setsTtlFSXtItmHPFPttN+mM8gwAu+YAViLW4NV808TjY9LXdhR3JwfyGFKgdHYFCqlcSsKSsAqR+0833Ws8ONnnQT1PMvbEnorMSdfjyflYN6X4IwcxLAPRydLqSnU+UpHkwzfwQiAG5sGpjciwJi36pjA4ePVWqTkKyPU1fdLLKOjxSn9KOJS7X+yxStUa2BQ4q9Gx3j4ip0+Nnly1h04V46Y1jiBk609uFHlPyoB5Xk+CZxgn5go5z7H4zlj/yO5dCIP6xZrCvm6nWD69h17VNLVQgJK0UaAn/e6IM/29IhAu7tHrerfieHTnlzruPiG8A==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(6133799003)(10067099003)(4143699003)(11063799006)(56012099006)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|10067099003|11063799006|56012099006|3023799007|7136999003|4143699003|22082099003|11062099010|18002099003;
+X-Microsoft-Antispam-Message-Info: okXV9Qy735Omi+YpQ1ArhkxDExWT3YZ9lKWHy0XjWYdYHGIrCeNrEgR84eaF2/TvGutVsEub+NuVl9dzZNozo2XbE5dY163R7KumHSLInM/jdKPhpIW90DYIIp29XlfgGH327m3/GPwAGU64RD8+hgz2JYvxfdosmvQ4f1OfV8hUGcFaShgAOfRWm9Epd2vm0d+0vhMJhb3bZovpNyDe5XGefhGjXgcIJNR/v1WzVo0Aoh+efNy4GSVGHcwYGr5GUtEDi4cF/J+VVIR2t6tFriJp2jR3Xu2E2hBqdzNk4g8hlW069Dj2nWRzkvEvwGHtp/mVKKaLS0xt/t3G47BBgrqzjLD9jIra+xjwcfX9nkRA8w9kqpRrvpOziQPIyMcgu4ityL8YvEavFHVtEwbLpBEanDTQlVAOCLPk0TByo0EeR6mvVV9UpZEGQuwk4g4Nebwzv6v7Z2Ps1zL4yJ9DUoac1E3z4gmR9LjjSHJnmP7UKFiVNpKejEM3TTXVoH0eU/eZap5FfCYpbYX7u75oQCZqupGL1AzRzaVmOn9QUYvhStVlWR7ultzfLSCkj6Vc5ItABcviZP4bU4mVl0FrZvG11XcCsHDoLy2h4/3AD/1HZLQhZ0JtN7BQIhXJDx8icj/vkdSGNF7jxae2m8NeWdkHDg0bXVFlSCy0iDKe8kM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6006.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(10067099003)(11063799006)(56012099006)(3023799007)(7136999003)(4143699003)(22082099003)(11062099010)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R3xWjYOJO5PtVb+zzvl20i3e8WOmvmCLyQ3cCOvmeliyqxLCDIelg5lJ3QIvq3IouMhfSOEwqVUYbiZFC3ZmT7QdwE/Zx/9uJ/MiKqi7UXa/G7m6Yt2wfOcAEWG4GdoZ6nN25hizTCZ9mvgTN/OkIv+hk0NG3U/ZnOwQwJ77xW6UDW1VY2r931v90FtsFMlNHzSETHmMu0OhwNqLjhUBACALSlOYlGjj23Wmy00kOLKfSRZ9if1b3oFzU4l6dqOcX1UYkudpsmv7mJlq7j9BXYqn0ifaUKRoQcqZB0CMZdq+LdsmUqZJRyCWtGcWwLLzMWZ6I2j6lsGO2bD7aWiUeDHFtRvcQk4jQhd5Xzo9t4ger9SpCN4OnP3ZRxW7ALvNusMSr0Y8yVX89jXC5TScnjMHwK7pK8DPO3lkXsgHOeNlmmhsLozU0RcrUiZ2iq4e
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 08:17:08.4711
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REJ4SkNoSmc0Rk5vRk5JTXBGRnBYaXdHd2xYMjdIYVZhWVpqNHVMMjlaRS91?=
+ =?utf-8?B?Yjk5MkxXVmVBTW1JUCtRUjV1Q3phdnRSZHRhTUQ3S0E2NEUrenNQV0ZadjJF?=
+ =?utf-8?B?M09jOWJyYnliR21MY1V6UE5lekZvdU5OVVUrZlQxeXBPcUU4ZWhpK2RvSkla?=
+ =?utf-8?B?bnBKckpVMitDdVNJZU1rMCtBbTZTaE5OU2hPRGFac3hmaVZRSHB4L1phZE9R?=
+ =?utf-8?B?UFI2RVVDaWdkNWZrTlVIQXFaTlpoREVoUGJlOVpPdHlsLzhCNnRuZHM5VTR0?=
+ =?utf-8?B?Mm1yMkNJSDlya3ZGOVFlQ3IvR0dVZC9PaEkxTGdhYTJUVEhGcXlNdkdGYXd2?=
+ =?utf-8?B?T2xOTmp4N2VnL0t2RkdFY0M3UjVVdlluV1lMTFF5R1kwN1k5NWhQVVRKWnl4?=
+ =?utf-8?B?ZHYyWW4xVE5NTEpMRk5uNWp5WE1ZNDlYM2NQdnhLMStKSkV2cnZnSUQzMURZ?=
+ =?utf-8?B?WEFlZ3o5encya2lmMlpFZFYzTms2TzZOYzJ3N2QwU3hzMWRod01EZTlqTExj?=
+ =?utf-8?B?VncwUldaWVBYRUZHY3lmUmNhRkJXR0lPeWs5aHlLT2dmVDVzU2ZWQW44Ump4?=
+ =?utf-8?B?eWg1bmVpdlYyUFBHbyttenh4QlAxaUNqYzJ4R0ZRSTN6bjArcFZPRHlwOE9C?=
+ =?utf-8?B?QlY5aWF1WVJuZlhrUnZKMCt3V3AyWStVa2FTb01XLzVoSDZvcExZQ0IrTHBD?=
+ =?utf-8?B?eEpZOUw2VENkRWpCL2VYWEVsNHRQZDh3Y29TNmRtWVZLazFxR2lsT1BVYTBk?=
+ =?utf-8?B?ZkI3S2hoNEhVQllReE1GaFhxSGdUeDVRRUhyK0lUOGhPZlVZdVY3WS9nL2dX?=
+ =?utf-8?B?bHVqV0JLUS8rdTRiYjZIYUozWWFRMmpIUDhEY2orOEN4TktZUGp0T21KeW1C?=
+ =?utf-8?B?RDFmLzB4clN1Nmt0UzljQy9pb0J0ay9jelgra2JXazRqK285Wmhwd1dzUzVP?=
+ =?utf-8?B?bzdkYlN4a0tGTkIxaXczbk9USWNWdVFKZ1BYOVJpK0J2ZFFlcENvSmVRS2ZI?=
+ =?utf-8?B?UDdtY3FEb1IzaFcwZzUzUS9sektGMmFXL2Z2MlFZeHM2MGV4MFR2cWFFb00z?=
+ =?utf-8?B?dDUxYUh1L2t4VUdLQkdLMUlxRndWcU5qOWtxZUxoU0M0MjlNRnRmSTJxNVQ0?=
+ =?utf-8?B?YXNVazdvc1hVRk5wY2cyYVU1MWN2amdqV1RXMDBHcDNlTmdCN25BZWRmZ0kr?=
+ =?utf-8?B?ZEg2YndtYlBHZURHRERFZmw0cTFkeklVcWNrb0tBbE00MU1hQkUzTXFZSE1H?=
+ =?utf-8?B?MXVSb3pUV1dmOTBlN2ZVelZEUFpvejFuMXVMR0ZNdXpDdUUxMThhbWFYbVpC?=
+ =?utf-8?B?ZEttR2RLb3VZSFV4WXFhWVRXRndyZGQxSVVyQmZ4eVBxaEZpM2JLcU9ScGJp?=
+ =?utf-8?B?YWU0V1h0UlA4ZTlLQm40YzRnSktJL1c5bnYwa0Q3Wmd1VjkrTElhY2x0bk0x?=
+ =?utf-8?B?N25aQ20xK0U1UVNkRG1SOE43YkN3clVBTDV1bUEwelM0RUFaS3VvNnJ4RGJz?=
+ =?utf-8?B?Z1lZbHZQRFVlNjZTbjRvNWNIaDg1Sy9sSHA0ZE4reit1c3ZMVmY2ejExMmFw?=
+ =?utf-8?B?QmlESlQxWGZYcGR4MmgvTnhnMk1ZMkFlRHJkblhBNCtjUjRLcVJIdllna2dW?=
+ =?utf-8?B?MDQrK2VMRDd5bFJsYkNNN281V1B0SVlmZTF1V2dSdnNLSVRlaUswb0NuTmRX?=
+ =?utf-8?B?Znk3UEszRWF4Q2VlZmdVYjhCVVl1K1RSQUdNanFMYUc4SW9wdVVtUUxJek44?=
+ =?utf-8?B?Zy81cUVzdmV2UlJOUWVQRVQ2N3hmM0hTN1pEWmxZai9sUXJycEVHNThTd09D?=
+ =?utf-8?B?MEN0bTJZVWQ3VFRQY01yRkZyWHIwbzlraElWdmljRWZ3L2tud1lwd3UzS0Q2?=
+ =?utf-8?B?V3B1Y0RwMlpIVGwvMVQxeTdRditTdkhxeFJFSTV0NHlBUzRZMmJkZXpzWFNz?=
+ =?utf-8?B?d3BEOHBCSGdpZmZMYlJhMFZJRXpROU1uVW5GaDBDWW9OSi9wMnlaa1BtaGJu?=
+ =?utf-8?B?d2VtUnpsS3ZrZW9vYnlWYVNnUU02eVc1QUg3ZmhVUSs5UFJkYlVDemdxc2I1?=
+ =?utf-8?B?UUZ1Z3ZKbDV2QXNWK1NVd2NSWG1Od0xzTmVKWE1vU002SXVSdlFDQUxCYnBp?=
+ =?utf-8?B?NVRRS2RERERTSWdQbnhvRXJpSnlWSnJicTRISWQ1Tk9NV2NHK3g3cml6NGVn?=
+ =?utf-8?B?M2lxbklxVXduMjVTeUY4VlZQNkZVNUlsaVlVU1NsTVYwdzU2TlNNdG5sbTY4?=
+ =?utf-8?B?bjhBbWM5bWdMYUVZbExLV25Xd1MrMWc4N3ViMDdsK1FDNVZ5MitHOXJ2SmRT?=
+ =?utf-8?B?cHh6NzZxYkQ5dDQyMkhhVVUrQzI1YzhvWFlnb2JMTUQvTmo3Z2dwd1ZxclZj?=
+ =?utf-8?Q?IgnGvvP13RrxUZJo=3D?=
+X-Exchange-RoutingPolicyChecked: V938PDJegBHeX0sn7pzibTE3Fl3toIzsmV+ohsTkb5AZFQBBYgh9pGO08XoQ1T8gLsRZav+NX5HoZv4/rlHX9+OjlZNkM4xHuXnMntA+0tuO2gxtCfBlceYPAV2Qs835bXnyt1zYwMluTazpuGBRe6TdIeJOLcLKhPDbdGAnbcJhIesrn3gnFpePG+O8DtOOnLLrCj6exDdRpJSRH1INq21E1C22h3ntfWjzgI4ZG4bb8Jo7/qPHFHE6XaytCBR6NK3eJeLQREQsGB0G1cLpqjQAND5YjoStzuxjNznOS38xFSM1F1z3M9Kx8R63FejLYNawuB4awgeYBH3yCr/+PA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ba04fe4-4aa5-4254-6e10-08df25df291d
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6006.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 08:27:30.9879
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a8230fb-f6f7-4808-7620-08df25ddb649
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6B7.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB6567
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wrdD5+j6IBJOf/Me1pSED49WvjMEIj1fM7HGyUd1Nz2jPpGLBMssJFxGm0AQUNNbDevvmc+DvqeyLfjJwzmqVw9aPJ4qLgodseRvUQC7Ajk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5190
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_011721_733327_B15E8EC7 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20261009_012736_047277_1B8F6A3A 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,95 +194,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 10/4/2026 8:03 AM, James Calligeros wrote:
+> From: Martin Povišer <povik+lin@cutebit.org>
+> 
+> The new function is to be used to set enumerated controls to desired
+> values. It is something a machine driver may call in fixup_controls.
 
-On 10/8/26 13:43, mateusz.nowicki@posteo.net wrote:
-> Hi Patrick,
->
-> On 07.10.2026 11:22, Patrick DELAUNAY wrote:
->> For STMicroelectronics boards, the STPMIC always-on regulator are
->> managed on SCMI server side in OP-TEE.
->>
->> So no need to manage this constraint in Linux device tree.
->>
->> This always-on  regulator are exposed only for information or to be
->> used are supply for some IP.
->
-> Thanks, that makes sense. OP-TEE keeps these rails on no matter what
-> Linux asks for, and the board keeps running fine.
->
-> The part I found confusing is what Linux reports. Since nothing in
-> Linux uses these regulators, the regulator core turns them off about
-> 30 seconds after boot:
->
->    [   31.713597] v1v8: disabling
->    [   31.716454] v3v3: disabling
->
-> The SCMI call succeeds, so from then on regulator_summary shows
-> vddcore, v1v8 and v3v3 with a use count of 0, as if they were off.
-> In reality they are still powered.
+> +++ b/sound/soc/soc-ops.c
+> @@ -505,6 +505,75 @@ int snd_soc_deactivate_kctl(struct snd_soc_card *card,
+>  }
+>  EXPORT_SYMBOL_GPL(snd_soc_deactivate_kctl);
+>  
+> +static int soc_set_enum_kctl(struct snd_kcontrol *kctl, const char *value)
+> +{
+> +	struct snd_ctl_elem_value evalue = { 0 };
+> +	struct snd_ctl_elem_info info = { 0 };
+> +	int sel, i, ret;
+> +
+> +	ret = kctl->info(kctl, &info);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (info.type != SNDRV_CTL_ELEM_TYPE_ENUMERATED)
+> +		return -EINVAL;
+> +
+> +	for (sel = 0; sel < info.value.enumerated.items; sel++) {
+> +		info.value.enumerated.item = sel;
+> +		ret = kctl->info(kctl, &info);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		if (!strcmp(value, info.value.enumerated.name))
+> +			break;
+> +	}
+> +
+> +	if (sel == info.value.enumerated.items)
+> +		return -EINVAL;
 
+ENOENT may be a better candidate.
 
-I understood the issue, and it was a dilemma for us as well.
+> +
+> +	for (i = 0; i < info.count; i++)
+> +		evalue.value.enumerated.item[i] = sel;
+> +
+> +	if (kctl->put)
+> +		return kctl->put(kctl, &evalue);
+> +	else
+> +		return -EINVAL;
 
-For information, these two traces are only temporary on DK boards: v1v8 
-and v3v3 will soon
+The if-else statement is redundant here, drop the 'else' part. If fact,
+it would be better to check for ->put() upfront rather than when all of
+this iterating is done.
 
-be used by nodes/drivers that are not yet upstreamed, which is why I 
-would prefer to drop
+> +}
+> +
+> +/**
+> + * snd_soc_set_enum_kctl - Set enumerated control matching a name
+> + *
+> + * @card: where to look for the controls
+> + * @name: name
+> + * @value: string value to set the controls to
+> + *
+> + * Return 0 on success, else error.
+> + */
+> +int snd_soc_set_enum_kctl(struct snd_soc_card *card,
+> +	const char *name, const char *value)
+> +{
+> +	struct snd_kcontrol *kctl;
+> +	int ret = -EINVAL;
+> +
+> +	/* Sanity check for name */
+> +	if (unlikely(!name))
+> +		return -EINVAL;
 
-the patch.
+I'd leave the validation job to snd_soc_card_get_kcontrol().
 
-      Initially, I don't expose these SCMI always-on regulators to Linux 
-on DK boards in order
+> +
+> +	kctl = snd_soc_card_get_kcontrol(card, name);
+> +
+> +	if (kctl) {
+> +		ret = soc_set_enum_kctl(kctl, value);
+> +		if (ret)
+> +			return ret;
 
-       to avoid these traces.
-      However, these power supplies are mandatory for some upcoming 
-devices such as
+The if-statement is redundant.
 
-      Bluetooth, Wi-Fi, HDMI, and DSI, so I add them only to prepare 
-these patches
+> +	} else {
+> +		dev_dbg(card->dev, "Tried to set unknown control '%s' to '%s'\n",
+> +			name, value);
 
+One line.
 
-To explain the dilemma further: on STMicroelectronics boards, SCMI 
-voltage domains are shared by default between Linux and cortex M33 
-firmware and the voltage domain state reported to each agent reflects 
-the last request, not the actual hardware value.
+Maybe just refactor the entire block:
 
-As a result, a shared regulator is switched off when all users, 
-including the agent and OP-TEE itself, no longer use it.
+	kctl = snd_soc_card_get_kcontrol(..)
+	if (!kctl) {
+		dev_dbg(...);
+		return -EINVAL;
+	}
 
-Moreover, in the current SCMI specification, regulators cannot 
-dynamically report supported operations in the same way clocks do with 
-CLOCK_GET_PERMISSIONS.
+	return snd_set_enum_kctl(...);
 
-The VOLTAGE_CONFIG_SET operation can only indicate a forbidden operation 
-by returning SCMI_DENIED, and SCMI regulator drivers then return -EACCES.
+With that, drop the assignment for 'ret' in the declaration block.
 
-However, this is not the current behavior of the SCMI server in OP-TEE 
-for always-on regulators, although this may be an improvement to consider.
-
-So, Linux SCMI regulator status does not always reflect the hardware 
-state, and this is not only the case for always-on regulators.
-
-
->
-> With regulator-always-on, what Linux shows matches the hardware.
-> Would you still prefer to keep it out of the board DT? If so, I'm
-> happy to drop the patch.
-
-
-At this stage, we can probably live with that, no need to specific 
-treatment for v1v8 and v3v3 and you can drop the patch.
-
-
->
-> Thanks,
-> Mateusz
-
-
-Thanks
-
-Patrick
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(snd_soc_set_enum_kctl);
+> +
+>  int snd_soc_bytes_info(struct snd_kcontrol *kcontrol,
+>  		       struct snd_ctl_elem_info *uinfo)
+>  {
+> 
 
 
