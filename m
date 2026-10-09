@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8A2CA601D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52416CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nmcl3acLOdghIcVWJGQcNUT1dxt+y4UDcmDoxuevzy8=; b=pe5y5hS+6Knt+DFJAlMSqWHxbK
-	qpH4UiDk634YLEl1MELj8rM4hZjxUssQVAU4UM5bqj+Lq+7C4JDBDw/dQrykdqtgX1vaB7YbSuH4E
-	v7YjdLCYFSTAw/Fm7O4CHuEkmuvCEK2hZ3OvKwLpZRIrhhuYNmS4CJ8Kq8368tJ3pdyCI4VMJpGyE
-	ifzywmd+zd+lWAYhWyiLdkqM86q3kFfk+BeuFRTYFAK0QwREvBD8SURUkRs3iOI3Z/jc59aIaK4nx
-	7LPOsgy3I0H4KocQ3EHHZFxxABFm6VD7hxXWc9DkK+njHt/CrUhgrISdCYtclsf7KPdLdGi2GfjmH
-	w9CUKIgA==;
+	bh=pfHxhycY4c003LsMRsPy6F6Xh21xTwGQzv/lLDaJzCU=; b=xNBFwOylJsreoSlxzIjWHUaJ7b
+	bQkqXD/EmilQLTPB93wnwKZ6jdjh+3v3BiTV5W5JA907l1J0HvspQGKSyrFzkqc/WXK6zo9O0GOTT
+	6HUspgqmy+WwRlCNayG/4IDf47FjGm+eJwLazKVIZtvFTD6AuwLBQcOYKtd1Fgmsk3ukvLuD6Xphu
+	jYgfEj4yV5bqFJGYOlbeZjUw6WPwUYskf2vjUPQooVRqSHvEasykfyRT6TBQdNt94vaEG5YlbbdVF
+	o/6GEOhOLEr5g1gvp/d0nJSX4Pjs5TTtGLtnColDQ+JQs7xcocLauew1ZfiwzDZDyMtxT3UKwSiB/
+	41NEy8Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7W5-00000005ypa-103m;
-	Fri, 09 Oct 2026 10:07:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xF7W8-00000005yrM-1OjB;
+	Fri, 09 Oct 2026 10:07:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7W4-00000005yox-0cjg
+	id 1xF7W7-00000005yqe-1YPL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:07:52 +0000
+	Fri, 09 Oct 2026 10:07:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30F1A60DBD;
+	by sea.source.kernel.org (Postfix) with ESMTP id C782343D05;
+	Fri,  9 Oct 2026 10:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76BAC1F00899;
 	Fri,  9 Oct 2026 10:07:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A92A41F00893;
-	Fri,  9 Oct 2026 10:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791540470;
-	bh=Nmcl3acLOdghIcVWJGQcNUT1dxt+y4UDcmDoxuevzy8=;
+	s=k20260515; t=1791540474;
+	bh=pfHxhycY4c003LsMRsPy6F6Xh21xTwGQzv/lLDaJzCU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KOQvmO+cNIRV/YyuucnkVz9UG5LzNGDqnaVyRUMTsdkrXSJ8Fmzny2YgV2PDIB6+m
-	 0uWHPbFLAEtjvO9ZBI14iLjFnyycNHnPy9IBDCUZtTR9t+DC3r8tpZwUm8NSgOPkNU
-	 HPhj/vecc6HUAprhbE394HHGweNe+YxrdyhmvM8CAJjOzHscZZQ5IyCj/OHQX/KLed
-	 DAdR8KXvnhgw0ssXcFwYVzh3eYwxbQStAR+GWKNLAUpWJjiqqIpfgDYz7JSrmK8Rb+
-	 nYXjdXqaWwKNf7Pa+3ELyzZbOkVw9mXAGMZJ2S2LE2UaPWc5DJf13IUtl3Zzbkt5df
-	 LjldAEUGNy8pg==
+	b=In3kowbKxzi0zjMZuqzN80/iyK437ZerWuTZkRHz6Jyik7ekEn2cYLzTUoak3EWUd
+	 EjfkFJ9ZOzenPO/lmMhvKJlvq/Y/0tTyuLIUpaDWbf7hyWs5QacL9fDRzeZ1zkz3hq
+	 ClDcSUsA8cXXojGHySxdI7B0GCzCAkrjl2HDjG3zVCKGh6kQASybloEz4+HIcI3iw7
+	 8XzvEmG96MXY5TFBzKR7YEklflWXQiN+gIQZc9AdIBRpjRL3ig+Ih1OC0NERgxZvK6
+	 hSID8wHl5AQPNENRKy4yvp7Jo83XQuHjFY/r3TvDO+bHQdvRvoYs8+0ZUfwnAbMptz
+	 9LhUT8gZ//h+g==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 01/23] cpu/hotplug: Clean up cmpxchg() logic in cpuhp_can_boot_ap()
-Date: Fri,  9 Oct 2026 11:07:12 +0100
-Message-ID: <20261009100738.31288-2-will@kernel.org>
+Subject: [PATCH v2 02/23] cpu/hotplug: Avoid trying to bring up CPUs that are already online
+Date: Fri,  9 Oct 2026 11:07:13 +0100
+Message-ID: <20261009100738.31288-3-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261009100738.31288-1-will@kernel.org>
 References: <20261009100738.31288-1-will@kernel.org>
@@ -82,52 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpuhp_can_boot_ap() uses atomic_try_cmpxchg() to transition the sync
-state of the incoming CPU to SYNC_STATE_KICKED. However, this is
-unnecessary if the state is SYNC_STATE_DEAD, since there will not be any
-concurrent state modifications, and also if the state is already set to
-SYNC_STATE_KICKED.
+There's little point trying to bring up a CPU that is already online.
+Although _cpu_up() handles this case by doing nothing (because the
+target state has already been reached), it's wasted effort when we can
+easily elide the call to cpu_up() in the first place.
 
-Restrict the use of cmpxchg() to the case where the existing state is
-SYNC_STATE_ALIVE.
+Check that the target CPU isn't already online before invoking cpu_up()
+from cpuhp_bringup_mask().
 
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- kernel/cpu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ kernel/cpu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index b3c8553d7bd6..198c929c452a 100644
+index 198c929c452a..97a9bfe4edad 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
-@@ -408,22 +408,22 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
- 	switch (sync) {
- 	case SYNC_STATE_DEAD:
- 		/* CPU is properly dead */
-+		atomic_set(st, SYNC_STATE_KICKED);
- 		break;
- 	case SYNC_STATE_KICKED:
- 		/* CPU did not come up in previous attempt */
- 		break;
- 	case SYNC_STATE_ALIVE:
- 		/* CPU is stuck cpuhp_ap_sync_alive(). */
-+		if (!atomic_try_cmpxchg_relaxed(st, &sync, SYNC_STATE_KICKED))
-+			goto again;
- 		break;
- 	default:
- 		/* CPU failed to report online or dead and is in limbo state. */
- 		return false;
- 	}
+@@ -1769,7 +1769,8 @@ static void __init cpuhp_bringup_mask(const struct cpumask *mask, unsigned int n
+ 	for_each_cpu(cpu, mask) {
+ 		struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
  
--	/* Prepare for booting */
--	if (!atomic_try_cmpxchg(st, &sync, SYNC_STATE_KICKED))
--		goto again;
--
-+	/* Continue with booting */
- 	return true;
- }
- 
+-		if (cpu_up(cpu, target) && can_rollback_cpu(st)) {
++		if (!cpu_online(cpu) && cpu_up(cpu, target) &&
++		    can_rollback_cpu(st)) {
+ 			/*
+ 			 * If this failed then cpu_up() might have only
+ 			 * rolled back to CPUHP_BP_KICK_AP for the final
 -- 
 2.56.0.385.gd3acb90ef8-goog
 
