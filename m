@@ -4,108 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2481CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C50CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZstjgpPw37lwOmQxNVbD7gUthkSfwTkdvZxCusc7QU=; b=eOuDFmGfjJUo4JRNbNlPW3BWl+
-	cSBvRuG1Oh4q1znyEHU8HYWMBJ8JpqwTrPSHtFiWOMcRmnBxrCuo6aVcVkQSZdarOB0Qeoc9tLG6Q
-	0CSt+lte0jtVkcpoTsH1WChYSZFRWYVuScQoGHB6/f3RWQKBe517hufYsG7pTEOWKzgKog99k1c3K
-	9qOpa3d3q/AN7a7PNdJGMRtm8cTQxYiX76d8b0g6qZ4cJVS7PGg7ere33gYZ4zv2horBMmoYa/WA1
-	rAbTXNU+BJIOtud5bUmaX1iS894k2zAnNeZKLKctfC8kcmojPME1Mysb4YjfgOoe7C6wNtmnsGYLR
-	YMU+VAnQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9tr1qtc6LQ+b+juOf6dlKhYQBymxbiy4xJ9ony0p3rw=; b=dcoVnaU0akEjl9ykan2qIIlB4c
+	51ukqQXlbj5/5pp6ZPr4SF5IbKuNMx/fHuf/IyNlGgTSiN58AtyCxf5BDmeuglC6BU184WVAgsNRJ
+	25UENBFiDlnp8HfqyXs0u538PntoF+LChx0i6Zj8ecP5S7B3B0j2bYxx1n+JeLBfSAHODU7yiHh7j
+	5JDBaZTaP++yuWRfxHuBCXSSLn+wrl/n28U7Mf5hKcEZ7HqKWakNTq1P5yN+uL3QgjDfxJPgL1htL
+	T3f5PsOtD4UrF/cCkd9zeWszZVwhEzu4jMXdPj+J79O+VR8IwnMd8DxEp/NSTVyO6chL2RUCKRIPx
+	ZLxbfijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFH1A-000000079I3-15AC;
-	Fri, 09 Oct 2026 20:16:37 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1xFH29-000000079PD-3Q6C;
+	Fri, 09 Oct 2026 20:17:37 +0000
+Received: from sender-op-o17.zoho.eu ([136.143.169.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFH17-000000079He-0iRW
+	id 1xFH27-000000079Ol-0QlJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 20:16:34 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-8ac525c1f05so545357b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 13:16:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791576991; cv=none;
-        d=google.com; s=arc-20260327;
-        b=EfJmrd8cBdxsS1aM1tLQXM5iV6f0cy63WNlvDnZ1vwWHNcSHXrBLNfwjHBCbE4c5Ga
-         wHWW0X10kAlLyk/TRYajTjAeXjg4gaX+KfDg3cHd4OYbqpG4Mmm3Qeu8GaA5hxCpm2eM
-         zPDZ2f2WJo5bnc13s6ZLU8Lz61LCXZhzvEMYQSiyzjP13ikhQhH7yUfLzgzvqs4cnN5y
-         kq4GrT0JZtzhoVif69O6SOqqYCVxdjjvTUWGdGDlOLDxG2KBVLJwsKqwGPa4lT1IHYJ4
-         TlpPKm4Gxp36MSEECOyIN/kvVBouNn9RBl3YrbvtI8c8b7JDI7hw2WiIUvbuYgFNsSqe
-         NkZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9ZstjgpPw37lwOmQxNVbD7gUthkSfwTkdvZxCusc7QU=;
-        fh=IytyPBa88WzyYdlObNV/5YP53AbF6oaPoBOuNPR0K+8=;
-        b=cAqCfH+LT+5l0VIA/O2JirJMnGVC6w9IujmSDhVxN4ZSebjvgEjSaPatQsmQYe6N+P
-         VOXD9cZQzcNqX2tRlvHDueqCwt4xLkaqrrGzdHcmABkrUZgFF+w3PvwGC7se3vrbkCR1
-         oFtjU+DPGmFNnhL8xv6qvlMYaPmmrBod2ZtYd4d0WkhF0pZ6/l1Q+ni5oCuuCMjxxguL
-         iL3vvlkFdMy7eUUWJPFXafPh8+wdA40CL08ZMJj2oGN4rEzQqY2DlPbtxOirH82CYlJT
-         WjK4dYAFIl5f0Kbe5o5Y0uNxXQRGfXLvN0N3AEJy+iAQ3a/SxyyF8pODDPDYsR2TGyyB
-         m6aw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1791576991; x=1792181791; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9ZstjgpPw37lwOmQxNVbD7gUthkSfwTkdvZxCusc7QU=;
-        b=TanR58O9sMgNZsdkwr8E1b4S94kWYVhYCIZhvNwWQrgsJ3Qsu8tGaFK9/WfTizLjL5
-         SS2y3JZkrb2KDT/WEcvxMQbjr9zn9xu9Is2+92JNyFjlC9TE89foBrbz08sUk5FYjcoM
-         wmUtRTvN6pktshdU6ngEyRZjoRzU3ltCXs+UbWRhZUvRHS9ZxoKcWL9+RMg/SvqS0pQv
-         qJDh0+vE60jL9hX48NHWivwjW9hsufq1E0XO6NNWQzC25yf6k9bkpHEVooFzAYD8zJry
-         4CZ0DmhCYyg2bws7P5tgOmg81X7qCxtYZ9SYLVqCl7ON0C7UA9ch51sfaghH4JiKzxws
-         eKzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791576991; x=1792181791;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9ZstjgpPw37lwOmQxNVbD7gUthkSfwTkdvZxCusc7QU=;
-        b=YDDz2wKo110LbNtBejw2Fz9zF8LwF3tSawuiaHpsr9etCx/p+8h8gPugSS8AZzI4Q3
-         h7CGL15AG09nDhm2T49sMxrfNH9gh6c6zUrgp+IOCV4l2VQndP4uMvoRMSXq0eBKra8i
-         47EmLBWBp3X1h80sYlWYZ4z2Bb1zl8t6p1Eklczvn9n+Spyd1l1NNX8KEi6Z9ndqyZqC
-         1bD7+12D52ref4bUGe4rxNWQFU+3Bo7zf7SWmejs62CqHwJ4lja153aSn0AyF78YFO0X
-         Ythki+ROD0AnGQ7A0WGkxmrneF+tMqg23U21eaF2zhdvlR21jCLOjn5bazTU6/mi3M46
-         Fg1w==
-X-Forwarded-Encrypted: i=1; AKwUvBydljfmr7XknXG0wyWovOxbTSJV+wN0BxjVs3IHg4TlYTaqhlAXdh3eJ+Z/bhxlzlBSXxpcGOUrUyKFTdnj4TEo@lists.infradead.org
-X-Gm-Message-State: AFq9FYIar6SU0YiHC7+X4u2lZrsCuhcv3Z2390wdUbLI0Xb+B65ySLrJ
-	3uUltj8knx7uUClEBx4f/jGkDogc9I8K4ZT4pgYZBVUqyv7PBXguQZ21nZe+1oRb0Yv9OZ/fatm
-	2/B4R7NyPTG1oDdFyqmn+DCa4DYqpi7+DQnQJSnKEY4Bzcoces0D37aA=
-X-Gm-Gg: AYBFou3bR7RBe6vTkUkOCDZDvRD8XVWYuXGnNeJ7cnwA66NCZR7fYGJKbs+LLocdC48
-	fr3gXkLkDynfFOIHmWPTAEkIOa+hLjQm/I5ghY1AxsSJZhY64jPOGcFWxYJ/xnKfnrPt9mFqRFk
-	6M5BqnID/MNIOrSKCtkL3e+H8IorCx5GkTx61cPQOo8FotF5Wj3GBLLvk007QJSGzf3kyFyJABV
-	YZAZsVVEMVQ/gUfbhZ8NeUWX+pNrzGOlQ6KhR8DpVtXJORNFL/m4HPwN7/+e+QubE5qIbMcTdnr
-	wysyvrp+vGCZFDJGUMdPVlm7KG/ZJbbgvOGRoKAHEgvk2+902Ad6QhU=
-X-Received: by 2002:a05:690c:7483:b0:8af:5430:23f3 with SMTP id
- 00721157ae682-8b07edcf030mr14065407b3.19.1791576991277; Fri, 09 Oct 2026
- 13:16:31 -0700 (PDT)
+	Fri, 09 Oct 2026 20:17:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791577032; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=ejswQMwcCIuxTynSM/R7VtRL2iNOwvKb+oTkzE6EQA/MdziqfQ2tavoMANZLrY05Ys1iMGsgoaQ5bqst6UvUQ5MKie6E2nnTBlORblHJWuVFgCBFDvDDKHh/FqRpAZ/4iVKCK/dBc+fdwWEwH6IEI1pWJW7dUYwKLL3uzRhiS/M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1791577032; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9tr1qtc6LQ+b+juOf6dlKhYQBymxbiy4xJ9ony0p3rw=; 
+	b=PO+2Yg5szwDxFAvi3fvfrfv3bEIkVv9uDu8lHHFxd787eMavdsVMSV5oZk5TGWdQq3TVzvFqZBamxGPTZ5jbAti8HFlodo3utrJg02FnjiPnU6UJl2EFGD27Og4cvw4CZSgSDPIdc4JRAsCn8TFVM4T8/MLehkYU8uSz3ULkpBI=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791577032;
+	s=zoho; d=iav.lv; i=iav@iav.lv;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=9tr1qtc6LQ+b+juOf6dlKhYQBymxbiy4xJ9ony0p3rw=;
+	b=O42Xts5jKPqc50mKotumhwirNkCnz2A2NOUKUWqBnxrNUq2JMZpJHVkwCUHnEMI2
+	4Ei7D6JWfJZqLlGFWOp4bc09ZYNDyq9jM3FfxsJVh8181hwowCXQA8aCrMhh1x6OLOx
+	dVUgIrW3IE9AKZeRHIDikefYxMwnzEodo8/ySPxY=
+Received: by smtp.zoho.eu with SMTPS id 1791577031212158.22971136146714;
+	Fri, 9 Oct 2026 22:17:11 +0200 (CEST)
+From: Igor Velkov <iav@iav.lv>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Igor Velkov <iav@iav.lv>
+Subject: [PATCH net v4] net: stmmac: dwmac1000: clear the RGMII status interrupt
+Date: Fri,  9 Oct 2026 23:17:09 +0300
+Message-ID: <20261009201709.1917585-1-iav@iav.lv>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20261008-i2c-xiic-block-read-nack-v2-1-76735ed0b0bf@nexthop.ai> <20261009145800.rc-reply-0001@kernel.org>
-In-Reply-To: <20261009145800.rc-reply-0001@kernel.org>
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Fri, 9 Oct 2026 13:16:18 -0700
-X-Gm-Features: AclHuK8NoU9nFQdsnoGWTbzltxdeCAjZZJguqpmO0Y-nucjuamlvwsTRrY9h3TM
-Message-ID: <CAGYn4vzAM2RVv3y5qW1C3P50qYN5J7UKmj-LsMDv9EdqrX=G6Q@mail.gmail.com>
-Subject: Re: [PATCH v2] Revert "i2c: xiic: defer RX_FULL until all trailing
- bytes are in FIFO"
-To: Sasha Levin <sashal@kernel.org>
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Siddarth Chilukuri <siddarth@nexthop.ai>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_131633_255020_D2E2A262 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_131735_415016_C8A6F50A 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,22 +86,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sasha,
+Since commit 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII
+interrupt handling") nothing on the RGMII path reads GMAC_RGSMIIIS, so
+RGSMIIIS stays pending behind GMAC_INT_MASK from the first link change
+on. stmmac_resume() resets the MAC in stmmac_hw_setup(); the reset sets
+GMAC_INT_MASK to 0 until dwmac1000_core_init() writes the mask again,
+and the pending status storms the line:
 
-Thanks for handling this.
+  dwmac_dma_interrupt: unexpected status 04000000
 
-Best,
-Abdurrahman
+A register dump at the first message on ODROID-HC4 showed it:
 
-On Fri, Oct 9, 2026 at 12:01=E2=80=AFPM Sasha Levin <sashal@kernel.org> wro=
-te:
->
-> > This reverts commit e6fe3ea04f0113fe4d47c03d76e03805a4768ca7.
->
-> Thanks for the report. I've dropped e6fe3ea04f01 from the 7.2, 6.18, 6.12
-> and 6.6 stable queues.
->
-> --
-> Thanks,
-> Sasha
+  core int_status 00000001 int_mask 00000000 pmt 00000000 rgsmiiis 0000000d
+
+When the resume thread runs on the CPU that takes the MAC interrupt,
+the storm starves it: a soft lockup, then a watchdog reset or a hang.
+
+Read GMAC_RGSMIIIS in dwmac1000_irq_status() when the status is not
+masked, as the driver did before 2e2c878a3141; the read clears it.
+
+Wake-on-LAN resume from s2idle with the resume thread and the MAC
+interrupt on one CPU: Helios64 (dwmac-rk), 7.3-rc6, soft-locked in 3 of
+3 resumes without a fix and in 0 of 10 with this patch; it ran with an
+out-of-tree dwmac-rk change that keeps the GMAC powered across suspend.
+ODROID-HC4 (dwmac-meson8b): 0 of 10 with this patch, 2 of 2 without a
+fix on a 7.3-rc5 build. irq_rgmii_n went up by one per resume.
+
+Fixes: 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII interrupt handling")
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+v4:
+- Clear RGSMIIIS in dwmac1000_irq_status() instead of disabling the
+  interrupt line around stmmac_hw_setup() in stmmac_resume(), after
+  Daniel Machon asked about a dwmac1000-only fix.
+- Link to v3: https://lore.kernel.org/r/20261007031438.3179966-1-iav@iav.lv
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index d4ace3924891..66337cfd9824 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -312,6 +312,12 @@ static int dwmac1000_irq_status(struct stmmac_priv *priv,
+ 	if (intr_status & (PCS_ANE_IRQ | PCS_LINK_IRQ))
+ 		stmmac_integrated_pcs_irq(priv, intr_status, x);
+ 
++	/* Reading RGSMIIIS clears the interrupt the MAC reset unmasks. */
++	if (intr_status & PCS_RGSMIIIS_IRQ) {
++		readl(ioaddr + GMAC_RGSMIIIS);
++		x->irq_rgmii_n++;
++	}
++
+ 	return ret;
+ }
+ 
+-- 
+2.43.0
+
 
