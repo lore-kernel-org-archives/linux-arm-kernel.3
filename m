@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0ACCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0ABCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KS3sgP/eUxT87vqgC+drQoOFDrxJo6kTsTRnflTVKSQ=; b=ZmCRUG8mOHEucvveJBPQydvUOH
-	Wz+opYRSV02kt1bYMiPPZu6hzDtc9OnHu7XuyJBOGdKrB8VIlVZ7bLfiVM7NQFnItcFZvM3ebrDzE
-	iUWA8Dm19K45qw/+pY+RPF/m5YaZYCNwg6E6orcTtjagKuUY7jxfq8WwWSAoW5HRoqfDQTD0r99tx
-	Ah+EtSzoEXyH5dU+28gWpn4PXqhy2cQxhjeRna5B86I1+JpGDOvWJo3RpobCSrho5kBi/R8XaJi3a
-	5bE7QSG8QSxKOmMlNm+xnFUGtHw2W03RHzVg1MkL/4U/2yJhxoYv4cAFcGpXa83giLNLEjcOVktrk
-	T2wd842g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ax4ioHhBTibMhrV/ZkvgxvrIeWrtpbyT/2pgDBLqygs=; b=avrUjddM/vE07UWRcKG5/mkQZM
+	NDs7++nZ006dX9m8nMV7VrzXPuaSY8B7mZ/rDUu/H5p9pQ6D5frhJ/oX53pDzRWfdb3uoIX6PfV33
+	xis7EfIpy0R26yuQvPR8qBWAZ3NcYmkAgZAajg7Yt7wZmLUiyee1JkIR3rPVUU6bxJyzs7/Xvmgjm
+	uH7oIv6kkjbWOvSElfGj7EyuKKq2J5AXrj0dRkn6z3KKpb6EQEFNplExjwcrqXBIXsk2DgaWYjy4L
+	cB2t2z+lUt7TNxjwUuxV+rPnHyuD16nldqtXAyX4qxP6L8QLwnTTxWV2BQoXPY9bMlCwyGw2qm8nh
+	Dobg48lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3oQ-00000005auJ-3orK;
-	Fri, 09 Oct 2026 06:10:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xF3oa-00000005ay7-05Gm;
+	Fri, 09 Oct 2026 06:10:44 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3oO-00000005atA-3RkH
+	id 1xF3oW-00000005avn-0ueW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 06:10:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 455EE60DC6;
-	Fri,  9 Oct 2026 06:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 331381F000FF;
-	Fri,  9 Oct 2026 06:10:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791526232;
-	bh=KS3sgP/eUxT87vqgC+drQoOFDrxJo6kTsTRnflTVKSQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m94c6dJSC6KB2dY78IwIoo8ekBqOmd5nw+PtP+EH8lg2F8MXcrX/vt3CFVrmOjORv
-	 2EZcDAFb4QoRnqGS5kx7W98EH9zEaLaPwkPI/sSf6f+cYA5X3B4MimVwk5d4etzekH
-	 CJKJoXOxGGIsm6zdVospuTVNU3mm07SjCcgwNg6s2dM/85dezrqsNeydzljQ/CFw6g
-	 GB200OaV+9b8p32LdR1KpQpP2jAdQESH9QrZk9J7w8bRpbqyo6FrNQG37HatBt2XSb
-	 2V9ADm+ETbiwbYEFCiuS/DB95TengT1AHQbNZdwCYpxRA75JeP7K0e7JhB4w6vCjdw
-	 Obi/bn1qnQ3mg==
-Date: Fri, 9 Oct 2026 08:10:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Haotian Zhang <vulab@iscas.ac.cn>
-Cc: imx@lists.linux.dev, Thomas Gleixner <tglx@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-kernel@vger.kernel.org, Jacky Bai <ping.bai@nxp.com>
-Subject: Re: [PATCH v2] clocksource/drivers/timer-imx-gpt: fix resource leak
- on init error paths
-Message-ID: <20261009-miniature-platinum-beaver-fcf647@quoll>
-References: <20261009022818.3025610-1-vulab@iscas.ac.cn>
+	Fri, 09 Oct 2026 06:10:43 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a16c1608faso15725255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 23:10:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1791526238; x=1792131038; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ax4ioHhBTibMhrV/ZkvgxvrIeWrtpbyT/2pgDBLqygs=;
+        b=OkwGiZiP5Yk20BwupgqdlM0HliQaagqEIuHdESIJGxogU52h8J6USMFt1EWxcS7HG/
+         Ui1lK1x1d5WT6J/RST1mpIOA0iZplIben+EOVmbRm/Ld0Ird/49ZC2aWUKVlHXtw7VEj
+         wfRJynoc4t2+3B4jq5LQ4OcChgN6XcwycsBWLFemA9kE4mzGCzd3fz4EWYcbXYMZGa7r
+         7aMpnG8ZHAWWIS0BB9aMuifCsYdiDAcIexFuqSQ3eCInzBm3TAE/rCy9KhwJVAJGcGae
+         LUUBnHGvy6ODF+ulzRaOEqLryjNTlL5NIo4yWRdGpmV5Q6//V1tEPmWobXcqidR8i9Lz
+         OucA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791526238; x=1792131038;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ax4ioHhBTibMhrV/ZkvgxvrIeWrtpbyT/2pgDBLqygs=;
+        b=Dz8GaGKYtY5IArWfNWq70Mksavyc8TnYpcsa8MGT0pP/MYjTQmyVa5EcMBEjTV41KJ
+         jC4lVnRxHJAkf3Chm7R164bk7Dsyq+rNbHbxnhtVFUdp0qcPK1yFH8OOiPKlvqdCsXjd
+         oX2gyfKNZMG5tgUQx3xObpGBxOE4BRRTqBvqjZNkRxmnnjK3N8OnftWZFBpJEEZIM8U4
+         EDBmpV0chjuo55xANAXaaWsE1Z2kPWEFmq5TwyniWOMxSe//POPT4VUSnvTWRxLKrgC9
+         fzppCz1mJDOD6yr8w0ix0hfZhTESeukxby03rO6h8UU5nnN3hDXF27SrvDY6+6HWRtO9
+         elsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwUOvE/aNqvH6wBbxV9KdFOc+ar6/ovy15EjWWdc5iWVDPhVgptnpUIaIP9iQ4MASNhAx+FRmZCkNC9eYVaPoUt@lists.infradead.org
+X-Gm-Message-State: AFuF++nRtLuBA7A8VTf7iG/4xs5mqOLOb5oHKdWverye3FtaplzLKjEN
+	QM4Y3DIloibUygJ2UetaslsLtWbcVfFaOR0v/F9a78Hty5La7ioV8dVf1cOPB2RIaD8=
+X-Gm-Gg: AYBFou13MMc4HUZg+fkW8NIN0UHtJKkl+DG9QVhyU2H/E6rYXdtqkG0ojyP8eEVYokf
+	nqMFewkgmrLZfZRwcQSdQNRXisbBTckvei5BXRDO8s+gL/Vu4UM/8jjUlVWn3zqSmH05qgNV7Bg
+	/17TeLMu/a5MjfeGQ+50t+YLTzictwvqI/YUTBUNURoCnztWH/5HbWz1I5wqeLHHyZG05y1ggvy
+	fT41iNTUTwiiHXo29rVW+SkGs+xJgVI45B7ijKcfFTrbW59JUNWfNtbp/yvW9CAO1eWldC5njM2
+	lLnP/+rumbnmla6Dhm+srNRZ1BTKoCcBKijOdCeqHQdo9+3k833F85sXsldKfnJWVu/nAE5wyez
+	Hq+Mone7+IEQCCO7XrJYmxuxzVOpoavUiOnXBN2HwtFjg98xHHSMAQ4j0yBiiIkoK1INQXZoHEb
+	TOorRta44toRgLpzgc+Ci5jObobbghn/kreJVGPaFyFkbm4CgLw0qNGho3610EKwTF3kFGydO6j
+	D8aE0qbrBKVSbtjPLg95WBZYrr3rLwOohBYH1kHEZc=
+X-Received: by 2002:a05:600d:82c5:b0:4a1:6282:1cf3 with SMTP id 5b1f17b1804b1-4a18e497a94mr15845945e9.9.1791526237748;
+        Thu, 08 Oct 2026 23:10:37 -0700 (PDT)
+Received: from claudiu-TUXEDO-InfinityBook-Pro-AMD-Gen9.. ([82.208.30.17])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf21276sm56616715e9.8.2026.10.08.23.10.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Oct 2026 23:10:35 -0700 (PDT)
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: soc@kernel.org,
+	arm@kernel.org
+Cc: nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	claudiu.beznea@tuxon.dev
+Subject: [GIT PULL] Microchip AT91 fixes for v7.3
+Date: Fri,  9 Oct 2026 09:10:34 +0300
+Message-ID: <20261009061034.29475-1-claudiu.beznea@tuxon.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261009022818.3025610-1-vulab@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_231040_362315_C48F5DC2 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,78 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-On Fri, 09 Oct 2026 10:28:18 +0800, Haotian Zhang wrote:
-> mxc_timer_init_dt() maps the timer registers with of_iomap() and obtains
-> the ipg and per clocks with of_clk_get_by_name(), but every error path
-> jumps to err_kfree, which only frees the imx_timer structure.  The
-> ioremap'd mapping, the clock references and the mapping created by
-> irq_of_parse_and_map() are leaked when irq_of_parse_and_map() or
-> _mxc_timer_init() fails.
-> 
-> Release the ioremap mapping when irq_of_parse_and_map() fails, and drop
-> the clock references and the IRQ mapping when _mxc_timer_init() fails.
-> 
-> _mxc_timer_init() can fail after mxc_clocksource_init() has registered
-> the sched_clock and the clocksource, and after mxc_clockevent_init() has
-> registered the clock event device.  Those subsystems keep using
-> imxtm->base and imxtm, so neither the mapping nor imxtm itself may be
-> released on that path; request_irq() cannot have succeeded there, so
-> disposing the IRQ mapping is safe.
-> 
-> Fixes: 8051a993ce22 ("clocksource/drivers/timer-imx-gpt: Fix potential memory leak")
-> Assisted-by: DeepSeek-V4.1-Flash
-> Suggested-by: Frank Li <Frank.li@oss.nxp.com>
-> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
-> ---
-> Changes in v2:
->  - Dispose the IRQ mapping and drop the clock references when
->    _mxc_timer_init() fails, instead of leaking the IRQ mapping.
->  - Do not unmap imxtm->base nor free imxtm on that path: the sched_clock,
->    the clocksource and the clock event device may already have been
->    registered and keep using them.
-> 
->  drivers/clocksource/timer-imx-gpt.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
-> 
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
+are available in the Git repository at:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-fixes-7.3
 
-Multiple things here:
-1. Your team ignored completely previous feedback.
+for you to fetch changes up to afb1ecfeda3fc31d6300a176f4854cc62e289bf3:
 
-2. You use multiple identities with this email, thus I actually doubt we speak
-   with actual person.
+  ARM: configs: sama5: enable current Microchip KSZ DSA symbols (2026-09-20 16:22:20 +0300)
 
-3. Finally, same feedback:
-You sent multiple independent patches, to multiple independent
-subsystems. The amount of these patches clearly suggest this was
-AI generated and most likely not tested.
+----------------------------------------------------------------
+Microchip AT91 fixes for v7.3
 
-More importantly, you sent all this work without properly organizing
-relevant patches into patchsets. This makes reviewing difficult
-and might cause multiple reviewers to address the same issue.
-Replying to the entire set is impossible and requires handling each
-patch independently, instead of applying or discarding the set.
-Maintainers also won't see the bigger picture of your work. Quite
-worrying.
+This update includes:
+- use the correct Kconfig flags for the Microchip KSZ switch
 
-This is on the verge of hostile patch: bomb us with so many
-contributions, we won't be able to handle them in efficient manner,
-like responding ONCE to ask you to slow down.  Considering all this
-is untested and LLM generated, I have even more doubts whether this
-should be considered for review.
+----------------------------------------------------------------
+Pengpeng Hou (1):
+      ARM: configs: sama5: enable current Microchip KSZ DSA symbols
 
-Please read kernel documentation BEFORE posting more work. It will
-explain you how to identify subsystems, how to organize your work per
-subsystem (so a patchset grouping multiple patches with a short cover
-letter), how to document usage of LLM and how what you should not do
-if this was posted in a good faith.
-
-Best regards,
-Krzysztof
-
-
-
-
+ arch/arm/configs/sama5_defconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
