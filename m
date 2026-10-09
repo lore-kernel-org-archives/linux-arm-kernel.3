@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB97DCA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 09:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49B4CA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qyJA/7nwl3OSaIXJDB1WKzr1+yP75suMFvmwmo2iG1M=; b=eC27arj/EWGF0nfeDgGNt54Pza
-	zfN8FTbGeRe3dkn9eju+9lOPY9xLpkEuvP9RR9hIl2Bvdgv5gVMJm6e5cc8eYNXZVLwve8TBulIz8
-	tr3yk4t067so0D9fyF621jFVeNwU+xv874c45AUR0w4V8AP4UWH6T4JSzUySVBSHowyk8nH88KJuM
-	NxYH0CHjs7rzgoPfXxcfSnzqfNwX3AdaCDrM9caXn+xVslJLHi62qjT6Ba6PwJ+LJ4M7P9gwpXsxk
-	vi8ed+mWeC2veQ/HNbRxjoEr2fpFOwmn7oaUh94upuAt3+tDeHKuJ7Wh6X+45LDkTKKsueT8rib3n
-	pMb9lcBw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZJ4Upg1kLDpt6VtqbRdlMoDn76OY0lfMTsNgv+VL3nw=; b=skfnkbzL5udNmwW5ih1U6YSBn0
+	Bk5FSgT41D/RiyBBab5zzhB53PhSV4BeLNSnAcugt9xS6+4rj+dt3feWp57IB7HLQDDicQ3gJHGPG
+	wZLn+ZGwOoBz6Di4ohuXr3f2tHVMnr2Lzo3Uhp4rNLjuEXbYTnqXykQ6ffJCk3bsfQIkz4W5rlzs2
+	drBJ1ny2eCENlCRIxq2RQ0du6ae1HLStBP/9oU0aO79Xamd6+kp0dt1QujZXI1ub/4Q9m8/f7GGL3
+	jkPJCtGjziElVW24j8LVyzqRfl9vKx0glR5q0F6vMdHoAip9CtT86UqRTMtKEFSf35IbgTE3cLAPk
+	sdF4fhNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6uu-00000005vCJ-0i1K;
-	Fri, 09 Oct 2026 09:29:28 +0000
+	id 1xF72a-00000005w5K-274Z;
+	Fri, 09 Oct 2026 09:37:24 +0000
 Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6ur-00000005vBZ-0Jeo
+	id 1xF72X-00000005w4h-42Ic
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 09:29:26 +0000
+	Fri, 09 Oct 2026 09:37:23 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id AD14D240106
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 11:29:20 +0200 (CEST)
+	by mout02.posteo.de (Postfix) with ESMTPS id 1E01B240101
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 11:37:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1791538160;
-	bh=qyJA/7nwl3OSaIXJDB1WKzr1+yP75suMFvmwmo2iG1M=;
-	h=MIME-Version:Date:From:To:Cc:Subject:Message-ID:Content-Type:
+	s=1984.8680eb; t=1791538639;
+	bh=ZJ4Upg1kLDpt6VtqbRdlMoDn76OY0lfMTsNgv+VL3nw=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding:From;
-	b=V2mv9vpd2gCnzjevmVssg0dfsMqWV4aLhz5lNQwSzH+CkftEuG7xkvAd5eci3ZYN1
-	 oEURgfs+ZBymS2YD6zCvbuglQjijOcNY2YETg+2LWjWhYf+TM7bxc5ReJdBMZYLtZe
-	 k0AS+Sah6FhyqrDKbS7nffRK5TLk7RL8pE7Cj46bFm9lBges20A+aeEQ6N5AcPBN/T
-	 neMWBpY2JI3/T/U6Ct5lzxcAgdpc/Z0iG726GZTX1LIsyfDioVCxbRWyu6Gu3gDylJ
-	 nQfNL9cBSBhXEOiX7AClwiWR98tBtQ+bS5192KhFInuN5T+4E32eTL0gZsZPyPJGUb
-	 4Fm5nvNxc6oWQ==
+	b=j+35i+9g+vIo8mtvMkFjgssgQweIQ4rbKev6iZUT/IbdetWJjamLpD5AB8F3z/xBM
+	 0U9Juam73h2l3wkDKQyQwWySBPT2NC3Y//VuDMI1L3Q0PXE8YBY+FTkuLCcnEQD8rB
+	 ZGvBhZBKmaeua7bpAM+z7alb5E0ylu5M0xznr9dem2DGcaIZRl/OMIejSkMPdJIwJj
+	 d/UUqo7Yf82JlAZuqLgX1JJxEl7/YguIVTnbymMkNmCZR/jChv7BoRz3IRd4fsBH+u
+	 Wk1qIawtYlemKqwElR5Gn7no5I4TZ6xzz5wyGsd7MAufFKeNGL+PWQVWFbfwGolKLh
+	 3tTbCbP4lrMlg==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4j1M4t6pvBz6v13;
-	Fri,  9 Oct 2026 11:29:18 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4j1MG45kllz9rxD;
+	Fri,  9 Oct 2026 11:37:16 +0200 (CEST)
+From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Patrick Delaunay <patrick.delaunay@foss.st.com>,
+	Valentin Caron <valentin.caron@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mateusz Nowicki <mateusz.nowicki@posteo.net>
+Subject: [PATCH v2] arm64: dts: st: add thermal zones on stm32mp251
+Date: Fri, 09 Oct 2026 09:37:18 +0000
+Message-ID: <20261009093709.19907-1-mateusz.nowicki@posteo.net>
 MIME-Version: 1.0
-Date: Fri, 09 Oct 2026 09:29:20 +0000
-From: mateusz.nowicki@posteo.net
-To: Patrick DELAUNAY <patrick.delaunay@foss.st.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: st: mark main supplies always-on on
- stm32mp257f-dk
-In-Reply-To: <2b17d398-0581-4b15-8c3e-dd87883667c9@foss.st.com>
-References: <20261004112421.47158-1-mateusz.nowicki@posteo.net>
- <aaedc962-63ab-431b-8b27-b4ac9c11d16e@foss.st.com>
- <1baaa8cb024104ee6d201d55467f6718@posteo.net>
- <2b17d398-0581-4b15-8c3e-dd87883667c9@foss.st.com>
-Message-ID: <d5f43cb2615f5968eba98129356935fd@posteo.net>
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_022925_274435_393BCB0F 
-X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-CacheID: sfid-20261009_023722_180755_20F9669C 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,15 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrick,
+Add a CPU and a SoC thermal zone for the two DTS sensors. The sensors
+have no interrupt, so both zones are polled.
 
-On 09.10.2026 10:17, Patrick DELAUNAY wrote:
-> At this stage, we can probably live with that, no need to specific
-> treatment for v1v8 and v3v3 and you can drop the patch.
+Each zone has a critical trip point at 122 C (Tj max 125 C minus
+3 C sensor tolerance).
 
-Thanks for the detailed explanation, that clears it up. I'll drop
-the patch.
+Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+---
+Changes in v2:
+- Set critical trip to 122 C with 1 C hysteresis (Tj max minus sensor
+  tolerance), as suggested by Patrick
+- Add polling-delay-passive, the sensors have no interrupt
 
-Thanks,
-Mateusz
+Link to v1: https://lore.kernel.org/r/20261004121200.64034-1-mateusz.nowicki@posteo.net/
+
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 30 ++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index b624f998b87c..da75e02f7c8f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -158,6 +158,36 @@ RET_PD: power-domain-retention {
+ 		};
+ 	};
+ 
++	thermal-zones {
++		cpu-thermal {
++			polling-delay-passive = <250>;
++			polling-delay = <1000>;
++			thermal-sensors = <&dts 1>;
++
++			trips {
++				cpu-crit {
++					temperature = <122000>;
++					hysteresis = <1000>;
++					type = "critical";
++				};
++			};
++		};
++
++		soc-thermal {
++			polling-delay-passive = <250>;
++			polling-delay = <1000>;
++			thermal-sensors = <&dts 0>;
++
++			trips {
++				soc-crit {
++					temperature = <122000>;
++					hysteresis = <1000>;
++					type = "critical";
++				};
++			};
++		};
++	};
++
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+ 		interrupt-parent = <&intc>;
+
+base-commit: f831584128ac2a36fb4fa62fe106793d08c2dbf1
+-- 
+2.56.0
+
 
