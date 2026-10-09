@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D58CCA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19481CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YmZ0yJHie14bIXV5WA5IAqbzSShTvMSKctXnC5rUdh8=; b=b+RaNbwGa4H4X9a3wfSrVhLmER
-	xtm3aLY8eHCts9KtZFQRR9ayNUOFe2tcq9zCWwIa0hDt0yhgCZC54fzGAyi6VmF+qkc6KZSBCSRaP
-	xjY1SqnV03qzl/Qkh5u1xOstBD7skdl2/kF+bTf4zbQ73PYp38a1cX91PmNapfXvYSl2kHpHBczte
-	O/4fQQ+oZ7sSU7tY5TXuROCXQ3vh6hFduBLtRLNV74ZWlpcK/aFGW/5FLA2RQVDHRS1mu57gKpRmy
-	jGj60xK10MTAxbI5p+IVHH7r+0lKd9xkGYzcYoNNmI6rX8zkBPU9wWds64Q2CG3ktzuKLpWHUoitC
-	pr9NOSuw==;
+	bh=GlUeiKqBy40E+344jIcqfAa3hwlFrXZHKHXpJHntRnQ=; b=b9CR+ZqhAvU8pflbwg4ry0QWaV
+	SRlZGhNAJ/iKGCXThFgQxyYLFephc/L5Qh0au50YgbX98z0pUu5R5lkSzXtuIhzmGbED0K+2C4lDs
+	VPxw7U2XMhKUujjPMDjdQjaR52raz4dYjgJbTyAHOxOZCQ3zo71ZFGoENtCw5XSioIvuPy7jotyYH
+	7OKfb2zPrjSQXquLow0xf4Mf2eBVzymHNawze44FVmg3+yItwTFkoPKB/SdTBj1utR+a6jcsKU9eN
+	mw38woIPY/JmAEmxkhM+I2VGALcc3eNOizUp2esCurcLTh6Wmz8+6C1h9GLwegzSVjhUJJ8mliA+g
+	vFZ9NykQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9VJ-00000006Grf-2DOo;
-	Fri, 09 Oct 2026 12:15:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xF9VN-00000006Gts-32UB;
+	Fri, 09 Oct 2026 12:15:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9VI-00000006Gr3-1rgi
+	id 1xF9VK-00000006Gs9-11jz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 12:15:12 +0000
+	Fri, 09 Oct 2026 12:15:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C47560DC6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0414440360;
+	Fri,  9 Oct 2026 12:15:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2C8D1F00899;
 	Fri,  9 Oct 2026 12:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488C01F000FF;
-	Fri,  9 Oct 2026 12:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791548111;
-	bh=YmZ0yJHie14bIXV5WA5IAqbzSShTvMSKctXnC5rUdh8=;
+	s=k20260515; t=1791548113;
+	bh=GlUeiKqBy40E+344jIcqfAa3hwlFrXZHKHXpJHntRnQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=NhVRVeSQhmlACXm6A7ETYx6o2Hi9E2rfzYBIVSi+2mI0zkaYN+2uB3bko1Piuw97E
-	 3S+6SkZRC/ucANtjOEkS0Yi48toIkJaerZyulyzI9wJ9SndOcnOvlbnNBlA3N1C4rW
-	 w481sgTjhKQBTMsPvawRuMvZ0/lC9waED0nA2jZfhgVrIAZ9uAfn67LRjyhlb/4f3t
-	 Sd/L/uzzsAHhSJLpr7qqA2rK/sgQF29duxay8yQT3b9qcGIsoBR1B2FAxHLbFC1a1l
-	 uNdJL7inlzzlWb0R8xEaO7XRHMXwnMqlFPfqMVTEuUycJXZuXZlW0mc2LBjtQvBGNl
-	 UR3M8UpqA4pHw==
+	b=IzYea1c+vd7AR8I9hts2rBTUcBfgjZSNZHhUzI1Gtycq5fREKkPA90uNR1RD/+7js
+	 3Laq6Nxy64/TkX5+77qM/2/K7NiIVBKqsaF3l7y2OR/zl1K02Ui4P24FG+e/zyJ9Ze
+	 WHJxnjEyxc58fZJZ5bxQhFKf9hT0b/8tQsZxNLAEeNl7yNAUmhxeUkkBS52PxUEWwj
+	 SGzMF2FN4Kie1zPocFXJSiP+KgWE1vfCzC/acVGzM96yK+azZTPcBiI+ygeWYRN+nl
+	 /kIY6/Zyy1cWZIkQqRtxsPMaXXRMJuxwY/BgRz1LrXy5OaptvSrdXTaAPxBYlqKpqn
+	 dN3OK1tSnkiRA==
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 09 Oct 2026 14:15:04 +0200
-Subject: [PATCH 1/3] dt-bindings: power: Convert Ux500 PM domains to schema
+Date: Fri, 09 Oct 2026 14:15:05 +0200
+Subject: [PATCH 2/3] dt-bindings: arm: ux500: Drop NR_DOMAINS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-ux500-power-domains-v7-3-rc1-redux-v1-1-5eb1b90bc35e@kernel.org>
+Message-Id: <20261009-ux500-power-domains-v7-3-rc1-redux-v1-2-5eb1b90bc35e@kernel.org>
 References: <20261009-ux500-power-domains-v7-3-rc1-redux-v1-0-5eb1b90bc35e@kernel.org>
 In-Reply-To: <20261009-ux500-power-domains-v7-3-rc1-redux-v1-0-5eb1b90bc35e@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>, 
+ Linus Walleij <linusw@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -72,123 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the legacy Ux500 power domain text binding to YAML.
+Keep the internal Ux500 PM domain count local to the only driver
+that uses it.
 
-Move it under bindings/power.
-
-Reference the generic power-domain schema.
-
-Update MAINTAINERS for the new path.
+Do not expose this implementation detail through the DT binding header.
 
 Assisted-by: LLM
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- .../devicetree/bindings/arm/ux500/power_domain.txt | 35 ------------------
- .../power/stericsson,ux500-pm-domains.yaml         | 41 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 3 files changed, 42 insertions(+), 35 deletions(-)
+ drivers/pmdomain/st/ste-ux500-pm-domain.c  | 2 ++
+ include/dt-bindings/arm/ux500_pm_domains.h | 2 --
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/ux500/power_domain.txt b/Documentation/devicetree/bindings/arm/ux500/power_domain.txt
-deleted file mode 100644
-index 5679d1742d3e..000000000000
---- a/Documentation/devicetree/bindings/arm/ux500/power_domain.txt
-+++ /dev/null
-@@ -1,35 +0,0 @@
--* ST-Ericsson UX500 PM Domains
--
--UX500 supports multiple PM domains which are used to gate power to one or
--more peripherals on the SOC.
--
--The implementation of PM domains for UX500 are based upon the generic PM domain
--and use the corresponding DT bindings.
--
--==PM domain providers==
--
--Required properties:
-- - compatible: Must be "stericsson,ux500-pm-domains".
-- - #power-domain-cells : Number of cells in a power domain specifier, must be 1.
--
--Example:
--	pm_domains: pm_domains0 {
--		compatible = "stericsson,ux500-pm-domains";
--		#power-domain-cells = <1>;
--	};
--
--==PM domain consumers==
--
--Required properties:
-- - power-domains: A phandle and PM domain specifier. Below are the list of
--		valid specifiers:
--
--		Index	Specifier
--		-----	---------
--		0	DOMAIN_VAPE
--
--Example:
--	sdi0_per1@80126000 {
--		compatible = "arm,pl18x", "arm,primecell";
--		power-domains = <&pm_domains DOMAIN_VAPE>
--	};
-diff --git a/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.yaml b/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.yaml
-new file mode 100644
-index 000000000000..bf83ce332674
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.yaml
-@@ -0,0 +1,41 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/stericsson,ux500-pm-domains.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/pmdomain/st/ste-ux500-pm-domain.c b/drivers/pmdomain/st/ste-ux500-pm-domain.c
+index 6896cb4a7b71..c9129a3b1805 100644
+--- a/drivers/pmdomain/st/ste-ux500-pm-domain.c
++++ b/drivers/pmdomain/st/ste-ux500-pm-domain.c
+@@ -17,6 +17,8 @@
+ 
+ #include <dt-bindings/arm/ux500_pm_domains.h>
+ 
++#define NR_DOMAINS		(DOMAIN_VAPE + 1)
 +
-+title: ST-Ericsson UX500 power domains
-+
-+maintainers:
-+  - Linus Walleij <linusw@kernel.org>
-+  - Ulf Hansson <ulfh@kernel.org>
-+
-+description:
-+  The UX500 power domain controller gates power to one or more peripherals on
-+  the SoC. Domain specifiers use one cell containing one of the DOMAIN_*
-+  indexes defined in include/dt-bindings/arm/ux500_pm_domains.h.
-+
-+allOf:
-+  - $ref: power-domain.yaml#
-+
-+properties:
-+  compatible:
-+    const: stericsson,ux500-pm-domains
-+
-+  '#power-domain-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - '#power-domain-cells'
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/arm/ux500_pm_domains.h>
-+
-+    pm_domains: power-controller {
-+        compatible = "stericsson,ux500-pm-domains";
-+        #power-domain-cells = <1>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3a19da74d00c..560079711469 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3273,6 +3273,7 @@ F:	Documentation/devicetree/bindings/arm/ux500.yaml
- F:	Documentation/devicetree/bindings/arm/ux500/
- F:	Documentation/devicetree/bindings/gpio/st,nomadik-gpio.yaml
- F:	Documentation/devicetree/bindings/i2c/st,nomadik-i2c.yaml
-+F:	Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.yaml
- F:	arch/arm/boot/dts/st/ste-*
- F:	arch/arm/mach-nomadik/
- F:	arch/arm/mach-ux500/
+ static int pd_power_off(struct generic_pm_domain *domain)
+ {
+ 	/*
+diff --git a/include/dt-bindings/arm/ux500_pm_domains.h b/include/dt-bindings/arm/ux500_pm_domains.h
+index 9bd764f0c9e6..9d94801d8b89 100644
+--- a/include/dt-bindings/arm/ux500_pm_domains.h
++++ b/include/dt-bindings/arm/ux500_pm_domains.h
+@@ -9,7 +9,5 @@
+ 
+ #define DOMAIN_VAPE		0
+ 
+-/* Number of PM domains. */
+-#define NR_DOMAINS		(DOMAIN_VAPE + 1)
+ 
+ #endif
 
 -- 
 2.55.0
