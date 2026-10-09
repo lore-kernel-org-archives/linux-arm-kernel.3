@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA918CA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D539CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAD7jZL3WT2oDggDD/W1Uk0YnF3NERQV17t5J8hJ8+M=; b=hWEgrh6NA9bd3RXmN0T/1qXTqd
-	UQxkRyLYm1vKc9RRYXU/zqe+KT00xWJPSn464mhl66DJiCUgFgS+aAdpaqtTrBwmQx0CxvSqLTLDr
-	okZira7bRZqoJl2/x9RfCk5ljMf1fc/cjjXygrbRrlohpRGXSwdL1ZjhKDoUCo48BA5iSlDN7HCwt
-	J39ZFndi3fRIub1noqG0vDhtBFog/gem1GEYSCYYsABt1AN8o9/Ndpm3gvj1Xv1WJVOMIgIjp6IkN
-	n1kqK9C8npRQfIC8sPewO1ycE4g62jfS/uHuG5gfffgFLjOH4mrQ514ftvLeNQA1Y1ms39SPsNOPj
-	hh6cmihQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dmxj2lj4Q4GvWHDzZDgnLPWqXygKdSJybIHJoEn8ViA=; b=TlQP9PwQfh41RLF9XYiy+BfuB7
+	uQDQsYcPqattOPARqVwdr4XNCVYVIiDWTovvfTxJQZVEDRSnfpfC6NoioiI4qualDuph+AZ3WWaVq
+	N5canfSFf8U/tYYwTsscWM4Uq1qMdpCMtJ+fjHZxn405buI+1jJ+SJkxUu6ME09MOKpv0+XxX8Jjl
+	Wwv0wHwHvSXh6h0S6hwWHR0zlCPNFHt1jgqvAjUgsAEt/ZN1UUmHfaHeL2KqbW+r1BpgCExD8gzTj
+	ZnJEInSllvqZ9x+v82p+b9xW0cgb+SoLGqHKDhEYLd72zaZhbya+Eb+PtrO/muzsdHSTHNitshU7x
+	3E6DhRJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFE73-00000006lYY-2bUD;
-	Fri, 09 Oct 2026 17:10:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xFE7A-00000006lcO-41ya;
+	Fri, 09 Oct 2026 17:10:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFE72-00000006lY7-2T3J;
-	Fri, 09 Oct 2026 17:10:28 +0000
+	id 1xFE7A-00000006lbb-01vb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 17:10:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E468243F04;
-	Fri,  9 Oct 2026 17:10:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F951F000FF;
-	Fri,  9 Oct 2026 17:10:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 58BC760DC8;
+	Fri,  9 Oct 2026 17:10:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E25231F000FF;
+	Fri,  9 Oct 2026 17:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791565827;
-	bh=kAD7jZL3WT2oDggDD/W1Uk0YnF3NERQV17t5J8hJ8+M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q1Nhseaoa+rDmPgv3RV88Xq/keczcbIu4FLYepJnBvD2cRWQ9lipkpUB7/oP4GWM2
-	 FtecI4n/MNfujCQ2qyTF3wHtE8IruMwItFTLmIBKKeC3vlmY0G1hsyyVZAtoiwWou8
-	 P3DbUqJp9Xmpt/k5D8+TZwqQdKWqiN19Lf+AJ3W0+6UWmvY9NsCpCPQCR2qUhmOLIC
-	 8Ojr7flTBUGp+qSaJwC9QVMRhzWedJSGwa8czVneuywDeGOD4MwdC3oFvmjdVrC/MQ
-	 pQQu6ro5HclX1M3k8qO/i9gCSAbnfYwfDkfc5jGddIzvabPGzItOqeLhZ1tE9Uequ/
-	 TaRWxOs50oK2g==
-Date: Fri, 9 Oct 2026 12:10:27 -0500
-From: Rob Herring <robh@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Wandun <chenwandun1@gmail.com>, baoquan.he@linux.dev,
-	m.szyprowski@samsung.com, catalin.marinas@arm.com, will@kernel.org,
-	mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
-Message-ID: <20261009171027.GA2734758-robh@kernel.org>
-References: <20260922084256.1515554-1-chenwandun1@gmail.com>
- <ar9ogXc12cLjziHS@kernel.org>
- <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
- <askVvEPHyrhpF8aw@kernel.org>
+	s=k20260515; t=1791565835;
+	bh=dmxj2lj4Q4GvWHDzZDgnLPWqXygKdSJybIHJoEn8ViA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Z634Y5IypidQbFnPdfvPWiyXUimIZt5btlC8kDBCbPcbKddDUvLPCFmkDmmSkzqPF
+	 7ZqhSgd6J+zPUmKiIy0xFAUiviT5rw9W8j5hXZY9i1ephEurVBII7GhRb8cXSqvX1Z
+	 JMaekl90TGTVHtH+FLrjs9QZHRrYPI0uLiYEDSwRVTAz+sZX41AXlmMmiI0S55ew5S
+	 iDhPJJBEuzwW5JnXxyeACW1Yc1Jsj3eOpuS+gULPt6hNBByFYzDendJDvr/qAVmclJ
+	 +m5j1kVglmlM7nKsiY2wNkeI8VtxkXcOhzv+KBprxmdIFkjV232r1bPLxmpoPcs2eJ
+	 +2kFE86iQcaXQ==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: Sasha Levin <sashal@kernel.org>,
+	Artem Dinaburg <artem@trailofbits.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Sashiko <sashiko-bot@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
+	viresh.kumar@linaro.org
+Subject: Re: [PATCH 6.6.y 0/2] firmware: backport CVE-2026-93083, CVE-2026-93093
+Date: Fri,  9 Oct 2026 13:09:47 -0400
+Message-ID: <2026-10-09-1-daily-reply-0010-arm-scmi-channel-6-6@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261008191624.98532-1-artem@trailofbits.com>
+References: <20261008191624.98532-1-artem@trailofbits.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <askVvEPHyrhpF8aw@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +77,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 06:26:36PM +0200, Mike Rapoport wrote:
-> On Fri, Oct 09, 2026 at 11:04:47AM +0800, Wandun wrote:
-> > On 10/2/26 16:17, Mike Rapoport wrote:
-> > > Hi Wandun,
-> > > 
-> > > On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
-> > >> From: Wandun Chen <chenwandun@lixiang.com>
-> > >>
-> > >> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> > >> camera ISP, ...), kdump currently dumps those carveouts as part of
-> > >> system RAM even though their contents are firmware state that is not
-> > >> useful for kernel crash analysis.
-> > >>
-> > >> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> > >> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> > >> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
-> > >> them; reusable CMA regions are different because their pages are handed
-> > >> back to the buddy allocator and may carry crash-relevant data.
-> > >>
-> > >> ACPI systems already filter reserved memory out of the vmcore through
-> > >> their existing path; only DT-based systems currently fail to filter these
-> > >> regions, which is what this series addresses. The flag lives in memblock
-> > >> itself rather than in a DT-only structure, so both ACPI and DT systems
-> > >> can benefit from it (suggested by Rob, thanks).
-> > > 
-> > Hi Mike,
-> > 
-> > Thanks for the review.
-> > 
-> > > Can you elaborate how ACPI systems filter their reserved memory?
-> > 
-> > In the EFI memory map, firmware carveouts are reported with the type
-> > EFI_RESERVED_TYPE. This type of memory gets the nomap flag set in
-> > memblock.memory (is_usable_memory() returns false in reserve_regions()
-> > and mark these regions with nomap flag), during prepare_elf_headers(),
-> > for_each_mem_range() filters out these nomap regions. Therefore, the
-> > memory reserved on ACPI based systems will not be dumped into the vmcore.
-> > 
-> > I will add these description in next version.
-> > 
-> > > With your patches, the memblock flag becomes a part of DT-only
-> > > infrastructure, so that claim that both ACPI and DT benefit from it does
-> > > not hold, doesn't it?
-> > 
-> > You are right, the wording was misleading. Let me clarify what I meant.
-> > 
-> > In this series only DT marks regions as MEMBLOCK_NODUMP:
-> > /reserved-memory and /memreserve/ entries are tagged in the OF
-> > paths (of_reserved_mem.c, fdt.c). ACPI does not set the flag and
-> > keeps filtering its reserved memory through the existing path, as
-> > described above.
-> > 
-> > 
-> > What I intended to convey is that the flag itself lives in memblock
-> > rather than on the DT-only struct reserved_mem, so it is available
-> > for reuse. If an ACPI system ever needed to exclude a firmware-owned
-> > region from the vmcore, it could mark that region with MEMBLOCK_NODUMP
-> > the same way DT does, instead of having to invent a parallel mechanism.
-> > That is a future option, not something this series enables for ACPI
-> > today.
-> 
-> So, EFI uses NOMAP for the same purpose, right?
-> Why when we need a new memblock flag then?
+> Could you please consider this series for 6.6.y?
 
-IIUC, NOMAP implies NODUMP (for EFI and DT), but NODUMP is needed for 
-some mapped (!NOMAP) regions.
+Queued the series for 6.6, thanks.
 
-Rob
+-- 
+Thanks,
+Sasha
 
