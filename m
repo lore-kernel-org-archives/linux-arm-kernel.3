@@ -4,141 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC47CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CC3CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0gceLecZa91dn6xrzfLTQvR1VTRtKzvhZXa3nwQVb0=; b=zKweatC8ogRzRleZEXiqg+DZuD
-	8swCEfOKYX4oqtQjsjWAhCzcktwlfC91RK9VGqA5df3GWfY6pCLpQarUHMjfZmq6OtU0GYyyQdIjG
-	mbBj1ug3tjTfDlL+KZoCljEmoXdCO9Xq1WhKuvaH8x2iCKeLAZVO3NflWV0RIuvX4cDTlamOwwowy
-	8bUDArVDq7ppTqGOYBN5lkfi0yOnQsf/O4p/dkTFeX0/j3+O0tCO2MLsqS1Rdl4mXf4UE0P+/J34r
-	YVMqaZakMMSBBVZCdk4000uwYHfrxKJao5bPHuFtpCcNmt/lSWSTdccp+y4En4Pxx8mi12ZkvpY9v
-	UN4ZYK6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jx7npCcUuAQgxbfc2Agr3M33C2GZC5MXa2bHNjH9XTM=; b=NghqXgeJP93d+he5H6gEJLMCYw
+	+Epxq1rRz6q/9SQgmNsC8ivm2YnBKqK1s9tE/Q13lH0yC+QVQsWNQfRlKl0V6JqZ+MR0N5hIFctl7
+	e6d87uzE++f6QHfT58IckhIiMQkUKOl4Vhiw8XQMWkCSEqJUM2Dy7WC+G1tG+nVyvL35uu0Qsutkt
+	Y9whuXFser8PCG5a2xKLGfZdsO1anPNaIx6pswAU1yJK6cXMERils/WyBj/vCzCZkzEz+oIIFL2l4
+	p3clJWNlrjQgY3+8tbVh8r12C1fhwCh3aooVQPigvNaNywn8EQc4KbnDaIoYGgtmkrq4F3Q7OlW2x
+	hUXiBkgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4DJ-00000005dOE-1vww;
-	Fri, 09 Oct 2026 06:36:17 +0000
-Received: from mail-japaneastazon11023119.outbound.protection.outlook.com ([52.101.127.119] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xF4Dh-00000005dVp-1KAy;
+	Fri, 09 Oct 2026 06:36:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4DG-00000005dNS-3vNC;
-	Fri, 09 Oct 2026 06:36:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rd83yWqw762Ujb/k+Bavb/Av1ckZbqK0YhhRmBGxLCxKg5atEPhFPVqxMJZijzIE2EyPPaR15I/Sr1r+1gI6pQRAXtu2MESE1QtQA3aEM85lOTvHLlC6eB5jSH3Q5Mr49mzWuMo6sAlafUG7bbZ87Fazr/zxOwz4Lke1Po+4rx1jRdGHYVl2mcCfrJxVYNnJRuf1DYEMjwFuJyDE8/MBRQQ2SskFAiT1rDPDwTx4bfbes97IPqIbac9ODqSPHQdG0pGjzi6wSSvc1+mFIxyKNeWAiLMDz7Alz5jUS4eKG52vbJa16AqxtK2YN/WgCvW9YIbYLXLNRTjduY0Tiu2oEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l0gceLecZa91dn6xrzfLTQvR1VTRtKzvhZXa3nwQVb0=;
- b=vbjACLvQejaXGBj42FF4Wzht7i2a2/fBrIjsG1HzAOjcfEkpR46lxq7+YFEo4UmN+Vl+SxDYT2b28rzu+Cs+KiW1AGFoNXSw8fdHjEF2DbEI4vLX2319D90o2kgl1x4GjewEh4VahHs2Dvz6MBzRxx/R9/BWinKFF/fO31jkHJ+7ZM3GWbq3LIuMaxbncgX3RdiI3aaYrQ+5b6uRoHuAzTer99XPeqGrqciUgjMhrXsyjpNIGmHXeADZr3mm+hRFA/2j1MVaiwkw1uDrST0wRS68fNkcUDhUt69/TpbmESD0Lxh4BmlAJHvPmQmDRFVZ/qFBFQOBbsrgQqa5CcadRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l0gceLecZa91dn6xrzfLTQvR1VTRtKzvhZXa3nwQVb0=;
- b=dPmAY4fTAoH0XPZpgHsvg/5aKe/+bbmLulQtDzGf+/oq2kCzJ+iIjwdGD4B01ZdPXWdvLSmoJn6HVsC0Txx/u2yBXl47r3kRXEvL6BwI/Gh+2vMGaxPiWFT7zNX0FhvKT25uR9DsPW3OjjgPCQLhW5gWy9fz2bY+mGNYH0IWsiam3ia4+me7VBxSin4H+VUJlfl70ZcRuD/NlCgfxSFjib2ciPCULaX+5agTdG+w+Cv0/9ed9WnLeY52gszd7m+gq8WpsCFDVEm2FehbkA3m3Om9y6/lsd8GVqlJ1DSOLjK7AbDYBEcWidKewGzDYWZLhBBK+7EfppOmAWsfxLqZ/Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by KUZPR03MB10145.apcprd03.prod.outlook.com (2603:1096:d10:89::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 06:35:56 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%3]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
- 06:35:56 +0000
-Message-ID: <7bd6015c-3b93-4ce9-bde9-506a727525d8@amlogic.com>
-Date: Fri, 9 Oct 2026 14:35:52 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/3] clk: meson: Refactor PLL pre-divider as a divider
- clock
-To: Jerome Brunet <jbrunet@baylibre.com>,
- Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260923-meson_refactor_n-v1-0-3a8ce27121a2@amlogic.com>
- <1j1paj9elx.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1j1paj9elx.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SL2P216CA0150.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:35::16) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+	id 1xF4Dg-00000005dVg-3HBW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 06:36:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F60D437BF;
+	Fri,  9 Oct 2026 06:36:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A391F000FF;
+	Fri,  9 Oct 2026 06:36:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791527800;
+	bh=jx7npCcUuAQgxbfc2Agr3M33C2GZC5MXa2bHNjH9XTM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=V1XutQIpwwz5mwiG+zyoqyRx7m/dK2w1SNaRrVRJtlkY6r3AiFeSGSiykYCVe0ebY
+	 FuGrYGTsfUbrskqt3mmQz1oGnB9atvvwzruHWZb8BAFvTjhXbZLFIvQV+VNRMtl7FC
+	 gIQPi62qowHListw8Ht27F0wBc+Z2DAkoFuM5DQX5KNpnGhXVpnM6JfZWZxZJ4QOMM
+	 TFWhdFEtfoQdkFHE8auH52gS199INNOv3pqZPN+RjOJJtXq2m/BB9c7QgNHACDlVwn
+	 dB5v4TM0q+Blf4KWD7zOTXNFV1QGVlhKiCehkTPVSY8KNKDtDEPJnjljpta/9Uqtnz
+	 ZQn1eKEe5Ho0Q==
+Message-ID: <b1f088eb-7c77-4079-9b05-20729fcfd612@kernel.org>
+Date: Fri, 9 Oct 2026 08:36:32 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|KUZPR03MB10145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7fbaa891-b6b1-49e2-d2d7-08df25cf9309
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|6133799003|18002099003|22082099003|10067099003|3023799007|921020|4143699003|11063799006|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: IIqjdi2A7cA3MfjRenBaFMzzrt6/WYd2x1gHUYosgp984o8WJEz3gT552ufuLUnwj1hZsLm5oyxUOMvjSzpD+Y4y79Lux2zOftySkqEcmQXoYRbtsHviPF7z9wIp5cql2XSHvdF2RMG/vIrR/rCDpPthwvjV5hgMH7P0vxcho/DnjLdqqzqj/q61TuRzz/PwfopKNAQYFIAlnq3nx8p6jpJJ0k6FFFm3oxOHmIMBfo6EN41MVWRDxCbmKlTxLOuAgjlXCccWRMY19ULJJCeZJoQqZ2Rvvb5lit/5gvslI10XxxWYuotDIXxdluvEfMLrhO7ex9R0N5yqaYkupaL/Nao+347p4rv1QFkg4JTA++uRgJRfirqhan/54cD3/4n85ZzLts1yk4INHlfGlmYcoDvCl5ShbgipMBWJUW8hkK8X2PPRf0aGZRzpzrlJUMXaJ/1vUOrYHxuW6UguGBcjP7zMAXVYzfK2A8L8idgnD8TRdfQ/gYp3se1HKkYNG1WdqJKxuGJGlUgkoUVPyFtjNOLOeuj3s5qpjp2P4YdqoTu7gLwMuOP8rY5ML0I1lTp7+vtUSS6JPWAIncGiF1z4nVdKF6isA+Hviep+s41nDfvHoZT6DmJJcHUxkYQHHBcM1hBeR3P2riZRtRwSJZ/wpaTxrewNWyjKV2/zU5M4O/Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(6133799003)(18002099003)(22082099003)(10067099003)(3023799007)(921020)(4143699003)(11063799006)(5023799004)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RE9CcUNpWDBZWlBscnRiU2REVWkxRU9YaHZodkwyZUprUmdEMSt5ajVvS1Ix?=
- =?utf-8?B?SkVrMk51RS9ScVNKUWtUak9YQUZZa2YyK1VZKzIrVWR3TE9FN3RmZ1h5bnp0?=
- =?utf-8?B?bkRwWVhZaWJvRmhmTVBHcWdhRGZidHFBa0RrWTRUZk9acVBVR0F5ckZmVmor?=
- =?utf-8?B?bnBtcThCTVY1TGZaVWhoSHo2dnNuUjhRMTFUOExQZmNVRHBOQkxrOVRRMUJP?=
- =?utf-8?B?WkdlM2txZFB6cjNlM2szSlhRekRvSDlpdnRad0NYMExBTDZiUDlndDlCZlRw?=
- =?utf-8?B?VkZpVHB6dFlQU2UyQ1NFN1NVTnZYQllwU1grOVUvMms5bjkyaDdSQmcxR3Fu?=
- =?utf-8?B?aGpCYlc1NCsweVJra2U0VUY3ZnQvZVU1QldGaERMSmJRSDZRd2RuRkZXSk01?=
- =?utf-8?B?QzEyYWhEbFhuWkhydUxiTVpxQy9NdWNBMUFCTVFMaCtDZUlHcXZtelBjWkd4?=
- =?utf-8?B?TG0rMml6UjlFMmJZc0Q5aC83bmRVc21kSFVjajdNNUdnYXkzQW0yQ0hEVElY?=
- =?utf-8?B?dXR4VmFXV3FtQUViOE4rT2I3ZWNLZ0luUytFZENIS1NLUFZLSlNjMmdJeDJx?=
- =?utf-8?B?RUtnYUZGSmRod2hEYkJmMUhaTjFZcVp0UVhqN0w4aXdYb3RRcVhLaTh6WE9B?=
- =?utf-8?B?ZjQ1VnFtVmJTcENCRWVkYU9tUHNJQW5pRmxCTTZjMnlzRU9IL3hOdHdqY29V?=
- =?utf-8?B?dXptVWxLVEN4SzVaRTl2YmlWeWgyVEhQczFwOTFYWUROb1ZRVjhydTJWL0Rr?=
- =?utf-8?B?TENhVTRrY3c3QlF0cXlNTXRhTWhhOHVzWHJOd1RLald4dVg4VE5qSU43dmVj?=
- =?utf-8?B?ek1UT05PdDEzZ2VFaEZCQ1h1eDU1UVVaTjJndmhUczRYdllaZVNUclVId1dq?=
- =?utf-8?B?RGliQVhUSFhGUk5KTUVibkdTMnlicHFDcTBWbHJrbnNFd2VKeE5IQ1dzYk52?=
- =?utf-8?B?SDErU1BPek4vZThoSGFXMHJhMS8ySXB1ZVZ0dVVKS3V3TFloYTU4WVM2VDNp?=
- =?utf-8?B?Vmgrdk93TWFjVEd3TlY1Tjd0cjg2WGx5S0JVb0lEUlMycjJRbXhMbkhoYkt4?=
- =?utf-8?B?Qys0Zks1TE8xV3I1RS9xUytLNnBNakEybTJzQkM2VVJ2bDhPYU52S2NZUEpL?=
- =?utf-8?B?UTNib25FMXFzckdFTys2SGV2Q3FKa1lieGZZOVE3M0N6RUlsbmVlN2lLNmlu?=
- =?utf-8?B?WUk2ejhPTW5XckJEbUkyT0Q5alNEcjZEVDNFc2NidkdEWGJZR0o0VTBtcUJa?=
- =?utf-8?B?NFQ5bi9oU0RPWHEySXhwUzBxdythdEs3d29xc3VHN0x5djdvYzdZNTFwMUR3?=
- =?utf-8?B?cERGVFlKNEdPRTlyZWhDZWYwNS9GYU9wMnN4NUR4K1EwYzh6QWZkWW9hbHJ6?=
- =?utf-8?B?b3krbGtaajRwSkNrMFpVRllSZGQxSUdVcUphYVpnU3FGRlgrS3BmZnpqOXI3?=
- =?utf-8?B?UWFzSHRDWXpJUHM5NTVDTUU2SkY4S00raDFIZDJSS1NxblNIYUFHdUFTSEhn?=
- =?utf-8?B?V0pRU012K2pKT3IxMzFTSmF5ZXJFblBJYmdHRktDVmQzT2pIYm1ZVVF4bkpN?=
- =?utf-8?B?cmxMSHUzbnBOcGFzK1lKTW9oMW9HZVBUK0FzdFFNQkRDdmJSTEFoM3hNbitQ?=
- =?utf-8?B?VHlJcG9DZCtraythV2hZNGp4bUFzTTBHTUxJdFZMWVpBQjlCekhGSHFaczhD?=
- =?utf-8?B?THdFdHZVOVErcjRkSGIzWHQ1Qys0VVZ4Mm1IbDM1d0VnaTBmOWNWOU92c0s1?=
- =?utf-8?B?VkYrOG0zNFd4LzROSUhlODAvQldzSzFHYVdmWTlHeGNENlhodGZTWTNXNnBz?=
- =?utf-8?B?SzQ3bE1vekd1ODJMZDI5Tzl1M2htV1BUSjJBRzVBaGFMVWlNM2c1ais0RDBw?=
- =?utf-8?B?dmJaOUlkL3d6Z04yeldHQWszNVc4Yi9nRkhSN01sMkoxTDVOWXlLVkRtVHlB?=
- =?utf-8?B?WWJFRHVOVko0WFNlL1AzbFJDUmVOM2JYcjBmcUwxU1QrbUExb3ZJV3VNdnFE?=
- =?utf-8?B?eEdrRUxuVGRhVTd6TTBUV0RuSHh2Wk9GNG93ZnRxK2ZqK0x4TnJ1amxJZ2Vw?=
- =?utf-8?B?NFBYY1JlQXducFRmRWwwdkxqZE1rVjlnZDlDQXlndGk3OUN4ZzJ3ZnZKTXdO?=
- =?utf-8?B?a1JSQi9LUjB5TTByZ2lzcjVZTi8wNXZ4Mzhpa1BrazB4aW5qSEJoczFOUHdr?=
- =?utf-8?B?RlhsQ1hqVHlxYWVuMGZYa01PV05VaUZpbWNLUzlyMTdOeUhnSU83Y2RhU3JL?=
- =?utf-8?B?TS81UXRncHgzS2h4TjM0cjY2aUNoc2Z6WHVLUEkxLzRGbHRIQXA0dXYyT3dt?=
- =?utf-8?B?a0pZODdEUzdmV1BQbVc0Y1NJWUlrYjdVUmxKb0VuL2kyWkJmdjU1QT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7fbaa891-b6b1-49e2-d2d7-08df25cf9309
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 06:35:56.6560
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dQDAY1KTpAe4RSpeZcKmakMNkov6DUZ80tz6k2QbhJ2NHanHfBqBK8kvDjxLBFZyctfNX2vREqv2zfx2zkfxbw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR03MB10145
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_233615_097602_AA2F7D80 
-X-CRM114-Status: GOOD (  37.01  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox
+ driver
+To: Doug Anderson <dianders@chromium.org>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@kernel.org>
+Cc: Joonwon Kang <joonwonkang@google.com>,
+ Subhash Jadavani <sjadavani@google.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>,
+ Brian Norris <briannorris@chromium.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>
+References: <20260714222338.2965707-1-dianders@chromium.org>
+ <CAD=FV=X-fAJp=EG_yTAg+QQgNYRCt25947oHGHZuq-FEyirK0g@mail.gmail.com>
+ <CABb+yY2CH5A1ixfX9czgtEwsP95FN-2JVzN_wmRDRNsSuZY5PQ@mail.gmail.com>
+ <CAD=FV=XiguzS7nH1sE=BkXt+7G6-hhqyz5u3sjc4zAA9H7KqJg@mail.gmail.com>
+ <CABb+yY2_AvcnaTDmpL8gP4H2_Pp3HddrtNr5gvL4GCW2DPPvOw@mail.gmail.com>
+ <CAD=FV=VzJCb1nz+q5EZ33G5U6KZM_tXi8snL=KbUM3C5yymG4g@mail.gmail.com>
+ <CABb+yY2omp+g13UgZfiKWLux9J1P+=ed0U3F8AhS0iQK=kpN8w@mail.gmail.com>
+ <CAD=FV=WA2wFbk0=qFE0aZs9E5jg-EXzcrkPCk6VOMhbDroOQCw@mail.gmail.com>
+ <CABb+yY0W+244qaXqHdfEq9XFuQXBez7PVcDNrKooV9cFS8TS_Q@mail.gmail.com>
+ <CAD=FV=VW2h1zWDYWQ6LknX3O+3=EY665jde35Ly+UQzuscXy=Q@mail.gmail.com>
+ <CABb+yY2Cc9YGKb0ej7CZ_LQLw-iMQOtcAwLPier+X2ej1fWcJQ@mail.gmail.com>
+ <CAD=FV=U1DAuDN4eR_hZ2bbGoGkgkszDLPUDiosxh1aKg7Y1T=A@mail.gmail.com>
+ <CABb+yY3n3QmxTPOyAuHz9JkOKbhRqKok+24THc_JfdxwzROWDw@mail.gmail.com>
+ <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,224 +137,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 28/09/2026 23:34, Doug Anderson wrote:
+> 
+> ```C
+> static struct mbox_chan *goog_mba_fw_xlate(struct mbox_controller *mbox,
+>                                       const struct fwnode_reference_args *sp)
+> {
+>   int i;
+> 
+>   if (sp->nargs)
+>     return ERR_PTR(-EINVAL);
+> 
+>   for (i = 0; i < mbox->num_chans; i++) {
+>     if (!mbox->chans[i].cl)
+>       return &mbox->chans[i];
+>   }
+> 
+>   return ERR_PTR(-EBUSY);
+> }
+> ```
+> 
+> Then the client loops around and requests the same channel over and
+> over again until it gets -EBUSY? Like:
+> 
+> ```C
+> for (i = 0; i < FIFO_MAX; i++) {
+>   client
+>   chan[i] = mbox_request_channel(client[i], TX_CHAN);
+>   if (IS_ERR(chan[i]) && PTR_ERR(chan[i]) == -EBUSY)
+>     break;
+> }
+> fifo_depth = i;
+> ```
+> 
+> I _guess_ that works, but it still feels like a bit of a hack to me.
+> You said you were worried about people abusing the "has_queue" API.
+> The above feels like it's abusing the "fw_xlate" API, turning it from
+> something that is normally a "lookup" into an allocator function.
+> 
+> +Rob, Saravana, and devicetree@vger.kernel.org. DT folks: is the above
+> something that looks right to you?
 
-Hi Jerome,
+There is no allocation in your xlate code above, so this is not that
+terrible as we talked on LPC.
 
+> 
+> 
+> I researched whether other upstream drivers use of_xlate() /
+> fw_xlate() as an "allocator" like this. I did find "exynos-mailbox,"
+> which appears to be doing something similar. However, upon deeper
+> digging it seems like "exynos-mailbox" isn't using this dynamic
+> allocation for any compelling reason. It looks like, really,
+> "exynos-mailbox" should just be returning one channel. The client
+> (exynos-acpm) could just use the same channel for everything since:
+> * It actually gets the _real_ channel ID out of the data.
+> * It doesn't care about txdone.
+> * All it does is ring a doorbell and there's no queueing.
+> 
+> 
+> In any case, if using fw_xlate() as an allocator is truly the only way
+> to proceed, I'll finish my prototype and send a v2, but I'm still
 
-Thanks for your review.
+Why fw_xlate() would be an allocator? Can you extend your code to show that?
 
+I think doing any allocation in xlate() is calls is fundamentally wrong.
+These should not modify the state of the device, so no allocations, no
+device_link_add() etc.
 
-On 9/24/2026 5:35 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On mer. 23 sept. 2026 at 19:14, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
->
->> This series refactors the Meson PLL framework to remove the dedicated
->> PLL pre-divider (N) parameter from the PLL implementation and model it
->> as a separate divider clock.
->>
->> Currently, the Meson PLL framework models the PLL pre-divider using a
->> dedicated n field in struct meson_clk_pll_data. This makes the
->> pre-divider part of the PLL-specific implementation, although the
->> Common Clock Framework already provides a generic divider clock.
->>
->> This series separates the pre-divider from the PLL and makes the PLL
->> DCO take the pre-divider clock as its parent. This allows the
->> pre-divider to be modeled using the standard CCF divider implementation
->> and simplifies the PLL framework.
->>
->> The series currently covers T7 as an RFC to get feedback on the
->> framework design before applying the same approach to other SoCs.
->>
->> Series:
->> clk: meson: pll: Remove the dedicated n parameter
->> dt-bindings: clock: amlogic: Add T7 pre-divider clock IDs
->> clk: meson: t7: Model PLL pre-divider as a divider clock
->>
->> The other Meson SoCs will be converted separately after the T7 PLL
->> framework refactoring has been reviewed and the overall approach is
->> agreed upon.
->>
->> Any feedback on the proposed clock hierarchy and the separation of the
->> PLL pre-divider from the PLL itself would be appreciated.
-> So if I summarize this RFC, you have simply taken the divider out of the
-> PLL, no futher addaptation. right ?
->
-> I'm happy with it on the general principle and fine with the change as
-> long as you test it on as much platform as you can, clearly flagging
-> those you have just compiled tested.
->
-> A change like this would likely need to land early in the cycle give as
-> much time as possible for testing.
->
-> However there a couple of thing I'm concerned about:
->
-> * You've drop the table support: are you sure this is not needed anymore
->    ? don't you want to be able to restrict mutlipliers to specific values
->    sometimes ? If not, then OK.
->
-> * the determine_rate() make no call to round the parent rate: Since the
->    parent will be the divier, how do you progate the rate change so N
->    moves and the best parent rate is found ? For sure this fractional
->    multiplier clock will need CLK_SET_RATE_PARENT to adjust the
->    pre-divider.
->
-> * Goes with the point above, but I'm not seeing anything that favors
->    lower N for lower jitter, Or mention of a minimum input rate (which
->    could be a property) ?
->    Those are constraints I think I have understood from your explanation
->    here [1] but maybe you've got new information to share ?
->
-> This is overall going in the right direction but determine_rate() and
-> constraints need work.
->
-> Note: you are more likely to get test feedback if you add g12 (sm1) as an
-> example. Those are still the most widely used amlogic platforms with
-> mainline.
->
-> [1]: https://lore.kernel.org/linux-clk/c9c4945f-cdfc-4382-b8ca-71b69d91deb4@amlogic.com/
+Why? There is simply no corresponding xlate_destroy() call. It's also
+confusing, because the meaning is to translate from one domain resource
+to another, not perform actual resource allocation.
 
+> skeptical that this is better than just adding queuing into the core.
+> Speaking of which, I actually want to go back to something you said
+> earlier. I asked a bit about this but I don't think I saw a response
+> (sorry if I missed it!):
 
-Yes, your summary is correct: the RFC simply takes the pre-divider out 
-of the PLL.
-
-
-1) Keeping the table support
-
-Agreed, removing it was premature. Some tables cannot be expressed as
-a multiplier range:
-
-- pinned (m, n) pairs, e.g. axg PCIe GP0 (m=200, n=3) and meson8m2
-   GP0 (m=182, n=3)
-- a pinned m, e.g. g12a PCIe PLL (m=150)
-- sparse tables, e.g. meson8b HDMI PLL
-
-The per-platform conversions will turn the tables with contiguous m
-and n = 1 into range, and keep the tables for the rest, so
-the framework will support both.
-
-
-2) N is fixed per PLL
-
-The main new information: the pre-divider is not meant to be selected
-dynamically. Per the hardware design, each PLL has a single fixed N
-value, defined together with the rest of the PLL: N = 1 for most PLLs,
-and N = 3 for a few special cases on older SoCs (the axg PCIe PLL and
-the meson8m2 GP0 PLL). The PLL input frequency constraints are
-respected by this fixed value.
-
-Keeping N at 1 minimizes PLL jitter and yields the best performance.
-
-So this is less about dropping the constraints than about the fact
-that there is nothing to choose at runtime: no N search in
-determine_rate(), and no PFD input frequency constraint to enforce,
-since the PLL input frequency is a constant for each PLL.
-
-3) No CLK_SET_RATE_PARENT on the DCO
-
-With N fixed, the pre-divider rate never changes, so the DCO does not
-set CLK_SET_RATE_PARENT on purpose: the flag would claim that the
-parent rate may change to satisfy the child, which is not the case
-here. determine_rate() never touches best_parent_rate so the flag
-would be a no operation today.
-
-
-4) Implementation methods for pre-divider clock
-
-While testing the RFC I found that with the single-entry pre-divider
-table ({val = 1, div = 1}), the pre-divider register can never actually
-be programmed.
-
-The pre-divider field resets to 0, which is not a valid setting.
-
-During registration, recalc_rate() reports the parent rate for the
-zero register value. With N = 1 the reported rate is the parent rate,
-and the single-entry table also rounds every rate request back to the
-parent rate, so clk_set_rate() always bails out early (rounded rate ==
-current rate) and clk_regmap_div_set_rate() is never called. The
-register keeps its invalid reset value.
-
-v2 programs the fixed N at registration time, with a new
-init_val field in clk_regmap_div_data, applied from .init() once the
-regmap is available.
-
-Or do you have any other good ideas?
-
-The patch is available[1], Please help to review it.
-
-
-5) Testing and rollout
-
-So far this has been boot tested on T7. For v2 I will
-convert the SoCs one by one, starting with g12a and sm1 which
-have the most mainline users, then the remaining platforms.
-
-
-[1]
-
---- a/drivers/clk/meson/clk-regmap.c
-+++ b/drivers/clk/meson/clk-regmap.c
-@@ -163,10 +163,28 @@ static int clk_regmap_div_set_rate(struct clk_hw 
-*hw, unsigned long rate,
-                                   clk_div_mask(div->width) << 
-div->shift, val);
-  };
-
-+static int clk_regmap_div_init(struct clk_hw *hw)
-+{
-+       int ret;
-+       struct clk_regmap *clk = to_clk_regmap(hw);
-+       struct clk_regmap_div_data *div = clk_get_regmap_div_data(clk);
-+
-+       ret = clk_regmap_init(hw);
-+       if (ret)
-+               return ret;
-+
-+       if (div->init_val)
-+               regmap_update_bits(clk->map, div->offset,
-+                                  clk_div_mask(div->width) << div->shift,
-+                                  div->init_val << div->shift);
-+
-+       return 0;
-+}
-+
-  /* Would prefer clk_regmap_div_ro_ops but clashes with qcom */
-
-  const struct clk_ops clk_regmap_divider_ops = {
--       .init = clk_regmap_init,
-+       .init = clk_regmap_div_init,
-
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->> Jian Hu (3):
->>        clk: meson: pll: Remove the dedicated n parameter
->>        dt-bindings: clock: amlogic: Add T7 pre-divider clock IDs
->>        clk: meson: t7: Model PLL pre-divider as a divider clock
->>
->>   drivers/clk/meson/clk-pll.c                     | 178 +++++------------------
->>   drivers/clk/meson/clk-pll.h                     |  13 --
->>   drivers/clk/meson/t7-pll.c                      | 183 ++++++++++++++++++------
->>   include/dt-bindings/clock/amlogic,t7-pll-clkc.h |   6 +
->>   4 files changed, 181 insertions(+), 199 deletions(-)
->> ---
->> base-commit: 43e1705ecab981c66baee89041e6f728c0436f19
->> change-id: 20260923-meson_refactor_n-e7f25904e536
->>
->> Best regards,
->> --
->> Jian Hu <jian.hu@amlogic.com>
->>
->>
->>
->> _______________________________________________
->> linux-amlogic mailing list
->> linux-amlogic@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-amlogic
-> --
-> Jerome
-
---
-
-Jian
-
+Best regards,
+Krzysztof
 
