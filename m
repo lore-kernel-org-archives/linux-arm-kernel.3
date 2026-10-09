@@ -4,104 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA68ACA601F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 19:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CE6CA9EBB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euHLhhJIoJOkj7GaOyOYBfCDgPoUg6f5MHX5Oe6p4Tw=; b=MKPbm+prwj8rIB9lQQLzIhcONr
-	JoXuQ1d9QG0kEi+/Qq4Y4Ni4Ro4hY/YQGVRXlSfoZmSHCGLaP9iUONPnJPh78kqZsmcM1vyKfmlT2
-	vZXDbtr4uh1/gRUBmaYqTEg8RcUJYpOhJ5CRo7ntDJFfI0Q7J6bcPxD8NsPw3dBVNP6pDojima6RH
-	isjomi8T/SuElYw4No/rLxD88M7nhRcVmghAFm32ypg53zT1J0IoWbOEkXN9mggOOq08pwkavgMVE
-	x5x0ldZguAXmbjhClMVRJNOXcE2Nrle1Kd5dk7bx7OpfDwFfl+g5wXi0yruB2ssw7IRlpAWC0M3xi
-	eBivN9VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=; b=Pifhkpx9AhKQrU1wpxnntqH1wf
+	SNIlxNflNa/l0jkFNltQndWl6k5XFz1NA1tXsa3StqgmesQ+SEtBClOtZzYrFfuhkeBPiKKLRcRWB
+	JONSV/YkQZQiGLzdszfT+flj6fn/JF/l2R+4gLyt1wO6HW7osbqTqqjVA4xMukcTXyZFY9dUQB2ay
+	dKx2HHMlypPVom5uNfZLsBx6roP5Z8+Cd4+QLvf8z1Jw2RZgmxC039Itb4iLcbgQT0joSed5Q/kDo
+	pZoUc/l1x/sKP+99N7sxHExXH8rukwd696b92RJR9uhDhuQpxbVTOQbia8m8Ae7sOrqoV7P2yFYIY
+	wpzP8gkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGWU-000000077nu-3mmr;
-	Fri, 09 Oct 2026 19:44:54 +0000
-Received: from mail-qk2-x03.google.com ([2607:f8b0:4864:34::3])
+	id 1xFGzD-0000000791e-3QPU;
+	Fri, 09 Oct 2026 20:14:35 +0000
+Received: from mail-westusazon11010022.outbound.protection.outlook.com ([52.101.85.22] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGWR-000000077lm-0UAD
+	id 1xFGz9-000000078ze-37w0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 19:44:52 +0000
-Received: by mail-qk2-x03.google.com with SMTP id d75a77b69052e-5339079c84bso107061cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 12:44:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791575090; x=1792179890; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=euHLhhJIoJOkj7GaOyOYBfCDgPoUg6f5MHX5Oe6p4Tw=;
-        b=B9f5/vldpuqxsCsRfaKbDgTZILToD5gCPbkfnZsVVh9Fw5Eaifm6Za4oyxFUgyOoj+
-         cB1/QFnlkvG+KYQHF+Mmofoug3CW4yZrHh5yRgh0N8G4xMyMJRwT7PIM9Rj7vSqVsN9+
-         5tok0ftBSYYqfooGHFlP8Xv2XjQh7vXNcMNY94rny9o+96ulOn36IWhjpocQDFxJpNTZ
-         PeXhuYfjPJiKzDTaabakra3e+fpUkaR774obzh0XnPlcTLJezcPhFdFNRwhh6YzG7hky
-         TEWvSb9ln7oWeK5W6v/iZTwSCIksxo48xhrQii+MTte2qF47tYdIUhn7J+opfhgmFlvT
-         cybA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791575090; x=1792179890;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=euHLhhJIoJOkj7GaOyOYBfCDgPoUg6f5MHX5Oe6p4Tw=;
-        b=AE6ScBQOPY7h+cr1Qyyzq4SgLAt4eBDrGPm7m29bsDGWEnWhUa8vN7XKefve0HFUUF
-         6oqW4/saCH3B0btppREIATBRAP0KmXFWgtw4FSfCEBzrcms7xa1y53zYWfhrxPKwDui3
-         1/zZ6ImVFDxIjTxF0OFqwYJCtdxw7jdDh7e269Mqj34uhOnEuk+D2d/kCghWYr+gz8KB
-         5FXjrqpoLTEGcYoZy36zZ/f7F2/TrBEIKyfBzRPshL8VqiMpgIL8sgaqJHrvSn70jXDW
-         b0j/8gfqOqGIIPg/g4lVJgSTmQ7jZ01OzqwGfsxOptDgMvutCS996gX19Ma6+QCI4C4K
-         444A==
-X-Forwarded-Encrypted: i=1; AKwUvByZ/YTyhZHCliX69X/SimHEuh0swJMqOckI1/0mkiVBMeSmqpssrZjEUnnx9Y1XjYWqe20ugHu6Ie0da4bvEol1@lists.infradead.org
-X-Gm-Message-State: AFuF++m3/7z1lSs4RPrB97YajK9V3zqLbsJxd6gIqeknzXmbJosbhX9B
-	dHdRMrWIf5DFqHY7uAn4BSXRNns3WaDeupY8Gdz4m5r2UXFkLoHyIA7DbWlNlxzK83E=
-X-Gm-Gg: AYBFou3wS9DL5Nr6k+RTkGftL4Phj8jlVLgF1o7bIAxcbWC+BxYxnZ0QhrFHUDf0R4U
-	pZF6q+otTY5fJrhg0tdVNFQcmpxY7YoBi0eqOJvk5zZiwxkApqtD2aqnF9HIOBiHt0oYRmLAYiE
-	xiP+2uvijbiW9+YHDjLFLXIajyUtNa960e1bv8AngWbf3AiHU2Z+Y+zs7+QMcQ1uwVfL0+MZhRI
-	OkCTUULLNu2Fys8cyEWrTIym+NQhFHAM9l3oAvNZ0Bhb1mn0hQrQL8ZR4RlxQvWaKZYVWUV54Uq
-	/1UlnV29Y5NIN5+SazAka8JaVrv8KvIDWCcvOBZQwCNcO4644AsbaNzpp/Cknic1Cuy683jEY3u
-	YTl07TkFNwg2Mjwq7x8oideagiLMoh+L1MvjzuY2c8zjtw60FWIOga19Lo6GQqDux0B2L4MP5of
-	UcY+0fKmVTLyE/0wBt6w5UsQYCsiv5aGFOjwUkYhqrQ9fUJDFAVOD86Bk0JeM2HcODWYppFvqGP
-	fm6hAOjZsMFYA7kgELyczdnoCWVeWNWd2AagjZeWJkDl/zp7SvTJrMQZxYkNm+pkzK2y2sNEUs=
-X-Received: by 2002:a05:620a:4114:b0:93e:c173:f692 with SMTP id af79cd13be357-93ec1740673mr344729485a.38.1791575090195;
-        Fri, 09 Oct 2026 12:44:50 -0700 (PDT)
-Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93eb98c5633sm259293485a.35.2026.10.09.12.44.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Oct 2026 12:44:49 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Fri, 09 Oct 2026 14:44:44 -0500
-Subject: [PATCH v2 2/2] arm64: dts: mediatek: mt8173: Mark the lowest CPU
- OPPs for suspend
+	Fri, 09 Oct 2026 20:14:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a4kMo2Q7SBy+J99almDm6wH6JkoYbn2DofDprpPJEnLBuauHXtJB5/32o//+2a0y/TCXcNuzsk+giHQjBSpFgumZqNKkSnwIVg+gStXCUSlaxN/e2llSH6gVR82jeU3g06z3GgcFHW72khUUN8BjTkRy6S9/h515vzfRl5AbEOGpnd5YtFpPYGgOmf2urWf2YZRxi0WeXMTDLDgl0vmqEjDt9Ruq7jrJF64I5Jo9LgJa4ZAFIouML7AP1pGsanUzFARclBHsQ6vUkRLDMCKZ47lPl8bBjEHqJaqj7Bx2AfLa+uHK4NaVvwRXw+39OEhBKn2zxelMLXgF4bO/6hu2Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=;
+ b=K8e3WV10KgfRK2TExZpl1yt5uVqk6HsbZSfRdLc1M1gTcNeSMaVHU5QuefvNO0H7Oau1x3OQKol1odMlqndGpsqcMou58jp7d3xy2RKBy6Uti3aNCvD/JSkUvPqidGANdyVO+U6uosiu//wpvxw6dpE8MxEkHMKggCO18MFHBlxGUTbMErXH/+leJn0x2laz9R+TwBRQERxwXGF2uwzWu4CHbly0nEcPsO/q7yAd3iRH/qOIFDDGj45/spDMGHezPzfnuhn2oiVakthKpBfD08D2sLkbdIbzaewQkJA1Y5mUhstSISW7sK/jhxBmWmMZ+2G48/5Gg3efwQDrJ4JNMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=;
+ b=VXWtIH3RI4hQuYtYHXdqKa7AopctGgfWC0Bix01WkFVuWEEwsB25Njh43OQLPq/geQAQcvuDhFm1dP38I6o+LGF4jhTP0LtmzsWmnnHGpvadpO8W7mRWIVevXHJS8cnJE3Iss0eEE8lG7coaS/IMzP92/xU/tCgJeNyGJLg6Nkc0n6YQGOCOxbhvBzMlrM6sSUXGUOm5l+1v4yTS9q/m1qTw7F8PnH4b1OBZTUDs2FozdQ/G1yhzSPcn9lJq9Qkh2oVmaWEIYjhKtx1+Aupy9A8etV8/+v5LAfVH9ewhf44EKkEfLbHQBSXWVrgUR79JoXoHsrM4G4/Ibf8JZYu65w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by DSVPR12MB999174.namprd12.prod.outlook.com
+ (2603:10b6:8:389::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
+ 2026 20:14:21 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
+ 20:14:21 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: David Matlack <dmatlack@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: [PATCH v9 0/2] Organize the SMMUv3 invalidation flow so iommupt can use it
+Date: Fri,  9 Oct 2026 17:14:16 -0300
+Message-ID: <0-v9-e1637b95096d+d83ffe-smmu_tlbi_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: YT4PR01CA0033.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:fe::12) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-rbrue-suez-upstreaming-mtk-cpufreq-suspend-opp-v2-2-ba13f826eae1@gmail.com>
-References: <20261009-rbrue-suez-upstreaming-mtk-cpufreq-suspend-opp-v2-0-ba13f826eae1@gmail.com>
-In-Reply-To: <20261009-rbrue-suez-upstreaming-mtk-cpufreq-suspend-opp-v2-0-ba13f826eae1@gmail.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Roman Vivchar <rva333@protonmail.com>, linux-pm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791575085; l=1277;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=6mQzJb6HQwk/MiupaE++x+vH8v5ByWD2TN9pKFcfIxw=;
- b=gj/o9tBfq/u6ETFIfGltk7J8BWOdbJWMwl2Y6rCdaGMSFsSW0ix2W8xJy55yWtCQ3zXD6INIY
- 13nPrTKxq5nAiEXuBKEl34WBlW0aJ9qkX1kzvEvLJvSkxByDdA/pOB5
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DSVPR12MB999174:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf8bd756-f98f-481b-1cbc-08df2641e6eb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|10067099003|18002099003|13003099007|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: mUXShd++X7vE6DqaGlI8P3RbDp9LVsvL0R9gzWxin7clBZJhkF31mroLbIp2BYk5ldTyLEq0d9CiF7MXcMynHAORsohxZ0/6TOimmziSJGfDHkqBWU0VUVWLNfjmN3mZkf53Ur2CNy3gRl9E6/U82u0JxwHTwqjoPnfH04heKHtV4gRaLRwKQgvfzqLjBKpdPu8Gkb2Rf0hFvxw9R2E0ANgov7pOVzm6nvdBVaiMqYBBpFuX81K4Odt/FGk0zVUyPvt7D6qkRwyeD/7fwAGrHtvROknu5NEFcfTzVd+3Aclf4f8C9xNsPaATM+hdPamSWqUK51czQ8nrCgeBKSzyyNp7YlUsxQ7+bKI8noe6GInoKR/dEMwzidJ8U9WI23m4ScuwdgfG2BooYX6tnnZmlA25PwB3zjl0S0AyT0kiZOdCA1/u4SgrEgc8553EFGuLkt8NwgAQp1XPOYQ/CGjwd1TyXjym97RRu9Cxb5hzGrGsFARkzo5szR9dhCQFQFwD4YsBIfde/k+HCey00dhEYNpEanhcqJf7QZg5Ug8bR31bB0+njPFObZR+j9OS20w8LgXvf1Ih+GwRltfWL7wKAMvnLcM/5QO+sVKtnFuW7oYxe9bvjjDpD2gxmYuMmy7GjUxOj9Qa5W3vd3TwoskZ0oEqXqsQvYiIPdpJp0bbXss=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(10067099003)(18002099003)(13003099007)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I4Vqil3bcxz6B6YblAE1+rFtQETCPMt+GKsWEaEKcjxMLGEYuLmyynrXVg2l?=
+ =?us-ascii?Q?VmHCeYhNpr2/bB0VMqTcc0lf9BIaLrOawQMXI8pwwjO8HmRqdHtP8901K1ie?=
+ =?us-ascii?Q?XJ7dRjZJVbS7AKOxlPZwEw1Lpe/kVdk2bNnSesLayTYW5WP5I+7YmiUpmW2w?=
+ =?us-ascii?Q?CtfWy3pBgS4nk6wZMnnaZqepdc1eOyZeh0GPtDs09OzqQYBp2VXsbAD8nr2+?=
+ =?us-ascii?Q?kq+Y9HGtG5HVfY3jS4SeGptGzEKnYIXXotCz0PNMBMw4vYTzMrYiB7urhIb0?=
+ =?us-ascii?Q?yb7fAKjdgZuQjkaC9e0hQ8tHSkFIYMlq9CDndaB4X2IrdECaNEOfCPoEsDS4?=
+ =?us-ascii?Q?KpnV1Zu1lN4u9BcCM8JF9FQHv62cPnAkbwKDoCBzmebcqvsQljuaAOSRTD9M?=
+ =?us-ascii?Q?Aal0ZEUMXoeWdmWXtwVnCSW0Pc9BbwHM4EJqldN7lRgXU5WzOuNtqrvifTZ9?=
+ =?us-ascii?Q?k2ykq0fmLtshv6hnWGHRJh51RABKhk5haEwPDxGGhgiCQxcEMfsGP1SYSpek?=
+ =?us-ascii?Q?l1D8XtgWOo1dSdKGQETJCV795h2xXm+t9RgHhr43vDY+yBfQ88AJbGFEHkLl?=
+ =?us-ascii?Q?8qkL7miB6myIMPeXWhidUY+o4CTjEM3CEX/keiGkxMb3m3pF6RoRGFO8L9Id?=
+ =?us-ascii?Q?qgYl10clbrCJoMfKRe/JkrUMuu+mpCz3ZT5enffFDn6NApNROYAb/w5ltQtH?=
+ =?us-ascii?Q?xnBPB/34KEnViSCiXv9Ww7L+yC4m74lsaGAoul9uakMmpFYi8wVf+oKWgiLA?=
+ =?us-ascii?Q?2PhUzF+8aJNsBfuMyhL/8BaCrJtK8mFDsWb35y2VbXlpU/emb/EjEsDegN+c?=
+ =?us-ascii?Q?PSFY/g9UR79Eo/LCp6PXiV59MQrji0ik2lZ10zVgisADDHXMucBYt+pP8s7q?=
+ =?us-ascii?Q?A3fF2lYE0dn8OVmDTi+ksxJqGpWecbzoJvGWKnLUglgh7Ti8DNLY4Hv/WHD8?=
+ =?us-ascii?Q?vMwsh32unZIm4jAC0XPwFQBwTYpMGNM+yEx0jC9lSna7QZ92jejCjnCxiTTM?=
+ =?us-ascii?Q?YfVYqDV00TEPVaLDAHiwBk8X+EdiSvxnRno+fAPKHma6bnxg8pP4D4TtAoNS?=
+ =?us-ascii?Q?0H4tagkcrjOQzTf6/8WcbJfFHRloPHcvN3jcvOReSHV3uy6kj+8V/j62xGlG?=
+ =?us-ascii?Q?UxyHN5wPABivNGpmlOq7dcHooaWhGfcu8aAAGkzWqnkQHfCmFhVyXHGYCTaZ?=
+ =?us-ascii?Q?PouwsRiICVCVwCqNmDdfMMUMIUcvZumGUvJ18VRkSNn04kCJYH9Woq0yVq+J?=
+ =?us-ascii?Q?ylGF0vGrOOyLqagFlCCoGvBqNyseX4dHSnluOYx4a1ekDu7psX2ekfFr+XTe?=
+ =?us-ascii?Q?LsR5L4fUZUfpava9ieobIwYez10p0kljfapifUAP7mnCCphODTsmsS0hPOTn?=
+ =?us-ascii?Q?XJ9ArTi0+ym8oBr39RZ+yXCqlejYkHSD4XltKmE3OIqwjjj/8j08z7ULCwru?=
+ =?us-ascii?Q?xmUjeq5810spMRkVTNW3mteJ+1HZiHpytAn8shS31UrS2Y/NCF/LVlGl+TZF?=
+ =?us-ascii?Q?vRjsgG85I4ViPQ7Ubxil9R4UUFt5p9Rm6jzBnL/0rg3c16/GpsVSrqGecx3k?=
+ =?us-ascii?Q?16FH6abaigPpCNADFtJNQhORDfog/uIMsQ6IdHXbnNFmoLJD7YvlMEhguoMx?=
+ =?us-ascii?Q?XYYzi2wkQmRgJVSrY2TSEb15gW4DrPc5PtUx/LVEbHtyXqVUE3o/48iMlO48?=
+ =?us-ascii?Q?cTSF8+GXsdflAlfdCCrnxqVH9eTiuRRA2CJuZdgsyjAZsDls?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf8bd756-f98f-481b-1cbc-08df2641e6eb
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 20:14:19.9641
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zcoNIWvUIC2HprDr7WU/jE6IRfNUwUmwi3ulsWqtDMDsMSK1pgN+8Bb5g7W0eF4i
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_124451_172760_CEFECB11 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20261009_131431_788062_D4D4D7BA 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,41 +143,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both clusters otherwise enter system sleep at whatever OPP the governor
-last chose. On the Amazon Fire HD 10 (2017), entering suspend-to-RAM with
-both clusters at their highest OPP measured 63.5 mA, against 52.0 mA
-when they suspend at 507 MHz. Mark the 507 MHz OPP of each cluster, the
-lowest in both tables, as the one to suspend at. mediatek-cpufreq uses
-it for system sleep, and a kernel without that support ignores it.
+This is the last two patches Will didn't pick up from this series
 
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt8173.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+See the original cover letter at:
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-index 78c2ccd5be13..7f1af15cb934 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-@@ -56,6 +56,7 @@ cluster0_opp: opp-table-0 {
- 		opp-507000000 {
- 			opp-hz = /bits/ 64 <507000000>;
- 			opp-microvolt = <859000>;
-+			opp-suspend;
- 		};
- 		opp-702000000 {
- 			opp-hz = /bits/ 64 <702000000>;
-@@ -93,6 +94,7 @@ cluster1_opp: opp-table-1 {
- 		opp-507000000 {
- 			opp-hz = /bits/ 64 <507000000>;
- 			opp-microvolt = <828000>;
-+			opp-suspend;
- 		};
- 		opp-702000000 {
- 			opp-hz = /bits/ 64 <702000000>;
+ https://patch.msgid.link/r/0-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com
 
+v9:
+ - Rename arm_smmu_compute_ttl() to arm_smmu_compute_range_ttl() for
+   clarity
+ - Fix the arm_smmu_tlb_inv_walk() to compute
+      tlbi.table_levels_bitmap = GENMASK(level, 1);
+   To be clear what the call contract is
+ - No functional change, rebase on latest smmu/updates
+v8: https://patch.msgid.link/r/0-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com
+ - Revise some comments/commit messages
+ - Rebase onto smmu/updates and resolve a conflict
+v7: https://patch.msgid.link/r/0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com
+ - Remove "RIL" in favor of "range inv" or "range invalidate"
+ - No functional change, only renames, reflows, etc.
+v6: https://patch.msgid.link/r/0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com
+ - Rebase to v7.3-rc3
+ - Add helpers arm_smmu_pt_level_to_lg2sz(), arm_smmu_pt_lg2sz_to_level(),
+   arm_smmu_range_inv_calc_scale(), arm_smmu_range_inv_calc_num()
+ - Remove unused leaf_only
+ - Combine has_range_inv and range_inv_scale_max
+ - Clarify comment on arm_smmu_iotlb_sync()
+v5: https://patch.msgid.link/r/0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com
+ - Rebase to v7.3-rc1
+ - Fix the SVA CONT errata interaction
+ - Remove over invalidation, instead use two overlapping range invalidations
+ - Reflow patches around the errata work around
+ - Fix a race when eliding INV_TYPE_S2_VMID_S1_CLEAR
+v4: https://patch.msgid.link/r/0-v4-1802653d8886+492-smmu_tlbi_jgg@nvidia.com
+ - Rebase on latest smmu branch (accomodate already merged IDR5_DS changes)
+ - Fix iopte_size typo in interior patches
+ - Tidy arm_smmu_ttl_addr_align() some more
+v3: https://patch.msgid.link/r/0-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com
+ - Carry the base translation granule in the TLBI description and pass the
+   domain separately
+ - Invalidate the leaves when doing a table invalidation too, corrects a
+   missed invalidation but means we don't do anything about the duplicate
+   invalidations.
+ - Simplify the control flow in a few places
+ - Clarify the TTL derivation and accomodate DS
+v2: https://patch.msgid.link/r/0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com
+ - Rebase to v7.2-rc1
+v1: https://lore.kernel.org/all/0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com/
+
+Jason Gunthorpe (2):
+  iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
+  iommu/arm-smmu-v3: Support the DS expansion of range invalidation
+    SCALE
+
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  29 ++-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |   4 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 215 +++++++++++++-----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  30 ++-
+ 4 files changed, 210 insertions(+), 68 deletions(-)
+
+
+base-commit: 2888520bdcbe0599cfc77b2fad8dc6c95505a3cb
 -- 
-2.55.0
+2.43.0
 
 
