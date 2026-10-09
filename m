@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D31CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA62CCA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyOSgWJY/HMkCj7brjmuNGNFpEo79D8extLj/8v1jbA=; b=jsNn16gjUa1HJMNWhhJgB1GRpY
-	8Pv+arxZGwGuZocnBMA32W37uSoeJaumZrZzBI/N1fUvqYIV0YQH5IIf/uV3sx05NuELnHuG8+2h6
-	Cp/SXk63wxJSrK9ixvtcQFWB632VdX7Aoec5emVCIV1fJiv+ZSbYfOy8XSh6vO/crhmZaKH/v2MOV
-	Qgwla/gNj7exQuc8EyaiVn+EiwE8x9le9ceLByAT3gBX3jxT1sUBSZn/ZbjXiKsZi2TbVrqzGJye4
-	tYoFs566qbracdcWQgH1U/AbfCRlo9MxGC3PFiB2aQD+CHKwRlWdzr8wJkj7KiWUnpdTQVMwD/5vU
-	9IiDjvqg==;
+	bh=DbGK0Sz7kyHCLqIYUeDRcT+I53yH0bFA2b5RQEVnd20=; b=KyfMnd2CFIknD3fK1hkMEAOI3O
+	LrH5BhpWj+j9V6RGbLvXQ3cVeC96VXpFrInJcAViojpCkLrigoUtbKsvdHcrtGjx8pvzvVCiPf32W
+	Fjc73T9HMQxvp6irpb2k0VuzT7gztosMSbY6pzMjCE5Zq353pi6Niak/v62Ej1BjxQ52Dvm9OyVRL
+	/3JPeDQkdBT3z98TWp3OxMnGJNAKC2jgEwdCUln8g/lWN9NrdHy9BW2Bj59JEnmMhZBykBTCALRg8
+	p5YNsjInYSbsWk1126kf3xK3SR7bqB1agdP0EtOC5MLvJEUF+NO88lkZ2UyXzXwuGNipviXN+GFId
+	SE7YyFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDE1-00000006dS9-3W6o;
-	Fri, 09 Oct 2026 16:13:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFDG5-00000006dYj-0lYb;
+	Fri, 09 Oct 2026 16:15:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDE0-00000006dS3-3jRe
+	id 1xFDG3-00000006dYZ-1p4Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 16:13:36 +0000
+	Fri, 09 Oct 2026 16:15:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC55360098;
-	Fri,  9 Oct 2026 16:13:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC6C71F00893;
-	Fri,  9 Oct 2026 16:13:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791562415;
-	bh=AyOSgWJY/HMkCj7brjmuNGNFpEo79D8extLj/8v1jbA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SfR7CUVLdeT/UfZPvAVNa7YsEIY6HJLtUlQFrA0xPpcFjqICzpMijf9sZ/vAzKy9V
-	 JEmxxoSohJGdKyAajwm9/PYLdkinS2tgZRqYOMlkE9w2FG2+NSjwJvhAelHjzD689y
-	 pksDxmf0L+n88SuLUjVEQtobn1yZCypuasi74H6cRi8vDrgfWOkzL7rNQQh7K8qYVa
-	 Xf9Rd8nCEXlomHg5lkae7kn4gGFJACXo/XB/GwTnGDkhgDoZTutS2mxYzABdL2qOl7
-	 sNBjCYIxCauGjN8eoy2q4KFss9NGRg3/0CldmgI/AYTsWQmwek8hbAhhmaTeVopqgc
-	 fSqpXuInOnrMQ==
-Date: Fri, 9 Oct 2026 18:13:28 +0200
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	=?iso-8859-1?B?Suly6W15?= Jean <Jeremy.Jean@oss.cyber.gouv.fr>,
-	stable@vger.kernel.org
+	by sea.source.kernel.org (Postfix) with ESMTP id C726A42A64
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 16:15:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F691F00893
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 16:15:42 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=mJRBv9s3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1791562540;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DbGK0Sz7kyHCLqIYUeDRcT+I53yH0bFA2b5RQEVnd20=;
+	b=mJRBv9s3wnaDUPUjbCa0GHWuvfv7vWsQ9RyQ6IaDLpiHSs+ZJnNK3UxwoiGCX8q8yzthII
+	tCPcGFAGwx0CPGP+qYP+h/6vogFLHV9t+ne/xTfNryspur5+iVSRcFf6MmHIPViKnYqptV
+	unEgvEAMbNdpsFodKuC7r5RpmNY7Jrk=
+Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id c65fa5fe (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO)
+	for <linux-arm-kernel@lists.infradead.org>;
+	Fri, 9 Oct 2026 16:15:39 +0000 (UTC)
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6ae185cc40fso3605059a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:15:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy/KX8GE+ZgRZoZubFMb5vOvbnIexy+s0syBr030K1egDuzaSjrK/mVe8ZfDu1YTKH9Xmn3I8HBi04yMGEHPPqA@lists.infradead.org
+X-Gm-Message-State: AFq9FYLoluvo6Di1AtyiyOrKSfb2yVOAgfNRzFbvC5g0xyMPosyBujHr
+	IejGhzNo7r21TtYPYojLLxrMcEDEgt8DHYwJEn4CcEaQ3E0oAMzBLbdE2JjEYH1K9C0f7+CiqQL
+	SJVz7PNZIDD9/QplWr2jWgREjSNaXtSQ=
+X-Received: by 2002:a17:907:7f86:b0:c2d:cdc6:8271 with SMTP id
+ a640c23a62f3a-c31a702da86mr320375966b.13.1791562538187; Fri, 09 Oct 2026
+ 09:15:38 -0700 (PDT)
+MIME-Version: 1.0
+References: <20261009125354.315476-1-ebiggers@kernel.org> <20261009125354.315476-2-ebiggers@kernel.org>
+ <20261009161328.GE321175@quark>
+In-Reply-To: <20261009161328.GE321175@quark>
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Fri, 9 Oct 2026 18:15:26 +0200
+X-Gmail-Original-Message-ID: <CAHmME9rGhu0-0EhhHq3vKgw5PNa9umB4iTnUJw1am-=9zEYn4Q@mail.gmail.com>
+X-Gm-Features: AclHuK9owDu-KUZU6Q-fxO8D1wjx4SnJTfIFvrUjEFDQlu1-zO_TXwzWlmcjBxg
+Message-ID: <CAHmME9rGhu0-0EhhHq3vKgw5PNa9umB4iTnUJw1am-=9zEYn4Q@mail.gmail.com>
 Subject: Re: [PATCH v3 1/2] lib/crypto: arm64: Fix lost Poly1305 carry when
  resuming NEON state
-Message-ID: <20261009161328.GE321175@quark>
-References: <20261009125354.315476-1-ebiggers@kernel.org>
- <20261009125354.315476-2-ebiggers@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261009125354.315476-2-ebiggers@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?B?SsOpcsOpbXkgSmVhbg==?= <Jeremy.Jean@oss.cyber.gouv.fr>, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +86,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 02:53:53PM +0200, Eric Biggers wrote:
-> represents 2^128 + 4, so the conversion must produce the base 2^64 limbs
-> h0 = 4, h1 = 0, h2 = 1.  The low 64-bit word sums to 2^64 + 4 and the
-> middle 64-bit word (including the carry from the low word) sums to 2^64,
-> so both carry out.  However, the carry out of the middle word goes to
-> d2, leaving h2 = 0 and the value 4 instead of 2^128 + 4.
+This is a nice catch. Thanks for this, Jeremy.
 
-Going to change it to this instead, which should be clearer:
-
-    represents 4 + 2^26*2^26 + (2^26-1)*2^52 + (2^26-1)*2^78 +
-    (2^24-1)*2^104 = 2^128 + 4, despite the bit representing the 2^128
-    term (bit 24 of h4) not being set; the extra comes from the h1 limb
-    being above the normal base 2^26 range.  When this value is
-    converted into the non-redundant base 2^64 form, a carry into the
-    new 2^128 bit (in bit 0 of h2) is necessary to preserve the value.
-
-> [EB: Rewrote the commit message to more clearly describe the bug and
->  its impact, and removed a lot of pointless LLM-generated text.]
-
-Changed to
-
- [EB: Rewrote the commit message to more clearly describe the bug and
-  its impact, and simplified explanation about why there's a carry bit.]
-
-since Jérémy said it actually wasn't LLM generated.
-
-- Eric
+    Reviewed-by: Jason A. Donenfeld <Jason@zx2c4.com>
 
