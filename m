@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A56CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA918CA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KPBc5w+fsYGlQKZ+xG8NFMR/VYXsaT1/NVXxz3m9EKM=; b=H5qn63vLjkk/A15uttPTv323u+
-	QUb5G9WXjGLPD9ucwe/qA57ucoP5RQ0hCiswJfhElMUXhr6SvgMs1j1Bc2ddEGLareL0DWgswqIjA
-	g2dA9PyL/ZONbbSHqSXLeQ6h/jDOv74iFJ8UO2KimXIr8YWBSIWrh0K4hXU8Cm2Cxe8Dup2BnyP9N
-	7mLLRvE/s4DD70hXba7OYcg8thAeQWzSgD3PxIXz9qnEkN1AuAs5bHt2/cZMqIpCB0agFsJUFQ+gL
-	AX7mvQfdRkgNY8dKcyPPfyLQlpjJsd/yGv6e/Z1MUh3ASfEtQ2XDpwMTz40x9gLcL0tmZ0eqAkBV0
-	+4RM2+Qw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kAD7jZL3WT2oDggDD/W1Uk0YnF3NERQV17t5J8hJ8+M=; b=hWEgrh6NA9bd3RXmN0T/1qXTqd
+	UQxkRyLYm1vKc9RRYXU/zqe+KT00xWJPSn464mhl66DJiCUgFgS+aAdpaqtTrBwmQx0CxvSqLTLDr
+	okZira7bRZqoJl2/x9RfCk5ljMf1fc/cjjXygrbRrlohpRGXSwdL1ZjhKDoUCo48BA5iSlDN7HCwt
+	J39ZFndi3fRIub1noqG0vDhtBFog/gem1GEYSCYYsABt1AN8o9/Ndpm3gvj1Xv1WJVOMIgIjp6IkN
+	n1kqK9C8npRQfIC8sPewO1ycE4g62jfS/uHuG5gfffgFLjOH4mrQ514ftvLeNQA1Y1ms39SPsNOPj
+	hh6cmihQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFE0G-00000006kZG-0DVp;
-	Fri, 09 Oct 2026 17:03:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xFE73-00000006lYY-2bUD;
+	Fri, 09 Oct 2026 17:10:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFE0A-00000006kXl-3Clq;
-	Fri, 09 Oct 2026 17:03:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26F2640AF8;
-	Fri,  9 Oct 2026 17:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F16DCC2BCF4;
-	Fri,  9 Oct 2026 17:03:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791565402;
-	bh=sLav8eVPxAn6w8jYJTPMsF+9TZLNLRgeAX9kWkuT/Pk=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=tP9aM3nTPaiAMpsUMrLLUazJoaiKDtWUXYsHyDlaWUFlN6MB4qN8vAqiGgvBSpy3+
-	 dxD6cpiWW7n/gFCA1Z7UHec/poM0fnkB159uZ0tFaVOPAl9qPDGV3WT0l/xrJOuAOs
-	 Qzii4RILLXc8K+9kx0bSWFlqYxFGk0ug7K86Y1zsNg582eEYJZaxfIh3FCU3i1yo9L
-	 SuM2DTYharxz/q4g/9/gOE2IwfGlpyVQS7HmqNEVO1K89fT9GF+7Yc29yNqgYQZLGa
-	 G8QeBrBe9ozHe0KgnBpG3tRdonGJTtZ7Lzm0iB82QTWpm9SWkgw/pMgU9IADJ0eteu
-	 qmvpowWhQZIuw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9D39CA9EBD;
-	Fri,  9 Oct 2026 17:03:21 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Subject: [PATCH v3 0/4] mmc: meson-gx: honour the busy timeout for R1b
- commands
-Date: Fri, 09 Oct 2026 17:02:56 +0000
-Message-Id: <20261009-meson-gx-busy-timeout-v3-0-67d0db3a8328@iav.lv>
+	id 1xFE72-00000006lY7-2T3J;
+	Fri, 09 Oct 2026 17:10:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E468243F04;
+	Fri,  9 Oct 2026 17:10:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F951F000FF;
+	Fri,  9 Oct 2026 17:10:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791565827;
+	bh=kAD7jZL3WT2oDggDD/W1Uk0YnF3NERQV17t5J8hJ8+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q1Nhseaoa+rDmPgv3RV88Xq/keczcbIu4FLYepJnBvD2cRWQ9lipkpUB7/oP4GWM2
+	 FtecI4n/MNfujCQ2qyTF3wHtE8IruMwItFTLmIBKKeC3vlmY0G1hsyyVZAtoiwWou8
+	 P3DbUqJp9Xmpt/k5D8+TZwqQdKWqiN19Lf+AJ3W0+6UWmvY9NsCpCPQCR2qUhmOLIC
+	 8Ojr7flTBUGp+qSaJwC9QVMRhzWedJSGwa8czVneuywDeGOD4MwdC3oFvmjdVrC/MQ
+	 pQQu6ro5HclX1M3k8qO/i9gCSAbnfYwfDkfc5jGddIzvabPGzItOqeLhZ1tE9Uequ/
+	 TaRWxOs50oK2g==
+Date: Fri, 9 Oct 2026 12:10:27 -0500
+From: Rob Herring <robh@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Wandun <chenwandun1@gmail.com>, baoquan.he@linux.dev,
+	m.szyprowski@samsung.com, catalin.marinas@arm.com, will@kernel.org,
+	mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	saravanak@kernel.org, akpm@linux-foundation.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev
+Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
+Message-ID: <20261009171027.GA2734758-robh@kernel.org>
+References: <20260922084256.1515554-1-chenwandun1@gmail.com>
+ <ar9ogXc12cLjziHS@kernel.org>
+ <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
+ <askVvEPHyrhpF8aw@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEAeyWoC/43NTQqDMBCG4atI1p2SH7Wxq96jdGGSUQPVlESDI
- t69UWh3hS7fD+aZlQT0FgO5ZivxGG2wbkghThnRXT20CNakJpzyklFaQI/BDdDOoKawwGh7dNM
- IF5QoGqOVQEHS7ctjY+fDvT9SdzaMzi/Hm8j29SPKH2JkwMBUvBG6lDqn1c3W8fyMZOci/4vgQ
- EEqg6w2jSpU/iW2bXsD4Tt9U/oAAAA=
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-mmc@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2782; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=sLav8eVPxAn6w8jYJTPMsF+9TZLNLRgeAX9kWkuT/Pk=;
- b=kA0DAAoWMpeVi+pfeQMByyZiAGrJHlagWzI7bo5Nt+cNtDkGkwDWm1o1hF1//qB+AOiI7bqty
- 4h1BAAWCgAdFiEEkMIo2mik1f1PSDfgMpeVi+pfeQMFAmrJHlYACgkQMpeVi+pfeQM10AD9Fk2Q
- i6ybpTs0fXmxG8U7wBgxv6DUPPE5GlAwmmM+/bMBAOGy8JM66cY7bKUQyOqzIcqUuHnAR9YJDra
- 33NnskfwG
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <askVvEPHyrhpF8aw@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,70 +78,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For a command without data the driver programs a fixed 1024 ms into the
-CMD_CFG timeout field and does not tell the core how long the controller
-can wait for busy. Erase and cache flush then fail with -110 on eMMC.
-Patch 3 fixes card_busy, which reported a busy card free; patch 4 makes
-the core rely on it.
+On Fri, Oct 09, 2026 at 06:26:36PM +0200, Mike Rapoport wrote:
+> On Fri, Oct 09, 2026 at 11:04:47AM +0800, Wandun wrote:
+> > On 10/2/26 16:17, Mike Rapoport wrote:
+> > > Hi Wandun,
+> > > 
+> > > On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
+> > >> From: Wandun Chen <chenwandun@lixiang.com>
+> > >>
+> > >> On SoCs that carve out large firmware-owned reserved memory (GPU,
+> > >> camera ISP, ...), kdump currently dumps those carveouts as part of
+> > >> system RAM even though their contents are firmware state that is not
+> > >> useful for kernel crash analysis.
+> > >>
+> > >> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+> > >> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+> > >> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
+> > >> them; reusable CMA regions are different because their pages are handed
+> > >> back to the buddy allocator and may carry crash-relevant data.
+> > >>
+> > >> ACPI systems already filter reserved memory out of the vmcore through
+> > >> their existing path; only DT-based systems currently fail to filter these
+> > >> regions, which is what this series addresses. The flag lives in memblock
+> > >> itself rather than in a DT-only structure, so both ACPI and DT systems
+> > >> can benefit from it (suggested by Rob, thanks).
+> > > 
+> > Hi Mike,
+> > 
+> > Thanks for the review.
+> > 
+> > > Can you elaborate how ACPI systems filter their reserved memory?
+> > 
+> > In the EFI memory map, firmware carveouts are reported with the type
+> > EFI_RESERVED_TYPE. This type of memory gets the nomap flag set in
+> > memblock.memory (is_usable_memory() returns false in reserve_regions()
+> > and mark these regions with nomap flag), during prepare_elf_headers(),
+> > for_each_mem_range() filters out these nomap regions. Therefore, the
+> > memory reserved on ACPI based systems will not be dumped into the vmcore.
+> > 
+> > I will add these description in next version.
+> > 
+> > > With your patches, the memblock flag becomes a part of DT-only
+> > > infrastructure, so that claim that both ACPI and DT benefit from it does
+> > > not hold, doesn't it?
+> > 
+> > You are right, the wording was misleading. Let me clarify what I meant.
+> > 
+> > In this series only DT marks regions as MEMBLOCK_NODUMP:
+> > /reserved-memory and /memreserve/ entries are tagged in the OF
+> > paths (of_reserved_mem.c, fdt.c). ACPI does not set the flag and
+> > keeps filtering its reserved memory through the existing path, as
+> > described above.
+> > 
+> > 
+> > What I intended to convey is that the flag itself lives in memblock
+> > rather than on the DT-only struct reserved_mem, so it is available
+> > for reuse. If an ACPI system ever needed to exclude a firmware-owned
+> > region from the vmcore, it could mark that region with MEMBLOCK_NODUMP
+> > the same way DT does, instead of having to invent a parallel mechanism.
+> > That is a future option, not something this series enables for ACPI
+> > today.
+> 
+> So, EFI uses NOMAP for the same purpose, right?
+> Why when we need a new memblock flag then?
 
-Tested on ODROID-N2+ (S922X), 256 GB eMMC, btrfs root with discard=async,
-Armbian builds in docker as load. Without the series (7.3-rc6): 262
-errors in 3 h and 68 in 2.5 h in two runs; the first came 4 and 43 min
-into the build. With v1 (7.3-rc6): 0 in 16 h, 2.4 h of it under the
-build. With v3: 0 in a 37 min kernel build and in a 20 GiB write +
-fstrim; a sanitize went out as R1 and the core polled DAT0 for 523 ms
-until the card was back in TRAN. On 7.1 with the previous eMMC module
-a synthetic test (20 GiB write + fstrim) gave 48 errors without the
-patches, 0 and 0 with them.
+IIUC, NOMAP implies NODUMP (for EFI and DT), but NODUMP is needed for 
+some mapped (!NOMAP) regions.
 
-ODROID-N2 (S922X), 128 GB Kingston eMMC, 20 GiB write + fstrim:
-without the series an erase hit the 1024 ms limit and failed with -110
-in 3 of 3 runs. With v3, in 3 such runs and a fill of the card to 85 %
-with rm + fstrim, 5 erases took over 1024 ms, up to 1219 ms, and
-completed; 0 errors.
-
-ODROID-HC4, SD card in SDR104 at 1.8 V: 0 errors in 5 boots.
-
-The timeout is rounded up to a power of two: the field holds powers of
-two only, and the timeout is a lower bound. MMC_CAP_WAIT_WHILE_BUSY is
-not set: I have not checked that the controller waits for busy on every
-R1b command, HS400 switches included.
-
----
-Changes in v3:
-- Clamp cmd->busy_timeout to the range of the field before rounding it
-  up to a power of two: the rounding of a value above 2^31 overflowed
-  unsigned int (Sashiko).
-- New patch 3: card_busy reports busy from DAT0 alone. It required
-  DAT0..3 all low and reported a busy card free (Sashiko).
-- Link to v2: https://lore.kernel.org/r/20261008-meson-gx-busy-timeout-v2-0-8bde1adfb5b4@iav.lv
-
-Changes in v2:
-- Split into three patches, as Neil asked: name the limit of the
-  timeout field, program the R1b timeout from cmd->busy_timeout, report
-  max_busy_timeout.
-- Link to v1: https://lore.kernel.org/r/20261008-meson-gx-busy-timeout-v1-1-d92f3c68c409@iav.lv
-
----
-Igor Velkov (4):
-      mmc: meson-gx: name the limit of the CMD_CFG timeout field
-      mmc: meson-gx: honour the busy timeout for R1b commands
-      mmc: meson-gx: report busy from DAT0 alone
-      mmc: meson-gx: report the longest busy wait the controller can do
-
- drivers/mmc/host/meson-gx-mmc.c | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
----
-base-commit: fd9af27f6c2319713bb23832066585f8a59a1771
-change-id: 20261005-meson-gx-busy-timeout-7e8e3fdcb3e3
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
-
+Rob
 
