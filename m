@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9EFCA6019
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB496CA601E
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcGhIEA554A0WVCWzZadNezlgG0RSTYoC4/nJ2qNceM=; b=0KpoIjlHs8G/F8gQavZlKRVjTR
-	OfNy2cAKgKroa8/XNkeX8InKI/6ia03326N617JqjoRWZV3W0YCNk1BDbR0PBPX/rIhMD1vN7gpN/
-	HTVi+RdA2NM0390qUqSDXS5ZWTSnjAkBrUZRZCVSP/iinUP/l+4j5GD8VXbkteP4KH/K7gMSYtQDa
-	8XPwKWYkXV32F0+cBhDKbwEbV08McEEPtxr7QcXcyOYmr+/EchljUVkiSi7AzjxsaFeCrMF0gR3dl
-	o83rs2zeZHNkff+1YsSSer5ausNyUNJ0OrlcGlMmv6zHfvCTfSw7Hv3S5b13Mow7aGn2aJsRBLfMy
-	ZeXUg7RQ==;
+	bh=68dCNdy0O14/4sPoHguwwFUYJ4cDWD+elwvnZ8tCTdQ=; b=u/jz6pVxYbjr/G3nx6yHWaCuKe
+	L9HuhhD3wXfoaFOicF09s5IG2feIR/ODzkKu4TZv9vW1pUyoL76Sv0fgnw1PxsFO6bTBZ2LjqXCRE
+	x/OWgpl70edm5myt14H0FRGSAT+y4v4fZWxPU/MuA5jtKaax5ZpEVI+ILhT1uqTaOGGl9X2UdKC2V
+	UIt1xtFVYogM9MOzP1OJSlZ65FZZsEZ+fiTt7koElQ39TrXnQbOPIRtVYgtZ14gk0WoFZwuLp1Swd
+	QqwXvE7yCfiC37+wsB+3RuCAvEPHm9V0cX5Ag3kGcUkNQq5D0KTNvQpLk8Spmr7Ksr2lVEDw9AuVM
+	k2pe1pAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9Aw-00000006Ezf-1g3a;
+	id 1xF9Aw-00000006EzV-0vlr;
 	Fri, 09 Oct 2026 11:54:10 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9At-00000006ExV-0QM4
+	id 1xF9Aq-00000006EwH-3nJO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 11:54:08 +0000
+	Fri, 09 Oct 2026 11:54:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791546847; x=1823082847;
+  t=1791546844; x=1823082844;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=3G6/3+7U1vOnQC9zPE7ZSPxtWgsWrbbZkl5rpRYDYl8=;
-  b=Qz9Czhe15+5I2ch0DpNb2YWrJE8/6u0mG0ICQT0HxRqRXl0QVc23dRKB
-   IXz4Oik8+11kdJZQBfuvU1xPF4SE69zj7Gui9B8PdU5rvt539SEVGXov4
-   glyTWPe3WX5zX9Rgn3yUmhrdZmO3h7zkiZ3OZOS/lFW+4965is1TZmXG+
-   u+IHghwkK8FDGiHajZsa5ZQqtnvA9/fiFEOnaurE1P1j3SE374VozctAu
-   vtWFnmo8/ZZqsPqFnRfCDQsY+MMABPZYSWQLhj5Pk2GmDc+4K/jsZyvHt
-   tHsP54p3SQRZ33GZHbmve+Hga9EtxHs8Pup5sh67b7bmebogVW9np65Ee
-   A==;
-X-CSE-ConnectionGUID: AW1woLrPQbulzhFNMijsmg==
-X-CSE-MsgGUID: 3hTGxRhOQaiRuZt4QemWWw==
+  bh=Muf4eTZjWTRQViJhVwEpnl6gA3ibKcyLmoXGsME+l4Q=;
+  b=bHWmPyI52OdBWGdJ9jpOLQBodINd4a5jT1dBolaHWkIynT8NYu/G13dJ
+   6Ct5+ci+fBTdlrHwwGFQYH+pjOyc+GNWzomHLq+ZBi0zXVaTBfYkZPvFO
+   5PwBsjaPIuFz8cHtCb1Gy4betAY7t4HxzA11MVCtQDo5j7KjR1+saTJ3/
+   /vJtZcY945K1ZTFfxWCcB2SK/faneMRlPMFNSEl6EHUJW43h1e0C+ZbZK
+   Tuo5X5vip+EplCik6qcSFJAIZ07tYH0BJECOUos+9+F1oEb/uyV1z9E1y
+   gs0u2exPO4qd7Rx4L52cCHKa0miNO9owMNicURMA6XwHFuiN69qYWIW5a
+   g==;
+X-CSE-ConnectionGUID: 7XIxRreZQpWqdKmhiMymwA==
+X-CSE-MsgGUID: MSWhVsDNQHuhusO57ocGjA==
 X-IronPort-AV: E=Sophos;i="6.27,148,1787036400"; 
-   d="scan'208";a="296224245"
+   d="scan'208";a="75126491"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2026 04:54:07 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 04:54:04 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 9 Oct 2026 04:54:06 -0700
+ 15.2.2562.49; Fri, 9 Oct 2026 04:54:03 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 9 Oct 2026 04:54:04 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 9 Oct 2026 04:54:01 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 9 Oct 2026 13:52:03 +0200
-Subject: [PATCH net-next 3/5] net: sparx5: Track shared tc blocks and
- per-port policer state
+Date: Fri, 9 Oct 2026 13:52:02 +0200
+Subject: [PATCH net-next 2/5] net: sparx5: Add registers used by the port
+ policer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-3-4916708a7ea2@microchip.com>
+Message-ID: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-2-4916708a7ea2@microchip.com>
 References: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com>
 In-Reply-To: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -72,8 +72,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Daniel Machon <daniel.machon@microchip.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_045407_175698_198DFE38 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20261009_045404_976009_9BF923BD 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,88 +88,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A police action on a shared tc block applies one aggregate rate to all
-ports bound to the block, which a per-port policer cannot implement.
-The port policer offload therefore needs to know whether the ingress
-block of a port is shared.
-
-Add struct sparx5_port_tc to each port, holding a flag that records
-whether the ingress block is shared, and the state of the four policers
-of the port.
+Add the registers used to configure the ingress port policers and to
+read back their statistics, on both sparx5 and lan969x: the
+POL_PORT_CFG and POL_PORT_CTRL groups of ANA_AC_POL, the shared
+POL_ALL_CFG register, and the MSB part of the ANA_AC port statistics
+counters.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_main.h | 16 ++++++++++++++++
- drivers/net/ethernet/microchip/sparx5/sparx5_tc.c   | 14 ++++++++++++--
- 2 files changed, 28 insertions(+), 2 deletions(-)
+ .../microchip/sparx5/lan969x/lan969x_regs.c        |   7 ++
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 105 +++++++++++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_regs.c    |   7 ++
+ .../net/ethernet/microchip/sparx5/sparx5_regs.h    |   7 ++
+ 4 files changed, 126 insertions(+)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index 0f7d8440f614..021ac7a52034 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -206,6 +206,21 @@ struct sparx5_port_config {
- 	u32 sd_sgpio;
- };
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
+index 3fc2c006ba12..4d82dba7d081 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
+@@ -28,6 +28,9 @@ const unsigned int lan969x_rcnt[RCNT_LAST] = {
+ 	[RC_ANA_AC_OWN_UPSID] = 1,
+ 	[RC_ANA_ACL_VCAP_S2_CFG] = 35,
+ 	[RC_ANA_ACL_OWN_UPSID] = 1,
++	[RC_ANA_AC_POL_PORT_THRES_CFG_0] = 140,
++	[RC_ANA_AC_POL_PORT_THRES_CFG_1] = 140,
++	[RC_ANA_AC_POL_PORT_RATE_CFG] = 140,
+ 	[RC_ANA_CL_OWN_UPSID] = 1,
+ 	[RC_ANA_L2_OWN_UPSID] = 1,
+ 	[RC_ASM_PORT_CFG] = 32,
+@@ -70,6 +73,8 @@ const unsigned int lan969x_gaddr[GADDR_LAST] = {
+ 	[GA_ANA_ACL_CNT_B] = 4096,
+ 	[GA_ANA_ACL_STICKY] = 10852,
+ 	[GA_ANA_AC_POL_POL_ALL_CFG] = 17504,
++	[GA_ANA_AC_POL_POL_PORT_CFG] = 0,
++	[GA_ANA_AC_POL_POL_PORT_CTRL] = 16384,
+ 	[GA_ANA_AC_POL_COMMON_BDLB] = 19464,
+ 	[GA_ANA_AC_POL_COMMON_BUM_SLB] = 19472,
+ 	[GA_ANA_AC_SDLB_LBGRP_TBL] = 31788,
+@@ -118,6 +123,7 @@ const unsigned int lan969x_gcnt[GCNT_LAST] = {
+ 	[GC_ANA_ACL_KEY_SEL] = 99,
+ 	[GC_ANA_ACL_CNT_A] = 1024,
+ 	[GC_ANA_ACL_CNT_B] = 1024,
++	[GC_ANA_AC_POL_POL_PORT_CTRL] = 35,
+ 	[GC_ANA_AC_SDLB_LBGRP_TBL] = 5,
+ 	[GC_ANA_AC_SDLB_LBSET_TBL] = 496,
+ 	[GC_ANA_CL_PORT] = 35,
+@@ -182,6 +188,7 @@ const unsigned int lan969x_fsize[FSIZE_LAST] = {
+ 	[FW_ANA_AC_TSN_SF_STATUS_TSN_SFID] = 8,
+ 	[FW_ANA_AC_SG_ACCESS_CTRL_SGID] = 8,
+ 	[FW_ANA_AC_PORT_SGE_CFG_MASK] = 17,
++	[FW_ANA_AC_POL_PORT_RATE_CFG_PORT_RATE] = 19,
+ 	[FW_ANA_AC_SDLB_XLB_START_LBSET_START] = 9,
+ 	[FW_ANA_AC_SDLB_LBGRP_MISC_THRES_SHIFT] = 3,
+ 	[FW_ANA_AC_SDLB_LBGRP_STATE_TBL_PUP_LBSET_NEXT] = 9,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+index 7ae4f7ed8e50..37a020354c37 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+@@ -554,6 +554,17 @@ extern const struct sparx5_regs *regs;
+ 	__REG(TARGET_ANA_AC, 0, 1, regs->gaddr[GA_ANA_AC_STAT_CNT_CFG_PORT], g,\
+ 	      regs->gcnt[GC_ANA_AC_STAT_CNT_CFG_PORT], 64, 20, r, 4, 4)
  
-+#define SPX5_POLICERS_PER_PORT 4 /* Number of ingress port policers */
++/* ANA_AC:STAT_CNT_CFG_PORT:STAT_MSB_CNT */
++#define ANA_AC_PORT_STAT_MSB_CNT(g, r)                                         \
++	__REG(TARGET_ANA_AC, 0, 1, regs->gaddr[GA_ANA_AC_STAT_CNT_CFG_PORT], g,\
++	      regs->gcnt[GC_ANA_AC_STAT_CNT_CFG_PORT], 64, 36, r, 4, 4)
 +
-+struct sparx5_port_policer {
-+	struct flow_stats prev;
-+	struct flow_stats stats;
-+	/* Port policers hold the client reference (cookie) */
-+	unsigned long policer;
-+};
++#define ANA_AC_PORT_STAT_MSB_CNT_MSB_CNT         GENMASK(7, 0)
++#define ANA_AC_PORT_STAT_MSB_CNT_MSB_CNT_SET(x)\
++	FIELD_PREP(ANA_AC_PORT_STAT_MSB_CNT_MSB_CNT, x)
++#define ANA_AC_PORT_STAT_MSB_CNT_MSB_CNT_GET(x)\
++	FIELD_GET(ANA_AC_PORT_STAT_MSB_CNT_MSB_CNT, x)
 +
-+struct sparx5_port_tc {
-+	/* Ingress uses a shared filter block */
-+	bool ingress_block_shared;
-+	struct sparx5_port_policer port_policer[SPX5_POLICERS_PER_PORT];
-+};
-+
- struct sparx5_port {
- 	struct net_device *ndev;
- 	struct sparx5 *sparx5;
-@@ -229,6 +244,7 @@ struct sparx5_port {
- 	enum sparx5_vlan_port_type vlan_type;
- 	u32 custom_etype;
- 	bool vlan_aware;
-+	struct sparx5_port_tc tc;
- 	struct hrtimer inj_timer;
- 	/* ptp */
- 	u8 ptp_cmd;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-index 28b2514c8330..9ac99627eafc 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
-@@ -47,7 +47,9 @@ static int sparx5_tc_block_cb_egress(enum tc_setup_type type,
- static int sparx5_tc_setup_block(struct net_device *ndev,
- 				 struct flow_block_offload *fbo)
- {
-+	struct sparx5_port *port = netdev_priv(ndev);
- 	flow_setup_cb_t *cb;
-+	int err;
+ /* ANA_AC:STAT_GLOBAL_CFG_ACL:GLOBAL_CNT_FRM_TYPE_CFG */
+ #define ANA_AC_ACL_GLOBAL_CNT_FRM_TYPE_CFG(r)                                  \
+ 	__REG(TARGET_ANA_AC, 0, 1, regs->gaddr[GA_ANA_AC_STAT_GLOBAL_CFG_ACL], \
+@@ -938,6 +949,35 @@ extern const struct sparx5_regs *regs;
+ #define ANA_ACL_SEC_LOOKUP_STICKY_SEC_TYPE_MAC_ETYPE_STICKY_GET(x)\
+ 	FIELD_GET(ANA_ACL_SEC_LOOKUP_STICKY_SEC_TYPE_MAC_ETYPE_STICKY, x)
  
- 	if (fbo->binder_type == FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS)
- 		cb = sparx5_tc_block_cb_ingress;
-@@ -56,8 +58,16 @@ static int sparx5_tc_setup_block(struct net_device *ndev,
- 	else
- 		return -EOPNOTSUPP;
- 
--	return flow_block_cb_setup_simple(fbo, &sparx5_block_cb_list,
--					  cb, ndev, ndev, false);
-+	err = flow_block_cb_setup_simple(fbo, &sparx5_block_cb_list,
-+					 cb, ndev, ndev, false);
-+	if (err)
-+		return err;
++/* ANA_AC_POL:POL_ALL_CFG:POL_ALL_CFG */
++#define ANA_AC_POL_ALL_CFG                                                     \
++	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_ALL_CFG],\
++	      0, 1, 1160, 1144, 0, 1, 4)
 +
-+	if (fbo->binder_type == FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS)
-+		port->tc.ingress_block_shared =
-+			fbo->command == FLOW_BLOCK_BIND && fbo->block_shared;
++#define ANA_AC_POL_ALL_CFG_PORT_FC_ENA            BIT(14)
++#define ANA_AC_POL_ALL_CFG_PORT_FC_ENA_SET(x)\
++	FIELD_PREP(ANA_AC_POL_ALL_CFG_PORT_FC_ENA, x)
++#define ANA_AC_POL_ALL_CFG_PORT_FC_ENA_GET(x)\
++	FIELD_GET(ANA_AC_POL_ALL_CFG_PORT_FC_ENA, x)
 +
-+	return 0;
- }
++#define ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT          BIT(4)
++#define ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT_SET(x)\
++	FIELD_PREP(ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT, x)
++#define ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT_GET(x)\
++	FIELD_GET(ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT, x)
++
++#define ANA_AC_POL_ALL_CFG_LPORT_POLICE_ENA        BIT(1)
++#define ANA_AC_POL_ALL_CFG_LPORT_POLICE_ENA_SET(x)\
++	FIELD_PREP(ANA_AC_POL_ALL_CFG_LPORT_POLICE_ENA, x)
++#define ANA_AC_POL_ALL_CFG_LPORT_POLICE_ENA_GET(x)\
++	FIELD_GET(ANA_AC_POL_ALL_CFG_LPORT_POLICE_ENA, x)
++
++#define ANA_AC_POL_ALL_CFG_FORCE_INIT              BIT(0)
++#define ANA_AC_POL_ALL_CFG_FORCE_INIT_SET(x)\
++	FIELD_PREP(ANA_AC_POL_ALL_CFG_FORCE_INIT, x)
++#define ANA_AC_POL_ALL_CFG_FORCE_INIT_GET(x)\
++	FIELD_GET(ANA_AC_POL_ALL_CFG_FORCE_INIT, x)
++
+ /* ANA_AC_POL:POL_ALL_CFG:POL_UPD_INT_CFG */
+ #define ANA_AC_POL_UPD_INT_CFG                                                 \
+ 	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_ALL_CFG], \
+@@ -949,6 +989,71 @@ extern const struct sparx5_regs *regs;
+ #define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_GET(x)\
+ 	FIELD_GET(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT, x)
  
- static void sparx5_tc_get_layer_and_idx(struct sparx5 *sparx5, u32 parent,
++/* ANA_AC_POL:POL_PORT_CFG:POL_PORT_THRES_CFG_0 */
++#define ANA_AC_POL_PORT_THRES_CFG_0(r)                                         \
++	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_PORT_CFG],\
++	      0, 1, 8192, 0, r, regs->rcnt[RC_ANA_AC_POL_PORT_THRES_CFG_0], 4)
++
++#define ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0   GENMASK(5, 0)
++#define ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0_SET(x)\
++	FIELD_PREP(ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0, x)
++#define ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0_GET(x)\
++	FIELD_GET(ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0, x)
++
++/* ANA_AC_POL:POL_PORT_CFG:POL_PORT_THRES_CFG_1 */
++#define ANA_AC_POL_PORT_THRES_CFG_1(r)                                         \
++	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_PORT_CFG],\
++	      0, 1, 8192, 2048, r,\
++	      regs->rcnt[RC_ANA_AC_POL_PORT_THRES_CFG_1], 4)
++
++#define ANA_AC_POL_PORT_THRES_CFG_1_PORT_THRES1   GENMASK(5, 0)
++#define ANA_AC_POL_PORT_THRES_CFG_1_PORT_THRES1_SET(x)\
++	FIELD_PREP(ANA_AC_POL_PORT_THRES_CFG_1_PORT_THRES1, x)
++#define ANA_AC_POL_PORT_THRES_CFG_1_PORT_THRES1_GET(x)\
++	FIELD_GET(ANA_AC_POL_PORT_THRES_CFG_1_PORT_THRES1, x)
++
++/* ANA_AC_POL:POL_PORT_CFG:POL_PORT_RATE_CFG */
++#define ANA_AC_POL_PORT_RATE_CFG(r)                                            \
++	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_PORT_CFG],\
++	      0, 1, 8192, 4096, r, regs->rcnt[RC_ANA_AC_POL_PORT_RATE_CFG], 4)
++
++#define ANA_AC_POL_PORT_RATE_CFG_PORT_RATE\
++	GENMASK(regs->fsize[FW_ANA_AC_POL_PORT_RATE_CFG_PORT_RATE] + 0 - 1, 0)
++#define ANA_AC_POL_PORT_RATE_CFG_PORT_RATE_SET(x)\
++	spx5_field_prep(ANA_AC_POL_PORT_RATE_CFG_PORT_RATE, x)
++#define ANA_AC_POL_PORT_RATE_CFG_PORT_RATE_GET(x)\
++	spx5_field_get(ANA_AC_POL_PORT_RATE_CFG_PORT_RATE, x)
++
++/* ANA_AC_POL:POL_PORT_CTRL:POL_PORT_GAP */
++#define ANA_AC_POL_PORT_GAP(g)                                                 \
++	__REG(TARGET_ANA_AC_POL, 0, 1,\
++	      regs->gaddr[GA_ANA_AC_POL_POL_PORT_CTRL], g,                     \
++	      regs->gcnt[GC_ANA_AC_POL_POL_PORT_CTRL], 32, 0, 0, 1, 4)
++
++#define ANA_AC_POL_PORT_GAP_PORT_PIPELINE_PT       GENMASK(11, 7)
++#define ANA_AC_POL_PORT_GAP_PORT_PIPELINE_PT_SET(x)\
++	FIELD_PREP(ANA_AC_POL_PORT_GAP_PORT_PIPELINE_PT, x)
++#define ANA_AC_POL_PORT_GAP_PORT_PIPELINE_PT_GET(x)\
++	FIELD_GET(ANA_AC_POL_PORT_GAP_PORT_PIPELINE_PT, x)
++
++#define ANA_AC_POL_PORT_GAP_GAP_VALUE              GENMASK(6, 0)
++#define ANA_AC_POL_PORT_GAP_GAP_VALUE_SET(x)\
++	FIELD_PREP(ANA_AC_POL_PORT_GAP_GAP_VALUE, x)
++#define ANA_AC_POL_PORT_GAP_GAP_VALUE_GET(x)\
++	FIELD_GET(ANA_AC_POL_PORT_GAP_GAP_VALUE, x)
++
++/* ANA_AC_POL:POL_PORT_CTRL:POL_PORT_CFG */
++#define ANA_AC_POL_PORT_CFG(g, r)                                              \
++	__REG(TARGET_ANA_AC_POL, 0, 1,\
++	      regs->gaddr[GA_ANA_AC_POL_POL_PORT_CTRL], g,                     \
++	      regs->gcnt[GC_ANA_AC_POL_POL_PORT_CTRL], 32, 4, r, 4, 4)
++
++#define ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK      GENMASK(7, 0)
++#define ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK_SET(x)\
++	FIELD_PREP(ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK, x)
++#define ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK_GET(x)\
++	FIELD_GET(ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK, x)
++
+ /* ANA_AC_POL:COMMON_BDLB:DLB_CTRL */
+ #define ANA_AC_POL_BDLB_DLB_CTRL                                               \
+ 	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_COMMON_BDLB], \
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
+index 3863f954bd83..38e68f5d445f 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
+@@ -28,6 +28,9 @@ const unsigned int sparx5_rcnt[RCNT_LAST] = {
+ 	[RC_ANA_AC_OWN_UPSID] = 3,
+ 	[RC_ANA_ACL_VCAP_S2_CFG] = 70,
+ 	[RC_ANA_ACL_OWN_UPSID] = 3,
++	[RC_ANA_AC_POL_PORT_THRES_CFG_0] = 280,
++	[RC_ANA_AC_POL_PORT_THRES_CFG_1] = 280,
++	[RC_ANA_AC_POL_PORT_RATE_CFG] = 280,
+ 	[RC_ANA_CL_OWN_UPSID] = 3,
+ 	[RC_ANA_L2_OWN_UPSID] = 3,
+ 	[RC_ASM_PORT_CFG] = 67,
+@@ -70,6 +73,8 @@ const unsigned int sparx5_gaddr[GADDR_LAST] = {
+ 	[GA_ANA_ACL_CNT_B] = 16384,
+ 	[GA_ANA_ACL_STICKY] = 36408,
+ 	[GA_ANA_AC_POL_POL_ALL_CFG] = 75968,
++	[GA_ANA_AC_POL_POL_PORT_CFG] = 65536,
++	[GA_ANA_AC_POL_POL_PORT_CTRL] = 73728,
+ 	[GA_ANA_AC_POL_COMMON_BDLB] = 79048,
+ 	[GA_ANA_AC_POL_COMMON_BUM_SLB] = 79056,
+ 	[GA_ANA_AC_SDLB_LBGRP_TBL] = 295468,
+@@ -118,6 +123,7 @@ const unsigned int sparx5_gcnt[GCNT_LAST] = {
+ 	[GC_ANA_ACL_KEY_SEL] = 134,
+ 	[GC_ANA_ACL_CNT_A] = 4096,
+ 	[GC_ANA_ACL_CNT_B] = 4096,
++	[GC_ANA_AC_POL_POL_PORT_CTRL] = 70,
+ 	[GC_ANA_AC_SDLB_LBGRP_TBL] = 10,
+ 	[GC_ANA_AC_SDLB_LBSET_TBL] = 4616,
+ 	[GC_ANA_CL_PORT] = 70,
+@@ -182,6 +188,7 @@ const unsigned int sparx5_fsize[FSIZE_LAST] = {
+ 	[FW_ANA_AC_TSN_SF_STATUS_TSN_SFID] = 10,
+ 	[FW_ANA_AC_SG_ACCESS_CTRL_SGID] = 10,
+ 	[FW_ANA_AC_PORT_SGE_CFG_MASK] = 16,
++	[FW_ANA_AC_POL_PORT_RATE_CFG_PORT_RATE] = 20,
+ 	[FW_ANA_AC_SDLB_XLB_START_LBSET_START] = 13,
+ 	[FW_ANA_AC_SDLB_LBGRP_MISC_THRES_SHIFT] = 5,
+ 	[FW_ANA_AC_SDLB_LBGRP_STATE_TBL_PUP_LBSET_NEXT] = 13,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
+index 585589a31e90..917183d8e147 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
+@@ -36,6 +36,9 @@ enum sparx5_rcnt_enum {
+ 	RC_ANA_AC_OWN_UPSID,
+ 	RC_ANA_ACL_VCAP_S2_CFG,
+ 	RC_ANA_ACL_OWN_UPSID,
++	RC_ANA_AC_POL_PORT_THRES_CFG_0,
++	RC_ANA_AC_POL_PORT_THRES_CFG_1,
++	RC_ANA_AC_POL_PORT_RATE_CFG,
+ 	RC_ANA_CL_OWN_UPSID,
+ 	RC_ANA_L2_OWN_UPSID,
+ 	RC_ASM_PORT_CFG,
+@@ -79,6 +82,8 @@ enum sparx5_gaddr_enum {
+ 	GA_ANA_ACL_CNT_B,
+ 	GA_ANA_ACL_STICKY,
+ 	GA_ANA_AC_POL_POL_ALL_CFG,
++	GA_ANA_AC_POL_POL_PORT_CFG,
++	GA_ANA_AC_POL_POL_PORT_CTRL,
+ 	GA_ANA_AC_POL_COMMON_BDLB,
+ 	GA_ANA_AC_POL_COMMON_BUM_SLB,
+ 	GA_ANA_AC_SDLB_LBGRP_TBL,
+@@ -128,6 +133,7 @@ enum sparx5_gcnt_enum {
+ 	GC_ANA_ACL_KEY_SEL,
+ 	GC_ANA_ACL_CNT_A,
+ 	GC_ANA_ACL_CNT_B,
++	GC_ANA_AC_POL_POL_PORT_CTRL,
+ 	GC_ANA_AC_SDLB_LBGRP_TBL,
+ 	GC_ANA_AC_SDLB_LBSET_TBL,
+ 	GC_ANA_CL_PORT,
+@@ -195,6 +201,7 @@ enum sparx5_fsize_enum {
+ 	FW_ANA_AC_TSN_SF_STATUS_TSN_SFID,
+ 	FW_ANA_AC_SG_ACCESS_CTRL_SGID,
+ 	FW_ANA_AC_PORT_SGE_CFG_MASK,
++	FW_ANA_AC_POL_PORT_RATE_CFG_PORT_RATE,
+ 	FW_ANA_AC_SDLB_XLB_START_LBSET_START,
+ 	FW_ANA_AC_SDLB_LBGRP_MISC_THRES_SHIFT,
+ 	FW_ANA_AC_SDLB_LBGRP_STATE_TBL_PUP_LBSET_NEXT,
 
 -- 
 2.34.1
