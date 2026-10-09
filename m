@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DEECA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10CCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1xT8kIEPQsNlllxKNcDEkZl+24WAzqvZIpeRT/H2QA=; b=EyyZjFH5oxo0RMpU8hfRcCdVS1
-	gGKhZLh+vOrvJT3sOe0ljJl5u+sv14VeNyMaiXpTNBoVJhauk4LPC9p9dSPSEzxT/MxvRaeiGsZ1i
-	Egk5vvXpjUNFYSHMj2x6xQHvFPE5ZrwZgJnkbmfinm04rJS0lhyJ7WRR5hnobaGfKwmUKqPR0J036
-	B3Mvgcb/nHA/KpU6W1jqxd37VT+pY9m8Iki6JHFl6mP9tUUxxd7MI33NA5c6zHyCcmhKM0oPvS7Z3
-	SOAPo1hTYKn/2BesEzP2iFoIpDCxMyYDPrlFvd5xqpB2nVeo/gTQQoea1AGQOmIhNu4IyrvAMIvdh
-	h23TdqcQ==;
+	bh=8E6Bi7bKMcAw5TwqvxCLAr9mz+479h38geJmPUDsO7U=; b=j6HqHPD8y3CHf9+ZxjUE4yF68N
+	FGqAdxxxenWTnprkqTPFzoWhbCvAbap+n1/kb6wOVeabYL3kPfRaVxtzWPNm5Kl6BsbnnEZTpa6A6
+	xyhYhfJ5b67zMQv+OcBJ9968Q7SjlHdmYo0jCDNptfgLp/HeFlo03Roi8UcIxoN17YmkaDYy/MQq5
+	i6JNRyCAyFS3mHdKGFRUM2ufLSXnAEquec42hrqpWKmXOVNDQLPS2QfmWucmzE/BKsWqXE4KsFRBX
+	l4ZEEGmyq3bWtbt/aS26r+l4clDITYdfHnuVWDIChZdjDGkikPww4+lajLxT0sFFp5fkLH3EDh4vs
+	MXfb5bBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBQn-00000006RST-08QP;
-	Fri, 09 Oct 2026 14:18:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFBTU-00000006Raq-24sr;
+	Fri, 09 Oct 2026 14:21:28 +0000
+Received: from out-49.mta0.migadu.com ([2001:41d0:1004:224b::31] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBQl-00000006RSL-1a4z
+	id 1xFBTQ-00000006Ra6-4BpI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:18:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E64E60098;
-	Fri,  9 Oct 2026 14:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 181D41F00893;
-	Fri,  9 Oct 2026 14:18:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791555518;
-	bh=P1xT8kIEPQsNlllxKNcDEkZl+24WAzqvZIpeRT/H2QA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CUKv80xnqp9wtqp/jx9LsP21bSwE648OTT9sAp5YbntX3nG+YcSdwSUC/oIJgxYjQ
-	 CVpIrzIVLMcr0c0CCWD5b0spCReKAv7PYYXrA1x9ZTGU9emPu838Y4V7yNfIXGTf0V
-	 pPpiJADOxFvVy4UwSGBNUWloJhrtFh2Ec2HCeHBzXNoGiDAP06ZNDFfC6t2AT5sbsU
-	 hCwyfTQElhCcuQ2FI017sAQ5p22kKts54V6y5gF73ERYcoVw4O5vIymsMnfKP1/Zwp
-	 X0mC34uWjb4q+EudakKEqTgcT/l/Jcryj/+026ANJciKsXVQCfrZtko1pR24VpLuNj
-	 /+MbZTfmEGg1g==
-Date: Fri, 9 Oct 2026 09:18:37 -0500
-From: Rob Herring <robh@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: lgirdwood@gmail.com, broonie@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, perex@perex.cz, tiwai@suse.com,
-	p.zabel@pengutronix.de, cix-kernel-upstream@cixtech.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-Message-ID: <20261009141837.GA1661224-robh@kernel.org>
-References: <20261009092552.2377960-1-joakim.zhang@cixtech.com>
- <20261009092552.2377960-2-joakim.zhang@cixtech.com>
+	Fri, 09 Oct 2026 14:21:26 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=XumFm+JZ5sp20UCcl1zhPKdv9LGzZM2iFj9GOxKc9Og=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791555681; v=1; x=1792160481;
+ b=rU7sJd0aIZyW1n2XpvCgEvi4uvsqUf1ycvz5fvCBKAPzovW2xOyhs++OdP9ievfP5akKzAvO
+ D2NJqpSF4Zp5P+3jPCFxR0XX2AK/LPQNZsaAxaKu0ZFhpfyHv2qsQye7I58s70A9BYqilcMToZF
+ vVPVpz49013zzrF6jmvqa33o=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id fa5e88ec6f13c988;
+	Fri, 09 Oct 2026 14:21:21 +0000
+X-Mizu-Trace-ID: fa5e88ec6f13c988
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so7841e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 07:21:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwLrqdnCO0ONXC6bF2cFB+2Gja3mCGXZcAwF93qaCyu0vuSUkT+Jcm9EyzEn+cCrwpoRmeRdZFli0GKhdFKb5P/@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ4ivOZxUuUsxStp/s7Krf6EgnelJPAUPpdgnuYyAFhNTDxpT0y
+	Dzq6yA0zTb0HhOZsWfofRZpZhpGwy6CcV24fMEg4gTvrJlf10rEx/kVEV54O3kwJPaxNS9+h+Jq
+	L4t27vF0q/OU7V04xlvU6Qr32FnVQHxu9+9a9NAKv
+X-Received: by 2002:a05:6512:1291:b0:5ae:cf5f:4a88 with SMTP id
+ 2adb3069b0e04-5bcdf948b64mr90202e87.8.1791555680353; Fri, 09 Oct 2026
+ 07:21:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261009092552.2377960-2-joakim.zhang@cixtech.com>
+References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <179155224299.829527.1733164520192309991.b4-ty@b4>
+In-Reply-To: <179155224299.829527.1733164520192309991.b4-ty@b4>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 9 Oct 2026 15:20:44 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTymHEqCJco+d_yy33ndqPPsoZARhOQZ5A0Zwc5N3SV4Qg@mail.gmail.com>
+X-Gm-Features: AclHuK-kdu9KsnePYPGj9T-71wgfKb376h2mI-vnllt523DbHScqL5HOwi_XcNU
+Message-ID: <CA+EHjTymHEqCJco+d_yy33ndqPPsoZARhOQZ5A0Zwc5N3SV4Qg@mail.gmail.com>
+Subject: Re: [PATCH v23 00/14] KVM: arm64: CCA: Add basic plumbing for Realms
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, will@kernel.org, catalin.marinas@arm.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, 
+	gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, 
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, 
+	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, 
+	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, 
+	jonathan.cameron@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_072125_320912_B7181010 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,110 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 05:25:49PM +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
-> 
-> Add the DT binding for the Cadence I2S-SC controller integrated in
-> the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
-> controller supporting standard I2S, left/right-justified and DSP
-> formats, plus TDM operation with up to 16 slots.
-> 
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  .../bindings/sound/cix,sky1-i2s-sc.yaml       | 93 +++++++++++++++++++
->  1 file changed, 93 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-> new file mode 100644
-> index 000000000000..3fdf2334c492
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-> @@ -0,0 +1,93 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-sc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cadence I2S-SC controller
-> +
-> +maintainers:
-> +  - Joakim Zhang <joakim.zhang@cixtech.com>
-> +
-> +description: |
-> +  The Cadence I2S-SC controller integrated in the CIX SKY1 audio subsystem.
-> +  It supports full-duplex stereo playback and capture in standard I2S,
-> +  left/right-justified and DSP modes, as well as TDM operation with up to
-> +  16 slots. The transmitter and receiver are started and stopped together
-> +  by the controller.
-> +
-> +allOf:
-> +  - $ref: dai-common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-i2s-sc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    items:
-> +      - const: hst
-> +      - const: i2s
-> +      - const: audio-clk0
-> +      - const: audio-clk2
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  dmas:
-> +    minItems: 1
-> +    maxItems: 2
-> +    description:
-> +      One DMA channel for instances wired for a single direction, either
-> +      "tx" or "rx", or two channels for both transmit and receive.
-> +
-> +  dma-names:
-> +    minItems: 1
-> +    maxItems: 2
-> +    items:
-> +      enum: [ tx, rx ]
-> +
-> +  "#sound-dai-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - dmas
-> +  - dma-names
-> +  - "#sound-dai-cells"
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    audss_dmac: dma-controller {
-> +        #dma-cells = <1>;
-> +    };
+Hi Marc,
 
-Drop. We don't put providers in examples. What example made you think 
-you needed it? And if you do, why not the clock, reset, and interrupt 
-providers?
+On Fri, 09 Oct 2026 14:28:03 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> Of course, mmu.c is where the crap happens, so anyone with any interest
+> in this stuff being halfway sane, please review the conflict resolution.
 
-Rob
+I went through the mmu.c resolution and it looks good to me. Unmap and
+aging are still no-ops for protected VMs, their abort handler is
+unchanged, and the default op keeps the tracked unmap for nested MMUs.
+Two minor things you might want to tidy up.
+
+kvm_vm_stage2_unmap_range() repeats the lockdep_assert_held_write()
+and WARN_ON(size & ~PAGE_MASK) that kvm_stage2_unmap_range() already
+does before calling the op.
+
+The VM_WARN_ON_ONCE() in kvm_vm_mem_abort() reads the ESR from the
+vcpu again, where next had moved these checks to s2fd->esr. It's the
+same result today, since the only caller handles a real abort, but
+this (and dropping the vcpu local) would keep it in line with the
+rest:
+
+        VM_WARN_ON_ONCE(kvm_s2_fault_is_perm(s2fd) &&
+                        !esr_abt_is_write_fault(s2fd->esr) &&
+                        !kvm_s2_fault_is_exec(s2fd));
+
+Cheers,
+/fuad
 
