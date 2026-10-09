@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFE1CA601D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C34CA601D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5bMgzoAD9TX0Ya0OQIcLnyUsUBkoiE4qn++57CQU/w=; b=U2bUrjAERztDyNVEcm67HeJX5y
-	K1y5CvvW5ilM8K1OaeOFskFZzSFl0MVd/At9VdZVSJYAnizd9NkxK25v/yqRSapUPjy+pdHefuK0n
-	LFCNMcpNGQqCvl50neOO4i6vTCbBVYqvL7XVrxeT0ISNqZidBRrRkneouFRnwawfVAxnDIiSP2r9O
-	nK/oG9YA0vnylUJ7U+YJMYLjNVBKmt8pz58U2ulrOoCFGQywEPKuLpeakASyckY1hQG/ZNFzJvmXj
-	FfliZFa+Mj1vmSIEraNWmdTOINtpeHArkn9np7jCCeW0yhundoFYuaSDyH7EdfQrxIIhhxDo0Mfh/
-	O3L6hvjw==;
+	bh=I2u5RYrLi5Vo1HxinX/08L+8VcsTjPu5sczVSHgh/yQ=; b=BXZg5owVJwr6yTmSvzyzKX/pE9
+	f+7Z+ooP/rKLuJajLR5+tmybSlM6pd6hZII+Zl/vOvv+oOlH1Xspf2zyXgxnSggrJy/RfchT4XOqy
+	zXz+mTQ9BhQGcASusJWua6K2Ghr/lZz/+irsalykkrhv+Zo19K1xl/eoo7AjWKWGUtpObk3ejNRRb
+	JXNx5BHR79Vg+87xpqbIQ7QvDzYU4HIPSuEMruJuHQhIC0mdBYTdb8iqrf6dk4vGgzZl20148eprA
+	z5cvNiE7AmfSlpWH+CQ3YIZ5KemoNakQ5QYz/aIKdy7ZEWccTiWYF2kQEOFrqQYNwmqaOfGuXbyw5
+	c3X05UHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDnW-00000006gqM-1CQZ;
-	Fri, 09 Oct 2026 16:50:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFDwX-00000006jvu-3tLy;
+	Fri, 09 Oct 2026 16:59:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDnU-00000006gq3-3VHI;
-	Fri, 09 Oct 2026 16:50:16 +0000
+	id 1xFDwX-00000006jvn-1qU5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 16:59:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48D016053E;
-	Fri,  9 Oct 2026 16:50:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA00E1F000FF;
-	Fri,  9 Oct 2026 16:50:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 76A8E6053E;
+	Fri,  9 Oct 2026 16:59:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73EDA1F000FF;
+	Fri,  9 Oct 2026 16:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791564616;
-	bh=X5bMgzoAD9TX0Ya0OQIcLnyUsUBkoiE4qn++57CQU/w=;
+	s=k20260515; t=1791565176;
+	bh=I2u5RYrLi5Vo1HxinX/08L+8VcsTjPu5sczVSHgh/yQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gWyDY+ezHCpkHnpiVa+qJfyQh44cMGLAEea9ajLx2EdZnqG8WGnwDgrNQ7fK5dGeC
-	 giFTynWHnUkmmIctB0JvtkUcCdR7FFXh3CQwa9xCkKFARs1xDhGdtGZWd5domM8smQ
-	 gdzJ7lbM07RnbBAmgV9z2mF/k1lMhz83yXlO3ZZfEenB3zmqJYXvSZNYG1mdaXB0hV
-	 n4QawKNGnVK9Ypjce91gXG73wOELPv+q004DNN0axye/nqPWpOl3GkfhBpaZku1a5e
-	 bqrMk6P9ek3E/Tiw/DzGwUo0MBtMVzaUA1dqKqiZrY1OEtCDWLrKeT9ej8V4lQqFgW
-	 qGoBkJunp7ZCg==
-Date: Fri, 9 Oct 2026 11:50:15 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	b=KvESlhRhXMB5RiySjeMmv2OIoc8Gdi7xij7cwSN+xkUh1YZXYI4t1SSwGRERnhIHK
+	 a2w0Y7RWh1XH8pGXI0HX8wGG9I1PEDnrbhhANmRg2VYIfurkM2ecrahSvL5OX0Uu55
+	 aahX3lJERxdLwRpZyHBPjSp2QVkbZbW9KY5hV1pQIQklnSqBXQ0ZTUAdGlwxxwZe4O
+	 9KQfFPafjPSS4CXVJNsZezhFqZ8IG7YrUvm1zbssjNXD6uv6s4lYBFTORj+nTbEOaM
+	 RBoqa46+1lALyGhrBKu5ddwzH/U5yEy5yliXcEeLdPr2CkCzUzRYhg0xtvFRAFCX/b
+	 BglZe/PJJa9Kg==
+Date: Fri, 9 Oct 2026 17:59:30 +0100
+From: Simon Horman <horms@kernel.org>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Paolo Abeni <pabeni@redhat.com>, David Wu <david.wu@rock-chips.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH net-next v11 4/6] dt-bindings: net: rockchip-dwmac:
- document pcs-handle
-Message-ID: <179156461404.2718981.13574948615000926953.robh@kernel.org>
-References: <20261008175225.3375274-1-coiaprant@gmail.com>
- <20261008175225.3375274-5-coiaprant@gmail.com>
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Dragos Tatulea <dtatulea@nvidia.com>,
+	Alexei Lazar <alazar@nvidia.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
+Subject: Re: [PATCH net-next 1/3] net: selftests: use skb_share_check() in
+ the loopback receive hook
+Message-ID: <20261009165930.GI83879@horms.kernel.org>
+References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+ <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261008175225.3375274-5-coiaprant@gmail.com>
+In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 09 Oct 2026 01:51:58 +0800, Coia Prant wrote:
-> The Rockchip GMAC binding needs to describe the PCS reference used by
-> the SGMII support added later in this series. The property will be
-> parsed by rk_pcs_init(), and a missing phandle fails the probe. Add it
-> and require it when phy-mode is "sgmii" on rockchip,rk3568-gmac, the
-> only SoC in this binding that has SGMII support.
+On Wed, Oct 07, 2026 at 08:29:22PM +0200, Nicolai Buchwitz wrote:
+> The loopback hook gets a shared skb when another ETH_P_IP handler is
+> bound to the device. skb_unshare() does not unshare it, so
+> skb_linearize() on a non-linear frame hits BUG_ON(skb_shared()).
 > 
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->  .../bindings/net/rockchip-dwmac.yaml          | 27 +++++++++++++++++++
->  1 file changed, 27 insertions(+)
+> Use skb_share_check() instead.
 > 
+> Fixes: 3e1e58d64c3d ("net: add generic selftest support")
+> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
