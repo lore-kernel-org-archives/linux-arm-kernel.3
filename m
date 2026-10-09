@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35394CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CECECA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0RSIhug9e9ydgjudmmhXvwA5s3usVBKmgWxJQR/YPg=; b=ZF6Ot3byXZiIwKci1qx8JjJtUA
-	uTYk23M9vNx9dM/ZrN+qLVt3NEmtxMm6GUmYKKRunNaOqkzzi/MjopR7jzJl+ARenEX9oOlnkDSai
-	P3zXF9bt6OiaHdM9phzjIFZ4MQaaxF5dqE3ksj2U0ZKRaI0SeA2FJeyEezObix8QEtRNCBrcNEVjF
-	fY9WagF+KVD0dBwbssWCU5BtTPqBgVt1PEgcUMnXwuLV3GWz5l2ApP25GhlH9mnMcxqz+lfgVPwKX
-	APIxfocl+IXXYDv3SWxHryvGb3xO6BqhMKsRNxYWkK+ULvuQk91Hx81R5AbfVQN7VWW0l9zxRyH/r
-	cJfENkRQ==;
+	bh=J34bsJo8nGDRlMQcuyT+ytZX7Mjn53KWqDlCxkI1Ar0=; b=q+dKL80IWLcu4eaGr5cxtkR4zp
+	02eLucf9666krea8qnq23clMI2Gwr+sc6IyeWDclHPO1TuGcs7ip8VI+R8Khvwk/4p3hd/rUEwcdl
+	/hcdJoEM/wkOb1ciNVHV2avvFPiFZnmACHqbnTtHQCQb1U9OzaiEl8W4NDYLQPR/i+FeaJun2arpk
+	aELLkpdXffuNDHuL8g1s6tvJ5VvlzS2NbfO6UrYB4bkIUWbmxU3UrIm3FwMIcV4VJfk4swRXCTxMk
+	wl/hiYf56xkqcvkCfiTuMCV7VwSWXmo96obMBizFS1XmmCXcK3OtIovL5svXH3Q+PIsnFGQIrUFLI
+	fhBwXHVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBWw-00000006Rss-3fTq;
-	Fri, 09 Oct 2026 14:25:02 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xFBZR-00000006S16-1Bnr;
+	Fri, 09 Oct 2026 14:27:37 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBWs-00000006Rs2-2pXy
+	id 1xFBZO-00000006S0l-0AEy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:25:00 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261009142450euoutp020aa0c88be8ea75b1531f0ec7e0815418~c4pc4Kji92877128771euoutp02R
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 14:24:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261009142450euoutp020aa0c88be8ea75b1531f0ec7e0815418~c4pc4Kji92877128771euoutp02R
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1791555890;
-	bh=i0RSIhug9e9ydgjudmmhXvwA5s3usVBKmgWxJQR/YPg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=aiqEJSWOpDfUL1AKnBKqTlwcfxTrq/0miLWX+Wzd1JbYG3hVbE9drv9eNOifHgEql
-	 emZ8+9HPeiodQIG7JntklpErISRudBQfgtd3p/eahry/SnuvXYkbKxhpz59KMOb5mG
-	 M+q0tsnIp/g6YDhqptVYzJndtyaOadY4kv31Cj78=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261009142450eucas1p22aec6df61384870aa07eecf8ca4f269c~c4pcwGLoI2048820488eucas1p2r;
-	Fri,  9 Oct 2026 14:24:50 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261009142449eusmtip113f1886f9735f58850eaf51a840c30dd~c4pb_Pa1X1436814368eusmtip1V;
-	Fri,  9 Oct 2026 14:24:49 +0000 (GMT)
-Message-ID: <a4e7873b-f5eb-47cf-91f6-ad3e70f7b0cd@samsung.com>
-Date: Fri, 9 Oct 2026 16:24:49 +0200
+	Fri, 09 Oct 2026 14:27:35 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49e73611928so13124405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 07:27:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1791556052; x=1792160852; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=J34bsJo8nGDRlMQcuyT+ytZX7Mjn53KWqDlCxkI1Ar0=;
+        b=gQ5CNU9VRBzEAIsEeI9vgxkr0auXDPlQXZqLmRYj3zU7Ez+PiqDczlfo/YWghCimXn
+         OyIilUBQkxTb0e4XS3cE90COMc1n8hAnrJl8lByY8J3PUBoV0XOLDuk5UxZOUfaEOATH
+         NkeeHh0xB/E74nOaprNodCv++Cgc6cIaAUiQWNfGNQWgMosY8TslI+CBngs6eqUEquxj
+         NyUB6tkJUFh4OkXjnWY6EmPutEUVT2vH6JtYblUBUHXM0pt4iwEslXdkAsSTJ5tDBwI6
+         ZKkek8kOm5W2NG5hwRD13zF/l9Ajl4XOfSSvktTTh+PuRlWanF06r9HY2i4RhOOdFGtM
+         KJgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791556052; x=1792160852;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=J34bsJo8nGDRlMQcuyT+ytZX7Mjn53KWqDlCxkI1Ar0=;
+        b=UBikW1yfk7rpdF2nPpiBZo+uYCQr1qnjogibF0tGDcO9dmy5vJjCE87k8IKSi2dH/R
+         BFcivlyiOa6zE3mM2le9DG/G9TnoxzxtDqjTMI6HZaD6UeSLH9Rwp7MFtVeE0BFjNQpt
+         AzlbUhZuLGoUXBku9rFqGao54pB7uGYzvk2VCRWZCmpI1DGdpqgTL40RTrlNhJnWFy0D
+         +8VBAZSZluZ2uQ960GZEU2Qx++OLKCHYTN5qerkfLlebQ0VUxSfgorCmF/4ZPJDegdkE
+         3NMg5TOAqfelmOSV7pBsooqqf4bnqe1a+NatO9rp/qgK7A25rdJXP1Fwg/Rj9PnoL0Wl
+         gpKg==
+X-Forwarded-Encrypted: i=1; AKwUvBx2hVKQ9Xt3gf08hhQ6E2QuaaOGpdsSbNtsMYnO/uffQPA7gLW4gbRR5ltYcdyOCYH4e08k8lH1ezFZ7myXKsw7@lists.infradead.org
+X-Gm-Message-State: AFuF++nz06D5BqIDSpKYX3+UPXfyXnL4BygAAux2uAwiSFEyxaiJ4Xc2
+	JOKryBMm/cRa5/6EBTgVX4E8NGnKPmDIjXebk8w+F8OtXrHf+Z3iyR9z4hZPYDYx8mI=
+X-Gm-Gg: AYBFou21Y751mui8GtHiUVueDejyLI0ZJSjSEPtrdXSN1x+ri712EC8wueE826QG5df
+	Y6NjzXrvS4xPVWnOIfzspkKtaGb5IL9G68qT1gIKWSrJ7SCJCouYE7CRcn5PZ5M5RSBpCOCMdrH
+	h3DmTp6DQdzcoqmgc0mtOYRVhuUVTeFjwtwn1ddXdtmF5BedtuMaoNVQu8kWKwMfkMMZtAEnc6h
+	1VpjneLf46T8uI+Lyc9pceDSBwle82sZBBEYJGlUXxZNxm/KcPsl+b1wlrDHnD5HORd8orKQiyP
+	CNAdRJvRmd0umjEXOnzUtotqIsxPc65VFUGB0vjdFc/nc6jtCa7jEtYSOoO6evvr5cqGctQ7+e6
+	VKAUvQtOxjPnuHYCFMkH9fhUKeDkuXdxWHwUk2bZE4HWq6MCxgoVOn1/ZP9oXUzsBUr0g7zEG+d
+	14pE5bRaiGFxvJ6ldf4QuUewtx6YKXhMv/aGECsVvGigRSYPFOLih2m270o0DR4y+F4wbslLJ7b
+	xzY965d17mYqA==
+X-Received: by 2002:a05:600c:a011:b0:49e:6581:7baf with SMTP id 5b1f17b1804b1-4a18e447d8bmr38769485e9.2.1791556051602;
+        Fri, 09 Oct 2026 07:27:31 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf21276sm102532745e9.8.2026.10.09.07.27.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Oct 2026 07:27:30 -0700 (PDT)
+Message-ID: <77e7e412-9ee9-4a6c-9576-db4f8f673bf2@linaro.org>
+Date: Fri, 9 Oct 2026 15:27:29 +0100
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] dma-direct: Restore arch_dma_alloc() for the
- DMA_ATTR_NO_KERNEL_MAPPING case
-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig <hch@lst.de>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Russell King
-	<linux@armlinux.org.uk>, "Claude Opus 5 . 5" <noreply@anthropic.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/8] coresight: tmc-etr: Prevent per-thread events from
+ sharing a sink
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Qi Liu
+ <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
+References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
+ <20260728-james-cs-multiple-per-threads-v3-4-6aee7579f1dc@linaro.org>
+ <20260813160504.GC8904@e132581.arm.com>
+ <dcea48bc-6a64-413b-acf5-9783f979ab6d@linaro.org>
+ <20260819084515.GF8904@e132581.arm.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260930135734.1013905-1-m.szyprowski@samsung.com>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260819084515.GF8904@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261009142450eucas1p22aec6df61384870aa07eecf8ca4f269c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
-X-EPHeader: CA
-X-CMS-RootMailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
-References: <CGME20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4@eucas1p1.samsung.com>
-	<20260930135734.1013905-1-m.szyprowski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_072459_339702_60B9CCD5 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20261009_072734_151972_64B9359D 
+X-CRM114-Status: GOOD (  44.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +112,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30.09.2026 15:57, Marek Szyprowski wrote:
-> Commit 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING
-> handling") moved the DMA_ATTR_NO_KERNEL_MAPPING shortcut in
-> dma_direct_alloc() in front of the arch_dma_alloc() call. Architectures
-> providing their own DMA coherent allocator (CONFIG_ARCH_HAS_DMA_ALLOC)
-> therefore no longer see such requests. ARM 32bit is one of such. Lack of
-> the call to arch_dma_alloc() results in the lack of proper cache
-> management on HighMem pages.
->
-> Take the dma-direct shortcut only for coherent devices or when the
-> architecture doesn't provide arch_dma_alloc(). While touching this,
-> move that check into separate function to avoid duplication in alloc
-> and free paths.
->
-> Fixes: 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING handling")
-> Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> Closes: https://lore.kernel.org/all/yq5ams2akznl.fsf@kernel.org/
-> Assisted-by: Claude Opus 5.5 <noreply@anthropic.com>
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Applied to dma-mapping-for-next, because it looks that this case has no
-active users, so it is not the urgent fix.
 
-> ---
->  kernel/dma/direct.c | 22 ++++++++++++++++++----
->  1 file changed, 18 insertions(+), 4 deletions(-)
->
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index da665ca22d5c..a31bd3129f3f 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -179,6 +179,22 @@ static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
->  	return page;
->  }
->  
-> +/*
-> + * Check if the allocation can skip the kernel mapping and return the page
-> + * pointer as the cookie.
-> + */
-> +static bool dma_direct_use_no_mapping(struct device *dev, unsigned long attrs)
+
+On 19/08/2026 09:45, Leo Yan wrote:
+> On Fri, Aug 14, 2026 at 10:09:01AM +0100, James Clark wrote:
+> 
+> [...]
+> 
+>> There isn't any sharing with "another perf session", unless there is a
+>> mistake somewhere? Checking that the owners are equivalent enforces this. Or
+>> do you mean another event owned by the same process?
+> 
+> Now I understand that the problem is constrained to different events
+> within the same session.
+> 
+>> I'm not sure the exact model you had in mind was that still supports this
+>> and fixes the bugs?
+> 
+> Let me try to describe my understanding of the problem.
+> 
+>    ./perf test -w named_threads 2 1000000 &
+>    ./perf record -e cs_etm//u --per-thread --pid $!
+> 
+> We can simplify the flow as:
+> 
+>                  | T1 |
+>    CPU0        ------------------------------
+>                     |   T2      |
+>    CPU1        ------------------------------
+>                                 `> T2 stops and the driver reports
+>                                    the warning when trying to sync
+>                                    ETR_BUF(T1), while T2 is associated
+>                                    with ETR_BUF(T2).
+> 
+>    AUX_BUF(T1) |                            |
+>    ETR_BUF(T1) | Bounce buf0                |  -> Used by H/W trace
+> 
+> 
+>    AUX_BUF(T2) |                            |
+>    ETR_BUF(T2) | Bounce buf1                |  -> Not used by H/W trace
+> 
+> With `--per-thread --pid $PID`, perf creates separate events for the
+> child threads, say T1 and T2. Perf allocates a separate AUX buffer
+> for each event, and the ETR driver also allocates a separate bounce
+> buffer for each event. However, because there is only one shared ETR
+> sink, only one of those bounce buffers can actually be used by the
+> hardware at a time.
+> 
+> If T1 stops while T2 is still running, the ETR remains enabled. Later,
+> when T2 stops, the ETR is still using ETR_BUF(T1). This mismatch
+> triggers the warning and prevents the data from being copied.
+> 
+> I am just wandering if we can improve the sink driver to only allocate
+> a single bounce buffer that is independent of any threads (and any
+> associated events).
+> 
+>                  | T1 |
+>    CPU0        ------------------------------
+>                     |   T2      |
+>    CPU1        ------------------------------
+>                                 `> T2 stops and can sync trace
+>                                    from the shared bounce buffer
+>                                    to AUX_BUF(T2).
+> 
+>    AUX_BUF(T1) |                            |
+>    AUX_BUF(T2) |                            |
+> 
+>    ETR_BUF     | Bounce buf                 |  -> Used by H/W trace
+> 
+> This might also simplify the CPU-wide case. Each CPU would still have
+> its own AUX buffer, but the ETR driver would maintain only one bounce
+> buffer for the shared sink. A reference count could track how many
+> events are using the sink, with the final event responsible for
+> stopping the sink and copying the trace data from bounce buffer to aux
+> buffer.
+> 
+>> The one in this change is pretty complete and only does 4 comparisons,
+>> which seems quite simple to me.
+> 
+> Before going further with the heavily sink buffer refactoring, perhaps
+> a more pragmatic solution would be to reject the problematic case for
+> now. Can we do something like below?
+> 
+> +void coresight_trace_id_is_perf_started(struct coresight_trace_id_map *id_map)
 > +{
-> +	if ((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) !=
-> +	    DMA_ATTR_NO_KERNEL_MAPPING)
-> +		return false;
-> +	if (is_swiotlb_for_alloc(dev))
-> +		return false;
-> +	if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_ALLOC) && !dev_is_dma_coherent(dev))
-> +		return false;
-> +	return true;
+> +	PERF_SESSION(atomic_read(&id_map->perf_cs_etm_session_active));
 > +}
+> 
+> @@ -399,6 +399,15 @@ etm_event_build_path(struct perf_event *event, int cpu,
+>   			goto out;
+>   	}
+>   
+> +	if (!coresight_trace_id_is_perf_started(&sink->perf_sink_id_map)) {
+> +		sink->perf_owner = event->owner;
+> +		sink->perf_target = event->hw.target;
+> +	} else {
+> +		if (sink->perf_owner != event->owner ||
+> +		    sink->perf_target != event->hw.target)
+> +			goto out;
+> +	}
 > +
->  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
->  		dma_addr_t *dma_handle, gfp_t gfp)
->  {
-> @@ -226,8 +242,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  	if (attrs & DMA_ATTR_NO_WARN)
->  		gfp |= __GFP_NOWARN;
->  
-> -	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
-> -	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev))
-> +	if (dma_direct_use_no_mapping(dev, attrs))
->  		return dma_direct_alloc_no_mapping(dev, size, dma_handle, gfp);
->  
->  	if (!dev_is_dma_coherent(dev)) {
-> @@ -374,8 +389,7 @@ void dma_direct_free(struct device *dev, size_t size,
->  	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
->  		mark_mem_encrypted = true;
->  
-> -	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
-> -	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev)) {
-> +	if (dma_direct_use_no_mapping(dev, attrs)) {
->  		/* cpu_addr is a struct page cookie, not a kernel address */
->  		dma_free_contiguous(dev, cpu_addr, size);
->  		return;
+> 
+> We use a central place etm_event_build_path() to record and compare
+> event's owner and target process, then we don't need to spread the
+> check into sink drivers. We only care about if owner and target must
+> be consistent.
+> 
+> Regard of the inherit/inherit_thread, I always see they are consistent
+> within the same session. Should we ignore them?
+> 
+> Thanks,
+> Leo
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Yeah I think we can do something like this, but we only need to do it if 
+the sink has multiple ETMs reachable, otherwise we don't need to do any 
+ownership check at all. And we don't need to check the target either.
+
+Something like this:
+
+   if (sink->has_multiple_etms) {
+     if (!coresight_trace_id_is_perf_started(&sink->perf_sink_id_map))
+       sink->perf_owner = event->owner;
+     if (sink->perf_owner != event->owner)
+       goto out;
+   }
+
+If there is a 1:1 sink/ETM mapping, then the perf core exclusive PMU 
+rules already prevent all bad sharing cases. Then multiple concurrent 
+ATTACH_TASK sessions/users are supported:
+
+   perf record -e cs_etm// -- sleep 100 &
+   perf record -e cs_etm// -- true
+
+This is allowed by the exclusive PMU rules because the two different 
+processes can never be running on one ETM at once, and if there are no 
+shared sinks we can allow it too.
+
+If one of the sinks on one of those sessions is shared, then the new 
+behavior is that the second session fails to open. (If a system had a 
+mix of shared and not shared sinks, I think Perf might handle the 
+failures gracefully and continue with a partial set of events/CPUs 
+opened, but it warns about this)
+
+We don't need to check hw.target because "perf --per-thread" already 
+attaches to all existing threads (which are different), and we don't 
+want to report busy in that case. We do need to turn context IDs on for 
+per-thread mode though, because shared sinks mean that you might get 
+trace from multiple different threads even in per-thread mode. But 
+that's fine as long as the owner is the same, same as the existing 
+per-CPU mode.
+
+
 
 
