@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE4DCA601D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DF8CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1NQHWvgiocrQrohPdZ3lILWGC/DaP8S52W3+7hraoY=; b=1efg6KN8ZIH7WHvzHiZ5Y3CJJ7
-	VQD12haiF1rDcSS5x7UfJxNyZXkIm7Bw2/7GyqDpP1EwsaWq19nwL50qDXJ9x7+VjyDhWtEBdlL+a
-	eTh9g2sU4V1EFprRa10dDXb2XUtV9Yl/mNkqCNRg2C09ClWx/grNv1rTKyDVc17S9YjnGUQXFShEi
-	1BNXCXUz4d+wTZ0a1YqK3OpEaxfWM5I9NcwdR6J7WpMxShusi09RP9+emA3PER/K+jEv1cwXhQwA8
-	YPw6VwftbNe+4+V0BSLe9isyWxL9koqDksNe9OIdPlTG3tsCWkn9zO35mbsnwObzJ5PSsYQm5OuTn
-	bKNeKjYQ==;
+	bh=jYQTo7SNBQvmwYB7sCqA9G9P0Xu8uvqQ8jOhaY+aihs=; b=oTHBhXA7UtB3RYz8yalWIfNH2E
+	ODQ+y8gZgbzVqImM+sfEkm1m73sELSLuU+P6lMXIBBYDaD1JcAhHQEKPWNM7rdsUEcSGAhe1BB3tO
+	pMckv9Rkr8xX2BKQ8vse234vDf4BVQViyTIa+3KjOL5Gr03ZuQHL9LHs4vH9FSoCDnrw9Xk5OuTRQ
+	/+aINt62vwfk8Aa4LbDN9wvswQUCGF9UIw76OWl/+ELLTND2Myq3PcAIJLOgzyn1OAPZuPCtPrw3A
+	fxWttXNhYetHHiW1RPAuLWN1oB641vM4lSaaGRNGcoJc1AWi8GaVgj09HJVxE0PyygnaMKiQD/79A
+	x/rVlH1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDQn-00000006eP2-40JE;
-	Fri, 09 Oct 2026 16:26:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDQm-00000006eOk-1htF;
-	Fri, 09 Oct 2026 16:26:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDCD942E0B;
-	Fri,  9 Oct 2026 16:26:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A93D1F000FF;
-	Fri,  9 Oct 2026 16:26:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791563207;
-	bh=P1NQHWvgiocrQrohPdZ3lILWGC/DaP8S52W3+7hraoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=exb8hAaeBUkFUrpnnUkhqLQ5zgFgMWnN/rYINMuBzDs1GNM4i9JO2MPVFhuXRhFo0
-	 bqz3igmYBv7ZBuRWS/kvuYQ5ffUaHTPuDsrkHE/UxTZ8gJOgIGsoInf5FsQ/UB7y3A
-	 g6CVRHuOO5bxRC/opNlTJ4l+8W+7F8avwelRbJO07mkTvjpRefiI3V10A1GVbXs3Go
-	 XiKBGRBT0rS5eYl1YAt1D6JtcC8KFP/8pAvYu+y+q/bNxjXRUhITPA1EQMMGGJt/eI
-	 lisapvQarlC5G9y4IP9ryxp+vI8vfLGLmBHwRi5eyGkWEwhSa/zfu2VmAVl2fAr/CB
-	 DWas7S1aHp1/A==
-Date: Fri, 9 Oct 2026 18:26:36 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wandun <chenwandun1@gmail.com>
-Cc: robh@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
-Message-ID: <askVvEPHyrhpF8aw@kernel.org>
-References: <20260922084256.1515554-1-chenwandun1@gmail.com>
- <ar9ogXc12cLjziHS@kernel.org>
- <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
+	id 1xFDV3-00000006emv-3veU;
+	Fri, 09 Oct 2026 16:31:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xFDV1-00000006ema-3Qbr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 16:31:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA7EF1D14;
+	Fri,  9 Oct 2026 09:31:04 -0700 (PDT)
+Received: from gentoo-vm (kajpuc01-mac-mini.manchester.arm.com [10.33.9.44])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB3983F66F;
+	Fri,  9 Oct 2026 09:31:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791563468; bh=lb0DeCf/KMhA4VhiVFBNKtdZtnLIGHb27hHQyGK+1W0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m9UDeTbFdfgXuDllcP0z+USXUbNALllDc1DrHcUzL3liG/CBnASY0XhUCXBbbzmAO
+	 Kz/iBNI9RzRw2LPWu/iPYZUBCVHY4dZzx62fu9BxbmdsvbTZEg9hkbFRFoqAx4clpt
+	 QWOeK+lXzn91zzicw8rbyu1fp88aCGpscI7oibxQ=
+Date: Fri, 9 Oct 2026 17:30:59 +0100
+From: Kajetan Puchalski <kajetan.puchalski@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jing Zhang <jingzhangos@google.com>, 
+	Karl Mehltretter <kmehltretter@gmail.com>, Fuad Tabba <tabba@google.com>, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 03/10] KVM: arm64: nv: Don't loop on AT S12E{0,1}{R,W}
+ with an invalid VTCR_EL2
+Message-ID: <k6hsxo35ou3b5bcdo5xiew56zo25c4dmxqocnxszjvuqd7ct44@owruwfstprrh>
+References: <20260928152507.2116110-1-fuad.tabba@linux.dev>
+ <20260928152507.2116110-4-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260928152507.2116110-4-fuad.tabba@linux.dev>
+User-Agent: NeoMutt/20250109-134-7b7c50
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_093111_904083_3DDC0177 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 11:04:47AM +0800, Wandun wrote:
-> On 10/2/26 16:17, Mike Rapoport wrote:
-> > Hi Wandun,
-> > 
-> > On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
-> >> From: Wandun Chen <chenwandun@lixiang.com>
-> >>
-> >> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> >> camera ISP, ...), kdump currently dumps those carveouts as part of
-> >> system RAM even though their contents are firmware state that is not
-> >> useful for kernel crash analysis.
-> >>
-> >> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> >> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> >> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
-> >> them; reusable CMA regions are different because their pages are handed
-> >> back to the buddy allocator and may carry crash-relevant data.
-> >>
-> >> ACPI systems already filter reserved memory out of the vmcore through
-> >> their existing path; only DT-based systems currently fail to filter these
-> >> regions, which is what this series addresses. The flag lives in memblock
-> >> itself rather than in a DT-only structure, so both ACPI and DT systems
-> >> can benefit from it (suggested by Rob, thanks).
-> > 
-> Hi Mike,
-> 
-> Thanks for the review.
-> 
-> > Can you elaborate how ACPI systems filter their reserved memory?
-> 
-> In the EFI memory map, firmware carveouts are reported with the type
-> EFI_RESERVED_TYPE. This type of memory gets the nomap flag set in
-> memblock.memory (is_usable_memory() returns false in reserve_regions()
-> and mark these regions with nomap flag), during prepare_elf_headers(),
-> for_each_mem_range() filters out these nomap regions. Therefore, the
-> memory reserved on ACPI based systems will not be dumped into the vmcore.
-> 
-> I will add these description in next version.
-> 
-> > With your patches, the memblock flag becomes a part of DT-only
-> > infrastructure, so that claim that both ACPI and DT benefit from it does
-> > not hold, doesn't it?
-> 
-> You are right, the wording was misleading. Let me clarify what I meant.
-> 
-> In this series only DT marks regions as MEMBLOCK_NODUMP:
-> /reserved-memory and /memreserve/ entries are tagged in the OF
-> paths (of_reserved_mem.c, fdt.c). ACPI does not set the flag and
-> keeps filtering its reserved memory through the existing path, as
-> described above.
-> 
-> 
-> What I intended to convey is that the flag itself lives in memblock
-> rather than on the DT-only struct reserved_mem, so it is available
-> for reuse. If an ACPI system ever needed to exclude a firmware-owned
-> region from the vmcore, it could mark that region with MEMBLOCK_NODUMP
-> the same way DT does, instead of having to invent a parallel mechanism.
-> That is a future option, not something this series enables for ACPI
-> today.
+On Mon, Sep 28, 2026 at 04:25:00PM +0100, Fuad Tabba wrote:
 
-So, EFI uses NOMAP for the same purpose, right?
-Why when we need a new memblock flag then?
- 
-> Also will update these description in next verison.
-> 
-> Best regards,
-> Wandun
+(..)
 
--- 
-Sincerely yours,
-Mike.
+>  	stride = wi->pgshift - 3;
+>  	input_size = get_ia_size(wi);
+> -	if (input_size > 48 || input_size < 25)
+> -		return -EFAULT;
+> -
+> -	ret = check_base_s2_limits(vcpu, wi, level, input_size, stride);
+> -	if (ret) {
+> +	if (input_size > 48 || input_size < 25 ||
+> +	    check_base_s2_limits(vcpu, wi, level, input_size, stride)) {
+>  		out->esr = compute_fsc(0, ESR_ELx_FSC_FAULT);
+> -		return ret;
+> +		return 1;
+>  	}
+
+While at it, we could also add a check to validate that the ipa being translated actually conforms
+to the configuration. As per the Arm ARM (R_DRRZZ):
+
+> When all of the following apply, the stage 2 translation IPA size check generates a stage 2 level 0 Translation fault:
+> • Stage 2 translation is enabled.
+> • The input address to stage 2 translation, whether or not stage 1 translation is enabled, is larger than the IA size
+> configured in VTCR_EL2.T0SZ or VSTCR_EL2.T0SZ, as appropriate for the IPA space.
+
+Currently we just clear out the upper bits of an address larger than the IA size and proceed, but
+the architecture requires that to cause a L0 translation fault. Not that it's a particularly common case.
+That is to say, I'm suggesting something like the following:
+
++ if (input_size > 48 || input_size < 25 || (ipa >> input_size) ||
++    check_base_s2_limits(vcpu, wi, level, input_size, stride)) {
+
 
