@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D3BCA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3BBCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+fBuMRCFeooJsUQbzMEzmXJA0656ALYkaVEwLsyNAc=; b=Q0TOwVBi3jYlX5dtEhRjRYuRc0
-	paXubuarHtb1SYwPYWnP1zpy6hx1PZ1zdvqorFRGt6H6TjUJ709XstOzo0XfyiaXSy61SrjaAPrBZ
-	c3+IYVjnqL8wB82sgD7mfdkgPr4gIuyPoDR1anf7n7mMcMEHGOZBMWCdzjUnJvnWiS1CcPylAp6Zm
-	EW6Dz4+dOVZk7EiJSbzri9SRx37+LDz5uW9baF4unQrZu2hIWB80D1Sz6EBUVeoU5fQYF2YK4oX0u
-	n6mT0QUBZSfVisFhhB3ArlwdutkegCGGIeoxdXGkavFFHC2oHYcgKOxPj01UGqbefVfMDI176oCwt
-	JFNMbWvQ==;
+	bh=9hWw6ijG79i9KKO/GsUNkSlod/iFx3QaGdrECeuKXoE=; b=pQzgiZ0lzFyaGjxeNRi0rqBOWh
+	jBWyzT3yfs6BcK+bBMGpQpbbFntHfdhgALCzEoSb2ks9KJULBSgmli4AhXJmcbLDKHOM+0mLq+xsa
+	DC2H03d7UnnUIrHq45mnx667iBdSNJZM7+FRUAjiSw3+Zufz6/6v3RL+tGBKL4Ga7HRNAqKOX/tNh
+	bgxTQxcM00ZLFBJ58/QR2q8ohXR62AHBHUcT+MDba3q4xxLCBbG+lINo1cmPK2EL3Feyh6g+uSXNn
+	+auh9TzhuhT8YGkdsPbQua64nUVB4e5nXP8gEJGJyn97WIUFOThLUucDgrVBC2z9nfQbSYW6sl5rV
+	DE65ueYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7Y8-000000060eA-1pOO;
-	Fri, 09 Oct 2026 10:10:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xF7Zd-000000060sj-320k;
+	Fri, 09 Oct 2026 10:11:33 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7Y4-000000060cr-18AV
+	id 1xF7Zb-000000060rz-1iFO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:09:59 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6998KG2k1625878
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Oct 2026 10:09:55 GMT
+	Fri, 09 Oct 2026 10:11:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6998KOJ21252508
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Oct 2026 10:11:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	N+fBuMRCFeooJsUQbzMEzmXJA0656ALYkaVEwLsyNAc=; b=lSubTwXBIZExw0y3
-	mCKZ5O4RcU+/WWJNznioXRJFmxmv2GrYHrkRjOa3R3q6tSX7A7IwWV72YHThbB1X
-	BuThoo8If2omR1gAoC1f2v7eykSQhm0ccmnHC6i6CM47K9us4bBUeBOAjmN3eM4n
-	GIGSlqKAfQ/9VN7U0HZSYpCQnLW5jXDly/MjbPKshHYSFObcG1UJ9C6dWVHcsF28
-	80m3hnNpGuNXfSqOZ/B/RTxtQ49QS/WHvEGq3kXN072GEDoeM32Y1QN9NKKszayG
-	IQB869AkZhR9JErwJOvj4U7kTI5QFl7X6qj6II8IRs6KHfN8EGJSNUQR7sqSSvj/
-	wZfbLg==
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h6fyj30yc-1
+	9hWw6ijG79i9KKO/GsUNkSlod/iFx3QaGdrECeuKXoE=; b=B0Es9AhRU0OYIAlk
+	2jrbzCTxp6K0FjJNYQif3bdLi3/+BMe/Plku3+XP1/VCNoEFxdZMLIUDK5BqBu1h
+	N8OJd9XcXIiD5s3jifoP5H7gtBCHDfrE3waSj9uJ75COUzY+wJOy6w0d+Ji4e5bK
+	efGGqeu01JuV4zwRNbFGRNXnXkKhcPtp4dZ3UQ9pQuXx8ur/BMRSLJJvQEOqYJ/v
+	8zRTvbvdsu7lCX6N1+8rVq8glc7zeCWqMUnZQ39LqYBOsXMJ7LHvrSTmYQZ4PGUJ
+	qf/zeCWMgD7LkRrSOO1pkPdghqxpNi4FkHOGwflHQEw8n3ed71QowJs0xypoqVT8
+	qMcx2w==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h6baj48ay-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 10:09:54 +0000 (GMT)
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1383723dfddso7957210c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 03:09:54 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 10:11:30 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3a4a0017549so9278327a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 03:11:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791540594; x=1792145394; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791540690; x=1792145490; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=N+fBuMRCFeooJsUQbzMEzmXJA0656ALYkaVEwLsyNAc=;
-        b=FhRXGzk5rlVR8jjC9ZYA3GQhC7zn48uSC3B51ZV1yFqqANglTXVv5zDc3oHIycIrES
-         IaToTZjZAID5EtXFLveYVGIHsxL1vNqvacWQRgJ2dxiCaHPDXgbt9IM0A7inXj0JPwGO
-         XHqks+hDVI6/n6/liu0rxfJhKio8RPhvLRp/8h8UZ7LUn14pm5n9ON/N2WdrAv72+iKm
-         7wUwK0M5d4noGjQUFJdovqfIoyGHTaWJSyqfnd5XlGzaeJmSlwWXG7PpYUI2auJnNTRp
-         LvrCuGDFRFEkxGj0OztFgDjJcazvOx0fublUHsojiimzhsk+ixE+V8KdJ/kbno9Q5OJt
-         gFJw==
+        bh=9hWw6ijG79i9KKO/GsUNkSlod/iFx3QaGdrECeuKXoE=;
+        b=FzGup4LqnLOFQC6Pnz3LJ/nuTq0Cl+paPwNtFGnrKrbmyZD6nmuVVzCGhcg+eAPKGZ
+         RTIqKKBbFMDJqWYcPSSUgT5OgyXu9u3J8aRrv1toNk6mBKLRaL8cWIJijBIWnwrcivQ5
+         3zZE/Y5civakkgeCcqQn+1lr3HiGVYvioxBiXodBTv1kKbTjaIeH0kNRVi3cHmK+o8eW
+         3M2hSicLZicZGSnxbr16ruFfHhavf7MNY6/bfMrUE5TbY9WNTE+wyqmdMA5uWsK/WROO
+         E/8WdtWK/Hgv7lFulDAyxR7slWJ2JaxTEZt82+QNDAT5k1s/aBeYNcxEG/gRLqcZ0LWv
+         Vgxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791540594; x=1792145394;
+        d=1e100.net; s=20260707; t=1791540690; x=1792145490;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=N+fBuMRCFeooJsUQbzMEzmXJA0656ALYkaVEwLsyNAc=;
-        b=HsaP129nSp9pr3K301WWfN1IIKtHiYdAHY+T6odK2TH8xQJK3BUoyT8XmO3ZZ22dPi
-         HnfG+XZ69FD9xu1thIHjb5ANrZvS9zvmhOEjCJJ+ponju0HvyIoxuTdvnFpKtK0iI484
-         iBlqF1Pjqq5NNTzw44kYW/WVIYl1Z8vYTR2hzpMnYxLQEwb0nnzG/8w0/zN74Q2C2tpR
-         ACtlX/qz5jdD1n40ahuoSmjTpZqn3IGs6CJhvk9+dhV2DhictmRHQR1ybKmcs6r2HWZ1
-         xk6z3e4e9Pz09C59NEXAjXCuMrQ7o77uZNm9Opr0P4BsNjhMWB1FL7wYwKP0sLTi/8Yi
-         RC/A==
-X-Forwarded-Encrypted: i=1; AKwUvBw7gu7Ny5j8m66Ixl69og51MBpDimW9X4dxGrE6F0MIyI60HLbqsZul9wLewNvBSCbpkKkg8sdjBEvRidB+FSlA@lists.infradead.org
-X-Gm-Message-State: AFuF++nNxhE8+P4w9HwO9zFcY4TeFFasGrhqLztP6Bllb6ubkiIV010V
-	S+AfR/yMH/GsjW0VVrXHDXO9If1fJpfy36YQjGS6STa4a/xot6e+Ay1ngjr+qCdjqfWsCpMd1Tm
-	vo1jtOFOTnNYUdaFxCT9mu85idTujd2MI4lkiSayr7pu9n/sv633RxKb9T4ppoEBKxCXfwq6KFp
-	pM+A==
-X-Gm-Gg: AYBFou3naQFLZm2qlaMwpmTFZdqmhMbNZjRQ7LHNpd4MlV4dCnObRm9jlcp1Zc2D+Mk
-	H+hqqn4f97/jqgYqpdG588L9M94lVU0DIWvaOHxoWcC4Z8h9P1pbmCwsxjAOEo80V0REPj4FXsN
-	tBW+aXvkwsxR/IloYST7dD5/BybL+mEFdG2UsWJWDv1L71dhDwiXydxMj5oZ+x/SI/9014a/s/I
-	EDzdnE3IJf8p542EnjRjF5lp+gUCRTugUEGffTmTx3Ked4vAI9hBQYeRIl12gXtDLlrzNVqvIgy
-	uxgwxHZMCmskAd2rFdt4sTdgHkQs2PtlNs+IYmB+wFy9kjHUAw0S9ytUiyxnzS2hKDOTs1Gm6WA
-	qucNA7CyWm5JROXVIi0juD+l79uHp8F0K
-X-Received: by 2002:a05:7022:3b87:b0:148:80d4:84b0 with SMTP id a92af1059eb24-16a60de2f7fmr2202201c88.23.1791540593824;
-        Fri, 09 Oct 2026 03:09:53 -0700 (PDT)
-X-Received: by 2002:a05:7022:3b87:b0:148:80d4:84b0 with SMTP id a92af1059eb24-16a60de2f7fmr2202142c88.23.1791540593160;
-        Fri, 09 Oct 2026 03:09:53 -0700 (PDT)
+        bh=9hWw6ijG79i9KKO/GsUNkSlod/iFx3QaGdrECeuKXoE=;
+        b=aFVUKGlE/+n7WE9Zqxtmr5Lnpplq5c3AX7xcqB6HVlBuWpu5ppXq4rZ+opSTXdcU5w
+         oy/Zvpor47ADp04eke5cXjZRrM5LeoTbOettwabZAf/eOW39+sWDvuLDg1pBjSsZmj+d
+         fK7/bPDkckZePqPzzEkSCgVfT/15JQ+gJnifX9ObaLRBINjbUJuezS77lM9OUpWsajuv
+         jfEC88Ky36cVls5qbEF9ckIAheFQsTW8U//e5/l7RjzURdy1wXQAo15r6FaBWms5JrKZ
+         QgGHFbiN/Q9HhB8F1WDZUBsUstnH32b2dYMa3QOXw+Xr5ey3ZVmvoQ8nxY+MmQZhbmI2
+         VgTw==
+X-Forwarded-Encrypted: i=1; AKwUvBzyGuSSsn7cDx6YCaKO75kPEYlo2MkOT1LZ9mQHVmS3zS5+5MWjjwZAzJPwC2CQPOg5wT6hj2HVhFrh1F9JzoLr@lists.infradead.org
+X-Gm-Message-State: AFq9FYL6vamqZMAdCXkdIl7QkLTPzTjlHNWcgryuuO1TTdF47n53Ae2w
+	qPO89Wi1nPrC8zi5WsRLhSSm5m6ZHgZiUn4cXaSs8yXAUy8nnpT+UI71P76EdBg1Oi/FftyHLwK
+	6QIl/avUTdoLZX2K22LLNvSzZONCiyp5tWh/j0Zb3sz15eamT0kuePkDtK0VlicvXzq5TKeNC0d
+	lrTA==
+X-Gm-Gg: AYBFou3RBlFUK2kZesYtpWkUZASlpD//4Z2DclbPscmv/YtSrgeqyFm8pUDR0+PKKY8
+	UsWatBZQ9wruzwEPdmksQSTicwfJ+1wx2uP2q4iWutxDH20ANpPWnaDqd90cxSMF9iHq/qPX694
+	Y7S24Z8y7n/ugabVgi2Kr4FRWvjxCWJTxf3gSXNYVZW85/ddnLMRDTSuhAyzsHWVyCUfwkDpzKc
+	Gs2TMcUj7cJFepPkt/zok6nR4yPesRyAl8ijooKw2rWZ4kupqcrVugcW5t5izEaNZ1ZbOy2nydn
+	Yh2qKIElY+HtewAXOC3chXQ40erwVHS1S4H9LhD7r1lVHVxWphLrSMcvXp/UTcZ2FfYR4+4r93Q
+	PCmOSmrZDNFuqNrTBC+6zlNMOkwOtjeW9
+X-Received: by 2002:a17:90b:5887:b0:3a4:a383:f9cf with SMTP id 98e67ed59e1d1-3ab3a9a78f8mr1583037a91.38.1791540690334;
+        Fri, 09 Oct 2026 03:11:30 -0700 (PDT)
+X-Received: by 2002:a17:90b:5887:b0:3a4:a383:f9cf with SMTP id 98e67ed59e1d1-3ab3a9a78f8mr1583010a91.38.1791540689904;
+        Fri, 09 Oct 2026 03:11:29 -0700 (PDT)
 Received: from [10.218.39.50] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537ca1cc25sm7332804eec.8.2026.10.09.03.09.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab38fc9e52sm2744168a91.13.2026.10.09.03.11.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Oct 2026 03:09:52 -0700 (PDT)
-Message-ID: <7ab6eab6-ec6e-47dc-b387-eb380e2e365c@oss.qualcomm.com>
-Date: Fri, 9 Oct 2026 15:39:45 +0530
+        Fri, 09 Oct 2026 03:11:29 -0700 (PDT)
+Message-ID: <40fc4ba7-c016-4b91-afdd-5443869a4b4b@oss.qualcomm.com>
+Date: Fri, 9 Oct 2026 15:41:23 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint
@@ -104,46 +104,43 @@ Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
         linux-kernel@vger.kernel.org,
         Prakash Gupta <prakash.gupta@oss.qualcomm.com>
 References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
- <20260924001502.GO1540250@ziepe.ca>
- <CAE2F3rCVh0CmW6+a__PcCrBgsMJVompKJX_qYBdQ=exj3bYtCg@mail.gmail.com>
- <20260924225340.GC16465@ziepe.ca>
+ <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
+ <20260924225534.GD16465@ziepe.ca>
 Content-Language: en-US
 From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-In-Reply-To: <20260924225340.GC16465@ziepe.ca>
+In-Reply-To: <20260924225534.GD16465@ziepe.ca>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=BfpNQbt2 c=1 sm=1 tr=0 ts=6ac8bd72 cx=c_pps
- a=JYo30EpNSr/tUYqK9jHPoA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA5MDA0MCBTYWx0ZWRfXxk7EQmo+lgmX
+ ahYzD6hz222XevCJo+8TRB+d4mn/NQQVRpaUjMZO3wrT7cfNdBMqVttOVb/rfNyD4TicShsmySF
+ lbVRCSpyy+oDZ2e8ls8iMQCCEVIATc2dtT5o7CsPEDqkVsjWKaENtWYZwr36nSz/bSueAbFWvtG
+ N2p2MvFdLScdekJDq9F5u9c6JufwF9t0VUovFjaAj5ZmCWqSUS8u0zpWfDrD6TF8HWQNsgh5CTj
+ dRtSSR+FpWVPeRdgCkkuttPmuSpUbRh0PSkM6kWakVw9D78Ch15mUI71Pl0Yru1eaMslCkONH0n
+ YW/ZtVXUFbIZ4AMP/IOkggBeCyGxGgIEacr45HDYCZkCwORPzFaf7hFQO2DsX8XbnMBqRoWP6T8
+ HovJSyabhE5x4u6KkvfD08uovxX3FNV05ziutVkQbbaJyrAicJZE1uXEPCpIaK5Rcx+x+dwrOuc
+ verXUCpgF/XtiwJc0/A==
+X-Proofpoint-GUID: zhTaxKMGGKLiawkG0xjSKI-fu1zhb3bm
+X-Authority-Analysis: v=2.4 cv=H/dOUOYi c=1 sm=1 tr=0 ts=6ac8bdd2 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=9jRdOu3wAAAA:8 a=EUspDBNiAAAA:8
- a=YC-9j5RmPirwrlDSig8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=Fk4IpSoW4aLDllm1B1p-:22 a=ZE6KLimJVUuLrTuGpvhn:22
-X-Proofpoint-ORIG-GUID: rFt7Q4xCUm9RMW0j93A37ryv1OTWnfMO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA5MDA0MCBTYWx0ZWRfX/+LNWYkMbTcY
- quzoh29/EGpt8oOqPmz0aR7XP4iX1QhCf8h1f9xrX2KfERCiwe0L/tNhcsuy1AyPWqwal1bpimi
- k3RI9IOh4A4AQin8l3cT0EkFBPP+0YxHMGiSG0Kq1HdCYuxP15QRyV1pz2M2K7Z6tOgTocISLu9
- CE7aeYgicgDnIaAZbPPnQ2dpW7rsLREev2LbLdG6pcIhA22fewBpiB6CNvUvyB8wXLn1zOASjji
- Jx95bDQWoIKd/cTV/JqKVCz6psXda4f+r0ZFCeWJrb6iSqiAtx3Z+iQGRCVoGlGO2DyyawiMEHy
- Vy5vdgACeFq+m4F1XEy9+HN3p1gyRcFkcgOi67YCTavqq9VvceGA29OyBDU4wWiNLexAVUCLrhT
- aPLvyOTq+jNvXuYYT5/a/OvB39XMdzioFSc1RobVsQcNtD8zT654hFF0qqdJL5eDDVNLcCRytqE
- cgHARjDmM/uRHSi0nhw==
-X-Proofpoint-GUID: rFt7Q4xCUm9RMW0j93A37ryv1OTWnfMO
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA5MDA0MCBTYWx0ZWRfXzEvqo9oHd4sp
- ZFE6seyYpG1la1/ASJ3AG54I2WFCb4esy9rK8nYZ8W09VU7RR5KPwnhg0UC4I+Af9e1aglyz59o
- NejZiCkMTzno/UdsqoDqnzWU6u0sMTc=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=_TL2m7dhMTXhWvRYaIYA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: zhTaxKMGGKLiawkG0xjSKI-fu1zhb3bm
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA5MDA0MCBTYWx0ZWRfX4hohlSPyzPgW
+ H1XA+IvPxVdhLSiE7yNdrD0Cv1+1uKo6wyjVF9y/ZKv7DhGvkbBUIizm82Wo9SpVAvcf4fOQvWB
+ CreE++sAnFffPpWZMLhOWKHzAE3benc=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-09_03,2026-10-08_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 impostorscore=0 phishscore=0
- lowpriorityscore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610020000
  definitions=main-2610090040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_030956_439804_E71E4E77 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20261009_031131_539389_99A320EF 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,58 +157,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/25/2026 4:23 AM, Jason Gunthorpe wrote:
-> On Thu, Sep 24, 2026 at 11:49:50AM -0700, Daniel Mentz wrote:
->> On Wed, Sep 23, 2026 at 5:15 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
->>>
->>> On Mon, Sep 21, 2026 at 04:44:07PM +0530, Vijayanand Jitta wrote:
->>>> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
->>>>
->>>> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
->>>> When a set of consecutive PTEs map a naturally aligned contiguous block of
->>>> memory, set CONT on every descriptor in that group so the hardware can
->>>> combine translations and improve TLB reach.
->>>>
->>>> Advertise the supported CONT group sizes in pgsize_bitmap. Callers select
->>>> those sizes through the normal page-size selection path; io-pgtable-arm
->>>> then installs the corresponding tagged descriptors directly. A partial
->>>> unmap of a tagged CONT group is rejected before modifying any descriptor,
->>>> so a rejected request cannot leave the group partly unmapped.
->>>>
->>>> The IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT quirk allows SMMU drivers to disable
->>>> CONT support for hardware with implementation-specific errata.
->>>
->>> smmuv3 has this errata, it must be disabled there too. I didn't notice
->>> it in this patch?
+On 9/25/2026 4:25 AM, Jason Gunthorpe wrote:
+> On Thu, Sep 24, 2026 at 01:36:12PM -0700, Daniel Mentz wrote:
+> 
+>> Interaction with Hardware Dirty Tracking (IO_PGTABLE_QUIRK_ARM_HD)
 >>
->> SMMU is an architecture specification. I am not aware of errors in
->> this architecture specification that would preclude the usage of the
->> contiguous bit. I understand that Arm MMU-700 has the following
->> erratum
->>
->> 3777127 Under invalidation in TBU possible when using contiguous page
->> table entries
+>> When Hardware Dirty Tracking (ARM_LPAE_PTE_DBM) is enabled on Stage-1 tables:
+>>  * In visit_dirty() / arm_lpae_read_and_clear_dirty(), dirty bits are
+>> queried and cleared on a page-by-page granularity
+>> (iopte_set_writeable_clean(ptep)).
+>>  * If a single 4KB page within a 64KB CONT group is marked clean while
+>> neighboring pages remain marked dirty/writeable, the descriptors in
+>> that group will differ in access permissions (AP[2]).
+>>  * According to Arm ARM D8.3.1, all descriptors in a contiguous block
+>> must share identical permissions and attributes. If dirty tracking is
+>> active on a domain, consider whether IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT
+>> should be set or whether CONT sizes should be suppressed when
+>> IO_PGTABLE_QUIRK_ARM_HD is active.
 > 
-> And a neoverse one too.
+> This is right, handling dirty and CONT together is a PITA. You should
+> probably make them exclusive for this simplified implementation.
 > 
->> The recommended workaround is described as
->>
->> "Ensure that contiguous page tables are removed using a single range
->> invalidation. Arm recommends using range invalidations to remove
->> contiguous entries anyway for performance reasons."
->>
->> and I believe we are already doing this.
-> 
-> No we aren't. Go read my fix on this:
-> 
-> https://lore.kernel.org/linux-iommu/1-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com/
-> 
-> I have another patch that fixes it for iommu domain mappings too.
+> SMMUv3 is the only user of dirty and it will switch to iommupt which
+> does all this right.
 > 
 > Jason
 
-Sure , will disable it for smmuv3 for now.
-
-Thanks,
-Vijay
+Sure, I'll set IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT when IO_PGTABLE_QUIRK_ARM_HD is supported.
 
