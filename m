@@ -4,131 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 725E1CA6018
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FE6CA6018
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OosK5I4CIcobXXe3Vi9CAqrvN5UHZQWr6oSTwbvNDZ0=; b=bkt9lDsOnavSh4+5gl3zA/wm4j
-	elapewbqttaAiLFM6RZHdvBgoLHtj2BPv44jsDSObDKGBVrTMtmdJOcfx5p4Aq119oCBNr7qR7fpu
-	N7dRC2ZZ3aHo+MUPSeCvksVB7Dx0VQac+iN4ys4ekNP/7tKwSZGEvHpP4QaKlvpKvubrJVPFKXsd7
-	ZR92qE2OLwwAGNoSmSrv4vMEWDURdI8yH4rYsFNwShJDZXLv6HIE1h2ahIsjEGh9ZbPZBBzNDWTHl
-	CSs2Bl43stV/yzjEwHBVCaPhrfUIxxDyHmAcl51Nee8IiTqumkfLSsoQpTUByflVM6l0LZWrYyxUD
-	17sgqifg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SWFAa3FlRVlkGRW/o5QZDawPsX279VU1DGq1SPr0IVA=; b=hdgg/Lb4bf8NfFlHR1RM4KH4Oh
+	imSWIfjD8oBLaIFi/umMWwvSNvNkazgR+eB4gCcaOhi5PbLpxTwmq8Kxo1AMYSBe/nBCj5iN5b+/i
+	BIxppZYh4/4igHv0n/RMFrdDHrpU1LI+3O2kSEmJhiDhWmOyBH9bl8p0h6GlmjT9CS4G83lGGiWX1
+	0xAmA8rbERO6DyqQkTpnAv/5SrsRKjcPe6YN7gepaU/OE1Lt4Y6ILvTgCbgDrDQfw7ATad5cJwIHs
+	DNWOsKII6/YY3FU3gBovBPteFZMr29SH3VJYjrZ+7RZtJV8SvtPtl4uruIV0OvoN97zYOXf9UvBah
+	QZVp7/qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF8ln-00000006Aaz-29TR;
-	Fri, 09 Oct 2026 11:28:11 +0000
-Received: from mail-japanwestazon11022136.outbound.protection.outlook.com ([40.107.75.136] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xF8o2-00000006B7D-0VRO;
+	Fri, 09 Oct 2026 11:30:30 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF8lk-00000006Aa3-3DWV;
-	Fri, 09 Oct 2026 11:28:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hzJPQ9PSdgJAGQpL9vPnLKZ27n/aFMLkODrSBTFXnbE55JXTCvKeplPq/iApjHmo4Yt3/BrB8Pe9IizMb70XetKNXlc1UXhhPtwmjYzYDJcsQOtGFumeeq1jC/nCC/7Guvl/8uhKAohAT1o9A6mmFXbqR8Aq8T2OsI2qPqUCiE70kZiyNvwrH+IraC+LvEXef1nHTgD1TaLYp66W6aqsQ2j9KkYwPARcih7r/GCBXp6F+xXCNQah7uIcZ+c8YMPvzFFna4CXmTQDrBHK88wUvhaLgnXesiTbSSIpQ66gaRlmNqVyVuFBD1m/NDKNI5fsWmvzprsMLbGBvYB//eS13Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OosK5I4CIcobXXe3Vi9CAqrvN5UHZQWr6oSTwbvNDZ0=;
- b=fqu6iCxslZub6hj9JFc7AcaW2ev7k9B/nY5me+uHxpVT/tgtnpZLuVXH7SU1lBndWNCf2sFVT+J9jnBSDTCTPSmQCLU+F3oAxsPt7o7cKuQCH8jE7fy+qIxQCQ+G5vC6Mdu/QofaP8fnu3etrjBGVgo+okc4A/yDjE3p3NxlD7mc824WRAxuxVN8O/P3VKFiNNS2PK58vflIfO1bXi4uctLgFX/PpehM/IgEYksRv9mrmkMVu0YP5r5LZXmE+EwQm52Xqm9YlMCWKPjobmu6m7Q1T5xxmHJ5Dkk2T7wsg7JjxYSE9vbkxaPVaaxOtqC6kmNlOx6Io3wXrN98n62ZCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=crepuse.com; dmarc=pass action=none header.from=crepuse.com;
- dkim=pass header.d=crepuse.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crepuse.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OosK5I4CIcobXXe3Vi9CAqrvN5UHZQWr6oSTwbvNDZ0=;
- b=YNhOJHYcCnIz2z1xEKG4MwdZTKm0NmHaVPBdkit/05os0u2BI0a7TIIJ+m+RPaqEHTXkwVMNxw+dff975jxJ+1twIRMTMbPmQCt+M+SuxtsF/l0BKNuk343WBf+1oAtU4JpVYdrrepolzBLyG2Imu6uXKR2YKp2x9yWwi1ofaumjskwdhk75rBgh4PGfkx4XI2k5M14n1fsYMZdXcA1yGoBSCjmioJD+NGcm0H+N5WRWOE+1kuTAJZEzSO8Fe7MlPKPtzWVzitmZ9Qqzx2E2gmuvQRBOvqbVRMPUetAZkSb4VS7M4ZyVKRJzIg/9kZ0MibevxqHuoeOQ7EKqLNSqkA==
-Received: from KUYPR01MB8186.apcprd01.prod.exchangelabs.com
- (2603:1096:d10:8d::16) by TYSPR01MB5518.apcprd01.prod.exchangelabs.com
- (2603:1096:400:417::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Fri, 9 Oct
- 2026 11:27:57 +0000
-Received: from KUYPR01MB8186.apcprd01.prod.exchangelabs.com
- ([fe80::fe2d:77d4:b78a:358a]) by KUYPR01MB8186.apcprd01.prod.exchangelabs.com
- ([fe80::fe2d:77d4:b78a:358a%4]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
- 11:27:55 +0000
-From: Miotsuki Mizuno <founder@crepuse.com>
-To: Heiko Stuebner <heiko@sntech.de>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Mark Brown <broonie@kernel.org>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-sound@vger.kernel.org"
-	<linux-sound@vger.kernel.org>
-Subject: [PATCH] arm64: dts: rockchip: Enable audio on DFRobot UNIHIKER M10
- V1.2
-Thread-Topic: [PATCH] arm64: dts: rockchip: Enable audio on DFRobot UNIHIKER
- M10 V1.2
-Thread-Index: AQHdV+E6jlZlQ9N7QU+e3NR9clCMUQ==
-Date: Fri, 9 Oct 2026 11:27:55 +0000
-Message-ID: <20261009112754.60770-1-founder@crepuse.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=crepuse.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUYPR01MB8186:EE_|TYSPR01MB5518:EE_
-x-ms-office365-filtering-correlation-id: f9270a6b-e56f-4838-4ef1-08df25f85d59
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|7416014|18002099003|38070700021|6133799003|3023799007|10067099003|56012099006;
-x-microsoft-antispam-message-info: hAoXfF4CW6c5Ny+JJZprsLWUQZN/4xH/BkiepGG4W7uwjRJkM0iGoprLibX1WRK990rd6Rt0OKKa+fvizwGGueevNsU9ZcLBghaW1QqCgfYeS1Ll1QuwVwOfVO862TGRogPZRnMGEd8U2SvnTE3b1r8zHraoyu9IJ9gWXryp6puGaPkbP6cXaoM2HRKKHZU5YpNm3NZNzqS0bJiWC0SnW+gCzvZHSN6b0SNb/w5r17qQQuM1PrOHnoa7IquM2yC8ZDSikgfPvqlocSNcdQk4+NMcrbb8d8XnJ3QAM3lRZtbflPNZmuNu9U3RuvqESdoCJwI1dzxhRMKVKMt5fn8HFcVrZAU/YkiZ4rSnT5bQ5GK7/Nu2EfB/K+0uzFG7SzK4oG4Ch/W8GNHHQZntZ72S6ClwBsULEResuimHONluwJmFqHZLf/eNWO+qufSa6nkd9xXhIUNZdQLfV75/Fj1hbRmcGFp2+7Q5UapkDh4jd3qqiVe2Od0hyksYcptkGM6VV1Af3JlPA7RpYlSCGx0AcT8Z7HE5/3yVZh6JugdYWFvknlPw7ggrs7tyWSalGeSIji2AZ81MYN21th9G/a1RtP/DyuwFUfNmEsHgp4mpFz1SdSWuWwfblV+u5lb/JM2abweb5HZ3qM6G3jlqEJQJnUxrATZnPlJqcWd8W85Idk+InNVCNOIAeqHghPa0cFnbFhBNtnmgXItDLnZ4N70Dbg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR01MB8186.apcprd01.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(7416014)(18002099003)(38070700021)(6133799003)(3023799007)(10067099003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?hlFYoAB5BpBeqpnqfvSnSfDWrcKI7mL+yEKl1eWwPBfa9rPRJKhBpaxWOt?=
- =?iso-8859-1?Q?Lp4R1sA8T4nRxjUizG30Ltidjmcn7ORdI19bvsN3MlZ0BEO/OuFpXEvev4?=
- =?iso-8859-1?Q?OjYQfvEFn1LiyyzkKQS5fjUByqRg62jzL0s0qD53ukW8f8mReRafDbVDC4?=
- =?iso-8859-1?Q?h+RJnIOj0FnMGCHy+9IUgETYY9FabDyI15dJ9zZOUKNBJjIcVAlk2TpeWp?=
- =?iso-8859-1?Q?kn/3uhh/e872FrceD3KAuiFk/y8NeHsYHWXwgqCzxupfYfdGT4NvJa7Pch?=
- =?iso-8859-1?Q?c3jTgnBnsQ31/Cn5nTSUw2pO1Ycmhd0V4X+AJM0ufIS6uOIXk4VnoNC2ns?=
- =?iso-8859-1?Q?GK+hxlgLZYIMFm6E7Ias0LOADbcxB2zvvFFUzJX0WnGPGIqiHO/pl2y2b4?=
- =?iso-8859-1?Q?CWk8oTmYmJfX/CNcyPJgN3wC3cXfab5dSc4+vAHeR2F/K6V3cnthTMwYuK?=
- =?iso-8859-1?Q?rr6XgW5VtdS1Btoh4hkKV4pv2IZuZKIMDrQG0XBJFiB8Z+RRuUuvh5AMgb?=
- =?iso-8859-1?Q?EauTEv+wyhMmUKIPbaCoGG7bWOFjJhzreSjbgPOnM7EK8UA4M7fhwKsX+o?=
- =?iso-8859-1?Q?wBBYneHoUFpKZuXnpcNwWfyOghGlzf0YOnqmh37sAU4pvartC0Bazm0ASO?=
- =?iso-8859-1?Q?UXTHe7NQUVc8E9nuNuB1xOMkszdN/ByYtvvYDr3kUkewcGGqQhWhSK6Tvh?=
- =?iso-8859-1?Q?rVuPaBqTSPlZkC7Jd09R45luqjCFegXQg061HguQw/6ExKTFOztJsYuidv?=
- =?iso-8859-1?Q?JPbhdG0qAaG00hKREvUeEiaVE9HD5y3lv0emzLDU5OQ6anbxlcA3+x2gyB?=
- =?iso-8859-1?Q?E+EgGrUcbwUkZjCVraelbVNxkhb/XXzImr1pMBM/D881hWE0ag3Rw4rBfV?=
- =?iso-8859-1?Q?aV9YHM04fzINfKgfD/apvXOny8nFhbwtvHdhmlvX39Q2e93X8I1guXCA3A?=
- =?iso-8859-1?Q?vRvchZ5Xs1sMdFHndMV55kwNcHODg0sI87HlXteE/0042EBpea+/2jy1EJ?=
- =?iso-8859-1?Q?s2rkWH1Lnfwku5tA7PsZHp44L6kQwD8pyye0YbwWFxD0qGA8kliSCakit1?=
- =?iso-8859-1?Q?cmJ0+5tF8kk+QvCihl4Ay4sP/7j6xc5o2PmA6r59SNBKlEUWDwMfdzsaZQ?=
- =?iso-8859-1?Q?Ixs68pGfq/U1FFR0BZK+b9AhjKlfNC0TMZwb59tVjvJP9zh6nPgHbgV3sl?=
- =?iso-8859-1?Q?1/Bo1x+LU+dcCrT1e/LktszIxlaLp9vjBzF9FCI6x61kfP/wunLkuchPP9?=
- =?iso-8859-1?Q?4XJ6vbO9ThhNKKoGVnJFwTgRJMDWQ6xu6pvkpival+dwZ8EDu3jVIE11Ew?=
- =?iso-8859-1?Q?4IsuuRkD47i1jCOSao0CzTQophoZAbHzwrfzZpX3LrmddR5pvVCETqy58q?=
- =?iso-8859-1?Q?VwW3RPDwC0gdV2K44Qzg6+/qYTVa8Yd0T5IngCLnWhle0ILAlX1KPBBb1T?=
- =?iso-8859-1?Q?XS5LxsyPafN74aaYVlOL3a6KS+XJz+w9lPkI0zrOvUU0UoCVXRbJiRLam6?=
- =?iso-8859-1?Q?c8us2NYY4lUJC4vXw+JtK61linv6r4d83PXXOIJT2uM7tha6iBzQzcAkww?=
- =?iso-8859-1?Q?m7obpciMXQL+G/Zquq8PuhPvQeRnlrgVm5VGmvByLMvoDo5A2ytOT2m165?=
- =?iso-8859-1?Q?GYmaoA8MY/UgjDwY1RfT0SEi4CmBoN1SlRyOLNJ1UoasgTy3uykOoskhjM?=
- =?iso-8859-1?Q?SLchakz5dPHXK/3/K8iO7x0YyOI3sTF7oOMLBrvJ?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1xF8o0-00000006B67-1P1B
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 11:30:29 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-6768403e9bbso4201103d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 04:30:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791545426; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cM9qsmghV8pTrT2UB7wTFtd+Hs/5zo/UNG9E310fVPpS4TM6Hs2epoLtBFFsm9InQi
+         IfrdbOiQ3qvDUjxVXJCiAT4i+wGqiGn4bS24R3uruTdhqyzzWbcpRc8cM50hFZ4FSs6+
+         FrK26nBA2oR1vzAoTP4li8lKRGy9XdHmHwUWBPul8klmyasNPVu+HXjZGTfBYH1ykn7r
+         AHi17dfdgH3pPtEeFIvLKG6Qam7syKIYPgNn1MQXJcuGe41zrI1ZO3q5HaDX89729xhD
+         BPPkugX7HWAmKzdkwPJS0ZU/EODCPnMfMuetJB/49R2geN/ykTdH9mvfyEJXyqA/SUhf
+         F71A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SWFAa3FlRVlkGRW/o5QZDawPsX279VU1DGq1SPr0IVA=;
+        fh=K1stqW/CNnZuuRq11b75TYhH4j+MiVPQ6ZYIAA48zYg=;
+        b=OU5mEmT0pd+4ggehmaUyJR5B04Zvg9TJKB2PJzUQZ2PE8tbYm+HeV6U7hvaUsDGOU3
+         Ak5t4LblvKMkp0mQGffwsRmsJg1/nGxL+O8EFs4GtJhtR1xYwQR6c7tk5eyE2HvyMysG
+         /ehCA0K6TmVjdk45z2u2jFvL7ulYca4Ksheqczaq/CUW+q7qULAdWKmmKg8eINL7oxyB
+         yS6cEBPhoDgzYSX3N3f0tmRy2O8IOElpnL87SOSJfQBWMfhHxFWXlEWTJg/Ny5fnI16g
+         ql7faDUz9RJw4kh7x4GEzgdLBQB236aSBumPpfx2kiGpKUL1MljOkwqXt4JggSZcrRny
+         Fb9A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791545426; x=1792150226; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SWFAa3FlRVlkGRW/o5QZDawPsX279VU1DGq1SPr0IVA=;
+        b=a26VKFcDATqpCF46Kl1aLNCcYGfW0MTxihU8Kzfq4gG4JihxIA0/dU7B4bJyeOAfz+
+         1qsSlCfgAidZ4e0snL+DkrXb6VErjNinP8o+9F87fIqlQEgFAYKDqoq78DIUsuj2xGsB
+         Q0lM4B8ixsk8SaSV4iztKafNm/FK9hW92mdtBrHXzwzhLugHQAYpzBlE6nttS5Ntovl9
+         OtLPyTw3nBkyezgIqS2P+PGJXvRpt02LTVAKkWwtBz+piHGO7s/IvwGQYbZN2+lwpGT5
+         LNWBFQnlYuShCWd3YJVvUD6xtFyOPNYeb4cbaFLwbknzyjyck3s0Txd41XN/DYi1O7MT
+         QP9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791545426; x=1792150226;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SWFAa3FlRVlkGRW/o5QZDawPsX279VU1DGq1SPr0IVA=;
+        b=id5TbdqKOwkCrzt5FJAWAPWT9m/ILvMACXBRRQjThu1kyrbuqp1qm1D/RJOcWj3ixk
+         HtDgU27J6iPhjxsk5sn6BIdl66TYjGupC91eHa3lN/OkYvtXuhyYvzEdbTo0yP5gCbGJ
+         TNKOklDA4dF04iq8tu17KGjj1TFly9EYzMk+I3svN6Jxk9jZe6ZkfYFxka2osFvIfFs9
+         vLmY73EVQRwWncg4YzDiqYdS0Xo6D253ubgLNmBC1TmsOJNXsUN+d3MGfxrV1RARGySO
+         2LPhqrqj3MK5wNSe4X+PIIt/vWaMdeXBUWd/Yvr7z5IL3xs/h8HqgEZd1C6Yv9GhZDzC
+         YQ9A==
+X-Forwarded-Encrypted: i=1; AKwUvBxc4je2PwAd5+2RmK0vF/1AMXmvlU5inTiu0U8ZCYWzLggEBl+7+SkV3uzAJF4ZMkt18amNKQ9l6snR/jDKzHx8@lists.infradead.org
+X-Gm-Message-State: AFq9FYKOMCQCNvsLA2OoW/spV5xhnfxVbC4ULUQQCOjCe9lUJ2+4lOGE
+	IwKB1wTaFIBWrvoqAmcDkM3FyvUVQA0cGah09tbtxF8hxT41ujjCrM+dQesj3VqCBKO/zWTa1AJ
+	Fpbqrsl02Y3W2QFdZrTXpLOKkMAvNsWI=
+X-Gm-Gg: AYBFou3AS8LoRCqhwR5+6oVTdAaedFj+/R/0sNM87KqDYPWj4yWDM0fkSjtPTTCQtoG
+	dE6M9bbQ1ToBVqfDzu6qdmoOoC2+PrPLANz9R8nKGYAi9RO218Rd9CvZdmP1gOwWIqLEJsyH4LO
+	DcyjNl46bCqGm4eFjLIs1dGqOZgAvMM9k2YiJuVu8mZaOHVzTXV3SJzFNcsXsRn2Ey5R6JCQLnr
+	f7ysJvAGEaE8RflyO0GbHswd053HB71vUurm/yfIhWwzGnzm79eATp6dLvBQz8ZdRmrQ96r86Aj
+	KqUG19uBNTiTkzSdhYei3nuAKQHANYevP0hOHAoiehljS4XHFlxI4BzithQqxxbB1cHOhqFMcbu
+	MY/W/hI0qt7rojE/YHt/ajfk=
+X-Received: by 2002:a05:690e:b49:b0:675:6da9:1473 with SMTP id
+ 956f58d0204a3-67936984122mr569837d50.19.1791545426481; Fri, 09 Oct 2026
+ 04:30:26 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: crepuse.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUYPR01MB8186.apcprd01.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9270a6b-e56f-4838-4ef1-08df25f85d59
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Oct 2026 11:27:55.7597
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9e189589-0b8b-4283-80ca-b0157c0a04fa
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 73rB+MV4MA9K8vR5S1FVo5HwTqJnqkwpVJIK+blH6YIn3W0iLNtatIQEBsUUHzRdB/P7nciwRh37hXxfHpt3BQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR01MB5518
+References: <20260908090448.3332-1-ansuelsmth@gmail.com> <6c610758-5f34-4408-a6e5-f3718218ba94@intel.com>
+In-Reply-To: <6c610758-5f34-4408-a6e5-f3718218ba94@intel.com>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Fri, 9 Oct 2026 13:30:12 +0200
+X-Gm-Features: AclHuK8eqfw6Ev6f1SKA8eu2eg8tRj5EFkf2BXzzFiX-0ipAFbVTyYej92ofmYs
+Message-ID: <CA+_ehUwrzx2gLS88438mqQC=ms71kaJpoU9ib8=zAdpsrXcGeA@mail.gmail.com>
+Subject: Re: [PATCH v6 0/5] ASoC: Add support for Airoha AN7581
+To: Cezary Rojewski <cezary.rojewski@intel.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Cyril Chao <Cyril.Chao@mediatek.com>, 
+	Darren Ye <darren.ye@mediatek.com>, Rosen Penev <rosenp@gmail.com>, 
+	Daniel Golle <daniel@makrotopia.org>, bui duc phuc <phucduc.bui@gmail.com>, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_042808_830707_687E420A 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_043028_386461_F7202ADB 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,101 +125,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the internal RK3308 codec and its I2S2 interface, and add a=0A=
-simple-audio-card. Route the onboard microphone to MIC1 and supply it=0A=
-from MICBIAS1, with the bias set to 85 percent of AVDD as used during=0A=
-board bring-up.=0A=
-=0A=
-The board does not expose a speaker interface, so no speaker routing=0A=
-is added.=0A=
-=0A=
-The board uses codec revision B. Support has been accepted in the ASoC=0A=
-for-7.4 branch as commit 157f7cba77a9 ("ASoC: codecs: rk3308: add support=
-=0A=
-for codec revision B"). This is a runtime dependency; the DTS uses the=0A=
-existing codec compatible and bindings.=0A=
-=0A=
-Signed-off-by: Mizuno Miotsuki <founder@crepuse.com>=0A=
----=0A=
-Based on Heiko's v7.4-armsoc/dts64 branch. The codec revision-B driver=0A=
-support is in Mark Brown's ASoC for-7.4 branch (157f7cba77a9); there is=0A=
-no build-time or binding dependency on that change.=0A=
-=0A=
-The same microphone route and 85-percent bias setting were used during=0A=
-V1.2 bring-up. Codec registration and onboard microphone capture were=0A=
-verified then, with the recording confirmed by listening. PCM/DAPM=0A=
-checks were also performed with the preceding codec candidate; physical=0A=
-LINEOUT and HPOUT audio were not tested. The final accepted codec=0A=
-shared-output implementation was compile-tested only.=0A=
-=0A=
-Validation of this patch:=0A=
-- Target DTB build: PASS (arm64 defconfig, aarch64-linux-gnu-gcc).=0A=
-- Target dtbs_check against all bindings: PASS, no diagnostics=0A=
-  (dtschema 2026.9, CHECK_DTBS=3Dy).=0A=
-- Strict checkpatch: PASS, 0 errors, 0 warnings, 0 checks.=0A=
-=0A=
- .../dts/rockchip/rk3308-unihiker-m10-v1.2.dts | 30 +++++++++++++++++++=0A=
- 1 file changed, 30 insertions(+)=0A=
-=0A=
-diff --git a/arch/arm64/boot/dts/rockchip/rk3308-unihiker-m10-v1.2.dts b/ar=
-ch/arm64/boot/dts/rockchip/rk3308-unihiker-m10-v1.2.dts=0A=
-index 270ea970c95a..7adef454ea89 100644=0A=
---- a/arch/arm64/boot/dts/rockchip/rk3308-unihiker-m10-v1.2.dts=0A=
-+++ b/arch/arm64/boot/dts/rockchip/rk3308-unihiker-m10-v1.2.dts=0A=
-@@ -54,6 +54,26 @@ sdio_pwrseq: sdio-pwrseq {=0A=
- 		reset-gpios =3D <&gpio0 RK_PA2 GPIO_ACTIVE_LOW>;=0A=
- 	};=0A=
- =0A=
-+	sound {=0A=
-+		compatible =3D "simple-audio-card";=0A=
-+		simple-audio-card,name =3D "UNIHIKER M10 RK3308 codec";=0A=
-+		simple-audio-card,format =3D "i2s";=0A=
-+		simple-audio-card,mclk-fs =3D <256>;=0A=
-+		simple-audio-card,widgets =3D=0A=
-+			"Microphone", "Internal Microphone";=0A=
-+		simple-audio-card,routing =3D=0A=
-+			"Internal Microphone", "MICBIAS1",=0A=
-+			"MIC1", "Internal Microphone";=0A=
-+=0A=
-+		simple-audio-card,cpu {=0A=
-+			sound-dai =3D <&i2s_8ch_2>;=0A=
-+		};=0A=
-+=0A=
-+		simple-audio-card,codec {=0A=
-+			sound-dai =3D <&codec>;=0A=
-+		};=0A=
-+	};=0A=
-+=0A=
- 	vcc_1v8: regulator-vcc-1v8 {=0A=
- 		compatible =3D "regulator-fixed";=0A=
- 		regulator-name =3D "vcc_1v8";=0A=
-@@ -117,6 +137,11 @@ vdd_core: regulator-vdd-core {=0A=
- 	};=0A=
- };=0A=
- =0A=
-+&codec {=0A=
-+	rockchip,micbias-avdd-percent =3D <85>;=0A=
-+	status =3D "okay";=0A=
-+};=0A=
-+=0A=
- &cpu0 {=0A=
- 	cpu-supply =3D <&vdd_core>;=0A=
- };=0A=
-@@ -131,6 +156,11 @@ &emmc {=0A=
- 	status =3D "okay";=0A=
- };=0A=
- =0A=
-+&i2s_8ch_2 {=0A=
-+	#sound-dai-cells =3D <0>;=0A=
-+	status =3D "okay";=0A=
-+};=0A=
-+=0A=
- &io_domains {=0A=
- 	vccio0-supply =3D <&vcc_io>;=0A=
- 	vccio1-supply =3D <&vcc_io>;=0A=
-=0A=
-base-commit: f204f28bd1fa9b4cf3e47488ba3ba25251aba18a=0A=
--- =0A=
-2.56.0=0A=
-=0A=
+Il giorno ven 9 ott 2026 alle ore 13:25 Cezary Rojewski
+<cezary.rojewski@intel.com> ha scritto:
+>
+> On 9/8/2026 11:04 AM, Christian Marangi wrote:
+> > Add all the patch and documentation to support Airoha AN7581
+> > sound driver.
+> >
+> > The card follows similar implementation with Mediatek with
+> > the codec present on i2c but with a simplified implementation
+> > register wise and additional frequency supported.
+> >
+> > Changes v6:
+> > - Fix PCM probe allocation logic
+> > - Split driver patch to dedicated PCM/ETDM patch and machine driver
+> > Changes v5:
+> > - Address comments from bot
+> > - Better handle concurrent irq status bit
+> > - Protect enable etdm
+> > - Add Review tag for documentation patch
+> > - Address formal comments from Cezary
+>
+> You've not included all the reviewers in the Cc list despite addressing
+> some of the comments. I hope that wasn't done in bad faith to avoid
+> further review.
+>
+
+Absolutely not. I usually use get_maintainers script to get
+the emails so it's totally possible I make mistake and I forget
+to include reviewers.
+
+If you have a better process, please suggest it!
+
+Anyway, what did I miss? I can totally send a followup patch
+to address them! More than welcome to fix anything.
+
+> > Changes v4:
+> > - Improve Documentation YAML
+> > - Move IRQ regmap to mtk_base_afe_irq
+> > - Use mutex for user tracking in ETDM
+> > - Register IRQ after memif allocation
+> > - Address suggestion from bot
+> > Changes v3:
+> > - Major fix to the ETDM code
+> > - Add duplex support
+> > - Improve Kconfig setup
+> > - Rework and improve YAML schema
+> > Changes v2:
+> > - Fix wrong edit in MAINTAINERS file
+>
+>
 
