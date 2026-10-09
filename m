@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AB4CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DEECA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mp4RnMe0TQZxUQ96A2OqhWXQwIeoTHhlaxX50LfJic=; b=WwxxIooy64jTGcQLvHdWDMdDkS
-	rqovfUsDrnRUe1hyubXawoRtHt9as3KEXeWH2ENnB/Frvb/z/Oxf/+KWpTzvW7FGqm9HdJf1+vUaj
-	mWhJbCO883i6lKuwYGdionMHvED+pETS6x9UrxJZ37JYC9VqQbzYF9vooCw3xydg1+lTkbrsODNw2
-	9YwTj+X6IP2PWvHUfeFOO/1jLWtV+AZgedlOH85LwQiheOMKvBMfvMhBzZurChh+QHI2wbMmHGjs8
-	p3NAhoNxF+T9xFRMrg8UU+AnX3CrN8L506pESfn4RoisddUg3wBtsQy1hiE0c/DhaY/AOOYmwfJKQ
-	2jXZE4hQ==;
+	bh=P1xT8kIEPQsNlllxKNcDEkZl+24WAzqvZIpeRT/H2QA=; b=EyyZjFH5oxo0RMpU8hfRcCdVS1
+	gGKhZLh+vOrvJT3sOe0ljJl5u+sv14VeNyMaiXpTNBoVJhauk4LPC9p9dSPSEzxT/MxvRaeiGsZ1i
+	Egk5vvXpjUNFYSHMj2x6xQHvFPE5ZrwZgJnkbmfinm04rJS0lhyJ7WRR5hnobaGfKwmUKqPR0J036
+	B3Mvgcb/nHA/KpU6W1jqxd37VT+pY9m8Iki6JHFl6mP9tUUxxd7MI33NA5c6zHyCcmhKM0oPvS7Z3
+	SOAPo1hTYKn/2BesEzP2iFoIpDCxMyYDPrlFvd5xqpB2nVeo/gTQQoea1AGQOmIhNu4IyrvAMIvdh
+	h23TdqcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBOL-00000006RIk-3611;
-	Fri, 09 Oct 2026 14:16:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xFBQn-00000006RST-08QP;
+	Fri, 09 Oct 2026 14:18:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBOL-00000006RIN-02ZW
+	id 1xFBQl-00000006RSL-1a4z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:16:09 +0000
+	Fri, 09 Oct 2026 14:18:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14DCF60A55;
-	Fri,  9 Oct 2026 14:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4051F00899;
-	Fri,  9 Oct 2026 14:16:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E64E60098;
+	Fri,  9 Oct 2026 14:18:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 181D41F00893;
+	Fri,  9 Oct 2026 14:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791555367;
-	bh=5mp4RnMe0TQZxUQ96A2OqhWXQwIeoTHhlaxX50LfJic=;
+	s=k20260515; t=1791555518;
+	bh=P1xT8kIEPQsNlllxKNcDEkZl+24WAzqvZIpeRT/H2QA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NhUolgjdT4xFpIJaLDiSOW9Fx/3UcRQiVWOExlWtRlCM+JExiGowDMCEGSwHEtnfG
-	 ph4wqLPlHYk3yHyFYgdaKKtAyhZlxIg5rePCMSle3N1m4N5jiRI0F+rgc0gximz4gE
-	 HGwESaoEV9h/0JQAZUI08YZSUbHyZ9sFXY+BChVjyCiyX6qDSXiKnPPVk/kEPsgUkK
-	 r7ufkRbdRpisjOQFOJjrKaEfoBU9kyzf3L/GYQ6wamC0qP+2zHNBbCo6JhBEByZiy2
-	 X8dhIJURzCuVSDrzN8zUtJzynOeqbp1KMhhSh7ZxwHKdzTKNBeMKGugL3GqLWPcaHp
-	 WL8H+/u39/mpA==
-Date: Fri, 9 Oct 2026 09:16:06 -0500
+	b=CUKv80xnqp9wtqp/jx9LsP21bSwE648OTT9sAp5YbntX3nG+YcSdwSUC/oIJgxYjQ
+	 CVpIrzIVLMcr0c0CCWD5b0spCReKAv7PYYXrA1x9ZTGU9emPu838Y4V7yNfIXGTf0V
+	 pPpiJADOxFvVy4UwSGBNUWloJhrtFh2Ec2HCeHBzXNoGiDAP06ZNDFfC6t2AT5sbsU
+	 hCwyfTQElhCcuQ2FI017sAQ5p22kKts54V6y5gF73ERYcoVw4O5vIymsMnfKP1/Zwp
+	 X0mC34uWjb4q+EudakKEqTgcT/l/Jcryj/+026ANJciKsXVQCfrZtko1pR24VpLuNj
+	 /+MbZTfmEGg1g==
+Date: Fri, 9 Oct 2026 09:18:37 -0500
 From: Rob Herring <robh@kernel.org>
 To: joakim.zhang@cixtech.com
 Cc: lgirdwood@gmail.com, broonie@kernel.org, krzk+dt@kernel.org,
@@ -51,7 +51,7 @@ Cc: lgirdwood@gmail.com, broonie@kernel.org, krzk+dt@kernel.org,
 	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Subject: Re: [PATCH v3 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-Message-ID: <20261009141606.GB1631855-robh@kernel.org>
+Message-ID: <20261009141837.GA1661224-robh@kernel.org>
 References: <20261009092552.2377960-1-joakim.zhang@cixtech.com>
  <20261009092552.2377960-2-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
@@ -148,8 +148,34 @@ On Fri, Oct 09, 2026 at 05:25:49PM +0800, joakim.zhang@cixtech.com wrote:
 > +    maxItems: 2
 > +    items:
 > +      enum: [ tx, rx ]
+> +
+> +  "#sound-dai-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - dmas
+> +  - dma-names
+> +  - "#sound-dai-cells"
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    audss_dmac: dma-controller {
+> +        #dma-cells = <1>;
+> +    };
 
-Address the sashiko comment.
+Drop. We don't put providers in examples. What example made you think 
+you needed it? And if you do, why not the clock, reset, and interrupt 
+providers?
 
 Rob
 
