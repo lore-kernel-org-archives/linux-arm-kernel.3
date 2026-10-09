@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B916ACA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 22:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A789CA9EBB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 22:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6sHe97NS4N8HlN6yP/FaM74H6fT/5NAwVOsKoJldAnk=; b=dZXVjB1H9AFNuzfDoN/wmXgudd
-	i74YERF1CqZgkdkMVcDjQDYMnTHA5ZitRooQnOFjhezx7RQQaQ0l/hFBNAgIaQP3c5BtAqwR06C4X
-	+FvJV/5KMp/JXmIh/HMIfix43D9vgqW1FTErmpI8w8KNK9H8vDkul2iMAzszCjPEzqTl4Ah25m2If
-	TYyFQSv12yxDOZRlUBHg8sd3gKp7Bw1EGC79jvU1xSxlDxH/47Nkp/BIxf/Vk5k6HQq3vo9vRM+k0
-	67iY1ii2icD78l28Zu7t8mVrpRIOgj8CEFvf7LQwTCSK8JOFBZhZgBNsuxmwIf8FOcgT5s+eZKYk8
-	abJqUP6g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rNw37UNtvQxjG0ooT5+8UhYoUtdXBXWHnW5/s8bHFrQ=; b=z5Q0FZ66ZH81theaQyCgyii7rS
+	id5i5LGA5bl8Iz8vLhCPrSm7vQQLu5PofvqrTdcaAyo96lqS3GjJ20R4lE/zLFosPG2gzEOoRYn9p
+	AvmSSFUxAcWsW/QtfRcm6bqGt2EKlmbykzoOYBbUNRlinzbnsNvETNB8H7oT4psCwij2mMXJmgUkS
+	FAsctfl0MqOvZU+pQwCYeI5Tauk0YPitH3jgd/W4GTVngsiuuGunbnlAEG0WENXvaf9i/LcctNLa7
+	D6a1zlOXOhmeKO/FINCos8ecQuKP3orhjQx5ryWOZRwO1LbobwoAGD/dPUAnbd2tGeSHbgi3TQN+4
+	fs6duvhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFIyK-00000007HCQ-1N4k;
-	Fri, 09 Oct 2026 22:21:48 +0000
-Received: from chamillionaire.breakpoint.cc ([2a0a:51c0:0:237:300::1])
+	id 1xFIyd-00000007HFS-1rx6;
+	Fri, 09 Oct 2026 22:22:07 +0000
+Received: from chamillionaire.breakpoint.cc ([91.216.245.30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFIyH-00000007HC6-0VQ2
+	id 1xFIya-00000007HDw-3bf3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 22:21:46 +0000
+	Fri, 09 Oct 2026 22:22:06 +0000
 From: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=breakpoint.cc;
-	s=2025; t=1791584499;
+	s=2025; t=1791584522;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6sHe97NS4N8HlN6yP/FaM74H6fT/5NAwVOsKoJldAnk=;
-	b=HxwTJ5PJDnUoHVedy44Lts3AjlG3zALCp6AE/l6cxXOy2arkSJAB2RTtM/vDvnb6W50wvQ
-	x4lBlNFDOPHbNt7sr14CBpdvb3gTLAZYcnelvaVFUS/TJxo3leaympJymrZKD1lvmLvz6p
-	ERvC343f6uKIcVeWF6Gr6dTDObV3jRbuDgOnoeTUoQ64NjtM5k4a1Sd2xKWQ5dZh01PrQZ
-	/I06YhJNicpnKPlVFx2fWRYa5v+K+v9vRndd4hha513zlwgYUMlm1SaUSViCnJe21eV9LU
-	4ovvxeG7Ky6VKVc0WYDKOR+OIOemigE6GkOCRhdJabAHLr8LjFjztFi9v+FLyA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rNw37UNtvQxjG0ooT5+8UhYoUtdXBXWHnW5/s8bHFrQ=;
+	b=kWy94j4tZnlb5aOSzjzkx1BwvMSh/qU27nUVr9alFiPVUnhGlwVeKQ/CsFLWEVjusK2Tx3
+	pJQuvlYoCO5qYZcYVGnI+sQGhWfB+4VbU0OzRUzkeWc0JeFsyUbgwqEYsn0amM459PxIEo
+	GErPmfX4mZ0Losr/a3agfqGyS+uUkh+XOG7xOa39ynr7jyOiA4vVoQsAsNCAcvOuskkqu7
+	px4DhdeATbxbeGsNeUc9UHzeTU/q9bUfMYsUyzoH4SmlOD3r6pgRXRRJhYS3PctlfBh7pG
+	U3BfR63iv8z7XAS6lbOoGQusJKS+eHK3JjagGaV5Yx5y9GH32qQXsz8N7cfNiA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=breakpoint.cc;
-	s=2025e; t=1791584499;
+	s=2025e; t=1791584522;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6sHe97NS4N8HlN6yP/FaM74H6fT/5NAwVOsKoJldAnk=;
-	b=tRmtWlx0XlvRYGZGwfwqAG0iE87ZR8aFmvbPsjqGAv/6Vl4Ug92GtwU7b3GYyWsYi8R1yQ
-	EmozFVOJUmV8yMDQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rNw37UNtvQxjG0ooT5+8UhYoUtdXBXWHnW5/s8bHFrQ=;
+	b=MTpUrNBifTfdWWHM5OLWTfeLaEqQG/Iw6OLhFpjXhRhn6Ojy65kT4dedTxeHC3GX6zRegR
+	JC1srkjIv/A6YtCw==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>,
 	Russell King <linux@armlinux.org.uk>,
 	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 00/11] ARM: Use invalid opcode also for warnings
-Date: Sat, 10 Oct 2026 00:21:07 +0200
-Message-ID: <20261010-arm_warning-v1-0-ddf4be42ae0d@breakpoint.cc>
+Subject: [PATCH 01/11] ARM: BUG: Move the assembly out of __BUG() macro
+Date: Sat, 10 Oct 2026 00:21:08 +0200
+Message-ID: <20261010-arm_warning-v1-1-ddf4be42ae0d@breakpoint.cc>
+In-Reply-To: <20261010-arm_warning-v1-0-ddf4be42ae0d@breakpoint.cc>
+References: <20261010-arm_warning-v1-0-ddf4be42ae0d@breakpoint.cc>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20261004-arm_warning-3ac1e2aea65f
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_152145_306268_CF118FB0 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_152205_056401_F34D667B 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +78,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM is already using an invalid opcode for BUG(). WARN_ON() an its
-variants are not optimised this way. The series here massages the BUG()
-implementation until __WARN_FLAGS() can make use of it. Here is
-comparison build of the defconfig with and without the series:
-
-|    text  data     bss    filename
-| 19678700 10728606 407364 vmlinux
-| 19434880 10814198 407748 vmlinux-patched
-text -238KiB, data +84KiB, bss +384
-
-| 19680276 10699150 408132 vmlinux-!DEBUG_BUGVERBOSE
-| 19443392 10735644 408516 vmlinux-patched-!DEBUG_BUGVERBOSE
-text -231KiB, data +36KiB, +384
-
-In general the text savings are greater than the increment in data.
+Move the assembly line from within the __BUG() macro into its own
+define. The quotation marks and the string escape can be removed and
+instead the resulting __BUG__LINE() macro can be wrapped into
+__stringify() to achieve the same.
+The BUG_INSTR() expects a string context. This can be replaced with
+___asm_opcode_to_mem_arm()/_thumb16() macro. Wrap this into
+BUG_ENCODING() macro.
 
 Signed-off-by: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 ---
-Sebastian Andrzej Siewior (11):
-      ARM: BUG: Move the assembly out of __BUG() macro
-      ARM: BUG: Spent each entry in __BUG__LINE() its own line
-      ARM: BUG: Move the section right after the opcode
-      ARM: BUG: Move file/ line encoding into a custom macro
-      ARM: BUG: Move __bug_table creation to __BUG_ENTRY_GENERIC() macro
-      ARM: BUG: Move the __BUG() out of CONFIG_DEBUG_BUGVERBOSE
-      ARM: BUG: Pass a flags argument to __BUG__LINE()
-      ARM: BUG: Move BUG() into the do-while loop
-      ARM: traps: Move the BUG handling from die() to do_undefinstr()
-      ARM: traps: Add handling for warnings to handle_bug_opcode()
-      ARM: BUG: Add WARN support via __WARN_FLAGS()
+ arch/arm/include/asm/bug.h | 25 +++++++++++++++----------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
 
- arch/arm/include/asm/bug.h | 61 ++++++++++++++++++++++++++++--------------=
-----
- arch/arm/kernel/traps.c    | 40 +++++++++++++++++++++++++-----
- 2 files changed, 71 insertions(+), 30 deletions(-)
----
-base-commit: 4eeccbed21e50c19f97be9d325511f3de6343f2d
-change-id: 20261004-arm_warning-3ac1e2aea65f
+diff --git a/arch/arm/include/asm/bug.h b/arch/arm/include/asm/bug.h
+index ba8d9d7d242bd..24f46d4f6e733 100644
+--- a/arch/arm/include/asm/bug.h
++++ b/arch/arm/include/asm/bug.h
+@@ -14,9 +14,11 @@
+ #ifdef CONFIG_THUMB2_KERNEL
+ #define BUG_INSTR_VALUE 0xde02
+ #define BUG_INSTR(__value) __inst_thumb16(__value)
++#define BUG_ENCODING() .short ___asm_opcode_to_mem_thumb16(BUG_INSTR_VALUE)
+ #else
+ #define BUG_INSTR_VALUE 0xe7f001f2
+ #define BUG_INSTR(__value) __inst_arm(__value)
++#define BUG_ENCODING() .long ___asm_opcode_to_mem_arm(BUG_INSTR_VALUE)
+ #endif
+=20
+=20
+@@ -25,24 +27,27 @@
+=20
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+=20
++#define __BUG__LINE(__file, __line, __value)			\
++	1: ;							\
++	BUG_ENCODING();						\
++	.pushsection .rodata.str, "aMS", %progbits, 1;		\
++	2: .asciz  __file;					\
++	.popsection;						\
++	.pushsection __bug_table,"aw";				\
++	.align 2;						\
++	3: .word 1b, 2b;					\
++	.hword __line , 0;					\
++	.popsection;
++
+ /*
+  * The extra indirection is to ensure that the __FILE__ string comes throu=
+gh
+  * OK. Many version of gcc do not support the asm %c parameter which would=
+ be
+  * preferable to this unpleasantness. We use mergeable string sections to
+  * avoid multiple copies of the string appearing in the kernel image.
+  */
+-
+ #define __BUG(__file, __line, __value)				\
+ do {								\
+-	asm volatile("1:\t" BUG_INSTR(__value) "\n"  \
+-		".pushsection .rodata.str, \"aMS\", %progbits, 1\n" \
+-		"2:\t.asciz " #__file "\n" 			\
+-		".popsection\n" 				\
+-		".pushsection __bug_table,\"aw\"\n"		\
+-		".align 2\n"					\
+-		"3:\t.word 1b, 2b\n"				\
+-		"\t.hword " #__line ", 0\n"			\
+-		".popsection");					\
++	asm volatile(__stringify(__BUG__LINE(__file, __line, __value))); \
+ 	unreachable();						\
+ } while (0)
+=20
 
-Best regards,
---=20=20
-Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
+--=20
+2.55.0
 
 
