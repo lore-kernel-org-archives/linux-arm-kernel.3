@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790BCCA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 21:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DED0CA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 22:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pOjh8O8Oq6aRVh6JgsLLuSInkH3+kGN0eVIPZ+j+jmc=; b=nuVtl+GWSyqCx6Do0N/xAsqApn
-	h77+a4X4HLTC95Pl9aZj7ui3eLloHKCu1NdRD3HCL/y4l3c1t9bVEBVb2D0MgYAHTQUa48WqpGemW
-	YgM6sFc734A/r7J7RCaLbbjY8Bk92Nq+J1OCXrmkbXWqIo/lYqzkRF/OBFP1vTwrf4vZ1931l4yBi
-	aW9cAyHVKjoAUAKwZ9AxUnlEfXPo6uMgjGQVvOFttLMk+ytY5XSyhvjj3LsEpG1Hh4gmJpkugwHXx
-	G4OMnIxINc/+ruhMtDeR1SqO4W4FASXppkSHv/S1vFGryrLU/FsjLhUltDpx42JUo9fJsb38Fl065
-	NaG1Dj9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A/9F/B5Ss3zaf0W3INpg/gGeL+VhwhM/ai/5mapCrH4=; b=TfG73WWm4WY9ci7xEzwlpBj2lt
+	kU1RK1z2B4ZppTDNnWnjR31OyF8oBk0ucqbBBT5kkryftffEYdwhKip9k34sp9tKakxmxagsF+f+Y
+	EASdEv+v1zv0uBol4e4PBBwn0KxWZBRZvrQ58IssBv85HA9zBiSfCSzG3fu9WKCnwCalZcA6O7orO
+	xIRFl+IL/bw8/49UZQrjGhvS0IZME3nsQB4G8K1e7meLpsfJXLyOxlRGTRt3mGRLw+hH8LWAVz/tn
+	5BPcfPpfHG6LLgycsMLgVb4g1iEEklnsmHoVNK5cwglI5Mt+TI15o64lK48RMXXpq9myAxDAFoFub
+	qNaoxasQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHxS-00000007DwU-3nPO;
-	Fri, 09 Oct 2026 21:16:50 +0000
+	id 1xFIgk-00000007GSL-19cl;
+	Fri, 09 Oct 2026 22:03:38 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHxR-00000007DwM-0w4w
+	id 1xFIgj-00000007GRj-08oP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 21:16:49 +0000
+	Fri, 09 Oct 2026 22:03:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F6AF43D59
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 21:16:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821871F00898
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 21:16:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 65626423D2;
+	Fri,  9 Oct 2026 22:03:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 445871F000FF;
+	Fri,  9 Oct 2026 22:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791580608;
-	bh=pOjh8O8Oq6aRVh6JgsLLuSInkH3+kGN0eVIPZ+j+jmc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cG+2CrOd/QgTwToV1AwTrkzyFuPmqfc73GdFV7wNvYOFnXZWbZWW/rrgmv46M8QYd
-	 /coo1iRKTKUtKMdYTOT9l2sZy7jyZF6JHKG42SK9Yvohzctg1HD/lqYGjIZ9leOfAE
-	 tV94AUotzs5KkNtvmqM0jwdlURnWerRBOt1KAvdHH9uVLTv8lBAUYBGp+WV/73feVu
-	 SP0MhUlNc6O/DtAyJEWAWEmsKbt5y5f2OTFgYewpx1UmHilkQ/atenLnBQ23ZWxisa
-	 wVylB5egjye+9e7J6pojE2czF6KCRzjr2GjzIFc1QRrtLA3ggcgPhYLStpTLCEqGG6
-	 z3/NcrfY8ydGg==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3a9787a14ecso1882481fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 14:16:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzcNtfhhZ5A3n8TV6FFlOkA6cAShsbU7vsoHUwka6f1Jud+7m4scpMn7PIBbueSOjLcMmiqvEng12P/VQwmrCh6@lists.infradead.org
-X-Gm-Message-State: AFq9FYLi+5buzZ1obwGJGH8Bj5XC2AiGzOCXMkQSXGloqM5+c9Gy7iDZ
-	0AFg4kshyWwoEvIZpKmieb5SBNEexWUD7Y3qgY4pdkX2WmeBkSi0KrOrUIYUN7s0VXpPltjASSc
-	K1xV8JDp46qex6/SaeYINZnQEwhQ8is0=
-X-Received: by 2002:a05:651c:198f:b0:3a7:69bd:80ad with SMTP id
- 38308e7fff4ca-3a9c5253754mr7279251fa.6.1791580607219; Fri, 09 Oct 2026
- 14:16:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
- <20260921-ux500-power-domains-v7-1-v3-5-9352be6b86b1@kernel.org>
- <CAL_Jsq+1O+os8=YGUoKg6zCm-r0gQ35baKX=z65uTQNB0i=RVQ@mail.gmail.com>
- <CAD++jLm+yRo9e1UDhnaYrdPq28mdyYKQZ6tdKuUa3UG85imkNA@mail.gmail.com>
- <20261009131902.GA1195061-robh@kernel.org> <CAPx+jO9F6wUG9M_cV-xiF-KAKD5kJ02n+yE6L9vocs=KWaKFTw@mail.gmail.com>
-In-Reply-To: <CAPx+jO9F6wUG9M_cV-xiF-KAKD5kJ02n+yE6L9vocs=KWaKFTw@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 9 Oct 2026 23:16:34 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkkWUpkg6gwZuRzwwLU5E_9AsLiv8PSjT04dvNFj4DBBA@mail.gmail.com>
-X-Gm-Features: AclHuK9p2mVaeX7VK8JUI4a76kwVWB2K8tlFEwycQPwaH1SFyM2rvP_ArIybIGc
-Message-ID: <CAD++jLkkWUpkg6gwZuRzwwLU5E_9AsLiv8PSjT04dvNFj4DBBA@mail.gmail.com>
-Subject: Re: [PATCH v3 05/18] dt-bindings: display: ste,mcde: Allow power domains
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Vinod Koul <vkoul@kernel.org>, 
-	Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20260515; t=1791583416;
+	bh=A/9F/B5Ss3zaf0W3INpg/gGeL+VhwhM/ai/5mapCrH4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=nCxs/7FQFsy+yY82EtxBv875G/btrLx0jYz3i9WTE5GXWjBLK+tOYf1irwIEVwdX/
+	 8VbkfQSsiMps/JWr7IJ8vMHiNz5/dgbwVz/2/2qkab5emd/BeS+0x3BXZ6mzwm0/ad
+	 U6OK0+l7oqblLbhBunt9z0SdQYaxxUtsjXU70DrQo/YX0fIsRHiyrBpNOuAMjtYsoW
+	 Nr/pwxIFGAoeCtQ2m/6hOB9+FHDanAne6NxcChAULDkiR1ANpzKNxh59IgUZ4CtQ1y
+	 dzlrJjFa0kd8FsBklGhNky8RmCEaTyiiqYLzTnIcATi9F6SYht4ZHcd1UkQkvhfipD
+	 EZ9Yb67wUedfA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A6973926392;
+	Fri,  9 Oct 2026 22:03:36 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <asid3RY1C6mbTvh9@willie-the-truck>
+References: <asid3RY1C6mbTvh9@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <asid3RY1C6mbTvh9@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: a9cd14bfb0c113f1cd77be4349784663bec71bb4
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 9515f634dbed2bb8928fbb3b01102dd4e64f4aeb
+Message-Id: <179158341481.1020838.3566467573333418134.pr-tracker-bot@kernel.org>
+Date: Fri, 09 Oct 2026 22:03:34 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, mark.rutland@arm.com, maz@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,18 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 9, 2026 at 4:38=E2=80=AFPM Ulf Hansson <ulf.hansson@oss.qualcom=
-m.com> wrote:
+The pull request you sent on Fri, 9 Oct 2026 08:55:09 +0100:
 
-> I have queued up three patches [1] for next from Linus via my pmdomain
-> tree. The patches are also available for you to pull via my immutable
-> dt branch. I assume that should resolve this problem?
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Way quicker than sending and having a revert accepted, and
-way way more productive :D
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/9515f634dbed2bb8928fbb3b01102dd4e64f4aeb
 
-Thanks Ulf!
+Thank you!
 
-Yours,
- Linus Walleij
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
