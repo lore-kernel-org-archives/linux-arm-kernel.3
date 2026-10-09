@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513D9CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E487CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Um36Bmls59wwIHRJ0FX6eqoGiQdL5ajLwlxHe/J5vs=; b=2nqD1P0GdYB7ggTguWn+yHb2hS
-	WF+ekHv5WYfBKFHuNTmF9yY1S/+CvrLBzmDgVmXzgcoSoFQBI5I/X6r+LB8JOlmhq2UeB6wpktgk9
-	amuE62I9LE3six105J+PdZCJpD2dl8pFz44PtbhigBwupeSdNSwtE+VYRiTqYOavqa4PSzJAKYIAR
-	dC7z+KdM8K57MtYg/txf0MFeB0/HPeXwIZieNda8iDT8S9WsZ0y0eDBZ/mlniYFa+A6O6Rt5s9JaA
-	UlftIVGa1/1mr3NlyiNVQwEl2KJfjGFakMjeCkHCdtGnsvy4V0x1RaUhh8Dzy/e5WRD67yEWVnr3y
-	queJTysg==;
+	bh=qkbJzcmqDeieYoXJhEk/nB3qFlnGDMJI9zS6yIH7Up8=; b=yNLh/kkRqqf+zcMi9RbXDoqadY
+	Aq1lexNULVGt8L/vHyylU52aQPZ0PLzHOQokNOhcIZuuHaHfb3o1cp0mO058uKfQqIjPJxUNe+mmU
+	VLQzlmETu316CO0s9RKfiyFQswn8QK0OJd3He9N2KC0SvMiSZD+3j/5E4g29jjN4IW0u4kiOSAQLN
+	LqneKSlDAJCZapZScnYroo+kuNz8nHSN5LgDNP0j2Ppp+hXDRg+LldR10LY3g4dQ9Nvpet+7cGueE
+	ubFso/UPqiaSnHq0ADahtc9O/AET+sJfjpt7sX+zrk661BaKSNVdy3/CqijR+aSmmZf7sZSMKlL9V
+	vw8GBkKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4LO-00000005eIx-2eTb;
-	Fri, 09 Oct 2026 06:44:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xF4N6-00000005eUt-3YyS;
+	Fri, 09 Oct 2026 06:46:24 +0000
+Received: from out-130.mta1.migadu.com ([2001:41d0:203:375::82] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4LN-00000005eIq-0Shf
+	id 1xF4N3-00000005eUK-3EJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 06:44:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F426403CE;
-	Fri,  9 Oct 2026 06:44:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB011F000FF;
-	Fri,  9 Oct 2026 06:44:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791528276;
-	bh=0Um36Bmls59wwIHRJ0FX6eqoGiQdL5ajLwlxHe/J5vs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gLJaRrYBsgbS3cgcpCHV2bSajDEmMCgWMFM4iI9mozcu8iPbXmiMakcLJba5VgxQN
-	 5TAttX01Qd6DPF3sOPoOjRi0trTjaGmFnAZGxjSooJ2g7ljvM/5xZLb47E5XJXlf9Q
-	 yC3mIqkKcTVXRW6ixQNB2CL3NN1mkmdi4psKBqflINO6+XrVfSZZ8UcghDK64ESfQY
-	 G0dfXYSOPI8zH9pFvHfd9kYMSpVSkcLNN58aznF7g2nhgXWRgvgu2Dd3fEZrQkGGUF
-	 wEXa2tGYoTpqZvJIprV/jIEPtfyzGb/HnD7HhHBTlmTly+Rx6T2MfPyGvBL5wRVkSe
-	 RhxVXQG9TmwNw==
-Date: Fri, 9 Oct 2026 08:44:32 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Otavio Salvador <otavio@ossystems.com.br>
-Cc: Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: nvmem: SID: Add binding for R40 SID
- controller
-Message-ID: <20261009-juicy-wolverine-of-atheism-3b0d8b@quoll>
-References: <20261003012534.418820-3-otavio@ossystems.com.br>
- <20261003012534.418820-4-otavio@ossystems.com.br>
+	Fri, 09 Oct 2026 06:46:23 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=qkbJzcmqDeieYoXJhEk/nB3qFlnGDMJI9zS6yIH7Up8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791528379; v=1; x=1792133179;
+ b=V8IEyIS3s+YgzOthG5qGJA6R57YE8pq9XYBJuOeb+2UPEL8Tefsb8Q0Lqr/WEdpFbmbEam7y
+ vNXDKoc6R1Fpt3UtIy0wG5rTrR1zQuKuHJBKwO+AVEH7AiyZK1/ObTDjTvXeDm/i9yLnVGQU/Av
+ V21qhwwi/qFlWgBGWF4iGPKo=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6fbe6f8163d577e3;
+	Fri, 09 Oct 2026 06:46:19 +0000
+X-Mizu-Trace-ID: 6fbe6f8163d577e3
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5bcc04c71f5so5101e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 23:46:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwt83ucnEHRF5GAPPij4UfTPa+4TGbAwb71LrftBsFmiBb/Hl12jG4N0Dl0gHn+U6k5Wos/7j+3pmM6efZg6the@lists.infradead.org
+X-Gm-Message-State: AFq9FYJMyLwyR8QRLO41BTDfhkt4CTVLesWfqm0kkaEbOdUuEiqQyH/0
+	Er+QCjM7LWsacc1c/ji/lNYK7k2shWEFBpyDBqACBXuVRjT93f/SkJEcUYmmUjmbmIRriBZw2tG
+	oKPM2lCPZsPNNgrByCJXbD7u3+q204xUgXrVq2M7H
+X-Received: by 2002:a05:6512:6d3:b0:5bc:44d4:ab49 with SMTP id
+ 2adb3069b0e04-5bcdf93c5d4mr38548e87.13.1791528378033; Thu, 08 Oct 2026
+ 23:46:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261003012534.418820-4-otavio@ossystems.com.br>
+References: <20260929093548.3598547-1-maz@kernel.org> <CA+EHjTybnn2jgVKxCO0WXdGXWJ-=2p4k98CHfh3CrhJopvPDFQ@mail.gmail.com>
+ <asf87i2RDh-WksL-@kernel.org>
+In-Reply-To: <asf87i2RDh-WksL-@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 9 Oct 2026 07:45:41 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwbhhFipHyi5kL3j6oPxqEO4mVP3BCrtg18iWaFFGiNfw@mail.gmail.com>
+X-Gm-Features: AclHuK_nku16xs9azzExlIZ7VItoqo2nur27jo7qgAEiOQl6n1JVILRZZg7lbSQ
+Message-ID: <CA+EHjTwbhhFipHyi5kL3j6oPxqEO4mVP3BCrtg18iWaFFGiNfw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] KVM: arm64: vgic-v3: Make LPI disabling robust
+ (and more)
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_234621_951437_9B88A96F 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 10:25:35PM -0300, Otavio Salvador wrote:
-> The Allwinner R40 SID exposes its 2Kbit eFuse at offset 0x200 of the
-> controller, readable directly from MMIO like on the A64. Add the R40
-> compatible with the A64 one as fallback, as done for the A100, H616 and
-> A523.
-> 
-> On an A40i, all 64 eFuse words read through the MMIO window match the
-> words read through the SID_PRCTL/SID_RDKEY registers, so the R40 does
-> not need the register-based readout of the H3.
-> 
-> Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
-> ---
->  .../devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml       | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml b/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-> index f67470b8a2ed2..a4960b0ef8cbe 100644
-> --- a/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-> +++ b/Documentation/devicetree/bindings/nvmem/allwinner,sun4i-a10-sid.yaml
-> @@ -25,6 +25,7 @@ properties:
->        - const: allwinner,sun50i-a64-sid
->        - items:
->            - enum:
-> +              - allwinner,sun8i-r40-sid
+Hi Oliver,
 
-Assumming this enum is kept in natural sort order:
+[...]
+> We could have vgic_target_oracle() return NULL if LPIs are disabled at the redistributor, then the rest of the AP list machinery will "just work" for injections that slip between the cracks.
 
->                - allwinner,sun50i-a100-sid
+That would also cover a related one Sashiko raised:
+vgic_its_resolve_lpi() can cache a translation after
+vgic_its_invalidate_all_caches() has run, since the disable path
+doesn't take its_lock, but any MSI that hits that entry would then be
+dropped by the oracle. I'll write it up and send a patch on top of
+Marc's series.
 
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+Cheers,
+/fuad
 
