@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2136ACA601A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0ACCA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKOWnKBJbJXeo8x7ZpRmGUBbXlEBT0+pIRkZH0GNbaw=; b=tM/BJNpZMXPiq3IH874noYupr2
-	eyfX54bVtiUQNEUYmEymfb3iyQJeB7xT07h9L/63c6T5vbdDVr2gJSL4I5CwNQtRk+I/xoPuTGmn8
-	hlkUQq6pP9Km9+iFTtdKFkdd8Pw4zwef+k/5Lk3C9QtP4LXPEZgyuhYBITnUVwQm1PYQmXEZx3lO7
-	ZHQzeaRecGkwnv+DMFwEMUzePurzv5JkREwRmTdeunWwZaSjJY/hq91MfBM5i7bs7LQG5xF5D4qlr
-	NXbkEbj7tw08o5X7j8w8ap2hzDhBaQ5MyOdmC/npipLEBn8JkngIMlQZyvsm5O/mKHMvuMmiccvH+
-	VKSMbmhg==;
+	bh=KS3sgP/eUxT87vqgC+drQoOFDrxJo6kTsTRnflTVKSQ=; b=ZmCRUG8mOHEucvveJBPQydvUOH
+	Wz+opYRSV02kt1bYMiPPZu6hzDtc9OnHu7XuyJBOGdKrB8VIlVZ7bLfiVM7NQFnItcFZvM3ebrDzE
+	iUWA8Dm19K45qw/+pY+RPF/m5YaZYCNwg6E6orcTtjagKuUY7jxfq8WwWSAoW5HRoqfDQTD0r99tx
+	Ah+EtSzoEXyH5dU+28gWpn4PXqhy2cQxhjeRna5B86I1+JpGDOvWJo3RpobCSrho5kBi/R8XaJi3a
+	5bE7QSG8QSxKOmMlNm+xnFUGtHw2W03RHzVg1MkL/4U/2yJhxoYv4cAFcGpXa83giLNLEjcOVktrk
+	T2wd842g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3oC-00000005aoQ-3ND9;
-	Fri, 09 Oct 2026 06:10:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xF3oQ-00000005auJ-3orK;
+	Fri, 09 Oct 2026 06:10:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3oB-00000005ao3-2247
+	id 1xF3oO-00000005atA-3RkH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 06:10:19 +0000
+	Fri, 09 Oct 2026 06:10:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E918460DC3;
-	Fri,  9 Oct 2026 06:10:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04D71F000FF;
-	Fri,  9 Oct 2026 06:10:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 455EE60DC6;
+	Fri,  9 Oct 2026 06:10:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 331381F000FF;
+	Fri,  9 Oct 2026 06:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791526218;
-	bh=EKOWnKBJbJXeo8x7ZpRmGUBbXlEBT0+pIRkZH0GNbaw=;
+	s=k20260515; t=1791526232;
+	bh=KS3sgP/eUxT87vqgC+drQoOFDrxJo6kTsTRnflTVKSQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ItDXhXo2lnHxe4Ty/4W3UyneDlSvPXkqY1slCpv+/7L44f/H4MflyLcIPg1F0NZL1
-	 WxWCTDpohl1nagM2Mos1gx+t5J9XCO8EFZUQ449XxQrFF9mkSXJsscKKmdbAdguvWA
-	 MQr75gWIvkmf7QtGuytNbx24zzZh0LgqxMvNHjTw2dPcyl/QaBLztME9BD5ZbtnIQt
-	 Ch/4lZtWUQ2c8qAll6JMREHTy8zt3oRzdQXcIb2A1FtH39mJWx9mR76qQorM5G0Ro9
-	 uI4WIYQYoQ1A4IuEgTxOymxp0leN25nseGB8cen3v6KvCzEEx1pZN/sOp/WbGcjOnB
-	 p2J63HhwyivYA==
-Date: Fri, 9 Oct 2026 08:10:16 +0200
+	b=m94c6dJSC6KB2dY78IwIoo8ekBqOmd5nw+PtP+EH8lg2F8MXcrX/vt3CFVrmOjORv
+	 2EZcDAFb4QoRnqGS5kx7W98EH9zEaLaPwkPI/sSf6f+cYA5X3B4MimVwk5d4etzekH
+	 CJKJoXOxGGIsm6zdVospuTVNU3mm07SjCcgwNg6s2dM/85dezrqsNeydzljQ/CFw6g
+	 GB200OaV+9b8p32LdR1KpQpP2jAdQESH9QrZk9J7w8bRpbqyo6FrNQG37HatBt2XSb
+	 2V9ADm+ETbiwbYEFCiuS/DB95TengT1AHQbNZdwCYpxRA75JeP7K0e7JhB4w6vCjdw
+	 Obi/bn1qnQ3mg==
+Date: Fri, 9 Oct 2026 08:10:29 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Haotian Zhang <vulab@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-samsung-soc@vger.kernel.org, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <jroedel@suse.de>
-Subject: Re: [PATCH] iommu/exynos: fix NULL pointer dereference on
- device_link_add() failure
-Message-ID: <20261009-refreshing-squirrel-from-hyperborea-ea10de@quoll>
-References: <20261009034539.3073100-1-vulab@iscas.ac.cn>
+Cc: imx@lists.linux.dev, Thomas Gleixner <tglx@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-kernel@vger.kernel.org, Jacky Bai <ping.bai@nxp.com>
+Subject: Re: [PATCH v2] clocksource/drivers/timer-imx-gpt: fix resource leak
+ on init error paths
+Message-ID: <20261009-miniature-platinum-beaver-fcf647@quoll>
+References: <20261009022818.3025610-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261009034539.3073100-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261009022818.3025610-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +73,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 09 Oct 2026 11:45:39 +0800, Haotian Zhang wrote:
-> exynos_iommu_probe_device() stores the result of device_link_add() in
-> data->link without checking it for failure, although device_link_add()
-> returns NULL when the supplier is not PM initialized, on a dependency
-> cycle or on allocation failure. exynos_iommu_release_device() then calls
-> device_link_del() on that entry unconditionally, and device_link_del()
-> dereferences link->flags, so a NULL data->link causes a NULL pointer
-> dereference when the device is released.
+On Fri, 09 Oct 2026 10:28:18 +0800, Haotian Zhang wrote:
+> mxc_timer_init_dt() maps the timer registers with of_iomap() and obtains
+> the ipg and per clocks with of_clk_get_by_name(), but every error path
+> jumps to err_kfree, which only frees the imx_timer structure.  The
+> ioremap'd mapping, the clock references and the mapping created by
+> irq_of_parse_and_map() are leaked when irq_of_parse_and_map() or
+> _mxc_timer_init() fails.
 > 
-> Check the returned device link for NULL, unwind the links that were
-> already created and fail the probe instead.
+> Release the ioremap mapping when irq_of_parse_and_map() fails, and drop
+> the clock references and the IRQ mapping when _mxc_timer_init() fails.
 > 
-> Fixes: 7a974b29fe5d ("iommu/exynos: Rework runtime PM links management")
+> _mxc_timer_init() can fail after mxc_clocksource_init() has registered
+> the sched_clock and the clocksource, and after mxc_clockevent_init() has
+> registered the clock event device.  Those subsystems keep using
+> imxtm->base and imxtm, so neither the mapping nor imxtm itself may be
+> released on that path; request_irq() cannot have succeeded there, so
+> disposing the IRQ mapping is safe.
+> 
+> Fixes: 8051a993ce22 ("clocksource/drivers/timer-imx-gpt: Fix potential memory leak")
 > Assisted-by: DeepSeek-V4.1-Flash
+> Suggested-by: Frank Li <Frank.li@oss.nxp.com>
 > Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 > ---
->  drivers/iommu/exynos-iommu.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
+> Changes in v2:
+>  - Dispose the IRQ mapping and drop the clock references when
+>    _mxc_timer_init() fails, instead of leaking the IRQ mapping.
+>  - Do not unmap imxtm->base nor free imxtm on that path: the sched_clock,
+>    the clocksource and the clock event device may already have been
+>    registered and keep using them.
+> 
+>  drivers/clocksource/timer-imx-gpt.c | 14 ++++++++++++--
+>  1 file changed, 12 insertions(+), 2 deletions(-)
 > 
 
 
