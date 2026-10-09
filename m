@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA757CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 05:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF960CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 05:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9YO0eJYB2iuGA2U/VJdUhkPCHtdLj+gjfpQldoRh8o=; b=kzkUjZ9UxhZtaL6R5HSFos4db/
-	RRqZc4HHpOxyVBhKdLbro/+G3UFZzhBmAxPE6FtF0oySphk0FWQbct1wUuRoyPrKD9sBb9oMt21mG
-	vm4L6O3FcLpg19umUNZlMz0TmLn2VmCzeWp+0Pzt36mkPS29yWHC+eAO2AnlWWJVqYN1ZGjtPAKen
-	9SEUsqJAfnXyUED0GG/LTocg9C2N/af7FqIx14vytaetyWn9h04pEEySp9zWyiFj8FCmwVciB6L1y
-	c5fr5yDXta3x753oo5hskx11siz9KBWRGery5uCV/YmAG8/OenHDjyfo5FJoN63PJvvIleHyHBQpo
-	GOnUrlvQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+Ml5ZkjG7PkAbQlfxYxrEYKodkAG+TCGoRqBlrwpTMw=; b=Uaw9Uf2Q/9BVPwVb+QOGofyeXN
+	vhZH+xxDurbMWZvmfRX2RNY8XxPTKZCP2TKbUPz+cLT8sXCduTj0fSRIKQnEAqfKKVsromGPBR0Rc
+	JmfU+Tj6CqZU9+ZWEZrMZ/UEjh2sJ5MlxAIHeSAyhDhvP9jjDmNiLdLI/8QwA20QKtGuE+3Oo8S0i
+	wOoqDLYf11yaT3yXd6MPxsXpWMfqjJfESHKZo3vc6r5N70Bz1YgThG5u4vMLXIXbzlvxdPFq6QTlR
+	GfRJq6Ri+nx/cUpSNHew3VoJkXR1DJlwMjZMpNAYI93szlXNWJ5plhUiN+hqNV9n5+2ggoJB0P3jE
+	isG5p17A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF2nx-00000005VL1-3tPH;
-	Fri, 09 Oct 2026 05:06:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xF2z5-00000005WGT-2oot;
+	Fri, 09 Oct 2026 05:17:31 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF2nw-00000005VKZ-1fXO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 05:06:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFEA143965
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 05:05:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 960DA1F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 05:05:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791522359;
-	bh=I9YO0eJYB2iuGA2U/VJdUhkPCHtdLj+gjfpQldoRh8o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=CChd7zzJcSynPfXkJUfzvxWOXcF/ySNL5XLqIhF7VLTfAK7P3aIpLnm+B46PQeoU8
-	 OZjRgCzQ+tYcXIfYiAAgYjz19+3/yg15qtTHp5L3BaiXWrYb86nld+0jZodxPrY5NZ
-	 7428JZRZUy6Wdp4CaOEkfcDqHUtvBSqewIqBF0hUISdx0Y3T7bPA7U/Qn7ovgrg4CH
-	 nxIvUKtw/DWAXeK1pGG9NprsuRdn64u9pw19YsclC2bhoEcty/jxOe2Mtfe/CoS6Ul
-	 LHKR/bAgAfWLLB+IZoPsSho4UyzRdVWIsrrL14Ld8SnH2Cp1G2FfkB9yz0yV73+QxG
-	 PXJB1ozmuLebg==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3a98fcbfb1dso34716051fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 22:05:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzW5hFkzWosTPVZMbcCOTjIxhhOfU7Gmf4PBQIxPIps6BFrEvCisupOJHbP5f1Rg3InQdWbOngo+UFP1GGRRJus@lists.infradead.org
-X-Gm-Message-State: AFq9FYJQgFMhhOm75Znr3ePgKUYA8rXQOzzNUQwhO8V60lLHsm6RbRLo
-	cGK/hzbPldth56yv77VmARhuIu0GSSsSR5trg7IiVzXw4NHxJQmfi+DNbw2qQe7ZQJJtHKEnfoR
-	hViJle+Ge3zwVhHa9P4kOOi69tMNnSa8=
-X-Received: by 2002:a05:651c:a204:20b0:3a7:812b:cfc with SMTP id
- 38308e7fff4ca-3a9c5362e82mr1036541fa.14.1791522358331; Thu, 08 Oct 2026
- 22:05:58 -0700 (PDT)
+	id 1xF2z2-00000005WG2-20HF;
+	Fri, 09 Oct 2026 05:17:30 +0000
+Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowADns0HieMhqH80cCg--.3235S2;
+	Fri, 09 Oct 2026 13:17:22 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Jerome Brunet <jbrunet@baylibre.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: meson: axg-fifo: return a negative error code when no irq is found
+Date: Fri,  9 Oct 2026 13:17:24 +0800
+Message-Id: <20261009051724.3134644-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
- <20260921-ux500-power-domains-v7-1-v3-5-9352be6b86b1@kernel.org> <CAL_Jsq+1O+os8=YGUoKg6zCm-r0gQ35baKX=z65uTQNB0i=RVQ@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+1O+os8=YGUoKg6zCm-r0gQ35baKX=z65uTQNB0i=RVQ@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 9 Oct 2026 07:05:46 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm+yRo9e1UDhnaYrdPq28mdyYKQZ6tdKuUa3UG85imkNA@mail.gmail.com>
-X-Gm-Features: AclHuK-Ex5IjXhkbtgEhkucoevwygfmCnjR6ilMQmzKovj4MIFQJsLkwQxsWcf8
-Message-ID: <CAD++jLm+yRo9e1UDhnaYrdPq28mdyYKQZ6tdKuUa3UG85imkNA@mail.gmail.com>
-Subject: Re: [PATCH v3 05/18] dt-bindings: display: ste,mcde: Allow power domains
-To: Rob Herring <robh@kernel.org>, Ulf Hansson <ulfh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Vinod Koul <vkoul@kernel.org>, 
-	Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowADns0HieMhqH80cCg--.3235S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7GF43KrykCFW8GFykJr1rCrg_yoW8Jr45pr
+	Z3Gr90qFW3Gryrur1vk3WIkay2yFy7JFWrGFn8Ja47Z3WrtrZaqF43JFyjqr4jqFWrKa15
+	JFy5XayrXFWUAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvCb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26F4j6r4UJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2Kf
+	nxnUUI43ZEXa7IU5c2-7UUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgcPA2rIYxA6pAAAsC
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_221728_919534_02FC45DA 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 8, 2026 at 7:41=E2=80=AFPM Rob Herring <robh@kernel.org> wrote:
+In axg_fifo_probe(), of_irq_get() returns 0 when irq_create_of_mapping()
+fails to map the interrupt. The error path explicitly treats this as a
+failure with "if (fifo->irq <= 0)" and logs "failed to get irq: 0", but
+then returns fifo->irq as-is. probe() therefore succeeds with fifo->irq
+set to 0, and the failure is only reported much later when
+axg_fifo_pcm_open() calls request_threaded_irq() with irq 0.
 
-> > +      power-domains =3D <&pm_domains DOMAIN_B2R2_MCDE>;
->
-> This patch is in next, but the define is not breaking dt_binding_check.
+Return -EINVAL instead of 0, keeping the real negative error codes
+untouched.
 
-I screwed up, I forgot the dependency on the new define :(
+Fixes: 6dc4fa179fb8 ("ASoC: meson: add axg fifo base driver")
+Assisted-by: DeepSeek-V4.1-Flash
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ sound/soc/meson/axg-fifo.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I asked Ulf to merge the prerequisite which would resolve it:
-https://lore.kernel.org/linux-pm/CAD++jL=3DgFt9kKZH9T-m8B_pbwRvzc35tTrMn5V2=
-38d3528DpUg@mail.gmail.com/
+diff --git a/sound/soc/meson/axg-fifo.c b/sound/soc/meson/axg-fifo.c
+index 75909196b769..fdbee44f5101 100644
+--- a/sound/soc/meson/axg-fifo.c
++++ b/sound/soc/meson/axg-fifo.c
+@@ -365,7 +365,7 @@ int axg_fifo_probe(struct platform_device *pdev)
+ 	fifo->irq = of_irq_get(dev->of_node, 0);
+ 	if (fifo->irq <= 0) {
+ 		dev_err(dev, "failed to get irq: %d\n", fifo->irq);
+-		return fifo->irq;
++		return fifo->irq ?: -EINVAL;
+ 	}
+ 
+ 	fifo->field_threshold =
+-- 
+2.25.1
 
-Is it very urgent so I should just revert it? I could also just merge
-the single patch adding the defines into the drm-misc tree if
-Ulf is OK with that.
-
-Yours,
-Linus Walleij
 
