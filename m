@@ -4,123 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C00FCA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 04:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47857CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 04:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjNOEjJ3jcDl1fNjrEKQPMFT7hdfvdMO3x8qbjAzzRk=; b=QTvV30ke4IxRh8hE4VlE/WU2P1
-	pQOZuGXqHwo7ke75XpjXxnhWziBtoaweFSG2TiYLa9B2SBoj3/L5VVKn+nquMbd26CpdCJcNhY1kY
-	FLOaDBrJ/jDNZ1WdKwiw4O8khpNBVUR4y6BvriI7TYXZVsPAE2LB9fAnl6pKQJgeUFnNj6T0jk2rt
-	/h5pgZfNO4DeIrE7sCZ6ahWwgaWTI7R4yUEfVXqATgHVLz6zvROm2wQ/CfIHbClLYuB/AT937sum3
-	KuYZPDPog9ZGavj/9gfsideo6JHuk2RkOmLuRJyJLh/OtjI8pnYR8cG/yyqZ0oAyk1/pEiicYSuy2
-	pdKjSpRw==;
+	bh=/mTp+8M3/fgms8l92U3jag+48021Jcw+21OBO9TxVL4=; b=Jpvdq27L8Zjg5EH1w1CN3YZuwb
+	0QO+9PqFpoI2A8hTIv23SwLBkmXbTCaryjVRjf5IuXsGA4B29CnZO69M9d/C8PvrfS8JI8qZRH/xw
+	8ISkKQ2Eqjk7+IRUoW8IJ13hkuo442CjD9j1rl6ap7KNhIO5oYkJ8k6c7dhXpmm953LzVxkULIYF+
+	8sWosAxWH0wkmrh+ZzGRk+14dZUsydF/gP5sDeHM5vGAPm4nMKhat7fEJ1FTIwFj5DnR4pa5p85yR
+	jcZqaz+6AiMHoxPKLstUFfOGp7rTsko31J6NpMdToR8LmacxmuSypSUuJPpIzbvz+IF/Ad2UO8Gxk
+	+73vYMzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1o4-00000005Rka-3On7;
-	Fri, 09 Oct 2026 04:02:04 +0000
-Received: from mail-centralusazon11011058.outbound.protection.outlook.com ([52.101.62.58] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1xF19n-00000005LkA-0njn;
+	Fri, 09 Oct 2026 03:20:27 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1o2-00000005Rhn-0DhI
+	id 1xF19j-00000005LSl-1oTr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 04:02:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DdvKA3PqF+3uC42HDAtF7NUWAHWvbTr889VLtD8tBYjWpajcWi7lCPSJLE8NYTzh2ez69kveCYPil5ULjZBJtp0fwWBCOmnfbRs+I5xRdcD2SmF+N3XmoT4fZOereA/WkFE/idpvmcIqs88B7ZVNaLgpGov0nU0wb3RR4LFFDMyIXTrC8QG955kL44k4TErzHzdThx2S/fpgO0H6outBJgD89+8wCv0HrTlPkLHoQvMo9XAURz6lyPBv/+UjNS6D1Epa6CiqgpKmgIAcc+TcgUTB+X3wd3DAPvbE2HjW/Vgu848nzl5H5s1C5Ho0D7HGd55E8BILyk9NFNV0WJ6p9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NjNOEjJ3jcDl1fNjrEKQPMFT7hdfvdMO3x8qbjAzzRk=;
- b=ryDrLWjgN2Q78YzY89ss8r6CeXQ92lz2PxXJzHAh5Sq4kvKpJtr0vTTzrJUmG5icqhGKU+4IaG3EVXue8bX4guNK1/yjTXEoLBmDhoglKFDAW6GG7WhsdBSUcSet+8OMLtaKdkHqwjZoMFXTEjJnmpalMeit/gmoUBSbtcjWnKX9Fsn6Cu+1YWUb4JBUZ5zHB3Z9nSAlFj1RRoka1V739apmgSkiqM3rvYPOlTh7Z9JT22fD1ATxShFY3LOQFazwDtbEowPxHQn52iW8v6xkcyAgjOiAeNrlz0IydBlvGJlO4St4nDoVlfTb2sP6+LAT2JOMysIdoYZjnTlFHB6Txg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NjNOEjJ3jcDl1fNjrEKQPMFT7hdfvdMO3x8qbjAzzRk=;
- b=26kqD2+2RxEzwrBi16YRDyqEIQEWe5Fi/vWw62Ur0VbyGwAGxghAbDRAWGzLzAcIAUMcZUuK7LmunLoaNvY0tMtzQoi4kPunme8PJ80rBAYI2Mnu4NbmXjgVuGH8owyr7i1oUiH7r6EmEwOK+cjY4NTmy5UIvHQ62iovcHwSSag=
-Received: from CY5PR15CA0123.namprd15.prod.outlook.com (2603:10b6:930:68::14)
- by BY5PR12MB4145.namprd12.prod.outlook.com (2603:10b6:a03:212::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 04:00:48 +0000
-Received: from CY8PEPF00000053.namprd05.prod.outlook.com
- (2603:10b6:930:68:cafe::26) by CY5PR15CA0123.outlook.office365.com
- (2603:10b6:930:68::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Fri, 9
- Oct 2026 04:00:48 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CY8PEPF00000053.mail.protection.outlook.com (10.167.247.57) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Fri, 9 Oct 2026 04:00:47 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 8 Oct
- 2026 23:00:40 -0500
-Received: from xhdnaggolla50x.amd.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Thu, 8 Oct 2026 23:00:35 -0500
-From: Golla Nagendra <nagendra.golla@amd.com>
-Date: Fri, 9 Oct 2026 09:30:14 +0530
-Subject: [PATCH v4 5/6] dmaengine: zynqmp_dma: Add new compatible string
- for Versal Net
+	Fri, 09 Oct 2026 03:20:25 +0000
+X-QQ-mid: zesmtpip2t1791515890tbe75e6c5
+X-QQ-Originating-IP: iOxnA/33wl/ox8swuoJUlLf8zrJhQu+k7kHFlnQQSIk=
+Received: from [192.168.30.32] ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 09 Oct 2026 11:18:07 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14557963115015056107
+EX-QQ-RecipientCnt: 29
+From: Xilin Wu <sophon@radxa.com>
+Date: Fri, 09 Oct 2026 11:16:09 +0800
+Subject: [PATCH v2 17/20] drm/msm/dp: Track VSC packets in bridge atomic
+ state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261009-adma-pm-fix-and-per-channel-reset-v4-5-55f5fe409c55@amd.com>
-References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
-In-Reply-To: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, "Michal
- Simek" <michal.simek@amd.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Kedareswara rao Appana <appana.durga.rao@xilinx.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>, "Harini
- Katakam" <harini.katakam@amd.com>, Shyam Pandey <radhey.shyam.pandey@amd.com>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <git@amd.com>, Golla Nagendra
-	<nagendra.golla@amd.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791518416; l=1554;
- i=nagendra.golla@amd.com; s=20261008; h=from:subject:message-id;
- bh=WOWGYN4gyW4+iSBG1amVKTJ6rWwGT607d6SKgV00jmg=;
- b=EAwWdWrRNUBn+zK95qe9fQehLjHKQUXukdh1H83YSJTdtQrVrwT60+fAOvN+qlABC5mCY02fv
- jYT/wL72C6SD7buWhyfjeMgzAzTTW5l4lvcuAwyWowB/XSmGSvhRLYJ
-X-Developer-Key: i=nagendra.golla@amd.com; a=ed25519;
- pk=pCRGj/0mb0C3aDMpVVZeyBqOIQZUKGJjCKL4QZTu7nQ=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PEPF00000053:EE_|BY5PR12MB4145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8b08648a-e1e3-4071-4020-08df25b9e6b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|1800799024|82310400026|23010399003|376014|921020|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Juzz8rGl0HJW15CaANefrTeTNfHHTgvDtpp4GXKhgICWeaa41qz44GaTd1zdyzKgf8jdu4T8+agf5HMCUvQA+3bxGQNGfRtD11GSCJgvonK5xX1GHv7wTu+FxHhp2TNVpc0JGco3lhFZT38QRB2yGX2UJOE2t6lIC4JJRe39QAE9K4YBDetSJRvSIwlyCIYRMIbn2C66CsJGZv4zKYBa95j6r2kx79QA6ajkCi2LxBlhO7h6iRTlogNP02qAVL4JH5y+nOKwqazJgdhcqGN5j2Pmp2MP0otZrRCKSzZ9XH4vIyvAKpMV9xXTEK/HDSFBGBNrDP+jn/rQjKkNO7iPu92bQAJLeATYyqcR16GMUlew2ElT/W+KCUeDE8AAcn6Pjij1Hlo52B5oztiO3bXtPhRUCoWRQwJVXXnrN0TgzNbzw17mrhqlafezwtBRy3fLyHiQEd3EiVTHO+Kgp6LByq+ySXxmJyvW/QXz55NLZRtPgGo5p+ScYm5LqTpT8OLTY1tqRxImU1DYkFUtPYtlFJTls7NCIui2Ru86VBNBH2zsnLSH8m9ovh18/OpGqltMVGynGYD1W+HHgt5NSCGBywHu/6pSkLM5JzuJj9V0CKcJAQDtzE55H9TjXK+QF5jnod3yFpzUU4v1Sw/8x5G1zdLWG2M3/knUjDgpcUwY6/6JlH5e14jpCSyW07cfyuxWeJcT2ErrbJrUI/qqkhNmOgJYzpHWidA1etLuySgMKlyf3B/Th2tfRLvhzc7jQvY6
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(1800799024)(82310400026)(23010399003)(376014)(921020)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NAaWW5+f5TvyTovowNjYhkfSCVOBj8QWy3z2Qslv23TCzdO3hTi6n08aT5IasStG+OXFEQu2JCMiWRjUbAhN2QclyEKMiPdIpWRojPPpxCLqXQPiSxcrDwTh8kOO7lUUqFHeeJXVLccWX2zcsuFT5DGxOnNtLoVhIjEAw97M4xEylYVe64O9uvrkEcZb/xMIuzDUPWdn72tJ+tEnz3hlHcv0kHymwKTb4mpog8YCGaPHB6Lto7D1n6EqqUrxjdC7AsjYOraDlEZkv2OAdkqRRQpEQM4O6H+rvaKwtpfqA64X5g7f1yml121Mi+OEgJCkcQyqIIfHUxC/oKjQRqCwXk+OgCdg5EiaPoEu7nWfFN+jgO45353cUxxxG40QYkR0TJj8+KydOaC0Vh5UOyZmaiYxUNPuYJgRoraD9n8ls8GILZMKG09GFWTUYNrIwGCS
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 04:00:47.8569
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8b08648a-e1e3-4071-4020-08df25b9e6b1
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY8PEPF00000053.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4145
+Message-Id: <20261009-msm-dp-hdr10-v2-17-1835d4966da3@radxa.com>
+References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
+In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+ dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=20352; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=OuQNAhUl5X+Lv8dFOInZqW0Ip8IWvhylKeVd4dzVIYo=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlYdn/+dZfaHTMdXz3/yL3hxWYVp8WnOeyXrAo9u6
+ +hmVa8u6ihlYRDjYpAVU2RRiGeYy16Ze+2pWKkezBxWJpAhDFycAjCR2ZGMDFsPp8Zefzefdf7E
+ hb4SX/ic22Vm8e7N9/D6eI9bw3Y9vwUjw5OalYE/I68b1E9MbTBp137Cyevy8YgM067XAeZp3M9
+ tuAE=
+X-Developer-Key: i=sophon@radxa.com; a=openpgp;
+ fpr=205F009D07796DD6E516752E32C31567AD9E324E
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: N3l5ASPewLWqFJqQf6puTtGF5IKiJJCjnPmTwYLRsA6801klj3KMLzUV
+	OL8aCkygF3lTW6lclV2qbq/5IcDklgkhli2NnAywLoZ6RSD5NKf24AzoMK/6zv4v5hQeSZW
+	gw812NDCJzzb6wr8UFbfwCfUAWgDQZ/uJUJQaUZv11mZdPLCPJXE/9edHyYvXg7s1eX198f
+	D81GXrK/4lknDzAvv+RtzMfWFp4d5L2Vz4fV3twDN/LDpzcBJxfvY74oCpJLCYE4Pvn7mFV
+	+vgCOrlFmXL1DgZ/fR7oS45OgCBE1fT6e8W12YY2rc/J8g2u86bLxSCJSSL32JIbAaUKPGi
+	RIYfQbxLn9B06A5xL4W/cX+5ghMGHg3N3ShiNamyJ6mWfcmg6jkfqc9D0gYTKVKcaynGevG
+	zcqBAExjoC9u5xZ9Zh8WfxvjzVp0VqerQZrcS9NxziEQc3OAFxwq9URNEWivpaUBIkmc10k
+	UXwFdzauCTM35oAzwuNNE62OZn8yq6sNWtybzsoQZD+Xb1kdlgJAxCBGV9VywqyjUNG9yHD
+	69u48YL4KGu6ZYkUWqC164kwyHFt6ZLaMbS4EyK/853K7S8sgQY5FYeLcct4GO0ck63mRbe
+	w0P9KNmFPnKF/M8HtSHQtMc+XHsoX1VSuOmXqM04H3NMs4Z5sKxhmS/1GvxXtFIAKs4PBr4
+	9lMx15s7ZVbwCQ/MWd4y27bEhdAi3ZERW4YEgr7L39+gqSlMOWNTrPkbqy5ZF/eUL5SQ3x7
+	Dk2kTilFwY8DQ+QQbkuK40ZY+XtSJj0RZ0DI8xXt4k51BWDdPZUwq2EEJSEFmtJmSlTlrWY
+	Uzu/VIhOx4Vx292Zvj05BOf7SdnmNct0ofJFtFv9F0NEFfHTUKComacX0LacQ1ZfD9Xlf7N
+	HoTJbbDgyaMJyPA55v9/zCbrQAvcWNW4DIOHrGsaqQTCckHxAywxurs4XO3QVuYrf9xtKq6
+	GIcQwxwpEy8+BNIXn1B8ENAWmunT/hzNcaL1KFB+bXoWFvbQ80js3KmwJWbc9ANb2yNE6lj
+	5yH3DFBFqMHPzxgiDXcJ1Wr8SdwAsfW2Cfhk4J0fPRdfEIDMDrPuMeaz5nx6k=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_210202_118079_2F853A23 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20261008_202024_362450_728D6601 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,53 +111,552 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Versal Net previously used the legacy xlnx,zynqmp-dma-1.0 compatible
-string. Add amd,versal-net-dma-1.0 to the of_device_id match table
-with SoC-specific match data via versal_net_dma_config.
+Move YUV420 VSC construction from panel programming to atomic check.
+Validate receiver support and retain the packed packet in private bridge
+state. Pass the checked state through stream programming instead of
+copying its configuration into the panel.
 
-Introduce a has_reset field in zynqmp_dma_config to indicate whether
-the compatible requires a per-channel reset during probe.
+Program that packet unchanged for normal streams. Only regenerate it for
+video compliance tests, which can override the checked bit depth. Keep
+hardware PSR configuration and self-refresh eligibility tied to the same
+VSC enable state. Derive peripheral flush from the old and new states,
+and keep compliance packets local so tests cannot modify atomic state.
 
-Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+Provide a shared packet builder for subsequent colorimetry support. This
+change does not expose additional connector colorspaces.
+
+Assisted-by: LLM
+Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- drivers/dma/xilinx/zynqmp_dma.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/gpu/drm/msm/dp/dp_ctrl.c    | 42 ++++++++++++++++++++++++-----
+ drivers/gpu/drm/msm/dp/dp_ctrl.h    |  5 +++-
+ drivers/gpu/drm/msm/dp/dp_display.c | 54 ++++++++++++++++++++++++++-----------
+ drivers/gpu/drm/msm/dp/dp_drm.c     |  5 ++--
+ drivers/gpu/drm/msm/dp/dp_drm.h     |  2 ++
+ drivers/gpu/drm/msm/dp/dp_panel.c   | 53 ++----------------------------------
+ drivers/gpu/drm/msm/dp/dp_panel.h   |  3 +--
+ drivers/gpu/drm/msm/dp/dp_utils.c   | 26 ++++++++++++++++++
+ drivers/gpu/drm/msm/dp/dp_utils.h   |  4 +++
+ 9 files changed, 114 insertions(+), 80 deletions(-)
 
-diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-index b5a5e93e42d5..6881dc19435c 100644
---- a/drivers/dma/xilinx/zynqmp_dma.c
-+++ b/drivers/dma/xilinx/zynqmp_dma.c
-@@ -258,13 +258,20 @@ struct zynqmp_dma_device {
- };
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+index 82ef8e405543..2fd8dd456852 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+@@ -23,6 +23,7 @@
  
- struct zynqmp_dma_config {
-+	bool has_reset;
- 	u32 offset;
- };
+ #include "dp_reg.h"
+ #include "dp_ctrl.h"
++#include "dp_drm.h"
+ #include "dp_utils.h"
+ #include "dp_link.h"
  
- static const struct zynqmp_dma_config versal2_dma_config = {
-+	.has_reset = true,
- 	.offset = IRQ_REG_OFFSET,
- };
+@@ -390,7 +391,8 @@ void msm_dp_ctrl_push_idle(struct msm_dp_ctrl *msm_dp_ctrl)
+ }
  
-+/* offset = 0: Versal Net uses base IRQ register address */
-+static const struct zynqmp_dma_config versal_net_dma_config = {
-+	.has_reset = true,
-+};
-+
- static inline void zynqmp_dma_writeq(struct zynqmp_dma_chan *chan, u32 reg,
- 				     u64 value)
+ static void msm_dp_ctrl_config_ctrl_streams(struct msm_dp_ctrl_private *ctrl,
+-					    struct msm_dp_panel *msm_dp_panel)
++					    struct msm_dp_panel *msm_dp_panel,
++					    bool psr)
  {
-@@ -1229,6 +1236,7 @@ static void zynqmp_dma_remove(struct platform_device *pdev)
+ 	u32 config = 0, tbd;
  
- static const struct of_device_id zynqmp_dma_of_match[] = {
- 	{ .compatible = "amd,versal2-dma-1.0", .data = &versal2_dma_config },
-+	{ .compatible = "amd,versal-net-dma-1.0", .data = &versal_net_dma_config },
- 	{ .compatible = "xlnx,zynqmp-dma-1.0", },
- 	{}
+@@ -411,7 +413,7 @@ static void msm_dp_ctrl_config_ctrl_streams(struct msm_dp_ctrl_private *ctrl,
+ 
+ 	config |= tbd << DP_CONFIGURATION_CTRL_BPC_SHIFT;
+ 
+-	if (msm_dp_panel->psr_cap.version && !msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420)
++	if (msm_dp_panel->psr_cap.version && psr)
+ 		config |= DP_CONFIGURATION_CTRL_SEND_VSC;
+ 
+ 	drm_dbg_dp(ctrl->drm_dev, "stream DP_CONFIGURATION_CTRL=0x%x\n", config);
+@@ -488,13 +490,20 @@ static void msm_dp_ctrl_config_misc1_misc0(struct msm_dp_ctrl_private *ctrl,
+ }
+ 
+ static void msm_dp_ctrl_configure_source_params(struct msm_dp_ctrl_private *ctrl,
+-						struct msm_dp_panel *panel)
++						struct msm_dp_panel *panel,
++						const struct msm_dp_bridge_state *state,
++						const struct dp_sdp *vsc_sdp)
+ {
+-	msm_dp_ctrl_config_ctrl_streams(ctrl, panel);
++	msm_dp_ctrl_config_ctrl_streams(ctrl, panel, !state->vsc_enabled);
+ 
+ 	msm_dp_ctrl_config_misc1_misc0(ctrl, panel);
+ 
+ 	msm_dp_panel_timing_cfg(panel, ctrl->msm_dp_ctrl.wide_bus_en);
++
++	if (state->vsc_enabled)
++		msm_dp_panel_enable_vsc_sdp(panel, vsc_sdp);
++	else
++		msm_dp_panel_disable_vsc_sdp(panel);
+ }
+ 
+ /*
+@@ -1664,7 +1673,7 @@ static int msm_dp_ctrl_link_train(struct msm_dp_ctrl_private *ctrl,
+ 	struct msm_dp_link_info link_info = {0};
+ 
+ 	msm_dp_ctrl_config_ctrl_link(ctrl, panel);
+-	msm_dp_ctrl_config_ctrl_streams(ctrl, panel);
++	msm_dp_ctrl_config_ctrl_streams(ctrl, panel, false);
+ 
+ 	link_info.num_lanes = ctrl->link->link_params.num_lanes;
+ 	link_info.rate = ctrl->link->link_params.rate;
+@@ -2633,9 +2642,12 @@ int msm_dp_ctrl_prepare_stream_on(struct msm_dp_ctrl *msm_dp_ctrl,
+ 	return ret;
+ }
+ 
+-int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *panel)
++int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *panel,
++			  const struct msm_dp_bridge_state *state)
+ {
+ 	int ret = 0;
++	struct dp_sdp test_vsc_sdp;
++	const struct dp_sdp *vsc_sdp = &state->vsc_sdp;
+ 	bool mainlink_ready = false;
+ 	struct msm_dp_ctrl_private *ctrl;
+ 	unsigned long pixel_rate;
+@@ -2650,6 +2662,22 @@ int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *
+ 	if (!panel->video_test && !msm_dp_ctrl_link_fits(ctrl, panel))
+ 		return -ENOSPC;
+ 
++	if (state->vsc_enabled) {
++		if (!panel->vsc_sdp_supported)
++			return -EINVAL;
++
++		/* Compliance tests may override the checked stream depth. */
++		if (panel->video_test) {
++			ret = msm_dp_utils_pack_vsc_sdp(&test_vsc_sdp,
++							DRM_MODE_COLORIMETRY_DEFAULT,
++							panel->msm_dp_mode.bpp / 3,
++							panel->msm_dp_mode.out_fmt_is_yuv_420);
++			if (ret)
++				return ret;
++			vsc_sdp = &test_vsc_sdp;
++		}
++	}
++
+ 	pixel_rate_orig = panel->msm_dp_mode.drm_mode.clock;
+ 	pixel_rate = pixel_rate_orig;
+ 
+@@ -2672,7 +2700,7 @@ int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *
+ 	msm_dp_setup_peripheral_flush(ctrl);
+ 	msm_dp_ctrl_config_ctrl_link(ctrl, panel);
+ 
+-	msm_dp_ctrl_configure_source_params(ctrl, panel);
++	msm_dp_ctrl_configure_source_params(ctrl, panel, state, vsc_sdp);
+ 
+ 	msm_dp_ctrl_config_msa(ctrl,
+ 		ctrl->link->link_params.rate,
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.h b/drivers/gpu/drm/msm/dp/dp_ctrl.h
+index 4dd604ef9f1b..e4494a3f4b23 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.h
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.h
+@@ -10,6 +10,8 @@
+ #include "dp_panel.h"
+ #include "dp_link.h"
+ 
++struct msm_dp_bridge_state;
++
+ struct msm_dp_ctrl {
+ 	bool wide_bus_en;
  };
+@@ -18,7 +20,8 @@ struct phy;
+ 
+ int msm_dp_ctrl_on_link(struct msm_dp_ctrl *msm_dp_ctrl,
+ 			struct msm_dp_panel *panel);
+-int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *panel);
++int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *panel,
++			  const struct msm_dp_bridge_state *state);
+ int msm_dp_ctrl_prepare_stream_on(struct msm_dp_ctrl *msm_dp_ctrl,
+ 				  struct msm_dp_panel *panel,
+ 				  bool force_link_train);
+diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+index 234cb2373451..5a9162712540 100644
+--- a/drivers/gpu/drm/msm/dp/dp_display.c
++++ b/drivers/gpu/drm/msm/dp/dp_display.c
+@@ -56,6 +56,8 @@ struct msm_dp_display_private {
+ 	bool core_initialized;
+ 	bool phy_initialized;
+ 	bool audio_supported;
++	/* Pending DPU peripheral flush, set before encoder enable. */
++	bool sdp_needs_flush;
+ 	bool stream_pm_active;
+ 	bool stream_link_attempted;
+ 	struct work_struct link_status_work;
+@@ -679,7 +681,8 @@ static int msm_dp_init_sub_modules(struct msm_dp_display_private *dp)
+ static int msm_dp_display_set_mode(struct msm_dp *msm_dp_display,
+ 				   const struct drm_display_mode *adjusted_mode,
+ 				   struct msm_dp_panel *msm_dp_panel,
+-				   const struct msm_dp_bridge_state *state)
++				   const struct msm_dp_bridge_state *state,
++				   const struct msm_dp_bridge_state *old_state)
+ {
+ 	struct msm_dp_display_private *dp;
+ 	u32 bpp;
+@@ -691,8 +694,7 @@ static int msm_dp_display_set_mode(struct msm_dp *msm_dp_display,
+ 	else
+ 		bpp = state->bpp;
+ 
+-	msm_dp_panel->sdp_needs_flush = msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420 ||
+-		drm_mode_is_420_only(&msm_dp_panel->connector->display_info, adjusted_mode);
++	dp->sdp_needs_flush = old_state->vsc_enabled || state->vsc_enabled;
+ 	msm_dp_panel_init_panel_info(msm_dp_panel, adjusted_mode, bpp ? bpp : 24);
+ 
+ 	/* populate wide_bus_support to different layers */
+@@ -726,7 +728,15 @@ int msm_dp_display_atomic_check(struct msm_dp *msm_dp_display,
+ 		return bpp;
+ 
+ 	state->bpp = bpp;
+-	return 0;
++	state->vsc_enabled = drm_mode_is_420_only(info, mode);
++	if (!state->vsc_enabled)
++		return 0;
++
++	if (dp->panel->link_caps_valid && !dp->panel->vsc_sdp_supported)
++		return -EINVAL;
++
++	return msm_dp_utils_pack_vsc_sdp(&state->vsc_sdp, DRM_MODE_COLORIMETRY_DEFAULT,
++					bpp / 3, drm_mode_is_420_only(info, mode));
+ }
+ 
+ static int msm_dp_display_prepare(struct msm_dp_display_private *dp)
+@@ -751,7 +761,8 @@ static int msm_dp_display_prepare(struct msm_dp_display_private *dp)
+ 	return 0;
+ }
+ 
+-static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
++static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp,
++					      const struct msm_dp_bridge_state *state)
+ {
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+ 	int rc = 0;
+@@ -761,6 +772,9 @@ static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
+ 
+ 	lockdep_assert_held(&dp->plugged_lock);
+ 
++	if (state->vsc_enabled && !dp->panel->vsc_sdp_supported)
++		return -EINVAL;
++
+ 	if (dp->link->sink_count == 0)
+ 		return -ENOTCONN;
+ 
+@@ -782,7 +796,8 @@ static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
+ }
+ 
+ static int msm_dp_display_enable(struct msm_dp_display_private *dp,
+-				 struct msm_dp_panel *msm_dp_panel)
++				 struct msm_dp_panel *msm_dp_panel,
++				 const struct msm_dp_bridge_state *state)
+ {
+ 	int rc = 0;
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+@@ -795,14 +810,15 @@ static int msm_dp_display_enable(struct msm_dp_display_private *dp,
+ 		return 0;
+ 	}
+ 
+-	rc = msm_dp_ctrl_on_stream(dp->ctrl, msm_dp_panel);
++	rc = msm_dp_ctrl_on_stream(dp->ctrl, msm_dp_panel, state);
+ 	if (!rc)
+ 		msm_dp_display->power_on = true;
+ 
+ 	return rc;
+ }
+ 
+-static int msm_dp_display_post_enable(struct msm_dp *msm_dp_display)
++static int msm_dp_display_post_enable(struct msm_dp *msm_dp_display,
++				      const struct msm_dp_bridge_state *state)
+ {
+ 	struct msm_dp_display_private *dp;
+ 	u32 rate;
+@@ -822,8 +838,7 @@ static int msm_dp_display_post_enable(struct msm_dp *msm_dp_display)
+ 	msm_dp_display_handle_plugged_change(msm_dp_display, true);
+ 
+ 	if (msm_dp_display->psr_supported)
+-		msm_dp_ctrl_config_psr(dp->ctrl, dp->panel,
+-				       !dp->panel->msm_dp_mode.out_fmt_is_yuv_420);
++		msm_dp_ctrl_config_psr(dp->ctrl, dp->panel, !state->vsc_enabled);
+ 
+ 	return 0;
+ }
+@@ -1563,7 +1578,7 @@ bool msm_dp_needs_periph_flush(const struct msm_dp *msm_dp_display,
+ 	struct msm_dp_display_private *dp = container_of(msm_dp_display,
+ 					struct msm_dp_display_private, msm_dp_display);
+ 
+-	return dp->panel->sdp_needs_flush;
++	return dp->sdp_needs_flush;
+ }
+ 
+ bool msm_dp_wide_bus_available(const struct msm_dp *msm_dp_display)
+@@ -1629,7 +1644,7 @@ void msm_dp_display_atomic_pre_enable(struct msm_dp *msm_dp_display,
+ 	struct msm_dp_display_private *dp;
+ 	struct drm_crtc *crtc;
+ 	struct drm_crtc_state *crtc_state;
+-	struct drm_bridge_state *bridge_state;
++	struct drm_bridge_state *bridge_state, *old_bridge_state;
+ 
+ 	dp = container_of(msm_dp_display, struct msm_dp_display_private, msm_dp_display);
+ 
+@@ -1638,6 +1653,7 @@ void msm_dp_display_atomic_pre_enable(struct msm_dp *msm_dp_display,
+ 		return;
+ 	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+ 	bridge_state = drm_atomic_get_new_bridge_state(state, msm_dp_display->bridge);
++	old_bridge_state = drm_atomic_get_old_bridge_state(state, msm_dp_display->bridge);
+ 
+ 	/*
+ 	 * The DPU encoder's .atomic_enable() reads the mode's YUV420 / wide bus
+@@ -1645,7 +1661,8 @@ void msm_dp_display_atomic_pre_enable(struct msm_dp *msm_dp_display,
+ 	 * be programmed here, in .atomic_pre_enable().
+ 	 */
+ 	msm_dp_display_set_mode(msm_dp_display, &crtc_state->adjusted_mode, dp->panel,
+-				to_dp_bridge_state(bridge_state));
++				to_dp_bridge_state(bridge_state),
++				to_dp_bridge_state(old_bridge_state));
+ }
+ 
+ static void msm_dp_display_abort_enable_locked(struct msm_dp_display_private *dp)
+@@ -1697,30 +1714,35 @@ static void msm_dp_display_unprepare(struct msm_dp_display_private *dp)
+ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
+ 				  struct drm_atomic_commit *state)
+ {
++	struct drm_bridge_state *bridge_state;
++	const struct msm_dp_bridge_state *dp_state;
+ 	int rc = 0;
+ 	struct msm_dp_display_private *dp;
+ 
+ 	dp = container_of(msm_dp_display, struct msm_dp_display_private, msm_dp_display);
+ 
++	bridge_state = drm_atomic_get_new_bridge_state(state, msm_dp_display->bridge);
++	dp_state = to_dp_bridge_state(bridge_state);
++
+ 	rc = msm_dp_display_prepare(dp);
+ 	if (rc)
+ 		goto err_prepare;
+ 
+ 	mutex_lock(&dp->plugged_lock);
+ 
+-	rc = msm_dp_display_prepare_link_locked(dp);
++	rc = msm_dp_display_prepare_link_locked(dp, dp_state);
+ 	if (rc) {
+ 		DRM_ERROR("DP display prepare failed, rc=%d\n", rc);
+ 		goto err;
+ 	}
+ 
+-	rc = msm_dp_display_enable(dp, dp->panel);
++	rc = msm_dp_display_enable(dp, dp->panel, dp_state);
+ 	if (rc) {
+ 		DRM_ERROR("DP display enable failed, rc=%d\n", rc);
+ 		goto err;
+ 	}
+ 
+-	rc = msm_dp_display_post_enable(msm_dp_display);
++	rc = msm_dp_display_post_enable(msm_dp_display, dp_state);
+ 	if (rc) {
+ 		DRM_ERROR("DP display post enable failed, rc=%d\n", rc);
+ 		goto err;
+diff --git a/drivers/gpu/drm/msm/dp/dp_drm.c b/drivers/gpu/drm/msm/dp/dp_drm.c
+index 6b01eeeb1aef..808b6fe3d650 100644
+--- a/drivers/gpu/drm/msm/dp/dp_drm.c
++++ b/drivers/gpu/drm/msm/dp/dp_drm.c
+@@ -204,6 +204,7 @@ static int msm_edp_bridge_atomic_check(struct drm_bridge *drm_bridge,
+ 				   struct drm_connector_state *conn_state)
+ {
+ 	struct msm_dp *dp = to_dp_bridge(drm_bridge)->msm_dp_display;
++	struct msm_dp_bridge_state *state = to_dp_bridge_state(bridge_state);
+ 	int ret;
+ 
+ 	if (WARN_ON(!conn_state))
+@@ -218,9 +219,7 @@ static int msm_edp_bridge_atomic_check(struct drm_bridge *drm_bridge,
+ 		return ret;
+ 
+ 	/* Match the PSR configuration applied when enabling this stream. */
+-	conn_state->self_refresh_aware = dp->psr_supported &&
+-		!drm_mode_is_420_only(&conn_state->connector->display_info,
+-				    &crtc_state->adjusted_mode);
++	conn_state->self_refresh_aware = dp->psr_supported && !state->vsc_enabled;
+ 	if (crtc_state->self_refresh_active && !conn_state->self_refresh_aware)
+ 		return -EINVAL;
+ 
+diff --git a/drivers/gpu/drm/msm/dp/dp_drm.h b/drivers/gpu/drm/msm/dp/dp_drm.h
+index 4c651cc40f4d..122150d95bbb 100644
+--- a/drivers/gpu/drm/msm/dp/dp_drm.h
++++ b/drivers/gpu/drm/msm/dp/dp_drm.h
+@@ -20,6 +20,8 @@ struct msm_dp_bridge {
+ struct msm_dp_bridge_state {
+ 	struct drm_bridge_state base;
+ 	u32 bpp;
++	bool vsc_enabled;
++	struct dp_sdp vsc_sdp;
+ };
+ 
+ #define to_dp_bridge_state(x) container_of((x), struct msm_dp_bridge_state, base)
+diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
+index 026074cafc88..bbbe7dc62550 100644
+--- a/drivers/gpu/drm/msm/dp/dp_panel.c
++++ b/drivers/gpu/drm/msm/dp/dp_panel.c
+@@ -516,7 +516,7 @@ static void msm_dp_panel_update_sdp(struct msm_dp_panel_private *panel)
+ 	}
+ }
+ 
+-void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sdp *vsc_sdp)
++void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, const struct dp_sdp *vsc_sdp)
+ {
+ 	struct msm_dp_panel_private *panel =
+ 		container_of(msm_dp_panel, struct msm_dp_panel_private, msm_dp_panel);
+@@ -572,49 +572,6 @@ void msm_dp_panel_disable_vsc_sdp(struct msm_dp_panel *msm_dp_panel)
+ 	msm_dp_panel_update_sdp(panel);
+ }
+ 
+-static int msm_dp_panel_setup_vsc_sdp_yuv_420(struct msm_dp_panel *msm_dp_panel)
+-{
+-	struct msm_dp_display_mode *msm_dp_mode;
+-	struct drm_dp_vsc_sdp vsc_sdp_data;
+-	struct dp_sdp vsc_sdp;
+-	ssize_t len;
+-
+-	if (!msm_dp_panel) {
+-		DRM_ERROR("invalid input\n");
+-		return -EINVAL;
+-	}
+-
+-	msm_dp_mode = &msm_dp_panel->msm_dp_mode;
+-
+-	memset(&vsc_sdp_data, 0, sizeof(vsc_sdp_data));
+-
+-	/* VSC SDP header as per table 2-118 of DP 1.4 specification */
+-	vsc_sdp_data.sdp_type = DP_SDP_VSC;
+-	vsc_sdp_data.revision = 0x05;
+-	vsc_sdp_data.length = 0x13;
+-
+-	/* VSC SDP Payload for DB16 */
+-	vsc_sdp_data.pixelformat = DP_PIXELFORMAT_YUV420;
+-	vsc_sdp_data.colorimetry = DP_COLORIMETRY_DEFAULT;
+-
+-	/* VSC SDP Payload for DB17 */
+-	vsc_sdp_data.bpc = msm_dp_mode->bpp / 3;
+-	vsc_sdp_data.dynamic_range = DP_DYNAMIC_RANGE_CTA;
+-
+-	/* VSC SDP Payload for DB18 */
+-	vsc_sdp_data.content_type = DP_CONTENT_TYPE_GRAPHICS;
+-
+-	len = drm_dp_vsc_sdp_pack(&vsc_sdp_data, &vsc_sdp);
+-	if (len < 0) {
+-		DRM_ERROR("unable to pack vsc sdp\n");
+-		return len;
+-	}
+-
+-	msm_dp_panel_enable_vsc_sdp(msm_dp_panel, &vsc_sdp);
+-
+-	return 0;
+-}
+-
+ int msm_dp_panel_timing_cfg(struct msm_dp_panel *msm_dp_panel, bool wide_bus_en)
+ {
+ 	u32 data, total_ver, total_hor;
+@@ -684,11 +641,6 @@ int msm_dp_panel_timing_cfg(struct msm_dp_panel *msm_dp_panel, bool wide_bus_en)
+ 
+ 	msm_dp_write_p0(panel, MMSS_DP_INTF_CONFIG, reg);
+ 
+-	if (msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420)
+-		msm_dp_panel_setup_vsc_sdp_yuv_420(msm_dp_panel);
+-	else
+-		msm_dp_panel_disable_vsc_sdp(msm_dp_panel);
+-
+ 	panel->panel_on = true;
+ 
+ 	return 0;
+@@ -710,8 +662,7 @@ int msm_dp_panel_init_panel_info(struct msm_dp_panel *msm_dp_panel,
+ 	msm_dp_panel->msm_dp_mode.h_active_low =
+ 		!!(adjusted_mode->flags & DRM_MODE_FLAG_NHSYNC);
+ 	msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420 =
+-		drm_mode_is_420_only(&msm_dp_panel->connector->display_info, adjusted_mode) &&
+-		msm_dp_panel->vsc_sdp_supported;
++		drm_mode_is_420_only(&msm_dp_panel->connector->display_info, adjusted_mode);
+ 
+ 	drm_mode = &msm_dp_panel->msm_dp_mode.drm_mode;
+ 
+diff --git a/drivers/gpu/drm/msm/dp/dp_panel.h b/drivers/gpu/drm/msm/dp/dp_panel.h
+index 31752895f124..9b81042e1036 100644
+--- a/drivers/gpu/drm/msm/dp/dp_panel.h
++++ b/drivers/gpu/drm/msm/dp/dp_panel.h
+@@ -42,7 +42,6 @@ struct msm_dp_panel {
+ 	bool link_caps_valid;
+ 	/* All capability reads completed; eDP can reuse the full cache. */
+ 	bool caps_cached;
+-	bool sdp_needs_flush;
+ 	u32 hw_revision;
+ 
+ 	u32 max_bw_code;
+@@ -63,7 +62,7 @@ void msm_dp_panel_tpg_config(struct msm_dp_panel *msm_dp_panel, bool enable);
+ 
+ void msm_dp_panel_clear_dsc_dto(struct msm_dp_panel *msm_dp_panel);
+ 
+-void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sdp *vsc_sdp);
++void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, const struct dp_sdp *vsc_sdp);
+ void msm_dp_panel_disable_vsc_sdp(struct msm_dp_panel *msm_dp_panel);
+ 
+ /**
+diff --git a/drivers/gpu/drm/msm/dp/dp_utils.c b/drivers/gpu/drm/msm/dp/dp_utils.c
+index 8b6ef2f6d7f4..bde627a6701b 100644
+--- a/drivers/gpu/drm/msm/dp/dp_utils.c
++++ b/drivers/gpu/drm/msm/dp/dp_utils.c
+@@ -122,6 +122,32 @@ int msm_dp_utils_select_bpp(unsigned int bpc, unsigned int max_bpc,
+ 	return -EINVAL;
+ }
+ 
++int msm_dp_utils_pack_vsc_sdp(struct dp_sdp *sdp, enum drm_colorspace colorspace,
++			      unsigned int bpc, bool yuv420)
++{
++	struct drm_dp_vsc_sdp vsc = {
++		.sdp_type = DP_SDP_VSC,
++		.revision = 0x05,
++		.length = 0x13,
++		.pixelformat = yuv420 ? DP_PIXELFORMAT_YUV420 : DP_PIXELFORMAT_RGB,
++		.bpc = bpc,
++		.dynamic_range = yuv420 ? DP_DYNAMIC_RANGE_CTA : DP_DYNAMIC_RANGE_VESA,
++		.content_type = DP_CONTENT_TYPE_GRAPHICS,
++	};
++	ssize_t ret;
++
++	switch (colorspace) {
++	case DRM_MODE_COLORIMETRY_DEFAULT:
++		vsc.colorimetry = DP_COLORIMETRY_DEFAULT;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	ret = drm_dp_vsc_sdp_pack(&vsc, sdp);
++	return ret < 0 ? ret : 0;
++}
++
+ bool msm_dp_utils_psr_needs_modeset(const struct drm_crtc_state *state)
+ {
+ 	/* active_changed alone also describes a normal self-refresh exit. */
+diff --git a/drivers/gpu/drm/msm/dp/dp_utils.h b/drivers/gpu/drm/msm/dp/dp_utils.h
+index c6b62e3900bb..e916de2a5929 100644
+--- a/drivers/gpu/drm/msm/dp/dp_utils.h
++++ b/drivers/gpu/drm/msm/dp/dp_utils.h
+@@ -9,6 +9,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
+ #include <drm/display/drm_dp_helper.h>
++#include <drm/drm_connector.h>
+ 
+ struct drm_crtc_state;
+ 
+@@ -42,6 +43,9 @@ int msm_dp_utils_select_bpp(unsigned int bpc, unsigned int max_bpc,
+ 			    unsigned int clock, unsigned int rate,
+ 			    unsigned int lanes, bool yuv420);
+ 
++int msm_dp_utils_pack_vsc_sdp(struct dp_sdp *sdp, enum drm_colorspace colorspace,
++			      unsigned int bpc, bool yuv420);
++
+ bool msm_dp_utils_psr_needs_modeset(const struct drm_crtc_state *state);
+ 
+ #endif /* _DP_UTILS_H_ */
 
 -- 
-2.43.7
+2.56.0
 
 
