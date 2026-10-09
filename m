@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C34CA601D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3839CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I2u5RYrLi5Vo1HxinX/08L+8VcsTjPu5sczVSHgh/yQ=; b=BXZg5owVJwr6yTmSvzyzKX/pE9
-	f+7Z+ooP/rKLuJajLR5+tmybSlM6pd6hZII+Zl/vOvv+oOlH1Xspf2zyXgxnSggrJy/RfchT4XOqy
-	zXz+mTQ9BhQGcASusJWua6K2Ghr/lZz/+irsalykkrhv+Zo19K1xl/eoo7AjWKWGUtpObk3ejNRRb
-	JXNx5BHR79Vg+87xpqbIQ7QvDzYU4HIPSuEMruJuHQhIC0mdBYTdb8iqrf6dk4vGgzZl20148eprA
-	z5cvNiE7AmfSlpWH+CQ3YIZ5KemoNakQ5QYz/aIKdy7ZEWccTiWYF2kQEOFrqQYNwmqaOfGuXbyw5
-	c3X05UHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wuYs5KpOGkCRzdkU6jZsblkydgdnfwHhc2Sv3nu1t3s=; b=rZzKrbdslYq1kgXrA+4Pdph40f
+	WmsTLirECzGWn389Qr/Btnv0mMoZPS3LcHQIwjQpwpi3ZQHTvNeVGZTJ/rpRyfYJtBFUzPn36mppl
+	aqbScKx3TUKCFqfjg/BFv8wjcZMvmEV4uomySk2zlRLag1/crokhI+kDf10lZM95mMUmemj+WCKIJ
+	0C9J3u/p7NwxKXRJ8fpehhbi+hAy+gELvte600RnfXsrA3ofQAJLHG0ifUKIfVTbmIU1IZst4M5lF
+	tH9Ks7BtAf9cf/fcgtXx4kFYbrGPRwTKtCQVDPcd+NpvDiUmf0lkFwQvck7YcKwm569jVxqxnJeb2
+	o0ajrqZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDwX-00000006jvu-3tLy;
-	Fri, 09 Oct 2026 16:59:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDwX-00000006jvn-1qU5
+	id 1xFDwf-00000006jxE-05eH;
+	Fri, 09 Oct 2026 16:59:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xFDwc-00000006jwb-3MFy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 16:59:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76A8E6053E;
-	Fri,  9 Oct 2026 16:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73EDA1F000FF;
-	Fri,  9 Oct 2026 16:59:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791565176;
-	bh=I2u5RYrLi5Vo1HxinX/08L+8VcsTjPu5sczVSHgh/yQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KvESlhRhXMB5RiySjeMmv2OIoc8Gdi7xij7cwSN+xkUh1YZXYI4t1SSwGRERnhIHK
-	 a2w0Y7RWh1XH8pGXI0HX8wGG9I1PEDnrbhhANmRg2VYIfurkM2ecrahSvL5OX0Uu55
-	 aahX3lJERxdLwRpZyHBPjSp2QVkbZbW9KY5hV1pQIQklnSqBXQ0ZTUAdGlwxxwZe4O
-	 9KQfFPafjPSS4CXVJNsZezhFqZ8IG7YrUvm1zbssjNXD6uv6s4lYBFTORj+nTbEOaM
-	 RBoqa46+1lALyGhrBKu5ddwzH/U5yEy5yliXcEeLdPr2CkCzUzRYhg0xtvFRAFCX/b
-	 BglZe/PJJa9Kg==
-Date: Fri, 9 Oct 2026 17:59:30 +0100
-From: Simon Horman <horms@kernel.org>
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Dragos Tatulea <dtatulea@nvidia.com>,
-	Alexei Lazar <alazar@nvidia.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
-Subject: Re: [PATCH net-next 1/3] net: selftests: use skb_share_check() in
- the loopback receive hook
-Message-ID: <20261009165930.GI83879@horms.kernel.org>
-References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
- <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
+	Fri, 09 Oct 2026 16:59:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CCED1D14;
+	Fri,  9 Oct 2026 09:59:38 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.54.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49B1D3F66F;
+	Fri,  9 Oct 2026 09:59:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791565181; bh=Wm/4n7hq3w7tWKgh4LCSdmhnbLipyzt6kn0TkU1RTiM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W/JbgZKX151jsNiz1uavL74a1MyLB13JRnA5FdGOqftL7vJtE+ylL2jPe8OmT3IuJ
+	 2dz3HTyVI+HO3i7kL21ab84u7byLq53AVE6mDdpyR65jDfQN7Rsyo4jMWjaVU8fDi0
+	 YLT8bK1V1kYikYOcDfoHcCuDr2RSSd1uTIdwDrTs=
+Message-ID: <18df4643-4213-4e0f-94e7-b1e43adcb5c3@arm.com>
+Date: Fri, 9 Oct 2026 17:59:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2] arm_mpam: make the mon_sel guard conditional only
+To: Sasha Levin <sashal@kernel.org>
+Cc: andre.przywara@arm.com, bot@kernelci.org, fenghuay@nvidia.com,
+ gshan@redhat.com, james.morse@arm.com, jonathan.cameron@oss.qualcomm.com,
+ justinstitt@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, morbo@google.com,
+ nathan@kernel.org, ndesaulniers@google.com, reinette.chatre@intel.com
+References: <7490d5e6-ac9b-4f23-b58d-60eec2882e60@arm.com>
+ <20261009163235.3-1-sashal@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261009163235.3-1-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_095942_961175_72432FED 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,16 +74,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 08:29:22PM +0200, Nicolai Buchwitz wrote:
-> The loopback hook gets a shared skb when another ETH_P_IP handler is
-> bound to the device. skb_unshare() does not unshare it, so
-> skb_linearize() on a non-linear frame hits BUG_ON(skb_shared()).
-> 
-> Use skb_share_check() instead.
-> 
-> Fixes: 3e1e58d64c3d ("net: add generic selftest support")
-> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+Hi Sasha,
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+On 10/9/26 17:32, Sasha Levin wrote:
+> Building arm64 allmodconfig with clang fails:
+> 
+>   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
+>   of function declared with 'warn_unused_result' attribute
+>   [-Werror,-Wunused-result]
+>     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> 
+> mpam_mon_sel_lock() is __must_check and can fail: for an MSC accessed
+> through the MPAM-Fb firmware interface it returns false when called
+> from a context that cannot sleep. The mon_sel guard was defined with
+> DEFINE_GUARD(), which calls it unconditionally and discards the
+> result, so a guard(mon_sel) user would carry on without the lock and
+> release it on scope exit. The unconditional guard only exists as the
+> base for the conditional mon_sel_lock variant, which is the one
+> actually used.
+> 
+> Define mon_sel_lock directly as a conditional guard class instead, as
+> posix-timers does for lock_timer: the constructor returns NULL when
+> the lock cannot be taken, and the destructor only releases a lock
+> that was taken. ACQUIRE(mon_sel_lock, ...) works as before, including
+> ACQUIRE_ERR() returning -EBUSY on failure, and there is no
+> unconditional variant left to misuse.
+> 
+> Reported-by: kernelci.org bot <bot@kernelci.org>
+> Closes: https://d.kernelci.org/i/maestro:66f869ecbbb5b8592562ffd89f049c5ddf682547
+> Closes: https://d.kernelci.org/i/maestro:647269216758644837afcaac8e67d8dbe713a0e2
+> Fixes: 0db1715e4c9c ("arm_mpam: propagate MSC access errors for hw_probe functions")
+> Assisted-by: LLM
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+
+Looks good to me.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+Thanks,
+
+Ben
+
+> ---
+> Changes in v2:
+> - Use an if statement in the destructor, as suggested by Ben Horgan.
+> 
+>  drivers/resctrl/mpam_internal.h | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index ee7c3953a9b6c..1f86cc158100b 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -203,9 +203,10 @@ static inline int mpam_mon_sel_lock_init(struct device *dev,
+>  	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+>  }
+>  
+> -DEFINE_GUARD(mon_sel, struct mpam_msc *,
+> -	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> -DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
+> +DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
+> +	     if (_T) mpam_mon_sel_unlock(_T),
+> +	     mpam_mon_sel_lock(msc) ? msc : NULL, struct mpam_msc *msc);
+> +DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
+>  
+>  /* Bits for mpam features bitmaps */
+>  enum mpam_device_features {
 
 
