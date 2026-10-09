@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2D9CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 05:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF20CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 05:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xpFwXSkytQvvkU8ROBlt0ktsfoNgM6ARQ73ZlBwNUO8=; b=enQ/sNcOUK0L+ioiEUmFhikNhX
-	1rButMeszquWmD8ZWBAhGqdtzG6CLHTm40y6m2W/AfvkQ81hVnMIMhczo1LMPTEmLIZzncDvnUEvH
-	urOdPGo7BbMgtAs6W7KQlXS8bz+QT6EadlqJg1h/SwaT/dbGjTVa/1OlarzUtkEkGccHf8GVtbUhq
-	f45YsOSOD48cTBMjL2DvqXjPHhxq5m73CWBKxUgpI/Fe1pPi7pzf1oPgNH+r65KQM7cU5Q69ELKDa
-	yHkJ0uEIgz04TEm3RY6JSy8C5SHa+ZczIXsdyzIgolDCGJo37W/aLutHfY4Y5VDZzcr3esyOJluLV
-	OHn7NmxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NHcCOJlfDk2kf/nYjNk1wm3um6Oe/oxI7EYgEHDQ21E=; b=PVws0iNPL/eB/F
+	DtQqWbczwkMDZ42f1PKF8k6DXEYkOsPNI2OCq4H2/j3sE/5+uq14xvjWTZGx60+ouP7JjO6GCWxhz
+	bmAAPj+0gQ72HGUcgWCq9ll+F0Fcp+XsNVFAfbggNdsVTi8qkRYEmdGDZpmnC9G5h0MRekf2na4Um
+	GjuKvAvWzPnWIG45/dP4FOkdV/g1yaiHLhWY5ZAUt6WFlUEFMZOJsZfu9M7PitjWKm7cR1wXMKAxs
+	YaotMTPRruq5M/WYzSW2ksdMEEp4xu0PIMlCClcPUYI0owOkhVBZ3MHX3haBxyLGIMeJpUdYX7q6A
+	Zo6qoG4m7NF+MItXjRtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3bU-00000005ZTK-2ZoA;
-	Fri, 09 Oct 2026 05:57:12 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xF3ce-00000005Zbz-3eR8;
+	Fri, 09 Oct 2026 05:58:24 +0000
+Received: from mail-qt1-f178.google.com ([209.85.160.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3bR-00000005ZSu-1XuV
+	id 1xF3cb-00000005ZbY-3TyI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 05:57:11 +0000
-Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowABHTjwvgshq_H0dCg--.3328S2;
-	Fri, 09 Oct 2026 13:57:04 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: Kamel Bouhara <kamel.bouhara@bootlin.com>,
-	William Breathitt Gray <wbg@kernel.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] counter: microchip-tcb-capture: fix clk reference leak
-Date: Fri,  9 Oct 2026 13:57:06 +0800
-Message-Id: <20261009055706.3157552-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Fri, 09 Oct 2026 05:58:23 +0000
+Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-53504882980so53756531cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 22:58:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791525500; x=1792130300;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NHcCOJlfDk2kf/nYjNk1wm3um6Oe/oxI7EYgEHDQ21E=;
+        b=BbsnSrr3Z3sstPRjMjq7j+LfLRLEqQRKv1rUTgZOBdqn9C/Mll9uu/IB8lmnx5dk77
+         LaBMbpNf3TkKl0uFbWIADr+oDn1+x9UFgQ+cAE7sbkzOSBta4Qh6/AHFwAI2CY1GZ7Rl
+         oKhPDkwvVyUKabDin2JwDIKPG0BAAQj7gy8uzD/AyMNksirPX7Xg6JtOsVfy6ZIhZE66
+         E521LeUDx9bj1zRJQF8lK4WFIYjxGgG7NQF+Ngxi0D7Y9IJrnrYAzYQo/cY7m9Rykcpa
+         DSoz+cdZtKlxba/GzyqovVeobkx4mwQrfRhAqDT0fgTReIixbasH+Q0rtG/q5H2mWX1R
+         4KCg==
+X-Forwarded-Encrypted: i=1; AKwUvBwc5WaIRdltmikJCPylflBuZUyzUb2qlnJAnWUBGXGxnc/wZaKZTmv+yiJVS+qwa5LqUuuFepZYoCp+7SlT3stU@lists.infradead.org
+X-Gm-Message-State: AFuF++mpbLUfJ0QcQO9U1x29wLbrjPpysGqNTAn+auQxhCkd8gJz1wSk
+	BAG4oXZw4JNs/dhrI4/Y04htbubV0xOdX2BJ9eLnwDtgg70AW/7mYOvUwOxhTbd/cfo=
+X-Gm-Gg: AYBFou0zHj5yKxKURA5S645RCAVTcZmYVip73mk8c7Wt8LYnc88Sdlnl+B2eN8iEGr+
+	yM3rD2HgAkMSgZoT2sB4KdlJ00XeVBlsicthSDiB1KrGrwavxvBjAb4TFss+JdLO5l1uuzFtRka
+	0lmnguSwgFXWjQrUPELZpBE2LBBZgHYDY2iLfzN1iug1F+lkW07tEsj/1i70wHIOsyR4I2z8J11
+	r7l5BYwCVjKgp8J799yC7gFGNCwq4P5LkgrrCrPFD1rQthnLJD4YY5pZRMY8MNe9M1kxeAd2QNz
+	O4vgiVZc/kucUhjVGcYz4cRL54TPX06JvKgA35rYwGwvC9Cd+umjvz+fZ6DdYb5ju/6XwfbHzIA
+	Hjj1QqpkEcyJMl3lo95NDfzsFXysyy/hB5Ux1q6Av4Dpdd5pBxuKg4LeDXWi/7ewJ32CCVGa3Em
+	KsIUPvOXFP4mj+xu5p7+yVpfGcTz/k9pAIT4FobF7/YcRgaDDkr4+ndlztl6cj/cl3dSDBDEfGI
+	UNPeVzKWOzXmI7ltZEoSWmKFe8RZdbJc8dj2yVYrmSRGLlSJDQOjV/fPPLS41lGzP4=
+X-Received: by 2002:a05:622a:2445:b0:535:a5f7:d58c with SMTP id d75a77b69052e-535a5f7ddb2mr1289221cf.70.1791525500463;
+        Thu, 08 Oct 2026 22:58:20 -0700 (PDT)
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com. [209.85.160.172])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5359b7324c9sm11380751cf.12.2026.10.08.22.58.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Oct 2026 22:58:20 -0700 (PDT)
+Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-53504882980so53756301cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 22:58:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzZgKQDXj6SUel1jhfKTW6rRPi93hy/ctAZ4S9ixPtq6h2u+fqDjQFwK2Ty6EmDDtlSkHm2jjnk5KTJVVS5IgMl@lists.infradead.org
+X-Received: by 2002:a05:690c:e:b0:88f:62ba:512b with SMTP id
+ 00721157ae682-8b07ee3297amr3678357b3.42.1791525154408; Thu, 08 Oct 2026
+ 22:52:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABHTjwvgshq_H0dCg--.3328S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zr1DCFW7Wr43Aw4kKry8Krg_yoW8Ary7pF
-	W0q390kF48XFWqga1DJw4DZF98tr42ya4FgFyfKasrWas5J3s3XayqkF10van5ArykJa1a
-	qw1UWr1kuFyDZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4UJVWxJr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1D
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
-	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAI
-	cVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07bO5rxUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwgPA2rIaDU-ZAACsl
+References: <20261007082627.63807-1-tanure@linux.com> <20261007082627.63807-7-tanure@linux.com>
+ <c1764303-9f18-4487-ba93-06173cd8a53f@lunn.ch>
+In-Reply-To: <c1764303-9f18-4487-ba93-06173cd8a53f@lunn.ch>
+From: Lucas Tanure <tanure@linux.com>
+Date: Fri, 9 Oct 2026 06:52:22 +0100
+X-Gmail-Original-Message-ID: <CAJX_Q+1BZky6KUtqZKm7q8bDfWKV47xSZtK31qdYBWx_e3uwdQ@mail.gmail.com>
+X-Gm-Features: AclHuK9uJycl8wPMvbL9js8yfzmf_wvwEi-NV4Dy7HnHzbbgfaJpxaRVEvgynGU
+Message-ID: <CAJX_Q+1BZky6KUtqZKm7q8bDfWKV47xSZtK31qdYBWx_e3uwdQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 6/7] arm64: dts: amlogic: t7: add the ethernet controller
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_225709_804990_8E3E4B39 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20261008_225822_055779_8CDE43CA 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +104,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mchp_tc_probe() obtains a reference to each channel clock with
-of_clk_get_by_name(), but that reference is never released: the only
-teardown path, mchp_tc_clk_remove(), just calls clk_disable_unprepare().
-The clk pointers are kept in a local array, so the reference obtained on
-every successful probe is leaked, and when clk_prepare_enable() fails the
-reference is leaked on that error path as well.
+On Wed, Oct 7, 2026 at 2:12=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Wed, Oct 07, 2026 at 09:26:26AM +0100, Lucas Tanure wrote:
+> > The SoC has a Synopsys gigabit MAC, a block of glue registers that
+> > selects the interface type and trims the clock timing, and a
+> > multiplexer that points the management bus at the on-chip 100M PHY
+>
+>
+> > +                                     internal_ephy: ethernet-phy@8 {
+> > +                                             compatible =3D "ethernet-=
+phy-id0180.3301",
+> > +                                                          "ethernet-ph=
+y-ieee802.3-c22";
+> > +                                             interrupts =3D <GIC_SPI 3=
+40 IRQ_TYPE_LEVEL_HIGH>;
+> > +                                             reg =3D <8>;
+> > +                                             max-speed =3D <100>;
+>
+> It is a 100M PHY. What supported speeds does it report in its
+> registers?
+I cannot read them. On the VIM4 the MDIO mux points at the external
+PHY and the internal one never probes, and no board in tree uses it.
 
-Release the reference with clk_put() in mchp_tc_clk_remove() after the
-clock has been disabled and unprepared, and also call clk_put() when
-clk_prepare_enable() fails.
-
-Fixes: 106b104137fd ("counter: Add microchip TCB capture counter")
-Assisted-by: DeepSeek-V4.1-Flash
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
----
- drivers/counter/microchip-tcb-capture.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index e53a8390756b..f1c900efd2d9 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -470,7 +470,10 @@ static int mchp_tc_irq_enable(struct counter_device *const counter, int irq)
- 
- static void mchp_tc_clk_remove(void *ptr)
- {
--	clk_disable_unprepare((struct clk *)ptr);
-+	struct clk *clk = ptr;
-+
-+	clk_disable_unprepare(clk);
-+	clk_put(clk);
- }
- 
- static int mchp_tc_probe(struct platform_device *pdev)
-@@ -528,8 +531,10 @@ static int mchp_tc_probe(struct platform_device *pdev)
- 		}
- 
- 		ret = clk_prepare_enable(clk[i]);
--		if (ret)
-+		if (ret) {
-+			clk_put(clk[i]);
- 			return ret;
-+		}
- 
- 		ret = devm_add_action_or_reset(&pdev->dev,
- 					       mchp_tc_clk_remove,
--- 
-2.25.1
-
+The line was copied from meson-g12-common.dtsi, which has the same
+max-speed =3D <100> on the same PHY ID. Dropped in v3.
+>
+> You should only need max-speed when the PHY is broken, says it can do
+> more than it actually can do, or when a 1G PHY only has two of the
+> four pairs connected to the outside world etc.
+>
+>         Andrew
 
