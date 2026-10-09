@@ -4,60 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0D3CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C15CA601D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=scmNF+46DLi47sIsqDRc0pGdZ0vlaMSMU1w1wYTd5PA=; b=RJkZu9AuA7X/TOZ33Me8tnlbQf
-	MaYy06VyH438HxEuQ1phYHBW0ptuyhxxcapvgXqqRvRSWZ7RijJF+Jbb5L00Cj/7jEeNXqy4sdDkj
-	GShJoOS3U4AYozL5xn1xi7gMGqhUIqyX6ZH3d07biRY7va84NJsPGxhMSVR7iddbNN6yHJnHah+DW
-	gyfCVLDl6fvw8/qyTLGSXmykgCwsJ97kQH5YFLgKsd0PsFLtbfLlaxGlK9k8qqsZKotsaou3pG83f
-	0KwzYQL75MYob/J0B1OaGhTZTZ2Xovu2cboVfBJ8gtNaKfjYtN3vukdf+t0EgaODYaFi3GiU9IWbk
-	bTCJ+1dw==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ysNHmMEub3nXV2fVbbKoB7BvmncFWa+ykTnACh3vKVY=; b=3VooEjhXx556KnE5Ru8cQdS9lf
+	suBkSu09OewkT9GzqA545hVojJm4jAktrDQWI1xHea8B/YkQioZ5bOGvwULgucGEyBjDq/NCBf3lc
+	p0oAR7v+zLpGRadyY2ajLovf2x9snyTl2agJ4dDuysFZFnTpwH99hZPpUSoLo5GHOfU3XH0RHIuP/
+	D3xLfeRrkYhm7uWKaZg+iiMluKOSMQeRZ8IL+DEBvupUFSbC0uin8P9cOr7eUNdl3yEw0/zpT/Rxs
+	ujQWd44uOCsRtwI6XnWdZxuGpzxdd/cITzDd96BSjVBwa9J2x8x96j1b0yVTwMpVDMnStuVADxVmV
+	7A5pSPyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBu0-00000006UIi-20HO;
-	Fri, 09 Oct 2026 14:48:52 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xFC16-00000006V43-01iz;
+	Fri, 09 Oct 2026 14:56:12 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBtx-00000006UHh-0JDm
+	id 1xFC12-00000006V3F-0wQj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:48:51 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A1D564E410FE;
-	Fri,  9 Oct 2026 14:48:43 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6DE3960754;
-	Fri,  9 Oct 2026 14:48:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 59D6C11D708B4;
-	Fri,  9 Oct 2026 16:48:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791557318; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=scmNF+46DLi47sIsqDRc0pGdZ0vlaMSMU1w1wYTd5PA=;
-	b=lXBeS3sBtikQ+kqLl5aIhWy5pok18OOS5k1HR6XGQ/E9lAzbB/HcljLlWg5FoHB6PhL4i1
-	DvTldtMIKH5GPoMNk3RUh5pl1HnE25MChj3liDr0w/mvm9+O7GuoWEBMatVXcbJN0v19Fv
-	8tK9v5eqX5hAadFQl0cJ4bm/E+e+MbIGObc3hAHiIOZUEdHXAjOMop8d7G3y9LwOUMSsmA
-	MGejHU5unlM/RzT8w2D//+CGrmARdnWqZbos2tIdMi/Y3J2ibdqskAbMxv827R+yczlFdg
-	EgPcmyG+y2fgFEjJS9HZI9zfgyCBADDGSMEjPP8xR86IsDAHlf24POSde9KY/Q==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] ARM: mvebu: dt for v7.4 (#2)
-Date: Fri, 09 Oct 2026 16:48:36 +0200
-Message-ID: <87v77b53qz.fsf@BLaptop.bootlin.com>
+	Fri, 09 Oct 2026 14:56:11 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id 9F0FEEC0927
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 10:56:01 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Fri, 09 Oct 2026 10:56:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1791557753;
+	 x=1791644153; bh=ysNHmMEub3nXV2fVbbKoB7BvmncFWa+ykTnACh3vKVY=; b=
+	XSpv85FwVpj6f/Q123Ku5snZB6f6DXKHLcLllrg1WVIjIXtmJX63Bu6IlYbPwcZR
+	rD1SAuDyR6CFQILJzzy/EpD4lYPmvXL7thwvaRNDfUgZkr9IyNx6Fe06VqGEr+W4
+	IiDC4hTulQAj65rDWX/mDnVx1L2/A2rAmpNjp2RtSDwvKmpVuTVcx83cKDINlgo7
+	FWrJSLc/+yHFw9uEGvvhN+n4/FtSps2JJAG+9xDCnv2cbgFfqbYf14oMBbLj/KTj
+	HBdpgaaYGDoLbe1k78F55mQk/52CIXWeL+n9VK7Sdbkg7x4pjzEc3vO7ddDu/G81
+	8yioTfhBtUQJKutKaWgP5g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1791557753; x=
+	1791644153; bh=ysNHmMEub3nXV2fVbbKoB7BvmncFWa+ykTnACh3vKVY=; b=H
+	usQy3kkp3yHPLp8UUYQm4okPWAy7mOFAPRsxDi2xsT2QJXudvfxPg3aBpxzV8L7k
+	F22+CD42He7CO+FbOjHn4vfOaQVFhVIfIc44FDqR947J6a6mj6IJbnUpXv/K+Ped
+	ZchWQk3HWUf9qQZpyBPley5llnWA7XSiL/e9xgPbfN+406nEFpw3R/aou9L6MY4R
+	IHin8/ETQ94yyp8kvB3YzNvdMNVDXTLjSysljJb/pWj0v+8NzwKTXoNgwSHVd3HK
+	f62ZucmfyUI078es9FcKgToOI3lqhEF62VseGVzNF0+PxLcmqfQc4vWufjPgQ3/O
+	kM2fvZkQjFZ1rrZEJ+Dhw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1791557753; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:VdlXvYW84KHhl24AcuzmijIO9N/dKTEtuKXQJOgTNmLi0FL
+	2W5/NKdABc7qpLn68K7OnAwH3LHKo+hdMa4P5gOUeKZ/Q9seZzvfIyXgaaKFRGx7
+	tedTcw/vOxCDDSUAA8ohEsHRgCibMBvWPltMJk9Ka90OlfO2+WxAqjmYzqd1favY
+	scwhBB/6qjSj9NXF59p4TDj0AO69pqEWe9D/nlNHn68LiGCqiCv5WI30J2Sv2dR9
+	6OjTSj78gKvBk7pZm2wOs5kDwEDEXipOkjXyhfSnpzSePSRNqJAv9iSeY7l55lBF
+	sGsnPR6BXJ8W5B0pIcFUdBcePbFJdu3m/8fOUdQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:XXGpeO/YmQwCKf7M0XVPtgOpG83veHWzCgaYuUnnDhk=:YofAd0oLdISy5ffEbw6L2vXkCkMZJJQFjD9dwQ/xgDE=;
+X-ME-Sender: <xms:bADJakCZIqprAk-Cfkgd8oKVpTmcXORv_0L0iSLeZZBYxIepxqPnnQ>
+    <xme:bADJahWU-SgG_CUcigw6KQAtRJ5oPXyyQN-bPFk_H4EQ4vQNiavjBVQ_SaOLHUVm5
+    US1addiYFR-qdCd9CjNqAsQSg6CSemYH4VwvzH6fnHu_vGtWV74Ge50>
+X-ME-Proxy-Cause: dmFkZTEJayRhQxc0vKpBsdIsSAVWjFwdChche+mtH1Jx0kOIH/5Zr/HdLbAB+GR5Gedxcf
+    vLt+01ODtHppZjY4Rzuf2BnBd9wb7qZwkArWQjyrPorOQQBCvxKONcF9Fo9bmV31/oecRk
+    gzALbeQ7+yrnzGNRMw2MH1yC4RWP6fa6dtPxV2Joc7KnIVHMNyOpalAsWMsmX6ETwYGwd6
+    AndjR8ne3hlxTHDCay9AW5D9D/PCdYRBca6upRYxRXRBMGgZmsBWk0UvYJl8ejSjRiDtIn
+    kgWN61zC4V4v0W2r7ZypxB+9vuznUpUgHnQXtSeaVqgodADkAeMWwCpXIrQ14KAREl5Eaz
+    QhkS0wymOQFto9XhzbJEiAsaJrYVDbyIRf66e5gURh+fOVSv9oFTgncmR6D8IhUPc/WqUh
+    YvNYf2uttdcZ6w+nmSL7NyDT3Wf2IVzbE+3DdmdjjfqH8vgBnq6GL8pVYNqVLQjdqWz2Zp
+    RJRNiTCmzEbxS/ownyPb2XHnKm4Hjfips/Qzs0qt6Q5dwv3blGmEFEYdeHGTPjZxEF7opB
+    frh+GEATn0Thv8xRSyLwWIY7bMOvjY5RPZZW/W22KlUiwa/QpxGtUp9DPqwn+SwjuBEUwV
+    3PGb4hyeYjZprznkD5hESsD101g/qRsDLmBhhmEKLJCO5uxDrP3yCH+mUjPA
+X-ME-Proxy: <xmx:cQDJajmB0Wm94rXyVUq-HO27gEdKVAOQoF_YYPsy3_XslvuWHByLxw>
+    <xmx:cQDJaoea6BqZtZ7PzR42N9GIyzoECk1C_nwdRZH4Mqq2rv1J_UQm1g>
+    <xmx:cQDJaoW_RJpIfJeZYSTZnWC0ZhVMZnGVfn5_8V7vN5jonGOH_GeICA>
+    <xmx:cQDJakFh6g9dtce22r8K4rMHk97EvLg5OU-37cxkPJgoWBH5eN6cgQ>
+    <xmx:eQDJaraZnKcjGo9k3CHjRLLST4BziwMhZO_yWxaLrHvknhv6syFIWZrv>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id C6CF732A008E; Fri,  9 Oct 2026 10:55:40 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+X-ThreadId: AKEFTclLsUFV
+Date: Fri, 09 Oct 2026 16:55:17 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: soc@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Aaro Koskinen" <aaro.koskinen@iki.fi>,
+ "A. Sverdlin" <alexander.sverdlin@siemens.com>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+ "Andi Shyti" <andi.shyti@kernel.org>, "Andrew Lunn" <andrew@lunn.ch>,
+ "Daniel Baluta" <daniel.baluta@nxp.com>,
+ "Daniel Mack" <daniel@zonque.org>, "Frank Li" <Frank.Li@nxp.com>,
+ "Giulio Benetti" <giulio.benetti@benettiengineering.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ "Linus Walleij" <linusw@kernel.org>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Nicolas Pitre" <nico@fluxnic.net>,
+ "Vladimir Murzin" <vladimir.murzin@arm.com>,
+ "Vladimir Zapolskiy" <vz@mleia.com>,
+ "Dario Binacchi" <dario.binacchi@amarulasolutions.com>,
+ "Kyungmin Park" <kyungmin.park@samsung.com>,
+ "Ralph Siemsen" <ralphs@netwinder.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+ "Stefan Agner" <stefan@agner.ch>, "Tony Lindgren" <tony@atomide.com>
+Message-Id: <e4da2f9d-d3b9-4267-9b64-b0f2cb43402a@app.fastmail.com>
+In-Reply-To: <2afd5f78-0174-4955-8c1b-be18aea3800b@app.fastmail.com>
+References: <2afd5f78-0174-4955-8c1b-be18aea3800b@app.fastmail.com>
+Subject: Re: [GIT PULL] soc: deprecated platform removal
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_074849_251136_38669A4D 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_075608_805569_76ADF715 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +146,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Sep 28, 2026, at 23:46, Arnd Bergmann wrote:
+> The following changes since commit df2908090cda368b01ff43709f51890076c56157:
+>
+>   Linux 7.3-rc2 (2026-09-06 15:07:20 -0700)
+>
+> are available in the Git repository at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git 
+> tags/board-remove-for-7.4
+>
+> for you to fetch changes up to 1b200c44654d654bd0d04cbf55823b9e275b2a56:
+>
+>   ARM: axxia: remove entire platform (2026-09-28 21:43:31 +0200)
+>
+> ----------------------------------------------------------------
+> soc: deprecated platform removal
+>
+> In the 7.3 kernel, I marked a number of platforms and features as
+> deprecated, with the plan to keep these around for the LTS kernel, but
+> remove them in 7.4, see [1].
 
-Here is the second version of the first pull request for dt for mvebu
-for v7.4.
-Compared to the first version I have just removed the patch introducing
-new warning because of a missing dt binding.
+It was pointed out to me at LPC in Prague this week that 7.3 is most
+likely not the LTS release after all, so we should wait another
+release before actually removing the code in order to keep it all
+alive in the 7.4LTS kernel.
 
-Gregory
+I'll rebase this on top of 7.4-rc1 and resubmit for 7.5.
 
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
-
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
-bu-dt-7.4-2
-
-for you to fetch changes up to a7b2dbf2a48d30e49f141883e605874595d5942e:
-
-  ARM: dts: helios4: add #phy-cells to USB nop phys (2026-09-30 08:34:58 +0=
-200)
-
-----------------------------------------------------------------
-mvebu dt for 7.4 (part 1 v2)
-
-Various fixes for Armada 388 based boards (helios4, clearfog)
-Clean up indentation in dove, kirkwood and orion5x dtsi files.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      ARM: dts: marvell: Replace spaces indentation with tabs
-
-Rosen Penev (9):
-      ARM: dts: helios4: fix lm75 supply name
-      ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
-      ARM: dts: marvell: add missing SDHCI clock-names
-      ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
-      ARM: dts: armada-388-helios4: fix vmmc property name
-      ARM: dts: helios4: fix vbus-supply for USB2 PHY
-      ARM: dts: helios4: fix spi1 location
-      ARM: dts: helios4: use national,lm75 compatible
-      ARM: dts: helios4: add #phy-cells to USB nop phys
-
- .../boot/dts/marvell/armada-385-clearfog-gtr.dtsi  |  2 +-
- arch/arm/boot/dts/marvell/armada-388-helios4.dts   | 27 ++++++++++--------=
-----
- arch/arm/boot/dts/marvell/armada-38x.dtsi          |  1 +
- arch/arm/boot/dts/marvell/armada-395-gp.dts        |  1 -
- arch/arm/boot/dts/marvell/armada-39x.dtsi          |  1 +
- arch/arm/boot/dts/marvell/dove.dtsi                | 22 +++++++++---------
- arch/arm/boot/dts/marvell/kirkwood-6282.dtsi       | 15 ++++++------
- .../dts/marvell/kirkwood-guruplug-server-plus.dts  |  4 ++--
- arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi       |  4 ++--
- arch/arm/boot/dts/marvell/kirkwood-synology.dtsi   | 12 +++++-----
- .../arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts |  2 +-
- 11 files changed, 44 insertions(+), 47 deletions(-)
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+      Arnd
 
