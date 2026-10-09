@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB7BCA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F021CCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OY3eyr88UOoi31ujLDL22lAHYnxm/3v8qtMFCYMwKco=; b=wNV2y6WJmqRfOL+Tgi0qVnLKBC
-	orN6ZE9vdE9PLRzirGTc+5rVASdwslxgBdzrCxwjXrEQa9m+MF9uUNy2i5cR3spNnO+jSmlB5pon+
-	heqmDK6WqOTkogEg0TVXeJRX8v1Q+Xft5KTRahanXE6AfvieWVwdPZjMBeYjZFMHADoNNGyWm1ivT
-	ZjkZKjksPnFQ/k5R2QxqT0gnZq0PsTby/wTflHR071J0XDHSn5wcUmgJKqlENwvWMeHWd2snLGJdl
-	4eMsGAjcwuml504B+snLrRX7JpGHjrJ6mswcuGODPlVxtVUOOrhCOLsHryPikDTajYsOr2w9hKobO
-	QFKOJ/dA==;
+	bh=iYqcn+lw0qC/zQadO5fheUsN/NkKlBYECjVpCgptZMM=; b=EMIEG9t/EdXglThivCUpQKVegI
+	25s2DNl1QZeU41+OeDWKIaaPpjwoYyYGKkxjMhIF6BshWIJPxKeGic1n1UEIME7toWT3zHKiT/0in
+	zWc3RyMDAr1Ig2XfzN7LZMIacLlVp0W7WDbpXbUfk1zvFEpSHSaWDhRvdyE+Q+tSQmYG/GDVUNwVV
+	CPrR5oiB+lhbyaWaCtw7f/dMHKbyyoq+8/bh4Il1dSY8vlq7MZBxgdHWoHhK1FfkBJTgqECN43cm4
+	l2unddrdUSODlV6uAbejFkpctdGXIszIsKi47/ytPek/+8g1T4GwdfH1pwNCxHKKgo1UdsZjgyAvE
+	39butu6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9NE-00000006G77-1VPD;
-	Fri, 09 Oct 2026 12:06:52 +0000
-Received: from out-113.mta0.migadu.com ([2001:41d0:1004:224b::71] helo=mta0.migadu.com)
+	id 1xF9Tr-00000006Gcz-0Kql;
+	Fri, 09 Oct 2026 12:13:43 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9NB-00000006G6g-1Lw5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 12:06:50 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=8QpueOoSu8dlWDzU2ovo4g2tq4XyDape3DzAzPS1hLg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791547606; v=1; x=1792152406;
- b=bF+gKuYhjRAaiS9C3HRXID5GS7wCf0nzAjeZz4gr+aWRNLN3tFAw+Tl62wAZQxrjKlQGi4J9
- iLmbxZ65qmehqh1Eyy1oSy0RMzamOSczqEHOY7oNA5cjDGCwhOpQEiWsiLamvF1p3PYtNhor5mZ
- XX+Kz4LXuG/zB7vFMbtEgXM4=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 115ea1d26da0b5d5;
-	Fri, 09 Oct 2026 12:06:46 +0000
-X-Mizu-Trace-ID: 115ea1d26da0b5d5
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5ba40832934so5841e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 05:06:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzPvVOQGfq4a+cS5YBpniz5JiZ3iGc2JnIqd07tL8707vb04yDjXlrowaz9dh5lG8XzzBKOgkjOR9eXtXW5bbxf@lists.infradead.org
-X-Gm-Message-State: AFq9FYKb+FIYdfHXP4I4V8RrcW8le1fkGPXk9ACBVL5N6vnxDamTprhT
-	q1iSvUTaQJcQ4RzIdwwIA9hnjnwvPZ4rEbbxDVOSmJVLLwaiHsTjz96BG/FaXDXNBybX4MMAJoG
-	qqyVBSbJgg0AarxiWkd0ceaCN4yzhAjeWTT4h4Ynj
-X-Received: by 2002:a05:6512:3dab:b0:5bc:b23c:f7e5 with SMTP id
- 2adb3069b0e04-5bcdf91d57emr82402e87.9.1791547601556; Fri, 09 Oct 2026
- 05:06:41 -0700 (PDT)
+	id 1xF9Tp-00000006GcS-2ctK;
+	Fri, 09 Oct 2026 12:13:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=iYqcn+lw0qC/zQadO5fheUsN/NkKlBYECjVpCgptZMM=; b=tz
+	eHbJbfn2hJXhR7bctqrOQsxWGFsATvqH5M7FqEGjCw/KIWeIC4TlP70keu4PnxMShE7R1Ghh/x90I
+	4T5wSY81La24TnQgk+SKelca7e0mnBsktaMOF1VvENjiTXcdre/8LuPXR37vafMP1+H1RTzD2lY6Y
+	X4HQUO3qpsENWVI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xF9TY-009mY5-CL; Fri, 09 Oct 2026 14:13:24 +0200
+Date: Fri, 9 Oct 2026 14:13:24 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 0/7] Add ethernet support for the Amlogic T7
+Message-ID: <3a037c87-e4c5-4a4e-9522-cf505e1c6399@lunn.ch>
+References: <20261007082627.63807-1-tanure@linux.com>
+ <d23dfdf3-5837-459f-afd6-6c198a05c13c@lunn.ch>
+ <CAJX_Q+2au4x99kj=UBqn4joQCM3-D2kbaJ0zro9Y4RXka7ePvQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20261009084529.462577-1-vdonnefort@google.com> <20261009084529.462577-3-vdonnefort@google.com>
-In-Reply-To: <20261009084529.462577-3-vdonnefort@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 9 Oct 2026 13:06:05 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxzBBDpg3B9Lw47tMWMK+VCjpeEQDgYNKvLUnmUYVJVcA@mail.gmail.com>
-X-Gm-Features: AclHuK-OrizQjQ93TY0UAA_o6daR8H0aSQt1YkpepTx45oni65FNHe6Eup6oIrU
-Message-ID: <CA+EHjTxzBBDpg3B9Lw47tMWMK+VCjpeEQDgYNKvLUnmUYVJVcA@mail.gmail.com>
-Subject: Re: [PATCH v1 2/3] KVM: arm64: Add guest_hvc hyp event
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJX_Q+2au4x99kj=UBqn4joQCM3-D2kbaJ0zro9Y4RXka7ePvQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_050649_501010_698A4D97 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20261009_051341_663261_54374FBA 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+On Fri, Oct 09, 2026 at 06:59:49AM +0100, Lucas Tanure wrote:
+> On Wed, Oct 7, 2026 at 2:01 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > On Wed, Oct 07, 2026 at 09:26:20AM +0100, Lucas Tanure wrote:
+> > > The T7 pairs a Synopsys gigabit MAC with the same glue registers the
+> > > G12A has, but nothing described it. This adds the binding, the driver
+> > > support and the device tree nodes, and enables the port on the Khadas
+> > > VIM4.
+> > >
+> > > Unlike the G12A, the controller reaches DRAM through a pipeline stage
+> > > with a gate of its own, sys_ampipe_eth. Nothing else claims it, so
+> > > clk_disable_unused switches it off and transfers stop.
+> > >
+> > > v2 changes the RGMII delays, after review. phy-mode describes the
+> > > board, not which chip adds the delay, so this board is rgmii-id.
+> > > dwmac-meson8b did the opposite, and ignored the *-internal-delay-ps
+> > > properties. Patch 1 fixes that. The VIM4 needs it because the RTL8211F
+> > > transmit delay does not work here.
+> >
+> > What is special about the RTL8211F?
+> Maybe nothing, it may be this board. I cannot tell from here.
 
-On Fri, 09 Oct 2026 09:45:28 +0100, Vincent Donnefort
-<vdonnefort@google.com> wrote:
+Yes, look at my other reply. The RTL8211F is very likely correct. It
+is the MAC drivers handling of delays which is broken. You get to fix
+it for this new device.
 
-> Add a guest_hvc hypervisor trace event to log protected VM HVC call IDs,
-> return values, and whether the call was handled by the hypervisor.
-
-nit: only the first return value is logged.
-
-[...]
-> diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-
-[...]
-> +HYP_EVENT(guest_hvc,
-> +        HE_PROTO(u32 id, u64 val, u8 handled),
-> +        HE_STRUCT(
-> +                he_field(u8, handled)
-> +                he_field(u32, id)
-> +                he_field(u64, val)
-> +        ),
-
-remote_event_format_show() doesn't align the field offsets, so the
-format file puts id at 3 and val at 7 instead of 4 and 8. hyp_enter's
-vcpu is already off the same way, so should this be a separate fix in
-trace_remote.c, with ALIGN(offset, field->align)?
-
-[...]
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-
-[...]
-> @@ -1183,5 +1185,8 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
->
->          if (handled)
->                  smccc_set_retval(vcpu, val[0], val[1], val[2], val[3]);
-> +
-> +        trace_guest_hvc(fn, val[0], handled);
-> +
->          return handled;
-
-When handled is false, val[0] is the SMCCC_RET_INVALID_PARAMETER
-initialiser, which the guest never gets. For example, a MEM_SHARE
-forwarded to the host logs "id=0xc6000003 val=0xfffffffffffffffd
-handled=0". Could this log 0 in that case?
-
-Cheers,
-/fuad
+   Andrew
 
