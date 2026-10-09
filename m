@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AE5CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA503CA601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaXEEt+6oUYTgk3yLziOOP26vbiRye4IPhhc+D5Un/s=; b=22o2EjHitnhzUowIxCj7fhpwyU
-	gbcuON5XGsiJ6YLwm90meQShgiXiut2+4j9MYNGwlNz1qfePCi7+bXzGMRS5SIBIOrFTjGMFbbTNm
-	az1B1dgdbgdbx+1FVudxns1PQiuuiR1X4bgZSp9Hy0fuSUmn20aRv31lQKuoUEiwXxJtfam4cIahU
-	u75TayPHDNB7vJW7UNtDTcQMcdrVS//rIWrhsZ33tuh5Irc6mydl3iWlOak3XPvPbdd43R4wGrnE7
-	YPCV30q3rXnHonoA/o/3bzzk4xVf0Vdxc5VN97nNncVlLSFM/EjjMnIavqG/onR8QeAksatDIcYE1
-	2rtXTf6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cpB4oW+VzOYkr7heF4ZAZX4wxYt/dyntVxClV6LD6MA=; b=pvTENE6dkxeSehO+53xN+kFPXi
+	WlPFk9ImqS0rEw+W6oX8gzlaVBu7ElkTGBNDgBbtLEuwux3lNbcwlXhtfW5iyp791Gix9SdRNM9Va
+	U+TnlQy+fu9NYXb1ttPThjw/c+QXo6MiE72vwANp5C3BvGXbThMbAChmdxKGpv3WX753lZOQlpz0Z
+	XKCJ09XCp2SronOBQSFMLuWnD1QYQQ6tE/XNoZEBLnW+AIC+ao1tPd5eAlShaGLarhLN3ktFjlyIQ
+	SVs/CQhS4pC5vC8iAETL671WKmyVVF1pEL9Bj2LoNQ0al9GAu6zfn4y3Wv/mttxhOWWmkXnLcBjMn
+	A78ZGb6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3nV-00000005acL-1iWT;
-	Fri, 09 Oct 2026 06:09:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xF3o2-00000005akx-2tGk;
+	Fri, 09 Oct 2026 06:10:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3nU-00000005acB-1xK7;
-	Fri, 09 Oct 2026 06:09:36 +0000
+	id 1xF3o1-00000005ait-1naw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 06:10:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 879AA602C3;
-	Fri,  9 Oct 2026 06:09:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC7FE1F000FF;
-	Fri,  9 Oct 2026 06:09:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8018860DBA;
+	Fri,  9 Oct 2026 06:10:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA501F000FF;
+	Fri,  9 Oct 2026 06:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791526175;
-	bh=HaXEEt+6oUYTgk3yLziOOP26vbiRye4IPhhc+D5Un/s=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=HWkN5KrlKIk6OWt38SO9fMGwArGXNLm8Sc0PCX7ZgeMYOylWuJpHNU8t2FYDltQLn
-	 2hKVTP6VzNHCqHXVINEqZTs/LUesNwkJVsuSfNVRWiSG6EM+asdu7XUYpBPEPDbhyg
-	 xxL2L457nAJjsnW9ul382bkmFZlkcJ0BfutYNMatFDZqAAKt4pPj7uICuTiy4ojVEP
-	 ugz5q4KFQCUm7kDaKATbRD/9S7WIDuKfPfrxc0hLnTMVOL+lI7sBSP7t1MeAxfaysa
-	 lqZ9eoh+QQZamGuMRiYovi7Gku403d6K2cuOnrn5lClA+St/Yv/3lziXSu4nT82KA4
-	 ZsIxQ2m9QprXw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, stable@vger.kernel.org, david@kernel.org,
- osalvador@suse.de, dave.hansen@linux.intel.com, luto@kernel.org,
- peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
- x86@kernel.org, hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
- kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
- linux-kernel@vger.kernel.org, muchun.song@linux.dev
-Subject: Re: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
-In-Reply-To: <20261008073021.2512665-3-songmuchun@bytedance.com>
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-3-songmuchun@bytedance.com>
-Date: Fri, 09 Oct 2026 08:09:31 +0200
-Message-ID: <87jynrs8v8.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1791526208;
+	bh=cpB4oW+VzOYkr7heF4ZAZX4wxYt/dyntVxClV6LD6MA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=D1+U/T1DTXrKOdz8Lv6py/jO8w8IHJBD8IPmHKS0E1Y8KxayrpNP93hBJoSFgfSPV
+	 /hFFwtE9RsEYzqPbhs7yhLo8/6lkM9Bjp5autcvT5leBDIChFixFTFlbSGDXnWpkxx
+	 /pTSOAXNetSTkdVNPSCMinflG3TKFFJelcPyPyp4Hpm+GZGBogw9k0JTSNhHdFHwQ/
+	 JjQxCB0VsSVQq0J8BqxdMSsL/2LaAVfOY6POPlb+YWaldn7Cspw6fs6qIufLRsKsul
+	 Y5mb/3mUFgH6wo1ZSBQ8bJAbyVTqxVDIWixETHkd6GJqsb/SBGKHlbdlkxQtRy1+h4
+	 IWjOkCneuMW2g==
+Date: Fri, 9 Oct 2026 08:10:05 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Haotian Zhang <vulab@iscas.ac.cn>
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>, linux-aspeed@lists.ozlabs.org, 
+	Linus Walleij <linusw@kernel.org>, openbmc@lists.ozlabs.org, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, "Chia-Wei, Wang" <chiawei_wang@aspeedtech.com>, 
+	linux-gpio@vger.kernel.org, Ryan Chen <ryan_chen@aspeedtech.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Joel Stanley <joel@jms.id.au>
+Subject: Re: [PATCH] pinctrl: aspeed-g5: fix device node leak on LPC
+ compatible mismatch
+Message-ID: <20261009-practical-malachite-scorpion-0be0c5@quoll>
+References: <20261009041435.3096107-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+In-Reply-To: <20261009041435.3096107-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +73,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Muchun Song <songmuchun@bytedance.com> writes:
 
-> RISC-V uses the same memory-hotplug teardown code for the linear map and
-> vmemmap, although their page-table pages are not always allocated in the
-> same way. Late linear-map allocations run page-table constructors, while
-> vmemmap and early allocations may provide constructor-free pages.
->
-> The PTE path unconditionally runs the destructor, which is wrong for
-> constructor-free vmemmap tables. The PMD path avoids that problem by
-> using is_vmemmap as a proxy for constructor state, but that assumption
-> will no longer hold once runtime vmemmap allocations use the normal
-> pgalloc helpers.
->
-> Page-table constructors record their state in PG_table. Centralize
-> page-table freeing and use PageTable() to decide whether the destructor
-> is required. Keep reserved and constructor-free pages on their existing
-> freeing paths.
->
-> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+On Fri, 09 Oct 2026 12:14:35 +0800, Haotian Zhang wrote:
+> aspeed_g5_acquire_regmap() takes a reference to the LPC device node with
+> of_parse_phandle() and then returns -ENODEV if the node's parent is not
+> compatible with "aspeed,ast2500-lpc-v2", without dropping that
+> reference. The function is called for every pin configuration, so the
+> leaked device_node reference accumulates on such systems.
+> 
+> Release the node with of_node_put() before returning from the error path.
+> 
+> Fixes: eaffd32bea0c ("pinctrl: aspeed-g5: Adapt to new LPC device tree layout")
+> Assisted-by: DeepSeek-V4.1-Flash
+> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 > ---
->  arch/riscv/mm/init.c | 29 ++++++++++++++---------------
->  1 file changed, 14 insertions(+), 15 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 857f9a55039c..429a0b015ec1 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -1486,10 +1486,19 @@ struct execmem_info __init *execmem_arch_setup(vo=
-id)
->  #endif /* CONFIG_EXECMEM */
->=20=20
->  #ifdef CONFIG_MEMORY_HOTPLUG
-> +static void __meminit free_pagetable(struct page *page)
-> +{
-> +	if (PageReserved(page))
-> +		free_reserved_page(page);
-> +	else if (PageTable(page))
-> +		pagetable_dtor_free(page_ptdesc(page));
-> +	else
-> +		pagetable_free(page_ptdesc(page));
-> +}
-
-Is PageReserved() enought to determine if there's no dtor to run? On
-rv64 your code is correct, but maybe for robustness?
-
-  | if (PageTable(page))
-  |         pagetable_dtor(page_ptdesc(page));
-  |=20
-  | if (PageReserved(page))
-  |         free_reserved_page(page);
-  | else
-  |         pagetable_free(page_ptdesc(page));
+>  drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
 
 
-Bj=C3=B6rn
+
+Multiple things here:
+1. Your team ignored completely previous feedback.
+
+2. You use multiple identities with this email, thus I actually doubt we speak
+   with actual person.
+
+3. Finally, same feedback:
+You sent multiple independent patches, to multiple independent
+subsystems. The amount of these patches clearly suggest this was
+AI generated and most likely not tested.
+
+More importantly, you sent all this work without properly organizing
+relevant patches into patchsets. This makes reviewing difficult
+and might cause multiple reviewers to address the same issue.
+Replying to the entire set is impossible and requires handling each
+patch independently, instead of applying or discarding the set.
+Maintainers also won't see the bigger picture of your work. Quite
+worrying.
+
+This is on the verge of hostile patch: bomb us with so many
+contributions, we won't be able to handle them in efficient manner,
+like responding ONCE to ask you to slow down.  Considering all this
+is untested and LLM generated, I have even more doubts whether this
+should be considered for review.
+
+Please read kernel documentation BEFORE posting more work. It will
+explain you how to identify subsystems, how to organize your work per
+subsystem (so a patchset grouping multiple patches with a short cover
+letter), how to document usage of LLM and how what you should not do
+if this was posted in a good faith.
+
+Best regards,
+Krzysztof
+
+
+
+
 
