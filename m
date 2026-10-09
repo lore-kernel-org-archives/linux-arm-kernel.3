@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB671CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 09:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FE2CA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 09:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NN/hoihGlgYOQ3g+HiDIFNp0hvlK2XY1wVVhjZreZc=; b=SEEVZwKyzymcmVtT12Kur2y0Hg
-	PHebQhNZbGlV97ZjDlBkKfToplh+XieQxiNF3hw2c5PFEfAv7mEOOYhqD57I6xT7afAj35p/kzjy7
-	/Ja6tprtkuSEArgsnXPbDNYWq0s1Wn0uglPl5GBo2ljq9MSCoDsN0nvSbPPtsyITBDHIkK/yJK7kM
-	X0+hWqFS2vw9mOQuYUw09fW+f4Brfgz/BQ7jFYBUNtLmNGl3124qKzpChU9Rcg1oXlbDe7E0U+gTb
-	v2WMmQO3sCA/IFcwwwpvZneO0eiQA9muYTWI5cmuoiOgRDMjzj/MUDZrdCVFYtj9z4leIbeuwmj9R
-	x3VeW9Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UxhisKV3D4rWlk6UMHttXIL2bC6ip/caHIOIsx4Vx4=; b=Apo4EvGMmNabB1tn6vfyN66294
+	Y3fXbFaVu4f7r4RZZxYSdirTKM6mzfwNCgjwZuC9k2G1VXJDm7ghdJCGB9cf626kyaH71WbAG5EdL
+	9jBlddS2DFOUAbscamo5cc1VnfyLYiXlrhZtgqsc/66BumlhWZmbL9S+R2+hS7f94yYYABO93Y/7Q
+	Cwldd6/9UTAePdRbsQFrVFPUqJVWOLRyP73KHv4iru/+OBTTidoKYxSUAZ6LIGi0rC3j7P9Fzx3pS
+	a870rHg4oZn1+r7KsCRGmSPdywfIsREy4wGDLPczdnELwAI9WEgIGv14iBtS9l5h8lqM0RnwDKQFq
+	q7quRDpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6h0-00000005tdM-3BYt;
+	id 1xF6h0-00000005tde-3ZUX;
 	Fri, 09 Oct 2026 09:15:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6gz-00000005tcw-1daA
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF6gy-00000005tcB-0von
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 Oct 2026 09:15:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82B05601F9;
-	Fri,  9 Oct 2026 09:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48A801F00893;
-	Fri,  9 Oct 2026 09:15:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791537304;
-	bh=3NN/hoihGlgYOQ3g+HiDIFNp0hvlK2XY1wVVhjZreZc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d1iSR24MZdZWLG3gs/fGUx1COZO0uDBytxmc7byfdGwfxukLFU1e7EbY2cNKo7da9
-	 wJV/BYTBVVqPrNK1dqQtr1aMOkEfw+0EXwnbCUht7gHZfOzKGGdvcujEsZ5wzeT1FO
-	 hMkI0NSd3ktIUnGjTbD4HS1Uua/oS52qIxUy5U3Dx9I7NVAvFOonQ1BC8vwyucZmr5
-	 TPIszck4cljr0ATfW6EYHdNQmEl6iHJOOTRFJfGpObmA4aevizSLnjzW//xNXnnBE+
-	 oGa21Vz071e6QkRUnWX9iWa1v3xnR5qTFgN5OBBGLIPKaqi3fIsGYN4pCorq7+szF9
-	 kUKFO6ON9BRag==
-Date: Fri, 9 Oct 2026 11:15:00 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <noname.nuno@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <asiwlNB2GMhmBlk8@parshuram>
-References: <aq18_TMNs4EJzgZO@parshuram>
- <arDtEB0na9DxDWAS@nsa>
- <arFXc0LqEpgWSS6m@SMW015318>
- <ar-Il2qP_Qms3Qw1@nsa>
- <ar-13p3a7ENGfMOF@SMW015318>
- <asEWwIfO0LB27wj9@ashevche-desk.local>
- <asGk4fj_HQ5HupB4@SMW015318>
- <6f5dd1c1622adbaf0174a949ca91cb11872087ff.camel@gmail.com>
- <asSqVEHe8EjkbcwW@SMW015318>
- <asTDTxneqrpFlZi-@nsa>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 289DD152B;
+	Fri,  9 Oct 2026 02:14:57 -0700 (PDT)
+Received: from [10.0.152.148] (e121487-lin.cambridge.arm.com [10.0.152.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8960A3F8C6;
+	Fri,  9 Oct 2026 02:14:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791537300; bh=DeExzBDPCQUXF+bF0bzFQ7IT76pjAEPD8Y/YY6aChsM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WaguH3KFD1XckCpLL4CCgDnYsWbLkSxeC069aelsMg0P27cvDKcU5qcBqciUqzViA
+	 KM7thFDIsDhB8/0d40Sk21Zm2+7dfANHTfI21ABK1MQwSEd7Y+JvHfHeLo1rprFJsz
+	 Op31scA+owLtCgCL4uAAbVA2o3cNDpMJv/3BwJkY=
+Message-ID: <7d1ab507-ef5d-491f-acbf-0a57f2a31dab@arm.com>
+Date: Fri, 9 Oct 2026 10:14:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] arm64: insn: operate on MSR/MRS sysreg field via
+ defines
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
+ <vsethi@nvidia.com>, Tejun Heo <tj@kernel.org>,
+ Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Lucas Wei <lucaswei@google.com>, Barry Song <baohua@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+References: <20260928133034.243541-1-ada.coupriediaz@arm.com>
+ <20260928133034.243541-6-ada.coupriediaz@arm.com>
+ <f0acf203-2cb4-4cda-8e12-c45d02d7499e@arm.com>
+ <76f25bff-4f5c-4234-ab8b-c5f96deea9c2@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <76f25bff-4f5c-4234-ab8b-c5f96deea9c2@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <asTDTxneqrpFlZi-@nsa>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_021504_443471_5C6E70BD 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +82,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06-10-26, 10:47, Nuno S� wrote:
-> On Tue, Oct 06, 2026 at 02:59:16AM -0500, Frank Li wrote:
-> > On Tue, Oct 06, 2026 at 07:36:06AM +0100, Nuno S� wrote:
-> > > On Sat, 2026-10-03 at 19:59 -0500, Frank Li wrote:
-> > ...
-> > > >
-> > > > There are already include bitmap.h, and use
-> > > >
-> > > > typedef struct { DECLARE_BITMAP(bits, DMA_TX_TYPE_END); } dma_cap_mask_t;
-> > > >
-> > > > Suppose all DMA Engine consumer will use it to do some check. So I think
-> > > > needn't split it as indivial version.
-> > >
-> > > Are we sure all consumers are making use of dma_cap_mask?
-> > 
-> > Some legacy user check it. Supposed needn't check it after get channel.
-> > I am working new API to check it to avoid direct access it.
-> > 
-> > > In fact the only function
-> > > depending on bitmap.h is the one clearing the cap_mask. But stepping a bit back,
-> > > bitmap.h was the original proposal from Andy so the idea was to have the new
-> > > widthmask (this one indeed heavily uses bitmaps) already as a split. And with it,
-> > > came types.h given that the DMA enum needs to be used from both consumers and
-> > > providers.
-> > 
-> > Supposed provider is super set, which can include consume part.
-> 
-> Yes but also look the below note on the consumers.
-> 
-> > 
-> > > And note that consumers might want the header without actually needing the
-> > > bus width API so the separation kind of made sense to me.
-> > > Then, as a follow up the idea was to also split the cap_mask API into it's own header
-> > > with a backing include in the main consumer header.
-> > >
-> > > So if we all agree with the above, I guess the current series does not really has to
-> > > change. I see 3 ways:
-> > >
-> > > * Just go back some versions before and have all of it in dmaengine.h
-> > > * The current form
-> > > * s/engine/consumer on the current proposal include/linux/dma/engine/*
-> > 
-> > I think we can put include/linux/dmaengine.h now. The split/move need more
-> > work. I already sent some patches.
-> > 
-> 
-> Ok, to be sure we're 100% on the same side, plan for now is to add the
-> bus width API directly in include/linux/dmaengine.h?
+Hi Ada,
 
-Agreed, we have two headers one global: include/linux/dmaengine.h which
-will be moved as a consumer API Header and local header
-drivers/dma/dmaengine.h which will be provider header (i am okay to
-rename as such as well).
+On 10/7/26 17:31, Ada Couprie Diaz wrote:
+> Hi Vladimir,
+> 
+> On 07/10/2026 07:53, Vladimir Murzin wrote:
+>> Hi Ada,
+>>
+>> On 9/28/26 14:30, Ada Couprie Diaz wrote:
+>>> Replace the few instances of hard-coded system register offset and masks
+>>> used to operate on MSR/MRS instructions with defines.
+>>> This will allow re-use in future commits while making the connection
+>>> between those values more explicit.
+>>>
+>>> While we are here, mark `aarch64_insn_extract_system_reg()` `noinstr`
+>>> so it can be safe to use in alternative pacthing callbacks.
+>>>
+>>> Changing the mask used in `aarch64_insn_gen_mrs()` to exclude
+>>> the lower bits does not change behaviour,
+>>> as `aarch64_insn_encode_register()` already clears the bits
+>>> used to encode the target register.
+>>>
+>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>> ---
+>>>   arch/arm64/include/asm/insn.h | 3 +++
+>>>   arch/arm64/lib/insn.c         | 8 ++++----
+>>>   2 files changed, 7 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+>>> index 40f13d28a5fd7..03620f67a3e47 100644
+>>> --- a/arch/arm64/include/asm/insn.h
+>>> +++ b/arch/arm64/include/asm/insn.h
+>>> @@ -753,6 +753,9 @@ static __always_inline u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
+>>>       return insn;
+>>>   }
+>>>   +#define AARCH64_INSN_SYSREG_OFFSET    5
+>>> +#define AARCH64_INSN_SYSREG_MASK    GENMASK(19, 5)
+>>> +
+>> Sashiko has raised comment [1]
+>>
+>> | Does this mask unintentionally exclude bit 20?
+>> | The previous hardcoded mask was 0x1FFFE0, which is equivalent to
+>> | GENMASK(20, 5) and includes 16 bits. Defining it as GENMASK(19, 5) yields
+>> | a 15-bit mask.
+>>
+>> [1] https://sashiko.dev/#/patchset/20260928133034.243541-1-ada.coupriediaz%40arm.com
+>>
+>> Cheers
+>> Vladimir
+> 
+> Thanks for bringing the report up, it does raise an interesting issue.
+> 
+> This does change the mask used and does indeed change the returned value,
+> potentially breaking comparisons to the return value of `aarch64_insn_extract_system_reg()`. However, the existing mask is incorrect as far as I can tell : the function is supposed to extract the Op and CR corresponding to the system registers of the MSR/MRS instructions. Those fields are encoded in bits 19-5, which corresponds to the GENMASK I used. I think it would make more sense to fix the `enum aarch64_insn_special_register` values to represent the registers properly and drop bit 20, which is 1 in all cases anyway... I would be happy to send a quick v2 with this change ! Thanks for bringing it up, Kind regards Ada
+> 
 
-So this one is used by both so lets keep in global header.
+Make sense, please send it as separate change. AFAICS, it should not affect bpf
+folk, but worth making them aware ;)
 
 Thanks
--- 
-~Vinod
+Vladimir
 
