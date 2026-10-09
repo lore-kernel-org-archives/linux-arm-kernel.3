@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A5DCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74A3CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8l3WloI1T9yYRMIvOmZ2LXdY7ShOJuAJiKBeLfFm28=; b=AfodVPz3Uei7uYgtBg+5/Hva7l
-	hTLKNz2op/BBAeMyHcHkfpanarJucJU/OQ+p62rF12tTifz+zFT9ageYMem8Eoxd0yPuBEi882ozd
-	6SwoqiPrZLKTTPaSxLvwf8w1Uij+IGsiGOG8yXUbPrerY4ucP4RoKtGkQzOHawZw4WZdjXTX86pKG
-	nZvbj8dUom5u4Mnlv7D7xzI6fhbyVFJ7ZXdTNg6pFM9H6CozE4tnWv4dwSJXx1Le5sdFP7SyrTlJ2
-	2efN9nbopmvD5/3lvqF4R67mIvnvmXeBrRiAqNXq3M5/6nX31rGZyKbvO91CY7f16jhVHHCjUkPr4
-	Hk3LujwA==;
+	bh=4vwniXr381W6emKfezuaY9WPq/wWMQModCMVYuaaZJ8=; b=QLwFrYXzYt7+z6y0BvYfmjIAna
+	mOY6MP7dkTdF1i4nz66RsvHYXt1NEX1eh2OLBE7vVAgmtVwJ5If9PwWb9lxWkn1Z672l21kRbHqnS
+	KNoCtwxdFqUJuh2C2/OQRpHYG81K+WQfgN+fG3v1pgstgH+HDC4k+UzX1EJtz0DJh2BVeEymZajYr
+	kvT1fRUftkv1H7uSqlqYdl+ev9/pEnYT7Nw+aRnpndx7dV2YkwkjjNLAtbKACizthk9CFJsD9FmWb
+	cgPOWiyzKL/2EypndVkLL5QHMhlQxjCDUekFkggfxn3pT70Hz9fAAdKfpnPkqvTWhAlCq0IxsvUXR
+	GjYBym1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18X-00000005Kor-1IX6;
-	Fri, 09 Oct 2026 03:19:09 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1xF18g-00000005Kv0-1qHJ;
+	Fri, 09 Oct 2026 03:19:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18P-00000005KSW-0Kjj
+	id 1xF18e-00000005KtD-22yU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 09 Oct 2026 03:19:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=4vwniXr381W6emKfezuaY9WPq/wWMQModCMVYuaaZJ8=; b=Zl8QEJ5TX+0yQJQbzYb3BNcSVZ
+	efX94zrvtD7G9VoaXIMX5oy8FhMFp7uQ0HTD6RPIxJwjpyL+OmLv0+TGChbIhT0bmGOM/JPvqpinQ
+	kuFcoxyXVHBn1G6aLDLfH5ixzGZ83Lfd+DdcBCYUfUtmp8B9e3o2ZxXYeUlQGW55DSqe9J8OUnyWM
+	83xd2oCXEOaz38WP4Tkls0W9VKyh+3zQ7AYN1xx/V04bwcBjcAYhC9wjDimtzBbRAshYDKvKx3GkC
+	jOOZ5HNGGl4LiU+cwn+RnsBef+hddFbChhT/SeQhr1udII6lmVe9SfZTk0JleNRGLfu53bgeMi88z
+	xJJrLBcA==;
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xF18V-0000000Aqp5-0bt4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:19:08 +0000
-X-QQ-mid: zesmtpip2t1791515866t71e3d01b
-X-QQ-Originating-IP: XlFUefbhl4sAMn3DfDDBDLIyYAHUFnugasG9yn66LTA=
+	Fri, 09 Oct 2026 03:19:12 +0000
+X-QQ-mid: zesmtpip2t1791515862t41d55fdb
+X-QQ-Originating-IP: 78gJAcIGUVSr0IWztGV4pGd7LvEMa0gC7Diilw8quLk=
 Received: from [192.168.30.32] ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 11:17:43 +0800 (CST)
+	id ; Fri, 09 Oct 2026 11:17:39 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17315983410666108048
+X-BIZMAIL-ID: 7530361477103805638
 EX-QQ-RecipientCnt: 29
 From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 09 Oct 2026 11:16:03 +0800
-Subject: [PATCH v2 11/20] drm/msm/dp: Cache eDP link capabilities after
- successful discovery
+Date: Fri, 09 Oct 2026 11:16:02 +0800
+Subject: [PATCH v2 10/20] drm/msm/dp: Report stream enable failures through
+ link status
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-msm-dp-hdr10-v2-11-1835d4966da3@radxa.com>
+Message-Id: <20261009-msm-dp-hdr10-v2-10-1835d4966da3@radxa.com>
 References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -66,38 +81,38 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
  linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14005; i=sophon@radxa.com;
- h=from:subject:message-id; bh=0cZWchgsYeC8owEtTjQ8YPdkgt7kIw+pWVFaJqPAWfY=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlZ6q1S0maQxvN78PfvBqYfrch4vdfL9ryt/UHFBh
- NKhW18DO0pZGMS4GGTFFFkU4hnmslfmXnsqVqoHM4eVCWQIAxenAEzk3AZGhpV5YuwdO0vmP8lU
- NH92OKl9eq3L8WVX/8p/v5HO2XKgppzhn+qDKUviPnM9Mz2nL/DA8s9rxr6EVq99sTn69b9ve+y
- 0ZwAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6880; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=5ucLmD84+B3JGHJEDlBaULUVYEj81Nym/HMWEBfcJAg=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlZeivUsOv2vx/zYC8YDm9s6JW9t3GCoN6/EYFMG0
+ 6R5+6bt7yhlYRDjYpAVU2RRiGeYy16Ze+2pWKkezBxWJpAhDFycAjCRHV8Y/in15hR7/RG6orVn
+ han5289CDGKVqoY3FgQfSzfcc3ju/XaGfwo8R29fLZgZ9enGMzUPL21BsaWr9Jt3T829X3l2u8U
+ EUU4A
 X-Developer-Key: i=sophon@radxa.com; a=openpgp;
  fpr=205F009D07796DD6E516752E32C31567AD9E324E
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M/RruYb5Tpz7LXQeVwJ/BIMWThpuGkwnhoIMPDlFp0FLiaKpzaWg5m/v
-	rxAVJ9bAWUdbJ2rzi9CPM9UnqDoV+qL/jfPMNJyrzSsFDk7sSB5d8nvYk/F+958UB5XstKp
-	4UN16KAvmVCvJUlEQIxt3FVQ/4vMlEA5xCHaW2LP5o1zqyfCZooZU6k8Ii+IP/KtR35S91Y
-	06qFScAhHc1xtSNlpnKnExeAnThmugJ4jBXqe4Epj8EdH2Ryz05wj7VxaRwnwTLctoCcNko
-	Xtyam9h82f/aRw/4dLFuvp5ooe2Kl2Y244NI2woZpYC0ojuBbClvZ418qcLih8kQLpgfCBS
-	cAkTRcILpSOqliSju4vlqJKDCtq/cVzUJ2ARbGu0iD5zxqr/5HKPgq9QVb2iIb4q8JzC67w
-	5LCZHNP0woGYzVR5tu/C0X52g+WNg1VmQvwAiNcm5Jyfpo58BMUlIDXFso4Vgop4LI4Lasc
-	3776/s2FXDv+e9UrWBPYWxtxFHhv+FBgfDQG2KFSUJqGQAmJONSm+T3mAfnMCm846fwe0uG
-	awHJjt6mukF1jh4XdLaxFzMf3vgmQSgfll+azupKztb+A8CFiIFjNRnYWu8vJYwZsam2YZP
-	EUS2nSBIpdpmMkOAbDlJchJMhft15xPYmCWM4/emQ37r+ALmLShoXx9MQzc5nayZ4S5Nocn
-	3MhG5Dts+pQm06KeaBUU9pnSbXb3vHUtwKk3G1mSzvH3++FACiFqu8cP2F4ApEOGt/UucGw
-	gWeAdlJ5+0gPyGkqtqAR0qrgfEz7s6lg9l5w8qd0hS6B8J3Z/DkcytpW97bOy8dQGVru5ZL
-	yVPlcS+uOsQto1FGDhckKJQqkP4l34JIIzZ+uWA97uhP+f4JjHYaRbjlsD8wvUpWgdcfV8G
-	4a4X/OugRQh0ZG4iV/PaNFLz3uk4Vb/VlSHuLoEgBv4ARFRW78ZQY9/HhTySz2nboylZFB+
-	SbtnRsODHeEw7mJU91kxJatHCWTJxB7pVUeCacKeM1Zyyco0Uu6CSv52CW1PF+37VDJFqnD
-	N+V/e/Y7uBJ0zhpvvspdEVxrk8i0f97h7jUjTXR/56/jgZYWLqc5/HwEyE2e3f1hDaqmv0q
-	w==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: NuvczPgZuLZZSnaOn+sMQWqJuKSpfTm4ZiBSd89ZhVPWtYKqWRxi+KMK
+	1n7vUTEJtI9BH/D07gDryDCwhKeUG5bDIPFVk6RFNtL/RIF6fjnUFBRHF1KKhmXGYgnmkkX
+	tvIOIEACDBwtsI8qOr4NUQQo3pKHUoWlRCZ3ZtMDQJ52eQcD8AvMABdwrBopQHUE+/WbRZH
+	UNw5ngxZpvlgx18aWjndOu9bG7iNt6DzqK/KYP0tS6kPXIpNbrWvyM78l8eYy5dO+oLl/FA
+	nBVv/GRBpNQTzZ+8VoZJAc5La7xqwYBiq+QHyQD5UVEX281PpUm3c9NYmQcK/taK22PkXTq
+	lnrfm7M/hdI/w7fz8ZQjSY0wwxJim58EibfcpuRw0xoO77p7rw3eLSDAmAD78reeDRasItA
+	WELUSi9hLVZmmsXxZ7d7Ke+0b/O/6P77NWwvoBEht7GJk8jt3x6hME1mB4ObShEEXST9Pcs
+	pCIvUuiUXSwvHrR3FRQOyovcmYV/GPC95VRjdzQedsaZxiRDvUsbluRR9T6fr83xLD6KXlx
+	HYqp4UUpcCnFVz3hszEhEFaVZNr7zrfEWzzb9tSz2XuYUk5MAvnQJDxUgODLj7IbKgNWV31
+	kD0UCMOSlTSOadcK6JHGgcRSAHHdmdkOjS1IAlgGaBG4kl540BuCqEfERs8APmc6ODOrDae
+	ATx27pvVOuizVdAPlapvJyahUdY+Nlz6WTI3QepzXfRXTU/Nalbn8lPix1mJioc8K8iopJo
+	KGyEJFnpWiT6b1mwUH1MX6m/hVyQpWTA6fMBEXYynMCR9/ItLV3SKa/RCg79yy1EedTuT8k
+	KNNQg/GGioUxfKOu3IAHM6lofeeTBtr9cs3oBWnwtChueI3bd3rFb9Q1e35r3Qz9nB3tuH/
+	IlF6X1+j2f+0Kr+y+6yoxH6blHoxIILSWkKMV+Hw6X8+DenJ1RQUbOASJ06xyx4o3mj5DmP
+	0FaGOtYdaNM7AtyZJWhT+L7HhtsLhDjo44P2V3UJKINxTDUTgtQYtw215106aNy7eIk87YQ
+	euywsf1Wa6wGp0gBDZhD4CXfm2fGTwgZiiC29uTH0Xc2Y41dRNyI/wvLmVl+Vn+kfH+Y2wr
+	kWoQO54bPxj
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_201901_624720_31457841 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20261009_041908_064536_98374282 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,372 +127,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An eDP panel may be powered off during mode validation. Keep its link
-capabilities after the first successful discovery so subsequent checks
-can use them across disable and suspend. eDP's internal unplug handling
-is a power transition, not a change of sink. Continue invalidating
-external DP capabilities on unplug and refresh them on discovery.
+Atomic bridge enable callbacks cannot return an error to userspace.
+After a failed enable, leaving link-status unchanged gives userspace
+no indication that it needs to retry the configuration.
 
-Discover eDP capabilities from connector detect before the first modeset.
-Resume the AUX controller and prepare the fixed panel for the read, then
-balance the panel preparation and runtime PM reference. Keep the panel
-connected on an AUX error and allow a later probe to retry. Detection
-with valid bandwidth limits does not touch panel power.
+Mark the connector link status bad from a work item after unwinding
+the failed enable.
 
-Track valid bandwidth limits separately from a complete capability cache.
-Optional VSC or PSR read failures retain the existing fallback but do not
-invalidate known bandwidth limits or permanently cache missing features.
-Clear parsed link information before fresh discovery to avoid retaining
-rates or flags from a previous sink or partially completed attempt.
+Send one connector hotplug notification per failure episode. The
+notification also invokes the fbdev hotplug handler, which can retry
+the modeset synchronously. Since atomic enable callbacks cannot
+return errors, another stream enable failure can requeue this work
+without reporting a failed commit to fbdev. Notifying on every
+failure could therefore cause an unbounded retry loop.
 
-Reuse the eDP receiver capabilities without skipping LTTPR setup, EDID
-reads, sink requests, power management or link training. Refresh
-LINK_BW_SET when selecting LINK_RATE_SET because it is configuration
-state and can change across power cycles. A failed configuration read
-still fails the enable without discarding known static capabilities.
+Subsequent failures still restore BAD after a retry sets link-status
+to GOOD, but suppress further notifications until a successful enable
+or an external sink connection change. Do not reset the notification
+latch during eDP's internal plug and unplug handling, which runs on
+every retry.
+
+Skip failures superseded by recovery or an external unplug before the
+worker checks the failure state. Protect the failure state with
+plugged_lock, then release it before calling
+drm_connector_set_link_status_property(). The helper takes the
+connection mutex, which precedes plugged_lock in atomic check's lock
+order. Send the notification after the helper releases the mutex.
+Recovery concurrent with the property update can cause an extra retry.
+
+Initialize the work at probe and cancel it before unbinding the
+display.
 
 Assisted-by: LLM
 Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- drivers/gpu/drm/msm/dp/dp_display.c | 73 +++++++++++++++++++++++++++++++--
- drivers/gpu/drm/msm/dp/dp_drm.c     |  8 ++--
- drivers/gpu/drm/msm/dp/dp_drm.h     |  2 +
- drivers/gpu/drm/msm/dp/dp_panel.c   | 81 +++++++++++++++++++++++++++++--------
- drivers/gpu/drm/msm/dp/dp_panel.h   |  4 ++
- 5 files changed, 145 insertions(+), 23 deletions(-)
+ drivers/gpu/drm/msm/dp/dp_display.c | 61 +++++++++++++++++++++++++++++++++++--
+ 1 file changed, 58 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index 816f2dc11aea..9b7a1d18dfe0 100644
+index b076d44b5118..816f2dc11aea 100644
 --- a/drivers/gpu/drm/msm/dp/dp_display.c
 +++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -16,6 +16,7 @@
+@@ -12,9 +12,11 @@
+ #include <linux/phy/phy.h>
+ #include <linux/delay.h>
+ #include <linux/string_choices.h>
++#include <linux/workqueue.h>
  #include <drm/display/drm_dp_aux_bus.h>
  #include <drm/display/drm_hdmi_audio_helper.h>
  #include <drm/drm_edid.h>
-+#include <drm/drm_panel.h>
- #include <drm/drm_probe_helper.h>
++#include <drm/drm_probe_helper.h>
  
  #include "msm_drv.h"
-@@ -313,10 +314,16 @@ static int msm_dp_display_process_hpd_high(struct msm_dp_display_private *dp)
- 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
- 	const struct drm_edid *drm_edid = NULL;
+ #include "msm_kms.h"
+@@ -54,10 +56,14 @@ struct msm_dp_display_private {
+ 	bool audio_supported;
+ 	bool stream_pm_active;
+ 	bool stream_link_attempted;
++	struct work_struct link_status_work;
  
--	rc = drm_dp_read_dpcd_caps(dp->aux, dpcd);
--	if (rc)
--		goto end;
-+	if (dp->msm_dp_display.is_edp && dp->panel->caps_cached) {
-+		memcpy(dpcd, dp->panel->dpcd, sizeof(dpcd));
-+	} else {
-+		dp->panel->link_caps_valid = false;
-+		rc = drm_dp_read_dpcd_caps(dp->aux, dpcd);
-+		if (rc)
-+			goto end;
-+	}
+ 	/* Serializes HPD, stream and PSR operations while runtime active. */
+ 	struct mutex plugged_lock;
+ 	bool plugged;
++	/* Protected by plugged_lock, including accesses from link_status_work. */
++	bool link_failed;
++	bool link_status_notified;
  
-+	/* Reapply the LTTPR mode even when receiver capabilities are cached. */
- 	dp->link->lttpr_count = msm_dp_display_lttpr_init(dp, dpcd);
+ 	struct drm_device *drm_dev;
  
- 	rc = msm_dp_panel_read_link_caps(dp->panel, connector);
-@@ -521,6 +528,11 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 			dp->msm_dp_display.connector_type,
- 			dp->link->sink_count);
- 
-+	/* eDP uses this path for power-down, not a change of sink. */
-+	if (!dp->msm_dp_display.is_edp) {
-+		dp->panel->link_caps_valid = false;
-+		dp->panel->caps_cached = false;
-+	}
- 	if (!dp->plugged) {
- 		mutex_unlock(&dp->plugged_lock);
- 		return 0;
-@@ -971,6 +983,61 @@ void msm_dp_display_set_psr(struct msm_dp *msm_dp_display, bool enter)
- 	msm_dp_ctrl_set_psr(dp->ctrl, dp->panel, enter);
+@@ -205,6 +211,39 @@ void msm_dp_display_signal_audio_complete(struct msm_dp *msm_dp_display)
+ 	complete_all(&dp->audio_comp);
  }
  
-+enum drm_connector_status msm_edp_bridge_detect(struct drm_bridge *bridge,
-+						struct drm_connector *connector)
++static void msm_dp_display_reset_link_status(struct msm_dp_display_private *dp)
 +{
-+	struct msm_dp *display = to_dp_bridge(bridge)->msm_dp_display;
-+	struct msm_dp_display_private *dp = container_of(display,
-+			struct msm_dp_display_private, msm_dp_display);
-+	struct drm_panel *panel;
-+	u8 dpcd[DP_RECEIVER_CAP_SIZE];
-+	bool prepared;
-+	int ret;
++	lockdep_assert_held(&dp->plugged_lock);
 +
-+	/* The fixed panel's bandwidth capabilities survive power cycles. */
-+	scoped_guard(mutex, &dp->plugged_lock) {
-+		if (dp->panel->link_caps_valid)
-+			return connector_status_connected;
-+	}
-+
-+	/* Discovery precedes the first modeset; do not power up in atomic check. */
-+	panel = of_drm_find_panel(display->next_bridge->of_node);
-+	if (IS_ERR(panel))
-+		return connector_status_unknown;
-+
-+	ret = pm_runtime_resume_and_get(&display->pdev->dev);
-+	if (ret < 0)
-+		goto put_panel;
-+
-+	prepared = panel->prepared;
-+	if (!prepared)
-+		drm_panel_prepare(panel);
-+	if (!panel->prepared) {
-+		ret = -EIO;
-+		goto put_pm;
-+	}
-+
-+	scoped_guard(mutex, &dp->plugged_lock) {
-+		ret = drm_dp_read_dpcd_caps(dp->aux, dpcd);
-+		if (!ret) {
-+			dp->link->lttpr_count = msm_dp_display_lttpr_init(dp, dpcd);
-+			ret = msm_dp_panel_read_link_caps(dp->panel, connector);
-+		}
-+	}
-+
-+	if (!prepared)
-+		drm_panel_unprepare(panel);
-+put_pm:
-+	pm_runtime_put_sync(&display->pdev->dev);
-+put_panel:
-+	drm_panel_put(panel);
-+	if (ret < 0)
-+		drm_dbg_dp(dp->drm_dev, "eDP capability discovery failed: %d\n", ret);
-+
-+	/* A failed AUX access does not mean the fixed panel was disconnected. */
-+	return connector_status_connected;
++	dp->link_failed = false;
++	dp->link_status_notified = false;
 +}
 +
- /**
-  * msm_dp_bridge_detect - callback to determine if connector is connected
-  *
-diff --git a/drivers/gpu/drm/msm/dp/dp_drm.c b/drivers/gpu/drm/msm/dp/dp_drm.c
-index c1e4147bfef1..8c4446b12925 100644
---- a/drivers/gpu/drm/msm/dp/dp_drm.c
-+++ b/drivers/gpu/drm/msm/dp/dp_drm.c
-@@ -276,6 +276,7 @@ static void msm_edp_bridge_debugfs_init(struct drm_bridge *bridge, struct dentry
- }
- 
- static const struct drm_bridge_funcs msm_edp_bridge_ops = {
-+	.detect = msm_edp_bridge_detect,
- 	.atomic_pre_enable = msm_dp_bridge_atomic_pre_enable,
- 	.atomic_enable = msm_edp_bridge_atomic_enable,
- 	.atomic_disable = msm_edp_bridge_atomic_disable,
-@@ -311,9 +312,8 @@ int msm_dp_bridge_init(struct msm_dp *msm_dp_display, struct drm_device *dev,
- 	 * Many ops only make sense for DP. Why?
- 	 * - Detect/HPD are used by DRM to know if a display is _physically_
- 	 *   there, not whether the display is powered on / finished initting.
--	 *   On eDP we assume the display is always there because you can't
--	 *   know until power is applied. If we don't implement the ops DRM will
--	 *   assume our display is always there.
-+	 *   On eDP the fixed panel is always connected. Detect powers it briefly
-+	 *   to cache link capabilities before the first modeset.
- 	 * - Currently eDP mode reading is driven by the panel driver. This
- 	 *   allows the panel driver to properly power itself on to read the
- 	 *   modes.
-@@ -327,6 +327,8 @@ int msm_dp_bridge_init(struct msm_dp *msm_dp_display, struct drm_device *dev,
- 		bridge->hdmi_audio_dev = &msm_dp_display->pdev->dev;
- 		bridge->hdmi_audio_max_i2s_playback_channels = 8;
- 		bridge->hdmi_audio_dai_port = -1;
-+	} else {
-+		bridge->ops = DRM_BRIDGE_OP_DETECT;
- 	}
- 
- 	rc = devm_drm_bridge_add(dev->dev, bridge);
-diff --git a/drivers/gpu/drm/msm/dp/dp_drm.h b/drivers/gpu/drm/msm/dp/dp_drm.h
-index da412c788503..d37e2ff95f4b 100644
---- a/drivers/gpu/drm/msm/dp/dp_drm.h
-+++ b/drivers/gpu/drm/msm/dp/dp_drm.h
-@@ -25,6 +25,8 @@ int msm_dp_bridge_init(struct msm_dp *msm_dp_display, struct drm_device *dev,
- 		   struct drm_encoder *encoder,
- 		   bool yuv_supported);
- 
-+enum drm_connector_status msm_edp_bridge_detect(struct drm_bridge *bridge,
-+						struct drm_connector *connector);
- enum drm_connector_status msm_dp_bridge_detect(struct drm_bridge *bridge,
- 					       struct drm_connector *connector);
- void msm_dp_bridge_hpd_enable(struct drm_bridge *bridge);
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index fdf1a3f437ba..d144af2fe008 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -65,7 +65,7 @@ static inline u32 msm_dp_read_p0(struct msm_dp_panel_private *panel,
- 	return readl_relaxed(panel->p0_base + offset);
- }
- 
--static void msm_dp_panel_read_psr_cap(struct msm_dp_panel_private *panel)
-+static bool msm_dp_panel_read_psr_cap(struct msm_dp_panel_private *panel)
- {
- 	ssize_t rlen;
- 	struct msm_dp_panel *msm_dp_panel;
-@@ -81,12 +81,18 @@ static void msm_dp_panel_read_psr_cap(struct msm_dp_panel_private *panel)
- 				"psr version: 0x%x, psr_cap: 0x%x\n",
- 				msm_dp_panel->psr_cap.version,
- 				msm_dp_panel->psr_cap.capabilities);
--		} else
-+		} else {
-+			memset(&msm_dp_panel->psr_cap, 0, sizeof(msm_dp_panel->psr_cap));
- 			DRM_ERROR("failed to read psr info, rlen=%zd\n", rlen);
-+			return false;
-+		}
- 	}
++static void msm_dp_display_link_status_work(struct work_struct *work)
++{
++	struct msm_dp_display_private *dp = container_of(work,
++			struct msm_dp_display_private, link_status_work);
++	struct drm_connector *connector = dp->msm_dp_display.connector;
++	bool notify;
 +
-+	return true;
- }
- 
--static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
-+static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel,
-+				  bool *caps_valid)
- {
- 	int rc, max_lttpr_lanes, max_lttpr_rate;
- 	struct msm_dp_panel_private *panel;
-@@ -100,7 +106,20 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 	if (rc)
- 		return rc;
- 
--	msm_dp_panel->vsc_sdp_supported = drm_dp_vsc_sdp_supported(panel->aux, dpcd);
-+	*caps_valid = true;
-+	if (dpcd[DP_DPCD_REV] >= DP_DPCD_REV_13) {
-+		u8 rx_feature;
++	scoped_guard(mutex, &dp->plugged_lock) {
++		/* Skip failures superseded before this work starts. */
++		if (!dp->link_failed)
++			return;
 +
-+		rc = drm_dp_dpcd_read_byte(panel->aux, DP_DPRX_FEATURE_ENUMERATION_LIST,
-+					   &rx_feature);
-+		if (rc) {
-+			/* Retry discovery rather than caching a failed optional read. */
-+			*caps_valid = false;
-+		} else {
-+			msm_dp_panel->vsc_sdp_supported =
-+				rx_feature & DP_VSC_SDP_EXT_FOR_COLORIMETRY_SUPPORTED;
-+		}
++		notify = !dp->link_status_notified;
++		dp->link_status_notified = true;
 +	}
- 	link_info = &msm_dp_panel->link_info;
- 	link_info->revision = dpcd[DP_DPCD_REV];
- 	major = (link_info->revision >> 4) & 0x0f;
-@@ -126,7 +145,6 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 		/* For eDP v1.4+, parse the SUPPORTED_LINK_RATES table */
- 		if (edp_rev >= DP_EDP_14) {
- 			__le16 rates[DP_MAX_SUPPORTED_RATES];
--			u8 bw_set;
- 			int i;
- 
- 			rc = drm_dp_dpcd_read_data(panel->aux, DP_SUPPORTED_LINK_RATES,
-@@ -134,10 +152,6 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 			if (rc)
- 				return rc;
- 
--			rc = drm_dp_dpcd_read_byte(panel->aux, DP_LINK_BW_SET, &bw_set);
--			if (rc)
--				return rc;
--
- 			/* Find index of max supported link rate that does not exceed dtsi limits */
- 			for (i = 0; i < ARRAY_SIZE(rates); i++) {
- 				/*
-@@ -168,10 +182,6 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 				link_info->supported_rates[i] = rate;
- 				link_info->rate_set = i;
- 			}
--
--			/* Only use LINK_RATE_SET if LINK_BW_SET hasn't already been written to */
--			if (!bw_set && link_info->rate)
--				link_info->use_rate_set = true;
- 		}
- 	}
- 
-@@ -201,15 +211,34 @@ static int msm_dp_panel_read_dpcd(struct msm_dp_panel *msm_dp_panel)
- 	drm_dbg_dp(panel->drm_dev, "version: %d.%d\n", major, minor);
- 	drm_dbg_dp(panel->drm_dev, "link_rate=%d\n", link_info->rate);
- 	drm_dbg_dp(panel->drm_dev, "link_rate_set=%d\n", link_info->rate_set);
--	drm_dbg_dp(panel->drm_dev, "use_rate_set=%d\n", link_info->use_rate_set);
- 	drm_dbg_dp(panel->drm_dev, "lane_count=%d\n", link_info->num_lanes);
- 
- 	if (drm_dp_enhanced_frame_cap(dpcd))
- 		link_info->capabilities |= DP_LINK_CAP_ENHANCED_FRAMING;
- 
--	msm_dp_panel_read_psr_cap(panel);
-+	if (!msm_dp_panel_read_psr_cap(panel))
-+		*caps_valid = false;
- 
--	return rc;
-+	return 0;
++
++	/* The helper takes connection_mutex, so drop plugged_lock first. */
++	drm_connector_set_link_status_property(connector,
++					       DRM_MODE_LINK_STATUS_BAD);
++
++	/* fbdev can retry the modeset synchronously from this notification. */
++	if (notify)
++		drm_kms_helper_connector_hotplug_event(connector);
 +}
 +
-+static int msm_dp_panel_read_link_rate_set(struct msm_dp_panel_private *panel)
-+{
-+	struct msm_dp_link_info *link_info = &panel->msm_dp_panel.link_info;
-+	u8 bw_set;
-+	int ret;
-+
-+	if (!link_info->supported_rates[0])
-+		return 0;
-+
-+	/* LINK_BW_SET is configuration state, not a cached capability. */
-+	ret = drm_dp_dpcd_read_byte(panel->aux, DP_LINK_BW_SET, &bw_set);
-+	if (ret)
-+		return ret;
-+
-+	link_info->use_rate_set = !bw_set;
-+	drm_dbg_dp(panel->drm_dev, "use_rate_set=%d\n", link_info->use_rate_set);
-+	return 0;
- }
- 
- static u32 msm_dp_panel_get_supported_bpp(struct msm_dp_panel *msm_dp_panel,
-@@ -238,6 +267,7 @@ int msm_dp_panel_read_link_caps(struct msm_dp_panel *msm_dp_panel,
+ static int msm_dp_display_bind(struct device *dev, struct device *master,
+ 			   void *data)
  {
- 	int rc, bw_code;
- 	int count;
-+	bool caps_valid;
- 	struct msm_dp_panel_private *panel;
+@@ -235,6 +274,7 @@ static void msm_dp_display_unbind(struct device *dev, struct device *master,
+ 	struct msm_dp_display_private *dp = dev_get_dp_display_private(dev);
+ 	struct msm_drm_private *priv = dev_get_drvdata(master);
  
- 	if (!msm_dp_panel || !connector) {
-@@ -247,7 +277,16 @@ int msm_dp_panel_read_link_caps(struct msm_dp_panel *msm_dp_panel,
++	cancel_work_sync(&dp->link_status_work);
+ 	of_dp_aux_depopulate_bus(dp->aux);
  
- 	panel = container_of(msm_dp_panel, struct msm_dp_panel_private, msm_dp_panel);
+ 	msm_dp_aux_unregister(dp->aux);
+@@ -424,6 +464,10 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
  
--	rc = msm_dp_panel_read_dpcd(msm_dp_panel);
-+	if (connector->connector_type == DRM_MODE_CONNECTOR_eDP &&
-+	    msm_dp_panel->caps_cached)
-+		return msm_dp_panel_read_link_rate_set(panel);
+ 	mutex_lock(&dp->plugged_lock);
+ 
++	/* eDP calls this for every enable, including automatic retries. */
++	if (!dp->msm_dp_display.is_edp && !dp->plugged)
++		msm_dp_display_reset_link_status(dp);
 +
-+	msm_dp_panel->link_caps_valid = false;
-+	msm_dp_panel->caps_cached = false;
-+	memset(&msm_dp_panel->link_info, 0, sizeof(msm_dp_panel->link_info));
-+	memset(&msm_dp_panel->psr_cap, 0, sizeof(msm_dp_panel->psr_cap));
-+	msm_dp_panel->vsc_sdp_supported = false;
-+	rc = msm_dp_panel_read_dpcd(msm_dp_panel, &caps_valid);
+ 	msm_dp_aux_enable_xfers(dp->aux, true);
+ 
+ 	ret = msm_dp_display_host_phy_init(dp);
+@@ -466,6 +510,9 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
+ 
+ 	mutex_lock(&dp->plugged_lock);
+ 
++	if (!dp->msm_dp_display.is_edp)
++		msm_dp_display_reset_link_status(dp);
++
+ 	dp->panel->video_test = false;
+ 
+ 	msm_dp_aux_enable_xfers(dp->aux, false);
+@@ -529,10 +576,12 @@ static int msm_dp_irq_hpd_handle(struct msm_dp_display_private *dp)
+ 	if (!rc) {
+ 		sink_request = dp->link->sink_request;
+ 		drm_dbg_dp(dp->drm_dev, "sink_request=%d\n", sink_request);
+-		if (sink_request & DS_PORT_STATUS_CHANGED)
++		if (sink_request & DS_PORT_STATUS_CHANGED) {
++			msm_dp_display_reset_link_status(dp);
+ 			rc = msm_dp_display_process_hpd_high(dp);
+-		else
++		} else {
+ 			rc = msm_dp_display_handle_irq_hpd(dp);
++		}
+ 	}
+ 
+ 	drm_dbg_dp(dp->drm_dev, "After, type=%d, sink_count=%d\n",
+@@ -682,7 +731,6 @@ static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
+ 	rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
  	if (rc) {
- 		DRM_ERROR("read dpcd failed %d\n", rc);
+ 		DRM_ERROR("Failed link training (rc=%d)\n", rc);
+-		// TODO: schedule drm_connector_set_link_status_property()
  		return rc;
-@@ -272,6 +311,14 @@ int msm_dp_panel_read_link_caps(struct msm_dp_panel *msm_dp_panel,
+ 	}
  
- 	rc = drm_dp_read_downstream_info(panel->aux, msm_dp_panel->dpcd,
- 					 msm_dp_panel->downstream_ports);
-+	if (rc)
-+		return rc;
-+
-+	rc = msm_dp_panel_read_link_rate_set(panel);
-+	if (!rc) {
-+		msm_dp_panel->link_caps_valid = true;
-+		msm_dp_panel->caps_cached = caps_valid;
+@@ -1278,6 +1326,7 @@ static int msm_dp_display_probe(struct platform_device *pdev)
+ 	dp->hpd_isr_status = 0;
+ 
+ 	mutex_init(&dp->plugged_lock);
++	INIT_WORK(&dp->link_status_work, msm_dp_display_link_status_work);
+ 
+ 	rc = msm_dp_display_get_io(dp);
+ 	if (rc)
+@@ -1571,6 +1620,7 @@ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
+ 		goto err;
+ 	}
+ 
++	msm_dp_display_reset_link_status(dp);
+ 	mutex_unlock(&dp->plugged_lock);
+ 
+ 	drm_dbg_dp(msm_dp_display->drm_dev, "type=%d Done\n", msm_dp_display->connector_type);
+@@ -1583,6 +1633,11 @@ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
+ 	if (msm_dp_display->is_edp)
+ 		msm_dp_hpd_unplug_handle(dp);
+ 	msm_dp_display_unprepare(dp);
++	scoped_guard(mutex, &dp->plugged_lock) {
++		dp->link_failed = true;
++		/* Keep reporting BAD, but notify only once until recovery. */
++		schedule_work(&dp->link_status_work);
 +	}
- 	return rc;
  }
  
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.h b/drivers/gpu/drm/msm/dp/dp_panel.h
-index 4519ac374220..a5cb8a4a9498 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.h
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.h
-@@ -38,6 +38,10 @@ struct msm_dp_panel {
- 	struct msm_dp_panel_psr psr_cap;
- 	bool video_test;
- 	bool vsc_sdp_supported;
-+	/* Valid bandwidth limits, independent of optional feature reads. */
-+	bool link_caps_valid;
-+	/* All capability reads completed; eDP can reuse the full cache. */
-+	bool caps_cached;
- 	u32 hw_revision;
- 
- 	u32 max_bw_code;
+ void msm_dp_display_atomic_disable(struct msm_dp *dp)
 
 -- 
 2.56.0
