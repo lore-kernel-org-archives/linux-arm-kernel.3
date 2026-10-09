@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B286ACA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF68CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:Message-ID:MIME-Version:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3bmrxV+t3fPSMRAU/WJh+2ymAD55jqvxklsd7ARlac=; b=ySTJOmJwz1Js5t3rW4jRjBRRIY
-	vnxoiA7eUCZMpSs9g32QYeiY7js/XZg3cEVcdS+ge/jYWdPpu/VlVmbN+hwraEjVEsUcPhdWbssBz
-	8EnISY08ujeMtHsSgntusLgkBSLR4Bsibmz/bFl5Ms7tm7NEMz/MRkFwDQmJGD15YRdFffrM9ks8I
-	r4IplCIQNsy/sDQ5rYznOp+Uq3lEbhh6iuTJVcnFIG1u+yY3HOBnt2a9bKvVKwgrvHB3jWPrP1hXk
-	LuMiskTL0VOmwnWPv0P2B4z+RBWor3mSHXLGbWyGer3bjSFCa9pTrrk2/JFj+064lmAlJidG6sM7O
-	p5lg+F7w==;
+	bh=n6SBIK/RTJ2gKGJUx4mMtmO3hND48ShXeu1KsGP31Dg=; b=43KtDl/t0k8ansuD4EMXNeQRfV
+	OQd0+Cz/tDCKo3AOL0q8l+FjmEGInqOQbyQ6Bw9zrlGyosUr80okK90zYKWEZptYBbbGs1kFjr3td
+	k2eZOZu9VHfnutdduQfqPaslU521GbWuCXCudszLph0q1jyORC7wcFQ2W5+dDSquKDJ4xso9pdgkg
+	a3ii6bcjSYr2m1864ctQWqiYxLsByjOg/LVf1s84z13QbnbgJFaUzqoE1M/ti5xOhLxqFx8+kC7BY
+	yWGiJN0VmWWl3O5/rMH6aFEhn6oInaXvC1gbbHRTZzQqgwfSXxFCsJhghA2J6ovYDGHC/LkpXRaXl
+	OJjhyV7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7zd-000000065I4-2VKn;
-	Fri, 09 Oct 2026 10:38:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xF80u-000000065aG-3W9W;
+	Fri, 09 Oct 2026 10:39:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7zc-000000065HU-08HN;
-	Fri, 09 Oct 2026 10:38:24 +0000
+	id 1xF80t-000000065a9-26sf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 10:39:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77A3060534;
-	Fri,  9 Oct 2026 10:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944041F000FF;
-	Fri,  9 Oct 2026 10:38:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3328B43F66;
+	Fri,  9 Oct 2026 10:39:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19BDE1F000FF;
+	Fri,  9 Oct 2026 10:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791542303;
-	bh=r3bmrxV+t3fPSMRAU/WJh+2ymAD55jqvxklsd7ARlac=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=YlW+4jUDLiex4nL+P4RAOpxGR6Dod1U7kBIPCeYPqGluAcRfccw7qBl6o8mmCGGXP
-	 p8Qgk+dTHggYIbeTCZSEWmLRjtVtvfN5T+Rr26hkf9mmoUnIKKQNV2ENhiz+v2oRdD
-	 oVbKyZfOHw/QaUw9jZAAXiOetChEhWh6slfZJ9u/1XPBQ5oqUwgnLfIS8kzSx236VX
-	 vIo3QBvO/orMMsVm+WhBEKAEYYpNFmibO2SOpSquyMIaH46xMFxClxTxgEaLK9ewhy
-	 0onpnFuNEXmz4E68P89210wvyx/ArbFvi4+W/YopRFMy/xXcxC8s/twtjmv6Uz2x6F
-	 vM2Uxql6ODdmg==
-Message-ID: <sashiko-outbox-165245@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v4 2/2] Drivers: hv: Run VMBus kexec cleanup from
- syscore shutdown
-To: catalin.marinas@arm.com, wei.liu@kernel.org, "Shradha Gupta" <shradhagupta@linux.microsoft.com>, mhklinux@outlook.com, baoquan.he@linux.dev
-Cc: will@kernel.org, broonie@kernel.org, rppt@kernel.org, linux-hyperv@vger.kernel.org, kexec@lists.infradead.org, haiyangz@microsoft.com, pasha.tatashin@soleen.com, tglx@kernel.org, linux-kernel@vger.kernel.org, kees@kernel.org, kys@microsoft.com, hpa@zytor.com, brads@mainlining.org, akpm@linux-foundation.org, mark.rutland@arm.com, bp@alien8.de, namjain@linux.microsoft.com, longli@microsoft.com, mingo@redhat.com, pratyush@kernel.org, x86@kernel.org, maz@kernel.org, linux-arch@vger.kernel.org, dave.hansen@linux.intel.com, decui@microsoft.com, arnd@arndb.de, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20261009102250.3361076-1-shradhagupta@linux.microsoft.com>
-References: <20261009102215.3360863-1-shradhagupta@linux.microsoft.com>
- <20261009102250.3361076-1-shradhagupta@linux.microsoft.com>
+	s=k20260515; t=1791542383;
+	bh=n6SBIK/RTJ2gKGJUx4mMtmO3hND48ShXeu1KsGP31Dg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=T8lb7rfFs5SCf8klrO8V53eGWKjoijHWEtYbXWHIP2InyTIod20TSCfW4WiG05/XK
+	 WsO4WDNP+RulRO+g/hJl4SIWDguooxunbrMQ1CsENWaCEbGRaiT12Z7s7ONfUbXPpB
+	 oFnc2yqY2SVEzp4nc76HrvxBr02aZxa8EwHAVjGBpjA2lc0+AxPgtnMhGwiqg7ewMv
+	 PCzjvztCmmMiGtqwe8irX26Mop83S3WyOj/FygoOAwyX+wEkNqwgjkP+7Q38UT3k4+
+	 tyeGEzr/Up/klrZyNO2lb4nUd7gg1ygwG/n7p8Mr3eb03rY4auMB/fhUPQpXsa+KP7
+	 KIZuAK6XaO3LA==
+Date: Fri, 9 Oct 2026 12:39:39 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, Joseph Guo <qijian.guo@nxp.com>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, Josua Mayer <josua@solid-run.com>, 
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>, Mehmet Fide <mehmet.fide@screeningeagle.com>, 
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>, Maud Spierings <maudspierings@gocontroll.com>, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Stefan Eichenberger <eichest@gmail.com>, netdev@vger.kernel.org
+Subject: Re: [PATCH v5 03/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULZ
+ board variants
+Message-ID: <20261009-dexterous-petrel-of-storm-8156bf@quoll>
+References: <cover.1791487179.git.stefano.r@variscite.com>
+ <cb2311ceda0efe83d2a05d2d0488d547043b1d47.1791487179.git.stefano.r@variscite.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 09 Oct 2026 10:38:21 +0000
+Content-Disposition: inline
+In-Reply-To: <cb2311ceda0efe83d2a05d2d0488d547043b1d47.1791487179.git.stefano.r@variscite.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,45 +79,28 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> ARM64 Hyper-V guests do not run the VMBus kexec cleanup before
-> secondary CPUs are stopped. Consequently, the old VMBus connection
-> and SynIC state remain active when the kexec kernel starts.
->=20
-> Run the VMBus kexec handler from the existing VMBus syscore shutdown
-> callback. syscore_shutdown() runs after device shutdown and before
-> machine shutdown, while all CPUs needed by the SynIC CPU hotplug
-> teardown are still available. Guard the callback with
-> kexec_is_in_progress() so normal restart, halt, and poweroff paths are
-> unchanged.
->=20
-> Use the same path on x86 and remove the architecture-specific handler
-> pointer and the weak setup/remove interfaces. VMBus teardown now
-> precedes hv_stimer_global_cleanup() on x86.
->=20
-> The new x86 ordering relies on commit be0cfab740e5 ("clocksource:
-> hyper-v: Remove support for stimer interrupts in message mode"), which
-> removed the synthetic timer's dependency on VMBus message delivery.
-> Older kernels that retain message-mode stimer interrupts must preserve
-> the existing x86 ordering and therefore require an ARM64-specific
-> backport.
->=20
-> Document the VMBus cleanup path and its position in shutdown ordering.
->=20
-> Fixes: 9bbb888824e3 ("arm64: hyperv: Initialize hypervisor on boot")
-> Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@l=
-inux.microsoft.com/
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Suggested-by: Michael Kelley <mhklinux@outlook.com>
-> Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
+On Thu, Oct 08, 2026 at 09:37:43PM +0200, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+> 
+> Document VAR-SOM-6UL configurations on the Concerto and Symphony
+> carriers and DART-6UL configurations on VAR-6ULCustomBoard with
+> i.MX6ULZ.
+> 
+> The compatibles identify the SoM storage, wireless and audio options
+> followed by the carrier, module and SoC compatibles.
+> 
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> ---
+> v4->v5:
+>  - Put fsl,imx6ulz before the fsl,imx6ull fallback in the new Variscite
+>    entries. Leave the existing EVK and BSH compatible order unchanged.
 
-Sashiko has reviewed this patch and found no issues. It looks great!
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261009102215.3360=
-863-1-shradhagupta@linux.microsoft.com?part=3D2
+Best regards,
+Krzysztof
 
 
