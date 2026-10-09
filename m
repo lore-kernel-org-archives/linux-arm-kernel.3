@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201A8CA601C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31CECA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fh/ibUG4ROn92eBl4vXntF4MbFtHYKZc485nR/O2as=; b=H7W3Tq0YRb06PKFe2hdA13Ctm+
-	IdZBYA8mzsPicYdiu0IJalRpP7kKPfJDrv6HxzfOeMUEKPldloU2sZ+qTPa+bTge+Ml3xOZLOPaxT
-	QKztVaLs2nAVRdSKgGOvIBCw5D8PM+PWVXFpfBogE8SP8QwFv5BPD8VuKPnRyd9B4QJXEUOnFsjhh
-	XT+Gsqel/mYd6/Yi/k633NqZv3CvvknUnKneRtFfJ6Ebm3R+VGgCw44ravangPBUSgn9RcAhFRLUg
-	Y3/AIeqygGNEyVfgugGocaggkzAjQYLOKDPTznPixbiVxhlAL8CnjO91rpao7+LQRreCKbPKSI8/P
-	YasCVQsA==;
+	bh=Ru0ZoHw/Kw/Oi/vluVCYpEmBr1d9awOz5x+e4Gf6Zco=; b=tR5PgupGcI5iJPyRjMRSjKsRRF
+	5fNk/PFTLrQBn2Pe5Y1p6ZcjSdjw9fhEG54esTidUWAoUSDRPoGlpKq/VNNvk7crrzqt/PUIL4/RJ
+	u1xW8m9trluPhJf22aonnxU7C3XtPzergLNfSHyQkWQmYQFZUsFhOAlJrkez6sJcHJyslaqlfxxQi
+	dvV4o7od91aQzIv5pRkik0VWu4iv5+XDBROrjvlzYHU8lQ176pfWIURaeJ65MdE/x82DWn+Bwzzdy
+	VMh3ioLEZXvAvqpjHtTUOuTRI8en+Dk2uugTXJaq0OWz6brOJ3hLgQKyrDt+n80QM3xnMaajcGKLx
+	cyse5ZYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7Wn-00000005zRi-40aV;
-	Fri, 09 Oct 2026 10:08:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xF7Ws-00000005zXd-2vDJ;
+	Fri, 09 Oct 2026 10:08:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7Wn-00000005zR2-0Uhw
+	id 1xF7Wq-00000005zVG-3pdM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:08:37 +0000
+	Fri, 09 Oct 2026 10:08:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5E5440477;
-	Fri,  9 Oct 2026 10:08:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 865291F00893;
-	Fri,  9 Oct 2026 10:08:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A1CCC42DB3;
+	Fri,  9 Oct 2026 10:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 535461F00898;
+	Fri,  9 Oct 2026 10:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791540516;
-	bh=9fh/ibUG4ROn92eBl4vXntF4MbFtHYKZc485nR/O2as=;
+	s=k20260515; t=1791540520;
+	bh=Ru0ZoHw/Kw/Oi/vluVCYpEmBr1d9awOz5x+e4Gf6Zco=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=omKRlAYWMaL3WnjSO+85WikBdzEJWYVeCvfv0TMkkxoMYV7+NVDy2vN+7j0/FiT6T
-	 NJPWQ3PI52bZNfBAlyZPLUlQ/xHT+vfmv+wqzlepuFOVLN2vK+CsqxV640HVX9PeAx
-	 sSufkGIAMqtoAkkIUWJbGm4CH2SMcYraTUz2afXKbAE3FoiXOBLZXKPU6zVlUq2EmQ
-	 vXwjn0w5mX1kj8XpM8yJ2gaYipRKwzR1Adf6r1aljDWHVvz+qsZ70dZLVDHvWI8Cwt
-	 bUCcuIgh/ajNNDhWg7aYthp8eeeXz3KKhpEBAaN6CfTKz+F32z3a6VdzpjBkQcT7U+
-	 TBhhWdF1lcyPQ==
+	b=ejB5Aap7qJB0eLqC9SCRtQkfIzIVoxG+agEWiICmAbabgdIbGpLmahPjhX51KU6Ae
+	 Mm65RyqPdlWxbdMsnt/+vHbaYgaYtxQzrwvMD0I6m8FzIkifN6QwgdMEuVLNePLVZU
+	 QkoK6HuR00qeEbKKmCXOTreibk4W7VwYoZUbO2Y3CHJCF7rc0cyDMSwsi7m8d04goY
+	 Og4U9Rxrm8Tz1Inp963L/xP2rm/M2s5DNs4+I3STE7TfP+tUPPHcFNhzQsmjDtUMMv
+	 2G96mwGkmW974dA6X/FKOO8CdjuVFHfOQTIr4iL6OgZxc8evyrEyubuJnsdDM8Vkef
+	 SS9Xk+mzxeJPA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 13/23] arm64: smp: Defer RCU registration during secondary CPU bringup
-Date: Fri,  9 Oct 2026 11:07:24 +0100
-Message-ID: <20261009100738.31288-14-will@kernel.org>
+Subject: [PATCH v2 14/23] arm64: smp: Use generic HOTPLUG_CORE_SYNC_FULL machinery for CPU onlining
+Date: Fri,  9 Oct 2026 11:07:25 +0100
+Message-ID: <20261009100738.31288-15-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261009100738.31288-1-will@kernel.org>
 References: <20261009100738.31288-1-will@kernel.org>
@@ -82,75 +82,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Calling rcutree_report_cpu_starting() early during boot can lead to
-livelocks with the generic CPU hotplug mechanism if the boot CPU blocks
-on an RCU grace period while the CPU being onlined is spinning in
-cpuhp_ap_sync_alive().
+Select HOTPLUG_CORE_SYNC_FULL on arm64 to replace the 'cpu_running'
+completion with the generic code for synchronising with secondary CPUs
+during boot.
 
-In preparation for enabling the generic CPU hotplug code on arm64, split
-up the trace_hardirqs_off() call during secondary CPU bringup so that we
-update lockdep early but defer the tracing updates until after the new
-CPU has been registered with RCU, which itself is deferred until after
-the early CPU compatability checks, allowing us to drop the explicit
-call to rcutree_report_cpu_dead() entirely.
-
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/smp.c | 6 +++---
- include/linux/rcutree.h | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/Kconfig           |  2 +-
+ arch/arm64/include/asm/smp.h |  1 -
+ arch/arm64/kernel/smp.c      | 39 +++++++++++++++++-------------------
+ 3 files changed, 19 insertions(+), 23 deletions(-)
 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef944..89d1f0f2269c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -230,7 +230,7 @@ config ARM64
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select HAVE_KPROBES
+ 	select HAVE_KRETPROBES
+-	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
++	select HOTPLUG_CORE_SYNC_FULL
+ 	select HOTPLUG_SMT if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
+diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+index 10ea4f543069..fe343c30d620 100644
+--- a/arch/arm64/include/asm/smp.h
++++ b/arch/arm64/include/asm/smp.h
+@@ -12,7 +12,6 @@
+ #define CPU_BOOT_STATUS_MASK		((UL(1) << CPU_STUCK_REASON_SHIFT) - 1)
+ 
+ #define CPU_MMU_OFF			(-1)
+-#define CPU_BOOT_SUCCESS		(0)
+ /* The cpu invoked ops->cpu_die, synchronise it with cpu_kill */
+ #define CPU_KILL_ME			(1)
+ /* The cpu couldn't die gracefully and is looping in the kernel */
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index e1b15cab9ed6..014b163ce658 100644
+index 014b163ce658..d83ba5bbfd37 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
-@@ -217,8 +217,7 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	if (system_uses_irq_prio_masking())
- 		init_gic_priority_masking();
+@@ -108,12 +108,9 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+ 	return -EOPNOTSUPP;
+ }
  
--	rcutree_report_cpu_starting(cpu);
--	trace_hardirqs_off();
-+	lockdep_hardirqs_off(CALLER_ADDR0);
+-static DECLARE_COMPLETION(cpu_running);
+-
+ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+ {
+ 	int ret;
+-	long status;
  
  	/*
- 	 * If the system has established the capabilities, make sure
-@@ -235,6 +234,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	 * We need to tell the secondary core where to find its stack and the
+@@ -124,27 +121,24 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+ 
+ 	/* Now bring the CPU into our world */
+ 	ret = boot_secondary(cpu, idle);
+-	if (ret) {
+-		if (ret != -EPERM)
+-			pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
+-		return ret;
+-	}
++	if (ret && ret != -EPERM)
++		pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
++	return ret;
++}
+ 
+-	/*
+-	 * CPU was successfully started, wait for it to come online or
+-	 * time out.
+-	 */
+-	wait_for_completion_timeout(&cpu_running,
+-				    msecs_to_jiffies(5000));
+-	if (cpu_online(cpu))
+-		return 0;
++void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
++{
++	long status;
++
++	if (is_alive)
++		return;
+ 
+-	pr_crit("CPU%u: failed to come online\n", cpu);
+ 	secondary_data.task = NULL;
+ 	status = READ_ONCE(secondary_data.status);
+ 	if (status == CPU_MMU_OFF)
+ 		status = READ_ONCE(__early_cpu_boot_status);
+ 
++	/* A CPU has failed to boot. Try to figure out what happened. */
+ 	switch (status & CPU_BOOT_STATUS_MASK) {
+ 	default:
+ 		pr_err("CPU%u: failed in unknown state : 0x%lx\n",
+@@ -171,8 +165,6 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+ 	case CPU_PANIC_KERNEL:
+ 		panic("CPU%u detected unsupported configuration\n", cpu);
+ 	}
+-
+-	return -EIO;
+ }
+ 
+ static void init_gic_priority_masking(void)
+@@ -234,6 +226,13 @@ asmlinkage notrace void secondary_start_kernel(void)
  	 * Log the CPU info before it is marked online and might get read.
  	 */
  	cpuinfo_store_cpu();
-+	rcutree_report_cpu_starting(cpu);
++
++	/*
++	 * Synchronise with the core bringing us online so that it knows
++	 * we made it into the kernel. We're still not 'online'.
++	 */
++	cpuhp_ap_sync_alive();
++
+ 	rcutree_report_cpu_starting(cpu);
  	update_cpu_features(cpu);
  	store_cpu_topology(cpu);
+@@ -256,9 +255,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	pr_info("CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n",
+ 					 cpu, (unsigned long)mpidr,
+ 					 read_cpuid_id());
+-	update_cpu_boot_status(CPU_BOOT_SUCCESS);
+ 	set_cpu_online(cpu, true);
+-	complete(&cpu_running);
  
-@@ -242,6 +242,7 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	 * Enable GIC and timers.
- 	 */
- 	notify_cpu_starting(cpu);
-+	trace_hardirqs_off_finish();
- 
- 	ipi_setup(cpu);
- 
-@@ -411,7 +412,6 @@ void __noreturn cpu_die_early(void)
- 
- 	/* Mark this CPU absent */
- 	set_cpu_present(cpu, 0);
--	rcutree_report_cpu_dead();
- 
- 	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
- 		update_cpu_boot_status(CPU_KILL_ME);
-diff --git a/include/linux/rcutree.h b/include/linux/rcutree.h
-index 16a04202888b..e6ad4f2a475c 100644
---- a/include/linux/rcutree.h
-+++ b/include/linux/rcutree.h
-@@ -116,7 +116,7 @@ int rcutree_offline_cpu(unsigned int cpu);
- 
- void rcutree_migrate_callbacks(int cpu);
- 
--/* Called from hotplug and also arm64 early secondary boot failure */
-+/* Called from hotplug */
- void rcutree_report_cpu_dead(void);
- 
- #endif /* __LINUX_RCUTREE_H */
+ 	/*
+ 	 * Secondary CPUs enter the kernel with all DAIF exceptions masked.
 -- 
 2.56.0.385.gd3acb90ef8-goog
 
