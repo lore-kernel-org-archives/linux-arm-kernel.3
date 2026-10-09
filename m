@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0685CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E87CA9EC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/afa+kv2Lz5RKZtvNmWgTzIvifY9Vb7PPR36VvNXyQ=; b=dGJeMjc6IgKqVSTrtB3wZGUkpX
-	d6i9xMI50/PySyqJTZxQF5HrZj0cnuB6WpRQZw8W6lmJMN9c9W5+uvp4grUWrHk4pLjvuvzewzIH4
-	7NKV1bhezXbsG0RyKi/4a8vvR4NfJRmFzkPMM1XbEcAsG3G9DEQBZAEbYjs3HwaTNV1qJsVwEakB7
-	blz1xOi8hiI69tXiqLCp+4v4PL64BMGWcnqL40aI9E65EX0TSBz4QJJ5SkvROw4oQKw8CxKhhNkqL
-	fgFgzZ4G1Yecgl6vvN/zsgfbKfMNQPNByC73UYaEOUXGkAGiVuaw4BBOeLWHMNfLsDDoltZF1zNB2
-	aF7r7j9Q==;
+	bh=KUQyrtOL8NOHCajM9hiI+JxRUujYqE2VpnERpyUoFds=; b=zNPh2PhB6dSlwT3qWYlGaSJ3/i
+	YgxR4fvnkuVdTczh2zD702sGi1QWDOMtE6K6rOwLKZevq+AfyxPs5rV8IlUGE3tCUswvG8hj0yjKh
+	MOljFbrJDGGHQPh4t3wzhvcr5/+KLeNFI/2u24VmZftG2vQx2UdcToAwUipIuNFVlzneuN7tYUnvv
+	T8cE2qyBSLJKy95c+/fu+etr9pkHzujb5650Hh/huIxZZRr6Nrp+hoK88C4qCPaFw7h1to7mufZmw
+	eFAc3Bj4N7GGRHtc8A+DXKgGSYa0sTZUTSNlkKtgxxTbSp1no0SCkNcnW6VYyI1MGJTxynSVDRilH
+	ee4iZvYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFFM0-00000006yc0-2Y12;
+	id 1xFFM0-00000006ycT-3Mpn;
 	Fri, 09 Oct 2026 18:30:00 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFFLm-00000006yOc-0lGo
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xFFLr-00000006yV0-1n2n
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 09 Oct 2026 18:29:51 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48c4d870d54so58419f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 11:29:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-Id:Date:References:In-Reply-To
+	:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KUQyrtOL8NOHCajM9hiI+JxRUujYqE2VpnERpyUoFds=; b=o3StfeT7nVOd7wDQN13s7lGd7l
+	In/WYxSPrj+zcXR4hlQ+EYFkiLsByo52fx+bWzInbY9hfph8NG7NtAUxHoUC7yCfmlc5aAla8rN2h
+	uMpnGMpgGFJdbAZ5rj53rFOkQd5tAxqvBSV3eFfnYS8I8dJ5CTAets7QTL/ebsI99Fo1FeGdS4Uu5
+	iiNEiIA5ks10mKGiUjZaizHQ3HUJJibUNWiX5sT/uOVxoYuOITIxbkVOTJc/jYyMWAM2+DV02BcWp
+	/EZSbtp3OS9wmo+YigsImztz+veIKTahOdPEp2sMSRFUQW9iP4cJ43L18YryF7UOJtBlqoZWrs1YH
+	2EwrHYbA==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xFFLo-0000000BWmk-1xOr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 18:29:50 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so1858265e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 11:29:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791570584; x=1792175384; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1791570587; x=1792175387; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=c/afa+kv2Lz5RKZtvNmWgTzIvifY9Vb7PPR36VvNXyQ=;
-        b=R6BYIpIdn7Imk9FjfnSJii7fOIHvjEc3LlBw2JbOWSnfI4D8iVY27pwjVESnNbqBX5
-         OVaAxVKgwv+6wzDdbTrdT3+PYhIIvJZQzIhJBce/5KMMEjTuH41uB03y89KDeUm2zIxw
-         qlINf+0s+Mi1V5oHQs7NzjEGJkmoGk6bnrR2vk79TqwalG32NnHVAcvPh0cZ69Kg11Dk
-         y1e7QUQo/2tPnHw0eLY6FqiIXx/MLp2ssHL/gY1CQezNjBkbg9VLnqhsyZHm9+YxEPIU
-         qp3h1MFIscNxttPtyI7lDL6TJaiFp+U2FZUzcFWvUjwUQyuk1MpaiVwq28sRDsuAZKw1
-         hqRg==
+        bh=KUQyrtOL8NOHCajM9hiI+JxRUujYqE2VpnERpyUoFds=;
+        b=gyxCH1yB9lHSmAftFDlyrqPL9bZolWe6rXmBDU6D87fagl0krmq9fBi5e3y03rF5ST
+         syn4tYVweLzntYzAHHrAsXqNjleTN+ic9jpZBMB6xof5cx/lwHIxuiCsJFWsmdHgH61h
+         SgerZg7JDU8NzC1/Z3674y2lg54WPnyP49uNMVfkqulkHpXiWrwch6YRCxrmV39xPPTT
+         FJRm4F9T1sDqceeDi8J3FHwsyWVK3EjK14An9+lyHPp9/2VLB5tup/ENyvlGpHWcHnf6
+         7tH8rB6wZGhCc/nGbaC4b6GhrQF1RboFxji0bgQ3knD1DgyYctjsaF19IS/hlClfbCup
+         Me0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791570584; x=1792175384;
+        d=1e100.net; s=20260707; t=1791570587; x=1792175387;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=c/afa+kv2Lz5RKZtvNmWgTzIvifY9Vb7PPR36VvNXyQ=;
-        b=1wDS8rqrbnOBUOrj0CfqxLRkEw/noEPIp+rzyuxgLFtWo2GC4YntbSo7JUBXKhH0c0
-         uveqVO7SHDSzRRRFB2lM7mysK+btfo2SrTtNPGT6bz+CCKwNa6iwt0Cin8DlD4b+rQA+
-         7KTgt3i0W3T6BH5IoGdy34WXCyO78ILQdhbG9CpA8Ug9iwnWc0nFz89uEB+TNNVm/bST
-         9rRSApliBf02YH3VGCG60B+alL8+HZEdok2oMIvZSoBndzBAf1iinUpIDo8dzUUZ6C53
-         F+r8vGRf/23Wzn4A6CNsdGuTVLQlCgP2tAeyysXsdI6bOh3MfsStnw0lWtHFYFw0VyKh
-         c0Ug==
-X-Forwarded-Encrypted: i=1; AKwUvBxgoZfaU+TvwTHxzYTYBD3/L7Jiw/Yan0Ks3HaaUvGlocIOFbvFLGxVtN+HkFlriPshBVl7rqYB3nJFSnLO0LnK@lists.infradead.org
-X-Gm-Message-State: AFq9FYK2XISYTwjgGVbONfBV8mR0s2DX0uCkKa9eXCNFiwAUZhtqPA0R
-	Xz3eEiT43HqcOQe4NTwCQn3IhTunew9f0XCve9WmyWPU35fR/G4j+vI8/GVg3pzVAew=
-X-Gm-Gg: AYBFou2kyGFjN50Gu3d3qQnb6Rr8eBPjWEvodK0M43NpQ4ZBLSxC6Z73YJGIPT4mK94
-	yah9m5ggJ8ti/bSOJHCy5V4M6AHjup2MNN835K2gB4iXEeRqkR/Tr4Z+fBeXM9zJW8sUKlVVGUT
-	nYUl4OQOlq6tS2+ohIGQr/Qrs4gYTr8LPx27QD34ZR7qI2viZH9pJssoweicaYXszyIJIW0hEpR
-	0J21yuCQRJcRYOnhmPo8IkbiKa0Hy8TGx9M7BcMOh3kUSuw2c/468z4cU95dzpgcSneG3z8nOIy
-	fKgzmE0rUV8DZ7GmPbjBq9bQuxiA8b3wGYqQE+Nj9nh4CYiAoDMVUpg4JUq4nqVTc40Vh+d6+11
-	Mcxihg6Gp1wSPL9vp9+zT7W8QuMB+aXnbel16c+SvuKwUjB8wzI2hZB+SSpiYLuZN2z0/EVB4p4
-	YGrggb6MM5jKYjmmUNwUZjsd5EEwPHpEi8aSZMasgHgB2qYxMysR01KP2qs2MqcLuACRwY6cdOw
-	xQyLV2AE4JpML4oEw==
-X-Received: by 2002:a05:6000:46c8:b0:487:1c89:f158 with SMTP id ffacd0b85a97d-48dbaadebc8mr3400904f8f.14.1791570584563;
-        Fri, 09 Oct 2026 11:29:44 -0700 (PDT)
+        bh=KUQyrtOL8NOHCajM9hiI+JxRUujYqE2VpnERpyUoFds=;
+        b=2iJ3q+mUsHXHJrLGZL3LPs/KTapD4zIx2g6X9G79qQLoVm9N5s5mKrae2jKB3c8vPH
+         nHTqc0m4wqSkd9uJJUncvpqcsLWSD4XWFwIeSevGjQpy51Vtjjs1a7rPtNPFTd8j0iu9
+         Ecvc88e78vH1V5zkvK6HLSnepFC5hTZNC1JuEOGs8EdNx3OvGHH+QbvHhWoQBK4dByYw
+         +RmPb/3oRLtZj6E4bUmawVi65qH4JKW6Ay7CtQvyDqosKxbQ9WkIcIcOLpfOh9mvglCx
+         y4y8d4JKOB4gCBI5D+UfTK3/3pLn8coOg8H7btB9wGWR99d4oyZEG+AoF39YmM16q+up
+         UQbw==
+X-Forwarded-Encrypted: i=1; AKwUvBwfAGNZDNI0x8hon4dauCMDjx38aIUuoXQuIdwMV7dBByBaNyVHAMpPmCITgaSD+0QxgwxnqfgatpiPEo4IayRf@lists.infradead.org
+X-Gm-Message-State: AFuF++lrUQPUIqv6kGHQj+ErxaNAEPRf3nGX4uIC/O/QsmOPtlcZmYRq
+	+66Jvc+6QWDIs8ccctpKdM2N8/0gAHjnajmbuGOm4K/BmbPpmTGutHP7e3g1MhcFuH0=
+X-Gm-Gg: AYBFou0pShpHyKARCS67TzF3d8ZQKYGPqLTzddeHoVrxW5Opq0KKBt+eNAAHIsSV7w0
+	0iv9t/FoMNZSmObBHcjJRNAaPPqWBVLlSBnbhUHtmOhPGem/g88wPo47ZPyJQSRpOYPzhoZJRHx
+	T+UCFEz8KcuET+P04XMlJhcC3ZaSCv+CT6stB9b5ALiyxSTb7Msy3EzGbSR53tm02NUDVAQISXb
+	pW2YpFZExe87+nk0CA5N+xtqKb3aJznM6+teiMY8GFQ8+3VkYEZvhV9B4IrkWmotyLnmS8YK/pB
+	ufQhPZj5p9DhXvXkJ1HqSckUYbcdPdCtyB4XK9Y4CIC5cL4VEPRp9vqlFh4oiR0b6N/tAIeCa1T
+	V3Z9DRtF4kmzExBDPAC63Ui5cwTIl1+/4S2dlRvV788T5zbwmjq6tUDso4KFAkuKxli34/9LJ/K
+	a2rRPpzCb1ERqjE1F2SJLPqokhjDX6mAIwsBhT2i8akB6IVblLRL5amVGI1z3ptpf6Ik7lBxybC
+	pVx07ulfMlwbtPORw==
+X-Received: by 2002:a05:600c:6215:b0:4a1:7811:6cc4 with SMTP id 5b1f17b1804b1-4a18e4fa5c9mr46277965e9.34.1791570586952;
+        Fri, 09 Oct 2026 11:29:46 -0700 (PDT)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db94e33d2sm5786376f8f.9.2026.10.09.11.29.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf2caf4sm81412255e9.10.2026.10.09.11.29.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Oct 2026 11:29:44 -0700 (PDT)
+        Fri, 09 Oct 2026 11:29:46 -0700 (PDT)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v15 05/11] clk: realtek: Add support for phase locked
- loops (PLLs)
+Subject: Re: [PATCH v15 08/11] clk: realtek: Add support for MMC-tuned PLL
+ clocks
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Yu-Chun Lin <eleanor.lin@realtek.com>
 Cc: jbrunet+clk@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
@@ -86,23 +101,23 @@ Cc: jbrunet+clk@baylibre.com, sboyd@kernel.org, robh@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, 
  james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, 
  Brian Masney <bmasney@redhat.com>
-In-Reply-To: <20261002074331.3066919-6-eleanor.lin@realtek.com>
+In-Reply-To: <20261002074331.3066919-9-eleanor.lin@realtek.com>
 References: <20261002074331.3066919-1-eleanor.lin@realtek.com>
- <20261002074331.3066919-6-eleanor.lin@realtek.com>
+ <20261002074331.3066919-9-eleanor.lin@realtek.com>
 Date: Fri, 09 Oct 2026 20:29:35 +0200
-Message-Id: <179157057524.266328.7662236812996349329.b4-review@b4>
+Message-Id: <179157057524.266328.18071910694635064414.b4-review@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8040; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=hqh6Oz8jthBJvM6D58JFS6alnDs/Glpqv2ePGiXx8QM=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFknjaZ6XD2gxBc7UcxvMqv66R9tfMfl32j8upP+fZ6id
- 0cV50mLjlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAEyEcz4jw5qAl/6Cpc9TZ9UG
- hx7OtNFZ/ahMVML8S+MftuzfBf+fiDH8T+W6Knej7crxOQvKtGPbr8wI4mm59qhhz7Q3nA0zFIU
- u8QIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15968; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=/gDtdpICbc2dl6QRANQG5U7sVbCcqdnYU9kYcSAZM1g=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFknjaYGWnR12E1oZtTZqr1f9tVBPZur/2L/rXtl7xO08
+ I2w6CHrjlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAExktiXD/+Azi96ZGyx7H92i
+ Eaevnff/wKe3N+8umm0458WNzyZOKUkMf8U+XGRr+nT3kXNiyBHddPUjFd5LyuP/Jq7vr4tK9Fz
+ 5hxkA
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_112946_288402_FADF1462 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20261009_192948_638842_CFE5995C 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,279 +132,524 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Provide a full set of PLL operations for programmable PLLs and a read-only
-> variant for fixed or hardware-managed PLLs.
+> Add clk_pll_mmc_ops for enable/disable, prepare, rate control, and status
+> operations on MMC PLL clocks.
+> 
+> Also add clk_pll_mmc_phase_ops to support phase get/set operations.
 > 
 > Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Jyan Chou <jyanchou@realtek.com>
+> Signed-off-by: Jyan Chou <jyanchou@realtek.com>
 > Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 > Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 > Reviewed-by: Brian Masney <bmasney@redhat.com>
 >
+> diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
+> index e8deccf93f94..00ef9c5ba969 100644
+> --- a/drivers/clk/realtek/Kconfig
+> +++ b/drivers/clk/realtek/Kconfig
+> @@ -26,4 +26,7 @@ config RTK_CLK_COMMON
+>  	  infrastructure to spawn reset controllers via the auxiliary bus
+>  	  where required.
+>  
+> +config RTK_CLK_PLL_MMC
+> +	bool
+> +
+>  endif
 > diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-> index 13000ed4ba11..71edc18121c6 100644
+> index 217ccaf5644a..52b9cb9c2323 100644
 > --- a/drivers/clk/realtek/Makefile
 > +++ b/drivers/clk/realtek/Makefile
-> @@ -2,3 +2,5 @@
->  obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
->  
->  clk-rtk-y += clk-rtk-common.o
-> +clk-rtk-y += clk-pll.o
-> +clk-rtk-y += freq_table.o
-> diff --git a/drivers/clk/realtek/clk-pll.c b/drivers/clk/realtek/clk-pll.c
+> @@ -6,3 +6,5 @@ clk-rtk-y += clk-pll.o
+>  clk-rtk-y += clk-regmap-gate.o
+>  clk-rtk-y += clk-regmap-mux.o
+>  clk-rtk-y += freq_table.o
+> +
+> +clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
+> diff --git a/drivers/clk/realtek/clk-pll-mmc.c b/drivers/clk/realtek/clk-pll-mmc.c
 > new file mode 100644
-> index 000000000000..31670b8316cd
+> index 000000000000..2ee90b5d8a38
 > --- /dev/null
-> +++ b/drivers/clk/realtek/clk-pll.c
-> @@ -0,0 +1,217 @@
+> +++ b/drivers/clk/realtek/clk-pll-mmc.c
+> @@ -0,0 +1,430 @@
 > +// SPDX-License-Identifier: GPL-2.0-only
 > +/*
-> + * Copyright (C) 2024-2026 Realtek Semiconductor Corporation
+> + * Copyright (C) 2021-2026 Realtek Semiconductor Corporation
 > + * Author: Cheng-Yu Lee <cylee12@realtek.com>
 > + */
 > +
+> +#include <linux/bits.h>
+> +#include <linux/delay.h>
 > +#include <linux/export.h>
+> +#include <linux/math.h>
+> +#include <linux/module.h>
 > +#include <linux/regmap.h>
-> +#include <linux/spinlock.h>
 > +#include "clk-pll.h"
 > +
-> +#define TIMEOUT 500
+> +#define RTK_PLL_EMMC1_OFFSET            0x0
+> +#define RTK_PLL_EMMC2_OFFSET            0x4
+> +#define RTK_PLL_EMMC3_OFFSET            0x8
+> +#define RTK_PLL_EMMC4_OFFSET            0xc
+> +#define RTK_PLL_SSC_DIG_EMMC1_OFFSET    0x0
+> +#define RTK_PLL_SSC_DIG_EMMC3_OFFSET    0xc
+> +#define RTK_PLL_SSC_DIG_EMMC4_OFFSET    0x10
 > +
-> +static inline struct rtk_clk_regmap_pll *to_rtk_clk_regmap_pll(struct clk_hw *hw)
+> +#define RTK_PLL_MMC_SSC_DIV_N_VAL       0x1b
+> +
+> +#define RTK_PLL_PHRT0_MASK              BIT(0)
+> +#define RTK_PLL_PHSEL_MASK              GENMASK(4, 0)
+> +#define RTK_PLL_SSCPLL_RS_MASK          GENMASK(12, 10)
+> +#define RTK_PLL_SSCPLL_ICP_MASK         GENMASK(9, 5)
+> +#define RTK_PLL_SSC_DIV_EXT_F_MASK      GENMASK(25, 13)
+> +#define RTK_PLL_PI_IBSELH_MASK          GENMASK(28, 27)
+> +#define RTK_PLL_SSC_DIV_N_MASK          GENMASK(23, 16)
+> +#define RTK_PLL_NCODE_SSC_EMMC_MASK     GENMASK(20, 13)
+> +#define RTK_PLL_FCODE_SSC_EMMC_MASK     GENMASK(12, 0)
+> +#define RTK_PLL_GRAN_EST_EM_MC_MASK     GENMASK(20, 0)
+> +#define RTK_PLL_EN_SSC_EMMC_MASK        BIT(0)
+> +#define RTK_PLL_FLAG_INITIAL_EMMC_MASK  BIT(8)
+> +
+> +#define RTK_PLL_PHRT0_SHIFT             1
+> +#define RTK_PLL_SSCPLL_RS_SHIFT         10
+> +#define RTK_PLL_SSCPLL_ICP_SHIFT        5
+> +#define RTK_PLL_SSC_DIV_EXT_F_SHIFT     13
+> +#define RTK_PLL_PI_IBSELH_SHIFT         27
+> +#define RTK_PLL_SSC_DIV_N_SHIFT         16
+> +#define RTK_PLL_NCODE_SSC_EMMC_SHIFT    13
+> +#define RTK_PLL_FLAG_INITIAL_EMMC_SHIFT 8
+> +
+> +#define CYCLE_DEGREES                   360
+> +#define PHASE_STEPS                     32
+> +#define PHASE_SCALE_FACTOR              1125
+> +
+> +static inline struct rtk_clk_regmap_pll_mmc *to_clk_pll_mmc(struct clk_hw *hw)
 > +{
 > +	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
 > +
-> +	return container_of(clkr, struct rtk_clk_regmap_pll, clkr);
+> +	return container_of(clkr, struct rtk_clk_regmap_pll_mmc, clkr);
 > +}
 > +
-> +static int wait_freq_ready(struct rtk_clk_regmap_pll *clkp)
+> +static inline int get_phrt0(struct rtk_clk_regmap_pll_mmc *clkm, u32 *val)
 > +{
-> +	u32 pollval;
-> +
-> +	/* reg == 0 means not configured.
-> +	 * Register offset 0 is never a valid address on Realtek SoCs.
-
-Fix the comment style please
-
-> +	 */
-> +	if (!clkp->freq_ready_reg)
-> +		return 0;
-
-Do you need to protect against your own driver providing bad offset ?
-
-> +
-> +	return regmap_read_poll_timeout_atomic(clkp->clkr.regmap, clkp->freq_ready_reg, pollval,
-> +		(pollval & clkp->freq_ready_mask) == clkp->freq_ready_val, 1, TIMEOUT);
-> +}
-> +
-> +static bool is_power_on(struct rtk_clk_regmap_pll *clkp)
-> +{
-> +	u32 val;
-> +
-> +	/* reg == 0 means not configured (assume always on).
-> +	 * Register offset 0 is never a valid address on Realtek SoCs.
-> +	 */
-
-You've already said this. It would be more helpful to tell us that PLL that does not
-provider a power reg is considered to be always powered, if that is the case
-
-> +	if (!clkp->power_reg)
-> +		return true;
-> +
-> +	if (regmap_read(clkp->clkr.regmap, clkp->power_reg, &val))
-> +		return false;
-> +
-> +	return (val & clkp->power_mask) == clkp->power_val_on;
-> +}
-> +
-> +static void rtk_clk_regmap_pll_disable(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	unsigned long flags;
-> +
-> +	if (!clkp->seq_power_off)
-> +		return;
-> +
-> +	spin_lock_irqsave(&clkp->lock, flags);
-
-What do you protect with this ?
-regmap does provide some locking already and CCF too. Do you expect something
-to poke the registers you are writing ?
-
-> +
-> +	regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_off,
-> +			       clkp->num_seq_power_off);
-> +
-> +	spin_unlock_irqrestore(&clkp->lock, flags);
-> +}
-> +
-> +static int rtk_clk_regmap_pll_is_enabled(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	unsigned long flags;
+> +	u32 reg;
 > +	int ret;
 > +
-> +	spin_lock_irqsave(&clkp->lock, flags);
+> +	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC1_OFFSET, &reg);
+> +	if (ret)
+> +		return ret;
 > +
-> +	ret = is_power_on(clkp);
-> +
-> +	spin_unlock_irqrestore(&clkp->lock, flags);
-> +
-> +	return ret;
-> +}
-> +
-> +static int rtk_clk_regmap_pll_determine_rate(struct clk_hw *hw,
-> +					     struct clk_rate_request *req)
-> +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	const struct rtk_freq_table *ftblv = NULL;
-> +
-> +	ftblv = ftbl_find_by_rate(clkp->freq_tbl, req->rate);
-
-Doesn't this completly disregard the parent rate ?
-
-I understand that SoC vendor may expect a single frequency as input but it
-it is pretty fragile to do so.
-
-A PLL is usually some sort of (fractional) multiplier.
-It is way better to provide the table of multiplier you support, along with their
-sequence and properly doing the calculation here.
-
-> +
-> +	if (ftblv && ftblv->rate >= req->min_rate) {
-> +		req->rate = ftblv->rate;
-> +		return 0;
-> +	}
-> +
-> +	/* floor result is below min_rate; find the smallest rate >= min_rate */
-> +	ftblv = ftbl_find_ceil_by_rate(clkp->freq_tbl, req->min_rate);
-> +	if (!ftblv || ftblv->rate > req->max_rate)
-> +		return -EINVAL;
-
-This is not how determine_rate() works. You just round to the closest rate the PLL
-supports. You are free to round as you wish (bellow or closest)
-
-Just test the different multipliers you support and return what is best compared to
-the request. There is no reason to return EINVAL for this.
-
-> +
-> +	req->rate = ftblv->rate;
+> +	*val = (reg >> RTK_PLL_PHRT0_SHIFT) & RTK_PLL_PHRT0_MASK;
 > +
 > +	return 0;
 > +}
 > +
-> +static unsigned long rtk_clk_regmap_pll_recalc_rate(struct clk_hw *hw,
-> +						    unsigned long parent_rate)
+> +static inline int set_phrt0(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
 > +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	const struct rtk_freq_table *fv;
-> +	unsigned long flags;
-> +	u32 freq_val;
-> +
-> +	spin_lock_irqsave(&clkp->lock, flags);
-> +
-> +	if (regmap_read(clkp->clkr.regmap, clkp->freq_reg, &freq_val)) {
-> +		spin_unlock_irqrestore(&clkp->lock, flags);
-> +		return 0;
-> +	}
-> +
-> +	freq_val &= clkp->freq_mask;
-> +
-> +	fv = ftbl_find_by_val_with_mask(clkp->freq_tbl, clkp->freq_mask,
-> +					freq_val);
-> +
-> +	spin_unlock_irqrestore(&clkp->lock, flags);
-> +
-> +	return fv ? fv->rate : 0;
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC1_OFFSET,
+> +				  RTK_PLL_PHRT0_MASK << RTK_PLL_PHRT0_SHIFT,
+> +				  val << RTK_PLL_PHRT0_SHIFT);
 > +}
 > +
-> +static int rtk_clk_regmap_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-> +				       unsigned long parent_rate)
+> +static inline int get_phsel(struct rtk_clk_regmap_pll_mmc *clkm, int id, u32 *val)
 > +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	const struct rtk_freq_table *fv;
-> +	unsigned long flags;
+> +	u32 sft = id ? 8 : 3;
+> +	u32 raw_val;
 > +	int ret;
 > +
-> +	fv = ftbl_find_by_rate(clkp->freq_tbl, rate);
-> +	if (!fv || fv->rate != rate)
-> +		return -EINVAL;
-> +
-> +	spin_lock_irqsave(&clkp->lock, flags);
-> +
-> +	if (clkp->seq_pre_set_freq) {
-> +		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_pre_set_freq,
-> +					     clkp->num_seq_pre_set_freq);
-> +		if (ret)
-> +			goto unlock;
-> +	}
-> +
-> +	ret = regmap_update_bits(clkp->clkr.regmap, clkp->freq_reg,
-> +				 clkp->freq_mask, fv->val);
+> +	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC1_OFFSET, &raw_val);
 > +	if (ret)
-> +		goto unlock;
-> +
-> +	if (clkp->seq_post_set_freq) {
-> +		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_post_set_freq,
-> +					     clkp->num_seq_post_set_freq);
-> +		if (ret)
-> +			goto unlock;
-> +	}
-> +
-> +	if (is_power_on(clkp)) {
-> +		ret = wait_freq_ready(clkp);
-> +		if (ret)
-> +			goto unlock;
-> +	}
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&clkp->lock, flags);
-> +
-> +	return ret;
-> +}
-> +
-> +static int rtk_clk_regmap_pll_enable(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_pll *clkp = to_rtk_clk_regmap_pll(hw);
-> +	unsigned long flags;
-> +	int ret = 0;
-> +
-> +	if (!clkp->seq_power_on)
 > +		return ret;
 > +
-> +	spin_lock_irqsave(&clkp->lock, flags);
+> +	*val = (raw_val >> sft) & RTK_PLL_PHSEL_MASK;
 > +
-> +	if (is_power_on(clkp))
-> +		goto unlock;
-> +
-> +	ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_on,
-> +				     clkp->num_seq_power_on);
-> +	if (ret)
-> +		goto unlock;
-> +
-> +	ret = wait_freq_ready(clkp);
-> +	if (ret)
-> +		goto unlock;
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&clkp->lock, flags);
-> +
-> +	return ret;
+> +	return 0;
 > +}
 > +
-> +const struct clk_ops rtk_clk_pll_ops = {
-> +	.enable         = rtk_clk_regmap_pll_enable,
-> +	.disable        = rtk_clk_regmap_pll_disable,
-> +	.is_enabled     = rtk_clk_regmap_pll_is_enabled,
-> +	.recalc_rate    = rtk_clk_regmap_pll_recalc_rate,
-> +	.determine_rate = rtk_clk_regmap_pll_determine_rate,
-> +	.set_rate       = rtk_clk_regmap_pll_set_rate,
-> +};
-> +EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ops, "CLK_REALTEK");
+> +static inline int set_phsel(struct rtk_clk_regmap_pll_mmc *clkm, int id, u32 val)
+> +{
+> +	u32 sft = id ? 8 : 3;
 > +
-> +const struct clk_ops rtk_clk_pll_ro_ops = {
-> +	.recalc_rate = rtk_clk_regmap_pll_recalc_rate,
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC1_OFFSET,
+> +				  RTK_PLL_PHSEL_MASK << sft, val << sft);
+> +}
+> +
+> +static inline int set_sscpll_rs(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC2_OFFSET,
+> +				  RTK_PLL_SSCPLL_RS_MASK, val << RTK_PLL_SSCPLL_RS_SHIFT);
+> +}
+> +
+> +static inline int set_sscpll_icp(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC2_OFFSET,
+> +				  RTK_PLL_SSCPLL_ICP_MASK, val << RTK_PLL_SSCPLL_ICP_SHIFT);
+> +}
+> +
+> +static inline int get_ssc_div_ext_f(struct rtk_clk_regmap_pll_mmc *clkm, u32 *val)
+> +{
+> +	u32 raw_val;
+> +	int ret;
+> +
+> +	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC2_OFFSET, &raw_val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*val = (raw_val & RTK_PLL_SSC_DIV_EXT_F_MASK) >> RTK_PLL_SSC_DIV_EXT_F_SHIFT;
+> +
+> +	return 0;
+> +}
+> +
+> +static inline int set_ssc_div_ext_f(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC2_OFFSET,
+> +				  RTK_PLL_SSC_DIV_EXT_F_MASK,
+> +				  val << RTK_PLL_SSC_DIV_EXT_F_SHIFT);
+> +}
+> +
+> +static inline int set_pi_ibselh(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC2_OFFSET,
+> +				  RTK_PLL_PI_IBSELH_MASK, val << RTK_PLL_PI_IBSELH_SHIFT);
+> +}
+> +
+> +static inline int set_ssc_div_n(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC3_OFFSET,
+> +				  RTK_PLL_SSC_DIV_N_MASK, val << RTK_PLL_SSC_DIV_N_SHIFT);
+> +}
+> +
+> +static inline int get_ssc_div_n(struct rtk_clk_regmap_pll_mmc *clkm, u32 *val)
+> +{
+> +	u32 raw_val;
+> +	int ret;
+> +
+> +	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC3_OFFSET, &raw_val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*val = (raw_val & RTK_PLL_SSC_DIV_N_MASK) >> RTK_PLL_SSC_DIV_N_SHIFT;
+> +
+> +	return 0;
+> +}
+> +
+> +static inline int set_pow_ctl(struct rtk_clk_regmap_pll_mmc *clkm, u32 val)
+> +{
+> +	return regmap_write(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC4_OFFSET, val);
+> +}
+> +
+> +static inline int get_pow_ctl(struct rtk_clk_regmap_pll_mmc *clkm, u32 *val)
+> +{
+> +	u32 raw_val;
+> +	int ret;
+> +
+> +	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + RTK_PLL_EMMC4_OFFSET, &raw_val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*val = raw_val;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_phase_set_phase(struct clk_hw *hw, int degrees)
+> +{
+> +	struct clk_hw *hwp = clk_hw_get_parent(hw);
+> +	struct rtk_clk_regmap_pll_mmc *clkm;
+> +	int phase_id, ret;
+> +	u32 val;
+> +
+> +	if (!hwp)
+> +		return -ENOENT;
+> +
+> +	clkm = to_clk_pll_mmc(hwp);
+> +	phase_id = (hw == &clkm->phase0_hw) ? 0 : 1;
+> +	val = DIV_ROUND_CLOSEST(degrees * 100, PHASE_SCALE_FACTOR);
+> +	ret = set_phsel(clkm, phase_id, val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	usleep_range(10, 20);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_phase_get_phase(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm;
+> +	struct clk_hw *hwp;
+> +	int phase_id, ret;
+> +	u32 val;
+> +
+> +	hwp = clk_hw_get_parent(hw);
+> +	if (!hwp)
+> +		return -ENOENT;
+> +
+> +	clkm = to_clk_pll_mmc(hwp);
+> +	phase_id = (hw == &clkm->phase0_hw) ? 0 : 1;
+> +	ret = get_phsel(clkm, phase_id, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	val = DIV_ROUND_CLOSEST(val * CYCLE_DEGREES, PHASE_STEPS);
+> +
+> +	return val;
+> +}
+> +
+> +const struct clk_ops rtk_clk_pll_mmc_phase_ops = {
+> +	.set_phase = rtk_clk_regmap_pll_mmc_phase_set_phase,
+> +	.get_phase = rtk_clk_regmap_pll_mmc_phase_get_phase,
+> +};
+> +EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_phase_ops, "CLK_REALTEK");
+> +
+> +static int rtk_clk_regmap_pll_mmc_prepare(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +
+> +	return set_pow_ctl(clkm, 7);
+> +}
+> +
+> +static void rtk_clk_regmap_pll_mmc_unprepare(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +
+> +	set_pow_ctl(clkm, 0);
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_is_prepared(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret = get_pow_ctl(clkm, &val);
+> +	if (ret)
+> +		return 1;
+> +
+> +	return val != 0x0;
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_enable(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +	int ret;
+> +
+> +	ret = set_phrt0(clkm, 1);
+> +	if (ret)
+> +		return ret;
 
-is_enabled ?
+looks fairly close to the regular gate as it stand.
+should your _pow be in there instead ?
+
+> +
+> +	udelay(10);
+> +
+> +	return 0;
+> +}
+> +
+> +static void rtk_clk_regmap_pll_mmc_disable(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +
+> +	set_phrt0(clkm, 0);
+> +	udelay(10);
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_is_enabled(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret = get_phrt0(clkm, &val);
+> +	if (ret)
+> +		return 1;
+> +
+> +	return val == 0x1;
+> +}
+> +
+> +static unsigned long rtk_clk_regmap_pll_mmc_recalc_rate(struct clk_hw *hw,
+> +							unsigned long parent_rate)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +	u32 val, ext_f;
+> +	u64 rate, base;
+> +	int ret;
+> +
+> +	ret = get_ssc_div_n(clkm, &val);
+> +	if (ret)
+> +		return 0;
+> +
+> +	ret = get_ssc_div_ext_f(clkm, &ext_f);
+> +	if (ret)
+> +		return 0;
+> +
+> +	base = parent_rate / 4;
+
+So you've got a pre-divider
+
+> +	rate = base * (val + 2);
+
+Then an integer divider
+
+> +	rate += div_u64(base * ext_f, 8192);
+
+and finally the fractional part
+
+> +
+> +	return rate;
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
+> +{
+> +	u32 val = RTK_PLL_MMC_SSC_DIV_N_VAL + 2;
+> +	u64 tmp;
+> +
+> +	if (!req->best_parent_rate)
+> +		return -EINVAL;
+> +
+> +	req->rate = req->best_parent_rate / 4 * val;
+
+Here you seem to support only a single integer part setting
+
+> +	tmp = (u64)(req->best_parent_rate / 4) * 1517;
+> +	req->rate += tmp >> 13;
+
+So nothing says that here that the math won't overflow
+
+Could you explain the 1517 here ? I suppose it is linked to the 8192 above ?
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int rtk_clk_regmap_pll_mmc_set_rate(struct clk_hw *hw, unsigned long rate,
+> +					   unsigned long parent_rate)
+> +{
+> +	struct rtk_clk_regmap_pll_mmc *clkm = to_clk_pll_mmc(hw);
+> +	u32 val = RTK_PLL_MMC_SSC_DIV_N_VAL;
+> +	int ret;
+> +
+> +	/*
+> +	 * The 'rate' and 'parent_rate' are intentionally unused here.
+> +	 *
+> +	 * Despite receiving various rate requests (e.g., 26MHz, 52MHz, 200MHz),
+> +	 * this function consistently configures the hardware for 27MHz (0x1b).
+
+Maybe you should fix the mmc driver then and properly request 27MHz if this what
+you expect of this particular PLL. Just taking any request and setting something
+else regardless is not OK.
+
+> +	 * This is because these settings reflect the input reference clock
+> +	 * frequency to the SSCPLL, not the final PLL output frequency.
+> +	 *
+> +	 * The actual frequency division to achieve the requested eMMC rate
+> +	 * is handled internally by the downstream eMMC host controller.
+> +	 */
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC1_OFFSET,
+> +				 RTK_PLL_FLAG_INITIAL_EMMC_MASK,
+> +				 0x0 << RTK_PLL_FLAG_INITIAL_EMMC_SHIFT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = set_ssc_div_n(clkm, val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = set_ssc_div_ext_f(clkm, 1517);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = set_pi_ibselh(clkm, 2);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = set_sscpll_rs(clkm, 3);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = set_sscpll_icp(clkm, 1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC3_OFFSET,
+> +				 RTK_PLL_NCODE_SSC_EMMC_MASK,
+> +				 27 << RTK_PLL_NCODE_SSC_EMMC_SHIFT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC3_OFFSET,
+> +				 RTK_PLL_FCODE_SSC_EMMC_MASK, 321);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC4_OFFSET,
+> +				 RTK_PLL_GRAN_EST_EM_MC_MASK, 5985);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC1_OFFSET,
+> +				 RTK_PLL_EN_SSC_EMMC_MASK, 0x1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC1_OFFSET,
+> +				 RTK_PLL_EN_SSC_EMMC_MASK, 0x0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(clkm->clkr.regmap,
+> +				 clkm->ssc_dig_ofs + RTK_PLL_SSC_DIG_EMMC1_OFFSET,
+> +				 RTK_PLL_FLAG_INITIAL_EMMC_MASK,
+> +				 0x1 << RTK_PLL_FLAG_INITIAL_EMMC_SHIFT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	usleep_range(10, 20);
+> +
+> +	return 0;
+> +}
+> +
+> +const struct clk_ops rtk_clk_pll_mmc_ops = {
+> +	.prepare          = rtk_clk_regmap_pll_mmc_prepare,
+> +	.unprepare        = rtk_clk_regmap_pll_mmc_unprepare,
+> +	.is_prepared      = rtk_clk_regmap_pll_mmc_is_prepared,
+
+prepare is meant for slow (as in sleeping) operation.
+I've seen no sleeping operation in your implementation.
+If the regmap is slow, then there is problem because your using the same one
+in enable/disable() which run under a spin lock
+
+> +	.enable           = rtk_clk_regmap_pll_mmc_enable,
+> +	.disable          = rtk_clk_regmap_pll_mmc_disable,
+> +	.is_enabled       = rtk_clk_regmap_pll_mmc_is_enabled,
+> +	.recalc_rate      = rtk_clk_regmap_pll_mmc_recalc_rate,
+> +	.determine_rate   = rtk_clk_regmap_pll_mmc_determine_rate,
+> +	.set_rate         = rtk_clk_regmap_pll_mmc_set_rate,
+> +};
+> +EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_ops, "CLK_REALTEK");
+> diff --git a/drivers/clk/realtek/clk-pll.h b/drivers/clk/realtek/clk-pll.h
+> index 023b49bbcbee..d21793387eee 100644
+> --- a/drivers/clk/realtek/clk-pll.h
+> +++ b/drivers/clk/realtek/clk-pll.h
+> @@ -44,4 +44,17 @@ struct rtk_clk_regmap_pll {
+>  extern const struct clk_ops rtk_clk_pll_ops;
+>  extern const struct clk_ops rtk_clk_pll_ro_ops;
+>  
+> +struct rtk_clk_regmap_pll_mmc {
+> +	struct rtk_clk_regmap clkr;
+> +	unsigned int pll_ofs;
+> +	unsigned int ssc_dig_ofs;
+> +	struct clk_hw phase0_hw;
+> +	struct clk_hw phase1_hw;
+
+your phases and pll use completly different ops. Why do you to mix the 2 here ?
 
 -- 
 Jerome
