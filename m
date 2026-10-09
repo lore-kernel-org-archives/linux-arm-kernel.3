@@ -4,132 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D80CA601F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AD5CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdAzAVJjnoAkEQ9cNose7dn5bvb6yfiJzFHoBgI5GEA=; b=lsxiPxGiRmzStfvL2KxJgQ6Kpo
-	qr172QU/6grLEYRyTb+fKSesQkS21iSOUTVInwyu6Ql8tyaWQ2K48SdzJAgoTFOvtlbs+u+ci6blr
-	6w9Yazxh+bkl0Mi4D5sk0Wa4cpkg8+5/coLPiYg3OCo2h5cba9MYe3b9sGRXVOrldLRcLVsQfQYji
-	yohQ6hFFDe0rPSzoZZGOPRIPn947Nls5tdS28colv5ZGOvzAS73H/0O+aKqI/Qcu2Cyg8epSnE86j
-	8l6hEcX/1XJIlc7ophP1/mcI/FLN6U87dQ2lFrZQAsgwGS+2VFzIwc9bZpVxmI4z5KNrVoNRlYY8R
-	9EM3F5Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3fwLKA/eSPxGgl5NTsOgBm1tSgbZmfE7FnoEd9FlDQc=; b=4BSLx3JxDABYu6dbazJPqR7ObJ
+	heHUniMYFSlE7bptAQLaf7OG/jAUDOinKARS1vQrMdUhvYfJ108LcLO1fGfFqyFihO5WIioKD9Zqe
+	XP0VyvUBPn7Oir9fIWmmUV8Ci/EUJG/ofm+7MFR7QNlxyd8L7rWFLTDaGt4em5ZwnEzcUS0yaSnXH
+	FGoBjTiLRuLqkY+p4hZsokqycHDLZOaQsMU5LdG8ZHE8AjKj6syCgFt/oETt4jx1v/SSxwd21PThr
+	1C00ZLOUPORXLYavEsE5HcaclAxiFFLyfLoJxJcH3OMjqSz1zx/6Oz0vScQ4X1CdqHQWXICAtv8CD
+	AN4E5CbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFFRv-00000006zyo-26uS;
-	Fri, 09 Oct 2026 18:36:07 +0000
-Received: from mail-westeuropeazon11013044.outbound.protection.outlook.com ([52.101.72.44] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xFFLS-00000006xyN-18Iq;
+	Fri, 09 Oct 2026 18:29:26 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFFRs-00000006zxB-48pO
+	id 1xFFLN-00000006xnP-0CEZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 18:36:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Au4OBtoFttlR9hXpeHqcvcq80b1MJfqZFy1o33bqc5uD8ZFtKQAfYYKRagFGmZPsafMgDFc/UighIVKgVBVXJMpfaCUNTRJVjQdL3dK0BLTSFzyU59NGdlKkZ9Yz94Vst+S2E9/fshjAqqk16A+Y0v2BnkHFKWrDcN8eVkIClyYVbN9DZs2GR5FpLGn3GshabV0jmKqHvVVF37mhJFHObtwz2fONVq6ZkyGR4Hirif5D0HzHwOik252jnL6iCIAaBrt7p0BrlRerVeu1zn2htGeuIvX1h2zVCab/ohzaOytZIHpEdMExqmjDzpOaeWFM7H/v29FLho5iBDZPvpF5kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZdAzAVJjnoAkEQ9cNose7dn5bvb6yfiJzFHoBgI5GEA=;
- b=mljaB7yyKfrPYFMyFz3Smy8jKCqtZaTBSitWpheb3BrFu1ia2RK0ZGhQ2x955SwsnLtRSlALJlAsfaTE2Y8M0+aIY6a7lFrh3IjtRQrpR5yLACUXHHZJT9dE3mzz5OOky+o3YpA6Y9f2UiX3Tw+8I7+dU/JQQB53OoDHIDR3LDLs2v2rXdkWHsXQrd0yrJVO07ruMAqwlA9Nl4kLZf583TRBX9cWmCcrsActnDoHCJhD4OABr2qeGjU3EoMbC2SBd9+plMZhQF9GJbWD1di7zL9b7F8tsPHMQtrRBHWEy63MMkRjB53DlailQh+L3ZhvF+A1fcDBDlJoUh49PB3GaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZdAzAVJjnoAkEQ9cNose7dn5bvb6yfiJzFHoBgI5GEA=;
- b=Z1FiP5D6G0vzaJ61zJj16nNICXjh5+0aeAWeg3qx7cbCMNWw7eZT4upGOtsPUko6VMb5hvCNaJXKX/2yDbq1UFW+/TzyFmpMam0kioXZ9XeK8M62tk5jFY2+K3c6Y/geMWrEJXywJ3jja7ZgHI//IxS7EU6//aaePB0he3GpJ8cstv5wmiOn5Hxidpkm5lFbwdlh7tFoyTkOyuNax19blLgis5Nxr4YlCyy75pxtYkarXkVo4Wg9LMaMtK+z/xo/622r3dHhHR31zx+qcPNwlAdKp0f6iHetR3qTRZFVMGgY6rrAwldhwuQt6ktVkrS6tZx4Gb5kqL2HWUAvnmlfTQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8534.eurprd04.prod.outlook.com (2603:10a6:10:2d5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 18:36:00 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
- 18:36:00 +0000
-Date: Fri, 9 Oct 2026 13:35:55 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v5 03/13] gpio: mxc: fix wakeup_pads bit operations
-Message-ID: <ask0Czj69yifyc6i@SMW015318>
-References: <20261010-gpio-mxc-cleanup-v5-0-1e59e6ddfa00@nxp.com>
- <20261010-gpio-mxc-cleanup-v5-3-1e59e6ddfa00@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261010-gpio-mxc-cleanup-v5-3-1e59e6ddfa00@nxp.com>
-X-ClientProxiedBy: AS4P191CA0005.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d5::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 09 Oct 2026 18:29:22 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48dc202a60eso34482f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 11:29:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791570559; x=1792175359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3fwLKA/eSPxGgl5NTsOgBm1tSgbZmfE7FnoEd9FlDQc=;
+        b=UGBuW9zpT2PBpLX+ivXzsBc4qOpTO75XzDtm/vYnv2DlbbDJgqwY6N8ZHmv7A8gKs9
+         D0Q8cS90O6euwRd0uHwpmsXDWSwiv254EmEB1jKUtaXk91+mpAHlKgNKtCqDg+kDaFN/
+         YKnvbJrjqfwPjTPJ2/vpGIyOLSfF/qno2K8SYuEqrB9JeQYi4CWxO8IvaoMLtDdHXTe2
+         r3ZlMa17SnWRijp64DUVtNMDYnZ76U8IpBI1z37JXX6JIFwAVefzkhOcQ+SbPD2uDClt
+         A8AMk6CFOhRK3Ddt9rdcsTOeQG5V2kCHmcK4+FJ2seVKy2sNrzjC70h7QFH+SxeGVr1i
+         e45Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791570559; x=1792175359;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=3fwLKA/eSPxGgl5NTsOgBm1tSgbZmfE7FnoEd9FlDQc=;
+        b=1aRFudhb0M2otDNGrp41v4aKWzy3lbmcayVYjTczELl7hW2Tot2Ic0JEy9JrBL6ktw
+         66C+uiegpnFf8T03xmlbhAZdIjMNEU2PA7HD3XSJAJ9mlTiaB3llERv2gc4FvbHdDkBH
+         44KDs9MhhzfgyqRHUX38giBOPkRZnEtT7LzEZjzMnlpiTuAydK5qWWX0pnR4cQ6dh+6G
+         tZ6VOjfMPfn2rCvvzPImlso5w/LjmRWetoxBlVL1C7DVWnqDuVJ5V2fk2GzUS9FsC/cz
+         Yz6FFZNRmBLfFqjNjA8AtZigCobHhNqmAHh667LnHl0ka0TPh2wgUiHKA0nIqTLvgz7j
+         m7Eg==
+X-Forwarded-Encrypted: i=1; AKwUvByS+Bh86V9IXOPUFF6pT8PfBsj87CH8psvcbkqwaLMYBQ29nJqa9l1GOcLV2gOaxPGHqEDwMBZFJmzPbmTqRnBY@lists.infradead.org
+X-Gm-Message-State: AFq9FYJGYfKnvS60LMeFRUJhJK1XMP3rCzBtMNUapYlhiFqa2ZVa2jgU
+	FeAlQOqhy+Xvr3O7ZEHAxDtEK9DvaEJyXok7EmT7E2i21pE2efGxCScX
+X-Gm-Gg: AYBFou0kicRLufnJT3AIunC5rpDshz4gXD2m01R9jKj5ANQZr76ttte1HwCvYAtf3Sk
+	ihb0+Gl0VfitqeP3pI38R/3QdvYdGQcgXPP2kfVDViEhVib617417p7bTLHBOjtfYSv8XI+IyUM
+	IYh9lOu9QSl7v/2m1QUqaHlLhnrY1HNTV++v/X0FuXZT9IfYv9mD9YGhJM9mR2mQ5HzxkEZcjlH
+	wmSSTuff/VCaTF8wnj6Jvu+ADbH3vr1pusg4g+AIpgdFiXZXiy6v4pJdgZWvXBxUcNfhKn5I6Cl
+	U0OGpn6KuinYQ9jimkIqN+FE3ml9hNCiOi2ZRYbRLSh7agl7Xw+vD1XsWB8l4nHSVM24DIET3YP
+	1Xgkhn5/Th/MhH8kMFfOcB1oCTcGowD1/eslj6xIXldYmC9oAFWaZlINdKXDCgn6P//j//l8ItV
+	4/oTE8JopyXPVRzS73mOnWiBfiVpqUCCF5pLvXImCScAwWZSqfUtzsa4tktc0xs/JHLHi0hJEvK
+	HfnpNaGIgrjS5HbYjjV8QyhiIziLwKEaMyOTNiN4vcojpkE9My6bjoSOhYkL+aJtYh2shpEEPTC
+	yAMWHsua7CGkfVzGj9oi4mLBeN+Y
+X-Received: by 2002:a05:6000:4112:b0:48c:7ac7:e59d with SMTP id ffacd0b85a97d-48dbaaefaf5mr4958397f8f.34.1791570559085;
+        Fri, 09 Oct 2026 11:29:19 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-213-45-9-252.retail.telecomitalia.it. [213.45.9.252])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48db9adf5e6sm5037794f8f.56.2026.10.09.11.29.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 11:29:17 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v18 09/12] net: phylink: add .pcs_link_down PCS OP
+Date: Fri,  9 Oct 2026 20:28:05 +0200
+Message-ID: <20261009182836.50631-10-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261009182836.50631-1-ansuelsmth@gmail.com>
+References: <20261009182836.50631-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8534:EE_
-X-MS-Office365-Filtering-Correlation-Id: da54c9af-378d-4b66-84e9-08df26342a36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|19092799006|1800799024|366016|56012099006|4143699003|11063799006|22082099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: fnrPztzZtol2Bq8K7gchYEt9IV6DtBUZqxJE+LHPzh+EepQzccyr8uoJpKelVn7jl4jtlOrmdcDJfkhbYoWuO5t1sB1EnNQPS7ZtIq5WeMmg5rUBIHLNLXoHu2l39+fCmvRyGLLKXI852yrzqsjb5C2SocShVodO1RKvsTF22SRuVCcblJcUb/4UHmM4roS1A5BzfRb8ZnHJ0IXQ+JsM8CklNTa23QESBvPPCTfolsG3DFisaGo1EB1JVcVZcIvCrR6w5WK3qcS3NoU4XM8SB1QIigqx+fSFEw8ceFI56OUOF5XdQUX1mAaBx1P77AXMm5kciVMD/9PsKda7A3z2/jX1FgCkhPWHsBbx0sV+nyi7TujFRBIN37FmKFLxlbA0GidojgzvL6NjLS2supx/qrK9Cwv90Vnd3xjL8AKmURhtypNQ+6Ohp7OW+3ID3R7Gs3KgPhGiWi8eujoia6sDGmicZ8m1vxz8l+iaKsxLOJKUx0QQgKajHzinO11XW4VQWUHIpPuwp0amwaqgj6tBH3tnPR+0D3Z54HC4KD31AKVj9y4Ee9Rz9RTXqKWxmXKtwcflSU0vjP8G8Why6HP//5h7yrWRavZ8wbbVFRk2dYKwPONL647eBf5UkNgcxUTy5eVm/6wjEZAmhecgtCwqINPp8BW0TPejg9x/zgNCtaw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(19092799006)(1800799024)(366016)(56012099006)(4143699003)(11063799006)(22082099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yZVegkqZDmMOnKwsiK/uiyjY/17Wr4Ph1IK54HD+RmI9CVltUk2Kt/alMW8B?=
- =?us-ascii?Q?Jb0h5jQWGdFqDmu6beWu+zLuXOA+3/L8qHuC/Mv1ijiGB5hUOawMoXtt3dBK?=
- =?us-ascii?Q?k3ao7hL3b4BgLobUx4f5CEI33b/YAk+cPcjvKu/9+Fq2iq3urkwW1/QD0Ruu?=
- =?us-ascii?Q?GQAvd3lR/lMyH+blAzMi+3IxSdxO8f5P5mxu5HnvW/HXZrGlqByDzCmlHa9r?=
- =?us-ascii?Q?1bhgXmZnacq4GZN/NhKVdF2GojRc4aQTD24E5SqSWDmFcymNL/8n6/XLX3UL?=
- =?us-ascii?Q?ni++5V6VhGchT7RkrwXCwA1naSnHdbSaDh8Cqi/cce+ONDDfUnOWocbvuWIA?=
- =?us-ascii?Q?gkJXT+CdE/O9HcWq7rBrJEPDPTkphjUAM0biHamqMK0xy81RMEcgVzbS6din?=
- =?us-ascii?Q?2+PbbixkwNtESv0Xq91uQOkvTox2855gdSFKOLIMfC/nNwRwPJboUDqRjUjF?=
- =?us-ascii?Q?M84tHgiXadAODCiz+iW7eDYTzJqWq0DIwW23RKSvVT3j0GuRGVgnIBHvcHtn?=
- =?us-ascii?Q?dThuqZIQ/3+2HbIZ9pIVeVL54OB/q6P1sIQIIK34w1JDR5SoLL7knU2l9RpC?=
- =?us-ascii?Q?c0LLaQ+Wjrf9FRSY0JPMOIadoTiFc972lKStZKJa5GSQCnomUpslzUd6JQwr?=
- =?us-ascii?Q?7EnGcQzKGZgY2Y8ioyoVsXeb6Zva3TpuY2aHFoYmCipKI4Tj+FKxA/eRVZvC?=
- =?us-ascii?Q?XiYNrLGzwrEr3uTfStNrrAyJKV/ISN+TufJTA1wLTr7G3z+2KVlaRgGOv7JQ?=
- =?us-ascii?Q?YMoRBu0n+pLQJ6sVDBiBIQ7rUYArfJf2NyErLBkH2HVkRdTVXuWuGyGyc0vt?=
- =?us-ascii?Q?Nouy+obh7FnLotu9LnDkCxIXzHmczPGpsaw2WiUqmYJ39zEJghGlljnbBBB0?=
- =?us-ascii?Q?ysVDjC5/j3ZLynpSGBpfzY01Osw15JecsnocOTdiojacGrEzZAQKdf1y0vuI?=
- =?us-ascii?Q?1fZ+kYM9vmFfL134+gnp4rT7XyWNCn1vEbXH9lN8RyyTy9kAIjfI9dnNRBzv?=
- =?us-ascii?Q?3xcmlpQY4hwOFO8NhVfEXYBK0iv1lPXH89UNTTiQ3IlqjEdVEhATT4oiSYkY?=
- =?us-ascii?Q?KWcyv30tvOwzsBMXnfn7Qh4rWHpCLsZZT+daNp1VqEjWFYnSGgCB02IObDst?=
- =?us-ascii?Q?Pjr8AMjLD8/rOdfV3X4+qBwwQlN6a0qz1skJYX5yY+1o0RQ6DzHLSmJQOm7z?=
- =?us-ascii?Q?goH7YzHhLUVs/MODNZZteiwW4XEl3RVsKbi38JOmYIojX2JVkD/baqjaYtOR?=
- =?us-ascii?Q?KJsrrH9Ffwk+IK+Gn0YJP9R+BSYI2HBIi1tcywk82l4oCCwBHjEqPbL70S/q?=
- =?us-ascii?Q?I7d412jhoSupFHozvR7IB2PgRr7laR+y+px1IarBi+sBwk9ypURSwalQJ7XB?=
- =?us-ascii?Q?eZhYqAgdm2oDAdKh6mh+1hqe4cH5th1CzhH0L/ODPp0mw6vgM5kTXQCtI+HD?=
- =?us-ascii?Q?+tTpOHVTDhf8cdZZk9ytplKZ5+O7dTDSs4vnpA1n90iAHtZ/EAhSg2eX9BCu?=
- =?us-ascii?Q?qHimc4BmUs8j6f7S5JzjSNVqsosXAObekXp4ihqFzH7KNmTFfgNUs5xb1utu?=
- =?us-ascii?Q?8TcMiHubWamqrqH1SEgTENKuxpylO64HTZ4yZrs197NZwiR+zLCSsoU6KRFE?=
- =?us-ascii?Q?SSgMCa4gcymB2AW/FjTbEbJAlagQT0BoUexiAmnfgtAfXGqxUm3hqlwUwzwR?=
- =?us-ascii?Q?8emb8fMHCv1P1E++J+5ypnTukThqSkNVDK2oQCSAzAgyHJQM42FaUAu9BWMb?=
- =?us-ascii?Q?HOYffbTa/9MU6Uk2mguVcp3HOMnh7JoecXAiG1MhJWULrwY9ondP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da54c9af-378d-4b66-84e9-08df26342a36
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 18:35:59.9922
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vt0vADktcMs/xxfJHZLM/dEqeBwFLqBm1eeFirSdQjA1QrcErheme151R1VA7UvYT7+EkwnIxEvrm7V5FmmYmiQSb0fLd5u5MvgL1/bEL1SKGyjgM48jt2HIek/IQ6Er
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8534
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_113605_031823_67E35D11 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20261009_112921_136063_900578DD 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,72 +126,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 10, 2026 at 02:05:24AM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> gpio_set_wake_irq() can be called concurrently for different pins on
-> the same port, so use atomic bitops when modifying wakeup_pads.
->
-> wakeup_pads is a u32, while assign_bit() operates on unsigned long
-> pointers. On 64-bit platforms, this causes an 8-byte read-modify-write
-> on a 4-byte field, corrupting the adjacent is_pad_wakeup. So change
-> wakeup_pads to unsigned long and reorder to avoid wasting words.
->
-> And the enable/disable path unconditionally sets/clears the wakeup_pads
+Permit for PCS driver to define specific operation to tear down the link
+between the MAC and the PCS.
 
-Nit:  And fix the enable/disable ....
+This might be needed for some PCS that reset counter or require special
+reset to correctly work if the link needs to be restored later.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On phylink_link_down() call, the additional phylink_pcs_link_down() will
+be called after .mac_link_down to tear down the link.
 
-> bit even when enable_irq_wake()/disable_irq_wake() fails. Only update
-> the bit on success.
->
-> Fixes: f60c9eac54af ("gpio: mxc: enable pad wakeup on i.MX8x platforms")
-> Assisted-by: LLM
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/gpio/gpio-mxc.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-> index 2f83a0f076bf..29396135717a 100644
-> --- a/drivers/gpio/gpio-mxc.c
-> +++ b/drivers/gpio/gpio-mxc.c
-> @@ -71,8 +71,8 @@ struct mxc_gpio_port {
->  	unsigned long both_edges;
->  	struct mxc_gpio_reg_saved gpio_saved_reg;
->  	bool power_off;
-> -	u32 wakeup_pads;
->  	bool is_pad_wakeup;
-> +	unsigned long wakeup_pads;
->  	u32 pad_type[32];
->  	const struct mxc_gpio_hwdata *hwdata;
->  };
-> @@ -330,16 +330,18 @@ static int gpio_set_wake_irq(struct irq_data *d, u32 enable)
->  			ret = enable_irq_wake(port->irq_high);
->  		else
->  			ret = enable_irq_wake(port->irq);
-> -		port->wakeup_pads |= BIT(gpio_idx);
->  	} else {
->  		if (port->irq_high && (gpio_idx >= 16))
->  			ret = disable_irq_wake(port->irq_high);
->  		else
->  			ret = disable_irq_wake(port->irq);
-> -		port->wakeup_pads &= ~BIT(gpio_idx);
->  	}
-> +	if (ret)
-> +		return ret;
->
-> -	return ret;
-> +	assign_bit(gpio_idx, &port->wakeup_pads, enable);
-> +
-> +	return 0;
->  }
->
->  static int mxc_gpio_init_gc(struct mxc_gpio_port *port, int irq_base)
->
-> --
-> 2.51.0
->
->
+PCS driver will need to define .pcs_link_down to make use of this.
+
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/phy/phylink.c |  9 +++++++++
+ include/linux/phylink.h   | 12 ++++++++++++
+ 2 files changed, 21 insertions(+)
+
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 59283564f72e..28dad1393b69 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -989,6 +989,12 @@ static void phylink_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 		pcs->ops->pcs_link_up(pcs, neg_mode, interface, speed, duplex);
+ }
+ 
++static void phylink_pcs_link_down(struct phylink_pcs *pcs)
++{
++	if (pcs && pcs->ops->pcs_link_down)
++		pcs->ops->pcs_link_down(pcs);
++}
++
+ static void phylink_pcs_disable_eee(struct phylink_pcs *pcs)
+ {
+ 	if (pcs && pcs->ops->pcs_disable_eee)
+@@ -1701,6 +1707,9 @@ static void phylink_link_down(struct phylink *pl)
+ 
+ 	pl->mac_ops->mac_link_down(pl->config, pl->act_link_an_mode,
+ 				   pl->cur_interface);
++
++	phylink_pcs_link_down(pl->pcs);
++
+ 	phylink_info(pl, "Link is Down\n");
+ }
+ 
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index f06eb8b6f94a..f03c1dc0a4a1 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -528,6 +528,7 @@ struct phylink_pcs {
+  * @pcs_an_restart: restart 802.3z BaseX autonegotiation.
+  * @pcs_link_up: program the PCS for the resolved link configuration
+  *               (where necessary).
++ * @pcs_link_down: tear down link between MAC and PCS.
+  * @pcs_disable_eee: optional notification to PCS that EEE has been disabled
+  *		     at the MAC.
+  * @pcs_enable_eee: optional notification to PCS that EEE will be enabled at
+@@ -555,6 +556,7 @@ struct phylink_pcs_ops {
+ 	void (*pcs_an_restart)(struct phylink_pcs *pcs);
+ 	void (*pcs_link_up)(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 			    phy_interface_t interface, int speed, int duplex);
++	void (*pcs_link_down)(struct phylink_pcs *pcs);
+ 	void (*pcs_disable_eee)(struct phylink_pcs *pcs);
+ 	void (*pcs_enable_eee)(struct phylink_pcs *pcs);
+ 	int (*pcs_pre_init)(struct phylink_pcs *pcs);
+@@ -690,6 +692,16 @@ void pcs_an_restart(struct phylink_pcs *pcs);
+ void pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 		 phy_interface_t interface, int speed, int duplex);
+ 
++/**
++ * pcs_link_down() - tear down link between MAC and PCS
++ * @pcs: a pointer to a &struct phylink_pcs.
++ *
++ * This call will be made just after mac_link_down() to inform the PCS the
++ * link has gone down. PCS should be configured to stop processing packets
++ * for transmission and reception.
++ */
++void pcs_link_down(struct phylink_pcs *pcs);
++
+ /**
+  * pcs_disable_eee() - Disable EEE at the PCS
+  * @pcs: a pointer to a &struct phylink_pcs
+-- 
+2.55.0
+
 
