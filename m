@@ -4,60 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FB5CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 15:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41A4CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 16:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WfkXHdpcpLPKxJAFSi3EJTz5mjIUGnvIy8zdj94PVfs=; b=2j5JUtw5HhYsuLxhQxhztwbjQa
-	Qag3FD8Sqer53ITmBhbE9rLZDELS+6GDQ/GRcRxzAQO8YjI96TMU1t8yPw8PU7jFpDVesjzlTS35P
-	0GYCeVJiFKsHby2ZOAStfQc7c7rY4xk978aJk6azjsDicU3lYpMU2LzSOBPlt0KAit5/AoEWnCz04
-	vU4n2jixP5u94xAlZz4ZDU1zvoWjQx3ImBZ7CUPQygE9P30SnZ3AWZaiXehgRrVpNGBy0QohltRqh
-	dS55GK8bftb1FzsDXjGpQRcOe1dSDWbOrGnDCt1+wVaF1P9666ugLwdiPHs7Gk4P38+/LRY9EyirJ
-	LE5DV/fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BoAcjmTGDMQ7W4hCyrQKpaXZFHre/1+/rFWZj/Zjma0=; b=xSbcM+mFETo2+9zTuzahkRpGog
+	UE688THnu8L6AK08CSqPW36RW+6gObEcDohAxxO76dhMC8E4bZv3FBPY5oOypaWX0eLfs1glyzeNs
+	JpwgMbfuqipTy3CwFs5qtrHc0iLYPoYf/9BC2fsy83AVrZQejqKWUmmRNmTE/cu4S20McPmFNN6u+
+	qXOUAp9Hj8m5jBxkBqhXesr3qzFJ2GoqaUg2swCLOcdA3Ltc9vs0QCU9gfiYCZwkAWY7fbpRQ/ey+
+	/VpfpG/uDZdixNzNQr2caVykW1B9vYws85Ziae6Lp/saZITVi62n7wgP1t606MDYVBW8OkUg+TdwO
+	6sYQ695g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFD06-00000006bcI-1zbV;
-	Fri, 09 Oct 2026 15:59:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFD1M-00000006bqS-3pnv;
+	Fri, 09 Oct 2026 16:00:32 +0000
+Received: from mail-pj1-x1064.google.com ([2607:f8b0:4864:20::1064])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFD04-00000006bcA-3TLN
+	id 1xFD1K-00000006bpi-1irD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 15:59:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0622A60DC7;
-	Fri,  9 Oct 2026 15:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542351F000FF;
-	Fri,  9 Oct 2026 15:59:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791561551;
-	bh=WfkXHdpcpLPKxJAFSi3EJTz5mjIUGnvIy8zdj94PVfs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T/oUPf8/UhNiR9fonQpaCJkjH2g0S3nU7rilibnrJa6zwwksFbp3Br4FusMFursCA
-	 LwSxDZkXmRB3Z+KMKD2Ab8atR38BG0mQt8yze1hNq1M6LLPcbOhJi0wuWXFUBULjeJ
-	 +pL6RU8y60/xBk4PghdJXi2hoVVrtz6+Np/RcS4VDSXkoghR7M99mkaCg3dijCdx4e
-	 ROqAf5pqJ7PuL1c3fP1fjQSPWppKpdIMz0EJs0OxuHM/ZEMQ1cOkhKT9iMmoXZIyYP
-	 qulXlC0vVWH0/naN2ZG4/jSe9RCaARnlcHBvEgAXK0RxnfONM5iZVppKdiZLoFZBVu
-	 8jb0bPazWalXg==
-Date: Fri, 9 Oct 2026 17:59:06 +0200
-From: Brian Masney <masneyb@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [GIT PULL] Allwinner Clock Changes for 7.4
-Message-ID: <askPSvFT1uDZ9sLm@x1g10>
-References: <asZYyy4D2PkhjE3q@home.wens.tw>
+	Fri, 09 Oct 2026 16:00:31 +0000
+Received: by mail-pj1-x1064.google.com with SMTP id 98e67ed59e1d1-3a813079a55so1299236a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:00:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791561628; x=1792166428;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=BoAcjmTGDMQ7W4hCyrQKpaXZFHre/1+/rFWZj/Zjma0=;
+        b=Ds0F+PzEATCFNSrsHVI+gNkwc73N/5ScKA2IhvkFTNc6GznfFNPCBD7sNLNGz1uBXJ
+         /glS55XIJMTKua7W1iFSYkakx98+k7oXAhyUmFNFLKwkvMtLRyz++RtMTK6Kz8MVVERo
+         1SZLhG+yqZ/F9Q3Kd6scvD9FFE+3rWQ37bck+2TyXD0lalcZ63uUIXRO/P0brmunAkL0
+         zQiGWYoT7Qbk4DdDVlQOViVbAbI1kAmWQK+z72EK4mjMW5Ky/MesiCIBPfaNwp/Cdu4y
+         uJmrOiioRIYit6HGf/LmtcM09w1jSJ/DBki/pxz7AuVWzksIp7cKhstjlvu9JSr0brwo
+         Py/w==
+X-Forwarded-Encrypted: i=1; AKwUvBx4CVujjPhCBVMOySpBbvsDw+lqs6mqnoD++73gz5NSOfmn8QAQwLkwtBRauPo5uq6eTv3LwipIg6FHQeve/nbK@lists.infradead.org
+X-Gm-Message-State: AFq9FYLJu7z3NE7U1hFOQgN3fI/qco0IEgXX3UQQ3Tn629tI/4xpVVMM
+	n0XGj2SKd0dFtFL77JZ2rsngKaCgfTQW67iFBiH67CoYOkodidX+V3SCFjIFGK7dPqttp6Q31ZQ
+	eyoUFcjnazI9Rk/fc3WVbgcWgSjxCvT9CMmm2aaIPmGQRpi+a4GfQo3OF2aSR2Cui4tzTTU6av3
+	zz4JMEiNj+IZOyFcbJeDk1URig+CFnf0MlenRl/237pHzQKvuHWUlSG7nVTc8q09JKBeO5UN94w
+	OHde91Oto/7aOyeho/Bv+CnX0gjPkRJIr8=
+X-Gm-Gg: AYBFou0QrExCWMaNYKeOTvlRS5eSxO/m+M0n8oNHe/9mhp9OZvx0FuYO0jWXsCZHEKH
+	hy6ryJzg49asD1TcIp7gwKE0Jki0JuHPAXPwt0JW3bESnirplCHI1sYMThdEG3HoumPKLrhpVDy
+	NBQrVciVTIDh0YOl25Yq+xN4oos1HU3OFY47dijDAF9L7WAY8FutQMFxdzPH6BgQX9b58nusbP1
+	2lrrZkKFklrSjEoX82d+wKiMMJk0gFlEyHVaQiy59NrFnmQu3maEK82QrpF7R1QJM+gwQ9yT35R
+	1dnDPyYjNjLARKoY1gxU5NqtzEgXKxkTkkck8rIFzHXCXIfiNMczbK4eHnRrPIlFq9KNuKSXsil
+	PbkvkWAt8LY6efc+uaAk+0JkCJzWiO4cUwsF/YM/4mgC7szdGE+9QKnXEsq6cDZCmH573glxolD
+	q8YIXYct2z+lLiQUKYB7Pj3D3YUEp0VIP4LDATDhOn
+X-Received: by 2002:a17:90b:3145:b0:3a8:a62e:d6db with SMTP id 98e67ed59e1d1-3ab36f1a530mr1953283a91.54.1791561627840;
+        Fri, 09 Oct 2026 09:00:27 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-24.dlp.protect.broadcom.com. [144.49.247.24])
+        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-cd3da0634d8sm107711a12.17.2026.10.09.09.00.27
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 09 Oct 2026 09:00:27 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cb48f41343aso1301381a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:00:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1791561626; x=1792166426; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BoAcjmTGDMQ7W4hCyrQKpaXZFHre/1+/rFWZj/Zjma0=;
+        b=Vg51/qMW1H76xWeL8kLXQKLpk3YT7QeJCbaqujph2icVKgn209hG0CgzbsReUum5yp
+         l9ALzsnCTJHJZwMgUl5o3BKWCEFq9vBR9aRtfkeEsiY58DdMZvdjpsglqHP6ohqZnnAP
+         2Hwd7/A8lXDTzHhVpcrPPDaPZAi8QtsamRM78=
+X-Forwarded-Encrypted: i=1; AKwUvBy4p3lBWBR0Eay0lJb/P5XXsoR70d5HSDtCxscm+33ZDYWbbWkKhzFTmXSa9dekrfTTtc9shRQG7IdX7pGPA8I9@lists.infradead.org
+X-Received: by 2002:a17:90a:d44d:b0:39b:5622:d645 with SMTP id 98e67ed59e1d1-3ab3a09d2e0mr1568078a91.0.1791561625667;
+        Fri, 09 Oct 2026 09:00:25 -0700 (PDT)
+X-Received: by 2002:a17:90a:d44d:b0:39b:5622:d645 with SMTP id 98e67ed59e1d1-3ab3a09d2e0mr1568053a91.0.1791561624978;
+        Fri, 09 Oct 2026 09:00:24 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab32d3b4f7sm2008141a91.0.2026.10.09.09.00.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Oct 2026 09:00:24 -0700 (PDT)
+Message-ID: <688738af-100b-48af-bee1-4bcbe4422f94@broadcom.com>
+Date: Fri, 9 Oct 2026 09:00:21 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <asZYyy4D2PkhjE3q@home.wens.tw>
-User-Agent: Mutt/2.4.2 (2026-08-30)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: remove {sbranden,rjui}@broadcom.com
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>, linux-kernel@vger.kernel.org
+Cc: bcm-kernel-feedback-list@broadcom.com,
+ linux-arm-kernel@lists.infradead.org,
+ Scott Branden <scott.branden@broadcom.com>
+References: <20261009060035.544789-1-jirislaby@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20261009060035.544789-1-jirislaby@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_090030_488360_C1AD59BF 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +151,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 10:35:55PM +0800, Chen-Yu Tsai wrote:
-> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+On 10/8/26 23:00, Jiri Slaby (SUSE) wrote:
+> Both are bouncing:
+>    Final-Recipient: rfc822; rjui@broadcom.com
+>    Action: failed
+>    Status: 5.1.3
+>    Diagnostic-Code: smtp; The email account that you tried to reach does
+>      not exist. Please try double-checking the recipient's email address
+>      for typos or unnecessary spaces.
 > 
->   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-clk-for-7.4
-> 
-> for you to fetch changes up to 9ef62592b80c7ffb8cd987d889f659c1dc4f9f16:
-> 
->   clk: sunxi-ng: ccu_common: Use readl_relaxed_poll_timeout_atomic for PLL lock (2026-09-20 17:32:54 +0800)
-> 
-> ----------------------------------------------------------------
-> Allwinner Clock Changes for 7.4
-> 
-> Allwinner sunxi-ng clk library's single divider clk type gained support
-> for the update bit, and various single divider clks in the A523 driver
-> are converted to correctly use the single divider type.
-> 
-> The "wait for lock" helper is changed to use atomic MMIO polling, as it
-> could be used when timekeeping is not available yet, and *sleep() doesn't
-> work correctly
-> 
-> ----------------------------------------------------------------
-> Alastair D'Silva (1):
->       clk: sunxi-ng: ccu_common: Use readl_relaxed_poll_timeout_atomic for PLL lock
-> 
-> Junhui Liu (4):
->       clk: sunxi-ng: div: Add feature support to M clock macro
->       clk: sunxi-ng: sun55i-a523-ccu: Use M-only clocks for MBUS, IOMMU and DRAM
->       clk: sunxi-ng: sun55i-a523-ccu: Use P-only clocks for high-speed timers
->       clk: sunxi-ng: sun55i-a523-r-ccu: Use P-only clocks for timers
-> 
->  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c |  37 ++++-----
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c   | 128 ++++++++++++++-----------------
->  drivers/clk/sunxi-ng/ccu_common.c        |   2 +-
->  drivers/clk/sunxi-ng/ccu_div.h           |  18 ++++-
->  4 files changed, 89 insertions(+), 96 deletions(-)
+> Anyone knows if they care about the entries/what's their new e-mail
+> address?
 
-Merged into clk-next.
-
-Brian
+It's first.lastname@broadcom.com, can you resubmit with that fixed? Thanks!
+-- 
+Florian
 
