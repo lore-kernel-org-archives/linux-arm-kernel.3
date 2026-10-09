@@ -4,136 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071CBCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F0ECA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nFcWsMGnyzZcim5ifgI+pmlqEw9dogtANHw1V1+0CIs=; b=S8t4++3e1ZG5mj0KwsICwZm8rj
-	R1CQDaXTyZ7koFiRsaTto/Bn2anNEP56HNXvuFilTJrgWSCTsTIJuGDKlz6MFNTVKdvP+bZ3dAyh4
-	C5x9wB8fMRu05b/Zp5X17e5VRvcAW0pttxB+EkxSDxZtpbnap0mWDRswCSsC2eI6BMD/ndYq4Ei44
-	QdRa6/6/62EwJyltZrrazkjf7/Gpb0WILEOCuO3iWGedlcp70mRSBeCG4dVeCIJXjRnnL2exuThR1
-	wwV8i28sG2pSC7KD2UxtOSGL+72EjlWuxjz0LKB/UbPWwOfLGUby5XRLrLhdpMBIcckUTZD9pdbcq
-	bQaIb14A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c6UqNIWYdIZL96+gJyQrmYokuChlpNjJc1ULrd0HWh8=; b=aVeH+/JfT+JHL0
+	zo7uAx6k3DuzdZWmlDoDesu6MSIgA49+OK1VwazVMqMCxON71M/MwQmH+uQYZ5UgwCzgyXu7pBx9d
+	NvRhlpNmVWFXazxkXl7AqgZ4NpfqsibcRT/EtPk2j42XWe9MRanJJUfR55QOhN3/EP2rmy2Mhkyw3
+	3AfQMSHQdMqVoUcAeL4MCZPUGopQhs8cNmQpbZj2c9Cw0+gOkCp1tS1GXFL0w/di7oyMtIeho2mwz
+	p5biDnK2TXwpYeHEdZ5iL4K5dfyZ8vkc0dixkac79bFfuEaEaChIBfE8JH/EQWJGQrLgamBxKcHKr
+	jZQ91WaUkEV6ljSjdyaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF16F-00000005JyU-2Imw;
-	Fri, 09 Oct 2026 03:16:47 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xF17s-00000005KLQ-0Gfr;
+	Fri, 09 Oct 2026 03:18:28 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF16D-00000005Jy9-1cpM
+	id 1xF17m-00000005KBh-2NTN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:16:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dn2GRn8qPoNxxfimPUpu7mC6tWmgiSuTlyddhc2mLxm1YvB6J4AV4FpOV+0xjxRMn3J6c87hg5bOZXtzRxIG4rTTL4755aXXVZF5p06mt3bjfurKqLh73y1S8dpMZsQNQRF39umQTRO+CNyjEL8vCZcXj3JgEu2SVXD8WSL3/CJw+Ddo+0rNop7nTWvc8WJ1EjA1d6S39oUq+j4H+2dzRp+7SCX2vUVIG7ooPSn/C7VgSFchR70BMtt65X77os/HpWnpIaA0TLZH6V4xbL+Rcm5/eKl8BRBkavo5Ep+/NTZbHUTUcax1ImQ+Uj0RPm+SGnHHnIfuETm+/ceSNvdqQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nFcWsMGnyzZcim5ifgI+pmlqEw9dogtANHw1V1+0CIs=;
- b=a30GH5OW/EGF24U2zyoEsV4xzDEmMI0fRPgEDNTHlM+W/UzXz2Owji+5Bg1Dw20PEzfkUtrPUG62xDlzdcvB1yYb4Io/GA/8Hgk5O4iuLh1v/lpqOp0rjIOOWi8+IuERrVu8o9DZT02devQLbl+IvU4CxGWYx9ww9pnMBVci/nnGe/4ZoedMqUkM1tuNzB8NQk4ayzpA1bzungKjrc3pUd+66WmmO8XINqBF9m5bMRNIGctlQv4b5dGn2VAxNQM9r7C3SIuyP221zuy4CCq01GT6j9A/pJUNkGZfF2DGyQUcwuBXmdZiqhN8mnMa2o2JCZGmzeaZPB/WuJES7gE7Hg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nFcWsMGnyzZcim5ifgI+pmlqEw9dogtANHw1V1+0CIs=;
- b=dGV5ZtJ5rgYpxT0Ka74V3yiDjixWqR8q9m/L1zz0gk2Ypl85WI8BGbvsuuCdbvUSih8vJwfoMV9pJWIDOflfIfYhC3lFe/eAm+zDW8gL2oxadRXXGC1seWduNSdnp6uoR0wmeyysGmoVIVuhwj8ALlMkcjEYXgdYyv33rMNdr7NQJ6CILLzxEe1iyyHLjru4d9BR1K6qLcCt3kVYald7BWq2FjxYTyuMKwY9EHOFJPwpWtzz/wMFRAEf5iiYczrNkr1WBvj1SXrXpSZOenKefBP2dfkqwyWjgohAazBC3mF3I/9O8rvnNDMZKUlsmPgzNy5Ht4IFGglAQrZrLZtRkQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DU2PR04MB8645.eurprd04.prod.outlook.com (2603:10a6:10:2dc::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 03:16:40 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.010; Fri, 9 Oct 2026
- 03:16:40 +0000
-Date: Fri, 9 Oct 2026 11:21:14 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank.Li@oss.nxp.com
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v4 4/4] arm64: dts: freescale: add DT overlay for
- MX95-15x15-FRDM RPMSG usage
-Message-ID: <ashdqkzRdM74N4n/@shlinux89>
-References: <20260917-memory-region-name-v4-0-260755920ebf@nxp.com>
- <20260917-memory-region-name-v4-4-260755920ebf@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917-memory-region-name-v4-4-260755920ebf@nxp.com>
-X-ClientProxiedBy: SI3PR02CA0007.apcprd02.prod.outlook.com
- (2603:1096:4:295::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Fri, 09 Oct 2026 03:18:24 +0000
+X-QQ-mid: zesmtpip2t1791515822t7f4751d9
+X-QQ-Originating-IP: 7Pk+11nntTD5E8b/1b413pLXlghYhtX9yXW0rSJDyLc=
+Received: from [192.168.30.32] ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 09 Oct 2026 11:16:52 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 559857501391731083
+EX-QQ-RecipientCnt: 30
+From: Xilin Wu <sophon@radxa.com>
+Subject: [PATCH v2 00/20] drm/msm/dp: Add static HDR support for DP and eDP
+Date: Fri, 09 Oct 2026 11:15:52 +0800
+Message-Id: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU2PR04MB8645:EE_
-X-MS-Office365-Filtering-Correlation-Id: 501d8f67-fc63-4b96-6d6e-08df25b3bcb8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|7416014|19092799006|4143699003|11063799006|6133799003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: K/2KJVNrIFLufnovY/+pYMYmfI3Z6cHadZQDpuA53fSWWED29QS9OS0BCVXYBu0oWnHMWqtXuEagZ6qzw7czzT1g3afDGtSefBHbhF2oICWkqS2epwqF8+1c6puDlUOVkMoyVyEH98kQAYgvQtBviCk0oUjtYF0ShxTlT+lsE2uYemWW2kiN18uEcnyy5o2Nq4WP2WVIpC0hKILaSyTsrTrg4BMB+HwlYAIfX2kkhuiULgLM3FDesKZPSIqCswCKfadsbQA6wIBSCrK8UTtAxduMkVOSmof9z3T69rxOOLkzpNktYU5gDmJwarVkc18Iruw47j2LDPyA7X3869yhdYT/JObXyXevFcHX1UHhUookRniuTdnx9AeChFNiBHfYAzTVu5zt/zuITKHCRLM52lqUNMBYn9G64xXjnDn5anpKaaI/9hp9eNt5rJ/XRinRHe944Ksi+hCXVwfPn0zZW8JVZp3ulk/MUHpcb0ob4YCAw+Steguu2mJr+vQwGBnY3qcRSXaEhsyzrYu/yyMSm/MBbALnXQe3H/CXmtDbRFY0je2qKFMhWMS8ziHmWW50i8cS3V+lxiTQ0Hgw6rFRHlTBxjC45/0zm1xN5JRJ6L2ponk4fSUEiVuUOuY0HrE4KEC7zIGTUNmJQ40YZ6WlWjEGZC66I+wpSHFPUJddWf0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(7416014)(19092799006)(4143699003)(11063799006)(6133799003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qFY8bvLdxy5a4NsiUbMHre1FiF1gGg5WRGj3t451lFJMCyrBArBjOBHCMILI?=
- =?us-ascii?Q?DOBgKk1BcnNgDJNLwmSfKnzofZ7N4CstRJejLjs3vnGtWyB3WqSJeNeumCPk?=
- =?us-ascii?Q?d8oDRnAWkpLmNG1nvPZzzHfuwOzn954uWOAZrfnstKUDR9tvVcJ+i24XSCXx?=
- =?us-ascii?Q?6TKcmXOpjcOCtDWWC2BstAiaQdsc9jNQ5j/ps56EEXt3PRbHn3gPgG2f6yiE?=
- =?us-ascii?Q?6HhcUSBtvoeMX5jSayvpg8JQJkjLQz80RMdyIIFXXdCpqZSCaHVHCGLrz2Ip?=
- =?us-ascii?Q?M+Q/di5SoWWgfqCSMrNxhDKR/gJP8GBfyNAI+4wsw1pn48VT0HUHEp4gbXYb?=
- =?us-ascii?Q?xRH6SldvmTHXK6LNjtXdK4bjRj4BMwMhngU3fItsxUsIUVQ7irBp/VWYMrev?=
- =?us-ascii?Q?6vunbVgN9P20+TP/pIIKuxLF72fFb/PkOWc29Bw1TwbI9hu9WYQK+uRaUqJU?=
- =?us-ascii?Q?RVBXaIu6SEJV6ZtWM5WndEcu3pmB2HFfkg7OWrdZbql9tH8+S7ZAvUC7stv9?=
- =?us-ascii?Q?LEoMXrEXWm60iHyuMat4EVdhPRTdxsIqH7QgEuTW/HJGeVZ0Y+9Ol0clv9aN?=
- =?us-ascii?Q?aFHUIxnsBWQY16xTYSzZVzrxFWXrqI0pODO/HcTg2DjQFe1MZu3gLxIyuXSx?=
- =?us-ascii?Q?YGlgbLo2VD++a3bB1/n1Zb05R1FcyQFjnwM199BSZeYdZjG0cVxw2tJRpQWa?=
- =?us-ascii?Q?5idqu4AL31QzFedYFjdJUaHRke8wDcDu27F+PV0osdeNFMQ/uywbLKxQn9U+?=
- =?us-ascii?Q?LiglmJX2skxCGcFCV3N3Tlaw9os4vEmjqDE22nm3SxOlGDDqhgNyTFc+Y0M3?=
- =?us-ascii?Q?xDK5q4HXbaKMv6jqercvkhUVVHLVs0mUOUpRMMz9OjY3Lk4032IvWYh8kp0D?=
- =?us-ascii?Q?IUfRjvRcvD4flt1lNb1tAZC7K1auHRWQ5sOMUVJDQTOW4ynlrSnjP8ICQqyv?=
- =?us-ascii?Q?39e5+4r7RDtxbIZ1M0+SXE1Dw6jtTvq6vCa3W7EhFk/IpnfyI9beMfVzZXmH?=
- =?us-ascii?Q?lxWTbehRBZl1hi6sU+QEVMRA7sbhHdhN0wDCPNLyo8oHvEJXjz5ErBprilDz?=
- =?us-ascii?Q?ZcS5AgxC48sucRsVd73v30C/uQDJ/n3kP3J6TXVDQdFA0eloko5cEvjulIJV?=
- =?us-ascii?Q?TSMpomSwokwj2Btbp0JMp7enYS7m3XH8y7FmN6wwQh3CpoCYhtFB69YSUQg+?=
- =?us-ascii?Q?sPcm8nnGWBudrrN3SgMi2P9FG3pcBOdivN6Ooj0oyNaCs9tHZxHizlqx7c7G?=
- =?us-ascii?Q?waCLdtU5/ArF4gtklg6fOdhyIRdGb7O26ploHdlT1JUg5wXmfvcSAd+s+1k0?=
- =?us-ascii?Q?kusMHRdgvRHm7ZX2CVRz0pXLVcv9nhEyo7sAvFx53uP6F0Uz6712KqD3o8Rm?=
- =?us-ascii?Q?Sal5taQmYKXVjV7Dx3I8dOFdjfw2AKcPsIKut6ccCYn53yuZ+y8znRJl3+kQ?=
- =?us-ascii?Q?TqD5JS/LPlahUunxrAmvjjEtunTRGAzmQMm7j1iowj5DrB3vPSLALZ5XBfs2?=
- =?us-ascii?Q?vSmu04/wVWDcVipa26XMw8+YZ+9e2VPc2lx8lWZRQXsZ+0s+vrlqhSUOJjVq?=
- =?us-ascii?Q?G0me6XverFqFXBUnwsnbY82mVSNXFuoRQ6uaepmReHVLAzi2MmsajmkMfl/P?=
- =?us-ascii?Q?eijMbd3huXGQhKuaAKQuKyGULMf7m28mC0uAhSvskd//hqln2G8A5Wg82QSB?=
- =?us-ascii?Q?g+gZmIh/o71CZFdbAXuvYi4LufeVDFQykaGyU5EmqHw5STDZGl1VamEtE8fs?=
- =?us-ascii?Q?OAuUYA78RO6mNG7Zboq5l4lVsgn4XhyZ9x2S4M8F4NpjXrs7iCMW?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 501d8f67-fc63-4b96-6d6e-08df25b3bcb8
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 03:16:40.8261
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BEC90GPgigQVlx8DE0K5h7jGdXBPw2xug5Yz6Mp2uwj38ffrUo0fCe4JKUbA8biPN6rmHNEXYGtZCwb317LvDJKyQL6rOAXKCq2ZeNTfrCobMmj21PnGx0nVSIAz+c3i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8645
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOwW7DIBBEf8XiXCp2jYH41P+ocmAXqKnk2AEnS
+ hXl34sTqbceR5p58+6ixpJjFWN3FyVec83LqQV86wRP/vQVZQ4tC1Ro1KFXcq6zDKucQgElg9M
+ RAB32cBBtspaY8u2J+zy+cr3Qd+RtZ+yNKddtKT/PvyvsvX/QV5CNT5QcIWkk/ig+3Pw7L7M4P
+ l7sEs+XZry9DsXqN56a79h51L3RNuKBDQaTErALiYjdEIwK1viBNA366fy30uA1kYGBrWMAGlo
+ PtPPJWGeS8s6bnsHiviJfo2wuc97GzmLoEyenkHWTe/wCyUOxCFYBAAA=
+X-Change-ID: 20260930-msm-dp-hdr10-d84e11282319
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+ dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7844; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=146l0DN3W/8cc56zI/r+4Ok/KX8Zd6nBks+pkZ7RVLg=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYpYwyB1U2DhxqtNLvw0eEyze1M6YvEVOpKrtcsXb5
+ qoDqWrrOkpZGMS4GGTFFFkU4hnmslfmXnsqVqoHM4eVCWwIF6cATCRpBsM/W44Jc5fLv/MPfvWI
+ t7DaO27ilVNHJoV6xv+bt2LFsu9Mcxn+u03q9JH/ulz0mpPWqTczGtOPiDG86tGbWlmc+Kxw5aq
+ TTAA=
+X-Developer-Key: i=sophon@radxa.com; a=openpgp;
+ fpr=205F009D07796DD6E516752E32C31567AD9E324E
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: Ma+A2HZKKIKoBBY9+hnSYK+SQqOyanITjMb+LjcIRfIxJUhK9Ct8846G
+	uTq0fOtLZYD6Z1athPrvqNq0oisN7RpoN4vI8Wmxc/7+l690YBhVU6VBorK+G+GAu4qRMEn
+	t9xpeVidzYQWGgb7ER9FSvvKy05ULPn8+Ui6OQkR0L0s+1ugj1uWZafOtot4eND4SuTbDbp
+	cMe6Bm2oqlHP+tTDvlvClfQg6aIJQpWZMAm8BQ3QWcmkqIqf0TvpSXnVGoz9pd/LemdjYhr
+	Q4+TnuwzSUS6nuZyloUWJVS6oTaPF97i44uXAJsv/GavPUUTIcUfks763F8ZjddEzqQX1WP
+	hhrGKsRtQEerbjqXWVQt8h5f3aGcg0gP8fr9lX50V8AluYG9cAsASj6MTtIyd8z6s4q3S3k
+	HYcSfkcXuvTu16tqS6dxhPNoaH8THm3tcYuhjUPH01s0cV0YgfguJqrusGykHb477x8O0JB
+	mVqzUuil1vxbengR8tsf1YY0Jrf4prrV0C/KLuX/vXNPUiLpTu+KSK6vgYQuDAqeXO2zeaz
+	sakvHgxjHNc5UMoOQqCeyaISkOIJt7JmO4q56YWsD+haDm3AZ1d0QPrNDv0HUZ5+PKL2TGF
+	MTKOHfr1DFyRaJZhxF/NrZVRReuvCcaE8DocqfJJ10qBmfPyyIcElpEtMGpfFtT8w0ufQAO
+	7L2EVT0qlGxEulsv1PaUTkC/3SFtqSXBM9YtfRnkuxGvP8R0UUoXEsiKiVmwB9z2f5r2WvP
+	4qa2lurvKgfbhAaYCB0KyOD/Ny1U4oJnkVqCD4su0r2+h0vwrvPsfizAZR3JzDvf+wQgiC1
+	8tUoxSDMahKpVhU5VEeY6CSJfhkuXT8RFF7e8Npmaib29RUyEXiL0LQ5zjvqhzw9lBs14Eb
+	OvfBSlYY/pAqTmVhNQx41Sz1+gKN8BxAPXNVEcWuJO9BvFDGuTFDZdM3NTyQ4MakEmZ7OG+
+	1y39DgBcGis27ff+ckXNeSq/9j4bnjHJHVsaqKF1hNBynFROn6nbyuJ8OY5V8NXcRozUsaj
+	kKeYvaaPU+tZgYyqGVpj04MI/g7bkAwMZFDHA7Qg==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_201645_457574_E0DAD1F3 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20261008_201823_142650_4058C341 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,124 +115,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 02:19:45PM -0400, Frank.Li@oss.nxp.com wrote:
->From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
->Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
->to be used with the mx95evkrpmsg system manager configuration for
->remoteproc and audio over rpmsg-usecases.
->
->Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
->Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->Signed-off-by: Frank Li <Frank.Li@nxp.com>
->---
-> arch/arm64/boot/dts/freescale/Makefile             |  3 +
-> .../boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 67 ++++++++++++++++++++++
-> 2 files changed, 70 insertions(+)
->
->diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->index 95ae85ab4adf5..3f98132f5a32f 100644
->--- a/arch/arm64/boot/dts/freescale/Makefile
->+++ b/arch/arm64/boot/dts/freescale/Makefile
->@@ -707,6 +707,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-sdwifi.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
->+dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm-rpmsg.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-frdm-pro.dtb
->@@ -729,6 +730,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
-> 
->+imx95-15x15-frdm-rpmsg-dtbs = imx95-15x15-frdm.dtb imx95-15x15-frdm-rpmsg.dtbo
->+
-> imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
-> dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
-> 
->diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
->new file mode 100644
->index 0000000000000..bc02864c6f88e
->--- /dev/null
->+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
->@@ -0,0 +1,67 @@
->+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->+/*
->+ * Copyright 2026 NXP
->+ *
->+ * This DT overlay is meant to be used alongside the mx95evkrpmsg SM
->+ * configuration for remoteproc and audio over rpmsg.
->+ */
->+
->+/dts-v1/;
->+/plugin/;
->+
->+&{/} {
->+	remoteproc-cm7 {
->+		compatible = "fsl,imx95-cm7";
->+		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
->+		mbox-names = "tx", "rx", "rxdb";
->+		memory-region = <&vdev0buffer>, <&vdev0vring0>,
->+				<&vdev0vring1>, <&rsc_table>;
->+		memory-region-names = "vdev0buffer", "vdev0vring0",
->+				      "vdev0vring1", "rsc-table";
->+	};
->+
->+	reserved-memory {
->+		#address-cells = <2>;
->+		#size-cells = <2>;
->+
->+		vdev0vring0: memory@88000000 {
->+			reg = <0 0x88000000 0 0x8000>;
->+			no-map;
->+		};
->+
->+		vdev0vring1: memory@88008000 {
->+			reg = <0 0x88008000 0 0x8000>;
->+			no-map;
->+		};
+This series adds standard KMS static HDR metadata and BT.2020 RGB
+signalling to MSM DP and eDP, with HDR10 as the intended use case. It uses
+HDR_OUTPUT_METADATA, Colorspace and max bpc. Userspace supplies the HDR
+pixel content; DSC, dynamic HDR and tone mapping are outside this series.
 
-vdev1 should be put here, I think.
+Patches 1-3 allow max bpc registration before connector state allocation,
+restore the attached property default, remove the early state allocation
+workarounds and register max bpc centrally for non-HDMI bridge connectors.
 
-Regards
-Peng
+Patch 4 makes the SDP header packing input const. Patch 5 prepares generic
+SDP slots. The HPD state serialization and debugfs connector pointer fixes
+are already in linux-next and are not included in this revision. On the
+current v7.3-rc5 base, both fixes are applied as prerequisites.
 
->+
->+		vdev0buffer: memory@88020000 {
->+			compatible = "shared-dma-pool";
->+			reg = <0 0x88020000 0 0x100000>;
->+			no-map;
->+		};
->+
->+		rsc_table: memory@88220000 {
->+			reg = <0 0x88220000 0 0x1000>;
->+			no-map;
->+		};
->+	};
->+
->+	sound-micfil {
->+		status = "disabled";
->+	};
->+};
->+
->+&edma1 {
->+	/* reserved for M7 */
->+	dma-channel-mask = <0x40>;
->+};
->+
->+&edma2 {
->+	/* reserved for M7 and V2X */
->+	dma-channel-mask = <0xf>;
->+};
->+
->+&micfil {
->+	/* reserved for M7 */
->+	status = "reserved";
->+};
->
->-- 
->2.43.0
->
->
+Patches 6-9 move runtime PM calls outside the connection lock, serialize
+stream operations with HPD, establish PHY power ownership and add stream
+enable rollback, including AUX recovery for a connected external peer.
+New error returns are introduced together with their cleanup paths.
+
+Patches 10-12 add deferred link-status notification, persistent eDP link
+capability caching and stream reconstruction for modesets leaving eDP self
+refresh.
+Patch 13 adds atomic output depth selection. Patches 14-17 clear stale MSA
+colorimetry, flush VSC removal, exclude YUV420 streams from PSR and move
+VSC packets into bridge atomic state. Patch 18 adds BT.2020 RGB signalling.
+
+Patch 19 serializes SDR video-test state changes with mode programming.
+Patch 20 adds complete static HDR support: metadata validation and packing,
+10 bpc enforcement, Generic2 programming and teardown, stream restoration,
+PSR exclusion and arbitration with video-pattern tests. A test request
+arriving after atomic check cannot replace the checked HDR output depth.
+
+This series is tested on a Lenovo Yoga Slim 7x using x1e80100.
+
+Signed-off-by: Xilin Wu <sophon@radxa.com>
+---
+Changes in v2:
+- Drop the HPD state serialization and debugfs connector pointer fixes,
+  which are already in linux-next.
+- Restore max bpc from the property default and remove early connector
+  state allocation workarounds, with regression coverage. (Maxime)
+- Register non-HDMI max bpc in the bridge connector helper and advertise
+  the MSM DP/eDP limit through bridge->max_bpc. (Dmitry)
+- Split the const SDP header change into a separate patch. (Dmitry)
+- Serialize stream operations and rollback with HPD before tracking PHY
+  ownership; keep runtime PM calls outside the connection lock. (Sashiko)
+- Clear the sink training pattern before returning a retraining error. (Sashiko)
+- Use the link-status property helper and move TODO removal into the
+  failure notification patch. (Dmitry)
+- Cache eDP link capabilities after the first successful discovery and
+  retain them across power transitions. (Dmitry)
+- Discover eDP bandwidth limits before atomic check and reject unknown
+  limits instead of deferring validation to enable. (Sashiko)
+- Keep the checked depth during training fallback and only accept links
+  that can carry the unchanged stream. (Dmitry)
+- Derive PSR eligibility from the checked VSC state, including YUV420
+  modes with default colorimetry. (Sashiko)
+- Program the checked VSC packet unchanged for normal streams; rebuild
+  it only for video compliance tests. (Dmitry)
+- Split MSA cleanup, VSC updates, PSR exclusion and atomic VSC state
+  from BT.2020 RGB support. (Dmitry)
+- Validate HDR controller support during atomic check. (Sashiko)
+- Pass checked VSC/HDR state through stream programming instead of
+  copying the configuration into the panel. (Dmitry)
+- Link to v1: https://patch.msgid.link/20260930-msm-dp-hdr10-v1-0-dbbf8b2b42bc@radxa.com
+
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Robert Foss <rfoss@kernel.org>
+To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Kevin Hilman <khilman@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>
+To: Dmitry Baryshkov <lumag@kernel.org>
+To: Abhinav Kumar <abhinav.kumar@linux.dev>
+To: Jessica Zhang <jesszhan0024@gmail.com>
+To: Sean Paul <sean@poorly.run>
+To: Marijn Suijten <marijn.suijten@somainline.org>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: freedreno@lists.freedesktop.org
+
+---
+Xilin Wu (20):
+      drm/atomic: Handle max bpc properties before connector state allocation
+      drm/connector: Drop early state allocation for max bpc registration
+      drm/bridge-connector: Attach max bpc for non-HDMI bridges
+      drm/msm/dp: Accept a const SDP header when packing
+      drm/msm/dp: Support multiple generic SDP slots
+      drm/msm/dp: Keep runtime PM calls outside the connection lock
+      drm/msm/dp: Serialize stream operations with HPD processing
+      drm/msm/dp: Track PHY power ownership
+      drm/msm/dp: Unwind resources when enabling a stream fails
+      drm/msm/dp: Report stream enable failures through link status
+      drm/msm/dp: Cache eDP link capabilities after successful discovery
+      drm/msm/dp: Rebuild the eDP stream on modesets leaving self refresh
+      drm/msm/dp: Track output bit depth in bridge atomic state
+      drm/msm/dp: Clear stale MSA colorimetry bits
+      drm/msm/dp: Flush VSC updates when leaving YUV420
+      drm/msm/dp: Disable PSR for YUV420 streams
+      drm/msm/dp: Track VSC packets in bridge atomic state
+      drm/msm/dp: Signal BT.2020 RGB on DP and eDP
+      drm/msm/dp: Serialize video test state changes
+      drm/msm/dp: Add static HDR metadata support for DP and eDP
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c      |   6 -
+ drivers/gpu/drm/display/drm_bridge_connector.c |  18 +
+ drivers/gpu/drm/drm_atomic_state_helper.c      |   8 +
+ drivers/gpu/drm/drm_connector.c                |  22 +-
+ drivers/gpu/drm/meson/meson_encoder_hdmi.c     |   6 -
+ drivers/gpu/drm/msm/Kconfig                    |   1 +
+ drivers/gpu/drm/msm/dp/dp_ctrl.c               | 263 ++++++++++----
+ drivers/gpu/drm/msm/dp/dp_ctrl.h               |   9 +-
+ drivers/gpu/drm/msm/dp/dp_debug.c              |  27 +-
+ drivers/gpu/drm/msm/dp/dp_debug.h              |   8 +-
+ drivers/gpu/drm/msm/dp/dp_display.c            | 483 +++++++++++++++++++++----
+ drivers/gpu/drm/msm/dp/dp_display.h            |   8 +-
+ drivers/gpu/drm/msm/dp/dp_drm.c                | 133 ++++++-
+ drivers/gpu/drm/msm/dp/dp_drm.h                |  14 +
+ drivers/gpu/drm/msm/dp/dp_panel.c              | 176 +++++----
+ drivers/gpu/drm/msm/dp/dp_panel.h              |   9 +-
+ drivers/gpu/drm/msm/dp/dp_reg.h                |   4 +
+ drivers/gpu/drm/msm/dp/dp_utils.c              | 134 ++++++-
+ drivers/gpu/drm/msm/dp/dp_utils.h              |  23 +-
+ drivers/gpu/drm/tests/drm_connector_test.c     |  62 ++++
+ include/drm/drm_bridge.h                       |  11 +-
+ 21 files changed, 1128 insertions(+), 297 deletions(-)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20260930-msm-dp-hdr10-d84e11282319
+prerequisite-patch-id: a243647e29c62d6ff1c8dfbbc85d60d76a5b4b54
+prerequisite-patch-id: 41a4bb615c78c11b576a148af6786f0a8a63c172
+
+Best regards,
+--  
+Xilin Wu <sophon@radxa.com>
+
 
