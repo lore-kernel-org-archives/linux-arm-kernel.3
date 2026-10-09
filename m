@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFCBCA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66762CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W55BVNyzGfrANPY7EOmBpng6wzYtr7rRWOQJPcUOM50=; b=sswTL9W2CBvnFxc2JEfV2ewcWr
-	AV+0lSRypTJdIIgTMe95HlBJgNyMwvZBKonvL3OymK//9Z9tBxfYLiR7WYMZCtJpjjaZ/lBiNQqKx
-	6+Vv3kp3hU+ZaM0iDQW+RTX2AbpqN4RA5O0QcfgyZj09ctSmDq9VYbHL8XIdkiXptI1QqelfLnFlj
-	E+JiHDEFz952G6RtopsAnlWOODNeODTAi3ceLWvrDOVzNJsH9oc9XQTMGb24m57EYs8X317rgtPKl
-	O1taQjLykABEuXm2ntW2lDBpFELmvjAa7TfQnq31UxCDGkM0M6dsg2odd3sbzN9Nu1ZgeqY4ub9gg
-	lCFTtz0Q==;
+	bh=oaRojExYl7oDQMVosyTzIB3HUYTJPqu2bnKuYOk2cdo=; b=NBBJcVSmGKf/dhS9EUDyvA/osg
+	katRP15rfq1stCFZKlDNo/f9m4M7uFHBM5KcL41NQVnyf2pDwguvBIY2Nh5n/kzBYfqp9U158T+0/
+	5my8balFdx8kmBhKTpQ/ukPE/28gUW9GZXiL2R0GJ5nRm5ERLUP99EfLiUuGN08lh9IN9cHL3bgsa
+	ZxjYTDgkq1IuhsDgZeTzuGoIvewmiVdLnE/71mfBXL8geW9xlz9GrHwrX/5D59QVsNsqpD8Qphz07
+	KhLFgltfmU+6rLU5p+Sk/FnP3/abtc0CCUQnDI2xz7CHleYocvea1ivEuWCnrgpZ/ueGRtYPavHYd
+	b6LeQ/Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18L-00000005Keu-0N5B;
-	Fri, 09 Oct 2026 03:18:57 +0000
-Received: from bg1.exmail.qq.com ([114.132.124.171])
+	id 1xF18O-00000005Khf-0rGz;
+	Fri, 09 Oct 2026 03:19:00 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18I-00000005KbZ-2GJP
+	id 1xF18I-00000005KNk-0lVw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:18:55 +0000
-X-QQ-mid: zesmtpip2t1791515842t5bf99465
-X-QQ-Originating-IP: EPo9yvjcUKSxfds5pH10PS+8bETia1Xjr/JTyOz/FM8=
+	Fri, 09 Oct 2026 03:18:59 +0000
+X-QQ-mid: zesmtpip2t1791515850tc30037a9
+X-QQ-Originating-IP: aSGd6OVV+xf3PiTsG/D4LwATaC3JbU9u/HkEDXPIHtY=
 Received: from [192.168.30.32] ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 11:17:19 +0800 (CST)
+	id ; Fri, 09 Oct 2026 11:17:27 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1232975757929523936
-EX-QQ-RecipientCnt: 30
+X-BIZMAIL-ID: 9398557567907882420
+EX-QQ-RecipientCnt: 29
 From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 09 Oct 2026 11:15:57 +0800
-Subject: [PATCH v2 05/20] drm/msm/dp: Support multiple generic SDP slots
+Date: Fri, 09 Oct 2026 11:15:59 +0800
+Subject: [PATCH v2 07/20] drm/msm/dp: Serialize stream operations with HPD
+ processing
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-msm-dp-hdr10-v2-5-1835d4966da3@radxa.com>
+Message-Id: <20261009-msm-dp-hdr10-v2-7-1835d4966da3@radxa.com>
 References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -63,41 +64,39 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
  dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3697; i=sophon@radxa.com;
- h=from:subject:message-id; bh=zp9J/I3KL2ekRKRZ8uv9r2FRGz6DzqPhr0mZSqbj3oI=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlaUy17ccsbAemrHk8quDZmxgcmqxgUGifWiH5n5U
- npr6zg7SlkYxLgYZMUUWRTiGeayV+ZeeypWqgczh5UJZAgDF6cATCTQieGf9Z2fvZMTV6QYZqeY
- /Zq5b2t2t484/6WsjY57l7PdbmYyYGT40DnzKPOMH7vyVOX3uR+sWjfrsf6yWzX65TofD67zZc1
- lAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4913; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=y0Qxe6uEfYyWn21dpm7+XJNy2fWN1WyeLFfBAJmoLMI=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlZWMF5+vqL/zuyM03XtTtOrtp9YIOhhuzd4q+Wze
+ F7m958MOkpZGMS4GGTFFFkU4hnmslfmXnsqVqoHM4eVCWQIAxenAEyko4Phr2jC5hMBzt56KSKe
+ oauZThxVyWG8V7PdwDjcN1HrLoPzL4b/ETN5Cov0tgu5iW4+e9lup72H4dQpFq69qawBds++/Nj
+ NAQA=
 X-Developer-Key: i=sophon@radxa.com; a=openpgp;
  fpr=205F009D07796DD6E516752E32C31567AD9E324E
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: OMxr5LZhXS0MU8wPwCXiPLjcdXOc14c3engRk5tc6gRAlcGGmPzSzwSq
-	NdybTfi7EqgypwJMTTc6rUU60qIajHcobnOj5PFkl5adFnkEFfZ0SdAqpkN1LJ2OJ1TaWn1
-	tMQfwTA4KFe15k/0pI1fZKeGuUWRo0PP8VRo07CUpQ7XgO7z2dASl+OO8RTCsfJP/j8X7dK
-	oStedkhlsGrsVNF+m/EuOld8OEWaoYsb2Er6We4TlMrem4TdYUjddVPBWOKLVspylcskvEl
-	ZaqQxdoPvI7UFY6JsbjZd2Sfr6kyS/ccGJjJOoeP33At064PwNU956fFSBLM5mwIbP9Wj1M
-	Zuyttvi+zklpCPD5tcVibctrOd7lYzD5GgSNFEQ8+em+LdRI2+5okv2nfWRX+BhpGFo3EED
-	Mi8LygXjp8Tzv9V4bzGx6yiSl9i5cX+8xiTA33zaItkmcN0DSvkA8FJM1AgdQK6F1+g7ScQ
-	kUy4uoSWyRcAudnR68UjheLx81HtNGC/mahD98Gx/xKMrzK15oXVhLLuqeNvyg19o7hBzW/
-	vk3155D0aKRu75GVNHt8RH6pAO4LyjG+nbVU/qULlko9fmyKUcvjeorUlo45sUXfFFs/xsU
-	ndUoplcgmnR/fpbak1Y1KJNaBTovaGDxsxHpkKASY1PHzdosQtleBnAJotDl37jK3pUV8BO
-	RVE2okNXGKlSZgEUG5J1KQwCxHFX88IiwvGNVijlzdWuu4yI5S0ew4sQd4W8cD0WEbjv9Bh
-	4p66CCZ325XaubkecSnmtWyrnlYswd1QvpoPk3GCORAzzkZOC/pQqFwbPRxCFw9e4c3/eIU
-	GBg9Oy0aHIEXscf53N/O0M7Gbssocy+TPnHRCJJ7DRm+1PWBufmBEcQL3zfZ1fuJh0P4ekW
-	8JtjQk1vMasrfycca39UtN8jvul0wbAwAhTufRMUAdSXiqm7YpmYbLI61bk95o+sLR8HPNM
-	bg/t+cBqd75XBj3oFy0LRiYmAYcDHFylt1uwpB0udAMBX11q57n3mGHU+9PjRusg4gy0NP2
-	RgO+KghVIwVvh8KPqdqbJNsMSsofzcgLsofff6v6pNH7mZzfYpXxCA4Rmr+38nR7ef3o/LT
-	A==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: Ne1qJH8n09EwSUqBbSvhlaploINu90D9cIePlnT2+BEzn1Y8HgqfX430
+	zgqBzrnDq83Y1zVXhWyGpiyu7Jknzwy7TedwyApbvJZPBhdfgMOTkPwGuUOYcUsYdryW0Oa
+	m5zHc9kmroX6H0TdLgxofY0NmrznioBSY/pUTBrAKSrZgxEnrscbkqidX4itFBAID6k+eTY
+	OY92oCxjh+7jJ2JQ/nelXTsefmh+ep3+4SAefOg2LmZlK89DdU2KdtrpeU74m86+JlG24jE
+	8nt27RecIwgWfdGAIQ74IWrhUccb8rYaMhHB7q333l9tM/oUShjwpOVJW2BXNJAOvRPdK75
+	iDk3mLthjTxGmh+R81A9tYz/AJhP5ntbcoY6CWmlDDDlfc+bPB1dimgtZagfFQSiKHX1pZz
+	Syg+dQpPGxelyOIAzaSLW/Wa2QtfC7PqdgkiEexDRB2f2qZFGRPZk7uGtSE9pBHk9pWpUva
+	P/nXBTEV1/JqE7Vaix8E9wyXPOA8iVjmjVEqTfkhCxxlRelJJRDRsDydkEa/LrWibdRmn20
+	O/e2RyUxin2G1mmcz4DlkE1antgSEjFjRPoB9dPehUNWkDhCZuCtdZX6Y7Lu5iP2l997RYA
+	1IdiYOL/IjQtxtzEOmRH/2L0+CMSNjNhzmGoOVMAw+W6mOw1B3cOLPtzrodXFkHUwHk1aZM
+	2mcK96x9BXLxtsq4IsLd4MLS59en6sMh/s1uOEWC9AegvobnZ4tPN/7y6iGd1sPQsTWv9in
+	urY6NcNHNcGYaS9ysor3c2wwi8CYD7uqhvxnnQT1fp/XEo0Pc5DRvtd1m9w4JZKJOHNvPRG
+	+CGKq5Zrk0hT8vUbUMs5ObKStS4Sgk7qwkz2znFiffwRjGDrDNV2mB4WGS9RMXEwHEYNk2M
+	M+M63N6VYIH/GJFmjADH4J/Wdm0zZk/oivDi8/ZqJeTc8sBV5Ge2rZZZ4kUXwtPfqE/Bi4k
+	yAzsR7dLukGBWVbXGTemKJy6rP8Kn2SWG+JW96Wsg+s1aJdDa74xNXR1vqFGoj1gUdyLgaX
+	G4hbRLExG0x12/Ijdrmj3Mr7VwvxLsyAZqAewcySBBoADjew5Qzcc9cYH6BuU=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_201854_932311_1B39BC84 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20261008_201854_691147_6A662F05 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,103 +111,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SDP writer currently targets Generic0 for VSC packets. Static HDR
-metadata needs a separate slot so that both packets can be sent on the
-same stream.
+HPD PHY test requests stop and restart the mainlink under plugged_lock,
+but atomic stream enable and disable do not take that lock. Both paths
+can check a resource flag before either updates it and acquire duplicate
+clock or PHY references. They can also reset a link while the other path
+is training it or enabling video.
 
-Allow the SDP writer to address a generic packet slot, and define the
-Generic2 registers needed for static HDR metadata. Use unaligned
-little-endian loads for the payload words.
+Hold plugged_lock across link preparation, stream enable and post-enable,
+and protect stream disable and PSR transitions with the same lock. Add
+lock assertions to the internal stream helpers. Acquire the runtime PM
+reference and handle the eDP plug event before entering the critical
+section, and leave audio shutdown waits and runtime PM release outside.
 
-The existing VSC packet continues to use Generic0 without changing its
-layout or enable sequence.
+This provides the serialization required by PHY ownership tracking and
+the subsequent stream enable rollback paths.
 
 Assisted-by: LLM
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- drivers/gpu/drm/msm/dp/dp_panel.c | 22 ++++++++++------------
- drivers/gpu/drm/msm/dp/dp_reg.h   |  4 ++++
- 2 files changed, 14 insertions(+), 12 deletions(-)
+ drivers/gpu/drm/msm/dp/dp_display.c | 42 ++++++++++++++++++++++++++++++-------
+ 1 file changed, 35 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index e76dad0f6663..fdf1a3f437ba 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -14,6 +14,7 @@
+diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+index 32a2ac89d8ed..787efbcb6c12 100644
+--- a/drivers/gpu/drm/msm/dp/dp_display.c
++++ b/drivers/gpu/drm/msm/dp/dp_display.c
+@@ -53,6 +53,7 @@ struct msm_dp_display_private {
+ 	bool phy_initialized;
+ 	bool audio_supported;
  
- #include <linux/io.h>
- #include <linux/types.h>
-+#include <linux/unaligned.h>
- #include <asm/byteorder.h>
++	/* Serializes HPD, stream and PSR operations while runtime active. */
+ 	struct mutex plugged_lock;
+ 	bool plugged;
  
- #define DP_INTF_CONFIG_DATABUS_WIDEN     BIT(4)
-@@ -442,22 +443,19 @@ void msm_dp_panel_clear_dsc_dto(struct msm_dp_panel *msm_dp_panel)
- 	msm_dp_write_p0(panel, MMSS_DP_DSC_DTO, 0x0);
+@@ -623,13 +624,10 @@ static int msm_dp_display_set_mode(struct msm_dp *msm_dp_display,
+ 	return 0;
  }
  
--static void msm_dp_panel_send_vsc_sdp(struct msm_dp_panel_private *panel, struct dp_sdp *vsc_sdp)
-+static void msm_dp_panel_send_sdp(struct msm_dp_panel_private *panel,
-+				  const struct dp_sdp *sdp, u32 base)
+-static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
++static int msm_dp_display_prepare(struct msm_dp_display_private *dp)
  {
- 	u32 header[2];
--	u32 val;
- 	int i;
- 
--	msm_dp_utils_pack_sdp_header(&vsc_sdp->sdp_header, header);
-+	msm_dp_utils_pack_sdp_header(&sdp->sdp_header, header);
-+	msm_dp_write_link(panel, base, header[0]);
-+	msm_dp_write_link(panel, base + 4, header[1]);
- 
--	msm_dp_write_link(panel, MMSS_DP_GENERIC0_0, header[0]);
--	msm_dp_write_link(panel, MMSS_DP_GENERIC0_1, header[1]);
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+-	int rc = 0;
+-	bool force_link_train = false;
 -
--	for (i = 0; i < sizeof(vsc_sdp->db); i += 4) {
--		val = ((vsc_sdp->db[i]) | (vsc_sdp->db[i + 1] << 8) | (vsc_sdp->db[i + 2] << 16) |
--		       (vsc_sdp->db[i + 3] << 24));
--		msm_dp_write_link(panel, MMSS_DP_GENERIC0_2 + i, val);
--	}
-+	for (i = 0; i < sizeof(sdp->db); i += 4)
-+		msm_dp_write_link(panel, base + 8 + i,
-+				  get_unaligned_le32(&sdp->db[i]));
+-	drm_dbg_dp(dp->drm_dev, "sink_count=%d\n", dp->link->sink_count);
++	int rc;
+ 
+ 	if (msm_dp_display->is_edp)
+ 		msm_dp_hpd_plug_handle(dp);
+@@ -640,6 +638,19 @@ static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
+ 		return rc;
+ 	}
+ 
++	return 0;
++}
++
++static int msm_dp_display_prepare_link_locked(struct msm_dp_display_private *dp)
++{
++	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
++	int rc = 0;
++	bool force_link_train = false;
++
++	drm_dbg_dp(dp->drm_dev, "sink_count=%d\n", dp->link->sink_count);
++
++	lockdep_assert_held(&dp->plugged_lock);
++
+ 	if (dp->link->sink_count == 0)
+ 		return -ENOTCONN;
+ 
+@@ -664,6 +675,8 @@ static int msm_dp_display_enable(struct msm_dp_display_private *dp,
+ 	int rc = 0;
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+ 
++	lockdep_assert_held(&dp->plugged_lock);
++
+ 	drm_dbg_dp(dp->drm_dev, "sink_count=%d\n", dp->link->sink_count);
+ 	if (msm_dp_display->power_on) {
+ 		drm_dbg_dp(dp->drm_dev, "Link already setup, return\n");
+@@ -684,6 +697,8 @@ static int msm_dp_display_post_enable(struct msm_dp *msm_dp_display)
+ 
+ 	dp = container_of(msm_dp_display, struct msm_dp_display_private, msm_dp_display);
+ 
++	lockdep_assert_held(&dp->plugged_lock);
++
+ 	rate = dp->link->link_params.rate;
+ 
+ 	if (dp->audio_supported) {
+@@ -721,6 +736,8 @@ static int msm_dp_display_disable(struct msm_dp_display_private *dp,
+ {
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+ 
++	lockdep_assert_held(&dp->plugged_lock);
++
+ 	if (!msm_dp_display->power_on)
+ 		return 0;
+ 
+@@ -880,6 +897,8 @@ void msm_dp_display_set_psr(struct msm_dp *msm_dp_display, bool enter)
+ 	}
+ 
+ 	dp = container_of(msm_dp_display, struct msm_dp_display_private, msm_dp_display);
++	guard(mutex)(&dp->plugged_lock);
++
+ 	msm_dp_ctrl_set_psr(dp->ctrl, dp->panel, enter);
  }
  
- static void msm_dp_panel_update_sdp(struct msm_dp_panel_private *panel)
-@@ -487,7 +485,7 @@ void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sd
- 	cfg2 |= GENERIC0_SDPSIZE_VALID;
- 	msm_dp_write_link(panel, MMSS_DP_SDP_CFG2, cfg2);
+@@ -1449,7 +1468,13 @@ void msm_dp_display_atomic_enable(struct msm_dp *msm_dp_display,
  
--	msm_dp_panel_send_vsc_sdp(panel, vsc_sdp);
-+	msm_dp_panel_send_sdp(panel, vsc_sdp, MMSS_DP_GENERIC0_0);
+ 	dp = container_of(msm_dp_display, struct msm_dp_display_private, msm_dp_display);
  
- 	/* indicates presence of VSC (BIT(6) of MISC1) */
- 	misc |= DP_MISC1_VSC_SDP;
-diff --git a/drivers/gpu/drm/msm/dp/dp_reg.h b/drivers/gpu/drm/msm/dp/dp_reg.h
-index dda4b642c81b..6767a215b662 100644
---- a/drivers/gpu/drm/msm/dp/dp_reg.h
-+++ b/drivers/gpu/drm/msm/dp/dp_reg.h
-@@ -232,10 +232,12 @@
- #define MMSS_DP_AUDIO_CTRL_RESET		(0x00000214)
- 
- #define MMSS_DP_SDP_CFG				(0x00000228)
-+#define GEN2_SDP_EN				BIT(19)
- #define GEN0_SDP_EN				(0x00020000)
- #define MMSS_DP_SDP_CFG2			(0x0000022C)
- #define MMSS_DP_AUDIO_TIMESTAMP_0		(0x00000230)
- #define MMSS_DP_AUDIO_TIMESTAMP_1		(0x00000234)
-+#define GENERIC2_SDPSIZE_VALID			BIT(20)
- #define GENERIC0_SDPSIZE_VALID			(0x00010000)
- 
- #define MMSS_DP_AUDIO_STREAM_0			(0x00000240)
-@@ -291,6 +293,8 @@
- #define MMSS_DP_GENERIC1_8			(0x00000348)
- #define MMSS_DP_GENERIC1_9			(0x0000034C)
- 
-+#define MMSS_DP_GENERIC2_0			(0x000003D8)
+-	rc = msm_dp_display_prepare_link(dp);
++	rc = msm_dp_display_prepare(dp);
++	if (rc)
++		return;
 +
- #define MMSS_DP_VSCEXT_0			(0x000002D0)
- #define MMSS_DP_VSCEXT_1			(0x000002D4)
- #define MMSS_DP_VSCEXT_2			(0x000002D8)
++	guard(mutex)(&dp->plugged_lock);
++
++	rc = msm_dp_display_prepare_link_locked(dp);
+ 	if (rc) {
+ 		DRM_ERROR("DP display prepare failed, rc=%d\n", rc);
+ 		return;
+@@ -1474,6 +1499,8 @@ void msm_dp_display_atomic_disable(struct msm_dp *dp)
+ 
+ 	msm_dp_display = container_of(dp, struct msm_dp_display_private, msm_dp_display);
+ 
++	guard(mutex)(&msm_dp_display->plugged_lock);
++
+ 	/*
+ 	 * If .atomic_enable() bailed out - link training failure is the common
+ 	 * case - the mainlink was never brought up and ->power_on stayed false.
+@@ -1511,7 +1538,8 @@ void msm_dp_display_atomic_post_disable(struct msm_dp *dp)
+ 
+ 	msm_dp_display_audio_notify_disable(msm_dp_display);
+ 
+-	msm_dp_display_disable(msm_dp_display, msm_dp_display->panel);
++	scoped_guard(mutex, &msm_dp_display->plugged_lock)
++		msm_dp_display_disable(msm_dp_display, msm_dp_display->panel);
+ 
+ 	msm_dp_display_unprepare(msm_dp_display);
+ }
 
 -- 
 2.56.0
