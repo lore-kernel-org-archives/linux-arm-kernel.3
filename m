@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10CCA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35394CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8E6Bi7bKMcAw5TwqvxCLAr9mz+479h38geJmPUDsO7U=; b=j6HqHPD8y3CHf9+ZxjUE4yF68N
-	FGqAdxxxenWTnprkqTPFzoWhbCvAbap+n1/kb6wOVeabYL3kPfRaVxtzWPNm5Kl6BsbnnEZTpa6A6
-	xyhYhfJ5b67zMQv+OcBJ9968Q7SjlHdmYo0jCDNptfgLp/HeFlo03Roi8UcIxoN17YmkaDYy/MQq5
-	i6JNRyCAyFS3mHdKGFRUM2ufLSXnAEquec42hrqpWKmXOVNDQLPS2QfmWucmzE/BKsWqXE4KsFRBX
-	l4ZEEGmyq3bWtbt/aS26r+l4clDITYdfHnuVWDIChZdjDGkikPww4+lajLxT0sFFp5fkLH3EDh4vs
-	MXfb5bBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i0RSIhug9e9ydgjudmmhXvwA5s3usVBKmgWxJQR/YPg=; b=ZF6Ot3byXZiIwKci1qx8JjJtUA
+	uTYk23M9vNx9dM/ZrN+qLVt3NEmtxMm6GUmYKKRunNaOqkzzi/MjopR7jzJl+ARenEX9oOlnkDSai
+	P3zXF9bt6OiaHdM9phzjIFZ4MQaaxF5dqE3ksj2U0ZKRaI0SeA2FJeyEezObix8QEtRNCBrcNEVjF
+	fY9WagF+KVD0dBwbssWCU5BtTPqBgVt1PEgcUMnXwuLV3GWz5l2ApP25GhlH9mnMcxqz+lfgVPwKX
+	APIxfocl+IXXYDv3SWxHryvGb3xO6BqhMKsRNxYWkK+ULvuQk91Hx81R5AbfVQN7VWW0l9zxRyH/r
+	cJfENkRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBTU-00000006Raq-24sr;
-	Fri, 09 Oct 2026 14:21:28 +0000
-Received: from out-49.mta0.migadu.com ([2001:41d0:1004:224b::31] helo=mta0.migadu.com)
+	id 1xFBWw-00000006Rss-3fTq;
+	Fri, 09 Oct 2026 14:25:02 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBTQ-00000006Ra6-4BpI
+	id 1xFBWs-00000006Rs2-2pXy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:21:26 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=XumFm+JZ5sp20UCcl1zhPKdv9LGzZM2iFj9GOxKc9Og=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791555681; v=1; x=1792160481;
- b=rU7sJd0aIZyW1n2XpvCgEvi4uvsqUf1ycvz5fvCBKAPzovW2xOyhs++OdP9ievfP5akKzAvO
- D2NJqpSF4Zp5P+3jPCFxR0XX2AK/LPQNZsaAxaKu0ZFhpfyHv2qsQye7I58s70A9BYqilcMToZF
- vVPVpz49013zzrF6jmvqa33o=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fa5e88ec6f13c988;
-	Fri, 09 Oct 2026 14:21:21 +0000
-X-Mizu-Trace-ID: fa5e88ec6f13c988
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so7841e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 07:21:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwLrqdnCO0ONXC6bF2cFB+2Gja3mCGXZcAwF93qaCyu0vuSUkT+Jcm9EyzEn+cCrwpoRmeRdZFli0GKhdFKb5P/@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ4ivOZxUuUsxStp/s7Krf6EgnelJPAUPpdgnuYyAFhNTDxpT0y
-	Dzq6yA0zTb0HhOZsWfofRZpZhpGwy6CcV24fMEg4gTvrJlf10rEx/kVEV54O3kwJPaxNS9+h+Jq
-	L4t27vF0q/OU7V04xlvU6Qr32FnVQHxu9+9a9NAKv
-X-Received: by 2002:a05:6512:1291:b0:5ae:cf5f:4a88 with SMTP id
- 2adb3069b0e04-5bcdf948b64mr90202e87.8.1791555680353; Fri, 09 Oct 2026
- 07:21:20 -0700 (PDT)
+	Fri, 09 Oct 2026 14:25:00 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261009142450euoutp020aa0c88be8ea75b1531f0ec7e0815418~c4pc4Kji92877128771euoutp02R
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 14:24:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261009142450euoutp020aa0c88be8ea75b1531f0ec7e0815418~c4pc4Kji92877128771euoutp02R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791555890;
+	bh=i0RSIhug9e9ydgjudmmhXvwA5s3usVBKmgWxJQR/YPg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=aiqEJSWOpDfUL1AKnBKqTlwcfxTrq/0miLWX+Wzd1JbYG3hVbE9drv9eNOifHgEql
+	 emZ8+9HPeiodQIG7JntklpErISRudBQfgtd3p/eahry/SnuvXYkbKxhpz59KMOb5mG
+	 M+q0tsnIp/g6YDhqptVYzJndtyaOadY4kv31Cj78=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261009142450eucas1p22aec6df61384870aa07eecf8ca4f269c~c4pcwGLoI2048820488eucas1p2r;
+	Fri,  9 Oct 2026 14:24:50 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261009142449eusmtip113f1886f9735f58850eaf51a840c30dd~c4pb_Pa1X1436814368eusmtip1V;
+	Fri,  9 Oct 2026 14:24:49 +0000 (GMT)
+Message-ID: <a4e7873b-f5eb-47cf-91f6-ad3e70f7b0cd@samsung.com>
+Date: Fri, 9 Oct 2026 16:24:49 +0200
 MIME-Version: 1.0
-References: <20261007073537.2454351-1-suzuki.poulose@arm.com> <179155224299.829527.1733164520192309991.b4-ty@b4>
-In-Reply-To: <179155224299.829527.1733164520192309991.b4-ty@b4>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 9 Oct 2026 15:20:44 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTymHEqCJco+d_yy33ndqPPsoZARhOQZ5A0Zwc5N3SV4Qg@mail.gmail.com>
-X-Gm-Features: AclHuK-kdu9KsnePYPGj9T-71wgfKb376h2mI-vnllt523DbHScqL5HOwi_XcNU
-Message-ID: <CA+EHjTymHEqCJco+d_yy33ndqPPsoZARhOQZ5A0Zwc5N3SV4Qg@mail.gmail.com>
-Subject: Re: [PATCH v23 00/14] KVM: arm64: CCA: Add basic plumbing for Realms
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, will@kernel.org, catalin.marinas@arm.com, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, 
-	gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, 
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, 
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, 
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, 
-	jonathan.cameron@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] dma-direct: Restore arch_dma_alloc() for the
+ DMA_ATTR_NO_KERNEL_MAPPING case
+To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig <hch@lst.de>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Russell King
+	<linux@armlinux.org.uk>, "Claude Opus 5 . 5" <noreply@anthropic.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260930135734.1013905-1-m.szyprowski@samsung.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261009142450eucas1p22aec6df61384870aa07eecf8ca4f269c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
+X-EPHeader: CA
+X-CMS-RootMailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
+References: <CGME20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4@eucas1p1.samsung.com>
+	<20260930135734.1013905-1-m.szyprowski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_072125_320912_B7181010 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20261009_072459_339702_60B9CCD5 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On 30.09.2026 15:57, Marek Szyprowski wrote:
+> Commit 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING
+> handling") moved the DMA_ATTR_NO_KERNEL_MAPPING shortcut in
+> dma_direct_alloc() in front of the arch_dma_alloc() call. Architectures
+> providing their own DMA coherent allocator (CONFIG_ARCH_HAS_DMA_ALLOC)
+> therefore no longer see such requests. ARM 32bit is one of such. Lack of
+> the call to arch_dma_alloc() results in the lack of proper cache
+> management on HighMem pages.
+>
+> Take the dma-direct shortcut only for coherent devices or when the
+> architecture doesn't provide arch_dma_alloc(). While touching this,
+> move that check into separate function to avoid duplication in alloc
+> and free paths.
+>
+> Fixes: 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING handling")
+> Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+> Closes: https://lore.kernel.org/all/yq5ams2akznl.fsf@kernel.org/
+> Assisted-by: Claude Opus 5.5 <noreply@anthropic.com>
+> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Applied to dma-mapping-for-next, because it looks that this case has no
+active users, so it is not the urgent fix.
 
-On Fri, 09 Oct 2026 14:28:03 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> Of course, mmu.c is where the crap happens, so anyone with any interest
-> in this stuff being halfway sane, please review the conflict resolution.
+> ---
+>  kernel/dma/direct.c | 22 ++++++++++++++++++----
+>  1 file changed, 18 insertions(+), 4 deletions(-)
+>
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index da665ca22d5c..a31bd3129f3f 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -179,6 +179,22 @@ static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+>  	return page;
+>  }
+>  
+> +/*
+> + * Check if the allocation can skip the kernel mapping and return the page
+> + * pointer as the cookie.
+> + */
+> +static bool dma_direct_use_no_mapping(struct device *dev, unsigned long attrs)
+> +{
+> +	if ((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) !=
+> +	    DMA_ATTR_NO_KERNEL_MAPPING)
+> +		return false;
+> +	if (is_swiotlb_for_alloc(dev))
+> +		return false;
+> +	if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_ALLOC) && !dev_is_dma_coherent(dev))
+> +		return false;
+> +	return true;
+> +}
+> +
+>  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
+>  		dma_addr_t *dma_handle, gfp_t gfp)
+>  {
+> @@ -226,8 +242,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	if (attrs & DMA_ATTR_NO_WARN)
+>  		gfp |= __GFP_NOWARN;
+>  
+> -	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
+> -	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev))
+> +	if (dma_direct_use_no_mapping(dev, attrs))
+>  		return dma_direct_alloc_no_mapping(dev, size, dma_handle, gfp);
+>  
+>  	if (!dev_is_dma_coherent(dev)) {
+> @@ -374,8 +389,7 @@ void dma_direct_free(struct device *dev, size_t size,
+>  	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
+>  		mark_mem_encrypted = true;
+>  
+> -	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
+> -	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev)) {
+> +	if (dma_direct_use_no_mapping(dev, attrs)) {
+>  		/* cpu_addr is a struct page cookie, not a kernel address */
+>  		dma_free_contiguous(dev, cpu_addr, size);
+>  		return;
 
-I went through the mmu.c resolution and it looks good to me. Unmap and
-aging are still no-ops for protected VMs, their abort handler is
-unchanged, and the default op keeps the tracked unmap for nested MMUs.
-Two minor things you might want to tidy up.
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-kvm_vm_stage2_unmap_range() repeats the lockdep_assert_held_write()
-and WARN_ON(size & ~PAGE_MASK) that kvm_stage2_unmap_range() already
-does before calling the op.
-
-The VM_WARN_ON_ONCE() in kvm_vm_mem_abort() reads the ESR from the
-vcpu again, where next had moved these checks to s2fd->esr. It's the
-same result today, since the only caller handles a real abort, but
-this (and dropping the vcpu local) would keep it in line with the
-rest:
-
-        VM_WARN_ON_ONCE(kvm_s2_fault_is_perm(s2fd) &&
-                        !esr_abt_is_write_fault(s2fd->esr) &&
-                        !kvm_s2_fault_is_exec(s2fd));
-
-Cheers,
-/fuad
 
