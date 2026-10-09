@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CE6CA9EBB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C0CCA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 20:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=; b=Pifhkpx9AhKQrU1wpxnntqH1wf
-	SNIlxNflNa/l0jkFNltQndWl6k5XFz1NA1tXsa3StqgmesQ+SEtBClOtZzYrFfuhkeBPiKKLRcRWB
-	JONSV/YkQZQiGLzdszfT+flj6fn/JF/l2R+4gLyt1wO6HW7osbqTqqjVA4xMukcTXyZFY9dUQB2ay
-	dKx2HHMlypPVom5uNfZLsBx6roP5Z8+Cd4+QLvf8z1Jw2RZgmxC039Itb4iLcbgQT0joSed5Q/kDo
-	pZoUc/l1x/sKP+99N7sxHExXH8rukwd696b92RJR9uhDhuQpxbVTOQbia8m8Ae7sOrqoV7P2yFYIY
-	wpzP8gkg==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AjSsTM9dn3VrkQezd6gVSQR2HX71jW7U84DNER0SLFU=; b=lvJuYLSTDSAX9Alr/e5e0dz12f
+	QZfEIDEcC2sdhY1Mevetssn+PpJjgDVXq7HECt7QdLf41E5usYi6cZUZzlql0Y1qXYqYX35qbQ9/+
+	rcYcqQ5gSJpRtntB/SqfCxBo2XwEM1Nc3HLBv4teUbpRvDEg/8YZ7ox1Dq0jptYZslntnsEY9q26w
+	jhM/Vmdb/AWDqrAk2TfyEwcSEcfI4ADhNfOA+hHUxxpT0nHB8z5PETbAGCBafn6BlP1nLCaoof6XW
+	5nYKDVIjOAg6sFi6bC5xC3+cca4btxwvkv4SQUuKfosg9CBFOQ3/rkeILEbDVXY6CRTRcNTVIuhMO
+	aT++7+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGzD-0000000791e-3QPU;
-	Fri, 09 Oct 2026 20:14:35 +0000
+	id 1xFGz9-0000000790G-2HgI;
+	Fri, 09 Oct 2026 20:14:31 +0000
 Received: from mail-westusazon11010022.outbound.protection.outlook.com ([52.101.85.22] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGz9-000000078ze-37w0
+	id 1xFGz6-000000078ze-3Ur8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 20:14:33 +0000
+	Fri, 09 Oct 2026 20:14:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a4kMo2Q7SBy+J99almDm6wH6JkoYbn2DofDprpPJEnLBuauHXtJB5/32o//+2a0y/TCXcNuzsk+giHQjBSpFgumZqNKkSnwIVg+gStXCUSlaxN/e2llSH6gVR82jeU3g06z3GgcFHW72khUUN8BjTkRy6S9/h515vzfRl5AbEOGpnd5YtFpPYGgOmf2urWf2YZRxi0WeXMTDLDgl0vmqEjDt9Ruq7jrJF64I5Jo9LgJa4ZAFIouML7AP1pGsanUzFARclBHsQ6vUkRLDMCKZ47lPl8bBjEHqJaqj7Bx2AfLa+uHK4NaVvwRXw+39OEhBKn2zxelMLXgF4bO/6hu2Wg==
+ b=sWJZWtQNmLIVjQBDK7t3PROk6XI4RTCtL6pQWhVpTYrO68Ss6toaAObYTXvEjV/OTsvodkbx68vI4tRntT+ud5IOZdMw7+mqO0iiff64V8TCScxoFGYGHgSHAKB2KF1SkrraGe0tF71cZY6sdDVWUxpWowvgFwm7yCzMQDDGu92lo/Z+D/eiT2HhCzioxWifdliYgbXQrqEPOBSygPAhY2EOopNtD98cMA15PM+Nr35tOSCnlyonBZ1J838xdq1dVX26BZg5bu0p+hi22NxZZTeI1kF1kFA68dxkRGSdfCd7c2gZ+iPqeD7jujt/o2i3DsSG7zvrS8Gn+T4v54GOsQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=;
- b=K8e3WV10KgfRK2TExZpl1yt5uVqk6HsbZSfRdLc1M1gTcNeSMaVHU5QuefvNO0H7Oau1x3OQKol1odMlqndGpsqcMou58jp7d3xy2RKBy6Uti3aNCvD/JSkUvPqidGANdyVO+U6uosiu//wpvxw6dpE8MxEkHMKggCO18MFHBlxGUTbMErXH/+leJn0x2laz9R+TwBRQERxwXGF2uwzWu4CHbly0nEcPsO/q7yAd3iRH/qOIFDDGj45/spDMGHezPzfnuhn2oiVakthKpBfD08D2sLkbdIbzaewQkJA1Y5mUhstSISW7sK/jhxBmWmMZ+2G48/5Gg3efwQDrJ4JNMA==
+ bh=AjSsTM9dn3VrkQezd6gVSQR2HX71jW7U84DNER0SLFU=;
+ b=RkqVFXrwDy2uIAgXAIMP7ztmobGPWBW9pRGhf1cKT3ikG5GDSF9q5Alkm2hpKy4GnNNaPV4AGK1GDlR82hoP5VY2CoV1kdtNui1kstQ+o+jWuk4QOaQyG0xXYSg4+tIfNj6WNEUFSVhlc18eWCo2FyqF/kWUHSdEeOMsL+uggUoEdXUTziuu+t/f/1GPN4AHbOWA5UaR0gxrKHV66hYyuFJsVvvR43QWzofb5Lniae93EvhoJhXXVeR3HjnikF2F0M5RwI2+lOIxb5+SvNW3c/Q6h4vRlUXYXfqxf/dk3ptfAe73ZpMYMug3XLbmQBVlK2o2xPzsFwY08rU2WBq3GA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JOy64R0Gz8R1ySh+N9HQKp03yGpLj9V8yqeWTPH3KCg=;
- b=VXWtIH3RI4hQuYtYHXdqKa7AopctGgfWC0Bix01WkFVuWEEwsB25Njh43OQLPq/geQAQcvuDhFm1dP38I6o+LGF4jhTP0LtmzsWmnnHGpvadpO8W7mRWIVevXHJS8cnJE3Iss0eEE8lG7coaS/IMzP92/xU/tCgJeNyGJLg6Nkc0n6YQGOCOxbhvBzMlrM6sSUXGUOm5l+1v4yTS9q/m1qTw7F8PnH4b1OBZTUDs2FozdQ/G1yhzSPcn9lJq9Qkh2oVmaWEIYjhKtx1+Aupy9A8etV8/+v5LAfVH9ewhf44EKkEfLbHQBSXWVrgUR79JoXoHsrM4G4/Ibf8JZYu65w==
+ bh=AjSsTM9dn3VrkQezd6gVSQR2HX71jW7U84DNER0SLFU=;
+ b=i1uT2tZ2VswI2T3lFulHmtDML93rPvfSiEDu/WLu1yh8Tn6Dh7CQp30MOnuK9VY8fF3udmxoE8b9OB9QRAZRpZBRXMNGG9fgKRw5RQw7e+8XaYH6F4mPuMhyo+PQBoWICPSSJaqh4dBXJw3ztHZGQ0Yht2XmjCsdMHZ7RyEPK3tSnZ8/ZMTyidB+GISMoVi52twF7x5R/4XgRdE0Ye5hP2z1+3v7pmhx85G01E5HL/QR/7eDDMF+3BEBjmpGss5z3gDQ/8QPFJ/ojFSg3S8J07WWwEzEGwn4lOnUQ7eVB8Gi5PA/0cbj0e/FJTZ20MYb04XHaqY9QBdQxlCTzu1hwg==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by DSVPR12MB999174.namprd12.prod.outlook.com
  (2603:10b6:8:389::5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 20:14:21 +0000
+ 2026 20:14:20 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0496.015; Fri, 9 Oct 2026
- 20:14:21 +0000
+ 20:14:20 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: iommu@lists.linux.dev,
 	"Joerg Roedel (AMD)" <joro@8bytes.org>,
@@ -67,68 +67,69 @@ Cc: David Matlack <dmatlack@google.com>,
 	Pranjal Shrivastava <praan@google.com>,
 	Samiullah Khawaja <skhawaja@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v9 0/2] Organize the SMMUv3 invalidation flow so iommupt can use it
-Date: Fri,  9 Oct 2026 17:14:16 -0300
-Message-ID: <0-v9-e1637b95096d+d83ffe-smmu_tlbi_jgg@nvidia.com>
+Subject: [PATCH v9 2/2] iommu/arm-smmu-v3: Support the DS expansion of range invalidation SCALE
+Date: Fri,  9 Oct 2026 17:14:18 -0300
+Message-ID: <2-v9-e1637b95096d+d83ffe-smmu_tlbi_jgg@nvidia.com>
+In-Reply-To: <0-v9-e1637b95096d+d83ffe-smmu_tlbi_jgg@nvidia.com>
+References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: YT4PR01CA0033.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fe::12) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: YT4PR01CA0015.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d1::22) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DSVPR12MB999174:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf8bd756-f98f-481b-1cbc-08df2641e6eb
+X-MS-Office365-Filtering-Correlation-Id: 884dc782-7b37-45d8-c6cc-08df2641e6e7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|10067099003|18002099003|13003099007|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: mUXShd++X7vE6DqaGlI8P3RbDp9LVsvL0R9gzWxin7clBZJhkF31mroLbIp2BYk5ldTyLEq0d9CiF7MXcMynHAORsohxZ0/6TOimmziSJGfDHkqBWU0VUVWLNfjmN3mZkf53Ur2CNy3gRl9E6/U82u0JxwHTwqjoPnfH04heKHtV4gRaLRwKQgvfzqLjBKpdPu8Gkb2Rf0hFvxw9R2E0ANgov7pOVzm6nvdBVaiMqYBBpFuX81K4Odt/FGk0zVUyPvt7D6qkRwyeD/7fwAGrHtvROknu5NEFcfTzVd+3Aclf4f8C9xNsPaATM+hdPamSWqUK51czQ8nrCgeBKSzyyNp7YlUsxQ7+bKI8noe6GInoKR/dEMwzidJ8U9WI23m4ScuwdgfG2BooYX6tnnZmlA25PwB3zjl0S0AyT0kiZOdCA1/u4SgrEgc8553EFGuLkt8NwgAQp1XPOYQ/CGjwd1TyXjym97RRu9Cxb5hzGrGsFARkzo5szR9dhCQFQFwD4YsBIfde/k+HCey00dhEYNpEanhcqJf7QZg5Ug8bR31bB0+njPFObZR+j9OS20w8LgXvf1Ih+GwRltfWL7wKAMvnLcM/5QO+sVKtnFuW7oYxe9bvjjDpD2gxmYuMmy7GjUxOj9Qa5W3vd3TwoskZ0oEqXqsQvYiIPdpJp0bbXss=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(10067099003)(18002099003)(13003099007)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|22082099003|10067099003|18002099003|11063799006|56012099006|5023799004;
+X-Microsoft-Antispam-Message-Info: dcNzuonKO3/VuTQUlUC1uc6lVKShdHUXpcVk2JQ+3VoipqeMtTQPPaasaZX9wkkchQR+TMLQJ99aKzWN4t3HlpxRhg/Veq+7BqvfJqH5Kwif3bR76jS7Wchbl/BQNsko6x6eAbhp5bcQhYUyZFA8k1PyYPoVlCqAIFSMGmiItfo9DDoU3g36gE/U4uF2LpXgL+G9H4F2Gg1kpM8dcOF3zUF6EabKYhlXQJsOxukjpN+oSM6cxyBsBXXmaFd2ZB5Otnj41LGlwoLkvBVcT8KP9hrQB6o9LU5Oc5R+guqy5UvLHI+wY7qQpWEErfAk9vgl9CukOKwGIi+IC+Xk50Jtk22Z5rddIovxw2aeLAOT6bXum6E4rf3aEG6NEOlcLdX4SFZvLXUCbDkGR3smIit0yy52koebPE6e+38IeBUmRyllIGxg6/hFGRLCYKkRZYjjWZNyrtz+Mhg23svfnJBp+a4ZujUgpMCq747rMKL8DFejrWcUxOC3LV8vxeTykHutP9GpjSgnwXfWDaVI5CSnioHe11NkKlmxrczIKVgYgIlelMcRj6FfzOWk8hkqkHGRZ+nEnu0VcYe5JKnL/+roIkj0hQKE/eFf1dHotBuArqLOKnq+bPXtADGKZ+biLeFUOoAzUYRDvzrY617MVBS/DAgXTPfyXT57tcuerV7WOjo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(22082099003)(10067099003)(18002099003)(11063799006)(56012099006)(5023799004);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I4Vqil3bcxz6B6YblAE1+rFtQETCPMt+GKsWEaEKcjxMLGEYuLmyynrXVg2l?=
- =?us-ascii?Q?VmHCeYhNpr2/bB0VMqTcc0lf9BIaLrOawQMXI8pwwjO8HmRqdHtP8901K1ie?=
- =?us-ascii?Q?XJ7dRjZJVbS7AKOxlPZwEw1Lpe/kVdk2bNnSesLayTYW5WP5I+7YmiUpmW2w?=
- =?us-ascii?Q?CtfWy3pBgS4nk6wZMnnaZqepdc1eOyZeh0GPtDs09OzqQYBp2VXsbAD8nr2+?=
- =?us-ascii?Q?kq+Y9HGtG5HVfY3jS4SeGptGzEKnYIXXotCz0PNMBMw4vYTzMrYiB7urhIb0?=
- =?us-ascii?Q?yb7fAKjdgZuQjkaC9e0hQ8tHSkFIYMlq9CDndaB4X2IrdECaNEOfCPoEsDS4?=
- =?us-ascii?Q?KpnV1Zu1lN4u9BcCM8JF9FQHv62cPnAkbwKDoCBzmebcqvsQljuaAOSRTD9M?=
- =?us-ascii?Q?Aal0ZEUMXoeWdmWXtwVnCSW0Pc9BbwHM4EJqldN7lRgXU5WzOuNtqrvifTZ9?=
- =?us-ascii?Q?k2ykq0fmLtshv6hnWGHRJh51RABKhk5haEwPDxGGhgiCQxcEMfsGP1SYSpek?=
- =?us-ascii?Q?l1D8XtgWOo1dSdKGQETJCV795h2xXm+t9RgHhr43vDY+yBfQ88AJbGFEHkLl?=
- =?us-ascii?Q?8qkL7miB6myIMPeXWhidUY+o4CTjEM3CEX/keiGkxMb3m3pF6RoRGFO8L9Id?=
- =?us-ascii?Q?qgYl10clbrCJoMfKRe/JkrUMuu+mpCz3ZT5enffFDn6NApNROYAb/w5ltQtH?=
- =?us-ascii?Q?xnBPB/34KEnViSCiXv9Ww7L+yC4m74lsaGAoul9uakMmpFYi8wVf+oKWgiLA?=
- =?us-ascii?Q?2PhUzF+8aJNsBfuMyhL/8BaCrJtK8mFDsWb35y2VbXlpU/emb/EjEsDegN+c?=
- =?us-ascii?Q?PSFY/g9UR79Eo/LCp6PXiV59MQrji0ik2lZ10zVgisADDHXMucBYt+pP8s7q?=
- =?us-ascii?Q?A3fF2lYE0dn8OVmDTi+ksxJqGpWecbzoJvGWKnLUglgh7Ti8DNLY4Hv/WHD8?=
- =?us-ascii?Q?vMwsh32unZIm4jAC0XPwFQBwTYpMGNM+yEx0jC9lSna7QZ92jejCjnCxiTTM?=
- =?us-ascii?Q?YfVYqDV00TEPVaLDAHiwBk8X+EdiSvxnRno+fAPKHma6bnxg8pP4D4TtAoNS?=
- =?us-ascii?Q?0H4tagkcrjOQzTf6/8WcbJfFHRloPHcvN3jcvOReSHV3uy6kj+8V/j62xGlG?=
- =?us-ascii?Q?UxyHN5wPABivNGpmlOq7dcHooaWhGfcu8aAAGkzWqnkQHfCmFhVyXHGYCTaZ?=
- =?us-ascii?Q?PouwsRiICVCVwCqNmDdfMMUMIUcvZumGUvJ18VRkSNn04kCJYH9Woq0yVq+J?=
- =?us-ascii?Q?ylGF0vGrOOyLqagFlCCoGvBqNyseX4dHSnluOYx4a1ekDu7psX2ekfFr+XTe?=
- =?us-ascii?Q?LsR5L4fUZUfpava9ieobIwYez10p0kljfapifUAP7mnCCphODTsmsS0hPOTn?=
- =?us-ascii?Q?XJ9ArTi0+ym8oBr39RZ+yXCqlejYkHSD4XltKmE3OIqwjjj/8j08z7ULCwru?=
- =?us-ascii?Q?xmUjeq5810spMRkVTNW3mteJ+1HZiHpytAn8shS31UrS2Y/NCF/LVlGl+TZF?=
- =?us-ascii?Q?vRjsgG85I4ViPQ7Ubxil9R4UUFt5p9Rm6jzBnL/0rg3c16/GpsVSrqGecx3k?=
- =?us-ascii?Q?16FH6abaigPpCNADFtJNQhORDfog/uIMsQ6IdHXbnNFmoLJD7YvlMEhguoMx?=
- =?us-ascii?Q?XYYzi2wkQmRgJVSrY2TSEb15gW4DrPc5PtUx/LVEbHtyXqVUE3o/48iMlO48?=
- =?us-ascii?Q?cTSF8+GXsdflAlfdCCrnxqVH9eTiuRRA2CJuZdgsyjAZsDls?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+xj5YngbL37BS7y6p4W0uwc342sjgAxROwzBzUHzNCg3RmJGYgDqA26q56gc?=
+ =?us-ascii?Q?mlpuVoYOLyXP5tSTXbGZudSux8hFa6h1tWmGdaDFrywU+Tr+5Bqh/76Q+Twb?=
+ =?us-ascii?Q?aj4EgCvBsFqMbJrPiBpau7XGEROXGQHjBJaFpB+zHgYqAvt1Y47zjZRYv4fG?=
+ =?us-ascii?Q?skLQ8dRL3eLSvKiuGwuKFHP8dc+2fjNJXJQsTWITHAZ8rYh2ir2kX9uxb/7t?=
+ =?us-ascii?Q?FskaAtTMeaUO3IUta/lH856EYpGt8Pv/+ilHK6nrgIuRGKaA+3JqBkeor9Pj?=
+ =?us-ascii?Q?eK1/eta2zNpeNlL5g1llQ0UN99S4yYtPxpkQ0ccrFbhntcYfZg0a0B1eGEzK?=
+ =?us-ascii?Q?LZQow56zYvjkzYllo31LtEs66ZMeCTPkKT1A1hVvwyQa0N2Me3nlD4OFH0o5?=
+ =?us-ascii?Q?wqxjQmyxOlc+7XMI3stDluMUJjZkdEH+YkdVKKw7kXb2qLR3Y+qOAnFFKc2k?=
+ =?us-ascii?Q?DlhyUWifm9d4u3yEMssMz6x1OqlY1bG/YVYrBncQx4sdXi5YaqRyRDYF0T/9?=
+ =?us-ascii?Q?Qz2zmE1X0GbBtBxuf1Wcqd2+EfwW4/e5hfcfAib07xyfTAdIL9YgR1GZND9N?=
+ =?us-ascii?Q?g4fYCUrbGMOKmUUouq4CO+4rWv+RJR02czxNZlrjlSZ7m4SEAnOyJxWOp3F6?=
+ =?us-ascii?Q?U+dxxrKWE+ZQzIoV6SDVh9UFYMWrozgx4DINwEAl290uQjoMYo78RWumJKB9?=
+ =?us-ascii?Q?PkatPdRd3iKZgioBFv2awVHv/Nlohc4y15fQF62sdG0ToAR08dWAaXCQBHpe?=
+ =?us-ascii?Q?L0fNZTqUALzpPGJM3QHXuy6LFzY0TN90Wx92BE/2n1BQjVW/TMgFVAHtOxPI?=
+ =?us-ascii?Q?YJVc7+o6kPFSVo07l5+LysU5WT1i3+Hy6RTyE4JmRSShP2ZURmwJMjOk3EVS?=
+ =?us-ascii?Q?JbiuR8HezSELzllYSJEHrBcUuG8XMRrKo/a/beqjwGBvVDt/C3EW1dmHX7a3?=
+ =?us-ascii?Q?Gbqs+agCrODGvfaUJwt5Kbi7kEoJ2hw5bFsQq5qRfqMTNMjyin7oGmWUs2FI?=
+ =?us-ascii?Q?GryKtuqYIMgzismbd8BDj0+kPZnvLFOQLJGu3AJjPAJbJl7yN72kEVxTdWI2?=
+ =?us-ascii?Q?riPked2Oy/mib6AkWiSAeA1PlQ9BacKTrXLJe86uwp1wG7MfbTKWyA89d2Zq?=
+ =?us-ascii?Q?c0q0W6eCp68tg+jV0UVG4xuycZNarME51ptUqraYOj7QJi60EwcoWFHv0D3R?=
+ =?us-ascii?Q?1v+hK+bDJnSblupJbnGETCY0X4eJB+4oZVC/xUA2lslyvArRHG3701xo929e?=
+ =?us-ascii?Q?shsKzVDld817ac8nB3ZhrqrpJDrJYv8yHVcDD0PhNblmYjQFxWMHrKcEv+qp?=
+ =?us-ascii?Q?eXxDap48jh3b2pE9tUAEZ0hNmI+li9BG6+liYs3xr7eSZ6xmhKmuq5FhU7Jk?=
+ =?us-ascii?Q?wmSxX1aAOmj4LYmg5apu6hK78fUaQwzeDgBQ0XOPpQCZ49ZFtDMFydNwFF2w?=
+ =?us-ascii?Q?rJmKic7MrRx5YoBdGyFmNYfwZYAwgSuiPThtaunquzAGtTaWwSR6zp6cfGM4?=
+ =?us-ascii?Q?AlYmzLLYWAwKn60Wklj+uFB7J1xwW6Zb09++HgOQQTeAo7NSK85P9bmNeGkk?=
+ =?us-ascii?Q?HFLd0yBzqhyaR/lnOQ8bNo2rmLOaBok8ZoueQPmFJ3Ce2EAM2sYduoX7h934?=
+ =?us-ascii?Q?6azYmFbatREmya1KwNo+dOhDwI+fCRwzvnbEx/GWsn0jgCYcdhDTRdcZn//Z?=
+ =?us-ascii?Q?DSj5Opn6VMteIeZnxaLzj53h9CdtXwRElJqAoAbaVegIetie?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf8bd756-f98f-481b-1cbc-08df2641e6eb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 884dc782-7b37-45d8-c6cc-08df2641e6e7
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 20:14:19.9641
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 20:14:19.9504
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zcoNIWvUIC2HprDr7WU/jE6IRfNUwUmwi3ulsWqtDMDsMSK1pgN+8Bb5g7W0eF4i
+X-MS-Exchange-CrossTenant-UserPrincipalName: l54YEGbB3aC2U6vtkGzDC4YtleLojn/bnn14N1Hp5J8DrW52ZYqe4ZM4J+zR++PC
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_131431_788062_D4D4D7BA 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_131428_883268_F3028367 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,67 +144,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the last two patches Will didn't pick up from this series
+If DS is supported then SCALE can go up to 39. Compute a scale max that is
+compatible for the entire invs list.
 
-See the original cover letter at:
+Replace the has_range_inv in the invs list with a 0 range_inv_scale_max
+to mean range invalidation is unavailable.
 
- https://patch.msgid.link/r/0-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+Tested-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  4 ++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 22 ++++++++++++++-----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  5 +++--
+ 3 files changed, 22 insertions(+), 9 deletions(-)
 
-v9:
- - Rename arm_smmu_compute_ttl() to arm_smmu_compute_range_ttl() for
-   clarity
- - Fix the arm_smmu_tlb_inv_walk() to compute
-      tlbi.table_levels_bitmap = GENMASK(level, 1);
-   To be clear what the call contract is
- - No functional change, rebase on latest smmu/updates
-v8: https://patch.msgid.link/r/0-v8-1eaaed5e0433+3d3d2d-smmu_tlbi_jgg@nvidia.com
- - Revise some comments/commit messages
- - Rebase onto smmu/updates and resolve a conflict
-v7: https://patch.msgid.link/r/0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com
- - Remove "RIL" in favor of "range inv" or "range invalidate"
- - No functional change, only renames, reflows, etc.
-v6: https://patch.msgid.link/r/0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com
- - Rebase to v7.3-rc3
- - Add helpers arm_smmu_pt_level_to_lg2sz(), arm_smmu_pt_lg2sz_to_level(),
-   arm_smmu_range_inv_calc_scale(), arm_smmu_range_inv_calc_num()
- - Remove unused leaf_only
- - Combine has_range_inv and range_inv_scale_max
- - Clarify comment on arm_smmu_iotlb_sync()
-v5: https://patch.msgid.link/r/0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com
- - Rebase to v7.3-rc1
- - Fix the SVA CONT errata interaction
- - Remove over invalidation, instead use two overlapping range invalidations
- - Reflow patches around the errata work around
- - Fix a race when eliding INV_TYPE_S2_VMID_S1_CLEAR
-v4: https://patch.msgid.link/r/0-v4-1802653d8886+492-smmu_tlbi_jgg@nvidia.com
- - Rebase on latest smmu branch (accomodate already merged IDR5_DS changes)
- - Fix iopte_size typo in interior patches
- - Tidy arm_smmu_ttl_addr_align() some more
-v3: https://patch.msgid.link/r/0-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com
- - Carry the base translation granule in the TLBI description and pass the
-   domain separately
- - Invalidate the leaves when doing a table invalidation too, corrects a
-   missed invalidation but means we don't do anything about the duplicate
-   invalidations.
- - Simplify the control flow in a few places
- - Clarify the TTL derivation and accomodate DS
-v2: https://patch.msgid.link/r/0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com
- - Rebase to v7.2-rc1
-v1: https://lore.kernel.org/all/0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com/
-
-Jason Gunthorpe (2):
-  iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
-  iommu/arm-smmu-v3: Support the DS expansion of range invalidation
-    SCALE
-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  29 ++-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |   4 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 215 +++++++++++++-----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  30 ++-
- 4 files changed, 210 insertions(+), 68 deletions(-)
-
-
-base-commit: 2888520bdcbe0599cfc77b2fad8dc6c95505a3cb
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+index 5a4e45e1512589..3a0fef761daea8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+@@ -647,7 +647,7 @@ static void arm_smmu_v3_invs_test_verify(struct kunit *test,
+ {
+ 	KUNIT_ASSERT_EQ(test, invs->num_invs, num_invs);
+ 	KUNIT_EXPECT_EQ(test, invs->num_trashes, num_trashes);
+-	KUNIT_EXPECT_TRUE(test, invs->has_range_inv);
++	KUNIT_EXPECT_EQ(test, invs->range_inv_scale_max, 31);
+ 	KUNIT_EXPECT_TRUE(test, invs->has_full_cont_range_inv);
+ 	while (num_invs--) {
+ 		KUNIT_EXPECT_EQ(test, invs->inv[num_invs].id, ids[num_invs]);
+@@ -715,7 +715,7 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
+ 	test_a = arm_smmu_invs_alloc(0);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
+ 	KUNIT_EXPECT_EQ(test, test_a->num_invs, 0);
+-	KUNIT_EXPECT_FALSE(test, test_a->has_range_inv);
++	KUNIT_EXPECT_EQ(test, test_a->range_inv_scale_max, 0);
+ 	KUNIT_EXPECT_FALSE(test, test_a->has_full_cont_range_inv);
+ 
+ 	/* Test1: merge invs1 (new array) */
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 6c6588477e7301..819cc54612486f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -1065,9 +1065,19 @@ static void arm_smmu_invs_update_caps(struct arm_smmu_invs *invs,
+ 		invs->has_ats = true;
+ 
+ 	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
+-		invs->has_range_inv = true;
++		unsigned int scale_max;
++
+ 		if (inv->smmu->options & ARM_SMMU_OPT_FULL_CONT_RANGE_INV)
+ 			invs->has_full_cont_range_inv = true;
++
++		/*
++		 * SCALE increases to 6 bits when SMMU_IDR5.DS == 1, values
++		 * above 39 are treated as 39 (H.a 4.4.1.1)
++		 */
++		scale_max = (inv->smmu->features & ARM_SMMU_FEAT_DS) ? 39 : 31;
++		if (!invs->range_inv_scale_max ||
++		    scale_max < invs->range_inv_scale_max)
++			invs->range_inv_scale_max = scale_max;
+ 	}
+ }
+ 
+@@ -2659,7 +2669,8 @@ static unsigned int arm_smmu_compute_range_ttl(u8 leaf_bitmap, u8 table_bitmap,
+  * CONT is covered by one command.
+  */
+ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+-				     bool single_range_inv)
++				     bool single_range_inv,
++				     unsigned int scale_max)
+ {
+ 	u8 tgsz_lg2 = tlbi->tgsz_lg2;
+ 	unsigned int ttl = arm_smmu_compute_range_ttl(
+@@ -2681,7 +2692,7 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+ 	 * address beyond alignment to tg (so long as TTL=0).
+ 	 */
+ 	first.scale = arm_smmu_range_inv_calc_scale(num_tg);
+-	if (first.scale > 31) {
++	if (first.scale > scale_max) {
+ 		/* Range too large for a single command do full invalidation */
+ 		tlbi->range.use_full_inv = true;
+ 		return;
+@@ -2952,12 +2963,13 @@ void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi,
+ 	 * The invs generation ensures this matches the instances being
+ 	 * invalidated.
+ 	 */
+-	if (invs->has_range_inv) {
++	if (invs->range_inv_scale_max) {
+ 		if (!tlbi->range.use_full_inv) {
+ 			arm_smmu_tlbi_calc_range(
+ 				tlbi,
+ 				smmu_domain->stage == ARM_SMMU_DOMAIN_SVA &&
+-					invs->has_full_cont_range_inv);
++					invs->has_full_cont_range_inv,
++				invs->range_inv_scale_max);
+ 		}
+ 	}
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index b08c112875d3b6..7106bd3a8bd7f6 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -765,9 +765,10 @@ static inline bool arm_smmu_inv_is_ats(const struct arm_smmu_inv *inv)
+  *               Must not be greater than @num_invs
+  * @rwlock: optional rwlock to fence ATS operations
+  * @has_ats: flag if the array contains an INV_TYPE_ATS or INV_TYPE_ATS_FULL
+- * @has_range_inv: flag if any entry's SMMU supports range invalidation
+  * @has_full_cont_range_inv: flag if any entry's SMMU requires the CONT range
+  *                           invalidation workaround
++ * @range_inv_scale_max: max SCALE usable by all range-capable SMMUs, or 0 if
++ *                       no SMMU supports range invalidation
+  * @rcu: rcu head for kfree_rcu()
+  * @inv: flexible invalidation array
+  *
+@@ -797,8 +798,8 @@ struct arm_smmu_invs {
+ 	size_t num_trashes;
+ 	rwlock_t rwlock;
+ 	bool has_ats;
+-	bool has_range_inv;
+ 	bool has_full_cont_range_inv;
++	u8 range_inv_scale_max;
+ 	struct rcu_head rcu;
+ 	struct arm_smmu_inv inv[] __counted_by(max_invs);
+ };
 -- 
 2.43.0
 
