@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0B5CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B286ACA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwKQpCHKFhcaUaYAWcgeYUDcs0tyuQzK5tp06tZh3no=; b=FLt0KGTlLFv/qWqZa8UbPZwjR3
-	NpcDo2gSeXnzfeG8Ez84GNJti36tHdFXhcaRllXfsqC4wqlnJC71qZ3rKdEkDgvNqdjxTZcJ9retC
-	6DP9mY3q51lZ0z6PZBpGrXcHV2+dABSmys8KVA95MUgapdQhgl0HjjpHofdBTAGCrSAimXVmBJ9my
-	wtf55lJs3ItUBXQUuEC6BqF1I1tY8G7rx9lomjIedQKlqBIJc+M0YOPPhkfek2CXd7whXNN7agy0z
-	iXsSraJGRCl8rrmLARauWXInFdZ6zxETCs/H0xBlVi8GLfnoUPKc7LYkJTCdYdGd97vTbKBW224wF
-	HuEyo4Rg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:Message-ID:MIME-Version:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r3bmrxV+t3fPSMRAU/WJh+2ymAD55jqvxklsd7ARlac=; b=ySTJOmJwz1Js5t3rW4jRjBRRIY
+	vnxoiA7eUCZMpSs9g32QYeiY7js/XZg3cEVcdS+ge/jYWdPpu/VlVmbN+hwraEjVEsUcPhdWbssBz
+	8EnISY08ujeMtHsSgntusLgkBSLR4Bsibmz/bFl5Ms7tm7NEMz/MRkFwDQmJGD15YRdFffrM9ks8I
+	r4IplCIQNsy/sDQ5rYznOp+Uq3lEbhh6iuTJVcnFIG1u+yY3HOBnt2a9bKvVKwgrvHB3jWPrP1hXk
+	LuMiskTL0VOmwnWPv0P2B4z+RBWor3mSHXLGbWyGer3bjSFCa9pTrrk2/JFj+064lmAlJidG6sM7O
+	p5lg+F7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7z8-0000000659j-1YHD;
-	Fri, 09 Oct 2026 10:37:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7z5-0000000658v-2qwa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:37:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6137A1570;
-	Fri,  9 Oct 2026 03:37:45 -0700 (PDT)
-Received: from [10.0.152.148] (e121487-lin.cambridge.arm.com [10.0.152.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B9F73F66F;
-	Fri,  9 Oct 2026 03:37:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791542268; bh=P0YngHHkpFDgj6eBIszFEX3wwImCVB5t7vQvhGgdx5E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GLjhLkKXIELjuG7JmuuJLI97v3hzk5qGmYuRebJqkBCc6UKPs7S3kgVDZHvptf8o6
-	 o7yVoaozrCuy5ffdQTnj2w5BoRh2+BgiTNC2vHaOWtGJnPh3mMR5tipZGTMu+kxjqd
-	 wzGXL+5f1hwhkpuTSII5bHSnANQV0W9ooZapKI1U=
-Message-ID: <c53b373b-9f70-42f0-affc-6978f0508b87@arm.com>
-Date: Fri, 9 Oct 2026 11:37:45 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] arm64: entry: drop the unused tmp2 argument of
- mte_set_kernel_gcr()
-To: Bradley Morgan <brads@mainlining.org>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261007185512.2.mte-tmp2@mainlining.org>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261007185512.2.mte-tmp2@mainlining.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_033751_774040_2AF47FAF 
-X-CRM114-Status: GOOD (  16.21  )
+	id 1xF7zd-000000065I4-2VKn;
+	Fri, 09 Oct 2026 10:38:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF7zc-000000065HU-08HN;
+	Fri, 09 Oct 2026 10:38:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77A3060534;
+	Fri,  9 Oct 2026 10:38:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944041F000FF;
+	Fri,  9 Oct 2026 10:38:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791542303;
+	bh=r3bmrxV+t3fPSMRAU/WJh+2ymAD55jqvxklsd7ARlac=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=YlW+4jUDLiex4nL+P4RAOpxGR6Dod1U7kBIPCeYPqGluAcRfccw7qBl6o8mmCGGXP
+	 p8Qgk+dTHggYIbeTCZSEWmLRjtVtvfN5T+Rr26hkf9mmoUnIKKQNV2ENhiz+v2oRdD
+	 oVbKyZfOHw/QaUw9jZAAXiOetChEhWh6slfZJ9u/1XPBQ5oqUwgnLfIS8kzSx236VX
+	 vIo3QBvO/orMMsVm+WhBEKAEYYpNFmibO2SOpSquyMIaH46xMFxClxTxgEaLK9ewhy
+	 0onpnFuNEXmz4E68P89210wvyx/ArbFvi4+W/YopRFMy/xXcxC8s/twtjmv6Uz2x6F
+	 vM2Uxql6ODdmg==
+Message-ID: <sashiko-outbox-165245@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v4 2/2] Drivers: hv: Run VMBus kexec cleanup from
+ syscore shutdown
+To: catalin.marinas@arm.com, wei.liu@kernel.org, "Shradha Gupta" <shradhagupta@linux.microsoft.com>, mhklinux@outlook.com, baoquan.he@linux.dev
+Cc: will@kernel.org, broonie@kernel.org, rppt@kernel.org, linux-hyperv@vger.kernel.org, kexec@lists.infradead.org, haiyangz@microsoft.com, pasha.tatashin@soleen.com, tglx@kernel.org, linux-kernel@vger.kernel.org, kees@kernel.org, kys@microsoft.com, hpa@zytor.com, brads@mainlining.org, akpm@linux-foundation.org, mark.rutland@arm.com, bp@alien8.de, namjain@linux.microsoft.com, longli@microsoft.com, mingo@redhat.com, pratyush@kernel.org, x86@kernel.org, maz@kernel.org, linux-arch@vger.kernel.org, dave.hansen@linux.intel.com, decui@microsoft.com, arnd@arndb.de, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20261009102250.3361076-1-shradhagupta@linux.microsoft.com>
+References: <20261009102215.3360863-1-shradhagupta@linux.microsoft.com>
+ <20261009102250.3361076-1-shradhagupta@linux.microsoft.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 09 Oct 2026 10:38:21 +0000
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,53 +64,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/7/26 18:45, Bradley Morgan wrote:
-> mte_set_kernel_gcr() takes a tmp2 argument the macro never uses. It
-> used to, the body passed \tmp and \tmp2 to mte_set_gcr, then
-> commit 82868247897b ("arm64: kasan: mte: use a constant kernel
-> GCR_EL1 value") swapped that for
-> 
->     mov     \tmp, KERNEL_GCR_EL1
-> 
-> and tmp2 stayed in the declaration and in the one caller, which
-> passes x23 for it.
-> 
-> Drop it, both places.
-> 
-> Signed-off-by: Bradley Morgan <brads@mainlining.org>
-> ---
-> Resending, the first send's body got mangled.
-> 
->  arch/arm64/kernel/entry.S | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-> index f63049ac32dc..c3106dee61e1 100644
-> --- a/arch/arm64/kernel/entry.S
-> +++ b/arch/arm64/kernel/entry.S
-> @@ -171,7 +171,7 @@ alternative_else_nop_endif
->  #endif
->  	.endm
->  
-> -	.macro mte_set_kernel_gcr, tmp, tmp2
-> +	.macro mte_set_kernel_gcr, tmp
->  #ifdef CONFIG_KASAN_HW_TAGS
->  alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
->  	b	1f
-> @@ -258,7 +258,7 @@ alternative_else_nop_endif
->  
->  	apply_ssbd 1, x22, x23
->  
-> -	mte_set_kernel_gcr x22, x23
-> +	mte_set_kernel_gcr x22
->  
->  	/*
->  	 * Any non-self-synchronizing system register updates required for
-> -- 2.53.0
-> 
+> ARM64 Hyper-V guests do not run the VMBus kexec cleanup before
+> secondary CPUs are stopped. Consequently, the old VMBus connection
+> and SynIC state remain active when the kexec kernel starts.
+>=20
+> Run the VMBus kexec handler from the existing VMBus syscore shutdown
+> callback. syscore_shutdown() runs after device shutdown and before
+> machine shutdown, while all CPUs needed by the SynIC CPU hotplug
+> teardown are still available. Guard the callback with
+> kexec_is_in_progress() so normal restart, halt, and poweroff paths are
+> unchanged.
+>=20
+> Use the same path on x86 and remove the architecture-specific handler
+> pointer and the weak setup/remove interfaces. VMBus teardown now
+> precedes hv_stimer_global_cleanup() on x86.
+>=20
+> The new x86 ordering relies on commit be0cfab740e5 ("clocksource:
+> hyper-v: Remove support for stimer interrupts in message mode"), which
+> removed the synthetic timer's dependency on VMBus message delivery.
+> Older kernels that retain message-mode stimer interrupts must preserve
+> the existing x86 ordering and therefore require an ARM64-specific
+> backport.
+>=20
+> Document the VMBus cleanup path and its position in shutdown ordering.
+>=20
+> Fixes: 9bbb888824e3 ("arm64: hyperv: Initialize hypervisor on boot")
+> Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@l=
+inux.microsoft.com/
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Suggested-by: Michael Kelley <mhklinux@outlook.com>
+> Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Sashiko has reviewed this patch and found no issues. It looks great!
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261009102215.3360=
+863-1-shradhagupta@linux.microsoft.com?part=3D2
+
 
