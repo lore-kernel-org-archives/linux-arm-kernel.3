@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC7FCA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9EFCA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mzSp49/wgTWBWB/X6PVOTRfy8Mqe6lgyzjL/LzFwb1U=; b=j3TalEGryqW7gS
-	ulKy7EktxPO7TpGhFOgjNESFFtJv6eY910u0qxGnGwWsmjYx59QVYN6C/NkWempWG+TLYbx8+G6FT
-	v7i/vJNMb8m1CDhC9l+aFhNqcMfLhKfoxIHjzf3qtdjBTL91JIYd9/9L8L0dfUi17TKg+8R5jlUIM
-	fR2u0hs9/OoDCwxjDr/y+M0jt9jIfeGKL5otxbtZL7o+XbREgs0m2ob02ZfTPJgrhPbBU/jkPmJcv
-	ybIdE8vZoJ0zwoR0v+PQshYQkRzNMrbe5XSXLXaHz1PhrF685UuCPgww0Js3YB2oSDRJyPewKgMou
-	iBc47+Z44MLkb9PZ1BRg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IcGhIEA554A0WVCWzZadNezlgG0RSTYoC4/nJ2qNceM=; b=0KpoIjlHs8G/F8gQavZlKRVjTR
+	OfNy2cAKgKroa8/XNkeX8InKI/6ia03326N617JqjoRWZV3W0YCNk1BDbR0PBPX/rIhMD1vN7gpN/
+	HTVi+RdA2NM0390qUqSDXS5ZWTSnjAkBrUZRZCVSP/iinUP/l+4j5GD8VXbkteP4KH/K7gMSYtQDa
+	8XPwKWYkXV32F0+cBhDKbwEbV08McEEPtxr7QcXcyOYmr+/EchljUVkiSi7AzjxsaFeCrMF0gR3dl
+	o83rs2zeZHNkff+1YsSSer5ausNyUNJ0OrlcGlMmv6zHfvCTfSw7Hv3S5b13Mow7aGn2aJsRBLfMy
+	ZeXUg7RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9Aq-00000006EwL-3MPM;
-	Fri, 09 Oct 2026 11:54:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xF9Aw-00000006Ezf-1g3a;
+	Fri, 09 Oct 2026 11:54:10 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9An-00000006EvL-1t5x
+	id 1xF9At-00000006ExV-0QM4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 11:54:03 +0000
+	Fri, 09 Oct 2026 11:54:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791546841; x=1823082841;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=taFyZ5t12GbWm2zzYISSWlCvN0RZfDZunnQWmHBdvZM=;
-  b=dTjYwyiP/H7U3C3oCdMRTggzp4vPscalcXt5rCzY6pvbjGqYc8XPPNN3
-   zLnmvfZItP4v1R2d+2jGymqrIc3kzQdFS4f9emE4ec5Td5cDIiG4qiKck
-   CLr9n/yxDA4Zk8w2xbCornQSN2uAFiM/Bdp8uam4vibdv8OByM6kgrQSe
-   Ox8d6P3oRApwhu1l4z27oJyELlfabBtRkfD59jGB9gGPnTD3o19lhwfvW
-   /rGKgDDk5ThwencH+KTTPpYStsFDz20vl2zbYyx5KaW8+T4CYFYxGH8PD
-   18escbGlVyQuSHJoMNRrfsFuYcJjepsyHaeYu7Jmz8UXWTxi0itVhM5nZ
-   g==;
-X-CSE-ConnectionGUID: GPvI4pCYQRmkWyhqC5R3CA==
-X-CSE-MsgGUID: G1G6WGXmSJCr5loWVLf/2w==
+  t=1791546847; x=1823082847;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=3G6/3+7U1vOnQC9zPE7ZSPxtWgsWrbbZkl5rpRYDYl8=;
+  b=Qz9Czhe15+5I2ch0DpNb2YWrJE8/6u0mG0ICQT0HxRqRXl0QVc23dRKB
+   IXz4Oik8+11kdJZQBfuvU1xPF4SE69zj7Gui9B8PdU5rvt539SEVGXov4
+   glyTWPe3WX5zX9Rgn3yUmhrdZmO3h7zkiZ3OZOS/lFW+4965is1TZmXG+
+   u+IHghwkK8FDGiHajZsa5ZQqtnvA9/fiFEOnaurE1P1j3SE374VozctAu
+   vtWFnmo8/ZZqsPqFnRfCDQsY+MMABPZYSWQLhj5Pk2GmDc+4K/jsZyvHt
+   tHsP54p3SQRZ33GZHbmve+Hga9EtxHs8Pup5sh67b7bmebogVW9np65Ee
+   A==;
+X-CSE-ConnectionGUID: AW1woLrPQbulzhFNMijsmg==
+X-CSE-MsgGUID: 3hTGxRhOQaiRuZt4QemWWw==
 X-IronPort-AV: E=Sophos;i="6.27,148,1787036400"; 
-   d="scan'208";a="231901784"
+   d="scan'208";a="296224245"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2026 04:53:59 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2026 04:54:07 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 9 Oct 2026 04:53:59 -0700
+ 15.1.2507.58; Fri, 9 Oct 2026 04:54:06 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 9 Oct 2026 04:53:57 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 9 Oct 2026 04:54:04 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next 0/5] net: sparx5: add tc matchall port policer
- offload
-Date: Fri, 9 Oct 2026 13:52:00 +0200
-Message-ID: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com>
+Date: Fri, 9 Oct 2026 13:52:03 +0200
+Subject: [PATCH net-next 3/5] net: sparx5: Track shared tc blocks and
+ per-port policer state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGDVyGoC/yWNQQqDMBBFryKz7kC0cSS9SnGRxrEdsDFMQgmId
- 29oNx/eW7x/QGYVznDrDlD+SJY9NugvHYSXj09GWRrDYAYy7mrwYXHz0RFVTEFwXd4ec/Jax79
- 3ze9a2mwSWDPayVJvppF4IGjZpLxK/V3eIXLByLXAfJ5fc0ZWVowAAAA=
-X-Change-ID: 20260930-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-474610756e26
+Message-ID: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-3-4916708a7ea2@microchip.com>
+References: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com>
+In-Reply-To: <20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
@@ -74,8 +72,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Daniel Machon <daniel.machon@microchip.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_045401_523400_30CFE5A2 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20261009_045407_175698_198DFE38 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds offload of tc matchall filters with a police action to
-the ingress port policers of Sparx5 and lan969x, which are both served
-by the sparx5 driver.
+A police action on a shared tc block applies one aggregate rate to all
+ports bound to the block, which a per-port policer cannot implement.
+The port policer offload therefore needs to know whether the ingress
+block of a port is shared.
 
-In hardware, each ingress port has four single-rate leaky bucket
-policers. A policer drops the frames that exceed its rate and burst.
-The four policers of a port share the pass and drop statistics counters
+Add struct sparx5_port_tc to each port, holding a flag that records
+whether the ingress block is shared, and the state of the four policers
 of the port.
-
-The driver uses one policer per port, because with more than one, the
-statistics reported to tc could not be attributed to the right policer.
-This matches lan966x and ocelot. The policer meters each frame
-including 20 bytes of preamble and inter-frame gap, so the configured
-rate is a line rate, also as on lan966x and ocelot.
-
-Since the policer meters all ingress frames on the port, only filters on
-chain 0 with protocol all are offloaded, and filters on shared blocks
-are rejected. Only drop is supported as the exceed action, and the
-police overhead parameter is not supported.
-
-Patch #1 drops a redundant prefix from the existing POL_UPD_INT_CFG
-register macros.
-
-Patch #2 adds the registers used by the port policer.
-
-Patch #3 tracks whether the ingress block of a port is shared, and adds
-the per-port policer state.
-
-Patch #4 adds the hardware programming of the port policer.
-
-Patch #5 adds the tc matchall offload.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Daniel Machon (5):
-      net: sparx5: Drop redundant POL_ prefix from POL_UPD_INT_CFG
-      net: sparx5: Add registers used by the port policer
-      net: sparx5: Track shared tc blocks and per-port policer state
-      net: sparx5: Add hardware programming for the port policer
-      net: sparx5: Offload tc port policers via matchall
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.h | 16 ++++++++++++++++
+ drivers/net/ethernet/microchip/sparx5/sparx5_tc.c   | 14 ++++++++++++--
+ 2 files changed, 28 insertions(+), 2 deletions(-)
 
- .../microchip/sparx5/lan969x/lan969x_regs.c        |   7 +
- .../net/ethernet/microchip/sparx5/sparx5_ethtool.c |   1 +
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |   6 +-
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  36 +-
- .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 117 +++++-
- .../net/ethernet/microchip/sparx5/sparx5_police.c  | 404 ++++++++++++++++++++-
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |   4 +
- .../net/ethernet/microchip/sparx5/sparx5_regs.c    |   7 +
- .../net/ethernet/microchip/sparx5/sparx5_regs.h    |   7 +
- drivers/net/ethernet/microchip/sparx5/sparx5_tc.c  |  14 +-
- .../ethernet/microchip/sparx5/sparx5_tc_matchall.c |  38 ++
- 11 files changed, 627 insertions(+), 14 deletions(-)
----
-base-commit: d8674294aefef02266c4d47ad10131f1bffbe534
-change-id: 20260930-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-474610756e26
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index 0f7d8440f614..021ac7a52034 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -206,6 +206,21 @@ struct sparx5_port_config {
+ 	u32 sd_sgpio;
+ };
+ 
++#define SPX5_POLICERS_PER_PORT 4 /* Number of ingress port policers */
++
++struct sparx5_port_policer {
++	struct flow_stats prev;
++	struct flow_stats stats;
++	/* Port policers hold the client reference (cookie) */
++	unsigned long policer;
++};
++
++struct sparx5_port_tc {
++	/* Ingress uses a shared filter block */
++	bool ingress_block_shared;
++	struct sparx5_port_policer port_policer[SPX5_POLICERS_PER_PORT];
++};
++
+ struct sparx5_port {
+ 	struct net_device *ndev;
+ 	struct sparx5 *sparx5;
+@@ -229,6 +244,7 @@ struct sparx5_port {
+ 	enum sparx5_vlan_port_type vlan_type;
+ 	u32 custom_etype;
+ 	bool vlan_aware;
++	struct sparx5_port_tc tc;
+ 	struct hrtimer inj_timer;
+ 	/* ptp */
+ 	u8 ptp_cmd;
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
+index 28b2514c8330..9ac99627eafc 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc.c
+@@ -47,7 +47,9 @@ static int sparx5_tc_block_cb_egress(enum tc_setup_type type,
+ static int sparx5_tc_setup_block(struct net_device *ndev,
+ 				 struct flow_block_offload *fbo)
+ {
++	struct sparx5_port *port = netdev_priv(ndev);
+ 	flow_setup_cb_t *cb;
++	int err;
+ 
+ 	if (fbo->binder_type == FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS)
+ 		cb = sparx5_tc_block_cb_ingress;
+@@ -56,8 +58,16 @@ static int sparx5_tc_setup_block(struct net_device *ndev,
+ 	else
+ 		return -EOPNOTSUPP;
+ 
+-	return flow_block_cb_setup_simple(fbo, &sparx5_block_cb_list,
+-					  cb, ndev, ndev, false);
++	err = flow_block_cb_setup_simple(fbo, &sparx5_block_cb_list,
++					 cb, ndev, ndev, false);
++	if (err)
++		return err;
++
++	if (fbo->binder_type == FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS)
++		port->tc.ingress_block_shared =
++			fbo->command == FLOW_BLOCK_BIND && fbo->block_shared;
++
++	return 0;
+ }
+ 
+ static void sparx5_tc_get_layer_and_idx(struct sparx5 *sparx5, u32 parent,
 
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
