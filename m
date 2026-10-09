@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1542CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFCBCA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VQsn8GCAkc+Fjk7cjueF0Q+F75bLtKGbd7nIMwjKPVw=; b=YfwKJY6sOYvVz7gEOFrUgll8iX
-	UqQotqkjCFPzY13wZYkWDvAvAGF4wUZqWPOe5Z+7CBth8OeCmziN4W2VgSoS47HHEl/IIjykLniBo
-	P4tktBnmtC/rNBYSRFj+W8s2CrSpz9xktOPRJoLKQAX+QtUUNI+eZlK8sSaPIdCMt76lABYazNCcR
-	I0VAjfw796Au6m1KaH5uEyKZMb067aFaN6lPpL0Kd8UkpnfBzF4x3eAMZMikSyl1PPeyV1k0ydfbI
-	jwTsnlT42Wn75iowDBlCK67lQDEPiRAUTtXQkZ98wQ9yaNV3rv3P7zoZ+2w3ElBXOaESZhEhLubMc
-	CfI6FO9g==;
+	bh=W55BVNyzGfrANPY7EOmBpng6wzYtr7rRWOQJPcUOM50=; b=sswTL9W2CBvnFxc2JEfV2ewcWr
+	AV+0lSRypTJdIIgTMe95HlBJgNyMwvZBKonvL3OymK//9Z9tBxfYLiR7WYMZCtJpjjaZ/lBiNQqKx
+	6+Vv3kp3hU+ZaM0iDQW+RTX2AbpqN4RA5O0QcfgyZj09ctSmDq9VYbHL8XIdkiXptI1QqelfLnFlj
+	E+JiHDEFz952G6RtopsAnlWOODNeODTAi3ceLWvrDOVzNJsH9oc9XQTMGb24m57EYs8X317rgtPKl
+	O1taQjLykABEuXm2ntW2lDBpFELmvjAa7TfQnq31UxCDGkM0M6dsg2odd3sbzN9Nu1ZgeqY4ub9gg
+	lCFTtz0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18C-00000005KYg-42qI;
-	Fri, 09 Oct 2026 03:18:48 +0000
-Received: from bg1.exmail.qq.com ([114.132.67.179])
+	id 1xF18L-00000005Keu-0N5B;
+	Fri, 09 Oct 2026 03:18:57 +0000
+Received: from bg1.exmail.qq.com ([114.132.124.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF18A-00000005KVg-2ZDd
+	id 1xF18I-00000005KbZ-2GJP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:18:48 +0000
-X-QQ-mid: zesmtpip2t1791515846teda7ddcf
-X-QQ-Originating-IP: ll4UOsQI2GjH/rTZmdJovT7JYtS+9/6bQa8Au5skvjI=
+	Fri, 09 Oct 2026 03:18:55 +0000
+X-QQ-mid: zesmtpip2t1791515842t5bf99465
+X-QQ-Originating-IP: EPo9yvjcUKSxfds5pH10PS+8bETia1Xjr/JTyOz/FM8=
 Received: from [192.168.30.32] ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 11:17:23 +0800 (CST)
+	id ; Fri, 09 Oct 2026 11:17:19 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7874777080659291572
-EX-QQ-RecipientCnt: 29
+X-BIZMAIL-ID: 1232975757929523936
+EX-QQ-RecipientCnt: 30
 From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 09 Oct 2026 11:15:58 +0800
-Subject: [PATCH v2 06/20] drm/msm/dp: Keep runtime PM calls outside the
- connection lock
+Date: Fri, 09 Oct 2026 11:15:57 +0800
+Subject: [PATCH v2 05/20] drm/msm/dp: Support multiple generic SDP slots
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-msm-dp-hdr10-v2-6-1835d4966da3@radxa.com>
+Message-Id: <20261009-msm-dp-hdr10-v2-5-1835d4966da3@radxa.com>
 References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -64,40 +63,41 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
  dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3743; i=sophon@radxa.com;
- h=from:subject:message-id; bh=4U9Nmsy1uYb82VMp2QQ+dOjRfnyMbjdVCFQc3Q/Ljg8=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlboR7QsYLp/rCH9tMCZ358nr7acvqXxG5Nf0/+dq
- Tk3qvbnd5SyMIhxMciKKbIoxDPMZa/MvfZUrFQPZg4rE8gQBi5OAZjIDSGG/z4L2o+xeM+OuDOl
- wLV9dfJFJwe+33P3TCmf8HWhrZrMRCWGf9ZSonba3/dd7HRafVlE+rezWv/7DSo2n+TlWrdmz5K
- 24AAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3697; i=sophon@radxa.com;
+ h=from:subject:message-id; bh=zp9J/I3KL2ekRKRZ8uv9r2FRGz6DzqPhr0mZSqbj3oI=;
+ b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlaUy17ccsbAemrHk8quDZmxgcmqxgUGifWiH5n5U
+ npr6zg7SlkYxLgYZMUUWRTiGeayV+ZeeypWqgczh5UJZAgDF6cATCTQieGf9Z2fvZMTV6QYZqeY
+ /Zq5b2t2t484/6WsjY57l7PdbmYyYGT40DnzKPOMH7vyVOX3uR+sWjfrsf6yWzX65TofD67zZc1
+ lAwA=
 X-Developer-Key: i=sophon@radxa.com; a=openpgp;
  fpr=205F009D07796DD6E516752E32C31567AD9E324E
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: MKD6Cx7ZSeC2phAlQiAQXN7JYVEdoqLp0D+nWPF0uid0WnPOuBZIo1AK
-	J+Bdg24IH6T23Ttgyh1DX6ImwBAnJ6UTQJ2+HfD1aGzMBpiRDMLdd0lnpGEPI1XDR9LE0Dg
-	q4M5i4oXfIoK0qgFGuOviXsRmNiqhKixCXH9XCiHIRBwmoNGqaOwL48esqDJA5tCtkGiNQo
-	jj1ij+PwMYNJzH1QmOhyRaBI3zhDQ9IJip1LkjeIvwlJtTV0GElii/jo7OMktDJwOdDBJrl
-	tFcPriZafcE9ft+O/CzNVfZCzyonvvz2edZoaT35mA6oT2X0/Top0yMsQzPlHib1X4yArX7
-	EOYyZonyUtLpub9zOfImKwBNl3Ir5ff+SZSkAALcf1OC07rPMp3C1am6EH8ealYlcuqpzc/
-	yCdO0cTdaN+bif3UPEJRL1//AimWPcHeu6LzoCTfUOPV0R41S9/DHo1JFGUocv2jG2sgU4w
-	O/AnwKZT3/xtKlnuJ9OKInRMW7Vm7wVwu3cAZCRiH4s7NF/7yeHuiUHIYpw168QJ5ZY+m2N
-	W1TJ6IaL9/0CDCZv7enN8m/lmkBDy6SiV1R0EZ8jIO5ZaI1nERpfajBgPhIiwaWl+SurO0p
-	1qWkWTwdaflhPQ/V0HsNe4d9fXRSfViAS8z4cwll4xVX1d/29JVrYcliBa8mmhyLhYtHcVL
-	VhcgO6qGVufPtsmyiQv7hTji6fj3KMRYM0ENy3ZoiHL+9i4I2WTR3bBifCPvySMKFxb3jIo
-	Na6t4aNHwFAQ1JirF7zLVnkhF5sSeYoT35hWjPPUpJH2giqXcqmg9KbG7ytnObVjUyUJsiO
-	2WzW9uxVQKipHG6Zh+EopYYta+LjCX5dKSJAJ3WhzmcUuEPFU8vSZ7mn4KjzjwDVNDq50kN
-	dJqcwbMQ80KjG/dhQrj3lJxKlH2srtnuQVs7Qc5IKXr+v6ozQMY5eUMC08TnXtYHkHOs7wl
-	xvdpVgDz2Tzz1TSyIbIC+iY5go2MF+IvknyT1TBUsHLfTy0SNDB1Cmzq8fQin+LZlfAOARZ
-	h3oYBq5hyPJixW28FKKT3zGyJJfD3+Tnv5tgNolgF12QokeAW0AgF8ERs+bdqLNUFqnnqaX
+X-QQ-XMAILINFO: OMxr5LZhXS0MU8wPwCXiPLjcdXOc14c3engRk5tc6gRAlcGGmPzSzwSq
+	NdybTfi7EqgypwJMTTc6rUU60qIajHcobnOj5PFkl5adFnkEFfZ0SdAqpkN1LJ2OJ1TaWn1
+	tMQfwTA4KFe15k/0pI1fZKeGuUWRo0PP8VRo07CUpQ7XgO7z2dASl+OO8RTCsfJP/j8X7dK
+	oStedkhlsGrsVNF+m/EuOld8OEWaoYsb2Er6We4TlMrem4TdYUjddVPBWOKLVspylcskvEl
+	ZaqQxdoPvI7UFY6JsbjZd2Sfr6kyS/ccGJjJOoeP33At064PwNU956fFSBLM5mwIbP9Wj1M
+	Zuyttvi+zklpCPD5tcVibctrOd7lYzD5GgSNFEQ8+em+LdRI2+5okv2nfWRX+BhpGFo3EED
+	Mi8LygXjp8Tzv9V4bzGx6yiSl9i5cX+8xiTA33zaItkmcN0DSvkA8FJM1AgdQK6F1+g7ScQ
+	kUy4uoSWyRcAudnR68UjheLx81HtNGC/mahD98Gx/xKMrzK15oXVhLLuqeNvyg19o7hBzW/
+	vk3155D0aKRu75GVNHt8RH6pAO4LyjG+nbVU/qULlko9fmyKUcvjeorUlo45sUXfFFs/xsU
+	ndUoplcgmnR/fpbak1Y1KJNaBTovaGDxsxHpkKASY1PHzdosQtleBnAJotDl37jK3pUV8BO
+	RVE2okNXGKlSZgEUG5J1KQwCxHFX88IiwvGNVijlzdWuu4yI5S0ew4sQd4W8cD0WEbjv9Bh
+	4p66CCZ325XaubkecSnmtWyrnlYswd1QvpoPk3GCORAzzkZOC/pQqFwbPRxCFw9e4c3/eIU
+	GBg9Oy0aHIEXscf53N/O0M7Gbssocy+TPnHRCJJ7DRm+1PWBufmBEcQL3zfZ1fuJh0P4ekW
+	8JtjQk1vMasrfycca39UtN8jvul0wbAwAhTufRMUAdSXiqm7YpmYbLI61bk95o+sLR8HPNM
+	bg/t+cBqd75XBj3oFy0LRiYmAYcDHFylt1uwpB0udAMBX11q57n3mGHU+9PjRusg4gy0NP2
+	RgO+KghVIwVvh8KPqdqbJNsMSsofzcgLsofff6v6pNH7mZzfYpXxCA4Rmr+38nR7ef3o/LT
 	A==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_201847_011092_9B90BB64 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20261008_201854_932311_1B39BC84 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,128 +112,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Runtime suspend disables the display IRQ synchronously. Calling it while
-holding plugged_lock can wait for an HPD IRQ thread that needs the same
-lock. Acquiring a runtime PM reference under that lock can also wait for
-an in-progress suspend with the same dependency.
+The SDP writer currently targets Generic0 for VSC packets. Static HDR
+metadata needs a separate slot so that both packets can be sent on the
+same stream.
 
-Acquire runtime PM references before taking plugged_lock in plug and
-detect handling, and release them after unlocking in unplug and detect
-handling. Keep connection state and PHY operations protected while the
-runtime PM reference holds the controller active.
+Allow the SDP writer to address a generic packet slot, and define the
+Generic2 registers needed for static HDR metadata. Use unaligned
+little-endian loads for the payload words.
 
-This prepares for serializing stream operations with HPD processing
-without extending the connection lock over synchronous runtime PM calls.
+The existing VSC packet continues to use Generic0 without changing its
+layout or enable sequence.
 
 Assisted-by: LLM
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Xilin Wu <sophon@radxa.com>
 ---
- drivers/gpu/drm/msm/dp/dp_display.c | 30 ++++++++++++++++++++----------
- 1 file changed, 20 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/msm/dp/dp_panel.c | 22 ++++++++++------------
+ drivers/gpu/drm/msm/dp/dp_reg.h   |  4 ++++
+ 2 files changed, 14 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index 3ca039ff57b8..32a2ac89d8ed 100644
---- a/drivers/gpu/drm/msm/dp/dp_display.c
-+++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -409,14 +409,14 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 			dp->msm_dp_display.connector_type,
- 			dp->link->sink_count);
+diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
+index e76dad0f6663..fdf1a3f437ba 100644
+--- a/drivers/gpu/drm/msm/dp/dp_panel.c
++++ b/drivers/gpu/drm/msm/dp/dp_panel.c
+@@ -14,6 +14,7 @@
  
--	guard(mutex)(&dp->plugged_lock);
--
- 	ret = pm_runtime_resume_and_get(&pdev->dev);
- 	if (ret) {
- 		DRM_ERROR("failed to pm_runtime_resume\n");
- 		return ret;
- 	}
+ #include <linux/io.h>
+ #include <linux/types.h>
++#include <linux/unaligned.h>
+ #include <asm/byteorder.h>
  
-+	mutex_lock(&dp->plugged_lock);
-+
- 	msm_dp_aux_enable_xfers(dp->aux, true);
+ #define DP_INTF_CONFIG_DATABUS_WIDEN     BIT(4)
+@@ -442,22 +443,19 @@ void msm_dp_panel_clear_dsc_dto(struct msm_dp_panel *msm_dp_panel)
+ 	msm_dp_write_p0(panel, MMSS_DP_DSC_DTO, 0x0);
+ }
  
- 	msm_dp_display_host_phy_init(dp);
-@@ -428,6 +428,7 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 			dp->link->sink_count);
- 
- 	dp->plugged = true;
-+	mutex_unlock(&dp->plugged_lock);
- 
- 	return ret;
- };
-@@ -450,7 +451,7 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
+-static void msm_dp_panel_send_vsc_sdp(struct msm_dp_panel_private *panel, struct dp_sdp *vsc_sdp)
++static void msm_dp_panel_send_sdp(struct msm_dp_panel_private *panel,
++				  const struct dp_sdp *sdp, u32 base)
  {
- 	struct platform_device *pdev = dp->msm_dp_display.pdev;
+ 	u32 header[2];
+-	u32 val;
+ 	int i;
  
--	guard(mutex)(&dp->plugged_lock);
-+	mutex_lock(&dp->plugged_lock);
+-	msm_dp_utils_pack_sdp_header(&vsc_sdp->sdp_header, header);
++	msm_dp_utils_pack_sdp_header(&sdp->sdp_header, header);
++	msm_dp_write_link(panel, base, header[0]);
++	msm_dp_write_link(panel, base + 4, header[1]);
  
- 	dp->panel->video_test = false;
- 
-@@ -460,8 +461,10 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 			dp->msm_dp_display.connector_type,
- 			dp->link->sink_count);
- 
--	if (!dp->plugged)
-+	if (!dp->plugged) {
-+		mutex_unlock(&dp->plugged_lock);
- 		return 0;
-+	}
- 
- 	/* Don't forget modes for eDP */
- 	if (!dp->msm_dp_display.is_edp)
-@@ -488,10 +491,10 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 			dp->msm_dp_display.connector_type,
- 			dp->link->sink_count);
- 
--	if (dp->plugged) {
--		pm_runtime_put_sync(&pdev->dev);
--		dp->plugged = false;
+-	msm_dp_write_link(panel, MMSS_DP_GENERIC0_0, header[0]);
+-	msm_dp_write_link(panel, MMSS_DP_GENERIC0_1, header[1]);
+-
+-	for (i = 0; i < sizeof(vsc_sdp->db); i += 4) {
+-		val = ((vsc_sdp->db[i]) | (vsc_sdp->db[i + 1] << 8) | (vsc_sdp->db[i + 2] << 16) |
+-		       (vsc_sdp->db[i + 3] << 24));
+-		msm_dp_write_link(panel, MMSS_DP_GENERIC0_2 + i, val);
 -	}
-+	dp->plugged = false;
-+	mutex_unlock(&dp->plugged_lock);
-+
-+	pm_runtime_put_sync(&pdev->dev);
- 
- 	return 0;
++	for (i = 0; i < sizeof(sdp->db); i += 4)
++		msm_dp_write_link(panel, base + 8 + i,
++				  get_unaligned_le32(&sdp->db[i]));
  }
-@@ -899,19 +902,22 @@ enum drm_connector_status msm_dp_bridge_detect(struct drm_bridge *bridge,
- 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
- 	struct drm_dp_desc desc;
- 	bool phy_deinit;
-+	bool put;
- 	int ret;
  
- 	dp = to_dp_bridge(bridge)->msm_dp_display;
+ static void msm_dp_panel_update_sdp(struct msm_dp_panel_private *panel)
+@@ -487,7 +485,7 @@ void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sd
+ 	cfg2 |= GENERIC0_SDPSIZE_VALID;
+ 	msm_dp_write_link(panel, MMSS_DP_SDP_CFG2, cfg2);
  
- 	priv = container_of(dp, struct msm_dp_display_private, msm_dp_display);
+-	msm_dp_panel_send_vsc_sdp(panel, vsc_sdp);
++	msm_dp_panel_send_sdp(panel, vsc_sdp, MMSS_DP_GENERIC0_0);
  
--	guard(mutex)(&priv->plugged_lock);
- 	ret = pm_runtime_resume_and_get(&dp->pdev->dev);
- 	if (ret) {
- 		DRM_ERROR("failed to pm_runtime_resume\n");
- 		return status;
- 	}
+ 	/* indicates presence of VSC (BIT(6) of MISC1) */
+ 	misc |= DP_MISC1_VSC_SDP;
+diff --git a/drivers/gpu/drm/msm/dp/dp_reg.h b/drivers/gpu/drm/msm/dp/dp_reg.h
+index dda4b642c81b..6767a215b662 100644
+--- a/drivers/gpu/drm/msm/dp/dp_reg.h
++++ b/drivers/gpu/drm/msm/dp/dp_reg.h
+@@ -232,10 +232,12 @@
+ #define MMSS_DP_AUDIO_CTRL_RESET		(0x00000214)
  
-+	mutex_lock(&priv->plugged_lock);
-+	put = false;
+ #define MMSS_DP_SDP_CFG				(0x00000228)
++#define GEN2_SDP_EN				BIT(19)
+ #define GEN0_SDP_EN				(0x00020000)
+ #define MMSS_DP_SDP_CFG2			(0x0000022C)
+ #define MMSS_DP_AUDIO_TIMESTAMP_0		(0x00000230)
+ #define MMSS_DP_AUDIO_TIMESTAMP_1		(0x00000234)
++#define GENERIC2_SDPSIZE_VALID			BIT(20)
+ #define GENERIC0_SDPSIZE_VALID			(0x00010000)
+ 
+ #define MMSS_DP_AUDIO_STREAM_0			(0x00000240)
+@@ -291,6 +293,8 @@
+ #define MMSS_DP_GENERIC1_8			(0x00000348)
+ #define MMSS_DP_GENERIC1_9			(0x0000034C)
+ 
++#define MMSS_DP_GENERIC2_0			(0x000003D8)
 +
- 	phy_deinit = msm_dp_display_host_phy_init(priv);
- 
- 	msm_dp_aux_enable_xfers(priv->aux, true);
-@@ -961,8 +967,12 @@ enum drm_connector_status msm_dp_bridge_detect(struct drm_bridge *bridge,
- 			msm_dp_display_host_phy_exit(priv);
- 		}
- 
--		pm_runtime_put_sync(&dp->pdev->dev);
-+		put = true;
- 	}
-+	mutex_unlock(&priv->plugged_lock);
-+
-+	if (put)
-+		pm_runtime_put_sync(&dp->pdev->dev);
- 
- 	return status;
- }
+ #define MMSS_DP_VSCEXT_0			(0x000002D0)
+ #define MMSS_DP_VSCEXT_1			(0x000002D4)
+ #define MMSS_DP_VSCEXT_2			(0x000002D8)
 
 -- 
 2.56.0
