@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDC8CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 13:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CCACA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 13:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=; b=XPtIcJFxfeNAl4BzES7/5ZGGbn
-	Z0Om95pZo2hfr2E2QpuYYFdT37HPnnJunZDUN91UQPLU5hw40HWnzSEg/1LlH0F1yWYEvHvURGSd2
-	Yy16W7OwJidqgHmMRNY1djXwbtGHQ6NL7EOPgebwGrOTpi8UOun3o5/ZKtHrGSpZeYq4V88EoqDgL
-	RpE8HGT4VgQe+yJvj5k72kgh6UmDDfxj243JdHg3SltrRg3zX5oRoamjwfL9rQEjkG/OoH5B3q92Q
-	DzYFePg0XV7E+r/9uGy7FIoawBEszcK1uJNA97BJTZmZeNVFyJ/G6p+318ZuEXP5G1ML47RXe3VlI
-	+brlEvPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ivHyAXb3qjEaUwwmjdkwnHy9ML1o2ap0QHUHYjbwF8g=; b=Jv4ghxi1o413qohTzL+vSt8hUC
+	NYM2P0nUqGiR71ceB+UfAezSyoXKbtqUObzcyDQVLc0YCDqvVPAMqV2uNtMBB7bWZqxuVCzTtwqLu
+	+1+qf/3x+kFO0n472rs6SPnVpiu/dgzqkSaFJoudBEaZkaATpyhJEQS+RHTzhv6cex5zijf+hBfoU
+	tJ4ncpXmSzHnrJTTwL3cck+5GDC8SB6k685W9JPn4TcN0lsDCPTfjhfUa4/cTg/+j4+suLbSKR8ju
+	3EIN7J1IWodFyyowL49BQIEJHml5GyQTfWRkv7+C3Y96Tl6d28qAC1YgWHs9wVmbBWahbVNIYLr6P
+	wCytXqZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFAFP-00000006Lxj-3emB;
-	Fri, 09 Oct 2026 13:02:51 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1xFANg-00000006MQE-2x3K;
+	Fri, 09 Oct 2026 13:11:24 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFAFN-00000006LxM-1Ur3
+	id 1xFANd-00000006MPP-31D8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 13:02:50 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c2e69aa07c3so877507366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 06:02:48 -0700 (PDT)
+	Fri, 09 Oct 2026 13:11:23 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so62775525e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 06:11:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791550967; x=1792155767; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=;
-        b=kxdaMqgMtA71l4yKlxC7vldEEbSRr9vnWnKEUCJ1hcPYXfi76n1/2MxWqKvSOMzzL/
-         fbVOXlUjam3A7YNMmvTprU500gmZPETt508eIcT+0IB3NpEP493UBqc2Bi0WUsJGLCWb
-         MY7vgPHv1GztsHKRNv8z+lacvEtQtz4Qjb6Wq29ABARmQGf/yWAHiWHy/otzQNFLlmsK
-         xvb8S2A9XY9xXSPfD2lCQnZqUMK7yVxji+CnFRGHUCd+xG7DASdqoA0I0TByKkfaUxDd
-         Xgkh2tqyqVpMVWfET31hwI/sFY3UL0ju0X4oncSl+56rGMT4v2xCiX9PoUs1RrOa7Ok5
-         tRTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791550967; x=1792155767;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1791551478; x=1792156278; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=19+fSLDw62bv9wKAJomFIb9fA14T6XtF00e9ZBRQsYg=;
-        b=oEjDZ+cHYuvQ8tc4VQUOzdrlsoDgkI0+1ErmCjB9ccjdoxXYfdEYVoxGGbM64Ck76f
-         13co6BAX1dC+Danp7Ci3aDHyn7kGI1uj3TdKmL0KoPHSdN9mknqM4ODlTyOnbbh2eV0o
-         Yuq13GHaHYYZDoyUy/Z2gg4Antzz+jbRjfWhj6r2VgjINMrR6YJwNFXNlyv7/bb0xyht
-         8VIikf1CIZkKuEB5VLdmehhMwe5PwH+WZtnYNnnX7hHgYcKjP/YOhQueFj0NTw4o1XAD
-         3qv+xGYiUpgR6V75yc/+nRVS/xkYLwkwnMKzXgLOrQP7g7iA+Y/bv5/O2yyv6UHWcnMC
-         Sugw==
-X-Forwarded-Encrypted: i=1; AKwUvBy2ow4NRwFmpzPb3spEYQOpttqbhv6BB3GWHjtpRSCh95fO1T4Jj1x9WTc1TaqrQazgxgkhnaZ9CI5uTeL/m4u6@lists.infradead.org
-X-Gm-Message-State: AFq9FYJMrteU2C7CW25g1YRMNk85Uepf+OFIFo4AFXLhuUvfp3rQ+NKD
-	ZNDmV1FzPafh0GM3tZuRW8mqQFgz3jnEfmC7coyf2x9uHmDD6ES1VD3KLY+3AfHivw==
-X-Gm-Gg: AYBFou3qyyeb/kPuquOiAa1tlh3UNwqo9+onWVRdmnFnqps1e96lbxzMIR9Sm2txLPd
-	dtyC+XKBnKLBb5J/mDnkHUhpURvNRMfuUlgJpAPWzAUq86Onf2hq2bJsphVYO342Bxd+hnwoyxc
-	FtgfhvJf1z70Fv8qjd5KD8ucX1UcmokbQSjEoAplxey+KIgLZhMHiheBJeLd8SSXBI8a0iBL4Im
-	xa2kpiib+0+dFSm3SbxOcZLpKqDRvHCrlUVTtSFIfh/Pv6POVSEjA+y19qgpL7vv1RC3/o6qu9Z
-	XMxw0aoZgrZWIWqy+suGkJ0PoVX1z7fZKbPJPwc9r4zH7PrYOK/nObfxAJ06vAzq3ZGHw8+KBpM
-	VxAQKE4tet8JRnOyZyOCRismypYZBK2fC2ba/QFMj2TZxRsg+QvR8lvldU+7lerURUVj9NesNEX
-	P2h20Qg7TyUS09PrSxMawtwMJKDc68J4k6PT4kyOMCoRemIRLDWnvc2cooWqka7QNtuBb51Ufx7
-	OGLHN0i8zKHnJBHxhZpETDYJQGeO6MriAdgeO3W4xgwliQp8rFa5w==
-X-Received: by 2002:a17:907:8687:b0:c16:4e5:944a with SMTP id a640c23a62f3a-c31aa02a1ebmr190818466b.21.1791550966562;
-        Fri, 09 Oct 2026 06:02:46 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9acdb6dsm3670054f8f.48.2026.10.09.06.02.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Oct 2026 06:02:45 -0700 (PDT)
-Date: Fri, 9 Oct 2026 14:02:41 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	qperret@google.com
-Subject: Re: [PATCH v1 1/3] KVM: arm64: Add ESR class to the hyp_enter hyp
- event
-Message-ID: <asjl8czHAD017Bha@google.com>
-References: <20261009084529.462577-1-vdonnefort@google.com>
- <20261009084529.462577-2-vdonnefort@google.com>
- <CA+EHjTwNTarWqSc_XVXGFT6mHUZD=QuTeVWrd087jUtexxCScg@mail.gmail.com>
+        bh=ivHyAXb3qjEaUwwmjdkwnHy9ML1o2ap0QHUHYjbwF8g=;
+        b=gRh6+lLGcST2GoOJkO4MBJXXL+s4xQI52CWAqYOHdWxfWfokcu8BAZyZ9mndkjO+rN
+         OFl76hH3ceMKQEyu0NMa9+SuKN4vZ89YKD6nWsHRZJIBxmC4L8qm3phKFbnEFmtfXQRX
+         w8QYszFnbMTRYgACAGSEB6k4hpURiwkUkRfX+gbxzXV0py/CcurjNrgu+gtDv7WECbCY
+         niZExWzScGP/3Pt+/WvZ+BuzA6qNRKFqokN7zuX4E/kDMd+yeMMJEKhiyfYAJ4H/0G+y
+         TjfxRNzW8EGSb8T4lxq7GM9PQNflkq/fR5MXAi5hIfVXVGAeWQISucnQUgglIzA30RYi
+         yGCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791551478; x=1792156278;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ivHyAXb3qjEaUwwmjdkwnHy9ML1o2ap0QHUHYjbwF8g=;
+        b=CZvvKs2kkeZZTwSud3Yx8sU/e2KzLRgwShpKwRYHGBnCMd81vMPHaspVj7072DKoyc
+         9aS15Qr8EfX87mGo+bxcYgM6Xt1tmVf5Img6y8+25AQvN2qVif/jnhPY2+hyBsypt5ZP
+         8FMnltsAyJBJpqmFtdDWWvx1HLzbKlfDJFxlh1JZpeTu6v6JIwb29nAP+U5VfP4yIOc6
+         P19U23OFGbWRtefyRMBlCMEXQDeKbEvbfxoPhgXdisxBp+RgiEFiU2MFPPWXE6GHDRan
+         yC9wZF184yBW7k/W5Nn+MZi0ciSSigQcYPciDPGeSayBRThc79PzxAn+MHF4NcVzURxb
+         SuVw==
+X-Forwarded-Encrypted: i=1; AKwUvBw02jvDtjzeByyUKOtfuQribjXIgSYP5zx6efoD/7DDmlmyDirtVyWH612hf/SZ+CuQVHiqkR4+NWsIOiDMSQVZ@lists.infradead.org
+X-Gm-Message-State: AFuF++l3gtIJ8L4/5XXKOwpOmFNULLFQ3pk5ZBIxbNC1oLw1NmgBRNVb
+	jM7on2hi2B5KuICNOpGGX2kxtcF8oMvO/tz7oMRUnbxpNlPAkRMNmQel
+X-Gm-Gg: AYBFou2vLkVXgdZggk4qeGtiLyCCbFOK6LBWYK72WgXs0tbNUEAI1k4I0ncW9E885kZ
+	NCF7D8huF8mjg22Gk6WHvNP3Qrjp0R2DuQzBzOOewYtMImaY8CbPUtfTvcBQcVV46leZF01nWnK
+	FF7bE33G6t1XfVroK2gmIcIiVj/YTBkVx7fZuQ4nzEncGQXjXpTLWNncOEEp7l9Vf+vxd2pk1cL
+	IukXJAJdwZVuQW/dTptimrcnnJ4foh7zQhCDuxn8Mp0Dc1xNqdkFRRoYtCqH9xK0QxS4IIE+06I
+	aZsTsZ6ebiRZwDmSJosOCbaxLWcVZrCD5VdND8Rz67g/9lFpUvikqCe7ch5Q2Xy9WO1N2n0nIm/
+	XZF6lChroGYjCoJM/VjDoozWr2j5KV+17phZ3VoJgRYz64AlSqkJl7Q0lOmZIQzfdwo2LGXnHv3
+	T0YFyM/kQSSgmcSXawMumDBJBw+n68ooANZlo0kLqe59je1x9j4V895Bjqg/i+cc+NXorhgLDaU
+	aIEFu8unKNgt4SI
+X-Received: by 2002:a05:600c:6989:b0:4a0:236c:8601 with SMTP id 5b1f17b1804b1-4a18e3ec3c7mr35198895e9.0.1791551477871;
+        Fri, 09 Oct 2026 06:11:17 -0700 (PDT)
+Received: from [192.168.1.50] ([81.196.40.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9463a9dsm4005314f8f.6.2026.10.09.06.11.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Oct 2026 06:11:16 -0700 (PDT)
+Message-ID: <7ededd2f-98d0-41ac-91b4-2977963c4637@gmail.com>
+Date: Fri, 9 Oct 2026 16:11:14 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTwNTarWqSc_XVXGFT6mHUZD=QuTeVWrd087jUtexxCScg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH wireless-next] wifi: mt76: mt7601u: add support for AP and
+ P2P concurrent modes
+To: John Robin <johnrobin044@gmail.com>, linux-wireless@vger.kernel.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260815124547.329654-1-johnrobin044@gmail.com>
+Content-Language: en-US
+From: Bitterblue Smith <rtl8821cerfe2@gmail.com>
+In-Reply-To: <20260815124547.329654-1-johnrobin044@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_060249_737638_7785D3E0 
-X-CRM114-Status: GOOD (  37.15  )
+X-CRM114-CacheID: sfid-20261009_061121_897777_F3803D11 
+X-CRM114-Status: GOOD (  32.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,147 +107,407 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 12:30:56PM +0100, Fuad Tabba wrote:
-> Hi Vincent,
+On 15/08/2026 15:41, John Robin wrote:
+> Enable Access Point (AP) and Wi-Fi Direct (P2P_GO/P2P_CLIENT) interface
+> modes on MT7601U device, allowing concurrent Station and AP.
 > 
-> On Fri, 09 Oct 2026 09:45:27 +0100, Vincent Donnefort
-> <vdonnefort@google.com> wrote:
+> Register AP, P2P_GO, P2P_CLIENT, and ADHOC modes and
+> defined an interface combination to support 2 concurrent modes.
+> Set NEEDS_UNIQUE_STA_ADDR to allow mac80211 to generate MACs for
+> virtual interfaces.
 > 
-> [...]
-> > To distinguish between a trap from host and from guest, add a "from="
-> > field, which has 3 possibilities: "host", "vcpu" or "firmware". This
-> > value can be deducted based on the existing vcpu field.
+> Implement start_ap() and stop_ap() to clear WCID tables and
+> manage the hardware Pre-TBTT timer. Update mt7601u_bss_info_changed()
+> to handle BSS_CHANGED_BEACON and BSS_CHANGED_BEACON_ENABLED.
 > 
-> nit: "deduced". Also, "firmware" comes from the reason rather than
-> from the vcpu field.
+> Add beacon frame handling through mt7601u_mac_set_beacon() and
+> set appropriate SYNC Modes for AP and ADHOC interfaces.
 > 
-> [...]
-> > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> Add bounds checking to rate->idx to prevent out of bounds access and
+> safely fall back to CCK rates.
 > 
-> [...]
-> > @@ -10,15 +10,10 @@
-> >  #ifndef __HYP_ENTER_EXIT_REASON
-> >  #define __HYP_ENTER_EXIT_REASON
-> >  enum hyp_enter_exit_reason {
-> > -        HYP_REASON_SMC,
-> > -        HYP_REASON_HVC,
-> > -        HYP_REASON_SYS,
-> > +        HYP_REASON_SMC = ESR_ELx_EC_MAX + 1,
-> 
-> This header now uses ESR_ELx_EC_MAX, so it should include <asm/esr.h>
-> rather than rely on its includers.
-> 
-> >          HYP_REASON_PSCI,
-> > -        HYP_REASON_HOST_ABORT,
-> > -        HYP_REASON_GUEST_EXIT,
-> > -        HYP_REASON_ERET_HOST,
-> > -        HYP_REASON_ERET_GUEST,
-> > -        HYP_REASON_UNKNOWN        /* Must be last */
-> > +        HYP_REASON_IRQ,
-> > +        HYP_REASON_ERET,
-> >  };
-> 
-> Aren't fixed trace points ABI? This changes the raw values of the
-> reason field (1 was hvc and is now WFx) and the strings it prints.
-> Keeping the old values and recording the EC in a new field would avoid
-> that.
+> Route management and injected frames to the Voice (VO) queue
+> to bypass firmware queue suspension also avoid requesting ACKs for
+> multicast frames and skip data rate fallbacks for management frames
 
-The event format is described precisely in events/hypervisor/hyp_enter/format.
-Any tooling should use that, so it doesn't seem like ABI to me. Also, this is
-behind NVHE_EL2_DEBUG. The only precedent I know is in kernel/sched/ where there
-are only tracepoints to avoid having trace events. 
-
-Finally, we do not expose (yet :)) the raw interface. So this part is definitely
-not ABI.
-
-I tried to avoid having the EC separately to keep the event as small as
-possible.
+It sounds like this should be split into ~4 separate patches, each one
+doing one thing.
 
 > 
-> [...]
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> [...]
-> > @@ -213,7 +213,7 @@ static void __noreturn __kvm_host_psci_cpu_entry(unsigned long pc, unsigned long
-> >          write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
-> >          write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
-> >
-> > -        trace_hyp_exit(host_ctxt, HYP_REASON_PSCI);
-> > +        trace_hyp_exit(host_ctxt, HYP_REASON_ERET);
-> >          __host_enter(host_ctxt);
+> All implemented modes were verified to be working. Tested AP mode and
+> simultaneous STA+AP with iperf3 to verify stability.
 > 
-> This also replaces the PSCI, ERET_HOST and ERET_GUEST exit reasons
-> with a single ERET, which the commit message doesn't mention.
-
-ERET_HOST is now "to=host reason=eret" and ERET_GUEST "to=guest reason=ERET".
-
-This one here could be considered a bug fix and I could make it a separate
-patch?
-
+> Signed-off-by: John Robin <johnrobin044@gmail.com>
+> ---
+>  drivers/net/wireless/mediatek/mt7601u/init.c  | 31 ++++++-
+>  drivers/net/wireless/mediatek/mt7601u/mac.c   | 91 +++++++++++++++----
+>  drivers/net/wireless/mediatek/mt7601u/mac.h   |  3 +-
+>  drivers/net/wireless/mediatek/mt7601u/main.c  | 56 +++++++++++-
+>  .../net/wireless/mediatek/mt7601u/mt7601u.h   |  3 +-
+>  drivers/net/wireless/mediatek/mt7601u/tx.c    | 19 +++-
+>  6 files changed, 175 insertions(+), 28 deletions(-)
 > 
-> [...]
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> 
-> [...]
-> > @@ -324,13 +324,15 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
-> >          __debug_switch_to_guest(vcpu);
-> >
-> >          do {
-> > -                trace_hyp_exit(host_ctxt, HYP_REASON_ERET_GUEST);
-> > +                trace_hyp_exit(host_ctxt, HYP_REASON_ERET);
-> >
-> >                  /* Jump in the fire! */
-> >                  exit_code = __guest_enter(vcpu);
-> >
-> >                  /* And we're baaack! */
-> > -                trace_hyp_enter(host_ctxt, HYP_REASON_GUEST_EXIT);
-> > +                trace_hyp_enter(host_ctxt,
-> > +                                ARM_EXCEPTION_CODE(exit_code) == ARM_EXCEPTION_IRQ ?
-> > +                                HYP_REASON_IRQ : ESR_ELx_EC(read_sysreg_el2(SYS_ESR)));
-> >          } while (fixup_guest_exit(vcpu, &exit_code));
-> 
-> Could ESR_EL2 be read only when the event is enabled? The read happens
-> even when tracing is disabled or compiled out, so every non-IRQ guest
-> exit now does an extra one: with NVHE_EL2_DEBUG=n, __kvm_vcpu_run()
-> goes from two reads of ESR_EL2 to three.
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/init.c b/drivers/net/wireless/mediatek/mt7601u/init.c
+> index 5d9e952b29664..e871f7b63cb35 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/init.c
+> +++ b/drivers/net/wireless/mediatek/mt7601u/init.c
+> @@ -12,6 +12,25 @@
+>  
+>  #include "initvals.h"
+>  
+> +static const struct ieee80211_iface_limit if_limits[] = {
+> +	{ .max = 1, .types = BIT(NL80211_IFTYPE_ADHOC) },
+> +	{ .max = 8,
+> +	  .types = BIT(NL80211_IFTYPE_STATION) |
+> +#ifdef CONFIG_MAC80211_MESH
+> +		   BIT(NL80211_IFTYPE_MESH_POINT) |
+> +#endif
+> +		   BIT(NL80211_IFTYPE_P2P_CLIENT) | BIT(NL80211_IFTYPE_P2P_GO) |
+> +		   BIT(NL80211_IFTYPE_AP) },
+> +};
+> +
+> +static const struct ieee80211_iface_combination if_comb[] = { {
+> +	.limits = if_limits,
+> +	.n_limits = ARRAY_SIZE(if_limits),
+> +	.max_interfaces = 2,
+> +	.num_different_channels = 1,
+> +	.beacon_int_infra_match = true,
+> +} };
+> +
+>  static void
+>  mt7601u_set_wlan_state(struct mt7601u_dev *dev, u32 val, bool enable)
+>  {
+> @@ -599,6 +618,7 @@ int mt7601u_register_device(struct mt7601u_dev *dev)
+>  	ieee80211_hw_set(hw, AMPDU_AGGREGATION);
+>  	ieee80211_hw_set(hw, SUPPORTS_RC_TABLE);
+>  	ieee80211_hw_set(hw, MFP_CAPABLE);
+> +	ieee80211_hw_set(hw, NEEDS_UNIQUE_STA_ADDR);
+>  	hw->max_rates = 1;
+>  	hw->max_report_rates = 7;
+>  	hw->max_rate_tries = 1;
+> @@ -607,9 +627,16 @@ int mt7601u_register_device(struct mt7601u_dev *dev)
+>  	hw->vif_data_size = sizeof(struct mt76_vif);
+>  
+>  	SET_IEEE80211_PERM_ADDR(hw, dev->macaddr);
+> -
+> +	wiphy->interface_modes =
+> +		BIT(NL80211_IFTYPE_STATION) | BIT(NL80211_IFTYPE_AP) |
+> +#ifdef CONFIG_MAC80211_MESH
+> +		BIT(NL80211_IFTYPE_MESH_POINT) |
+> +#endif
+> +		BIT(NL80211_IFTYPE_P2P_CLIENT) | BIT(NL80211_IFTYPE_P2P_GO) |
+> +		BIT(NL80211_IFTYPE_ADHOC);
+> +	wiphy->iface_combinations = if_comb;
+> +	wiphy->n_iface_combinations = ARRAY_SIZE(if_comb);
+>  	wiphy->features |= NL80211_FEATURE_ACTIVE_MONITOR;
+> -	wiphy->interface_modes = BIT(NL80211_IFTYPE_STATION);
+>  	wiphy->flags |= WIPHY_FLAG_SUPPORTS_TDLS;
+>  
+>  	wiphy_ext_feature_set(wiphy, NL80211_EXT_FEATURE_CQM_RSSI_LIST);
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/mac.c b/drivers/net/wireless/mediatek/mt7601u/mac.c
+> index ca9cf628eb10d..5e2dec131331c 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/mac.c
+> +++ b/drivers/net/wireless/mediatek/mt7601u/mac.c
+> @@ -118,19 +118,27 @@ u16 mt76_mac_tx_rate_val(struct mt7601u_dev *dev,
+>  		if (rate->flags & IEEE80211_TX_RC_40_MHZ_WIDTH)
+>  			bw = 1;
+>  	} else {
+> -		const struct ieee80211_rate *r;
+> -		int band = dev->chandef.chan->band;
+> -		u16 val;
+> -
+> -		r = &dev->hw->wiphy->bands[band]->bitrates[rate->idx];
+> -		if (rate->flags & IEEE80211_TX_RC_USE_SHORT_PREAMBLE)
+> -			val = r->hw_value_short;
+> -		else
+> -			val = r->hw_value;
+>  
+> -		phy = val >> 8;
+> -		rate_idx = val & 0xff;
+> -		bw = 0;
+> +		int band = dev->chandef.chan->band;
+> +		struct ieee80211_supported_band *sband =
+> +			dev->hw->wiphy->bands[band];
+> +
+> +		if (rate->idx < 0 || rate->idx >= sband->n_bitrates) {
+> +			phy = MT_PHY_TYPE_CCK;
+> +			rate_idx = 0;
+> +		} else {
+> +			const struct ieee80211_rate *r =
+> +				&sband->bitrates[rate->idx];
+> +			u16 val;
+> +
+> +			if (rate->flags & IEEE80211_TX_RC_USE_SHORT_PREAMBLE)
+> +				val = r->hw_value_short;
+> +			else
+> +				val = r->hw_value;
+> +
+> +			phy = val >> 8;
+> +			rate_idx = val & 0xff;
+> +		}
+>  	}
+>  
+>  	rateval = FIELD_PREP(MT_RXWI_RATE_MCS, rate_idx);
+> @@ -264,13 +272,13 @@ void mt7601u_mac_set_short_preamble(struct mt7601u_dev *dev, bool short_preamb)
+>  		mt76_clear(dev, MT_AUTO_RSP_CFG, MT_AUTO_RSP_PREAMB_SHORT);
+>  }
+>  
+> -void mt7601u_mac_config_tsf(struct mt7601u_dev *dev, bool enable, int interval)
+> +void mt7601u_mac_config_tsf(struct mt7601u_dev *dev, struct ieee80211_vif *vif,
+> +			    bool enable, int interval)
+>  {
+>  	u32 val = mt7601u_rr(dev, MT_BEACON_TIME_CFG);
+>  
+> -	val &= ~(MT_BEACON_TIME_CFG_TIMER_EN |
+> -		 MT_BEACON_TIME_CFG_SYNC_MODE |
+> -		 MT_BEACON_TIME_CFG_TBTT_EN);
+> +	val &= ~(MT_BEACON_TIME_CFG_TIMER_EN | MT_BEACON_TIME_CFG_SYNC_MODE |
+> +		 MT_BEACON_TIME_CFG_TBTT_EN | MT_BEACON_TIME_CFG_BEACON_TX);
+>  
+>  	if (!enable) {
+>  		mt7601u_wr(dev, MT_BEACON_TIME_CFG, val);
+> @@ -279,9 +287,22 @@ void mt7601u_mac_config_tsf(struct mt7601u_dev *dev, bool enable, int interval)
+>  
+>  	val &= ~MT_BEACON_TIME_CFG_INTVAL;
+>  	val |= FIELD_PREP(MT_BEACON_TIME_CFG_INTVAL, interval << 4) |
+> -		MT_BEACON_TIME_CFG_TIMER_EN |
+> -		MT_BEACON_TIME_CFG_SYNC_MODE |
+> -		MT_BEACON_TIME_CFG_TBTT_EN;
+> +	       MT_BEACON_TIME_CFG_TIMER_EN | MT_BEACON_TIME_CFG_TBTT_EN;
+> +
+> +	/* AP Mode */
+> +	if (vif && (vif->type == NL80211_IFTYPE_AP ||
+> +		    vif->type == NL80211_IFTYPE_P2P_GO))
+> +		val |= FIELD_PREP(MT_BEACON_TIME_CFG_SYNC_MODE, 3) |
+> +		       MT_BEACON_TIME_CFG_BEACON_TX;
+> +	/* IBSS / Ad-Hoc Mode */
+> +	else if (vif && vif->type == NL80211_IFTYPE_ADHOC)
+> +		val |= FIELD_PREP(MT_BEACON_TIME_CFG_SYNC_MODE, 2) |
+> +		       MT_BEACON_TIME_CFG_BEACON_TX;
+> +	/* Station mode */
+> +	else
+> +		val |= FIELD_PREP(MT_BEACON_TIME_CFG_SYNC_MODE, 1);
+> +
+> +	mt7601u_wr(dev, MT_BEACON_TIME_CFG, val);
+>  }
+>  
+>  static void mt7601u_check_mac_err(struct mt7601u_dev *dev)
+> @@ -393,6 +414,38 @@ void mt7601u_mac_set_ampdu_factor(struct mt7601u_dev *dev)
+>  		   FIELD_PREP(MT_MAX_LEN_CFG_AMPDU, min_factor));
+>  }
+>  
+> +int mt7601u_mac_set_beacon(struct mt7601u_dev *dev, struct ieee80211_vif *vif,
+> +			   struct ieee80211_bss_conf *info)
+> +{
+> +	struct sk_buff *skb = ieee80211_beacon_get(dev->hw, vif, 0);
+> +	struct mt76_txwi *txwi;
+> +	int err, words;
+> +
+> +	if (!skb)
+> +		return 0;
+> +
+> +	/* USB devices already reserve enough skb headroom */
+> +	err = skb_cow_head(skb, sizeof(struct mt76_txwi));
+> +	if (err) {
+> +		dev_kfree_skb(skb);
+> +		return err;
+> +	}
+> +
+> +	txwi = (struct mt76_txwi *)skb_push(skb, sizeof(struct mt76_txwi));
+> +	memset(txwi, 0, sizeof(*txwi));
+> +
+> +	txwi->wcid = 0;
+> +	txwi->len_ctl = cpu_to_le16(skb->len - sizeof(struct mt76_txwi));
+> +	txwi->rate_ctl = cpu_to_le16(0);
+> +
+> +	words = DIV_ROUND_UP(skb->len, 4);
+> +	err = mt7601u_burst_write_regs(dev, MT_BEACON_BASE,
+> +				       (const u32 *)skb->data, words);
+> +	dev_kfree_skb(skb);
+> +
+> +	return err;
+> +}
+> +
+>  static void
+>  mt76_mac_process_rate(struct ieee80211_rx_status *status, u16 rate)
+>  {
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/mac.h b/drivers/net/wireless/mediatek/mt7601u/mac.h
+> index 54bd4fac54d83..528756ccf4725 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/mac.h
+> +++ b/drivers/net/wireless/mediatek/mt7601u/mac.h
+> @@ -167,5 +167,6 @@ struct mt76_tx_status
+>  mt7601u_mac_fetch_tx_status(struct mt7601u_dev *dev);
+>  void mt76_send_tx_status(struct mt7601u_dev *dev, struct mt76_tx_status *stat);
+>  void mt7601u_set_macaddr(struct mt7601u_dev *dev, const u8 *addr);
+> -
+> +int mt7601u_mac_set_beacon(struct mt7601u_dev *dev, struct ieee80211_vif *vif,
+> +			   struct ieee80211_bss_conf *info);
+>  #endif
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/main.c b/drivers/net/wireless/mediatek/mt7601u/main.c
+> index 05ba43e1985c8..4389e332dfe19 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/main.c
+> +++ b/drivers/net/wireless/mediatek/mt7601u/main.c
+> @@ -149,7 +149,7 @@ mt7601u_bss_info_changed(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+>  		 *	 rt2x00 doesn't seem to be bothered though.
+>  		 */
+>  		if (is_zero_ether_addr(info->bssid))
+> -			mt7601u_mac_config_tsf(dev, false, 0);
+> +			mt7601u_mac_config_tsf(dev, vif, false, 0);
+>  	}
+>  
+>  	if (changed & BSS_CHANGED_BASIC_RATES) {
+> @@ -161,7 +161,20 @@ mt7601u_bss_info_changed(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+>  	}
+>  
+>  	if (changed & BSS_CHANGED_BEACON_INT)
+> -		mt7601u_mac_config_tsf(dev, true, info->beacon_int);
+> +		mt7601u_mac_config_tsf(dev, vif, true, info->beacon_int);
+> +
+> +	if ((changed & BSS_CHANGED_BEACON) && vif->type == NL80211_IFTYPE_AP)
+> +		mt7601u_mac_set_beacon(dev, vif, info);
+> +
+> +	if ((changed & BSS_CHANGED_BEACON_ENABLED) &&
+> +	    vif->type == NL80211_IFTYPE_AP) {
+> +		if (info->enable_beacon)
+> +			mt76_set(dev, MT_BEACON_TIME_CFG,
+> +				 MT_BEACON_TIME_CFG_BEACON_TX);
+> +		else
+> +			mt76_clear(dev, MT_BEACON_TIME_CFG,
+> +				   MT_BEACON_TIME_CFG_BEACON_TX);
+> +	}
+>  
+>  	if (changed & BSS_CHANGED_HT || changed & BSS_CHANGED_ERP_CTS_PROT)
+>  		mt7601u_mac_set_protection(dev, info->use_cts_prot,
+> @@ -183,6 +196,43 @@ mt7601u_bss_info_changed(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+>  	mutex_unlock(&dev->mutex);
+>  }
+>  
+> +static int mt7601u_start_ap(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+> +			    struct ieee80211_bss_conf *link_conf)
+> +{
+> +	struct mt7601u_dev *dev = hw->priv;
+> +	int err = 0;
+> +
+> +	mutex_lock(&dev->mutex);
+> +
+> +	/* Clear the wcid Table */
+> +	for (int i = 1; i < 128; i++)
+> +		mt7601u_mac_wcid_setup(dev, i, 0, NULL);
+> +
+> +	/* Set pre TBTT to 6ms */
+> +	mt76_rmw_field(dev, MT_INT_TIMER_CFG, MT_INT_TIMER_CFG_PRE_TBTT, 6);
+> +	mt76_set(dev, MT_INT_TIMER_EN, MT_INT_TIMER_EN_PRE_TBTT_EN);
+> +
+> +	mt7601u_mac_config_tsf(dev, vif, true, link_conf->beacon_int);
+> +
+> +	mutex_unlock(&dev->mutex);
+> +
+> +	return err;
+> +}
+> +
+> +static void mt7601u_stop_ap(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+> +			    struct ieee80211_bss_conf *link_conf)
+> +{
+> +	struct mt7601u_dev *dev = hw->priv;
+> +
+> +	mutex_lock(&dev->mutex);
+> +
+> +	mt7601u_mac_config_tsf(dev, vif, false, 0);
+> +
+> +	mt76_clear(dev, MT_INT_TIMER_EN, MT_INT_TIMER_EN_PRE_TBTT_EN);
+> +
+> +	mutex_unlock(&dev->mutex);
+> +}
+> +
+>  static int
+>  mt76_wcid_alloc(struct mt7601u_dev *dev)
+>  {
+> @@ -419,6 +469,8 @@ const struct ieee80211_ops mt7601u_ops = {
+>  	.config = mt7601u_config,
+>  	.configure_filter = mt76_configure_filter,
+>  	.bss_info_changed = mt7601u_bss_info_changed,
+> +	.start_ap = mt7601u_start_ap,
+> +	.stop_ap = mt7601u_stop_ap,
+>  	.sta_add = mt7601u_sta_add,
+>  	.sta_remove = mt7601u_sta_remove,
+>  	.sta_notify = mt7601u_sta_notify,
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/mt7601u.h b/drivers/net/wireless/mediatek/mt7601u/mt7601u.h
+> index 118d437078537..7366e1c476339 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/mt7601u.h
+> +++ b/drivers/net/wireless/mediatek/mt7601u/mt7601u.h
+> @@ -359,7 +359,8 @@ void mt7601u_mac_work(struct work_struct *work);
+>  void mt7601u_mac_set_protection(struct mt7601u_dev *dev, bool legacy_prot,
+>  				int ht_mode);
+>  void mt7601u_mac_set_short_preamble(struct mt7601u_dev *dev, bool short_preamb);
+> -void mt7601u_mac_config_tsf(struct mt7601u_dev *dev, bool enable, int interval);
+> +void mt7601u_mac_config_tsf(struct mt7601u_dev *dev, struct ieee80211_vif *vif,
+> +			    bool enable, int interval);
+>  void
+>  mt7601u_mac_wcid_setup(struct mt7601u_dev *dev, u8 idx, u8 vif_idx, u8 *mac);
+>  void mt7601u_mac_set_ampdu_factor(struct mt7601u_dev *dev);
+> diff --git a/drivers/net/wireless/mediatek/mt7601u/tx.c b/drivers/net/wireless/mediatek/mt7601u/tx.c
+> index 5aeeac0dd9fe7..47c78c4ff5144 100644
+> --- a/drivers/net/wireless/mediatek/mt7601u/tx.c
+> +++ b/drivers/net/wireless/mediatek/mt7601u/tx.c
+> @@ -27,6 +27,14 @@ static u8 q2hwq(u8 q)
+>  static u8 skb2q(struct sk_buff *skb)
+>  {
+>  	int qid = skb_get_queue_mapping(skb);
+> +	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
+> +	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
+> +
+> +	if (ieee80211_is_mgmt(hdr->frame_control) ||
+> +	    (info->flags & IEEE80211_TX_CTL_INJECTED)) {
+> +		skb_set_queue_mapping(skb, MT_TXQ_VO);
+> +		return q2hwq(MT_TXQ_VO);
+> +	}
+>  
+>  	if (WARN_ON(qid >= MT_TXQ_PSD)) {
+>  		qid = MT_TXQ_BE;
+> @@ -134,6 +142,9 @@ mt7601u_push_txwi(struct mt7601u_dev *dev, struct sk_buff *skb,
+>  	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
+>  	struct ieee80211_tx_rate *rate = &info->control.rates[0];
+>  	struct mt76_txwi *txwi;
+> +	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
+> +	bool is_mgmt = ieee80211_is_mgmt(hdr->frame_control);
+> +	bool is_mcast = is_multicast_ether_addr(hdr->addr1);
+>  	unsigned long flags;
+>  	bool is_probe;
+>  	u32 pkt_id;
+> @@ -148,14 +159,14 @@ mt7601u_push_txwi(struct mt7601u_dev *dev, struct sk_buff *skb,
+>  				       info->control.rates, 1);
+>  
+>  	spin_lock_irqsave(&dev->lock, flags);
+> -	if (rate->idx < 0 || !rate->count)
+> +	if (!is_mgmt && (rate->idx < 0 || !rate->count))
+>  		rate_ctl = wcid->tx_rate;
+>  	else
+>  		rate_ctl = mt76_mac_tx_rate_val(dev, rate, &nss);
+>  	spin_unlock_irqrestore(&dev->lock, flags);
+>  	txwi->rate_ctl = cpu_to_le16(rate_ctl);
+>  
+> -	if (!(info->flags & IEEE80211_TX_CTL_NO_ACK))
+> +	if (!(info->flags & IEEE80211_TX_CTL_NO_ACK) && sta && !is_mcast)
+>  		txwi->ack_ctl |= MT_TXWI_ACK_CTL_REQ;
+>  	if (info->flags & IEEE80211_TX_CTL_ASSIGN_SEQ)
+>  		txwi->ack_ctl |= MT_TXWI_ACK_CTL_NSEQ;
+> @@ -197,6 +208,8 @@ void mt7601u_tx(struct ieee80211_hw *hw, struct ieee80211_tx_control *control,
+>  	struct mt76_sta *msta = NULL;
+>  	struct mt76_wcid *wcid = dev->mon_wcid;
+>  	struct mt76_txwi *txwi;
+> +	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
+> +	bool is_mcast = is_multicast_ether_addr(hdr->addr1);
+>  	int pkt_len = skb->len;
+>  	int hw_q = skb2q(skb);
+>  
+> @@ -211,7 +224,7 @@ void mt7601u_tx(struct ieee80211_hw *hw, struct ieee80211_tx_control *control,
+>  	if (sta) {
+>  		msta = (struct mt76_sta *) sta->drv_priv;
+>  		wcid = &msta->wcid;
+> -	} else if (vif) {
+> +	} else if (vif && is_mcast) {
+>  		struct mt76_vif *mvif = (struct mt76_vif *)vif->drv_priv;
+>  
+>  		wcid = &mvif->group_wcid;
 
-Hum, that's a good point. I was thinking about having a HYP_REASON_ESR that when
-sent actually read the ESR. But then handle_trap() would read it twice, unless
-this one still gives the esr directly.
-
-Alternatively, I thought of moving the esr_el2 = read_sysreg_el2(SYS_ESR) out of
-__fixup_guest_exit(). But it didn't look nice.
-
-WDYS?
-
-> 
-> [...]
-> > diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-> [...]
-> >  static const char *__hyp_enter_exit_reason_str(u8 reason)
-> >  {
-> [...]
-> > +        if (reason <= ESR_ELx_EC_MAX) {
-> > +                int i;
-> > +
-> > +                for (i = 0; i < ARRAY_SIZE(class); i++) {
-> > +                        if (class[i].mask == reason)
-> > +                                return class[i].name;
-> > +                }
-> > +
-> > +                return "UNKNOWN_ESR";
-> > +        }
-> 
-> Could this print the EC value when it isn't in the table?
-> kvm_arm_exception_class has no entry for ILL, BTI, SME or GCS among
-> others, so an ARM_EXCEPTION_IL exit (EC 0x0E) shows up as UNKNOWN_ESR.
-
-I can extend kvm_arm_exception_class. Having a dynamic format string is not
-possible here.
-
-> 
-> Cheers,
-> /fuad
-
--- 
-Vincent
 
