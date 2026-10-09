@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB183CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0B5CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtCYHP8bkaekZ1veqlqX8aXKZ4Lf0sSj0bK6Dp/TMpg=; b=ZPbMdHplarfPzUmhOlWIWAdRke
-	Z254Y3XSn6i5wMz/41LF3+vT1LUTf2qA61u9sMgsUj82z2a4QKzOMDTyKQRwNNfB+hToZZXvVkrTy
-	qsuPXvUOceYD1eR/xxtFC0Q6dbWhBcUJPmxysKdMSjc4QFgISrZhM331QHilGObfhouoeOqUm4a9F
-	a4bgCSafUummYu/ttRiCy583+q2dpHQGOdDgshjFXINJfGoP6uk8ee685Km8/CAEJZTaZWJcrtJpe
-	DMoFX7wsb3U5X77MCQlyaPKX3zYJYxzHXm+grsemiD90EXRPP8XWd+8H92GHSSJ5ndKtJQzla2vO3
-	GRdvrrEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DwKQpCHKFhcaUaYAWcgeYUDcs0tyuQzK5tp06tZh3no=; b=FLt0KGTlLFv/qWqZa8UbPZwjR3
+	NpcDo2gSeXnzfeG8Ez84GNJti36tHdFXhcaRllXfsqC4wqlnJC71qZ3rKdEkDgvNqdjxTZcJ9retC
+	6DP9mY3q51lZ0z6PZBpGrXcHV2+dABSmys8KVA95MUgapdQhgl0HjjpHofdBTAGCrSAimXVmBJ9my
+	wtf55lJs3ItUBXQUuEC6BqF1I1tY8G7rx9lomjIedQKlqBIJc+M0YOPPhkfek2CXd7whXNN7agy0z
+	iXsSraJGRCl8rrmLARauWXInFdZ6zxETCs/H0xBlVi8GLfnoUPKc7LYkJTCdYdGd97vTbKBW224wF
+	HuEyo4Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7up-000000064ia-0DH9;
-	Fri, 09 Oct 2026 10:33:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF7uo-000000064iM-0FK6;
-	Fri, 09 Oct 2026 10:33:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7DE4660DBB;
-	Fri,  9 Oct 2026 10:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 683DE1F000FF;
-	Fri,  9 Oct 2026 10:33:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791542005;
-	bh=HtCYHP8bkaekZ1veqlqX8aXKZ4Lf0sSj0bK6Dp/TMpg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WaUM1kYadguyw8AItenfIPKE+2el6/RQ4bJ8E+TYjvKl4Il9CdtIZWShD9/VD3/it
-	 9aq9OUbP4tKmDKhdenx9cC6kzeXTgCt9UYIAHBj6J6Ti39TqubXCUVZr4QEx1jpy+H
-	 zToPjLf2lBqGro4dxedF+SQG8Eku5lZRo4Fcgf1MCRcIdQAarEQ7GqlR9AwcVqs9I9
-	 FawLC9aanhudklh9wqqfnJwTw2Nf81SrEjiD69L+UXoRlcEQmaDJb0DqeTU2M+0RhU
-	 uy+RjX84pLmZm7sNntHuNsG6Zd/Z+Id6/WbBTF4sngHLNcVLuMHgaUytAjHDb5l2bO
-	 IFvu16Cb/XBpg==
-Date: Fri, 9 Oct 2026 12:33:21 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>, 
-	Billy Tsai <billy_tsai@aspeedtech.com>, linux-aspeed@lists.ozlabs.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] phy: aspeed: Add ASPEED PCIe PHY driver
-Message-ID: <20261009-cherry-caribou-of-glamour-adaba4@quoll>
-References: <20261008-aspeed_pcie_phy-v1-0-96764937aef0@aspeedtech.com>
- <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
+	id 1xF7z8-0000000659j-1YHD;
+	Fri, 09 Oct 2026 10:37:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF7z5-0000000658v-2qwa
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 10:37:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6137A1570;
+	Fri,  9 Oct 2026 03:37:45 -0700 (PDT)
+Received: from [10.0.152.148] (e121487-lin.cambridge.arm.com [10.0.152.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B9F73F66F;
+	Fri,  9 Oct 2026 03:37:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791542268; bh=P0YngHHkpFDgj6eBIszFEX3wwImCVB5t7vQvhGgdx5E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GLjhLkKXIELjuG7JmuuJLI97v3hzk5qGmYuRebJqkBCc6UKPs7S3kgVDZHvptf8o6
+	 o7yVoaozrCuy5ffdQTnj2w5BoRh2+BgiTNC2vHaOWtGJnPh3mMR5tipZGTMu+kxjqd
+	 wzGXL+5f1hwhkpuTSII5bHSnANQV0W9ooZapKI1U=
+Message-ID: <c53b373b-9f70-42f0-affc-6978f0508b87@arm.com>
+Date: Fri, 9 Oct 2026 11:37:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261008-aspeed_pcie_phy-v1-2-96764937aef0@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] arm64: entry: drop the unused tmp2 argument of
+ mte_set_kernel_gcr()
+To: Bradley Morgan <brads@mainlining.org>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261007185512.2.mte-tmp2@mainlining.org>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261007185512.2.mte-tmp2@mainlining.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_033751_774040_2AF47FAF 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 08, 2026 at 07:28:20PM +0800, Jacky Chou wrote:
-> Introduce support for Aspeed PCIe PHY controller available in
-> AST2600/2700.
+On 10/7/26 18:45, Bradley Morgan wrote:
+> mte_set_kernel_gcr() takes a tmp2 argument the macro never uses. It
+> used to, the body passed \tmp and \tmp2 to mte_set_gcr, then
+> commit 82868247897b ("arm64: kasan: mte: use a constant kernel
+> GCR_EL1 value") swapped that for
 > 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+>     mov     \tmp, KERNEL_GCR_EL1
+> 
+> and tmp2 stayed in the declaration and in the one caller, which
+> passes x23 for it.
+> 
+> Drop it, both places.
+> 
+> Signed-off-by: Bradley Morgan <brads@mainlining.org>
 > ---
->  drivers/phy/aspeed/Kconfig           |  12 +-
->  drivers/phy/aspeed/Makefile          |   1 +
->  drivers/phy/aspeed/phy-aspeed-pcie.c | 237 +++++++++++++++++++++++++++++++++++
+> Resending, the first send's body got mangled.
+> 
+>  arch/arm64/kernel/entry.S | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index f63049ac32dc..c3106dee61e1 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -171,7 +171,7 @@ alternative_else_nop_endif
+>  #endif
+>  	.endm
+>  
+> -	.macro mte_set_kernel_gcr, tmp, tmp2
+> +	.macro mte_set_kernel_gcr, tmp
+>  #ifdef CONFIG_KASAN_HW_TAGS
+>  alternative_cb	ARM64_ALWAYS_SYSTEM, kasan_hw_tags_enable
+>  	b	1f
+> @@ -258,7 +258,7 @@ alternative_else_nop_endif
+>  
+>  	apply_ssbd 1, x22, x23
+>  
+> -	mte_set_kernel_gcr x22, x23
+> +	mte_set_kernel_gcr x22
+>  
+>  	/*
+>  	 * Any non-self-synchronizing system register updates required for
+> -- 2.53.0
+> 
 
-And unlike 10 previous versions, this wasn't even built!
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
