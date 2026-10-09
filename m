@@ -4,166 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4D9CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABC6CA5FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6HnU0h/lQqsemsQrOUQLb2l3ikDGLSW9b4T05Vtskc=; b=J45UWERVu6NvRiiPGuAK3E6uqS
-	TyEUxAP/3ypvQ4MX8StuIfnhqukT1mf+sjCHsmiNXGLTIfANUOrdMV5gKc3gNEbOShoJHENE2dOCa
-	di5rBihHjKSfikIbBvcY5jzzYQl9z33zILdeGflNwelk/yPuzGivke7cJdolnFiRIuZUDx1XFkw9v
-	1R0SVjDB6cRz6YUuN2/FoxZMopPYtZezUsLE1k4+FzRxTB5BONyDOYrkC3OZyUQ4nirrZ7p1YFkJP
-	6X/fqNgBR1AkHLx/SOLXjjED8+Q2zss4/RRT0JW2PgmoIueU1IRVh0JHaSmEMmEneZRb2M2DorU2P
-	ymZpKi8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NpZ7XaceTucaY86C62zOlPu+VQmlzvfFU9YRREd4CxU=; b=mUPWDO6YYe7YeL704/x9Y+970T
+	LhjNxR+T4ObRH4M7rs1gZqRqpwaGjsa4wG2IFuEiMQPwVJWCr0SkOhMdd5vpWrrnMb8vArOXtghNK
+	5JflVCQsqrow1YVqAIvHdT9eANDp5WUVCi/97uulMSoAoJnN4uN/2zeHpiEzkzYMlKOIvTU+vvwJY
+	1le/WNaRhjeZDMBn1dg6Im7zVrJ8xPrT8TTyH+/GBcZnKNPHuJQfGSJJIEnLwFoidDAmZy7PxqTAc
+	KPJoz+aFCdaQ0Ap75+FcgpD75mQBhdGZEhwv41CJjnPfKx0WLvPPiDmEx76L0TcZlU78FuAT7+qTS
+	1tavh+Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF562-00000005jxi-2GfS;
-	Fri, 09 Oct 2026 07:32:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xF5Hb-00000005ky9-2bqc;
+	Fri, 09 Oct 2026 07:44:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF561-00000005jxB-0SrO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 07:32:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=z6HnU0h/lQqsemsQrOUQLb2l3ikDGLSW9b4T05Vtskc=; b=apd57I0t6olstPxJbb4ppBLgfc
-	0fHa3WTCofWV6wLQMAwEFQtBKfGaP26rwGmlhmHbUiBbddreHojvW+DVdYmA6/iRs7mNQgiyH41bF
-	C1vaU/dTj1DvNGCj4k26sUHZaB8RQvYjA/HsnOIE5hiI4D2//DNqwl14WUl9mmxfP0GpziqTQ5+/+
-	oTqzKD230ylVaMiIJF+pyHIPcXiKNU7waKs+HsApJTRUvCSJjpI0dCDuerkXkPJkFGOzZ3ZC1w+x7
-	0gWsDvvTl+I6dQAxiLIJfJzT2/Hgo+BccblaI3I7UfvfvjQ9bcd4yDJzBX/ecJt4aYWRQ9h09RsFE
-	BGCmYpsw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xF55t-0000000Az6z-0U6h
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 07:32:48 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6993HLYp1712766
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Oct 2026 07:32:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	z6HnU0h/lQqsemsQrOUQLb2l3ikDGLSW9b4T05Vtskc=; b=bNgIieMR3fi4+lYi
-	Zx5jKmnTvCcSO+VtGCiAvJeLaHv3Wesg5+QCK59mAi3P5jUdt5QZqqaypdKrdCcP
-	FQzqIMsmc9qs/4x91JOCG+GxNn+pkIUh3EqZq7IZ6jGsFgUhhkiQDWGQz9dSnw9X
-	a1nrnHBVaB6ZERt9g/Dixql6A2n9bbYxTJ/UrqFyD7DpL9ACzbuOlchbDsqKJ3Oe
-	4avbPBaurH2bSxDrt+lcjIKi0kUvjKk6qAaQ64G2sPQfCb9J042iU2aAsE9UQ005
-	nO5JP8U+AjOBJyPHR0Wd9W1GihBdJtA4SB61J1vXNoz5CgOYhk6TKRoGUvHAqV3V
-	GN5yBg==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h6fxwag2u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 07:32:36 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cc435388657so6990008a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 00:32:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791531156; x=1792135956; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=z6HnU0h/lQqsemsQrOUQLb2l3ikDGLSW9b4T05Vtskc=;
-        b=YAqTdz3htnmo3tJTZVQmCOCSMzFMk2C2plOsnWj2oOKFbdxIgFhE1eCC7D/iY2Mi3J
-         PEv+zYcA91Ck0Gbt6CtciqJBHRtjWv7MMBiPrx6l5XNeLz98qg4Z0rDK/uZPLvaNCRMD
-         GRZJeNpVz4d2DWL+/0lB5OtiPMGW2SdA8PglE8/bslgBQhFeyKVM0yefXPUrasGdt8r2
-         YEjs3GIkwzTPDIG9iitr4vdYjuhmbxoXU4BjmW1rxe3O/T2zQVJlWvdHjxTD6MHmHzcu
-         zuxf7oIwa5K3PqQsqMyszSgiLFrHc8mA4v1tlBDylfJuWUcBaVTzaAw+HGz47+L4NJss
-         rsWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791531156; x=1792135956;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z6HnU0h/lQqsemsQrOUQLb2l3ikDGLSW9b4T05Vtskc=;
-        b=uuC4OxC2WeKv2Jnmp9aMfB+pvchTKY4nPOg7Hpw5iGFuoiP6iqu1CKz8+WJP69WTfu
-         tRQAuA6jxHVGWxvRhDGRdmkt7fOBtRfZ0q9f5Vuzn7P7ZyuZM8RVp21GvC+zCcLZ2Y+Z
-         9CoB/d+5SxGfr4cQT157ke2uYMSdKge+TK1uH/eGgqwFl8YxbueFraple+jdPrVMEl37
-         ZE2yyqC1DS4msNfjx9v9hNxypdrhBrQoM3MQ9SWjBTXTQ1EBJO+RYu54J03AwNM/I0it
-         7E75IIslzH/GUEet5RZxYYLB6CE4ufIUTAmgdvXPjlwKLF0TFQlDP/ezxNhtYQel4Llt
-         g9cw==
-X-Forwarded-Encrypted: i=1; AKwUvBw1Ec27XyISRbiCK1exdMGBpMlXp+wNCyVdrZpJx+462wCFOSnL81uB6WMLn4R61rU1nXvY8Tlp0D2l8/wj6tUx@lists.infradead.org
-X-Gm-Message-State: AFq9FYIvX7w76i53BCRVgiPXldn779gFPaMwYWcUisxkCU+45zrylAX1
-	1lRKYMAD0bKDB1Cw02dVDXL/MpBLgymk8kiwaCfSp8w5NOQQVwcsKk2YpDt74jbrI3BTlpkofHP
-	/GBrhRxkboIZdS33LCuaxYFcEDM8l/dITM0g9cZ8nQbb570N8fvigAqZ2duy0QPTTtz9mmKMWEi
-	VtQQ==
-X-Gm-Gg: AYBFou25NOo4GSGwB8OOxabj5UM420if2wMTV0vbiWK7/usAqrK4Qeod4UsLmofhZm4
-	k41gBgT5OtI5pLftzwtG9zZdfQXaCP9oh/j1JvKyhZmuZx5VVilOzzoH/zMFDEHlgiQOksmbvpI
-	DuNsZUneE1xktTVYbWCt5t5M4OebDC55l2Vf/UsLm9w0t8dr7VWQMzeYRoXnsX4JQfhKJgoDub4
-	7uQ6qS1dDLFIONV8KlZSh7FsAUSJ1+3K6GMT97/YAMcHwQEroDC5RK/jckK1Wyo+4tp/qlyumDY
-	0ycpEZ9MBR3dp5DcWClw1Ivj7zYpnN3ytXIDeT9Qi16yJ6JixTsUxl2VdZfQhp4Yd1Dd+v/H4DX
-	yce0QqKm9WXnyMFsODf2waf+GdnHaLwi0
-X-Received: by 2002:a17:90b:268f:b0:3a8:59d3:5317 with SMTP id 98e67ed59e1d1-3ab3a778a55mr1089545a91.32.1791531156162;
-        Fri, 09 Oct 2026 00:32:36 -0700 (PDT)
-X-Received: by 2002:a17:90b:268f:b0:3a8:59d3:5317 with SMTP id 98e67ed59e1d1-3ab3a778a55mr1089530a91.32.1791531155710;
-        Fri, 09 Oct 2026 00:32:35 -0700 (PDT)
-Received: from [10.217.219.98] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab32c0f59bsm1435629a91.0.2026.10.09.00.32.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Oct 2026 00:32:34 -0700 (PDT)
-Message-ID: <778f15ef-5052-479a-9b45-bc3821b205ae@oss.qualcomm.com>
-Date: Fri, 9 Oct 2026 13:02:25 +0530
+	id 1xF5Ha-00000005kxq-1hh1;
+	Fri, 09 Oct 2026 07:44:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C0D8942E3F;
+	Fri,  9 Oct 2026 07:44:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2711F1F00893;
+	Fri,  9 Oct 2026 07:44:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791531885;
+	bh=NpZ7XaceTucaY86C62zOlPu+VQmlzvfFU9YRREd4CxU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IcW0L1szOmI+K95UFpUOxmCcHjnJ/pBfcccJqrW7jxT91VyW1LYAoh/NpoDt22f+g
+	 n+jWOzIjD+F8l65MyLNfs0AxpindYSVONDRDZNjD/e9aI7Mi+l+MmfyJKPgSEcegjK
+	 2tO/g1zVojMkYR7tAsQHApQS9YfwqNImgRyNOa3rgtqS4IJJuD+fV2jzCITHXCzij0
+	 D+rN4JoP/hNwjzoH4+yfqy9MA/mHhYddOSeJRCw/SYa4I2Q3fxsQPyhBOV4l105JMC
+	 MrkHUTOE72EeYz1S2zQLcihgZQfJxzlkuv4hLq98W2DFuEBnnCmWa/3CK+/ab/MBw7
+	 g8VREvLkZ57PA==
+Date: Fri, 9 Oct 2026 09:44:43 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: SAYANTAN NANDY <sayantann11@gmail.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, bread.hsu@airoha.com,
+	sayantan.nandy@airoha.com
+Subject: Re: [PATCH net v2] net: airoha: keep PPE offload when NPU refuses
+ flow stats
+Message-ID: <asiba_Sw-i2ht_S9@lore-desk>
+References: <20261008094828.15458-1-sayantann11@gmail.com>
+ <20261009050322.39060-1-sayantann11@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 8/9] i2c: qcom-geni: Use common GENI resource
- initialization helper
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
-        linux-i2c@vger.kernel.org
-References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
- <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-8-091697dbeb02@oss.qualcomm.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-8-091697dbeb02@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA5MDAyOSBTYWx0ZWRfXwOP1oS4NN3UA
- aRvRua7MPCrq8gUD62+rzq82rbloDRhZm3bVQyxLzCzsu5a6P4UaFU+zErVKzr9MBitthCiwka/
- mqhgyjx+bj3XI+W+H8ViA2R6HPdWnSDGgQQ1BRQh0Bkc8pRrLWNcjcgfmd7SdHnCAkN+fRQgStr
- 0DpKIRZ73FKR0TbyVhiJwznBV+cxNMcRaBd4nzsIcf2xizoFB+QmpFVctsD37R+LqSS4PmDyFia
- 48+jTET3o4WFQWQUbxwG4KuQQbymAkWYNOD9CAjNI9MviPSrm+CxeVYE4SgN0NIFBunUw+LdQhz
- eW/C/OWowtNk0kHJCGCBgV35hAqyTqEjbbH+0YmL/Kk8fVW6IsGx5B0spOXe97d6xkgjnykPLoV
- NYfMWJ8VfMzmx5foxuR2L0QFZE9Z2DOrvxX/nz5tiKPOQyWiv643uFGH80UasCfuKQJTT9FuHkD
- LSiHfFbg574CjlsfFQw==
-X-Proofpoint-GUID: vWKr6LJh49jMvSmDa4x19YzQlhGfDkoJ
-X-Authority-Analysis: v=2.4 cv=cMB1IVeN c=1 sm=1 tr=0 ts=6ac89894 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=hk0YJ0Y5ifG0NBj8Rn8A:9 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA5MDAyOSBTYWx0ZWRfX7mO6bhC1n5gf
- m43e5dYKUTg1vODmcj3O86QxvMHnAd6bNlGADrH57riBV/CMGpFuR2clmzqzdPjwSYFq4Acam/2
- 3clg490M0OLjMZdfAX3Vwgacct0VAeA=
-X-Proofpoint-ORIG-GUID: vWKr6LJh49jMvSmDa4x19YzQlhGfDkoJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-09_02,2026-10-08_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 lowpriorityscore=0
- malwarescore=0 adultscore=0 bulkscore=0 impostorscore=0 phishscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610020000
- definitions=main-2610090029
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_083241_837264_9C6E73DD 
-X-CRM114-Status: GOOD (  13.94  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NOajDJ9cSUpeZ4E4"
+Content-Disposition: inline
+In-Reply-To: <20261009050322.39060-1-sayantann11@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,19 +72,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--NOajDJ9cSUpeZ4E4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-
-On 8/27/2026 11:29 PM, Praveen Talari wrote:
-> The driver implements a custom resources_init() callback for clock
-> frequency validation and bandwidth vote programming. Neither operation is
-> required for resource initialization itself.
-> 
-> Move clock frequency validation to probe and program the ICC bandwidth vote
-> from qcom_geni_i2c_conf(), where the bus frequency is configured. This
-> allows the driver to use geni_se_resources_init() directly and removes the
-> I2C-specific resource initialization wrapper.
-> 
-> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
+> From: Chad Monroe <chad@monroe.io>
+>=20
+> With flow stats enabled, PPE offload setup requests flow statistics
+> from the NPU. If the running NPU firmware does not support flow
+> counters, the request fails and the current setup path aborts PPE
+> offload.
+>=20
+> Treat flow statistics as an optional capability so that a failure to
+> set up the counters does not prevent normal PPE offload. Record
+> whether flow statistics are available and continue PPE initialization
+> when the NPU refuses the flow-statistics request.
+>=20
+> Also treat a zero NPU statistics address returned by the firmware as a
+> refusal. The host-side DMA buffer (foe_stats_dma) is allocated by
+> dmam_alloc_coherent() in airoha_ppe_init() from system memory. The NPU
+> statistics address (npu_stats_addr) is a separate allocation from the
+> NPU firmware's internal SRAM pool. When that pool is exhausted, the
+> firmware replies with success and npu_stats_addr =3D 0. A zero address
+> does not provide a usable counter region and must not be passed to
+> devm_ioremap().
+>=20
+> When flow stats are available, clear PSE_PORT6_SHARE_DIS so that PSE
+> port 6 (CDM3 path to the NPU) participates in shared-buffer flow
+> control, which the counter traffic path needs.
+>=20
+> When flow statistics are unavailable, PPE continues to operate without
+> NPU flow counters while retaining normal offload functionality.
+>=20
+> This combines the original SmartRG/Airoha fixes for:
+> - keeping PPE offload active when the NPU refuses flow statistics
+> - treating a zero NPU statistics address as a flow-statistics refusal
+>=20
+> Based on the original SmartRG/Airoha work by Chad Monroe:
+> 5ce96ab ("SDG-9458: keep PPE offload when NPU refuses flow stats")
+> 0ad8528 ("SDG-9458: airoha: treat a zero NPU stats address as a refusal")
+> Fixes: b81e0f2b58be ("net: airoha: Add FLOW_CLS_STATS callback support")
+> Tested-on: AN7581 with MT7992
+> Signed-off-by: Chad Monroe <chad@monroe.io>
+> Signed-off-by: SAYANTAN NANDY <sayantann11@gmail.com>
 > ---
-Reviewed-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+>=20
+> Changes since v1:
+> - Rename flow_stats to flow_stats_cap (Lorenzo).
+> - Explain that npu_stats_addr is an NPU firmware SRAM allocation,
+>   distinct from the host-side foe_stats_dma buffer (Lorenzo).
+> - Explain why PSE_PORT6_SHARE_DIS is cleared for counter traffic
+>   (Lorenzo).
+> - Use airoha_fe_clear() and shorten the warning message (Lorenzo).
+> - Add hardware testing information requested by netdev-bot.
+>=20
+>  drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
+>  drivers/net/ethernet/airoha/airoha_npu.c  |  8 ++++++++
+>  drivers/net/ethernet/airoha/airoha_ppe.c  | 17 +++++++++++------
+>  drivers/net/ethernet/airoha/airoha_regs.h |  2 ++
+>  4 files changed, 22 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 8277c1c87bb3..da4a3ba69e3c 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -617,6 +617,7 @@ struct airoha_ppe {
+> =20
+>  	void *foe;
+>  	dma_addr_t foe_dma;
+> +	bool flow_stats_cap;
+> =20
+>  	struct rhashtable l2_flows;
+> =20
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
+net/airoha/airoha_npu.c
+> index 4d3195eb00f7..b32a01dbe06b 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -450,6 +450,14 @@ static int airoha_npu_ppe_stats_setup(struct airoha_=
+npu *npu,
+>  	if (err)
+>  		goto out;
+> =20
+> +	/* The firmware reports success with a zero address when its SRAM
+> +	 * pool has no room left for the counters.
+> +	 */
+> +	if (!ppe_data->stats_info.npu_stats_addr) {
+> +		err =3D -ENOSPC;
+> +		goto out;
+> +	}
+> +
+>  	npu->stats =3D devm_ioremap(npu->dev,
+>  				  ppe_data->stats_info.npu_stats_addr,
+>  				  size);
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 92611802801e..0957f331478a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -37,10 +37,7 @@ static const struct rhashtable_params airoha_l2_flow_t=
+able_params =3D {
+> =20
+>  static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe)
+>  {
+> -	if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
+> -		return -EOPNOTSUPP;
+> -
+> -	if (airoha_is_7583(ppe->eth))
+> +	if (!ppe->flow_stats_cap)
+>  		return -EOPNOTSUPP;
+
+Looking again at the code flow_stats_cap is only used here. Why do we need =
+it
+in the first place? I guess you it is enough to just not return an error in
+airoha_ppe_offload_setup() and log the error instead (as you did).
+
+> =20
+>  	return PPE_STATS_NUM_ENTRIES;
+> @@ -144,6 +141,9 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+>  	sram_ppe_num_data_entries =3D
+>  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
+> =20
+> +	if (ppe->flow_stats_cap)
+> +		airoha_fe_clear(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS);
+
+can you please explain what this configuration is doing? This register is n=
+ot
+documented.
+
+> +
+>  	for (i =3D 0; i < eth->soc->num_ppe; i++) {
+>  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
+>  			     ppe->foe_dma + sram_tb_size);
+> @@ -1456,8 +1456,11 @@ static int airoha_ppe_offload_setup(struct airoha_=
+eth *eth)
+>  	if (ppe_num_stats_entries > 0) {
+>  		err =3D npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
+>  					      ppe_num_stats_entries);
+> -		if (err)
+> -			goto error_npu_put;
+> +		if (err) {
+> +			dev_warn(eth->dev, "NPU refused flow stats (%d)\n",
+> +				 err);
+> +			ppe->flow_stats_cap =3D false;
+
+please see above.
+
+> +		}
+>  	}
+> =20
+>  	airoha_ppe_hw_init(ppe);
+> @@ -1608,6 +1611,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
+>  	ppe->dev.priv =3D ppe;
+>  	ppe->eth =3D eth;
+>  	eth->ppe =3D ppe;
+> +	ppe->flow_stats_cap =3D IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS) &&
+> +			  !airoha_is_7583(eth);
+
+please see above.
+
+Regards,
+Lorenzo
+
+> =20
+>  	ppe_num_entries =3D airoha_ppe_get_total_num_entries(ppe);
+>  	foe_size =3D ppe_num_entries * sizeof(struct airoha_foe_entry);
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
+rnet/airoha/airoha_regs.h
+> index 442b48c9b991..aee06c058586 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -72,6 +72,8 @@
+>  #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
+> =20
+>  #define PSE_FQ_CFG			0x008c
+> +#define PSE_FC_CFG			0x0098
+> +#define PSE_PORT6_SHARE_DIS		BIT(22)
+>  #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
+> =20
+>  #define REG_FE_PSE_BUF_SET		0x0090
+> --=20
+> 2.43.0
+>=20
+
+--NOajDJ9cSUpeZ4E4
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasibawAKCRA6cBh0uS2t
+rK8sAQCcVwqGDaZNFDjbktsKV7mzp98FVx4rbcZGJlo+MhlRDwD/XXQapB/RcFIs
+7ItldqyvtIw7uHMNN4sLeGtM0R01uw4=
+=UgeO
+-----END PGP SIGNATURE-----
+
+--NOajDJ9cSUpeZ4E4--
 
