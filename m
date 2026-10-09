@@ -4,125 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA180CA9EC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9296CA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZXcrD1S7/I6W/aF1UhtK1+p0qebXOrwfnsiC5xoqRI=; b=us2uJvbEfyCO/HpDAOASS4NQcJ
-	qYc6fsGzpVG4p/iX7CJ/FNy821I8VTj/awgze//sJQRmoJVF8HqEyrK+hoUxGvQjZMT7hCL06Cb2h
-	p09EVthoC+kD6eKQQ2yJkFDn7neRxevGOzQt0wYi5iv7WdgXRfxO5S5FKN2CcuUTmtIv4mgffdzd6
-	PxVVEV5j+srCU2Et8feLSO4M4/wblnNXWJS56gS8+40aflK6460MjJ87wUOMuHTMa3k6yAlr9Y50/
-	oT8x9nb4n+FH/QHHKHoinhEeTTkonodFDU99wcVMxjwCYdMP+L1pxxPW3NbsbU4xHWvUcgzgOaURD
-	8myW/qxQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DSl5opG1vGnvwklTn11CdgwFu8SczIEjmNSxqtCH0Uo=; b=QBnJtm3JTLy3nPS0PVPNL1yn1P
+	Y3NqXJbntoJsIw6uJTIWLI9trlBBwuaji6Oq5SF3KvFE1K7br6ypsJ10QhgYbljN2FtxhgCxcyjNZ
+	r2dIFH+5dRLUMpYUG34jqavsbHSYCb1vdHTzhSgJJZTMknK6gja4SI3xr15CzEFsJEUhKFeT5dwYj
+	PUr3o4G0Fe3yeBpaDNNRiDmMv62hlMNfqbqAusUYMoDr8G2j+2hPMU+84+ErbqDdJwNZA2J8LXVwL
+	Mh2WkdI9+P5Qt8XKteJ62MeDFuSvHt7ulKmGsoFvmFMbnDFmo150hOGsMaAJuXORilrnH6kipEz+F
+	bEKS2Nrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDBr-00000006cR4-1g0u;
-	Fri, 09 Oct 2026 16:11:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xFF8V-00000006uwb-1fQN;
+	Fri, 09 Oct 2026 18:16:03 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDBn-00000006cN9-30bk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 16:11:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=RZXcrD1S7/I6W/aF1UhtK1+p0qebXOrwfnsiC5xoqRI=; b=FqvkZTxDej7Sb2TALyo7TQFfA3
-	ALISoulVjsB+12xYCSeZh8lOTw8v3XsXWRLTqID4QAwWIVxcSCMy4NOqe9vzk/ruVMxdQ+T64svIP
-	d8mwoeFIlBZt03xSyUNxKSAG/w15Lt9NEYnrSEnxjPABMelvBQWXonPPIIEnPNdEdua4dGgCGaCMh
-	+AlHjG/kAPBe7uIYAVg0HKPckUXD/Z9sSvW+4b0m6eis6OD+MTzmxVOOKTg64U1FebCSPtv82Z14d
-	1Fw3uHAFar2uVwhtqr9QZCiB6mGdcJngOwovsAORaY2bgkPvguPj0LT1ycuJTpw2c1ICa3VBkxoI6
-	SjnxVjPQ==;
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xFDBk-0000000BOk9-2XiR
+	id 1xFF8S-00000006uuP-1iCX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 16:11:18 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so142495e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:11:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791562275; x=1792167075; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=RZXcrD1S7/I6W/aF1UhtK1+p0qebXOrwfnsiC5xoqRI=;
-        b=MFjPsqeUJpzCkq3qtX2AlSDnyvEzTf0fozk/L7K+uwfktc7DHl/17fF/1/DB4ZF2v5
-         rOYpf06x/9e7F2uYQZMt5m8IQTlen50yjeta3sQqvXHJgEVvbfeQm2pzJRM6pG/pctoN
-         kFDdDO2aTqrWIhYabz2nq8FibZ6JZEFrnh/rccsw2N2HmTIYPEEivWiR+5r56ih288lN
-         jsLRBmGm1AW3R5ptzuB4c0/oeMJWNITZyU5xLvlsxCMavv6NV+hFcWpuoYSV+fm7X2RP
-         agrz0nEbh7RXn6aH7f4xy3+/nbYhjqdd7s308VEXFEDTjxh5CttG65CHbVxVlo8S5jZT
-         vMYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791562275; x=1792167075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=RZXcrD1S7/I6W/aF1UhtK1+p0qebXOrwfnsiC5xoqRI=;
-        b=wa1J4ZP/yMDs3IfCueVSVHqMsR04J2z1NxWmR566KGogvKWXBKjurClpCi+VMwLiaq
-         7ftCojSJ8zAI9CHrwiaJrHVEJhIz9hR3BwmwOey8/cfr7D+0d6hYOlJUPFyzYYnQ/pC8
-         KClEjkCFuOq7ITIu5xl4YAi43LgRrjagrZszaIuiZOV1R8jEQgeEu18zX38VNv14hYXY
-         +De7JN3IbClSxB+Cr25uAB9rkzDZKjIuudjY9uKy9PER+hpV0E6tWcxAUPcPMyqYeagj
-         dV/F51oONI5/LqAzizDJByqwmOecpknkwkNCNrdOnRu+jxGLavyW4sZonZEeEB9qKQ1h
-         meCg==
-X-Forwarded-Encrypted: i=1; AKwUvByF2c3qx3i2JFVapXhQq64DOS7hiVGL995jBL8qbgUKqkLaf1wrxcTNeV2JNvHRvGBmInEqYZukUqdAuR0FIODb@lists.infradead.org
-X-Gm-Message-State: AFuF++lQj+EQrRNFSWUhpVcEVe6hcBYkXmLHYuefwBDIVBgxt6mYkPFU
-	kVAHDYWZn5kGx9uVNGqlBSdCGCQMX9xSEe3kHhdlVb1DU7trSF0YP+Et
-X-Gm-Gg: AYBFou1/HBpoIyszKfpICpu1Y0CmRZDFO8/oxxrVcIo/UnL+2GFdRxN8udsHDaEoGfy
-	bPuFYIAuhuljCQSTCsny7Unv1tJIbulycga/XAp8hoyLzA20mB5v94nBIJ0uAQ2+RpS+cBlPhSu
-	TaWno5dRq+Kh5GfKVkvqNwlTrcC1wWRtKw6Ad1uZNYzcaU+HFZVQBzG1c/sW2sN9hMhAI/2wy73
-	EeBYnOtlkCxAZkgq5XyV/Rf7eUkj1IsKdnoT8HdFQzO3XK8/InKx+I4yndRkflCVJ/bRW+jSn0z
-	M6VSbkagVGDhLrxdckpjAuAgujQKzk+eYMGQd8DxXVtep0uW8vvJdcaZxzPHP28AnL3bbeUcNGu
-	GLcM4tdx2tqCJrBXIvj1YFTd041VVBUQkNFMnYecPvXw4M//J63ZudJnrWV2x6a16c7aToqFmPj
-	pHBIm+h8cBdDtV0+N1ztbjtH7CAglK6NhxTU9HAAfIsZl9V3ttyLj+5bH1o8ry9O9ohUm9GCtd8
-	E6Odbt+VztLboyRcpLkVVunZLxam4EAs1OXzjf69RfGQAapK6vovjl2OXtatv2Pg4l1KaOkiFVw
-	bJtFRHNrxawNygC5Lg==
-X-Received: by 2002:a05:600c:37cc:b0:4a0:23f:8b0d with SMTP id 5b1f17b1804b1-4a18e44396cmr51955465e9.2.1791562274820;
-        Fri, 09 Oct 2026 09:11:14 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-213-45-9-252.retail.telecomitalia.it. [213.45.9.252])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48db94e2f08sm4744701f8f.15.2026.10.09.09.11.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Oct 2026 09:11:14 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Fri, 09 Oct 2026 18:16:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1791569755; x=1792174555; i=wahrenst@gmx.net;
+	bh=DSl5opG1vGnvwklTn11CdgwFu8SczIEjmNSxqtCH0Uo=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=c73AyekHjMi4tJcJlpfCLNbYBXWCUPj1o5TWXlGTd2jthTIHk+9IKOw92eviktTZ
+	 GrhuVx+NFVipZZXqoVIKU8lrtORdIN25kK6RcT2bc6Myv+EUpOeAxgyiNT/mEy4Uq
+	 W6FvDNCMaFO+zn7r1+lnTf60MjVK7ex9XtwfFm/VzTqwKeSs/FpUG9OIvqeG5n5Xm
+	 deI8PuA4KVaLgPQV09fBD+cmiJqjRNfOXmE8tUMJgeuvbwdzrmMQY7w1PgBq4KfRO
+	 Se4kqKAzz0vl53UgFZq4k+oeEyXbnapTP8d+ycqQVFhGyWqEyzWgl4M3N2ZenJqiU
+	 EsL+WC+VbIYqhdH59g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MStCe-1x5uey3xhm-00PsuA; Fri, 09
+ Oct 2026 20:15:55 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	Joris Vaisvila <joey@tinyisr.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v25 02/10] dt-bindings: net: Document support for AN8855 Switch Internal PHY
-Date: Fri,  9 Oct 2026 18:10:47 +0200
-Message-ID: <20261009161102.38961-3-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261009161102.38961-1-ansuelsmth@gmail.com>
-References: <20261009161102.38961-1-ansuelsmth@gmail.com>
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH V6 0/2] arm64: dts: freescale: Add chargebyte Charge Control Y
+Date: Fri,  9 Oct 2026 20:15:49 +0200
+Message-ID: <20261009181551.6478-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:esvhwAYVbbgDT+q6Gcu44Ck6nQXTLc185E1fA/yvZkjn4eoDzkT
+ S/FWrc5VX40NONGbuo2xzB8v/Jqq314qTaZiym654imUmprsJun0tdfzbyXsPVo/x4UtN1+
+ +PCFHC1eQ55AWCu4FCaGN5SV3y5hsgci1WWAavqvuf2GbocaUIpnkvw1xS2+6VC1oTxPsgK
+ GbFmJQlUVAu0Rgg0d5vMg==
+UI-OutboundReport: notjunk:1;M01:P0:LE4Jg8Xigbc=;pHvNNGxVGAcC49cJCDNe54sfHMI 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_171116_934685_FF298373 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20261009_111600_818336_DBA93770 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,112 +85,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for AN8855 Switch Internal PHY.
+This series adds support for the chargebyte Charge Control Y, which is
+an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+Charging System) charging stations.
 
-Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
-PHYs on the MDIO bus.
+sashiko reported in the first version of the series [1] that X_nRST_LAN
+is available via GPIO line names, but there is no reset mechanismn in the
+device tree. This finding is valid. Since the reset line feature isn't
+implemented for LAN8651 driver yet, I like to proceed with the current
+version. The LAN8651 handles reset via SPI commands and in rare cases
+we still have the possibility to control the reset from userspace.
+Btw the pin has a pull resistor in hardware, so it's not floating.
 
-Each PHY might need to be calibrated to correctly work with the
-use of the eFUSE provided by the Switch SoC. This can be enabled by
-defining in the PHY node the NVMEM cell properties.
+sashiko complained in the fourth version of the series [2] about the
+reset polarity of ethphy2 and the different drive strength across the
+data lines. Both is intended.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/net/airoha,an8855-phy.yaml       | 83 +++++++++++++++++++
- 1 file changed, 83 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+[1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000E9=
+@smtp.kernel.org/
+[2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C1F000E9=
+@smtp.kernel.org/
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
-new file mode 100644
-index 000000000000..d2f86116badf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
-@@ -0,0 +1,83 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha AN8855 Switch Internal PHY
-+
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
-+
-+description: >
-+  Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
-+  PHYs on the MDIO bus.
-+
-+  Each PHY might need to be calibrated to correctly work with the
-+  use of the eFUSE provided by the Switch SoC.
-+
-+allOf:
-+  - $ref: ethernet-phy.yaml#
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - ethernet-phy-idc0ff.0410
-+  required:
-+    - compatible
-+
-+properties:
-+  reg:
-+    maxItems: 1
-+
-+  nvmem-cells:
-+    items:
-+      - description: phandle to SoC eFUSE tx_a
-+      - description: phandle to SoC eFUSE tx_b
-+      - description: phandle to SoC eFUSE tx_c
-+      - description: phandle to SoC eFUSE tx_d
-+
-+  nvmem-cell-names:
-+    items:
-+      - const: tx_a
-+      - const: tx_b
-+      - const: tx_c
-+      - const: tx_d
-+
-+required:
-+  - compatible
-+  - reg
-+
-+dependentRequired:
-+  nvmem-cells: [ nvmem-cell-names ]
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-phy@1 {
-+            compatible = "ethernet-phy-idc0ff.0410",
-+                         "ethernet-phy-ieee802.3-c45";
-+
-+            reg = <1>;
-+        };
-+
-+        ethernet-phy@2 {
-+            compatible = "ethernet-phy-idc0ff.0410",
-+                         "ethernet-phy-ieee802.3-c45";
-+
-+            reg = <2>;
-+
-+            nvmem-cells = <&shift_sel_port0_tx_a>,
-+                          <&shift_sel_port0_tx_b>,
-+                          <&shift_sel_port0_tx_c>,
-+                          <&shift_sel_port0_tx_d>;
-+            nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-+        };
-+    };
--- 
-2.55.0
+Changes in V6:
+- drop already applied binding patches
+- rebase on next-20261002
+
+Changes in V5:
+- fix delete-node for pinctrl_leds (reported by sashiko)
+- add Krzysztof's Reviewed-by
+
+Changes in V4:
+- prepend constrains fix for ti,tcan104x-can binding (reported by sashiko)
+
+Changes in V3:
+- add Acked-by's from Conor
+- add missing SD2_VSELECT to default pinctrl of SD interface (reported by =
+sashiko)
+- clarify LAN8651 GPIO usage in device tree (suggested by Frank Li)
+- move X_nRST_LAN into dedicated pinctrl group to make it more self-explai=
+ning
+
+Changes in V2:
+- drop phy-can-transceiver changes and make MCP2542 compatible to TI TCAN1=
+042
+  as suggested by Marc Kleine-Budde & Frank Li
+- implemented SD2_nRESET as vmmc supply for SD card interface
+  (reported by sashiko)
+- add UHS support for SD card interface
+- dropped downstream property ti,leds-polarity (reported by sashiko)
+- fix GPIO line name of X_LAN_nCS (reported by sashiko)
+- drop unconnected pins (X_TDI, X_TMS_SWDIO, X_TDO) from GPIO line names=
+=20
+
+Stefan Wahren (2):
+  dt-bindings: arm: fsl: Add chargebyte Charge Control Y
+  arm64: dts: freescale: Add chargebyte Charge Control Y
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx93-charge-control-y.dts  | 438 ++++++++++++++++++
+ .../boot/dts/freescale/imx93-phycore-som.dtsi |   2 +-
+ 4 files changed, 441 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-charge-control-y.d=
+ts
+
+=2D-=20
+2.43.0
 
 
