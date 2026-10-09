@@ -4,114 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4655CA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA921CA6018
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 03:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVkhbIha367ZUPcSP/0qUyOfo0Zbwi092GPc0Z4TRTg=; b=SJUApO+IUtZtGhnsGTFTjzXyoX
-	Rr2XrhgugVxozOMZnW1JxfpWv6sqQ6lwidzG0XemRaeHdvabfcclENTEgNtTCNwu92Krn7eCNitsC
-	WD29oVIFayWEqaNk8ZoKwPYAUCSUrlOY+tAhi444qHvEWmxMdIn232KREsGOKTVYBbxD6FicmUTMX
-	NWpM5UgIougMWESbFbzQC4WZcBGEViqJcN80bTu1bxiID+OBtcg8ad+GFQXM1mlBTIxqQwbq9g4vl
-	0R4kidmxn5pLdC4788Q/EZdQibe7kBozIlVl2696TI7olNiZad8h3uZ4fIpzmfi3n5noFgg/pOEVx
-	depszmDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yEryO6q/rSnNf7cAisuB4DggIjqAxg4m34Zq90Y4CtY=; b=Czj3gLwtQDnSSb938AhuX8ObtR
+	klioUdNQYkVfwu8sEIqaljmpiIH7+JdfWgqheGLDIknYI/6Ikd0TQHm+mLV1ebaNYL7KpCKNHN1nc
+	34hBmWigIVeJL88spFPuAF8lN+MG5yriGr2knewMSc4qDArgXi7R5O9U3Zd2mGJPVHZW8Mn6Kd7T8
+	wvUMAzLiv+AYTK9is5zPS3aLQtAP4VGc+nA7VYI1cnw2Xs4jRQLixsaVPj2xgy0HPoW5hBekbhw3n
+	FoioiXYkV3U2B071KpSWL8qSIC6GbE8vY+iM5s5ojaELfbS3oeIECD6ZIKwwV+zyIhW28elASRj01
+	YQj2UOrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF19h-00000005LgY-0Gku;
-	Fri, 09 Oct 2026 03:20:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xF1Gb-00000005MfJ-4BwE;
+	Fri, 09 Oct 2026 03:27:30 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF19d-00000005LeA-25hZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 03:20:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=nVkhbIha367ZUPcSP/0qUyOfo0Zbwi092GPc0Z4TRTg=; b=nrPYU3/C4OMW+akwxWLK5KeuB0
-	I4WNWvpidEj2o4jYNLDndsl65nRBpDm9oGmBiqRJzF9GphbFsW+fnjpeWCu1Z4EgcCQ8kAQ4cicAk
-	xttlbm9Sczq3NIe/XhPH7OVdsf6fFa5kqwFBVZVgy6c7IFjH1s/26jIFirWmR8wLJo28Tp687SbA3
-	l9ogrWUBNp25WHiseXKvjNOb6CwXEPD8bWCdfTpo2YlLk3XWmPSnm18ABF5vmBefB8f1anLDsQkwB
-	7R5c+TUqPPIvIhlii7HNGT++PjiEqYwz7YGxcAyN7TQP48ix3K01vAWuJriFRelvqidKKCce78oiQ
-	V+P/UtNA==;
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xF19V-0000000Ar1e-1Lru
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 03:20:16 +0000
-X-QQ-mid: zesmtpip2t1791515882t0fd3316f
-X-QQ-Originating-IP: XXNfWD6sBCjyqaCfOai782WfGgGzZkkZ7WXlzuAHYJ8=
-Received: from [192.168.30.32] ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 11:17:59 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12552488957466588621
-EX-QQ-RecipientCnt: 29
-From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 09 Oct 2026 11:16:07 +0800
-Subject: [PATCH v2 15/20] drm/msm/dp: Flush VSC updates when leaving YUV420
+	id 1xF1GY-00000005MdK-1n6G;
+	Fri, 09 Oct 2026 03:27:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1791516442; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=yEryO6q/rSnNf7cAisuB4DggIjqAxg4m34Zq90Y4CtY=;
+	b=RavHdLXOAPA40FYTIiclSUABwfIn0k6bwKgufVJZwchocNPs8tnMIltXOGucgPuYP/v3W560gLoq5HUL8s7jMkExXwka/0eFc6E/zR0NlKgxdifjGxTC2UgS2Lg3XZ59LaVMH949EiwqJ//7oNV7ywBi5sHsq3ZuJMfVy1pjVbs=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R371e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0XCS-sIR_1791516435;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCS-sIR_1791516435 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 09 Oct 2026 11:27:20 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: acme@kernel.org,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	namhyung@kernel.org
+Cc: mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	leo.yan@linux.dev,
+	john.g.garry@oracle.com,
+	will@kernel.org,
+	mike.leach@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	guoren@kernel.org,
+	anup@brainfault.org,
+	david.laight.linux@gmail.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] perf riscv: Implement rdtsc()
+Date: Fri,  9 Oct 2026 11:27:13 +0800
+Message-ID: <20261009032715.2841-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-msm-dp-hdr10-v2-15-1835d4966da3@radxa.com>
-References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
-In-Reply-To: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
- dragon@radxa.com, Xilin Wu <sophon@radxa.com>, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3407; i=sophon@radxa.com;
- h=from:subject:message-id; bh=Z9h8OALLyQT16FzQH0lJ854H/RrF3oqTzDkmSpjnkKg=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDFknYlb1VPj7TlmssD18z5dZVp5Ppsnl555o3H0o43fcB
- ObaR1emd5SyMIhxMciKKbIoxDPMZa/MvfZUrFQPZg4rE8gQBi5OAZhI73OGP/zX8mwuvhZWVrnI
- 7bFGYuPsY+HM55Xnmi62Pr/Ir+V41j9Ghon8wfmbPuw8te/9xiPC/eobRRgEtL9c6PXaL+ncdvT
- zUVYA
-X-Developer-Key: i=sophon@radxa.com; a=openpgp;
- fpr=205F009D07796DD6E516752E32C31567AD9E324E
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: NQzH8pzEc5hGI+mOX+sK8WrWJPiXdgZBqb4S/aI847o2PN74zOn4/+d7
-	nu6c/ZCPnsuBOcjYM1lZMrkU9eCoU8EKmTeLTA5PiAno/vbO7b6OR4CYnDuv9vwxCnaNH2n
-	h13lZDuzh11BN5O5RsNbRk1D1hgEOUtY41aRLuerobWBMOxMQw9ULMWsTO47f3PCYOkNAU9
-	lLciuC05nAt+PlZrawBsO6uRYmgyfgRDR30hmUqOu3vaKt1slEj97md+IY/YncdzILGNKqL
-	IZ8AgXSi1Sdw9BOqbU7K8mmQZqQAhmMUKI0+vbyqe++GfTKYhhTbVAxBWf6VPj9n/hNXC9Q
-	DBjifgsP+u46xlHC3zXqAFEIexUUpVq2HuVdxtxVRMjCMn2IFfxd8/cRCsuy6J/VbgNE4CE
-	2lXyQ+jqpMx8rOQbQzFuVgE+puxmE81plYCXHwFtt/xILO3ygBiTX+xRUZbm6tOpPhN2ETZ
-	EZpKxW/Lo88Jx681N5obJJSecrlAJMkSdxloc8ock/x25kAiRHc7NPVjjuG2soT6p3fESpr
-	1TqhPNKfnIpUfHZ3ZjECipOy75WRq7hdnV82lVjArmp4ft1pa74OF0k1vZxDT20/vhs1ZF0
-	9j9W8ebEzznvJ1F6r1Or0FuVz0nsx809siX35oE96SQ3iAf8DE2ntmujk+gVx3HaTwO6d34
-	gRpFbQkT4cm4FdMh01PJ0gz9QiQbLDzvk3YC6P2SgQkar7QX1/KUEBGhOB+tkQ71i2M1dv2
-	ctzYP+o86XAe7zoV9Dfkn9IjbsekA7os2or0iGc034TyH/xxXx3pFVYzNv9bjg9cFivFIFx
-	47ST+L3ZvCo6GEuiY7zuMOcK7hzwZI0EJfiO6Pg/e1WlxsLVbORuMSD2M6HDc71qDVogki2
-	43lJ0Y+GDwl3AJsvW4e7J+Hnpw9hzRTBb59h+HLTP7wwNmNy8AJFntVcmDr7OSvQ84418Nu
-	W4DMF60S3TUG2jrBVbT0ru5od0YusMxM+hTXrKb5gbumO9IkChz4KWDCV6fJworqjg0o3LN
-	U5W3fGxYyu8nDRYcJNBOr/dpMEltSsejOpt3+Ta4T1FE565wiXEJMwyfbyHpWN//QGSsUht
-	Q==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_042014_756407_8B5D4C95 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20261008_202726_959901_B5F5FBAC 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,92 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Peripheral flush is currently requested only for the new YUV420 mode.
-Returning to RGB also changes SDP state and must remove the old VSC
-packet rather than leaving its enable bits set.
+tools/perf falls back to the __weak rdtsc() stub in tools/perf/util/tsc.c
+on every architecture that does not override it, riscv included.  The
+stub returns a constant 0, so anything that reaches for the counter gets
+a value that means nothing and cannot tell it apart from a counter that
+happens to be at 0.
 
-Track whether either stream needs VSC and request peripheral flush for
-both enabling and removing it. Explicitly disable VSC for RGB, and write
-the packet payload before enabling transmission. Retain the existing
-hardware-specific SDP update mechanism.
+The time CSR is a natural TSC equivalent on riscv: readable from user
+mode, constant frequency, and the same counter that riscv's
+arch_perf_update_userpage() feeds the user page conversion fields from,
+ever since commit 83c5e13b8cbb ("riscv: Prepare for user-space perf
+event mmap support").  This series registers that on the tools side.
 
-Assisted-by: LLM
-Signed-off-by: Xilin Wu <sophon@radxa.com>
----
- drivers/gpu/drm/msm/dp/dp_display.c | 7 ++++++-
- drivers/gpu/drm/msm/dp/dp_panel.c   | 6 ++++--
- drivers/gpu/drm/msm/dp/dp_panel.h   | 1 +
- 3 files changed, 11 insertions(+), 3 deletions(-)
+The two patches are split so that the first stands on its own:
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index 1f9595ff5fd9..486348113b8a 100644
---- a/drivers/gpu/drm/msm/dp/dp_display.c
-+++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -691,6 +691,8 @@ static int msm_dp_display_set_mode(struct msm_dp *msm_dp_display,
- 	else
- 		bpp = state->bpp;
- 
-+	msm_dp_panel->sdp_needs_flush = msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420 ||
-+		drm_mode_is_420_only(&msm_dp_panel->connector->display_info, adjusted_mode);
- 	msm_dp_panel_init_panel_info(msm_dp_panel, adjusted_mode, bpp ? bpp : 24);
- 
- 	/* populate wide_bus_support to different layers */
-@@ -1557,7 +1559,10 @@ void __exit msm_dp_unregister(void)
- bool msm_dp_needs_periph_flush(const struct msm_dp *msm_dp_display,
- 			       const struct drm_display_mode *mode)
- {
--	return drm_mode_is_420_only(&msm_dp_display->connector->display_info, mode);
-+	struct msm_dp_display_private *dp = container_of(msm_dp_display,
-+					struct msm_dp_display_private, msm_dp_display);
-+
-+	return dp->panel->sdp_needs_flush;
- }
- 
- bool msm_dp_wide_bus_available(const struct msm_dp *msm_dp_display)
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index af05441bc32a..026074cafc88 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -526,14 +526,14 @@ void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sd
- 	cfg2 = msm_dp_read_link(panel, MMSS_DP_SDP_CFG2);
- 	misc = msm_dp_read_link(panel, REG_DP_MISC1_MISC0);
- 
-+	msm_dp_panel_send_sdp(panel, vsc_sdp, MMSS_DP_GENERIC0_0);
-+
- 	cfg |= GEN0_SDP_EN;
- 	msm_dp_write_link(panel, MMSS_DP_SDP_CFG, cfg);
- 
- 	cfg2 |= GENERIC0_SDPSIZE_VALID;
- 	msm_dp_write_link(panel, MMSS_DP_SDP_CFG2, cfg2);
- 
--	msm_dp_panel_send_sdp(panel, vsc_sdp, MMSS_DP_GENERIC0_0);
--
- 	/* indicates presence of VSC (BIT(6) of MISC1) */
- 	misc |= DP_MISC1_VSC_SDP;
- 
-@@ -686,6 +686,8 @@ int msm_dp_panel_timing_cfg(struct msm_dp_panel *msm_dp_panel, bool wide_bus_en)
- 
- 	if (msm_dp_panel->msm_dp_mode.out_fmt_is_yuv_420)
- 		msm_dp_panel_setup_vsc_sdp_yuv_420(msm_dp_panel);
-+	else
-+		msm_dp_panel_disable_vsc_sdp(msm_dp_panel);
- 
- 	panel->panel_on = true;
- 
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.h b/drivers/gpu/drm/msm/dp/dp_panel.h
-index a5cb8a4a9498..31752895f124 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.h
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.h
-@@ -42,6 +42,7 @@ struct msm_dp_panel {
- 	bool link_caps_valid;
- 	/* All capability reads completed; eDP can reuse the full cache. */
- 	bool caps_cached;
-+	bool sdp_needs_flush;
- 	u32 hw_revision;
- 
- 	u32 max_bw_code;
+1. Implement rdtsc() over the time CSR for riscv64.
+
+2. Have the build system say which architectures have a usable counter,
+   instead of a list of compiler macros inside the test.
+
+What this is worth beyond the subtest result:
+
+1. The subtest is the only reader of those conversion fields riscv
+   can run, so it guards arithmetic that has shipped unexercised;
+   registering the counter at the same time leaves a future riscv
+   auxtrace driver the reading and the conversion already in place.
+
+2. The flag lets a caller ask whether the architecture has a counter
+   before it uses the value, without keeping its own copy of a list
+   that has to be edited every time an architecture grows an
+   implementation.
+
+Changes since v2:
+- Key off IS_BUILTIN(HAVE_RDTSC), with <tools/config.h> included, instead
+  of an #ifndef block, as Adrian Hunter suggested.
+- Collected the tags received on v2.
+
+Changes since v1:
+- Define rdtsc() for RV64 only. RV32 now keeps the weak stub.
+- Declare the capability through the build system rather than through a
+  weak arch__rdtsc_supported() hook, following the PERF_HAVE_JITDUMP
+  pattern, as Leo Yan suggested.
+
+Tests:
+======
+- Build side, this version: the compile command of
+  tests/perf-time-to-tsc.o carries -DHAVE_RDTSC on riscv64, arm64 and the
+  x86_64 host, and does not on riscv32, so RV32 stays on the weak stub.
+- Same object built on the host with and without the flag: with it the
+  "TSC support" subtest returns TEST_OK with the skip branch folded out,
+  without it the pr_debug and the TEST_SKIP branch are still there.  That
+  is the branch the #ifndef used to pick, so the change is behaviour
+  preserving.
+- riscv64 QEMU virt guest with sscofpmf, as reported on v2: before the
+  series the "TSC support" subtest skips and the conversion subtest fails
+  while comparing against the stub's constant 0; after, both report Ok.
+  Patch 1 is unchanged here and the subtest decision is behaviour
+  preserving, so v3 was verified on the build side only.
+
+Chen Pei (2):
+  perf riscv: Implement rdtsc()
+  perf tsc: Declare TSC support from the build system
+
+ tools/perf/Makefile.config          |  4 ++++
+ tools/perf/arch/arm64/Makefile      |  1 +
+ tools/perf/arch/riscv/Makefile      |  1 +
+ tools/perf/arch/riscv/util/Build    |  1 +
+ tools/perf/arch/riscv/util/tsc.c    | 27 +++++++++++++++++++++++++++
+ tools/perf/arch/x86/Makefile        |  1 +
+ tools/perf/tests/perf-time-to-tsc.c | 14 ++------------
+ 7 files changed, 37 insertions(+), 12 deletions(-)
+ create mode 100644 tools/perf/arch/riscv/util/tsc.c
 
 -- 
-2.56.0
+2.50.1
 
 
