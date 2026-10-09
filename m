@@ -4,152 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CE8CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 10:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E6ECA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 11:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xIuK4qLFpOveONgAAyi5kobiRpcm6xaedCc5gg3Jijc=; b=WwHO1lQA7C4frcPIXcpzifjYw9
-	uT7IXozy5e2weo7y7uoS/ItOBht3hjKnotdyiil1sAI4x3RmodNDKSndGxtPayRowjw8b5Y0ms4Dk
-	c8xH0KOisTO1mG+sN7QVCMTVaBkBP/OiIkmz4GpvLBr4neKvrwalAgN1wIvnp241vrFL0+2qijShx
-	1SoJRUVXevklNsPPQD0lyFKN4YaNV2cBTpwYdX6+13DOuySA3uT1+YFMtqJLfwdRCClrat6vC7dX6
-	XJPk5xywjVsDUy+NIYqBApUDw0MmpjXQEDNA6LnLwakneFOt/LvRvWVdxy0IZpHuruosyYyV/bxhx
-	DJtIk0tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ObLTUE4xToVrL76t6SQzh//oCgTM1txbp8jyCtXcgm8=; b=JUbvIRMsVoeoIxjq1f+UskocOE
+	fwj+Q6LcRt3efFF0WIFIRpWx64Ow4X5QrzKg12B0RYNE55zd/IPMRdxVwPKIYP4mXDmT6gNaGgP8N
+	qX4Tq/sHBOoUEsO05/1s8VOPkC/qbEQqySADUx4F8U1dF8mBYQioXCueowPFgFX6svaHftstCijrB
+	QDUzHF5wfCcFzP3HunkSYj3Gnpm/HSulKhM5o3KK3dgp/pUoqIvYMFE6KQxwOO7kl2BRFnd5XGFdr
+	3+V1sYRRjK46zKCpr2PPsch/LgJC1m68+cNKz1EHr6FoGi7M3I43ISisY1AKkwNJiNjZvY/PpGxKa
+	/n0MKxfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF8F6-0000000673d-3BP1;
-	Fri, 09 Oct 2026 10:54:24 +0000
-Received: from mail-northeuropeazon11011037.outbound.protection.outlook.com ([52.101.65.37] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xF8Ky-000000067WG-36qT;
+	Fri, 09 Oct 2026 11:00:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF8F3-0000000672i-0RWX
+	id 1xF8Kw-000000067Ve-1dWD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 10:54:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yChR+faj3hi/TIzZKdowBx0tn2hF5SajiPLG5cjzHKLgN0fV6AEx7ttaUZ1SUy8/MDs8hyO4Nn76hJGASI3cOcpTRAGf2XHkPKUkmHui01eiOGgpNfjWEJDk4T/ZjLAzlJvdqU3rPNG578Nb9Zw3wNrCywD7NgQNuE25hHZAgpBX5oiIeqLiksoqEMPXKNaQV1Ld8yMwwrgfjxRVuq/2y8DJH3zuVlFNZJ2vtveUTKQ21w5HmQTiqCR9w92zjuDkNmSK8GSBE5Rb+t4mM603KCGKlnsfVJlW6ql/Sm1RRP0urLk2duVTsibG5IU5ggh06F15tQC9P4NEx6IBKQQWig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xIuK4qLFpOveONgAAyi5kobiRpcm6xaedCc5gg3Jijc=;
- b=cnbxLJnv+k7sLYz3XkuXmlK2GeynRr8SYPQSrycGfBMQ1QmmuDCth+ltUWDKi78HT50cTbfyAkfw0RSaOdoNngQEwBOYd8Re9xZUw9uzNcgtdXKQennmu2X2EQoJeZInJTGjm1CT/wzXL4aGOuGIyIi06YW3LfoLZtyhsIn62pbrLop/AA+SoygmnI5/97FuAoqsPCjPn4fxAS2rNlLChQRbXxdnuTG+o1Uy52SKSKxEQcf8SaqptI5hMztggMJrjJw+lcWFMH2b8XndOsXpo9a4gISXqwdhQ9RCin9o5lH8J0YoWLRqovP0AsYqgoElWKEb7dU15K8u2wt6ER9sDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xIuK4qLFpOveONgAAyi5kobiRpcm6xaedCc5gg3Jijc=;
- b=mEVfck1G3YQj/MaUqzuEgG3Wnz+FhpBj3odkMOzshn4E+/otymD0s7YiYHSDmtZxJsmqtOP2Lqn9vJe1G5nQvYQZvdm5LcM7Vql64asJQQcGqhCBN6HLMxmB6yJ/tSptMJ5gajmpHfnTex7ino1djOoLQCDIC6GTk2AjDvIUSTMBGDCykS4uEQgk7AkVgJCn17XgP09SC2RswJdH+RPVtv/bA7juZv9IZ9JN+Uao98npu/rDaDWEh53XgRA3JqlPuQsvWImFm/x5NEdr94nD+7ZpTaTVDftiY1GzvfQER/QYqY7XSSJIYbYJSfIgmWciNjIXhY8pedrhwvcQsRA8fg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB8PR04MB6667.eurprd04.prod.outlook.com (2603:10a6:10:10e::22)
- by GV1PR04MB058055.eurprd04.prod.outlook.com (2603:10a6:150:3c0::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 10:54:13 +0000
-Received: from DB8PR04MB6667.eurprd04.prod.outlook.com
- ([fe80::e1b:d361:7aba:6960]) by DB8PR04MB6667.eurprd04.prod.outlook.com
- ([fe80::e1b:d361:7aba:6960%4]) with mapi id 15.21.0496.010; Fri, 9 Oct 2026
- 10:54:13 +0000
-From: guoniu.zhou@oss.nxp.com
-Date: Fri, 09 Oct 2026 18:58:41 +0800
-Subject: [PATCH] media: imx-mipi-csis: add support for
- MEDIA_BUS_FMT_YUYV8_1X16
+	Fri, 09 Oct 2026 11:00:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D3190447D4;
+	Fri,  9 Oct 2026 11:00:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A8D12C2BD01;
+	Fri,  9 Oct 2026 11:00:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791543625;
+	bh=+gPK4YaQ6wkQB/Gz2SEXT2tTE6dm0Abvvb1HwTdmHE8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Hm8CcWppepz9eJK8U7hXcnFhqRxgdTvYfWoz57hTVJpePxkrD+V605S7eTeE7S0a/
+	 5RZB0otAr9tYOi6p35EVGXc4Ipn+mBqyEPWiRW+8C7ReQwi8xj+YPjxjLDNhBSJ0nx
+	 qH/Oc7uyvGIahA7LYOefv0EBWT3Tf/lmCZV+1ttuQDL7pVTm/6FPOLPAVzA5duYa6y
+	 L8ssJjY0rR/HnA5Uu7GzBdV1JHAfFAHz5F5HZAqoXFBCpBebHUWaxqirbPDAoKk7DY
+	 Htc3WrjgLLhH36EvPltgLGdIBH7QkCGsUOgPetjZOFTbzeT5tPcHuQQLvKU2zhRQ59
+	 LXzzy9EA9yN9w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97423CA601D;
+	Fri,  9 Oct 2026 11:00:25 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Fri, 09 Oct 2026 19:00:24 +0800
+Subject: [PATCH 3/4] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261009-csis_sam-v1-1-81f2b0fb76ef@oss.nxp.com>
-X-B4-Tracking: v=1; b=H4sIAODIyGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDAwNL3eTizOL44sRc3WTTZEOD1BRDI2MjIyWg8oKi1LTMCrBR0bG1tQA
- DEvUWWgAAAA==
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.Li@nxp.com>, 
- Martin Kepplinger-Novakovic <martink@posteo.de>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Purism Kernel Team <kernel@puri.sm>, 
- Bryan O'Donoghue <bod@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alice Yuan <alice.yuan@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791543527; l=1363;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=uSTr5zSKgO40KnnmncmI48K16qHyEsUWN0GuBu0k7+o=;
- b=feiTqHLTr40WBub4sld9CFHyyZ9sOJhZOKtweA7TCRR03FYFWKaK//vrE07KbtkJtVJTecVFp
- hVi6/Y5ne6vAqbt2fdIciURz5BkdJn52ackOs0jhUqs43e6Y7f84H1M
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI2PR04CA0003.apcprd04.prod.outlook.com
- (2603:1096:4:197::23) To DB8PR04MB6667.eurprd04.prod.outlook.com
- (2603:10a6:10:10e::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB8PR04MB6667:EE_|GV1PR04MB058055:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9bb145f-d5a4-472e-05d9-08df25f3a817
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|7416014|376014|18002099003|921020|11063799006|56012099006|10067099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 5g39BblupdnEvcyj+ffH2QpaX67iO2DGl6p0B3ALAuzQS3dkKyMMkZLpl955Hft9LoAzLUMOzbQlgChFGPMqngFxTzxf01bhpNP9grc1nnTWckp9W4L0hoMbQOZ5WzXlzM+I1gyDhoLpf8kTLxsYjU5UvXXmqRPucpmnsm20m7jaA5x3KC63IcWkX+dAPOvZyl/+mh9B0Fy+FMveclVqIJ7q4Roh1TZZtCgKqbPhO9Uz4Z/iDBRoFq1UCqJT64jhT3pFopfRcTelPSfif9GKP9iFOcNY9oGf8AH3dDWnllYplKB2fheb/o2qAuXPN9pwPxsATBDJu6nfZqHv8Bst5aWuO36E9SrXCCyB4b6OAJm8/eCYOQIrQ5wJAJhKEwJVoZwa5pOAdn/POgrmhxuu4AbIJAEUMuP+n0E//yKFos9ku+2yRCENTTFSCgdRVs7aFPa4+u7tiLZqSf0+UKDP+nvYFzklRt5eAvn3EIWpmIlQ+Katp+Ica5RGw9p9XFZwEIN9TWrVT8Hw6rnag4YnAovq24yHlDxtcTKiZ8fZBPrnOWCkDMBQvZccc6TUyyewJi6X7Zy2OFNdm43E287LnTtjkIog72gMqlaCKWFp9XQW4+KJ3/Uc7QOOgvD6MaQGecI1W70cjLx9DghPSGb+pmv24B6MBHlUIpRKS3GFxWRgOnBSomAm7tOol7T3xyjd59+bJ40Lko4xw3l5xPZo2A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6667.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(7416014)(376014)(18002099003)(921020)(11063799006)(56012099006)(10067099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U0QzODhTOGpkZkZVZTlyM24xYTZLTXliUFdyZURTdU43c1dKVEo5WXhlZFd3?=
- =?utf-8?B?Y2tiVUg5TGMyUWkwWXVkM21YQWM4eXN0aDF6OFFTZE1Fa0FmbWlXNkdta0FL?=
- =?utf-8?B?SWpzYjNEbVdXY2l1ZnVRMmthUTBQcWs5UUM0SXBEUFhzNC9TQ29iTlB6eGJi?=
- =?utf-8?B?Mlg5WSs2YVpQek9ZM3Rzb3VqNktKZzVrdVczUFgxUC9sTWc3R3RMQzFyY2Rn?=
- =?utf-8?B?ZFZheGFYeUdFSWF3b2s2ZGVJYWRtalhGS3Q5a3AyNXZhcEo1YUIzdE9qTitW?=
- =?utf-8?B?WWR1cytlSFJkR1JsSzNpaXdLT1RpcmJLQ0pCL2xmSWZLeXJQb2VjOU9QVllw?=
- =?utf-8?B?MnlwODlzRDlBZjNKMVNER2ZVR3kvVU1nTzQrckJocmcvM2RJUnBPejBXT21I?=
- =?utf-8?B?dWdEWFhZc1RzcmRpVDFLM25WbG44b2ZuMGdqSUVLcCtNbTBzOGV1QTNybXg3?=
- =?utf-8?B?ZElFRm1UQzBIU01LQ29pTFpKa1FzMW9WdFRHWlJOdkV1c2ZXVnJJNGpRTXAr?=
- =?utf-8?B?bjU2NVdPTEcwbXNqR1lxalZwaElBTG0rZ3EremxQU0t4a25ya3cxUXRtMGlm?=
- =?utf-8?B?K2pRd0IxOTJtbzVxckI2UjVXQTBYczBOWnZJbUpsKzNqYWpFdVdnT2ZNRldx?=
- =?utf-8?B?YzJEWmdSZHJlYk1ESEpDU0dYbk9haGhsTUNTZTdjRWdNc2dQd1l3bjFRejN6?=
- =?utf-8?B?L1c2MVp3Q1BFUkpqTWpMRzVwMzJ0K3E3N29GTUI2S1VRQTM2R1pzb1JiOUlQ?=
- =?utf-8?B?UlE3b2N4b0VWc2YyWGZJTXpMb0tZNUsvcEtLZTNOcVNkcE5PODlacDFZRGVG?=
- =?utf-8?B?RHpiREdHVVRoT2U1aEY3ZE9KSzM2eXUzNkhJcnpicEtBTjVBaWlsbldLSE5j?=
- =?utf-8?B?U2lHRnZzVWRGODdYT2pZSEpxREVqamEvOFNzbHYxMTVkQ3czVnFjeERYY1Nm?=
- =?utf-8?B?U0hGRVMyaitadytLeXFJV3hSZlJ3QVRUNHlrYVAwbG8rTUpCR3pKZG1LTmFI?=
- =?utf-8?B?SXZYS29XUmxBQ1A3emp6eXVZYUFFNnUvRnBnSkxLckViMXZ4Rlh6YnBVNnIx?=
- =?utf-8?B?QUFPS2dCczhLaUpVaVRIU0psSDk0NkpKcnpPNU1adEM3RDFGYk55Y0pvSU03?=
- =?utf-8?B?UlE4N3IvKzhiQ3BDeFNMWWF2ZjRrVkpVa0ZRZElxakhMRHgrY1BwcXlnVy9P?=
- =?utf-8?B?N21nRFZkUjVPeTZ2aXNnNnBRZnc4enFMa1JxZU1DTnowWHFBajN0TVlYTVBB?=
- =?utf-8?B?WUVvb1MvT3VJNTNIcXV2QU00UjNDVllWZjZNZWQ1UUF3MjVMYjc3cmI2MmZL?=
- =?utf-8?B?ZUNhSE1NNGVrK3N3eVV4SnZMbFZ3WDhtU3BuN3ErYkFQcTR1bDZFT25rRkto?=
- =?utf-8?B?bUpOYWVPS3hKeGg1bytOYTBNOURja0ZpeEtUWDR4VWJWSzBHTDZMU0VGUDFP?=
- =?utf-8?B?ZVVudGpPaFZqVHhYNkRjTkpjb2N0YzkzSHBvNWVnbEdrMk05SXNjdGNldXNu?=
- =?utf-8?B?bG1UYzFmTjNONUNQZHVmcW9sVGZmVTQ1bDg3eVc0WjA1dGoxSXl5NHUzSHNB?=
- =?utf-8?B?SEpOdUZSbFQ5VVRmSGlIVy9NWUF2YitqUFdCN0JQdWxtZm44QXR5d0Q2dzF0?=
- =?utf-8?B?ZGRraTBPMTVoL2g1ckhxdXd3TFB6TTJOVnFWcTNSY0t4cGNua1ZGZHBBLzdn?=
- =?utf-8?B?Qzk3TlY5aHBNaEgyQ1dKcG4zcWd4OUxNQkZuYXRURWZDVWsrc2tDc2hpc29I?=
- =?utf-8?B?U0hBbFpEbTYzclRmUTh6R05xQ3FLTmlCUzhiUzB2R0FwYlR5cTBjMm1DTWJz?=
- =?utf-8?B?dnBUNWU3anF0cGhCa3h2N2NvNlhxYU5ZRE8raWVLaTdQWWtlTEZ6S2VmMDNG?=
- =?utf-8?B?UzRKbmxPbmVIMGxtU0FmSHRiZ214WlVWUnVlMHVFNytvTGRnOW9pa3JDbXJT?=
- =?utf-8?B?Ty9rVmNSdHFUUkh1MTVDRTFXMEduaUhWQjkySnJyb28vZWZ3d1NDV2RJTzQ5?=
- =?utf-8?B?V0FqNjgxK2J4Rlh5bGRheDdneGRNUGxaM1dGQXhFNXJuekNKNFVPbkNWWFEr?=
- =?utf-8?B?ekdIVFFKY0UwNTZHUmRUT0gyNWVpSTU4NmJTVW5sVGJxSUtuS0cxWXJ3TEkr?=
- =?utf-8?B?eitXTDVrVDcyT3NIeUFEV3pNK05JTTdSVXlwOXNEaUdCdHViazdPMnpVUkQ0?=
- =?utf-8?B?MjYvN3Z3UlZNTG5vUk5ldkwwM2RWOUdjcnQ2UG1jRTJiRmhBSUdVa1RBQkM2?=
- =?utf-8?B?ZGJZUVJGK0xFM2dkUkxyT2VjM041b2xWbDFOR1hLem5VSVhCOEpoaG9qY1py?=
- =?utf-8?B?WDVXaHU3Q1prTTkyeXRBc1hNSldSRUhkcEl0bm1WTkNWSUdXakc2S2lPUnZ4?=
- =?utf-8?Q?bQagyi+GRlQQ/XCaoy/jLPcxQkeFPjnAUanZO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9bb145f-d5a4-472e-05d9-08df25f3a817
-X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6667.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 10:54:13.8206
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JAMmuiI623y6/I/SR3PPexEtBp6aGeGd17RAzoZinzdxXXJ4KMkMAnV8JR9bfshSXqU5wiQL/gTxad8pzP2IOZmEvtpCWZQGTfDhlLFRq2gMXv0MaMt9M/0pny+Odkdx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB058055
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_035421_158568_AC2CDFE5 
-X-CRM114-Status: GOOD (  11.21  )
+Message-Id: <20261009-cv75-soc-v1-3-808330e93ff1@ambarella.com>
+References: <20261009-cv75-soc-v1-0-808330e93ff1@ambarella.com>
+In-Reply-To: <20261009-cv75-soc-v1-0-808330e93ff1@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+ Long Zhao <longzhao@ambarella.com>, Long Zhao <zl020895@163.com>, 
+ linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791543624; l=8107;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=DEAMc2vofaBUV896UxD87q9HiCotMrVdpC7L4SePgqQ=;
+ b=cFigYYSlwic5I4w4hAk7lcLpzljuiu/YFLpVoViURcfGSR3krhaqlzeUL+C0ZRkLqJh/zJ4s0
+ 10D29IBd9r+DnrAIYIPmKPXWiRGDn0ILAd047PkAoN/1nD7st0r9kne
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,48 +86,298 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alice Yuan <alice.yuan@nxp.com>
+From: Long Zhao <longzhao@ambarella.com>
 
-Add MEDIA_BUS_FMT_YUYV8_1X16 to the list of supported bus formats.
+Enable ARCH_AMBARELLA and add a minimal CV75 SoC / EVK device tree for
+console bring-up with the RCT clocks, UART, pinctrl and GPIO banks.
 
-The format uses the same CSI-2 YUV422 8-bit data type and 16-bit
-parallel bus width as MEDIA_BUS_FMT_UYVY8_1X16, but with a different
-component ordering. Supporting YUYV allows sensors and bridge devices
-that output YUYV formatted YUV422 data to be used with the i.MX MIPI
-CSIS driver without requiring format conversion.
-
-Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- drivers/media/platform/nxp/imx-mipi-csis.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/Kconfig.platforms               |   6 +
+ arch/arm64/boot/dts/Makefile               |   1 +
+ arch/arm64/boot/dts/ambarella/Makefile     |   3 +
+ arch/arm64/boot/dts/ambarella/cv75-evk.dts |  30 +++++
+ arch/arm64/boot/dts/ambarella/cv75.dtsi    | 177 +++++++++++++++++++++++++++++
+ arch/arm64/configs/defconfig               |   1 +
+ 6 files changed, 218 insertions(+)
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 5f9691d76434..14a00b9fcedf 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -382,6 +382,11 @@ static const struct csis_pix_format mipi_csis_formats[] = {
- 		.output = MEDIA_BUS_FMT_UYVY8_1X16,
- 		.data_type = MIPI_CSI2_DT_YUV422_8B,
- 		.width = 16,
-+	}, {
-+		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-+		.output = MEDIA_BUS_FMT_YUYV8_1X16,
-+		.data_type = MIPI_CSI2_DT_YUV422_8B,
-+		.width = 16,
- 	},
- 	/* RGB formats. */
- 	{
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index d2acfac73003..16d7e3a4c2d6 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -26,6 +26,12 @@ config ARCH_SUNXI
+ 	help
+ 	  This enables support for Allwinner sunxi based SoCs like the A64.
+ 
++config ARCH_AMBARELLA
++	bool "Ambarella SoC family"
++	select PINCTRL
++	help
++	  This enables support for the ARM64 based Ambarella SoCs like CV75.
++
+ config ARCH_ALPINE
+ 	bool "Annapurna Labs Alpine platform"
+ 	select ALPINE_MSI if PCI
+diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
+index fc726b215f12..f1709eb5d915 100644
+--- a/arch/arm64/boot/dts/Makefile
++++ b/arch/arm64/boot/dts/Makefile
+@@ -4,6 +4,7 @@ subdir-y += airoha
+ subdir-y += allwinner
+ subdir-y += altera
+ subdir-y += amazon
++subdir-y += ambarella
+ subdir-y += amd
+ subdir-y += amlogic
+ subdir-y += apm
+diff --git a/arch/arm64/boot/dts/ambarella/Makefile b/arch/arm64/boot/dts/ambarella/Makefile
+new file mode 100644
+index 000000000000..ddca3d7b18cc
+--- /dev/null
++++ b/arch/arm64/boot/dts/ambarella/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++
++dtb-$(CONFIG_ARCH_AMBARELLA) += cv75-evk.dtb
+diff --git a/arch/arm64/boot/dts/ambarella/cv75-evk.dts b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
+new file mode 100644
+index 000000000000..42a0fe24b83b
+--- /dev/null
++++ b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Ambarella CV75 EVK board
++ */
++
++/dts-v1/;
++
++#include "cv75.dtsi"
++
++/ {
++	model = "Ambarella CV75 EVK Board";
++	compatible = "ambarella,cv75-evk", "ambarella,cv75";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = &uart0;
++	};
++
++	memory@200000 {
++		device_type = "memory";
++		reg = <0x0 0x00200000 0x0 0x07e00000>;
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/ambarella/cv75.dtsi
+new file mode 100644
+index 000000000000..c36b6af48237
+--- /dev/null
++++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
+@@ -0,0 +1,177 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Ambarella CV75 SoC
++ *
++ * Boot peripheral: UART0 console.
++ * Clocks: a single ambarella,cv75-rct provider.
++ */
++
++#include <dt-bindings/clock/ambarella,cv75-rct.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	compatible = "ambarella,cv75";
++	interrupt-parent = <&gic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu@0 {
++			compatible = "arm,cortex-a76";
++			device_type = "cpu";
++			reg = <0x000>;
++			enable-method = "psci";
++		};
++
++		cpu@1 {
++			compatible = "arm,cortex-a76";
++			device_type = "cpu";
++			reg = <0x100>;
++			enable-method = "psci";
++		};
++	};
++
++	osc: oscillator {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <24000000>;
++		clock-output-names = "osc";
++	};
++
++	psci {
++		compatible = "arm,psci-0.2";
++		method = "smc";
++	};
++
++	soc {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		ahb@ffe0000000 {
++			compatible = "simple-bus";
++			reg = <0xff 0xe0000000 0x0 0x01000000>;
++			ranges = <0xe0000000 0xff 0xe0000000 0x01000000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			s_scratchpad_syscon: scratchpad@e002e000 {
++				compatible = "ambarella,cv75-sec-scratchpad", "syscon";
++				reg = <0xe002e000 0x1000>;
++			};
++		};
++
++		apb@ffe4000000 {
++			compatible = "simple-bus";
++			reg = <0xff 0xe4000000 0x0 0x01000000>;
++			ranges = <0xe4000000 0xff 0xe4000000 0x01000000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			uart0: serial@e4000000 {
++				compatible = "ambarella,cv75-uart", "snps,dw-apb-uart";
++				reg = <0xe4000000 0x1000>;
++				clocks = <&rct CV75_GCLK_UART0>;
++				interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
++				reg-shift = <2>;
++				reg-io-width = <4>;
++				pinctrl-names = "default";
++				pinctrl-0 = <&uart0_pins>;
++
++				status = "disabled";
++			};
++
++			pinctrl: pinctrl@e4010000 {
++				compatible = "ambarella,cv75-pinctrl";
++				reg = <0xe4010000 0x1000>;
++				ambarella,drive-strength-syscon = <&rct>;
++				ambarella,pull-syscon = <&s_scratchpad_syscon>;
++
++				uart0_pins: uart0-pins {
++					function = "uart0";
++					groups = "uart0";
++				};
++			};
++
++			gpio0: gpio@e4013000 {
++				compatible = "ambarella,cv75-gpio", "arm,primecell";
++				reg = <0xe4013000 0x1000>;
++				clocks = <&rct CV75_GCLK_APB>;
++				clock-names = "apb_pclk";
++				interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				gpio-ranges = <&pinctrl 0 0 32>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				arm,primecell-periphid = <0x000e8061>;
++			};
++
++			gpio1: gpio@e4014000 {
++				compatible = "ambarella,cv75-gpio", "arm,primecell";
++				reg = <0xe4014000 0x1000>;
++				clocks = <&rct CV75_GCLK_APB>;
++				clock-names = "apb_pclk";
++				interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				gpio-ranges = <&pinctrl 0 32 32>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				arm,primecell-periphid = <0x000e8061>;
++			};
++
++			gpio2: gpio@e4015000 {
++				compatible = "ambarella,cv75-gpio", "arm,primecell";
++				reg = <0xe4015000 0x1000>;
++				clocks = <&rct CV75_GCLK_APB>;
++				clock-names = "apb_pclk";
++				interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				gpio-ranges = <&pinctrl 0 64 32>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				arm,primecell-periphid = <0x000e8061>;
++			};
++		};
++
++		rct: clock-controller@ffed080000 {
++			compatible = "ambarella,cv75-rct", "syscon";
++			reg = <0xff 0xed080000 0x0 0x1000>;
++			clocks = <&osc>;
++			clock-names = "osc";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++			assigned-clocks = <&rct CV75_GCLK_UART0>;
++			assigned-clock-parents = <&osc>;
++			assigned-clock-rates = <24000000>;
++		};
++
++		gic: interrupt-controller@fff0101000 {
++			compatible = "arm,gic-400";
++			reg = <0xff 0xf0101000 0x0 0x1000>,
++			      <0xff 0xf0102000 0x0 0x2000>,
++			      <0xff 0xf0104000 0x0 0x2000>,
++			      <0xff 0xf0106000 0x0 0x2000>;
++			interrupt-controller;
++			#interrupt-cells = <3>;
++			#address-cells = <0>;
++			interrupts = <GIC_PPI 9
++				      (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
++		};
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
++	};
++};
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index ad3bd3d9507b..454f07a6a6a6 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -36,6 +36,7 @@ CONFIG_CRASH_DUMP=y
+ CONFIG_ARCH_ACTIONS=y
+ CONFIG_ARCH_AIROHA=y
+ CONFIG_ARCH_SUNXI=y
++CONFIG_ARCH_AMBARELLA=y
+ CONFIG_ARCH_ALPINE=y
+ CONFIG_ARCH_APPLE=y
+ CONFIG_ARCH_ARTPEC=y
 
----
-base-commit: b38d06ad1e13c32970d58039c154f009b81a3368
-change-id: 20261009-csis_sam-c5c10ed12322
-
-Best regards,
 -- 
-Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+2.34.1
+
 
 
