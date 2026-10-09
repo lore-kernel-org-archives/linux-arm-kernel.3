@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A4ECA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0D3CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6NoH5ngXlboK+4ycuUT1H4GT+20zyFS5Vw8rwawIAd8=; b=uz69bSYu9ugK/C4GwXp1kBxs9/
-	zbAtel5NmGEe2FwnvQNCeWjM2+0aV/9osOSJYerxsE9eXkZan33iS1dNt9SS1C802M+eTwuct3dEL
-	pXzQ+4ZmTvhtx+zqY3WN2swbu9WHxFXDqzyfe07Q6m5nw3GJmLQdniwq9AfJuCxXVc1Z/4YgMRiWU
-	49dW2Ut+SbsDu2sCD5XiWC1r3RV0+JWqTcweA4WhLJhLwFXqrwDJTot+4x9hlAINH1DazExXjeTuG
-	h98kxNITpKnrGBbyrqV0gj6SxwXKC34i0PpFOg0o9z1rDOfNMQ6kD1jjyiooGBSEjZqQxm11HKDfM
-	dZVfieBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=scmNF+46DLi47sIsqDRc0pGdZ0vlaMSMU1w1wYTd5PA=; b=RJkZu9AuA7X/TOZ33Me8tnlbQf
+	MaYy06VyH438HxEuQ1phYHBW0ptuyhxxcapvgXqqRvRSWZ7RijJF+Jbb5L00Cj/7jEeNXqy4sdDkj
+	GShJoOS3U4AYozL5xn1xi7gMGqhUIqyX6ZH3d07biRY7va84NJsPGxhMSVR7iddbNN6yHJnHah+DW
+	gyfCVLDl6fvw8/qyTLGSXmykgCwsJ97kQH5YFLgKsd0PsFLtbfLlaxGlK9k8qqsZKotsaou3pG83f
+	0KwzYQL75MYob/J0B1OaGhTZTZ2Xovu2cboVfBJ8gtNaKfjYtN3vukdf+t0EgaODYaFi3GiU9IWbk
+	bTCJ+1dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBqp-00000006Ts0-02vW;
-	Fri, 09 Oct 2026 14:45:35 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xFBu0-00000006UIi-20HO;
+	Fri, 09 Oct 2026 14:48:52 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBqm-00000006TrD-2wZN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 14:45:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6NoH5ngXlboK+4ycuUT1H4GT+20zyFS5Vw8rwawIAd8=; b=AGZuqFUqUY3ucm+mZxhBynIqW9
-	Dhtwp+YxZEaBaRK7MARWfcNbp2lZcZXYGIdsEcZc3ElptOLHbPKYfNSgFCGavzyGT9455qERCJFyo
-	9rRqzN8lcJanyAeMOTCTEpBspv35VrB4S+FHuNo5fUvacDxnzP1jTk124qRrmHuvhYcSp9Em4lN71
-	DLhy8UEnM57XIOAxsCwM+vOHZAjf7U8vmhsIMwYbk+vsdigoOiys0GOGTo4M2HJ8agipO04KETW0U
-	bdNVYBxPKOrySKXqbw2FcT1pCkx4hSJ9eplKQB57FGtdBm4GhCS1Imovr848vmWvpabn6Gvx1bSjv
-	qVQZGPYQ==;
-Received: from [54.239.6.187] (helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBqj-0000000FQnr-2W43;
-	Fri, 09 Oct 2026 14:45:29 +0000
-Message-ID: <b5c72d9c3812d3b4988353e842d736694fc9258d.camel@infradead.org>
-Subject: Re: [PATCH 00/19] arm64: Implement parallel CPU onlining with PSCI
- v0.2+
-From: David Woodhouse <dwmw2@infradead.org>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Pasha Tatashin	
- <pasha.tatashin@soleen.com>, Luka Absandze <absandze@amazon.de>, 
-	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas	 <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi	 <lpieralisi@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
- Mark Rutland	 <mark.rutland@arm.com>, Peter Zijlstra
- <peterz@infradead.org>, Marc Zyngier	 <maz@kernel.org>
-Date: Fri, 09 Oct 2026 15:45:28 +0100
-In-Reply-To: <asjLE0VkeVJKA554@willie-the-truck>
-References: <20260907164024.17164-1-will@kernel.org>
-	 <f1ab0c03257d5055ada02877ac92a06f370c72b9.camel@infradead.org>
-	 <asjLE0VkeVJKA554@willie-the-truck>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-gSzyXEnfOVhoIAEWfRS4"
-User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
+	id 1xFBtx-00000006UHh-0JDm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Oct 2026 14:48:51 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A1D564E410FE;
+	Fri,  9 Oct 2026 14:48:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6DE3960754;
+	Fri,  9 Oct 2026 14:48:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 59D6C11D708B4;
+	Fri,  9 Oct 2026 16:48:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791557318; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=scmNF+46DLi47sIsqDRc0pGdZ0vlaMSMU1w1wYTd5PA=;
+	b=lXBeS3sBtikQ+kqLl5aIhWy5pok18OOS5k1HR6XGQ/E9lAzbB/HcljLlWg5FoHB6PhL4i1
+	DvTldtMIKH5GPoMNk3RUh5pl1HnE25MChj3liDr0w/mvm9+O7GuoWEBMatVXcbJN0v19Fv
+	8tK9v5eqX5hAadFQl0cJ4bm/E+e+MbIGObc3hAHiIOZUEdHXAjOMop8d7G3y9LwOUMSsmA
+	MGejHU5unlM/RzT8w2D//+CGrmARdnWqZbos2tIdMi/Y3J2ibdqskAbMxv827R+yczlFdg
+	EgPcmyG+y2fgFEjJS9HZI9zfgyCBADDGSMEjPP8xR86IsDAHlf24POSde9KY/Q==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: dt for v7.4 (#2)
+Date: Fri, 09 Oct 2026 16:48:36 +0200
+Message-ID: <87v77b53qz.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_074849_251136_38669A4D 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,227 +72,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---=-gSzyXEnfOVhoIAEWfRS4
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Here is the second version of the first pull request for dt for mvebu
+for v7.4.
+Compared to the first version I have just removed the patch introducing
+new warning because of a missing dt binding.
 
-On Fri, 2026-10-09 at 12:08 +0100, Will Deacon wrote:
-> Hi David,
->=20
-> Thanks for replying with so much data! It looks like I sent my v2 out
-> at the same time.
+Gregory
 
-Yeah. I'm redoing the full set of tests on that, along with the
-spinwait variant.
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-> On Fri, Oct 09, 2026 at 11:00:08AM +0100, David Woodhouse wrote:
-> > Thanks both of you for working on this. It was always on my list to
-> > come back and do it for arm64, but that list is long. Also on my list
-> > FWIW is parallelising the *later* stages of CPU hotplug=C2=B9, not just=
- the
-> > early path into start_secondary()/secondary_start_kernel(). IIRC there
-> > was more win to be had, but we had to prove that a lot of once-
-> > serialized code could safely run concurrently. Ideally without just
-> > na=C3=AFvely adding locking and serializing it all again.
->=20
-> That gets _really_ hard because you need RCU up and running pretty early.
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-RCU should be OK, as long as a CPU which is registered doesn't *then*
-block in a spin-wait, like the traditional CPU hotplug machinery does.
+are available in the Git repository at:
 
-> > I gave your series a quick spin across a range of EC2 systems, and it
-> > gives a ~40% win on systems with 192 cores =E2=80=94 at least, as a
-> > microbenchmark of the CPU onlining. For these systems, PSCI is fairly
-> > fast to bring the CPUs online and it isn't a huge proportion of the
-> > *overall* kexec time.
-> >=20
-> > However, your code in serial mode (cpuhp.parallel=3D0) is up to 40%
-> > *slower* than before. A/B testing results, all values in milliseconds:
->=20
-> Oh, that's unexpected.
-> ...
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-dt-7.4-2
 
-> Would it be possible for you to pick one of these platforms and bisect
-> the serial regression, please? I'm not really sure where to look, but
-> serial boot should work all the way through the series so if you can
-> identify the point at which it regresses (and presumably doesn't recover)
-> then that would hopefully point me in the right direction. One possibilit=
-y
-> is that the extra atomics in the new state machine logic are slowing thin=
-gs
-> down. Another possibility is the timeout logic in
-> cpuhp_wait_for_sync_state() ends up sleeping in your tests.
+for you to fetch changes up to a7b2dbf2a48d30e49f141883e605874595d5942e:
 
-Looks like the latter, falling back to usleep_range(1000, 2000). Goes
-away if you make it atomic_cond_read_relaxed():
-https://git.infradead.org/?p=3Dusers/dwmw2/linux.git;a=3Dcommitdiff;h=3Dcba=
-8bdecff74
+  ARM: dts: helios4: add #phy-cells to USB nop phys (2026-09-30 08:34:58 +0=
+200)
 
-Of course, if we weren't synchronously *waiting* for the APs and they
-just turned up later, the world would be a better place. And the ones
-with slow firmware wouldn't matter either.
+----------------------------------------------------------------
+mvebu dt for 7.4 (part 1 v2)
 
-Unless we're actually doing parallel initcalls, we don't even *need*
-the secondary CPUs until much later, do we?
+Various fixes for Armada 388 based boards (helios4, clearfog)
+Clean up indentation in dove, kirkwood and orion5x dtsi files.
 
-> Probably worth using my v2 just in case one of the fixes there helps,
-> but I'm not hopeful.
->=20
-> > We also tried it on another system where the firmware takes about 9ms
-> > to bring each CPU up (after CPU_ON returns fairly quickly). Fanning out
-> > the CPU_ON calls didn't make any difference either; the CPUs came
-> > online, one at a time, about 9ms apart.=C2=A0The parallel onlining save=
-d
-> > only about 20ms out of 820ms (=E2=86=92800ms) here.
->=20
-> Damn, I guess the firmware has some serialisation in that case?
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      ARM: dts: marvell: Replace spaces indentation with tabs
 
-$DEITY knows, but I guess so. We don't get to write the firmware for
-those ones, AIUI.
+Rosen Penev (9):
+      ARM: dts: helios4: fix lm75 supply name
+      ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
+      ARM: dts: marvell: add missing SDHCI clock-names
+      ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
+      ARM: dts: armada-388-helios4: fix vmmc property name
+      ARM: dts: helios4: fix vbus-supply for USB2 PHY
+      ARM: dts: helios4: fix spi1 location
+      ARM: dts: helios4: use national,lm75 compatible
+      ARM: dts: helios4: add #phy-cells to USB nop phys
 
-> > The real answer for such platforms (at least for kexec) is *not* to do
-> > the CPU_OFF/CPU_ON thing at all. Pasha's Caretaker work=C2=B2 still doe=
-s so
-> > for the reclaim at hotplug time in the next kernel; I'm experimenting
-> > with eliding that, which should give the biggest improvement on such
-> > platforms. So during kexec the APs just spin and wait to be asked to
-> > come back, instead of going completely offline.
->=20
-> I was talking to Tarun about that at LPC. I was envisaging a form of
-> CPU_OFF that would leave the MMU enabled so we could make use of the
-> existing EFI boot logic, but I hadn't thought about it beyond that.
+ .../boot/dts/marvell/armada-385-clearfog-gtr.dtsi  |  2 +-
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts   | 27 ++++++++++--------=
+----
+ arch/arm/boot/dts/marvell/armada-38x.dtsi          |  1 +
+ arch/arm/boot/dts/marvell/armada-395-gp.dts        |  1 -
+ arch/arm/boot/dts/marvell/armada-39x.dtsi          |  1 +
+ arch/arm/boot/dts/marvell/dove.dtsi                | 22 +++++++++---------
+ arch/arm/boot/dts/marvell/kirkwood-6282.dtsi       | 15 ++++++------
+ .../dts/marvell/kirkwood-guruplug-server-plus.dts  |  4 ++--
+ arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi       |  4 ++--
+ arch/arm/boot/dts/marvell/kirkwood-synology.dtsi   | 12 +++++-----
+ .../arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts |  2 +-
+ 11 files changed, 44 insertions(+), 47 deletions(-)
 
-I think it ties closely into the caretaker thing. We don't take the CPU
-offline at all (no firmware, no CPU_OFF of any kind). Instead, we just
-leave it parked somewhere.
-
-The first stage is leaving it parked and just spinning waiting to come
-back. Which is all we care about here.
-
-The next stages involve making it do useful *work* instead of just
-spinning. Like Pasha's KVM vCPU caretaker, and the thing I'm working on
-which runs a minimal C runtime driving an e1000 through VFIO,
-transitioning onto bare metal on the "offline" CPUs across kexec, then
-back to running in a Linux thread after kexec. All in QEMU while being
-flood-pinged from the host across the kexec.
-
-
---=-gSzyXEnfOVhoIAEWfRS4
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCE8Ew
-ggWvMIIEl6ADAgECAhANkOKMSmGXhF5eMl0rsRhvMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBHMjAeFw0yNDAzMTMwMDAwMDBaFw0zNDAz
-MTIyMzU5NTlaMGIxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UE
-AxMxRGlnaUNlcnQgQXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTCCAiIw
-DQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOfSIeC0vv1xPQ+dgSxbIIrkaru6skAWJYaGFzmv
-q4Kq+2wU2jxhcWlJg/JeP5jEkq/LM3pn5aaLao79j+XRmS7J1ZpJKUODJVoM4s9MQJhTMvo4qS5Z
-S64g6QR7Obkz3I1Lr3aWeSBmDDEyzue+NKtuWZ1Cxy3RdXo/w5HgRc3l2AercOM3Gt1XonTzEtTb
-Z/Hwc0Sn9Gz8RmGRK6Ka4hVDl8q/2l110KaV233Kh5etP0csXS8MIMdVRfRu3sc5hp13DG7lCKzK
-72a2GEpI8Wpl26G6I1/LMzz/98T+FqjTqxsdquk7Cj7m2vKGLW1BorpQH7WFGPdJQXJe1hfbfiZA
-CcVdCtl4nAacFacmsiArZBfX7AQGL7isvHUwwYFEtcApyGW4p2Lt+t8nvU0CANA6BHOpOz1xOP8W
-mAESbUriIjyuTUf3fJ9oDNCurVqhASMJCDaWI3lYX/QAoiAzt6akqbbZxo2ujW7mGGqc0KxqE2cs
-h2T79v7pC8aUtHBfwNrTR19GnZVxE0eQ7ViIQhR6mpSaUQFA9sG+cmD2G8TnCgYsLa0q8De6F61a
-CBevQGHNzrbZ3JAMneveYg/Jy1XxQHDRcvrMfWKe0jjcWbdKYlaGVPm5V1ILwYz7Yv5ewo3NUrxI
-GJiywe9qPhuJSDZs7VehTuI0FxGIsgKzVjgbAgMBAAGjggFcMIIBWDASBgNVHRMBAf8ECDAGAQH/
-AgEAMB0GA1UdDgQWBBT3m6JO05fF9DQPQw6Bhc6RkzKv+TAfBgNVHSMEGDAWgBTOw0q5mVXyuNtg
-v6l+vVa1lzan1jAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMC
-MHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMG
-CCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkSURS
-b290RzIuY3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdp
-Q2VydEFzc3VyZWRJRFJvb3RHMi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUA
-A4IBAQA+b8Uw53sDspdZgukU+qzLyyHkcjlxGGhHlP+zrmDLKm1wEFvCRS2pili3Hy67i8N4N5NU
-vw5Rg6kv3lxb9S9Rktxk43k+tvm68pl7OxQE55ZjVY87P0lUPGwEqOOwLLyH02ZQcsfq5p5LrOH9
-0JvmvZ1yy73HS+VpDAqOlytE0NSvTIRqFFkKQGQwfjvtql9YflujuNNvJztjBaHKYZsnNSg+J38o
-jYq4TP3pSg3UdVH0PncVjPQyqxC9xef5Xae92Kbkzol3x7Nel3A1bwAkalrDMspvTHvey6LfiBks
-FIqviTnoy7fgjaRAJgHS+RXx/cmuRd3rUAclSVVrYu8RMIIHAzCCBOugAwIBAgIQAzUotrsybJHx
-HTjKOIVdIDANBgkqhkiG9w0BAQsFADBiMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQs
-IEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFzc3VyZWQgRzIgU01JTUUgUlNBNDA5NiBTSEEzODQg
-MjAyNCBDQTEwHhcNMjYwNzE4MDAwMDAwWhcNMjgwMTA0MjM1OTU5WjAeMRwwGgYDVQQDDBNkd213
-MkBpbmZyYWRlYWQub3JnMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA2pYux73kdbYX
-sWF8f1u6DJP91qcqaZetsyfPkZk0B+MmXmAEv0kVes5n15V2mbDThOnpoPFly0UugQO9JYqLfrtD
-tKD5yL58fgrDB9Dw+LQikgrHafl6YSCds5AvUu/8hw2J6noKrcOLJpKlKn9Fl/4IB9Q3JIdLx5aa
-EtTqMalIPqHFOlgrJ7s+aua8xbB8YQ9ahqYBXWRJNv3P/2b1DYtdrz1oqZPE3CcB8Pc6Gf2a1Tcm
-6TAgtEx7Cf1BFcrsrMz7TWHmGQITieNb2r9UYWSc2Gp+GtYFNJCgT0JJXKUBIauPMKBLteYrL8Fo
-ff/uY44dC/mDWjdCP/5x0qelPQjlBvWdHL5zvBTOj06rJ0m3HNI/hnIcDh0Qu2j9reb9rLVcdym6
-bWmBM4uDEB8Zv9Ph0KTBFSy1IosyakuD1j1Os30EzjGfbi0EUXIvnOcYbTBAbM5UAzrxEHMhBvoX
-Pvnx+OyvjJmc9tWxTX6AcSz+m40esbT17URBeZS18afgieiikm5TynlUYP1LciR3hSgGVzvGXnKO
-02VDFR5itGWdRKZ2W5wIShNfWfhSa0D0K5UdIDt5Qc7sjzwK1Yb1sY5Tu0uA5mhIS82q1ov83uxB
-sFkriNnhGv/M1NCDVLBiOMsHu73qUM+yKmgKLwF9Hfn9WI25glbAMI4S5r3hYzcCAwEAAaOCAfcw
-ggHzMB8GA1UdIwQYMBaAFPebok7Tl8X0NA9DDoGFzpGTMq/5MB0GA1UdDgQWBBRcYhqbcGzn1jrT
-JOZaB8O7qllDpzAwBgNVHREEKTAngRNkd213MkBpbmZyYWRlYWQub3JngRBkYXZpZEB3b29kaG91
-LnNlMBQGA1UdIAQNMAswCQYHZ4EMAQUBAjAOBgNVHQ8BAf8EBAMCBeAwHQYDVR0lBBYwFAYIKwYB
-BQUHAwIGCCsGAQUFBwMEMIGpBgNVHR8EgaEwgZ4wTaBLoEmGR2h0dHA6Ly9jcmwzLmRpZ2ljZXJ0
-LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsME2gS6BJ
-hkdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZT
-SEEzODQyMDI0Q0ExLmNybDCBjQYIKwYBBQUHAQEEgYAwfjAkBggrBgEFBQcwAYYYaHR0cDovL29j
-c3AuZGlnaWNlcnQuY29tMFYGCCsGAQUFBzAChkpodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20v
-RGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZTSEEzODQyMDI0Q0ExLmNydDANBgkqhkiG9w0B
-AQsFAAOCAgEAocabrh1cPd5s3vY5rnlBVQSTc7zs2ZWs67dAIltR+05WELrYClVzzUhMs/LOJPlr
-EUo45UDDomXq38DxFepaPd9+iNLjXfn33EX/IG44j04lU/oF/Rg9VeQILkYLbCZ/x9wOjNHZc4SN
-ydY7Dhvf/sT5aBz88u7D5+azZJ7Qf1U57wYseCH1Mt0nDrtr5y19IJ8D9xJJ33RFL6vfpHZBBAQ8
-+3RqkKNxLoV2aFvQhxdhjNLDqTv3LjUIdicwPraN7JkxEu7CV2Lka7eRqJgkWL7SK0YmBjGpRafs
-+icP/ON5RCCKTTb6VlX8eTG2sJJfsFhvJNCCt6xexbWzWtIrfP7NvPBvwBB737AyEGBZkS5aNizT
-McURJGTv9UKvBh1LF/+tNhYtLvPCN7oecGzhCHht9jcwSkygTo3Y6YlK3QgOu+ncmiBbfeuwlLZ1
-LxbYvG6hgNqXv7u6YyADbYajAQJXJ2OQen39pm3Q/AQSyLYG+B8lDglWsM8tYXPlEdrYJcksGK6F
-nqIX6Bumn43rBooLJdiZp4WmfWdL2pxe+LxRDjprmqu1WprixDxULSTOKJZoqTlugs6y3Bc+if+s
-gHnBBtz9WQ6MtPHkh7zONDAFIKcBmv8OqPQCx0F3Wv3OEybwMpXx0OsKgK8wLldaX1pXcMuyDgTL
-Sqs0AV0OHUgwggcDMIIE66ADAgECAhADNSi2uzJskfEdOMo4hV0gMA0GCSqGSIb3DQEBCwUAMGIx
-CzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UEAxMxRGlnaUNlcnQg
-QXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTAeFw0yNjA3MTgwMDAwMDBa
-Fw0yODAxMDQyMzU5NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqG
-SIb3DQEBAQUAA4ICDwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZe
-YAS/SRV6zmfXlXaZsNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2z
-kC9S7/yHDYnqegqtw4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qG
-pgFdZEk2/c//ZvUNi12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41va
-v1RhZJzYan4a1gU0kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0c
-vnO8FM6PTqsnSbcc0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PW
-PU6zfQTOMZ9uLQRRci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXt
-REF5lLXxp+CJ6KKSblPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQr
-lR0gO3lBzuyPPArVhvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7Iq
-aAovAX0d+f1YjbmCVsAwjhLmveFjNwIDAQABo4IB9zCCAfMwHwYDVR0jBBgwFoAU95uiTtOXxfQ0
-D0MOgYXOkZMyr/kwHQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3
-bXcyQGluZnJhZGVhZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEC
-MA4GA1UdDwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgakGA1UdHwSB
-oTCBnjBNoEugSYZHaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0QXNzdXJlZEcyU01J
-TUVSU0E0MDk2U0hBMzg0MjAyNENBMS5jcmwwTaBLoEmGR2h0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNv
-bS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsMIGNBggrBgEF
-BQcBAQSBgDB+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wVgYIKwYBBQUH
-MAKGSmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNB
-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
-Ln0hu5HyOG98bRzoOX8R8XkAAAAAAAA=
-
-
---=-gSzyXEnfOVhoIAEWfRS4--
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
