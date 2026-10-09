@@ -4,95 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF20CA6015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220D8CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 06:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tWTuV8nTat+7Ise5DAVZrckoXbB3rEEMphlZwWdvIzs=; b=Yod9GsOVcv8LZE
-	oAHHf4TUBQolkj0G2VVivyK+5Daa6el14XMBWuHoIwl3EXbStVKq7GI+UXdzkA4lH+aR5zET7ehHE
-	wu5aRcwhg7DdWXVS310B+LMxg3jKCQE9W00aWRrCmi++kiDvRkwCdUqEUSUIiE8sFL7IFyimCNKAi
-	5IMXW/E1/2yyj/5ohMJmsJWRAhE/zoeoUONCBwJyM+dzvneXLblCmigxtEuiM5vgKWuYzBF+y8GO0
-	W3BWmvFfXbejk/UtRzarZTWsaplbEkPuYcDPumua8MsGdugJb/dE9ZOrz/wXsP4Cuhjh46EERHxcy
-	A3jtr6rCMYSrLYCUZcwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uetyr08EbPxb1/vTxBz/oHKvTpwSsGRtAmxHx+DBRGk=; b=rMNkbZqZMj47WDKrtkXIYuoCm5
+	0rZSRJRcSeg/9tKdk2KbGHnNIjBWyyXpHIHIhB9il1h0a8zjzJR1rkn4lcWNAiJ53BIyEXwttYlvZ
+	u69/bTSJJEGRGKd6bNzfCZ84+MP9N9bFCjNY9SYs8uJSSroNWkCbtuiNDNbRGzQLQThYoiVvYKUMw
+	OVKqozneYKpZFXNJ3wm7x1FHE5gS3drXziBM5fNkEpVsS4NjEDQAW54vcSKjjtdm9eeUmzp5K8T6t
+	ybDrXy7Fyn2xYYZLMuVi0NyYKLcrEa9QIbyZe6//iOtbzZ0HAfumytgigT8qjhj7c+xnijDijehHO
+	s+GGvKOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3eK-00000005Zmu-0ioj;
-	Fri, 09 Oct 2026 06:00:08 +0000
-Received: from mail-yw1-f170.google.com ([209.85.128.170])
+	id 1xF3er-00000005ZrZ-1Gwq;
+	Fri, 09 Oct 2026 06:00:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF3eH-00000005ZmO-2RFF
+	id 1xF3eq-00000005Zr7-0W8b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 06:00:06 +0000
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8828138cc95so17820837b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 23:00:05 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791525604; x=1792130404;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tWTuV8nTat+7Ise5DAVZrckoXbB3rEEMphlZwWdvIzs=;
-        b=RcP8yzd/qkI/U/ZiyB4ififueSq9n/6FOy92rTzF6EXBIw+7TQ2IPJ3md3YmdYKon/
-         +MR4b0CR2iAZgcINNxnRJ7dEI56P6oZnqmPkN+yvItXrYC8z2TWSdTGNxJlKRMnQygjt
-         ehEtf2gwVHj6cCyLH1tzzqPPNXRzmBBiEFuxr4wQf5fhMefVEcHIqkYEwAP28c1JNoLD
-         CjJHj/ncPtUsbc/Ww7qzY1TxjQMUtKxdkJkRbGVVhaxm+WXJ58KUv4QmYehp8whF2/EN
-         ffMITDdza22BR9QBpi31hG15ELca5d04Ov7n1nRd25K7Ejf+1ifuXmGdDF+baghlKsdG
-         PI7w==
-X-Forwarded-Encrypted: i=1; AKwUvBwLjpcW+f/WYxv4sVB7izMIXM9K8vL9jWKHaVI52WcftehicrCgeTJhNBOoe2BcXPKlaAYkftXsV66uNvM28Abu@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWNo07AgiRECwm09qJbRms3N2nSzow4oFTbXOySpwx2KEtT8Lt
-	aibe/0WGcCAAHSk+FF8d0xtXoFnRfNP72HgAH0GXGEiQDVf/OYneXHQ5ZXz9rJmFVf4=
-X-Gm-Gg: AYBFou0lWPw7EYWDlGtti9uX7dKbVQBGcH5IKouH/RkNoGdWK69okNdS9l/c8bhrhht
-	1d4LQnLPGfyJ2wurGYX3j0AunZ8nICzfsJY7mFHXXBCtnPK2raFCEYGKnsKcaDNFz5K/FBbNGeH
-	fhWBAVDpWyXqkZAqMsrZYRwYosGBHDOE+67Uj9Anm6/rj45l+RA9WrN7YfFSkZDbtEiTgQ5s33+
-	01gbe4ayznJvc7Vvzy2YWnt0/nFl7pklra0b0WtOmVQuR+M30jw9vaeTXEHo2RflRR7HjL5Worb
-	ouzzWGj/oRtpaLDenUjTG+hHw8tXqoZVsCFTHWZwjqUhoppNuRmK9YimXPpY9CzKhvGP8SxDEe2
-	lAX6e4Fs3PrDgBuk8hh2qkN361m8l0kfzzC6OEwPSsZgcErKf58rQS8lRz9h+vnxtK0Td99tPNC
-	82/uIAwWpN9q4Xz1LDwpBW9363lIJ1x1w6//Y7GuRD01llkwVNltYAq9p38hIhdcz6niYvFjYFv
-	/vZUVt2S+Glju0lsX0+t1HszAQQwkMaWN76O3q9wZIGkCTZOrGfCV1EzkXatyIHFasWIPVb/Bar
-	600=
-X-Received: by 2002:a05:690c:e3cb:b0:8a0:9ec0:e13b with SMTP id 00721157ae682-8b07edb0699mr3341507b3.17.1791525604075;
-        Thu, 08 Oct 2026 23:00:04 -0700 (PDT)
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com. [209.85.128.176])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b07f1b8ab5sm3561817b3.17.2026.10.08.23.00.00
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Oct 2026 23:00:01 -0700 (PDT)
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-885cf67963eso40812667b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 23:00:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx6p1daSfG+r0PNMj3EO+yacgSGz28CPiJ55rQpLr5ngSgzBfddav0MWCU/uX6I40NhqeaTaB2HGMVX87HgsFf1@lists.infradead.org
-X-Received: by 2002:a05:690c:ec4:b0:8ae:8d28:77ca with SMTP id
- 00721157ae682-8b07edfbad7mr3120487b3.33.1791525600619; Thu, 08 Oct 2026
- 23:00:00 -0700 (PDT)
+	Fri, 09 Oct 2026 06:00:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 32F02602CA;
+	Fri,  9 Oct 2026 06:00:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D181F000FF;
+	Fri,  9 Oct 2026 06:00:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791525638;
+	bh=Uetyr08EbPxb1/vTxBz/oHKvTpwSsGRtAmxHx+DBRGk=;
+	h=From:To:Cc:Subject:Date;
+	b=fuibOJiZponbSA6UcUYzC37umoqq9FWCLbdQ9pKce5+bgxjG0z1mKlHwaCoCdLeRc
+	 MQsxZMxHhJeiAhlhPawV1bc3aY5gaG5ZRv+doc/ru0MN3pegiYaj1mGyuKiygCkRGd
+	 YEo6GMY7ohJObQOUlju3yteSWUrCKNCH9wxBZfmPWGUMbaQ6H/ROt4Ea6DQBCaYjMO
+	 vCO1v6C5xnp0n5vw9Ur7t+ST2PSUDWS9G9v7FWMP6zmGOqrcV1nOEMZs9zCiBRDABH
+	 FF77WnQ9MZLDVTFKgq90oRED6NvBJUw3CVeocPZPght8Fc/qB9aC/rVWGFS5kXOYQ3
+	 EI2keko7HnIeg==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>
+Subject: [PATCH] MAINTAINERS: remove {sbranden,rjui}@broadcom.com
+Date: Fri,  9 Oct 2026 08:00:35 +0200
+Message-ID: <20261009060035.544789-1-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-References: <20261007082627.63807-1-tanure@linux.com> <d23dfdf3-5837-459f-afd6-6c198a05c13c@lunn.ch>
-In-Reply-To: <d23dfdf3-5837-459f-afd6-6c198a05c13c@lunn.ch>
-From: Lucas Tanure <tanure@linux.com>
-Date: Fri, 9 Oct 2026 06:59:49 +0100
-X-Gmail-Original-Message-ID: <CAJX_Q+2au4x99kj=UBqn4joQCM3-D2kbaJ0zro9Y4RXka7ePvQ@mail.gmail.com>
-X-Gm-Features: AclHuK8Z8XHB904erYGkjWemp1Y2Gn2Ya3i9_K0CjW0XJN3l42AYcMZ32Srg4dI
-Message-ID: <CAJX_Q+2au4x99kj=UBqn4joQCM3-D2kbaJ0zro9Y4RXka7ePvQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 0/7] Add ethernet support for the Amlogic T7
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_230005_634726_64C4445B 
-X-CRM114-Status: GOOD (  21.72  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +66,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 7, 2026 at 2:01=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Wed, Oct 07, 2026 at 09:26:20AM +0100, Lucas Tanure wrote:
-> > The T7 pairs a Synopsys gigabit MAC with the same glue registers the
-> > G12A has, but nothing described it. This adds the binding, the driver
-> > support and the device tree nodes, and enables the port on the Khadas
-> > VIM4.
-> >
-> > Unlike the G12A, the controller reaches DRAM through a pipeline stage
-> > with a gate of its own, sys_ampipe_eth. Nothing else claims it, so
-> > clk_disable_unused switches it off and transfers stop.
-> >
-> > v2 changes the RGMII delays, after review. phy-mode describes the
-> > board, not which chip adds the delay, so this board is rgmii-id.
-> > dwmac-meson8b did the opposite, and ignored the *-internal-delay-ps
-> > properties. Patch 1 fixes that. The VIM4 needs it because the RTL8211F
-> > transmit delay does not work here.
->
-> What is special about the RTL8211F?
-Maybe nothing, it may be this board. I cannot tell from here.
+Both are bouncing:
+  Final-Recipient: rfc822; rjui@broadcom.com
+  Action: failed
+  Status: 5.1.3
+  Diagnostic-Code: smtp; The email account that you tried to reach does
+    not exist. Please try double-checking the recipient's email address
+    for typos or unnecessary spaces.
 
-The RTL8211F does add the delays, the driver sets both bits and the
-chip takes them. But when the RTL8211F adds the transmit delay, this
-board gets no working link.
+Anyone knows if they care about the entries/what's their new e-mail
+address?
 
-I measured the receive side by sweeping the MAC delay against the CRC
-counter, with the PHY delay off and then on. The window moves by
-about 2200ps, so the PHY receive delay is right.
+Ccing scott.branden@broadcom.com in a hope that one works. If not, v2
+will follow to remove that too.
 
-Transmit is the problem. With the PHY doing TX the peer sees nothing
-we send. With the MAC doing TX it runs at 935Mbit/s both ways with no
-errors.
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Cc: bcm-kernel-feedback-list@broadcom.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Scott Branden <scott.branden@broadcom.com>
+---
+ MAINTAINERS | 5 -----
+ 1 file changed, 5 deletions(-)
 
-I asked Khadas about the board, no answer yet.
->
->      Andrew
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ff3bfd42d3f3..d3b4271ca722 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -5240,8 +5240,6 @@ F:	drivers/iommu/generic_pt/fmt/*bcm2712*
+ 
+ BROADCOM BCM281XX/BCM11XXX/BCM216XX ARM ARCHITECTURE
+ M:	Florian Fainelli <florian.fainelli@broadcom.com>
+-M:	Ray Jui <rjui@broadcom.com>
+-M:	Scott Branden <sbranden@broadcom.com>
+ R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+ S:	Maintained
+ T:	git https://github.com/broadcom/mach-bcm
+@@ -5538,8 +5536,6 @@ F:	drivers/net/mdio/mdio-bcm-unimac.c
+ F:	include/linux/platform_data/mdio-bcm-unimac.h
+ 
+ BROADCOM IPROC ARM ARCHITECTURE
+-M:	Ray Jui <rjui@broadcom.com>
+-M:	Scott Branden <sbranden@broadcom.com>
+ R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+@@ -5576,7 +5572,6 @@ F:	drivers/net/ethernet/broadcom/bgmac*
+ F:	drivers/net/ethernet/broadcom/unimac.h
+ 
+ BROADCOM KONA GPIO DRIVER
+-M:	Ray Jui <rjui@broadcom.com>
+ R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+ S:	Supported
+ F:	Documentation/devicetree/bindings/gpio/brcm,kona-gpio.yaml
+-- 
+2.56.0
+
 
