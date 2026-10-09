@@ -4,141 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453A5CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C8CCA601F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 18:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xt48CPl1GFbvyj8Oej54KHQS7920JWtdgTxMvTpc2c0=; b=D33ZjEj4KZpw1J4yc+PaOaeUR6
-	/gLwgabmD06r/2x85Gm8mw2plaA6gWu8cFQsm/NteU6uRivbpc4PYp+K7XElehmc3ve8YEpPQOzNl
-	T2IejMP0p88EcjYJhzHHfdV5dGvAF/PKaVtCB9FBIntFbz+QZJblNk9onaJq2madyTXVtmwGGEqRM
-	b4GZUYswzPNMCZh+nZ9OR52i3wWZX3PAuKi8vRZYuybnsj0rsMt9jsGGLkKO+ERnwS7mUyS1CrKW2
-	mVMPznhWGDkfAuZ0j6WhiVpwhyR8918SvSmCCmdJPYc2DKDSFCO7TFAgx40yQuzT+79bufNhSpJMR
-	b16nwgFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbIAcFETs7Fo7Fiw9hweWROaB2K6gpG5L37UCuTLIIU=; b=2qGT108LGSsITRpNdYPAdIkDY6
+	Trn958DSEjvVr/QwIm91WY40yr0hFay+CqVHMfOuNj/SL0asuGqxCAoGXJrXqZmBoUsrcWEf9tLNq
+	anzXoX0H9gKwF6wmNCyKKUan3kVik3k/izmLdL+x1AZZbe4P+oKVlcl4yXNHv/YTpvrv9zo0ivyqJ
+	pHt2x8N7iPibIXycj2HCXArAC32l+TbYBiqgyyLPjJK2BomFivU9vA7lGc8EDhgTPpVNa3lDXd8J0
+	npF/L5q17Yh52hNyym/AvQM6hjI9cp5RoDF+W4x6+BxrTFflKKOV4Lc/l9oZDqpE6/4SxIO+fHGka
+	wM68Q3Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFF2j-00000006tCw-0bSm;
-	Fri, 09 Oct 2026 18:10:05 +0000
-Received: from mail-swedencentralazon11013046.outbound.protection.outlook.com ([52.101.83.46] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xFDC0-00000006cba-0CDL;
+	Fri, 09 Oct 2026 16:11:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFF2e-00000006t7K-1QLJ
+	id 1xFDBv-00000006cU9-0H2A
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 09 Oct 2026 16:11:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=rbIAcFETs7Fo7Fiw9hweWROaB2K6gpG5L37UCuTLIIU=; b=JwnTSAFnDHicbXsH6vhjgPLPuP
+	WtFl+ihCEnMjTFgmxwdFkykvHbHgcI6o2Zi+7OCVuWJGbFQ9QK4c7qeKeQ3g7tquR15Y1ATJfylTL
+	ZJHEJ+Iq8XbUnckb5qI6zFIm+ckEYTGwDCLe25qHzJGMOtRdtazgGPUFDTr9RzW7ezHr2HM8btCdS
+	n5RsVvJWbCAj965QezeIfBBiQnPy3j64NONXsFYp2gYYcNqi5zM5q9gmWDQHsgg3XzUij2sPZb0y2
+	xF6D0VxnqMfGncBOH4x3/4lrC02LF04pXhFvSEPZ5RuSkIaPGJEWirXWS7b2rZirE/nMRwwBpmo6i
+	pXkipKPQ==;
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xFDBs-0000000BOmj-24UA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 18:10:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p3CDyIQfGFXH/KhrLmJcmJwQTxZGlvgmHOft9t7uU82M7GfJefvXOYQ79M/tyLb/dsh9JQd/nCGOjMkJfHnps84upIyOOwBQpY4GwJZ4UVQemd6yHnPpm9ThhtsP8uikamqlfGOSVkRpoBf8Wi1rpBVC5uty93pcSmGd7l4kPhJVCbZfNHihJbabOQceBjUqLGL/29ZweQ6dQg3gGLfcfw+ZfroAq9ydxX5pul1OEyFuLwAwbsbl6uOxyoBV8AoUT2JK6xNcm2w/qONFTCG9P19UgVltFK4cvzlcCIoeI9dVBYk6/9FW+ZOpWjOfubJ5eyEPL/XbfwtdEZPcLjl+yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xt48CPl1GFbvyj8Oej54KHQS7920JWtdgTxMvTpc2c0=;
- b=bTFi3QCFMW5xNK4zxxvauLwu4cx6Uh8Jz1lv5bEi5LVQVug66Cpcd/TW53mbNmVobczJDnFZ8XJ18uzhXyPrFya9FB13W1ptOoKbYDSkQ612TUzr8qR3LMvrDFnOLUPhwOG+k2WhT9iOWl/OkVCwgwcJDS2B9/4dvqt03LYq0kAtpoI2AR87to1JE7dliupdi4l3vEliIpE9YbuvRJpyJqE0KAd166TCZ7FFWsbbAGuThvuWeAeA0BpNDjjo3sJ3olJrcVWZfmiJMf4EwEZNzAf5064YYg3OIGOXF05lDNRaMx1/TOYPlpR+q7+2lqeLTObiSOcSRzGnqmiIcrzU2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xt48CPl1GFbvyj8Oej54KHQS7920JWtdgTxMvTpc2c0=;
- b=I8DsbBK77T77GoHx9Z1u7dJ6t2vSiKEBZdJwedwxnNkwNjs/U6b35fzgQXOvx1e96lVJqNx60mWaCwhmcKS2hCPRlRGR6PR5fL751WNri2IVXzzTkwOEM7urBfgL18PHux/0rkK4FcrDfXX5vBF2ARy2q385/wYJNIrmMyS6HitFB5z23YeiqELCSjSFSXr7h6gkJAhv/9VH65RAVbf4esXI3x2ydHfiasSelMp3sxjsYKmViFfXHpjqE0mJkxPqkqcmTll9OdVGVt1Y8tEEuUaxEV+cWQBG+sUOrv/wCMBAIiygQPtoRcACbDuJXLztapP6IpvJ9jsH6MzFloK/uA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DB9PR04MB8282.eurprd04.prod.outlook.com (2603:10a6:10:24a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Fri, 9 Oct
- 2026 18:09:57 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.010; Fri, 9 Oct 2026
- 18:09:57 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Sat, 10 Oct 2026 02:05:34 +0800
-Subject: [PATCH v5 13/13] gpio: mxc: use BIT() macro for single-bit
- operations
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261010-gpio-mxc-cleanup-v5-13-1e59e6ddfa00@nxp.com>
-References: <20261010-gpio-mxc-cleanup-v5-0-1e59e6ddfa00@nxp.com>
-In-Reply-To: <20261010-gpio-mxc-cleanup-v5-0-1e59e6ddfa00@nxp.com>
-To: Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::8) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Fri, 09 Oct 2026 16:11:26 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48441a2ba1bso3939799f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:11:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791562283; x=1792167083; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rbIAcFETs7Fo7Fiw9hweWROaB2K6gpG5L37UCuTLIIU=;
+        b=r6d7VCrB5df5ocPLedqvr+pAHIWiflXxK/9DEVzfKSeyLRd2ImPLGz6Xz2mzRVV8oU
+         TRAj5lSJlZykmsqWFODf1+puFj/ujHKmD3FuRFVm/tjqdipN9lN5D9WXgfheBManBPSB
+         6UYhdCkGZJCPOrgnD4zbnJm1KwC5Ku79YYrph9X8hO2sLtTjeigHjgwyPg7TQ5wpH6ws
+         3DgmTDTKkwH9q2XTxs4EUC81ry9Lqq8VOgybcrMnV3tK9h5KGfFiXHEeXsg6gIPJvY4r
+         P81g89K3O3ZLS4TXOlPlpZ105IdF7GI9m1EPygADvuDXGI8Kz3a4tIvwkUMaWxTryuIO
+         4EeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791562283; x=1792167083;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rbIAcFETs7Fo7Fiw9hweWROaB2K6gpG5L37UCuTLIIU=;
+        b=KJH2xX018nzoWvCvppspjNIPTYWA9khClL1gaCNdR0tpL35dlZhhgEzhCoHwSiJnJG
+         TRr/WEBDvIymhCz8MZUFegV/Yns31L1bshMxH4trzbyieUtwmE5eNWZZ+NKokQSbLPjY
+         TyjijhMdb3nlGlpAZRa5A/rK4RjYfQz45ZjNh+HlBNHagJGisGFBHRCq0/tDZhl2qG/c
+         o5xl5vGoc1nTUnSNbtjfD2yq1BZuslMHXhQle3VkDriE1lvZ10p/m4uFokRzZLLfWYVP
+         BJqYbu/0CggwOynWX5B9jVREnR+sxMVrEGzkm0j+kyhd0WgJkyV7cmksfk0WyaxAfCSq
+         JhFg==
+X-Forwarded-Encrypted: i=1; AKwUvByciL3wMQ5y0uoY/ShUJFHYiAzP5V4r2Wkjblc3DA8fDDkJ1HHi2Ql5Dt1z8KqKM31MrPMKIexLl/InVXE1CPOA@lists.infradead.org
+X-Gm-Message-State: AFuF++kSMxe28MWgTEJ/YENXIz/rxvuk5Wf/5hVppelOTHnl1B5dGRyq
+	FZP6sTKFGimW7uoUeVGIRBfcdRkaPkvxiZ5WxZZ7CiLMF9XRv9irJ6wS
+X-Gm-Gg: AYBFou0g3+ZRHdmTej/65oFnHIPTzACauuIo8aBml4ZljqSIl8Y6T3AqVZai4wuv9G4
+	mPSZ9JwqPiBs26CYkwWco9t+1/8aUSu8m0exiC8Z/ldrXssK9GG59E/Ig5y7pAE/o8KC+lnLyPo
+	TATmfkMw3c1Kh5WA8UziBci8s2TMk+2ZXO9w4M+WsnrzCm0ERjIsyz/VE84oopnfFllg3Cx84sg
+	TnWuyljA19Qod0pQVPzUYyO9Gr+a7Utdi5XV0CQfdN1DPQz4NNqFpliTHwtxMr99nIoeadPdQAj
+	Uzl8+iWuS62pAP5meiPj7F+IJszPL8EHG0Hw+yh0t7IVHxOdMr/POnIZpthHv4f4E/wJUUetGzS
+	x1reDc8fVYki4ZI5mKlHuqUI6iDxGoDcqFl4ivHbaIp3TwQk6NMbCyFY304eiJrr9leuRVoYEeh
+	sMXWF1v45OMgVkOczyGhBjCmAFZgpsOFZLYy+mC50QFNklu1JoTn1AcoakkVsYN1/COGlmGY2ef
+	OEwJ+99DwjcRLY+htooKt0iko6A9MsfzQIHPgGD+Al9C+eIZ1C5VxEXZKGPmZ9U0c7MEQBEXkzz
+	YBJVaQ3ldO6FEkLZGg==
+X-Received: by 2002:a05:600c:3e8d:b0:4a1:825a:56fd with SMTP id 5b1f17b1804b1-4a18e4aecb2mr43266655e9.32.1791562283128;
+        Fri, 09 Oct 2026 09:11:23 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-213-45-9-252.retail.telecomitalia.it. [213.45.9.252])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48db94e2f08sm4744701f8f.15.2026.10.09.09.11.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 09:11:22 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	Joris Vaisvila <joey@tinyisr.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH net-next v25 06/10] net: dsa: tag_mtk: add Airoha variant usage of this TAG
+Date: Fri,  9 Oct 2026 18:10:51 +0200
+Message-ID: <20261009161102.38961-7-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261009161102.38961-1-ansuelsmth@gmail.com>
+References: <20261009161102.38961-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB9PR04MB8282:EE_
-X-MS-Office365-Filtering-Correlation-Id: cc306328-25c4-4b9d-32fd-08df263086dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|23010399003|7416014|11063799006|56012099006|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 1VPQYgQh3YGwHCpVsQ3XQlpFO9hIXkzRQ2I2IAUjIqD8GaPwndrDR8e3+lf6v8xe3D7iSwzyLIiVUxwACCnBVO1gFcWyS7Jr98E00eSBfhMhhgmpvgRxWUJHl5xBAaZcUH7HuUME5xh7EZDrHLzGYQKLmmQWr9ZEXwRlRL5X9VsWE4vRCScsHd+wXDkc/C5yDr5OTZh5n8pTGlDhkXwroz9CDxR2I5pKsh5hZWcq9zG2ftNcsRCf3ewYj72zW+hEsf7krFp8ZD3VoHZaqgae7hGReb15YjL7H0Pfe6u6KKOr+V3r6BFDsWHzdtJgvKsk34idKVCWFANqaZm0pzQR++9ihZWZpiQ+p2RRWFRY/1ZOl3gDGlr+O6Xs/4Zo/BooLPtCVJ4lnvubxLBLQtFBpchzevRjcpBFupx+l6vlhfIovkO9QxvSuyZReMWyPWqPb14eq7OBx+FAvXoGAhAfgRQstTuTe3DOODWJHeGkP4FaApBdkC7x1bxj6bnDt4sMhnGrXvO9QWvnryHYR44OTDmdws0OSDWIaq8FyLGKPhV8VWbsh9SIPxEu3gUCW/Apre6JMN2yqP2sEi1x4T/dZGh5TerBwicxFGuK5VMiFsxAzuyJqhB58TiJN84lHEUe16Yu1No0spwn1NBI+YFodtqV2XbPLUdIkGeALTVNz7U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(23010399003)(7416014)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V0NNWWNuYzVYN0JDMnZtYjMxbXdwWXI0ck01OHcra0d6dTByUWFSRjNBOTE1?=
- =?utf-8?B?Q2tFWk5COThybFpXZ3pPb09XRHhxUlVSa0lwUEpRL0pWM0QyeStJZjJSNE51?=
- =?utf-8?B?S0V2U3cvQlREelIydmxGQ3NIQ1N3NUp2VHY4eE5VVXJKb1NRdzVSRlp5RC9S?=
- =?utf-8?B?bjdoVWVqbHVYTkdtTUQ0cVlsYVR4V3hlUDRjYXVvZm85aHc2UkNMUXlmVkJO?=
- =?utf-8?B?cjhsTEJDZzNBaTNVMkdUT0xUcTRSdGcwUWxSL3FZM3lhNnRNN2t1OWdQUk9o?=
- =?utf-8?B?OFpYZTEzQmhGQStsTE1meEc3SEhzdVB5NTB1eE5CS2hrRzR5Q0xCYXN2QXYz?=
- =?utf-8?B?STBtZUJta3pPelV2alNGbVVhMkc3MkNGb3pibUhDSk5jSXVkWlB3U0ZPT1hv?=
- =?utf-8?B?VER0NUtRYzJLQjNvbGVCQzV0ajBTRTZ6a0ZMTEM0aXRRM1hBUHdwUzJhL1lZ?=
- =?utf-8?B?VXMzekJEZ3FRQzdKSEJmSktSM2ZaaGlwTXgyaU5YczJuZk95aTRnVzIzc1dw?=
- =?utf-8?B?dmpaZWl3enlKN1pYN2FZOURIdVhqWlFpRzJYUzlCWUdRaUZSUTJSeURlU2lj?=
- =?utf-8?B?R0xKVTY4cGpOVnlhbnhMcVdCYUlXalprREpkTk1OMWpqTDVKcjRIbWpiVTk1?=
- =?utf-8?B?dkRoQ0xmYU5MVGYvZW5SOXNEUTVXV0loSUJCYVZnWW5ZQlUxZkwwZk9ObUNl?=
- =?utf-8?B?Y3BUZUlsN0Frc3NadlZCNStQeElOc3RXN1hWSDlnYksrTCtEWWdTNDhWSXVK?=
- =?utf-8?B?bjhKMHhSdlYwT2RPempSTi9kc3d0bVhZRlpPWWlyZ2YySVAzbUFud01oZUMw?=
- =?utf-8?B?dG9mcHlGbzVrMFpRQXNFSnV5QTlaQ3A2VzdsWmtMN24yLzdESkE3WEM1VUl2?=
- =?utf-8?B?MTh2NUtOOXZEVlVkZ2RITy93ekg4bVlaY3k1L0ZJNHdpei9yYk5CTHhlN0Ix?=
- =?utf-8?B?dnc0d0ZOTGRjVXFycFZxekc5S2FmNDcyOVRTdGpBN1VBeDE3QWF1b1AySE15?=
- =?utf-8?B?enNGTmlTaWlxeTlzbDB6SlI4L0h6UWh3YUxUUTRyQXNUVVZaV25jWlJwQ3BJ?=
- =?utf-8?B?ZkV1bWdUY1hwQ3BYZmNrOFhkem9LeStUZFBHcG1Nc0FUblY0azhiZVVHUUFm?=
- =?utf-8?B?WUxrMm84WGN5ck55UnFSSXBsM3Z5cWMyb2RON1hQRnRlZDhEbk5acmFCSzls?=
- =?utf-8?B?ZE9yRUg1Z3dCWVNSaEdRdEJIYnVsTDR5bk9SUW1ycHlUWHl6M2JEOXcyK2Vs?=
- =?utf-8?B?OTFGKzlPVnRVUDBtVzF0ei90Mm1WVXMrbnhOaWozVk91WFRCS0NNeDRJNGhG?=
- =?utf-8?B?Vko0WkRQWUNZOE92MHNzQWhMOVowUjZQZ0VXVk1qd1FmM01kWi9DL2JZdDNM?=
- =?utf-8?B?YU1CZCsrRTJKZTMwbmxpajFDTFQ4bjhYWFhMMGNPQmUxU0QzQWk3Wm9JeTZ3?=
- =?utf-8?B?QmxsQkg2bXIwWWw3aTM5eTBpWGg0ditYU0lreDQxSUdhSlBTN1hEOExmcGZq?=
- =?utf-8?B?VWZzdHlTZk96YUcrOUFka0JSQktOQldRUWc1WEVwdHErQlM1RkU5eGZmTnRz?=
- =?utf-8?B?T0Q1Z3UxZS9yRFRjWXQvRHNaMWxtWVpnVFUxK3lkNm1HeVcyL3VxWWFCbjc3?=
- =?utf-8?B?MjRkSHN6bWdqbUxOTmlEYjB1aGlxNmtPNXBjY2RMUDVJTTc5dUt0SFFIMGNo?=
- =?utf-8?B?ZW5RaTdNL0JBd043b2k1bkpYdDdmZXZTSnhuTFNqS2RUN3dZRXVjSTlRcmFj?=
- =?utf-8?B?OFFKd00yMmpyVlJMR1l6YzRZdU80ajI0M05XajlRVnMyRWgzQm1ydW9kR216?=
- =?utf-8?B?bTlGdTRKbXhYVkg2SnJNeFJGamdFbFpFbXFncVFnZWhVaXhaS3dIMUllRnlK?=
- =?utf-8?B?WTU1NElCemc4YnUwR0dOc2t6WXpqdmI1YzFOMzRjMk5aUUw3YVQzcXdoek0y?=
- =?utf-8?B?bTFGNkFmYnFINFhYc29mWkVFUmRKRDhTWGlqMGI5cVROZFdmMzBsampLcG9w?=
- =?utf-8?B?YWNBSU9UUm9JQ1M4MXk3Q0VuQ21FN21LdE11MVM4RUk5YnBSZW9RWXpHVXJU?=
- =?utf-8?B?RHZVS2FXNkszR3YxTVlqL2U5cnFIQnl2VHhUVjlXZ3FlakRGY1FjVndrLy84?=
- =?utf-8?B?STAybFNPN2tOdW5MdlRLZzduaTkvamtMMnhJbld3YkVtcUNHVjBSRWhFUzNs?=
- =?utf-8?B?TmRPZnlUaGJTVWpNNjZuNm51RlNoVklCM1pTa3YvaTVtQVkzUVdnMnJ5VnE3?=
- =?utf-8?B?MzZsWG55RTJyd0tzYldOenM4L052UzduTUpIMDFTWGZpNTdmdDc4amYySWRz?=
- =?utf-8?B?ZXpTRjRNeEVnQjFrTjllNitTK1RZVHJ1dWhpdmhITWdRK0o0ZjhYTEZYd1VR?=
- =?utf-8?Q?q5dE8bGY84tVzFi8C6/GuTbW9hcOlufAntVFc?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc306328-25c4-4b9d-32fd-08df263086dd
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2026 18:09:57.3904
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cnfux/QpoEqO/yQgJkdjeNQrqw3HWMGlqN1aywTjW+m6ZmPRMz1V6NTdlnpHRkcl6si2XROdimPlt+7j++yQPCBcUBu3zN2xPMmC9rJfnn9jhgAS4O+kHjkHiyAb2KQ/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8282
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_111000_392829_12F274AC 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20261009_171124_612212_8178FA5D 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,58 +138,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Add variant of the MTK TAG for Airoha Switch and comments about difference
+between Airoha AN8855 and Mediatek tag bitmap.
 
-Replace open-coded '1 << n' shifts with the BIT() macro throughout
-the driver for consistency and to avoid potential signed-shift issues
-when the bit index is 31 (1 << 31 is implementation-defined for
-signed int).
+Airoha AN8855 doesn't support controlling SA learning and Leaky VLAN
+from tag. Although these bits are not used (and even not defined for
+Leaky VLAN), it's worth to add comments for these difference to prevent
+any kind of regression in the future if ever these bits will be used.
 
-No functional change.
+Rework the makefile, config and tag driver to better report to
+external tool (like libpcap) the usage of this variant with a dedicated
+"Airoha" name.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- drivers/gpio/gpio-mxc.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ include/net/dsa.h |  2 ++
+ net/dsa/Kconfig   | 11 +++++++++++
+ net/dsa/Makefile  |  2 +-
+ net/dsa/tag_mtk.c | 36 +++++++++++++++++++++++++++++++++---
+ 4 files changed, 47 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 97147a5d747b..4140fb2359c8 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -260,17 +260,17 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
- 		if (GPIO_EDGE_SEL >= 0) {
- 			val = readl(port->base + GPIO_EDGE_SEL);
- 			if (edge == GPIO_INT_BOTH_EDGES)
--				writel(val | (1 << gpio_idx),
-+				writel(val | BIT(gpio_idx),
- 				       port->base + GPIO_EDGE_SEL);
- 			else
--				writel(val & ~(1 << gpio_idx),
-+				writel(val & ~BIT(gpio_idx),
- 				       port->base + GPIO_EDGE_SEL);
- 		}
+diff --git a/include/net/dsa.h b/include/net/dsa.h
+index 5d12191b6f6f..9824c63ad50b 100644
+--- a/include/net/dsa.h
++++ b/include/net/dsa.h
+@@ -62,6 +62,7 @@ struct tc_action;
+ #define DSA_TAG_PROTO_KSZ8463_VALUE		34
+ #define DSA_TAG_PROTO_MT7628_VALUE		35
+ #define DSA_TAG_PROTO_KS8995_VALUE		36
++#define DSA_TAG_PROTO_AIROHA_VALUE		37
  
- 		if (edge != GPIO_INT_BOTH_EDGES)
- 			icr_update_edge(port, gpio_idx, edge);
+ enum dsa_tag_protocol {
+ 	DSA_TAG_PROTO_NONE		= DSA_TAG_PROTO_NONE_VALUE,
+@@ -76,6 +77,7 @@ enum dsa_tag_protocol {
+ 	DSA_TAG_PROTO_KSZ9893		= DSA_TAG_PROTO_KSZ9893_VALUE,
+ 	DSA_TAG_PROTO_LAN9303		= DSA_TAG_PROTO_LAN9303_VALUE,
+ 	DSA_TAG_PROTO_MTK		= DSA_TAG_PROTO_MTK_VALUE,
++	DSA_TAG_PROTO_AIROHA		= DSA_TAG_PROTO_AIROHA_VALUE,
+ 	DSA_TAG_PROTO_QCA		= DSA_TAG_PROTO_QCA_VALUE,
+ 	DSA_TAG_PROTO_TRAILER		= DSA_TAG_PROTO_TRAILER_VALUE,
+ 	DSA_TAG_PROTO_8021Q		= DSA_TAG_PROTO_8021Q_VALUE,
+diff --git a/net/dsa/Kconfig b/net/dsa/Kconfig
+index 4f44bf3ede23..28a249f04a43 100644
+--- a/net/dsa/Kconfig
++++ b/net/dsa/Kconfig
+@@ -24,6 +24,13 @@ config NET_DSA_TAG_NONE
+ 	  Say Y or M if you want to enable support for switches which don't tag
+ 	  frames over the CPU port.
  
--		writel(1 << gpio_idx, port->base + GPIO_ISR);
-+		writel(BIT(gpio_idx), port->base + GPIO_ISR);
- 		port->pad_type[gpio_idx] = type;
- 	}
++config NET_DSA_TAG_AIROHA
++	tristate "Tag driver for Airoha switches"
++	select NET_DSA_TAG_MTK_COMMON
++	help
++	  Say Y or M if you want to enable support for tagging frames for
++	  Airoha switches.
++
+ config NET_DSA_TAG_AR9331
+ 	tristate "Tag driver for Atheros AR9331 SoC with built-in switch"
+ 	help
+@@ -104,8 +111,12 @@ config NET_DSA_TAG_MT7628
+ 	  Say Y or M if you want to enable support for tagging frames for the
+ 	  switch embedded in the MT7628 SoC.
  
-@@ -309,7 +309,7 @@ static void mxc_gpio_irq_handler(struct mxc_gpio_port *port, u32 irq_stat)
++config NET_DSA_TAG_MTK_COMMON
++	tristate
++
+ config NET_DSA_TAG_MTK
+ 	tristate "Tag driver for Mediatek switches"
++	select NET_DSA_TAG_MTK_COMMON
+ 	help
+ 	  Say Y or M if you want to enable support for tagging frames for
+ 	  Mediatek switches.
+diff --git a/net/dsa/Makefile b/net/dsa/Makefile
+index 1f9cc30e9988..7ccaa528a989 100644
+--- a/net/dsa/Makefile
++++ b/net/dsa/Makefile
+@@ -29,7 +29,7 @@ obj-$(CONFIG_NET_DSA_TAG_KS8995) += tag_ks8995.o
+ obj-$(CONFIG_NET_DSA_TAG_KSZ) += tag_ksz.o
+ obj-$(CONFIG_NET_DSA_TAG_LAN9303) += tag_lan9303.o
+ obj-$(CONFIG_NET_DSA_TAG_MT7628) += tag_mt7628.o
+-obj-$(CONFIG_NET_DSA_TAG_MTK) += tag_mtk.o
++obj-$(CONFIG_NET_DSA_TAG_MTK_COMMON) += tag_mtk.o
+ obj-$(CONFIG_NET_DSA_TAG_MXL_862XX) += tag_mxl862xx.o
+ obj-$(CONFIG_NET_DSA_TAG_MXL_GSW1XX) += tag_mxl-gsw1xx.o
+ obj-$(CONFIG_NET_DSA_TAG_NETC) += tag_netc.o
+diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
+index c7dc7731675e..f8087d768da6 100644
+--- a/net/dsa/tag_mtk.c
++++ b/net/dsa/tag_mtk.c
+@@ -11,6 +11,7 @@
+ #include "tag.h"
  
- 		generic_handle_domain_irq(port->domain, irqoffset);
+ #define MTK_NAME		"mtk"
++#define AIROHA_NAME		"airoha"
  
--		irq_stat &= ~(1 << irqoffset);
-+		irq_stat &= ~BIT(irqoffset);
- 	}
+ #define MTK_HDR_LEN		4
+ #define MTK_HDR_XMIT_UNTAGGED		0
+@@ -18,6 +19,9 @@
+ #define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
+ #define MTK_HDR_RECV_SOURCE_PORT_MASK	GENMASK(2, 0)
+ #define MTK_HDR_XMIT_DP_BIT_MASK	GENMASK(5, 0)
++/* AN8855 doesn't support SA_DIS and Leaky VLAN
++ * control in tag as these bits doesn't exist.
++ */
+ #define MTK_HDR_XMIT_SA_DIS		BIT(6)
+ 
+ static struct sk_buff *mtk_tag_xmit(struct sk_buff *skb,
+@@ -99,6 +103,7 @@ static struct sk_buff *mtk_tag_rcv(struct sk_buff *skb, struct net_device *dev)
+ 	return skb;
  }
  
-
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_MTK)
+ static const struct dsa_device_ops mtk_netdev_ops = {
+ 	.name		= MTK_NAME,
+ 	.proto		= DSA_TAG_PROTO_MTK,
+@@ -107,8 +112,33 @@ static const struct dsa_device_ops mtk_netdev_ops = {
+ 	.needed_headroom = MTK_HDR_LEN,
+ };
+ 
+-MODULE_DESCRIPTION("DSA tag driver for Mediatek switches");
+-MODULE_LICENSE("GPL");
++DSA_TAG_DRIVER(mtk_netdev_ops);
+ MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_MTK, MTK_NAME);
++#endif
+ 
+-module_dsa_tag_driver(mtk_netdev_ops);
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_AIROHA)
++static const struct dsa_device_ops airoha_netdev_ops = {
++	.name		= AIROHA_NAME,
++	.proto		= DSA_TAG_PROTO_AIROHA,
++	.xmit		= mtk_tag_xmit,
++	.rcv		= mtk_tag_rcv,
++	.needed_headroom = MTK_HDR_LEN,
++};
++
++DSA_TAG_DRIVER(airoha_netdev_ops);
++MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_AIROHA, AIROHA_NAME);
++#endif
++
++static struct dsa_tag_driver *dsa_tag_driver_array[] =	{
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_MTK)
++	&DSA_TAG_DRIVER_NAME(mtk_netdev_ops),
++#endif
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_AIROHA)
++	&DSA_TAG_DRIVER_NAME(airoha_netdev_ops),
++#endif
++};
++
++module_dsa_tag_drivers(dsa_tag_driver_array);
++
++MODULE_DESCRIPTION("DSA tag driver for Mediatek switches");
++MODULE_LICENSE("GPL");
 -- 
-2.51.0
+2.55.0
 
 
