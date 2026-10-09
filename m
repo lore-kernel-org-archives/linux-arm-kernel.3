@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1572ECA9EBB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 22:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C00CA9EC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 22:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lfeL84iE/+CBuH3WTMxah8k0Y3jZf6XO4Z8+JTFy/TM=; b=LkCGPxiMjShY7ZA7BTa0kfXLsl
-	tOdT2A3U3oFlbFDCZSJLgCj2vXbJj8KVPReqif12YzQ9mlmvwsUQqNkOwhlo0wc3s9JuBJLEVX3AF
-	wZYDqr8XCmWyzzZFjuRuNxON2VTQfkFp5rQIHQ3R7A7OGbCYb8yBhuuns4ZubfmblA/rys4OntR56
-	Gghxqzqokie9JgXl56v2UztGLR3wPivVZNdgmmZrUKNpJJ5Ri6R6JjNToNl7RkKqYNmlff6XBfkgD
-	C77/DaCwK/u/PltIuaUplLgw+6RRN0FQUeZGaz7/eXCSScMfBb+mR43gokcydu4agnWWZNO4gPt69
-	REybULcQ==;
+	bh=GHhOoeXiCbUjaUYRjNWTwcI9zO3PjvbPdsrI0WjZOFM=; b=II0MF/q0nBnjDteMkS8Nb+UYr7
+	hApWikZ/uEW9q0himrKo370yNYyTb0G6hbUwMAn82tfR4ugE6q7QgHbMOiXIJB9w37NYdnvc+t04V
+	Kj0kRtf5hqQRrk2aApJ4Z3bnNfOrpfHk4Q8SGraS+TPZyNQ5FDrhtlg0eMZ5ZDROiu4bOzN8t+cng
+	IS9RmeAYRF2JgWeIzqu8f4qiT2gJEX+o42cYbYRt77/YtLb8Azirse+8P+KtkTPvPVtD38GK2tR03
+	7/4YZ9dACLDki60sgaNCWYa2dCwzqJEoFGyreqpGvshtw/9dWPoLiWhLAX6JWYlEuMZ+p5hNKDBkI
+	JJFIzEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFIyx-00000007HU6-3Q6V;
+	id 1xFIyx-00000007HTi-2ZQP;
 	Fri, 09 Oct 2026 22:22:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFIyw-00000007HSc-0ei2
+	id 1xFIyw-00000007HSd-0jK0
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 09 Oct 2026 22:22:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lfeL84iE/+CBuH3WTMxah8k0Y3jZf6XO4Z8+JTFy/TM=; b=dVLRsgiCrUot+eayBvV9ogyCMC
-	wPXQpUlRyWUvaUYgsQeUUMnYUDihfZHBgwkMRXCq+Xu7nVFGhg+glYTlAlzhtLnCXK7158U8R6TKZ
-	cUXxhT4ChgQfVSRWa2slslq1sZF9WeiHslA8NKPmDNrb4ksHobeVAyrC6TdfRrGMUM8dSE5fDmABN
-	YkZy7Ic8y0FoSO2y8asO2wzMiP/qOAeteME7JrehacacQKF3KrhCJTRcO75IILqCjFykKnEq8FI65
-	NehQKRDIAI4baBvhkAUq6qBZC2qMuXTzMb2c/D5SsbjsJprfsfnle/gOEcWvYhTf658L+8FrfIymM
-	oDZt9xyg==;
+	bh=GHhOoeXiCbUjaUYRjNWTwcI9zO3PjvbPdsrI0WjZOFM=; b=WCZQQeyGzJVLoCvom3V1YNmN95
+	9YtXje6UnMoOb/j1sRN3DAsdoVEYVsbIeljAzC7t4p79ou8h0VYWipOJjFlYe97KTcJ67gggFh5iv
+	q3jlyjernrrCZ9qYZrRYqSoG8F6abRyIzm2fmeUqNoYNTIVnuC+DGyVZplnL05LEqKLlCqXYL28P+
+	3prna5Tl/4fhYe39kffo7FCRthWNfmj+JATQqVSbF+flWq/zRhVs14mKx3vIbITaH7I9z5lHMCDlm
+	vqYw+03HrfHKbq/3Wa3eIqvSLIK5Gm+blXUoUfyLjUUcILxQ+C4mMo4cGfKoMSfcn/jgYJM0zAX/l
+	0g7mRqbw==;
 Received: from chamillionaire.breakpoint.cc ([2a0a:51c0:0:237:300::1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xFIys-0000000BgOO-42rS
+	id 1xFIyt-0000000BgOJ-0HNh
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 Oct 2026 22:22:24 +0000
 From: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=breakpoint.cc;
-	s=2025; t=1791584524;
+	s=2025; t=1791584523;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lfeL84iE/+CBuH3WTMxah8k0Y3jZf6XO4Z8+JTFy/TM=;
-	b=W94yyaEM+vNtp85T1qKdnhPPPLSN7BYCkDW+TKOYvJ9Ohfn1NhWvCVs88VNezOVEiSxl60
-	75jAniOr1WhhUIJ8fzuC7m/x+e50bcVZwWSVMqyT9Z8pIBmg++r6ORsUeJLViyjub5HB+S
-	VKrwK6fUgKFTsMEg5WVB3lNagvno2ytho2xUaH4OpyeL6ojY9CCFPqxiFr+Dndn0N6+rVG
-	womdxSmBtzkrYFbt76r1r3IvSNqGzoNikBWd6miBWuTSnMwekc/hcVedtGWnxEPeaFbYDk
-	04eoT+G0WqnwyocxjYVXDK+b3iM9fXrBXfxxO+9vDCBA8zJ5wkaj+8tljrDncw==
+	bh=GHhOoeXiCbUjaUYRjNWTwcI9zO3PjvbPdsrI0WjZOFM=;
+	b=cO4eyyN5NADtlbUSNXMeVX84kVR/8HF2CVOtBbxZC28auVYP4TMWVunn6scEGFxmh9GJVb
+	r8dUEmE99LxeZVHs2p6N57QlPiyir6CGKWpp0pLgyAPZXIvaGHqYZk9qONm7yB2dwDh6ho
+	/dTe1Akl1sfImcX3irhDbvk7a3naCxGpbQ/4o5sJs+ETIFpfK5Y4g2qDunS0xWywyM45oP
+	jwSiMSarL16XeVjEUE79taI9yyMQWe+jUp4AqYeXtkIcVxKNUMGdU849W7YcFPAtUzHn4B
+	g3RLAicLb6Rm9VfBlkc+NcwA+OodQMJrTTYDW7RtbW9dNcHpS1Ms/+TmxwV3qg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=breakpoint.cc;
-	s=2025e; t=1791584524;
+	s=2025e; t=1791584523;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lfeL84iE/+CBuH3WTMxah8k0Y3jZf6XO4Z8+JTFy/TM=;
-	b=Oiv8nqVPi3Q1lI8wTBA0Mungf4zNU7UmDf+9ofkfybAqZcgT+pVbe6P74ZosX5YXOjSB0S
-	TwKPALtF/AkcTfBQ==
+	bh=GHhOoeXiCbUjaUYRjNWTwcI9zO3PjvbPdsrI0WjZOFM=;
+	b=U1PqGC1gXV5f18ShVhK3ecJjGECGOje+dju7WhYUSJWqdpUnRQdkILTnKGcnhlSVz+B6fq
+	WvouRjyoQyojGKDg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>,
 	Russell King <linux@armlinux.org.uk>,
 	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 09/11] ARM: traps: Move the BUG handling from die() to do_undefinstr()
-Date: Sat, 10 Oct 2026 00:21:16 +0200
-Message-ID: <20261010-arm_warning-v1-9-ddf4be42ae0d@breakpoint.cc>
+Subject: [PATCH 05/11] ARM: BUG: Move __bug_table creation to __BUG_ENTRY_GENERIC() macro
+Date: Sat, 10 Oct 2026 00:21:12 +0200
+Message-ID: <20261010-arm_warning-v1-5-ddf4be42ae0d@breakpoint.cc>
 In-Reply-To: <20261010-arm_warning-v1-0-ddf4be42ae0d@breakpoint.cc>
 References: <20261010-arm_warning-v1-0-ddf4be42ae0d@breakpoint.cc>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_232223_365981_C6139F35 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20261009_232223_379842_BEA7DE77 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,81 +93,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BUG() macro uses an opcode which is treated as an invalid opcode by
-the ARM core. There is no dedicated handling for this. Instead, should
-the core step onto an invalid opcode then the do_undefinstr() will
-eventually end in die(). At this point, the kernel will crash and stop
-invoking opcodes.
-
-Move the BUG handling earlier to do_undefinstr() in the kernel block.
-This allows a different handling if a BUG-entry is found.
+Move the creation of the __bug_table section into a custom macro
+__BUG_ENTRY_GENERIC() and make it depend on CONFIG_GENERIC_BUG.
+This is preparatory work to make the creation of BUG-opcode and the
+additional tables depend on CONFIG_GENERIC_BUG instead
+CONFIG_DEBUG_BUGVERBOSE.
 
 Signed-off-by: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 ---
- arch/arm/kernel/traps.c | 32 ++++++++++++++++++++++++++------
- 1 file changed, 26 insertions(+), 6 deletions(-)
+ arch/arm/include/asm/bug.h | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index afbd2ebe5c39d..1353bf24da53f 100644
---- a/arch/arm/kernel/traps.c
-+++ b/arch/arm/kernel/traps.c
-@@ -355,14 +355,10 @@ static void oops_end(unsigned long flags, struct pt_r=
-egs *regs, int signr)
-  */
- void die(const char *str, struct pt_regs *regs, int err)
- {
--	enum bug_trap_type bug_type =3D BUG_TRAP_TYPE_NONE;
--	unsigned long flags =3D oops_begin();
-+	unsigned long flags;
- 	int sig =3D SIGSEGV;
+diff --git a/arch/arm/include/asm/bug.h b/arch/arm/include/asm/bug.h
+index 18dc13a0509f6..172e6a84541cb 100644
+--- a/arch/arm/include/asm/bug.h
++++ b/arch/arm/include/asm/bug.h
+@@ -35,9 +35,8 @@
+ 	.word 2b;						\
+ 	.hword __line;						\
 =20
--	if (!user_mode(regs))
--		bug_type =3D report_bug(regs->ARM_pc, regs);
--	if (bug_type !=3D BUG_TRAP_TYPE_NONE)
--		str =3D "Oops - BUG";
-+	flags =3D oops_begin();
+-#define __BUG__LINE(__file, __line, __value)			\
+-	1: ;							\
+-	BUG_ENCODING();						\
++#ifdef CONFIG_GENERIC_BUG
++#define __BUG_ENTRY_GENERIC(__file, __line, __value)		\
+ 	.pushsection __bug_table,"aw";				\
+ 	.align 2;						\
+ 	.word 1b;						\
+@@ -45,6 +44,15 @@
+ 	.hword 0;						\
+ 	.popsection;
 =20
- 	if (__die(str, err, regs))
- 		sig =3D 0;
-@@ -442,6 +438,26 @@ int call_undef_hook(struct pt_regs *regs, unsigned int=
- instr)
- 	return fn ? fn(regs, instr) : 1;
- }
-=20
-+static int handle_bug_opcode(unsigned int instr, struct pt_regs *regs)
-+{
-+	enum bug_trap_type bug_type;
-+	unsigned long flags;
-+	int sig =3D SIGSEGV;
++#else
++#define __BUG_ENTRY_GENERIC(__file, __line, __value)
++#endif
 +
-+	if (instr !=3D BUG_INSTR_VALUE)
-+		return 0;
++#define __BUG__LINE(__file, __line, __value)			\
++	1: ;							\
++	BUG_ENCODING();						\
++	__BUG_ENTRY_GENERIC(__file, __line, __value);
 +
-+	bug_type =3D report_bug(regs->ARM_pc, regs);
-+	if (bug_type =3D=3D BUG_TRAP_TYPE_NONE)
-+		return 0;
-+
-+	flags =3D oops_begin();
-+	if (__die("Oops - BUG", 0, regs))
-+		sig =3D 0;
-+	oops_end(flags, regs, sig);
-+	return 1;
-+}
-+
- asmlinkage void do_undefinstr(struct pt_regs *regs)
- {
- 	unsigned int instr;
-@@ -461,6 +477,10 @@ asmlinkage void do_undefinstr(struct pt_regs *regs)
- 		} else
- #endif
- 			instr =3D __mem_to_opcode_arm(*(u32 *) pc);
-+
-+		if (handle_bug_opcode(instr, regs))
-+			return;
-+
- 	} else if (thumb_mode(regs)) {
- 		if (get_user(instr, (u16 __user *)pc))
- 			goto die_sig;
+ /*
+  * The extra indirection is to ensure that the __FILE__ string comes throu=
+gh
+  * OK. Many version of gcc do not support the asm %c parameter which would=
+ be
 
 --=20
 2.55.0
