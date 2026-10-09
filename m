@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85CDCA5FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617EBCA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYQM2I+r8judSPngvWcWEJb9im+ycy9cxj2LUpGCt2I=; b=LRvDNyNQl2p2oef68WIZgJv617
-	Jj3FXrZbXGQAxEeTTZbeFdilcr98iaZpVXmzLQVfH2Ys16+n4wkoe4Lr9Yht4+tZpwr8LCTkoNnno
-	BL4727V5fNJqPMtfJyJHK+KEJlHUwmrlH6guuaHoWd08uxUdf2Ujcuv96VgczdnGckiA0HdT/2OB0
-	/WOk5K7QvB6U5R4+nTdq/6aCABHARYrM+DUl7Xa/0mCWXZyoltK26RKxqDWQj0mOgHh7igYqEV+rg
-	f6wjbhOVm0wM3c+ggQuJqmEd9pDBn7Ngx8ZE0ovtyvx08RH2PwfjeNCVEbSbBsKRaROCPJmkPmMro
-	Fh1XLqPQ==;
+	bh=RUTuEHoA6y1ZBd7WiFp1nW0Ji2GbuE6iesB+SQXale4=; b=imDiUfj1RRfiWvVpkrJX6rtPgs
+	ohabmbNC57/F/lKbf2s10V/KnFMlkcmrxmJ60ATRyai0JH4qbmLVJE4+KwxjZ3oyXuNopPRsJPIkM
+	mfhquEmAWOENZ7GoEHavDlJH7IE0X5wDJQiOgaQF6BVZ153ZtZ9qxsBO0V0k4I4rHSoXHgODjjjnE
+	5apCwU+y28mPAWExWBrvfDGl8t+vNILACSJxKfxkCQCyblfBLXTHVCbdk25Aj3OlmLoaKjGFOOIh2
+	pD4zENe2lVjWpzONMPft8iIi+kiAzhovq6H80/vHyX/hRUYDtv5qa5v1JZoanK/zh0I1Yxnca4SvP
+	Prse1sqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6Er-00000005qnh-1JuT;
-	Fri, 09 Oct 2026 08:46:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xF6OT-00000005rhP-2NdI;
+	Fri, 09 Oct 2026 08:55:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6El-00000005qk2-3NJo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Oct 2026 08:45:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kYQM2I+r8judSPngvWcWEJb9im+ycy9cxj2LUpGCt2I=; b=CZeHm3VU/tFFUPWlxRF45f5xZE
-	lN2jZJSWA+iUA3pxIQ44wwIQKshyzAKWy48BSKMT97o+xPAwpq6GXyNHV00di+D6QYNtUj+GrTHvt
-	myKfYxT67QDDJHVd54XqYdEr7C9a2rrgfQBBl9HuE5AgQcrSgR0q6CZTmVcL+Z9AxMwbvOQoYMLT0
-	P9U77hF+HVDkC+rNb4c8YSBiixn+KEZLgTgyQ0FkgMrVYJOuO8wkO+Kz6liPLuqDPsTD/vKokT5s0
-	+WYyV/h5xObQj0l6hpCnqzUdgNvzTUt9nd4TRlvfdoLGyuj9b78BwzOIoRRZ+o4yV7w10Ojni55Si
-	0C2+PrNA==;
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xF6Ei-0000000B2fk-1qtJ
+	id 1xF6OS-00000005rhF-0PDa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 08:45:54 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a027f2e364so44911835e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 01:45:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1791535549; x=1792140349; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kYQM2I+r8judSPngvWcWEJb9im+ycy9cxj2LUpGCt2I=;
-        b=uMicN0pvuwoXFcYF13scAz5Prv7s4x3p+nYhZ6xNVRQ8Qw2UxOF7swOlt3RTjIxGOC
-         H7oOzbTkxBXBCuVusyX8pzrc8bCCJcfgo08daz5qVJpBlVTVS85nEliBXOLDuKhmoHLz
-         uO7YqGf4GHzQNz4EwMreNrimLHNmEuu35kzO5G/PIeFmThHFxtAH4w/n5rJ27GqaVBRi
-         gSrbz+idaZRPXnpuvp9ORH93SLjbzclR+f85GNJbsVC1cV+XrZeBH2RVuCYtWsPFsfLD
-         veE9zaGHDBjWp4Js2h0NW6cUl38//IVLX4Skh4ZCF4fvq1fLGwylLyv0Lxaii3HjxNrp
-         mI/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791535549; x=1792140349;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kYQM2I+r8judSPngvWcWEJb9im+ycy9cxj2LUpGCt2I=;
-        b=vAEjfoA1uoVblDTEHgNThM5Bczrk3jNv49kLdsttuRrU1GJSvOcxaCgl1fKGzkNFzq
-         GsYPIZ7aEJfo2TVA8DlS/470Je0G/XGbua0wvEwtExaEew1wjoBf7AbhEW4xj1YprF4e
-         BXeDGI7WWAMfTeLcs5zbdfe+sJehb7B35lTmIPvM5OP+XnnDtPrcVDrk64NrJLjeniH6
-         4Vo+72guE9cDXkDkNZ9gLIFDhEcSx5+FaXJoI0QWpjYDEz+TjYGkY4ELkq+qicElKpNB
-         0xtBZYE5H3MkcV/wIzOluJNXwo/znBaIH0XEJYbsKILDIDqk+G9r9sGL168cawEMQkjM
-         JzTA==
-X-Forwarded-Encrypted: i=1; AKwUvBxY1TKxWUaSIFkC5uxhTLRmhnNp29hTAoX34M6GLSAHmlmPZ5j8nV/3pZBl2XJwftoLlrK1f+RU36MDeR/eby5s@lists.infradead.org
-X-Gm-Message-State: AFuF++kMneQ7LH4wA7Ubna7Q2K18HtH8J8usuY/VkJn7oiwyVnCJq1zs
-	YV5kLjM0IzRIJiUwUauegjQ4LLpsI0PHIxOWN8oi8VlcdI4NMICupjweVzVDs539vbHbIQhp3NF
-	mT5bjgwL5b/jJv0/CAz7vAQ==
-X-Received: from wmdv21.prod.google.com ([2002:a05:600c:12d5:b0:4a1:7101:895d])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4ecb:b0:49f:f099:6fb1 with SMTP id 5b1f17b1804b1-4a18e4adcd0mr22678935e9.15.1791535549080;
- Fri, 09 Oct 2026 01:45:49 -0700 (PDT)
-Date: Fri,  9 Oct 2026 09:45:29 +0100
-In-Reply-To: <20261009084529.462577-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20261009084529.462577-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.56.0.385.gd3acb90ef8-goog
-Message-ID: <20261009084529.462577-4-vdonnefort@google.com>
-Subject: [PATCH v1 3/3] KVM: arm64: Add host_hvc hyp event
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_094552_792589_E7B8C897 
-X-CRM114-Status: GOOD (  11.29  )
+	Fri, 09 Oct 2026 08:55:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A3B6405EF;
+	Fri,  9 Oct 2026 08:55:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679B21F000FF;
+	Fri,  9 Oct 2026 08:55:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791536155;
+	bh=RUTuEHoA6y1ZBd7WiFp1nW0Ji2GbuE6iesB+SQXale4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=eD98WeCoGtEZI2OmM43W4l2cL8MMXqic+6xM6OAdSmr7OqFyF6511ri3twgHI2l0Z
+	 +6yeHmG7W+iL3UYmmMN7vWGD7dG74xmv0/FIRrelgITei+s9X0rrAcz2HHn3KY0a7T
+	 1pxMFA5OtxjtotzUOFr289jnBw8wu34sIbsEan3GFLR0rEq0Q8pIWC1IQNhskW/X++
+	 6dyoy3FefGrw8zinzf3Mfns/E2/ZLbxx+hpgiCwr4+pCRAVG/Eb2BQG9mMWIQ8Lkhc
+	 9qWM5Z/ch4NjxDkxsWek6e0lpstgu5oKc/wlBPiH/G97NDWcCS2K0VMlsxQCJ7q6pn
+	 XB7qJaGHMCkFw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xF6OP-00000000v22-0Ezj;
+	Fri, 09 Oct 2026 08:55:53 +0000
+Date: Fri, 09 Oct 2026 09:55:52 +0100
+Message-ID: <86a4on2qxz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v23 14/14] KVM: arm64: Prevent unsupported vcpu features for VM types
+In-Reply-To: <CA+EHjTx-niYPnnRDvAAiY3MXLpSYau_PhiBTCiE9mOYUChASPQ@mail.gmail.com>
+References: <20261007073537.2454351-1-suzuki.poulose@arm.com>
+	<20261007073537.2454351-15-suzuki.poulose@arm.com>
+	<CA+EHjTx-niYPnnRDvAAiY3MXLpSYau_PhiBTCiE9mOYUChASPQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +103,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a host_hvc hypervisor trace event to log host HVC call IDs and
-return values.
+On Wed, 07 Oct 2026 15:19:53 +0100,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Suzuki,
+> 
+> On Wed, 07 Oct 2026 08:35:37 +0100, Suzuki K Poulose
+> <suzuki.poulose@arm.com> wrote:
+> [...]
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 4d0e6bd2009ac..97089c81d6428 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -42,6 +42,13 @@
+> >  #define KVM_VCPU_MAX_FEATURES 10
+> >  #define KVM_VCPU_VALID_FEATURES        (BIT(KVM_VCPU_MAX_FEATURES) - 1)
+> >
+> > +/* As dictated by kvm_pkvm_ext_allowed() */
+> > +#define KVM_PROTECTED_VCPU_VALID_FEATURES              \
+> > +       (BIT(KVM_ARM_VCPU_POWER_OFF)            |       \
+> > +        BIT(KVM_ARM_VCPU_PSCI_0_2)             |       \
+> > +        BIT(KVM_ARM_VCPU_PTRAUTH_ADDRESS)      |       \
+> > +        BIT(KVM_ARM_VCPU_PTRAUTH_GENERIC))
+> 
+> kvmarm/next already restricts protected VM features through
+> kvm_pkvm_vcpu_allowed_features(), shared with EL2 (0b7d843ef3bf).
+> Could you rebase on that and drop the protected half of this patch,
+> rather than add a second list?
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/include/asm/kvm_hypevents.h | 13 +++++++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c     |  2 ++
- 2 files changed, 15 insertions(+)
+A rebase would be a terrible idea. This thing *must* go on its own
+branch, and not depend on anything else.
 
-diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-index c1239d78c8f9..a37ba9db1cc7 100644
---- a/arch/arm64/include/asm/kvm_hypevents.h
-+++ b/arch/arm64/include/asm/kvm_hypevents.h
-@@ -60,6 +60,19 @@ HYP_EVENT(selftest,
- 	RE_PRINTK("id=%llu", __entry->id)
- );
+I can however fix things at merge time. is something like this what
+you had in mind? It compiles, and is therefore perfect...
+
+	M.
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 300ffc2e31c7d..1c6632216e327 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -45,13 +45,6 @@
+ #define KVM_VCPU_MAX_FEATURES 10
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
  
-+HYP_EVENT(host_hvc,
-+	HE_PROTO(u8 id, u64 ret),
-+	HE_STRUCT(
-+		he_field(u8, id)
-+		he_field(u64, ret)
-+	),
-+	HE_ASSIGN(
-+		__entry->id = id;
-+		__entry->ret = ret;
-+	),
-+	HE_PRINTK("id=%u ret=0x%llx", __entry->id, __entry->ret)
-+);
-+
- HYP_EVENT(guest_hvc,
- 	HE_PROTO(u32 id, u64 val, u8 handled),
- 	HE_STRUCT(
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 76d08c503dc0..579615e3b2dd 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -996,6 +996,8 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
- 	cpu_reg(host_ctxt, 0) = SMCCC_RET_SUCCESS;
- 	hfn(host_ctxt);
+-/* As dictated by kvm_pkvm_ext_allowed() */
+-#define KVM_PROTECTED_VCPU_VALID_FEATURES		\
+-	(BIT(KVM_ARM_VCPU_POWER_OFF)		|	\
+-	 BIT(KVM_ARM_VCPU_PSCI_0_2)		|	\
+-	 BIT(KVM_ARM_VCPU_PTRAUTH_ADDRESS)	|	\
+-	 BIT(KVM_ARM_VCPU_PTRAUTH_GENERIC))
+-
+ #define KVM_REQ_SLEEP \
+ 	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+ #define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 3ae8f51ce948a..a0e7f1d2d1575 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1706,12 +1706,10 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
  
-+	trace_host_hvc(id, cpu_reg(host_ctxt, 1));
-+
- 	return;
- inval:
- 	cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
+ static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
+ {
+-	unsigned long features;
++	unsigned long features = KVM_VCPU_VALID_FEATURES;
+ 
+ 	if (vcpu->kvm->arch.vm_flavor == VM_PROTECTED_PKVM)
+-		features = KVM_PROTECTED_VCPU_VALID_FEATURES;
+-	else
+-		features = KVM_VCPU_VALID_FEATURES;
++		kvm_pkvm_vcpu_allowed_features(vcpu->kvm, &features);
+ 
+ 	if (!cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
+ 		clear_bit(KVM_ARM_VCPU_EL1_32BIT, &features);
+@@ -1753,19 +1751,6 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+ 	if (features & ~system_supported_vcpu_features(vcpu))
+ 		return -EINVAL;
+ 
+-	/* Reject features EL2 would drop when it creates the hyp VM. */
+-	if (vcpu_is_protected(vcpu)) {
+-		DECLARE_BITMAP(allowed, KVM_VCPU_MAX_FEATURES);
+-
+-		kvm_pkvm_vcpu_allowed_features(vcpu->kvm, allowed);
+-		if (!bitmap_subset(&features, allowed, KVM_VCPU_MAX_FEATURES))
+-			return -EINVAL;
+-
+-		/* EL2 implements PSCI 1.1; the host must not dispatch as 0.1. */
+-		if (!test_bit(KVM_ARM_VCPU_PSCI_0_2, &features))
+-			return -EINVAL;
+-	}
+-
+ 	/*
+ 	 * For now make sure that both address/generic pointer authentication
+ 	 * features are requested by the userspace together.
+
 -- 
-2.56.0.385.gd3acb90ef8-goog
-
+Without deviation from the norm, progress is not possible.
 
