@@ -4,100 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D91CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC5FCA601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 17:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QNIlTnHi+YxWylz7AkakSHgtCnUqszk6I0tbLDOt9L4=; b=3SSCHzHYbXe07gbIXpNhsuuVM8
-	oblZsemFgj9PoJlIkWlcS0+l1lK31bMELuGj6s6joTFYzUV5bmoEGEdZqUEj/SnWnHKzo4Er9/MxW
-	7bgaa4YXpatwO7+HpD+X8/3p0R7dLHvA/WeamTnoZBU+oEopS7UxNL6oenupR0a/ngGpDliajW8gU
-	G/nBuiqUX/HU6MvILZebxptCd/6tx/UO+aT+GtVdxUptHme9qlrB1t1OcpSz9/nNBwfMX9iqmXa41
-	5SgsSw+H1GW59JcUa/eqTSPYurCELd7WS3GT3R5hFS5N9peqOkzHlA3QSCwZGK2/5jWKUcrTUa9Fx
-	fxyHIAhw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e+ciZeljp4XbV+7Ul/HTP2zfMzICzcEEGNyLNPo0cRI=; b=utwVqK1HB3f32FK59l+cAQW6Ku
+	iLtifST70DSrvnPgg7ZlHzCltVNeSp8eXrmsg2Cvm0RoG6fwllaa3YwTDdUzw1/VFuh+QsY99cHB9
+	bkDnexNuQ7i3rqsinFXg3xh657cR+HphUJ4jGf5BA6ZnLE5P7Ub9Q3fzH/wEqAcytI1jqMj3GnRQ4
+	cQh9bG1BBKTJGp0B8Sw2bfpvCh+TdKJR4Ac7jUJ0IXsxgYmN195QbPApa69KfrSWim5lsxGiqEu4A
+	iKWBN5/Lwe62ECvlaTqIEtyUQ7AoTqFYagtnWcfQR3e2GKCgIZRpUlgCLhbntFQJDw0sV4XdOE26P
+	NUYndRfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFEXt-00000006oe9-2ILl;
-	Fri, 09 Oct 2026 17:38:13 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1xFDBv-00000006cV3-0fMK;
+	Fri, 09 Oct 2026 16:11:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFEXr-00000006odD-13VR
+	id 1xFDBp-00000006cOI-2hGQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 09 Oct 2026 16:11:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=e+ciZeljp4XbV+7Ul/HTP2zfMzICzcEEGNyLNPo0cRI=; b=a4+ns5toDqZ3yR57av0iCIa35A
+	cxaA+s3dMXBpRskeoiJRS3kfskqT2kmEAD2i8JzooYacBw0ypaSVBw18OpWaHwhboo7Z9lluTUN9V
+	myAx7sHMFRvpFXDMZ/MkhEst4m3RHS/37buZUgEjanFkRG6pwoNOzRP6OGe29EOgTCr99XG9zoZj3
+	8lnD9PjWXqmUK2pXPlT454NadCcq8dEpIHMrzE0PLGaJYCccjdqUTmqwnyldgpWvbSxP00jHfun38
+	UBHDsUg5PiwIYoaIJ6xHkZLd68j0Mked3OFm1eFBXp3b175458EqCHHTuu5ooJI9uS4q+L/CHJ66C
+	M72vwkYQ==;
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xFDBm-0000000BOkl-2fRs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 17:38:12 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-824329dc1ecso45227a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 10:38:10 -0700 (PDT)
+	Fri, 09 Oct 2026 16:11:20 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48c4649b35bso6242443f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 09:11:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791567490; x=1792172290; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QNIlTnHi+YxWylz7AkakSHgtCnUqszk6I0tbLDOt9L4=;
-        b=OkXbMzzSBzb1VGXMfn0srh1yKhlUQ37Eh7jLjuzMdEsMcHgAG6MjxSPHoPAbIKZU9K
-         g8srRXcJlmb7hY+fBVNhitVE3OiIwuBZcPVisLa3tiaKcU5P6rsesKA2VboA8CK+SN2e
-         eJjApRSnehErKAfpsOkQudp70QPCCaun1dKpUpdzkMFEy2G+bj+4yLIyoY4ll7+B7GSB
-         809oKXh7dSi8+8zWrE1oV7wqBcN63aVpZpNeCaKjNzx1w6HDKPB7MyInqMc/DolqAEbh
-         AZSb+5pJi//Fb8Vr6TsEGlEouZVvDlvtFtPRH3qNXm2rNTIUQ8vinRFW4G78m1qry7cm
-         Depg==
+        d=gmail.com; s=20251104; t=1791562277; x=1792167077; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=e+ciZeljp4XbV+7Ul/HTP2zfMzICzcEEGNyLNPo0cRI=;
+        b=qNVlWT/uZ+mTdS3xq/wePjh9vbO4dkpreygQaPJOqA+reMNNjibBORA/NZNzl2Ifbl
+         FV7Ls5AydHc5cREV52haPgIder6DYkqfE6kyteGgHZb7AILIbGyqg6GPgZUZHUKKx9wK
+         8mtCFGn9exZTgcq6SC6KnlgxhHmTaQwHemBNUhKeezhiLKD9Hh1QsJ8pBzP7thp68mc2
+         D0P/BgifrUC7P6IEPUVmHW1NhMhJV/U3izpEo0G9wGsv/yfBm0SvcXFbzcUsu4dGR2Tl
+         2M+0n8sSTx1qMwfy4W/6KHS6JjDIiaezBJTtuKkpICB8ArEAe5vg88y37MsGJe4xIw9t
+         tCyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791567490; x=1792172290;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QNIlTnHi+YxWylz7AkakSHgtCnUqszk6I0tbLDOt9L4=;
-        b=OANCi//mhkPD5p5UWtWb7o8bGxc7prxcEiBceU8J0Br91GozlbUnpB0knr0S0cz10K
-         W6NooHp3pOMbHSKVrD4kSEGMtcrfwhE3BtzErHNGf1zLnBxzK+f7qmxRYDtBZotaRTor
-         yRzJKvLW6PTYQoGeV62tAVrsgtbFFq8824uk0Li1NOhAK5tJ+CT77rdAT2TSUP82RUx0
-         pNePH9OyiXIp1Zwn9bqR2kdJAws0pWOeSGiPpTROnUYv2R3FrMn31MUsUfA1vc0vQJ2Q
-         NFyDcCjgDNlM1/lV/6VqQncfjdGVJgJEtMlp56PQAb0tLNVKWDXV0In4qWkBPuxyeKnf
-         rMDQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwJ3aTYcWeY+s/ubrN20gcjHQVmEkkBr1o2m/Bn23wdEjzNZ4VLfXB8ypOcXM8HKI9k7avwLB90gdYrFDHd0oN5@lists.infradead.org
-X-Gm-Message-State: AFuF++lNBLqPA4j0Bs2DQOh2TCHIEPGBh5nqlwFpVTEoaLKCzce6PVyl
-	yPhHKj1vZC+68go1leUCHUVNgxaa+QzoMaM0V7V0S528Q6ZPmJX0jcyr
-X-Gm-Gg: AYBFou2mYsflNKte+A31RZ0+Hc57zHz0uxDG+yjQ7IYsh3uAy2Z6XTdUom6gTuUX0ip
-	9pXWzaijb2bzTnUrFXNwjM0bbjbRc2MsD1elqCGeo0pzk0L+1j0fP8pQwhbAX1lzgJv9fvIVhB0
-	KCb5vHtILa0B2PzIhpv4qXbe7jCxZbaweFhAE/s3O0cm5IZ0VXgDUSACX1JqeCddBEdfm2llnVT
-	cOfZsvOhNXjEN5IUrJrRuNBohtAapJjRTfCzwl6SxsigwJq9LaGqumViKAWDheZZwbd5YIMJRqe
-	7gMEfhuHYhxZcB6gaMG1cu0HZp7IyW9Ji8v9u4Jhvn7ITpCvomy68xGIJEvLkMYq8DfOoIieyCX
-	aI23oCp3HpIhpNXMS9wKJyXnQIxkij6sLxjHyipIw4EwUyvi2ImlNjRyzzYHXqd67PVLexnT9Qe
-	RZqi3Hbb1ycBpIGC7oKRhp3w3R1Si+c8QKOGt8KgBk9uXJE5GpjpeTqlQXrYTKrhAjf4KhGak5G
-	BZpPnM=
-X-Received: by 2002:a05:6830:6502:b0:81b:9d18:761 with SMTP id 46e09a7af769-83095c2c6bcmr2158334a34.12.1791567489732;
-        Fri, 09 Oct 2026 10:38:09 -0700 (PDT)
-Received: from localhost ([2a03:2880:12ff:9::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-83039076dc3sm2620678a34.14.2026.10.09.10.38.08
+        d=1e100.net; s=20260707; t=1791562277; x=1792167077;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=e+ciZeljp4XbV+7Ul/HTP2zfMzICzcEEGNyLNPo0cRI=;
+        b=lO4Urh9uSdoSPyzXsLb6m80lyUSPkFSKeCSbWjT0EGej89lropmz5fBAyj9ptYyuFn
+         FHy8dl7S3aVgSiVIYZeceMW0ep5Z9E04bNdGepj8TtQI4O4bljy3N2zxk7W6mNdOB8lo
+         V+cOzaLqE8+REIZHCO++qUEFVmxgbYxBzpHZVKe3AUIGnpvzi2JxbA38lf3eHxH6MI27
+         6qkTwMLd7V641l4pEHpNOAwIWmYFHXCwEZIlukJOrMQaEgbn7O78+zMqNFQoENVk8Yoy
+         2eSSwlXA51nFgp4zN7i5/DUcbiJqZ8xKhqDyElL/A0yESnlQlQKdJouqjPHxKSBYshR7
+         1i+w==
+X-Forwarded-Encrypted: i=1; AKwUvBwnTozNT7FJoLA4eNLzEgGbNvddJVvUme3Epseqs9R7deXXCa8N7BmGkGxBjqL76ZOKom4QncbDcJiwuextQHbL@lists.infradead.org
+X-Gm-Message-State: AFq9FYIJcCzyAFs90cwdtzaRJv2HjwcLY31zsFq/ABqEx4KoTmRyadCE
+	bOPKP6AHx7tEW2t4QNe0FFSQgZbrDvQ0jzt7aVRmCLyvtoEKGuIuyMEd
+X-Gm-Gg: AYBFou1N0TrqE959Qhg/W3QPhRdBsnWbtLWRrU4kh01qqqthPQpgqfBCKdglmNi1VUn
+	Co0loX7bw5NR9DcqbQWNz3Ewmff5zHVsjtmEcCFH7macV7vDvLMbtNxcHBFvgGkzAXZVezljxgX
+	q6HeWoY5EWSuMEy8h6cMQlSFIyNga6yDrP5YfZhLggEH+KrPmxMGHJqyWekkswRhkCuuteS1iU+
+	+/Jjui2x2SqvTEzTap1u9/zVhaYnrivRkTxXFQMSxT4fbG42p8nTw75ZKgKiB7JmJxXBp9WhphS
+	g3PVSc5sOr35POVSOs/VUQAFGdjwVpzLqHyaEQVY55AjAvweRZ60HmIQbS7LfSxUZMnZAs50wbM
+	5nI75qUIUPQDut+j5YbdPBec+S2vyC7wzbicmlzxr18AdpUHoMIkDyLcKC5NhK3oxe0U5BTIGm2
+	JG7mcnquA141ZFlNgmE6HqNaGcGpJgLTwxFugd0OS8uoLMD975437eeLeQ4plqewpvVwDrlO7Ma
+	z/a8cmHvguwZJjvkJk/KdG/S/IeamneWHWBeoVH75ono7kV2kkuBKTCwJXphr7xZ4c0CFQlig/B
+	V/EvM35H7s4EJ7MjUA==
+X-Received: by 2002:a05:6000:4313:b0:48c:5358:f999 with SMTP id ffacd0b85a97d-48dbaaf07d4mr4638604f8f.37.1791562276952;
+        Fri, 09 Oct 2026 09:11:16 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-213-45-9-252.retail.telecomitalia.it. [213.45.9.252])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48db94e2f08sm4744701f8f.15.2026.10.09.09.11.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Oct 2026 10:38:09 -0700 (PDT)
-From: Matthew Wood <thepacketgeek@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>,
-	bpf@vger.kernel.org,
+        Fri, 09 Oct 2026 09:11:16 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	Joris Vaisvila <joey@tinyisr.com>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf v3] bpf, arm64: Fix racy plt target update in bpf_arch_text_poke()
-Date: Fri,  9 Oct 2026 10:37:59 -0700
-Message-ID: <20261009173802.1248441-1-thepacketgeek@gmail.com>
-X-Mailer: git-send-email 2.53.0
+Subject: [PATCH net-next v25 03/10] dt-bindings: mfd: Document support for Airoha AN8855 Switch SoC
+Date: Fri,  9 Oct 2026 18:10:48 +0200
+Message-ID: <20261009161102.38961-4-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261009161102.38961-1-ansuelsmth@gmail.com>
+References: <20261009161102.38961-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_103811_305038_3A2FC684 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20261009_171118_817911_B0EEEDF9 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,122 +137,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a long-jump trampoline is attached to or detached from a bpf prog,
-bpf_arch_text_poke() updates the plt target at the end of the prog by
-temporarily making the page writable:
+Document support for Airoha AN8855 Switch SoC. This SoC expose various
+peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
 
-	set_memory_rw(page);
-	WRITE_ONCE(plt->target, plt_target);
-	set_memory_ro(page);
+It does also support i2c and timers but those are not currently
+supported/used.
 
-Since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
-management"), bpf progs are allocated from the bpf prog pack, so
-unrelated progs and their plts commonly share a page. The sequence
-above is not serialized against other pokers, it runs before text_mutex
-is taken and callers only hold the lock of the trampoline being
-updated. Two CPUs attaching to or detaching from different target progs
-in the same page can therefore race:
-
-	CPU A                           CPU B
-	set_memory_rw(page)
-	                                set_memory_rw(page)
-	                                WRITE_ONCE(plt_B->target, ...)
-	                                set_memory_ro(page)
-	WRITE_ONCE(plt_A->target, ...)  <- permission fault
-
-This was hit on an arm64 server with 64K pages while attaching fentry
-programs to bpf progs:
-
-  Unable to handle kernel write to read-only memory at virtual address ffff80008f46d5f8
-  ESR = 0x000000009600004f
-  FSC = 0x0f: level 3 permission fault
-  pte=00c00200ea5a0783
-  Internal error: Oops: 000000009600004f [#1]  SMP
-  pc : bpf_arch_text_poke+0x214/0x238
-  lr : bpf_arch_text_poke+0x200/0x238
-  Call trace:
-   bpf_arch_text_poke+0x214/0x238 (P)
-   __bpf_trampoline_link_prog+0x1c8/0x470
-   bpf_trampoline_link_prog+0x64/0x90
-   bpf_tracing_prog_attach+0x318/0x4a8
-   bpf_raw_tp_link_attach+0x104/0x258
-   bpf_raw_tracepoint_open+0x6c/0x90
-   __sys_bpf+0x134c/0x3e10
-
-Rather than serializing the permission changes, stop changing page
-permissions altogether and write the plt target with
-aarch64_insn_write_literal_u64(). It writes through the text patching
-fixmap under patch_lock, the same way the rest of the prog pack is
-written, and performs a single-copy atomic 64-bit store. The plt target
-is naturally aligned (see build_plt()), so CPUs concurrently executing
-the plt still observe either the old or the new target. This is the
-same helper ftrace and static calls use to update 64-bit literals that
-are loaded concurrently.
-
-Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
-Signed-off-by: Matthew Wood <thepacketgeek@gmail.com>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in v3:
-- Consolidate nested if statements & merge comments
-- Remove no-longer-used asm/set_memory.h include
-- Link to v2: https://lore.kernel.org/linux-arm-kernel/20261002121233.561368-1-thepacketgeek@gmail.com/
-Changes in v2:
-- Replace page permissions change with call to aarch64_insn_write_literal_u64
-- Link to v1: https://lore.kernel.org/linux-arm-kernel/20261002044050.1277356-1-thepacketgeek@gmail.com/
----
- arch/arm64/net/bpf_jit_comp.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+ .../bindings/mfd/airoha,an8855.yaml           | 176 ++++++++++++++++++
+ 1 file changed, 176 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 475e70653454..cf356f0ce213 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -22,7 +22,6 @@
- #include <asm/debug-monitors.h>
- #include <asm/insn.h>
- #include <asm/text-patching.h>
--#include <asm/set_memory.h>
+diff --git a/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+new file mode 100644
+index 000000000000..48127e956c96
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+@@ -0,0 +1,176 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8855 Switch SoC
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description: >
++  Airoha AN8855 Switch is a SoC that expose various peripherals like an
++  Ethernet Switch, a NVMEM provider and Ethernet PHYs.
++
++  It does also support i2c and timers but those are not currently
++  supported/used.
++
++properties:
++  compatible:
++    const: airoha,an8855
++
++  reg:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++
++  efuse:
++    type: object
++    $ref: /schemas/nvmem/airoha,an8855-efuse.yaml
++    description: EFUSE exposed by the Airoha AN8855 SoC
++
++  ethernet-switch:
++    type: object
++    $ref: /schemas/net/dsa/airoha,an8855-switch.yaml
++    description: Switch exposed by the Airoha AN8855 SoC
++
++  mdio:
++    type: object
++    $ref: /schemas/net/mdio.yaml#
++    description: MDIO exposed by the Airoha AN8855 SoC
++    unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - mdio
++  - ethernet-switch
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        soc@1 {
++            compatible = "airoha,an8855";
++            reg = <1>;
++
++            reset-gpios = <&pio 39 GPIO_ACTIVE_HIGH>;
++
++            efuse {
++                compatible = "airoha,an8855-efuse";
++
++                #nvmem-cell-cells = <0>;
++
++                nvmem-layout {
++                    compatible = "fixed-layout";
++                    #address-cells = <1>;
++                    #size-cells = <1>;
++
++                    shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
++                       reg = <0xc 0x4>;
++                    };
++
++                    shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
++                        reg = <0x10 0x4>;
++                    };
++
++                    shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
++                        reg = <0x14 0x4>;
++                    };
++
++                    shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
++                       reg = <0x18 0x4>;
++                    };
++
++                    shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
++                        reg = <0x1c 0x4>;
++                    };
++
++                    shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
++                        reg = <0x20 0x4>;
++                    };
++
++                    shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
++                       reg = <0x24 0x4>;
++                    };
++
++                    shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
++                        reg = <0x28 0x4>;
++                    };
++                };
++            };
++
++            ethernet-switch {
++                compatible = "airoha,an8855-switch";
++
++                ports {
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++
++                    port@0 {
++                        reg = <0>;
++                        label = "lan1";
++                        phy-mode = "internal";
++                        phy-handle = <&internal_phy1>;
++                    };
++
++                    port@1 {
++                        reg = <1>;
++                        label = "lan2";
++                        phy-mode = "internal";
++                        phy-handle = <&internal_phy2>;
++                    };
++
++                    port@5 {
++                        reg = <5>;
++                        label = "cpu";
++                        ethernet = <&gmac0>;
++                        phy-mode = "2500base-x";
++
++                        fixed-link {
++                            speed = <2500>;
++                            full-duplex;
++                            pause;
++                        };
++                    };
++                };
++            };
++
++            mdio {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                internal_phy1: ethernet-phy@1 {
++                  compatible = "ethernet-phy-idc0ff.0410",
++                               "ethernet-phy-ieee802.3-c22";
++                  reg = <1>;
++
++                  nvmem-cells = <&shift_sel_port0_tx_a>,
++                      <&shift_sel_port0_tx_b>,
++                      <&shift_sel_port0_tx_c>,
++                      <&shift_sel_port0_tx_d>;
++                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++
++                internal_phy2: ethernet-phy@2 {
++                  compatible = "ethernet-phy-idc0ff.0410",
++                               "ethernet-phy-ieee802.3-c22";
++                  reg = <2>;
++
++                  nvmem-cells = <&shift_sel_port1_tx_a>,
++                      <&shift_sel_port1_tx_b>,
++                      <&shift_sel_port1_tx_c>,
++                      <&shift_sel_port1_tx_d>;
++                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++            };
++        };
++    };
+-- 
+2.55.0
 
- #include "bpf_jit.h"
-
-@@ -3338,21 +3337,22 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
- 		 */
- 		plt_target = (u64)&dummy_tramp;
-
--	if (plt_target) {
--		/* non-zero plt_target indicates we're patching a bpf prog,
--		 * which is read only.
--		 */
--		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target), 1))
--			return -EFAULT;
--		WRITE_ONCE(plt->target, plt_target);
--		set_memory_ro(PAGE_MASK & ((uintptr_t)&plt->target), 1);
--		/* since plt target points to either the new trampoline
--		 * or dummy_tramp, even if another CPU reads the old plt
--		 * target value before fetching the bl instruction to plt,
--		 * it will be brought back by dummy_tramp, so no barrier is
--		 * required here.
--		 */
--	}
-+	/*
-+	 * non-zero plt_target indicates we're patching a bpf prog,
-+	 * which is read only. The prog may share its page in the bpf
-+	 * prog pack with other progs, so write the aligned target
-+	 * through the text patching fixmap without flipping the
-+	 * page permissions to avoid racing with concurrent pokers.
-+	 *
-+	 * since plt target points to either the new trampoline
-+	 * or dummy_tramp, even if another CPU reads the old plt
-+	 * target value before fetching the bl instruction to plt,
-+	 * it will be brought back by dummy_tramp, so no barrier is
-+	 * required here.
-+	 */
-+	if (plt_target &&
-+	    aarch64_insn_write_literal_u64(&plt->target, plt_target))
-+		return -EFAULT;
-
- 	/* if the old target and the new target are both long jumps, no
- 	 * patching is required
---
-2.53.0-Meta
 
