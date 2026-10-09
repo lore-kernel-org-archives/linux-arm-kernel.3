@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC72ECA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED59FCA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 08:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jl9tQJWjV8nksZpR7yDPWHvqkEBuwYygti9sXjrMe4=; b=tKVK3j8LXcuNi6X2GhETegPEm/
-	nA/tch0TP9ua4HzsLXlhMvqrY7dp9MavpzxQ0XmcZYH0PBNEtpkO4W+RcI9mapzJ4G5WSaD6rxYs8
-	t1UTBaY0YuNs+c+Uy9Xh78Ii34D3xepzfPihnBw0vJeTjzy58MN0/Xmpx66yn+kr/fzOjrHVMl7VZ
-	xGD7hi9OykRZU5Y5jBb8pXUP8CCFhQmJHK2NKwBo89+uIPXSSSVssutSpt1WSQOUhkfkI0qS1JFui
-	vGWcQwyA5rG+wanX4oKoyS1+brJTTwGcJ+bKvG7WE3st0amTgiQS/yTFri5bNy+CaVS+uGThy7AG5
-	d5NXl6DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HuxXA+MntcnCOxad2X2sYG+nW8j/CwA8P+nRSnKOkVQ=; b=e4WyFxo5re1nTKJGOPvLlYGKE/
+	4mnkVF/Zl82c3g61OVI2pUtOVzREyGhRiJEJmJ4/KMtZlyJvy3Paa+MtJzbHGveVFJRP9ww5zrGKw
+	sS/ollAJFv3jqtm2WmBCuYQCDb190rtSdY2NM9eQdNZMTh5uA6AEdIb04vucpX8cTVO4i29XiBn48
+	CnnSWanFuATWgoGLqbw4rTt0nSypa0Zj0xa6JRmkSnxmq/aNMK46w37WNAGHt8E1bC4TCymgLOSZF
+	KQBr9KQmlSg0jhxLdnW/vA27sYxF4sqoFdwzfKSUbdH940KBnsCZEDZj8d/I5zJcGb3aZPqXGo3L8
+	Fj6m0Otw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF66k-00000005pfc-1a1n;
-	Fri, 09 Oct 2026 08:37:38 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1xF68U-00000005poX-2mbf;
+	Fri, 09 Oct 2026 08:39:26 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF66g-00000005pf1-30ck
+	id 1xF68S-00000005pnd-0onf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 08:37:36 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7B591A1561;
-	Fri,  9 Oct 2026 10:37:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791535049; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=1jl9tQJWjV8nksZpR7yDPWHvqkEBuwYygti9sXjrMe4=;
-	b=x9O41IoiaA1sMC21CzEWXcQnk55P4GigN1uHSPsC+Xtwt2d2EL0M+tos8ltfSemhW41AK8
-	kD003tpHzLnlGAegyXUbN/wPwAvt5fhftLLFE1jpRbTjZ603yJsSal9NWqgvUuMItqT+Or
-	/PXjWcCZmvj46iJ7m6LuI7uTgvFIiRrtHN2OIasf3FdXGqof8nYskGFaSVHJeRch8pUA2X
-	csndNPDuhOhHJdEQCT5AmFngKcWovukqFeQbTXLnGqMcH5pNpjrQWs5vvUANXIVUxt5BUT
-	30y71+BxBLLKuTrz85C71kghZPYenrZsTHCT0czszyn7iHFlU8KUC+L6PXmquQ==
+	Fri, 09 Oct 2026 08:39:25 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-487049569b6so2655092f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 01:39:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791535161; x=1792139961; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HuxXA+MntcnCOxad2X2sYG+nW8j/CwA8P+nRSnKOkVQ=;
+        b=gAFtkoh6zt/zvC/quSc/60R92wAzJr1xGbwG7qZR6mYblDr28wBaGVaMF394sOiE6E
+         8bNa2elbklLFqbU/KAEtNcVntSLSRzjCA/5Om7cUJ23B1EpaB16RvMPBZ2NIn3V2LXdF
+         vNogC+Rmfyjn3C5ps1n3J9oZfZl8a+TELTQod8/S/ijLGkkoZ5fSEzUgOC3uKhWcli8j
+         Cu8c4GH0p7SaMe+glZUO5gmhSpzyJUmgUq6qBoPq1PJflTlM4IczyRJ0puA06dEh8pFk
+         gOgYEjcPRt/Yvn5eHfGg4g9dkplsnx2CfQRLafNSiVrz5NesQBLPJJUPCI4/7xqlMM95
+         ZjMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791535161; x=1792139961;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HuxXA+MntcnCOxad2X2sYG+nW8j/CwA8P+nRSnKOkVQ=;
+        b=T9s3WTijA+Ia8VJHTX/NzuxuhuncYxVMCjOTaOaYgIizpOydhWmP9OQVQAW9uTJ4p/
+         RJODdEOcNPXArZpN7YVgYSyheq55s2SZjqCM6ML8AJXUkH0IPCXTcPidlR0X6S3rM4ug
+         ImMuBcOb2UKzw5eF4kOF459T52FtBTA5him4wFdgFEEJ5s/sacZpFCtWOWj+9tcOJDk/
+         EVf4jkxGNncveqURDl1/+wM4XifxX5xMMf8j0ECkwarIRaPoXZPzPWASB1b++ebOSgi1
+         jw1h6KJd5KdAU1WoC+NHAHWyFNuzOeF/Ldg2wcj8qY807Up3THXBK7y24NuFZZB6hAi9
+         rMhQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy3ZkmhChLNXyy1IbQconjgNtRYuXaJt3jsSiAeB45h8j/bjap3wlIcMLlJOuRdtrq5aQerDh8aP6ATjnmNX6mh@lists.infradead.org
+X-Gm-Message-State: AFq9FYJcOnaCYSx2nFBlcRuGN0UnFahYlXvR68D8nnMJbNRCzLFbIYmY
+	al+IYiuD1VvqmvwcSSUAo7Hdyg2O7UlupSFSj6lqww3yusSKm/0EU1cmpR/OxQanFA==
+X-Gm-Gg: AYBFou0MTkYjh4Wf2RfLJBIExGFgRDeiDRKvq1VBY1krdwQDfxE8Xoxsoxx7F5SBFY6
+	i5CU4KCeLd8XQOXzcCEaC0D3aSSZ3u/Wrm08BSCBPhDnrDlX4QIgvfwqAhTL2N21bB4y6/DL6hF
+	5gUxeIkzKLBJZcDHB+irk7QafQ4dWdbLgmk/N+uDj1Yv/C2wBJS9p29v9ZOTO2qx58gbMsrppY2
+	wp/BPWHnRhMRoi/vqVl6PC1W41qLQsYlDW0einioqa4mJNJtQHDRyqukkDK2WyDZUUQLeYv7oGu
+	LQITka9xfOp2amFAWQnOz8ulvKg5CD9I+J06gRTHQ64emZlp17NOdxKhnS8rs4NCZAxy/qlg+eI
+	juo8EGh/18oyJNV1/3FxqAID/v5DOxKCqMC6wb7YFHFOhOmR7pvX+RnCiNsEHKaX9f7PglwHbfR
+	/fOfZWskEV1S3ghAqdhBGrOju/nk83cCSe2DF7UZrb/grY5RFMj8K5tHU0I6U5UnKb4mdChJdJN
+	DG1H+Hsj5k6tVK/Gpkz3t8uzqMQk5gQJZC0C8pQBXoThQDggOYVDug=
+X-Received: by 2002:adf:f6c8:0:b0:48b:70e:7bd4 with SMTP id ffacd0b85a97d-48dbaaea42bmr1516998f8f.28.1791535160947;
+        Fri, 09 Oct 2026 01:39:20 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9acfa28sm2745702f8f.51.2026.10.09.01.39.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 01:39:20 -0700 (PDT)
+Date: Fri, 9 Oct 2026 09:39:15 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
+	qperret@google.com
+Subject: Re: [PATCH v1 2/2] KVM: arm64: Fix bpages backing allocation size in
+ hyp_trace
+Message-ID: <asioMxhIlMm9PSQK@google.com>
+References: <20261008104212.3134550-1-vdonnefort@google.com>
+ <20261008104212.3134550-3-vdonnefort@google.com>
+ <CA+EHjTzpKk3hUTriyRF-YWkNQpQ82vuJoqKkW+uo+6n5f2mhmg@mail.gmail.com>
 MIME-Version: 1.0
-Date: Fri, 09 Oct 2026 10:37:26 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, o.rempel@pengutronix.de,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Jose.Abreu@synopsys.com, saeedm@nvidia.com, tariqt@nvidia.com,
- mbloch@nvidia.com, leon@kernel.org, dtatulea@nvidia.com, alazar@nvidia.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
-Subject: Re: [PATCH net-next 3/3] net/mlx5e: use skb_share_check() in the
- loopback selftest hook
-In-Reply-To: <179149509264.434549.15492783775949444420@kernel.org>
-References: <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
- <179149509264.434549.15492783775949444420@kernel.org>
-Message-ID: <b90df783d996dbad672656dc81c8f5de@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTzpKk3hUTriyRF-YWkNQpQ82vuJoqKkW+uo+6n5f2mhmg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_013735_241611_FB209BCD 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20261009_013924_302649_C4EA1CD3 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8.10.2026 23:31, netdev-bot+sashiko@kernel.org wrote:
+On Thu, Oct 08, 2026 at 08:13:29PM +0100, Fuad Tabba wrote:
+> On Thu, 8 Oct 2026 at 11:42, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > hyp_trace_buffer_alloc_bpages_backing() computes nr_bpages as
+> > (PAGE_ALIGN(size) / PAGE_SIZE) + 1, whereas trace_remote_alloc_buffer()
+> > takes into account the buffer page header.
+> >
+> > Align the bpages backing allocation by using
+> > __calc_nr_pages_ring_buffer_desc(). There's no need to validate
+> > nr_bpages again, it has been before with trace_buffer_desc_size().
+> >
+> > Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
+> 
+> Should this have Cc: stable too, like patch 1? The undercount is there
+> since 3aed038aac8d for small buffers, and 442ffa742daa6
+> ("tracing/remotes: Account for ring buffer page header in size
+> calculation") makes it reachable at ordinary sizes.
+> 
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> 
+> Cheers,
+> /fuad
+> 
+> To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
+>
 
-> [...]
+Yeah I wasn't sure, because __calc_nr_pages_ring_buffer_desc() was introduced
+later.
 
-> [Severity: Low]
-> This isn't a bug, but the comment just below this hunk in
-> mlx5e_test_loopback_validate() now contradicts the new code:
-> 
-> 	if (skb_linearize(skb))
-> 		goto out;
-> 
-> 	/* We are only going to peek, no need to clone the SKB */
-> 	if (MLX5E_TEST_PKT_SIZE - ETH_HLEN > skb_headlen(skb))
-> 		goto out;
-> 
-> skb_share_check() calls skb_clone() whenever the skb is shared. After
-> that, skb_linearize() can modify or reallocate the skb head.
-> 
-> Should this comment be dropped or reworded? A later reader could take
-> "no need to clone" at face value and remove the skb_share_check().
-> stmmac_test_loopback_validate() uses the same skb_share_check() +
-> skb_linearize() sequence and has no such comment.
+But I can figure it out once the patch fails to apply and provide the
+appropriate backport.
 
-Yes, it is stale. I'll drop it if a v2 is needed.
+Thanks for the review.
 
-> [...]
-
-> [Severity: Low]
-> This is a pre-existing issue and was not introduced by this patch.
-> Further down in mlx5e_test_loopback_validate(), the UDP header is
-> located using iph->ihl, which comes from the packet and is never
-> checked:
-> 
-> 	/* Don't assume skb_transport_header() was set */
-> 	udph = (struct udphdr *)((u8 *)iph + 4 * iph->ihl);
-> 	if (udph->dest != htons(9))
-> 		goto out;
-> 
-> 	mlxh = (struct mlx5ehdr *)((char *)udph + sizeof(*udph));
-> 	if (mlxh->magic != cpu_to_be64(MLX5E_TEST_MAGIC))
-> 
-> The only length check is this one:
-> 
-> 	if (MLX5E_TEST_PKT_SIZE - ETH_HLEN > skb_headlen(skb))
-> 		goto out;
-> 
-> That guarantees 44 bytes: 20 for IP, 8 for UDP, and 16 for struct
-> mlx5ehdr, which includes the padding before magic.
-> 
-> The hook is registered with dev_add_pack() for every ETH_P_IP frame on
-> priv->netdev. While the loopback test is running, could an external UDP
-> frame sent to the port MAC with ihl up to 15 make this code read
-> udph->dest and mlxh->magic up to 40 bytes past skb_headlen()?
-> 
-> Those bytes stay inside the skb head allocation, in the tailroom or
-> skb_shared_info, and they are only compared against constants. The
-> result could be a spurious selftest outcome or a KMSAN uninit-value
-> report. Would it make sense to check 4 * iph->ihl against skb_headlen()
-> before using it?
-
-Yes, pre-existing. I can send a separate patch for this.
+-- 
+Vincent
 
