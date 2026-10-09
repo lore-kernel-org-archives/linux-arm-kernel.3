@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D885CA601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AB9CA6019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 12:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/A+on6QTcsynPBLF2wcK5YT384IqIK0ywry4fp4NAo=; b=BW1WBeAPZjbJ/3MgCqyF//k6/u
-	9wCr8QnMjavvFNfdsYH/t9T9GQeKjMVdudb3kMBCcygBGIcreiQQm3QFXZRgWCvQnxQClsjuxP5rf
-	Er+MHPBeF6E2/uVbhVbFN0JTiSEKVgk5TLezTNPqj6gGuyNyvfIE+GLf4qzHjO/SHdPE0bD5f9tLx
-	NsH/tShgNM3w1mbZOjPoGwUsCl8eHlz+5M96tTcl239iPxVETdx7mV382iRO5iGGwf2GZlQ0kcJNg
-	83Up05c5ml6pcm5Ez7zyO9HdUwgZHVzyfrvb3I/Olk71+fcNHJlZIYG8YvBZT4C6Pl4ambom0MhCM
-	bv9F/cEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZeBFVu7Fsst4uAOVgc6REmRpgUidwNjQW2vFog6mAN4=; b=hla4ci8AKyorWTQGIsf372MveP
+	44EzQAe+nTpGFnzlOZYHhbXoD4k83aznZQA4Zw7NPGMhKrV8evFEesS15PqnFtOXAzxlNEsdeL831
+	92C4vkl+1xS6tkvuwGCSWEiXfpeKE1nFJZpt08I2a7Wh0x9y20OBKRI5XVWQF/FnCO16RNQRwkoDs
+	A3sUs+ajsuWT+huX2/5eo6zsCmGSOt29rSdPlIX7GV56oCggWHqcchg0nGR6aJnCx3bRO6qHfUs1y
+	+jSzCpgTNApjBru8nv9Zml0Ecsw279U6g1CQmY34sCiOpmmn2Iy2QjQ/2m0kCKUY1drdcy2hw4OFp
+	ztuJjN/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9X5-00000006HSR-0oF9;
-	Fri, 09 Oct 2026 12:17:03 +0000
+	id 1xF9Xt-00000006Hhn-1mog;
+	Fri, 09 Oct 2026 12:17:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF9X3-00000006HS1-0rOw
+	id 1xF9Xs-00000006HhU-3M6f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 12:17:01 +0000
+	Fri, 09 Oct 2026 12:17:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A590A423E1;
-	Fri,  9 Oct 2026 12:17:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834B91F000FF;
-	Fri,  9 Oct 2026 12:17:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8EEFA40E3C
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 12:17:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 741B41F00898
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Oct 2026 12:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791548220;
-	bh=6/A+on6QTcsynPBLF2wcK5YT384IqIK0ywry4fp4NAo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PL9IPTYqlfvHL+IF9BEowQEj+uuzDibLKxsIj7RBMNCrBx/PdQkyBGqsi9P9NWrWf
-	 X68m6skXLFM4qKc18VNrF8rDSSacoinKTCYD15iSoBkKIbT/Q5n9exe2z42IvNKqON
-	 pXUKAtJmt82QV4EfJDDbNdJX+o4OeJrQG2S22PLdP17PyfptkVlWxlL04uanmVqasy
-	 0C9xFCZ4laTK1J6p10pWLJOzgQLQy64Te5n9pFKsg25loGY2K9vcqtY9wrDW6wR53M
-	 TfvExeqSQUPo1jXgoqfo+VOaGLHWtr9n/l31zaHyuncoJW1kQH1VuqyPm7kKHTy4xf
-	 oGwY+qx3CQy3A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xF9X0-00000000zPz-1ZsQ;
-	Fri, 09 Oct 2026 12:16:58 +0000
-Date: Fri, 09 Oct 2026 13:16:57 +0100
-Message-ID: <868q472hmu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v23 14/14] KVM: arm64: Prevent unsupported vcpu features for VM types
-In-Reply-To: <CA+EHjTxZM2kEtsG7+pq7zygA8Mhwzai9PL7+ex1K35BPVSt6hQ@mail.gmail.com>
-References: <20261007073537.2454351-1-suzuki.poulose@arm.com>
-	<20261007073537.2454351-15-suzuki.poulose@arm.com>
-	<CA+EHjTx-niYPnnRDvAAiY3MXLpSYau_PhiBTCiE9mOYUChASPQ@mail.gmail.com>
-	<86a4on2qxz.wl-maz@kernel.org>
-	<CA+EHjTxZM2kEtsG7+pq7zygA8Mhwzai9PL7+ex1K35BPVSt6hQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1791548272;
+	bh=ZeBFVu7Fsst4uAOVgc6REmRpgUidwNjQW2vFog6mAN4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=m0UfczYguNWEZKhK+J0FgXFZ8pA7496N2v45m1k+j6SlSFIYLSpGgTk19D0klfiHr
+	 q7iK2U3LmuGgCS8Hw0F9bDjJG1BRXf8EfnyV6gwMMmRt062TzHyi7dtlvKFGuf6a3O
+	 6wYP9ev/td38hqfz+ruqr8VYmMUs+XtwpXbOrLse+yvEF5Vrti+s7leAJb+r50XI6e
+	 njr1o2Do4yv3a6MQH1xjxhpCWPorTQm7jrzqD6czYgUzdiR+hKq8oTYGHO0b2DsHja
+	 nOaOR4MPwUkBE4tB5XWhdWhqUcO/7PhIKmV7AzN7X6cI001QrV92L8S/0WmjuSvb77
+	 kG4p/X8/M91oA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5ba7ed32ccdso288327e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 05:17:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwT8ZI3UATxqCIg1YxI7MyJJG3FxZEnoxx1SnZ4iUjKWrt/mqynR6+2Q2RIu9826bno02VkIo/UMkkj6ANdwC//@lists.infradead.org
+X-Gm-Message-State: AFq9FYI5EJTpsW7CDPbtkgaL1wxXcDeq7Fk9dvaXE9fjtGaAYgKHgmta
+	g0+Br6b0c1pZP4vOfkjM6x1qWVc1wyRCOI5/JLGtm2DYtqpgUqGEbU/69TAXQRwLMkHNhEQE4jh
+	WKiYe11LUTOvawzhHKXmOVheK9SsmWkI=
+X-Received: by 2002:a05:6512:39c3:b0:5bc:44d5:89ce with SMTP id
+ 2adb3069b0e04-5bcde8dfb58mr708846e87.62.1791548271232; Fri, 09 Oct 2026
+ 05:17:51 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
+ <CAD++jL=gFt9kKZH9T-m8B_pbwRvzc35tTrMn5V238d3528DpUg@mail.gmail.com> <CAPx+jO-wb6NLYjnn_k7xu=Wqq61+vop9o7UM=5Y47U-WiGFXBg@mail.gmail.com>
+In-Reply-To: <CAPx+jO-wb6NLYjnn_k7xu=Wqq61+vop9o7UM=5Y47U-WiGFXBg@mail.gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 9 Oct 2026 14:17:38 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkQET3CRONQbpqdt+Y9ts3wPHdNdYz8PvbaohSjm0JF6w@mail.gmail.com>
+X-Gm-Features: AclHuK_UVxhW4eapDTA7jDAxjwJcfqkweBn8QG3EWf3yBuy98smFVfeDPpDUrY0
+Message-ID: <CAD++jLkQET3CRONQbpqdt+Y9ts3wPHdNdYz8PvbaohSjm0JF6w@mail.gmail.com>
+Subject: Re: [PATCH v3 00/18] pmdomain: st: ux500: Implement ux500 power domains
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Frank Li <Frank.Li@nxp.com>, 
+	Frank Li <Frank.li@oss.nxp.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mark Brown <broonie@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Frank Li <Frank.Li@kernel.org>, 
+	Lee Jones <lee@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 Oct 2026 11:10:55 +0100,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Fri, 09 Oct 2026 09:55:52 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > A rebase would be a terrible idea. This thing *must* go on its own
-> > branch, and not depend on anything else.
-> >
-> > I can however fix things at merge time. is something like this what
-> > you had in mind? It compiles, and is therefore perfect...
-> 
-> Yes, that's what I had in mind, but please keep the PSCI 0.2 check
-> from kvm_vcpu_init_check_features():
-> 
->         /* EL2 implements PSCI 1.1; the host must not dispatch as 0.1. */
->         if (vcpu_is_protected(vcpu) &&
->             !test_bit(KVM_ARM_VCPU_PSCI_0_2, &features))
->                 return -EINVAL;
-> 
-> Folding the allowed set into the mask covers the rest of the block you
-> dropped, but a mask can only reject a feature, not require one.
-> Without the check a protected vCPU can init without PSCI_0_2, and the
-> host then dispatches the forwarded calls as PSCI 0.1, while EL2
-> returns 1.1 to the guest.
+On Fri, Oct 9, 2026 at 12:04=E2=80=AFPM Ulf Hansson
+<ulf.hansson@oss.qualcomm.com> wrote:
 
-I think eventually we will have to implement this stuff as a pair of
-masks on a backend basis: one for what is acceptable, one for what is
-mandatory.
+> > What do you think about applying these three patches to the
+> > PM domain tree as a starter for v7.4 if it's not too late?
+>
+> Assuming we get an rc7 on Monday, it's still okay for me.
+>
+> Although, please re-submit these three separately in a v4 to address
+> the comment on patch1 from Krzysztof, then I can apply them.
 
-In the meantime, I'll fold the above hack in.
+Ooopps what was I thinking... probably I thought I had already sent it.
+https://lore.kernel.org/linux-pm/20261009-ux500-power-domains-v7-3-rc1-redu=
+x-v1-1-5eb1b90bc35e@kernel.org/
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Yours,
+Linus Walleij
 
