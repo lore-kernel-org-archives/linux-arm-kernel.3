@@ -4,57 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD299CA6017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 00:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2747ACA6018
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 00:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=waRfuVZmS/2NjhSFY0tBe8TyRqDp7UrLfXWJQxU09HU=; b=phk4r0mTeLiQBKTH6BK4RkmA0j
-	GWOsHJQUt8EUXMpEjWq6Pnc3UHvuKg2nVVB//mNvO4HBeswqUSGr0cdDuNnTDQk6bjvEOHvy//k0d
-	xNork4RDKKqA1sxOSNHsM14IOUAN534heXNdXpvSdswSt0y75gF65HsrezjqKlAdarEaAr5tObKM5
-	qqUzAMlPO0GhFZ3z2zHspV+q+2ZPqdtYItrI2+y1dq5omwH2EKWhNLgu2AvNHg8L/OLHn9yWc+evn
-	mopD05dssCpcN6nMt4wmgfqxvviiYV+E0ENmzHYsxNEn9SCXRwLV2f2e6OwD5IWioZ9XAXducKbhr
-	wfADA0Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kd9f6IzxLdOe+YXs15sHvBb+DnWpHr6FxR7UwEMv3EU=; b=n4+MDpKHcV6NcLjhJOWTEvF0Cd
+	FuvTLZrlA2K73LuG/cs2boK/+yEi88s8vf0dLHJbseH5G+3NwBsakk9rDbxxvSysSzCxdlx735k4I
+	EqIFUOM9eYzD65ULGTMFH7gKod0Q4lAe1g//jYfqqWlb9zF4ijWF2r7NpXnjBaDKiKYfbaL9Rh2DX
+	XzMGnkVPrdzewLpS9kZTxwfuCnL7PyWnGff7dNDKEg6B3loRyq+r751v8mE8k2qBXLgB5N6gQ3kRZ
+	tNRuonfmNKPzy1pXzpGgdvAwwYrtEU7R1/oBDDH/kPsGuHg6B5HDHfkl7UlS6npKyCKYd4zdmQ7Ny
+	8WbL/uQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEyVf-00000005CGZ-2BF2;
-	Fri, 09 Oct 2026 00:30:51 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1xEyX5-00000005CS8-37zz;
+	Fri, 09 Oct 2026 00:32:19 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEyVc-00000005CFG-0RUQ
+	id 1xEyX3-00000005CRH-1hae
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 00:30:49 +0000
+	Fri, 09 Oct 2026 00:32:18 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4995b0343c1so49395375e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Oct 2026 17:32:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1791505837;
-	bh=waRfuVZmS/2NjhSFY0tBe8TyRqDp7UrLfXWJQxU09HU=;
-	h=Subject:From:To:Cc:Date;
-	b=Q3YhmVQwB9+RIreU54jWKPRuoPrE6/uvQFVIUI651pGL/jGOMTXh9GG3IErHcAyBH
-	 7Y9/RhA49V7KdzAVyk6rotpaLUqyUeZdGZCQkzg8pnz5wkJSnVOHY/sy5nabTCX63r
-	 A+/4bOC9Pn+WaqW/f77hOCnbT4H15d7WvwuPTa4x5oBCHzHifMZoDr4H+Gk+fgfqF1
-	 6LVHodLQGEbw3EPxT7oydKAq66+LwK5C2KxtEV5ltFnw7RAPY0mvbWuosvIoojvF6M
-	 wtfZejvKe8e4qjIxB+mdp22nNpclx/tuaNAfwx4r6OvvSg5rLL8MxrBmEOfleGY6zk
-	 baaDhldkLzkVw==
-Received: from [192.168.68.117] (unknown [180.150.113.112])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7CA046F499;
-	Fri,  9 Oct 2026 08:30:36 +0800 (AWST)
-Message-ID: <1a070f5c87b1e4e765a7e481b53f66242a9753ec.camel@codeconstruct.com.au>
-Subject: [GIT PULL] nuvoton: First batch of arm64 devicetree changes for v7.4
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>, Tomer Maimon
-	 <tmaimon77@gmail.com>
-Date: Fri, 09 Oct 2026 11:00:35 +1030
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1791505936; x=1792110736; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kd9f6IzxLdOe+YXs15sHvBb+DnWpHr6FxR7UwEMv3EU=;
+        b=OidpD4CMrq0IDeZUJ04BfwxVGoKbeYrsSBvkf41/DMBBlFXkHgPYAaO3bhsc2EResH
+         pmhhb6sRATtRGxG+934SXHJnF+myVm74rcWhkEWW76VZ2UWPeRJGm/RvJYB1G8ijfEZW
+         eWuFayVdxzcZg4bC/4Z2zak7JCmGLyungBTvnZP7LnzM5VF1EANOGrTAw+6D4VDf9Zjj
+         5E8X8Dngj4amYTXFHhDdJDiYL8xi2B2erQcKEV/ADPgsY2rZ10Vouc9JYR1w/fFJsjP6
+         ByJXN+0N43MmIwJorlhdpWCQsSTFiKQhM1JcGnIJcJrqBs5zZ7IhiWc95UoeHNzTcVAg
+         s0/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791505936; x=1792110736;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kd9f6IzxLdOe+YXs15sHvBb+DnWpHr6FxR7UwEMv3EU=;
+        b=EF5HqkhUXcvaQ0pL4P6pHbQOrPjoj0B95ScOuyxrpBEdaFI5T9exCp4frqFlPEvyeN
+         oO2CPw3JjiyEVvKH38Rbtg6n8boyijVjX997LD1oorrIAlQHIfceTxorOW2k7iDF0IXx
+         b2cuD8X/pzZW2bZ2n1OV6iicFee/CgmEAV0Qj6+uFvgBjpukv2GF5OHjqSp7wLOj9AHo
+         SfXpZlB+kr2b41kPx6Xm/itscqQiFzum+2gXXatfmr/2gRwHBZ5AbINBVZji2P4rXilg
+         TX/HZL8vBbBWN2f1XKPhq0lpANmSEFiOubHCDPxFUxUk1lcYHkUhKsir0ZgXW+0MAoZI
+         9oJA==
+X-Forwarded-Encrypted: i=1; AKwUvBzS0ZZsswABW7MN90nAndlOn7iscjinJiLANcia9YGduXlwVY8oUrlk3FqJvH3zzK2WmgQCGzC9sRLLMiCxXAqB@lists.infradead.org
+X-Gm-Message-State: AFuF++lQK9FX1uSwDE/yJBLoUD6HxsjChe4exabjwL4ARc1vCg71C/Z0
+	vONH7rj0JiHH57V1oTcjzwaDfYx1NhUvG6nh4h4hdia+eQRQCK/hWEbD
+X-Gm-Gg: AYBFou35oDRghCbbZktIaNXZKfI6An+BppUJaWfEo9D2TNX+v7mwhm6nsiwvMZCxvqd
+	YwMChcGpWz92xXlvvUdJ1zoUW8xEOSVkd+opRrcE++VHMX0GmiBESn5Hl7T+rYJdFs+PguVc9Qh
+	u0H/kFX03OPyOY69tEe3+x74al4goB9+vVHV2k5Z0O33ELQvAsTG9d5kvs8vvbeqUhQhCKHXMmm
+	Vj1H0l2x8b6pu7eN6x2wp/t7RHoahXVFHIu4PSR2pDKZAF0YayXADAxkHZkWZK60JZQDWVIlE+4
+	kUz2cZ74i6Jasbp1fogd3+I+6Zlq6sr+OB6hAu8OWCs+WhFSsKPvZqu8qlis2k46vwE57NH/LAQ
+	qJ2Re59Kp0/wk/rRZluVNf1E1+A0BCkg8qe3iQyu2IlwarmqibNWopWQiS7vVmf+h23OC99m6KO
+	6S+cXghTJUB9SrraJkxlMRazUC88T21/pDLNwPtLD3oEZN4SdL2/c/8GAUE8ymx3hJKC4sNXL9T
+	paI2FfGT3o0F9Uvxa2ok2znXvM5fQDGQONuvrIo8Ezn3GM1the9izDU7b5Tq0gB7vklZDwyjy9G
+	3SmIjQaf+xgtxpXjJ5ktpkTfuQLaBloJyKSQxpkp0qbKqJZ6DGXKyA/PKBvxe1uMODtBsqtRPpm
+	EE24jD20=
+X-Received: by 2002:a05:600c:3510:b0:4a1:7033:5b55 with SMTP id 5b1f17b1804b1-4a18e4cc437mr2753135e9.21.1791505935518;
+        Thu, 08 Oct 2026 17:32:15 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad61-5a01-743c-891f-b33c-cae7.310.pool.telefonica.de. [2a02:3100:ad61:5a01:743c:891f:b33c:cae7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db94e33d2sm1133434f8f.9.2026.10.08.17.32.14
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 08 Oct 2026 17:32:14 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Kamal Dasu <kamal.dasu@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulfh@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mmc: sdhci-brcmstb: don't log an error for missing BOOT registers
+Date: Fri,  9 Oct 2026 02:32:01 +0200
+Message-Id: <20261009003201.68288-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_173048_354046_B78683AE 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20261008_173217_461760_DA0A3249 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +105,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+The BOOT register range is optional: the probe function ignores a
+failure to map it and the suspend/resume code checks for NULL. It is
+mapped with devm_platform_get_and_ioremap_resource(), though, which
+calls dev_err_probe() when the resource does not exist. Every
+non-removable host without a third reg entry therefore logs an error
+at probe time and then works normally.
 
-I've been absorbed with efforts outside of the kernel recently so
-there's not much activity in the BMC tree this time around. This is the
-only PR I plan to send for v7.4. That said, there are are many patches
-on the list that need attention. I will get to them.
+The binding only describes the "host" and "cfg" ranges, so this is the
+case for the in-tree users. On the Raspberry Pi 5 family (BCM2712),
+where the SDIO host of the Wi-Fi module is non-removable, each boot
+prints:
 
-Various revisions of series I've applied from Tomer have been on the
-lists for a while. I've worked through some tidying with him in recent
-days so we can get them applied. There are still some process
-improvements necessary on his part with regard to sending patches for
-the BMC tree, which I've discussed with him. I've had to lightly rework
-v10 of his series in order to get it applied as noted in the relevant
-commit messages.
+  sdhci-brcmstb 1001100000.mmc: error -EINVAL: invalid resource (null)
 
-The work in the tag is currently in linux-next and I am yet to receive
-any negative automated feedback on it.
+Look the resource up with platform_get_resource() first and map it only
+when it is present. Hosts that do have the range are mapped by the same
+two calls as before.
 
-I'll be travelling for the next week for the OCP Global conference but
-will keep watch for any concerns that arise.
+Fixes: b7e614802e3f ("mmc: sdhci-brcmstb: save and restore registers during PM")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Tested on a Raspberry Pi 500+ with v7.3-rc4: the message is gone, the
+SDIO card is detected as before and Wi-Fi works. Suspend/resume, the
+only user of these registers, was not tested.
 
-Please merge.
+ drivers/mmc/host/sdhci-brcmstb.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Thanks,
+diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
+index 1de2f05..7c17a3c 100644
+--- a/drivers/mmc/host/sdhci-brcmstb.c
++++ b/drivers/mmc/host/sdhci-brcmstb.c
+@@ -491,6 +491,7 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
+ 	struct sdhci_brcmstb_priv *priv;
+ 	u32 actual_clock_mhz;
+ 	struct sdhci_host *host;
++	struct resource *boot_res;
+ 	struct clk *clk;
+ 	struct clk *base_clk = NULL;
+ 	int res;
+@@ -534,9 +535,13 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
+ 
+ 	/* map non-standard BOOT registers if present */
+ 	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
+-		priv->boot_regs = devm_platform_get_and_ioremap_resource(pdev, 2, NULL);
+-		if (IS_ERR(priv->boot_regs))
+-			priv->boot_regs = NULL;
++		boot_res = platform_get_resource(pdev, IORESOURCE_MEM, 2);
++		if (boot_res) {
++			priv->boot_regs = devm_ioremap_resource(&pdev->dev,
++								boot_res);
++			if (IS_ERR(priv->boot_regs))
++				priv->boot_regs = NULL;
++		}
+ 	}
+ 
+ 	/*
 
-Andrew
-
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935=
-:
-
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/nuvoto=
-n-arm64-7.4-devicetree-0
-
-for you to fetch changes up to c895734d0ec6c3e94f1fb3a0575b9a7076201d9e:
-
-  arm64: dts: nuvoton: npcm845-evb: Add peripheral nodes (2026-10-08 10:23:=
-24 +1030)
-
-----------------------------------------------------------------
-nuvoton: First batch of arm64 devicetree changes for v7.4
-
-A short series of enhancements for the NPCM845 SoC and its evaluation board=
-.
-
-----------------------------------------------------------------
-Tomer Maimon (4):
-      arm64: dts: nuvoton: npcm845: Split APB address ranges
-      arm64: dts: nuvoton: npcm845: Add peripheral nodes
-      arm64: dts: nuvoton: npcm845-evb: Fix DTS coding style
-      arm64: dts: nuvoton: npcm845-evb: Add peripheral nodes
-
- .../boot/dts/nuvoton/nuvoton-common-npcm8xx.dtsi   | 700 +++++++++++++++++=
-+++-
- .../arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts | 439 ++++++++++++-
- arch/arm64/boot/dts/nuvoton/nuvoton-npcm845.dtsi   |   7 +
- 3 files changed, 1141 insertions(+), 5 deletions(-)
+base-commit: 6c377d19d4a5116d9bec5203aa3c6c11523e7898
 
