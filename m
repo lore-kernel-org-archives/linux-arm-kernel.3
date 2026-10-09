@@ -4,87 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A54CA6019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AB4CA6015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 14:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5cuFqIfMY4J2ULv+vaz8/5FjRBSv9rJHt5s66GC9Lo=; b=CUF9ypjEnkdHX8QoNwtQlMpyEQ
-	svmm/y8nncrew7z9pTXc4i9FszIvQD/AUm05xmVMsGpOk7VZMpozcL43q1Zu+cf4j9No+sk43pgs0
-	/Y2mvMJoaxks34w6B1lFHJLRB/v0KOkLxHNV0WqgFDvXw4dM6Kx8ZAzdlQQsU7cASZHM0cLkGwKlz
-	9ES13X7Ou7XWK5EpvxgKBGofQkb07f2oAb+kgMxsMQyYOYNujpC3ENWxM/96AQqFECHnDinG4SQew
-	GggwB4xsN9u5hcUsWaXossQR8FSf+KQchO8KdlAm2F/xIugrnR8E/JvP75+Xw+YEkqO29OP48+EF0
-	57ULGPQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5mp4RnMe0TQZxUQ96A2OqhWXQwIeoTHhlaxX50LfJic=; b=WwxxIooy64jTGcQLvHdWDMdDkS
+	rqovfUsDrnRUe1hyubXawoRtHt9as3KEXeWH2ENnB/Frvb/z/Oxf/+KWpTzvW7FGqm9HdJf1+vUaj
+	mWhJbCO883i6lKuwYGdionMHvED+pETS6x9UrxJZ37JYC9VqQbzYF9vooCw3xydg1+lTkbrsODNw2
+	9YwTj+X6IP2PWvHUfeFOO/1jLWtV+AZgedlOH85LwQiheOMKvBMfvMhBzZurChh+QHI2wbMmHGjs8
+	p3NAhoNxF+T9xFRMrg8UU+AnX3CrN8L506pESfn4RoisddUg3wBtsQy1hiE0c/DhaY/AOOYmwfJKQ
+	2jXZE4hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBNS-00000006R7v-2brH;
-	Fri, 09 Oct 2026 14:15:15 +0000
-Received: from out-28.mta0.migadu.com ([2001:41d0:1004:224b::1c] helo=mta0.migadu.com)
+	id 1xFBOL-00000006RIk-3611;
+	Fri, 09 Oct 2026 14:16:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFBNQ-00000006R7H-1M4d
+	id 1xFBOL-00000006RIN-02ZW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 14:15:13 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=D7hfrm3qIlI4+AhECxlB2fjvQpfx6eid9hhS+USFrjU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791555308; v=1; x=1792160108;
- b=GzsHuOSMUowx9yevoszKVng0leiv6kOAe/0oogqTgR86l+317eSxtwiCtPnL1ZVBJlfSxQjQ
- 9xThI1aXkxB2N9MZBgeAPu2Y7w8ZWJhivbdITUf8vZ/QYa9LMJwsARb83dHIoM8bx3QQgdzKvTd
- ucVrSjYhkDpGQLcge4OQ6K6w=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id d5fd037bf9b86533;
-	Fri, 09 Oct 2026 14:15:05 +0000
-X-Mizu-Trace-ID: d5fd037bf9b86533
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <87jynrs8v8.fsf@all.your.base.are.belong.to.us>
-Date: Fri, 9 Oct 2026 22:14:40 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- akpm@linux-foundation.org,
- linux-mm@kvack.org,
- stable@vger.kernel.org,
- david@kernel.org,
- osalvador@suse.de,
- dave.hansen@linux.intel.com,
- luto@kernel.org,
- peterz@infradead.org,
- tglx@kernel.org,
- mingo@redhat.com,
- bp@alien8.de,
- x86@kernel.org,
- hpa@zytor.com,
- catalin.marinas@arm.com,
- will@kernel.org,
- mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org,
- pjw@kernel.org,
- palmer@dabbelt.com,
- aou@eecs.berkeley.edu,
- alex@ghiti.fr,
- linux-riscv@lists.infradead.org,
- agordeev@linux.ibm.com,
- kevin.brodsky@arm.com,
- bjorn@rivosinc.com,
- apopple@nvidia.com,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <0E3A4E15-38DA-400D-95F2-01FFBB36304B@linux.dev>
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-3-songmuchun@bytedance.com>
- <87jynrs8v8.fsf@all.your.base.are.belong.to.us>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_071512_505646_54CC3456 
-X-CRM114-Status: GOOD (  15.21  )
+	Fri, 09 Oct 2026 14:16:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 14DCF60A55;
+	Fri,  9 Oct 2026 14:16:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4051F00899;
+	Fri,  9 Oct 2026 14:16:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791555367;
+	bh=5mp4RnMe0TQZxUQ96A2OqhWXQwIeoTHhlaxX50LfJic=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NhUolgjdT4xFpIJaLDiSOW9Fx/3UcRQiVWOExlWtRlCM+JExiGowDMCEGSwHEtnfG
+	 ph4wqLPlHYk3yHyFYgdaKKtAyhZlxIg5rePCMSle3N1m4N5jiRI0F+rgc0gximz4gE
+	 HGwESaoEV9h/0JQAZUI08YZSUbHyZ9sFXY+BChVjyCiyX6qDSXiKnPPVk/kEPsgUkK
+	 r7ufkRbdRpisjOQFOJjrKaEfoBU9kyzf3L/GYQ6wamC0qP+2zHNBbCo6JhBEByZiy2
+	 X8dhIJURzCuVSDrzN8zUtJzynOeqbp1KMhhSh7ZxwHKdzTKNBeMKGugL3GqLWPcaHp
+	 WL8H+/u39/mpA==
+Date: Fri, 9 Oct 2026 09:16:06 -0500
+From: Rob Herring <robh@kernel.org>
+To: joakim.zhang@cixtech.com
+Cc: lgirdwood@gmail.com, broonie@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, perex@perex.cz, tiwai@suse.com,
+	p.zabel@pengutronix.de, cix-kernel-upstream@cixtech.com,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
+Message-ID: <20261009141606.GB1631855-robh@kernel.org>
+References: <20261009092552.2377960-1-joakim.zhang@cixtech.com>
+ <20261009092552.2377960-2-joakim.zhang@cixtech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261009092552.2377960-2-joakim.zhang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,83 +72,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 09, 2026 at 05:25:49PM +0800, joakim.zhang@cixtech.com wrote:
+> From: Joakim Zhang <joakim.zhang@cixtech.com>
+> 
+> Add the DT binding for the Cadence I2S-SC controller integrated in
+> the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
+> controller supporting standard I2S, left/right-justified and DSP
+> formats, plus TDM operation with up to 16 slots.
+> 
+> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+> ---
+>  .../bindings/sound/cix,sky1-i2s-sc.yaml       | 93 +++++++++++++++++++
+>  1 file changed, 93 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+> new file mode 100644
+> index 000000000000..3fdf2334c492
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+> @@ -0,0 +1,93 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-sc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Cadence I2S-SC controller
+> +
+> +maintainers:
+> +  - Joakim Zhang <joakim.zhang@cixtech.com>
+> +
+> +description: |
+> +  The Cadence I2S-SC controller integrated in the CIX SKY1 audio subsystem.
+> +  It supports full-duplex stereo playback and capture in standard I2S,
+> +  left/right-justified and DSP modes, as well as TDM operation with up to
+> +  16 slots. The transmitter and receiver are started and stopped together
+> +  by the controller.
+> +
+> +allOf:
+> +  - $ref: dai-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: cix,sky1-i2s-sc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    items:
+> +      - const: hst
+> +      - const: i2s
+> +      - const: audio-clk0
+> +      - const: audio-clk2
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  dmas:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description:
+> +      One DMA channel for instances wired for a single direction, either
+> +      "tx" or "rx", or two channels for both transmit and receive.
+> +
+> +  dma-names:
+> +    minItems: 1
+> +    maxItems: 2
+> +    items:
+> +      enum: [ tx, rx ]
 
+Address the sashiko comment.
 
-> On Oct 9, 2026, at 14:09, Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org> =
-wrote:
->=20
-> Muchun Song <songmuchun@bytedance.com> writes:
->=20
->> RISC-V uses the same memory-hotplug teardown code for the linear map =
-and
->> vmemmap, although their page-table pages are not always allocated in =
-the
->> same way. Late linear-map allocations run page-table constructors, =
-while
->> vmemmap and early allocations may provide constructor-free pages.
->>=20
->> The PTE path unconditionally runs the destructor, which is wrong for
->> constructor-free vmemmap tables. The PMD path avoids that problem by
->> using is_vmemmap as a proxy for constructor state, but that =
-assumption
->> will no longer hold once runtime vmemmap allocations use the normal
->> pgalloc helpers.
->>=20
->> Page-table constructors record their state in PG_table. Centralize
->> page-table freeing and use PageTable() to decide whether the =
-destructor
->> is required. Keep reserved and constructor-free pages on their =
-existing
->> freeing paths.
->>=20
->> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
->> Cc: stable@vger.kernel.org
->> Assisted-by: LLM
->> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->> ---
->> arch/riscv/mm/init.c | 29 ++++++++++++++---------------
->> 1 file changed, 14 insertions(+), 15 deletions(-)
->>=20
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index 857f9a55039c..429a0b015ec1 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -1486,10 +1486,19 @@ struct execmem_info __init =
-*execmem_arch_setup(void)
->> #endif /* CONFIG_EXECMEM */
->>=20
->> #ifdef CONFIG_MEMORY_HOTPLUG
->> +static void __meminit free_pagetable(struct page *page)
->> +{
->> + 	if (PageReserved(page))
->> + 		free_reserved_page(page);
->> + 	else if (PageTable(page))
->> + 		pagetable_dtor_free(page_ptdesc(page));
->> + 	else
->> + 		pagetable_free(page_ptdesc(page));
->> +}
->=20
-> Is PageReserved() enought to determine if there's no dtor to run? On
-
-Yes.
-
-> rv64 your code is correct, but maybe for robustness?
->=20
->  | if (PageTable(page))
->  |         pagetable_dtor(page_ptdesc(page));
->  |=20
->  | if (PageReserved(page))
->  |         free_reserved_page(page);
->  | else
->  |         pagetable_free(page_ptdesc(page));
-
-his looks good to me as well. I'll change it in the next version. =
-Thanks!
-
-Muchun
-
->=20
->=20
-> Bj=C3=B6rn
-
+Rob
 
