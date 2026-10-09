@@ -4,72 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BB3CA6012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187E2CA6012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Oct 2026 07:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=miCG4rWC2Nf/bhPuwMA/GXvzDZO2uNAdaQR/20C+UZQ=; b=Tt14FbPrwYYM8WQNbL9dO6yyy1
-	Ib/PTteorEud1cDO+pmu0WG5Bpxa5Ray6qfYRquxLP8jITRFkpgUCMbe+rALOcsn9I9GSS8HZBa3b
-	AXe3Ln3LTiML0ok8xOmtw7gXqxmCDplDy3o1ktoeDPRyo9uoRes9+SVHIecVwO+tNYa1TUlYbvKXA
-	3LEDd5sxHmEJcyznWErFqnsPN2nwI4eq4n6lZds+AI0tTye5O4NfMT6QTQqDlzcr4f25e9Wbi/05j
-	r/ZXXBxYmOuPmJAecPaOGkEGCmrTtyuydQVm77VGBCQlciYkFWvohH4mwqsrXJdqEuYNuD1iIMTYj
-	+6woVXjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3ochuzTWM4V34l70Ffd53HPtFv1TRtidFe+9vEvB6V0=; b=Ur5FL2/Nf7Bgcm9p8hN0/f8bmX
+	C71m1fFnu1IOKYoxj3nBJagQsPBFqfm+Zf+55cTpM4HhUVE+BjzwEKhw7su980nqpLFmuXLmbKJ3v
+	kgkJQNY/mXcPuOk0WsYcQTqutBvT3WXCs8xad3SGhkBr/a8BRvcgiuT/46GdacIqp6o1UrZaQrvHn
+	3SAr6r8Q8OArdKB8Lf34pqXFeDnJdZZrSAtdE0mHVRTouTOqopFitjvf1fPqQfjPb1gt5q4w5TCBt
+	GLvSWgJUXU612+mdCrJw5Qe4vpODSnXZ7Uwa6YQ2LxZ8j40pjxy+2xVERqq/XyMA/6CijuuUXAzaP
+	I1Eufe3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4wc-00000005iff-10vQ;
-	Fri, 09 Oct 2026 07:23:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4wZ-00000005iem-0HbI
+	id 1xF51h-00000005isc-3PDv;
+	Fri, 09 Oct 2026 07:28:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF51g-00000005isV-47TN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Oct 2026 07:23:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE6991692;
-	Fri,  9 Oct 2026 00:22:57 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29DE03F8C6;
-	Fri,  9 Oct 2026 00:22:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791530581; bh=WsYk4mwXHGtEeA9/sqqtPLloNXN/PsNfk1fSu7KICtk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t8CehVv4+Lz8Ugsv96BmQeZ1twjOPHaeTSryLFZ8XK8XZigz5W+IYmOHxXvNgxCos
-	 N7BdEXolPVcgXabranRPAkc3TgIpNDG7vL7on5JnWLSDBD8O+6Xi8OgL/yfdqoaAGW
-	 FrYeFAl55KJTNtuwLj3854pSMLI1wyh9ufDn1hq0=
-Date: Fri, 9 Oct 2026 08:22:55 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
- cache coherency issue
-Message-ID: <asiWTxgGxJ5JIFcl@arm.com>
-References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
- <asTZEhzMDs869r_n@arm.com>
- <aseZUwi0CYTXuE/I@shlinux89>
+	Fri, 09 Oct 2026 07:28:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F0EE42D78;
+	Fri,  9 Oct 2026 07:28:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABCA1F000FF;
+	Fri,  9 Oct 2026 07:28:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791530900;
+	bh=3ochuzTWM4V34l70Ffd53HPtFv1TRtidFe+9vEvB6V0=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=fOdlqDsPNy/BOHDSsGrcvSUxzXDVEy/n91vALtajkpxrtSAipZRGdiMKP/Bl+5YuI
+	 B57rJT5WqiN4eOC3EqfHno8f6BMp7VHCq1z4KUzXx2ctONWpcEOjmK1z0GBcJp3HpZ
+	 sbhJMLQ3aYDYsa5r6wYi5FAYY6RjAmhbNkKTcJpW9k0pXdijvptIOmcmw8SFms820g
+	 GrQQWs25Du4xuHIZVXq8vcNM4akbG2+EibZpi3NU1qugWJpbDsWRF29w07ktSKgviK
+	 1ouDhCv8pIJuaVwajvMxkVmZZGrElHjja0nx/TBSr1zln+FR1cXaduKGFqkbKuk3xC
+	 W4cE/smVc36iA==
+Message-ID: <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
+Date: Fri, 9 Oct 2026 09:28:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aseZUwi0CYTXuE/I@shlinux89>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_002304_275392_57CDF963 
-X-CRM114-Status: GOOD (  25.54  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] ARM: mvebu: dt for v7.4 (#1)
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+ Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <87o6d96w7w.fsf@BLaptop.bootlin.com>
+ <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +116,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 08, 2026 at 09:23:31PM +0800, Peng Fan wrote:
-> On Tue, Oct 06, 2026 at 12:18:42PM +0100, Catalin Marinas wrote:
-> >On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
-> >>   - Disabling KVM since correct TLB maintenance cannot be guaranteed
-> >>     for guests.
-> >
-> >Do you need virtualisation on such platform? An alternative would be for
+On 09/10/2026 09:21, Krzysztof Kozlowski wrote:
+> On 04/10/2026 22:34, Gregory CLEMENT wrote:
+>> ----------------------------------------------------------------
+>> Krzysztof Kozlowski (1):
+>>       ARM: dts: marvell: Replace spaces indentation with tabs
+>>
+>> Rosen Penev (10):
+>>       ARM: dts: helios4: fix lm75 supply name
+>>       ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
+>>       ARM: dts: marvell: add missing SDHCI clock-names
+>>       ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
+>>       ARM: dts: armada-388-helios4: fix vmmc property name
+>>       ARM: dts: helios4: fix vbus-supply for USB2 PHY
+>>       ARM: dts: helios4: fix spi1 location
+>>       ARM: dts: helios4: use national,lm75 compatible
+>>       ARM: dts: helios4: add #phy-cells to USB nop phys
+>>       ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
 > 
-> We not have KVM support in our software release for i.MX8QM.
+> Your pull introduces new warnings for undocumented compatibles:
 > 
-> >the guests to be aware of the erratum as well and use the right TLBI/IC
-> >ops. But you'd also need to upgrade the VMID-aware ops in KVM (unless
-> >the hardware can't work around stage 2 TLBI at all).
+> https://lore.kernel.org/all/202610021617.AlVUa9No-lkp@intel.com/
 > 
-> We not have test cases for this since KVM is not in our release scope. 
-> Could we take this as a future enablement to avoid uneccessary churn
 
-Yes, you can leave it out if you don't care about the KVM use-cases.
+And I found the binding patch which is not right (which was pointed out
+at v1 but never responded to), so neither is DTS change.
 
-> >There's a precedent with 4311569 to wire up a SoC erratum into the CPU
-> >errata framework. That one is a system wide feature, so only probed once
-> >for the CPUs coming up at boot (though still probed for each late CPUs).
-> >For iMX, you need this turned on early, hence the boot probing. But
-> >calling it a strict boot CPU feature is a bit of a stretch. It also gets
-> >probed on every CPU, unnecessarily.
-> >
-> >I think we could do with something like below (maybe as a preparatory
-> >patch). We could also add it to 4311569 even if it changes its scope
-> >from system to boot CPU (the early param is available).
-> >
-> >Only compile-tested and haven't tried wiring up your workaround:
-> 
-> With type set to ARM64_CPUCAP_SOC_ERRATUM for i.MX8QM and your patch
-> applied, I not see issues in my test.
-> 
-> Would you post it as a formal patch or need me to include your patch
-> with i.MX8QM errata patch in a patchset?
-
-Please post it with your patchset. Feel free to add a co-developed-by or
-suggested-by me on the new cpucap proposal.
-
--- 
-Catalin
+Best regards,
+Krzysztof
 
