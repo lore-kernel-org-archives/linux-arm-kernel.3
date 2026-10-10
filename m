@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0BCCA6004
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBE2CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsPG4zfcNkAT6dXyjDki77ZwX/x2nyD+OqM/cCf911c=; b=dxbbJcgh/sj1d8CNZWqdNUwkxV
-	64/wrEvQ1OH9hFoetbDQjnEzJntgCqT2XzKZbD22ih4zbFPhtHn7FdoZGy2wYoE0gspst7xUj6kpd
-	6uNa9J99w1de4DB5+ghMDGhVBgTWk22trkFcDfBDFYtc+gfrk7dDi7cC9tzODcf6b7YZsveCnnKME
-	6142dSGSciYiBG1YFoXFY+WAo6cp4wFKcYnAx256OVmW9+ci8h+QYJ4x4c/VgLvOGrSxILe+zaxNw
-	MG3wHaUzFpG3XFx/LxLPXXIiAVaBGqrm5hp/6Z0v2HM/U6p/KFtVoLhb2eHL1rQRrF6+eacTB/1QZ
-	9My/ruMQ==;
+	bh=0kQcUPDmcbyhjzCBKf8tF82Z2HjQ1YjSAwJ5NLJ+ehI=; b=JGujoq6D2NqLClgimSPDgyAkSA
+	S9ur6UfxfUihu2H44s7UdRa9QH+poU8Bu98BfxnD3SvCCfO9FrIXFTODQzEo1m1ioAklvfyyvGIc3
+	fgt+KQNroZZ0ek5ryHScAYA+NRcIhe8uQFBULoqu5X3tuNPLeKJziCTE6GQH03b/PAF4tYd2tcnOm
+	/IMoXnyLJNKA8P3hKYkrc8nn788zTkDIy7miFJ9hZFI1o5U2wrCINuJPdX/R4KjnJahLktkFL0mpV
+	qA6Ht4+ds1XhYGWArcIwZkznG4KKX29/6FVboVKxsWKCrU/q4QUiwdInW8eETW+9SkDpdMxGNJbJj
+	gu8A+KBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVg0-00000007xiq-1Qir;
-	Sat, 10 Oct 2026 11:55:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xFVgJ-00000007xs8-2Rq1;
+	Sat, 10 Oct 2026 11:56:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVfz-00000007xiX-21Hc
+	id 1xFVg5-00000007xkO-0Gag
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:55:43 +0000
+	Sat, 10 Oct 2026 11:55:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4EF643CE9;
-	Sat, 10 Oct 2026 11:55:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C83CE1F000FF;
-	Sat, 10 Oct 2026 11:55:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 17D4C60211;
+	Sat, 10 Oct 2026 11:55:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4EF91F00898;
+	Sat, 10 Oct 2026 11:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791633342;
-	bh=xsPG4zfcNkAT6dXyjDki77ZwX/x2nyD+OqM/cCf911c=;
+	s=k20260515; t=1791633347;
+	bh=0kQcUPDmcbyhjzCBKf8tF82Z2HjQ1YjSAwJ5NLJ+ehI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Rxg/1PC5iZ3AffgdkfcDam6BRspq7ROgwaQivsxC5BEL3uvrfKvIGPZds34iZERWS
-	 MnKbgH2v4SMVfHZ8PdYcHNZ1xK3GNCdXP7MhTGoOeSnUGEvd+cEM5mW6Fd5QvwB8Ra
-	 Gk2cbNfH57if/85w5IDhl4aDO0MS7YhSthC6Z1sn9H8ocED312jOGNbMPzSAE/TKFH
-	 k/KqAMdt41CrCP/fyk88cQBAg8/4WW5/GEFjam9Uyv3mdALnGezD9+8jDz618r04ye
-	 sMSzrTo8G1VQFSH8f40P6GznmU49zqjhCogGGFw2H5TyFLdEPNiWUxXdvElpx99DS5
-	 pRTje/vcByMqg==
-Subject: Re: [PATCH net-next v4 1/6] net: xilinx: axienet: Introduce
- axienet_config for MAC-specific ops
+	b=MSkULGJnNIcjpmplQHQYI9OcY9VF5zfis3kCl+T7sEqTg/9cfdx03my53enxjkp6p
+	 xBDuHDkxravpYoCPJCfcKj7pjRbBujVG/kBPH0dM9zSaUvnGVw/M+wbrQ2M5bK+7tB
+	 Ty+aBc//BuZcemjSl/ANy3JE0rsxC93UUKwwTkGjkAC2wASVJdMql+hDd4tDc9jzs+
+	 xHbRRi6DV0eFmnapQaBkxoM96hQcfm587y4egzYVvgpelK62fTJWkqcj70skiAzp9k
+	 Qyc0jN2pIi2wh5vX+wx9LMFaJu01pw1GLOWJfFaN9fLan9/n12rqIUTh0Hi8XVk9vW
+	 VzsGWRc+n6vhg==
+Subject: Re: [PATCH net-next v4 6/6] net: xilinx: axienet: Add statistics
+ support for XXV ethernet
 From: netdev-bot+sashiko@kernel.org
 To: suraj.gupta2@amd.com
 Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -51,10 +51,10 @@ Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
  linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 10 Oct 2026 11:55:41 +0000
-Message-ID: <179163334130.434549.15131171299292504182@kernel.org>
-In-Reply-To: <20261006110550.1990213-2-suraj.gupta2@amd.com>
-References: <20261006110550.1990213-2-suraj.gupta2@amd.com>
+Date: Sat, 10 Oct 2026 11:55:46 +0000
+Message-ID: <179163334620.434549.1592021934536887221@kernel.org>
+In-Reply-To: <20261006110550.1990213-7-suraj.gupta2@amd.com>
+References: <20261006110550.1990213-7-suraj.gupta2@amd.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,10 +73,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 6 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider.
 
-Critical: 0 (1) · High: 0 · Medium: 1 (3) · Low: 5
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 4
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -84,351 +84,262 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message says "No functional change intended for the
-  existing 1G path", but the patch changes 1G behaviour in…
-- [Low] axienet_dma_err_handler() ignores the return value of the new
-  int-returning mac_init callback, then re-enables TX/RX through…
-- [Low] The new axienet_config::jumbo flag is documented as "MAC supports
-  jumbo frames", but only axienet_device_reset() reads it, and only to…
-- [Low] Mismatches between the kernel-doc and the code for the optional
-  members of struct axienet_config.
-- [Low] The sw_padding and tx_csum capability flags are honoured in
-  axienet_start_xmit_dmaengine() but not in the legacy…
-- [Low] On the non-dmaengine path, axienet_device_reset() returns early
-  when mac_init() fails, after axienet_dma_bd_init() has already…
+- [Medium] The driver uses PG210 STAT_RX_BAD_FCS (0x8C0) as its only RX
+  FCS-error source.
+- [Low] The new 'final snapshot' block in axienet_stop() only checks `if
+  (lp->axienet_config->stats_update)`.
+- [Low] The struct axienet_local kernel-doc is out of date.
+- [Low] The kernel-doc for axienet_xxv_get_rmon_stats() says '@ranges:
+  Set to the RMON histogram range table', but the function always sets…
+- [Low] The 'Throwaway tick to drain pre-open counts so stats start from
+  zero' in axienet_xxv_probe_init() does not achieve what its comment…
 
 Pre-existing issues:
-- [Critical] This problem wasn't introduced by this patch, but
-  axienet_start_xmit_dmaengine() increments lp->tx_ring_head before…
-- [Medium] xlnx,axi-ethernet.yaml lists the interrupt order as Ethernet
-  core, Tx DMA, Rx DMA.
-- [Medium] axienet_open() discards the return value of
-  axienet_device_reset() by overwriting ret with…
-- [Medium] On the legacy-DMA path, the BD rings and mapped RX skbs
-  allocated by axienet_device_reset() are leaked when axienet_open()…
+- [Medium] This problem wasn't introduced by this patch, but the new XXV
+  readers inherit it.
 
 --
 
-net: xilinx: axienet: Introduce axienet_config for MAC-specific ops
+net: xilinx: axienet: Add statistics support for XXV ethernet
 
-This commit adds struct axienet_config, which holds capability flags and
-per-MAC callbacks and is filled in from the OF match table. The shared
-axienet paths now use it instead of open-coded 1G behaviour, to prepare
-for more MAC types. The commit says no functional change is intended for
-the existing 1G path.
+This commit adds statistics support for the XXV (10G/25G) MAC in the
+axienet driver. The driver writes TICK_REG to latch the PG210
+clear-on-tick counters and adds each interval's values to
+xxv_stat_base[] in software. These accumulators feed ndo_get_stats64()
+and the ethtool -S, pause, MAC and RMON callbacks.
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> index 7ba2fe29e97bf..e8e9732c1c84f 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> @@ -549,6 +549,7 @@ struct skbuf_dma_descriptor {
+>   * @rx_ring_head: RX skb ring buffer head index.
+>   * @rx_ring_tail: RX skb ring buffer tail index.
+>   * @xxv_ip_version: XXV IP version.
+> + * @xxv_stat_base: Software accumulators for the XXV clear-on-tick counters.
+
+[Severity: Low]
+This isn't a bug, but should the @hw_stats_seqcount kernel-doc be updated
+too? It still reads:
+
+ * @hw_stats_seqcount: Sequence counter for @hw_stat_base, @hw_last_counter,
+ *                     and @reset_in_progress.
+
+axienet_xxv_stats_update() now writes xxv_stat_base[] inside the
+hw_stats_seqcount write section. All of the XXV getters read it under
+read_seqcount_begin()/read_seqcount_retry().
+
+The new @xxv_stat_base line doesn't say what protects it either.
+
+>   * @axienet_config: MAC-type specific configuration and operations.
+>   */
+>  struct axienet_local {
+
+[ ... ]
 
 > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index ae8ed4495ea0e..5af48d5cbed3b 100644
+> index f4b054433df95..cbc8caf781f3d 100644
 > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 
 [ ... ]
 
-> @@ -711,19 +744,23 @@ static void axienet_dma_stop(struct axienet_local *lp)
->   */
->  static int axienet_device_reset(struct net_device *ndev)
->  {
-
-[ ... ]
-
->  	if (ndev->mtu > XAE_MTU && ndev->mtu <= XAE_JUMBO_MTU) {
->  		lp->max_frm_size = ndev->mtu + VLAN_ETH_HLEN +
->  					XAE_TRL_SIZE;
+> @@ -1789,6 +1802,13 @@ static int axienet_stop(struct net_device *ndev)
+>  	lp->axienet_config->setoptions(ndev, lp->options &
+>  				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
 >  
-> -		if (lp->max_frm_size <= lp->rxmem)
-> +		if (lp->max_frm_size <= lp->rxmem && lp->axienet_config->jumbo)
->  			lp->options |= XAE_OPTION_JUMBO;
->  	}
-
-[Severity: Low]
-Should the new jumbo flag also limit the MTU range? The kernel-doc says
-@jumbo means "MAC supports jumbo frames", but this is the only place the
-flag is read. The MTU limits do not check it:
-
-axienet_probe() {
-    ...
-	ndev->max_mtu = XAE_JUMBO_MTU;
-    ...
-}
-
-axienet_change_mtu() {
-    ...
-	if ((new_mtu + VLAN_ETH_HLEN +
-		XAE_TRL_SIZE) > lp->rxmem)
-		return -EINVAL;
-    ...
-}
-
-So a MAC with .jumbo = false would still accept an MTU of up to 9000,
-limited only by xlnx,rxmem. axienet_device_reset() would then raise
-max_frm_size to mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE without setting
-XAE_OPTION_JUMBO.
-
-Later in the series, axienet_10g25g_config leaves .jumbo unset but still
-gets a max_mtu of 9000.
-
-Is the @jumbo description wrong for XXV, or should max_mtu and
-axienet_change_mtu() check .jumbo?
-
-[ ... ]
-
-> @@ -740,26 +777,18 @@ static int axienet_device_reset(struct net_device *ndev)
->  		}
->  	}
->  
-
-[ ... ]
-
-> +	ret = lp->axienet_config->mac_init(ndev);
-> +	if (ret)
-> +		return ret;
-
-[Severity: Low]
-On the non-dmaengine path, axienet_dma_bd_init() has already allocated
-the BD rings, mapped the RX skbs and started the DMA by the time this
-early return runs. If mac_init() fails, does this leak the BD rings and
-the mapped RX skbs?
-
-None of the configs in this series can hit this. Only axienet_1g_config
-allows non-dmaengine mode, and axienet_1g_mac_init() always returns 0. A
-future MAC with both non_dmaengine set and a mac_init() that can fail
-would hit it.
-
-[Severity: Medium]
-This is a pre-existing issue, but at this point in the series callers of
-axienet_open() never see the new mac_init() error:
-
-axienet_open() {
-    ...
-	ret = axienet_device_reset(ndev);
-	axienet_unlock_mii(lp);
-
-	ret = phylink_fwnode_phy_connect(lp->phylink, dev_fwnode(lp->dev), 0);
-    ...
-}
-
-The result of axienet_device_reset() is overwritten before anything
-checks it. axienet_1g_mac_init() always returns 0, so this patch adds no
-new failure.
-
-The later patch "net: xilinx: axienet: Add 10G/25G (XXV) ethernet
-support" in this series adds the missing check.
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but on the legacy DMA path,
-does axienet_open() leak the BD rings and mapped RX skbs that
-axienet_device_reset() allocated if a later step fails?
-
-A phylink_fwnode_phy_connect() failure returns straight away:
-
-	ret = phylink_fwnode_phy_connect(lp->phylink, dev_fwnode(lp->dev), 0);
-	if (ret) {
-		dev_err(lp->dev, "phylink_of_phy_connect() failed: %d\n", ret);
-		return ret;
-	}
-
-The err_phy unwind, used for the request_irq() failures in
-axienet_init_legacy_dma(), also calls neither axienet_dma_stop() nor
-axienet_dma_bd_release():
-
-err_phy:
-	cancel_work_sync(&lp->rx_dim.work);
-	cancel_delayed_work_sync(&lp->stats_work);
-	phylink_stop(lp->phylink);
-	phylink_disconnect_phy(lp->phylink);
-	return ret;
-
-ndo_stop is not called after ndo_open fails, and the next open
-overwrites tx_bd_v and rx_bd_v.
-
-[ ... ]
-
-> @@ -941,19 +977,21 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
->  		goto xmit_error_drop_skb;
->  
->  	/* Fill up app fields for checksum */
-
-[ ... ]
-
-[Severity: Critical]
-This is a pre-existing issue and was not introduced by this patch. Can
-the error paths in axienet_start_xmit_dmaengine() knock the TX ring out
-of sync? The producer index moves forward before the steps that can
-fail:
-
-	lp->tx_ring_head++;
-	sg_init_table(skbuf_dma->sgl, sg_len);
-	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
-	if (ret < 0)
-		goto xmit_error_drop_skb;
-
-Neither xmit_error_unmap_sg nor xmit_error_drop_skb rolls it back. The
-skipped slot has no DMA transaction behind it. Its skb and sg_len still
-hold the previous lap's values, or NULL on the first lap.
-
-axienet_dma_tx_cb() consumes slots strictly in order:
-
-	skbuf_dma = axienet_get_tx_desc(lp, lp->tx_ring_tail++);
-	len = skbuf_dma->skb->len;
-	...
-	dev_consume_skb_any(skbuf_dma->skb);
-
-So the next completion would process the skipped slot. On the first lap
-that is a NULL pointer dereference. On later laps it calls dma_unmap_sg()
-on an sgl that is already unmapped, reports a stale length to BQL, and
-frees an skb that has already been freed. The off-by-one then stays for
-the rest of the ring's lifetime.
-
-Normal load seems enough to trigger this. xilinx_dma_prep_slave_sg()
-returns NULL when xilinx_axidma_alloc_tx_segment() runs out of its
-XILINX_DMA_NUM_DESCS (512) segments, while the axienet ring allows up to
-TX_BD_NUM_MAX (4096) entries in flight. dma_map_sg() can also fail when
-swiotlb or IOMMU space runs out.
-
-The problem is still there at the end of the series.
-
-[ ... ]
-
-> @@ -2759,29 +2819,114 @@ static void axienet_dma_err_handler(struct work_struct *work)
->  
->  	axienet_dma_start(lp);
->  
-
-[ ... ]
-
-> +	lp->axienet_config->mac_init(ndev);
-
-[Severity: Low]
-Should the return value of mac_init() be checked here, as it is in
-axienet_device_reset()? The handler re-enables TX and RX through
-setoptions(ndev, lp->options) either way.
-
-This handler only runs on the non-dmaengine path, which only the 1G
-config can use, and axienet_1g_mac_init() always returns 0. The later XXV
-patch in this series adds a comment at this call site saying so. It may
-be clearer to add that comment here, where mac_init() first gets an int
-return type.
-
-[ ... ]
-
-> @@ -2943,7 +3075,17 @@ static int axienet_probe(struct platform_device *pdev)
->  		return -EINVAL;
->  	}
->  
-> +	if (lp->axienet_config->probe_init)
-> +		lp->axienet_config->probe_init(lp);
-> +
->  	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-> +		/* Non-dmaengine mode is only supported by some MACs */
-> +		if (!lp->axienet_config->non_dmaengine) {
-> +			dev_err(&pdev->dev,
-> +				"Non-dmaengine mode not supported by this MAC, use dmaengine\n");
-> +			return -EINVAL;
-> +		}
-> +
-
-[Severity: Low]
-This isn't a bug, but some of the new capability flags only take effect
-on the dmaengine paths:
-
-- sw_padding and tx_csum are checked in axienet_start_xmit_dmaengine()
-  but not in axienet_start_xmit().
-- mac_irq is checked in the dmaengine probe branch but not in this
-  non-dmaengine branch.
-
-Because of this gate, only axienet_1g_config reaches those paths today,
-and its flags match what the legacy code does unconditionally. A future
-config with non_dmaengine set and different flags would quietly get the
-1G behaviour.
-
->  		/* Find the DMA node, map the DMA registers, and decode the DMA IRQs */
->  		np = of_parse_phandle(pdev->dev.of_node, "axistream-connected", 0);
->  
-
-[Severity: Medium]
-This is a pre-existing issue and not introduced by this patch. The
-interrupt order in Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
-doesn't seem to match what this branch reads when the DMA resources are
-on the Ethernet node.
-
-The binding lists Ethernet core, Tx DMA, Rx DMA. The driver does:
-
-			lp->rx_irq = platform_get_irq(pdev, 1);
-			lp->tx_irq = platform_get_irq(pdev, 0);
-			lp->eth_irq = platform_get_irq_optional(pdev, 2);
-
-Would a device tree written to match the binding text end up with its
-IRQs misrouted?
-
-[ ... ]
-
-> @@ -3109,23 +3256,21 @@ static int axienet_probe(struct platform_device *pdev)
->  			goto cleanup_mdio;
->  		}
->  		of_node_put(np);
-> -		lp->pcs.ops = &axienet_pcs_ops;
-> +		lp->pcs.ops = lp->axienet_config->pcs_ops;
-> +		lp->pcs.poll = true;
+> +	/* Final snapshot after RX/TX is disabled, so no frames are missed. */
+> +	if (lp->axienet_config->stats_update) {
+> +		mutex_lock(&lp->stats_lock);
+> +		lp->axienet_config->stats_update(lp);
+> +		mutex_unlock(&lp->stats_lock);
 > +	}
-> +
-> +	if (lp->axienet_config->internal_pcs) {
-> +		lp->pcs.ops = lp->axienet_config->pcs_ops;
->  		lp->pcs.poll = true;
->  	}
 
 [Severity: Low]
-This isn't a bug, but a few kernel-doc entries for struct axienet_config
-don't quite match how the members are used:
+Should this check lp->features & XAE_FEATURE_STATS?
 
-- @pcs_ops is documented as "or NULL if unused", but it is assigned to
-  lp->pcs.ops here without a NULL check. Every config in the series sets
-  it, so nothing breaks today.
-- @stats_update is NULL-checked in axienet_refresh_stats() but isn't
-  documented as optional.
-- @internal_pcs says "MAC always drives an internal PCS", but
-  axienet_mac_select_pcs() picks the PCS by interface mode only. By the
-  end of the series it also handles 10GBASER and 25GBASER, which covers
-  XXV.
+axienet_1g_config always sets .stats_update = axienet_1g_stats_update, but
+the statistics block is optional on 1G:
+
+axienet_1g_probe_init() {
+	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_STATS)
+		lp->features |= XAE_FEATURE_STATS;
+}
+
+So on a 1G core built without the statistics block, every ifdown now reads
+XAE_STATS_OFFSET registers that the core doesn't implement.
+__axienet_device_reset() and the stats export callbacks all check
+XAE_FEATURE_STATS before reading these registers.
+
+axienet_refresh_stats() is also missing this check, but that was already
+true before this patch.
+
+This also changes 1G behaviour. On the 1G dmaengine path it adds a new
+register read at stop. On the 1G non-dmaengine path it repeats the
+axienet_stats_update(lp, true) that
+axienet_dma_stop()->__axienet_device_reset() already does a few lines
+later.
+
+The commit message describes the patch as XXV-only. Could it mention the
+1G change, or could this snapshot be limited to the MACs that need it?
+
+> +
+>  	if (!lp->use_dmaengine) {
+>  		axienet_dma_stop(lp);
+>  		cancel_work_sync(&lp->dma_err_task);
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+> index 9f7efab84f827..4a2d03b6c480d 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
 
 [ ... ]
 
-> @@ -3168,7 +3313,8 @@ static void axienet_remove(struct platform_device *pdev)
->  	if (lp->pcs_phy)
->  		put_device(&lp->pcs_phy->dev);
->  
-> -	axienet_mdio_teardown(lp);
-> +	if (lp->mii_bus)
-> +		axienet_mdio_teardown(lp);
+> @@ -134,6 +199,10 @@ static void axienet_xxv_setoptions(struct net_device *ndev, u32 options)
+>  static void axienet_xxv_probe_init(struct axienet_local *lp)
+>  {
+>  	lp->xxv_ip_version = axienet_ior(lp, XXV_CONFIG_REVISION);
+> +	lp->features |= XAE_FEATURE_STATS;
+> +
+> +	/* Throwaway tick to drain pre-open counts so stats start from zero. */
+> +	axienet_iow(lp, XXV_TICKREG_OFFSET, XXV_TICKREG_STATEN_MASK);
+
+[Severity: Low]
+Does this tick actually make the stats start from zero at open?
+
+It runs only once, from axienet_probe()->probe_init, before any GT reset
+or GTWIZ reset-done poll. axienet_xxv_poll_link_ready() says register
+access should wait for that on IP v3.2+:
+
+	/* Confirm XXV Ethernet is up: on IP v3.2+, wait for GT
+	 * reset-done before further register access, then poll until
+	 * RX PCS block lock is asserted.
+	 */
+
+Nothing between probe and the first ndo_open clears the RX/TX enables.
+The first setoptions() call that clears TXEN/RXEN is in
+axienet_device_reset() at open.
+
+If the MAC comes out of reset with RX enabled, as the PG210
+CONFIGURATION_RX_REG1 default suggests, frames received between probe and
+the first open stay in the internal accumulators. The first stats_work
+after open, queued by schedule_delayed_work(&lp->stats_work, 0) in
+axienet_open(), would then latch them into xxv_stat_base[].
+
+If the statistics clock domain isn't running yet at probe, this tick might
+not latch anything at all.
+
+Would it make more sense to drain on the open path, after GT reset-done
+and before RX/TX are enabled and stats_work is armed? Later opens look less
+affected, since axienet_stop() disables RX/TX and takes a final snapshot.
+
 >  }
+>  
+>  /**
+> @@ -308,6 +377,198 @@ static int axienet_10g25g_clk_init(struct axienet_local *lp)
+
+[ ... ]
+
+> +static void axienet_xxv_get_stats64(struct axienet_local *lp,
+> +				    struct rtnl_link_stats64 *stats)
+> +{
+> +	unsigned int start;
+> +	u64 tx_hw_errors;
+> +
+> +	do {
+> +		start = read_seqcount_begin(&lp->hw_stats_seqcount);
 
 [Severity: Medium]
-The commit message says:
+This isn't a bug introduced by this patch, but the new XXV readers inherit
+it.
 
-  No functional change intended for the existing 1G path.
+hw_stats_seqcount is a seqcount_mutex_t associated with stats_lock (see
+seqcount_mutex_init() in axienet_probe()). On PREEMPT_RT, a reader that
+sees an odd sequence takes and drops the associated mutex:
 
-This hunk does change 1G remove behaviour, though. Before the patch, a
-failed axienet_mdio_setup() left lp->mii_bus NULL:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c:axienet_mdio_setup() {
+include/linux/seqlock.h:SEQCOUNT_LOCKNAME() {
     ...
-unregister:
-	of_node_put(mdio_node);
-	mdiobus_free(bus);
-	lp->mii_bus = NULL;
-	return ret;
+	if (preemptible && unlikely(seq & 1)) {
+		__SEQ_LOCK(lockbase##_lock(s->lock));
+		__SEQ_LOCK(lockbase##_unlock(s->lock));
+    ...
 }
 
-axienet_probe() only warns and carries on. A 1G device using a
-fixed-link, or a PHY on another bus, could therefore probe without an
-MDIO bus. Unbinding it then went through:
+axienet_xxv_get_stats64() is reached through dev_get_stats(). That can be
+called under rcu_read_lock() (dev_seq_show() for /proc/net/dev) or under a
+caller's spinlock (bond_get_stats()).
 
-axienet_remove()->axienet_mdio_teardown()->mdiobus_unregister(NULL)
+If such a read races with the write section in axienet_xxv_stats_update()
+from stats_work or axienet_stop(), can the reader end up calling
+mutex_lock() from atomic context on RT?
 
-and mdiobus_unregister() dereferences bus->state.
+The 1G readers have used this seqcount the same way since before this
+series. This patch adds more readers of the same kind.
 
-So the new check fixes a NULL pointer dereference. Could it be split out
-as a separate fix for net with a Fixes: tag, so it can reach stable, and
-the commit message here updated?
+> +		stats->rx_crc_errors = lp->xxv_stat_base[XXV_STAT_RX_BAD_FCS];
+> +		/* Both in-range length errors and frame-too-long (oversize)
+> +		 * frames are IEEE 802.3 length errors, so fold them together
+> +		 * into rx_length_errors; rx_over_errors is reserved for receiver
+> +		 * FIFO/ring overflow, which the XXV MAC does not expose.
+> +		 */
+> +		stats->rx_length_errors =
+> +			lp->xxv_stat_base[XXV_STAT_RX_INRANGEERR] +
+> +			lp->xxv_stat_base[XXV_STAT_RX_OVERSIZE];
+> +		stats->rx_errors = lp->xxv_stat_base[XXV_STAT_RX_UNDERSIZE] +
+> +				   lp->xxv_stat_base[XXV_STAT_RX_FRAGMENT] +
+> +				   lp->xxv_stat_base[XXV_STAT_RX_JABBER] +
+> +				   stats->rx_crc_errors +
+> +				   stats->rx_length_errors;
+
+[Severity: Medium]
+Can rx_errors count fragment and jabber frames twice here?
+
+XXV_STAT_RX_BAD_FCS_OFFSET is 0x8C0, which is stat_rx_bad_fcs in PG210. As
+far as I can tell, that counter covers every received frame with a bad FCS,
+whatever its length. It would then include fragments, which are also
+counted in STAT_RX_FRAGMENT (0x8A0), and jabbers, which are also counted in
+STAT_RX_JABBER (0x8B8).
+
+Adding RX_FRAGMENT, RX_JABBER and rx_crc_errors together would then count
+those frames twice.
+
+The same counter also feeds FrameCheckSequenceErrors in
+axienet_xxv_get_eth_mac_stats(). IEEE 802.3 aFrameCheckSequenceErrors
+excludes too-short and too-long frames.
+
+Would STAT_RX_PACKET_BAD_FCS (0x8C8, frames from 64 bytes up to the max
+packet length) be a better source for both rx_crc_errors and
+FrameCheckSequenceErrors?
+
+> +		stats->multicast = lp->xxv_stat_base[XXV_STAT_RX_MULTICAST];
+
+[ ... ]
+
+> +/**
+> + * axienet_xxv_get_rmon_stats - Fill RMON statistics and histogram ranges
+> + * @lp: Pointer to the axienet_local structure
+> + * @rmon_stats: Output ethtool_rmon_stats structure to populate
+> + * @ranges: Set to the RMON histogram range table
+> + */
+> +static void axienet_xxv_get_rmon_stats(struct axienet_local *lp,
+> +				       struct ethtool_rmon_stats *rmon_stats,
+> +				       const struct ethtool_rmon_hist_range **ranges)
+> +{
+
+[ ... ]
+
+> +	/* XXV currently exposes only aggregate RMON counters, not per-bin
+> +	 * histogram buckets. Keep ranges NULL until histogram bins are wired.
+> +	 */
+> +	*ranges = NULL;
+
+[Severity: Low]
+This isn't a bug, but the @ranges kernel-doc says it is "Set to the RMON
+histogram range table". The function always sets *ranges = NULL, and the
+comment just above says to keep it NULL until histogram bins are wired.
+
+Could the kernel-doc say that ranges is set to NULL?
+
+> +}
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261006110550.1990213-1-suraj.gupta2%40amd.com
