@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FD1CA9ECB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50898CA9EC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGFpiejSGpOIzstNVckwDDSyChSy7GVC4iVpGtXgDOE=; b=FePuplVljefQ4aIkkTITLHmCzw
-	hJhfIap9kZ8JAqWc3nVWiv1jexlefAr5cLm4nUSRin34FeBAk38kOU1MBeLLtGRJj8Cxnl3JKeZqL
-	rjWXZAGqRWdP8YmN5LjPf+EqTvfGIyKaG7g6DNMzoA2IbyoeN0puUOv06BUN2/cN2odR/LjWi5NjE
-	Rrd+7v8LqI/kdMZdyplHCI2IAgd/uKqBIxs979oIYzakwaX4C1bMC+E2xHEKe99ORlmdfVgBAGByR
-	/8OcQUZgv2QM+FhJBk9MQWIhdu27hVp7TS/A9jvGRPBUVbGP07Xzx2DOfmwdtFLlvG1zQvgErVZ0E
-	R+qqIQPg==;
+	bh=2JExfj/tGlMkKcgsuSdq+eQx1ckrlan0UXArxeYkCT0=; b=OrowO8wLN9lmnyXu9iagEH8isD
+	qgd3zOhSjQGtn8pnYGAd5tU0IevqWLj/JwPdR6MhRUvNF4qOFp82sfMtFwsrAK55J7LL96DDM/OuH
+	1XY2SLik2SYbOdee6jtTXNBpXo9SQ6eoGCcWziiMAjCZE4wgn6fGCTFEvEFzq5WAYhmRiFqHDFHp+
+	MJtrKv+SHnQpBlGh89Kelivlv4GXethtUIFERCsLVgy6MEl0yxCr/Wnkl97oeEAs9Ial7QONovo22
+	U04/9E+ukfr4srrAvpqxq/xual4HqDJHbGaTHvcerBDBhjktO+9Th2XW21rjrxT7r2ktjVMqQc6SV
+	h/0VIhug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWh2-000000083RW-3mLF;
-	Sat, 10 Oct 2026 13:00:52 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1xFWh3-000000083Ru-0doh;
+	Sat, 10 Oct 2026 13:00:53 +0000
+Received: from mail-wr1-f49.google.com ([209.85.221.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWgq-000000083EW-2YET
+	id 1xFWgs-000000083HI-2i8s
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 10 Oct 2026 13:00:43 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a018792ab3so5043845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:40 -0700 (PDT)
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-48b02b1b4cfso1741751f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791637239; x=1792242039; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791637240; x=1792242040; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fGFpiejSGpOIzstNVckwDDSyChSy7GVC4iVpGtXgDOE=;
-        b=sU84YkcuHkoi0C7cwch6knTbM5iiHAIZyy8AQFJpLCSe8a0DCkNkztgGJTq35qaUoz
-         jXEQDdNWeZt5rCU9EFL53WhrAVumi81+XPHVXH6nNzQDzN8L9RcKoffMFd4rAtCYZmeB
-         3SJ4qvcuopKUUutEqnZkhv9NyrjR7ZNl0n8PwHL8js4sMQGXAjDe+3YmU7Hzv13yUes7
-         vMiJARNbQMdu+3vyMDQMQacLqVM72CemUQpD6tdGfhYAK6lah7yos/nXdtJLQlr6pQd1
-         5vy076XNLp/Gv+pM5hai/4aEEHDYHWcm5XFk4ivPAGx2hy5cfNcRp44DwZnKHL2HH3R2
-         EqGw==
+        bh=2JExfj/tGlMkKcgsuSdq+eQx1ckrlan0UXArxeYkCT0=;
+        b=ekxqn9R2scl8P5mYjIhlh1E6pyjIKqGWjM405PGPBGX2EpCuyB/4RlklpyDtvSGmaN
+         skfkmwNm09cOGmGvCXzXCyi9gZgSDT4AUpCULnqFD8+jSZ1kUih2y0/y8gUO8/WhgdPI
+         knjyTYJLo4/b773yAr97fCMx+ltCXaQkVfkqzBtHS8kBHFfetTvESG8VKfor1ahecvP6
+         fIAOaAs+BNJSJOPw6nuZb8KGHnfxgWS9BVWkNgk8ekRfuXYng6tHAT+PuU/m/Fq0lcb5
+         EgyfZ14gGR+GRQCXaLrMc3pas/BN35c0RVb+n6D5GTNm8ys8lFU8Zgxs0qBDRjQ4F9P3
+         WDsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791637239; x=1792242039;
+        d=1e100.net; s=20260707; t=1791637240; x=1792242040;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fGFpiejSGpOIzstNVckwDDSyChSy7GVC4iVpGtXgDOE=;
-        b=H639rBDjj4Oi40tZAfqYdN/WcW0bpv1UInHUofvGpbZIfSIYTZas0AsdbXETET/Gju
-         iCRqj194op9NrK9x5USoEYjGqGX6Mej7MlwxwaLIuNjMQzUMDEPNHyS2FiKkdkl2dqZk
-         llPB0Xn602CV1kgQUvhpIAl6IwAvO3lbxP6jEnmEgx/kCqnzLc+5pr/XtieCTjJ+Xv+0
-         8OTCYkE4viqURpUU1yLDMQh4c4XMUc2rfOgUwBLo3+3d1vX9cmedZxPMdOdJEzQ8uo5v
-         MYoCE+paJds2iTmtSKAXAqOeM1Rq09AOPXUnbyl9G4kgEyjyXE/LTqlCC6ZaYyceqayx
-         9BWw==
-X-Gm-Message-State: AFq9FYKw14ux24kGHf9lheoZLDy8VVb1ZHc2zQ2tPTfyHsPoQQlEXjaQ
-	7CUBE5tDaOLvd8QaJRbJbxlAKnH1/bs/42i5eroPT/TmPCxtIcGHr8V7nNxGg7dKUfXk9w==
-X-Gm-Gg: AYBFou2YfLuLo/gG2acigRFlgQ5uvH63n/wW0udb/ovbzPXCqRk4Nf0+BXqEnqLz/XH
-	qUlOT0EX6bltAEquefP761GHjOVJc3YVTKuEnA2WmygLusRDyRO4ZOJzcUxHdZppWs9dI6jkPBM
-	vm8AGNrEBvXA/ixKXem8UDVwb5Z3W0eG0d94YY9gb2eWgC60rN7WorQIgxgUu5fHa7XeMuILVBC
-	W20QsmnqQMAQQRCuBGqDUYnmxhQC0kUVvVTH1r38XvzV1auZPQVBsm1cWjDX5g3tLUbHG93zffp
-	C/N7q8O4JzVkhcY2VfXqA7XSdRuvSrMFfO7w47o4TYi/ne/9FgWV6lqhmNcL2A673zuozrbs0br
-	b1mp4OgdfWYFuChD4vmmFinM81uiModLXiqvq0yJPl/p9XbnZWhj/VmoWhc1D2paVnE+HbQWPFA
-	EA8l8yk50jOHNVMgEWgu34qQ9bjmO+bFcD1EytW4me04tLm++XjsAwpWuZeCtMgArYX9rypOIFt
-	GMBbErvH3w05BnMy4D1HfpBEx7MhL2bLkJvSVDfkRco4U9EAbF26vlaHsBkQtBfU1OQAkiXkt7d
-	iuqX/WRgs6hdjpC4EytGdC2VbkBswqfVdS+IMBUMWhnNt/Eq319JjkPNFBgg9A==
-X-Received: by 2002:a05:600c:4f14:b0:4a0:89:6727 with SMTP id 5b1f17b1804b1-4a18e4adc5cmr88069255e9.16.1791637238622;
-        Sat, 10 Oct 2026 06:00:38 -0700 (PDT)
+        bh=2JExfj/tGlMkKcgsuSdq+eQx1ckrlan0UXArxeYkCT0=;
+        b=stPmSTkloEEQsvBHNeGeIxy2l0DiHP39VR+pwxckRcypMcgzqemKNDiYlKxwmqQygS
+         DPrDN9HAius0FYQDSptOxltmT60CAEJRvzH3ZPmOn2BU9u7JPVWHSjEPyRoW110byl6g
+         zOuyph9yCL5/kLDVq6XHsDqplF0Q4SORwpAXmqttAK0ZTRcQNt+xZ+4nLAdT4wtYxTUY
+         aceEKGhzGDVMO1IR2iwy7NszDDPTig8ZMPD+l4Cy9ZpAFUhSijqIsY9Se0S1RUk4cX0q
+         Yll8HlYK54no2tKifOG1XTy7Jc9+X+mslGOerOWmOThBeCoyzOhkZsEEIsp56nyenTmD
+         q1AQ==
+X-Gm-Message-State: AFq9FYJHbEgg6wIIvZUuJU5SkBTOk3d36FUsu5DyQBW0jiiVnKwCfCIJ
+	XxtlvWERdl+3WxzQH3aXtIzlQWlMiz2Qt5zVJ55fSLeU668mQ1M2n7K6XWSlVFB1GswKvg==
+X-Gm-Gg: AYBFou2vPfL8uUTnhx4XtCW3R3aNUShGWEK25nuG+KE4X6UxyuMcXOTAUEsTughOTAO
+	MAJqc5vJ3qq+iuUtgELv8Eh7R7oH25LSttbl7ofwHJIOIfHC/lY4gl5xEsDFAThBknUajzL+hwM
+	80nBPcpGEQpQljaHBvxrLMyR461ccleGCvK5J8xM1b270+8/zk618+JHaFKF0rlJy2Kb4pMAtsp
+	3R79jCQ5mARwRxTMTy3XEHe6um9zWSUb41QChkgYBbQEGVdNkq3ErHPvtK7pwdtNZpj2luRNtfl
+	Y+8gwK9ic/6S5P2clRdrYybdIX2/fHlxvNc4yN41L1AWXrKmOcNNGqojRqBMF+yO2crlOVwsIHA
+	iQyGtHPezw9d0vv960A87m3bWb2eP9rNNwHjpo9t8Iw+VsBwFEx1YhpkPV0hsVLbsEMfr/VMmxl
+	wdpSnxIrWmILlucprt0EdXWgTszVyae6FhBFv0deYgbUJgVd5memHcbSyxiiLxioa8E0ewxRl+Q
+	GhsUbZ2G3A7LNTnIQpjizjudyJoch7eo3GJDEHZD19U5q5atAhhv+Wspi3RQlzHSKB0oqEmUVFR
+	Lz4w3GH3/RLIVWlrAGDkmmK26Gj7Ljy96YTqBtktiXyUTlU5peRJIWv0crLziSglu84fY/1z
+X-Received: by 2002:a05:600c:620d:b0:4a1:8d46:6235 with SMTP id 5b1f17b1804b1-4a18e483d48mr88612985e9.3.1791637240254;
+        Sat, 10 Oct 2026 06:00:40 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 06:00:38 -0700 (PDT)
+        Sat, 10 Oct 2026 06:00:39 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
@@ -80,17 +80,18 @@ Cc: devicetree@vger.kernel.org,
 	robh@kernel.org,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
-Date: Sat, 10 Oct 2026 13:59:47 +0100
-Message-ID: <20261010130024.177503-10-ghahramani.navid@gmail.com>
+Subject: [PATCH 11/24] dt-bindings: mfd: syscon: Add ZX279128S system controller
+Date: Sat, 10 Oct 2026 13:59:49 +0100
+Message-ID: <20261010130024.177503-12-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_060040_673551_70660F73 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20261010_060042_702704_FE98EB7E 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,136 +106,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the six banks using the generic GPIO implementation and enable
-the register clock before accessing the bank.
+Describe the remaining system-control syscon. PCIe clock/reset/PHY
+modeling is explicitly a review question.
 
 Assisted-by: LLM
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- drivers/gpio/Kconfig          | 12 ++++++
- drivers/gpio/Makefile         |  1 +
- drivers/gpio/gpio-zx279128s.c | 78 +++++++++++++++++++++++++++++++++++
- 3 files changed, 91 insertions(+)
- create mode 100644 drivers/gpio/gpio-zx279128s.c
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index a48586bb8e..3ae51a3c10 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -902,6 +902,18 @@ config GPIO_ZEVIO
- 	help
- 	  Say yes here to support the GPIO controller in LSI ZEVIO SoCs.
- 
-+config GPIO_ZX279128S
-+	tristate "ZTE zx279128s GPIO support"
-+	depends on ARCH_ZTE || COMPILE_TEST
-+	select GPIO_GENERIC
-+	help
-+	  Say yes here to support the GPIO controller of the ZTE zx279128s
-+	  SoC. It has several banks of 16 lines each, which boards such as
-+	  the ZTE ZXHN H3600 use for LEDs, buttons and reset lines.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called gpio-zx279128s.
-+
- config GPIO_ZYNQ
- 	tristate "Xilinx Zynq GPIO support"
- 	depends on ARCH_ZYNQ || ARCH_ZYNQMP || COMPILE_TEST
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index dc9e6d643b..a57ed7ec71 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -223,5 +223,6 @@ obj-$(CONFIG_GPIO_XLP)			+= gpio-xlp.o
- obj-$(CONFIG_GPIO_XRA1403)		+= gpio-xra1403.o
- obj-$(CONFIG_GPIO_XTENSA)		+= gpio-xtensa.o
- obj-$(CONFIG_GPIO_ZEVIO)		+= gpio-zevio.o
-+obj-$(CONFIG_GPIO_ZX279128S)		+= gpio-zx279128s.o
- obj-$(CONFIG_GPIO_ZYNQ)			+= gpio-zynq.o
- obj-$(CONFIG_GPIO_ZYNQMP_MODEPIN)	+= gpio-zynqmp-modepin.o
-diff --git a/drivers/gpio/gpio-zx279128s.c b/drivers/gpio/gpio-zx279128s.c
-new file mode 100644
-index 0000000000..8f37b908bb
---- /dev/null
-+++ b/drivers/gpio/gpio-zx279128s.c
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * ZTE zx279128s GPIO controller
-+ *
-+ * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+
-+/*
-+ * Each bank has 16 lines, one bit per line in each register. The registers
-+ * at 0x04-0x10 and 0x28-0x34 control the interrupts, which are not supported
-+ * yet.
-+ */
-+#define ZX279128S_GPIO_DIR	0x00	/* 1: output */
-+#define ZX279128S_GPIO_DATA	0x14	/* line level */
-+#define ZX279128S_GPIO_SET	0x18	/* write 1: drive high */
-+#define ZX279128S_GPIO_CLEAR	0x1c	/* write 1: drive low */
-+
-+static int zx279128s_gpio_probe(struct platform_device *pdev)
-+{
-+	struct gpio_generic_chip_config config = { };
-+	struct device *dev = &pdev->dev;
-+	struct gpio_generic_chip *chip;
-+	void __iomem *base;
-+	struct clk *clk;
-+	int ret;
-+
-+	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
-+	if (!chip)
-+		return -ENOMEM;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "failed to get the clock\n");
-+
-+	config.dev = dev;
-+	config.sz = 2;
-+	config.dat = base + ZX279128S_GPIO_DATA;
-+	config.set = base + ZX279128S_GPIO_SET;
-+	config.clr = base + ZX279128S_GPIO_CLEAR;
-+	config.dirout = base + ZX279128S_GPIO_DIR;
-+
-+	ret = gpio_generic_chip_init(chip, &config);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to set up the GPIO chip\n");
-+
-+	return devm_gpiochip_add_data(dev, &chip->gc, NULL);
-+}
-+
-+static const struct of_device_id zx279128s_gpio_of_match[] = {
-+	{ .compatible = "zte,zx279128s-gpio" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, zx279128s_gpio_of_match);
-+
-+static struct platform_driver zx279128s_gpio_driver = {
-+	.probe = zx279128s_gpio_probe,
-+	.driver = {
-+		.name = "zx279128s-gpio",
-+		.of_match_table = zx279128s_gpio_of_match,
-+	},
-+};
-+module_platform_driver(zx279128s_gpio_driver);
-+
-+MODULE_AUTHOR("Navid Ghahremani <ghahramani.navid@gmail.com>");
-+MODULE_DESCRIPTION("ZTE zx279128s GPIO controller driver");
-+MODULE_LICENSE("GPL");
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 945a168b61..cc0eb377ec 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -132,6 +132,7 @@ properties:
+               - ti,j784s4-acspcie-proxy-ctrl
+               - ti,j784s4-pcie-ctrl
+               - ti,keystone-pllctrl
++              - zte,zx279128s-crm2
+           - const: syscon
+       - items:
+           - enum:
 -- 
 2.55.0
 
