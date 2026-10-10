@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56617CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77188CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qd6y2NiBciAjRKr5ndbJ7uSamNBWAtmvHRlzXouwwJA=; b=4d6yqz2f8RyF+BbpbCa96YIryp
-	An059KSU7Kf95ciqiovh10K6fEyUCBPeYu9ubcYWn8F1UbGB9DxjV0tEpRYR1xGNm83EQmNxMcgR3
-	kwtSj4wH7S99LatlYI4J4zv9/4lwGFMKAMk1HS80Tr6sgXN8l7AtjeDRnCLv7clN7lP6ZlLivdgUu
-	uiXbuDqPaEhg6Fd+VD0tmS6IPzNzGm/YS+gd8mb54pCo/BHqzelFJKhOydwDM/x+pxIN0ilzVdx35
-	6RB9dTGzGTN5Dow1Ln+ViYwc1/LV6hAmahPDXUs9p4JmQ77YfzewS65yGpVO2j7s04zRvg6pHF0+L
-	pzs4G9rQ==;
+	bh=7cQlWEs7vG4qRpaZiwY4RuZzcs0XsJM2mV6rRYet5I8=; b=AKcnDjOUP8PzwWVogu9i/QvzsI
+	GPrPbFG3qC8tP38nujjW2/I0Ox4HL4MqMBVZMf5nSFxTTezD5EvCPJvd3/NTfHNtSriA/CTiYqnCt
+	A0HslrY8ixEEVu0MUvD/49xLkxBcA0YJO5hbr4P07pYFk4i0thOMQSjjdFgavLhtdkg3DjljvOxKX
+	Uhm+UD6YzTw0k3F9LUD/sw3d69YDVSpTi2UAeqxK6/5xd01AUIwCLpIiQRdOVAg/Y3Jk3v44jHaJe
+	hmKs1sUkTCWfd1r3vMwBEpU0uPDqu2UwzDu7AFB3RQLc4E5C/jCKmbUFX/Jm5y/mbbMWumcFnaqvV
+	sZNFGwtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVhE-00000007yev-3jWW;
+	id 1xFVhE-00000007yeR-2t86;
 	Sat, 10 Oct 2026 11:57:00 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVgV-00000007xzL-0Eqy
+	id 1xFVgU-00000007xzS-3foe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 10 Oct 2026 11:56:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=7cQlWEs7vG4qRpaZiwY4RuZzcs0XsJM2mV6rRYet5I8=; b=U0PGzfR9KAWNM4OdjHTXrzGaPD
+	GAFrrD5XzsjyBa7fhuiUPfVn74tWsVzjq6jZugO2S5uf0XxfrAIVeZBMGy6H93sxexZtJh2Q/bqSF
+	IyFKtr989iw6NcwF1gSYaZWDmL3WB48h0bIChkDsZcOqqk8WkYVXCz6lgBiGCfhQE9cOJXseklmOL
+	uX74zNP2L9Xr5X8KPqGrm+H4UsuAFV4b5sdrpD/BEnVqtkjgn4namXlxqBpTdRs4pxQcHiPxJE1XK
+	/sTKL2weVwADA7nbpiYrf/hIAmQQPUb2MRu60D0WQP2rrEjfM0fUU0cSi9n2Q+hD1AOVe7eD75m/O
+	z2jnyrMw==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xFVgQ-0000000C4qn-2yMD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:56:16 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a018dc1f98so4390875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 04:56:14 -0700 (PDT)
+	Sat, 10 Oct 2026 11:56:13 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a1923f15afso1216895e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 04:56:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791633373; x=1792238173; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791633369; x=1792238169; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Qd6y2NiBciAjRKr5ndbJ7uSamNBWAtmvHRlzXouwwJA=;
-        b=h1kUsPx0fCCTBqqyWiIft3tP5QnEX3Eqq06ZGUShIbJAj9PWHPsOI5+M0rI7gH3bwT
-         OPA4P6VKob30Vo3usm1Nj0s9TPqhgwclz365W9FPw0MGvWEgmkC0YwOUg6o0LKr+C2yF
-         UuN0ATb0ES6n+b1kgYjwS4dLYSgJZZmKYz1DyGvn4gn+QgD4GokHz585KM/4pKBiLdXh
-         1gDZWLFba41bL1tNFRUBYEZbV2iJudATN552eXvLqm8+zTAnM7yIFEFUSRDUTcnkHIHl
-         DHd1Yo6LxctI7lflvnahwGDM1539EeJpY2AzTqhn1vgGR8LQb9wUkQyXdzW+Q8FuNHaC
-         jtJw==
+        bh=7cQlWEs7vG4qRpaZiwY4RuZzcs0XsJM2mV6rRYet5I8=;
+        b=Z/Xvl2Z1eJS39dRPXy+8jDvjsfr/jRH4ZmNu4jn9RE//Xq8FosdHFXp0TmE+4uKYIt
+         euG7jvAoIlZ9pMAeUCsZTXJBy1GT9zqaG3eiz96JacRgOtGZLfh813XoFAtWRQJ4wzG5
+         trLIOn9+j4lgXLh5kxveMDQGqgXz8teO8k91aJY3xUyMluI40vPqBiQxj1mxKsxO9ahX
+         8ptIbyHje7NBhoiT5FQtvVLwyonJgc1H/4fVAnznoF7obb1f4j4/EErakEXgulGzOty8
+         1i3OK936fmWgxkadVF/zydPYKAix2dz1/lOUc5O8Xkw4OrEKNk9pid0XzMnngBloCUCZ
+         Pl4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791633373; x=1792238173;
+        d=1e100.net; s=20260707; t=1791633369; x=1792238169;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qd6y2NiBciAjRKr5ndbJ7uSamNBWAtmvHRlzXouwwJA=;
-        b=TxTd4AxAX58gdddMupzl7D61Ag+QTiVRfZy//TncFhMv1C1c+QOXDvElfL9fhQC007
-         r3VhTxzF8v6UUIhJP2NEY8gs9nPMuJC4N88g4eGbuLwgeemRjV9LT2v53Tut4tG4dn5h
-         1XDwfHvCwELx6IlM+/bNzh4bsBAlm74gr2Nzck4MZUVoTWbhzvzUkMnywSUPEBNSJFuR
-         8cub8gCtcZ0vo7kI4GF+GuE9hkwVb0d1gfIK+z/YEGxNnfVYNcGnM5ETgu194b2Ua9dZ
-         5aIw0WSQAkNSxywexbsX2BJhMUJWfISm7glK7pn8TxmWJ0huTf8XdeeNXTyo0rQ1twXy
-         rRtw==
-X-Forwarded-Encrypted: i=1; AKwUvBycSk0vkRSSFbANBWUso4xa4OF+d3zVlIn7PpJszwMDKGeG8CjCyrD4Qi82iSUTv79RvvWqqvNrMwLU+75gIqkh@lists.infradead.org
-X-Gm-Message-State: AFq9FYJC1f4JBt0rHfzLvIY8RtnceU45VQdfLGnASu8ioCviXUzyvxpo
-	1/auBnmVDntwr+J6rGwcDI6YCbvqERobDjR4+BsT2IdX3WH+Cb59b1O6
-X-Gm-Gg: AYBFou1oNign119IA5+AJuFh4ayjMW90IntBIF99Ou6gwzuECsSW9LB4mQBaqtLLkdq
-	IfGSICwJharoNmhuZbwJa9yP0BKI564SEHBGhhdOxMT7ppo5uoTGcp3Ex3wcAMPdzUOMmO/LpvG
-	hFbuKXUFS2NAGuMETB6zZIZJ7oeCXJDZGG4Q69Z8yEom07hDB0y8k4qJzUr8rzFgxn0vpwa0QC9
-	cQchOI0454K3oo2rgZeOE4I08xiopbmGM1Y0dfJ6kLHXlnoASW7v0VIMNjnAWBe4oGbhFQdWbST
-	K17QUhMxH9p4+HfaHgrWtkc81pRq2v7aLAdINI/nE/tvKWhsNVNM5EPJvKxrE1SIAb7eIM1DHBe
-	T+pAZ8xMPkxoj8Iszy8zGWMmMEUcysq+5Vvgd41iLfvv20fTaL/uy+scvGu7ccdGhJ2Bf9ooIQo
-	13aVNAa3H6Z/Rn5LsL4WOKsOn4jZ6J8OGVoPdlgRtFxt9vTMvpgVtccgRgKEgNB5CIHQ==
-X-Received: by 2002:a05:600c:6749:b0:4a0:1a7f:2abf with SMTP id 5b1f17b1804b1-4a18e49d633mr79294265e9.7.1791633373147;
-        Sat, 10 Oct 2026 04:56:13 -0700 (PDT)
+        bh=7cQlWEs7vG4qRpaZiwY4RuZzcs0XsJM2mV6rRYet5I8=;
+        b=HZBd/MqJS3GZrHbGIoK7G57vftiUbo/xxSkQes5KiJsl2iyqu9DMUCMN8G33nAdFgC
+         OxKjXHuR8zvIsCyiR2JIXixNczwti1abIkSj4yDmZ+LQU4Y1GsrWZ0pMn/qFZfE9Wy4/
+         PXUdQ1/aZjcsUJy5HbR/KkJviamokCKtyBF6ZOsh9gLdZByHxZUQGH6JT713zJdblQ1V
+         bq6WyNeC5DC//bt6d+F+9Os4iMM/1vtO3g3RhLGqGK7pChFqsj0rhUKPhFp7sqQaMiaC
+         wG/FHfGmnGjDJFwkuX1NCtawp+lXJYHLNTSSDHY4yFDD7Ehu7trwl3V01KFDBTfaf2qC
+         8P9w==
+X-Forwarded-Encrypted: i=1; AKwUvBwVNSTCz9g1JNT+QklWaO/wcfQMpsKZ/r3FITfxkZFfMAfaE9r+XFxMlNZB2Cnxasd80oPfBZOkD2cILXfnqq9r@lists.infradead.org
+X-Gm-Message-State: AFq9FYKn7nvkslvNxvcqBCWrZl/SW3frHyYw4FtponywH7jeOpXjEQpb
+	erdWdxO3ys/hpG+oF3Zi4jq1aQgZPlGSe/vYZ7TrFD/4tHS9dfx3NDM4
+X-Gm-Gg: AYBFou3M1GdiLzgiZJv0wC6HNgEc4I2Y1FDB35tmxBwRviwD+BnqvKxSSUE+d3xIlXv
+	VowiMT7MOEgxgyvnrvIfIcfV9uEhmT7/p6zJGgD06/Dt4TSUopDkHvThiN1L8SPWrzzQTjJW6hv
+	jOTD8iBU2c4dpXd9we/VzEPpnb23udYiksh9tL2ehH7cb3q4V1l3PJHUd+iq1No0S6RuiwqN8MY
+	07D+zVjxwB7QZJkbrdDp16vZqMuuX8XDNDGa2+c0wOm8Xw7cVFlLJWW1MoFBQzB5BukkssWE39s
+	Rdk/l6JLJ49qYAl0UcV5USl8qQ79wAD+bjtjhWqECDC3JG2e+9+mEooODge2/gMQ4OBlSFLP0tm
+	/a19H4e4UinmPRajDsjox4m+jyzmXH7DrnvhXLG2DVxZ4oFi3Pp7A0VooeeZ3R6/OUivfkFuyZl
+	yJxoXLQCqOwz1yQjpiED2nLV+Pp5Np1v5dAVGMy68xNncAOQMH/ats6uV+NvW6v+VJ6Q==
+X-Received: by 2002:a5d:5d09:0:b0:48c:6a6b:69b2 with SMTP id ffacd0b85a97d-48dbaae7028mr6208118f8f.27.1791633369101;
+        Sat, 10 Oct 2026 04:56:09 -0700 (PDT)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aca657sm8746340f8f.43.2026.10.10.04.56.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aca657sm8746340f8f.43.2026.10.10.04.56.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 04:56:12 -0700 (PDT)
+        Sat, 10 Oct 2026 04:56:08 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
@@ -91,25 +106,25 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
 	Chen-Yu Tsai <wenst@chromium.org>,
 	Fabien Parent <fparent@baylibre.com>,
-	chunhui dai <chunhui.dai@mediatek.com>,
 	CK Hu <ck.hu@mediatek.com>,
+	chunhui dai <chunhui.dai@mediatek.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH 6/7] drm/mediatek: mtk_hdmi: Improve the secure output bit toggle
-Date: Sat, 10 Oct 2026 13:54:06 +0200
-Message-ID: <20261010115539.9237-7-l.scorcia@gmail.com>
+Subject: [PATCH 5/7] drm/mediatek: mtk_hdmi: Set tz_disabled for mt8167
+Date: Sat, 10 Oct 2026 13:54:05 +0200
+Message-ID: <20261010115539.9237-6-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261010115539.9237-1-l.scorcia@gmail.com>
 References: <20261010115539.9237-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_045615_174519_0E0EED49 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20261010_125610_911794_7FC975C2 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,45 +139,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The secure output control bit toggle for mt2701/mt8167 currently sets
-bit 0 (DEEP_COLOR_EN), 1-2 (DEEP_COLOR_MODE), 15 (HDMI_PSECUR_EN) and 31
-(HDMI_PCLK_FREE_RUN_EN) in the same operation, but only bit 15 is actually
-controlling the HDMI_PSECUR_EN bit, the rest of them are already being set
-in separate operations later. Add a define for bit 15 and clean up the bit
-update operation.
+Just like mt2701, MediaTek mt8167 does not require an ARM supervisor mode
+call to toggle HDMI output.
 
-Fixes: 0fc721b2968e ("drm/mediatek: add hdmi driver for MT2701 and MT7623")
+Fixes: 511cf7d12331 ("drm/mediatek: hdmi: Add MT8167 configuration")
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c      | 2 +-
- drivers/gpu/drm/mediatek/mtk_hdmi_regs.h | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 9896eaf81e7e..781177a1f190 100644
+index 738090a47176..9896eaf81e7e 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -63,7 +63,7 @@ static void mtk_hdmi_hw_make_reg_writable(struct mtk_hdmi *hdmi, bool enable)
- 	if (hdmi->conf && hdmi->conf->tz_disabled)
- 		regmap_update_bits(hdmi->sys_regmap,
- 				   hdmi->sys_offset + HDMI_SYS_CFG20,
--				   0x80008005, enable ? 0x80000005 : 0x8000);
-+				   HDMI_PSECUR_EN, enable ? 0 : HDMI_PSECUR_EN);
- 	else
- 		arm_smccc_smc(MTK_SIP_SET_AUTHORIZED_SECURE_REG, 0x14000904,
- 			      0x80000000, 0, 0, 0, 0, 0, &res);
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_regs.h b/drivers/gpu/drm/mediatek/mtk_hdmi_regs.h
-index 2050ba45b23a..e0c35277c553 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_regs.h
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_regs.h
-@@ -219,6 +219,7 @@
- #define DEEP_COLOR_EN			BIT(0)
- #define HDMI_AUDIO_TEST_SEL		BIT(8)
- #define HDMI2P0_EN			BIT(11)
-+#define HDMI_PSECUR_EN			BIT(15)
- #define HDMI_OUT_FIFO_EN		BIT(16)
- #define HDMI_OUT_FIFO_CLK_INV		BIT(17)
- #define MHL_MODE_ON			BIT(28)
+@@ -1214,6 +1214,7 @@ static const struct mtk_hdmi_conf mtk_hdmi_conf_mt2701 = {
+ };
+ 
+ static const struct mtk_hdmi_conf mtk_hdmi_conf_mt8167 = {
++	.tz_disabled = true,
+ 	.cea_modes_only = true,
+ 	.max_mode_clock = 148500,
+ 	.ver_conf = &mtk_hdmi_v1_ver_conf
 -- 
 2.43.0
 
