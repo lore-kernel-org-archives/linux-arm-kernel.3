@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5BCCA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60586CA9EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Mime-Version:Message-Id:From:Content-Type:Date:Cc:In-Reply-To:References:
-	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=US+Gg57swXQ2D9e2dltsJCvKtQB77YrVn7jqeloa4eI=; b=LjUIqjpbRhO9d8gp4N9toYOQr5
-	SHJVqTaBpUX+67/sW86wxBOrUiUe58aD5aZi4POk4GuCF0M+M0XPp3sa9a4pGWsc3H2u+NIzJOsE+
-	8KPFBw6ZS3Wsp5ljb6KrnEWdPvaptNsPelddfmRDY/tm9wvaKocsffKE+pfncGMEMIlPzRS0k/u7U
-	S1e4+f10ToAtAV31jD7fTpbXb4KQf7uCeIfzig0VVB7J/Ul+Tt4kef9FlIZ1F8y6pdLneT//YPCEa
-	RUoTBj5vWKvNZciltPogsqb1C4uy1WFTaQA+yBNLiYzgG0U+KxuD6J+y+oXCoDsHZEBHIqql7Q86c
-	bWbqKceQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Date:To:
+	Content-Type:Mime-Version:From:Cc:References:Content-Transfer-Encoding:
+	Message-Id:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YYlAhLyA+W59txuVdfGlHzgN9jui63GdXPtcMpN2dC4=; b=08t7qXKT/CWs3Caz7JDuvWozVU
+	PEPdjxy//AoLPW9k1duMcaasI1ca+skQ0of/+h7CRfRjCPB1q7Qsjs8xGNZNuoqovvIoD2q6DDH0g
+	GBOcTQfmekS3MgLpfP50edj4dGYpcO5IcpodrT/rVWnOV8V9BIvqbLzQ7ZpSC0xtWQMQMBaw8hL69
+	y9G//J6BdZ2RT84FO3nEyFn0XyE1bTueFwlXRHHKLDLqUMrs9kOv3RwnmArllExfN3wFiIjNi8x1y
+	pcAefhoBSyl+ush9Suugx+lma/ZRWkKTgw5yfdIogMDjqsCYNpw39nSoaoFDUBtW+VHb6auP3dIPP
+	mEYo7vIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSnX-00000007i3u-1rEJ;
-	Sat, 10 Oct 2026 08:51:19 +0000
+	id 1xFSnk-00000007i6f-2Ho8;
+	Sat, 10 Oct 2026 08:51:32 +0000
 Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSnU-00000007i3N-1hlr
+	id 1xFSni-00000007i5r-02Vj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 08:51:17 +0000
+	Sat, 10 Oct 2026 08:51:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1791622271; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1791622282; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=US+Gg57swXQ2D9e2dltsJCvKtQB77YrVn7jqeloa4eI=;
- b=nMoo/SF1pWKjC+qel/mkFZOq902NvICMhgxq46LNnzUnpGTXrZgp/BLtY42qb+8nahyQI+
- pzKcIEBtRkBDyCnGoBJ50nKFnba6kFEhzFt+0N0yqqkFNwK/XusKc2Wudd9mSkkcDNLDCf
- t51jmPkv9z+TVfF+CLSZqi8G1pnLyTTSr/oa3X/zJoUII50H4x4OQhj8bp/VDD3Jo8ztjH
- RSzJQ876Dt03ZyyOC9GPDhKrhoz2dw6v4aieyfMV8KjUH9O+NFUxngngvVITdQ4FYjq7oB
- echs45WRoWauLHTRBo4dwFqZgy4goWf4yGvzBaR7oRbzNjtaua9YxCHdCvFoNQ==
-To: <catalin.marinas@arm.com>, <will@kernel.org>
-Subject: [PATCH 2/3] arm64: patching: Fix instruction byte order in aarch64_insn_set()
-References: <20261010084721.2197683-1-qirui.001@bytedance.com>
-In-Reply-To: <20261010084721.2197683-1-qirui.001@bytedance.com>
+ bh=YYlAhLyA+W59txuVdfGlHzgN9jui63GdXPtcMpN2dC4=;
+ b=nZ0PBfpYyJN6aW72PaJJuO5pFjXlSSfuTsUfTMh+dD2/6rruhTIHyoiWg8nSuM957TktW4
+ eNSSomyYpTQpF+FlJwQFebSJps9tSyjsAqluNraXoPMHDQUfItEKAFuaPPt9zC7OB1Oteh
+ j2yUDcOmR03pXDx68bK4nO7c/L7knrlV4jHPtJJI3/6/lGCVq/JXG+4ipCIgD4wyGQnco6
+ RKtTF/a13NwSE+kZNVjl1UpMi1Hm9zcVJJrkwaupbuWa3wSGoQa585zntlv7T64jem3zvz
+ V86FErFR2njnejJOO9ebPvKhumCYQTiLAgEA4eKdVZj3AWr0QXlSO4hwn0/nlA==
+Subject: [PATCH 3/3] arm64: module: Use text-poke for late PLT/veneer emission
+Message-Id: <20261010085055.2200241-2-qirui.001@bytedance.com>
+Content-Transfer-Encoding: 7bit
+References: <20261010084721.2197683-1-qirui.001@bytedance.com> <20261010085055.2200241-1-qirui.001@bytedance.com>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
 Cc: <mark.rutland@arm.com>, <ardb@kernel.org>, <song@kernel.org>, 
 	<dylanbhatch@google.com>, <linux-arm-kernel@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>, 
 	<stable@vger.kernel.org>
-Date: Sat, 10 Oct 2026 16:50:54 +0800
-Content-Type: text/plain; charset=UTF-8
 From: "Rui Qi" <qirui.001@bytedance.com>
-Message-Id: <20261010085055.2200241-1-qirui.001@bytedance.com>
 Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
+X-Lms-Return-Path: <lba+26ac9fc88+1c64a5+lists.infradead.org+qirui.001@bytedance.com>
 X-Mailer: git-send-email 2.20.1
-X-Lms-Return-Path: <lba+26ac9fc7d+605c49+lists.infradead.org+qirui.001@bytedance.com>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+To: <catalin.marinas@arm.com>, <will@kernel.org>
+Date: Sat, 10 Oct 2026 16:50:55 +0800
+In-Reply-To: <20261010085055.2200241-1-qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_015116_533943_6583F169 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20261010_015130_121783_508DA51D 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,48 +71,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aarch64_insn_set() passes the host-endian u32 instruction straight to
-text_poke_memset(), which memset32()'s it into memory in host byte order.
-AArch64 instructions must be little-endian in memory, so on a big-endian
-kernel the written bytes are reversed and the CPU takes an UNDEFINED
-instruction exception when fetching them.  The sibling aarch64_insn_write()
-already converts with cpu_to_le32(); aarch64_insn_set() does not.
+module_emit_plt_entry() and module_emit_veneer_for_adrp() write PLT
+entries into the .plt section by direct assignment.  Once a module is
+fully formed its .plt is read-only/executable, so a late (livepatch)
+relocation that falls back to PLT emission -- an out-of-range
+R_AARCH64_CALL26/JUMP26, or an ADRP under CONFIG_ARM64_ERRATUM_843419
+-- triggers a synchronous Data Abort and panics.
 
-This is reachable in-tree: bpf_arch_text_invalidate() fills freed JIT
-regions with AARCH64_BREAK_FAULT through aarch64_insn_set(), and arm64
-selects HAVE_EBPF_JIT without a big-endian guard, so the path is taken on
-BE kernels with BPF JIT.  The direct-fill loop in the same file already
-cpu_to_le32()'s the constant, confirming the expected byte order.
+This is the same ROX premise that commit 91b89a634487
+("arm64/module: Use text-poke API for late relocations.") handled for
+the relocation writes through WRITE_PLACE(); the PLT/veneer emitters
+were left using direct assignment.
 
-Convert the instruction to little-endian before the memset, mirroring
-aarch64_insn_write().  On LE the conversion is a no-op, so behaviour is
-unchanged.
+The late path is reachable without remapping:
+klp_write_section_relocs() applies .klp.rela.* sections through
+apply_relocate_add() with the patch module already MODULE_STATE_LIVE,
+so .plt is ROX.
 
-Fixes: 451c3cab9a65e656c3b3d106831fc02d56b8c34a ("arm64: patching: implement text_poke API")
+Route the emitters through the text-poke API, mirroring WRITE_PLACE().
+
+Fixes: 91b89a634487d5614e51ee773a889ed57f5551ca ("arm64/module: Use text-poke API for late relocations.")
 Cc: stable@vger.kernel.org
 Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- arch/arm64/kernel/patching.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/module-plts.c | 35 ++++++++++++++++++++++++++++++---
+ 1 file changed, 32 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
-index 09f019c6547a..ffd790b2b277 100644
---- a/arch/arm64/kernel/patching.c
-+++ b/arch/arm64/kernel/patching.c
-@@ -170,10 +170,12 @@ noinstr void *aarch64_insn_copy(void *dst, void *src, size_t len)
-  */
- noinstr void *aarch64_insn_set(void *dst, u32 insn, size_t len)
- {
-+	__le32 __insn = cpu_to_le32(insn);
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index 7afd370da9f4..fa89ed014bd1 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -9,6 +9,29 @@
+ #include <linux/module.h>
+ #include <linux/moduleloader.h>
+ #include <linux/sort.h>
++#include <linux/text-patching.h>
 +
- 	if ((uintptr_t)dst & 0x3)
- 		return NULL;
++/*
++ * The .plt section is marked ROX once the module is fully formed, so
++ * late (livepatch) relocations that emit PLT entries cannot use direct
++ * assignment.  Mirror WRITE_PLACE() and route the write through the
++ * text-poke API when the module is already loaded.
++ *
++ * Return: 0 on success, -EINVAL if the text-poke write failed.
++ */
++static int plt_entry_write(struct plt_entry *plt,
++			   struct plt_entry *entry, struct module *mod)
++{
++	if (mod->state == MODULE_STATE_UNFORMED) {
++		*plt = *entry;
++		return 0;
++	}
++
++	if (!aarch64_insn_copy(plt, entry, sizeof(*plt)))
++		return -EINVAL;
++
++	return 0;
++}
  
--	return __text_poke(text_poke_memset, dst, &insn, len);
-+	return __text_poke(text_poke_memset, dst, &__insn, len);
+ static struct plt_entry __get_adrp_add_pair(u64 dst, u64 pc,
+ 					    enum aarch64_insn_register reg)
+@@ -76,11 +99,14 @@ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+ 	int i = pltsec->plt_num_entries;
+ 	int j = i - 1;
+ 	u64 val = sym->st_value + rela->r_addend;
++	struct plt_entry entry;
+ 
+ 	if (is_forbidden_offset_for_adrp(&plt[i].adrp))
+ 		i++;
+ 
+-	plt[i] = get_plt_entry(val, &plt[i]);
++	entry = get_plt_entry(val, &plt[i]);
++	if (plt_entry_write(&plt[i], &entry, mod))
++		return 0;
+ 
+ 	/*
+ 	 * Check if the entry we just created is a duplicate. Given that the
+@@ -107,6 +133,7 @@ u64 module_emit_veneer_for_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 	int i = pltsec->plt_num_entries++;
+ 	u32 br;
+ 	int rd;
++	struct plt_entry entry;
+ 
+ 	if (WARN_ON(pltsec->plt_num_entries > pltsec->plt_max_entries))
+ 		return 0;
+@@ -121,8 +148,10 @@ u64 module_emit_veneer_for_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 	br = aarch64_insn_gen_branch_imm((u64)&plt[i].br, (u64)loc + 4,
+ 					 AARCH64_INSN_BRANCH_NOLINK);
+ 
+-	plt[i] = __get_adrp_add_pair(val, (u64)&plt[i], rd);
+-	plt[i].br = cpu_to_le32(br);
++	entry = __get_adrp_add_pair(val, (u64)&plt[i], rd);
++	entry.br = cpu_to_le32(br);
++	if (plt_entry_write(&plt[i], &entry, mod))
++		return 0;
+ 
+ 	return (u64)&plt[i];
  }
- 
- int __kprobes aarch64_insn_patch_text_nosync(void *addr, u32 insn)
 -- 
 2.20.1
 
