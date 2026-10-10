@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682D6CA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 02:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36CCCA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 02:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VeVooY1BF4c0BpixgBp6X7gNCFTO8VvE12rUCObKIh4=; b=ISYHZpFFRgGZBZtMXjl2S+NDzr
-	TiKCG3jOxx9fibK21GUm695JxTqg1jvDUC72PVD4XySoLpKk5ash0xBjdh2Hh6vhDlkj33W/jshJ/
-	XWZ0uPY2ONdyLF7S0H9crezn6gEyIWZlc+ZlZikGgFgOEgOLTGhn8V/1iETd7ipTWvi1QqVzEVH9O
-	Xk+tI7XAtS4wJm+xZKCJ24n8cmQebCNw0ykdnE0O4NE8HUrwT3SshKGJleIqeP0TJR0PoaRdx9Uky
-	0sBlALO/Bxj+WCvuwS9PxZBbS2Dqf7NEGg57lRj02LSaPa9NjGQ1XJYXl5RmLC+8aeGVIKEbrdD5O
-	av4tVQRQ==;
+	bh=XezuMrCTQbMzbi20T+1rCrxjWanYRbUDYkUJJW/TRwg=; b=dSNx7r/L2AVxMaXCn/EVXmJWrU
+	U+7AkDwKDuiaf6dElsIFsqIfukzDuCD5RP0VM/A0zctIcrk/8jDqgsifWfE9DIcXDWzzUfCAIjji2
+	Kz8Uk1nov47cW4sfzcyeeplE/qGp+WO62ixcHb78U8/6VWXURAVtQvcLrDLda492C/5XpIDTHuR9q
+	g5LDJppg6BD6uBYkHWpwr+erkhg2SzH+nSf8oDMJB2NvIA+ucaBmYarj57dfUggseUe0tyU/5nUPW
+	VaHAzH+K/xsRV9mpOM0EDggiRgwyR5vviS9FUMoBrSfwY6wChGncPSIY04r8zlSW0kyCQABmvzIhi
+	4avexQbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFN9i-00000007RWi-2jYA;
-	Sat, 10 Oct 2026 02:49:50 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1xFND7-00000007Rhg-1UMK;
+	Sat, 10 Oct 2026 02:53:21 +0000
+Received: from mail-m127156.xmail.ntesmail.com ([115.236.127.156])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFN9e-00000007RWC-3Xxj
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 02:49:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=VeVooY1BF4c0BpixgBp6X7gNCFTO8VvE12rUCObKIh4=;
-	b=D3mXrfC+Fc4CB4Yo3EcK9GJ6poDIy695WU9/R//ot6IbyJkNXnjf9N6r8HQpmTGnGr6nw0g27
-	aI+MIyvYoV6LK6y4qznx9uxttRl/MS/KfK5wwYYVMsk1RUDkhd293ZJTRKUuBBWIctcYO2+FKBN
-	aEDW1VsGjk6bRso3TCRWpBo=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4j1nv212CpzLlSh;
-	Sat, 10 Oct 2026 10:37:18 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id D3C894057A;
-	Sat, 10 Oct 2026 10:49:33 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 10 Oct
- 2026 10:49:33 +0800
-Message-ID: <a9b77612-3b81-4491-ae57-baee0400540a@huawei.com>
-Date: Sat, 10 Oct 2026 10:49:30 +0800
+	id 1xFND2-00000007Rgy-2Dx3;
+	Sat, 10 Oct 2026 02:53:19 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 50848de2e;
+	Sat, 10 Oct 2026 10:48:09 +0800 (GMT+08:00)
+Message-ID: <80f7ba75-d374-4eae-abfe-d53ec2deb52f@rock-chips.com>
+Date: Sat, 10 Oct 2026 10:48:06 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/23] arm64: cpufeature: Check arm64_ftr_regs[] before
- the first store
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ben
- Horgan <ben.horgan@arm.com>, =?UTF-8?Q?=C8=98tefania_Ion?=
-	<stefion@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Pankaj Patil
-	<pankaj.patil@oss.qualcomm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Tarun
- Sahu <tarunsahu@google.com>, Fuad Tabba <fuad.tabba@linux.dev>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20261009100738.31288-1-will@kernel.org>
- <20261009100738.31288-6-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20261009100738.31288-6-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Subject: Re: [PATCH v2 01/20] drm/atomic: Handle max bpc properties before
+ connector state allocation
+To: Xilin Wu <sophon@radxa.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Igor Paunovic <royalnet026@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org, dragon@radxa.com,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
+ <20261009-msm-dp-hdr10-v2-1-1835d4966da3@radxa.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20261009-msm-dp-hdr10-v2-1-1835d4966da3@radxa.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa123b5f22b03a7kunm6360a2b5135bed8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCT0lCVh4eS0NISB0ZGkIZQ1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=NDDV4FoZEkpnMGy2XPGW8N+gwtaSRGLvEggg0PegiDpBP5UhKFXzFgDGs7vhPjaiOze7Fyi4/WWCLvCSyp2ikyPrx//6pcTMrtVJcxyw9Qaw1Za2AAiM6d2ZWXCVVg5KUlWFQXDDNihwmxL85/LQ5quIpkQDKNopIVW3o7xdwo0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=XezuMrCTQbMzbi20T+1rCrxjWanYRbUDYkUJJW/TRwg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_194947_516817_7DAAB0DD 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20261009_195317_147164_36747CF1 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +88,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Xilin,
 
-
-在 2026/10/9 18:07, Will Deacon 写道:
-> From: Fuad Tabba <fuad.tabba@linux.dev>
+On 10/9/2026 11:15 AM, Xilin Wu wrote:
+> Allow drivers to attach the max bpc property before allocating connector
+> state, as needed by the upcoming non-HDMI bridge connector support.
+> Only update the current state when one exists.
 > 
-> sort_ftr_regs() sorts nothing. It checks that arm64_ftr_regs[] is in
-> sys_id order, which the binary search in get_arm64_ftr_reg() relies on,
-> and that no register's fields overlap. It runs at the top of
-
-It also checks whether the register field extends beyond 64 bits
-
-> init_cpu_features(), after the boot CPU's __cpuinfo_store_cpu(). A
-> subsequent patch makes __cpuinfo_store_cpu() look registers up in the
-> table.
+> Initialize max_requested_bpc and max_bpc from the attached property default
+> when creating connector state. Use drm_object_property_get_default_value()
+> rather than the range maximum so that state creation and subsequent resets
+> restore the value chosen when attaching the property.
 > 
-> Rename it validate_ftr_regs() and call it from smp_prepare_boot_cpu(),
-> ahead of cpuinfo_store_boot_cpu().
+> Cover deferred allocation, existing state and restoration of a default
+> that differs from the range maximum in the connector KUnit tests.
 > 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Will Deacon <will@kernel.org>
+> Assisted-by: LLM
+> Signed-off-by: Xilin Wu <sophon@radxa.com>
 > ---
->  arch/arm64/include/asm/cpu.h   | 1 +
->  arch/arm64/kernel/cpufeature.c | 5 +----
->  arch/arm64/kernel/smp.c        | 2 ++
->  3 files changed, 4 insertions(+), 4 deletions(-)
+>  drivers/gpu/drm/drm_atomic_state_helper.c  |  8 +++++
+>  drivers/gpu/drm/drm_connector.c            |  6 ++--
+>  drivers/gpu/drm/tests/drm_connector_test.c | 53 ++++++++++++++++++++++++++++++
+>  3 files changed, 65 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
-> index 3c008821219c..f332fbd8e46d 100644
-> --- a/arch/arm64/include/asm/cpu.h
-> +++ b/arch/arm64/include/asm/cpu.h
-> @@ -75,6 +75,7 @@ DECLARE_PER_CPU(struct cpuinfo_arm64, cpu_data);
->  void cpuinfo_store_cpu(void);
->  void __init cpuinfo_store_boot_cpu(void);
->  
-> +void __init validate_ftr_regs(void);
->  void __init init_cpu_features(struct cpuinfo_arm64 *info);
->  void update_cpu_features(int cpu, struct cpuinfo_arm64 *info,
->  				 struct cpuinfo_arm64 *boot);
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 32102c3912fa..727e1665c987 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -962,7 +962,7 @@ s64 arm64_ftr_safe_value(const struct arm64_ftr_bits *ftrp, s64 new,
->  	return ret;
+> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+> index a2ef272e9f27..8352b5a9097a 100644
+> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> @@ -494,7 +494,15 @@ void
+>  __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+>  					 struct drm_connector *connector)
+>  {
+> +	u64 val;
+> +
+>  	conn_state->connector = connector;
+> +	if (connector->max_bpc_property &&
+> +	    !drm_object_property_get_default_value(&connector->base,
+> +						   connector->max_bpc_property, &val)) {
+> +		conn_state->max_requested_bpc = val;
+> +		conn_state->max_bpc = val;
+> +	}
 >  }
+>  EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
 >  
-> -static void __init sort_ftr_regs(void)
-> +void __init validate_ftr_regs(void)
->  {
->  	unsigned int i;
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 8b4baed060f3..34c30469f405 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -2886,8 +2886,10 @@ int drm_connector_attach_max_bpc_property(struct drm_connector *connector,
+>  	}
 >  
-> @@ -1207,9 +1207,6 @@ bool gmid_el1_accessible(const struct cpuinfo_arm64 *info)
->  
->  void __init init_cpu_features(struct cpuinfo_arm64 *info)
->  {
-> -	/* Before we start using the tables, make sure it is sorted */
-> -	sort_ftr_regs();
-> -
->  	init_cpu_ftr_reg(SYS_CTR_EL0, info->reg_ctr);
->  	init_cpu_ftr_reg(SYS_DCZID_EL0, info->reg_dczid);
->  	init_cpu_ftr_reg(SYS_CNTFRQ_EL0, info->reg_cntfrq);
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index a61dc3016a11..eac217b9ebf1 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -455,6 +455,8 @@ void __init smp_prepare_boot_cpu(void)
->  	 */
->  	set_my_cpu_offset(per_cpu_offset(smp_processor_id()));
->  
-> +	/* Check arm64_ftr_regs[] before anything looks registers up in it. */
-> +	validate_ftr_regs();
+>  	drm_object_attach_property(&connector->base, prop, max);
+> -	connector->state->max_requested_bpc = max;
+> -	connector->state->max_bpc = max;
+> +	if (connector->state) {
+> +		connector->state->max_requested_bpc = max;
+> +		connector->state->max_bpc = max;
+> +	}
+> 
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+And for patch1/2. I don't think it's right way to go.
 
->  	cpuinfo_store_boot_cpu();
->  	setup_boot_cpu_features();
+As comment said: 
+drm_connector_attach_max_bpc_property() requires the connector to have a state.
+
+There are two reasons here. First, most drivers follow the convention
+described in this comment, but you only modified some of them. Second, 
+it appears you are removing the connector state, so the 
+"if (connector->state)" check here would always evaluate to false, 
+which doesn't seem to make much sense.
+
+>  	return 0;
+>  }
+> diff --git a/drivers/gpu/drm/tests/drm_connector_test.c b/drivers/gpu/drm/tests/drm_connector_test.c
+> index beb1d50a6646..1174607441b9 100644
+> --- a/drivers/gpu/drm/tests/drm_connector_test.c
+> +++ b/drivers/gpu/drm/tests/drm_connector_test.c
+> @@ -12,6 +12,7 @@
+>  #include <drm/drm_file.h>
+>  #include <drm/drm_kunit_helpers.h>
+>  #include <drm/drm_modes.h>
+> +#include <drm/drm_property.h>
 >  
+>  #include <drm/display/drm_hdmi_helper.h>
+>  
+> @@ -187,7 +188,59 @@ KUNIT_ARRAY_PARAM(drm_connector_init_type_valid,
+>  		  drm_connector_init_type_valid_tests,
+>  		  drm_connector_init_type_desc);
+>  
+> +/* The attached default need not equal the upper end of the property range. */
+> +static void drm_test_connector_max_bpc_default(struct kunit *test)
+> +{
+> +	struct drm_connector_init_priv *priv = test->priv;
+> +	struct drm_connector *connector = &priv->connector;
+> +	struct drm_property *prop;
+> +	int ret;
+> +
+> +	ret = drmm_connector_init(&priv->drm, connector, &dummy_funcs,
+> +				  DRM_MODE_CONNECTOR_DisplayPort, NULL);
+> +	KUNIT_ASSERT_EQ(test, ret, 0);
+> +
+> +	prop = drm_property_create_range(&priv->drm, 0, "max bpc", 6, 12);
+> +	KUNIT_ASSERT_NOT_NULL(test, prop);
+> +	connector->max_bpc_property = prop;
+> +	ret = drm_connector_attach_max_bpc_property(connector, 6, 10);
+> +	KUNIT_ASSERT_EQ(test, ret, 0);
+> +	KUNIT_EXPECT_NULL(test, connector->state);
+> +
+> +	drm_mode_config_reset(&priv->drm);
+> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
+> +
+> +	connector->state->max_requested_bpc = 8;
+> +	connector->state->max_bpc = 8;
+> +	drm_mode_config_reset(&priv->drm);
+> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
+> +}
+> +
+> +static void drm_test_connector_max_bpc_existing_state(struct kunit *test)
+> +{
+> +	struct drm_connector_init_priv *priv = test->priv;
+> +	struct drm_connector *connector = &priv->connector;
+> +	int ret;
+> +
+> +	ret = drmm_connector_init(&priv->drm, connector, &dummy_funcs,
+> +				  DRM_MODE_CONNECTOR_DisplayPort, NULL);
+> +	KUNIT_ASSERT_EQ(test, ret, 0);
+> +	drm_mode_config_reset(&priv->drm);
+> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
+> +
+> +	ret = drm_connector_attach_max_bpc_property(connector, 6, 10);
+> +	KUNIT_ASSERT_EQ(test, ret, 0);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
+> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
+> +}
+> +
+>  static struct kunit_case drmm_connector_init_tests[] = {
+> +	KUNIT_CASE(drm_test_connector_max_bpc_default),
+> +	KUNIT_CASE(drm_test_connector_max_bpc_existing_state),
+>  	KUNIT_CASE(drm_test_drmm_connector_init),
+>  	KUNIT_CASE(drm_test_drmm_connector_init_null_ddc),
+>  	KUNIT_CASE_PARAM(drm_test_drmm_connector_init_type_valid,
+> 
 
 -- 
-Best regards,
-Jinjie
-
+Best, 
+Chaoyi
 
