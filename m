@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C620CA9EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06038CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgBe07elzDeNeK+/7zmzLtY0h4tsRLImHcaJsOOOl1A=; b=LN2lJMRAM2tmzzEnaEEgrk55wO
-	5nsWJPk7OvQEswfW99ks4z4LohrGwm4iCIgg7/Szzk64DOsEEfadsw2AM7LDLArWERX0EgB6V+h+n
-	IxXXQIHI9C9RRqp2/DWHj96Oj9U3rDhCg3Tm2F8xnu+kzLedjLnru9+zs+rotnYBpT1Sq8mxwROMa
-	rOdrdxooYgMvHyHdweH9itldhpZv33SgSSr8RSPIG4OU0ZXvINjj6s1M24lgZNizHp2VxAR20QaoL
-	3UQPlcX+lZsyrmpTseOy2occxExHMTbsCxD96SqcrrLTlUA37edXUJ6xypjKlqJuhPv+thcaEepFX
-	wTqzWkpg==;
+	bh=JYSadryjGjCm4oYr8oW5zRSHTnl2sIQvjbsGyQEsW2A=; b=C+92H1VgVpudxGSBoNmZ+0BSCV
+	Uf0LS2LglFwfSSRNF99SfL+M0Gc9FqK7HQ7wJ9nXRgXZVDUKAwwKse1gxXztf2j3QuRDE9B3ZTGsG
+	2l4GkETy3THA0f54NYnxv5eVCVR+FI+0DIp+/NIDy6glmGDRW8wtfRRJIu1zTE+uXqgkT6LlddDNJ
+	XomopVdrOI0s8SHy6kv6tRLtn2Ucx5ey1INHZ0P291y0jnPqEgSeIOd/ZGKDrocjXA8IpxIuQuGZf
+	9pjiJmqqBzTpU/xhD1rIXqG6vyBQ3VEreCsnCvXRoIrXv+zIqRtT8baThgHBlnJ7eJJxePS2ZAugv
+	263U/sMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVgD-00000007xpA-2T2T;
-	Sat, 10 Oct 2026 11:55:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xFVgJ-00000007xsy-3pvP;
+	Sat, 10 Oct 2026 11:56:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVg2-00000007xjY-39jx
+	id 1xFVg7-00000007xl5-2gfO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:55:46 +0000
+	Sat, 10 Oct 2026 11:55:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2362344501;
-	Sat, 10 Oct 2026 11:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07CF01F000FF;
-	Sat, 10 Oct 2026 11:55:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ADB26025A;
+	Sat, 10 Oct 2026 11:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 144211F000FF;
+	Sat, 10 Oct 2026 11:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791633346;
-	bh=bgBe07elzDeNeK+/7zmzLtY0h4tsRLImHcaJsOOOl1A=;
+	s=k20260515; t=1791633350;
+	bh=JYSadryjGjCm4oYr8oW5zRSHTnl2sIQvjbsGyQEsW2A=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PSqM923W8C9ZeyyMoaf941MaHShkVgnawqZQkds5inc3fRaw186SaIJSvm1BRfvEH
-	 5vXRAZ1lBm41qHVuWC/iyq4lz1B+Rmn0kBmxSX+PAjr6Z8oelRHaRbsqQ5lzVCjkSW
-	 WNhJ7b/b2oE2TVgZGOdAZPZMnWjUjeVA1yQDRE0gTIC0noQOMEuFcLCdTanWbKtk37
-	 KSB00HCq6IyqYa6CwLGxYTLymYMB2swRaC7650eVHuSfb8mP5oHliQh1eFg9ONWQlL
-	 HM33YKbFd3pXk9Cv04pZuktpU6p4bJ/eYZMpKUWXqZXeq5g0DOcAYvCM0QflmrWzDZ
-	 8RJk8Qoc26IUQ==
-Subject: Re: [PATCH net-next v4 3/6] net: xilinx: axienet: Add 10G/25G (XXV)
- ethernet support
+	b=ZKwSqCYpaxDvXxhv8+mEFLCFHupL9/Nzhs6bq8k/uIN+p2RPyUR3ATmkpbK/ZxXC7
+	 WZFBUeccPEBIy6OphM08yn1hL5n8uevoaiGOSwTqDlBdU+qg4MPSFFdbqkaMiYGYc5
+	 8BDwtgC7+6xE8b9fWA6R2ekXNrFU3lhqUCl2aqrOLZFO5u7LhLH54KAkOv6102N/GJ
+	 ew+fBGCq08D1Z5b9unQmqSAzYJAcF/j/MKPaKA2YERfOT2c9q+0Jp+4STaw7UYkyHx
+	 4JnBbA7RX0Wei+KqHyuOlycrdKQD0CwcxpbaruqqZubU5iHZ7MkO1NZS9ZASS6j80O
+	 TLSJ/ywcjZVbw==
+Subject: Re: [PATCH net-next 4/5] net: sparx5: Add hardware programming for
+ the port policer
 From: netdev-bot+sashiko@kernel.org
-To: suraj.gupta2@amd.com
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+To: daniel.machon@microchip.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 10 Oct 2026 11:55:44 +0000
-Message-ID: <179163334454.434549.6060647558462905074@kernel.org>
-In-Reply-To: <20261006110550.1990213-4-suraj.gupta2@amd.com>
-References: <20261006110550.1990213-4-suraj.gupta2@amd.com>
-X-sashiko-severity: High
+Date: Sat, 10 Oct 2026 11:55:49 +0000
+Message-ID: <179163334959.434549.9703436533189348032@kernel.org>
+In-Reply-To: =?utf-8?q?=3C20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-p?=
+ =?utf-8?q?olicers-v1-4-4916708a7ea2=40microchip=2Ecom=3E?=
+References: =?utf-8?q?=3C20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-po?=
+ =?utf-8?q?licers-v1-4-4916708a7ea2=40microchip=2Ecom=3E?=
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -73,10 +74,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 10 potential
+Thank you for your contribution! Sashiko AI review found 9 potential
 issue(s) to consider.
 
-Critical: 0 · High: 4 · Medium: 2 (1) · Low: 4
+Critical: 0 · High: 0 · Medium: 4 · Low: 5
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -84,431 +85,343 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Under the new xlnx,xxv-ethernet binding, the interface cannot be
-  opened.
-- [High] The new early return in axienet_open() leads to a double free /
-  use-after-free after a failed resume.
-- [High] The XXV RX path takes frame lengths from a source the XXV
-  hardware does not write.
-- [High] The XXV MAC's receive max-packet-length register is never
-  programmed to match the RX buffer size.
-- [Medium] Pause is advertised and reported for XXV but never applied to
-  the hardware.
-- [Medium] The GT reset-done timeout is only 1 ms, and this patch makes
-  missing it fatal to ndo_open.
-- [Low] A real fix for an existing 1G bug is bundled into this feature
-  patch without a Fixes: tag.
-- [Low] axienet_xxv_poll_link_ready()'s kernel-doc says missing PCS block
-  lock is expected with an unplugged cable and must not fail bring-up,…
-- [Low] The jumbo-frame flag and the MTU range disagree for XXV.
-- [Low] The kernel-doc for axienet_device_reset() is now wrong for XXV.
-
-Pre-existing issues:
-- [Medium] axienet_dma_rx_cb() passes `rx_len = app_metadata[LEN_APP] &
-  0xFFFF` straight to skb_put().
+- [Medium] In sparx5_port_policer_conf_set()
+  (drivers/net/ethernet/microchip/sparx5/sparx5_police.c), the policer…
+- [Medium] The driver now has two readings of the ANA_AC_PORT_SGE_CFG
+  global event mask that cannot both be right.
+- [Medium] sparx5_port_policer_cnt_get() reads
+  ANA_AC_PORT_STAT_LSB_CNT(port, cnt) and then…
+- [Medium] SPX5_POLICER_RATE_UNIT is hardcoded to 25040 bit/s for every
+  target.
+- [Low] Baseline decision: false positive.
+- [Low] The ethtool policer-drop counter and the new tc drop counter
+  count overlapping port-policer drop events with different…
+- [Low] struct sparx5_policer::rate (u64, no unit documented) now means
+  different things depending on pol->type.
+- [Low] sparx5_port_policer_init() writes fixed event bit positions
+  (BIT(4..7) for filter events, BIT(8..11) for pass events) to…
+- [Low] On the enable path, sparx5_port_policer_conf_set() programs
+  RATE_CFG and THRES_CFG_0 and then sets TRAFFIC_TYPE_MASK, as its…
 
 --
 
-net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+net: sparx5: Add hardware programming for the port policer
 
-This patch adds support for the Xilinx XXV 10G/25G Ethernet IP to the
-axienet driver. The XXV-specific code lives in new xilinx_axienet_xxv.c/.h
-files and is described through an axienet_10g25g_config with callbacks. It
-also propagates axienet_device_reset() failures from axienet_open().
+This adds programming for the per-port ANA_AC_POL leaky bucket policers.
+It also reads back the shared 40-bit pass and drop counters, which the
+stats worker accumulates into 64-bit totals. The policers are
+force-initialized and the shared counter events are selected at probe;
+the policer is not yet reachable from tc.
 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 5af48d5cbed3b..c09f88b552fce 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1710,6 +1710,10 @@ static int axienet_open(struct net_device *ndev)
->  	axienet_lock_mii(lp);
->  	ret = axienet_device_reset(ndev);
->  	axienet_unlock_mii(lp);
-> +	if (ret) {
-> +		dev_err(lp->dev, "axienet_device_reset() failed: %d\n", ret);
-> +		return ret;
-> +	}
-
-[Severity: Low]
-This isn't a bug in the new code, but this check also fixes an existing
-problem on the 1G path. Before this patch, phylink_fwnode_phy_connect()
-overwrote the ret from axienet_device_reset() before anything checked it.
-
-On the 1G legacy DMA path, axienet_device_reset() can already fail. That
-happens when __axienet_device_reset() times out or when
-axienet_dma_bd_init() cannot allocate descriptors:
-
-axienet_device_reset() {
-    ...
-	ret = __axienet_device_reset(lp);
-	if (ret)
-		return ret;
-
-	ret = axienet_dma_bd_init(ndev);
-    ...
-}
-
-In those cases open continued into phylink_start() and
-axienet_init_legacy_dma(). The core had not been reset, or there were no BD
-rings.
-
-The commit message only says this "matters for XXV". Could this go to net as
-a separate fix with a Fixes: tag, so stable picks it up?
-
-[Severity: High]
-Can this early return lead to a double free after a failed resume?
-
-axienet_suspend() calls axienet_stop(). In dmaengine mode, the only mode XXV
-supports, that frees the skb rings and releases the DMA channels. It does not
-clear the pointers:
-
-axienet_stop() {
-    ...
-	for (i = 0; i < TX_BD_NUM_MAX; i++)
-		kfree(lp->tx_skb_ring[i]);
-	kfree(lp->tx_skb_ring);
-    ...
-	dma_release_channel(lp->rx_chan);
-	dma_release_channel(lp->tx_chan);
-    ...
-}
-
-axienet_resume() then ignores what axienet_open() returns:
-
-axienet_resume() {
-    ...
-	rtnl_lock();
-	axienet_open(ndev);
-	rtnl_unlock();
-
-	netif_device_attach(ndev);
-    ...
-}
-
-Suppose axienet_xxv_mac_init() returns -ETIMEDOUT from the GT reset-done
-poll. axienet_open() now returns before axienet_init_dmaengine() runs, but
-the netdev is still netif_running().
-
-The next ndo_stop can come from ifdown, from dev_close() in
-axienet_shutdown(), or from unregister_netdev() in axienet_remove(). It would
-run axienet_stop() again. That calls dmaengine_terminate_sync() on the
-released channels and kfree()s the already freed tx_skb_ring/rx_skb_ring
-arrays and their entries. It then calls dma_release_channel() a second time.
-
-Before this patch the reset error was overwritten and open always
-re-allocated, so stop stayed balanced. Resume ignoring the open error
-predates this patch, but this early return is what makes the problem
-reachable.
-
->  
->  	ret = phylink_fwnode_phy_connect(lp->phylink, dev_fwnode(lp->dev), 0);
->  	if (ret) {
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_police.c b/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
+> index c88820e83812c..48d51246699f5 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
+> @@ -4,9 +4,47 @@
 
 [ ... ]
 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
-> new file mode 100644
-> index 0000000000000..9f7efab84f827
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
-> @@ -0,0 +1,323 @@
-
-[ ... ]
-
-> +/* Option table for setting up XXV Ethernet hardware options */
-> +static struct axienet_option xxvenet_options[] = {
-> +	{ /* Turn on FCS stripping on receive packets */
-> +		.opt = XAE_OPTION_FCS_STRIP,
-> +		.reg = XXV_RCW1_OFFSET,
-> +		.m_or = XXV_RCW1_FCS_MASK,
-> +	}, { /* Turn on FCS insertion on transmit packets */
-> +		.opt = XAE_OPTION_FCS_INSERT,
-> +		.reg = XXV_TC_OFFSET,
-> +		.m_or = XXV_TC_FCS_MASK,
-> +	}, { /* Enable transmitter */
-> +		.opt = XAE_OPTION_TXEN,
-> +		.reg = XXV_TC_OFFSET,
-> +		.m_or = XXV_TC_TX_MASK,
-> +	}, { /* Enable receiver */
-> +		.opt = XAE_OPTION_RXEN,
-> +		.reg = XXV_RCW1_OFFSET,
-> +		.m_or = XXV_RCW1_RX_MASK,
-> +	},
-> +	{}
-> +};
+> +/* Bit rate unit for the port policer (bits/sec) */
+> +#define SPX5_POLICER_RATE_UNIT 25040
 
 [Severity: Medium]
-Is the pause configuration ever applied to the XXV MAC?
+Is 25040 bit/s also the right unit on lan969x?
 
-axienet_probe() sets MAC_SYM_PAUSE | MAC_ASYM_PAUSE in
-lp->phylink_config.mac_capabilities for every MAC type.
-axienet_xxv_phylink_set_capabilities() only adds speed bits, so XXV
-advertises both pause modes.
+The rate per LSB looks tied to the policer update interval that
+sparx5_init_coreclock() writes to ANA_AC_POL_UPD_INT_CFG. On sparx5,
+312, 624 or 780 cycles at 250, 500 or 625 MHz all come to 1.248 us.
+25040 bit/s * 1.248 us is exactly 1/32 bit per LSB per update.
 
-axienet_10g25g_config has no .mac_link_up. axienet_mac_link_up() therefore
-silently drops the resolved tx_pause/rx_pause:
+lan969x uses a different interval:
 
-	if (lp->axienet_config->mac_link_up)
-		lp->axienet_config->mac_link_up(ndev, speed, tx_pause, rx_pause);
-
-This table also has no XAE_OPTION_FLOW_CONTROL entry. The
-XXV_CONFIG_TX_FLOW_CTRL1_OFFSET and XXV_CONFIG_RX_FLOW_CTRL1/2_OFFSET
-registers are only read for ethtool -d and never written.
-
-As a result, phylink and ethtool -a/-A report and accept pause settings while
-the MAC stays at its reset default. Should XXV program the flow control
-registers from a mac_link_up callback, or stop advertising pause?
-
-[ ... ]
-
-> +/**
-> + * axienet_xxv_gt_reset - Pulse the XXV GT reset line
-> + * @lp: Pointer to the axienet_local structure
-> + */
-> +static void axienet_xxv_gt_reset(struct axienet_local *lp)
-> +{
-> +	u32 val;
-> +
-> +	/* Reset GT */
-> +	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
-> +	val |= XXV_GT_RESET_MASK;
-> +	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
-> +	/* Allow 1 ms for the GT reset to settle (see timeout note above) */
-> +	usleep_range(1000, 2000);
-> +	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
-> +	val &= ~XXV_GT_RESET_MASK;
-> +	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
-> +}
-
-[Severity: Low]
-The kernel-doc for axienet_device_reset() in xilinx_axienet_main.c still
-says:
-
- * Ethernet core. No separate hardware reset is done for the Axi Ethernet
- * core.
-
-For XXV, that function now calls config->gt_reset() first, and this pulses
-XXV_GT_RESET_MASK. XXV is dmaengine-only, so the DMA reset and BD init
-described there never happen. The function now also returns mac_init()
-failures such as the GT reset-done timeout.
-
-Could the comment be updated to match?
-
-[ ... ]
-
-> +static int axienet_xxv_poll_link_ready(struct net_device *ndev)
-> +{
-> +	struct axienet_local *lp = netdev_priv(ndev);
-> +	u32 val;
-> +	int ret;
-> +
-> +	/* Confirm XXV Ethernet is up: on IP v3.2+, wait for GT
-> +	 * reset-done before further register access, then poll until
-> +	 * RX PCS block lock is asserted.
-> +	 */
-> +	if (axienet_xxv_ip_has_gtwiz_status(lp->xxv_ip_version)) {
-> +		ret = readl_poll_timeout(lp->regs + XXV_STAT_GTWIZ_OFFSET,
-> +					 val,
-> +					 (val & XXV_GTWIZ_RESET_DONE) == XXV_GTWIZ_RESET_DONE,
-> +					 XXV_LINK_POLL_INTERVAL_US,
-> +					 DELAY_OF_ONE_MILLISEC);
-
-[Severity: Medium]
-Is 1 ms long enough for GT reset-done?
-
-axienet_xxv_gt_reset() releases ctl_gt_reset_all after 1-2 ms, and the GT
-reset sequence only starts at that release. This poll then gives the GT
-wizard DELAY_OF_ONE_MILLISEC to assert both TX and RX reset-done.
-
-GT reset-done covers PLL re-lock and the RX reset sequence. With no signal
-present, the CDR lock wait in that sequence can run until its internal
-timeout. The comment at the top of the file says the bound is empirical and
-that PG210 does not specify it.
-
-With the new check in axienet_open(), a timeout here now fails ndo_open.
-Could an unplugged cable push this past 1 ms and fail bring-up? The
-kernel-doc above says an unplugged cable must not do that.
-
-> +		if (ret) {
-> +			netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	ret = readl_poll_timeout(lp->regs + XXV_STATRX_BLKLCK_OFFSET,
-> +				 val, (val & XXV_RX_BLKLCK_MASK),
-> +				 XXV_LINK_POLL_INTERVAL_US,
-> +				 DELAY_OF_ONE_MILLISEC);
-> +	if (ret)
-> +		netdev_err(ndev, "XXV MAC block lock not complete! Cross-check the MAC ref clock configuration\n");
-> +
-> +	return 0;
-> +}
-
-[Severity: Low]
-The kernel-doc says a missing block lock is expected with an unplugged
-cable, and the function returns 0 in that case. Should this be logged below
-netdev_err()?
-
-As written, every ip link set up on a port with no link partner logs an
-error that points at the ref clock configuration.
-
-> +
-> +/**
-> + * axienet_xxv_mac_init - XXV MAC-specific bring-up after the DMA reset
-> + * @ndev: Pointer to the net_device structure
-> + *
-> + * Return: 0 on success or a negative error number otherwise.
-> + */
-> +static int axienet_xxv_mac_init(struct net_device *ndev)
-> +{
-> +	struct axienet_local *lp = netdev_priv(ndev);
-> +	int ret;
-> +
-> +	ret = axienet_xxv_poll_link_ready(ndev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	lp->options |= XAE_OPTION_FCS_STRIP;
-> +	lp->options |= XAE_OPTION_FCS_INSERT;
-> +
-> +	return 0;
-> +}
-
-[Severity: High]
-Should the XXV RX max packet length be programmed here?
-
-XXV_JUM_OFFSET (CONFIGURATION_RX_MTU, ctl_rx_max_packet_len) appears only in
-the ethtool -d table and is never written. Its reset default is 9600 bytes.
-
-At the default MTU, axienet_device_reset() sets lp->max_frm_size to
-XAE_MAX_VLAN_FRAME_SIZE (1522). axienet_rx_submit_desc() maps each RX buffer
-at exactly that size.
-
-If a link partner sends frames of 1523 to 9600 bytes, the MAC accepts them
-and splits each one across several S2MM descriptors. axienet_dma_rx_cb()
-treats every completion as a whole frame. Would these fragmented frames be
-passed up the stack?
-
-Changing the MTU never updates the MAC either, so the software and hardware
-frame limits can be out of sync in both directions. On 1G the MAC drops
-frames above its configured limit, so this does not happen there.
-
-> +
-> +static void axienet_xxv_phylink_set_capabilities(struct axienet_local *lp,
-> +						 struct phylink_config *cfg)
-> +{
-> +	u32 core_speed;
-> +
-> +	core_speed = axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET);
-> +	/* Bit[1:0]: 00=25G, 01=10G, 10=runtime-switchable 25G,
-> +	 * 11=runtime-switchable 10G. Bit 0 is the active rate. Advertise
-> +	 * only that rate.
-> +	 */
-> +	if (core_speed & XXV_STAT_CORE_SPEED_10G_MASK) {
-> +		cfg->mac_capabilities |= MAC_10000FD;
-> +		__set_bit(PHY_INTERFACE_MODE_10GBASER,
-> +			  cfg->supported_interfaces);
-> +	} else {
-> +		cfg->mac_capabilities |= MAC_25000FD;
-> +		__set_bit(PHY_INTERFACE_MODE_25GBASER,
-> +			  cfg->supported_interfaces);
-> +	}
-> +}
-
-[Severity: High]
-Can the XXV interface be opened with a device tree that follows the new
-binding?
-
-The xlnx,xxv-ethernet binding comes from "dt-bindings: net:
-xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet". It requires neither
-phy-handle nor managed = "in-band-status", and neither of its examples has
-them.
-
-Nothing sets lp->phylink_config.default_an_inband for XXV. At the end of the
-series there is no default_an_inband anywhere in drivers/net/ethernet/xilinx/.
-phylink_parse_mode() therefore leaves cfg_link_an_mode as MLO_AN_PHY.
-
-axienet_open() then calls phylink_fwnode_phy_connect(), which does:
-
-	phy_fwnode = fwnode_get_phy_node(fwnode);
-	if (IS_ERR(phy_fwnode)) {
-		if (pl->cfg_link_an_mode == MLO_AN_PHY)
-			return -ENODEV;
-		return 0;
+sparx5_init_coreclock() {
+    ...
+	} else {
+		pol_upd_int = 820; // SPX5_CORE_CLOCK_328MHZ
 	}
+    ...
+}
 
-axienet_open() passes that -ENODEV back to the caller, so the interface never
-comes up. Should this function set cfg->default_an_inband = true, or should
-the binding require managed = "in-band-status"?
+820 cycles at 328 MHz is about 2.5 us, roughly twice as long. If the
+per-LSB quantum is the same, one LSB on lan969x is worth about
+12.5 kbit/s. sparx5_port_policer_conf_set() would then program about half
+the requested rate. The max rate check in sparx5_add_port_policer() uses
+the same fixed unit.
+
+The lan969x PORT_RATE field is 19 bits instead of 20, which could point
+the other way, so this may be fine.
+
+Could the unit be confirmed for lan969x? Alternatively, it could be
+derived per target, the way the service policer derives its tokens from
+the clock.
+
+> +/* Burst size unit for the port policer (bytes) */
+> +#define SPX5_POLICER_BYTE_BURST_UNIT 8192
 
 [ ... ]
 
-> +const struct axienet_config axienet_10g25g_config = {
-> +	.sw_padding = true,
-> +	.internal_pcs = true,
-> +	.regs_n = XXV_REGS_N,
-> +	.clk_init = axienet_10g25g_clk_init,
-> +	.setoptions = axienet_xxv_setoptions,
-> +	.probe_init = axienet_xxv_probe_init,
-> +	.gt_reset = axienet_xxv_gt_reset,
-> +	.mac_init = axienet_xxv_mac_init,
-> +	.get_regs = axienet_xxv_get_regs,
-> +	.phylink_set_caps = axienet_xxv_phylink_set_capabilities,
-> +	.pcs_ops = &axienet_xxv_pcs_ops,
-> +};
-
-[Severity: Low]
-This leaves .jumbo false, which the kernel-doc defines as "MAC supports jumbo
-frames" being false. axienet_probe() still sets ndev->max_mtu = XAE_JUMBO_MTU
-for every MAC. axienet_change_mtu() only checks against lp->rxmem:
-
-	if ((new_mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE) > lp->rxmem)
-		return -EINVAL;
-
-So ip link set mtu 9000 is accepted on XXV. For XXV, is the .jumbo flag
-wrong, or the max_mtu? xxvenet_options also has no XAE_OPTION_JUMBO entry,
-and XXV_JUM_OFFSET is never written.
-
-[Severity: High]
-Where does XXV get the RX frame length from?
-
-.non_dmaengine is left false, so every XXV RX completion goes through
-axienet_dma_rx_cb(). That callback reads the length from AXI DMA APP word 4:
-
-	/* TODO: Derive app word index programmatically */
-	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-
-On the 1G AXI Ethernet, the MAC's RX status stream writes that word. PG210
-describes the XXV IP with only AXI4-Stream data interfaces and no status
-stream.
-
-xilinx_dma only attaches metadata_ops when the DMA node has
-xlnx,axistream-connected:
-
-	if (chan->xdev->has_axistream_connected)
-		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
-
-Without that property, dmaengine_desc_get_metadata_ptr() fails and every
-received frame is counted as rx_dropped. With it, app4 holds stale or zero BD
-contents. Zero-length skbs or wrong lengths would then reach eth_type_trans()
-and skb_put().
-
-The real byte count is in the BD status length field, which xilinx_dma
-reports as the residue. Does XXV need its own MAC-specific RX length source?
+> @@ -40,10 +78,65 @@ static int sparx5_policer_service_conf_set(struct sparx5 *sparx5,
+>  	return 0;
+>  }
+>  
+> +static int sparx5_port_policer_conf_set(struct sparx5 *sparx5,
+> +					struct sparx5_policer *pol)
+> +{
+> +	u32 portno = pol->idx / SPX5_POLICERS_PER_PORT;
+> +	u32 polidx = pol->idx % SPX5_POLICERS_PER_PORT;
+> +	u32 rate, burst, mask, cfg;
+> +	int cnt;
+> +
+> +	rate = DIV_ROUND_UP_ULL(pol->rate, SPX5_POLICER_RATE_UNIT);
+> +	burst = DIV_ROUND_UP(pol->burst, SPX5_POLICER_BYTE_BURST_UNIT);
+> +
+> +	/* Disable the policer when rate and burst are both zero, otherwise
+> +	 * apply it to known/unknown BUM traffic, CPU queues and learn frames.
+> +	 */
+> +	mask = (rate == 0 && burst == 0) ? 0 : 0x7f;
 
 [Severity: Medium]
-This is a pre-existing issue, but XXV now goes through the same callback.
-axienet_dma_rx_cb() passes the metadata length straight to skb_put():
+Does 0x7f cover every traffic type the comment lists?
 
-	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-	skb_put(skb, rx_len);
+ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK is GENMASK(7, 0). The comment
+names known/unknown BUM traffic (six classes), CPU queues and learn
+frames, which makes eight classes. 0x7f only sets bits 0-6, so bit 7 is
+never enabled.
 
-The callback does not check the dmaengine result or residue. rx_len is not
-bounded by lp->max_frm_size or skb_tailroom() either. Could a length larger
-than the posted buffer hit skb_over_panic()? The 1G dmaengine path already
-had this problem.
+If bit 7 is the learn frame class, frames classified only under bit 7
+would bypass the port policer. Should this be 0xff, or should the comment
+be updated?
+
+> +	if (mask) {
+> +		/* Program the bucket before enabling the policer */
+> +		spx5_wr(rate, sparx5, ANA_AC_POL_PORT_RATE_CFG(pol->idx));
+> +		spx5_wr(burst, sparx5, ANA_AC_POL_PORT_THRES_CFG_0(pol->idx));
+> +		spx5_rmw(ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK_SET(mask),
+> +			 ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK,
+> +			 sparx5, ANA_AC_POL_PORT_CFG(portno, polidx));
+> +	} else {
+
+[ ... ]
+
+> +	/* Count policer events, not bytes, for all eight priorities on the
+> +	 * port's filter and pass counters, which are shared by all of the
+> +	 * port's policer instances.
+> +	 */
+> +	cfg = ANA_AC_PORT_STAT_CFG_CFG_PRIO_MASK_SET(0xff) |
+> +	      ANA_AC_PORT_STAT_CFG_CFG_CNT_FRM_TYPE_SET(SPX5_PPEM_EVENT) |
+> +	      ANA_AC_PORT_STAT_CFG_CFG_CNT_BYTE_SET(0);
+
+[Severity: Low]
+The existing ethtool counter for port policer drops is set up with a
+different frame type qualifier:
+
+sparx5_config_port_stats() {
+    ...
+	/* Use counter for port policer drop count */
+	spx5_rmw(ANA_AC_PORT_STAT_CFG_CFG_CNT_FRM_TYPE_SET(1) |
+    ...
+}
+
+In the new enum, 1 is SPX5_PPEM_EVENT_NO_ERROR. Counters 1 and 2 here
+use SPX5_PPEM_EVENT.
+
+Is the difference intentional? If not, ethtool rx_port_policer_drop and
+the tc drop count could disagree for the same policer when dropped frames
+also carry the error qualifier.
+
+> +
+> +	for (cnt = SPX5_PORT_POLICER_FILTER_COUNTER;
+> +	     cnt <= SPX5_PORT_POLICER_PASS_COUNTER; cnt++)
+> +		spx5_rmw(cfg,
+> +			 ANA_AC_PORT_STAT_CFG_CFG_PRIO_MASK |
+> +			 ANA_AC_PORT_STAT_CFG_CFG_CNT_FRM_TYPE |
+> +			 ANA_AC_PORT_STAT_CFG_CFG_CNT_BYTE,
+> +			 sparx5, ANA_AC_PORT_STAT_CFG(portno, cnt));
+> +
+> +	spx5_rmw(ANA_AC_POL_PORT_GAP_GAP_VALUE_SET(SPX5_POLICER_LINE_RATE_GAP),
+> +		 ANA_AC_POL_PORT_GAP_GAP_VALUE,
+> +		 sparx5, ANA_AC_POL_PORT_GAP(portno));
+
+[Severity: Low]
+On the enable path the comment says the bucket is programmed before the
+policer is enabled. However, ANA_AC_PORT_STAT_CFG and ANA_AC_POL_PORT_GAP
+are only written after TRAFFIC_TYPE_MASK has been set.
+
+For the first policer on a port, does this leave a short window where
+the policer meters without the 20 byte gap? Counters 1 and 2 would also
+run with their reset STAT_CFG during that window.
+
+The raw snapshot in sparx5_init_port_policer_stats() is also taken
+before STAT_CFG is programmed.
+
+Would it make sense to write the GAP and STAT_CFG registers before
+enabling the traffic type mask?
+
+> +
+> +	return 0;
+> +}
+
+[ ... ]
+
+> @@ -52,3 +145,312 @@ int sparx5_policer_conf_set(struct sparx5 *sparx5, struct sparx5_policer *pol)
+>  
+>  	return 0;
+>  }
+> +
+> +static u64 sparx5_port_policer_cnt_get(struct sparx5_port *port, u32 cnt)
+> +{
+> +	struct sparx5 *sparx5 = port->sparx5;
+> +	u32 lsb, msb;
+> +
+> +	/* The MSB is latched when the LSB is read, so read the LSB first */
+> +	lsb = spx5_rd(sparx5, ANA_AC_PORT_STAT_LSB_CNT(port->portno, cnt));
+> +	msb = spx5_rd(sparx5, ANA_AC_PORT_STAT_MSB_CNT(port->portno, cnt));
+
+[Severity: Medium]
+Is the MSB latch per counter, or is it shared by all of the port's
+STAT_CNT counters?
+
+All the new readers hold queue_stats_lock. sparx5_get_ana_ac_stats_stats()
+reads the LSB of counter 0 on the same port without that lock:
+
+sparx5_get_ana_ac_stats_stats() {
+	...
+	sparx5_update_counter(&portstats[spx5_stats_ana_ac_port_stat_lsb_cnt],
+			      spx5_rd(sparx5, ANA_AC_PORT_STAT_LSB_CNT(portno,
+								       SPX5_PORT_POLICER_DROPS)));
+}
+
+That read can be reached from sparx5_get_sset_data() for ethtool -S. It
+can run at the same time as:
+
+sparx5_check_stats_work()
+  sparx5_update_port_stats()
+    sparx5_port_policer_stats_poll()
+
+If the latch is shared, could the ethtool LSB read land between the LSB
+and MSB reads here and overwrite the latched MSB?
+
+sparx5_port_policer_cnt_accum() would then compute
+"(cur - *raw) & SPX5_PORT_STAT_CNT_MASK" with a wrong cur. Once the
+counter MSBs differ, that would leave a permanent 2^40 error in the
+64-bit total reported to tc.
+
+> +
+> +	return (u64)msb << 32 | lsb;
+> +}
+
+[ ... ]
+
+> +int sparx5_add_port_policer(struct sparx5_mall_entry *entry,
+> +			    struct netlink_ext_ack *extack)
+> +{
+
+[ ... ]
+
+> +	if (police->burst > ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0 *
+> +			    SPX5_POLICER_BYTE_BURST_UNIT) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "Policer parameters are not supported");
+> +		return -EOPNOTSUPP;
+> +	}
+
+[Severity: Low]
+This may be fine, but burst is only checked against the upper bound. A
+burst of 0 with a non-zero rate is accepted, and the policer is enabled
+with PORT_THRES0 = 0.
+
+As far as I can tell, software act_police also drops every packet when
+the burst is 0, since tcf_police_act() never builds up positive tokens.
+That would make the offload match software. lan966x and ocelot clamp a
+zero burst instead.
+
+Is the different behaviour here intentional?
+
+[ ... ]
+
+> +	pol.type = SPX5_POL_PORT;
+> +	pol.rate = police->rate_bytes_ps * BITS_PER_BYTE;
+
+[Severity: Low]
+This isn't a bug, but struct sparx5_policer::rate now holds bit/s for
+SPX5_POL_PORT. The service policer path in sparx5_tc_flower.c stores
+kbit/s in the same field:
+
+	pol->rate = div_u64(act->police.rate_bytes_ps, 1000) * 8;
+
+sparx5_policer_service_conf_set() then multiplies it by 1000. Each path
+is consistent today.
+
+Could the unit be made the same for both types, or at least documented
+per type? Otherwise a future caller of sparx5_policer_conf_set() could
+end up off by a factor of 1000.
+
+> +	pol.burst = police->burst;
+> +	pol.idx = port->portno * SPX5_POLICERS_PER_PORT + idx;
+
+[ ... ]
+
+> +int sparx5_port_policer_init(struct sparx5 *sparx5)
+> +{
+
+[ ... ]
+
+> +	/* Configure the port policer filter and pass statistics counters.
+> +	 * Counter 0 is owned by sparx5_ethtool.c (SPX5_PORT_POLICER_DROPS).
+> +	 */
+> +	spx5_wr(SPX5_PORT_POLICER_0_FILTER_EVENT |
+> +		SPX5_PORT_POLICER_1_FILTER_EVENT |
+> +		SPX5_PORT_POLICER_2_FILTER_EVENT |
+> +		SPX5_PORT_POLICER_3_FILTER_EVENT,
+> +		sparx5, ANA_AC_PORT_SGE_CFG(SPX5_PORT_POLICER_FILTER_COUNTER));
+
+[Severity: Medium]
+How does this event layout fit with the existing setup of counter 0?
+
+sparx5_config_stats() {
+	/* Enable global events for port policer drops */
+	spx5_rmw(ANA_AC_PORT_SGE_CFG_MASK_SET(0xf0f0),
+		 ANA_AC_PORT_SGE_CFG_MASK,
+		 sparx5,
+		 ANA_AC_PORT_SGE_CFG(SPX5_PORT_POLICER_DROPS));
+}
+
+That code treats bits 4-7 and 12-15 as port policer drop events. The new
+defines treat bits 4-7 as filter events and bits 8-11 as pass events.
+Only bits 4-7 are routed to the tc drop counter.
+
+If bits 12-15 are also policer drop events, would the drop count
+reported by sparx5_update_port_policer_stats() miss drops? If they are
+not, does the existing rx_port_policer_drop counter include unrelated
+events?
+
+Also, the new writes use spx5_wr() with raw bits instead of
+ANA_AC_PORT_SGE_CFG_MASK_SET() as the existing code does.
+
+> +
+> +	spx5_wr(SPX5_PORT_POLICER_0_PASS_EVENT |
+> +		SPX5_PORT_POLICER_1_PASS_EVENT |
+> +		SPX5_PORT_POLICER_2_PASS_EVENT |
+> +		SPX5_PORT_POLICER_3_PASS_EVENT,
+> +		sparx5, ANA_AC_PORT_SGE_CFG(SPX5_PORT_POLICER_PASS_COUNTER));
+
+[Severity: Low]
+The same event bit positions are written on every target, but the
+SGE_CFG mask width is different between the two families:
+
+sparx5_regs.c:
+	[FW_ANA_AC_PORT_SGE_CFG_MASK] = 16,
+
+lan969x/lan969x_regs.c:
+	[FW_ANA_AC_PORT_SGE_CFG_MASK] = 17,
+
+Is the lan969x event layout the same for bits 4-11, with the extra event
+added at bit 16? If not, the tc pass and drop counters on lan969x would
+count different events.
+
+The existing 0xf0f0 mask in sparx5_config_stats() relies on the same
+layout, so this may be fine.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261006110550.1990213-1-suraj.gupta2%40amd.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2%40microchip.com
 
