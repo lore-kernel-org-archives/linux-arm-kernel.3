@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9359DCA6017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 09:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70681CA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 09:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vvf7eU6u7K/tzymPRpeR28++AoANVXw5uyTQacZXMLU=; b=j9TYHVXxcJJITAHP9CBJwRnQHd
-	DxGLtL5bNTVWgEHzkhes5whdef60pX/EJam2uPu7gRwFh97HXIv5ZA5Ur5U3+rBajRM3KkbZ0cpd7
-	OA/NDXvfDrf4pg00NIPBUnoTaHJz3BbOJzofEQog3huDW82tfZSyxrkeh45lzzETGkOfoKKkn2E9a
-	c7CXQW2jmHrw59Kc7FlxmcsEYsz83z9GlAF3GI1vwe9Qhl9H9ik4t+6tHoR8EFTYb81y/KMu96SVu
-	Opp1eRFgL9I9BEjC/8j3rcokpqC4qJQtHLq2Mwc70I04ew+xcd485+aX4weN+O6N1JJTxMIqpWOBw
-	jM7b1fsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NXFSX1tYzI/FTd2hCg5Erv2WCZYus2tVWPl2LBEfLNU=; b=xZqQUrOHN1TRzC
+	E05r39756neKJAtCvIy3YKe4oTA2RHBY+Q/AlKYaQG2jdEZFZBwYnanKgtVxUVyUFBZ99g9DVrSrZ
+	ll8hGHMhfyvI4OpyfhBfETENDtv54l3vvNdishzvknkHPB6z9zgPipuUZpID6z3UIsgzZs+73s7Hg
+	eIg86j/hJedqZ59SEkzvLg6bQFx4xx5Bg7411kV2wD2KQZ0EJtPMrcBPhiK4iibdqn7tt+BKxT1Kv
+	fSMyKBQtjJP7bPJtpa2Iu7jeTsCSMULPQ8ohmJFLtZTbNd1DFxoBfSg44Drjn4DMHoNOWSY9qqjTT
+	X8TRMdkpZe4S0YwCljbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFTJm-00000007kkR-2Oqb;
-	Sat, 10 Oct 2026 09:24:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xFTWx-00000007mlf-3jAf;
+	Sat, 10 Oct 2026 09:38:15 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFTJZ-00000007kRB-3dHh;
-	Sat, 10 Oct 2026 09:24:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Vvf7eU6u7K/tzymPRpeR28++AoANVXw5uyTQacZXMLU=; b=TwfjNJ2KtiGoxU927++bQBhNHy
-	UMbmbACbcCcks7QBJ0Kd0WU2HFzCRzcZopB9stVcKJ/hkGuGNhmbRG4jDEkbejFSEDD9KJtSQ8i2X
-	+H/U3/UGTc5CLTPEEZ/RZD3cARFvRK98GpoPesylpag6ivUkAqWsQvRHF5xovBCaY6u3XcdZfhs6X
-	e+NTsEtWxzn7Rp2XPMzE1apeXQiRx6SqZSAGZmlfX+ILY0u7C5DiFRVRT/oYChF1dIDqOI/pTaMLl
-	51VW/LJgLLjJSAEmK33S287YGn0xxjLYpzo6LYs5S87e5p13KRT21LDbfkq+Jq4IzMEmWY5jSo2Iz
-	pV6rm09g==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xFTJW-0000000BzEm-2iib;
-	Sat, 10 Oct 2026 09:24:24 +0000
-X-UUID: 5d591bd0c48c11f1afed4741b24580c9-20261010
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Vvf7eU6u7K/tzymPRpeR28++AoANVXw5uyTQacZXMLU=;
-	b=FmAl0OR0qIEWVmCL3sT9w9T1y48VL6EpwkZaed4AhF8WdTWiR+EumWlbfNfzkyDVtMkmrMXyAwEiswKyRQwePuXJpUOZH5DsDwubqzjYXrtNNfte9zBeONgwd7A3S34LMXz+tyWgm+lQSf9F5S6EYf7BK4QBGBZ+yLrrN2hSkGg=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.20,REQID:75f78db2-6a23-4f2a-8c49-ce811360d405,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:291e20b,CLOUDID:d8f82e95-3103-4fdb-b79c-08de0e281a5d,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5d591bd0c48c11f1afed4741b24580c9-20261010
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 315726309; Sat, 10 Oct 2026 02:24:16 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Sat, 10 Oct 2026 17:24:14 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Sat, 10 Oct 2026 17:24:12 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Subject: [PATCH v11 10/10] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Sat, 10 Oct 2026 17:23:58 +0800
-Message-ID: <979dd8756daf34346dc015767622e6e42057dd7c.1791623423.git.kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1791623422.git.kyrie.wu@mediatek.com>
-References: <cover.1791623422.git.kyrie.wu@mediatek.com>
+	id 1xFTWu-00000007mjD-3f6M
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Oct 2026 09:38:15 +0000
+Received: by chaosmail.tech (Postfix) id C27A41CBD7C;
+	Sat, 10 Oct 2026 09:38:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1791625085;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=NXFSX1tYzI/FTd2hCg5Erv2WCZYus2tVWPl2LBEfLNU=;
+	b=eaMQ5fIlUhNHn1vQKIqZhwSpbTws7dN39Z2CrB8qHNDhOxnFwOPWX2Eiur5fLBO553IKyx
+	+Y0BKxvPpdGaBR9nB8zAHpIGD8cFQCtB7LVRlzWr5rfLhmOCVUvY79W0mUpNJdzo9Kfovf
+	pO5eE1kh+Drw6AfoArXIPnO9ipBVQic=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Subject: [PATCH RESEND v7 0/3] usb: typec: tipd: Add sn201202x (ACE3)
+ support
+Date: Sat, 10 Oct 2026 11:37:54 +0200
+Message-Id: <20261010-tipd-ace3-v7-0-317218a96c01@chaosmail.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
+ Alyssa Milburn <amilburn@zall.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791625084; l=2924;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=/PD6alR7DUWYk4t2a+kPIYDcsnEnHTrN8iihdKX/W4c=;
+ b=znqKSXBLYU/J6o6zvMgMp8zxd8SuNRmjlx/QYH7+4TbYZWH9APeHkzC6MBblNstWHqnn3bnHL
+ JE4xaii85d0DmRkN0uKaW9s4vvLfLu/TXwe7fGZnExEO7ab//k8NbYD
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_102423_131696_693EDF6E 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20261010_023813_384647_924F7E4E 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,50 +79,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add MT8189 compatible data to initialize platform data for encoder.
+Add support for sn201202x (a.k.a ACE3), an Apple-specific tps6598x
+variant that wraps the tps6598x core register set with a SPMI based
+regmap-like protocol, first appearing in Apple M3 devices. This series
+first makes the core parts bus-agnostic, and then adds the new SPMI
+interface as a custom regmap implementation.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
+
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- .../vcodec/encoder/mtk_vcodec_enc_drv.c         | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Changes in v7:
+- Rebase on usb-testing
+- Link to v6: https://patch.msgid.link/20260826-tipd-ace3-v6-0-e919f39a93a2@chaosmail.tech
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index 716ae8dc..a4cc5f2a 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -483,6 +483,22 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.ipi_id = VCP_IPI_ENCODER,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+	.fw_type = SCP,
-+	.fw_init = mtk_vcodec_fw_scp_init,
-+	.ipi_id = SCP_IPI_VENC_H264,
-+};
-+
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -493,6 +509,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
+Changes in v6:
+- Fix rebase issues
+- Link to v5: https://patch.msgid.link/20260821-tipd-ace3-v5-0-3244ed3bdc3f@chaosmail.tech
+
+Changes in v5:
+- Rebase on usb-next
+- Link to v4: https://patch.msgid.link/20260806-tipd-ace3-v4-0-79855b150914@chaosmail.tech
+
+Changes in v4:
+- Unexport variant data
+- One more debugfs-safety fix
+- Link to v3: https://patch.msgid.link/20260801-tipd-ace3-v3-0-8332f2eca4fc@chaosmail.tech
+
+Changes in v3:
+- Restore accidentally deleted static
+- Fix building with tracepoints
+- Sleep the device on failed probe
+- Link to v2: https://patch.msgid.link/20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech
+
+Changes in v2:
+- Use a -core module instead of building everything twice
+- Fix completion handling
+- Make regmaps debugfs-safe
+- Link to v1: https://patch.msgid.link/20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech
+
+---
+Alyssa Milburn (1):
+      usb: typec: tipd: Factor out i2c specifics
+
+Sasha Finkelstein (2):
+      dt-bindings: usb: tps6598x: Add sn201202x/ACE3
+      usb: typec: tipd: Add sn201202x support
+
+ Documentation/devicetree/bindings/usb/apple,sn201202x.yaml |  78 +++++++++++++++++++++++++++++++
+ MAINTAINERS                                                |   2 +
+ drivers/usb/typec/Makefile                                 |   1 +
+ drivers/usb/typec/tipd/Kconfig                             |  20 +++++++-
+ drivers/usb/typec/tipd/Makefile                            |  14 ++++--
+ drivers/usb/typec/tipd/core.c                              | 247 +++++++++++++++++++++++--------------------------------------------------------------------------
+ drivers/usb/typec/tipd/i2c.c                               | 107 ++++++++++++++++++++++++++++++++++++++++++
+ drivers/usb/typec/tipd/spmi.c                              | 300 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ drivers/usb/typec/tipd/tps6598x.h                          | 132 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 9 files changed, 705 insertions(+), 196 deletions(-)
+---
+base-commit: bbed88f72dbbb960080282de3b90ca0933fa6226
+change-id: 20260725-tipd-ace3-090bf570ef59
+
+Best regards,
+--
+Sasha Finkelstein <k@chaosmail.tech>
 -- 
-2.51.0.windows.2
+Sasha Finkelstein <k@chaosmail.tech>
 
 
