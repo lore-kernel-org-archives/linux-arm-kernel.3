@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60586CA9EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9B0CA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Date:To:
-	Content-Type:Mime-Version:From:Cc:References:Content-Transfer-Encoding:
-	Message-Id:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YYlAhLyA+W59txuVdfGlHzgN9jui63GdXPtcMpN2dC4=; b=08t7qXKT/CWs3Caz7JDuvWozVU
-	PEPdjxy//AoLPW9k1duMcaasI1ca+skQ0of/+h7CRfRjCPB1q7Qsjs8xGNZNuoqovvIoD2q6DDH0g
-	GBOcTQfmekS3MgLpfP50edj4dGYpcO5IcpodrT/rVWnOV8V9BIvqbLzQ7ZpSC0xtWQMQMBaw8hL69
-	y9G//J6BdZ2RT84FO3nEyFn0XyE1bTueFwlXRHHKLDLqUMrs9kOv3RwnmArllExfN3wFiIjNi8x1y
-	pcAefhoBSyl+ush9Suugx+lma/ZRWkKTgw5yfdIogMDjqsCYNpw39nSoaoFDUBtW+VHb6auP3dIPP
-	mEYo7vIQ==;
+	bh=GRQCjk8o/a/C0+wV15inpx1btX0H9yvKy9U4k4uppuo=; b=RKujE0ZEzHZBZDIGDQShNNS88l
+	V+S767T8DsEUkIfvdw2uyh8J037Nl4bJob7ZygMZ3U0uvUf1I7Ep7Wfhy9WDkEsu6MBQJZGrXHrQH
+	ttWyUUmWF66q2985CjBzM85bLbYvzi9UzI8CG8aqH3k6kUwLC/Tz4zqLb6PB2QKBhaUTBpuUms9Pi
+	/eikhz9nbqYCoRTQkljqmyAGzt/77+aTHKcT8oKKl7Sgxztbwxm9GprHRdxzmKqg3ntGw/5wTzla1
+	3qSKORmr508NDUe+iUh3Wsf4N0L+D60U5+W5n7n9i1w1HYHjZI1xIX18j0zlcIcNZw3ne9+Zyeq8U
+	g3ANKXog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSnk-00000007i6f-2Ho8;
-	Sat, 10 Oct 2026 08:51:32 +0000
-Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
+	id 1xFSnx-00000007iBn-3RwX;
+	Sat, 10 Oct 2026 08:51:45 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSni-00000007i5r-02Vj
+	id 1xFSnt-00000007i6Y-2NwI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 08:51:31 +0000
+	Sat, 10 Oct 2026 08:51:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1791622282; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=YYlAhLyA+W59txuVdfGlHzgN9jui63GdXPtcMpN2dC4=;
- b=nZ0PBfpYyJN6aW72PaJJuO5pFjXlSSfuTsUfTMh+dD2/6rruhTIHyoiWg8nSuM957TktW4
- eNSSomyYpTQpF+FlJwQFebSJps9tSyjsAqluNraXoPMHDQUfItEKAFuaPPt9zC7OB1Oteh
- j2yUDcOmR03pXDx68bK4nO7c/L7knrlV4jHPtJJI3/6/lGCVq/JXG+4ipCIgD4wyGQnco6
- RKtTF/a13NwSE+kZNVjl1UpMi1Hm9zcVJJrkwaupbuWa3wSGoQa585zntlv7T64jem3zvz
- V86FErFR2njnejJOO9ebPvKhumCYQTiLAgEA4eKdVZj3AWr0QXlSO4hwn0/nlA==
-Subject: [PATCH 3/3] arm64: module: Use text-poke for late PLT/veneer emission
-Message-Id: <20261010085055.2200241-2-qirui.001@bytedance.com>
-Content-Transfer-Encoding: 7bit
-References: <20261010084721.2197683-1-qirui.001@bytedance.com> <20261010085055.2200241-1-qirui.001@bytedance.com>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Cc: <mark.rutland@arm.com>, <ardb@kernel.org>, <song@kernel.org>, 
-	<dylanbhatch@google.com>, <linux-arm-kernel@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>, 
-	<stable@vger.kernel.org>
-From: "Rui Qi" <qirui.001@bytedance.com>
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26ac9fc88+1c64a5+lists.infradead.org+qirui.001@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-Content-Type: text/plain; charset=UTF-8
-To: <catalin.marinas@arm.com>, <will@kernel.org>
-Date: Sat, 10 Oct 2026 16:50:55 +0800
-In-Reply-To: <20261010085055.2200241-1-qirui.001@bytedance.com>
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=GRQCjk8o/a/C0+wV15inpx1btX0H9yvKy9U4k4uppuo=; 
+	b=COXd/rYh6c/YIeSmGHxKuzPrhoV2lB4EI1g+3cavw5LEJgQ1BzD4kOybLc4/lzQu3/5477pYrgA
+	AhrlmfN/9ALE2CrEvAlevl8YMcU46aRk/h0oWUADoPrAvJ1Pe8HOH/VZTdd19Q16Vx+aS5sKui5yy
+	ygS/NQGpLe4vSCZ+hZqC+ZXFAA2dBE5nRSlRsib4i5OSLoLcmf5ihPKeGOhiLPIq2aC978V7eEht/
+	Dw+ccFzuLz3Ph2daSx7iloaS5RzQOQikYKHB/o5bFMl0EkIK8n6Y5aQ84buPl32/CMb5MoCDDLGL9
+	Y7imYxMT9vHgC2Oi/7Vzlhr2gKxjnYBbXOHA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xFSnL-00000002TuW-2Zcm;
+	Sat, 10 Oct 2026 16:51:08 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 10 Oct 2026 19:51:07 +1100
+Date: Sat, 10 Oct 2026 19:51:07 +1100
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Greg Ungerer <gerg@polyxeno.com>
+Cc: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
+	Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v4 2/2] m68k: coldfire: Add RNG support for MCF54418
+Message-ID: <asn8e5puc3I01Lva@gondor.apana.org.au>
+References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
+ <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
+ <bd25e903-30fc-4905-986c-96d1b42e9f02@linux-m68k.org>
+ <ddf0ab32-5b66-453e-b7aa-1722aeaf2aa0@yoseli.org>
+ <9ba1ebd8-61cc-4e1a-b68d-906b20dd4999@polyxeno.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9ba1ebd8-61cc-4e1a-b68d-906b20dd4999@polyxeno.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_015130_121783_508DA51D 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20261010_015142_103874_01098B99 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,103 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-module_emit_plt_entry() and module_emit_veneer_for_adrp() write PLT
-entries into the .plt section by direct assignment.  Once a module is
-fully formed its .plt is read-only/executable, so a late (livepatch)
-relocation that falls back to PLT emission -- an out-of-range
-R_AARCH64_CALL26/JUMP26, or an ADRP under CONFIG_ARM64_ERRATUM_843419
--- triggers a synchronous Data Abort and panics.
+On Wed, Aug 19, 2026 at 07:36:36AM +1000, Greg Ungerer wrote:
+> Hi JM,
+> 
+> On 19/8/26 01:09, Jean-Michel Hautbois wrote:
+> > Hi Greg,
+> > 
+> > Sorry for the very long silence on this one, it fell off my radar...
+> > 
+> > Le 03/12/2025 à 13:15, Greg Ungerer a écrit :
+> > > Hi Jean-Michel,
+> > > 
+> > > On 26/11/25 17:08, Jean-Michel Hautbois via B4 Relay wrote:
+> > > > From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> > > > 
+> > > > Add support for the hardware Random Number Generator (RNGB) found on
+> > > > MCF54418 ColdFire processors with clock enabled at platform
+> > > > initialization.
+> > > > 
+> > > > The RNGB block is compatible with the imx-rngc driver.
+> > > > 
+> > > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > > Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> > > > ---
+> > > >   arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
+> > > >   arch/m68k/coldfire/m5441x.c       |  2 +-
+> > > >   arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
+> > > >   drivers/char/hw_random/Kconfig    |  3 ++-
+> > > >   drivers/char/hw_random/imx-rngc.c |  7 +++++++
+> > > >   5 files changed, 47 insertions(+), 2 deletions(-)
+> > > 
+> > > I am happy with the ColdFire arch parts, so from me:
+> > > 
+> > >      Acked-by: Greg Ungerer <gerg@linux-m68k.org>
+> > > 
+> > > I don't mind taking this commit via the m68knommu git tree if the hw_rng
+> > > maintainers are ok with that. Otherwise if you break out the arch/m68k
+> > > parts I can apply those on their own.
+> > 
+> > I think Herbert acked ?
+> > Do you need another ack ?
+> 
+> I would like to see an acknowledgement that taking this patch via the
+> m68knommu git tree (to Linus) is ok with the RNG maintainers.
 
-This is the same ROX premise that commit 91b89a634487
-("arm64/module: Use text-poke API for late relocations.") handled for
-the relocation writes through WRITE_PLACE(); the PLT/veneer emitters
-were left using direct assignment.
+I have no objections to this.
 
-The late path is reachable without remapping:
-klp_write_section_relocs() applies .klp.rela.* sections through
-apply_relocate_add() with the patch module already MODULE_STATE_LIVE,
-so .plt is ROX.
-
-Route the emitters through the text-poke API, mirroring WRITE_PLACE().
-
-Fixes: 91b89a634487d5614e51ee773a889ed57f5551ca ("arm64/module: Use text-poke API for late relocations.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rui Qi <qirui.001@bytedance.com>
----
- arch/arm64/kernel/module-plts.c | 35 ++++++++++++++++++++++++++++++---
- 1 file changed, 32 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
-index 7afd370da9f4..fa89ed014bd1 100644
---- a/arch/arm64/kernel/module-plts.c
-+++ b/arch/arm64/kernel/module-plts.c
-@@ -9,6 +9,29 @@
- #include <linux/module.h>
- #include <linux/moduleloader.h>
- #include <linux/sort.h>
-+#include <linux/text-patching.h>
-+
-+/*
-+ * The .plt section is marked ROX once the module is fully formed, so
-+ * late (livepatch) relocations that emit PLT entries cannot use direct
-+ * assignment.  Mirror WRITE_PLACE() and route the write through the
-+ * text-poke API when the module is already loaded.
-+ *
-+ * Return: 0 on success, -EINVAL if the text-poke write failed.
-+ */
-+static int plt_entry_write(struct plt_entry *plt,
-+			   struct plt_entry *entry, struct module *mod)
-+{
-+	if (mod->state == MODULE_STATE_UNFORMED) {
-+		*plt = *entry;
-+		return 0;
-+	}
-+
-+	if (!aarch64_insn_copy(plt, entry, sizeof(*plt)))
-+		return -EINVAL;
-+
-+	return 0;
-+}
- 
- static struct plt_entry __get_adrp_add_pair(u64 dst, u64 pc,
- 					    enum aarch64_insn_register reg)
-@@ -76,11 +99,14 @@ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
- 	int i = pltsec->plt_num_entries;
- 	int j = i - 1;
- 	u64 val = sym->st_value + rela->r_addend;
-+	struct plt_entry entry;
- 
- 	if (is_forbidden_offset_for_adrp(&plt[i].adrp))
- 		i++;
- 
--	plt[i] = get_plt_entry(val, &plt[i]);
-+	entry = get_plt_entry(val, &plt[i]);
-+	if (plt_entry_write(&plt[i], &entry, mod))
-+		return 0;
- 
- 	/*
- 	 * Check if the entry we just created is a duplicate. Given that the
-@@ -107,6 +133,7 @@ u64 module_emit_veneer_for_adrp(struct module *mod, Elf64_Shdr *sechdrs,
- 	int i = pltsec->plt_num_entries++;
- 	u32 br;
- 	int rd;
-+	struct plt_entry entry;
- 
- 	if (WARN_ON(pltsec->plt_num_entries > pltsec->plt_max_entries))
- 		return 0;
-@@ -121,8 +148,10 @@ u64 module_emit_veneer_for_adrp(struct module *mod, Elf64_Shdr *sechdrs,
- 	br = aarch64_insn_gen_branch_imm((u64)&plt[i].br, (u64)loc + 4,
- 					 AARCH64_INSN_BRANCH_NOLINK);
- 
--	plt[i] = __get_adrp_add_pair(val, (u64)&plt[i], rd);
--	plt[i].br = cpu_to_le32(br);
-+	entry = __get_adrp_add_pair(val, (u64)&plt[i], rd);
-+	entry.br = cpu_to_le32(br);
-+	if (plt_entry_write(&plt[i], &entry, mod))
-+		return 0;
- 
- 	return (u64)&plt[i];
- }
+Thanks,
 -- 
-2.20.1
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
