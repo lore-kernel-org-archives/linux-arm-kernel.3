@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0929CCA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D10CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yy/aE7bL88JUeWLGWq8Z4A6u4H8Q4cX7fVUebItHTGM=; b=MCnotRWhgcFqtlGjby/GkFhX3j
-	ifuO5tKLTdn6WMivNCF+/kLfnj/Bqk/4sFNVtkpvjkBZZkWYH9zamjvR1zQ/OAjIRLzLw0zAedKC0
-	eXN5OFvWSQ+xwcWN/ne3pGieK+e50h0RuqSJDvbYikRJATqldkWVfQvvWKmpjl+r0MKbxkdJ+wiGL
-	bCAbJPj1wSSRoPAO2N5c9LXfaMXhh/XYebucW9Sbk/AH62WQzfsxDvNZVWS5MJj39tHEqzLwaTytT
-	3bpIxM+VlbtzEOWIiev47okustbL+OK6jibtl89xyj+MMKy0RifzF00Dw6iRZJBmICSO34xePI7XW
-	mMz2OZPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ksxmdb4yA1kWZOUC249F66a5/hkdvLmy1j/hlKj2+08=; b=dPz+7sZQ5Z+i4vE3Z7zp9O4SlS
+	Mz5D5eWhDYC6sUrj2JCdmwkF1YLfejR70KSQg8RCBBcuxNpGj8Taw9FevxcBnhJQbDDW6QJqnLIJ3
+	PQ/HSc3MlRQSZffY6jIItEAGluDMqQHhbjBeV4pX5J1I5lCoZPaM9XoCr8kw+M6doImAVHsAgy2NJ
+	P5Xo8eEKGCG/mWbrQGcgbtCdqRgY8Q4D+Va4GW/r1KbuPwNfqlaBORof9hDbjdZv9GmwB4JVHfng/
+	x8Hm06tYerXvaj3/OMnR3oZmCO+4bU9xUt1YvsZroT2llgy5AjeRRU3T5qOvVP7K2u8WFmAgwdJY8
+	iVhGNfSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFUyK-00000007tfj-1h6D;
-	Sat, 10 Oct 2026 11:10:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xFV29-00000007to4-3TT2;
+	Sat, 10 Oct 2026 11:14:33 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFUyJ-00000007tfa-0W2J
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:10:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2250160202;
-	Sat, 10 Oct 2026 11:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C99C51F000FF;
-	Sat, 10 Oct 2026 11:10:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791630633;
-	bh=yy/aE7bL88JUeWLGWq8Z4A6u4H8Q4cX7fVUebItHTGM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Tbe02Vz50K0GO8HexwXiHTgLG5Xz03HYD6bU2VIsuWbZ07W2JRiptR6/ZvCSLVGK7
-	 MynFDKdkb8ecxn7V9B5jA6aenGsBq4e/V1bJ3xqq6uKaXWMlFg86qnV0Y7AWXmeseC
-	 NBWrBlD+4huIUYo0lGonq1jEAue0+2dKtfXM/qluGrfmVNPbM0CiJaBNJvaYOXFZp2
-	 CWfcfvycnBP9Nu6Szmex1LqKdUtcMKIrPJn7bc3H3A1YbTGPFs+LzQmobPti4d+vj1
-	 kDnGms+rqR+ewc9/ZU1kt1Y3PhGPXtMWHKLqaAR+zWbMZfIhqxXL65ULgPhhCS0nHX
-	 DyoGRaOS7rr0g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xFUyF-00000001L2v-1Zu7;
-	Sat, 10 Oct 2026 11:10:31 +0000
-Date: Sat, 10 Oct 2026 12:10:30 +0100
-Message-ID: <864iet3j6h.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Myria Sarvay <myrialsarvay@gmail.com>
-Cc: Michael Reeves <michael.reeves077@gmail.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yureka Lilian <yureka@cyberchaos.dev>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	id 1xFV27-00000007tmg-1fMD;
+	Sat, 10 Oct 2026 11:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Ksxmdb4yA1kWZOUC249F66a5/hkdvLmy1j/hlKj2+08=; b=eHpJ7Neiep8sLffC/RolmkM650
+	NifNLXRHCMbuWXxfrWJhg1p8V46EVUXMonAw0caFg2iUQTwJq91AmfPIVfNMGKKT6JFCXs8odTH2z
+	Y9HcG/z0pGSHqUN/MDgiER0MvhWOg5z1bFWZXStpblSwC8VWBFFwpsUrhKj5O5GrZgxuaq/MoDodu
+	6HPfuYiqPcHUWo5bogIGOedwnUWfKE0trBMu0UaSVGAZ0Gk6bxGdTSQLTaoviX8eksi7RpYy6ue0O
+	+fWdEBTVl+rSOwpqm/MMzT4PPWKakeczs4sYFTNmDR1hDKQeQqDf8t16m/GRikGVkfwpI+0cKDLov
+	F9Y1FGpw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Igor Velkov <iav@iav.lv>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	asahi@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: Apply existing Apple CPU workarounds to M3 and M4
-In-Reply-To: <asoZWBEEEsFD5Qrn@macbookair>
-References: <20261008-apple-m3-m4-kvm-v1-0-7bb4cbf3d63b@gmail.com>
-	<20261008-apple-m3-m4-kvm-v1-2-7bb4cbf3d63b@gmail.com>
-	<86cxtk2utm.wl-maz@kernel.org>
-	<CANpmGNv4uYRLALMLKZn-HJwTiqJO90Fx23DOO7K7d-PfSWn=2w@mail.gmail.com>
-	<86bj932ssc.wl-maz@kernel.org>
-	<asoZWBEEEsFD5Qrn@macbookair>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: myrialsarvay@gmail.com, michael.reeves077@gmail.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, yureka@cyberchaos.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, sven@kernel.org, j@jannau.net, neal@gompa.dev, asahi@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: Re: [PATCH] arm64: dts: rockchip: Add the fan tachometers to Kobol Helios64
+Date: Sat, 10 Oct 2026 13:14:10 +0200
+Message-ID: <179163084342.3536058.13031584006257921159.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261006-helios64-fan-tach-v1-1-1c87e72d42b2@iav.lv>
+References: <20261006-helios64-fan-tach-v1-1-1c87e72d42b2@iav.lv>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261010_041431_494773_E1DA2D47 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +71,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 10 Oct 2026 11:54:16 +0100,
-Myria Sarvay <myrialsarvay@gmail.com> wrote:
+
+On Tue, 06 Oct 2026 07:48:58 +0300, Igor Velkov wrote:
+> The tachometer outputs of both fan connectors reach the SoC through
+> open-drain buffers, on GPIO4_C5 for P7 and GPIO4_C7 for P6, but the fan
+> nodes do not describe them. pwm-fan therefore registers no fan1_input.
 > 
-> Hi Marc,
+> Describe each line as the fan's interrupt. The board pulls both lines
+> up, so configure the pins without internal bias.
 > 
-> (Resending because I forgot to reply all, sorry Marc)
-> 
-> On Fri, Oct 09, 2026 at 09:16:03AM +0100, Marc Zyngier wrote:
-> > On Fri, 09 Oct 2026 01:03:57 +0100,
-> > Michael Reeves <michael.reeves077@gmail.com> wrote:
-> > > 
-> > > > I can provide the binary (and a few scripts) to test this easily.
-> > > > Should they have been fixed, we can always create a second
-> > > > implementation list to cover the PMU.
-> > > 
-> > > Can you please send that so we can try? That would be much
-> > > appreciated, thank you.
-> > 
-> > I've sent you (and Yureka) details over IRC. If you need help with
-> > setting things up, let me know directly.
-> > 
-> > Thanks,
-> > 
-> > 	M.
-> > 
-> > -- 
-> > Without deviation from the norm, progress is not possible.
-> 
-> I've tested the patches on my M3 Max (t6031-j514c), and without these
-> patches, it SErrors, and with them (and including the M3/M4 MIDRs in
-> the has_vgic_v3 list in arch/arm64/kernel/cpufeature.c) it doesn't
-> SError, and the iso boots correctly to a login getty.
+> [...]
 
-Thanks for letting me know.
+Applied, thanks!
 
-When you post v2 to fix the has_vgic_v3 list, please collect the
-details of what this was tested on in the cover letter, it may become
-useful in the future.
+[1/1] arm64: dts: rockchip: Add the fan tachometers to Kobol Helios64
+      commit: fc411363b8231315e5260662bac5223636321983
 
-Cheers,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Heiko Stuebner <heiko@sntech.de>
 
