@@ -4,88 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A45BCA6004
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 05:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B914CCA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 05:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJ1PM7OwTRFCcCA6fMvi4+cDOCXvIiu0yXYNfDDpyHo=; b=tKrSjU7Tbg7lVCyaXCmhBGzDnV
-	P6eK0NEwSkonYpgWirWNLliUn1beWxlA3TsS2mDLP9z1n5R2qxqAZcFL07QFy0s5rhMHLLCekKDdH
-	Pg6WFgmM8sj6T0ZOb9n1JmKuAobivGnDx0hnrhvEaNlH2z4fqbO/pPXs/MP/8RS4QzBsn7Re/d2LO
-	OD35E/7+cLSkgiGJZIGW5H+y9oxHdcYBnCvhmLoJQ+r/MYI+afnoWeC1jk2j12f7zREYoojkaawqB
-	T9TyB/zhm4OyFf5n8p48f6twOEgzQ2e7F7yt7N0dhZtv2gYtNLGF3+WO2XcwwBMogBorjLVSxYsuL
-	7GGlJUHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ezlF0Xgn0ovcnr5QHVCWVve1aSdkeHaJOGXX2JmGseI=; b=3iYGguXJmFTPNFuif9GxrBBFxo
+	KaARSkn81GkV+9yo+VC7oP7syNl6jW1PeO2WpMdDXbmQ+a0WXOVcWe6K74Q6SrWQl5m4QOrjyCYnc
+	fdka5bin3v5TSOPzyrjazIakvkGyHUkrbd2NuSskY1n3ay9gF+D3pq9NcV1oVyptgZGMJt/uVWvxh
+	zaWP8eymXnMSmSXT2QUvTUk8B9yB0qkM3H2O45gtBqZs1bJPnKbvAdNe0mM5rgdu2JNJTtLxl7Zwr
+	afaDdpPLPqrdMpj7RvedWWnZ8gvF+NM7AUkZsdQzszkZwkPeUVffUXlc7x8uSSEiXx8bxWBtu046+
+	Ao+58FIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFPNg-00000007XIt-1T7z;
-	Sat, 10 Oct 2026 05:12:24 +0000
-Received: from out-141.mta1.migadu.com ([2001:41d0:203:375::8d] helo=mta1.migadu.com)
+	id 1xFPiL-00000007YCN-0JTo;
+	Sat, 10 Oct 2026 05:33:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFPNc-00000007XHY-47eb
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 05:12:23 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=HkTvJBnAIE0ZS4t3l1CJ6+YMsi7vy8/ugr2w69S/OBY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791609137; v=1; x=1792213937;
- b=cTAfOgS0fTtSt7e7QjdoBBL069Fi7tMpmbwUTn/QqvkOQZ41ZZ+3msXWO10R8eAQtHFhptJv
- EskLdPfKJay6WX7V4ZqYHHuo/Jj5x2AJTELD/k7cKMLxuVh4rkjdXzvoaVRMuHyedDzwZ4G1PVM
- 2Xp9IGcLRTeCe83yxMGzNhyM=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7bb1c1c289ae0b48;
-	Sat, 10 Oct 2026 05:12:17 +0000
-X-Mizu-Trace-ID: 7bb1c1c289ae0b48
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
- tables
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <bd47fc12-f1cf-4994-8b42-45fc68944072@intel.com>
-Date: Sat, 10 Oct 2026 13:11:57 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- akpm@linux-foundation.org,
- linux-mm@kvack.org,
- stable@vger.kernel.org,
- david@kernel.org,
- osalvador@suse.de,
- dave.hansen@linux.intel.com,
- luto@kernel.org,
- peterz@infradead.org,
- tglx@kernel.org,
- mingo@redhat.com,
- bp@alien8.de,
- x86@kernel.org,
- hpa@zytor.com,
- catalin.marinas@arm.com,
- will@kernel.org,
- mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org,
- pjw@kernel.org,
- palmer@dabbelt.com,
- aou@eecs.berkeley.edu,
- alex@ghiti.fr,
- linux-riscv@lists.infradead.org,
- agordeev@linux.ibm.com,
- kevin.brodsky@arm.com,
- bjorn@rivosinc.com,
- apopple@nvidia.com,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <AD5E5149-5786-4E46-A7C0-995088282179@linux.dev>
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-2-songmuchun@bytedance.com>
- <bd47fc12-f1cf-4994-8b42-45fc68944072@intel.com>
-To: Dave Hansen <dave.hansen@intel.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_221221_898048_F58B701C 
-X-CRM114-Status: GOOD (  21.49  )
+	id 1xFPiE-00000007YBx-3PXD;
+	Sat, 10 Oct 2026 05:33:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4507143E43;
+	Sat, 10 Oct 2026 05:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ED5A1F000FF;
+	Sat, 10 Oct 2026 05:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791610418;
+	bh=ezlF0Xgn0ovcnr5QHVCWVve1aSdkeHaJOGXX2JmGseI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Yvi1VX5ffzPlh632ONR69e+gnig6iOes0XEXawTf2MYpJb2vwGRbjn2Umq+CAyyQq
+	 +gbfreljITXYvyPA0E6NAcKjEIypLZ7VUJhciMYCYmzTb+10etufXTkBwy6jQG3mAP
+	 yhYaSEZjz6KJMzrOyREueO3iWc3RyAG6GsDYsq/5NtNOMu20TtVFZkHoYOT/vhUqIQ
+	 kHfJdvxAoXd2YNhHZji90Y1AlwpceLGtJo7Et++N5ZByhuX7j5ixd+Vq2AxNfhyxiP
+	 9AJ3YwqbICN9yIT+AqLU3EMSc7h1zKIvLFcGt791XRkCdojtt1Yv/lpBIOv7Snnsfr
+	 vyqldFYNMhP3A==
+Subject: Re: [PATCH net v2] net: airoha: keep PPE offload when NPU refuses flow stats
+From: netdev-bot+sashiko@kernel.org
+To: sayantann11@gmail.com
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ bread.hsu@airoha.com, sayantan.nandy@airoha.com, kuba@kernel.org
+Date: Sat, 10 Oct 2026 05:33:37 +0000
+Message-ID: <179161041702.434549.16966823821916973097@kernel.org>
+In-Reply-To: <20261009050322.39060-1-sayantann11@gmail.com>
+References: <20261009050322.39060-1-sayantann11@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +69,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-> On Oct 10, 2026, at 04:54, Dave Hansen <dave.hansen@intel.com> wrote:
-> 
-> On 10/8/26 00:30, Muchun Song wrote:
->> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
->> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
->> tables.
->> 
->> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
->> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
->> table, so a later memory hot-remove eventually frees that table through
->> free_pagetable(). That path currently calls pagetable_free() directly
->> without decrementing NR_PAGETABLE.
->> 
->> Use PageTable() to identify constructor-backed tables and run the
->> matching destructor before freeing them. Keep reserved and
->> constructor-free tables on their existing paths. This also prepares
->> vmemmap teardown for generic runtime allocations through the normal
->> pgalloc helpers.
-> 
-> Could you please take some time and trim the bits out of this changelog
-> that the LLM inserted but that are not super relevant? For instance, I'm
-> not sure what the first paragraph is trying to say. It is apparently
-> missing some context.
-> 
-> FWIW, I really don't like the LLM changelogs on their own. They almost
-> inevitably need human editing to make them usable. I really, really
-> expect humans that are sending x86 patches to spend some human
-> brainpower on them. In fact, I expect folks with:
-> 
-> Assisted-by: LLM
-> 
-> to be sending _impeccable_ changelogs in v1 because their LLM saved them
-> so much time that they can spend gobs on their changelogs. More than
-> ever. ;)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I agree with the general point that LLM output needs to be carefully
-checked by the submitter rather than adopted as-is.
+- [Medium] This patch makes flow_stats_cap a plain bool that can change
+  at runtime.
+- [Low] In airoha_regs.h, the new PSE_FC_CFG (0x0098) and
+  PSE_PORT6_SHARE_DIS defines are placed between PSE_FQ_CFG (0x008c) and…
 
-However, I think the first paragraph is relevant. It is intended to
-provide background: commit 49f599666420 changed the behavior of
-pte_alloc_one_kernel and should be canditate for Fixes tag. The second
-paragraph then explains that HVO depends on pte_alloc_one_kernel, so
-that change also affected HVO behavior. The third paragraph describes
-the fix. So the changelog does have a coherent structure, even if it
-can be trimmed.
+--
 
-Of course. I just wanted to explain that I did review the LLM-generated
-content, and that I did not simply leave it unchecked.
+net: airoha: keep PPE offload when NPU refuses flow stats
 
-> 
-> Oh, and it's an x86 crime that we have:
-> 
-> free_pagetable()
-> and
-> pagetable_free()
-> 
-> Any work that makes that coherent would be much appreciated.
+This patch makes NPU flow statistics an optional capability, tracked in
+ppe->flow_stats_cap, so PPE offload keeps going when ppe_init_stats()
+fails. It also treats a zero npu_stats_addr from the firmware as a
+refusal. When flow stats are available, it clears PSE_PORT6_SHARE_DIS.
 
-Maybe rename free_pagetable to free_hotplug_pgtable_page in
-a separate cleanup patch?
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 92611802801ea..0957f331478a6 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
 
-Thanks,
-Muchun
+[ ... ]
 
+> @@ -1456,8 +1456,11 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+>  	if (ppe_num_stats_entries > 0) {
+>  		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
+>  					      ppe_num_stats_entries);
+> -		if (err)
+> -			goto error_npu_put;
+> +		if (err) {
+> +			dev_warn(eth->dev, "NPU refused flow stats (%d)\n",
+> +				 err);
+> +			ppe->flow_stats_cap = false;
+> +		}
+>  	}
+>  
+>  	airoha_ppe_hw_init(ppe);
+
+[Severity: Medium]
+If ppe_init_stats() fails here, for example through the new -ENOSPC path
+in airoha_npu_ppe_stats_setup(), npu->stats is never ioremapped and stays
+NULL. This path then clears flow_stats_cap and continues on to:
+
+	airoha_ppe_hw_init(ppe);
+	airoha_ppe_foe_flow_stats_reset(ppe, npu);
+
+	rcu_assign_pointer(eth->npu, npu);
+
+That publishes eth->npu while npu->stats is still NULL. Before this patch
+that could not happen, because any failure jumped to error_npu_put.
+
+Can this race with the debugfs reader? airoha_ppe_debugfs_foe_show()
+calls airoha_ppe_foe_entry_get_stats() without taking flow_offload_mutex.
+The entries and bind files are created in airoha_ppe_init(), before
+offload setup runs.
+
+airoha_ppe_foe_entry_get_stats() reads the plain flow_stats_cap before it
+takes rcu_read_lock():
+
+drivers/net/ethernet/airoha/airoha_ppe.c:airoha_ppe_foe_entry_get_stats() {
+	ppe_num_stats_entries = airoha_ppe_get_total_num_stats_entries(ppe);
+	if (ppe_num_stats_entries < 0)
+		return;
+	...
+	rcu_read_lock();
+
+	npu = rcu_dereference(eth->npu);
+	if (npu) {
+		...
+		memcpy_fromio(&npu_stats, &npu->stats[index],
+			      sizeof(*npu->stats));
+	...
+}
+
+Here is one interleaving:
+
+1. The reader sees flow_stats_cap == true while setup is still waiting in
+   the stats mailbox.
+2. The reader is preempted.
+3. Setup clears the flag and publishes eth->npu.
+
+Would the reader then resume, see a non-NULL npu, and call
+memcpy_fromio() through a NULL-based iomem pointer?
+
+Would it be safer to check npu->stats after rcu_dereference(eth->npu)?
+Another option is to settle the capability before any reader can see it.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+> index 442b48c9b991e..aee06c0585867 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -72,6 +72,8 @@
+>  #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
+>  
+>  #define PSE_FQ_CFG			0x008c
+> +#define PSE_FC_CFG			0x0098
+> +#define PSE_PORT6_SHARE_DIS		BIT(22)
+>  #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
+
+[Severity: Low]
+This isn't a bug, but the new defines sit between PSE_FQ_CFG and its
+field mask PSE_FQ_LIMIT_MASK. As a result, PSE_FQ_LIMIT_MASK now reads as
+a field of PSE_FC_CFG. Its only user is
+airoha_fe_set_pse_queue_rsv_pages():
+
+	fq_limit = airoha_fe_get(eth, PSE_FQ_CFG, PSE_FQ_LIMIT_MASK);
+
+The 0x0098 offset also now comes before REG_FE_PSE_BUF_SET (0x0090) and
+REG_PSE_SHARE_USED_THD (0x0094).
+
+Could these defines go after REG_PSE_SHARE_USED_THD and its masks, so the
+offsets stay in ascending order?
+
+>  
+>  #define REG_FE_PSE_BUF_SET		0x0090
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261009050322.39060-1-sayantann11%40gmail.com
 
