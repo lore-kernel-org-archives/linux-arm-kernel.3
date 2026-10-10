@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4813CA9EC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 20:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C80DCA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 21:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nPOKT1Np9zdDoMIBXPTWEbZoL6c+7x4hOWovpcPntho=; b=GN/6eeCmH7cK2EOcDqKGWTyXGm
-	wtT3z61kJ4aOU4/k03zX936nzd+fPJM674U9c9/FN5uBWxl5dImXB7kXfFZzDtlqi/SlLyGVBnDQ+
-	wCDgsQoL3mPDmOTI8qek6X+SFGvPHqPfArOBWTtTwKTMZpelAxbgKwKF2oB+DNAJ8UqepeP8KgJJy
-	N4jeHdh6gTVkm3McGj+lwoL8WC9T7xKN8d0DdI6pBOPpmh15fBO5IoHRbZpfhwFu7GG1WgaacYtG5
-	BEdbsfci4WeFK4/o94lbVqWmXAF3Ic4/PUKda5jelYiFpQvdaxHBSlFt+CRdNl4WV4Wpp7dHCIRFx
-	nPefqZiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HcanjXNG/y1dzMxOcr/CuT3nL3s1yXy3rxN4U86ET6o=; b=SiXODBnDe42yLvjYdB/CsrQgFE
+	1oLh8a22E4ixC6+axpZa86eWsiVtJBUP0KpllNM6UhlxKYj4KkmJVwDN1GRSH1TAF0mA4Zl6NAQBi
+	7nUUmLAocpt9YX1n32g/ktg4c/+ABr31XN6PWYJDPm0AzB182IAxBvfdy8iDy6wUcXciZkXCxoeTm
+	lF4AXzPJH7Qw51k4WJj4zKIllsmUX0/V7ykqNgep7MRgTjbtkNGLHfRPGTJO3fJI5FyUAW07p6ms0
+	xisyByimOE3/rpRp/GNWBfMvXRXtQwvdywMZImeMKvLg2RVAgVBsvYTnllVOckbCKWs6zq7XAONhS
+	FRLbdj6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFdF3-00000008Q8H-3qbx;
-	Sat, 10 Oct 2026 20:00:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFeag-00000008S1I-3FDz;
+	Sat, 10 Oct 2026 21:26:50 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFdF2-00000008Q85-1kXl;
-	Sat, 10 Oct 2026 20:00:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71338602CC;
-	Sat, 10 Oct 2026 20:00:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 096DFC2BCB9;
-	Sat, 10 Oct 2026 20:00:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791662423;
-	bh=INhYC89c0fkz7duYIP5TtM0wbq9gO2yYmBeJHMpXEdo=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=mfXy1Pp9LFsulrG2ge35MGdOxR5P986wKoXB8oHZBNWt/QSHLd918tDNP8fQStoxS
-	 SYx7pyQbltQj65vbdAkdHFDe2j2ohDM0kQIwYZ1pFSoEFDcqheN9OGiLjtYS91t0kn
-	 2/o/N4DEN9ucHRhhYezpxfZAhZJwtpzMoUhtHM9vi5y/62Z5cBw0VarVYC2kgMF1hi
-	 ML3NERBSElFFfFXbQOVzUBG+16CL5Hw4Nq0UJiA6t5+Qf1GkA25b0re6S6e9GBgPdf
-	 DlaWZj6CU545Xc8jgBZKGZg3hz0iEfHzMAx4AK69qt/AmzGKl+pUc6Yx4LpegzxxsV
-	 d3woNnuXFSxgA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2DDACA9EC1;
-	Sat, 10 Oct 2026 20:00:22 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Sat, 10 Oct 2026 23:00:16 +0300
-Subject: [PATCH] arm64: dts: rockchip: Add the buzzer to Kobol Helios64
+	id 1xFeae-00000008S0u-2D8b
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Oct 2026 21:26:49 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48af27fe287so659808f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 14:26:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791667606; x=1792272406; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HcanjXNG/y1dzMxOcr/CuT3nL3s1yXy3rxN4U86ET6o=;
+        b=MH8GQU/pMTj12hgJu25JUq9rOzS6dyOhJq9BlZhS6+n5dTMcjnbLU6dWxl92bw3clm
+         LSEi6OyRtgpOWk/nBEs7hvLw/XnIIZKNICr0wxG8zWwtMcqo3q8PGBDiwsbYlXl1h3NY
+         FE8Xtqzh1UluX7Ga4F3hrW0lszMgBV5owNfvJHEMT6vY2aQ5SqDVife8FECaUIL106Tv
+         9lWlE3P2Ck+u/ht0+JOjOBAjGxYzMmF+bYoELzoDMxp4PN/ow/ZcvY3J7x3WnouWbKIX
+         hN+vupK8NG5u4HpBLPTXXpg4odlZobvM/gAnKDZKe5Erqqjv9KzxJP25fxEcnoqzJbHy
+         8v7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791667606; x=1792272406;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HcanjXNG/y1dzMxOcr/CuT3nL3s1yXy3rxN4U86ET6o=;
+        b=pyj7lXUCpz2fMlKVFvAFrWETF1Bbfy+uvf7zkPcjD2M0oU0nbMHgQ/pL9CM7wM/pnZ
+         Bu2cdobUUJf0XrUAQkKHxG9aoE4/DXdwaLw4YR4Y7pgYREUAmxQdNJtpDGhO6FJkjqdq
+         zoUGlgwLC2QhtgtkNT5fwfRRcoMifKwTWaTGIqNp+dwNi9Jp96GhP/AyBAQIaruCel0w
+         jSkTt8EhsMvUfUJelcAqsZXBRMl8a9rYspMUP93HhVe8rxowAlRY8Xr+qH9baxmXoqHx
+         oVelVBEY1nVXo7Mndd4tPKn06YTiYuiHSZ7pwVann/RKhOVmqg9oMRSyhuBSqoa9HUsj
+         buMg==
+X-Gm-Message-State: AFq9FYJjrsadigqXTAGT/1MzS2FXAgsz6ObedsXoak60keGSorW84/Rj
+	Z2jz4qWXKe645y9wmYiReaaUDOiDi44aMS/7A6tihoYDCCzGTRmfT6Cf
+X-Gm-Gg: AYBFou2VN1aDXtiv8E1lEmv6lUCS3xvf/Era4z+sZuXDjz75BpVd20Ft4UchIIYc7Oo
+	Zi3VgTNaGQ9i272I5zl7G57YYBxyyeeppv6I7vuQ5R/mv++hjkM0Tu1AqOIBNlY5qnkl4JtdCLp
+	OuQsf/FFnqLIvsvDcSM9waVVzEHG/gBk3zLfcrohe0OaCMq6uQrfTpmYLavaNrtF7jtO0QkAflH
+	ETSL1t1NYZYXZKb3RTDtNlGqq++UJnDwi+gE1tFGConDlH018eheGdNwSMvSO86rBse0FJwkIDN
+	Iq7TqyJ2qmtXyg5M2+AgOYgYYp0cwZwYUMc3nQPPfA1X+CgFT3eWSsrh4uAAZY+V1ssIWz80b7S
+	JuTy4/Ec8vkK4t1KB/D3QznuGXU1jl8yiE34r5X469A2XbGZT2abjbJ+bCtziSPLxZUB3w9OJwc
+	LQuOI3hggXr4FuuFNjq2jXpWN9aqmfsl78weL4x/o3OWdSL/R2D9w6EaORSaTSqW0vg5C/0yia5
+	MyUkMlV+wlG3+e/2KZv9+oCqsQMnCLt8THlCQtl/9sKTG1t+WcTsNrH4uH6WXkL7xkcZHqReHcZ
+	tHbCIMn0ZyWgGhyn4cEDyAtiXTQvhNGTlzMqXysdumyGPwZNB8Hxgv6ggokzPg==
+X-Received: by 2002:adf:e007:0:20b0:48c:656a:f36c with SMTP id ffacd0b85a97d-48dba77cefbmr8056240f8f.3.1791667606295;
+        Sat, 10 Oct 2026 14:26:46 -0700 (PDT)
+Received: from navid-pc ([2a01:4b00:a856:6220::a11])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9ade914sm9978673f8f.54.2026.10.10.14.26.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Oct 2026 14:26:45 -0700 (PDT)
+From: Navid Ghahremani <ghahramani.navid@gmail.com>
+To: stefandoesinger@gmail.com,
+	arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@armlinux.org.uk,
+	robh@kernel.org,
+	krzk@kernel.org,
+	Navid Ghahremani <ghahramani.navid@gmail.com>
+Subject: Re: [PATCH 05/24] ARM: zte: Add ZX279128S platform and CPU hotplug support
+Date: Sat, 10 Oct 2026 22:26:39 +0100
+Message-ID: <20261010212639.1662820-1-ghahramani.navid@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <R4jkIz-qRYm8QZxlEgQNPQ@gmail.com>
+References: <R4jkIz-qRYm8QZxlEgQNPQ@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261010-b4-helios64-beeper-v1-1-6235643158cf@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAFCZymoC/x3MwQpAQBRG4VfRXbt1ZwzJq8hi8OOW0ExJad7dZ
- PktznkpIigidcVLAbdGPY8MUxY0bf5YwTpnkxXbGDHCo+MNu56xcTwCFwJ7Uwmst1UtLeXwClj
- 0+af9kNIHU5U6eGQAAAA=
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1395; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=CLjRnKOQVnSgjGYiJTawa4WmYQi+xZfiDphqtnkUSz0=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmnZgZGPnopq23L8KTpTftrtQJp7gzji4+ZMvW/F58Ie
- +W8cPLpjlIWBjEuBlkxRZYJhzRuZSy5+tffw/wBzBxWJpAhDFycAjCRrXIM/wyqdJSauPsM2HNq
- bZt9Tv3l2RL3XP6PRmEmT1eES3jvNIb/EbXJe2aGTNzAqqE4W9+N0fHuHI/cz4otD3aEh13yXcf
- JDwA=
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261010_142648_574900_26F8E2FD 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +103,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Igor Velkov <iav@iav.lv>
+Hi Stefan and Arnd,
 
-Helios64 has a 2-pin header, P4, for an external buzzer: pin 1 is 5 V,
-pin 2 is switched to ground by a MOSFET driven from GPIO4_D3
-(BUZZER_ON), active high. Describe it as a gpio-beeper.
+Thank you both for the feedback and guidance.
 
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Schematic, sheets 30 and 35:
-https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
-P4 in the header list ("Buzzer Alarm Speaker"):
-https://wiki.kobol.io/helios64/hardware/
+I would be very glad to co-maintain the ZTE ZX platform together with Stefan, and I am happy to take responsibility for testing and maintaining the ZX279128S SoC and hardware support.
 
-Tested on mainline: GPIO4_D3 follows the beeper input events. Nothing is
-plugged into P4 here, so no sound check.
----
- arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+In v2, I will update MAINTAINERS to combine this into a single unified ARM/ZTE ZX SOC SUPPORT entry with both of us listed as maintainers, rather than creating a separate platform entry.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-index 63ad79b4c8ac..d84b777b7153 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
-@@ -58,6 +58,11 @@ avdd_1v8_s0: regulator-avdd-1v8-s0 {
- 		vin-supply = <&vcc3v3_sys_s3>;
- 	};
- 
-+	beeper {
-+		compatible = "gpio-beeper";
-+		gpios = <&gpio4 RK_PD3 GPIO_ACTIVE_HIGH>;
-+	};
-+
- 	chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
-
----
-base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
-change-id: 20261010-b4-helios64-beeper-a130e2a23508
+Stefan, take your time with the review. I look forward to your thoughts over the weekend.
 
 Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
-
+Navid
 
