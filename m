@@ -4,118 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21860CA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 14:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9AECA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 14:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=RjrGDmHXvqaPJz7sJjL8JpPCvh
-	kuhun9iNoBrck90wdui2408htP8uhFAXvFTbQbxKakLp0sdiNhWRhoAx/kpTgBUJxZf24WYJk+41B
-	EkCfr8eVjcxMSCGJKC06K7ksIkcsSPHcwR6rZYXLBmxGMnjfvyRkHkBlxOTWdgYSrH1ZwzvtBhNuM
-	xJBh/koUBbm3o6wBprfoag5FTZS2wcC/suXPRdkxkEJS0GZ8tjUhT4tMzPImlNlEVl6az9d4dnbvH
-	UumaH9v6S06zjaPeYfDo5JnsingoPAb/DuSmfNyY98EnksAyJ+eK+meswjut0vdMl4jtOQLkOQBW8
-	WHEk89jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SuZQjHB51TzC9HbCK7GewQDoMKgnppnP29mw5X4Ma30=; b=uNVHGlrMXP3oi4+7G2/nqO16tm
+	xWZZSM4i2MpFlOp3xhvOwTrxRPKeM5IXp3Q9WDenJS/WgyIo131yeJteXzLrVEnQ22sxcsAF1/1e8
+	dljDYJgnX3D3Chg8ppaW9ri64IGtJZh3BqdHymmdDXDYAM1LIixMWPOsXYaUgkkSUQEaCsZaiFefs
+	47FbKPxq/1SGjpELI3jmS1BvlTeXVD2rAh9pMpnP6OeQ9r5DBp4cvbkefRByQ2w4XHwmrq9Hp0hgx
+	r4QiEHQk5sJ15VmjWTtMi638MEBZrTXAp16qUiW/mt7uYH5pdILRKWQTHaN6xPnJ7QCpplJIwXZTp
+	G9xABb2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFXq9-000000089TP-48NI;
-	Sat, 10 Oct 2026 14:14:21 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1xFXv0-000000089oP-3mmK;
+	Sat, 10 Oct 2026 14:19:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFXq4-000000089T0-42Qg
+	id 1xFXuy-000000089oI-3SvO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 14:14:18 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id D789D7A008F
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 10:14:14 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Sat, 10 Oct 2026 10:14:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1791641651;
-	 x=1791728051; bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=
-	m7q9KgvzaoOqlvH3uyt6b3NRUrb/XshVsTwIZQ2MkfanF0l4UbzyCYCQP5QsVdO7
-	QObIizevkTWPs1J3Eyafl3+cxjni0izy+xUgCD4QSFJTAQ8NZ+IjQrl+GNKH+Sj6
-	DTZG2joS2hA8z0CRIKW6hbCDPHPqPJAMQVTTNyjjrH5ejFNLlzzbdhg2i6iCgqiw
-	ynpLL+C5qegRlpTwfli/z8PsbPObF2fc2zBJCzIvpnhvHKRumzg0vKaNGE+lWI2i
-	YdaqaQzc/KhGDjFxOxm7D6F3P9/4wtXFW5ogT6Ksw154eCSThk+cmAUjnwlwBdTL
-	FlenU3ZU3igC0stXSolVHg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1791641651; x=
-	1791728051; bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=M
-	63IUeVKUTLQXGMaaDRVP9jD1qL3IvASSLQLZtYt0//+lXu/swC0urIJwP69vAPCJ
-	2RPhlox0pNmX3eNXSgE3TfOuwYJo5EK4afJSOxfXFL2r58OBXMVZ9dGpxEiSeHnc
-	cQtud6OJnXczfu5i1XhbZf59N37iNEDYU3bezEVubu5Ou5rUTQXmXA51KYmH20Dp
-	ka3/pXMjefonMqX5UBDfs4qhvlJrGSUTlzTxFAc0qgIKlvEozD9FXFqPQnj4kmQj
-	b5iJsJ/DjLecpNj57bCm5Q7sabACuBTkvbSTWtAvCLBAl+vGCGXPoyfs/QbWbE4g
-	1I2XGdbnUWeF2V5LZqZwg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1791641651; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:NWk1MwNn6VSSWvZZvxC2lZ10Od7gvGD7Zk1Vdl7sk6KmpwM
-	9aMecimtLOmT4fRvTx030QeAXkJYd7Sui2EVMTKjlklU5A1xIdt238S5jll7sdun
-	rI2FhY6FCXs02fpWE/pZzOiqSUI+OC3YxYGjylofT9jcDixtfHC7mXYJyWsNBtdV
-	F69js0X5FBlsr5BM14q9fpJZN7w9AArCJGBT0znQDftFyJh2/LIjXSIR3eyf+8NF
-	QaeAcNYFo9FrLR/LcyKdWyFxj0S4Drz2g5iwQltLkDo7ijGyKNL1k2ef2pHuWA2w
-	4n/uchWR5xy6Q1vEQIhTyp5yv2Hp5jZkO2FgBRg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:E0iXCI5C17X7FFLF5wpNyOXtmHUPYySvSTLL/Nr0UuI=:xTBFcM9TkpWzcdbid7SiEiRR1QDxfB9ux5nHJ2vCvfg=;
-X-ME-Sender: <xms:MEjKaqDEMS5-Z4qDa-vxFYxQbwCbgjv7Q5GhXah7AisdAUWP-AjfEA>
-    <xme:MEjKavVL50CGShenTs_TEkfnp_CIQFtbhAI8U_J-cDh38mxrvCPGI-acbk5jvRrca
-    8W-eu4PAjtzObfXv28Q2zmOmotic-u-yMWROrpqztCiR9q28ZrDjBFc>
-X-ME-Proxy-Cause: dmFkZTE+WwUgTuhZ2nzPZll+5Ah43fS038CZn0JVBdoDxLdBIrf6sxasJG3xkgrPmZmn4S
-    HSz2okafCVJ1UU1wacBv64F4E4AzJqa09Wmid+lUqrRFlVxtQq5+o9SKZQkBVDS8p2U0Xe
-    ZkCVuL+d8f+2xvCMm3tYEEqqf9pbWbzbyxUylQj/AkyYsjmOO+eA/IcWRTNeZ3/SEMN/63
-    BRKYQhYRrQZ36bwzTVQb0yzoz6qjb2pLS2DVKRr9EfCvuuFP5kfxAv/DhodSQSQK5WcTcT
-    Q98csWRayBVKvHWUbdoa5rjo55vzsfCKSVcrxQgzoSIyi3L0Nx/xi2bdx6o6e3zrGca3jd
-    qMN7jcmH97a0BGjwQgNvzFUwHwjK7NyjQwXb1eOa7QiaA1LWe4HZdNyqEG9RGQsId2ewYp
-    sJtojqacXOn7DegbHl+c5dm//Xiol1oBYzekMNb+zvdVEZ+TGi/vh4YifLjOz+Sr031+XU
-    xp5INLx8XqJcWp3oqE/JWo55Pxv0mjgIsr317yMNKsFT88ez4dLYZ6fmITIB75BNr7kesL
-    ENUES6w9SddiCBsm18RmZOu69ZYJqAdBVo/59AILBbJD97kQ3v0YQ8eeakYszncABuVusA
-    MnxtTmhjQ4hQlt/KVdIHEiyzJX8MaUF4DPy1gJAZHFxTuu3x3Ncm50HpwQEA
-X-ME-Proxy: <xmx:MUjKap_lO5Jvkt0XXg630MQAcs8mUah5St7s-Xc_OQnY8g8IQMgqxw>
-    <xmx:MUjKaipU7rEH2vVmznbM6JxoQgfIXzTIilnb5w5lK12hb_Rge8J4Ow>
-    <xmx:MUjKarTBT2aLbgQW4oUoz6SoqJelhb55zBuJPQu0kHLeCyWFJ9eqEQ>
-    <xmx:MUjKatPnjvP79VNggcDZPrKOeUVkhuhGiP2IrxlW2QIN6RyzlGJv7Q>
-    <xmx:M0jKau0LLNEyKw5bAbR5ZuLzklBYbtsT-Lg4v4-X7M682hqR_OJ0lhYL>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 0308532A008E; Sat, 10 Oct 2026 10:14:08 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sat, 10 Oct 2026 14:19:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1C0B60202;
+	Sat, 10 Oct 2026 14:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE7241F000FF;
+	Sat, 10 Oct 2026 14:19:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791641959;
+	bh=SuZQjHB51TzC9HbCK7GewQDoMKgnppnP29mw5X4Ma30=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QYyVmWtndIYqGliOsFD1ApbRjW+TNgk/IekBFHDfFaNvyMP6KbId9V9C/OcsQC8jL
+	 be9AHLu8Qe80kO4MhUhYu7zr6RfaFJGcjH77xAMkfSEuTjxoJ9YC3BEzzncJCN8b6P
+	 4MUGfXHGhtmb0BzjmMSuOoi34naqRxjwGUGoWE3j/7zFBP0ukLl2jL6wxey5E49SWc
+	 T85s6a9i8G/rs9k+4uUlytR1u+F9q4YV8vB/vxetr+ZGvWkz9tDHkZlBowdfswloUa
+	 YzrCmaZbLqakYyUwSJX8QvVmQy4Q5IZeY2Sgeg40aiJ9ATXBRwXQDPfCLTcBNqzzI1
+	 /XaXMAr0xSwpw==
+Subject: Re: [PATCH net-next 3/3] net: sparx5: Add TAS offload support
+From: netdev-bot+sashiko@kernel.org
+To: daniel.machon@microchip.com
+Cc: UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ Steen.Hegelund@microchip.com, richardcochran@gmail.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, robert.marko@sartura.hr
+Date: Sat, 10 Oct 2026 14:19:18 +0000
+Message-ID: <179164195818.434549.1315955310783302023@kernel.org>
+In-Reply-To: <20261006-sparx5-tas-v1-3-5eef1126dfd5@microchip.com>
+References: <20261006-sparx5-tas-v1-3-5eef1126dfd5@microchip.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-ThreadId: AV9a5Jwtb8Lw
-Date: Sat, 10 Oct 2026 16:13:47 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Navid Ghahremani" <ghahramani.navid@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Russell King" <linux@armlinux.org.uk>,
- =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk@kernel.org>
-Message-Id: <b6dc1056-63d9-412b-8abb-a032dae83d46@app.fastmail.com>
-In-Reply-To: <20261010130024.177503-6-ghahramani.navid@gmail.com>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-6-ghahramani.navid@gmail.com>
-Subject: Re: [PATCH 05/24] ARM: zte: Add ZX279128S platform and CPU hotplug support
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_071417_047328_07A9E53E 
-X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,30 +72,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 10, 2026, at 14:59, Navid Ghahremani wrote:
-> Support the dual Cortex-A9 platform, second-CPU startup through
-> bootloader SRAM and CPU hotplug. Keep existing ZX297520V3 support
-> intact.
->=20
-> +ARM/ZTE ZX279128S SOC SUPPORT
-> +M:	Navid Ghahremani <ghahramani.navid@gmail.com>
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscriber=
-s)
-> +S:	Maintained
-...
->  ARM/ZTE ZX29 SOC SUPPORT
->  M:	Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscriber=
-s)
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Hi Navid,
+Critical: 0 · High: 0 · Medium: 3 · Low: 2
 
-Since this is really the same platform, I would expect to have a single
-maintainer or team of maintainers. Since Stefan is already established
-here, I would ask you to work with him first on reviewing the code and
-deciding how the two of you split the responsibilities going forward,
-but I don't think that having two separate platforms with separate
-maintainers is going to work.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-     Arnd
+- [Medium] If a TAPRIO_CMD_REPLACE fails, the schedule that was already
+  pending in hardware is lost, but taprio still treats it as the current…
+- [Medium] sparx5_tas_enable() computes the TAS base time with
+  sparx5_new_base_time() at line 595.
+- [Medium] sparx5_tas_shutdown_pending() reads LIST_STATE once (line
+  288).
+- [Low] The comment in sparx5_tas_init() says 'There are only 128
+  (sparx5) / 60 (lan969x) TAS lists, not enough for the whole port…
+- [Low] sparx5_tas_list_state_wait() (lines 249-261) and the startup loop
+  in sparx5_tas_enable() (lines 661-673) poll HSCH_TAS_LIST_STATE /…
+
+--
+
+net: sparx5: Add TAS offload support
+
+This commit adds Time Aware Shaper (802.1Qbv) offload for sparx5 and
+lan969x, configured through tc-taprio. Each port uses two hardware TAS
+lists, so a new schedule can be programmed while the other list is
+operating, and GCL entries come from a pool shared by all ports. On
+sparx5, the last port gets no TAS offload when all 65 ports are present.
+
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+> index 3637d4b48ad67..ec80bc69371ab 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+
+[ ... ]
+
+> @@ -17,6 +20,753 @@ enum sparx5_tas_link_speed {
+
+[ ... ]
+
+> +static int sparx5_tas_list_state_wait(struct sparx5_port *port, int list,
+> +				      int req, u32 done)
+> +{
+> +	struct sparx5 *sparx5 = port->sparx5;
+> +	unsigned long end;
+> +	int state;
+> +
+> +	/* Do not wait forever for the state change */
+> +	end = jiffies + msecs_to_jiffies(TAS_TIMEOUT_MS);
+> +	do {
+> +		if (req >= 0)
+> +			spx5_rmw(HSCH_TAS_LIST_STATE_LIST_STATE_SET(req),
+> +				 HSCH_TAS_LIST_STATE_LIST_STATE,
+> +				 sparx5,
+> +				 HSCH_TAS_LIST_STATE);
+> +
+> +		state = sparx5_tas_list_state_get(sparx5);
+> +		if (BIT(state) & done)
+> +			return 0;
+> +
+> +		cond_resched();
+> +	} while (!time_after(jiffies, end));
+
+[Severity: Low]
+This loop reads HSCH_TAS_LIST_STATE repeatedly with only cond_resched()
+between reads, for up to TAS_TIMEOUT_MS. It runs with RTNL and
+sparx5->tas_lock held.
+
+Some of these waits are not short register settles. A TERMINATING list
+runs until the end of its cycle, and cycle_time can be close to 1s.
+sparx5_tas_disable() can chain several waits (pending stop, TERMINATING
+request, ADMIN wait) for each of the two lists.
+
+Would read_poll_timeout() with a sleep between reads fit better here? The
+same applies to the startup polling loop in sparx5_tas_enable().
+
+[ ... ]
+
+> +static int sparx5_tas_shutdown_pending(struct sparx5_port *port)
+> +{
+> +	struct sparx5 *sparx5 = port->sparx5;
+> +	int i, list, state, err;
+> +
+> +	for (i = 0; i < SPX5_TAS_ENTRIES_PER_PORT; i++) {
+> +		list = sparx5_tas_list_index(port, i);
+> +		spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_SET(list),
+> +			 HSCH_TAS_CFG_CTRL_LIST_NUM,
+> +			 sparx5,
+> +			 HSCH_TAS_CFG_CTRL);
+> +
+> +		state = sparx5_tas_list_state_get(sparx5);
+> +		if (state != SPX5_TAS_STATE_ADVANCING &&
+> +		    state != SPX5_TAS_STATE_PENDING)
+> +			continue;
+> +
+> +		err = sparx5_tas_list_state_wait(port, list,
+> +						 SPX5_TAS_STATE_ADMIN,
+> +						 BIT(SPX5_TAS_STATE_ADMIN));
+
+[Severity: Medium]
+Can the hardware move this list from PENDING to OPERATING between the
+state read above and the ADMIN request?
+
+sparx5_tas_list_state_wait() writes LIST_STATE=ADMIN again on every
+iteration and does not check which state the list is in now:
+
+    if (req >= 0)
+        spx5_rmw(HSCH_TAS_LIST_STATE_LIST_STATE_SET(req), ...);
+
+If the pending list's base time arrives in that window, the list becomes
+OPERATING and obsoletes the list that was operating before. The next
+iteration would then write ADMIN to the only running list. That stops it
+mid-cycle without going through TERMINATING. If the hardware ignores the
+request instead, the wait times out with -ETIME.
+
+On the replace path, sparx5_tas_list_find()->sparx5_tas_shutdown_pending()
+is not followed by sparx5_tas_shutdown_operating(). HSCH_TAS_GATE_STATE
+would then keep the gate mask of the stopped entry, possibly with queues
+closed, until the new list starts.
+
+lan966x_taprio_list_shutdown() reads the state again on each iteration. It
+sends a list that has become OPERATING to TERMINATING and later restores
+all-queues-open. Should sparx5 handle this case the same way?
+
+The same unconditional rewrite applies to the TERMINATING request in
+sparx5_tas_shutdown_operating(). A list that has already gone
+OPERATING->TERMINATING->ADMIN could then get a TERMINATING request while
+it is in ADMIN.
+
+[ ... ]
+
+> +int sparx5_tas_enable(struct sparx5_port *port,
+> +		      struct tc_taprio_qopt_offload *qopt)
+> +{
+
+[ ... ]
+
+> +	sparx5_new_base_time(sparx5, cycle_time, qopt->base_time, &base_time);
+
+[Severity: Medium]
+Can this base time be stale by the time it is written to hardware?
+
+sparx5_new_base_time() returns a time only 2-3 cycles of the new schedule
+ahead of the current PHC time. Two slow steps run after it:
+
+  - sparx5_tas_list_find() can wait up to TAS_TIMEOUT_MS for a pending
+    list to reach ADMIN, or for a TERMINATING list to finish its current
+    cycle (up to the old cycle_time).
+  - sparx5_tas_gcl_setup() programs up to n_tas_gcl entries, each with
+    several indirect register accesses.
+
+Only after these steps are HSCH_TAS_BASE_TIME_* written and ADVANCING
+requested. For example, a 100us cycle that replaces a 500ms cycle while
+the old list is TERMINATING has a margin of about 200-300us, but the wait
+can last hundreds of milliseconds.
+
+That breaks the rule in the comment at the top of the file, "base time is
+at least current time + (2 * cycle time)". The likely result is a
+STARTUP_ERROR and -EIO.
+
+lan966x_taprio_add() computes the base time after list selection and GCL
+programming. Could sparx5_new_base_time() be called just before the base
+time registers are written?
+
+> +
+> +	/* Allocate before sparx5_tas_list_find() stops a pending schedule, so
+> +	 * running out of GCL entries fails the replace without touching
+> +	 * hardware.
+> +	 */
+> +	base = sparx5_tas_gcl_alloc(sparx5, qopt->num_entries);
+
+[ ... ]
+
+> +	/* Select an appropriate entry to use */
+> +	err = sparx5_tas_list_find(port, &new_list, &obsolete);
+> +	if (err) {
+> +		bitmap_clear(sparx5->tas_gcl_bitmap, base, qopt->num_entries);
+> +		goto out;
+> +	}
+
+[ ... ]
+
+> +	if (HSCH_TAS_STARTUP_CFG_STARTUP_ERROR_GET(startup)) {
+> +		netdev_err(port->ndev, "TAS startup error in list %d\n",
+> +			   new_list);
+> +		err = -EIO;
+> +	} else if (state == SPX5_TAS_STATE_ADVANCING) {
+> +		netdev_err(port->ndev, "Timeout starting TAS list %d\n",
+> +			   new_list);
+> +		err = -ETIME;
+> +	}
+> +
+> +	/* taprio sends no DESTROY for a failed offload, so do not leave a
+> +	 * list behind that may still start.
+> +	 */
+> +	if (err)
+> +		sparx5_tas_shutdown_pending(port);
+
+[Severity: Medium]
+Is the schedule that was already pending lost when the replace fails
+here?
+
+sparx5_tas_list_find() first calls sparx5_tas_shutdown_pending(). That
+forces any ADVANCING or PENDING list of the port back to ADMIN and frees
+its GCL range. Several failures can happen after that point:
+
+  - the invalid state combination check in sparx5_tas_list_find()
+    (-EINVAL)
+  - sparx5_tas_wait_admin() timing out on a TERMINATING list
+  - a latched STARTUP_ERROR (-EIO)
+  - the ADVANCING timeout (-ETIME)
+
+Each of these cleans up only the new list, either with bitmap_clear() or
+with the sparx5_tas_shutdown_pending() call above, and returns the error.
+The old pending schedule is not restored.
+
+In taprio_change(), the previous schedule B was already promoted when it
+was installed. On an offload error, taprio_change() does goto free_sched
+and keeps B. Take A operating and B pending, then a replace with C that
+fails. Hardware keeps running A, taprio reports B, and B never starts.
+
+The comment before sparx5_tas_gcl_alloc() covers the case where GCL
+entries run out. The later failures still seem to leave hardware and
+taprio out of sync. Could they be handled as well?
+
+[ ... ]
+
+> +int sparx5_tas_init(struct sparx5 *sparx5)
+> +{
+> +	const struct sparx5_consts *consts = sparx5->data->consts;
+> +	int i, num_ports, list_num_max;
+> +
+> +	/* There are only 128 (sparx5) / 60 (lan969x) TAS lists, not enough
+> +	 * for the whole port range. LIST_NUM_MAX is the highest list index
+> +	 * processed, and the datasheet gives 24 as its minimum value.
+> +	 */
+
+[Severity: Low]
+This isn't a bug, but is this comment accurate for lan969x?
+
+lan969x_consts sets n_ports = 30 and n_tas_lists = 60. With
+SPX5_TAS_ENTRIES_PER_PORT lists per port, every lan969x front port gets
+its two lists. Only sparx5 (65 ports, 128 lists) runs short, as the commit
+message says.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261006-sparx5-tas-v1-0-5eef1126dfd5%40microchip.com
 
