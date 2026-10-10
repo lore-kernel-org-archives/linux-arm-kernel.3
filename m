@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B018CA6017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5BCCA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Mime-Version:Date:Subject:
-	In-Reply-To:Message-Id:Content-Type:References:Content-Transfer-Encoding:From
-	:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Mime-Version:Message-Id:From:Content-Type:Date:Cc:In-Reply-To:References:
+	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCo5NPKaCfP7g9DBT1HMo+1v4Rsy+b8BT+qecwvrSuI=; b=O+FWhZlfmUDT/L6bu+THOPRrWW
-	XO5ZOAnADooQYGewU07gKtD+FPRaYXxVIlw9bJ8BjTsUO0vfpSYNcqZ/8iGAKWABTwy1RIQY3ZMG0
-	7gIu9NoUc8bfwx3REGMWUpx8pZy36bGDYdUtnTrq/63zwwhnzqzVQBTafRmrSXVSYAAZVZ4oBY6l3
-	SJ088Ml5L3HYtFOTfIEzp7qtvfSq3QgzMGXqslnaZ0HhpoHlUlZ72ZE8d1daEtRQfTr6s0zS//Dd/
-	XbV6X1uryda4jICgatkjJPOp6n3e0mmKBTiSHIKAJm10oR87eChfa4e4CSkIev5kC0A40hzcFuzUw
-	r/nYMEeg==;
+	bh=US+Gg57swXQ2D9e2dltsJCvKtQB77YrVn7jqeloa4eI=; b=LjUIqjpbRhO9d8gp4N9toYOQr5
+	SHJVqTaBpUX+67/sW86wxBOrUiUe58aD5aZi4POk4GuCF0M+M0XPp3sa9a4pGWsc3H2u+NIzJOsE+
+	8KPFBw6ZS3Wsp5ljb6KrnEWdPvaptNsPelddfmRDY/tm9wvaKocsffKE+pfncGMEMIlPzRS0k/u7U
+	S1e4+f10ToAtAV31jD7fTpbXb4KQf7uCeIfzig0VVB7J/Ul+Tt4kef9FlIZ1F8y6pdLneT//YPCEa
+	RUoTBj5vWKvNZciltPogsqb1C4uy1WFTaQA+yBNLiYzgG0U+KxuD6J+y+oXCoDsHZEBHIqql7Q86c
+	bWbqKceQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSkE-00000007hgp-3mkK;
-	Sat, 10 Oct 2026 08:47:54 +0000
-Received: from va-2-111.ptr.blmpb.com ([209.127.231.111])
+	id 1xFSnX-00000007i3u-1rEJ;
+	Sat, 10 Oct 2026 08:51:19 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFSkC-00000007hfg-2Bjt
+	id 1xFSnU-00000007i3N-1hlr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 08:47:53 +0000
+	Sat, 10 Oct 2026 08:51:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1791622067; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1791622271; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=WCo5NPKaCfP7g9DBT1HMo+1v4Rsy+b8BT+qecwvrSuI=;
- b=Dz7OK+FCLL3nAY72Q7e5wpk5GDDSYjdAeUUorkpN8Q6UtoUx8jRFpV+EBhEOfGVRqTeq0T
- fSJEcf7hZWP3wtCSRs4tJUyLIsWL4S/8nrW5GfD8T4mG/FX7Yq4qCO3k8Q/l6B1c2/zD5C
- YEZv6vuZfIGOOm4Lbwv5y0LObz4SkI5p2q+5OzZgyN/EiAzyICNgpxHi6pVOAiMPgnqN4b
- GmHqMmt0Vc3jy9OEsmzooe1WzbOPFA2P/DEuHW4NIZgbdMrYBn0qgnW9B/2GxoYN0J1e8B
- I+teL+8sgVCXDzk2qmvLwJ1p/yzXTvDQf9k+HyU8BFPfAF+IdECqcjE+rh5T6Q==
+ bh=US+Gg57swXQ2D9e2dltsJCvKtQB77YrVn7jqeloa4eI=;
+ b=nMoo/SF1pWKjC+qel/mkFZOq902NvICMhgxq46LNnzUnpGTXrZgp/BLtY42qb+8nahyQI+
+ pzKcIEBtRkBDyCnGoBJ50nKFnba6kFEhzFt+0N0yqqkFNwK/XusKc2Wudd9mSkkcDNLDCf
+ t51jmPkv9z+TVfF+CLSZqi8G1pnLyTTSr/oa3X/zJoUII50H4x4OQhj8bp/VDD3Jo8ztjH
+ RSzJQ876Dt03ZyyOC9GPDhKrhoz2dw6v4aieyfMV8KjUH9O+NFUxngngvVITdQ4FYjq7oB
+ echs45WRoWauLHTRBo4dwFqZgy4goWf4yGvzBaR7oRbzNjtaua9YxCHdCvFoNQ==
 To: <catalin.marinas@arm.com>, <will@kernel.org>
+Subject: [PATCH 2/3] arm64: patching: Fix instruction byte order in aarch64_insn_set()
+References: <20261010084721.2197683-1-qirui.001@bytedance.com>
+In-Reply-To: <20261010084721.2197683-1-qirui.001@bytedance.com>
 Cc: <mark.rutland@arm.com>, <ardb@kernel.org>, <song@kernel.org>, 
 	<dylanbhatch@google.com>, <linux-arm-kernel@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>, 
 	<stable@vger.kernel.org>
-From: "Rui Qi" <qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26ac9fbb1+067fce+lists.infradead.org+qirui.001@bytedance.com>
-Content-Transfer-Encoding: 7bit
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-References: <20261010084721.2197683-1-qirui.001@bytedance.com>
+Date: Sat, 10 Oct 2026 16:50:54 +0800
 Content-Type: text/plain; charset=UTF-8
-Message-Id: <20261010084721.2197683-2-qirui.001@bytedance.com>
-In-Reply-To: <20261010084721.2197683-1-qirui.001@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-Subject: [PATCH 1/3] arm64/module: Fix big-endian breakage in late data relocations
-Date: Sat, 10 Oct 2026 16:47:19 +0800
+From: "Rui Qi" <qirui.001@bytedance.com>
+Message-Id: <20261010085055.2200241-1-qirui.001@bytedance.com>
 Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+X-Mailer: git-send-email 2.20.1
+X-Lms-Return-Path: <lba+26ac9fc7d+605c49+lists.infradead.org+qirui.001@bytedance.com>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_014752_651512_D9F89366 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20261010_015116_533943_6583F169 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +71,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The WRITE_PLACE macro declares its temporary value with the type of the
-source argument:
+aarch64_insn_set() passes the host-endian u32 instruction straight to
+text_poke_memset(), which memset32()'s it into memory in host byte order.
+AArch64 instructions must be little-endian in memory, so on a big-endian
+kernel the written bytes are reversed and the CPU takes an UNDEFINED
+instruction exception when fetching them.  The sibling aarch64_insn_write()
+already converts with cpu_to_le32(); aarch64_insn_set() does not.
 
-    __typeof__(val) __val = (val);
+This is reachable in-tree: bpf_arch_text_invalidate() fills freed JIT
+regions with AARCH64_BREAK_FAULT through aarch64_insn_set(), and arm64
+selects HAVE_EBPF_JIT without a big-endian guard, so the path is taken on
+BE kernels with BPF JIT.  The direct-fill loop in the same file already
+cpu_to_le32()'s the constant, confirming the expected byte order.
 
-For the 16-bit and 32-bit data relocations in reloc_data(), val is the
-s64 result of do_reloc(), so __val is an 8-byte integer.  When the
-module is already loaded (state != MODULE_STATE_UNFORMED), the macro
-hands the address of __val to aarch64_insn_copy() and asks it to copy
-only sizeof(*place) -- 2 or 4 -- bytes.
+Convert the instruction to little-endian before the memset, mirroring
+aarch64_insn_write().  On LE the conversion is a no-op, so behaviour is
+unchanged.
 
-aarch64_insn_copy() performs a raw byte copy with no endian conversion.
-On a big-endian kernel the most significant bytes of the s64 sit at the
-lowest address, so copying only the first 2/4 bytes grabs the
-sign-extension upper half instead of the computed relocation value,
-corrupting the patched location.  The UNFORMED direct-assignment path
-is unaffected because the compiler narrows the s64 to the destination
-type.
-
-Type the temporary after the destination element instead.
-
-Fixes: 91b89a634487d5614e51ee773a889ed57f5551ca ("arm64/module: Use text-poke API for late relocations.")
+Fixes: 451c3cab9a65e656c3b3d106831fc02d56b8c34a ("arm64: patching: implement text_poke API")
 Cc: stable@vger.kernel.org
 Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- arch/arm64/kernel/module.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/patching.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-index 24adb581af0e..0fdf4c1c4e05 100644
---- a/arch/arm64/kernel/module.c
-+++ b/arch/arm64/kernel/module.c
-@@ -50,7 +50,7 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
+diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+index 09f019c6547a..ffd790b2b277 100644
+--- a/arch/arm64/kernel/patching.c
++++ b/arch/arm64/kernel/patching.c
+@@ -170,10 +170,12 @@ noinstr void *aarch64_insn_copy(void *dst, void *src, size_t len)
+  */
+ noinstr void *aarch64_insn_set(void *dst, u32 insn, size_t len)
+ {
++	__le32 __insn = cpu_to_le32(insn);
++
+ 	if ((uintptr_t)dst & 0x3)
+ 		return NULL;
+ 
+-	return __text_poke(text_poke_memset, dst, &insn, len);
++	return __text_poke(text_poke_memset, dst, &__insn, len);
  }
  
- #define WRITE_PLACE(place, val, mod) do {				\
--	__typeof__(val) __val = (val);					\
-+	__typeof__(*place) __val = (val);					\
- 									\
- 	if (mod->state == MODULE_STATE_UNFORMED)			\
- 		*(place) = __val;					\
+ int __kprobes aarch64_insn_patch_text_nosync(void *addr, u32 insn)
 -- 
 2.20.1
 
