@@ -4,104 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DEACA6004
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 10:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E800ACA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 10:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=khKL+0SYs5dkK1+NiD4FsLQAnzmLgGQHJt1q1DjIuc8=; b=P53OJGCyxXwr7vbo8yysOHSDpi
-	KaowtWq+gGbp4HCDWLz56IaEKclnBQ8sulEiBAYnU3s7lOJvD66p/injyAbNQFETJTjQUKXQoWTC3
-	hIXsEE2lT2izr0KOf/y5QZCd8p/DqZximHS36v88MMM1ttMBWCtpXmCIvfHw8G1tdrcnI4OEIfm4K
-	I93Cp2tgWzTFU5eIKhE45CCfrxUgA2QoPU9SzoFRkji3Q9nLzeih1pEfx9EaH81cLIdMJ4O7+vIOb
-	er7T+co9yVK8K0h+VXuEks+P2S3TQHrtpC6/1+3Pmnd+zoDifqYYf5MtFlbFoPY2tRmjNA339/d+w
-	P7mgDxTA==;
+	bh=a7k3/CAsEeS2L41xv7Fo+0FZ409bJISrc+W99HD0fHo=; b=V9zEhzBAdws9ndl+ZrWpWwDa2k
+	3W8gjGLaL3tEw6VNT5lECBWLRLVn7mOLLl2lsfdYybEafEtmsp4utCMumXijNIb2AlqsBq17+fsPP
+	CkrtInCkbezhBcEKxXoIuJlqX+CkNTjRStzpYIDREnn/igxUJekzJp3gp/1+oF6dMeDCAIbbT6wN5
+	6TS7pUkodB/Hu+eHW6ZkVUT8kCjy05NXjMh6pbw4vJ48GY+8gkrWkGXEVEfvZ7GxTgZtDeu4vt/FL
+	GM9TzAoxY/GO9HBBHh7IP/VcOQlok0xiESu8tNnvfx/fnKWEmfgERpfuj8Wrc4soSPmNoh913aEjd
+	5uiKKVhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFUij-00000007rZ9-1jjx;
-	Sat, 10 Oct 2026 10:54:29 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1xFUld-00000007rj3-2uXM;
+	Sat, 10 Oct 2026 10:57:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFUig-00000007rYl-2r9n
+	id 1xFUlc-00000007riw-3KYV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 10:54:27 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-887beafb714so208553b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 03:54:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791629665; x=1792234465; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=khKL+0SYs5dkK1+NiD4FsLQAnzmLgGQHJt1q1DjIuc8=;
-        b=mv2qt3WkELc/a8dvon3drsLfdcxMkmQiUQ+fgCeA1/OSQ/lm7hLFR0FkH8M6DZlnWH
-         MgsXgquM+Ah7hCIKWl9KzzUGXJSHnFawRfPoaKwoRlMnZPjCBtSUvMpEEfskATQXi67o
-         4IdaA4guNOQmlMjS9Fbikkvm+ghQ1eh2fJZCKmoitI3cStN1/0XGKGFclLOfxFfEwHXH
-         9Y6bI791Bjld8FMWU7wbQjVwo1On4LetWdyq9vcluuvp4VOzKqua3fnkOyDIrgFUSNEp
-         P1p3zUPrpvcsttoYfnIJJGtR3mu6U61r57qgwkBPgQyI26b6iyQM0TxkLDdsNlCJqsvS
-         pVWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791629665; x=1792234465;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=khKL+0SYs5dkK1+NiD4FsLQAnzmLgGQHJt1q1DjIuc8=;
-        b=jBj0u4jqNEbnxJatzVy1sv3PIe42xa0yjopBtkaUgqIC+PWEvqzEJdzaiMyaQXQvZp
-         W5ns1cyeN9xU65liySQiDSVTLkLiRyIq0bTYR4+/0Oqb/T4XVoAf9VfSAK2T1r7fbVUi
-         ScTvf55DPPAktK2MAefPlNerh2Fh/0FdC5WcXLVJc4DfUvHrZchRKav/X8gDSK8O/ggX
-         lq5+BWRV8/BbOxHo7UCbKkW5htKRt8K4hmT+1TXDDhrguxYiYpqixqD8U7AFRVcKDyXY
-         6B3kn3bSlYbEXdwFau3inseJM3xFI+s49rXv3DJVcCgYsG4v17lcBN72+4fnDWtFIPUD
-         Ye/w==
-X-Forwarded-Encrypted: i=1; AKwUvBxt6S/XSj2xINbs08+fBSR0d383ypyXWb7ZT4I+Sei6dpcLItsViNRQX+adZM1eNiy+/tRwSOIV38V6LAJSOxNQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYI2eEWS7q8nTIAZWm9CmA7uxSGYc+47Ak85qWlfbAFqo40wowHN
-	PYS/+lCygqoPG2z5wkR1p8gWqZpUZG+lpsCOIuy2h2RCOAuxd0mqe5hp
-X-Gm-Gg: AYBFou1RueTj8ZaOo7k7NiV/XI3d3C2FU3eCiDfrolpErc8q56E+8H5W2DkVyZtG6u8
-	5Anq1kLTTpW+D0kKnkub+qul7G+qLG15Q4MQ31apu8aadBVqRn4HBRORzrFmu5oKCQo4zFGEUG5
-	yrjZJ/NXEHzkCbrEg3YSRpzip3Dsa5oGMnBJ18tbgh66uGvNVuAQOWE8/TwvYbVT2zV5KrhQ722
-	WgBZ6XYu5Nnnu9uCCmV/mcelUmk8dr1Ix6fzfk9+JaQk0njVOJNUC3f9kXSRqawIa6LuAfjtMAA
-	fzxAnT4wDKJ2Jzf6jZfFzjfxxw/fL5YFYlZ9lkaSw1rMm39im8gA0rMNLxUOMscrCeBhxkPvcu3
-	oJckxJRVHtv16Fn3YKuVhjXUfs5GAApFDddxu2lhwvggp0gqVwZLA0+b8HOSaYVPCexo27lJHrm
-	mEQj4F62sQRQ22f48WIrRBKKaN8hLsYkz61uhpLTRZFFFUnTYoMr1V+FWKRvkVrUFIHpCaABaVf
-	UUzbj6nA5KeOIXGxZyzqgh+FvOsIWlVtwgZ676sgBDYGg==
-X-Received: by 2002:a05:6a21:485:b0:3e0:de4c:71ef with SMTP id adf61e73a8af0-3e16bfcd468mr3602361637.58.1791629665376;
-        Sat, 10 Oct 2026 03:54:25 -0700 (PDT)
-Received: from macbookair (n114-72-148-25.mit21.act.optusnet.com.au. [114.72.148.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-896c4996be6sm2203965b3a.58.2026.10.10.03.54.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 03:54:24 -0700 (PDT)
-Date: Sat, 10 Oct 2026 21:54:16 +1100
-From: Myria Sarvay <myrialsarvay@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Michael Reeves <michael.reeves077@gmail.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Yureka Lilian <yureka@cyberchaos.dev>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: Apply existing Apple CPU workarounds to M3
- and M4
-Message-ID: <asoZWBEEEsFD5Qrn@macbookair>
-References: <20261008-apple-m3-m4-kvm-v1-0-7bb4cbf3d63b@gmail.com>
- <20261008-apple-m3-m4-kvm-v1-2-7bb4cbf3d63b@gmail.com>
- <86cxtk2utm.wl-maz@kernel.org>
- <CANpmGNv4uYRLALMLKZn-HJwTiqJO90Fx23DOO7K7d-PfSWn=2w@mail.gmail.com>
- <86bj932ssc.wl-maz@kernel.org>
+	Sat, 10 Oct 2026 10:57:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 48C7660052;
+	Sat, 10 Oct 2026 10:57:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBD8E1F000FF;
+	Sat, 10 Oct 2026 10:57:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791629847;
+	bh=a7k3/CAsEeS2L41xv7Fo+0FZ409bJISrc+W99HD0fHo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=kkqbBt7y29ZJYSw6CQ8z8mR83Ms5C1LwbHBcfoncdh1R3XWP1GGlofCjMRzqGPiDQ
+	 mETTEnDWMPR0xbs00ykL/XPQb5S3Bc7MNeAJAHhMc41qCZYbP0sEmsoBbJh4yOPzqc
+	 8rwbA8STV0YRl5ergnM7ydNXkdJUjZxR3uAQ8LJhD/TlN7Dtz6S8mEyVTiQVJJbvVZ
+	 r0gCOvu5b20kgOY+Tsr5bt0wPOXn/b2n+TAyMmmUfpFx0qdjrVFAqBMK2S02qJYeiJ
+	 +mpO0HRkFhsI3KUaFD93ChtQEBucd2G+jm79fAH8lwGJmeCir2O9xmS0CwqbtdAc9w
+	 w13D7JJ/VcX8g==
+Subject: Re: [PATCH net-next v5 1/3] net: stmmac: take ownership of saved RX
+ state at poll entry
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Sat, 10 Oct 2026 10:57:25 +0000
+Message-ID: <179162984531.434549.17106244500953312801@kernel.org>
+In-Reply-To: <20261009-stmmac-rx-mb-v5-1-c38fa4eaa138@oss.qualcomm.com>
+References: <20261009-stmmac-rx-mb-v5-1-c38fa4eaa138@oss.qualcomm.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bj932ssc.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_035426_760614_1961AAE1 
-X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +75,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-(Resending because I forgot to reply all, sorry Marc)
+Critical: 0 · High: 2 (2) · Medium: 0 (1) · Low: 0
 
-On Fri, Oct 09, 2026 at 09:16:03AM +0100, Marc Zyngier wrote:
-> On Fri, 09 Oct 2026 01:03:57 +0100,
-> Michael Reeves <michael.reeves077@gmail.com> wrote:
-> > 
-> > > I can provide the binary (and a few scripts) to test this easily.
-> > > Should they have been fixed, we can always create a second
-> > > implementation list to cover the PMU.
-> > 
-> > Can you please send that so we can try? That would be much
-> > appreciated, thank you.
-> 
-> I've sent you (and Yureka) details over IRC. If you need help with
-> setting things up, let me know directly.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I've tested the patches on my M3 Max (t6031-j514c), and without these
-patches, it SErrors, and with them (and including the M3/M4 MIDRs in
-the has_vgic_v3 list in arch/arm64/kernel/cpufeature.c) it doesn't
-SError, and the iso boots correctly to a login getty.
+- [High] At this commit, stmmac_rx() can still treat the middle or last
+  descriptor of one hardware frame as the start of a new frame.
+- [High] bpf: packet injection via dropped jumbo frames in stmmac_rx_zc
 
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it sits in the
+  stmmac_rx_zc() continuation logic this patch changes, and it is still…
+- [High] This problem wasn't introduced by this patch, but this patch's
+  resume handling relies on it and the commit message describes the…
+- [Medium] In stmmac_rx() at this commit, when napi_build_skb() fails on
+  a descriptor that is not the last one, the code increments rx_dropped…
+
+--
+
+net: stmmac: take ownership of saved RX state at poll entry
+
+This patch makes stmmac_rx() and stmmac_rx_zc() take the saved
+partial-frame state at poll entry and save it again only if the frame is
+still incomplete. It also drops the saved state in stmmac_reset_rx_queue()
+and __free_dma_rx_desc_resources(). For non-PASS XDP verdicts on non-last
+descriptors, both verdicts now go back to read_again and keep the running
+frame length.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b8b4de4c5b1a7..6128e6d9504c8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -5691,6 +5696,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (!buf->xdp)
+>  			break;
+>  
+> +		in_progress = status & rx_not_ls;
+> +
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats,
+>  						  rx_q->dma_erx + entry);
+> @@ -5705,6 +5712,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  
+>  		if (unlikely(error && (status & rx_not_ls)))
+>  			goto read_again;
+> +
+>  		if (unlikely(error)) {
+>  			count++;
+>  			continue;
+
+[Severity: High]
+This is a pre-existing issue, but this patch reworks how
+stmmac_rx_zc() carries error and len across descriptors and polls.
+Should the dropped-head case be covered here too?
+
+When a frame spans more than one XSK descriptor, the 1:1 mapping
+check throws away the non-last descriptors:
+
+		/* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+		if (likely(status & rx_not_ls)) {
+			xsk_buff_free(buf->xdp);
+			buf->xdp = NULL;
+			dirty++;
+			count++;
+			goto read_again;
+		}
+
+That path never sets error. When the loop reaches the last descriptor
+of the same frame, error is still 0, so both error checks are
+skipped. The tail buffer then goes to __stmmac_xdp_run_prog() as if
+it were a complete frame.
+
+On XDP_PASS, stmmac_dispatch_skb_zc() builds an skb from it and
+passes it up the stack. On XDP_REDIRECT, the AF_XDP socket receives
+it.
+
+The tail starts in the middle of the original payload, at an offset
+the sender can predict from the RX buffer size. Can an on-link peer
+send a jumbo frame (GMAC4 sets GMAC_CONFIG_JE) whose payload holds a
+complete Ethernet/IP header at that offset?
+
+The MAC address, VLAN and other hardware filters only check the outer
+frame. The kernel would instead receive the crafted inner frame.
+
+With this patch the same state can also cross a poll boundary. If the
+budget runs out right after the head is dropped, in_progress is true
+and error 0 is saved. The next poll then treats the tail the same
+way.
+
+Would setting error = 1 before the goto be enough? The error branches
+only free buf->xdp and bump dirty when the current descriptor itself
+reports discard_frame. Wouldn't the remaining descriptors of a
+dropped frame then keep their XSK buffers and not be counted in
+dirty? It looks like the drop path also has to release each
+continuation buffer.
+
+Later in the series stmmac_rx() is reworked to collect all
+descriptors of a frame. stmmac_rx_zc() keeps this drop path, so the
+problem is still present at the end of the series.
+
+[Severity: High]
+This is a pre-existing issue, but this patch reworks the continuation
+state in stmmac_rx_zc(). Is the multi-descriptor case handled correctly
+right after this point?
+
+Non-last descriptors are dropped without setting error and without adding
+their bytes to len:
+
+		/* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+		if (likely(status & rx_not_ls)) {
+			xsk_buff_free(buf->xdp);
+			buf->xdp = NULL;
+			dirty++;
+			count++;
+			goto read_again;
+		}
+
+So for an error-free frame that spans several XSK descriptors, the
+continuation state is always error 0 and len 0. The last descriptor then
+reaches:
+
+		buf1_len = stmmac_rx_buf1_len(priv, p, status, len);
+		...
+		buf->xdp->data_end = buf->xdp->data + buf1_len;
+
+With len 0 and SPH disabled, stmmac_rx_buf1_len() returns
+min(dma_buf_sz, plen). Here plen is the total frame length, not the number
+of bytes in the last buffer.
+
+Doesn't that make data_end cover stale UMEM bytes past the real tail? If
+the XSK rx frame size is smaller than dma_buf_sz, can it even point past
+the chunk?
+
+On XDP_PASS, stmmac_dispatch_skb_zc() copies this into an skb. When coe is
+set and the ethertype is IP, it sets CHECKSUM_UNNECESSARY without checking
+csum_none. On REDIRECT, the AF_XDP socket gets the same frame.
+
+The head of the frame is dropped, and its tail plus stale data is
+delivered as a standalone frame. An on-link peer can trigger this by
+sending a frame longer than the XSK rx frame size, because GMAC4 always
+sets GMAC_CONFIG_JE. The code is unchanged later in the series.
+
+[ ... ]
+
+> @@ -5950,23 +5963,21 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  					buf->page = NULL;
+>  					rx_dropped++;
+>  
+> -					/* Clear skb as it was set as
+> -					 * status by XDP program.
+> -					 */
+> -					skb = NULL;
+> -
+> -					if (unlikely((status & rx_not_ls)))
+> +					if (unlikely((status & rx_not_ls))) {
+> +						skb = NULL;
+>  						goto read_again;
+> -
+> -					count++;
+> -					continue;
+> +					}
+> +					goto next;
+>  				} else if (xdp_res & (STMMAC_XDP_TX |
+>  						      STMMAC_XDP_REDIRECT)) {
+>  					xdp_status |= xdp_res;
+>  					buf->page = NULL;
+> -					skb = NULL;
+> -					count++;
+> -					continue;
+> +
+> +					if (unlikely((status & rx_not_ls))) {
+> +						skb = NULL;
+> +						goto read_again;
+> +					}
+
+[Severity: High]
+After jumping to read_again with skb == NULL, could the next descriptor of
+the same hardware frame still be parsed as a new frame?
+
+In stmmac_rx(), skb == NULL is the only marker for the start of a frame.
+The next descriptor therefore enters the frame-start block again:
+
+		if (!skb) {
+			...
+			/* Each frame starts here: reset the FCS handling */
+			fcs_stripped = false;
+			...
+			if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
+				buf1_len -= ETH_FCS_LEN;
+				fcs_stripped = true;
+			}
+
+			xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
+			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
+					 buf->page_offset, buf1_len, true);
+
+Because len is now kept, stmmac_rx_buf1_len() returns
+min(dma_buf_sz, plen - len) for the last descriptor, and that can be 0 to
+3 bytes. For example, on GMAC4 take a 3074-byte frame whose first
+descriptor holds 3072 bytes in buf1 + buf2. The last descriptor then
+holds 2 bytes.
+
+Can buf1_len -= ETH_FCS_LEN then wrap to 0xFFFFFFFE, so that
+xdp_prepare_buff() sets data_end = data - 2?
+
+Suppose the XDP program returns XDP_PASS for that continuation. buf1_len
+is recomputed as data_end - data and passed to skb_put(skb, buf1_len).
+The tail wraps to below end, so skb_over_panic() does not fire. An skb
+with len close to 4GB then goes to eth_type_trans() and the stack, with
+no FCS trim because fcs_stripped is set.
+
+If the continuation holds 4 or more bytes, the tail of a dropped or
+redirected frame is instead shown to XDP as a standalone Ethernet frame,
+and delivered on PASS.
+
+The XDP_CONSUMED branch above already worked this way, and this change
+puts XDP_TX and XDP_REDIRECT on the same path. The commit message says:
+
+    Resetting the frame state there makes the
+    remaining descriptors of the same hardware frame get parsed as a new
+    frame
+
+Isn't that still the case after this patch?
+
+Later in the series, "net: stmmac: rework stmmac_rx to support XDP rx
+multi-buff" collects the whole frame into an xdp_buff, runs XDP only at
+the last descriptor, and strips the FCS with stmmac_xdp_shrink_tail().
+That resolves this. Since this patch carries Fixes: tags, could it be
+backported without that rework?
+
+> +					goto next;
+>  				}
+>  			}
+>  		}
+
+[ ... ]
+
+> @@ -6023,10 +6034,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  		/* Remove FCS if needed */
+>  		if (!fcs_stripped && pskb_trim(skb, len)) {
+>  			dev_kfree_skb_any(skb);
+> -			skb = NULL;
+>  			rx_dropped++;
+> -			count++;
+> -			continue;
+> +			goto next;
+>  		}
+>  
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but what happens here if
+napi_build_skb() failed on an earlier non-last descriptor of the same
+frame?
+
+That path leaves skb NULL and does not set error:
+
+			skb = napi_build_skb(page_address(buf->page),
+					     rx_q->napi_skb_frag_size);
+			if (!skb) {
+				page_pool_recycle_direct(rx_q->page_pool,
+							 buf->page);
+				buf->page = NULL;
+				rx_dropped++;
+				count++;
+				goto drain_data;
+			}
+
+Because rx_not_ls is set, drain_data goes back to read_again. The next
+descriptor then builds a new skb from the remaining mid-frame bytes.
+
+This also works across a budget boundary. The saved state is in_progress
+with skb NULL, error 0 and a nonzero len.
+
+At the last descriptor, pskb_trim(skb, len) gets the full frame length.
+That is larger than skb->len, so it returns 0 without trimming.
+
+Doesn't that hand napi_gro_receive() a truncated frame that starts with
+mid-frame payload and still carries the FCS? Doesn't it also over-count
+rx_bytes?
+
+This path goes away later in the series with "net: stmmac: rework
+stmmac_rx to support XDP rx multi-buff". There, stmmac_build_skb() is
+only called at the last descriptor, and a failure goes to error_free_frag.
+
+[ ... ]
+
+> @@ -8378,6 +8388,9 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
+>  {
+>  	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+>  
+> +	dev_kfree_skb_any(rx_q->state.skb);
+> +	rx_q->state.skb = NULL;
+> +	rx_q->state_saved = false;
+>  	rx_q->cur_rx = 0;
+>  	rx_q->dirty_rx = 0;
+>  }
+
+[Severity: High]
+This is a pre-existing issue, but the commit message calls the resumed
+ring freshly initialized:
+
+    survives while cur_rx and dirty_rx are re-armed, and the first poll
+    resumes that stale skb with descriptors from the freshly initialized
+    ring.
+
+Is the ring actually rebuilt on the stmmac_resume() path?
+
+Suppose stmmac_rx_refill() hits a GFP_ATOMIC page_pool allocation failure
+in the last poll before suspend. It breaks out and leaves the entries
+between dirty_rx and cur_rx without pages:
+
+		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+		if (!buf->page)
+			break;
+
+On resume the sequence is then:
+
+stmmac_resume()
+  stmmac_reset_queues_param()
+    stmmac_reset_rx_queue()
+      frees state.skb, returning its pages to the page pool
+      zeroes cur_rx and dirty_rx
+  stmmac_clear_descriptors()
+    init_rx_desc on every descriptor
+  stmmac_hw_setup()
+    stmmac_init_dma_engine()
+      RX tail pointer set to buf_alloc_num
+
+On GMAC4, dwmac4_rd_init_rx_desc() only sets OWN | BUF1V | IOC in des3.
+It does not restore des0/des1, which write-back overwrote with status
+data. On enhanced/normal descriptors, des2 still holds the old page's DMA
+address.
+
+Could the DMA then write to an address built from write-back status bits,
+or into a page that was just released to the page pool?
+
+When stmmac_rx() later reaches such an entry, buf->page is NULL. The call
+napi_build_skb(page_address(buf->page), ...) then uses a bogus address.
+
+Before this patch, the stale skb was resumed and then freed on its first
+completion while the descriptor still referenced its page. So the
+page-release part already existed.
+
+The same structure is still there at the end of the series, where
+stmmac_reset_rx_queue() calls stmmac_xdp_put_buff() on the saved
+xdp_buff.
+
+Does the resume path need to rebuild the missing RX buffers and
+descriptor addresses, and handle allocation failure, before it restarts
+RX DMA?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261009-stmmac-rx-mb-v5-0-c38fa4eaa138%40oss.qualcomm.com
 
