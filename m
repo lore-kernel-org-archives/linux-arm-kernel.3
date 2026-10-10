@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A62FCA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76209CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MUGs28pjyaKV6mm7T8DFRVWF7FBLghSbmcUfgUOr8K0=; b=z4iU33qkVnytgKo0w9vBUvNynR
-	ZjTS7lxkGb4r8Hlc4eylKEJWP80BLYBPgh6yX836xL8YZRzl/6M9sIkXh/ApHNUI1k2fO0t+LcLIl
-	7DL3a741CMbk+G/XC3mtd8MIa4RPvgpB3JJm1nUeG1rFx5zgi/DkTAnji8KdT/HtIX76RsZxKhk7h
-	ovzpSiZ/lQ0CluTpxBdcZOxoZ2mybWLOOClXINLHo8GGowbbXPXEHP2c6rMFwjpvALPiz6dTgn8W8
-	Pxv8IyiRlkYAJ1qM5uWtB8X5QdVyL4Zw/+Q6/UES2nzssXuFRdzqVvJ85gVahgSPl1DMRhS5FyDK3
-	oeljOWHQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yWSkHUKka7QH4eH23AR+aM1Gs2nsmpiVfZDP2dicIho=; b=lFw4A3sx1hNTq4EpRrH2avnMI+
+	xO0tbeyEvPXA1Stmnudp4g74MqHm/UDs2E3GXh6Q4D70FEFe8LzhBXjpyVuRmz9C2NgjeisKqr3Tq
+	JzQqa3v58L2wGDY/RC26q3LZCMnfbIPpldvRXyuCJzy4JnnpLKOXQ/S2c0ly1ijobuRm2GlW/xfCg
+	ii/E6bf4bIf9/SDhiHPDKd8g0f6EO8cDa2rzBAqmbtbPslCeZ83NF4/p0olNWrPeBoTFJ87q1MTD9
+	hLGWppzChQQLWi3PZqao2nttBIE2xC/mEJ8d6Qv23PH3U1Kf8x4+iyqrGkNQIV7BXi5uE2j0XlISX
+	YF7FAiRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVgS-00000007xxv-1XIV;
-	Sat, 10 Oct 2026 11:56:12 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1xFVh6-00000007yVh-2eKq;
+	Sat, 10 Oct 2026 11:56:52 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVg8-00000007xkZ-1Cjd
+	id 1xFVgA-00000007xmb-2aY1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:55:54 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a061a13884so4860005e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 04:55:49 -0700 (PDT)
+	Sat, 10 Oct 2026 11:55:58 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-486e70f2457so238417f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 04:55:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791633348; x=1792238148; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MUGs28pjyaKV6mm7T8DFRVWF7FBLghSbmcUfgUOr8K0=;
-        b=kmJvxMQmFKWxpDcHSAF6UdZF093UsmE55AuTEayv4tcDBQ2iktwezHnsgaJwYo3/Ts
-         Qye7SbWM/1JkOMAiH7Gt+eyYnSCMHXhjo5R4Clu/dAbRydeA1Dv5icVp7Aygw9aiaIUr
-         GdlrnZ4rnImnvap4JsHr5dW5WWbB3ZwsFm+kOFuLOcRlE6zmzeYtj6RVbI3Z8Q0YKhD1
-         zlPKx1jk70y0AATzNiyUOKlN1p8HI0Z3EFnBYZa8lQEAV+RIW5Gnj+7Qk6Gl1VfBKJlD
-         /lE/L6uIvPhFm19kFeukBhGovTJ4BZcA4NjJDT2xixVecdDwLKWm15d7gEDDh6eQXcSE
-         jUSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791633348; x=1792238148;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791633353; x=1792238153; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MUGs28pjyaKV6mm7T8DFRVWF7FBLghSbmcUfgUOr8K0=;
-        b=RVgdlEryvcbgtA2hlmNeSEaCBl5NXbciNjI1asIlPTG5t63QwC5x0J/H6CxxNVRh2q
-         7cgWH5DzQdKCRcC68VF9vmbv5MV47co/m0UBRJ5+UUqnpbGCNRyXE97qQ8U/fdZftLCH
-         V/XnAAG/CtLkVcgJ1jNAXq5mbfq/1yIxQ690vGmCqGV2wNdJZ7nOWfQrFZrQ8FnMmDj0
-         U3xZ6hz2weL8qMHnggoA/AXMYgcTtvmGwQ1IEmr+SLApxrHmTVmX0BC4tBgYPmagVe50
-         cEfn7irByr/+V8JaWqeP2j2Zpq6OGMN1XaYR2m5yk3Q5YT4ToaRr6+i3mjLp1plGSVEL
-         1h7A==
-X-Forwarded-Encrypted: i=1; AKwUvBzeGsIFJVIYKChsoaOEnr9K57nng6xq0jEHhuT/KdVLVY/+VZg6IoWn3aSo1jqD8V+/z5TX4SRATHv6oK41XcSI@lists.infradead.org
-X-Gm-Message-State: AFq9FYLmWqG5mckATTE1nm7M4xG+hoPMYAVNeLcXWSGYnCryfaVTMl+K
-	+bZoDiDQWvI35rlVUDkzFDcSXsZYj4fjOCPm7UOVbx2e0T/O5NR5j3Kh
-X-Gm-Gg: AYBFou3Qm+bAwu+hicBdLBeRMz3BFfCgDvpBOSGBpgZQemuseZfeepmN5b8eEpaIn71
-	kbazc7U5f+ZuUBjHIAoQqPW+Vc3Ggd1Ha7UzAX8wLOUtaRLjhZy20na7NCjlIUIbBb40Gc4/y2A
-	elrRL+krL7b/1OOM/30giZEE9cbMELzydEoDPeOHUAJMlH3IAyV3r2b/NaEob/nHbysHRoGAfDy
-	4l0HkAcm/20z5b4qw65jfl0Wde9ijd0htGTVo6j17VlnMN/IQg9dxbktaZe+yt4d4XnvcuGKHCt
-	bN9FPIclu6J+N+wGR2EWC5xjrHiiPQ+GyPCMt462HunLW40bAVC2Q5wA9DPhNO7dYbuxSHmuRbL
-	ftsXh3syuHGajUzIBCqHOhS/+Y9hAYXN1uQzkyrFCo7LP+1USyGLWjidOuw7oefZjft2kEh04+m
-	W+zIAe8Jx7IuDIxzloRznqanHrzWZklfo46iczLndD0XrYUdiNSKKvqVPEnrvM0zAGmL9G33eKI
-	gMF1g==
-X-Received: by 2002:a05:600c:4e01:b0:49f:ce78:3567 with SMTP id 5b1f17b1804b1-4a18e4afc3amr83354515e9.24.1791633348096;
-        Sat, 10 Oct 2026 04:55:48 -0700 (PDT)
+        bh=yWSkHUKka7QH4eH23AR+aM1Gs2nsmpiVfZDP2dicIho=;
+        b=F0Ez2enbvg4wRs1+fz+JxL6bo5NF3hR4o+YH3c8l4MylYyo/IxcOVgZrWe8seD3wWH
+         J3ugqhfJWbyMh1QBW+BxAi91Pwt6cvVHIWxHfJMd/Hsm6OsgIdjW1dD1dU0K0oR5dn7q
+         NZGqgZNcP2QifkbxtmDv2BITdWtOotaAnHYsOqSnc9ZZv8wHTlOgPsG/WSAKjO0+6GX/
+         MtMgvaQEwvOA2zJlN+rG8bKqgzktDbJaLDqRTodaQwb1T/kHtNk6Fow+gMvIhdhBQ/8W
+         gmnxcdf05YuRUzo2oBObB0RlmafUeGx1ntNPQaM693vV5KX8d8RfVq8CuA8fjdMPI+b4
+         QG1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791633353; x=1792238153;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yWSkHUKka7QH4eH23AR+aM1Gs2nsmpiVfZDP2dicIho=;
+        b=S63q6Xvoyv4Q3e26nGnwXe5C9pTaOMZHV/NUGeg8aBs2grLNO+8IUwjlOT4H2VSxji
+         TDnnW4OQ0hhri4XxIGomTtYWPe1fHKrK207LXVBRzSWAk1WzoILJG3HKe32CfVNx9uhS
+         qyx3Tw+lUUTMDT1CFoUjggqQHr5Jb0bTpjnsSg5sTs0awqEi4IX3DMRtrelNyy9KyU+D
+         gfJP3co6jlvE5PFfa/iTHnB3r2HUMhWCMxn5nydNBwiHe4ZpaqtLvgHzu4v3qqdpnE/X
+         83b9TAiKk0RTc7O3kesrXnQreAoph92EAewXf3R2M89mkRzzgSBkuv4IZoIQ11QQfYM8
+         ATvA==
+X-Forwarded-Encrypted: i=1; AKwUvBx8dxBSjjJRIAE+hNwcDsqqbWG2GUXVVt7CYjqIK8yLuzsyXunvgalpRu7AENzNnrm0WWvvx0q55z7qmUnIMEen@lists.infradead.org
+X-Gm-Message-State: AFq9FYI4PtjuhN7GLDCnrSbikvo9D+/PVImnqPbB8eVKyItKtQzM4LhM
+	NqJw9huDZ+sDVenSmi3Xl4nI1OfiDU/NI7sOj0rcCk2dR9723fxuVo4L
+X-Gm-Gg: AYBFou2aUo8Z3YRoJkoLg80KtPPCF5orXtM7wE8uamGEGKw+OQpaOLX0QI4vX7yf11y
+	mwAz/sT90UVrTRvLQZUDmFix0oD/WFJY6+PG7IbKTIMSDLseWS3baZWppA0K1r4G3aKjAA3sCXG
+	yasuwwWimEUUf/7cWaI8PrZ02rVVKOj86otxv2BfePyWYdTleuKjZSQxn3eskSqyrnGj1F6xfPO
+	rTywp5K5m4awveR+HOgvB0V0f3FvsybXa5zcYC/0Ubr0+Y6JNtJTrWdHcl9j/cgS1q+u0seMDN6
+	qPQUU+wxGOA/qPSEGJTbX+y6fOlle+Ofwwr/PvKsNYc3AJmgw3VAJANRu9W4vkAMfW9ftI+ymOM
+	NhUjqbE6gAnYMWN5Wy5h7ACZMcXJvEnJBp67iy4Nl5wt5mMRFggw6aUVJsN5Y6O64iynIrblJBY
+	AJf54xDWJ1Ty1PtOtA4hdxefhNdioJHzEKvG40oXIMoe9bfOlP5ZeLjr4hFNalG8WNLQ==
+X-Received: by 2002:a5d:444d:0:b0:48b:fdd:fbe4 with SMTP id ffacd0b85a97d-48dba9c7d29mr7028135f8f.21.1791633352509;
+        Sat, 10 Oct 2026 04:55:52 -0700 (PDT)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aca657sm8746340f8f.43.2026.10.10.04.55.46
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aca657sm8746340f8f.43.2026.10.10.04.55.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 04:55:47 -0700 (PDT)
+        Sat, 10 Oct 2026 04:55:52 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
@@ -99,15 +99,17 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH 0/7] Add support for Mediatek mt8167 HDMI display output
-Date: Sat, 10 Oct 2026 13:54:00 +0200
-Message-ID: <20261010115539.9237-1-l.scorcia@gmail.com>
+Subject: [PATCH 1/7] dt-bindings: mediatek: hdmi-phy: Add compatible for mt8167
+Date: Sat, 10 Oct 2026 13:54:01 +0200
+Message-ID: <20261010115539.9237-2-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261010115539.9237-1-l.scorcia@gmail.com>
+References: <20261010115539.9237-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_045552_495669_C6223A3E 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20261010_045557_250245_CFB2150B 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,73 +124,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek mt8167 SoC supports HDMI output via a dedicated HDMI PHY
-driven by the DPI1 display block.
+The hdmi-phy for the MediaTek mt8167 SoC is not compatible with any of
+the existing hdmi-phy. Add a separate compatible to describe it.
 
-Support for HDMI output was partially upstreamed in 2021, but is currently
-not functional as it's missing its HDMI PHY driver. The HDMI PHY is
-apparently similar to the mt2701 one, but some differences in timings and
-in the initialization sequence are better expressed with a separate driver.
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-* Patch 1, 2 add support for the HDMI PHY.
-
-In addition to the HDMI PHY, a few fixes are required here and there to
-actually get HDMI output.
-
-* Patch 3: Some of the HDMI registers are mapped into the apmixedsys
-  syscon. Since they are manipulated inside the HDMI PHY driver, we change
-  the apmixedsys memory map to non exclusive by switching it from
-  devm_platform_ioremap_resource to of_iomap. This approach was copied
-  from mt8173 apmixedsys syscon.
-
-* Patch 4: Since the DPI1 interface is hardwired to the HDMI PHY, it is
-  appropriate for the HDMI PHY to control the DPI1 clocks. There is no
-  effect on DPI0 clocks as they're completely separate.
-
-* Patch 5: Some MediaTek SoCs require a supervisor call to enable HDMI
-  output. mt8167 is not one of those.
-
-* Patch 6: In the common path for mt2701/mt8167, a register operation that
-  is meant to enable the HDMI_PSECUR_EN bit is actually touching some
-  other bits that are set by later operations anyway. The patch makes
-  more explicit the intent of the operation by setting only the necessary
-  bit.
-
-* Patch 7: Adds the device tree nodes to the mt8167 dtsi. Since DPI1
-  is hardwired to HDMI it is possible to bind the input port of the HDMI
-  node to the output port of DPI1, but the patch that adds the DPI nodes
-  to the DTSI [1] has not been picked up yet, so we leave it disconnected
-  for now.
-
-The series was tested at all supported resolutions on the Sony PlayStation
-Classic Mini.
-
-[1] https://lore.kernel.org/linux-mediatek/20260921113914.779393-5-l.scorcia@gmail.com/
-
-Luca Leonardo Scorcia (7):
-  dt-bindings: mediatek: hdmi-phy: Add compatible for mt8167
-  phy: mediatek: hdmi: Add support for mt8167
-  clk: mediatek: mt8167: Map apmixedsys iomem as shared
-  clk: mediatek: mt8167: Correct HDMI-related clock definitions
-  drm/mediatek: mtk_hdmi: Set tz_disabled for mt8167
-  drm/mediatek: mtk_hdmi: Improve the secure output bit toggle
-  arm64: dts: mediatek: mt8167: Add HDMI display nodes
-
- .../bindings/phy/mediatek,hdmi-phy.yaml       |   1 +
- arch/arm64/boot/dts/mediatek/mt8167.dtsi      |  62 +++++
- drivers/clk/mediatek/clk-mt8167-apmixedsys.c  |  26 ++-
- drivers/clk/mediatek/clk-mt8167.c             |   6 +-
- drivers/gpu/drm/mediatek/mtk_hdmi.c           |   3 +-
- drivers/gpu/drm/mediatek/mtk_hdmi_regs.h      |   1 +
- drivers/phy/mediatek/Makefile                 |   1 +
- drivers/phy/mediatek/phy-mtk-hdmi-mt8167.c    | 217 ++++++++++++++++++
- drivers/phy/mediatek/phy-mtk-hdmi.c           |   3 +
- drivers/phy/mediatek/phy-mtk-hdmi.h           |   1 +
- 10 files changed, 314 insertions(+), 7 deletions(-)
- create mode 100644 drivers/phy/mediatek/phy-mtk-hdmi-mt8167.c
-
-
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
+index ac93069f4801..f0c8ea2c72b1 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
+@@ -31,6 +31,7 @@ properties:
+               - mediatek,mt8188-hdmi-phy
+           - const: mediatek,mt8195-hdmi-phy
+       - const: mediatek,mt2701-hdmi-phy
++      - const: mediatek,mt8167-hdmi-phy
+       - const: mediatek,mt8173-hdmi-phy
+       - const: mediatek,mt8195-hdmi-phy
+ 
 -- 
 2.43.0
 
