@@ -4,76 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36CCCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 02:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2F8CA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 02:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XezuMrCTQbMzbi20T+1rCrxjWanYRbUDYkUJJW/TRwg=; b=dSNx7r/L2AVxMaXCn/EVXmJWrU
-	U+7AkDwKDuiaf6dElsIFsqIfukzDuCD5RP0VM/A0zctIcrk/8jDqgsifWfE9DIcXDWzzUfCAIjji2
-	Kz8Uk1nov47cW4sfzcyeeplE/qGp+WO62ixcHb78U8/6VWXURAVtQvcLrDLda492C/5XpIDTHuR9q
-	g5LDJppg6BD6uBYkHWpwr+erkhg2SzH+nSf8oDMJB2NvIA+ucaBmYarj57dfUggseUe0tyU/5nUPW
-	VaHAzH+K/xsRV9mpOM0EDggiRgwyR5vviS9FUMoBrSfwY6wChGncPSIY04r8zlSW0kyCQABmvzIhi
-	4avexQbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6q1G+3f1PSzJ97aXz7xCRdv+qJR8/S5wfyuCHw16JbQ=; b=nsjYTG70QZeFMOD0tjSynDB6eZ
+	xXN9dCFHG/5DF0mc+gY/V0sVGDl0oz53FxvWwpWi2sG2rKeTRpjqzAjjVGyl8qwzsvlGXawMIv1v1
+	W8SMteNWslAdjYaY7Hzem4zkQk/+55IZhdFXaxVZePGqt8GXJxXuMbetbaJ85CcPH33IY+xaj9W+f
+	0xJE2t2CbxG1WRtk0aysIphryFMo6qbDbVouWM15H5xBjAZ7+cP2/+jOHyvGB86TeGNKV0rfDbJp5
+	eonrmllmd8ZfBgg6c8Do4W10r/+T40GHjlBoGEs584OpulG2xGIXzPqr9MGtQMQU9DrDvBKztGeA3
+	RPMu86MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFND7-00000007Rhg-1UMK;
-	Sat, 10 Oct 2026 02:53:21 +0000
-Received: from mail-m127156.xmail.ntesmail.com ([115.236.127.156])
+	id 1xFNHQ-00000007Rst-3DCD;
+	Sat, 10 Oct 2026 02:57:48 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFND2-00000007Rgy-2Dx3;
-	Sat, 10 Oct 2026 02:53:19 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50848de2e;
-	Sat, 10 Oct 2026 10:48:09 +0800 (GMT+08:00)
-Message-ID: <80f7ba75-d374-4eae-abfe-d53ec2deb52f@rock-chips.com>
-Date: Sat, 10 Oct 2026 10:48:06 +0800
+	id 1xFNHO-00000007RsY-2KVW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Oct 2026 02:57:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xD59+79Ynlj9DvHj0l2du5ii2W9h2kbuKu5hhpxg7S+OI3Q/u3106ya1bUPPJ7yB/DvS12lMcL4Wts61HkGX/J7D7k91Ui1hUj6lOVvLM9BtK3OUPpqI/u0oWodU9JdsaSMKfOTyRW+jmKUwL2QT3upeZDODYtuezOBJzaBYnkjTtkuUFYVJsQWjXWnyG10u6ciX14S+qcpOR8yZFR7DTBVBAXG4bPJHzRD6NBloDULqx4Xm0qW6lMbr5aDEd0yzDnzKhH9v0eN1s9xAH1ACjfFb2PCzV8jhScOD490s4+U6+Eo6bWaIph7jtnrvrdtRkWjP/6vvyhXW31SMdJoEyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6q1G+3f1PSzJ97aXz7xCRdv+qJR8/S5wfyuCHw16JbQ=;
+ b=CB/smzCPWmYEVpka01L67oPFG4kTDFgzAYMbs5DqJHY/69WH/CoUrlXZRlCTG7Ow1bV1km5IzHlLnwpwn8FDGQcsknRTYItPR02pHnVY3k1i4By0sNnHxwe0Ig719/nj9rSy2KkVtFS3v5qxJ4wLzNahfQ/VlFPZndnrcc+pNl2z53OkHxPcCYI9e8h3ydKsFYz5KR+8L87S8oMDHchaIcOu08aiCouwdPSxkrz2IblkH9I7sA6Ios5+OqN14AKmXCX7lW6h+ergWd5nMzmTbInBTKJcNZnBlUmmH7MA0hkkNUQLp8AlQ2d7bYMrZQscclqFqQo6JHQZ94W/bzs8iQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6q1G+3f1PSzJ97aXz7xCRdv+qJR8/S5wfyuCHw16JbQ=;
+ b=noLEXLZzzEPeF9KB1w+FYm+JxeCbqe0REiUfiUVelzuOEGimw9En6qI0eiOX7qPkUEN9zt3DwLvixTBPRlamWr355GgPxPOk8TGMujLNlvV7pT/HQlQC+QqRKw+xiFnd/SYcT6LsH4KO7vtY8JTAL6vq8EnG2gKDXL3fiLPp/3w9R43QE2wcr+LlAJ+MzBO4MAfpw1fqetxY61IuaUzbGW5j1u2iLZMP6LFqGT0/TTHzpQh99mn6D9btWTiV8/pn0woCrSMOpQZzWwG+SqE+piXasg6cK+u59C+/HzpVNzWu1oY6s6aE8FBsisuz0mFMldRFgPxDtaVe37L8ZJDGqQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV2PR04MB12630.eurprd04.prod.outlook.com (2603:10a6:150:36a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Sat, 10 Oct
+ 2026 02:57:40 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Sat, 10 Oct 2026
+ 02:57:40 +0000
+Date: Fri, 9 Oct 2026 21:57:36 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Golla Nagendra <nagendra.golla@amd.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Harini Katakam <harini.katakam@amd.com>,
+	Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, git@amd.com
+Subject: Re: [PATCH v4 2/6] PM: runtime: Add pm_runtime_if_active guard and
+ conditional variant
+Message-ID: <asmpoK1AdF5FAT4i@SMW015318>
+References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
+ <20261009-adma-pm-fix-and-per-channel-reset-v4-2-55f5fe409c55@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261009-adma-pm-fix-and-per-channel-reset-v4-2-55f5fe409c55@amd.com>
+X-ClientProxiedBy: AS4P190CA0040.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d1::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/20] drm/atomic: Handle max bpc properties before
- connector state allocation
-To: Xilin Wu <sophon@radxa.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Igor Paunovic <royalnet026@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, dragon@radxa.com,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
- <20261009-msm-dp-hdr10-v2-1-1835d4966da3@radxa.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20261009-msm-dp-hdr10-v2-1-1835d4966da3@radxa.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa123b5f22b03a7kunm6360a2b5135bed8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCT0lCVh4eS0NISB0ZGkIZQ1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=NDDV4FoZEkpnMGy2XPGW8N+gwtaSRGLvEggg0PegiDpBP5UhKFXzFgDGs7vhPjaiOze7Fyi4/WWCLvCSyp2ikyPrx//6pcTMrtVJcxyw9Qaw1Za2AAiM6d2ZWXCVVg5KUlWFQXDDNihwmxL85/LQ5quIpkQDKNopIVW3o7xdwo0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=XezuMrCTQbMzbi20T+1rCrxjWanYRbUDYkUJJW/TRwg=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB12630:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89ac12d2-af64-4162-9d70-08df267a3fb0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|7416014|18002099003|261009223027099003|11063799006|4143699003|10067099003|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: oMcDVvnw35qojQ/m0+nujsEqiQkd75+5UKN+O0gMx3RDPMn3e03s2EgCsaj0Sph23hje42HHR+uqQtcFMQ7nO2B2ysacGIoC0GXDQzVZWgypKt6T033tbsgwpjVU+eVgfpBmphgeY8eb6/VlErQ2Rtv3azMU+VRTEL8KYiH8Dw+oxxuBpBUkPFK1xRtnsJwmUt023YiFr6cCZpZdhnz/lbv8FqNgnDxNaXUcNbJFzF+aB2YJQsDywt853SbK4Tqj8ZLYfnY4BmwwO76aN8qydR0a/dJTD5+UuGdWnPw7kCYaGgxAf1HKatTOFdV6iaIRzhS62c/VjDxUarBtmjIidHKFSzad/7gklLpQ8wTvvRA7wqigJRd8pTQI56Z4N+4JNR7kwGfKKKmhWBoE8DEo6vx1A3/Yjy9GK+zIxY7hK6mK93TMGsCZQxeC2MVZMMTzqC3m1tRCkpsorI4/pPd8BUNiSBNJwv+mpAr/sx8eCJjcaWXHhjoia/ZF1ZvJLwMeSIkEXTzabOHnOj75X9guPMXqnJRj2DvO7Jw3aMJzy3k3ip//p4C8eJVnPEX7Od0/bTAcBjUBmzwgy5IPy6iqzrOaaihnT9yXRDEfBiFdneV2icDQ657/eXy7lZGvdOKBt8eVNw4L+IEXJJ2YB4gbkZadl+v06GHvHsYOdLMnMg0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(7416014)(18002099003)(261009223027099003)(11063799006)(4143699003)(10067099003)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C3FRM/NiJnkuIe6+72xB1dXWWEDfiDdoemeofr1w6n/GhrCKenPrvvQN0KBH?=
+ =?us-ascii?Q?q/rXcNGaHpLo67lNJ+BzCg1rXMuGvKlbPipcHaMzK7YQBU+k9D+rYTJfpWL4?=
+ =?us-ascii?Q?8mu1LEQU0B/il61mcvczw5KVolbVPgY/iWm8FnQVGf9o+G3E7SkObiSqlHKY?=
+ =?us-ascii?Q?53gAIrh/DteAK9aUCEASOiLgyngwy4jg+56b/Twg28UeRirKPh+4OEmvGNk8?=
+ =?us-ascii?Q?En2yXQpr2E+ghv7mS9CZv6aat+ARujYcdtQLA+2f55bH25MjmtdWUY7EBJU1?=
+ =?us-ascii?Q?EYosEbPKbliW2mdfNXT/ofm2W3EgO+/ppXX3KzTIBy4JihEEh4mqFPpa2WqZ?=
+ =?us-ascii?Q?4M4dAROucGZy8qy4coBK/ACEo1ANVZqbTKHGY/Z2csTy9ArvB6BgT8PDNWDX?=
+ =?us-ascii?Q?GcT+1K1EmzyuAj9AAKyVBmlEpAzc9dldlh4Krly/WyXfDzAHkHoKw5iXHPUr?=
+ =?us-ascii?Q?ZdtwVLnITxuDWlUqgaJKH/or0eDtJPtGVnmxSUasl76Qbu3uWcwBtzLPLLc6?=
+ =?us-ascii?Q?BnxjzdGjmp+TiV/A812i2fVCDi8N9+lbtVOAB4ubP4wXUapssI2S6s9Aa/4Z?=
+ =?us-ascii?Q?ZgkQ/GXhNjFvv+MRuuPSwW1ocMcY64nZzHUGSD6IRTBtJGbtq+ExvadBApAB?=
+ =?us-ascii?Q?Kkz7QoN7As6utJoY6EJSjpCefPiDo5frFfHaZZtDejKQS3/wQR6mfPQp46Bm?=
+ =?us-ascii?Q?1/j0cF9YgnO6Fh5zrGBVc8zuISR46mlJr03faTUJo2+dTSNsXTnmmILktYX3?=
+ =?us-ascii?Q?zaaOw0cw05o8FAucAjtaJv9SslFkQiqk8Y3pxtrRTyNj+lS7l0U4FX5bEwZs?=
+ =?us-ascii?Q?U35IUQbHvyyrWcEfcmTuuISx/KwI845l5AlfKIPFu28VDh1ayH5cGzx3Ilqm?=
+ =?us-ascii?Q?EO4EM5zhMTidFBnD0DF9db/dNORUkZo33u8mOV8PeGBZtZwlX64nkCBjSM8N?=
+ =?us-ascii?Q?xRCYsf2Zd5VICbrRVKD3mvnCkmUXBlKvmMn8F5hcfjv6ebHHbsNOqJzsPi7w?=
+ =?us-ascii?Q?iQkBNy6gOgecPMPAPcSLmN1avPYaf+JGlIMfk9yoTaS/V/YCcq0oo0i4DtWS?=
+ =?us-ascii?Q?pAAZj8vOT0927tazoxlhdgn2+f/Fk8QGMxt1/lhLqmuLZMSZjnx+oSR4jgBm?=
+ =?us-ascii?Q?Sz5dEH1i9Y2MID6zD7kl5sIM56r+KRdJCmlnI6pD75ITk/h6PN9tSZbKwZTV?=
+ =?us-ascii?Q?ldGGTCs6PgrlVahomoBZ2yN75VmVdqHUiMBhF4oMJkGnYKqUDOz8MDtZQUcO?=
+ =?us-ascii?Q?Y5i+/XgKbLH9Ly5rtOGDSS7CXeTWgzkN8Qr/7nniGyQKHBsOxkWdO7KrTJFP?=
+ =?us-ascii?Q?vqDF5vdRG32E7Xa1bqtojErjRXTyAqRqZ6c93WzYk7p72Q8he/841b8+xKUV?=
+ =?us-ascii?Q?JXts7+IXmM07JjV4B2ql6bxEHo8ia1Vb7+HdW1Sw3Zuzyf2XOWEhgyqjxyh1?=
+ =?us-ascii?Q?Pe2v4FaK3MgAN+IWlMCyonc8+6uS/HBpm8F2M0dDq5Pvw5Ki+ew/4M88pwQs?=
+ =?us-ascii?Q?e5eFYctDTS29j+leG2bW2Ws3qHUroYKduvO4xQeRnsYkAv1K3krsVWuI8fcp?=
+ =?us-ascii?Q?lAkHnXixl7B0yF7DzElL+leEXXMC3PtQnMbOs7WOnc92EbB2iwETealBih4k?=
+ =?us-ascii?Q?jZp1eaZ2k+JMcEhTEVuAaR+Q7Y+VCUSxwSi3OMxkudaMxQc3Y8/hAewvnfjs?=
+ =?us-ascii?Q?IMP0E2CO/8nGzeU1kCJHVcSev1Z9+nDIdLJLLumlvjkuan2u0czZJjpoAaSC?=
+ =?us-ascii?Q?SnJ5XtE81PGg2EtnRu7o6CUg36NH2KI2cbvJNTPIO6wSyi3cFkDV?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89ac12d2-af64-4162-9d70-08df267a3fb0
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2026 02:57:40.8077
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kNeab40A4Ce7AD67L52zHzUow4WN5uw7xW5iDevN5BYRb3sx7Vz80L+sLcaJq/O0U01h1oCxtelcOfVlJPfbmZJRuvoBs/F4Jm8dM/vQJNAd1NgETndDKrPUgL5qlyfi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_195317_147164_36747CF1 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20261009_195746_620164_810F3ACF 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,153 +148,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xilin,
+On Fri, Oct 09, 2026 at 09:30:11AM +0530, Golla Nagendra wrote:
+> Add a pm_runtime_if_active base guard and its _try conditional variant
+> to pm_runtime.h for drivers that need to conditionally acquire a runtime
+> PM reference only when the device is already active.
+>
+> The base guard must not be used directly via guard()/scoped_guard()
+> because pm_runtime_get_if_active() only acquires a reference when it
+> returns 1; the destructor unconditionally calls pm_runtime_put(), which
+> would underflow usage_count on a suspended device. The base guard
+> exists solely to back the DEFINE_GUARD_COND _try variant.
+>
+> The _try variant (used via PM_RUNTIME_ACQUIRE_IF_ACTIVE) satisfies the
+> _try API contract that guards must not produce an error when runtime PM
+> is disabled for the device. When pm_runtime_get_if_active() returns
+> -EINVAL (runtime PM disabled),
 
-On 10/9/2026 11:15 AM, Xilin Wu wrote:
-> Allow drivers to attach the max bpc property before allocating connector
-> state, as needed by the upcoming non-HDMI bridge connector support.
-> Only update the current state when one exists.
-> 
-> Initialize max_requested_bpc and max_bpc from the attached property default
-> when creating connector state. Use drm_object_property_get_default_value()
-> rather than the range maximum so that state creation and subsequent resets
-> restore the value chosen when attaching the property.
-> 
-> Cover deferred allocation, existing state and restoration of a default
-> that differs from the range maximum in the connector KUnit tests.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Xilin Wu <sophon@radxa.com>
-> ---
->  drivers/gpu/drm/drm_atomic_state_helper.c  |  8 +++++
->  drivers/gpu/drm/drm_connector.c            |  6 ++--
->  drivers/gpu/drm/tests/drm_connector_test.c | 53 ++++++++++++++++++++++++++++++
->  3 files changed, 65 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index a2ef272e9f27..8352b5a9097a 100644
-> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -494,7 +494,15 @@ void
->  __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
->  					 struct drm_connector *connector)
->  {
-> +	u64 val;
-> +
->  	conn_state->connector = connector;
-> +	if (connector->max_bpc_property &&
-> +	    !drm_object_property_get_default_value(&connector->base,
-> +						   connector->max_bpc_property, &val)) {
-> +		conn_state->max_requested_bpc = val;
-> +		conn_state->max_bpc = val;
-> +	}
->  }
->  EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
->  
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 8b4baed060f3..34c30469f405 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -2886,8 +2886,10 @@ int drm_connector_attach_max_bpc_property(struct drm_connector *connector,
->  	}
->  
->  	drm_object_attach_property(&connector->base, prop, max);
-> -	connector->state->max_requested_bpc = max;
-> -	connector->state->max_bpc = max;
-> +	if (connector->state) {
-> +		connector->state->max_requested_bpc = max;
-> +		connector->state->max_bpc = max;
-> +	}
-> 
+If only resolve PM disabled case, I suggest define DEFINE_GUARD as no-ops
 
-And for patch1/2. I don't think it's right way to go.
-
-As comment said: 
-drm_connector_attach_max_bpc_property() requires the connector to have a state.
-
-There are two reasons here. First, most drivers follow the convention
-described in this comment, but you only modified some of them. Second, 
-it appears you are removing the connector state, so the 
-"if (connector->state)" check here would always evaluate to false, 
-which doesn't seem to make much sense.
-
->  	return 0;
->  }
-> diff --git a/drivers/gpu/drm/tests/drm_connector_test.c b/drivers/gpu/drm/tests/drm_connector_test.c
-> index beb1d50a6646..1174607441b9 100644
-> --- a/drivers/gpu/drm/tests/drm_connector_test.c
-> +++ b/drivers/gpu/drm/tests/drm_connector_test.c
-> @@ -12,6 +12,7 @@
->  #include <drm/drm_file.h>
->  #include <drm/drm_kunit_helpers.h>
->  #include <drm/drm_modes.h>
-> +#include <drm/drm_property.h>
->  
->  #include <drm/display/drm_hdmi_helper.h>
->  
-> @@ -187,7 +188,59 @@ KUNIT_ARRAY_PARAM(drm_connector_init_type_valid,
->  		  drm_connector_init_type_valid_tests,
->  		  drm_connector_init_type_desc);
->  
-> +/* The attached default need not equal the upper end of the property range. */
-> +static void drm_test_connector_max_bpc_default(struct kunit *test)
-> +{
-> +	struct drm_connector_init_priv *priv = test->priv;
-> +	struct drm_connector *connector = &priv->connector;
-> +	struct drm_property *prop;
-> +	int ret;
-> +
-> +	ret = drmm_connector_init(&priv->drm, connector, &dummy_funcs,
-> +				  DRM_MODE_CONNECTOR_DisplayPort, NULL);
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +
-> +	prop = drm_property_create_range(&priv->drm, 0, "max bpc", 6, 12);
-> +	KUNIT_ASSERT_NOT_NULL(test, prop);
-> +	connector->max_bpc_property = prop;
-> +	ret = drm_connector_attach_max_bpc_property(connector, 6, 10);
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +	KUNIT_EXPECT_NULL(test, connector->state);
-> +
-> +	drm_mode_config_reset(&priv->drm);
-> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
-> +
-> +	connector->state->max_requested_bpc = 8;
-> +	connector->state->max_bpc = 8;
-> +	drm_mode_config_reset(&priv->drm);
-> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
-> +}
-> +
-> +static void drm_test_connector_max_bpc_existing_state(struct kunit *test)
-> +{
-> +	struct drm_connector_init_priv *priv = test->priv;
-> +	struct drm_connector *connector = &priv->connector;
-> +	int ret;
-> +
-> +	ret = drmm_connector_init(&priv->drm, connector, &dummy_funcs,
-> +				  DRM_MODE_CONNECTOR_DisplayPort, NULL);
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +	drm_mode_config_reset(&priv->drm);
-> +	KUNIT_ASSERT_NOT_NULL(test, connector->state);
-> +
-> +	ret = drm_connector_attach_max_bpc_property(connector, 6, 10);
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_requested_bpc, 10);
-> +	KUNIT_EXPECT_EQ(test, connector->state->max_bpc, 10);
-> +}
-> +
->  static struct kunit_case drmm_connector_init_tests[] = {
-> +	KUNIT_CASE(drm_test_connector_max_bpc_default),
-> +	KUNIT_CASE(drm_test_connector_max_bpc_existing_state),
->  	KUNIT_CASE(drm_test_drmm_connector_init),
->  	KUNIT_CASE(drm_test_drmm_connector_init_null_ddc),
->  	KUNIT_CASE_PARAM(drm_test_drmm_connector_init_type_valid,
-> 
-
--- 
-Best, 
-Chaoyi
+Frank
 
