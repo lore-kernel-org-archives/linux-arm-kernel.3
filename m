@@ -4,115 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CD9CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 21:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DF1CA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 21:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6dC4+3uJJpM8gLS0TL3OI4kuVTFqrUhEB2NtLiC1S8=; b=pcZdgD2KxPDtAswUVimVnmw0rP
-	ccMFR55rQYeocbDM/w1RPJrHQouJRI2TOTZI1I5Dw/KzMJX9oNEjliRuHtOXIku/isBHNlYunRgrs
-	sr7rDBurNtAc2u9kaMWyjroV2WEctqt/EJatW447/88vXHrK8Jl/gBf6ArvQ0pB0voLA+ElPXKsHs
-	FALWY7hUiVK7JeOa+s0bMzdW3Mf9v9hm+zIAkq7rI2daO91Dve6FRTKzN7BlyeAKVO2KmzOW1sDNm
-	cFf1iVAfUddRJk/0yRkrEaJ3KhV6s6OZoYe2whQ6aFMiWkS8suD++UNhb6QlhSTzSaayEVcxvpyEY
-	w31gc1QQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Sk2ivrLQi5NtsGavnRBGVN+4kbbD0Snm+DscMMG5MBY=; b=gCsHqdXukRHF688+p2ndSf6YFX
+	qjPNw16b+/WmEyyKOmL5j6VkaFOy1hFSRqqzb4fcbFHgCcvnvjts0m5DH6wrcd5aC2oRjhdTm3qaq
+	ERLMujuFR4G20aAS6DdpUD2zStkeD2uYpQUQzds8/+bQeptiXYdYE8SRmEyg6oYhPDRMcbaeZ1Jtk
+	M1vCp98X0JABurms7HG7+tJt55tdAZXjiqchvIC0D4l7gQLvR5YwZu6GTqCv56Aw2WK9tUdUs7dRO
+	m3ptyAgt9xXA0TSCEgbSzr65AT/v83CzmE1T4wduburdhyVCZVFjWO7u5MYU5wMr5JbSZC8oSfgpY
+	qWJ0gojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFewd-00000008Som-2nHm;
-	Sat, 10 Oct 2026 21:49:31 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1xFez1-00000008T2i-0vJj;
+	Sat, 10 Oct 2026 21:51:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFewa-00000008So3-2Szf
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 21:49:30 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-67921b515a7so531377d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 14:49:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791668967; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Ou+h+yfQmSzKnA1b1GyYslucg7vMUmzYtAOuL4YTleQXLEA3JTMNB0Im+9ilrJI3zt
-         HfaPHlXyP4r8ekwhawjYkoZi3Rkgdn/R7ZKVCraFv7nXsI/Z19tZEvumQNDYUnBTiUUk
-         Q/K/0at1bP34qFfonbSUsaX5xff4p9nWYpUEc10ok42AOpS9xBBvMcP/WZ7EVLiAAVBg
-         DzKG8v2Q7j+aL421yN7CEG/VcM617Gw4LRHD5xTTwpYCHqvUwuTzG8QnAM0SVUzpqHtN
-         oHHZ6khw4z4BU/mlImjAyapx/sKCtFgGa9SAwzKYjKwD0Fy7JTTqL3LNkdN3HRyagLGw
-         YwDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Q6dC4+3uJJpM8gLS0TL3OI4kuVTFqrUhEB2NtLiC1S8=;
-        fh=gEX527UaFpIE/V8kGlOWVv/p76JP3JtTV96r3P7WpOM=;
-        b=s0+TntooWc0B/hZzUl4QKjrMR0hpXt9JB8F1cFfIgasdh/GsWP1D1TtCpx+yxhuuKR
-         3VSHg7/xv3WNrbqVne8miT13FcCCY19Y4juAPpwk+8BENq1codZy5i7FV28uSVBt7HJt
-         gB1usIuQAr+iZZuag2KcMqBZ6+x/i7WlpXdOsQzKR1YarV3rYo2G3TckOagiQYP14TXr
-         S3I9+VvkZYrZVcNbWl7+cK/KVwozscWgXoPKR3ynKdw6Hkqh+66e4xRZ3BJgdNtQYG3f
-         tqSWYfQRiHTbFdi+f0QsxZ/kd3GdLmUqzYkwDjTpEZKPpZotcSmNOJljKu7nnkj7hIcS
-         OZZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1791668967; x=1792273767; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Q6dC4+3uJJpM8gLS0TL3OI4kuVTFqrUhEB2NtLiC1S8=;
-        b=TDpq895xFFqLnS+glWCa9hZlfkLYPD6xY9rZzVZVj2cH+sA760cXYZ3hQc18BjO0gy
-         2l1EbjKSa1hjpYGtRIeA84cgUO2SJDiYvg9i6CW4qOoH4WgyjvTB2qaD4P5mt+lkx8fg
-         cAvsrC630LCp3+lm7gfHLJ6TDiS0qj85PtuWOx38d/9G9A6A1JVXBcZIQUsLhT0Gytsd
-         CXnuvgMauC3pdvoKIotGlL+yOT2b37RFZOqfuEMtBTM0uxYCqPoSZCNrzEuzM5fVNp5N
-         B7qzvGsDZldYyWQJHIX2Z53Sxbjn/TxrhMcE8c7NJGW3gls6nDGHayANtl8fA0BVwbHS
-         KPiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791668967; x=1792273767;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q6dC4+3uJJpM8gLS0TL3OI4kuVTFqrUhEB2NtLiC1S8=;
-        b=u9aM0BZzIwxtL1gG8nnjbbmbBQNA2j0qOjZ3bh9hGQ3UnP/KzZyQWxJQj+5klQYgpn
-         tiWWt/MAxl3zrzagPnKU+XxGYCIpzB8Vti95MKK7XiPbGUZD7nyqK2w7WVFZo/IrTUHp
-         U4CmINRjLNAsl6itbS41wyAbvMTJe3CUfyRo7Tp+PBAH0ukq0Kdo8BubzGukd10nPIJ7
-         8BREZ0JEIdtSh0znhzy9DKZhAY2/M528H7VITtl5kknBDxbwH3BjOIA97H9TW3nlSAgO
-         Dzh/PG5r8h/cR9cYPOYN1X214+WDXXfv88Z//nIMft1TwFhgk80O0GydOOucge/bZ4fJ
-         jGvA==
-X-Forwarded-Encrypted: i=1; AKwUvBxAQJOfAHSW0rHyYuMh9JjAKxbkY+sbTR97EdZRoWyFa6ugv58h1bTfuxjkOvddVI7xyHVzCEsvD9fEC2FTS/fm@lists.infradead.org
-X-Gm-Message-State: AFq9FYKRe4kWD0fkbJFfh0DKgVGt32NUSMYDg7KBTXIKiWy5JYInYN/3
-	jCX+YLDQ5b5lFF2VrWDuYyjCu6UydXSIRmGdU2z/jRDbSpi4j2eLt3WRIyTezrkPVDFuC1IktqO
-	guZbKwh4mWbwhAOzZQlqk+gQtsvgD3Rw=
-X-Gm-Gg: AYBFou2uS5rl5C5Gmq2R3Tzh4dRMAPiwTJpOGdwhCFrHpseXiT7S3lWezVEqUQmTtMx
-	LF0r/IIDZQo0wbu4oU9jj+wsgcKIxycFk7bOjbfBNDI8oCJXZryCRya4NZVW74M0rc8ebY/fSej
-	O8Vj4d60lEZcUQrF54VJ98ow4qs6r0/mO2bodHwx8hoXJxNyGMvK6YDCE08ScxVdH/VaUPbCoZa
-	rgjF+qqeWD6d18Q+aX865NAGAcFfjvi4BZeRnzvs1OdnKaQEvcGrKfIFHsgJjsKdPd9aDKOBLl3
-	Tn1oOIDjmNPfjhYmV1eKMtX1fvf58rk0Y/vum3/dfFjGsP9MSjkM/is/VOuYKASyU8SILKoIykU
-	U1ptg1f7k2LX8
-X-Received: by 2002:a05:690e:5:b0:674:17ca:25dd with SMTP id
- 956f58d0204a3-679362cb227mr1431918d50.78.1791668966625; Sat, 10 Oct 2026
- 14:49:26 -0700 (PDT)
+	id 1xFez0-00000008T2Z-1oRz;
+	Sat, 10 Oct 2026 21:51:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 97FE741942;
+	Sat, 10 Oct 2026 21:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6C34DC2BCB9;
+	Sat, 10 Oct 2026 21:51:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791669117;
+	bh=FxeeGnUnF2T3tAbw1CVrJPxzZ/AfexZI161cKG8bLAk=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=VdenR65rsLe+ESlFBzGy3CFc6IdcWhr97l23ZZ1YEPC6kb2+4c0gtJsS0CFCsgvjk
+	 yvmKTN32M3uBi+vE1L3f99hwe0q18KSQVnSpS24g3gMV/pqrxEPuoWk3GXOMn1ETDX
+	 BZKxeNiJH+SrgEQmlF9KspQiL9z8GPixlI0BEg556GBa+i3aNMJ/qH6O1HqA0H2T5e
+	 1C17Ae4UhKv8ACq9JMUxfY5oQ0IOzgFfueYFhKkEhOHSpf05yx4T4naGHhll8Bsfvs
+	 gln+2sFrCdRcd+/ztVbASE2Yw1jVKHJIJurq0mp6tOHNk93zMw4HlOHg8J+2N/4OeA
+	 YHbzZr+JkNjTQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58E1ECA9ECA;
+	Sat, 10 Oct 2026 21:51:57 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Sun, 11 Oct 2026 00:51:50 +0300
+Subject: [PATCH] arm64: dts: rockchip: Enable USB host0 on Kobol Helios64
 MIME-Version: 1.0
-References: <20261010105900.247342-1-tanure@linux.com> <20261010105900.247342-5-tanure@linux.com>
-In-Reply-To: <20261010105900.247342-5-tanure@linux.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 10 Oct 2026 23:49:15 +0200
-X-Gm-Features: AclHuK8jJjUAGUEE_RiHqUn3ZKgg7qAYmUp7tVzhoh46a9QNl3VNEK64s0Xinno
-Message-ID: <CAFBinCCpo28jZkQnup2=iofwh02GOMzxJ82hGHWctiWzcKTxUw@mail.gmail.com>
-Subject: Re: [PATCH v3 4/8] net: stmmac: dwmac-meson8b: apply the RGMII delays
- the T7 way
-To: Lucas Tanure <tanure@linux.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_144928_644599_205C19A3 
-X-CRM114-Status: GOOD (  16.11  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261011-b4-helios64-usb-host0-v1-1-693fe316701b@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAHWzymoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDA0ND3SQT3YzUnMz8YjMT3dLiJN2M/OISA10TgyTjpORkC1NDQ3MloN6
+ CotS0zAqwudGxtbUAu+CJwmcAAAA=
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1470; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=sOQzi5FpUnQRY9CzfpIrcgu8d6QPkrlieETtWvyjiVY=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmnNpf/zlN1581VmqNuLyprdcWlMpZj80sDU8ZykT6+D
+ RcWO0h2lLIwiHExyIopskw4pHErY8nVv/4e5g9g5rAygQxh4OIUgInwczEybH/0/9C+3PN1zzZI
+ LUzmOJf4997RfcUb2KbPe/G8KPL1KkFGhvM7tePOGvs3n8i02n5VSWP2g1/RBw1qf11NXiIj8PP
+ WW0YA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,60 +82,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lucas,
+From: Igor Velkov <iav@iav.lv>
 
-$subject caught my eye because I didn't understand why there's a "T7
-way" for adding RGMII delays since we should be following a standard.
-Patch 8/8 in this series documents the standard. Can you please find a
-more suitable $subject for this patch?
+USB host0 of the RK3399 (USB0_DP/DN) is wired to the USB 2.0 pins of
+the M.2 Key-B slot J2. Enable the host port of u2phy0 and the EHCI and
+OHCI controllers behind it.
 
-On Sat, Oct 10, 2026 at 12:59=E2=80=AFPM Lucas Tanure <tanure@linux.com> wr=
-ote:
-[...]
->  static int meson8b_init_rgmii_delays(struct meson8b_dwmac *dwmac)
->  {
->         u32 tx_dly_config, rx_adj_config, cfg_rxclk_dly, delay_config;
-> @@ -411,32 +455,34 @@ static int meson8b_dwmac_probe(struct platform_devi=
-ce *pdev)
->         dwmac->dev =3D &pdev->dev;
->         dwmac->phy_mode =3D plat_dat->phy_interface;
->
-> -       /* use 2ns as fallback since this value was previously hardcoded =
-*/
-> -       if (of_property_read_u32(pdev->dev.of_node, "amlogic,tx-delay-ns"=
-,
-> -                                &dwmac->tx_delay_ns))
-> -               dwmac->tx_delay_ns =3D 2;
-The 2ns default value in case "amlogic,tx-delay-ns" is absent hasn't
-been necessary since commit 093d23db4fff ("ARM64: dts: amlogic: add
-the ethernet TX delay configuration").
-That commit is part of v4.12. So boards using RGMII and a .dtb without
-that property haven't been updated in more than 9 years.
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Schematic, sheet 33:
+https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
 
-[...]
-> -       ret =3D meson8b_init_rgmii_delays(dwmac);
-> +       if (dwmac->data->mac_applies_dt_delays)
-> +               ret =3D meson_dwmac_init_dt_delays(dwmac, plat_dat);
-> +       else
-> +               ret =3D meson8b_init_rgmii_delays(dwmac);
-From the discussion in v2 I couldn't understand the overall way forward.
-I get that new compatible strings should not rely on old, incorrect
-behavior. But what's the path forward for the other SoCs?
+Tested on mainline: the EHCI and OHCI root hubs come up. The M.2 slot
+is empty here, so no device was attached.
+---
+ arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-[...]
->  static const struct meson8b_dwmac_data meson_t7_dwmac_data =3D {
->         .set_phy_mode =3D meson_axg_set_phy_mode,
-> -       .has_prg_eth1_rgmii_rx_delay =3D true,
->         .has_pipeline_clk =3D true,
-> +       .mac_applies_dt_delays =3D true,
-This should be a callback function pointer (apply_delays or similar,
-to match set_phy_mode) unless there's a way to make older SoCs also
-follow the "correct" RGMII delay specification.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+index 63ad79b4c8ac..ae887806f21d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+@@ -639,6 +639,15 @@ &tsadc {
+ 	status = "okay";
+ };
+ 
++&u2phy0 {
++	status = "okay";
++
++	host-port {
++		/* phy for &usb_host0_ehci and &usb_host0_ohci, M.2 slot */
++		status = "okay";
++	};
++};
++
+ &u2phy1 {
+ 	status = "okay";
+ 
+@@ -653,6 +662,14 @@ &uart2 {
+ 	status = "okay";
+ };
+ 
++&usb_host0_ehci {
++	status = "okay";
++};
++
++&usb_host0_ohci {
++	status = "okay";
++};
++
+ &usbdrd3_1 {
+ 	status = "okay";
+ 
 
+---
+base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
+change-id: 20261011-b4-helios64-usb-host0-40b3bcc85117
 
 Best regards,
-Martin
+-- 
+Igor Velkov <iav@iav.lv>
+
+
 
