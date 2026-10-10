@@ -4,112 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 521DECA6017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21860CA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 14:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSn1IK04TkZcZee9zhz9sEIPssSjp24H+zQ/sP34SBE=; b=VeRjRcUwz1mJT0RBA/gQnwKnYh
-	nElnzthyKD4mQTwmnDJmIkelnvttKGIYkNG8EuXlGFVRxqIQ3h66ve8Nt3IaCk4OLg9BI6fusxaDG
-	ZtpKQGicN0fNZu1vu44wCqXHGcBzQnbtAuk9bsOoGOVXaGgwuQzqOfn7CTunTm7XKPGcCVz31BPqo
-	MaBWF5dWj9iYXGup2A469UBDJCTG4vLJ5ULvGUePPXimXT+1u6zEghrbg3xqoEeDlWFCY7ctlJ7e4
-	GBFHn8rTCShQDaeUr4IIwwzKFV0+xwrQpxINDz0OCJDJofUJVjPPSH9YKQ4AgmevjXumiUdChk919
-	/XJ5vDVw==;
+	bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=RjrGDmHXvqaPJz7sJjL8JpPCvh
+	kuhun9iNoBrck90wdui2408htP8uhFAXvFTbQbxKakLp0sdiNhWRhoAx/kpTgBUJxZf24WYJk+41B
+	EkCfr8eVjcxMSCGJKC06K7ksIkcsSPHcwR6rZYXLBmxGMnjfvyRkHkBlxOTWdgYSrH1ZwzvtBhNuM
+	xJBh/koUBbm3o6wBprfoag5FTZS2wcC/suXPRdkxkEJS0GZ8tjUhT4tMzPImlNlEVl6az9d4dnbvH
+	UumaH9v6S06zjaPeYfDo5JnsingoPAb/DuSmfNyY98EnksAyJ+eK+meswjut0vdMl4jtOQLkOQBW8
+	WHEk89jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFX35-000000086R7-0rYD;
-	Sat, 10 Oct 2026 13:23:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xFXq9-000000089TP-48NI;
+	Sat, 10 Oct 2026 14:14:21 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFX33-000000086Qn-3r89;
-	Sat, 10 Oct 2026 13:23:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39128402B6;
-	Sat, 10 Oct 2026 13:23:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6622A1F000FF;
-	Sat, 10 Oct 2026 13:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791638617;
-	bh=jSn1IK04TkZcZee9zhz9sEIPssSjp24H+zQ/sP34SBE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=P0fW5fFjAF5qEShD2FDUvhRLrpwuYauXz7mH0/BSGcs1DeAv1GtmOVVG/2URH7Nil
-	 Wp7IYW+Wv03cB9LfWZcRjNFYz0kCgtVvJncN3ac2E9G0ZIkIOdvjPHjh3vg52WlgNo
-	 5Wlw/ejL90a14q4Vviu2IAatKuQrY5GO0AR9xa2hVWWg5/UwMnYgO3AgB+jB+lW+Vc
-	 CzV6C9D/37DcbFx8Guens1jLZhndt+gROqpJ0cPyfu1x5sKaz92g9XWah1cqwpx6Wx
-	 F5ZvDMs8i/Le+rGQB1xi9V8X65teOuzLFUWnMdc/8rWz+9kJ58E5S9pgQZHGzWWwFC
-	 EZyVOU+A0eHzg==
-Message-ID: <5d20f9b8-9085-49df-87df-05f29f1496a1@kernel.org>
-Date: Sat, 10 Oct 2026 14:27:34 +0200
+	id 1xFXq4-000000089T0-42Qg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Oct 2026 14:14:18 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id D789D7A008F
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 10:14:14 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sat, 10 Oct 2026 10:14:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1791641651;
+	 x=1791728051; bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=
+	m7q9KgvzaoOqlvH3uyt6b3NRUrb/XshVsTwIZQ2MkfanF0l4UbzyCYCQP5QsVdO7
+	QObIizevkTWPs1J3Eyafl3+cxjni0izy+xUgCD4QSFJTAQ8NZ+IjQrl+GNKH+Sj6
+	DTZG2joS2hA8z0CRIKW6hbCDPHPqPJAMQVTTNyjjrH5ejFNLlzzbdhg2i6iCgqiw
+	ynpLL+C5qegRlpTwfli/z8PsbPObF2fc2zBJCzIvpnhvHKRumzg0vKaNGE+lWI2i
+	YdaqaQzc/KhGDjFxOxm7D6F3P9/4wtXFW5ogT6Ksw154eCSThk+cmAUjnwlwBdTL
+	FlenU3ZU3igC0stXSolVHg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1791641651; x=
+	1791728051; bh=P5D41lw9AvoFAu/NxmqiIH7K74Pst1YSUgBSfmtz+LE=; b=M
+	63IUeVKUTLQXGMaaDRVP9jD1qL3IvASSLQLZtYt0//+lXu/swC0urIJwP69vAPCJ
+	2RPhlox0pNmX3eNXSgE3TfOuwYJo5EK4afJSOxfXFL2r58OBXMVZ9dGpxEiSeHnc
+	cQtud6OJnXczfu5i1XhbZf59N37iNEDYU3bezEVubu5Ou5rUTQXmXA51KYmH20Dp
+	ka3/pXMjefonMqX5UBDfs4qhvlJrGSUTlzTxFAc0qgIKlvEozD9FXFqPQnj4kmQj
+	b5iJsJ/DjLecpNj57bCm5Q7sabACuBTkvbSTWtAvCLBAl+vGCGXPoyfs/QbWbE4g
+	1I2XGdbnUWeF2V5LZqZwg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1791641651; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:NWk1MwNn6VSSWvZZvxC2lZ10Od7gvGD7Zk1Vdl7sk6KmpwM
+	9aMecimtLOmT4fRvTx030QeAXkJYd7Sui2EVMTKjlklU5A1xIdt238S5jll7sdun
+	rI2FhY6FCXs02fpWE/pZzOiqSUI+OC3YxYGjylofT9jcDixtfHC7mXYJyWsNBtdV
+	F69js0X5FBlsr5BM14q9fpJZN7w9AArCJGBT0znQDftFyJh2/LIjXSIR3eyf+8NF
+	QaeAcNYFo9FrLR/LcyKdWyFxj0S4Drz2g5iwQltLkDo7ijGyKNL1k2ef2pHuWA2w
+	4n/uchWR5xy6Q1vEQIhTyp5yv2Hp5jZkO2FgBRg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:E0iXCI5C17X7FFLF5wpNyOXtmHUPYySvSTLL/Nr0UuI=:xTBFcM9TkpWzcdbid7SiEiRR1QDxfB9ux5nHJ2vCvfg=;
+X-ME-Sender: <xms:MEjKaqDEMS5-Z4qDa-vxFYxQbwCbgjv7Q5GhXah7AisdAUWP-AjfEA>
+    <xme:MEjKavVL50CGShenTs_TEkfnp_CIQFtbhAI8U_J-cDh38mxrvCPGI-acbk5jvRrca
+    8W-eu4PAjtzObfXv28Q2zmOmotic-u-yMWROrpqztCiR9q28ZrDjBFc>
+X-ME-Proxy-Cause: dmFkZTE+WwUgTuhZ2nzPZll+5Ah43fS038CZn0JVBdoDxLdBIrf6sxasJG3xkgrPmZmn4S
+    HSz2okafCVJ1UU1wacBv64F4E4AzJqa09Wmid+lUqrRFlVxtQq5+o9SKZQkBVDS8p2U0Xe
+    ZkCVuL+d8f+2xvCMm3tYEEqqf9pbWbzbyxUylQj/AkyYsjmOO+eA/IcWRTNeZ3/SEMN/63
+    BRKYQhYRrQZ36bwzTVQb0yzoz6qjb2pLS2DVKRr9EfCvuuFP5kfxAv/DhodSQSQK5WcTcT
+    Q98csWRayBVKvHWUbdoa5rjo55vzsfCKSVcrxQgzoSIyi3L0Nx/xi2bdx6o6e3zrGca3jd
+    qMN7jcmH97a0BGjwQgNvzFUwHwjK7NyjQwXb1eOa7QiaA1LWe4HZdNyqEG9RGQsId2ewYp
+    sJtojqacXOn7DegbHl+c5dm//Xiol1oBYzekMNb+zvdVEZ+TGi/vh4YifLjOz+Sr031+XU
+    xp5INLx8XqJcWp3oqE/JWo55Pxv0mjgIsr317yMNKsFT88ez4dLYZ6fmITIB75BNr7kesL
+    ENUES6w9SddiCBsm18RmZOu69ZYJqAdBVo/59AILBbJD97kQ3v0YQ8eeakYszncABuVusA
+    MnxtTmhjQ4hQlt/KVdIHEiyzJX8MaUF4DPy1gJAZHFxTuu3x3Ncm50HpwQEA
+X-ME-Proxy: <xmx:MUjKap_lO5Jvkt0XXg630MQAcs8mUah5St7s-Xc_OQnY8g8IQMgqxw>
+    <xmx:MUjKaipU7rEH2vVmznbM6JxoQgfIXzTIilnb5w5lK12hb_Rge8J4Ow>
+    <xmx:MUjKarTBT2aLbgQW4oUoz6SoqJelhb55zBuJPQu0kHLeCyWFJ9eqEQ>
+    <xmx:MUjKatPnjvP79VNggcDZPrKOeUVkhuhGiP2IrxlW2QIN6RyzlGJv7Q>
+    <xmx:M0jKau0LLNEyKw5bAbR5ZuLzklBYbtsT-Lg4v4-X7M682hqR_OJ0lhYL>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 0308532A008E; Sat, 10 Oct 2026 10:14:08 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org, stable@vger.kernel.org, osalvador@suse.de,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- tglx@kernel.org, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
- hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
- kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
- linux-kernel@vger.kernel.org
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-3-songmuchun@bytedance.com>
- <664510b2-3510-499f-aab5-ceddfcc82581@kernel.org>
- <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-ThreadId: AV9a5Jwtb8Lw
+Date: Sat, 10 Oct 2026 16:13:47 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Navid Ghahremani" <ghahramani.navid@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Russell King" <linux@armlinux.org.uk>,
+ =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk@kernel.org>
+Message-Id: <b6dc1056-63d9-412b-8abb-a032dae83d46@app.fastmail.com>
+In-Reply-To: <20261010130024.177503-6-ghahramani.navid@gmail.com>
+References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
+ <20261010130024.177503-6-ghahramani.navid@gmail.com>
+Subject: Re: [PATCH 05/24] ARM: zte: Add ZX279128S platform and CPU hotplug support
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261010_071417_047328_07A9E53E 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,63 +130,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/26 04:58, Muchun Song wrote:
-> 
-> 
->> On Oct 10, 2026, at 04:37, David Hildenbrand (Arm) <david@kernel.org> wrote:
->>
->> On 10/8/26 09:30, Muchun Song wrote:
->>> RISC-V uses the same memory-hotplug teardown code for the linear map and
->>> vmemmap, although their page-table pages are not always allocated in the
->>> same way. Late linear-map allocations run page-table constructors, while
->>> vmemmap and early allocations may provide constructor-free pages.
->>>
->>> The PTE path unconditionally runs the destructor, which is wrong for
->>> constructor-free vmemmap tables. The PMD path avoids that problem by
->>> using is_vmemmap as a proxy for constructor state, but that assumption
->>> will no longer hold once runtime vmemmap allocations use the normal
->>> pgalloc helpers.
->>>
->>> Page-table constructors record their state in PG_table. Centralize
->>> page-table freeing and use PageTable() to decide whether the destructor
->>> is required. Keep reserved and constructor-free pages on their existing
->>> freeing paths.
->>>
->>> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
->>> Cc: stable@vger.kernel.org
->>> Assisted-by: LLM
->>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->>> ---
->>> arch/riscv/mm/init.c | 29 ++++++++++++++---------------
->>> 1 file changed, 14 insertions(+), 15 deletions(-)
->>>
->>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> index 857f9a55039c..429a0b015ec1 100644
->>> --- a/arch/riscv/mm/init.c
->>> +++ b/arch/riscv/mm/init.c
->>> @@ -1486,10 +1486,19 @@ struct execmem_info __init *execmem_arch_setup(void)
->>> #endif /* CONFIG_EXECMEM */
->>>
->>> #ifdef CONFIG_MEMORY_HOTPLUG
->>> +static void __meminit free_pagetable(struct page *page)
->>> +{
->>> + 	if (PageReserved(page))
->>> + 		free_reserved_page(page);
->>> + 	else if (PageTable(page))
->>> + 		pagetable_dtor_free(page_ptdesc(page));
->>> + 	else
->>> + 		pagetable_free(page_ptdesc(page));
->>
->> Similar thought, can't we detect that in pagetable_free() somehow and avoid
->> requiring callers to handle that?
-> 
-> I think we can, then pagetable_dtor_free() can be removed because pagetable_free
-> can handle the case of pagetable_dtor_free.
+On Sat, Oct 10, 2026, at 14:59, Navid Ghahremani wrote:
+> Support the dual Cortex-A9 platform, second-CPU startup through
+> bootloader SRAM and CPU hotplug. Keep existing ZX297520V3 support
+> intact.
+>=20
+> +ARM/ZTE ZX279128S SOC SUPPORT
+> +M:	Navid Ghahremani <ghahramani.navid@gmail.com>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscriber=
+s)
+> +S:	Maintained
+...
+>  ARM/ZTE ZX29 SOC SUPPORT
+>  M:	Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscriber=
+s)
 
-That sounds much cleaner :)
+Hi Navid,
 
--- 
-Cheers,
+Since this is really the same platform, I would expect to have a single
+maintainer or team of maintainers. Since Stefan is already established
+here, I would ask you to work with him first on reviewing the code and
+deciding how the two of you split the responsibilities going forward,
+but I don't think that having two separate platforms with separate
+maintainers is going to work.
 
-David
+     Arnd
 
