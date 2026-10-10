@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6728CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 09:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AC8CA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 09:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXOuTs3qmj4pRlYP2XimGi/8qJVZAA1KOhsQXlOmsvE=; b=Hciv/Xcph+FUcbG7GHDsdQkSTg
-	x28XD77bQOV5u8UF2HpQ42zBCBuXEmp525K86mnOxqwjGPquKsSICzDcaAEZRo57wS7ND+Jys7sb9
-	EP1KmHwj6z/eJRn9JKN/DCaHQsbW5ZBgSU8n0kF0LK9AMwA+YgC67gXTuNg11xAbEGRX1+g3vzTun
-	ppnc32YWuipJooigszIuyYKHkc1i5vYV+hAoMydGMgQRRlajay3/THDAhtXepEr/sacOj9ApuEkvY
-	WrQETki4IlMl9amJM3JSQX6MZ0+/FvXj4RAJCR0hKGk2Xcf9x+diS65qD0Dgu0Z69+VlNOc4xHEVd
-	Vr9Rvexw==;
+	bh=Uuo6SbF8wRgJUa8ZP9/6Mr84np4dB2IdRFOgXUmTiMU=; b=MXsPmF9Q5V3BiQIRC1s+Iec0l3
+	TtiheZnU14dx6ZsOhMzTj+dRSefoSw8B7PLhxuNlugQbqa8qvQdKlp6SmJ1h1tza3NeXhnmBvXkFR
+	tlHxvkUKLfvCP78QWj3rRZedn8wyO2Z4RrrpcLjAHTyjsXH7nxa56MmzSB0f1FWIBJJPY09Q66ErE
+	tNCLSbclzckuYSc2A9oKGoGubBzokMVAYl2qobklTZEiDf2NhLdvNDgvjoukgEcd7debM+snbrKa/
+	YhooQ6x98PmRM6ZLWhJW7Kg0cA8Z86xvR5aHrIhP4ZmbslokhhUC9Ijh6pDeyvcizOerdix5pDZSC
+	QCysguTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFTJf-00000007kY5-250G;
-	Sat, 10 Oct 2026 09:24:31 +0000
+	id 1xFTJg-00000007kZA-02qb;
+	Sat, 10 Oct 2026 09:24:32 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFTJR-00000007kGL-0Fv8;
-	Sat, 10 Oct 2026 09:24:18 +0000
-X-UUID: 5a5f4526c48c11f1acbe4559397dec65-20261010
+	id 1xFTJT-00000007kJn-3cNX;
+	Sat, 10 Oct 2026 09:24:21 +0000
+X-UUID: 5c7e5446c48c11f1acbe4559397dec65-20261010
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=BXOuTs3qmj4pRlYP2XimGi/8qJVZAA1KOhsQXlOmsvE=;
-	b=ryVkSS2VqVYa1X4vB5bxY67bLDO/tzavkLCuuOt8ctQ0vmSDJBDjWxIkYratLSP8EfzolWhBiuaUJcn7xuDDg3QL2my0+TivHJl5QZxjq/CBXkn/Fx5igukgA6Sv18VoQVNYdP5cZOBSIENFQYVbTJkbdPWNme6iKeYx4Fmm064=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Uuo6SbF8wRgJUa8ZP9/6Mr84np4dB2IdRFOgXUmTiMU=;
+	b=Yb+JKksh9ELXlefElaolRbIHE2OmA0LFF7WG8xX5NvsJD4/HvAs6NaLyiGEfKISN0bXEQgmXHjOx89ynV1N73tPjlmenOWRUTNupnEM2BcxfcLpPS60lBreqQbfh6s4tVjkwiFN5Ho0lDVIMPor4Bw9ROrUQOL7WGXvUA7grOIA=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.20,REQID:d3a8bbe0-3b56-4c90-bbcb-dcfced59f231,IP:0,U
+X-CID-O-INFO: VERSION:1.3.20,REQID:cfe93a14-b52a-4e24-a66d-0124d4c8a316,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:291e20b,CLOUDID:e1c82c20-2f17-48f6-b8a0-2bb5971c52b4,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL
-	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-META: VersionHash:291e20b,CLOUDID:fcc82c20-2f17-48f6-b8a0-2bb5971c52b4,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5a5f4526c48c11f1acbe4559397dec65-20261010
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+X-UUID: 5c7e5446c48c11f1acbe4559397dec65-20261010
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1563533612; Sat, 10 Oct 2026 02:24:11 -0700
+	with ESMTP id 992275620; Sat, 10 Oct 2026 02:24:15 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Sat, 10 Oct 2026 17:24:10 +0800
+ 15.2.2562.29; Sat, 10 Oct 2026 17:24:12 +0800
 Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Sat, 10 Oct 2026 17:24:08 +0800
+ 15.2.2562.29 via Frontend Transport; Sat, 10 Oct 2026 17:24:11 +0800
 From: Kyrie Wu <kyrie.wu@mediatek.com>
 To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
 	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
@@ -68,10 +68,11 @@ To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
 CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Subject: [PATCH v11 07/10] media: mediatek: vcodec: add decoder compatible to support MT8189
-Date: Sat, 10 Oct 2026 17:23:55 +0800
-Message-ID: <5d352ada8be42204dcac7509d4c81cd5ff3aa9a2.1791623423.git.kyrie.wu@mediatek.com>
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v11 09/10] dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
+Date: Sat, 10 Oct 2026 17:23:57 +0800
+Message-ID: <802b9cf6a32253944ce2a826329849e992eb51f6.1791623423.git.kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1791623422.git.kyrie.wu@mediatek.com>
 References: <cover.1791623422.git.kyrie.wu@mediatek.com>
@@ -80,8 +81,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_022417_116289_512780EB 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20261010_022420_533649_717B094D 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +97,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8189 is pure single core architecture. Add its compatible to
-initialize platform data.
+Add MT8189 encoder compatible string to distinguish former ICs
+MTK's. Compared with MT8196, the maximum resolution of MT8189
+encoder is only 4K, and the fps is only 30, which cannot reach
+the highest parameter of MT8196: level6.2, 8K@60fps.
+Compared with MT8188, the level can only support 5.1, which is less
+than 5.2 of MT8188. But the maximum bitrate is 100Mbps, which is twice
+that of MT8188. And MT8189 could support NBM mode.
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../mediatek/vcodec/decoder/mtk_vcodec_dec.h  |  1 +
- .../vcodec/decoder/mtk_vcodec_dec_drv.c       |  4 ++++
- .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 21 +++++++++++++++++++
- 3 files changed, 26 insertions(+)
+ .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-index 80cb46f1..2bde871c 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-@@ -71,6 +71,7 @@ extern const struct mtk_vcodec_dec_pdata mtk_vdec_8173_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8183_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8186_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8188_pdata;
-+extern const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8192_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8195_pdata;
- extern const struct mtk_vcodec_dec_pdata mtk_vdec_8196_pdata;
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-index 62e7bbbe..c8d9dbdf 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-@@ -540,6 +540,10 @@ static const struct of_device_id mtk_vcodec_match[] = {
- 		.compatible = "mediatek,mt8196-vcodec-dec",
- 		.data = &mtk_vdec_8196_pdata,
- 	},
-+	{
-+		.compatible = "mediatek,mt8189-vcodec-dec",
-+		.data = &mtk_vdec_8189_pdata,
-+	},
- 	{},
- };
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+index dce007e6..fc3d529b 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+@@ -22,6 +22,7 @@ properties:
+               - mediatek,mt8173-vcodec-enc
+               - mediatek,mt8183-vcodec-enc
+               - mediatek,mt8188-vcodec-enc
++              - mediatek,mt8189-vcodec-enc
+               - mediatek,mt8192-vcodec-enc
+               - mediatek,mt8195-vcodec-enc
+               - mediatek,mt8196-vcodec-enc
+@@ -105,6 +106,7 @@ allOf:
+             enum:
+               - mediatek,mt8183-vcodec-enc
+               - mediatek,mt8188-vcodec-enc
++              - mediatek,mt8189-vcodec-enc
+               - mediatek,mt8192-vcodec-enc
+               - mediatek,mt8195-vcodec-enc
  
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-index 56656222..5c908473 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-@@ -1053,3 +1053,24 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8186_pdata = {
- 		.prob_size = VP9_PROB_BUF_SIZE,
- 	},
- };
-+
-+const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pdata = {
-+	MTK_STATELESS_DEC_DATA,
-+	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
-+	.fw_type = SCP,
-+	.fw_init = mtk_vcodec_fw_scp_init,
-+	.chip_model = 8189,
-+	.h264_params = {
-+		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
-+		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
-+	},
-+	.h265_params = {
-+		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
-+		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
-+	},
-+	.vp9_params = {
-+		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
-+		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
-+		.prob_size = VP9_4K_PROB_BUF_SIZE,
-+	},
-+};
 -- 
 2.51.0.windows.2
 
