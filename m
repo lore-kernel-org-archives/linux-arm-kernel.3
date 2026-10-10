@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51548CA9EC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 15:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D90CA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 16:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piQCfkikZKIZyhpgKiePfCJ5UWXvcujr4sC7T17z/oA=; b=x9gb3oJPdAwkSZ1A95ezYpA37O
-	bHybOAOsZyHWMHHEz5LYS6vIvZkjF10wOsmI77dt2rSce/j77PjW6JSJIUCcckq5YV9VT0U/T6QNv
-	67mCWtm0iT+hBC6GEaCQqr1i1t3H9V+s5bqzFoWJnsWkRtilcu0X8+vDI/ETRIt3L2QaFlNnsUEiu
-	oovzy6vdGxZFdx2N4U8JIm3JPgK7utTUO3RVHxUP+E0sTGNtkhQ37uXA8EyP+1Py/lSHJgELGwosc
-	qrHJHUg1eDJLN7VSKLOoIHqjFs+Gbyt+1HowAfbQaprTn9rMN8m/BhtDxNjbVkfhJSI/F8ug6YkqF
-	1+GphyhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MEIQwNWMcMY7HhQDtjEWtbdNYuCPb8sPCT17bZmYgvk=; b=ZkFESn34o6/N8jwilcnvQWrYqc
+	VRHu0Wt4bkEkQgommVZpfFcb+GHwuHYwUj6jeSI0JLAxW5DCuB0AB8RY4Gfj1hiWAopGz0hoavFhO
+	wXuH3LChYNTzEvF7+3SNLqukX8JiMW4tdQSZEJQkjbGQDfYTJ4wCE5wes192LDF1cuL+jIcgUZGty
+	BhOLpU2GsLyulcyWOzAhBdWMeMNH2DVvrQmfoSmte3vJrvrjKPIchhjdxOQYccToboLVZOoXrMisC
+	6f7BXtGv7ik40QOujPclzcJ7B/FXQkEqjdH9ZsIa7atm1gX05nEMicxELOrV5D1Se9wKJ1do1NQRf
+	vH3nSyeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFZ3r-00000008Dly-07nc;
-	Sat, 10 Oct 2026 15:32:35 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xFZWE-00000008FJt-2sod;
+	Sat, 10 Oct 2026 16:01:54 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFZ3n-00000008DlU-23Oi
+	id 1xFZWB-00000008FIy-066z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 15:32:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791646357; x=1823182357;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Fjaqr9z0/4IpSNXim/KBiOLW344lFa8Vy7SRK6DoHSs=;
-  b=heU3XKam66fIXBINWlLYpiwbt9Id5vCsEDS5K8sJtg8gXOEaawzraitP
-   TO8DGgxciiy8jdmM4jA8i3erYRLGq4EA/1sdb4jXJcB66N7V6wjeTzl5o
-   SqmiMWz6qYtgGtMzMK8DPQXZbnfc4P5fAnVhgQ7yPixNk127/A6CzB+sy
-   L/4O/0MtPz9KvdFAncMMs8Mbu0WteKIMOhC9V4bQVwL5gMwlVnOld3q0Y
-   MBfB4YYqpiO6gJ7mbtSWBk4dhdTR/fad6vfBCRdHM/Afk2W9MFBnDJawh
-   OFmLJ9NR1yzT/0jMc+NLm3WLfkr6SonBjr24+lkvFQKurRuMmw2c3qaIR
-   A==;
-X-CSE-ConnectionGUID: /NIkIOrrTamOMdyv8TAVmg==
-X-CSE-MsgGUID: ZadMASfBQ8GQ2g2JEM72EA==
-X-IronPort-AV: E=Sophos;i="6.27,150,1787036400"; 
-   d="scan'208";a="63905767"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2026 08:32:34 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Sat, 10 Oct 2026 08:32:28 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Sat, 10 Oct 2026 08:32:25 -0700
-Date: Sat, 10 Oct 2026 17:32:25 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Igor Velkov <iav@iav.lv>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Chevallier
-	<maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
-	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net v4] net: stmmac: dwmac1000: clear the RGMII status
- interrupt
-Message-ID: <20261010153225.s3f5jgrzgytyvnei@DEN-DL-M70577>
-References: <20261009201709.1917585-1-iav@iav.lv>
+	Sat, 10 Oct 2026 16:01:52 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48afbd2c386so310697f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 09:01:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791648109; x=1792252909; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MEIQwNWMcMY7HhQDtjEWtbdNYuCPb8sPCT17bZmYgvk=;
+        b=d9IgRiUDRUGPh7LzVkPwQ1+t+/cobr+mLCrM+AfD4pnXNdIuhzDHHauBYaylTJK6Sw
+         0qw5cBRigt2m8H0GG2HQg3zF1PmTeK6GPjPOrLMDJx1g6y+ZWwiVoFuxOcNW64h+zJP/
+         VT0Cyq3etb748AvG41uNO8hkN5H44U1Mo6EQJc+k7ejfmxuifGyHpGruefzJ4gwvi6IL
+         xZzIRdOqU766/jdF88B44YBvEjaM2RcdgySP8x8V0sgWpw65XbrmiWiC6e9QrwNIFTv5
+         T2JaXUEmpQP7C6zI7zrw+lZpXJ7/nYpxO+PN91bSCrE0bEqOqJGckTAaPpilAhsZBqFu
+         ge1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791648109; x=1792252909;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MEIQwNWMcMY7HhQDtjEWtbdNYuCPb8sPCT17bZmYgvk=;
+        b=mZtzkqWfFpxUn33mDPbk5mjJlDo2WrnhVIZuguHbw2UKvbGgNCkdZeDUp1yCOBii5x
+         zr1PdmCZ/JfIUQyUH4pUYVaqMEObLvi4H5G0fMAugD0QjKWmtc6KiP9t37WuiMKpg9Bc
+         6uRQseoooQuKWn/M/9xc/ZvC/E99stS0JI+gAZiRxcLvLaXh1xSitEWefgwivrNTb7Y2
+         hY+nUmw6Lebsvzg9pr1KtKOwfM8px6oQgiZOgEGrBRo5SSkiNY1OcRoFNhv23iVSrnj0
+         D8DjBo5UQRNJk9hgiP5LBfi2Ro4cEHsaB3Vz5mW4Gea0hwI2N7TLw7stjHqYD6BcnTuR
+         SVQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx8tU6RhDHr1Lc/m6CuM4O8CDHeZVYIu3lrK/8JNwxkYrcZWNx7pHLoVGCE9ztlE0OgErUgRE2/EboweDlqthOa@lists.infradead.org
+X-Gm-Message-State: AFq9FYIHps/sdAJafLo7aAp7VekncdpFtYxNBMifUBncsk2HLu3bzVju
+	BDn9lX/R2r2h45TusinOYPp7T1HDvpRBpkDjVrJyTEQnATsDoRA45Y5Q
+X-Gm-Gg: AYBFou1sMb2B2z1IbWngWeEGOekjsqzO9xpbOFclm6ybu7raTvn6kRorSc+yXHIQREX
+	prlO4hme13LjeU1E5vFDfhr8aH8YeT2vhggfQR4iX6Wiz37dtZP/jEhyBFa1OBXQzjMBw/IBIOt
+	ORwEPULtZoe8B4xjX7Lf/ZHqOH0+QW0flT6TlBYPaQ47xYe8xa0sIaXGBccSsJxe4hlZXNGk0/2
+	MwOAX/S0D6uJSwGoHXOV99rbExKzGeJrAtv60GLaVpnBPKjxqx+lmd7gC1950S7XhB/wMEr0Zic
+	CaZxQpbF8v0ChdwsZhbBFRmvY+bSeROmKoOxRRcH1GJtnWe1IMfGQzviR8agi543vhv/77aRwx7
+	xshHCDtswPEQUW3Zhnup73F49LBPAO1PrGgkdtKDaudiNaKOk6hAFi5GpT5fkM9SvXVZ0jULZoJ
+	s7ZZn0P7vgJyrFQVmy5xwl1Lzud3ku9EI7XjeI5sFA/7ZVnirlb62aTcPiDwbezDYh+g==
+X-Received: by 2002:a05:6000:184e:b0:488:8904:cf19 with SMTP id ffacd0b85a97d-48dbaceb60cmr10490477f8f.10.1791648108898;
+        Sat, 10 Oct 2026 09:01:48 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9ac6a91sm8579603f8f.41.2026.10.10.09.01.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Oct 2026 09:01:48 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] clk: mediatek: clk-mt8173-apmixedsys: Invoke platform_set_drvdata on probe
+Date: Sat, 10 Oct 2026 18:01:30 +0200
+Message-ID: <20261010160134.112136-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261009201709.1917585-1-iav@iav.lv>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_083231_813752_445264D6 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20261010_090151_068173_410AEBCA 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Since commit 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII
-> interrupt handling") nothing on the RGMII path reads GMAC_RGSMIIIS, so
-> RGSMIIIS stays pending behind GMAC_INT_MASK from the first link change
-> on. stmmac_resume() resets the MAC in stmmac_hw_setup(); the reset sets
-> GMAC_INT_MASK to 0 until dwmac1000_core_init() writes the mask again,
-> and the pending status storms the line:
-> 
->   dwmac_dma_interrupt: unexpected status 04000000
-> 
-> A register dump at the first message on ODROID-HC4 showed it:
-> 
->   core int_status 00000001 int_mask 00000000 pmt 00000000 rgsmiiis 0000000d
-> 
-> When the resume thread runs on the CPU that takes the MAC interrupt,
-> the storm starves it: a soft lockup, then a watchdog reset or a hang.
-> 
-> Read GMAC_RGSMIIIS in dwmac1000_irq_status() when the status is not
-> masked, as the driver did before 2e2c878a3141; the read clears it.
-> 
-> Wake-on-LAN resume from s2idle with the resume thread and the MAC
-> interrupt on one CPU: Helios64 (dwmac-rk), 7.3-rc6, soft-locked in 3 of
-> 3 resumes without a fix and in 0 of 10 with this patch; it ran with an
-> out-of-tree dwmac-rk change that keeps the GMAC powered across suspend.
-> ODROID-HC4 (dwmac-meson8b): 0 of 10 with this patch, 2 of 2 without a
-> fix on a 7.3-rc5 build. irq_rgmii_n went up by one per resume.
+The remove function for mt8173-apmixedsys needs drvdata to correctly
+unregister apmixedsys clocks, but the probe function never calls
+platform_set_drvdata. Add the missing call to platform_set_drvdata on
+probe success.
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Fixes: 4c02c9af3cb9 ("clk: mediatek: mt8173: Break down clock drivers and allow module build")
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+This issue was identified by Sashiko while I was working on the mt8167
+apmixedsys, but it is present on the current mt8173 driver too.
+
+ drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+index d7d416172ab3..65dc4489a09c 100644
+--- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+@@ -179,6 +179,8 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+ 	if (r)
+ 		goto unregister_ref2usb;
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_ref2usb:
+-- 
+2.43.0
+
 
