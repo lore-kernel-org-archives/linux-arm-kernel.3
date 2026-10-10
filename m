@@ -4,107 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC49CA9EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D2ECA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 11:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwX2V/6o0Kptw/VlXJ/4Jp9bBaiXMijAHR2YrE2LL1c=; b=jE5tEUPqJz4sodC2FTTZjGr0Es
-	nfGi95jv2NRd386dycf/LXCu7MCsRZe3Fzlyt2OZ4ooJuwQgSleyWgxnEvzFZBbGXhbgjwBtIf2RA
-	O0E5NHvB9QJYMMaCSAdY8NkFIsk/JsuDc7fZ25kSOif5gIm9+b0LxHQn/qigJjpi+OcZsuweQDL28
-	hkL+a/kqarVr5yOVdHpkqQIcEaPMcwBw5NCYu67dA6LD46RIdEXdZjhxik4guQyC2BwpOhYOJ9sA0
-	51SaN1AObU07l9xQHqsOCU+XtjI6LTip8mkjW4UknFjvQVrZCjXquXIhRr5vgXfDAIFzo8JbYUz2i
-	622+maPA==;
+	bh=9iDEeSRYepWdUPmgZSkaxaPn0y4xYgwY4k/M0MT4wvc=; b=aqlDMf5S68nO0edFZ4r0rkGvdv
+	ilxwp3nqkOCoHA3peii7VhykUSdZsXqXJykFD/iURp26T7pg9hGKfC156bgZHXx2Iawx2J3DvI6fy
+	FgRZMppkAJ1G9YEZyCVATeo+vmOLyQ/oI3ViFj/Ynq4dC7fh+i+n4iSo9Gyx1yRDExE+FixDnN0bg
+	9FW6tM9O3z6yKPFC5DzoZymGFozP/gcWotuaexm6LwCu474udeJVzDQVM6e8NgLXDwUx+eqsLE7Ix
+	Flb82zfbGtcHjfDlke1/Ek/yeXHA3lpjXEWEBQQ0x5bCUmkOfO2IRLjHrgpSWl2f3KTFNukoa6gJi
+	fpiaJoBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVDg-00000007uw6-2qQR;
-	Sat, 10 Oct 2026 11:26:28 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1xFUnH-00000007s54-2A8X;
+	Sat, 10 Oct 2026 10:59:11 +0000
+Received: from mail-wm1-f43.google.com ([209.85.128.43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVDd-00000007ut7-3erP
+	id 1xFUnC-00000007rzi-3Mve
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:26:27 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3ab98332238so100767a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 04:26:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1791631585; x=1792236385; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nwX2V/6o0Kptw/VlXJ/4Jp9bBaiXMijAHR2YrE2LL1c=;
-        b=cohJkVwvNdZG1N7z3IJlT3eGBlqqAAki52Y4/1p+ylmWxNxyprkM4LrZxytOM6n1mG
-         63WVFhxSgSEo/CBATTGei2BYe7VB31sR5aSbr16YF5RRaHcx0+ZUlQU7r/U0TjoZg1+h
-         nzwr6mDbf1NOCCa2Y4zO4SOQVIQ871wcocCMmr2gHJA1YgoHKBYSjZLml74j4zwzKVFy
-         hC/LHhIrrsHX0ZUicZuLoBQsyp2EDT2nqMh9goeRgW0a8BprLsFusuzB/LAOOcbXrBTV
-         jhse5xctu4+OsqQHl2748GGWbK8WD1yzORkR/PvHhTDebXdalHWx8IMYqfj6YmkQ3llC
-         HfWA==
+	Sat, 10 Oct 2026 10:59:08 +0000
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a16af2a232so4459505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 03:59:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791631585; x=1792236385;
+        d=1e100.net; s=20260707; t=1791629945; x=1792234745;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nwX2V/6o0Kptw/VlXJ/4Jp9bBaiXMijAHR2YrE2LL1c=;
-        b=qYNbiOxtbXmS4DgOr6HDJHAQ6fEUayWCmuoZYoaWtRy21ss40ZdICyaI1trPrt+qlo
-         Nin6Sj+jlW8OZlsa7B0AZ0ubSTJw+e0K6SQ6q+tQrBOc/M7HUx5KUgFYPuuv7htAWi5e
-         87ARrdPPTIpk9ikkiB2UD/39KG1i7zdL5+NCLWSTLnKnbIxVFLSg73XEWnjV8xva9Y2p
-         XGo0EFWMMWbMPZtZ/F8xFAcmSmcBmDvhFZAWNHB0hQmZuBetjwIFf3+deJ4mI5EJW1fR
-         VqdyYNTNrURfzQecrn9As1DBlnBoR4S7lakcN4/7gxlvt+AfSo1kfKWB73BqE2RSvmQk
-         H1pA==
-X-Forwarded-Encrypted: i=1; AKwUvBxLgwhmCoM2niQITIA8nybfWPzWeWa3iWyOM+g5OTnBri1o50niApQxHPsCPMtAX/J9msoZxeR10Qy4zHhuy7WK@lists.infradead.org
-X-Gm-Message-State: AFq9FYLDvYp85KCqTa2pf9/kWL6YdV8e43tl+qlMJg1enSkwK/oNekDo
-	zNbrsCZZ68Hj/SSt7BvcMyn2isMOueiMplnkba0otFytsJ6CX8AW1MMFFIn2CjWFIROLzwyv7Qr
-	glL8+dHsNMg==
-X-Gm-Gg: AYBFou3hjZ34Lj1m3il9xa/tP8ugZcJeHY0ABzSSxpCOokFAGXnWTf9es2y6Wn4aM3W
-	V+agDjPf6nbDTD33KUTFvUlQLDuaipmoc+cf2e1e2jnPhubFvvVdxMvotdR6dkDRIMyaajn+HKa
-	o5l863koWxLl9KKwkI8ryve1caTJUjZb5Ri2Fw6aFqBBCeY13wIuBEZ6NXjn7eO/pmly0aAqrFt
-	7WZmYeU5kwxJoJ590VMFAMvdovs8lpYAXMZJT7C9n79A3sHe+5Ur4PdSgPETvfXUr6ryP7XILmb
-	D69aJpk6LqMR4Wb4+ZoeNHGoUMkoE33pDz38t7hQ4BD3fgTpLFxNmhVck+93obbYp3c5081NqDj
-	cXSiXvw12Ki04LsxOkiURj6dparZxzaq+dNBR7y5VAlVEF74kfT64RRhfy6RbJxZCGF6Bf/zqCs
-	lxGVlwPm8XspWFEdF2IS2EaLlfJPCgo30ZGUnfOwPFzJwe0NBsS1vLeF7kA4bOUbLGt+veHPYCx
-	eBKa/NAVUJaq5L58OWmARFdmhSytKbKqNF4KQ==
-X-Received: by 2002:a17:90a:e7ce:b0:3a4:ef4a:4f12 with SMTP id 98e67ed59e1d1-3ab3b01ccf0mr3608742a91.61.1791631584895;
-        Sat, 10 Oct 2026 04:26:24 -0700 (PDT)
-Received: from G6L4RL2QG9.bytedance.net ([139.177.225.249])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab3690474esm7900233a91.0.2026.10.10.04.26.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 10 Oct 2026 04:26:24 -0700 (PDT)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>,
-	Dave Hansen <dave.hansen@intel.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
+        bh=9iDEeSRYepWdUPmgZSkaxaPn0y4xYgwY4k/M0MT4wvc=;
+        b=J31lsxvfmfTadA0LvTsd3DY9Sss1BmpCnKLpuEMh3k4R+7qppnmCY4scb628nFZDEE
+         VGCosuLLcWhp8BYbkw60XXZpBWyOS/MgnIy3S/+pBdMq9QEQmPu/2oxCVYggjsMUleff
+         SrUCZhT5EDxQSpfGSQ5r27dpb8ipzrNoAPCv5BBfudsu7IbuHS6GOyAFv7yu/bdsMzs2
+         bK9fZB2BQtHXiM51VUGWlsuplEaCJTvmbCsDBHX9Czv7W2r+nESzZdHIt6tt5HZ9Qpo1
+         neZaq/1b4UYgVYIGMQISXIxEeFM7MQnaC7K8xPVglDBUWB08PCD/winRgFC2ttOQJ5oP
+         8n7w==
+X-Forwarded-Encrypted: i=1; AKwUvByvwHGceY6lGdCMBo5HnGl9HD0xiBWznKGppfq2MS7lZXRIgHg9qw4J+cRFIs83MbA9bpKQyKGyBY3XXYZxX/yH@lists.infradead.org
+X-Gm-Message-State: AFq9FYJzrDx48H6iRENcyMtlk4UGZV36LLR9eVk7IR4ZjYpLlCKv1wYh
+	4WudrXSLLMdrSkImYWwq7dkxvjuNNQNhnnPIq75u+AxbmGixLsUhcc76
+X-Gm-Gg: AYBFou2BAOrinNd5lDbU3WIHJpf52mAlEKT8pl657m8skV+rPPCyt6Slw35Oj4Szc+o
+	OKLMLgZEG9/vsLAgUN5Bf3zVvp4HptaUtOg1N0QlB7SWxf7b7c+1z7hlbG6lrO8+GRIumCyfqas
+	TZSzI00hzjvs3cQ7vqijU/iuiarqAgR1BGUHnq7A19szh4lGnCi8eU0WeCO8sN3rW/Po3u6svVm
+	c4cACdoROWGhXdZCbW26p0p/jl1hSmd2M2FfIE4GpJ3Nf53Yn9QeKASAOOIzMzomitqE/PFSNqV
+	ytEnZYN1qGcrTlV07n5E/QAofayEmbmfSf7H7sf6OQXQ8Nr7NKOuHThxVzbQj7YkATkqcInRV6f
+	soKeLdE1G1BIO8QHYdzHOMXOrxFq1yifc0RYaK+0oE3xfnvMaj767tuepkcFTK/sdYFADa/uVHm
+	2hvG66Ky8xUZxy7cH8yStr9p7r4/4btGhAj1QlpNFPh7rSy+ECyYZqszHXBCw13ibX4yMKhfmgc
+	zkMx60MXC8HK8smOtO3dOePQog1dQJrOUcbCK5PjKFY1uw=
+X-Received: by 2002:a05:600c:3e14:b0:49e:6c11:c4fc with SMTP id 5b1f17b1804b1-4a18e49316dmr71091115e9.7.1791629944857;
+        Sat, 10 Oct 2026 03:59:04 -0700 (PDT)
+Received: from threads.localdomain ([84.70.176.222])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9ae17e9sm8709526f8f.57.2026.10.10.03.59.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Oct 2026 03:59:03 -0700 (PDT)
+From: Lucas Tanure <tanure@linux.com>
+To: xianwei.zhao@amlogic.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Muchun Song <muchun.song@linux.dev>,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v2 4/4] arm64/mm: fix destructor for unconstructed hotplug page tables
-Date: Sat, 10 Oct 2026 19:24:57 +0800
-Message-ID: <20261010112457.49485-5-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261010112457.49485-1-songmuchun@bytedance.com>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/8] dt-bindings: net: amlogic,meson-dwmac: list the compatible combinations
+Date: Sat, 10 Oct 2026 11:58:53 +0100
+Message-ID: <20261010105900.247342-2-tanure@linux.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261010105900.247342-1-tanure@linux.com>
+References: <20261010105900.247342-1-tanure@linux.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_042625_931349_1FFADC9D 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20261010_035906_857874_AF32876E 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,50 +106,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit c594b83457cc ("arm64: mm: call pagetable dtor when freeing
-hot-removed page tables") made free_hotplug_pgtable_page()
-unconditionally run the page-table destructor. This matches page tables
-allocated by the arm64 mapping code, which runs the corresponding
-constructors.
+The compatible property only checks that the first entry is an Amlogic
+name and that "snps,dwmac" or "snps,dwmac-3.70a" appears somewhere in
+the list. It cannot express which fallbacks each SoC takes, so a SoC
+built on a different Synopsys core cannot be added without loosening
+the check for every other one.
 
-However, arm64 also uses the generic sparse-vmemmap population code.
-Runtime intermediate page tables allocated by that code do not run a
-page-table constructor. Freeing one during memory hot-remove therefore
-runs a destructor without a matching constructor and corrupts
-NR_PAGETABLE accounting.
+List the combinations the device trees actually use: Meson6 and
+Meson8m2 fall back to "snps,dwmac" alone, the others also name the
+3.70a core. The example used a two-entry form no device tree has, so
+give it the Meson GXBB combination.
 
-Free intermediate page-table pages through pagetable_free(). It runs the
-destructor only for constructor-backed pages and then releases the page
-through the page-table freeing path.
-
-Fixes: c594b83457cc ("arm64: mm: call pagetable dtor when freeing hot-removed page tables")
-Cc: stable@vger.kernel.org
 Assisted-by: LLM
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Lucas Tanure <tanure@linux.com>
 ---
-v2:
-- Free intermediate tables through pagetable_free() (suggested by David
-  Hildenbrand)
-- Update the commit message for the page-table freeing path
----
- arch/arm64/mm/mmu.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ .../bindings/net/amlogic,meson-dwmac.yaml     | 30 +++++++++----------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 7343ac9294f8..26a8c665ae52 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1495,8 +1495,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+index 5c91716d1f21..90ef79161ab1 100644
+--- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+@@ -129,20 +129,20 @@ allOf:
  
- static void free_hotplug_pgtable_page(struct page *page)
- {
--	pagetable_dtor(page_ptdesc(page));
--	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-+	pagetable_free(page_ptdesc(page));
- }
+ properties:
+   compatible:
+-    additionalItems: true
+-    maxItems: 3
+-    items:
+-      - enum:
+-          - amlogic,meson6-dwmac
+-          - amlogic,meson8b-dwmac
+-          - amlogic,meson8m2-dwmac
+-          - amlogic,meson-gxbb-dwmac
+-          - amlogic,meson-axg-dwmac
+-          - amlogic,meson-g12a-dwmac
+-    contains:
+-      enum:
+-        - snps,dwmac-3.70a
+-        - snps,dwmac
++    oneOf:
++      - items:
++          - enum:
++              - amlogic,meson8b-dwmac
++              - amlogic,meson-gxbb-dwmac
++              - amlogic,meson-axg-dwmac
++              - amlogic,meson-g12a-dwmac
++          - const: snps,dwmac-3.70a
++          - const: snps,dwmac
++      - items:
++          - enum:
++              - amlogic,meson6-dwmac
++              - amlogic,meson8m2-dwmac
++          - const: snps,dwmac
  
- static bool pgtable_range_aligned(unsigned long start, unsigned long end,
+   reg:
+     items:
+@@ -172,7 +172,7 @@ unevaluatedProperties: false
+ examples:
+   - |
+     ethmac: ethernet@c9410000 {
+-        compatible = "amlogic,meson-gxbb-dwmac", "snps,dwmac";
++        compatible = "amlogic,meson-gxbb-dwmac", "snps,dwmac-3.70a", "snps,dwmac";
+         reg = <0xc9410000 0x10000>, <0xc8834540 0x8>;
+         interrupts = <8>;
+         interrupt-names = "macirq";
 -- 
-2.54.0
+2.56.0
 
 
