@@ -4,136 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D327CA6017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 03:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CFBBCA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 03:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Qlyl+qy6Dg3JizeY+hP7zBqik5/fvfu1LhZVcG84GY=; b=vJ+2alCzcRQt/9RyT26ADmegsx
-	1OKXkxIaz6yQlC9UZjH23V9c2FRzV++M2W0zMI0SiMv7hspkqXI9g1fsuzmh85rrgM2iCkvgfDT7J
-	lC+Y28LLgg6EpEokNb1Mq00aXzWYI3U3b0ftezgVV+ZpquvZo5e/V08ISPDw0sgRFIdeQP5POLvMp
-	gEzgBRI8evKUqSnoZ9E82pzJMkawxqJsT4LRXU+qmz3nqtquDJKkIqhXua1jxlQglfwsppWTNkgao
-	+iUG04hKFwQYcvA+Vpaf0kLpvJqljtaNX6Vziusr6ZYLp9btrxO0G/TKO7rsW2Xzl6H8q18SvwSES
-	mTvwTH9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kVFIzf6qKFdgBMbvBDNXwTubrxO8VTgmNkIEL5po9tQ=; b=bYnsnRCds5oCvtB1FlPXIAmtkR
+	LyGmE2awkY1LjyHkQEM17bE8TGVg0SbSTcRpwrepd21kQOpbrhqwKCfALYY8lVskIevRZpjFd2UhU
+	KRkn85Y8JYw+zRZIW3m3xSEqGWqgc37hGjQPrhPxtnDahy5Pic7J7/CIEnw9ZsnB8JoyoCc1bOHXL
+	Ha6FKliX++3wZIYjXVnGGZ25zy66B02wWCxyXpnCzKqc9VnV0Zrr44mCFRCJHHfx05lf69I8+7roQ
+	bJKxaxxRswAdCA848633LKSHlaN3vKY0cJCUGruXMLo4pIGGCKAwBD61iI6wXWH+e55MtWR9ckEgp
+	fW34AHgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFNSc-00000007STV-0zuY;
-	Sat, 10 Oct 2026 03:09:22 +0000
-Received: from mail-swedencentralazon11013034.outbound.protection.outlook.com ([52.101.83.34] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xFNe3-00000007Sq5-2EDv;
+	Sat, 10 Oct 2026 03:21:11 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFNSZ-00000007ST7-1RZI
+	id 1xFNe0-00000007Spi-1AFj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 03:09:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E4i8URGRb9AG4vcMj5DsjmXTCJuF0x9LWSF8YG2zY+p7f1Cg9fkqU8O5AXLegomVTmcDMhAruBB/atV5prRnRO9gp6CBNoxiXtEYm5UlvA1v6wr9R8rEjskIEwhIJ9cl7+18+Ae+wqrSK7pEKcJnXbufBxAXq+29zwT2Ug6UoWwdVi6Plt8lX0wIYJOzW1Vyv1STwT7KbqmuVY2cNMnD5RY3G4WJBpyTK+K0M8W9QA5vr7S1VIEBL8/pnlFVKl8lYlMwIhlPflKMarpbZAnguXASsQYSfsi0aC2c9o4JfGRsNfsRB2VjIyto8mJuSmUJWG8gCOpVsGOY0EauRQsPyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Qlyl+qy6Dg3JizeY+hP7zBqik5/fvfu1LhZVcG84GY=;
- b=uKFhdDEpDBeB8bkR2syX7VeQG+LKzQKkWmLuFQiXPqqdHYWBzHb965IfDkOfXbysurlmRrFvn5zObl6xLmJ2jaqyZqLGw0roFLZW6KYvnucV6zk0Q+M7v2XlhrN7ilueZMJ+15P6rVInzmkCml9LesaLiYQkFRtgM8sYH2raJjplHmNdgvoscHifGARi1bwD29isaWizzrVLgGSwB3MdqqRS2Dljgz4rlWtqO9muPwcD26f+LHXkICMlWCDyIYa09KKDgxIi8EuQSyRD18AiBrXMZjftHmyUp9+9ZUz3ruun27Skd3OmqGGk9nRTty3WjHkHf1GmUxh6uLZnc6vd4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Qlyl+qy6Dg3JizeY+hP7zBqik5/fvfu1LhZVcG84GY=;
- b=w4RR1WQeBRz0QG7gcgkC0KZ5w8pohPmscyDsj7UnwubXFldZTv66dmATAIXiXdirMVyM/SiEJbZWg+XfjB0J/8DgH2R1+bOVWq0sU3uT06ovUswy7RB2w5TIOr7Z1GcAzPqz6qntsxIxZu9sjKRitnYFSyqkr2u+NjNg8HVZKW02Kj/OdKoP6IFJlG4OCjwtmM82GKUrAkQCew6iKmD0AMdLbg5i0EpgJZMXSVUWmnYAPPxvWQkk47BFDrwEszetN0rorFFMlnuou66WedXBVikGIbWKTBnGlsCvFzkiFkKwJo2hm/hynrwPbQXpQxTpdR6k0ADm6dWF0VYQzFg0gA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU7PR04MB11092.eurprd04.prod.outlook.com (2603:10a6:10:5b2::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.18; Sat, 10 Oct
- 2026 03:09:12 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.015; Sat, 10 Oct 2026
- 03:09:12 +0000
-Date: Fri, 9 Oct 2026 22:09:08 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Harini Katakam <harini.katakam@amd.com>,
-	Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, git@amd.com
-Subject: Re: [PATCH v4 1/6] dmaengine: zynqmp_dma: Use PM guard for
- probe-time runtime PM reference
-Message-ID: <asmsVD1RP6FoMN9l@SMW015318>
-References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
- <20261009-adma-pm-fix-and-per-channel-reset-v4-1-55f5fe409c55@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261009-adma-pm-fix-and-per-channel-reset-v4-1-55f5fe409c55@amd.com>
-X-ClientProxiedBy: AS4P189CA0036.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Sat, 10 Oct 2026 03:21:09 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69A2eUV44012306
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 03:21:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kVFIzf6qKFdgBMbvBDNXwTubrxO8VTgmNkIEL5po9tQ=; b=W2DttC4+Bg/B+3ws
+	bSXUDzF6IG5mn9xU5D6JiM7lZw3pUWzTMJL1e/ExEgPQoXH5O8xy5Z/6MAlhQY77
+	VlOQUJG4NT2GfODiAHiTZZxrNjPI6WXgLhWaO2lUsjaQcYlTSKIY6xKybzBWjfTy
+	HgWWh+E9E6YxKxW0WvBoapNv5ZeI7VSwPQ31kjh1faetbS7ZBhqjyvYPVzf7YDBC
+	ogYA36T8Bm5eLxDYCSSw44cMmzsFpwWxc0Slc48GXkscp/JK/Y/wFsVDDXxl2FCp
+	+VHbzZQ2lbLTaxlT6N/y19/pPAukUr08miotAn8OGlJgQzu5I0zu5XFR+JFHyi99
+	M/eBxg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h7cc6854x-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 03:21:06 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc73895c7d5so431587a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Oct 2026 20:21:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791602464; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OUq6Zo2OAXHbZgA8aQ7aMzT2LEAZOYsYPSL0QEd1Jux3nMdg7gqN1a8ixYH8hCZbRP
+         sdcdM/+TmsV68PjDjqk/x72OV84gaTslDznZaXB1odfkE8FZhZQPf5GUSgq0u9hAustb
+         1WvXCIfe7RMiVM0X/szSG7NbomEjgdHgItJU4ihqzZu4/zvWol7vnPlBYA/BewKzlZrG
+         3d8PZb0TRF3QbuPbWwsVUSX7f/SEqHMEay22jeaJBuFtRe6oQSRd44ZAIGv4uxWWsFpT
+         coQCMxb4uArZ6HLV5Ttfv7eej/CUsZY239bc4sra/7FFLNxU0cF3KdHUaIIlpGfwOczO
+         rxEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kVFIzf6qKFdgBMbvBDNXwTubrxO8VTgmNkIEL5po9tQ=;
+        fh=FzSZ4Nt++6/pyPi/WetgHlMva8+WJIAvUA6Q0913hKU=;
+        b=s7cs+CLAJTSWskLWLd5TpAIaXGLHPg4dqGg0tZrzUeoURxeK9flgb8NRao6bZlC9gH
+         xsC0FSL8IGWa8u1PZTTGWnklBZEsjgO0UWuBF3JZfd5lxZzrI32PRatwjzn9DxfOEKD3
+         clk0iBi3NxYIO7zTpiuowSAil8/AJrjcn+95yp+/6/iHHQHK8xDccxYbiI+yTTZlEbzI
+         L9Lv6LCg7nb3LW6XugH+wNVoeftAZ4v40Nml2ZgQJ2LAlhmEa5H4Hg3KH+eVnGgJK0SA
+         HRmPjSwBOxUZnGiWSggWnFQQs1mmyLvX95Br53sEEqLlH+BUWsgWb6iTx/ceMvJhp0MV
+         jIzQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791602464; x=1792207264; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kVFIzf6qKFdgBMbvBDNXwTubrxO8VTgmNkIEL5po9tQ=;
+        b=D/NqA3TVs+QqKelqQS8TdzeOGLIS/xJWqaHVT6ppo7iW5c7EQ1NIzvlGjJ/FrP2JZD
+         DxxLCFWzG33T9LNKEGBTnWY/GSEolikq0lbnhRGFjdfH+x/HdYFV5jJ2HYf5NzyZm8bl
+         gBcOEUHlyoUncqD+kvaweKmIIipYhGnRyNsrVvRnnBnSerCVJ7Pj8hGvQLJmMrRSL4qI
+         Ot33CgnnQLZK1WDzZ8xYf92LtP+UPDuvx2Ss8sPJLvvguR+FXoxyjTxkV25gx79cKmnv
+         DDNlusNNp6QxeGzFPs+m9u/FwibeW1WhDtHjZUdtvlMfThWopEhVGoTa/Rjkhu4bTdgI
+         AUSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791602464; x=1792207264;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kVFIzf6qKFdgBMbvBDNXwTubrxO8VTgmNkIEL5po9tQ=;
+        b=1iMg58gfWtAPQuhA3lAOg4rexHDNnMfZjS6i3AVdvvHCLnJfhWBuCfjr6gHjJH3PtY
+         ePfch/48HEMMiy/PsNGThqSnD63D+txeP08a9+bnklkIv2yIG2+lwhJqnY91zIM1nVw8
+         XaJsnH0DwIcLlSv7Z29Zfv53bbKHNtqt3KQmac2ActZkXQGFYaoj9WNMv2oYcCYJHH0g
+         gTNN362ZFdolCVIb4VxChbBPDGHhIhH/vc8JD0eWVONBtuejJs5pz4KD5UVcFBYMEk1V
+         ql4w6cmMm55Qhl5V49t9XLaL98bRDRMqvmghM6lDE4gemerl70wO28h0dQaSr/rvhEED
+         cf+g==
+X-Forwarded-Encrypted: i=1; AKwUvBzBJmDDgljVIXq5hwLCzkkyt+1+SdbHF9kEgALLbZ06zuCzS4zXHmUVzIOqp0v4MvLRIRUPdi309twmqmJudCQh@lists.infradead.org
+X-Gm-Message-State: AFq9FYK0W0iBaq60G832PECxyt5Bj0PJaNsbAH6/CzJOf3HtlOnpLMDf
+	Fk5bVjLcDsjnNkTlh0hjbFFheXDWURoLjSBnojfwv000gaccOYsc9qTy0dSvcHeLY260ISvQqgN
+	4r4Hr9rixZRbndzuqK0DzmjU0982o5I+F3UCX2HKmI340B21eR6hlDRQxAFBrSTswZ/thdiZHEK
+	QWvK0g663R2nMEVWf+Tv35bmme/CMothCuh9KGRqtRlGpyAR07U3Zh
+X-Gm-Gg: AYBFou342UIcmAX092e5nk49O27Xj8w90aMrNPJ1WlNKHNeUdFPuMGIq8Jbeg+ScpKr
+	CtCmMso+X684TPZtBtDfzYZh8D5oDwYuFlEHsOdDo8cwTkuvCxAZ8+gJB+VZFXCQt2Wf7Bwb2Nm
+	QxQHxH1ElQDb7ZuyzmDuu17Z+2sXX5K9Ft1mLOwm22yZpR5/XQJloH8AaOdQ==
+X-Received: by 2002:a17:90b:4d86:b0:3a8:6571:b43f with SMTP id 98e67ed59e1d1-3ab3a9f7f28mr3326748a91.29.1791602464034;
+        Fri, 09 Oct 2026 20:21:04 -0700 (PDT)
+X-Received: by 2002:a17:90b:4d86:b0:3a8:6571:b43f with SMTP id
+ 98e67ed59e1d1-3ab3a9f7f28mr3326738a91.29.1791602463627; Fri, 09 Oct 2026
+ 20:21:03 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU7PR04MB11092:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7c59ee9-25c1-4827-aa55-08df267bdbd0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|19092799006|23010399003|10067099003|22082099003|18002099003|56012099006|4143699003|11063799006|261009220027099003|261009223027099003|261009223327099003|261009221227099003|261009221727099003;
-X-Microsoft-Antispam-Message-Info: PZVjMPV4ZFhZEkKwhTPTM5oyA3u9zbju0As+5BhhX7RPsrBFvpllXm1Y+bCtTwwmvqmIWmRNNUURdVW4I+WZ7T/xHHalTKqW003pLBQAg/jmy/v3K+UcQtB6zrr6zRQ6zWQ5Xw9cB5GFOsZbdl3y8T/bAZQo8wURw3n+e0o5s6WqL7QscwxLfs8YWCgV+nUxIoqVBQ7K3VhzEkzhRnWHr6uUu4cHSf7K2MnJaaSVzp2KpFskTs0QrAlYwQyb2FbPw/0i4IenwV8hTOS+xN/iF9CiUONZyQ/mYPF4Pe7EMDvONWdtTI68vxx5JaaIg+qZZrzyLNPIx1mhOpc7q/OoVg6tdnV2DRlEPUyctvDJ6bADr67GTPyoi+bluopaOhmTAr+9bWOMYJtUCqHJKHS6kA1YQtYRFcAfbAzJhfgpw1YlXWRNLlFovHibEw3qw3/AuMLXwsDElQ8hmsrVPkKa5pndaTGnwujW+CtFpKYuQPed96q1iu61FLUDNohz5u3roL/vqPwrm/4peQxk6dKjXcdLLDiuVspfGy7oCiLA383FTSl5tHeFxUG/EgmFTtUR3eQEClFnwvd0EbPj/OvbJaeD80vo3cdh+MmagMvU2rvA8Diljr4Begw9Yp0iGDZPyOXF/bH+1zD3jTsVHuVtAgqQwoKKstvqMohTar0luAE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(19092799006)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006)(261009220027099003)(261009223027099003)(261009223327099003)(261009221227099003)(261009221727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fVHmeRNzeq/Wkr0SnjUTkRCQxJM4kvoPZ8vpKQhEKugGB8OhqAtr2EXQCt9e?=
- =?us-ascii?Q?xM0f7cND2s0GaWOpeKnXNs56rYRC6nXuDAW6+hGwfEyn3kuz1n2cJ96hj1tE?=
- =?us-ascii?Q?83FcuSOau2T4NSv/9U7d6PgBD6Db9GbpYotBwway7Jnlq+W5FfXzAoQcR/Sp?=
- =?us-ascii?Q?KWTbJnbP2VfFmNtsgOYuP1swVN3GUtcJI7d/IVQIzyGawqBl+JrBoOCzoZyS?=
- =?us-ascii?Q?9/qx0iTDgPpxTfYxLaae40RofYzZNMZbXonPD2iD7Y47RGaFoBYg8b+H65vy?=
- =?us-ascii?Q?Yj/FLjybED8Qi3r7khgNGDNDCdl6s63IREToRTnn8Hne6Sn57ibpmVAPlddy?=
- =?us-ascii?Q?BsM8W+wrRF0SoeOL7jgFfOOhoGw5vgoAYCDOk1zU0tytbEP+EiCrDxVhcYDu?=
- =?us-ascii?Q?Zkc/UZuTsc1JHBjvZS9X5qjRx72WcYfmKxwsnetv9rc8KtAg+MUXRWxWF3BC?=
- =?us-ascii?Q?am9VhO8XlqOJX1pcyLBEN+3lYmhArawfkChHcgyqOGeEd7rAFPDw3n+LuAXs?=
- =?us-ascii?Q?U6mwl+2OFpZvjpFUfykGWy1aNSWE24OtdGUun4mC4mDVOqxxdDXZzA79GRNx?=
- =?us-ascii?Q?aTaoSZJuHXesrhNEqAWT6TM/nYb88VR3nB+YdyJXuhOCf0xC1Z3ENaDzwZ8p?=
- =?us-ascii?Q?nUKndXUBnLTLaCo6FavlDzRGbuiNFKYdFXlSSjOkNgvIIqkNjkT1/EzYQRBa?=
- =?us-ascii?Q?Jx/ZX4ECiWu98snHSRA7626rrI+j+Mo8FgGFnVDyNmiUK1xLLl9g53xWI4/H?=
- =?us-ascii?Q?9afxvigA+N9BjgbGNY7vLBkfJxN498vI/2EcOuYmzLOZqMELWQFTyRw/W3g1?=
- =?us-ascii?Q?0A3B29sCEV/tLxXASxUfUnZvSPmNMRY+ZcQioVn5sPcSgmrBdtb3y1wYYkdJ?=
- =?us-ascii?Q?kvGyBHyfG0rNK2dImxRa6MdPj/z2oUFyFRha0CD3CjvjXt+h+pyEod5FC6Lu?=
- =?us-ascii?Q?YpdxoSDtaVo3MzwzdbPHjhof1aITKXOd0s4/X+Fiem+TCiINSy0udIPg/Nu9?=
- =?us-ascii?Q?JjSH4pOs+CKDHeBiL1kDZa6QI/i4Ik1DPhVdcSPT1Pu6SSjGBC+EAo2QDRaS?=
- =?us-ascii?Q?ulm/tEZbhimdZHuDlsCapi+8wq+ui9sPTZdVEcup5Zj3Y166pYew/MvG/F2K?=
- =?us-ascii?Q?ZpH0ejNtBVnz31oivMr4LMptjbQG95/61PwTP6L+OT3H3gSM9U3g6QsdaSQZ?=
- =?us-ascii?Q?16YLbDJbGd0do3/RRBxTrd8VJ9QJjfuL+WmNZiCWzrQXKc0sF/00Wi7D1VxP?=
- =?us-ascii?Q?25VUC84HsiwALCwOt7i8S+DcvLKhPhtvcThRYQDyFyjKrRkQxLCIvwuVVKMD?=
- =?us-ascii?Q?5QpHHx92UmY4CUpK7QZPIq0M52hRpsKG03fHN2n6P5OIleyFOKNmMTQQhArE?=
- =?us-ascii?Q?8Z+rNNMn9WL67DKArcfbE75O++3PP5rWoxd0Tam/SGYa8X94JPg8LlansMNu?=
- =?us-ascii?Q?34tiPVXDwjV6pbBz9CI2h1OO6PzzJcJo3BnrpoVjNAzpJrNDB8FdQA2niwsV?=
- =?us-ascii?Q?ZMySJfRf8kOYcDwCXPfG1NOR1Vr/s+1oh9SRQLUKpEkEkaYi0w9QcrmNY0Mu?=
- =?us-ascii?Q?01wgd38IrJsmRQXiEqyQs+TiFaBj6nEYjltSBPb/z07sn0j3V9TX+XrtbsyN?=
- =?us-ascii?Q?MSG82oLgXzIA4Depux8QtbDIVOod0CHmkzYRHNf232lQaVqnlhbB4eklDxPb?=
- =?us-ascii?Q?6OFLNfZw7CE+6I2EBb02813jqs1Xe3Jt3PYN6IdX03Ggn2Sq1DIH6ZinVkNp?=
- =?us-ascii?Q?SBGH2CoEeVEY0ayoXeILTi0OMFgAWXghQyxtEq9zqlxfkKFWoZhh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7c59ee9-25c1-4827-aa55-08df267bdbd0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2026 03:09:12.2134
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mCN1iBUQ0g0XGMMyYQDUpDGKK4N00hVoS/+z24/MFlsZP35DuLrF+qOSVBuWD/SiaDr0kJ0K9mehe0WAZNsBge8lwdxyCgVEmN+pcPxeaJHmtqxPbtK6ASrbf9UyiAdC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11092
+References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
+ <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com> <asmbVX7U4cgm7XNB@QCOM-aGQu4IUr3Y>
+In-Reply-To: <asmbVX7U4cgm7XNB@QCOM-aGQu4IUr3Y>
+From: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
+Date: Sat, 10 Oct 2026 11:20:52 +0800
+X-Gm-Features: AclHuK8rsVvfZj_k56Q5QKzcsjlIbLPicr-jBYfM5wSUQDytqGrRVpofZv9SSgg
+Message-ID: <CAFkd8huTuFii5PPYrZ85LKkoECbb8JD7eX=jWC+G4ac6QOBr6w@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Nord ethernet followup
+To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: bartosz.golaszewski@oss.qualcomm.com, mohd.anwar@oss.qualcomm.com,
+        maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+        davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+        pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+        alexandre.torgue@foss.st.com, hkallweit1@gmail.com,
+        linux@armlinux.org.uk, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: E6slIauBS2W7ItY7RTyfJkpDeQTHNAQV
+X-Authority-Analysis: v=2.4 cv=XdQcX455 c=1 sm=1 tr=0 ts=6ac9af22 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_glEPmIy2e8OvE2BGh3C:22 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=YagQt7tFpqKSyC3IlFAA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEwMDAxMiBTYWx0ZWRfX02UPdVtzWHVG
+ vMLwXOqh15yxq7T7wrs/mUqnmYWnlc48QxOG60uALvJVltrD49wBAIOkc53mxBoBay3EYCBjz3E
+ Kbx+xuoEQdB9ScMHvwzg6XourlnyPYqwVU1IQ7J1rPot05AfLcXraxy1oiChvJK2bYxKbrgm3iZ
+ SsNrQuGWvrJYWxQ7tk+cN+oVxuBrWyqi7YDAqsZRFYxCouDpJcocwRMqS8ciBp1wKtq39ZGnftG
+ BTnb4SbiOVRjTMSxpBxdu2P2/9jb2T6VSCSu3oNY3kXOPzPvjtmqGrNFnPLEsTY54hS5FE4qWCT
+ tuBf56ZrwSkEwBkU1a9mUYJaF4b4iSPvDqJs8I3W2xEswsL6cbD1CLTMfw5yPOegZqMOVwe0RP4
+ wahvjcbY1xAuWDJyIqQGmajd2gFHaJ7mlPKucEvcTwaLu0JARadL2eem2DvSMeWXz10oJhpwzm/
+ tn2xgn2zMcDW5Fd9RRA==
+X-Proofpoint-ORIG-GUID: E6slIauBS2W7ItY7RTyfJkpDeQTHNAQV
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEwMDAxMiBTYWx0ZWRfX+YWHiZT47DlK
+ AT4ZVxhcBajmydPHxuoI1btn+EMKAwt1t5EMXYZaP0EYxPt8UGcGzZVN5dG0P/KjrJN467woeVj
+ NbxFLbPIl/uNgocvm0+PKS8X3/2NlHc=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-10_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
+ bulkscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610100012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_200919_591777_89A60108 
-X-CRM114-Status: GOOD (  28.33  )
+X-CRM114-CacheID: sfid-20261009_202108_461518_2F527E14 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,181 +169,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 09:30:10AM +0530, Golla Nagendra wrote:
-> Replace pm_runtime_resume_and_get() with the PM_RUNTIME_ACQUIRE_AUTOSUSPEND
-> guard to manage the probe-time runtime PM reference lifecycle. If the guard
-> acquire fails, fail probe immediately so a broken device is never
-> registered.
+On Sat, Oct 10, 2026 at 9:56=E2=80=AFAM Shawn Guo
+<shengchao.guo@oss.qualcomm.com> wrote:
 >
-> When runtime PM is not enabled for the device, call
-> zynqmp_dma_runtime_resume() directly after pm_runtime_enable() to bring the
-> clocks up for probe.
+> On Wed, Sep 23, 2026 at 04:49:18PM +0800, Zhangfei Gao wrote:
+> > This series verifies Mohd Ayaan Anwar's patch set:
+> >
+> >   net: introduce Qualcomm XPCS support and add Nord Ethernet plumbing [=
+1]
+> >
+> > Tested on both IQ10 RRD and Ride
+> >
+> > The full test branch is available at:
+> >
+> >   https://github.com/zhangfei-gao/kernel-topics/tree/next-9.23
+> >
+> >
+> > [1] https://lore.kernel.org/linux-arm-msm/?q=3Dqcom_xpcs_nord_emac
 >
-> On probe failure after a successful guard acquire, drop the reference with
-> zynqmp_dma_probe_pm_put(), inhibit the guard destructor with
-> retain_and_null_ptr(), and gate the clocks through
-> zynqmp_dma_probe_fail(). When runtime PM is enabled,
-> zynqmp_dma_probe_pm_put() uses pm_runtime_put_sync_suspend(). When runtime
-> PM is not enabled for the device, balance the guard usage counter with
-> pm_runtime_put_noidle() and gate the clocks with
-> zynqmp_dma_runtime_suspend(). Runtime PM does not suspend a device that
-> is already disabled, so pair every direct zynqmp_dma_runtime_suspend()
-> call with pm_runtime_set_suspended() to keep the runtime PM status in
-> sync with the clocks.
->
-> On probe success, release the probe-time reference with
-> pm_runtime_put_sync_autosuspend() when runtime PM is enabled for the
-> device. When runtime PM is not enabled for the device, balance the guard
-> usage counter with pm_runtime_put_noidle() only and leave the clocks
-> enabled so that later channel allocation can use the hardware. Inhibit the
-> guard destructor with retain_and_null_ptr(pm).
->
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 68 ++++++++++++++++++++++++++++++-----------
->  1 file changed, 50 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index 3b7dfa53f972..a48106e404e7 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -18,6 +18,7 @@
->  #include <linux/slab.h>
->  #include <linux/clk.h>
->  #include <linux/io-64-nonatomic-lo-hi.h>
-> +#include <linux/cleanup.h>
->  #include <linux/pm_runtime.h>
->
->  #include "../dmaengine.h"
-> @@ -1077,6 +1078,29 @@ static const struct dev_pm_ops zynqmp_dma_dev_pm_ops = {
->  			   zynqmp_dma_runtime_resume, NULL)
->  };
->
-> +static void zynqmp_dma_probe_pm_put(struct device *dev)
-> +{
-> +	if (pm_runtime_enabled(dev))
-> +		pm_runtime_put_sync_suspend(dev);
-> +	else
-> +		pm_runtime_put_noidle(dev);
-> +}
-> +
-> +static int zynqmp_dma_probe_fail(struct zynqmp_dma_device *zdev, int ret)
-> +{
-> +	bool rpm_disabled = !pm_runtime_enabled(zdev->dev);
-> +
-> +	zynqmp_dma_chan_remove(zdev->chan);
-> +	zynqmp_dma_probe_pm_put(zdev->dev);
-> +	pm_runtime_disable(zdev->dev);
-> +	if (rpm_disabled || !pm_runtime_status_suspended(zdev->dev)) {
-> +		zynqmp_dma_runtime_suspend(zdev->dev);
-> +		pm_runtime_set_suspended(zdev->dev);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->  /**
->   * zynqmp_dma_probe - Driver probe function
->   * @pdev: Pointer to the platform_device structure
-> @@ -1087,7 +1111,7 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  {
->  	struct zynqmp_dma_device *zdev;
->  	struct dma_device *p;
-> -	int ret;
-> +	int ret, pm_err;
->
->  	zdev = devm_kzalloc(&pdev->dev, sizeof(*zdev), GFP_KERNEL);
->  	if (!zdev)
-> @@ -1128,21 +1152,30 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  	pm_runtime_set_autosuspend_delay(zdev->dev, ZDMA_PM_TIMEOUT);
->  	pm_runtime_use_autosuspend(zdev->dev);
->  	pm_runtime_enable(zdev->dev);
-> -	ret = pm_runtime_resume_and_get(zdev->dev);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev, "device wakeup failed.\n");
-> -		pm_runtime_disable(zdev->dev);
-> -	}
->  	if (!pm_runtime_enabled(zdev->dev)) {
->  		ret = zynqmp_dma_runtime_resume(zdev->dev);
-> -		if (ret)
-> +		if (ret) {
-> +			pm_runtime_disable(zdev->dev);
->  			return ret;
-> +		}
-> +	}
-> +	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(zdev->dev, pm);
-> +	pm_err = PM_RUNTIME_ACQUIRE_ERR(&pm);
-> +	if (pm_err) {
-> +		retain_and_null_ptr(pm);
+> Please do not post a patch series in reply to another. It makes life
+> harder for thread viewer and b4 tool.
 
-Not sure why need call retain_and_null_ptr() here, generally only need
-call retain_and_null_ptr() at success pass if you use want to keep
-runtime_pm active. at fail case, needn't do that.
+OK, got it, my bad.
 
-> +		pm_runtime_disable(zdev->dev);
-
-If use devm_pm_runtime_enable(), needn't this one.
-
-> +		if (!pm_runtime_status_suspended(zdev->dev)) {
-> +			zynqmp_dma_runtime_suspend(zdev->dev);
-> +			pm_runtime_set_suspended(zdev->dev);
-> +		}
-> +		return dev_err_probe(&pdev->dev, pm_err, "device wakeup failed\n");
->  	}
->
->  	ret = zynqmp_dma_chan_probe(zdev, pdev);
->  	if (ret) {
->  		dev_err_probe(&pdev->dev, ret, "Probing channel failed\n");
-> -		goto free_chan_resources;
-> +		retain_and_null_ptr(pm);
-> +		return zynqmp_dma_probe_fail(zdev, ret);
->  	}
->
->  	p->dst_addr_widths = BIT(zdev->chan->bus_width / 8);
-> @@ -1151,7 +1184,8 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  	ret = dma_async_device_register(&zdev->common);
->  	if (ret) {
->  		dev_err(zdev->dev, "failed to register the dma device\n");
-> -		goto free_chan_resources;
-> +		retain_and_null_ptr(pm);
-> +		return zynqmp_dma_probe_fail(zdev, ret);
->  	}
->
->  	ret = of_dma_controller_register(pdev->dev.of_node,
-> @@ -1159,19 +1193,17 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  	if (ret) {
->  		dev_err_probe(&pdev->dev, ret, "Unable to register DMA to DT\n");
->  		dma_async_device_unregister(&zdev->common);
-> -		goto free_chan_resources;
-> +		retain_and_null_ptr(pm);
-> +		return zynqmp_dma_probe_fail(zdev, ret);
->  	}
->
-> -	pm_runtime_put_sync_autosuspend(zdev->dev);
-> +	if (pm_runtime_enabled(zdev->dev))
-> +		pm_runtime_put_sync_autosuspend(zdev->dev);
-> +	else
-> +		pm_runtime_put_noidle(zdev->dev);
-> +	retain_and_null_ptr(pm);
-
-You mix use auto cleanup and pm_runtime_put_sync_autosuspen() and
-pm_runtime_put_noidle() to make code mess up.
-
-Frank
->
->  	return 0;
-> -
-> -free_chan_resources:
-> -	zynqmp_dma_chan_remove(zdev->chan);
-> -	if (!pm_runtime_enabled(zdev->dev))
-> -		zynqmp_dma_runtime_suspend(zdev->dev);
-> -	pm_runtime_disable(zdev->dev);
-> -	return ret;
->  }
->
->  /**
->
-> --
-> 2.43.7
->
+Thanks
 
