@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFE4CA9EC8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67001CA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=beY1WFS40yvbsQcUt+5SMeOgj/o0k85KRXnrr700oe8=; b=Kalm+7hu4XmoAb0fvidFp/M/ON
-	MJGDt6kquR+KBMHhCFn4P3eOY6HgQuLW+DdMnrxzf9CEa1t0MVKG/cWNVS1lGxQhok3gJczS6HZU8
-	yzwDwbvIV3vszStZF3A9/rw5sJABK06T5He1i5cEaJ/I5i+i2YEtQctHSjDZZbFzAyE4Vg1Iu7AOT
-	1x6ljLAsv44K03E1MkkbMoaCmWU+3hxYg+CJDJE8pLwSF4UaN7iI1xZkA9ZRgn6empn1rd7GyyXo+
-	c/jkiQhfX8AWK1Y1JW9FKqrC6eOMQd9K5XYS3kOeO4kKaDBwD8JzkiMPDb9Po21WDS7gv1u8D2zMn
-	5VbOgf7A==;
+	bh=wpfQOuDtH7gZxxcWfSzMbnOTC1GGhHnCAd7pLDi/1kk=; b=K+xj0xsuWWPULi511qVbLQwClN
+	SNi35ccO37pIGQQtrTQrv81PlXrx3YXXDzWrh0rI8k8hhaKldVoRdoXtfZgXb/0JYUms8JG8GHdHw
+	mZJU3WzUJpaGz3iIquBQIxpVzWFKd0KIiTBGdyNCINO0lP4upT7Y4M6ElkAYFKtLBzetnJJHrYdN7
+	41HRRRTpXMKeu/E1ON0t/PSP6dZuvTYVsA/Fu/wh8LsXO3VAKmAIYxaB5cmQSXXFDjVEw5NJWkih3
+	9ij4t+Uzp3bXc3LGccfhjI++8bw8avreb/TI4mYTXr9gCUde/3RIVrwR194U5IEvXzJdPdnVw6FUk
+	gdrELfwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWhe-0000000845g-0E1r;
-	Sat, 10 Oct 2026 13:01:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xFWhf-0000000847l-0MNM;
+	Sat, 10 Oct 2026 13:01:31 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWh2-000000083Pj-32dh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 10 Oct 2026 13:00:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=beY1WFS40yvbsQcUt+5SMeOgj/o0k85KRXnrr700oe8=; b=VdZyq3fMsiSXSeC/3CA9InOrKy
-	r4fMnlIqYqpcygsA1NfIc5B3lbJNRA3ye8ljB4/7I+3suHqF2k2bfXpRwITUyrPMINIndDxhIx1mG
-	K8HJesr++krSVcDQ/Yxv4rJg50CoT4YkSj87AcQWuGoL6zEJjOOWeJbIn/c6EnjC542VW1jisdefN
-	Ux9H75A3fjPVdanS0b9RBu0Gm2H+sZpkuHtdfCFWjgkpJQ2+UMRxkxsgEqzlq195TvoRpLHVDtpNr
-	JjOpT7ELx1blfafXJWvLUNTM6SBYHaRC+DJ5X5LwF4VIRwJQAAzg9U6xM8PYmY3xZ9leRSgvfU8xw
-	JKlVqDKg==;
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xFWgz-0000000C6pm-3BeR
+	id 1xFWh3-000000083Q0-1CQL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 13:00:51 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49d05d51553so3263495e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:49 -0700 (PDT)
+	Sat, 10 Oct 2026 13:00:55 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso7070295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791637248; x=1792242048; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791637251; x=1792242051; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=beY1WFS40yvbsQcUt+5SMeOgj/o0k85KRXnrr700oe8=;
-        b=Fm+b5upaZngO7AHAt3oPeCZMb6DmLalVR++xnSGAtkEJiarBPQJGhmIYJ1yc6Zb2rF
-         32sW7quhfsRA27IrVTguv5zHRgti7KOf2fMVAp4Fe/77ucszXeYzRsluDuPLRlqztjWS
-         EpHe4iXenVyCG6DYya4Id/GqVgkbU3qFWZyMJ2RdAAjdhCUs3o7LQkgjl7ApcjAt6SxG
-         DAFfs72Cdtg0qKMtRHWBGZT/HtilfCnloAE8NcqqtkIGeG74oz3MaCsB807mE5dKfASq
-         0OHJnobrb4OSY41WvrjjdQDH9GW0hM3IR/Rq9aBR8o1/oNhW+6xuxedXdZ6bXXTShaWa
-         HvQg==
+        bh=wpfQOuDtH7gZxxcWfSzMbnOTC1GGhHnCAd7pLDi/1kk=;
+        b=OtuIcsZNwp5Vpt3XXTiLHQjRBAX5hyypD9Zs1QhgenJv9ZSACQJCMq3vpYf6o69HTM
+         CjoM958D+KI3+K3JOmW0WykBloBwqaQN3mVtZ7z+HTwJB+w8mILXaoQ8g9HEKHhqw95z
+         lcldsFoVju2Yz253gftngW7uJAMLaxn8YzPqUmOhNOselJrelJ4NzY33OAAEzmnZoVBf
+         voLFcarbvXXT6tQJgcGd1EBw4SntwvrG7l4lJx9dwkcmLNV4bAEon7BmuCLSo5VAUjG3
+         c8LjelruS7rDcDAlvt/OkLP5FLjtNC7k6A8z/D37p8KpWsN6dnDq5AhHOWasf23kbnE0
+         6XAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791637248; x=1792242048;
+        d=1e100.net; s=20260707; t=1791637251; x=1792242051;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=beY1WFS40yvbsQcUt+5SMeOgj/o0k85KRXnrr700oe8=;
-        b=OoHieg8Jtelj/W5WNLW3udp06l2/jtJXr6rbn5uy5sURdMSFL1xhWWxwT+mE5d5FHN
-         3UrNt2ag2cq0UUKAVJpVIq/KgtjexXgBkI2QbY8TVDHt4E91VCN1081mDANGdCLa84Ue
-         5PTynDGndgjygeExJv18h609jqI8DCXU50shToHhJRi18W/oyYpZy2dL+8hrobHl9fUu
-         5knQTTEr0F6wgsHhX09of5VqSqql/CXQig3pSP8nW9JgCYbNsWMlcCwPl863HVK08kWK
-         O3zqhK6OIIIW/GlVxP2RRHeiwF3ICCCdJ16Pa6hlIbsytgSoRJ7qYGfEWPBJ2UroHWph
-         Fqeg==
-X-Gm-Message-State: AFq9FYJ+3QHWGFpqWY0T5JY46/TPZjsQpClYGhwKbgfioNNHWU1PByKo
-	kmk3YRqRiLBLyekZbZJvJ7OZXKNcm1Ls+d2obHSC+7euu8yeCV5omnI0kqvCF8aFod8uBQ==
-X-Gm-Gg: AYBFou02ejoLpiHByY1BpYScaWgZe+2oW+kBSMu4cG1cOQOlHuZlrtczjCtj0M2PAoW
-	5NZUcaAGO2WJAaKprDUUwRewl7EC1RvLyJIrKcmyQ7YNv0Z09zSqWcVqyUi257RN1NWtFuFFs93
-	2UOPVwXsKWqogTNLA/8mE0cvs6B7UXzOnkXQlB1/XDdMbd67nWpuFx4Ci5g9mo7BNCOL/RKYd8n
-	9I8Noyjo4TybaadsyLFNUAFIZpaJPIQpcE5T5kFVgXoVZ7um4ilKBmVjWu4C+b1t3ii4RoqNP5x
-	fdJDCPOu2Pv039ukK7PhvZkHeKKpJKhORtNLPgHWjlPE8WXmZpdTHNwhJHNq2dITtC8jx3KKBvV
-	K1XBHqmX9IHKuzuLwySR9Ze0uHxBFzqq5Y+3KmPw5wCXWlg8elOvGS25Y2xu5qTTVxzEF/CTcbf
-	iToWAx5q9ojiL5g8AqQmQNXopYbhhMTbSEz2sKkjD4pMAUrJKa0Kg60ZmnEfqF5dIe6D2xC2gAn
-	HmkuVbju4U7NaycVj/DrIrSjwr+qcipzhTg9G2DzSnU07yHhNeuMVK5gDCJv2llCvPWXMMWpdWF
-	aiT0Suis/DjgPezD99RjmY7NRVACJERkZySI26YPf+O7YwNnUkKwD3+u1TXkJg==
-X-Received: by 2002:a05:600c:4e02:b0:4a1:7428:8195 with SMTP id 5b1f17b1804b1-4a18e4aa2c2mr95937505e9.29.1791637248037;
-        Sat, 10 Oct 2026 06:00:48 -0700 (PDT)
+        bh=wpfQOuDtH7gZxxcWfSzMbnOTC1GGhHnCAd7pLDi/1kk=;
+        b=UVJacRgcr1l6wf34N08nTth2V7es/Oe8thH+8U7naXiog3nFS+FBsaAKeMo8RqojNC
+         qTTF7wjRwASsSU1ozrFsyJUxR1IPxUQMLiHua4GG6dT+PYueaOzU9d+9nnBONdcQlun6
+         EOF6+fuknCBUzKTF7ml4YCuHdCeKi4YKWOU8nwQiJmty8EBa64l6fgNhGGKoD0A92gR5
+         q7Rvu3lRmLej2yn6kLEgpxav3eq6Ln00qYbKIleBgH22ZQBldxNp+8qB435pP8EPiF9J
+         c1aWuHzLbUIXNq1ihYN+YkDqEounrZ/Azftuh5M2fQxK/vGnohi+V/dS+WPTvwx8lKU2
+         89Yg==
+X-Gm-Message-State: AFq9FYKuXtamUSnlN/Zdn8lh117bfhx4qQ6m2ceGEOghvuvtsjeG3Cfl
+	3ZB96sNP1+mb4X37TDk3VreFgL6xCf2vQIBZJJiRJl6tJLtJfraNmYvAUpyVj0eS2O8stA==
+X-Gm-Gg: AYBFou0cZy04TOcSfPYMJUHla1SN3MX2qmUlxt+ljzA5jmQCif5V+lw1DTr/yqcYQkk
+	6wXLlRi08+D+61eJTGl0iuY2rn8UHouoyK4i+Yq3NI3FTNFDHgaHRsSRY+j920sBnVmOfTttoWJ
+	WckDKZgt7Lets9pkcqMKM3gczJSh7VXQNrc0Sb1/avPZXhI+zsBI2qMe/o59A8XhCMvJaVxMenI
+	ksNkCVrXNBbxRxAnJFvOglRXrnxXpkUknYDDu2RJTjVqfgld9a64mggAJGtb/Hea9Dm9nDl5SjY
+	sbpD8FRK5lRRY1SxLwXxH/R+8MgxCbtTdvSnSjXUfYgg9z3ejEyBuc7QMVQs9pQbHpgaschpMSs
+	8G3nqWRpl1Mx1DhHfJqBhXilczN7mFexzeQOmHvv/hQjS0PDqBshhVCh9n0Dlc8z44DWTW/dgV3
+	5I0WiygRhwf1R8jE9EbYuuQbrw15Q4WNTxnLDDSf6hTwlfNqUnKIunKJtDdI8mvkfj3aIx9zAti
+	9qBK5BOgPz+5/nIalO12CtyKGPjYr+y6BEiJGt7KOtwaKWWw+s/147kdgLNx4x8qj/hokV+53Oe
+	H7wVBgACIFOGXrcqs7/8LUdIhKMUP5vM5e2PYoKtdMiHGUbPP2DeQwaQwreCfE4=
+X-Received: by 2002:a05:600c:1e0f:b0:4a1:7b87:8d34 with SMTP id 5b1f17b1804b1-4a18e4b46e1mr81553045e9.21.1791637251398;
+        Sat, 10 Oct 2026 06:00:51 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 06:00:47 -0700 (PDT)
+        Sat, 10 Oct 2026 06:00:50 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
@@ -95,17 +80,17 @@ Cc: devicetree@vger.kernel.org,
 	robh@kernel.org,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: [PATCH 20/24] spi: Add ZTE ZX279128S SPI flash controller
-Date: Sat, 10 Oct 2026 13:59:58 +0100
-Message-ID: <20261010130024.177503-21-ghahramani.navid@gmail.com>
+Subject: [PATCH 23/24] ARM: dts: zte: Add ZX279128S SoC description
+Date: Sat, 10 Oct 2026 14:00:01 +0100
+Message-ID: <20261010130024.177503-24-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_140050_028621_B70BC9EF 
-X-CRM114-Status: GOOD (  34.52  )
+X-CRM114-CacheID: sfid-20261010_060053_464551_620EA135 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,414 +105,419 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Execute bounded SPI-memory operations through the controller FIFO. Honor
-device and operation clock limits through the CRPM divider and cap the
-validated maximum at 50 MHz.
+Describe the CPUs, SRAM, timers, interrupt controller, cache, clocks,
+pin mux and peripheral controllers.
 
 Assisted-by: LLM
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- drivers/spi/Kconfig               |  13 ++
- drivers/spi/Makefile              |   1 +
- drivers/spi/spi-zx279128s-spifc.c | 353 ++++++++++++++++++++++++++++++
- 3 files changed, 367 insertions(+)
- create mode 100644 drivers/spi/spi-zx279128s-spifc.c
+ arch/arm/boot/dts/zte/zx279128s.dtsi | 397 +++++++++++++++++++++++++++
+ 1 file changed, 397 insertions(+)
+ create mode 100644 arch/arm/boot/dts/zte/zx279128s.dtsi
 
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index a0f37e2df7..f40fbbb181 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -1320,6 +1320,19 @@ config SPI_XTENSA_XTFPGA
- 	  16 bit words in SPI mode 0, automatically asserting CS on transfer
- 	  start and deasserting on end.
- 
-+config SPI_ZX279128S_SPIFC
-+	tristate "ZTE zx279128s SPI flash controller"
-+	depends on ARCH_ZTE || COMPILE_TEST
-+	depends on OF && HAS_IOMEM
-+	depends on SPI_MEM
-+	help
-+	  This enables support for the SPI flash controller of the ZTE
-+	  zx279128s SoC, through which it reaches its boot flash (a SPI
-+	  NAND on the ZTE ZXHN H3600).
-+
-+	  This driver does not support generic SPI. It only implements the
-+	  spi-mem interface.
-+
- config SPI_ZYNQ_QSPI
- 	tristate "Xilinx Zynq QSPI controller"
- 	depends on ARCH_ZYNQ || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index a18814fbde..fc93fcc991 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -170,6 +170,7 @@ obj-$(CONFIG_SPI_XCOMM)		+= spi-xcomm.o
- obj-$(CONFIG_SPI_XILINX)		+= spi-xilinx.o
- obj-$(CONFIG_SPI_XLP)			+= spi-xlp.o
- obj-$(CONFIG_SPI_XTENSA_XTFPGA)		+= spi-xtensa-xtfpga.o
-+obj-$(CONFIG_SPI_ZX279128S_SPIFC)	+= spi-zx279128s-spifc.o
- obj-$(CONFIG_SPI_ZYNQ_QSPI)		+= spi-zynq-qspi.o
- obj-$(CONFIG_SPI_ZYNQMP_GQSPI)		+= spi-zynqmp-gqspi.o
- obj-$(CONFIG_SPI_AMD)			+= spi-amd.o spi-amd-pci.o
-diff --git a/drivers/spi/spi-zx279128s-spifc.c b/drivers/spi/spi-zx279128s-spifc.c
+diff --git a/arch/arm/boot/dts/zte/zx279128s.dtsi b/arch/arm/boot/dts/zte/zx279128s.dtsi
 new file mode 100644
-index 0000000000..12aa22baf8
+index 0000000000..e2bbc70de3
 --- /dev/null
-+++ b/drivers/spi/spi-zx279128s-spifc.c
-@@ -0,0 +1,353 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/arch/arm/boot/dts/zte/zx279128s.dtsi
+@@ -0,0 +1,397 @@
++// SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +/*
-+ * ZTE zx279128s SPI flash controller (SPIFC)
++ * ZTE zx279128s SoC: dual Cortex-A9 with an L2C-310 cache controller, a
++ * five-port gigabit switch, two PCIe controllers and a SPI NAND controller.
 + *
 + * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
-+ *
-+ * The controller runs one flash operation at a time: the driver writes the
-+ * opcode, the address, a description of the operation's phases and the data
-+ * length, and starts it. Data passes through a 32-bit FIFO. The command and
-+ * address phases always use one line; the data phase can use one, two or
-+ * four. The register layout comes from the vendor boot loader's table of
-+ * flash operations.
 + */
 +
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/minmax.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/spi/spi.h>
-+#include <linux/spi/spi-mem.h>
-+#include <linux/string.h>
++#include <dt-bindings/clock/zte,zx279128s-crm.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
 +
-+#define SPIFC_TRIGGER		0x04
-+#define  SPIFC_TRIGGER_START	BIT(0)
-+#define SPIFC_ACK		0x08
-+#define  SPIFC_ACK_DONE		BIT(0)	/* written while _BUSY is clear */
-+#define  SPIFC_ACK_BUSY		BIT(1)
-+#define SPIFC_XFER_CFG		0x0c
-+#define  SPIFC_XFER_CFG_BITS	0x1c440	/* set before every operation */
-+#define SPIFC_FMT0		0x10	/* the phases of the operation */
-+#define  SPIFC_FMT0_DATA_OUT	BIT(0)
-+#define  SPIFC_FMT0_DATA_IN	BIT(1)
-+#define  SPIFC_FMT0_DUMMY	BIT(2)
-+#define  SPIFC_FMT0_ADDR	BIT(4)
-+#define SPIFC_FMT1		0x14	/* and their sizes */
-+#define  SPIFC_FMT1_DATA_LINES	GENMASK(2, 0)
-+#define   SPIFC_LINES_1		0
-+#define   SPIFC_LINES_2		4
-+#define   SPIFC_LINES_4		5
-+#define  SPIFC_FMT1_ADDR_BYTES	GENMASK(6, 5)	/* bytes - 1 */
-+#define  SPIFC_FMT1_DUMMY_BYTES	GENMASK(15, 12)
-+#define SPIFC_LEN		0x18	/* data bytes - 1 */
-+#define SPIFC_ADDR		0x1c
-+#define SPIFC_OPCODE		0x20
-+#define SPIFC_TIMING		0x24
-+#define  SPIFC_TIMING_SAMPLE	GENMASK(17, 16)
-+#define SPIFC_STATUS		0x2c
-+#define  SPIFC_STATUS_DONE	BIT(0)
-+#define SPIFC_BURST		0x30
-+#define  SPIFC_BURST_VAL	0x3f
-+#define SPIFC_FIFO_STATUS	0x34
-+#define  SPIFC_FIFO_RX_AVAIL	GENMASK(12, 8)
-+#define  SPIFC_FIFO_TX_FREE	GENMASK(20, 16)
-+#define SPIFC_FIFO_DATA		0x38
++/ {
++	#address-cells = <1>;
++	#size-cells = <1>;
++	compatible = "zte,zx279128s";
 +
-+#define SPIFC_MAX_DATA		4096
-+#define SPIFC_TIMEOUT_US	20000
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		enable-method = "zte,zx279128s-smp";
 +
-+struct zx_spifc {
-+	void __iomem *base;
-+	struct clk *wclk;
-+	unsigned long speed_hz;
++		cpu@0 {
++			compatible = "arm,cortex-a9";
++			device_type = "cpu";
++			next-level-cache = <&l2cc>;
++			reg = <0>;
++		};
++
++		cpu@1 {
++			compatible = "arm,cortex-a9";
++			device_type = "cpu";
++			next-level-cache = <&l2cc>;
++			reg = <1>;
++		};
++	};
++
++	osc: clock-25000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <25000000>;
++	};
++
++	/* The boot loader's "reset" command writes 1 to CRM 1 + 0x44 */
++	reboot {
++		compatible = "syscon-reboot";
++		regmap = <&topcrm>;
++		offset = <0x44>;
++		mask = <0x1>;
++		value = <0x1>;
++	};
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "simple-bus";
++		interrupt-parent = <&gic>;
++		ranges;
++
++		sram@200800 {
++			compatible = "mmio-sram";
++			reg = <0x00200800 0x1000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0x00200800 0x1000>;
++
++			/* the parked second core jumps here on every wake-up */
++			smp-sram@0 {
++				compatible = "zte,zx279128s-smp-sram";
++				reg = <0x0 0x8>;
++			};
++		};
++
++		scu@800000 {
++			compatible = "arm,cortex-a9-scu";
++			reg = <0x00800000 0x100>;
++		};
++
++		timer@800200 {
++			compatible = "arm,cortex-a9-global-timer";
++			reg = <0x00800200 0x20>;
++			interrupts = <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++		};
++
++		timer@800600 {
++			compatible = "arm,cortex-a9-twd-timer";
++			reg = <0x00800600 0x20>;
++			interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++		};
++
++		watchdog@800620 {
++			compatible = "arm,cortex-a9-twd-wdt";
++			reg = <0x00800620 0x20>;
++			interrupts = <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++			status = "disabled";
++		};
++
++		gic: interrupt-controller@801000 {
++			compatible = "arm,cortex-a9-gic";
++			#address-cells = <0>;
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			reg = <0x00801000 0x1000>,
++			      <0x00800100 0x0100>;
++		};
++
++		l2cc: cache-controller@c00000 {
++			compatible = "arm,pl310-cache";
++			reg = <0x00c00000 0x1000>;
++			cache-unified;
++			cache-level = <2>;
++			arm,data-latency = <2 2 2>;
++			arm,tag-latency = <2 2 2>;
++			/*
++			 * As the stock firmware (AUX_CTRL 0x76430001). Without
++			 * shared-override the PL310 turns normal non-cacheable
++			 * shared accesses (dma_alloc_coherent buffers) into
++			 * cacheable ones, so devices and CPUs see stale data.
++			 */
++			arm,shared-override;
++			prefetch-data = <1>;
++			prefetch-instr = <1>;
++			arm,double-linefill = <1>;
++			arm,double-linefill-incr = <0>;
++			/*
++			 * A PCIe read that is still outstanding while an L2
++			 * maintenance or sync operation runs hangs this SoC.
++			 */
++			zte,l2c-io-read-lock;
++		};
++
++		usb: usb@9100000 {
++			compatible = "zte,zx279128s-dwc3";
++			reg = <0x09100000 0x100000>;
++			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topcrm ZX279128S_TOP_USB_REF>,
++				 <&topcrm ZX279128S_TOP_USB_ACLK>,
++				 <&topcrm ZX279128S_TOP_USB_SUSPEND>;
++			clock-names = "ref", "bus_early", "suspend";
++			/* in the order the vendor firmware releases them */
++			resets = <&topcrm ZX279128S_TOP_RST_USB_B11>,
++				 <&topcrm ZX279128S_TOP_RST_USB_B14>,
++				 <&topcrm ZX279128S_TOP_RST_USB_B9>,
++				 <&topcrm ZX279128S_TOP_RST_USB_B10>;
++			dr_mode = "host";
++			/* the 20 MHz reference clock */
++			snps,ref-clock-period-ns = <50>;
++			status = "disabled";
++		};
++
++		pcie0: pcie@f000000 {
++			compatible = "zte,zx279128s-pcie";
++			reg = <0x0f000000 0x4000>,
++			      <0x09500000 0x1000>,
++			      <0x1c000000 0x200000>;
++			reg-names = "dbi", "ctrl", "config";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			device_type = "pci";
++			bus-range = <0x00 0xff>;
++			ranges = <0x82000000 0 0x10000000 0x10000000 0 0x08000000>;
++			dma-ranges = <0x43000000 0 0x40000000 0x40000000 0 0x20000000>;
++			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			linux,pci-domain = <0>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pcie0_pins>;
++			zte,crm = <&topcrm>, <&crm2>;
++			status = "disabled";
++		};
++
++		pcie1: pcie@f100000 {
++			compatible = "zte,zx279128s-pcie";
++			reg = <0x0f100000 0x4000>,
++			      <0x09600000 0x1000>,
++			      <0x2c000000 0x200000>;
++			reg-names = "dbi", "ctrl", "config";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			device_type = "pci";
++			bus-range = <0x00 0xff>;
++			ranges = <0x82000000 0 0x20000000 0x20000000 0 0x08000000>;
++			dma-ranges = <0x43000000 0 0x40000000 0x40000000 0 0x20000000>;
++			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			linux,pci-domain = <1>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pcie1_pins>;
++			zte,crm = <&topcrm>, <&crm2>;
++			status = "disabled";
++		};
++
++		gmac: ethernet@92000000 {
++			compatible = "zte,zx279128s-gmac";
++			reg = <0x92000000 0x400000>;
++			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
++
++			ethernet-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				gmac_port0: port@0 {
++					reg = <0>;
++					status = "disabled";
++				};
++
++				gmac_port1: port@1 {
++					reg = <1>;
++					status = "disabled";
++				};
++
++				gmac_port2: port@2 {
++					reg = <2>;
++					status = "disabled";
++				};
++
++				gmac_port3: port@3 {
++					reg = <3>;
++					status = "disabled";
++				};
++
++				gmac_port4: port@4 {
++					reg = <4>;
++					status = "disabled";
++				};
++			};
++		};
++
++		topcrm: clock-controller@94000000 {
++			compatible = "zte,zx279128s-topcrm", "syscon";
++			reg = <0x94000000 0x1000>;
++			clocks = <&osc>;
++			clock-names = "osc";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		crm2: syscon@94100000 {
++			compatible = "zte,zx279128s-crm2", "syscon";
++			reg = <0x94100000 0x1000>;
++		};
++
++		/*
++		 * The pin mux. What most of its bits select isn't known, so each
++		 * bit is a pin of its own.
++		 */
++		pinmux: pinctrl@94200000 {
++			compatible = "zte,zx279128s-pinmux", "pinctrl-single";
++			reg = <0x94200000 0x10>;
++			#pinctrl-cells = <2>;
++			pinctrl-single,bit-per-mux;
++			pinctrl-single,register-width = <32>;
++			pinctrl-single,function-mask = <0x1>;
++
++			/* the interface to an external Ethernet PHY */
++			ext_phy_pins: ext-phy-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00180800>;
++			};
++
++			pcie0_pins: pcie0-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00004000>;
++			};
++
++			pcie1_pins: pcie1-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00000002>;
++			};
++		};
++
++		lsp0crpm: clock-controller@94400000 {
++			compatible = "zte,zx279128s-lsp0crpm";
++			reg = <0x94400000 0x1000>;
++			clocks = <&topcrm ZX279128S_TOP_LSP0_PCLK>,
++				 <&topcrm ZX279128S_TOP_LSP0_25M>,
++				 <&topcrm ZX279128S_TOP_LSP0_32K>,
++				 <&topcrm ZX279128S_TOP_LSP0_100M>;
++			clock-names = "pclk", "wclk25m", "wclk32k", "wclk100m";
++			#clock-cells = <1>;
++		};
++
++		serial0: serial@94404000 {
++			compatible = "arm,pl011", "arm,primecell";
++			arm,primecell-periphid = <0x0018c011>;
++			reg = <0x94404000 0x1000>;
++			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_UART0_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_UART0_PCLK>;
++			clock-names = "uartclk", "apb_pclk";
++			status = "disabled";
++		};
++
++		serial1: serial@94405000 {
++			compatible = "arm,pl011", "arm,primecell";
++			arm,primecell-periphid = <0x0018c011>;
++			reg = <0x94405000 0x1000>;
++			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_UART1_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_UART1_PCLK>;
++			clock-names = "uartclk", "apb_pclk";
++			status = "disabled";
++		};
++
++		spifc: spi@94406000 {
++			compatible = "zte,zx279128s-spifc";
++			reg = <0x94406000 0x1000>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_SPI_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_SPI_PCLK>;
++			clock-names = "wclk", "pclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		gpio0: gpio@94407000 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407000 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio1: gpio@94407040 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407040 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio2: gpio@94407080 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407080 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio3: gpio@944070c0 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x944070c0 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio4: gpio@94407100 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407100 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio5: gpio@94407140 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407140 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		lsp1crpm: clock-controller@9a100000 {
++			compatible = "zte,zx279128s-lsp1crpm";
++			reg = <0x9a100000 0x1000>;
++			clocks = <&topcrm ZX279128S_TOP_LSP1_PCLK>,
++				 <&topcrm ZX279128S_TOP_LSP1_ACLK>,
++				 <&topcrm ZX279128S_TOP_LSP1_25M>,
++				 <&topcrm ZX279128S_TOP_LSP1_49M>,
++				 <&topcrm ZX279128S_TOP_LSP1_100M>;
++			clock-names = "pclk", "aclk", "wclk25m", "wclk49m", "wclk100m";
++			#clock-cells = <1>;
++		};
++
++		mdio: mdio@9a101000 {
++			compatible = "zte,zx279128s-mdio";
++			reg = <0x9a101000 0x18>;
++			clocks = <&lsp1crpm ZX279128S_LSP1_MDIO_WCLK>,
++				 <&lsp1crpm ZX279128S_LSP1_MDIO_PCLK>;
++			clock-names = "wclk", "pclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++	};
 +};
-+
-+static void zx_spifc_ack(struct zx_spifc *spifc)
-+{
-+	u32 val = readl(spifc->base + SPIFC_ACK);
-+
-+	if (!(val & SPIFC_ACK_BUSY))
-+		writel(val | SPIFC_ACK_DONE, spifc->base + SPIFC_ACK);
-+}
-+
-+static void zx_spifc_start(struct zx_spifc *spifc)
-+{
-+	writel(readl(spifc->base + SPIFC_TRIGGER) | SPIFC_TRIGGER_START,
-+	       spifc->base + SPIFC_TRIGGER);
-+}
-+
-+static int zx_spifc_wait_fifo(struct zx_spifc *spifc, u32 mask)
-+{
-+	u32 val;
-+
-+	return readl_poll_timeout_atomic(spifc->base + SPIFC_FIFO_STATUS, val,
-+					 val & mask, 1, SPIFC_TIMEOUT_US);
-+}
-+
-+static int zx_spifc_read_fifo(struct zx_spifc *spifc, u8 *buf,
-+			      unsigned int len)
-+{
-+	unsigned int i;
-+	u32 word;
-+	int ret;
-+
-+	for (i = 0; i < len; i += 4) {
-+		ret = zx_spifc_wait_fifo(spifc, SPIFC_FIFO_RX_AVAIL);
-+		if (ret)
-+			return ret;
-+		word = readl(spifc->base + SPIFC_FIFO_DATA);
-+		memcpy(buf + i, &word, min(4U, len - i));
-+	}
-+
-+	return 0;
-+}
-+
-+/* Preload the FIFO, start the operation, then keep the FIFO filled */
-+static int zx_spifc_write_fifo(struct zx_spifc *spifc, const u8 *buf,
-+			       unsigned int len)
-+{
-+	unsigned int i = 0;
-+	bool started = false;
-+	u32 word;
-+	int ret;
-+
-+	while (i < len) {
-+		if (!(readl(spifc->base + SPIFC_FIFO_STATUS) &
-+		      SPIFC_FIFO_TX_FREE)) {
-+			if (!started) {
-+				zx_spifc_start(spifc);
-+				started = true;
-+			}
-+			ret = zx_spifc_wait_fifo(spifc, SPIFC_FIFO_TX_FREE);
-+			if (ret)
-+				return ret;
-+		}
-+		word = 0;
-+		memcpy(&word, buf + i, min(4U, len - i));
-+		writel(word, spifc->base + SPIFC_FIFO_DATA);
-+		i += 4;
-+	}
-+
-+	if (!started)
-+		zx_spifc_start(spifc);
-+
-+	return 0;
-+}
-+
-+static u32 zx_spifc_lines(u8 buswidth)
-+{
-+	switch (buswidth) {
-+	case 4:
-+		return SPIFC_LINES_4;
-+	case 2:
-+		return SPIFC_LINES_2;
-+	default:
-+		return SPIFC_LINES_1;
-+	}
-+}
-+
-+/* The CRPM divider must never round above the flash's frequency limit. */
-+static int zx_spifc_set_speed(struct zx_spifc *spifc, unsigned int max_hz)
-+{
-+	unsigned long rate;
-+	long rounded;
-+	int ret;
-+
-+	if (!max_hz)
-+		return -EINVAL;
-+	if (spifc->speed_hz == max_hz)
-+		return 0;
-+
-+	rounded = clk_round_rate(spifc->wclk, max_hz);
-+	if (rounded < 0)
-+		return rounded;
-+	if (!rounded || rounded > max_hz)
-+		return -EINVAL;
-+
-+	ret = clk_set_rate(spifc->wclk, rounded);
-+	if (ret)
-+		return ret;
-+	rate = clk_get_rate(spifc->wclk);
-+	if (!rate || rate > max_hz)
-+		return -EINVAL;
-+	spifc->speed_hz = rate;
-+
-+	return 0;
-+}
-+
-+static int zx_spifc_setup(struct spi_device *spi)
-+{
-+	struct zx_spifc *spifc = spi_controller_get_devdata(spi->controller);
-+
-+	return zx_spifc_set_speed(spifc, spi->max_speed_hz);
-+}
-+
-+static int zx_spifc_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+{
-+	struct zx_spifc *spifc = spi_controller_get_devdata(mem->spi->controller);
-+	void __iomem *base = spifc->base;
-+	u32 fmt0 = 0, fmt1 = 0, val;
-+	int ret;
-+
-+	ret = zx_spifc_set_speed(spifc, op->max_freq ?: mem->spi->max_speed_hz);
-+	if (ret)
-+		return ret;
-+
-+	if (op->addr.nbytes) {
-+		fmt0 |= SPIFC_FMT0_ADDR;
-+		fmt1 |= FIELD_PREP(SPIFC_FMT1_ADDR_BYTES, op->addr.nbytes - 1);
-+	}
-+	if (op->dummy.nbytes) {
-+		fmt0 |= SPIFC_FMT0_DUMMY;
-+		fmt1 |= FIELD_PREP(SPIFC_FMT1_DUMMY_BYTES, op->dummy.nbytes);
-+	}
-+	if (op->data.nbytes) {
-+		fmt0 |= op->data.dir == SPI_MEM_DATA_IN ? SPIFC_FMT0_DATA_IN :
-+							  SPIFC_FMT0_DATA_OUT;
-+		fmt1 |= FIELD_PREP(SPIFC_FMT1_DATA_LINES,
-+				   zx_spifc_lines(op->data.buswidth));
-+	}
-+
-+	zx_spifc_ack(spifc);
-+	writel(op->cmd.opcode, base + SPIFC_OPCODE);
-+	writel(fmt0, base + SPIFC_FMT0);
-+	writel(fmt1, base + SPIFC_FMT1);
-+	writel(op->data.nbytes ? op->data.nbytes - 1 : 0, base + SPIFC_LEN);
-+	writel(op->addr.nbytes ? op->addr.val : 0, base + SPIFC_ADDR);
-+	writel(readl(base + SPIFC_XFER_CFG) | SPIFC_XFER_CFG_BITS,
-+	       base + SPIFC_XFER_CFG);
-+	writel(SPIFC_BURST_VAL, base + SPIFC_BURST);
-+
-+	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_OUT) {
-+		ret = zx_spifc_write_fifo(spifc, op->data.buf.out,
-+					  op->data.nbytes);
-+	} else {
-+		zx_spifc_start(spifc);
-+		ret = 0;
-+		if (op->data.nbytes)
-+			ret = zx_spifc_read_fifo(spifc, op->data.buf.in,
-+						 op->data.nbytes);
-+	}
-+
-+	if (!ret)
-+		ret = readl_poll_timeout_atomic(base + SPIFC_STATUS, val,
-+						val & SPIFC_STATUS_DONE, 1,
-+						SPIFC_TIMEOUT_US);
-+	zx_spifc_ack(spifc);
-+
-+	return ret;
-+}
-+
-+static bool zx_spifc_supports_op(struct spi_mem *mem,
-+				 const struct spi_mem_op *op)
-+{
-+	if (!spi_mem_default_supports_op(mem, op))
-+		return false;
-+
-+	/* Command and address are always on one line */
-+	if (op->cmd.nbytes != 1 || op->cmd.buswidth != 1)
-+		return false;
-+	if (op->addr.nbytes > 3 || (op->addr.nbytes && op->addr.buswidth != 1))
-+		return false;
-+	if (op->dummy.nbytes > 15 ||
-+	    (op->dummy.nbytes && op->dummy.buswidth != 1))
-+		return false;
-+
-+	/* The vendor code programs on one or four lines, never two */
-+	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_OUT &&
-+	    op->data.buswidth == 2)
-+		return false;
-+
-+	return true;
-+}
-+
-+static int zx_spifc_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
-+{
-+	op->data.nbytes = min(op->data.nbytes, SPIFC_MAX_DATA);
-+
-+	return 0;
-+}
-+
-+static const struct spi_controller_mem_caps zx_spifc_mem_caps = {
-+	.per_op_freq = true,
-+};
-+
-+static const struct spi_controller_mem_ops zx_spifc_mem_ops = {
-+	.adjust_op_size = zx_spifc_adjust_op_size,
-+	.supports_op = zx_spifc_supports_op,
-+	.exec_op = zx_spifc_exec_op,
-+};
-+
-+static int zx_spifc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct spi_controller *ctlr;
-+	struct zx_spifc *spifc;
-+	struct clk *clk;
-+	long min_hz;
-+	u32 val;
-+
-+	ctlr = devm_spi_alloc_host(dev, sizeof(*spifc));
-+	if (!ctlr)
-+		return -ENOMEM;
-+	spifc = spi_controller_get_devdata(ctlr);
-+
-+	spifc->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(spifc->base))
-+		return PTR_ERR(spifc->base);
-+
-+	clk = devm_clk_get_enabled(dev, "pclk");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "failed to get the register clock\n");
-+	spifc->wclk = devm_clk_get_enabled(dev, "wclk");
-+	if (IS_ERR(spifc->wclk))
-+		return dev_err_probe(dev, PTR_ERR(spifc->wclk),
-+				     "failed to get the work clock\n");
-+
-+	min_hz = clk_round_rate(spifc->wclk, 1);
-+	if (min_hz <= 0)
-+		return dev_err_probe(dev, min_hz ?: -EINVAL,
-+				     "invalid minimum work clock rate\n");
-+
-+	/* The data sampling point, as the boot loader sets it */
-+	val = readl(spifc->base + SPIFC_TIMING);
-+	val &= ~SPIFC_TIMING_SAMPLE;
-+	val |= FIELD_PREP(SPIFC_TIMING_SAMPLE, 1);
-+	writel(val, spifc->base + SPIFC_TIMING);
-+
-+	ctlr->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD;
-+	ctlr->mem_ops = &zx_spifc_mem_ops;
-+	ctlr->mem_caps = &zx_spifc_mem_caps;
-+	ctlr->setup = zx_spifc_setup;
-+	ctlr->min_speed_hz = min_hz;
-+	/* Faster rates have not been validated on this controller. */
-+	ctlr->max_speed_hz = 50000000;
-+	ctlr->num_chipselect = 1;
-+	ctlr->dev.of_node = dev->of_node;
-+
-+	return devm_spi_register_controller(dev, ctlr);
-+}
-+
-+static const struct of_device_id zx_spifc_of_match[] = {
-+	{ .compatible = "zte,zx279128s-spifc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, zx_spifc_of_match);
-+
-+static struct platform_driver zx_spifc_driver = {
-+	.probe = zx_spifc_probe,
-+	.driver = {
-+		.name = "zx279128s-spifc",
-+		.of_match_table = zx_spifc_of_match,
-+	},
-+};
-+module_platform_driver(zx_spifc_driver);
-+
-+MODULE_AUTHOR("Navid Ghahremani <ghahramani.navid@gmail.com>");
-+MODULE_DESCRIPTION("ZTE zx279128s SPI flash controller driver");
-+MODULE_LICENSE("GPL");
 -- 
 2.55.0
 
