@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD896CA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 17:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA6BCA9EBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 17:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5fZ9xMeWb13PFHx7PqGpTj4Gd+/TFWRgOl7WsIogwE=; b=P7joyVRq3wrURkWTJZTXXxgnLN
-	mt5EuIXosZgnR54AiNbv45+EulaGVibZIj+7sqpoc1w2ZFSYL7Kwe9rmKp3nJQsO3x09bf25vBokk
-	No6YiBprmDSC1cc8swfPqq8zCaUd7sF9mMT4lrlnQRrs7OvpgYW77QwAH+oLjqW4F5GrHwfkGwiKw
-	oAnYbWeauiEA+JJrHReBxZCJegtsuw9jEONjTbdeXmxTml915kuH7QbhEIFZdAsfO5D4fK+wIUDVi
-	iqRmYyF6/G/r+Y/V+ML2nBE9jRq2soju+L59O8ZxH5RmiYIhFuF9UhYXxkjTOWOkki1937uGmMdya
-	9AkDzWaQ==;
+	bh=BRcYQiuliJ1CdaOaqf97NB/suFRAHUr80VIP8a+WeIU=; b=YLub0umnJoElZCE1z7z6gWitab
+	W+Lao6KJZriD13RIf8byhU7u2tV34MB8EKxEktOEM0H+4atd/YN3xFmm+RY/2smJYYE7+DzxZerGg
+	lEY6fd8Wnwr5cUg+JUOiD9bGoSyXRzcDHS1Bb3h8BCp8oIkN5JT2ev5fEz9XiCMCGAPHcHmdOhvF0
+	Mw5rJ1RAfrka/LX26yS11RdKDdqEuIuS76iBMZJ9huDPL1d8GUDB1Tpzmm3ZzEPRCpXvsa/yN2y/I
+	qm4EPLcJiOv6XzRX/bDYy5nkuqElKgHnlNAJ4IGLMAQYX56bAaquE1CcHfcpt2nSu9XeMQgP9LiY3
+	gGzeYEOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFabt-00000008Jkl-32L3;
-	Sat, 10 Oct 2026 17:11:49 +0000
+	id 1xFagQ-00000008Jtt-13Gg;
+	Sat, 10 Oct 2026 17:16:30 +0000
 Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFabq-00000008JkO-2dYA
+	id 1xFagK-00000008JtG-3Yqi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 17:11:48 +0000
-Message-ID: <119cdaf0-e631-4d33-a7a1-85d10b87d78f@cyberchaos.dev>
+	Sat, 10 Oct 2026 17:16:28 +0000
+Message-ID: <d3f9eb19-6d5f-4246-95e4-09e92e1d175f@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1791652303;
+	s=mail; t=1791652581;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=F5fZ9xMeWb13PFHx7PqGpTj4Gd+/TFWRgOl7WsIogwE=;
-	b=maHCfN9rFLAqX/oqjbAa8JPK8g5ikCzI3UD1ufj0d5LNm5EzndRpozUExeYoxkTEYtsYNu
-	Em7JvCyAm+KFKzUfeT5DtkovgSo+XLSmbvoO54148bxTtYAaH2LWNVg6l9oN3Midef0bpr
-	vrj2HAVqxD3XrtMVYnuC+SFZFwVHU6g=
-Date: Sat, 10 Oct 2026 19:11:39 +0200
+	bh=BRcYQiuliJ1CdaOaqf97NB/suFRAHUr80VIP8a+WeIU=;
+	b=Zdm9Q81gtriKJ0svM57CLsbj6ZQNDg4vjqskmZUts3SkfiRPgJiny0m0XLKpTabLpR68zS
+	7382gHybp6exR5/EyyLipW3IzRAC6LCfAJv0QE+EEeKXJDXwzzQevxNdpZ1c3vgQ7Ia1gC
+	9g3+Rs5C/R1BN1Fq+7kfV3YnlbsN8+c=
+Date: Sat, 10 Oct 2026 19:16:21 +0200
 MIME-Version: 1.0
 Subject: Re: [PATCH 02/10] dt-bindings: interrupt-controller: apple,aic2: Add
  t6041 compatible
@@ -65,8 +65,8 @@ In-Reply-To: <20261010-apple-m4-pro-max-initial-devicetrees-v1-2-781fb3f2d9f6@cy
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_101146_889810_172E7113 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20261010_101627_357852_F0A0876F 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,6 +88,12 @@ On 10/10/26 18:59, Yureka Lilian wrote:
 > Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Reviewed-by: Sven Peter <sven@kernel.org>
 > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+
+Apologies, the Acked-by and Reviewed-by were wrongly copy & pasted from 
+a previous commit. This commit was NOT acked or reviewed by anyone. I 
+had noticed this a few days before but somehow ended up sending out the 
+wrong version :/
+
 > ---
 >   Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 3 +++
 >   1 file changed, 3 insertions(+)
@@ -117,11 +123,6 @@ On 10/10/26 18:59, Yureka Lilian wrote:
 >                 - apple,t6020-aic
 >                 - apple,t6031-aic3
 > +              - apple,t6050-aic3
-
-As noted by Sashiko, this hunk does not belong in this commit. However, 
-apple,t6041-aic3 is intentionally not listed here, as there are no 
-multi-die t604x SoCs.
-
 >       then:
 >         properties:
 >           '#interrupt-cells':
