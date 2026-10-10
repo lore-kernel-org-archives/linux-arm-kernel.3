@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A97ACA9EC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B548CA6017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 13:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHO7lW8dXTEw8No+XY9Ehk8i1Df2SHzGS4HhV6BQdcU=; b=JK+UobdOVzTIItEw5VJ5UQlTYO
-	++S5aKgYnuxZCZWwFpBv1Bv6mxks2vkEoNMM9GwpZW9AUzg4Dvr5FiFK8JnccjiKB8Q+fAfU8YeOY
-	o02xnILOS0BhzKagxGGHVZqA8rqW+h+/0txc+7ndzk1ztr2RjLoeRd3ZouqosFcqQjrxzzu3iUrG9
-	p1grL8xTvgwRbijqcenTHKCXM65nBN3rXz/gNGD6YCYmqJfLz0a3pQ0aK+sOeUYFsix414f8HhFgo
-	n5CeIJibuctVnXMQDApVevxp5ZjwWXeXoQQTVsRVmhtJqjHYtyr/Nu8tfEMm3v2cCF3+a96I/Zgbo
-	vb0ZNOPA==;
+	bh=9MYQFCxh1yQ7ROqRBAiqvcdcm8W2x8q2IXByiIDFhMY=; b=wbA9xtknrCfxmNyqA2+IaR2rwi
+	6AUTUQn38j234nIeFUbaw/aQLJdFfuaJ3L/HwstBEmh+Kn4CaMPw5shLN8pmqHRj0jIiQRGkN5dbS
+	XMTKcx4LLrt8SidTraFbGJ3xprFrdcRRyLzneTjMLIJ5xnN6+vBcD0QZ4wHZ5UcybLDK3pEzdbgJA
+	0aCeBZlH0dPIYHxzHqvHD4d/0pDwttzCeen/YuvyaEhhfdlFx4Wjv8YO2OrdcDyRjVn9nFXKvIId+
+	MHH0Qwxyhi7yijnFAlEAzCIVsyWMM1hOSb6ckRCIAaC9aSJkNGLtNpjU1ZP7yEM6H5qcgbkPtdHkq
+	AdtOSvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWgx-000000083Mb-1BBR;
-	Sat, 10 Oct 2026 13:00:47 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1xFWh2-000000083QF-13sT;
+	Sat, 10 Oct 2026 13:00:52 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFWgl-000000083Cu-1Qbi
+	id 1xFWgp-000000083EJ-3OHv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 13:00:38 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a168355946so1949055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:34 -0700 (PDT)
+	Sat, 10 Oct 2026 13:00:41 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48c14a06c95so543327f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 06:00:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791637234; x=1792242034; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791637238; x=1792242038; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yHO7lW8dXTEw8No+XY9Ehk8i1Df2SHzGS4HhV6BQdcU=;
-        b=Haj9+0ASXZEgoBeeUOmBejnb1RipmQxi8/Pq/vym8aOa7hNYuSPcJloYDfrns1T67F
-         pgBvsLDI8qUFxl/IgWR2NalAI/7t5P9YVLBtAtql+oPYbtKUEKA5ZIlWAQZhezoS3sYV
-         dJRQJYonqM+M4lbCaskTbVfM7Sl1b2oXB+RwvrgGJrXqVEjTP2LMpOli2XaFUMTboyqT
-         xRXgbO9A5P7IDBdwtkEwJ4LYc4sGQ+JKQV0+c7fGIxQvKqtUhEcHYpVOSCUNlNI6ZiNn
-         JXg9TCk7kB4CXoEt+QaYUNujVvsqyTKqPVFtH4EaVy2duJvflVNb4vU7YKJNOZVK1YWR
-         1n+g==
+        bh=9MYQFCxh1yQ7ROqRBAiqvcdcm8W2x8q2IXByiIDFhMY=;
+        b=FwaTHyhsyutryim4EtoKSYTzBLA/PjSe51mjNqrBfndjbm02/+Ee0dNwQ/wmn6zMRS
+         P0P+pX7w5PeuqpiiBvQNYDDSxIYsrJIhrbwrPmitKEEk/wxQpgqMbKGu2NmEqS95aiOB
+         yb3XOKgnqU5KWDWtBA6weFtFrOY/VCx2Gr8ZrAuRsbVGJY6WfwvUfvPq0qeEwf7VfsF0
+         ndjj5lyxC38rCzO3EdkPCsjgcX8da1KQeZr+xHAj43T6dEH3tDZOMaHieJvVkry+uZlo
+         Vg5y2/AitTgtIfuLmYq1PXmk8pm+Iy6PYSj/l4hbYelyHPDf5/7H8MGqffGRGzedoZPG
+         cSWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791637234; x=1792242034;
+        d=1e100.net; s=20260707; t=1791637238; x=1792242038;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yHO7lW8dXTEw8No+XY9Ehk8i1Df2SHzGS4HhV6BQdcU=;
-        b=a8n1oUv8WiqHkpWD/Qf+nmkYxatyQwabgTvf9o+AH3KAIY/UVC10vhGLqOltayXb87
-         O3TXUyEdFzLwXHzkehLm4sDUneQ64RBhu/eTZLvOTLBMoAOzJKVacG2+RbeSkq4EbKqm
-         OiICGZkBc0N2v4i0R4zfSAWemTPwiJ9d4P78zrB7oJVlrw/LQrQRfGwYvjzqOiBWMUJ9
-         sJvPnfCMy7UbzYWNQo/o3UxP3ITCLgUzkHPmQSIyiPZYyoyCG1H/RgBm1OcV38KO+xJq
-         DqAJFLddmWWZrqw4mFaFIA5ie7SZg54r8evRd5eWbsAWwPPus92HjOFP/R/1uaKaV86Q
-         gTmA==
-X-Gm-Message-State: AFq9FYJS+ghZVBOOjtkwt6+w8SI5/4kdXbOS/1/cilFy44u4/HvOIzGD
-	x1kJUxjw3RuzX1sMn9wlY8ZZ411W49zd6WBGwnO+2e5xYCTC5VUHij5xjf8LJztZvWAHRg==
-X-Gm-Gg: AYBFou1eAHCjIHJ6LcCL1RvM/AT4XvBzEPzmoJQetjGO4Ojr0690f4LgiDR6U/ys0Zp
-	0+qhiKsoxFdLNLnHyddwfLzDOdCPZ2LFHp4W8bofJrpKVfeQphTjF3uMZ1NR48F/qiSNmTLOvde
-	SqpSe1/CzGoNHXIPwlEu6V1fDoWgdRmRbHSvJgaQMn50crazrtA/YtRSOgnzX4zEmZPcdbsY2dz
-	wmBNOtIvHphLtpcv23yjy+Kn4LMrA4Y8jQGLBBEef9ZNNnEZ2RlLsX8bcrmgOCxFc7ol8DbnQSY
-	+ZhgxzKc6ydIVdHA8Pwr8kn5Yy4VbMD4bOVs8lpfBB4H4A35XOyBDIcthzW+QBpALs7fQb6GuHQ
-	PSgASDlAhzb3oehvs29Vg/C5dm+9SU/9o0Lw0hKbYM6/I2XL46BZva4KDTK9QpJNZC+5g2ZOahu
-	Z/9KhBE7Wl0l2HgIr+jN91qIAe42urmHNZUuvHcgu8sMFe6WsKTzaB+a1kkR4v3Jbd5a4dbvMRi
-	ORrFlGgIaIHkntYoMVOGPYtXToJhhjMBEf+lbe5ZMyIZZ/MFAfblhX06lcKUzEyclg7U5cCWFNa
-	aFO/9TnF6NfoBZW1p7scjGREsaJMCFXcFhpgLJo/j3sMIDpc3wnnzWkvNc+xpEjdO+NSTeMn
-X-Received: by 2002:a05:600c:4594:b0:49d:1fa8:b266 with SMTP id 5b1f17b1804b1-4a18e4d6ac3mr87355405e9.26.1791637233643;
-        Sat, 10 Oct 2026 06:00:33 -0700 (PDT)
+        bh=9MYQFCxh1yQ7ROqRBAiqvcdcm8W2x8q2IXByiIDFhMY=;
+        b=Nv0Xky6T9T3MLVgZjxRZUi7M8bd7KyNTdRE8AHFXGYHYRpMlWN71OqdbByvCdX0b44
+         OMQrdH/fP6Kifx13Vb4pRKwSWJpVjyk+NkYzGq9uu6IOUo055qCDsxesTlXmEEH7XbXe
+         bthecCgv2b2f1z0NByM6uJvp/Ul2IOfM64yRwP8EKdTgCDfkhG9tFJT59D7exRRV+dzy
+         L2f7UknPwk8+7gZ53c24+LgKz/JXao7niILwkJlXNXkC3XBGL2CKaV+Gr/tWHPXAqvaO
+         8z7utcHagr4N/46p3st2akVXcf0Avf8sZoswkNeqBMjeYul72PmTqyY95aOQvRhQDV4E
+         G2pQ==
+X-Gm-Message-State: AFq9FYJn1LP1YHKTAnNvDiH48vklsvAaPpSQRo7+5VSbI2y4/IjVPxsg
+	WCFiuqrwbvxVE+ONtqA7yMQy+RH3N/umOvpctYe2+fAzfZLod3/HA9Yd4cnj+gemOzmSTA==
+X-Gm-Gg: AYBFou0jXGwJXmHjDKboACho/qcPEcLEGahCo+yLpZW8z6Cvhm7LusTkSXtXDELDvsb
+	TWYmYDSG3djqkRWn4Jav1D0lK+jTGIDQ87aMOBlOhsYNpRtXUSVZMilLRHGAE0KSpYj00qjZ2lt
+	+G1fI4CSS2UKa+KIuLnzKP88e8RHCjS8ud0lseT+JjlfoSPJWi/7lFAOKWYdeQP9qk4IA/H89JX
+	Ib1jaLPnCwqiTpE3zo+zIdXFsJp8LROM9sdSAzUep+Yk3lg1ZjGXs1XPQ3ERlxn/cHbvtu3QWlN
+	rFgOEXnRcWeAL5B0cFbxC+h0jORO2v9HYX8n+n8K2VkmVCkyL0T3oXGaDPQCoOUqZZvLXotW9hh
+	EIj5AOB72R4ytUIIk115r1MQXdvp+mazZDb2Stik4B8TozgoZItrImJ3z4U4k+XF4xGZHFreaFL
+	Sw/bfaQXlN7dIQOeqz9GWUmq1TPgjxR/cwSb+eJWYqych0D+5sGkv8aAZKTtW5UDPqzdYOGffVn
+	XPpnTw7LPOZjnLR7Bzq7yM9dn6qo9W9HOQbQYTjYBk/uSu/2PhZyVK2n9zWdsq/HoRY6ihSUlx3
+	4aaDF+okr/y80yK7xnw+XtU80w/hDkR3X2kxSdwtfYGHx+kMtaH+JP3qgdHAQw==
+X-Received: by 2002:a05:600c:8718:b0:4a1:7259:349e with SMTP id 5b1f17b1804b1-4a18e4e0a33mr89706675e9.27.1791637237809;
+        Sat, 10 Oct 2026 06:00:37 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.32
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a190c49d5csm162309975e9.3.2026.10.10.06.00.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 06:00:33 -0700 (PDT)
+        Sat, 10 Oct 2026 06:00:36 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
@@ -80,17 +80,17 @@ Cc: devicetree@vger.kernel.org,
 	robh@kernel.org,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: [PATCH 04/24] dt-bindings: arm: Add ZTE ZX279128S platform descriptions
-Date: Sat, 10 Oct 2026 13:59:42 +0100
-Message-ID: <20261010130024.177503-5-ghahramani.navid@gmail.com>
+Subject: [PATCH 08/24] dt-bindings: gpio: Add ZTE ZX279128S GPIO controller
+Date: Sat, 10 Oct 2026 13:59:46 +0100
+Message-ID: <20261010130024.177503-9-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_060036_465749_9F67AFBB 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20261010_060039_885963_BFE6B72A 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +105,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the SoC board compatibility, SRAM used by the parked second CPU
-and the SMP enable method.
+Describe the register-clock consumer and GPIO banks.
 
 Assisted-by: LLM
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml  | 1 +
- Documentation/devicetree/bindings/arm/zte.yaml   | 8 +++++++-
- Documentation/devicetree/bindings/sram/sram.yaml | 1 +
- 3 files changed, 9 insertions(+), 1 deletion(-)
+ .../bindings/gpio/zte,zx279128s-gpio.yaml     | 53 +++++++++++++++++++
+ 1 file changed, 53 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/zte,zx279128s-gpio.yaml
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index 5be89c5840..25a141f80b 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -284,6 +284,7 @@ properties:
-           - ste,dbx500-smp
-           - ti,am3352
-           - ti,am4372
-+          - zte,zx279128s-smp
- 
-   cpu-release-addr:
-     oneOf:
-diff --git a/Documentation/devicetree/bindings/arm/zte.yaml b/Documentation/devicetree/bindings/arm/zte.yaml
-index f028d2cec7..a1a3742219 100644
---- a/Documentation/devicetree/bindings/arm/zte.yaml
-+++ b/Documentation/devicetree/bindings/arm/zte.yaml
-@@ -11,7 +11,8 @@ maintainers:
- 
- description: |
-   ARM platforms using SoCs designed by ZTE. Currently this supports devices
--  based on the zx297520v3 SoC which is found in LTE routers.
-+  based on the zx297520v3 SoC which is found in LTE routers, and on the
-+  zx279128s SoC which is found in home gateways.
- 
- properties:
-   $nodename:
-@@ -23,4 +24,9 @@ properties:
-               - dlink,dwr932m
-           - const: zte,zx297520v3
- 
-+      - items:
-+          - enum:
-+              - zte,zxhn-h3600
-+          - const: zte,zx279128s
+diff --git a/Documentation/devicetree/bindings/gpio/zte,zx279128s-gpio.yaml b/Documentation/devicetree/bindings/gpio/zte,zx279128s-gpio.yaml
+new file mode 100644
+index 0000000000..132c7126fd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/zte,zx279128s-gpio.yaml
+@@ -0,0 +1,53 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/zte,zx279128s-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- additionalProperties: true
-diff --git a/Documentation/devicetree/bindings/sram/sram.yaml b/Documentation/devicetree/bindings/sram/sram.yaml
-index b83fc68319..d1389156c1 100644
---- a/Documentation/devicetree/bindings/sram/sram.yaml
-+++ b/Documentation/devicetree/bindings/sram/sram.yaml
-@@ -104,6 +104,7 @@ patternProperties:
-             - samsung,exynos4210-sysram-ns
-             - socionext,milbeaut-smp-sram
-             - stericsson,u8500-esram
-+            - zte,zx279128s-smp-sram
- 
-       reg:
-         description:
++title: ZTE zx279128s GPIO controller
++
++maintainers:
++  - Navid Ghahremani <ghahramani.navid@gmail.com>
++
++description:
++  The ZTE zx279128s has several identical GPIO banks. Each bank has 16
++  lines and is described by its own node.
++
++properties:
++  compatible:
++    const: zte,zx279128s-gpio
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-line-names:
++    maxItems: 16
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - gpio-controller
++  - '#gpio-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/zte,zx279128s-crm.h>
++
++    gpio@94407000 {
++        compatible = "zte,zx279128s-gpio";
++        reg = <0x94407000 0x40>;
++        clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++        gpio-controller;
++        #gpio-cells = <2>;
++    };
 -- 
 2.55.0
 
