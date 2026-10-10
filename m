@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D31CA9EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 12:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DA9CA6004
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Oct 2026 12:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IEhsyXQw8cKBngAZiQPre+TiL5xy9FDcO3H+YI16BQ=; b=gp/lGVBsQrYYAZtDVlDEkwYb3u
-	lQi4h7fujKOjFt7hBHcBi9x69UAWxzmDfW8oo+YNLKl1jkBzDgkZZEqBRvlgO6CKR1d/+gloGDx/7
-	DUFh3+GpDAAcyfT+XiVovZhA8f75eeiGgbpOWcyCFC61VrUURksXuMPfcs6hZZ+mUut/rohYRm+xO
-	/XisPWuhL6VSHA3jY1ALLIvIupI1tj769MEX+qv02SghnFmz8HiM2aXOTGg2Lu86PT7kQCe12zkwa
-	LUpp9YA7nrii3zbfUcKJ4gXkytSaCZdGZxxrg4V8CVk7ezt+QIBFZudGcY8hDCxh9fAxV4qI7lc0F
-	rn2ySIcA==;
+	bh=lYOFjMpVr4WN+qRu9eA734M8lkHfX01y6pvWM4sirYg=; b=DR/C+p/YAOWBOF/96BP7QkisS8
+	y/nW6X1hY1j4ibtQdx7rj+aKsXXlF6dKBKi2S2E/wnltjEGz/tBrjS+4Kh16MDxASKUauKZtDyJFi
+	ClBYaNxlNfIjeaajtdPgTE54QgLFvzkbwaECCPsIYu/ZT5i8xCMnOVSkNSvrWYdZQq9ygK6JkD5Or
+	/jewqeIyaAmK3CuMjpyMvw0rj7hGSHkFdYhJ9sY3/hZbccinnu/TVBFC3ciKQ53gbpPz9M5v0mWrx
+	5ZTDOTxnDH+qUuP3oTLyc99bXBNKv1O2JK0lZsih+PGrYmewuvUmpplihP54ta9axvSkcdrFVJe+G
+	rmBd+LKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVgD-00000007xos-1th1;
-	Sat, 10 Oct 2026 11:55:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xFVgK-00000007xtY-0ok9;
+	Sat, 10 Oct 2026 11:56:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVg0-00000007xix-2wpP
+	id 1xFVg8-00000007xlV-3kbb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Oct 2026 11:55:44 +0000
+	Sat, 10 Oct 2026 11:55:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75A6440669;
-	Sat, 10 Oct 2026 11:55:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6795F1F00893;
-	Sat, 10 Oct 2026 11:55:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 401516021E;
+	Sat, 10 Oct 2026 11:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651B61F00899;
+	Sat, 10 Oct 2026 11:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791633344;
-	bh=6IEhsyXQw8cKBngAZiQPre+TiL5xy9FDcO3H+YI16BQ=;
+	s=k20260515; t=1791633352;
+	bh=lYOFjMpVr4WN+qRu9eA734M8lkHfX01y6pvWM4sirYg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bSyPFaJ25YKU/UmHqECSs2WgNX4tEJFP6YW6kOAsOP2bo4bPVYLTBQT4RvMjmbm3q
-	 N5RJa0kIfih8kIMUFPEbTx6fpctMJ7QBdUyjiUWmVku5KUAr0jedWJVF96ygj+3Uk1
-	 8LdANv+DCRO6c1kIcsudWaFnIGSkjDMRnu8UIWlnOl2ni1UzinxvVfklBxjF4Nsgv3
-	 0iMjsOrn9E+10H4bFYy8xhqgPZgkq3Ul1+pNhrZ6xyxjpSebosEuq0PH0pstNDXFjX
-	 gkJEUBv7bdfaSMn8YRW9Midsrh2PAt2BpzWNbMIwf1wdFZ0HULb4ysp2ZaUE8vt1Wk
-	 joW0SmXkvlyaA==
-Subject: Re: [PATCH net-next v4 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
- Xilinx XXV 10G/25G Ethernet
+	b=CeHcW2ERLBuC6Up5uI5UXx5BTnnYEQGohyxV7/c/st6ANYdHVOl9EJxzOGsFQ3WtW
+	 J/Pn1IOoOOLenL4/krxpwKNcZQcwjzqgjcyanfZ+2rKpTNZSV41pBShH6P6oWyQkW1
+	 o6dlfALqinPOFhyrcdNKG920Q7ZPbckSG1HHOhRKi2kxvU3OlcXDWnRNGOYgiRP8Hl
+	 l32kTgedAsJnN/3qJ3ppWs4mNx8sE0OnLbiCdhMHrQVqtjRQ7N7ZrG46HLJzizUs4d
+	 M8knvTJNmM+hcuBEdfmmwhNwYagnBv5Zaxj36D4KTDUQt5CYJ0bIiyZHRJenF0FbI5
+	 bLhY5vktHVudA==
+Subject: Re: [PATCH net-next 5/5] net: sparx5: Offload tc port policers via matchall
 From: netdev-bot+sashiko@kernel.org
-To: suraj.gupta2@amd.com
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+To: daniel.machon@microchip.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 10 Oct 2026 11:55:42 +0000
-Message-ID: <179163334293.434549.14718764476813490489@kernel.org>
-In-Reply-To: <20261006110550.1990213-3-suraj.gupta2@amd.com>
-References: <20261006110550.1990213-3-suraj.gupta2@amd.com>
-X-sashiko-severity: High
+Date: Sat, 10 Oct 2026 11:55:50 +0000
+Message-ID: <179163335091.434549.13455893877586878292@kernel.org>
+In-Reply-To: =?utf-8?q?=3C20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-p?=
+ =?utf-8?q?olicers-v1-5-4916708a7ea2=40microchip=2Ecom=3E?=
+References: =?utf-8?q?=3C20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-po?=
+ =?utf-8?q?licers-v1-5-4916708a7ea2=40microchip=2Ecom=3E?=
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -76,7 +76,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -84,149 +84,162 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The XXV binding never says how link management works, so a node
-  that passes the schema, including both examples in the binding, cannot…
-- [Medium] The binding has no way to describe the XXV transceiver (GT)
-  reference clock.
-- [Low] The new XXV binding's `dma-names` schema only checks a per-item
-  pattern (`^[tr]x_chan([0-9]|1[0-5])$`) and a count of 2 to 32.
+- [Medium] The driver refuses police offload on shared ingress blocks,
+  but it does not refuse a police action that is shared between ports by…
+- [Medium] The new police offload ignores the police action's MTU limit.
+- [Medium] The offloaded matchall policer meters line rate, but tc police
+  meters data rate.
 
 --
 
-dt-bindings: net: xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet
+net: sparx5: Offload tc port policers via matchall
 
-This adds a new DT binding schema for the Xilinx XXV 10G/25G Ethernet IP.
-The IP has an in-core PCS/PMA and uses an external AXI DMA or MCDMA. The
-binding covers the 10gbase-r/25gbase-r phy-modes, the rx_core/drp/s_axi
-clocks and the dmas/dma-names properties.
+This commit offloads a tc matchall filter with a police action to the
+sparx5 per-port ingress policer. Offload is limited to ingress, chain 0,
+protocol all, non-shared blocks, drop as the exceed action, and one
+policer per port. Pass and drop counts are reported through the matchall
+stats.
 
-> diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-> new file mode 100644
-> index 0000000000000..cf31ab677a4bc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-> @@ -0,0 +1,110 @@
-
-[ ... ]
-
-> +description:
-> +  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
-> +  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
-> +  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
-> +  Ethernet Consortium specification. Because the PCS/PMA is integrated into
-> +  the IP, the subsystem has no MDIO bus master and is not managed through an
-> +  external MDIO PHY; link state is read from the MAC's own status registers.
-
-[Severity: High]
-The binding says there is no external MDIO PHY. It does not require or
-show managed = "in-band-status" or a fixed-link node, though. Neither
-example has phy-handle, fixed-link or managed.
-
-The XXV support added later in this series sets only mac_capabilities and
-supported_interfaces in axienet_xxv_phylink_set_capabilities(). It does
-not set phylink_config.default_an_inband, so cfg_link_an_mode stays at
-MLO_AN_PHY.
-
-On open this gives:
-
-axienet_open()
-  phylink_fwnode_phy_connect(lp->phylink, dev_fwnode(lp->dev), 0)
-    fwnode_get_phy_node() fails, since there is no phy-handle
-    if (pl->cfg_link_an_mode == MLO_AN_PHY)
-        return -ENODEV;
-
-A node that matches this binding, including either example, would then
-fail ndo_open with "phylink_of_phy_connect() failed". Is that expected?
-
-Also, phylink_pcs_poll_start() only polls the internal PCS when
-cfg_link_an_mode == MLO_AN_INBAND.
-
-Should the binding require managed: const: in-band-status? The other
-option is for the XXV phylink_set_caps to set default_an_inband = true.
-Either way, could the binding document the chosen mode?
-
-> +  Any SFP module management (e.g. I2C) is handled by separate IP outside this
-> +  binding. Its payload is moved by an external AXI DMA (or multichannel DMA)
-> +  controller referenced through the "dmas" property.
-
-[ ... ]
-
-> +  clocks:
-> +    items:
-> +      - description: RX AXI4-Stream clock.
-> +      - description: GT DRP clock.
-> +      - description: AXI4-Lite register clock.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: rx_core
-> +      - const: drp
-> +      - const: s_axi
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> index 146d7f28e8f3d..5bf17c52e564e 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> @@ -43,6 +43,13 @@ sparx5_tc_matchall_parse_mirror_action(struct sparx5_mall_entry *entry,
+>  	entry->mirror.port = netdev_priv(action->dev);
+>  }
+>  
+> +static void
+> +sparx5_tc_matchall_parse_port_policer_action(struct sparx5_mall_entry *entry,
+> +					     struct flow_action_entry *action)
+> +{
+> +	entry->port_policer.police = action->police;
+> +}
 
 [Severity: Medium]
-How would a DT describe the transceiver (GT) reference clock here? The
-description says the in-core PCS/PMA drives a high-speed serial
-transceiver, and that transceiver has its own reference clock input.
+Can a police action that is shared by index across ports end up
+over-admitting traffic here?
 
-The clocks/clock-names list is fixed at three entries, and
-unevaluatedProperties is false. A DT that also lists the GT refclk would
-fail validation. xlnx,axi-ethernet.yaml already documents mgt_clk for its
-optional internal PCS/PMA PHY.
+sparx5_add_port_policer() refuses shared ingress blocks, because a shared
+police instance has one aggregate rate:
 
-Later in the series, axienet_10g25g_clk_init() claims only s_axi, rx_core
-and drp. axienet_xxv_poll_link_ready() then fails open when GT reset-done
-times out:
+drivers/net/ethernet/microchip/sparx5/sparx5_police.c:sparx5_add_port_policer() {
+    ...
+	if (entry->port->tc.ingress_block_shared) {
+		NL_SET_ERR_MSG_MOD(extack,
+				   "Policer is not supported on shared ingress blocks");
+    ...
+}
 
-    netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
+A police action shared by index has the same aggregate semantics. Take
+this example:
 
-On boards where a Linux-managed, gateable clock provider supplies the GT
-refclk, nothing claims that clock. Unused clock cleanup could then gate
-it. This depends on the board.
+  tc filter add dev eth0 ingress matchall skip_sw \
+      action police index 5 rate 1mbit burst 10k conform-exceed drop
+  tc filter add dev eth1 ingress matchall skip_sw action police index 5
 
-Could an optional trailing clock (minItems: 3) be added now?
-writing-bindings.rst asks for complete bindings even when the driver does
-not use every feature.
+In software this is a single token bucket covering both ports.
+tc_setup_action() passes the shared index to drivers as
+entry[k].hw_index = act->tcfa_index. However,
+sparx5_tc_matchall_parse_port_policer_action() copies only
+action->police, so the index is lost.
+
+Each port then gets its own full-rate policer
+(pol.rate = police->rate_bytes_ps * BITS_PER_BYTE). With skip_sw, the
+hardware passes N times the configured aggregate rate across N ports.
+
+Should action->hw_index be tracked, and a police action already offloaded
+on another port be rejected? It looks like the lan966x and ocelot
+matchall paths have the same gap.
+
+>  static int sparx5_tc_matchall_replace(struct net_device *ndev,
+>  				      struct tc_cls_matchall_offload *tmo,
+>  				      bool ingress)
+> @@ -98,6 +105,30 @@ static int sparx5_tc_matchall_replace(struct net_device *ndev,
 
 [ ... ]
 
-> +  dma-names:
-> +    items:
-> +      pattern: "^[tr]x_chan([0-9]|1[0-5])$"
-> +    description:
-> +      Should be "tx_chan0", "tx_chan1" ... "tx_chan15" for DMA Tx channel and
-> +      "rx_chan0", "rx_chan1" ... "rx_chan15" for DMA Rx channel.
-> +    minItems: 2
-> +    maxItems: 32
+> +		sparx5_tc_matchall_parse_port_policer_action(mall_entry,
+> +							     action);
+> +		err = sparx5_add_port_policer(mall_entry, tmo->common.extack);
 
-[Severity: Low]
-This checks the name pattern and the count. It does not require
-"tx_chan0" and "rx_chan0", or even one TX and one RX entry. Both of these
-pass dt_binding_check:
+[Severity: Medium]
+Is the police action's MTU limit dropped on this path?
 
-    dma-names = "tx_chan1", "rx_chan1";
-    dma-names = "tx_chan0", "tx_chan1";
+tcf_police_offload_act_setup() exports the MTU as entry->police.mtu.
+sparx5_add_port_policer() rejects peakrate, avrate, overhead and
+rate_pkt_ps, but it never checks police->mtu. It programs only type,
+rate, burst and idx.
 
-The driver requests fixed names, though:
+In software, tcf_police_act() takes the exceed action whenever
+tcf_police_mtu_check() fails, whatever the token state. When no mtu is
+given, tcf_police_init() still sets a finite default:
 
-axienet_probe()
-    tx_chan = dma_request_chan(lp->dev, "tx_chan0");
-    if (IS_ERR(tx_chan))
-        return dev_err_probe(lp->dev, PTR_ERR(tx_chan), "No Ethernet DMA (TX) channel found\n");
-
-axienet_init_dmaengine()
-    lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0");
+net/sched/act_police.c:tcf_police_init() {
     ...
-    lp->rx_chan = dma_request_chan(lp->dev, "rx_chan0");
+		if (R_tab)
+			new->tcfp_mtu = 255 << R_tab->rate.cell_log;
+    ...
+}
 
-Since dmas is required, XXV always takes this path. Could contains
-constraints for "tx_chan0" and "rx_chan0" be added? Another option is to
-fix the leading entries with items/additionalItems.
+With iproute2's default rate table this works out to 2040 bytes.
+Software drops frames over that limit, whether it comes from an explicit
+"mtu 512" or from jumbo frames under the default. Within rate, the
+offloaded hardware policer would forward those same frames.
 
-The pattern came from xlnx,axi-ethernet.yaml, but this patch creates a
-new binding with it.
+The flower path in the same driver honours this value
+(sf.max_sdu = act->police.mtu in sparx5_tc_flower.c). Should the matchall
+path reject, or otherwise handle, a police->mtu the port policer cannot
+enforce?
+
+[Severity: Medium]
+Does the offloaded policer meter a different rate than tc police
+configures?
+
+sparx5_port_policer_conf_set() always programs a 20-byte per-frame gap:
+
+drivers/net/ethernet/microchip/sparx5/sparx5_police.c:sparx5_port_policer_conf_set() {
+    ...
+	spx5_rmw(ANA_AC_POL_PORT_GAP_GAP_VALUE_SET(SPX5_POLICER_LINE_RATE_GAP),
+		 ANA_AC_POL_PORT_GAP_GAP_VALUE,
+		 sparx5, ANA_AC_POL_PORT_GAP(portno));
+    ...
+}
+
+As a result, each frame is charged its length plus 20 bytes of IFG and
+preamble. The software police action charges only qdisc_pkt_len(), plus
+any user-set overhead.
+
+sparx5_add_port_policer() also rejects a user-supplied police->overhead,
+so the user cannot compensate in either direction. With 64-byte frames
+the hardware charges 84 bytes per frame and passes only about 55-70% of
+the configured rate.
+
+The earlier commit "net: sparx5: Add hardware programming for the port
+policer" says this line-rate metering is as on lan966x and ocelot. The
+in-tree code seems to do the opposite:
+
+drivers/net/ethernet/mscc/ocelot_police.c:ocelot_port_policer_add() {
+    ...
+	pp.mode = MSCC_QOS_RATE_MODE_DATA;
+    ...
+}
+
+ocelot maps that mode to POL_MODE_DATARATE (excl IPG). lan966x_police_add()
+uses ANA_POL_MODE_FRM_MODE_SET(1), which is also data rate in this
+policer family.
+
+Should the gap be 0 for tc matchall police offload, so the hardware
+matches the data-rate semantics of tc police?
+
+> +		if (err) {
+> +			kfree(mall_entry);
+> +			return err;
+> +		}
+> +
+>  		break;
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261006110550.1990213-1-suraj.gupta2%40amd.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2%40microchip.com
 
