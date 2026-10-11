@@ -4,89 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D53CCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 11:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DD1CA9EC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 11:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oddb4XjeaRXSTqKxpqcRkSnzU2tXqgDwvjZy6Qt5fLo=; b=u55Y6Td/lDD/nc6H8KGdNS42eV
-	CV1j2cZzD5iWRw4in8v8uOaP/RBSSqsGn/JVAsVufNm+isOMO5QnhGmZ8nAldNKOcNqKdscH19lNc
-	vc9083ztZ5voWUK4VX7MEGO3UJot+Frqd42tRWVgpm6oPxO1lq03/38cxZA9GUEUSo6e1FKMOb4JT
-	7v3zTLpSigmMo9tdJ+d/IczSnAqQmcpYKobimr/N4WWDAfrqx60K1nizQkitVO9IdF+R+bcCwYxpA
-	LxyPq0aVSz7aHxL2gknjzHprMMV5NHMr1YcO4KZLC0ATtbF2j5VuZIxdVx8igAIIIDoP8QQjU+s19
-	lHLeB6GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zB0eG+67WrOD+nu5Yl9dOpljx02bmMiypblsUT25l/o=; b=RPwPChljnJk1b2cZ2Th3UqlS3U
+	PWL4XW+f2w9IgPGoNB2BWY/rDlPHl4QRIMmx370RKdSzNCI/8enDDDo2+c13ab+d3oA7IxJQ1S4Hj
+	hOIf4S1CAfQEsV+j7DaKsEyoTrdgwjnaX7ujKrfVRFwxQveTH++1u6k95vtsA9zfmN+75IdxqQ9II
+	VoMrQVUmSu7M5joydNTCnNMdHhHIaheb00NG1VZySpDPVD+fELCo6hzvTGBMu8yviccSdp2JDILpx
+	ZkUDdbmaEIvWEON4HO1MaIiwiBtmVkx5tP5Ui0MrrMkLmPTk8ZwMMUGcjFm6SB6xB9eroI3+of+VX
+	iHLoE+tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFrSE-00000008w1F-0bQr;
-	Sun, 11 Oct 2026 11:10:59 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1xFrhp-00000008wPe-485H;
+	Sun, 11 Oct 2026 11:27:05 +0000
+Received: from mail-francecentralazon11013000.outbound.protection.outlook.com ([40.107.162.0] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFrSB-00000008w0s-2BUp
+	id 1xFrhm-00000008wOq-2kgm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 11:10:56 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48afe75f055so980509f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 04:10:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791717053; x=1792321853; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Oddb4XjeaRXSTqKxpqcRkSnzU2tXqgDwvjZy6Qt5fLo=;
-        b=rYnvBUEQY2G+auHBXHbXEMd4lpMxHtEpaGaJWyyCRCOmsvkeQ6d9HKnLycUI5iOt3u
-         IRrhcQBUpSRsBgoB+R9sP4wKzbRA/e9FJVMYxzc9C7O1NoH0qazLY2z8U+JBPB6TDbiZ
-         qb5yfr9POY+ASW3lOt80tmQkH8Nsh54lH1OKhbSGC5qWKVQqKEHPBRlIlCqYGrGp1IAP
-         8gu6WfdF7gIg1uO4yPYlY80x9LGLa/2Aq264XQ3CmpEqV2QdegxSJfBU8TJP3giKU0/z
-         j6VK91Gd3XcSVwQUlqSeXemoFpyEZkk4OlK8D3IxgPSJTdnPzCBiJf5WZggQfE1ZaSLh
-         euIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791717053; x=1792321853;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Oddb4XjeaRXSTqKxpqcRkSnzU2tXqgDwvjZy6Qt5fLo=;
-        b=Rqo+bfBW0/bge7vis8hUW6Taul/yFeIMV4GdRYQlBICDOrkGO2a1ekT87umhwgMYQM
-         sMLZVo4Kbfe3FVfBt+EaHQiW1QxDWf40ZZfcXlM2MWXS4zuBmCtRh02bVhuwpyDqN8Sh
-         f6VlfGqbW2PZrYJTgcx0XmDefX/Bg/rbsVXrPbjhEyLAUaZS8t0xHkdvq+AXRw5EF13f
-         Gdd23f4ZVyclJVxH7hlh6ha0QWr9wwF4MMOAxKkLrzmnzvj/zc9wiBiWIkI+dt/RwRVP
-         LeJRogCoNnqdHyi0farrW5IMAboJZbaaBGmuAatSeFHT7eF8aL+bbIWnFZnKSyb4ttIO
-         KLuQ==
-X-Gm-Message-State: AFq9FYJdgLlN5fTJNnPAmXlGfqj3fZ2/oXQo8YHVIpve/sHko0Q8+tTy
-	AppSQBKu1ypIWyL4ar3lzONLcUrZkFqYLZwO78ZfzhmB70bs30TH5l9mBGsh3R/R
-X-Gm-Gg: AYBFou2YE36pYoJTgs6ephY9zxLkjhSohIT7Xg4Rd5NsnBSOX4o640zjLvnN1Qi6CAr
-	rRUEjI6S8e7smbI8Besbi/8R/sgTLSax5n32o1qbU8DazsNUkFvkSU6qSYH/xs6AZAwyyzAFvpK
-	y1XqQrV8oxeF2z1SMqhAGlf7r28aPg+wzPXcQZVXiSTou3NfFBiIGlFYOq3bR2CgynvQr3fgOSo
-	orX9a7yJhJSt2VlwzBib/39GofxYuE2Pt5vHAhP3ik3666+6gRXZ+JPkX84Zz466I1zeQjDXCZu
-	YkeWidtrSadOCtYymppDYvMe+x8JDI8/tKwVb3URf6n04V0UUHt26z3NmZU3/J8VrXamDOme15Z
-	aCy9ZtD9qs8muGDb+mOGYLNuWoIGl9h7J0utVFmMRC46x4VdOUv8YCbSRmMVmicHX9RV11LMAGY
-	IJ/LqmQCOPTstsJruJ4uzv80MoHZfDPZBNS1NHTghJlGb2sopNOfzoZBzCbGSAXL3j+vDZtVXo7
-	KbJTDa/4cz5aPPIMw1qxz0N/Pq6YU8dtREOtlEY5y4+BYgRagbXhIs8ig==
-X-Received: by 2002:a05:6000:389:b0:486:e707:42eb with SMTP id ffacd0b85a97d-48dbacd93dcmr12379646f8f.33.1791717053269;
-        Sun, 11 Oct 2026 04:10:53 -0700 (PDT)
-Received: from silicon.doe.home (178.165.167.132.wireless.dyn.drei.com. [178.165.167.132])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db94e3519sm14833267f8f.16.2026.10.11.04.10.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 04:10:51 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
- linux@armlinux.org.uk, robh@kernel.org, krzk@kernel.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: Re: [PATCH 07/24] clk: zte: Add ZX279128S CRM clock and reset driver
-Date: Sun, 11 Oct 2026 13:10:45 +0200
-Message-ID: <43VZlEvRTNCe3DiA7z5UHQ@gmail.com>
-In-Reply-To: <20261010130024.177503-8-ghahramani.navid@gmail.com>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-8-ghahramani.navid@gmail.com>
+	Sun, 11 Oct 2026 11:27:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZjODp9PN9n0eFFdj7DWlkFdMC45O798gfEWBRLm6pcMGWhJQ2raBwqUhg1nHuw3BQBf8GOMOzJpmaajECTrLDu+smkm5n1WlppAMBgvxDMBchDv9PfkR49jmbHwQXMptvIOybdeTcaAQaKnLc+2JQz7WT9Tc39toQfiP/eOE1/o6hctpgXMnegibsNNEauSOUvbqOALvkK46Lf8jfCZRoK5LTqXb9No+CS0sg7WuZaZZ0FFOlI78FItuoJGs1aG1kAz/Ho1IlveUCewxUbgx3PnUzmvSgcjR9YL6nvcuw1hmnywsR3e8qqzkkB9bnZ07Q3/OjTHaTZ1HS/KiAQmMow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zB0eG+67WrOD+nu5Yl9dOpljx02bmMiypblsUT25l/o=;
+ b=HN/TA3i8bTWfsg/jX7Rp8IKGcG3/qQc/XUWxwFzQc0KTwTLkNGsoRxjDnaS8pidaDiVtiW45ZRtQvfQS0793FDuT669BlIf4tN8HRWgl3yBmDh/H5QTRjbDE6cGwwDf7xd2pVPzxY1Ao3pyBEeVuh/S79po+2aUkCpU2Ymp58Be+beKN+KsNwZlwtx6DJdWXNVed9fLXll2rIox4c4ALefgyXbpRjqiJtWkLtXHugXg6Gw5XVvUV10tfgGqyY2aD6t6ywu0IXnLwaYfpStxuC+YpYOMrCiFzoW8z0sKlQq8RiRtrEY1ILXEuQZLPNrkAs+iyFwB3kr/TU459xt+AkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zB0eG+67WrOD+nu5Yl9dOpljx02bmMiypblsUT25l/o=;
+ b=VK9cF9xBW0BY/2QyQGVPtVLwaoptwEU2vQTCNGQDQuDrwfXSTZa0u0QxOGHM1Qui+85EYxpwXfMPp375kyEAiP20/UggJH/EdHhJyckHmiIwDzgRz52LkJzEvOr3qiniLSdwGsfmLtx/9+5HcGnoK6wlJurwIhtX5yQnqDYEWkL1zDjFSN1JDZDLfqi7gXy+omfVo6uuAF01ycpt+1gILPmqxz2BlF1Y8HzKP3ukqcRs5jkliAu5OrA3Y7RzMED30IFvgVtiFbVyrem8kEGlGjvhYanxz6/5t99TS43lWv8nvjfCXCtTXL618KNqMM/IRNoB9bl3nHXeFHLSo7pIXQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by VI2PR04MB11171.eurprd04.prod.outlook.com (2603:10a6:800:29a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.20; Sun, 11 Oct
+ 2026 11:26:54 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.019; Sun, 11 Oct 2026
+ 11:26:53 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH RFC v6 0/5] iommu/arm-smmu-v3: Support shared Stream IDs
+Date: Sun, 11 Oct 2026 19:31:24 +0800
+Message-Id: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIxzy2oC/3WNywrCMBREf0Xu2kjSJmnrShD8ALfiIia3NkIfJ
+ G2olP67bQTd6HKGOWcm8OgsethvJnAYrLdtswS53YCuVHNHYs2SIaGJpAWTxNf1QHylHBrirSH
+ I87yUmhteUliozmFpx2i8wPl0hOu79MPtgbpfXeussr5v3TP+BhbHfy8CI5QIlqU5F5QrxEMzd
+ jvd1tEdxIdmlP6gxUIzWShRaJkxk37peZ5f1NHtVgEBAAA=
+X-Change-ID: 20260916-smmu-shared-sid-e488f6c4d4f0
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>, 
+ Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>, 
+ Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+ Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.16-dev-7bc12
+X-ClientProxiedBy: MA5PR01CA0117.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a7::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartUy8Z56qoQNSy5dW6rm_Cdw";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI2PR04MB11171:EE_
+X-MS-Office365-Filtering-Correlation-Id: 837146a8-7ac8-4f99-b281-08df278a8cf2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|11063799006|921020|56012099006|18002099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info: Jbg9/PG+kM+q/Z+FH5FHbOVSYfKm0AnSMumu84EF0O7xMYp8l2Vr5sbqXiA+Mpfw/8I3fd/toPC2I61MFOj6glBBTthTjBu5Y4oKETTu0xmg2+BtvzhcdkpSri6BxgF0m88mDK9KkFoaeXT8NKPV3CUI1j4UT4V3eRUcAl7UXMjS84bgWYUkd27ULNFu2zT9xDCCZwgxiVF0J5M3KFFIuOm2AkEx9pisWLcyRDcep2ehE5lJdTn+qOPgDimgMfuOonvdQlWhL5p+cH+UpmoOMBJYTBZ+O+znhXu47Pcp4h5lvBXCSUFVNltqJbc4M4s1K8Aq3BwXyZSWcpqEH83UZriq86VX2K84ItNhK50VzwD+7VPMznO98IlHvbS5kKNU9ha0cQXOR1ns6VxAkleEkkBthyooN4O+7OMntsRh8DdFwURbo4pn5yu5U1ccLjO8+c+Al+/XuXFFzzti/H+6mG/QWzLGe+OhCeVlOygc0kFhN/13tJvAlhp6UYo4jOEtewGVZTxV4V4jMwpf7UuRuLjZMSP6zKON94qc0Zmjv2GiZHwNpjyJOv2QrnmivQAt4CKJY6/sn9GyXWb7URv6nWzHgPL9vWjOSppyOVU9863+6xoL6vEdJs9NIW8bjTvYBXNs57Z7adsMKTSc0I8j2ydjSZE7EB3GxiE1H8R9asA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(11063799006)(921020)(56012099006)(18002099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OE9nbkprZWR3Y3RjRDJnQU8xVVd1VXhSTnM1K0VWdlgvTUZlY3NidVk4eGZy?=
+ =?utf-8?B?U2ZkcmRUZzVYS1lUYUU3c01NNFQwMzNRRE5uNm9oMmxWTDJkc3k1S292U3RC?=
+ =?utf-8?B?QnZKNmtpaHU3dnYzdWFkTHpmazU3OHdXVVMweWtOR1dBMDY1eHZmaGE3OVpu?=
+ =?utf-8?B?UktPbDRaSzBIdURURXpabTBOajU4ZXdEM3lqOWo4UnhGdktUQU9sZlkvSThK?=
+ =?utf-8?B?NU9wZkVKY3pSTnpDWmR5TVkySVJhUURjYnlyQVhFK3YvYVYzOHhZSy9Bem1O?=
+ =?utf-8?B?MTJneXg2NDRMd004QS96Nzh5NE00NkVFaGhjU29LWHZKMjFRdmtNVzBFbnA0?=
+ =?utf-8?B?QjQ4cHMxSy9IRmFJdXNiMnlSWmoyVjAvSGNLL1VMcWhOTWdLZVBMemIrd2dH?=
+ =?utf-8?B?ZVp6MlRSelY1S1pncGwrblJLczZVWkdFMzkvMXZuRUV1ZVVBa0Y4cnBIMDY4?=
+ =?utf-8?B?ektqTURQUTdYSzRZVzFST2Y4cHFKeE52aXF6Q0RyL0ZPTWVmZzYzSjd5aTN2?=
+ =?utf-8?B?bWI5QnNVVzlZMjhWaXV1RVIwYkUxM25UbjUzanl5bGp3ZnI3cURkd21qb29J?=
+ =?utf-8?B?aWFWUENXYzhQVzVYMXlDMnl5Q0QyK3ZiUTlpWS9zZ3dBQnpMVUJaNHhOREJV?=
+ =?utf-8?B?RnZMeXM5Y1UybUFHSks1bFRuK1F4bGVkWmdRS2M3cHFObzVTL2k5UUlhMW45?=
+ =?utf-8?B?V1Y0WjE0TDdISmtWemlhTVl4NVZGVTNGOXVSOEthUXkwUmQzeXZSK1RLSCt0?=
+ =?utf-8?B?ZGlTVjV6ZVhFSVl3VElSRG1CYnoyZjNSaTIrMzA3b1hiaGdqeVFhald3dE94?=
+ =?utf-8?B?MzlrRG1SZHlvSGtjNmQ0SzdqT2FKYnZDVDBOVkdtRWhKc2Y0d1hmUDFCU1h2?=
+ =?utf-8?B?UXRZSHczM3VUajNzYWE3a3R1UVFIbTM2Zk8yNWt2WmtDTnNBQzFZK2dBaWhF?=
+ =?utf-8?B?ekF3eW1Zc1Vxb2MrNldrR3NZbEpmMFIwZFBQS3RsRmdoSHhrdE15NmNESmY2?=
+ =?utf-8?B?QkVId3paam5aU08zUWEwSWhNVzZDWnVQeUx4WldhWWhFeERhMndqM1RlQnpT?=
+ =?utf-8?B?OERrZFlKN1l5UUR3TkUxV1ZWTCswZU9ISFFITTI4c2drUDI3YjVuTkw5MmpF?=
+ =?utf-8?B?ZlZzdVYxMy9tYWxkRVU3VDF4YnNBcUhKM09BZ3RoblNTTHRWbG5QY2JqVnov?=
+ =?utf-8?B?b1dFbDVhOG80T2o4T2dRV3FmaUtCdW5tTTEyREEzOGNuNFc1eUxHZm9XKzdP?=
+ =?utf-8?B?aC9XT054d0VOallya3FDVG9VanpFcGRCc1ZJQTRqcEtGeFMvK05nVStqWVdL?=
+ =?utf-8?B?T2pmaGhhdEYwZ3kzcEx4Uks2b1Axb1NMV1RKY0tQWWRwSWt1cUwyU1BZbkFE?=
+ =?utf-8?B?bjQzaGdSRFhZYzlWdnJlNU0rMVR5dm51V1l0TkhOb3FUNjR5dG9saksyNmtj?=
+ =?utf-8?B?TGlDMG1NM0hOdFYwbkZIMHFBNWNpRWhHSERzUXRFMjZiZnU2Q1FibC9jOFZR?=
+ =?utf-8?B?b09MYkpaUE9aQ1U1R0pPcE9SWHROWi9Mc3l5dlpPVHdDUUJLL2JKcEFnUTlj?=
+ =?utf-8?B?OWZCMVJXaG1ZKzdkVEJLdmlmVnp0dTg4YjlpR0lpVUdzYmpablBaWVFwQXd5?=
+ =?utf-8?B?TWhrQkRaandUa1lrbkZHM1M4VFRKMmtHSnBlZGRJVlZIVHVkVXdFT3N0K3JP?=
+ =?utf-8?B?UFF1T2ErTFBtWkVVcFNGdFNrNlFPQlV5bzdETkF6cGJwY2VEZVUxMTR5NmRs?=
+ =?utf-8?B?Vi9jUUc1S3RNeHliUjNpMlppYmlURndhM2p3SUFNa2tZMWYzbFdMcU1jaG5n?=
+ =?utf-8?B?dWNsZWk0cFR5R2lvTElid2hnVWdVcEFubVcxUlpTN0VCc0VvRFlNREVWZnU2?=
+ =?utf-8?B?RVdUVW5xRUxUUC9Oa3EzcXF3YXZWOUZrR0Q1NFhzamJITFNLMVN3VEZVRWdM?=
+ =?utf-8?B?aDB1REs5d1NHb0VRSC92OUo1SHhOcUN4a1ZTVHcxZy9pZEJCMVU5eEtxL3ho?=
+ =?utf-8?B?TnhiTzYwSHV3MTFaa0JRTHg4Z01BeW14Q3RXcVlJanBYVHpja29SY3hOVkFG?=
+ =?utf-8?B?dnBNNnhmeiswS3RnR0pCYU1hMHFJbW9ISW9ZT2RUaWhsaDViRktOS0JsNHFJ?=
+ =?utf-8?B?djJMZUYwRmlIS3VMOUN1WVhJbWRFZ0poNkpNME5DUTY2U1NlRXl4bFBFZGtl?=
+ =?utf-8?B?Szc2VUo0UmdkTjNsRzQ5cW5EcVBWOVNxSVd6QWY4RTJJRUs4aVpweXlqUjUv?=
+ =?utf-8?B?MGVqbFA2Y2d3Q2RDRWN1Zm16VFdaSnRWMVhRakhrWlVMVkt4SXgwNmF4bms1?=
+ =?utf-8?B?RTQwMTBSVFRleWJzdk5MTWlPSkEyYyt4RFgyWDVlenJROWpKR1p5VExlWjhG?=
+ =?utf-8?Q?v8nXhoF45eUo1lJMRoouN2MtkRlyByFHXHAVh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 837146a8-7ac8-4f99-b281-08df278a8cf2
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2026 11:26:53.8336
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hP4oILOkRdN2E7fhB3EtRwuwGYBvFVwOeoagOi8DlzXpCwlD6O1Y6WwiqruyH/p9hF4NM5wV+SarRgh5FYovur2nd5Kf6y5DN0Omvz8WJbFrJ3Mo126q1np6GacQ16IV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_041055_623336_30FEAFBE 
-X-CRM114-Status: GOOD (  45.91  )
+X-CRM114-CacheID: sfid-20261011_042702_914222_96F3C831 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,235 +155,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartUy8Z56qoQNSy5dW6rm_Cdw
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Subject: Re: [PATCH 07/24] clk: zte: Add ZX279128S CRM clock and reset driver
-Date: Sun, 11 Oct 2026 13:10:45 +0200
-Message-ID: <43VZlEvRTNCe3DiA7z5UHQ@gmail.com>
-In-Reply-To: <20261010130024.177503-8-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
+Changes since RFC v5:
+- Rebased on next-20261009 and drop Nicolin's patch
+  ("iommu/arm-smmu-v3: Don't rb_erase() a never-inserted stream node") which
+  was already in tree.
+- Actively deduplicate Stream IDs during insertion instead of
+  storing duplicate pointers. num_streams now reflects the unique
+  count, eliminating pointer-equality dedup loops from all cleanup
+  paths (Robin).
+- Extracted arm_smmu_find_stream() into patch 2 instead of patch 3
+  to clean up the find-before-allocate code (Nicolin).
+- Extracted arm_smmu_free_master_streams() helper shared between
+  error rollback and arm_smmu_remove_master() (Nicolin).
+- Fixed remove_master to reassign stream->master when the current
+  owner departs, preventing dangling pointer (Nicolin).
+- Fixed remove_master to use a for loop iterating master->streams[]
+  with per-stream shared vs non-shared handling (Nicolin).
+- Reset ste_installed on ABORT so domain transitions (e.g. DMA ->
+  VFIO) correctly re-write the STE instead of freezing it.
+- Clear stall_enabled on the first master retroactively when
+  sharing is detected in arm_smmu_insert_master(), not just on
+  subsequent masters at probe time.  Prevents bus lockup when
+  the first master probes before sharing is known.
+- Link to v5: https://lore.kernel.org/linux-iommu/20261006-smmu-shared-sid-v5-0-169a59c671d3@nxp.com/
 
-Hi Navid,
+Changes since RFC v4:
+- Include Nicolin's patch ("iommu/arm-smmu-v3: Don't rb_erase() a
+  never-inserted stream node") to avoid conflicts in future.
+  so the standalone patch 1 from v4 is dropped.
+- Split old patch 2 (shared SID support) into two:
+  - New patch 2: Convert streams from embedded array to individually
+    allocated objects (struct arm_smmu_stream ** instead of *).
+  - New patch 3: Move stream allocation inside the mutex and look up
+    existing entries first (find-before-allocate), avoiding unnecessary
+    allocation when the SID already exists.  Pure refactor, no
+    functional change.
+  - New patch 4: Add shared-SID logic on top of the refactored code.
+- Duplicate-SID cleanup (bridged PCI) now uses pointer-equality dedup
+  instead of RB_EMPTY_NODE checks, since streams are no longer
+  pre-allocated with cleared nodes.
+- Link to v4: https://lore.kernel.org/all/20261001-smmu-shared-sid-ver3-v4-0-06b34fb2e691@nxp.com/
 
-The big item as I see it is to split the clock and reset components into their 
-respective subsystems. Yes, there are plenty of old clock drivers that handle 
-resets directly in drivers/clk, but new drivers are encouraged to split them.
+Changes since RFC v3:
+- Added a standalone bugfix for duplicate-SID rb_erase (new patch 1).
+- Stream structures are now shared directly between masters
+  instead of duplicating them (Nicolin).  No ref_count field;
+  sharing is detected via list_empty(&stream->shared_masters).
+- On owner removal, use rb_replace_node() + list_splice_init()
+  to transfer the RB tree entry and shared_masters list to the
+  next sharer, avoiding use-after-free.
+- INIT_LIST_HEAD(&stream->shared_masters) moved after sort() to
+  avoid list pointer corruption from bitwise memory swaps.
+- Both sides of the sharing pair are checked for num_streams == 1.
+- Link to v3: https://lore.kernel.org/all/20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com/
 
-To handle access to the hardware from two different drivers your options are 
-MFD and the aux bus. For my zx29 clocks I chose MFD because of the syscon-
-reset MFD child (and Philip Zabel's preference to have one mechanism for all 3 
-CRMs). For both, you will have to convert the drivers to use regmaps instead 
-of direct mmio. Please see zte/clk-regmap.c for the infrastructure I put in 
-place already. If there are any additions needed we can change it to 
-accommodate your needs.
+Changes since RFC v2:
+- Dropped the RB tree to XArray conversion patch (Nicolin).
+  The RB tree is retained as-is; a new arm_smmu_find_stream()
+  helper provides stream-level lookup.
+- No per-master shared_sid bool; replaced by
+  list_empty(&master->shared_masters_elm) (Nicolin).
+- Only SID-sharing for single SID device
+- Follow Nicolin's suggestion https://lore.kernel.org/linux-iommu/arG6hmng3NddGEHm@nvidia.com/
+- Link to v2: https://lore.kernel.org/linux-iommu/20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com/
 
-> + * A PLL has two registers. The output is
-> + * osc * (fbdiv + frac / 2^24) / pd1 / pd2.
-> + */
-> +#define PLL_FBDIV		GENMASK(17, 6)
-> +#define PLL_PD1			GENMASK(5, 3)
-> +#define PLL_PD2			GENMASK(2, 0)
-> +#define PLL_FRAC		GENMASK(23, 0)	/* second register */
-> +#define PLL_FRAC_BITS		24
+Changes since RFC v1:
+- Revised cover letter to drop eDMA channel example (Jason).
 
-This looks identical to the zx29 PLLs, so you should be able to reuse the code 
-in pll-zx.c. This will give you PLL enable/disable support and limited rate 
-setting for free.
+Some SoCs have a limited number of IOMMU Stream IDs (SIDs) and
+hardware that inherently shares them. For example, the NXP i.MX95
+only has 64 SIDs, only 6 bits for SID in the system chip bus.
+However there are many device IPs, such as SDHC, PCIE, NETC, GPU,
+NPU, Display, VPU, ISP, ISI, JPEG, SATA, DMA and etc. Each Kind IP has
+mutilple instances inside the SoC. So I introudce this patchset to
+support shared SID.
 
-My PLL code doesn't handle the fractional component because my hardware 
-doesn't use it (although at least one PLL supports it). I can easily add read 
-support for it if you are able to test that the calculations match the 
-hardware behavior.
+The current ARM SMMUv3 driver rejects this with:
+  "Aliasing StreamID unsupported, expect DMA to be broken"
 
-Is there no equivalent of REFDIV (bits 23:18) on your hardware? My HW has it, 
-although I think the default PLL configs always set it to 1.
+I took comments in [1] and implement this patchset and only want to
+support a very simple case that multiple platform devices share one SID.
 
-> +static DEFINE_SPINLOCK(zx_top_lock);
+Patch 1 converts the per-master streams array from an embedded array
+of structs to an array of individually allocated pointers.  This
+prepares for subsequent patches where multiple masters will point
+to the same stream object.
 
-You shouldn't need that with regmaps - regmaps bring their own lock, which 
-also helps synchronization with the clock driver in case clock and reset bits 
-are in the same register.
+Patch 2 moves stream allocation from upfront into the mutex-protected
+loop in arm_smmu_insert_master(), using a find-before-allocate pattern:
+first look up whether the SID already exists in the RB tree, only
+allocate and insert a new stream when no existing entry is found.
+This is a pure refactor with no functional change.
 
-> +	/*
-> +	 * The formula above gives 200 MHz for the LSP PLL, but the vendor
-> +	 * kernel has it at 1 GHz, with fixed taps for the bus (250 MHz) and
-> +	 * the peripherals (100 MHz). Until that is measured, it is 
-registered
-> +	 * with the vendor's rate.
-> +	 */
-> +	lsp = clk_hw_register_fixed_factor_parent_hw(NULL, "pll_lsp", osc, 0,
-> +						     40, 1);
+Patch 3 adds shared-SID tracking so that when a second single-SID
+master registers an already-owned SID, it joins the existing
+stream rather than being rejected.  The stream structure is shared
+directly between masters via a linked list.  On removal, a shared
+master detaches from the list; the stream and its RB tree entry
+are kept alive until the last master is removed.
 
-Did you check if it is programmed with the same value on the vendor kernel?
+Patch 4 places devices that share a SID into the same IOMMU
+group, ensuring they share a single IOMMU domain (required
+because one STE can only point to one cd_table).
 
-> +	/* 49.152 MHz, and the 32.768 kHz derived from it */
-> +	audio = zx_top_pll(np, "pll_audio", base + TOP_PLL_AUDIO);
-> +	if (IS_ERR(audio))
-> +		goto err;
-> +	audio_32k = clk_hw_register_fixed_factor_parent_hw(NULL, "audio_32k",
-> +							   audio, 0, 
-1, 1500);
-> +	if (IS_ERR(audio_32k))
-> +		goto err;
+Patch 5 wires up STE write ordering (first master writes, last
+master tears down) and gates features that require unambiguous
+SID-to-device mapping: SVA, IOPF/stall, and vSMMU nesting are
+disabled for shared-SID masters.
 
-Deriving 32k from a PLL seems odd, although not impossible. My board has a 
-fixed 32k osc, and it is the parents of most of the timers. Did you try to turn 
-off the PLL and see if the 32k clock stops / changes rate? Since your usb uses 
-the 32k clock for something suspend related I suspect it is *not* fed by a 
-PLL. PLLs need quite a bit of power, keeping a high frequency oscillator plus 
-a PLL running to produce 32KHz seems wasteful to me.
+[1] https://lore.kernel.org/linux-iommu/DU0PR04MB94172CB3F138AD39E9B6DEEF887F9@DU0PR04MB9417.eurprd04.prod.outlook.com/
 
-Figuring out PLL parents is a bit tricky. I did most of this work from the 
-early bootloader (which is run by a separate Cortex M0 core) and can be 
-configured to run on the 26 MHz osc directly. Then I could disable the PLLs and 
-see which devices still work.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (5):
+      iommu/arm-smmu-v3: Allocate streams individually
+      iommu/arm-smmu-v3: Delay stream allocation to inside the mutex
+      iommu/arm-smmu-v3: Support shared SIDs in insert/remove_master
+      iommu/arm-smmu-v3: Group aliasing devices into the same IOMMU group
+      iommu/arm-smmu-v3: Wire up shared-SID STE ordering and feature gating
 
-My board also has 4 GPIO pins that can output a clock signal. By connecting 
-both GPIO and the clock, and setting the PLL to a low rate (500-1000 KHz), I 
-could poll the GPIO state and count low/high transitions to see which rate was 
-produced.
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |   4 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |   3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 254 ++++++++++++++-------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |   5 +-
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c     |   2 +-
+ 5 files changed, 185 insertions(+), 83 deletions(-)
+---
+base-commit: 581e50f62f59cba2e33c72ca119d3c3f797aec9d
+change-id: 20260916-smmu-shared-sid-e488f6c4d4f0
 
-> +	m200 = clk_hw_register_fixed_rate(NULL, "clk_200m", NULL, 0,
-> +					  200000000);
-> +	if (IS_ERR(m200))
-> +		goto err;
-> +	m20 = clk_hw_register_fixed_factor_parent_hw(NULL, "clk_20m", m200, 
-0,
-> +						     1, 10);
-> +	if (IS_ERR(m20))
-> +		goto err;
-
-I suspect these are children of your 1 GHz PLL.
-
-> +	en = base + TOP_CLK_EN;
-> +	hws[ZX279128S_TOP_LSP0_100M] = zx_top_gate(en, "lsp0_100m", 
-lsp_100m,
-> +						   13, 0);
-> +	hws[ZX279128S_TOP_LSP0_32K] = zx_top_gate(en, "lsp0_32k", audio_32k,
-> +						  12, 0);
-> +	hws[ZX279128S_TOP_LSP0_PCLK] = zx_top_gate(en, "lsp0_pclk", pclk, 
-11, 0);
-
-I suspect the board has a few more distribution nodes like this. Try to 
-identify them: Even if they are all enabled by default, understanding them 
-will give you answers about clock dependencies.
-
-This TOP_CLK_EN declaration has gaps at bits 3 and 10. This may be legitimate, 
-but please test if the bits are always 0 and add a comment.
-
-> +	if (of_clk_add_hw_provider(np, of_clk_hw_onecell_get, data))
-> +		goto err;
-> +
-> +	if (zx_top_reset_init(np, base))
-> +		pr_err("%pOF: failed to register the resets\n", np);
-> +	return;
-> +
-> +err:
-> +	/* Without its timer and bus clocks the system won't boot anyway */
-> +	pr_err("%pOF: failed to register the clocks\n", np);
-
-I am missing quite a few clocks here: My board has ~15 or so proprietary 
-timers and watchdogs, a DMA controller, i2c, i2s, multiple SPIs. The ZTE 
-kernel may not control them directly and rely on the boot loader to enable 
-them, or it may have outsourced control to them to a proprietary blob (e.g. 
-whatever is driving your hardware packet processing).
-
-> +struct zx_lsp_periph {
-> +	const char *name;
-> +	unsigned int reg;
-> +	int wclk;			/* index of the work clock, or -1 */
-> +	int pclk;			/* index of the register clock */
-> +	const char *parents[2];		/* the mux inputs, or one 
-parent */
-> +	u8 div_width;			/* 0: no divider */
-> +};
-
-Based on your
-
->+#define LSP_WCLK_SEL_SHIFT     9
->+#define LSP_WCLK_DIV_SHIFT     11
-
-I'd expect 4 possible parents at least for some peripherals.
-
-> +struct zx_lsp_data {
-> +	const struct zx_lsp_periph *periphs;
-> +	unsigned int num_periphs;
-> +	unsigned int num_clks;
-> +	bool aclk;			/* the group has an AXI clock */
-> +};
-
-I suspect somewhere in these 32 bits you'll have one or two reset controls 
-too. Look if there are set bits outside of the known pclk, wclk, mux and div 
-bits. On my LSP controls it is bits 8 and 9. Bit 8 would be a good guess on 
-yours, since the mux bits start at 9.
-
-Personally I like the kind of combined description structure. Philip Zabel 
-(Reset maintainer) was not too happy about it. My regmap clocks don't have 
-infrastructure to handle such a combined registration, but one way or another 
-we can add it. In the end I just gave up on it though and listed muxes, divs 
-and gates separately.
-
-> +	if (p->parents[1]) {
-...
-> +	} else if (p->div_width) {
-...
-> +	}
-
-Are mux and div mutually exclusive? On my hardware they aren't - the timers 
-and watchdogs on the LSP bus have both.
-
-> +static const struct zx_lsp_periph zx_lsp0_periphs[] = {
-> +	{ "uart0", 0x10, ZX279128S_LSP0_UART0_WCLK, 
-ZX279128S_LSP0_UART0_PCLK,
-> +	  { "wclk25m", "wclk100m" } },
-> +	{ "uart1", 0x14, ZX279128S_LSP0_UART1_WCLK, 
-ZX279128S_LSP0_UART1_PCLK,
-> +	  { "wclk25m", "wclk100m" } },
-> +	{ "spi", 0x18, ZX279128S_LSP0_SPI_WCLK, ZX279128S_LSP0_SPI_PCLK,
-> +	  { "wclk100m" }, 6 },
-> +	{ "gpio", 0x1c, -1, ZX279128S_LSP0_GPIO_PCLK },
-> +};
-
-I suspect offsets 0x4, 0x8 and 0xc have clocks that may not be mentioned in 
-ZTE's code. You can see if it has non-zero bits on boot and if you can modify 
-the registers.
-
-On my LSP bus the devices are on 0x1000 aligned offsets (0x0 is the CRM itself, 
-0x1000 the first timer with clock controls at 0x4, 0x2000 is a watchdog with 
-clocks at 0x8, ...). Considering that your uart0 sits at 0x4000 and has clock 
-controls at 0x10, it is likely the same.
-
-Furthermore every device has an ID register at device offset 0 that helps to 
-identify the devices. My clk-zx297520v3.c has IDs for my devices. Yours may or 
-may not be the same.
-
---nextPartUy8Z56qoQNSy5dW6rm_Cdw
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrLbrUbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoi4VUQAIVIonilpwgJxduH/m+1
-MD9TIMkoGsk4a8HmKSE//2hrIqDR0h87+YjZGdSjt6lf73pzwTrZZq99hwMFqG6e
-pabbzUS128ODjUG9BHENEN56XEGwIjDHzlubPmnbylt2PBAEd69AIFHKyRq2ALhs
-5KF+/zk+Eq9iAEP6Jpf4Dkq+EajnGchDFxi51QRXYbSXHjL/CiIhpyaOS+E/eNWR
-AFB+QLnU3BAKw0KxG5es6Uw0apiyq4qlfhENHBR8VZTyhx3TslKZP1E8xWZYzYTS
-kNvWhDzBQcvoEgjNkpq9wqW7oYXn3ZUlm5xfIvBwZpREXncaycMd/qdMaFhIy3Pj
-ZXYa66U/GjobFYQOt6NydYee3bZJYvQHb77EL1ICcCBPDFIRyd6lGaTxNbfV3Cp0
-/aLI1QF1iKl2VL0HKG+3olg7r1lWizxDhlZ8xuNhj4ke4SqNTsFQ4K/kXG8ChmpM
-2CEo8oapQLUf0t+VgTPI5v0N78APVctELoHHDElE/PTG791Qy3Xju31OPqkMSGoQ
-pmlpO4kgSZkIW0FOve+Mypn89WEJ96RUu7JxGB2L81qRW4R1gNNpmb1TsMxfzUR9
-dlaWpLR4rNF+49ia5Ra53kDmVN/IKkZhRt+HGWN9nxD+mjPfjlyAwromD2IC8Ahr
-IIMR/QGIUmcynQ1UqmBq2uzi
-=b5Gl
------END PGP SIGNATURE-----
-
---nextPartUy8Z56qoQNSy5dW6rm_Cdw--
-
-
+Best regards,
+--  
+Peng Fan <peng.fan@nxp.com>
 
 
