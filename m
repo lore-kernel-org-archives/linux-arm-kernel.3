@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D7ECA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 18:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD927CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 18:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ID1sQJD4+D4jhlXt0RHQpqbhFzYCgLIo6hNPonIZ6dM=; b=lq5sQoQ31Q95vfODbvO/zKG4HQ
-	yyxGhpSOIyfsFdkkqc3EliqXat9Vnv+BIHB8nvR0+hK+q/KZyPredXMnVOlNFF0C6yy9UnsJq2gU7
-	XrhdnCHLixlAwUtFC16P1bAt/OuRQ246CrDKu8C8qwEaIePc3CN8UlRVgXZgiVCDINybhd7Gf9Wt8
-	78JDs4pe8Dcs/EEb6/UmkH2GB5Iz3fslcuaINocaGmHDKui8CbU1HvmAoQ3Cfc35Df1eEvlWFyCqw
-	lWfKJhT0iXS0IQiRlQ2QWkYPMqib7zBw+QaHC1SvqW7ltcGh/kgcolXrync0jqjxBCydSR6J8nKq2
-	RxMO2daA==;
+	bh=0KIupU1PlUnI74kbeA9rKFTjXf0bMD2fNsbxeKLKsfA=; b=MnAs3HGaJ4fDtdFfTb7OrN20sN
+	pKlMIe6tP+cNqtdFbaTL3MK+3714O4D2I91/nR6iGxNCUQzAEhdbhpamimRpz/NtyXQXrkpoMNZBI
+	d9S91UT0bGnxvd8Alx/CjroxsH4HbAzy6vxR9exWcfjjweQrJlsFpN4vHkOM8dFiIC/4ctEhyLnj0
+	TeZDasbpbFmmIfLHi6Bc9PlgwWp6SQgS5Snh7yMqelrj0Ks5l7Uj+26DD+i8xYUEVNgz4fVMFq40T
+	dR2IMlvw8I1EYxRjv4SJ3nKFIHjlnOO34TrUP/LZUoxzk2C1FpTJz+08a13+bJUKwjFcNT4FGXpu1
+	4fKXweCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFyal-00000009JVr-1vb5;
-	Sun, 11 Oct 2026 18:48:15 +0000
-Received: from mail.nozomi.space ([139.162.184.125])
+	id 1xFydi-00000009JqS-0YJD;
+	Sun, 11 Oct 2026 18:51:18 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFyab-00000009JLw-2UyO;
-	Sun, 11 Oct 2026 18:48:06 +0000
-From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791744484;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ID1sQJD4+D4jhlXt0RHQpqbhFzYCgLIo6hNPonIZ6dM=;
-	b=dKGI9ydS5mp+0q5X9IKWjLwk/JOmAWNqFNcPcxoDC96rrWEVF1zfL+rsQeaiXT9H9aW/AN
-	XP7qXpUgBr2n/Z6v6ZMYmrSNAXlRpk+tQrseGGySazUPvf+8sd7cfBHxoP3MxDA7pDfFY4
-	5A3+Csl1BWtEe7yttwwvDWPQySBTgMmHxnEVxHMKRiVyXh+3EoWJZGIijvft526+D+zi4J
-	gVoFloxxOGGTIf/FRFJXmeehVigwnzPktsID8ucp/fXAYG0MtlZ9gY2xzncrru0bZ8XtR8
-	F0TTaxFbh8QXF6i0K48iAxeLgVHSjtAP/B9NXTdbGMyuztKNIcEJN4wd9y2f/Q==
-To: ulfh@kernel.org,
-	angelogioacchino.delregno@collabora.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH v2 4/4] arm64: dts: mediatek: mt8188: Use access-controllers in the power controller
-Date: Sun, 11 Oct 2026 20:47:55 +0200
-Message-ID: <20261011184755.2058017-5-michal@nozomi.space>
-In-Reply-To: <20261011184755.2058017-1-michal@nozomi.space>
-References: <20261011184755.2058017-1-michal@nozomi.space>
+	id 1xFydf-00000009Jph-0SQO
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 Oct 2026 18:51:16 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-6de2f213b7aso479706eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 11:51:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791744674; cv=none;
+        d=google.com; s=arc-20260327;
+        b=A8LNKkDfw5POd1HGSAf7KIDh4889Of1hr7lbH+HkmCeCcuY9ULLB8lsQT+d0qfjcRP
+         HrTbmFAj/6Wjr/7IXiaLfYiKSWdcSQ7ve9zpX5wNx26sgL8LFgBDI9MPlk+lMdJfw+R2
+         /b/zPrjd3QHiUB1Ybh2vbUSzKumziKpzjMpVEHNV4dZGYBHULXO8SltufnZF9NSXrdgB
+         sozs1bbtXokvRNn/RI8Ve81GcioxxgyOriez28dGd5txvBP/bQwFTDg50kq5zhT+UuQt
+         KVrWH1nDFxA+AJ0tgqIt606TSZNj2qn5WYNRQZB2BT2lwWjCIwsW74BmiApL37vOI65Z
+         zTTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0KIupU1PlUnI74kbeA9rKFTjXf0bMD2fNsbxeKLKsfA=;
+        fh=yGtBuq4aAM/Sqix+FH5jaEoSxo9Fx109ATGQXAn9PaE=;
+        b=FrJqfDEJdOvahjkcBH0DPdiXE2JwA+1pyOVcgZ7He23fe0tsRdku7K77xJIgYcykdy
+         BWTLR5SAYth7QlahnYxYumL+fwqQw91lA3eVWYSjz2TGgDFrTnudtj4eshPiRm7Gcd6w
+         BrKQNYDYF+xpghvK2+CzFoGMCfnT2bpY/IwmnLclEYrpUWd7qQ6qMaefAykzPpNwv/Tc
+         ehdqRkgst7QtRa9ITXXh0gLIZqGnagv8lek94n+luJqJy196bkFu22kf+2Wg037Gx39S
+         /E0SytDee29BVadBqxCj7blMYUQXOxmunWP8I9wS8gLHlkZPmApCQolgyW4xlrTe0Uu7
+         EHWA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791744673; x=1792349473; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0KIupU1PlUnI74kbeA9rKFTjXf0bMD2fNsbxeKLKsfA=;
+        b=a7XkSvdAXLwvhpizlk39f7MIPy4TSoDtAoJPpYvXSQXiQNp4JCainv1HlduWnN/Hy0
+         xCsPzAMtsnk9nn1sK9r+aXfKMi2zgoz2TGl4R8e/4MAuGOjgJ7uwNhUWfV/zxTlARqaf
+         mPLsfHmUHvkcxa5oDTcaDn+7QPaLAdY4kgqh1zZs3qEcXb9/TTD0nsT1RSUgoiFWOHpH
+         1M681I3u4sZT5nL17PiODTtHMRSpfLK51e3rI3233yWj8/pYPtLUuT1N6Q5adTLbXS5t
+         Tij/IzcT5bASmaKZalWizwm7IG2Pi0JkI1yDSL8TEuxM1DecNg1Zkx21ODi0RPbEK7jX
+         x3yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791744673; x=1792349473;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0KIupU1PlUnI74kbeA9rKFTjXf0bMD2fNsbxeKLKsfA=;
+        b=UaolaZkSX9+fH2NYC/LlQqilYIn2S86TKGGkm3CUEG2sE1J7rH0ulgjNXpFuHF50tI
+         wvQ/IVDhvmxNkFFE6r44HwmO3cNfVwarSen6AZqrYhdnQt7svWF4DFxlHt7ETJtpmECC
+         evvVZRHB6R2M2bLoVRszqOf5Ahgnx8cF6lS6N8VBALZB6k0F/sgLm7bnpsbtPqj0ATq0
+         Vbnr4W6oVwzmYtFg37O/TaAorvB/eLtp00qdYB5VxmdL3PCxjvtJzVoGhyUAKPt+40ji
+         ArXcnQ1J9EDkk23kLwrLjGcVFNuFW9AckLDrEqDCJj2iKJ2J2vCYTgfkpx/6KBP/fxEv
+         Dd5Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwU+CMe54jRwMXJPGxYhmHqViP24CT1Q6nHFjW/dRSqkrP1kYEQR64Bb/lU7bOnpLz7g07DACUkxt1K4QrAsjHX@lists.infradead.org
+X-Gm-Message-State: AFq9FYIlCjounA9caWpyFufTbZsJUwoF8hRASfd4+9ERFTA84bzu/aBg
+	CGWqp1U1WcuX+AEvrpr+nK+mked+boKA9+kny61nAa72kR89omDJklrXHpaG2LCgd6skGTY1rLv
+	aN8MfOo08NIZnUJH4pHlRABXjBiU0ywU=
+X-Gm-Gg: AYBFou2jiC9wdwoZUtX+ig4HYH47iXyjd4v5g/RTfWslYsLw1xhjh96vyaohnfq3z5Y
+	xf9q5ppphCcsyvtzHt5pv6cp2mDYgRTeOlC+vZ5lNW4DKIKoLZeQ0hn6EBevkWxRW/Mh9gGtIzJ
+	cfsgc4PKM8SqGYz/Pei62LXE2cqXGBjOW8Z1T1yb4NM86Go3+pZkvBfKdpN3Yh1Sp4HuqmnZlB4
+	raCTS22HtTVxodQdrZvbxw7RZgQ0aEklYsPMDwJ+rriEo3dKv2M7vQZv966hgIysO5zuN2nW8BW
+	ukPO99bxUPZPZyM+hIf5ssga4zent6k5/HQtUYMJ3MhW67hyVnWbcns=
+X-Received: by 2002:a05:6870:e311:b0:47d:a12f:3951 with SMTP id
+ 586e51a60fabf-4a2a89f425bmr6103374fac.39.1791744673650; Sun, 11 Oct 2026
+ 11:51:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260907-6572-gce-v2-0-412a5b037290@protonmail.com>
+ <20260907-6572-gce-v2-2-412a5b037290@protonmail.com> <39494ea2-7fb5-4414-8560-47ddd40260cf@collabora.com>
+In-Reply-To: <39494ea2-7fb5-4414-8560-47ddd40260cf@collabora.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 11 Oct 2026 13:51:01 -0500
+X-Gm-Features: AclHuK96ynSq9uLesTtRAZnhZ7wj24Xtpvp969Wwe99Ul08jW1tzra27V2b0o08
+Message-ID: <CABb+yY3oEfZrx+=igTVUOSGB1+J-pa6=k=+DGOxWozJnK_sJgQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] soc: mediatek: cmdq-helper: add legacy GCE ISA support
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: rva333@protonmail.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Houlong Wei <houlong.wei@mediatek.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_114805_924801_67C962D0 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261011_115115_164197_0C7972E6 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,190 +121,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-List the blocks that the power controller accesses in access-controllers
-instead of the deprecated per-domain mediatek,infracfg phandles, and add
-MFGCFG, which the power controller needs to enable the GPU timestamp
-counter whenever it powers MFG1 on.
+On Wed, Sep 9, 2026 at 4:57=E2=80=AFAM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> On 9/7/26 20:03, Roman Vivchar via B4 Relay wrote:
+> > From: Roman Vivchar <rva333@protonmail.com>
+> >
+> > Some SoCs, such as mt6572, have different WRITE and POLL instruction
+> > encoding. Instead of 16-bit offset and 8-bit subsystem ID, old GCEs hav=
+e
+> > 22-bit offset and 2-bit subsystem ID.
+> >
+> > Extend cmdq_instruction struct with additional union and struct to hold
+> > the legacy format of instruction encoding. Add legacy_isa to select
+> > legacy GCE ISA when writing instruction. Finally, add special handing
+> > for legacy_isa cases.
+> >
+> > Also correct comment about PA writes, because it's incorrect for legacy
+> > ISA. Only v2 (mt8167, 8173) and v3 (mt8168, 6768, 6779, 6785, etc) have
+> > GPRs and SPRs for PA writes.
+> >
+> > While mt6572 GCE supports 22-bit offsets, the parameter type for offset
+> > remains 16 bit, because all mt6572 GCE mmsys consumers are in the 0xfff=
+f
+> > range.
+> >
+> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+>
+> Verified in the lab on multiple MediaTek boards.
+>
+> ... but I either need an ack on patch 3/3 from mailbox maintainers, or th=
+ey need
+> an ack from me on this patch to pick everything.
+>
+> I'm fine with anyone picking this, so...
+>
+> Acked-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora=
+.com>
+>
+I realize the patch order is messed up - it should have been 1-3-2
+instead. So maybe for this time...
 
-Signed-off-by: Michał Kopeć <michal@nozomi.space>
----
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 22 +---------------------
- 1 file changed, 1 insertion(+), 21 deletions(-)
+Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 14a320f0c70cb..cf0da77c5fd29 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -1000,6 +1000,7 @@ scpsys: syscon@10006000 {
- 			/* System Power Manager */
- 			spm: power-controller {
- 				compatible = "mediatek,mt8188-power-controller";
-+				access-controllers = <&infracfg_ao>, <&mfgcfg>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 				#power-domain-cells = <1>;
-@@ -1016,7 +1017,6 @@ mfg1: power-domain@MT8188_POWER_DOMAIN_MFG1 {
- 						clocks = <&apmixedsys CLK_APMIXED_MFGPLL>,
- 							 <&topckgen CLK_TOP_MFG_CORE_TMP>;
- 						clock-names = "mfg", "alt";
--						mediatek,infracfg = <&infracfg_ao>;
- 						#address-cells = <1>;
- 						#size-cells = <0>;
- 						#power-domain-cells = <1>;
-@@ -1077,7 +1077,6 @@ power-domain@MT8188_POWER_DOMAIN_VPPSYS0 {
- 						      "ss-emi", "ss-subcmn-rdr", "ss-rsi",
- 						      "ss-cmn-l4", "ss-vdec1", "ss-wpe",
- 						      "ss-cvdo-ve1";
--					mediatek,infracfg = <&infracfg_ao>;
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					#power-domain-cells = <1>;
-@@ -1096,7 +1095,6 @@ power-domain@MT8188_POWER_DOMAIN_VDOSYS0 {
- 						clock-names = "cfgck", "cfgxo", "ss-gals",
- 							      "ss-cmn", "ss-emi", "ss-iommu",
- 							      "ss-larb", "ss-rsi", "ss-bus";
--						mediatek,infracfg = <&infracfg_ao>;
- 						#address-cells = <1>;
- 						#size-cells = <0>;
- 						#power-domain-cells = <1>;
-@@ -1112,7 +1110,6 @@ power-domain@MT8188_POWER_DOMAIN_VPPSYS1 {
- 							clock-names = "cfgck", "cfgxo",
- 								      "ss-vpp1-g5", "ss-vpp1-g6",
- 								      "ss-vpp1-l5", "ss-vpp1-l6";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 
-@@ -1120,7 +1117,6 @@ power-domain@MT8188_POWER_DOMAIN_VDEC0 {
- 							reg = <MT8188_POWER_DOMAIN_VDEC0>;
- 							clocks = <&vdecsys_soc CLK_VDEC1_SOC_LARB1>;
- 							clock-names = "ss-vdec1-soc-l1";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#address-cells = <1>;
- 							#size-cells = <0>;
- 							#power-domain-cells = <1>;
-@@ -1129,7 +1125,6 @@ power-domain@MT8188_POWER_DOMAIN_VDEC1 {
- 								reg = <MT8188_POWER_DOMAIN_VDEC1>;
- 								clocks = <&vdecsys CLK_VDEC2_LARB1>;
- 								clock-names = "ss-vdec2-l1";
--								mediatek,infracfg = <&infracfg_ao>;
- 								#power-domain-cells = <0>;
- 							};
- 						};
-@@ -1141,7 +1136,6 @@ cam_vcore: power-domain@MT8188_POWER_DOMAIN_CAM_VCORE {
- 								 <&topckgen CLK_TOP_CCU_AHB>,
- 								 <&topckgen CLK_TOP_CFGREG_CLOCK_ISP_AXI_GALS>;
- 							clock-names = "cam", "ccu", "bus", "cfgck";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#address-cells = <1>;
- 							#size-cells = <0>;
- 							#power-domain-cells = <1>;
-@@ -1156,7 +1150,6 @@ power-domain@MT8188_POWER_DOMAIN_CAM_MAIN {
- 								clock-names= "ss-cam-l13", "ss-cam-l14",
- 									     "ss-cam-mm0", "ss-cam-mm1",
- 									     "ss-camsys";
--								mediatek,infracfg = <&infracfg_ao>;
- 								#address-cells = <1>;
- 								#size-cells = <0>;
- 								#power-domain-cells = <1>;
-@@ -1194,7 +1187,6 @@ power-domain@MT8188_POWER_DOMAIN_VDOSYS1 {
- 								 <&vdosys1 CLK_VDO1_GALS>;
- 							clock-names = "cfgck", "cfgxo", "ss-larb2",
- 								      "ss-larb3", "ss-gals";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#address-cells = <1>;
- 							#size-cells = <0>;
- 							#power-domain-cells = <1>;
-@@ -1204,19 +1196,16 @@ power-domain@MT8188_POWER_DOMAIN_HDMI_TX {
- 								clocks = <&topckgen CLK_TOP_HDMI_APB>,
- 									 <&topckgen CLK_TOP_HDCP_24M>;
- 								clock-names = "bus", "hdcp";
--								mediatek,infracfg = <&infracfg_ao>;
- 								#power-domain-cells = <0>;
- 							};
- 
- 							power-domain@MT8188_POWER_DOMAIN_DP_TX {
- 								reg = <MT8188_POWER_DOMAIN_DP_TX>;
--								mediatek,infracfg = <&infracfg_ao>;
- 								#power-domain-cells = <0>;
- 							};
- 
- 							power-domain@MT8188_POWER_DOMAIN_EDP_TX {
- 								reg = <MT8188_POWER_DOMAIN_EDP_TX>;
--								mediatek,infracfg = <&infracfg_ao>;
- 								#power-domain-cells = <0>;
- 							};
- 						};
-@@ -1229,7 +1218,6 @@ power-domain@MT8188_POWER_DOMAIN_VENC {
- 								 <&vencsys CLK_VENC1_GALS_SRAM>;
- 							clock-names = "ss-ve1-larb", "ss-ve1-core",
- 								      "ss-ve1-gals", "ss-ve1-sram";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 
-@@ -1238,7 +1226,6 @@ power-domain@MT8188_POWER_DOMAIN_WPE {
- 							clocks = <&wpesys CLK_WPE_TOP_SMI_LARB7>,
- 								 <&wpesys CLK_WPE_TOP_SMI_LARB7_PCLK_EN>;
- 							clock-names = "ss-wpe-l7", "ss-wpe-l7pce";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 					};
-@@ -1246,7 +1233,6 @@ power-domain@MT8188_POWER_DOMAIN_WPE {
- 
- 				power-domain@MT8188_POWER_DOMAIN_PEXTP_MAC_P0 {
- 					reg = <MT8188_POWER_DOMAIN_PEXTP_MAC_P0>;
--					mediatek,infracfg = <&infracfg_ao>;
- 					clocks = <&pericfg_ao CLK_PERI_AO_PCIE_P0_FMEM>;
- 					clock-names = "ss-pextp-fmem";
- 					#power-domain-cells = <0>;
-@@ -1270,14 +1256,12 @@ power-domain@MT8188_POWER_DOMAIN_ADSP_AO {
- 					clocks = <&topckgen CLK_TOP_AUDIO_LOCAL_BUS>,
- 						 <&topckgen CLK_TOP_ADSP>;
- 					clock-names = "bus", "main";
--					mediatek,infracfg = <&infracfg_ao>;
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					#power-domain-cells = <1>;
- 
- 					power-domain@MT8188_POWER_DOMAIN_ADSP_INFRA {
- 						reg = <MT8188_POWER_DOMAIN_ADSP_INFRA>;
--						mediatek,infracfg = <&infracfg_ao>;
- 						#address-cells = <1>;
- 						#size-cells = <0>;
- 						#power-domain-cells = <1>;
-@@ -1286,7 +1270,6 @@ power-domain@MT8188_POWER_DOMAIN_AUDIO_ASRC {
- 							reg = <MT8188_POWER_DOMAIN_AUDIO_ASRC>;
- 							clocks = <&topckgen CLK_TOP_ASM_H>;
- 							clock-names = "asm";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 
-@@ -1296,13 +1279,11 @@ power-domain@MT8188_POWER_DOMAIN_AUDIO {
- 								 <&topckgen CLK_TOP_AUD_INTBUS>,
- 								 <&adsp_audio26m CLK_AUDIODSP_AUDIO26M>;
- 							clock-names = "a1sys", "intbus", "adspck";
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 
- 						power-domain@MT8188_POWER_DOMAIN_ADSP {
- 							reg = <MT8188_POWER_DOMAIN_ADSP>;
--							mediatek,infracfg = <&infracfg_ao>;
- 							#power-domain-cells = <0>;
- 						};
- 					};
-@@ -1312,7 +1293,6 @@ power-domain@MT8188_POWER_DOMAIN_ETHER {
- 					reg = <MT8188_POWER_DOMAIN_ETHER>;
- 					clocks = <&pericfg_ao CLK_PERI_AO_ETHERNET_MAC>;
- 					clock-names = "ethermac";
--					mediatek,infracfg = <&infracfg_ao>;
- 					#power-domain-cells = <0>;
- 				};
- 			};
--- 
-2.56.0
-
+Thanks
+Jassi
 
