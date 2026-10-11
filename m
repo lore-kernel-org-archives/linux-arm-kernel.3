@@ -4,89 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E6ECA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 09:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E28CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 09:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z49FbKKlAmO+vgO/oO+bk2H9QeNxjgWLv5uy8+cQqVU=; b=X6PuFRvn6CYJvR2pCmhU+u6bQ5
-	MQ57+hz6rZa/lrwUvXY12q/lUjlgcOKB27+bG09q8rU9j/5SkUpmlny9MOI444AXtWlXtPXj5hv4M
-	D9UMjo1iYe1FF/iQEZECo2kQQL4VecbLPd3rpjGVeIkcK2v1TvJeYMPx97jK9IqcocmCz5pTz94JX
-	Ck5JbBNTs4Pk7ehfmw7pMcPhDG9dzR5kLe+pERv5LlkLSeLjk1Aei4iuQNyiVOtHCza9huCrouoMc
-	4Z1ROAFy3M/TewvlvU0BNFwlxrWCERCPy0EeFkUM73N2mAZymW1EZeMT1hLvhaFy9DGJfpm7p63if
-	vVoglGfw==;
+	bh=/VVMoAWI2wQB7xMlbDH0BELRynTsFTBPzhlEHRM8Ns4=; b=th9kHoQvNfh0pD8EQvmKKYro8R
+	9wrP5CTwH2rPNgL0sDmS6N1UyIn/kzQ0y5LdUvPPwlSj1povPwDt8Zek34QtwpnZi598T6BcN7iob
+	zR5Wrxbe6oHmV3qbajg/g1NyAHlYRb5shfKVO2J2+Y6PFl66LDeodLKgk6f47gW56ulQCqc+N3/df
+	jaDp84MgMvGRH26v6RNLLL7T1Owl5YV4NO8FF7g5qBlhGyZpmffK6824n5o096XtSXTtpiWGPVr9X
+	IvG+4RlgpGt1knGuISNxIqHji/9+zli1LE8jwu3Ggl0YOVWtW5bs65KbSqYEOhEAvNv400TaelU6+
+	ikYUOHmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFpcn-00000008su9-1FOA;
-	Sun, 11 Oct 2026 09:13:45 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xFpqY-00000008tKG-1nCn;
+	Sun, 11 Oct 2026 09:27:58 +0000
+Received: from mail-francecentralazhn150130003.outbound.protection.outlook.com ([2a01:111:f403:da0a::3] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFpcl-00000008stg-10Uo
+	id 1xFpqU-00000008tJk-3rCQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 09:13:44 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a02753c04fso4820285e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 02:13:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791710021; x=1792314821; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z49FbKKlAmO+vgO/oO+bk2H9QeNxjgWLv5uy8+cQqVU=;
-        b=ee2etMr2j3M10IQX7k4IbC0M4Yew80yb5jyy1/DFgyO10YWzRsBbN96JuqHJLcfNd8
-         Fx0f97whmqA5bqdgrhckGmfhmynF78HfMs5Sc6w5oCKLyrluOmkaUt5cONhLAUljB9Cm
-         cMUtHK5foklZ0FBz8bxayN18cLYCSVCiQU+3Cijx0XdDQffPbUlJ1oU0xVIlKUPWePA/
-         o1qROoiKPhW1B5WIBXbelLjdBk9FHIi6QfN8JAiWCpb+HtDO6Y+7B4ap6q6Z8/OcfXXL
-         kh0G/N+nemx/Qz4BVi0AnAweFNfvnFu9ktoSdfGmv/B1uOaX5YV5hV0u3c3/8+Sxnp1M
-         5m9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791710021; x=1792314821;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Z49FbKKlAmO+vgO/oO+bk2H9QeNxjgWLv5uy8+cQqVU=;
-        b=mFSNKINzhgBLwVrEtD4eujch1tMoTD0xKtJm6qMl44m78sGpeEZhkUBHgFfy8vnT16
-         mjwembbmaglyK7v8rdu24K18ium/t68fFDL08pOK79BmGnMkjNMSI5bmqcp9xpO2gXJF
-         KTy5IT/BGyp9sy9FO/PmyECfIRKHrN/g4co8Au4aOnPxZj1VZtl6ufpnFdMxMh1X5Pud
-         wDtCXLjhI8xHVEQozmJwWAPB5X1thUmuyQwUyuw0hatgA+Ny1OsIrYKUkds7WNxLZhLU
-         MaX8WCBbwtcs78d142ayBV45ltc7OFGMJ9gzYtRUeRhzERCIIsr90YXGJsqOe6OreT+Q
-         ogiA==
-X-Gm-Message-State: AFq9FYIQHHTB/tDrFjX3hpZ9NgKLcxJfsAei0WQOyxsph6j0UbCFz9Sw
-	z52ox9MApyJ65O7CpApZk4CsnzxhO0iLziVqfTWhe+Y3CGO/PcsXDO8C/SnIdnl4
-X-Gm-Gg: AYBFou3NcuU+B5ujtxJoKcOUGW2TLtVitV3AwvbXT9L/TH2zh5K4T3WXJGVkB7CkmKE
-	SJKvpYSqP9h15FWlfLeFYMGBdPljjp9+gBggeyXg/CxRFEdcZrZnma8Ew8DsgwNMmWd1rlyrxyg
-	MurO4AGcmhSjBDuNKHg+jc1AbMTIU9shC14bXnbRZgZ0HCK30ZT+OQ21Ezakiu4YW7stvrKv7Oz
-	h5bwUw35w8EHSMhnDc+4d/v+/Zh1VHmUKyy/MRMOWdAYXTLEcQdTnNVDnhRE8PxQHvkH9shKVGa
-	dTyL1FMcjQxNLpYBa0ZJvjVw2rd6G/3tIBGaDcR0Wkz5DujyEf7gRzdGURZwK1x1tlut0PvJFsQ
-	Cn4BlV8q9+zQ0eJGpUXDJUaZ+pZcwGKilwXUdXcYUiCxJ3Lqgahl7WAsJcYMIBTpqve5RpXYAZY
-	7mDwp9LYpxHlmWRx6qwRG1BxXF5L2AovZduEO/1w2REFqhQwTzYZHwkPSu5c1zpvJsSxOlrc0nX
-	WwQnJHnnbjR82vwmKRLmwY+a/KCG2yCzSdK+6UGcSxCs3yYN/EbuMM4Ig==
-X-Received: by 2002:a05:600c:46c5:b0:4a1:78c5:79f5 with SMTP id 5b1f17b1804b1-4a18e4d6b28mr120874255e9.33.1791710020945;
-        Sun, 11 Oct 2026 02:13:40 -0700 (PDT)
-Received: from silicon.doe.home (178.165.167.132.wireless.dyn.drei.com. [178.165.167.132])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18e4225f4sm254023425e9.0.2026.10.11.02.13.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 02:13:39 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
- linux@armlinux.org.uk, robh@kernel.org, krzk@kernel.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: Re: [PATCH 06/24] dt-bindings: clock: Add ZTE ZX279128S CRM clocks and resets
-Date: Sun, 11 Oct 2026 11:13:37 +0200
-Message-ID: <7axmtiEnS5SDBrUzy6e6jw@gmail.com>
-In-Reply-To: <20261010130024.177503-7-ghahramani.navid@gmail.com>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-7-ghahramani.navid@gmail.com>
+	Sun, 11 Oct 2026 09:27:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YTEyQLy+uRs7ZNvv64B52hbAEzS5f2kurbApPVyxic1+hv0K21dp/TLD7zcyML4vQHS5tu/sWgFAXHl2enpt+6MpS17kxBN0ZMUX8iaGT/IsdrD0Be8YeT+q96fMpIWFIMeJtOhL/2JEdghRswM+wf5ueXr4YI3ZuER5IRLoPT51wxkUnBbMWpq3OfCOPy2yq6fnNfpulxqs39+H8Pebfo0mFWvi0tWVdsgmP0ae55MaZbybjrpUoKb1oW4DsMhHucmYzx9w2sDHAhl7TAYGpaaT+v18KLgRSZqdd6EEZi15N/gwKdNcLWM1zgv4n8Eu1UFCIeu9xmqFEzBqg7bJQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/VVMoAWI2wQB7xMlbDH0BELRynTsFTBPzhlEHRM8Ns4=;
+ b=Iqa+DHIRhX5AMLlJM/tx3lmt1uiZaAsZerlZKCQvHn9jo6FW/qsQ7CQa+/SXyBBhD2v27eEuH7TQ+vtUIfcQoPZiq1cxNzNAWk9+RB3GLLDpu78H/39X07l0+xQC5bkeINckSQcn1K+H96WJ/+9MCtYr3TdoP/NRICPVoXDL2QlqU4lfVLdl/zcovBUgwlV8+G59xmDDPCrJLbAb60YoA4qBJt6GiqSAinkF8aNqtO3qs1drgbGvXJXFE9BI7AmOH62tQmsn72KgcNdl2y2VfsVHtjnreflAXSx/H0uvBJqPA05DNaYmbPHn15OCeMwy1TVW6hAYXL+d5w2+pycyeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=163.com smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/VVMoAWI2wQB7xMlbDH0BELRynTsFTBPzhlEHRM8Ns4=;
+ b=D9rwkP4n13W5PsKb9xothQLQEKjKZwp0qKkGeF/9ForIwqo3Ox8FpFBaP4VbeLvE8cclPfglu1D1zDN+UVDVPnZ1nlv/aH21O8euvUJEZeP8NR++2oTXEUjaSokT7T2eQ4U9F26N2W7ko3aCvVpCbu2p43GDhtAN2q38+GmfPPRMBYQVSTnPhY7HzAT32lnBMvRdHnmXesSP2eP9hA+jZWzGMb8JkkG08qL66NHFtpmpA6WEDBKR11ZAhGl9F2EVsr9ygyoBpz/rPxC8NPLyDtSbBeuWqxZCBj+uqnlv6Md2G+udnlv4issC20TXA2rtqLrn8gEKUzYE6xRAhy3STA==
+Received: from ZR0P278CA0031.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:1c::18)
+ by GV1PR10MB8606.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1ce::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.20; Sun, 11 Oct
+ 2026 09:27:45 +0000
+Received: from MI3PEPF00008482.eurprd02.prod.outlook.com
+ (2603:10a6:910:1c:cafe::11) by ZR0P278CA0031.outlook.office365.com
+ (2603:10a6:910:1c::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Sun, 11
+ Oct 2026 09:27:45 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MI3PEPF00008482.mail.protection.outlook.com (10.167.240.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Sun, 11 Oct 2026 09:27:45 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 11 Oct
+ 2026 11:27:57 +0200
+Received: from [192.168.8.15] (10.252.15.225) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 11 Oct
+ 2026 11:27:43 +0200
+Message-ID: <1026b843380f4bcd6180f798b2f4f9c8a31c0c86.camel@foss.st.com>
+Subject: Re: [PATCH] pinctrl: stm32: Fix fwnode reference leak in
+ stm32_gpiolib_register_bank()
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Ma Ke <make_ruc2021@163.com>, <linusw@kernel.org>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<andriy.shevchenko@linux.intel.com>, <fabien.dessenne@foss.st.com>
+CC: <linux-gpio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<akpm@linux-foundation.org>, <stable@vger.kernel.org>
+Date: Sun, 11 Oct 2026 11:27:40 +0200
+In-Reply-To: <20261011061722.3159941-1-make_ruc2021@163.com>
+References: <20261011061722.3159941-1-make_ruc2021@163.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartjpLtN9HcTiyHU1_e0KJPjQ";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-Originating-IP: [10.252.15.225]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PEPF00008482:EE_|GV1PR10MB8606:EE_
+X-MS-Office365-Filtering-Correlation-Id: 984a2158-cd38-4866-8bf6-08df2779e83b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|7416014|34020700016|18002099003|22082099003|10067099003|261009223027099003|11063799006|56012099006|12100799066;
+X-Microsoft-Antispam-Message-Info: U7Js78k86F4GvISpx5d3Q5Zl5LnsxPoSWzs832OexkIy4oO3ZNArVcD4aBj0VH8S1NZjzmoGTbjbt8CZ78nM4sIjdrW3KTqRMkG+OxnlSRe+RZlRkQW9K0awOxc3fsfoGbAj6PtYd/biCwGhSEHwFdETuQpbJMmS0Qmtj7SLRFOksVW35MzZqt9JoS7QrUm+PBJnUl2K8EeYCUyNmGN//obMOJuI/xQxCktZqQbb3thth8CH+qD89pfTKno32exNVvlcAGxdcStkGdXLmXyHU0s7dHcYfHlX5jP5TJ5OTECq3QmU/T+Gn28RbDXJP4JgNwAa8JLn0KUI/EuDIE+kEbRBA93b3xu9ugNwvREH8rpdzOy/WUKsLM/EtxP8KeczOg7x6mKQ1TYkS6Q1ZtP4H54DgAtKd5L5ttuuWwm9X1gddREeAndg7J7yzyTX/TMGCXg4wyaO1NgVVJ1+teq2mCEfnazQG7WlsGcM7wBFmzfko11X3IM+kFOVq3SnbyAVWP8Y8ioVziRW107MB/p1mBW6tY4S4lH6YV2kCDnTsPPericzY1Ev9O+SQte5rKJ7dyZ+UkDgFES+d+QTk4q3OKY70wcDFHmybacXenfRkbmpt39pIAJJXExeJeNPp65VJsKaRkxeMNmhY0nhgCTJnv20bLjsdW/tQ+wB6ys77mnEV/XB/xvajnF6QOgwHlNphkTlNulHwRWVSbgcNjeZbg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(7416014)(34020700016)(18002099003)(22082099003)(10067099003)(261009223027099003)(11063799006)(56012099006)(12100799066);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CiyDXOF4wfqvSZXHbyBAMsExCr3AuqkfNYA0D+NowldPaUR9lxQVsoM3f705h7+UHt5T187u3opCyjZRVKgJfdZgoH5ha3C3HkuxNlAjEJmAq3MsfWa/7XGTm89PtX9EEwS/bvhD711mFORoZ8A5l+xX5hgDzHwrzucQpeURXEl31FJxQKg7hELtdbBt06k3luWgWt6EDkJlmwHsWHbR+dyq5iqLnvGZ7QVFlqbcu04Fhh5hQRG5o3NDQJjaGEqHdV4Q7mSUlZnyizRsRmD7eGuOVlDau9Pt07bHfUsdUbP126u4qp797I6f+RbAgR0vryxjamg+vwx/cvZtnnaeyWb9HNbIbOEA+r8h0B4DOW2xYwr3aePycoVs512UtLYCImhOL92Z7x/yeFovbF3o1hjun/U9aaqJMQUTxocWBE3L4HZiMvyH4J4SJhQmTUBO
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2026 09:27:45.0313
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 984a2158-cd38-4866-8bf6-08df2779e83b
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008482.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB8606
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_021343_323550_5C211D39 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20261011_022755_304874_4B56A293 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,188 +129,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartjpLtN9HcTiyHU1_e0KJPjQ
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Sun, 11 Oct 2026 11:13:37 +0200
-Message-ID: <7axmtiEnS5SDBrUzy6e6jw@gmail.com>
-In-Reply-To: <20261010130024.177503-7-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
-
-Hi Navid,
-
-I don't have enough knowledge about about PCIe and the A9 l2cache to commen=
-t=20
-on the previous patches. For the clock ones I have a few points of hardware=
-=20
-investigation and the actual implementation.
-
-Am Samstag, 10. Oktober 2026, 14:59:44 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb=20
-Navid Ghahremani:
-
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: zte,zx279128s-topcrm
-> +          - const: syscon
-> +      - enum:
-> +          - zte,zx279128s-lsp0crpm
-> +          - zte,zx279128s-lsp1crpm
-
-The advice I got for my zx297520v3 bindings was to write a separate binding=
-=20
-for the clock controllers rather than try to write a one-size-fits-all one.=
- So=20
-you'd have a zte,zx279128s-topcrm.yaml that has compatible zte,zx279128s-
-topcrm, syscon and a separate lspcrpm.yaml (or maybe even one lsp0crpm and =
-one=20
-lsp1crpm) that take the other compatible
-
-> +  reg:
-> +    maxItems: 1
+On Sun, 2026-10-11 at 14:17 +0800, Ma Ke wrote:
+> stm32_gpiolib_register_bank() walks the "gpio-ranges" property with
+> fwnode_property_get_reference_args().=C2=A0 As documented in
+> drivers/base/property.c:
+>=20
+> =C2=A0* The caller is responsible for calling fwnode_handle_put() on the
+> =C2=A0* returned @args->fwnode pointer.
+>=20
+> The returned reference is never put.=C2=A0 The function calls the helper
+> twice, once directly and then repeatedly in a while loop, and each
+> call overwrites args, so only the last reference is even reachable
+> and all the earlier ones are leaked for good.
+>=20
+> Put the reference as soon as args.args[] has been consumed, both for
+> the initial call and for every iteration of the loop.
+>=20
+> Found by code review.
+>=20
+> Cc: stable@vger.kernel.org
+> Fixes: bb949ed9b16b ("pinctrl: stm32: Switch to use for_each_gpiochip_nod=
+e() helper")
+> Signed-off-by: Ma Ke <make_ruc2021@163.com>
+> ---
+> =C2=A0drivers/pinctrl/stm32/pinctrl-stm32.c | 6 +++++-
+> =C2=A01 file changed, 5 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm3=
+2/pinctrl-stm32.c
+> index 6a99708a5a23..93127da05d56 100644
+> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
+> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> @@ -1666,8 +1666,12 @@ static int stm32_gpiolib_register_bank(struct stm3=
+2_pinctrl *pctl, struct fwnode
+> =C2=A0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0/* get the last defined gpio line (offset + nb of p=
+ins) */
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0npins =3D args.args[0] + args.args[2];
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0while (!fwnode_property_get_reference_args(fwnode, "gpio-=
+ranges", NULL, 3, ++i, &args))
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0fwnode_handle_put(args.fwnode);
 > +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 5
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0while (!fwnode_property_get_reference_args(fwnode, "gpio-=
+ranges", NULL, 3, ++i, &args)) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0npi=
+ns =3D max(npins, (int)(args.args[0] + args.args[2]));
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0fwnode_ha=
+ndle_put(args.fwnode);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0}
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0} else {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0bank_nr =3D pctl->nbanks;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0bank->gpio_chip.base =3D bank_nr * STM32_GPIO_PINS_=
+PER_BANK;
 
-If you split the bindings the clocks becomes a fixed list in each, simplify=
-ing=20
-the if-then-that rules you have later.
-=20
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - '#clock-cells'
+Reviewed-by: Antonio Borneo <antonio.borneo@foss.st.com>
 
-Your topcrm should have the reboot node as a child. syscon-reboot's "regmap=
-"=20
-property is deprecated and shouldn't be used for new bindings.
-
-This will either mean adding the simple-mfd compatible to auto-probe the=20
-reboot child or writing a MFD driver that does that. Since you also have cl=
-ock=20
-and reset functionality in there the MFD approach seems best, and it is wha=
-t I=20
-ended up doing for my CRM controllers.
-
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: zte,zx279128s-lsp0crpm
-> +    then:
-> +      properties:
-> +        '#reset-cells': false
-
-Are you sure there are no resets in lsp0crpm? Given what I know from my zx2=
-9=20
-board, it is likely that there *are* resets, but the ZTE kernel doesn't bot=
-her=20
-asserting/deasserting them and they come deasserted by the time U-Boot take=
-s=20
-over. (So either they are deasserted after powerup or the boot rom deassert=
-s=20
-them.
-
-The way I discovered the rest controls on my board: I set all the registers=
- in=20
-the LSP controller to 0 via a hack in arch/arm/kernel/head.S and looked at=
-=20
-what broke. It turned out that there are some bits that need to be set to 1=
-=20
-for the device to work that aren't mentioned at all in ZTE's code dump.
-
-The follow-up check was to see what the impact of those bits was: Setting a=
-=20
-pclk gate to 0 usually causes the mmio registers to read 0, 0xff, garbage o=
-r=20
-just hang (busybox's devmem is your friend). A reset bit, when asserted (se=
-t=20
-to 0) does the same. The difference is that when you re-enable a clock, the=
-=20
-registers retain their old contents, whereas after deasserting a reset, the=
-=20
-device lost previous state.
-
-Since most devices have 2 reset bits YMMV. One of them might not do anythin=
-g=20
-at all. Or one resets bus access properties while the other resets working=
-=20
-state.
-
-> +++ b/include/dt-bindings/clock/zte,zx279128s-crm.h
-> @@ -0,0 +1,55 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLOCK_ZTE_ZX279128S_CRM_H
-> +#define _DT_BINDINGS_CLOCK_ZTE_ZX279128S_CRM_H
-=2E..
-> + * Top CRM resets: (register offset / 4) * 32 + bit. The USB 3.0 control=
-ler
-> + * has four in register 0x4c; what each one resets isn't known.
-> + */
-> +#define ZX279128S_TOP_RST_USB_B9	617
-> +#define ZX279128S_TOP_RST_USB_B10	618
-> +#define ZX279128S_TOP_RST_USB_B11	619
-> +#define ZX279128S_TOP_RST_USB_B14	622
-
-Please put the resets in their own reset header.
-
-Using hardware locations (offset, bits) for the binding values is discourag=
-ed=20
-as far as I understand it. I saw a comment by Krzk on a different binding p=
-atch=20
-stating that. I'll try to find it.
-
-It is better to give them logical values (0, 1, 2, ...) and have the reset=
-=20
-driver map them to the actual hardware location. This also helps if you fin=
-d=20
-out that you got a reset bit wrong. Since the bindings are considered ABI,=
-=20
-changing them later is tricky - you don't want to have to do it because you=
-=20
-identified a reset incorrectly.
-
-Cheers,
-Stefan
---nextPartjpLtN9HcTiyHU1_e0KJPjQ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrLU0EbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoiy9UQAILnMit2k2tNCuGxm+W4
-RPJOXzI39DY/XBG02vuhvovf71wMXUwUmxhHJYYYlBbmQVuLfGDENx4mr991TWQ7
-uTmRIYSdQVZzHcFCbfhiyWxMmtHlt9k5TlHPvgyehjVwv94Y4WCabFGtIdu2bJ0P
-JOPn5EGwcFeeFgWl/MYCUzlkRtUGyoeXruJOc1cz6wQJFTHaMe77lgYcS/PKSWKi
-ewmmUSVV0fuq5+CBDbp+iIR1qKUIPg6V/bnOlB4LUDmIO6h+46WGgJayrCgSgmGP
-dKUH6l1rzLqhlGM9U9eLZ+gloSuRf9HGprGYoKkyrVVP9VQaUPR5369YGhsyioG0
-2FPhT41fRKqyxqPxlRX7VBhviVGKd2SgXy0A6hRbjlSrHJ//ol54tCe+BXiyeYhx
-piewX87U3IskZTfWaQpVoAKxtAao45UbbX1F2E98MApWqH9TSf9SYoK6ogKf4F1t
-u+cCbJVb0tP9IrWe7cnBHpO3FU8H7zvT8ngwDYFCgteyipMvg+gasyTdVa+5uNBF
-mdL7rF5pVtgNaEn3vvuuWiT+6Kk/JkTvgrDqF2b8wqH3uXh+WukBA5v/a2qmAtwZ
-dD3bpeoZu7+ukku5lxfKs3vzcgC5f5h7ogYxkSkASTwoptZzoJZMDWPrLc+43778
-9pYjseVNU4hoNEcRHMNh8cX9
-=zJ1i
------END PGP SIGNATURE-----
-
---nextPartjpLtN9HcTiyHU1_e0KJPjQ--
-
-
-
+Thanks!
+Antonio
 
