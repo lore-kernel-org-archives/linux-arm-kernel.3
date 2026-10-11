@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA1CCA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 17:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F53CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 18:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzmVtLet0CPDY0i2hk3TyhwOoH8TonI37WPrZMgrp8E=; b=UqJGtyeTty7zVZx79xtv0CMj9q
-	MsbWbjZIB6N9ofCvZMtxOs9eGC0CQoLLQhVbEPsjHdF+3zvV2UYDOnapkWxAuWcXo3HoDFXUDMV+N
-	/revqgAyWrAgienlXQRexGqnD/v8W0qfflIi/30dK/CW2RC/2DZ7bqfyvGy+a7LlmtL7C0N5EuD+5
-	AuLggalof0CnKgd8nAIVbYdwUH8aa5H+b7+7ngnGpni5GVt4WunJnWrVtXxFZgt6MWNaGExmtYe7S
-	Q5qWdEKZgzsqsE9qmg1I/EFvavURm8HX5oyvhkzvObZVlSgeDU8N9BXUeztMaKmguKWDnqArDMMe1
-	XVrPdy2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LVgYSY2UxISntRQ+WN3hTQeIMTkiy9umGiKAb6XsNSQ=; b=serxS20cyckDDsLbSeugu87ig8
+	3h+TYxR+89P/YgkOIXOL43Wu9XjIn8kWkbE/EWcWZet3qBvS1aXK7etDb4Ma7851xTIfg8Hmj6n9r
+	l13gvJeVC6FOMJ4sDvcbucEH1OaPFyEtBVuFw285CTM9+WyyeZYIv+oCKvJFPht3WBTd31MF4k5sQ
+	uDDbYiTwEiMsa7x+QuO3SVHCgUtQz/2Iq1aXihSPA25NqCoDh9Pp7ecNdRj2n4AvqtMyS0TD4uTcs
+	PC39mMDZQTx+FQRZRNbsmEwLtcI3BEQx0nJgpdTEy81hPIh72bS4Qrt7iTPFfur0L14BjS/zNn5aw
+	G8lRA6CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFxAs-00000009FGG-0CQw;
-	Sun, 11 Oct 2026 17:17:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xFy6O-00000009HAk-291K;
+	Sun, 11 Oct 2026 18:16:52 +0000
+Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFxAq-00000009FFW-2RkQ;
-	Sun, 11 Oct 2026 17:17:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40387601F1;
-	Sun, 11 Oct 2026 17:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DD499C2BCFC;
-	Sun, 11 Oct 2026 17:17:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791739041;
-	bh=tHAjot59ik/pFMnrkyzLDoiJ7i/INHlUfN0wlrZOdMQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=o5eNqf12eZyJrfqNirHklANgxmOlovEDUCP+Y7DZ26W3eV8vb8n56We1lyPGDfxdz
-	 w0XYWQCWkfa8MgGwx3MYLlB3OE3z/Xl+ZmtFgArtg9efSIB63WlypsqRcygEVsBACe
-	 dafMNRue5T2VMpDO/apGsakpEQbqCFQU1VI0PvU43dc07hx9L+wUVemdXLxtsDuCPe
-	 1WXEWaPPJXrOuo0MBQze/agUf4TGFp37TJyhiNlytVgqKtFjxiQ3kM3LsRksXPIXIQ
-	 vsljKtsvBRhHh0os2R3o4nQ+5fyi98hXyNIADoQjWOp8aSB2n1PkeVEQRH00iCaMYz
-	 5SLdN15EH8fVg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BDE3FCA9EC7;
-	Sun, 11 Oct 2026 17:17:21 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Sun, 11 Oct 2026 20:17:21 +0300
-Subject: [PATCH 1/2] arm64: dts: meson-gxbb-odroidc2: read the Ethernet MAC
- address from eFuse
+	id 1xFy6L-00000009H9P-2HyD;
+	Sun, 11 Oct 2026 18:16:51 +0000
+From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
+	s=mail; t=1791742596;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=LVgYSY2UxISntRQ+WN3hTQeIMTkiy9umGiKAb6XsNSQ=;
+	b=0She3xN/8VN2Z7OQ3s5cWgL0l6SaoRYFz+y0rmQPZiYwZcdJg85cw7ZH7EI6arBvRkgIA3
+	62qtNpCKgNfh9sceDizfxQhay7jtljTEeFt7JunR9UW7cZ+TOGgsM5CaWLkLnI711nZO88
+	RyvkRvcmEVIXYdM2hzKCpb3JfaGAqWBTJWjlRUAH7t2Mvb3QjVhADTS2+17vmrdxNvzoxm
+	DEXnofsyla/KP9WLFF0XDFaDdoC5YxMC0l1Z7DVfiz5/V9cHGGwnZtxKPgVhyz/FEaQptv
+	mQwRGZJ2Ht8v3waIqLUWM7vDrXj/Adqnex/UAZfIz9LtDkjvnF0MX/gFqqgRJg==
+To: linux-input@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jikos@kernel.org,
+	bentiss@kernel.org,
+	dmitry.torokhov@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	allencl_lin@hotmail.com,
+	tylor_yang@himax.corp-partner.google.com,
+	felix@kaechele.ca,
+	dianders@chromium.org,
+	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
+Subject: [PATCH v6 0/3] HID: Add support for the Himax HX83102J touchscreen
+Date: Sun, 11 Oct 2026 20:16:30 +0200
+Message-ID: <20261011181633.1778969-1-michal@nozomi.space>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261011-odroidc2-dts-v1-1-f9f0e779af88@gmail.com>
-References: <20261011-odroidc2-dts-v1-0-f9f0e779af88@gmail.com>
-In-Reply-To: <20261011-odroidc2-dts-v1-0-f9f0e779af88@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791739040; l=1170;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=R7e0aTjiNftlxIP1/5F0ydA79ruy5B9DDk0CJljLEms=;
- b=iPE8SJB5MzWCe9Yh8R9RdzmL5sAZ4DtJAaiPDPSw+ODkKm1rsEkElCljy4/M8OICurkyL48Fm
- OSJvRcEW4l5Ax8wYS0r2P5Q738SAIGM+GStXrz5erHBuJ8mpjN1BnAv
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261011_111649_757273_04211B83 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +76,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+This series adds support for the touch function of the Himax HX83102J,
+a touch and display driver integrated (TDDI) controller that reports HID
+packets over SPI. It is used in the MediaTek MT8188 based Lenovo
+Chromebook Duet ("Ciri").
 
-The vendor programs a unique factory MAC address into the SoC eFuse at
-offset 0x34, which is exactly the eth_mac nvmem cell that meson-gx.dtsi
-already describes.  Reference the cell from the Ethernet controller so
-the kernel picks up the factory address itself instead of depending on
-the bootloader to populate local-mac-address, or falling back to a
-random one when it does not.
+As Krzysztof suggested, I have taken over the series and rewritten the
+driver along the lines of hid-goodix-spi instead of cleaning up the
+vendor code. Allen Lin and Tylor Yang are credited with Co-developed-by,
+since the protocol, the firmware loading sequence and the heatmap
+handling come from their code.
 
-Verified on an ODROID-C2 booted with a mainline U-Boot that does not
-set ethaddr: the interface comes up with the factory MAC address.
+On Ciri the controller has no flash, so the firmware is loaded from a
+file (himax_i2chid_1002.bin or himax_i2chid_1003.bin, depending on the
+panel, the names ChromeOS uses). These files are not in linux-firmware.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 3 +++
- 1 file changed, 3 insertions(+)
+Tested on Ciri (sku0, BOE panel): touch, stylus, display off and on,
+suspend/resume and reloading the module.
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-index 5943bc810..639b97ad5 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-@@ -230,6 +230,9 @@ &ethmac {
- 	phy-handle = <&eth_phy0>;
- 	phy-mode = "rgmii";
- 
-+	nvmem-cells = <&eth_mac>;
-+	nvmem-cell-names = "mac-address";
-+
- 	amlogic,tx-delay-ns = <2>;
- 
- 	mdio {
+The firmware report descriptor declares feature report 68 (usage
+0xff0000c5), which the driver does not serve, so hid-multitouch logs
+"failed to fetch feature 68" once per probe. Touch works regardless.
 
+Changes in v6:
+- Take over the series and use Allen's full name (Krzysztof).
+- dt-bindings: describe how reset-gpios differs from
+  display-reset-gpios (Krzysztof).
+- dt-bindings: use unevaluatedProperties and drop the properties that
+  only repeated the referenced schemas.
+- Squash the four driver patches and rewrite the driver: a standard
+  module_spi_driver() with devm resources, no kerneldoc for standard
+  functions, no __func__ in messages, no probe message, no CONFIG_OF
+  conditionals or .owner, dev_err_probe() in probe (Krzysztof).
+- Rename the driver to hid-himax-spi (CONFIG_HID_HIMAX_SPI), like
+  hid-goodix-spi.
+- Power the touch function up from a work item when the panel has been
+  prepared, so loading the firmware doesn't delay the panel, and drop
+  the unexplained 2 s and 1 s delays of the vendor code.
+- Request and validate the firmware once and keep it, so resume doesn't
+  need the file system. Check every offset and size taken from the
+  image.
+- Keep the HID device across power cycles instead of recreating it.
+- Request the interrupt in probe, disabled until the HID device exists,
+  and take its trigger from the device tree.
+- Retry a failed power up when the panel is prepared again, and pass
+  -EPROBE_DEFER from the panel lookup through.
+- Size the heatmap buffers for an odd number of nodes, and use
+  hid_safe_input_report().
+- Use crc32c() instead of an open-coded CRC-32C.
+- Only reset the IC when reading the event stack fails, not when the
+  HID core rejects a report.
+
+v5: https://lore.kernel.org/all/20261003142741.48634-1-michal@nozomi.space/
+v4: https://lore.kernel.org/all/TY0PR06MB56110754EB9D827BE3304A259E0F2@TY0PR06MB5611.apcprd06.prod.outlook.com/
+
+
+
+
+Michał Kopeć (3):
+  dt-bindings: input: Add Himax HX83102J touchscreen
+  HID: Add Himax HX83102J SPI touchscreen driver
+  arm64: dts: mediatek: mt8188-geralt-ciri: Add the touchscreen
+
+ .../input/touchscreen/himax,hx83102j.yaml     |   98 ++
+ MAINTAINERS                                   |    7 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |    4 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |    4 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |    4 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |    4 +
+ .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |   33 +
+ drivers/hid/Kconfig                           |   13 +
+ drivers/hid/Makefile                          |    1 +
+ drivers/hid/hid-himax-spi.c                   | 1300 +++++++++++++++++
+ 10 files changed, 1468 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/himax,hx83102j.yaml
+ create mode 100644 drivers/hid/hid-himax-spi.c
+
+
+base-commit: fd179f8a05be3ccae366b9b96e176b51fbe54aab
 -- 
-2.53.0
-
+2.56.0
 
 
