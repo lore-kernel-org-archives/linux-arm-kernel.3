@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85F7CA9EBD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41AACA9ED0
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 18:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9TDMOuCORdDz/rW4tH87DC+y7wSf+XVxBuEz3/UlgI=; b=wjCchhXnFnJyudVCjcpWubW7fi
-	ROhI2FBYJFdm25jn/1Ji1WbkmEO1da/4p0vDj60bHhZ4ZzroRR1LCgJprTixkaI60UXkHMDtOYQOK
-	HFqFRImDG12k8PffH+CYoAZaJb6Cg/+si5B3LX3UBbp6qLTkwkg06we2cpeztjyB4J60sY7sOCnC5
-	GJlXvmtAN1kwWUQkE/Ga+n+khIz4IT+fVV0MTj3msFgx8ntTLSkRkwV2Q9UNo0ELiBDIWoKliAA9q
-	Zt3qEtltNomvIokQ0rnZnCdd/YOVlpaFYs7us8iBRwKgDNd0pP6s7Gu36qTc6/avQnN/I6UKshBnn
-	xS6VP4fw==;
+	bh=u009rK8NBkfDo1e7Yz5QlxEzEoGCc9HxaXbQXCuXZqs=; b=gvo3MtyRiYC8c2dMwgo4xiVCAB
+	I8LyIe0kcnwr5V5VZylp7Num2QQm1vDcsDRSPWafRwT7EqQ1FCb33hxgSzFQ6NydbaKzqVo/ETmGG
+	H4LyiPaVhNVCmtCSi/RNiRR3xObJsBWtnLptvJB7BfH14GRjZJ4i4Tk2o+ap+6NWmgXel/PssaOpx
+	q0gdFb9mr0+fh/bC245b2ENhj57ghbi71YRWfpNaKv2OeXbYyT4rV6fff1LNkulFH5edWvPtrjjmv
+	1Rfk82PPstLx+1K8X+/c+v/VqRUDc3llhS6pJxAUXFfp9zr2lIYJqarCoQQfuZQVdgOvHlZPNL4o4
+	44j/HuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFyac-00000009JNC-2r5u;
-	Sun, 11 Oct 2026 18:48:06 +0000
+	id 1xFyad-00000009JO5-0S3e;
+	Sun, 11 Oct 2026 18:48:07 +0000
 Received: from mail.nozomi.space ([139.162.184.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFyaY-00000009JKi-0cfL;
-	Sun, 11 Oct 2026 18:48:03 +0000
+	id 1xFyaa-00000009JLM-0atB;
+	Sun, 11 Oct 2026 18:48:05 +0000
 From: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nozomi.space;
-	s=mail; t=1791744480;
+	s=mail; t=1791744482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=A9TDMOuCORdDz/rW4tH87DC+y7wSf+XVxBuEz3/UlgI=;
-	b=YI5GJFe0WDeMYMyXwMbiD7mLRwAiVcZSPhz+ohu37TL7yz/1To3MiQf4NyLKrxeHJ/XhwV
-	coztSffJmDjlXgdJDA+Tcz3a+0nyh5WVW6ruCJXsay5Qp0wA+KUD7w/WG5iE6nNiRoYpA0
-	AVxVAZ+3DmjaGTKFCb4IA7Ud4W/tlSdnCXdbGhoiyJMjdJ0cfgQVE50CarcBhVcSi+UOyD
-	M/wBcUyG/Z7l7FnKLxcB54sTCDuzbUNhxm23hfLl8pW3AtwqZw3b03/fHkW0UHRtfVDF7M
-	hqli1S5Y2Z19iM7jl+ho2GCb5kgroWfdRA9J21fLsABLUe+RzR3OrwxMYgFJAA==
+	bh=u009rK8NBkfDo1e7Yz5QlxEzEoGCc9HxaXbQXCuXZqs=;
+	b=NL3Lv06R2LADRYVeayP35rIkdbbC1D51GheIAHVayAoaf1logy/9PFsdeq7V9yl9tPaXg9
+	U9dp1YBiX4eKdkZhiQJc4CGj93yL4s2C/Wu1NzHkaqN27ovWcjSC1myyVUilWAEkLj/9qw
+	J5DJlBjFItleFfQppkvsht5Si95azAIAAyOIQFv6nHYaxpfArWwZUBi/QUImTfUMTjhdu6
+	N6tIlGRdmqKOwSRUw90NPzouIVR7vIQ0T110/hvDQyjwJIH07fjD8Uf9tWCZDqx4aYGK6e
+	jzxGBVMyohQp6rR3O2PPZKkB4bDNPwmr2iHg1DcM636aitVeT0XmEm1QtiHKzQ==
 To: ulfh@kernel.org,
 	angelogioacchino.delregno@collabora.com
 Cc: robh@kernel.org,
@@ -51,17 +51,17 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal@nozomi.space>
-Subject: [PATCH v2 1/4] dt-bindings: power: mediatek: Add the MT8188 access controllers
-Date: Sun, 11 Oct 2026 20:47:52 +0200
-Message-ID: <20261011184755.2058017-2-michal@nozomi.space>
+Subject: [PATCH v2 3/4] pmdomain: mediatek: mt8188: Enable the GPU timestamp counter
+Date: Sun, 11 Oct 2026 20:47:54 +0200
+Message-ID: <20261011184755.2058017-4-michal@nozomi.space>
 In-Reply-To: <20261011184755.2058017-1-michal@nozomi.space>
 References: <20261011184755.2058017-1-michal@nozomi.space>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_114802_328999_4EC40665 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20261011_114804_346098_0132CE78 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MT8188 the GPU timestamp counter only counts once a register in the
-MFGCFG block feeds it the SoC system timer. MFGCFG loses that setting
-whenever the MFG1 power domain is turned off, so the power controller
-has to restore it after powering the domain on, and needs access to
-MFGCFG for that.
+The GPU timestamp counter only counts once the TOP_TSVALUEB enable bits
+in MFGCFG feed it the SoC system timer, and MFGCFG loses them whenever
+the MFG1 power domain is turned off. Without them GPU_TIMESTAMP reads
+zero, so timestamp queries in userspace drivers and the timestamps
+written by GPU jobs are always zero.
 
-Describe the blocks that the MT8188 power controller accesses,
-INFRACFG_AO for bus protection and MFGCFG, and extend the description
-of access-controllers to cover blocks with settings to restore.
+Add MFGCFG as the second MT8188 access controller and set the bits every
+time MFG1 has been powered on.
 
 Signed-off-by: Michał Kopeć <michal@nozomi.space>
 ---
- .../power/mediatek,power-controller.yaml         | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ drivers/pmdomain/mediatek/mt8188-pm-domains.h | 16 +++++++++++++++-
+ drivers/pmdomain/mediatek/mtk-pm-domains.h    |  1 +
+ 2 files changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-index d03e4a9251635..8d96cde7c1a51 100644
---- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-+++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-@@ -54,7 +54,8 @@ properties:
-     description:
-       A number of phandles to external blocks to set and clear the required
-       bits to enable or disable bus protection, necessary to avoid any bus
--      faults while enabling or disabling a power domain.
-+      faults while enabling or disabling a power domain, or to restore
-+      settings that a block loses when its power domain is turned off.
-       For example, this may hold phandles to INFRACFG and SMI.
-     minItems: 1
-     maxItems: 6
-@@ -188,6 +189,19 @@ allOf:
-           minItems: 2
-           maxItems: 2
+diff --git a/drivers/pmdomain/mediatek/mt8188-pm-domains.h b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
+index 3a989e83e9b79..88035cc6a808b 100644
+--- a/drivers/pmdomain/mediatek/mt8188-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
+@@ -14,8 +14,21 @@
+  * MT8188 power domain support
+  */
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - mediatek,mt8188-power-controller
-+    then:
-+      properties:
-+        access-controllers:
-+          items:
-+            - description: handle to INFRACFG_AO register block
-+            - description: handle to MFGCFG register block
++#define MT8188_MFG_TIMESTAMP			0x130
++#define MT8188_MFG_TIMESTAMP_EN			GENMASK(1, 0)
 +
-   - if:
-       properties:
-         compatible:
+ static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8188[] = {
+-	BUS_PROT_BLOCK_INFRA
++	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_MFGCFG
++};
++
++/*
++ * The GPU timestamp counter only counts once MFGCFG feeds it the SoC system
++ * timer, which MFGCFG forgets whenever MFG1 is powered off.
++ */
++static const struct scpsys_reg_init mt8188_mfg_timestamp = {
++	.block = BUS_PROT_BLOCK_MFGCFG,
++	.ofs = MT8188_MFG_TIMESTAMP,
++	.val = MT8188_MFG_TIMESTAMP_EN,
+ };
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
+@@ -70,6 +83,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
+ 				    MT8188_TOP_AXI_PROT_EN_SUB_INFRA_VDNR_STA),
+ 		},
+ 		.caps = MTK_SCPD_KEEP_DEFAULT_OFF | MTK_SCPD_DOMAIN_SUPPLY,
++		.reg_init = &mt8188_mfg_timestamp,
+ 	},
+ 	[MT8188_POWER_DOMAIN_MFG2] = {
+ 		.name = "mfg2",
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
+index 4c2c56addb3cc..191d5cfb60fe7 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
+@@ -71,6 +71,7 @@ enum scpsys_bus_prot_block {
+ 	BUS_PROT_BLOCK_CAM_SUB0,
+ 	BUS_PROT_BLOCK_IPE_SUB0,
+ 	BUS_PROT_BLOCK_VLP,
++	BUS_PROT_BLOCK_MFGCFG,
+ 	BUS_PROT_BLOCK_COUNT,
+ };
+ 
 -- 
 2.56.0
 
