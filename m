@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D19FCA9ECF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9349FCA9ED2
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 22:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXZ1UsR/jsdDknoGUcyYR4VW8gmQlVsH7nZcsEdE/Yo=; b=WyjJd+RSjxrDAzQWQDcCrdvJNo
-	pEMcFTbQX5w7DANAdN34MRTNTxuDdIb0UPB6NgByHx//1DfKj87HYTNwyBmkAntwH72R4O/v3+gZC
-	kmiULOz949p1Rah9uqo47PvenxpD3qpxn0jGMr8EHu6ObyNWLAb77gEwdeV3LQZat3YBG9SQFd3zo
-	FjpqzotIbRwNDuUtLl4Uif4mX3qagkeVhx92P0q3LqU3tCisnLwS0O1AJhJtdYv+ahs9nXZR7oDOL
-	xYXQrNlHarp3rnmbw9pbbqTl878BHfMVgm8j1p/J1tnCl2wqmTAa8DKOHgcRWxqH+INanZW6ppcGe
-	8TeAvCtg==;
+	bh=UKkUPTCtltFdZ9C+7fT/K+z9vZg2YGtaLvZ8HrFAoZs=; b=zCEPbEmlsBkJr/r7bE0HWDttsr
+	AER+Yk9hlLm5Ok8HYsU7wxvmVfpuVzPepI59+JLoisX7kmJ+ITEtwy2GJVnP/YWBej1k6DvPcRAor
+	JGzc3Daf9tuJy7tSby9pbehpUxpVdLoCA0Diy3hjJCkp1LSI05UMrxCPlqS832H0UIgWgfaJqwpLx
+	RBh4zjPNj/djTVC1JUpuOtJ+19181wCnWrp3IxqHP3jJfuiLikYmZrkwpZdhH3sieZ6iu7X1q0ys8
+	gv0+bnSo8UuCAWYKArl33AkSXPfE7w45J4tx2a6+xVZ/TVpZ7vpcCXHeOVCPnMsIiqY1f+RldOFN3
+	7/T6M1qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG1wU-00000009SI0-3F54;
-	Sun, 11 Oct 2026 22:22:54 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1xG1wP-00000009SDr-3eYh;
+	Sun, 11 Oct 2026 22:22:49 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG1wO-00000009SCK-1pHf
+	id 1xG1wK-00000009SAM-3JWV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 22:22:50 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-53582498790so17497281cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 15:22:48 -0700 (PDT)
+	Sun, 11 Oct 2026 22:22:46 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-91b55859245so26021326d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 15:22:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791757367; x=1792362167; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791757363; x=1792362163; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=OXZ1UsR/jsdDknoGUcyYR4VW8gmQlVsH7nZcsEdE/Yo=;
-        b=K61oPN8NSiVGjEepnUNDoNLtFPypfws/Nr62ERTZbZTcgetJ/iFK7xCHl4BdzTmou4
-         w0GqWjFSztkOhzI2FKk+/EqWnPZ7OQ5buaQHTFWOHMrxAyLROOtH/ovKKBODRMiqFom7
-         JYFxy6zURJyrqbnB7v3pypBlzUUFdiTXPKCjz8ah4HXpMtAAeJuQvbijmEddyP2soTzd
-         Tf+Sfp9GJMvfx2dx0IrzPuB/zUePIRxubBuStj6tGS0nDcawLMyQnnoJQhx2adBNOWye
-         0aelqJUQDnZdYQ1bSo8LBbUNaT9AQCKnPsd7zmaE5yjRa/zDod92m45+ghlEnO+uvV6X
-         Sd/w==
+        bh=UKkUPTCtltFdZ9C+7fT/K+z9vZg2YGtaLvZ8HrFAoZs=;
+        b=ANCelbEc4cyIsufr6+Xq3kft9/Rewa0u/76NDyvkseKPuMaI++5ktSLRB2sew2TUr/
+         AOh+K810F3GYtnEoXXiOACHG3gPFd/l/TASFcWx0611nUrUNNuNS3hGy3oTYNiWs3oYp
+         r+bRZz3k4X/Yr46WUSQuUv2KdvDUo4KBrTXeapFaYfb0d1qCxdIer2+sdUwA1NE9ke1Z
+         ANMsIa4vSxXdHQt0qf3nFD9+2uDz1xNpLMfv9zOvLHAIs930WesfByEDOQZgn5kItdvb
+         o8xbKyPg5gIpi9A2ErWtAyKFsDm4oFztjDWWzbzK0pFL3i5JInTxX/M/3BKg/I4SFT4T
+         dPoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791757367; x=1792362167;
+        d=1e100.net; s=20260707; t=1791757363; x=1792362163;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OXZ1UsR/jsdDknoGUcyYR4VW8gmQlVsH7nZcsEdE/Yo=;
-        b=rPMjvr7DFM21sGxAfDb0R7VSV2/yTjqrGbHOv/XvfmRtT5Ivlvvo8AHymnY8+Nj72K
-         HEZ1jgtQrqld15BJlOAGZCfQ3vrJZkamIek2bUMC4blt5+zFjRUPynCEZjcTmScUgeX/
-         GFHjkBLwUckBm1HSlOY+WJgrLS+D6huUEHkvzM9JSd4OkCB0bMG80RkNfdc9RT5/3Djt
-         qRWGdub9wAYFU4mP2OXCxBI7K14yRHsUL1TnSHcdD5qccgLDLzb9aE7MXDgvDOupMAsW
-         yv38bIcRE6wU2S1mXQ+5YRhjkbKxD4Yz6rQjWCZtxfz2z1GlDzw+1srIScLeZJIreX8m
-         vlzQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzc02rEBMgTL8n0GkN1ieERM0cIbCpy1BA7pmqT1IEUR4vZgyBSJl6WH++Np3oKxo1UchTS5D2l0guqO3AVRjAv@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFA2ih+G1osejqcjr1Paml2J7xr2TSElQ/agiRpZDHVzN+fxhH
-	45twO7r+SnOAco/X5gh0tSrc7672WUJaNykJZnG+eSS7pAl2h6ICwjA=
-X-Gm-Gg: AYBFou1TWesGcOYljRP7XuDM/LgKsJ3n3MP4vt5+9+La0M8K1f5JA74STo0GdOK/qUN
-	eDjDI8e6hjtaEk/riYu6aGBKhFYVI/egDljTudmrvSsK4ThJzN2i5XmA/doxl/Yq8wOREmX5Ocv
-	fAffw9TUMrgtr4RWHHKJMGbh/Mv78V5ShrXgcHsWLhaSTHq1ErgfYE34LnWHPi0L9y8HXxcl6X0
-	L2uy7WDU0kbx3QDcLtqgzcCa7GSCMvXhaI3p2LX+YKY1Ec+cljn/Yr3EB3eFV4CUknXsLCbqx+m
-	JpPdfAQ3h58vs86bFmSrGvkc5dvk6fFTEn4NjrtIncPceF2rV/HajmFuXNcGDRK4jsU6xNnCKix
-	JVxLPEGAzqHaoHYc3GlBSGuKuzwtfj0ZByRGVG/8LKQLv6XAooKz4dnYK+1UvTVIuryhWo7kYUW
-	0n9Iiq0Rsa4QHc1zjGrH2uQVA/FA8KyQHn8qfMS4Y+eudjNGK3rwlHpUxDpYhWwNbFyrgo/PJgJ
-	O+PGb8ULKU+cSn7LSzVwX7LbKSgsYGxdJFNyQLlWYsvQq9/r+wOs5XX8ihHeYyJ6n9eVlOz6nlN
-	7a1Ll/0Zg78XV5dcg0yEuklgDsr06c+TO5yZ5Vc=
-X-Received: by 2002:a05:622a:260b:b0:533:32f3:1db9 with SMTP id d75a77b69052e-5359f46f5ccmr130647001cf.11.1791757367164;
-        Sun, 11 Oct 2026 15:22:47 -0700 (PDT)
+        bh=UKkUPTCtltFdZ9C+7fT/K+z9vZg2YGtaLvZ8HrFAoZs=;
+        b=xoQiEHJAr0ouugPIhJr09Qsc3nksvFva384pfywEMzLBap7P+e6+uqFtMjhjcMQ1gh
+         4xts/lH6wtrBEl6VAtMaBvQrPhSDEc+O7OogEcorqPvlVPu6RCZid9bRnn3jPP6H+mYD
+         JSKnfLh1w05Z64VXcTIHdtum1jdo9EJUPPJnSMOw0a3GuNkWcOmlBvJlvQom+FM5Bh52
+         gbstF99vrxtYa/lu83PZLIZl1IefdjMjAXdpvKqE8Lh+RBfZWnDcupY7PEmDaNlbSTDC
+         EbcnKYD0ZByiAV938tHajIJ5Fib3cq/mPzvZkbKjYjj4eLOilESPrnyYs2Sfq8YEQNfm
+         4P8g==
+X-Forwarded-Encrypted: i=1; AKwUvBz2oxw6tS6NIHyUWr/lyKIkjbPJMb/WtsmVxKK21r2lyIkdQVu86CooTQPZr5vxFnKoR/ekOul2VeAMAbtttJI8@lists.infradead.org
+X-Gm-Message-State: AFq9FYK5FCcmdzk/5uFBJwvsR1fiMHxpwft5leHeDwsesh2QX0MwkXin
+	I6bBB34KvHU4BdIIkQW8I9tetsQVWn4OpQQm/2aYNlPQrNQd2r7VVlg=
+X-Gm-Gg: AYBFou2gtt516EnnlpRHf47dwwW1yFgkrO4KpHBxf1Q+Gs/IegecQugVySNIbLJg0pA
+	tqG01/g5Xqrw5RrSWW1Uu1T3ljLoMsHteq8JUmC/vJosmffy9THEsWSEoqGKw7w48DDqucRZo7z
+	fZzhc66vlcX0bAyo5Qp8oApYppAR4i+CbtTKzW1WUylDfBb72GUfLYUarrHSpu2hJfDn7Wl39o4
+	HzYPCO226AeOjIA0G/yGzyM4d3e89rOnKQmDiicHFz+sUXzMFW35J19T7135zfTDaBMyuUA4I9l
+	RGWlYq0lq0kmpZ3+ABSuJfTqMIfjTx41sFSHHZq2nG/fk6vRoq2o7yiVBx0Z1/rVTaBK/XYzKa6
+	TXaiRHeS4ekL4C9ylGSkjg5DmhbIO+1ofDeUme/cvsg+gjBgnM8GdtvD5UHJvooiZqi7eH81fo5
+	IEYM1yUYY1dpgOVNK2ZQ1D3NTZhXdcpfbeY0VmsqFEFUF7v4wARBXnrETkr9h3opUt9ww8QF2BB
+	otPHPVzgP7YnMGBq8AkMupK7RBz1z2pgbNE60t6WsW342Vz48BW1D44/dxOefQ/5t+O9E2zBq5f
+	U/AuTxUBZa0joBldNUJ//DexFo4+
+X-Received: by 2002:a05:622a:4d07:b0:535:8518:a4ae with SMTP id d75a77b69052e-5359fdfce6amr134688601cf.61.1791757363408;
+        Sun, 11 Oct 2026 15:22:43 -0700 (PDT)
 Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5359b7ecccdsm66288831cf.30.2026.10.11.15.22.45
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5359b7ecccdsm66288831cf.30.2026.10.11.15.22.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 15:22:45 -0700 (PDT)
+        Sun, 11 Oct 2026 15:22:41 -0700 (PDT)
 From: Myeonghun Pak <mhun512@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -84,9 +84,9 @@ Cc: linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH 3/3] ASoC: mediatek: mt8196: Keep the AFE IRQ within its resource lifetime
-Date: Sun, 11 Oct 2026 18:22:34 -0400
-Message-ID: <20261011222234.2098904-4-mhun512@gmail.com>
+Subject: [PATCH 1/3] ASoC: mediatek: mt8186: Keep the AFE IRQ within its resource lifetime
+Date: Sun, 11 Oct 2026 18:22:32 -0400
+Message-ID: <20261011222234.2098904-2-mhun512@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261011222234.2098904-1-mhun512@gmail.com>
 References: <20261011222234.2098904-1-mhun512@gmail.com>
@@ -94,8 +94,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_152248_497548_B0599438 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20261011_152245_288347_3E95B508 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,20 +110,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The managed AFE IRQ is requested before the regmap is allocated. The
-handler can therefore run before its regmap exists, and devres releases
-the regmap before joining the IRQ. The remove callback also suspends the
-AFE and disables its clocks before devres releases the IRQ.
+The AFE IRQ handler uses afe->regmap, but its managed IRQ is requested
+before the regmap is initialized. Apart from allowing an early interrupt
+to use an uninitialized regmap, the reverse devres order releases the
+regmap before the IRQ on probe failure and removal.
 
-Request the IRQ after initializing the regmap and before enabling MCU
-IRQ routing. A failed request then takes the existing runtime PM unwind
-without enabling that routing. Release the IRQ at the start of removal
-before the explicit clock shutdown, using the IRQ number saved at probe.
-The regmap's managed lifetime also encloses the IRQ on probe errors.
+Request the IRQ after the regmap and the handler's other inputs have been
+initialized. Release and synchronize it explicitly on removal before the
+managed ASoC components start tearing down their state. Balance the IRQ
+wake setting on removal and on the remaining probe error paths, and keep
+the existing runtime PM error cleanup for a failed IRQ request. Save the
+IRQ number in the private state for final cleanup.
 
 This issue was found by static analysis.
 
-Fixes: 57513aabfe5b ("ASoC: mediatek: mt8196: add platform driver")
+Fixes: 097e874ad3fc ("ASoC: mediatek: mt8186: add platform driver")
 Assisted-by: LLM
 Co-developed-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Ijae Kim <ae878000@gmail.com>
@@ -131,65 +132,116 @@ Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
 Compile-tested with Clang 22.1.2, W=1 (arm64).
 
- sound/soc/mediatek/mt8196/mt8196-afe-common.h |  1 +
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c    | 18 ++++++++++++------
- 2 files changed, 13 insertions(+), 6 deletions(-)
+ sound/soc/mediatek/mt8186/mt8186-afe-common.h |  1 +
+ sound/soc/mediatek/mt8186/mt8186-afe-pcm.c    | 44 ++++++++++++++-----
+ 2 files changed, 33 insertions(+), 12 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-common.h b/sound/soc/mediatek/mt8196/mt8196-afe-common.h
-index 4951a6f32abb..ce5d586721db 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-common.h
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-common.h
-@@ -186,6 +186,7 @@ struct clk;
- struct mtk_base_afe;
+diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-common.h b/sound/soc/mediatek/mt8186/mt8186-afe-common.h
+index d59258520995..d03e59ca7d65 100644
+--- a/sound/soc/mediatek/mt8186/mt8186-afe-common.h
++++ b/sound/soc/mediatek/mt8186/mt8186-afe-common.h
+@@ -139,6 +139,7 @@ struct mtk_base_irq_data;
+ struct clk;
  
- struct mt8196_afe_private {
+ struct mt8186_afe_private {
 +	int irq_id;
  	struct clk **clk;
- 	/* dai */
- 	void *dai_priv[MT8196_DAI_NUM];
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-index a1ae8322d8b6..39d9103bd5e7 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-@@ -2393,12 +2393,7 @@ static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- 	irq_id = platform_get_irq(pdev, 0);
- 	if (irq_id < 0)
- 		return dev_err_probe(dev, irq_id, "no irq found");
+ 	struct clk_lookup **lookup;
+ 	struct regmap *topckgen;
+diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
+index 44a521c3a610..ea61fa5fe372 100644
+--- a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
++++ b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
+@@ -2884,16 +2884,7 @@ static int mt8186_afe_pcm_dev_probe(struct platform_device *pdev)
+ 	if (irq_id <= 0)
+ 		return dev_err_probe(dev, irq_id < 0 ? irq_id : -ENXIO,
+ 				     "no irq found");
 -
--	ret = devm_request_irq(dev, irq_id, mt8196_afe_irq_handler,
+-	ret = devm_request_irq(dev, irq_id, mt8186_afe_irq_handler,
 -			       IRQF_TRIGGER_NONE,
--			       "Afe_ISR_Handle", afe);
+-			       "Afe_ISR_Handle", (void *)afe);
 -	if (ret)
 -		return dev_err_probe(dev, ret, "could not request_irq for Afe_ISR_Handle\n");
+-
+-	ret = enable_irq_wake(irq_id);
+-	if (ret < 0)
+-		return dev_err_probe(dev, ret, "enable_irq_wake %d\n", irq_id);
 +	afe_priv->irq_id = irq_id;
  
  	/* init sub_dais */
  	INIT_LIST_HEAD(&afe->sub_dais);
-@@ -2453,6 +2448,14 @@ static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- 		goto err_pm_put;
- 	}
+@@ -2946,6 +2937,20 @@ static int mt8186_afe_pcm_dev_probe(struct platform_device *pdev)
+ 	afe->runtime_resume = mt8186_afe_runtime_resume;
+ 	afe->runtime_suspend = mt8186_afe_runtime_suspend;
  
-+	ret = devm_request_irq(dev, irq_id, mt8196_afe_irq_handler,
++	ret = devm_request_irq(dev, irq_id, mt8186_afe_irq_handler,
 +			       IRQF_TRIGGER_NONE,
 +			       "Afe_ISR_Handle", afe);
 +	if (ret) {
 +		dev_err_probe(dev, ret, "could not request_irq for Afe_ISR_Handle\n");
-+		goto err_pm_put;
++		goto err_pm_disable;
 +	}
 +
- 	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
- 	regmap_write(afe->regmap, AFE_IRQ_MCU_EN, 0xffffffff);
- 	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
-@@ -2482,8 +2485,11 @@ err_pm_put:
- static void mt8196_afe_pcm_dev_remove(struct platform_device *pdev)
- {
- 	struct mtk_base_afe *afe = platform_get_drvdata(pdev);
-+	struct mt8196_afe_private *afe_priv = afe->platform_priv;
- 	struct device *dev = &pdev->dev;
- 
-+	devm_free_irq(dev, afe_priv->irq_id, afe);
++	ret = enable_irq_wake(irq_id);
++	if (ret < 0) {
++		dev_err_probe(dev, ret, "enable_irq_wake %d\n", irq_id);
++		goto err_free_irq;
++	}
 +
- 	if (!pm_runtime_status_suspended(dev))
- 		mt8196_afe_runtime_suspend(dev);
+ 	/* register platform */
+ 	dev_dbg(dev, "%s(), devm_snd_soc_register_component\n", __func__);
  
+@@ -2955,14 +2960,14 @@ static int mt8186_afe_pcm_dev_probe(struct platform_device *pdev)
+ 					      afe->num_dai_drivers);
+ 	if (ret) {
+ 		dev_err(dev, "err_dai_component\n");
+-		goto err_pm_disable;
++		goto err_disable_irq_wake;
+ 	}
+ 
+ 	ret = pm_runtime_put_sync(dev);
+ 	if (ret) {
+ 		pm_runtime_get_noresume(dev);
+ 		dev_err(dev, "failed to suspend device: %d\n", ret);
+-		goto err_pm_disable;
++		goto err_disable_irq_wake;
+ 	}
+ 	afe_priv->pm_runtime_bypass_reg_ctl = false;
+ 
+@@ -2971,6 +2976,10 @@ static int mt8186_afe_pcm_dev_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++err_disable_irq_wake:
++	disable_irq_wake(irq_id);
++err_free_irq:
++	devm_free_irq(dev, irq_id, afe);
+ err_pm_disable:
+ 	pm_runtime_put_noidle(dev);
+ 	pm_runtime_set_suspended(dev);
+@@ -2978,6 +2987,16 @@ err_pm_disable:
+ 	return ret;
+ }
+ 
++static void mt8186_afe_pcm_dev_remove(struct platform_device *pdev)
++{
++	struct mtk_base_afe *afe = platform_get_drvdata(pdev);
++	struct mt8186_afe_private *afe_priv = afe->platform_priv;
++	int irq_id = afe_priv->irq_id;
++
++	disable_irq_wake(irq_id);
++	devm_free_irq(&pdev->dev, irq_id, afe);
++}
++
+ static const struct of_device_id mt8186_afe_pcm_dt_match[] = {
+ 	{ .compatible = "mediatek,mt8186-sound", },
+ 	{},
+@@ -2996,6 +3015,7 @@ static struct platform_driver mt8186_afe_pcm_driver = {
+ 		   .pm = pm_ptr(&mt8186_afe_pm_ops),
+ 	},
+ 	.probe = mt8186_afe_pcm_dev_probe,
++	.remove = mt8186_afe_pcm_dev_remove,
+ };
+ 
+ module_platform_driver(mt8186_afe_pcm_driver);
 
