@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3774ECA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 17:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA88CCA9ECF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 17:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8VmkDx58J0TBOUJginkTfXCrFEvrgeOjW4e8cJyBLn8=; b=01tIXxR5M/9/eLrSjdXh1WiPqM
-	LY9u9/0Ki4/Tv0R20wb3dVM8yJbygekaczBk/JULeimrRBldsjHgVtcyxz6r8osz2AfNg7mRD/YtG
-	t3f38efkz73U8AlFYKzkVQBZVN/U49djRTIiqGPhhk2ZxZss2CyQv5QM1OkVP3UDPtOjQlF4UodDj
-	xVAlvT6KhpiVf17Uz/HsCzpbbEwByBZZikwzdRUbZOKkPVBn01JXntf326YJZXf9k8Sz9eiHRygEZ
-	7suz9GMyyRX/qLngfO9LeTYDD/tL2t2k/1wGttU5bYOHiWM2AvJrt0Z0klQAaO1pz8Ho0ZVJeTFjt
-	443NF6Lw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JOujb8CXcXWrRnhoCIKWyIfKOWtvQMn73zeRaGX8ls4=; b=HK+yeMmb3zHnbigLZvYX4ZMmmQ
+	1/4ZGfq4O1SGF3j81jZmdX9qMnwlPcFJIjI/6+jqoG+mkhr2bZSw+kiNMEDND8lNRjQ4TuYLo1gtL
+	v9XWfzY2z73+Q4h1ChwbejA32DMgk2q7ID5O5tBsFNnfiwiSF3rIrc6XJE3ET+MD5PCYBzF+xQiZI
+	TA0umWApatvrBqyiURu4FHokN5i75ebbKt8q9PMRhRf3vqC3ERh8aJFEEi/jQPJMuD28dyy60mz/9
+	KuRwU54E9rrgufOn24zWf+DCq953ZOT6LyikqDrqGelO9C5tkWhZIril669no6izjsKuhFyetYDDu
+	K6/LgMlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFxAr-00000009FGC-3yra;
-	Sun, 11 Oct 2026 17:17:25 +0000
+	id 1xFxAs-00000009FGK-0gYy;
+	Sun, 11 Oct 2026 17:17:26 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFxAq-00000009FFY-2RoV;
+	id 1xFxAq-00000009FFX-2RuA;
 	Sun, 11 Oct 2026 17:17:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33BE160142;
+	by tor.source.kernel.org (Postfix) with ESMTP id 804E16022C;
 	Sun, 11 Oct 2026 17:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D0A67C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EC8ADC2BCFD;
 	Sun, 11 Oct 2026 17:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791739041;
-	bh=ae1bPrtDyGrs2a0laMfc/OYJpM4BBJvlclfzCOSwtR0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=jB3hNoR78WKmXQ4L9Wp5ay6zJxrncwO8yUKiLo91/ijokXW1OkCpGgJK5juaHAMfU
-	 X/iVHNW4yaVbXyDOCCPVDdHoJ3TwncOBQHFliwcxhdN4gUHG5AgLXoaCk/idXTVCOn
-	 17YTgZip5W+1hw4d8+KY2IgqkcNw9YSmuHWjSsQHgVZ9WT2gcyaHp3VcxgqRUvQ0jq
-	 s71OzZTMb+FovxXwvz5HYfuhBN7sUvQ8tD8aQRooLH/F5Yh89PqO+FNxHcihf9zFgB
-	 izTgKYJD36EV88n49Vxyk3BqhrU9d9eqb1Ais8pXgsc302ymDzn1f17Txhb5+3sPks
-	 d6sCgpdAAZ3Yg==
+	s=k20201202; t=1791739042;
+	bh=JMjVtMuhkqAXxXbMMWX7PhhLtkEr322l/UDHApXDSCo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=CxZa1T1m/e5Qmj5OAs0jjM7ikLlVNPmVBWVuVyCv9i6/rti0mfR7cZ3Urs1TsaktQ
+	 3dajAV61PMN3qJ5xw00hIBQReVoyuA8u51zyjWfDnxRlrOPrIShsWx7h6YIJhbkVrw
+	 TvMxs0+vqoaovIK08t+1JO1Or/eG29wlJTNMMT/ZZSEnEwWQGGwaa20JADG4ItwMgH
+	 R2ffs9n0wg4Vh/vmLXxcsNfJJhk6XVCLbK8P+cSIoNPqMZhPgNxRdbjdf5XYhiL4GZ
+	 OuCOssCNt22Hxv2YYjCcIRYcjfMFUuFEgpTqiqyBBPl6PFPVSgebDfd1l6UnZy1Gvz
+	 Hzu2J0cc6oknQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC7C1CA9ECF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD7E1CA9ED0;
 	Sun, 11 Oct 2026 17:17:21 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Subject: [PATCH 0/2] arm64: dts: meson-gxbb-odroidc2: eFuse MAC address and
- LED properties
-Date: Sun, 11 Oct 2026 20:17:20 +0300
-Message-Id: <20261011-odroidc2-dts-v1-0-f9f0e779af88@gmail.com>
+Date: Sun, 11 Oct 2026 20:17:22 +0300
+Subject: [PATCH 2/2] arm64: dts: meson-gxbb-odroidc2: use color and
+ function for the status LED
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ5AMBBA0avIrDXptFi4iljQDsZCpYNIxN0Vy
- 7f4/wKhyCRQZxdEOlg4LAmYZ+CmbhlJsU8Go02FGlEFHwN7Z5TfRJW2031lCmsdQkrWSAOf365
- pf8vez+S29wH3/QBRMK56cAAAAA==
-X-Change-ID: 20261011-odroidc2-dts-53a0b62433c1
+Message-Id: <20261011-odroidc2-dts-v1-2-f9f0e779af88@gmail.com>
+References: <20261011-odroidc2-dts-v1-0-f9f0e779af88@gmail.com>
+In-Reply-To: <20261011-odroidc2-dts-v1-0-f9f0e779af88@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -65,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Fil Dunsky <filipp.dunsky@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791739040; l=1059;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791739040; l=1222;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=ae1bPrtDyGrs2a0laMfc/OYJpM4BBJvlclfzCOSwtR0=;
- b=GVJBAWBcJccI7BftcnfSOQBKjaaNNOT8mkWe4pU5mIhBCjmUdbK1NotBESevNbZMlvCPP5WJD
- YvfS4QJfZUVAo8pp02GouscmEfXDjIGElN+Ru7FNwfYLmLpSzeqrrLF
+ bh=/X8gBi1JgR7x/35zsuv/f2r5evaENU8kz27T1XRV5c4=;
+ b=ifRRKlIhKdzl/MOSg5AU5UAIBcV15SVmr7R7gl2lmCLrchc7kLLnZOKbgHL/YqIpNU+r37HAk
+ MtCI9Mx7cZ5BuAcGL9sZRXhqAasl1ush8+pyf4HsIVFvMgv3PxAz9U0
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -90,35 +88,43 @@ Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two small device-tree updates for the Hardkernel ODROID-C2, found while
-adding OpenWrt support for the board.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Patch 1 wires the eth_mac eFuse nvmem cell (already described in
-meson-gx.dtsi, but so far unused) to the Ethernet controller, so the
-kernel reads the factory MAC address itself instead of relying on the
-bootloader or a random fallback.
-
-Patch 2 converts the blue status LED to the standard color/function
-properties.
-
-Both verified on ODROID-C2 hardware and rechecked against this tree
-with CHECK_DTBS=y W=1.
+Replace the legacy label on the blue status LED with the standard
+color and function properties, following what the other Amlogic boards
+already do.  The LED then shows up with a generic blue:status name
+instead of the board-specific c2:blue:alive.
 
 Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
-Fil Dunsky (2):
-      arm64: dts: meson-gxbb-odroidc2: read the Ethernet MAC address from eFuse
-      arm64: dts: meson-gxbb-odroidc2: use color and function for the status LED
+ arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
- arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
----
-base-commit: a5ebb76233b79db01e82e061173cb73c6d2b5c6b
-change-id: 20261011-odroidc2-dts-53a0b62433c1
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+index 639b97ad5..5f0cd2a71 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+@@ -9,6 +9,7 @@
+ 
+ #include "meson-gxbb.dtsi"
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
+ #include <dt-bindings/sound/meson-aiu.h>
+ 
+ / {
+@@ -51,7 +52,8 @@ usb_otg_pwr: regulator-usb-pwrs {
+ 	leds {
+ 		compatible = "gpio-leds";
+ 		led-blue {
+-			label = "c2:blue:alive";
++			color = <LED_COLOR_ID_BLUE>;
++			function = LED_FUNCTION_STATUS;
+ 			gpios = <&gpio_ao GPIOAO_13 GPIO_ACTIVE_LOW>;
+ 			linux,default-trigger = "heartbeat";
+ 			default-state = "off";
 
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
+-- 
+2.53.0
 
 
 
