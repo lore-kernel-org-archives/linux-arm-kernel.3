@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B33CA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 21:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1163FCA9ECF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 22:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cB64+7GIL/QejhQmJX5UmgahZ1S8lTXRVFKShlbGWQM=; b=uTQZd4Wrf1JLn68XH1uRYPPytl
-	SlOL+M5wOxH1MFKrz0htzc/ZskvjLlTgjmjpzVmXhBC6pWhGrMKTdi4t08PKSgoFgC/9h2tIMai5r
-	F4T1tV4XIfTE0DSSMQb6mhWs+ZRgoOQiLrEPLh1m1SfEoM8JXuwVxXyuze+4s2yPi3CUmn+yUFbVf
-	MUrCTqT0EXoGEA0hztfxp6OtIxSEgs16IR7DNp4LzAL4ltLFulkN9cpXc8WqzSHdNa1soaDyHCfqY
-	o9xpAr2e0bQAO1+MiZfWsvRwEOZHa25JV6EeTVGlaMlJT4K5QjgUGcPqb/HWhw6wXZsvfNMyv5AgE
-	XZJTqhiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wx78Wxn0Vwqymp+y9E4li+EEYQPoZ2jSYNoF4UjZvAY=; b=pWsHLLBoJl+X5NOh66UDNH+7EL
+	FdQ9XYQr2gApLiu/AlLADcX6hpQ0NP3xxom/DJQcrmrkcz3CJOwubLRDw7LT5TFUC/yBgqT4RF4/o
+	54YyZbiMQ8eaoo6JHziWSX2r43zES3f/RKNX7BanpmRM6xFGHci44DIyyEdcgEsPKCbGM/t+HF4/n
+	eWOmKG6My1NaMsFZZKpGil8T/FaOegPE65cnGeYuXvRbrCijmorRjT1+FivxgqoXpBVNLFdokpKYq
+	2ZWVQfuLhj2sV/xw6KlNjlago+4YX7elvpFBaHnXvSC1oGTxlskVzY1AZEmzMh6AWbXK4WlSxk2tp
+	c2VjO4Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0rq-00000009PsY-2NjJ;
-	Sun, 11 Oct 2026 21:14:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xG1wL-00000009SB2-3H5x;
+	Sun, 11 Oct 2026 22:22:45 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0rp-00000009PsJ-07g5;
-	Sun, 11 Oct 2026 21:14:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D93CD602A8;
-	Sun, 11 Oct 2026 21:13:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 743761F0089B;
-	Sun, 11 Oct 2026 21:13:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791753239;
-	bh=cB64+7GIL/QejhQmJX5UmgahZ1S8lTXRVFKShlbGWQM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y9R0nBApfEq3cFVA+VsinEcrUSzp6c6bkadfZbfDy1QEQ5rg5OoIhCrczxqxVS8kT
-	 2HCmsO3+W/T1abh2B3I65X7x5vUzr6/euVpLz62Vk52UmSYp3MrIvnlOMVrfn8H8DG
-	 MpMCa6Zs5ebzHvIYHcvddVChPsaMdWP/v7H2s8fzOx0wSu9M1w5a/ugCmIJ9EgQ/nh
-	 UphV13z3PHvIvffykWUVXTGisHUO9e8mRsmH3fY+RSHQKkQCWY35rny4nZbSsQaCUz
-	 FQL35cVSIfc3jQjVf9AmhNE73CU/WhMWFD8xNuZHj+izqQ3ViEg18rZ7Q2dL7efhbW
-	 GBotapyIPL2RQ==
-Date: Sun, 11 Oct 2026 22:13:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Lucas Tanure <tanure@linux.com>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	id 1xG1wH-00000009S9h-29Cs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 Oct 2026 22:22:42 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-53506b44151so17712041cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 15:22:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791757360; x=1792362160; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wx78Wxn0Vwqymp+y9E4li+EEYQPoZ2jSYNoF4UjZvAY=;
+        b=bYHTa2dkSJ1xC+tPhZHspR1nY0w45az8ZLBf1O549krL0ga+dq9mFRmWpJhtN2vRsS
+         rJnBG3BJFl9V55p8r9aV9Z//fjG+BIpUD8fFKnNgNI7Ci0b8tuhbOhmIw89hk+tKSodS
+         rzIOHBaqB0eNG8azPplrojILY4QXQ2idTFO1TEe8aapr0C+hmbPgMN5n5HTjSxD008yj
+         f/r8hs+ED4iTxfQi0LFyOuCCoM4+YB7NwNXgI5rjr3Vc7PHfPI08HPkL0QR+9BCaNvIV
+         NG92xLNWwS0WOXVDAIRv2aCXzpD2rvNBRBjVw1XKWWyXFNSpuu0cV9ShqQ+pL+ZnQ6jE
+         LjJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791757360; x=1792362160;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wx78Wxn0Vwqymp+y9E4li+EEYQPoZ2jSYNoF4UjZvAY=;
+        b=ug5TGfaGnUFfb8F9az1D9Dv0Uk5Zj6pmVUKXrcsdXSgX310O/RcBkuIHKJVOrQcPca
+         Biyeav79JESuF8/zbNF2s5hFBz4ZOqhd21uFRXPA/rFSABG3MYG1zkJgKVjLtx0bAk4Z
+         qmIVlOGDsdV2FUuSllAKQ9wwRxnKJ3/q6kx6yrvKWoxGQLU8ltdszOnRsGMwLy3xrgLQ
+         y2e8e4Di/l6BdSixktcywaaX+W4tqOnzfXktpBqNUkAfntbBmnUgNJexx1EVGKBYDiiJ
+         Rvj9+6JFB3k7iP5XxJSBCyor5VMkAEgOwThoqpYrjeBr+vlcqYTJ3G/Nov8k0UITV/At
+         GxfQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzkP08itI9RvN3ZO3R/g6AereIcUDIW5x3bMjNk7TEW41fgrGA4i71USbZcReMYAnKBJoA2IdSJeCn9B7GTIVgE@lists.infradead.org
+X-Gm-Message-State: AFq9FYIAxBkEoZl4bx9cfuuy2zGk6aqhK992sNn4IHTCFCHN3nUiMGV6
+	K36TKLHCWzac5VASgrnVoKx7zfD/2CTjD2cTHIO+jftvR1UGYXV3LBk=
+X-Gm-Gg: AYBFou0gFj2fnv/ELA8X3eQATrhK8ASkIK4Dgu0wLbnR8WQoCjZrdD2UYOViOhDcCX/
+	KlSir1Fr7hva5RUIlfF3WDb5i11R2vxQpjbNyQ9dbcD1sRRp09Deb2zmVPuhOkpInxufWRXS8wf
+	MkTHT7gdTv0TAT+4TDknjsyHCrs34kUo9g98XOJbeVWZUpKknl9LPpiRAuPKqaNJY5b1qXRVgeL
+	lTTo3s8kzwxSqEkLWes4cxr03P4aerQgQpjkeM6j8YIW2LKWN5dqWHt390pXCXcPaE+BUdjEiss
+	UGxsyw1uavLPY2hmDydsn0BT83GgzpAs0/sR5lkVhswhMefbttQlzr3NWd2+eB3W04vlJ5E4psw
+	wgMUT16qmgXBlYNln5uLCPN9TQkq9Y1sCu7z5PuEF4Dvfoj+NRgIM0pfV0+KSca1YyLhAQcTECq
+	CQZNVO09jp08amrW2RuWInMXB3FZvCg9biJPl01ZBF33OUDCUZTSUP9v2w+2mHEM6R5vgT3CsuF
+	Ciwf6VnQQI0ODvhMQbJ/Tr0z2StW6kUZz9oZLfXXuG41DFowikFrgXS69W9gKsMv5s5mVHooE+J
+	s8DHHcHG9g4mLVLmyETZJP0lHmX/vTlMv7Dd2kM=
+X-Received: by 2002:a05:622a:610f:b0:535:52c:a2e7 with SMTP id d75a77b69052e-5359fb8f85fmr135936341cf.44.1791757360176;
+        Sun, 11 Oct 2026 15:22:40 -0700 (PDT)
+Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5359b7ecccdsm66288831cf.30.2026.10.11.15.22.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 15:22:38 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 1/8] dt-bindings: net: amlogic,meson-dwmac: list the
- compatible combinations
-Message-ID: <20261011-starship-foyer-1105c1b35e31@spud>
-References: <20261010105900.247342-1-tanure@linux.com>
- <20261010105900.247342-2-tanure@linux.com>
- <CAFBinCAejxmeeHyDy+vMSg6dBm+9prhEo9qZ7FAsiWNB1W-HXw@mail.gmail.com>
- <CAJX_Q+3JLn6oTt8qTPM-muKsY9JbTEMwqRvbamZ3vqg_Yymsmg@mail.gmail.com>
+	linux-mediatek@lists.infradead.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH 0/3] ASoC: mediatek: fix AFE IRQ registration and removal ordering
+Date: Sun, 11 Oct 2026 18:22:31 -0400
+Message-ID: <20261011222234.2098904-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Li4Qmgdoe6LbIUh+"
-Content-Disposition: inline
-In-Reply-To: <CAJX_Q+3JLn6oTt8qTPM-muKsY9JbTEMwqRvbamZ3vqg_Yymsmg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261011_152241_555530_EB9DD3DE 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +108,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Li4Qmgdoe6LbIUh+
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The AFE IRQ handlers access regmap and PCM state. Register each handler
+after its inputs exist and release it before the final remove callback
+or managed component teardown releases those inputs. The mt8186 patch
+also balances IRQ wake settings on probe failure and removal.
 
-On Sun, Oct 11, 2026 at 03:16:18PM +0100, Lucas Tanure wrote:
-> On Sat, Oct 10, 2026 at 11:04=E2=80=AFPM Martin Blumenstingl
-> <martin.blumenstingl@googlemail.com> wrote:
-> >
-> > Hi Lucas and Conor,
-> >
-> > On Sat, Oct 10, 2026 at 12:59=E2=80=AFPM Lucas Tanure <tanure@linux.com=
-> wrote:
-> > [...]
-> > > +          - enum:
-> > > +              - amlogic,meson8b-dwmac
-> > > +              - amlogic,meson-gxbb-dwmac
-> > > +              - amlogic,meson-axg-dwmac
-> > > +              - amlogic,meson-g12a-dwmac
-> > > +          - const: snps,dwmac-3.70a
-> > > +          - const: snps,dwmac
-> > > +      - items:
-> > > +          - enum:
-> > > +              - amlogic,meson6-dwmac
-> > > +              - amlogic,meson8m2-dwmac
-> > Meson8m2 dwmac reports: User ID: 0x10, Synopsys ID: 0x37
-> > In case it helps I can submit a patch to change the Meson8m2 .dtsi to
-> > use "amlogic,meson8m2-dwmac", "snps,dwmac-3.70a", "snps,dwmac" - then
-> > we could move it here too.
-> > That leaves only Meson6 with a single fallback compatible. I don't
-> > have any Meson6 boards, so it'll have to stay that way.
-> Hi,
->=20
-> Fine by me. But I think it is best to wait for this series to be merged.
+Compile-tested with Clang 22.1.2, W=1 (arm64).
+Base: 238650ef6c7c7cca08e032527329424c9fbd70e5
 
-In the second sentence, you're referring to the dts patch I assume?
-IMO, you should submit a new version of this with the 8m2 moved to the
-other enum and Martin can submit the dts patch now, since the current
-binding permits using dwmac-3.70a, no need to wait for this to be
-merged.
+1. ASoC: mediatek: mt8186: Keep the AFE IRQ within its resource lifetime
+2. ASoC: mediatek: mt8189: Keep the AFE IRQ within its resource lifetime
+3. ASoC: mediatek: mt8196: Keep the AFE IRQ within its resource lifetime
 
---Li4Qmgdoe6LbIUh+
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasv8EQAKCRB4tDGHoIJi
-0j98AP4rQ60xf6QZIR+UVdVPmdSR8xm6GMzsKTW5wwCVZq8gLAEAyM8L5JCUZzmE
-aBhkxeWELj13jV1WIQV+eunZ4dUaYgU=
-=+0qV
------END PGP SIGNATURE-----
-
---Li4Qmgdoe6LbIUh+--
+Assisted-by: LLM
 
