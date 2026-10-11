@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41794CA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 20:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08110CA9ECC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 20:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2B6yxoun5grNXYDPaHbatpr3XqvAdqs6leClJ2sd5R8=; b=diSWTZRratYRXVQ1n1HbmHoLtr
-	rE/Re1zUvHnSdC8dKqUcX5oGoVeoCkU6po2BD9lRqzBzn+GnR26Zr7XT+3Jt4PMLCLbk6dAcEXK4L
-	j2ZMrWP1JfTIYofwzYRTwWiWyg3WC+I5SdjcMzU+upDDQX2rU8/3WwZeit3Z07zS3p1MwFEXBua/C
-	qRMgOv46p8qX+YTRrCer2o7c3JZCXXHGyjbw8b/jbyxRZClLm5HeVLUx7n0zzXOAA+jWYW0zTrqLF
-	JdVN72L8HjTHMzn8pMsNkVx9DUAmYF6oUKENd28Qs0r/gyU7+TRumw2WOJVUEVHPtaUNC8NAO3pG5
-	fGy438fQ==;
+	bh=OsRD+F+OLtUmpRSHXSpv9UfMmwgcSUQb/xDcJZ0DHJo=; b=SdP4BFkdBsV/y7fXJOj6D3x0f+
+	cF3YplcWOqtoksL9Lvi6q2Q4A8zZC5VrZPGppUD8rSzjbf8XfaNtBk1LKuwi3gdNWxcLYlYlVsc5g
+	+grKQYGy+nd9uYcBVXtBDkIiPc6o1GuZ+LAoXYrhoXauy7+3aXMqZ+JZkjRc2soc42R/WYrCjYdpG
+	U6tnLxMeHQUv5dWgAWZuRmtIedUkhpMVnDMG4PXUCf4RXZk38LAfXLc3/eLYLElYhN6tbj79EWHmt
+	1sjqykoOwNMt8Wyb5WkbheOFCUxQjpEjr05j0gTjHtcek/6zD5teGfaWjxag3YD/BfQnDzqe1/M9U
+	s78ug9PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFzwE-00000009NnN-3VT4;
-	Sun, 11 Oct 2026 20:14:30 +0000
+	id 1xG05h-00000009O79-3kkt;
+	Sun, 11 Oct 2026 20:24:17 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFzwE-00000009NnE-0dz7
+	id 1xG05f-00000009O6y-0Pfd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 20:14:30 +0000
+	Sun, 11 Oct 2026 20:24:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 894F543C69
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 20:14:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E1581F0089B
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 20:14:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7EA3743DE4
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 20:24:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631A91F0089B
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 20:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791749669;
-	bh=2B6yxoun5grNXYDPaHbatpr3XqvAdqs6leClJ2sd5R8=;
+	s=k20260515; t=1791750254;
+	bh=OsRD+F+OLtUmpRSHXSpv9UfMmwgcSUQb/xDcJZ0DHJo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=iHptSIYnEoXY75N5KOzg4E/xkRfjBaZIkYloNhEOKhQbrhZTB3u69gX372ImDPVVS
-	 Dm+InQ/5B9Nya4ueKj0KzFOwsMZk70RXneY/mpGcJ6AWHhgGx8hnMVli9xwNyQ6g0+
-	 0MZIIDTj1E+a8qGy2Suu/StXxvqCy52wB+Fx0r+Zktp3ifU2OAnqX+j9PDLcy+yLZa
-	 AbPSNM+89qrc4PwzdJEykbdom9hzduReaWJg5LUrVt8s3ArsQXd0Cl51g4jzMgUavZ
-	 a0Qbfiwv9XbC8CSwAa1O/iNpZs2YmWbdnPTTFMx3twMa0bdU8QpUcEw6xN6kdN2CA2
-	 6p2m8SXEcdyyQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5bcb3726952so875734e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 13:14:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByss0aNVf3P2zKXL/zhblvb6BZb+aUuj+vpPul9fT7tbRVWiiEm1wj3GAijBuloZxILSZ+XNpKzgZi1H7HGGVJF@lists.infradead.org
-X-Gm-Message-State: AFq9FYIsuBx4kf6l99QlvwLqXZUB2jCkaf8kKpbM58DP50be1hDaJatP
-	S+/uzs67HrWwmNYHH9bgKD4oS+h9IpI8OGzR4sGD/LVc0cbR0LkzShRHs5PbUwo3qTYoPQvmDT3
-	EbH7qC9TeFtoxo14kGcfeiRwsiaEdY+I=
-X-Received: by 2002:a05:6512:1155:b0:5bb:7beb:20c2 with SMTP id
- 2adb3069b0e04-5bcde8d90d7mr2470503e87.67.1791749668067; Sun, 11 Oct 2026
- 13:14:28 -0700 (PDT)
+	b=bDwkVR+Mng9JjATCiFJWqiEpR38DGPgfTc3U+ctxg8/zcUPYe6TqXRRdyU3ye9pMq
+	 7khAoC94ueck2dwdL60uK4E66jZOkU2aqI2OXJq7u1JJAqaw9VxhBAj0gY5spb92cW
+	 +kZv5+LK8cA2iUxOwjmkOQc3O42BTz05jz5D9LL+Y5TLkTdBtzOt+1yx64SZqy9GHJ
+	 d0k1ADaHIOl5pGP5HGXGaq7W+xMmorZG1E7eT9Ws81zMZExmRZp7PPjtYaLFGZKJu5
+	 BC2NFnqcI9Jxzg+QNaCHVJ009FaM4bblt/P0TJik5hwb/wsdZio2QQe9VyaQGnikLr
+	 f/VK0uEoxEFvA==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5bcdab9a82bso1449921e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 13:24:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz7TlTuaAY5Z+k/dti867pf2SG4NfSwTYFb2kQhjPndNYHlBXdUNkx63oWwtY4GpBRVDRqTxzRSj+A41wXjeIAH@lists.infradead.org
+X-Gm-Message-State: AFq9FYLkEclpTsN8viBjT50AG4XKG9lQUv7LWcgAhvwHuKgibSKFRjiX
+	ixT9lDV8H03/wju8jhdLM8Rk2kM5GPT0f1ZXeMCn9rxfWJkokHVUGiGAhaHfa4AVSDhezDxXmgy
+	XITENlAh88OsRiPa82gBLG/uPoM+thaQ=
+X-Received: by 2002:a05:6512:118d:b0:5b8:bc5e:b570 with SMTP id
+ 2adb3069b0e04-5bcde8c13ffmr2228437e87.40.1791750253189; Sun, 11 Oct 2026
+ 13:24:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261010175721.76213-1-adilov@disroot.org>
-In-Reply-To: <20261010175721.76213-1-adilov@disroot.org>
+References: <20261010-apple-m4-pro-max-initial-devicetrees-v1-0-781fb3f2d9f6@cyberchaos.dev>
+ <20261010-apple-m4-pro-max-initial-devicetrees-v1-7-781fb3f2d9f6@cyberchaos.dev>
+In-Reply-To: <20261010-apple-m4-pro-max-initial-devicetrees-v1-7-781fb3f2d9f6@cyberchaos.dev>
 From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 11 Oct 2026 22:14:13 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnTOc+n2PGpK1NDnNJXwgzTQ8shO_6NqNuADzxY8SyYsA@mail.gmail.com>
-X-Gm-Features: AclHuK-Ke9siXQxkd32F58VdGeapNv-uCnv-gmOvNgN2Tl6ULJ5GCCFCFZi_kuk
-Message-ID: <CAD++jLnTOc+n2PGpK1NDnNJXwgzTQ8shO_6NqNuADzxY8SyYsA@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: single: add big endian support
-To: Rustam Adilov <adilov@disroot.org>
-Cc: Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sun, 11 Oct 2026 22:23:58 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk+2iUkJfYQckV4G79JEErH77_mOqwGaZ6TyKGawmnFLw@mail.gmail.com>
+X-Gm-Features: AclHuK9cHC-ny7H2OT1BGwCBFcKBYkyqMbq7PnfdAqUY1dh82EQN4ca3xsuP3Cs
+Message-ID: <CAD++jLk+2iUkJfYQckV4G79JEErH77_mOqwGaZ6TyKGawmnFLw@mail.gmail.com>
+Subject: Re: [PATCH 07/10] dt-bindings: pinctrl: apple,pinctrl: Add t6041 compatible
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hector Martin <marcan@marcan.st>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Sasha Finkelstein <k@chaosmail.tech>, Mark Kettenis <kettenis@openbsd.org>, 
+	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pwm@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-i2c@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -80,80 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 10, 2026 at 7:57=E2=80=AFPM Rustam Adilov <adilov@disroot.org> =
-wrote:
+On Sat, Oct 10, 2026 at 7:00=E2=80=AFPM Yureka Lilian <yureka@cyberchaos.de=
+v> wrote:
 
-> Add support for big endian pin controllers by taking into account
-> a big-endian device tree property.
->
-> This is needed on big endian MIPS platforms like RTL930X, RTL931X
-> and RTL9607C who use pinctrl-single, because when SWAP_IO_SPACE is
-> enabled, the mmio accessors in pinctrl-single perform a byte swap.
->
-> Signed-off-by: Rustam Adilov <adilov@disroot.org>
+> The pin controller on the Apple Silicon T604x (M4 Pro/Max) SoCs is
+> compatible with t8103. Add "apple,t6041-pinctrl" as SoC specific
+> compatible under "apple,t8103-pinctrl".
 
-I'm not so sure about expanding the usage of pinctrl-single, we have
-said that this is used in the cases when you want to stash all the
-hardware data into the device tree (such as which groups and functions
-that exist) and it seems mostly done to save memory for the kernel
-so you don't need to compile in that data for all systems.
-
-The argument that this is "simple" if you just have some hardware
-data in a file is moot these days IMO, because you can now just
-give that data to an LLM and it will spit out any group and function
-definitions you want.
-
-So I'd like to hear some of the reasoning about why you want to
-do this thing, we have other drivers doing this but without using
-pinctrl-single.
-
-One of the driver maintainers have to ACK it too.
-
-> +static unsigned int pcs_readw_be(void __iomem *reg)
-> +{
-> +       return ioread16be(reg);
-> +}
-> +
-> +static unsigned int pcs_readl_be(void __iomem *reg)
-> +{
-> +       return ioread32be(reg);
-> +}
-> +
-> +static void pcs_writew_be(unsigned int val, void __iomem *reg)
-> +{
-> +       iowrite16be(val, reg);
-> +}
-> +
-> +static void pcs_writel_be(unsigned int val, void __iomem *reg)
-> +{
-> +       iowrite32be(val, reg);
-> +}
-
-Why this indirection? Can't you just assign the standard
-accessors directly?
-
->         case 16:
-> -               pcs->read =3D pcs_readw;
-> -               pcs->write =3D pcs_writew;
-> +               if (byte_be) {
-> +                       pcs->read =3D pcs_readw_be;
-> +                       pcs->write =3D pcs_writew_be;
-> +               } else {
-> +                       pcs->read =3D pcs_readw;
-> +                       pcs->write =3D pcs_writew;
-
-Maybe they should all do that actually, can't we rewrite
-this so we just:
-
-if (byte_be) {
-  pcs->read =3D ioread16be;
-  pcs->write =3D iowrite16be;
-} else {
-  pcs->read =3D ioread16;
-  pcs->write =3D iowrite16;
-
-I don't see how the wrappers help and I hope the compiler
-just optimize them away anyway.
+No Signed-off-by?
 
 Yours,
 Linus Walleij
