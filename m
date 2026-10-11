@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C2ECA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 12:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741D7CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 12:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=; b=sniuR8i2hxWiWE7mOjPehlegkY
-	BkgtoPnylcBQ3SkBXVkalYBYYeieypiPGx2JLeyP1g2645KfVOrHMbCG5+jDk3JTdVZV244ICM2Ge
-	ayutkMH6WLMNCZ2Qy49Gxo7Cx4KQ3PVfGCJdjoq4bvRrFS1c/QcFdCYUoqjSYvw10ijFLG82aIubT
-	wj1handRrPV6JojoB4egmyRRbGdsAHysd81Cg9Gc2LJ0w4gZAjErfUVDZcnhTkjHMmewUmFLWoGrK
-	asY1n1RyY6935yXQW2YCFvyzRJL36F/I78lLph/FKFcKBgFc0tG4SiYdRInKDbviEBnn2N1jA3hln
-	4t420XCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UFUETxEuaWKaun1+fDxvFjJ9XCDQJOC8LJkAhb6iig0=; b=2OBqIeY/Hl/04gO9mdpfROsZX6
+	4PHbocaSVQYOoFeyjSFu+IO+iGcnzGNSftHaNwQGbuLx7kmdgEVJf8twWtj2438j8G4tlVSroMZue
+	7r+XTEJ3tkb5MLnzXh3ce55+OdHXHEYNgdlrpLkJ/qG2uHMnN7JCdgRGEnnDTEAkvvIQo1pLyzY8f
+	Bou1IkPZJcIn3bthheiNy4qC+YxeONSxgXTRalSfnAcStnOD4uZM0uY6I2JTMDENlIL4qPSwElPXj
+	2SD7jUPcqof32AmC1KAEUqwtzZoE2A9Rxo5ZDeD5NgnmjvZq19t64RhauOJZTD2uaCLQpxN4znCXa
+	ING4/d1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFsQi-00000008zi4-2cW3;
-	Sun, 11 Oct 2026 12:13:28 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xFsyB-0000000918Z-1nmG;
+	Sun, 11 Oct 2026 12:48:03 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFsQf-00000008zhj-2QqD
+	id 1xFsy8-0000000915O-17tG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 12:13:26 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4956869750eso8701645e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 05:13:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791720803; x=1792325603; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=;
-        b=VRW13cV5HrbAL8GJjYWUt6eJA1FcR8HhyX+qT15MEp6zC2Nzy4/xcQVi8Eooq2fHKE
-         cagbUtA2Je76TcybTd0+ONWLtITgO5HRxGGhl1i38TaFOHLVDLQDXBmBP8QwblrQTJsu
-         JCDVLkRXkm+acqYtF/mAUPBUrytOi+L3GApC93XFBqiDJG3XnW5uW5j9pkgvd7VwhoTn
-         P1r4D8EzUyCpop0qDM2lNQHvEMuUcvpEKDrILiKyBOvheVangtdvkJNkwM04D/2sqfWF
-         yKpypdOkHQNmJPawmXEcUCvstUynijafXjDlwt9LMe5AYLAJLRG0gXkz8LjjnyWwsbZ9
-         MkTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791720803; x=1792325603;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=;
-        b=y9nXHjBN4/n1jZa89UHoU2OCTmb5v3rtAjcKObSAPLr7HRIX1o2WdGuZLy22wwmy5c
-         g02Fn69/fKGn7YYlnuf4RD7xSb0VW/YWAE2OupIPiaT5+KsMQugm+m9Nhtlt/oxVadAc
-         thIHGa8ufPp7vEHM8QgxOitVRk+tTaC649/yPsEig5SLO8cB3UwuEBxcxxpzvt5AjKaT
-         E4cmeJR3uIZQtiKW3qdVPrH/mQLxJfSp2nYig9YXozEeZkNSUXCe4jlRYLNrw8wQNNNY
-         bttJKtuw0XQYPIYZ8+o0ujCXt1W5QlRsbc7tyTkldYlaEMjVhJOxN1FIZoNmZSJrqjDE
-         lfTg==
-X-Gm-Message-State: AFq9FYJQH/LT1YEM2/7olRSMMOYDhF1Qd862GHU8iKpSExy+IoGZg8AL
-	9PMhejXDumn+JVVFpdp63dozW0U9BPT30FMM/Bd0/FTtkeSsdll5vqOTkVQUYZzp
-X-Gm-Gg: AYBFou1oSbC8LxWXmN8q7QYJhvo3y3CQ2YdQadlBM60sNkrkkLT50c9rCblnJy599bM
-	Z3NJj09J1poaE2TJJNhmTVdP5jwcXOcD7g4TZdC9ZG4OIe3UAhtcbnJocLFrhArUlk3Pb6l6ya5
-	LJ8PeuO+m19G/81P7eSJYI3wu8TfCEafRntw6QIwCJXWMl+2CmFwboKPY25zSOKJWafvhpmTtvR
-	aottZGHZeafmryMwszt7jv2hcJDq6koRupmYehwEDVx5fIkak7SznbSZCwv7Yb+GWuXTziUUAJo
-	v/3ydT7WECkNAJNpPQm2plN8JBXMm1P4yn3e10GkwzcFBzSD+WnbIt+ED51y92wr3W3hkhuyjJu
-	AqVrpCeZ5NEFExG0hYXTTZxete/7RUjaN3EL9IRg2+pRBNbXY07bogZ5Ie3fZW5OnBr1W5x8Lsm
-	L5OHoVU8qJsdVJdr1zkdAvaOqeitoLiSxmv7NbAT5aVYS1jkiiRvuv+NhFi8eO6+HvzDVX/En6j
-	mF/17V+OahNg/rNIk5XSX1/qmqRRpjsh/7y+PzmReTdufRAN360YI5J
-X-Received: by 2002:a05:600c:3e83:b0:4a1:6d35:779a with SMTP id 5b1f17b1804b1-4a18e446880mr106551865e9.3.1791720803247;
-        Sun, 11 Oct 2026 05:13:23 -0700 (PDT)
-Received: from silicon.doe.home (178.165.167.132.wireless.dyn.drei.com. [178.165.167.132])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18e49792bsm328215565e9.4.2026.10.11.05.13.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 05:13:22 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
- linux@armlinux.org.uk, robh@kernel.org, krzk@kernel.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
-Date: Sun, 11 Oct 2026 13:19:13 +0200
-Message-ID: <aV_PM_GzRW6aLmK6NF7ttw@gmail.com>
-In-Reply-To: <20261010130024.177503-10-ghahramani.navid@gmail.com>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-10-ghahramani.navid@gmail.com>
+	Sun, 11 Oct 2026 12:48:01 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4j2gPB2jzZzKp6V;
+	Sun, 11 Oct 2026 14:47:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timmermann.space;
+	s=MBO0001; t=1791722878;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UFUETxEuaWKaun1+fDxvFjJ9XCDQJOC8LJkAhb6iig0=;
+	b=BPNkT52wD5GCJTextCbwGrFv2vufu3hpKM18vtz/B6mtcrlVwiQNOdV7kod+mD6V09V1ZX
+	fMWetZ7b/fnwv26LZ4v20jFuy4HKjqvI+/Pt+uDeLirFDd5holRVEebVL8Oo+ajID7QX9S
+	WN6C9KNC+MwcwQwdMYE3/banzgzfE5hSHdicwkpfD97Vnm+8BE4e+c4THrwF9JkdWGufQt
+	D8ecMnwW1kZS1OQSIvgZ1KwOxTa8sQp1rBuQXYUveOvJcBvJEFlDmkLvFFuM+btWYYFRkJ
+	0cI5gwJ3ocT1IGWzowLFmUnDf/Iw0TeAAsU6E2UFvWjGXYCpuTvtdcvZzaYx9Q==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of foss@timmermann.space designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=foss@timmermann.space
+From: Lukas Timmermann <foss@timmermann.space>
+Date: Sun, 11 Oct 2026 14:44:58 +0200
+Subject: [PATCH 3/7] Input: s6sy761 - add reset GPIO support
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartK_YJ80XiTvajPgjPcZKRXg";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261011-lat3st-google-raven-touch-upstream-v1-3-2a9f55159b9e@timmermann.space>
+References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
+In-Reply-To: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
+To: Lukas Timmermann <foss@timmermann.space>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Rspamd-Queue-Id: 4j2gPB2jzZzKp6V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_051325_640009_0FD4FEF7 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20261011_054800_460592_4B67C5D7 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartK_YJ80XiTvajPgjPcZKRXg
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
-Date: Sun, 11 Oct 2026 13:19:13 +0200
-Message-ID: <aV_PM_GzRW6aLmK6NF7ttw@gmail.com>
-In-Reply-To: <20261010130024.177503-10-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
+Some boards wire up the controller's reset line. Hold the controller
+in reset while its supplies come up and release it 10 ms later, as the
+vendor driver does, and assert it again on power down. The GPIO is
+optional, so boards without it are unaffected.
 
-Am Samstag, 10. Oktober 2026, 14:59:47 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieben=20
-Sie:
-> +/*
-> + * Each bank has 16 lines, one bit per line in each register. The regist=
-ers
-> + * at 0x04-0x10 and 0x28-0x34 control the interrupts, which are not
-> supported + * yet.
-> + */
-> +#define ZX279128S_GPIO_DIR	0x00	/* 1: output */
-> +#define ZX279128S_GPIO_DATA	0x14	/* line level */
-> +#define ZX279128S_GPIO_SET	0x18	/* write 1: drive high */
-> +#define ZX279128S_GPIO_CLEAR	0x1c	/* write 1: drive low */
+Signed-off-by: Lukas Timmermann <foss@timmermann.space>
+---
+ drivers/input/touchscreen/s6sy761_core.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-This looks identical to mine, which itself matches the old zx29 GPIO driver=
-=20
-with IRQ support etc that was removed in 89d4f98ae90d ("ARM: remove zte  zx=
-=20
-platform"). This old driver had support for IRQs.
+diff --git a/drivers/input/touchscreen/s6sy761_core.c b/drivers/input/touchscreen/s6sy761_core.c
+index 0e455060dbc0..8541cd9aa930 100644
+--- a/drivers/input/touchscreen/s6sy761_core.c
++++ b/drivers/input/touchscreen/s6sy761_core.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/unaligned.h>
+ #include <linux/delay.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/input/mt.h>
+ #include <linux/input/touchscreen.h>
+ #include <linux/interrupt.h>
+@@ -100,6 +101,7 @@ struct s6sy761_data {
+ 	struct mutex xfer_lock;
+ 	int irq;
+ 	struct regulator_bulk_data regulators[2];
++	struct gpio_desc *reset_gpio;
+ 	struct input_dev *input;
+ 	struct touchscreen_properties prop;
+ 
+@@ -297,6 +299,9 @@ static int s6sy761_power_on(struct s6sy761_data *sdata)
+ 	if (ret)
+ 		return ret;
+ 
++	usleep_range(10000, 11000);
++	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
++
+ 	msleep(140);
+ 
+ 	/* double check whether the touch is functional */
+@@ -370,6 +375,7 @@ static void s6sy761_power_off(void *data)
+ 	struct s6sy761_data *sdata = data;
+ 
+ 	disable_irq(sdata->irq);
++	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
+ 	regulator_bulk_disable(ARRAY_SIZE(sdata->regulators),
+ 						sdata->regulators);
+ }
+@@ -406,6 +412,12 @@ int s6sy761_probe(struct device *dev, const struct s6sy761_bus_ops *bus_ops, int
+ 	if (err)
+ 		return err;
+ 
++	sdata->reset_gpio = devm_gpiod_get_optional(dev, "reset",
++						    GPIOD_OUT_HIGH);
++	if (IS_ERR(sdata->reset_gpio))
++		return dev_err_probe(dev, PTR_ERR(sdata->reset_gpio),
++				     "failed to get reset GPIO\n");
++
+ 	err = devm_add_action_or_reset(dev, s6sy761_power_off, sdata);
+ 	if (err)
+ 		return err;
 
-My hardware has the same register layout, but no IRQ support (related=20
-registers are always 0). So I wasn't planning on reviving the old driver an=
-d=20
-just using regmap-gpio like you do here. If your hardware has indeed workin=
-g=20
-GPIO IRQs it would make sense to revive the old driver.
-
-My hardware has one annoyance: There is one GPIO line (not one block of 16,=
-=20
-just one single line) that has an inverted direction bit - and this line is=
-=20
-necessary to run the routers on battery. I don't yet know what the nicest w=
-ay=20
-to deal with this is. If we have a good reason to have our own zx gpio driv=
-er=20
-then life would be easier :-)
-
---nextPartK_YJ80XiTvajPgjPcZKRXg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrLcLEbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoijZ0QAIYvFbnd86a0BA4vB7p5
-HZW7/UnHb9Rd8bwaNM9LhFgFYmTeQPLzMoVsSUt84V+JUge57Kw8nPV0Iux2YNkz
-IdzhQiShuW4/7oRjYqDSPStnkxVSeFDPOTmMJWLxqVXDvgWr5UMdCq4btlpYiPaU
-mnnG9uvEjFCocDCxhCQpoMAx7HUCy+EnNge9vMPmXezh6+S4u1dYYE0Ap1u9kp1w
-9yOd6Joq6hldxa8Rf+IVb8k9aFOz34eK/3HCBUuni0/zIIMiSj4EhUosmD7LxtMp
-9GQ0bmuDTognLxJQHVRG2mH11ihkfvtEW25D/Dmb40YQsepPvjBAO3aq/DkoVWAc
-+jc5MaYUCIZkiKvpU51Yyc4dWrCPr8mBZLDhGE8mT1kt2a5Viu4E4q7aePEqqmrX
-7BxuiP6EDWHhdlvd0twIv4QjP6j+qE6+RbtGFSypOUQ8r5U83qrBNXid7MWXKwEA
-zyMF2uh2oFdGAap3RK07ohCigHiuWkbk0HYdDt/VUP/pZLD2OR7ozZ94ResxbsyG
-9ymGPuuDHwzHy+ULVHiaeHWygV0AfO3/BdAh+IfbbU8XgLQNve0f3ouodUN98L9M
-NZAeS7Kwtpt/55jvyJ/ZxDufW+xIHnHrqrW0HPf/asAchms/6+TkScZFgcJRA8FY
-2yHKUduoenPY8vgxk+nADhIb
-=xhk2
------END PGP SIGNATURE-----
-
---nextPartK_YJ80XiTvajPgjPcZKRXg--
-
-
+-- 
+2.56.0
 
 
