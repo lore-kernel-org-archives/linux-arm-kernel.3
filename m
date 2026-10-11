@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09DACA9ECA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 09:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B309FCA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 09:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hzklMIa+OcS580+DlUByvFd6dTQm7xRfECj9JDqQ+Ic=; b=PiEC6UxbnAyBcQlOYR7dIgJYp8
-	MWt+AYogy/ahg4kWcW3LElUXFGY9wKgdm5tXHAXQEP48zGZoKuT5hry3IGZD/3EUW7JACvAvPtlPg
-	gJ8LiNi0jvOGsg5yZECSlW1cmKWeb3HbyrdAU3J3uwiFUfh/KEwjbGiQoTWb1/6Am3G6s2ZZF28Nt
-	CkRTnD001CUI4W56HKtvsdwTgJNL0zvWV9uEDpL+NKtYXfuh0AKguwk7PylVJW+xtFa30jF5m1aHq
-	3gV865Lvq/zt7dZQ9hV6KJyuc977lDJiUXk+Etgu2Unk5lhrLOyXIQxCIqUNjn2sjXAdVcQyl6kIn
-	G3Me5wPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kMWKtk6aRSbfvQLUR3KyOPOC0cuhIr7sFz+mSYCpkyE=; b=mvtjiD6jFKPd2kA0Mze/btSxsQ
+	CxR2mE80pm6bGvnjsfAUAleCK1hlpxv6R13XluvNgpy7NsaDqgEYKVHkD13tncH5nbl+dWxgjAmUn
+	JyVVjhF51IXM109hUXe2NCv0Mbbu72aq5uNV/b2f6uKKH8NSCS2mbllrL+D+GiT6bhMtbIArUyvKH
+	6NguHkb+q99LiN4o2Qy5NgyzKuQvpE846wbBIyzxw7xAIckKDRqRegTeJpyEQzxb01zGSrVheHg8L
+	1sGwH96jdqQ+Wm/Egn2toQyUxVPoYO4npwgRTnyQe3aaMtNyWv5Dg1SHu95Fs7862yUMorX7wufOn
+	c/TvrWaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFq7N-00000008u5b-3ZlK;
-	Sun, 11 Oct 2026 09:45:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFq7K-00000008u5B-0Uzp
+	id 1xFq7Q-00000008u6Y-3zWd;
+	Sun, 11 Oct 2026 09:45:24 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xFq7O-00000008u5Y-1zz0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 09:45:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CB151682;
-	Sun, 11 Oct 2026 02:45:10 -0700 (PDT)
-Received: from [10.57.13.91] (unknown [10.57.13.91])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60FE03F882;
-	Sun, 11 Oct 2026 02:45:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791711913; bh=phYLsYaGezB/4VFRSxSZQZLhUrUxyt689g+K6n1e57g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TSZD1LhJJBKLyR8FUnRN2F3Zi766+Qsh2PiIOXHCAXkm0XYuD3L5XUp9RTPWVhg0L
-	 na1EvLuX5igyKGppH7bz7pzHtngbHMAuDoP5MDrMdf/vDi/Wg65mpfn/71+JcMN3C1
-	 q8zvMSTP6/FdQGvxrMTZykCZ2L3JQGCf4k5IPqrQ=
-Message-ID: <ebb8c99c-5f76-4c36-b3cd-c238b53b3d8a@arm.com>
-Date: Sun, 11 Oct 2026 10:45:10 +0100
+	Sun, 11 Oct 2026 09:45:23 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c2dc8cb0decso108457366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 02:45:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791711920; x=1792316720; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kMWKtk6aRSbfvQLUR3KyOPOC0cuhIr7sFz+mSYCpkyE=;
+        b=nXUCW/FmLp4FmDg8P9lulX+k+HgN486teYCA2p0Rs6OkT69BE4of/6ocId/XHd8In6
+         /nN+biHXH+lSIzod3qdh5u54HNDpcQ3baEYmSN/Ok6Qv+u1fIDZV6TBE4F+gdzaqObNN
+         0An7B6+9aygE8jATt/VCeuUi3am5Sd/BWxyigcC6X4kCOOMEb8k43vupFeTNmue2U9N1
+         NDfRyK6Bdc84UXB5q0bGcZ0ww78dkOCHcR6MUHOPzG21hxgX91rdM3Q8no01WRtE6Ivb
+         kl6cECMYx/3PgVpTKlSEzaqhIC62r+JAJ6Fh09J1anrBHIBfiYfY/0wPCGpExVj/u92S
+         kiPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791711920; x=1792316720;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kMWKtk6aRSbfvQLUR3KyOPOC0cuhIr7sFz+mSYCpkyE=;
+        b=JFC6lnxQugkZhxhDgRn67e9HGTXzwLarIcZYBCzzYN6YMMygP45v3D/VPF3kMNFZNY
+         pU+2mexfk6a6UOkDqbgjhp6V+xHo1BZT4PeHqg1O/cZLxcJQt9hgr1L4SvMi+5tsODAO
+         iQzPkgvrdWeokDu29i4kAFhJ4ZJqbPP6fyRMKyDY/5TG9RlzCczenV9OsOXYSmo57dWb
+         5mm8xmjTSEjAeeXJrul0kBVxtixti78pacDwlM1P4OWpeEgRIGRfb444FfFkpTJto/1m
+         zDsf/LmVy9g35AhDCzcSoKLGrzYoYBwM2qDg/sxctZE2cCp2hwbN63E3sLBLjdNQCh5x
+         SmOw==
+X-Forwarded-Encrypted: i=1; AKwUvByGHImri7fnOqJMj1673Uz6df1BtuZ6gHeGtHmHE7CHjP8AIVrHEODzO0cVFiGulOdZK/uRKQ6PGpUyW0BQEkcA@lists.infradead.org
+X-Gm-Message-State: AFq9FYK/Ri3lFKwmhivZAblsAcPpLTO2AWdaByja458Q3xbKYlYTq00D
+	LVLaxk7zvS+dSgm9X2VJmG4wuuZGb+Agmts82emEWK/02pVPpu/CVt5U
+X-Gm-Gg: AYBFou2HIVPPuBX6pr6/AYHVgi4t/WF3NyMej7BN0wk/Fepkj3wkGeh1YqWNBx11z2e
+	1Mw0sFfCAxWW9x8WJbv/rMVnO5N/LZmUXytZxzhNohyJJ0SLhoxtgHpGDxK2Tnwj4GC3qTdNxVr
+	wwVHUfc0htmlHi5FqzIGMxdFkUGkDNSW1d6BvBNSuJq9wHuV+mX7z35ydQfjq+TwLqf2MuVghs8
+	Lr4De2UKiwooI4DnNYWyO7KmYeIwvI/AWFTQuqSDlZnjHH+2H9eW32UdzhcigRDwHTi0TmcHBla
+	DilDPKWGeKxbX4nLo06XO7qWgxhCl+G5NMyPO0x4Za2DxgHRt5iuhRwUpz+qPCLYz13zQRGqfzY
+	hf+NZDqLxVWxHdsgtSTjR5CYf2HqhtdjlD6TKy2tAimRVVvQ6F8OIgNWxAWgp+lfo0JsaXY/TkB
+	Q+p5LZkJUq8KCn0hv6pYtmKiDZLspHQ29Ix3IDXmGk3B7Gog==
+X-Received: by 2002:a17:907:8687:b0:c16:4e5:944a with SMTP id a640c23a62f3a-c31aa02a1ebmr650442866b.21.1791711919938;
+        Sun, 11 Oct 2026 02:45:19 -0700 (PDT)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31a9ad0ad1sm347200666b.77.2026.10.11.02.45.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 02:45:19 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Sun, 11 Oct 2026 11:45:16 +0200
+To: ryan.roberts@arm.com, dev.jain@arm.com
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com, anshuman.khandual@arm.com, baohua@kernel.org,
+	chleroy@kernel.org, david@kernel.org, dev.jain@arm.com,
+	jiangwen6@xiaomi.com, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+	ryan.roberts@arm.com
+Subject: Re: [PATCH v10 05/10] arm64/vmalloc: allow
+ arch_vmap_pte_range_map_size() to batch multiple CONT_PTE
+Message-ID: <astarANeoldvqBxc@milan>
+References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
+ <20261002090947.869220-6-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: smccc: Pass only the required device probe
- arguments
-Content-Language: en-GB
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Andre Przywara <andre.przywara@arm.com>, Russell King
- <linux@armlinux.org.uk>, kernel test robot <lkp@intel.com>
-References: <20261010100249.643327-1-aneesh.kumar@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261010100249.643327-1-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261002090947.869220-6-jiangwen6@xiaomi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_024518_289905_9447E013 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20261011_024522_533577_C8C6D1D0 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +109,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh
-
-On 10/10/2026 11:02, Aneesh Kumar K.V (Arm) wrote:
-> The device probe passes zeroes for all seven argument registers to
-> arm_smccc_1_1_invoke(). On ARM32 Thumb-2, this binds an input to r7 and
-> GCC 8.5 reports "r7 cannot be used in asm here".
+On Fri, Oct 02, 2026 at 05:09:42PM +0800, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> The current smccc_devices entries need at most one argument after the
-> function ID: TRNG_VERSION has none and RSI_ABI_VERSION takes a requested
-> version. Pass zero for that argument and omit the unused arguments,
-> avoiding the r7 constraint. Check argument requirements when adding new
-> probe functions to smccc_devices.
-
-Is it safer to use x1-x3 to 0 as they could be the results that we
-get back from SMCCC v1.0 onwards ?
-
-
-Suzuki
-
-
-
+> Allow arch_vmap_pte_range_map_size to batch across multiple CONT_PTE
+> blocks, reducing both PTE setup and TLB flush iterations.
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
-> Cc: Andre Przywara <andre.przywara@arm.com>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Fixes: d8263a131bb0 ("firmware: hwrng: arm_smccc_trng: Register as an SMCCC device")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202610070641.B8hxBJcf-lkp@intel.com/
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> Previously the function returned a single CONT_PTE_SIZE for an aligned
+> range, so the caller mapped one CONT_PTE block per iteration. Now, for a
+> CONT_PTE_SIZE-aligned range, it returns the largest CONT_PTE-aligned size
+> that fits within both the remaining range and the caller's max_page_shift,
+> so a single pte_set_huge() call installs several CONT_PTE blocks at once.
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
 > ---
->   drivers/firmware/smccc/smccc.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
+>  arch/arm64/include/asm/vmalloc.h | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-> index 07b864ff079d..377d2cda2b6e 100644
-> --- a/drivers/firmware/smccc/smccc.c
-> +++ b/drivers/firmware/smccc/smccc.c
-> @@ -122,8 +122,7 @@ static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smcc
->   	if (IS_ENABLED(CONFIG_ARM) && ARM_SMCCC_IS_64(smccc_dev->func_id))
->   		return false;
->   
-> -	arm_smccc_1_1_invoke(smccc_dev->func_id,
-> -			     0, 0, 0, 0, 0, 0, 0, &res);
-> +	arm_smccc_1_1_invoke(smccc_dev->func_id, 0, &res);
->   	ret = res.a0;
->   
->   	if (ret == SMCCC_RET_NOT_SUPPORTED)
+> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+> index 4ec1acd3c1b34..c29704a19e276 100644
+> --- a/arch/arm64/include/asm/vmalloc.h
+> +++ b/arch/arm64/include/asm/vmalloc.h
+> @@ -23,10 +23,12 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+>  						unsigned long end, u64 pfn,
+>  						unsigned int max_page_shift)
+>  {
+> +	unsigned long size;
+> +
+>  	/*
+> -	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
+> -	 * aligned in both virtual and physical space, then we can pte-map the
+> -	 * block using the PTE_CONT bit for more efficient use of the TLB.
+> +	 * If the range is at least CONT_PTE_SIZE and naturally aligned in both
+> +	 * virtual and physical space, return the largest CONT_PTE-aligned size
+> +	 * that fits, for more efficient use of the TLB.
+>  	 */
+>  	if (max_page_shift < CONT_PTE_SHIFT)
+>  		return PAGE_SIZE;
+> @@ -40,7 +42,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+>  	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
+>  		return PAGE_SIZE;
+>  
+> -	return CONT_PTE_SIZE;
+> +	size = min(end - addr, 1UL << max_page_shift);
+> +	size = round_down(size, CONT_PTE_SIZE);
+> +	return size;
+>  }
+>  
+>  #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
+> -- 
+> 2.34.1
+> 
+This is arch/arm64 code. Can you, Jain or Ryan from ARM folk review this change?
 
+Thank you!
+
+--
+Uladzislau Rezki
 
