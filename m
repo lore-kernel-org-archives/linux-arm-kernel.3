@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4685FCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 13:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC4DCA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 14:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4X8y55PrXkGOudIsFCasLzIDfqrrSmuwJHtcshJbz80=; b=lDsGH/G6wBk3UwJFhwjwvAnM2b
-	fytYzWsR8nUWByO+f64RMdPBP4/BEMnrHWJt9QklGbZW693Qz0oNmJplIQDt05D7Knez5/wrQV80a
-	EGGdfl+xegZjZa3i+8S9n+QirU4eu5qzAfZkYQCfA1pPbR9y5hP2LbgiM3eIiYgWFcEuK5z40IAOk
-	gGCKvhuhJr8goZEXEnfzvAXGXIs4/Jf2eiBSKDziHIIa+vz+MGjSxeuk7Ga9k/Bzw3PSt+CVzT0XY
-	odRIdNqOwW5tTvpx9E+MW6+uD521xZpsnDy2QScUzV0ketIKZhOE5/45Xpx3JVPmgBUQDxTx6TDhk
-	LUiTJdnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=66qeQFvPa1OLNzA9zOG/eSFE0YAdZbwXEI8cdDv4Aes=; b=Dta+NtIX7CX3lc
+	7AFn8AeCHGXBpm/NEsP6zxMrU/+cny7WaALQMSsK9KKrZltfdmCzZJdBjonjxvrv8OjJDJpVXRWuv
+	c4iBAG5XXJCkB/6fDakUqcMNj9y0Dr6m/1b0SGcbmjEOYJtF7AAczaXkODOMfNabmuskVSezNwGs8
+	dUaKxipbG/W54TqvPdy3sleFr52uAxJnSrEh5zdm2Ql/EtYuZqxj12QBtmwtcs7Il87D1ZcwsC47b
+	KowZ5Sr/o7GwbjHf0PHUNHZIog5QbBDjhLd3qwlA4+IuD1mmGaXAzjzTUCcAalsiDOwO9Nwby2QhD
+	QVH8ldLz+7S+tUoICAeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtjo-0000000947G-2FCu;
-	Sun, 11 Oct 2026 13:37:16 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1xFuLs-000000096dF-3Obi;
+	Sun, 11 Oct 2026 14:16:36 +0000
+Received: from mail-yx1-f42.google.com ([74.125.224.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtjm-0000000946q-0YtZ
+	id 1xFuLp-000000096cL-0qj0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 13:37:15 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c2dcbcc546fso124390766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 06:37:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791725832; x=1792330632; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4X8y55PrXkGOudIsFCasLzIDfqrrSmuwJHtcshJbz80=;
-        b=i9ZLCHQzuJYPZfNRZXtvFAkjHC+yhj6WDaXVgQJt01nG968mPpXJz79M1GZeh08S4h
-         g3tEi86asEN7Zxj3BYlxMG6fWLsLDsXakxvLy+ChHhO+9dgGT3NsobziS6Si8ko7U3tD
-         OMu9uyj9WsekFkVfP9AHPC8EtvBGZLH8D7qxjEXK+hrkuWdHVLiP3eWyMbocZaUtQGA7
-         m/5uYPLiXCnhQ/vy1BbD6OgTR19iUoqMWQlQTtBVNwqxdyPXu5R2/xZg/y/g7vEwVPbc
-         q5p4QmGs6QOdRp8v/5+hgZ7j07tMM1if6+K3am9u/G3ZGxjy32A120JTn0vF7Rs6hTzP
-         7x4A==
+	Sun, 11 Oct 2026 14:16:35 +0000
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-677bf06de21so680257d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 07:16:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791725832; x=1792330632;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1791728192; x=1792332992;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4X8y55PrXkGOudIsFCasLzIDfqrrSmuwJHtcshJbz80=;
-        b=zLyFvg/3A3+ZiJmVIGF0YiJSXaveJGw4yYgitroQ6i5priXQD04QwaaL7BHxdsduWo
-         HBYKkkn8Z99RfsY5WIowbHY2uIfwuPkp68TBN0bTtcKqLYx8/1XVa1L1tW7LhAG+WM4x
-         n62ccCHGX2z9bg7WFlkbsIByIFvkGtzDcKM1Z9JzaB5lNtBDiNQaWxzMnuq16kzlzKLb
-         0WA3rL/cYUELCqh1jNBURHgjYKYq0ZxlT9lbrAEtJ6IFj815SYGR/rrnsW05uSu5OsFQ
-         QH9/U8Ss2ga8iN51SVVKgFjRU1rF66KbNxjBbH/CoBmcNguTEKMqDVUlXj22dlM/Hb1m
-         /Hww==
-X-Forwarded-Encrypted: i=1; AKwUvBxUmzpny4uJxtc91zfVig6bPZ8l5YObe8sZDXy7baGjRvYMzIHGMjtY1qISjVs3y77GGEivLbSiaZY+ezqPN3k3@lists.infradead.org
-X-Gm-Message-State: AFq9FYL1cxyVBNRT/Tp1VIBpSmpYYb/+NRevmvM2yIbh9911GD1Wv8Mc
-	R4dT32zJc2hSOaZ8TSrp/9OdbR22yenAdEFCRAbSuytzRI1Ifpk5lHci
-X-Gm-Gg: AYBFou3DoNVWCGkYqNFtXTOMlZN/CQJtuuossVydKnRl5v3rlHD+/pIVMvYuj/h1pKA
-	hpB7QkPARinTgoxefv75RU+r/KWYC3bST8QjgdV6R29+sCrrkHcvPqJ3EJjAA6FJ88Iuygnsw1s
-	gBf/sX9qjlJW9Er3zjOeVGBvtplYOPIEUq3BZrLLq9hGKC64s8kZ+JvLw9F4PGvXOO09RfQyk4d
-	wDAr2jMfigPTg+DkWct9Hm0r70iCs6Gu8c0EkguYMHY0FxZNWVnM3xD4NQvtkXXC7AC/GNKhYVl
-	hCrcYaLhzIWdHBa61t/itubQEK9xC01GqQ7jg+g1hUqw0EPtBIxBA5r5rtfWsA+rdXMjfIjDXYO
-	4KZIaYZBWFmwaQ5dQZqwUHkoocoSG5g9qhIs83yIlsSumUXXl5eyYTfViMQERhpK6MRVGdUyeEE
-	KGmN1znQnl44Dv0XXR8E3LOfKb4FZkkOv2PAU=
-X-Received: by 2002:a17:907:3f8d:b0:c2c:d06f:cf87 with SMTP id a640c23a62f3a-c31aa0d3106mr668410766b.46.1791725832001;
-        Sun, 11 Oct 2026 06:37:12 -0700 (PDT)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c31a9a7b976sm361047966b.36.2026.10.11.06.37.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 06:37:11 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Sun, 11 Oct 2026 15:37:09 +0200
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
-	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com, anshuman.khandual@arm.com, baohua@kernel.org,
-	chleroy@kernel.org, david@kernel.org, dev.jain@arm.com,
-	jiangwen6@xiaomi.com, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
-	ryan.roberts@arm.com
-Subject: Re: [PATCH v10 04/10] arm64/hugetlb: drop the init_mm special case
- in clear_flush()
-Message-ID: <asuRBRZS9KzC7Y8q@milan>
-References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
- <20261002090947.869220-5-jiangwen6@xiaomi.com>
+        bh=66qeQFvPa1OLNzA9zOG/eSFE0YAdZbwXEI8cdDv4Aes=;
+        b=wmDo9qbR9ojx67tQcSp59xIO9kATkn3vdnkewlSickhv6QlR4Mv3giGdHIUEzqMPQe
+         x+OPNO1tTl/WVi4G0Oxtm1ks9RvOwmvHyH83INDnyzcw9cvRDeeq9tVWXk7ofwe99dIB
+         iSAEG8foG5kcRglQbxI3ZRBcZKmnVxmXMlnpTuqKS1r2PF3FuHL48EcYODcT4llQ6jYh
+         IntNauY6M7wVvUYjBGJn0nzXFKiEVZKmTJBWXQMIhuAXv+dRoj5lkqSZmpw3wr32fYDQ
+         Cnty6dWSgSJarbNavz/fNFjqZVjY6zO59mDbqVVYT1pRQPxCoZfsBgoC9gCQ5o6jZ8cY
+         Mqdg==
+X-Forwarded-Encrypted: i=1; AKwUvBw6uTXV9Dd7/bPizy6RMRkSfi5oHq0oo0+ZdFU7X1yP2oAkaP9QiABD7Qm0QUntTJnHfC1bA775NRBCnnd6zXi4@lists.infradead.org
+X-Gm-Message-State: AFq9FYItQRe92m27VGYJfb+biijJz/OdXM50AcvN1XI204LCtD5FRuKz
+	2V33cSQcDmO7rKAA1WdmPc01z5JBaOXNkYqWMcyZg44eaAYjh/D84HRZBp/XMIYG82A=
+X-Gm-Gg: AYBFou02pRw0FaZnSwpKEEgWBfz31M5wCTz3hGjiZ3xik0JKAYhNOBut/MgHK9efaI6
+	QMUJu4NVM3Kp3KBj+4ROV9n7n6l1qe2uucSaFYwSt5DZRJkVrMcVH4tUJ/igZG78gAOMP5b6Ntr
+	ixkNsbLleOYrC0oIvlu+Sbu+rg9QqhtIZHQurp4KfeppsOtvOajG8ZhqMWpt3QpYeEUsZHPBcQF
+	IOP81BPbFiZFvJYagiLxRgn4C49n5ZooKtzMQHoP4C+cSZcZV7OGvdCo+LfOKltTa7bp6Nv37KU
+	yZNF5XCyGQWgvHyuoZ+BRv3tK9Rs/5HjAC2Vq+HToHlDSy4a6QZUMV09q0cfw/soC6sXvnmn0LE
+	KazThn5LZfGZvSX7r1aY/izKZXtdlBt8ZDcmoHDGeanL4B8mwaZzoAVn7W3+cEvnjk5MWM0OF8U
+	PZLa2lyswCQHM2+EddOkOqh1QFJSK2bUfxBp7h+EnAI5vBQbAzIBol/rBTZEvRWnjG3z6uztmwF
+	sg3cpxNhPzo1biQ03vI8myMJVJIHn+8lxgfroASLz+8QQFS/9tEo+XIKeOsiOCzKus=
+X-Received: by 2002:a05:690e:d0f:b0:66c:e0ea:a25b with SMTP id 956f58d0204a3-67935ed8c04mr1876859d50.1.1791728191683;
+        Sun, 11 Oct 2026 07:16:31 -0700 (PDT)
+Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com. [209.85.128.177])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-679356d60f2sm2707649d50.17.2026.10.11.07.16.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 11 Oct 2026 07:16:30 -0700 (PDT)
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b056d58f2aso6106657b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 07:16:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByjhkydhhXiSrL8G8bwmsP6mzTX4LyLLzOzq9YzgX5BvSBnVURUSuj/g28UajWZfS+AL0iIA0961AAvjyLrqLZX@lists.infradead.org
+X-Received: by 2002:a05:690c:a78a:b0:87e:2404:45fc with SMTP id
+ 00721157ae682-8b07ee0119bmr12804267b3.53.1791728189975; Sun, 11 Oct 2026
+ 07:16:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002090947.869220-5-jiangwen6@xiaomi.com>
+References: <20261010105900.247342-1-tanure@linux.com> <20261010105900.247342-2-tanure@linux.com>
+ <CAFBinCAejxmeeHyDy+vMSg6dBm+9prhEo9qZ7FAsiWNB1W-HXw@mail.gmail.com>
+In-Reply-To: <CAFBinCAejxmeeHyDy+vMSg6dBm+9prhEo9qZ7FAsiWNB1W-HXw@mail.gmail.com>
+From: Lucas Tanure <tanure@linux.com>
+Date: Sun, 11 Oct 2026 15:16:18 +0100
+X-Gmail-Original-Message-ID: <CAJX_Q+3JLn6oTt8qTPM-muKsY9JbTEMwqRvbamZ3vqg_Yymsmg@mail.gmail.com>
+X-Gm-Features: AclHuK_1GqFe_9xMchzTuN-zUjY9-HZS8dq9HbxopbZkfG1FPjpin79NLsfNCvI
+Message-ID: <CAJX_Q+3JLn6oTt8qTPM-muKsY9JbTEMwqRvbamZ3vqg_Yymsmg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] dt-bindings: net: amlogic,meson-dwmac: list the
+ compatible combinations
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_063714_189856_A373DFAD 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20261011_071633_275037_071BCB64 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +104,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 05:09:41PM +0800, Wen Jiang wrote:
-> clear_flush() calls flush_tlb_kernel_range() when mm is &init_mm. This
-> was added by commit 06fc959fcff7 ("arm64/mm: Support huge pte-mapped
-> pages in vmap") because vmap called set_huge_pte_at(&init_mm, ...).
-> 
-> Now that vmap uses pte_set_huge()/pte_clear_huge(), mm/vmalloc.c is no
-> longer a caller of set_huge_pte_at() on arm64. The only remaining
-> callers passing &init_mm are in arch/powerpc, which uses its own
-> implementation. Remove the dead branch.
-> 
-> No functional change.
-> 
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Reviewed-by: Barry Song <baohua@kernel.org>
-> ---
->  arch/arm64/mm/hugetlbpage.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 8e799c1fe0aa6..ce247b06fe03d 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -206,10 +206,7 @@ static void clear_flush(struct mm_struct *mm,
->  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
->  		__ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
->  
-> -	if (mm == &init_mm)
-> -		flush_tlb_kernel_range(saddr, addr);
-> -	else
-> -		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKCACHE);
-> +	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKCACHE);
->  }
->  
->  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-> -- 
-> 2.34.1
-> 
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+On Sat, Oct 10, 2026 at 11:04=E2=80=AFPM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+>
+> Hi Lucas and Conor,
+>
+> On Sat, Oct 10, 2026 at 12:59=E2=80=AFPM Lucas Tanure <tanure@linux.com> =
+wrote:
+> [...]
+> > +          - enum:
+> > +              - amlogic,meson8b-dwmac
+> > +              - amlogic,meson-gxbb-dwmac
+> > +              - amlogic,meson-axg-dwmac
+> > +              - amlogic,meson-g12a-dwmac
+> > +          - const: snps,dwmac-3.70a
+> > +          - const: snps,dwmac
+> > +      - items:
+> > +          - enum:
+> > +              - amlogic,meson6-dwmac
+> > +              - amlogic,meson8m2-dwmac
+> Meson8m2 dwmac reports: User ID: 0x10, Synopsys ID: 0x37
+> In case it helps I can submit a patch to change the Meson8m2 .dtsi to
+> use "amlogic,meson8m2-dwmac", "snps,dwmac-3.70a", "snps,dwmac" - then
+> we could move it here too.
+> That leaves only Meson6 with a single fallback compatible. I don't
+> have any Meson6 boards, so it'll have to stay that way.
+Hi,
 
---
-Uladzislau Rezki
+Fine by me. But I think it is best to wait for this series to be merged.
+Lucas
+
+>
+>
+> Best regards,
+> Martin
 
