@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2E9CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 01:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07480CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 01:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60J2VG6f80i0xtDeR4IknW0h4MKxDdpuTKlVp7+7Fow=; b=gVboOQkcQBf4RbT5RZYD5NJg2Z
-	0AtWAb4ja3bxaPq6J+bY68m8x7aT/fRiL7Wn8p9zCILi5fpFgGet+4tQIxp6ppGBOX8fQyxx67lki
-	Qymt8aa5lru8RnlN7fdn6nqKHf98HMIVXQ9s9NdJTpde/XMYDyr174u7i5QKWQY9WGMUa/B3iMlEr
-	0L4LGHByZPEcKLtupbe5sc+jzBuKHbW05wMAuZNI5GlQI15A0U6BlRVEntACdC2zDO2uvDe+1o6TH
-	TJC1OHPfDKyQeehYQaxdvKXedH7AxcxN++utUWi08R8owwU+4FCbFI4XcWB7TEwaN6p1KaHMNVGnq
-	/f8GHO2g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w5e0+n/SZwb+mdMGSpmZA8wmqSq0w/SQYcFKC9N+I3s=; b=RKlEHfcHlne1I+hzFSMH6pGnrV
+	NfYVoQxNc4hHsnRwQWJ90M98LGdAfvsbwzG54wuE8Y47PvaPGlNj/e6cq+JCpdJM/HtfWrodaeJcO
+	syDiCxhwNo9XZhE03p4D3BulOZoJ8z3cx8wOGBn7nTeBcuVPKaJKQ0KrzEsY9dk6KR5U19ClpRAPh
+	CSGr73S7vy8mrfLPbtYKxnw1QpHIyjws+k4nqKqS7oqFowvzk8f0MJzhZ4RcSy83VPpBFKml0c3T8
+	SQ383nFPADu2S816znZDF1ixOscGTPyvtAP+YKKwqWoXURG3UejXKtFFDFTQr5LmP/6ftSCppf8E4
+	l+qTsW9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFhxU-00000008bVx-3uIw;
-	Sun, 11 Oct 2026 01:02:36 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xFiAL-00000008bzx-0Neh;
+	Sun, 11 Oct 2026 01:15:53 +0000
+Received: from mail-qk2-x08.google.com ([2607:f8b0:4864:34::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFhxS-00000008bVc-3old
+	id 1xFiAH-00000008bz6-2snh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 01:02:36 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a022fee0caso5108025e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 18:02:33 -0700 (PDT)
+	Sun, 11 Oct 2026 01:15:51 +0000
+Received: by mail-qk2-x08.google.com with SMTP id d75a77b69052e-53524092d9cso10342561cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 18:15:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791680552; x=1792285352; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=60J2VG6f80i0xtDeR4IknW0h4MKxDdpuTKlVp7+7Fow=;
-        b=ScejhVnbNgjmWkr3nzTtaqGNwkSuSvOgVAfq1e9ErgSyFCjc34LbSrD6PgH33T1svZ
-         s/vb673KlfQfNTDY4pfHAW7tCAAAw/wtkole0Ace03l8+Mpt4wlGVIrfAV9Qv5+JP4GG
-         bD3+5/LE3LoJsMoy0qB51fqCDNHK0pH/qFTsz60bKdEPm5QfPE4zDK/P6GKhJyy5bn5f
-         8BQRrwxV0TxvQEj4n+3xQdWA8EQqYjQUmxSxiaRDdfuj+3XoYGgElSkJ23eygQ54tcXj
-         urEei+prpgaRrYmEVXcl2qd9hk4ObnytcMz5sJxfy71hU+92hEM2HaiQRz/7DfyKm4cS
-         sl6w==
+        d=gmail.com; s=20251104; t=1791681348; x=1792286148; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=w5e0+n/SZwb+mdMGSpmZA8wmqSq0w/SQYcFKC9N+I3s=;
+        b=kKXNpMvdGCshz7Wvh6Bo8moDODbU78qE56JkZ71FLzyaRJ5cx8FPIxE+6/jvbPSYqz
+         pI61UbOupP3/OhCUrIeAWdaxY5eQLCHkr3NrNI24FsaAAO0o2RB4LJEp0sRmZiHJQbNe
+         MfU/JSvrUMHd3snsYxBWhk7DOCmAO5ubjre1oDddDsLncyyOawA6z0O0waSFTmxQv+NT
+         JbbWay6ifn9Nst0l2S28p4/LM49M8CXJjaF6nKMSRgWmmLIct/Q4Jaos9JiMhBnMZVXt
+         h4laUi1Donauct7lYXXc87InVz/7eStXy9jmnrTAEA/q1RFu81m8QgCMXvbRCs8XlWr4
+         nXlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791680552; x=1792285352;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=60J2VG6f80i0xtDeR4IknW0h4MKxDdpuTKlVp7+7Fow=;
-        b=gjzT0thjki4iusrurgGwMeO1BEVMn80kJFRgxyNgVBFTfWXDLdprX9iVQ1AiAKZxa8
-         76iwNBy0rNV5MToxyxm+UVj+vwJDnrO2o8RiqtiEqolxcctCL7cdGz111oNU86wWqoNS
-         hVu1g96iIEnd5aTzB6ldjjLtZ3BJR4AYT2GONkwAfKC5D+96rXJltkYanjZzT+ZpMGBu
-         7uswrQXdUq5Ugfsoxtb3SndOJY/fevsReBBYMjSE/eEbFcZMzrNTej2+eZkLxeAkRe/g
-         Mq1nFp1B8fTwn2cX8pM2UTjrbWqBSZCR2Qep1XxfjutZMTjIRdT1GfCvLjVLRCCbM3Nq
-         i8Pw==
-X-Gm-Message-State: AFq9FYJNXgqQG3KZ0AwzdurcEW+kaVB07PELpZC/0ZdBrOP+8TzFl7EG
-	DCDuKFaro0gp4ko4yv5danEMF4PaEbfwrAvfTcxqNdOqExdyzIH5nMLzVp43+QeErFLi1w==
-X-Gm-Gg: AYBFou14m9tykMHpEmQ60QXBQN/eDcPOGgqassor27pHM2er1BwUAc8xOfUPwe6Fqa6
-	XgqCSIpo90ptf9qkChaBSz6xLSt+e+JITpS+SeBseiG6671LbSnT7D/dyz04IPO5kz5GypKMbX/
-	pyJhdi4LokTQsBJuxY49WX3VnR3tCyetTcFsXMpIA8rt3IWPScjmECtgJBLDl03+uhUB2FgnwfU
-	nvRsVwN0E8sx27fnQ5dqtDbX4f7qR4YGmJYQl8U+1jYF6j6fMI2u5Wl5zFo6PZpw4cn1CrDl+Yh
-	2rP+dXEcfSGzEx3Q4p204qfnQylz2pWGMrbyJmCqzOSsV1KFmpmMMu57j56ZKlzT5w4gxp3Az4c
-	DGfwOoESXj+e5FB8jV/oexyd4Z0BtxLGZk9442pGxYciFnh6Mj8fv6294lCzrKhTWCAjD/D9j84
-	ujZFxRnJyKuufrhjI78jHr5xUTzR9t0ziOPW/o2pmXJbF9m8GvCZ0cx7tBZAR8SO/a+LcPjiT8Y
-	4kexzKGPeqrggviXnfwDJ5LgizCkLjCTJGzz/ur/jVNFsfjzqbxMvlrbSF3cL1Dbyt37i+3uBYY
-	WXqi0MzWdsbGkDPUw7ifUCJN8/hk0O5VZnyYySqwIdzhlXxy3nN043OQJKQnmw==
-X-Received: by 2002:a05:600c:8184:b0:49f:ffd0:4039 with SMTP id 5b1f17b1804b1-4a18e4f2221mr83201325e9.32.1791680552214;
-        Sat, 10 Oct 2026 18:02:32 -0700 (PDT)
-Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bb6b3cbsm139970805e9.0.2026.10.10.18.02.30
+        d=1e100.net; s=20260707; t=1791681348; x=1792286148;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=w5e0+n/SZwb+mdMGSpmZA8wmqSq0w/SQYcFKC9N+I3s=;
+        b=vFkFi5vm3Cj2AdK0SHyvuV583wtukixhK7zLBZyrT0bjBxKkjRtuwkEIyAzMyg5fAo
+         qTXeXv4LGP9eYpblJo7ob5U6r37Td0ueY0pkpWCZOL7YofHfiNfuEUu+byio698pzrTl
+         i0tBrXJP0hXcFLmK7LjQ3fBNR+ehB96ut6MjtJWGYU5Ei98xZqTC3HdwUQTdoYhos9qn
+         7OFM+a2RwQImR4E5/oG6zUNauUEWo8R0zjl1dGUtQcJCOolL3eDmmHc80u+0n/UctY8R
+         +v2ymk6dUqqLdVg9AfHCrERQBYoaIC/JzNyYg+i9Ncag1qcOI9DPCct0UMqgFNW+DzQx
+         Bsiw==
+X-Forwarded-Encrypted: i=1; AKwUvByQpiLmVi2+Bf0HCdCHyOnUHRdmy+LY3skw5Bc1uAzXOY5ne9ThnUuSF78zJIIuIGQRXgU7RUWkA3k3Z+agvrY0@lists.infradead.org
+X-Gm-Message-State: AFq9FYIGyflpKGviIpKCpWlKFgMA5JTRxOcbE/bPYgETpS1vgwZaxhHq
+	9AsYSITzCVXN/toUjCKhMIlUaXyTlDopYEuLcxvpfk9k0y0Pc5HsbW//
+X-Gm-Gg: AYBFou2UTjFdJLQT+327ZT0FWF5psn5EFcEkUZaz6XOpxU6E8uwjgrXeQpHLccWSBsD
+	2SPd5YlKH55ewmVXUqBwLnuaoWiGhhe8PwLs8t8wXeR7FGoH9Fvc7IeRk03Wb+kh1aaBtWIwDSu
+	OIhIpqbeqkT7i+uxRe3fDA6XwXbaLbiyzBH0KYiObgE1WeQyQMYx7KIbWaoc/Wyh8ZRWiTrqoyC
+	gjxfxEpwzsMePSueUUIXOm7LbDb8N9oFWlaSxjecMAJPh5z9hgT0oeFSpJVKuQj0baWeqxR+udj
+	3hUROfLIRlJafKsv2ioOJY5bafXTS0NFbe39K0Z7Dh7Hbccm+/HV+LJNd2axHCt7EuxyG6Vjqnz
+	aZZvXMwGuA8juX001syHjoxlIns/uNHaH4kqb2+PL9XSRhzr82JrvgTE5QkRGfffkFlcMKiFwrF
+	9vAKwM6be6LeOLfXkrsWIEOyjM3bSHuqZ7L2TQgbHdvt4MMNp8QmRgQeFbgpdPg3JJNHw=
+X-Received: by 2002:a05:6214:3d8a:b0:919:5a24:d77c with SMTP id 6a1803df08f44-91b5556a830mr104675746d6.31.1791681348207;
+        Sat, 10 Oct 2026 18:15:48 -0700 (PDT)
+Received: from omarchy ([2601:804:8780:3df1:6ff:277e:31c7:ac13])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91b550c354asm58641236d6.39.2026.10.10.18.15.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 18:02:31 -0700 (PDT)
-From: Navid Ghahremani <ghahramani.navid@gmail.com>
-To: arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stefandoesinger@gmail.com,
-	linux@armlinux.org.uk,
-	Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: Re: [PATCH 02/24] ARM: l2c: Serialize device reads with cache maintenance when requested
-Date: Sun, 11 Oct 2026 02:02:23 +0100
-Message-ID: <20261011010223.2379347-1-ghahramani.navid@gmail.com>
+        Sat, 10 Oct 2026 18:15:47 -0700 (PDT)
+From: zoan37 <agentzoan@gmail.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Freddy Hsin <freddy.hsin@mediatek.com>,
+	linux-watchdog@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] watchdog: mtk_wdt: Stop a running watchdog over system sleep even if not opened
+Date: Sat, 10 Oct 2026 21:15:36 -0400
+Message-ID: <20261011011536.1139162-1-agentzoan@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <5e78f63b-9479-49d9-8474-fa408135f325@app.fastmail.com>
-References: <5e78f63b-9479-49d9-8474-fa408135f325@app.fastmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_180235_006735_7B0373F5 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20261010_181549_739234_080036E0 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +101,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+mtk_wdt_suspend() and mtk_wdt_resume() only stop and restart the
+watchdog when it is active, that is, when userspace has opened it.
 
-Thank you again for the suggestion to test arm,outer-sync-disable. I have now completed extensive hardware tests on the physical ZTE ZXHN H3600 across multiple bring-up orders and load scenarios, and unfortunately disabling outer-sync alone is not sufficient to prevent the interconnect deadlock.
+But a watchdog that the bootloader left enabled stays enabled at probe,
+marked WDOG_HW_RUNNING, and the watchdog core pings it until userspace
+takes over; that has been the case since
+commit bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe()
+to prevent the system freeze and it doesn't reboot by watchdog problem").
+If the system suspends before userspace opens the device, or userspace
+never does, nothing stops the watchdog and nothing pings it while the
+system sleeps, so it resets the system one timeout (31 s by default)
+into the sleep.
 
-Here is what I tested:
-1. Added arm,outer-sync-disable to the l2cc node in the device tree (zx279128s.dtsi).
-2. Rebuilt the kernel with CONFIG_CACHE_L2X0_IO_LOCK disabled and completely removed my custom read lock from both cache-l2x0 and mt76.
-3. Netbooted the initramfs uImage over TFTP into RAM via U-Boot (zero flash modification).
+Also stop it on suspend and restart it on resume when it is running in
+hardware, like sp805_wdt does.
 
-The kernel booted cleanly and confirmed the configuration:
-[    0.000000] L2C: disabling outer sync
-[    0.000000] L2C-310 cache controller enabled, 16 ways, 256 kB
+The core's ping worker for such a watchdog would keep running across
+the sleep and could ping the stopped watchdog after resume, before
+mtk_wdt_resume() has started it again. Have the core stop the worker
+over system sleep with watchdog_stop_ping_on_suspend(), as imx2_wdt
+does: it pings one last time before the system suspends and restarts
+the worker once everything has resumed.
 
-Both MT7915 cards enumerated over PCIe and initialized firmware. Here are the observed results across the different test scenarios:
+Fixes: bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe() to prevent the system freeze and it doesn't reboot by watchdog problem")
+Assisted-by: LLM
+Signed-off-by: zoan37 <agentzoan@gmail.com>
+---
+Changes in v2:
+- Also call watchdog_stop_ping_on_suspend() in probe, so the core's ping
+  worker doesn't run across the sleep and ping the stopped watchdog
+  before mtk_wdt_resume() (pointed out by the Sashiko review of v1).
+- Link to v1: https://lore.kernel.org/all/20261011004322.1118027-1-agentzoan@gmail.com/
 
-1. Sequential Bring-Up with Long Delays:
-When bringing up one radio and waiting several seconds until it was completely idle before bringing up the second radio, the system survived temporarily. Because idle beaconing generates very few register reads, the collision window was small enough that it avoided a collision purely by timing chance.
+Testing: on an MT8189 Chromebook (next-20261008 plus MT8189 support)
+whose firmware leaves the watchdog off; a local module parameter
+(mtk_wdt.start_timeout=31) starts it in probe the same way a
+bootloader-enabled watchdog is picked up (WDOG_HW_RUNNING set, fed by
+the watchdog core, nobody opening /dev/watchdog). Without the suspend
+change the board reset about 30 s into s2idle. With v2: 4 s2idle cycles
+of 60 s each, awake 45 s after every resume, all came back with no
+reset (so the worker feeds it again after resume). v1 also passed a
+10-minute s2idle sleep. Not tested with a watchdog actually left enabled
+by a bootloader. Built with W=1, checkpatch --strict clean apart from
+the sign-off.
 
-2. Simultaneous Bring-Up ('wifi up'):
-When enabling both radios simultaneously in UCI and triggering 'wifi up' to bring up both 2.4 GHz and 5 GHz interfaces together, the interconnect froze solid immediately. The serial console went completely silent, Ethernet ping dropped to 100% loss with zero panic or oops output from the CPU, and the router required a physical power-cycle to recover.
+ drivers/watchdog/mtk_wdt.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-3. Concurrent Wi-Fi Scans and Traffic:
-Even when the radios were brought up sequentially, the moment concurrent operations were triggered across both PCIe endpoints (such as spectrum scan triggers via 'iw dev scan trigger' or active data traffic while DMA cache maintenance was running), the SoC interconnect locked up dead every time.
+diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+index 1630ab65d593..3c493a470b37 100644
+--- a/drivers/watchdog/mtk_wdt.c
++++ b/drivers/watchdog/mtk_wdt.c
+@@ -543,6 +543,7 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 	mtk_wdt_init(&mtk_wdt->wdt_dev);
+ 
+ 	watchdog_stop_on_reboot(&mtk_wdt->wdt_dev);
++	watchdog_stop_ping_on_suspend(&mtk_wdt->wdt_dev);
+ 	err = devm_watchdog_register_device(dev, &mtk_wdt->wdt_dev);
+ 	if (unlikely(err))
+ 		return err;
+@@ -572,7 +573,8 @@ static int mtk_wdt_suspend(struct device *dev)
+ {
+ 	struct mtk_wdt_dev *mtk_wdt = dev_get_drvdata(dev);
+ 
+-	if (watchdog_active(&mtk_wdt->wdt_dev))
++	if (watchdog_active(&mtk_wdt->wdt_dev) ||
++	    watchdog_hw_running(&mtk_wdt->wdt_dev))
+ 		mtk_wdt_stop(&mtk_wdt->wdt_dev);
+ 
+ 	return 0;
+@@ -582,7 +584,8 @@ static int mtk_wdt_resume(struct device *dev)
+ {
+ 	struct mtk_wdt_dev *mtk_wdt = dev_get_drvdata(dev);
+ 
+-	if (watchdog_active(&mtk_wdt->wdt_dev)) {
++	if (watchdog_active(&mtk_wdt->wdt_dev) ||
++	    watchdog_hw_running(&mtk_wdt->wdt_dev)) {
+ 		mtk_wdt_start(&mtk_wdt->wdt_dev);
+ 		mtk_wdt_ping(&mtk_wdt->wdt_dev);
+ 	}
 
-Looking into arch/arm/mm/cache-l2x0.c, arm,outer-sync-disable only suppresses standalone outer_sync() calls by setting fns.sync to NULL. It does not touch the line-by-line cache maintenance inside l2c210_clean_range(), l2c210_inv_range(), or l2c210_flush_range(). During active dual-band Wi-Fi operation, network DMA continuously invokes these range operations, which collide with the high frequency of PCIe MMIO register reads across the internal Sanechips AXI crossbar.
+base-commit: aac26bee2287c88af5be5a5ff96d783b19a28790
+-- 
+2.43.0
 
-By contrast, my serialization lock approach (which serializes PCIe register reads with L2C maintenance operations) successfully passed 240+ continuous stress reload cycles and boots under heavy Wi-Fi traffic without a single freeze. Interestingly, examining ZTE's original stock kernel (Linux 4.1.25) reveals that ZTE's own chip engineers used this exact same solution, implementing a global spinlock around PCIe reads (fixed_pci_read_u32()) and L2C maintenance to work around this hardware erratum.
-
-Given that this is a silicon crossbar flaw that requires software serialization, what would you recommend as the cleanest, most acceptable way to structure this for upstream? Would you prefer keeping the serialization lock as an SoC-specific quirk in cache-l2x0, or is there an alternative architectural mechanism you would suggest?
-
-Best regards,
-Navid
 
