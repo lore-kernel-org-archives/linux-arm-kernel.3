@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9819DCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 15:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6A8CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 15:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPssMDMu2wzj+SLVMrrlq/wPuteu356OQ6siN0kIobM=; b=uW+mtV/AzRDfwIW0rM4nPS/yju
-	zggL8Ne7w0W0lxMYz//N1kHMMc4QmZRl30KK2CZooTRaJcfilqYZoQntXhQSfQLTYQEH1rdOr9JXH
-	FlrsUkwL7/KIGQVgxc7n+AFm98rA6haY/RXZi4qRTJiB6CVEHhxiLE+IyDDnsv4TcaDafh2J1EowY
-	XCZqNYin1QTGhXubXiaOiP0gscRUwC6VdMj2aM0gJhJZxf5i6SLd0t5cUotkaBwB34sNf6+FfgLo3
-	sv0TQGDY24hHv4sjE8pVPwA2XE1bL/6Glo6/+ILw9OHB0FPv9d6AFaYIDA637rA1Dv+LppCPxY6bH
-	YNpvCymA==;
+	bh=mUCf4nSzDUXsV7PZq3Gz76x5gHcSeE+bODEKH+oBdV0=; b=j4RG/qOnEhlJdqlxUX0NBxXjL8
+	liDtWJde2e1yYJ+k9tSsFIZ+H2bWTgGs+wsoHEP8/lBGR9tKscOqvaAIRvasyYROM4ZuIJ75vVtk+
+	smlLfh2e9iP3ESizoJCnFhc9QEQNSylc2N+Y5BV8LnEobbsYg9gRd/2I2g3bNRVXdwDsaxvzXs66w
+	pEu6dMpgz/CKGBMs7s4TGtISqFlTgB0TruluglVffeZ2I8Z329ItJy3LzKQEGO719csFqkzX8aBWt
+	Fw9Sa9AkPKdW1EOf1dkzmczcOIiFQ/aFq6+m9Zf8ZOa5zI0BPJNvEiZLQWYnY8ApS2QRq2GYzF5Au
+	iHPXQ1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFv8v-00000009AnN-1qty;
-	Sun, 11 Oct 2026 15:07:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xFvKw-00000009BFk-35hE;
+	Sun, 11 Oct 2026 15:19:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFv8t-00000009AnH-492k
+	id 1xFvKu-00000009BFL-2HAG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 15:07:16 +0000
+	Sun, 11 Oct 2026 15:19:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1885600E2;
-	Sun, 11 Oct 2026 15:07:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E9841F0089B;
-	Sun, 11 Oct 2026 15:07:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0024600E2;
+	Sun, 11 Oct 2026 15:19:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3081F0089B;
+	Sun, 11 Oct 2026 15:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791731234;
-	bh=rPssMDMu2wzj+SLVMrrlq/wPuteu356OQ6siN0kIobM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ATRUbMz+kTJCBgOaTXtgUoZIaRDwWP7rNf33Asa4LbCtGnsHo27BWHK4GzCwfjJPf
-	 ss0ebsvPMB5nBIV/tuYk0AOSzjC/f6Jd9mt8lrUVC2cAEBNQ2pwLix/Xfy7AbPaY6e
-	 MO4yHwoWuYgFtHkG8KdKk1nLBoeTNFcKXh0CISiJXzUAjUQFVH7u4TZ6wJuKJZsTcJ
-	 BB0yVrAKMeo0ZV0XHnjaFv2TgwC3dT8mCJfs9QgZzsXlBSPvWI0tStKmWmqlA3eEHU
-	 3EXJNTCRsMM+X9iTarQAXTpw6FzkZArsxG9xMHUu1jjmMO6jEU5YCLhyrOjiL1nVAI
-	 mDYV1fmqxTBuA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xFv8q-00000001aqI-2Uaa;
-	Sun, 11 Oct 2026 15:07:12 +0000
-Date: Sun, 11 Oct 2026 16:10:19 +0100
-Message-ID: <87zewk8e90.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: oupton@kernel.org,	kvmarm@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,	catalin.marinas@arm.com,	will@kernel.org,	joey.gouly@arm.com,	seiden@linux.ibm.com,	suzuki.poulose@arm.com,	yuzenghui@huawei.com,	mark.rutland@arm.com,	vdonnefort@google.com,	qperret@google.com,	Sascha.Bischoff@arm.com,	steven.price@arm.com,	tabba@google.com
-Subject: Re: [PATCH v2 4/5] KVM: arm64: vgic: Do not access the GICv5 CPU interface from EL1
-In-Reply-To: <20261011143648.211337-5-fuad.tabba@linux.dev>
-References: <20261011143648.211337-1-fuad.tabba@linux.dev>
-	<20261011143648.211337-5-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, vdonnefort@google.com, qperret@google.com, Sascha.Bischoff@arm.com, steven.price@arm.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1791731979;
+	bh=mUCf4nSzDUXsV7PZq3Gz76x5gHcSeE+bODEKH+oBdV0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AL4bhu1LyToQDNaPaazv5jrGEIREIo2aa5pzBLdnLCPz1NP1mapNZ/IzhX9iYkBVw
+	 MjrKMbTn65jjC6IqVQ1bi0rpFEgHeFXOWoiciouJ3cVF8XMWXSXlp+uajgixtRNRFh
+	 3m4dHhHjRXIjcl+JUCRKNY2NkyywRddYkUiOi4g0mv5cqp3xJbUKFGq7WOAuqDo9yY
+	 YmwigJbGiZQO8oWGfy6g5CEC8jDz3Q8AzYYeUTZk7mwhJZ+vKxdMGKUtugf7TjJ87O
+	 3T7HyDXoEhh1fXPzXWy81oFpCJwUhdWBL6PuhNWhB6U+DVdHyqfpXT6v8YsErfUsde
+	 tQT2Xo1ZLsZNw==
+Subject: Re: [PATCH net] net: sparx5: free the matchall entry on destroy
+From: netdev-bot+sashiko@kernel.org
+To: daniel.machon@microchip.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kees@kernel.org
+Date: Sun, 11 Oct 2026 15:19:38 +0000
+Message-ID: <179173197837.434549.9373931425008737442@kernel.org>
+In-Reply-To: <20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337@microchip.com>
+References: <20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337@microchip.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +72,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 11 Oct 2026 15:36:47 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> can_access_vgic_from_kernel() excludes only the GICv3 system register
-> interface, so on a native GICv5 system without FEAT_GCIE_LEGACY it
-> returns true under nVHE. The kernel then saves and restores the CPU
-> interface from EL1, where ICH_VMCR_EL2 and the ICH_PPI_* registers are
-> UNDEFINED, so running a vCPU oopses the host. The nVHE world switch
-> already does that work at EL2.
-> 
-> Require VHE for GICv5 as for GICv3.
-> 
-> Fixes: 9b8e3d4ca0e73 ("KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore")
-> Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/vgic/vgic.c | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index b25303d9919fd..da72779d3b3ee 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -1045,11 +1045,15 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
->  static inline bool can_access_vgic_from_kernel(void)
->  {
->  	/*
-> -	 * GICv2 can always be accessed from the kernel because it is
-> -	 * memory-mapped, and VHE systems can access GICv3 EL2 system
-> -	 * registers.
-> +	 * GICv3 and GICv5 drive the CPU interface through EL2 system
-> +	 * registers, so only VHE reaches them from the kernel. GICv2 is
-> +	 * memory-mapped and always reachable.
->  	 */
-> -	return !static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) || has_vhe();
-> +	if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) ||
-> +	    kvm_vgic_global_state.type == VGIC_V5)
-> +		return has_vhe();
-> +
-> +	return true;
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-This really is perpetuating the wrong model. The rule is simple:
-anything that requires system instructions or system registers cannot
-be accessed from EL1, and therefore GICv2 is the only one that can be
-accessed from EL1. So the whole thing should read:
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
 
-	 return has_vhe() || kvm_vgic_global_state.type == VGIC_V2;
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Ultimately, we should static keys for all of the vgic types.
+- [High] The fix is incomplete: `struct sparx5_mall_entry` still leaks on
+  every error return in `sparx5_tc_matchall_replace()`.
 
-	M.
+Pre-existing issues:
+- [High] `sparx5_tc_matchall_parse_mirror_action()` sets
+  `entry->mirror.port = netdev_priv(action->dev)` without checking that…
+
+--
+
+net: sparx5: free the matchall entry on destroy
+
+This patch adds a kfree() of the struct sparx5_mall_entry in
+sparx5_tc_matchall_destroy(), after the entry is removed from
+sparx5->mall_entries. Without it, every deleted mirror and goto matchall
+filter leaked its entry.
+
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> index 702257979462d..146d7f28e8f3d 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_matchall.c
+> @@ -160,6 +160,7 @@ static int sparx5_tc_matchall_destroy(struct net_device *ndev,
+>  	}
+>  
+>  	list_del(&entry->list);
+> +	kfree(entry);
+>  
+>  	return err;
+>  }
+
+[Severity: High]
+Does sparx5_tc_matchall_replace() still leak mall_entry on its error
+paths?
+
+The entry is allocated before the action is checked or the hardware is
+programmed. It is only added to the list at the very end:
+
+sparx5_tc_matchall_replace() {
+    ...
+	mall_entry = kzalloc_obj(*mall_entry);
+	if (!mall_entry)
+		return -ENOMEM;
+    ...
+	list_add_tail(&mall_entry->list, &sparx5->mall_entries);
+
+	return 0;
+}
+
+Each return between those two points loses the only pointer to the entry
+without freeing it:
+
+- the sparx5_mirror_add() failure in the FLOW_ACTION_MIRRED case, which
+  returns err (-EEXIST, -EINVAL, -ENOENT)
+
+- the four vcap_enable_lookups() failure returns in the FLOW_ACTION_GOTO
+  case (-EFAULT, -EADDRINUSE, -EADDRNOTAVAIL, and other errors)
+
+- the default case:
+
+	default:
+		NL_SET_ERR_MSG_MOD(tmo->common.extack, "Unsupported action");
+		return -EOPNOTSUPP;
+
+These entries never reach sparx5->mall_entries. That means
+sparx5_tc_matchall_destroy() can never find them, and the new kfree()
+does not cover them.
+
+A failed offload is easy to repeat. Examples are a matchall filter with
+an action like drop, which hits the default case, a second mirror on a
+port that is already mirrored, or a goto to an unsupported chain.
+Without skip_sw the software filter is still installed, so this can run
+in a loop.
+
+Since this is the same object the commit message says is leaked, could
+the fix also free mall_entry on these paths? A shared error label in
+sparx5_tc_matchall_replace() would work, or the action could be checked
+before the allocation.
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. Is
+the mirred target device checked before it is used as a sparx5 port?
+
+sparx5_tc_matchall_parse_mirror_action() {
+	entry->mirror.port = netdev_priv(action->dev);
+}
+
+Nothing checks that action->dev is a sparx5 port, or even that it is
+non-NULL. The driver already has a helper that checks both:
+
+sparx5_netdevice_check() {
+	return dev && (dev->netdev_ops == &sparx5_port_netdev_ops);
+}
+
+The lan966x driver does a similar check in lan966x_mirror_port_add().
+
+If the mirred target is a foreign netdev such as dummy, veth or a
+bridge, sparx5_mirror_add() reads mport->portno from that driver's
+private area. It then writes the value to hardware:
+
+sparx5_mirror_add() {
+    ...
+	if (sport->portno == mport->portno)
+		return -EINVAL;
+    ...
+	sparx5_mirror_monitor_set(sparx5, mirror_idx, mport->portno);
+    ...
+}
+
+As a result, mirrored traffic could be sent to an arbitrary switch port.
+
+action->dev can also be NULL. In net/sched/act_mirred.c,
+tcf_offload_mirred_get_dev() leaves entry->dev NULL when the action has
+no device:
+
+tcf_offload_mirred_get_dev() {
+	entry->dev = act->ops->get_dev(act, &entry->destructor);
+	if (!entry->dev)
+		return;
+    ...
+}
+
+This happens with mirred blockid actions, where tcf_mirred_init() calls
+tcf_mirred_replace_dev(m, NULL). It also happens when the target device
+has been unregistered. In both cases entry->id is still set to
+FLOW_ACTION_MIRRED.
+
+netdev_priv(NULL) then returns a small non-NULL pointer, and the
+mport->portno read in sparx5_mirror_add() would oops.
+
+Would calling sparx5_netdevice_check() on action->dev before it is
+used fix both cases?
 
 -- 
-Jazz isn't dead. It just smells funny.
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261007-sparx5-matchall-kfree-net-v1-1-c8918685b337%40microchip.com
 
