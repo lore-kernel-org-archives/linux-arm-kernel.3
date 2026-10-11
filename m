@@ -4,110 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF49CA9ECC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 20:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0192CA9ECC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 21:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rc3F184YUjrOopP/BvFd/ZpML46lL0W1tVVXp9Yb9rU=; b=zNbyl06/0FTZEmz9IZAeh9otiI
-	be0+27wh9nTz6KDZqMzljNQEv6OQfJWsMukbttNnkRBB0cr6uXHLsm15rTdBR3AFrfXaxwj7Yn3/n
-	8ZiOO5YVltSEgHZfarxzuRcBO863bnOagjI+6mSJx4HeKC+Hb0VH/UUrOqWu+XjnBK2F3uVHbRGZA
-	trvYl08Tvp8xoxn83jKfgATU7Nmz6odzABI4102Ogrb8GktGYeYMA20h7YSt3Li19saLoV9qDhe1F
-	zqhTNNNi2NQck6ScbVSoCMbF4cNhJXUwdUNuxnZTWxj8bVs4ijJ1bZ326TOhWOI2PxNEs7XTP4BrU
-	o5HV5toA==;
+	bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=; b=1GW/xAI32wkCp90qmD3pAdjVzw
+	kWYlN8qV5BnTnHZVT5QPTA704FEj6BYriZ7LNQLmyY2LJSORL6XJHZyvMx21/Er24Ybqn9H2LLCEC
+	rl7Pcfw9MH2IMrqn+M8n7wiXFZDGz64qSnBL8fFoZYbOo+sL/39oLAa8NgADtaLSuNxajhTFcRa+f
+	Kb6bu+/QcI8EnGBHMi1hmSCVJEyU/7H6dEOKtqjp3NWvO2T9O0/vWixPiJ2d3Mvp2PtBjzwZTnPCY
+	R0SXYvUnGyJZvkvP4CzUXE3exPcVKdZOSR24oaXQwz2VtMEkUnOSUOyIjAj5RCpewThVky7rYybhl
+	SmH7Y3Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0Uq-00000009PB0-0oRx;
-	Sun, 11 Oct 2026 20:50:16 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1xG0eJ-00000009PV3-0fLq;
+	Sun, 11 Oct 2026 21:00:03 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0Um-00000009PAE-161F
+	id 1xG0eF-00000009PTl-3vgt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 20:50:14 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-67583c777abso1146707d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 13:50:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791751811; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Z/qohzbVELDf4/54cmIq0lnfjtFW7gbZAANpUljJ0+J9WDRAwsvPKyRSFQTuFgdI2V
-         BP6ZdlfyrlgbdVFTOPNTPbckzZzIS/PnislTGMLJTYtQjB3SvZL69fZ5aoOmCFPfiDMy
-         KHHL7rKyG9jxZ0b6xiGf/f+qnD8Wu4/OW44fJWrH2yxeI8km55NabyyPrMwKKHj2zNiK
-         742KOlKFPYv3Xq67KMCqkgKeM2a7f1gef/2VSA7c2q1Yjy5c2p/3tR57C5d3Qnn8CRQN
-         0KMkadMjljk/FXDy00nAp4o59gPeJc0x6Sb2N+TeH6bkXFRcu/OPYs7N+G7t2Ylv8Vsd
-         9r/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Rc3F184YUjrOopP/BvFd/ZpML46lL0W1tVVXp9Yb9rU=;
-        fh=O5/1YtYz9yDQhpNRoif1rkUCGAJulWlOMaALBpLDgX0=;
-        b=lINr8Y9mOo7S1/DQFw4Zk8sExzgLJUhtGhaaKYCGrac+UcetgplJmS9gkvIk2ykEM3
-         gjaTdKw6YyiZxs5P0TtqYjvmRCqO57mDA8smvQAJSwgCotGZlsMgO9OJtqWf2gFiN69n
-         mnwWcumCvh+HX+NozZ36kdW+zy7Vfnv4G26njApHS98E9ZBA1hUf1/maSnfPMOdZnDG9
-         L7sGJH0JQsJBvxAFxdJDJH1J19f0ha3W9OudaxIOeuVBlMFoXMUQjQkixLrYCOYsSwP+
-         qOntvq1bIfwwUpgWuGSmZYR13F4rbHzfEUVJjTQ26/keLgZAEYO7jNSMKykngXt9hIwQ
-         UBzw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 11 Oct 2026 21:00:01 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a1880e1bf1so11998305e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 13:59:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1791751811; x=1792356611; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Rc3F184YUjrOopP/BvFd/ZpML46lL0W1tVVXp9Yb9rU=;
-        b=Bq5cTdhCAW0nwTkmwNwdyNIonGixsxVYds2eTeGdQ2XxJW2Us7r7ki0uQpkLARrLsQ
-         73w2gEaaQrqA2PE7K/4bgvuyipHDWWonovr/kyHWsxTxxrIWHsTCaCBiCPsne/Ox073e
-         mtTRXQHxdz4blkf5hTNK6w5asjVYGKd6C65FkD71e5IYX1Aa0WynwKtm/BoEAsygEd5J
-         EIQ9dYjSWr4dNdxN+lcq0XD6A3RZJKZaGH+a19ZML04NnUmBCrBcKWhk48lqRaNbQ92u
-         1DY0Fopwm4v7QtGegoxLEN/ABEUjOAIL5XXHb2Ivu5AYWJWVgibUmdU0wktNo7qKU6+R
-         gdYw==
+        d=gmail.com; s=20251104; t=1791752397; x=1792357197; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=;
+        b=hB6gXKPg4HLsgZ8NY+DMafZ0yGBStu90cKEJSzBNvASb/kyO1nBUUidaG9LYFtA9QS
+         dtlo/CK0v1/tl10uTbQMqP13ODRKOSc8vogbIzcr//e598M4dDesQtR1ehXkAFoFJu7M
+         92Zyys3JWfxWZUHbvYsdrw8sHKStR++fgJ2Gm0hmuX6Ia1fFZRKtNkKoenWd7irsup3v
+         fBGJzZ/OmyXgqAr0UsZ0V1Gf57/iA2vspFGyrP0yPJy1q0Tv+ElVqm4SGoFj/yL5GAxX
+         tkaCdb895tNobKioXytDvhoA+MJFtp8kxcKHklm6cKKb/01LR2DRwck4yldOMnNbZpCj
+         oPqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791751811; x=1792356611;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1791752397; x=1792357197;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Rc3F184YUjrOopP/BvFd/ZpML46lL0W1tVVXp9Yb9rU=;
-        b=u3esq6P+SlJ3eycJPHwfnn70UIe+6XDb4vW6wsXG6m1fqOsHS8iNg/vNCWS82LB6UF
-         oRsZj/Y4DK9vi24saWBvw/f4wU6aAeeMDKadNyG8C3oSWtab2uTCMYcw2w96ekBEIIuq
-         YmuWpifnMcHqgN73gKX4NiMDGwgzJ4GyEEs7aU+aNVAZbzYotjYvq+GbvBOqe25TfR/G
-         eWKzP6q1Tfc7U6vXO1rxXnFJpCYsdEVpoGm/C/UUoinsa56+FzoreDEyfbFZEeIp71Oo
-         f4IOcvu2KqzfWWx9cgiwTDs5ohuvHzJiYIuG64xndtJaI56Wllpm0mpapCVeWgXlsoEQ
-         +bIQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzbIyZfD2eUTF2ZSc93FuN59era/G+e1e5RhRkjLvyJYdre6Ld2IHIy8VVsNwRIFWEU6C4kpaGbITC01jnLzjiC@lists.infradead.org
-X-Gm-Message-State: AFq9FYIH5LLLswes/OX/kEeMynNti23aqV0vOku4hVrEqH4n+3fpxH9Y
-	ZSFHx8+fplDxhLulFbvqeXb8nWOkMRS6+n4Akd9+lHf/i9Q2NViPgtC3bD565oKOjdQrmbm2e7E
-	5ioV65XeCPaTvYq4c+/Bcp78ezZUbW3c=
-X-Gm-Gg: AYBFou2cZygmOT/ieh2Uem6xrHSTxYBf8uv0dzyUaE+OrNLgnC7vd70Mj3FpxhF3g+g
-	bbKc8HFVE4Jdf5Vu2Yuun1IJ6m2kYTDI0Cr5wa3BMuqV6S8KRN6c5ZQJjCe7n4TouBI+a6MSv5n
-	F5insaVPkRZ4q+RDMCMVadwlFe5J/l8Tssg44m/1JV/Qgzn42FG+7aNE7may1nyKD0DuVxsdnUc
-	z0ZdLXRyNcVA5jxXJmX1LaErwtrfI4De355InXbAzlWR/ryLoFDT+dZOV+O5X4V+woyr2tZBYFg
-	vmYnzQYbKf1dyzaMSG6hcd+731zmyhmkndi+yRRxuVSr5E1W+aHYDNz/VKTeRuA2eyUoYp8tF4g
-	CKrSvt1iYlhS1
-X-Received: by 2002:a05:690e:144a:b0:672:bd30:83bd with SMTP id
- 956f58d0204a3-679369c2fbdmr2874224d50.49.1791751810698; Sun, 11 Oct 2026
- 13:50:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20261011-odroidc2-dts-v2-0-a3a4a752f2ab@gmail.com> <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
-In-Reply-To: <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 11 Oct 2026 22:49:59 +0200
-X-Gm-Features: AclHuK_PzKBu8m_ohCyUp7PhTYe_NgQTHs4WyLsmyGpLktVRlcmdBIs7NzTNljY
-Message-ID: <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
+        bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=;
+        b=rZVLpCmsweXNtQ/JyPYnc7WhntI5UckrJUL6f46LQEruXFVeRce5CAuSPkiNtX0WWF
+         IYxAQ2ojf4tAYQ7F6hyx4SddglotLNEjrOxI//Iql2htog5WCpQfe7dRTY0jT6l3zKKi
+         gBRSWo1Q4gFWNEZZD5ozxeY88AX/OB/+QjhST4lihoAccxW6OZdG9VTdnhyaVnRLW27a
+         NhbUHw0IOTik3eisw2zw1JnB7rBRIzysosVSTLHs3WAwLD6tDbHq75BKjzV/y54lAEbE
+         mm1HpaY+nvA/mDejBDpEwgGv7I/vk08W1aX200pQL0ZluxQwgCQzu1IU6FKOtEFYVXts
+         2e3g==
+X-Forwarded-Encrypted: i=1; AKwUvBxH78M2emMpi9YrdN9a2cMIPRcsLLsf0TDJcvOJ1GEEQMMeA33R/msE0F17764H39c384RH7NVx4tP7umowWh75@lists.infradead.org
+X-Gm-Message-State: AFq9FYK+owUQjRlKkUK8I2cFTA5xlr/AZtnpdZCGhSkI97ElcBo5LCXY
+	kFxajRWu5nMuNuv2IRVYN6FkdVNHnM1fRPXmQ92yCFtSA+mgJZpwQuyQ
+X-Gm-Gg: AYBFou1QwxLgZJr2obIUM5NnRFLivlWFqufMAPIBUpHper1bvF23STa1p4HBiDzsRVW
+	Ci0Kvt3UBM6E3jUpyZPeF896bReWnncPYtO5Dnw1Yrl9A767a9q2MqV5Bg/Vi5bpaVcA+pNxlIb
+	fOZoGaf+LaWi3RkbaPlbjUrC+gZ6IAx5KJckvBoDye56l4/ICRWqGq909a4eEkxg5SEIfRRKdhA
+	CWEg56Hvc2jsdcx3psXrDCxQwj3tRSos5VOOv91su888OBxW2A61Wceh47/8KUo7uJo5dkp3GpK
+	eRhI3LYXc4++Nab4kysWo+LWjbKOa1yqRIgCf1zZbHjDPmhTb4yblbmPlYscpf7XwWDpezwMoKL
+	MPKsXZuyc1KEoBmoUw1qvQd9siDTrml30bSqvECeJYFfdZ2K53LWxscsoaES4//xvuHhIL9ZIcu
+	zlLXXqNoboUWI8JeVrOhM0fRdKGWw5gaKjaF6EoAR2ecpNLm1t0z3G11yLbi+sAEKfkIHFq06VB
+	BZjLb0QSY4hBRUo/AxYKSflYVV1bI82T8hKUuNcdzrjjksm9kbGhrODTg==
+X-Received: by 2002:a05:600c:3f0f:b0:49c:ffab:551f with SMTP id 5b1f17b1804b1-4a18e4cd231mr144688665e9.22.1791752397395;
+        Sun, 11 Oct 2026 13:59:57 -0700 (PDT)
+Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19c8244edsm67465395e9.2.2026.10.11.13.59.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 13:59:56 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v2 1/2] arm64: dts: meson-gxbb-odroidc2: read the Ethernet
  MAC address from eFuse
-To: filipp.dunsky@gmail.com, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
+References: <20261011-odroidc2-dts-v2-0-a3a4a752f2ab@gmail.com>
+ <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
+ <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
+Date: Sun, 11 Oct 2026 23:59:39 +0300
+Message-ID: <179175237937.1513478.8957286812154054574@gmail.com>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_135012_314192_16616EC0 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20261011_135959_992311_519A635C 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your patch!
+Hi Martin,
 
-On Sun, Oct 11, 2026 at 8:31=E2=80=AFPM Fil Dunsky via B4 Relay
-<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
-[...]
-> +&eth_mac {
-> +       reg =3D <0x34 0x6>;
-> +};
-Question to Neil: should the eth_mac node be moved from meson-gx.dtsi
-to meson-gxbb-odroidc2.dts?
-Odroid-C2 would be the only board using it and u-boot seems to derive
-MAC from SoC chip ID/serial number instead of reading it from eFuse
-(so I'm not sure about the status of MAC address in eFuse on most
-boards).
+On Sun, Oct 11, 2026 at 10:49 PM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+> Question to Neil: should the eth_mac node be moved from meson-gx.dtsi
+> to meson-gxbb-odroidc2.dts?
+> Odroid-C2 would be the only board using it and u-boot seems to derive
+> MAC from SoC chip ID/serial number instead of reading it from eFuse
+> (so I'm not sure about the status of MAC address in eFuse on most
+> boards).
+
+Some data points in case they help Neil decide:
+
+- Mainline U-Boot does read the eFuse first on the GX reference board
+  files: board/amlogic/p200 (used by odroid-c2_defconfig), p201, p212
+  and q200 all call meson_sm_read_efuse(EFUSE_MAC_OFFSET = 52, 6 bytes)
+  and only fall back to meson_generate_serial_ethaddr() when that does
+  not give a valid address.
+
+- On my ODROID-C2 the eFuse at 0x34 holds 00:1e:06:37:d9:37, i.e.
+  Hardkernel's OUI, and that is what U-Boot passes on today.
+
+I can't say how many other GX boards have the eFuse programmed, so I
+have no strong opinion on where the node should live. Happy to respin
+with the cell moved into the board file if that is preferred.
+
+Thanks for the review,
+Fil
+
 
