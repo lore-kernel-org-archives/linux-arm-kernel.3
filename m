@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA26CA9ECC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 13:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8BACA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 13:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=41iFOT4c+Si/tmuMIJ//dDysW1MpGxzWZ9qlBe4vW7s=; b=Osswvt/7hns4pE5yPaxU6ar9Hd
-	NThUf4Bj96vnfMzdy0nzV+f1EkF2ZVo4dXhfYcJKaYWdIc0nF6iINWiDscyS5dGdOJhwFzrAd/N2e
-	MySLLk33MST2p9BCafzIgvy0EQt/jyMbDau2NwBXTxcy5hFSAj2g3N0ziDhL3IbplKtn50AQBJKHN
-	oAKdcjkR1U8T7OcRIf2ug73GC3SaXvmGa93MxXigUjavh3aTybBXHU0aDbdCr3nrbVShVbc5VYa3a
-	Cak5Tg9zvk/kdC9V7A2R1RUqnXljUS29enrTxG0k924uTAShLHwXLI1945cGsKPm80see7nWVEHm9
-	a+LVDzIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yz+AmtpMSXf49Wc8NGAPY9zG51ushhh9j5lCBM7ilRQ=; b=TMLkntFPsMBoc5Na/FatJPUgXV
+	irgSz0X8fgto8W+iXpXgEcLS3aCG0Ww6qCV3oDe8NpF7g2x5LkwOqeVfAnCHAR6hb1ec02FtcdnST
+	DmV8/bu+6C8YCbY0kX8gwKnNLTqCuSYs83u5Qr+Oa0+e2psieU27hcSAF+4fHTnT/UTmCoESvzj65
+	yw/vaR0CFhMs3L+XCFyDDc5BT2pBD70JHv+TZJnUnTQ1k+8z6IvOrFvlyImLv6+7pxv4tjlwBpfdH
+	Ihvg53BaXEK2oS/XEo7BfvkVNzsbGIyoTHqMwfFDQgx8ze9yrTbWYFnVIAz912r2aOro4HDP3EYPF
+	UfOWI0dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtPQ-000000092tw-2PIp;
-	Sun, 11 Oct 2026 13:16:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xFtYu-000000093Jw-1QNS;
+	Sun, 11 Oct 2026 13:26:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtPN-000000092t9-0OtD
+	id 1xFtYt-000000093Jq-33fg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 13:16:09 +0000
+	Sun, 11 Oct 2026 13:25:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5D7B43D40;
-	Sun, 11 Oct 2026 13:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C19C1F0089B;
-	Sun, 11 Oct 2026 13:16:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DB4B0600E2;
+	Sun, 11 Oct 2026 13:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F65D1F0089C;
+	Sun, 11 Oct 2026 13:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791724568;
-	bh=41iFOT4c+Si/tmuMIJ//dDysW1MpGxzWZ9qlBe4vW7s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iUStyhhoyvjQKu1xPpKjXN65RTARXvQK4Xl96Y/fNaspzRkRJ4T0I1VklLZHwazvJ
-	 qxgxwIgUXfPgSkGmXEccoGFQOcYb/lBLnWM+eCqwzu2euTJgvcg9fusMXuF/VrkutY
-	 32CGCm2xmJII0LXsgJOEsmxBti5DCnaFy+Fk3sT/TY21bOHcRN04KiMSB55JysUBpM
-	 he9fLrOWg+AhyNqROY0glyb5ZJCpIQGfTom//w+qYApLLczgmS3Nh465PCErJlLlLK
-	 pRe8LsszvtgZ715dmgva0A7C/OPzc9qiHlmtJx8yRP+g1p5cjBCQCWzKHAOrJK6hiL
-	 0Mp1XEziKmEaw==
-From: Thorsten Blum <blum@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Thorsten Blum <blum@kernel.org>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] crypto: atmel-tdes - consolidate error paths in atmel_tdes_dma_init()
-Date: Sun, 11 Oct 2026 15:15:58 +0200
-Message-ID: <20261011131556.272382-6-blum@kernel.org>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261011131556.272382-4-blum@kernel.org>
-References: <20261011131556.272382-4-blum@kernel.org>
+	s=k20260515; t=1791725158;
+	bh=yz+AmtpMSXf49Wc8NGAPY9zG51ushhh9j5lCBM7ilRQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=FfoYErzPAo3nBNxODxNfjOBo4mB8dvYcW43SVvLU7xAqqf8vgc4Pc8dQ5RjjzGj8r
+	 dz4Yu1Ik0lyDkPK5Q94t8YFiMu/3YAtuqG0ibIrfuueXSI5bzh2Va7IgOAs4v7eyFx
+	 JMl0DoChCLxng6g3PfWjbT+ci2++HK7LZzu0/p78MEdD5GfFJphX7zAXvcmFaB1RRN
+	 OZ8r08ejRpThQirlhattSJ3mgYE5tCYW5PGolEfsUBT2OXoGTinr4QzUquziBHsiqZ
+	 AbbxLSI+bbUQOPqJ6sK6scEkqj607Fe6QvuV2pqP8EG6MTAAtgg09lyNmORq+Iazwe
+	 VSoJbiI4bKGTw==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] firmware: smccc: Pass only the required device probe
+ arguments
+In-Reply-To: <ebb8c99c-5f76-4c36-b3cd-c238b53b3d8a@arm.com>
+References: <20261010100249.643327-1-aneesh.kumar@kernel.org>
+ <ebb8c99c-5f76-4c36-b3cd-c238b53b3d8a@arm.com>
+Date: Sun, 11 Oct 2026 18:55:51 +0530
+Message-ID: <yq5aecdwcqsg.fsf@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1337; i=blum@kernel.org; h=from:subject; bh=LYA+J9EZ6m00iu05nhNXfVsJujNa0NBCAOl4b0E9LRI=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFmne3jV98lV3dqdGXW3fn9zgPUmITXZyDm/S3bGxj32v puxcO7JjlIWBjEuBlkxRZYHs37M8C2tqdxkErETZg4rE8gQBi5OAbiICsN/R01mVeHMtOlZU/ln FV9YtOvaK/X+vOL3hwuOM/iLWFu/ZfjvIFPPKrWH03Da5twY4cLtUvumPpl8xL7/xiHBKNO+mUV MAA==
-X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Release the DMA channel directly and consolidate the error paths.
+Suzuki K Poulose <suzuki.poulose@arm.com> writes:
 
-Signed-off-by: Thorsten Blum <blum@kernel.org>
----
- drivers/crypto/atmel-tdes.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+> Hi Aneesh
+>
+> On 10/10/2026 11:02, Aneesh Kumar K.V (Arm) wrote:
+>> The device probe passes zeroes for all seven argument registers to
+>> arm_smccc_1_1_invoke(). On ARM32 Thumb-2, this binds an input to r7 and
+>> GCC 8.5 reports "r7 cannot be used in asm here".
+>> 
+>> The current smccc_devices entries need at most one argument after the
+>> function ID: TRNG_VERSION has none and RSI_ABI_VERSION takes a requested
+>> version. Pass zero for that argument and omit the unused arguments,
+>> avoiding the r7 constraint. Check argument requirements when adding new
+>> probe functions to smccc_devices.
+>
+> Is it safer to use x1-x3 to 0 as they could be the results that we
+> get back from SMCCC v1.0 onwards ?
+>
 
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index f92dc2fff50c..6b561b333ac6 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -633,7 +633,7 @@ static int atmel_tdes_dma_init(struct atmel_tdes_dev *dd)
- 	dd->dma_lch_in.chan = dma_request_chan(dd->dev, "tx");
- 	if (IS_ERR(dd->dma_lch_in.chan)) {
- 		ret = PTR_ERR(dd->dma_lch_in.chan);
--		goto err_dma_in;
-+		goto err_dma;
- 	}
- 
- 	dd->dma_lch_in.dma_conf.dst_addr = dd->phys_base +
-@@ -649,7 +649,8 @@ static int atmel_tdes_dma_init(struct atmel_tdes_dev *dd)
- 	dd->dma_lch_out.chan = dma_request_chan(dd->dev, "rx");
- 	if (IS_ERR(dd->dma_lch_out.chan)) {
- 		ret = PTR_ERR(dd->dma_lch_out.chan);
--		goto err_dma_out;
-+		dma_release_channel(dd->dma_lch_in.chan);
-+		goto err_dma;
- 	}
- 
- 	dd->dma_lch_out.dma_conf.src_addr = dd->phys_base +
-@@ -664,9 +665,7 @@ static int atmel_tdes_dma_init(struct atmel_tdes_dev *dd)
- 
- 	return 0;
- 
--err_dma_out:
--	dma_release_channel(dd->dma_lch_in.chan);
--err_dma_in:
-+err_dma:
- 	dev_err(dd->dev, "no DMA channel available\n");
- 	return ret;
- }
+
+I'm not sure I follow. Passing additional zero arguments only
+initializes the input registers; it should not affect how return values
+are handled. arm_smccc_1_1_invoke() already declares x0-x3 as outputs.
+Since these probe functions require no inputs in x2 or x3 and we only
+inspect x0 on return, why do we need to initialize them to zero?
+
+
+-aneesh
 
