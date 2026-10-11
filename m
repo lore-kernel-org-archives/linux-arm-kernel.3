@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F76CA9EC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 00:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90FECA9ECA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 00:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X9wwtOfFZ3dlRyxA00OaR8axrYegTwtr34ydCtqSvyE=; b=2u5qp/j5jpwvlliFIVf8F817nP
-	3BJS2wJsoT3lyi531zXLo5VBn9XVML1cYIeTMdokAE8yYnaSUEoYJpNLOOkHE4v5qtKNGGCm+uW9g
-	jML9OqJ2L43RxWd2TrDav/C5xmk/blmEy0YZAGn9IkMzbrAuMyJk6x7ecm89tHEARaI+5fyOWdlNY
-	Q6WzlVwgBxukPZW6cedTSUms9D2DtzmiZ1H4gO/DpdpX3iZsU61mtjJaq1aOWoM5jLdsfy29yyL+E
-	SJDBcDWNtM401/7E8lznebsy3/3SQtc0vRGSQ0+G31capIZxyriwfjln0NifzXXYWuaNBloBXDu9P
-	3+3LSMIQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wKMM/5NJTGuE+7PUxcL8x7aaEFcwMXWe96PcY9zklq0=; b=1yrmdfrFSv7yEzudDTO9HCib/s
+	UhUnFMU0TlTGVdNIxmUA2Bda5KgJLIkQ3ZCFQr1dESGYdrzhPiGB4Ac5f8AFR805pfLPuyBU9UHMk
+	3OF8xOSz/1lYsG/kXlbo5XsU+SX3p20qCqDLUybACmgtQrDdo6pTZOlogKdPoSLZPy0uMvRb8BVyC
+	UmpN+kDTJV2+vpXsltqWl/i4A+V2DcRuA8DJtOk1Euo+9Ee9DYkCe0kLWVENx5WWw5EextuGU+7h1
+	2Sa/wIkEBF2I5E3JlJRCSmS/QGDzLBaffT3lnu7F6nd/1EkhojX11tBrNvqUT6zTqSxmrqx3DF6jY
+	NuYfSYvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFhey-00000008acL-3u1j;
+	id 1xFhey-00000008abg-24j7;
 	Sun, 11 Oct 2026 00:43:28 +0000
-Received: from mail-qk2-x04.google.com ([2607:f8b0:4864:34::4])
+Received: from mail-qk2-x06.google.com ([2607:f8b0:4864:34::6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFheZ-00000008aXX-1beF
+	id 1xFhed-00000008aXh-2Omh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 00:43:27 +0000
-Received: by mail-qk2-x04.google.com with SMTP id af79cd13be357-93cc7e652d7so79923385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 17:43:03 -0700 (PDT)
+	Sun, 11 Oct 2026 00:43:15 +0000
+Received: by mail-qk2-x06.google.com with SMTP id af79cd13be357-93bfb25817cso77594085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 17:43:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791679382; x=1792284182; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=X9wwtOfFZ3dlRyxA00OaR8axrYegTwtr34ydCtqSvyE=;
-        b=CQCU132RW4pX4wcVovWpupWyVetpdHuzRk+dpHS4lVpCGqhVp3NSzgto0RTDEUlljJ
-         SVBQyjaQNv/HPoj6SzRGBaYIbGmUOa2scVxmBCP8D790wXID/HKQ/Tg7ZRUM6zJpBpNF
-         vmHmX5xwabxBGBjhyrZMlOChCecYZpakjcyHmf+/JvlOykrqEhIX67n077DayeKMKOKy
-         zhyjflcThmuYgJVaZB/oa3pqZPUdvZ4ltCF+34cJwDfajS04X1iIPGgoZxtWVToPS+lh
-         H7zl9+5am81NjnJNcup/82toXMnpdJ7ofwT17jtxkn59bkjeppQE/jMLvq/HvYDStXIr
-         CmRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791679382; x=1792284182;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791679386; x=1792284186; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=X9wwtOfFZ3dlRyxA00OaR8axrYegTwtr34ydCtqSvyE=;
-        b=26q3uw6Ebp3WF3lVRhLxe5otvwnsJ99ZVvcUtLSTVNwTiR6h01XzIN5/yW3cCnCeM3
-         KTj7uEAI2utxOaEuHROIZvem4UsbEmrKHKhnZ5SVhLSA467zG4IAQ+PYgHrUTjoayHfd
-         H7GQ/ry4bJLFVdK6wZQ3VXG08NMptbEz+gceQspwCtUUsbdB7rC9oQCTcCghz8BGSgPv
-         XUjxOFxZorIypuD5wJ4g/o2xMpJZBYfGA3lvRTMbwKuifwe4MzKg5dqChxLb6HPZPKoO
-         dbGXwIzursRYG8ZEkm/o0JmJ69N7l4RvDexHVFG6pugd2b5SMLfCf5svhv9tlSe0WcgH
-         iLYA==
-X-Forwarded-Encrypted: i=1; AKwUvBwldBKG8647hzSYcw2cHBgyGWhaact+kBFWd9eKfNTSM0VhUwff0h/QJ+UL9Z0eosn7IuplgmMazMhcMS25PKtB@lists.infradead.org
-X-Gm-Message-State: AFq9FYKZngBd1rVxIR7iumAdqlqHRkpDqL9LCRG3dXIr2xydLxbr2lQ+
-	DLX/OsX/A7992zJkOBV4ThewzqJx6ZIOM0NrLnCdkbBhJhGNd/hwYc/T
-X-Gm-Gg: AYBFou1MO/xTFupT27WYaxKQdX0axubFjVkwbRzRZUfdGCJ6Tj1daeOgA3tHYi4FAjy
-	m24UOzHM9UV7eoqZ2x6YV7hb/skCEMQ1QCLX5r+wgTM03+LPIFiorJ7WjRWXqBbg+IwANvN+OBn
-	iWMLAW56LlzrVPhbZgp5y96T/0PQLa3CTRx17G0idnrH1Td+AkpfmcO/3VHNsUEQoPP+KqzTE5/
-	+AOXD43WYATs+GfEEWYMmufaBbbOap4OhR+pK5VU+0zu2ER88EYV71rh5W2OUf/mHu8m8x19l6I
-	k5/PPryshKsgVBQQPzxWHC0NBjN22EopCv3awlDBmbjbFFtbGGrYB6LZACAEcKuxFd2c7dWLyJL
-	kVmmGCvEvyHbwt6ZoemO+3WsWRL6G0eL1Qo0kg1Eh3oWspXFgCoUgsGtdkrowuxbXyP+k9ArnKt
-	FUrsDQlh8n4dm36G1k517YOSBmt/nQVV7h8N/zZnHDAq3L2Ye2qd/fYeQBRxxaWcNoxBY=
-X-Received: by 2002:a05:620a:3194:b0:93e:942f:b8a6 with SMTP id af79cd13be357-93ebd2973f0mr1024374385a.59.1791679382152;
-        Sat, 10 Oct 2026 17:43:02 -0700 (PDT)
+        bh=wKMM/5NJTGuE+7PUxcL8x7aaEFcwMXWe96PcY9zklq0=;
+        b=l2yQ1BNJjYRuUv3az64IC7nFcoHdfoqNUU+40R3ThjC7RqGOIE9Ys3lg/6cuIfEjiU
+         6ADeJdOssrDnE1GBGQesUiqmVxv77wTXkVWmy7DtsAq7psjFBRChGEYGz4+qpPAGe3UJ
+         xOrePKIyqVoHxrtZ3q7JRAqulwhpfjgPsKP5Y3Qv8lKkWQKsxeDO1i/sl1RZPcQHuyJI
+         PPadQ0J786M+iVvXMIx+GMp3OBQEFdHuFtJNAcxb9lSw6tBAQi8cFIQ9ssHG601+rzZB
+         gzKCn9CUw8o0eyThTKvw8UFr8qugA9f+3IKczucY6oA34XhW3SB4CH8HVzF0Axjcud96
+         LsSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791679386; x=1792284186;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wKMM/5NJTGuE+7PUxcL8x7aaEFcwMXWe96PcY9zklq0=;
+        b=higC37JCxDou4i/Tf5sIPllnUEjIrPa1mK06lZmY5vDSuU0wsiO9lDnmxGVm4DTT1Z
+         oiXjc9bRRNsw0DzcPq1L1FQbcpbixbb3UoTew9+PE1w00KiKKY8JG5VLP2/We58I0s6R
+         ktXnFKHt3dDbVDX5SVJmKMSMHLufsBnpwV/MlvdS2f75rJQ9PFqpit88FUBvZIBrYO7/
+         /Xan+BJcuWleoM55SI/GTUX8pEt8sK8Fbk0GY/lh/V+UmH/15LGWwbinVhjSnB9kpKXw
+         aX37XNx9DgWgmkKh05MlvN2KPrOeuzwrnoOjF9YnUyZof89XDl9O5dq1IGyWXoeZwlaw
+         YQsw==
+X-Forwarded-Encrypted: i=1; AKwUvBxnpqX0dmdJLVzHIhrs0jcU8agstHamfLB+bvdavozha0iZQZxsdiPpCj4HgvxEGGR6UMYYqmgCK8+ugeH+mHdq@lists.infradead.org
+X-Gm-Message-State: AFq9FYL6pYFXd+gJinOzj+1TWJI2AaRjRoPi2GNCK7OmDY8+6gmSpGVA
+	+ET0GfLqpoJ9yqphK8IYdn8vClVpWX6GGQNBgZKTk0KZrD1yDIqFXUsX
+X-Gm-Gg: AYBFou3jPbnCI6feKAGZZMZickF4yOBiSyYxfBXOowVlstBsKXM82isFPhImWWOAqpI
+	Rsw4kJjFTuQNCF/2g/NR3j9yQScqfEKqfmQ7OZz5rz1cUFF4KZt7idPDot4a5nEL6Flhya/RY7W
+	JurllLXAP0fH7/IGyTctzJz9cIjY10vCGKSa/WTNV/LF/MOv7+ZzHBnSNALbqh4/pBAAbOBRdqd
+	Kki+Dd/tpO4zHVqtY/xCWPLClp5eCxJK3z2b6BQpLEnX5lIeSNvt4GItYCv8WZl0SQ+YOhZaUZ5
+	Admp3G/AehEWC9Pi1zQRyMSLG3EXFGUS7AXCfuWua2mYGH1Re/TAuyrjhFyc6FPoYpcwZu70o8H
+	DVhVvObYHrqa3+CIOAZG1syd4npOFoJsWI3cCx9OptsKZMeo5bRQFouHPhZkugPkz0/tVPW43fc
+	BTYMxhhfhqqbp1YTwVC6DzrgBg65e+tUSMQ0h0e7ZaQwwPfIK3aJ0ZPj0D+6+QJqzmcKg=
+X-Received: by 2002:a05:620a:3187:b0:93e:c12c:9b73 with SMTP id af79cd13be357-93ec12c9f14mr906360385a.78.1791679386387;
+        Sat, 10 Oct 2026 17:43:06 -0700 (PDT)
 Received: from omarchy ([2601:804:8780:3df1:6ff:277e:31c7:ac13])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93eb9848702sm532320085a.12.2026.10.10.17.43.00
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93eb9848702sm532320085a.12.2026.10.10.17.43.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 17:43:01 -0700 (PDT)
+        Sat, 10 Oct 2026 17:43:05 -0700 (PDT)
 From: zoan37 <agentzoan@gmail.com>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>
@@ -83,15 +84,17 @@ Cc: David Airlie <airlied@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] drm/mediatek: mtk_crtc: Fix connector route handling
-Date: Sat, 10 Oct 2026 20:42:45 -0400
-Message-ID: <20261011004248.1117649-1-agentzoan@gmail.com>
+Subject: [PATCH 3/3] drm/mediatek: mtk_crtc: Pick the connector route on every CRTC enable
+Date: Sat, 10 Oct 2026 20:42:48 -0400
+Message-ID: <20261011004248.1117649-4-agentzoan@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261011004248.1117649-1-agentzoan@gmail.com>
+References: <20261011004248.1117649-1-agentzoan@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_174313_616110_17E7B81B 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20261010_174313_616937_688E7CF6 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +109,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Three fixes for the connector routes of mtk_crtc (the output component
-picked at enable time from the encoder in use), found while bringing up
-the external display path of an MT8189 Chromebook, where one CRTC
-drives either an HDMI bridge on DSI0 or USB-C DisplayPort on DVO1:
+mtk_crtc_update_output() only picks the output component of a CRTC
+with connector routes when connectors_changed is set in the commit that
+enables the CRTC. But connectors_changed only says that the connectors
+changed in that commit, not since the CRTC was last enabled. A connector
+can be attached to (or moved to) the CRTC while it is inactive, and the
+later commit that only sets ACTIVE then has active_changed but not
+connectors_changed:
 
-1. The route components are looked up in the private data of the mmsys
-   at index drm_crtc_index(), not of the CRTC's own mmsys. It only works
-   by coincidence today (the only route table is on MT8188's CRTC 0);
-   on MT8189 it oopsed on the first HDMI hotplug.
-2. Destroying a CRTC whose route slot was never filled dereferences
-   NULL.
-3. The route is only picked when connectors_changed is set, so a CRTC
-   whose connector was attached or swapped while it was off is enabled
-   with no output (NULL dereference) or with the old one.
+- If the CRTC had never been enabled, the route slot is still NULL and
+  mtk_crtc_ddp_hw_init() dereferences it (mtk_ddp_comp_clk_enable()
+  and so on).
+- If the CRTC was driven through another route before, e.g. a CRTC
+  shared by an HDMI bridge on DSI and a DisplayPort output that is
+  switched off (DPMS) while the monitor moves from one to the other,
+  the pipeline is set up for the old output.
 
-All three were compile-tested with W=1 on next-20261008 and run on the
-MT8189 board; the per-patch notes say what was and wasn't exercised.
-The MT8189 display support itself isn't upstream yet; these patches
-don't depend on it.
+update_output() only runs from atomic_enable and the lookup is a short
+loop over the routes, so do it on every enable.
 
-The changes were written with the help of an AI coding assistant
-(hence the Assisted-by tags).
+Fixes: 01389b324c97 ("drm/mediatek: Add connector dynamic selection capability")
+Assisted-by: LLM
+Signed-off-by: zoan37 <agentzoan@gmail.com>
+---
 
-zoan37 (3):
-  drm/mediatek: mtk_crtc: Look up connector routes in the CRTC's own
-    mmsys
-  drm/mediatek: mtk_crtc: Skip the empty connector route slot in destroy
-  drm/mediatek: mtk_crtc: Pick the connector route on every CRTC enable
+Notes:
+    Testing: found by reading the code. The same change runs on the MT8189
+    Chromebook described in patch 1, where one routed CRTC drives either
+    HDMI or USB-C DisplayPort: DPMS off/on and suspend/resume with a DP
+    monitor attached come back. The sequence that fails without it
+    (connector attached or swapped while the CRTC is inactive, then only
+    ACTIVE set) was not reproduced on purpose. Compile-tested (W=1) on
+    next-20261008.
 
- drivers/gpu/drm/mediatek/mtk_crtc.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-
-base-commit: aac26bee2287c88af5be5a5ff96d783b19a28790
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 704931b369b6..0bfd17f68282 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -695,9 +695,6 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
+ 	struct mtk_drm_private *priv;
+ 	unsigned int encoder_mask = crtc_state->encoder_mask;
+ 
+-	if (!crtc_state->connectors_changed)
+-		return;
+-
+ 	if (!mtk_crtc->num_conn_routes)
+ 		return;
+ 
 -- 
 2.43.0
 
