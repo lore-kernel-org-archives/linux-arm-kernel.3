@@ -4,98 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FACCA9ECA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 00:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C7FCA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 00:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BP1bz2pHwtNQXRUrZx5Fh8v5zRyVZJ76VNiARN43ayQ=; b=gPEweGnN4gVz2kse+gZTvKU2l2
-	qccn1lAzoCz1LTHAMpXlktXDqnwDRz2aeVxUd+qCPd2K1I4C/7zLSBw8vNDc9mtasy0JU2srzKbTY
-	8zl2XT8e1iJtWTdrd7km9tsSn3QeK7FIErSgEFBPjDKyHFEz5iSh6UtUGazUEPNrCAbJf1pomDCGX
-	p354/U9Uqp8CLER3Ix6NwwEDlnY/N0ZKgtIPYjV8ktFc6llQpV0L8NKYBaNXCN99mYKL7OgITTbbv
-	u5wCAcbY2eLJiRU0N5aBGNfOQBaqHPnVFoeBvH8loCkoODm+LRe3eOsfq29MVbYiShwy0msxXmsNS
-	WY7fbI4A==;
+	bh=eZSFox7DYtsZr6D8rsT6OanL7ONG4L1d4OFVS1wYXN4=; b=xZTJk+ttfa8HgDBd43cU26Vzt2
+	GfLkjPXONYDHCxETF7hOxgzzd225SnBLwRBu/c4R8hK1cuI14vqsk3Y46RmKbanyYA3AO6KNDoG06
+	2mVKSzvU9B3hv8MUfk+S1CwIRGCcPQNTN5dWyzA4nPB95Wvj3GHq3PKDugN5/L2v2lorLPTVWbDcQ
+	jquy5bxoTYafcBSGFAtwiUO71uec6nhs7oPCIw4pnV2bebMy0BxM6deJ68Ql6qOqGG5qCmW17pbDB
+	163BMt6XDdZUpFaBfK1YLGIag1x0Mr7Tf3xj+ca3fsd1L1oZejWrP0uPeY7z1Txczmt7WseXdV9Ua
+	LW2o2jCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFh8q-00000008ZF2-0Sx4;
-	Sun, 11 Oct 2026 00:10:16 +0000
-Received: from mail-qk2-x0a.google.com ([2607:f8b0:4864:34::a])
+	id 1xFhAA-00000008ZLo-1Eh8;
+	Sun, 11 Oct 2026 00:11:38 +0000
+Received: from mail-qk2-x0b.google.com ([2607:f8b0:4864:34::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFh8n-00000008ZEF-04wW
+	id 1xFhA4-00000008ZKe-3aQl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 00:10:15 +0000
-Received: by mail-qk2-x0a.google.com with SMTP id af79cd13be357-930f59d1dc6so58750585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 17:10:12 -0700 (PDT)
+	Sun, 11 Oct 2026 00:11:36 +0000
+Received: by mail-qk2-x0b.google.com with SMTP id d75a77b69052e-53503aceef0so5253331cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Oct 2026 17:11:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791677412; x=1792282212; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791677491; x=1792282291; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BP1bz2pHwtNQXRUrZx5Fh8v5zRyVZJ76VNiARN43ayQ=;
-        b=Iwbg0b9hbH5V1+jfApsw59osbDkAL/vHa1H4Z8Tx0dTQV7ZiSAtaD6SBpWRG0Phi7C
-         oEMvDRg0MwLcMSfstPziqP3aUfWyfFF3dHqTTtQaiUR5ECddmWkjwINsWASDq5SjfkpR
-         slGJEV6chOAUNnZSn/V8I9GNZ9gMrc8AYcyDmSv1NwFr09mCqhwTzcmym5jsiOsvQZsz
-         3nDBR94ZA4HqBLopmc00qQ+4f8haA73FBtwXZQmgVfRhEZK1MSfFlRK0onya7ZUnxNrl
-         LU4aVN687UO6C5GU/mo0qw4qC8i1e/vuKmosqjXhOVkiJQZseXzPQ8nWbxI3QPUSUSGb
-         +1xQ==
+        bh=eZSFox7DYtsZr6D8rsT6OanL7ONG4L1d4OFVS1wYXN4=;
+        b=FPeVnrFBYsOUHKsYrvsxPSZf+E8BFXmfJicqrV8hC+uqCYzayEaYoVIjDsCTWd6/nO
+         X6gt/w7OXbrsiAWBZ729hEe3jXM/cnyQmrGgYQ33UsWdS76SzMDhYpl2/k4dvpYncURQ
+         kmpJGhxeCRQikss20tQs/5y+6Fs/ZrIl0Weg+ofRXlcxokS/gnPNsvBYaikYtwzMgnms
+         pGoS6aEnQ5MpqMcPIIOjwkPuzMf8EXvsJQBEMnFMHr4KrZtxDiQBIB2L9qTSj71fBDF+
+         152VePqxk0mAwN3X69lxa69MqdNrdQlyEvhU6G3/xrss09iTiN1fBgUGKBNn33HB0WSS
+         9u7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791677412; x=1792282212;
+        d=1e100.net; s=20260707; t=1791677491; x=1792282291;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BP1bz2pHwtNQXRUrZx5Fh8v5zRyVZJ76VNiARN43ayQ=;
-        b=j2r8EiWyM/bIaFNMcJ9HmPHm9bsGCSkDAyCK4S7gjzXl6E4viosS31zKsM4bsnWK6K
-         1hMHnH533smdcECSLyp1e2MRVrPSuTd7U3ae4/wjypS21oymQCZZU/QBGDFaw7K3f6az
-         FuS9N6KVHdhTB0eDtTLtGMnX57j14iHx1pGdUz4zkSvQHdrSshaLEE60zxWY9I2ODnIZ
-         qftl+5hXyGUtRTaXIZImXVl1rFa6v4DDp/qQKSgnB3frM5pcdZ6N4GOFabQ5Xcz9BxCZ
-         tqJFJGc3CntQMSEg/SMkGRMT/BuINqfAv6+B52iOp/x1sNtc2FuSyZgfvIJLzenV3dEA
-         fy8A==
-X-Forwarded-Encrypted: i=1; AKwUvBwFvHbhIIFvw4bxxtpTiMWy0KjmN+fyg8l6O5KhT79nuzUJf24plQY1ulVpaBXRGJVn+yH36IARULnmkV3YWglK@lists.infradead.org
-X-Gm-Message-State: AFq9FYKYb4t9CwjE+0ZZbkrj21CnWZ+G8SF+6KXucuA/Fa/1UN4oSZ1l
-	+2BFSFBFAGA0JUSZtEm5/fuKsyTDa1VGLvWZxhdYRswgBt62N7lLbttC
-X-Gm-Gg: AYBFou1s3CtNztDt5CDkTv0fIFX8Qnrb2xEQvVTEzkTxLMgjwmIqacp2LEo/1peDOWI
-	GoynKhb8WyMiinJ/ecRY4Rj9BstI+Cl+XD3mRy3ccrfi4+oQrny2WSwR3SGRZVdMgKd9qmpuBlE
-	hAKz21Ivy16L8hYup8ymgtebXaUT8Vzvgsy2uHj9BmzyeB0yMCs0A9pQfy3dIvJhh3lhvAccm6E
-	CYgLM5qvVhWm/pX/5Df3QxD0cZ6CqTHfYqS7ZiZRMCxutaRqv3JWr2O8IgaDgLm5eCRoFC4WjSk
-	PrmJMMSFizOky4Ibdn6kwYZn/pBQCO7pULV+YfG7Qx6nUuDchhaSys1ShgL+2Tb6Bp5vaNFPg8O
-	+nTs+tTa/9D2o2Me5T2GtM6IZTKA+OWEkF2idXOOnlPSWIOSL9cy5srDwxUg5LSx6+0oQFpNXgb
-	We/0UimJ5b+h15NyS2kfPXw9dFwWgZJP9OPRBRNs7tDEiiRNwcCVtD8N9ingFGlpGwFjk=
-X-Received: by 2002:a05:620a:4692:b0:93e:95ce:539c with SMTP id af79cd13be357-93ebd0e4018mr1010764985a.2.1791677411682;
-        Sat, 10 Oct 2026 17:10:11 -0700 (PDT)
+        bh=eZSFox7DYtsZr6D8rsT6OanL7ONG4L1d4OFVS1wYXN4=;
+        b=kH6s5X3WQJsYf8jGjsQGjZK2zu2m6yRKtAG1bum8zEd+FA1Q0AQR53/p9B/EwTCWZG
+         fz7ZXj+A3tcKcafpyTWND9jWZeATUKbMCp4K+isU0ATLSLX9p91GksyvULcvl7iaeNI8
+         YfA/V9b4lJpqeAfHyBQpntmymQAO2/1+aZHjUWDz4XTtbGXQMET1biTAXlJ+lgPTs1ox
+         DuWRlzsYCsT3g59oaAjGR/7YI9eICPCWCA5Tofqju6zpQxaQYc1ChqIOADEE0ogXj8EB
+         waum3aObl610olv68KuLCTFgrDT6Iv0fMRJEUFYI/tWjPdc3dYNfszeMSqq/m8xULtkG
+         gi4w==
+X-Forwarded-Encrypted: i=1; AKwUvBzllIUb2oRokhvIMyJXku+6kssLwrBO4B6SIEzUzqwzeEKfk/jS5Lx/M7onWN+CIkfFJ3GovKygbctw7sd1Npag@lists.infradead.org
+X-Gm-Message-State: AFq9FYLdG1bGVTu+iCZ4pNm13ZLpVDuzzdafWmr4eMvHebUzAoYNwNva
+	wejvpK+8N9BH29MYw/cU+2MkOfUxSxQTNM0sw+kk4BNOQpgYOlwcosxs
+X-Gm-Gg: AYBFou3XA68PZGDYhm3bdaJH29IHg2Rbgvj8qFe7dunx9BQEHIWhtcrfsXOD6zcj4ij
+	U0iiM4accUkSpvsAflPP0M7rRVJCtwCNmFHWVbpYx9cpk4/bQpZ+VR0i4gb+e0XvNmZ9+bIW/j8
+	OzD5FzJioS5Ap1xi6aXTORY30r1q02r2TXPP9QS3Q+pyozqZTX/1tLdAg9O8XaTFxVZSDp7hVdH
+	DNXP/wKM3lDRj87kHXH7ah4Ow+9eenmFbbRBbHVX7r4LdjPq3P38VRWg0RNxYVHtzDoS5gESDi2
+	MIvXSCQXXoNXVIRiyCHqKxJ2god5YAUSJ/FzhPteE8jj0J3pIB6rxldhnWkM+vMbHPusEslpU/W
+	rHFU5tCXuuauxSutfxTBsPswFYyCJjsnev/XAswgFlpzFKoj8f/o2Ws58v6Ag/0LkADeUIey7kU
+	nLTWtW6xNvDD4+Pyhk6UAiewdo3ud+F6r2ZElKLMaspgstRrrn+Dhcj7/Ug88D8MCIoDyJ9cAOU
+	MvWcQ==
+X-Received: by 2002:ac8:5a4e:0:b0:535:341c:e2c with SMTP id d75a77b69052e-5359fb8f878mr101828041cf.39.1791677491408;
+        Sat, 10 Oct 2026 17:11:31 -0700 (PDT)
 Received: from omarchy ([2601:804:8780:3df1:6ff:277e:31c7:ac13])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93eb98ff9d8sm523933585a.44.2026.10.10.17.10.10
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91b54e7f6aesm57217596d6.2.2026.10.10.17.11.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Oct 2026 17:10:11 -0700 (PDT)
+        Sat, 10 Oct 2026 17:11:30 -0700 (PDT)
 From: zoan37 <agentzoan@gmail.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: "irving . ch . lin" <irving-ch.lin@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	kernel@collabora.com,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
+	Matthias Brugger <mbrugger@suse.com>,
 	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 3/4] arm64: dts: mediatek: add Genio 720-EVK board
-Date: Sat, 10 Oct 2026 20:09:22 -0400
-Message-ID: <20261011000922.1089313-1-agentzoan@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	Qiqi Wang <qiqi.wang@mediatek.com>,
+	sirius.wang@mediatek.com,
+	vince-wl.liu@mediatek.com,
+	jh.hsu@mediatek.com
+Subject: Re: [PATCH 3/3] pmdomain: mediatek: Add power domain driver for MT8189 SoC
+Date: Sat, 10 Oct 2026 20:11:23 -0400
+Message-ID: <20261011001123.1092269-1-agentzoan@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260924-add-mediatek-genio-520-720-evk-v3-3-2ec5c80677d4@collabora.com>
-References: <20260924-add-mediatek-genio-520-720-evk-v3-3-2ec5c80677d4@collabora.com>
+In-Reply-To: <20260202064820.347550-4-irving-ch.lin@mediatek.com>
+References: <20260202064820.347550-4-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_171013_088301_47AB9D71 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20261010_171135_758829_12929322 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,43 +113,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Louis-Alexis,
+Hi Irving,
 
-A note from using this series' mt8189.dtsi as the base for an MT8189
-Chromebook (Lenovo IdeaPad Slim 3 Chromebook, board "quigon" of the
-skywalker family) on next-20261008.
+Some findings from running this driver on an MT8189 Chromebook (Lenovo
+IdeaPad Slim 3 Chromebook, board "quigon"), mostly around system
+suspend (s2idle through the SPM), on next-20261008.
 
-The dtsi has only the cpu_off_l/cpu_off_b idle states (PSCI
-CPU_SUSPEND 0x00010000). This firmware has no PSCI SYSTEM_SUSPEND, so
-suspend is s2idle, and with those states the SoC never really sleeps:
-the EC doesn't see the sleep signal and the RTC alarm doesn't wake it.
-ChromeOS's mt8189.dtsi adds a system-level state that only s2idle uses
-(infinite min-residency); when the last CPU enters it, TF-A and the SPM
-put the SoC to sleep:
+1. MFG1's EMI GALS sleep-protect step, BUS_PROT_WR_IGN(SMI,
+   MT8189_PROT_EN_EMICFG_GALS_SLP_MFG1, ...), targets the EMI config
+   block (emicfg_ao_mem at 0x10270000; SET/CLR/RDY at 0x84/0x88/0x8c),
+   so on MT8189 the "SMI" regmap has to be that block. Without a
+   mediatek,smi phandle in the DT, the step went to the wrong regmap and
+   wrote INFRACFG_AO+0x84/0x88 instead, which was one of the causes of
+   SErrors after resume here. Giving the MFG1 node
+   mediatek,smi = <&emicfg_ao_mem> (a syscon node for 0x10270000) fixed
+   it. It may help to document this for MT8189, and possibly to fail
+   instead of falling back when a domain uses an SMI step and no SMI
+   regmap was found. (access-controllers would be the modern way, but on
+   this board fw_devlink then delayed boot by about 10 s waiting for a
+   supplier the syscon never gets.)
 
-	cpu_s2idle: cpu-s2idle {
-		compatible = "arm,idle-state";
-		arm,psci-suspend-param = <0x020180ff>;
-		local-timer-stop;
-		entry-latency-us = <10000>;
-		exit-latency-us = <10000>;
-		min-residency-us = <0xffffffff>;
-	};
+2. DISP: at runtime it never powers off here (MMSYS, the mutex and the
+   DVOs have no runtime PM), but in system suspend genpd tries to, and
+   the power-off is rejected part way (genpd debugfs idle_states shows
+   "Rejected"). That leaves the display's memory path blocked: after
+   resume OVL stalls (no vblanks, larb0 stuck busy) or the display
+   faults with an SError shortly after the video unmutes. Marking DISP
+   MTK_SCPD_ALWAYS_ON works around it. DISP has a single bus-protect
+   step (MMSYS_STA_0) while VDE0 and VEN0 have two (MMSYS_STA_0 and
+   STA_1); I don't know whether DISP needs a second one, but something
+   in its power-off sequence doesn't complete in this state.
 
-with every CPU listing it after its cpu_off state
-(cpu-idle-states = <&cpu_off_l &cpu_s2idle>, <&cpu_off_b &cpu_s2idle>
-on the big cores). With that, suspend is real SPM sleep on this board:
-the EC sees S0->S3->S0, RTC, lid and keyboard wake work, it passes
-repeated suspend/resume cycles (20/20, then 10/10 twice), and a
-10-minute sleep used about 20 mWh of battery.
+3. PCIe: to keep the Wi-Fi (MT7922) up across s2idle, as ChromeOS does,
+   PCIE needs MTK_SCPD_ACTIVE_WAKEUP and both PCIE and PCIE_PHY stay on
+   (we use MTK_SCPD_ALWAYS_ON for both).
 
-I can only speak for the Chromebook firmware, so I don't know whether
-the Genio EVKs' TF-A implements this power level, but it may be worth
-adding to the SoC dtsi if it does.
-
-The board files are at
+With these (plus a cpu-s2idle idle state in the DT and a few driver
+changes elsewhere), suspend works: repeated suspend/resume cycles pass
+(20/20, then 10/10 twice), with RTC, lid and keyboard wake and well
+under 0.1 W asleep. The board's patches and notes are at
 https://github.com/zoan37/lenovo-slim3-chromebook-omarchy
-(port/quigon/mainline/mt8189-quigon-suspend.dtsi).
+(port/quigon/patches/mainline-mt8189-suspend.patch).
 
 This was found and tested with help from an AI assistant (Claude).
 
