@@ -4,141 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D29FCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 11:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C2ECA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 12:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wjQ6oDQ+VDkRGWZe8tA8JZi30NGShiKj6eCQ9wZeS4U=; b=Ezbb6ywYHRri/Q6nnegYLdHBzk
-	vi2i8/y1OgPp5EXcZUyBFmHI2P0IfozMrYdIgZp78RgcggJuNrEdzhf7aXRiUEdN4WOrpKqAacimG
-	CsfpkiKhmOinOzQAUeK5qGpr0BUKppa2KG9U9oxoDg2qDjaKmAvu7VlWZ089CBxlJASHXPuO0POF5
-	foy5XNPiF0XFGCkvfXRIF3/zU3iRMZslaq1LCvt6vdjpBOgXIqeaqmvt1OmQWKWnFka8ZGi5MsoKg
-	5Xmb4T5lMfDiPEKQFGZsW9BNQH03JYyhOV5FpE0wef47x2t9BaHId5XYS9jRclgZdkIIagOJL+tWH
-	2IrlorWg==;
+	bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=; b=sniuR8i2hxWiWE7mOjPehlegkY
+	BkgtoPnylcBQ3SkBXVkalYBYYeieypiPGx2JLeyP1g2645KfVOrHMbCG5+jDk3JTdVZV244ICM2Ge
+	ayutkMH6WLMNCZ2Qy49Gxo7Cx4KQ3PVfGCJdjoq4bvRrFS1c/QcFdCYUoqjSYvw10ijFLG82aIubT
+	wj1handRrPV6JojoB4egmyRRbGdsAHysd81Cg9Gc2LJ0w4gZAjErfUVDZcnhTkjHMmewUmFLWoGrK
+	asY1n1RyY6935yXQW2YCFvyzRJL36F/I78lLph/FKFcKBgFc0tG4SiYdRInKDbviEBnn2N1jA3hln
+	4t420XCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFs99-00000008ye3-43Bz;
-	Sun, 11 Oct 2026 11:55:19 +0000
-Received: from mail-francecentralazon11013035.outbound.protection.outlook.com ([40.107.162.35] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xFsQi-00000008zi4-2cW3;
+	Sun, 11 Oct 2026 12:13:28 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFs96-00000008yaY-3OnK
+	id 1xFsQf-00000008zhj-2QqD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 11:55:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vtFRSVLyLPMAncuGYF7nfTeeuwdg2UGt24NmbIqibahMvpLBylQz8AwhRytRbrM/Ehhe8YunVOn1s/ANRntWpd1px7vNlzJWe8D7O6cZ/0GC+DAVzkBA7ZJ2ExSZ2cw5Pbcjeq626EJlzbiqlu6JAt38BHsZ1zDGZ/oacWeK1KbF2FlwAAeCK0yqsLnLLTCWQojp9U83OnTeJ0FACW32kd2uJDUmr3Pw+LYsHxWk3K7wKTnJssjJS1ftvBThNOn2aZ953Uqz/C6KO76u775wk6yIrHDcozR7Tpdmp9rdJBqpLScSQ+SQBUDoGkUplms4AOgpVsGWG0of9BaN01nsEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wjQ6oDQ+VDkRGWZe8tA8JZi30NGShiKj6eCQ9wZeS4U=;
- b=XfNkhF2ZstB4NyjEUNMpJxKy/GagGGv0pwJ8673svIMrdV5Cxm6bKJA2YqpIhM6cCQM3oxaKkux5QDXOeQyPdQSLhcggGd/Ga+lCyPSnGJKUsNTLUp5V6mDApIOyRGo3hEY54IdRBMr5SagIH+CMDPIt3fpJs3Q0W3aicJ7jqry/igL/3UYT6oMD+/IX8fYytjeJaStsdPEo8PhLv0MIL9/dxHhO2Hiqx1k++L3ke/vFWNvskCz2JaeFB07ClrXGATM4GBq8+efuf6luv5580tYmItISaweqOBq0SHLWe7Y+aIVbJFfKWs7SjiGwZcrZ2haOPLFJKinhLZgGl+cOgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wjQ6oDQ+VDkRGWZe8tA8JZi30NGShiKj6eCQ9wZeS4U=;
- b=EMnZzZpDib2LZyiiseJNtKLNj8HDNtfJEKhJVqaeFghZ2hpkDLLUafBFYnFMqiN4VBbA8fZTTFcTUk773hF+oGHN0ToMBiBQM0AuZLnFpruHE4vcU3PuGXAt/WGkkNRpbLXuNurfHxeUyRpytE8BUoC+vbcnxdCCRrBxKQM6JpzZOYA7ukYSuEpdPLvYmLHzVs3dF4R9cK2PRaeKFbdiUrDv2Ca+citVI0EE0oAVIXj3eZkQt0AGytky6KyU0rhvowPcRJVywNEQfGOlIT7aELI/m7cGMEPJ2WacNeXeodub4fBuqvHDPG+ymtFIdVi8OOfSc11vU4sJg8tLNfqVtA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PAXPR04MB8389.eurprd04.prod.outlook.com (2603:10a6:102:1bf::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.20; Sun, 11 Oct
- 2026 11:55:14 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.019; Sun, 11 Oct 2026
- 11:55:14 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Sun, 11 Oct 2026 19:51:34 +0800
-Subject: [PATCH v6 13/13] gpio: mxc: use BIT() macro for single-bit
- operations
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261011-gpio-mxc-cleanup-v6-13-cb47ce2ad758@nxp.com>
-References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
-In-Reply-To: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
-To: Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: MA5P287CA0183.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b6::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Sun, 11 Oct 2026 12:13:26 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4956869750eso8701645e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 05:13:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791720803; x=1792325603; darn=lists.infradead.org;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=;
+        b=VRW13cV5HrbAL8GJjYWUt6eJA1FcR8HhyX+qT15MEp6zC2Nzy4/xcQVi8Eooq2fHKE
+         cagbUtA2Je76TcybTd0+ONWLtITgO5HRxGGhl1i38TaFOHLVDLQDXBmBP8QwblrQTJsu
+         JCDVLkRXkm+acqYtF/mAUPBUrytOi+L3GApC93XFBqiDJG3XnW5uW5j9pkgvd7VwhoTn
+         P1r4D8EzUyCpop0qDM2lNQHvEMuUcvpEKDrILiKyBOvheVangtdvkJNkwM04D/2sqfWF
+         yKpypdOkHQNmJPawmXEcUCvstUynijafXjDlwt9LMe5AYLAJLRG0gXkz8LjjnyWwsbZ9
+         MkTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791720803; x=1792325603;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6WNhfRaYtKVpVmrsy/HA79NcbT4wzVybUHXDzkeeAVs=;
+        b=y9nXHjBN4/n1jZa89UHoU2OCTmb5v3rtAjcKObSAPLr7HRIX1o2WdGuZLy22wwmy5c
+         g02Fn69/fKGn7YYlnuf4RD7xSb0VW/YWAE2OupIPiaT5+KsMQugm+m9Nhtlt/oxVadAc
+         thIHGa8ufPp7vEHM8QgxOitVRk+tTaC649/yPsEig5SLO8cB3UwuEBxcxxpzvt5AjKaT
+         E4cmeJR3uIZQtiKW3qdVPrH/mQLxJfSp2nYig9YXozEeZkNSUXCe4jlRYLNrw8wQNNNY
+         bttJKtuw0XQYPIYZ8+o0ujCXt1W5QlRsbc7tyTkldYlaEMjVhJOxN1FIZoNmZSJrqjDE
+         lfTg==
+X-Gm-Message-State: AFq9FYJQH/LT1YEM2/7olRSMMOYDhF1Qd862GHU8iKpSExy+IoGZg8AL
+	9PMhejXDumn+JVVFpdp63dozW0U9BPT30FMM/Bd0/FTtkeSsdll5vqOTkVQUYZzp
+X-Gm-Gg: AYBFou1oSbC8LxWXmN8q7QYJhvo3y3CQ2YdQadlBM60sNkrkkLT50c9rCblnJy599bM
+	Z3NJj09J1poaE2TJJNhmTVdP5jwcXOcD7g4TZdC9ZG4OIe3UAhtcbnJocLFrhArUlk3Pb6l6ya5
+	LJ8PeuO+m19G/81P7eSJYI3wu8TfCEafRntw6QIwCJXWMl+2CmFwboKPY25zSOKJWafvhpmTtvR
+	aottZGHZeafmryMwszt7jv2hcJDq6koRupmYehwEDVx5fIkak7SznbSZCwv7Yb+GWuXTziUUAJo
+	v/3ydT7WECkNAJNpPQm2plN8JBXMm1P4yn3e10GkwzcFBzSD+WnbIt+ED51y92wr3W3hkhuyjJu
+	AqVrpCeZ5NEFExG0hYXTTZxete/7RUjaN3EL9IRg2+pRBNbXY07bogZ5Ie3fZW5OnBr1W5x8Lsm
+	L5OHoVU8qJsdVJdr1zkdAvaOqeitoLiSxmv7NbAT5aVYS1jkiiRvuv+NhFi8eO6+HvzDVX/En6j
+	mF/17V+OahNg/rNIk5XSX1/qmqRRpjsh/7y+PzmReTdufRAN360YI5J
+X-Received: by 2002:a05:600c:3e83:b0:4a1:6d35:779a with SMTP id 5b1f17b1804b1-4a18e446880mr106551865e9.3.1791720803247;
+        Sun, 11 Oct 2026 05:13:23 -0700 (PDT)
+Received: from silicon.doe.home (178.165.167.132.wireless.dyn.drei.com. [178.165.167.132])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18e49792bsm328215565e9.4.2026.10.11.05.13.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 05:13:22 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
+ linux@armlinux.org.uk, robh@kernel.org, krzk@kernel.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>
+Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
+Date: Sun, 11 Oct 2026 13:19:13 +0200
+Message-ID: <aV_PM_GzRW6aLmK6NF7ttw@gmail.com>
+In-Reply-To: <20261010130024.177503-10-ghahramani.navid@gmail.com>
+References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
+ <20261010130024.177503-10-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PAXPR04MB8389:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7888e814-e065-4081-53f4-08df278e8287
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|11063799006|56012099006|18002099003|22082099003|261009223027099003|10067099003;
-X-Microsoft-Antispam-Message-Info: nvXLo4/X4OMNXi9dD6j+OQoRKIl45Li/mOzy+CA1z6KQrMWXTDox4/qMH0Q0hE4tlnrwiyuHfm3qwrCzSo7q/++KSYqTRbYMfu/Jr1jTvXWUvqsDIoR0td4mzEQAv3rzSqiW99nxm5k1BX4vJswjTnSKm+7Vw9gxzcJUyXn3LzkUEsqGqrWf5qzf+Np347B3CKMPdh3mJSu7fQXfKWVfZvK7ocPARX3SfLnLsPYtKsDn8T9GsMxVF/CNfDtk4Vy7czwrfUS49iehv92wRVyeStFkAxI07c4QaW3akoVZbX37twS1bsUhrDRDAvmXQiY9m9FKYWOgrcPlm6PfLO2myq2ab9DBYEBNfQj4p2FyZCqMCoMpdWg6b3xFPR+0d0ikkeRD0XML1WxvoqEuM6CYfvkbTg0BF7pk6QONy7Oj9Gu/C75WsTJpLAyPQ/tIaXj6gXB+2q7Ms6lHvDPG7qs1jREZEzvJMy49D4GOeQxRmKXprhOG4dpXXpyrkCB5PowS/PTq9KB2PGCIFWCKJOSF9DHzykYTrJem3x45Q0VaJzOuvPaACAXmxulbPzMSIDuaKRYaSoT+6Sd+/hXdJXYPm00BrlR/29bBOmDX6nHFwKsXvwvR4buz3CUVvBT/pZZOOTOCrZ3g8Uwz7oLiB0JXDJniFGNMCwn57O5jahv356Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(11063799006)(56012099006)(18002099003)(22082099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDdUUkRBMUlTcDhYekdIOTFIc0pUZjJDMUF4YWlIb1hPQ05VNEp5RlczUXVh?=
- =?utf-8?B?TzRKZDFSR1ZqK1RZMFVVaTVpM3pTYm1VenVGS2ZaQWMrTnVuUTBoMzBLa1J4?=
- =?utf-8?B?VjlzeVJlUTdMR2J1UFBMV0NuYmpJMDNkc0EyVnJKVGl2VnU0bzcxODUwemZh?=
- =?utf-8?B?QStmQjUyRHVUM1IzNWxGVW43THZjeGVpdmF4N1BFaWQ2R2l5dmZBNmpXWmZB?=
- =?utf-8?B?S1R6YWE1NDFqc3RRbzk3bnZtNzBTbE1EWWxvaXZ6dHN1NlFBM1k4Q3A1b3Ar?=
- =?utf-8?B?OThHQnQvTThpNDBka3hhYXRWNmpPWlpMN1hUeWNKYWNicFl1dWVRZ2ZSbFFq?=
- =?utf-8?B?ejRXOG5RSmYxVjNkYmh3YVkwRFlFZDVmSXN0eEtoR05Tdk9yZjZwaVA4bW1o?=
- =?utf-8?B?NTFEUHJDZmdlS3J4T1ZJWHlGdm5SdklBREZJbzNyWFFqRFY0YllWZDRIa1ZW?=
- =?utf-8?B?M0loUEdWbzdHalNhN3R3NitQL0lJQ2VpRnYrN2ZNU0pWSEZpWE1xUmFXbk41?=
- =?utf-8?B?WWZEa3lnTm5UQ2RIUk9rSXhPdlpWa3NWMFpvbWRoVk56V0VyUkpuSGRqaTgy?=
- =?utf-8?B?eTU4ZGxGRm5DSHdycm9JUVlERXhDQmhQSDc0cWpBaWtGbXhvYzdVSHBQSjNy?=
- =?utf-8?B?MjhiWlVmaDdhNnJ0Q0tPYzFZdUd3MWhGVW5sWXY1QWhGSkNsaWhVNDR4NmNB?=
- =?utf-8?B?YUpJZXpPckZSNlRyaVlxcmMrcWQ0V3BwelZEZVF5b0xxYWQvdnY4aHEyWC9V?=
- =?utf-8?B?TlViL09IY0F6WjRVNjQ3UUYyOEhyb0lMNnJ5eDhOTEhUVGVEN01QYW1tM3Zm?=
- =?utf-8?B?ckZXTVRFNnFnRGFFWVlBTVFPdFJNOHJTOWlXUElvc1RCNVF5ZjFWeG9lbjd4?=
- =?utf-8?B?WWxQVDlwaCtZdE9iQU9QQWpJeFdsb0pUeUVVNVE4dS9xQWZDWi9ZT0N1UGF0?=
- =?utf-8?B?dVB0SW1Zb2YzK1pvS2VDYzVtWngzeVN2cmdIdXJiRXNNMlBWQzhiazJtODhE?=
- =?utf-8?B?TWRPL1VKbmU3T3UwRjRkQUk2dEZZdHZBMjVNSmdoY2hSc01jbk1OVURBV2Y5?=
- =?utf-8?B?emhCajk0b0VoRzROakJNRWxtdVJxUVJHUGVsOTFLMEYxRFQ5cXJEdjBHdzl2?=
- =?utf-8?B?MGwxSDhQUEJiMmFBVGZrNStZdENqYVFqT25zT1BjYlJ6bnU2NWh0bVF0My8x?=
- =?utf-8?B?YnA5ZjFINEhJZTJoWEdaVUVPZGw2TjZrbWdocCtPV1VRc2dKUFhUa0F1VFNK?=
- =?utf-8?B?N1NXaFlUaTA1NHZ0aHNIaW01b1R4ejAxbE9QY1lXTXBOVm83dlNJUTJEQmda?=
- =?utf-8?B?aURLekE0OGxXU2VLZDdqbU5FSldtNEJ0NXpGNVF4am54ZjBpcDluS2ZYcG13?=
- =?utf-8?B?S3FYRUk3QkFNaHdoQU5EUzZRSWdQTjVpQkF4MExWaGFBVDRzWFRZRDlsUXAy?=
- =?utf-8?B?TUw2N09VQmVuNGhOK09SK1U0OEppamtFOHpPeVVLV0xVUStMZkJHVlluelRw?=
- =?utf-8?B?YW84ZU94bXZSSHdsbGlmN1RGVzJwRnplUm9yUjR4VzdGNlZBNVMvaDNmRHZr?=
- =?utf-8?B?ckhQb0N6K2U2RndwZWhuRmlnV3I3OXh2NXhvZVRUdnBMVEh3amFrYUtna3lO?=
- =?utf-8?B?bVZLcVRJdnpjMXNBV0lIME80SjVUM25pTzBuTTBjekgrWFhNTjZydUlEMmtF?=
- =?utf-8?B?K0ZlbUlCdnpsRnIyVm1SSlpmRTc1dVVKcXROT1VpVkxSQlY0SFBlTVI2aGRR?=
- =?utf-8?B?d2tTQkN5UWNkK2dvUEVob2NrUGV3VjhjNE5Kak92bWlCNzU2c3VQcnF1ZXY5?=
- =?utf-8?B?OWwyL0grR0hpaUxid1l6QVFPaDFHZTRDRStRYTVxakZJTUMwaFQ0c0IvdGlP?=
- =?utf-8?B?Z2VEc01oVStpd21JSlFMaUxXOHM4T0tPbXpCdEM5ZlBTQ2lPaTBZZmJ3Zzll?=
- =?utf-8?B?Q2lQYTJEaHFYQTJXTkM3YklwKzNpZVhkRmtzcmJFTFFtd3VQK0Q0MGxOUi81?=
- =?utf-8?B?RzYyR0lrUWk1WCtORjlFdy9LTW1CMUtSb3dkcnFuN1VXZ1BWRDhJMUtzQU5N?=
- =?utf-8?B?Q1pLSForOW5BU2g4OWJNc0J2WkdCZDRnZnRIWnZycXdSQVRxZXFKOW9rWG9M?=
- =?utf-8?B?aHc1Q3VaaE4vUERURjc0TkNaUzdDVC96cTk5Yis5QjhoNkRVb3lTNWpncFhq?=
- =?utf-8?B?OFVTWEpKMERreVU3T3hzc1pjTXBJZWJBMndVU1JtVXp1N29JemlLUjNCY1B4?=
- =?utf-8?B?NjRCV3dYT3hPKy83TUhJRHViYjlzc0JobmRDbXRiZXc4Y0F3WEJybmZuMVUw?=
- =?utf-8?B?UTBieWo5LzJibHVYTHVJRkxCNUR2QmNkWHJMQ21GWVhNaDM4SDEyNm5HUXc4?=
- =?utf-8?Q?lc31GPhYF5nXijCQ4PDFHGGKQdSh0Cm9fX0RX?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7888e814-e065-4081-53f4-08df278e8287
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2026 11:55:14.0961
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z3TUt/PINK/Vy7u+ALJzf2oxhN/6J3zEQhv2A3JtmamMOa2oVhyZGM9yn7isCPnW1XnpoN/I0RdJgV3Ffval0w3qooGYG3LChxQdO2/74F7cWAS1V9Yor9D2ejtElYoL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8389
+Content-Type: multipart/signed; boundary="nextPartK_YJ80XiTvajPgjPcZKRXg";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_045517_752797_F37A2F00 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20261011_051325_640009_0FD4FEF7 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,58 +101,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+--nextPartK_YJ80XiTvajPgjPcZKRXg
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
+Date: Sun, 11 Oct 2026 13:19:13 +0200
+Message-ID: <aV_PM_GzRW6aLmK6NF7ttw@gmail.com>
+In-Reply-To: <20261010130024.177503-10-ghahramani.navid@gmail.com>
+MIME-Version: 1.0
 
-Replace open-coded '1 << n' shifts with the BIT() macro throughout
-the driver for consistency and to avoid potential signed-shift issues
-when the bit index is 31 (1 << 31 is implementation-defined for
-signed int).
+Am Samstag, 10. Oktober 2026, 14:59:47 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieben=20
+Sie:
+> +/*
+> + * Each bank has 16 lines, one bit per line in each register. The regist=
+ers
+> + * at 0x04-0x10 and 0x28-0x34 control the interrupts, which are not
+> supported + * yet.
+> + */
+> +#define ZX279128S_GPIO_DIR	0x00	/* 1: output */
+> +#define ZX279128S_GPIO_DATA	0x14	/* line level */
+> +#define ZX279128S_GPIO_SET	0x18	/* write 1: drive high */
+> +#define ZX279128S_GPIO_CLEAR	0x1c	/* write 1: drive low */
 
-No functional change.
+This looks identical to mine, which itself matches the old zx29 GPIO driver=
+=20
+with IRQ support etc that was removed in 89d4f98ae90d ("ARM: remove zte  zx=
+=20
+platform"). This old driver had support for IRQs.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/gpio/gpio-mxc.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+My hardware has the same register layout, but no IRQ support (related=20
+registers are always 0). So I wasn't planning on reviving the old driver an=
+d=20
+just using regmap-gpio like you do here. If your hardware has indeed workin=
+g=20
+GPIO IRQs it would make sense to revive the old driver.
 
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 7987ea2de32c..23ba5098eaee 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -260,17 +260,17 @@ static int gpio_set_irq_type(struct irq_data *d, u32 type)
- 		if (GPIO_EDGE_SEL >= 0) {
- 			val = readl(port->base + GPIO_EDGE_SEL);
- 			if (edge == GPIO_INT_BOTH_EDGES)
--				writel(val | (1 << gpio_idx),
-+				writel(val | BIT(gpio_idx),
- 				       port->base + GPIO_EDGE_SEL);
- 			else
--				writel(val & ~(1 << gpio_idx),
-+				writel(val & ~BIT(gpio_idx),
- 				       port->base + GPIO_EDGE_SEL);
- 		}
- 
- 		if (edge != GPIO_INT_BOTH_EDGES)
- 			icr_update_edge(port, gpio_idx, edge);
- 
--		writel(1 << gpio_idx, port->base + GPIO_ISR);
-+		writel(BIT(gpio_idx), port->base + GPIO_ISR);
- 		port->pad_type[gpio_idx] = type;
- 	}
- 
-@@ -309,7 +309,7 @@ static void mxc_gpio_irq_handler(struct mxc_gpio_port *port, u32 irq_stat)
- 
- 		generic_handle_domain_irq(port->domain, irqoffset);
- 
--		irq_stat &= ~(1 << irqoffset);
-+		irq_stat &= ~BIT(irqoffset);
- 	}
- }
- 
+My hardware has one annoyance: There is one GPIO line (not one block of 16,=
+=20
+just one single line) that has an inverted direction bit - and this line is=
+=20
+necessary to run the routers on battery. I don't yet know what the nicest w=
+ay=20
+to deal with this is. If we have a good reason to have our own zx gpio driv=
+er=20
+then life would be easier :-)
 
--- 
-2.51.0
+--nextPartK_YJ80XiTvajPgjPcZKRXg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrLcLEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoijZ0QAIYvFbnd86a0BA4vB7p5
+HZW7/UnHb9Rd8bwaNM9LhFgFYmTeQPLzMoVsSUt84V+JUge57Kw8nPV0Iux2YNkz
+IdzhQiShuW4/7oRjYqDSPStnkxVSeFDPOTmMJWLxqVXDvgWr5UMdCq4btlpYiPaU
+mnnG9uvEjFCocDCxhCQpoMAx7HUCy+EnNge9vMPmXezh6+S4u1dYYE0Ap1u9kp1w
+9yOd6Joq6hldxa8Rf+IVb8k9aFOz34eK/3HCBUuni0/zIIMiSj4EhUosmD7LxtMp
+9GQ0bmuDTognLxJQHVRG2mH11ihkfvtEW25D/Dmb40YQsepPvjBAO3aq/DkoVWAc
++jc5MaYUCIZkiKvpU51Yyc4dWrCPr8mBZLDhGE8mT1kt2a5Viu4E4q7aePEqqmrX
+7BxuiP6EDWHhdlvd0twIv4QjP6j+qE6+RbtGFSypOUQ8r5U83qrBNXid7MWXKwEA
+zyMF2uh2oFdGAap3RK07ohCigHiuWkbk0HYdDt/VUP/pZLD2OR7ozZ94ResxbsyG
+9ymGPuuDHwzHy+ULVHiaeHWygV0AfO3/BdAh+IfbbU8XgLQNve0f3ouodUN98L9M
+NZAeS7Kwtpt/55jvyJ/ZxDufW+xIHnHrqrW0HPf/asAchms/6+TkScZFgcJRA8FY
+2yHKUduoenPY8vgxk+nADhIb
+=xhk2
+-----END PGP SIGNATURE-----
+
+--nextPartK_YJ80XiTvajPgjPcZKRXg--
+
+
 
 
