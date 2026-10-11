@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0192CA9ECC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 21:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24523CA9ECC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 21:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=; b=1GW/xAI32wkCp90qmD3pAdjVzw
-	kWYlN8qV5BnTnHZVT5QPTA704FEj6BYriZ7LNQLmyY2LJSORL6XJHZyvMx21/Er24Ybqn9H2LLCEC
-	rl7Pcfw9MH2IMrqn+M8n7wiXFZDGz64qSnBL8fFoZYbOo+sL/39oLAa8NgADtaLSuNxajhTFcRa+f
-	Kb6bu+/QcI8EnGBHMi1hmSCVJEyU/7H6dEOKtqjp3NWvO2T9O0/vWixPiJ2d3Mvp2PtBjzwZTnPCY
-	R0SXYvUnGyJZvkvP4CzUXE3exPcVKdZOSR24oaXQwz2VtMEkUnOSUOyIjAj5RCpewThVky7rYybhl
-	SmH7Y3Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IT1YkemJVNo91PZ/vHFhpiJIZ6agvmdqx5nDY6WX42Q=; b=1nchJLplNLiQPTpR6chsRv/exE
+	8nF+AcF8esm8TPFVLusTtoU8HJvE//AGhjyqUmrJqNkrUdRScUBNCeabjeVfgUDI1+MCM2C31pYKc
+	TN0BRZuQL4LutkOAudoYZoJKfSGROlgPlX9Z8zB+baevpw866eMLuLJWzlJ5dvYqcSZEhEKXSe0EE
+	6NBt4VdqeAsD97JSLf+pneXYG5oWyqxP3DlI17aKTDtJ96dc1ijVikESVhMI45W4DpbHgtuGcPwUk
+	kP2tl8HCQVnC2XZ6FCdik7GP3zAMRQ/XI3nHuq6/c37dpjpczMAT3iwm+Muj7DybHSYqSVvQaDENc
+	kpWk7+Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0eJ-00000009PV3-0fLq;
-	Sun, 11 Oct 2026 21:00:03 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xG0iM-00000009PfC-2WqR;
+	Sun, 11 Oct 2026 21:04:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG0eF-00000009PTl-3vgt
+	id 1xG0iL-00000009Pf6-3Xbo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 21:00:01 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a1880e1bf1so11998305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 13:59:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791752397; x=1792357197; darn=lists.infradead.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=;
-        b=hB6gXKPg4HLsgZ8NY+DMafZ0yGBStu90cKEJSzBNvASb/kyO1nBUUidaG9LYFtA9QS
-         dtlo/CK0v1/tl10uTbQMqP13ODRKOSc8vogbIzcr//e598M4dDesQtR1ehXkAFoFJu7M
-         92Zyys3JWfxWZUHbvYsdrw8sHKStR++fgJ2Gm0hmuX6Ia1fFZRKtNkKoenWd7irsup3v
-         fBGJzZ/OmyXgqAr0UsZ0V1Gf57/iA2vspFGyrP0yPJy1q0Tv+ElVqm4SGoFj/yL5GAxX
-         tkaCdb895tNobKioXytDvhoA+MJFtp8kxcKHklm6cKKb/01LR2DRwck4yldOMnNbZpCj
-         oPqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791752397; x=1792357197;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GXE8pfEZXuSFtvC6/Tl1P1F3UmZY6SoQVpTiEIRx1zo=;
-        b=rZVLpCmsweXNtQ/JyPYnc7WhntI5UckrJUL6f46LQEruXFVeRce5CAuSPkiNtX0WWF
-         IYxAQ2ojf4tAYQ7F6hyx4SddglotLNEjrOxI//Iql2htog5WCpQfe7dRTY0jT6l3zKKi
-         gBRSWo1Q4gFWNEZZD5ozxeY88AX/OB/+QjhST4lihoAccxW6OZdG9VTdnhyaVnRLW27a
-         NhbUHw0IOTik3eisw2zw1JnB7rBRIzysosVSTLHs3WAwLD6tDbHq75BKjzV/y54lAEbE
-         mm1HpaY+nvA/mDejBDpEwgGv7I/vk08W1aX200pQL0ZluxQwgCQzu1IU6FKOtEFYVXts
-         2e3g==
-X-Forwarded-Encrypted: i=1; AKwUvBxH78M2emMpi9YrdN9a2cMIPRcsLLsf0TDJcvOJ1GEEQMMeA33R/msE0F17764H39c384RH7NVx4tP7umowWh75@lists.infradead.org
-X-Gm-Message-State: AFq9FYK+owUQjRlKkUK8I2cFTA5xlr/AZtnpdZCGhSkI97ElcBo5LCXY
-	kFxajRWu5nMuNuv2IRVYN6FkdVNHnM1fRPXmQ92yCFtSA+mgJZpwQuyQ
-X-Gm-Gg: AYBFou1QwxLgZJr2obIUM5NnRFLivlWFqufMAPIBUpHper1bvF23STa1p4HBiDzsRVW
-	Ci0Kvt3UBM6E3jUpyZPeF896bReWnncPYtO5Dnw1Yrl9A767a9q2MqV5Bg/Vi5bpaVcA+pNxlIb
-	fOZoGaf+LaWi3RkbaPlbjUrC+gZ6IAx5KJckvBoDye56l4/ICRWqGq909a4eEkxg5SEIfRRKdhA
-	CWEg56Hvc2jsdcx3psXrDCxQwj3tRSos5VOOv91su888OBxW2A61Wceh47/8KUo7uJo5dkp3GpK
-	eRhI3LYXc4++Nab4kysWo+LWjbKOa1yqRIgCf1zZbHjDPmhTb4yblbmPlYscpf7XwWDpezwMoKL
-	MPKsXZuyc1KEoBmoUw1qvQd9siDTrml30bSqvECeJYFfdZ2K53LWxscsoaES4//xvuHhIL9ZIcu
-	zlLXXqNoboUWI8JeVrOhM0fRdKGWw5gaKjaF6EoAR2ecpNLm1t0z3G11yLbi+sAEKfkIHFq06VB
-	BZjLb0QSY4hBRUo/AxYKSflYVV1bI82T8hKUuNcdzrjjksm9kbGhrODTg==
-X-Received: by 2002:a05:600c:3f0f:b0:49c:ffab:551f with SMTP id 5b1f17b1804b1-4a18e4cd231mr144688665e9.22.1791752397395;
-        Sun, 11 Oct 2026 13:59:57 -0700 (PDT)
-Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19c8244edsm67465395e9.2.2026.10.11.13.59.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 13:59:56 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: dts: meson-gxbb-odroidc2: read the Ethernet
- MAC address from eFuse
-In-Reply-To: <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
-References: <20261011-odroidc2-dts-v2-0-a3a4a752f2ab@gmail.com>
- <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
- <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
-Date: Sun, 11 Oct 2026 23:59:39 +0300
-Message-ID: <179175237937.1513478.8957286812154054574@gmail.com>
-Content-Transfer-Encoding: 8bit
+	Sun, 11 Oct 2026 21:04:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 034FD602A8;
+	Sun, 11 Oct 2026 21:04:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B46E61F0089B;
+	Sun, 11 Oct 2026 21:04:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791752652;
+	bh=IT1YkemJVNo91PZ/vHFhpiJIZ6agvmdqx5nDY6WX42Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WKd0gele+RANjoxMl1pzsmiQOrSU26DsT9tqLqZVOfOBX1CIoRkg8+aqmnM8o9t4x
+	 yuSKooiYrRqOngIy0u9rTyETk7Tn7B4YqlM4mlS64CuRIg4154IgItYT0n9Xm4rZg9
+	 TaSGmpvaRImJvRtLZAV1Rr8d+/Xu4o2Vr48uBY9cSmyXW/VagA353MXVwiMelRe8wF
+	 ArVt9Q86gyzq76m5pSbOPuhr+g//4ozLXAGbLlvJ8INo3KKFC8YvVXMNK99FLyKFd9
+	 Q6Np+HG6L7E4XAnCptiKklAmZ2qvTTB3EAMIVhVkBdvqXU55haHbr/pru9uL0T9VjI
+	 +lAPknUCWaO+w==
+Date: Sun, 11 Oct 2026 22:04:07 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH v2 3/6] dt-bindings: connector: Add Toradex camera
+ connector
+Message-ID: <20261011-expulsion-frivolous-690de090cf9d@spud>
+References: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
+ <20261001-verdin-imx8mp-hmp-camera-ready-v2-3-7d1343ecd3ec@toradex.com>
+ <20261002-prepaid-retired-3d2c9cbc035e@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_135959_992311_519A635C 
-X-CRM114-Status: GOOD (  12.70  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q3EvCfSuoZ2pke+6"
+Content-Disposition: inline
+In-Reply-To: <20261002-prepaid-retired-3d2c9cbc035e@spud>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +81,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Martin,
+--q3EvCfSuoZ2pke+6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Oct 11, 2026 at 10:49 PM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
-> Question to Neil: should the eth_mac node be moved from meson-gx.dtsi
-> to meson-gxbb-odroidc2.dts?
-> Odroid-C2 would be the only board using it and u-boot seems to derive
-> MAC from SoC chip ID/serial number instead of reading it from eFuse
-> (so I'm not sure about the status of MAC address in eFuse on most
-> boards).
+On Fri, Oct 02, 2026 at 06:05:24PM +0100, Conor Dooley wrote:
+> On Thu, Oct 01, 2026 at 01:44:11PM +0200, Ernest Van Hoecke wrote:
+> > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> >=20
+> > Toradex boards route the sideband signals of their 24-pin camera
+> > connectors to different GPIO controllers. Camera overlays which name
+> > those controllers directly must therefore be duplicated for each host
+> > board.
+> >=20
+> > Describe reset, power-down, detection and power-control as
+> > connector-local GPIO functions. This lets an accessory overlay remain
+> > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
+> > remain described separately because the GPIO nexus does not abstract
+> > them.
+> >=20
+> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > ---
+> >  .../connector/toradex,camera-connector.yaml        | 81 ++++++++++++++=
+++++++++
+> >  1 file changed, 81 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/connector/toradex,camera=
+-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camer=
+a-connector.yaml
+> > new file mode 100644
+> > index 000000000000..27fee3defde7
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connec=
+tor.yaml
+> > @@ -0,0 +1,81 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.=
+yaml#
+> > +$schema: http://devicetree.org/meta-schemas/base.yaml#
+> > +
+> > +title: Toradex camera connector GPIO nexus
+> > +
+> > +maintainers:
+> > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
+> > +
+> > +description: |
+> > +  Toradex carrier boards share a common 24-pin, 0.5 mm pitch FFC/FPC c=
+amera
+> > +  connector carrying MIPI CSI-2, I2C, clock, power, and sideband GPIO =
+signals.
+> > +  This binding describes the sideband signals as a GPIO nexus. The oth=
+er
+> > +  connector resources remain described by the surrounding board device=
+ tree.
+> > +
+> > +  The nexus exposes connector-local GPIO function numbers to camera ov=
+erlays
+> > +  and maps the functions wired by a carrier board to their GPIO contro=
+llers.
+> > +  GPIO specifiers contain a function number followed by standard GPIO =
+flags.
+> > +  A board may omit functions which it does not wire.
+> > +
+> > +  The function numbers are:
+> > +    - 0: Camera reset, connector pin 11
+> > +    - 1: Camera power-down, connector pin 22
+> > +    - 2: Camera identification, connector pin 23
+> > +    - 3: Camera power control, connector pin 24
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: toradex,camera-connector
+>=20
+> This seems overly generic, but I assume that's what it's actually called
+> and if you make a new camera connector the name will be
+> "camera connector 2" or something.
 
-Some data points in case they help Neil decide:
+Since this came up during last weeks conference, figured I should
+clarify that I was commenting on how the generic name, which typically is
+something we try to avoid (because it is usually used when someone does
+something like "sony,8-megapixel-camera"), was probably actually fine
+here. I wasn't looking for a version to be embedded in the string. I
+already mentioned this to Ernest after the talk, but mentioning it here
+for everyone's benefit..
 
-- Mainline U-Boot does read the eFuse first on the GX reference board
-  files: board/amlogic/p200 (used by odroid-c2_defconfig), p201, p212
-  and q200 all call meson_sm_read_efuse(EFUSE_MAC_OFFSET = 52, 6 bytes)
-  and only fall back to meson_generate_serial_ethaddr() when that does
-  not give a valid address.
+--q3EvCfSuoZ2pke+6
+Content-Type: application/pgp-signature; name=signature.asc
 
-- On my ODROID-C2 the eFuse at 0x34 holds 00:1e:06:37:d9:37, i.e.
-  Hardkernel's OUI, and that is what U-Boot passes on today.
+-----BEGIN PGP SIGNATURE-----
 
-I can't say how many other GX boards have the eFuse programmed, so I
-have no strong opinion on where the node should live. Happy to respin
-with the cell moved into the board file if that is preferred.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasv5xAAKCRB4tDGHoIJi
+0rp3AQDG2KmW+uhF4maDEpqvD2fEbdFwuOzCqEbgz6CUKjVH/AEAgfi94bnz2cvI
+lHwJ8q0M8cKP9yx53nXNKy8NNFOTSwQ=
+=kIsF
+-----END PGP SIGNATURE-----
 
-Thanks for the review,
-Fil
-
+--q3EvCfSuoZ2pke+6--
 
