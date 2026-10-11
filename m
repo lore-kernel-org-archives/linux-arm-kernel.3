@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADD3CA9EC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 06:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80381CA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 06:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XlPPE6ZZY5T3PHV8A3Y8GqCesIvtKJSCm08ZYgXZh9o=; b=dDIdW7XXjdG6Dn08rBsD03wbVz
-	PEEEo7l71c8A6/Rv6VPrsdrmYsgguSdzw0or7X4owkvuFB9OVMUMzl2cLXX0RALBtVpoNpFfa5SKE
-	Nt195/FdTfKXsUFpl6IuFYMfjgQvAR3JqHmt0dSslMdW7WK/LVz3YfqhuBQiH3Rsvof5OnVxd4Iz9
-	cok/w1/qEVYWuenzZtOEjAAhaGTDC+83KquGrNsTTNInn7gR7y5pcl8/KFmLXRuzjc1/EXffER2jS
-	r2nkaEXdW4lAJEtXvuV6QUzo2AA2vEpup/kNp5ZfMkUxEsrhraQxnkn0BoPAfsKYGjwe5JNKLwGV8
-	Z4nGtYSw==;
+	bh=kpWFVuY5XtJbp+uc3V3vTe+YgGQCO4l5hutHrkbQsg4=; b=ix2BxEX4reppD+qxY1LKMdfzVm
+	+QfrQme7LM6H2SbM/NcXSTp7jkZ3ArOatYwW93NwRd3IqcsYzSYPLTDX1UEkJ/XaUiexLPiF59b/Z
+	gkwwwHXUmMCw7SbOW70lH19PcAEV+/1a8apjNysZLaUsiS2AXBPswTamuOwVe2AIqrgvFFjxBCTeT
+	mzsy+Kglm8ZfLTktqLTq70TVuWTl9w7CUnnuy2bUmoPtOL3fklD2+H2I5yNErFaFjr1ft1PE+cjGW
+	RhtvUJ20iQbW+1Gfw7l31aLUJaOuIT5NOatUDb0I1dSyMj6wzNLAFFg8ngg6nIjuz1htdcM6jlA9E
+	E4GuEc8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFmt1-00000008kxL-1iIl;
-	Sun, 11 Oct 2026 06:18:19 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1xFn2K-00000008lGQ-1UZT;
+	Sun, 11 Oct 2026 06:27:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFmsx-00000008kwx-3ZY6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 06:18:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Xl
-	PPE6ZZY5T3PHV8A3Y8GqCesIvtKJSCm08ZYgXZh9o=; b=Ip664CDl9k8ge8BOcr
-	Bk3pQIeHiS32Bi5f536z8MaYRmAzm9HycFVee37BNUm68+38atxAHIk3lXRY2vZh
-	+mRtUi8iYiquxQuJzmgMU5Gzs1uF6c2B64aLBYBFncA784mkx9YZiMGGMgNgMpl7
-	KGvxn//yRvb+Jr7pVJbaYU5wY=
-Received: from ubuntu.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDHjyr0KctqdBPSDg--.48609S4;
-	Sun, 11 Oct 2026 14:17:33 +0800 (CST)
-From: Ma Ke <make_ruc2021@163.com>
-To: antonio.borneo@foss.st.com,
-	linusw@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	andriy.shevchenko@linux.intel.com,
-	fabien.dessenne@foss.st.com
-Cc: linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org,
-	Ma Ke <make_ruc2021@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] pinctrl: stm32: Fix fwnode reference leak in stm32_gpiolib_register_bank()
-Date: Sun, 11 Oct 2026 14:17:22 +0800
-Message-ID: <20261011061722.3159941-1-make_ruc2021@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xFn2I-00000008lGG-1evI;
+	Sun, 11 Oct 2026 06:27:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A484600AA;
+	Sun, 11 Oct 2026 06:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 29B42C2BCF5;
+	Sun, 11 Oct 2026 06:27:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791700073;
+	bh=+fkuQeaiBzgWlitXbBzzW9cMa5R1QZo/J9S1LpNBoBo=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=ARsyvieVBL8BG3I4NF1hKrKuNi/8K2gHvGaW9PpSQr+tPZ8xGO4cjzqP7SYCxN/Kl
+	 BW2E1H5k3OWNrKtILLQgPiUmGLetdoI8uDnC8Ukk6/xF7BNfvzfMfvDh1thPrK2JGL
+	 yhLLAk5UPznmosS77mo0+VopaaFQlZWNPnXDslClf7FFxVyQztaIIxN8CNQ7aQTl1M
+	 mAjrnxWhss3wBGnyHPjLBDkRDWJbcNl0DNL1tIK/GbyVxwHWpNHh+0287zb0EmME0x
+	 0J+raWsrPSz2QTk9abWNSTP3Y8KlCNAkS9kjYmglI5kYrA1UGF1NG9+M2bFjac8iWj
+	 2h1k89joxbSNw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 03168CA9EC7;
+	Sun, 11 Oct 2026 06:27:52 +0000 (UTC)
+From: Ryan Leung via B4 Relay <devnull+untilscour.protonmail.com@kernel.org>
+Date: Sun, 11 Oct 2026 06:27:42 +0000
+Subject: [PATCH] arm64: dts: rockchip: add maskrom and recovery ADC buttons
+ to NanoPi M5
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDHjyr0KctqdBPSDg--.48609S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Cw4DXFyDXw4fuF15CF4rZrb_yoW8CryfpF
-	W3Kr4YkFs8XrZ0k3yUAw1Y9ryagayxtrZxCF4Iy34fuFn0yay7Xw45uFWSvrs0kFWxXwn8
-	tryUJay5ZF1DAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piGjg7UUUUU=
-X-CM-SenderInfo: 5pdnvshuxfjiisr6il2tof0z/xtbC9R0XImrLKf00YAAA38
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_231816_390902_D50738C3 
-X-CRM114-Status: GOOD (  11.60  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261011-nanopi-m5-adc-v1-1-822edeb1acf4@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAF0sy2oC/yXMTQ5AMBBA4avIrE3S+g1XEYtqByNR0iIScXfF8
+ lu8d4Enx+Shji5wdLDnxQbIOAI9KjsQsgmGRCSFFFKiVXZZGeccldFYkEhN1qVVXpYQmtVRz+f
+ 3a9rffu8m0ts7gft+ABA07nZxAAAA
+X-Change-ID: 20261011-nanopi-m5-adc-6e03d4b39577
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ryan Leung <untilscour@protonmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791700071; l=1728;
+ i=untilscour@protonmail.com; s=20260906; h=from:subject:message-id;
+ bh=kg6KVsnzM/S6c7CrUcQL5EMoEDLITm6RqDphdFMeMKY=;
+ b=dV8N2jv8eLKcK6TyO8zkxuVRUG+UslFvJPAxdBtKgxpIlzoMOG0owvnjync47Ne68aflqv4d+
+ 6Ya5ousvZTsB+1Kv3OOTGPcqR7+KmFswpgy9P3VtuqMtIuZfjsX4/lB
+X-Developer-Key: i=untilscour@protonmail.com; a=ed25519;
+ pk=eCaNcoQNRWYKZ9D7KbOGKvQVK2YFguJXZxglTtAR7Xk=
+X-Endpoint-Received: by B4 Relay for untilscour@protonmail.com/20260906
+ with auth_id=1011
+X-Original-From: Ryan Leung <untilscour@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +83,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: untilscour@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_gpiolib_register_bank() walks the "gpio-ranges" property with
-fwnode_property_get_reference_args().  As documented in
-drivers/base/property.c:
+From: Ryan Leung <untilscour@protonmail.com>
 
- * The caller is responsible for calling fwnode_handle_put() on the
- * returned @args->fwnode pointer.
+The FriendlyELEC Nanopi M5 has MASKROM and RECOVERY buttons connected
+via SARADC (sheets 6 and 19 of the schematic for both the LPDDR4X [1]
+and LPDDR5 [2] versions). Add the two buttons to the device tree.
 
-The returned reference is never put.  The function calls the helper
-twice, once directly and then repeatedly in a while loop, and each
-call overwrites args, so only the last reference is even reachable
-and all the earlier ones are leaked for good.
+[1]: https://wiki.friendlyelec.com/wiki/images/1/10/NanoPi_M5_LP4X_2411_SCH.PDF
+[2]: https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_SCH.pdf
 
-Put the reference as soon as args.args[] has been consumed, both for
-the initial call and for every iteration of the loop.
-
-Found by code review.
-
-Cc: stable@vger.kernel.org
-Fixes: bb949ed9b16b ("pinctrl: stm32: Switch to use for_each_gpiochip_node() helper")
-Signed-off-by: Ma Ke <make_ruc2021@163.com>
+Signed-off-by: Ryan Leung <untilscour@protonmail.com>
 ---
- drivers/pinctrl/stm32/pinctrl-stm32.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 28 +++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index 6a99708a5a23..93127da05d56 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -1666,8 +1666,12 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+index 3a305408fa16..46c88b1ccde7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+@@ -41,6 +41,34 @@ hdmi_con_in: endpoint {
+ 		};
+ 	};
  
- 		/* get the last defined gpio line (offset + nb of pins) */
- 		npins = args.args[0] + args.args[2];
--		while (!fwnode_property_get_reference_args(fwnode, "gpio-ranges", NULL, 3, ++i, &args))
-+		fwnode_handle_put(args.fwnode);
++	adc-keys-0 {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
 +
-+		while (!fwnode_property_get_reference_args(fwnode, "gpio-ranges", NULL, 3, ++i, &args)) {
- 			npins = max(npins, (int)(args.args[0] + args.args[2]));
-+			fwnode_handle_put(args.fwnode);
-+		}
- 	} else {
- 		bank_nr = pctl->nbanks;
- 		bank->gpio_chip.base = bank_nr * STM32_GPIO_PINS_PER_BANK;
--- 
-2.43.0
++		button-maskrom {
++			label = "maskrom";
++			linux,code = <KEY_SETUP>;
++			press-threshold-microvolt = <0>;
++		};
++	};
++
++	adc-keys-1 {
++		compatible = "adc-keys";
++		io-channels = <&saradc 1>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-recovery {
++			label = "recovery";
++			linux,code = <KEY_VENDOR>;
++			press-threshold-microvolt = <0>;
++		};
++	};
++
+ 	keys {
+ 		compatible = "gpio-keys";
+ 
+
+---
+base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
+change-id: 20261011-nanopi-m5-adc-6e03d4b39577
+
+Best regards,
+--  
+Ryan Leung <untilscour@protonmail.com>
+
 
 
