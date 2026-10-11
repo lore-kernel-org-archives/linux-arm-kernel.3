@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB6CCA9EBD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 12:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A20CA9EC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Oct 2026 13:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8k/Z2xwl+3btNwSPJmc5tsS1sCA2p1AE9AkNGzp8/kQ=; b=lm9NPHt8NTNg9kdXTlT4l0a54j
-	HmfFu8K0iZjGGN50bQFLufLwG7rjXpcHlSNBkXmKaASDWUTY+hD3eZns+Q/aCZjk8MrBgoEHTv2si
-	DN3o1AZQgTBimyNFKG7Jnfb4qUx8Hux2FL8RSasAGeOgi/WVVyixsvWjaiqHcG40RmSzuFz0bcPaJ
-	5FA9yECALAPITdIX2WZ8SkrajKEfmPnVIJTEWVHbIYBwCNdm2R87O1h33U6ZLd/8Ebs7W+7zBQN0G
-	+VmkJ7KiCjkpCAG28sTQlfPR0TBdIfmTMFnEhZr9TJg7Vyh5CSJuEC4WmBqk0tcWQRabnJ/x9TxKx
-	iBd4H1rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XUUhsclM68Xjsn8h8HY1t1Xbm15vgk+qa6obR6iKY2U=; b=yCLClvawmp3tFCxv290aSC1k6k
+	DN5gpUkwcipITpYAgOGMMIJoJX80NDye2+aq5PeQ14XPyNk+QJ+vzuU/yPZgVYrKErUu3K69PwUUh
+	X7RLvhYx8Snf3e7VjWvjwod5m0jw2o5yXBmjbrmGuNssxhWJbeuuNr8VQ9xuQFDxECTGcykOvUQsI
+	spJF7F5GhEl1qjo7P8fONBB9Jj0JLdGfwV55fIwcayIQSwYblOs+ctYAQG59eRfpQZjFQVgJk5CVG
+	QZvgepJb0VAnEzUehqb+rFV0gQZ6mssknvAaF13lXmRb2sO3Qx7j6/9TTEM7cms26u5g7oJihupjB
+	w5/CKmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFsyV-000000091MU-1Dq2;
-	Sun, 11 Oct 2026 12:48:23 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1xFtDc-000000092V0-2yL6;
+	Sun, 11 Oct 2026 13:04:02 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFsyF-000000091BU-1tOG
+	id 1xFtDa-000000092Uf-1OzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Oct 2026 12:48:15 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4j2gPK6jV0zKpd6;
-	Sun, 11 Oct 2026 14:48:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timmermann.space;
-	s=MBO0001; t=1791722885;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8k/Z2xwl+3btNwSPJmc5tsS1sCA2p1AE9AkNGzp8/kQ=;
-	b=cdNrqHwcV9s7r8wl1x9EM6FVNesps5ew3i4HRmYRCfEFaH4MLXf4OOib3pFXVrOpziLzal
-	jbv1NmsE/giObucb1t+7xGUgvOuK/Gfa1c2r0UEsR7/eD7KMfUIGKj1g1OIcK4pdniZeGp
-	8MXRfbryc8ek4ijOJQKp61fuR7siL5NDVwst4n98PiBUL1klRBLlTrIHCNqhuUFzUmMPg/
-	GLmjZisZ7P1sEw15XBOmPvetlOi4sqsGGilVOPcLDUhJup+zst0uk7DKRuPnmJN3VaxnIj
-	r7RxeikjY+2ox+9cVRAxd6pHKE8taSFCSsBBFG6d2XckIEeCv4C/t9Smc4rVhw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of foss@timmermann.space designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=foss@timmermann.space
-From: Lukas Timmermann <foss@timmermann.space>
-Date: Sun, 11 Oct 2026 14:45:01 +0200
-Subject: [PATCH 6/7] arm64: dts: exynos: gs101-raven: add S6SY791
- touchscreen
+	Sun, 11 Oct 2026 13:03:59 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a02667ccebso6890715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 06:03:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791723836; x=1792328636; darn=lists.infradead.org;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XUUhsclM68Xjsn8h8HY1t1Xbm15vgk+qa6obR6iKY2U=;
+        b=cR/eI1kGEbrVD/sfPx+tUj4SRzH4z18tq8S7FNnSu9kWstV6cl++aJfPpWj0T92knX
+         e7ejuN36ICGFrrO73kiCBfkgJu5zj6m8Un0wS/UO7XI+3KFqxueBj2ZslN5LJlVZWHLN
+         NPMaydRDfjaSWWd6pzj9Hdwj2df1iL9y9KIepGx9ubrKC3rq4QcR84+Cx4SwdI3xifXK
+         o8hZdPs1b6wUNcfUuhyCyH+2b3SdYHhS92k6wjIR812rZqq0FmctlJLztwYaPP36pFIw
+         slkYMcVqDmfxRBB7T3SeI6/NdPbwYSTpJaD6t5J7rlcGAdrjY4Rz6rIqEZUQuD84n6Fi
+         Jlfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791723836; x=1792328636;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XUUhsclM68Xjsn8h8HY1t1Xbm15vgk+qa6obR6iKY2U=;
+        b=hcCpuQ84lo49HtQdGKZHp9p8+PDlRe/NNdGC8mJvCdGpKyPDYz8HwaLv1aIM52L8aG
+         h+k6xfMQ5ZMmt6rIkLmpP75mSEvfwT4g1+yN/+SYg2flbAGSSJQx8iY2ryzxWizeJ2wF
+         chItOiYiAg+pCq6WVTjL/kLttQN7thWFl3IeHKnrWANSWkvkPzp/7/78ynyR8inuo7b4
+         3E/RUTfdXHqBhKwAevJUcAI7tNHCbNPtA7/7RohXAA2Sr6LnXNtOg5/RU7urAWAj1ddp
+         F6qNkLhHuIa99W0HAi+dkNx0cE2zJCqDD2sV1Wwsada4KOb+YamKfEuxDY+7+YyHX/V0
+         F1sA==
+X-Gm-Message-State: AFq9FYItZ3xjqYhoG3yZ1UNi6p7yxkuiusOs6JkglAlfCqRyTZJ1AUNM
+	uw4puNQZDvh4gdkqsImgM4SE1OMIu/8QzdqBcjrZmbawbB51mYUWpl47BJWPV118
+X-Gm-Gg: AYBFou3hXry7HJrrLlPJ/lRzl3WUKY/dKtqopUS/ggGq7dJE4jnNzA52vpCtagNgAwD
+	2po5uG2QHN4Gl7M/EkaZirh7JKVzgT91EvoEOdEV8MbC3IZ4RmBRiQxOYg4cl0AKcv8UGYSLeTr
+	fDIfGEDwYV21mbNEiHGEguoiZM9i4u/sKCe9Po8W5i+fQxrD2i6u8Yqb1IgDslD3pA3x+MK2YQh
+	+dzFzXDn711G6dzdPVQt+tLFqrXOXaFm8bFPoOfofJ5pzVqzPHRqM+ONA1kv66yqUHQIzztKuBp
+	k8YFoxv662xbRShhZrP8R40MDycJX+APjLCJDf7iL5K7lAG2vR2j/dMAYjT2BN6GPA2KkroXybU
+	UMp7YXgGuqyc2K+X9zcOslmC54gOTlov7CHfD2TdHg1LsHnUwPKyx94o4av89SiGXet6RCLQgG+
+	7CQ7usCHUE45a5IY7DxlqlTs9fVl6iN7b2xtgtGQ5j5EekipNUmQh/W3HTxCmh/a5VbIdgJN0ha
+	6V5VdtoVQBWc+tTTgjjfUcpI5kNpTwa4/zsCLV2ok6O4P6RJMr4kcQg
+X-Received: by 2002:a05:600c:6215:b0:4a0:eae0:b30e with SMTP id 5b1f17b1804b1-4a18e4ca157mr109610335e9.22.1791723836253;
+        Sun, 11 Oct 2026 06:03:56 -0700 (PDT)
+Received: from silicon.doe.home (178.165.167.132.wireless.dyn.drei.com. [178.165.167.132])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf214a1sm243456455e9.7.2026.10.11.06.03.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 06:03:54 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
+ linux@armlinux.org.uk, robh@kernel.org, krzk@kernel.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>
+Subject: Re: [PATCH 13/24] PCI: dwc: Add ZTE ZX279128S host controller driver
+Date: Sun, 11 Oct 2026 15:03:43 +0200
+Message-ID: <RqVLVgMZQZCOx29YUhhdJQ@gmail.com>
+In-Reply-To: <20261010130024.177503-14-ghahramani.navid@gmail.com>
+References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
+ <20261010130024.177503-14-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261011-lat3st-google-raven-touch-upstream-v1-6-2a9f55159b9e@timmermann.space>
-References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
-In-Reply-To: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
-To: Lukas Timmermann <foss@timmermann.space>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Rspamd-Queue-Id: 4j2gPK6jV0zKpd6
+Content-Type: multipart/signed; boundary="nextPartayMeA89TTDyMHsX0IsJQmw";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_054812_569806_5690EE77 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261011_060358_417226_B9E743A5 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,77 +101,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure USI11 as SPI controller and add the S6SY791 touchscreen with
-its supplies, reset and interrupt lines.
+--nextPartayMeA89TTDyMHsX0IsJQmw
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Subject: Re: [PATCH 13/24] PCI: dwc: Add ZTE ZX279128S host controller driver
+Date: Sun, 11 Oct 2026 15:03:43 +0200
+Message-ID: <RqVLVgMZQZCOx29YUhhdJQ@gmail.com>
+In-Reply-To: <20261010130024.177503-14-ghahramani.navid@gmail.com>
+MIME-Version: 1.0
 
-The touch SPI bus can be muxed between the AP and the AOC coprocessor
-via TS_SPI_SEL (gpp26-1). Hog it low so the AP owns the bus.
+Hi,
 
-Signed-off-by: Lukas Timmermann <foss@timmermann.space>
----
- arch/arm64/boot/dts/exynos/google/gs101-raven.dts | 50 +++++++++++++++++++++++
- 1 file changed, 50 insertions(+)
+I can't say much about the substance of this patch as I haven't dealt with=
+=20
+PCIe before. What follows are just some gut feeling comments:
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-index 7c4273796a22..02b19e39055a 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-@@ -47,3 +47,53 @@ &framebuffer0 {
- 
- 	status = "okay";
- };
-+
-+&gpp26 {
-+	/* TS_SPI_SEL: low = AP owns the touch SPI bus, high = AOC */
-+	ts-spi-sel-hog {
-+		gpio-hog;
-+		gpios = <1 GPIO_ACTIVE_HIGH>;
-+		output-low;
-+		line-name = "ts-spi-sel";
-+	};
-+};
-+
-+&pinctrl_gpio_alive {
-+	ts_irq: ts-irq-pins {
-+		samsung,pins = "gpa9-0";
-+		samsung,pin-function = <GS101_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <GS101_PIN_PULL_NONE>;
-+		samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
-+	};
-+};
-+
-+&spi_11 {
-+	cs-gpios = <&gpp23 3 GPIO_ACTIVE_LOW>;
-+	num-cs = <1>;
-+	pinctrl-0 = <&spi11_bus &spi11_cs>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	touchscreen@0 {
-+		compatible = "samsung,s6sy791";
-+		reg = <0>;
-+		spi-max-frequency = <10000000>;
-+		spi-cpol;
-+		spi-cpha;
-+
-+		interrupt-parent = <&gpa9>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&ts_irq>;
-+		pinctrl-names = "default";
-+
-+		reset-gpios = <&gpp26 0 GPIO_ACTIVE_LOW>;
-+
-+		vdd-supply = <&s2mpg10_ldo25m>;
-+		avdd-supply = <&s2mpg10_ldo26m>;
-+	};
-+};
-+
-+&usi11 {
-+	samsung,mode = <USI_MODE_SPI>;
-+	status = "okay";
-+};
+Am Samstag, 10. Oktober 2026, 14:59:51 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb=20
+Navid Ghahremani:
+> +static int zx279128s_pcie_init_crm(struct zx279128s_pcie *pcie)
+> +{
+=2E..
+> +       /* Ungate the clocks */
+> +       ret =3D regmap_write_bits(crm2, CRM2_CLK, port->clk_on, port->clk=
+_on);
+> +       if (ret)
+> +               return ret;
+> +       fsleep(50);
 
--- 
-2.56.0
+If this is a clock control it would be better to write a clock driver that=
+=20
+manages the crm2 region and exposes a proper clock handle.
+
+=46or the phy parts that are part of topcrm: drivers/phy has PCIe PHY drive=
+rs.=20
+Maybe one of them happens to match the hardware registers, although that is=
+=20
+unlikely given that the registers are inside topcrm. Either way adding #phy-
+cells to topcrm and isolating the phy controls in a phy driver would be bet=
+ter=20
+than having these two syscon controls.
+
+By and large the zx279128s_pcie_init_crm has a bad code smell: It looks lik=
+e=20
+an LLM translation of ZTE's code to me without understanding what the=20
+registers actually do.
+
+--nextPartayMeA89TTDyMHsX0IsJQmw
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrLiS8bFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoiSIgP/2QBvIWwIVHmKwhmCg1p
+GNxlKYheuEN95hM+/16s9Z2ZB19AJOH7rqbpRDkBHcnbRm9R+LVJmnbgDpd/wdis
+F9ISmIuQA3MqqlCnUcqDQtFnAELUsxTgyk84j6Bzf0j6un4ch5bkycPs9QJvWLpW
+9zsbHJzNhf//uv5WrtHBvO+vPTcJeSWtHr9/MjAIAgPQQiFsVWZ45xOeEaR5mApj
+DbwtuBM2gkPdgGZ94rSLawNd/MklkWQOWWOrQf0qb6jyOVmPA0IU54uKUeCaStVH
+xMmJ1nu8EBEvzyV8v1WlG3HjonSPc/SQRLv3IBD8cBKFFvnROuiXGvk70aLVg84F
+tgFyWcjvrTQ61+aCnd/Yf1bFLKtwnMIjv/eMpUtceiZWwn0XYGlgCKnsW7omre47
+71gTg5e8HGHR3wAfBpNLXlxPTREBzQQ7bP+MNbHFdbuilqat9yIWLjEruwUWP5DP
++a+SoFZOWXF+6RtdgaKBaE9HxI8YLaaHjcPDKLVxT5HPKGwu17MO9zuoFAMEtH+6
+zosoJ3ZYNXiZp2LIBpJ3UERoHzqERgqAp8tSXaHFyGABlVav+fItIz+YLCw5DVjz
+8T4drjN/zl2lJCJj22+ywIo4CNhkRZOvJ/FMUgwPIcRUy2wajkOHWsRTatDa+RxT
+nfxS2kfTtdCAjzhnXAtEZti/
+=+Ytg
+-----END PGP SIGNATURE-----
+
+--nextPartayMeA89TTDyMHsX0IsJQmw--
+
+
 
 
