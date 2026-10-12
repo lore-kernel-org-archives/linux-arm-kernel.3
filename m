@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F503CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8A4CA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tN6wzsAGq7RjiCCFfBG8fGelKCVJjjbUNe59LpMAIZM=; b=0f5N6BeC7MwZ1yCL0M+nXU7J/Z
-	2JJAztdT1qmTdLhhBV/JOyw75ZUaeCqi2qCI7dAJ1PBtqs3DVR69syX51LowHRCm+G0y2dtq9nomy
-	pcvAi03Hf1I7NLf1Ylqs2Qo+DRPnhFW7K/3DPYAkNNFyDlhtV6OTu8OVwr9uLjhDbsc88R/nWLnIe
-	qDSNJkR1LuQz2UBXMRUCW5scjjfyRcBQgKXMXuv/Zcesm7x5pEYpK1TysHE2Gm1PNcPe6wVwBHa8i
-	aNqVQUJ2Ouqbe6QlkIarOrgRjg28AR3YXB3mvt/99OJO95ixo9aa6GXPOiKDZs3ZczX3WM6HNY/xf
-	jao/meww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TyV2Bq43Wm2rxT+bE3tLJ32jLGwD2lcUogYKBq5cy/8=; b=OmqQH61q0a6spzHbHzwv8lzMF7
+	j3JuJJzHxbyZH7Xq9DQH7PZMX8HL6LeVoK0G9lZmE4FltVJRGvThlvbvLttXvNHTGcm1aQqZyLk3h
+	MGM2h+rK/JB5+b7YCtR5zkQ4OGHIHrZFYIvV3DmpMUfzWMvm2vr+fE6DjpZiWVcotNqax2Nj41PHs
+	w1Wh7ZRlbbhuAMmiu/albAgFi7SCXNTvLPLCQs7DQtsaoW+gsJSVDh8drXJ+KovLO6Z8BAzcr3Rkv
+	ox2A9C3kb0p7OtoWpOmxA8ZgRgNlQsdqw2rMDoTExHPDxe8spQRHtGOcqQwkc383fSegGj9iYUVTr
+	TS5zXekQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9i8-00000009kzi-3hjx;
-	Mon, 12 Oct 2026 06:40:36 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1xG9kv-00000009lCf-0EYD;
+	Mon, 12 Oct 2026 06:43:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9i5-00000009kyG-25Qz;
-	Mon, 12 Oct 2026 06:40:35 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.127])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50af51f8a;
-	Mon, 12 Oct 2026 14:40:17 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: shawn.lin@rock-chips.com
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Radxa E54C
-Date: Mon, 12 Oct 2026 14:40:10 +0800
-Message-Id: <20261012064010.1837103-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <4903cefa-4926-4bae-93e9-1165bb9ae646@rock-chips.com>
-References: <4903cefa-4926-4bae-93e9-1165bb9ae646@rock-chips.com>
+	id 1xG9kt-00000009lCW-3sWq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 06:43:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BD53412AE;
+	Mon, 12 Oct 2026 06:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940931F0089B;
+	Mon, 12 Oct 2026 06:43:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791787407;
+	bh=TyV2Bq43Wm2rxT+bE3tLJ32jLGwD2lcUogYKBq5cy/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XPlEDgfrGsawaCitpHCKcfoiGlP7rKo81yQcvdQfpYzFZNdj7ko5+T/GJKwG2i8qF
+	 i8LbUS1pNSmP6xRSZBZGkHD807B0T2qgXLxk5km7LuC+6axQ0O/X9T0GX/N1PfBOzV
+	 GW/WoFKhJ5KvIkXbb6zUDpQw1FCs25qXRjoXjlINNL5FWYa2KhlT3jdhbrBe4K+xL3
+	 ossYs4IQnsR15l1F3pH6pLuFmfMhntlptxRcGcQQpAdBXuOIbI8LXaBphhnnNX0Tyd
+	 m7czfXKv6BiIHjFH76RuMB4DVwZPmwm82USl6oU3An7nwnm8GaAB3Z1DHZLBOI0twz
+	 G/n/h+SPzQTnA==
+Date: Mon, 12 Oct 2026 08:43:24 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Mikhail Kalashnikov <iuncuim@gmail.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add vendor prefix
+ for Teclast
+Message-ID: <20261012-worthy-terrific-sunfish-3acbab@quoll>
+References: <20261001022415.913959-1-iuncuim@gmail.com>
+ <20261001022415.913959-2-iuncuim@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa12ed733ee03a2kunmf7c7b69346eed7
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUsfVhpPTEJKHUpNSE0fGFYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpJTFlXWRYaDxIVHRRZQVlPS0hVQkJJTk
-	tVSktLVUpCS0JZBg++
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_234033_710797_540D0B04 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261001022415.913959-2-iuncuim@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,19 +72,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Oct 01, 2026 at 10:24:12AM +0800, Mikhail Kalashnikov wrote:
+> Teclast is a Chinese consumer-electronics brand. Add its vendor prefix
+> so that board compatible strings can use it.
+> 
+> Assisted-by: OpenCode:DeepSeek-V4.1-Flash
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-> I was checking all PCIe part of rockchip dts files and wondered why it's
-> marked as an always-on regulator. But if it's actually not, it'd be 
-> better to improve it later. That would make reset rootport mechanism
-> work better.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Please refer to page 21 of the schematic[1]. The 3V3_PCIE regulator
-is enabled by the PMIC and cannot be controlled by the kernel. So I
-think it's correct to mark it as always-on.
+Best regards,
+Krzysztof
 
-[1] https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.2_schematic.pdf
-
-Thanks,
-Chukun
 
