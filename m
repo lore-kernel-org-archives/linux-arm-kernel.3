@@ -4,79 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD283CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFC2CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wcx3g0NwEzlW9ix0sXkF7x69h6a98zhGM+hCucC5VEQ=; b=EMBGxpaleS9fbbOvJijyauKQ0x
-	epOqJBq1pOTuzkNWrM4fB0KpYKzNlooaZBjIdjEPfjFo8+VqmSwUXPM5FvMZEiyBWXIw0NQaEw3OY
-	981xNHywrSXuWrN2fQov5fNsvrtRiol9w6stHSVuw8WAKm23bdLvuOGsRdhZE/pLiRSlKgBbvtcAZ
-	/QEqDFEBacVLyBDbVRu3IF9msan8yDzHNQhQ9NV2zDBweU7GuFjZZ4pYcOWlO5RNGYHvXVM9XXxpF
-	1QDf19960d5k7MuHZ1WlL2a4wSk55GrXaMxDfyIZ0s78M2sfjzAjpT715hhMPwP19VWum2+goddGe
-	ifrDMFWQ==;
+	bh=nYLAzRdGcx+Pa1SC0TaGogrsY7RGl2b/LoCCYazp4iI=; b=NosVGYelK+gIYWJqjK3oUJvpra
+	S4krk1J/SNTMB3EhKyXXi/v+BXXKhA0WWKj+hwUZbufBOb0P4p1ZS0DvR3CqmuJh0Ek90YRwDhylZ
+	TjoXA2yyztQzSJcd0b0d5d/Jfshw4BgpGnusNKSPQaUUpOS5ZJAcghem1U1FqvBOhINpF5LrCl2mA
+	bnglLhL1QIWvqoDc/C2Nnfxz+c03unWrKOsHHDR16NtNS0xPX1bK29FwtDHKm45Za+dTCLcKTXiTk
+	n48TXibVtRYwi8KHgi2H0Uvic02Je+a4maIR1/0OnGNGMsPfBEr8hE83BAdPB2G2Qbq7W3vsqI8KH
+	7nzJFfIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGECF-0000000ALhn-2DYr;
-	Mon, 12 Oct 2026 11:27:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGECD-0000000ALhP-2tiM
+	id 1xGEF7-0000000AM3X-3PDn;
+	Mon, 12 Oct 2026 11:30:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGEF6-0000000AM2o-3AF8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:27:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02B541655;
-	Mon, 12 Oct 2026 04:27:53 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 322763F882;
-	Mon, 12 Oct 2026 04:27:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791804476; bh=kQCByoVaggjb/UJQTAgFLZ8KUS15fDOUT2X+RgYa5nA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SXpM18GiGGokjVzFN66yDXwWffYyU+nyainbUrdvXUhlxb/5aoBKR/zu1Wk8q9m2K
-	 BHJ6rVAmAhbWMus8lqcJ0+VVvuk0vEtCafbmbvQJ8h2GnIS+NnuRL9si8p2j3MjayM
-	 3q0Q0Cr4YzezOswbyFk4QWwLY461WGXHjKeRMcmQ=
-Message-ID: <893507ca-b956-474c-9124-92fbfc25e9ab@arm.com>
-Date: Mon, 12 Oct 2026 12:27:50 +0100
+	Mon, 12 Oct 2026 11:30:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E3B6A6022F;
+	Mon, 12 Oct 2026 11:30:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15F41F0089B;
+	Mon, 12 Oct 2026 11:30:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791804655;
+	bh=nYLAzRdGcx+Pa1SC0TaGogrsY7RGl2b/LoCCYazp4iI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=k9CBeuFzlXo74TbZIfXSWENGaS2ldExc95bJj+Rs33Kre3ZGctNRikXKMcTwkw7ua
+	 zwV0VrqOI2qoZMM7HHlRerKomGs609/TpwgOdmGYRUEu9xVY6nuLJqnL64eBrN4u5m
+	 oo1QuTzdaPjQWaMI0yw7qnE+pdkKlHuSHIEJ4A8X1d3C0zteEREKasmr9O3J5ikubP
+	 BbDB+NXm04S8VD1w41EOlf5Gw79Exug3hl3NdzAxRV1CgL1ouOsHyFPDKWsqBQ786n
+	 gEBlebxBuIhpbOBkEU8hXHES83exCickuKVUYI3gzyakax3xx+HX7Am8Yb6cGodJo9
+	 EacTou0lpDJkg==
+Message-ID: <0a486a08-8d6c-4ca5-8a54-e7499630095c@kernel.org>
+Date: Mon, 12 Oct 2026 13:30:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH DNM v3 8/8] arm64: dts: qcom: kaanapali: Add MPAM MSC
- nodes for the L2 caches
-To: Yin Li <yin.li@oss.qualcomm.com>, Rob Herring <robh@kernel.org>
-Cc: James Morse <james.morse@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
+Subject: Re: [PATCH 1/7] dt-bindings: input: touchscreen: samsung,s6sy761: Add
+ S6SY791 and reset GPIO
+To: Lukas Timmermann <foss@timmermann.space>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Gavin Shan <gshan@redhat.com>,
- Andre Przywara <andre.przywara@arm.com>, Drew Fustini <fustini@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, trilok.soni@oss.qualcomm.com,
- aiqun.yu@oss.qualcomm.com, ganapatrao.kulkarni@oss.qualcomm.com,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
- devicetree@vger.kernel.org
-References: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
- <20261008-mpam-resctrl-dt-knp-support-v3-8-35196c2b43bf@oss.qualcomm.com>
- <20261008210004.GA1318789-robh@kernel.org>
- <1d764a3d-7935-4e26-b1c2-92537e1d3811@oss.qualcomm.com>
+ <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
+ <20261011-lat3st-google-raven-touch-upstream-v1-1-2a9f55159b9e@timmermann.space>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <1d764a3d-7935-4e26-b1c2-92537e1d3811@oss.qualcomm.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261011-lat3st-google-raven-touch-upstream-v1-1-2a9f55159b9e@timmermann.space>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_042757_811967_8C1E6069 
-X-CRM114-Status: GOOD (  14.99  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +123,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yin,
-
-On 12/10/2026 11:48, Yin Li wrote:
+On 11/10/2026 14:44, Lukas Timmermann wrote:
+> S6SY791 is the SPI-based counterpart of S6SY761. The register map and
+> commands are identical for the subset the kernel currently implements.
+> Therefore add S6SY791 as a related touch controller.
 > 
+> Optionally, the reset line can be controlled on some boards,
+> such as the Google Pixel 6 Pro (raven).
 > 
-> On 10/9/2026 5:00 AM, Rob Herring wrote:
->> On Thu, Oct 08, 2026 at 02:41:17PM +0800, Yin Li wrote:
->>> Add an MPAM MSC device node for each L2 cache. Each MSC is nested
->>> directly under its L2 cache node so that the cache node is the MSC's
->>> parent device and its CPU affinity is derived from that cache.
->>>
->>> The L2 cache nodes are placed directly under the root node. The root is
->>> the root of the physical address space, so each cache node only needs an
->>> identity 'ranges' property for its nested MSC's 'reg' to be resolved to
->>> a physical address. The two caches use distinct node names (l2-cache-0
->>> and l2-cache-1) since a cache node has no MMIO unit-address of its own.
->>>
->>> The nodes are disabled by default. Production firmware does not expose
->>> MSC register access to the OS, so these nodes can only be enabled on a
->>> local test setup where firmware permits direct MMIO access to the MSCs.
->>> This DTS is therefore only an example for other platform DT authors and
->>> is not intended to be merged.
->>>
->>> Co-developed-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
->>> Signed-off-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
->>> Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
->>> ---
->>>   arch/arm64/boot/dts/qcom/kaanapali.dtsi | 50 +++++++++++++++++++++++++--------
->>>   1 file changed, 38 insertions(+), 12 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
->>> index 131fd2a16c54..b1dcb1e9c570 100644
->>> --- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-
-[...]
-
+> Also reference spi-peripheral-props for the SPI bus properties.
 > 
->>> +
->>> +        msc@19870000 {
->>> +            compatible = "arm,mpam-msc";
->>> +            reg = <0x0 0x19870000 0x0 0x10000>;
->>
->> The MPAM register length is 0x321C.
->>
+> Signed-off-by: Lukas Timmermann <foss@timmermann.space>
+> ---
+>  .../input/touchscreen/samsung,s6sy761.yaml         | 37 +++++++++++++++++++++-
+>  1 file changed, 36 insertions(+), 1 deletion(-)
 > 
-> You are right, the MPAM register space is 0x321c per the specification.
-> Will update accordingly.
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+> index 1ffd17af3c53..d24f35038934 100644
+> --- a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+> @@ -8,13 +8,17 @@ title: Samsung S6SY761 touchscreen controller
+>  
+>  maintainers:
+>    - Andi Shyti <andi.shyti@kernel.org>
+> +  - Lukas Timmermann <foss@timmermann.space>
+>  
+>  allOf:
+>    - $ref: touchscreen.yaml#
+> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
+>  
+>  properties:
+>    compatible:
+> -    const: samsung,s6sy761
+> +    enum:
+> +      - samsung,s6sy761
+> +      - samsung,s6sy791
+>  
+>    reg:
+>      maxItems: 1
+> @@ -22,9 +26,19 @@ properties:
+>    interrupts:
+>      maxItems: 1
+>  
+> +  reset-gpios:
+> +    maxItems: 1
+> +    description: GPIO connected to the reset pin of the controller
+> +
+>    avdd-supply: true
+>    vdd-supply: true
+>  
+> +  spi-max-frequency: true
 
-That is the full extent but truncation is allowed by the architecture.
+Drop
 
-Section B.9 9.2.3 Permitted truncation of an MPAM feature page IQGXFF it mentions
-some conditions but these haven't been updated for the introduction of FEAT_MPAM_MSC_DOMAINS.
+> +
+> +  spi-cpha: true
+> +
+> +  spi-cpol: true
 
-Does your implementation have domains?
+These two should be probably required for the new device.
 
-Thanks,
+> +
+>  unevaluatedProperties: false
+>  
+>  required:
 
-Ben
 
 
-> 
-> Thanks,
-> Yin
-> 
->> Rob
-> 
-
+Best regards,
+Krzysztof
 
