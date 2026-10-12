@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1257CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 20:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F0ACA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 20:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7gHMV3umSUeDW/ePA4faUCYbBu5Azy4eUsgtI9tPzs=; b=ARwUx3W3JrXh0ekXibUzboESNs
-	aUH0Ro2rc4bJOor5UqSsd5S+hglhon2emDagHM4PkWJIXKGCFqBu2qjuL7aFJnERgo4CmbXsejt2R
-	v6ql4Y8iFeS+NMRGN0TvVSxm6g5QFMxzEJkDVWOEqqGuy/3DymfXNW00/4SYUya0ohynRCCWklii0
-	9RPvUx4usLNQT5XgPP/j/PPQ1Mztp0GHFNs5iBBCf2sHy2fejAm81G02AHfLSDb6ONTh+QBdZ/Ji8
-	v0UhfDhSqKvI03oqx4zBvYlVwdB5iozOCkvRbDcvf9QceOZkH3IanRrb59c9JF2Q99zBwf8BKd3gF
-	YiY2u+Vg==;
+	bh=vaoUskc8feZSg15SFM0v3Zd5QJMwrh9CubC02jWIJuE=; b=o5Q+yvCCNPKiWOoc4kb8ARfDjo
+	Zrwicr7UO2laWCQ5zymQvs+bYMvpgvXLZy+Rdo6LKRLHYANRGhpNkpKtufwBnUj6DwpLOlqJSHC4n
+	cOGPBXZLQfG/WdxSXPWufK40lx0ALAHfo5phePbVwgy9mcYJDz5EFZwunc3QfuOmA5W5jMbdfkUZ/
+	TG7Sk7i99asStrJ/uVIosWQGEyCzZYVGpOqT9L2EmjIoXtFC020ebzGIJsu8eRaJ7vhqDtfH75LHk
+	J6TGa6vJ+Ubc7UlnMuGAu9BlW7xqgtT7pThtqk5jeaZGRNomKy19Rt8/amHA9pL8V5VYGMCSXWDgN
+	1TFOe1DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGN73-0000000BVsy-2rxi;
-	Mon, 12 Oct 2026 20:59:13 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1xGN7J-0000000BVwM-3g7L;
+	Mon, 12 Oct 2026 20:59:29 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGN6z-0000000BVs7-3S3w
+	id 1xGN7G-0000000BVvR-20C3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 20:59:12 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D914A1583;
-	Mon, 12 Oct 2026 22:58:52 +0200 (CEST)
+	Mon, 12 Oct 2026 20:59:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 79E20A1552;
+	Mon, 12 Oct 2026 22:59:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791838738; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1791838763; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=b7gHMV3umSUeDW/ePA4faUCYbBu5Azy4eUsgtI9tPzs=;
-	b=EzSm5dvL7ATlJxnSTNJmDAp/fW9wg6fTo12WUZXP8S953bpQ8tsUVSOxYBYo6wrXw4QwnY
-	Ma6OZwWUqp7wFVH3q0koTg/H94K86mjCmZAhiDirvqCQY0FQwF76mF8jQzoDP7HHWVdaq1
-	1XP0HZvB3BUsnYZ/DSuhXruffJ4fUyILiGoxLzTB+rciulAVysagewVFZB8QUhvPXL0UoD
-	6mFq7gpQNduexAR0s2n2omYqH+3rC13IJwgoGp7nVgaKBnZ6T83YPLQlW/uVvDj5j9OhWb
-	w/z6PY9EzcqiX4/fPGRBKTi/l3sLPRH9an+n+8Un3nAWEbBOjO2jLP9hrFY52A==
+	bh=vaoUskc8feZSg15SFM0v3Zd5QJMwrh9CubC02jWIJuE=;
+	b=wN+s3QTHwrwRNofUuZHoJjX0YjT021I+RyJYFpDy9DMMECvd07aLIJ/bGIIWjMxceryAPJ
+	vcnPBC8QJ+HIYkptQ/8jJ37C+aLbzsoq/J7q9ru5kStE9Azi0JzgR/3XCrSKFEw5IjSjpk
+	krEbMTM0VaCTEWLkWQyMjrkQorkhkwVnbiAApyZyvLnhxZUHVuXmoGEKaHLi9IZVEzP7aG
+	Eumk5FPOFKaSHP3slCSTJYMuSEJKrop2HuA+kCGD4m1B3L2uMk6vGW6/nkbYITo3qhiYGz
+	IY8xUxKWgzgnCWWsaAK7s+TMwftpk3fO3nrTJuHcYIkygAmEZU7apOK4BapIDw==
 MIME-Version: 1.0
-Date: Mon, 12 Oct 2026 22:58:52 +0200
+Date: Mon, 12 Oct 2026 22:59:23 +0200
 From: Nicolai Buchwitz <nb@tipi-net.de>
 To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
@@ -51,22 +51,21 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
  <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
  Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
  Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, James Hilliard
- <james.hilliard1@gmail.com>
-Subject: Re: [PATCH net-next v6 1/4] net: stmmac: take ownership of saved RX
- state at poll entry
-In-Reply-To: <20261012-stmmac-rx-mb-v6-1-2225050915c1@oss.qualcomm.com>
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next v6 2/4] net: stmmac: drop split frames on AF_XDP
+ zero-copy RX
+In-Reply-To: <20261012-stmmac-rx-mb-v6-2-2225050915c1@oss.qualcomm.com>
 References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
- <20261012-stmmac-rx-mb-v6-1-2225050915c1@oss.qualcomm.com>
-Message-ID: <829fd355a6673517df0eeaa382f078c4@tipi-net.de>
+ <20261012-stmmac-rx-mb-v6-2-2225050915c1@oss.qualcomm.com>
+Message-ID: <c5b6cd354d32c5b84c146943ce00b3d6@tipi-net.de>
 X-Sender: nb@tipi-net.de
 Content-Type: text/plain; charset=US-ASCII;
  format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_135910_623903_71E47BBE 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20261012_135926_677178_F48B6D64 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +81,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12.10.2026 18:44, Lorenzo Bianconi wrote:
-> From: James Hilliard <james.hilliard1@gmail.com>
+> stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
+> XSK pool buffer and drops any frame that spans more than one RX
+> descriptor:
 > 
-> When a saved partial packet completes with a poll budget of one, the
-> old loop can leave state_saved and state.skb pointing at an skb that
-> has already been delivered or freed. The next poll then reuses that
-> pointer, causing a use-after-free or double free.
+>         /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+>         if (likely(status & rx_not_ls)) {
+>                 xsk_buff_free(buf->xdp);
+>                 buf->xdp = NULL;
+>                 rx_dropped++;
+>                 error = 1;
+>                 dirty++;
+>                 goto read_again;
+>         }
 > 
-> Take the saved state at poll entry and clear the stored ownership
-> immediately. Save it again only if the packet remains incomplete,
-> including when the next descriptor is still DMA-owned.
+> The non-last descriptors are freed and dropped, but the frame is not
+> marked as errored. When the poll reaches the last descriptor of the
+> same frame, error is still 0, so the fragment is handled as a complete
+> frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
+> or converted for XDP_TX. The tail starts in the middle of the original
+> payload at a predictable offset and, parsed as a fresh frame (len == 
+> 0),
+> stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
+> though the DMA engine only wrote the tail remainder into that buffer, 
+> so
+> the reads extend past the received bytes and can reach beyond the end 
+> of
+> the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
+> in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
+> when the interface MTU is left at 1500.
 > 
-> Track the frame-in-progress flag independently of the status read from
-> the next descriptor. The old code keyed the save on the status of the
-> last descriptor looked at, so a loop stopped at a DMA-owned descriptor
-> (rx status not yet valid) could drop the saved error/length bookkeeping
-> in stmmac_rx_zc().
+> Set error when the 1:1 mapping check drops a descriptor, so the
+> remaining descriptors of the frame - including the last one - are
+> drained and released with xsk_buff_free() instead of being processed as
+> a new frame. Account every freed buffer with dirty and count the
+> dropped frame once in the poll budget / rx_pkt_n, and once in
+> rx_dropped.
 > 
-> Drop the saved state both when the queue parameters are reset and when
-> the ring is destroyed. stmmac_reset_rx_queue() is reached from
-> __stmmac_open(), stmmac_xdp_open(), stmmac_resume() and
-> stmmac_enable_rx_queue(); without draining it there, a partial frame
-> saved before suspend (or before a queue is disabled and re-enabled)
-> survives while cur_rx and dirty_rx are re-armed, and the first poll
-> resumes that stale skb with descriptors from the freshly initialized
-> ring. __free_dma_rx_desc_resources() releases it on teardown.
-> 
-> Apply the same state handling to stmmac_rx_zc(), which also leaves
-> state_saved set when a saved frame finishes at the budget boundary.
-> That path saves only error and length bookkeeping, not an skb pointer.
-> 
-> Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header 
-> support")
 > Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 > ---
 
