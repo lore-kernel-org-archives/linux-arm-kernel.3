@@ -4,166 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539DBCA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00419CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Qez6+RtqXrFwpKgN7ltkzNXGq/q6Mf8vdKXpshu2lQ=; b=JplalSJV6u+JvK4bcxIgIcz5i8
-	780vPZ+IMTw7QPNKCGOv49FRki3y9p1EKVl4tESjBS4agMaaCPE3TB/++8OooiBkr3Mww5T3cHHyy
-	8Yc1IwyCoc9nngR+qInBNhLO5hJ0S7SVknzMeEGY0TSu7+pFI+gy43QsGqmK+zaEFuzJ2vVvmHM6c
-	X73WxxMz35CGQYYlIFZuDaKP6qiTebGTMVCp2xlnkHGxAijnUL2upTHPlw91ZnnPD34Ey7c1defXQ
-	e/NV3qWdb0RzxGQVGXCGktvkcB4+AvUrN6faVBn61VHFxyS0MHBZFaOY1jXghEkPU0wp0V76xHvRN
-	QAdcm5oQ==;
+	bh=6q3PxJjvuapsqr9UM0e3QaTjqRaLboGYv0LA/wZzH7c=; b=vl7hvL2lqJu+gAyDEm8hK2oWkY
+	U5POsFiLaxOS2S/WHj9Hj14RRuHRgagsbd3iM+kjmk2UYjzVzdYT3zLMjT/yGlDM7NTZ+KWJmul+K
+	K54Mttr8pR3TTy9sDP9Yl2mB9xCLkTd8TBUlnXI6zhm9gVqWeSUTWlnzIsL3LU3WOMbAYsysMw5Fd
+	L8Sk+qte2g1p8rIVthEAJBW0uiUtkyg3283qotT9prOK0BA+DKMhNZ3auC1AVfTRpK50psjuuzOr3
+	VVLW2PFkZHs4n5L4xrNq6RCzhQ/PdbQ+VkaBwkR7HqIZdXLEgyUcAYp1wa8Ai+dYPNRKLUc7NSh2A
+	DnlxrYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDCf-0000000AEfn-3qdF;
-	Mon, 12 Oct 2026 10:24:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGCyQ-0000000AAVf-2Oih;
+	Mon, 12 Oct 2026 10:09:38 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDCc-0000000AEfH-3vLf
+	id 1xGCyM-0000000AAUJ-0hay
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 10:24:20 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69C8KiSZ1592934
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 10:24:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5Qez6+RtqXrFwpKgN7ltkzNXGq/q6Mf8vdKXpshu2lQ=; b=DYOInHZqGOALow3x
-	HxqJOwp6WnEWJhWxrOapXWlhKmYzOlvkjeeucnnazs9iQYf4+Uek6rIKpDDBtkha
-	JNtlFwmMHTQaGAksm7hNvB1FFcLndvl/g0EZfGAG1uSJkKZxLk3E0MK8PNvTuLFm
-	/GjZ9eeheA5JtclbudwE3H9JsAVNY4Z0kSQ+yW/iXvV55DcpwftEC2i2Syx6BrbP
-	4XSgvOq7rWQixMKiSwED7JmzOd0MthBJ1ueqmm6FpFwvMz8mip2Ui1W0vGFbb1pk
-	D0U71g0/hU2qLo+VOAltR7BDDJBXfqXDw8gA9iqWC0WsqWJ62R6NAjSm/pXf5mFh
-	1usogQ==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8sgu18kw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 10:24:17 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cd3b9e70f88so2470799a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:24:17 -0700 (PDT)
+	Mon, 12 Oct 2026 10:09:36 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so17665145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:09:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791800657; x=1792405457; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5Qez6+RtqXrFwpKgN7ltkzNXGq/q6Mf8vdKXpshu2lQ=;
-        b=fhNB8lWjmz3d/tglX4W0nGbWsyBUftpbG0lRPvoBwvzA3PKcIBb55CNYlNf90gKj0d
-         mY2J+5q5jtSgEYjya6qQwfY6ytcJd170Q9mlIvv5f/UMlLGmH9CCmR3kosp3kZQEMUIu
-         70FFDXnZzvw7XL+A1bJNpfm16o2axNopj/E24DQnRQ7xOumcYm1EC1BIaafrm6ZgsIM/
-         UuVyI81YP4OZyxr+rLMkPxyrxkBh2Gqp/bz/0Jkgl1oR5N/gw3PSsN1S70IgtQn+4Sfq
-         ra/CJjQNlzSmt5WygMET48TI+f76N8giPSOF7nb7K5F9kTcAPdcjrOLSlXpinynvH9ha
-         pXUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791800657; x=1792405457;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791799772; x=1792404572; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5Qez6+RtqXrFwpKgN7ltkzNXGq/q6Mf8vdKXpshu2lQ=;
-        b=XlyDatEP7PPWtgw335FljpL2d2sgVnAN7fDFxl1o46W3a3YPcZ3AGHV5LkH1Q3ygI1
-         Qnhv2JvCrLvyWq14jUaFF0MRd4bPKk0Bt8PCRraqToiQ8HMc739g/+SjG6H2HKMWAHNX
-         eDYUSOcatNZDZ1X4bEcaoneo/3FJ1d5vabZntCHlrifZPgbUe1DFagA0/aSwPojR+P+S
-         PjUNC6lSIaCwMvXJxeadNVE/EsLTY+fdcJXxnbSAGBWQNtMzOob7aWQPzElQ+lsMzvUW
-         itk4kg+FvIt9TuchvcbVi778kE1aWmy9weorE1dd9dgVLI50oGJOOMYVf717TuFBkXCE
-         Siqg==
-X-Forwarded-Encrypted: i=1; AKwUvBw0s2JFWETeiyvuciTNfkO3rK+87p8mczl1si2n+xLpPCg5IZl1Ee6hWAWMEqktJsxZyzoDMpg/S2nqSJVaB/CN@lists.infradead.org
-X-Gm-Message-State: AFq9FYL5ThYKssFzIL4hdqn8GH4m1Co+x+pXpmEvAhPIU6yizGvGd5T7
-	+VpsSirDKGnjzpRmf/Hc9yj6vkhLZH0jphWrIbmtn9GL5GQqCEgU8G7cMxkbv/FKDsHTTEY+W57
-	cSDaGUBB+K39oztJJc7G2HfHMg7HBcnJ2vCCaF/mAeB56XQXzU1d0xRqBXUGfhWTw20MwUsO9/s
-	Dk7A==
-X-Gm-Gg: AYBFou3NQGiUhcQJZ+/wLZbJQhV5PtXginFnlSLUR1f8LJ4IxtNUWqHSqIlUW16DFbz
-	LqVLzVdKO42GO30Kv4eOjGDjuq3Fo6kAxnMpgvorh7GoOUWFLvmDhz6ZprsDyYPRbTBQWA5gcfQ
-	CG4PWklg+nYZJbmn0MT/PhWZwMpB7M71bjidU8YCN+nMVQMRy3lSdjo4DzSqN4xxP0q1/cuJQBY
-	N91zLWNz63BSMIcoesNO8mbAqEAOgaRCL9+h6SmgFKD8gEKTcOG+WMlpGFt12tIGDgG7QiOBT/b
-	vYTCEH/2FVjT0yqOlnI3yLNYbiEpGYg3lmvxIfpoM6nA8irHUdrXgBS6vm86Nc093CQKUvnIour
-	4jofcCCjajTrFpAxtgg==
-X-Received: by 2002:a17:90b:5887:b0:3ab:364a:9532 with SMTP id 98e67ed59e1d1-3ab3acc548fmr8404171a91.44.1791800656816;
-        Mon, 12 Oct 2026 03:24:16 -0700 (PDT)
-X-Received: by 2002:a17:90b:5887:b0:3ab:364a:9532 with SMTP id 98e67ed59e1d1-3ab3acc548fmr8404138a91.44.1791800656287;
-        Mon, 12 Oct 2026 03:24:16 -0700 (PDT)
-Received: from [10.64.69.36] ([114.94.8.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab36ca1e04sm16636916a91.1.2026.10.12.03.24.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 03:24:15 -0700 (PDT)
-Message-ID: <51bc6576-7e52-4685-b7b2-a355c2b7e1ae@oss.qualcomm.com>
-Date: Mon, 12 Oct 2026 18:24:06 +0800
+        bh=6q3PxJjvuapsqr9UM0e3QaTjqRaLboGYv0LA/wZzH7c=;
+        b=h0BuTGyeITCdyN1+zhb0ticcbkVW/dSCigf0oCJIp3Y7z3g/TCafvyu38yHMFAvUog
+         gNzRRtU9nAL2wloX+y+JunKNBImZNc+f2p0wOeYx6PU07ZIPmMYQLy4tjxPs7g83O6qk
+         hWNXElr2Pxwzw+R1kjhWyQTgSFJWQ0Ofy0Gxwyb8YIw1HdKq3eQnCGD8ITbrDUo5EJ5I
+         QAMWmqOD+I61FhTpphyxvFiHoboeMsBEJaN1iCiBGo+vQrHonLj3anCspeR3HCtoa2Vj
+         FXTfGkWttSBHSfCHat47sstyjpKRRzVDOAminUP7jUZJ6DVJrO+v1rK3E7a0iT4Va3o8
+         et2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791799772; x=1792404572;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6q3PxJjvuapsqr9UM0e3QaTjqRaLboGYv0LA/wZzH7c=;
+        b=Ud5WYqadLzPOfJ03xiZ6GowBtQi1G1no9kswg+Tl6Sxq/2cycE+aXnu7SRGzrf4kgZ
+         EL4r9TmwsRwxHsvegCCXuB5rLQ37MdmB7eCpJLWJHh+SMdUDawmhkG6wgxxf24eZ8Kzh
+         S24O1qVE6oy364UobxwfssI30gkopCiSbzqj5GClmzYaxFWllSBJZ0xfxvZaWeL/fIED
+         klititACC71MaoZTkviQ8Aw8K0L0/KRPbbcZ7mnc9bocLUA+U5EacqSlCcnmSYNfZ3TA
+         ttPJa+9aQ43fPmgMfYdfZ4uPPRFRwa0RpChzJLogPR4Otnpyi9fbNKhnzfuAeHLRW3yj
+         zq9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzQHA3seNqCsq86a0m0gQ9AykJrsgJn5YV5pj7uZ1bMiu5Urj+dlsiIKVRj81+NopoS8arce5Fh0holXQAWaz/u@lists.infradead.org
+X-Gm-Message-State: AFq9FYKrEnfcETgQVUXeJYL61mMk9oKtpGchbdjzhI6Xu+W/nsp+ZHg2
+	Qcu9kZeHEMcXGOedflmF9//yuVeBUWu7puo4K5JdR1/dj5+aMGlPeS0U
+X-Gm-Gg: AYBFou2kL71iVdnkgnCVMNzkNGkmwbh//4JalWlfRauTWfG1a1SpOwlgQRKScEwbjnF
+	weWRRTTQRj2E7GYCeM1xrjhkphRa6IpOLX7LHAgOwRarVTtS1z8FeJDYN3JYFoNtPqRtGeKjL/Z
+	XJiPQEcL4yjxDBlNE5d2nxTk7XVa23btUBqOkLG1ejjaRgav6W9lq3ZWza86jSydmu85KmRSXHw
+	+W0fP3cfERCarlUONojARiJnpHaA1zBAlvgR/yyWbOUDSqV3QK3DoXe+mlE6iLUI+QQv90Gkavv
+	fvj/X5cZlC0V6iSYXjx/E2zMFfleJo0gq56pTOEH9X6CAaO2oxtz8/t+EoTCOPv3cYLAjYH6yCg
+	VMCGMqXE7af/nRvUTutux5msGZ/VpquQ1GySfoNGCxFhCZQJ9DOxeQ8aK9fldT3dAxbFi5U8qDR
+	2lqZAoL74QwyegD4QxMzjlxwbGvvc9RKvFDOErcdYCFt4gf/IyL0rckmfeywpvGli7APHxA6uuK
+	nPzKDiwPsCkeTGdLI9eoxadIsRxjLTl
+X-Received: by 2002:a05:600d:1:b0:4a1:9438:71a8 with SMTP id 5b1f17b1804b1-4a1943873cfmr93080335e9.26.1791799771930;
+        Mon, 12 Oct 2026 03:09:31 -0700 (PDT)
+Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a192d3efb6sm166229885e9.1.2026.10.12.03.09.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 03:09:31 -0700 (PDT)
+From: Pablo Mazzini <pmazzini@gmail.com>
+To: Brian Masney <bmasney+clk@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v4 02/11] clk: sunxi-ng: add Allwinner B288 CCU driver
+Date: Mon, 12 Oct 2026 11:08:07 +0100
+Message-ID: <20261012100816.331033-3-pmazzini@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261012100816.331033-1-pmazzini@gmail.com>
+References: <20261012100816.331033-1-pmazzini@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] dt-bindings: arm: Add MPAM MSC binding
-From: Yin Li <yin.li@oss.qualcomm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: James Morse <james.morse@arm.com>,
-        Shanker Donthineni <sdonthineni@nvidia.com>,
-        Ben Horgan
- <ben.horgan@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Reinette Chatre <reinette.chatre@intel.com>,
-        Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Gavin Shan <gshan@redhat.com>,
-        Andre Przywara <andre.przywara@arm.com>,
-        Drew Fustini <fustini@kernel.org>,
-        =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-        Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-        trilok.soni@oss.qualcomm.com, aiqun.yu@oss.qualcomm.com,
-        ganapatrao.kulkarni@oss.qualcomm.com,
-        Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-        Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-        devicetree@vger.kernel.org
-References: <20261008-mpam-resctrl-dt-knp-support-v3-0-35196c2b43bf@oss.qualcomm.com>
- <20261008-mpam-resctrl-dt-knp-support-v3-3-35196c2b43bf@oss.qualcomm.com>
- <20261008212736.GB1318789-robh@kernel.org>
- <2eddfb6d-c622-4d72-827e-aed685e72b9c@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <2eddfb6d-c622-4d72-827e-aed685e72b9c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=QdzzLcbv c=1 sm=1 tr=0 ts=6accb551 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=gEfo2CItAAAA:8 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=U2AAjZBgJX8MQhfA68EA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22 a=sptkURWiP4Gy88Gu7hUp:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA0MSBTYWx0ZWRfX/0PmaYU8XYEM
- +cFr/JvROUWDsrDnjUAgBftN0vVLT4LPhbCVePn9/JwgvdHRromAUv0maFKRvX/gh0LiHQ3NmG4
- x2h5Qej2rPnenAyE5ztGkX4eUYe1rx2ir/j5+I28jfLuBLRt6sOM55VsMAly6ybOt1BSK72+7gV
- 25Cuo75xMggG0fWrCKkzb0MKGvxiq243bgxrHOwwfUNZ41TdiL30sd9peeqnR99w2gcOzP8xR8f
- vE16DwAOmNTb1GRrbONkjzLdOf0b4/YZOa8KvTL2fRBlyoZPhHA0j5us6Nq3tx77JbNqtnKlsV0
- t5Qz0AOXwHtz4w9ixh/JjHzfrO3GZWq0rd4lLXLVtb+N5N9Y0061y4u0W00133j9yPDn2OMCl/E
- 9DiVUITPOwoJbCAMYEvHXf07Yi93s6EGwlEqP6UxYa3M7WJFZCICBUpljmi3x1BrUMQssURYYMb
- HN4CERL9FwoTvPuMzCw==
-X-Proofpoint-ORIG-GUID: 4m3Pj4NBezhyemp742bUkmM89cnabT3u
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA0MSBTYWx0ZWRfX8u+HD0B8v2Xd
- 72nmWezgf36noxWtn+TE+vHbTeeOIlUFn1EQAkq4CUbFMDEmTtjC0XCfUvUOmPeEztKH4h6mWO4
- /2lAN3YILduQMCEmZkkzpbBUQ/7lRSA=
-X-Proofpoint-GUID: 4m3Pj4NBezhyemp742bUkmM89cnabT3u
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-12_03,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 phishscore=0 spamscore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610120041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_032419_100745_6E4D7BAE 
-X-CRM114-Status: GOOD (  36.15  )
+X-CRM114-CacheID: sfid-20261012_030934_407285_336E9DE3 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,360 +108,819 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Covers the PLLs, the CPU/AHB/APB tree, the module clocks and the bus
+gates and resets.
 
+Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+---
+ drivers/clk/sunxi-ng/Kconfig          |   5 +
+ drivers/clk/sunxi-ng/Makefile         |   1 +
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.c | 749 ++++++++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.h |  10 +
+ 4 files changed, 765 insertions(+)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.h
 
-On 10/12/2026 3:05 PM, Yin Li wrote:
-> 
-> 
-> On 10/9/2026 5:27 AM, Rob Herring wrote:
->> On Thu, Oct 08, 2026 at 02:41:12PM +0800, Yin Li wrote:
->>> From: Rob Herring <robh@kernel.org>
->>>
->>> The binding is designed around the assumption that an MSC will be a
->>> sub-block of something else such as a memory controller, cache 
->>> controller,
->>> or IOMMU. However, it's certainly possible a design does not have that
->>> association or has a mixture of both, so the binding illustrates how 
->>> we can
->>> support that with RIS child nodes.
->>>
->>> A key part of MPAM is we need to know about all of the MSCs in the 
->>> system
->>> before it can be enabled. This drives the need for the genericish
->>> 'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
->>> until a h/w specific driver potentially enables the h/w.
->>>
->>> Cc: James Morse <james.morse@arm.com>
->>> Signed-off-by: Rob Herring <robh@kernel.org>
->>> Signed-off-by: James Morse <james.morse@arm.com>
->>> [ Yin Li and Huang Yiwei: use oneOf for the compatible to allow both
->>>    standalone arm,mpam-msc and the two-item combination; fix schema 
->>> field
->>>    order, type constraints and yamllint spacing; fix example reg 
->>> addresses,
->>>    add arm,mpam-device phandle and remove TODO comment ]
->>> Co-developed-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
->>> Signed-off-by: Huang Yiwei <huang.yiwei@oss.qualcomm.com>
->>> Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
->>> ---
->>>   .../devicetree/bindings/arm/arm,mpam-msc.yaml      | 202 ++++++++++ 
->>> +++++++++++
->>>   1 file changed, 202 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml 
->>> b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
->>> new file mode 100644
->>> index 000000000000..3c7b13a23ff2
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
->>> @@ -0,0 +1,202 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/arm/arm,mpam-msc.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
->>> +
->>> +maintainers:
->>> +  - Rob Herring <robh@kernel.org>
->>> +
->>> +description: |
->>> +  The Arm MPAM specification can be found here:
->>> +
->>> +  https://developer.arm.com/documentation/ddi0598/latest
->>> +
->>> +properties:
->>> +  compatible:
->>> +    oneOf:
->>> +      - const: arm,mpam-msc                   # Further details are 
->>> discoverable
->>> +      - items:
->>> +          - const: arm,mpam-memory-controller-msc
->>
->> Why do we need this?
->>
-> 
-> Hi Rob,
-> 
-> Thanks for the review.
-> 
-> The 'arm,mpam-memory-controller-msc' compatible is needed because,
-> unlike cache MSCs, memory controller MSCs cannot rely on the parent node
-> to identify the resource type.
-> 
-> Cache controllers universally carry a 'cache' compatible, so the driver
-> can recognise any cache parent and derive the cache ID from standard
-> properties. No equivalent convention exists for memory controllers, and
-> the component ID comes from the MSC's own 'numa-node-id' rather than the
-> parent, so there is no parent attribute to rely on.
-> 
-
-Hi Rob,
-
-As a follow-up to my previous reply:
-Whatever the outcome of the discussion on "arm_mpam: Add support for
-memory controller MSC on DT platforms", we will keep the binding and
-driver support consistent. If it's dropped, the 
-'arm,mpam-memory-controller-msc' compatible, 'numa-node-id' property, 
-and the memory controller example will be removed together.
-
-Thanks,
-Yin
-
-
-> 'arm,mpam-memory-controller-msc' provides the explicit declaration that
-> this MSC controls memory. It is used in "arm_mpam: Add support for
-> memory controller MSC on DT platforms".
-> 
-> On 'oneOf': the original 'items' form requires both strings to be
-> present, which is not appropriate for cache MSCs. Andre also noted this 
-> in RFC v2, so we changed it to 'oneOf'.
-> 
->>> +          - const: arm,mpam-msc
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +    description: A memory region containing registers as defined in 
->>> the MPAM
->>> +      specification.
->>> +
->>> +  interrupts:
->>> +    minItems: 1
->>> +    items:
->>> +      - description: error (optional)
->>> +      - description: overflow (optional, only for monitoring)
->>> +
->>> +  interrupt-names:
->>> +    oneOf:
->>> +      - items:
->>> +          - enum: [error, overflow]
->>> +      - items:
->>> +          - const: error
->>> +          - const: overflow
->>
->> This can be expressed as:
->>
->>        minItems: 1
->>        items:
->>          - enum: [error, overflow]
->>          - const: overflow
->>
-> 
-> Agreed, will update.
-> 
->>> +
->>> +  arm,not-ready-us:
->>> +    description: The maximum time in microseconds for monitoring 
->>> data to be
->>> +      accurate after a settings change. For more information, see the
->>> +      Not-Ready (NRDY) bit description in the MPAM specification.
->>> +
->>> +  numa-node-id:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    description: NUMA node identifier for the memory resource this 
->>> MSC controls.
->>> +
->>> +  '#address-cells':
->>> +    const: 1
->>> +
->>> +  '#size-cells':
->>> +    const: 0
->>> +
->>> +patternProperties:
->>> +  '^ris@[0-9a-f]+$':
->>
->> Based on the 'reg' constraints, drop the '+'.
-> 
-> Agreed, will update.
-> 
->>
->>> +    type: object
->>> +    additionalProperties: false
->>> +    description:
->>> +      RIS nodes for each resource instance in an MSC. These nodes 
->>> are required
->>> +      for each resource instance implementing known MPAM controls
->>> +
->>> +    properties:
->>> +      compatible:
->>> +        enum:
->>> +          - arm,mpam-cache
->>> +          # Memory bandwidth
->>> +          - arm,mpam-memory
->>> +
->>> +      reg:
->>> +        minimum: 0
->>> +        maximum: 0xf
->>> +
->>> +      cpus:
->>> +        $ref: /schemas/types.yaml#/definitions/phandle-array
->>
->> Drop. 'cpus' has a type already.
->>
-> 
-> Agreed, will update.
-> 
->>> +        description:
->>> +          Phandle(s) to the CPU node(s) this RIS belongs to. By 
->>> default, the
->>> +          parent device's affinity is used.
->>> +
->>> +      arm,mpam-device:
->>> +        $ref: /schemas/types.yaml#/definitions/phandle
->>> +        description:
->>> +          By default, the MPAM enabled device associated with a RIS 
->>> is the MSC's
->>> +          parent node. It is possible for each RIS to be associated 
->>> with
->>> +          different devices in which case 'arm,mpam-device' should 
->>> be used.
->>
->> We should drop this until there's a use for it.
->>
-> 
-> On 'arm,mpam-device': we believe this property is structurally
-> necessary. The MPAM specification (IHI0099B) states:
->      "Resource instance selection (RIS) allows an MPAM MSC to support
->      multiple resources, including multiple resources using the same
->      resource type or partitioning control. When RIS is implemented, an
->      MPAM MSC must implement independent resource controls and two or
->      more resources of the same type."
-> 
-> Once an MSC implements RIS, it must support ≥ 2 resources of the same
-> type (a spec requirement). An MSC node has only one parent, so the
-> association between each RIS and its corresponding device cannot be
-> expressed through a shared parent alone. A per-RIS explicit association
-> mechanism is therefore needed, and 'arm,mpam-device' is designed for
-> exactly this purpose.
-> 
-> The property is used in the immediately following patch "arm_mpam: Add
-> device tree support for MSC probing". If you have a different view on
-> this design, we are happy to discuss further.
-> 
-> 
->>> +
->>> +    required:
->>> +      - compatible
->>> +      - reg
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +
->>> +dependencies:
->>> +  interrupts: [interrupt-names]
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    L3: cache-controller@30000000 {
->>> +        compatible = "foo,a-l3-cache", "cache";
->>> +        cache-level = <3>;
->>> +        cache-unified;
->>> +
->>> +        ranges = <0x0 0x30000000 0x800000>;
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +
->>> +        msc@10000 {
->>> +            compatible = "arm,mpam-msc";
->>> +            reg = <0x10000 0x2000>;
->>> +            interrupts = <1>, <2>;
->>> +            interrupt-names = "error", "overflow";
->>> +            arm,not-ready-us = <1>;
->>> +            /* CPU affinity implied by parent cache node  */
->>> +        };
->>> +    };
->>> +
->>> +    mem: memory-controller@20000 {
->>> +        compatible = "foo,a-memory-controller";
->>> +        reg = <0x20000 0x1000>;
->>> +
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +        ranges;
->>> +
->>> +        msc@21000 {
->>> +            compatible = "arm,mpam-memory-controller-msc", 
->>> "arm,mpam-msc";
->>> +            reg = <0x21000 0x1000>;
->>> +            interrupts = <3>;
->>> +            interrupt-names = "error";
->>> +            arm,not-ready-us = <1>;
->>> +            numa-node-id = <1>;
->>> +        };
->>> +    };
->>> +
->>> +    iommu@40000 {
->>> +        reg = <0x40000 0x1000>;
->>> +
->>> +        ranges;
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +
->>> +        msc@41000 {
->>> +            compatible = "arm,mpam-msc";
->>> +            reg = <0x41000 0x1000>;
->>> +            interrupts = <5>, <6>;
->>> +            interrupt-names = "error", "overflow";
->>> +            arm,not-ready-us = <1>;
->>> +
->>> +            #address-cells = <1>;
->>> +            #size-cells = <0>;
->>> +
->>> +            ris@2 {
->>> +                compatible = "arm,mpam-cache";
->>> +                reg = <2>;
->>> +                arm,mpam-device = <&L3>;
->>> +            };
->>> +        };
->>> +    };
->>> +
->>> +    msc@80000 {
->>> +        compatible = "foo,a-standalone-msc";
->>> +        reg = <0x80000 0x1000>;
->>> +
->>> +        clocks = <&clks 123>;
->>> +
->>> +        ranges;
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +
->>> +        msc@10000 {
->>> +            compatible = "arm,mpam-msc";
->>> +            reg = <0x10000 0x2000>;
->>> +            interrupts = <7>;
->>> +            interrupt-names = "overflow";
->>> +            arm,not-ready-us = <1>;
->>> +
->>> +            #address-cells = <1>;
->>> +            #size-cells = <0>;
->>> +
->>> +            ris@0 {
->>> +                compatible = "arm,mpam-cache";
->>> +                reg = <0>;
->>> +                arm,mpam-device = <&L2_0>;
->>> +            };
->>> +
->>> +            ris@1 {
->>> +                compatible = "arm,mpam-memory";
->>> +                reg = <1>;
->>> +                arm,mpam-device = <&mem>;
->>> +            };
->>> +        };
->>> +    };
->>> +
->>> +...
->>>
->>> -- 
->>> 2.34.1
->>>
-> 
-
+diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
+index 6af2d020e03e..5bdfb8574794 100644
+--- a/drivers/clk/sunxi-ng/Kconfig
++++ b/drivers/clk/sunxi-ng/Kconfig
+@@ -88,6 +88,11 @@ config SUN6I_RTC_CCU
+ 	default ARCH_SUNXI
+ 	depends on MACH_SUN8I || ARM64 || RISCV || COMPILE_TEST
+ 
++config SUN8I_B288_CCU
++	tristate "Support for the Allwinner B288 CCU"
++	default ARCH_SUNXI
++	depends on MACH_SUN8I || COMPILE_TEST
++
+ config SUN8I_A23_CCU
+ 	tristate "Support for the Allwinner A23 CCU"
+ 	default ARCH_SUNXI
+diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
+index a1c4087d7241..dcc377a09ccc 100644
+--- a/drivers/clk/sunxi-ng/Makefile
++++ b/drivers/clk/sunxi-ng/Makefile
+@@ -40,6 +40,7 @@ obj-$(CONFIG_SUN4I_A10_CCU)	+= sun4i-a10-ccu.o
+ obj-$(CONFIG_SUN5I_CCU)		+= sun5i-ccu.o
+ obj-$(CONFIG_SUN6I_A31_CCU)	+= sun6i-a31-ccu.o
+ obj-$(CONFIG_SUN6I_RTC_CCU)	+= sun6i-rtc-ccu.o
++obj-$(CONFIG_SUN8I_B288_CCU)	+= ccu-sun8i-b288.o
+ obj-$(CONFIG_SUN8I_A23_CCU)	+= sun8i-a23-ccu.o
+ obj-$(CONFIG_SUN8I_A33_CCU)	+= sun8i-a33-ccu.o
+ obj-$(CONFIG_SUN8I_A83T_CCU)	+= sun8i-a83t-ccu.o
+diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-b288.c b/drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+new file mode 100644
+index 000000000000..c53afd6f9af9
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+@@ -0,0 +1,749 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Clock Control Unit driver for the Allwinner B288 (sun8iw10p1).
++ *
++ * Closely related to the A64; most of its PLLs are bit-identical.
++ * Transcribed from the BSP clk-sun8iw10.{c,h} and cross-checked against
++ * ccu-sun50i-a64.c; divergences are called out inline.
++ *
++ * The audio clock tree (i2s/spdif/dsd/dmic/adda) is not implemented.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++
++#include "ccu_common.h"
++#include "ccu_reset.h"
++
++#include "ccu_div.h"
++#include "ccu_gate.h"
++#include "ccu_mp.h"
++#include "ccu_mult.h"
++#include "ccu_nk.h"
++#include "ccu_nkmp.h"
++#include "ccu_nm.h"
++#include "ccu_phase.h"
++#include "ccu_sdm.h"
++
++#include "ccu-sun8i-b288.h"
++
++/*
++ * PLL_24M @ 0x034 -- B288 only. It feeds the PLLs 24 MHz whatever the
++ * crystal: it converts a 26 MHz one and is bypassed with a 24 MHz one.
++ */
++static struct clk_fixed_rate pll_24m_clk = {
++	.fixed_rate	= 24000000,
++	.hw.init	= CLK_HW_INIT_FW_NAME("pll-24m", "hosc",
++					      &clk_fixed_rate_ops, 0),
++};
++
++static const struct clk_hw *pll_24m_hws[] = { &pll_24m_clk.hw };
++
++/*
++ * PLL_CPU @ 0x000 -- N[12:8] K[5:4] M[1:0] P[17:16], gate 31, lock 28.
++ * Identical to sun50i-a64.
++ */
++static struct ccu_nkmp pll_cpux_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT(4, 2),
++	.m		= _SUNXI_CCU_DIV(0, 2),
++	.p		= _SUNXI_CCU_DIV_MAX(16, 2, 4),
++	.common		= {
++		.reg		= 0x000,
++		.hw.init	= CLK_HW_INIT_HWS("pll-cpux", pll_24m_hws,
++						  &ccu_nkmp_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/*
++ * PLL_AUDIO @ 0x008 -- N[14:8] M[4:0] P[19:16], gate 31, lock 28, with
++ * sigma-delta modulation for the audio rates, as on the A64 and H3. P is
++ * forced to 1 at probe, so the rates are exact.
++ */
++#define SUN8I_B288_PLL_AUDIO_REG	0x008
++
++static struct ccu_sdm_setting pll_audio_sdm_table[] = {
++	{ .rate = 22579200, .pattern = 0xc0010d84, .m = 8, .n = 7 },
++	{ .rate = 24576000, .pattern = 0xc000ac02, .m = 14, .n = 14 },
++};
++
++static struct ccu_nm pll_audio_base_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 5),
++	.sdm		= _SUNXI_CCU_SDM(pll_audio_sdm_table, BIT(24),
++					 0x284, BIT(31)),
++	.common		= {
++		.reg		= SUN8I_B288_PLL_AUDIO_REG,
++		.features	= CCU_FEATURE_SIGMA_DELTA_MOD,
++		.hw.init	= CLK_HW_INIT_HWS("pll-audio-base", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/* PLL_VIDEO0 @ 0x010 -- identical to sun50i-a64. */
++static struct ccu_nm pll_video0_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 4),
++	.frac		= _SUNXI_CCU_FRAC(BIT(24), BIT(25), 270000000, 297000000),
++	.common		= {
++		.reg		= 0x010,
++		.features	= CCU_FEATURE_FRACTIONAL,
++		.hw.init	= CLK_HW_INIT_HWS("pll-video0", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/*
++ * PLL_DDR0 @ 0x020 -- N[14:8] M[1:0]. Unlike the A64 there is no K,
++ * and N is 7 bits wide.
++ */
++static struct ccu_nm pll_ddr0_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 2),
++	.common		= {
++		.reg		= 0x020,
++		.hw.init	= CLK_HW_INIT_HWS("pll-ddr0", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/* PLL_PERIPH0 @ 0x028 -- identical to sun50i-a64, incl. fixed post-div 2. */
++static struct ccu_nk pll_periph0_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT_MIN(4, 2, 2),
++	.fixed_post_div	= 2,
++	.common		= {
++		.reg		= 0x028,
++		.features	= CCU_FEATURE_FIXED_POSTDIV,
++		.hw.init	= CLK_HW_INIT_HWS("pll-periph0", pll_24m_hws,
++						  &ccu_nk_ops, 0),
++	},
++};
++
++/* PLL_VIDEO1 @ 0x030 -- same layout as PLL_VIDEO0. */
++static struct ccu_nm pll_video1_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 4),
++	.frac		= _SUNXI_CCU_FRAC(BIT(24), BIT(25), 270000000, 297000000),
++	.common		= {
++		.reg		= 0x030,
++		.features	= CCU_FEATURE_FRACTIONAL,
++		.hw.init	= CLK_HW_INIT_HWS("pll-video1", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/* PLL_PERIPH1 @ 0x044 -- identical to sun50i-a64. */
++static struct ccu_nk pll_periph1_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT_MIN(4, 2, 2),
++	.fixed_post_div	= 2,
++	.common		= {
++		.reg		= 0x044,
++		.features	= CCU_FEATURE_FIXED_POSTDIV,
++		.hw.init	= CLK_HW_INIT_HWS("pll-periph1", pll_24m_hws,
++						  &ccu_nk_ops, 0),
++	},
++};
++
++/* PLL_DE @ 0x048 -- identical to sun50i-a64. */
++static struct ccu_nm pll_de_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 4),
++	.frac		= _SUNXI_CCU_FRAC(BIT(24), BIT(25), 270000000, 297000000),
++	.common		= {
++		.reg		= 0x048,
++		.features	= CCU_FEATURE_FRACTIONAL,
++		.hw.init	= CLK_HW_INIT_HWS("pll-de", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/* PLL_DDR1 @ 0x04c -- B288 only. Same layout; this is the one feeding DRAM. */
++static struct ccu_nm pll_ddr1_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.m		= _SUNXI_CCU_DIV(0, 2),
++	.common		= {
++		.reg		= 0x04c,
++		.hw.init	= CLK_HW_INIT_HWS("pll-ddr1", pll_24m_hws,
++						  &ccu_nm_ops,
++						  CLK_SET_RATE_UNGATE),
++	},
++};
++
++/*
++ * pll_periph{0,1} carry a fixed /2 post-divider, so the 2x clocks are the
++ * raw outputs.
++ */
++static CLK_FIXED_FACTOR_HW(pll_periph0_2x_clk, "pll-periph0-2x",
++			   &pll_periph0_clk.common.hw,
++			   1, 2, 0);
++static CLK_FIXED_FACTOR_HW(pll_periph1_2x_clk, "pll-periph1-2x",
++			   &pll_periph1_clk.common.hw,
++			   1, 2, 0);
++
++/*
++ * CPU_CFG @ 0x050 -- mux[17:16], CPUAPB divider [9:8], AXI divider [1:0].
++ * Same layout as the H3 and the A64.
++ */
++static const struct clk_parent_data cpux_parents[] = {
++	{ .fw_name = "losc" },
++	{ .fw_name = "hosc" },
++	{ .hw = &pll_cpux_clk.common.hw },
++	{ .hw = &pll_cpux_clk.common.hw },
++};
++
++static SUNXI_CCU_MUX_DATA(cpux_clk, "cpux", cpux_parents,
++			  0x050, 16, 2, CLK_IS_CRITICAL | CLK_SET_RATE_PARENT);
++
++static const struct clk_hw *cpux_hws[] = { &cpux_clk.common.hw };
++static SUNXI_CCU_M_HWS(axi_clk, "axi", cpux_hws, 0x050, 0, 2, 0);
++static SUNXI_CCU_M_HWS(cpuapb_clk, "cpuapb", cpux_hws, 0x050, 8, 2, 0);
++
++/*
++ * AHB1_CFG @ 0x054 -- mux[13:12], AHB1 P2 divider [5:4], PLL_PERIPH0-only
++ * pre-divider [7:6], APB1 divider [9:8].
++ */
++static const struct clk_parent_data ahb1_parents[] = {
++	{ .fw_name = "losc" },
++	{ .fw_name = "hosc" },
++	{ .hw = &axi_clk.common.hw },
++	{ .hw = &pll_periph0_clk.common.hw },
++};
++
++static const struct ccu_mux_var_prediv ahb1_predivs[] = {
++	{ .index = 3, .shift = 6, .width = 2 },
++};
++
++static struct ccu_div ahb1_clk = {
++	.div		= _SUNXI_CCU_DIV_FLAGS(4, 2, CLK_DIVIDER_POWER_OF_TWO),
++
++	.mux		= {
++		.shift	= 12,
++		.width	= 2,
++
++		.var_predivs	= ahb1_predivs,
++		.n_var_predivs	= ARRAY_SIZE(ahb1_predivs),
++	},
++
++	.common		= {
++		.reg		= 0x054,
++		.features	= CCU_FEATURE_VARIABLE_PREDIV,
++		.hw.init	= CLK_HW_INIT_PARENTS_DATA("ahb1",
++							   ahb1_parents,
++							   &ccu_div_ops,
++							   0),
++	},
++};
++
++static struct clk_div_table apb1_div_table[] = {
++	{ .val = 0, .div = 2 },
++	{ .val = 1, .div = 2 },
++	{ .val = 2, .div = 4 },
++	{ .val = 3, .div = 8 },
++	{ /* Sentinel */ },
++};
++
++static SUNXI_CCU_DIV_TABLE_HW(apb1_clk, "apb1", &ahb1_clk.common.hw,
++			      0x054, 8, 2, apb1_div_table, 0);
++
++/*
++ * APB2_CFG @ 0x058 -- M[4:0] P[17:16] mux[25:24]. The divider matches the
++ * H3, but mux index 2 selects PLL_24M here rather than PLL_PERIPH0_2X.
++ */
++static const struct clk_parent_data apb2_parents[] = {
++	{ .fw_name = "losc" },
++	{ .fw_name = "hosc" },
++	{ .hw = &pll_24m_clk.hw },
++	{ .hw = &pll_periph0_2x_clk.hw },
++};
++
++static SUNXI_CCU_MP_DATA_WITH_MUX(apb2_clk, "apb2", apb2_parents, 0x058,
++				  0, 5,		/* M */
++				  16, 2,	/* P */
++				  24, 2,	/* mux */
++				  0);
++
++static const struct clk_parent_data mod0_parents[] = {
++	{ .fw_name = "hosc" },
++	{ .hw = &pll_periph0_2x_clk.hw },
++	{ .hw = &pll_periph1_2x_clk.hw },
++};
++
++static const struct clk_parent_data de_parents[] = {
++	{ .hw = &pll_periph0_2x_clk.hw },
++	{ .hw = &pll_de_clk.common.hw },
++};
++
++static const struct clk_parent_data tcon0_parents[] = {
++	{ .hw = &pll_video0_clk.common.hw },
++	{ .hw = &pll_video1_clk.common.hw },
++};
++
++static const struct clk_parent_data mbus_parents[] = {
++	{ .fw_name = "hosc" },
++	{ .hw = &pll_periph0_2x_clk.hw },
++	{ .hw = &pll_ddr0_clk.common.hw },
++	{ .hw = &pll_ddr1_clk.common.hw },
++};
++
++static const struct clk_parent_data dram_parents[] = {
++	{ .hw = &pll_ddr0_clk.common.hw },
++	{ .hw = &pll_ddr1_clk.common.hw },
++	{ .hw = &pll_periph0_2x_clk.hw },
++};
++
++/* NAND_CFG @ 0x080 -- M[3:0] P[17:16] mux[25:24] gate 31 */
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(nand_clk, "nand", mod0_parents, 0x080,
++				       0, 4,		/* M */
++				       16, 2,	/* P */
++				       24, 2,	/* mux */
++				       BIT(31),	/* gate */
++				       0);
++
++/*
++ * SD{0..3}_CFG @ 0x088/0x08c/0x090/0x094 -- same layout as NAND.
++ * mmc0/mmc1 use the old timing mode: no post-divider, and they need the
++ * sample and output phase clocks. mmc2/mmc3 halve the clock internally.
++ */
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(mmc0_clk, "mmc0", mod0_parents, 0x088,
++				       0, 4,		/* M */
++				       16, 2,	/* P */
++				       24, 2,	/* mux */
++				       BIT(31),	/* gate */
++				       0);
++static struct ccu_phase mmc0_sample_clk = {
++	.shift	= 20,
++	.width	= 3,
++	.common	= {
++		.reg		= 0x088,
++		.hw.init	= CLK_HW_INIT_HW("mmc0_sample", &mmc0_clk.common.hw,
++						 &ccu_phase_ops, 0),
++	},
++};
++
++static struct ccu_phase mmc0_output_clk = {
++	.shift	= 8,
++	.width	= 3,
++	.common	= {
++		.reg		= 0x088,
++		.hw.init	= CLK_HW_INIT_HW("mmc0_output", &mmc0_clk.common.hw,
++						 &ccu_phase_ops, 0),
++	},
++};
++
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(mmc1_clk, "mmc1", mod0_parents, 0x08c,
++				       0, 4,		/* M */
++				       16, 2,	/* P */
++				       24, 2,	/* mux */
++				       BIT(31),	/* gate */
++				       0);
++static struct ccu_phase mmc1_sample_clk = {
++	.shift	= 20,
++	.width	= 3,
++	.common	= {
++		.reg		= 0x08c,
++		.hw.init	= CLK_HW_INIT_HW("mmc1_sample", &mmc1_clk.common.hw,
++						 &ccu_phase_ops, 0),
++	},
++};
++
++static struct ccu_phase mmc1_output_clk = {
++	.shift	= 8,
++	.width	= 3,
++	.common	= {
++		.reg		= 0x08c,
++		.hw.init	= CLK_HW_INIT_HW("mmc1_output", &mmc1_clk.common.hw,
++						 &ccu_phase_ops, 0),
++	},
++};
++
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(mmc2_clk, "mmc2", mod0_parents,
++					       0x090, 0, 4, 16, 2, 24, 2,
++					       BIT(31), 2, 0);
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(mmc3_clk, "mmc3", mod0_parents,
++					       0x094, 0, 4, 16, 2, 24, 2,
++					       BIT(31), 2, 0);
++
++/* SPI{0..2}_CFG @ 0x0a0/0x0a4/0x0a8 -- same layout as NAND. */
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(spi0_clk, "spi0", mod0_parents, 0x0a0,
++				       0, 4, 16, 2, 24, 2, BIT(31), 0);
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(spi1_clk, "spi1", mod0_parents, 0x0a4,
++				       0, 4, 16, 2, 24, 2, BIT(31), 0);
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(spi2_clk, "spi2", mod0_parents, 0x0a8,
++				       0, 4, 16, 2, 24, 2, BIT(31), 0);
++
++/* DRAM_CFG @ 0x0f4 -- M[1:0] mux[21:20] gate 31 */
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(dram_clk, "dram", dram_parents, 0x0f4,
++				      0, 2,		/* M */
++				      20, 2,		/* mux */
++				      BIT(31),	/* gate */
++				      CLK_IS_CRITICAL);
++
++/* DE_CFG @ 0x104, EE_CFG @ 0x108, EDMA_CFG @ 0x10c -- M[3:0] mux[26:24] gate 31 */
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(de_clk, "de", de_parents, 0x104,
++				      0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(ee_clk, "ee", de_parents, 0x108,
++				      0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(edma_clk, "edma", de_parents, 0x10c,
++				      0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++
++/* TCON_CFG @ 0x118 -- mux[26:24] gate 31, no divider */
++static SUNXI_CCU_MUX_DATA_WITH_GATE(tcon0_clk, "tcon0", tcon0_parents, 0x118,
++				    24, 3,		/* mux */
++				    BIT(31),		/* gate */
++				    CLK_SET_RATE_PARENT);
++
++/* MBUS_CFG @ 0x15c -- M[2:0] mux[25:24] gate 31 */
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(mbus_clk, "mbus", mbus_parents, 0x15c,
++				      0, 3, 24, 2, BIT(31), CLK_IS_CRITICAL);
++
++static const struct clk_hw *ahb1_hws[] = { &ahb1_clk.common.hw };
++static const struct clk_hw *apb1_hws[] = { &apb1_clk.common.hw };
++static const struct clk_hw *apb2_hws[] = { &apb2_clk.common.hw };
++
++static SUNXI_CCU_GATE_HWS(bus_ths_clk, "bus-ths", apb1_hws,
++			  0x068, BIT(8), 0);
++static SUNXI_CCU_GATE_HWS(bus_nand_clk, "bus-nand", ahb1_hws,
++			  0x060, BIT(13), 0);
++static SUNXI_CCU_GATE_HWS(bus_sdmmc0_bus_clk, "bus-sdmmc0-bus", ahb1_hws,
++			  0x060, BIT(8), 0);
++static SUNXI_CCU_GATE_HWS(bus_sdmmc1_bus_clk, "bus-sdmmc1-bus", ahb1_hws,
++			  0x060, BIT(9), 0);
++static SUNXI_CCU_GATE_HWS(bus_sdmmc2_bus_clk, "bus-sdmmc2-bus", ahb1_hws,
++			  0x060, BIT(10), 0);
++static SUNXI_CCU_GATE_HWS(bus_sdmmc3_bus_clk, "bus-sdmmc3-bus", ahb1_hws,
++			  0x060, BIT(11), 0);
++static SUNXI_CCU_GATE_HWS(bus_spi0_clk, "bus-spi0", ahb1_hws,
++			  0x060, BIT(20), 0);
++static SUNXI_CCU_GATE_HWS(bus_spi1_clk, "bus-spi1", ahb1_hws,
++			  0x060, BIT(21), 0);
++static SUNXI_CCU_GATE_HWS(bus_spi2_clk, "bus-spi2", ahb1_hws,
++			  0x060, BIT(22), 0);
++static SUNXI_CCU_GATE_HWS(bus_i2s0_clk, "bus-i2s0", apb1_hws,
++			  0x068, BIT(12), 0);
++static SUNXI_CCU_GATE_HWS(bus_i2s1_clk, "bus-i2s1", apb1_hws,
++			  0x068, BIT(13), 0);
++static SUNXI_CCU_GATE_HWS(bus_spdif_clk, "bus-spdif", apb1_hws,
++			  0x068, BIT(1), 0);
++static SUNXI_CCU_GATE_HWS(bus_dsd_clk, "bus-dsd", apb1_hws,
++			  0x068, BIT(2), 0);
++static SUNXI_CCU_GATE_HWS(bus_dmic_clk, "bus-dmic", apb1_hws,
++			  0x068, BIT(3), 0);
++static SUNXI_CCU_GATE_HWS(bus_usbohci0_clk, "bus-usbohci0", ahb1_hws,
++			  0x060, BIT(29), 0);
++static SUNXI_CCU_GATE_HWS(bus_usbehci0_clk, "bus-usbehci0", ahb1_hws,
++			  0x060, BIT(26), 0);
++static SUNXI_CCU_GATE_HWS(bus_usbotg_clk, "bus-usbotg", ahb1_hws,
++			  0x060, BIT(24), 0);
++static SUNXI_CCU_GATE_HWS(bus_de_clk, "bus-de", ahb1_hws,
++			  0x064, BIT(12), 0);
++static SUNXI_CCU_GATE_HWS(bus_ee_clk, "bus-ee", ahb1_hws,
++			  0x064, BIT(13), 0);
++static SUNXI_CCU_GATE_HWS(bus_tcon0_clk, "bus-tcon0", ahb1_hws,
++			  0x064, BIT(4), 0);
++/* csi_s, csi_m and csi_misc share one bus gate, as on the A64. */
++static SUNXI_CCU_GATE_HWS(bus_csi_clk, "bus-csi", ahb1_hws,
++			  0x064, BIT(8), 0);
++static SUNXI_CCU_GATE_HWS(bus_adda_clk, "bus-adda", apb1_hws,
++			  0x068, BIT(0), 0);
++static SUNXI_CCU_GATE_HWS(bus_sdram_clk, "bus-sdram", ahb1_hws,
++			  0x060, BIT(14), 0);
++static SUNXI_CCU_GATE_HWS(bus_psram_clk, "bus-psram", ahb1_hws,
++			  0x060, BIT(15), 0);
++static SUNXI_CCU_GATE_HWS(bus_dma_clk, "bus-dma", ahb1_hws,
++			  0x060, BIT(6), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart0_clk, "bus-uart0", apb2_hws,
++			  0x06c, BIT(16), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart1_clk, "bus-uart1", apb2_hws,
++			  0x06c, BIT(17), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart2_clk, "bus-uart2", apb2_hws,
++			  0x06c, BIT(18), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart3_clk, "bus-uart3", apb2_hws,
++			  0x06c, BIT(19), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart4_clk, "bus-uart4", apb2_hws,
++			  0x06c, BIT(20), 0);
++static SUNXI_CCU_GATE_HWS(bus_uart5_clk, "bus-uart5", apb2_hws,
++			  0x06c, BIT(21), 0);
++static SUNXI_CCU_GATE_HWS(bus_twi0_clk, "bus-twi0", apb2_hws,
++			  0x06c, BIT(0), 0);
++static SUNXI_CCU_GATE_HWS(bus_twi1_clk, "bus-twi1", apb2_hws,
++			  0x06c, BIT(1), 0);
++static SUNXI_CCU_GATE_HWS(bus_twi2_clk, "bus-twi2", apb2_hws,
++			  0x06c, BIT(2), 0);
++static SUNXI_CCU_GATE_HWS(bus_pio_clk, "bus-pio", apb1_hws,
++			  0x068, BIT(5), 0);
++static SUNXI_CCU_GATE_HWS(bus_gpadc_clk, "bus-gpadc", apb1_hws,
++			  0x068, BIT(10), 0);
++static SUNXI_CCU_GATE_HWS(bus_keyadc_clk, "bus-keyadc", apb1_hws,
++			  0x068, BIT(9), 0);
++/* losc_out is the RTC's osc32k-out */
++
++static const struct ccu_reset_map sun8i_b288_ccu_resets[] = {
++	[RST_BUS_THS]	= { 0x2d0, BIT(8) },
++	[RST_BUS_NAND]	= { 0x2c0, BIT(13) },
++	[RST_BUS_MMC0]	= { 0x2c0, BIT(8) },
++	[RST_BUS_MMC1]	= { 0x2c0, BIT(9) },
++	[RST_BUS_MMC2]	= { 0x2c0, BIT(10) },
++	[RST_BUS_MMC3]	= { 0x2c0, BIT(11) },
++	[RST_BUS_SPI0]	= { 0x2c0, BIT(20) },
++	[RST_BUS_SPI1]	= { 0x2c0, BIT(21) },
++	[RST_BUS_SPI2]	= { 0x2c0, BIT(22) },
++	[RST_BUS_I2S0]	= { 0x2d0, BIT(12) },
++	[RST_BUS_I2S1]	= { 0x2d0, BIT(13) },
++	[RST_BUS_SPDIF]	= { 0x2d0, BIT(1) },
++	[RST_BUS_DSD]	= { 0x2d0, BIT(2) },
++	[RST_BUS_DMIC]	= { 0x2d0, BIT(3) },
++	[RST_USBPHY0]	= { 0x0cc, BIT(0) },
++	[RST_BUS_OHCI0]	= { 0x2c0, BIT(29) },
++	[RST_BUS_EHCI0]	= { 0x2c0, BIT(26) },
++	[RST_BUS_OTG]	= { 0x2c0, BIT(24) },
++	[RST_BUS_DE]	= { 0x2c4, BIT(12) },
++	[RST_BUS_EE]	= { 0x2c4, BIT(13) },
++	[RST_BUS_TCON0]	= { 0x2c4, BIT(4) },
++	[RST_BUS_CSI]	= { 0x2c4, BIT(8) },
++	[RST_BUS_ADDA]	= { 0x2d0, BIT(0) },
++	[RST_BUS_WLAN]	= { 0x2c4, BIT(1) },
++	[RST_MBUS]	= { 0x0fc, BIT(31) },
++	[RST_BUS_DRAM]	= { 0x2c0, BIT(14) },
++	[RST_BUS_PSRAM]	= { 0x2c0, BIT(15) },
++	[RST_BUS_DMA]	= { 0x2c0, BIT(6) },
++	[RST_BUS_UART0]	= { 0x2d8, BIT(16) },
++	[RST_BUS_UART1]	= { 0x2d8, BIT(17) },
++	[RST_BUS_UART2]	= { 0x2d8, BIT(18) },
++	[RST_BUS_UART3]	= { 0x2d8, BIT(19) },
++	[RST_BUS_UART4]	= { 0x2d8, BIT(20) },
++	[RST_BUS_UART5]	= { 0x2d8, BIT(21) },
++	[RST_BUS_I2C0]	= { 0x2d8, BIT(0) },
++	[RST_BUS_I2C1]	= { 0x2d8, BIT(1) },
++	[RST_BUS_I2C2]	= { 0x2d8, BIT(2) },
++	[RST_BUS_GPADC]	= { 0x2d0, BIT(10) },
++	[RST_BUS_KEYADC]	= { 0x2d0, BIT(9) },
++};
++
++static struct ccu_common *sun8i_b288_ccu_clks[] = {
++	&pll_cpux_clk.common,
++	&pll_audio_base_clk.common,
++	&pll_video0_clk.common,
++	&pll_ddr0_clk.common,
++	&pll_periph0_clk.common,
++	&pll_video1_clk.common,
++	&pll_periph1_clk.common,
++	&pll_de_clk.common,
++	&pll_ddr1_clk.common,
++	&cpux_clk.common,
++	&axi_clk.common,
++	&cpuapb_clk.common,
++	&ahb1_clk.common,
++	&apb1_clk.common,
++	&apb2_clk.common,
++	&nand_clk.common,
++	&mmc0_clk.common,
++	&mmc0_sample_clk.common,
++	&mmc0_output_clk.common,
++	&mmc1_clk.common,
++	&mmc1_sample_clk.common,
++	&mmc1_output_clk.common,
++	&mmc2_clk.common,
++	&mmc3_clk.common,
++	&spi0_clk.common,
++	&spi1_clk.common,
++	&spi2_clk.common,
++	&dram_clk.common,
++	&de_clk.common,
++	&ee_clk.common,
++	&edma_clk.common,
++	&tcon0_clk.common,
++	&mbus_clk.common,
++	&bus_ths_clk.common,
++	&bus_nand_clk.common,
++	&bus_sdmmc0_bus_clk.common,
++	&bus_sdmmc1_bus_clk.common,
++	&bus_sdmmc2_bus_clk.common,
++	&bus_sdmmc3_bus_clk.common,
++	&bus_spi0_clk.common,
++	&bus_spi1_clk.common,
++	&bus_spi2_clk.common,
++	&bus_i2s0_clk.common,
++	&bus_i2s1_clk.common,
++	&bus_spdif_clk.common,
++	&bus_dsd_clk.common,
++	&bus_dmic_clk.common,
++	&bus_usbohci0_clk.common,
++	&bus_usbehci0_clk.common,
++	&bus_usbotg_clk.common,
++	&bus_de_clk.common,
++	&bus_ee_clk.common,
++	&bus_tcon0_clk.common,
++	&bus_csi_clk.common,
++	&bus_adda_clk.common,
++	&bus_sdram_clk.common,
++	&bus_psram_clk.common,
++	&bus_dma_clk.common,
++	&bus_uart0_clk.common,
++	&bus_uart1_clk.common,
++	&bus_uart2_clk.common,
++	&bus_uart3_clk.common,
++	&bus_uart4_clk.common,
++	&bus_uart5_clk.common,
++	&bus_twi0_clk.common,
++	&bus_twi1_clk.common,
++	&bus_twi2_clk.common,
++	&bus_pio_clk.common,
++	&bus_gpadc_clk.common,
++	&bus_keyadc_clk.common,
++};
++
++static struct clk_hw_onecell_data sun8i_b288_hw_clks = {
++	.hws	= {
++		[CLK_PLL_CPUX]		= &pll_cpux_clk.common.hw,
++		[CLK_PLL_AUDIO_BASE]	= &pll_audio_base_clk.common.hw,
++		[CLK_PLL_VIDEO0]	= &pll_video0_clk.common.hw,
++		[CLK_PLL_DDR0]		= &pll_ddr0_clk.common.hw,
++		[CLK_PLL_PERIPH0]	= &pll_periph0_clk.common.hw,
++		[CLK_PLL_VIDEO1]	= &pll_video1_clk.common.hw,
++		[CLK_PLL_24M]		= &pll_24m_clk.hw,
++		[CLK_PLL_PERIPH1]	= &pll_periph1_clk.common.hw,
++		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
++		[CLK_PLL_DDR1]		= &pll_ddr1_clk.common.hw,
++		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.hw,
++		[CLK_PLL_PERIPH1_2X]	= &pll_periph1_2x_clk.hw,
++		[CLK_CPUX]	= &cpux_clk.common.hw,
++		[CLK_AXI]	= &axi_clk.common.hw,
++		[CLK_CPUAPB]	= &cpuapb_clk.common.hw,
++		[CLK_AHB1]	= &ahb1_clk.common.hw,
++		[CLK_APB1]	= &apb1_clk.common.hw,
++		[CLK_APB2]	= &apb2_clk.common.hw,
++		[CLK_NAND]	= &nand_clk.common.hw,
++		[CLK_MMC0]	= &mmc0_clk.common.hw,
++		[CLK_MMC0_SAMPLE]	= &mmc0_sample_clk.common.hw,
++		[CLK_MMC0_OUTPUT]	= &mmc0_output_clk.common.hw,
++		[CLK_MMC1]	= &mmc1_clk.common.hw,
++		[CLK_MMC1_SAMPLE]	= &mmc1_sample_clk.common.hw,
++		[CLK_MMC1_OUTPUT]	= &mmc1_output_clk.common.hw,
++		[CLK_MMC2]	= &mmc2_clk.common.hw,
++		[CLK_MMC3]	= &mmc3_clk.common.hw,
++		[CLK_SPI0]	= &spi0_clk.common.hw,
++		[CLK_SPI1]	= &spi1_clk.common.hw,
++		[CLK_SPI2]	= &spi2_clk.common.hw,
++		[CLK_DRAM]	= &dram_clk.common.hw,
++		[CLK_DE]	= &de_clk.common.hw,
++		[CLK_EE]	= &ee_clk.common.hw,
++		[CLK_EDMA]	= &edma_clk.common.hw,
++		[CLK_TCON0]	= &tcon0_clk.common.hw,
++		[CLK_MBUS]	= &mbus_clk.common.hw,
++		[CLK_BUS_THS]	= &bus_ths_clk.common.hw,
++		[CLK_BUS_NAND]	= &bus_nand_clk.common.hw,
++		[CLK_BUS_SDMMC0_BUS]	= &bus_sdmmc0_bus_clk.common.hw,
++		[CLK_BUS_SDMMC1_BUS]	= &bus_sdmmc1_bus_clk.common.hw,
++		[CLK_BUS_SDMMC2_BUS]	= &bus_sdmmc2_bus_clk.common.hw,
++		[CLK_BUS_SDMMC3_BUS]	= &bus_sdmmc3_bus_clk.common.hw,
++		[CLK_BUS_SPI0]	= &bus_spi0_clk.common.hw,
++		[CLK_BUS_SPI1]	= &bus_spi1_clk.common.hw,
++		[CLK_BUS_SPI2]	= &bus_spi2_clk.common.hw,
++		[CLK_BUS_I2S0]	= &bus_i2s0_clk.common.hw,
++		[CLK_BUS_I2S1]	= &bus_i2s1_clk.common.hw,
++		[CLK_BUS_SPDIF]	= &bus_spdif_clk.common.hw,
++		[CLK_BUS_DSD]	= &bus_dsd_clk.common.hw,
++		[CLK_BUS_DMIC]	= &bus_dmic_clk.common.hw,
++		[CLK_BUS_USBOHCI0]	= &bus_usbohci0_clk.common.hw,
++		[CLK_BUS_USBEHCI0]	= &bus_usbehci0_clk.common.hw,
++		[CLK_BUS_USBOTG]	= &bus_usbotg_clk.common.hw,
++		[CLK_BUS_DE]	= &bus_de_clk.common.hw,
++		[CLK_BUS_EE]	= &bus_ee_clk.common.hw,
++		[CLK_BUS_TCON0]	= &bus_tcon0_clk.common.hw,
++		[CLK_BUS_CSI]		= &bus_csi_clk.common.hw,
++		[CLK_BUS_ADDA]	= &bus_adda_clk.common.hw,
++		[CLK_BUS_SDRAM]	= &bus_sdram_clk.common.hw,
++		[CLK_BUS_PSRAM]	= &bus_psram_clk.common.hw,
++		[CLK_BUS_DMA]	= &bus_dma_clk.common.hw,
++		[CLK_BUS_UART0]	= &bus_uart0_clk.common.hw,
++		[CLK_BUS_UART1]	= &bus_uart1_clk.common.hw,
++		[CLK_BUS_UART2]	= &bus_uart2_clk.common.hw,
++		[CLK_BUS_UART3]	= &bus_uart3_clk.common.hw,
++		[CLK_BUS_UART4]	= &bus_uart4_clk.common.hw,
++		[CLK_BUS_UART5]	= &bus_uart5_clk.common.hw,
++		[CLK_BUS_TWI0]	= &bus_twi0_clk.common.hw,
++		[CLK_BUS_TWI1]	= &bus_twi1_clk.common.hw,
++		[CLK_BUS_TWI2]	= &bus_twi2_clk.common.hw,
++		[CLK_BUS_PIO]	= &bus_pio_clk.common.hw,
++		[CLK_BUS_GPADC]	= &bus_gpadc_clk.common.hw,
++		[CLK_BUS_KEYADC]	= &bus_keyadc_clk.common.hw,
++	},
++	.num	= CLK_NUMBER,
++};
++
++static const struct sunxi_ccu_desc sun8i_b288_ccu_desc = {
++	.ccu_clks	= sun8i_b288_ccu_clks,
++	.num_ccu_clks	= ARRAY_SIZE(sun8i_b288_ccu_clks),
++
++	.hw_clks	= &sun8i_b288_hw_clks,
++
++	.resets		= sun8i_b288_ccu_resets,
++	.num_resets	= ARRAY_SIZE(sun8i_b288_ccu_resets),
++
++};
++
++static int sun8i_b288_ccu_probe(struct platform_device *pdev)
++{
++	void __iomem *reg;
++	u32 val;
++
++	reg = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(reg))
++		return PTR_ERR(reg);
++
++	/* Force the PLL-Audio-1x divider to 1 */
++	val = readl(reg + SUN8I_B288_PLL_AUDIO_REG);
++	val &= ~GENMASK(19, 16);
++	writel(val, reg + SUN8I_B288_PLL_AUDIO_REG);
++
++	return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun8i_b288_ccu_desc);
++}
++
++static const struct of_device_id sun8i_b288_ccu_ids[] = {
++	{ .compatible = "allwinner,sun8i-b288-ccu" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, sun8i_b288_ccu_ids);
++
++static struct platform_driver sun8i_b288_ccu_driver = {
++	.probe	= sun8i_b288_ccu_probe,
++	.driver	= {
++		.name			= "sun8i-b288-ccu",
++		.suppress_bind_attrs	= true,
++		.of_match_table		= sun8i_b288_ccu_ids,
++	},
++};
++module_platform_driver(sun8i_b288_ccu_driver);
++
++MODULE_IMPORT_NS("SUNXI_CCU");
++MODULE_DESCRIPTION("Allwinner B288 (sun8iw10p1) CCU driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-b288.h b/drivers/clk/sunxi-ng/ccu-sun8i-b288.h
+new file mode 100644
+index 000000000000..805df2d6d99c
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu-sun8i-b288.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _CCU_SUN8I_B288_H_
++#define _CCU_SUN8I_B288_H_
++
++#include <dt-bindings/clock/sun8i-b288-ccu.h>
++#include <dt-bindings/reset/sun8i-b288-ccu.h>
++
++#define CLK_NUMBER		(CLK_MMC1_OUTPUT + 1)
++
++#endif /* _CCU_SUN8I_B288_H_ */
 -- 
-Thx and BRs,
-Yin
+2.52.0
 
 
