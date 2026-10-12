@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6053BCA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A18CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FLb0lJXlFmNtssjfM0yj8AimWlA+OyKOOXSxBmbtCKA=; b=YxlsIOMoCS+zpWv8wS9Le4hwyy
-	tNC42TM7fdAfM+7Se4dO0ptI3faDB2BNnzoerZ21kGpjcgksFLd48XLDnD+BOoXWKe65DCb6rDJO3
-	AT/2Kx80BXTvgkWkw4fIPSyqvjcxwi9d4ftotk+5+Oi4a6Tx+xpwIFIiWNreMo27s009Qa05ty38n
-	/N8Z8mEIKd8BCzG1eMoBKEzJa8v5SYxX2sHiKkb0Sm+1KbTQTTyrWIVXNF1Nm/GtYVnVXPXaFMG7O
-	EyHtG0RxKRfWIGGD1zEEdQbFX+HAAMpWUyWeBHhXFBQU023jvKRt+ngpFHv/v+xup1Vj7gzM2sJko
-	+vdFkyNw==;
+	bh=FHs5QmsAznY6JYFFT0GfFNt0MOtPZ8zk+n24R7ETBWM=; b=ERs81LdFTZyAUoruRrGc1SohII
+	9jpNNYlkJ5CtXP1f+lp1WZjq5HXcqEoe8Yl1pBsf8FLLeQ4/WsHVHgXJOm+1mvl6sZWpaFfxMyFBe
+	AGyi4X9L8i7UE4pu0MIRRb3zxGjlTjHY6WY0CN7jgFZ/5KLb4KXs+1YIedPeeZPlco+GfvuwWKF5L
+	Z1HYMmVYGGSNIRKks9eDyEK45JeoSba0K1iPQrL67QDHP7l5kRLPmVgpM94N7qt2/4Jlr55pQAFU9
+	P++p6yGdwH5VY2MyqBfdv73V8jMZPcd8rKn+1vXGjI7RzFCrk+9C4Wox+v/MyB33o5EH21PjdusHV
+	L/QUTOBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCEd-0000000A2v8-3XN9;
-	Mon, 12 Oct 2026 09:22:19 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1xGCFx-0000000A361-0hWt;
+	Mon, 12 Oct 2026 09:23:41 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCEb-0000000A2tu-1I9a
+	id 1xGCFu-0000000A35D-1qkU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:22:18 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a1688d7769so13638735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:22:16 -0700 (PDT)
+	Mon, 12 Oct 2026 09:23:40 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a19cba5c14so9532135e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:23:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791796935; x=1792401735; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1791797016; x=1792401816; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FLb0lJXlFmNtssjfM0yj8AimWlA+OyKOOXSxBmbtCKA=;
-        b=ItR5QlEdUFDCDNsOKGFpt+sv7dfU0ykRDnZUEUn1hM4Nggo8zW51ijRDy7q6CKJrb9
-         JQxXFtVVitGPlF+fc7bpsN5Vx5Ff2+ve26YalQztmmlADYkoROhXvNDFpYnEsDACoEBP
-         pgojLSZ31FLDsXX+u7S42RLGkePpMPg9jYbVRI/EALL4hMC6lw4Oi5eu80irqmsQrRq6
-         0q/pF6HJ48bdyt/2rpv6jyyWPP7U3HBJjktWU29L69zrsgFj8C/yE6V6nbLrMvKZoBY5
-         KhqLyU3+Cni/36kQNaqGYU+onVNEJ5gCKu4RGZM/+O5uGzffTGuisaDrYFEmmHe3HC6B
-         ZiRA==
+        bh=FHs5QmsAznY6JYFFT0GfFNt0MOtPZ8zk+n24R7ETBWM=;
+        b=l6EmWO/ULBSMXg9IvHY+xDiEcIfGx0McC5nkIVVb5F+UW0VjRYvY7refW6V0R2qhrg
+         h6we+O1Wu3sk3tbESnS5vJSrtMD9BM2LG+r5H2xIdZyP9BTblEgiS/9jL+hvEfTIG+Ub
+         P0qAhQphSB3zvaxkqcNi2SrPkgB8v8+qXmjmL8TyhIM0tOHOU26u6dE4q3jXcbwKOeqi
+         Pfy8CpnjE2v8IjKCcx997gz81v2tQOoSVc/uXJIzKwkvbiWoSMEJvPJaLJhTZLMfbgbP
+         IqU1UmZeK/qKXA1AtGKMiS3R8s/xda4HLvhsx2QpWw7U8FU3+nuteWQz/bLSqcRdsQ0U
+         lYug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791796935; x=1792401735;
+        d=1e100.net; s=20260707; t=1791797016; x=1792401816;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FLb0lJXlFmNtssjfM0yj8AimWlA+OyKOOXSxBmbtCKA=;
-        b=tRAvGr/F04NZ338EZrdqHmHi1lLfisxVJcuclGWVZRZKn39GRdEjv00pfT5DO/n2A3
-         8e+m6cEaq3rnotJ0G1k01H2CMwp6e487At1KDj2lq9WrNWAHB6T92jyIiGrJJ+yZOco7
-         QDfbdefm2AnMZy8FPjXz2nc4Tg0pAZvUP48sEJlhnEfBANaWh8VZeQ4fddkQhqffMpJh
-         HPZNNUUNv+3t7apGYY+RxJKbOT4tUM8OegGFWB+NlJZvbd+LeiLyhRTJyW3D+1ADl3Uf
-         80fW9jkHyo95IO+/B1ub0CGZPrADjY65diKDrsSolkxYqPs31S+EEcDDMntr9nwjyvD9
-         D9dw==
-X-Forwarded-Encrypted: i=1; AKwUvBxQWFX/bxnV4BBIS1azHaC/CF/SSDDni9KI5dJmDhRiIGRaz4iwsAenx6zh3k8txZneS277wkNsmkw9Z4kdNhMi@lists.infradead.org
-X-Gm-Message-State: AFq9FYIh2CF+ggDBC50+EvyzQr7TuA5W2uu3lMyTESRBzKILYAy5xn/x
-	iV5g8oq4K/H8DGtB6khIoPYqvdnWH/XtpdV5Uy0uqrJydj7OrVYSh272ET757bpocRY=
-X-Gm-Gg: AYBFou1UGJ1Xgg2pH3FJ3KJwtUOm/5QJMi+XuM2H75j15hK1fnbV8t0Njcv3o0tzCA1
-	UJ1f02mdsCVUc4ie7GyiGFVKlyX7RqVNGy4X+CUlLWKeX26puYeKuMSZy4/b0j5i7x9vvRIwjEq
-	PCVPu40ADJKCSxOuQm2A5+P/POk0zLFF+ZrtSpATR48oOTAglv6wbeRYcNwGvOalSkYImXgR8ay
-	JunEmfgRiUhNV2bXp//PD6PsJ/Zb7DGCuVEnOuTE3uWV3GSpZ3PuAEgRZR+Dkx6F1168HfuwUw2
-	o4I2EjolAKaHNpvepguBoVOTOEUaPeFixfadsq4Xq9F+7WblTwxLJXd7fm8xSXK57/YEqt9bcVp
-	DdP3aAhTcvrO/tn8Mh3WV2seWTnKFBTtQLkT5SUYSVs1bXOLbnLAN561hs31HGVUEKEf6CpMGjo
-	vsoTEt4fc8bGoDZRSzBrdQv63kbER9UlPOyvT+pFzEVEXlKfyghdzIP7TpHce+f1foNx1/65d/i
-	TCWUYRtclauw/zb/ovitd5CD/rC26iiUSCi7blnlWe5HHxDfC4=
-X-Received: by 2002:a05:600c:3144:b0:4a1:70b2:8dbb with SMTP id 5b1f17b1804b1-4a18e4b0347mr158264505e9.19.1791796934769;
-        Mon, 12 Oct 2026 02:22:14 -0700 (PDT)
+        bh=FHs5QmsAznY6JYFFT0GfFNt0MOtPZ8zk+n24R7ETBWM=;
+        b=YId6deAqbdcX5mkJp+CfIwMmMkd7e4P0L88gjJTJn4315TcRY7Kbp2QKYX4VaSx/qi
+         0PchQ+4OdBznG7bDFRF0j5v4sDGqejwkW3Dg8t4+V3QjKZUdMuqaeFY3vRb9SNYyddxr
+         pGgQL5+x7CIYRBegJHP4cwTLtK5GPQEfL7BvHPTBdYYTVI3UGKz4q5WYgsojN9XX7b5O
+         CVnDHg7HYG5IGanq4lZKcynwmzbpjZLe0dbxcQ2nlRwF6mRKHy1+0HqALnZiguuWp5zM
+         0d5hLk1pmuImLWuL+htMJ6ItWNYOXhtO/xgTtdXOCCR7lMwSV5GQe917puFWAVizBdRM
+         5yvg==
+X-Forwarded-Encrypted: i=1; AKwUvBxuoAUUE/dbxdL0nb7Paro545X/8FxvIpf81Prd/KrvkU7a2oolF8PgQhZ+amp/j5BLEAM2BLApAWUYlEGYPyEM@lists.infradead.org
+X-Gm-Message-State: AFq9FYLWk33a+dwlepcJWR7GGFYRfCBCJY6eJbDNyi7V//EHn1IKMaTN
+	tp4mHJPvHGfG7KzJJb3rifZRKjUp6dhMxj/jv8RdQpvw0GugxzAgWqgD6L6R/LjuxoXwBXFEJtc
+	Nc732eRM=
+X-Gm-Gg: AYBFou3w6It/m9wI8+veUKVswuRnRVz9CniYFI/IwXBc2NZxgNSlWy4IWrWsxzAa5hJ
+	g9xdIQmAd0fHNaPvoJAa80kF22/rYE2d18XujPs7onVh7nSet8KodqDPDsybptHIAuVprHMbuXG
+	wCGM4bTtRriL6BZuq25YTHSQQeADJ7P7DXOMVYZF/k8Oef5GR9nTzoDx7DphQwKyNKKxtE8uKPR
+	xUVp6r6E2QZcJVHWHDAf5zDMF57kszl35SjrABip4qWRTBquBg1iFFqiTV1kwJ9je2jXNcVwJ8E
+	Oeb2ZtRHAl/Y8TZsRGayVMrpLbOOrT4gzmRw+Nr0bTcfkMEGwvGDdmiHw76mns6zOSjL/eL9nCu
+	o0IpqnPNrNbokRyyUzR4X5Jo7M7Un/uma9xMJulTW5Tehti0soucLDK4or5Q3rVoz/O5ipQExds
+	H0aAMCJ0Py3eYuErD3vR5Urf1EeebmLiprloNnS81gwaX790wJDAVybgLacXF7YHTY9rSX1bHWl
+	TX5qd5NmkLJnxWO/BzdgYPY3EGBh5WibXySNxksmYh7LuD5CPo=
+X-Received: by 2002:a05:600c:3e8d:b0:4a1:7701:f863 with SMTP id 5b1f17b1804b1-4a18e4aeae4mr156670605e9.15.1791797016157;
+        Mon, 12 Oct 2026 02:23:36 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:417e:f4c4:5b8:8c48? ([2a01:e0a:106d:1080:417e:f4c4:5b8:8c48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db99b820asm19844601f8f.24.2026.10.12.02.22.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bb68abfsm304568075e9.0.2026.10.12.02.23.35
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 02:22:14 -0700 (PDT)
-Message-ID: <03223155-d632-464a-9be3-a11f9928d05b@linaro.org>
-Date: Mon, 12 Oct 2026 11:22:13 +0200
+        Mon, 12 Oct 2026 02:23:35 -0700 (PDT)
+Message-ID: <27d5c013-9346-4159-aded-12ed8ce4e951@linaro.org>
+Date: Mon, 12 Oct 2026 11:23:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2] irqchip/meson-gpio: Allow the GPIO interrupts to wake
- the system
-To: iav@iav.lv, Thomas Gleixner <tglx@kernel.org>
-Cc: Radu Rendec <radu@rendec.net>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
+Subject: Re: [PATCH v3 0/4] mmc: meson-gx: honour the busy timeout for R1b
+ commands
+To: iav@iav.lv, Ulf Hansson <ulfh@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>, Jerome Brunet
+ <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261010-meson-gpio-wake-v2-1-790ecc6df792@iav.lv>
+ linux-mmc@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261009-meson-gx-busy-timeout-v3-0-67d0db3a8328@iav.lv>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -112,12 +113,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20261010-meson-gpio-wake-v2-1-790ecc6df792@iav.lv>
+In-Reply-To: <20261009-meson-gx-busy-timeout-v3-0-67d0db3a8328@iav.lv>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_022217_385805_5B27B0A1 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20261012_022338_543217_0A6C2ACE 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,62 +134,69 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/26 20:20, Igor Velkov via B4 Relay wrote:
-> From: Igor Velkov <iav@iav.lv>
+On 10/9/26 19:02, Igor Velkov via B4 Relay wrote:
+> For a command without data the driver programs a fixed 1024 ms into the
+> CMD_CFG timeout field and does not tell the core how long the controller
+> can wait for busy. Erase and cache flush then fail with -110 on eMMC.
+> Patch 3 fixes card_busy, which reported a busy card free; patch 4 makes
+> the core rely on it.
 > 
-> meson_gpio_irq_chip has neither .irq_set_wake nor IRQCHIP_SKIP_SET_WAKE,
-> so enable_irq_wake() fails with -ENXIO for every interrupt routed through
-> it, and such an interrupt never gets IRQD_WAKEUP_STATE.
+> Tested on ODROID-N2+ (S922X), 256 GB eMMC, btrfs root with discard=async,
+> Armbian builds in docker as load. Without the series (7.3-rc6): 262
+> errors in 3 h and 68 in 2.5 h in two runs; the first came 4 and 43 min
+> into the build. With v1 (7.3-rc6): 0 in 16 h, 2.4 h of it under the
+> build. With v3: 0 in a 37 min kernel build and in a 20 GiB write +
+> fstrim; a sanitize went out as R1 and the core polled DAT0 for 523 ms
+> until the card was back in TRAN. On 7.1 with the previous eMMC module
+> a synthetic test (20 GiB write + fstrim) gave 48 errors without the
+> patches, 0 and 0 with them.
 > 
-> That matters for suspend-to-idle. suspend_device_irqs() keeps only the
-> wakeup interrupts enabled; the rest are suspended and masked by the flow
-> handler when they first fire. A GPIO interrupt that fires during s2idle
-> therefore brings a CPU out of idle once, gets masked, and the system
-> sleeps on. For mem the firmware chooses the wakeup sources, and this
-> flag changes nothing there.
+> ODROID-N2 (S922X), 128 GB Kingston eMMC, 20 GiB write + fstrim:
+> without the series an erase hit the 1024 ms limit and failed with -110
+> in 3 of 3 runs. With v3, in 3 such runs and a fill of the card to 85 %
+> with rm + fstrim, 5 erases took over 1024 ms, up to 1219 ms, and
+> completed; 0 errors.
 > 
-> Set IRQCHIP_SKIP_SET_WAKE, like the other hierarchical irqchips with a
-> GIC parent. The GIC sets the same flag, so irq_chip_set_wake_parent()
-> would end there anyway.
+> ODROID-HC4, SD card in SDR104 at 1.8 V: 0 errors in 5 boots.
 > 
-> Tested on ODROID-HC4 with the PCF8563 alarm interrupt routed through this
-> controller: with the flag the alarm wakes the board from s2idle 4/4, and
-> /sys/power/pm_wakeup_irq names it; without the flag the board stayed in
-> s2idle past the alarm until a power cycle (0/5).
+> The timeout is rounded up to a power of two: the field holds powers of
+> two only, and the timeout is a lower bound. MMC_CAP_WAIT_WHILE_BUSY is
+> not set: I have not checked that the controller waits for busy on every
+> R1b command, HS400 switches included.
 > 
-> Assisted-by: LLM
-> Signed-off-by: Igor Velkov <iav@iav.lv>
 > ---
+> Changes in v3:
+> - Clamp cmd->busy_timeout to the range of the field before rounding it
+>    up to a power of two: the rounding of a value above 2^31 overflowed
+>    unsigned int (Sashiko).
+> - New patch 3: card_busy reports busy from DAT0 alone. It required
+>    DAT0..3 all low and reported a busy card free (Sashiko).
+> - Link to v2: https://lore.kernel.org/r/20261008-meson-gx-busy-timeout-v2-0-8bde1adfb5b4@iav.lv
+> 
 > Changes in v2:
-> - Reworded, as Neil asked: say that the test and the effect are for
->    suspend-to-idle, describe how genirq handles the interrupt there, and
->    note that for mem the firmware picks the wakeup sources.
-> - Repeated the run without the flag: 0/5 (v1 said 0/1).
-> - Link to v1: https://lore.kernel.org/r/20261008-meson-gpio-wake-v1-1-b0af1598d469@iav.lv
-> ---
->   drivers/irqchip/irq-meson-gpio.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/irqchip/irq-meson-gpio.c b/drivers/irqchip/irq-meson-gpio.c
-> index 91a9c337fe6d..e0329ef5e4a2 100644
-> --- a/drivers/irqchip/irq-meson-gpio.c
-> +++ b/drivers/irqchip/irq-meson-gpio.c
-> @@ -538,7 +538,7 @@ static struct irq_chip meson_gpio_irq_chip = {
->   #ifdef CONFIG_SMP
->   	.irq_set_affinity	= irq_chip_set_affinity_parent,
->   #endif
-> -	.flags			= IRQCHIP_SET_TYPE_MASKED,
-> +	.flags			= IRQCHIP_SET_TYPE_MASKED | IRQCHIP_SKIP_SET_WAKE,
->   };
->   
->   static int meson_gpio_irq_domain_translate(struct irq_domain *domain,
+> - Split into three patches, as Neil asked: name the limit of the
+>    timeout field, program the R1b timeout from cmd->busy_timeout, report
+>    max_busy_timeout.
+> - Link to v1: https://lore.kernel.org/r/20261008-meson-gx-busy-timeout-v1-1-d92f3c68c409@iav.lv
 > 
 > ---
-> base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-> change-id: 20261008-meson-gpio-wake-f3bfa3bb2e5a
+> Igor Velkov (4):
+>        mmc: meson-gx: name the limit of the CMD_CFG timeout field
+>        mmc: meson-gx: honour the busy timeout for R1b commands
+>        mmc: meson-gx: report busy from DAT0 alone
+>        mmc: meson-gx: report the longest busy wait the controller can do
+> 
+>   drivers/mmc/host/meson-gx-mmc.c | 26 ++++++++++++++++++++++----
+>   1 file changed, 22 insertions(+), 4 deletions(-)
+> ---
+> base-commit: fd9af27f6c2319713bb23832066585f8a59a1771
+> change-id: 20261005-meson-gx-busy-timeout-7e8e3fdcb3e3
 > 
 > Best regards,
 
+This looks much better!
+
+For me it looks all good, so:
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
 Thanks,
