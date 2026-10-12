@@ -4,106 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02413CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17710CC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=; b=Jy87t9HpWf8mJtyxWPsHVU6/1N
-	+QoW6AXCnXRhR5VCwvftE+QytPedOHJmm3dLjg6Q4gmOMEB9PBZG7aBabBxY0jCKJpzkdJjSfD7Q0
-	dwHYhxsMoaViMy/0C+xsZRlDBM7tyRgUQhIGA3CPlvoEqIy9ow/XS8rmOmZakvdB2bDPnzZXJWZsF
-	hUWkrT2te3H5M4eaLKTfMqAWHjkQFENGyj0v6u9lmnZgsQrsk/+rXUTpWBjmGVKb3KKbBoV19DsfF
-	yXK0Plyd2+iIgmxX1YrHzIHte/xQ2NJZ1+7NSIFhFr/mIf57UUOwtpVjAP3jGTy0tE8A+zMGerK+R
-	O4mSh/lg==;
+	bh=Yzsm7UcLWz95w7mf2csUHMiUJrt8gEY4jLejuhdiuAM=; b=dq9p62mA5apHUSfCfVAaLFQRM8
+	llIz+9JqlWVDgYlWfDSvXjz15TnIgvldQEfM8UWL0la3SOm8cRAitIp947fjfJdRnsXx4pm4eHo6+
+	rxv4oGCyjCHhvfBk7cwJPVm23epuMUHEF6Lj3cbv+9+JSdoZkcWSQP5eE2uAgCV4DlJQ/ubsef4ra
+	2AAsXwjhSXNsbiKP/B5zfGCdvBsZXvVCmcsxuV+5wbisbTPwIgC8nqKEQ9UiP2muUcFZiCh9/mwi5
+	9g++bk7vpFRYnKQ61T1v9cmqUSJiMPquOeqJp1YRWFGuyF4qP+yeqgmriaOIQ/5SSn/kIy38DPIyW
+	AB5QLOwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgjF-0000000DmLG-2WFB;
-	Tue, 13 Oct 2026 17:55:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGgk2-0000000DmSE-3YpO;
+	Tue, 13 Oct 2026 17:56:46 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgjF-0000000DmLA-0pwY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 17:55:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=; b=hon0RSKUJrDDIIj46yaFAMjyYp
-	JgbYPnOOTtOuPjMDtHPL9RkwlJhBb/XydcEiVRs3i7VdeZ3vR4dq0rkdZVWtuzKCogBpwoMXOXGYD
-	Ij9NdJQy/cl35OsIspeyLl9+v9vFmoioDNyhM/GiiYehwViBKnZ7ow001Z0elJiHjTQvOvN7EMrxs
-	QrWYybCj7xiFVaPmST3IXJxOsAE1ZDPa6M9IYQmAFt/aDjTF27rp7qvB6Xqjj9uoUPup/K5oXmPhk
-	mWpsdhHXH3opqP01NH/+t2f9mXHq62GqPkCKkIzhzbTEw5Wn2q3ZV3AKyKk3nHLIvNZDG7F6BFBX8
-	0TEpxb7Q==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGgjC-0000000FtTo-1DHG
+	id 1xGgk0-0000000DmRi-3qck
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:55:56 +0000
+	Tue, 13 Oct 2026 17:56:46 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 1C134C653FA
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:56:48 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3DE171A1216
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:56:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7A7726075C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:55:52 +0000 (UTC)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0A30260362
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:56:43 +0000 (UTC)
 Received: by mail.galae.net (Postcow, from userid 0)
-	id 01C7911D718C1; Tue, 13 Oct 2026 19:49:50 +0200 (CEST)
+	id 8BB3B11D718D1; Tue, 13 Oct 2026 19:49:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791914152; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1791914198; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=5JzFqGxHzHN5rnVUak2+jKVigs7VEUnyyVH0rb7Zh1U=;
-	b=Vctox5wWoeRxml3XUIb5H/SML7kLIV5LLbzjghzY54RfWBymoC+4xbARJqpByfO/nFmjBS
-	PIX49sW4FhlmriAGJqRwisbnDGfjuVxhu9bvYAIk/XKvOn78TrB8RZYyQCMRsfw6hczihM
-	qWkMbSMQYSETiEN7FYTcbyKQsB5XCdOttikiqFcIdlnIxZI291xzg6Gj23UHleznuZG3O6
-	ihCsdyYdoPU5jM6Q/JkQbZIEKZKTPtYmNhoqivi+3q95JHXuiHJvG6zZLrVsvhSOFiOFJy
-	PaZZruKyDgWRapgSowJaJpZwHPOTT43xUaYnJXcoIrVmbxa8NapCNG6PSAR8fQ==
+	bh=Yzsm7UcLWz95w7mf2csUHMiUJrt8gEY4jLejuhdiuAM=;
+	b=oXEftspwpv5Cu0BhFy4DXGKElKSC4jhTlOQnOltCPpJbREqnKM5cssu23X2FDfCWKitw+h
+	k1UZLD8+pzK+I92I68Qs43sRiXSYMxyufFxRXTQlNfYGEaECtjJd2m1rBfkNxyodLd/37K
+	4K4jBYOpAEShxeOrFm/88t8yj81x15wtfr3AmJnpUvZUcaq2YvCLWFhe3IPZ7N57amzmdt
+	GJRbF+2KvEi7FsLaZsT67BeAbomeByPt8BIJ8GLfAYRTAMrZjy0GuRRM4aSOu0iulxBaqZ
+	2t39HQfK3HMbb7Xsq9QAfJnw/DF83Y0NGovlL5asa1C8nT0J4ESq3rAgoyAPrQ==
 Authentication-Results: mail.galae.net;
 	none
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- arm@kernel.org, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] ARM: mvebu: dt for v7.4 (#1)
-In-Reply-To: <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
-References: <87o6d96w7w.fsf@BLaptop.bootlin.com>
- <b2e182bc-6707-4147-bc04-fba3c379160f@kernel.org>
- <28ced1ee-b0e0-49a9-a414-0b1e6eeb28fa@kernel.org>
-Date: Fri, 09 Oct 2026 16:35:15 +0200
-Message-ID: <87y0c754d8.fsf@BLaptop.bootlin.com>
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
+ <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
+ Holland <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,
+  Richard Genoud <richard.genoud@bootlin.com>,  Masahiro Yamada
+ <yamada.masahiro@socionext.com>,  Boris Brezillon <bbrezillon@kernel.org>,
+  Brian Norris <computersforpeace@gmail.com>,
+  linux-mtd@lists.infradead.org,  devicetree@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v6 01/18] mtd: rawnand: sunxi: drain interrupts before
+ reusing the completion
+In-Reply-To: <CADvTj4ppQannShF+dkLreST94g_vSAg4QdMqxhNORzkvci3O1A@mail.gmail.com>
+	(James Hilliard's message of "Mon, 12 Oct 2026 13:17:23 -0600")
+References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
+	<20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-1-2fb084fe0751@gmail.com>
+	<8733ua23xs.fsf@bootlin.com>
+	<CADvTj4pmtGZ4c04q+5AE3trrfshToD7BPtF-8kPxPRZ25hOTRw@mail.gmail.com>
+	<877bjmzqkr.fsf@bootlin.com>
+	<CADvTj4ppQannShF+dkLreST94g_vSAg4QdMqxhNORzkvci3O1A@mail.gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 12 Oct 2026 22:53:22 +0200
+Message-ID: <87pkxey725.fsf@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-TUID: TMJZZvMpmX7E
+X-TUID: NmtdqLHiX2yZ
 X-Last-TLS-Session-Version: None
-X-Rspamd-Queue-Id: 01C7911D718C1
-X-Spamd-Result: default: False [1.49 / 30.00];
+X-Rspamd-Queue-Id: 8BB3B11D718D1
+X-Spamd-Result: default: False [1.40 / 30.00];
 	SUSPICIOUS_RECIPS(1.50)[];
-	DATE_IN_PAST(1.00)[99];
-	BAYES_HAM(-0.91)[79.82%];
 	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ARC_NA(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
-	BCC(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
-	NEURAL_HAM(-0.00)[-1.000];
-	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	BCC(0.00)[];
+	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ZERO(0.00)[0];
 	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[gmail.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	NEURAL_HAM(-0.00)[-1.000];
 	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	URIBL_BLOCKED(0.00)[BLaptop.bootlin.com:mid,bootlin.com:url,localhost:rdns,localhost:helo];
-	FREEMAIL_CC(0.00)[lunn.ch,gmail.com,lists.infradead.org];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	FREEMAIL_CC(0.00)[nod.at,ti.com,kernel.org,gmail.com,sholland.org,bootlin.com,socionext.com,lists.infradead.org,vger.kernel.org,lists.linux.dev];
+	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
+	URIBL_BLOCKED(0.00)[bootlin.com:mid,localhost:rdns,localhost:helo];
 	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_185554_404233_5B9A373A 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20261013_105645_090242_9684F50F 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
 
-> On 09/10/2026 09:21, Krzysztof Kozlowski wrote:
->> On 04/10/2026 22:34, Gregory CLEMENT wrote:
->>> ----------------------------------------------------------------
->>> Krzysztof Kozlowski (1):
->>>       ARM: dts: marvell: Replace spaces indentation with tabs
->>>
->>> Rosen Penev (10):
->>>       ARM: dts: helios4: fix lm75 supply name
->>>       ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
->>>       ARM: dts: marvell: add missing SDHCI clock-names
->>>       ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
->>>       ARM: dts: armada-388-helios4: fix vmmc property name
->>>       ARM: dts: helios4: fix vbus-supply for USB2 PHY
->>>       ARM: dts: helios4: fix spi1 location
->>>       ARM: dts: helios4: use national,lm75 compatible
->>>       ARM: dts: helios4: add #phy-cells to USB nop phys
->>>       ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
->>=20
->> Your pull introduces new warnings for undocumented compatibles:
->>=20
->> https://lore.kernel.org/all/202610021617.AlVUa9No-lkp@intel.com/
-
-Is it OK to resubmitted a PR without the patch introducing the error ?
-
->>=20
+>> >> commit log, I now disagree with the first part of:
+>> >>
+>> >> >The old handler can also complete the new wait or restore an obsolet=
+e interrupt mask.
+>> >>
+>> >> "complete the new wait"? I don't see how a stale handler completes the
+>> >> next wait given the handler is a hard IRQ and the interrupt enable
+>> >> register is cleared on timeout.
+>> >
+>> > The case I had in mind is an already-running handler on another CPU:
+>> >
+>> > CPU 0: Read st and ien for operation A.
+>> > CPU 1: Time out operation A, mask/acknowledge its interrupts,
+>> >        then eventually reinitialize the completion for operation B.
+>> > CPU 0: Call complete() based on the saved st and ien from operation A.
+>>
+>> For this to fire, the hard IRQ handler on CPU0 would have to be stopped
+>> between reading st/ien and calling complete() long enough to span:
+>> - A's timeout
+>> - A's cleanup
+>> - B's wait being rearmed
+>> On this hardware, how is this reachable?
 >
-> And I found the binding patch which is not right (which was pointed out
-> at v1 but never responded to), so neither is DTS change.
+> CONFIG_PREEMPT_RT provides a concrete mechanism. The driver requests this
+> IRQ with flags =3D 0, without IRQF_NO_THREAD, so the handler is
+> forced-threaded. A higher-priority task can preempt that IRQ thread
+> after it reads st/ien:
 
-I finally found what you refereed;
-https://lore.kernel.org/all/20260907-unnamable-geography-d04f61df0fe5@spud/
+That argument only appears in this reply. It is not in the commit log
+nor in the diff, both of which reason about a hard IRQ, no? I'll happily
+take the PREEMPT_RT case into account: in that configuration the case is
+reachable, but it reads as a justification added after the fact.
 
-I was not in CC for this one, and indeed when applying the patch I only
-checked that the driver supports the compatible string, I wrongly
-assumed that if the driver support it then the binding was already
-merged. Sorry for the mess.
+Then, I'm curious to know how the AI justifies the use of disable_irq()
+as the RT-appropriate choice: doesn't it block without a timeout on the
+very IRQ thread the scenario relies on being starved (and gives no
+priority inheritance)?
 
-Regards,
-
-Gregory
-
->
-> Best regards,
-> Krzysztof
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Thanks,
+Miqu=C3=A8l
 
