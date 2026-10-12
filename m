@@ -4,111 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C00CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FA4CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xctuaA4PulzCyQhRxtqWpMmwfC55/Ln+sQuojgXBfss=; b=Ar9W+7xgikYtFqujt0w6bY01ny
-	daNmb3xwW3tH1jOFOceQ28GOYrXaqt2/nW65IxjkEe9JNsWx9sfKpuWASbV3vA8pC5IcAe84C/4V6
-	zrSmSgNzp+9n1D/hyFK7JmwiL0CpPvs16qSwR0AjRS6JUrNVw9ee19SpveHHzjrlejFevYVNd5GyW
-	UXeJGad78C+3Yv6ZZlnrX+3TMbohNc7s4S29KFWb3nIeK88x/3OCHkQJYSeNvif1Lmnfo4CkjzIuc
-	goxwWkDK9rBU5CK8xodYecPes6eTJHGJ+CixiK8fjIzjrflxerd4KqHvy0H7WjZ9ZXk3nHEXdHsNu
-	CZBphBqg==;
+	bh=ZT8pSHZDMYbVu3YwS+G6dGmg9pHpwwi9lDlBo2IR364=; b=yVUfWH15xvmGvMScT0iPvi8POe
+	gR3eAVB9DvOpD2QhVSk2EUokAiOT/GiCNfwY/FamIuVUe9iqmUervctRydZRRFYHKtGRDBhgdyZso
+	HKsMOrkRX8uM6RIxyu1VlC5nee9JHLlCgYVSVB/9VAZZfiY8EJm5dAoO5t/A9HG9k8M1tNoi4ntcY
+	G6ElPvpQudX+CMiUYCZOX1Mr51PMdzV112XFWB1VneIstCEelKLJyJpX1Ds1m5K8o0A2G535MzFrE
+	wtlSXhnBfRF2Ok7/EzNCkgtOOOfHGX4Z6WZc8R2TkdDHjfgqoGbPuj0TXJpkIFgFMa8TjivI1oHjC
+	6WIpPazA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCV5-0000000A55V-3mz4;
-	Mon, 12 Oct 2026 09:39:19 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCV3-0000000A542-2M15
+	id 1xGCVC-0000000A57d-3DbF;
+	Mon, 12 Oct 2026 09:39:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGCV5-0000000A54z-2Cvq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:39:18 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-3a9787a14ecso12108371fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:39:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791797955; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bUqw8IBtwiycwXNdewhcohjIbNc+A4pw9HozydLkM7XRwhd91S8XCGyBo0gnBsBxR0
-         tUGbSFxgDd0JWxrbQaSU4ssUtvDjG74HqX1I3OUckaQvPLnYJW4yQetxi/FIqi0NyFRG
-         p3CDzQacw4Tun/qB1HtH4Bw0AN94eOstNFqKb+6/jx1m4nPiU7ECYL8wqFpPffc+JoNF
-         jpG3jt3ph8/TAdIUUy6HwjQI8Gbu46Xd364s4FtF4L0c9wwLLPH6huFmKbQ5XAC3pR2F
-         1lh7IG5Qwiy1CtbmUI4Pz2H1cO6tRDo5rVWCeVk653JjYQ0wZkO9kPIc1mf4ICvHRElI
-         utdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xctuaA4PulzCyQhRxtqWpMmwfC55/Ln+sQuojgXBfss=;
-        fh=lTvaX0OIluFzPhZc7ip0aa7gpSD49/r7EUkQqil+Hlk=;
-        b=Vunw+2SLvLpYHnrunXeOF/hV4vc5qdve6WuopMGIInC2CtFoedYu6wNP/+H/I7VjGf
-         TAKXwQUnwviDS12HaLuDVxc3/h+zy/SluwyGsl8Up41EpudIzK/bAkoLZNy0xvbkQ9YD
-         PRQq9clcIPJ5sQ4S7ORXYNXsPaGbgLESUrft590vubiS5lUOG/DMVFyEhGYdDYEmXd0s
-         9rzKmYuZxk/JSsdBbcfkj3CV62B4CqpMMEB5idxIYI5zDgXsHgcWIFMMCf6VO0gDxfZM
-         9d38Yp0rQllNb4xqoiZTyfIlKtZbIuFFC7fHrPgI9hRUqfeZHLkPqziwxvDkAisCaSjJ
-         8OtQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791797955; x=1792402755; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xctuaA4PulzCyQhRxtqWpMmwfC55/Ln+sQuojgXBfss=;
-        b=Ao2Vb+cFw7TUJUxAgh0v6oPb6xsAdlxg/gtaDg41/lY+iSTFUR7DJDQx6gO2olPdQ5
-         KFWMuO8rLPB3tvOPQG4nqxPHEKlQ/0NsM7oDPGWXDJwIDbH3Q7+k7IxFJKFZyYeDOLCr
-         +DXXwEfIkzbcuBg288gS7rCyyz/E+FWR3UH2dIRqzO8kow7D5WVyan2hNuSsURdJt2o3
-         qXaXOPJnxSuIQS1s4xsIJEDjwJhUma+BBMjD3nDUsKnDrDdbl5RAYQBgLXuW9xVm9Z4+
-         8YUpIF1n7hXTr5P0raEsEe8Ze2nK/bZNgu9ld1z/9V9zwfTNio2aHf3ErSsExewLJGz9
-         Oigg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791797955; x=1792402755;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xctuaA4PulzCyQhRxtqWpMmwfC55/Ln+sQuojgXBfss=;
-        b=1sMDIvHFi4rSjPPHhU7pKww0apN3jIcA1YwbLC4DMGSqrq0vN5em9iG6anGBNcRULV
-         NKU6nAhOFlC6vYp16ENoQaVWhGoOQeKrKn70dXfZ6t+uCNVD1ggEU1VX9vPRgPwMMbxv
-         +as3pqFyz2L+BenR3prxylB+eZmVmqRbPhNCE26D7HeH/ODE4NNYic3DD5vY/EMRaToD
-         TPGJXw9jAAgwFDMzWZ1IvS00PubJs/X7LeyOZMqHeq6J73C+IBwm0eErGzi0herAAzpI
-         q2QrEcrdTGgWuoAaCll+CeH2FzN3WHok000dy7j0Xdc2ghvvnDN/hYbj2eqWKc26mfai
-         l+MA==
-X-Forwarded-Encrypted: i=1; AKwUvBzZ/EVQmZ0yFxqoEJlyOVftXwzslLvqOEceDIaWEJUa16U5iJowjX9sFPTAFek8NQd3Jf3JDkAge42P0v9y7R23@lists.infradead.org
-X-Gm-Message-State: AFq9FYLEO/Dw2hcl5CrjsQo5u1kwn26pLjR/i7R3S+SCvKoCH0WfdIkt
-	Aam8zdJZlQHeW6jF1FVHBoM9YKACGESVER8G/95PjvznZe8qPiTIeDFT4i9We3mUT1vJkUASB6m
-	jKehTP0hxr/+WRcd0BH9PTPF+0LgiPIA=
-X-Gm-Gg: AYBFou0+gGipxVdTkxVm06FZCzU+rz1iC1iClqtMkfLGRO4pA6MMyyEmA3FIHb9DWeP
-	6XIL7X9PsxW3BROUuygU3GmgY4YR4rzTcBMoIsxphmQWrJq/rtlzf0N+4gBKRC5HSvYkBC2E4Hy
-	Cq/mna6s5+NXKUx2ejw9Z3vD/tplgTVGkHz8tcIawm2iQcCmkIghvT+Sm868PcPKXxMsOGgcwUd
-	tJHAsnhArxuBADw+pXu8YpcElVOMNCfosjW/HtTd9u1gOIEOTNE44pCsVbZFxN6K3/rPqnUNTSO
-	sUHo5z+Af+kjXnsouUBRkn3fvgYV2pExRCYY5y1PR3EIfYTMk6t798Hi2g3hxD+dZjgH8/zOCkU
-	CP2b0P8ICfoJS/nJCRxWdkdcvdRPsM9RgkJqLa/p4fiQxFD15tdZu/ecehtxfXrs1iizae57ihw
-	Tua+YYeFjpvc0XGncF7Czj2q0gNDp5yTBHqbVH9xsa
-X-Received: by 2002:a2e:a58b:0:b0:3a3:7681:6d5b with SMTP id
- 38308e7fff4ca-3a9c53852a5mr24148381fa.19.1791797955285; Mon, 12 Oct 2026
- 02:39:15 -0700 (PDT)
+	Mon, 12 Oct 2026 09:39:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC7721655;
+	Mon, 12 Oct 2026 02:39:14 -0700 (PDT)
+Received: from [10.0.128.125] (Suzukis-MBP.cambridge.arm.com [10.0.128.125])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8890A3FB75;
+	Mon, 12 Oct 2026 02:39:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791797958; bh=BCe7pe9i+jSQaDUbfBg+8WH0w4qiiFnPcfL8iRSqg8k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O4CQ0GtMZDen8O5yXO9WZ3bSbGtCCtT5gZz7VYlyIKAeMbmEUJOPR0zyFXiLx4Fgv
+	 II+GogzCYDU4ZtuVD0z8R5aslyFjLAKFRFrDsVaIg86WqNTSmR/K9sQlcGPZWGbmG/
+	 XmiJTRClS3da2U0nR07OXJ9f3jXM3WiXDlE+/Sd0=
+Message-ID: <fa110c56-3faa-4819-bb94-0d82935c4ac5@arm.com>
+Date: Mon, 12 Oct 2026 10:39:14 +0100
 MIME-Version: 1.0
-References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com> <20261011-gpio-mxc-cleanup-v6-9-cb47ce2ad758@nxp.com>
-In-Reply-To: <20261011-gpio-mxc-cleanup-v6-9-cb47ce2ad758@nxp.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 12 Oct 2026 12:38:37 +0300
-X-Gm-Features: AclHuK-Z5wvwMJRFMQw1kYvrinOCHaZjgXVZjShRyJvcSKeeEwPjXo7VOTJgmQg
-Message-ID: <CAHp75VcktnQVpqLADs5AccUj6U7KLjAatPaSzMX8SXDrbbs6Ng@mail.gmail.com>
-Subject: Re: [PATCH v6 09/13] gpio: mxc: use cleanup guard for
- pm_runtime_get_noresume() balance
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: Pass only the required device probe
+ arguments
+Content-Language: en-GB
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+ Andre Przywara <andre.przywara@arm.com>, Russell King
+ <linux@armlinux.org.uk>, kernel test robot <lkp@intel.com>
+References: <20261010100249.643327-1-aneesh.kumar@kernel.org>
+ <ebb8c99c-5f76-4c36-b3cd-c238b53b3d8a@arm.com> <yq5aecdwcqsg.fsf@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <yq5aecdwcqsg.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_023917_649431_410EC276 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20261012_023919_622168_FDA70B18 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 11, 2026 at 2:54=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
-m> wrote:
->
-> pm_runtime_get_noresume() in probe must be balanced by
-> pm_runtime_put_noidle() on error paths, or pm_runtime_put_autosuspend()
-> on success. devm_pm_runtime_get_noresume() cannot be used here because
-> its devres action (pm_runtime_put_noidle()) would fire on unbind in
-> addition to the success-path pm_runtime_put_autosuspend(), causing a
-> usage counter underflow.
->
-> Use a __free guard to automatically call pm_runtime_put_noidle() on
-> error paths, and disarm it with no_free_ptr() before the success-path
-> pm_runtime_put_autosuspend().
+On 11/10/2026 14:25, Aneesh Kumar K.V wrote:
+> Suzuki K Poulose <suzuki.poulose@arm.com> writes:
+> 
+>> Hi Aneesh
+>>
+>> On 10/10/2026 11:02, Aneesh Kumar K.V (Arm) wrote:
+>>> The device probe passes zeroes for all seven argument registers to
+>>> arm_smccc_1_1_invoke(). On ARM32 Thumb-2, this binds an input to r7 and
+>>> GCC 8.5 reports "r7 cannot be used in asm here".
+>>>
+>>> The current smccc_devices entries need at most one argument after the
+>>> function ID: TRNG_VERSION has none and RSI_ABI_VERSION takes a requested
+>>> version. Pass zero for that argument and omit the unused arguments,
+>>> avoiding the r7 constraint. Check argument requirements when adding new
+>>> probe functions to smccc_devices.
+>>
+>> Is it safer to use x1-x3 to 0 as they could be the results that we
+>> get back from SMCCC v1.0 onwards ?
+>>
+> 
+> 
+> I'm not sure I follow. Passing additional zero arguments only
+> initializes the input registers; it should not affect how return values
+> are handled. arm_smccc_1_1_invoke() already declares x0-x3 as outputs.
+> Since these probe functions require no inputs in x2 or x3 and we only
+> inspect x0 on return, why do we need to initialize them to zero?
 
-...
+Agree, I meant, passing 0s for x0-x3 future proofs the new calls.
+We know that x0-x3 could get overwritten by these calls, and is
+safe to be zero'd on a call.
 
-> +DEFINE_FREE(pm_runtime_put_noidle, struct device *, if (_T) pm_runtime_p=
-ut_noidle(_T))
+But agree, for the existing users just x1 is enough.
 
-Please, split this to a separate patch and move it directly to pm_runtime.h=
-.
+Either way,
 
---=20
-With Best Regards,
-Andy Shevchenko
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
+Cheers
+Suzuki
+
+> 
+> 
+> -aneesh
+
 
