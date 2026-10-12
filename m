@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455B3CC6B04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA63CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9ey7sNL/x21eVb/g8qDoP/BFyldS7kgl36eyRGCz3s=; b=2fhdWsnZLBXgS48XRQ3gTqqteI
-	l7uIjPfZ1sepUShcSIAkMluh7rCmmGw2iNCHswO7CncZ9INBSiussPbd0TaEY5926WDLVAfA6MUqX
-	3eVZ3/vLuI9qhY0KNF34pWG3mpQ8MYys3XhadB+Mw7dpL4Rc0pnoLr90jQIrNopklJjvXn3LtK9U3
-	Vt02oDtT5/HgBjGwI/Lg8WXrEsT7y6mEWQ3+vKBKGmr1vUVY+tAurmTtn5jcys1ePx2wB0Xwi2R6u
-	4qobzgnTXpIiycTveB2zorBVvZxDifxHkIMdog/F2GYXFgMSX4yRRi8aUdnVz6I2UnxNjf3ZrphK/
-	jFaVw4Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ClqrB5Nb1VE/6HPxn34XKW1S5rErGzsfqCMXXB5t2dI=; b=l80QiFEfYu7dEELyWtwEfV18Y6
+	XIpu0ljcmrFJeZWvih3Jawwz6R5k5biE9aTVP0/8TqlybAJFsaNic8xGzNbIt8b0V+0Aj4kglr3Lk
+	Xldt8fVqqxO7J4o1Q1vpEyr/XKdd9U2gUwt/ViHH9oex7JcmJFNyRtE8kbFs9U9j9zbvVI97DCA5x
+	dfKUnPbCzBjIn9qZzPeKd2seZszDbrmLPAZURuwlbf++8YdTsS0+VAU0uc0JXj+AgQjFMxwI/KSZS
+	/416qQ4EEaX6TS0v6vGeFaRwn4krjHx6JHpyOEKH0soq9oI5DRNQmIE+QAD6YLTBxZNu/tg1XF7rQ
+	bz6NBLQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLHG-0000000BKYi-3hhM;
-	Mon, 12 Oct 2026 19:01:38 +0000
+	id 1xGLJF-0000000BLJD-3QfZ;
+	Mon, 12 Oct 2026 19:03:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLHC-0000000BKU9-0KqF;
-	Mon, 12 Oct 2026 19:01:34 +0000
+	id 1xGLJA-0000000BLIg-3wz7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 19:03:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D67F43F8C;
-	Mon, 12 Oct 2026 19:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8651F008A2;
-	Mon, 12 Oct 2026 19:01:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 964AF419A3;
+	Mon, 12 Oct 2026 19:03:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD75E1F0089B;
+	Mon, 12 Oct 2026 19:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791831693;
-	bh=Z9ey7sNL/x21eVb/g8qDoP/BFyldS7kgl36eyRGCz3s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YkuFbAYL5Oy+nSNiM7nfxMPeXGKXvKrouAt2zguT82diEzQtgl/2J1zm7YdTKTH8s
-	 w8WEoubBkZ/wyOO/11kN9S6VOjDH82/5PxpSGlOOtvEQff5C0DIrmpFsTmq4O9oPQB
-	 Qk8x3DJ/iBXcQmHUSWJZbi93qLjzysI92dos3aRvi207qSDKHKurXg75zqwujAPnd0
-	 GPU+DfjVnPJf/97+GDZmSzKYlY8ieEhD9JAgQE8V5lhu75QnzLr0eYZQtmRB/I7Ud+
-	 m2T0QnkEBT6tuyFouzRT/5Z7yce4ALBRpQO0JtanxOGM6UzdS3WtmjeZIkdVsdHRrt
-	 vPjFSx11n3OZQ==
-Subject: Re: [PATCH net-next v11 5/6] net: stmmac: dwmac-rk: add SGMII support
- for RK3568
-From: netdev-bot+sashiko@kernel.org
-To: coiaprant@gmail.com
-Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
- david.wu@rock-chips.com, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 12 Oct 2026 19:01:32 +0000
-Message-ID: <179183169209.434549.3228016772295700509@kernel.org>
-In-Reply-To: <20261008175225.3375274-6-coiaprant@gmail.com>
-References: <20261008175225.3375274-6-coiaprant@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1791831816;
+	bh=ClqrB5Nb1VE/6HPxn34XKW1S5rErGzsfqCMXXB5t2dI=;
+	h=From:To:Cc:Subject:Date;
+	b=Qc87fPCbdRHXT6Crexos9HfSxNeqhRI0i3BcudRlX4omUs/qESaurv6wqZuNz+wte
+	 wBCfi/8HIQ7tFp8hNaYIqtLIi/T0vC2079pAQwq7EM5VsJNGUqAxaRANdeSKzscjkn
+	 30tfZib5RIXIIb7CxCfQadk7HzmIzEjoLwUmfZt4RpoR8Cu/tNMusN294ydZ9vtW3Y
+	 fT5dH1lPPvAoc331yDB+Kb/jsSpDbFrRN8bqF7/0sPUOSqUpIpAIYKaGEgJQ1TwUFf
+	 7k5mJmW6NRyQCKjlEhin4JlHUziJFXu1u79UcqGfFCVFoIoUs0yluXhKstrvA8s1/B
+	 4i0+VldJu93/A==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>,
+	Anurag Pateriya <anurag.pateriya@oss.qualcomm.com>,
+	Hemanth Selam <hemanth.selam@gmail.com>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Muzaffer Kadir <muzafferkadir@mainlining.org>,
+	Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+	Antony Kurniawan Soemardi <linux@smankusors.com>,
+	Fenglin Wu <fenglin.wu@oss.qualcomm.com>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Sasha Levin <sashal@kernel.org>,
+	Somesh Dey <somesh.dey@oss.qualcomm.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Vitalii Skorkin <nikroksm@mail.ru>,
+	Yibo Tan <lhfff@tju.edu.cn>
+Subject: [GIT PULL] More Qualcomm driver updates for v7.4
+Date: Mon, 12 Oct 2026 14:03:31 -0500
+Message-ID: <20261012190332.10322-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,160 +87,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 0
+The following changes since commit 87802d4dc4850bf27b3955ee9162b1e52c99da1a:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A14 (UX3407NA) (2026-10-05 09:10:43 +0200)
 
-- [Medium] The commit message says "1000BASE-X is not enabled by this
-  series" and that SGMII "comes from the XPCS's own…
-- [Medium] On an SGMII-configured RK3568, rk_get_interfaces() still
-  advertises RMII and all four RGMII variants: supports_rgmii comes from…
-- [Medium] For RK3568 SGMII, rk_gmac_probe() sets
-  `plat_dat->set_clk_tx_rate = NULL` and only sets `default_an_inband =…
+are available in the Git repository at:
 
---
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.4-3
 
-net: stmmac: dwmac-rk: add SGMII support for RK3568
+for you to fetch changes up to f44ee24f4a96ad97c2f0191e503c91477d9b530b:
 
-This patch adds SGMII support to the RK3568 dwmac glue. It routes the GMAC
-to the integrated Synopsys XPCS through a GRF bit, creates the XPCS with
-xpcs_rk_create() in new pcs_init/pcs_exit callbacks, and returns it from
-select_pcs. It also moves the clock enable earlier in rk_gmac_powerup(),
-and for SGMII it forces in-band negotiation with a fixed 125 MHz MAC clock.
+  soc: qcom: geni-se: Drop unused icc_ddr parameter from geni_icc_get() (2026-10-05 09:10:45 +0200)
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
+----------------------------------------------------------------
+More Qualcomm driver updates for v7.4
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 72bdbcb5e863a..c4db919ec1640 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+Add SM8950 Maili and SM8975 Hawi SoC IDs. Document the Maili CPUCP
+mailbox and PMIC arbiter compatibles.
 
-[ ... ]
+Allow QSEECOM on the Kalambo CRD, Glymur QCB, and Lenovo ThinkPad T14s
+Gen 7. Reuse Glymur's UBWC configuration for Kalambo, and add the Nord
+LLCC configuration and binding.
 
-> +static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
-> +					 phy_interface_t interface)
-> +{
-> +	if (!priv->hw->xpcs)
-> +		return NULL;
-> +
-> +	return xpcs_to_phylink_pcs(priv->hw->xpcs);
-> +}
+Add Shikra SoC and subsystem low-power statistics. Document its
+modem_apps GLINK audio channel. Document MSM8952 SCM and record that
+MSM8952 has no UBWC. Describe IPQ5424 IMEM as mmio-sram and add the
+MSM8960 SPS interrupt-controller syscon compatible.
 
-[Severity: Medium]
-rk_select_pcs() ignores its interface argument and returns the XPCS for
-every mode. Is this statement in the commit message accurate?
+Fix SCM PAS resource-table retries and handling of empty tables. Use
+sleepable one-time initialization for TZMEM, and correct SCM Kconfig
+selection for non-Qualcomm builds. Disable the SHM bridge on SM7125
+to avoid boot-time RCU stalls.
 
-  "1000BASE-X is not enabled by this series"
+Fix PMIC GLINK probe ordering and PD charger ULOG removal races. Provide
+I2C Hub serial-engine program-RAM depth without accessing absent DMA
+registers.
 
-rk_pcs_init() creates a generic DW XPCS through xpcs_rk_create(). Then
-xpcs_create() fills the PCS supported_interfaces from the matched compat
-table:
+----------------------------------------------------------------
+Antony Kurniawan Soemardi (1):
+      dt-bindings: mfd: syscon: add qcom,msm8960-sps-sic
 
-drivers/net/pcs/pcs-xpcs.c:xpcs_get_interfaces() {
-    ...
-	for (compat = xpcs->desc->compat; compat->supported; compat++)
-		__set_bit(compat->interface, interfaces);
-    ...
-}
+Anurag Pateriya (2):
+      dt-bindings: cache: qcom,llcc: Add Nord compatible
+      soc: qcom: llcc: Add LLCC configuration for Nord
 
-For a Synopsys ID, synopsys_xpcs_compat[] lists SGMII, 1000BASEX,
-2500BASEX, USXGMII and the 10G and faster modes. stmmac_phylink_setup()
-then merges all of them into phylink's supported set:
+Fenglin Wu (1):
+      dt-bindings: spmi: glymur-spmi-pmic-arb: Add compatible for Qualcomm Maili SoC
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_phylink_setup() {
-    ...
-	if (pcs)
-		phy_interface_or(config->supported_interfaces,
-				 config->supported_interfaces,
-				 pcs->supported_interfaces);
-    ...
-}
+Gopikrishna Garmidi (3):
+      firmware: qcom: scm: Allow QSEECOM on the Glymur QCB
+      firmware: qcom: scm: Allow QSEECOM on Kalambo CRD
+      soc: qcom: ubwc: Add Kalambo UBWC config
 
-The 1G MAC capabilities filter out the faster modes, but 1000BASE-X still
-passes validation. Phylink can select it at runtime, for example through
-phylink_sfp_config_optical() for a fibre SFP, or for a PHY that switches
-its host interface.
+Hemanth Selam (2):
+      firmware: qcom: fix typo "uninterruptable" in comment
+      soc: qcom: fix typo "upto" in comment
 
-rk_gmac_check_ops() and rk_gmac_powerup() only check the static DT
-phy_iface, so the glue never validates or configures this mode.
+Jingyi Wang (2):
+      dt-bindings: arm: qcom,ids: Add SoC ID for SM8950
+      soc: qcom: socinfo: Add SM8950 SoC ID
 
-Is there something meant to stop phylink from choosing 1000BASE-X on this
-port, so that the SGMII-only behaviour in the commit message is actually
-enforced?
+Kathiravan Thirumoorthy (1):
+      dt-bindings: sram: describe the IPQ5424 IMEM as mmio-sram
 
-[Severity: Medium]
-On an RK3568 configured for SGMII, rk_get_interfaces() still advertises
-RMII and the RGMII variants. supports_rgmii comes from set_to_rgmii, and
-supports_rmii now comes from the new rk3568_set_to_rmii. rk_select_pcs()
-returns the XPCS for those parallel modes as well.
+Konrad Dybcio (1):
+      soc: qcom: pmic_glink: Avoid losing early rpmsg probe
 
-What happens when phylink validates the whole supported_interfaces mask?
-One example is phylink_validate() with PHY_INTERFACE_MODE_NA, which
-phylink_validate_phy() uses for a C45 PHY without rate matching or
-possible_interfaces:
+Mohammad Rafi Shaik (1):
+      ASoC: dt-bindings: qcom,apr: Add modem_apps GLINK channel for shikra
 
-drivers/net/phy/phylink.c:phylink_validate_mac_and_pcs() {
-    ...
-		if (!phy_interface_empty(pcs->supported_interfaces) &&
-		    !test_bit(state->interface, pcs->supported_interfaces)) {
-			phylink_err(pl, "MAC returned PCS which does not support %s\n",
-    ...
-}
+Mukesh Ojha (5):
+      dt-bindings: arm: qcom,ids: Add SoC ID for SM8975
+      soc: qcom: socinfo: Add SM8975 SoC ID
+      firmware: qcom: tzmem: Use DO_ONCE_SLEEPABLE() in qcom_tzmem_enable()
+      firmware: qcom_scm: handle empty PAS resource table
+      firmware: qcom_scm: align PAS resource table retry
 
-Would this log an error and return -EINVAL for each RGMII and RMII mode on
-that port? Should rk_select_pcs() return NULL for interfaces the XPCS does
-not support?
+Muzaffer Kadir (2):
+      dt-bindings: firmware: qcom,scm: Document MSM8952 SCM
+      soc: qcom: ubwc: Add UBWC config for MSM8952
 
-[ ... ]
+Neil Armstrong (1):
+      soc: qcom: geni-se: provide PROG_RAM_DEPTH for I2C HUB Serial Engines
 
-> @@ -1605,6 +1685,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
->  	plat_dat->suspend = rk_gmac_suspend;
->  	plat_dat->resume = rk_gmac_resume;
->  
-> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-> +		/* SGMII clock always runs at 125 MHz */
-> +		plat_dat->set_clk_tx_rate = NULL;
-> +
-> +		/* SGMII requires a PCS */
-> +		plat_dat->default_an_inband = true;
+Peng Fan (1):
+      soc: qcom: use assign_bit() where applicable
 
-[Severity: Medium]
-default_an_inband only sets a default here. With set_clk_tx_rate cleared,
-does anything prevent out-of-band operation at 10/100 Mb/s?
+Sasha Levin (1):
+      firmware: qcom: scm: Hide QCOM_SCM instead of depending on ARCH_QCOM
 
-A fixed-link node overrides default_an_inband in phylink_parse_mode().
-Phylink can also fall back to out-of-band when the PHY reports only
-LINK_INBAND_DISABLE, because the XPCS allows that:
+Sneh Mankad (2):
+      dt-bindings: soc: qcom: stats: Add compatible for Shikra
+      soc: qcom: stats: Add stats compatible and config for Shikra
 
-drivers/net/pcs/pcs-xpcs.c:xpcs_inband_caps() {
-    ...
-	case DW_AN_C37_SGMII:
-	case DW_AN_C37_1000BASEX:
-		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
-    ...
-}
+Somesh Dey (1):
+      soc: qcom: geni-se: Drop unused icc_ddr parameter from geni_icc_get()
 
-In that case stmmac_mac_link_up() sets the MAC speed bits and
-xpcs_link_up_sgmii_1000basex() writes the speed into BMCR, but the MAC
-clock stays at 125 MHz. The commit message says this "gives working TX and
-failing RX" and that "Boards must use in-band mode".
+Srinivas Kandagatla (1):
+      firmware: qcom: scm: Allow QSEECOM on ThinkPad T14s Gen 7
 
-The driver does not reject out-of-band mode, does not limit the MAC
-capabilities to 1000 Mb/s in that mode, and does not log anything. Can the
-link then come up at 10/100 with a broken receive path and no warning?
+Taniya Das (1):
+      dt-bindings: mailbox: qcom: Document Maili CPUCP mailbox controller
 
-> +		plat_dat->pcs_init = rk_pcs_init;
-> +		plat_dat->pcs_exit = rk_pcs_exit;
-> +		plat_dat->select_pcs = rk_select_pcs;
-> +	}
+Vitalii Skorkin (1):
+      firmware: qcom: tzmem: disable SHM bridge for SM7125 platform
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261008175225.3375274-1-coiaprant%40gmail.com
+Yibo Tan (1):
+      soc: qcom: pmic_pdcharger_ulog: prevent work requeue during remove
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |  55 +++++++-
+ .../devicetree/bindings/firmware/qcom,scm.yaml     |   3 +
+ .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   1 +
+ Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
+ .../devicetree/bindings/soc/qcom/qcom,apr.yaml     |   4 +-
+ .../devicetree/bindings/soc/qcom/qcom-stats.yaml   |  25 ++--
+ .../bindings/spmi/qcom,glymur-spmi-pmic-arb.yaml   |   1 +
+ .../devicetree/bindings/sram/qcom,imem.yaml        |   1 -
+ Documentation/devicetree/bindings/sram/sram.yaml   |   1 +
+ drivers/firmware/qcom/Kconfig                      |   3 +-
+ drivers/firmware/qcom/qcom_scm-legacy.c            |   2 +-
+ drivers/firmware/qcom/qcom_scm.c                   |  19 ++-
+ drivers/firmware/qcom/qcom_tzmem.c                 |   3 +-
+ drivers/soc/qcom/llcc-qcom.c                       | 139 +++++++++++++++++++++
+ drivers/soc/qcom/pmic_glink.c                      |   3 +-
+ drivers/soc/qcom/pmic_pdcharger_ulog.c             |   2 +-
+ drivers/soc/qcom/qcom-geni-se.c                    |  20 ++-
+ drivers/soc/qcom/qcom_stats.c                      |   9 ++
+ drivers/soc/qcom/smp2p.c                           |  10 +-
+ drivers/soc/qcom/smsm.c                            |  16 +--
+ drivers/soc/qcom/socinfo.c                         |   2 +
+ drivers/soc/qcom/ubwc_config.c                     |   2 +
+ include/dt-bindings/arm/qcom,ids.h                 |   2 +
+ include/linux/soc/qcom/geni-se.h                   |   2 +-
+ include/linux/soc/qcom/llcc-qcom.h                 |   2 +
+ 25 files changed, 280 insertions(+), 48 deletions(-)
 
