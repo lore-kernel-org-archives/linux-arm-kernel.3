@@ -4,132 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9645CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05DACA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=; b=BaZq/1V8bPW2fR84aigLzRilCQ
-	LezFX9ljpUcRo46DxjMhk6iqeIPmYzSVp8eV2zFzB5oFF3vdSvbfCltZWCvnsfdWSeZjKDIXTattW
-	9HLA1b32W0kCnWMW0BhPZXP9/NfpUBdn4Jm8K6B2s1TDWAnJ4aoid8uXedRXn0zLm3n5Z+p4NdhBq
-	OvXwxroEVCA+Zl2ywDzeOeXFvy0cNJ3McxTt360Ew++gIIb9l88ua5qgQH9Jbt2AkLrQc4F+a2rAv
-	GlRRyWVcRQ8mmBA5ykb0+1vuVIB8pIeY92Rvm9bPubF7Jpdd5T2uY5ReWd0+xNxlpErqC7sHq9V/7
-	AEUcRGEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YGFU23QuspVLvrOZDrMXylVmnar0KWTHEnYl8PArbYI=; b=fxS6NRleQ02Y95r/oZI65PjsgI
+	pbjTp7GOJGH1pdpBSezfthdpnABiZzvHZhTvCLOHrdCzEeYbvdzvjv32KggJcs61rpAJBp0as3845
+	/T+KgfLIJnWYsYDrtG9hkIWd8HoOEnbJueecV3GJXgJQLIrESkm/aIt3kbAwFQbW+d9V+20VEfqQM
+	8ZYi9EOZecEaqwoukhA+XE1jze9FwBG9O67WkANjpJiiI3JCPfUVzqlzWq9O3xNeYXemRYUeEo0+y
+	0vSvv8iBeppgSQ90YKYAlhntnBNY8kLZDighGsK36JJg0iGSes+/asxnY4I3XABvI9VLv8pslx1BK
+	e/aa/zOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFvl-0000000AXyM-3Skk;
-	Mon, 12 Oct 2026 13:19:05 +0000
-Received: from mail-francecentralazon11013068.outbound.protection.outlook.com ([40.107.162.68] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xGFwY-0000000AY8a-2HwL;
+	Mon, 12 Oct 2026 13:19:54 +0000
+Received: from mail-northeuropeazhn15010000.outbound.protection.outlook.com ([52.102.160.0] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFvj-0000000AXxp-2fbC
+	id 1xGFwV-0000000AY7h-43lq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 13:19:05 +0000
+	Mon, 12 Oct 2026 13:19:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TqSYDltBd1LMeVhe8QgkAeR5xNcM37S27ecWcIYsOzIz0S2Yjw4o1DFUokDfqzd+LBLDG2BzDFfnx46L6cyWuUlvF8lGjW3SOP/Iu6qIX8bdX84x3CJ3vIF1BWd26n/FmsmxdcX+BwBKI2Wk46wYo6WSmzLY9hC4OPWXjwjfMjzld/AI4JcuIT5eevnZyd7LzcOvE8fxwf+VeK4g13sSInMhrk7ENcOJz9ac/wMAOoTfAhRLgvLcuhj8pjSL5zbPtSf70MB1UPWZDyLB6iwaR/9q7Py99yN0SEDqjMeGhFJLS+wzNWKHEp0md1e/EO/MR9lEDHp7jNbYhTaE36cgHw==
+ b=PZQqFbP77l/GdgOwoMnzX5Td3d5h2VNpsIkFrpLfxTm9XNnGqGv0+Rmutz4/bdbVdL5F/ewFFr9YmigD0jd86VxtZiUY+7UtbWUDEtTDrJmSS3quXaND2PuQZlVhOsZjL26LvbRQaqq4LqjSAg0OEOGSda7E0BaswZBdZO8JGqI9rl3wHesfzBssODV10gFeGrrUeH0OAAL51qyMhHF1F2l7hKwXfC1UlKkVdn7nBp/8Whd7ESm8LSrbuDlYev86V14pUGa8z+NgFx2yDjqvoarD/ssuK8Wtav2K0j0DVd1vWKCNJqHVtcnjzJ4GQEStuzZYNFEh5leDbnW4SFVTjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=;
- b=g4n/rU5ODzCBPcD+qnEMR0sDqAVWj0M2KBUw1nD30a7+cSqH4uoyW8KkWlWEplDRoBA32+QYN8S6flO0ERrIgeDYa5b391pSUzH/G0h5yw3VtLUV3g1GUUCo3fFdztEOkhKEx0fUUQ6Z2z11/8x6XnlVJuapkn/IgXjHtd8nyv6QtTVsEAASZB3HZlcV7N/iSfssdpc3dCWd2rnTIlOiR7m9SiQc0J/QvlN6v9Al8gb3L6zFK+6adKjHCiOX/OY73JcgIl1VwEOFDgR6M2ansrAIi7gbn3oq7zOiAOALlbKNooBiBv4pWp0B81hqJOWExO6tSR0NL8dcqVrjOY03lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=YGFU23QuspVLvrOZDrMXylVmnar0KWTHEnYl8PArbYI=;
+ b=K6Kf8fQ59lRblhW0X0jFT6bvsvRaclGmpE3Gz4yll2+jnPlvhAB0yX3elkNP5g995SXMvmd9xy9m/aG9CyoxF2UFilr9I7MURDI57QP739loL/TT9X5P/0mmuVX54aAU7xjZxSgJPaldLQDmgfq/Q8BtBWkcbrJypadNdlTKLFY7vSc5oe6DmwHn5+Fjv5jLoqFtezk19oRIT0+KAP3o9XK79fV6wytk/b5mz8odjwRp3jOtDjZRvyDn8oBf3FLtd9lydzLnujXpS0eYIaH4xt3tFVJnW1EBcikUT6M5NUOejQyPy0vDqRBNcmH4pN1WryxUtAoHeW6/4NCGJ9HIhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=;
- b=TOGy+2c8NpsMuIqFQ7RB0y/CRF7BpRJWjyd5Aga8Ww5uv1zkIu0rWD/BRwl1uamwjPEFLB5EtuuRPcB/lgxBTOPETEmfefh+vAs+IfEK1m/dpEDN72tknaKzSgE5xfDRUjGrwGgZeo2PX6f1r3vCI43zj6RHeX6lDLdRvCKwLFkehR6IqKQw+otgjQtD52UHwFI/neqQKIwL9Tz8ldgRhfuISnRp6VJ2xrHOf4zvwuB2oPjn2H9vBIvBQ30rCQFuI2lC/ZEYs28gRnT/0oVW8lPzgwErtlcSGbAs/0+2kr1GWfJMSEEsg75XhBsncQWsQeICVJ4wg6UTDzGxXqbaTQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DB8PR04MB6953.eurprd04.prod.outlook.com (2603:10a6:10:111::8) with
+ bh=YGFU23QuspVLvrOZDrMXylVmnar0KWTHEnYl8PArbYI=;
+ b=ooQgNwnQfrp4wQjFhHEW49kd89te0mnSGP2VyRk8Aqlp7G7WtIRSBwg1rrMHr8uH6mxKRPEiKbwaX0qR8pTXSja8+pOvlEaWvcfFvK3RRaxyCDYD/WpAIdueuLQZIxdj/SvbGydZmSajFxGVahnQv4iAjMoBuxBfRTAg+EP1ZDfQ1diJyHf4R02IrzKUGxFvwiWv/oWTiTsbSSyfV6Cw7+dsi5asK2+lnZX56haQbisigdnsdi19J3yc3tsZNJbgwrPeb8JcT82pJPV2Ns4wA8yZN2o0WvyXYbSIqntBbsjrle85JDCLnpO12bGUJ5H0KRs1ak6WMNVDZ4qYYVsDxA==
+Received: from GV3P280CA0103.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:8::8) by
+ PA1PR10MB8691.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:445::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 13:18:58 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
- 13:18:58 +0000
-Date: Mon, 12 Oct 2026 21:23:32 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
- ordering and feature gating
-Message-ID: <aszfVNP6DGzWYdK0@shlinux89>
-References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
- <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
-X-ClientProxiedBy: MA5PR01CA0215.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f3::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.20; Mon, 12 Oct
+ 2026 13:19:44 +0000
+Received: from WA1PEPF000099CE.eurprd04.prod.outlook.com
+ (2603:10a6:150:8:cafe::8e) by GV3P280CA0103.outlook.office365.com
+ (2603:10a6:150:8::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 12
+ Oct 2026 13:19:44 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ WA1PEPF000099CE.mail.protection.outlook.com (10.167.242.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Mon, 12 Oct 2026 13:19:44 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 12 Oct
+ 2026 15:20:09 +0200
+Received: from localhost (10.48.87.14) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 12 Oct
+ 2026 15:19:43 +0200
+From: <gabriel.fernandez@foss.st.com>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-clk@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<gabriel.fernandez@foss.st.com>
+Subject: [PATCH] clk: stm32: fix clock array size for STM32MP21
+Date: Mon, 12 Oct 2026 15:18:59 +0200
+Message-ID: <20261012131859.215240-1-gabriel.fernandez@foss.st.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.87.14]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB8PR04MB6953:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70b9dda4-40c2-434f-b921-08df28635f9f
+X-MS-TrafficTypeDiagnostic: WA1PEPF000099CE:EE_|PA1PR10MB8691:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc0b5103-c1b5-4d77-a2a7-08df28637b12
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|376014|366016|6133799003|10067099003|22082099003|18002099003|13003099007|11063799006|261009223027099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: By+ZwRpqBnzT6dsOJMDr36133UM+WAhbP5daSKBpaAvtaQuKh8pW2mogy96cMaPPAzC+80ZGrVOhw8Z/Ebf92Xb5NFOREajxPGiI0wMZGsC5hF6a5a3aXFZkT06W9r8HjSWVsQmL32Du0dpOUoA0f/AMp3QQWZWLVSVv1LHtr3ZCntFSOdpbQoRDu2thiopB071rQg+tdhn0uZOfO73JWBtClRVUZm+ZAqRgQaZ8Qp2eeL9fHk28eM+HJ93TAVvAoExl5MMUohMHNkX+klXHWuSC9zMUlpdEb68Z/wsbGj28R6GZ6ysyrChRxYEVa1IC8MgxJyDOqV9ehtsTBNyLEXWo172Vm/ELx9EkrVu3Gxu+3Bwse1QLa5GkY7ddt4/FFIkG+DIgLDXqjZwIJdLSGB+kQvWY0SKn8YNWEsp6MtpLuX3FcfY00U+aXMrCHhCeXrLGgHanje8bnrvJUlGFBtM8qfeICe/WDVn7iFVgUhl/UQrGd/vglYpvwA3IHzxUvuuCVawadnuwqKIzikEAsNJz7LE9VddLjGteguervnQVtdKGQwlWTWIz7wp3ONFNsjr9B2OEYpc76mfqO+CFTs5OdGgdbEmyWYrv0NaGZ7s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(376014)(366016)(6133799003)(10067099003)(22082099003)(18002099003)(13003099007)(11063799006)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|34020700016|376014|10067099003|261009223027099003|11063799006|18002099003|56012099006|12100799066;
+X-Microsoft-Antispam-Message-Info: 5Nm8ccjCL6XSW8CKI7bfmXcpNnqEUEyLYyxJ7LUXzbScWDWXg5mPmWExxhq2ClG7gNfs+Esni1Ck5MQH/27ngJufnwTOMdi1wX5h59OaO0LOq33j8jTl2W42sMOy+N1VPE1sxd6aLTfDs7dxujLsgfiDRPDl//FcJVpSGsUYPovWJloJQSNxMRtOKg8DX3HGIQKtwooxtUPRf6s9OC2uZg4wgLJVBF3Oj7gin6YbiN5PSCm7/1XQRV0FFhJSJvEh/dVARjOoIbOPA1/5VFvqVnMxTemA7mUcJnUnYixh7+Lcz/YdPcrzZh7aA11oJkMtEHAyb5/L7MbaIsHxDh9VRCRO4cSI/Xx+w/5EsYULwGopoieG3zB6AL9T4slFGhChNgyOMf7MVyhFsBsxmkTDjshxvAlUoZsKScn5FCxmhgdm0CF3Ac1NaV8uZD3wvZxZ5wU1uNcxHA947owsrIX8N6MowQiUgNjaSnarb9gdDZaYtYeckPfytG03RkK5wED4mNFDyy7WnB2Xln+dhkkqxMqop7VxNre/TJr6semiPp5poQqYCRpgnk/dT7uUcPJ/9OM29RCpCVqsnh4a6Xcz7DzV8DDePtB4lOQx6Jmw5EOPjP3/H+cf4iYkrGtHjr1DjiIwKL2uQN6DzkyjdQv+r0xt3rhCcjiMZkAHBhwAC6xt+ovrUNmow4b3IqkC7aQr4eorl4kVYGu2zZtM1Ja+dA==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(34020700016)(376014)(10067099003)(261009223027099003)(11063799006)(18002099003)(56012099006)(12100799066);DIR:OUT;SFP:1501;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PTLtNWnhqfAzNA65MedZ1FOFnAb/7zqp1UBLaxBc2jISYsp1Fc590pJJGy9q?=
- =?us-ascii?Q?rYM1IaaDGpPvOkNlKqZk8g57fDSKN3sVQHj5WlyYzAppvgi20PhhzqRgs3x5?=
- =?us-ascii?Q?m7KsIyBNvRt/rpcRc5xUCVETp5iGkXVt7L53EeEeulR8ViaGNkizBwZ5wiNe?=
- =?us-ascii?Q?nDlxaXzrvdL62yaCjkhchY5x8RCh8vJok2pspACNo+BppSZulnLyEsT8HQ13?=
- =?us-ascii?Q?AeC7pgU9f60sxojvQ0JYGlw7Yj96OuHMcK8vTQlHN2r7eRWBJeIiCLcKy7o4?=
- =?us-ascii?Q?9j9Qdvu0f69H8ifOfySEawRcVM9vlaD89CQymVUi06l93D/OrOV5GIw6EkrL?=
- =?us-ascii?Q?b8PWTqvVV4hhqqAomvAFUHnehoLtWTGtJS+OXhwSDmXoXkWrPeAm7Vt00OfV?=
- =?us-ascii?Q?m2aZREoBAaoX9k6Kd4FrnqQ7YMPeghUoLI2IA0OtzSJQ12AfhlyqSQaBzgkl?=
- =?us-ascii?Q?MEyoFJ73zlZgfrDIaGXDkO5y9tI6KwxDKFUGyTKmHxOAYTX7S8Fl8r9+QWeF?=
- =?us-ascii?Q?UJxy8LYR/6GgK4k6w3ey5sZxfNlpLU0V/xix0C6dwgk+RWGqhbNvgpwBaUnO?=
- =?us-ascii?Q?CyNxjFHDXaQ3qdUvvLDXjAoHRRpFJroNtw0A3bR8b2x2d+XqRY55D/1nFhFK?=
- =?us-ascii?Q?5uf85ag/ywXMHKufbJMA/ULTyIgBFqCrx3hBjBKHYRQpQXw2WpKW6hezP7AA?=
- =?us-ascii?Q?3QrsRISdwycxti69Zyd2PH2R9wlgTabjPP0cdeiJvg9EX/vmU3jBlglEOQM7?=
- =?us-ascii?Q?XJg6BfswI3ZMn2nq1CbLjYE9AyzpkCX8+3Q8FVRWmpx7zqPGLgQ+ZGQZ1arU?=
- =?us-ascii?Q?ADkjxPHf3POrI/s960Qy6Cz1AXeWx1gZ+49sYorwBErXaWODpws5f8BwOt10?=
- =?us-ascii?Q?nenyN1WfE3R2DyWeGZxzOQ8v58/GB1I9NHBWXAtIv6FJj6abTyaryAPXlh8H?=
- =?us-ascii?Q?+JB7gMZxELgaUjlxgmKoE0+NHKJue845g2UYETwSdca4SOSZ0/9unmDaHomC?=
- =?us-ascii?Q?mWBkr7Smr0PjfCsURuigwXJR1xXKZlLBY6056ZuPkDLAaNLdheQMQMEqtOWs?=
- =?us-ascii?Q?wzP6YfXemmKWNCMCIQy+bsjkOg9hAsvsMRBoJeZZB33BydLYHHsleoltRHjW?=
- =?us-ascii?Q?/y3HGxsPO29eqHpJ73JKhBYFbfFB/3ScldQ02kgMTVeWCerA6ifqejijqArz?=
- =?us-ascii?Q?jG3hWDxn2u5BpVBqzURMb77oEsmZKUUgiBbZr5Kuynqz1dl4KLeLJAcqHe7c?=
- =?us-ascii?Q?B4k7fq95v6n2esRKfEtQPCIwPI9JpV71I8zWpGoCT1NZOjhETCcWcWAjZtT5?=
- =?us-ascii?Q?tmLSYrAzz9ar7g50EXavo+2n+MFrhscurgrNRBwHz/s+qzNf8rh/S/3AGUB5?=
- =?us-ascii?Q?maQT8eEMgPRKIgf22nagX16k5qlagfiYaXvqhJENWMlALxhe16zdnzlXwu4q?=
- =?us-ascii?Q?R4UjzfiOqebEy16k+c3GB/en4ArHhjms7rO9o2eAGnL7sN6wTN6NSBsL63k7?=
- =?us-ascii?Q?Ec+IjOPFvWjayZ3ywpAtcWJHFZ/OYnIQ9UTY9zUAgO9caEWNRsepRBAyVaTx?=
- =?us-ascii?Q?5OS/IGJXL3AGpI+5tTGZBIp5Z9vYiGZTjeluvO/80uQK5Dk1Vbj1gsbsSSJK?=
- =?us-ascii?Q?vnfguB7QlW6CXiU2R7JJ3YnmEqU46iaquyh3sHhdO/OcCiThTiU62k/MQwkb?=
- =?us-ascii?Q?WyPxfPi+nyC83s1EWbypO2UUX2sV5Gmjkkcp6SDApVAYKLJQqQ7AdAcrhwrN?=
- =?us-ascii?Q?YDyFVQBbi1/XInhwN9l+ZyrOFkCnBOq7gyb4DYOohQRMOOwtK3y3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70b9dda4-40c2-434f-b921-08df28635f9f
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 13:18:58.4025
+X-MS-Exchange-AntiSpam-MessageData-0: EJw8yYpG6c2AQEbaOjwwVFUgfQ9qA+VQniceIRirMgTXgqVkVExHd9trW9sTlroJDAz7tBjOZ8o5B5i8tY54ufpGbKbE/VfoEPf4256jVXW84TagS0tYaK1ObZavTm8TAJRSDmicQJDgvjn+yRRrNkqRHsWp1RdDjeRmS+LnPis+UeHQvRDQdW5TiJkY5ygAcfNMOuTF2Ae2avUzwuTdFFmaHVGhOe8fV88RKPtu3tMb5hm+RbwAjpoM2f9h7t/EOg6nvFTFn/fakIidMGOzBcO/cUp+Eee9LQXjHbwxsn2YEmQi21jbk7SQS72edSrxI0wdxw2NGJ3/3I7e1udn6/EXxAeEGmPdo+zxwbe7TXzCbyfE7XJXgFJWP+fkhwZ4iGUXjnM6MjVvohwtKD+ylnj+zbuxHf1eWeHKXYazxFKKEnLgeWAgsyAf2qdHQC+R
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 13:19:44.0524
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fzD0cE2CHLbny92t5pHYNsa5MmfrQzPIw56xnbdAwhbJ41mHWTvGdEO9WFLXVnjF3cEYsIjuyoWDFXR265C6MK7w4S5DMmaeC5m623PH11f1dfaxWYpemicZSPrirBxd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6953
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc0b5103-c1b5-4d77-a2a7-08df28637b12
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CE.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR10MB8691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_061903_692250_A5F21700 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20261012_061952_117865_297440E3 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,152 +126,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin, Nicolin,
+From: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
 
-On Sun, Oct 11, 2026 at 07:31:29PM +0800, Peng Fan (OSS) wrote:
->From: Peng Fan <peng.fan@nxp.com>
->
->For shared SIDs, only the first master to attach writes the STE
->(tracked by ste_installed under streams_mutex); subsequent masters
->skip the write.  On teardown, skip the ABORT STE write while other
->masters still share the SID, and reset ste_installed so the next
->domain attach cycle re-writes the STE.
->
->Fault events on shared SIDs cannot be attributed to a specific
->master, so arm_smmu_find_master() returns NULL when the stream's
->shared_masters list is non-empty.
->
->Disable SVA, IOPF/stall, and vSMMU nesting for shared-SID masters
->since all three require unambiguous SID-to-device mapping.  Clear
->stall_enabled for both the new master and the existing first master
->when sharing is detected in arm_smmu_insert_master(), so the STE
->is never programmed with the stall bit.  This prevents
->unrecoverable bus lockups since CMD_RESUME cannot be issued without
->a unique SID-to-device mapping.
->
->Assisted-by: LLM
->Signed-off-by: Peng Fan <peng.fan@nxp.com>
->---
-> .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |  2 +-
-> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |  3 ++
-> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 60 +++++++++++++++++-----
-> 3 files changed, 52 insertions(+), 13 deletions(-)
+STM32MP21_LAST_CLK is used as the number of entries of the onecell
+clk_hw array allocated in stm32_rcc_clock_init(), and as the bound of
+the clock IDs it can hold. It was wrongly set to CK_SCMI_KER_ETR (112),
+which belongs to the SCMI clock ID range, whereas the RCC clock IDs
+go up to CK_KER_STM (289).
 
-...
+As a result the array is too small, and registering a clock whose ID
+is greater than 111 writes past the end of the allocated clk_hw array
+(hws[cfg_clock->id] = hw), and consumers requesting such a clock
+get rejected or read out of bounds.
 
->+
->+static bool arm_smmu_skip_shared_ste(struct arm_smmu_device *smmu,
->+				     u32 sid, bool is_abort)
->+{
->+	struct arm_smmu_stream *stream;
->+
->+	lockdep_assert_held(&smmu->streams_mutex);
->+
->+	stream = arm_smmu_find_stream(smmu, sid);
->+	if (!stream || list_empty(&stream->shared_masters))
->+		return false;
->+
->+	if (is_abort) {
->+		stream->ste_installed = false;
->+		return true;
->+	}
->+	if (stream->ste_installed)
->+		return true;
->+	stream->ste_installed = true;
->+	return false;
+Define STM32MP21_LAST_CLK as CK_KER_STM + 1 so that the array covers
+all the RCC clock IDs.
 
-sashiko has comments: https://sashiko.dev/#/patchset/20261011-smmu-shared-sid-v6-0-cb76b89dc612%40nxp.com
+No device tree node uses the STM32MP21 RCC driver yet, so there is no
+need to backport this patch to stable kernels.
 
-We just need to support a simple case that platform devices(single SID) which
-could share there SIDs, such as MMC-0 and MMC-1 share one SID.
+Fixes: 37ae8501cdb0 ("clk: stm32: introduce clocks for STM32MP21 platform")
+Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+---
+ drivers/clk/stm32/clk-stm32mp21.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Shared-SID masters are restricted to platform devices sharing a single SID.
-SVA, IOPF, and vSMMU nesting are all rejected for shared-SID masters (patch 5),
-so VFIO passthrough and direct domain replacement scenarios do not apply.
-The only domain transitions are the default DMA domain attach at probe time
-and ABORT on unbind. Or I may miss something.
+diff --git a/drivers/clk/stm32/clk-stm32mp21.c b/drivers/clk/stm32/clk-stm32mp21.c
+index bdb17419908c..961a228d8c64 100644
+--- a/drivers/clk/stm32/clk-stm32mp21.c
++++ b/drivers/clk/stm32/clk-stm32mp21.c
+@@ -17,8 +17,8 @@
+ #include <dt-bindings/clock/st,stm32mp21-rcc.h>
+ #include <dt-bindings/reset/st,stm32mp21-rcc.h>
+ 
+-/* Max clock binding value */
+-#define STM32MP21_LAST_CLK	CK_SCMI_KER_ETR
++/* Number of RCC clock bindings (highest RCC clock ID + 1) */
++#define STM32MP21_LAST_CLK	(CK_KER_STM + 1)
+ 
+ /* Clock security definition */
+ #define SECF_NONE		-1
 
->+}
->+
-> void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
-> 				  const struct arm_smmu_ste *target)
-> {
->-	int i, j;
->+	int i;
-> 	struct arm_smmu_device *smmu = master->smmu;
->+	bool is_abort;
-> 
+base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
+-- 
+2.43.0
 
-....
-
->@@ -4360,9 +4391,11 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
-> 				break;
-> 			}
-> 
->-			if (list_empty(&stream->shared_masters))
->+			if (list_empty(&stream->shared_masters)) {
-> 				list_add_tail(&stream->master->shared_masters_elm,
-> 					      &stream->shared_masters);
->+				stream->master->stall_enabled = false;
-
-Sashiko comment:
-https://sashiko.dev/#/patchset/20261011-smmu-shared-sid-v6-0-cb76b89dc612%40nxp.com
-
-"
-Does this dynamically modify the software stall state of the active first
-master without reprogramming the active SMMU hardware STE?
-When a second device sharing a SID is dynamically probed, this clears the
-software stall_enabled flag for the existing active master. However, this
-software state change is never actively flushed to the live hardware Context
-Descriptor (CD), leaving the stall bit active in the SMMU hardware.
-If the first device triggers a page fault while in this mismatched state,
-the SMMU hardware will pause the transaction and generate a stall event.
-Because arm_smmu_find_master() returns NULL for shared SIDs, won't
-arm_smmu_handle_event() drop the event?
-Alternatively, if a fault was already reported to the IOPF queue just before
-the second device's probe, wouldn't arm_smmu_page_response() see the cleared
-stall_enabled flag and return early?
-In both cases, the required CMD_RESUME is never issued. Can this result in
-a permanent, unrecoverable lockup of the SMMU bus? Should this sharing be
-rejected if the existing master is already actively using SVA or IOPF?
-"
-
-I am thinking to simplify reject if stall_enabled is true:
- 			if (list_empty(&stream->shared_masters)) {
-+				if (stream->master->stall_enabled) {
-+					dev_warn(master->dev,
-+						 "Shared StreamID 0x%x rejected: existing master has stall enabled\n",
-+						 sid);
-+					ret = -EBUSY;
-+					break;
-+				}
-
-Otherwise things will be a bit complicated.
-
-May I get your suggestions?
-
-Thanks
-Peng
-
-
->+			}
-> 			list_add_tail(&master->shared_masters_elm,
-> 				      &stream->shared_masters);
-> 			master->streams[n++] = stream;
->@@ -4522,6 +4555,9 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
-> 	    smmu->features & ARM_SMMU_FEAT_STALL_FORCE)
-> 		master->stall_enabled = true;
-> 
->+	if (arm_smmu_is_shared_sid(master))
->+		master->stall_enabled = false;
->+
-> 	ret = arm_smmu_master_prepare_ats(master);
-> 	if (ret)
-> 		goto err_disable_pasid;
->
->-- 
->2.34.1
->
->
->
 
