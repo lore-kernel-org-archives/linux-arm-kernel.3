@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365F6CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2C4CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lk5ih1jl7s/qnH8PsiY7GfNUNgydrjBFZI1dErLjrRU=; b=t7zTkk3+PTVU/NjRyvhy0dOp+V
-	KGVCKYauW520lk4EWiTk0xt0pLkjg2gNLK1NIBE3g7DjkkCQ8/BnO+HKA83BbJuWAjSGoyckaEcMd
-	9JFES08lXUCus2azmOQthFhhkDyTg7KWiuFf9NX1wVPaS4aXxmWrp6PfRdlVTM+eM4AtRnaJ4Bp5/
-	4ivmGa50hAlwtwsnDpEeODmfJxiPiQKMzCv09Nj3i56ZvU1G7CiVqqlwGcKI8VNUyf/zWAb6YsNNH
-	JPjS+jdL2krrbMPsxu03B2WjA++l+MCZ6NpLSZIsHti0QJ+poI0IOtGjT+O5mnjRqdvhykt09UZdl
-	OnTTf1IA==;
+	bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=; b=gRiIrRZ8Ilqt7URcbNHuq7MKom
+	iFggaJRk0B8/xSN89bHjbNIkfwGH8Te5MPmGspXYEXr08UkQzzKuENITW8AfYvQavv4cDZ21rfykS
+	XB1NqO9+HpjhX9yKeh+z8zeqA128AJtomysAG/TrMX2e/GgyltNkket256CEHS1iF4qicXm28Oifi
+	Ipjjy8n727eMvLPgCKaEXrtVqMab3YruXpD2vAG9tKH8cV4vSDFeIQBCUOHA0s8EykNcPn5m74qKP
+	lKF5r8L06FEgN8isx6g6tgp4omvClyu5h++/4U8zRlZuLev1Pmkz0Eh0sCN4HsCnmNRy8rC/h6FCB
+	uIw+BIXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCHx-0000000A3Jt-2sBp;
-	Mon, 12 Oct 2026 09:25:45 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xGCIG-0000000A3OU-3LZn;
+	Mon, 12 Oct 2026 09:26:04 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCHv-0000000A3Ir-0bUz
+	id 1xGCIF-0000000A3NS-11eC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:25:44 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a0213948d3so10059945e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:25:42 -0700 (PDT)
+	Mon, 12 Oct 2026 09:26:04 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a021c809e3so16343115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:26:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791797141; x=1792401941; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1791797161; x=1792401961; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lk5ih1jl7s/qnH8PsiY7GfNUNgydrjBFZI1dErLjrRU=;
-        b=f/Dpdiko/zd+ypqrFLoOyPi1S2bP4AoVOYf3HCvdieIDuqmk9ngHUItbUQcX1kBhag
-         oABl1mXxV/IrTi7naU8pmYAWFqzNqS25OnLfPn9A6sYgUPlwOFDqeQebHwIjk8SmEr9a
-         +hN6QlHQAjvIMmvW7mwKT2vGs+0q9rj3nJFD1TQOzJ4E+EIEHLVuMI6lhZptcrCyJcyC
-         tFXXHO0EK/ZILlv/8rExu3GwU+nrACyT61tFOZHVfdcTB6pGiEtUe2Pw/RdeQthHYhT6
-         BHJrWad+NoixMmiylLcWYoPYw6rOZ8Y75M6imbZfNEJ5twPDYhtQ4vfCPFaXEoMzn3Nd
-         b3tA==
+        bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=;
+        b=poSaJ+q8Zx1cUWm0ATNJysjTKz4wbvigoTZmex39+4KzBd0oMfNlE0tzg+m022wvCt
+         PSd85djbaVOrWVrUt37xfGBWbCBV728JHrghq46xlwYmMr3vcuQPk24QxKbM+VRvUz6C
+         5v3RuWoJEKDjNfFhD8XoZZKu2QZ42S7CFmg2Y+2xEJ6k/EA14nQQ3uJclfq7tcd64PtA
+         Adqb8wAFEnNADE3oASiNNGs0je7VScuHNLlbl++gxydNzet4tmYfr9pIUNKD29QrP0xT
+         R4l2HyNC/OYcyzCPqM6OdQuNkp9DlsDnCCoMTVg5eA/yupfJ2fNGKPuy4sbnDxbADYX9
+         Sazg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791797141; x=1792401941;
+        d=1e100.net; s=20260707; t=1791797161; x=1792401961;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lk5ih1jl7s/qnH8PsiY7GfNUNgydrjBFZI1dErLjrRU=;
-        b=DOzMAlLV8QJARk1IIH6tuUHWzAfWF4RT3OzmuIFunAIISTSysXwOOOVI9QbRbU0WLe
-         p7I18PnnwNZ1dQZqthGqMYxZBIfpVky5cXUyhN8EPKAEQpuKqwew1cgLrKcPjGvQ7uD0
-         tT5D8b0LSzHqOZtP/6AJZpJrZ3hhRo1V6NDgAHii9bl2upTq39F8T1JUd2Ynu4g58woo
-         VT0K1I8WSgNeSDZhNQbLaauvBxrdbFLAC9X1kfmzhhBrGd8+xUUyLsZsMg/Uglz1IFmF
-         8yb5unVM56aVU97NJeEYmZGGUkDQqLTwKrDAGTM1W54VPkFot8nlly5vBddjpakVEw7M
-         T7+Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxmVpb9wTGAfO69PqCEMBD6qKsvp/3YxtEgC0LxzP7AiApChK2HFcq+k6pZbnfCUXhF80j0cg5g0q15WHR3eM0m@lists.infradead.org
-X-Gm-Message-State: AFq9FYLsusGjIj2buli01wY2KvEM11iC3er6hAO4IenWXGKNRNg9qyiZ
-	5xXaNXhDQkFPe2TAUGgArFdXxDf4KkgkZE/ohKyEsdpaTlTgVOTOa0LYLI55xrWLmAg=
-X-Gm-Gg: AYBFou0ahiOIx2RUabtOhuIFjS7BO4guUN5CgBO1SdtVPBl3JK21itf9GYXdtrFh+/j
-	Nk/KQXH55NXx4LzdmZ3kYkgoZHrSZiMQmFS6hOVyASrftac76RTOG9kCLEXqM0bwdkHPvWwv3JD
-	NS5O9jGyWTkSSEWrMmI78jMAovetTfuRy+x7jWHLWVOKrWgGvjHha3OI1sTFWknsQdt3rHPXqAg
-	NEkLSsRp1K/TeJJCJlRi/mr9KBGdO4F1OB6YfwIiFcSKfrXF75JYcwWxHABH7Oq4XEG4fCfjIj3
-	I8+n4KeRmVJ4g5Hp2AZRaNqd5Vv03IxgNFgrIoF8l+k4POzIGjbXn30WbvN23KuEQmBpGfG3C3t
-	IVc5KeNbUM/kRYOq1T6qcuv/mETMxQw3gt8vlcKFIB7RVkAZt2JRZGzLwmNIYscvLrTWF+dHxgE
-	snEAjC8AL6ggUBrT7qWNroqqT1ZdBD1q8quMuQ+8TtxhumJM2Cd/JDgW1StgvV9sL9KTG1fmmqi
-	FV5lPOV6JbSmUKVlvoTuTAu+g0HbWgWj6pez2IoLlipO255R4I=
-X-Received: by 2002:a05:600c:674a:b0:49f:f0bd:1e40 with SMTP id 5b1f17b1804b1-4a18e4afe9cmr153244585e9.23.1791797140983;
-        Mon, 12 Oct 2026 02:25:40 -0700 (PDT)
+        bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=;
+        b=zJwFV8bnXKsF+t0SS2/aZNzejVQUdAtaoK9Pf2ctFvvnd3NKEFhoX9/5FTgkFe6SXG
+         QMLgzAEwb+vW696MGAtl0u314kl1Ja+DLhPdyDEV7LOjo7hVxfBwJPjJp+TkkejCSF8c
+         jgj/kBEEMFyJJLuWhFo2zu6eQSkK+936HVi5fqv1H2GEe44uPBDMGTeOHl8TtnRXNLBl
+         02Y9+rDkzU/iC8te1H5jMpgcfYu/YMM+GYGVqK3wCqgYrD+e6xPCPxA48C6dudel3Ci1
+         ennmcVE1d/ZNpOhfuyZXj5k4J5b4MVorAuXo0dFQD6dMISLKH4Qxo2VJkC17mslj3K6r
+         aTtQ==
+X-Forwarded-Encrypted: i=1; AKwUvByeHHJ7uBYvifnitWKZyKt0z/4XH1g3PVairPOdC3WTU9fqmbxleHvR0DE1VlJ83mFaPrYDtgN4Y58+9S6eRKou@lists.infradead.org
+X-Gm-Message-State: AFq9FYKFcYYp/5UqrDvzN0dcVbafWaqLAkIT9NPHNUe8Xqr2itKuvREC
+	MkqafM1pnnBk8AKkbPmRPD+nC19VLQ/MVCik9UMCQUjN3bd9Gx4ZkHOSPQWtUor4YOs=
+X-Gm-Gg: AYBFou3IzzVr+CkHaVK5NaTdtRC1STlnJMctFmUKluLCkEWYm7OfqsFYhixCCzylhXS
+	4t+NMHi+BAY3ogtr2rLCifbMMjJZUjdWzUXxyK7BZ1tQ9yo1d+DkuldcxKzZGMpiresDnEc0hWR
+	eWxUccpD6BBnPzAp1WziZeRWCbC4/FVCx77x0xs9n6Te5vHQkZxKoGflyPe6qGgrmG6hL7oKgsh
+	qpS+J9kJnBTn4EvTP9h6dzXz27HpQ5AwCWszH1YyswMCyvKsgsdEEsX7dzMRWT+nt8lrn50rG1t
+	Wpimo6ELin5JuIBOz1X/tjlwvs+6Yd1jLr5V+td7Q90TEBstcudOLXUn9DskEOCRsIo097fY9Al
+	7gtAlHWhJQ8qsIVttOWrNqAJQoxaxOr32UZMr+PfFP+CAATT7262uRVUloh9FevDrblHCgAmdkU
+	acCcOME7VeKWOWNtoBwzI4QQ7cJLO7LfxcVdfDfPRoLV5jEZVFoKz5sj0f+7X7M64efoKabulVc
+	5qIFjp7Ao0P5bgtZ7EcmZjXC3dN0k03znqyPcNGcPtyZXAaT/w=
+X-Received: by 2002:a05:600c:8b28:b0:49f:bd3c:bc1b with SMTP id 5b1f17b1804b1-4a18e499da4mr171146595e9.22.1791797160966;
+        Mon, 12 Oct 2026 02:26:00 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:417e:f4c4:5b8:8c48? ([2a01:e0a:106d:1080:417e:f4c4:5b8:8c48])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18be8c5e7sm345518685e9.4.2026.10.12.02.25.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9ac6a91sm16729294f8f.41.2026.10.12.02.26.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 02:25:40 -0700 (PDT)
-Message-ID: <255fe08c-8d58-441d-988c-9145f0995c6f@linaro.org>
-Date: Mon, 12 Oct 2026 11:25:39 +0200
+        Mon, 12 Oct 2026 02:26:00 -0700 (PDT)
+Message-ID: <1a940a0c-0a90-4b8d-831f-300c2cf02ae0@linaro.org>
+Date: Mon, 12 Oct 2026 11:25:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
 Subject: Re: [PATCH v2 1/2] arm64: dts: meson-gxbb-odroidc2: read the Ethernet
  MAC address from eFuse
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- filipp.dunsky@gmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
+To: filipp.dunsky@gmail.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20261011-odroidc2-dts-v2-0-a3a4a752f2ab@gmail.com>
  <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
- <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -115,12 +114,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <CAFBinCAOsJG=ROP43+pj9dqYc4yWXs4RQisRZghqzbtspp=e7A@mail.gmail.com>
+In-Reply-To: <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_022543_213381_7B85C6B1 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20261012_022603_374124_9D4351A2 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,23 +135,59 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/26 22:49, Martin Blumenstingl wrote:
-> Thank you for your patch!
+On 10/11/26 20:31, Fil Dunsky via B4 Relay wrote:
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
 > 
-> On Sun, Oct 11, 2026 at 8:31 PM Fil Dunsky via B4 Relay
-> <devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
-> [...]
->> +&eth_mac {
->> +       reg = <0x34 0x6>;
->> +};
-> Question to Neil: should the eth_mac node be moved from meson-gx.dtsi
-> to meson-gxbb-odroidc2.dts?
-> Odroid-C2 would be the only board using it and u-boot seems to derive
-> MAC from SoC chip ID/serial number instead of reading it from eFuse
-> (so I'm not sure about the status of MAC address in eFuse on most
-> boards).
+> The vendor programs a unique factory MAC address into the SoC eFuse at
+> offset 0x34, where meson-gx.dtsi already describes the eth_mac nvmem
+> cell.  Reference the cell from the Ethernet controller so the kernel
+> picks up the factory address itself instead of depending on the
+> bootloader to populate local-mac-address, or falling back to a random
+> one when it does not.
+> 
+> The cell is 16 bytes long in meson-gx.dtsi, while
+> of_get_mac_address_nvmem() only accepts a cell of exactly ETH_ALEN
+> bytes, so narrow it to the 6 bytes of the address for this board.
+> 
+> Tested on an ODROID-C2 with the bootloader's MAC fixup out of the way
+> (ethernet0 alias removed from the DTB): with the 16-byte cell the
+> driver falls back to a random address, with the 6-byte cell eth0 comes
+> up with the factory address from the eFuse.
+> 
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+> ---
+>   arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 7 +++++++
+>   1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+> index 5943bc810..3b74528ef 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+> @@ -223,6 +223,10 @@ &cec_AO {
+>   	hdmi-phandle = <&hdmi_tx>;
+>   };
+>   
+> +&eth_mac {
+> +	reg = <0x34 0x6>;
+> +};
+> +
+>   &ethmac {
+>   	status = "okay";
+>   	pinctrl-0 = <&eth_rgmii_pins>;
+> @@ -230,6 +234,9 @@ &ethmac {
+>   	phy-handle = <&eth_phy0>;
+>   	phy-mode = "rgmii";
+>   
+> +	nvmem-cells = <&eth_mac>;
+> +	nvmem-cell-names = "mac-address";
+> +
+>   	amlogic,tx-delay-ns = <2>;
+>   
+>   	mdio {
+> 
 
-Odroid C2 has a custom efuse mapping so it can't be used on other boards.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
+Thanks,
 Neil
 
