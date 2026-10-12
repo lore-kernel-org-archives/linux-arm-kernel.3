@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4753DCA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 12:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DC8CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 12:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7zdAX0kLTxUuA0EnRtZw5Fdnep7mfvn6Bya+Q3wDIs=; b=RUlLvibg+rnRBaklMJbd82NCx5
-	wQcSmvKc/FxdcrTTh3aW27OevNrsskO6VZbryGE1X4ohffwjDvcBlDbILC+bhYmFkZ+bR+2hursnU
-	c+Di925JCeEduJVELLDhwT7zywzsO2Dqw3YthTxMki4fwcJN43mV02VXFLhgc3OCsJ89JT5T2vxMo
-	LcuFARz0IcbN8aRbuO1VCT5P6msHLe1uDYiOXdvAkOCtMSetUTEHDuoU3KyD0Xl7a2HtQYaGLJvSe
-	dreY+VS1WWqSyGfxgq0pVOYUTj0XKKYOEEN5Y8M/ndEAGWrkTw7gCIKyPoChBKYcKoF1UZ+wZzA07
-	Q+qgfI+g==;
+	bh=zVdDm9vWio9URlOBbk5H1FhupUhm6ZtZOBzYo8Bfqf8=; b=Ib3J98HKsfNuV25de/+cM4sETn
+	4H3Ez9T0Gn7OyTiqgcrvG7V1jnm73RXSasQwO0B5Ha8kgmATkZWSuo+D4I/XUdRuO/fmaluo8fEZ2
+	o5XMEpDQ/trUhoVINaNsb947qIqTf58xck4Rv+p7XyiB8A47M4cfXLongAxvYx6+epWWiTxQ0j3/A
+	TZ8FZHI+lL2l0CI0IwfyYjoKRupcS1Wl+pOehuhpnt33KLxnZ8Bes8HcvPKaQNq0ZJrbS5dgrWPYH
+	xIWPB8TgBsavkWDIDgZBfSjfdMmLmTELXBC0HoWScmTuQ5p0UsB7QctxbnnWb1Ypk6gjQxXU4pIzu
+	1ms3FLxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFWw-0000000AVLP-1BbS;
-	Mon, 12 Oct 2026 12:53:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGFZQ-0000000AVZY-2yZx;
+	Mon, 12 Oct 2026 12:56:00 +0000
+Received: from out-231.mta0.migadu.com ([2001:41d0:1004:224b::e7] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFWu-0000000AVK2-2FJy
+	id 1xGFZM-0000000AVYX-2JHF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 12:53:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE85843FA8;
-	Mon, 12 Oct 2026 12:53:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C53B1F0089E;
-	Mon, 12 Oct 2026 12:53:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791809603;
-	bh=h7zdAX0kLTxUuA0EnRtZw5Fdnep7mfvn6Bya+Q3wDIs=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=RCkqZSmjISthf/xMtuH/Jqz98ASGAL/e4srIgAlM6ceYhv4W4d9Jk9TIyYIbYu/pi
-	 MUjpQw2hx0US1JmjoC4oQtr/mYfXaT2XDTyfqphBVKHIcdL8vlzTwVBkEBUAEn4xLw
-	 CdpwP6eNxZuxs3XdEGli5QB2Yc+LvlEga37Ufg1hBd+oDqosPPUHiApeCYpkb4ZMnK
-	 rBaITAWzxGR2A6TiYYjQj+v7j5nO/Doj85EncrDonOd8bLJuP9ua+x9F0mk/znaCP1
-	 50Bsk9zjLBgZMdcLwFKhJWIVLv4Y1Slih7dpCB/SKdyRF6P8AY2s1d81L3XPd+Kw1D
-	 nNwz57qz9rg7g==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id B03A01980052;
-	Mon, 12 Oct 2026 08:53:21 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 12 Oct 2026 08:53:21 -0400
-X-ME-Sender: <xms:QNjMap47UyYHfrI6CMGxCNCVTwQR0sSOwksMsHER122lTFVg64IQZQ>
-    <xme:QNjMahsqN-4RPa2-EFb_vms1w1eIv3nKrEWQzkBk3H5RYnP5xAKNkvcZOmYcdivbY
-    e6fB9JRJcgqotozJDxL_-8Ljl-IXCcIzortaZPf0MoMcPFaa7sRT_c>
-X-ME-Proxy-Cause: dmFkZTFqX8TO2NAyrkoSybZun85lLqjcOhDkvX0ktVIRmF+SXLlaZEjV5n6UyZyG5WjEXa
-    6l10nQ73BHuR/SJCSLAbO1AJBo5qfdT+EqQmKob0XcTM8IHRmiBtnNtGs9nEkG1cKJ4WLk
-    ns2u+SuiMLA2XnKrMd1LD+rIrbydn2nMQa49hBUnWqIba/guG3WhCWmKsRljENJsolRJcQ
-    AuNNlewiXERmu34NVd04Gp+xCBiOPaqxc6/IwjAj1QdgXy7PiqPxp2asKh21huBov8XNkE
-    wOJ2OvMex2+f68ofzkB23ss4DkM7mq9mAKP4O6XwsF+6SEQ0g7g6L/D3fl1CnjKclvkEZb
-    XZW3VOH/9Qg+v4h5wGhnorhliUZl2+hE5AVwUOJ6cIB2XFIgSFWgtNh7tpfTb6GfMyuqxD
-    +LEWhYg56qPo7ovhEcAHGIjGICiHn2olJuLDp6/7w8VVSPXbZtmKRVdC9czj0M6POqunCN
-    5fu006JfF0D+Y5Y8neeh/dOnlttGxJfdIfWM0xVByk4NjFCyGxJZtcUO1V+0glaH/mJvpd
-    wCD0Z/T7gBxqoGPD6lhODwv9RHJVcFn+x7UYQWss3q/piBrdjYnMPr0//ZXBfHdHEa4TQM
-    bA1QFZ1KtMpO8cL8uAjRPcTPQL5wtZGZ9UCO5lM8IeiSZFiEQ7oDZy0RBtnw
-X-ME-Proxy: <xmx:QdjMau55acNMipLAfiUOGZHQdVvhRZOQsnS9aOqEkaK4BUXgho8Nhw>
-    <xmx:QdjMai3dDFJQe74C06uHsuAy69-hGRKsU-KItPIjl2hjqIUh1LfLeg>
-    <xmx:QdjMascQtXcDNnGmZ6JYfkAgWq39rDlKP1O-CEguJQ8YYfFT440Iuw>
-    <xmx:QdjMagfzbK2wJhoOR7su5sFt4BXLPivV5IVWBL5OxXS3Rm8Ba55Buw>
-    <xmx:QdjMavyfc8FJ0253r_YmDBYKd1tCep2gM2wiHEF5F-IA6XZCDyaIR07a>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 1C44FF80090; Mon, 12 Oct 2026 08:53:20 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Mon, 12 Oct 2026 14:52:59 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Catalin Marinas" <catalin.marinas@arm.com>
-Cc: "Ard Biesheuvel" <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>
-Message-Id: <a6a4a7be-e4f4-4ec8-9974-7c2ffb7245fd@app.fastmail.com>
-In-Reply-To: <aszXyPjGB8zIWKQT@arm.com>
-References: <20261009143438.330265-2-ardb+git@google.com>
- <cad3ed39-407e-49db-91f5-cd36f052ced0@app.fastmail.com>
- <aszXyPjGB8zIWKQT@arm.com>
-Subject: Re: [PATCH] arm64/mm: Route faults taken by EFI runtime firmware to no_context
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	Mon, 12 Oct 2026 12:55:59 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=zVdDm9vWio9URlOBbk5H1FhupUhm6ZtZOBzYo8Bfqf8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791809753; v=1; x=1792414553;
+ b=ufS1I3M5aothCcthsy/xGLEP7GopEqLUdj3dCIjUNle5smXzCvINeqPu/XFmzF9vRWAL+vZQ
+ nZ4kHMvNO8iEk4uBeIU0IBE24b5yKbtKklxi2AdDrWqq3N+Qn7wzY5cncLZNdAbosUm/OUJ0WWz
+ jQAwg581TweGyapJzVZOWLo8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id 018eb001ca5c019a;
+	Mon, 12 Oct 2026 12:55:25 +0000
+X-Mizu-Trace-ID: 018eb001ca5c019a
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
+Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
+ pagetable_free()
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <asy-b7_C3SjnmSaS@gmail.com>
+Date: Mon, 12 Oct 2026 20:55:06 +0800
+Cc: Muchun Song <songmuchun@bytedance.com>,
+ David Hildenbrand <david@kernel.org>,
+ Oscar Salvador <osalvador@suse.de>,
+ Dave Hansen <dave.hansen@intel.com>,
+ Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alistair Popple <apopple@nvidia.com>,
+ linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <145CD5DC-6457-4E1E-8B9D-AE7D1EDB0AB8@linux.dev>
+References: <20261010112457.49485-1-songmuchun@bytedance.com>
+ <20261010112457.49485-2-songmuchun@bytedance.com>
+ <asy-b7_C3SjnmSaS@gmail.com>
+To: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+X-Mailer: Apple Mail (2.3901.100.1.1.12)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_055557_197387_56DBE411 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +95,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On Mon, 12 Oct 2026, at 14:51, Catalin Marinas wrote:
-> On Mon, Oct 12, 2026 at 10:36:41AM +0200, Ard Biesheuvel wrote:
->> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->> > index 0b52557652be..db308fe01c4f 100644
->> > --- a/arch/arm64/mm/fault.c
->> > +++ b/arch/arm64/mm/fault.c
->> > @@ -40,6 +40,7 @@
->> >  #include <asm/kprobes.h>
->> >  #include <asm/mte.h>
->> >  #include <asm/processor.h>
->> > +#include <asm/stacktrace.h>
->> >  #include <asm/sysreg.h>
->> >  #include <asm/system_misc.h>
->> >  #include <asm/tlbflush.h>
->> > @@ -621,6 +622,17 @@ static int __kprobes do_page_fault(unsigned long 
->> > far, unsigned long esr,
->> >  	if (faulthandler_disabled() || !mm)
->> >  		goto no_context;
->> > 
->> > +	/*
->> > +	 * Faults taken by EFI runtime services firmware are never resolved by
->> > +	 * the mm (efi_mm has no VMAs), and must reach __do_kernel_fault() so
->> > +	 * that efi_runtime_fixup_exception() can recover from them. When EFI
->> > +	 * runtime services are invoked from a preemptible kthread, neither of
->> > +	 * the conditions above applies, so check for this explicitly.
->> > +	 */
->> > +	if (IS_ENABLED(CONFIG_EFI) && !user_mode(regs) &&
->> > +	    is_ttbr0_addr(regs->pc) && current_in_efi())
->> > +		goto no_context;
->> > +
->> 
->> Looking at this again, I wonder if we should just add a comparison with
->> &efi_mm to the preceding if() condition.
->
-> I think mm_is_efi() check in the previous block is simpler. I couldn't
-> find any case where this wouldn't cover the more extensive check above
-> (or the other way around).
->
+> On Oct 12, 2026, at 19:15, Jose A. Perez de Azpillaga =
+<azpijr@gmail.com> wrote:
+>=20
+> On Sat, Oct 10, 2026 at 07:24:54PM +0800, Muchun Song wrote:
+>> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+>> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+>> tables.
+>>=20
+>> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
+>> splitting a PMD. Restoring the vmemmap backing pages does not =
+collapse
+>> the PTE table, so a later memory hot-remove eventually frees it =
+through
+>> pagetable_free() on x86-64. That releases the page without running =
+the
+>> matching destructor and leaves NR_PAGETABLE elevated.
+>>=20
+>> Make pagetable_free() detect constructor-backed pages and run the
+>> destructor before releasing their memory to fix the problem.
+>>=20
+>> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+>> Cc: stable@vger.kernel.org
+>=20
+> is the x86 case covered for 6.16-6.18? as far as I can see, x86
+> free_pagetable() only uses pagetable_free() since bf9e4e30f353
+> ("x86/mm: use pagetable_free()") in v6.19, so the backport wouldn't
+> change anything there. or am I missing something?
 
-Exactly. I'll send a v2.
+Yes, you are absolutely right =E2=80=94 thanks for catching this.
+
+I double-checked and indeed x86's free_pagetable() only starts using
+pagetable_free() since bf9e4e30f353 ("x86/mm: use pagetable_free()"),
+which landed in v6.19. So for 6.16-6.18 the prerequisite is not present
+and the backport would be a no-op there.
+
+The correct trailer is:
+
+Cc: <stable@vger.kernel.org> # 6.16-6.18: bf9e4e30f353: x86/mm: use =
+pagetable_free()
+
+Andrew, would you be able to update the trailer in the patch when you
+pick it up? If there are further review comments that require code
+changes, I'll fix this trailer as part of the v3 respin. Thanks a lot!
+
+Thanks,
+Muchun
+
 
