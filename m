@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D10CCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FB3CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=infw5/sJ0BLaKSBh6uwlSvMKrz1OwLcPBMHdfAIFrxw=; b=Uo+kQw6+2ZI3DZVvSbPlYmO+ch
-	fC+TxrBd4/7uNPXCWkWI/DRXprq2vU86U6TDCfPhUe0JvhNtzNnpnA6IRH3iedKCESyFB9ciV2+14
-	i14Ad9KPjJZCAMo5MlMx5kq6vSYKhZyczOXnG/oA76MTJFM21EXJ7kr0c14MG1c3L1jijJOAli6OA
-	3IYKHCwp+ApmcCX5vTS1trF/uWTXiZ91fNIIyhGN/q1mlT1AQyPMx1ZBcHSttqBeDZjuFSr6QMA9T
-	33CCRx6H7Qenh3L5c47lo6P/6O9glyGj7MQ8MWZ3iM/pPiiEei62ruMWb0JQPSUXuqJ5oEYjM30WK
-	9bLC8Acw==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H+s8BkOyNSHuRie2fC01Wy19tDVhaca9HVahGR1s/5k=; b=BPGt+osIecHPqo74lsz5B9kJxx
+	TdO9rosuyauGPunKrI3MOiWGE1mp9Zp9vsoZlWAK6MWv4PLylyggT0Vzs5SKRATdtkiFaKLxjq8hu
+	/hnyqZ+kZnEIlaDbU7RU6pHgtSPo/M6UdQxR4YCNNwDj/41WJILFzhznb1Vv6fPHBUDtWsONmYt+Y
+	Qb1fhh9WfnBg63a1fZ/pcEXwmQwd1LOEk0MuLjxRxWeGo2ckI21Y+aF3Tjysihb6B7XR9435KBIfs
+	Y1A1Hz6IJj1VYCDdDybvA0rP7mJQaRu773yvL2QnSvR4qcElxtlZqPKAJqvAdliTfIwP2JrCWsQYl
+	nq4zzO4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCkL-0000000A7W6-0UpL;
-	Mon, 12 Oct 2026 09:55:05 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xGCkU-0000000A7bw-3SxG;
+	Mon, 12 Oct 2026 09:55:14 +0000
+Received: from mail-northeuropeazon11011048.outbound.protection.outlook.com ([52.101.65.48] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCkG-0000000A7UJ-2nZ6
+	id 1xGCkR-0000000A7Xw-1SI5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:55:01 +0000
+	Mon, 12 Oct 2026 09:55:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zGcT9My1ZHRNyTRsHsSGZA01lenu6FTFC8sCQaDq4y82g25k54jVs0Y7rbVTvBXK3hNXv8Ava8iOXc+isuxoEf2CJwPa1dt8v00ii+nIpw2sx8CHp7qupPp6EgoVt8B8xlYIX8fumSCILU45K94L1seZ74Bb4aKLZMaLA9K4fgyVE2jA119AUCfFFHg0DOBO/kkFSAlZ12Ke+mhLPVNes94ObfOhK9pvTtJqSuwhiCFAEgiSlLBVZoqe4MzeAFv0qH5U5kNcAKUcDdh7jH9JVYtuXphumayuvfXz0pZW/XcM39DVmklV8rt81Lj25SkzYJ8XdWDTu3DKVvl+VA08YA==
+ b=XEQN0xsGbX2a1iebaqYDPHi5BBSffiltssSKMOuKS67Hg0DYkmaMX3bCpMS+Wf0UM7KXJzoz+g/u5ooiReHYC1+/7BHxUu0CMJyJqQOyicQmZVVp6ayPs3MjuFkPiaD2Rtx0oVj/+SdT+/n/K94VDF5LSHXij8dyPhNROKvb8TEyHY/oQ22YMXoSNBUYvaLzMo704dJ0f9oMmzL9SkPmxpMEz5KO0H3QYj3CcRnXp28K3m51VCrSrCv4mB2kqHDpEd42j4oFW1hkLkfFaHOpcAVBVBHyvbnUXXkWmKD5KtWGSQ3MTvS9V3QcoHU7K2xYsA6Qd1k3oF5NHiae5ojSxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=infw5/sJ0BLaKSBh6uwlSvMKrz1OwLcPBMHdfAIFrxw=;
- b=bZeQN/DHQxfAEMPNxASvNc0MF0WsyT74iUsO7oq5hn7xnlaeLq+A49g8j3ME2L5a2yRFGfu3qr0MHqazE3lT1kXNEAmmBIuxPkg1gmSnAqFeFhvbOywbqr3BQFkT+v4UZ/Mdn8fiPLrV2awUuLcCZD2z/FBmO2tfWfPXr0zq0W9hswa27nJHADwBkoQLAbfLAgvVhR8kNJ8diC4kXX0cTWPaEhM7L7zOgbiEpaYrx5EBcbIIyFc9+nwfFpxJwbxV2KF9wk0OOvlKl+otjBrkDdxHipy3jYm3NMfkpF4WM0/M35L/Pnf0H/ebsrnYy1TRU5a6nevlYcXfn1Jwf6QFGQ==
+ bh=H+s8BkOyNSHuRie2fC01Wy19tDVhaca9HVahGR1s/5k=;
+ b=tYJudsy8wOzL1UHG3vzFXRtRarkMG73u9Tre3EMiKIu71vmnmnX5jvgGXMPXO9cEivUo1YJZF7EKeiNGJ/xkLBthQxH1cI8VXOkviXXgqmxUOtJpWNJFO9QF37llT6Cr6yn7W8HS5xy1uaZorR40QnZLM57iTcgX6dSzwr5f/efzIdhn2q79j2oTXwQZbIQj8EdC4NEP34p3+GLCCkuuxsXzTbSc+3knOMI0FYCDTuZSwA/P0BtsBAxDtQKe/K/Vfc8gB1jZOHFLTkqnwpji3wrNHSRBn0mCckSsJ7eaYhQ10X1lQA333R4jkfz+GZLggqHeXGEBVEY6+RizAEpefA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=infw5/sJ0BLaKSBh6uwlSvMKrz1OwLcPBMHdfAIFrxw=;
- b=WiolY92sX4t8k6CP2rrLzyjiDnJwyIlVyG34+DYOvkAqKC5/AyPXfKeCJI2WgtYird3C2JCCz7pEWWcqkTDsNuWgMjjRw+K6kmliY91++YeYLJDe38BSRRjloIXZz6ZCxrs6r9FV+rZDSAcIijQqMYjsmWbRkURhufzZF3oUdrotsEcvTpHKfhgqGjJ8WUA5brTMzIg8m8M2bTlC+r1UfUiBRhYljTTBm5v3hG0Ra1G6Kb7HUVGDYP6lc3vCfPLwM6uMc7bjustt/jmZMIchj5NbvqD9b3eO8WVBI1mtQgLbBYmogPmhyoN/jiIltSqqFDsKaKhU2Nc/nWtNTgI+Ag==
+ bh=H+s8BkOyNSHuRie2fC01Wy19tDVhaca9HVahGR1s/5k=;
+ b=bLib4s/R8yM6c5dIzoIeX87kv2Da7EU8mvZ0ZqykytQ1UBzp9OKVMqsAifOHDgYp3U29gyaq0wJNuEZt8GtuZMPtHUi0pFyJQUBxbr3KbcplACQO8UyIx138GGapgpin93DiaX3ZZIgu9TXxw5EaQCQ1uGU6mO6R4mSN2NKPk86aSeTmZmqSvnD+6EI2/Epnha8RTnuQpZ0hRgO0zB7dPol0lTaXnAW57I1i3hycBJoYhOwbepSB95oW7DuPmXwmOdmm55zlc+8FeQVLYZT0KGOs4Jy5M+WEP2qAJ7LoQs4584WkMN21Ml+BCG8uMR+sbNWFUSywfExxgXD4bAVdpQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
  by DBAPR04MB7480.eurprd04.prod.outlook.com (2603:10a6:10:1a3::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Mon, 12 Oct
- 2026 09:54:53 +0000
+ 2026 09:55:05 +0000
 Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
  ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
  ([fe80::a9a5:cf83:dbe8:1f74%6]) with mapi id 15.21.0496.018; Mon, 12 Oct 2026
- 09:54:52 +0000
+ 09:55:05 +0000
 From: wei.fang@oss.nxp.com
 To: xiaoning.wang@nxp.com,
 	andrew@lunn.ch,
@@ -71,69 +71,72 @@ Cc: wei.fang@nxp.com,
 	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 net-next 0/9] net: dsa: netc: add PTP support for NETC switch
-Date: Mon, 12 Oct 2026 17:59:15 +0800
-Message-Id: <20261012095924.1129312-1-wei.fang@oss.nxp.com>
+Subject: [PATCH v5 net-next 2/9] ptp: netc: remove unnecessary pcie_flr() call in probe
+Date: Mon, 12 Oct 2026 17:59:17 +0800
+Message-Id: <20261012095924.1129312-3-wei.fang@oss.nxp.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261012095924.1129312-1-wei.fang@oss.nxp.com>
+References: <20261012095924.1129312-1-wei.fang@oss.nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0046.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::18) To VE1PR04MB7216.eurprd04.prod.outlook.com
+X-ClientProxiedBy: MA5PR01CA0175.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a9::14) To VE1PR04MB7216.eurprd04.prod.outlook.com
  (2603:10a6:800:1b0::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|DBAPR04MB7480:EE_
-X-MS-Office365-Filtering-Correlation-Id: 230bfe9a-7922-4d65-268f-08df2846dc18
+X-MS-Office365-Filtering-Correlation-Id: 17ec66b1-254f-477c-8170-08df2846e44d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|19092799006|1800799024|11063799006|921020|56012099006|18002099003|6133799003|10067099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: 7DrsEYbOzSrAAnnn9JZv/jxfOazoEYnlVCJxkKKlh3LAx05L4UX/s5wQKnqMdwi228DiWuYKSveyWTZDmdJpPBsEAnhE5MicJSWp/obkaW4NTZrBBeZ6jdhn03d4kIiuw1Lye3KH9UcwF735AgU8YD1tEzwRyHIJl/7gCAELVjpYsaWVaxi3j/e7gugICe8oxKv6NXxMvcwfLmnWPKrP1IQDgkH/191x804MYbq5A7ndl9raOHJAiGqG97h9t5KR7ehv6pKuVqHibyvo1TohKpzJmP8JtTq5NsJ0fI/JEmXO/oLtPEMPPlWjujZCChLQ/2zqsiPi2Xnev+lpScsbJtUlDm6tKau4GNpgrpysD79ZkzL67TVy0vQS7jCI2WROEs4BRvtkAUxB5Wn4DYd/9Qwb3lOUR+LngvintVn9vewSFnxwzmsbXg/hUl4FDHptZvXHF/2Ekk1LT+8gYWM/GrOVQpNJAofdM+OnVUQGqn/J1avurRVZpkyjpETr74tINZvmhcErEj33Fxon0u2Q09h6bO3dJec/JBNpTx9Abf5XWbOzQtS78RGI0P/UVixm8wxCBjk/1sajq9R+8llr0OR4LGSjr+QVbW0YGc/T9sn4N0DznSIvhJ9v6aTdgQ9r8ge2fuCPaKYI6ce544todkKLv8hPOQft5yd0chSSpts2ek3LOPSpU40wBWwBxYRTqLdYhkKKxSALXjRwJelYUA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(19092799006)(1800799024)(11063799006)(921020)(56012099006)(18002099003)(6133799003)(10067099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|19092799006|1800799024|11063799006|921020|56012099006|22082099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: EDATSsWGGC4gYRovMXwE5YwTneBCklFd3oWGBKBIy07Z0xVcXUqZJREBzoxZu20ePlWMTfg2l2HmhJeOaL05PmzlKNWiguCLCIsRfRWGwEx2w3PCTz7m9cCVb3/GXtaH8vZ0QzFEif98tIUf5trnFPKawgQVv0SU9hnT2x9tE5jPD3pBsGqAhzt/oK1S525W7CCSLNjggUKIpljs0u75h9jD8YGHRbasdFIPULfAHRLPxb7XfdvXYk7sNXscRZLQbK0xZgb1s3UXVMW/y402Yjg3Kr99w0plQ4pVyAsvvs6QDxIaNE5dhC2UmrZblzo3GL/TW9OzfIVm+Ogwo1on5pC577x3ALtDC0JFIWJlX5UAdHB6tjhMjSv5TZ6OWc6MARBbJm0hJap5r97uFMVWr7LBDluk4sVC9LrVx3nLWj+i6zeS/rKGyp+W7wk7K80coZKaTr0VIshsLn6JirIMCodqLsmksRgfdCQomvM5vopUNe2fePEAym+xuAh76SWFIU3g6NpM14Fbx0J/BVTGhA2adypNsy9nlj5bn7tU7qaL6fkBktptVUeNL2PQKRy56kVoWtedvyMFwc0ETWFgkx9r7yoHCL5p0/0QRVAEOkLl1BEzTJKl1BJDddbwyH4HY/yda8d7omSJwH0c1v3gteslj1Oj8NaEh/NROMdFNUfGa7JBHG6LvkMtbzkOqhBfmTNUKC6CRH2PjHKXufh9QQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(19092799006)(1800799024)(11063799006)(921020)(56012099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0YJCmquvxbs4Yb8JmvHLanIlgIRBy+2SU79pyx3J2x5p03HvwMquY/oNFmGU?=
- =?us-ascii?Q?qnvwjtUa7KWLgvMxLBm1xop/wsn5R+RLnEINPIYPgNUj+MocN+05I5EsGdeU?=
- =?us-ascii?Q?gvFetVudTy5MTlDHJIKur8xr88jo/7CAxt0JlxscQi2WZOQybgwY4QHY3kMZ?=
- =?us-ascii?Q?8S/diTL2Yuq8nY1RvYzCKYOU3E++6C0ZWdIz7WCgB/IWl83xBPeTvSSyfEAm?=
- =?us-ascii?Q?OWyxIFdQ5o2hfnP+2BAEoazB5aIXWRICgt44ho3Q6g1YJyXdz1MEdfXXVIld?=
- =?us-ascii?Q?wHvqbvlDWU21yUHoWFq9qHW604yj4E82rT9AAsib5z2Bf7HyRzNqnCjDbwHr?=
- =?us-ascii?Q?ygO+iAaD+r8/mqyCzDnGcvrd5zIYQMiK5Vt8RrN8lLYyfHDCZz75w1fwmPGj?=
- =?us-ascii?Q?cPgPFYEmZrVJb6dKjPP7i8gd+slQxaMwF2XA77ziXHaULQmBJh+CHCB3cEAU?=
- =?us-ascii?Q?C1V3W9Mpt2oW6m7vKRzhIwmZ11J+r55TSrAOCXtI4Fefk7kunAzUSRpVklds?=
- =?us-ascii?Q?Dl9Y/SrZNYXCQuJNYIEtA/tM4JBKOTV4P91BXL8gx5dMM0UeS5Z9WkGxBuFR?=
- =?us-ascii?Q?zLhOne9v1IHtgXlMPUItZaeWvkMNYHvLBF+57RKx4xrqL0BsKIg1mZiTgfep?=
- =?us-ascii?Q?anFngcPvXzauQkvL55HC8ygyYnslmI7j37DhYv3MQ8Rhwz4c8g/dwHpiUJOx?=
- =?us-ascii?Q?RBIfAjPZVKejGv+IMN6McYBy9UbTrlSOCCqL/ujUdTbAEQlo/Peoh2kvy2G+?=
- =?us-ascii?Q?RLmmWnU8MYJIQgf43vVLbVNKDsDbEhWA34KrXS81J2YZw1HpFUvJenItzjWb?=
- =?us-ascii?Q?IxNTCCf+KL+3m4fpd/rEhGY3qaRMo3BZTaGLhDnDttetK8W27vUaIznsouDR?=
- =?us-ascii?Q?zsDgfeMM+RzJXAJS5jnegncJ1DA//ZIltU5UeGXPFbN3nCwHc39DsGcjgjym?=
- =?us-ascii?Q?eai09XQqaUkKrdsPNt/Ad9hNsf/9xaEIX9apD4WUjpK9FHzUnn6WffmN/e5V?=
- =?us-ascii?Q?77JunvqA6yFTAW4XhrGGFLGKMVjzTO7mPETAKRc122qmOl+hAB5PQeHCqSkT?=
- =?us-ascii?Q?LO6JtF929cXKUiK0oK2lJZQAnFyxPjYUuuyQc57uHVEOkLMf+vK4IXIJ+k2M?=
- =?us-ascii?Q?8DLM7AMpU6N0xPRpKwleDv7nR7IgFsYbLYagVlNEo1LMUfYfh/mwoqbeyIQv?=
- =?us-ascii?Q?QRmMcRe7WugXCJiIxezuuSsu83MCIURCM/dXvVyZRmwywMciCJ28k3RhzSJL?=
- =?us-ascii?Q?hh1E/0P92x1+QGoJ2vOLKHXM1HYMl4PzSuM+a1QZOGFnobNfRM//mUcZ5P+v?=
- =?us-ascii?Q?A3UafxHd8+FBoeGx9JJ2uwtCR9YIWhTXZM142dLO+vuu4erwBQHtf3CjNgSm?=
- =?us-ascii?Q?pRhEfmXvmNXtJpnz5MiaP57Sh32KQj2IBZrbpvYaOJH43m9fJ0KgKMpDeTpZ?=
- =?us-ascii?Q?HHSJnhmotyywbXqK2onlkCb5QwgVhV1dlkZ+7M9h8qOb7eDZT4nRBKiGDVLC?=
- =?us-ascii?Q?SsytGiiZ79Ngwxri4WKAlTSDjKCbVPbXrWliHUUhfivGAuCZNx4wdAkWtt6P?=
- =?us-ascii?Q?/o2Y75hm8IUw7AsLMxRv286wU9ywO5s7EuXq9jsoQISGJ+fE6G+SgspmKLo3?=
- =?us-ascii?Q?3OIiniIRxGZ/mQZH4ywTD3JVTYh5kyaF9uoitlJHhzQPdv7W8Z2KXNpjNFy7?=
- =?us-ascii?Q?gahaPhFQhE+jQ0P3p9Ie4YdFUC//uRldPDfkctwDxnwP/ObP8w6Z1EO5A9qD?=
- =?us-ascii?Q?664DSIT45pIzfGOGWbl88gAk32OKhXsCoPBDsT3/6p0MHypY73yu?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7kkLjgsrZE4P2iKHJ7+o/ri6GTtm9kXbe+ogIxjOj82WhwFNpXwAWYoQiVpe?=
+ =?us-ascii?Q?BHQLDdQf3eUxkyB9+NXjxi5fOidU9kBseiN8587KDaCyYCZinJCV2LDzb+VM?=
+ =?us-ascii?Q?4hliXjMTGXlK2pMgxxNCScXx0LXc8bDXRRrgiL/JwziUxNDANDxIiq47pMvI?=
+ =?us-ascii?Q?P9W0D5DFyZqZKNDeuvzO1QeZZBSMHVHK2/Le0nZuvEvOy+DTUIyzOrfxI3G0?=
+ =?us-ascii?Q?VVqIRJNYVKWCr581OomiBbslP5fiG89YEA4+Ns6D3rKuM2ViW0MxexDEkzlv?=
+ =?us-ascii?Q?5g12KpglvViwjWa1ywDAjsoHHeouS3qb64EoSxfj2zHayoDSJ4TuvBDtGjSh?=
+ =?us-ascii?Q?4lqo4i7N/LOz3yTQKJ2Ak4TO+cJ1b/U5xSxkbED1RyRX88iyIwvgQGplv/Ax?=
+ =?us-ascii?Q?kygVO0FoHzamnM6YBxJbACq3mKny2yGI1UbXXNj4C/jSJUdl+oCPSdyUV8uR?=
+ =?us-ascii?Q?D8i5cGZG9pby6+cCYVCJKAHTFajw8dzq2MbgzyvhiPMWjMA0MrKNVi7DnOnw?=
+ =?us-ascii?Q?S83QElTzndb0RCH0tm1jbgGb3UqBdSJuHHWhxHaW45k6PkvlTAQ/gDPWVU5u?=
+ =?us-ascii?Q?bVtilt7BCe3k/qkHdMjt5r1Rw0OmUgvXVbcHRo54or/Zg94czvH7HwMr5DS9?=
+ =?us-ascii?Q?tpieML7B18imzNQP1Ex3UU06n8KyDZ/qJE40XaAqGRfGbd7IVXupiiiuUnDY?=
+ =?us-ascii?Q?G9N57Vmst/u2w5aqvcjTPuQ/HcXtUyco21YYEhniB2Kmel6ZlGg5ntjPVwLB?=
+ =?us-ascii?Q?mLrVNkjkAyOrN76PIzIyENyhDTHtNByRj6x3YurMbx5SfhLejkAaULpmXm7w?=
+ =?us-ascii?Q?/dM1feoPfeeOu/FYE0f4sTrYcmXzhLLa9qmkIyrnRCNZE7nTjvPP5ocLCgqx?=
+ =?us-ascii?Q?GZEc5cGHxubzqKFRf7LyCLv+kJqlo7bPc3m8IrcZiDN3yty4MASmUZ1eQHXK?=
+ =?us-ascii?Q?HfllUxpGicGUEE172nKcKB0UJ3o+sZ3kXXc3W20hyr5r5nwx14CGir0oaReB?=
+ =?us-ascii?Q?gr7tdDZmbBM1SkGUe+uN4iconLBhTlaCyyGVlRoBq9PVjfBMOHJZmKPcHS4m?=
+ =?us-ascii?Q?Gr21CKh8EG1YRqSxO3fLyCMwY2r/tUUhBmcid1x4tcLkHwDpN7CassBROFWp?=
+ =?us-ascii?Q?noG/G8GZfZEhUjkKrBNp/0BAyRV05s1uBIevMigCkGcGa/YD2vwvV3QHIw3K?=
+ =?us-ascii?Q?HcXg5X3ZKYN3y6FW0DJ6GkKSjHjF5oKNSXzhXzLzMXxzK55QGkJ180a3+dFV?=
+ =?us-ascii?Q?CHx+pBbmZS59KnnnwTPhAu41+g83Eo3se6+eAr55jCDjonXZVUwAPNTAB0+v?=
+ =?us-ascii?Q?vqS7/zJGB9XylpwRGTMZIYJK/EVn9ClFatphozPDzVl1W6JgxMQK+PnIiw5K?=
+ =?us-ascii?Q?mGlUpkPwVyVJe6kWqvybj5tW/+LnRuHrYc12YNKfrLbRP1k3ZeAd6qYjuac/?=
+ =?us-ascii?Q?PnyZoDInMoCy3oTRCM1eyC13bbJt/Z8tB+3UOJ2wIJKNiKjhEUfaHZhXPIhv?=
+ =?us-ascii?Q?RowuE2mgQG73oR4nT31lHGSSUPJcLtHGTkeq2NjmaXDumqJ4lKnkrqKiDooM?=
+ =?us-ascii?Q?akSLHgg0OdCcON0jrHV+SDGL22fLKhrBJCjFZbUUF50vfn5KQ4DTp5XaFpsW?=
+ =?us-ascii?Q?QoHuQhvDjeOX21xH0q1UGF0RIPd62RxifVT05phYrbSG/Xic3OqhsonjXQks?=
+ =?us-ascii?Q?PdULmUH8Rnpkp7lBuFJLibO8thRz75mupEbVj3+et2IqO4Yc3oOQCL4IwUBq?=
+ =?us-ascii?Q?idv3arBkBYlHJqrBkOp8NBLTivP8vDmaDee5llaDGkFFWV5iEdKB?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 230bfe9a-7922-4d65-268f-08df2846dc18
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17ec66b1-254f-477c-8170-08df2846e44d
 X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 09:54:52.8917
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 09:55:05.5835
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /R5x7SQqY9iSqE+7uDqOFiM+KgiA901z7UtymJOUJhm7aO5qOUosLmYKmySP+zDyaW3fM9T+6oOY6EhIYBeJhZKq7fej+seqh+F7w4IuvpqsAkcoAS5yVVZ+V4bRLGOb
+X-MS-Exchange-CrossTenant-UserPrincipalName: jxfZ6H58uDDmq56CEx5Pz65PgYrJbtVXjl0MpAH8QjRrEFvMa51Ma8NvF9FGAlAIO0xu/Mf676Rt4yvD7wNGNNtOiaawVBHyaGLPJu1Vuy14ye/iQvvQxtCFge3d5hWE
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7480
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_025500_722107_1B4A24F9 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20261012_025511_398204_C99F8358 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,86 +153,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Wei Fang <wei.fang@nxp.com>
 
-This patch set adds PTP timestamping support to the NETC switch, so that
-the switch ports can be used for IEEE 1588 PTP synchronization.
+According to the NETC reference manual, function level reset is not
+applicable to the timer as a supporting function. Remove the pcie_flr()
+call from netc_timer_pci_probe() as it has no effect.
 
-The NETC switch has no time registers of its own and instead shares the
-PTP time of the NETC Timer, which is a separate PCIe function driven by
-its own driver. The first 3 patches prepare the Timer driver for this
-role: tidy up its 64-bit register access, drop an ineffective reset, and
-export netc_timer_get_current_time() so the switch driver can read the
-current PTP time across the driver boundary in a race-free way.
-
-The switch redirects PTP frames to the CPU through the ingress port
-filter table (IPFT). A few patches harden and simplify the existing IPFT
-and host flood handling first, then enable the ingress port filtering
-lookup by default so PTP filter rules take effect without extra software
-tracking.
-
-On top of that groundwork, the switch driver gains RX timestamping and
-both flavours of TX timestamping. Timestamps are carried between the
-hardware and the driver through dedicated switch tags: the ingress and
-transmit timestamps ride in To_Host tags, and per-frame requests ride in
-To_Port tags. Two-step TX matches a queued skb clone against the
-timestamp response echoed back by the hardware. One-step TX defers the
-Sync frame to a per-port work, where the driver reads a fresh PTP time
-and writes it into the Sync frame's timestamp field, then programs the
-single-step register and transmits the frame so the hardware can add the
-residence time to the correction field on the wire.
-
-Together these changes let standard user-space PTP stacks drive hardware
-timestamping on the NETC switch ports.
-
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
 ---
-v5 changes:
-1. Patch 3: clarify the commit message and kernel-doc
-2. Patch 4: new patch
-3. Patch 6: reword as a hardening change and add a bounded retry when
-   restoring the host flood rule fails
-4. Patch 8: derive the RX filter from the IPFT handles instead of
-   caching it
-5. Patch 8: use get_jiffies_64() instead of reading jiffies_64 directly
-6. Patch 9: count all dropped PTP frames in the interface tx_dropped
-   statistics
-7. Patch 9: resume the one-step drain from the timeout work when the
-   reclaimed ts_req_id belongs to the in-flight frame, so queued frames
-   are not stranded
-8. Patch 9: use a dedicated zero-length dummy_skb as the ts_req_id token
-   instead of an skb_clone()
-9. Patch 9: remove udp_hdr() from netc_port_program_onestep()
-v4 link: https://lore.kernel.org/imx/20260918072852.501420-1-wei.fang@oss.nxp.com/
-v3 link: https://lore.kernel.org/imx/20260831082335.1184605-1-wei.fang@oss.nxp.com/
-v2 link: https://lore.kernel.org/imx/20260808032146.2335723-1-wei.fang@oss.nxp.com/
-v1 link: https://lore.kernel.org/imx/20260728104548.3301214-1-wei.fang@oss.nxp.com/
----
+ drivers/ptp/ptp_netc.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Wei Fang (9):
-  ptp: netc: use ioread64_lo_hi/iowrite64_lo_hi for 64-bit register
-    access
-  ptp: netc: remove unnecessary pcie_flr() call in probe
-  ptp: netc: export netc_timer_get_current_time() for cross-driver use
-  net: dsa: netc: tie setup resources and reset to DSA setup/teardown
-  net: dsa: netc: use entry ID instead of pointer to track host flood
-    rule
-  net: dsa: netc: check return value of ntmp_ipft_delete_entry()
-  net: dsa: netc: enable ingress port filtering lookup by default
-  net: dsa: netc: add PTP two-step timestamping support
-  net: dsa: netc: add PTP one-step timestamping support
-
- drivers/net/dsa/netc/Kconfig          |   2 +
- drivers/net/dsa/netc/Makefile         |   3 +-
- drivers/net/dsa/netc/netc_main.c      | 355 +++++++---
- drivers/net/dsa/netc/netc_platform.c  |   1 +
- drivers/net/dsa/netc/netc_ptp.c       | 897 ++++++++++++++++++++++++++
- drivers/net/dsa/netc/netc_switch.h    |  67 +-
- drivers/net/dsa/netc/netc_switch_hw.h |   5 +
- drivers/ptp/ptp_netc.c                | 136 ++--
- include/linux/dsa/tag_netc.h          |  38 ++
- include/linux/fsl/netc_global.h       |  10 +
- net/dsa/tag_netc.c                    | 228 ++++++-
- 11 files changed, 1580 insertions(+), 162 deletions(-)
- create mode 100644 drivers/net/dsa/netc/netc_ptp.c
-
+diff --git a/drivers/ptp/ptp_netc.c b/drivers/ptp/ptp_netc.c
+index 376b3b0d1a38..aa9be8e2a630 100644
+--- a/drivers/ptp/ptp_netc.c
++++ b/drivers/ptp/ptp_netc.c
+@@ -777,7 +777,6 @@ static int netc_timer_pci_probe(struct pci_dev *pdev)
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
+-	pcie_flr(pdev);
+ 	err = pci_enable_device_mem(pdev);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "Failed to enable device\n");
 -- 
 2.34.1
 
