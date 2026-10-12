@@ -4,98 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4974CCA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 23:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57EECA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 23:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=; b=LS4NY5sLnkI2AsXaxuQZkk+CdY
-	0YLirE7WTHWT0/cpGpjxOmz2rPs8L+/mBX4amykZgEr5nuHN86b58EyoCW0jxb5+tyJqUoc1nK/qo
-	glWTTSHrjioaJ4mFXT3rWP94ybMz52ZHs5KyfFOSY7PipCYwnOfF5ellB9GmbdrLUjcK+UZj97y18
-	RBG6igppkwW4LxHy3uaNkeYcYZ0FLXMgW6+9gsTF6zQhAjWqwLVXWMvCeqz24uZ8acFTrwecVygTC
-	K85KOsCVqTvUn6i6NEMRHuleK/QzbhsTSZ1Cqh5utXnaC5M/JhNCI6DcfI5tkgmfC5o6+HbixRoFO
-	qU39Pmug==;
+	bh=s+y2Pap08gETfDY6MDNtv39eJphi7NgwKnhQgjqRVRI=; b=tosZ6RO2mfuVaAicX7/hcw3oiU
+	8RIQh2m2EiTR8rQQBdUYCfn/qKKOpJ4BVr2v7gqy9PtSr1JFuty1hj61muvvDzaIL/j6VCND8K0pb
+	f7xZIVsvtpj2XJKXoYMfYeD4thaXZ4vkApjjlOHcOSiDD9R2lIUeWAUQSQJl7+uY5s3hP4N+X+yZw
+	CMk30x4K1epT9XkzsMVLej4v2VZqJ0cC4cU46po/7jAnMc+XcqyLsNQT8PyRW7O1A8SjLahRVqMvj
+	VY6annLeVjlIcPggnpUcpFyleT7M8BhHr8O1xr2Dd/y90vDFJG0VoP7Y5DVKgZMg4MnCJMKuIGOhS
+	dySmhDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGPGl-0000000BelN-1SYa;
-	Mon, 12 Oct 2026 23:17:23 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1xGPrZ-0000000BgV7-2PRx;
+	Mon, 12 Oct 2026 23:55:25 +0000
+Received: from mail-westus2azon11012016.outbound.protection.outlook.com ([52.101.48.16] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGPGi-0000000Bekn-3jcc
+	id 1xGPrW-0000000BgUi-3myF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 23:17:22 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-15354aa70e8so2563879c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1791847039; x=1792451839; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=;
-        b=SXc8xG0XZ8Sp4OaduL0PaCG4MMnt43GkWzAtV51E5ZTUirShYzLalqAQXWPpnhBwQ/
-         duh1Hg6EkCaoojSvnuyXGBLpzNMtzB9s/wqDXWgbzTCLyGWPUwPI1sxYBiH98fVEklg/
-         4xY2Pqjzq/XAoj8a/aJlrbcQ/B7AJDSVjPLP4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791847039; x=1792451839;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=;
-        b=Qld51wRHysOoqGeff/eySLQnp84MYzJr4cfNg6siiSz+WwHTjBgmkcNg2IExbL2T8C
-         PIVHzt6LzA1hLGC9RvAau068jYyGVz5m2Ej4whYR+Ows3N28JaopL4hRAApXssndaiNF
-         QUZC4Z8K7zKRdktWmIwzDZDedXnjUVShYFWOjIAyvTvu7LZE6abZbi3GLS9zFyYvJTF2
-         0xaz4zTlZidfRS0PchwZdSQSNPGWPlA5HmIg9YH6aB2gxf3Wbrf5CgHz6ivVxLTNJXTs
-         5O6PFsWXay5/IlTqDsBeurmcgdsFOmjnwW+mejIKWeZQ3xRTaE3DEwkt4ZwEYMQVRoEO
-         d3EA==
-X-Forwarded-Encrypted: i=1; AKwUvBy8NgMvclHLA5hcFx7+zs1XzI/dz40galrkOkdm5YTwa/kEOQ13s6NiTtuCIJ8d6NdqraIgVxIeVIUDnBXA84U+@lists.infradead.org
-X-Gm-Message-State: AFq9FYI+ZGBhiWNlgjDr8jwu/Z4IT72Nc3r720QTiZ52qzESUGiopsIt
-	XzrtHpWuIq3AIiaCh9QDXBY5bG/3OV4LdxYsppzW5ulWJVWAWX8ldAYejlf6Jm1IUg==
-X-Gm-Gg: AYBFou1aGbls5b3Gd7a3mjwFMsX7o/SD5Yq8wIdd+P3n8VSnyjsRGA8s2qbyVX9HEIv
-	hfEuelI9WdzfxSRMq1hMuHhAuZSKejsnKmHp84iBvwM0/EVju7ipdMSX5uRXfZAw221IUuzkcDb
-	lnqJw3Xk1Nlx7hmwfioC24jIAU4qYDdVm+MtAGpfKudhu9dbyN7qO+Ozb3kB2/nY8KaR0u+u8pW
-	gVUTKyzwXS5dMwqlh5Tm6XB4SUl1qPEw2Qs+CHq3OVn1UzJH0nWwE1NxxHMv76t4peyQvRmF9ws
-	hJm2Ckm61hGoXPeX2rB+1acs6cNq30WJbDvncB7ZJW+D1wVZ2qehCqBcVMykThPM2OYPxaDrXr5
-	GHBwBL5cHvDm2Jb/ya6m2Ox3/Q0p3NqIDh70NIu2VktCdmujXH65wbRO5jop7zVA84MA4HTBcP0
-	9AZ+R3n/9tF06TJvCflHIv+AeoK+R9kGW9KKtGuuOYsYecpjHrUswUTXabPD3yjZABOWffuvbd9
-	5tp4OBKflbwABmdN5mH3AszTDFkvjUJmfVngHd6m75NZbZl
-X-Received: by 2002:a05:7022:1703:b0:166:b307:5855 with SMTP id a92af1059eb24-16a4ee7e657mr14543536c88.0.1791847038615;
-        Mon, 12 Oct 2026 16:17:18 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:4c0f:2208:f55a:d12f])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-169a1becf08sm36095925c88.5.2026.10.12.16.17.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 16:17:17 -0700 (PDT)
-Date: Mon, 12 Oct 2026 16:17:15 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Fabrice Gasnier <fabrice.gasnier@st.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
- dependency
-Message-ID: <as1qe_J37Njol797@google.com>
-References: <20261002230714.507921-1-briannorris@chromium.org>
- <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
- <asEdiIT7l49vhn7i@ashevche-desk.local>
- <asPm6HYpEIAYJ4a3@google.com>
- <as074Em1m9d5s1yO@ashevche-desk.local>
+	Mon, 12 Oct 2026 23:55:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d2rmNqc/uFkdh9rkv+ex9C9vyu9z2k3eimObv5qsziIn0PZsuhHDjdbCflt3oGTPdf5Da/LRl++Mt/NTfr583vnrCvQylMRhkkF7ybCpcvMUNE+CcJ677quHU76Qpb5sNz5lrQkIBe/gRTGFIpegKJ+t7KMe8Fpu18TgVIkAeaP3vslK3mAbucmDN4/V65Ia+fLhmAOqwpKLHVzgIcUYfGw2XxP8QRKCWVVPBygzrPpeqyQUFzP9aCaUWLUkQcH175LI7eol1uwjEL116BEV+iWbRPWlbLd4+GPim3GcApFS8KE4n9cQZKq6Y/YM2QCAaCp0PJ27r6FEJ2LBn1oQdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s+y2Pap08gETfDY6MDNtv39eJphi7NgwKnhQgjqRVRI=;
+ b=vvpI8PphmF29epsenOiZfrZJkq3a6jSF3wUGzeeNih2Cl0A0G9X4k3FAa87KVNXHNyIeM7od+OVRMkJB2c39NSstAK1H3jnooKmC52vqE7LdohYt0IsESWztez5U+WpFOfDxbdnca0TkQrAKSEBGiSQeg4X7c82lHe6hkX7K5TDGWvlItGNPhqg+sa7xH//6xURevPKDh4I338HMW4CULprSShjtEk0ENirVGgd+ogmAwqGnEIn6PUbQMFOK+njH2ElgCSEbjbRrP4kc9J9oUb7KN/tmfbKQz2OQnCvlchxYzseNP95RR0Ukl8Kgyl9Rx/xFps8pa+QqvHCWoGsaoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s+y2Pap08gETfDY6MDNtv39eJphi7NgwKnhQgjqRVRI=;
+ b=Lzm9WyOExxOCW5A4m+4g9RsJx486Hvi2HZYFccxgi8niM2w+iWNj30B3Ybl3Ucjjk1+pif8A6YEb8m8MsvdThi0F2E279uXEm1gvgkykgX4HA16jlt2yuTV238exPR7S2sbAginS4ysypgmIezpjswOoSRGCReqGShw596EWSzMhTY1YcXk2Xp4Bbuy9iNwUP9X7JiyeEF/b6FCbWTVpQ7G55pj+FmGmZMSV9O7Shpv1S3IRJey5e9upgTVUmvz0aGsaWnkThvDaNY15Enp6yNORgtKO1blmiu4vrQQRy6Hybb2EabqrSqXWVivaySZtb8fMrapje7kzpcorKor/lg==
+Received: from DS1P223CA0027.NAMP223.PROD.OUTLOOK.COM (2603:10b6:8:44e::18) by
+ SAVPR12MB999168.namprd12.prod.outlook.com (2603:10b6:806:4e6::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Mon, 12 Oct
+ 2026 23:55:14 +0000
+Received: from CY8PEPF0000005C.namprd21.prod.outlook.com
+ (2603:10b6:8:44e:cafe::2c) by DS1P223CA0027.outlook.office365.com
+ (2603:10b6:8:44e::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 12
+ Oct 2026 23:55:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CY8PEPF0000005C.mail.protection.outlook.com (10.167.247.26) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.546.0 via Frontend Transport; Mon, 12 Oct 2026 23:55:14 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 12 Oct
+ 2026 16:54:51 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 12 Oct
+ 2026 16:54:50 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Mon, 12 Oct 2026 16:54:49 -0700
+Date: Mon, 12 Oct 2026 16:54:47 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Peng Fan
+	<peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
+ ordering and feature gating
+Message-ID: <as1zR1wc7ERxvR1F@nvidia.com>
+References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+ <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+ <aszfVNP6DGzWYdK0@shlinux89>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <as074Em1m9d5s1yO@ashevche-desk.local>
+In-Reply-To: <aszfVNP6DGzWYdK0@shlinux89>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PEPF0000005C:EE_|SAVPR12MB999168:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2252448-b9f4-4edd-1558-08df28bc425d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|23010399003|4143699003|11063799006|56012099006|18002099003|22082099003|261009223027099003|3023799007|10067099003|13003099007;
+X-Microsoft-Antispam-Message-Info: uDRjO7NlcnBIb59Bq3adGFa+CDgUuOVAOLh3KjVz0EU/JnbdXyY8Ec07kVWCWWy6g8oCkGHmEp+A9obbOegd5LK+ih1o3bMX40YJItTcVMssBhsWlTC0Wz7Dxa2/uaAKKbq8+aQK4AHvmSzZNlcFUroOBuHlJ/BBiz6Q+k5RwDdtfAmoVaf/v/m8lWPnS8RWmZV5xhPtj3wawBBZJHkPgUM1CHqeyRHMtdSA4k4SQF1xlBKuTDZ/4PLVkkv9UdeDHRdQ1Wkpgig5ukPO6QT7gYfvnV9genVjABiWw5kcfLAGo9V2PIR8NEIpi0UtD2k2S+bE2PTy94flqxKHEhCCn3E3gqpYVzwdmDY3aG0qUvucx13TWl40NcawaQiMw38STdFzbJK5wfKXH9Z2J8PE09rmointGPSPbDWjYH7/ycXJo3zd/TwFItHVRnEuUQQKZbEwO2DzRo1Oqj0ZlVVR+ipkDJAjPQbOFydL6Uw/cDtTOj9R2OjpNNfQiV8Sokk3L9JPLMhIA8Fg/rVeGOYA/j2XDACZ7dHnoCykb1zbBK3D9hQQSSRn5w4X9OOzI3Wq1Qk151xgHhIrglYNkpWZ03Yqus6+5ZZbwER4XD+5IQ1ZD2He3+lFFWoEfQv474954WpUlQDWbhlKEXktemiFog5dO+uGa/c6jnyH+5hRDEywiPw2QIQYxMOrK6SWdxZz
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(23010399003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003)(261009223027099003)(3023799007)(10067099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: aJxvZMyc0ZVpsjW8x8rei2p9DZbs4uowDHUGbIERETT74ZyRMOzDSalauUZF9GJgg+zmCKEDdhFx255J5u34jq1vVa7Giw1OuEyWPARaz6RP8hhjm5OZr62+rcw3b9UtcuHLohsR4eCNsdIQPGw7xw3kESTXbMrO+Cv14e/EjnrNUyIA+MDNmxPhswhCfdvHAciNLiaCHsPQrfou1t6q0nU5CVgZI8slrUbE8Pk72KWCKuc/+ntdpcTAwNOLcGdTTuK7vk24zygY1fdDJyXLzG5vHm7jj9F9IrMXoLLIRW67sFUBTxfLVQyMajZZXl8XftmY/RqTWedNs8N7/LLM6a90NsKZCrwfkrFxKzoeX/LC0fQxIfdPiHQQTUiJpwlZuRH/0UBcczYYFghgShOzOgy/CkgIwmuJFp0wyi4i7I4MPMfLvvDsHs5Xzx9wPe6T
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 23:55:14.0607
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2252448-b9f4-4edd-1558-08df28bc425d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY8PEPF0000005C.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_161720_976473_5CEC69B6 
-X-CRM114-Status: GOOD (  42.28  )
+X-CRM114-CacheID: sfid-20261012_165522_973566_D1640D39 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,92 +134,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Note to self: drop linux-stm32@st-md-mailman.stormreply.com from future
-postings. It's failing hard, and not (AFAICT) just because I'm not
-subscribed.) 
-
-On Mon, Oct 12, 2026 at 10:58:24PM +0300, Andy Shevchenko wrote:
-> On Mon, Oct 05, 2026 at 11:05:28AM -0700, Brian Norris wrote:
-> > On Sat, Oct 03, 2026 at 06:21:44PM +0300, Andy Shevchenko wrote:
-> > > On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
+On Mon, Oct 12, 2026 at 09:23:32PM +0800, Peng Fan wrote:
+> >+static bool arm_smmu_skip_shared_ste(struct arm_smmu_device *smmu,
+> >+				     u32 sid, bool is_abort)
+> >+{
+> >+	struct arm_smmu_stream *stream;
+> >+
+> >+	lockdep_assert_held(&smmu->streams_mutex);
+> >+
+> >+	stream = arm_smmu_find_stream(smmu, sid);
+> >+	if (!stream || list_empty(&stream->shared_masters))
+> >+		return false;
+> >+
+> >+	if (is_abort) {
+> >+		stream->ste_installed = false;
+> >+		return true;
+> >+	}
+> >+	if (stream->ste_installed)
+> >+		return true;
+> >+	stream->ste_installed = true;
+> >+	return false;
 > 
-> ...
+> sashiko has comments: https://sashiko.dev/#/patchset/20261011-smmu-shared-sid-v6-0-cb76b89dc612%40nxp.com
 > 
-> > > > Cc: Ulf Hansson <ulfh@kernel.org>
-> > > 
-> > > Can go under the '---' cutter, so it won't pollute the commit message in the
-> > > Git history.
-> > 
-> > This is a well-documented convention.
-> > 
-> > Documentation/process/submitting-patches.rst
-> > 
-> >   If a person has had the opportunity to comment on a patch, but has not
-> >   provided such comments, you may optionally add a ``Cc:`` tag to the patch.
-> >   This tag documents that potentially interested parties have been included in
-> >   the discussion.
-> > 
-> > I'm directly referencing Ulf's suggestions (Link tag), so I'm also
-> > making it explicit that I'm CC'ing him.
+> We just need to support a simple case that platform devices(single SID) which
+> could share there SIDs, such as MMC-0 and MMC-1 share one SID.
 > 
-> This piece of the documentation was written long time ago before we have got
-> the kernel.org controlled mailing archives (now it's lore.kernel.org). I argue
-> that this piece is outdated and we need to look at all aspects of the commit
-> message. Perhaps having one might not lead to the issue, but exempli gratia 20
-> is. I still think it should be moved to under '---' to show the good example.
+> Shared-SID masters are restricted to platform devices sharing a single SID.
+> SVA, IOPF, and vSMMU nesting are all rejected for shared-SID masters (patch 5),
+> so VFIO passthrough and direct domain replacement scenarios do not apply.
+> The only domain transitions are the default DMA domain attach at probe time
+> and ABORT on unbind. Or I may miss something.
+ 
+Domain can be switched between DMA and IDENTITY via sysfs.
 
-Well, it's not 20; it's 1, with a clear reason. So not sure what you're
-saying. Anyway, I've prepped that for v2.
+I think there should be a way to support that. But, without a concrete
+use case, it might be easier to add this into the attach_dev callbacks
+(except arm_smmu_attach_dev_blocked):
 
-Do you think you could propose a documentation update, if it's really so
-out-of-date with current practice?
+	if (arm_smmu_master_shares_sid(master) &&
+	    old_domain && old_domain != domain &&
+	    old_domain != &arm_smmu_blocked_domain)
+		return -EBUSY;
 
-FWIW, a quick look at the v7.1..v7.2 git log shows over 10,000 Cc lines
-that aren't for stable@ or similar, with over 900 different addressees,
-across roughly 1300 different commits. (For comparison, there are 17,833
-commits in v7.1..v7.2.)
+And Sashiko's second remark does reveal a real bug:
+"Additionally, when devices are detached from a domain, is_abort is true.
+ arm_smmu_skip_shared_ste() clears ste_installed but unconditionally returns
+ true for all masters. Will this cause the ABORT STE to never be written to
+ hardware?"
 
-It seems like you'll have a hard job trying to apply your rule to
-everybody's changes, especially if it conflicts with the documentation.
+Given that your use case always group SID-sharing masters in the same
+iommu_group and attach/replace a domain on those masters together, I
+think a simpler solution can be to always let stream->master install
+the shared STE.
 
-> > > > Signed-off-by: Brian Norris <briannorris@chromium.org>
-> > > > ---
-> > > 
-> > >  Cc: ...
-> 
-> ...
-> 
-> > > > +/*
-> > > > + * Propagate last_busy timestamp from one device to another. This can, for
-> > > > + * example, prevent overactive suspend when a dependency's usage is primarily
-> > > > + * driven by one of its dependents.
-> > > > + */
-> 
-> ^^^
-> 
-> > > But here you already have an outdated ones, no? Why is this not a problem?
-> > 
-> > The "target" device (a supplier or parent) can't suspend before this
-> > point, because the dependent device still holds a reference -- so an
-> > "outdated" last_busy is not relevant yet. The target last_busy *might*
-> > become relevant after this point, so this is the point at which it needs
-> > updated (propagated).
-> > 
-> > That's what I mean in the commit message by:
-> > 
-> >   propagate last_busy timestamps from a dependent device to its
-> >   dependencies any time it may allow a dependency to suspend -- i.e.,
-> >   when releasing a refcount for its parent or suppliers.
-> > 
-> > Please let me know if I should add some clarification somewhere --
-> > perhaps also in the comments here on rpm_propagate_last_busy()? Or if
-> > you see some other problem in the reasoning.
-> 
-> Perhaps a word to the top function comment?
+One pitfall would be the release domain's attach_dev, which would go
+through arm_smmu_attach_dev_blocked() just like a blocked domain. So,
+it has to skip correctly if the shared stream->master == master. This
+means we might have to add a separate arm_smmu_attach_dev_release().
 
-OK, I've tried to factor that into my drafts for an eventual v2.
+And I realized that there is another problem in your design: the CD
+table is still allocated per master; see arm_smmu_alloc_cd_ptr(). If
+STE is shared, its CD table must be shared too.
 
-Thanks!
+You'd need to redirect all the master->cd_table with something like:
 
-Brian
+static struct arm_smmu_master *arm_smmu_cd_owner(struct arm_smmu_master *master)
+{
+	if (arm_smmu_master_shares_sid(master)) {
+		int i;
+
+		for (i = 0; i < master->num_streams; i++) {
+			struct arm_smmu_stream *stream = master->streams[i];
+
+			if (!list_empty(&stream->shared_masters))
+				return stream->master;
+		}
+	}
+
+	return master;
+}
+
+> >@@ -4360,9 +4391,11 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+> I am thinking to simplify reject if stall_enabled is true:
+>  			if (list_empty(&stream->shared_masters)) {
+> +				if (stream->master->stall_enabled) {
+> +					dev_warn(master->dev,
+> +						 "Shared StreamID 0x%x rejected: existing master has stall enabled\n",
+> +						 sid);
+> +					ret = -EBUSY;
+> +					break;
+> +				}
+ 
+I'd move it upwards: next to the existing "num_streams != 1" guard.
+
+Nicolin
 
