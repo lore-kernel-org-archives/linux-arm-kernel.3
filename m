@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E768CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88212CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lsoi2vg2LB1YdOz216qy3fyKHo1xGtnZSa2C1EmzQQo=; b=tAKm1kiZdYVOb1aXSv4D+LDaXd
-	wDvbo8XZ5IoXn2+MQIaoV+t9JgWpSRSpSaOhqp8v6irrlDiG9Y6+4xoPVcF7JK1lS1msjZznuCnuk
-	OlviHrUk2ECf2wh9RqTJxVXU2KMiUJ04jivL1ZPFxvKyiJ+UkkyAuW+11XbLdtP6rFAEckOk0tMKq
-	cojaQ+G0Y0swCejvlmVx94VQkR9cy4GONa+/j8xh4aj4ZFpivTHseVaW6yh9nM15l0rEFvNX6wfSp
-	YYBlf0ZjB/gEYswSFW0qZUrESK/yJUdWHUvn08dDlCIYoR6qfQMtIjZedTrlzdbM464JhWc1P1r0K
-	nDwFuUIw==;
+	bh=aGv7wzz6dSlgfk0zNA/9NELYefYWEvx5y5COyaIu+P4=; b=iAlmq75thnfFtDnwYGH9XY//Xx
+	OWfey5tZ8L8QxszZ8RNvl7vhqbcpgVdoQ1TSLhqLqBZxoOEpW7bhrI2A0toGS+undq6Ujk5+rYGNS
+	pCHfm1t64joXEMFJBecdT3H0nQv0FBd6iQ1IMRV0OGdNwKi5gTjEOApFtk0nFlaLcXYOa2xzn1vPv
+	UQRsuDkc08aNpdn0vlZE73h65y2xEh2AOI/WTMxDdhwA/A10YrNbI8CpmelBtL6SsuswzCOYGg1Qd
+	TdFD8xZ94EOfwz0DlZcV+D7KW/QElVqG60V8s1Y5ahEBC5EdWJuDBQxzES4yCYkg+EazFstRVBt+q
+	2NksdazQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLAt-0000000BIxI-3saC;
-	Mon, 12 Oct 2026 18:55:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGLDE-0000000BJOZ-3UIl;
+	Mon, 12 Oct 2026 18:57:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLAt-0000000BIx3-0OZu;
-	Mon, 12 Oct 2026 18:55:03 +0000
+	id 1xGLDC-0000000BJO3-3Cuo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 18:57:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC9DA40C02;
-	Mon, 12 Oct 2026 18:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46E7C1F008A1;
-	Mon, 12 Oct 2026 18:54:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3756B60142;
+	Mon, 12 Oct 2026 18:57:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 702621F0089B;
+	Mon, 12 Oct 2026 18:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791831302;
-	bh=lsoi2vg2LB1YdOz216qy3fyKHo1xGtnZSa2C1EmzQQo=;
+	s=k20260515; t=1791831445;
+	bh=aGv7wzz6dSlgfk0zNA/9NELYefYWEvx5y5COyaIu+P4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N3ZZ6lS7EyvdRhDCSwPisPwBsfZDf2U/cgYy+PvafbsVnw+LlKjg0ZUagkVZwZD8x
-	 tI9jNpHjsNM78BddwlUemK9w35pF5YQa2i7hTRy1ifBOgubuR0aGVvZ1TosSpnTXyK
-	 39GAMsCQZnmBA1siaIrn9LTc+9nk+Pg/I4xieWN1PL0AGWNp0MI613afthXKXiTuq7
-	 5B7Pjyy00/y0beE/3uIzUxHZdTYn7nf9L+OxxVg9emSgGzUZkYiKdH02aNYixp5gw0
-	 bceU4cUVi6vW6jm4PWx1y67uj83qgIw4/x4dRSYlk6OevQ2E352Cz/buYJHTwBfNIv
-	 fFH3BbjZ+LYNQ==
-Date: Mon, 12 Oct 2026 19:54:57 +0100
+	b=aPBeZDYrJ/i+B8WrCeaXrBd3+XUWJhZo2r1ihQEkQVznr703fBmMw3UCjeXC6EQ9L
+	 etAhg6dkaTZGSkAlaiYGxENtFPCh1fnnuS3hUO9HKKKKzSzfXSsI+MWeTdHg8dC5yf
+	 +FYmfmXeK0sOgA96u3jjofHSE2lf0VcwQINa7xuCT0ZeK69C2max3q6yaBcMuMjdYX
+	 f/55s+EpA0X5sa4i3v+dsP4DnwLYFY9q6/ZA29WEHh0iamOuy0vKj09ANu3PwhVThZ
+	 UyfbNN+0sdiHvATHJq9DV7mUHL+aGneePT0CdMksnHxH2h89m+rpmIPNSN95tuITo3
+	 q0m2akVOCy7Rg==
+Date: Mon, 12 Oct 2026 19:57:21 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Miotsuki Mizuno <founder@crepuse.com>
-Cc: "heiko@sntech.de" <heiko@sntech.de>,
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
-	"airlied@gmail.com" <airlied@gmail.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"jesszhan0024@gmail.com" <jesszhan0024@gmail.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>,
-	"noralf@tronnes.org" <noralf@tronnes.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"simona@ffwll.ch" <simona@ffwll.ch>,
-	"tzimmermann@suse.de" <tzimmermann@suse.de>
-Subject: Re: [PATCH v2 1/2] dt-bindings: display: panel-mipi-dbi-spi: Add
- UNIHIKER M10 display
-Message-ID: <20261012-brunch-mocker-348f76eb943b@spud>
-References: <20261012121718.53481-1-founder@crepuse.com>
- <20261012121718.53481-2-founder@crepuse.com>
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH 3/5] dt-bindings: i2c: apple,i2c: Add t8140-i2c compatible
+Message-ID: <20261012-crudeness-able-6f5f7dc1e7cc@spud>
+References: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
+ <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-3-6c757966a99e@cyberchaos.dev>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l0Q0H+qNTOU6/PQ9"
+	protocol="application/pgp-signature"; boundary="muLY+G8FkQlRJbj0"
 Content-Disposition: inline
-In-Reply-To: <20261012121718.53481-2-founder@crepuse.com>
+In-Reply-To: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-3-6c757966a99e@cyberchaos.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,23 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---l0Q0H+qNTOU6/PQ9
+--muLY+G8FkQlRJbj0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---l0Q0H+qNTOU6/PQ9
+--muLY+G8FkQlRJbj0
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0tAQAKCRB4tDGHoIJi
-0kRKAPwKrVSpWbI+CrbQHAuW1z8jJHJOJ2kY7Fd65yZXVaWM/gD+MGhjR/tpHAvV
-hoMubh6PI1wdQ4Mso389MlLQbINTdAc=
-=CDyY
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0tkQAKCRB4tDGHoIJi
+0vTFAP9A0KLlFBmkMU0KWr4iNtgNej/Za1EjmTmVElTOA1WMhgD/eWeOIHdfVIDr
+9YivZwI7/s5C8lmOWzAtJOQouTexAAw=
+=AfRS
 -----END PGP SIGNATURE-----
 
---l0Q0H+qNTOU6/PQ9--
+--muLY+G8FkQlRJbj0--
 
