@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1F0CA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA67CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7JcOS9mRrHiosrahbddQDMnaSYmC8RhnJcuti4UL30=; b=b1TdE/jg/9bGo6RiZxkz/5fbO5
-	lk+Bb9nOwppUbW6fhwewY8xDyHixEKBhOkLwv+OX1CJAHPLTJT+/126IJggoyZKwAsxjl8vIy6dMy
-	k5uMuRBPq3zT/ySOqnrK0K5x537/UlsiEKIRy1UPLIDDskKVr+riFBc8syEToVxR+3toAGAHqdqU/
-	ZGIdhxGBNvniQlvTCiYJwmqv8cuAId5yS6IajzLL38YIkOkVXhkap7bwVQppV6IRCIcpURbDzrvtU
-	Rd7L/5mUhQ46UV7Ir02jAAzztaMDrDRXCE1CF3WoHDFtQoAY3Qe+rl1/iO8dIZm6K/bsOwLiTVebm
-	fgwwTpNw==;
+	bh=l2zp4t4NyTHWHTKgbsdObniAY39EXm7EQZMRjqNl5/Y=; b=EH2ngA17mJIcYsXU7rLPzF1nXx
+	UG7x8IiaBcsgKwRhs7Y/4kApRnj9NSZLHw3Mou/K5qW8wXf27q0wE7jLHd2NzKE6fsx68icy00hVx
+	Mgvr7QxAtp5P0gLhbdKw9DcwoHQW0Bp/L3tNyelUWWX2YeI6C2AzPoe/8xhSkihtBrqoZqsbjXI4l
+	V3zecLqOXXtY+YzUMNMrMVA7mWgZEfeUoCOUodcLFusNr8LI4KlCR1adzad/0nWKiRG9MqV6yi4OF
+	PI4MyXe9t6C6PNIcb4A2E0Ddcr8R7PovDahSPW/jt5jZra7NlhzgWBPLhae1CDIhF6zC3d+98K3CR
+	hV7/kWXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGL4T-0000000BHpo-2OWZ;
-	Mon, 12 Oct 2026 18:48:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGLAV-0000000BIqL-2pl9;
+	Mon, 12 Oct 2026 18:54:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGL4S-0000000BHpP-02La
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:48:24 +0000
+	id 1xGLAU-0000000BIqB-2Lgx;
+	Mon, 12 Oct 2026 18:54:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6133B419E8;
-	Mon, 12 Oct 2026 18:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940531F008A1;
-	Mon, 12 Oct 2026 18:48:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0CFA60142;
+	Mon, 12 Oct 2026 18:54:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D18F1F0089B;
+	Mon, 12 Oct 2026 18:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791830903;
-	bh=v7JcOS9mRrHiosrahbddQDMnaSYmC8RhnJcuti4UL30=;
+	s=k20260515; t=1791831277;
+	bh=l2zp4t4NyTHWHTKgbsdObniAY39EXm7EQZMRjqNl5/Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iTD15HLXJmnzSHQh1R3/yXxpegiLHAHc8UsCkeN2JxBC23LYmIvckjkhAEs9yFv9T
-	 UeSTYHnpOtVW0B203oNVkfna5csKKJ04HC7F0WS4Xix8xdHKjRAhwkcP/OQ9Urb4F2
-	 kp8jQzo938ibXm66lrQBvXVu4V0gVQUdOC9GrQIW/8mBfTgrsn/6ce1bMceLX31F+H
-	 7Zq/UOGu8hGibZVxB5tTH3OOP61FXO7HxwKu4w9BP/5FcrFbmh81oyz5ZUPOGJRM2L
-	 BL4JQYoWdBNBlcTTKhzLwJ0hjNpGtgOHKfH+8hFB/GqlYnM+H9HZCDGZj+qXcwmSKF
-	 Smm/HBtMGu1gQ==
-Date: Mon, 12 Oct 2026 19:48:17 +0100
+	b=QvEE5ZPENu7PNxG06VtqOrBJ9I+4/4AvOSce4C6PgW1JhTezsdxcBc5OFRgf7tKXe
+	 uNaVspMFklqOciONRUFo9ovRO0fX8FHiWTlXEgnaJpSSQV7nBUmajlK678Jczj+ZLy
+	 CU+1EMdvfFcAStiHOslndLlC8/KnyFMixWDmR4D4gudeBQY4eBCFQinb14X3x2CCxp
+	 8udDd04Q8OMo8sF6mH4hp87AnNiRX2BkSoHP+EAD3oDz6flQ4fdOSvhnnETifVCwUa
+	 1U6L5HRjHs1VXwQP+zioa0qRD15ccFovMB3KraCwUkWvyvxnhzS/AgVqWGSrESsIyN
+	 VF/wIIpWxWLGA==
+Date: Mon, 12 Oct 2026 19:54:32 +0100
 From: Conor Dooley <conor@kernel.org>
-To: filipp.dunsky@gmail.com
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller,
- GPIO, I2C and TWD watchdog
-Message-ID: <20261012-dreamlike-hazily-19bb60326f0a@spud>
-References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
+To: Luo Liu <Luo.Liu@cixtech.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	gary.yang@cixtech.com, fugang.duan@cixtech.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com, p.zabel@pengutronix.de,
+	linux-kernel@vger.kernel.org, Wuyi.Shen@cixtech.com,
+	EastLake.Yang@cixtech.com
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: Add CIX Sky1 DP PHY
+Message-ID: <20261012-founding-stench-55cff46fe1a3@spud>
+References: <20261012123618.648930-1-Luo.Liu@cixtech.com>
+ <20261012123618.648930-2-Luo.Liu@cixtech.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3WAP39xI/QLnZ2cB"
+	protocol="application/pgp-signature"; boundary="q6HPCk6NTpYhk7J2"
 Content-Disposition: inline
-In-Reply-To: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
+In-Reply-To: <20261012123618.648930-2-Luo.Liu@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,249 +75,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---3WAP39xI/QLnZ2cB
+--q6HPCk6NTpYhk7J2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 12, 2026 at 08:32:55PM +0300, Fil Dunsky via B4 Relay wrote:
-> This is the second step of the Cortina Systems CS75xx ("Goldengate G2")
-> / Securifi Almond+ support. It applies on top of the platform series
-> "ARM: Add support for Cortina Systems CS75xx and Securifi Almond+"
-> v4 [1] and adds:
+On Mon, Oct 12, 2026 at 08:36:16PM +0800, Luo Liu wrote:
+> Document the dedicated DisplayPort PHY on CIX Sky1, including the
+> optional cix,external-dp board property for external connector swing.
+> Add a MAINTAINERS entry for the binding and driver.
 >=20
->   - a driver for the per-CPU private watchdog of the ARM11 MPCore,
->     Cortex-A5 and Cortex-A9 ("arm,cortex-a9-twd-wdt"),
->   - the peripheral interrupt controller that combines the interrupts of
->     the low speed peripherals into one GIC interrupt,
->   - the GPIO banks,
->   - the I2C controller,
->   - the device tree nodes, including the reset button of the Almond+,
->     and the multi_v7_defconfig and MAINTAINERS updates.
+> Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+> ---
+>  .../bindings/phy/cix,sky1-dp-phy.yaml         | 53 +++++++++++++++++++
+>  MAINTAINERS                                   |  8 +++
+>  2 files changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-dp-phy=
+=2Eyaml
 >=20
-> As in the first series there is no public documentation; register
-> layouts come from the GPL vendor kernels (2.6.36 for the Almond+, 4.9
-> for the Verizon FiOS G1100 with the same SoC) and were checked on the
-> board with the out-of-tree OpenWrt port these drivers are based on.
->=20
-> The patches go to different trees and only depend on each other through
-> the device tree: the irqchip (1-2), GPIO (3-4), I2C (5-6) and watchdog
-> (7) patches can be picked up independently, the dts, defconfig and
-> MAINTAINERS patches (8-11) need the platform series.
->=20
-> TWD watchdog:
->=20
-> The binding "arm,cortex-a9-twd-wdt" (watchdog/arm,twd-wdt.yaml) exists
-> and several dtsi files use it, but there has been no driver since
-> mpcore_wdt was deleted in v3.11 ("watchdog: delete mpcore_wdt driver").
-> The reasons given then were that the watchdog is banked per CPU while
-> the driver only programmed the CPU that happened to run the ioctl, that
-> it used request_irq() for a per-CPU interrupt, and that it had no users.
->=20
-> This driver does not use the interrupt at all (the watchdog runs in
-> reset mode) and programs, pings and stops the watchdogs of all online
-> CPUs with on_each_cpu() under cpus_read_lock(). A CPU hotplug state
-> arms the watchdog of a CPU coming online while the device is active and
-> stops it on a CPU going offline, since an offline CPU cannot ping it.
-> A watchdog found running at probe time on any CPU is reported as
-> WDOG_HW_RUNNING and reprogrammed with the driver's timeout without
-> being stopped; the reset flag sets WDIOF_CARDRESET.
->=20
-> On the Almond+ the stock U-Boot arms the watchdog and the board resets
-> after ~300 s unless it is serviced. With this driver the watchdog core
-> pings it until userspace takes over.
->=20
-> The driver also registers a restart handler: the CPU that restarts the
-> system lets its own watchdog expire right away. The platform series has
-> no other way to restart the CS75xx, so without it "reboot" hangs.
->=20
-> Interrupt controller:
->=20
-> A status register shows the level of 15 sources and an enable register
-> masks them; the sources are acknowledged in the peripherals. The driver
-> uses a generic chip on a linear domain and a chained handler. There is
-> a second status/enable pair right behind it whose purpose I do not know;
-> it is not described.
->=20
-> GPIO and pin muxing:
->=20
-> Each pin is either a GPIO line or belongs to a peripheral (NAND,
-> Ethernet, UART, I2C, PCIe reset, ...). The choice is made per pin in one
-> GPIO_MUX register per bank, and these registers live in the global
-> control block at 0xf0000000, which also holds the boot straps, the
-> clock and PLL settings, peripheral resets and the other pin mux
-> registers.
->=20
-> In this version the GPIO node gets its bank's GPIO_MUX register as a
-> second reg entry. A line is switched to GPIO when it is requested as a
-> GPIO or as an interrupt and switched back to the setting found at probe
-> time when it is released. This keeps the driver self-contained, but it
-> means that requesting a line that is in use by a peripheral silently
-> takes the pin away from it; on this board exporting all lines through
-> sysfs hangs it (NAND and Ethernet pins lose their function). Boards can
-> list such lines in gpio-reserved-ranges.
->=20
-> I think the proper model is a pin controller for the global control
-> block: the block becomes a syscon (it is also needed by the clock driver
-> that will replace the fixed-clock), a pinctrl driver on top of it
-> describes the pins, the GPIO function and the peripheral groups, the
-> GPIO nodes get gpio-ranges and the GPIO driver uses
-> gpiochip_generic_request()/gpiochip_generic_free(). Pinmux ownership
-> then refuses GPIO requests for pins claimed by a peripheral's pinctrl
-> state. The remaining pin mux registers of the block are only partially
-> understood, which is why I did not start with that. Would you accept
-> the GPIO driver in this form first, with the pinctrl conversion (and a
-> binding change to gpio-ranges) later, or should the pin controller come
-> first?
+> diff --git a/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml b=
+/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> new file mode 100644
+> index 000000000000..c6914cab74e0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> @@ -0,0 +1,53 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/cix,sky1-dp-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: CIX Sky1 DisplayPort PHY
+> +
+> +maintainers:
+> +  - Luo Liu <Luo.Liu@cixtech.com>
+> +
+> +description:
+> +  The CIX Sky1 DP PHY provides the PMA/CDB register interface for the
+> +  dedicated DisplayPort instance on CIX Sky1.
+> +
+> +properties:
+> +  compatible:
+> +    const: cix,sky1-dp-phy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +  resets:
+> +    maxItems: 1
+> +    description: PHY hardware reset
+> +
+> +  cix,external-dp:
+> +    type: boolean
+> +    description:
+> +      Use voltage swing values suitable for an external DisplayPort
+> +      connector instead of the default low-voltage values.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#phy-cells"
+> +  - resets
 
-I think what's here looks really suspect - regions of two registers
-wide, interlaced between devices etc.
-You mention syscons here, and really that's where I think that this
-should go. The region at 0xf007_0000 looks exactly like a syscon to me
-and should be modelled as one.
+A reset but no clocks? That's a bit hard to believe.
 
-The regions in the first reg property of the GPIOs I dunno about, it's
-hard to say without a full picture of what's around them - but this
-device does seem to /love/ smushing devices in in a compact memory map
-so modelling them as individal devices is probably correct, unless it
-could all be considered to be one big GPIO controller with 4 banks. Hard
-to say really, and not very important IMO.
-
-The second register region would have to be looked up via a syscon
-phandle, but even that seems incorrect to do in the face of your
-explanation of how they're really pinmuxing between gpio and some other
-feature, not an internal of the GPIO functionality.
-
-I think it's fine to make a GPIO controller at this point, and leave
-pinctrl to later, but I don't think that it is acceptable to pretend
-that the mux registers are part of the GPIO controller. The pinctrl-less
-GPIO controller would have to either rely on something else (e.g.
-firmware) setting the mux registers or be not entirely functional until
-the pinctrl arrives - IMO that kind of thing isn't abnormal, it's just
-how things can sometimes be. For example, if you submitted a SPI driver,
-but no board exposed SPI without pinmuxing changes that were not
-possible as the driver for that was not yet upstream, that's not
-something that would block the SPI driver. It might, on the other hand,
-block adding the SPI node to the devicetree.
+Seems fine otherwise, unless I am missing some sort of common property
+for the voltage swing stuff.
 
 Thanks,
 Conor.
 
->=20
-> I2C:
->=20
-> The controller transfers one byte per command with an OpenCores-like
-> command register. The driver supports plain I2C and emulated SMBus
-> without quick commands (every message carries at least one data byte)
-> and without 10-bit addresses.
->=20
-> Testing:
->=20
-> Tested on a Securifi Almond+ with next-20260929 plus series 1 v4 and
-> this series, both CPUs online. The watchdog found the TWD armed by the bo=
-ot
-> loader on both CPUs and took it over ("running on CPU0-1, taking
-> over"); pinged for 60 s from userspace and then left alone, it reset
-> the board when timeleft reached zero. The I2C and GPIO interrupts are
-> delivered through the new peripheral interrupt controller; the reset
-> button (GPIO 37) is claimed by gpio-keys as an active-low input and
-> reports KEY_RESTART; an I2C read of the touch controller at 0x48 is
-> ACKed and an empty address returns -ENXIO without timeouts. reboot(2)
-> issued from CPU1 restarted the board through the restart handler.
-> The same drivers also run in an OpenWrt image on Linux 6.18 booted from
-> NAND through the stock U-Boot, where the SX8650 touchscreen uses a
-> level-triggered GPIO interrupt.
->=20
-> Build tested with multi_v7_defconfig (GCC 14 and Clang 21, W=3D1),
-> dt_binding_check and dtbs_check. Not tested: CPU hotplug of the
-> watchdog (the platform has no cpu_die yet), repeated START between
-> messages on I2C (only single-message transfers were run), GPIO
-> interrupts with real edges.
->=20
-> Open questions:
->=20
-> 1. GPIO muxing, see above.
-> 2. The TWD watchdog binding marks clocks as optional, the driver
->    requires them (the rate is needed to compute the timeout). Should
->    the binding be tightened, or should the driver fall back to
->    something when there is no clock?
-> 3. Is a separate MAINTAINERS entry for the TWD watchdog driver the
->    right thing, or should it be listed under the watchdog subsystem?
->=20
-> [1] https://lore.kernel.org/all/20261012-b4-cs75xx-v4-0-df250d903682@gmai=
-l.com/
->=20
-> ---
-> Fil Dunsky (11):
->       dt-bindings: interrupt-controller: Add Cortina Systems CS7542 perip=
-heral interrupt controller
->       irqchip: Add Cortina Systems CS75xx peripheral interrupt controller
->       dt-bindings: gpio: Add Cortina Systems CS7542 GPIO controller
->       gpio: Add Cortina Systems CS75xx GPIO driver
->       dt-bindings: i2c: Add Cortina Systems CS7542 I2C controller
->       i2c: Add Cortina Systems CS75xx I2C controller driver
->       watchdog: Add ARM TWD (MPCore private) watchdog driver
->       ARM: dts: cortina: cs7542: Add interrupt controller, GPIO and I2C
->       ARM: dts: cortina: almondplus: Add reset button and enable I2C
->       ARM: multi_v7_defconfig: Enable Cortina Systems CS75xx GPIO, I2C an=
-d TWD watchdog
->       MAINTAINERS: Add Cortina Systems CS75xx interrupt controller, GPIO =
-and I2C
->=20
->  .../bindings/gpio/cortina,cs7542-gpio.yaml         |  68 ++++
->  .../bindings/i2c/cortina,cs7542-i2c.yaml           |  56 +++
->  .../interrupt-controller/cortina,cs7542-intc.yaml  |  57 +++
->  MAINTAINERS                                        |  12 +
->  .../dts/cortina/cs7542-securifi-almondplus.dts     |  19 +
->  arch/arm/boot/dts/cortina/cs7542.dtsi              |  75 ++++
->  arch/arm/configs/multi_v7_defconfig                |   3 +
->  drivers/gpio/Kconfig                               |  12 +
->  drivers/gpio/Makefile                              |   1 +
->  drivers/gpio/gpio-cs75xx.c                         | 332 +++++++++++++++=
-+++
->  drivers/i2c/busses/Kconfig                         |  11 +
->  drivers/i2c/busses/Makefile                        |   1 +
->  drivers/i2c/busses/i2c-cs75xx.c                    | 354 +++++++++++++++=
-++++
->  drivers/irqchip/Kconfig                            |  12 +
->  drivers/irqchip/Makefile                           |   1 +
->  drivers/irqchip/irq-cs75xx.c                       | 103 ++++++
->  drivers/watchdog/Kconfig                           |  15 +
->  drivers/watchdog/Makefile                          |   1 +
->  drivers/watchdog/arm_twd_wdt.c                     | 387 +++++++++++++++=
-++++++
->  19 files changed, 1520 insertions(+)
-> ---
-> base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
-> change-id: 20261012-b4-cs75xx-s2-5f548492f51e
-> prerequisite-message-id: <20261012-b4-cs75xx-v4-0-df250d903682@gmail.com>
-> prerequisite-patch-id: 104c6fb668f30ac8c2c5b3b6c524c18caa8808c4
-> prerequisite-patch-id: e7d503348cbec7558cd084162133f8e34df1c1bc
-> prerequisite-patch-id: 1d5770db02b983d012f6c58806fbf3f5291a06c9
-> prerequisite-patch-id: c2815f506d2df1c84cd50111220b938a41d29050
-> prerequisite-patch-id: 6c0137d52f201d8ec085ee6cc7b2d49af15583d8
-> prerequisite-patch-id: 24e110f3c8c008deffdda079bdc27db729b5014d
-> prerequisite-patch-id: cb09693a5d51be6b24bdf66e112b9dd40fc25dbe
-> prerequisite-patch-id: 15c11a668a1a281649fa0713371e7f07ee44917e
-> prerequisite-patch-id: 9b4a468b7b74861017ef533ba0a5574bc14b212e
-> prerequisite-patch-id: 1f232c94dd3fc0d862203b7c0c1449e6ba9a6859
->=20
-> Best regards,
-> -- =20
-> Fil Dunsky <filipp.dunsky@gmail.com>
->=20
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+> +
+> +    phy@1414c000 {
+> +        compatible =3D "cix,sky1-dp-phy";
+> +        reg =3D <0x1414c000 0x4000>;
+> +        resets =3D <&s5_syscon SKY1_DP_PHY_RST_N>;
+> +        #phy-cells =3D <0>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3a19da74d00c..b46d0f4220a9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -6360,6 +6360,14 @@ M:	Satish Kharat <satishkh@cisco.com>
+>  S:	Supported
+>  F:	drivers/infiniband/hw/usnic/
+> =20
+> +CIX SKY1 DISPLAYPORT PHY DRIVER
+> +M:	Luo Liu <Luo.Liu@cixtech.com>
+> +R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
+> +L:	linux-phy@lists.infradead.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> +F:	drivers/phy/cix/
+> +
+>  CLANG CONTEXT ANALYSIS
+>  M:	Marco Elver <elver@google.com>
+>  R:	Bart Van Assche <bvanassche@acm.org>
+> --=20
+> 2.25.1
 >=20
 
---3WAP39xI/QLnZ2cB
+--q6HPCk6NTpYhk7J2
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0rcQAKCRB4tDGHoIJi
-0h/1AP42+nhb5OTFfizZPxymGqzai/6Wu4FmQZkq2wjB9h2WVAD5AeL9i/KO+0HY
-30N4sc/BZ+73908yaxdCBoJxRpde6gY=
-=/ZEi
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0s6AAKCRB4tDGHoIJi
+0iXrAQDtZlLwnBeXrt0sJP/AohrnXaoa1UW1wN5d8Yjkimco7AEA1Aly54IhsVhf
+2zcuFqWPKZ7+HlGCLNIbW0h8KFKPPQA=
+=oFLx
 -----END PGP SIGNATURE-----
 
---3WAP39xI/QLnZ2cB--
+--q6HPCk6NTpYhk7J2--
 
