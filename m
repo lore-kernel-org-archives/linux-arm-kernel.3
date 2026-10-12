@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733C5CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FC8CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bqDOAwSMJoESa7IGvpvNsqYJH+0SnO+WSGpdq05dVb0=; b=nYQ2gquXzYtmj6SF7bHuBXr+tP
-	ACo+qmXJhy7tY/hOB8M3kHRwzPyeVc0z8JXbJXgLZWUPPODWBVuOAWPnShi2HKg1L7Df4CYYrUk1T
-	JVoIefRk3cpZ7+8kj/ezJiCoTtC9MxTWIjdn3+ceG2dPdortoSRfGyixsEgR9CeINhLsbfFITIhRU
-	EXF1g338SePB55D1IC7KqQBTaIkJemj6s2WAfYubhH8/tqreXjzHxKhs/Ll8sWpgMjcTBZLCOHB4q
-	Et1OwrAnrRML7CM/KU6j2DW2h2tE8oHrLVKIyGWG8fgMkI+yPejRtmfiJe7VOENuhMi45u7LBrZEQ
-	bZpa3Cag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oo77ofVgiaIxk7/HrKuQfjrMk2AzM4yZPId3+7w7fvk=; b=mMcfMiyzxwXPYLcQ8Arwg+zHEi
+	pS12p5Pf5dIW6wkrdVkwsEwbixdrc+Oup8jz4Lux+LVjpRTjVavMHsBPWJ1Czx5QokyM2ZVID4kWD
+	ithQjRrdA5bHsgiX4fp3drtliSXjW1pJrHnY7Zvd1C+j6rfX77N7wCbsAmSdSdDjIckw2Y4ZGE2YB
+	F+WDtrNW38hvKJYs2zIacBAY4PiQpJAD8DQ5qP61PzLg/XsNiPWTQE4RRc2IdwYE4UhdQ50yHyIIK
+	Ap0oc6m7SIPFpS+yMlr1/VnAs99mmvDcPoTqryQnb1YwrZBo4QyB5NxMhmmsXuWOXNUle1Jkig4wz
+	qTVeH2XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBhI-00000009z7v-22dG;
-	Mon, 12 Oct 2026 08:47:52 +0000
-Received: from out-53.mta1.migadu.com ([2001:41d0:203:375::35] helo=mta1.migadu.com)
+	id 1xGBkM-00000009zSc-47qH;
+	Mon, 12 Oct 2026 08:51:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBhF-00000009z6x-3PKV
+	id 1xGBkL-00000009zSD-20mr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 08:47:51 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=SEZ6etcTUGf9RNiXMMSRKfIgUoYwJmmBOcXlKCaLB1c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791794866; v=1; x=1792399666;
- b=LifUpA1OiIiDsoTE2x+/KfBOlpw5lBYJmid7KmgnX26wU7RSeNLTCIwLjTY3ssOWJWLi1PBX
- u35Uy39rnR0B6wIACwpoR99Q/bFmB+dCdWDXXN3/YZ0JoJU+rz0uVM1bm2ch7364Yazc9LiOyeI
- fQdoCSbveYyVF2dbY2DrY7oQ=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id ea7dd119e4327306;
-	Mon, 12 Oct 2026 08:47:46 +0000
-X-Mizu-Trace-ID: ea7dd119e4327306
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v1] KVM: arm64: vgic-v4: Don't forward an LPI with no target vCPU
-Date: Mon, 12 Oct 2026 09:47:43 +0100
-Message-Id: <20261012084743.2228612-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+	Mon, 12 Oct 2026 08:51:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBAD743ADB;
+	Mon, 12 Oct 2026 08:51:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C95661F0089B;
+	Mon, 12 Oct 2026 08:50:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791795060;
+	bh=Oo77ofVgiaIxk7/HrKuQfjrMk2AzM4yZPId3+7w7fvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a98O/BCqbhHG2B1sOa/v0bIuNQWRfDrKDF+LKT5WJDfjFQuFAhmADi3OaIuCg7g05
+	 FE3TzyQYdv9tVBix7xQdchnWrvdNrXW2UPUdkw+CNm0iNoycyRu7npZ1zvMzzvWWyC
+	 OU5TzZfqJgU14HdjCeBaOpDvbThSdoNYpXskij0webDBwdCmQLEIbhQ2iMSkOiZFtY
+	 rgNFRJ2axy5nVPM9HACbGCWxmljvLHPhMjxzUJCmMDNNDjm/NNfIxVsUcnyEd++dzB
+	 /Uqx87F/5dqH4XN2vOeUWIA5qU6TuncVYXoeKFDcS8M+jNbEa27NGnN/7r+Z+Fy4q8
+	 hhRULsAqye2/g==
+Date: Mon, 12 Oct 2026 10:50:56 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, robin.murphy@arm.com, devicetree@vger.kernel.org, 
+	Frank.Li@kernel.org, cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] dt-bindings: dma: arm,dma-350: Document the CIX
+ Sky1 integration
+Message-ID: <20261012-velociraptor-of-improbable-upgrade-bfe14a@quoll>
+References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
+ <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
+ <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_014749_991078_8BA38C92 
-X-CRM114-Status: GOOD (  12.60  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +73,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM keeps one vgic_irq per LPI. The MAPTI that creates it sets its
-target vCPU from that MAPTI's collection, and a later MAPTI of the same
-LPI leaves the target alone. Mapping one LPI from two events is
-UNPREDICTABLE (IHI 0069H.b, 5.2.10), but nothing stops a guest doing
-it. If the first MAPTI names a collection the guest never maps and the
-second a mapped one, the LPI translates through the second event with
-a NULL target vCPU.
+On Fri, Oct 09, 2026 at 01:18:44PM +0800, Jelly Jia wrote:
+> The CIX Sky1 DMA-350 integration is the same device with SoC glue around
+> it, so it is described by the arm,dma-350 node itself with an additional
+> "cix,sky1-dma350" compatible rather than by a separate wrapper node.
+> 
+> Extend the binding with the CIX compatible and the resources the
+> integration needs: a clock, a reset, an optional reserved memory region
+> used when the controller cannot reach all of system memory, and the
+> syscon that routes the channel interrupts to the AP interrupt
+> controller on Sky1. The cix,irq-router property is only valid together
+> with the CIX compatible.
+> 
+> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
 
-When the VMM routes an assigned device's MSI to that event on a host
-with GICv4 enabled, kvm_vgic_v4_set_forwarding() takes the vPE from the
-NULL target vCPU and the host oopses:
+Only LLM. Drop all other tools, which guidance asked you to put here
+build process tools?
 
-  Unable to handle kernel paging request at virtual address 0000000000001980
-  [...]
-  Call trace:
-   its_build_vmapti_cmd (drivers/irqchip/irq-gic-v3-its.c:943) (P)
-   its_irq_set_vcpu_affinity (drivers/irqchip/irq-gic-v3-its.c:1380)
-   irq_set_vcpu_affinity (kernel/irq/manage.c:670)
-   its_map_vlpi (drivers/irqchip/irq-gic-v4.c:326)
-   kvm_vgic_v4_set_forwarding (arch/arm64/kvm/vgic/vgic-v4.c:485)
-   kvm_arch_irq_bypass_add_producer (arch/arm64/kvm/arm.c:2977)
-   irq_bypass_register_consumer (virt/lib/irqbypass.c:44)
-   kvm_irqfd (arch/arm64/kvm/../../../virt/kvm/eventfd.c:496)
-   kvm_vm_ioctl (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:5270)
+How is it even possible to assist here with sparse? And really,
+mentioning checkpatch is just wrong. EVERY patch must run through
+checkpatch, with no exceptions.
 
-Leave such an LPI to the software path, which copes with a NULL target,
-as kvm_vgic_v4_set_forwarding() already does when the MSI doesn't
-translate.
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
 
-Fixes: 196b136498b35 ("KVM: arm/arm64: GICv4: Wire mapping/unmapping of VLPIs in VFIO irq bypass")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
-Tested on QEMU, which emulates the GICv4 ITS, with a local reproducer
-that sets up the two MAPTIs and forwards a vfio-pci MSI to the LPI. It
-oopses without the fix and passes with it. Not tested on GICv4 hardware.
+> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+> ---
+> v1 -> v2:
+> - Folded the integration into arm,dma-350.yaml: the Sky1 DMA-350 is the
+>   same device, so it keeps the generic compatible plus a device
+>   specific "cix,sky1-dma350" compatible, and the integration resources
+>   are described on the controller node.
+> - Dropped the separate cix,sky1-dma350.yaml wrapper binding.
+>  .../devicetree/bindings/dma/arm,dma-350.yaml  | 33 ++++++++++++++++++-
+>  1 file changed, 32 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> index 429f682f15d8..3b991985c416 100644
+> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> @@ -11,10 +11,23 @@ maintainers:
+>  
+>  allOf:
+>    - $ref: dma-controller.yaml#
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              const: cix,sky1-dma350
+> +    then:
+> +      properties:
+> +        cix,irq-router: false
 
-Based on v7.3-rc3.
+Entire allOf block goes after required: part.
 
- arch/arm64/kvm/vgic/vgic-v4.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+>  
+>  properties:
+>    compatible:
+> -    const: arm,dma-350
+> +    oneOf:
+> +      - const: arm,dma-350
+> +      - items:
+> +          - const: cix,sky1-dma350
+> +          - const: arm,dma-350
+>  
+>    reg:
+>      items:
+> @@ -36,6 +49,24 @@ properties:
+>      const: 1
+>      description: The cell is the trigger input number
+>  
+> +  clocks:
+> +    maxItems: 1
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-index ed236f083f0d7..545e55317c863 100644
---- a/arch/arm64/kvm/vgic/vgic-v4.c
-+++ b/arch/arm64/kvm/vgic/vgic-v4.c
-@@ -466,6 +466,13 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
- 	if (irq->hw)
- 		goto out_unlock_irq;
- 
-+	/*
-+	 * Silently exit if the LPI has no target vCPU, as one mapped by
-+	 * multiple ITEs (UNPREDICTABLE) can have.
-+	 */
-+	if (!irq->target_vcpu)
-+		goto out_unlock_irq;
-+
- 	/*
- 	 * Emit the mapping request. If it fails, the ITS probably
- 	 * isn't v4 compatible, so let's silently bail out. Holding
+So all devices have clocks and resets?
 
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
--- 
-2.39.5
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+
+and memory-region?
+
+> +    description:
+> +      Reserved memory region used for DMA allocations when the controller
+> +      cannot reach all of system memory.
+> +
+> +  cix,irq-router:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Syscon phandle for the CIX Sky1 subsystem register block that routes
+> +      DMA-350 channel interrupts to the AP interrupt controller.
+
+Best regards,
+Krzysztof
 
 
