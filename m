@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E26CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCA7CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=onWJ6ONltn94K0nYjjsvbs8zBVxp2RtNkWHz5Qqtqr0=; b=dRuScSMEASY/EeSOOnzYqnZUR0
-	ylG2J5Pjhy7Gm4P95RSnwCgyLG3AFqRpBv1lfLFoePKi3R7vQEMPQAMCLoctQN64KLxq21gzICYyx
-	6/gFVd+OZyPOJwmrfqDy39oqUk/+m8nzVK57IUh2E2n04oXt+2Tj2YL4MIJKXKxmJPqoEN0MRvbtL
-	Ky/Q5F8+OaRzYn02fLFuhZME9mZaRd4z0IolUQZ3F/E6rS0kgVtZQySl2BWxYV8RTDgP+XAyRK4Dg
-	cWsvOm8/Rwx7c//lC18XtvJhTP3okvKeRRmtmTPRyUtn1KyrsBQ06daQxiW9nNw4hx0hvKZN/TL4V
-	WhvK11YQ==;
+	bh=xIdQC/igpl1nz8ot81cLXJwNaA5/Di/1/53YpNpdmRM=; b=otjyVoN0Fw7LqBbqZa5Yxfvma8
+	DASRnFozIxdtYWGDWkQ2wIWpV0wR5fe2JnSs6uWkZvXB/rJzO38itLEvqZ4k/OaMdLd99Ll2RmUNH
+	Vof64e0GYbY8QjQnzyUx4829JpKPpxS2WjYdf+pjoFTiJ2vymy9jg4tRVh2qtZ0ysD/8fEH5mAytF
+	Imw5p54o2h5GVjtKlWl83WFVVW5aggmU2si8sprCkGpmuPbSu+/b0x4jpG2FMKi+lP0SYqP0LMhGA
+	SnNyr8LGnkOuNfSmwHMypx6PLg8vIS3SHa+ijFrXtOu08bafjjyQMmWKkdP/EFkBwbIfFQ5jEISuA
+	N37bNuOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCWx-0000000A5Zl-0Qsl;
-	Mon, 12 Oct 2026 09:41:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGCZ3-0000000A5rk-2Cou;
+	Mon, 12 Oct 2026 09:43:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCWu-0000000A5ZL-3M0R;
-	Mon, 12 Oct 2026 09:41:13 +0000
+	id 1xGCZ2-0000000A5rW-1IUh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 09:43:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E80B600E2;
-	Mon, 12 Oct 2026 09:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1091F0089B;
-	Mon, 12 Oct 2026 09:41:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 65232600E2;
+	Mon, 12 Oct 2026 09:43:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DC81F0089B;
+	Mon, 12 Oct 2026 09:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791798072;
-	bh=onWJ6ONltn94K0nYjjsvbs8zBVxp2RtNkWHz5Qqtqr0=;
+	s=k20260515; t=1791798203;
+	bh=xIdQC/igpl1nz8ot81cLXJwNaA5/Di/1/53YpNpdmRM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HNvG2Hdz9LqP3HuiblCNkrZDD3gYnj021ugBuK5zLthlyi/HJsV2SvQbppMUxum2Q
-	 TaPYv+DPuIqAPnc43QMtP0l1cISjDlIMEomSHV5Zn0J984X2fS+YG+XYCAIXsH1ZTt
-	 Ba7bTc+/K01AyMCyoZ0JapPT5SQ1XZJQarXiZcQm6V3lnPTXF9hlesm2eUm8DIaqzl
-	 eo/nH/jWCxxKJ2EFoUp5C9zj27jWw+jySu/iZ3+1vtnEo3r4Q27C6MUmuTawuvoK/N
-	 T/Fg0Yp5va8TGtdxs6eKzTwbBqZ8Nuy94CPEZwWPdhhrf+Zz2UlbBBvcVc6by/MNpe
-	 J/TeqwjLhjHIw==
-Date: Mon, 12 Oct 2026 11:41:08 +0200
+	b=QJj8tMACfnSPnxPNlScBAT/wjfch/GQtzPrsPM0sPuZFeV5mXe2KoUY+HiU7P6mBw
+	 kDt7To4qpJ+u82DGRK9iUh768v+rj9M3DW5g7g3ytynQeiIHJ5tXwjOjJMlmcLXsiZ
+	 rdStoU6pIRO2jdgW9mq6k86xdeuv3hfUpISZ9PKqcOCJVTCo7TBv6/mH3gLEbzQvlO
+	 pL2JVK1gEo++ge158shQqQhwF47FeygVYKDH2EffL7lwRQa3A4uAizYgdp9tvZMDHH
+	 1JQH0poe8r/Frq1zViIRLFdzuoPLjhehDi+wiPXPhYuQ+qGy9/+tRU7qOij1dwV2iJ
+	 mb1k6fFKw0czw==
+Date: Mon, 12 Oct 2026 11:43:19 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: CK Hu =?utf-8?B?KOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-Cc: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"l.scorcia@gmail.com" <l.scorcia@gmail.com>, "fparent@baylibre.com" <fparent@baylibre.com>, 
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-	Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>, "simona@ffwll.ch" <simona@ffwll.ch>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "jbrunet+clk@baylibre.com" <jbrunet+clk@baylibre.com>, 
-	"bmasney+clk@redhat.com" <bmasney+clk@redhat.com>, "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, 
-	"vkoul@kernel.org" <vkoul@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "chunhui.dai@mediatek.com" <chunhui.dai@mediatek.com>, 
-	"wenst@chromium.org" <wenst@chromium.org>, "airlied@gmail.com" <airlied@gmail.com>, 
-	"mani@kernel.org" <mani@kernel.org>, "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "sboyd@kernel.org" <sboyd@kernel.org>, 
-	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/7] dt-bindings: mediatek: hdmi-phy: Add compatible for
- mt8167
-Message-ID: <20261012-eager-agile-pegasus-7aacd2@quoll>
-References: <20261010115539.9237-1-l.scorcia@gmail.com>
- <20261010115539.9237-2-l.scorcia@gmail.com>
- <ecdf765641209f3d0f27fe8ae77fe9145884d932.camel@mediatek.com>
+To: Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, arnd@arndb.de, linux@armlinux.org.uk, stefandoesinger@gmail.com, 
+	robh@kernel.org
+Subject: Re: [PATCH 01/24] dt-bindings: cache: l2c2x0: Describe ZTE
+ device-read serialization
+Message-ID: <20261012-eggplant-nyala-of-mathematics-5005e8@quoll>
+References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
+ <20261010130024.177503-2-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <ecdf765641209f3d0f27fe8ae77fe9145884d932.camel@mediatek.com>
+In-Reply-To: <20261010130024.177503-2-ghahramani.navid@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,20 +71,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 09:19:59AM +0000, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=
-=89) wrote:
-> On Sat, 2026-10-10 at 13:54 +0200, Luca Leonardo Scorcia wrote:
-> > External email : Please do not click links or open attachments until yo=
-u have verified the sender or the content.
-> >=20
-> >=20
-> > The hdmi-phy for the MediaTek mt8167 SoC is not compatible with any of
-> > the existing hdmi-phy. Add a separate compatible to describe it.
->=20
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+On Sat, Oct 10, 2026 at 01:59:39PM +0100, Navid Ghahremani wrote:
+> Describe the observed interconnect deadlock workaround separately from
+> the ARM implementation. This property and API remain an RFC requiring
+> ARM and DT review.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/cache/l2c2x0.yaml | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 
-If you are going to review this, then review entire code, not just piece
-visible here while leaving the rest obviously incomplete.
+Please organize your work per respective subsystems and then CC actual
+maintainers.
+
+If this was intentional due to RFC, then it's fine. I am dropping
+everything from DT patchwork as it is marked as RFC.
 
 Best regards,
 Krzysztof
