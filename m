@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6850CA9EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F869CA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dl2eXNvfKEzhPLGQuMoBUCSO5Yt5EnKM7P0KsUE3gVI=; b=sLcE9I5fIq0QRsGRjYVgvEUkzo
-	JmUUsh9O46A1GzJ+H3kzYfy+N4sp9g4JHKsUINuUe48xvwWSEiyyGe4nXoWLc5uO1ktILTZjMR2Zp
-	28hJya2ZHclHHRcgOo/F06rmlbMNG/LWsWLeOebtOq6lFJfVSzGnA1JnIMFhmgS6kdJkb8p7YfnsH
-	nyHWqEA3cJHMfg5lYATRcruglQBYjeAuEQo1lR2qzV8b+Qdp9MGTG/kYPqofgunD1VAsp4onmK29u
-	V8EsppQY49jFPo4adqSmHXl/2IZq55oCVnryAlMqlksLhJSH5z8rucy1vRhPVtwxgPA2Uy8m/lDZH
-	dLuQ47fw==;
+	bh=JSrlS3c0D80DeTcpLHTJOVgScHDROXuVZzKekQ1qpgw=; b=yTRuYCUiAKMCBbDGlVZroayit8
+	M9Ep/Y4SQnBK5BPswY7IYBg1nPQWO7WcarUaq/NJPSngefLp4QVteOcgzf7pTXKK0+RPowpjtpo7/
+	Amq55OYF/VKgx2G4K/l1enHNa6bZ0WBHhWyywFL1iJgrT2IN30KiMPRRprl2I3fbPcHTG2wZsBxpF
+	a2weLmr7A6P6zhYILYA5TtaxVjzvEoaOxVcWZWPKwz8HQMNjHXOPPfKyJJrTfSi4tnjKLjhlqibdi
+	snd489LKaoiQilHUTWNLjVTHerp2//a5wKFCvydaGTn7hqyMJUwgrfcBDFausYMYILTQz7vqVhwcW
+	2KL7Aysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGA7c-00000009oGi-27wQ;
-	Mon, 12 Oct 2026 07:06:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xG9zX-00000009mYA-0N8d;
+	Mon, 12 Oct 2026 06:58:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGA7C-00000009nup-1ch7;
-	Mon, 12 Oct 2026 07:06:30 +0000
+	id 1xG9zV-00000009mWv-3o1c
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 06:58:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D52760D8B;
-	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1F52CC2BCFA;
-	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 582B54484A;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2EA90C2BD01;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791788789;
-	bh=wPJsLrkxhzUKYdB94n4ND+0sJIedzi6L9CUpyTZEOW0=;
+	s=k20201202; t=1791788313;
+	bh=O87EgCaMv/JHZcmvlwlEzRyEH0PZR65LbdyTzFL9gvM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Dfk7CQw44SNAIRmCjPu87FO2tiPjZIyW5/gU+48DB1cwptd0xjItVULUlrq4PcMdu
-	 ZidnXTUHfYp2LOPC6DuCg+2T7AMt4Urc3gdaj421L9sgHQFjjnfVv4FjpVwLMUWaHz
-	 7jPq3zZNpBPXo+UqwmrKrOLnFA/ylY5h+ugUQI1MLUpV0aWwQ9JrSY2nTmS8S6L2lg
-	 F7UV0WLpx+1I0IBYF4D5Uf5YYpyRX0SHQ+ULQy3tWjLKKITsVJJAqeANngkd4xDyDv
-	 oLRXSPLNZPF2AL9juIiGaYRK3VV6bOcvkbifUPA3F3pf9WI300VoPUx1Zv6BjVeuGA
-	 gWWkjujd1LtAw==
+	b=reUV0i2BHuhv+tvAGhEn8Bq63EsX4dWNrcotziviVf3TftMILhsvzN92davaqjNlh
+	 nOfO3ft9QOLjgSMJBo5IREMTCdOzcByRN17MOHI7SHLoz/z5vScVCOqa2FoS8KbML0
+	 GXJIxotPBnKaHWu4cqzfKAyHRuK5uZGBEmsXUHn0eiakCO5KAhyKpgE/cwuTIS416K
+	 ErKfeD68rZDddNtFiPTEmBTpq2EiMKp/3qcoMm8CWNWcmqE1vNoi84/CSkBIYYz6zK
+	 ZYPLgMiiwRF92uqXUY2cFg24XRA/KcT7AsMbNafa2w9vn6gVTECx42Q2zSk8hlnUM2
+	 jLArOFJHeWHKg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D81BCA9EDC;
-	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
-From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
-Date: Mon, 12 Oct 2026 15:06:12 +0800
-Subject: [PATCH v11 3/6] media: dt-bindings: Add Amlogic V4L2 video decoder
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BFE3CA9EDC;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Mon, 12 Oct 2026 09:58:34 +0300
+Subject: [PATCH RFC v3 04/10] ARM: goldengate: Add support for the CS75xx
+ SoC family
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-s4-vdec-upstream-v11-3-25939f85ada5@amlogic.com>
-References: <20261012-b4-s4-vdec-upstream-v11-0-25939f85ada5@amlogic.com>
-In-Reply-To: <20261012-b4-s4-vdec-upstream-v11-0-25939f85ada5@amlogic.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788786; l=3590;
- i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=zyjxN8033m3FgiOPqOUyLqFD8Zb50A574z3Ms3mffuQ=;
- b=LjktZ9rpIl8sZGRFISD2xyH9gBZ8tMRHGvPS6f8X1cYmxDxkQEdi0F4OBqlGcJ0cdJzpQ2wPy
- zAn1AAGZIeoC6LHMzSnt3yGmleAyQAeGl8ztNRuSB4Q+ddZXmwkvDnf
-X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
- pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
-X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
- auth_id=555
-X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
+Message-Id: <20261012-b4-cs75xx-v3-4-0e0d17a098cf@gmail.com>
+References: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
+In-Reply-To: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Jason Li <jason.li@cortina-access.com>, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788310; l=6015;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=a5IJ4+7bPBYPkCDNdgcq4yBP6JbycpwohjfaMxwTHek=;
+ b=V4K3GQX0KO2P/HAyMyXBGAJYY0YPrzZY4gLzcCH4Yp73PD3w0WBP5egbYGnqRxvI+Op+EFa3S
+ NU99GF3PxOfB5e8yTI+VWYqyhzlRQ9DtLaDD3pZ0+T6dvocJoXEKN/F
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,142 +90,186 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: zhentao.guo@amlogic.com
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhentao Guo <zhentao.guo@amlogic.com>
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Add bindings for Amlogic hardware decoder accelerator.
+The Cortina Systems CS75xx ("Goldengate G2") are network processors
+with two Cortex-A9 cores, an SCU, GIC, the Cortex-A9 global and private
+timers and a PL310 L2 cache controller. The family includes at least
+the CS7522 and the CS7542; the CS7542 is used, among others, in the
+Securifi Almond+ router.
 
-Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+Apart from the vendor this has little in common with the Cortina
+Systems Gemini (SL3516/CS3516) supported by mach-gemini: Gemini is a
+single ARMv4 FA526 with Faraday peripherals (FTINTC010, FTTMR010,
+FTGPIO010, a 16550 UART) built for ARCH_MULTI_V4, while the CS75xx is
+an ARMv7 MPCore whose UART, GPIO, interrupt controller and NAND
+controller are different blocks. It therefore gets its own directory,
+named after the Goldengate codename like in the vendor kernel. The
+Kconfig symbol, ARCH_CORTINA_ACCESS, covers the whole family and is
+named after Cortina Access, which last sold these chips and also makes
+the newer 64-bit parts.
+
+The generic DT machine is sufficient for the platform, so only the SMP
+bring-up needs code: the bootloader parks the secondary core in a WFE
+loop that polls a global software register, so boot it by writing the
+physical address of secondary_startup to the register named by the
+cpu-release-addr property and issuing SEV.
+
+The CPU is a Cortex-A9 r2p1, so select the errata workarounds that apply
+to that revision and can be enabled on a multiplatform kernel. The PL310
+is r3p2 and needs none of the PL310 workarounds.
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
- .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
- 1 file changed, 114 insertions(+)
+ arch/arm/Kconfig                   |  2 ++
+ arch/arm/Makefile                  |  1 +
+ arch/arm/mach-goldengate/Kconfig   | 18 ++++++++++
+ arch/arm/mach-goldengate/Makefile  |  2 ++
+ arch/arm/mach-goldengate/platsmp.c | 71 ++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 94 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 0cc289a71..87ff65256 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -391,6 +391,8 @@ source "arch/arm/mach-footbridge/Kconfig"
+ 
+ source "arch/arm/mach-gemini/Kconfig"
+ 
++source "arch/arm/mach-goldengate/Kconfig"
++
+ source "arch/arm/mach-highbank/Kconfig"
+ 
+ source "arch/arm/mach-hisi/Kconfig"
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 573813ef5..21d7a443c 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -187,6 +187,7 @@ machine-$(CONFIG_ARCH_DOVE)		+= dove
+ machine-$(CONFIG_ARCH_EXYNOS)		+= exynos
+ machine-$(CONFIG_ARCH_FOOTBRIDGE)	+= footbridge
+ machine-$(CONFIG_ARCH_GEMINI)		+= gemini
++machine-$(CONFIG_ARCH_CORTINA_ACCESS)	+= goldengate
+ machine-$(CONFIG_ARCH_HIGHBANK)		+= highbank
+ machine-$(CONFIG_ARCH_HISI)		+= hisi
+ machine-$(CONFIG_ARCH_IXP4XX)		+= ixp4xx
+diff --git a/arch/arm/mach-goldengate/Kconfig b/arch/arm/mach-goldengate/Kconfig
 new file mode 100644
-index 000000000000..75b9ba3cb08d
+index 000000000..d2963df0a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-@@ -0,0 +1,114 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2025 Amlogic, Inc. All rights reserved
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/arm/mach-goldengate/Kconfig
+@@ -0,0 +1,18 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config ARCH_CORTINA_ACCESS
++	bool "Cortina Systems CS75xx (Goldengate G2)"
++	depends on ARCH_MULTI_V7
++	select ARM_ERRATA_754322
++	select ARM_ERRATA_764369 if SMP
++	select ARM_GIC
++	select ARM_GLOBAL_TIMER
++	select CACHE_L2X0
++	select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
++	select HAVE_ARM_SCU if SMP
++	select HAVE_ARM_TWD if SMP
++	help
++	  Support for the Cortina Systems CS75xx (Goldengate G2) family of
++	  network processors, such as the CS7542 used in the Securifi
++	  Almond+ router. These SoCs have two Cortex-A9 cores with a PL310
++	  L2 cache controller, a packet processing engine, PCIe, NAND and
++	  the usual low speed peripherals.
+diff --git a/arch/arm/mach-goldengate/Makefile b/arch/arm/mach-goldengate/Makefile
+new file mode 100644
+index 000000000..b839201c9
+--- /dev/null
++++ b/arch/arm/mach-goldengate/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_SMP)	+= platsmp.o
+diff --git a/arch/arm/mach-goldengate/platsmp.c b/arch/arm/mach-goldengate/platsmp.c
+new file mode 100644
+index 000000000..7cd23ee56
+--- /dev/null
++++ b/arch/arm/mach-goldengate/platsmp.c
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * SMP support for the Cortina Systems CS75xx SoCs
++ *
++ * The bootloader parks the secondary core in a WFE loop that polls a
++ * global software register and jumps to the address found there once it
++ * becomes non-zero. The register is described by the cpu-release-addr
++ * property of the secondary CPU node.
++ */
 +
-+title: Amlogic Video Decode Accelerator
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/smp.h>
++#include <asm/smp_plat.h>
++#include <asm/smp_scu.h>
 +
-+maintainers:
-+  - Zhentao Guo <zhentao.guo@amlogic.com>
++static int cs75xx_boot_secondary(unsigned int cpu, struct task_struct *idle)
++{
++	struct device_node *np;
++	void __iomem *release;
++	u64 addr;
++	int ret;
 +
-+description:
-+  The Video Decoder Accelerator present on Amlogic SOCs.
-+  It supports stateless h264 decoding.
++	np = of_get_cpu_node(cpu, NULL);
++	if (!np)
++		return -ENODEV;
 +
-+properties:
-+  compatible:
-+    const: amlogic,s4-vdec
++	ret = of_property_read_u64(np, "cpu-release-addr", &addr);
++	of_node_put(np);
++	if (ret) {
++		pr_err("CPU%u: missing cpu-release-addr\n", cpu);
++		return ret;
++	}
 +
-+  reg:
-+    maxItems: 2
++	release = ioremap(addr, sizeof(u32));
++	if (!release)
++		return -ENOMEM;
 +
-+  reg-names:
-+    items:
-+      - const: dos
-+      - const: dmc
++	writel(__pa_symbol(secondary_startup), release);
++	iounmap(release);
 +
-+  interrupts:
-+    maxItems: 2
++	/* The secondary core waits in WFE, wake it up */
++	dsb_sev();
 +
-+  interrupt-names:
-+    items:
-+      - const: hvdec
-+      - const: vdec
++	return 0;
++}
 +
-+  clocks:
-+    items:
-+      - description: Clock for dos core
-+      - description: Clock for vdec core
-+      - description: Clock for hvdec core
++static void __init cs75xx_smp_prepare_cpus(unsigned int max_cpus)
++{
++	struct device_node *np;
++	void __iomem *scu_base;
 +
-+  clock-names:
-+    items:
-+      - const: dos
-+      - const: vdec
-+      - const: hvdec
++	np = of_find_compatible_node(NULL, NULL, "arm,cortex-a9-scu");
++	scu_base = of_iomap(np, 0);
++	of_node_put(np);
++	if (!scu_base) {
++		pr_err("failed to map SCU\n");
++		return;
++	}
 +
-+  power-domains:
-+    maxItems: 2
++	scu_enable(scu_base);
++	iounmap(scu_base);
++}
 +
-+  power-domain-names:
-+    items:
-+      - const: vdec
-+      - const: hvdec
++static const struct smp_operations cs75xx_smp_ops __initconst = {
++	.smp_prepare_cpus	= cs75xx_smp_prepare_cpus,
++	.smp_boot_secondary	= cs75xx_boot_secondary,
++};
 +
-+  resets:
-+    maxItems: 1
-+
-+  amlogic,canvas:
-+    description: Canvas maintains an index-to-physical-address
-+     mapping table that allows the 16-bit AMRISC decoder core
-+     to access 32-bit or 64-bit physical address.
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+  amlogic,secure-monitor:
-+    description: Used to decrypt and load the signed decoder
-+     firmware through ARM SMC (Secure Monitor Call).
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - power-domain-names
-+  - resets
-+  - amlogic,canvas
-+  - amlogic,secure-monitor
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/amlogic,s4-pll-clkc.h>
-+    #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
-+    #include <dt-bindings/power/meson-s4-power.h>
-+    #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
-+    video-codec@fe320000 {
-+      compatible = "amlogic,s4-vdec";
-+      reg = <0xfe320000 0x10000>,
-+            <0xfe036000 0x20>;
-+      reg-names = "dos",
-+                  "dmc";
-+      interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
-+                   <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>;
-+      clocks = <&clkc_periphs CLKID_DOS>,
-+               <&clkc_periphs CLKID_VDEC_SEL>,
-+               <&clkc_periphs CLKID_HEVCF_SEL>;
-+      clock-names = "dos",
-+                    "vdec",
-+                    "hvdec";
-+      power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
-+                      <&pwrc PWRC_S4_DOS_HEVC_ID>;
-+      power-domain-names = "vdec",
-+                           "hvdec";
-+      resets = <&reset RESET_DOS>;
-+      amlogic,canvas = <&canvas>;
-+      amlogic,secure-monitor = <&sm>;
-+    };
++CPU_METHOD_OF_DECLARE(cs7542_smp, "cortina,cs7542-smp", &cs75xx_smp_ops);
 
 -- 
-2.42.0
+2.53.0
 
 
 
