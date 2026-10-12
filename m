@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA772CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 873DACA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ml3XzqnfvkPoJalIiDoqIEaqIWpXPrO+zTg3b+pyBTg=; b=VWOhDUgUlbJt3dYYr2wUIsUuv/
-	liPJWhQay0mGKd2sReimHOQ97Sw2hjv0gux5Gn8fozcPMt0F87j4wdfhXA7WBrv/Ra+6kXQlTz5ij
-	0+u1U0IqhwDL1Pykk9NusRyu5UQyWI9TGVHRCXH/ufrmt6JGgOFQoFSrN2nSc3+UbPvkt1kNh39xa
-	w5e81C4mhSD5DVI7uKFtY+/L2DX3YG1myzHrVSF+wP1l9hopCkkspfimoAGwFfVaZFzifPpRDwtuR
-	twT0fX9xhdv3KWzT7aHHhRdd91dO0xAhc6R3tVXQRtAm/e1fImZ5YsP9mRGdKyy4o7ucc/vM8GW8w
-	eWh9Xwtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rHRhyeJJgvjTRWFM2lkaFF4bn6Y6uY9RdWmXZLzzy/U=; b=Be3DlcDv8uoAmH
+	RXBTlLeojwm9xC5b/VHcBhQS2QfPbWZnUoAeYbUaQxJugrq8nheROA0txZyYRUbesGxlXJ7VqgtRS
+	VP/JEEzbptTH1yGrMUz9HywC7WDbVQZn5K13tKAAuKreatbr+ZkbnhBKokt/92saADdJ+CZ7eWKS0
+	4//EEU/QIqWqlhXfkzzp0v+hgy+W103rhgtYUQEcvb+683jGwt2KVrp0D6VSQQ5jk0W4H4bi9RS/L
+	noTwUy0O2W4qa8Z38isxO5F3K46+LMTrk3Zgqv69cpJpuHOf9qD4niR8KuQKrsmlzwYzzYLnYEIsN
+	OyEcgDSwFCI4UbtwzmDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAd3-00000009rIQ-28fc;
-	Mon, 12 Oct 2026 07:39:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAd0-00000009rHk-1AcS
+	id 1xG9mw-00000009lco-3c3R;
+	Mon, 12 Oct 2026 06:45:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xG9mv-00000009lbK-2GU1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 07:39:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04CB61650;
-	Mon, 12 Oct 2026 00:39:15 -0700 (PDT)
-Received: from [10.164.19.62] (unknown [10.164.19.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 137743F882;
-	Mon, 12 Oct 2026 00:39:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791790758; bh=QFylubiAn6XF6+4lXPZWi1iu+KACNJaGKaA1OI3cGV0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i0lGTdAoo7yNW9SwE9EHgLeyVZtho3vPYbLDUzDNLp0AxWuYAdwb5P/QXd71ZeYdL
-	 OFHKbtD9gIlK5bb/aEwzvDVLDFJC+bn0oTyJtfKJ13Vjfq7MvuaZfl0HhJzwaQRrAl
-	 ULUyyhH0aFG1ImOrjhUsnfRaO5vb7E26yyFrvCc0=
-Message-ID: <4f812ef0-ab14-48c5-908b-b7d82ce418b3@arm.com>
-Date: Mon, 12 Oct 2026 13:09:10 +0530
+	Mon, 12 Oct 2026 06:45:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0266060D94
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 06:45:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAF2A1F00A18
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 06:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791787532;
+	bh=rHRhyeJJgvjTRWFM2lkaFF4bn6Y6uY9RdWmXZLzzy/U=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=IhaLhiZJo9uS26VlKwLdvMYpJNCGYxtG2z0r3xBmjd7Mo1MuDBAjKSECWVysHGagh
+	 saiS6x/+gr9rkZNvYRkjEyM6maTZJz6qchu2g+BR1QoFWyaqWIF6qPJi5gj+Se0u2/
+	 HHGH1BlHIW7fPs3HfJnbG9ocW7DQXRiiDuroRnuMB1BEF1jWy4xJWzCaQHuOkpE8xU
+	 m95V7oX4N3uUI4ZOMIMis4gQVmUXO03EQA0WElLvIQcVwZRpWz0d31fba9tXPRNo2N
+	 lbD0OgP6bpIeg0ABs04yrMlHF6m3xcllHpzjEJYO404NAIlujApGh+H89jFInYOY5z
+	 6mtuWAuAJtCzQ==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3a75f960be3so13512081fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 23:45:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz08HB0DJ6yYNjYwoKvOmGU1mACn/SXI8DIm1L+2R0RjwJUsf+/8620ECReKxmAboCPkZOTNGl6gBqpC8FNmsHC@lists.infradead.org
+X-Gm-Message-State: AFq9FYK8bmYFFRALvowkf8PSHR9OloxoWDX59Mz4hCdGz8zD826/duk8
+	MNxLwmt2PVM9otd2eAwi+E9TAK4XuuDhXKRwusmFYZ+GTgSPHWFQqoRkemkdvjpK0dD1sVMDy3s
+	1TGdVN9uOKt1CN2eErlVYsBuXWjnxvgM=
+X-Received: by 2002:a05:651c:a38e:20b0:3a9:f132:11ae with SMTP id
+ 38308e7fff4ca-3a9f1321220mr164111fa.22.1791787531105; Sun, 11 Oct 2026
+ 23:45:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/10] arm64/vmalloc: allow
- arch_vmap_pte_range_map_size() to batch multiple CONT_PTE
-To: Uladzislau Rezki <urezki@gmail.com>, ryan.roberts@arm.com
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
- will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
- anshuman.khandual@arm.com, baohua@kernel.org, chleroy@kernel.org,
- david@kernel.org, jiangwen6@xiaomi.com, leo.yan@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, rppt@kernel.org
-References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
- <20261002090947.869220-6-jiangwen6@xiaomi.com> <astarANeoldvqBxc@milan>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <astarANeoldvqBxc@milan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_003922_488975_57A8BD79 
-X-CRM114-Status: GOOD (  17.12  )
+References: <20261001022415.913959-1-iuncuim@gmail.com> <20261001022415.913959-2-iuncuim@gmail.com>
+ <20261012-worthy-terrific-sunfish-3acbab@quoll>
+In-Reply-To: <20261012-worthy-terrific-sunfish-3acbab@quoll>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 12 Oct 2026 14:45:18 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67qkWscB2peNoY=ruhRPEpFd1pXVdbR4pJcpGfv4ZPurA@mail.gmail.com>
+X-Gm-Features: AclHuK9HAKGtAlKRnjyjmrvJQfRp1uKpd11aie7YIZiINEatGkmlqkHIIaIp89A
+Message-ID: <CAGb2v67qkWscB2peNoY=ruhRPEpFd1pXVdbR4pJcpGfv4ZPurA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add vendor prefix
+ for Teclast
+To: Krzysztof Kozlowski <krzk@kernel.org>, Mikhail Kalashnikov <iuncuim@gmail.com>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Andre Przywara <andre.przywara@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,75 +80,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Oct 12, 2026 at 2:43=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On Thu, Oct 01, 2026 at 10:24:12AM +0800, Mikhail Kalashnikov wrote:
+> > Teclast is a Chinese consumer-electronics brand. Add its vendor prefix
+> > so that board compatible strings can use it.
+> >
+> > Assisted-by: OpenCode:DeepSeek-V4.1-Flash
+> > Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> > ---
+> >  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+> >  1 file changed, 2 insertions(+)
+>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-
-On 11/10/26 3:15 pm, Uladzislau Rezki wrote:
-> On Fri, Oct 02, 2026 at 05:09:42PM +0800, Wen Jiang wrote:
->> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
->>
->> Allow arch_vmap_pte_range_map_size to batch across multiple CONT_PTE
->> blocks, reducing both PTE setup and TLB flush iterations.
->>
->> Previously the function returned a single CONT_PTE_SIZE for an aligned
->> range, so the caller mapped one CONT_PTE block per iteration. Now, for a
->> CONT_PTE_SIZE-aligned range, it returns the largest CONT_PTE-aligned size
->> that fits within both the remaining range and the caller's max_page_shift,
->> so a single pte_set_huge() call installs several CONT_PTE blocks at once.
->>
->> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
->> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
->> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
->> Tested-by: Leo Yan <leo.yan@arm.com>
->> ---
->>  arch/arm64/include/asm/vmalloc.h | 12 ++++++++----
->>  1 file changed, 8 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
->> index 4ec1acd3c1b34..c29704a19e276 100644
->> --- a/arch/arm64/include/asm/vmalloc.h
->> +++ b/arch/arm64/include/asm/vmalloc.h
->> @@ -23,10 +23,12 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->>  						unsigned long end, u64 pfn,
->>  						unsigned int max_page_shift)
->>  {
->> +	unsigned long size;
->> +
->>  	/*
->> -	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
->> -	 * aligned in both virtual and physical space, then we can pte-map the
->> -	 * block using the PTE_CONT bit for more efficient use of the TLB.
->> +	 * If the range is at least CONT_PTE_SIZE and naturally aligned in both
->> +	 * virtual and physical space, return the largest CONT_PTE-aligned size
->> +	 * that fits, for more efficient use of the TLB.
->>  	 */
->>  	if (max_page_shift < CONT_PTE_SHIFT)
->>  		return PAGE_SIZE;
->> @@ -40,7 +42,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->>  	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
->>  		return PAGE_SIZE;
->>  
->> -	return CONT_PTE_SIZE;
->> +	size = min(end - addr, 1UL << max_page_shift);
->> +	size = round_down(size, CONT_PTE_SIZE);
->> +	return size;
->>  }
->>  
->>  #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
->> -- 
->> 2.34.1
->>
-> This is arch/arm64 code. Can you, Jain or Ryan from ARM folk review this change?
-> 
-> Thank you!
-> 
-
-I will come to this soon.
-
-
-> --
-> Uladzislau Rezki
-
+I have the same change from Andre already merged. It should be visible
+in -next.
 
