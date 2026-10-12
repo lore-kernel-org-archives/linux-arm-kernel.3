@@ -4,142 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C622CA9EDF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C191CA9EDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfp4J3mFDRnYx5uzuQ7uEYpPVGmZ4GaWwx8K8Zq8izo=; b=JoiaouFDEj5uY+l1/+q2jo//6G
-	GXsuTj/VQR3tfiyL6hhotc+oUlFNYNp4ZHTnBvqgT/3J7HkZza3CgcbHuVTyraoPC5qyQ6X8sxf78
-	1rpykq+cy+viNCTOaLPEI32W03XIXA+TRCU6+5UnGLq+2jesNg5tudlJCS7sg7VwQiUIgK4P8lhXn
-	jFT7YHViAkqLq2EERB0oFBIlBgqMgQYl0YqfeuVlCkuHaLuJ/gdD1A5zEYwnsj+xVNlSz6bSzvXC9
-	LfolzG3ykBNFEBaDNaV43jXoi8qMX+ct5KQqBqY9lsPdaa+9FMrm8u8QQgTmByTJ+c1XngqsstN4K
-	s4wyfGfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nHOetBiDekJwWPGeGPktITGpQNmqnuv3FWLxPY57pPs=; b=lhy3/hNqNlHOgiGmyky/imRjLC
+	Elmjo19NNyld4LkKH9pKHCueox+4yZl9COaQfBopxFBZ3B0mmtuw3Cw+mE8Pgc+BnxcToKFgGN4qa
+	UCWv2PKysnErcP4unE6NdYLvOyemwXljUfJwOOs2FVwXR+xtf1i3gjv3m5anOHiWy8wJngEmGMqGY
+	aa5VAZFpEQPHZg6nsNVRm7dYJykWpHeyxcxj2aVx+EZ0brClqHe0wBCdFUi+zbLM07ELESZFU69IZ
+	qQQtOQp4UMhsocfVBHSKyvYXDBQ0oQySeYrIDkvzq2KZE9zH5I09sur/335vHcdqeHNp+sW3CQ4C/
+	pmlugJTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIyC-0000000AyTg-1xhT;
-	Mon, 12 Oct 2026 16:33:48 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xGJ0f-0000000AyjU-4BGA;
+	Mon, 12 Oct 2026 16:36:22 +0000
+Received: from dilbert.mork.no ([2a01:4f9:c010:a439::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIyA-0000000AyTA-3CJv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:33:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A0KxI9XiCQEdYC74t4FzN0WMFJ/GvzxE4kBU/P05AriAPRT7/lsGdsD+0WmX75XAvPZVgfjI917CDSdjNvTaDpxLX7B4bvewNoPtfTlqu6OEgDmfRRhZ+sXr68HQaSYkA29qli2PDh+vPh48XATUuFL25u9UpfLWc5F7wnmjbL4TYIe2laojhou7bIkwKnH9wjbxQI/ySaswi5yuOdc+wwOJsGe+3M5tymmjdWAHFcyN1FwImae1na6OjW2EWudnP4ckciPvsk/E/w5YMTeDGl/ckbNSaHohGTkn3gk7vl03m5ThE4YPMLpacJrlbHdh1kbwtypTPlKeXrc2bA85WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dfp4J3mFDRnYx5uzuQ7uEYpPVGmZ4GaWwx8K8Zq8izo=;
- b=iBYQCMZOeQRge+VWSaEpHakja7/GVufC7Glh6qgQ3KWGqwr4vybAy1RZt5cYqDFtJiR5u7r04T5u0ig32PYCAqoSRx9wtN2xJ8l/748kK++QL0GDOn5KsU5gXp9/t3nZjx1yH65ts+yVkNKXzQc8XrrZsDqSmVA44aQ1CEBdk62Om6M9t4M3wFLMjxmZyTwRxoGxtk1Z6ogYWbNiu48h+f13vS4s2SWspPNXrAdiLYr81V80Ki6M4Kk+tNX9rw3K6c8gFzsVQmP/jBmfUNbOg3T11L9qFmwmiqoiwcHCDfm07Z3TwVbZlgwuPTWvjj4sqvx2o2VbYm0HmkDbTXJZXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dfp4J3mFDRnYx5uzuQ7uEYpPVGmZ4GaWwx8K8Zq8izo=;
- b=ACvst0V+vDS81xGnN2qv7jJ6tRCvDQK232hXIWeMxs50lpdyAxi/cd0/6Q7XTgOGckT6Gcj/ejFQ+TZpJSWCSRKtRHFv3DRbcHzZt5r5CIxaJ6DtG7i6ZODqQXRGwiGALgVmy+6zfK/YwKkFFNxu4M6jVRBuKPEKYtNab3HPyTLyp690aHQxvPzuRuCMoOp/MuGHyO2/LZiCloyzT1fEPhsWArEtllCCsCczWwnRo4LjqWRTshwglkO3sWKZqCc7ATpg1cTrEcUCZS0CdRyn8trcJS2vd+tH4NNAK7xya3RpDdSve9u3uHOvHnLnLXqwCDjcf4iCtwWGdUMV3vSizg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by MI9PR04MB290196.eurprd04.prod.outlook.com (2603:10a6:290:86::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Mon, 12 Oct
- 2026 16:33:42 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
- 16:33:42 +0000
-Date: Mon, 12 Oct 2026 11:33:30 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Leonardo Costa <leoreis.costa@gmail.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
-Message-ID: <as0L2th20tQqVpCJ@SMW015318>
-References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
- <20261012-v1-apalis-imx6-enable-vga-v1-3-8905d8746504@toradex.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261012-v1-apalis-imx6-enable-vga-v1-3-8905d8746504@toradex.com>
-X-ClientProxiedBy: PH3PEPF000040AE.namprd05.prod.outlook.com
- (2603:10b6:518:1::59) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1xGJ0a-0000000AyhM-3wiJ;
+	Mon, 12 Oct 2026 16:36:20 +0000
+Authentication-Results: dilbert.mork.no;
+	dkim=pass (1024-bit key; secure) header.d=mork.no header.i=@mork.no header.a=rsa-sha256 header.s=b header.b=aCJvWEq3;
+	dkim-atps=neutral
+Received: from canardo.dyn.mork.no ([IPv6:2a01:799:10e2:d900:0:0:0:1])
+	(authenticated bits=0)
+	by dilbert.mork.no (8.18.2/8.18.2) with ESMTPSA id 69CGZWEc790305
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Mon, 12 Oct 2026 17:35:34 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mork.no; s=b;
+	t=1791822932; bh=nHOetBiDekJwWPGeGPktITGpQNmqnuv3FWLxPY57pPs=;
+	h=From:To:Cc:Subject:References:Date:Message-ID:From;
+	b=aCJvWEq33ThyxGcgvykeF24eHjFSIln8357sLW74qJt9qmu21hG2zoZxYBn+Z2HE1
+	 /Z6xkZ3UOgcgYbpC8nE8k6rPREVBMYkx0lf9MMfUqsBuIf5BN2DwcnZ8BLRRKYUdJV
+	 1KRZBb0ul1kl22HnJAox9twwuc7POS/pmTHIrf0g=
+Received: from miraculix.mork.no ([IPv6:2a01:799:10e2:d90a:6f50:7559:681d:630c])
+	(authenticated bits=0)
+	by canardo.dyn.mork.no (8.18.2/8.18.2) with ESMTPSA id 69CGZWcL894584
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Mon, 12 Oct 2026 18:35:32 +0200
+Received: (nullmailer pid 905597 invoked by uid 1000);
+	Mon, 12 Oct 2026 16:35:32 -0000
+From: =?utf-8?Q?Bj=C3=B8rn_Mork?= <bjorn@mork.no>
+To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, daniel@makrotopia.org,
+        dqfext@gmail.com, SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
+        linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+        angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
+        sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530
+ PHY
+In-Reply-To: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+	(Vladislav Karmanov's message of "Fri, 4 Sep 2026 23:28:00 +0300")
+Organization: m
+References: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+Date: Mon, 12 Oct 2026 18:35:32 +0200
+Message-ID: <87cxteri5n.fsf@miraculix.mork.no>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|MI9PR04MB290196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56fade8d-0f77-4259-9179-08df287e93d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|19092799006|23010399003|56012099006|11063799006|4143699003|261009223027099003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: g7hPfbQ81xgWruHVQIsG1hgyeYDAsE4hOJxBNlMuu+O/fhAmjDSVYlDj7o68YB2A8p74T+rZFqz/4SE6ejHQtIk3IHDNJtOp9UuhrmRtzq6/fMgWpQVTkHQAnjZTKaULQ4fjHcGY1aOpqmm1z8zVaQwsow9DeTI7feR5blcBkroKXR++WE86dRWAJFNOPiatdYs/As5y2f3OZkzibv57pw01sfljAIQ3zl4mj+oC96Z+742Kye24VHJjyufrU9Re9tQeBEnG4HvTmiUEY1YIxdAPvHs1io6IBhJz33uMpP38kXjAWagb7cMbSoqg90brnhgnJEWLtROMl5xLghzvzu1tBoafPRC5pXt/3SgVL2U3ZhrhmXwhTpKxfmUjbPBU5bcmAMUILh/dL0Qvt7m1Zsbh0yBaWteUm91f631iLoevBUzmDeWX/BctXWFB3dUQx4j6hxnLKWeBe5P0sBwq6qzhpBil1fP2CWlCD7LMVJA8ihfqLN2z5GqXOthowoCXaHbmaFz/qjHDya52eJvPqsGwmEKBeoozxo9F2LwX1rKmzpPFVNNMZYjJt6JNTJVPPLn8g+3GlVGBndxoTnu7+iNF03iw0RqXv0XcdVyqxsptgPy/b2Ugl1sMtXwmQUDz9RjPLARXUq32KtaNzrblKTjelGvTnHsZO9N7Iftw5Xc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(19092799006)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gMfhnsYPM0J9za1Q/v8yhq6Q6psxKq8pDvs6HCSXuCqClMhKeQPDjPJTcLAh?=
- =?us-ascii?Q?HfYThJItLDNA1siwG6knF7l5534pDfJx/o6Epo8piToH+zE7kRslVEy9A+sQ?=
- =?us-ascii?Q?psTwpo9uz6dBVpnodBpjvfoMpaxBa78QY3wy4i9tkgpCIL8kNBic+KY0rpSm?=
- =?us-ascii?Q?smg2vhOOlu4SR/tfRnufuUAMh8Ieht4pRKfXS53tAfzYjopKleWAAoXXxCqm?=
- =?us-ascii?Q?x9CMdAP0GDHVzfrjOtRELTWI46MQRmOoDOQ3PFQc8qtdUklBgk0vXPi326jx?=
- =?us-ascii?Q?U+gMz8yMYZy32tSc1XPe4/VpPVd1lQRL7QvTRwg0hK9ULRs5NpWSgUAzQ/4M?=
- =?us-ascii?Q?MpSzh0fMEOhSvPc980sKhJejE8JbSZNtSWxWmWT+rNoAhmFp9FrLM3jF+dKe?=
- =?us-ascii?Q?UdZ0ZBQxsOf9C0QBubR0jAVPX7UNBEMA6vQf0TLmt91qWqCfTWqqpBbsnzTW?=
- =?us-ascii?Q?e29q7NhnUwN2jU6X4krs8UdmVvoSokeFsgfIYVsw4RGgZGdklpmMUCaiZowe?=
- =?us-ascii?Q?SORdnXuushYfOdQi/kgqJTvXD/LBpfOkofFpqzaHxrWEe+UkoZgs7P8KUZzg?=
- =?us-ascii?Q?sjFkgv8xc3j1K2FgCPINYSaPyLH4bUX3e0dJ04i9ucjyO6ADyzr5QcMOOYzS?=
- =?us-ascii?Q?8IdgLibXeqwO2hdCAegYp7V2j6/AB7afC443+hcQQX5+Xy0IR/SWREDsmihy?=
- =?us-ascii?Q?tqdxiuKedD6W9cNMwgnAA07d6oO2+CaJoZZXhMDyCw3b3gyD8p7E9XarSEOy?=
- =?us-ascii?Q?dUmRVu+GJTXYWVsA3iiTb/wKOwlvFOSKeSTUDkIgOAtkrjtAcr0J7LAsNFiB?=
- =?us-ascii?Q?nR22O2iM3Z3F3eFDZiSGiALiCDOeS8MzW6rf5Z1o4lEOQC05RW4Ks7GcEzI0?=
- =?us-ascii?Q?qaUuDiIMkJ8Lp0H9K4r5MHTEN7Y4xsCOp4zguIkKOAshMapb3oksOqYE9zeB?=
- =?us-ascii?Q?+YUyUHobinuZLYI1h/46WKR8emWM8P6xas2clZf/zucWagIkngNxJwCP72lQ?=
- =?us-ascii?Q?U45b0g8N7bClO4NaCfpCWPqyRuzWCDoB7fjVT+FrS4YY5w/zXl6ObrAttQAf?=
- =?us-ascii?Q?pOne3j3onrZb28HclnQoqn56ZyEDkxiS85qXPwLQMC5tsUYCUIxIvFfgcH60?=
- =?us-ascii?Q?s5QmVFvhs/BNg+q95CgdSKwA3xOERDb2U6j5EQMvHYSpdtxQ9fL9R5Af/uk5?=
- =?us-ascii?Q?+J43/BXmllOfwo9PISL6D38bLizKeHmplrQIpTuCCfqAouHfs7h5iZKh2L7s?=
- =?us-ascii?Q?g7gMCj0ctC8k6lHcBAkbyYWLQBfXOy0i7pJyxOjukMVVZPsOJktkGSx7ZwwO?=
- =?us-ascii?Q?eT3SPILDTvlcfq6CzhVl5OKZ2XQvWUizlO6Hl8ziLUZcCLqxxCAnno/9m1jg?=
- =?us-ascii?Q?6Znhh8FuV97j8eO6cVykRVrYp5jiuFvUoJU50a2+FKWhJe0kA1lbEjK4TIS8?=
- =?us-ascii?Q?Niqd2HyMtm/V/4jIo3w8F4sF2wk3QyyU+c5waVOrYJyplQe2sA+kxN4N13JF?=
- =?us-ascii?Q?Ls8zGbqyr8yxMeuruRjCwi+kGEbgOLqmeT06k68fV8xu2EtDdbDgC18/fheQ?=
- =?us-ascii?Q?3lB1AJ1yNRUdIs5ynSBAk+DldvZhyuQ4PnikgJHiRQ7lCLxdmhmM32uA2TW6?=
- =?us-ascii?Q?2T6C4ud51YGw/ku97ducUzpJhI6XlVgMSC1lEhovU541x4vBgB6TZdaCZ/4L?=
- =?us-ascii?Q?SiPbYOlbzRRVJFoxJuesEuPhQC4Gvf5MDXT8sFkQmsnBipxQlj6aM5/v0NrI?=
- =?us-ascii?Q?7yDXQ8xKAxSmJHCYtFho85WAW1WgLnHHiKbhxjjRANvtrAoRN4+J?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56fade8d-0f77-4259-9179-08df287e93d7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 16:33:42.5546
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZTbpZc5QWU3M4zaFFtDniUu0IMy1A6PEtSF8/K2QpbApXKAI0aiQheqfyQQ+K22YU/zY8YJqgOhsmzObVEoVf9SAF+LTep9GlmQ3msHub7O3C48jXabenOONm74qj1NX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB290196
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Virus-Scanned: clamav-milter 1.4.3 at canardo.mork.no
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_093346_802974_31C75396 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20261012_093617_614221_DDBE7594 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,49 +88,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 04:25:25AM -0300, Leonardo Costa wrote:
-> From: Leonardo Costa <leonardo.costa@toradex.com>
->
-> Add a device tree overlay for the VGA output available on the Apalis
-> Evaluation Board, which is driven from a parallel RGB interface passing
-> through a non-programmable video DAC to a VGA connector, without VESA
-> DDC I2C signals.
->
-> The overlay is also combined with the various Apalis Evaluation Board
-> device trees to provide ready-to-use DTBs.
->
-> Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> ---
->  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
->  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 79 ++++++++++++++++++++++
->  2 files changed, 100 insertions(+)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-> index c5caca92ea10..b5ad9172e1f4 100644
-> --- a/arch/arm/boot/dts/nxp/imx/Makefile
-> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
-> @@ -59,6 +59,22 @@ dtb-$(CONFIG_SOC_IMX53) += \
->  imx53-qsb-hdmi-dtbs := imx53-qsb.dtb imx53-qsb-hdmi.dtbo
->  imx53-qsrb-hdmi-dtbs := imx53-qsrb.dtb imx53-qsb-hdmi.dtbo
->
-> +imx6q-apalis-eval-v1.2-vga-dtbs := \
-> +	imx6q-apalis-eval-v1.2.dtb \
-> +	imx6q-apalis-eval-vga.dtbo
-> +
-> +imx6q-apalis-eval-vga-dtbs := \
-> +	imx6q-apalis-eval.dtb \
-> +	imx6q-apalis-eval-vga.dtbo
-> +
-> +imx6q-apalis-v1.2-eval-v1.2-vga-dtbs := \
-> +	imx6q-apalis-v1.2-eval-v1.2.dtb \
-> +	imx6q-apalis-eval-vga.dtbo
-> +
-> +imx6q-apalis-v1.2-eval-vga-dtbs := \
-> +	imx6q-apalis-v1.2-eval.dtb \
-> +	imx6q-apalis-eval-vga.dtbo
-> +
+Vladislav Karmanov <vladislav.karmanov.dev@gmail.com> writes:
 
-Thank you using one overlay cover difference boards
+> The MT7530 internal GE PHY advertises EEE by hardware default, but its
+> EEE support is defective: with EEE advertised, some link partners fail
+> to establish a stable link. On a 2-pair (4-wire) cable where both ends
+> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
+> falling back to 100 Mbps the port loops, so no link or DHCP lease is
+> ever obtained.
 
-Frank
+I realize that I'm too late at the party here, but I still want to state
+this for the record:
+
+I just tried to reproduce this bug on a Zyxel NR7101, using a cable with
+pair 4 cut, connecting to the I219-LM controller in my laptop.  Without
+success.
+
+EEE enabled or not does not make any difference.  The link is negotiated
+as 100Mb/s as expected, and it is completely stable.  Absolutely no
+issues observed.  I even added a .link_change_notify callback with a
+counter and a printk to the phy driver to make sure I didn't miss any
+flapping.
+
+MT7621 side:
+
+root@OpenWrt:~# ethtool --show-eee lan
+EEE settings for lan:
+        EEE status: enabled - active
+        Tx LPI: 30 (us)
+        Supported EEE link modes:  100baseT/Full
+                                   1000baseT/Full
+        Advertised EEE link modes:  100baseT/Full
+                                    1000baseT/Full
+        Link partner advertised EEE link modes:  100baseT/Full
+                                                 1000baseT/Full
+root@OpenWrt:~# ethtool lan
+Settings for lan:
+        Supported ports: [ TP    MII ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+        Link partner advertised pause frame use: No
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 100Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        master-slave cfg: preferred master
+        master-slave status: master
+        Port: Twisted Pair
+        PHYAD: 2
+        Transceiver: external
+        MDI-X: Unknown
+        Supports Wake-on: d
+        Wake-on: d
+        Link detected: yes
+
+I219-LM side:
+
+root@miraculix:/tmp# ethtool --show-eee eth0
+EEE settings for eth0:
+        EEE status: enabled - active
+        Tx LPI: 17 (us)
+        Supported EEE link modes:  100baseT/Full
+                                   1000baseT/Full
+        Advertised EEE link modes:  100baseT/Full
+                                    1000baseT/Full
+        Link partner advertised EEE link modes:  100baseT/Full
+                                                 1000baseT/Full
+root@miraculix:/tmp# ethtool eth0
+Settings for eth0:
+        Supported ports: [ TP ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+        Link partner advertised pause frame use: Symmetric Receive-only
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 100Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 2
+        Transceiver: internal
+        MDI-X: on (auto)
+        Supports Wake-on: pumbg
+        Wake-on: d
+        Current message level: 0x00000007 (7)
+                               drv probe link
+        Link detected: yes
+
+
+So now I am curious to know:  What am I doing wrong here?
+
+I primarily did this test because I wanted to implement a smarter
+workaround, without forcibly disabling EEE for everyone based on one
+pretty obscure configuration.  But that's hard without being able to
+reproduce the problem.
+
+So let me ask you, who seem to be able to reproduce it:  Why is it
+necessary to block EEE for everyone? Why can't you disable EEE by
+default, but let me enable it on my systems - where I know it works?
+
+Or even better:  Why can't you detect the link flaps and only disable
+EEE when required? (this was my plan)
+
+FWIW, I have been using EEE on MT7621 devices for years without ever
+noticing the claimed issue.  I have heard the rumours that the SoC is
+supposed to have occasional link issues, and that they are related to
+EEE.  But reproducing the issue has so far been impossible.
+
+> MediaTek confirms the hardware is the root cause (Landen
+> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
+> problems, so it is recommended to disable its EEE."
+
+This is BS. I don't doubt that there are bugs in the MT7530 gephy. But
+the EEE feature of the MT7530 internal gephy works fine for me.  And
+always has.
+
+Vendors have no interest in making older hardware work. There is no
+reason to ask them or trust them when it comes to hardware they don't
+sell anymore.
+
+We can do better. And we have, by for example bringing DSA to the
+MT7621. Please, let's try to make even old hardware work as good as
+possible.  Disabling features is not the way to go.
+
+> Auto-negotiation then falls back to a stable 100 Mbps link instead of
+> looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
+> cable on the WAN port, a single clean 100 Mbps link comes up and a
+> DHCP lease is obtained, where the unpatched driver loops.
+
+And no I've tested the same configuration with EEE enabled, and it
+doesn't loop either.
+
+Where does that put us?
+
+
+Bj=C3=B8rn
 
