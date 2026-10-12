@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAE4CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 931BCCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFdw4NU0rqUdnwQkTW5jDTI2TrOvFLZe/E45ZXiDc1Y=; b=Rh6zPbXfft4D9Aaf2k7O3c+410
-	512RDwY0g/IHs4RzVtVeWEUQIU9m/gn8kpr3sm/KJxS9EGaqv7KuDr9qFXtgYaUq4TMWcv7w81ySo
-	fJysAqlqpvfxDIyC6BFH80ovdPGwvhTU8MlThM0nW1LrzvonyHwMvy6dyZ2QTvu3rSQshZKMRZ528
-	hl+pYKm+kNgQo/ImZwurmarkzlZxxf67XhRDIZ9f4zGiMp4EdLUlEzfdPdydt2b2gjjY1/HyD6Pgy
-	CLHIK/irjMM0I8Mpcv0nm+e8lkhVwpMc3tCqjssA0QpWOIXBrBXAzWZlaVNj8bNCknD1jJRXj1THW
-	Mr2Jntag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G4FoOdOatVsgAmxetyPEwa2/gwnBhvGjHCPnwiX3txg=; b=KqjZn5FAm1j2mK1aKaFjSYdFAo
+	rCVqw9MY+0J5hEnxsAUryNdO1R/4cHfZSN9yg/sunBXbFrlXaAed9/ebzUAAfQB8F6ipdutlR1veU
+	fmNWOlybgt507XDpT7840ldkJg/SMvcKHEukQWg0y3XphuaJJ73OTKt3S6l2JxiqbJk0ADvtGb/dt
+	vsNQq5LhODEbSMOoaeVS/qynVueqqyKbos3UUQii3Q7EjIsIpO6jq9vk9zrJOCHpI3iBkniNDs6kk
+	dFZyOeq0iftoIn/1PU1KkFpgv10wI0pr+XT0kofSKEdQE9e1aBCt66saTSv90JVRFe3NP2VfTU0RS
+	va5t3VDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIfO-0000000Avrf-0e0F;
-	Mon, 12 Oct 2026 16:14:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGIgW-0000000Aw2t-27Bs;
+	Mon, 12 Oct 2026 16:15:32 +0000
+Received: from out-65.mta0.migadu.com ([2001:41d0:1004:224b::41] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIfM-0000000AvrU-3Bd8;
-	Mon, 12 Oct 2026 16:14:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E356B601FB;
-	Mon, 12 Oct 2026 16:14:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAFB1F0089B;
-	Mon, 12 Oct 2026 16:14:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791821659;
-	bh=RFdw4NU0rqUdnwQkTW5jDTI2TrOvFLZe/E45ZXiDc1Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=axltw2OzFfnLto8lDkWnN70zzds5Hzc+9r8r1oqBZPU0ch275Tc7K4iNf8MBEEkZ+
-	 ccKwY4IhxJtI0GUnsHXL6WZTobF2ZU9UFuo7FXRWAlaJjzfapOPDVfIfhz5m4y9+R8
-	 Qf8uGc5HAa78+rbJgPUVlFGwIkIPkv7vPFiN4gFLW5SDMHvGiKEKfLISv9bo9hVg5r
-	 uXUdQCqyJ4mCVBiXIr6g7JW4FAhem74cvuUDquwunje2NHvvz9oODV5HL2aJal5YcO
-	 Rpu6WZipcjdV8zbR02T2fZPbkqVDUAbsahyIVyCqeaH7j89Bj+E75itq6p1ohWeTKw
-	 9MW1TYxMr74/g==
-Date: Mon, 12 Oct 2026 21:44:07 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Selvarasu Ganesan <selvarasu.g@samsung.com>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk@kernel.org, 
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, pritam.sutar@samsung.com, 
-	andre.draszik@linaro.org, kernel@lvkasz.us, pengpeng@iscas.ac.cn, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, 
-	h10.kim@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com, 
-	hongpooh.kim@samsung.com, eomji.oh@samsung.com, shijie.cai@samsung.com, 
-	muhammed.ali@samsung.com, thiagu.r@samsung.com
-Subject: Re: [PATCH v2] phy: exynos5-usbdrd: Use dynamic phy_cfg size to
- prevent OOB access
-Message-ID: <as0G-bk_TKRToOkv@debian>
-References: <CGME20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6@epcas5p4.samsung.com>
- <20260918103147.2628614-1-selvarasu.g@samsung.com>
+	id 1xGIgS-0000000Aw1E-0LhA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 16:15:31 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=g6cSCDmIiMeFVv+t4Y6Wg9H08beduiIxXPLZlypaYk8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791821725; v=1; x=1792426525;
+ b=EcnNG0ySDPJM6Yhx3IcShUu7OXspr8PWmxfYi0iRmo0KAzvgxh7ERUNbvcWuShtJjBNr0bad
+ vWWKz3D22RpAfdTVKose/1UPb+1vGDZ1T6hV47XO546sHvY9xevN6/bjzUDJpHyr8EzD8GjN1pF
+ I7c/5mXBiliszHvHh5LX+YQA=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7c027d74522afa10;
+	Mon, 12 Oct 2026 16:15:24 +0000
+X-Mizu-Trace-ID: 7c027d74522afa10
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	Sascha.Bischoff@arm.com,
+	steven.price@arm.com,
+	tabba@google.com
+Subject: [PATCH v3 0/5] KVM: arm64: pKVM host hypercall and GICv5 CPU interface fixes
+Date: Mon, 12 Oct 2026 17:15:19 +0100
+Message-Id: <20261012161524.4016464-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260918103147.2628614-1-selvarasu.g@samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_091529_794878_C7E0A6C5 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 04:01:47PM +0530, Selvarasu Ganesan wrote:
-> The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
-> creating both UTMI and PIPE3 PHY instances regardless of the SoC
-> capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
-> and ExynosAutoV920) provide phy_cfg arrays containing only a single
-> element.
-> 
-> On these SoCs, when the loop reaches index 1, the driver reads past the
-> end of the rodata array, populating the second PHY instance with garbage
-> data. Since the configuration structure contains critical function
-> pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
-> PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
-> 
-> Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
-> store the actual size of the phy_cfg array for each SoC. Update the
-> probe loop and the xlate function to bound their access against this
-> value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
-> Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
-> Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-> Reviewed-by: André Draszik <andre.draszik@linaro.org>
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Hi folks,
 
-Since this patch fixes an OOB issue, it should have a Fixes tag and the stable
-list should be CCed for backporting.
+Changes since v2 [1]:
+  - Patch 4 now allows only GICv2 from EL1 and requires VHE for every
+    other CPU interface, instead of adding GICv5 to the VHE list. Same
+    behaviour; I kept Sascha's Reviewed-by. (Marc)
+  - Added Suzuki's Reviewed-by on patches 1-3.
 
-- Mani
+Thanks Suzuki for the reviews.
 
+Patches 1 and 2 move the GICv5 CPU interface save/restore and the
+stage-2 flushes into the band the dispatcher rejects once pKVM has
+finalised, since the host has no use for them in protected mode.
+Patch 3 validates the vgic model EL2 copies from the host. Patch 4
+stops nVHE from accessing the GICv5 CPU interface from EL1, and patch
+5 fixes two stale comments.
+
+The GICv5 residency and VDPEND hypercalls in kvmarm/next still check
+for pKVM in each handler. I'll move them into the same band once this
+lands.
+
+Based on Linux 7.3-rc3 (fd73f4a665989). On kvmarm/next, patches 1 and
+2 have a minor conflict: new hypercall IDs sit next to the ones they
+move.
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20261011143648.211337-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (5):
+  KVM: arm64: Reject the GICv5 CPU interface hypercalls under pKVM
+  KVM: arm64: Reject the stage-2 flush hypercalls under pKVM
+  KVM: arm64: Validate the host-provided vgic model in pKVM
+  KVM: arm64: vgic: Do not access the GICv5 CPU interface from EL1
+  KVM: arm64: Fix stale VGICv3 comments in the nVHE world switch
+
+ arch/arm64/include/asm/kvm_asm.h   | 16 ++++++++--------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 15 ++++++++-------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     | 10 ++++++++--
+ arch/arm64/kvm/hyp/nvhe/switch.c   |  4 ++--
+ arch/arm64/kvm/vgic/vgic.c         |  7 +++----
+ 5 files changed, 29 insertions(+), 23 deletions(-)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
-மணிவண்ணன் சதாசிவம்
+2.39.5
+
 
