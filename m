@@ -4,114 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E09CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 12:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C185CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 12:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zCpLkfnIPuVRZZJcn7+tHHgouN8lV7rK07rn2B4cOY=; b=jCzS7hk7VRcmXQo2vMrh+/URx8
-	UO+InihcG0bFpFkF2OAnVB5pvr+c5Ww2nsqGkWsgw5+yzpYDsza9+xD3iiv7+IZbCJb+4sZY2ADwB
-	Q/rmex0MQKgCKhdXDYIXi4hSolNj4FbE1RcdLMi1Lu5JzWoA9Da55P7v1P//RoMvgvNp3B+0XnqPC
-	yVokHM60WLTLi95UWjUxH9mQwa9ZjGaXc/2GpZzSGWz1QTac08p702udrJYrfah6orEojM0qV7pbK
-	3mrC1L9mjzX0CWqJDIB5SgOMVuhg9IGFA3zXxJreY3lCtfS8bddw90lZRT794KPBZGvYppGM0l5uq
-	bR1paAhw==;
+	bh=tRGhAe8pUFvvzJPKPKTxCC4bXu6S1byGnjB87m/nNHs=; b=0KVphFtt+Ypy7DMhg6sPOJCUZA
+	21noP9nIwzVDinbXQwZg7vrWJfF/bZR4yFe35nSuqWlS33r40u93VUqcu8mW4QmdgE1aRmHxvfPEm
+	QXshpvAm3+Bkg7d9Y1NAloME0e5Hpe82qWO5Klj51fW4tjUMv0PijpuPXka4le3N8EN3KY4iD0YQc
+	j472ScxZJv8OwP2NofXbkO05R3iPcsJaX5K9zmQORAHysvC5toait0xK/8q0JVKw8e9K7iXkznnrc
+	tsjRdJ6yhU2YFeOV5B0fWFo3yKS92NJpgNFBO6xb2PpMXpkrhfZCj0ARPM61jMiaTBolysBgi69vw
+	7d995A9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFGq-0000000ATOH-0cCs;
-	Mon, 12 Oct 2026 12:36:49 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xGFHh-0000000ATht-3SKW;
+	Mon, 12 Oct 2026 12:37:41 +0000
+Received: from mail-westus2azon11012056.outbound.protection.outlook.com ([52.101.48.56] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFGd-0000000ATGV-1iYN;
-	Mon, 12 Oct 2026 12:36:36 +0000
+	id 1xGFHe-0000000ATgX-15gI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 12:37:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ecy8s533vzofQUcL9J2gFlSghiO7bmm+MlM3qxMOOM/G2rB2dOp2kQvQP6fW77eQwHJ2/doOcVAFVLFoE2ECn+8eNcA23+MrRcTyO1ovEdT8/aFoXTmD4U7iNmuY4V15taOFOi2acbgDIQXrhziN7jzTw0gEG5EN33fAVAJy0FnDSWIAUDy4cR5nPKD4D5MI9fEaQmQ1gaHod74M9QKd+0Owkgq+9gzji/ueFsM3gNPfpo0H2wSv8ewgvn8Btd6/Qltm68uBHKGjjRi9NfwNycfYE10pz8yAHfvksvVlCUT4QjG8/FB+naHcI+MsLiaRqujsCMXU2f1J53zTHtxtKg==
+ b=Spub8oafw3u8BHceAN+hQT1+n7w58uFlUqAUkMZz6gjuImBmTLtIrrtJ5ijnlf6PJ015I9t9HwKBahCU1SWwwioQJxzl73Nv+Y51WHya5D7kA7C46jtt+uFbG6V864iuteUnMSwHWFTOC/qri/9DYE2t5HiW8keTr8iJFUOWiisc6ThxP8RKtwhGIlAKKeHC7F1Ia7TlZsY9icIBsaGC1pJhgkJpgrb6bmu4GxNHUutXQsfYzELnjf0PiA0YEkS0/94QTUn7PvpKL2OlYYIs2aCh8L9vTYb1lLl7tmy37n2Hwt18CNqON4kXmaaSdypyVgTpRjJa9X5oLZ9hGE/1Zg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9zCpLkfnIPuVRZZJcn7+tHHgouN8lV7rK07rn2B4cOY=;
- b=WPa3knUHJa3q5MqsbQ5buUvMkSmW2/9GW5xEO+Dqf0kcBgyNAYWwMFMAQbHNCYrV9fca4IHQqKU0a2qzuSax0mk57KIfAQMLcMYAsW2QNN2kqNaUDcRYFqpu3/3mD0z5FTor78SqH/W/L0P2DoBJYVmqt/9OUvDEueYZbN7zBI0QMQ+ZJPbJ+/Dw/6tsv6G46iImoHj/mGXoTzBV/yfxh/3aIPEO2Ze2GthbY+z98fecL8s9DyZ+BswqfNyRC3iYzusFgxc5AhV/igQ9bMLgysKHE8JtkgZP2EE1yCvBnO3bcvnIzorV8I5Ishd+p3UEE65yrK63HZUeWJHVIqAOZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2P153CA0003.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::20) by
- OSNPR06MB8139.apcprd06.prod.outlook.com (2603:1096:604:45d::12) with
+ bh=tRGhAe8pUFvvzJPKPKTxCC4bXu6S1byGnjB87m/nNHs=;
+ b=QjTEuuiOb4OhLq6HB6r+CCCjMDKc1j6EhY7P6WaEl1c4vCfgIyDsMoIBSSzNEB84X1rE+3qRU2UfloleLtCdJEcPCmvX4dgtrHDXeLlM8pWPArUG/KPBo0bPnxwlBUpFyRqCO+C2DP/UtUpWRTigHBi01AJNDeNdNRGZL2QIfA77m5eBIwIiv71qsspYBwlipfWLIkgyQADZmI6U0foo0SJX+rp8OQSRaiBz6b/VbkvkD9BAhgaWwUfw1zJISY56rFEhb/SIoDPTS4C3sx77hIfUVF58DKX4ryp/mSYe5M2SLOwW6tZLnbJZEUJgKFZmvwjxEuZpWZFFIzTCgCOoQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tRGhAe8pUFvvzJPKPKTxCC4bXu6S1byGnjB87m/nNHs=;
+ b=4o9D5XGs1rkdZGP5eC2lreYWupqFVUOh+AExbWPndxfqKsEVDCbE9JCYbcH0QV6eZ/7F5dr/QXRfu8//+g6r4qws1v0H5gcOYW3JRHRT2NNm+H4yblBzdfyFHTIf5UNAmImCF3RGxLiFzMpucVTzWhzbXr+XICYbboDRCGyQpNQ=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by PH0PR12MB7095.namprd12.prod.outlook.com (2603:10b6:510:21d::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.20; Mon, 12 Oct
- 2026 12:36:22 +0000
-Received: from SG2PEPF000B66D0.apcprd03.prod.outlook.com
- (2603:1096:4:140:cafe::4e) by SI2P153CA0003.outlook.office365.com
- (2603:1096:4:140::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.2 via Frontend Transport; Mon, 12
- Oct 2026 12:36:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66D0.mail.protection.outlook.com (10.167.240.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 12 Oct 2026 12:36:20 +0000
-Received: from localhost.localdomain (unknown [172.16.64.56])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id A227540920F6;
-	Mon, 12 Oct 2026 20:36:18 +0800 (CST)
-From: Luo Liu <Luo.Liu@cixtech.com>
-To: vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	gary.yang@cixtech.com,
-	fugang.duan@cixtech.com,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: cix-kernel-upstream@cixtech.com,
-	p.zabel@pengutronix.de,
-	linux-kernel@vger.kernel.org,
-	Luo.Liu@cixtech.com,
-	Wuyi.Shen@cixtech.com,
-	EastLake.Yang@cixtech.com
-Subject: [PATCH v2 3/3] arm64: dts: cix: Add Sky1 DP PHY node
-Date: Mon, 12 Oct 2026 20:36:18 +0800
-Message-Id: <20261012123618.648930-4-Luo.Liu@cixtech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261012123618.648930-1-Luo.Liu@cixtech.com>
-References: <20261012123618.648930-1-Luo.Liu@cixtech.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Mon, 12 Oct
+ 2026 12:37:32 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 12:37:32 +0000
+Message-ID: <917db1e3-1bfa-453b-b993-55ae20fa3055@amd.com>
+Date: Mon, 12 Oct 2026 14:37:25 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] ARM: dts: zynq: Use dynamic CoreSight funnel and trim
+ clocks
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Wei Xu <xuwei5@hisilicon.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-0-c3edca1c480b@arm.com>
+ <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-4-c3edca1c480b@arm.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20261002-arm_coresight_hi3660_remove_dynamic_funnel_clocks-v1-4-c3edca1c480b@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0185.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::10) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66D0:EE_|OSNPR06MB8139:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: d9c47189-2379-4cfa-aca0-08df285d6bd4
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|PH0PR12MB7095:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d4cdb0c-c3fd-4e56-2c5b-08df285d963a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|42112799006|23010399003|921020|56012099006|261009223027099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: lRbs4UBlG1jK/mkbtSmHIX08ymcuy8//Ed6YNIc5W3w8wzEmCEa2WZ2zoNTYsRqakwjI60z8EE2zKmTc2VZ+ssg1zVX8ACuhirsz0z6AsP6jsb/l9sv8WTiL/Jf8Uss0MnweR8/3Ww/VVGiZYIFLrw3gCcaNv8QAcdDqRZFxwcKGk1rmZQzrr0qg9IRA3rPcLHhgeSXHFiN0fCg2BSUaw8s9mSIdP3Xm1pA9tlZpSVuUVOp0EYqetg3DZpB3wUHFAIduK0GNBQ3vhV+BiT0CPgoufNq4RLoDE1SVPgKXBeWdPF7hsWjh0QJchHz7FvPuakyguc4lVAN10wTlNbUscWOPJ+MrERMNt8Rs5f8ZsWoYxqSkFdC4Bt8do00oWxF6xfxsxDSjYGRihpDTwd9FjOvlpbSLlyj3L8ROMaMN8IVoW7JMrZA39Kz8ERztb0HssFCX1CBZMO3ZUUs6h1SW4rETWWSERHnt7r8r58HTV7C5jkxFI6/rLZB710UW68IiA56AsJhbsI5MwU/a/e4kO6iRYdoVzqCdzBhU4LYYX+lvqvr0e2cgF05CZrhNrzMN9F0cHTdsz876lQX8h6ESQzqp74fbO9qBQ0g4sJlcrGFhkK6EYW+i1+ScF+rvRWy4Y9108utEU2mRDCs8yVkNtZKBtDQj5Sp0U6Nbd6cJYSbteeRWnckrNERJbXy5CnlxO445sBJGcFmV97ooRWaZjvnCBoEy7VrOV/hbvQL7ehkexE2g204IOdCbB4tQMStp
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(42112799006)(23010399003)(921020)(56012099006)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|261009220027099003|261009223027099003|56012099006|11063799006|4143699003|921020|22082099003|18002099003|10067099003|261009223327099003|3023799007|261009221727099003|261009221227099003;
+X-Microsoft-Antispam-Message-Info: Qt512JjgdViuR+lNFhh3glEUTh5Fnx2JK5VX9TDoekB0R53WL4ZUelryZlPQzvykfHg0JRBFp2g0USKcJ6hkOnwHv81rMrIodASxxF26N4c30zTfdKEiFqRRkxV7fakexl7hqmDtU4dsSnhiz+wkyFcNgRW/MYlhKGC//jT4HwwkZ+DaGYVyK3eN1CWjR/hE5ARfMb8c5IBiSvGsw/6VumSd414gw080OSvq/GHY4cgUKcv+H3DcniKtBR4OFZ9kAvlpnRBkPqkvz2Re3xj4o1TTgOcCuXEK8OC36t/ggsAESgwEKCMKAl8+wdHOp9KhWJe69Ra2KVx3+nMf+yPvAOEr4LnN2ErMxO05yZi/jAmOCGpDeB6d1dM3x9xJOjFLnQT2bydnuWqkZibktm64vbdf01TJUbvBAgCt0iba6OAE9QLb+ARsqSLUkgq29j9KY7pcfm2FuXLmvdtbEOWk2T3giiAdyGf4ZLZXJKiX4OZFjUJGgS5muIN1BDfJM3cz/KdCcyt9C0QzylgP8YAKSZvVXoZia25HWZvl8MtM+mdbl9h1HBCNha5AgkZ/ZcP3nF6bM3bHKpMklIheyryho1/xk1XvdN6BCEaPKUIBmNccp0ILv7Tasumqeku2zJ0vLNYh37NnW5mcOpzkJbzNXLIdEWxxANIw2C99POsSjhrtbNCoiH9Vm+6Je9xiWmkxmgRFOLrG0lxUnQdMWmfdlQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(261009220027099003)(261009223027099003)(56012099006)(11063799006)(4143699003)(921020)(22082099003)(18002099003)(10067099003)(261009223327099003)(3023799007)(261009221727099003)(261009221227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Wu3T7o+ybWWmwXKTZ9435hnYBL4Z+xm6QUe0r81hOVYK4bXfVnpDgUir3brrN1iSfgAdh/1ja3VyMyZ/qn0LZP04XGGYOy8pR0bILkfPp+YyimpFs2v+4a+GjnH52w9t6otPPgypKqO0eyCCgN/T5EJbgxxqxe32mJHtdlMWlxk+2SQyW0Kw8o7BjUE+21lvzzkWggCBw9XxZWi1KQsnPGFpuuzCv6WlpVEATqCFHtWi1ky7Ypwu8xTjMnjyNGNWQjbBE00cUJIAAX26eQTqpHx7E7yXEVeJ+mVcm+CkrvvcUy6SS9U/Md4yBqFeVwrA6nt4VhNOtr3DpZtX3BxQeqRqGtnJS3p+kwQG80c0zsbRgZ1iWwaap/PGuohWTSYfg0KeIE376TjnHfXPx9F2nRjksC7dFsSianefq6FniLIJeO5iUfyhq2zYSyZVfWBe
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 12:36:20.9039
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVZKb3k2U1RlWDRNRTdYVDd0VWlpZ2Z6K1FPekp3c0FYdFExRk43YVpOaWxT?=
+ =?utf-8?B?SWtsR29FdXJId0pxV204RVNuaUV0RlNxUWlUY2JKUVlDUnUxQ09LY0RodUE5?=
+ =?utf-8?B?V3M1VlZoZUR4UmpmTkx5dzRBRXlaSVVKVzdha3ZhY1REMTlTV3hYSnhsdkdp?=
+ =?utf-8?B?WmRsdXZubytYQzRJVDkrbDFaYXBTczRrOE9BOVVsakJJVnZkNUxiMmd0Q0dG?=
+ =?utf-8?B?aVZCMUozQS9XL1Q5TE1BSHJmWUJOZ0xkVXBKTmJuSXdaZjNUKzZRN1p1VVVi?=
+ =?utf-8?B?NUdyYll3Q1ZjVzIyRzlRYXdUd1FLYzBzMG5RSDdQakl0THVmL1FSZ0xiY3VG?=
+ =?utf-8?B?dUp5NzNtZCtxUmpTS2hqOXRCMTNPbFlsUlQ5Qm5EUjhVMisxc2cwbjY0cjdE?=
+ =?utf-8?B?TXF3VU5Wb0Q0TjJSS01wVWFXOXJab1BuNGNYZDFZZWh0RkIwVll4T0s0Q0lL?=
+ =?utf-8?B?bURBNWI2RzRxak5WcDFOYm9la244dC9kVCtmTFNoK0MwYUlyR01jQ2VlNlNE?=
+ =?utf-8?B?ZktiSG1TT2ExZVFhTXN1SEc2dVFtYklQUmMwQ2FBMEQ4TU9DcjNQUzQ1eXA4?=
+ =?utf-8?B?Q01kUWk4S2FueTlTODViVmtsQmsxR0plU2d3MEY3VWRNc3ZkTXBXaFBJdzB6?=
+ =?utf-8?B?K3JleTZRSzBvOUNMTTY1Q3A3TXUxSTd5VGduV1FyK2VFOSsvS2ZNS3dSdHA1?=
+ =?utf-8?B?UXpXN09YdmZVZzlVWUI2bjhVL0t4a1lQVkJTR3pWVEMrWUYySVFIZkRnclo4?=
+ =?utf-8?B?aTUvK1FhWnA3ZmRJWm5EbUFFamg5MWxXZ3d4SG5WQWRxcVFOTThwVnhQYW9I?=
+ =?utf-8?B?dWRMYzdwSEdvdkxMbjRYWFNrcEpVZEpzaEJESE10bDZJalFhS2xrWkJtWDlu?=
+ =?utf-8?B?bWVQYWJIakFNNDBsQWxwRS9yUVJLV1JhaHhCdVVXQ2p2RStTRXFWZmFXOTRw?=
+ =?utf-8?B?VXd5WUpIM1hoREtoS3k1L2xuTUN4VVhkVjUyMmcrODJGL1U4R0cyak5YRnB0?=
+ =?utf-8?B?OG5mc1hXZThHMjV2SHlNTEM0Rm5rdnJSTUkrVGNEUm5QSnhIeWpXMURxci9T?=
+ =?utf-8?B?c1pjcC9JWHdHODY3Y1RKeGgyeHo1Q1NEYW8reW1iOVpiL283YTRNRXBsTlhw?=
+ =?utf-8?B?bVdmZUJUZGl1WGkrbitwYXVLZ2V4WGlUTDdWaWI5blA0cXltVmJsYmxmSlZG?=
+ =?utf-8?B?dWVRbE5SZkJrTHQvL2VNM0Zrd0NRUEtNVTVrYWlPbTQraGtndm1VMlFWOE9O?=
+ =?utf-8?B?bnBsWDQxVlNHMzZ6SmFkR2FBS2J6cDFNOUFXalFGNk96QTQ0a3UwekpRc2pU?=
+ =?utf-8?B?N1o0cytoL1Y2MUNqaWFLcGtBbHg2ZXc2aG1pOXZ6RGEwYkdVTEE2aEV3S3Q2?=
+ =?utf-8?B?dEx6WUwxZmR1ZmdhU0d6WTczdmdxaTFhQjZQKzFKbXUwclU4d3ExbVZXeE9j?=
+ =?utf-8?B?UXF2WjQya3NMSi8vc1MzNHE4OVQ2R3hMTzBmU0p1NjZRSEZBeTVoY29ML3pM?=
+ =?utf-8?B?R2ZsOVBoNjcrc0JPaXBCWGJaZzI2b2J5YVA0Y3VrOUtDd1VhVWlDbmJta05B?=
+ =?utf-8?B?VkUwemxBTHBBUmNRc3ZoQXduQXhqbmdHWkFvODlMTEx2dUlsSWVIKyt5UHpz?=
+ =?utf-8?B?aWh3ZkJGL3l6YSswYytJaklkUG4ySStaZGlPR1dGT1YwOGU5ZzF0Y21LS0pG?=
+ =?utf-8?B?Zlo0a01OMGViK2IxVUdzWFkrUWNjL2h1cGt4Tk9COEQrc0ttTnNyOWtJS3BK?=
+ =?utf-8?B?N203dlgyMDI3anVXblY0dDVYUWhFRjc2S2RCVEh4cWJ1Q2pQNlJDQTBWNXRV?=
+ =?utf-8?B?UDhRak5BTDBlQ09hMzhUaEFqN2hnWVNzNENVZHh1dTZ4S21EaXUwODF1VGFJ?=
+ =?utf-8?B?WHhGd082OTNkQXhVYlp0L1NtN0tMbkFaUTdIaHJocHRXNy9XUjJCaHM5cmxN?=
+ =?utf-8?B?emUyV1NjSzdCaEZLVkF3Nm5xRnB0dFRhTW9qNDVoV0xNVnV2bml3TVBZbk1R?=
+ =?utf-8?B?V2FjeXdtNlB1N2pUWUgyNlZQaDNRN3NLcW9hekZOTWE3OFFJT0JUS2NqVGRz?=
+ =?utf-8?B?ek0rWSswclJSYTZFRExVUm5EZ25KN3k5WlVRaUtZQkEydjhoL014YTd1K2xV?=
+ =?utf-8?B?QktsSU9naEJoaTNTNURLSndMbHRjNmxNcUlwQTA4RWw3WnRRYXVrcjEwVFFE?=
+ =?utf-8?B?NlJBaVpyRU5PY2NvTWo0SWlXU04zYjVIVEhHdFBPZm5mNHhWVWlHSXpkNHo1?=
+ =?utf-8?B?aTYxRlJZWTFUdHVYbXcwUHdFRVVyaFJzRm9SalRRd1ZHWmIrWU9oUlFCY2ZG?=
+ =?utf-8?B?bGZDMjVvNVR3dnUyR2ZhdTNpbldaazFpOEN1R3hIM1Nkck5ZVXlHZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d4cdb0c-c3fd-4e56-2c5b-08df285d963a
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 12:37:32.8054
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9c47189-2379-4cfa-aca0-08df285d6bd4
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66D0.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB8139
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pHNL57/tloIvsPdOqOSOr78b9/5yTDXnSd5w1ov7mx1n/I929Q0X2tUXfK+phlVR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_053635_558386_4A62C398 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261012_053738_332384_BE0DCF7A 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,51 +198,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the Sky1 DP PHY in the SoC DTSI so DisplayPort can consume it
-once the controller is enabled. Enable the PHY on the Radxa Orion O6
-board.
 
-Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
----
- arch/arm64/boot/dts/cix/sky1-orion-o6.dts | 4 ++++
- arch/arm64/boot/dts/cix/sky1.dtsi         | 8 ++++++++
- 2 files changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-index e39c87774c12..b659c10f1f4d 100644
---- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-+++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-@@ -36,6 +36,10 @@ linux,cma {
- 
- };
- 
-+&dp_phy {
-+	status = "okay";
-+};
-+
- &fch_gpio0 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-index 0a820f45feb9..33bd2173fb85 100644
---- a/arch/arm64/boot/dts/cix/sky1.dtsi
-+++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-@@ -762,6 +762,14 @@ ppi_partition1: interrupt-partition-1 {
- 			};
- 		};
- 
-+		dp_phy: phy@1414c000 {
-+			compatible = "cix,sky1-dp-phy";
-+			reg = <0x0 0x1414c000 0x0 0x4000>;
-+			resets = <&s5_syscon SKY1_DP_PHY_RST_N>;
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		s5_syscon: syscon@16000000 {
- 			compatible = "cix,sky1-s5-system-control", "syscon";
- 			reg = <0x0 0x16000000 0x0 0x1000>;
--- 
-2.25.1
+On 10/2/26 17:07, Leo Yan wrote:
+> The Zynq-7000 funnel at 0xf8804000 has input-enable registers.
+> Describe it as a dynamic funnel so the CoreSight driver programs
+> them. Keep the existing apb_pclk reference required by AMBA probing.
+> 
+> The static replicator has no programming registers, so remove its
+> clock references. CoreSight drivers do not request dbg_trc or dbg_apb
+> for the funnel, ETB, TPIU or PTMs. Drop those references while keeping
+> apb_pclk for the programmable AMBA devices.
+> 
+> The Zynq clock controller registers dbg_trc and dbg_apb and calls
+> clk_prepare_enable() for each gate the bootloader left on (see
+> zynq_clk_setup()). This does not depend on the CoreSight nodes' clock
+> references, so removing the unused consumer entries leaves this
+> protection intact.
+> 
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   arch/arm/boot/dts/xilinx/zynq-7000.dtsi | 24 +++++++++++-------------
+>   1 file changed, 11 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/xilinx/zynq-7000.dtsi b/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
+> index 153b8d93cbee2c30b399c0770f2022b307fe0808..4280fe6da379064b6ac5bf9e9a5b891830a094b2 100644
+> --- a/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
+> +++ b/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
+> @@ -68,8 +68,6 @@ regulator_vccpint: fixedregulator {
+>   
+>   	replicator {
+>   		compatible = "arm,coresight-static-replicator";
+> -		clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -		clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+>   
+>   		out-ports {
+>   			#address-cells = <1>;
+> @@ -464,8 +462,8 @@ watchdog0: watchdog@f8005000 {
+>   		etb@f8801000 {
+>   			compatible = "arm,coresight-etb10", "arm,primecell";
+>   			reg = <0xf8801000 0x1000>;
+> -			clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -			clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+> +			clocks = <&clkc 27>;
+> +			clock-names = "apb_pclk";
+>   			in-ports {
+>   				port {
+>   					etb_in_port: endpoint {
+> @@ -478,8 +476,8 @@ etb_in_port: endpoint {
+>   		tpiu@f8803000 {
+>   			compatible = "arm,coresight-tpiu", "arm,primecell";
+>   			reg = <0xf8803000 0x1000>;
+> -			clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -			clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+> +			clocks = <&clkc 27>;
+> +			clock-names = "apb_pclk";
+>   			in-ports {
+>   				port {
+>   					tpiu_in_port: endpoint {
+> @@ -490,10 +488,10 @@ tpiu_in_port: endpoint {
+>   		};
+>   
+>   		funnel@f8804000 {
+> -			compatible = "arm,coresight-static-funnel", "arm,primecell";
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+>   			reg = <0xf8804000 0x1000>;
+> -			clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -			clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+> +			clocks = <&clkc 27>;
+> +			clock-names = "apb_pclk";
+>   
+>   			/* funnel output ports */
+>   			out-ports {
+> @@ -536,8 +534,8 @@ funnel0_in_port2: endpoint {
+>   		ptm@f889c000 {
+>   			compatible = "arm,coresight-etm3x", "arm,primecell";
+>   			reg = <0xf889c000 0x1000>;
+> -			clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -			clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+> +			clocks = <&clkc 27>;
+> +			clock-names = "apb_pclk";
+>   			cpu = <&cpu0>;
+>   			out-ports {
+>   				port {
+> @@ -551,8 +549,8 @@ ptm0_out_port: endpoint {
+>   		ptm@f889d000 {
+>   			compatible = "arm,coresight-etm3x", "arm,primecell";
+>   			reg = <0xf889d000 0x1000>;
+> -			clocks = <&clkc 27>, <&clkc 46>, <&clkc 47>;
+> -			clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+> +			clocks = <&clkc 27>;
+> +			clock-names = "apb_pclk";
+>   			cpu = <&cpu1>;
+>   			out-ports {
+>   				port {
+> 
 
+Look at my reply in 1/5 and NACK for this. Clock 46/47 needs to be handled and 
+described in DT. It means removing them make no sense.
+
+Thanks,
+Michal
 
