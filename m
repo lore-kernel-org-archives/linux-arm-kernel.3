@@ -4,103 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8059CCA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C63CA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKxPJeHaul4WGcorf+peGk6s2c2jregG736LW2nonAg=; b=Y75FwN+vCIiNd7URd338sc0ShR
-	F9fHNLNPZNzjN8kSNh+4rdRdvPJxh/lMoLYt0yjbaYtwIBio9Fxy7M90pvBGtNZe/93G6mdkAf2mB
-	BJ6Ajp0nzkzn0CopO9ObvG5csJFDD0Aec0Rz/A07m+5x814lJaDW26jpPjLEl+UxsS4szND92QGrg
-	BVcDlv9R0IaUM8yvSwB6xRfaAYwCRCy4UDXdk+vvKjIblutAL2wXYm+yJaqV3OKugxnhTAEUkjQq5
-	LbmpG4ra+S0MCYO5vq2wduI4OBwKrBgP2vjMANqXWxYH88IQQAXg0diXH1hadwppknacX/UNWoZRx
-	TXZL8tow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=; b=vGa5tz9kQUOoDZ
+	/lFeGIwP9UNUEFt9dgx8JlI7j1djTqv4FYXuWu+eVcidvFG9shEe4iBuqlncOmoKWievKBqX6YxXb
+	ZcIddaGxOl/a8bmqivlQb6/rjjVAMB6Bj4WfDjyKwo1fNo23jDDf0+cF0mdDrhQGOPuvQWKdqWtUQ
+	RZVDn85upftAKgWZAkJfU7ksMK1BcgIUTw1TE0oWg/oHlaMzLWIEdN0nEXoWuwm5Ceg3EnbZkGNcm
+	AWmSktZoLV64kD3UHXtlO3/FUXI7AnBGFX82XeLcx6qHX/Swl9zKc2A9VXZdTVVvyBxVGExzxPbV8
+	iYzyZ6r/xQV4cIKGcqpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGABa-00000009onO-45UC;
-	Mon, 12 Oct 2026 07:11:02 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1xGAPt-00000009pn4-2Qd2;
+	Mon, 12 Oct 2026 07:25:49 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGABZ-00000009omv-0mxW
+	id 1xGAPo-00000009pkw-1HOc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 07:11:02 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5bcb6faf862so1020110e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 00:11:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791789059; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nCVygY4a6MzAZK6XxZruQAyb3XqZejP9TbFwxHNusUXxMjdiExF+IXdOwnnd/pznwH
-         USi/O5xjIyAQ+6qXEWr/Tdoe1YTPB9d1VY4mVv0nMrY3CC43UlFO5ZnHvLrTjYEoM/6u
-         ROyVJu6TCWURcUKzRLd1F7oIAe6wCeyifi9jOFMtwcYkxR0Ii7ZkOr0/r55nIhaBC63k
-         fncbh+qSqK9FJZRsKVS1xR8ghPqifA+kNQD4dd4n2Ha2W4Cew2zirP019Lb5tXl9zvmh
-         kFSnYcRsFzmS+BRv3WBUCdOXN6JjuxeCwfVzxyIdV+iXvERFYjHrDkvHW2hIYDDsg1wW
-         8YRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=PKxPJeHaul4WGcorf+peGk6s2c2jregG736LW2nonAg=;
-        fh=kayMY0/Y+CgK4IoGZe+21tINfiutzBUWTO72SLD0XDo=;
-        b=ruSoGupmImgViDpxIdrL4MNV4hZYSyESfSLgEdbE/cvXY1KdkBRh/pXm3kFrWfR+Y/
-         fSdUWRTQ5ljzcljfZb5vsFQnw6oVMRnXa7IZWszJjm/Lh1Zcby1pl2OSG16yNwmvHxgb
-         i7YA4zEfBHo/1XUYifgitb7cPWFVm5o5BIOXm8p95XFb5vi2GNjmSBkg76qz0QPVND5T
-         KbhEcVfWlVTPQ262+jlqbfCr2GAQ48WSxL0U/xG+XngXbrqZKiOLPbv4EKErPJV9iqXq
-         o58FxTn+v18hfdAjJiJLis6cwNhkjkZp+q6yUL/ucSWrPQJPAJWLgZVIe8DCg9cPMR8R
-         Zz/Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 12 Oct 2026 07:25:45 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a161d9b8c7so9669205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 00:25:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791789059; x=1792393859; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PKxPJeHaul4WGcorf+peGk6s2c2jregG736LW2nonAg=;
-        b=b146L7uwbRt2GjaLq0mZWpMjNg8iqACLZWJlcEbcL8XoFvCNSz5gs52s8rT4Xaui9Y
-         fNRYSiz/0xzwsn6TMEFlrlF082GQvUnn4uq9fpfWAQ7B2yupfoYxlSaiifIIuw3Sl1w9
-         ROIuEJMwavnvyYtvEqZgvAfY5Wxp50t6nRno6jWneAKsQlYptptRgzuCdw78sUCZyrZx
-         G/liR3SEVK2lnefr7fnuD3ThQfhm+1DKpvXZCy1y+0Upa782f/Q/lZ6D+hLp+OgwFp/3
-         CLPi49EHW73jokkigxYb6Z7bS3YVdBMulCApfn7g6jkdYL3A7vVhwY9O5CSH8YTMLDZS
-         iyag==
+        d=gmail.com; s=20251104; t=1791789942; x=1792394742; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=;
+        b=AM3A/dvQ8gaNaK0b3EYEVXL6CPhimCQPY9Eds8+eE0vMN6iYD6AdxwGv1PpcvKv07c
+         Lgrnrnv+d0xhLS5bc5zo+7jdP6Krm57i2DjB5P+PM2XrvLw0LZ+1xkTZ/O0u4NLN1p32
+         Lu/rXzalZxNnUq87uEiDeKFQdE479/dulBeyYxCPWMFKOAsxLpLBnupGLhmFfN2hMzeO
+         UQkY8Z9mPhGNjuArVlePeg0GTm7ZXbaUmIP/21r0nWm3GXLsK8yyRd8/A7OiHFN8ye7K
+         3Mvnvs7QPOoMEiL4mpDKeptHQAQ3cz0IgfY/iwEM9HArQDGSAgTan0w+WxPBbs9ER//t
+         gXhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791789059; x=1792393859;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20260707; t=1791789942; x=1792394742;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=PKxPJeHaul4WGcorf+peGk6s2c2jregG736LW2nonAg=;
-        b=V9JH5x4Jp3puQk9ygT9s8dzkhntGxfb+EHVAMKKfT0qK5iQlvOP69eYd7bwx3+rm/4
-         wiSCWS0Yll17s8RhrDC61HYO9fBSwfvoeJFwIx4mmHodYyeiI77ZDHoOcFir/rT7icgd
-         /UeZJvW0nYtkglHNv4NK8glqGoxlpLInC2AC85I/OMlnMnjWM0TMsZlSks+u6vNHAT3p
-         J/IdMEU2GDVwMmaRIJ/GxrcdVSOTzatY0l5QfM+bYrJ9Ydbm6u8HYXmSxUR936C8wiHK
-         nepSeU8QIzAalpLCrV87T3APe4OlJQ5p946L9Ty6Vi/dZg+DMZM0YTf6JdThQ3jgYD7f
-         634g==
-X-Forwarded-Encrypted: i=1; AKwUvBx1qcmbKE22bTM/k5K1+hzXFxzW/KoywRXhFpgQ90lRlQYKEaEfRT2W9/esO+n/MYjHdPRhiOS0d2gKwBglV7nP@lists.infradead.org
-X-Gm-Message-State: AFq9FYLR/jtFwG4OJMSGRBBXNqoX2Sggg7FjF32vSmoaXq++AuGXgFGu
-	BIYA6gkok9w4EzWmzptHF5/duIsCUP0/LJCa5mBd/IHiRX4H9VAAQqG5x/Y5RR6sQRDzfEDoO/Z
-	lbh5pIAD1PGOkBD8GQ38LNa4WfiFo66sfJgtkclaAkQ==
-X-Gm-Gg: AYBFou38i6Gt8ZxKtoU1berRnPclvB8Zwosm85yp/5VUyUcdjkDXBldCFQEC33OFFai
-	He7xKajctyYTDuD/EATkhCabIEFU5hMtUJ0uGTNP+j4+1GRLgsdThZuPRtkgpcqTddM9UGPe73A
-	iZW4MLqtIHmfhjiYrEn221aU+FCiRiUcOQX8xGCuEYmguvPUzL8aKmxkMKCNFdc5SZAiQg9qX9J
-	k6hr7jpSPvVwHBGkbDlMIhbmnlzAc9v/u6xtUFe7SivWYTje/n8wz1t3R6clDT0X4TuPg5zV25i
-	qXX1fySWDJRFSzr+RPP9BrcnccK38AGpSwo5K3WhEvOyV4U4piMvHxWAWbcAEOK/vg==
-X-Received: by 2002:a05:6512:3f1d:b0:5b8:e4d0:9040 with SMTP id
- 2adb3069b0e04-5bcde6bd1e9mr3313023e87.11.1791789058754; Mon, 12 Oct 2026
- 00:10:58 -0700 (PDT)
+        bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=;
+        b=NLY3Q9sTslPjtjnsnYOUwZ1eNy8LfNuULmozvNY9Fo0tRb/8plqxPlWnXg7ZodZmRL
+         /XEfYVMu8rJdgE8sJ8gHObSLT16jvMHLELCmW9liQJZYNJu1nm0ozS3pq50/PEXXfLbf
+         Ax/bt8XmCYSn3SsuazcV0GzdVlaU5/ATWS/10ET3chSkMefI0SrTZlBLG/gzCI95IrsN
+         Ya4RyAoBsrIDF1VnOeqWxSbj4LHQF7GblpUnNuFq7aN3zkYlQKiFf93a33jaKukZ+E3k
+         zZsqc3EPi0k4pJuvduDiETcA2+d8bJAHjIdDNP5sD8t55XS+UJrYs9/FQq9DkLkCyExk
+         lTog==
+X-Forwarded-Encrypted: i=1; AKwUvBznwR5y7tOPIMSyaLM+0ir18MECEeFm6Z/8LmPiNCrCAOBGSk7WzQuflrBX+yNG3UfD91EK4J0n7AOm1aI23Tms@lists.infradead.org
+X-Gm-Message-State: AFq9FYKFaG3Xr4+JBQi0nFU6cOm1ycp6yr1wrOjDKAKwLyKsTuWhczm9
+	GYaTYxJIbfNa0GVQQrIfJRJ+RybfiJNwFfwWmlDoR9kBassmEsfrQuf6
+X-Gm-Gg: AYBFou1lOXgjusugLS/6ElLzK6IgAFzvv7+kHyNNSW38AXEuoNcCH4RLS5VbZJKuA5T
+	E78z/Ablhn9VGsb0kOsUfEA36ZtH1mncv6N0APXxe7D3A12lMdq4WWEXhyblK4gXIxDBl5NByG6
+	paePnTcqMHAsxyP78FdFHH5Nw6U9nRWv0atfUmfmS6y6IIrYmnYvEXxm5TQXxn0GIe5aDv3oukc
+	WNxlK2oTqybfbAsSp5SpqDHNuKy4hyL2pvjzXlxmFxnves8aPKVFxDmS+6tVjjGc5hh0tt7mVm0
+	Z1NnsbnCcKlW92jyT4r/MIwrRI6YM4bwTg7MGAaWma//A39PgFKKUqvGQbYiHytE978UUy3Yma7
+	CltWMc9wKTyBm3prhG2sFIortNyR8VNETsOPxCRNTZM9j9sB3MzmPNvkVM+PzZHYmtGYxY6IQoV
+	nS94B3tSHxb/loxGnP1jMdqDxjF5AcPOU+oMp8QJAu3D94oPNHdeDNK78/WZTWVSqVBzj1AmWYo
+	dL7+MIg7RgrMc9t1ByYmKsX/dopts9h7THmkRKb9hATWhF9c38qPoPVWJLnb9ID
+X-Received: by 2002:a05:600c:19ca:b0:4a1:7e76:d02f with SMTP id 5b1f17b1804b1-4a18e4ac650mr158677175e9.14.1791789941611;
+        Mon, 12 Oct 2026 00:25:41 -0700 (PDT)
+Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aadf9bsm17523377f8f.29.2026.10.12.00.25.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 00:25:41 -0700 (PDT)
+From: Leonardo Costa <leoreis.costa@gmail.com>
+Subject: [PATCH 0/3] Add VGA support for Apalis iMX6
+Date: Mon, 12 Oct 2026 04:25:22 -0300
+Message-Id: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
 MIME-Version: 1.0
-References: <CAPZ+gd9d1P+xDSrxxZkGJr32zjubP=KfQegeGkWykKGvEH0=oA@mail.gmail.com>
-In-Reply-To: <CAPZ+gd9d1P+xDSrxxZkGJr32zjubP=KfQegeGkWykKGvEH0=oA@mail.gmail.com>
-From: =?UTF-8?B?6ZmI6ICA5piO?= <cc201008@gmail.com>
-Date: Mon, 12 Oct 2026 15:10:46 +0800
-X-Gm-Features: AclHuK9zqsCSqKaZL-No2oYZGnFlUiG1tvJRKnc3YYARIdJB75fdIO839OkOa6U
-Message-ID: <CAPZ+gd8TPNnvEDOv_H=fdvy2ysG63uBD0MvmEMjhkMa8i-y1NA@mail.gmail.com>
-Subject: [PATCH net] net: airoha: Keep UPDMEM egress MAC in sync for offloaded
- IPv6 flows
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGKLzGoC/x3MTQqAIBBA4avErBtII/u5SrQYa6oBs1CQILp70
+ vJbvPdA5CAcYSgeCJwkyukzVFnAvJPfGGXJBl1pU/W6w6SQLnISUY7bIHuyjjFthM3cWjK2brq
+ VIfdX4FXu/z1O7/sBKq18SGsAAAA=
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Leonardo Costa <leonardo.costa@toradex.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791789940; l=1908;
+ i=leonardo.costa@toradex.com; s=20261001; h=from:subject:message-id;
+ bh=oIehZcPpAbqiwfIqG1W31kjdUe0imO5csyH1FVDoC4g=;
+ b=6Na6Gpe9E1PvitnwV+dpCDK0x8whlxg3tt6LUG+45ePWH6KHyR7uTPCZpXJvoHbTKeZQq5b6z
+ YhrD1XfpN2gDC54bNXQKOrMjPmqjFju0acH+K48bnab3b0Eu3MBtE5u
+X-Developer-Key: i=leonardo.costa@toradex.com; a=ed25519;
+ pk=4xvoVLDt+NxIz9D8BJHhT0fD43Ig6XgSDw4jRN/gHzk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_001101_262541_47E928D6 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20261012_002544_372119_D1244B16 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,78 +122,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PPE routed IPv6 FOE entries do not carry the egress source MAC inline;
-they store an SMAC id and the hardware resolves the address through the
-UPDMEM table, which airoha_ppe_init_upd_mem() only programs with the GDM
-port own dev_addr at probe time.
+This series adds a device tree overlay that enables the VGA output on Apalis
+iMX6, which is driven from a parallel RGB interface passing through a
+non-programmable video DAC.
 
-The netdev the flow actually egresses can legally carry a different
-address: on PON setups the authentication MAC belongs to the pon device
-while each service VLAN routes with its own address, so offloaded IPv6
-frames left the port with a stale source MAC and were silently dropped
-upstream. IPv4 was unaffected since HNAPT entries embed the MAC inline,
-which made the failure hard to diagnose: TCP handshake and TLS completed
-over the slow path and the transfer stalled exactly when the flow got
-offloaded.
+The video DAC is a simple resistor network gated by an active-low
+data-enable signal. For the bridge to work properly, this series also
+changes the following in the dt-bindings and simple-bridge driver:
 
-Before writing smac_id for routed IPv6 entries, program the UPDMEM slot
-with the source address of this flow.
+- dt-bindings: Add a new compatible for the bridge in the simple-bridge
+  binding. This is necessary because the existing dumb-vga-dac compatible
+  doesn't describe a data-enable signal polarity.
 
-airoha_set_macaddr() writes the same slot from the ndo_open and
-ndo_set_mac_address paths: take flow_offload_mutex there too so the two
-UPDMEM writers cannot interleave their two-step DATA/CTRL sequence and
-leave a stale address behind.
+- simple-bridge: Add the VGA bridge match-table entry and timings
+  struct, setting the DRM_BUS_FLAG_DE_LOW flag for the bridge.
 
-Tested on a Nokia XG-040G-MD (AN7581, GPON WAN, PPPoE over a service
-VLAN carrying its own MAC address): IPv6 HTTPS transfers went from
-stalling at the 15 s curl cap with partial bytes to completing at line
-rate with hardware offloading enabled, matching IPv4 throughput.
+This change depends on another patch, and should be applied after it:
 
-Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
-Signed-off-by: Yaoming Chen <cc201008@gmail.com>
+- https://lore.kernel.org/all/20261002-v1-simple-bridge-atomic-check-v1-1-ef5d8332b078@toradex.com/T/#u
+
+  Adds the atomic_check function to the simple-bridge driver, which
+  allows the data-enable bus flag to be propagated through the DRM
+  pipeline. This is necessary for the VGA to work correctly on the
+  Apalis iMX6.
+
+Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c  |  8 ++++++++
- drivers/net/ethernet/airoha/airoha_ppe.c | 13 +++++++++++++
- 2 files changed, 21 insertions(+)
+Leonardo Costa (3):
+      dt-bindings: display: bridge: simple: Add the Toradex Apalis iMX6 VGA DAC bridge
+      drm/bridge: simple-bridge: Add Toradex RGB to VGA DAC bridge
+      ARM: dts: imx6q-apalis: Add VGA overlay
 
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -138,7 +138,15 @@ airoha_set_macaddr(struct airoha_gdm_dev *dev,
-  airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-  airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
+ .../bindings/display/bridge/simple-bridge.yaml     |  1 +
+ arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+ .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 79 ++++++++++++++++++++++
+ drivers/gpu/drm/bridge/simple-bridge.c             | 10 +++
+ 4 files changed, 111 insertions(+)
+---
+base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+change-id: 20260928-v1-apalis-imx6-enable-vga-5c7ba6b358fe
 
-+ /*
-+ * Serialize with the flowtable offload path: both writers program the
-+ * same UPDMEM slot with a two-step DATA/CTRL sequence and concurrent
-+ * updates would interleave, leaving a stale source MAC under already
-+ * bound IPv6 entries.
-+ */
-+ mutex_lock(&flow_offload_mutex);
-  airoha_ppe_init_upd_mem(dev, addr);
-+ mutex_unlock(&flow_offload_mutex);
+Best regards,
+-- 
+Leonardo Costa <leonardo.costa@toradex.com>
 
-  return 0;
- }
-
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -414,6 +414,19 @@ airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-   dsa_port);
-
-  smac_id = port->id;
-+ /*
-+ * Routed IPv6 entries resolve the egress source MAC
-+ * through the UPDMEM table indexed by smac_id. The
-+ * egress netdev can legally carry a different address
-+ * than the GDM port itself: on PON setups the
-+ * authentication MAC lives on the pon device while
-+ * each service VLAN routes with its own address. Keep
-+ * the table entry in sync with the source address this
-+ * flow is actually going to use.
-+ */
-+ if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T)
-+ airoha_ppe_init_upd_mem(dev,
-+ data->eth.h_source);
-  }
-  }
 
