@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FC8CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5B2CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo77ofVgiaIxk7/HrKuQfjrMk2AzM4yZPId3+7w7fvk=; b=mMcfMiyzxwXPYLcQ8Arwg+zHEi
-	pS12p5Pf5dIW6wkrdVkwsEwbixdrc+Oup8jz4Lux+LVjpRTjVavMHsBPWJ1Czx5QokyM2ZVID4kWD
-	ithQjRrdA5bHsgiX4fp3drtliSXjW1pJrHnY7Zvd1C+j6rfX77N7wCbsAmSdSdDjIckw2Y4ZGE2YB
-	F+WDtrNW38hvKJYs2zIacBAY4PiQpJAD8DQ5qP61PzLg/XsNiPWTQE4RRc2IdwYE4UhdQ50yHyIIK
-	Ap0oc6m7SIPFpS+yMlr1/VnAs99mmvDcPoTqryQnb1YwrZBo4QyB5NxMhmmsXuWOXNUle1Jkig4wz
-	qTVeH2XA==;
+	bh=ZN2dzTiC+2BBssvLh2yHOghWh0HLc1sQSHswvJ543so=; b=zkKGpbx0gQtrvQw+Vmf1CRaOoG
+	UGxbvgPbHZyyRb/QtlABmaGH572B0p+hkYq7m7b4vCDVcg6rGnCfdibW5AnRCTGKTHYxw6FnWHC28
+	4L1j6eKz3EYsQPBGCZpt3mgO7ceHUJKzZse2gQX52XJOEgk9cncUn4jZBOxtnLPNwqvngtDyQyqs9
+	vEzdyXwvQI0tVMJhZrRmEyowZavQolbA+/BjkugflHdttAjrUU/JEIiS2h3X2AZlGmzqjIpSTx8l4
+	Ows+a0ufRwSgldypBbmQQFKMDhh6m69UE1Ay76DSEN62YeVMqAv+0Z3hi2ORF0CsKiOReI6KSw5WS
+	AGxqFFEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBkM-00000009zSc-47qH;
-	Mon, 12 Oct 2026 08:51:02 +0000
+	id 1xGBlG-00000009zbZ-0tRJ;
+	Mon, 12 Oct 2026 08:51:58 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBkL-00000009zSD-20mr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 08:51:01 +0000
+	id 1xGBlF-00000009zay-1W10;
+	Mon, 12 Oct 2026 08:51:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBAD743ADB;
-	Mon, 12 Oct 2026 08:51:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C95661F0089B;
-	Mon, 12 Oct 2026 08:50:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 22E81423E1;
+	Mon, 12 Oct 2026 08:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6601F0089B;
+	Mon, 12 Oct 2026 08:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791795060;
-	bh=Oo77ofVgiaIxk7/HrKuQfjrMk2AzM4yZPId3+7w7fvk=;
+	s=k20260515; t=1791795117;
+	bh=ZN2dzTiC+2BBssvLh2yHOghWh0HLc1sQSHswvJ543so=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a98O/BCqbhHG2B1sOa/v0bIuNQWRfDrKDF+LKT5WJDfjFQuFAhmADi3OaIuCg7g05
-	 FE3TzyQYdv9tVBix7xQdchnWrvdNrXW2UPUdkw+CNm0iNoycyRu7npZ1zvMzzvWWyC
-	 OU5TzZfqJgU14HdjCeBaOpDvbThSdoNYpXskij0webDBwdCmQLEIbhQ2iMSkOiZFtY
-	 rgNFRJ2axy5nVPM9HACbGCWxmljvLHPhMjxzUJCmMDNNDjm/NNfIxVsUcnyEd++dzB
-	 /Uqx87F/5dqH4XN2vOeUWIA5qU6TuncVYXoeKFDcS8M+jNbEa27NGnN/7r+Z+Fy4q8
-	 hhRULsAqye2/g==
-Date: Mon, 12 Oct 2026 10:50:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, robin.murphy@arm.com, devicetree@vger.kernel.org, 
-	Frank.Li@kernel.org, cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] dt-bindings: dma: arm,dma-350: Document the CIX
- Sky1 integration
-Message-ID: <20261012-velociraptor-of-improbable-upgrade-bfe14a@quoll>
-References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
- <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
- <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
+	b=ETjnOmAbywI1wneWq7BOKw4lGB2kkLvdv/6KXLwmxlZjfvqP9o+NJQThvZoFrUms8
+	 f63ggiUz4KP0brhWLRhv2x7+QVl5scE6S1z6B+07a+Cuh/rNvtL/DeKO/WGwM4us/K
+	 tzad4DgJ/0H9cQpP0TtZSFjlWnNwaJsYmadJzAaulUHh+ShNbrhNJoVt+vUN94QcSt
+	 ng3p8Jq1R6MXudNMLjr7UaZ5uHJXlAaG8HbEf49lYr2yoteE2ERJwqTdDs5xLkna/n
+	 FLLjyaG6T+H1iWUjfS83ZGnSXYRptXahGvCuS7jP4ZKr0Q4GOdID5kOVsuK4v0AQBt
+	 yeoAk1qP58TIw==
+Date: Mon, 12 Oct 2026 14:21:47 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-phy@lists.infradead.org, 
+	Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-mediatek@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be|_ptr)?b" <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCHv2] phy: mediatek: tphy: simplify main allocation
+Message-ID: <asyfMEwzhwJFOIZa@debian>
+References: <20260812181857.64544-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260812181857.64544-1-rosenp@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,104 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 01:18:44PM +0800, Jelly Jia wrote:
-> The CIX Sky1 DMA-350 integration is the same device with SoC glue around
-> it, so it is described by the arm,dma-350 node itself with an additional
-> "cix,sky1-dma350" compatible rather than by a separate wrapper node.
+On Wed, Aug 12, 2026 at 11:18:57AM -0700, Rosen Penev wrote:
+> Use a flexible array member to replace kzalloc + kcalloc with a single
+> kzalloc.
 > 
-> Extend the binding with the CIX compatible and the resources the
-> integration needs: a clock, a reset, an optional reserved memory region
-> used when the controller cannot reach all of system memory, and the
-> syscon that routes the channel interrupts to the AP interrupt
-> controller on Sky1. The cix,irq-router property is only valid together
-> with the CIX compatible.
+> Shuffled some code around as __counted_by requires the counting variable
+> to be assigned first.
 > 
-> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
-
-Only LLM. Drop all other tools, which guidance asked you to put here
-build process tools?
-
-How is it even possible to assist here with sparse? And really,
-mentioning checkpatch is just wrong. EVERY patch must run through
-checkpatch, with no exceptions.
-
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
-
-> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
-> ---
-> v1 -> v2:
-> - Folded the integration into arm,dma-350.yaml: the Sky1 DMA-350 is the
->   same device, so it keeps the generic compatible plus a device
->   specific "cix,sky1-dma350" compatible, and the integration resources
->   are described on the controller node.
-> - Dropped the separate cix,sky1-dma350.yaml wrapper binding.
->  .../devicetree/bindings/dma/arm,dma-350.yaml  | 33 ++++++++++++++++++-
->  1 file changed, 32 insertions(+), 1 deletion(-)
+> Removed NULL check from of_get_match_data as it's never NULL per the
+> device table.
 > 
-> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> index 429f682f15d8..3b991985c416 100644
-> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> @@ -11,10 +11,23 @@ maintainers:
->  
->  allOf:
->    - $ref: dma-controller.yaml#
-> +  - if:
-> +      not:
-> +        properties:
-> +          compatible:
-> +            contains:
-> +              const: cix,sky1-dma350
-> +    then:
-> +      properties:
-> +        cix,irq-router: false
 
-Entire allOf block goes after required: part.
+This statement is stale in v2 :(
 
->  
->  properties:
->    compatible:
-> -    const: arm,dma-350
-> +    oneOf:
-> +      - const: arm,dma-350
-> +      - items:
-> +          - const: cix,sky1-dma350
-> +          - const: arm,dma-350
->  
->    reg:
->      items:
-> @@ -36,6 +49,24 @@ properties:
->      const: 1
->      description: The cell is the trigger input number
->  
-> +  clocks:
-> +    maxItems: 1
+- Mani
 
-So all devices have clocks and resets?
-
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  memory-region:
-> +    maxItems: 1
-
-and memory-region?
-
-> +    description:
-> +      Reserved memory region used for DMA allocations when the controller
-> +      cannot reach all of system memory.
-> +
-> +  cix,irq-router:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Syscon phandle for the CIX Sky1 subsystem register block that routes
-> +      DMA-350 channel interrupts to the AP interrupt controller.
-
-Best regards,
-Krzysztof
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
