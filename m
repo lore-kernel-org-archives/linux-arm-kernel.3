@@ -4,69 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40593CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9645CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6MtMH1ZS7/LqdONAPmFEgAIkbcber8e91yV+8NWqx4=; b=Xe0SXZOGa86OCuOJIze5BCn++B
-	+05++OVkYfkkGv+cmNS9kH0BFqbA6JlgS6Z8kFK6kibsH95ulls77fh08KRWTCmjCCK6hJnY55anA
-	yV8/Ng5VgeZZGAPjTz37nk4mfuDaq3ClupTSiFv4OZsa/RzlSwpUJkRVMNcHyMUDyrfURceWdaLmF
-	he3iYVuPbp6+wR6ex272ENi1+eJgD7KP7WqQ/9gxfcJRgUpDvpHgxj/RkZWxPJCSbqIUq5RNIHh5S
-	7XmdmO2GrTTju1SDgMItwUFykStpEsflqQNsr/E7aSF5/k6VYO/HFUOw9uWGL3HXYsYywARoIqvHT
-	yM1TgQQw==;
+	bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=; b=BaZq/1V8bPW2fR84aigLzRilCQ
+	LezFX9ljpUcRo46DxjMhk6iqeIPmYzSVp8eV2zFzB5oFF3vdSvbfCltZWCvnsfdWSeZjKDIXTattW
+	9HLA1b32W0kCnWMW0BhPZXP9/NfpUBdn4Jm8K6B2s1TDWAnJ4aoid8uXedRXn0zLm3n5Z+p4NdhBq
+	OvXwxroEVCA+Zl2ywDzeOeXFvy0cNJ3McxTt360Ew++gIIb9l88ua5qgQH9Jbt2AkLrQc4F+a2rAv
+	GlRRyWVcRQ8mmBA5ykb0+1vuVIB8pIeY92Rvm9bPubF7Jpdd5T2uY5ReWd0+xNxlpErqC7sHq9V/7
+	AEUcRGEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFt9-0000000AXhn-2HCU;
-	Mon, 12 Oct 2026 13:16:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGFvl-0000000AXyM-3Skk;
+	Mon, 12 Oct 2026 13:19:05 +0000
+Received: from mail-francecentralazon11013068.outbound.protection.outlook.com ([40.107.162.68] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFt8-0000000AXhN-1mYh
+	id 1xGFvj-0000000AXxp-2fbC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 13:16:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8770C60AB0;
-	Mon, 12 Oct 2026 13:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B841F0089B;
-	Mon, 12 Oct 2026 13:16:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791810981;
-	bh=C6MtMH1ZS7/LqdONAPmFEgAIkbcber8e91yV+8NWqx4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QmH38l1eV9DBt1+KQ53uym1LwwTyqmzwyRg5m0pDoIA+Xrz+rbRz0g8YFzsm4MF9N
-	 XbwOJQCf3U6kkC/HsagR/7Att8ry12jX99u5FxJnmKyyg2De3Tkck93okliih2fgwn
-	 dKfqhPMmplROMRTaYG1e0dC3PJcsdvVN9k9lNzvX9ISOhZhmTY+v8muLWGx+uiKw3v
-	 8Fu6FPeoeWRFW3U0dU1ioLThmk/JDD84XAngLZKerCOHjEkki9HAtJ8MKRz7tbIHYL
-	 dB33D1+wT1lCYN3KK/vZLGZ+PXSESGjx3A6aSNlzctXGWmYxWqvkA7E7FhHnJVDzel
-	 vdHcVqx3qBODQ==
-Date: Mon, 12 Oct 2026 18:46:12 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
-	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
-	david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, sumit.garg@kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <aszdnInyJxLhSQRp@sumit-xelite>
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <arIYtjmSKCs14SqO@sumit-xelite>
- <arKW_91EeKA-w96m@willie-the-truck>
- <are21BjeS1O3RYE3@sumit-xelite>
- <aruh86rd5FMv2i9G@willie-the-truck>
- <ar5TPvANFUoosxGW@sumit-xelite>
- <asOAYODGZa-7EIV1@google.com>
- <asOD31rTX6dNfD1o@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+	Mon, 12 Oct 2026 13:19:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TqSYDltBd1LMeVhe8QgkAeR5xNcM37S27ecWcIYsOzIz0S2Yjw4o1DFUokDfqzd+LBLDG2BzDFfnx46L6cyWuUlvF8lGjW3SOP/Iu6qIX8bdX84x3CJ3vIF1BWd26n/FmsmxdcX+BwBKI2Wk46wYo6WSmzLY9hC4OPWXjwjfMjzld/AI4JcuIT5eevnZyd7LzcOvE8fxwf+VeK4g13sSInMhrk7ENcOJz9ac/wMAOoTfAhRLgvLcuhj8pjSL5zbPtSf70MB1UPWZDyLB6iwaR/9q7Py99yN0SEDqjMeGhFJLS+wzNWKHEp0md1e/EO/MR9lEDHp7jNbYhTaE36cgHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=;
+ b=g4n/rU5ODzCBPcD+qnEMR0sDqAVWj0M2KBUw1nD30a7+cSqH4uoyW8KkWlWEplDRoBA32+QYN8S6flO0ERrIgeDYa5b391pSUzH/G0h5yw3VtLUV3g1GUUCo3fFdztEOkhKEx0fUUQ6Z2z11/8x6XnlVJuapkn/IgXjHtd8nyv6QtTVsEAASZB3HZlcV7N/iSfssdpc3dCWd2rnTIlOiR7m9SiQc0J/QvlN6v9Al8gb3L6zFK+6adKjHCiOX/OY73JcgIl1VwEOFDgR6M2ansrAIi7gbn3oq7zOiAOALlbKNooBiBv4pWp0B81hqJOWExO6tSR0NL8dcqVrjOY03lg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dk75LqYt1alYz1PWaWOdD4b/cjZLZXMEv/OmqxUE6lk=;
+ b=TOGy+2c8NpsMuIqFQ7RB0y/CRF7BpRJWjyd5Aga8Ww5uv1zkIu0rWD/BRwl1uamwjPEFLB5EtuuRPcB/lgxBTOPETEmfefh+vAs+IfEK1m/dpEDN72tknaKzSgE5xfDRUjGrwGgZeo2PX6f1r3vCI43zj6RHeX6lDLdRvCKwLFkehR6IqKQw+otgjQtD52UHwFI/neqQKIwL9Tz8ldgRhfuISnRp6VJ2xrHOf4zvwuB2oPjn2H9vBIvBQ30rCQFuI2lC/ZEYs28gRnT/0oVW8lPzgwErtlcSGbAs/0+2kr1GWfJMSEEsg75XhBsncQWsQeICVJ4wg6UTDzGxXqbaTQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by DB8PR04MB6953.eurprd04.prod.outlook.com (2603:10a6:10:111::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 13:18:58 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
+ 13:18:58 +0000
+Date: Mon, 12 Oct 2026 21:23:32 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
+ ordering and feature gating
+Message-ID: <aszfVNP6DGzWYdK0@shlinux89>
+References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+ <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <asOD31rTX6dNfD1o@google.com>
+In-Reply-To: <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+X-ClientProxiedBy: MA5PR01CA0215.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f3::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB8PR04MB6953:EE_
+X-MS-Office365-Filtering-Correlation-Id: 70b9dda4-40c2-434f-b921-08df28635f9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|376014|366016|6133799003|10067099003|22082099003|18002099003|13003099007|11063799006|261009223027099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: By+ZwRpqBnzT6dsOJMDr36133UM+WAhbP5daSKBpaAvtaQuKh8pW2mogy96cMaPPAzC+80ZGrVOhw8Z/Ebf92Xb5NFOREajxPGiI0wMZGsC5hF6a5a3aXFZkT06W9r8HjSWVsQmL32Du0dpOUoA0f/AMp3QQWZWLVSVv1LHtr3ZCntFSOdpbQoRDu2thiopB071rQg+tdhn0uZOfO73JWBtClRVUZm+ZAqRgQaZ8Qp2eeL9fHk28eM+HJ93TAVvAoExl5MMUohMHNkX+klXHWuSC9zMUlpdEb68Z/wsbGj28R6GZ6ysyrChRxYEVa1IC8MgxJyDOqV9ehtsTBNyLEXWo172Vm/ELx9EkrVu3Gxu+3Bwse1QLa5GkY7ddt4/FFIkG+DIgLDXqjZwIJdLSGB+kQvWY0SKn8YNWEsp6MtpLuX3FcfY00U+aXMrCHhCeXrLGgHanje8bnrvJUlGFBtM8qfeICe/WDVn7iFVgUhl/UQrGd/vglYpvwA3IHzxUvuuCVawadnuwqKIzikEAsNJz7LE9VddLjGteguervnQVtdKGQwlWTWIz7wp3ONFNsjr9B2OEYpc76mfqO+CFTs5OdGgdbEmyWYrv0NaGZ7s=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(376014)(366016)(6133799003)(10067099003)(22082099003)(18002099003)(13003099007)(11063799006)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PTLtNWnhqfAzNA65MedZ1FOFnAb/7zqp1UBLaxBc2jISYsp1Fc590pJJGy9q?=
+ =?us-ascii?Q?rYM1IaaDGpPvOkNlKqZk8g57fDSKN3sVQHj5WlyYzAppvgi20PhhzqRgs3x5?=
+ =?us-ascii?Q?m7KsIyBNvRt/rpcRc5xUCVETp5iGkXVt7L53EeEeulR8ViaGNkizBwZ5wiNe?=
+ =?us-ascii?Q?nDlxaXzrvdL62yaCjkhchY5x8RCh8vJok2pspACNo+BppSZulnLyEsT8HQ13?=
+ =?us-ascii?Q?AeC7pgU9f60sxojvQ0JYGlw7Yj96OuHMcK8vTQlHN2r7eRWBJeIiCLcKy7o4?=
+ =?us-ascii?Q?9j9Qdvu0f69H8ifOfySEawRcVM9vlaD89CQymVUi06l93D/OrOV5GIw6EkrL?=
+ =?us-ascii?Q?b8PWTqvVV4hhqqAomvAFUHnehoLtWTGtJS+OXhwSDmXoXkWrPeAm7Vt00OfV?=
+ =?us-ascii?Q?m2aZREoBAaoX9k6Kd4FrnqQ7YMPeghUoLI2IA0OtzSJQ12AfhlyqSQaBzgkl?=
+ =?us-ascii?Q?MEyoFJ73zlZgfrDIaGXDkO5y9tI6KwxDKFUGyTKmHxOAYTX7S8Fl8r9+QWeF?=
+ =?us-ascii?Q?UJxy8LYR/6GgK4k6w3ey5sZxfNlpLU0V/xix0C6dwgk+RWGqhbNvgpwBaUnO?=
+ =?us-ascii?Q?CyNxjFHDXaQ3qdUvvLDXjAoHRRpFJroNtw0A3bR8b2x2d+XqRY55D/1nFhFK?=
+ =?us-ascii?Q?5uf85ag/ywXMHKufbJMA/ULTyIgBFqCrx3hBjBKHYRQpQXw2WpKW6hezP7AA?=
+ =?us-ascii?Q?3QrsRISdwycxti69Zyd2PH2R9wlgTabjPP0cdeiJvg9EX/vmU3jBlglEOQM7?=
+ =?us-ascii?Q?XJg6BfswI3ZMn2nq1CbLjYE9AyzpkCX8+3Q8FVRWmpx7zqPGLgQ+ZGQZ1arU?=
+ =?us-ascii?Q?ADkjxPHf3POrI/s960Qy6Cz1AXeWx1gZ+49sYorwBErXaWODpws5f8BwOt10?=
+ =?us-ascii?Q?nenyN1WfE3R2DyWeGZxzOQ8v58/GB1I9NHBWXAtIv6FJj6abTyaryAPXlh8H?=
+ =?us-ascii?Q?+JB7gMZxELgaUjlxgmKoE0+NHKJue845g2UYETwSdca4SOSZ0/9unmDaHomC?=
+ =?us-ascii?Q?mWBkr7Smr0PjfCsURuigwXJR1xXKZlLBY6056ZuPkDLAaNLdheQMQMEqtOWs?=
+ =?us-ascii?Q?wzP6YfXemmKWNCMCIQy+bsjkOg9hAsvsMRBoJeZZB33BydLYHHsleoltRHjW?=
+ =?us-ascii?Q?/y3HGxsPO29eqHpJ73JKhBYFbfFB/3ScldQ02kgMTVeWCerA6ifqejijqArz?=
+ =?us-ascii?Q?jG3hWDxn2u5BpVBqzURMb77oEsmZKUUgiBbZr5Kuynqz1dl4KLeLJAcqHe7c?=
+ =?us-ascii?Q?B4k7fq95v6n2esRKfEtQPCIwPI9JpV71I8zWpGoCT1NZOjhETCcWcWAjZtT5?=
+ =?us-ascii?Q?tmLSYrAzz9ar7g50EXavo+2n+MFrhscurgrNRBwHz/s+qzNf8rh/S/3AGUB5?=
+ =?us-ascii?Q?maQT8eEMgPRKIgf22nagX16k5qlagfiYaXvqhJENWMlALxhe16zdnzlXwu4q?=
+ =?us-ascii?Q?R4UjzfiOqebEy16k+c3GB/en4ArHhjms7rO9o2eAGnL7sN6wTN6NSBsL63k7?=
+ =?us-ascii?Q?Ec+IjOPFvWjayZ3ywpAtcWJHFZ/OYnIQ9UTY9zUAgO9caEWNRsepRBAyVaTx?=
+ =?us-ascii?Q?5OS/IGJXL3AGpI+5tTGZBIp5Z9vYiGZTjeluvO/80uQK5Dk1Vbj1gsbsSSJK?=
+ =?us-ascii?Q?vnfguB7QlW6CXiU2R7JJ3YnmEqU46iaquyh3sHhdO/OcCiThTiU62k/MQwkb?=
+ =?us-ascii?Q?WyPxfPi+nyC83s1EWbypO2UUX2sV5Gmjkkcp6SDApVAYKLJQqQ7AdAcrhwrN?=
+ =?us-ascii?Q?YDyFVQBbi1/XInhwN9l+ZyrOFkCnBOq7gyb4DYOohQRMOOwtK3y3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70b9dda4-40c2-434f-b921-08df28635f9f
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 13:18:58.4025
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fzD0cE2CHLbny92t5pHYNsa5MmfrQzPIw56xnbdAwhbJ41mHWTvGdEO9WFLXVnjF3cEYsIjuyoWDFXR265C6MK7w4S5DMmaeC5m623PH11f1dfaxWYpemicZSPrirBxd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6953
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_061903_692250_A5F21700 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,136 +144,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Oct 2026 at 12:02:55 +0100, Vincent Donnefort wrote:
->Sorry, not sure why Sumit's email was dropped...
+Hi Robin, Nicolin,
 
-The problem was with my mutt config, it should be fixed now.
-
+On Sun, Oct 11, 2026 at 07:31:29PM +0800, Peng Fan (OSS) wrote:
+>From: Peng Fan <peng.fan@nxp.com>
 >
->On Mon, Oct 05, 2026 at 11:48:00AM +0100, Vincent Donnefort wrote:
->> On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
->> > On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
->> > > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
->> > > > Looks like you dropped me from your reply.
->> > >
->> > > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
->> > > CC list to To: and drops you. I suspect the same thing happened to Thierry
->> > > when he replied here:
->> > >
->> > > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
->> > >
->> > > I can't figure out why that's happening :/
->> > > I manually tried to fix the To: and Cc: lines in this message.
->> >
->> > Thanks.
->> >
->> > >
->> > > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
->> > > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
->> > > > > for arm64 because it relies on being able to unmap arbitrary parts of
->> > > > > the linear map, which isn't generally possible unless you force pte-level
->> > > > > mappings for everything, which is prohibitive for perf/power.
->> > > >
->> > > > As per the cover letter it's about allocating pages that are not present
->> > > > in the direct map. This essentially fits the protected DMABufs use-case
->> > > > where we don't want any kernel mapping to exist at any time. Bufers
->> > > > allocated from protected DMABufs are only meant to be accessed by the
->> > > > TEE implementation or HW accelerators like in the secure media pipeline.
->> > >
->> > > That sounds like it should probably build on top of this series, then.
->> >
->> > The main problem I see with this series is it tries to move from the generic
->> > CMA allocator to a reserved FF-A CMA pool which again comes from the
->> > DT. We already support reserved pool allocations via "no-map" which are
->> > discovered dynamically from OP-TEE.
->>
->> I can't think of a way around a DT declaration. We need to know what region is
->> PTE-level before the direct map is installed and of_reserved_mem is very handy
->> for that purpose. And as this PTE-level mapping is costly we certainly only want
->> to enable it for platforms that absolutely need it.
->>
+>For shared SIDs, only the first master to attach writes the STE
+>(tracked by ste_installed under streams_mutex); subsequent masters
+>skip the write.  On teardown, skip the ABORT STE write while other
+>masters still share the SID, and reset ste_installed so the next
+>domain attach cycle re-writes the STE.
+>
+>Fault events on shared SIDs cannot be attributed to a specific
+>master, so arm_smmu_find_master() returns NULL when the stream's
+>shared_masters list is non-empty.
+>
+>Disable SVA, IOPF/stall, and vSMMU nesting for shared-SID masters
+>since all three require unambiguous SID-to-device mapping.  Clear
+>stall_enabled for both the new master and the existing first master
+>when sharing is detected in arm_smmu_insert_master(), so the STE
+>is never programmed with the stall bit.  This prevents
+>unrecoverable bus lockups since CMD_RESUME cannot be issued without
+>a unique SID-to-device mapping.
+>
+>Assisted-by: LLM
+>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>---
+> .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |  2 +-
+> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |  3 ++
+> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 60 +++++++++++++++++-----
+> 3 files changed, 52 insertions(+), 13 deletions(-)
 
-I am rather thinking of a way to turn the default CMA allocator to be
-PTE-level mapped. Since the overall idea for this dynamic protected
-buffers was to reuse memory efficiently, otherwise the reserved buffer
-approach is already there to use as "no-map" via DT.
+...
 
-If we can have "cma_unmap" cmdline option alongside "cma" then it can
-turn the existing default CMA allocator to support unmapping buffers.
-Not requiring a DT change at all, although we can have the DT property
-for the default pool too if platforms want to opt for.
+>+
+>+static bool arm_smmu_skip_shared_ste(struct arm_smmu_device *smmu,
+>+				     u32 sid, bool is_abort)
+>+{
+>+	struct arm_smmu_stream *stream;
+>+
+>+	lockdep_assert_held(&smmu->streams_mutex);
+>+
+>+	stream = arm_smmu_find_stream(smmu, sid);
+>+	if (!stream || list_empty(&stream->shared_masters))
+>+		return false;
+>+
+>+	if (is_abort) {
+>+		stream->ste_installed = false;
+>+		return true;
+>+	}
+>+	if (stream->ste_installed)
+>+		return true;
+>+	stream->ste_installed = true;
+>+	return false;
 
->> >
->> > If we can rather support a generic CMA like allocator for arm64 which
->> > can support unmapped allocations then I am all for it. These platform
->> > specific reserved pools isn't a scalable solution.
->>
->> What do you mean by generic CMA allocator here? An extension to
->> shared-dma-pool? Or having the CMA automatically doing the unmap/map on
->> cma_alloc() cma_release()?
->>
->> Right now I have created an API for the unmapping/remapping part. It adds a
->> burden on the caller, but the alternative solution is introducing post-alloc
->> pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
->> the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
->>
+sashiko has comments: https://sashiko.dev/#/patchset/20261011-smmu-shared-sid-v6-0-cb76b89dc612%40nxp.com
 
-I am not too worried about where the actual implementation lives but
-looks like CMA driver to be the better place. I think use-cases like
-guest_memfd proposed as a user for __GFP_UNMAPPED on arm64 will also be
-looking for this feature.
+We just need to support a simple case that platform devices(single SID) which
+could share there SIDs, such as MMC-0 and MMC-1 share one SID.
 
--Sumit
+Shared-SID masters are restricted to platform devices sharing a single SID.
+SVA, IOPF, and vSMMU nesting are all rejected for shared-SID masters (patch 5),
+so VFIO passthrough and direct domain replacement scenarios do not apply.
+The only domain transitions are the default DMA domain attach at probe time
+and ABORT on unbind. Or I may miss something.
 
->>
->> >
->> > > You could allocate the DMABufs from a CMA region that has no linear alias.
->> >
->> > Allocation from generic CMA pool is already the case here:
->> >
->> > tee_shm_alloc_dma_mem() ->
->> >   dma_alloc_pages()
->> >
->> > Do you mean it's just fine to unmap buffers allocated from generic CMA
->> > region since it doesn't have any linear alias?
->> >
->> > >
->> > > > > Vincent's series tackles that by using a pool so that only that part of
->> > > > > memory requires the pte-level mappings in the linear map. That's the
->> > > > > whole point of it, so I don't think it makes sense to drop it in favour
->> > > > > of Brendan's approach (which doesn't work).
->> > > > >
->> > > >
->> > > > For protected DMABufs, we even don't require any pte-level mappings in
->> > > > linear map. The whole idea of mapping and unmapping is just a bottleneck
->> > > > for performance sensitive secure media pipeline use-cases. That's why if
->> > > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
->> > > > be the best fit for this use-case.
->> > >
->> > > The point is that you will require pte-level mappings for the linear map
->> > > if you want to unmap from it at runtime on arm64. If you don't, then you
->> > > can end up needing to split a block mapping (e.g. pmd-level) when you
->> > > decide to unmap only part of it and there isn't a safe way to do that on
->> > > arm64 without transiently unmapping the entire block, which can lead to
->> > > fatal translation faults during that window.
->> >
->> > I agree with you here, what I am rather trying to find if on arm64 there
->> > is any possibilty to have a generic allocator for unmapped pages. That's
->> > the use-case here as well as what Brendan't patch-set was trying to address.
->> >
->> > >
->> > > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
->> > > > how Brendan is doing it for x86?
->> > >
->> > > Because arm64 != x86? Presumably x86 doesn't have the strict
->> > > break-before-make requirements we have on arm64.
->> > >
->> >
->> > Sure, sounds like you are eluding to that the generic MM flag
->> > __GFP_UNMAPPED being proposed can't be supported on arm64, right?
->> >
->> > -Sumit
+>+}
+>+
+> void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
+> 				  const struct arm_smmu_ste *target)
+> {
+>-	int i, j;
+>+	int i;
+> 	struct arm_smmu_device *smmu = master->smmu;
+>+	bool is_abort;
+> 
+
+....
+
+>@@ -4360,9 +4391,11 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+> 				break;
+> 			}
+> 
+>-			if (list_empty(&stream->shared_masters))
+>+			if (list_empty(&stream->shared_masters)) {
+> 				list_add_tail(&stream->master->shared_masters_elm,
+> 					      &stream->shared_masters);
+>+				stream->master->stall_enabled = false;
+
+Sashiko comment:
+https://sashiko.dev/#/patchset/20261011-smmu-shared-sid-v6-0-cb76b89dc612%40nxp.com
+
+"
+Does this dynamically modify the software stall state of the active first
+master without reprogramming the active SMMU hardware STE?
+When a second device sharing a SID is dynamically probed, this clears the
+software stall_enabled flag for the existing active master. However, this
+software state change is never actively flushed to the live hardware Context
+Descriptor (CD), leaving the stall bit active in the SMMU hardware.
+If the first device triggers a page fault while in this mismatched state,
+the SMMU hardware will pause the transaction and generate a stall event.
+Because arm_smmu_find_master() returns NULL for shared SIDs, won't
+arm_smmu_handle_event() drop the event?
+Alternatively, if a fault was already reported to the IOPF queue just before
+the second device's probe, wouldn't arm_smmu_page_response() see the cleared
+stall_enabled flag and return early?
+In both cases, the required CMD_RESUME is never issued. Can this result in
+a permanent, unrecoverable lockup of the SMMU bus? Should this sharing be
+rejected if the existing master is already actively using SVA or IOPF?
+"
+
+I am thinking to simplify reject if stall_enabled is true:
+ 			if (list_empty(&stream->shared_masters)) {
++				if (stream->master->stall_enabled) {
++					dev_warn(master->dev,
++						 "Shared StreamID 0x%x rejected: existing master has stall enabled\n",
++						 sid);
++					ret = -EBUSY;
++					break;
++				}
+
+Otherwise things will be a bit complicated.
+
+May I get your suggestions?
+
+Thanks
+Peng
+
+
+>+			}
+> 			list_add_tail(&master->shared_masters_elm,
+> 				      &stream->shared_masters);
+> 			master->streams[n++] = stream;
+>@@ -4522,6 +4555,9 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+> 	    smmu->features & ARM_SMMU_FEAT_STALL_FORCE)
+> 		master->stall_enabled = true;
+> 
+>+	if (arm_smmu_is_shared_sid(master))
+>+		master->stall_enabled = false;
+>+
+> 	ret = arm_smmu_master_prepare_ats(master);
+> 	if (ret)
+> 		goto err_disable_pasid;
 >
 >-- 
->Vincent
+>2.34.1
+>
+>
+>
 
