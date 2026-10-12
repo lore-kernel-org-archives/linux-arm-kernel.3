@@ -4,105 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ACBCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F4BCA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zLuY+/+ESi4JJhmc3hnMkOLSBz9DtESmIsl3yGIgb8=; b=PEQSpmL0KDjC3Hu/M8YKnOxyBm
-	Ep8zZmYBdQ6gWYZ0Y/4rOn4JLDqUoIgVBOu+AsXjFrfyMYj21ixqReSnos38zIuKdrDBObK8ED2pD
-	tMnTTbf5aEhxWB8yNZj0z3jh7jIa8bj6vUPU6vV1PAAVXcGLHGEp+Mr9zUGDfZ8UipD5yEjw9kxnG
-	N7hrUwpZPucGHBZK/4Pib7yHdNFxIIMAS/5VRepVw7h+Qucrp+pP5xBd+t0pVK4PBuVFBqmoJQOEp
-	7XLquZK2fgLWTwOszbvh2CtjaIRABsSWM0XAM4Lm+ubglHtV/TwnFy+pLayo6Ep/5Zmua2Lb/YOgV
-	qqjhs0zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7LAnkd7/mLaOQ5t8nU2pKv2OsAaCLzVT7L9Qw+g/1tI=; b=KuAV33rMd0KqugMc76xYz4PpgB
+	rnjuMiZ33mr2i/DgXRoiWkZ/eTgPNRs1qH4p2zbmw0wdgwT9bIUrxHcqDvcj25b7QlE6jZRUYDXnO
+	/3Hw5oxP51iAam+mkhnuxOtQOs5AZT7BV3QWXwwBbmaIw3I8422zYo0JGtlprPFl6pds1h0QrPWfm
+	jtdbsPxlqrR87pS2KaoyFnac8yzMI814lwtY/1jWQNKi1xSCRYOCjeUm7eZzPaD3U79x5tsL6baoW
+	RlYa/pgCN8gxCakj02hcmqAu4/a4K7TC5LLP7uLmMGbKALxkuO+9/QMdJ1/uPUjebln5grHhsjvcU
+	9DauLIeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBDe-00000009utf-1KWh;
-	Mon, 12 Oct 2026 08:17:14 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xGBNk-00000009vvC-38vJ;
+	Mon, 12 Oct 2026 08:27:40 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBDa-00000009ut6-3Ej3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 08:17:12 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a180fbeef5so14459985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 01:17:09 -0700 (PDT)
+	id 1xGBNi-00000009vuE-1wUU;
+	Mon, 12 Oct 2026 08:27:39 +0000
+X-UUID: c6613690c61611f1afed4741b24580c9-20261012
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=7LAnkd7/mLaOQ5t8nU2pKv2OsAaCLzVT7L9Qw+g/1tI=;
+	b=XaW/IQIeKk7C2fcRruz39Dz2jKEp/tl4AeWQvoQz0j99oGSdFsIiclhaUQ1R/ENTFcLVIRbneLFhgWz8fTHfXsqFsG+vcP3oaCqbnAb6+mA6hXCykVV3VRG3gOAXzIQMPtjFv8Zuv0G0juK6qO8SDZT/weMG4WAyKTvz+dpiZ90=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:873040f7-d07d-4ede-9b29-d243c26cc303,IP:0,U
+	RL:0,TC:0,Content:3,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:3
+X-CID-META: VersionHash:291e20b,CLOUDID:e6df3c20-2f17-48f6-b8a0-2bb5971c52b4,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:4|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-
+	1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c6613690c61611f1afed4741b24580c9-20261012
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1960372903; Mon, 12 Oct 2026 01:27:34 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 12 Oct 2026 16:27:31 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 12 Oct 2026 16:27:28 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=STiDsJZ3itaGKqQyf9phtgrjzk7aEQHgZNvZSK21K4AhCPOWU6GoRmInuQwvdyqjBMkaN+l93u6b6/IQwF4eTb6HG/ZaX+GFTmGVi3OdR9ucvBwAhjrvRzEcXMTwLkO3luD8Rro5f1UY/ShYDg9nrk6U/FcWtIIa3hG2cuUymIaQb1JX5cyGAUFqJJpEDb8uMwXhnhJ4G31GEi8WImIbz7Co8kL9Kw8l1pYyscpuujh6Rd/lQ5jTeRhlqAhcX3DQE/PiM+PSMQgwmPVEo10wFddyQYMQvMrIBJEtYEAoRVoQH03QwpOHjWcA27nPtI7nft+alEem3Q4E4rKpJbjuGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7LAnkd7/mLaOQ5t8nU2pKv2OsAaCLzVT7L9Qw+g/1tI=;
+ b=LxbQIpt+hQeRau9x3q0w36Sh6m8QbiP/srLhex/f0e50S4pSVcyYXBTT9x0oTkCMUD4m35NtdsIB4VUq/J/Udwotim8knBlnN9WwM/Rudr3SQNAb1iO5CBlMxLPld5wIiMffZvSs5LUtUwGmePvXSV4EqR3fby8GTnZUBP/f5chVbBpBp3K1Y84X7Sbobx6c7hdwYnLCS3bVnBV7f20h3hOhZj0IDDB5slWgO+Ar09jKDmfq86CRlaHZopE9+FlyLEf89hHjD1caYVoH3G3YRhje2mgkEMQuJskOQIFoaufXn9ipS4vy0LCChg/02BGEV15WUFEU2puQ3jXsXdsUkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791793028; x=1792397828; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=/zLuY+/+ESi4JJhmc3hnMkOLSBz9DtESmIsl3yGIgb8=;
-        b=bVmei02PowWHF+3LHrZDdW59MaI0LK8Ap9WTATzrS5bGlLAXFtlBFcrCYileiY1mHU
-         tOCuQ2FFRXaUFFqUpA0nmDX2OF1nYP5RPQdLUyrRfxntlMlWKBATTXD5IfVk5HPzU4Cs
-         vmCMgprknsTiylUHH9ILKbiblSz3uasdf/ERWYsk5GH5nCXyZmOxXZjuq+N4e/CaVfOI
-         EhTvoQgjWYMPr8npr5FNxr5mJ/jjl22a7nn5QQESw2knA/2XfWbZlWBvlD8B7fjgGWge
-         Xh5bQj6GedHS7oKrRFIUDD4+A9ubHH68PNrAgWm20bRd3MebytEnvB/2OXiRB/L9LzXg
-         oXjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791793028; x=1792397828;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/zLuY+/+ESi4JJhmc3hnMkOLSBz9DtESmIsl3yGIgb8=;
-        b=LWNCqohTJILpoIzcysDMVonxijMqT965qa/trFepIMlfAakfZm/24MjCDruD8nkEN2
-         T4nZK1j0ceQXaXiODzVZIS5Ib+2tljv3qe5hYO1gjN1JV3+xu3dfXC9TITx9ZfKMMcQH
-         Z3skfTCgGFPQvGAamr5nhU9ncNaQKovEspa6Y+gRzjPloDTC2/OQp2T2Ot9k91AfHNfD
-         /xEXBapcDiW3g7E3EW1m8k1ruDsY0Rzo7P32xXyQtlAJrza5xDhGUiUkKgEtNtsM8kP2
-         Q2RuyEuvirPL+3JQlARaLq4mfe09F2zVkPSKsvH6VqLnze7hM3iBYD1pRq082tgTTEvn
-         SHLg==
-X-Forwarded-Encrypted: i=1; AKwUvBwOuht+38gN0OUwuyIWCEO6v5QSjHjyjttpKnPR6r9u5jQpyWFFJ00wnKpQM3rZFbaDf1IHFkiBhsRX6zoEia85@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFcD3TzW7xaUExFVK/Bo6P1k7IPcPkig9dJnD2rEb02yrFi1k/
-	6jAVv4RVwmOcchMAkmElYYtJno1lTmzUSNDG6W2b+TwXrrg8OjFv4pXwk3BWucUgQT/TpRPQhfr
-	jJbx+Qak=
-X-Gm-Gg: AYBFou0CfM0N8pO3xGk4xScMSFrRRBEwudQAZc5H5qfjp6gAHxk0Nvgg3t91RdxYuZH
-	RHZ7ndiby4knxG//hxnuWBVheuVt7aNCpLmxB6PKd6Ao2pwcV88nW+DbTpAiilJOEyy14gaGZ/2
-	NdYcZ0wBef6xEqoSedSJk6YQ4WtGx/g0nVY8KjDJwo8xs4z/r7nUyDebvDcXglwFT7t5+ptj7Kt
-	5IOQwLP1Rgl4I6AKPuXcxlNyxOPHzVFhyi8mxxmNi4B4O/vfMfUUFXIRkVBnktN9X5LuqPsm/nj
-	/IKKkuwFYm7X9CLUQNnZzJOFangZ5qrdGbI/+wNA3SFzegaoHkBtVv49M72uCg+4c6il8Jt+Yqf
-	74a6UGSCF3SwI9VCAJhqpBLT+rpmlI8Gk+w7/Hv5/eraTJ20y8J+f1eFwkxkquLVbFDEbLR4cnT
-	vITQ1KxhHA46fcxP8Ayi1a8pAVJmZsNYZLyXFmd5WniaKwnobRh8EsL1H9ZcUFtR5V/pplfR7l7
-	od1pgSq7X/zRxXJkQ==
-X-Received: by 2002:a05:600c:4fcb:b0:4a1:811c:8083 with SMTP id 5b1f17b1804b1-4a18e4c3600mr160793515e9.33.1791793028350;
-        Mon, 12 Oct 2026 01:17:08 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19f318c31sm57721225e9.3.2026.10.12.01.17.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 01:17:07 -0700 (PDT)
-MIME-Version: 1.0
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7LAnkd7/mLaOQ5t8nU2pKv2OsAaCLzVT7L9Qw+g/1tI=;
+ b=IzG27zNswAXTfI0io5rY/rvDzAggpCiJ6Vu/eLFGI9s+NOEXRBAEL7TyOMo/HY0n5lNaJLoJwBI1O155GhvpCGU6/BTIVjJxujX8vfpWuJZ0m77tKk+cywZcJ4eoN7c8DCaKNJSBvNb915QMOzw3/sLgx3LaQVt7BKJD5x019Qo=
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
+ by TYZPR03MB6768.apcprd03.prod.outlook.com (2603:1096:400:200::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 08:27:23 +0000
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 08:27:23 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "AngeloGioacchino Del
+ Regno" <angelogioacchino.delregno@collabora.com>, "chunkuang.hu@kernel.org"
+	<chunkuang.hu@kernel.org>, "ryanbrue.dev@gmail.com" <ryanbrue.dev@gmail.com>,
+	"airlied@gmail.com" <airlied@gmail.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH RESEND] drm/mediatek: dsi: force command mode in
+ mtk_dsi_poweron()
+Thread-Topic: [PATCH RESEND] drm/mediatek: dsi: force command mode in
+ mtk_dsi_poweron()
+Thread-Index: AQHdVEHTVUg2MgTVNUWd9EVx7+g6p7b5nn0A
+Date: Mon, 12 Oct 2026 08:27:23 +0000
+Message-ID: <4df7a1c469d3384fdd5c41efd7f9badfb512e1e5.camel@mediatek.com>
+References: <20261004-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-v1-1-53a4f46ca489@gmail.com>
+In-Reply-To: <20261004-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-v1-1-53a4f46ca489@gmail.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|TYZPR03MB6768:EE_
+x-ms-office365-filtering-correlation-id: c7cf4e33-8272-465b-27bd-08df283aa3c2
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|42112799006|23010399003|1800799024|5023799004|11063799006|38070700021|56012099006|18092099006|22082099003|18002099003|10067099003;
+x-microsoft-antispam-message-info: xDmpwJut/YoiuSTWsE5cTGDQwpOc+oaa4G4ADFNSvU0xelO+VmMKh/xHSDIIEfAVyigRorLRvc9ZO21QFKHxWdEuZucpAwDksuxWtUjUzBEQv5ZPdbwVRh49+GCM3sWtQpF8uq7JDr+y3SCQbPBBmocG43NB2IOU2ARnK2L70SkfXg2fR2+YIFp7Thas1VWnAlrv6nr/InxcTT0vYizJ0QNTVcuaBnGsGgHv1Un+AAHaP0MfBSxS0QiCsaza8MpL3j24jMh1CJzt9Mdry6GnR6c6gmB11NV+wxFTjMyaZFXbwSd0Zr7b5OYdMhS4g+nXm5TF5Eoq7zJ/0kRUXQSryYzZfQhErgzwe1ab70DJGxdKahaJRKVbVqDeN4Af77pEDqI4/KXMGAvT4Om+rkuGGFTWPoSEucdE0D+m1nKbIjEk1r6p70gPIW7S/F9OkCMAeGqHnvorBFFq526SZMQOFTRiZMinS5JVPXh3O6m+P8suMBfCs85wipfkFL/tk908xZ8BYlJB1nyIozJ8iDyOZLiAjU5szaDdtXRRzUMMVX4rt4cZGj6l3OBaRj7VUZA2EFCmPSFEUsJSgbMAEzhilQon2cEDsyXsM+nam0vThzvbdhD0gDDXrOy5Nm24amZrWJwbjrY1Lk5PFOXpdh6NuU/uYqDfMtj81M2VaycbxhrSek0hcZxhtyQuJqPTlFHmFZcc3oC82UPxqupHCsf64qZd+dpo9UeGp9C9GFytiXg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(42112799006)(23010399003)(1800799024)(5023799004)(11063799006)(38070700021)(56012099006)(18092099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T2VMTmprdkxsQ3N4T3o0a095QkRaaHNrVW9WZHN4WUg0MnltU3ZSSk02QUdw?=
+ =?utf-8?B?aDlaVXlyQmUrTytZd1FhVmNsWld1VEtuN29EbGlmMi93a1E3MENlRFpMWUtk?=
+ =?utf-8?B?SG9nbmVHclB2cDRybWdNTnVuaDNKVFU1L09hTHUwNlBKK3J0MFRyQmx4ZEhn?=
+ =?utf-8?B?dWcxMkRQM3g0ZTR1dTJjWDlyU1hNMVRWa01nYWsvQW1FdjNvQzdBdWR4MEZG?=
+ =?utf-8?B?dllMSnc5OG10dXRBSjdGamQ0ZWpsUUpoc2g2cnZ5bUwrdklOczUrL011dHZL?=
+ =?utf-8?B?QlVTcHFUWGYrc1Znd0JITXBIaGdBdHlYVEp6djFWcHVvYmJpQVJnQ1hsY3cy?=
+ =?utf-8?B?N29TZG5zMFdzMUdEb0NFa2NTVUhadGwyOVhJSHlGVm4xcXdvRHFkcEJsSmxr?=
+ =?utf-8?B?ZE1LVWppSEE3dHNpTjY0cVM4b1pHWVRGYUZWYnRGbFkyTUNJaWV4dlFwWWJ3?=
+ =?utf-8?B?OUV4eWY0WlZZQzJpNHhOK0dKUlB6V2J1OFpaREszaGpZOVppeXdRWTBkbWJk?=
+ =?utf-8?B?RnVmL2NRYUxrNjJhQmxKSVRkNS9uUW40VW5LenhCeXVEd01uZlpidC81YlE2?=
+ =?utf-8?B?V0V5SzBFVTAwRlh3a3ZQRFhqc0k3OGpTRnlhSGlta1BzTEdpeFJXTFNhYnVm?=
+ =?utf-8?B?TlJjVFVjdVNoVUluTWRCTUQvQWZkc2xSWHdtQ1owcCtmdkI4cHFDd01kaUly?=
+ =?utf-8?B?bVJWbFQ3N3FKTEhHRWV3Y2JBaWlzZVFwR3V2V2dNVHNpbWJ3RDlTZXBFbWlY?=
+ =?utf-8?B?YVBpdXN0R2ZQckJaS2h4bk9uT3JnOTFFUlpYLzlWR0JKYmhUQ2NMc3U4a0d1?=
+ =?utf-8?B?VjNsY1FocDI1OXJIL0Z3VnQrdTlQakt5Ykl0Vk9Yak1Qai9RcmRDZE1pb0hn?=
+ =?utf-8?B?Q2FINDBlVEU1d0pocStqeUlpbTFiNytMV3lKekEyZWZwU3JDNnN6NWN4dzZk?=
+ =?utf-8?B?a2h0N1FyMTRPckFjcFl0Q2prZy9KaDZoUjlWdEZwZE1YRkppOXd6VWphWWtx?=
+ =?utf-8?B?cEJEMmlXckZMYkV5UUdnZlg0dTMrRWpxR2lEdkxzdUNDaFhwVlVQK3F0alUy?=
+ =?utf-8?B?QnNWVi91QXdiSlY5dFFMOHhkcVk2blZXRk9qM3BuRU5RWGdJNWE1TjluMlBa?=
+ =?utf-8?B?M09YUUd1ejR4cGFsMVRLSjFzZUkrUnpaREYyYTBDdVpodkVmNVQ5Ty9xajI0?=
+ =?utf-8?B?L3NoZnlCM2oxanpidktXaHF5WnVyc3hEZ2tlcktudUt6OGYvNFNYZ0l4RHVJ?=
+ =?utf-8?B?T3VQVHhvT3BKbVRmbSs1UGRjSzJyVmdsUnJKSkNqZUtJUVg2Ny8xNVZxWmFN?=
+ =?utf-8?B?eFQ1dVNkSE0zd0EyOTR0ekxjRVhPN0VXV1h0SzZoWmo2dXFhYzR3Y2doQ24x?=
+ =?utf-8?B?QTN5ZnhKY0p2eHc2cTFEK2MwakpwTE5qaGpyN052NHkrVVlidW9xYWVVS2c0?=
+ =?utf-8?B?WG1JZEM2T2tUL1pxQVVCNXZxZytsRGVrVEd0alN2V0dTODBJZk5YRFhGV2p0?=
+ =?utf-8?B?ai9XcnM2VFFCNXNDVDZIYi8xTTByZ1NZQWtxRkZJRm1sRTRZV3NtU29CZEpx?=
+ =?utf-8?B?UlhvS0V1V2JEZDhwM2FmR2tWUVVLSGJMTzc0aXFKWk5pNFBjejdzOFlQR2Ft?=
+ =?utf-8?B?dVNWd2tabjRQTDZQZXJ5YWRNRUxDbnF5VkNEM1UvSDFaazBUdlEzT0JTWkhO?=
+ =?utf-8?B?UzJSSmZabnd6ejJwNnBaRWxRTnZ0MWVieXlTT0l5K3hKNWFuaDU4NDZHYXJ5?=
+ =?utf-8?B?MFNFdUZiUWxNUlAvZWNuS3B0ckk0QXZDVks2QVcyckFWN1FsZGxyWWFJR1lC?=
+ =?utf-8?B?NGtoZ0ZreUk2dEpHOEVDdnViTkRieW9PUnZOTGZFeVUxR2NYWG5kWnlBMllS?=
+ =?utf-8?B?MVN3S3BKY0ZQcHhXK0hFRHFsNUVYL2NCN0hTbjhONE9TcTh0eEFsODNkNXgw?=
+ =?utf-8?B?QVJYNFBEenVnTXNGZjI0UmEzaTIxcDZzYkNhK01xc3FHN1NxU1NSd3hJTEp0?=
+ =?utf-8?B?UnNwWUhyTVFqc0dCemthY01Ed1d0YTF5UlV1a2FOdFR5TVZUS1dyakRrc2ha?=
+ =?utf-8?B?WWd3QmQzNExxcEFuVlFTcjBzeU5CWkNYVjExVnJYVW4xRkZ0K2lMQWhnejZO?=
+ =?utf-8?B?dGRmWmMrNExzZlppWGczWHhBeUYzaW44bHF1aHhvNHhLWWZwN1JWSll2WHpZ?=
+ =?utf-8?B?elAyQ3JVMDFsWUdPQ3pZaXUwdUFmWHhsRTNWbFdPYldOeThsclE5NFlSMDkr?=
+ =?utf-8?B?YXJZZjNXSDhHRWtyZGZ0ZFVQRXk2Z2lEcjVxdEdiTTJ2OTQrQmFVbHl4dVFJ?=
+ =?utf-8?B?RnBJdlZjQWVWNm51M2MxT2VCK3R1cXhINVdSWjMyNUVOTzZrNk44QT09?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 1/1] clk: nuvoton: ma35d1-divider: use direct
- formula instead of divider table
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, sboyd@kernel.org, 
- ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
- bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <2e5f4ca4-ccb7-4328-9bcb-32a2c4f73694@gmail.com>
-References: <20261008064307.2757324-1-a0987203069@gmail.com>
- <20261008064307.2757324-2-a0987203069@gmail.com>
- <179156372588.266328.3848259565001346041.b4-review@b4>
- <2e5f4ca4-ccb7-4328-9bcb-32a2c4f73694@gmail.com>
-Date: Mon, 12 Oct 2026 10:16:56 +0200
-Message-Id: <179179301672.27179.2823663473263190790.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5683; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=LBNk5mSEvmb/JFtueibojf+Rw2v4KwD8FDbTwjMrtbo=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlnplc8itQ6ebFhz7PLFXFem37ylAreXbdi7sTPN7eYM
- Jc09kbO7yhlYRDjYpAVU2Sp4a4Wfyep9WXWdJ3bMHNYmUCGMHBxCsBEZjcyMhzdfDuAOaxMoPl6
- sk+FDJemiyVzs2R57KKZV43+qbAHTGBkuFg9wfvj6y83hK/fqfx/7/r8KtuUbjnGT74nysN7uKU
- vsQMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-ID: <E95760BA5DC29F40BB8C8EB3B192E35C@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: fBJQLsE/ZNx8JV39A6OVXuVJTj4CR2plWNleapIf6UJSWeVGcXwkOQ06BhXdqymJkYSjv5v5PG6LHV89vmUr8h1KORs/V9NTG6mr7G+IAYfvtPVocpJu6+Y69iCiSXwhe2C5mZxCRJE5LKH+qc7Q/7nssshioiSWyhaDi/k1DNRC5Rc2Zxfx3ZX4gX/QWdUXWpDO8wD+W2Jep9AL3EmRxTphg3CzMUO9AmQQMIQUfPZZJPf+1MA0Z0X/I4TTgFDLExiGmGqac6rjiOTZEasOn8354C+fYC37dLXuLF+kNiszXDzJVldKWIS600IVJXSVnSDFPGrf3gMxEGyO5gHD+g==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7cf4e33-8272-465b-27bd-08df283aa3c2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Oct 2026 08:27:23.0283
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: r+yuK/R/+uxkwmQK6tdwDFdyS9KAqZGHlkglCEeYD2ZwRB8Brk3O68sAfIA71y3sqidDqnmfR1Fho86byDvWlA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB6768
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_011710_851384_7F844B5E 
-X-CRM114-Status: GOOD (  36.67  )
+X-CRM114-CacheID: sfid-20261012_012738_513667_504996C9 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,129 +187,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-12 13:36 +0800, Joey Lu wrote:
-> 
-> On 10/10/2026 12:35 AM, Jerome Brunet wrote:
-> >> The ADC clock divider register implements rate = parent_rate / (2 * (N + 1)),
-> > Are you open-coding CLK_DIVIDER_EVEN_INTEGERS ?
-> >
-> >   * CLK_DIVIDER_EVEN_INTEGERS - clock divisor is 2, 4, 6, 8, 10, etc.
-> >   *	Formula is 2 * (value read from hardware + 1)
-> >
-> > Am wondering if this driver is necessary at all ? Can you just use the
-> > regular divider here ?
-> >
-> >> which was previously modeled by building a clk_div_table with one entry per
-> >> possible divider value (up to 2^width entries) and feeding it through the
-> >> generic divider_recalc_rate()/divider_determine_rate()/divider_get_val()
-> >> helpers. That is unnecessary overhead (a large table allocation and a
-> >> linear scan on every rate lookup) for a relationship with a simple
-> >> closed-form expression, so compute the rate directly instead.
-> >>
-> >> Drop the mask_bit/mask mechanism as well. The previous code unconditionally
-> >> OR'd an arbitrary bit into the divider register on every set_rate() call,
-> >> and the one existing caller passed mask_bit as a bitmask value (0x1ffff)
-> >> rather than a bit index, so BIT() shifted by an out-of-range amount, which
-> >> is undefined behavior. The divider field write already clears and rewrites
-> >> only its own bits, so no extra forced bit is needed.
-> >>
-> >> Select the divider with a single helper shared by determine_rate() and
-> >> set_rate(), using closest rounding as before, so the rate promised by
-> >> determine_rate() is the rate that set_rate() programs. The helper clamps
-> >> the divider to the valid range and avoids overflowing 2 * rate for very
-> >> large requested rates, which would otherwise lead to a division by zero.
-> >> Reject a rate of 0 with -EINVAL.
-> >>
-> >> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-> >> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> >>
-> >> diff --git a/drivers/clk/nuvoton/clk-ma35d1-divider.c b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-> >> index e992e7c30341..12a946c989e9 100644
-> >> --- a/drivers/clk/nuvoton/clk-ma35d1-divider.c
-> >> +++ b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-> >> @@ -16,8 +16,6 @@ struct ma35d1_adc_clk_div {
-> >>   	void __iomem *reg;
-> >>   	u8 shift;
-> >>   	u8 width;
-> >> -	u32 mask;
-> >> -	const struct clk_div_table *table;
-> >>   	/* protects concurrent access to clock divider registers */
-> >>   	spinlock_t *lock;
-> >>   };
-> >> @@ -29,44 +27,66 @@ static inline struct ma35d1_adc_clk_div *to_ma35d1_adc_clk_div(struct clk_hw *_h
-> >>   
-> >>   static unsigned long ma35d1_clkdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-> >>   {
-> >> -	unsigned int val;
-> >>   	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-> >> +	unsigned int val;
-> >>   
-> >>   	val = readl_relaxed(dclk->reg) >> dclk->shift;
-> >>   	val &= clk_div_mask(dclk->width);
-> >> -	val += 1;
-> >> -	return divider_recalc_rate(hw, parent_rate, val, dclk->table,
-> >> -				   CLK_DIVIDER_ROUND_CLOSEST, dclk->width);
-> >> +
-> >> +	return DIV_ROUND_CLOSEST_ULL((u64)parent_rate, 2 * (val + 1));
-> >> +}
-> >> +
-> >> +static unsigned int ma35d1_clkdiv_get_val(struct ma35d1_adc_clk_div *dclk,
-> >> +					  unsigned long parent_rate,
-> >> +					  unsigned long rate)
-> >> +{
-> >> +	unsigned long max = clk_div_mask(dclk->width) + 1;
-> >> +	unsigned long val;
-> >> +
-> >> +	if (rate > parent_rate / 2)
-> >> +		return 1;
-> >> +
-> >> +	val = DIV_ROUND_CLOSEST_ULL((u64)parent_rate, 2 * rate);
-> >> +
-> >> +	return clamp(val, 1UL, max);
-> >>   }
-> >>   
-> >>   static int ma35d1_clkdiv_determine_rate(struct clk_hw *hw,
-> >>   					struct clk_rate_request *req)
-> >>   {
-> >>   	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-> >> +	unsigned int val;
-> >>   
-> >> -	return divider_determine_rate(hw, req, dclk->table, dclk->width,
-> >> -				      CLK_DIVIDER_ROUND_CLOSEST);
-> >> +	if (!req->rate)
-> >> +		return -EINVAL;
-> >> +
-> >> +	val = ma35d1_clkdiv_get_val(dclk, req->best_parent_rate, req->rate);
-> >> +	req->rate = DIV_ROUND_CLOSEST_ULL((u64)req->best_parent_rate, 2 * val);
-> > Rate propagation support is lost with this.
-> Thanks for the review.
-> On open-coding CLK_DIVIDER_EVEN_INTEGERS: you're right. The ADC divider 
-> is exactly 2 * (val + 1), so the regular divider covers it. The 
-> dedicated driver is not needed. You're also right that my 
-> determine_rate() lost rate propagation, because it never forwarded the 
-> request to the parent the way divider_determine_rate() does.
-> I tested the regular divider on hardware. That showed a separate problem 
-> in the existing clock tree. The mux parents are declared with .fw_name 
-> only, but the controller node has no clock-names, so the lookup fails. 
-> sysclk1_mux and everything below it (pclk0, adc_div, and so on) end up 
-> as orphans at 0 Hz. As a result clk_set_rate() on the ADC clock returns 
-> early without writing the divider register. That hid the real behaviour 
-> of the divider.
-> So I will drop this series and send a new series that:
-> 1. fixes the parent lookup in the clock tree, and
-> 2. switches the ADC divider to the regular divider and removes the 
-> dedicated driver together with the unused mask_bit parameter.
-
-Have you looked at this series ?
-
-https://lore.kernel.org/all/20261004-perso-ma35d1-upstream-clk-v8-0-e1a106a128c0@bootlin.com/
-
-It does address several problems the existing driver has when it comes to
-parents and incorrect usage of .fw.name
-
-Please sync with Miquel on this.
-
--- 
-Jerome
-
+T24gU3VuLCAyMDI2LTEwLTA0IGF0IDE1OjQ4IC0wNTAwLCBSeWFuIEJydWUgd3JvdGU6DQo+IEV4
+dGVybmFsIGVtYWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1l
+bnRzIHVudGlsIHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+
+IA0KPiANCj4gbXRrX2RzaV9yZXNldF9lbmdpbmUoKSBkb2VzIG5vdCB0b3VjaCBEU0lfTU9ERV9D
+VFJMLCBzbyB3aGF0ZXZlciB0aGUNCj4gYm9vdGxvYWRlciBsZWZ0IHRoZXJlIHN1cnZpdmVzIHBv
+d2VyLW9uLiBPbiBib2FyZHMgd2hlcmUgdGhlIGJvb3Rsb2FkZXINCj4gbGlnaHRzIHRoZSBwYW5l
+bCBmb3IgYSBib290IGxvZ28gYW5kIGhhbmRzIHRoZSBEU0kgb3ZlciBzdGlsbCBydW5uaW5nLCB0
+aGUNCj4gbGVmdG92ZXIgdmFsdWUgaXMgYSB2aWRlbyBtb2RlLCBhbmQgdGhlIGZpcnN0IG10a19k
+c2lfaG9zdF90cmFuc2ZlcigpIHRoZW4NCj4gdGFrZXMgdGhlICJhbHJlYWR5IHN0cmVhbWluZyIg
+cGF0aDogaXQgc3RvcHMgdGhlIHN0cmVhbSBhbmQgd2FpdHMgZm9yDQo+IFZNX0RPTkUsIHdoaWNo
+IG5ldmVyIGFycml2ZXMsIGJlY2F1c2UgdGhlIGVuZ2luZSByZXNldCBoYXMgYWxyZWFkeSBzdG9w
+cGVkDQo+IHRoZSBzdHJlYW0uIFRoZSBwYW5lbCdzIHZlcnkgZmlyc3QgY29tbWFuZCBmYWlscyBh
+bmQgaXQgaXMgbmV2ZXINCj4gaW5pdGlhbGlzZWQ6DQo+IA0KPiAgIFtkcm1dIFdhaXQgRFNJIElS
+USgweDAwMDAwMDA4KSBUaW1lb3V0DQo+ICAgKkVSUk9SKiBmYWlsZWQgdG8gc3dpdGNoIGNtZCBt
+b2RlDQo+ICAgc2VuZGluZyBkY3MgZGF0YSA4ZiBhNSBmYWlsZWQ6IC02Mg0KPiANCj4gU2V0IGNv
+bW1hbmQgbW9kZSByaWdodCBhZnRlciB0aGUgZW5naW5lIHJlc2V0LCBzbyBEU0lfTU9ERV9DVFJM
+IGRlc2NyaWJlcw0KPiB0aGUgc3RhdGUgdGhlIHJlc2V0IGxlYXZlcyB0aGUgZW5naW5lIGluLiBU
+aGUgdmlkZW8gbW9kZSBpcyBwcm9ncmFtbWVkIGJ5DQo+IG10a19kc2lfc2V0X21vZGUoKSB3aGVu
+IHRoZSBzdHJlYW0gaXMgYWN0dWFsbHkgc3RhcnRlZCwgZXhhY3RseSBhcyB0b2RheS4NCj4gDQo+
+IFNlZW4gb24gdGhlIEFtYXpvbiBGaXJlIEhEIDEwICgyMDE3KSwgd2hvc2UgTEsgYm9vdGxvYWRl
+ciBkcmF3cyBpdHMgbG9nbw0KPiBvdmVyIERTSSBpbiB2aWRlbyBtb2RlIGFuZCBuZXZlciBzdG9w
+cyB0aGUgc3RyZWFtIGJlZm9yZSBqdW1waW5nIHRvIHRoZQ0KPiBrZXJuZWwuDQoNClJldmlld2Vk
+LWJ5OiBDSyBIdSA8Y2suaHVAbWVkaWF0ZWsuY29tPg0KDQo+IA0KPiBBc3Npc3RlZC1ieTogTExN
+DQo+IFNpZ25lZC1vZmYtYnk6IFJ5YW4gQnJ1ZSA8cnlhbmJydWUuZGV2QGdtYWlsLmNvbT4NCj4g
+LS0tDQo+IA0KPiANCg0K
 
