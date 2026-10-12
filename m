@@ -4,179 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F27FCA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724CECA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsavDAX/3MDZHTw8z8wHbAfvPIx8VoY5AjONqabr8xM=; b=mSDtAmfLuXY3cmSBCXm8m4VyZ1
-	snNtEKntjRDeaPdVURMeb/Kges+2AGuj+zDeGRx3UkA5X+3vVnsitUxSiwenb/OrOyC6mXqZTOE2j
-	oe+IDF5LS6/vyyRzQ2nZ9aW2bPcPV8D9hbN/aVQX6KyiJofkaXyfVO7BU+ap2mg8t6GO1/jEgQwLK
-	qxOlOrycnbw3sgkUyK6tw1IJa3at8l+sxvFyWd1YUL23o55n8aNmd/QhCWCUP4dXo788si6Tsy6mH
-	V2ZFBK/ocARuObJLbloi/e6Go9y7+uJka8AxrNo3JblFrC81UCj+Di8ds7XPFZ5d9rmAQzqIAcKt9
-	5aZ9gfQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mqbvsZSYJL1Y0+A59bOb/XHgebVZKcusk4yArMBC290=; b=iWjHYii/2Em2WVHRKFEV0D88/l
+	zuO+SZDC629cHtnLqesCUHtmXnNtLILZPuKbsTc8xmwk/teVdptKBBiKe1LT+evNfNTLdqTdDLwt0
+	TkZxEBbgbh6eQiAyih18e/hQYNVtl6Y/n5wJWwCFywvOqmUofOwtmnm9gKA9KQF9JLC7RNjdRB4MJ
+	0uPYUJ3ZVMAaSG+XxLL28Fg0mhdvYCi+UOqamZvcV0Yv5tqNIqbuadwC5eqEoTXNMueVacu0svEVr
+	Jy4p7lW4dNpONMZlsi9sbuJHHUQwfi52y2N0579RDDbJI0tDwYoYbTzea6hTasrMbGImI4a6Y61JP
+	aSIuLzNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFxD-0000000AYG6-2vCk;
-	Mon, 12 Oct 2026 13:20:35 +0000
-Received: from mail-southcentralusazon11013016.outbound.protection.outlook.com ([40.93.196.16] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xGG41-0000000AYy0-1rqu;
+	Mon, 12 Oct 2026 13:27:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFx9-0000000AYF6-0AqC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 13:20:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lSqE6sPFQ09vBpSIowpmfoTIymXRmKoDdv+maHSaDfUHPmFc896PatJig7aiBgc5tSCWjUB+o+/jd4PLkLnlQelwsY17CQDrxiQUsuumPAsidQJwyTYW4tv2iiz4DCBkAshYceZ2sXgKxTYSFCh2UwaP6euViYk60D7+BiEm5oVccGe1AOSAmWal6nkljZ1i34TD2Nt9g1I+NoU6CpnJWDUE33XoedrQMwo1sgN2efsjWqPlI2c16FIOMv3kJnREb2NjIb0wmHyympFdHWRy85SmvIXdeYhl+GsLLliG+kvdY2cne3MM0wSITIVX+gWt9H5vRSz6Lm4LBQt76mO/tA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MsavDAX/3MDZHTw8z8wHbAfvPIx8VoY5AjONqabr8xM=;
- b=foImQKVOE0wv61kVdlEJ41yZnQjdMTCOygtFh+huEiP8FHdCpKjADvEBapwaexBSUpIW3yfoeBAua1klc1QiI7tHU6sdDz6QaOyKOw/04rQy9Lmuwn9Z0vabMYR84v2+XABu6W179fVQkaZEudq9/NSAXDsiY0wU0GS7HIEDi7I/YTSOwoA2XiyWKUoWSzLzwPOPdPloCxI+Wc3UxnYsCCneHj1q9zrg2h1xA2kGyQhstpupiizsH54LtJETLBsJjfP1KKrnX11Hdl3XiPaDVdW8iq5F2JEqTdbDg83ZHD6AJaypBRhatIay5TU/Tc/qWJs3+lg5fn/dIDWaHA5jKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MsavDAX/3MDZHTw8z8wHbAfvPIx8VoY5AjONqabr8xM=;
- b=UwRINOaOrgeOmd0jGq8O21PGUVXvOXyCaydUsTDnuB6P8FGsn+g11n29DQC5Yk0Cih45j0aH4KfunMqSVyeTVN8Gl4E+MmvPQn3+vcoauQ2cq1uX4QujAGKWBBNiIXB5EVcb0/XPvQ1CC6N3uY+El+vrrdQYSwh7Ldptz0fHWxE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by DS4PR12MB634945.namprd12.prod.outlook.com (2603:10b6:8:514::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 13:20:24 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
- 13:20:24 +0000
-Message-ID: <93ce7c93-bfcf-4ddd-9f0d-4f34283acc50@amd.com>
-Date: Mon, 12 Oct 2026 15:20:19 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: zynqmp: Add ALINX EdgeBoard FZ3A
-To: Pufan Jin <2254650260@qq.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, andrew@lunn.ch
-References: <20261005173308.710986-1-2254650260@qq.com>
- <tencent_163DBA80049809D3688C55105F454C89E406@qq.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <tencent_163DBA80049809D3688C55105F454C89E406@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0246.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::11) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	id 1xGG3y-0000000AYxq-38mp;
+	Mon, 12 Oct 2026 13:27:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E003060AA2;
+	Mon, 12 Oct 2026 13:27:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B5781F0089B;
+	Mon, 12 Oct 2026 13:27:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791811653;
+	bh=mqbvsZSYJL1Y0+A59bOb/XHgebVZKcusk4yArMBC290=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=h+BEp3hED2E0t7oun5QTzPFxYlzk8K02LAR1RNB0ToQTnQqjgYdWzs+nzz9W9b2bd
+	 bT+OPcuZJRbU/r5Mrnxzo8YX4VZBGdQciwtrAxOhNdv65GQ8YC4HA/OCpBnoQ/akS6
+	 +Hoh7vNe8fF/PjR749ofV44TdW7pkptiUn/9DK/Rfd1s2lBf01ZVCkySBvkRbW+Lnc
+	 zD10e1pIDa41mD2jHiNZ4rpC58X5vL6L22whLxjDivnC0RUGm3Zf5umuF5BNUORxSk
+	 0hbvromI8XB3qlj1JlndvU0++4iSr7HwXXiuyxSBr3HYudxNDWcTaVHXM6e5Td8gQO
+	 NM9DIcNwTjbsQ==
+Message-ID: <919fcaa9-5ebe-4940-b4fc-59ea0c655ec3@kernel.org>
+Date: Mon, 12 Oct 2026 15:27:26 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|DS4PR12MB634945:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4bfc1dbc-5693-4200-a4d3-08df2863931f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|56012099006|11063799006|4143699003|261009223027099003|260925021911599003|260925021311599003|260925022911599003|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: djIIsDxKoWiPfZiVANg3dTQbbNrovGFkw+i+THwiFMR/7iB5yXlLVFGVvj26WYlYiFJimFS56lZbQzWxf/LeCZ8sInW7gH44yo8d+6Q1MepztRPmBk3TAGe9Onf9bdXXdziHceHcK2anjTk0WRHD8gf63FnNHddlq34l0hXfPFFqX1OG0xCibB+XfndXSOMvBhbDeoGf/tthOkEaWgu+9N1XRe4lK0f06PPnmJVsyxlfJFIW/P2ZyOD/g6EnMMC8sfeTScArGjRRhfTbF2SBtZAKtn+g2TB/enaxBPZVNyJz+v1II4MLMeyyCWk9MlbvKchTlHvFQY0PaQ59IkQmpVii35qmLvXgWHuuUezr4oFwwQkrzQA+7b4YPDo5sMxk1eDe7cTS85gK+sF8GzpjXDlXM064FIrfp9IQI3Z4gdUg/TLvpuVZWJn1MMX7akej7PZ5kZ2IiW1Kb6rtr424x1qqp8vsUHpMc7GXxpf3W7IDKPMAYqUydbc+lLyRG6j98wW+k3FNTAEoWJjeJPv7t2Na9uLVy1TopRLyot3Q63s8P2Nhgb2pskl/wNnQp3t729/QoBBDrc7imYasPtS5rWkmLEJr3ZrWmAgnB1W02gNnMLT85qgQYsO5i7BTU5vHYhwFv2PmY7U9IAG0r+V3wcgWZAFKdTqqTGgOLd6yAis=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(260925021911599003)(260925021311599003)(260925022911599003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UEZvcWloNlhncnJZcmF5V1VCNitpaW5PRnY0R0FrblJnZmVvemFOZkhqcHRx?=
- =?utf-8?B?bzQ3bXlNZi93dWxnZDRhWU54UGhOQ241ZUx4WWlDSXNWeEFpMXhoMmczVWJO?=
- =?utf-8?B?L3h6OTN4YlcvQnNuZmpqblNzc05YMUs0QTZQNE1rTjZjRUpPeXU2Nk1lbE5B?=
- =?utf-8?B?aHF1L2t6SUZGN1RkbkU0TGR5azZHZ3BVampmSHhIc3Z0bHROSStHOTRUYTBR?=
- =?utf-8?B?SHVqSSt2eGtHUGh0ZVV0R09PYWJhRUR1dGZ6MlBFVFZnbjNzZy8vZGNFMDBB?=
- =?utf-8?B?aWhFT3dnUE9IYWZqVVlnZFVSSHYxQU1QTFNvNnBzN0ZXMkM3UVJhR2tuOHRY?=
- =?utf-8?B?aXFqcmR0eVBnYkxROG1oUkpqUllRd0Y0K3pYcm1qL01GcXpTTnF1QW5mWExh?=
- =?utf-8?B?Yjh2Q0t6MlFnUTZ3Wm5MUmpqbDJvWkZYRDU5STc2STdtQzRBdEJteVd5clVD?=
- =?utf-8?B?emtjV0JTZHNNc25acXFPT1NCcUpIbkhHRUZRWWVjVzZvZ2FuUThkV0J1cUlT?=
- =?utf-8?B?S2k0LzQ1cTVnMWd4aXNkU0pCMEpCNWduTVNYK2pmbFJWdXFJcHNhbmVka3lU?=
- =?utf-8?B?NEl4cWphN2JmMFdSd0U4clRTcEJKYktRNTZuNi9ZYm8rQnpXcmtYMzRjNW5K?=
- =?utf-8?B?OU1kMmRHK0NIeUhIQkllNmN4NVBQODBMUjloLzR1ODJ0WWdoM2s3dWxRZnc2?=
- =?utf-8?B?S1hTbGYvVmdxYUh0OWtaUERoQ0hIVWhUbmEzczYwNm5FUFJUZlBBWDBIYUlp?=
- =?utf-8?B?eEs3c1BkbDVxOEx3YU9KbzB2OFdpYW43RTdlVkM2ZzduVC9mR2JBQVBwZnNo?=
- =?utf-8?B?ZUtLdFNUSGVhM1ZPakFKYXJJNGx1QS9vLzRuLzY3L1lZVHRzdEZNSjZZSGFT?=
- =?utf-8?B?MlhjWEFwdUt1eThjSy9sMDNhSG1zVzJRc3BMZlUyQnZES3VVZ3Z3ekVkVHZ5?=
- =?utf-8?B?MmNVU0EyemprV0ljdXI1d0tOek5kQThCc0VnaG1MMStwNktqV0Zqa1ZOaGtB?=
- =?utf-8?B?ZE0zTzNxZXV6Z0tEeWtkSEhYWnllaENHYjBETDNWb1VtNUtaaytwUlVLdUNK?=
- =?utf-8?B?aGMyNVRVakZibzdwRWMyNmhFcEswTklITkt6WHVFNFZxNmRIQXVDL3RUOUoz?=
- =?utf-8?B?MzFmT2VWbmhSUVVzY2hmOUs5NXNmZjBrS2V3bG84cEhrY0I0aHdjZEdUejBZ?=
- =?utf-8?B?ckNPaHBLekF6K3RpL0ZaYXlEdCtlSUU5bjVBbVJxUUhzRDIwL3VWMzg3RlVx?=
- =?utf-8?B?bnJ0S2dWd0V5RE9tY1JZY0lmbFRoQXdmSGk1Uzh0TFBSZjQ0amlXMlJScVp2?=
- =?utf-8?B?ZXRSTWtHeUZ3eUVGdzVPWGxQUGNJWlIxYmo0Zy9FUk5rb01qYkt1ZjdVSWUw?=
- =?utf-8?B?aTZWZWZNVmhEK2F2Y0ZnY1VtbGZvc25nMWw0NmdjZWs0MFEzNXlLM2tXa0tB?=
- =?utf-8?B?VW5NNW5pb2w1N004U2lPQk96UW9pczE1bDFULys1bmIwNXpBOXlXNGNCbVJj?=
- =?utf-8?B?Z1cyaGlmRGN1Zkg3bk5HZzJxNUc5YTNKSXNxclljRmtleG03QncvOE9pb0pi?=
- =?utf-8?B?S3FVYjhKVk5Wb0hpOHJmUitldTA5Ui9EK0RlUUNYU2t5QWJNN0RoMDdLVXR6?=
- =?utf-8?B?c2NtYzV4WW1oSDh4ckoyQlpZRTlBYzR5VGttUWRIaVhNRnpaL3p2OUVqWkZp?=
- =?utf-8?B?L1FOSTJiMHZLUzV3bWwzQjNTVldLaWZCbHRQd2pjeVN4UTdjTXFYWUI5YThj?=
- =?utf-8?B?aEN5OVQzNGJLWko4ZjBuL3RZb3kxN0Z1S2RPbEpvVE4vOW1nTjJkd2tScmpt?=
- =?utf-8?B?UTMyYWEvUWM2VnRJdHdNM3dLeVBPejV0SjdJYWMxVlJGNER5SnBEU1d3Tk9q?=
- =?utf-8?B?OTVoaCtNSko1RTlzV080WVBxeHZSWnhMQXRzTEo2ZkpDa05OSGcvaEpLSjI5?=
- =?utf-8?B?bm5jY1NiNXRSbDN0SXI5TEk0a0JSc0hQWVlhb3VJVkFjY051dFIvbitMSWFO?=
- =?utf-8?B?NjJxc3JQZDVBM1dZdDRKaE5jNTB0QzZLd2M1VXZXQVg1bzM2TG9lVXRMZ1I2?=
- =?utf-8?B?VDZBeW9pbC9MNThpVytkZUlGWlFzYnI3blNtS1Q0VDBzZkdySkhJbGthM2RQ?=
- =?utf-8?B?MkY3Y1g2aE9Uem1oMUpYQnZ3VlVSNk9wTkZSSHU4QUlQZkVCL2RsYWlBUnVP?=
- =?utf-8?B?WUdTSlRzdXdwWkJ6Tkc1Wk5pUEtnOFVIelFqeDN2U2Y1a0QwOHM5ZkJjUFRQ?=
- =?utf-8?B?MGs0ZWtRNzNrcDNlUXRKR3RvUlpzSGY1T2N3UzhuTnFDUTRjZWNaYWEvaG85?=
- =?utf-8?B?K3JubG9kVEJXM0RPMTZjdjFES2huNkcyL3p1Z3VRd0p6WDlXZHF5UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4bfc1dbc-5693-4200-a4d3-08df2863931f
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 13:20:24.6568
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4rYlphag0DHB/6tLkyH7xVrocbXZmllwaM3oVtD1oqT02GGZ20/hVAoYq1mqe9XI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB634945
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_062031_107235_E1021074 
-X-CRM114-Status: GOOD (  13.58  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
+ pagetable_free()
+To: Muchun Song <songmuchun@bytedance.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Oscar Salvador <osalvador@suse.de>, Dave Hansen <dave.hansen@intel.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Muchun Song <muchun.song@linux.dev>
+References: <20261010112457.49485-1-songmuchun@bytedance.com>
+ <20261010112457.49485-2-songmuchun@bytedance.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261010112457.49485-2-songmuchun@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,39 +125,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/5/26 19:33, Pufan Jin wrote:
-> Add device tree for the ALINX EdgeBoard FZ3A, a single board computer
-> based on the Xilinx Zynq UltraScale+ XCZU3EG SoC.
+On 10/10/26 13:24, Muchun Song wrote:
+> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+> tables.
 > 
-> Supported peripherals:
->    - UART1 debug console
->    - eMMC (HS200) and microSD card
->    - GEM3 Ethernet with Micrel KSZ9031 PHY on the MDIO bus
->    - I2C0 and I2C1
->    - QSPI NOR flash
->    - PCIe
->    - USB 3.0 host
->    - DisplayPort output
+> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
+> splitting a PMD. Restoring the vmemmap backing pages does not collapse
+> the PTE table, so a later memory hot-remove eventually frees it through
+> pagetable_free() on x86-64. That releases the page without running the
+> matching destructor and leaves NR_PAGETABLE elevated.
 > 
-> Tested on hardware with Linux 7.3.0-rc5: the board boots from SD card
-> into userspace over the serial console, gem3 negotiates 1000Mbps/Full
-> duplex with phy-mode = "rgmii-id", and the eMMC runs in HS200 mode.
+> Make pagetable_free() detect constructor-backed pages and run the
+> destructor before releasing their memory to fix the problem.
 > 
-> The base DTB passes CHECK_DTBS=y, and the Xilinx SoC binding passes
-> dt_binding_check.
-> 
-> Signed-off-by: Pufan Jin <2254650260@qq.com>
+> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 > ---
->   arch/arm64/boot/dts/xilinx/Makefile           |   1 +
->   .../xilinx/zynqmp-alinx-edgeboard-fz3a.dts    | 350 ++++++++++++++++++
->   2 files changed, 351 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
-This series has no cover letter and I can't see any link to public board 
-documentation. Please provide it and then I will take a look at it.
-But please send proper v3.
+> v2:
+> - Move destructor handling from x86 into pagetable_free() (suggested by
+>   David Hildenbrand)
+> - Trim and update the commit message (requested by Dave Hansen)
+> ---
+>  include/linux/mm.h | 37 ++++++++++++++++++++-----------------
+>  1 file changed, 20 insertions(+), 17 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 5cca90fc1df6..771a7d60b0a5 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3969,23 +3969,6 @@ static inline void pagetable_free_kernel(struct ptdesc *pt)
+>  	__pagetable_free(pt);
+>  }
+>  #endif
+> -/**
+> - * pagetable_free - Free pagetables
+> - * @pt:	The page table descriptor
+> - *
+> - * pagetable_free frees the memory of all page tables described by a page
+> - * table descriptor and the memory for the descriptor itself.
+> - */
+> -static inline void pagetable_free(struct ptdesc *pt)
+> -{
+> -	if (ptdesc_test_kernel(pt)) {
+> -		ptdesc_clear_kernel(pt);
+> -		pagetable_free_kernel(pt);
+> -	} else {
+> -		__pagetable_free(pt);
+> -	}
+> -}
+> -
+>  #if defined(CONFIG_SPLIT_PTE_PTLOCKS)
+>  #if ALLOC_SPLIT_PTLOCKS
+>  void __init ptlock_cache_init(void);
+> @@ -4078,6 +4061,26 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
+>  	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+>  }
+>  
+> +/**
+> + * pagetable_free - Free pagetables
+> + * @pt:	The page table descriptor
+> + *
+> + * pagetable_free frees the memory of all page tables described by a page
+> + * table descriptor and the memory for the descriptor itself.
+> + */
+> +static inline void pagetable_free(struct ptdesc *pt)
+> +{
+> +	if (PageTable(ptdesc_page(pt)))
+> +		pagetable_dtor(pt);
 
-Thanks,
-Michal
+
+We do have
+
+static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+{
+	pagetable_dtor(ptdesc);
+	pagetable_free(ptdesc);
+}
+
+... can we now get rid of pagetable_dtor_free() and simply use pagetable_free() ?
+
+(separate cleanup)
+
+> +
+> +	if (ptdesc_test_kernel(pt)) {
+> +		ptdesc_clear_kernel(pt);
+> +		pagetable_free_kernel(pt);
+> +	} else {
+> +		__pagetable_free(pt);
+> +	}
+
+
+This goes into the right direction. I'm still confused, but the less freeing
+functions we have the better.
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
