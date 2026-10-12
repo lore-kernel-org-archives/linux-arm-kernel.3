@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FBCCA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F6ECA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4uCUhIE6G5JFckb9nIlCjDzETQkPo/I1KxDu5i4hUVA=; b=rfgsc/CKJccQ7P3Z3OaM4wcnaP
-	cNLUk5UkoOIidGPpbvzXjGc9JQX/ytC/ZRTbbPqyHMLkAs2kU4nraq76l9DSqx5Ad9gUEwhDPyf25
-	242TpA5Vip6piHiSZyEFrE4vuzVtiC9fGUBUyyORTLJCE4nF9jv83APFmUDF6M/GSO/EqmhG91BUf
-	7+tYnj1AJ+lGW11NtyJXHStPHQffwAxHpeKBiowbT2hiWoq7azSC56tjA4dmoVOgd/nNOrwLeAs2K
-	1i7y9Orkr57VYdajKnBD9PyJqq63lutugK9B4YDn1ojqKFSaZGeqyxYXTIfVNdz8UiMjPETDqG6CP
-	kcAeZl5Q==;
+	bh=sJ7Cz9cE5jYmh9i7+7gt+I7tJt8elW65y25IztcbqK8=; b=ZTxUfCI26vkzGiD7eY2T32Xamy
+	YfXe3pMDks8Wcdrr0DthWyk64FGaekv9JjsEta2Km5mAbXNaWpTSOoje+hW8CTRi85Uxk0YlGkcff
+	Nx28VpCRSE69jC15XRx5GaH2kAyPOh8BoitgiIYFyvPiGjjiyjbNM+nHHCae1LKVN0sQ2E07w1cii
+	WXmdkg7aWWqKmTuraQ7Tj/i5x4Dc8Bz91bA8aptITjJ6TFIZf67Fjg31h1POP0yjqLRApg2wkmTPD
+	1uqzloHbC25TYuiTIaN9VpW+SNvxXkV0k1ukoAfw2E0JcROb6OK4zGASW2t9oX9h5X8ohyGy+xnZi
+	m223SUXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKVd-0000000BBlI-3bkr;
-	Mon, 12 Oct 2026 18:12:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGKYe-0000000BC7A-2IAz;
+	Mon, 12 Oct 2026 18:15:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKVc-0000000BBl4-2HOw
+	id 1xGKYX-0000000BC6w-0ILj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:12:24 +0000
+	Mon, 12 Oct 2026 18:15:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0276F60142;
-	Mon, 12 Oct 2026 18:12:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB9071F008A1;
-	Mon, 12 Oct 2026 18:12:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F3674093E;
+	Mon, 12 Oct 2026 18:15:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251301F0089B;
+	Mon, 12 Oct 2026 18:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791828743;
-	bh=4uCUhIE6G5JFckb9nIlCjDzETQkPo/I1KxDu5i4hUVA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EUhNMnvHF8Z+yDS5LZ3fp/Ly/EsdPzAOdZ2tDgkj3G1zeq0FM0JwM1dc3wm5UtO17
-	 gBprWlkC637unc6yqDzHeyYJejgjeJHBsgrro2ELXbxnGwaRfw0PGWqEiYeyBA2QUZ
-	 H1f+nZajSlbOm6hVlqbFkJT7FmonWcB3Da90+dakk+X6i5nxF3+lhEk5zwGqydLbaW
-	 Tux9BWWMstP70D4DCpZHL2pcPkIZZ/j/FgPw7TPIHHKDnEG/6Sle1TNxmXxd3I0RzO
-	 dulJt/IhqfCORnhCBk5FTs573kG6dtK3q/yT+EW1D40qZn/6sTgJEvdOUDja53co0l
-	 Rm04C/jT7pMpw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xGKVZ-000000021Pt-2am8;
-	Mon, 12 Oct 2026 18:12:21 +0000
-Date: Mon, 12 Oct 2026 19:12:21 +0100
-Message-ID: <86zewi23ga.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] KVM: arm64: vgic-v4: Don't forward an LPI with no target vCPU
-In-Reply-To: <CA+EHjTwyQPPVG4tGY0i0DRk=kwbdEmjca6+GNjLDXrGxkNbMOw@mail.gmail.com>
-References: <20261012084743.2228612-1-fuad.tabba@linux.dev>
-	<8633ub2mlg.wl-maz@kernel.org>
-	<CA+EHjTwyQPPVG4tGY0i0DRk=kwbdEmjca6+GNjLDXrGxkNbMOw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1791828924;
+	bh=sJ7Cz9cE5jYmh9i7+7gt+I7tJt8elW65y25IztcbqK8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kmSGLKHTM0Xvrvi2qmfl59/BADJyznbG+bzb0bGwHPkZV/MCemLPQtRRvfKMc1SCK
+	 EIZRGiHj6qCGSoZR2+EP2wEkB4cYuLid2h42DFhMeCFHqR7/B8jfuFT5HGbkajB2w+
+	 AdKCsHPEOFUGlPpzZ5gJLIm0V3evijWTJIuZh9QrFmfbR888KHH0utNWOuYh3jBHdh
+	 mCLhiQaFkh+fFUnitd+g8EGWCxESqozjK312zWZ4n5xNr/Plg2su41m/T4P31o4zeo
+	 k9yjNS4IL8Z7dZnXWSji7b/T1BwxouuxWIogksUxwOhHeDaN+IZ5KIgXWR8MaRJ+ZG
+	 tx0K8SJL6aYxw==
+Date: Mon, 12 Oct 2026 19:15:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, robin.murphy@arm.com,
+	devicetree@vger.kernel.org, Frank.Li@kernel.org,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] dt-bindings: dma: arm,dma-350: Document the CIX
+ Sky1 integration
+Message-ID: <20261012-trailing-makeover-daf4d62ac2b9@spud>
+References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
+ <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
+ <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
+ <20261009-e284e1844269292657604ec7@squawk>
+ <asoSH0CLbi7xmjP8@ubuntu>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Vbao+CsgOn8rBfQO"
+Content-Disposition: inline
+In-Reply-To: <asoSH0CLbi7xmjP8@ubuntu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Oct 2026 15:13:51 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, 12 Oct 2026 12:18:51 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > Isn't the core problem that we don't correctly handle the UNPRED
-> > double mapping of the same LPI? I'd rather we attack the issue at the
-> > source instead of papering over the consequences.
+--Vbao+CsgOn8rBfQO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Oct 10, 2026 at 06:23:27PM +0800, Jelly Jia wrote:
+> On Fri, Oct 09, 2026 at 04:31:26PM +0100, Conor Dooley wrote:
+> > > +  cix,irq-router:
+> > > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > > +    description:
+> > > +      Syscon phandle for the CIX Sky1 subsystem register block that =
+routes
+> > > +      DMA-350 channel interrupts to the AP interrupt controller.
 > >
-> > I hacked the following, which is obviously untested. Can you give it a
-> > go?
-> 
-> With your diff on rc3, the second MAPTI is dropped, and forwarding the
-> vfio-pci MSI to its event leaves the host up.
-> 
-> However, a vgic_irq outlives its ITE while the LPI is pending on a
-> vCPU, so the check also drops a legitimate remap: a guest that
-> DISCARDs a pending LPI and then maps it again loses the new mapping.
+> > See comments on the driver for more on this, but I'm not convinced that
+> > this should be in this node - especially if this thing controls other
+> > device's routing too.
+> >
+> > Thanks,
+> > Conor.
+>=20
+> Agreed - v3 drops cix,irq-router from the binding completely. We plan
+> to handle the interrupt gate as firmware/pre-Linux platform setup for
+> v3, so the DMA node should not describe it. With the property gone, the
+> CIX-specific conditional in allOf goes away as well, and the binding is
+> back to the generic controller properties plus the CIX compatible. The
+> corresponding driver changes are in my reply on the driver patch.
 
-But this is yet another bug: 5.3.4 is pretty clear that DISCARD should
-get rid of everything (pending bit and mapping). I reckon this is yet
-another case of the initial implementation being overly worried about
-kicking vcpus out of the guest when destructive action is required.
+For correctness, I think you still need to model this by using interrupt-map
+in the syscon node, with the syscon as the interrupt parent. If firmware
+will program it, you don't need to actually implement anything in a
+linux driver (unlike the Microchip and Renesas devices that I linked),
+you just need to put the interrupt-map property in the syscon and common
+code will do the rest.
 
-We should fix this.
+--Vbao+CsgOn8rBfQO
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks,
+-----BEGIN PGP SIGNATURE-----
 
-	M.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0jtwAKCRB4tDGHoIJi
+0rvzAP45h5Dn2C+Y02Q/vohB7N99QpMoe5knRjpH10VLH4udPwD9GSoyu1o41xQ3
+1XdkvyTiiRgLHfky9uIGfJ5uVfboRgY=
+=jyIs
+-----END PGP SIGNATURE-----
 
--- 
-Without deviation from the norm, progress is not possible.
+--Vbao+CsgOn8rBfQO--
 
