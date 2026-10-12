@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4668CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373F1CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ju5ziU/jiU2DieDsoHgPIHDX76lNg1D2lb3AWXFDUFs=; b=L1jFXl6M6Oa7dbmzoeCyGs7ow9
-	o5IIjm1pDGD9qgb8LGeIWyV6uo0taA4E8a+pDYcUXPnheyBXEfog8Wh3jeRxoh9A1vrEJ9QaZQ++N
-	jC8OUWzG3WT/ua1cBB0beyYiYoE/wdTtss5bgYV4jUkfLK3dFc5oM71Z9rkCj3DKoAANl4bhH08oK
-	oDtwtB9U3IwpOE04cKqPWVCNiLFVF6A+xscbOw0qTNIht4VY2dcv4m4ag0w28RBkgliQExmR4HPVG
-	x1bNyhU3wWzrmuGfLOpF+mc97UmB76A5vNGjQjUy3srqyewCkhLlsl25j9YBdb+uYwnOCCHVB4jfI
-	jWWRrLvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C71mH9r2Zjiq+f9iy2hKkziUuHqZUZoIU/DMegtKaDk=; b=eMpg6S11eMbrLg
+	C7IC51Y/F9l7G8+oGzVvE5P9FW0b3oU4exGYe74WR+0WHxr0GAMZAV/zAPWtZwfgrCmqjZsFyyGYF
+	wSIRyoZIReGBv0t01sIDBu4gsD4LeV2EyIumOXM9eIWix+hrtBgaEq11Xe0gKmacTpdLRi0hhhUbd
+	EDESsa7j/4PRIXmjSj2oN7GkuBLAcMwv2AU68PEFLzlV7iRjEIfcCOKWCbmZsFUKl8XozW8CqieDl
+	44Q2fgpFY4eNfAyDziK4iqNEOXbrs22sha+SIqdbm8SllCCPrpLw/hesrnBdEc1okG6vZzAl/Ox2/
+	phBQj4+ZGSaDCMXKGDDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9zW-00000009mY5-46ci;
-	Mon, 12 Oct 2026 06:58:34 +0000
+	id 1xGB0R-00000009t5E-134g;
+	Mon, 12 Oct 2026 08:03:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9zV-00000009mWs-2vFo
+	id 1xGB0Q-00000009t50-0OES
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 06:58:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E0B54482D;
-	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 16828C2BCF4;
-	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791788313;
-	bh=N8m7KBF7NQ6WTdonuJlgr8ReC1ccHJp/7yH4LqgQIjs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nrUl7zZGf2aX9gtigUieDXV9kwDND3v3mr0tYeISiWlowyl9sSRZ4XA5ZUhHJANn9
-	 Nvr+AZBKAkWP0zOqFCXUX/2WM0ws6DhN8E9sRLLkn51ZMMpKLr2P02J8ob08OEg5Ly
-	 rYeKmPg/ue43fn+WB2RikqK0YyO4n3SYcOesKXwdJ5FT3hP26zX11NYBhuHvAf+G5J
-	 YgoGkYwZnMQrSUVvd8ZrUYA1mMiFZLWNbaHEzbn2zQ5V28YCiVxyRBQx7RzeyYIZew
-	 X6kv6mqZbW7t/WkYO7auKoqoY/8yxDP6IdJLfmRbXisQ5fWJYaqZWezg+jvLxYLCEE
-	 4uh2Y9/qX8H7Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC5B1CA9ED9;
-	Mon, 12 Oct 2026 06:58:32 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 12 Oct 2026 09:58:32 +0300
-Subject: [PATCH RFC v3 02/10] dt-bindings: arm: Add Cortina Systems CS7542
- and Securifi Almond+
+	Mon, 12 Oct 2026 08:03:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AE5D43779;
+	Mon, 12 Oct 2026 08:03:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4391F0089B;
+	Mon, 12 Oct 2026 08:03:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791792213;
+	bh=C71mH9r2Zjiq+f9iy2hKkziUuHqZUZoIU/DMegtKaDk=;
+	h=From:Subject:Date:To:Cc;
+	b=YasOW+GAf3lJcroYG5qLCUz8wNkrR/5ln2KR9HXZznqbcXBKyC+TTQy2x92hJtI8y
+	 HvhrJwhfsSoHZNvYJw6G6g/MptX8JHkJdvw+Wb1gONGR8Y39XMN4MpUv4D/8ASCCgi
+	 +hThpl5GpcL1jH2t6CCNUohDj3meDAZkG8HjfAl2bTRgrawW2PqYM2NoxY22CvpVqd
+	 iSeW6hgRgR2VWzrPsWQhYkGBcgMeX4vkC1Uky/wAVofiGvZCKYSDP7GMS3oTwD8OGQ
+	 npdCFzxWMDfgLSpy+zSg2/s7SY6FL6KLo8ujbmO6/kD4wELmp2EKvQptz+UU9NwTWj
+	 sMTm/gffALksw==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH 0/3] ARM: bcm: Enable SMP on the Genexis XG6846B
+Date: Mon, 12 Oct 2026 10:03:24 +0200
+Message-Id: <20261012-genexis-xg6846-smp-v7-3-rc1-v1-0-a51d4afde4a7@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-cs75xx-v3-2-0e0d17a098cf@gmail.com>
-References: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
-In-Reply-To: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Drew Fustini <fustini@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- Jason Li <jason.li@cortina-access.com>, 
- Fil Dunsky <filipp.dunsky@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQqDMAwA0F+RnBdIatcOf2V4UBe7HFalASmI/
+ 27Z8V3eCSZFxWDoTihyqOmWG/jRwfKdchLUTzM4coGJGZNkqWpYU3j5gPbb8YjYY1kYZx9pJXH
+ k4xPasBdZtf7393hdN4Z45BttAAAA
+X-Change-ID: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
+To: William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788310; l=1646;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=iqp1aP4N83y9unmltEz85GKl1p1MyHyOFw1KaFYcgAM=;
- b=9GViLMClt1wKk1+q7AdJ9M1fQ7u7z/e0i+UMrZVjQ8gEeRgQjvOV3FvOI5LODtNkiwO8iYN28
- 6oorr1hiNXSCZ1KsJOiNQYbHbEJlGymfETbDWQvM0kh7d/2dyYrKUw1
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,63 +73,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+When booted through CFE and mainline U-Boot, the XG6846B has no PSCI
+provider. CFE powers up CPU1 and leaves it waiting in a holding pen.
 
-Add the top-level binding for boards built around the Cortina Systems
-CS7542 ("Goldengate G2") network processor, a dual Cortex-A9 SoC, and
-the first such board, the Securifi Almond+ touchscreen router.
+Preserve the holding pen, add a board-specific SMP method using CFE's
+GPIO mailbox and a wakeup IPI, and disable the inherited PSCI setup.
+Tested on the XG6846B with both CPUs coming online.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Assisted-by: LLM
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- Documentation/devicetree/bindings/arm/cortina.yaml | 31 ++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+Linus Walleij (3):
+      ARM: dts: broadcom: Preserve the XG6846B CFE holding pen
+      ARM: bcm: Add CFE SMP support for the Genexis XG6846B
+      ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
 
-diff --git a/Documentation/devicetree/bindings/arm/cortina.yaml b/Documentation/devicetree/bindings/arm/cortina.yaml
-new file mode 100644
-index 000000000..1c04b1781
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/cortina.yaml
-@@ -0,0 +1,31 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/cortina.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS75xx platforms
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description:
-+  The CS75xx ("Goldengate G2") family are network processors from Cortina
-+  Systems. The CS7542 has two Cortex-A9 cores with an SCU, GIC, private
-+  timers and a PL310 L2 cache controller, a packet processing engine, three
-+  PCIe root ports, a NAND flash controller and low speed peripherals.
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: CS7542 based boards
-+        items:
-+          - enum:
-+              - securifi,almondplus
-+          - const: cortina,cs7542
-+
-+additionalProperties: true
-+
-+...
+ .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 15 +++++-
+ arch/arm/mach-bcm/Makefile                         |  2 +-
+ arch/arm/mach-bcm/board_bcmbca.c                   | 53 ++++++++++++++++++++++
+ 3 files changed, 68 insertions(+), 2 deletions(-)
+---
+base-commit: 6356fd3dd29d8b5620507a0ce037c644e052b5dd
+change-id: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
 
--- 
-2.53.0
-
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
