@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C34CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 23:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4974CCA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 23:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRzNWzGiF7NWCKQsvd+1Gt/+fKC0OXCS0a/+kgcV+R4=; b=SgpZYmkPn+zne4jKFJlxU1jRZG
-	P51jjuf/GR3wJBF13pv8ibz800hM2RGI7PM6fLYEgLfRD6xKB2LDlFDEIN4OMsCUgr/xcBMrRayhz
-	84BmwuE5g4ytbZP4NViJH/kHG7o9eb90BtITS1YZ9nbviixkGCeAfB9E4kBdLzDlJFebCdmyp9PBV
-	7h3LbxBvjFswka5Pp0G6fuoR+OZGmPc5pqHfw8KzfRdhAbWbMwWFNvJTQZLJLIygKqGcZlfOV2++W
-	6J67J3nEYf31ieiVXH6po8eMzjmnQnQJfe5xDurpid6y9Aw4JwsM7mU7gm5YmEZJ1naH4w4B483LK
-	08QeKVwA==;
+	bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=; b=LS4NY5sLnkI2AsXaxuQZkk+CdY
+	0YLirE7WTHWT0/cpGpjxOmz2rPs8L+/mBX4amykZgEr5nuHN86b58EyoCW0jxb5+tyJqUoc1nK/qo
+	glWTTSHrjioaJ4mFXT3rWP94ybMz52ZHs5KyfFOSY7PipCYwnOfF5ellB9GmbdrLUjcK+UZj97y18
+	RBG6igppkwW4LxHy3uaNkeYcYZ0FLXMgW6+9gsTF6zQhAjWqwLVXWMvCeqz24uZ8acFTrwecVygTC
+	K85KOsCVqTvUn6i6NEMRHuleK/QzbhsTSZ1Cqh5utXnaC5M/JhNCI6DcfI5tkgmfC5o6+HbixRoFO
+	qU39Pmug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGP5q-0000000Be5v-1vuB;
-	Mon, 12 Oct 2026 23:06:06 +0000
-Received: from mx0b-00082601.pphosted.com ([67.231.153.30] helo=mx0a-00082601.pphosted.com)
+	id 1xGPGl-0000000BelN-1SYa;
+	Mon, 12 Oct 2026 23:17:23 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGP5f-0000000Be0g-1NZN
+	id 1xGPGi-0000000Bekn-3jcc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 23:05:56 +0000
-Received: from pps.filterd (m0001303.ppops.net [127.0.0.1])
-	by m0001303.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69CJOHNR668018;
-	Mon, 12 Oct 2026 16:05:45 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=jRzNWzGiF7NWCKQsvd+1Gt/+fKC0OXCS0a/+k
-	gcV+R4=; b=SdG6vyMa+fajWjgVQwkrJ5+fUHhq35SAeAKZE9WuigSZG93pay/H9
-	wUTYAjLvonj6gFu28/xc2Hr09Kud7p9RjU8LRcQGdWKTRzfHLA0zAXA7o9hMJNLv
-	PeOkipY/k7+BXNuBtrlNbLnDDViQE8u1qy1OSY2phvzeWwbcgKhuroJAiSBesKQ2
-	zcSeZhhD9X6RexLYcjh/N03H825bAk850JkZyZuiMIse66GuPmwtL4F2SCNlDOF7
-	Ox78Zn7wVM+4GV4a/BC8GAo61F5ruWxSNxL21XMkZVpK/R+//qg3PrzrW+2MBjCe
-	o9Stc7FeXFBSdlgmD3bgO4XuJnoUeMsTw==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by m0001303.ppops.net (PPS) with ESMTPS id 4h7h19tnap-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 12 Oct 2026 16:05:45 -0700 (PDT)
-Received: from localhost (2620:10d:c0a8:1b::8e35) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.49; Mon, 12 Oct
- 2026 23:05:33 +0000
-From: Amir Ayupov <aaupov@fb.com>
-To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>,
-        Alexander
- Shishkin <alexander.shishkin@linux.intel.com>
-CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jonathan Corbet
-	<corbet@lwn.net>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Randy Dunlap
-	<rdunlap@infradead.org>,
-        Shuah Khan <skhan@linuxfoundation.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 1/4] coresight: syscfg: Fail to enable a configuration not loaded on the device
-Date: Mon, 12 Oct 2026 16:05:20 -0700
-Message-ID: <20261012230527.750567-2-aaupov@fb.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261012230527.750567-1-aaupov@fb.com>
-References: <20261012230527.750567-1-aaupov@fb.com>
+	Mon, 12 Oct 2026 23:17:22 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-15354aa70e8so2563879c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:17:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1791847039; x=1792451839; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=;
+        b=SXc8xG0XZ8Sp4OaduL0PaCG4MMnt43GkWzAtV51E5ZTUirShYzLalqAQXWPpnhBwQ/
+         duh1Hg6EkCaoojSvnuyXGBLpzNMtzB9s/wqDXWgbzTCLyGWPUwPI1sxYBiH98fVEklg/
+         4xY2Pqjzq/XAoj8a/aJlrbcQ/B7AJDSVjPLP4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791847039; x=1792451839;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jULzgmU90GwExwiOegz46rYdLgOhwZJMHx733RDhwSw=;
+        b=Qld51wRHysOoqGeff/eySLQnp84MYzJr4cfNg6siiSz+WwHTjBgmkcNg2IExbL2T8C
+         PIVHzt6LzA1hLGC9RvAau068jYyGVz5m2Ej4whYR+Ows3N28JaopL4hRAApXssndaiNF
+         QUZC4Z8K7zKRdktWmIwzDZDedXnjUVShYFWOjIAyvTvu7LZE6abZbi3GLS9zFyYvJTF2
+         0xaz4zTlZidfRS0PchwZdSQSNPGWPlA5HmIg9YH6aB2gxf3Wbrf5CgHz6ivVxLTNJXTs
+         5O6PFsWXay5/IlTqDsBeurmcgdsFOmjnwW+mejIKWeZQ3xRTaE3DEwkt4ZwEYMQVRoEO
+         d3EA==
+X-Forwarded-Encrypted: i=1; AKwUvBy8NgMvclHLA5hcFx7+zs1XzI/dz40galrkOkdm5YTwa/kEOQ13s6NiTtuCIJ8d6NdqraIgVxIeVIUDnBXA84U+@lists.infradead.org
+X-Gm-Message-State: AFq9FYI+ZGBhiWNlgjDr8jwu/Z4IT72Nc3r720QTiZ52qzESUGiopsIt
+	XzrtHpWuIq3AIiaCh9QDXBY5bG/3OV4LdxYsppzW5ulWJVWAWX8ldAYejlf6Jm1IUg==
+X-Gm-Gg: AYBFou1aGbls5b3Gd7a3mjwFMsX7o/SD5Yq8wIdd+P3n8VSnyjsRGA8s2qbyVX9HEIv
+	hfEuelI9WdzfxSRMq1hMuHhAuZSKejsnKmHp84iBvwM0/EVju7ipdMSX5uRXfZAw221IUuzkcDb
+	lnqJw3Xk1Nlx7hmwfioC24jIAU4qYDdVm+MtAGpfKudhu9dbyN7qO+Ozb3kB2/nY8KaR0u+u8pW
+	gVUTKyzwXS5dMwqlh5Tm6XB4SUl1qPEw2Qs+CHq3OVn1UzJH0nWwE1NxxHMv76t4peyQvRmF9ws
+	hJm2Ckm61hGoXPeX2rB+1acs6cNq30WJbDvncB7ZJW+D1wVZ2qehCqBcVMykThPM2OYPxaDrXr5
+	GHBwBL5cHvDm2Jb/ya6m2Ox3/Q0p3NqIDh70NIu2VktCdmujXH65wbRO5jop7zVA84MA4HTBcP0
+	9AZ+R3n/9tF06TJvCflHIv+AeoK+R9kGW9KKtGuuOYsYecpjHrUswUTXabPD3yjZABOWffuvbd9
+	5tp4OBKflbwABmdN5mH3AszTDFkvjUJmfVngHd6m75NZbZl
+X-Received: by 2002:a05:7022:1703:b0:166:b307:5855 with SMTP id a92af1059eb24-16a4ee7e657mr14543536c88.0.1791847038615;
+        Mon, 12 Oct 2026 16:17:18 -0700 (PDT)
+Received: from localhost ([2a00:79e0:2e7c:8:4c0f:2208:f55a:d12f])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-169a1becf08sm36095925c88.5.2026.10.12.16.17.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Oct 2026 16:17:17 -0700 (PDT)
+Date: Mon, 12 Oct 2026 16:17:15 -0700
+From: Brian Norris <briannorris@chromium.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Fabrice Gasnier <fabrice.gasnier@st.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
+ dependency
+Message-ID: <as1qe_J37Njol797@google.com>
+References: <20261002230714.507921-1-briannorris@chromium.org>
+ <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+ <asEdiIT7l49vhn7i@ashevche-desk.local>
+ <asPm6HYpEIAYJ4a3@google.com>
+ <as074Em1m9d5s1yO@ashevche-desk.local>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [2620:10d:c0a8:1b::8e35]
-X-Proofpoint-GUID: 5bTyaQInof-h8AvPkt8ljd84vLF_ygi8
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA5MSBTYWx0ZWRfX6CqRIpwDPrl6
- dCRSVHKZGA2ApmxGYeKoscxqXKYMCNyuDGgFjdt46YipsfZ4NXaV4jI/Kl1v/vbFdG24ahD0rte
- shPvcMpgkhLtBrtk8LGC7xPkgF8o9mw=
-X-Proofpoint-ORIG-GUID: 5bTyaQInof-h8AvPkt8ljd84vLF_ygi8
-X-Authority-Analysis: v=2.4 cv=HpvjiETS c=1 sm=1 tr=0 ts=6acd67c9 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=_78whYxrdx1mplLwxq1U:22 a=FOH2dFAWAAAA:8 a=HF-2DHWplcuDzBJEMXoA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA5MSBTYWx0ZWRfX0p3LRXenJ7o/
- 1OVyTR4DjmyVJa24SUU5BS3oZNhgfvZ1jw/gQ0Ruwh5YeGTdCKfYrx821FI/yVaWKEL4j0UPO5b
- 1DoSYAFar3z6YTZO8BmeZDeyda3C3g3enHO+CO5i9m3h2WEbmqdgEevVZSLHgvfnGiE5InD7Tum
- w7ipcxXBgFfhj6DvcIBFCIsC5Hv1Pl4C3ImpbtzZbY4jsNoNqheck5RLKvtmU3+Ro376dwZfQah
- CxzUq7Gy25HYz2dcoWYsHPsQfI899MuYCC2KKWQtmksZmWlQ+hDxZ+oJx5nsowpXCqzaGBV9/Dd
- 5MgeVv5jike1Og9v0u80d38tgrKsuBecVOkchtkU4NxHzufTo6CCzuG9f/+bt48V/yuM3ZoJi7X
- LH7hKoa25ReGVUGVWUh21pw21LnMGLYmWrbvqeNQHaQoxtvVR2m9FC/QvSLc7kRIG3/Yz0xqAUA
- N1RZMBacHVgzIWLJDOA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-12_06,2026-10-09_01,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <as074Em1m9d5s1yO@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_160555_487886_AE004CEF 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20261012_161720_976473_5CEC69B6 
+X-CRM114-Status: GOOD (  42.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,92 +110,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cscfg_csdev_enable_active_config() looks up the selected configuration in
-the device's loaded configurations, and returns success when it is not
-there. A configuration is only loaded on devices that match at least one
-of its features, so a perf session or sysfs enable that selects it on any
-other device runs without the configuration, with no error.
+(Note to self: drop linux-stm32@st-md-mailman.stormreply.com from future
+postings. It's failing hard, and not (AFAICT) just because I'm not
+subscribed.) 
 
-Return -EINVAL instead, so enabling the source fails on that device. The
-function is only called with a non-zero configuration hash, so sources
-enabled without a configuration are unaffected.
+On Mon, Oct 12, 2026 at 10:58:24PM +0300, Andy Shevchenko wrote:
+> On Mon, Oct 05, 2026 at 11:05:28AM -0700, Brian Norris wrote:
+> > On Sat, Oct 03, 2026 at 06:21:44PM +0300, Andy Shevchenko wrote:
+> > > On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
+> 
+> ...
+> 
+> > > > Cc: Ulf Hansson <ulfh@kernel.org>
+> > > 
+> > > Can go under the '---' cutter, so it won't pollute the commit message in the
+> > > Git history.
+> > 
+> > This is a well-documented convention.
+> > 
+> > Documentation/process/submitting-patches.rst
+> > 
+> >   If a person has had the opportunity to comment on a patch, but has not
+> >   provided such comments, you may optionally add a ``Cc:`` tag to the patch.
+> >   This tag documents that potentially interested parties have been included in
+> >   the discussion.
+> > 
+> > I'm directly referencing Ulf's suggestions (Link tag), so I'm also
+> > making it explicit that I'm CC'ing him.
+> 
+> This piece of the documentation was written long time ago before we have got
+> the kernel.org controlled mailing archives (now it's lore.kernel.org). I argue
+> that this piece is outdated and we need to look at all aspects of the commit
+> message. Perhaps having one might not lead to the issue, but exempli gratia 20
+> is. I still think it should be moved to under '---' to show the good example.
 
-Fixes: f8cce2ff3c04 ("coresight: syscfg: Add API to activate and enable configurations")
-Assisted-by: Devmate:Opus-5.5
-Signed-off-by: Amir Ayupov <aaupov@fb.com>
----
- .../hwtracing/coresight/coresight-syscfg.c    | 53 ++++++++++---------
- 1 file changed, 28 insertions(+), 25 deletions(-)
+Well, it's not 20; it's 1, with a clear reason. So not sure what you're
+saying. Anyway, I've prepped that for v2.
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 2bfdd7b45e49c..a816c22c87bc8 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -1088,36 +1088,39 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 
- 	/*
--	 * If found, attempt to enable
-+	 * The configuration is active but not loaded on this device, because
-+	 * none of its features match the device. Fail rather than trace
-+	 * without it.
- 	 */
--	if (config_csdev_active) {
-+	if (!config_csdev_active)
-+		return -EINVAL;
-+
-+	/*
-+	 * Call the generic routine that will program up the internal
-+	 * driver structures prior to programming up the hardware.
-+	 * This routine takes the driver spinlock saved in the configs.
-+	 */
-+	err = cscfg_csdev_enable_config(config_csdev_active, preset);
-+	if (!err) {
- 		/*
--		 * Call the generic routine that will program up the internal
--		 * driver structures prior to programming up the hardware.
--		 * This routine takes the driver spinlock saved in the configs.
-+		 * Successful programming. Check the active_cscfg_ctxt
-+		 * pointer to ensure no pre-emption disabled it via
-+		 * cscfg_csdev_disable_active_config() before
-+		 * we could start.
-+		 *
-+		 * Set enabled if OK, err if not.
- 		 */
--		err = cscfg_csdev_enable_config(config_csdev_active, preset);
--		if (!err) {
--			/*
--			 * Successful programming. Check the active_cscfg_ctxt
--			 * pointer to ensure no pre-emption disabled it via
--			 * cscfg_csdev_disable_active_config() before
--			 * we could start.
--			 *
--			 * Set enabled if OK, err if not.
--			 */
--			raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
--			if (csdev->active_cscfg_ctxt)
--				config_csdev_active->enabled = true;
--			else
--				err = -EBUSY;
--			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
--		}
--
--		if (err)
--			cscfg_config_desc_put(config_desc);
-+		raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
-+		if (csdev->active_cscfg_ctxt)
-+			config_csdev_active->enabled = true;
-+		else
-+			err = -EBUSY;
-+		raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 	}
- 
-+	if (err)
-+		cscfg_config_desc_put(config_desc);
-+
- 	return err;
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
--- 
-2.52.0
+Do you think you could propose a documentation update, if it's really so
+out-of-date with current practice?
+
+FWIW, a quick look at the v7.1..v7.2 git log shows over 10,000 Cc lines
+that aren't for stable@ or similar, with over 900 different addressees,
+across roughly 1300 different commits. (For comparison, there are 17,833
+commits in v7.1..v7.2.)
+
+It seems like you'll have a hard job trying to apply your rule to
+everybody's changes, especially if it conflicts with the documentation.
+
+> > > > Signed-off-by: Brian Norris <briannorris@chromium.org>
+> > > > ---
+> > > 
+> > >  Cc: ...
+> 
+> ...
+> 
+> > > > +/*
+> > > > + * Propagate last_busy timestamp from one device to another. This can, for
+> > > > + * example, prevent overactive suspend when a dependency's usage is primarily
+> > > > + * driven by one of its dependents.
+> > > > + */
+> 
+> ^^^
+> 
+> > > But here you already have an outdated ones, no? Why is this not a problem?
+> > 
+> > The "target" device (a supplier or parent) can't suspend before this
+> > point, because the dependent device still holds a reference -- so an
+> > "outdated" last_busy is not relevant yet. The target last_busy *might*
+> > become relevant after this point, so this is the point at which it needs
+> > updated (propagated).
+> > 
+> > That's what I mean in the commit message by:
+> > 
+> >   propagate last_busy timestamps from a dependent device to its
+> >   dependencies any time it may allow a dependency to suspend -- i.e.,
+> >   when releasing a refcount for its parent or suppliers.
+> > 
+> > Please let me know if I should add some clarification somewhere --
+> > perhaps also in the comments here on rpm_propagate_last_busy()? Or if
+> > you see some other problem in the reasoning.
+> 
+> Perhaps a word to the top function comment?
+
+OK, I've tried to factor that into my drafts for an eventual v2.
+
+Thanks!
+
+Brian
 
