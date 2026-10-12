@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F6ECA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4807DCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sJ7Cz9cE5jYmh9i7+7gt+I7tJt8elW65y25IztcbqK8=; b=ZTxUfCI26vkzGiD7eY2T32Xamy
-	YfXe3pMDks8Wcdrr0DthWyk64FGaekv9JjsEta2Km5mAbXNaWpTSOoje+hW8CTRi85Uxk0YlGkcff
-	Nx28VpCRSE69jC15XRx5GaH2kAyPOh8BoitgiIYFyvPiGjjiyjbNM+nHHCae1LKVN0sQ2E07w1cii
-	WXmdkg7aWWqKmTuraQ7Tj/i5x4Dc8Bz91bA8aptITjJ6TFIZf67Fjg31h1POP0yjqLRApg2wkmTPD
-	1uqzloHbC25TYuiTIaN9VpW+SNvxXkV0k1ukoAfw2E0JcROb6OK4zGASW2t9oX9h5X8ohyGy+xnZi
-	m223SUXA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=d9tpJLzz1kOLSftpAE/8ZpMKaHae1W61puA/y0/qc1M=; b=v4cmKmRxLV43fH
+	ARAoqGPBRVvmJY/omOi3U7/l398TxtqUv5KreUieSuBEYo4BvzHt5RebTccTGXK+1+HGaklZcfkQn
+	eUzVnOSP4uNLtq+DHK1j7OZ2PRY1GfGi+o0NolSlSYQHOCaKpry/woJfvCIb1VGoyCzBBXNmaGkKN
+	4krAiZjk9nntHJcXLfeSOpJXE8o6tXIjiOX527uaLdLrX21bL9qgRaWOWU5Y5dq9Ud09PRBONjfov
+	CTrdDNkk2MdxChrA/vAjQ9EW7ymMhUPTPj910UH1bscZs0Zls9imDQmly5Q4GuZ3yBUSokn6etF8A
+	dLUPmDiUJ24rwGiTwvdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKYe-0000000BC7A-2IAz;
-	Mon, 12 Oct 2026 18:15:32 +0000
+	id 1xGKZl-0000000BCYL-0Txe;
+	Mon, 12 Oct 2026 18:16:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKYX-0000000BC6w-0ILj
+	id 1xGKZi-0000000BCXF-3XDb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:15:31 +0000
+	Mon, 12 Oct 2026 18:16:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F3674093E;
-	Mon, 12 Oct 2026 18:15:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251301F0089B;
-	Mon, 12 Oct 2026 18:15:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 95BC5438C9;
+	Mon, 12 Oct 2026 18:16:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E3C61F008A1;
+	Mon, 12 Oct 2026 18:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791828924;
-	bh=sJ7Cz9cE5jYmh9i7+7gt+I7tJt8elW65y25IztcbqK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kmSGLKHTM0Xvrvi2qmfl59/BADJyznbG+bzb0bGwHPkZV/MCemLPQtRRvfKMc1SCK
-	 EIZRGiHj6qCGSoZR2+EP2wEkB4cYuLid2h42DFhMeCFHqR7/B8jfuFT5HGbkajB2w+
-	 AdKCsHPEOFUGlPpzZ5gJLIm0V3evijWTJIuZh9QrFmfbR888KHH0utNWOuYh3jBHdh
-	 mCLhiQaFkh+fFUnitd+g8EGWCxESqozjK312zWZ4n5xNr/Plg2su41m/T4P31o4zeo
-	 k9yjNS4IL8Z7dZnXWSji7b/T1BwxouuxWIogksUxwOhHeDaN+IZ5KIgXWR8MaRJ+ZG
-	 tx0K8SJL6aYxw==
-Date: Mon, 12 Oct 2026 19:15:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, robin.murphy@arm.com,
-	devicetree@vger.kernel.org, Frank.Li@kernel.org,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] dt-bindings: dma: arm,dma-350: Document the CIX
- Sky1 integration
-Message-ID: <20261012-trailing-makeover-daf4d62ac2b9@spud>
-References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
- <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
- <20261009051846.1115962-5-Jelly.Jia@cixtech.com>
- <20261009-e284e1844269292657604ec7@squawk>
- <asoSH0CLbi7xmjP8@ubuntu>
+	s=k20260515; t=1791828998;
+	bh=d9tpJLzz1kOLSftpAE/8ZpMKaHae1W61puA/y0/qc1M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=OTq8ue5Dmf4bVRJO2IfDWOlDk2E3BtsTvdyVuain2qcnz2ih+RtBYEkSZ4T97Rxzd
+	 MllC/HrDirI0Bm9VipYyY0H74zq0bo7vx1Ostm9v3/oqVcI8tZ9NXpAD+0bJ/2rAJ1
+	 ISIWOprqhQBjTV/XoCYu2RRQYhXO5YBbLYNUGnubIRyRBsml/klJahLWBm0f7WEcw8
+	 5f0ziJjyfcYJSfbyNQoqL8opcmH6D1BV921HyW+Uqs8A/OkF4hfbTe25CcEuLWzaGI
+	 NylsFdtXgAMSyeVA/Nhh2Ti1FvuOibJKooRFJR0aaiOnLq4Wc3dUCfDfVMFOR1vyn8
+	 SH/wL3I4YOkBQ==
+Date: Mon, 12 Oct 2026 13:16:37 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Semih Baskan <strst.gs@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, rjui@broadcom.com, sbranden@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com, rafal@milecki.pl,
+	zajec5@gmail.com, florian.fainelli@broadcom.com, arnd@arndb.de,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rosenp@gmail.com, rani.hod@gmail.com
+Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+Message-ID: <20261012181637.GA1313446@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Vbao+CsgOn8rBfQO"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <asoSH0CLbi7xmjP8@ubuntu>
+In-Reply-To: <20260912043626.437-1-strst.gs@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +72,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Vbao+CsgOn8rBfQO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[cc->to: Mani]
 
-On Sat, Oct 10, 2026 at 06:23:27PM +0800, Jelly Jia wrote:
-> On Fri, Oct 09, 2026 at 04:31:26PM +0100, Conor Dooley wrote:
-> > > +  cix,irq-router:
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > > +    description:
-> > > +      Syscon phandle for the CIX Sky1 subsystem register block that =
-routes
-> > > +      DMA-350 channel interrupts to the AP interrupt controller.
-> >
-> > See comments on the driver for more on this, but I'm not convinced that
-> > this should be in this node - especially if this thing controls other
-> > device's routing too.
-> >
-> > Thanks,
-> > Conor.
->=20
-> Agreed - v3 drops cix,irq-router from the binding completely. We plan
-> to handle the interrupt gate as firmware/pre-Linux platform setup for
-> v3, so the DMA node should not describe it. With the property gone, the
-> CIX-specific conditional in allOf goes away as well, and the binding is
-> back to the generic controller properties plus the CIX compatible. The
-> corresponding driver changes are in my reply on the driver patch.
+On Sat, Sep 12, 2026 at 07:36:26AM +0300, Semih Baskan wrote:
+> The BCMA driver takes its register base and, since commit 552aa843e4c5
+> ("PCI: iproc: Use the EROM outbound window on BCMA"), its outbound
+> window from what bcma read out of the enumeration ROM. It still
+> allocates its host bridge with devm_pci_alloc_host_bridge(), which since
+> commit 669cbc708122 ("PCI: Move DT resource setup into
+> devm_pci_alloc_host_bridge()") parses ranges, dma-ranges and bus-range
+> from the device's OF node and requests the windows it finds. None of
+> that reaches the hardware here: need_ob_cfg is only ever set by the
+> platform driver, so iproc_pcie_setup() never maps the parsed windows,
+> and the EROM commit above had to throw them away again to keep them
+> from colliding with its own window.
+> 
+> Allocate the bridge with pci_alloc_host_bridge() instead, so nothing
+> from the devicetree is requested or handed to the PCI core, and free it
+> on the error paths and in remove(). The driver now sets
+> bridge->dev.parent itself, as devm_pci_alloc_host_bridge() did, since
+> the wifi nodes under pcie_bridge0 in bcm4709-netgear-r8000.dts are
+> resolved through the root bus. The window request
+> moves from devm to request_resource() and release_resource() because
+> the resource lives inside the bridge allocation and has to be released
+> before the bridge is freed.
+> 
+> The ranges property is still read, but only to compare. bcm-ns.dtsi
+> describes the same window for the platform driver, and on core revision
+> 0x01 it points at an address the hardware does not decode. The warning
+> from the EROM commit stays for that reason: a wrong dts is visible on
+> BCMA boots, where nothing else would show it. Without bus-range the
+> root bus also logs "No busn resource found for root bus, will use
+> [bus 00-ff]" again, which changes nothing else.
+> 
+> With PCIE_IPROC_PLATFORM and PCIE_IPROC_BCMA both enabled, the platform
+> driver binds the same nodes first and claims the devicetree window. On
+> core revision 0x07 that is the EROM window, so this driver's request
+> still fails and the probe backs out as before. On revision 0x01 the
+> devicetree window is elsewhere, so this driver now probes as well, next
+> to a platform driver instance whose window the hardware does not decode.
+> That instance does not work either; the only difference is that the
+> second probe is no longer stopped by the collision.
+> 
+> Tested on an ASUS RT-N18U (BCM47081, core revision 0x01): the warning
+> lines are identical to the applied version, /proc/iomem and the
+> enumerated devices are unchanged.
 
-For correctness, I think you still need to model this by using interrupt-map
-in the syscon node, with the syscon as the interrupt parent. If firmware
-will program it, you don't need to actually implement anything in a
-linux driver (unlike the Microchip and Renesas devices that I linked),
-you just need to put the interrupt-map property in the syscon and common
-code will do the rest.
+What do you think about this, Mani?
 
---Vbao+CsgOn8rBfQO
-Content-Type: application/pgp-signature; name=signature.asc
+I still don't quite understand the issue with the DT and discovering
+this via both platform and bcma bus drivers, but we should make
+progress.
 
------BEGIN PGP SIGNATURE-----
+I *think* that if we squash this patch into 552aa843e4c5 ("PCI: iproc:
+Use the EROM outbound window on BCMA") and use
+devm_add_action_or_reset(), it will simplify down to this, which is
+less intrusive and would need less explanation:
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0jtwAKCRB4tDGHoIJi
-0rvzAP45h5Dn2C+Y02Q/vohB7N99QpMoe5knRjpH10VLH4udPwD9GSoyu1o41xQ3
-1XdkvyTiiRgLHfky9uIGfJ5uVfboRgY=
-=jyIs
------END PGP SIGNATURE-----
 
---Vbao+CsgOn8rBfQO--
+diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
+index 593418c2bc3a..73f2b6c424cc 100644
+--- a/drivers/pci/controller/pcie-iproc-bcma.c
++++ b/drivers/pci/controller/pcie-iproc-bcma.c
+@@ -11,6 +11,7 @@
+ #include <linux/phy/phy.h>
+ #include <linux/bcma/bcma.h>
+ #include <linux/ioport.h>
++#include <linux/of_address.h>
+ 
+ #include "pcie-iproc.h"
+ 
+@@ -31,6 +32,34 @@ static int iproc_bcma_pcie_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)
+ 	return bcma_core_irq(bdev, 5);
+ }
+ 
++static void iproc_bcma_pcie_check_dt_window(struct iproc_pcie *pcie)
++{
++	struct device_node *np = pcie->dev->of_node;
++	struct of_pci_range_parser parser;
++	struct of_pci_range range;
++	struct resource res;
++
++	if (!np || of_pci_range_parser_init(&parser, np))
++		return;
++
++	for_each_of_pci_range(&parser, &range) {
++		if ((range.flags & IORESOURCE_TYPE_BITS) != IORESOURCE_MEM)
++			continue;
++
++		if (of_pci_range_to_resource(&range, np, &res))
++			continue;
++
++		if (res.start != pcie->mem.start || res.end != pcie->mem.end)
++			dev_warn(pcie->dev, "DT window %pR does not match EROM window %pR, using EROM\n",
++				 &res, &pcie->mem);
++	}
++}
++
++static void devm_pci_alloc_host_bridge_release(void *data)
++{
++	pci_free_host_bridge(data);
++}
++
+ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+ {
+ 	struct device *dev = &bdev->dev;
+@@ -38,10 +67,17 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+ 	struct pci_host_bridge *bridge;
+ 	int ret;
+ 
+-	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
++	bridge = pci_alloc_host_bridge(sizeof(*pcie));
+ 	if (!bridge)
+ 		return -ENOMEM;
+ 
++	bridge->dev.parent = dev;
++
++	ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
++				       bridge);
++	if (ret)
++		return -ENOMEM;
++
+ 	pcie = pci_host_bridge_priv(bridge);
+ 
+ 	pcie->dev = dev;
+@@ -59,6 +95,7 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+ 	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
+ 	pcie->mem.name = "PCIe MEM space";
+ 	pcie->mem.flags = IORESOURCE_MEM;
++	iproc_bcma_pcie_check_dt_window(pcie);
+ 	pci_add_resource(&bridge->windows, &pcie->mem);
+ 	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
+ 	if (ret)
 
