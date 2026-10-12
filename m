@@ -4,65 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95551CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF44CCA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tc1Gm34EqV2pA6dA1kPjeED+FPxVyOiLoKM7TQSipKQ=; b=E5ik6QOt+60AjJnZwZzqPXa6Db
-	MiyjUOwfRLyRboDoIM/dB4/w/ymOn3K/dUriOBctLKd4yX9UwLY3JU32ZvPAQYvhGx/yOs1qI5WnL
-	Ww8FNJicuhXnU1oKpPRNm/qVOJ6sJjVooONF6UbxIRUIno9zLDkcpHSzTm/rX9aP3Yc96i8aJEMYH
-	izkyXvUQDbD/26x/W52HTJs948aMVucdUdNULAde+Kp1jrYqjobFRkbjYAeWNzdOzxX04BzOo8LFS
-	71jH5bDsopJzF6onGTI910EaJ47QkOOo8QuxBz45u1cryjwWpY3VMmYDOz7gepNby2qF92aFJdl0H
-	aO7ktoLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5UD9NlO1NyCUCM86zdc7PC74SLl7CAhWMA8JrSB7uTY=; b=nicB/JvCfxvWYvE3nkgX8K8hWD
+	F/3acOP9bHmGkmqLexTmfDAJFBMZ7hVvBZI+9ei7+L7fF+5+nR5k81B5ssxkWt/tdNfTmlfWfTk3/
+	CNsWvbSPMv5LJVo7DoNdzykfdJam5DyTBQvbzNb1oSYUtqbw5H3yHWrasKvUZapdjxrb6ZIl9p51Z
+	70eqSWRj3j7AiQZN0vTEBvwumiLhPw4qAUHokll/L3VyTXTG2Qz6oLoUNuXOwpaT1eYqIzW+T6Okk
+	DY12PKjfPSmcnkVyXvMXaYkKVPW+TIzMIMZYyk3cTgW/CrkQltItg79Av4ee3nw8xz8G6ICLI83DM
+	xwRKm5XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHVi-0000000AkJT-201y;
-	Mon, 12 Oct 2026 15:00:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHVf-0000000AkHc-3yUp
+	id 1xGHeh-0000000AlAd-2uAy;
+	Mon, 12 Oct 2026 15:09:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGHee-0000000Al9v-2k3Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 15:00:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2F87169E;
-	Mon, 12 Oct 2026 08:00:10 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 337CB3F673;
-	Mon, 12 Oct 2026 08:00:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791817214; bh=8NtkGDoD0oacwDzS0CgSBoq15Z6lRUN/PdlItQmGmFE=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=dc17l/GJ2ZpY749n5DOcZCH2iM6lV1y9aoppvsDsDO5Q3t96BV7ZQtONgXUrJ94GL
-	 HRjhJjGJmEhaMn8IWNsl1H9tHqrIBVlwoZlhpbAh5RHuocxcRON/RE8au0oHu6xxQ/
-	 W3zXbdIDQR7XzPffNpuU8CNM5FDlBL3Fhn3Gm8uI=
-Message-ID: <d8f4fa6c-cb56-4dff-8951-ed2fdb859dfa@arm.com>
-Date: Mon, 12 Oct 2026 16:00:10 +0100
+	Mon, 12 Oct 2026 15:09:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oy+2jJ1ga+RNMVUjZzO45qjETVn3YsBwXta25FXzrKWLkyCGH15G7ONzOOs8bU4tuV5wZZL6KeYL9SmIMu4OfJEq62+1l9H+FWSWEYGLOFJ7Q13z5qBFsvtOnIK3W00jf1eGZLK+3gsqSFLTqqdQoyJLvu19CIU9atef1vLLyJC6v4GwSBwo9pkbQQnQky0v1LSAr4jgTVMpR5ryBO4RiIyW7Ni/rBdi5NM7pxNNG5hm4FoBxMxE9vUQgKXznNK9GU5AGqYG3gJ1F1BtUaR1ZQFJkgWkVk7McyQVCRvTddfFvFgMHwWFYQ1PGyQq/E/XbCE3TnEQLrn/bcsppG+Zmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5UD9NlO1NyCUCM86zdc7PC74SLl7CAhWMA8JrSB7uTY=;
+ b=fNvLalqLstVodibOmuc7lG280kCASbNXpiItjtt/x3PRCjevgtL/dT7hyvT3kIE+PCw9O4xuNc1VgOix0NY7yigUvuTqXn6wUWFA/5JzVGCBohwT7Sz9ogS/2Gasi57k+YTezqYhTU65JR091R1lp7fSpx6x57m8xBalu9L+Thx14MYAPqzV+YyAwGsaTJSbpZMHerk+qXDO9TEnVqY83Iro+QFVgl5XhLqoaCvm77CNw+/4duKVO48r3os4utBhPtcBf+t6dx3zaVbxj7bxIRijxRB+g0Yt1km5K/pWis2ciUGdqsgUJUdWrzNKdQcZ8XADx1TQjgb4YJj23yPZtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5UD9NlO1NyCUCM86zdc7PC74SLl7CAhWMA8JrSB7uTY=;
+ b=RUKx95dht+qaLUycTXqu6AP64LOPDnSZNmo/7ZNqA2RD/UbmXtARNV2gcCWjlZKVXFNPRVjPUK4ONTd231IPmOrW6znkWi5ZLNf7wfngyba7BDu3T9vI8KxlDpixhBcut6+J2VYYkaOHWPEuTLOi+RoD1hfaXOAR4zlYoVMNUENF1bWsncKSLaDwZ7dK9foGsY7bFIcx++w3gmv3k2hawcC0swsdxxkNdUzSXSxlgkb5M+kTuiTPmxLSXGTAXLfE214v5BGgF+KCqT5tMzf1CERMMGUivH9fVB+hW84v1dNpE62NzsKO7gzQXMUQiIhpqloSiGMpI7vuK+KaG7g3ZA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB8926.eurprd04.prod.outlook.com (2603:10a6:102:20d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 15:09:26 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 15:09:26 +0000
+Date: Mon, 12 Oct 2026 10:09:17 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, robin.murphy@arm.com,
+	devicetree@vger.kernel.org, Frank.Li@kernel.org,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] dmaengine: arm-dma350: Fix source trigger bit
+Message-ID: <asz4HcpTqd5oV0vY@SMW015318>
+References: <20261012084155.2547480-1-Jelly.Jia@cixtech.com>
+ <20261012084155.2547480-2-Jelly.Jia@cixtech.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261012084155.2547480-2-Jelly.Jia@cixtech.com>
+X-ClientProxiedBy: CY5PR18CA0049.namprd18.prod.outlook.com
+ (2603:10b6:930:13::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm_mpam: make the mon_sel guard conditional only
-From: Ben Horgan <ben.horgan@arm.com>
-To: Sasha Levin <sashal@kernel.org>
-Cc: andre.przywara@arm.com, bot@kernelci.org, fenghuay@nvidia.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@oss.qualcomm.com,
- justinstitt@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, morbo@google.com,
- nathan@kernel.org, ndesaulniers@google.com, reinette.chatre@intel.com,
- Catalin Marinas <catalin.marinas@arm.com>, "will@kernel.org"
- <will@kernel.org>
-References: <7490d5e6-ac9b-4f23-b58d-60eec2882e60@arm.com>
- <20261009163235.3-1-sashal@kernel.org>
- <18df4643-4213-4e0f-94e7-b1e43adcb5c3@arm.com>
-Content-Language: en-US
-In-Reply-To: <18df4643-4213-4e0f-94e7-b1e43adcb5c3@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8926:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7e944953-24f8-4cce-cee9-08df2872cdf7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|366016|376014|6133799003|10067099003|22082099003|18002099003|11063799006|261009223027099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: o1DkSn7ijfSESftBVG2DKB43ICdp3ecl6goqfTlJB0SZyDx2B7znAi1tNIXH9yahOc5V9A5d2yT8+nAkyEVIgPMPbLNA/aGcsjfkrs51D7OTJQ+4ooe5lp6MlqcKr5umN/jqGryyA6I2xVC8jfglexhNjP1Aa13La8AjGaCSVJhPIa6s7XWDHYuIfIaQRYVkPXqhPlJihUh++akecE+aD+4mUXwdCcRtB8LcqMh+OMZHe0KuHtNPsOQXyIJIKM27rW6k7SZExwN3FUAEQ/KZsC9c++NIu9XQYPFHKMedCNz+iTd3LlZ8s352ftZeiUTpzlBSUevIItb7/whVVNXqoqM8XYEeqUQhjr8losgiuk2OpU0Ooyk+5XGnaaESShuE1tKD28HiMRMvdST0OQzLLX0GJ3YSo04gF6BDEcnONzvGI4Ew0VgCPlYjKgMRuCAK/3I5St1SQptsFK6T1DQRejbwiMSqDVsIdMXPIBPPOJRsk67NXLVFLhlw37kbFVozQmwKNGqiFoqKgmo/Di9069KztSNEWsTX7/N5rG3IxnmNx9vSFBAhijNebFAp78hJYfEDPMn+Ti0ty3hvDNaZnpx9RrEOpxjTrVxi7g/j1OGR70UlvPMa5/WdkrCDuA3lb/1hgho2JqeiPx6vYwWesNda1Y24zqWC8E94gsMEDjw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(366016)(376014)(6133799003)(10067099003)(22082099003)(18002099003)(11063799006)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w5dzHa59EX+Fw5BvZNzUxPtZg0MDsT+nylMms1dZGCeYGJxPTwpGAFV9SpwO?=
+ =?us-ascii?Q?8NHhsoUF5TD7p4ouCQBixD+IKLTpeGlwg10qhVmWoGSawOPrEaKF4562FhCK?=
+ =?us-ascii?Q?XLjuvpckxX88rWo0Esh0UxtEhYOzwaB7CcJoY35uT3H+KIcJR3uBQrK/J3Y5?=
+ =?us-ascii?Q?sOqtMUC+av1/O1BYtS2ZbLdtz64ZYLB0SuXZHCU4LCFj0m+YNEtYXeJfJCdN?=
+ =?us-ascii?Q?XrWNXSBc8MqB+USSHuCj6nBwnYUP6xuYohCfbkOyMGFOMi0NlCKTSe9M8a6I?=
+ =?us-ascii?Q?PhUW46Ar2UXAterqPuiZy2iTtn5GHZ+CFOfVE9LOz98Ug6zjxlJh5chSTomG?=
+ =?us-ascii?Q?toA+HtR5HKUrYHrOyWeWWOFWaG2A2mRmbw7Dr0NNsn0joirTe/M705NoFzDL?=
+ =?us-ascii?Q?oFX7X+G4Nt1Jdn2jY6b1RkGHYE/AzAmj5XQnt67Uyiasd2U8DRJROEVIEidN?=
+ =?us-ascii?Q?2J2e0wHk6u80V3J3rxx7P0MaIfnrJ46NRiBMMZfHMKu87DBkG6HH66Csn/Mc?=
+ =?us-ascii?Q?q46bzA0Z5r/j+b3JfQVhuiAOdBp6ujfNM3SNoRuANvwJFDH8eTSlPDx4umZn?=
+ =?us-ascii?Q?mq0nEWmopD4Ym4k2Ww3Cuw7IqnT5Ync5wp/211fPjtHNMJN/kp2420uFKlvz?=
+ =?us-ascii?Q?eaYf1zSPx9mhEMPDCXXP7OtkTa8slLF9vPCJnBGK7NfziIJ8YV7v+Gna5Wta?=
+ =?us-ascii?Q?YLQmIWh0k60i3Cw/vfS4aaQTuU3qk6sn/MehK3K0k9m+i6wvMCjsu9JcDeV5?=
+ =?us-ascii?Q?PwN/1jMq06QGZxvkXk9ykA1Wz6rqOvjZNQbLrpwgVfeWbWMTEomg9Eo2316L?=
+ =?us-ascii?Q?9G1YoqvKMqn44PSKNN8l30rdQE4/H7E7nmMAuMCRowL/UKJ4xjSMpIX6CgxO?=
+ =?us-ascii?Q?JlGz5YUu+vskksYI3CbPJpsKnfGIgj3kOivXmP+rgrnjrq7LbGKQ8rVxEG0O?=
+ =?us-ascii?Q?OnL4AItrT/Xqsf4Xme0DhD6ZxIUTJG9P7Cv1IJwiHoqr6cZxdx0z7paG/XnY?=
+ =?us-ascii?Q?gf458Ieq3NE03LoHihjq7GtfKyG6J1YOlhr6J7NvkDkQIURmq1LJtjLWSswx?=
+ =?us-ascii?Q?DgLgb5QkgXwOn1kDqT4RsA62tO2e7cfoxmgyJxKVZmpSLSigqKwzhB7c0GVH?=
+ =?us-ascii?Q?oNWTAQvZiTPEfV0Mojdu6UUeMcLVsindE6cHjfh9dL5G+gKj7Y24ipu941Q4?=
+ =?us-ascii?Q?pMq7B7ck8mjwcbCDg2vvhk1N+vNSW6IL1ty5HSOnBngzCro+SX30vWEInG2x?=
+ =?us-ascii?Q?ApSwQF5uL+515Sv5G0D/71+qmltFgyx14MWxqB5XT71djaWJqE6w+LDlgOc+?=
+ =?us-ascii?Q?fDmUEYul4N0r8bkjqYinXlmFUSO0ZoaZornFHlP5nWTv2hHQs27fcCFDSyOb?=
+ =?us-ascii?Q?tiX5q01Daz+9oVrO7+HfHFzvcrAguX1rQgUGcXjgIblBUU2YJ0k1MMFUJ0R8?=
+ =?us-ascii?Q?muJiP/zUhmCLpA8EXiXuSwvgJBUx6zg8/+39oqtxmHXrWIt9dQww3r6jvsHk?=
+ =?us-ascii?Q?A0BtYW0BM0xi8G+uc/UWKqnVmMjgUQ4Eh41ViraxaJU/pXrYXRjXNz6/czyT?=
+ =?us-ascii?Q?YDKi0O/TvQ5TRabD4f2jXTLHH1ZwB0eOQISiZORZy+a1ojjXnwbAGbGq4/XL?=
+ =?us-ascii?Q?pE9D3xxBAWzZ8pC/REXuHbE94IGR908ZDhBmjN+JqXKM0yxnWr/ukPI2jalq?=
+ =?us-ascii?Q?aFkXX6TyJcpdGv14QcNG43DI4yBWjRPwb7864inINuLvsF3gc0Jti3S8YJ0a?=
+ =?us-ascii?Q?K2cbVoO0jUYamZoqaknjvkQhGGwvCFhItY5/5MmA1TWK9VLvyWq0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7e944953-24f8-4cce-cee9-08df2872cdf7
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 15:09:26.2923
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j+MOEAjR7tIzqrMbLXrf7qEba3uxtaT5VqCX3kVneJs7C1aOEJwEh66uKYBLw1k5f0CeQUJf1cDVDtobi8lWyOuTx9GIIym3YZwde9vh4bYF1HFp0w/LeElkimiajoIl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8926
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_080016_159939_1D55418E 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20261012_080932_697585_D53B1593 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +139,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+CC: Catalin, Will
+On Mon, Oct 12, 2026 at 04:41:50PM +0800, Jelly Jia wrote:
+> CH_CTRL_USESRCTRIGIN is the source trigger enable bit in CH_CTRL and
+> must use bit 25, not bit 26 which is the destination trigger enable bit
+> (CH_CTRL_USEDESTRIGIN).
+>
+> The constant has no users yet, but enabling the source trigger input
+> would silently enable the destination trigger input instead, breaking
+> any transfer that waits for a peripheral request. Fix it before the
+> first user arrives.
+>
+> Fixes: 5d099706449d ("dmaengine: Add Arm DMA-350 driver")
+> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
+> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+> ---
 
-Hi Catalin,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-This is the clang build fix I mentioned. Just adding a note here as I missed to CC you before.
-
-Thanks,
-Ben
-
-On 09/10/2026 17:59, Ben Horgan wrote:
-> Hi Sasha,
-> 
-> On 10/9/26 17:32, Sasha Levin wrote:
->> Building arm64 allmodconfig with clang fails:
->>
->>   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
->>   of function declared with 'warn_unused_result' attribute
->>   [-Werror,-Wunused-result]
->>     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
->>
->> mpam_mon_sel_lock() is __must_check and can fail: for an MSC accessed
->> through the MPAM-Fb firmware interface it returns false when called
->> from a context that cannot sleep. The mon_sel guard was defined with
->> DEFINE_GUARD(), which calls it unconditionally and discards the
->> result, so a guard(mon_sel) user would carry on without the lock and
->> release it on scope exit. The unconditional guard only exists as the
->> base for the conditional mon_sel_lock variant, which is the one
->> actually used.
->>
->> Define mon_sel_lock directly as a conditional guard class instead, as
->> posix-timers does for lock_timer: the constructor returns NULL when
->> the lock cannot be taken, and the destructor only releases a lock
->> that was taken. ACQUIRE(mon_sel_lock, ...) works as before, including
->> ACQUIRE_ERR() returning -EBUSY on failure, and there is no
->> unconditional variant left to misuse.
->>
->> Reported-by: kernelci.org bot <bot@kernelci.org>
->> Closes: https://d.kernelci.org/i/maestro:66f869ecbbb5b8592562ffd89f049c5ddf682547
->> Closes: https://d.kernelci.org/i/maestro:647269216758644837afcaac8e67d8dbe713a0e2
->> Fixes: 0db1715e4c9c ("arm_mpam: propagate MSC access errors for hw_probe functions")
->> Assisted-by: LLM
->> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> 
-> Looks good to me.
-> 
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> 
-> Thanks,
-> 
-> Ben
-> 
->> ---
->> Changes in v2:
->> - Use an if statement in the destructor, as suggested by Ben Horgan.
->>
->>  drivers/resctrl/mpam_internal.h | 7 ++++---
->>  1 file changed, 4 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index ee7c3953a9b6c..1f86cc158100b 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -203,9 +203,10 @@ static inline int mpam_mon_sel_lock_init(struct device *dev,
->>  	return devm_mutex_init(dev, &msc->mon_sel_mutex);
->>  }
->>  
->> -DEFINE_GUARD(mon_sel, struct mpam_msc *,
->> -	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
->> -DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
->> +DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
->> +	     if (_T) mpam_mon_sel_unlock(_T),
->> +	     mpam_mon_sel_lock(msc) ? msc : NULL, struct mpam_msc *msc);
->> +DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
->>  
->>  /* Bits for mpam features bitmaps */
->>  enum mpam_device_features {
-> 
-
+>  drivers/dma/arm-dma350.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 09403aca8bb0..4e17130de6c8 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -63,7 +63,7 @@
+>
+>  #define CH_CTRL			0x0c
+>  #define CH_CTRL_USEDESTRIGIN	BIT(26)
+> -#define CH_CTRL_USESRCTRIGIN	BIT(26)
+> +#define CH_CTRL_USESRCTRIGIN	BIT(25)
+>  #define CH_CTRL_DONETYPE	GENMASK(23, 21)
+>  #define CH_CTRL_REGRELOADTYPE	GENMASK(20, 18)
+>  #define CH_CTRL_XTYPE		GENMASK(11, 9)
+> --
+> 2.54.0
+>
 
