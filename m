@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AD6CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DEBCA9EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+3CqiaAxQ5Dv0GtkZ5CxmnUA/r641bbuVCbWTaIuXY=; b=QSfdinsRRLODxfA+HpwBNZ4e2f
-	H+CZ0H67mJ9Y5sAyNCGuDqnNCgIflems7TGP+oC/kBGEvdtNL0HOzQNFySCmU2b7bNOWWh+FkPwFW
-	gcXxZzNJs0kKRWGSjG599woLQnaz5AK+a3K4M9w2/1knhyDLeQFIMUrXWAXYKLukj1pcTdsaOGtmg
-	dsdL5z6abUohxpjObz/6pKDpeiwVHm0RtINrst5z8KlUQpv0Zwj0VQQITDafibMrRcmSMcQ2tCTFQ
-	dX1YgqN0eiBTMMyAx0OFgABVswgNotzzSx1PhaTmUGdD0b7xfKhAU94nJQ4yt2RF2X3NoyuolLhU7
-	Q/89eDgw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DHJIcex1DOOwfb7wBziSnUdRK7Fg3z4DgEh1GWrSF5s=; b=ga2FAum9XVY+Gi3ADAufWiEgIL
+	bodCjPGKUsraoodFpz0r0CQZjZ2TdRmN9r+rG9clCvYyWidzxxXVlfNSu7mfQoFbu9SAc7za5OlgV
+	2Vxt06X87qjWG6HLgBFkTZSNm8UwtmaThrKrISCbT0ypMgWCUyQO4kMOx5xcyMQFr4mxxuI5iMjEq
+	KJrYr2a+WU8ayr9ba6f8gg5sVaLboZ2Ycpsl4cxFibr1H/Af3uRxCwmo/7r53NfCoo0Iv6hmGXGHy
+	PqAIDw/SNN0t4NHef2QxvscApOOX8uzvBbQc5Ot7hC9tetPAFd2aJQfOgzxks2al8Sgdq4Y4DLHo0
+	6rQLMRiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcE-0000000BXik-2WKh;
+	id 1xGNcE-0000000BXjB-3nmO;
 	Mon, 12 Oct 2026 21:31:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcD-0000000BXhx-2jHS;
-	Mon, 12 Oct 2026 21:31:25 +0000
+	id 1xGNcD-0000000BXhy-3nBt;
+	Mon, 12 Oct 2026 21:31:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12C9343E9B;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DBE3601E4;
 	Mon, 12 Oct 2026 21:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D85E6C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id ABEFEC2BCC7;
 	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791840684;
-	bh=GcFzL4ELL+nj+IyYHX4ybTeXBADFAD0vifTNK3LDVpE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JUujQ7gZEryMLbfpU/+xwAy//VOL6BczdfDYLGKRwdHOSdNvpoLCoG8vt5Lmp5Q5w
-	 oLaLn6ZexYSve4umd/bGAvbhRayPc3yNmTyMOzrhQUL/mpTPy7lUgPBUBj1h+n/VP+
-	 UjzZ50WC/1a3cQFWJEO3J2eIfGDBiJs09wSQmXC2cyQ/TePeIxWctwdP6/HhnQyLcI
-	 xZP3jyoqCILgAARdAYjm1E6hWskNEbRt5RJYVBeqonGetbxQZ/8TUm0tt+WwEh81He
-	 IIc11sRBcFXoUo3RTg4s7fa1Rfg8pZApkGlZvEzr2QbpBsWgLhJpLeh+7o+o8YRC64
-	 S8j9HE3M4YMpA==
+	bh=xNIifAwkZ3zfHyHYKd9B57SvHI2QibtziT5cigfmjhE=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=kXTm5pdnCy3IRjdn9Lr12jz98+/eex9QJtstCfUSYlJHekV9PAotzWYRlaDp1ikc0
+	 /+QLlWc7IApI+g9CaTM6bbxwnbcRmfertsYOh+CNiSB71CSk3KF/R3BdElLQ41na5z
+	 399+jXniHhXK6gv+cc5eMYcKqhlJTS6qNoo+ZuLrbI0VxcSKTVJy/e50Bz0nu//eeS
+	 HraYUEv4UcaAX1isZU1hofX019h1Wz8Dy8LvzVYn7ntOjrDTJpQooNhZ6Hy0Ii6xFr
+	 j98SlqzXNWHCNX+cCLSbJC/xzfUe1JRYlnRLKRcmzFM/i4mc0401RBIrFJBHz+RjCD
+	 6T44uA7yH9mNA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD458CA9EC5;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95FEDCA9ED0;
 	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
 From: Vladimir Kukharenko via B4 Relay <devnull+vladimir.genproof.com@kernel.org>
-Date: Mon, 12 Oct 2026 21:31:19 +0000
-Subject: [PATCH 2/5] lib/crypto: mips/poly1305: Fix 32-bit length treated
- as 64-bit
+Subject: [PATCH 0/5] lib/crypto: Handle large lengths in poly1305 and
+ chacha20poly1305
+Date: Mon, 12 Oct 2026 21:31:17 +0000
+Message-Id: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-libcrypto-4gib-lengths-v1-2-ea566c129a2e@genproof.com>
-References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
-In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
+X-B4-Tracking: v=1; b=H4sIAKZRzWoC/yXMQQqDMBBA0avIrDsQoyjtVUoXThzjFImSiaKId
+ 2/aLt/i/xOUo7DCozgh8iYqc8gobwW4sQueUfpssMY2pTF3nIRcPJY0Y+2FcOLg06joqr5tLNW
+ WTAc5XiIPsv/Gz9ffutKbXfre4Lo+98koOXoAAAA=
+X-Change-ID: 20261009-libcrypto-4gib-lengths-c3d762b42b0a
 To: Herbert Xu <herbert@gondor.apana.org.au>, 
  "David S. Miller" <davem@davemloft.net>, Eric Biggers <ebiggers@kernel.org>, 
  "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>
@@ -64,11 +66,11 @@ Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
  Alexandre Ghiti <alex@ghiti.fr>, 
  Vladimir Kukharenko <vladimir@genproof.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=2076;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=2752;
  i=vladimir@genproof.com; s=20261012; h=from:subject:message-id;
- bh=fo5zvO7UGWzgKX7Y6Cw4E2/Klsa+sRLhgZA+i34R0sg=;
- b=qNZ/9YoLUTr8vXw0bDqkJZS43lC7EbywsG6X/i3+sSaB8XXjEggmfsTbfNvgZUWX0Tu6pxc7B
- To4AbqoJXZaAUjuzCKv2HtNnM2a74xvrwkGl+SRB1gqKqFv4A28EdkB
+ bh=xNIifAwkZ3zfHyHYKd9B57SvHI2QibtziT5cigfmjhE=;
+ b=B2tj45pTmtk9anofHBHKuIunQaJ4YIVf6sAPMRE6NnR+PqTO4gXf5G7YQ6HSQ3nbZwUk52mc6
+ urC1etknsSRDRB63j1A5Z3xo93zQm9w3fAKY4uadRO3N3ROLIrvq1nr
 X-Developer-Key: i=vladimir@genproof.com; a=ed25519;
  pk=EqOzBSKBgFn7ExzKj5f9T8u+1yTrGVlLBwf3fj/sdHM=
 X-Endpoint-Received: by B4 Relay for vladimir@genproof.com/20261012 with
@@ -89,54 +91,63 @@ Reply-To: vladimir@genproof.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vladimir Kukharenko <vladimir@genproof.com>
+This series makes the Poly1305 and ChaCha20-Poly1305 library code handle
+large lengths:
 
-The C code declares the length argument of the assembly function
-poly1305_blocks() as u32.  The assembly comes from OpenSSL/CRYPTOGAMS,
-which declares the length as size_t, and its 64-bit flavour uses all
-64 bits of the register.  However, the MIPS n64 ABI keeps 32-bit values,
-including unsigned ones, sign-extended in 64-bit registers.  So for a
-length of 2 GiB or more, the assembly computes an end pointer 4 GiB
-lower than the correct one, below the start of the input, and the loop
-reads past the input until it faults.  poly1305_update() passes all
-complete blocks to poly1305_blocks() in one call, so a single
-poly1305_update() of 2 GiB to 4 GiB triggers this on 64-bit kernels.
+- poly1305_update() can write past its 16-byte buffer if it holds a
+  partial block and nbytes >= 2^32 - desc->buflen.
+- The chacha20poly1305 functions use only the low 32 bits of their
+  size_t message and associated data lengths.
+- On 64-bit MIPS and RISC-V, the poly1305 assembly reads past its input
+  for lengths of 2 GiB or more: these ABIs sign-extend its u32 length
+  argument, and the assembly uses all 64 bits.  arm64 has the same
+  prototype mismatch, with no known failure.
 
-Declare the length as size_t, as OpenSSL and the x86_64 code do, rather
-than changing the imported assembly.  32-bit kernels use the o32 flavour
-of the assembly, and size_t is 32 bits wide there, so nothing changes
-for them.
+Patches 1-3 fix the assembly prototypes, one architecture per patch.
+The assembly already treats the length as 64-bit, so they declare it as
+size_t, as commit f3d6cb3dc039 ("lib/crypto: x86/sha1: Migrate
+optimized code into library") did for the x86 SHA-1 assembly.
+Patches 4 and 5 make poly1305_update() and chacha_crypt() take size_t
+lengths.  The patches apply independently, except that on 64-bit MIPS
+and RISC-V patch 4 relies on patches 1 and 2 for inputs of 2 GiB or more.
 
-This bug was introduced by commit a11d055e7a64 ("crypto: mips/poly1305 -
-incorporate OpenSSL/CRYPTOGAMS optimized implementation").  No in-tree
-caller passes 2 GiB or more in one call, so this is an ABI robustness
-improvement.
+No in-tree caller passes inputs this large (WireGuard passes at most one
+packet, big_key at most 1 MiB), so I consider these ABI robustness
+improvements rather than fixes and have not added Fixes or Cc stable tags.
 
-I reproduced the fault on mips64 in QEMU with a single 2 GiB
-poly1305_update(), and this patch fixes it.
+I tested with the lib/crypto KUnit suite on UML, x86_64, i386, arm64,
+riscv64 and mips64, with a temporary 2 GiB KUnit test on arm64, riscv64
+and mips64 (it oopses on riscv64 and mips64 without patches 1 and 2), and
+in userspace against OpenSSL for inputs above 4 GiB.
 
-Assisted-by: LLM
-Signed-off-by: Vladimir Kukharenko <vladimir@genproof.com>
+I found the bugs fixed by patches 4 and 5 while writing Coq/VST proofs of
+this code with LLM agents, and an LLM review of patch 4 found the one
+fixed by patches 1-3.  I used an LLM-based assistant to write the patches
+and descriptions, and reviewed its work.
+
 ---
- lib/crypto/mips/poly1305.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Vladimir Kukharenko (5):
+      lib/crypto: riscv/poly1305: Fix 32-bit length treated as 64-bit
+      lib/crypto: mips/poly1305: Fix 32-bit length treated as 64-bit
+      lib/crypto: arm64/poly1305: Fix 32-bit length treated as 64-bit
+      lib/crypto: poly1305: Take a size_t length in poly1305_update()
+      lib/crypto: chacha: Take a size_t length in chacha_crypt()
 
-diff --git a/lib/crypto/mips/poly1305.h b/lib/crypto/mips/poly1305.h
-index 85de450f1a93..9e9147f40d17 100644
---- a/lib/crypto/mips/poly1305.h
-+++ b/lib/crypto/mips/poly1305.h
-@@ -8,7 +8,7 @@
- asmlinkage void poly1305_block_init(struct poly1305_block_state *state,
- 				    const u8 raw_key[POLY1305_BLOCK_SIZE]);
- asmlinkage void poly1305_blocks(struct poly1305_block_state *state,
--				const u8 *src, u32 len, u32 hibit);
-+				const u8 *src, size_t len, u32 hibit);
- asmlinkage void poly1305_emit(const struct poly1305_state *state,
- 			      u8 digest[POLY1305_DIGEST_SIZE],
- 			      const u32 nonce[4]);
+ include/crypto/chacha.h     |  4 ++--
+ include/crypto/poly1305.h   |  2 +-
+ lib/crypto/arm64/poly1305.h |  4 ++--
+ lib/crypto/chacha.c         | 15 ++++++++++++++-
+ lib/crypto/mips/poly1305.h  |  2 +-
+ lib/crypto/poly1305.c       | 14 +++++++-------
+ lib/crypto/riscv/poly1305.h |  2 +-
+ 7 files changed, 28 insertions(+), 15 deletions(-)
+---
+base-commit: 6a50ce0af5c91fd665d65d357af8ae55db1df7d0
+change-id: 20261009-libcrypto-4gib-lengths-c3d762b42b0a
 
--- 
-2.43.0
+Best regards,
+--  
+Vladimir Kukharenko <vladimir@genproof.com>
 
 
 
