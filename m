@@ -4,122 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2C4CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54962CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=; b=gRiIrRZ8Ilqt7URcbNHuq7MKom
-	iFggaJRk0B8/xSN89bHjbNIkfwGH8Te5MPmGspXYEXr08UkQzzKuENITW8AfYvQavv4cDZ21rfykS
-	XB1NqO9+HpjhX9yKeh+z8zeqA128AJtomysAG/TrMX2e/GgyltNkket256CEHS1iF4qicXm28Oifi
-	Ipjjy8n727eMvLPgCKaEXrtVqMab3YruXpD2vAG9tKH8cV4vSDFeIQBCUOHA0s8EykNcPn5m74qKP
-	lKF5r8L06FEgN8isx6g6tgp4omvClyu5h++/4U8zRlZuLev1Pmkz0Eh0sCN4HsCnmNRy8rC/h6FCB
-	uIw+BIXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u1DLHRcFWGRMXj45+dEiiprV4k2SPY5qTAHRqmLZ7S0=; b=TV/Px1eWKLf3Aa8hbyTVjLcrM+
+	lsCdydwiYm+o5RIREI7ZK8cdAB+CpTCYBGzpSBNsP1nXfO03ftTz7ea5qgzcTxmBCZ53JutaKTUKu
+	nkqbxvdifLYkhQwgbuWcOTf64d6m/52xnDz+rAYkl5DnDGq2JV3aAab28TC5yvLLdXx7k2xtsUNjo
+	kkDhWE3I64U2/D4ur1KuxprHwK8kD0t4vzVR+po0GW6N9RXg32S44WaDECac3QMn47RxmcdQR9YYs
+	lvKhOfXnUeVSjTwQqk8YSebTzs2qDCBmU72LOOr+PRhSENWuyikWfDZzc8LUI9uDRyMV9uFTEyuCb
+	y2c7uQNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCIG-0000000A3OU-3LZn;
-	Mon, 12 Oct 2026 09:26:04 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1xGCIa-0000000A3Vy-29vd;
+	Mon, 12 Oct 2026 09:26:24 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCIF-0000000A3NS-11eC
+	id 1xGCIW-0000000A3Td-3Uf8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:26:04 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a021c809e3so16343115e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:26:02 -0700 (PDT)
+	Mon, 12 Oct 2026 09:26:22 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-3a1f628b1d1so11644461fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 02:26:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791797178; cv=none;
+        d=google.com; s=arc-20260327;
+        b=F12PaQlF2ZQ+Vh2Lot7vbbHwV0l80irv4sxsopojHx/RA/k392+FsdP8xTH7jVAk/m
+         k0986qjqTvHoQaU3s8jnigr5fHjIXj0Ds4qELjsOkD+kKib2lPaueCtRNno9Q7NscQ5u
+         K/2wbt31F9Jl0I3T7P9QDcxG4w9rLZNbtnACSdH+40i0VRFMVpzC81j0YMtQk/ypn07P
+         FZO8HUKpl0WalQCRG+i7TqfvJIjfH6oUPbi7DZ/R5585qTT3SIdIqwQa1phSkas0U8qx
+         cC4EGp5CdtUMZgXO/DkJM5MUTIAQ0HcRkdVLjykHPvLKLoz75lTvHTRWGrgnvC8e6gWV
+         1vPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=u1DLHRcFWGRMXj45+dEiiprV4k2SPY5qTAHRqmLZ7S0=;
+        fh=HNrp2XVE9cdmun2nkEi3T6HQdW0zGLXPnx9FZBbl6cw=;
+        b=T0WWnFRxdc5+XjwkuDl1EUwq1SCBXLFOGbka4tD+N0q6B9q+eiGc6089kit93bkaZ/
+         3YVy6+9J3K78TkdJSlgx33WB79AMCXA+9KuJ8m+61I86ksgej+eMc6HrtukI82QzecLf
+         cQQtvyIg+BF9hY0YgfULBWAmup8e3KrZwLkr7rhrhuZ00w8Z+HiweFkT8TGb7DfOLOig
+         tkeKk3WmwGfVu6ozMUlLVHeTc0kNoHr4hJR6I3RYrA5BtJgmogReq0aGUXW/ElupTebn
+         ibydiIDWfC4gF4itLoDCrgv7W3R1GH5Biz7bHL5tr7VmWVtYIgxLiEVZ3EbvFEDlE0pa
+         FpWQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1791797161; x=1792401961; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=;
-        b=poSaJ+q8Zx1cUWm0ATNJysjTKz4wbvigoTZmex39+4KzBd0oMfNlE0tzg+m022wvCt
-         PSd85djbaVOrWVrUt37xfGBWbCBV728JHrghq46xlwYmMr3vcuQPk24QxKbM+VRvUz6C
-         5v3RuWoJEKDjNfFhD8XoZZKu2QZ42S7CFmg2Y+2xEJ6k/EA14nQQ3uJclfq7tcd64PtA
-         Adqb8wAFEnNADE3oASiNNGs0je7VScuHNLlbl++gxydNzet4tmYfr9pIUNKD29QrP0xT
-         R4l2HyNC/OYcyzCPqM6OdQuNkp9DlsDnCCoMTVg5eA/yupfJ2fNGKPuy4sbnDxbADYX9
-         Sazg==
+        d=gmail.com; s=20251104; t=1791797178; x=1792401978; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=u1DLHRcFWGRMXj45+dEiiprV4k2SPY5qTAHRqmLZ7S0=;
+        b=U5SLEUJT885x2DefXnAsn6qMoA5gCCFQVqCis2tpRwXKWqQKtEXen3hbf5SKt/bXQe
+         T93e/0zxjTERDbZlX4e+74Msos/LzOUt1y04zoJwbi9e0hiHXa8rFAN7FobWkisxkroH
+         ULaErBG+4UcFJtp/nb+4nkHj32YilhFxfo08iq+isqwltKq+0mEHbkcMPIq3bWAUrRQd
+         hvyiCLYTmKQfY8eaPaB0Su7R+woQAeQqsPmsdbUQf8Kzbr7oWtKT39AYeoKsUtNM6kfL
+         lDQgnFG5s/gPXovMW+Asv1vfP8AJCVAhDgJcpmkkd+zXfYDMmD0g4MrzhFL3wOewl/6c
+         RvNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791797161; x=1792401961;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Gk95jI3lhRqF+q2Y0sX+t13akZvJa78d7yUGx/ACAu4=;
-        b=zJwFV8bnXKsF+t0SS2/aZNzejVQUdAtaoK9Pf2ctFvvnd3NKEFhoX9/5FTgkFe6SXG
-         QMLgzAEwb+vW696MGAtl0u314kl1Ja+DLhPdyDEV7LOjo7hVxfBwJPjJp+TkkejCSF8c
-         jgj/kBEEMFyJJLuWhFo2zu6eQSkK+936HVi5fqv1H2GEe44uPBDMGTeOHl8TtnRXNLBl
-         02Y9+rDkzU/iC8te1H5jMpgcfYu/YMM+GYGVqK3wCqgYrD+e6xPCPxA48C6dudel3Ci1
-         ennmcVE1d/ZNpOhfuyZXj5k4J5b4MVorAuXo0dFQD6dMISLKH4Qxo2VJkC17mslj3K6r
-         aTtQ==
-X-Forwarded-Encrypted: i=1; AKwUvByeHHJ7uBYvifnitWKZyKt0z/4XH1g3PVairPOdC3WTU9fqmbxleHvR0DE1VlJ83mFaPrYDtgN4Y58+9S6eRKou@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFcYYp/5UqrDvzN0dcVbafWaqLAkIT9NPHNUe8Xqr2itKuvREC
-	MkqafM1pnnBk8AKkbPmRPD+nC19VLQ/MVCik9UMCQUjN3bd9Gx4ZkHOSPQWtUor4YOs=
-X-Gm-Gg: AYBFou3IzzVr+CkHaVK5NaTdtRC1STlnJMctFmUKluLCkEWYm7OfqsFYhixCCzylhXS
-	4t+NMHi+BAY3ogtr2rLCifbMMjJZUjdWzUXxyK7BZ1tQ9yo1d+DkuldcxKzZGMpiresDnEc0hWR
-	eWxUccpD6BBnPzAp1WziZeRWCbC4/FVCx77x0xs9n6Te5vHQkZxKoGflyPe6qGgrmG6hL7oKgsh
-	qpS+J9kJnBTn4EvTP9h6dzXz27HpQ5AwCWszH1YyswMCyvKsgsdEEsX7dzMRWT+nt8lrn50rG1t
-	Wpimo6ELin5JuIBOz1X/tjlwvs+6Yd1jLr5V+td7Q90TEBstcudOLXUn9DskEOCRsIo097fY9Al
-	7gtAlHWhJQ8qsIVttOWrNqAJQoxaxOr32UZMr+PfFP+CAATT7262uRVUloh9FevDrblHCgAmdkU
-	acCcOME7VeKWOWNtoBwzI4QQ7cJLO7LfxcVdfDfPRoLV5jEZVFoKz5sj0f+7X7M64efoKabulVc
-	5qIFjp7Ao0P5bgtZ7EcmZjXC3dN0k03znqyPcNGcPtyZXAaT/w=
-X-Received: by 2002:a05:600c:8b28:b0:49f:bd3c:bc1b with SMTP id 5b1f17b1804b1-4a18e499da4mr171146595e9.22.1791797160966;
-        Mon, 12 Oct 2026 02:26:00 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:417e:f4c4:5b8:8c48? ([2a01:e0a:106d:1080:417e:f4c4:5b8:8c48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9ac6a91sm16729294f8f.41.2026.10.12.02.26.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 02:26:00 -0700 (PDT)
-Message-ID: <1a940a0c-0a90-4b8d-831f-300c2cf02ae0@linaro.org>
-Date: Mon, 12 Oct 2026 11:25:59 +0200
+        d=1e100.net; s=20260707; t=1791797178; x=1792401978;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=u1DLHRcFWGRMXj45+dEiiprV4k2SPY5qTAHRqmLZ7S0=;
+        b=rHimC6n2UACM/9M7M6lTfof/SpGPvG6fIVyYgd4PepgCiN3mjue5v+aZdudcQJcXI4
+         8RvfuD6tzO06/0vSbrp+NDtna4RG2zLoudbYbD7FOQgEFHRB0toc79UA0aqVbC4FSBZC
+         CLMjdhkXVSoTwGZlUoDBOscm+MK1VF9gRrPlm0ZAhzjmgCDATqVsWj2xhUqIxhQM6904
+         HYFcFPs7BaULH7PIl6Js2noGTFM6czrQ4ILQqhZwoci7StN4EQoQlU41BFNCBV3YH8LP
+         5D19CFeLXutWKWmNe3ZpJsSSujxGdqGyC24/n7NUhPorGWm92ojIhUG8gaboHQPE+Fco
+         EWkw==
+X-Forwarded-Encrypted: i=1; AKwUvBxMRxDwOMnvAyN5jxyQae6s/imoXrMkVbEtldrmmvhdovJifzdtC3fIXaxHuRWHZ8CGRWPJP8Qo1IHQ2wJiaBqG@lists.infradead.org
+X-Gm-Message-State: AFq9FYIvd9B5A0FZMQFhhXhNuEEZpl8jLNnd5AGtCxs8ck6N5VOAWOns
+	Om+6eFbkM8k1lCAPtWzNUxZWQ839rLwOMrKkpKZWmraVnnIYJf2208cuIzyqapka4YhHM7n8TCq
+	P/S4i9smCeK1paX3hzmq8HqqNYl+2br0=
+X-Gm-Gg: AYBFou2GdY3OFPxra/PsbXNvVaLdd+HhxMn/RBR6/F2r/fY8VOoHwzEhrLTAG+gor4f
+	UH1j5zj8XWLy/66DmJrGOUUzyPNfVczCAjF/nVCqBWohnKVJRYz5IMppeSNwq5jwsfT1qniH9W9
+	riHvFDmuZQHV+QQYCnBhOSKiYhoVJkfg9EPv5sRDtrinujTvntRlz8bQiDmKtvtOiHqInO9DXrj
+	zZyf0OMGh49/alZUmq/Shngc1L0z4XhEz8xTESlKvfMQLr4CzeYPGkN/JQ3z4YHEwvGeOISfJ/Z
+	p3sVa7fB1oFdTQGqHbUffAkRAg4VpQvHuuBrlemr1CnNSL1uPvU0BbK6NgGpU6+s5x3bfheG+eD
+	QKKy50BS4gd7LmBmSjcOLIsZMgRFD/sUXa+vyPurSrAWZyvNXDTLxUax2TaiOT56FQeAhkRfSEi
+	zsrnI+kXyjyjOVyZmQLqrriW/xeHhNyALLCSaz4DbD
+X-Received: by 2002:a2e:b888:0:b0:3a9:9b74:b035 with SMTP id
+ 38308e7fff4ca-3a9c5352a7dmr19646981fa.10.1791797178338; Mon, 12 Oct 2026
+ 02:26:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 1/2] arm64: dts: meson-gxbb-odroidc2: read the Ethernet
- MAC address from eFuse
-To: filipp.dunsky@gmail.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261011-odroidc2-dts-v2-0-a3a4a752f2ab@gmail.com>
- <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20261011-odroidc2-dts-v2-1-a3a4a752f2ab@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com> <20261011-gpio-mxc-cleanup-v6-6-cb47ce2ad758@nxp.com>
+In-Reply-To: <20261011-gpio-mxc-cleanup-v6-6-cb47ce2ad758@nxp.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 12 Oct 2026 12:25:41 +0300
+X-Gm-Features: AclHuK9GwblMnTPQvaiV3jDrr3vRaqwQVyHQB-cZx-ew8f4fHdAz2Ca3vyaKuZQ
+Message-ID: <CAHp75VcadkqzMxShq1PLzqgNZypB+vqr3a_m1utu-NOx39iK1g@mail.gmail.com>
+Subject: Re: [PATCH v6 06/13] gpio: mxc: replace of_device_is_compatible()
+ with hwdata flags
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_022603_374124_9D4351A2 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20261012_022620_896909_93780997 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,63 +120,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/26 20:31, Fil Dunsky via B4 Relay wrote:
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
-> 
-> The vendor programs a unique factory MAC address into the SoC eFuse at
-> offset 0x34, where meson-gx.dtsi already describes the eth_mac nvmem
-> cell.  Reference the cell from the Ethernet controller so the kernel
-> picks up the factory address itself instead of depending on the
-> bootloader to populate local-mac-address, or falling back to a random
-> one when it does not.
-> 
-> The cell is 16 bytes long in meson-gx.dtsi, while
-> of_get_mac_address_nvmem() only accepts a cell of exactly ETH_ALEN
-> bytes, so narrow it to the 6 bytes of the address for this board.
-> 
-> Tested on an ODROID-C2 with the bootloader's MAC fixup out of the way
-> (ethernet0 alias removed from the DTB): with the 16-byte cell the
-> driver falls back to a random address, with the 6-byte cell eth0 comes
-> up with the factory address from the eFuse.
-> 
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->   arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 7 +++++++
->   1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-> index 5943bc810..3b74528ef 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-> @@ -223,6 +223,10 @@ &cec_AO {
->   	hdmi-phandle = <&hdmi_tx>;
->   };
->   
-> +&eth_mac {
-> +	reg = <0x34 0x6>;
-> +};
-> +
->   &ethmac {
->   	status = "okay";
->   	pinctrl-0 = <&eth_rgmii_pins>;
-> @@ -230,6 +234,9 @@ &ethmac {
->   	phy-handle = <&eth_phy0>;
->   	phy-mode = "rgmii";
->   
-> +	nvmem-cells = <&eth_mac>;
-> +	nvmem-cell-names = "mac-address";
-> +
->   	amlogic,tx-delay-ns = <2>;
->   
->   	mdio {
-> 
+On Sun, Oct 11, 2026 at 2:54=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>
+> Replace the runtime of_device_is_compatible() check for "fsl,imx7d-gpio"
+> with a flags field in mxc_gpio_hwdata to move the power-off capability
+> from a per-instance bool populated at probe time to static per-compatible
+> data.
+>
+> Introduce MXC_GPIO_HAS_POWER_OFF and a dedicated imx7d_gpio_hwdata
+> instance that carries it, along with a mxc_gpio_has_power_off() helper
+> that replaces every former port->power_off test.
+>
+> While at it, factor the register offsets shared by imx35 and imx7d into
+> a MXC_GPIO_HW_DATA_COMMON macro to avoid duplicating twelve identical
+> initializers.
 
-Thanks,
-Neil
+...
+
+>  struct mxc_gpio_hwdata {
+>         unsigned dr_reg;
+
+>         unsigned high_level;
+>         unsigned rise_edge;
+>         unsigned fall_edge;
+> +       unsigned int flags;
+
+Obviously you need another precursor patch to move from 'unsigned' to
+'unsigned int' in the whole driver.
+
+>  };
+
+...
+
+> +#define MXC_GPIO_HW_DATA_COMMON        \
+> +       .dr_reg         =3D 0x00, \
+> +       .gdir_reg       =3D 0x04, \
+> +       .psr_reg        =3D 0x08, \
+> +       .icr1_reg       =3D 0x0c, \
+> +       .icr2_reg       =3D 0x10, \
+> +       .imr_reg        =3D 0x14, \
+> +       .isr_reg        =3D 0x18, \
+> +       .edge_sel_reg   =3D 0x1c, \
+> +       .low_level      =3D 0x00, \
+> +       .high_level     =3D 0x01, \
+> +       .rise_edge      =3D 0x02, \
+> +       .fall_edge      =3D 0x03
+
+Why?! Just to save a few lines? This makes it harder to follow the data par=
+t.
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
