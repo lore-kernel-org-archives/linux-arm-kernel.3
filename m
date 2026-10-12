@@ -4,113 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C11CA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D217CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IRQC0PbnL5aoeQCewgNON3zLqyfUoM4EnhixV5EbvJ0=; b=QSso67bTV7/DlZp6a5YlJOpmiV
-	/y8SdBKqwJzOJsYu3+zexm+IBpMwxgPmXl3AIV+mp6PUa5DLlwGU20SysaeRArsBzrnHonu8VIlaK
-	ClehAjq7YCLmJj5/q0BRUtdcgFh5fHJONg3ITyJYMYpdldZ/9gmsFuKt94WNtXotJ25S/P1ovpyVZ
-	Egyi4XKoedKjuSDCoXJxIt00DKq0THX2SjttohxqEoF4b7qYq34xKwUkmLW2k6iLxbGox76CHPNkZ
-	/S1pv6jCuMgJ/VYMU/NzM+d0bfKc5J5r9yrW/6f/p6xnKwToTHuQE8r0Qe3JHyrhUksJXD6pdKlS9
-	LoEXrFzg==;
+	bh=KiOo/wZD2K62xmIXsdM9wvMcd8ElF/qU/XGwGHVWNnM=; b=4ricGlTuAbwOzvmM38dUR+BZS2
+	2udRtz484W0PHAPq2X4Q4a4LFvgluRARaVa/eZ0fBJCbQYafVyUcymgQXjPkr9M+SilV6UA0VL/ND
+	2jzm4qIluEs9tkuUeZ+lKX8XdUuen6AkzpaKq3wrp/X9EJD/t5vgUngq4lpANLIsYtKnv/HVod4Sv
+	fbWaAFuH+N2i253Jv9vNTZpfZHoJY2b6DeT/FjXf5MuF6O8Y87vqBL1xUjqC6hhuEe7OlqpYvBzzL
+	/LSo2+Smmq9ahZxtVk+2HH/CktBfigeBiNBVt879mYw6GBWl4Q/U0BtKmRjtPIf+cQR0BpxeN1ynU
+	AyVIQJ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGG6T-0000000AZXk-1Wf8;
-	Mon, 12 Oct 2026 13:30:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGG7Q-0000000AZz8-3MH4;
+	Mon, 12 Oct 2026 13:31:08 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGG6R-0000000AZXF-3XT0;
-	Mon, 12 Oct 2026 13:30:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78B94413AD;
-	Mon, 12 Oct 2026 13:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5AF61F0089B;
-	Mon, 12 Oct 2026 13:30:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791811807;
-	bh=IRQC0PbnL5aoeQCewgNON3zLqyfUoM4EnhixV5EbvJ0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WHYH4W/O+WNRGKJ959IvlnVPR3K19TUntxG+0+bTiBcGY+x/vUyKlmLbKvjSixQGR
-	 LN0Dchv8qLT3ba/IAy9vzyZI5AXwhyBry8Jkrsta1bLILtbVINHihXarzwp6RPJqb6
-	 gzP2EJ3E8I8+fHrDSHcnfYdSnZLlnDHyeessGVqMbzr7mPULBQrXkynHRr78M4D5kA
-	 5ZVirM11w9NhVs+BExU/x7JoZrwxmDQp5BIxPdFTYDwVO1elZKouBxQ72/YSMhR3xs
-	 ebuYlWC1XeWBmmW00R5rQB6LyNMf+Q3TVRqCIPVuBkdfutgKTG3b7juEewu6cVzeFK
-	 4vQchpcKYtVxQ==
-Message-ID: <f5dcf4e4-5308-4d1f-946c-2deb4933217d@kernel.org>
-Date: Mon, 12 Oct 2026 15:30:00 +0200
+	id 1xGG7L-0000000AZwZ-3EaJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 13:31:07 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6b1afdf5196so600451eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 06:31:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791811863; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FaTrlIpHP8OP2iQh6uQhtEKefPI3GkfmyqmvNJwXBlODiklKmpITrRKzp8xvgFFs+r
+         yIUNV3Ier4Bt8kBoxytAYoqkCr5m0qY7k4EQbFPUPlafk4x3SX77NymNv8ov4/HxV5nA
+         RHNTJAx+9FupuOnhD0c5D2K1Tm10f8/DMwGF5Zsamduz5FyGUnnx42dB2bTopg18O6za
+         2tVzT+YRVuIRRPn9K42lDY4qDRV7Yatur8W9logxEgsY6SRgZGC5ySzNCRjUIJg3/5aR
+         n+j3sXl1LYq5TdcJoWpK9PWH0OlW8NaI0qZ9PeXtI04kWgezSZULh6/0/B0zKpR5V+nz
+         03yA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=KiOo/wZD2K62xmIXsdM9wvMcd8ElF/qU/XGwGHVWNnM=;
+        fh=Og4B71tD4sfSQWa33rgIQMOnP8Uzlco9QJd4edMU/Xs=;
+        b=AgeJ7DXX9MDah+kzvZuNhFq7/krYgczR0DnWlmFQaJzXctiy6YNQNOmtOjM+IWIIk8
+         px06xlxzka5q8NxG0wVOO3plQwHzTN7ib50zY21vSKsJLt7QnzpFEm08VwXHWHmTSgEF
+         OXAkVAnvtIEFaJh66IPRcn80tyrzkrbmv/K8O9sIIWg2ckuXVl25KzZ8to7n2H/GLTxD
+         wvrqqJgNqffVAci68fGXQm9pOHcDXZuNLSn5KDh4e50khXRfVuzGdUF/NLqwD9sA4kd0
+         OCCSuRuwxFmWeNUkha1BnTtudApNzfH2YrdXdVhDew39AzSRcb+k/8F6hutN30Kfrth6
+         5Ujg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1791811863; x=1792416663; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KiOo/wZD2K62xmIXsdM9wvMcd8ElF/qU/XGwGHVWNnM=;
+        b=NS6w3IRsCY/G1aU2LmtnZoHTKjl4iCTIh3lZAbpbzFAfHpfY+LKtywertArKgXWfBA
+         8sAt+8+YaInCgkEhI84F9MOVVZ+j9Ve8s4mBM9tdMSa7kI+/F8APJXILujFE+OQxCL9A
+         IbDm6mTmfJ9RGtWjpQLg2M9a5+B0rHF9fASALRIKCP1aGGVXkmNOVg7HV/6OTHf9nh+0
+         QUp26dhi+BarqMTbSWcxdsbutP1YqO4uySnSsKuNyzPMdSZKUOZhCcUIQ703E4DNmuNz
+         6uJTgSiBdyOFW7676W6S4BGOpiJwQdgQXXL5N+efz9pJjFggh/ZIU4QNP6ramqgAkXTy
+         FC8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791811863; x=1792416663;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KiOo/wZD2K62xmIXsdM9wvMcd8ElF/qU/XGwGHVWNnM=;
+        b=D34/Fma9G7akXXgDGtKXgkatWhfWlzvCnLCG75DyjFxPegxC9EB5To7yBQ4c0pLZjl
+         YyJeP3Vm15XHHkfSxRVMSjkkr/zpM9ViRY+hAqs38Nuzn+ZizprPLL4KjuUynwvSQLiH
+         +62r504i1P3SggW7zwOAaltoulTRibBG3dmcX80J7qCKAKCylzlgsAMG6AYHD8IZYcn2
+         AEiCwu37mmXHG0uEHXpoNQmyRDoauKrVsQ81mFH8hvwEUb0MfchdZ0CfhHrnoqW0UXDK
+         ynJqN4fhH9Ld/2uK7F69MAaf3Y4t6rmdlSOAqrUw/nD+Wb9EPMOZi7M4Q1ivdcRFX5Ne
+         8r9w==
+X-Forwarded-Encrypted: i=1; AKwUvBzYHEiwvni5RtzmVUhs3VUZKoK0p7oBD089e0Zv3BzTylw/bmmpj3rv1aoiwcBKYySex4gKtPZGm0N6wa2miDT0@lists.infradead.org
+X-Gm-Message-State: AFq9FYLgTNU2fw4Co/6LJJL7rmWDqpcw7xBs33m/Cj4yM0YqEeB7CF5y
+	mDvctLMhNSQ5w/jydpZDXUnuUnG/LQ1gb97DHnu4zNDP+qLPprqQX1jS97pm1sDbcBXHfmbI+a1
+	LEwbhdhS1AQ2N7YTiNfTFVtcuZEtIqOTMTklsJ1SN2A==
+X-Gm-Gg: AYBFou3DeUnUxBcjDdScv9j3ezBZ7A45dus+emXyMSZGLKBiTwHHliAsYKxs+kysqPn
+	n6ANea+5fR5GRXxvD4b6uqoyTWOQ+4Yf7r7a4ZbHN2s7yHTJWRVQm30lLC1yRCUDZlWbdPXHxtS
+	c1RAFhg2WGQfXXq2CPKLvp1FZEMUl67yiDmJ/ILbaC/X62JnEN9BHdEw5lNCGzhuTHhoc2oj0YI
+	OfgSuOmCDmVLUxlwaktZP/FCjZo+a9V19pQd6D5u2l5+fsXo1iQe4VC/MxZAgtbvZ043HY/6hlD
+	6IL2p1czMlIxr0XEz4c9xDV3uq5Bd/WrwpSU6x5qlRcRl5OFZ230diURv7vX5w==
+X-Received: by 2002:a05:6820:1c8c:b0:6f8:3d45:b465 with SMTP id
+ 006d021491bc7-6f83d460e36mr597816eaf.11.1791811862469; Mon, 12 Oct 2026
+ 06:31:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64/mm: fix destructor for unconstructed hotplug
- page tables
-To: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Oscar Salvador <osalvador@suse.de>, Dave Hansen <dave.hansen@intel.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Muchun Song <muchun.song@linux.dev>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-5-songmuchun@bytedance.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261010112457.49485-5-songmuchun@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260831172245.42253-1-fenghuay@nvidia.com>
+In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 12 Oct 2026 21:30:51 +0800
+X-Gm-Features: AclHuK_vMcorLODW8hzTAKchqs7y0a8-suXQ6J3y_WfRav5d6A8ZoaK1GGtrHOY
+Message-ID: <CAEEQ3wmOqR5M0LzdKqOOH3iYmL04e4tDJ0wS0UqH7FER_2+JHw@mail.gmail.com>
+Subject: Re: [External] [PATCH RFC v2 00/19] arm,fs/resctrl: ARM MPAM MB_NODE support
+To: Fenghua Yu <fenghuay@nvidia.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>, Tony Luck <tony.luck@intel.com>, 
+	Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, 
+	Dave Martin <Dave.Martin@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Shaopeng Tan <tan.shaopeng@fujitsu.com>, 
+	Chen Yu <yu.c.chen@intel.com>, Babu Moger <babu.moger@amd.com>, 
+	Drew Fustini <fustini@kernel.org>, Vikram Sethi <vsethi@nvidia.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu <newtonl@nvidia.com>, 
+	Richard Cheng <icheng@nvidia.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_063103_840072_F30EBEE1 
+X-CRM114-Status: GOOD (  35.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +124,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/26 13:24, Muchun Song wrote:
-> Commit c594b83457cc ("arm64: mm: call pagetable dtor when freeing
-> hot-removed page tables") made free_hotplug_pgtable_page()
-> unconditionally run the page-table destructor. This matches page tables
-> allocated by the arm64 mapping code, which runs the corresponding
-> constructors.
-> 
-> However, arm64 also uses the generic sparse-vmemmap population code.
-> Runtime intermediate page tables allocated by that code do not run a
-> page-table constructor. Freeing one during memory hot-remove therefore
-> runs a destructor without a matching constructor and corrupts
-> NR_PAGETABLE accounting.
-> 
-> Free intermediate page-table pages through pagetable_free(). It runs the
-> destructor only for constructor-backed pages and then releases the page
-> through the page-table freeing path.
-> 
-> Fixes: c594b83457cc ("arm64: mm: call pagetable dtor when freeing hot-removed page tables")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> ---
+Hi Fenghua,
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
--- 
-Cheers,
+On Tue, Sep 1, 2026 at 4:03=E2=80=AFAM Fenghua Yu <fenghuay@nvidia.com> wro=
+te:
+>
+> This series enables MBA bandwidth control emulation on ARM MPAM when the
+> default MB control is disabled, using a node-scoped MB_NODE control as
+> the native backend.  It extends memory-bandwidth monitoring and
+> control to memory-level MSCs or CPU-less NUMA nodes, and adds
+> documentation and tests.
+>
+> Background
+>
+> On x86, MBA bandwidth control is typically associated with the L3 cache:
+> schemata lines use L3 cache ids and monitor domains appear as mon_L3_XX.
+> On some ARM MPAM systems the MBA control is backed by a memory-level MSC
+> rather than the L3 cache MSC.  A memory-level MSC is represented as a
+> NUMA node, and that node commonly has no CPUs of its own (a memory-only
+> node that still participates in bandwidth control).  For such a resource
+> the control scope is NODE, schemata identifiers are NUMA node ids,
+> monitor domains are named mon_NODE_XX, and a node-scoped MB_NODE control
+> may be the only control with usable bandwidth hardware.
+>
+> Because the memory-level MSC lives on a CPU-less NUMA node, the driver
+> must handle nodes with no local CPUs.  mpam_ris_get_affinity() derives
+> affinity from the component's NUMA node id, so a memory-only node would
+> otherwise end up with an empty CPU mask and never be registered.  When
+> the derived mask is empty, the driver falls back to cpu_possible_mask
+> (masked by MSC accessibility) so the node still gets a resctrl domain.
+> The borrowed affinity is kept out of class->affinity: those CPUs already
+> contribute through CPU-ful nodes in the class, and subtracting the
+> borrowed mask on teardown would remove CPUs that other live nodes still
+> depend on.  Domain setup iterates all MSC components per CPU (keyed by
+> component), so each component =E2=80=94 including these CPU-less memory n=
+odes =E2=80=94
+> gets its own control and monitor domain.
+>
+> Examples of NODE and emulation interfaces on MPAM.
+>
+> ** On platform with CPU-less nodes, by default, control_mode is legacy.
+> 1. By default, MB is emulated by MB_NODE in schemata.
+> info/
+> =E2=94=9C=E2=94=80=E2=94=80 MB
+> =E2=94=82   =E2=94=9C=E2=94=80=E2=94=80 bandwidth_gran
+> =E2=94=82   =E2=94=9C=E2=94=80=E2=94=80 control_mode        # [legacy] na=
+tive
+> =E2=94=82   =E2=94=94=E2=94=80=E2=94=80 schemata
+> =E2=94=82       =E2=94=94=E2=94=80=E2=94=80 MB
+> =E2=94=82           =E2=94=9C=E2=94=80=E2=94=80 MB_NODE     # emulated by=
+ "MB_NODE"
+>
+> schemata: Only show MB, which is emulated by MB_NODE. domain id is numa
+> id
+> MB:0=3D100;1=3D100;2=3D100;10=3D100;18=3D100;26=3D100;34=3D100;35=3D100
+> L3:1=3Dffff;2=3Dffff
+>
+> 2. root can switch to native by writing "native" to "control_mode":
+> info/
+> =E2=94=9C=E2=94=80=E2=94=80 MB
+> =E2=94=82   =E2=94=9C=E2=94=80=E2=94=80 bandwidth_gran
+> =E2=94=82   =E2=94=9C=E2=94=80=E2=94=80 control_mode        # legacy [nat=
+ive]
+> =E2=94=82   =E2=94=94=E2=94=80=E2=94=80 schemata
+> =E2=94=82       =E2=94=94=E2=94=80=E2=94=80 MB
+> =E2=94=82           =E2=94=9C=E2=94=80=E2=94=80 MB_NODE     # no emulatio=
+n, native mode
+>
+> schemata: Only show MB_NODE. No "MB:" is emulated.
+> MB_NODE:0=3D100;1=3D100;2=3D100;10=3D100;18=3D100;26=3D100;34=3D100;35=3D=
+100
+>      L3:1=3Dffff;2=3Dffff
+>
+> 3. llc_occupancy in mon_L3_x where x is cache id
+>    mbm_total_bytes in mon_NODE_y where y is numa id
+> mon_data/
+> mon_L3_01  mon_NODE_00  mon_NODE_02  mon_NODE_18  mon_NODE_34
+> mon_L3_02  mon_NODE_01  mon_NODE_10  mon_NODE_26  mon_NODE_35
+>
+> mon_data/mon_L3_01/llc_occupancy
+> mon_data/mon_NODE_01/mbm_total_bytes
+>
+> ** On legacy machine which only has L3 MSCs. No NODE scope in schemata
+>    or mon_data
+> schemata: MB's domain id is cache id, not numa node id
+> MB:1=3D100;2=3D100
+> L3:1=3Dffff;2=3Dffff
+>
+> mon_data/
+> mon_L3_01 mon_L3_02
+>
+> mon_data/mon_L3_01/llc_occupancy
+> mon_data/mon_L3_01/mbm_total_bytes
+> mon_data/mon_L3_02/llc_occupancy
+> mon_data/mon_L3_02/mbm_total_bytes
+>
+> The patches can be compiled but not tested on x86 yet.
+>
+> The 19 patches are grouped as follows:
+>
+> 1. Memory bandwidth monitoring and control on memory-level MSCs
+>    (patches 1=E2=80=9310, 12)
+>
+>    Generalise the monitor infrastructure beyond hard-wired L3 paths:
+>    de-hardcode L3 monitor plumbing, expose MBA MBM counter assignment,
+>    name node-scoped monitor domains mon_NODE_<id>, add a node-scope MBM
+>    total event, and make MBM handling resource-aware.
+>
+>    On the ARM MPAM side, add memory-level MSC and ABMC support, refine
+>    L3 topology and class selection, refactor domain setup to iterate all
+>    MSC components per CPU (keyed by component), and handle CPU-less NUMA
+>    memory nodes that have no local CPUs but still participate in MPAM
+>    bandwidth control. Memory hotplug locking and notifier are added.
+>
+> 4. MB_NODE emulates MB (patch 11) [1]
+>
+>    Wire MB_NODE as the native backend that emulates a MB control
+>    in the ARM MPAM driver.
+>
+>    If emulation is unnecessary, this patch can be removed.
+>
+> 5. Documentation (patches 14=E2=80=9317)
+>
+>    Document memory-level MB control and NUMA nodes in the arm64 MPAM
+>    guide (patch 19), NODE-scoped MBA domains and mon_NODE_* monitoring
+>    in the resctrl documentation (patch 20), and an MB_NODE emulation
+>    example on ARM MPAM (patch 21).
+>
+> 6. Tests (patches 18=E2=80=9319)
+>
+>    Add a KUnit test for CPU-less NUMA node affinity handling and a
+>    kselftest that exercises MB emulation mode switching,
+>    resource_schemata hierarchy, and schemata mirroring on ARM MPAM.
+>
+> Apply the patches on top of [2].
+>
+> Testing
+>
+>   # KUnit (CPU-less affinity)
+>   sudo cat /sys/kernel/debug/kunit/mpam_devices_test_suite/results
+>
+>
+>   # kselftest (MB emulation; requires ARM MPAM with disabled MB control)
+>   cd tools/testing/selftests/resctrl
+>   sudo ./resctrl_tests -t mb_emulation
+>
+> This series is in https://github.com/fyu1/linux/  cpu_less.rfc.v2/
+> which is on top of [2].
+>
+> Change Log:
+> RFC v2:
+> - Remove fix patches 1-2 which are implemented in [2]
+> - Remove the emulation patches 3-8 which are implemented in [2]
+> - Update emulated_by to *emulated_by in patch 11. Ben seems
+>   doesn't like to emulate MB by MB_NODE. If that's case, I can
+>   remove this patch. But for now, I keep this patch for further
+>   discussion.
+> - Add patch 13 to implemente legacy and native modes to emulate
+>   "mbm_L3_assignments" by "mbm_NODE_assignments" in patch 13.
+> - Add patch 9 for memory hotplug locking (Ben)
+> - Add patch 12 for memory hotplug notifier (Ben)
+>
+> RFC v1:
+> https://lore.kernel.org/lkml/cover.1784217438.git.fenghuay@nvidia.com/
+>
+> [1] [RFC v2] mpam,x86,fs/resctrl: Generic schema description Proof of Con=
+cept https://lore.kernel.org/lkml/d258a32f-12d5-464d-abe9-4720fb3e44b3@inte=
+l.com/
+> [2] Reinette's resctrl control branch RFC v2: git://git.kernel.org/pub/sc=
+m/linux/kernel/git/reinette/linux.git branch resctrl/controls_rfc_v2.4
+>
+> Fenghua Yu (17):
+>   resctrl: De-hardcode L3 monitor infrastructure
+>   resctrl: Expose MBA MBM counter assignment sysfs
+>   resctrl: name node-scoped monitor domains mon_NODE_<id>
+>   resctrl: Add node-scope MBM total event
+>   resctrl: Make MBM paths resource-aware
+>   arm_mpam: Support memory-level MSCs and ABMC per class
+>   arm_mpam: Refine L3 topology and class selection
+>   arm_mpam: Include all MSC components during domain setup
+>   arm_mpam: Handle CPU-less numa nodes
+>   arm_mpam: Emulate MB control with node-scoped MB_NODE control
+>   resctrl: Add mbm_assign_scope_mode for native assignment file names
+>   Documentation: resctrl: document mbm_assign_scope_mode
+>   Documentation: arm64: mpam: document memory-level MB control and NUMA
+>     nodes
+>   Documentation: resctrl: document NODE-scoped MBA domains and mon_NODE
+>     monitoring
+>   Documentation: resctrl: document MB_NODE emulation example on ARM MPAM
+>   arm_mpam: Add KUnit test for CPU-less NUMA node affinity
+>   selftests/resctrl: Add MB emulation test for ARM MPAM
+>
+> James Morse (2):
+>   fs/resctrl: Take memory hotplug lock whenever taking CPU hotplug lock
+>   arm_mpam: resctrl: Add NUMA node notifier for domain online/offline
+>
+>  Documentation/arch/arm64/mpam.rst             | 105 ++-
+>  Documentation/filesystems/resctrl.rst         | 135 ++-
+>  drivers/resctrl/mpam_devices.c                |  59 +-
+>  drivers/resctrl/mpam_internal.h               |   8 +
+>  drivers/resctrl/mpam_resctrl.c                | 879 +++++++++++++++---
+>  drivers/resctrl/test_mpam_devices.c           |  67 ++
+>  fs/resctrl/ctrlmondata.c                      |   6 +-
+>  fs/resctrl/internal.h                         |  18 +-
+>  fs/resctrl/monitor.c                          | 355 +++++--
+>  fs/resctrl/pseudo_lock.c                      |   3 +
+>  fs/resctrl/rdtgroup.c                         | 157 +++-
+>  include/linux/memory.h                        |   1 +
+>  include/linux/resctrl.h                       |  36 +-
+>  include/linux/resctrl_types.h                 |  15 +-
+>  .../selftests/resctrl/mb_emulation_test.c     | 314 +++++++
+>  tools/testing/selftests/resctrl/resctrl.h     |   1 +
+>  .../testing/selftests/resctrl/resctrl_tests.c |   1 +
+>  17 files changed, 1827 insertions(+), 333 deletions(-)
+>  create mode 100644 tools/testing/selftests/resctrl/mb_emulation_test.c
+>
+> --
+> 2.53.0
+>
+>
 
-David
+1. The logical control-domain model looks useful. One domain can
+represent a logical resource backed by multiple physical controllers.
+RISC-V CBQRI has a similar model, grouping cache controllers by cache
+ID and bandwidth controllers by NUMA node ID. It would be helpful to
+keep this infrastructure generic.
+
+2. Since MB and MB_NODE share the same NODE scope and ultimately
+program the same memory-class MSC, would it be possible to use the
+existing MB control with a discoverable NODE scope? If a separate
+MB_NODE control and emulation mode are still needed, could you clarify
+the userspace requirement for them?
+
+Thanks,
+Yunhui
 
