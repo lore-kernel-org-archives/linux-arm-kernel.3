@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA63CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC554CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ClqrB5Nb1VE/6HPxn34XKW1S5rErGzsfqCMXXB5t2dI=; b=l80QiFEfYu7dEELyWtwEfV18Y6
-	XIpu0ljcmrFJeZWvih3Jawwz6R5k5biE9aTVP0/8TqlybAJFsaNic8xGzNbIt8b0V+0Aj4kglr3Lk
-	Xldt8fVqqxO7J4o1Q1vpEyr/XKdd9U2gUwt/ViHH9oex7JcmJFNyRtE8kbFs9U9j9zbvVI97DCA5x
-	dfKUnPbCzBjIn9qZzPeKd2seZszDbrmLPAZURuwlbf++8YdTsS0+VAU0uc0JXj+AgQjFMxwI/KSZS
-	/416qQ4EEaX6TS0v6vGeFaRwn4krjHx6JHpyOEKH0soq9oI5DRNQmIE+QAD6YLTBxZNu/tg1XF7rQ
-	bz6NBLQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1qJC9FEBLStLZYadjJB0z73Wt4b9XJZv0+3sG4ijwk=; b=lSbJkFZtv3CteOCO9xfz8vXn5B
+	EnZDN/rsN1d3LWw1PBQ6Za07Ixr3nCW3Cb3L+5qbrWiLK5pr036YABBiJeyzNoFtfI1RTAtJI5MT7
+	W0ZhpKqWO9cE2JXclUYZKMAfCiukjc0fr/9zOzvZJlfXgSQ+V2DxWthei2PvzOr29WuwdjAT2LOtg
+	Gigi9YE5jEAIpwcRA2EhhkYs6fm5UfXwFUgD8wq6Z2b0mIaxWVJqi7w9lJckKAAORD1KwexvgkuLu
+	wL164u5pqnjMGwdbicitWTZLwGTpJwd9OkN3FMaH/OA2VnjIUTYhPysBeija4PAOXFbAX7eiBoRHX
+	QiTT4wRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLJF-0000000BLJD-3QfZ;
-	Mon, 12 Oct 2026 19:03:41 +0000
+	id 1xGLM4-0000000BLjk-1OI0;
+	Mon, 12 Oct 2026 19:06:36 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLJA-0000000BLIg-3wz7
+	id 1xGLM2-0000000BLjO-1RqL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:03:40 +0000
+	Mon, 12 Oct 2026 19:06:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 964AF419A3;
-	Mon, 12 Oct 2026 19:03:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD75E1F0089B;
-	Mon, 12 Oct 2026 19:03:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF4F741225;
+	Mon, 12 Oct 2026 19:06:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D65E1F0089B;
+	Mon, 12 Oct 2026 19:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791831816;
-	bh=ClqrB5Nb1VE/6HPxn34XKW1S5rErGzsfqCMXXB5t2dI=;
-	h=From:To:Cc:Subject:Date;
-	b=Qc87fPCbdRHXT6Crexos9HfSxNeqhRI0i3BcudRlX4omUs/qESaurv6wqZuNz+wte
-	 wBCfi/8HIQ7tFp8hNaYIqtLIi/T0vC2079pAQwq7EM5VsJNGUqAxaRANdeSKzscjkn
-	 30tfZib5RIXIIb7CxCfQadk7HzmIzEjoLwUmfZt4RpoR8Cu/tNMusN294ydZ9vtW3Y
-	 fT5dH1lPPvAoc331yDB+Kb/jsSpDbFrRN8bqF7/0sPUOSqUpIpAIYKaGEgJQ1TwUFf
-	 7k5mJmW6NRyQCKjlEhin4JlHUziJFXu1u79UcqGfFCVFoIoUs0yluXhKstrvA8s1/B
-	 4i0+VldJu93/A==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>,
-	Anurag Pateriya <anurag.pateriya@oss.qualcomm.com>,
-	Hemanth Selam <hemanth.selam@gmail.com>,
-	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-	Muzaffer Kadir <muzafferkadir@mainlining.org>,
-	Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-	Antony Kurniawan Soemardi <linux@smankusors.com>,
-	Fenglin Wu <fenglin.wu@oss.qualcomm.com>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Sasha Levin <sashal@kernel.org>,
-	Somesh Dey <somesh.dey@oss.qualcomm.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Taniya Das <taniya.das@oss.qualcomm.com>,
-	Vitalii Skorkin <nikroksm@mail.ru>,
-	Yibo Tan <lhfff@tju.edu.cn>
-Subject: [GIT PULL] More Qualcomm driver updates for v7.4
-Date: Mon, 12 Oct 2026 14:03:31 -0500
-Message-ID: <20261012190332.10322-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.55.0
+	s=k20260515; t=1791831993;
+	bh=V1qJC9FEBLStLZYadjJB0z73Wt4b9XJZv0+3sG4ijwk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MlI4FjyE5ljwjZrb5hrekRS2ygoFn1xYSJeVgPuCBBQ/L+VQJBDcdaaKHzLq8udjB
+	 7C7Zqwo5qA10b0N8+zo/3WFhTXbw6InEzCqF6XUpiCOTcUKHvfQNWbV6dV3BhYMeNL
+	 iwVciTYvYfCvTS26VRHYWYhEudBeXwRlYFtpMUwCX9AITvR3EY4OyVNmeT8OA+ktAX
+	 la4SofIIcl2N+6A1BPKRoBOgYSvJb4I/91g3qngRinat2L9nLbEWu/5vRCQvvUqNky
+	 1C9oEpqItY2jPU7yCQdRokC7Peqrr6r/f6q9kkqFj2chcgewJ/ZZs3M+oltc6Ip+mb
+	 S2NcM0bA6Exkg==
+Date: Mon, 12 Oct 2026 20:06:29 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, robin.murphy@arm.com,
+	devicetree@vger.kernel.org, Frank.Li@kernel.org,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/6] dt-bindings: dma: arm,dma-350: Document the CIX
+ Sky1 integration
+Message-ID: <20261012-twisted-cavalry-b52b5043fd5d@spud>
+References: <20261012084155.2547480-1-Jelly.Jia@cixtech.com>
+ <20261012084155.2547480-5-Jelly.Jia@cixtech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LbBYOngj9q7cuBu2"
+Content-Disposition: inline
+In-Reply-To: <20261012084155.2547480-5-Jelly.Jia@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,139 +74,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--LbBYOngj9q7cuBu2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit 87802d4dc4850bf27b3955ee9162b1e52c99da1a:
+On Mon, Oct 12, 2026 at 04:41:53PM +0800, Jelly Jia wrote:
+> The CIX Sky1 DMA-350 integration is the same device with SoC glue around
+> it, so it is described by the arm,dma-350 node itself with an additional
+> "cix,sky1-dma350" compatible rather than by a separate wrapper node.
+>=20
+> Extend the binding with the CIX compatible and the resources the
+> integration needs: a clock, which the CIX variant requires, an optional
+> reset, and an optional reserved memory region used when the controller
+> cannot reach all of system memory.
+>=20
+> v2 -> v3:
+> - Drop the cix,irq-router property and its conditional: the Sky1
+>   interrupt gate it described is set up by the boot firmware and is not
+>   configured by Linux, so no property describes it.
+> - The CIX compatible now requires a clock.
+>=20
+> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
+> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+> ---
+>  .../devicetree/bindings/dma/arm,dma-350.yaml  | 26 ++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Doc=
+umentation/devicetree/bindings/dma/arm,dma-350.yaml
+> index 429f682f15d8..4e0f9ffb0039 100644
+> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> @@ -11,10 +11,22 @@ maintainers:
+> =20
+>  allOf:
+>    - $ref: dma-controller.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: cix,sky1-dma350
+> +    then:
+> +      required:
+> +        - clocks
+> =20
+>  properties:
+>    compatible:
+> -    const: arm,dma-350
+> +    oneOf:
+> +      - const: arm,dma-350
+> +      - items:
+> +          - const: cix,sky1-dma350
+> +          - const: arm,dma-350
 
-  firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A14 (UX3407NA) (2026-10-05 09:10:43 +0200)
+Provided the device is actually functional if the fallback compatible is
+used, this patch is fine. Otherwise, please drop the fallback from here.
 
-are available in the Git repository at:
+Thanks,
+Conor.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.4-3
+> =20
+>    reg:
+>      items:
+> @@ -36,6 +48,18 @@ properties:
+>      const: 1
+>      description: The cell is the trigger input number
+> =20
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +    description:
+> +      Reserved memory region used for DMA allocations when the controller
+> +      cannot reach all of system memory.
+> +
+>  required:
+>    - compatible
+>    - reg
+> --=20
+> 2.54.0
+>=20
 
-for you to fetch changes up to f44ee24f4a96ad97c2f0191e503c91477d9b530b:
+--LbBYOngj9q7cuBu2
+Content-Type: application/pgp-signature; name=signature.asc
 
-  soc: qcom: geni-se: Drop unused icc_ddr parameter from geni_icc_get() (2026-10-05 09:10:45 +0200)
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-More Qualcomm driver updates for v7.4
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0vtQAKCRB4tDGHoIJi
+0nx0AQDB5r7oymsF6TAu0ttlEHIJipo6PrYdifW37NZxxwRGFgEAxKFlJzEToRQY
+OfEGN5uC5Lzaagf0eTACGFQ70vFmFwk=
+=mNaw
+-----END PGP SIGNATURE-----
 
-Add SM8950 Maili and SM8975 Hawi SoC IDs. Document the Maili CPUCP
-mailbox and PMIC arbiter compatibles.
-
-Allow QSEECOM on the Kalambo CRD, Glymur QCB, and Lenovo ThinkPad T14s
-Gen 7. Reuse Glymur's UBWC configuration for Kalambo, and add the Nord
-LLCC configuration and binding.
-
-Add Shikra SoC and subsystem low-power statistics. Document its
-modem_apps GLINK audio channel. Document MSM8952 SCM and record that
-MSM8952 has no UBWC. Describe IPQ5424 IMEM as mmio-sram and add the
-MSM8960 SPS interrupt-controller syscon compatible.
-
-Fix SCM PAS resource-table retries and handling of empty tables. Use
-sleepable one-time initialization for TZMEM, and correct SCM Kconfig
-selection for non-Qualcomm builds. Disable the SHM bridge on SM7125
-to avoid boot-time RCU stalls.
-
-Fix PMIC GLINK probe ordering and PD charger ULOG removal races. Provide
-I2C Hub serial-engine program-RAM depth without accessing absent DMA
-registers.
-
-----------------------------------------------------------------
-Antony Kurniawan Soemardi (1):
-      dt-bindings: mfd: syscon: add qcom,msm8960-sps-sic
-
-Anurag Pateriya (2):
-      dt-bindings: cache: qcom,llcc: Add Nord compatible
-      soc: qcom: llcc: Add LLCC configuration for Nord
-
-Fenglin Wu (1):
-      dt-bindings: spmi: glymur-spmi-pmic-arb: Add compatible for Qualcomm Maili SoC
-
-Gopikrishna Garmidi (3):
-      firmware: qcom: scm: Allow QSEECOM on the Glymur QCB
-      firmware: qcom: scm: Allow QSEECOM on Kalambo CRD
-      soc: qcom: ubwc: Add Kalambo UBWC config
-
-Hemanth Selam (2):
-      firmware: qcom: fix typo "uninterruptable" in comment
-      soc: qcom: fix typo "upto" in comment
-
-Jingyi Wang (2):
-      dt-bindings: arm: qcom,ids: Add SoC ID for SM8950
-      soc: qcom: socinfo: Add SM8950 SoC ID
-
-Kathiravan Thirumoorthy (1):
-      dt-bindings: sram: describe the IPQ5424 IMEM as mmio-sram
-
-Konrad Dybcio (1):
-      soc: qcom: pmic_glink: Avoid losing early rpmsg probe
-
-Mohammad Rafi Shaik (1):
-      ASoC: dt-bindings: qcom,apr: Add modem_apps GLINK channel for shikra
-
-Mukesh Ojha (5):
-      dt-bindings: arm: qcom,ids: Add SoC ID for SM8975
-      soc: qcom: socinfo: Add SM8975 SoC ID
-      firmware: qcom: tzmem: Use DO_ONCE_SLEEPABLE() in qcom_tzmem_enable()
-      firmware: qcom_scm: handle empty PAS resource table
-      firmware: qcom_scm: align PAS resource table retry
-
-Muzaffer Kadir (2):
-      dt-bindings: firmware: qcom,scm: Document MSM8952 SCM
-      soc: qcom: ubwc: Add UBWC config for MSM8952
-
-Neil Armstrong (1):
-      soc: qcom: geni-se: provide PROG_RAM_DEPTH for I2C HUB Serial Engines
-
-Peng Fan (1):
-      soc: qcom: use assign_bit() where applicable
-
-Sasha Levin (1):
-      firmware: qcom: scm: Hide QCOM_SCM instead of depending on ARCH_QCOM
-
-Sneh Mankad (2):
-      dt-bindings: soc: qcom: stats: Add compatible for Shikra
-      soc: qcom: stats: Add stats compatible and config for Shikra
-
-Somesh Dey (1):
-      soc: qcom: geni-se: Drop unused icc_ddr parameter from geni_icc_get()
-
-Srinivas Kandagatla (1):
-      firmware: qcom: scm: Allow QSEECOM on ThinkPad T14s Gen 7
-
-Taniya Das (1):
-      dt-bindings: mailbox: qcom: Document Maili CPUCP mailbox controller
-
-Vitalii Skorkin (1):
-      firmware: qcom: tzmem: disable SHM bridge for SM7125 platform
-
-Yibo Tan (1):
-      soc: qcom: pmic_pdcharger_ulog: prevent work requeue during remove
-
- .../devicetree/bindings/cache/qcom,llcc.yaml       |  55 +++++++-
- .../devicetree/bindings/firmware/qcom,scm.yaml     |   3 +
- .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   1 +
- Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
- .../devicetree/bindings/soc/qcom/qcom,apr.yaml     |   4 +-
- .../devicetree/bindings/soc/qcom/qcom-stats.yaml   |  25 ++--
- .../bindings/spmi/qcom,glymur-spmi-pmic-arb.yaml   |   1 +
- .../devicetree/bindings/sram/qcom,imem.yaml        |   1 -
- Documentation/devicetree/bindings/sram/sram.yaml   |   1 +
- drivers/firmware/qcom/Kconfig                      |   3 +-
- drivers/firmware/qcom/qcom_scm-legacy.c            |   2 +-
- drivers/firmware/qcom/qcom_scm.c                   |  19 ++-
- drivers/firmware/qcom/qcom_tzmem.c                 |   3 +-
- drivers/soc/qcom/llcc-qcom.c                       | 139 +++++++++++++++++++++
- drivers/soc/qcom/pmic_glink.c                      |   3 +-
- drivers/soc/qcom/pmic_pdcharger_ulog.c             |   2 +-
- drivers/soc/qcom/qcom-geni-se.c                    |  20 ++-
- drivers/soc/qcom/qcom_stats.c                      |   9 ++
- drivers/soc/qcom/smp2p.c                           |  10 +-
- drivers/soc/qcom/smsm.c                            |  16 +--
- drivers/soc/qcom/socinfo.c                         |   2 +
- drivers/soc/qcom/ubwc_config.c                     |   2 +
- include/dt-bindings/arm/qcom,ids.h                 |   2 +
- include/linux/soc/qcom/geni-se.h                   |   2 +-
- include/linux/soc/qcom/llcc-qcom.h                 |   2 +
- 25 files changed, 280 insertions(+), 48 deletions(-)
+--LbBYOngj9q7cuBu2--
 
