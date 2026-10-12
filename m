@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F11CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0D3CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RalS/cTcqwsvzfIqCagLYWCk6dkc4dqFyKF+MlULZ8=; b=i/hBRNCOY0gSivy9ERUDL+YGWe
-	8hTr2SzA8f7Yr+OMQzd8iOee7l3qwooZrTZmmxHPzo21w69TprrDeT7ynCdPVEPMZ4habhydelo84
-	IoCYfU5nGINkYzg/VZGlAAGw9qnVOaRPah7ME2Z3vs6+WHl1+4O2Zb61ZCI+JduOU3cT3fBCEqqvW
-	WtdfLh+g0T0W0hnDn8j6f81p5c7kdHfG5YpxEVq1ufjn42fGoK7yzKNlS6H2zdQmhwOtE7psvMI05
-	PAY991yiI9JL0NoKHlQ/8x7XDbxzYDi9CL/PK8aEgY3gW5bnvP/tNQ4sH5AACsHVxGCqmIQA+nzs7
-	oj+T34eA==;
+	bh=3NlCppqlh9IN+OUBU1U01H7S97jTJiDfAUXtzFgU1ic=; b=uEe98iupOL06LojOfeCpKoFo4F
+	NNzTXELHkCz5yQaHTAtCL7d/jJNT8+mX/e6Ev9IVdIf3A76xqqrX2P575Pp0rQdv+UUc2lHLrNe9c
+	zqkpYApz2kaKXHZy6Nl4CYwiHiqVyK92XBL3qGwQlrO/qcFhbhceZ3cMeUw16PW8tOK5KDi4ghMfr
+	60/ZYrEh3wWLMD8128sVdMK7KNcbeeacyoDfZL1iap4Xu/h2hppmIgz6KmxAGulVNxUSjJuhfGcPi
+	DuzlY+FYPwvGlloGKAcCTSQMoy+QBuv3Vx7nc+VA/cpM8SvYAV1n/gClFeP4/jxaMJ/KGCxiHJyRL
+	i87EH4VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGI0r-0000000AoOj-42W3;
-	Mon, 12 Oct 2026 15:32:29 +0000
+	id 1xGI4F-0000000Aowh-3CpB;
+	Mon, 12 Oct 2026 15:36:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGI0q-0000000AoON-1LCJ;
-	Mon, 12 Oct 2026 15:32:28 +0000
+	id 1xGI4E-0000000AowG-0DwG;
+	Mon, 12 Oct 2026 15:35:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDC2A6020F;
-	Mon, 12 Oct 2026 15:32:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 932731F0089C;
-	Mon, 12 Oct 2026 15:32:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 28D0B6020F;
+	Mon, 12 Oct 2026 15:35:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4809D1F0089B;
+	Mon, 12 Oct 2026 15:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791819147;
-	bh=9RalS/cTcqwsvzfIqCagLYWCk6dkc4dqFyKF+MlULZ8=;
+	s=k20260515; t=1791819356;
+	bh=3NlCppqlh9IN+OUBU1U01H7S97jTJiDfAUXtzFgU1ic=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=BLfowVUDFCXLcBE+jUBEJcCE17njSGG/cEAXjI9SvlCmRgJ0RrMUebOvIcBAL22BB
-	 A5D1Ri6caBnDzMOyvw37AhfMKib7RzMuriZqCSELM5q15v3sxBzfQ8n7TqBMg1MALg
-	 f3P+U+A9SBVHtbrlZkYfADTjPQJMACeNex5p7EwJsb/Q6fyY5ByM1kTOML9DLEjduS
-	 vg1xLLhUq2LLv9TqJQ7596pdNj928fQNhattCPpvQEci98nbFuNBOI20aOTmMGRjbI
-	 iabjxCy/wtzovR4naUlpBT1NouVwoL8cfFW609Er4QIxLWEecFqpPCxGaIiRJ9emGT
-	 3iz/OYxGy2RzQ==
+	b=fDeKJRIQoUWqxjV7n4Ky9J09n+IIRHAAi7VsV3lDRQxJgy0ajNzavSe2IJZmQo8C+
+	 RFQGyiEnACBiv5JFmeVZTOsdi3v30Gj4yk94TzBtLIIO8a3K+zzt3e2kYb/MpOqpsN
+	 S/+jNKrosp68mtox8Fy1xkpF6qC5OhaodQPuyRKoiXo40wqvP6dkzgXSUl3tGh6DUW
+	 fnVEzWB+2DotZlfr0oTJcLRUG8dNtWoNaCE2loO2fTGN+IDvS2QOpYPUOxhhMsPF3O
+	 bMByXt7/Tkqi/81h6Ol/avfWmWeC0EoLgSqd26mtPqr6YaHXb00BhQkpkPtrGZfDyn
+	 ba5o9eQotuKzg==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Muchun Song <songmuchun@bytedance.com>, Andrew Morton
  <akpm@linux-foundation.org>
@@ -57,13 +57,13 @@ Cc: David Hildenbrand <david@kernel.org>, Oscar Salvador
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>, Muchun Song
  <songmuchun@bytedance.com>
-Subject: Re: [PATCH v2 2/4] riscv/mm: fix hotplug page-table destructor
- handling
-In-Reply-To: <20261010112457.49485-3-songmuchun@bytedance.com>
+Subject: Re: [PATCH v2 3/4] riscv/mm: fix missing destructor for hotplug PUD
+ tables
+In-Reply-To: <20261010112457.49485-4-songmuchun@bytedance.com>
 References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-3-songmuchun@bytedance.com>
-Date: Mon, 12 Oct 2026 17:32:15 +0200
-Message-ID: <87ik37aq9s.fsf@all.your.base.are.belong.to.us>
+ <20261010112457.49485-4-songmuchun@bytedance.com>
+Date: Mon, 12 Oct 2026 17:35:53 +0200
+Message-ID: <87a4ojaq3q.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
@@ -83,27 +83,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Muchun Song <songmuchun@bytedance.com> writes:
 
-> RISC-V uses the same memory-hotplug teardown code for linear-map and
-> vmemmap page tables. Late linear-map allocations run page-table
-> constructors, while vmemmap and early allocations may not.
+> Commit 8472cc4503eb ("riscv: mm: call PUD/P4D ctor in special kernel
+> pgtable alloc") made alloc_pud_late() run the PUD page-table constructor.
+> However, free_pud_table() still frees non-reserved PUD tables directly
+> without decrementing NR_PAGETABLE.
 >
-> free_pte_table() unconditionally calls pagetable_dtor(), corrupting
-> NR_PAGETABLE accounting for constructor-free tables. free_pmd_table()
-> avoids that for vmemmap using is_vmemmap, but mapping type is not a
-> reliable proxy for constructor state. In particular, it becomes invalid
-> once runtime vmemmap tables use the normal pgalloc helpers.
+> Free PUD tables through the common free_pgtable_page() helper so that
+> constructor-backed tables run the matching destructor before being
+> freed.
 >
-> Introduce free_pgtable_page() to select free_reserved_page() for reserved
-> pages and pagetable_free() otherwise. The latter runs the destructor only
-> when PageTable() is set, handling both constructor-backed and
-> constructor-free tables.
->
-> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
+> Fixes: 8472cc4503eb ("riscv: mm: call PUD/P4D ctor in special kernel pgta=
+ble alloc")
 > Cc: stable@vger.kernel.org
 > Assisted-by: LLM
 > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-
-Nice!
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
 
