@@ -4,146 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B19CA9EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 14:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E376ECA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 14:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dro0ntwjq6UiQiLjHqLYsBYU8INoQdG/NC3mtnkTWFM=; b=TnvSxU1ZxcVDNjF5Tkx/AeQX0F
-	PRrRBEcXh3BYhYnTG8OHp47uxsrA3MYGbghZnmrj6IttKxpO2uUUDxf1CHWcO0/fAHGNUceXQjNW7
-	/dBXOmGb0Vlr7isJJS7e3KnYwyTAcTcaWYP6ttGUAuWzEvWW1rnlI+JXM5dIrt47W3O77wVxaku1c
-	3so/K5qgN7hJP3+lvkwjes+X3yCghjuzT/ltkArEXYHVJiPzGL8Ub4JjskH4chykscnPBwpRLmjY8
-	YaYm/p2GfLJrK7f0I8p7DnBm0iZKU2PnUKlWJNDcYE+EkwOQeuU2oga6RLst0qOLUfCkW+f95nOrr
-	fRtMzD+Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pDbDDRw5NqCQFjKs4W4BF9IGnUoJVxd/s6rpPe+Ky2M=; b=aUt6CckIjmyvHcUcd0fzbkWn8U
+	dMn8hKXZA6rPr0qzqmjkTxuO2sm06kzBjyGX5GfsG66zTM+hrqUGN98u0f1op49YFEc/sZyMCJMvY
+	h9r0yVg4poFP16SFHp/hE+LjI+yTbVJ6U0C68iPRYSSQ6hL2UHrQNKvC0mth135/6M/0JuY7+3mLW
+	UFiEcZ9jMRDQlpJey9Jt5x85jeyEJ2irw9o6lUkAmmVRHYCWZO51AWSCE4X/HuHkS5zX0WKsqHuP1
+	dSqte7QbVSxbnwP18W8Skgnb2zYMxw6kvZLfDZUnxO8y5hFxrM7M85jeqydk4sV6um/yU8obSRMyu
+	UTN6RsLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGGah-0000000Ad4y-2qIt;
-	Mon, 12 Oct 2026 14:01:23 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGGeB-0000000AdPS-1JgX;
+	Mon, 12 Oct 2026 14:04:59 +0000
+Received: from mail-ed2-x06.google.com ([2a00:1450:4864:33::6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGGaf-0000000Ad4T-1FUC
+	id 1xGGe8-0000000AdOs-14pe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 14:01:22 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CC0RFC2088629
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:01:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Dro0ntwjq6UiQiLjHqLYsBYU8INoQdG/NC3mtnkTWFM=; b=FJc9wUbblKL6lkTo
-	2aUKPxWhlauZR6Iz0thHESuvtQAiqgyV2cIqZDWwoXxzlfbVt7vH/3I90QXq2kAz
-	fjkE/7gjaGiMOldclHWCw5/e/iH3yDpK8oRglBAKsWEa0VQgAFwNWeVHEuuY8Ehl
-	8udZF3fpsSO6NgJqoQ9ZuvMFMGzjYPUojAfo345g23FLwQafAY7BYdDmARFpd+BC
-	np5mInQLQz5yU99OhV6Jj7t4/pLf3OtHno6Xty511sA7BPKN5uZt0WAN2auyhlOe
-	BmcyhU9bQ9LGpm5SlzhEFMR5z43f9L6Uapan9pt6xHKdxx8pFoSlXtaOIsK0jCFQ
-	nz4hpA==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8sgu27m7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:01:19 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5e944179148so1501769e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 07:01:18 -0700 (PDT)
+	Mon, 12 Oct 2026 14:04:57 +0000
+Received: by mail-ed2-x06.google.com with SMTP id 4fb4d7f45d1cf-6b1c084289cso519295a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 07:04:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791813678; x=1792418478; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Dro0ntwjq6UiQiLjHqLYsBYU8INoQdG/NC3mtnkTWFM=;
-        b=gM2LgluaBeoPQbKCW8TGwG4P4sDuY/vco2oQn8g1LolwFSPXxxFfvYp1osKUL5M2EQ
-         8/HdMiwhSuiZjnTn7y+bGU+CtuMUARtrJG05VbEASAxPyXEo+msxxOhdTV7pSGfLYb+2
-         vTVGogRGftlqccSv5Knl2CvFrwrfOUq3ZIgaST4hZlLoS1/BxIaaUO0SAbvnusLTE/LF
-         Vtx47VoooqSieXjJHxS/KhYQWrfrN4VyaVq6Cp9JG7gw08QNkEY8CW+MR0eskYDa8g41
-         emKJRWQOd9w2qX0njpOK9RNesXZhqT29Za4veF1ZtUmkiEqGsm8xA2z3lwHVa0/bVYvl
-         MQ4w==
+        d=gmail.com; s=20251104; t=1791813894; x=1792418694; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pDbDDRw5NqCQFjKs4W4BF9IGnUoJVxd/s6rpPe+Ky2M=;
+        b=qKAEibn2hncrq0pmLYbFvxEKhOQgiQNb72CLd70vwSro8hSeJKMa/aMg7kDsdSXC0F
+         ZUZXOIQbSL2dacrw4nxWn5Nx9Sdue9cjgovyRWUu+H1bdvC/VhuCIQk99CLgV4Cxy0qX
+         wxhJueVh43yNMPDfH6aH16RQ2O9Ym7IVmTLAs6FCJfN3NJjYVXwFrIE2AawioTKPDIWN
+         YcDv67wMzBbMOcqlkE0GUCQVBamPwcf/AXZFdwMGYM0AA/eiiDBKerKGH5Sg+4JiwQV0
+         BHsiZ+6qc+nkogwhCHYW62ORiyW8FPVRH2E10ImDo6r1cX2qa7gqDE2SmpQrErAA8xd3
+         Pt6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791813678; x=1792418478;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Dro0ntwjq6UiQiLjHqLYsBYU8INoQdG/NC3mtnkTWFM=;
-        b=cNYlFXrej1BSyYhe3nEmfkGSY+hlijmrWt8xjZH7neneAuCblkOwDDTG0+PwOo1DMK
-         6vC5OEpMGhm/6E2TxuyWZUUJuesqpw5IESoR5krFmDZuWoOUdzoqL4pyDF82EU+PJjSU
-         0hfuIUgK3BMSMwXkGICMn9VdqYWdvbOOuATAy5O9FYVm3QaYvUvjrb5KiA3gqC96AjDl
-         0/ILaQVRTJpHxPAf0ImAi8sY8P5kvBdESk0As/NoQzyz8u4Cz++ZHv168hghDQEZN9BE
-         oBuD2xVrEWo12evbH33iH1DqNZso9L1y9NzEUJHsbSZfx2/21kTsqlyvsXUFqD2KfG5I
-         cicw==
-X-Forwarded-Encrypted: i=1; AKwUvBwU8LhCgrR48EGC81dL+Q0nhTXXpLidwLeCBe+OxKVsQbNQUJZzrb+jOJqzU/jVx49z8vpqBmDQp5pokIeJ0Rs9@lists.infradead.org
-X-Gm-Message-State: AFq9FYKYqmJBWNCKa/QoIAzWlmOUKMAJstfYX+hkdYxaqHxcyFJ1GvKi
-	axzMlHDWpfmk3II+LKH44JkDKpy0DdnL0IwzI1yoCcgXcEMMd5+6jZeCmQCXhYtW68QCDwpyVke
-	JgsMrMJgU8kIvdetlBWB/c3yNkv4pe2m9bGIoYZgmzs1SYfHzdRA/+q0gJxuAEtm/GWVEhHJ0wc
-	HlIw==
-X-Gm-Gg: AYBFou2zOkuon8XcMaHlDgiV8fIWm0iI+48siv5pyZTA7yXF2cbJ8YeZ/itYMCUS9gU
-	nu+o3vIJY9B8RjCEaXdnlsqrvlNNQVbt/J+SKF039btwiMrLwzyb3k55zrBAWCVKn68FaSmyyuk
-	qS9LPIAeEDhQh4O6Et2vnzdbgseSKROS9WJHF+lMB1XN0nhdZAihSrnw8lDpKJgO4/6BTUFI8iW
-	PeLWzjN6XNgcvRUuUkQHO1pOypbxcxNQcXHyMmi+1UNk9Qv1t4wEFW2YcDGsD5Uh57Nrq26NxjY
-	TqcvF1Bfc5vChdacJKBTOTbdI3EzX77HdSPqsPR6qGxrtCz7a2ZgXstM490eH5kuyXRHpbF0pg3
-	y/mTDqjasXqPghvK2/HSCUfcvwoc=
-X-Received: by 2002:a05:6122:e14b:b0:5cd:575f:9396 with SMTP id 71dfb90a1353d-5e91f483a33mr3001245e0c.12.1791813678500;
-        Mon, 12 Oct 2026 07:01:18 -0700 (PDT)
-X-Received: by 2002:a05:6122:e14b:b0:5cd:575f:9396 with SMTP id 71dfb90a1353d-5e91f483a33mr3001028e0c.12.1791813675799;
-        Mon, 12 Oct 2026 07:01:15 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9abd3aasm19101061f8f.32.2026.10.12.07.01.14
+        d=1e100.net; s=20260707; t=1791813894; x=1792418694;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pDbDDRw5NqCQFjKs4W4BF9IGnUoJVxd/s6rpPe+Ky2M=;
+        b=Ws5MrwEDg3NM45lC0vfAws2LdPBtNu873xyUNgpyAuvbmMf6HumVBnRmPgFtSy9sb4
+         2UZ80NR1RnKcrMvz2jXOaMcqhH5zEeWAcR8NJNlQXpCguSb60KKGr3I31UiGS+QM5arf
+         Uul2nXRt93bYpaO/y0IuvG+H4T2zzWYy8CdZFTbudo/mZlZ2fFyJZqfAz19vJT9PACz/
+         ku4+nvW0dZVzGWKw3yTdXFVXgzb+W1mCpAWly0mEFQDeB7Zzy2LaXCmKwmk2L3T/9kzu
+         DmBkNf78h/9p/F/vUsfPVy8efnWVyLQthfKGhxzAr/M87mAqKMApb0eRD3/tkPRU1p3L
+         zmsQ==
+X-Gm-Message-State: AFq9FYIn23vaLWjooN0I8YdpCPntMmydad20a2EKPZ0sBiMyottvLaJL
+	yTgVjLsasrXDTeDpD+BK0cuOT7IEXzjmNJTklRTj6uACNpQN558z78KX
+X-Gm-Gg: AYBFou2AAe9HtwuLk2Em3jX4fvEbe1O4Es0znWVwvaxYZMbC3+Djv+1maRwMZN1eTMQ
+	RaAcomL5g93oBwxXFYYkQyjLBNheq0u/VKaaKS3g32cGBIbk2Ut71TiL8xkS9jV+YgYb3u5kymH
+	vRQj5RyxiwNBwVXEBJUWPZLSh7BvZtbV/72rCxGhG0WvyFNOL0mkkqrtWsxX85N7WYPBXPOikRw
+	V5DVh4zlX3KAHPHPInbulopPtT/1PuViSRSzs+Vclc5jVKOtcZyzBVI9fLqFcKOsnF3hG+PzzSX
+	2SiSBYp4XPqL4mlgaLya0tgV0GyJtitpOFhZuVycAXLuv2RCRzgl5kV3Q2lZHR7+aPAxCrbMOXe
+	n9fZAuWRTCPgfyoTDYFFebxGi2cHVIOjPJXVg28ZpTEu6/GlW5osDn5CWa1ejTiWjQZjPkupoHq
+	8mllz81iA88l7eo5wv755EDeW0OcwNZatOV6lS8bm6ZCkV1j0uzHVnOXMxjER2AiSI2xPoPERce
+	FCzsEpxXHhXnpUhrYbhNyapa3SLU7ENgQaI0jGRnD+4dzA7P8kaHIFxPf2RNCiKj1X7sK/mXkdh
+	Ie0e1F/j2u+1fCpE5F9EUXK9VQ==
+X-Received: by 2002:a05:6402:2347:b0:6b1:b75e:e0ba with SMTP id 4fb4d7f45d1cf-6b1b75ee465mr3517228a12.28.1791813892505;
+        Mon, 12 Oct 2026 07:04:52 -0700 (PDT)
+Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b1c1d9fc0esm1477287a12.4.2026.10.12.07.04.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 07:01:14 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-        Igor Velkov <iav@iav.lv>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Rosen Penev <rosenp@gmail.com>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/2] Add the PCA9655E GPIO expander to Kobol Helios64
-Date: Mon, 12 Oct 2026 16:01:12 +0200
-Message-ID: <179181364592.7692.13657409498098359032.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261009-helios64-pca9655-v1-0-673ee4432650@iav.lv>
-References: <20261009-helios64-pca9655-v1-0-673ee4432650@iav.lv>
+        Mon, 12 Oct 2026 07:04:51 -0700 (PDT)
+From: Thilo Zirnstein <thi.zirnstein@gmail.com>
+To: michal.simek@amd.com,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Thilo Zirnstein <thi.zirnstein@gmail.com>
+Subject: [PATCH 1/1] i2c: i2c-xiic: fix clearing of bnb irq
+Date: Mon, 12 Oct 2026 16:04:44 +0200
+Message-ID: <20261012140444.1195207-1-thi.zirnstein@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=QdzzLcbv c=1 sm=1 tr=0 ts=6acce82f cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=zK-fWJzOMMApgNEAF1kA:9 a=QEXdDO2ut3YA:10
- a=vmgOmaN-Xu0dpDh8OwbV:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA1NSBTYWx0ZWRfX2vshKwhXtbCE
- DIPVhijRlx1xrCJ/7BZLJOx8ksB2s/GMZGmPhXganBZseZT//6541QodqEuZwuRa5rR6naMOM3u
- b/7XWF0rZRny8kvWv75pacHcHCVo4DlkyGoP2/e6/v/hf9Df7vnHUCQu6HuOFs3AbEjYQMOSHcu
- rajKuHkt44mCPEp4e9dL9GF91qlGxx2lr5Y9bLwxS5vr3b/wHWSeKLSDCjl+H3BjVowQA3aDlvT
- y7euMHMGeeWqnT8iRjH/9Ylif91NhXgkqEVha+MxDXcfEcsPbQ1s3SygfF9402Q+xbWFbIb83Xr
- 7IVTIVmV1DVCVyM2FMTpB51BNJoQzUULXXOB/wEPGXe9riIp+SO3LYpR5G2NxRNUYTA222w7nZS
- zuxAzg7Qo668599rOlGf53vVOXpnIlaJY/axGvHvwDURTIHpZW5a9KmeLdo+wcuIeWboAfXrpUz
- iy0pI9xUUlPxICCrfmw==
-X-Proofpoint-ORIG-GUID: PKM6vEedaOQNX9E5pKXH9zMLyp8iyg8j
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA1NSBTYWx0ZWRfX4fhvQHKcG8IA
- ILCVxUyOJEcpBoPXC1fRQJGAq0FuZwkC5d2Iz8N7FbX1hUpKUpkCl3oW4aMGMO/0UHpBjCqbA7S
- 6g3LH6xMMvztWDgagSUgwG8OobzqwyM=
-X-Proofpoint-GUID: PKM6vEedaOQNX9E5pKXH9zMLyp8iyg8j
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-12_04,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 phishscore=0 spamscore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610120055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_070121_456120_AAE1E1E9 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20261012_070456_345515_76D0DF9E 
+X-CRM114-Status: GOOD (  29.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,26 +99,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This commit fixes the clearing routine for the bus not busy (bnb) irq.
 
-On Fri, 09 Oct 2026 20:45:35 +0000, Igor Velkov wrote:
-> On Rosen's binding v2 Krzysztof quoted the "onnn,pca9655",
-> "nxp,pca9555" form [1]. This series documents that form and adds its
-> first user, the expander on Kobol Helios64. Patch 1 is for the GPIO
-> tree, patch 2 for the Rockchip tree; they only meet in dtbs_check.
-> 
-> 6dfda7947653 ("ARM: dts: marvell: armada-388: use onnn,pca9655
-> compatible") in linux-next lists "onnn,pca9655" alone on Clearfog and
-> Helios4; with this binding they would need the fallback as well.
-> 
-> [...]
+The bnb is used to indicate that the current transfer is done.
 
-I dropped the last sentence from the commit message and the Assisted-by tag
-that's going away.
+A high level view of the software flow for tx:
 
-[1/2] dt-bindings: gpio: pca95xx: add onnn,pca9655 with nxp,pca9555 fallback
-      https://git.kernel.org/brgl/c/356cab616b6f07a06c2d279fda8a9ec928fd5fff
+* init i2c controller
+* prepare all registers ( fill fifo, enable irqs, ... )
+* start i2c txfer
+* clear and enable bnb
+* wait for completion
+* ( serve interrupts )
+* ( bnb interrupt ): complete completion
 
-Best regards,
+The datasheet ( pg090-axi-iic, Interrupt-Status-Register ISR)
+states that the bnb bit can only be cleared if
+the bus busy bit in the status register is set.
+
+So the iic controller must have recognized that their is some activity
+on the bus. ( Start condition )
+
+Currently the bnb bit is cleared without checking or waiting for this
+condition. This can lead to spurious bnb interrupts.
+
+This commit introduces a function for clearing the bnb bit,
+which waits for all preconditions and clears the bnb bit or times out.
+
+Tested on Zynqmp dev board with some custom logic.
+
+Tested-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
+
+Signed-off-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
+---
+ drivers/i2c/busses/i2c-xiic.c | 103 ++++++++++++++++------------------
+ 1 file changed, 48 insertions(+), 55 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 5e397a7e63f6..de463d356bff 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -73,9 +73,6 @@ enum i2c_scl_freq {
+  * @prev_msg_tx: Previous message is Tx
+  * @quirks: To hold platform specific bug info
+  * @smbus_block_read: Flag to handle block read
+- * @smbus_actual_len: Valid byte count (length + payload + optional PEC) of a
+- *	padded SMBus block read. msg->len is trimmed to this on completion.
+- *	Zero when no trimming is needed.
+  * @input_clk: Input clock to I2C controller
+  * @i2c_clk: I2C SCL frequency
+  * @atomic: Mode of transfer
+@@ -101,7 +98,6 @@ struct xiic_i2c {
+ 	bool prev_msg_tx;
+ 	u32 quirks;
+ 	bool smbus_block_read;
+-	unsigned int smbus_actual_len;
+ 	unsigned long input_clk;
+ 	unsigned int i2c_clk;
+ 	bool atomic;
+@@ -230,7 +226,9 @@ static const struct timing_regs timing_reg_values[] = {
+ 
+ #define XIIC_RESET_MASK             0xAUL
+ 
+-#define XIIC_PM_TIMEOUT		1000	/* ms */
++#define XIIC_PM_TIMEOUT 1000 /* ms */
++/* timeout waiting for bus busy */
++#define XIIC_BB_TIMEOUT		(msecs_to_jiffies(1))
+ /* timeout waiting for the controller to respond */
+ #define XIIC_I2C_TIMEOUT	(msecs_to_jiffies(1000))
+ /* timeout waiting for the controller finish transfers */
+@@ -392,6 +390,30 @@ static int xiic_wait_tx_empty(struct xiic_i2c *i2c)
+ 	return 0;
+ }
+ 
++static int xiic_clear_en_bnb(struct xiic_i2c *i2c)
++{
++	u8 sr = 0, isr = 0;
++	unsigned long timeout;
++
++	timeout = jiffies + XIIC_BB_TIMEOUT;
++	for (isr = xiic_getreg8(i2c, XIIC_IISR_OFFSET);
++		(isr & XIIC_INTR_BNB_MASK);
++		isr = xiic_getreg8(i2c, XIIC_IISR_OFFSET)) {
++
++		sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET);
++		if (sr & XIIC_SR_BUS_BUSY_MASK)
++			xiic_setreg8(i2c, XIIC_IISR_OFFSET, XIIC_INTR_BNB_MASK);
++
++		if (time_after(jiffies, timeout)) {
++			dev_err(i2c->dev, "Failed to clear bnb\n");
++			return -ETIMEDOUT;
++		}
++	}
++
++	xiic_irq_en(i2c, XIIC_INTR_BNB_MASK);
++	return 0;
++}
++
+ /**
+  * xiic_setclk - Sets the configured clock rate
+  * @i2c: Pointer to the xiic device structure
+@@ -543,38 +565,30 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
+ 
+ 	/* Check if received length is valid */
+ 	if (rxmsg_len <= I2C_SMBUS_BLOCK_MAX) {
+-		unsigned int pec_len = i2c->rx_msg->len - 1;
+-
+ 		/* Set Receive fifo depth */
+-		if (rxmsg_len + pec_len > IIC_RX_FIFO_DEPTH) {
++		if (rxmsg_len > IIC_RX_FIFO_DEPTH) {
+ 			/*
+-			 * Trailing bytes (payload plus any PEC) exceed Rx FIFO
+-			 * capacity, so drain in chunks. This also keeps the
+-			 * else branch below from pushing rfd_set past the
+-			 * 4-bit XIIC_RFD_REG_OFFSET field.
++			 * When Rx msg len greater than or equal to Rx fifo capacity
++			 * Receive fifo depth should set to Rx fifo capacity minus 1
+ 			 */
+ 			rfd_set = IIC_RX_FIFO_DEPTH - 1;
+-			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
+-		} else if (1 + rxmsg_len + pec_len < SMBUS_BLOCK_READ_MIN_LEN) {
++			i2c->rx_msg->len = rxmsg_len + 1;
++		} else if ((rxmsg_len == 1) ||
++			(rxmsg_len == 0)) {
+ 			/*
+-			 * The HW needs SMBUS_BLOCK_READ_MIN_LEN bytes on the
+-			 * bus to exit cleanly: by the time the ISR reads the
+-			 * length byte the second byte is already being clocked
+-			 * in, too late to NACK. Pad the drain target and record
+-			 * the real length, trimmed back on completion so the
+-			 * PEC check sees the right byte.
++			 * Minimum of 3 bytes required to exit cleanly. 1 byte
++			 * already received, Second byte is being received. Have
++			 * to set NACK in read_rx before receiving the last byte
+ 			 */
+ 			rfd_set = 0;
+ 			i2c->rx_msg->len = SMBUS_BLOCK_READ_MIN_LEN;
+-			i2c->smbus_actual_len = 1 + rxmsg_len + pec_len;
+ 		} else {
+ 			/*
+-			 * All trailing bytes fit in the Rx FIFO. Defer RX_FULL
+-			 * until every one of them is buffered, so the drain
+-			 * takes xiic_read_rx()'s bytes_rem == 0 path.
++			 * When Rx msg len less than Rx fifo capacity
++			 * Receive fifo depth should set to Rx msg len minus 2
+ 			 */
+-			rfd_set = rxmsg_len + pec_len - 1;
+-			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
++			rfd_set = rxmsg_len - 2;
++			i2c->rx_msg->len = rxmsg_len + 1;
+ 		}
+ 		xiic_setreg8(i2c, XIIC_RFD_REG_OFFSET, rfd_set);
+ 
+@@ -587,16 +601,6 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
+ 	dev_err(i2c->adap.dev.parent, "smbus_block_read Invalid msg length\n");
+ }
+ 
+-/*
+- * Undo the setup-time padding of a short SMBus block read before rx_msg is
+- * cleared, so the PEC check sees the right byte.
+- */
+-static void xiic_smbus_trim_len(struct xiic_i2c *i2c)
+-{
+-	if (i2c->rx_msg && i2c->smbus_actual_len)
+-		i2c->rx_msg->len = i2c->smbus_actual_len;
+-}
+-
+ static void xiic_read_rx(struct xiic_i2c *i2c)
+ {
+ 	u8 bytes_in_fifo, cr = 0, bytes_to_read = 0;
+@@ -819,8 +823,6 @@ static irqreturn_t xiic_process(int irq, void *dev_id)
+ 
+ 		xiic_read_rx(i2c);
+ 		if (xiic_rx_space(i2c) == 0) {
+-			xiic_smbus_trim_len(i2c);
+-
+ 			/* this is the last part of the message */
+ 			i2c->rx_msg = NULL;
+ 
+@@ -881,19 +883,13 @@ static irqreturn_t xiic_process(int irq, void *dev_id)
+ 	}
+ 
+ 	if (pend & XIIC_INTR_BNB_MASK) {
+-		/* IIC bus has transitioned to not busy */
+-		clr |= XIIC_INTR_BNB_MASK;
+-
+ 		/* The bus is not busy, disable BusNotBusy interrupt */
+ 		xiic_irq_dis(i2c, XIIC_INTR_BNB_MASK);
+ 
+ 		if (i2c->tx_msg && i2c->smbus_block_read) {
+ 			i2c->smbus_block_read = false;
+-			/*
+-			 * Drive xiic_tx_space() to 0 to signal STATE_DONE
+-			 * without truncating the rx_msg length.
+-			 */
+-			i2c->tx_pos = i2c->tx_msg->len;
++			/* Set requested message len=1 to indicate STATE_DONE */
++			i2c->tx_msg->len = 1;
+ 		}
+ 
+ 		if (!i2c->tx_msg)
+@@ -965,7 +961,6 @@ static void xiic_recv_atomic(struct xiic_i2c *i2c)
+ 			return;
+ 	}
+ 
+-	xiic_smbus_trim_len(i2c);
+ 	i2c->rx_msg = NULL;
+ 	xiic_irq_clr_en(i2c, XIIC_INTR_TX_ERROR_MASK);
+ 
+@@ -983,9 +978,6 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+ 	u8 cr = 0, rfd_set = 0;
+ 	struct i2c_msg *msg = i2c->rx_msg = i2c->tx_msg;
+ 
+-	/* A stale value from an aborted block read would truncate this msg. */
+-	i2c->smbus_actual_len = 0;
+-
+ 	if (!i2c->atomic)
+ 		dev_dbg(i2c->adap.dev.parent, "%s entry, ISR: 0x%x, CR: 0x%x\n",
+ 			__func__, xiic_getreg32(i2c, XIIC_IISR_OFFSET),
+@@ -1028,7 +1020,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+ 
+ 		xiic_setreg16(i2c, XIIC_DTR_REG_OFFSET, val);
+ 
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1095,7 +1087,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+ 
+ 	if (i2c->nmsgs == 1)
+ 		/* very last, enable bus not busy as well */
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+ 
+ 	/* the message is tx:ed */
+ 	i2c->tx_pos = msg->len;
+@@ -1179,11 +1171,11 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+ 				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK |
+ 				((i2c->nmsgs > 1 || xiic_tx_space(i2c)) ?
+ 				XIIC_INTR_TX_HALF_MASK : 0));
+ 
+ 		xiic_fill_tx_fifo(i2c);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1225,8 +1217,9 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+ 
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+-				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK);
++						XIIC_INTR_TX_ERROR_MASK);
++
++		xiic_clear_en_bnb(i2c);
+ 	}
+ 
+ 	i2c->prev_msg_tx = true;
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+2.43.0
+
 
