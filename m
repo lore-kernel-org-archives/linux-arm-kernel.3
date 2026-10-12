@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E39CC6B02
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455B3CC6B04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N14pcaI8uCBCbhFTbz7e4hnbVvBNCCVccm2OMr/cMs0=; b=aBwM65jpG/n/oTHdRUA4TEGtwa
-	CLlG6iEjmWLw2A8BXI2kzNWV/lU7ND1ZmQ7BKAmjc7fCCYYmZeX3VUj/Binv9wyymDZGoSQxP+i60
-	uqtLc08JLqic/a8X+HO+Rf5btkm8CX1e1E5UkotumEkquYVNKJjH0aC/I0BtyLGxaDbUphohDAgu1
-	lx6HlRe3Jj8NWvUUybv5o3ii4RIhhQXbmJeMCSHBNSl7YA1aUK5HMrFFK0bb/TWKnBIWc5TnsVAZX
-	NUGGskP7gX6ks70/JCgXuk1wZ8vKiyIyXCAoP2H1G1v0JnNEjxwbOXYM4AaUwoZSk54OpL0xDMu9g
-	R3rfm9jw==;
+	bh=Z9ey7sNL/x21eVb/g8qDoP/BFyldS7kgl36eyRGCz3s=; b=2fhdWsnZLBXgS48XRQ3gTqqteI
+	l7uIjPfZ1sepUShcSIAkMluh7rCmmGw2iNCHswO7CncZ9INBSiussPbd0TaEY5926WDLVAfA6MUqX
+	3eVZ3/vLuI9qhY0KNF34pWG3mpQ8MYys3XhadB+Mw7dpL4Rc0pnoLr90jQIrNopklJjvXn3LtK9U3
+	Vt02oDtT5/HgBjGwI/Lg8WXrEsT7y6mEWQ3+vKBKGmr1vUVY+tAurmTtn5jcys1ePx2wB0Xwi2R6u
+	4qobzgnTXpIiycTveB2zorBVvZxDifxHkIMdog/F2GYXFgMSX4yRRi8aUdnVz6I2UnxNjf3ZrphK/
+	jFaVw4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLHD-0000000BKVH-1WWO;
-	Mon, 12 Oct 2026 19:01:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGLHG-0000000BKYi-3hhM;
+	Mon, 12 Oct 2026 19:01:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLH9-0000000BKSY-0BY9;
-	Mon, 12 Oct 2026 19:01:31 +0000
+	id 1xGLHC-0000000BKU9-0KqF;
+	Mon, 12 Oct 2026 19:01:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 784126025F;
-	Mon, 12 Oct 2026 19:01:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 260641F0089B;
-	Mon, 12 Oct 2026 19:01:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D67F43F8C;
+	Mon, 12 Oct 2026 19:01:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8651F008A2;
+	Mon, 12 Oct 2026 19:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791831690;
-	bh=N14pcaI8uCBCbhFTbz7e4hnbVvBNCCVccm2OMr/cMs0=;
+	s=k20260515; t=1791831693;
+	bh=Z9ey7sNL/x21eVb/g8qDoP/BFyldS7kgl36eyRGCz3s=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Gw2W5zPk0uXvrXNEEDmv7p/zEM3ieV/5bfoaMHWmPpMOHZXo2iPaMZ3JtAAbxSmPx
-	 +EMo7aBx41bWuJ8+gDPWfsOeP8DAKH0/46b6N8eQnGi95s5tDpcPPE54cVx+qTo+Rw
-	 /7tnaP54M3Ra2lguoahOXFFA4Weli5UAYg5rOEyLhG9L1Y95EIxKDam50Dm+qd9WEw
-	 Ydz0mIiw4qXrGEsjM7uGr6VDT381rq3SeEVlbcZCNjnT7GeAcIAD8Kt0zzXPWSkZ0o
-	 D97UpaAmSzMPGiSSZAKPwjPsXGsi4oXOWLUPletUR4iprgyUHHARUiB5eTyOzjGXbm
-	 XmRMulQlGD1Hg==
-Subject: Re: [PATCH net-next v11 3/6] net: pcs: xpcs: add Rockchip RK3568
- platform glue driver
+	b=YkuFbAYL5Oy+nSNiM7nfxMPeXGKXvKrouAt2zguT82diEzQtgl/2J1zm7YdTKTH8s
+	 w8WEoubBkZ/wyOO/11kN9S6VOjDH82/5PxpSGlOOtvEQff5C0DIrmpFsTmq4O9oPQB
+	 Qk8x3DJ/iBXcQmHUSWJZbi93qLjzysI92dos3aRvi207qSDKHKurXg75zqwujAPnd0
+	 GPU+DfjVnPJf/97+GDZmSzKYlY8ieEhD9JAgQE8V5lhu75QnzLr0eYZQtmRB/I7Ud+
+	 m2T0QnkEBT6tuyFouzRT/5Z7yce4ALBRpQO0JtanxOGM6UzdS3WtmjeZIkdVsdHRrt
+	 vPjFSx11n3OZQ==
+Subject: Re: [PATCH net-next v11 5/6] net: stmmac: dwmac-rk: add SGMII support
+ for RK3568
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
@@ -53,11 +53,11 @@ Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
  david.wu@rock-chips.com, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Date: Mon, 12 Oct 2026 19:01:28 +0000
-Message-ID: <179183168873.434549.8116321142686860038@kernel.org>
-In-Reply-To: <20261008175225.3375274-4-coiaprant@gmail.com>
-References: <20261008175225.3375274-4-coiaprant@gmail.com>
-X-sashiko-severity: High
+Date: Mon, 12 Oct 2026 19:01:32 +0000
+Message-ID: <179183169209.434549.3228016772295700509@kernel.org>
+In-Reply-To: <20261008175225.3375274-6-coiaprant@gmail.com>
+References: <20261008175225.3375274-6-coiaprant@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -75,10 +75,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 3
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -86,180 +86,148 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The system-suspend path does not keep PD_PIPE powered, so the
-  commit message's claim is false.
-- [Medium] xpcs_rk_create() lets the supplier unbind while it is still
-  using the supplier's data (time-of-check/time-of-use).
-- [Low] Concern: xpcs_rk_create() is exported but nothing in the tree
-  calls it.
-- [Low] Concern: PCS_XPCS_ROCKCHIP uses `select PM_GENERIC_DOMAINS if PM`
-  and has no `depends on PM`, so with CONFIG_PM=n the driver can build…
-- [Low] Concern: "rockchip,rk3568-xpcs" and its required properties have
-  no DT binding.
+- [Medium] The commit message says "1000BASE-X is not enabled by this
+  series" and that SGMII "comes from the XPCS's own…
+- [Medium] On an SGMII-configured RK3568, rk_get_interfaces() still
+  advertises RMII and all four RGMII variants: supports_rgmii comes from…
+- [Medium] For RK3568 SGMII, rk_gmac_probe() sets
+  `plat_dat->set_clk_tx_rate = NULL` and only sets `default_an_inband =…
 
 --
 
-net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+net: stmmac: dwmac-rk: add SGMII support for RK3568
 
-This adds a platform glue driver for the Synopsys XPCS on RK3568. The
-driver exposes the APB3-mapped XPCS registers as a virtual MDIO bus for
-the generic pcs-xpcs core. It also moves pcs-xpcs-plat.o into its own
-module behind PCS_XPCS_PLATFORM, and marks the XPCS as part of the wakeup
-path during system suspend so that PD_PIPE stays powered for MAC WoL.
+This patch adds SGMII support to the RK3568 dwmac glue. It routes the GMAC
+to the integrated Synopsys XPCS through a GRF bit, creates the XPCS with
+xpcs_rk_create() in new pcs_init/pcs_exit callbacks, and returns it from
+select_pcs. It also moves the clock enable earlier in rk_gmac_powerup(),
+and for SGMII it forces in-band negotiation with a fixed 125 MHz MAC clock.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 59, CRU_CLKSEL_CON29)
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part2%20V1.1-20210301.pdf (Page 2078)
+Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
 
-> diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
-> new file mode 100644
-> index 0000000000000..698a43b753341
-> --- /dev/null
-> +++ b/drivers/net/pcs/pcs-xpcs-rk.c
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 72bdbcb5e863a..c4db919ec1640 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 
 [ ... ]
 
-> +struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *pcs, int port)
+> +static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
+> +					 phy_interface_t interface)
 > +{
-
-[ ... ]
-
-> +	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
-> +		put_device(&pdev->dev);
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +	}
+> +	if (!priv->hw->xpcs)
+> +		return NULL;
 > +
-> +	if (READ_ONCE(pdev->dev.links.status) != DL_DEV_DRIVER_BOUND) {
-> +		put_device(&pdev->dev);
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +	}
-> +
-> +	pxpcs = platform_get_drvdata(pdev);
-> +	if (!pxpcs || !pxpcs->bus) {
-> +		put_device(&pdev->dev);
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +	}
-> +
-> +	xpcs = xpcs_create_mdiodev(pxpcs->bus, port);
+> +	return xpcs_to_phylink_pcs(priv->hw->xpcs);
+> +}
 
 [Severity: Medium]
-Can the XPCS be unbound while xpcs_rk_create() is still using pxpcs and
-pxpcs->bus?
+rk_select_pcs() ignores its interface argument and returns the XPCS for
+every mode. Is this statement in the commit message accurate?
 
-The check above reads the supplier's own links.status. It does not look
-at the state of the link that device_link_add() returned. Supplier unbind
-is blocked only for links in DL_STATE_CONSUMER_PROBE or DL_STATE_ACTIVE:
+  "1000BASE-X is not enabled by this series"
 
-drivers/base/core.c:device_links_busy() {
+rk_pcs_init() creates a generic DW XPCS through xpcs_rk_create(). Then
+xpcs_create() fills the PCS supported_interfaces from the matched compat
+table:
+
+drivers/net/pcs/pcs-xpcs.c:xpcs_get_interfaces() {
     ...
-		if (link->status == DL_STATE_CONSUMER_PROBE
-		    || link->status == DL_STATE_ACTIVE) {
-			ret = true;
+	for (compat = xpcs->desc->compat; compat->supported; compat++)
+		__set_bit(compat->interface, interfaces);
     ...
 }
 
-Suppose the XPCS has no driver when device_link_add() runs from the GMAC
-probe. device_link_init_status() then starts the link in
-DL_STATE_DORMANT. If the XPCS finishes probing before the READ_ONCE()
-check, device_links_driver_bound() moves the link to DL_STATE_AVAILABLE.
+For a Synopsys ID, synopsys_xpcs_compat[] lists SGMII, 1000BASEX,
+2500BASEX, USXGMII and the 10G and faster modes. stmmac_phylink_setup()
+then merges all of them into phylink's supported set:
 
-In that case the DL_DEV_DRIVER_BOUND check passes, but an AVAILABLE link
-does not make device_links_busy() return true. A sysfs unbind of the XPCS
-can then run devres_release_all() and free pxpcs and the devm mii_bus
-while xpcs_rk_create() is still using them in platform_get_drvdata(),
-pxpcs->bus, xpcs_create_mdiodev() and pxpcs->eee_mult_fact. This window
-stays open until the GMAC probe completes.
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_phylink_setup() {
+    ...
+	if (pcs)
+		phy_interface_or(config->supported_interfaces,
+				 config->supported_interfaces,
+				 pcs->supported_interfaces);
+    ...
+}
 
-The comment above says a small window remains. Is this AVAILABLE case the
-window it means? Would checking that the returned link is in
-DL_STATE_CONSUMER_PROBE, instead of checking pdev->dev.links.status,
-close it?
+The 1G MAC capabilities filter out the faster modes, but 1000BASE-X still
+passes validation. Phylink can select it at runtime, for example through
+phylink_sfp_config_optical() for a fibre SFP, or for a PHY that switches
+its host interface.
 
-> +	if (IS_ERR(xpcs)) {
-> +		put_device(&pdev->dev);
-> +		return xpcs;
-> +	}
-> +
-> +	xpcs_config_eee_mult_fact(xpcs, pxpcs->eee_mult_fact);
-> +	put_device(&pdev->dev);
-> +	return xpcs;
-> +}
-> +EXPORT_SYMBOL_GPL(xpcs_rk_create);
+rk_gmac_check_ops() and rk_gmac_powerup() only check the static DT
+phy_iface, so the glue never validates or configures this mode.
 
-[Severity: Low]
-This isn't a bug, but nothing in the tree calls xpcs_rk_create() at this
-point in the series.
+Is there something meant to stop phylink from choosing 1000BASE-X on this
+port, so that the SGMII-only behaviour in the commit message is actually
+enforced?
 
-The user arrives later in "net: stmmac: dwmac-rk: add SGMII support for
-RK3568". There, rk_pcs_init() calls xpcs_rk_create(priv->device,
-pcs_node, bsp_priv->id) and DWMAC_ROCKCHIP selects PCS_XPCS_ROCKCHIP, so
-this is resolved by the end of the series.
+[Severity: Medium]
+On an RK3568 configured for SGMII, rk_get_interfaces() still advertises
+RMII and the RGMII variants. supports_rgmii comes from set_to_rgmii, and
+supports_rmii now comes from the new rk3568_set_to_rmii. rk_select_pcs()
+returns the XPCS for those parallel modes as well.
+
+What happens when phylink validates the whole supported_interfaces mask?
+One example is phylink_validate() with PHY_INTERFACE_MODE_NA, which
+phylink_validate_phy() uses for a C45 PHY without rate matching or
+possible_interfaces:
+
+drivers/net/phy/phylink.c:phylink_validate_mac_and_pcs() {
+    ...
+		if (!phy_interface_empty(pcs->supported_interfaces) &&
+		    !test_bit(state->interface, pcs->supported_interfaces)) {
+			phylink_err(pl, "MAC returned PCS which does not support %s\n",
+    ...
+}
+
+Would this log an error and return -EINVAL for each RGMII and RMII mode on
+that port? Should rk_select_pcs() return NULL for interfaces the XPCS does
+not support?
 
 [ ... ]
 
-> +static int xpcs_rk_system_suspend(struct device *dev)
-> +{
-> +	/*
-> +	 * Keep the PD_PIPE power domain on during system suspend.
-> +	 *
-> +	 * PD_PIPE is shared with SATA/PCIe and would be powered down by
-> +	 * genpd once all its consumers are suspended, killing the SerDes
-> +	 * and breaking MAC WoL.  Mark the XPCS as part of the wakeup path
-> +	 * so genpd keeps the domain on.  Unconditional because the XPCS
-> +	 * core has no callback to convey the MAC WoL state.
-> +	 */
-> +	device_set_wakeup_path(dev);
-> +	return 0;
-> +}
+> @@ -1605,6 +1685,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
+>  	plat_dat->suspend = rk_gmac_suspend;
+>  	plat_dat->resume = rk_gmac_resume;
+>  
+> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
+> +		/* SGMII clock always runs at 125 MHz */
+> +		plat_dat->set_clk_tx_rate = NULL;
 > +
-> +static int xpcs_rk_system_resume(struct device *dev)
-> +{
-> +	return 0;
-> +}
+> +		/* SGMII requires a PCS */
+> +		plat_dat->default_an_inband = true;
 
-[Severity: High]
-Does device_set_wakeup_path() actually keep PD_PIPE powered here?
+[Severity: Medium]
+default_an_inband only sets a default here. With set_clk_tx_rate cleared,
+does anything prevent out-of-band operation at 10/100 Mb/s?
 
-The commit message says genpd leaves the domain on "because the Rockchip
-power domain driver sets GENPD_FLAG_ACTIVE_WAKEUP on PD_PIPE". However,
-PD_PIPE is declared with wakeup set to false:
+A fixed-link node overrides default_an_inband in phylink_parse_mode().
+Phylink can also fall back to out-of-band when the PHY reports only
+LINK_INBAND_DISABLE, because the XPCS allows that:
 
-drivers/pmdomain/rockchip/pm-domains.c:
-	[RK3568_PD_PIPE]	= DOMAIN_RK3568("pipe", BIT(8), BIT(11), false, false),
-
-The flag is only added when active_wakeup is set:
-
-drivers/pmdomain/rockchip/pm-domains.c:rockchip_pm_add_one_domain() {
+drivers/net/pcs/pcs-xpcs.c:xpcs_inband_caps() {
     ...
-	if (pd_info->active_wakeup)
-		pd->genpd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+	case DW_AN_C37_SGMII:
+	case DW_AN_C37_1000BASEX:
+		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
     ...
 }
 
-genpd_finish_suspend() skips the power-off only when both conditions are
-true:
+In that case stmmac_mac_link_up() sets the MAC speed bits and
+xpcs_link_up_sgmii_1000basex() writes the speed into BMCR, but the MAC
+clock stays at 125 MHz. The commit message says this "gives working TX and
+failing RX" and that "Boards must use in-band mode".
 
-drivers/pmdomain/core.c:genpd_finish_suspend() {
-    ...
-	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
-	    !device_out_band_wakeup(dev))
-		return 0;
-    ...
-}
+The driver does not reject out-of-band mode, does not limit the MAC
+capabilities to 1000 Mb/s in that mode, and does not log anything. Can the
+link then come up at 10/100 with a broken receive path and no warning?
 
-For PD_PIPE the XPCS is therefore counted in suspended_count. Once the
-SerDes, SATA, PCIe and XPCS consumers have all suspended,
-genpd_sync_power_off() turns the domain off. dev_pm_genpd_rpm_always_on()
-only covers runtime PM, not this system sleep path. Nothing else in the
-series changes drivers/pmdomain/.
-
-If the domain does turn off, won't MAC WoL stop working? Won't the SerDes
-and XPCS also come back at their reset defaults? xpcs_rk_system_resume()
-is empty, so after resume nothing repeats phy_init()/phy_power_on() or
-restores any XPCS state.
-
-Would this need GENPD_FLAG_ACTIVE_WAKEUP set on PD_PIPE in the pmdomain
-driver (or some other way to keep the domain on), plus a real resume
-path?
+> +		plat_dat->pcs_init = rk_pcs_init;
+> +		plat_dat->pcs_exit = rk_pcs_exit;
+> +		plat_dat->select_pcs = rk_select_pcs;
+> +	}
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261008175225.3375274-1-coiaprant%40gmail.com
