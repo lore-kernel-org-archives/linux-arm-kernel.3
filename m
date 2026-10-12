@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C191CA9EDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF69ACA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHOetBiDekJwWPGeGPktITGpQNmqnuv3FWLxPY57pPs=; b=lhy3/hNqNlHOgiGmyky/imRjLC
-	Elmjo19NNyld4LkKH9pKHCueox+4yZl9COaQfBopxFBZ3B0mmtuw3Cw+mE8Pgc+BnxcToKFgGN4qa
-	UCWv2PKysnErcP4unE6NdYLvOyemwXljUfJwOOs2FVwXR+xtf1i3gjv3m5anOHiWy8wJngEmGMqGY
-	aa5VAZFpEQPHZg6nsNVRm7dYJykWpHeyxcxj2aVx+EZ0brClqHe0wBCdFUi+zbLM07ELESZFU69IZ
-	qQQtOQp4UMhsocfVBHSKyvYXDBQ0oQySeYrIDkvzq2KZE9zH5I09sur/335vHcdqeHNp+sW3CQ4C/
-	pmlugJTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NVXA5NCyOx09Jcjre2nrjJDJnxVnZCUAkC7E4AFKOtI=; b=cNH3ibk1v7tatE2ZcFDShu66lt
+	imD2ChUEhWHn0+ELVT3WTZC+H2myNgy23KU/KjJobcLZXQ6xfIRf2wUaWeZXgAPuziqxDj4OJzOu9
+	0m83UlTjqsJ/KzW52dzBuYejEyNusqMzF7YYHchbdW5bk63j5lDlSCdh2WqQ35t10UuwV+KW6TrsH
+	3WTenM3VPLF+LpL6lx5lvBni42xGVsCRpNzZMEc1G+c8jal4vOsBbPMOmABMCyT6yfmQoDdNJ7Mw6
+	QGb7iM7uTo/pyjKiK+Y7t29ezGxLwsS9DG2ZhlNMxSbRS2pOq++E2tbS7QAQQpOqs2izK7E2hlVQx
+	oIfkL39A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ0f-0000000AyjU-4BGA;
-	Mon, 12 Oct 2026 16:36:22 +0000
-Received: from dilbert.mork.no ([2a01:4f9:c010:a439::d])
+	id 1xGJ5G-0000000AzXQ-3BMw;
+	Mon, 12 Oct 2026 16:41:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ0a-0000000AyhM-3wiJ;
-	Mon, 12 Oct 2026 16:36:20 +0000
-Authentication-Results: dilbert.mork.no;
-	dkim=pass (1024-bit key; secure) header.d=mork.no header.i=@mork.no header.a=rsa-sha256 header.s=b header.b=aCJvWEq3;
-	dkim-atps=neutral
-Received: from canardo.dyn.mork.no ([IPv6:2a01:799:10e2:d900:0:0:0:1])
-	(authenticated bits=0)
-	by dilbert.mork.no (8.18.2/8.18.2) with ESMTPSA id 69CGZWEc790305
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Mon, 12 Oct 2026 17:35:34 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mork.no; s=b;
-	t=1791822932; bh=nHOetBiDekJwWPGeGPktITGpQNmqnuv3FWLxPY57pPs=;
-	h=From:To:Cc:Subject:References:Date:Message-ID:From;
-	b=aCJvWEq33ThyxGcgvykeF24eHjFSIln8357sLW74qJt9qmu21hG2zoZxYBn+Z2HE1
-	 /Z6xkZ3UOgcgYbpC8nE8k6rPREVBMYkx0lf9MMfUqsBuIf5BN2DwcnZ8BLRRKYUdJV
-	 1KRZBb0ul1kl22HnJAox9twwuc7POS/pmTHIrf0g=
-Received: from miraculix.mork.no ([IPv6:2a01:799:10e2:d90a:6f50:7559:681d:630c])
-	(authenticated bits=0)
-	by canardo.dyn.mork.no (8.18.2/8.18.2) with ESMTPSA id 69CGZWcL894584
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Mon, 12 Oct 2026 18:35:32 +0200
-Received: (nullmailer pid 905597 invoked by uid 1000);
-	Mon, 12 Oct 2026 16:35:32 -0000
-From: =?utf-8?Q?Bj=C3=B8rn_Mork?= <bjorn@mork.no>
-To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, daniel@makrotopia.org,
-        dqfext@gmail.com, SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
-        linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
-        kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-        angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
-        sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530
- PHY
-In-Reply-To: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
-	(Vladislav Karmanov's message of "Fri, 4 Sep 2026 23:28:00 +0300")
-Organization: m
-References: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
-Date: Mon, 12 Oct 2026 18:35:32 +0200
-Message-ID: <87cxteri5n.fsf@miraculix.mork.no>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1xGJ5B-0000000AzWQ-05mZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 16:41:05 +0000
+Received: from killaraus.ideasonboard.com (i68975AE2.versanet.de [104.151.90.226])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 548F322B;
+	Mon, 12 Oct 2026 18:38:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1791823134;
+	bh=psu8SUNxGWOkv+ylpg3Mn+GzzgQJS+IaRBtMvOCtzD0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hnc5ghg+R78pkLio/XQ2zib4fsPKVAHorkCShNxFoD4zgwwrLD2NIcUtbT8pUvzTs
+	 Xw7bWX9M0vc7aktIrGNXxW1xwOq8V/a33mjOSm1DBMdHOXTOUhKAVVU4UyMX6bkCXr
+	 Irp4BHU/3pyjtlDvlqUucJq65YtM9uPKgarMmyk0=
+Date: Mon, 12 Oct 2026 18:40:54 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 0/3] Add VGA support for Apalis iMX6
+Message-ID: <20261012164054.GA56180@killaraus.ideasonboard.com>
+References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Virus-Scanned: clamav-milter 1.4.3 at canardo.mork.no
-X-Virus-Status: Clean
+Content-Disposition: inline
+In-Reply-To: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_093617_614221_DDBE7594 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20261012_094101_499690_143BD15B 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,164 +82,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Vladislav Karmanov <vladislav.karmanov.dev@gmail.com> writes:
+On Mon, Oct 12, 2026 at 04:25:22AM -0300, Leonardo Costa wrote:
+> This series adds a device tree overlay that enables the VGA output on Apalis
+> iMX6, which is driven from a parallel RGB interface passing through a
+> non-programmable video DAC.
+> 
+> The video DAC is a simple resistor network gated by an active-low
+> data-enable signal. For the bridge to work properly, this series also
+> changes the following in the dt-bindings and simple-bridge driver:
+> 
+> - dt-bindings: Add a new compatible for the bridge in the simple-bridge
+>   binding. This is necessary because the existing dumb-vga-dac compatible
+>   doesn't describe a data-enable signal polarity.
+> 
+> - simple-bridge: Add the VGA bridge match-table entry and timings
+>   struct, setting the DRM_BUS_FLAG_DE_LOW flag for the bridge.
 
-> The MT7530 internal GE PHY advertises EEE by hardware default, but its
-> EEE support is defective: with EEE advertised, some link partners fail
-> to establish a stable link. On a 2-pair (4-wire) cable where both ends
-> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
-> falling back to 100 Mbps the port loops, so no link or DHCP lease is
-> ever obtained.
+Is there schematics available anywhere ? That would help reviewing the
+series ?
 
-I realize that I'm too late at the party here, but I still want to state
-this for the record:
+> 
+> This change depends on another patch, and should be applied after it:
+> 
+> - https://lore.kernel.org/all/20261002-v1-simple-bridge-atomic-check-v1-1-ef5d8332b078@toradex.com/T/#u
+> 
+>   Adds the atomic_check function to the simple-bridge driver, which
+>   allows the data-enable bus flag to be propagated through the DRM
+>   pipeline. This is necessary for the VGA to work correctly on the
+>   Apalis iMX6.
+> 
+> Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> ---
+> Leonardo Costa (3):
+>       dt-bindings: display: bridge: simple: Add the Toradex Apalis iMX6 VGA DAC bridge
+>       drm/bridge: simple-bridge: Add Toradex RGB to VGA DAC bridge
+>       ARM: dts: imx6q-apalis: Add VGA overlay
+> 
+>  .../bindings/display/bridge/simple-bridge.yaml     |  1 +
+>  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+>  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 79 ++++++++++++++++++++++
+>  drivers/gpu/drm/bridge/simple-bridge.c             | 10 +++
+>  4 files changed, 111 insertions(+)
+> ---
+> base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+> change-id: 20260928-v1-apalis-imx6-enable-vga-5c7ba6b358fe
 
-I just tried to reproduce this bug on a Zyxel NR7101, using a cable with
-pair 4 cut, connecting to the I219-LM controller in my laptop.  Without
-success.
+-- 
+Regards,
 
-EEE enabled or not does not make any difference.  The link is negotiated
-as 100Mb/s as expected, and it is completely stable.  Absolutely no
-issues observed.  I even added a .link_change_notify callback with a
-counter and a printk to the phy driver to make sure I didn't miss any
-flapping.
-
-MT7621 side:
-
-root@OpenWrt:~# ethtool --show-eee lan
-EEE settings for lan:
-        EEE status: enabled - active
-        Tx LPI: 30 (us)
-        Supported EEE link modes:  100baseT/Full
-                                   1000baseT/Full
-        Advertised EEE link modes:  100baseT/Full
-                                    1000baseT/Full
-        Link partner advertised EEE link modes:  100baseT/Full
-                                                 1000baseT/Full
-root@OpenWrt:~# ethtool lan
-Settings for lan:
-        Supported ports: [ TP    MII ]
-        Supported link modes:   10baseT/Half 10baseT/Full
-                                100baseT/Half 100baseT/Full
-                                1000baseT/Full
-        Supported pause frame use: Symmetric Receive-only
-        Supports auto-negotiation: Yes
-        Supported FEC modes: Not reported
-        Advertised link modes:  10baseT/Half 10baseT/Full
-                                100baseT/Half 100baseT/Full
-                                1000baseT/Full
-        Advertised pause frame use: Symmetric Receive-only
-        Advertised auto-negotiation: Yes
-        Advertised FEC modes: Not reported
-        Link partner advertised link modes:  10baseT/Half 10baseT/Full
-                                             100baseT/Half 100baseT/Full
-        Link partner advertised pause frame use: No
-        Link partner advertised auto-negotiation: Yes
-        Link partner advertised FEC modes: Not reported
-        Speed: 100Mb/s
-        Duplex: Full
-        Auto-negotiation: on
-        master-slave cfg: preferred master
-        master-slave status: master
-        Port: Twisted Pair
-        PHYAD: 2
-        Transceiver: external
-        MDI-X: Unknown
-        Supports Wake-on: d
-        Wake-on: d
-        Link detected: yes
-
-I219-LM side:
-
-root@miraculix:/tmp# ethtool --show-eee eth0
-EEE settings for eth0:
-        EEE status: enabled - active
-        Tx LPI: 17 (us)
-        Supported EEE link modes:  100baseT/Full
-                                   1000baseT/Full
-        Advertised EEE link modes:  100baseT/Full
-                                    1000baseT/Full
-        Link partner advertised EEE link modes:  100baseT/Full
-                                                 1000baseT/Full
-root@miraculix:/tmp# ethtool eth0
-Settings for eth0:
-        Supported ports: [ TP ]
-        Supported link modes:   10baseT/Half 10baseT/Full
-                                100baseT/Half 100baseT/Full
-                                1000baseT/Full
-        Supported pause frame use: Symmetric Receive-only
-        Supports auto-negotiation: Yes
-        Supported FEC modes: Not reported
-        Advertised link modes:  10baseT/Half 10baseT/Full
-                                100baseT/Half 100baseT/Full
-                                1000baseT/Full
-        Advertised pause frame use: Symmetric Receive-only
-        Advertised auto-negotiation: Yes
-        Advertised FEC modes: Not reported
-        Link partner advertised link modes:  10baseT/Half 10baseT/Full
-                                             100baseT/Half 100baseT/Full
-        Link partner advertised pause frame use: Symmetric Receive-only
-        Link partner advertised auto-negotiation: Yes
-        Link partner advertised FEC modes: Not reported
-        Speed: 100Mb/s
-        Duplex: Full
-        Auto-negotiation: on
-        Port: Twisted Pair
-        PHYAD: 2
-        Transceiver: internal
-        MDI-X: on (auto)
-        Supports Wake-on: pumbg
-        Wake-on: d
-        Current message level: 0x00000007 (7)
-                               drv probe link
-        Link detected: yes
-
-
-So now I am curious to know:  What am I doing wrong here?
-
-I primarily did this test because I wanted to implement a smarter
-workaround, without forcibly disabling EEE for everyone based on one
-pretty obscure configuration.  But that's hard without being able to
-reproduce the problem.
-
-So let me ask you, who seem to be able to reproduce it:  Why is it
-necessary to block EEE for everyone? Why can't you disable EEE by
-default, but let me enable it on my systems - where I know it works?
-
-Or even better:  Why can't you detect the link flaps and only disable
-EEE when required? (this was my plan)
-
-FWIW, I have been using EEE on MT7621 devices for years without ever
-noticing the claimed issue.  I have heard the rumours that the SoC is
-supposed to have occasional link issues, and that they are related to
-EEE.  But reproducing the issue has so far been impossible.
-
-> MediaTek confirms the hardware is the root cause (Landen
-> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
-> problems, so it is recommended to disable its EEE."
-
-This is BS. I don't doubt that there are bugs in the MT7530 gephy. But
-the EEE feature of the MT7530 internal gephy works fine for me.  And
-always has.
-
-Vendors have no interest in making older hardware work. There is no
-reason to ask them or trust them when it comes to hardware they don't
-sell anymore.
-
-We can do better. And we have, by for example bringing DSA to the
-MT7621. Please, let's try to make even old hardware work as good as
-possible.  Disabling features is not the way to go.
-
-> Auto-negotiation then falls back to a stable 100 Mbps link instead of
-> looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
-> cable on the WAN port, a single clean 100 Mbps link comes up and a
-> DHCP lease is obtained, where the unpatched driver loops.
-
-And no I've tested the same configuration with EEE enabled, and it
-doesn't loop either.
-
-Where does that put us?
-
-
-Bj=C3=B8rn
+Laurent Pinchart
 
