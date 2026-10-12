@@ -4,81 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F869CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B371FCA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSrlS3c0D80DeTcpLHTJOVgScHDROXuVZzKekQ1qpgw=; b=yTRuYCUiAKMCBbDGlVZroayit8
-	M9Ep/Y4SQnBK5BPswY7IYBg1nPQWO7WcarUaq/NJPSngefLp4QVteOcgzf7pTXKK0+RPowpjtpo7/
-	Amq55OYF/VKgx2G4K/l1enHNa6bZ0WBHhWyywFL1iJgrT2IN30KiMPRRprl2I3fbPcHTG2wZsBxpF
-	a2weLmr7A6P6zhYILYA5TtaxVjzvEoaOxVcWZWPKwz8HQMNjHXOPPfKyJJrTfSi4tnjKLjhlqibdi
-	snd489LKaoiQilHUTWNLjVTHerp2//a5wKFCvydaGTn7hqyMJUwgrfcBDFausYMYILTQz7vqVhwcW
-	2KL7Aysg==;
+	bh=26xk8dmr8jAYc6qjJPKF+8t0Zh2+xvf1YvI7IcgDOWY=; b=mj9kAozPj3D/EaZPjL+tKbK39W
+	yv/NsYMRm01wQUnPqDOjvyap4LXqJ2dFb5Co9Fx0oG5IPG6susc8gPG+Ae90ruja6EmA7F7d7+vHr
+	xAQNnv8O1vkK2q68ncoyEhA2qOTfhxI1QqJS5aw9HPDupwlBGVCzGTR8xCE6/7mm9Ahbcrv+a/12C
+	39/EIZvV/NR3qWh5bfvnFD2YsjBEvI3D0H4ows30nBfFfWfng/0TV5epMWRIJhMHXqVzzWxL9ckr8
+	8gocosz2KwNHtVT2gsea2Tj7RfcIxjprG3f5yNs+G8e/P9QbS49Nbwjjl/yZL6Ev1UbVcL75MZYD0
+	eN2yATJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9zX-00000009mYA-0N8d;
-	Mon, 12 Oct 2026 06:58:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGA9X-00000009od3-0zDs;
+	Mon, 12 Oct 2026 07:08:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9zV-00000009mWv-3o1c
+	id 1xGA9V-00000009ocw-3J0W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 06:58:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 582B54484A;
-	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2EA90C2BD01;
-	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791788313;
-	bh=O87EgCaMv/JHZcmvlwlEzRyEH0PZR65LbdyTzFL9gvM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=reUV0i2BHuhv+tvAGhEn8Bq63EsX4dWNrcotziviVf3TftMILhsvzN92davaqjNlh
-	 nOfO3ft9QOLjgSMJBo5IREMTCdOzcByRN17MOHI7SHLoz/z5vScVCOqa2FoS8KbML0
-	 GXJIxotPBnKaHWu4cqzfKAyHRuK5uZGBEmsXUHn0eiakCO5KAhyKpgE/cwuTIS416K
-	 ErKfeD68rZDddNtFiPTEmBTpq2EiMKp/3qcoMm8CWNWcmqE1vNoi84/CSkBIYYz6zK
-	 ZYPLgMiiwRF92uqXUY2cFg24XRA/KcT7AsMbNafa2w9vn6gVTECx42Q2zSk8hlnUM2
-	 jLArOFJHeWHKg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BFE3CA9EDC;
-	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 12 Oct 2026 09:58:34 +0300
-Subject: [PATCH RFC v3 04/10] ARM: goldengate: Add support for the CS75xx
- SoC family
+	Mon, 12 Oct 2026 07:08:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3C96C60AB5;
+	Mon, 12 Oct 2026 07:08:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB4871F0089B;
+	Mon, 12 Oct 2026 07:08:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791788932;
+	bh=26xk8dmr8jAYc6qjJPKF+8t0Zh2+xvf1YvI7IcgDOWY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=dh8Tzq5i6OFbiLUQVPyzoIX1TjwIyFQ4zN5zuhkp/UclM1zWpwD321+qfk3Yb+/JN
+	 GlvJcxC2ZfT1zUVgrHKaqpSyZlwMuSq5QM2waEyBtyrUHSA7a9SYT1Cjg3Q+8hCxxn
+	 jIxv4a0SsMSNrpUk8gTTOb6LAeROiNWQc/S1dEvfN69xsdvDvmX+WCMs79sJrHdqvG
+	 EI6qnumKh3yL/mgoeT3yrgCvOqntrANSbYOaYdifEa/O+sRgn+E7ZqkF5h/Mwafr/z
+	 M5uy5+ybylexYpw6bdaIeBARyauiDqPjNbqaPehuUHjeW+Fgwz1W4ILMMTX06MXv63
+	 Nv7vEm/pyc2Zw==
+Message-ID: <a0eca34d-5eb2-4730-b8c7-0f2302bcf265@kernel.org>
+Date: Mon, 12 Oct 2026 09:08:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-cs75xx-v3-4-0e0d17a098cf@gmail.com>
-References: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
-In-Reply-To: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Drew Fustini <fustini@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- Jason Li <jason.li@cortina-access.com>, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788310; l=6015;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=a5IJ4+7bPBYPkCDNdgcq4yBP6JbycpwohjfaMxwTHek=;
- b=V4K3GQX0KO2P/HAyMyXBGAJYY0YPrzZY4gLzcCH4Yp73PD3w0WBP5egbYGnqRxvI+Op+EFa3S
- NU99GF3PxOfB5e8yTI+VWYqyhzlRQ9DtLaDD3pZ0+T6dvocJoXEKN/F
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 04/18] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
+To: Linus Walleij <linusw@kernel.org>
+Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>,
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
+ <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com>
+ <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
+ <b2256847-3ec1-47e8-ac79-ceca86eb09e7@kernel.org>
+ <CAD++jLkrXXg9xrhAZ8HETc5Qcv5BbkY-ibjvzBmE5WZVqDEGWQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAD++jLkrXXg9xrhAZ8HETc5Qcv5BbkY-ibjvzBmE5WZVqDEGWQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,186 +129,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+On 12/10/2026 09:06, Linus Walleij wrote:
+> On Fri, Oct 9, 2026 at 8:17 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On 01/10/2026 09:03, Linus Walleij wrote:
+> 
+>>> On Mon, Sep 21, 2026 at 6:23 AM Long Zhao via B4 Relay
+>>> <devnull+longzhao.ambarella.com@kernel.org> wrote:
+>>>
+>>>> From: Long Zhao <longzhao@ambarella.com>
+>>>>
+>>>> Document the CV75 pin controller binding using generic function and
+>>>> groups properties for pinmux configuration.
+>>>>
+>>>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>>>> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+>>>
+>>> This patch 4/18 applied to the pinctrl tree.
+>>
+>> There is a dependency, you cannot take this patch alone.
+> 
+> Oops, but is it a DTS dependency so if none of the other patches go in through
 
-The Cortina Systems CS75xx ("Goldengate G2") are network processors
-with two Cortex-A9 cores, an SCU, GIC, the Cortex-A9 global and private
-timers and a PL310 L2 cache controller. The family includes at least
-the CS7522 and the CS7542; the CS7542 is used, among others, in the
-Securifi Almond+ router.
+No, it is a bindings dependency, introducing new DT bindings warning for
+both your tree and next. Your tree is fine in this case as long as next
+is also fine... but next is not, because that patch did not make it there.
 
-Apart from the vendor this has little in common with the Cortina
-Systems Gemini (SL3516/CS3516) supported by mach-gemini: Gemini is a
-single ARMv4 FA526 with Faraday peripherals (FTINTC010, FTTMR010,
-FTGPIO010, a 16550 UART) built for ARCH_MULTI_V4, while the CS75xx is
-an ARMv7 MPCore whose UART, GPIO, interrupt controller and NAND
-controller are different blocks. It therefore gets its own directory,
-named after the Goldengate codename like in the vendor kernel. The
-Kconfig symbol, ARCH_CORTINA_ACCESS, covers the whole family and is
-named after Cortina Access, which last sold these chips and also makes
-the newer 64-bit parts.
+We cannot have any new DT bindings warnings in next.
 
-The generic DT machine is sufficient for the platform, so only the SMP
-bring-up needs code: the bootloader parks the secondary core in a WFE
-loop that polls a global software register, so boot it by writing the
-physical address of secondary_startup to the register named by the
-cpu-release-addr property and issuing SEV.
-
-The CPU is a Cortex-A9 r2p1, so select the errata workarounds that apply
-to that revision and can be enabled on a multiplatform kernel. The PL310
-is r3p2 and needs none of the PL310 workarounds.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- arch/arm/Kconfig                   |  2 ++
- arch/arm/Makefile                  |  1 +
- arch/arm/mach-goldengate/Kconfig   | 18 ++++++++++
- arch/arm/mach-goldengate/Makefile  |  2 ++
- arch/arm/mach-goldengate/platsmp.c | 71 ++++++++++++++++++++++++++++++++++++++
- 5 files changed, 94 insertions(+)
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 0cc289a71..87ff65256 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -391,6 +391,8 @@ source "arch/arm/mach-footbridge/Kconfig"
- 
- source "arch/arm/mach-gemini/Kconfig"
- 
-+source "arch/arm/mach-goldengate/Kconfig"
-+
- source "arch/arm/mach-highbank/Kconfig"
- 
- source "arch/arm/mach-hisi/Kconfig"
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index 573813ef5..21d7a443c 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -187,6 +187,7 @@ machine-$(CONFIG_ARCH_DOVE)		+= dove
- machine-$(CONFIG_ARCH_EXYNOS)		+= exynos
- machine-$(CONFIG_ARCH_FOOTBRIDGE)	+= footbridge
- machine-$(CONFIG_ARCH_GEMINI)		+= gemini
-+machine-$(CONFIG_ARCH_CORTINA_ACCESS)	+= goldengate
- machine-$(CONFIG_ARCH_HIGHBANK)		+= highbank
- machine-$(CONFIG_ARCH_HISI)		+= hisi
- machine-$(CONFIG_ARCH_IXP4XX)		+= ixp4xx
-diff --git a/arch/arm/mach-goldengate/Kconfig b/arch/arm/mach-goldengate/Kconfig
-new file mode 100644
-index 000000000..d2963df0a
---- /dev/null
-+++ b/arch/arm/mach-goldengate/Kconfig
-@@ -0,0 +1,18 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config ARCH_CORTINA_ACCESS
-+	bool "Cortina Systems CS75xx (Goldengate G2)"
-+	depends on ARCH_MULTI_V7
-+	select ARM_ERRATA_754322
-+	select ARM_ERRATA_764369 if SMP
-+	select ARM_GIC
-+	select ARM_GLOBAL_TIMER
-+	select CACHE_L2X0
-+	select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-+	select HAVE_ARM_SCU if SMP
-+	select HAVE_ARM_TWD if SMP
-+	help
-+	  Support for the Cortina Systems CS75xx (Goldengate G2) family of
-+	  network processors, such as the CS7542 used in the Securifi
-+	  Almond+ router. These SoCs have two Cortex-A9 cores with a PL310
-+	  L2 cache controller, a packet processing engine, PCIe, NAND and
-+	  the usual low speed peripherals.
-diff --git a/arch/arm/mach-goldengate/Makefile b/arch/arm/mach-goldengate/Makefile
-new file mode 100644
-index 000000000..b839201c9
---- /dev/null
-+++ b/arch/arm/mach-goldengate/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_SMP)	+= platsmp.o
-diff --git a/arch/arm/mach-goldengate/platsmp.c b/arch/arm/mach-goldengate/platsmp.c
-new file mode 100644
-index 000000000..7cd23ee56
---- /dev/null
-+++ b/arch/arm/mach-goldengate/platsmp.c
-@@ -0,0 +1,71 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * SMP support for the Cortina Systems CS75xx SoCs
-+ *
-+ * The bootloader parks the secondary core in a WFE loop that polls a
-+ * global software register and jumps to the address found there once it
-+ * becomes non-zero. The register is described by the cpu-release-addr
-+ * property of the secondary CPU node.
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/smp.h>
-+#include <asm/smp_plat.h>
-+#include <asm/smp_scu.h>
-+
-+static int cs75xx_boot_secondary(unsigned int cpu, struct task_struct *idle)
-+{
-+	struct device_node *np;
-+	void __iomem *release;
-+	u64 addr;
-+	int ret;
-+
-+	np = of_get_cpu_node(cpu, NULL);
-+	if (!np)
-+		return -ENODEV;
-+
-+	ret = of_property_read_u64(np, "cpu-release-addr", &addr);
-+	of_node_put(np);
-+	if (ret) {
-+		pr_err("CPU%u: missing cpu-release-addr\n", cpu);
-+		return ret;
-+	}
-+
-+	release = ioremap(addr, sizeof(u32));
-+	if (!release)
-+		return -ENOMEM;
-+
-+	writel(__pa_symbol(secondary_startup), release);
-+	iounmap(release);
-+
-+	/* The secondary core waits in WFE, wake it up */
-+	dsb_sev();
-+
-+	return 0;
-+}
-+
-+static void __init cs75xx_smp_prepare_cpus(unsigned int max_cpus)
-+{
-+	struct device_node *np;
-+	void __iomem *scu_base;
-+
-+	np = of_find_compatible_node(NULL, NULL, "arm,cortex-a9-scu");
-+	scu_base = of_iomap(np, 0);
-+	of_node_put(np);
-+	if (!scu_base) {
-+		pr_err("failed to map SCU\n");
-+		return;
-+	}
-+
-+	scu_enable(scu_base);
-+	iounmap(scu_base);
-+}
-+
-+static const struct smp_operations cs75xx_smp_ops __initconst = {
-+	.smp_prepare_cpus	= cs75xx_smp_prepare_cpus,
-+	.smp_boot_secondary	= cs75xx_boot_secondary,
-+};
-+
-+CPU_METHOD_OF_DECLARE(cs7542_smp, "cortina,cs7542-smp", &cs75xx_smp_ops);
-
--- 
-2.53.0
-
-
+> this merge window it'd still be OK right?
+> 
+> I think the other patches are still being reviewed and we are at -rc7 so..
+Best regards,
+Krzysztof
 
