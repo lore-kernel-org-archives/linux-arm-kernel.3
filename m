@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98F9CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09969CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTmPfvalZRTI6+lp6HTMlI98ng4/42Y7G5JNtyRc8+k=; b=z1A7FDX+MEmjCCmSwxt0SuTWmh
-	c6ek63Q3sAJcJ08KZuD+boN6UevK5oVlnC7X4/9YGHcbDoeXNo71DvCf6j/WVkBWrcGIpmblsNFOK
-	Kqc9L3oUpDDA0CNJhPnguhKCM36tSzkaj3Ma1Px1UA9wvxxrHSgM9GsIpwxgXVDYSsEeVdTSoK5J9
-	FO1P3+Quo7y7vWs7U27tvQsnTBLORNEl2ohxa8QFBdwUF2l7XqjvCpkcGLg4kXf9VchTsShv2CzLx
-	90T4Qauu8DzBYTO9H91K4a4bE2n6lJ0Dr4qFflXtlPX1dXNAVMylws6ZCx974WB0kDjJRze5qQ3fI
-	4rMA40rg==;
+	bh=J3Qc6M2FWp5fQpmardGXk9w7HUQgqdCLyizNZPwG574=; b=PY0TPJnbJ7cUsTZbDu9RocdtcC
+	4pQ161NfJcMmh9AgRXHhlBFqwVhclhQrM5AJcIGWYFY9EDU/ft3PHuZhhvRBfaofV6J017kY2wdob
+	m9j0XpCV85ZTYPJrm2xtJfFeTUg85Y4isjXEvWX/A8T5m0xjbmJbVZuHgjkIepX818B5vhgaLbTFv
+	pcLW3JpDOreu6K6dfqeM6qGXQk8tTZ8lS05h+hLzbT1c7Ojq7oh4Qk07rYdwHeCBMi1egWzY9VkDq
+	N+/f9CfInmPNXqCN0os12n8ghST83uJRjJ5f1sxRVJDliJekPDLxhrQK+0Iab9zSBgQ0ZZpntJd44
+	0s6zyF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCyT-0000000AAX7-2sv6;
-	Mon, 12 Oct 2026 10:09:41 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xGCyd-0000000AAeo-22DQ;
+	Mon, 12 Oct 2026 10:09:51 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCyN-0000000AAUO-2NDO
+	id 1xGCyZ-0000000AAbH-0HII
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 10:09:37 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a16c399641so17499205e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:09:35 -0700 (PDT)
+	Mon, 12 Oct 2026 10:09:49 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a161d9b8c7so11110035e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:09:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791799774; x=1792404574; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791799785; x=1792404585; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rTmPfvalZRTI6+lp6HTMlI98ng4/42Y7G5JNtyRc8+k=;
-        b=BTML7tg4Kavq1nYaaspoYIeglXuwT1AgdnwbFEClG3uY/1hgWwK0UqElfeMkLjvTPZ
-         STNjp8S2rJ/iwOUensYOH1hqSAGNgNG3kgCir2K+gVfsoGI13LpNvTy60yGMM3ZmmOFT
-         dzen4rgOH2vYMh1mTB9LP/omq3IGqcs1IMAi/I0IuhROBJbvGE0bxAIMPHbUpusUN0V3
-         7M5Px87/XPirMT44XvHz2xJ3xiyCx61LXyPPJrMsQhy4gTUudJTgh2g2BRY7hjod+lJg
-         zjYVTuIfExVQYlNCsdMuTnJ1SQoghj/x9wlJ+GD0pe2Q5ihIZ6hcvoOYyPG+LnBBl9Qw
-         2RUg==
+        bh=J3Qc6M2FWp5fQpmardGXk9w7HUQgqdCLyizNZPwG574=;
+        b=rddqgmRiwUhfLSXqbJnPoIaFcDQ8SC2Pj9xTmqi3tozt7njab7ihMI3rIdfp9Ohh0O
+         5VRZgaCNS7PWmxWVxmUHYhCjgXWr/Yz6ZirMufuPjdu/m4BMV6bi/3Gd/7mTCLWQFwyy
+         JxOuZ6QTr8Jnp3TB2CNHdoTbO8Mt8CqaDs+q8hhwycEeNPp21vtSGxjcGjW3Q3HnPhoE
+         DpQMuAO1eDhh0+v24OR7EmuEbaSjtvFOX2m7pUIOuEFS14dlY2EtmP2adSHqn5/yFV6X
+         JkPgKtjtXT1TLd95rk2+NT4QAvlbb5SD9rQjflxCurNjT+nFp7gKtsqhkqUXENXQGtfg
+         d+0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791799774; x=1792404574;
+        d=1e100.net; s=20260707; t=1791799785; x=1792404585;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rTmPfvalZRTI6+lp6HTMlI98ng4/42Y7G5JNtyRc8+k=;
-        b=X7E3/PMnH0d4rKkDFama1qhFIttqnBvMkFcUKfEmiMmzJyHdtdT5wfz7LKDsBogngK
-         sIX8hhS8ZM4XJ7+POrj7vOJ60RJaPC5vBwED3YcYRr7vxqxKG0qtSg06lUd9Xjfwf0tm
-         Gp0l3MPwIHljSv+m5ADS5Tq/mpnYUblc62Xj2E56dCa88qMI9ibg7FW5kjKIt+2roy5y
-         3ZsY/wC0bSoXNWDkQVW3J+ppqpcDi5wgX1Te1u73l2VIYizLmdkVXNEmYy22eNQUHzYG
-         VtEAHuYYnR/TKt00f1obclj7SR0L2uNduXUqnxt6y/SZN+plFnf/TtgQGd479JI0xCQC
-         yeZg==
-X-Forwarded-Encrypted: i=1; AKwUvBwmFYDL9ODBzg38Hw4ooycR13h4oeNebfUvtUed9+2uEbb7x6CAZF4eGW4WFwlT9KVeggx/wnFuwo1WT9lsF/h4@lists.infradead.org
-X-Gm-Message-State: AFq9FYKyQXr9WVbAmDb/eOSPF7fPSmdYZki7EixgQANN861STeLjOl6f
-	VA0lngZSzARJ1xkG1XsTtQKjfWYhGy/oyysHI4knGNk0fY5mQYRUYiPC
-X-Gm-Gg: AYBFou0UDKCIa63XRvr7be35aJyNFx1e0msKQ4sGVj2UWKfkcjnfvFsiTbeZrbTcD13
-	K/i+Jdhl1a5/z8BQryWBBlLPaVn74a2BtVXldoB4EDR5p13K77on0Li7Crt1K20DuCbBrzlNagE
-	XOcSl7IzdnReTIdvCFGzSVSnm8tla8SnYTvMAiTCTzQWi9QmnDjDtXoo5b6cDQYMd4SUh5XNmU3
-	ZJppYuTKV/c9y/SeMjXq2D4sHuJExH2ZbwwxEOnr74ZDF4vc82q/RJnoX58LIiwoLORYvKAI9Td
-	lyKXyfib1ImSQr4nS63I74WWUw+BI/Iz7L1xq7L0pz55yhj8DF4NXW23Oxvc5ha106rWFp4kaRQ
-	EsMsWCvhsW0sCKmTxg+zQvPpQsEgupHIDnvzvxmUqNvtXZarr2T76f4fTiklzq0gb7jiye3hqAv
-	dM8t29gYxq38+YSEQ3ur9wmLn7AzDVECyXGA6BbskgZxMUWgWaIWYzK5Y6VgO8U08dhuXtsB+so
-	MsYs5qUutHV37Hw3zJs7qSJUVBbLBOY
-X-Received: by 2002:a05:600c:5397:b0:4a1:7ba9:da2c with SMTP id 5b1f17b1804b1-4a18e4a7cacmr168741805e9.25.1791799773645;
-        Mon, 12 Oct 2026 03:09:33 -0700 (PDT)
+        bh=J3Qc6M2FWp5fQpmardGXk9w7HUQgqdCLyizNZPwG574=;
+        b=kuRhF4LKMEG3CbuFc67AWqKL7CO4QVCAopWz4xNo4RhbDGPKvfHSFA0ExSjG2DOwCA
+         v0EcECLTRJKE0QDY7OrVU514rnjti86Hasyx8hj/XqWXEIkiuon2SiIpo2guWiRSawsZ
+         ggJXAxzCrWQCYpFYL+GLSiY2LKAtVcp/stUiNr4DLQry7Q3wONOEKdEAYfwWg//aQJQd
+         RKfovJffak9TC/S7fZ6u4YkDRhvKd5Jlmed5OKnTEkwq0jzw/2z5O/5KVbzOFfXe1vho
+         qSWtGA8STfQJB3Z9iMZuwpjuNza8aGrg8kPZNAJdbAuE1asw3g9sZRN8K+JkMoMkZghn
+         8rNw==
+X-Forwarded-Encrypted: i=1; AKwUvBzKNOMl0zmy7t8DyJjh2sf+W2BrboW5HRfhrfcwcJXKGvLq6KEGqO3J00UsB1zBx9DphqI/v0s0DdpYTIqn0/gI@lists.infradead.org
+X-Gm-Message-State: AFq9FYIY3GqzY7a5+sJI3XI8Zumlumu7FcI0MVFHyJRzZu5hIdebw66+
+	GCh4gU1mHbxl5aSg1P5lwvBISxxMApDkxFJKBY8jWnXriWbzagQC2PZA
+X-Gm-Gg: AYBFou0UfUtPn9LMVRYjCG38Xai9g1vFucd4uGtAEuD754j6WTzmgn5aTd8z38ucmz1
+	DmptRUKn8OnBQAPPI8Nva7D9zz7R+X0pyFTyp245KxKzTpPQLe+c66peyq37QkNQvP56qZ5ybRt
+	x5o1JTncc4MeXpL+frcSV8dTckTvGkAqyVtm+1wQOBt4Dm0CGniAQaIQAfbqjGpudPt66o6IiKQ
+	ciY4fTkYkhkCbXzlpfjcCqg7UFnmjfWbzu07p6cZTCzsgT3E+HW3G9PwwTr/RdDiqgAuhBmfKyw
+	YAcg16wm1zSRqWVT9P+8OPJWIaxKGe8itvrZLM+lZUkM81iGd4qQNBVEn2EubfpaQbc0ql0U3JF
+	q1QXFa0vq71NLGDQ1hkaQ95q2LQ6AxpjIFyM4RcLT4VpxVV9nQQ2SbCAOLZKvDI2ck4yJjoI0yV
+	4LOvVitTdMRURspsb8TdDWWX1ODyWQa8dp6a4e9H8xwI8DNBAfsuVo8y43XOc8GUKRCQLvgvX2J
+	BuhzRb0gXIXJ3bnIPsA491/uHvTpxMz
+X-Received: by 2002:a05:600c:4fc1:b0:49d:2536:402e with SMTP id 5b1f17b1804b1-4a19a9cf1e6mr56555745e9.30.1791799785371;
+        Mon, 12 Oct 2026 03:09:45 -0700 (PDT)
 Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a192d3efb6sm166229885e9.1.2026.10.12.03.09.32
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a192d3efb6sm166229885e9.1.2026.10.12.03.09.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 03:09:33 -0700 (PDT)
+        Mon, 12 Oct 2026 03:09:44 -0700 (PDT)
 From: Pablo Mazzini <pmazzini@gmail.com>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Samuel Holland <samuel@sholland.org>
 Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v4 03/11] dt-bindings: pinctrl: sun4i-a10: add Allwinner B288
-Date: Mon, 12 Oct 2026 11:08:08 +0100
-Message-ID: <20261012100816.331033-4-pmazzini@gmail.com>
+Subject: [PATCH v4 10/11] dt-bindings: arm: sunxi: add PocketBook Verse
+Date: Mon, 12 Oct 2026 11:08:15 +0100
+Message-ID: <20261012100816.331033-11-pmazzini@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261012100816.331033-1-pmazzini@gmail.com>
 References: <20261012100816.331033-1-pmazzini@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_030935_683181_A81008A9 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20261012_030948_470204_97547B24 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,68 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The B288 driver takes its mux values from the DT, so allwinner,pinmux
-becomes an allowed property here, required for this compatible only.
+A 6" e-book reader built around the Allwinner B288.
 
 Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-index 45b7a0b6c626..b1f093d218f5 100644
---- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-@@ -39,6 +39,7 @@ properties:
-       - allwinner,sun8i-a33-pinctrl
-       - allwinner,sun8i-a83t-pinctrl
-       - allwinner,sun8i-a83t-r-pinctrl
-+      - allwinner,sun8i-b288-pinctrl
-       - allwinner,sun8i-h3-pinctrl
-       - allwinner,sun8i-h3-r-pinctrl
-       - allwinner,sun8i-r40-pinctrl
-@@ -120,6 +121,15 @@ patternProperties:
-         $ref: /schemas/types.yaml#/definitions/uint32
-         enum: [10, 20, 30, 40]
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 28437c47ac01..fa34786f0652 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -811,6 +811,11 @@ properties:
+           - const: pocketbook,614-plus
+           - const: allwinner,sun5i-a13
  
-+      allwinner,pinmux:
-+        $ref: /schemas/types.yaml#/definitions/uint32-array
-+        description:
-+          Pinmux selector value, for each pin. Only used by SoCs whose
-+          driver takes the mux values from the DT instead of an in-driver
-+          table. Almost every time this value is the same for all pins, so
-+          any array shorter than the number of pins will repeat the last
-+          value, to allow just specifying a single cell, for all cells.
++      - description: PocketBook Verse (PB629)
++        items:
++          - const: pocketbook,verse
++          - const: allwinner,sun8i-b288
 +
-     required:
-       - pins
-       - function
-@@ -144,6 +154,17 @@ allOf:
-   # warnings.
- 
-   - $ref: pinctrl.yaml#
-+
-+  - if:
-+      properties:
-+        compatible:
-+          const: allwinner,sun8i-b288-pinctrl
-+
-+    then:
-+      patternProperties:
-+        "^([rs]-)?(([a-z0-9]{3,}|[a-oq-z0-9][a-z0-9]*?)?-)+?(p[a-ilm][0-9]*?-)??pins?$":
-+          required:
-+            - allwinner,pinmux
-   - if:
-       not:
-         properties:
-@@ -222,6 +243,7 @@ allOf:
-           enum:
-             - allwinner,sun6i-a31-pinctrl
-             - allwinner,sun6i-a31s-pinctrl
-+            - allwinner,sun8i-b288-pinctrl
-             - allwinner,sun50i-h6-pinctrl
- 
-     then:
+       - description: Point of View Protab2-IPS9
+         items:
+           - const: pov,protab2-ips9
 -- 
 2.52.0
 
