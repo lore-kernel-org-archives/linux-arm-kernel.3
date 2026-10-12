@@ -4,129 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834FDCA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D90CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=246lUTh84wes9rVp5+feMfGNJO2SgItFiQRXinm/DoU=; b=vJ+qTnf6/oi44QhSBA0IeyPpxL
-	ySWJtMHncFq4a/TnDSd4+Xi79y7dE3GRy4Jl71SVq2tKFxFVlMuldrty5pAMjaIibjl0P2s9X+Owu
-	4By9St5gHk7REs7bBIqXnUsui+8ImHBN9EV6mT/k2/hZZ6ItGhcx5OP+yzWnJNFdxA2aAmpdb8WMw
-	v5AkaU2osGXg2WDkJ8rP3ADl6V/gK+LkNZeXXYGczrETXOpMwV+YeW9iMvp6DXLyinN08ZNBXu58N
-	Fbsq2vbLepX16rN5FHsibfArKDpZq86HkUe8wLS46bgB/vNKdO4MeyksvQg8yztrqyztDtiGIG55J
-	6QbB9Mqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=; b=QzFl87gqICHgcsPbCuocvp/TtO
+	2JFGFHxTa78bOGH4YBcYzyKaUjKnKThUaGz6qhxSVuXgq7HXuAaYeqOI3tlFJIc79G7bhRTqbWapb
+	z7BgbIyOvfjlwyDYVsZZ4yvIwbjNecOATxze/SNUoPGIF2B5V2YGsdlnvMHiluMZVadTRGRFXxwwf
+	u4PGMa3cc0euwArrXJgNGjoOUoV5JdK6I5qAkgDdeAdDJNTKYz9PDqK9pwBc+z85YyfT+y78/azeZ
+	+uawer9njr7u71D2v/CGm0a1kesxgkGO1A71fYfXRUHx6E9dRK86mmowgKPRpEDwfcBQ0e/wBG3DZ
+	7GWr32sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHhe-0000000Am3u-31BR;
-	Mon, 12 Oct 2026 15:12:38 +0000
-Received: from mail-westeuropeazon11010021.outbound.protection.outlook.com ([52.101.69.21] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xGHjB-0000000AmTM-4BSY;
+	Mon, 12 Oct 2026 15:14:14 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHhZ-0000000AlxN-3LOS
+	id 1xGHj9-0000000AmSU-1AkO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 15:12:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BV7Iq7fHVZbMKJ2Y9+ycCc3Ehkz60vihLoSMAZExpjIxRRUgyrkTNq1egS/9FcQsXMzXuVtcEhPpe19nQjLTuwo7+wHnm/Za2iUCy0FjhuyNGEpBqLJ/p4mOPF3lf1KVkb8e0LG6VJrHJlAJ6/3HHchA/Qyf0Kxk7NSBsgwTWNptv9pFSjRHAN/t3c1lNmMxw5tfBS1z4fj3lIqGvmEhXHyKFotXeXYW+HNLRkE0P8/UiDilp6OnrhVEqbASyma663QA9izWe8iqBBkhQ1PQ0aQeWiFghd/Ea2+AbgSeNE+iDCc3qAuaJRuv3Ky8LzX+D2NYBeamB0SS98tT+qrNZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=246lUTh84wes9rVp5+feMfGNJO2SgItFiQRXinm/DoU=;
- b=o4gTYm1sQOnd+JbFRkTFB4dE9Uxchl9aos48rQTestVKidC4TK8WbauNmUV2iG+ASXc7TXcHmQyMhY5aTbK+3UBgSRNPvJGLDxziSztPa2/Ye04nNgWTzLG6hao4k1F2CPSR7EoadLRocblK3PgYUg3BwnqcGvNUeNkxQz2hSn8TD0oKFTfFJNez/iDxJkrL0Kw6F1eVbB0zJ5Zm4wCoRrtwJn8VexH8szerBSzfpsZKYrrldirzJdpn3T9xO7bNdECywI7peyq0alq+svsajfIyROSMTWsF2jy8kat48m77/O5DesKYyqowJU4b6WlZfJNxOxx3b8jLxfHS3EDMyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=246lUTh84wes9rVp5+feMfGNJO2SgItFiQRXinm/DoU=;
- b=WtAC90JJRoMZasEAlz3pBKKkhCuOVbpoOjWkeBYHlryCNQYmWoljPcNwYvqS8nCHW9NR18aSUuIdhkN9EDRGQGAGNy8kDvs6iz6iFjRUC8i5zrkL63omFNiQSogAhUSOdeJFJQk2GdFS66MJkUb4HPCv4DQPhOgXYXJQofYbgwHuIDGLMU/gSyc4Wfrjo5XBXurCemhfSK6nQi4rxIUi/K8XOk5uSOoeh2uZ+lBvu7bZ2/bJdQExKKwvSB8ZgeHNjG/t9a9ASAXMtdhCZGEWo/1h6DgDiesbS9a66HJU04xZmittHIHQb59/RQsmIrDPPeZ0VPJDcxyYm62Phs9YDw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM8PR04MB7811.eurprd04.prod.outlook.com (2603:10a6:20b:236::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 15:12:29 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
- 15:12:29 +0000
-Date: Mon, 12 Oct 2026 10:12:20 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, robin.murphy@arm.com,
-	devicetree@vger.kernel.org, Frank.Li@kernel.org,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/6] dmaengine: arm-dma350: Add slave support and CIX
- Sky1 integration
-Message-ID: <asz41HFj_wkgooln@SMW015318>
-References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
- <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261009051846.1115962-1-Jelly.Jia@cixtech.com>
-X-ClientProxiedBy: PH7P222CA0014.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 12 Oct 2026 15:14:13 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48b9d8055dfso1540696f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 08:14:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1791818049; x=1792422849; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=;
+        b=Y6edLW1VKbrPuw1iRz+buBfkMqymlcPQ4as3k1w1V1jfusJmB1Upsao+uUcWUoaHiB
+         nf7t1BbR09xLWRvK+WSmiLA88SDJy9zUzs2hgrh6M441QrQJ+qGdJVqa1zHwEpMyLH5l
+         WR2OsvHChUZE/v2lWPO2M9QFUfDN+c1Fu5Uqtj0nIT2wqMs3ucXC2sYDEazS4SBwlD9E
+         8GT2T9YWj22T9jstFmm1bg3L5PpL0LlB4p2syOvMv1+lDeeDliNsV4GsbxYrrc7O1wyV
+         +VuXR1FBWxuEyiqOGeU/SMu2YosqCwECv3xJr7dBQLEBbA3gdtELu7nSvn92uu6nzeBj
+         iMGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791818049; x=1792422849;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=;
+        b=euKpabQE8xi6RQ0OplQ1nrfeB88WAHOw2c7GXKu6D+mGRm6L97LmG4+S2LlLkdrMC4
+         IufVkVTGMhqCVZcIwpU0xGFQyQSAfpUeuqUs+xLMf8NLskEAI4dHKvEY6T7J/rE2+f4k
+         KSqVJQkGkKlArN8HmiPX4AizAmlb1PlcyMdFGGh/HGTsqf5Uut6IbDpofwoA35ZtojKX
+         +yW4bFaG/vi1GFJg6yORFrbFZav6hTTBP5C97M/RPRQlWkgIGHSczEHxBdv3aNfD3Yyi
+         yfS42OzTcZb8hMGR+apTCia33sInJjrHV6yQlMqSoObzwFLZAqEys6hkzcN4mGVOovdA
+         nxiA==
+X-Forwarded-Encrypted: i=1; AKwUvByC6bkryuM1wb91BPdXTCJ4vA6/uTWO9d7aUaTbUNWIt4zvdDm8zizJvYan+bnGJXH6L6rCvN07c9LHw0P+HwZ/@lists.infradead.org
+X-Gm-Message-State: AFq9FYKJ6HMQmmzmA5QLsqd3ZViBwIC0rpok2hjux70Q4XgRTZATgzL1
+	/REnuhCyo26vUsOc1WPanDT3eEZCJxTI9VKyiSrm6I6CP65JX4l3oOQv+YbKXk3DdHA=
+X-Gm-Gg: AYBFou1/PTvaemJJxak9SsqzleyFzGp6UMMwQzjQDwyw5AI+J9VrbmAbEdQaemux+4I
+	R/yOgnwdfypYaARJ+LXMVzqDZq97oyfWf18LErDZdoEyztVt4oUpZIYCj2QtVIi0VmJc/zuQT17
+	xBGLUeQGSegUvkq6Y0RvZ6twH8ys2JP5k5DkhiX76j8Tl68+Gc9ee2goi6EXw+eW9u++dJ6JEy/
+	hMcq4JTsSYmVNeZh9l8jCAD0p6K3jqNiNlSoJvSPwSJC1jM2hv6CYXvG0nme71WHX+/QxFBk7ky
+	wBcld9NE+gGuymjxtRevo0P7eZkwBRXYnZctTyGO7DxlCzGPkJq9qNTiZ6vAg8kG7wWBvVV5USt
+	2qTXbTuFz42zWdMtXzgOtczrFU0XxihXOtx7FfUXXpCM1lMTdwk6X3xStpwQ92PrcDvgQPsBvLr
+	EBqEsQNgVfQwW6PMH2tx4tDzqwLLWRhdDQgcb4t05ImvTqoiliZvE8LNh5yJnxlDyFkIMSki1ge
+	g==
+X-Received: by 2002:a5d:6f17:0:b0:485:a394:58ef with SMTP id ffacd0b85a97d-48dbaaed22bmr16768322f8f.30.1791818048717;
+        Mon, 12 Oct 2026 08:14:08 -0700 (PDT)
+Received: from [192.168.3.100] ([37.103.126.255])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0aaabc3sm3653f8f.16.2026.10.12.08.14.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Oct 2026 08:14:08 -0700 (PDT)
+Message-ID: <d90324be-c43d-4d28-9f1a-e28e437031e8@baylibre.com>
+Date: Mon, 12 Oct 2026 17:14:07 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7811:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87a4fd7b-9f20-4718-f6d0-08df28733b86
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|376014|7416014|6133799003|18002099003|22082099003|10067099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: XQX6hpZK01Gh6FMZHLBinfH8JjiKM8hvX30gwY8UF6huU2RHJaHhgzU/NvDYnAinKqBPDbVQHScM1HNfHWg5VQ63NJ913t0nixuOCPKoO6kQUo2I/RwaeLQHsGn7f9XkhVMHppHxzHO4mZ75spLlh1hTszIbrFRZt4g+ETHA6sQ9LjfyrKPyfI/k5qj9wwwyh8/NhOBIK2/L0WQ2SS9tyzRlHvEeWCwRmgLTxejvZ4tPOEVIJ+JG10a23Op/Aw0yxX73ixoDblCafgvqN+Rx5/4oumv3E8JPV/dJEyXAuFKY7hAJMajzEj+IbfKkxugH08a/JKGcPYjl0rNo9SPM20FsFFSIQwVw1hNiOUcfaQPUPjHR0JQ+HaLebH8KwWJWuZB1OV7a5iz9+6MA+UtqMTTVZ9f3RyuqLiLRIgWqLKPPPeeTeRlFH/0f1r078rghfjVTfDLbGUMa+YEOzXft3D3R8cwnopEM+wbjI1EWvPDtrYbMC25W20KUgQQr06AJqqvDsUbhX5IRbCEM1LO6lTtkUSJxzaqRLBkYebbewyLMKF7SkI5TrmewxQdjs43RARPI/FOvK5/G7Jc2r+iOMZg8doHWskOvUve1y5X+el4lVuUJQNhxSwGBhpZXiS0AViWXtJ5SY3MvzpxfHl45iwp9pI/eqbNq6B/Q98zp65g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(376014)(7416014)(6133799003)(18002099003)(22082099003)(10067099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NGndspdE6rPQDlEQxF0eC5+A5mPyxxPMVYcIVjmFpyHom8cMvfug/2ODCEm3?=
- =?us-ascii?Q?Msbtw3JcN/FBOOXaM23nKkwgm7nj0Uf2t3X5rPvoBQw+yO0mFaayFMNTFgTG?=
- =?us-ascii?Q?r8LzNR+JcZy4ibDP0NiR2gdy3q/nQyrtN2boYy6j66kPvfbjGO/uUT2Yr81s?=
- =?us-ascii?Q?N8F6trL8ugUgtH4k5R9vy8fNcxT6f1R4BzgyuocYcMkQwniI8aTMbg5lihUK?=
- =?us-ascii?Q?Fn80D3udMNi+/RtvL+mCJc4ukN6BXZiuikYwhcYR0cEBA+/tStV8LyhZbA8K?=
- =?us-ascii?Q?+IPuOsZyzakSgJ2pYjFCgKSp8LHHuJcJB8zQluFf9NTaoonGPUPR7z1WWU4X?=
- =?us-ascii?Q?951B0nvu1V0v1SvW+jgJ/DWqbYwxw9oHv1oV29FeijhP6kNOgVLe1J7gqzAe?=
- =?us-ascii?Q?UOZuIJPKvfD7FivTpj8IgS7seRkTaCcfmumsXRALyHph0NpnE8lFdIGx+WtO?=
- =?us-ascii?Q?7Or9jVoMyOYDZINUAn3LNS7KTNAMBEN+DBeSwWR1h2Ftd5gY3rAU12Xkj+CL?=
- =?us-ascii?Q?NQ8fX6aPqsyaIXZ2IJaGY+d7QfYK43ZT+JG7EoAL7zUuFivjP98FBpwHoOGW?=
- =?us-ascii?Q?DpX31BmNciNXAbVJWS6HXrkS1ZIYktkRHh8NPE2nmgjEkSTsTolzvlm2qi6q?=
- =?us-ascii?Q?6eipIt3VWlm2vhhBDdCtArSjkCI/gFWp9qkTCfnNeeVhkEhIO4IPOMzsQOmt?=
- =?us-ascii?Q?/ZtkxpIVEEvqPH45dxmWorS7i+WZR/DbxDgzgxy8eVNfrRRzFSQ8VdSUYCp8?=
- =?us-ascii?Q?sBrU7U0t9m92IJ3nykPFl+HiVQfNzPVQw/KXQ9mYZEGLzXZFJWBZh+Kfj456?=
- =?us-ascii?Q?QeplRmLeaXEznGCzRKzkX9hNsH5QaUuFDn9D7/a1qIA4DaaLcdS3QuwshR1t?=
- =?us-ascii?Q?o+4Nt9fkrxVWxPon0c7Drwdyl3tlxrKcuuiXmIk+qsJQYokE5giBraTVUWcj?=
- =?us-ascii?Q?eXu+3XUvrirnnYOV7RZzTRKqTkuUCfozt3dxja1OBbzj8S4OnICRbdEs5Uej?=
- =?us-ascii?Q?+NvXbMRAydkL/bhtQcSoPbfsHIVQqalIPKIFtj7o5cTSydcMoBfapP6Gxsbx?=
- =?us-ascii?Q?1+LWR/6mIXaEvWn2Wsm8iKBPUmK6aZQGZrwClLV42dKAxSUss04G1UAmIw2M?=
- =?us-ascii?Q?TzczNtjd+7bWaDH5PrQZFpQXu5IN68xS1bHCByCOhEdxRHVilgW+thNBhfrF?=
- =?us-ascii?Q?SOQsxnDkewfiZ7BItxhKb8Cyv0pHGZ5ZiZUqJEy0iRanyGvFpPUGBRNQVXUh?=
- =?us-ascii?Q?kb1D+aBZ19ZeM2P3eqLZwwW7hvO2wl9Mt/hXZ7mCPvRpbuc1MfmrL1DSCIWU?=
- =?us-ascii?Q?C+1f5xnZCB2bCkBQkJwk4b6A4jhkeEDFdZj4kG0fcE0/8yqbHOoF5Pq3QvK6?=
- =?us-ascii?Q?M9zunwDoYBovHEAcYIymmM59KIX3W1r3xLi+00gYlLzxMG2jWgwHu1GgumLA?=
- =?us-ascii?Q?YXBbiaq/5ZmSXyyoYAzlU6Lq7roZR43ZJuD9lkgBfq//GyycmeFjTm7UCP5u?=
- =?us-ascii?Q?/ZSnuWC+seOV/T//aG5myuwShwkyTAG6VGXTE+co2q91WLp/YIqgo5LedW0Y?=
- =?us-ascii?Q?7EfrV0MDipngyp6I6+FHYceXUwXqLDBT2M3/+Wl8+J4BZ6Jk4uvlNo/ENe39?=
- =?us-ascii?Q?An6nCikz7Hmup47zqQaPPQve0Zlv3W5IwFWjuhipb8lKsVDzSqpQDdhm8019?=
- =?us-ascii?Q?n5JAPo8CaBPCykxNGBi689A5iU505TWybGs0Uf6eNcC2PPqXCUHAbKtW5XkN?=
- =?us-ascii?Q?nMnSdp6X1uXFGQK3I89yI080UuK539GOxHKrN7Vo8QPtZblSbtQj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87a4fd7b-9f20-4718-f6d0-08df28733b86
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 15:12:29.7248
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eJWrDvIG2s6zvHeDUCElWmM6WjrfS5ol3mncnXDBtB/6Ii9YIfBCC3J/sBHmxInSOeL0fwBBoBG4aJxPK35UYuakhtdvmsPqWi2q8ObcmJnhQunRQZZmGj4VrdX8ozrQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7811
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/7] ASoC: meson: aiu-encoder-i2s: ensure clk divider
+ gets disabled in hw_free
+Content-Language: en-US
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261001-audin-v4-0-2476646118b5@baylibre.com>
+ <20261001-audin-v4-3-2476646118b5@baylibre.com>
+ <1j5wzdzyqm.fsf@starbuckisacylon.baylibre.com>
+From: Valerio Setti <vsetti@baylibre.com>
+In-Reply-To: <1j5wzdzyqm.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_081233_856110_72B14431 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261012_081411_356664_DA77DE25 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,12 +113,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 01:18:40PM +0800, Jelly Jia wrote:
-> Hello,
->
+Hi, thanks for the feedback and sorry for the late reply.
 
-Please avoid post new version patch set to old thread, which will mess up
-patchworks and other tools.
+>> diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
+>> index 58dce9f08c9d..70ea39c77b32 100644
+>> --- a/sound/soc/meson/aiu-encoder-i2s.c
+>> +++ b/sound/soc/meson/aiu-encoder-i2s.c
+>> @@ -219,16 +219,14 @@ static int aiu_encoder_i2s_hw_free(struct snd_pcm_substream *substream,
+>>   				   struct snd_soc_dai *dai)
+>>   {
+>>   	struct gx_stream *ts = snd_soc_dai_get_dma_data(dai, substream);
+>> +	struct gx_stream *other = snd_soc_dai_dma_data_get(dai, !substream->stream);
+> 
+> Not sure about peeking on the other path like this :/
 
-Frank
+Yeah, I know this is perhaps not the nicest approach, but it's the same 
+one I used for the bs-quirk handling (see the "startup()" and 
+"hw_params()" callbacks). Since there can only be the playback and the 
+capture stream, checking the other stream's "clk_enabled" is equivalent 
+to a user counter in "gx_iface", without adding a second piece of state 
+that has to be kept in sync with it.
+Is that acceptable to you?
+
+>>   	struct snd_soc_component *component = dai->component;
+>>   
+>> -	/*
+>> -	 * If this is the last substream being closed then disable the i2s
+>> -	 * clock divider.
+>> -	 */
+>> -	if (snd_soc_dai_active(dai) <= 1)
+>> -		aiu_encoder_i2s_divider_enable(component, 0);
+>> -
+>>   	if (ts->clk_enabled) {
+>> +		/* Disable the clk divider only if also the other stream is not using it */
+>> +		if (!other || !other->clk_enabled)
+>> +			aiu_encoder_i2s_divider_enable(component, false);
+>> +
+> 
+> Looks like a race condition is possible here if one stream closes while
+> the other one starts.
+> 
+> I think you need a common structure between the 2 paths (with a counter
+> possibly) and it needs to be protected by a lock.
+> 
+
+I might be wrong, but I'm not sure a race condition can happen while 
+managing these 2 clocks. Here's what I found:
+- "iface->mclk" and "i2s_divider" are enabled/disabled on 
+"prepare()"/"hw_free()" respectively.
+- when "prepare()"/"hw_free()" are called the framework holds the 
+"card->pcm_mutex".
+
+So when one stream performs one operation, either "prepare()" or 
+"hw_free()", it can read and modify (if needed) "ts->clk_enabled" both 
+for itself and for the other stream safely.
+
+Am I missing something?
+
+-- 
+Valerio
+
 
