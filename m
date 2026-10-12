@@ -4,91 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC986CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A902CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FcfPQmiXGdeVdfbhE8VrGXjn4S2YUmuJC0pXTHRdmSc=; b=sLY9KvL4bxoTPR+Nu0lKjiTKug
-	L4efN5/gSq9vIOpdgV/3vo5qcWb2IkBGr0G2jf076ihvBUtcQgAwRdl7gq5dpVKFNv6DBI1lw6de8
-	XbeQkLIbILe/TnLsL43my3E7t6S90PxG1zDd1FEF5ugJjwzMpLqjGbLNP2qdYQOAwAiyN/TBvkn6O
-	FAWxc7sxd9B9S5CHVltZzw3Ok3DvtU9HqnQPYoOwivMUEUbizqtzdHq+6bU2NNmBkX4x7YsH549rL
-	irHm+uvc2N0l4BGqayzm8Ay9eBIrIoDT2ZVUdCBosZAVgbRYCumh+AHORNCZsxr/5tP5wMW2LaEjx
-	K0Ntv5YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=; b=ydhFlDUSFcqVUc20F4f7pCP0ik
+	NaUFPBp11Lq+qpTB3bN2G+TAWVvyYleB2VwQ+r4mCLcAbXXP3Lbnlc8RWwwlsUNsrmUqbliVG9Kbr
+	qIci1RtlAYnZLlB7Z/QIgBs8TWeYVZaNBy/g+JAjjvMj1FZ447HpX6wimJ0xrnln0NGU4h6Z7Ibt0
+	x7aX2myrUMlSW7+vUBm+dik2WYDRInFQ9r+6MP1fmInjfz7Hfch0P2uhkGgYMbJ7IUCglzCJVflmJ
+	hykbxTgu3bitsZ8qwbbHvhuoWnxmwlC31VPctHQbt5dhEccduQgJW4ka/fOBHc10Vpq71CAWLz0lP
+	TI7E7aAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNEj-0000000BWS9-3Zvf;
-	Mon, 12 Oct 2026 21:07:09 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1xGNFv-0000000BWWu-050O;
+	Mon, 12 Oct 2026 21:08:23 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNEh-0000000BWRp-23Eu
+	id 1xGNFs-0000000BWWX-2AVT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 21:07:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791839228; x=1823375228;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bVVAEipiwUOMUcpLzlPT7Lmm5gYJXvHswnCcfXQFJLI=;
-  b=acNaFtXvnXcFxXIslHsF3gTztE5MhrgFhmXJ4RWBjaD+k3kikoLRsuQg
-   TWw/+ZxHgkHWoOxd4I/PZ2rSuQb0N+Uo03SyL+4vzcRZejSZ3Ud1vXNc4
-   JCdAZ3mU+UVBy/BweXuRaFfceOkDEU9ePtqvHGBCYZXx9hy7IBv6By1Rm
-   qj9WA4VmTqZMAlqd1mlJtSOE6QoHabKzUgXMz8ElNGMm2skALHYK3qC4z
-   6IbVV9ehdLQXA6o6+qV89uAXC5PE9zIoRy6N8wyggUAYZQOeTtryEcA8x
-   chaoNvW3fz4zBFoq9R2tTJYxHbTzCL6KRVaBJnpx58/mXdkk7iWlH8i3M
-   A==;
-X-CSE-ConnectionGUID: gB9ZU4fkTU6/AR67f/Kn8Q==
-X-CSE-MsgGUID: gV+nYrIlQqeLaPW3Dw1FZQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="549324"
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="549324"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 14:07:07 -0700
-X-CSE-ConnectionGUID: gOhEPTXDQS+gPAMbHWHqrw==
-X-CSE-MsgGUID: /MtGaiJhTBudBOHiTtDmWQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="1096907"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 14:07:02 -0700
-Date: Tue, 13 Oct 2026 00:07:00 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Marek Vasut <marex@nabladev.com>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Cheick Traore <cheick.traore-ext@st.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Cheick Traore <cheick.traore@foss.st.com>
-Subject: Re: [PATCH v4 00/15] iio: adc: stm32: add support for stm32mp23 and
- stm32mp25
-Message-ID: <as1L9F3ua4LKvj73@ashevche-desk.local>
-References: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
+	Mon, 12 Oct 2026 21:08:22 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5bcb3726952so569796e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:08:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791839298; x=1792444098; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=;
+        b=KfIGoAoYX7R5rmRopfgg/aXy5sWiAlZCx8XBIez/s3dhfsglGJemZL38j+H1UUlqVd
+         jXzcBXR4g7DOtkl3YORahJIeMEEU8DwaO8WZdOBP4SYP0t+ZfAbf35EZkOF2pv8NZNHL
+         EsFGcwNHii0vIFYA0A1gObY/sQy684YU1k05pw6P0VKScuas6YAqn5K7AncnXwAN+Bgn
+         McoMIwvV/5v8GfpgFZOIHumKCdXr2pnr6Kf9y2Yb6FnUl6/pNt1MIEFTZsuau/sUFNts
+         AZ8KR8AJNDhJm9fhGQ/QjiQKlkg5LqSGA0cUZMRHuAuAqUhcx2OFGjFwDVHQ3ObN6SWO
+         s45g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791839298; x=1792444098;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=;
+        b=IoNgfC8qFWpW43XaGob9GCJaZN1Zyfe+cumIskT48FaxYICLy3abV8IzNJKK9sCASS
+         b5nzYOceBRmgNChVLQqHVEdSbaE3Od+93g7fLMQ6wL+SBwnN746z4tlayD40vE8LYXFw
+         /reM1Yy8teV+6Yb80UmHiPzK67OG8wzaG+wHflsa/dJInZbbvi6anilTdBXvDqLSVRmw
+         5J9vDwBSLGly5zzx/NsaDhg9ecK3EiuZLryffU3k6c5+ZGag39rB8Mw3ocEvBDeGkXEn
+         a4d5QZS1BupJGR+L8JmjXgL59yQpFTKgO6lLQTZsMm+ogfqqZoqjFObpJiOlsWJKKp5V
+         XeZw==
+X-Forwarded-Encrypted: i=1; AKwUvBxuTrd8MZItlk2Hy1g5ysmBzJXBlKH7ch+3V+JnR+1+gwjpHaZ3Mc/guzOviSdoCyuqvcZ1ueaLL2bOUgRm98j3@lists.infradead.org
+X-Gm-Message-State: AFq9FYIhyZVhbh1vlGi2mIOjSUJI1RU5BJvm6EaQggsEHJ2IKWFeXVkP
+	kAdESn5FKGqNUnk6V/+DbzVTpKzwttzDk1ElHut/fQcnfkX9qclpKiGZ
+X-Gm-Gg: AYBFou3FCX6dMiVYVKuIViRZfEeri1iwxUNI2Ihh5aiMfaJbKf2jgTtcyA3S3nkzDls
+	eP+QOMP94x6toBA2Mqp/RNGNMnLIWb76Z4XKolyBzuBrlAPi5syfPidvLNUmo3ebI8IyyIlTnNt
+	HxAGKgZXInGsB5sHHwfHRhKx2rIdB/LSSePRearN13cPX0nsUgCZvxg5NhdPZ2uLfDnSTuXAsN6
+	KM9WGdMhJxywNFatBCralhm/sLJoyWNLlPQwpk9ARVa7cs3NkRTX9yFVzGvPoS47kbq7aq2QDpp
+	Wz3tNEZBG0WSmdTzbjGfC7fUwF5uotmejudgoNERdF8J1x2goLE8Pl0SHMKo+0kdJLQ9q5hmMeI
+	3N2yNEZ1WaBKGJMz2mQ3+ZXXTmnvjnnqsxuC6hxqKdA2CtcNtNgD43LK9UeIrP0P2klwoUy97K+
+	N7iQvmNtlWaEDLQxE7S+1KDje3jduFYefeMVShLuFHJQYBXZXJRlcFpqpgr18V2HM8l6d43FLer
+	fo9+BEdcGVRnQnhVnNNLWIm9fAleRn0eHlGvt7KMZnNWyQfdveSSzdx
+X-Received: by 2002:a05:6512:3e20:b0:5bc:ddab:b793 with SMTP id 2adb3069b0e04-5bcde8cb6d0mr3744622e87.53.1791839297959;
+        Mon, 12 Oct 2026 14:08:17 -0700 (PDT)
+Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bcddecc3d7sm3083561e87.81.2026.10.12.14.08.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 14:08:17 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH 04/11] gpio: Add Cortina Systems CS75xx GPIO driver
+In-Reply-To: <as1Dl08DwxOu-boF@monoceros>
+References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
+ <20261012-b4-cs75xx-s2-v1-4-8a7641b7b79c@gmail.com>
+ <as1Dl08DwxOu-boF@monoceros>
+Date: Mon, 12 Oct 2026 23:57:33 +0300
+Message-ID: <179183865387.2445720.12278001692808149938@gmail.com>
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_140707_593422_FB83575C 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261012_140820_563038_684B9CB2 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +110,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 09:57:31AM +0200, Fabrice Gasnier wrote:
-> Add support for STM32MP23 and STM32MP25 Analog to Digital Converter.
-> It's a variant of other supported STM32MP ADCs. Add the DT bindings,
-> driver, SOC DTS and an example on stm32mp257f-ev1 board.
+Hello Uwe,
 
-Looks good enough to me,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+On Mon, Oct 12, 2026 at 10:32:58PM +0200, Uwe Kleine-König wrote:
+> On Mon, Oct 12, 2026 at 08:32:59PM +0300, Fil Dunsky wrote:
+> > +#include <linux/mod_devicetable.h>
+>
+> Please don't include this file. It contains a plethora of defines for
+> subsystems not in use here.
+>
+> > [...]
+> > +#include <linux/platform_device.h>
+>
+> You can rely on <linux/platform_device.h> to yield definitions for
+> of_device_id and so drop <linux/mod_devicetable.h> without a
+> replacement.
+>
+> The same applies to patches 6 and 7.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks, dropped from the GPIO, I2C and watchdog drivers for v2.
 
+Best regards,
+Fil
 
 
