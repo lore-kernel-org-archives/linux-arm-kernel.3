@@ -4,143 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBDECA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B9DCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=; b=1TSwQGhG9zi+V0AzRxvFo1Om13
-	KY3PEKrLROcx7UDHaklNZfLbrav7KzE5tdkPApRgWvZMwqEZPdHxgy0lKkdq9pz23kzdoRVObChdV
-	y5QHduH6WbY8EIG5TTEmQIUUauf5UYK/FUCWEzC/SZURsD4LsnJpQAOdtr6QLXwWSGPDD3GqKSYjj
-	Gzhh/1Sz0HKoNWV/NcDlkVyrd2IK70vgR+3K82a96ghOTzAnq1utd3BBTIo10XyRJXbA8L7fbwq2e
-	WFM0gUBvgUf9aYZ7S1ipQd1SYVu/C3fKgkaP/pyUPgKXV0/oRT/m/xv04waPGU9LGNZ657oZnvz9O
-	Y9Pi5DMA==;
+	bh=uiTeXl+x5pBEWbWX0P2zjZwUjWiuBSWxNfYNiAcr74U=; b=Ddh5z75HknvTYrvP55U2P5SUsf
+	kPgavOUURQz3VVQHpivq3Xv6Nw7UXLDMqSCp+fWY5UNN8jaOrExOYjwbNHOHZbahLro8HzGqSSmdU
+	z0IVZNML/KyNGjMQ+BQo8/jTo5zCONnwbuAQrwZkr5srWTq0B2ZpduEQ4TxdUC65Qw2NRpU4Ub6Hb
+	Gfy1s1TxBzJwvJc7/BqM14/iJiaJt0dPt1hVxnWTo3YzMa4tnHY5nLmC0pBucvHdh2maNs6kU9zy9
+	oaUee6CZr45vwvbzExnQfCEmVgQTqshxqLJKrq1oKEAWZTyUM2OVgPZLLMRzyYmB6ady3qzyH7VH6
+	nt2gc+hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCvK-0000000A9t2-3WK7;
-	Mon, 12 Oct 2026 10:06:26 +0000
-Received: from mail-norwayeastazon11013055.outbound.protection.outlook.com ([40.107.159.55] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xGCxU-0000000AAJG-1KaD;
+	Mon, 12 Oct 2026 10:08:40 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCvI-0000000A9sV-1LwR
+	id 1xGCxS-0000000AAHz-1Fpg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 10:06:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oLGIYc8LKLIF0v3CyKkoaxhPJB7enbCpUKzJ4w3qpv/0g30I2J30CCBTg9t5Nfx+sXvVc91daMLda+MrFGTssuMOc9bINOAW4H6oD2fwy/PPY+psE3/lRZaxAJ0AcI6AZddcpx/DwohJRu/pSYiaFbSToH0r+RWQIi6QzNxkz6QdkIFNsjQPbnqW03dpJMY6kicrGmUqxD98QsdSPphoQqPUsTXpoy3GGLnEKB6SZ3aDy9hS5ouvtseUR4FmzTei7wkea1tzNoO3eSZXULGj38Nj3mCydBHFxgrSvtYcQzo4wVzKsmDz0lqfcfXEAsQR/ylB+xoNJlRhx508Ca1EZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=;
- b=rTNj0TWKoMG4Y4Ze41YwszgnKO/1wAdML9hMcU70gF39WCMaQVdcO36bD+sEAy0MeojdGfOj8OT+W77VPJChXC8xsdB3fgUy//7Q7xa+GLsshQjscVfDLv6aeY0XMiKBg9V5fbcd400A31pNo8EZuYSYuozWI8z8/PMdZYudgbT/71PGYDXMOcPWfv6jfPlGuJvPqfXGrApwE9x/KWCCoNbGn31NX0d/EnarAMM/Y92FtqJ00Z42njJEnlMeu6EPL54E2VE+6n8rVITulzVCv35IjnBNJL1JBQFyFrMCBW2yQY96aULSvjFPKoduV9mgljkQ1giEoUWm/FnfD1GjeQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=;
- b=w1DZykypTunsxpZPX+7z5dL3bJGLNIOiyFewYm+JiJWJpSdDVuxYCRDRXRl6r4DoVcofeXAHF3QSyvreBJDJOU7ugOTkYHVZMuBeoymdcb/3HFz8VgJM2rEUPFB7LyziqT3FrNzY951RxuwlfwZ48NfPvbeJ+JE25Qm1vOLhmd+ehs7xu6D7t9FDnqxu9zKP52PHrswj1a2wSsDTvk9RNT5j3bCx0qMacUL3GMq41jYJPNeMhCI5XD+KyytcgTCYx3vRcI3tC06v0vmmk2/Wjg71p7SmSkFrg99f5cRaPYlYrnDWdZbETv8IJdjsRN2J0kHJ1tM72Yib0sBED2g/oA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DBAPR04MB7317.eurprd04.prod.outlook.com (2603:10a6:10:1b3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 10:06:18 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
- 10:06:18 +0000
-Date: Mon, 12 Oct 2026 18:10:52 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v6 09/13] gpio: mxc: use cleanup guard for
- pm_runtime_get_noresume() balance
-Message-ID: <asyyLJ3nOUxJ8TKq@shlinux89>
-References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
- <20261011-gpio-mxc-cleanup-v6-9-cb47ce2ad758@nxp.com>
- <CAHp75VcktnQVpqLADs5AccUj6U7KLjAatPaSzMX8SXDrbbs6Ng@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHp75VcktnQVpqLADs5AccUj6U7KLjAatPaSzMX8SXDrbbs6Ng@mail.gmail.com>
-X-ClientProxiedBy: MA5P287CA0024.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:179::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Mon, 12 Oct 2026 10:08:39 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a16af2a232so13821065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:08:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791799716; x=1792404516; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uiTeXl+x5pBEWbWX0P2zjZwUjWiuBSWxNfYNiAcr74U=;
+        b=Xp+5CnM4uSaIk0gvV5WRkuIrO4pnOwx7sSRGdfUr3uyNGgaOLwG8d2YkFFh3FHzurG
+         32FWi4MVdUSm+mAcitAjId8mOwd4/1TVD0zj5tHPcA4Zeq1jbkPc3P+e/S+pdWVJhFsG
+         ao2B2jTOt6mlvQHHM4ziF/Fx0R831Wa62uez6M9jdZszbewOMDi58KYhxFxPgXq4PfyW
+         /wjSprF3wn/6FLOO6+Q2mS5RLzam3S00rdwXKxBJm7DJdhEPLN4gJAaUdqMj55F4h/nW
+         3Lcov7iFK7rAXi0OYCpCJmHtDVjKqdC03IZmEKx97e9EjYKvWOspg9WyR/fSSo2b3ZU1
+         vlYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791799716; x=1792404516;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uiTeXl+x5pBEWbWX0P2zjZwUjWiuBSWxNfYNiAcr74U=;
+        b=ph9fkfOgmAgSl0Ijy+OlvJba5K909W6Heff0LzhxPmlQZ9rmpANkjnolN8JC7Zq73x
+         vVXCluWGUJu7QhfzP4mSXAoIsz15Caz5kuGbQ4B8uU9n/Uhb3Fbskuw82ZsA8Z7zM+ZE
+         EGP1v/EFrTWMtu2n1a3Kk9bpBIYnquRGnSL9uOwyeM2fdEooYFxDd2xs1awktcFhUMEY
+         eqtK07XNlj2giLROd6CwgGHo9CW9Fb0JKlRbZYnB/hljMlUvdbKdmMHHHyA/0JdBYPpn
+         VJXXabuu46clY3JhCFfBYyOK+Ey8oVlRZ6GDTy1F1YJpyr8aVqbtQlZbF/QbqlKee3uK
+         Nneg==
+X-Forwarded-Encrypted: i=1; AKwUvBxaBhFPVwCoqzZ0oMbpMmJ+GWScoSXlLGZ5xL/CTtvrBiJuT7Bk0qjaMhjPnQm6SwZeqzFmr0WJZO/EcKTsTYYz@lists.infradead.org
+X-Gm-Message-State: AFq9FYIlSZ4NcysU4OLJgc1gD2NrAqh6YdYs5c5laDEU03Upg5aCpou4
+	RV0XfHKyMDtH0rcaE+3KO6xXwh2XB7yPi7my+Ocl/xZTEtct+tDelXg6
+X-Gm-Gg: AYBFou2eFZUjqX8zO8PUTaX3U92kUjwfRCPBqo/UVFv5CveL8FIDQdbIsQxyLrwMYM7
+	mbO7Ce4lfxJO5hr93hfLVMIYnlO4sRBV7FFyWQsKJ9dD4cXjhhzxuBpRPOd+dOPcgAj5ZyBJbwB
+	uJeeRnscwgBzb61s11PlaqG/USzLgOq8afNTwuaizgqP2VxzoUmPKsIUHO/C0RxYO+bw+e/VJbf
+	HGtF9BlZOAuiSgoCwg5hDcX2v60KkYTlrfgxfASXnrDiRHY0NqtQyCgPgZA9BReYw53R8uGEjM9
+	wbpckGSLxQIgK7I4s4nbw9jdavmcrVPwwdln0SKkDaPFDFlve/wE7h61zGGRLWPMT30m+qHXPhS
+	a3tXkNSlLoE5Xd2IHMNwJ0/FSUcC54o0y9QsJoXyEZyL91XSG/B9V292M4dyykKNBzDrXVL4Rx4
+	Y448+whKcUoq2nI2irtiXewhE6zeANYBkfQVBTuNxEDxRWgOSMDAuNFWdcciJIz3azjVjJWY9dw
+	cWurxKGfUuLUZpT4uHrDjMSVI8EX33A
+X-Received: by 2002:a05:600d:8488:10b0:4a1:9078:911 with SMTP id 5b1f17b1804b1-4a190780997mr105769955e9.31.1791799716489;
+        Mon, 12 Oct 2026 03:08:36 -0700 (PDT)
+Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a192d3efb6sm166229885e9.1.2026.10.12.03.08.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 03:08:35 -0700 (PDT)
+From: Pablo Mazzini <pmazzini@gmail.com>
+To: Brian Masney <bmasney+clk@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v4 01/11] dt-bindings: clock: sun4i-a10-ccu: add Allwinner B288
+Date: Mon, 12 Oct 2026 11:08:06 +0100
+Message-ID: <20261012100816.331033-2-pmazzini@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261012100816.331033-1-pmazzini@gmail.com>
+References: <20261012100816.331033-1-pmazzini@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DBAPR04MB7317:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9cd57fad-be64-43e5-dfa1-08df2848752c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|19092799006|11063799006|56012099006|4143699003|261009221227099003|261009223027099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: LCWp5LIRuRkhoqSDDiDTrmBcX/VQY+xsK1LLHqqYBZrZF5BVgw7EXsL2lQmQ8cMak3bRftAT89BloGLalmklRP/XwY/lceiJqn4DXu7jjHrXWXIqmE9r1uUkVC+yq+g0xy1uft2u/3xeiuwbS+465yv9DhvOZziobXjKXxoDLNmQ9a4pi9DhQpC3xSBjJD0hMZk4Nej39i3IbRchLPYe8WwKDTRv0eKw9kLalBlRJz0R2dnLH4UcYk6mWRjw15l/ap7yBW8uiCbXc/k5ub70UZRfFHV9xnb34P0/G2zvnT7LLh0LF3ewlRp4a/hP9GIsTu7KptewFpv5/OKRItuQaI1SGBGEzBzRmHuNz0xr4MC0Rp0PsdIX5APzdOo7BdZEi1wDSB//dxhnYcV95sOVPGAatK50Eor4o3SJ5ieMz1iGwWFE4vGo5viJld5T4L7AXrtkE+aeqRcB8fW00r+WNrW2jcWB9VDNtL0mQhMlfEtF2Ob84pLmzTmZqho1IMEFs8eqtw6Gd6nZyk2BAdRipQe/jOD967e2t4X4TCJTrXeWj1X5hRRGuD3KTNs8znMWnvUR6YLd5a8InV25gvLF/Y7Tq6c3iNZjjW8bUpc0f715Q/d0bDQrEYJVCsXuoKxUiM2Uu54Y2kR7EZedbpC0QyXJuOtfxm1wWZmU42TUBQY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(19092799006)(11063799006)(56012099006)(4143699003)(261009221227099003)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWZ1SEpTZDlUOVJEcWR3UEVYb1hhcUd1OU90L2dXRkdyUk5WN29YRE9PSCsw?=
- =?utf-8?B?WXlqSVM2VzN2dGlzWGhlK1Jxck5Vbks0amh2OFFYWk9ablg3OElzbEEzNHJS?=
- =?utf-8?B?YnI4eFJjY3VRMjN4MXVHaVcrWnZaVGFMeXRFT2lmMXB5VUF3VUZIN1dEam44?=
- =?utf-8?B?TUgrMGdRVnBkUU9haGl3emFzY2l4V0hicWhFYnRKYVdocVdHcktuNi9FOFZ6?=
- =?utf-8?B?TnZqemkvVlltV1RFc3NCdXd3cGRVMnFFQkdVcmNIcnpDWE9ucnFNSjFPTTlH?=
- =?utf-8?B?U3dsTWcwOTZHaWI2VVEralQ0eVZXSmVlMlZ3TEhHcmNpL0tuWkVHNjRxWUJs?=
- =?utf-8?B?OE1GNEF5UnM4Rmh0Y3V6MDgzWjBjTmxFV1k5SzRpNmMzZmpIank2bHQ0N2Ns?=
- =?utf-8?B?SDV6aW5PdWRMWSszclBMV0ZlRGRyK3hWYU9DR3oxbXBSeHg5eE1yTHc2QmxF?=
- =?utf-8?B?RFAxK05wYTZ5UjNJUCt4RTVyMVkzeWpTeldXM2FacStFWmVRLzdTQk9VZXMx?=
- =?utf-8?B?WE01SUdVdlAwblBySW9heUNQNFo4N3FnS25ZazdlcXBqQkhzeHZFQkJwblpu?=
- =?utf-8?B?UkRkQks0R1pQSUwwWVh2c2U1dlo4WkpVT1JLRm4zc25pVTU0WlVOWGltcXho?=
- =?utf-8?B?TzE2enM4ZjczNnFIUXR3U1pXK1hYUVgzK1JEcFFudkhqMWV6WlFYUy9tem9I?=
- =?utf-8?B?endjZlA1QXEzT3lMY3JrWlBsKytNSFVTUWluMWZoN0JCZUx1VWZIemJrV0d6?=
- =?utf-8?B?U1lEYnB3c0pGWmF2M200MlRWY3dTcStIb1FBdEFJMkRQNHJoVmlVUkpvd05l?=
- =?utf-8?B?V05oeGJ2YXFoWWZJK2FxM01MVDQ4MzQwRzgvckJHSC9PbHBwajF2UTJCR2VR?=
- =?utf-8?B?N1hDNFRCcDdBdVJKOTVTUUU0SWR5aWZsVUVwTmh5U25qd3pHRjlHRjJlcnF5?=
- =?utf-8?B?cFRwM1lVbFJVcnRseWkzOVdrN3JUNGwwVCt5cTFONTRGcHBiZUw1K21oaDAv?=
- =?utf-8?B?YTYrTjc0K0pWTG9iSFlHL3pEN0lPY1V6TStPOE96dnpjTGtKcHg1dUxCVVRU?=
- =?utf-8?B?MGZIRG03YW1wMW4ycUtHRnVlZGJxbkppRmlnaHhDTmVJQnBmRjJIek5oVVp1?=
- =?utf-8?B?dThDS3Q5QnArNzZKSzBmNm1TVk5MbGg2UlRqR01aUEVkOWd4a2paczhBOStG?=
- =?utf-8?B?TU1nNTErbGszLzlncFNuS2xrZ2tSV0tocXFiMk1RalpZWGJMY2hSY0YvQ0J3?=
- =?utf-8?B?MzFQT3hvRUUraUsvdWNyWFlYUDh4bjlaSmF5Y2xEaWNuRHd5N1ZWSW1veG9Y?=
- =?utf-8?B?cXRaV0U2dzhXdmhrNGt1SGZNUS9BRnY0Rm5tZTRHNmkzZUpkM0VUV3hXbzh5?=
- =?utf-8?B?NXdyMjBSVzlNRDJIc0ttZklZM1VITk04Y1AvS0JISXhXa241TUJLUGpvZ3Mw?=
- =?utf-8?B?ZExnT3g2TTFNWHVGNDVTM1N1anI4YzA5UlZnR2lvTDlhOW44My9EeHJVNDEv?=
- =?utf-8?B?eGJKYUFYM0ZacXJlK0h0VWtscVJ5MnNnNnNTUzFEamo2R1JRS3BSdndLTEp1?=
- =?utf-8?B?bVpZSGxPelhvOGRvYmtTaTNpREFQYzBPV2swQ2l4UXJyQ3pyWEQ1TXhQdUov?=
- =?utf-8?B?R2ZIWXZuVXQ3OHN4bGo5YmM3Zk4wNFNyZmdSdWFuQ3BSZzJ6RGFNQmo2dlhW?=
- =?utf-8?B?VmxrNWp0V3Q3VlhxUEIxVUQwNGY1L2ZSYnYrbCtxRGpabEtJL3d0U1hyZlg5?=
- =?utf-8?B?Tjg0c3I4V08zeC8zK1VXQ0lYQ2wwcUJNdk1Bd0szeXpLZTJNaFcvdnU4YW51?=
- =?utf-8?B?bjlzUktuSktrR0V6Qy92T0tsdzYvWkhTL0VMN3k4RGgvLzd1TGI4ajVZd2Qy?=
- =?utf-8?B?ZDhHTnU4dU1XajBkSFpsTmhJNHY5M0JUbzZYM0tqb1pwSXBDK1lYanpidnJS?=
- =?utf-8?B?TE0vOWc2L1UycUUvN2k5NElKZS9tSDRVL0ZkczN4Vnk5T2pabFF3eWlJaHlW?=
- =?utf-8?B?M3ovS1h2emFaTnJrTm9Mdi9iMXAxUmVSTnVnRzlNaktHU0kzU1hQTnc2SXVv?=
- =?utf-8?B?OHprd3J5eGxoMDVzcDBTcjFZcisrYjJKRUZ0VTNzQXRqUnhsRmlIRkx5K3FQ?=
- =?utf-8?B?eUlRR3pxNWlQamM1aVF5SEErblozSVUrSzYwTzU5MlJLb1VNOWNyakl4Ykl5?=
- =?utf-8?B?WXowK3luSmRsd3lPVjlncWxWTnJyL05yOHVSZnpHZktESDhkbnJ1Z0RJemJp?=
- =?utf-8?B?blYvUnY4bmxiR2ovbE90RGlpMUFadTN6OHYyZ29ickhmRmZIYjV3T1ZNa1hX?=
- =?utf-8?B?WU9DMENCM3QxQ3hEeGhZL2oxZ2hmMFZxK2tLK0w2amtSdlllNmVERUUzOGRK?=
- =?utf-8?Q?ACqOLjrM3UMdzTdfuGlRNrg2FnlhX2I1n6hpU?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9cd57fad-be64-43e5-dfa1-08df2848752c
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 10:06:18.1586
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Aj6ESxe7C5yxxwWyKDIkoOtcPLKgIZjG8o5QkrfdGS3DrKc5Ff3WiX6Cl4dqB+l10x2PwUOB4XhVdsEFlMjpRHZUzXSbBA1bgV2X6NEItF5+jFa3JlLKhll/8W5Giyof
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7317
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_030624_362831_70215519 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20261012_030838_365781_62026F08 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,40 +115,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 12:38:37PM +0300, Andy Shevchenko wrote:
->On Sun, Oct 11, 2026 at 2:54 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->>
->> pm_runtime_get_noresume() in probe must be balanced by
->> pm_runtime_put_noidle() on error paths, or pm_runtime_put_autosuspend()
->> on success. devm_pm_runtime_get_noresume() cannot be used here because
->> its devres action (pm_runtime_put_noidle()) would fire on unbind in
->> addition to the success-path pm_runtime_put_autosuspend(), causing a
->> usage counter underflow.
->>
->> Use a __free guard to automatically call pm_runtime_put_noidle() on
->> error paths, and disarm it with no_free_ptr() before the success-path
->> pm_runtime_put_autosuspend().
->
->...
->
->> +DEFINE_FREE(pm_runtime_put_noidle, struct device *, if (_T) pm_runtime_put_noidle(_T))
->
->Please, split this to a separate patch and move it directly to pm_runtime.h.
+The B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book readers.
+Its CCU needs only the two oscillator inputs, so it fits the existing
+schema without changes.
 
-Frank raised same suggestion in V5.
+Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ .../clock/allwinner,sun4i-a10-ccu.yaml        |  1 +
+ include/dt-bindings/clock/sun8i-b288-ccu.h    | 82 +++++++++++++++++++
+ include/dt-bindings/reset/sun8i-b288-ccu.h    | 45 ++++++++++
+ 3 files changed, 128 insertions(+)
+ create mode 100644 include/dt-bindings/clock/sun8i-b288-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun8i-b288-ccu.h
 
-I tend to avoid introducing cross-subsystem dependency and use a follow-up
-patch to move it to pm_runtime.h
+diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
+index 1690b9d99c3d..cc3f62d3554c 100644
+--- a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
++++ b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
+@@ -28,6 +28,7 @@ properties:
+       - allwinner,sun8i-a33-ccu
+       - allwinner,sun8i-a83t-ccu
+       - allwinner,sun8i-a83t-r-ccu
++      - allwinner,sun8i-b288-ccu
+       - allwinner,sun8i-h3-ccu
+       - allwinner,sun8i-h3-r-ccu
+       - allwinner,sun8i-r40-ccu
+diff --git a/include/dt-bindings/clock/sun8i-b288-ccu.h b/include/dt-bindings/clock/sun8i-b288-ccu.h
+new file mode 100644
+index 000000000000..c9b9eaf979ad
+--- /dev/null
++++ b/include/dt-bindings/clock/sun8i-b288-ccu.h
+@@ -0,0 +1,82 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++#ifndef _DT_BINDINGS_CLK_SUN8I_B288_H_
++#define _DT_BINDINGS_CLK_SUN8I_B288_H_
++
++#define CLK_PLL_CPUX	0
++#define CLK_PLL_AUDIO_BASE	1
++#define CLK_PLL_VIDEO0	2
++#define CLK_PLL_DDR0	3
++#define CLK_PLL_PERIPH0	4
++#define CLK_PLL_VIDEO1	5
++#define CLK_PLL_24M	6
++#define CLK_PLL_PERIPH1	7
++#define CLK_PLL_DE	8
++#define CLK_PLL_DDR1	9
++
++#define CLK_PLL_PERIPH0_2X	10
++#define CLK_PLL_PERIPH1_2X	11
++#define CLK_CPUX	12
++#define CLK_AXI	13
++#define CLK_CPUAPB	14
++#define CLK_AHB1	15
++#define CLK_APB1	16
++#define CLK_APB2	17
++
++#define CLK_NAND	18
++#define CLK_MMC0	19
++#define CLK_MMC1	20
++#define CLK_MMC2	21
++#define CLK_MMC3	22
++#define CLK_SPI0	23
++#define CLK_SPI1	24
++#define CLK_SPI2	25
++#define CLK_DRAM	26
++#define CLK_DE	27
++#define CLK_EE	28
++#define CLK_EDMA	29
++#define CLK_TCON0	30
++#define CLK_MBUS	31
++
++#define CLK_BUS_THS	32
++#define CLK_BUS_NAND	33
++#define CLK_BUS_SDMMC0_BUS	34
++#define CLK_BUS_SDMMC1_BUS	35
++#define CLK_BUS_SDMMC2_BUS	36
++#define CLK_BUS_SDMMC3_BUS	37
++#define CLK_BUS_SPI0	38
++#define CLK_BUS_SPI1	39
++#define CLK_BUS_SPI2	40
++#define CLK_BUS_I2S0	41
++#define CLK_BUS_I2S1	42
++#define CLK_BUS_SPDIF	43
++#define CLK_BUS_DSD	44
++#define CLK_BUS_DMIC	45
++#define CLK_BUS_USBOHCI0	46
++#define CLK_BUS_USBEHCI0	47
++#define CLK_BUS_USBOTG	48
++#define CLK_BUS_DE	49
++#define CLK_BUS_EE	50
++#define CLK_BUS_TCON0	51
++#define CLK_BUS_CSI	52
++#define CLK_BUS_ADDA	53
++#define CLK_BUS_SDRAM	54
++#define CLK_BUS_PSRAM	55
++#define CLK_BUS_DMA	56
++#define CLK_BUS_UART0	57
++#define CLK_BUS_UART1	58
++#define CLK_BUS_UART2	59
++#define CLK_BUS_UART3	60
++#define CLK_BUS_UART4	61
++#define CLK_BUS_UART5	62
++#define CLK_BUS_TWI0	63
++#define CLK_BUS_TWI1	64
++#define CLK_BUS_TWI2	65
++#define CLK_BUS_PIO	66
++#define CLK_BUS_GPADC	67
++#define CLK_BUS_KEYADC	68
++#define CLK_MMC0_SAMPLE	69
++#define CLK_MMC0_OUTPUT	70
++#define CLK_MMC1_SAMPLE	71
++#define CLK_MMC1_OUTPUT	72
++
++#endif
+diff --git a/include/dt-bindings/reset/sun8i-b288-ccu.h b/include/dt-bindings/reset/sun8i-b288-ccu.h
+new file mode 100644
+index 000000000000..675145654548
+--- /dev/null
++++ b/include/dt-bindings/reset/sun8i-b288-ccu.h
+@@ -0,0 +1,45 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++#ifndef _DT_BINDINGS_RST_SUN8I_B288_H_
++#define _DT_BINDINGS_RST_SUN8I_B288_H_
++
++#define RST_BUS_THS	0
++#define RST_BUS_NAND	1
++#define RST_BUS_MMC0	2
++#define RST_BUS_MMC1	3
++#define RST_BUS_MMC2	4
++#define RST_BUS_MMC3	5
++#define RST_BUS_SPI0	6
++#define RST_BUS_SPI1	7
++#define RST_BUS_SPI2	8
++#define RST_BUS_I2S0	9
++#define RST_BUS_I2S1	10
++#define RST_BUS_SPDIF	11
++#define RST_BUS_DSD	12
++#define RST_BUS_DMIC	13
++#define RST_USBPHY0	14
++#define RST_BUS_OHCI0	15
++#define RST_BUS_EHCI0	16
++#define RST_BUS_OTG	17
++#define RST_BUS_DE	18
++#define RST_BUS_EE	19
++#define RST_BUS_TCON0	20
++#define RST_BUS_CSI	21
++#define RST_BUS_ADDA	22
++#define RST_BUS_WLAN	23
++#define RST_MBUS	24
++#define RST_BUS_DRAM	25
++#define RST_BUS_PSRAM	26
++#define RST_BUS_DMA	27
++#define RST_BUS_UART0	28
++#define RST_BUS_UART1	29
++#define RST_BUS_UART2	30
++#define RST_BUS_UART3	31
++#define RST_BUS_UART4	32
++#define RST_BUS_UART5	33
++#define RST_BUS_I2C0	34
++#define RST_BUS_I2C1	35
++#define RST_BUS_I2C2	36
++#define RST_BUS_GPADC	37
++#define RST_BUS_KEYADC	38
++
++#endif
+-- 
+2.52.0
 
-But since you both vote for pm_runtime.h, let me separate it in V7.
-
-Thanks
-Peng
-
->
->-- 
->With Best Regards,
->Andy Shevchenko
->
->
 
