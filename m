@@ -4,85 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD37CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6DACA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UKbDbkFJt72t2zaBIh+ZUe3E29MXtHewW5fvZXZCj30=; b=YzAGJy0AKXvq0WsihWJQtdc6Cq
-	f68ZYusGNY5fPUjoZlaQxTrhMjjVJvHN5i436aRJ2G9qV6ndPWUg0KZgQdMEOE8vvNQuzixbykrpe
-	n2tCpHfNrFvvuWxeZYvv8NcNfiLxtbek2XT+EObCiDwjD9KvQLG16LGYH9dRRFzAtC7xNFNPpTTq6
-	ETrhAXhCqBHFXEJkzwZyAhzX6pxmtLfQuv4/hgNX5yi/sHFHT1e6FGYgq5RKPeM1ftCXi3527tX1/
-	bXX2z0dRnJw7w3JPZGPvLIMOkaCXDhYQsPZgeD54iDim89J9PC69EygKvffNVeBYtJTNY0Wv5dqnB
-	J8SpjmmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ivPw5fMlHTxOKMrpHokezTc061nssFOtjEgmYvbr8sQ=; b=ypUpZWmKlC0O3EE82btbQQsef8
+	L3t/Ytfy88kP2dq0Z5Cqm4Pf6BQk8Q5GfjuO0JyO+S9dNHugVOkHgDBa6LHGsHbzRupmevOaOFy+i
+	MjI43kT4FRzV9FnFJ2WUQTAmCbG7pq7wZLX4rDjGL9aMu8UtPEm1lrsQFbOGuYPYxgc9juIufuyuM
+	avwVblG+PlI9n7yarY00UCi+tIS0nu4HaKt58aztXffJQqECj874m8xniLLGb92fHx7sZB94Rrfez
+	7z6KfJavVlSyUVm904aQlkO0uW91ZYZi0R1MQjAs3KDUBrAvTmBaY0LOJqVvXZqTf6428fBs3LutH
+	+7nVnkVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEFW-0000000AM8r-3x0P;
-	Mon, 12 Oct 2026 11:31:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGELU-0000000AMTM-2HsV;
+	Mon, 12 Oct 2026 11:37:32 +0000
+Received: from mail-francecentralazon11013050.outbound.protection.outlook.com ([40.107.162.50] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEFV-0000000AM8E-3LIg
+	id 1xGELS-0000000AMSm-0aZg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:31:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB79560229;
-	Mon, 12 Oct 2026 11:31:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0D681F0089B;
-	Mon, 12 Oct 2026 11:31:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791804680;
-	bh=UKbDbkFJt72t2zaBIh+ZUe3E29MXtHewW5fvZXZCj30=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GG0crorOYWxX9858zOkG7h2+X99LFStJ4Gi8/a5Drk5bO6EswnhtjYKFxLtZt8h4v
-	 FqWT41IP8Ehk2C/+UT4t68wZgWCbVd9ccW7oEqHevvJi6EfSWQxTa1AjZMgk6k3j8u
-	 ugOmsxlfttwzXePsildhyn3jj5iL3LG673ZL4PpuDTVHcsQh4g5PfnjnTRhKZbh6x+
-	 BYJ7LRg0UFaH6olen9aZ42c6+9FhgGQ1mO1hAOAoe2BsAI9MuZ3RqAQ8Q0x8ccp0wC
-	 5vea+Oyry6rwXwBdEIXnlMuev3gMUhP3qJV/Q/iNVMJ5qIqtC6jjHQSn4RWNIAGCqt
-	 BUJZ2KnBFbjsQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xGEFS-00000001qvN-0l8F;
-	Mon, 12 Oct 2026 11:31:18 +0000
-Date: Mon, 12 Oct 2026 12:31:17 +0100
-Message-ID: <861p9v2m0q.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yize Wang <wangyize7@huawei.com>
-Cc: <kvmarm@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>,
-	<catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<fuad.tabba@linux.dev>,
-	<joey.gouly@arm.com>,
-	<seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>,
-	<mark.rutland@arm.com>,
-	<zhengchuan@huawei.com>,
-	<jiangjiacheng@huawei.com>,
-	<yize_w1110@163.com>
-Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration optimization
-In-Reply-To: <6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
-References: <20260918081930.4014735-1-wangyize7@huawei.com>
-	<861paq69te.wl-maz@kernel.org>
-	<f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
-	<86ece63kes.wl-maz@kernel.org>
-	<6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: wangyize7@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, zhengchuan@huawei.com, jiangjiacheng@huawei.com, yize_w1110@163.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 12 Oct 2026 11:37:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cd5c1NF+TJEiAUJhPb/IG8waVXjJvnLQjQm9pzWX41WqttRZfF+vNvlMMqtjgunGDTb6RLV9WddSfJAuD9q35JA3cUPsLbaTAFOw6IXzL0O9FA1rmASp7CUhk6osWLDx1VzR3Rxr40oZWJYmZV7um4J78S6lY5BJCV67Jskxyf+wV6SrPMeNPGTYkKEgK5KHPvv67hS6mh4nhS8tWMt6+gDIfqW31lkS1LzUmFqoRgOy4ILg4UCqq9IK9A0GjOGEuSLAH7pZTwe9HlnGMLucBNkH1tzXHokn9JjF6PNpAYj6rchp+a65cOZTrKXW6DA4svHofL62tAumjGgQBGa6CQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ivPw5fMlHTxOKMrpHokezTc061nssFOtjEgmYvbr8sQ=;
+ b=tizqUFJb94ueYyJfr2uVypfn7UZsRFu8OISASRW6mcwSgz3xETtS2tthMCKDcdX9wCvbRXjhpmiqGtju2P4CuwoZgfFrNnempPiEzncgUswSXGozDPlMQpoqBm2GZhUBJvk8HkOODkZMF41L7XaT6qvaIt9m4CbbOJYCBdylXhqDKtrv4JhQC1Bv9Sg4JnKwdHRciqofD+etkKHLoHv2a6T2dXMkyfJqaz3yUdI4f7ikP3oqyEiImB5Z9to7VmfG2i8ZlfFuq2/ZAISwnzEfFuct6sUJCfhrE64R87cTYtxf/Af8GF9vQ+zQCENciLI5WpM0Z/w+l3x9zJHGMSI28w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ivPw5fMlHTxOKMrpHokezTc061nssFOtjEgmYvbr8sQ=;
+ b=A8u8aQrJbCxnc5MMkrTYt0bcyjPX1ETNDJSD+y5CrTY7TZ/IwmLg73ibeFEZE9teXNvIG5V/ntw2KVYMImgdFqv6bT7xF26vwuoICwtfj58InAP3A3GR7yujzISHl0QJEnMfHZkVO1UMe9Z3Oq44vTA4l7XTfU7qaym9MxeIRhuY4fs8MSCSR/LKx5P/MB8hGYg14EWvRr6Ye47YIoNrzcSm8jkoQQacr2UtOQhfrcPOKB3UcqD+wcyMmQViau1NOa+bHmrC1ASjAwcpy+exCpLtviSpXGFUFZZ6ejOO3Pl69cqRwYmjig0vMY5KVRHw9M+auCCYu42GYBppbqDc4Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA4PR04MB7885.eurprd04.prod.outlook.com (2603:10a6:102:ce::14)
+ by PAXPR04MB8878.eurprd04.prod.outlook.com (2603:10a6:102:20d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 11:37:22 +0000
+Received: from PA4PR04MB7885.eurprd04.prod.outlook.com
+ ([fe80::6e41:b858:46f8:c5c7]) by PA4PR04MB7885.eurprd04.prod.outlook.com
+ ([fe80::6e41:b858:46f8:c5c7%6]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 11:37:22 +0000
+Date: Mon, 12 Oct 2026 19:41:56 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v6 03/13] gpio: mxc: fix wakeup_pads bit operations
+Message-ID: <aszHhGylycuDIY35@shlinux89>
+References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
+ <20261011-gpio-mxc-cleanup-v6-3-cb47ce2ad758@nxp.com>
+ <CAHp75VfCrQAnVYV-7wiga-R8A4VKgjfV+EHo_7jy=FNmU=Ov6Q@mail.gmail.com>
+ <asytkrYip+v2vl/i@shlinux89>
+ <CAHp75VfqdVAYCTi2j0sB=rxBYaJ709-Wq7-aprfZZiBxbu=U_A@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHp75VfqdVAYCTi2j0sB=rxBYaJ709-Wq7-aprfZZiBxbu=U_A@mail.gmail.com>
+X-ClientProxiedBy: MA5P287CA0040.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:175::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB7885:EE_|PAXPR04MB8878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72eb330c-eb97-4899-36dc-08df28552ded
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|6133799003|10067099003|18002099003|22082099003|3023799007|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: x/jKt/s19qzT1KiPZixQ5OB9ddwNAQvRJ8AU67BqzGeXB37f+3hp6CkUWDllOTnQkLp7Zl9mhPcEFGgEfR161ZnQlKO+Mv/HhTXXd0PJi3EX/vG3iGBO3EKyqMDJhMdiy+LWwFVf00X37v96eGEw3ztUIGVaKeIjXFdI9dzZ5Uz+wKSXQFWsoi/1w4ucAFo+zRle5hv7JLqwShYED0PwjkO1nhHzQwZgqQ/9Fx1PbURYBuNhhwOYlu7WcNuypj3iJnYTz7/xqvBU0Ojn2Q+S+oTnzSNsOwPg7wvW6uRg6UfDvDiwrZ6a6F8LXhT+bx7CsXzU2L4V1x2kYPHx5c7efOxDqKeQCpfULcL52lu58eIi7wkB0Lasd8E/c75YPyMj4344tIaQEfgOrg6dm4n+COHD7NX9lMixlf2flrH7kP+5sLEQb2tnFoQp8DuPhvEOLPLTaWI1mpDz2mMDNK2BDc7OXvoRaL1qTukQPfK50giED3fQFeaADOffgyyEaU2QBicr+/Ai70vXoqjl8ZsnMUhl1pNKSOzG3ITqzXQIPR3/SPCOeej1k+e1pBq1miFx7CDQ73xTd/TdRmBd4Wgb4lZP4oooncOXb0qqv0hi9c3R4+WRnF7Bh4HBde2OXnvJMCpmUPizseX8QS1K0caOVP7LCdg3tCFAOMJvxvkuPnc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7885.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(6133799003)(10067099003)(18002099003)(22082099003)(3023799007)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dndvMHdYUnA0MHVUWVF2VStvZFo2OFFyS1VqMjNtWWRPUkllTFRYeEFSSmoz?=
+ =?utf-8?B?ZjQvUStSeXA5RG5RdVhkLzJRVGNmQTVVWmJkbUtXRStQMjNkQTI4NUZOYWhs?=
+ =?utf-8?B?V3VvbFE3TktOaTJEU2ZhK2NSN3JtTVN0ellLczV1OUVybGtPbTd6dmFoZ0hX?=
+ =?utf-8?B?SGhrV29NT0tOcHJNSmY5T0xDQVpzWHRsMW5wM3R1ODM5dTByN3lsSjFkMTd6?=
+ =?utf-8?B?TEEzcTBDZzFyL21hRG9qZ05yUnBwMnlVaHlPVXJKbG14bDNEQWNubXNTSTJ4?=
+ =?utf-8?B?V2NxM01McURnYmZzWEhnNkhTV2J2SkxNWnlpVy9PdWFab1M2VU5BUkF0QlFY?=
+ =?utf-8?B?aHN6TWt2bWNvVGxOZ0FENmpEZmZyVStxYUtnSWJUeCtkSzJXR1YwTzBJMkl4?=
+ =?utf-8?B?Nkd4WWFFVWtxbmVLVGQxc0dzQWdoTEx4VnpJRFlkSU9zRDRBSWFzbUJMZndz?=
+ =?utf-8?B?R3c4aWVHNlZCK0I3MWR0dHAxSExQUzRObTFPam90dlp0WjB6bytvV0dmZ08r?=
+ =?utf-8?B?N2VqRzJNMHk5eU5uRjdFWXdpVVc2ZVpHejFCWC9DLzcwN3FZZEFWQUxudjhj?=
+ =?utf-8?B?QlN3UWNxeGprcmtmbXpyUDNnZmRJdG1XSnlLMHZ2d2ZxclRHODY5Sk95Ukdr?=
+ =?utf-8?B?bnlmQUMrR0tmSFdMVnFrMk5BbWJXQk14M1l3MDhENEpRUG1wWnFMTElaM3l1?=
+ =?utf-8?B?OVhJdUhETFNnMllUSmFtQVplMkNZa3Q3SFpnKzJGUjQwT3BtaCtMdjQ0Unlo?=
+ =?utf-8?B?SnJSdGlJZlViL0pGQkQ5ZHZWcW91a29JVkdsbzVrZW5ueHVtNW0vT2kxalJW?=
+ =?utf-8?B?NVh6ekJWKys4c1psMWtPa0laSFEzZlYrTzN3eEV1Wk9UNnVKQ05idHRpZ1Ja?=
+ =?utf-8?B?TFFFV0dwVVhSTzVYQlh4STdhbnRGNm1ZZ1FuZWQ2UVRjdWgyeEtTclpQUEFs?=
+ =?utf-8?B?WFowZ3pxd2d6c2dGVEpNUHU0akg4QnNpcWk5RGlyVUZxNlFLa0JXTTgxNGJK?=
+ =?utf-8?B?QnJSazNXMlEzaFdkR0Qra3hqMFA2d3NyLzM1bVhQejE5NlVlV1ZFbDUyYmVM?=
+ =?utf-8?B?Y1QwRjRBOFZMQW42c3pjelVrWmxrclNldG1mbU9EaHU2emVmSzlhVWl3aHRM?=
+ =?utf-8?B?d0hlLzBmaG9kK1hNVTJFUCtCSEZibFhpZCtXUnlTVXpWVWpKYTdBdnEvZFFl?=
+ =?utf-8?B?VXdTT2l4L0F5dVJPd2dTVFdwbU96dzhNSWh0SENiNDBjSUF2VmtrNnZSUEJl?=
+ =?utf-8?B?c0ZnRGVRdWt6SnRiNi8xZmNjVkYxT0NRWnZwanpiYm9OS0tLM3J6YkJBNHFn?=
+ =?utf-8?B?Nk1mWGVDcHRiZzN3L0RJVWNvWHdPdXRSRGkxN0JTMHlPSVRQTkNqNFJ1cW9p?=
+ =?utf-8?B?clhacll4YUJnYWt4SjQvdXo2Y1NzcVRaWnRwUjlRTXdVQ2w4ZFE3WFlIUm5r?=
+ =?utf-8?B?N1JJRGwza1l0cXZxS0ZzSWZRdUg1ci9PLzBrYkdHa0x6OTkveC9TNW9DRWZO?=
+ =?utf-8?B?MEVwSTMzMU0waWo5S0dOU053eXl0NXJ4RlJNZUNHVjB1TFd0L3JJMzJFeitr?=
+ =?utf-8?B?eTRtZFNhZXpTMkI5QnhENitSd0ZNMFExTnlLeUxIVGtMSUlPNHg1WVZ6TFB2?=
+ =?utf-8?B?T0VFbGZiNlJ5ZDFrbHNEMzRrSHNESnA2aFZrWkFwRVVNWlhsY2Q4NFd3dzVL?=
+ =?utf-8?B?UWkrck84ajgwRDE5UmhuMFlJV0diS3oxaUdPNW9CTGFkNlp2dTNkTlRMcEk4?=
+ =?utf-8?B?K3ZvekxKeDZZdUI3Y045ZG1JaTljUzBQd2crNUxrVXNqenMwS0gxWDR4SlNY?=
+ =?utf-8?B?cGszVE8rV0FtbFZ6QnZMWEljdTVRZzhqMGJhNnROTUZWTTc3WEJBYTFrZU9q?=
+ =?utf-8?B?QkQ4a0FCaXIySVVSNFhSclBJNzdRV1ZwaVQxcTJWbGRiSEM0dEZLRjR5bDAy?=
+ =?utf-8?B?RFdML2tJVjd4dTdPL2NMSmN4OWgyQUNLcGRidy9XMmpWMFpwMCs1M3RrQVpx?=
+ =?utf-8?B?NHFoWFMxR3dmQUd4d1hMU2tPUWlEaEE3ODBuSW5YTjJlZ0s1QldMUGQ4K2My?=
+ =?utf-8?B?VmNUN0VFUTNNNHlOMmlpMm5Fdy9wT05zR2Q5Tmt0elpwbStZVjVhay90UXBU?=
+ =?utf-8?B?Sno2VEQwSFk1aWJFTEY4bUZ1ZU95UlpTM09wbiszbjBlRWczYmZ5Mm4xd3E5?=
+ =?utf-8?B?c09BczYwSjIwYUVDNy9wNkd6SzVkM0p3czBqSkNKK2ZhdWVpYnlORGNSc3Ji?=
+ =?utf-8?B?M0VNUGEyVUM0R1lRZCt1cUcxK0N2bGljL2VvNlVnTVp3V2NxRDcvSmtoWDVq?=
+ =?utf-8?B?MzVIbnlpbUxLaW1FN3M2OW8ya2F5TXJEWWNZRzlLOWR3NXZxQUdKcWtXaVdI?=
+ =?utf-8?Q?h4PxmU6PeBfSkoPwX/0czU6/yJ3H4x7MCQnAy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72eb330c-eb97-4899-36dc-08df28552ded
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 11:37:22.7270
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vKQ4WxhnXGnEM+2ojlF+3ctSdZKMCZ32PT5bBAfoWPVCdA1mxdL9h9dmRaWZohUqDPdcKWYLacl4GjZvsbBuduB649dQ2oDDAECf2r2hqrumX0EwCx3fjqjeBx/c3Sj7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8878
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_043730_218168_DD6633E5 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +156,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 Oct 2026 13:50:57 +0100,
-Yize Wang <wangyize7@huawei.com> wrote:
->=20
->=20
-> =E5=9C=A8 2026/10/3 22:53, Marc Zyngier =E5=86=99=E9=81=93:
-> > On Sun, 20 Sep 2026 10:15:25 +0100,
-> > Yize Wang <wangyize7@huawei.com> wrote:
-> >> =E5=9C=A8 2026/9/18 20:08, Marc Zyngier =E5=86=99=E9=81=93:
-> >>> On Fri, 18 Sep 2026 09:18:13 +0100,
-> >>> Yize Wang<wangyize7@huawei.com> wrote:
-> >>  =C2=A0 These patches focus on optimizing GICv3 register access during=
- live
-> >> migration. We found that there are a large number of locks (kvm->lock,
-> >> vcpus, config_lock) in the GIC, these lock operations wil cost large
-> >> time waste. The batches of sysreg for vcpu optimization will come in
-> >> follow as a separate series. And let me address these questions one by
-> >> one.
-> > All these locks should be non-blocking by the time you save anything
-> > related to the GIC, because:
-> >=20
-> > - none of the vcpu can be running
-> >=20
-> > - this must be a single threaded operation
-> >=20
-> > So if you are seeing anything contended, this is either the sign of a
-> > bad KVM bug, or an indication that you are violating the above
-> > requirements.
-> >=20
-> > 	M.
->=20
->=20
-> Hi, Marc! Thanks for your review.
->=20
-> You are right that when saving the GIC state during live migration
-> process, all vCPUs are not running and it is a single threaded
-> operation. Our patches process the packaged register states from the
-> userspace under the same lock. These operations only aim to reduce
-> the lock opreation downtime and do not involve lock contention.
+On Mon, Oct 12, 2026 at 01:30:04PM +0300, Andy Shevchenko wrote:
+>On Mon, Oct 12, 2026 at 12:46 PM Peng Fan <peng.fan@oss.nxp.com> wrote:
+>> On Mon, Oct 12, 2026 at 12:15:28PM +0300, Andy Shevchenko wrote:
+>> >On Sun, Oct 11, 2026 at 2:54 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+>> >>
+>> >> gpio_set_wake_irq() can be called concurrently for different pins on
+>> >> the same port, so use atomic bitops when modifying wakeup_pads.
+>> >
+>> >The code doesn't modify any reader part of this member. So, the above
+>> >paragraph is incorrect, right? Otherwise it needs to be clarified how
+>> >assign_bit() does change anything.
+>>
+>> I will replace with below:
+>>
+>> gpio_set_wake_irq() can be called concurrently for different pins on
+>> the same port. The IRQ core serializes per irq descriptor, but
+>> different pins have different descriptors, so concurrent calls for
+>> pins on the same port run without mutual exclusion. The plain |= and
+>> &= on wakeup_pads are non-atomic read-modify-write operations that
+>> can lose updates when two CPUs modify different bits simultaneously.
+>> Replace them with assign_bit() to make the modifications atomic.
+>
+>Right, but the code does change only the writer side. There is no
+>reader side that was changed. So this patch does *not* add any
+>atomicity. You also need to check if the reader side already uses
+>test_bit() or something like that. Otherwise it makes no sense.
 
-OK, so your argument was actively misleading, since you were claiming
-that locks were the majority of the overhead, and are now
-advocating... something else.
+The writer-vs-writer race is the concern: two concurrent
+gpio_set_wake_irq() calls for different pins on the same port both do
+a non-atomic read-modify-write on the same wakeup_pads word. The old
+|= and &= compile to separate load/modify/store instructions that can
+interleave, losing one CPU's update.
 
-> In addition, these patches focus on reducing the syscalls of
-> ioctl. Now, every register requires an ioctl, resulting in (num_cpu
-> * registers_per_cpu) system calls. This will cost lots of time
-> during the large-scale VM migration. Our patches batch registers by
-> category in qemu and then send them to kernel in batches. This
-> operations significantly reduce the number of ioctl syscalls and
-> save a great amount of downtime.
+assign_bit() uses an atomic RMW instruction, so concurrent writers to
+different bits in the same word are safe.
 
-I've suggested you use io_uring, and you completely disregarded my
-suggestion based on... locking contention. How do you expect me to
-take you seriously?
+The reader side (for_each_set_bit in noirq_suspend, wakeup_pads > 0)
+runs in noirq context where no concurrent writer can execute, so
+reader atomicity is not needed.
 
-I've now marked this series as rejected. Please come back once you and
-your AI toy have agreed on what you want to do.
+Regards,
+Peng
 
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
