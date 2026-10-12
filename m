@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490E3CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE997CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hc/oIL8Ed/OJioHm81H3P3M65VQzRDdkE//KITJseZg=; b=QX2gSDBMYaWATbNkETZozRkwK0
-	MIcEx7Q6h8ykJKwr0GrnQ+GQx6NStLwawezMKGPEY5AqypCdJruHqpYjjfbdrNCxuxolNADzoqXrf
-	bz6fs3Xqrz0cwWjRi2n6BNeYiX3bE0onDqSibJFGbUDEaeWUfG/uEmcsfJbUdU5jd9ynNgtrRd8LR
-	vwpgkC8ytqZF2LO2Wfv8yZJ0DXyZtwM77jIuOm5pinT5BRYJ6IB9NssTqOYyz92PL92DHdaKEx6vW
-	expR0fpPSLGVApT2+Vc2C58cyv4a5/SnuwpKNLs7i2/aibR48mjXle7KSUXw7FarFOvibl8Bc/2ig
-	mDTZEnmw==;
+	bh=fmWhe9edetnI1XYoSUk/a0gFm8QWgHCjQdahFD9uVho=; b=vzi4sYik3tTMqnuXmTSNisACCv
+	Hvf+KY7k0ecSL4NJtZBaX7V5jKhRglV6msof9HLWJUhPADwYwsJqTSGDe26yMuWV9v+7xaAZ9zNyl
+	nvWs5U3E2SNxb52mKXUu//QxUluJtUjS610X2QmZNyMss2hVT/Sx7wTM39LBa3Ic8+EkPxaXGXZIK
+	TxQgRVCl2wAE5Q5KF4mlpZsErAU8nD3uE9JBfWNLI9d2mk3y51ki5282Yd1X+4nWJW6o7dvNgemtQ
+	yGEwlKeSr9n9U/vjY0GC1dK4mn2lBqBIMcZZ02PAC+fraMKSXQ2d6QMoe9tt3NCXZoOBB5/OH5jlU
+	zIGoYPcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJXM-0000000B3wg-3Dww;
-	Mon, 12 Oct 2026 17:10:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGJgI-0000000B4ex-2knP;
+	Mon, 12 Oct 2026 17:19:22 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJXL-0000000B3wJ-2ugD
+	id 1xGJgF-0000000B4eV-3R2X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 17:10:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D074D600E2;
-	Mon, 12 Oct 2026 17:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84F631F0089C;
-	Mon, 12 Oct 2026 17:10:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791825006;
-	bh=hc/oIL8Ed/OJioHm81H3P3M65VQzRDdkE//KITJseZg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=GfSUaghCPh1Ns33aE1cAVACMlIu1Q5BVrR717Zdly6q5JrwNVHzWrUbHrwDSF63c6
-	 HeTcp+9j7IboC85/01+1TdlZeKozIEU26n7IuyM7aCO/CXLXzi17GoN5GSHXl+HJFt
-	 CY74rfhGvuLBBFC6kOLDSKAGlJwgxyFrWfG5mgBolrbRxbWentGyVyvdCKiG3D5q+M
-	 zOMmELMldxVZ1+89tkuLeoZAVpkx+3guzUrrFmTMdVvwjeVK0khDMgoF+7icvoqoDl
-	 zH4Up63wq8JsWo1XVf5B3XWc2TbkeeNAOvmx+CQnMXqiWk3KkJ0+Tn+CNTE3o1AjAt
-	 BeQyw8agNa9RQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774FF3924A64;
-	Mon, 12 Oct 2026 17:10:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 12 Oct 2026 17:19:21 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48afe75f055so1977036f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 10:19:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1791825557; x=1792430357; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fmWhe9edetnI1XYoSUk/a0gFm8QWgHCjQdahFD9uVho=;
+        b=Zb8AxrrkpWJ1oU+Q+90SgANFthCoL8kjWOwnAf9d+77HrbGKMJXJ9gY+YRDi82jkxi
+         tR3MBcIeB2wzO0tGPlV54qye+0vBZ4pT4Y+nhVAemQZSiUaQOdPFy84dV2nIXOCC6qMv
+         /EYg3t/NLBlzMAv/uTRdK3BsGI6Pz5pigSJPOiK3g7oUJuWN+jvDgEetGEvdjWfiVDwK
+         +07wMu4apW2vpd307R/1ISTnOb0V28jXSIqZfA5nLpCPk9kV7WWjTAi7yxCgoigE0eLX
+         g1Z67dr8qxza9qsinbyJIxEiRW72pdE98pXXoZ1u8zUAHhBtu4RdZ8g5LI1Qvpde2HoY
+         r1fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791825557; x=1792430357;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fmWhe9edetnI1XYoSUk/a0gFm8QWgHCjQdahFD9uVho=;
+        b=KUpFvwZtJRIHqMxfJhK7ZHHK5+6tcNMjJPlp5g3JgPuwfuhy0VhxxgoLczCK+5uAOr
+         FdcOp8aJZo02e2GLjw4v0ccImhKt2IJeNYUfGgfydndIFTzfWW6+Ekp9ImXw9fnZIRyw
+         UnhwM3yEJG1xwy1ioKX1bkdM4B32EvGjUMsjIrH9qsF+itAfA3VTSxPR39aTrAurXpe+
+         +mD99UfrxdLXEdj9sIFqFI1Dv588SLO92X92m6pQKkoVtGZaXMLhEa6jfMHSInBl1rym
+         aFnsttRbRLWIUi58/as04QnFWEptLh9o/VVO3rtEhS4mxaH2BSb3pYGmwxvr7VUd0FlC
+         dW/g==
+X-Forwarded-Encrypted: i=1; AKwUvBwMLhJnwj9WaHgrUKjYW167G2Ea15WH5NQmjrGmvLSTgKxDC+Q06yIcaHYsf8nERls/oTDnnRrAq0A5n6GaJQtO@lists.infradead.org
+X-Gm-Message-State: AFq9FYKcaARw277nbMnrBvwqSSFoKFtCAd60yIaV8qOMdZtMYMYPL8vZ
+	+ULO87o11AMu604fOagpdVVEsmhwCxLZMKmWHCsiAspQx333mN6mFkZyZKfJOMMjBWY=
+X-Gm-Gg: AYBFou3yrh3oRXGsSDxaHmkCp6rv2bv+oM76MYAWetfAofJi9GLrWllYI8+yyN+4Veu
+	xlzHY+cYuJav70+QWvg3kwyNuezY/4sDCEUpoBaZZjXHWb1aBOyxaG/CvU1EnprpIuUDgKCTWo8
+	NZiN3wKFbq8CMOwKh/rh8n9x+kmNmE+ROj0IrYL0jGT//AuH3ln1EcOpygqScuE79osObigFR/e
+	qRZTrq3F0cXZhll73BfgxVjLk4H5loTqMIztyRzToTE19OiX6wVeNgK9n7KykZg9SkyQRyAOr9O
+	uVSIrNTZPcHM1tihmjMxjvf1SNqL4oLx0+r2S1NoV71WmN8uzIQc6dZzqaawGumgnPmOuvBOOhB
+	LFuirEBThj5aa8ULReOQoec5793b6lWqwZwziaDTq+rF01cLEP3VMXlGKbDKviZBuH63AwgHHlE
+	x7/tNYlL6ngoSW7DSxjcy5HT7tXRbCvnyJKik1dAx6zsDn+ag2CpQYTRU478/gkvienKrq6mm8E
+	lRwnF7larttoz2SHqVx6fQb5NIw/EPa9RfN3BxOM7w8GglLWgP2A4N23YSeASU=
+X-Received: by 2002:a5d:5291:0:b0:486:f3db:e0f2 with SMTP id ffacd0b85a97d-48dbaade0b3mr13920551f8f.14.1791825555359;
+        Mon, 12 Oct 2026 10:19:15 -0700 (PDT)
+Received: from ?IPV6:2a01:599:840:e202:6f88:7a35:3ae9:6d10? ([2a01:599:840:e202:6f88:7a35:3ae9:6d10])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0bc4ec6sm437267f8f.48.2026.10.12.10.19.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Oct 2026 10:19:15 -0700 (PDT)
+Message-ID: <7d703c43-e462-41d6-a488-87342fd139a2@9elements.com>
+Date: Mon, 12 Oct 2026 19:19:13 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] ARM: dts: aspeed: add Intel AVCRP BMC
+To: Dawid Glazik <dawid.glazik@linux.intel.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ maciej.lawniczak@intel.com
+References: <cover.1791825961.git.dawid.glazik@linux.intel.com>
+ <12f8124fea31a6c6b1401d6aee640842c8d896a7.1791825961.git.dawid.glazik@linux.intel.com>
+Content-Language: en-US
+From: Tan Siewert <tan.siewert@9elements.com>
+In-Reply-To: <12f8124fea31a6c6b1401d6aee640842c8d896a7.1791825961.git.dawid.glazik@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v5 0/3] net: stmmac: Introduce hw queue priority
- offload
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179182500527.3547638.11327393351212473123.git-patchwork-notify@kernel.org>
-Date: Mon, 12 Oct 2026 17:10:05 +0000
-References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
-In-Reply-To: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, olteanv@gmail.com,
- 0x1207@gmail.com, daniel@riscstar.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, dcaratti@redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_101919_986185_605537C2 
+X-CRM114-Status: GOOD (  24.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +108,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Tue, 06 Oct 2026 12:46:24 +0200 you wrote:
-> Implement the offload of the tc mqprio hw queue priority in the stmmac
-> driver. This feature requires the mqprio to be configured in channel
-> mode.
-> Do not overwrite real_num_tx_queues configured by the qdisc in
-> stmmac_hw_setup().
+On 10/12/26 7:39 PM, Dawid Glazik wrote:
+> Add the initial AST2600 device tree for the Intel AVCRP BMC platform.
 > 
-> The misbehaviour has been reported by Shashank and the patch has been
-> tested on a Qualcomm RB3-Gen2 board.
+> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+
+You got Review trailers from Andrew Lunn in v1. Unless you think Andrew 
+has to re-review it (which should be then reasoned), please keep them in 
+new revisions.
+
+ From the kernel docs [0]:
+
+"Both Tested-by and Reviewed-by tags, once received on mailing list from 
+tester or reviewer, should be added by author to the applicable patches 
+when sending next versions. However if the patch has changed 
+substantially in following version, these tags might not be applicable 
+anymore and thus should be removed. Usually removal of someone’s 
+Acked-by, Tested-by or Reviewed-by tags should be mentioned in the patch 
+changelog with an explanation (after the ‘---’ separator)."
+
+> ---
+> v2:
+>   - Replace bootargs console=ttyS4,115200n8 with stdout-path = &uart5
+>   - Remove the unreferenced video_memory reserved-memory node
+> ---
+>   arch/arm/boot/dts/aspeed/Makefile             |   1 +
+>   .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 315 ++++++++++++++++++
+>   2 files changed, 316 insertions(+)
+>   create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
 > 
-> [...]
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+> index 767f7c7652d5..ea4645ef9872 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -54,6 +54,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+>   	aspeed-bmc-ibm-rainier-4u.dtb \
+>   	aspeed-bmc-ibm-sbp1.dtb \
+>   	aspeed-bmc-ibm-system1.dtb \
+> +	aspeed-bmc-intel-avcrp.dtb \
+>   	aspeed-bmc-intel-s2600wf.dtb \
+>   	aspeed-bmc-inspur-fp5280g2.dtb \
+>   	aspeed-bmc-inspur-nf5280m6.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+> new file mode 100644
+> index 000000000000..7c088c89d417
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+> @@ -0,0 +1,315 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +// Copyright 2026 Intel Corporation
+> +
+> +/dts-v1/;
+> +
+> +#include "aspeed-g6.dtsi"
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +
+> +/ {
+> +	model = "Intel AVCRP BMC";
+> +	compatible = "intel,avcrp-bmc", "aspeed,ast2600";
+> +
+> +	aliases {
+> +		serial4 = &uart5;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &uart5;
+> +		bootargs = "earlycon";
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x80000000 0x40000000>;
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		video_engine_memory: jpegbuffer {
+> +			size = <0x02000000>; /* 32M */
+> +			alignment = <0x01000000>;
+> +			compatible = "shared-dma-pool";
+> +			reusable;
+> +		};
+> +	};
+> +
+> +};
+> +
+> +&rtc {
+> +	status = "okay";
+> +};
 
-Here is the summary with links:
-  - [net-next,v5,1/3] net: stmmac: set real_num_tx_queues to max(offset + count)
-    https://git.kernel.org/netdev/net-next/c/d12821266759
-  - [net-next,v5,2/3] net: stmmac: align real_num_tx_queues to mqprio configuration
-    https://git.kernel.org/netdev/net-next/c/ac1ca0c3e139
-  - [net-next,v5,3/3] net: stmmac: add tc mqprio hw queue priority offload
-    https://git.kernel.org/netdev/net-next/c/47891d501e34
+Please sort your nodes, as described in the device tree design guideline 
+[1]. There's also a tool called `scripts/dtc/dt-check-style` that can 
+help with this.
+Note on that: we usually run `--mode strict` but it is known to report 
+false-positives, so please check any reported errors twice ^^
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> +
+> +&fmc {
+> +	status = "okay";
+> +	flash@0 {
+> +		status = "okay";
+> +		m25p,fast-read;
+> +		label = "bmc";
+> +		spi-rx-bus-width = <4>;
+> +		spi-max-frequency = <50000000>;
+> +#include "openbmc-flash-layout-64.dtsi"
+> +	};
+> +};
+> +
+> +&uart1 {
+> +	status = "okay";
+> +};
+> +
+> +&uart3 {
+> +	status = "okay";
+> +};
+> +
+> +&uart4 {
+> +	status = "okay";
+> +};
+> +
+> +&uart5 {
+> +	status = "okay";
+> +};
+> +
+> +&uart_routing {
+> +	status = "okay";
+> +};
+> +
+> +&mdio1 {
+> +	status = "okay";
+> +
+> +	ethphy1: ethernet-phy@0 {
+> +		compatible = "ethernet-phy-id001c.c916";
+> +		reg = <0>;
+> +		reset-gpios = <&gpio0 ASPEED_GPIO(C, 1) GPIO_ACTIVE_LOW>;
+> +		reset-assert-us = <10000>;
+> +		reset-deassert-us = <50000>;
+> +	};
+> +};
+> +
+> +&mac1 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_rgmii2_default>;
+> +	clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>,
+> +		 <&syscon ASPEED_CLK_MAC2RCLK>;
+> +	clock-names = "MACCLK", "RCLK";
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&ethphy1>;
+> +};
+> +
+> +&lpc {
+> +	lpc_snoop: lpc-snoop@80 {
+> +		snoop-ports = <0x80>;
+> +		status = "okay";
+> +	};
 
+Why's this named if you don't use it as reference anywhere.
 
+> +};
+> +
+> +&i3c_global {
+> +	status = "okay";
+> +};
+
+That's enabled by default.
+
+> +
+> +&vhub {
+> +	status = "okay";
+> +};
+> +
+> +&video {
+> +	status = "okay";
+> +	memory-region = <&video_engine_memory>;
+> +};
+> +
+> +&gpio0 {
+> +	gpio-line-names =
+> +		/*A0-A7*/ "", "", "", "", "SMB_CPU_PIROM_SCL", "SMB_CPU_PIROM_SDA",
+> +				"SMB_IPMB_STBY_LVC3_SCL", "SMB_IPMB_STBY_LVC3_SDA",
+> +		/*B0-B7*/ "", "", "", "FM_CPU1_ERR2_LVT3_N",
+> +				"RGMII_BMC_RMM4_LVC3_R_MDC", "RGMII_BMC_RMM4_LVC3_R_MDIO",
+
+Why do you name reserved GPIO lines (in this case the RGMII lines)? 
+They're used by the kernel anyways.
+
+Tan
+
+[0] 
+https://docs.kernel.org/process/submitting-patches.html#using-reported-by-tested-by-reviewed-by-suggested-by-and-fixes
+[1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
 
