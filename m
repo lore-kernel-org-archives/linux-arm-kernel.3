@@ -4,94 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57577CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10BCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AyANQsh/NuLrShgUzGL88ky2h7L2MDCXmZx5EOLv9g=; b=QzTcNYcFCgpvf0UOoI0vyrk7KE
-	oeUcZ0PqZ+8gZq15zy0wt0Cc3l27AJfUo04Sebe9zDhhUHGIs8wxyzjHvvlmHLDuG7C/BDeJt0Gyo
-	IacNl3jCI+qW2sOmhQKPlVEX9qg6fsiPbg4YhJJCWhF1IVWO847CGzAr8L/QXzO0NKhnsnDYw+brN
-	vLPzh/uqLjTgeLqO/zp9QoWd1LfAuTcVL6gAyGow2Ai4DijJvLiswztbwJcdj8E4nGiN4W5RhIUN2
-	loq2czyXePq1qe4deyE/53dxK/H8lF3K8rdGACbbe4r1ql5z3B8Sm8g5eCEKj0TMBqY77/fzgstvB
-	sWXkQ1Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=; b=h2Ut9YJdJDV5SJh+BV9N/2aLQO
+	hSScHsi9BfuY7uGvE3XwWqNwiM9lZTkP8mt+1EWOp4HOt9MQ4Mrz25zhQAp+ORdRL7u1pLLdW8u7P
+	eHDMQ9S3hV3/DCHg1OxtZ0mL0/hzkXm2mMO4XM2VYHZvmvmgz7Q1/wkUFf91WRcKeAZtBZRXqUOmy
+	Gm0FX/o1vgRsz92AO5jgbTKcUHy0HP9+ljWtnQ2oFBgGSpB7Ubd87JtdnDT7sLgrKpmc3Jo3R/JP8
+	ZUbqpKHY9vXfAUv7SeR/DIbI6lQVcBEy2y9n2JxAwBOvyl0ojPAuIsQiHkhESEXhEs3UlNlyguU1S
+	c9tf8Rfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKyI-0000000BGel-0cU5;
-	Mon, 12 Oct 2026 18:42:02 +0000
-Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
+	id 1xGKzo-0000000BGxd-2pMk;
+	Mon, 12 Oct 2026 18:43:36 +0000
+Received: from mail-westeuropeazon11010046.outbound.protection.outlook.com ([52.101.69.46] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKyF-0000000BGdV-3dQZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:42:00 +0000
-Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-5e67a6b3633so737718e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 11:41:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791830518; x=1792435318; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1AyANQsh/NuLrShgUzGL88ky2h7L2MDCXmZx5EOLv9g=;
-        b=AeYlp6Fndb4G7YlOTH4YbqRA+jdnuevd3kVY4VS+5iX2hR9l5TunBr2vXb+dKjOVj4
-         q2F2OmwTbfl2rjDYmV2b28Nk0KrsBsBiudYfYPHM4RfJu5q4P9IUOyf5me+c61uV7x7B
-         iGZAM2+woBC2Wn4gX9bI9J0l9mGk852H6oKXxAZcKPZ5b6wrHJxdF0FlKgIXbTSV2yxQ
-         +X+wsjYrmDgGl0J9KoEPQJSpL/WhTllsL+z3ECztdM03YWqVDGqGNgDCxXSfmhP39h4u
-         p/mVMf454bn+nAOBKrvqUC1qQ5z+NmaHyg0F/RRLbqbYSnJJUaHbR8rpWzfP+Wp3FFlP
-         h7xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791830518; x=1792435318;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1AyANQsh/NuLrShgUzGL88ky2h7L2MDCXmZx5EOLv9g=;
-        b=VAWT3ebCL3f3vt/Qw+Qf8H9IBvrPJHdmeweZ6k7YlPPItCFpZHRLOTrR39cLdtZWmz
-         af2HJ+KcgiXgYYmkET+vyQXpVzbcXKCp05bkf5fido7AwZzGLsocfA/y7n2gcwlB61GB
-         fTMCHyObdUhBryTysH4OwYBVvatJEg+iJTyl+eYq25tADE3DRzqrkyiErC+qiiDe4xHZ
-         S8FUuHR0QNmGS7PGRLDWcal7l3TGP2leshFvi1mosnENErup8Vmh7Q2c34KLM+hYYd37
-         rL5RUyWuxzGZZEzvCJz4DNySBtJ7WIMyFk84lwfhIhSsl+sTtNZL+uvpoKTgOAxraPr0
-         nVbQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz0s5lDoOp/NjG+PUFSA7v3Q/hmGZaX/z9IxggusgjWVuC+EwpC/2/0Y6JnDjXEI6FrxNrfLVv5UL3BIUybDvYI@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFt0/J+780Eke2rCdtRNBGaTPlURC2Y9zgSfhRUBt8ZFAFkfGl
-	AC1RyCaZEyu9txGYeVJJSWgtS+bUwaMgshDuDGz9sFR1JmD+f9jtNZft
-X-Gm-Gg: AYBFou3pCt3YQGS57Mif28KqsNrWcCEUx+tPAzef1a3EARw2q2zr0q1LBF2jtkI8QdJ
-	JAFYgwtNq18JRVaXhDFSJ2LRP/A5vsBwCx73/1vKrCC4JrgaQO5ryW7J+g+QQYXuSVXOcCxRIp/
-	yZ6YH/NT/TKTHWxdylHvrLTIg+2xBI/uENCCb2a3PuYxYKXiLJ/1fwiOiRvEMSnVn/KEQwWSwAy
-	T8WVgzQaaPkGy2pPc+BE91iYSIcDXwCVtfJ4AGfnuglX6Q4j5f54M/dmiX+pdWZ3cwu94JhsaS2
-	shL8Nf07LnDIFH+w/sYSDKCrghqtxmKt/xXha8Opr0LipKKBq9wgpuYD8dYiYDVskLE1rr3Obz1
-	97R+7l7ZfZwNwfsgskoU96jGzl43gI8Dj5+viqH8CbxTsBDiOId9hq6nsoldNSQvSE+RkW8/Lvd
-	dPHX3qR/X1Jg+KrteoQ+9ZXPfXoLptAGyh+35v/hgQi/Wf0j59aBJ0NNtb7/oIcCWsEce0OzzOm
-	7uhOgDCAIkW22HVM7JIQHMpWjlMLqm+IPZq1Toa5NiAgn3DcCWoa1OsIh/TpPd7Cz18KksZWCZf
-	3KOY9p7ZE7qZ58wtXQ==
-X-Received: by 2002:a05:6102:26c2:b0:7a7:195a:1b2a with SMTP id ada2fe7eead31-7cb377f59d3mr2545886137.36.1791830518290;
-        Mon, 12 Oct 2026 11:41:58 -0700 (PDT)
-Received: from MaquinaLab.. ([179.179.244.163])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99003f230b8sm6830180241.8.2026.10.12.11.41.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 11:41:57 -0700 (PDT)
-From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-To: linusw@kernel.org
-Cc: wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	andre.przywara@arm.com,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] pinctrl: sunxi: a733-r: use the A733 I/O voltage fields
-Date: Mon, 12 Oct 2026 15:41:29 -0300
-Message-ID: <20261012184130.548261-3-vinicius.eduardo.pedrosa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261012184130.548261-1-vinicius.eduardo.pedrosa@gmail.com>
-References: <20261012184130.548261-1-vinicius.eduardo.pedrosa@gmail.com>
+	id 1xGKzj-0000000BGvo-2SUn;
+	Mon, 12 Oct 2026 18:43:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cM880S8+V+EZ14Vo4OUN3gVrvLrpFXKP6410kY5pjaxZ2xpW7xvcR5/8XQxxSSmZhDgSbOdCcMOtfkw+1m5FjlOQdojGNtbH6clqDFpCNOmcDNZPLFGEzbilN6GlOLalow9U39H/XAm4Ity5bmlfA1rtKXvMxs+zBYd0Im9YxW9Ex8PjVMxWZiC8RDUV8UaHyVkeP/fM/XAkVXK1PtIv3gOEwBJxBjihR/RUbwJyK5qE0AbMKLjgtBz6WazvDhN0/Yxe6YPvthdt0PVd65nsR8Y3nvM8NpmJaQFs393cFOVsoKITvQdtfAZr2laSmaRffrkUGlmOVBOeXYOFYfm0XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=;
+ b=SjAGfPWrdZ8J55eQKE7nh48jiQVI6r1Zu7CxxTIbd0bXWvy3MRgevbgh/kDzoC2rIlINElkXaJuDO7D9901JOhEfrRV4DGL+3PZQJ558t6eKn3qX/2bqfGaxkBJ2nihY+VYYE2FkRx0O/46tYcRqdBf+GJwNRqcHmPckmshuEsVIz3PQPOoZ/gjAwEqPmroWqRCkkbnwqXn7U6Qj+hGSb8Er5OdEqsOivyyLIh3Uwsn66aIeumbJ+letC7uvnKaD9Wg5lpy17wtYzv6/0XxvzUGZ193ic+h6HsWSDt8Z9O0jqTrMWwb35Qcaqkg6KBmK51S4IkCjz5+55lSHvc8hjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=;
+ b=ozXjTQPdmyOUR6461ZWwzxKdXN8xkZJelM0ZnVnJQM/62oo/M8MRPeHdJtf9U753IP9rEv0zxiIQjpQUXstcV2coBFUAWzhxJkHRgK+y80ewPTSxN6BX4pQ3SNHtA6vGvvrP6PB6YPmEuD0hSLM8oz3cNFF2sMMVIL5XjDp6LcCr5t9lAQ51E7fhmWp4wF/VtewmTe0pb5FKUM8V94MLtsI/UbE/GS0/ftcsxmdzSVxFlPEEfXT8+vQaRn1qiox6wFhgNgeENVx167DCkxCC5T/7KRCVnXm7bw6PRWiR3S1cXFcBE6aHkjE15RSAlZ4qJTxDpnPnhASZcYPsFnGPlQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10716.eurprd04.prod.outlook.com (2603:10a6:800:270::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 18:43:21 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
+ 18:43:21 +0000
+Date: Mon, 12 Oct 2026 13:43:05 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: jan.petrous@oss.nxp.com
+Cc: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	imx@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Vincent Guittot <vincent.guittot@linaro.org>
+Subject: Re: [PATCH RFC v3 03/12] dt-bindings: PCI: nxp,s32g-pcie: Fix SerDes
+ PHY phandle in example
+Message-ID: <as0qORxP0Roh9ktO@SMW015318>
+References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
+ <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
+X-ClientProxiedBy: CY5PR19CA0006.namprd19.prod.outlook.com
+ (2603:10b6:930:15::29) To DU4PR04MB11791.eurprd04.prod.outlook.com
+ (2603:10a6:10:623::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10716:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1c945f3-de41-4a5f-0422-08df2890afc8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|23010399003|1800799024|11063799006|4143699003|56012099006|22082099003|18002099003|6133799003|261009223027099003|3023799007|10067099003;
+X-Microsoft-Antispam-Message-Info: IfcSg5xQsvaevAib+loyfoVr1DihwvkYT+CsxLCSyfHHN37z5Ip7fdPT59Rls8wqxmX/2DSwkbwZ6DzIGlP3qSlXn9ymB8YrGjCvr7ym5z1YWno8a2wUs3p7IodTj6H4pxVGNiCQ8z75YfNZ6PLpltsgodLj6fOXowT7zjcFsZ6KCuY3ADQitfkjwOwJIuAjHsqBXjEz76kz5hcYCHdm+tAxnPsEzFrmoJd+Oap6345kExfXHZsPc21ZUa4nhnf75NgFSYAfdnKjvQBSqjz/TW4CaPb3jyGE0os9RUtfGk5WTx/AB2Juw7mCzaKb0eSAaw8msn6DU6vKGSn0S0CFGRzKhUyVXK3U8HoNCcTkOInx/0CNkOta00ees1z40ndwz4RNezYfu5nmPHYAJVImSdVmDeYUiJJOTJtjy9MyquwE9qKE3keRaOCnaO8cDQVxAKsLVmBClJGgxr+7LWu1a1cEcs7lKb2Q6HI7jzmUO0MoLLxlV8ZWLsL/QmkTXMeuWiiBm+6kmrLdeySRQFZf2wCVLQJ8BGpAUgdhbqKRu7ng4gfD0lv7Hl7prWW8LbcN2JtXrsKZDME3CUKiaDYwdRbMZDdup2SMTrTJGdfnB9Yv/oGivEEv/r+R3xnDCgSLQwD3wEuSgapFgc6W2xEPztR8gBoqz71ArOudIuOqvgQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(23010399003)(1800799024)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rk2aNl7bzMpTYd31cOd/KYyfy/q534R99OObTr08wW02VMUdtC+33fjXrzoL?=
+ =?us-ascii?Q?9L+0Uu+C+5hOKVfJeaUBFKj0reRugVGmTiYaNZHXgxfSbunR+4vwdy1WrxMn?=
+ =?us-ascii?Q?fdaKqEwg8Vuy+uCz5emmlq2Ougg2jJzTKz/hZ8EyINMqJ1yEDEbCuxjPj4/E?=
+ =?us-ascii?Q?7hh5cHR89eDKNV/ecIk2fp5V59x/VFPw3wt1K8ScFaWuSd362W5NWTx2meGj?=
+ =?us-ascii?Q?U0OqhaTvTneYTKiomF7ANILR4JfP6pGNqLJev/n8jLxAeZ+Tf3ViIDoxxDXB?=
+ =?us-ascii?Q?Dzc+Skw//FhK07APkxEpKHVbFj9zCMdPQ8HxwHkR6y2FeM6Wm08vVS/LwG4V?=
+ =?us-ascii?Q?nldMFGKcwNBoSdmtAxec+IM1TGOe2O8aKXR4a4lixNU9knVRCV4dNtcEVK+A?=
+ =?us-ascii?Q?pnd8H4RIJxSuFFz0ow+9DgID9+KZxMQ9RpoiPRzc7qUv8Mj2jfuYv5j5yR8S?=
+ =?us-ascii?Q?Nmcfqb9Cie6Sp+96CUvWn7nrUGIMAh2+O7bb0FWm1jDOFWcSr7sO7itjC+pn?=
+ =?us-ascii?Q?6EetS51Stub3z68RLge8oSDPm1uz7azHYCCCa/3susKXJ6ufYYAa5/VeHwsx?=
+ =?us-ascii?Q?1by60Dk+cxHzF4wW/6QQ96OQW7sAHT51CYbrVsUGKKsU8r6z1BW/jB/tksFR?=
+ =?us-ascii?Q?tpIsFCgQA+asjq2cYdmQrj5Imbsmty6epY+66VOYZfYJrc1WByMm8B7E1hz3?=
+ =?us-ascii?Q?aIUVYF7r9BWG0IjZ8DxR+w4p19UKLmlJyc9l6hRrAPyxnsjvZ/eRXSuiwbAg?=
+ =?us-ascii?Q?QyRkhjQULi8X9esz7dLwdnMMwy2t+fubnCHtaTtsDySFleYOfc8cAqfMGIkJ?=
+ =?us-ascii?Q?S1BRE/Ply65PSk5YlIPc5z0K7+N6DVcq+fXOGj2TtObqDvMiQIc62sEZ8LNH?=
+ =?us-ascii?Q?3cv7d3dP6Nq6Ish9PXISf4CVeZymm39URzBTCech2cGvhwUp18LFHGaceH4A?=
+ =?us-ascii?Q?6DcwIdK5tEjBj0MRdyNWbXzH35CF1cZT/m3OKC01uEdMjLswdwmMK/7oigW8?=
+ =?us-ascii?Q?9nz9onDFrjJP7/UcAPolR4Ayg/pfHoglyD4vtInb04ip9CJXs2tUowr6Xyvb?=
+ =?us-ascii?Q?9tc8wu3Y+V+t+6kZhiLZIW3wLpFsjuZ/Aj31xXWijlgwZPv2cYiKPV3lMuAS?=
+ =?us-ascii?Q?FcHq/HRSLI50EQDFRd0UwxtQfo91rMR23FZzEqc8hmYO9VjGej5k0H6L5lwQ?=
+ =?us-ascii?Q?NQXn1FCUpfQqp9ZGiHrKU22mXnXiOh3OLWrfd/CNtSKwrJRKB7KWgYRF1af3?=
+ =?us-ascii?Q?K1J3DnZET2beLaifysSg3+Dfx3DIlthqMyMEvhFKlRmwizQy2otFlhQ+cnir?=
+ =?us-ascii?Q?j/+e7+s6pwKnhqCu2P6Lv1UXDdW0SfEec6JeedM835rbEgznmmDI1AcwOlmF?=
+ =?us-ascii?Q?5s9RMU1wK5HzRc7oSrKe8D32HgN611QxUHgCpI1398FCIBuoHCUs51ba7xTX?=
+ =?us-ascii?Q?7oiVAM49lpL73+1Fz/vbznDbztANcw7ULd4puQymDI6tFKA7Y7dXQnRCcmIj?=
+ =?us-ascii?Q?eNgg3qh6gZQoQgO5jr9ju6XPvtCwZUyRbI693BT2W6LFddq4drzXRQvfSO5p?=
+ =?us-ascii?Q?SyAVwF8XI2rG5to+KxO+Q39vNw74WSNT1tKiFpju6HkMwouv6zw+X/o2a9SN?=
+ =?us-ascii?Q?NS12kEdxEUousN0S9Lt1B0C0wne8m2YS5mq+f8vHmBmSN6M++7E+xt3Cn/yS?=
+ =?us-ascii?Q?EKQB5R6iTA7REOkfwBDZ31Lk3SrAVAPq0HoX7HdL7IX2I7/pATlZg3vklSEL?=
+ =?us-ascii?Q?MJ6fdS3asJIzSCoDcI/ftkJfBsPDjK82J5vtkOWgAkdl/NHP3Mkj?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1c945f3-de41-4a5f-0422-08df2890afc8
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 18:43:21.0372
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T5gZC/1In5jn/bS2coyS5CjgQEMGFPdj425ZuT4T8pR4L+/LzXrzT9FIEz5wTLOZsGIv8FpWSy1RwoXH9Lna9aLOjgnMH5rH+b28X+t45NeMAPLhj+EKqK+Rx+hjduo5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_114159_921520_A291C58F 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20261012_114331_635753_4C740013 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,64 +173,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A733 R-PIO shares the A523-R descriptor, and with it the A523
-inverted one-bit encoding and the access to PIO_POW_MOD_CTL. Its
-SGPIO_POW_MOD_SEL has two-bit fields instead, and the manual documents
-no control register at offset 0x344. With PL in fixed 3.3 V mode, as
-read on a Radxa Cubie A7Z (0x000aaaaa), running the old helper on the
-host with a 3.3 V request for PL gives 0x000aaaab, which is fixed
-1.8 V. This was not run on the board.
+On Sat, Sep 19, 2026 at 08:54:31AM +0200, Jan Petrous via B4 Relay wrote:
+> [You don't often get email from devnull+jan.petrous.oss.nxp.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+>
+> The example references the SerDes PHY as
+>
+>   phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+>
+> i.e. the SerDes node itself with three PHY cells. That does not match
+> the SerDes binding: the per-lane child node is the generic PHY
+> provider and carries '#phy-cells = <0>', while the SerDes node itself
+> has no '#phy-cells' at all.
+>
+> Point the example at the PCIe lane child instead, which is also what
+> the S32G3 board device trees use. The dt-bindings/phy/phy.h include is
+> dropped along with the now-unused PHY_TYPE_PCIE constant.
+>
+> The schema itself is unchanged; 'phys: maxItems: 1' already describes
+> the corrected form.
+>
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> ---
+>  Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> index 66a050028278..29323e50bd8b 100644
+> --- a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> @@ -82,7 +82,6 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> -    #include <dt-bindings/phy/phy.h>
+>
+>      bus {
+>          #address-cells = <2>;
+> @@ -124,7 +123,7 @@ examples:
+>                  ranges;
+>
+>                  device_type = "pci";
+> -                phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+> +                phys = <&serdes0_pcie0>;
 
-Give the A733-R its own descriptor with the PL and PM fields, and
-leave the A523-R as it is.
+I don't think it fix somethings. The "serdes0" just a label, point to
+provider, which is not neccsary that "#phy-cells" is 0.
 
-Fixes: 31d68e10381c ("pinctrl: sunxi: a523-r: add a733-r compatible string")
-Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
----
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 26 +++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
+Examples just show need how many phys and don't care about phy provider's
+arguments
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-index cffc1e53eef1..1aa7f32035e1 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-@@ -30,11 +30,33 @@ static struct sunxi_pinctrl_desc a523_r_pinctrl_data = {
- 	.pin_base = PL_BASE,
- };
- 
-+/*
-+ * The A733 R-PIO has the A523 one's layout, but its SGPIO_POW_MOD_SEL uses
-+ * two-bit fields, and the manual documents no control register at offset 0x344.
-+ */
-+static const u32 a733_r_io_bias_masks[SUNXI_PINCTRL_MAX_BANKS] = {
-+	[0] = GENMASK(1, 0),	/* PL */
-+	[1] = GENMASK(3, 2),	/* PM */
-+};
-+
-+static struct sunxi_pinctrl_desc a733_r_pinctrl_data = {
-+	.irq_banks = ARRAY_SIZE(a523_r_irq_bank_map),
-+	.irq_bank_map = a523_r_irq_bank_map,
-+	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL_2BIT,
-+	.io_bias_masks = a733_r_io_bias_masks,
-+	.pin_base = PL_BASE,
-+};
-+
- static int a523_r_pinctrl_probe(struct platform_device *pdev)
- {
-+	struct sunxi_pinctrl_desc *desc = &a523_r_pinctrl_data;
-+
-+	if (of_device_is_compatible(pdev->dev.of_node,
-+				    "allwinner,sun60i-a733-r-pinctrl"))
-+		desc = &a733_r_pinctrl_data;
-+
- 	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
--					   a523_r_irq_bank_muxes,
--					   &a523_r_pinctrl_data,
-+					   a523_r_irq_bank_muxes, desc,
- 					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
- }
- 
--- 
-2.43.0
+Frank
 
+>              };
+>          };
+>      };
+>
+> --
+> 2.55.0
+>
+>
+>
 
