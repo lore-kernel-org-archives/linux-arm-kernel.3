@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4906BCC6B01
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79CDCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxmeNTMuV1P7uxPo98MtBhSn3sHVE8R2SCC2fu6tB9k=; b=NMsHV/OQvQky8/2BhqAbnu/lwp
-	9kFHaXwGpFGDBtCGR0XM23pCJYFMFAJa/4nffdE39omwy58Xj3Hk85ytu65gE9huGAvxLPq60jaTb
-	GFJWEkvZ5RRjIgXr/ipAwaJ2d43DQcXW48kviseN0MmQ0i9XYGEJFrYYmRAj0G8Bh3uxrumi4N74X
-	WS4JtIUzUMHELS3j7qVjVLhArteKrpv3ZwDfQEHqV+O2AdtxtNA3hpSq4jhvRjtpecrp7tLHMPdGB
-	V2yccNyRN8AOymPAU+y+OQDsAM7+Gy1VwflCBi6wDqSPiI+sZEUEuSsDa+flvwaJfMlNcxmDEW3C6
-	KkVD81mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sWH5Yh+nfNkhViTbYNqipEjh8g2q2E/FDO5nZPhRnPs=; b=yJz3FjVynMwkCWeEvJTVKhv3AR
+	WLaZ8Udh0Us4iZElgDfst+7f/toKqMpqikCXTRB17WAMTewZ5EX/8MUVAFK5zAA96qp4o3aIpX08c
+	b7fJRpvnji9m+eeUIqcoAuIXTk/qgYBcnAf22TW1NwBJFq/uhz4JedwK48rkZe6ZUrx/rE7Z/e236
+	3ZiO3/cYsWMxKb8rBHhq1mLwbAGvzMYRPYVUpTWRww2GwYYbaGNKmNy2WSshsCAaYDLKN7k9f1weT
+	DOiULxukXZLtK5fCA9DHzC5gjeSiX5yc5XROjRtwbBzvCmEmY/5KfbOfjuZryC9YF+QWx9S+OxT4Y
+	tgRYSbNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGM4W-0000000BQ4A-0wiZ;
-	Mon, 12 Oct 2026 19:52:32 +0000
-Received: from linkmauve.fr ([82.65.109.163])
+	id 1xGMAN-0000000BQwB-0JLl;
+	Mon, 12 Oct 2026 19:58:35 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGM4M-0000000BPzJ-3VP8;
-	Mon, 12 Oct 2026 19:52:27 +0000
-Received: by linkmauve.fr (Postfix, from userid 1000)
-	id 2A17D71FB39F; Mon, 12 Oct 2026 21:52:16 +0200 (CEST)
-From: Link Mauve <linkmauve@linkmauve.fr>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Link Mauve <linkmauve@linkmauve.fr>,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	id 1xGMAI-0000000BQv1-3V2W
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 19:58:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791835111; x=1823371111;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=svyaTnJKl2TYexbkp/vhzflZQy5dYZbMzF9dkVFPBPg=;
+  b=Zolt4SjTHKXyXCvLei5lK8afeotD3420G54BtWEUZs48La5yfiwEj/Zq
+   BbUzHdmH8P0j0OSd3SPhHofRO9n3bemFg8efWFh6rfYEEDPsaRGrsK8iH
+   v1aIto42Cf24R8TJL3cUnM26ZpYTxqMbTAZn4uFMtt0VV2myitvrd9vEc
+   QWu10Ea0usK/yEt9NFuGsqaW8+cDRNOMUmiLUf8cxr8WM3iDgB0zUdVy7
+   On9PexPmDS8JbiNNiiDDQQPIpDgz6tiCZdaUb3cGiOnKfrERaeamg6+X3
+   6v7viZWfNBeFQ58Xgg0ppHLLTd/jIrj0Wn6z+TAah9SiczP9f9NJZfTyp
+   w==;
+X-CSE-ConnectionGUID: r7inK0nTR1SDzRAUt6anpQ==
+X-CSE-MsgGUID: DHSFRDSXSUS790nEtq9PYg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="447847"
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="447847"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 12:58:30 -0700
+X-CSE-ConnectionGUID: Qfp4xOXGRHaLFx0Gl49dRg==
+X-CSE-MsgGUID: XQRCHPb8RSGkWbPwEH2PVg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="2730507"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 12:58:27 -0700
+Date: Mon, 12 Oct 2026 22:58:24 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Brian Norris <briannorris@chromium.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: [PATCH v7 3/3] nvmem: make all reg_write callbacks take const void *
-Date: Mon, 12 Oct 2026 21:52:10 +0200
-Message-ID: <20261012195213.875403-4-linkmauve@linkmauve.fr>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261012195213.875403-1-linkmauve@linkmauve.fr>
-References: <20261012195213.875403-1-linkmauve@linkmauve.fr>
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Fabrice Gasnier <fabrice.gasnier@st.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
+ dependency
+Message-ID: <as074Em1m9d5s1yO@ashevche-desk.local>
+References: <20261002230714.507921-1-briannorris@chromium.org>
+ <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+ <asEdiIT7l49vhn7i@ashevche-desk.local>
+ <asPm6HYpEIAYJ4a3@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <asPm6HYpEIAYJ4a3@google.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_125223_191558_3571461E 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20261012_125830_882907_4EEA7A07 
+X-CRM114-Status: GOOD (  32.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,582 +98,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous commit switched from a pointer to mutable data to a pointer
-to immutable data, so let’s fix all users of this API in the nvmem
-subsystem.
+On Mon, Oct 05, 2026 at 11:05:28AM -0700, Brian Norris wrote:
+> On Sat, Oct 03, 2026 at 06:21:44PM +0300, Andy Shevchenko wrote:
+> > On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
 
-Other subsystems will go through their own tree at their respective
-pace, and only when the last reg_write callback will be removed we will
-rename reg_write_const back to reg_write.
+...
 
-Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
----
- drivers/nvmem/apple-spmi-nvmem.c    |  4 ++--
- drivers/nvmem/at24.c                |  6 +++---
- drivers/nvmem/at25.c                |  4 ++--
- drivers/nvmem/bcm-ocotp.c           |  8 ++++----
- drivers/nvmem/eeprom_93xx46.c       |  6 +++---
- drivers/nvmem/imx-ocotp-scu.c       |  6 +++---
- drivers/nvmem/imx-ocotp.c           |  6 +++---
- drivers/nvmem/lan9662-otpc.c        |  6 +++---
- drivers/nvmem/lpc18xx_eeprom.c      |  6 +++---
- drivers/nvmem/m24lr.c               |  4 ++--
- drivers/nvmem/max77759-nvmem.c      |  4 ++--
- drivers/nvmem/meson-efuse.c         |  4 ++--
- drivers/nvmem/qcom-spmi-sdam.c      |  6 +++---
- drivers/nvmem/qfprom.c              |  6 +++---
- drivers/nvmem/rave-sp-eeprom.c      |  6 +++---
- drivers/nvmem/snvs_lpgpr.c          |  4 ++--
- drivers/nvmem/sprd-efuse.c          |  6 +++---
- drivers/nvmem/stm32-bsec-optee-ta.c |  2 +-
- drivers/nvmem/stm32-bsec-optee-ta.h |  4 ++--
- drivers/nvmem/stm32-romem.c         | 10 +++++-----
- drivers/nvmem/zynqmp_nvmem.c        |  6 +++---
- 21 files changed, 57 insertions(+), 57 deletions(-)
+> > > Cc: Ulf Hansson <ulfh@kernel.org>
+> > 
+> > Can go under the '---' cutter, so it won't pollute the commit message in the
+> > Git history.
+> 
+> This is a well-documented convention.
+> 
+> Documentation/process/submitting-patches.rst
+> 
+>   If a person has had the opportunity to comment on a patch, but has not
+>   provided such comments, you may optionally add a ``Cc:`` tag to the patch.
+>   This tag documents that potentially interested parties have been included in
+>   the discussion.
+> 
+> I'm directly referencing Ulf's suggestions (Link tag), so I'm also
+> making it explicit that I'm CC'ing him.
 
-diff --git a/drivers/nvmem/apple-spmi-nvmem.c b/drivers/nvmem/apple-spmi-nvmem.c
-index 7acb0c07d6ab..63b2b11d78f9 100644
---- a/drivers/nvmem/apple-spmi-nvmem.c
-+++ b/drivers/nvmem/apple-spmi-nvmem.c
-@@ -26,7 +26,7 @@ static int apple_spmi_nvmem_read(void *priv, unsigned int offset, void *val,
- 	return regmap_bulk_read(map, offset, val, bytes);
- }
- 
--static int apple_spmi_nvmem_write(void *priv, unsigned int offset, void *val,
-+static int apple_spmi_nvmem_write(void *priv, unsigned int offset, const void *val,
- 				  size_t bytes)
- {
- 	struct regmap *map = priv;
-@@ -45,7 +45,7 @@ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
- 		.stride = 1,
- 		.size = 0xffff,
- 		.reg_read = apple_spmi_nvmem_read,
--		.reg_write = apple_spmi_nvmem_write,
-+		.reg_write_const = apple_spmi_nvmem_write,
- 	};
- 
- 	regmap = devm_regmap_init_spmi_ext(sdev, &apple_spmi_regmap_config);
-diff --git a/drivers/nvmem/at24.c b/drivers/nvmem/at24.c
-index 772c4d9fa651..6e3fe353c376 100644
---- a/drivers/nvmem/at24.c
-+++ b/drivers/nvmem/at24.c
-@@ -477,11 +477,11 @@ static int at24_read(void *priv, unsigned int off, void *val, size_t count)
- 	return 0;
- }
- 
--static int at24_write(void *priv, unsigned int off, void *val, size_t count)
-+static int at24_write(void *priv, unsigned int off, const void *val, size_t count)
- {
- 	struct at24_data *at24;
- 	struct device *dev;
--	char *buf = val;
-+	const char *buf = val;
- 	int ret;
- 
- 	at24 = priv;
-@@ -743,7 +743,7 @@ static int at24_probe(struct i2c_client *client)
- 	nvmem_config.compat = true;
- 	nvmem_config.base_dev = dev;
- 	nvmem_config.reg_read = at24_read;
--	nvmem_config.reg_write = at24_write;
-+	nvmem_config.reg_write_const = at24_write;
- 	nvmem_config.priv = at24;
- 	nvmem_config.stride = 1;
- 	nvmem_config.word_size = 1;
-diff --git a/drivers/nvmem/at25.c b/drivers/nvmem/at25.c
-index bc2cfb75d9bb..bb5fb7b692f4 100644
---- a/drivers/nvmem/at25.c
-+++ b/drivers/nvmem/at25.c
-@@ -235,7 +235,7 @@ static int at25_wait_ready(struct at25_data *at25)
- 	return bounce[0];
- }
- 
--static int at25_ee_write(void *priv, unsigned int off, void *val, size_t count)
-+static int at25_ee_write(void *priv, unsigned int off, const void *val, size_t count)
- {
- 	u8 *bounce __free(kfree) = kmalloc(min(count, io_limit), GFP_KERNEL);
- 	struct at25_data *at25 = priv;
-@@ -544,7 +544,7 @@ static int at25_probe(struct spi_mem *mem)
- 	at25->nvmem_config.compat = true;
- 	at25->nvmem_config.base_dev = &spi->dev;
- 	at25->nvmem_config.reg_read = at25_ee_read;
--	at25->nvmem_config.reg_write = at25_ee_write;
-+	at25->nvmem_config.reg_write_const = at25_ee_write;
- 	at25->nvmem_config.priv = at25;
- 	at25->nvmem_config.stride = 1;
- 	at25->nvmem_config.word_size = 1;
-diff --git a/drivers/nvmem/bcm-ocotp.c b/drivers/nvmem/bcm-ocotp.c
-index 2490f44caa40..02adfd787de8 100644
---- a/drivers/nvmem/bcm-ocotp.c
-+++ b/drivers/nvmem/bcm-ocotp.c
-@@ -179,11 +179,11 @@ static int bcm_otpc_read(void *context, unsigned int offset, void *val,
- 	return 0;
- }
- 
--static int bcm_otpc_write(void *context, unsigned int offset, void *val,
--	size_t bytes)
-+static int bcm_otpc_write(void *context, unsigned int offset, const void *val,
-+			  size_t bytes)
- {
- 	struct otpc_priv *priv = context;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	u32 bytes_written;
- 	u32 address = offset / priv->config->word_size;
- 	int i, ret;
-@@ -223,7 +223,7 @@ static struct nvmem_config bcm_otpc_nvmem_config = {
- 	.word_size = 4,
- 	.stride = 4,
- 	.reg_read = bcm_otpc_read,
--	.reg_write = bcm_otpc_write,
-+	.reg_write_const = bcm_otpc_write,
- };
- 
- static const struct of_device_id bcm_otpc_dt_ids[] = {
-diff --git a/drivers/nvmem/eeprom_93xx46.c b/drivers/nvmem/eeprom_93xx46.c
-index f9c3ab52c2f9..c8c15b91e624 100644
---- a/drivers/nvmem/eeprom_93xx46.c
-+++ b/drivers/nvmem/eeprom_93xx46.c
-@@ -268,10 +268,10 @@ eeprom_93xx46_write_word(struct eeprom_93xx46_dev *edev,
- }
- 
- static int eeprom_93xx46_write(void *priv, unsigned int off,
--				   void *val, size_t count)
-+			       const void *val, size_t count)
- {
- 	struct eeprom_93xx46_dev *edev = priv;
--	char *buf = val;
-+	const char *buf = val;
- 	int ret, step = 1;
- 	unsigned int i;
- 
-@@ -510,7 +510,7 @@ static int eeprom_93xx46_probe(struct spi_device *spi)
- 	edev->nvmem_config.compat = true;
- 	edev->nvmem_config.base_dev = &spi->dev;
- 	edev->nvmem_config.reg_read = eeprom_93xx46_read;
--	edev->nvmem_config.reg_write = eeprom_93xx46_write;
-+	edev->nvmem_config.reg_write_const = eeprom_93xx46_write;
- 	edev->nvmem_config.priv = edev;
- 	edev->nvmem_config.stride = 4;
- 	edev->nvmem_config.word_size = 1;
-diff --git a/drivers/nvmem/imx-ocotp-scu.c b/drivers/nvmem/imx-ocotp-scu.c
-index 517d83e11af2..57008228100f 100644
---- a/drivers/nvmem/imx-ocotp-scu.c
-+++ b/drivers/nvmem/imx-ocotp-scu.c
-@@ -178,11 +178,11 @@ static int imx_scu_ocotp_read(void *context, unsigned int offset,
- }
- 
- static int imx_scu_ocotp_write(void *context, unsigned int offset,
--			       void *val, size_t bytes)
-+			       const void *val, size_t bytes)
- {
- 	struct ocotp_priv *priv = context;
- 	struct arm_smccc_res res;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	u32 tmp;
- 	u32 index;
- 	int ret;
-@@ -226,7 +226,7 @@ static struct nvmem_config imx_scu_ocotp_nvmem_config = {
- 	.stride = 1,
- 	.owner = THIS_MODULE,
- 	.reg_read = imx_scu_ocotp_read,
--	.reg_write = imx_scu_ocotp_write,
-+	.reg_write_const = imx_scu_ocotp_write,
- };
- 
- static const struct of_device_id imx_scu_ocotp_dt_ids[] = {
-diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-index 108d78d7f6cb..36d4a37aed93 100644
---- a/drivers/nvmem/imx-ocotp.c
-+++ b/drivers/nvmem/imx-ocotp.c
-@@ -310,11 +310,11 @@ static void imx_ocotp_set_imx7_timing(struct ocotp_priv *priv)
- 	writel(timing, priv->base + IMX_OCOTP_ADDR_TIMING);
- }
- 
--static int imx_ocotp_write(void *context, unsigned int offset, void *val,
-+static int imx_ocotp_write(void *context, unsigned int offset, const void *val,
- 			   size_t bytes)
- {
- 	struct ocotp_priv *priv = context;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	int ret;
- 
- 	u32 ctrl;
-@@ -483,7 +483,7 @@ static struct nvmem_config imx_ocotp_nvmem_config = {
- 	.word_size = 4,
- 	.stride = 1,
- 	.reg_read = imx_ocotp_read,
--	.reg_write = imx_ocotp_write,
-+	.reg_write_const = imx_ocotp_write,
- };
- 
- static const struct ocotp_params imx6q_params = {
-diff --git a/drivers/nvmem/lan9662-otpc.c b/drivers/nvmem/lan9662-otpc.c
-index 62d1d6381bf8..f586ae4cd126 100644
---- a/drivers/nvmem/lan9662-otpc.c
-+++ b/drivers/nvmem/lan9662-otpc.c
-@@ -139,10 +139,10 @@ static int lan9662_otp_read(void *context, unsigned int offset,
- }
- 
- static int lan9662_otp_write(void *context, unsigned int offset,
--			     void *_val, size_t bytes)
-+			     const void *_val, size_t bytes)
- {
- 	struct lan9662_otp *otp = context;
--	u8 *val = _val;
-+	const u8 *val = _val;
- 	u8 data, newdata;
- 	int i, rc = 0;
- 
-@@ -174,7 +174,7 @@ static struct nvmem_config otp_config = {
- 	.stride = 1,
- 	.word_size = 1,
- 	.reg_read = lan9662_otp_read,
--	.reg_write = lan9662_otp_write,
-+	.reg_write_const = lan9662_otp_write,
- };
- 
- static int lan9662_otp_probe(struct platform_device *pdev)
-diff --git a/drivers/nvmem/lpc18xx_eeprom.c b/drivers/nvmem/lpc18xx_eeprom.c
-index 504155e30bab..78a35ef095fb 100644
---- a/drivers/nvmem/lpc18xx_eeprom.c
-+++ b/drivers/nvmem/lpc18xx_eeprom.c
-@@ -87,7 +87,7 @@ static int lpc18xx_eeprom_busywait_until_prog(struct lpc18xx_eeprom_dev *eeprom)
- }
- 
- static int lpc18xx_eeprom_gather_write(void *context, unsigned int reg,
--				       void *val, size_t bytes)
-+				       const void *val, size_t bytes)
- {
- 	struct lpc18xx_eeprom_dev *eeprom = context;
- 	unsigned int offset = reg;
-@@ -109,7 +109,7 @@ static int lpc18xx_eeprom_gather_write(void *context, unsigned int reg,
- 	usleep_range(100, 200);
- 
- 	while (bytes) {
--		writel(*(u32 *)val, eeprom->mem_base + offset);
-+		writel(*(const u32 *)val, eeprom->mem_base + offset);
- 		ret = lpc18xx_eeprom_busywait_until_prog(eeprom);
- 		if (ret < 0)
- 			return ret;
-@@ -155,7 +155,7 @@ static struct nvmem_config lpc18xx_nvmem_config = {
- 	.stride = 4,
- 	.word_size = 4,
- 	.reg_read = lpc18xx_eeprom_read,
--	.reg_write = lpc18xx_eeprom_gather_write,
-+	.reg_write_const = lpc18xx_eeprom_gather_write,
- };
- 
- static int lpc18xx_eeprom_probe(struct platform_device *pdev)
-diff --git a/drivers/nvmem/m24lr.c b/drivers/nvmem/m24lr.c
-index 7a9fd45a8e46..35c66304399f 100644
---- a/drivers/nvmem/m24lr.c
-+++ b/drivers/nvmem/m24lr.c
-@@ -374,7 +374,7 @@ static int m24lr_nvmem_read(void *priv, unsigned int offset, void *val,
- 	return 0;
- }
- 
--static int m24lr_nvmem_write(void *priv, unsigned int offset, void *val,
-+static int m24lr_nvmem_write(void *priv, unsigned int offset, const void *val,
- 			     size_t bytes)
- {
- 	ssize_t err;
-@@ -548,7 +548,7 @@ static int m24lr_probe(struct i2c_client *client)
- 	nvmem_conf.owner = THIS_MODULE;
- 	nvmem_conf.type = NVMEM_TYPE_EEPROM;
- 	nvmem_conf.reg_read = m24lr_nvmem_read;
--	nvmem_conf.reg_write = m24lr_nvmem_write;
-+	nvmem_conf.reg_write_const = m24lr_nvmem_write;
- 	nvmem_conf.size = chip->eeprom_size;
- 	nvmem_conf.word_size = 1;
- 	nvmem_conf.stride = 1;
-diff --git a/drivers/nvmem/max77759-nvmem.c b/drivers/nvmem/max77759-nvmem.c
-index 283000ec3a2c..86c025cfc2f6 100644
---- a/drivers/nvmem/max77759-nvmem.c
-+++ b/drivers/nvmem/max77759-nvmem.c
-@@ -59,7 +59,7 @@ static int max77759_nvmem_reg_read(void *priv, unsigned int offset,
- }
- 
- static int max77759_nvmem_reg_write(void *priv, unsigned int offset,
--				    void *val, size_t bytes)
-+				    const void *val, size_t bytes)
- {
- 	struct max77759_nvmem *nvmem = priv;
- 	DEFINE_FLEX(struct max77759_maxq_command, cmd, cmd, length,
-@@ -99,7 +99,7 @@ static int max77759_nvmem_probe(struct platform_device *pdev)
- 		.word_size = sizeof(u8),
- 		.stride = sizeof(u8),
- 		.reg_read = max77759_nvmem_reg_read,
--		.reg_write = max77759_nvmem_reg_write,
-+		.reg_write_const = max77759_nvmem_reg_write,
- 	};
- 	struct max77759_nvmem *nvmem;
- 
-diff --git a/drivers/nvmem/meson-efuse.c b/drivers/nvmem/meson-efuse.c
-index f71854f89950..5e056e707a96 100644
---- a/drivers/nvmem/meson-efuse.c
-+++ b/drivers/nvmem/meson-efuse.c
-@@ -27,7 +27,7 @@ static int meson_efuse_read(void *context, unsigned int offset,
- }
- 
- static int meson_efuse_write(void *context, unsigned int offset,
--			     void *val, size_t bytes)
-+			     const void *val, size_t bytes)
- {
- 	struct meson_sm_firmware *fw = context;
- 	int ret;
-@@ -83,7 +83,7 @@ static int meson_efuse_probe(struct platform_device *pdev)
- 	econfig->stride = 1;
- 	econfig->word_size = 1;
- 	econfig->reg_read = meson_efuse_read;
--	econfig->reg_write = meson_efuse_write;
-+	econfig->reg_write_const = meson_efuse_write;
- 	econfig->size = size;
- 	econfig->priv = fw;
- 
-diff --git a/drivers/nvmem/qcom-spmi-sdam.c b/drivers/nvmem/qcom-spmi-sdam.c
-index 4f1cca6eab71..10febaf9e427 100644
---- a/drivers/nvmem/qcom-spmi-sdam.c
-+++ b/drivers/nvmem/qcom-spmi-sdam.c
-@@ -81,8 +81,8 @@ static int sdam_read(void *priv, unsigned int offset, void *val,
- 	return rc;
- }
- 
--static int sdam_write(void *priv, unsigned int offset, void *val,
--				size_t bytes)
-+static int sdam_write(void *priv, unsigned int offset, const void *val,
-+		      size_t bytes)
- {
- 	struct sdam_chip *sdam = priv;
- 	struct device *dev = sdam->sdam_config.dev;
-@@ -147,7 +147,7 @@ static int sdam_probe(struct platform_device *pdev)
- 	sdam->sdam_config.size = sdam->size;
- 	sdam->sdam_config.word_size = 1;
- 	sdam->sdam_config.reg_read = sdam_read;
--	sdam->sdam_config.reg_write = sdam_write;
-+	sdam->sdam_config.reg_write_const = sdam_write;
- 	sdam->sdam_config.priv = sdam;
- 
- 	nvmem = devm_nvmem_register(&pdev->dev, &sdam->sdam_config);
-diff --git a/drivers/nvmem/qfprom.c b/drivers/nvmem/qfprom.c
-index 1de3435df116..16b7f647a3f6 100644
---- a/drivers/nvmem/qfprom.c
-+++ b/drivers/nvmem/qfprom.c
-@@ -252,13 +252,13 @@ static int qfprom_enable_fuse_blowing(const struct qfprom_priv *priv,
-  *
-  * Return: 0 or -err.
-  */
--static int qfprom_reg_write(void *context, unsigned int reg, void *_val,
-+static int qfprom_reg_write(void *context, unsigned int reg, const void *_val,
- 			    size_t bytes)
- {
- 	struct qfprom_priv *priv = context;
- 	struct qfprom_touched_values old;
- 	int words = bytes / 4;
--	u32 *value = _val;
-+	const u32 *value = _val;
- 	u32 blow_status;
- 	int ret;
- 	int i;
-@@ -443,7 +443,7 @@ static int qfprom_probe(struct platform_device *pdev)
- 
- 		/* Only enable writing if we have SoC data and a valid clock */
- 		if (priv->soc_data && priv->secclk)
--			econfig.reg_write = qfprom_reg_write;
-+			econfig.reg_write_const = qfprom_reg_write;
- 	}
- 
- 	pm_runtime_enable(dev);
-diff --git a/drivers/nvmem/rave-sp-eeprom.c b/drivers/nvmem/rave-sp-eeprom.c
-index 9ecf3873cbb7..c703d303eb6c 100644
---- a/drivers/nvmem/rave-sp-eeprom.c
-+++ b/drivers/nvmem/rave-sp-eeprom.c
-@@ -278,10 +278,10 @@ static int rave_sp_eeprom_reg_read(void *eeprom, unsigned int offset,
- }
- 
- static int rave_sp_eeprom_reg_write(void *eeprom, unsigned int offset,
--				    void *val, size_t bytes)
-+				    const void *val, size_t bytes)
- {
- 	return rave_sp_eeprom_access(eeprom, RAVE_SP_EEPROM_WRITE,
--				     offset, val, bytes);
-+				     offset, (void *)val, bytes);
- }
- 
- static int rave_sp_eeprom_probe(struct platform_device *pdev)
-@@ -331,7 +331,7 @@ static int rave_sp_eeprom_probe(struct platform_device *pdev)
- 	config.add_legacy_fixed_of_cells	= true;
- 	config.size		= size;
- 	config.reg_read		= rave_sp_eeprom_reg_read;
--	config.reg_write	= rave_sp_eeprom_reg_write;
-+	config.reg_write_const	= rave_sp_eeprom_reg_write;
- 	config.word_size	= 1;
- 	config.stride		= 1;
- 
-diff --git a/drivers/nvmem/snvs_lpgpr.c b/drivers/nvmem/snvs_lpgpr.c
-index 89c27112320f..3e76d33dff20 100644
---- a/drivers/nvmem/snvs_lpgpr.c
-+++ b/drivers/nvmem/snvs_lpgpr.c
-@@ -50,7 +50,7 @@ static const struct snvs_lpgpr_cfg snvs_lpgpr_cfg_imx7d = {
- 	.size		= 16,
- };
- 
--static int snvs_lpgpr_write(void *context, unsigned int offset, void *val,
-+static int snvs_lpgpr_write(void *context, unsigned int offset, const void *val,
- 			    size_t bytes)
- {
- 	struct snvs_lpgpr_priv *priv = context;
-@@ -127,7 +127,7 @@ static int snvs_lpgpr_probe(struct platform_device *pdev)
- 	cfg->size = dcfg->size;
- 	cfg->owner = THIS_MODULE;
- 	cfg->reg_read  = snvs_lpgpr_read;
--	cfg->reg_write = snvs_lpgpr_write;
-+	cfg->reg_write_const = snvs_lpgpr_write;
- 
- 	nvmem = devm_nvmem_register(dev, cfg);
- 
-diff --git a/drivers/nvmem/sprd-efuse.c b/drivers/nvmem/sprd-efuse.c
-index 1a7e4e5d8b86..f960fa8cb25c 100644
---- a/drivers/nvmem/sprd-efuse.c
-+++ b/drivers/nvmem/sprd-efuse.c
-@@ -192,7 +192,7 @@ static void sprd_efuse_set_prog_en(struct sprd_efuse *efuse, bool en)
- }
- 
- static int sprd_efuse_raw_prog(struct sprd_efuse *efuse, u32 blk, bool doub,
--			       bool lock, u32 *data)
-+			       bool lock, const u32 *data)
- {
- 	u32 status;
- 	int ret = 0;
-@@ -321,7 +321,7 @@ static int sprd_efuse_read(void *context, u32 offset, void *val, size_t bytes)
- 	return ret;
- }
- 
--static int sprd_efuse_write(void *context, u32 offset, void *val, size_t bytes)
-+static int sprd_efuse_write(void *context, u32 offset, const void *val, size_t bytes)
- {
- 	struct sprd_efuse *efuse = context;
- 	bool blk_double = efuse->data->blk_double;
-@@ -410,7 +410,7 @@ static int sprd_efuse_probe(struct platform_device *pdev)
- 	econfig.size = efuse->data->blk_nums * SPRD_EFUSE_BLOCK_WIDTH;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = sprd_efuse_read;
--	econfig.reg_write = sprd_efuse_write;
-+	econfig.reg_write_const = sprd_efuse_write;
- 	econfig.priv = efuse;
- 	econfig.dev = &pdev->dev;
- 	nvmem = devm_nvmem_register(&pdev->dev, &econfig);
-diff --git a/drivers/nvmem/stm32-bsec-optee-ta.c b/drivers/nvmem/stm32-bsec-optee-ta.c
-index f89ce791dd12..3184b976b1f9 100644
---- a/drivers/nvmem/stm32-bsec-optee-ta.c
-+++ b/drivers/nvmem/stm32-bsec-optee-ta.c
-@@ -203,7 +203,7 @@ int stm32_bsec_optee_ta_read(struct tee_context *ctx, unsigned int offset,
- 
- /* stm32_bsec_optee_ta_write() - nvmem write access using PTA client driver */
- int stm32_bsec_optee_ta_write(struct tee_context *ctx, unsigned int lower,
--			      unsigned int offset, void *buf, size_t bytes)
-+			      unsigned int offset, const void *buf, size_t bytes)
- {	struct tee_shm *shm;
- 	struct tee_ioctl_invoke_arg arg;
- 	struct tee_param param[2];
-diff --git a/drivers/nvmem/stm32-bsec-optee-ta.h b/drivers/nvmem/stm32-bsec-optee-ta.h
-index 3966a0535179..74658a54fe57 100644
---- a/drivers/nvmem/stm32-bsec-optee-ta.h
-+++ b/drivers/nvmem/stm32-bsec-optee-ta.h
-@@ -50,7 +50,7 @@ int stm32_bsec_optee_ta_read(struct tee_context *ctx, unsigned int offset,
-  *	On success, 0. On failure, -errno.
-  */
- int stm32_bsec_optee_ta_write(struct tee_context *ctx, unsigned int lower,
--			      unsigned int offset, void *buf, size_t bytes);
-+			      unsigned int offset, const void *buf, size_t bytes);
- 
- #else
- 
-@@ -72,7 +72,7 @@ static inline int stm32_bsec_optee_ta_read(struct tee_context *ctx,
- 
- static inline int stm32_bsec_optee_ta_write(struct tee_context *ctx,
- 					    unsigned int lower,
--					    unsigned int offset, void *buf,
-+					    unsigned int offset, const void *buf,
- 					    size_t bytes)
- {
- 	return -EOPNOTSUPP;
-diff --git a/drivers/nvmem/stm32-romem.c b/drivers/nvmem/stm32-romem.c
-index 82879b1c9eb9..622093b0755c 100644
---- a/drivers/nvmem/stm32-romem.c
-+++ b/drivers/nvmem/stm32-romem.c
-@@ -118,12 +118,12 @@ static int stm32_bsec_read(void *context, unsigned int offset, void *buf,
- 	return 0;
- }
- 
--static int stm32_bsec_write(void *context, unsigned int offset, void *buf,
-+static int stm32_bsec_write(void *context, unsigned int offset, const void *buf,
- 			    size_t bytes)
- {
- 	struct stm32_romem_priv *priv = context;
- 	struct device *dev = priv->cfg.dev;
--	u32 *buf32 = buf;
-+	const u32 *buf32 = buf;
- 	int ret, i;
- 
- 	/* Allow only writing complete 32-bits aligned words */
-@@ -153,7 +153,7 @@ static int stm32_bsec_pta_read(void *context, unsigned int offset, void *buf,
- 	return stm32_bsec_optee_ta_read(priv->ctx, offset, buf, bytes);
- }
- 
--static int stm32_bsec_pta_write(void *context, unsigned int offset, void *buf,
-+static int stm32_bsec_pta_write(void *context, unsigned int offset, const void *buf,
- 				size_t bytes)
- {
- 	struct stm32_romem_priv *priv = context;
-@@ -239,10 +239,10 @@ static int stm32_romem_probe(struct platform_device *pdev)
- 				return rc;
- 			}
- 			priv->cfg.reg_read = stm32_bsec_pta_read;
--			priv->cfg.reg_write = stm32_bsec_pta_write;
-+			priv->cfg.reg_write_const = stm32_bsec_pta_write;
- 		} else {
- 			priv->cfg.reg_read = stm32_bsec_read;
--			priv->cfg.reg_write = stm32_bsec_write;
-+			priv->cfg.reg_write_const = stm32_bsec_write;
- 		}
- 	}
- 
-diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-index d297ff150dc0..54905a608157 100644
---- a/drivers/nvmem/zynqmp_nvmem.c
-+++ b/drivers/nvmem/zynqmp_nvmem.c
-@@ -183,7 +183,7 @@ static int zynqmp_nvmem_read(void *context, unsigned int offset, void *val, size
- }
- 
- static int zynqmp_nvmem_write(void *context,
--			      unsigned int offset, void *val, size_t bytes)
-+			      unsigned int offset, const void *val, size_t bytes)
- {
- 	int pufflag = 0;
- 
-@@ -194,7 +194,7 @@ static int zynqmp_nvmem_write(void *context,
- 		pufflag = 1;
- 
- 	return zynqmp_efuse_access(context, offset,
--				   val, bytes, EFUSE_WRITE, pufflag);
-+				   (void *)val, bytes, EFUSE_WRITE, pufflag);
- }
- 
- static const struct of_device_id zynqmp_nvmem_match[] = {
-@@ -216,7 +216,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
- 	econfig.priv = dev;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = zynqmp_nvmem_read;
--	econfig.reg_write = zynqmp_nvmem_write;
-+	econfig.reg_write_const = zynqmp_nvmem_write;
- 
- 	return PTR_ERR_OR_ZERO(devm_nvmem_register(dev, &econfig));
- }
+This piece of the documentation was written long time ago before we have got
+the kernel.org controlled mailing archives (now it's lore.kernel.org). I argue
+that this piece is outdated and we need to look at all aspects of the commit
+message. Perhaps having one might not lead to the issue, but exempli gratia 20
+is. I still think it should be moved to under '---' to show the good example.
+
+> > > Signed-off-by: Brian Norris <briannorris@chromium.org>
+> > > ---
+> > 
+> >  Cc: ...
+
+...
+
+> > > +/*
+> > > + * Propagate last_busy timestamp from one device to another. This can, for
+> > > + * example, prevent overactive suspend when a dependency's usage is primarily
+> > > + * driven by one of its dependents.
+> > > + */
+
+^^^
+
+> > But here you already have an outdated ones, no? Why is this not a problem?
+> 
+> The "target" device (a supplier or parent) can't suspend before this
+> point, because the dependent device still holds a reference -- so an
+> "outdated" last_busy is not relevant yet. The target last_busy *might*
+> become relevant after this point, so this is the point at which it needs
+> updated (propagated).
+> 
+> That's what I mean in the commit message by:
+> 
+>   propagate last_busy timestamps from a dependent device to its
+>   dependencies any time it may allow a dependency to suspend -- i.e.,
+>   when releasing a refcount for its parent or suppliers.
+> 
+> Please let me know if I should add some clarification somewhere --
+> perhaps also in the comments here on rpm_propagate_last_busy()? Or if
+> you see some other problem in the reasoning.
+
+Perhaps a word to the top function comment?
+
 -- 
-2.56.0
+With Best Regards,
+Andy Shevchenko
+
 
 
