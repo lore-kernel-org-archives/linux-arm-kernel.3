@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D07CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F366CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oeD7D4aQT6ubnrlyd315JiScycX+b5znCR9PJwP593g=; b=kVRxGRJQkOlHK4WJ5l+j8WfJHo
-	JgWkgpZrLgAIPDPPrKAutG2ciSkz5Abk4OaUy8zWLSCU+xyvq/+vqof9BQgfHLliRYB9zmhWvcRQ5
-	D+OB5loBcZtFsEtawePX14TQUfFF/0C+8c6CnbJX7g0zgPixKsi6632IRBMRj+R1MZ2nNeDdYHRPX
-	ZjQk1uhJdTcGfJRXQ7MyIzw2UWwFkjaUqks6ZZPT8MQBwPFIxbOgnANBO441Jf/r5QM3DgvXp1nrQ
-	WzPMKiCEQ3nw65i882S5+9dGT2mIKQhVj2UTjKVdY53xQh8ElajkaCOkWo3ntqJAHMP9I9Sp9fo2l
-	mkdHVrnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GtUsq1L4Qu4E3puscbHWcsTT+wvRggcMU4K+GsQC9fU=; b=qwUzNx4W//DSaOSazY8iHtoX9a
+	uY+dyg1aS9QG/83BPRSzJSt5sQX5SmJqs3Ph/M35IPFWK8jtMAk+4NMj6eyKblCXIK3h5GHRsdFru
+	cyWoN0Xr4wBcYCJAhqfVOR+ewczI8GqxUuFBJs87jytm+yz/ZRzgc1DpbaXAKuRpBD+YRx6D8vSKh
+	VXQLwbpr2IERYVnhmL8jyIB6xk0Vb3tZH/rUuxK1Cnh2YGqfnu8DHDEHCVISaMhXkIkxmENqENgie
+	GsMrLlt9Pv3MQU3pHOMmYuOXhbqLHX9/YbgRBla5zOeRvN0lhOSkYfC2uwRdJ0wdEs/7HZVveaeQr
+	s1bcT95Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKuP-0000000BG2v-3aXx;
-	Mon, 12 Oct 2026 18:38:01 +0000
-Received: from out-48.mta0.migadu.com ([2001:41d0:1004:224b::30] helo=mta0.migadu.com)
+	id 1xGKy9-0000000BGbU-3p3f;
+	Mon, 12 Oct 2026 18:41:53 +0000
+Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKuN-0000000BG2O-1KlF
+	id 1xGKy2-0000000BGaC-2v9J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:38:00 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PAJwNoyeV9qo8z7bFLcFxGpJsVQgzwLwwepP4CadQZ8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791830277; v=1; x=1792435077;
- b=PlhnKckC3xVjTIgA7jkgMz+6uNK++R8qduphQEm8UXYeMi4ik9yo1ND3wI8BnrHqEozKOJLf
- 6GE73bBy+LDfY84oVf9Bg9tI/2AI5i8FNdSWKvf9k3i2GuHla8TpbsH6bd9BRcZ9yu+VoNTwVGw
- ISwGGNwok5dqUXPrNAOVuAF8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id effd776211581a53;
-	Mon, 12 Oct 2026 18:37:57 +0000
-X-Mizu-Trace-ID: effd776211581a53
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so10935e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 11:37:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzAQunP9wtkgrLwi7MSwSTAETplmXvQoq34OFT/ZoVHGZJRnmvk92DO1xfXBlGv1WTukcWlC9eYzp2d7/L1gNIM@lists.infradead.org
-X-Gm-Message-State: AFq9FYK2nJjvF4sGXqaj6L5SHcqEtvi1XNSKokVqa5qvgEeMi/EhMGgS
-	js5qB17UqYywa+3GH+e1UfY5u9gI3s8nKS9YCP1wvx0YjyagYR5Kv+lmS/wg5dnZ04EbudwTx5z
-	pYz7sNQGuL2ek//HaUNKZMIaMBtrgSyph8hMM/QWq
-X-Received: by 2002:a05:6512:6204:b0:5bc:f1dd:f0ac with SMTP id
- 2adb3069b0e04-5bcf1ddf0c7mr137133e87.1.1791830271913; Mon, 12 Oct 2026
- 11:37:51 -0700 (PDT)
-MIME-Version: 1.0
-References: <20261012084743.2228612-1-fuad.tabba@linux.dev>
- <8633ub2mlg.wl-maz@kernel.org> <CA+EHjTwyQPPVG4tGY0i0DRk=kwbdEmjca6+GNjLDXrGxkNbMOw@mail.gmail.com>
- <86zewi23ga.wl-maz@kernel.org>
-In-Reply-To: <86zewi23ga.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 12 Oct 2026 19:37:15 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy1zAoOH32hsf0cHZGP1C-=uVBSJS91QGZ3_-NkKJEKhw@mail.gmail.com>
-X-Gm-Features: AclHuK_918Jtmjw5j4JcpJhTo2ueYx7ntIhbD08RWsI09XibC9OrOgTwIR86Ta0
-Message-ID: <CA+EHjTy1zAoOH32hsf0cHZGP1C-=uVBSJS91QGZ3_-NkKJEKhw@mail.gmail.com>
-Subject: Re: [PATCH v1] KVM: arm64: vgic-v4: Don't forward an LPI with no
- target vCPU
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Mon, 12 Oct 2026 18:41:52 +0000
+Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-988d33f8fc1so1112688241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 11:41:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791830505; x=1792435305; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GtUsq1L4Qu4E3puscbHWcsTT+wvRggcMU4K+GsQC9fU=;
+        b=J3ABJETw+3Eb/u1jxhqEU7SE53tnVE4JuauCfnOtQSrWtZPM1N/drB4tLBwREbPvqi
+         6d5YGtPidXn4x+lU1lTJqbK1gKSUvdziiZP5RYJ2ZLjcXjemR01NHScyo6LSzUmitkhm
+         kSNupOK/Uby8CJ4CDlu99OcSCkUHRQ4OdVNWB8z92Rz1cMiYXISa9QhrPneztumqRhgL
+         Ot3A/nMchSSx6tLel/BLcPU9kjaSgQHgEmdbnxq5f76rFuFij0gaaUk1VpPKfM436JIL
+         UBy6m7VSNh6TGuqf/VlYHZkfBQRCsZmslK2zMjVs3znzxDwkUI6dno/B0fWm9zwWjmv9
+         6rTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791830505; x=1792435305;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GtUsq1L4Qu4E3puscbHWcsTT+wvRggcMU4K+GsQC9fU=;
+        b=PfqKwdVh/nLs4vGKzFLlBWE2dYMXPY/ck4eklHdwaC4HxhPenXtcH6cNRGTB3mEqMZ
+         GhXPKplYwKkZLxXCEWDfBOSkv9kajQClr02xu/rH8N+unZ+fFsJzDoO4zxr3YBHeOKkA
+         xX75FAFl21TgvcQxkZbPV6S6+X6b8sk5nTjd2TSlbPNQoarC54ZZsrK35dRXT77mia1v
+         Zr5Gj89mNB5okAjIG7zv6U6UHWoy550Yt6KwL+IaJzVP6wPLQ5ZJld6IghKF0JIwjvqZ
+         vZ1Q1B1Mk9EXocplcCg2gY7rNhHicVZhv5OQU82fxqvTZDzKKL32PqoaPM7r/j7/+yMG
+         xbxQ==
+X-Forwarded-Encrypted: i=1; AKwUvBydzrWmMZFv7kGuOR5MRpjvSj2yOpoBgyfmD207ZHUxJk4ohmswWJpUoN+BjcA+zAaebUe/XPXymJGmCOHMk6Ru@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ5GWZK44ohhP7BEfvbWlf9o45VziXxvZwhEkgVjVfbzrEoJfa2
+	5AeK2H5G58cXwtdYRmQbY4tknX7pYaqQ4VBHeMt5hwdq9DtvH6wTsqS3
+X-Gm-Gg: AYBFou041t0aEsOOaLMWLWGklH6vyfLZnQY1nJe8pTPeQMBDZQzhu2yntCtqRmVRU1o
+	Y+gpDeBvdavNHfs1ByjV0lLCaN7KwjDF21CZ+6ldLPAmJwnQet5FHs2UffceHG2dLSbMsevnED6
+	oXzoG2C+NKuwX1flg5kPNBQdgwKzq/I7J/UQ46NlxObwn69PCjF547GWJcAafu6FiUdvRULRq/S
+	oFmB/yiaAuYplSVlIwiRN6atuDbdmBwmzGiMdInMQOfzp5lP3zjaqDfeKIi80+srNMhS/yrDQgs
+	g453vX6rXQAmIc/OItX3wE+31g2Kam1SECPGwt10vaIygUC6Vg0EcW7ZTUhcHoXjIiALo3sjUA0
+	MgBPNMmzHQDJOSKoLnAOyDfbzBYnPvJl+Akt4FJwmOiUeWXa7v//f2JFKtWEMJ1TPcwla8zLinN
+	IevX6MLGLqo7cHHXHR5Qbuxh3Jq5pm04vYTi5JYmbbtN6VZo8+BIXGMjcEvnzXZNvWZGcyLVwKh
+	79c/Nx9iwZiKxtvsJbMGvqdbsC0ejPn49EGEgi4h/ahCmsPRanYnXP+ejlsCcfFnNEuV3UNmy75
+	VQ86DZLopSp7J5jjbg==
+X-Received: by 2002:a05:6102:80a3:b0:7a8:d959:bd76 with SMTP id ada2fe7eead31-7cb37405c7amr3420126137.33.1791830505277;
+        Mon, 12 Oct 2026 11:41:45 -0700 (PDT)
+Received: from MaquinaLab.. ([179.179.244.163])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99003f230b8sm6830180241.8.2026.10.12.11.41.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 11:41:44 -0700 (PDT)
+From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+To: linusw@kernel.org
+Cc: wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	andre.przywara@arm.com,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Subject: [PATCH 0/2] pinctrl: sunxi: A733: use the two-bit I/O voltage fields
+Date: Mon, 12 Oct 2026 15:41:27 -0300
+Message-ID: <20261012184130.548261-1-vinicius.eduardo.pedrosa@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_113759_494638_B18DB280 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20261012_114146_809202_54A23F67 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Oct 2026 at 19:12, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Mon, 12 Oct 2026 15:13:51 +0100,
-> Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> >
-> > Hi Marc,
-> >
-> > On Mon, 12 Oct 2026 12:18:51 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> > [...]
-> > > Isn't the core problem that we don't correctly handle the UNPRED
-> > > double mapping of the same LPI? I'd rather we attack the issue at the
-> > > source instead of papering over the consequences.
-> > >
-> > > I hacked the following, which is obviously untested. Can you give it a
-> > > go?
-> >
-> > With your diff on rc3, the second MAPTI is dropped, and forwarding the
-> > vfio-pci MSI to its event leaves the host up.
-> >
-> > However, a vgic_irq outlives its ITE while the LPI is pending on a
-> > vCPU, so the check also drops a legitimate remap: a guest that
-> > DISCARDs a pending LPI and then maps it again loses the new mapping.
->
-> But this is yet another bug: 5.3.4 is pretty clear that DISCARD should
-> get rid of everything (pending bit and mapping). I reckon this is yet
-> another case of the initial implementation being overly worried about
-> kicking vcpus out of the guest when destructive action is required.
->
-> We should fix this.
+Hi,
 
-I'll add a patch to v2 that makes DISCARD clear the pending state,
-kicking the vCPUs out of the guest first when the LPI is queued on
-one.
+this follows my question in [1]. Andre asked why not extend the A733 I/O
+bias code to two bits instead of switching it off, so patch 1 does that
+for the main PIO and patch 2 gives the A733-R its own descriptor, as it
+cannot share the A523-R encoding.
 
-Cheers,
-/fuad
+I have not seen the board fail with the current code, and no A733 board
+DT upstream uses these supplies yet. What I have is the old and the new
+helper, copied from the driver, run on the host with register values
+read (read-only) from a Cubie A7Z, silicon revision B:
+
+  PIO SEL 0x01155550: a PJ request at 1.8 V gives 0x01155750 with the
+  old code (PE goes from automatic to fixed 1.8 V), unchanged with the
+  new one.
+
+  R-PIO SEL 0x000aaaaa: a PL request at 3.3 V gives 0x000aaaab with the
+  old code (fixed 1.8 V), plus a read-modify-write of +0x344 that the
+  manual does not list. The new code leaves both alone.
+
+With both patches the kernel boots on the A7Z (RAM boot of an rc6-based
+kernel): UART0 and MMC0 work and the voltage selection registers are
+unchanged.
+
+PF and PI are not programmed, and neither is any silicon revision other
+than B, as reported by SMCCC. The A523 variants behave as before.
+
+I found nothing to change in the DT binding: the a733-r compatible has
+no a523-r fallback and the schema checks pass for both controllers.
+Andre, if you meant something else there, please tell me.
+
+[1] https://lore.kernel.org/r/20261008194719.328146-1-vinicius.eduardo.pedrosa@gmail.com
+
+Vinicius Pedrosa (2):
+  pinctrl: sunxi: a733: program the two-bit I/O voltage fields
+  pinctrl: sunxi: a733-r: use the A733 I/O voltage fields
+
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 26 ++++++++-
+ drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c   | 15 ++++-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 57 +++++++++++++++++++
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         |  6 ++
+ 4 files changed, 101 insertions(+), 3 deletions(-)
 
 
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+base-commit: bdacd2542f3c1b2b411fa86ee1f39de19cce6562
+-- 
+2.43.0
+
 
