@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88472CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032FACA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avi+XkrV3WTbZAOaZMmBOeG+lzogrfppC5qF3amD0t4=; b=iVSgmbWSoDkZtrzRgiB+4BgB+3
-	7gRz/seinDbO05VPMfkXs0VpcSbvygtSp6lmrD5r9RX7q2W+Itj4DPt+vFO+9TXkWWu1lraYboBeO
-	rty8vWOKMji+aC7y0ysMlCql8SlauUZCoQN+iW23c/591TRyExzX0eLYfzmXvxHN31Fkbd9L7S/zE
-	VHU+KSSe8YmudMBhw/sORnWgB0iGdYhrskyegNji2wrbOJRKg8SFaTpMkDJPYqr+s/kUib7tm5nnh
-	ReKDMmQevFoQRFiS3qEukq+UP+/nYqRlomhdEQX2CfQEnXmKELE3MxuXwYjxNkxqkxYvuDwH1tALG
-	WyOPUSuw==;
+	bh=un9vF8XUgNYCJ999zVQFkPYGa4d5oSxYlY+MeiCNPOk=; b=NSijpdEb4NpeNk1BsQ4UxVSKL1
+	LJz47leXWuwmISQMWbWWdcaJSZZHkUow79gqMK6dF7bpeNqWnlv66QSzVptIqoZDdQDPVqd/Hotr/
+	ObNFfXixsBp5Nlao0VT8C4Vd3sRsAbRL2F4Gp/tGqv3jyZJcX8W0LK6npr4URgIN1xUbRIOoa9zpb
+	q0T8iNMl/e/eqRXvVhb4VoXcGmi8Tvz2afZMLcXuwQmYQAVOH9dHJKTKzobfnZbLa82Az2/uShAry
+	363HjPRSmyQ3kAVfKe+h4BjznpQZcj1efb5qTsx47HiWna5oAjYYv3UzqEiD0hvF0ufU2AG7nlQpX
+	cRzxEfAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ8y-0000000B0XC-1mNr;
+	id 1xGJ8z-0000000B0Y8-24f8;
 	Mon, 12 Oct 2026 16:44:57 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ8o-0000000B0Pd-2Yt8
+	id 1xGJ8r-0000000B0Rq-0lzI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:44:48 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CFf1IC2175397
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:46 GMT
+	Mon, 12 Oct 2026 16:44:50 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CFewvo3851363
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	avi+XkrV3WTbZAOaZMmBOeG+lzogrfppC5qF3amD0t4=; b=kzPAHmLutDUCWOIo
-	TeKbEZ26MR3CLzAgFhnsG/ta5bEZzMI0YqJwwsHqoCABr7wn+WdxDDZYDYuWIdnv
-	0f840MWLQuxHyrW3M0dMLOeLQQ2KuxEkDLuIdmBIvdAEK8Q6i107LW6bzw96leFH
-	R8Gl77woPwRsCHIiKETQHAuSrrz5T6L62W0mDyfIAwcHNqJU3fqe8FkqsenXqEFf
-	y+KyHyqQU94ZGvztBjCOO7qu2PCrK9ZSr7TSjILjuen1B9zN0FyBnKY4qsVMS4t1
-	IKpTIL7TgavlCEFW6ecE2ptyLnKbnnR06/Xw47L3w/NHgGuhW9ozck63pO9g4NXQ
-	kNTcQA==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8wbc1u5m-1
+	un9vF8XUgNYCJ999zVQFkPYGa4d5oSxYlY+MeiCNPOk=; b=iDbTJWqyz98m6aK/
+	+0lo3kfAj98zwgQIa38PiqeWf3BOlk73vXOpAkEAU7q7cxY6vs9PkJdENC7hMAlj
+	x3rpFs3KsdyjLiHTY6XYWj5dAijP9pD5FZDpcV+8qgUvlL8Hmmeehj59sT7K+AGF
+	DPCXS6gO5yWXqCRs9kSUHOTE4fjdQs9dxwvj00J58Yk0AiWun89xvFH28W3jTkIy
+	uxigjr+wQJul+vpJ8BxMC9mloA4za5wh8kUAZnUGaoyvCwIVuFvd2bcP5XPz8+Lg
+	K+9AHCMjWhYII5pdzWeBjNi+UlmfmkjMDiXI9mYgKNQDTs7ozRB02C0lZyz3TCzK
+	mwLimg==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8wdr9sad-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:46 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9106fce784dso57129366d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 09:44:45 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:48 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-91b89614300so19007216d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 09:44:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791823485; x=1792428285; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791823488; x=1792428288; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=avi+XkrV3WTbZAOaZMmBOeG+lzogrfppC5qF3amD0t4=;
-        b=O2pUqXzZKgzyEA7nM4+NvST1pcJXHrcNNi1f6oX4K2ZqbXw3rS7yB/GuWRvWdFidkA
-         1tXNe9jXBBGYmoC5Ukhuqvy/whnzQOFuqK+XuA2KWHNImmEeMyeXZJX9SNUsE12eWiGn
-         GCcTY0bORoDQmQDG9LjSLgIxvSU2FKlVok6+/9qz5PGGFCt9pD83SmsxDr0APxRj6ZEL
-         tezcCCGOTstgqw42i+/NuQR6B784odNBwiki4+S/L1/GMc5SZ2PHFTB3BuOuTwg9lxOg
-         2p8rY42ndc4lJGS4vryXSQBoLy0ExmAf+8G4UVHBa8Be8hg9AzSQKvRJzM7zhWp6JnLc
-         Z0mw==
+        bh=un9vF8XUgNYCJ999zVQFkPYGa4d5oSxYlY+MeiCNPOk=;
+        b=SBHPHCkx3vCuw97nTvF60tc9GeQvKw6F9gOfas8rMFz5PtFQqu89SexXRzyolYiwVA
+         +DSHfHIkeL5Tl2QsWb7BIZX9K5thfd49LucWkxFDgBFlUWorNiQu9eCkw04G6C/rSxvI
+         dK5aX6EFIHuplQp1vNSHCcZpWG4BECXEfW6VAKewnU9m8iugxfqWDUT4XrG+P6Au0NCy
+         +ZHloJbWASndM//VsivRVno1rONBpwi3Tx8Gw1j9uXepEVrcMixH7+6x/g11QgMyjSZH
+         TDVNcUTDeMd3r1TWPL5vKUFWz1uZbeEoR23hp2L98bBBRwvdJMnZJ3ZdYKRJBHC865uL
+         vPPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791823485; x=1792428285;
+        d=1e100.net; s=20260707; t=1791823488; x=1792428288;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=avi+XkrV3WTbZAOaZMmBOeG+lzogrfppC5qF3amD0t4=;
-        b=tJ5qXxELX6D0FTvu50MG6K7EBzWlB+PtdNiR0+ygZW6zOVhKZtJC/zPzWX5J6jEpS5
-         k8TvJQrB/xK+/Q2ayHMwv0sPotU0gecXoBhC9dp/vaJKA9+nxPO8IeorkV7VCQaki1eF
-         HziGCtpjY1dTggzKldO3W+mgDP9XEM2pTz+NQoWrB9mF/zoy1Ds+Ty6Gc4/7VQT7+cGz
-         tm91fH/OwQnlM3ZB77FTnuQtronf05hojeY0tDEjPVKWwQdiOhQ22sSiCHn0WDY9hKID
-         y6iPyQ8DHJRjXl0QS09Xht8bY8D8WvI+JwXIe3XpR1NeNeYrmcvoms3lHSE29U6V/Ikn
-         A7Bg==
-X-Forwarded-Encrypted: i=1; AKwUvByyU3XB/F9Fx7NZtttq2CavGctBbw0CfzeYwQUBxwX8Yc3+QjDtTqaMgiB2OzNmFy7asjUWq5Xcb4jZLEgWyJ2W@lists.infradead.org
-X-Gm-Message-State: AFq9FYKIMnIXaccog9Srd5yY7jQSM5UEwh1spxstoCCpEeXAOJY8kDSm
-	PWNOuXpELhwRqa/nvOen+kqGRUreYJu3r5XncJvjwRyNEFzFi2E5smmiQPqfOjyiP+wHd3pEqzA
-	n1vDtBm581Z7dlSAYutFBukYuTSzhEKjxXKWgdZJZ+By7trfymDsXjMEFvSXyDsT106RPmRDoUg
-	6E3Q==
-X-Gm-Gg: AYBFou0d1HEmht2sgea+9XV/Fr0V5f8KSRUXFklpcx1DW2iV4oM3UabUv/mIHX/h6TX
-	zx2FW1AsxdVpg4870Z/jWqIPNyX7fzdXiV6j3tFJR2nGgveLRXIyVr1uRRiepBMwLaO8Y1GkFbd
-	k7c8lYmqn7Sh4MFJ+b8hhH8h8AL08BkQu2JQedNZvQ36tGy38lY9lp0bGqQUMtzhgqLhWtOxw61
-	NXdc/q6S6K1vBVLw4zaX4xtYckbYIPNQYi9H6wcrgNge0rEi2unLiHRnxRC2n1Og3hrDP6RrrQ8
-	Ws2DfZ0lvZy61qyS0nTHIIcemU9Rg09oZcpelTe4EascNhoj2e4mnTpzQBGYlz0Og71QtXdiq9l
-	cAP0L88MQZ8+wwA==
-X-Received: by 2002:a05:620a:198b:b0:92e:76a1:96cd with SMTP id af79cd13be357-93ebd1e041emr1762532985a.13.1791823484963;
-        Mon, 12 Oct 2026 09:44:44 -0700 (PDT)
-X-Received: by 2002:a05:620a:198b:b0:92e:76a1:96cd with SMTP id af79cd13be357-93ebd1e041emr1762527385a.13.1791823484302;
-        Mon, 12 Oct 2026 09:44:44 -0700 (PDT)
+        bh=un9vF8XUgNYCJ999zVQFkPYGa4d5oSxYlY+MeiCNPOk=;
+        b=PlIUQi/wBBGPn/VKQIyKInzYfFp60UKsClIvDpYCvBZAwu0mHB13flQTtyJh7ShZgV
+         vYftvj5beCjUSMEeYx3oMy3JE+wYWYJRu6ew+/xYL9He45st+O45HBlD+MzJNAl6ABVh
+         YgSAFRZJ1+U+CSt+MP432Zv7R5xjyfBxfTS39Hrac6OdNmpZa9MtpEHuDKF4BAMPD9QS
+         OfgORBZP42INqjst4ZeeYB9nw3UuKSmTgu2/YcbVerS7uSCPq3Rfj2DOO/SE8/v/o5vc
+         LdWCGB0qBwQkpBsmQjT2mVObq4OlpQUCvuU3IJUaOMVnkIsVvG1Hcov91HouvrgL/Tzj
+         SbYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzSAduX6lcuhY9MLj73JahKfC8o0ph7oe991Z662nKtaYZ2Gnq0KSGseCK+w+DlhPE2TShX5rPD5wPsVtTmgAEc@lists.infradead.org
+X-Gm-Message-State: AFq9FYJgQIWeqsIpK8m1Rf3mszYooqOSRvgMLxphuPDjPOifB0QOc+uN
+	cVKMI+duRanS/QGqEsJYJzoMLWno8eMiVvY8Xo6oUQrxSh7AMUAgbtfJR24z04XeGKbHNBlLQjE
+	p9S+tnNUy3PdJZkwwNnye7vEHWSXDHlUSPIZzStgu/lXiaFjUmUKaGiBbtKVyKthOKP0zlcYUOe
+	Luzw==
+X-Gm-Gg: AYBFou2+MO3hijbuA476oQy27hZ67RpAwX9HpberVpO3ABUnR87pvGY+DEyKopf8sfB
+	dqgH36OGHffQeTnhPHV6bMvlgGXJ2p16qM/GCoUF+Hjq46m+1xGEv4LRnmY8v3hmxXl2/s7G1N+
+	NswReL4iOS0KjXxn35noKGGERH0iD4xoVaMo+P8qE/WNxjfa5LOU+UVyYxgxuPenYSnAlGcoMBS
+	N7O7ddwBfIp17tNUKUBQv52tJWFEQb81ThuYAK+zzE5A/oSTeUv7p0KqBj/4VpgSpb2EV9qCfxI
+	0VrYDIFDpnQkz2gsUd4IJBvlDDbdaCQg0zvOVuRLBX8/csAsIVmth0Lm6S8f5BWRfncwE6qjEHj
+	B14mDaHOdnyYdOA==
+X-Received: by 2002:a05:620a:6081:b0:93c:23e4:359e with SMTP id af79cd13be357-93ebd27db71mr1452361585a.50.1791823487255;
+        Mon, 12 Oct 2026 09:44:47 -0700 (PDT)
+X-Received: by 2002:a05:620a:6081:b0:93c:23e4:359e with SMTP id af79cd13be357-93ebd27db71mr1452357785a.50.1791823486605;
+        Mon, 12 Oct 2026 09:44:46 -0700 (PDT)
 Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0bc506asm326879f8f.47.2026.10.12.09.44.42
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ac349asm326223f8f.35.2026.10.12.09.44.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 09:44:42 -0700 (PDT)
+        Mon, 12 Oct 2026 09:44:45 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Mon, 12 Oct 2026 18:44:25 +0200
-Subject: [PATCH net-next v6 3/4] net: stmmac: drop multi-buffer frames in
- XDP mode
+Date: Mon, 12 Oct 2026 18:44:26 +0200
+Subject: [PATCH net-next v6 4/4] net: stmmac: rework stmmac_rx to support
+ XDP rx multi-buff
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-stmmac-rx-mb-v6-3-2225050915c1@oss.qualcomm.com>
+Message-Id: <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
 References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
 In-Reply-To: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -118,36 +118,36 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         bpf@vger.kernel.org,
         Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfXxBdEATogryVH
- cmFdrErru2It+0Ueh0TUPb5FskHYPzPqWRMLzv41nQC6IJNR+Skq21s2r/nK8BgQ3oFzLernVat
- s/M1d+OpuXDeReS3ZUXQMX1dRqhcKdI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfX7IR6/EmGIk70
- Acd+nnRWp8zi0pHXgF1S9KWX9L3gT1Z3+XCqmxnG46SQzJNsMkvb2LoGDjUzSNqPrINpIx0aetc
- 5kRJHDjaFiTpLtpZxi8xJ9j/fe4VQjvl4DHHbqx7cBCBOrYYPV/epYdAtnGucEF5UU6G+5l27gP
- n9vOv4n3EPdwAEfvJWP4wXkbpzBJn3GguHSwCMfc+ayX64ymNvlw9ov2CBdpaqrCa/mZ0TtJS5z
- 1RLvP+hgPsX4D4AifTCM/gUIjdL5q5GKgtBrfvS2d0Ku6U0vK9I1Ecj1yf1/nXxp1fdgjYDsQ6H
- FaLrQxN2X9G/2HPuqmZj00ACcfti5uA3iYdfG5O+SQtAy8XClxb+fj2AJtWvVOrfQUGnpHGRk4D
- zRc20Rn9S9ZuuFfERxAaMbvR/Yu3mQ9gxZbHvhvP1ssb7sNy2x1B+PRyMG1tSnYKhBQadxkAj3A
- 3zeEwfYmbBOA8GncjiQ==
-X-Authority-Analysis: v=2.4 cv=C4p8WgP+ c=1 sm=1 tr=0 ts=6acd0e7e cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfX+EHwZ++tkO76
+ 3uex8dmkb5SEU2n/S7Im61oEFaaxCzThIr7YS4KM/rnlJeBX6Vjo/wMXjivmKd62Nv+XBW/c7o/
+ R0da/NOv+qKAOuZhL7lOtorT4hfyzMo0vefEVei+ZfTbdKadggS8a8pPJsu8+rcKtnMVqqRBMSB
+ KT8KoUbLkQQkBfqwBanMh/np2i0aiqZ4rkw23byqCJ27vtx+zu/RH7lq0VkzgS8DCwYxo9nPLTQ
+ 6yi7C4fEZNf+wOzDN+l0OPxwKYDeEdKwoBb7+iaSF1nDN2xhcqHzcLabjNakj/CX0TxVWtMaaxK
+ NgOGScuPWNExHSGtdOn7pse3rWZeGoxe9An1w+PaD6DcjGhtYURsJLZuc2n74CljSsYUfqc2MsP
+ 3daLi05k1l9U5RWmOmaAy+ikzwX/2ICNg+MEec+mODzZXXUgTYHnPYG+cYdcdyFsPWVBq/avZB3
+ S31iItA4AqoaPOKmUSw==
+X-Authority-Analysis: v=2.4 cv=SvAFe/O0 c=1 sm=1 tr=0 ts=6acd0e80 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=DrIia4gTWQP6Z4KYkkQA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-ORIG-GUID: 3LK2OdkqZjn-9TYybJ_HZGymnzT1Ax5A
-X-Proofpoint-GUID: 3LK2OdkqZjn-9TYybJ_HZGymnzT1Ax5A
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=flYnR0XiPPvn2sS5u-IA:9 a=QEXdDO2ut3YA:10
+ a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfX1TNNUX5wscJp
+ J0rtk8JX82Vi1qI+FqvxRZXD+irWzgtyxHDT7zeeVMSYUC6Ou9aVU8HUoKkO3BZJt2BIABKF0Rt
+ p8fmNd4xRA/h8RPIMEINDinXRrQLuFw=
+X-Proofpoint-ORIG-GUID: sf82Nfcnmn4gtQZJlCXIpDdtH9ZwuvoA
+X-Proofpoint-GUID: sf82Nfcnmn4gtQZJlCXIpDdtH9ZwuvoA
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-12_05,2026-10-09_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0
- malwarescore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 phishscore=0
+ impostorscore=0 malwarescore=0 clxscore=1015 phishscore=0 bulkscore=0
+ priorityscore=1501 adultscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610120066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_094446_681967_B09F0663 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20261012_094449_257774_B58F6BB8 
+X-CRM114-Status: GOOD (  30.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,98 +162,554 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_rx() runs the XDP program once per descriptor buffer and uses
-skb == NULL as the only marker for the start of a frame. A frame larger
-than one buffer is split by the hardware across several descriptors;
-GMAC4 enables jumbo frames unconditionally (GMAC_CONFIG_JE in
-GMAC_CORE_INIT), so an on-link peer can deliver such a frame even when
-the interface MTU is left at 1500.
+Build the xdp_buff by accumulating all the descriptors that make up a
+frame, so the XDP program runs on the full (possibly fragmented) packet
+instead of just the first buffer. When the frame is not consumed by the
+program, assemble the skb from the head buffer and the collected
+fragments via napi_build_skb()/xdp_update_skb_frags_info().
 
-When an XDP verdict ends a non-last descriptor, skb is cleared and the
-next descriptor of the same hardware frame is parsed as a new frame.
-For XDP_CONSUMED this happens via read_again with len preserved, so
-stmmac_rx_buf1_len() then returns min(dma_buf_sz, plen - len) for the
-last descriptor, which can be as small as 0-3 bytes. buf1_len -=
-ETH_FCS_LEN underflows and xdp_prepare_buff() puts data_end far past
-data; on XDP_PASS this produces an skb whose length is close to 4G that
-reaches the network stack (skb->tail and skb->len are 32-bit and wrap
-below skb->end, so skb_over_panic() does not fire). A 4+ byte tail is
-instead offered to the XDP program and delivered as a standalone
-mid-payload Ethernet frame on XDP_PASS. XDP_TX/XDP_REDIRECT instead
-falls through to the next iteration, resetting the running length, so
-the tail is re-parsed as a full-size new frame.
+Note that XDP still rejects an MTU larger than ETH_DATA_LEN
+(stmmac_xdp_set_prog(), stmmac_change_mtu()) and disables SPH, so an
+ordinary frame fits in a single buffer. This path is therefore exercised
+by frames that do span several descriptors (for example jumbo frames the
+MAC admits through its jumbo-enable bit) and is groundwork for extending
+XDP to jumbo/SPH; it does not enable XDP jumbo support by itself.
 
-XDP does not support scatter-gather frames until the multi-buffer
-rework, so drop the whole frame instead: mark it as errored as soon as
-a non-last descriptor is seen while an XDP program is attached, drain
-and release every descriptor - including the last - and account the
-frame once in rx_dropped. Removing the re-parse lets both XDP verdict
-branches simply complete the packet via next.
+For those multi-descriptor frames the old code was buggy as well: it ran
+the XDP program once per descriptor buffer, so for a multi-descriptor
+frame the program was also invoked on continuation buffers holding
+mid-frame payload. It also subtracted ETH_FCS_LEN from the first buffer
+even when it was not the last descriptor (its second buffer empty),
+dropping four bytes from the middle of the frame while marking the FCS as
+already stripped and skipping the final pskb_trim(). Accumulating the
+whole frame before running XDP fixes both.
 
-Note: the subsequent "net: stmmac: rework stmmac_rx to support XDP rx
-multi-buff" accumulates the whole frame into a single xdp_buff and
-supersedes this patch; the fix is kept so the net portion of the series
-stands on its own.
+To do so, store the in-progress xdp_buff in rx_q->state instead of the
+partially built skb, so the accumulated head and fragments survive a
+NAPI poll boundary (mid-frame dma_own or dirty_rx break). The state is
+saved only while a frame is in progress and cleared once it completes,
+leaving it untouched when the poll does not process anything (e.g.
+netpoll invoked with a zero budget).
 
-Fixes: 5fabb01207a2 ("net: stmmac: Add initial XDP support")
+In addition:
+- advertise NETDEV_XDP_ACT_RX_SG, since the RX path can now deliver
+  non-linear buffers to XDP;
+- drop multi-buffer frames when the attached program was not loaded with
+  BPF_F_XDP_HAS_FRAGS, since a single-buffer program must not be handed a
+  non-linear xdp_buff;
+- build the skb head with napi_build_skb() passing xdp->frame_sz, so
+  skb_shinfo() lands on the same shared_info the fragments were
+  accumulated into;
+- carry the XDP metadata written with bpf_xdp_adjust_meta() into the skb
+  via skb_metadata_set(), so it is no longer dropped and TC/BPF programs
+  can read it through data_meta;
+- attach fragments with xdp_buff_add_frag(), which initializes all the
+  shared_info fields and takes care of the pfmemalloc bit;
+- release the buffers collected in the xdp_buff when a frame is dropped
+  on RX errors; the previous code relied on dev_kfree_skb() recycling the
+  skb frags, which no longer applies now that the head and fragments live
+  in an xdp_buff rather than a partially built skb;
+- drop the whole frame when it would exceed MAX_SKB_FRAGS, where the
+  previous skb_add_rx_frag() calls were unbounded;
+- strip the Ethernet FCS from the accumulated xdp_buff with a
+  driver-local tail shrink (stmmac_xdp_shrink_tail()) for both linear
+  and fragmented frames, instead of trimming the skb or the first
+  descriptor length.
+
 Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28 ++++++++++-------------
- 1 file changed, 12 insertions(+), 16 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 327 ++++++++++++++--------
+ 2 files changed, 211 insertions(+), 119 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 9278378407e8..63020e8edd8a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -132,7 +132,8 @@ struct stmmac_rx_queue {
+ 	dma_addr_t dma_rx_phy;
+ 	unsigned int state_saved;
+ 	struct {
+-		struct sk_buff *skb;
++		struct xdp_buff xdp;
++		unsigned int frames;
+ 		unsigned int len;
+ 		unsigned int error;
+ 	} state;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 426bb68c9bbc..8c08d44fdbd3 100644
+index 8c08d44fdbd3..fd04368543c2 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5893,18 +5893,24 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+@@ -158,6 +158,9 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue);
+ static void stmmac_set_dma_operation_mode(struct stmmac_priv *priv, u32 txmode,
+ 					  u32 rxmode, u32 chan);
+ static void stmmac_vlan_restore(struct stmmac_priv *priv);
++static void stmmac_xdp_put_buff(struct stmmac_rx_queue *rx_q,
++				struct xdp_buff *xdp, int sync_len,
++				bool allow_direct);
  
- 		if (priv->extend_desc)
- 			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
--		if (unlikely(status == discard_frame)) {
--			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
--			buf->page = NULL;
+ #ifdef CONFIG_DEBUG_FS
+ static const struct net_device_ops stmmac_netdev_ops;
+@@ -2180,8 +2183,10 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	else
+ 		dma_free_rx_skbufs(priv, dma_conf, queue);
+ 
+-	dev_kfree_skb_any(rx_q->state.skb);
+-	rx_q->state.skb = NULL;
++	if (rx_q->state.frames && !rx_q->xsk_pool) {
++		stmmac_xdp_put_buff(rx_q, &rx_q->state.xdp, -1, false);
++		rx_q->state.frames = 0;
++	}
+ 	rx_q->state_saved = false;
+ 	rx_q->buf_alloc_num = 0;
+ 	rx_q->xsk_pool = NULL;
+@@ -5460,8 +5465,8 @@ static int __stmmac_xdp_run_prog(struct stmmac_priv *priv,
+ static struct sk_buff *stmmac_xdp_run_prog(struct stmmac_priv *priv,
+ 					   struct xdp_buff *xdp)
+ {
++	int res = STMMAC_XDP_CONSUMED;
+ 	struct bpf_prog *prog;
+-	int res;
+ 
+ 	prog = READ_ONCE(priv->xdp_prog);
+ 	if (!prog) {
+@@ -5469,7 +5474,8 @@ static struct sk_buff *stmmac_xdp_run_prog(struct stmmac_priv *priv,
+ 		goto out;
+ 	}
+ 
+-	res = __stmmac_xdp_run_prog(priv, prog, xdp);
++	if (likely(!xdp_buff_has_frags(xdp) || prog->aux->xdp_has_frags))
++		res = __stmmac_xdp_run_prog(priv, prog, xdp);
+ out:
+ 	return ERR_PTR(-res);
+ }
+@@ -5801,6 +5807,118 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 	return failure ? limit : (int)count;
+ }
+ 
++static void
++stmmac_xdp_put_buff(struct stmmac_rx_queue *rx_q, struct xdp_buff *xdp,
++		    int sync_len, bool allow_direct)
++{
++	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
++	int i;
 +
-+		if (unlikely(!error && status == discard_frame)) {
- 			error = 1;
- 			if (!priv->hwts_rx_en)
++	if (likely(!xdp_buff_has_frags(xdp)))
++		goto out;
++
++	for (i = 0; i < sinfo->nr_frags; i++)
++		page_pool_put_full_page(rx_q->page_pool,
++					skb_frag_page(&sinfo->frags[i]),
++					allow_direct);
++out:
++	page_pool_put_page(rx_q->page_pool, virt_to_head_page(xdp->data),
++			   sync_len, allow_direct);
++}
++
++static struct sk_buff *stmmac_build_skb(struct xdp_buff *xdp)
++{
++	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
++	u32 metasize = xdp->data - xdp->data_meta;
++	struct sk_buff *skb;
++	u8 num_frags = 0;
++
++	if (unlikely(xdp_buff_has_frags(xdp)))
++		num_frags = sinfo->nr_frags;
++
++	skb = napi_build_skb(xdp->data_hard_start, xdp->frame_sz);
++	if (!skb)
++		return NULL;
++
++	skb_mark_for_recycle(skb);
++	skb_reserve(skb, xdp->data - xdp->data_hard_start);
++	skb_put(skb, xdp->data_end - xdp->data);
++	if (metasize)
++		skb_metadata_set(skb, metasize);
++
++	if (unlikely(xdp_buff_has_frags(xdp)))
++		xdp_update_skb_frags_info(skb, num_frags, sinfo->xdp_frags_size,
++					  num_frags * xdp->frame_sz,
++					  xdp_buff_get_skb_flags(xdp));
++	return skb;
++}
++
++static bool stmmac_build_xdp_frags(struct stmmac_priv *priv,
++				   struct stmmac_rx_queue *rx_q,
++				   unsigned int len, struct page *page,
++				   unsigned int offset,
++				   enum dma_data_direction dma_dir,
++				   struct xdp_buff *xdp)
++{
++	dma_addr_t dma_addr = page_pool_get_dma_addr(page) + offset;
++
++	dma_sync_single_for_cpu(priv->device, dma_addr, len, dma_dir);
++	if (!xdp_buff_add_frag(xdp, page_to_netmem(page), offset, len,
++			       xdp->frame_sz)) {
++		page_pool_put_full_page(rx_q->page_pool, page, true);
++		return false;
++	}
++
++	return true;
++}
++
++static int stmmac_xdp_shrink_tail(struct stmmac_rx_queue *rx_q,
++				  struct xdp_buff *xdp, int offset)
++{
++	struct skb_shared_info *sinfo;
++	int i;
++
++	if (unlikely(offset < 0 ||
++		     offset > (int)xdp_get_buff_len(xdp) - ETH_HLEN))
++		return -EINVAL;
++
++	if (likely(!xdp_buff_has_frags(xdp))) {
++		xdp->data_end -= offset;
++		return 0;
++	}
++
++	sinfo = xdp_get_shared_info_from_buff(xdp);
++	for (i = sinfo->nr_frags - 1; i >= 0 && offset > 0; i--) {
++		skb_frag_t *frag = &sinfo->frags[i];
++		int delta = min_t(int, offset, skb_frag_size(frag));
++
++		if (delta == skb_frag_size(frag)) {
++			/* The whole frag is consumed by the strip: return it
++			 * to the page pool right away. Its ring slot still
++			 * carries the page DMA address until stmmac_rx_refill()
++			 * re-arms it at the end of the NAPI poll. This is
++			 * safe because HW cannot touch the slot until then.
++			 */
++			page_pool_put_full_page(rx_q->page_pool,
++						skb_frag_page(frag), true);
++			sinfo->nr_frags--;
++		} else {
++			skb_frag_size_sub(frag, delta);
++		}
++
++		sinfo->xdp_frags_size -= delta;
++		offset -= delta;
++	}
++
++	if (unlikely(!sinfo->nr_frags)) {
++		xdp_buff_clear_frags_flag(xdp);
++		xdp_buff_clear_frag_pfmemalloc(xdp);
++		xdp->data_end -= offset;
++	}
++
++	return 0;
++}
++
+ /**
+  * stmmac_rx - manage the receive process
+  * @priv: driver private structure
+@@ -5814,21 +5932,20 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	u32 rx_errors = 0, rx_dropped = 0, rx_bytes = 0, rx_packets = 0;
+ 	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
++	unsigned int frames = 0, next_entry = rx_q->cur_rx;
+ 	struct stmmac_channel *ch = &priv->channel[queue];
+ 	unsigned int count = 0, error = 0, len = 0;
+-	unsigned int next_entry = rx_q->cur_rx;
+ 	bool in_progress = rx_q->state_saved;
+ 	enum dma_data_direction dma_dir;
+ 	int coe = priv->hw->rx_csum;
+-	unsigned int desc_size;
+-	struct sk_buff *skb = NULL;
+ 	struct stmmac_xdp_buff ctx;
+-	bool fcs_stripped = false;
++	unsigned int desc_size;
+ 	int xdp_status = 0;
+ 	int bufsz;
+ 
+ 	dma_dir = page_pool_get_dma_dir(rx_q->page_pool);
+-	bufsz = DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
++	bufsz = rx_q->napi_skb_frag_size;
++	ctx.priv = priv;
+ 
+ 	if (netif_msg_rx_status(priv)) {
+ 		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
+@@ -5841,23 +5958,25 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	}
+ 
+ 	if (rx_q->state_saved) {
+-		skb = rx_q->state.skb;
++		ctx.xdp = rx_q->state.xdp;
+ 		error = rx_q->state.error;
++		frames = rx_q->state.frames;
+ 		len = rx_q->state.len;
+-		rx_q->state.skb = NULL;
+ 		rx_q->state_saved = false;
++		rx_q->state.frames = 0;
+ 	}
+ 
+ 	while (count < limit) {
+ 		unsigned int buf1_len = 0, buf2_len = 0;
++		unsigned int pre_len, sync_len;
+ 		enum pkt_hash_types hash_type;
+ 		struct stmmac_rx_buffer *buf;
+ 		struct dma_desc *np, *p;
++		struct sk_buff *skb;
+ 		int entry, status;
+ 		u32 hash;
+ 
+ 		if (!in_progress) {
+-			skb = NULL;
+ 			error = 0;
+ 			len = 0;
+ 		}
+@@ -5900,19 +6019,11 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
  				rx_errors++;
  		}
  
--		if (unlikely(error && (status & rx_not_ls)))
--			goto read_again;
-+		/* We do not support SG in XDP mode */
-+		if (unlikely(!error && (status & rx_not_ls) &&
-+			     stmmac_xdp_is_enabled(priv))) {
-+			rx_dropped++;
+-		/* We do not support SG in XDP mode */
+-		if (unlikely(!error && (status & rx_not_ls) &&
+-			     stmmac_xdp_is_enabled(priv))) {
+-			rx_dropped++;
+-			error = 1;
+-		}
+-
+ 		if (unlikely(error)) {
+ 			if (status & rx_not_ls)
+ 				goto read_again;
+ 
+-			dev_kfree_skb(skb);
+-			goto next;
++			goto error_free_frag;
+ 		}
+ 
+ 		/* Buffer is good. Go on. */
+@@ -5922,121 +6033,89 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		buf2_len = stmmac_rx_buf2_len(priv, p, status, len);
+ 		len += buf2_len;
+ 
+-		/* ACS is disabled; strip manually. */
+-		if (likely(!(status & rx_not_ls)))
+-			len -= ETH_FCS_LEN;
+-
+-		if (!skb) {
+-			unsigned int pre_len, sync_len;
+-
+-			/* Each frame starts here: reset the FCS handling */
+-			fcs_stripped = false;
+-
++		if (!frames) {
+ 			dma_sync_single_for_cpu(priv->device, buf->addr,
+ 						buf1_len, dma_dir);
+ 			net_prefetch(page_address(buf->page) +
+ 				     buf->page_offset);
+ 
+-			if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
+-				buf1_len -= ETH_FCS_LEN;
+-				fcs_stripped = true;
+-			}
+-
+ 			xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
+ 			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
+ 					 buf->page_offset, buf1_len, true);
+-
+-			pre_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
+-				  buf->page_offset;
+-
+-			ctx.priv = priv;
+-			ctx.desc = p;
+-			ctx.ndesc = np;
+-
+-			skb = stmmac_xdp_run_prog(priv, &ctx.xdp);
+-			/* Due xdp_adjust_tail: DMA sync for_device
+-			 * cover max len CPU touch
+-			 */
+-			sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
+-				   buf->page_offset;
+-			sync_len = max(sync_len, pre_len);
+-
+-			/* For Not XDP_PASS verdict */
+-			if (IS_ERR(skb)) {
+-				unsigned int xdp_res = -PTR_ERR(skb);
+-
+-				if (xdp_res & STMMAC_XDP_CONSUMED) {
+-					page_pool_put_page(rx_q->page_pool,
+-							   virt_to_head_page(ctx.xdp.data),
+-							   sync_len, true);
+-					buf->page = NULL;
+-					rx_dropped++;
+-					goto next;
+-				} else if (xdp_res & (STMMAC_XDP_TX |
+-						      STMMAC_XDP_REDIRECT)) {
+-					xdp_status |= xdp_res;
+-					buf->page = NULL;
+-					goto next;
+-				}
+-			}
+-		}
+-
+-		if (!skb) {
+-			unsigned int head_pad_len;
+-
+-			/* XDP program may expand or reduce tail */
+-			buf1_len = ctx.xdp.data_end - ctx.xdp.data;
+-
+-			skb = napi_build_skb(page_address(buf->page),
+-					     rx_q->napi_skb_frag_size);
+-			if (!skb) {
+-				page_pool_recycle_direct(rx_q->page_pool,
+-							 buf->page);
+-				buf->page = NULL;
+-				rx_dropped++;
+-				count++;
+-				goto drain_data;
+-			}
+-
+-			/* XDP program may adjust header */
+-			head_pad_len = ctx.xdp.data - ctx.xdp.data_hard_start;
+-			skb_reserve(skb, head_pad_len);
+-			skb_put(skb, buf1_len);
+-			skb_mark_for_recycle(skb);
+ 			buf->page = NULL;
+ 		} else if (buf1_len) {
+-			dma_sync_single_for_cpu(priv->device, buf->addr,
+-						buf1_len, dma_dir);
+-			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+-					buf->page, buf->page_offset, buf1_len,
+-					priv->dma_conf.dma_buf_sz);
++			if (!stmmac_build_xdp_frags(priv, rx_q, buf1_len,
++						    buf->page,
++						    buf->page_offset,
++						    dma_dir, &ctx.xdp)) {
++				if (!error)
++					rx_dropped++;
++				error = 1;
++			}
+ 			buf->page = NULL;
+ 		}
+ 
+ 		if (buf2_len) {
+-			dma_sync_single_for_cpu(priv->device, buf->sec_addr,
+-						buf2_len, dma_dir);
+-			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+-					buf->sec_page, 0, buf2_len,
+-					priv->dma_conf.dma_buf_sz);
++			if (!stmmac_build_xdp_frags(priv, rx_q, buf2_len,
++						    buf->sec_page, 0,
++						    dma_dir, &ctx.xdp)) {
++				if (!error)
++					rx_dropped++;
++				error = 1;
++			}
+ 			buf->sec_page = NULL;
+ 		}
++		frames++;
+ 
+-drain_data:
+ 		if (likely(status & rx_not_ls))
+ 			goto read_again;
+-		if (!skb)
+-			continue;
+ 
+-		/* Got entire packet into SKB. Finish it. */
++		/* ACS is disabled; strip manually. */
++		len -= ETH_FCS_LEN;
++		if (stmmac_xdp_shrink_tail(rx_q, &ctx.xdp, ETH_FCS_LEN)) {
++			if (!error)
++				rx_dropped++;
 +			error = 1;
 +		}
- 
- 		if (unlikely(error)) {
-+			if (status & rx_not_ls)
-+				goto read_again;
 +
- 			dev_kfree_skb(skb);
++		if (unlikely(error))
++			goto error_free_frag;
++
++		pre_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
++
++		ctx.desc = p;
++		ctx.ndesc = np;
++
++		skb = stmmac_xdp_run_prog(priv, &ctx.xdp);
++		/* Due xdp_adjust_tail: DMA sync for_device
++		 * cover max len CPU touch
++		 */
++		sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
++		sync_len = max(sync_len, pre_len);
++
++		/* For Not XDP_PASS verdict */
++		if (IS_ERR(skb)) {
++			unsigned int xdp_res = -PTR_ERR(skb);
++
++			if (xdp_res & STMMAC_XDP_CONSUMED) {
++				stmmac_xdp_put_buff(rx_q, &ctx.xdp, sync_len,
++						    true);
++				rx_dropped++;
++			} else if (xdp_res & (STMMAC_XDP_TX |
++					      STMMAC_XDP_REDIRECT)) {
++				xdp_status |= xdp_res;
++			}
+ 
+-		/* Remove FCS if needed */
+-		if (!fcs_stripped && pskb_trim(skb, len)) {
+-			dev_kfree_skb_any(skb);
+-			rx_dropped++;
  			goto next;
  		}
-@@ -5965,17 +5971,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 							   sync_len, true);
- 					buf->page = NULL;
- 					rx_dropped++;
--
--					/* Clear skb as it was set as
--					 * status by XDP program.
--					 */
--					skb = NULL;
--
--					if (unlikely((status & rx_not_ls)))
--						goto read_again;
--
--					count++;
--					continue;
-+					goto next;
- 				} else if (xdp_res & (STMMAC_XDP_TX |
- 						      STMMAC_XDP_REDIRECT)) {
- 					xdp_status |= xdp_res;
+ 
++		skb = stmmac_build_skb(&ctx.xdp);
++		if (!skb) {
++			rx_dropped++;
++			goto error_free_frag;
++		}
++
++		/* Got entire packet into SKB. Finish it. */
+ 		stmmac_get_rx_hwtstamp(priv, p, np, skb);
+ 
+ 		if (priv->hw->hw_vlan_en)
+@@ -6063,15 +6142,23 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		rx_bytes += len;
+ next:
+ 		in_progress = false;
+-		skb = NULL;
++		frames = 0;
++		count++;
++		continue;
++error_free_frag:
++		if (frames)
++			stmmac_xdp_put_buff(rx_q, &ctx.xdp, -1, true);
++		in_progress = false;
++		frames = 0;
+ 		count++;
+ 	}
+ 
+-	if (in_progress || skb) {
+-		rx_q->state_saved = true;
+-		rx_q->state.skb = skb;
++	if (in_progress || frames) {
++		rx_q->state.xdp = ctx.xdp;
++		rx_q->state.frames = frames;
+ 		rx_q->state.error = error;
+ 		rx_q->state.len = len;
++		rx_q->state_saved = true;
+ 	}
+ 
+ 	stmmac_finalize_xdp_rx(priv, xdp_status);
+@@ -8067,6 +8154,7 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	ndev->hw_features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
+ 			    NETIF_F_RXCSUM;
+ 	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
++			     NETDEV_XDP_ACT_RX_SG |
+ 			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
+ 
+ 	ret = stmmac_tc_init(priv, priv);
+@@ -8387,9 +8475,12 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
+ {
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+ 
+-	dev_kfree_skb_any(rx_q->state.skb);
+-	rx_q->state.skb = NULL;
++	if (rx_q->state.frames && !rx_q->xsk_pool) {
++		stmmac_xdp_put_buff(rx_q, &rx_q->state.xdp, -1, false);
++		rx_q->state.frames = 0;
++	}
+ 	rx_q->state_saved = false;
++
+ 	rx_q->cur_rx = 0;
+ 	rx_q->dirty_rx = 0;
+ }
 
 -- 
 2.56.0
