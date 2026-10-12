@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA2BCC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D5F6CC6B1C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TlBOcrHV7Ks8zjh/VxrmRvdVhbz0DfHdxmu+gmL+0kw=; b=WgCKOQtBjI2tO5IIwCY8xE8tjv
-	wwM94ofsIbvO+mF1S/YiXaZPHpnF+IZfLIq/9FxK6e2Qvk1Rxg4CftqP1aQfwG8RtSzvmGozdHse+
-	dK1UIY7rEdivy7Nkc3nPAY19Mi1UE377FaaSMIc/AkHfo/n5P4b3l0O+WV4tE+gzJk1kPM/ohkApc
-	RAwu1JS7fKtphzPgv4jB9k+MgbzJsccBvSl4DbAFIB6p+zCMk8wDZJ2Igjhyirh7+J8qMwLkrWT8x
-	SLYylWe4QAhvsCdRPVZiqfD+WdoGM7Y88O9zz/Ecxps1qovNa44wBQyhjn6dQCPMrMXokr7A/Zp/5
-	nMkiepsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iquteC2WLun4rL54eIEjgx3C2ts8WjjltRIkjPLgyLc=; b=QsYw4cIp0dmA7zgI1RQ8pWt9RB
+	rPUySRsjln7iobTpkfk/9lLzCJTW3AZVGpKhPykweqH0bvYTObEckXOHb2GQTaSrbNY5gcm15DRaO
+	ya4Wat8eFaJhos/4VMFVVWUhQ6nR/0cNpb3e9ni+UwyHGEq/Yl4yXsCe6nHssqLHFY1lPv83IDsEG
+	+PBSZGjUNH7x9nm/x+hnXBicA7VFXQjy9YsBztEze+gN0/18nzxmSwk2L1vwTPcBWag/FfrAaM+zw
+	ftnsqWPZ3KS8PsT2xMkgsUGGQ9U+Wj8qJ+rMVCVswvAtp7oymQvkaNNWS+xJWkE8R6DkHM0oDoNFJ
+	OBBwREfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgeY-0000000Dl8N-2AXC;
-	Tue, 13 Oct 2026 17:51:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGgfu-0000000DlMa-3Yw0;
+	Tue, 13 Oct 2026 17:52:30 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgeW-0000000Dl7m-4ACZ;
-	Tue, 13 Oct 2026 17:51:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4912660A56;
-	Tue, 13 Oct 2026 17:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B91D1F00893;
-	Tue, 13 Oct 2026 17:50:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791913864;
-	bh=TlBOcrHV7Ks8zjh/VxrmRvdVhbz0DfHdxmu+gmL+0kw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a64bBD0r0JJvyP+4075Pb++iBLDZ0ukmGa7jx7kSafkLoOS1mJGwANamvreSD7ZDl
-	 OQkPYrx28wtrdCcJifhd6QpjxJictI5PMD9i3BQ/wKqbGkAxrsBVCzc+fygCVlyaEU
-	 lK3n6Ag0uVeQvPWpmqi4U7cvCBOkLoxm0+xNhzAO0ob9zUmUIlTR8qiAVVtiIKa4D6
-	 Mvatl3v7wqWkFVibXWwZhTEKVBHCLc69uAlquyQJvXrfsmG9VJr65FjZ9lPk/+hoa0
-	 1N09ozYCqAJTGjkQKIpXxtoYe3yozRXP0ZMi+nVturmde2UGe4aqXLAMWH4K9fkFIx
-	 eBPxAHPG3IxCQ==
-Date: Tue, 13 Oct 2026 18:50:56 +0100
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 06/21] ASoC: ops: Introduce 'snd_soc_deactivate_kctl'
-Message-ID: <ae2b9848-c8d6-425c-893e-ab2656158908@sirena.org.uk>
-References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
- <20261004-macaudio-v2-6-7b47ed6335a8@gmail.com>
+	id 1xGgeb-0000000Dl9P-0sgu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 17:51:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id B29A94E4120F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:51:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8678B60362
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 17:51:07 +0000 (UTC)
+Received: by mail.galae.net (Postcow, from userid 0)
+	id 2A94111D7183A; Tue, 13 Oct 2026 19:49:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791913867; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=iquteC2WLun4rL54eIEjgx3C2ts8WjjltRIkjPLgyLc=;
+	b=VzUzDVuDR6cPJuabPGWIQ2Pg8tkK8yn66oIMM/2YbstbQl2PVpyjR4fwGdb2mIN7gpgeBd
+	EFHr5gBIBNuTtQ9tyjlHEaoIluXtP4pR2TTzHpMUgTTSw1lW3zY2Qv5hGms6UXBl4c71yq
+	jcUe5R12jC3j+xIj0Hy2MflS1ghbdH5x1pl0XvZY1ncaKXu951peakE5x/ogwTw496oXBz
+	ENvF8Ow2mZndkD7Lb2BYE/QXg0LwnMWDhOgSFcPgd8w4JKpy5hdiQ9dnYDv/Ukk3T3TGsM
+	VDJEQVxgrUReaNItCXRGJkKMNJBuDAwMgZBbr+d+W8I4TkXvi0TA2q6klZjpiA==
+Authentication-Results: mail.galae.net;
+	none
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
+ <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
+ Holland <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,
+  Richard Genoud <richard.genoud@bootlin.com>,  Masahiro Yamada
+ <yamada.masahiro@socionext.com>,  Boris Brezillon <bbrezillon@kernel.org>,
+  Brian Norris <computersforpeace@gmail.com>,
+  linux-mtd@lists.infradead.org,  devicetree@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v6 00/18] mtd: rawnand: sunxi: support the Allwinner
+ randomized OOB format
+In-Reply-To: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
+	(James Hilliard's message of "Mon, 14 Sep 2026 15:09:46 -0600")
+References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 12 Oct 2026 10:06:50 +0200
+Message-ID: <871p9v4a1x.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vbtYYCCIpz/5OgCu"
-Content-Disposition: inline
-In-Reply-To: <20261004-macaudio-v2-6-7b47ed6335a8@gmail.com>
-X-Cookie: Some equipment shown is optional.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-TUID: hUm30DN6Lpz6
+X-Last-TLS-Session-Version: None
+X-Rspamd-Queue-Id: 2A94111D7183A
+X-Spamd-Result: default: False [0.58 / 30.00];
+	BAYES_HAM(-1.82)[87.08%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	DATE_IN_PAST(1.00)[33];
+	MIME_GOOD(-0.10)[text/plain];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_ZERO(0.00)[0];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
+	FREEMAIL_TO(0.00)[gmail.com];
+	BCC(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	NEURAL_HAM(-0.00)[-1.000];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	URIBL_BLOCKED(0.00)[bootlin.com:mid,localhost:rdns,localhost:helo];
+	FREEMAIL_CC(0.00)[nod.at,ti.com,kernel.org,gmail.com,sholland.org,bootlin.com,socionext.com,lists.infradead.org,vger.kernel.org,lists.linux.dev];
+	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
+	TO_DN_SOME(0.00)[]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_105109_835974_BF9F8C84 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
---vbtYYCCIpz/5OgCu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 14/09/2026 at 15:09:46 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-On Sun, Oct 04, 2026 at 04:03:33PM +1000, James Calligeros wrote:
+> Allwinner NAND firmware leaves the bad-block marker in the randomizer
+> data stream. On H6/H616 it also places all protected user data before the
+> first ECC step. These choices differ from the mainline format, which
+> keeps the physical marker plain and maximizes the H6/H616 user-data area.
 
-> + * Return 0 for success, else error.
-> + */
-> +int snd_soc_deactivate_kctl(struct snd_soc_card *card,
-> +	const char *name, int active)
-> +{
+[...]
 
-> +	if (kctl) {
-> +		ret = snd_ctl_activate_id(card->snd_card, &kctl->id, active);
-> +		if (ret < 0)
-> +			return ret;
+> Assisted-by: Codex:gpt-6-astra
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
 
-snd_ctl_activate_id() returns 1 on change, 0 on no change, which doesn't
-match the documentation there.
+I am sorry but I do not want to proceed further with this series.
 
---vbtYYCCIpz/5OgCu
-Content-Type: application/pgp-signature; name="signature.asc"
+Even though I am not capable of finger pointing what is wrong in the
+diffs nor in the commit logs, I do not understand most of it. I cannot
+clearly explain why, but I have had a hard time trying to understand
+what the commits were doing. The risk is that nobody would then be able
+to further maintain this driver and I am not willing to take that
+option. The kernel policy so far has been to ensure readability and
+maintainability, and my gut feeling is that this series is going
+sideways wrt this major constraint.
 
------BEGIN PGP SIGNATURE-----
+Also, from a Linux kernel point of view, we generally just do not
+support vendor specific layouts. I already told so Richard Genoud back
+when he was working on H616.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrOb4AACgkQJNaLcl1U
-h9AYLwf/aQMd1A49AVVWSLal+oUhDhb+u+eE2UCj4TlvTucP2SjZBbIiudT1v3DH
-Oa7vH82cpqNojB3T3P9lrxMV74PuaL/qQmErb9aCE0oS2dd+98jYmbIBcWY6GAcH
-mpa7g4ufbQe4oHBnKKLffYcxQjn1Hs+u026oRVbOpox4gVi65973qHFCliEWFTSo
-k79JtJ4LzX578YmyKLl/szQ+UCa+xpuV8+4yyhMQx2SOyzPFEbSBkTyULnePqmtM
-rw/j993aXN6aYygCL7YvXp2Lr9FSNT2DMItFvXVXqGFgR5ZEd6wa4stS/WMLbAYh
-8Io75MNDaQCnqUV6b5/CjzjD5d9OLw==
-=Eq2Y
------END PGP SIGNATURE-----
+With this added to the pile, I prefer not to merge the entire series. I
+can still take some of the fixes if you feel like they would be relevant
+anyway. In which case I invite you to send a v7 with just the few fixes
+you think are actually relevant outside of the randomized layout
+support.
 
---vbtYYCCIpz/5OgCu--
+Thank you for your understanding,
+Miqu=C3=A8l
 
