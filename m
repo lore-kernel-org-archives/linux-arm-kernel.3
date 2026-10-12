@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F720CA9EBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 03:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D5CFCA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 04:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BQmudqxHZgmYHMAF8++0CQtKWTMZopP9Oa5fgsHurz8=; b=yrEHTk+wSHM4AfnD3am+DbBkLd
-	FfSqAgGCBqLM+rDNvEhXoSNFzRBD66l7Ud+cr3f45j7/nwgBDDcsEPz+4HQ0lOaOMO4IesSZdiyOw
-	Zf9/oTXyt24ndNQTu/J7uNxdnfc5oAjWJDjShVx7sYwqK8spSXRRbvBRI4YUJU4aN2KU2HeRuOaSF
-	YnQliB7F8yC6KV7ZDT4eJENF0Ck03zM173AjsuSqilk01Qbf5ikfcCo/ItgfGAUBvzMoXCSM/3GIA
-	bRQ+Swfowj+XgMuTcZZvD+bDXTaCNo+0bbwe+WIyiarojuy7fVeN3jlrPz7tLYvM2YyQwKjWAngAm
-	GeTwB6Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efFkaQFetsAOpWM7VNvA0yYFgrxZuGTjrhnbsOnuNRI=; b=gZO3qz/5w04SxsiMq5aiQ52Irz
+	8gQidpZNairu7QtZSNJ3AcMVk896ZnHKT4Fg4i+XSQVbD7Y5sh0QEn2TWG25GTtxLa3X/QX6w3iyh
+	OhogDh9CkjdDrATCyndB7tq8M2uiRFsEEKMkYyxnpSRolrEEZwkRwo+/zGJHy8yB3FYOxkK3eLHZ/
+	HejfL/FCLB4/+6DLCrTfOHIaZS6IogHyG0CSvKqrWte8WqIGSBJVa/7xWAAhvru/pMRHxej12FyIp
+	GLr3+pjTqioX3H5XtWrvXkyZdHzZ30wfBYNC/f5csWmjQ3H1W9Q5NDrIOLvcgiQMsY1HGGCY7NEu3
+	tBdO6K8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG6tU-00000009cXL-3WeM;
-	Mon, 12 Oct 2026 03:40:08 +0000
-Received: from mail-pg1-x562.google.com ([2607:f8b0:4864:20::562])
+	id 1xG7Vc-00000009dfR-0Kns;
+	Mon, 12 Oct 2026 04:19:32 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG6tS-00000009cWd-28Nh
+	id 1xG7VZ-00000009dem-2cek
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 03:40:07 +0000
-Received: by mail-pg1-x562.google.com with SMTP id 41be03b00d2f7-ccce6d9abfeso839399a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 20:40:05 -0700 (PDT)
+	Mon, 12 Oct 2026 04:19:31 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-353804b591eso2511200eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 21:19:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1791776405; x=1792381205; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BQmudqxHZgmYHMAF8++0CQtKWTMZopP9Oa5fgsHurz8=;
-        b=EafzSVweDrHApAaVUgFuc3w3zF/I+qY+4Mfk9GS0cgLg783az9ltEvckKmon85qjpg
-         DTE3o6vAlNBvwHdKi1du4BmTCfXB9JESMp9RyHavPtzGJnSQgA3Fn2i8iYyxOloCWrgU
-         lREWf3TBsDVYzimm2WAEV47T+FhHVvH9dqJ1rbKJZJSAQgb82+k4+Ky7fW4Tw/miqxrI
-         wsI+VX/qxdA1HtaMV0AcpSg8wHha15Egoz5049OzKPYT+hxv/qfJRJExtnVKJ/7HjAs4
-         YesEcq20TqvWMVRwcSUs6HD8rp/aP5kYjZrBEB1SNgK+cVEp97iELVCpSPhIpuiO/IOQ
-         pFSw==
+        d=linaro.org; s=google; t=1791778768; x=1792383568; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=efFkaQFetsAOpWM7VNvA0yYFgrxZuGTjrhnbsOnuNRI=;
+        b=jUBO3N9uH0yWW2bO2Dpo8Vi7h/BJQHKkLOys9R+dWodUHMybEd050cSNlcXS8eWsQk
+         bvZWihsyCVXp4iCEudIh4kZBbXC8U1Nz03vjRFEuEsMMPsoXgL4dLLBpZ9VEQviR3yOL
+         C46la7FVPXJ+COYZ9QD5i74xNvZZuC3Ba56ps8yzm+yP1pMNxAvUG4s9IuYZT6BfqeEz
+         zJR68s5uXXsKsAdShSVRoKMbdzXe0WzkeRcR/GOGASjjlH1OAMHwdmqy5QbK36531Cty
+         Dk6gFA49QDJbd0J0Vp/+F0k/lRd/E2+K0CspsTPXF8XfqGWQH6/FlOcxQNLnuiGjwBdB
+         YAWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791776405; x=1792381205;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BQmudqxHZgmYHMAF8++0CQtKWTMZopP9Oa5fgsHurz8=;
-        b=U/1XuKM6nWoXMOpscaHIW4PQJ7oLF7DOubL8D5P5xWznDVg5+7Yzs6FKnB3GCB1tY4
-         gfa8HJvEigazGSxX7mvFWlJiNNzYl003Yv1hJlQOZjposn+JSRJi7EJu0HTxjv3Xg38S
-         gI+War4OmOSHIoWztwfQ8R9arTMjtOxNWcwaiPYk3N8/8dLdt0f9uZmNs4mojYfcB2Is
-         7ZcePcFYtrZ34eOx9kESD5e4cSChCxSFUMnYbQ21jbiw+jaOJEUnTCWpl5KrthNWSdB/
-         OCj7+/DY4wZL8BKYkULQrI8fS05uc8rBf/4WcGj7RbbZ0Lty0KY/wh/MFcei2CbWfjAE
-         ri8Q==
-X-Forwarded-Encrypted: i=1; AKwUvBybV+0ZZDL434JSihKk7i7rpgFuNzCmXD60ZbB7zin7yendcwFWUZcftZU8V/XzBBl2Kc4gRogtuNhTNcn21/hf@lists.infradead.org
-X-Gm-Message-State: AFq9FYITeII1Nxx/jUVz9Zx4/wAqHdLLy5UzE2GM0eyr31S8j0S6UiBw
-	I6Gq6hZn/aI/ufxRBfLHYYmgQEvzuxzar/Tx3Tp9gFPUjerKBF++dkcIsKdy0nTkLui84bzcnX0
-	NG9znPcrJq+wsqnBj6i/ZN+EN0BwmDElPc9X/
-X-Gm-Gg: AYBFou2kJjNN8TpBaFz63lCGOByz3hAyoBVGqOtqpdm5Alt3119U109oQm1LYka5Jyo
-	WbxLQOaEip/mxIQvyEgQbaM0YEPDrwnhun1oETTOAp/DrXX3xt0B7PDpsR40vxaNej4DsbGxcU4
-	IdqHcZX56NeEz7qLiKsjp0DwOgIX1ppy/47LuaNl2ZF4L5j8+8AZfNEeuYxZCWi1B6QINJyjeX+
-	HGPldgOka1o2t3rQ+iip/fxnB0UUFgEdUIV0zTyxgF83SV397L1wp27cov/b0VeAxt9HrvmiMoH
-	NrZNhbNMGuF1Q0mbzVfP+hzQ00DWqvNgyMZdBP9EKZuEnS5qDqXmFXcEP/bob1fr+owCqJ1xNfl
-	+EzHswQ3gWYQNZhKwZ5xKSnU=
-X-Received: by 2002:a17:90b:5887:b0:3a4:a383:f9cf with SMTP id 98e67ed59e1d1-3ab3a9a78f8mr7994493a91.38.1791776405106;
-        Sun, 11 Oct 2026 20:40:05 -0700 (PDT)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3abdd5d09d2sm1506297a91.8.2026.10.11.20.40.04
+        d=1e100.net; s=20260707; t=1791778768; x=1792383568;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=efFkaQFetsAOpWM7VNvA0yYFgrxZuGTjrhnbsOnuNRI=;
+        b=uBfS6RffwLwpVttoJjsW4pNubNXybugv0isJuPG+m70uocN4zATZzgBg/4nJCfpNVb
+         7cejdeLNATbIHxypOjzQRx6GOn802obEC5xOc2n7UhVEkVAwTaB9PyaapElNIL+GV+0s
+         dXIk/iAlqzaKeqXghcCk+aAXQOFLZVR3mYGDALhDJNRBQA29lxhNd9QOa1qmlS2cTFeD
+         GE19CY4yv4yLALQbiEebFO5mX8grhCuSn5jDtZIYVTeLWhsojKPa6RkIINhLkx0CdZkG
+         nIaO7Xl4X/BEgf0k89u3kJkXZcAQhD/xHPnFIZVCxiwdCdHVHIRt8tTjQ44RSAPtJqEw
+         ALNQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzp1TmWb0T1dBEH8gXbGQQVUu++3NMilHGyDj4eaX6pIa6oYszkpkGoUAZp/bN/PO810ZnsugYJb2WVyNiumKKQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJxhtmnd8Pg62gLhk40xDalT2pqxsaC7jRJN28+7d6gkk0+lqzl
+	SJJJn/IS0z7sBFgJJgDJq8aV8H+lmtM+01Ng6kyKpu3ClNe9LP+I1Tf47zdXpPvs17E=
+X-Gm-Gg: AYBFou3JHVrzZympxu7Rm50TAWKNbbDUOpWg5E7OWJZbeqUMePzl0wbnA09e0wo8Fg4
+	UcKcxwQeMFpqXiK8CebTBXmCcMJmWZof8j85yN5hyzkKB1T5bAt4ITv8HmJBmaqvBuafFXrJNSp
+	ospMUtt4gqaIyVfEwLF3NYBVvwqJQJO8+fqm0sbDotHmWzy228QDnHOz9X6aGNJmp4zB9Va53hg
+	R4KAvESZa6s6KxRokFKTQYq9tinE9wVD/Cj8cLaEZmioE1yGV430w7fQ6Fh6cz53qQOIGuh10Bk
+	4uB3r1ve5M2w2TwBtWE0aXveqxTbrbkbNw3l1od79wh1jeRKOEWVAgUeY9JZcz53M/OPpobWTKI
+	bz66O+AtwBiezOWROXVJ9LfaLpfZKTD/8eHKYYPD7ymDPxW0MmVUzghdPqUeoyH+uK8ZAePHOZN
+	pWdWz7o9d8v+uUFzDLZ/30aJqzXyvris4NJlwJLVeLLV8G6GJpqcCI1p8Y5+CpUHYQv6MuZI6V
+X-Received: by 2002:a05:7023:a47:10b0:14c:1f57:3e86 with SMTP id a92af1059eb24-16a5f5ddf6bmr11356001c88.47.1791778767995;
+        Sun, 11 Oct 2026 21:19:27 -0700 (PDT)
+Received: from localhost ([122.172.82.240])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-169a1becefdsm25739266c88.7.2026.10.11.21.19.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 20:40:05 -0700 (PDT)
-X-Relaying-Domain: ausil.us
-From: Dennis Gilmore <dennis@ausil.us>
-To: linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Dennis Gilmore <dennis@ausil.us>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor+dt@kernel.org>,
+        Sun, 11 Oct 2026 21:19:27 -0700 (PDT)
+Date: Mon, 12 Oct 2026 09:49:24 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Ryan Brue <ryanbrue.dev@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH] arm64: dts: rockchip: Fix adc-keys wiring for Orange Pi 5 family
-Date: Sun, 11 Oct 2026 22:39:29 -0500
-Message-ID: <20261012033929.2317231-1-dennis@ausil.us>
-X-Mailer: git-send-email 2.56.0
+	Conor Dooley <conor+dt@kernel.org>,
+	Roman Vivchar <rva333@protonmail.com>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] cpufreq: mediatek: Suspend at the opp-suspend
+ OPP, and mark one on MT8173
+Message-ID: <asxfzG7bNohf-gcB@vireshk-B250M-D3H>
+References: <20261009-rbrue-suez-upstreaming-mtk-cpufreq-suspend-opp-v2-0-ba13f826eae1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261009-rbrue-suez-upstreaming-mtk-cpufreq-suspend-opp-v2-0-ba13f826eae1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_204006_569997_DD3D26BA 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20261011_211929_689693_F0C7E504 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,99 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When working on u-boot for the Orange Pi 5 Pro it was called out that
-the Pro does not have a recovery button and was missing the definition
-for the maskrom button.
+On 09-10-26, 14:44, Ryan Brue wrote:
+> mediatek-cpufreq has no .suspend callback, so each cluster enters system
+> sleep at whatever OPP the governor last chose. On the Amazon Fire HD 10
+> (2017), an MT8173 tablet that is not upstream yet, entering
+> suspend-to-RAM with both clusters at their highest OPP (2106 and
+> 1703 MHz) measured 63.5 and 63.6 mA, against 52.0 and 52.0 mA with this
+> series. Those are 15-minute windows of the PMIC's coulomb counter,
+> alternating with and without the change; one count is about 2.9 mA.
+> Earlier, on the board's previous firmware path, s2idle drew 210-232 mA
+> against 158 mA.
+> 
+> Patch 1 takes the suspend frequency from the OPP table's opp-suspend
+> entry, as cpufreq-dt does, rather than always using the lowest OPP. That
+> keeps it opt-in per SoC: this driver also runs mt2701, mt7622, mt8183,
+> mt8186 and others I cannot test, and no MediaTek table has opp-suspend
+> today, so they are unchanged. Patch 2 marks the lowest OPP of both MT8173
+> clusters.
+> 
+> Patch 2 also reaches elm, hana and the EVB, which I cannot test either.
+> What they get is a switch to 507 MHz in cpufreq_suspend(), which runs
+> before any device is suspended, so the regulators it needs should still
+> be up. cpufreq_suspend() also runs from device_shutdown(), so reboot and
+> power-off switch first as well; on the tablet, reboot -f still resets in
+> 1.4 s.
+> 
+> Patch 2 does nothing without patch 1 and is harmless on its own, so the
+> two can go through the cpufreq and MediaTek trees independently.
 
-The shared rk3588s-orangepi-5.dtsi describes a "Recovery" adc-keys
-button on SARADC channel 1. This is correct for the Orange Pi 5 and
-5B, but the Orange Pi 5 Pro schematic shows channel 1 is pulled up
-with no button ever wired to it, so the key can never be pressed.
-Each board's schematic also shows SARADC channel 0 is connected to
-a real, populated Maskrom button, but no board described it.
+Applied. Thanks.
 
-Fix this by moving the common hardware (Maskrom on channel 0) into
-the shared base used by all three boards, and keeping the
-board-specific hardware (Recovery on channel 1) only in the dtsi
-shared by the Orange Pi 5 and 5B, which the Pro does not include:
-
- - rk3588s-orangepi-5.dtsi (OPi5, OPi5B, OPi5 Pro): adc-keys-0,
-   button-maskrom on &saradc 0.
- - rk3588s-orangepi-5-5b.dtsi (OPi5, OPi5B only): adc-keys-1,
-   button-recovery on &saradc 1.
-
-Verified against the Orange Pi 5, 5B and 5 Pro v1.2 schematics:
-the Maskrom button is wired identically on all three (button -> 22R
--> SARADC_IN0_BOOT, AW15, pulled up to VCCA_1V8_S0), while the
-Recovery button only exists as a populated pull-up with no button
-attached on the Pro (the board's "RESET"-silkscreened pushbutton
-is wired to PMIC_RESET_L, not to the SARADC).
-
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
----
- .../boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi  | 15 +++++++++++++++
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi     | 12 ++++++------
- 2 files changed, 21 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
-index 6e081bc06cfe..d73f671b8f5f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
-@@ -4,10 +4,25 @@
-  * but not the Orange Pi 5 Pro.
-  */
- 
-+#include <dt-bindings/input/input.h>
- #include <dt-bindings/usb/pd.h>
- #include "rk3588s-orangepi-5.dtsi"
- 
- / {
-+	adc-keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-recovery {
-+			label = "Recovery";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1800>;
-+		};
-+	};
-+
- 	aliases {
- 		ethernet0 = &gmac1;
- 	};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index fd0efa8d1bfb..709efa709b7a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -14,17 +14,17 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
- 
--	adc-keys {
-+	adc-keys-0 {
- 		compatible = "adc-keys";
--		io-channels = <&saradc 1>;
-+		io-channels = <&saradc 0>;
- 		io-channel-names = "buttons";
- 		keyup-threshold-microvolt = <1800000>;
- 		poll-interval = <100>;
- 
--		button-recovery {
--			label = "Recovery";
--			linux,code = <KEY_VENDOR>;
--			press-threshold-microvolt = <1800>;
-+		button-maskrom {
-+			label = "Mask Rom";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <2000>;
- 		};
- 	};
- 
 -- 
-2.56.0
-
+viresh
 
