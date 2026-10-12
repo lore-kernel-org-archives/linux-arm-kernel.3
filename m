@@ -4,73 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B2DCA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD10CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6iGDId3KBgK0IM1Sb2lP0rsPu/sGEUwNU7C75TQ+NnQ=; b=Y3moUZH7StVksMZJoV61eNxhmQ
-	91zKxYcpebvmbCRUB/h6ZJyjKLPJKTdo62YfHuCtLbygZ2Oe76yvq85rralWF6zdEqUioAdIbZIww
-	5sLkbMOgJ4cHhi+ljbUWYUllZYBZjB/GFRk0Go0UYgUytWjSTcjPe36ZOtvu3qxNTFLZoG8HjNJeI
-	9LYzzxyfBjXyAbqT04qqCg3t2c3DC1AHiijEyzebzyaXtuKJ2B4VfshRzS8DiTBE6RqnB7P3K+VEn
-	LxHR5UiuF+sVbUZzSlnXazPECvAiD46AhO0r+fWClRGgA3HVeXjcRx2yghpTXS2ltGK5dEXshJDf2
-	kMV17m4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eli0+6uoBuIk4h0bsFH6RRHGJp3/IMgTauKkefW7ffQ=; b=OlkUE1woqYEedLijQ5cAdOVoSN
+	daeOl+nWyqqg4nhRuzNC8pfTM5I9NxfKp4qp8rm3IUgjGFDIpd5kOMW3ZxwuuAtyPafTh6Sh2ZuG/
+	8T04QieEpI3e4N0ilwZqad9bahMi8bc/csGfxdDMXq2SvseHvohusP/pZBK0yw/Dz/OWHa7yZyS8i
+	vtCAzmO/ttNCgv4lNp9qq3IiHBYH4WuZGEw3DqrIaMl1u2LvC0+PGJldpO5RCf6jYVkFNjkPM1hUG
+	/r47NtAVXBcj9oJvQUi2RAdsJ0ReNein8E/NLoRWIbDnsm1yqoCCq8p+JiLq/DD5HgwYv2c/g3I58
+	dY7PrXTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDq8-0000000AJH8-1cvJ;
-	Mon, 12 Oct 2026 11:05:08 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1xGDu3-0000000AJha-3CBo;
+	Mon, 12 Oct 2026 11:09:11 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDq3-0000000AJDS-3pJR
+	id 1xGDu1-0000000AJh3-2kLz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:05:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6iGDId3KBgK0IM1Sb2lP0rsPu/sGEUwNU7C75TQ+NnQ=;
-	b=t+B+sJs8gGXBn4HhheHU+yhFK044D8088DXFCuJaCVEvxTSwEbyL/8/+VhF7EUqNa77vrz8G0
-	XlDciYLuXS0XJNLydxU50IPMkQvOFk4mW0Pkv6vhlYlUkyIrD88WnQmhIZxxK77b90aPyCh3UKi
-	h+aUKXjROC+sUvNGR1TfwdM=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4j3DnD4x1jzpStW;
-	Mon, 12 Oct 2026 18:52:16 +0800 (CST)
-Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
-	by mail.maildlp.com (Postfix) with ESMTPS id 81E8B4057D;
-	Mon, 12 Oct 2026 19:04:48 +0800 (CST)
-Received: from [10.174.185.234] (10.174.185.234) by
- dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 12 Oct 2026 19:04:47 +0800
-Message-ID: <d4487bbb-ff89-4604-82b4-13a4a92067d8@huawei.com>
-Date: Mon, 12 Oct 2026 19:04:46 +0800
+	Mon, 12 Oct 2026 11:09:11 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-8b09e07e149so6615007b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 04:09:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791803348; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hE1Bgq0xolLK2S1SxTXlyAxDm6dcbFybdUoVc7iTvsTe22Iq2ZSyx9O2z3pkbltvuo
+         c3Npe71Hh9YuJWYcnDOtaoC//AYX0YmOEUbKlocQ42z39O4NDvpuwMf+eU4bBIAoAf2J
+         6wNpl9aA/yID/laP87GpP5WaBx6t0tgZoquDPSYSyWwT18KdR5gt5VfPrIOwrE+LkiN3
+         QPs6OL8Pu+OLIOcakoSqmx0HN2ZS2u9NrOzVfFDIAoATwAVJi8M5HzWP55hDKIhba000
+         8/cWXgHfAvFBPBumhOLe3lQ5mqoVZAzSH2Uebd6YZjMMKECNSP/Lb1jg2LSwLe3kePDT
+         N7vQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=eli0+6uoBuIk4h0bsFH6RRHGJp3/IMgTauKkefW7ffQ=;
+        fh=r5aZBeUcOqQhXS7vlJctcymX7RQZBcIHOIPjz41u9RU=;
+        b=ccqYYHucDhtb7YDu4cWsF+yRY82P11vaSF8MXrLd0Fc0wKppkDYrZ6L8MOmTBDsrNz
+         4QvcLWSWzFAGsd1bZLeOeGEjWWXM2Di7SbUUlLeAi5FaVQfzSZFhq15+WM4Uh+i9r7c5
+         rZuErTcFrsEZVAAHCIuMfIY5vZBRHflUHbXIscbvXOpiDyo9cOzBtoq6SJGbfr9p77+W
+         a94Aq2uFYhR1rKhYFb6MocN/7EleaAeeNQxI/ftKGESYTNlEp9c/G/shbJ+PQjSTNzZ9
+         gyATQTOgmDJpCFav0wbVNnDvzi3AiND0A9fx4xsF/ig9f9OBXTCH9nHc9gmYh0gg9gfy
+         FJIA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=monstr-eu.20251104.gappssmtp.com; s=20251104; t=1791803348; x=1792408148; darn=lists.infradead.org;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=eli0+6uoBuIk4h0bsFH6RRHGJp3/IMgTauKkefW7ffQ=;
+        b=j/LWFpv3BOxIsT/aJhw/1nDHvcxpG2WgH7SxKJEnh1yajSVlMh6P6KOzYT8SMA5o/C
+         HjZUNlAC/tJq8C0tMjOwTNHFqnxc2SXeZcFB15gRfx15E14qvZpnD++1KWvj/E/TgIT8
+         9yXF4/iWThpaxD1cD/UpF+POkMA85C57GFpSP1zT+V52EUXQyRExaW8WAq1jFoHk2D5B
+         YRJqr8aYqOlJwVieS+EgWB3h0dkfXMLsc/P+Ap0jmXpYrOZ+wjGyPYxO26SqfIgbT3O6
+         YgpZG+AJcJ952aPW1BNZ3Ceq8uS1+uDT7MzGRIQBqMjtNQvBH+uCTYz/pDBjgZu0tG8G
+         TTig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791803348; x=1792408148;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eli0+6uoBuIk4h0bsFH6RRHGJp3/IMgTauKkefW7ffQ=;
+        b=cA6AL5wJJqCydACSZkxMLFnycGTvKQHPVpyZOpDGp3l2zh8K6gngGyWpQVrCvcjobG
+         AkbxKt4e13QdTWpk2yhgUHPMflz8txnntk7aBogNzChE3lV9lAxSIufF7YQx/LuDJt2e
+         CXT87I/kzxO6VqSD32vL7up63Fcgj4CPJ94aqfIhoD5RdxZhaeMjfCTCOitPPXwQ+RCN
+         F/xgukOAW/QlBseMCTjpKkIiE21u0IF+bYeEw93bpbYiffpWtfoXVZ3zLL95/CyNt1OR
+         HHVnp3E+Db1UiKdvyGSf8PjO/G0J+GH/JKVdPOZmTaLgcMw9yhPmI7r2mp7PvY9+G/7g
+         6dmA==
+X-Forwarded-Encrypted: i=1; AKwUvByJklAyTpeDHQBVaJpOX6iDy+oDZxMMLl91/gFEV0sp+7zkdkVX4ieWil8WzKYtiBi5TfS6IJ2j1/fNkbWsivG/@lists.infradead.org
+X-Gm-Message-State: AFq9FYLOySCyFS871stv5z3z6ovcUiQ44MU8hUDJYVxP+Xxr1SFn1A5g
+	yhyrXDqQUP1jgsIad0TEHNFsmIcnk2X0t+OpsPQLhi0AHWzHi7MzqbDC8wkDtiFQR9BUeo38U0u
+	gjs+z8o83ikHzOQwYd3X+utgX9qfCnws8KzsjPwh2rSHnf5Jg0WRbMiO1iu8=
+X-Gm-Gg: AYBFou2tznXhTxZ0KuMSYxhnaVNAstqcC5vZJiV/Kp+zOC8UIRU7J8vJrN6RogoO0FW
+	9jW327QxkU2J0YwOFsFuPT6TZm9bkSS06vNWZoNSf5v3oxHE/cpfaxwcRC76B8a7ntzKB1zGqzG
+	42PT75gacgHdBbCGBfzm9QtQvpo6CjnmHFPHbesC7wOi1k8i2f73kS0AF7lDYZoBFGpVqwJS1kK
+	Ziwju7UrRCSTmoL4rYJRJGuFMJ7ivGWxiLL2ZZ/29a5hG3zWmyRZY+k4Xw+YJ18eQdWJBsZCXa2
+	zdXsZn6Ff6Xr0+TyqAN/Gz17A07H9bJwVXGakwKm5EVX2c4o1S8fjob9k6GtiwSNZPBmAaqHt3E
+	3Xom5YECHRgIE
+X-Received: by 2002:a05:690c:370a:b0:8ac:e42d:336 with SMTP id
+ 00721157ae682-8b07edb8fabmr25482837b3.76.1791803348051; Mon, 12 Oct 2026
+ 04:09:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration
- optimization
-From: Yize Wang <wangyize7@huawei.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<fuad.tabba@linux.dev>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <mark.rutland@arm.com>,
-	<zhengchuan@huawei.com>, <jiangjiacheng@huawei.com>, <yize_w1110@163.com>
-References: <20260918081930.4014735-1-wangyize7@huawei.com>
- <861paq69te.wl-maz@kernel.org>
- <f70c6fe3-e3c5-4912-b4bb-8a418fec4346@huawei.com>
- <86ece63kes.wl-maz@kernel.org>
- <6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
-In-Reply-To: <6890def8-168d-4951-b6bd-bcbbcbf3595a@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.185.234]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemr200003.china.huawei.com (7.185.36.25)
+From: Michal Simek <monstr@monstr.eu>
+Date: Mon, 12 Oct 2026 13:08:55 +0200
+X-Gm-Features: AclHuK8i4XW95QdXP2VomS2Z7dIRWbsChmcMmz7GfYRQPqOAo1HawWLt6tev11Y
+Message-ID: <CAHTX3dKJ9DKTUHOj+KvUVuePPXF25gmiLeaDJChTko9jV0DmFA@mail.gmail.com>
+Subject: [GIT PULL] arm64: AMD/Xilinx DT changes for v7.4
+To: SoC Team <soc@kernel.org>, linux-arm <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_040504_553051_C14BF6E3 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20261012_040909_699917_10F30330 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,176 +111,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kindly Ping
+Hi,
 
-在 2026/10/8 20:50, Yize Wang 写道:
->
-> 在 2026/10/3 22:53, Marc Zyngier 写道:
->> On Sun, 20 Sep 2026 10:15:25 +0100,
->> Yize Wang <wangyize7@huawei.com> wrote:
->>> 在 2026/9/18 20:08, Marc Zyngier 写道:
->>>> On Fri, 18 Sep 2026 09:18:13 +0100,
->>>> Yize Wang<wangyize7@huawei.com> wrote:
->>>>> This series adds batch register access support to KVM/arm64 to reduce
->>>>> syscall overhead during VM live migration.
->>>>>
->>>>> Currently, QEMU issues one ioctl per register when 
->>>>> saving/restoring VGIC
->>>>> state. On large VM configurations this means tens of thousands of 
->>>>> syscalls,
->>>>> where lock acquisition and context switch overhead dominates 
->>>>> migration
->>>>> downtime. Thus, we provide a batch register method to allow userspace
->>>>> read/write multiple distributor and redistributor registers in a 
->>>>> single call.
->>>>> In this way, we can significantly reduce syscalls and migration 
->>>>> downtime.
->>>>>
->>>>> Test the VM migration time under pressure conditions.
->>>>> The VM specifications for migration are as follows:
->>>>> - VM use 4-K page;
->>>>> - the number of VCPU is 160;
->>>>> - the total memory is 320Gigabit;
->>>>> - use 'Redis SET-benchmark' to pressurize VM;
->>>>>
->>>>> Performance results (3-run average, ms):
->>>>>       | Metric              | Without patch | With patch | 
->>>>> Improvement |
->>>>> |---------------------|---------------|------------|-------------|
->>>>>       | Migration downtime  |        536    |     321 |     40%     |
->>>>>       | Source (total)      |        344    |     230 |     33%     |
->>>>>       |   - VGIC put        |        158    |      40 |     75%     |
->>>>>       |   - VGIC get        |        120    |      19 |     84%     |
->>>>>       | Destination (total) |        192    |      91 |     53%     |
->>>>>       |   - VGIC put        |        132    |      27 |     80%     |
->>>>>
->>>>> Yize Wang (2):
->>>>>     KVM: arm64: Add batch group constant and data structure to 
->>>>> UAPI header
->>>>>     KVM: arm64: Add VGIC v3 batch register access implementation
->>>> Questions:
->>>>
->>>> - Why only the MMIO registers?
->>>>
->>>> - Why not the sysregs?
->>>>
->>>> - Why only the GIC?
->>>>
->>>> - Why not all of the state?
->>>>
->>>> - Where is the corresponding userspace code?
->>>>
->>>> More importantly, since this is about batching system calls:
->>>>
->>>> - Why can't this be done with io_uring instead?
->>>>
->>>>     M.
->>>
->>> Hi, Marc! Thank you for the review.
->>>
->>>    These patches focus on optimizing GICv3 register access during live
->>> migration. We found that there are a large number of locks (kvm->lock,
->>> vcpus, config_lock) in the GIC, these lock operations wil cost large
->>> time waste. The batches of sysreg for vcpu optimization will come in
->>> follow as a separate series. And let me address these questions one by
->>> one.
->> All these locks should be non-blocking by the time you save anything
->> related to the GIC, because:
->>
->> - none of the vcpu can be running
->>
->> - this must be a single threaded operation
->>
->> So if you are seeing anything contended, this is either the sign of a
->> bad KVM bug, or an indication that you are violating the above
->> requirements.
->>
->>     M.
->
->
-> Hi, Marc! Thanks for your review.
->
-> You are right that when saving the GIC state during live migration 
-> process, all vCPUs are not running and it is a single threaded 
-> operation. Our patches process the packaged register states from the 
-> userspace under the same lock. These operations only aim to reduce the 
-> lock opreation downtime and do not involve lock contention.
->
-> In addition, these patches focus on reducing the syscalls of ioctl. 
-> Now, every register requires an ioctl, resulting in (num_cpu * 
-> registers_per_cpu) system calls. This will cost lots of time during 
-> the large-scale VM  migration. Our patches batch registers by category 
-> in qemu and then send them to kernel in batches. This operations 
-> significantly reduce the number of ioctl syscalls and save a great 
-> amount of downtime.
->
-> The comparison is as follow:
-> BEFORE:
->
->        QEMU (Userspace)                  Kernel (Kernelspace)
->   +------------------------+        +----------------------------+
->   |                        |        |                            |
->   |  kvm_arm_gicv3_get()   |        |  vgic_v3_attr_regs_access  |
->   |                        |        |                            |
->   |  for ncpu in num_cpu:  |        |                            |
->   |    for each register:  |        |                            |
->   |                        |        |                            |
->   |  GICR_CTLR             | ioctl->| mutex_lock(&kvm->lock)    |
->   |                        |        |  kvm_trylock_all_vcpus     |
->   |                        |        | mutex_lock(&config_lock)  |
->   |                        | <-val  |  read/write register       |
->   |                        |        |  mutex_unlock              |
->   |                        |        |  kvm_unlock_all_vcpus      |
->   |                        |        | mutex_unlock(&kvm->lock)  |
->   |                        |        |                            |
->   |  GICR_STATUSR          | ioctl->|  (repeat lock/read         |
->   |                        | <-val  |   -> unlock)               |
->   |  ...                   |        |                            |
->   |                        |        |                            |
->   |  GICR_WAKER            | ioctl->|  (repeat lock/read         |
->   |                        | <-val  |   -> unlock)               |
->   |  ...                   |        |                            |
->   |                        |        |                            |
->   |  ICC_SRE_EL1           | ioctl->|  (repeat lock/read         |
->   |                        | <-val  |   -> unlock)               |
->   |  ...                   |        |                            |
->   |                        |        |                            |
->   +------------------------+        +----------------------------+
->
->
-> AFTER:
->
->        QEMU (Userspace)                  Kernel (Kernelspace)
->   +------------------------+        +----------------------------+
->   |                        |        |                            |
->   |  kvm_arm_gicv3_get()   |        |  vgic_v3_batch_access      |
->   |                        |        |                            |
->   |  Collect Phase:        |        |                            |
->   |    add(GICR_CTLR)      |        |                            |
->   |    add(GICR_STATUSR)   |        |                            |
->   |    add(GICR_WAKER)     |        |                            |
->   |    add(GICR_IGROUPR0)  |        |                            |
->   |    ...                 |        |                            |
->   |    add(ICC_SRE_EL1)    |        |                            |
->   |    ...                 |        |                            |
->   |                        |        |                            |
->   |  Commit Phase:         | BATCH->| copy_from_user            |
->   |    batch_commit()      |        | mutex_lock(&kvm->lock)    |
->   |                        |        |  kvm_trylock_all_vcpus     |
->   |                        |        | mutex_lock(&config_lock)  |
->   |                        |        |                            |
->   |                        |        |  Process Each Entry:       |
->   |                        |        |    entry[0]: GICR_CTLR     |
->   |                        |        |    entry[1]: GICR_STATUSR  |
->   |                        |        |    entry[2]: GICR_WAKER    |
->   |                        |        |    ...                     |
->   |                        |        |    entry[N]: ICC_SRE       |
->   |                        |        |    FLAG_LOCKED: skip       |
->   |                        |        |                            |
->   |  Unpack Phase:         |<-result| mutex_unlock              |
->   |    Write back          |        |  kvm_unlock_all_vcpus      |
->   |    Post-process:       |        | mutex_unlock(&kvm->lock)  |
->   |      unshuffle,split   |        |  copy_to_user              |
->   |                        |        |                            |
->   +------------------------+        +----------------------------+
+please pull this simple patch to your tree.
+
+Thanks,
+Michal
+
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-dt-for-7.4
+
+for you to fetch changes up to 7061674069cb2524e7bc58173d4c816ed6529da6:
+
+  ARM: dts: xilinx: Replace spaces indentation with tabs (2026-08-31
+09:16:56 +0200)
+
+----------------------------------------------------------------
+arm64: Xilinx DT changes for 7.4
+
+zynq:
+- Fix DT indentation
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      ARM: dts: xilinx: Replace spaces indentation with tabs
+
+ arch/arm/boot/dts/xilinx/zynq-7000.dtsi      | 8 ++++----
+ arch/arm/boot/dts/xilinx/zynq-parallella.dts | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
 
